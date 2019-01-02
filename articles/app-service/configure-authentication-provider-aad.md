@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory 인증 구성 - Azure App Service
-description: App Services 응용 프로그램에 대해 Azure Active Directory 인증을 구성하는 방법을 알아봅니다.
+description: App Services 애플리케이션에 대해 Azure Active Directory 인증을 구성하는 방법을 알아봅니다.
 author: mattchenderson
 services: app-service
 documentationcenter: ''
@@ -50,7 +50,7 @@ ms.locfileid: "53411395"
 5. 앱 등록이 추가되면 앱 등록 이름을 클릭하고 위쪽의 **설정**을 클릭한 후 **속성**을 클릭합니다. 
 6. **앱 ID URI** 상자에 응용 프로그램 URL(1단계)을 붙여 넣고, **홈페이지 URL**에도 응용 프로그램 URL(1단계)을 붙여 넣은 후 **저장**을 클릭합니다.
 7. 이제 **회신 URL**을 클릭하고 **회신 URL**을 편집한 후 응용 프로그램 URL(1단계)을 붙여 넣고, 프로토콜을 **https://** 프로토콜(http:// 아님)로 수정한 후 URL 끝에 */.auth/login/aad/callback*을 추가합니다(예: `https://contoso.azurewebsites.net/.auth/login/aad/callback`). **저장**을 클릭합니다.   
-8.  이때 앱의 **응용 프로그램 ID**를 복사합니다. 나중에 사용하기 위해 보관합니다. App Service 앱을 구성하는 데 필요합니다.
+8.  이때 앱의 **애플리케이션 ID**를 복사합니다. 나중에 사용하기 위해 보관합니다. App Service 앱을 구성하는 데 필요합니다.
 9. **등록된 앱** 페이지를 닫습니다. **앱 등록** 페이지에서 위쪽의 **엔드포인트** 단추를 클릭하고 **페더레이션 메타데이터 문서** URL을 복사합니다. 
 10. 새 브라우저 창을 열고 URL을 붙여넣은 후 XML 페이지로 이동합니다. 문서의 맨 위쪽은 **EntityDescriptor** 요소입니다. **entityID** 특성을 찾고 해당 값을 복사합니다. 이 값을 **발급자 URL**로 사용합니다. 나중에 이 값을 사용하도록 응용 프로그램을 구성합니다.
 
@@ -61,13 +61,13 @@ ms.locfileid: "53411395"
 
 이제 App Service 앱에서 Azure Active Directory를 인증에 사용할 준비가 되었습니다.
 
-## <a name="optional-configure-a-native-client-application"></a>(옵션) 네이티브 클라이언트 응용 프로그램 구성
+## <a name="optional-configure-a-native-client-application"></a>(옵션) 네이티브 클라이언트 애플리케이션 구성
 Azure Active Directory를 사용하면 권한 매핑에 대해 보다 강력한 제어를 제공하는 네이티브 클라이언트를 등록할 수도 있습니다. 이는 **Active Directory 인증 라이브러리**와 같은 라이브러리를 사용하여 로그인을 수행하려는 경우 필요합니다.
 
 1. **Azure Portal**에서 [Azure Portal]로 이동합니다.
 2. 왼쪽 탐색 영역에서 **앱 등록**을 선택합니다. 위쪽의 **새 앱 등록**을 클릭합니다.
 4. **만들기** 페이지에서 앱 등록의 **이름**을 입력합니다. **응용 프로그램 유형**에서 **네이티브**를 선택합니다.
-5. HTTPS 체계를 사용하여 **리디렉션 URI** 상자에 사이트의 */.auth/login/done* 엔드포인트를 입력합니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done*과 비슷해야 합니다. Windows 응용 프로그램을 만드는 경우 URI로 [패키지 SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) 를 사용합니다.
+5. HTTPS 체계를 사용하여 **리디렉션 URI** 상자에 사이트의 */.auth/login/done* 엔드포인트를 입력합니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done*과 비슷해야 합니다. Windows 애플리케이션을 만드는 경우 URI로 [패키지 SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid)를 사용합니다.
 5. **만들기**를 클릭합니다.
 6. 앱 등록이 추가되면 선택하여 엽니다. **응용 프로그램 ID**를 찾아 해당 값을 적어둡니다.
 7. **모든 설정** > **필요한 권한** > **추가** > **API 선택**을 클릭합니다.

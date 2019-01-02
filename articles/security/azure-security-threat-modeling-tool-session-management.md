@@ -413,7 +413,7 @@ void Page_Init (object sender, EventArgs e) {
 | **적용 가능한 기술** | 웹 양식, MVC5 |
 | **특성**              | EnvironmentType - OnPrem |
 | **참조**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
-| **단계** | 웹 응용 프로그램이 신뢰 당사자이고, ADFS가 STS인 경우 인증 쿠키(FedAuth 토큰)의 수명은 web.config에서 다음 구성으로 설정할 수 있습니다.|
+| **단계** | 웹 애플리케이션이 신뢰 당사자이고, ADFS가 STS인 경우 인증 쿠키(FedAuth 토큰)의 수명은 web.config에서 다음 구성으로 설정할 수 있습니다.|
 
 ### <a name="example"></a>예
 ```XML

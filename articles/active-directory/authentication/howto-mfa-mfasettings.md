@@ -260,7 +260,7 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
 > [!NOTE]
 > MFA에서 신뢰할 수 있는 IP 및 locations라는 조건부 액세스는 IPV4 주소에만 작동합니다.
 
-조직에서 온-프레미스 응용 프로그램 참고에 MFA를 제공하도록 NPS 확장을 배포하면 원본 IP 주소는 인증 시도가 통과하는 NPS 서버를 항상 나타냅니다.
+조직에서 온-프레미스 애플리케이션 참고에 MFA를 제공하도록 NPS 확장을 배포하면 원본 IP 주소는 인증 시도가 통과하는 NPS 서버를 항상 나타냅니다.
 
 | Microsoft Azure Active Directory 테넌트 유형 | 신뢰할 수 있는 IP 기능 옵션 |
 |:--- |:--- |

@@ -67,7 +67,7 @@ Azure의 인프라는 수백만 명의 고객을 동시에 호스팅하기 위�
 
 
 ### <a name="security-features-offered-by-azure-to-secure-data-and-application"></a>데이터와 애플리케이션 보안을 유지하기 위해 Azure에서 제공하는 보안 기능
-클라우드 서비스 모델에 따라 응용 프로그램 또는 서비스에 대한 보안 관리 담당자의 책임이 달라질 수 있습니다. Azure 플랫폼에는 기본 제공 기능 및 Azure 구독에 배포할 수 있는 파트너 솔루션을 통해 이러한 책임을 이행하는 데 도움이 되는 기능이 있습니다.
+클라우드 서비스 모델에 따라 애플리케이션 또는 서비스에 대한 보안 관리 담당자의 책임이 달라질 수 있습니다. Azure 플랫폼에는 기본 제공 기능 및 Azure 구독에 배포할 수 있는 파트너 솔루션을 통해 이러한 책임을 이행하는 데 도움이 되는 기능이 있습니다.
 
 기본 제공 기능은 운영, 애플리케이션, Storage, 네트워킹, Compute 및 ID라는 6가지 기능 영역으로 구성됩니다. Azure 플랫폼에서 사용할 수 있는 이러한 6가지 영역의 기능에 대한 자세한 추가 정보는 요약 정보를 통해 제공됩니다.
 
@@ -85,7 +85,7 @@ Azure의 인프라는 수백만 명의 고객을 동시에 호스팅하기 위�
 Azure Resource Manager 템플릿 기반 배포를 사용하면 표준 보안 제어 설정을 표준화된 템플릿 기반 배포에 통합할 수 있기 때문에 Azure에 배포된 솔루션의 보안을 향상시킬 수 있습니다. 이렇게 하면 수동 배포 중에 발생할 수 있는 보안 구성 오류의 위험이 줄어듭니다.
 
 ### <a name="application-insights"></a>Application Insights
-[Application Insights](https://docs.microsoft.com/azure/application-insights/)는 웹 개발자를 위한 확장 가능한 APM(응용 프로그램 성능 관리) 서비스입니다. Application Insights를 사용하면 라이브 웹 응용 프로그램을 모니터링하고 성능 이상을 자동으로 검색할 수 있습니다. 사용자가 문제를 진단하고 사용자가 실제로 앱을 사용하여 수행할 작업을 이해하는 데 도움이 되는 강력한 분석 도구가 포함되어 있습니다. 테스트 중인 경우 및 게시하거나 배포한 후에 실행 중인 모든 시간 동안 애플리케이션을 모니터링합니다.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/)는 웹 개발자를 위한 확장 가능한 APM(응용 프로그램 성능 관리) 서비스입니다. Application Insights를 사용하면 라이브 웹 애플리케이션을 모니터링하고 성능 이상을 자동으로 검색할 수 있습니다. 사용자가 문제를 진단하고 사용자가 실제로 앱을 사용하여 수행할 작업을 이해하는 데 도움이 되는 강력한 분석 도구가 포함되어 있습니다. 테스트 중인 경우 및 게시하거나 배포한 후에 실행 중인 모든 시간 동안 애플리케이션을 모니터링합니다.
 
 예를 들어 Application Insights는 많은 사용자를 가져오는 시간, 앱이 얼마나 반응하는지, 종속된 외부 서비스에서 얼마나 잘 제공되는지를 보여주는 차트 및 테이블을 만듭니다.
 
@@ -107,7 +107,7 @@ Log Analytics를 사용하면 유연한 쿼리 방법으로 대량의 보안 관
 
 또한 Azure Security Center는 즉시 수행할 수 있는 경고와 권장 사항을 보여 주는 단일 대시보드를 제공하여 보안 운영을 지원합니다. 종종 Azure Security Center 콘솔에서 한 번의 클릭으로 문제를 해결할 수 있습니다.
 ## <a name="applications"></a>애플리케이션
-이 섹션에서는 응용 프로그램 보안의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
+이 섹션에서는 애플리케이션 보안의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="web-application-vulnerability-scanning"></a>웹 애플리케이션 취약성 스캔
 [App Service 앱](https://docs.microsoft.com/azure/app-service/app-service-web-overview)에서 취약성 테스트를 시작하는 가장 쉬운 방법 중 하나는 [Tinfoil Security와 통합](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)을 사용하여 앱에서 한 번의 클릭으로 취약성 스캔을 수행하는 것입니다. 이해하기 쉬운 보고서에서 테스트 결과를 확인하고 단계별 지침에 따라 각 취약점을 수정하는 방법을 알아볼 수 있습니다.
@@ -125,7 +125,7 @@ Log Analytics를 사용하면 유연한 쿼리 방법으로 대량의 보안 관
 [App Service 환경](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-intro)이 [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)에 배포된 격리된 런타임 환경을 제공하므로 개발자는 각 응용 프로그램 계층에 서로 다른 수준의 네트워크 액세스를 제공하는 계층화된 보안 아키텍처를 만들 수 있습니다. 일반적으로 일반 인터넷 액세스로부터 API 백 엔드를 숨기거나 API가 업스트림 웹앱에서 호출될 수 있도록 하기 원합니다. [NSG(네트워크 보안 그룹)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/)은 App Service 환경을 포함하는 Azure Virtual Network 서브넷에서 사용하여 API 응용 프로그램에 대한 공용 액세스를 제한할 수 있습니다.
 
 ### <a name="web-server-diagnostics-and-application-diagnostics"></a>웹 서버 진단 및 애플리케이션 진단
-App Service 웹앱은 웹 서버와 웹 응용 프로그램 모두의 정보를 로깅할 수 있도록 진단 기능을 제공합니다. 이는 논리적으로 [웹 서버 진단](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) 및 [애플리케이션 진단](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx)으로 구분됩니다. 웹 서버에서 사이트와 애플리케이션을 진단하고 문제를 해결하는 두 가지의 큰 발전이 이루어졌습니다.
+App Service 웹앱은 웹 서버와 웹 애플리케이션 모두의 정보를 로깅할 수 있도록 진단 기능을 제공합니다. 이는 논리적으로 [웹 서버 진단](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) 및 [애플리케이션 진단](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx)으로 구분됩니다. 웹 서버에서 사이트와 애플리케이션을 진단하고 문제를 해결하는 두 가지의 큰 발전이 이루어졌습니다.
 
 첫째, 새로운 기능으로 애플리케이션 풀, 작업자 프로세스, 사이트, 애플리케이션 도메인 및 실행 중인 요청에 대한 실시간 상태 정보가 있습니다. 둘째, 새로운 이점으로 요청-응답 프로세스 전체에서 요청을 추적하는 자세한 추적 이벤트가 있습니다.
 
@@ -248,10 +248,10 @@ Application Gateway에 CPU 집약적인 SSL 종료를 오프로드하여("SSL �
 
 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다.
 
-응용 프로그램은 HTTP 부하 분산, 쿠키 기반 세션 선호도, [SSL(Secure Sockets Layer)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-powershell) 오프로드, 사용자 지정 상태 프로브, 다중 사이트 지원 및 기타를 포함하여 많은 ADC 기능을 제공합니다.
+애플리케이션은 HTTP 부하 분산, 쿠키 기반 세션 선호도, [SSL(Secure Sockets Layer)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-powershell) 오프로드, 사용자 지정 상태 프로브, 다중 사이트 지원 및 기타를 포함하여 많은 ADC 기능을 제공합니다.
 
 ### <a name="web-application-firewall"></a>웹 애플리케이션 방화벽
-웹 응용 프로그램 방화벽은 표준 ADC 기능을 위해 응용 프로그램 게이트웨이를 사용하는 웹 응용 프로그램에 보호를 제공하는 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)의 기능입니다. 웹 애플리케이션 방화벽은 대부분의 OWASP Top 10 일반 웹 취약점으로부터 보호함으로써 이 기능을 수행합니다.
+웹 애플리케이션 방화벽은 표준 ADC 기능을 위해 애플리케이션 게이트웨이를 사용하는 웹 애플리케이션에 보호를 제공하는 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)의 기능입니다. 웹 애플리케이션 방화벽은 대부분의 OWASP Top 10 일반 웹 취약점으로부터 보호함으로써 이 기능을 수행합니다.
 
 ![웹 애플리케이션 방화벽](./media/azure-security/azure-security-fig1.png)
 

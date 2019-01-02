@@ -20,7 +20,7 @@ ms.locfileid: "50231205"
 ---
 # <a name="what-is-azure-logic-apps"></a>Azure Logic Apps란?
 
-[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps)는 회사 또는 조직에서 앱, 데이터, 시스템 및 서비스를 통합해야 할 때 작업, 비즈니스 프로세스, [워크플로](#logic-app-concepts)의 자동화 및 오케스트레이션을 도와주는 클라우드 서비스입니다. Logic Apps를 사용하면 클라우드에서, 프레미스에서 또는 둘 모두에서 앱 통합, 데이터 통합, 시스템 통합, EAI(엔터프라이즈 응용 프로그램 통합), B2B(기업 간) 통신을 위한 확장성 있는 솔루션을 간편하게 디자인하고 빌드할 수 있습니다.
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps)는 회사 또는 조직에서 앱, 데이터, 시스템 및 서비스를 통합해야 할 때 작업, 비즈니스 프로세스, [워크플로](#logic-app-concepts)의 자동화 및 오케스트레이션을 도와주는 클라우드 서비스입니다. Logic Apps를 사용하면 클라우드에서, 프레미스에서 또는 둘 모두에서 앱 통합, 데이터 통합, 시스템 통합, EAI(엔터프라이즈 애플리케이션 통합), B2B(기업 간) 통신을 위한 확장성 있는 솔루션을 간편하게 디자인하고 빌드할 수 있습니다.
 
 예를 들어 다음은 논리 앱으로 자동화할 수 있는 몇 가지 워크로드의 예입니다.
 

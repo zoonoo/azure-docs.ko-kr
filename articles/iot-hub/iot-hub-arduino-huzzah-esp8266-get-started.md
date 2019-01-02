@@ -24,7 +24,7 @@ ms.locfileid: "51515474"
 
 ## <a name="what-you-do"></a>수행할 작업
 
-사용자가 만든 IoT Hub에 Adafruit Feather HUZZAH ESP8266을 연결합니다. 그런 다음 ESP8266에서 샘플 응용 프로그램을 실행하여 DHT22 센서로부터 온도 및 습도 데이터를 수집합니다. 마지막으로 센서 데이터를 IoT Hub로 보냅니다.
+사용자가 만든 IoT Hub에 Adafruit Feather HUZZAH ESP8266을 연결합니다. 그런 다음 ESP8266에서 샘플 애플리케이션을 실행하여 DHT22 센서로부터 온도 및 습도 데이터를 수집합니다. 마지막으로 센서 데이터를 IoT Hub로 보냅니다.
 
 > [!NOTE]
 > 다른 ESP8266 보드를 사용하는 경우에도 이러한 단계에 따라 IoT Hub에 계속 연결할 수 있습니다. 사용하는 ESP8266 보드에 따라 `LED_PIN`을 다시 구성해야 할 수도 있습니다. 예를 들어 AI-Thinker의 ESP8266을 사용하는 경우 `0`을 `2`로 변경할 수 있습니다. 아직 키트가 없으세요? [Azure 웹 사이트에서 가져오기](http://azure.com/iotstarterkits)
@@ -33,7 +33,7 @@ ms.locfileid: "51515474"
 
 * IoT Hub를 만들고 디바이스를 Feather HUZZAH ESP8266으로 등록하는 방법
 * 센서와 컴퓨터에 Feather HUZZAH ESP8266을 연결하는 방법
-* Feather HUZZAH ESP8266에서 샘플 응용 프로그램을 실행하여 센서 데이터를 수집하는 방법
+* Feather HUZZAH ESP8266에서 샘플 애플리케이션을 실행하여 센서 데이터를 수집하는 방법
 * 센서 데이터를 IoT Hub로 보내는 방법
 
 ## <a name="what-you-need"></a>필요한 항목
@@ -134,7 +134,7 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
 
 ## <a name="collect-sensor-data-and-send-it-to-your-iot-hub"></a>센서 데이터를 수집하여 IoT Hub에 보내기
 
-이 섹션에서는 Feather HUZZAH ESP8266에 대한 응용 프로그램 예제를 배포하고 실행합니다. 샘플 응용 프로그램은 Feather HUZZAH ESP8266의 LED를 깜박이고 DHT22 센서에서 수집된 온도 및 습도 데이터를 IoT Hub로 보냅니다.
+이 섹션에서는 Feather HUZZAH ESP8266에 대한 애플리케이션 예제를 배포하고 실행합니다. 샘플 애플리케이션은 Feather HUZZAH ESP8266의 LED를 깜박이고 DHT22 센서에서 수집된 온도 및 습도 데이터를 IoT Hub로 보냅니다.
 
 ### <a name="get-the-sample-application-from-github"></a>GitHub에서 샘플 애플리케이션 가져오기
 
@@ -142,7 +142,7 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
 
 1. 명령 프롬프트 또는 터미널 창을 엽니다.
 
-2. 응용 프로그램 예제를 저장하려는 폴더로 이동합니다.
+2. 애플리케이션 예제를 저장하려는 폴더로 이동합니다.
 
 3. 다음 명령 실행:
 
@@ -204,7 +204,7 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
 
 ### <a name="dont-have-a-real-dht22-sensor"></a>실제 DHT22 센서가 없나요?
 
-실제 DHT22 센서가 없는 경우 응용 프로그램 예제에서 온도 및 습도 데이터를 시뮬레이션할 수 있습니다. 시뮬레이션된 데이터를 사용하도록 샘플 애플리케이션을 설정하려면 다음 단계를 수행합니다.
+실제 DHT22 센서가 없는 경우 애플리케이션 예제에서 온도 및 습도 데이터를 시뮬레이션할 수 있습니다. 시뮬레이션된 데이터를 사용하도록 샘플 애플리케이션을 설정하려면 다음 단계를 수행합니다.
 
 1. `app` 폴더에서 `config.h` 파일을 엽니다.
 
@@ -214,7 +214,7 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
    define SIMULATED_DATA true
    ```
    
-   ![시뮬레이션된 데이터를 사용하도록 샘플 응용 프로그램 구성](media/iot-hub-arduino-huzzah-esp8266-get-started/15_vscode-configure-app-use-simulated-data.png)
+   ![시뮬레이션된 데이터를 사용하도록 샘플 애플리케이션 구성](media/iot-hub-arduino-huzzah-esp8266-get-started/15_vscode-configure-app-use-simulated-data.png)
 
 3. 파일을 저장합니다.
 
@@ -243,11 +243,11 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
    * 디바이스 연결 문자열
 
 > [!Note]
-> 자격 증명 정보는 Feather HUZZAH ESP8266의 EEPROM에 저장됩니다. Feather HUZZAH ESP8266 보드에서 리셋 단추를 클릭하면 샘플 응용 프로그램에서 정보를 지울 것인지 묻는 메시지가 표시됩니다. 정보를 지우려면 `Y`를 입력합니다. 정보를 다시 제공하라는 메시지가 표시됩니다.
+> 자격 증명 정보는 Feather HUZZAH ESP8266의 EEPROM에 저장됩니다. Feather HUZZAH ESP8266 보드에서 리셋 단추를 클릭하면 샘플 애플리케이션에서 정보를 지울 것인지 묻는 메시지가 표시됩니다. 정보를 지우려면 `Y`를 입력합니다. 정보를 다시 제공하라는 메시지가 표시됩니다.
 
-### <a name="verify-the-sample-application-is-running-successfully"></a>응용 프로그램 예제가 성공적으로 실행 중인지 확인합니다.
+### <a name="verify-the-sample-application-is-running-successfully"></a>애플리케이션 예제가 성공적으로 실행 중인지 확인합니다.
 
-직렬 모니터 창에 다음 출력이 표시되고 Feather HUZZAH ESP8266의 LED가 깜박이면 응용 프로그램 예제가 성공적으로 실행 중입니다.
+직렬 모니터 창에 다음 출력이 표시되고 Feather HUZZAH ESP8266의 LED가 깜박이면 애플리케이션 예제가 성공적으로 실행 중입니다.
 
 ![Arduino IDE의 최종 출력](media/iot-hub-arduino-huzzah-esp8266-get-started/16_arduino-ide-final-output.png)
 

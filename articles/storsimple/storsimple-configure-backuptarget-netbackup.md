@@ -45,7 +45,7 @@ Azure StorSimple은 Microsoft의 하이브리드 클라우드 저장소 솔루�
 
 StorSimple이 백업 대상으로 적합한 이유는 다음과 같습니다.
 
--   변경 없이 빠른 백업 대상으로 사용할 백업 응용 프로그램용 표준 로컬 저장소를 제공합니다. StorSimple을 사용하여 최근 백업을 빠르게 복원할 수도 있습니다.
+-   변경 없이 빠른 백업 대상으로 사용할 백업 애플리케이션용 표준 로컬 저장소를 제공합니다. StorSimple을 사용하여 최근 백업을 빠르게 복원할 수도 있습니다.
 -   클라우드 계층화는 비용 효율적인 Azure Storage를 사용할 수 있도록 Azure 클라우드 저장소 계정과 완벽하게 통합됩니다.
 -   재해 복구를 위해 오프사이트 저장소를 자동으로 제공합니다.
 
@@ -77,7 +77,7 @@ StorSimple은 다음과 같은 이점을 제공합니다.
 -   클라우드의 데이터 암호화
 -   향상된 재해 복구 및 규정 준수
 
-StorSimple은 기본 백업 대상과 보조 백업 대상이라는 두 가지 주요 배포 시나리오를 제공하지만 기본적으로는 일반 블록 저장소 디바이스입니다. StorSimple은 모든 압축 및 중복 제거를 수행합니다. 클라우드와 응용 프로그램 및 파일 시스템 간에 데이터를 원활하게 전송하고 검색합니다.
+StorSimple은 기본 백업 대상과 보조 백업 대상이라는 두 가지 주요 배포 시나리오를 제공하지만 기본적으로는 일반 블록 저장소 디바이스입니다. StorSimple은 모든 압축 및 중복 제거를 수행합니다. 클라우드와 애플리케이션 및 파일 시스템 간에 데이터를 원활하게 전송하고 검색합니다.
 
 StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브리드 클라우드 저장소 솔루션](storsimple-overview.md)을 참조하세요. 또한 [StorSimple 8000 시리즈 기술 사양](storsimple-technical-specifications-and-compliance.md)도 검토할 수 있습니다.
 
@@ -105,7 +105,7 @@ StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브�
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>기본 백업 대상인 StorSimple
 
-이 시나리오에서 StorSimple 볼륨은 백업을 위한 유일한 리포지토리로서 백업 응용 프로그램에 제공됩니다. 다음 그림에서는 모든 백업이 백업 및 복원을 위해 계층화된 StorSimple 볼륨을 사용하는 솔루션 아키텍처를 보여 줍니다.
+이 시나리오에서 StorSimple 볼륨은 백업을 위한 유일한 리포지토리로서 백업 애플리케이션에 제공됩니다. 다음 그림에서는 모든 백업이 백업 및 복원을 위해 계층화된 StorSimple 볼륨을 사용하는 솔루션 아키텍처를 보여 줍니다.
 
 ![기본 백업 대상 논리 다이어그램인 StorSimple](./media/storsimple-configure-backup-target-using-netbackup/primarybackuptargetlogicaldiagram.png)
 
@@ -512,7 +512,7 @@ StorSimple 클라우드 스냅숏은 StorSimple 디바이스에 있는 데이터
 4.  NetBackup의 백업 작업에 스크립트를 추가합니다. 이렇게 하려면 NetBackup 작업 옵션의 전처리 및 후처리 명령을 편집합니다.
 
 > [!NOTE]
-> 매일 백업 작업의 끝에서 StorSimple 클라우드 스냅숏 백업 정책을 후처리 스크립트로 실행하는 것이 좋습니다. RPO 및 RTO를 충족할 수 있도록 백업 응용 프로그램 환경을 백업 및 복원하는 방법에 대한 자세한 내용은 백업 설계자에게 문의하세요.
+> 매일 백업 작업의 끝에서 StorSimple 클라우드 스냅숏 백업 정책을 후처리 스크립트로 실행하는 것이 좋습니다. RPO 및 RTO를 충족할 수 있도록 백업 애플리케이션 환경을 백업 및 복원하는 방법에 대한 자세한 내용은 백업 설계자에게 문의하세요.
 
 ## <a name="storsimple-as-a-restore-source"></a>복원 원본인 StorSimple
 

@@ -92,5 +92,5 @@ SSMS를 사용하면 다음 단계를 사용하여 백업 파일에서 Managed I
 ## <a name="next-steps"></a>다음 단계
 
 - URL에 대한 백업 복원과 관련된 문제를 해결하려면 [URL에 대한 SQL Server 백업 - 최상의 방법 및 문제 해결](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting)을 참조하세요.
-- 응용 프로그램 연결 옵션에 대한 개요는 [응용 프로그램을 Managed Instance에 연결](sql-database-managed-instance-connect-app.md)을 참조하세요.
+- 애플리케이션의 연결 옵션 개요는 [애플리케이션을 Managed Instance에 연결](sql-database-managed-instance-connect-app.md)을 참조하세요.
 - 즐겨찾는 도구 또는 언어 중 하나를 사용하여 쿼리하려면 [연결 및 쿼리](sql-database-connect-query.md)를 참조하세요.

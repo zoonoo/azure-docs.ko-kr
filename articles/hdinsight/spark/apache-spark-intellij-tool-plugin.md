@@ -84,7 +84,7 @@ Apache Ambari 관리 사용자 이름을 사용하여 일반 HDInsight 클러스
       
       ![livy 클러스터 연결 대화 상자](./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png)
    
-3. 입력 정보가 올바르면 Linked 클러스터가 **HDInsight** 노드에 표시됩니다. 이제 응용 프로그램을 연결된 클러스터에 제출할 수 있습니다.
+3. 입력 정보가 올바르면 Linked 클러스터가 **HDInsight** 노드에 표시됩니다. 이제 애플리케이션을 연결된 클러스터에 제출할 수 있습니다.
 
    ![연결된 클러스터](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
 
@@ -92,7 +92,7 @@ Apache Ambari 관리 사용자 이름을 사용하여 일반 HDInsight 클러스
    
    ![연결되지 않은 클러스터](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
-## <a name="create-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터에서 Spark Scala 응용 프로그램 만들기
+## <a name="create-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터에서 Spark Scala 애플리케이션 만들기
 
 1. IntelliJ IDEA를 시작하고 프로젝트를 만듭니다. **새 프로젝트** 대화 상자에서 아래 단계를 수행합니다. 
 
@@ -166,9 +166,9 @@ Apache Ambari 관리 사용자 이름을 사용하여 일반 HDInsight 클러스
         }
 
 ## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터에서 Spark Scala 애플리케이션 실행
-Scala 응용 프로그램을 작성한 후 이를 클러스터에 제출할 수 있습니다.
+Scala 애플리케이션을 작성한 후 이를 클러스터에 제출할 수 있습니다.
 
-1. 프로젝트 탐색기에서 Java 또는 Scala 파일을 찾아 오른쪽 클릭 메뉴에서 **HDInsight에 Spark 응용 프로그램 제출**을 선택합니다.
+1. 프로젝트 탐색기에서 Java 또는 Scala 파일을 찾아 오른쪽 클릭 메뉴에서 **HDInsight에 Spark 애플리케이션 제출**을 선택합니다.
     
       ![HDInsight에 Spark 애플리케이션 제출 명령](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
 
@@ -201,7 +201,7 @@ Scala 응용 프로그램을 작성한 후 이를 클러스터에 제출할 수 
 
         ![Spark 제출 대화 상자](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-upload-storage-blob.png)
 
-3. **SparkJobRun**을 클릭하여 선택된 클러스터에 프로젝트를 제출합니다. 맨 아래의 **Remote Spark Job in Cluster**(클러스터의 원격 Spark 작업) 탭은 작업 실행 진행 상황을 표시합니다. 빨간색 단추를 클릭하여 응용 프로그램을 중지할 수 있습니다. 작업 출력에 액세스하는 방법을 알아보려면 이 문서의 뒷부분에 나오는 "IntelliJ용 Azure 도구 키트를 사용하여 HDInsight Spark 클러스터 액세스 및 관리" 섹션을 참조하세요.
+3. **SparkJobRun**을 클릭하여 선택된 클러스터에 프로젝트를 제출합니다. 맨 아래의 **Remote Spark Job in Cluster**(클러스터의 원격 Spark 작업) 탭은 작업 실행 진행 상황을 표시합니다. 빨간색 단추를 클릭하여 애플리케이션을 중지할 수 있습니다. 작업 출력에 액세스하는 방법을 알아보려면 이 문서의 뒷부분에 나오는 "IntelliJ용 Azure 도구 키트를 사용하여 HDInsight Spark 클러스터 액세스 및 관리" 섹션을 참조하세요.
       
      ![Spark 제출 창](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
 

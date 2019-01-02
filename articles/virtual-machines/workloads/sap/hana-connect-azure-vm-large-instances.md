@@ -23,13 +23,13 @@ ms.locfileid: "50233721"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Azure VM을 HANA 큰 인스턴스에 연결
 
-이미 [Azure에서 SAP HANA(대규모 인스턴스) 개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)에서 언급했듯이 Azure에서 SAP 응용 프로그램 계층을 사용하는 HANA 대규모 인스턴스의 최소 배포는 다음과 같습니다.
+이미 [Azure에서 SAP HANA(대규모 인스턴스) 개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)에서 언급했듯이 Azure에서 SAP 애플리케이션 계층을 사용하는 HANA 대규모 인스턴스의 최소 배포는 다음과 같습니다.
 
 ![Azure(큰 인스턴스)에서 SAP HANA 및 온-프레미스로 연결된 Azure VNet](./media/hana-overview-architecture/image3-on-premises-infrastructure.png)
 
 Azure Virtual Network 쪽을 자세히 살펴보면 다음에 대한 필요성을 인식하게 됩니다.
 
-- SAP 응용 프로그램 계층의 VM을 배포할 Azure Virtual Network의 정의입니다.
+- SAP 애플리케이션 계층의 VM을 배포할 Azure Virtual Network의 정의입니다.
 - VM이 실제로 배포되는 Azure Virtual Network의 기본 서브넷에 대한 정의입니다.
 - 만들어진 Azure Virtual Network에는 하나 이상의 VM 서브넷과 하나의 Azure ExpressRoute 가상 네트워크 게이트웨이 서브넷이 있어야 합니다. 이러한 서브넷은 다음 섹션에서 지정하고 설명한 대로 IP 주소 범위가 할당되어야 합니다.
 

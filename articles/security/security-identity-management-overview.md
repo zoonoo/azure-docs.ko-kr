@@ -24,14 +24,14 @@ ms.locfileid: "51255884"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure ID 관리 보안 개요
 
- ID 관리는 [보안 주체](https://docs.microsoft.com/windows/security/identity-protection/access-control/security-principals)를 인증하고 권한을 부여하는 프로세스입니다. 해당 주체(ID)에 대한 정보를 제어하는 작업도 포함됩니다. 보안 주체(ID)에는 서비스, 응용 프로그램, 사용자, 그룹 등이 있습니다. Microsoft ID 및 액세스 관리 솔루션은 IT가 클라우드 및 회사 데이터 센터에서 애플리케이션 및 리소스에 대한 액세스를 보호하도록 도움을 줍니다. 이러한 보호는 Multi-Factor Authentication 및 조건부 액세스 정책 등 유효성 검사의 추가 수준을 사용하도록 설정합니다. 고급 보안 보고, 감사 및 경고를 통해 의심스러운 작업을 모니터링하여 잠재적인 보안 문제를 완화시킵니다. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) 은 수천 개의 클라우드 SaaS(software as a service) 앱에 SSO(Single Sign-On)을 제공하고 온-프레미스를 실행하는 웹앱에 액세스를 제공합니다.
+ ID 관리는 [보안 주체](https://docs.microsoft.com/windows/security/identity-protection/access-control/security-principals)를 인증하고 권한을 부여하는 프로세스입니다. 해당 주체(ID)에 대한 정보를 제어하는 작업도 포함됩니다. 보안 주체(ID)에는 서비스, 애플리케이션, 사용자, 그룹 등이 있습니다. Microsoft ID 및 액세스 관리 솔루션은 IT가 클라우드 및 회사 데이터 센터에서 애플리케이션 및 리소스에 대한 액세스를 보호하도록 도움을 줍니다. 이러한 보호는 Multi-Factor Authentication 및 조건부 액세스 정책 등 유효성 검사의 추가 수준을 사용하도록 설정합니다. 고급 보안 보고, 감사 및 경고를 통해 의심스러운 작업을 모니터링하여 잠재적인 보안 문제를 완화시킵니다. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) 은 수천 개의 클라우드 SaaS(software as a service) 앱에 SSO(Single Sign-On)을 제공하고 온-프레미스를 실행하는 웹앱에 액세스를 제공합니다.
  
 Azure AD(Azure Active Directory)의 보안 이점을 활용하여 다음을 수행할 수 있습니다.
 
 * 하이브리드 엔터프라이즈에서 사용자, 그룹 및 디바이스의 동기화를 유지하도록 각 사용자에 대한 단일 ID 만들기 및 관리 
 * 수천 개의 미리 통합된 SaaS 앱을 포함한 애플리케이션에 대한 SSO 액세스를 제공합니다.
-* 온-프레미스 및 클라우드 응용 프로그램 모두에 대해 규칙 기반 Multi-Factor Authentication을 적용하여 응용 프로그램 액세스 보안을 사용하도록 설정
-* Azure AD 응용 프로그램 프록시를 통해 온-프레미스 웹 응용 프로그램에 대한 보안 원격 액세스 프로비전
+* 온-프레미스 및 클라우드 애플리케이션 모두에 대해 규칙 기반 Multi-Factor Authentication을 적용하여 애플리케이션 액세스 보안을 사용하도록 설정
+* Azure AD 애플리케이션 프록시를 통해 온-프레미스 웹 애플리케이션에 대한 보안 원격 액세스 프로비전
 
 이 문서의 목표는 ID 관리에 도움이 되는 핵심 Azure 보안 기능의 개요를 제공하는 것입니다. 문서에 각 기능에 대한 세부 정보를 제공하는 링크를 제공하므로 자세히 알아볼 수 있습니다.  
 

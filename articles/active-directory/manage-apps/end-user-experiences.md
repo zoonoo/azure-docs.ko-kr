@@ -50,7 +50,7 @@ SAML 2.0, WS-Federation 또는 OpenID Connect를 지원하는 대부분의 페�
 ![](./media/what-is-single-sign-on/workdaymobile.png)
 
 ## <a name="direct-sign-on-links"></a>직접 로그온 링크
-Azure AD는 암호 기반 Single Sign-On, 연결된 Single Sign-On 및 모든 형태의 페더레이션된 Single Sign-On을 지원하는 개별 응용 프로그램에 대한 직접 Single Sign-On 링크도 지원합니다.
+Azure AD는 암호 기반 Single Sign-On, 연결된 Single Sign-On 및 모든 형태의 페더레이션된 Single Sign-On을 지원하는 개별 애플리케이션에 대한 직접 Single Sign-On 링크도 지원합니다.
 
 이러한 링크는 사용자가 Azure AD 액세스 패널이나 Office 365에서 시작하지 않아도 Azure AD 로그인 프로세스를 통해 사용자를 특정 애플리케이션으로 보내는, 특별히 제작된 URL입니다. 이러한 Single Sign-On URL은 아래 스크린샷에 표시된 것처럼 Azure Portal의 Active Directory 섹션에서 사전 통합된 애플리케이션의 대시보드 탭 아래에 있습니다.
 

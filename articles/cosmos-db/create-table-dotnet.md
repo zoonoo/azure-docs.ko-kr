@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Table API와 .NET - Azure Cosmos DB'
-description: 이 빠른 시작은 Azure Portal 및 .NET과 함께 Azure Cosmos DB Table API를 사용하여 응용 프로그램을 만드는 방법을 보여줍니다.
+description: 이 빠른 시작은 Azure Portal 및 .NET과 함께 Azure Cosmos DB Table API를 사용하여 애플리케이션을 만드는 방법을 보여줍니다.
 services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db

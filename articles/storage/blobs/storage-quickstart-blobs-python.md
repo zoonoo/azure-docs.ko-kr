@@ -29,7 +29,7 @@ ms.locfileid: "51713183"
 * [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python)
 
 ## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
-이 빠른 시작 가이드에서 [샘플 응용 프로그램](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git)은 기본 Python 응용 프로그램입니다.  
+이 빠른 시작 가이드에서 [샘플 애플리케이션](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git)은 기본 Python 애플리케이션입니다.  
 
 [git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드합니다. 
 
@@ -42,7 +42,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git
 [!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
-응용 프로그램에서 저장소 계정 이름과 계정 키를 입력하여 `BlockBlobService` 개체를 만듭니다. IDE의 솔루션 탐색기에서 *example.py* 파일을 엽니다. `accountname` 및 `accountkey` 값을 사용자의 계정 이름 및 키로 바꿉니다. 
+애플리케이션에서 저장소 계정 이름과 계정 키를 입력하여 `BlockBlobService` 개체를 만듭니다. IDE의 솔루션 탐색기에서 *example.py* 파일을 엽니다. `accountname` 및 `accountkey` 값을 사용자의 계정 이름 및 키로 바꿉니다. 
 
 ```python 
 block_blob_service = BlockBlobService(account_name='accountname', account_key='accountkey') 

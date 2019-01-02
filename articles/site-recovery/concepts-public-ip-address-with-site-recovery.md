@@ -32,7 +32,7 @@ Azure Resource Manager에서 공용 IP 주소는 자체 속성이 있는 리소�
 
 ## <a name="public-ip-address-assignment-using-recovery-plan"></a>복구 계획을 사용하여 공용 IP 주소 할당
 
-프로덕션 응용 프로그램의 공용 IP 주소는 **장애 조치(failover) 시 유지할 수 없습니다**. 장애 조치(failover) 프로세스의 일부로 포함된 워크로드에는 대상 지역에서 사용 가능한 Azure 공용 IP 리소스를 할당해야 합니다. 이 단계는 수동으로 수행할 수도 있고 복구 계획을 통해 자동으로 수행할 수도 있습니다. 복구 계획은 복구 그룹으로 컴퓨터를 수집합니다. 그러므로 체계적인 복구 프로세스를 정의할 수 있습니다. 복구 계획을 사용하여 순서를 적용하고 Azure 또는 스크립트로 장애 조치(failover)에 대한 Azure Automation Runbook을 사용하여 각 단계에 필요한 작업을 자동화할 수 있습니다.
+프로덕션 애플리케이션의 공용 IP 주소는 **장애 조치(failover) 시 유지할 수 없습니다**. 장애 조치(failover) 프로세스의 일부로 포함된 워크로드에는 대상 지역에서 사용 가능한 Azure 공용 IP 리소스를 할당해야 합니다. 이 단계는 수동으로 수행할 수도 있고 복구 계획을 통해 자동으로 수행할 수도 있습니다. 복구 계획은 복구 그룹으로 컴퓨터를 수집합니다. 그러므로 체계적인 복구 프로세스를 정의할 수 있습니다. 복구 계획을 사용하여 순서를 적용하고 Azure 또는 스크립트로 장애 조치(failover)에 대한 Azure Automation Runbook을 사용하여 각 단계에 필요한 작업을 자동화할 수 있습니다.
 
 설정 방법은 다음과 같습니다.
 - [복구 계획](../site-recovery/site-recovery-create-recovery-plans.md#create-a-recovery-plan)을 만들고 필요에 따라 워크로드를 계획에 그룹화합니다.

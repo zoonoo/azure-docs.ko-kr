@@ -528,7 +528,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 
 앱이 Baidu 푸시 알림 서비스에서 `userId` 및 `channelId`를 검색하고 알림 허브에 등록합니다.
 
-테스트 알림을 보내려면 [Azure Portal]의 디버그 탭을 사용할 수 있습니다. Visual Studio에 대해 .NET 콘솔 응용 프로그램을 빌드한 경우 Visual Studio에서 F5 키를 눌러 응용 프로그램을 실행합니다. 응용 프로그램은 디바이스 또는 에뮬레이터의 상위 알림 영역에 표시되는 알림을 전송합니다.
+테스트 알림을 보내려면 [Azure Portal]의 디버그 탭을 사용할 수 있습니다. Visual Studio에 대해 .NET 콘솔 애플리케이션을 빌드한 경우 Visual Studio에서 F5 키를 눌러 애플리케이션을 실행합니다. 응용 프로그램은 디바이스 또는 에뮬레이터의 상위 알림 영역에 표시되는 알림을 전송합니다.
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409

@@ -28,11 +28,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 - [Java&trade; 플랫폼, Standard Edition Development Kit 7 또는 8](https://aka.ms/azure-jdks)(JDK 7 또는 8)이 설치되어 있어야 합니다.
 - Computer Vision에 대한 구독 키가 있어야 합니다. 구독 키를 가져오려면 [구독 키 얻기](../Vision-API-How-to-Topics/HowToSubscribe.md)를 참조하세요.
 
-## <a name="create-and-run-the-sample-application"></a>응용 프로그램 예제 만들기 및 실행
+## <a name="create-and-run-the-sample-application"></a>애플리케이션 예제 만들기 및 실행
 
 샘플을 만들고 실행하려면 다음 단계를 수행합니다.
 
-1. 즐겨 찾는 IDE 또는 편집기에서 새 Java 프로젝트를 만듭니다. 옵션을 사용할 수 있는 경우 명령줄 응용 프로그램 템플릿에서 Java 프로젝트를 만듭니다.
+1. 즐겨 찾는 IDE 또는 편집기에서 새 Java 프로젝트를 만듭니다. 옵션을 사용할 수 있는 경우 명령줄 애플리케이션 템플릿에서 Java 프로젝트를 만듭니다.
 1. Java 프로젝트로 다음 라이브러리를 가져옵니다. Maven을 사용하는 경우 각 라이브러리에 대한 Maven 좌표가 제공됩니다.
    - [Apache HTTP 클라이언트](https://hc.apache.org/downloads.cgi)(org.apache.httpcomponents:httpclient:4.5.5)
    - [Apache HTTP 코어](https://hc.apache.org/downloads.cgi)(org.apache.httpcomponents:httpcore:4.4.9)
@@ -164,7 +164,7 @@ public class Main {
 
 ## <a name="examine-the-response"></a>응답 검사
 
-성공적인 응답이 썸네일에 대한 이미지 데이터를 나타내는 이진 데이터로 반환됩니다. 요청이 성공하면 응답으로 이진 데이터에서 썸네일이 생성되고 응용 프로그램 예제에서 만든 별도 창에 표시됩니다. 요청이 실패하면 응답이 콘솔 창에 표시됩니다. 실패된 요청에 대한 응답은 무엇이 잘못되었는지 확인할 수 있도록 오류 코드 및 메시지를 포함합니다.
+성공적인 응답이 썸네일에 대한 이미지 데이터를 나타내는 이진 데이터로 반환됩니다. 요청이 성공하면 응답으로 이진 데이터에서 썸네일이 생성되고 애플리케이션 예제에서 만든 별도 창에 표시됩니다. 요청이 실패하면 응답이 콘솔 창에 표시됩니다. 실패된 요청에 대한 응답은 무엇이 잘못되었는지 확인할 수 있도록 오류 코드 및 메시지를 포함합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -172,7 +172,7 @@ public class Main {
 
 ## <a name="next-steps"></a>다음 단계
 
-Computer Vision을 사용하는 Java Swing 응용 프로그램을 탐색합니다. 이 프로그램은 OCR(광학 문자 인식)을 수행하고, 스마트하게 자른 썸네일을 만들고, 이미지에서 얼굴을 비롯한 시각적 특징을 감지하고, 분류하고, 태그를 지정하고, 설명합니다. Computer Vision API를 사용하여 신속하게 실험하려면 [API 테스트 콘솔 열기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console)를 사용하세요.
+Computer Vision을 사용하여 OCR(광학 문자 인식)을 수행하고, 스마트하게 잘리는 썸네일을 만들고, 이미지에서 얼굴을 비롯한 시각적 기능을 검색하고, 분류하고, 태그를 지정하고, 설명하는 Java Swing 애플리케이션을 탐색합니다. Computer Vision API를 사용하여 신속하게 실험하려면 [API 테스트 콘솔 열기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console)를 사용하세요.
 
 > [!div class="nextstepaction"]
 > [Computer Vision API Java 자습서](../Tutorials/java-tutorial.md)

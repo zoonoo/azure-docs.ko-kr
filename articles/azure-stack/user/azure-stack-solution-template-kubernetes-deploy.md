@@ -16,7 +16,7 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.openlocfilehash: 5573c7f122360b3bd3adeb9dcca1c827a1933f70
 ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52959464"
@@ -68,7 +68,7 @@ Kubernetes에서 사용할 수 있습니다.
 
     ![AD 테 넌 트 선택](media/azure-stack-solution-template-kubernetes-deploy/tenantselector.png)
 
-1. Azure AD 응용 프로그램을 만듭니다.
+1. Azure AD 애플리케이션을 만듭니다.
 
     a. 선택 **Azure Active Directory** > **+ 앱 등록** > **새 응용 프로그램 등록**합니다.
 

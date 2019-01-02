@@ -16,7 +16,7 @@ Azure AD(Active Directory)에서 [Azure Resource Manager][lnk-authenticate-arm]�
 
 계속하기 전에 [Azure PowerShell cmdlet][lnk-powershell-install]을 설치합니다.
 
-다음 단계는 PowerShell을 사용하여 AD 응용 프로그램에 대해 암호 인증을 설정하는 방법을 보여 줍니다. 표준 PowerShell 세션에서 이러한 명령을 실행할 수 있습니다.
+다음 단계는 PowerShell을 사용하여 AD 애플리케이션에 대해 암호 인증을 설정하는 방법을 보여 줍니다. 표준 PowerShell 세션에서 이러한 명령을 실행할 수 있습니다.
 
 1. 다음 명령을 사용하여 Azure 구독에 로그인합니다.
 
@@ -38,7 +38,7 @@ Azure AD(Active Directory)에서 [Azure Resource Manager][lnk-authenticate-arm]�
     ```
 
 2. **TenantId** 및 **SubscriptionId**를 적어둡니다. 나중에 필요합니다.
-3. 다음 명령을 사용하여 새 Azure Active Directory 응용 프로그램을 만듭니다. 자리 표시자는 바꿉니다.
+3. 다음 명령을 사용하여 새 Azure Active Directory 애플리케이션을 만듭니다. 자리 표시자는 바꿉니다.
    
    * **{표시 이름}:** **MySampleApp**과 같은 응용 프로그램의 표시 이름입니다.
    * **{홈페이지 URL}:** 앱의 홈페이지에 대한 URL입니다(예: **http://mysampleapp/home**). 이 URL이 실제 애플리케이션을 가리킬 필요는 없습니다.
@@ -61,7 +61,7 @@ Azure AD(Active Directory)에서 [Azure Resource Manager][lnk-authenticate-arm]�
     New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName {MyApplicationId}
     ```
 
-이제 사용자 지정 C# 응용 프로그램에서 인증할 수 있는 Azure AD 응용 프로그램을 만드는 작업을 완료했습니다. 이 자습서의 뒷부분에서 다음 값이 필요합니다.
+이제 사용자 지정 C# 애플리케이션에서 인증할 수 있는 Azure AD 애플리케이션을 만드는 작업을 완료했습니다. 이 자습서의 뒷부분에서 다음 값이 필요합니다.
 
 * TenantId
 * SubscriptionId

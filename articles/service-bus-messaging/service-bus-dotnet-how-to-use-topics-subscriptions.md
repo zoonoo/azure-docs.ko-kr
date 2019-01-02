@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus 항목 및 구독 시작 | Microsoft Docs
-description: Service Bus 메시징 항목 및 구독을 사용하는 C# .NET Core 콘솔 응용 프로그램을 작성합니다.
+description: Service Bus 메시징 항목 및 구독을 사용하는 C# .NET Core 콘솔 애플리케이션을 작성합니다.
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -30,8 +30,8 @@ ms.locfileid: "51230583"
 1. Azure Portal을 사용하여 Service Bus 네임스페이스를 만듭니다.
 2. Azure Portal을 사용하여 Service Bus 항목을 만듭니다.
 3. Azure Portal을 사용하여 해당 항목에 Service Bus 구독을 만듭니다.
-4. 항목에 일련의 메시지를 보내도록 .NET Core 콘솔 응용 프로그램을 작성합니다.
-5. 구독에서 해당 메시지를 수신하도록 .NET Core 콘솔 응용 프로그램을 작성합니다.
+4. 항목에 일련의 메시지를 보내도록 .NET Core 콘솔 애플리케이션을 작성합니다.
+5. 구독에서 해당 메시지를 수신하도록 .NET Core 콘솔 애플리케이션을 작성합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -76,7 +76,7 @@ Service Bus 메시징 네임스페이스를 이미 만든 경우 [Azure Portal�
 
 ## <a name="4-send-messages-to-the-topic"></a>4. 토픽에 메시지 보내기
 
-항목에 메시지를 보내려면 Visual Studio를 사용하여 C# 콘솔 응용 프로그램을 작성합니다.
+항목에 메시지를 보내려면 Visual Studio를 사용하여 C# 콘솔 애플리케이션을 작성합니다.
 
 ### <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
 
@@ -233,7 +233,7 @@ Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트�
 
 ## <a name="5-receive-messages-from-the-subscription"></a>5. 구독에서 메시지 받기
 
-방금 보낸 메시지를 받으려면 다른 .NET Core 콘솔 응용 프로그램을 만들고 이전의 보낸 사람 응용 프로그램과 유사한 **Microsoft.Azure.ServiceBus** NuGet 패키지를 설치합니다.
+방금 보낸 메시지를 받으려면 다른 .NET Core 콘솔 애플리케이션을 만들고 이전의 보낸 사람 애플리케이션과 유사한 **Microsoft.Azure.ServiceBus** NuGet 패키지를 설치합니다.
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>코드를 작성하여 구독에서 메시지 받기
 

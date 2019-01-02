@@ -104,7 +104,7 @@ Azure Service Fabric은 시스템 구성 요소와 워치독이 모니터링하�
 ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthAsync();
 ```
 
-다음 코드는 노드 및 응용 프로그램에 대한 사용자 지정 클러스터 상태 정책 및 필터를 사용하여 클러스터 상태를 가져옵니다. 상태 통계가 fabric:/System 통계를 포함하도록 지시합니다. 입력 정보를 포함하는 [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription)을 생성합니다.
+다음 코드는 노드 및 애플리케이션에 대한 사용자 지정 클러스터 상태 정책 및 필터를 사용하여 클러스터 상태를 가져옵니다. 상태 통계가 fabric:/System 통계를 포함하도록 지시합니다. 입력 정보를 포함하는 [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription)을 생성합니다.
 
 ```csharp
 var policy = new ClusterHealthPolicy()
@@ -796,8 +796,8 @@ HealthEvents               :
 
 * 오류 상태인 애플리케이션만 반환하고, 이러한 애플리케이션에 대해 경고 또는 오류 상태인 모든 서비스를 포함합니다. 반환된 서비스의 경우 모든 파티션을 포함합니다.
 * 이름으로 지정한 4개 애플리케이션의 상태만 반환합니다.
-* 원하는 유형의 응용 프로그램 상태만 반환합니다.
-* 노드에 배포된 모든 엔터티를 반환합니다. 모든 응용 프로그램, 지정된 노드에 배포된 모든 응용 프로그램, 해당 노드에 배포된 모든 서비스 패키지가 반환됩니다.
+* 원하는 유형의 애플리케이션 상태만 반환합니다.
+* 노드에 배포된 모든 엔터티를 반환합니다. 모든 애플리케이션, 지정된 노드에 배포된 모든 애플리케이션, 해당 노드에 배포된 모든 서비스 패키지가 반환됩니다.
 * 오류 상태인 모든 복제본을 반환합니다. 모든 애플리케이션, 서비스, 파티션 및 오류 상태인 복제본만 반환합니다.
 * 모든 애플리케이션을 반환합니다. 지정된 서비스의 경우 모든 파티션을 포함합니다.
 

@@ -31,7 +31,7 @@ HDInsight 애플리케이션은 Linux 기반 HDInsight 클러스터에 사용자
 ## <a name="prerequisites"></a>필수 조건
 기존 HDInsight 클러스터에 HDInsight 애플리케이션을 설치하려면 HDInsight 클러스터가 있어야 합니다. HDInsight 클러스터를 만들려면 [클러스터 만들기](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하세요. HDInsight 클러스터를 만들 경우 HDInsight 애플리케이션도 설치할 수 있습니다.
 
-## <a name="install-hdinsight-applications"></a>HDInsight 응용 프로그램 설치
+## <a name="install-hdinsight-applications"></a>HDInsight 애플리케이션 설치
 이렇게 만든 클러스터 또는 기존 HDInsight 클러스터에 HDInsight 애플리케이션을 설치할 수 있습니다. Azure Resource Manager 템플릿 정의는 [MSDN: HDInsight 애플리케이션 설치](https://msdn.microsoft.com/library/mt706515.aspx)를 참조하세요.
 
 이 애플리케이션(Hue)을 배포하기 위해 필요한 파일은 다음과 같습니다.

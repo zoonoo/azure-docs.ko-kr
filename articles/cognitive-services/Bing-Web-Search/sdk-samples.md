@@ -1,7 +1,7 @@
 ---
 title: Bing Web Search SDK 샘플
 titleSuffix: Azure Cognitive Services
-description: Bing Web Search SDK를 사용하여 Python, Node.js, C# 또는 Java 응용 프로그램에 검색 기능을 추가합니다.
+description: Bing Web Search SDK를 사용하여 Python, Node.js, C# 또는 Java 애플리케이션에 검색 기능을 추가합니다.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun

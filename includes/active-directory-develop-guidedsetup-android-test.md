@@ -32,7 +32,7 @@ ms.locfileid: "49988342"
 
 ### <a name="consent-to-your-app"></a>앱 사용 권한 동의
 
-사용자가 응용 프로그램에 처음 로그인하면 다음과 같이 앱에 필요한 권한 제공에 동의하라는 메시지가 표시됩니다. 
+사용자가 애플리케이션에 처음 로그인하면 다음과 같이 앱에 필요한 권한 제공에 동의하라는 메시지가 표시됩니다. 
 
 ![애플리케이션 액세스에 대한 사용자 동의 제공](media/active-directory-develop-guidedsetup-android-test/androidconsent.png)
 
@@ -43,9 +43,9 @@ ms.locfileid: "49988342"
 <!--start-collapse-->
 ### <a name="scopes-and-delegated-permissions"></a>범위 및 위임된 권한
 
-Microsoft Graph API에서 사용자 프로필을 읽으려면 *User.Read* 범위가 필요합니다. 이 범위는 응용 프로그램 등록 포털에서 등록된 모든 앱에 자동으로 포함됩니다. 다른 API에는 추가 범위가 필요합니다. 예를 들어 Microsoft Graph API에서 사용자 일정을 나열하려면 *Calendars.Read* 범위가 있어야 합니다.
+Microsoft Graph API에서 사용자 프로필을 읽으려면 *User.Read* 범위가 필요합니다. 이 범위는 애플리케이션 등록 포털에서 등록된 모든 앱에 자동으로 포함됩니다. 다른 API에는 추가 범위가 필요합니다. 예를 들어 Microsoft Graph API에서 사용자 일정을 나열하려면 *Calendars.Read* 범위가 있어야 합니다.
 
-사용자 일정에 액세스하려면 응용 프로그램 등록 정보에 *Calendars.Read* 위임 권한을 추가합니다. 그런 다음 `acquireTokenSilent` 호출에 *Calendars.Read* 범위를 추가합니다. 
+사용자 일정에 액세스하려면 애플리케이션 등록 정보에 *Calendars.Read* 위임 권한을 추가합니다. 그런 다음 `acquireTokenSilent` 호출에 *Calendars.Read* 범위를 추가합니다. 
 
 > [!NOTE]
 > 앱 등록을 변경하면 사용자에게 추가 동의를 요청하는 메시지가 표시될 수 있습니다.

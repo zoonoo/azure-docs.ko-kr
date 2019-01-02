@@ -73,7 +73,7 @@ ETL(추출, 변환 및 로드)은 구조화되지 않았거나 구조화된 데�
 
 ### <a name="data-science"></a>데이터 과학
 
-HDInsight를 사용하여 데이터에서 중요한 통찰력을 추출하는 응용 프로그램을 빌드할 수 있습니다. 비즈니스에 대한 향후 추세를 예측하는 데 우선적으로 Azure Machine Learning을 사용할 수도 있습니다. 자세한 내용은 [이 고객 스토리를 참고하세요](https://customers.microsoft.com/story/pros).
+HDInsight를 사용하여 데이터에서 중요한 통찰력을 추출하는 애플리케이션을 빌드할 수 있습니다. 비즈니스에 대한 향후 추세를 예측하는 데 우선적으로 Azure Machine Learning을 사용할 수도 있습니다. 자세한 내용은 [이 고객 스토리를 참고하세요](https://customers.microsoft.com/story/pros).
 
 ![HDInsight 아키텍처: 데이터 과학](./media/apache-hadoop-introduction/hdinsight-architecture-data-science.png "HDInsight 데이터 과학 아키텍처")
 

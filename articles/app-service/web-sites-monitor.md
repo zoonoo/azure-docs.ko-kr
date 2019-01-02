@@ -57,7 +57,7 @@ App Service에서 호스팅되는 애플리케이션에는 사용 가능한 리�
 다양한 App Service SKU에 사용할 수 있는 특정 할당량, 한도 및 기능에 대한 자세한 정보는 다음에서 찾을 수 있습니다. [Azure 구독 서비스 제한](../azure-subscription-service-limits.md#app-service-limits)
 
 #### <a name="quota-enforcement"></a>할당량 적용
-응용 프로그램이 **CPU(부족)**, **CPU(일)**, **대역폭** 할당량을 초과하는 경우 할당량이 재설정될 때까지 응용 프로그램이 중지됩니다. 이 시간 중에는 들어오는 모든 요청에서 **HTTP 403**이 발생합니다.
+애플리케이션이 **CPU(부족)**, **CPU(일)**, **대역폭** 할당량을 초과하는 경우 할당량이 재설정될 때까지 애플리케이션이 중지됩니다. 이 시간 중에는 들어오는 모든 요청에서 **HTTP 403**이 발생합니다.
 ![][http403]
 
 응용 프로그램 **메모리** 할당량을 초과하면 응용 프로그램이 다시 시작됩니다.
@@ -153,7 +153,7 @@ CPU 사용량을 반영하는 두 가지 메트릭이 있습니다. **CPU 시간
 ## <a name="alerts-and-autoscale"></a>경고 및 자동 크기 조정
 App 또는 App Service 계획에 대한 메트릭은 경고에 연결될 수 있습니다. 자세한 내용을 알아보려면 [경고 알림 받기](../monitoring-and-diagnostics/insights-alerts-portal.md)를 참조하세요.
 
-기본, 표준 또는 프리미엄 App Service 계획에 호스팅된 App Service 앱은 **자동 크기 조정**을 지원합니다. 자동 크기 조정에서는 App Service 계획 메트릭을 모니터링하는 규칙을 구성할 수 있습니다. 규칙은 필요에 따라 추가 리소스를 제공하기 위해 인스턴스 수를 눌리거나 줄일 수 있습니다. 규칙을 사용하면 응용 프로그램이 과도하게 프로비전될 때 비용을 절감할 수도 있습니다. 다음에서 자동 크기 조정을 자세히 알아볼 수 있습니다. [크기 조정 방법](../monitoring-and-diagnostics/insights-how-to-scale.md) 및 [Azure Monitor 자동 크기 조정에 대한 모범 사례](../azure-monitor/platform/autoscale-best-practices.md).
+기본, 표준 또는 프리미엄 App Service 계획에 호스팅된 App Service 앱은 **자동 크기 조정**을 지원합니다. 자동 크기 조정에서는 App Service 계획 메트릭을 모니터링하는 규칙을 구성할 수 있습니다. 규칙은 필요에 따라 추가 리소스를 제공하기 위해 인스턴스 수를 눌리거나 줄일 수 있습니다. 규칙을 사용하면 애플리케이션이 과도하게 프로비전될 때 비용을 절감할 수도 있습니다. 다음에서 자동 크기 조정을 자세히 알아볼 수 있습니다. [크기 조정 방법](../monitoring-and-diagnostics/insights-how-to-scale.md) 및 [Azure Monitor 자동 크기 조정에 대한 모범 사례](../azure-monitor/platform/autoscale-best-practices.md).
 
 > [!NOTE]
 > Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.

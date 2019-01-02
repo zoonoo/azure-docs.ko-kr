@@ -22,7 +22,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/11/2018
 ms.locfileid: "44356071"
 ---
-# <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>응용 프로그램 프록시 응용 프로그램에 대해 작동하는 커넥터 그룹 없음
+# <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션에 대해 작동하는 커넥터 그룹 없음
 
 이 문서는 Azure Active Directory와 통합된 애플리케이션 프록시 애플리케이션에 대해 검색된 커넥터가 없을 때 발생하는 일반적인 문제를 해결하는 데 도움이 됩니다.
 

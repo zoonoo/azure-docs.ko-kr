@@ -996,7 +996,7 @@ Settings.xml 파일을 포함하는 PackageRoot 아래에 Name 특성을 통해 
 
 <a id="ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType"></a>
 ## <a name="consoleredirection-element"></a>ConsoleRedirection 요소
-경고합니다! 프로덕션 애플리케이션에서 콘솔 리디렉션을 사용하지 마세요. 로컬 개발 및 디버깅에만 사용하세요. 시작 스크립트의 콘솔 출력을 응용 프로그램이 배포되고 실행되는 클러스터 노드의 "log"라는 응용 프로그램 폴더에 있는 출력 파일로 리디렉션합니다.
+경고합니다! 프로덕션 애플리케이션에서 콘솔 리디렉션을 사용하지 마세요. 로컬 개발 및 디버깅에만 사용하세요. 시작 스크립트의 콘솔 출력을 애플리케이션이 배포되고 실행되는 클러스터 노드의 "log"라는 애플리케이션 폴더에 있는 출력 파일로 리디렉션합니다.
 
 |특성|값|
 |---|---|

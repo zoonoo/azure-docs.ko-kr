@@ -45,7 +45,7 @@ Avere vFXT는 핫 및 쿨 계층 간에 데이터를 자동으로 계층화하�
 
 * 고객이 Azure 가상 머신에서 현재 파이프라인을 "있는 그대로" 실행하려고 하며, 확장성을 위해 POSIX 기반 공유 저장소(또는 캐싱) 솔루션이 필요합니다. Avere vFXT for Azure를 사용하면 Azure Blob 저장소를 기본적으로 호출하도록 작업 파이프라인을 다시 설계할 필요가 없습니다.
 
-* HPC 응용 프로그램은 NFSv3 클라이언트를 기반으로 합니다. 경우에 따라 SMB 2.1 클라이언트를 사용할 수 있지만 성능이 제한됩니다.
+* HPC 애플리케이션은 NFSv3 클라이언트를 기반으로 합니다. 경우에 따라 SMB 2.1 클라이언트를 사용할 수 있지만 성능이 제한됩니다.
 
    아래 그래픽에서는 이 질문에 대한 답변을 간소화하려고 합니다. 워크플로가 오른쪽 위에 가까울수록 환경에 더 적합한 Avere 캐싱 솔루션이 될 가능성이 높습니다.
 
@@ -116,7 +116,7 @@ Avere vFXT는 VMSS(가상 머신 확장 집합) 배포를 지원하지 않습니
 
 ### <a name="can-i-run-the-vfxt-cluster-in-containers"></a>컨테이너에서 vFXT 클러스터를 실행할 수 있나요?
 
-아니요, Avere vFXT는 독립적인 응용 프로그램으로 배포해야 합니다.
+아니요, Avere vFXT는 독립적인 애플리케이션으로 배포해야 합니다.
 
 ### <a name="do-the-avere-vfxt-vms-count-against-my-compute-quota"></a>Avere vFXT VM은 내 계산 할당량에 불리하게 작용하나요?
 

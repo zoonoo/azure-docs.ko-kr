@@ -1,6 +1,6 @@
 ---
 title: 빠른 시작 - Azure Service Fabric Mesh에 Hello World 배포 | Microsoft Docs
-description: 이 빠른 시작에서는 Azure Service Fabric Mesh에 Service Fabric Mesh 응용 프로그램을 배포하는 방법을 보여줍니다.
+description: 이 빠른 시작에서는 Azure Service Fabric Mesh에 Service Fabric Mesh 애플리케이션을 배포하는 방법을 보여줍니다.
 services: service-fabric-mesh
 keywords: SEO champ와 상담하지 않고 키워드를 추가하거나 편집하지 마세요.
 author: rwike77

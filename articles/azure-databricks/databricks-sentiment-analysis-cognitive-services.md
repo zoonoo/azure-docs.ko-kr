@@ -107,7 +107,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 트윗 스트림을 받으려면 Twitter에 애플리케이션을 만들어야 합니다. 다음 단계에 따라 Twitter 애플리케이션을 만들고 이 자습서를 완료하는 데 필요한 값을 기록합니다.
 
-1. 웹 브라우저에서 [Twitter 응용 프로그램 관리](https://apps.twitter.com/)로 이동하고 **새 앱 만들기**를 선택합니다.
+1. 웹 브라우저에서 [Twitter 애플리케이션 관리](https://apps.twitter.com/)로 이동하고 **새 앱 만들기**를 선택합니다.
 
     ![Twitter 응용 프로그램 만들기](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-twitter-app.png "Twitter 응용 프로그램 만들기")
 

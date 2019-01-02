@@ -99,7 +99,7 @@ The application was deployed successfully and it can be accessed at http://...
 
 웹 브라우저를 열고 URL로 이동하여 Azure에서 실행되는 웹 사이트를 확인합니다.
 
-![Service Fabric Mesh 웹 응용 프로그램 실행](media/service-fabric-mesh-tutorial-deploy-dotnetcore/deployed-web-project.png)
+![Service Fabric Mesh 웹 애플리케이션 실행](media/service-fabric-mesh-tutorial-deploy-dotnetcore/deployed-web-project.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

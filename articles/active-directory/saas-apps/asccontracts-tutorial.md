@@ -127,7 +127,7 @@ ASC Contracts에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![Configure Single Sign-On](./media/asccontracts-tutorial/tutorial_general_400.png)
 
-1. **ASC Contracts** 쪽에서 Single Sign-On을 구성하려면 **613.599.6178**로 ASC(ASC Networks Inc.) 지원을 호출하여 다운로드한 **메타데이터 XML**을 제공합니다. 그러면 이 응용 프로그램에서 SAML SSO 연결이 양쪽에 제대로 설정되도록 설정합니다.
+1. **ASC Contracts** 쪽에서 Single Sign-On을 구성하려면 **613.599.6178**로 ASC(ASC Networks Inc.) 지원을 호출하여 다운로드한 **메타데이터 XML**을 제공합니다. 그러면 이 애플리케이션에서 SAML SSO 연결이 양쪽에 제대로 설정되도록 설정합니다.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.

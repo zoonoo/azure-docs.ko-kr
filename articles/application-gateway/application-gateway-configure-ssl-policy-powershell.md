@@ -194,7 +194,7 @@ $policy = New-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyN
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.ResourceGroupName -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
 ```
 
-## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>미리 정의된 SSL 정책을 사용하여 기존 응용 프로그램 게이트웨이 업데이트
+## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>미리 정의된 SSL 정책을 사용하여 기존 애플리케이션 게이트웨이 업데이트
 
 사용자 지정 SSL 정책을 설정하려면 다음 매개 변수를 전달합니다. **PolicyType**, **MinProtocolVersion**, **CipherSuite** 및 **ApplicationGateway** 미리 정의된 SSL 정책을 설정하려면 다음 매개 변수를 전달합니다. **PolicyType**, **PolicyName** 및 **ApplicationGateway** 다른 매개 변수를 전달하려고 하면 Application Gateway를 만들거나 업데이트할 때 오류가 발생합니다.
 

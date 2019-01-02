@@ -30,7 +30,7 @@ Azure Service Management API는 [Azure Portal][management-portal]을 통해 사�
 서비스 관리 API를 사용하려면 [Azure 계정을 만들어야](https://azure.microsoft.com/pricing/free-trial/)합니다.
 
 ## <a name="Concepts"> </a>개념
-Python용 Azure SDK는 REST API인 [Service Management API][svc-mgmt-rest-api]를 래핑합니다. 모든 API 작업은 SSL을 통해 수행되고 X.509 v3 인증서를 사용하여 서로 인증됩니다. 관리 서비스는 Azure에서 실행되는 서비스 내에서 액세스할 수 있습니다. HTTPS 요청을 보내고 HTTPS 응답을 받을 수 있는 응용 프로그램에서 인터넷을 통해 직접 액세스할 수도 있습니다.
+Python용 Azure SDK는 REST API인 [Service Management API][svc-mgmt-rest-api]를 래핑합니다. 모든 API 작업은 SSL을 통해 수행되고 X.509 v3 인증서를 사용하여 서로 인증됩니다. 관리 서비스는 Azure에서 실행되는 서비스 내에서 액세스할 수 있습니다. HTTPS 요청을 보내고 HTTPS 응답을 받을 수 있는 애플리케이션에서 인터넷을 통해 직접 액세스할 수도 있습니다.
 
 ## <a name="Installation"> </a>설치
 이 문서에서 설명한 모든 기능은 `azure-servicemanagement-legacy` 패키지에서 사용할 수 있으며, 이 패키지는 pip를 사용하여 설치할 수 있습니다. (예를 들어 Python을 처음 사용한다면) 설치에 관한 자세한 내용은 [Python 설치 및 Azure SDK](../python-how-to-install.md)를 참조하세요.
@@ -119,7 +119,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure Cloud Services 인증서 �
 * 오스트레일리아 남동부
 
 ## <a name="CreateCloudService"> </a>클라우드 서비스 만들기
-응용 프로그램을 만들고 Azure에서 실행하는 경우 코드와 구성을 총체적으로 Azure [클라우드 서비스][cloud service]라고 합니다. (이전 Azure 버전에서는 *호스팅된 서비스*라고 했습니다.) **create\_hosted\_service** 메서드를 사용하여 새로운 호스팅된 서비스를 만들 수 있습니다. 호스팅 서비스 이름(Azure에서 고유해야 함), 레이블(base64로 자동 인코딩됨), 설명 및 위치를 제공하여 서비스를 만듭니다.
+애플리케이션을 만들고 Azure에서 실행하는 경우 코드와 구성을 총체적으로 Azure [클라우드 서비스][cloud service]라고 합니다. (이전 Azure 버전에서는 *호스팅된 서비스*라고 했습니다.) **create\_hosted\_service** 메서드를 사용하여 새로운 호스팅된 서비스를 만들 수 있습니다. 호스팅 서비스 이름(Azure에서 고유해야 함), 레이블(base64로 자동 인코딩됨), 설명 및 위치를 제공하여 서비스를 만듭니다.
 
     from azure import *
     from azure.servicemanagement import *
@@ -400,7 +400,7 @@ VM 이미지를 캡처하려면 먼저 **capture\_vm\_image** 메서드를 호�
 클래식 배포 모델에서 Windows 가상 머신을 캡처하는 방법에 대한 자세한 내용은 [Windows 가상 머신 캡처](../virtual-machines/windows/classic/capture-image-classic.md)를 참조하세요.
 
 ## <a name="What's Next"> </a>다음 단계
-서비스 관리의 기본 사항을 배웠으므로 이제 [Azure Python SDK에 대한 전체 API 참조 설명서](http://azure-sdk-for-python.readthedocs.org/)에 액세스하고 쉽게 복잡한 작업을 수행하여 Python 응용 프로그램을 관리할 수 있습니다.
+서비스 관리의 기본 사항을 배웠으므로 이제 [Azure Python SDK에 대한 전체 API 참조 설명서](http://azure-sdk-for-python.readthedocs.org/)에 액세스하고 쉽게 복잡한 작업을 수행하여 Python 애플리케이션을 관리할 수 있습니다.
 
 자세한 내용은 [Python 개발자 센터](https://azure.microsoft.com/develop/python/)를 참조하세요.
 

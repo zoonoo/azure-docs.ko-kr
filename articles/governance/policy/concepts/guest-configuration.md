@@ -18,7 +18,7 @@ ms.locfileid: "53310065"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
-Azure Policy는 Azure 리소스를 감사 및 [수정](../how-to/remediate-resources.md)할 수 있을 뿐 아니라 가상 머신 내의 설정도 감사할 수 있습니다. 게스트 구성 확장 및 클라이언트가 유효성 검사를 수행합니다. 이 확장은 클라이언트를 통해 운영 체제 구성, 응용 프로그램 구성/유무, 환경 설정 등의 설정 유효성을 검사합니다.
+Azure Policy는 Azure 리소스를 감사 및 [수정](../how-to/remediate-resources.md)할 수 있을 뿐 아니라 가상 머신 내의 설정도 감사할 수 있습니다. 게스트 구성 확장 및 클라이언트가 유효성 검사를 수행합니다. 이 확장은 클라이언트를 통해 운영 체제 구성, 애플리케이션 구성/유무, 환경 설정 등의 설정 유효성을 검사합니다.
 
 > [!IMPORTANT]
 > 현재는 **기본 제공** 정책만 게스트 구성에서 지원됩니다.

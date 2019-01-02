@@ -435,7 +435,7 @@ DeploymentDebugLogLevel :
 3. 데이터 팩터리 페이지에서 **모니터링 및 관리** 타일을 클릭합니다. 
 
     ![타일 모니터링 및 관리](media/quickstart-create-data-factory-resource-manager-template/monitor-manage-tile.png)
-4. 웹 브라우저에서 **데이터 통합 응용 프로그램**을 별도의 탭에 열어야 합니다. 모니터 탭이 활성 상태가 아니면 **모니터링 탭**으로 전환합니다. **스케줄러 트리거**에 의해 파이프라인 실행이 트리거되었습니다. 
+4. 웹 브라우저에서 **데이터 통합 애플리케이션**을 별도의 탭에 열어야 합니다. 모니터 탭이 활성 상태가 아니면 **모니터링 탭**으로 전환합니다. **스케줄러 트리거**에 의해 파이프라인 실행이 트리거되었습니다. 
 
     ![파이프라인 실행 모니터링](media/quickstart-create-data-factory-resource-manager-template/monitor-pipeline-run.png)    
 

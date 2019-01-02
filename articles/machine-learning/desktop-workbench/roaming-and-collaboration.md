@@ -115,7 +115,7 @@ az ml workspace show --query "id"
 az role assignment create --assignee bob@contoso.com --role Owner --scope <workspace Resource Manager ID>
 ```
 
-직접 또는 상속을 통해 역할이 할당되면 Bob은 Machine Learning Workbench 프로젝트 목록에서 프로젝트를 볼 수 있습니다. Bob이 프로젝트를 보려면 응용 프로그램을 다시 시작해야 할 수도 있습니다. 그런 후 Bob은 [로밍](#roaming)에 설명된 대로 프로젝트를 다운로드하고 Alice와 공동 작업을 시작할 수 있습니다. 
+직접 또는 상속을 통해 역할이 할당되면 Bob은 Machine Learning Workbench 프로젝트 목록에서 프로젝트를 볼 수 있습니다. Bob이 프로젝트를 보려면 애플리케이션을 다시 시작해야 할 수도 있습니다. 그런 후 Bob은 [로밍](#roaming)에 설명된 대로 프로젝트를 다운로드하고 Alice와 공동 작업을 시작할 수 있습니다. 
 
 프로젝트를 공동 작업하는 모든 사용자의 실행 기록은 동일한 원격 Git 리포지토리로 커밋됩니다. Alice가 실행할 때 Bob은 Machine Learning Workbench 앱의 프로젝트 실행 기록 섹션에서 해당 실행을 볼 수 있습니다. 또한 Bob은 Alice가 시작한 실행을 포함하여 프로젝트를 원하는 실행 상태로 복원할 수 있습니다. 
 

@@ -74,7 +74,7 @@ ms.locfileid: "53018805"
 
 #### <a name="to-edit-the-cachesecretsconfig-file"></a>*CacheSecrets.config* 파일을 편집하려면
 
-3. *CacheSecrets.config*라는 컴퓨터에서 파일을 만듭니다. 샘플 응용 프로그램의 소스 코드를 사용하여 체크 인하지 않을 위치에 배치합니다. 이 빠른 시작의 경우 *CacheSecrets.config* 파일은 *C:\AppSecrets\CacheSecrets.config*에 있습니다.
+3. *CacheSecrets.config*라는 컴퓨터에서 파일을 만듭니다. 샘플 애플리케이션의 소스 코드를 사용하여 체크 인하지 않을 위치에 배치합니다. 이 빠른 시작의 경우 *CacheSecrets.config* 파일은 *C:\AppSecrets\CacheSecrets.config*에 있습니다.
 
 4. *CacheSecrets.config* 파일을 편집합니다. 그런 다음, 다음 내용을 추가합니다.
 
@@ -104,7 +104,7 @@ ms.locfileid: "53018805"
 
 ### <a name="update-the-webconfig-file-with-an-app-setting-for-the-cache"></a>캐시에 대한 앱 설정이 포함된 web.config 파일 업데이트
 
-애플리케이션을 로컬로 실행하는 경우 *CacheSecrets.config*의 정보는 Azure Cache for Redis 인스턴스에 연결하는 데 사용됩니다. 나중에 이 애플리케이션을 Azure에 배포합니다. 그때 응용 프로그램이 이 파일 대신 캐시 연결 정보를 검색하는 데 사용하는 앱 설정을 Azure에서 구성합니다. 
+애플리케이션을 로컬로 실행하는 경우 *CacheSecrets.config*의 정보는 Azure Cache for Redis 인스턴스에 연결하는 데 사용됩니다. 나중에 이 애플리케이션을 Azure에 배포합니다. 그때 애플리케이션이 이 파일 대신 캐시 연결 정보를 검색하는 데 사용하는 앱 설정을 Azure에서 구성합니다. 
 
 *CacheSecrets.config* 파일이 응용 프로그램과 함께 Azure에 배포되지 않으므로 응용 프로그램을 로컬로 테스트하는 동안에만 사용합니다. 캐시 데이터에 대한 악의적인 액세스를 방지하기 위해 이 정보를 최대한 안전하게 유지하세요.
 
@@ -118,9 +118,9 @@ ms.locfileid: "53018805"
 * 이전: `<appSettings>`
 * 이후: ` <appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
-ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그와 병합합니다. 지정된 파일을 찾을 수 없는 경우 런타임에서 파일 특성을 무시합니다. 암호(캐시에 대한 연결 문자열)는 응용 프로그램에 대 한 소스 코드의 일부분으로 포함되지 않습니다. Azure에 웹앱을 배포하는 경우 *CacheSecrests.config* 파일은 배포되지 않습니다.
+ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그와 병합합니다. 지정된 파일을 찾을 수 없는 경우 런타임에서 파일 특성을 무시합니다. 암호(캐시에 대한 연결 문자열)는 애플리케이션에 대 한 소스 코드의 일부분으로 포함되지 않습니다. Azure에 웹앱을 배포하는 경우 *CacheSecrests.config* 파일은 배포되지 않습니다.
 
-### <a name="to-configure-the-application-to-use-stackexchangeredis"></a>StackExchange.Redis를 사용하도록 응용 프로그램을 구성하려면
+### <a name="to-configure-the-application-to-use-stackexchangeredis"></a>StackExchange.Redis를 사용하도록 애플리케이션을 구성하려면
 
 1. Visual Studio용 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) NuGet 패키지를 사용하여 앱을 구성하려면 **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔**을 선택합니다.
 

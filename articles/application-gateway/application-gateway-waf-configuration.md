@@ -1,6 +1,6 @@
 ---
-title: Azure Application Gateway의 웹 응용 프로그램 방화벽 요청 크기 제한 및 제외 목록 - Azure Portal
-description: 이 문서에서는 Azure Portal을 사용하는 Application Gateway의 웹 응용 프로그램 방화벽 요청 크기 제한 및 제외 목록 구성에 대해 설명합니다.
+title: Azure Application Gateway의 웹 애플리케이션 방화벽 요청 크기 제한 및 제외 목록 - Azure Portal
+description: 이 문서에서는 Azure Portal을 사용하는 Application Gateway의 웹 애플리케이션 방화벽 요청 크기 제한 및 제외 목록 구성에 대해 설명합니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -14,7 +14,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/06/2018
 ms.locfileid: "51036720"
 ---
-# <a name="web-application-firewall-request-size-limits-and-exclusion-lists-public-preview"></a>웹 응용 프로그램 방화벽 요청 크기 제한 및 제외 목록(공개 미리 보기)
+# <a name="web-application-firewall-request-size-limits-and-exclusion-lists-public-preview"></a>웹 애플리케이션 방화벽 요청 크기 제한 및 제외 목록(공개 미리 보기)
 
 Azure Application Gateway WAF(웹 애플리케이션 방화벽)는 웹 애플리케이션을 보호합니다. 이 문서에서는 WAF 요청 크기 제한 및 제외 목록 구성에 대해 설명합니다.
 
@@ -25,7 +25,7 @@ Azure Application Gateway WAF(웹 애플리케이션 방화벽)는 웹 애플리
 
 ![요청 크기 제한](media/application-gateway-waf-configuration/waf-requestsizelimit.png)
 
-사용자는 웹 응용 프로그램 방화벽을 통해 상한과 하한 사이의 범위에서 요청 크기 제한을 구성할 수 있습니다. 사용 가능한 크기 제한 구성은 다음의 두 가지입니다.
+사용자는 웹 애플리케이션 방화벽을 통해 상한과 하한 사이의 범위에서 요청 크기 제한을 구성할 수 있습니다. 사용 가능한 크기 제한 구성은 다음의 두 가지입니다.
 
 - KB 단위로 지정되는 최대 요청 본문 크기 필드는 파일 업로드를 제외한 전체 요청 크기 제한을 제어합니다. 이 필드에는 1KB~128KB 사이의 값을 지정할 수 있습니다. 요청 본문 크기의 기본값은 128KB입니다.
 - MB 단위로 지정되는 파일 업로드 제한 필드는 허용되는 최대 파일 업로드 크기를 제어합니다. 이 필드에는 1MB~500MB 사이의 값을 지정할 수 있습니다. 파일 업로드 제한의 기본값은 100MB입니다.

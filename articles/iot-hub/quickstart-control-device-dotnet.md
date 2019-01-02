@@ -138,13 +138,13 @@ az iot hub show-connection-string --hub-name YourIoTHubName --output table
 
     `s_connectionString` 변수의 값을 이전에 적어둔 서비스 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **BackEndApplication.cs** 파일에 저장합니다.
 
-3. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램에 필요한 라이브러리를 설치합니다.
+3. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 애플리케이션에 필요한 라이브러리를 설치합니다.
 
     ```cmd/sh
     dotnet restore
     ```
 
-4. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램을 빌드하고 실행합니다.
+4. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 애플리케이션을 빌드하고 실행합니다.
 
     ```cmd/sh
     dotnet run

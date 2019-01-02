@@ -30,9 +30,9 @@ items:
     items:
     - name: 1 - 컨테이너 레지스트리 준비
       href: container-registry-tutorial-prepare-registry.md
-    - name: 2 - 웹 응용 프로그램 배포
+    - name: 2 - 웹 애플리케이션 배포
       href: container-registry-tutorial-deploy-app.md
-    - name: 3 - 웹 응용 프로그램 업데이트
+    - name: 3 - 웹 애플리케이션 업데이트
       href: container-registry-tutorial-deploy-update.md
 - name: 개념
   items:

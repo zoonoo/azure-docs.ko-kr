@@ -105,7 +105,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
     ```PowerShell
     New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
-9. 응용 프로그램 ID를 가져옵니다.
+9. 애플리케이션 ID를 가져옵니다.
 
     ```PowerShell
     $azureAdApplication 
@@ -116,7 +116,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
 
 * 테넌트 ID
 * 구독 ID
-* 응용 프로그램 UI
+* 애플리케이션 UI
 * (첫 번째 명령에 지정된)암호
 
 ## <a name="walkthrough"></a>연습
@@ -124,7 +124,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
    1. **Visual Studio** 2012/2013/2015를 실행합니다.
    2. **파일**을 클릭하고 **새로 만들기**를 가리킨 다음 **프로젝트**를 클릭합니다.
    3. **템플릿**을 확장하고 **Visual C#** 을 선택합니다. 이 연습에서는 C#을 사용하지만 모든 .NET 언어를 사용할 수 있습니다.
-   4. 오른쪽의 프로젝트 형식 목록에서 **콘솔 응용 프로그램** 을 선택합니다.
+   4. 오른쪽의 프로젝트 형식 목록에서 **콘솔 애플리케이션**을 선택합니다.
    5. 이름에 **DataFactoryAPITestApp** 을 입력합니다.
    6. **C:\ADFGetStarted**를 [위치]로 선택합니다.
    7. **확인**을 클릭하여 프로젝트를 만듭니다.

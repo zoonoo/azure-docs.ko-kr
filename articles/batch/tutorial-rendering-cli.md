@@ -27,11 +27,11 @@ Azure Batch Rendering Service는 클라우드 수준 렌더링 기능을 사용�
 > * 풀 크기 조정 및 다중 프레임 장면 렌더링
 > * 렌더링된 출력 다운로드
 
-이 자습서에서는 [Arnold](https://www.autodesk.com/products/arnold/overview) 광선 투사 방식 렌더러를 사용하여 Batch를 통해 3ds Max 장면을 렌더링합니다. Batch 풀은 사용량 기준 과금 라이선스를 제공하는 미리 설치된 그래픽 및 렌더링 응용 프로그램과 함께 Azure Marketplace 이미지를 사용합니다.
+이 자습서에서는 [Arnold](https://www.autodesk.com/products/arnold/overview) 광선 투사 방식 렌더러를 사용하여 Batch를 통해 3ds Max 장면을 렌더링합니다. Batch 풀은 사용량 기준 과금 라이선스를 제공하는 미리 설치된 그래픽 및 렌더링 애플리케이션과 함께 Azure Marketplace 이미지를 사용합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-사용량 기준 과금 단위로 일괄 처리에서 렌더링 응용 프로그램을 사용하는 데 종량제 구독 또는 다른 Azure 구입 옵션이 필요합니다. **사용량 기준 과금 라이선스는 금액 크레딧을 제공하는 무료 Azure 제품을 사용하는 경우 지원되지 않습니다.**
+사용량 기준 과금 단위로 일괄 처리에서 렌더링 애플리케이션을 사용하는 데 종량제 구독 또는 다른 Azure 구입 옵션이 필요합니다. **사용량 기준 과금 라이선스는 금액 크레딧을 제공하는 무료 Azure 제품을 사용하는 경우 지원되지 않습니다.**
 
 이 자습서의 3ds Max 장면 샘플은 Bash 스크립트 샘플 및 JSON 구성 파일과 함께 [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene)에 있습니다. 3ds Max 장면은 [Autodesk 3ds Max 샘플 파일](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe)에서 제공된 것입니다. (Autodesk 3ds Max 샘플 파일은 Creative 일반 저작자 표시 - 비영리 목적 - 동일 조건 변경 허락 라이선스에 따라 사용할 수 있습니다. Copyright © Autodesk, Inc.)
 

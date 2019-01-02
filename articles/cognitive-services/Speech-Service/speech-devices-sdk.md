@@ -1,7 +1,7 @@
 ---
 title: Speech Devices SDK 정보 - Speech Services
 titleSuffix: Azure Cognitive Services
-description: Speech Devices SDK를 시작합니다. Speech Services는 다양한 디바이스 및 오디오 원본에서 작동합니다. 이제 일치하는 하드웨어 및 소프트웨어를 사용하여 음성 응용 프로그램을 한 단계 업그레이드할 수 있습니다. Speech Devices SDK는 특별히 만들어진 마이크 배열 개발 키트와 쌍으로 연결된 미리 조정된 라이브러리입니다.
+description: Speech Devices SDK를 시작합니다. Speech Services는 다양한 디바이스 및 오디오 원본에서 작동합니다. 이제 일치하는 하드웨어 및 소프트웨어를 사용하여 음성 애플리케이션을 한 단계 업그레이드할 수 있습니다. Speech Devices SDK는 특별히 만들어진 마이크 배열 개발 키트와 쌍으로 연결된 미리 조정된 라이브러리입니다.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -20,7 +20,7 @@ ms.locfileid: "53101741"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>Speech Devices SDK(미리 보기) 정보
 
-[Speech Service](overview.md)는 다양한 장치 및 오디오 원본에서 작동합니다. 이제 일치하는 하드웨어 및 소프트웨어를 사용하여 음성 응용 프로그램을 한 단계 업그레이드할 수 있습니다. Speech Devices SDK는 특별히 만들어진 마이크 배열 개발 키트와 쌍으로 연결된 미리 조정된 라이브러리입니다.
+[Speech Service](overview.md)는 다양한 장치 및 오디오 원본에서 작동합니다. 이제 일치하는 하드웨어 및 소프트웨어를 사용하여 음성 애플리케이션을 한 단계 업그레이드할 수 있습니다. Speech Devices SDK는 특별히 만들어진 마이크 배열 개발 키트와 쌍으로 연결된 미리 조정된 라이브러리입니다.
 
 Speech Devices SDK는 다음을 수행하는 데 유용합니다.
 * 새 음성 시나리오를 신속하게 테스트합니다.

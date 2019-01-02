@@ -73,7 +73,7 @@ Azure AD(Azure Active Directory) B2C에서는 여러 유형의 계정을 사용�
 
 ## <a name="consumer-user"></a>소비자 사용자
 
-소비자 사용자는 Azure AD B2C에서 보호하는 응용 프로그램에 로그인할 수 있지만 Azure Portal과 같은 Azure 리소스에 액세스할 수 없습니다.  소비자 사용자는 로컬 계정이나 Facebook 또는 Twitter와 같은 페더레이션된 계정을 사용할 수 있습니다. 소비자 계정은 [가입 또는 로그인 사용자 흐름](../active-directory-b2c/active-directory-b2c-reference-policies.md)을 사용하여 생성됩니다.
+소비자 사용자는 Azure AD B2C에서 보호하는 애플리케이션에 로그인할 수 있지만 Azure Portal과 같은 Azure 리소스에 액세스할 수 없습니다.  소비자 사용자는 로컬 계정이나 Facebook 또는 Twitter와 같은 페더레이션된 계정을 사용할 수 있습니다. 소비자 계정은 [가입 또는 로그인 사용자 흐름](../active-directory-b2c/active-directory-b2c-reference-policies.md)을 사용하여 생성됩니다.
 
 사용자 지정 특성을 사용하여 소비자 사용자 계정이 생성될 때 수집되는 데이터를 지정할 수 있습니다. 자세한 내용은 [Azure Active Directory B2C에서 사용자 지정 특성 정의](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md)를 참조하세요.
 

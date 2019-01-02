@@ -193,7 +193,7 @@ Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.
 `primaryMasterKey`의 값을 복사합니다. 이 정보는 다음 단계에서 필요합니다.
 
 <a name="devconfig"></a>
-### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Node.js 응용 프로그램에 연결 문자열 구성
+### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Node.js 애플리케이션에 연결 문자열 구성
 
 로컬 MEAN.js 저장소의 _구성/환경/_ 폴더에서 _local-production.js_라는 파일을 만듭니다. 기본적으로 리포지토리 밖에서 이 파일을 만들도록 _.gitignore_를 구성합니다. 
 
@@ -251,7 +251,7 @@ MEAN.JS version: 0.5.0
 
 ## <a name="deploy-app-to-azure"></a>Azure에 앱 배포
 
-이 단계에서는 MongoDB에 연결된 Node.js 응용 프로그램을 Azure App Service에 배포합니다.
+이 단계에서는 MongoDB에 연결된 Node.js 애플리케이션을 Azure App Service에 배포합니다.
 
 ### <a name="configure-a-deployment-user"></a>배포 사용자 구성
 

@@ -32,7 +32,7 @@ Microsoft에서는 다양한 제품 옵션을 제공하여 기계 학습 모델�
 | [SQL Server Machine Learning 서비스](#sql-server-machine-learning-services) | SQL에 포함된 Analytics 엔진 | SQL Server 내에 모델을 빌드 및 배포 |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | 예측 분석에 대한 독립 실행형 엔터프라이즈 서버 | R 및 Python을 사용하여 모델을 빌드 및 배포 |
 | ***개발자 도구*** | | |
-| [ML.NET](#mlnet) | 오픈 소스, 플랫폼 간 ML SDK | .NET 응용 프로그램에 대한 ML 솔루션 개발 |
+| [ML.NET](#mlnet) | 오픈 소스, 플랫폼 간 ML SDK | .NET 애플리케이션에 대한 ML 솔루션 개발 |
 | [Windows ML](#windows-ml) | Windows 10 ML 플랫폼 | Windows 10 장치에서 학습된 모델을 평가 |
 
 ## <a name="azure-machine-learning-service"></a>Azure Machine Learning 서비스
@@ -96,13 +96,13 @@ Data Science Virtual Machine은 Azure Machine Learning 서비스의 대상으로
 
 [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/)는 무료, 오픈 소스, 플랫폼 간 기계 학습 프레임워크로서 사용자 지정 기계 학습 솔루션을 빌드해서 .NET 응용 프로그램에 통합할 수 있습니다.
 
-.NET 응용 프로그램에 기계 학습 솔루션을 통합하려는 경우 ML.NET를 사용합니다.
+.NET 애플리케이션에 기계 학습 솔루션을 통합하려는 경우 ML.NET를 사용합니다.
 
 ## <a name="windows-ml"></a>Windows ML
 
 [Windows ML](https://docs.microsoft.com/windows/uwp/machine-learning/)은 애플리케이션에서 학습된 기계 학습 모델을 사용하면서 Windows 10 디바이스에서 로컬로 학습된 모델을 평가할 수 있습니다.
 
-Windows 응용 프로그램 내에서 학습된 기계 학습 모델을 사용하려는 경우 Windows ML을 사용합니다.
+Windows 애플리케이션 내에서 학습된 기계 학습 모델을 사용하려는 경우 Windows ML을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Python용 Bing Web Search SDK 사용'
 titleSuffix: Azure Cognitive Services
-description: Bing Web Search SDK를 사용하면 Bing Web Search를 Python 응용 프로그램에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 요청을 보내고, JSON 응답을 받고, 결과를 필터링 및 구문 분석하는 방법에 대해 알아봅니다.
+description: Bing Web Search SDK를 사용하면 Bing Web Search를 Python 애플리케이션에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 요청을 보내고, JSON 응답을 받고, 결과를 필터링 및 구문 분석하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -19,7 +19,7 @@ ms.locfileid: "52306373"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>빠른 시작: Python용 Bing Web Search SDK 사용
 
-Bing Web Search SDK를 사용하면 Bing Web Search를 Python 응용 프로그램에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 요청을 보내고, JSON 응답을 받고, 결과를 필터링 및 구문 분석하는 방법에 대해 알아봅니다.
+Bing Web Search SDK를 사용하면 Bing Web Search를 Python 애플리케이션에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 요청을 보내고, JSON 응답을 받고, 결과를 필터링 및 구문 분석하는 방법에 대해 알아봅니다.
 
 지금 코드를 보시겠나요? [Python용 Bing Web Search SDK 샘플](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)은 GitHub에서 사용할 수 있습니다.
 

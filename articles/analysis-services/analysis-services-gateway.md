@@ -176,7 +176,7 @@ ms.locfileid: "48802056"
 
 #### <a name="event-logs"></a>이벤트 로그
 
-데이터 관리 게이트웨이 및 PowerBIGateway 로그를 **응용 프로그램 및 서비스 로그** 아래에서 찾을 수 있습니다.
+데이터 관리 게이트웨이 및 PowerBIGateway 로그를 **애플리케이션 및 서비스 로그** 아래에서 찾을 수 있습니다.
 
 
 ## <a name="telemetry"></a>원격 분석

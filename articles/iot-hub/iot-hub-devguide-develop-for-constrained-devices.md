@@ -56,7 +56,7 @@ cmake -Ddont_use_uploadtoblob=ON <Path_to_cmake>
 
 ### <a name="running-strip-on-linux-environment"></a>Linux 환경에서 strip 실행
 
-이진 파일이 Linux 시스템에서 실행되는 경우 컴파일 후에 [strip 명령](https://en.wikipedia.org/wiki/Strip_(Unix))을 활용하여 최종 응용 프로그램의 크기를 줄일 수 있습니다.
+이진 파일이 Linux 시스템에서 실행되는 경우 컴파일 후에 [strip 명령](https://en.wikipedia.org/wiki/Strip_(Unix))을 활용하여 최종 애플리케이션의 크기를 줄일 수 있습니다.
 
 ```
 strip -s <Path_to_executable>

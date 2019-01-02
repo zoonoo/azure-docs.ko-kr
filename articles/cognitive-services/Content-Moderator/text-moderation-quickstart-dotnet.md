@@ -173,7 +173,7 @@ Autocorrect typos, check for matching terms, PII, and classify.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 지정된 텍스트 샘플에 대한 관련 정보를 반환하는 Content Moderator 서비스를 사용하는 간단한 .NET 응용 프로그램을 개발했습니다. 다음으로, 다양한 플래그 및 분류가 의미하는 바를 자세히 알아보므로 어떤 데이터가 필요하고 앱에서 데이터를 어떻게 처리해야 하는지 결정할 수 있습니다.
+이 빠른 시작에서는 지정된 텍스트 샘플에 대한 관련 정보를 반환하는 Content Moderator 서비스를 사용하는 간단한 .NET 애플리케이션을 개발했습니다. 다음으로, 다양한 플래그 및 분류가 의미하는 바를 자세히 알아보므로 어떤 데이터가 필요하고 앱에서 데이터를 어떻게 처리해야 하는지 결정할 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [텍스트 조정 가이드](text-moderation-api.md)

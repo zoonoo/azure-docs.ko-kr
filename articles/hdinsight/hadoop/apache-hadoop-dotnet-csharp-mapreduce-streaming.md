@@ -55,7 +55,7 @@ __Linux 기반 HDInsight__ 클러스터는 [Mono(https://mono-project.com)](http
 
 ## <a name="create-the-mapper"></a>매퍼 만들기
 
-Visual Studio에서 __mapper__라는 새 __콘솔 응용 프로그램__을 만듭니다. 응용 프로그램에 대해 다음 코드를 사용합니다.
+Visual Studio에서 __mapper__라는 새 __콘솔 애플리케이션__을 만듭니다. 애플리케이션에 대해 다음 코드를 사용합니다.
 
 ```csharp
 using System;
@@ -88,11 +88,11 @@ namespace mapper
 }
 ```
 
-응용 프로그램을 생성한 다음 빌드하여 프로젝트 디렉터리에 `/bin/Debug/mapper.exe` 파일을 만듭니다.
+애플리케이션을 만든 후 빌드하여 프로젝트 디렉터리에 `/bin/Debug/mapper.exe` 파일을 생성합니다.
 
 ## <a name="create-the-reducer"></a>리듀서 만들기
 
-Visual Studio에서 __reducer__라는 새 __콘솔 응용 프로그램__을 만듭니다. 응용 프로그램에 대해 다음 코드를 사용합니다.
+Visual Studio에서 __reducer__라는 새 __콘솔 애플리케이션__을 만듭니다. 애플리케이션에 대해 다음 코드를 사용합니다.
 
 ```csharp
 using System;
@@ -141,7 +141,7 @@ namespace reducer
 }
 ```
 
-응용 프로그램을 생성한 다음 빌드하여 프로젝트 디렉터리에 `/bin/Debug/reducer.exe` 파일을 만듭니다.
+애플리케이션을 만든 후 빌드하여 프로젝트 디렉터리에 `/bin/Debug/reducer.exe` 파일을 생성합니다.
 
 ## <a name="upload-to-storage"></a>저장소에 업로드
 

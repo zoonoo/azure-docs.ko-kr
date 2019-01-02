@@ -178,7 +178,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
  ```
 
 > [!NOTE]
-> 값 범위에 대한 패싯은 일반적인 검색 응용 프로그램 요구 사항입니다. 패싯 탐색 구조용 필터 빌딩에 대한 예제 및 자세한 내용은 [*패싯 탐색 구현 방법*의 "범위 기준 필터"](search-faceted-navigation.md#filter-based-on-a-range)를 참조하세요.
+> 값 범위에 대한 패싯은 일반적인 검색 애플리케이션 요구 사항입니다. 패싯 탐색 구조용 필터 빌딩에 대한 예제 및 자세한 내용은 [*패싯 탐색 구현 방법*의 "범위 기준 필터"](search-faceted-navigation.md#filter-based-on-a-range)를 참조하세요.
 
 ## <a name="example-5-geo-search"></a>예제 5: 지리적 검색
 

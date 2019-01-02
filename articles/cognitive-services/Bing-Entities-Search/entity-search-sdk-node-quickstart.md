@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Bing Entity search SDK, Node'
 titleSuffix: Azure Cognitive Services
-description: Node를 사용하여 Entity Search SDK 콘솔 응용 프로그램을 설정합니다.
+description: Node를 사용하여 Entity Search SDK 콘솔 애플리케이션을 설정합니다.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun

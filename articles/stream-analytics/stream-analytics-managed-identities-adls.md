@@ -17,7 +17,7 @@ ms.locfileid: "53090434"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>관리 ID를 사용하여 Azure Data Lake Storage Gen1 출력(미리 보기)에 대해 Stream Analytics 인증
 
-Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하여 관리 ID 인증을 지원합니다. 관리 ID는 지정된 Stream Analytics 작업을 나타내는 Azure Active Directory에 등록된 관리되는 응용 프로그램이며, 대상 리소스를 인증하는 데 사용될 수 있습니다. 관리 ID는 암호 변경 또는 90일마다 발생하는 사용자 토큰 만료로 인해 다시 인증해야 하는 것과 마찬가지로 사용자 기반 인증 방법의 제한을 제거합니다. 또한 관리 ID는 Azure Data Lake Storage Gen1을 출력되는 Stream Analytics 작업 배포의 자동화에 도움이 됩니다.
+Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하여 관리 ID 인증을 지원합니다. 관리 ID는 지정된 Stream Analytics 작업을 나타내는 Azure Active Directory에 등록된 관리되는 애플리케이션이며, 대상 리소스를 인증하는 데 사용될 수 있습니다. 관리 ID는 암호 변경 또는 90일마다 발생하는 사용자 토큰 만료로 인해 다시 인증해야 하는 것과 마찬가지로 사용자 기반 인증 방법의 제한을 제거합니다. 또한 관리 ID는 Azure Data Lake Storage Gen1을 출력되는 Stream Analytics 작업 배포의 자동화에 도움이 됩니다.
 
 이 미리 보기에 등록하고 새 기능에 대해 자세히 알려면 [Azure Stream Analytics의 8가지 새로운 기능](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) 블로그 게시물을 참조합니다.
 

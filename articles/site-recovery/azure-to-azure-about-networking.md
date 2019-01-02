@@ -27,7 +27,7 @@ Site Recovery가 [이 시나리오](azure-to-azure-architecture.md)에 재해 �
 
 ## <a name="typical-network-infrastructure"></a>일반적인 네트워크 인프라
 
-다음 다이어그램에서는 Azure VM에서 실행되는 응용 프로그램에 대한 일반적인 Azure 환경을 보여 줍니다.
+다음 다이어그램에서는 Azure VM에서 실행되는 애플리케이션에 대한 일반적인 Azure 환경을 보여 줍니다.
 
 ![고객 환경](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 

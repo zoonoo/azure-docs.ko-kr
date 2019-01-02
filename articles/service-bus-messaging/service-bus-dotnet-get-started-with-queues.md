@@ -216,7 +216,7 @@ Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트�
 
 ## <a name="receive-messages-from-the-queue"></a>큐에서 메시지 받기
 
-방금 보낸 메시지를 받으려면 다른 .NET Core 콘솔 응용 프로그램을 만들고 이전의 보낸 사람 응용 프로그램과 유사한 **Microsoft.Azure.ServiceBus** NuGet 패키지를 설치합니다.
+방금 보낸 메시지를 받으려면 다른 .NET Core 콘솔 애플리케이션을 만들고 이전의 보낸 사람 애플리케이션과 유사한 **Microsoft.Azure.ServiceBus** NuGet 패키지를 설치합니다.
 
 ### <a name="write-code-to-receive-messages-from-the-queue"></a>코드를 작성하여 큐에서 메시지 받기
 

@@ -32,7 +32,7 @@ ms.locfileid: "52165648"
 * 자가 진단으로 더 예측 가능하고 완벽한 최종 사용자 보안을 사용하도록 설정합니다.
 
 > [!NOTE]
-> 이 문서의 다양한 권장 사항은 ID 공급자로 Azure Active Directory를 사용하도록 구성되어 있는 응용 프로그램에만 적용됩니다. Single Sign-On에 대해 앱을 구성하면 해당 앱에 자격 증명 정책, 위협 요소 탐지, 감사, 로깅 및 기타 기능의 이점이 추가됩니다. [Azure Active Directory를 통한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso)은 이러한 모든 권장 사항의 기반이 되는 토대입니다.
+> 이 문서의 다양한 권장 사항은 ID 공급자로 Azure Active Directory를 사용하도록 구성되어 있는 애플리케이션에만 적용됩니다. Single Sign-On에 대해 앱을 구성하면 해당 앱에 자격 증명 정책, 위협 요소 탐지, 감사, 로깅 및 기타 기능의 이점이 추가됩니다. [Azure Active Directory를 통한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso)은 이러한 모든 권장 사항의 기반이 되는 토대입니다.
 
 이 문서의 권장 사항은 Azure AD 테넌트의 ID 보안 구성 평가를 자동화한 [ID 보안 점수](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score)와 일치합니다. 조직은 Azure AD 포털의 [ID 보안 점수] 페이지를 통해 현재 보안 구성의 빈틈을 찾아 보안과 관련된 Microsoft의 현재 모범 사례를 따를 수 있습니다. [보안 점수] 페이지의 각 권장 사항을 구현하면 점수가 올라가고 진행 상황을 추적할 수 있으며, 비슷한 규모의 조직 또는 산업과 구현을 비교할 수 있습니다.
 

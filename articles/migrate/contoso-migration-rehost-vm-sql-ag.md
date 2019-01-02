@@ -658,7 +658,7 @@ Contoso 관리자는 빠른 테스트 장애 조치를 실행한 다음, VM을 �
 
 ### <a name="update-the-connection-string"></a>연결 문자열 업데이트
 
-마이그레이션 프로세스의 최종 단계로, Contoso 관리자는 SHAOG 수신기에서 실행 중인 마이그레이션된 데이터베이스를 가리키도록 응용 프로그램의 연결 문자열을 업데이트합니다. 현재 Azure에서 실행 중인 WEBVM에서는 이 구성이 변경됩니다.  이 구성은 ASP 응용 프로그램의 web.config에 있습니다. 
+마이그레이션 프로세스의 최종 단계로, Contoso 관리자는 SHAOG 수신기에서 실행 중인 마이그레이션된 데이터베이스를 가리키도록 애플리케이션의 연결 문자열을 업데이트합니다. 현재 Azure에서 실행 중인 WEBVM에서는 이 구성이 변경됩니다.  이 구성은 ASP 응용 프로그램의 web.config에 있습니다. 
 
 1. C:\inetpub\SmartHotelWeb\web.config에서 파일을 찾습니다.  AOG FQDN(shaog.contoso.com)을 반영하도록 서버의 이름을 변경합니다.
 
@@ -694,7 +694,7 @@ Azure에서 마이그레이션된 리소스를 사용하여 Contoso는 새 인�
 
 Contoso 보안 팀은 Azure VM WEBVM, SQLAOG1 및 SQLAOG2를 검토하여 보안 문제를 확인합니다. 
 
-- 그리고 액세스를 제어할 VM에 대한 NSG(네트워크 보안 그룹)를 검토합니다. NSG는 응용 프로그램에 허용된 트래픽만 통과할 수 있도록 제한하는 데 사용됩니다.
+- 그리고 액세스를 제어할 VM에 대한 NSG(네트워크 보안 그룹)를 검토합니다. NSG는 애플리케이션에 허용된 트래픽만 통과할 수 있도록 제한하는 데 사용됩니다.
 - 팀에서는 Azure Disk Encryption 및 KeyVault를 사용하여 디스크의 데이터를 보안하는 것도 고려합니다.
 - 팀에서는 TDE(투명한 데이터 암호화)를 평가하고 새 SQL AOG에서 실행되는 SmartHotel360 데이터베이스에서 사용하도록 설정해야 합니다. [자세히 알아보기](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017).
 

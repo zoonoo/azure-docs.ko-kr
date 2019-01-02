@@ -33,7 +33,7 @@ ms.locfileid: "53195808"
 
 ## <a name="how-a-test-drive-works"></a>시험 사용의 작동 방식
 
-잠재 고객은 Marketplace에서 응용 프로그램을 검색합니다. 고객은 로그인하여 사용 약관에 동의합니다. 이때 고객은 일정 시간 동안 사용해 보도록 미리 구성된 환경을 받고 여러분은 향후 연락할 우수한 잠재 고객을 얻게 됩니다. 자세한 내용은 [시험 사용이란?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/what-is-test-drive)을 참조하세요.
+잠재 고객은 Marketplace에서 애플리케이션을 검색합니다. 고객은 로그인하여 사용 약관에 동의합니다. 이때 고객은 일정 시간 동안 사용해 보도록 미리 구성된 환경을 받고 여러분은 향후 연락할 우수한 잠재 고객을 얻게 됩니다. 자세한 내용은 [시험 사용이란?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/what-is-test-drive)을 참조하세요.
 
 ## <a name="setting-up-a-test-drive"></a>시험 사용 설정
 

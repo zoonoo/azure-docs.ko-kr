@@ -1,6 +1,6 @@
 ---
 title: 지리적으로 분산된 Azure SQL Database 솔루션 구현 | Microsoft Docs
-description: Azure SQL Database와 응용 프로그램을 복제된 데이터베이스로 장애 조치하도록 구성하고 장애 조치를 테스트합니다.
+description: Azure SQL Database와 애플리케이션을 복제된 데이터베이스로 장애 조치하도록 구성하고 장애 조치를 테스트합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -27,7 +27,7 @@ ms.locfileid: "53269253"
 > - 데이터베이스 사용자를 만들고 권한 부여
 > - 데이터베이스 수준 방화벽 규칙 설정
 > - [장애 조치(failover) 그룹](sql-database-auto-failover-group.md) 만들기
-> - Azure SQL Database를 쿼리하기 위한 Java 응용 프로그램 만들기 및 컴파일
+> - Azure SQL Database를 쿼리하기 위한 Java 애플리케이션 만들기 및 컴파일
 > - 재해 복구 훈련 수행
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
@@ -335,7 +335,7 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
    mvn package
    ```
 
-2. 완료되면 다음 명령을 실행하여 응용 프로그램을 실행합니다(수동으로 중지하지 않으면 약 1시간 동안 실행됨).
+2. 완료되면 다음 명령을 실행하여 애플리케이션을 실행합니다(수동으로 중지하지 않으면 약 1시간 동안 실행됨).
 
    ```bash
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
@@ -360,7 +360,7 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
    -FailoverGroupName $myfailovergroupname
    ```
 
-2. 장애 조치(failover) 중에 응용 프로그램 결과를 관찰합니다. DNS 캐시를 새로 고치는 동안 일부 삽입이 실패합니다.
+2. 장애 조치(failover) 중에 애플리케이션 결과를 관찰합니다. DNS 캐시를 새로 고치는 동안 일부 삽입이 실패합니다.
 
 3. 재해 복구 서버가 수행하는 역할을 파악합니다.
 
@@ -377,7 +377,7 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
    -FailoverGroupName $myfailovergroupname
    ```
 
-5. 장애 복구(failback) 중에 응용 프로그램 결과를 관찰합니다. DNS 캐시를 새로 고치는 동안 일부 삽입이 실패합니다.
+5. 장애 복구(failback) 중에 애플리케이션 결과를 관찰합니다. DNS 캐시를 새로 고치는 동안 일부 삽입이 실패합니다.
 
 6. 재해 복구 서버가 수행하는 역할을 파악합니다.
 
@@ -391,13 +391,13 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure SQL 데이터베이스와 응용 프로그램을 원격 지역으로 장애 조치(failover)하도록 구성한 다음, 장애 조치(failover) 계획을 테스트하는 것을 알아봤습니다.  다음 방법에 대해 알아보았습니다.
+이 자습서에서는 Azure SQL 데이터베이스와 애플리케이션을 원격 지역으로 장애 조치(failover)하도록 구성한 다음, 장애 조치(failover) 계획을 테스트하는 것을 알아봤습니다.  다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > - 데이터베이스 사용자를 만들고 권한 부여
 > - 데이터베이스 수준 방화벽 규칙 설정
 > - 지역에서 복제 장애 조치(failover) 그룹 만들기
-> - Azure SQL Database를 쿼리하기 위한 Java 응용 프로그램 만들기 및 컴파일
+> - Azure SQL Database를 쿼리하기 위한 Java 애플리케이션 만들기 및 컴파일
 > - 재해 복구 훈련 수행
 
 DMS를 사용하여 SQL Server를 Azure SQL Database Managed Instance로 마이그레이션하려면 다음 자습서로 계속 진행하세요.

@@ -45,8 +45,8 @@ Dynamics AX에서 지원되는 모든 싱크 데이터 스토리지로 데이터
 
 1. [Azure AD 테넌트에 응용 프로그램 등록](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant)에 따라 Azure AD(Azure Active Directory)에 응용 프로그램 항목을 등록합니다. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
 
-    - 응용 프로그램 UI
-    - 응용 프로그램 키
+    - 애플리케이션 UI
+    - 애플리케이션 키
     - 테넌트 ID
 
 2. Dynamics AX로 이동한 다음, 이 서비스 주체에 Dynamics AX에 액세스할 수 있는 적절한 권한을 부여합니다.
@@ -59,9 +59,9 @@ Dynamics AX 연결된 서비스에 다음 속성이 지원됩니다.
 |:--- |:--- |:--- |
 | 형식 | **형식** 속성은 **DynamicsAX**로 설정해야 합니다. |yes |
 | URL | Dynamics AX(또는 Dynamics 365 Finance and Operations) 인스턴스 OData 엔드포인트입니다. |yes |
-| servicePrincipalId | 응용 프로그램의 클라이언트 ID를 지정합니다. | yes |
-| servicePrincipalKey | 응용 프로그램의 키를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
-| tenant | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | yes |
+| servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | yes |
+| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | yes |
 | aadResourceId | 권한 부여를 요청하는 AAD 리소스를 지정합니다. 예를 들어 동적 URL가 `https://sampledynamics.sandbox.operations.dynamics.com/data/`이면 그에 해당하는 AAD 리소스는 일반적으로 `https://sampledynamics.sandbox.operations.dynamics.com`입니다. | yes |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 개인 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 선택할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |아니요 |
 

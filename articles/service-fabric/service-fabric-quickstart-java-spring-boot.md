@@ -26,13 +26,13 @@ ms.locfileid: "51241891"
 
 Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다.
 
-이 빠른 시작에서는 Service Fabric에 Spring Boot 애플리케이션을 배포하는 방법을 보여줍니다. 이 빠른 시작에서는 Spring 웹 사이트의 [시작](https://spring.io/guides/gs/spring-boot/) 샘플을 사용합니다. 이 빠른 시작에서는 친숙한 명령줄 도구를 사용하여 Spring Boot 샘플을 Service Fabric 응용 프로그램으로 배포하는 방법을 안내합니다. 작업이 완료되면 Service Fabric에서 Spring Boot 시작 샘플을 사용합니다.
+이 빠른 시작에서는 Service Fabric에 Spring Boot 애플리케이션을 배포하는 방법을 보여줍니다. 이 빠른 시작에서는 Spring 웹 사이트의 [시작](https://spring.io/guides/gs/spring-boot/) 샘플을 사용합니다. 이 빠른 시작에서는 친숙한 명령줄 도구를 사용하여 Spring Boot 샘플을 Service Fabric 애플리케이션으로 배포하는 방법을 안내합니다. 작업이 완료되면 Service Fabric에서 Spring Boot 시작 샘플을 사용합니다.
 
-![응용 프로그램 스크린샷](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
+![애플리케이션 스크린샷](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 
-* Service Fabric에 Spring Boot 응용 프로그램 배포
+* Service Fabric에 Spring Boot 애플리케이션 배포
 * 로컬 클러스터에 애플리케이션 배포
 * Azure에서 애플리케이션을 클러스터에 배포
 * 애플리케이션을 여러 노드에 걸쳐 스케일 아웃
@@ -75,7 +75,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     ./gradlew build
     ``` 
 
-## <a name="package-the-spring-boot-application"></a>Spring Boot 응용 프로그램 패키지 
+## <a name="package-the-spring-boot-application"></a>Spring Boot 애플리케이션 패키지 
 1. 클론의 `gs-spring-boot` 디렉터리 내에서 `yo azuresfguest` 명령을 실행합니다. 
 
 1. 각 프롬프트에 다음 세부 정보를 입력합니다.
@@ -130,7 +130,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
      </ServiceManifest>
     ```
 
-이 단계에서는 Service Fabric에 배포할 수 있는 Spring Boot 시작 샘플에 Service Fabric 응용 프로그램을 만들었습니다.
+이 단계에서는 Service Fabric에 배포할 수 있는 Spring Boot 시작 샘플에 Service Fabric 애플리케이션을 만들었습니다.
 
 ## <a name="run-the-application-locally"></a>로컬에서 애플리케이션 실행
 
@@ -166,13 +166,13 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
     ![애플리케이션 프런트 엔드](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
-이제 Service Fabric 클러스터에 배포된 Spring Boot 응용 프로그램에 액세스할 수 있습니다.
+이제 Service Fabric 클러스터에 배포된 Spring Boot 애플리케이션에 액세스할 수 있습니다.
 
 ## <a name="deploy-the-application-to-azure"></a>Azure에 애플리케이션 배포
 
 ### <a name="set-up-your-azure-service-fabric-cluster"></a>Azure Service Fabric Cluster 설정
 
-응용 프로그램을 Azure의 클러스터에 배포하려면 고유한 클러스터를 만듭니다.
+애플리케이션을 Azure의 클러스터에 배포하려면 고유한 클러스터를 만듭니다.
 
 파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 Service Fabric 팀에서 운영합니다. 파티 클러스터를 사용하여 애플리케이션을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 클러스터는 노드-노드 및 클라이언트-노드 보안에 단일 자체 서명 인증서를 사용합니다.
 
@@ -208,9 +208,9 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
 
    ![Firefox에서 인증서 설치](./media/service-fabric-quickstart-java-spring-boot/install-cert-firefox.png)
 
-### <a name="deploy-the-application-using-cli"></a>CLI를 사용하여 응용 프로그램 배포
+### <a name="deploy-the-application-using-cli"></a>CLI를 사용하여 애플리케이션 배포
 
-응용 프로그램과 클러스터가 준비되면 명령줄에서 클러스터에 직접 배포할 수 있습니다.
+애플리케이션과 클러스터가 준비되면 명령 줄에서 클러스터에 직접 배포할 수 있습니다.
 
 1. `gs-spring-boot/SpringServiceFabric` 폴더로 이동합니다.
 1. 다음 명령을 실행하여 Azure 클러스터에 연결합니다.
@@ -273,7 +273,7 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 1. 서비스의 인스턴스를 실행하는 노드 옆에 있는 줄임표(...)를 클릭하고 노드를 다시 시작합니다.
 
     ![Service Fabric Explorer 다시 시작 노드](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
-1. 서비스의 인스턴스가 다른 노드로 이동되고, 응용 프로그램에서 가동 중지 시간이 발생하지 않습니다.
+1. 서비스의 인스턴스가 다른 노드로 이동되고, 애플리케이션에서 가동 중지 시간이 발생하지 않습니다.
 
     ![Service Fabric Explorer 다시 시작 노드 성공](./media/service-fabric-quickstart-java-spring-boot/sfxfailedover.png)
 
@@ -281,7 +281,7 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 
 이 빠른 시작에서는 다음을 수행하는 방법을 알아보았습니다.
 
-* Service Fabric에 Spring Boot 응용 프로그램 배포
+* Service Fabric에 Spring Boot 애플리케이션 배포
 * 로컬 클러스터에 애플리케이션 배포
 * Azure에서 애플리케이션을 클러스터에 배포
 * 애플리케이션을 여러 노드에 걸쳐 스케일 아웃

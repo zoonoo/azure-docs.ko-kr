@@ -28,15 +28,15 @@ ms.locfileid: "51286693"
 v2.0 엔드포인트와 플랫폼은 미리 보기 상태였으며 지속적으로 향상되었습니다. 현재 JavaScript 단일 페이지 애플리케이션(SPA) 시나리오는 기능이 완료되었으므로 MSAL.js를 사용하여 브라우저 기반 응용 프로그램을 빌드하고, 당사에서 GA(General Availability)로 상태를 업데이트할 수 있게 피드백을 제공하도록 사용자를 초대합니다.
 
 > [!NOTE]
-> MSAL Android, iOS 및 .NET에는 개발 중인 기능이 있습니다. 해당 기능을 사용하여 응용 프로그램을 빌드하고 피드백을 보낼 수 있습니다.
+> MSAL Android, iOS 및 .NET에는 개발 중인 기능이 있습니다. 해당 기능을 사용하여 애플리케이션을 빌드하고 피드백을 보낼 수 있습니다.
 
-Azure Portal 개발자 환경은 이제 ADAL 또는 MSAL로 빌드된 모든 응용 프로그램을 포함하고 사용성을 향상시키기 위해 상당히 업데이트되었습니다.
+Azure Portal 개발자 환경은 이제 ADAL 또는 MSAL로 빌드된 모든 애플리케이션을 포함하고 사용성을 향상시키기 위해 상당히 업데이트되었습니다.
 
-과거 Azure Active Directory(Azure AD)에서 Microsoft 개인 계정과 회사 계정을 모두 지원하려는 응용 프로그램 개발자는 별도의 두 시스템과 통합해야 했습니다. v2.0 엔드포인트와 플랫폼에서는 이 프로세스를 단순화하는 인증 API 버전을 제공합니다. 여기에서는 단일 통합을 사용하여 두 가지 유형의 계정에서 로그인할 수 있습니다. 또한 v2.0 엔드포인트를 사용하는 응용 프로그램은 두 가지 계정 유형 중 하나를 사용하여 [Microsoft Graph API](https://developer.microsoft.com/graph)의 REST API를 사용할 수 있습니다.
+과거 Azure Active Directory(Azure AD)에서 Microsoft 개인 계정과 회사 계정을 모두 지원하려는 애플리케이션 개발자는 별도의 두 시스템과 통합해야 했습니다. v2.0 엔드포인트와 플랫폼에서는 이 프로세스를 단순화하는 인증 API 버전을 제공합니다. 여기에서는 단일 통합을 사용하여 두 가지 유형의 계정에서 로그인할 수 있습니다. 또한 v2.0 엔드포인트를 사용하는 애플리케이션은 두 가지 계정 유형 중 하나를 사용하여 [Microsoft Graph API](https://developer.microsoft.com/graph)의 REST API를 사용할 수 있습니다.
 
 ## <a name="getting-started"></a>시작
 
-다음 목록에서 즐겨찾는 플랫폼을 선택하여 Microsoft 오픈 소스 라이브러리 및 프레임워크로 응용 프로그램을 빌드합니다. OAuth 2.0 및 OpenID Connect 프로토콜을 사용하여 인증 라이브러리를 사용하지 않고도 프로토콜 메시지를 직접 주고받을 수도 있습니다.
+다음 목록에서 즐겨 찾는 플랫폼을 선택하여 Microsoft 오픈 소스 라이브러리 및 프레임워크로 애플리케이션을 빌드합니다. OAuth 2.0 및 OpenID Connect 프로토콜을 사용하여 인증 라이브러리를 사용하지 않고도 프로토콜 메시지를 직접 주고받을 수도 있습니다.
 
 [!INCLUDE [v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
 

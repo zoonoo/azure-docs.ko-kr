@@ -32,7 +32,7 @@ Azure Media Services를 사용하면 **Apple FairPlay**(AES-128 CBC)로 HLS 콘�
 Media Services를 사용하여 **Apple FairPlay**로 암호화된 HLS 콘텐츠를 암호화하고 FairPlay 라이선스를 배달할 때 다음이 필요합니다.
 
 * [Apple Development Program](https://developer.apple.com/)에 등록합니다.
-* Apple에서는 [배포 패키지](https://developer.apple.com/contact/fps/)를 얻으려면 콘텐츠 소유자를 요구합니다. 이미 Media Services로 KSM(키 보안 모듈)을 구현했고 최종 FPS 패키지를 요청하고 있음을 명시합니다. 최종 FPS 패키지에는 인증을 생성하고 ASK(응용 프로그램 비밀 키)를 얻기 위한 지침이 있습니다. ASK를 사용하여 FairPlay를 구성합니다.
+* Apple에서는 [배포 패키지](https://developer.apple.com/contact/fps/)를 얻으려면 콘텐츠 소유자를 요구합니다. 이미 Media Services로 KSM(키 보안 모듈)을 구현했고 최종 FPS 패키지를 요청하고 있음을 명시합니다. 최종 FPS 패키지에는 인증을 생성하고 ASK(애플리케이션 비밀 키)를 얻기 위한 지침이 있습니다. ASK를 사용하여 FairPlay를 구성합니다.
 * Media Services 키/라이선스 전송 쪽에서 다음 항목을 설정해야 합니다.
 
     * **AC(앱 인증서)**: 개인 키가 포함된 .pfx 파일입니다. 이 파일을 만들고 암호로 암호화합니다. .pfx 파일은 Base64 형식이어야 합니다.

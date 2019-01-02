@@ -56,7 +56,7 @@ ms.locfileid: "48829837"
     make
     ```
 
-1. 클라이언트 응용 프로그램을 실행하고 IoT Hub에 원격 분석을 전송합니다.
+1. 클라이언트 애플리케이션을 실행하고 IoT Hub에 원격 분석을 전송합니다.
 
     ```sh
     ./samples/solutions/remote_monitoring_client/remote_monitoring_client

@@ -47,7 +47,7 @@ const KustoIngestClient = require('azure-kusto-ingest').KustoIngestClient;
 const KustoConnectionStringBuilder = require('azure-kusto-ingest').KustoConnectionStringBuilder;
 ```
 
-응용 프로그램을 인증하기 위해 Azure 데이터 탐색기는 Azure Active Directory 테넌트 ID를 사용합니다. 테넌트 ID를 찾으려면 [Office 365 테넌트 ID 찾기](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id)를 따르세요.
+애플리케이션을 인증하기 위해 Azure 데이터 탐색기는 Azure Active Directory 테넌트 ID를 사용합니다. 테넌트 ID를 찾으려면 [Office 365 테넌트 ID 찾기](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id)를 따르세요.
 
 이 코드를 실행하기 전에 `authorityId`, `kustoUri`, `kustoIngestUri` 및 `kustoDatabase`의 값을 설정합니다.
 
@@ -58,7 +58,7 @@ const kustoIngestUri = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:
 const kustoDatabase  = "<DatabaseName>";
 ```
 
-이제 연결 문자열을 구성합니다. 이 예제에서는 디바이스 인증을 사용하여 클러스터에 액세스합니다. 또한 Azure Active Directory 응용 프로그램 인증서, 응용 프로그램 키, 사용자와 암호를 사용할 수 있습니다.
+이제 연결 문자열을 구성합니다. 이 예제에서는 디바이스 인증을 사용하여 클러스터에 액세스합니다. 또한 Azure Active Directory 애플리케이션 인증서, 애플리케이션 키, 사용자와 암호를 사용할 수 있습니다.
 
 이후 단계에서 대상 테이블 및 매핑을 만듭니다.
 

@@ -1,6 +1,6 @@
 ---
 title: 응용 프로그램에서 Blob 및 큐 데이터에 액세스하도록 Azure Active Directory를 사용하여 인증(미리 보기) | Microsoft Docs
-description: Azure Active Directory를 사용하여 응용 프로그램 내에서 인증한 다음, blob 및 큐에 대한 요청 권한을 부여합니다(미리 보기).
+description: Azure Active Directory를 사용하여 애플리케이션 내에서 인증한 다음, blob 및 큐에 대한 요청 권한을 부여합니다(미리 보기).
 services: storage
 author: tamram
 ms.service: storage
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/10/2018
 ms.locfileid: "53140781"
 ---
-# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>blob 및 큐에 대한 액세스를 위해 응용 프로그램에서 Azure Active Directory를 사용하여 인증(미리 보기)
+# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>blob 및 큐에 대한 액세스를 위해 애플리케이션에서 Azure Active Directory를 사용하여 인증(미리 보기)
 
 Azure Storage에서 Azure AD(Azure Active Directory)를 사용하는 주요 이점은 사용자의 자격 증명을 코드에 저장할 필요가 없다는 점입니다. 대신 Azure AD에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. Azure AD에서는 응용 프로그램을 실행하여 보안 주체(사용자, 그룹 또는 서비스 사용자)의 인증을 처리합니다. 인증이 성공하면 Azure AD는 응용 프로그램에 액세스 토큰을 반환하고, 응용 프로그램은 액세스 토큰을 사용하여 Azure Storage에 대한 요청 권한을 부여할 수 있습니다.
 
@@ -29,7 +29,7 @@ OAuth 2.0 코드 권한 부여 흐름의 개요는 [OAuth 2.0 코드 권한 부�
 
 ## <a name="assign-an-rbac-role-to-an-azure-ad-security-principal"></a>Azure AD 보안 주체에 RBAC 역할 할당
 
-Azure Storage 응용 프로그램에서 보안 주체를 인증하려면 먼저 해당 보안 주체에 대해 RBAC(역할 기반 액세스 제어) 설정을 구성합니다. Azure Storage에서는 컨테이너 및 큐에 대한 사용 권한을 포함하는 RBAC 역할을 정의합니다. RBAC 역할이 보안 주체에게 할당되면 해당 보안 주체는 해당 리소스에 대한 액세스 권한이 부여됩니다. 자세한 내용은 [RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
+Azure Storage 애플리케이션에서 보안 주체를 인증하려면 먼저 해당 보안 주체에 대해 RBAC(역할 기반 액세스 제어) 설정을 구성합니다. Azure Storage에서는 컨테이너 및 큐에 대한 사용 권한을 포함하는 RBAC 역할을 정의합니다. RBAC 역할이 보안 주체에게 할당되면 해당 보안 주체는 해당 리소스에 대한 액세스 권한이 부여됩니다. 자세한 내용은 [RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Azure AD 테넌트에 응용 프로그램 등록
 

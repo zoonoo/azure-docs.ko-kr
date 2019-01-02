@@ -68,7 +68,7 @@ HeyBuddy의 Azure AD 통합을 구성하려면 갤러리의 HeyBuddy를 관리�
 
 2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
 
 3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
@@ -126,7 +126,7 @@ HeyBuddy에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     ![이미지](./media/heybuddy-tutorial/tutorial_heybuddy_attribute.png)
 
     >[!NOTE]
-    >응용 프로그램에 대한 역할을 구성 및 설정하는 방법은 이 [링크](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)를 참조하세요.
+    >애플리케이션에 대한 역할을 구성 및 설정하는 방법은 이 [링크](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)를 참조하세요.
 
 6. **사용자 특성 및 클레임** 대화 상자의 **사용자 클레임** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
     
@@ -191,7 +191,7 @@ HeyBuddy에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 HeyBuddy에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음, **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 
     ![사용자 할당][201]
 

@@ -1,5 +1,5 @@
 ---
-title: Application Insights Profiler를 사용하여 Azure에서 프로덕션 응용 프로그램 프로파일링 | Microsoft Docs
+title: Application Insights Profiler를 사용하여 Azure에서 프로덕션 애플리케이션 프로파일링 | Microsoft Docs
 description: 적은 공간의 프로파일러를 사용하여 웹 서버 코드에서 실행 부하 과다 경로를 식별합니다.
 services: application-insights
 documentationcenter: ''
@@ -19,12 +19,12 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/01/2018
 ms.locfileid: "52726902"
 ---
-# <a name="profile-production-applications-in-azure-with-application-insights"></a>Application Insights를 사용하여 Azure에서 프로덕션 응용 프로그램 프로파일링
-## <a name="enable-profiler-for-your-application"></a>응용 프로그램에 Profiler 사용
+# <a name="profile-production-applications-in-azure-with-application-insights"></a>Application Insights를 사용하여 Azure에서 프로덕션 애플리케이션 프로파일링
+## <a name="enable-profiler-for-your-application"></a>애플리케이션에 Profiler 사용
 
-Application Insights Profiler는 Azure의 프로덕션 환경에서 실행 중인 응용 프로그램에 대한 성능 추적을 제공합니다. 최종 사용자에게 부정적인 영향을 주지 않으면서 데이터를 대규모로 자동으로 캡처합니다. Profiler는 특정 웹 요청을 처리할 때 시간이 가장 오래 걸리는 “핫” 코드 경로를 식별하는 데 도움을 줍니다. 
+Application Insights Profiler는 Azure의 프로덕션 환경에서 실행 중인 애플리케이션에 대한 성능 추적을 제공합니다. 최종 사용자에게 부정적인 영향을 주지 않으면서 데이터를 대규모로 자동으로 캡처합니다. Profiler는 특정 웹 요청을 처리할 때 시간이 가장 오래 걸리는 “핫” 코드 경로를 식별하는 데 도움을 줍니다. 
 
-Profiler는 다음과 같은 Azure 서비스에 배포된 .Net 응용 프로그램에서 작동합니다. 각 서비스 형식에 맞게 Profiler를 사용하도록 설정하기 위한 특정 지침은 아래 링크에 나와 있습니다.
+Profiler는 다음과 같은 Azure 서비스에 배포된 .Net 애플리케이션에서 작동합니다. 각 서비스 형식에 맞게 Profiler를 사용하도록 설정하기 위한 특정 지침은 아래 링크에 나와 있습니다.
 
 * [App Services](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Cloud Services](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
@@ -37,9 +37,9 @@ Profiler를 사용하도록 설정해도 추적이 표시되지 않으면 [문�
 
 ## <a name="view-profiler-data"></a>프로파일러 데이터 보기
 
-Profiler가 추적을 업로드하도록 하기 위해 응용 프로그램은 요청을 적극적으로 처리합니다. 실험을 수행하는 경우 [Application Insights 성능 테스트](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test)를 사용하여 웹앱에 요청을 생성할 수 있습니다. Profiler를 새로 사용하도록 설정한 경우 짧은 부하 테스트를 실행할 수 있습니다. 부하 테스트를 실행하는 동안 [**Profiler 설정 페이지**](app-insights-profiler-settings.md#profiler-settings-page)에서 **지금 프로파일링** 단추를 누릅니다. Profiler는 실행되면 1시간 간격으로 2분 동안 무작위로 프로파일링을 수행합니다. 응용 프로그램이 지속적인 요청 스트림을 처리하는 경우 Profiler는 매시간 추적을 업로드합니다.
+Profiler가 추적을 업로드하도록 하기 위해 애플리케이션은 요청을 적극적으로 처리합니다. 실험을 수행하는 경우 [Application Insights 성능 테스트](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test)를 사용하여 웹앱에 요청을 생성할 수 있습니다. Profiler를 새로 사용하도록 설정한 경우 짧은 부하 테스트를 실행할 수 있습니다. 부하 테스트를 실행하는 동안 [**Profiler 설정 페이지**](app-insights-profiler-settings.md#profiler-settings-page)에서 **지금 프로파일링** 단추를 누릅니다. Profiler는 실행되면 1시간 간격으로 2분 동안 무작위로 프로파일링을 수행합니다. 애플리케이션이 지속적인 요청 스트림을 처리하는 경우 Profiler는 매시간 추적을 업로드합니다.
 
-응용 프로그램이 트래픽을 수신하고 Profiler가 추적을 업로드하면 사용자가 확인할 수 있는 추적이 생성됩니다. 이 프로세스는 최대 5~10분이 걸릴 수 있습니다. 추적을 보려면 **성능** 창으로 이동하고, **작업 수행**을 선택하여 Profiler 추적을 본 다음, **Profiler 추적** 단추를 선택합니다.
+애플리케이션이 트래픽을 수신하고 Profiler가 추적을 업로드하면 사용자가 확인할 수 있는 추적이 생성됩니다. 이 프로세스는 최대 5~10분이 걸릴 수 있습니다. 추적을 보려면 **성능** 창으로 이동하고, **작업 수행**을 선택하여 Profiler 추적을 본 다음, **Profiler 추적** 단추를 선택합니다.
 
 ![Application Insights 성능 창 미리 보기 Profiler 추적][performance-blade]
 
@@ -123,7 +123,7 @@ Profiler 서비스 사용료는 청구되지 않습니다. Profiler 서비스를
 Profiler는 Profiler가 추적을 캡처하도록 설정된 응용 프로그램을 호스트하는 각 가상 머신에서 시간당 2분씩 임의로 실행됩니다. Profiler를 실행하는 경우 서버에 5%~15% CPU 오버 헤드를 추가하게 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure 응용 프로그램에 대해 Application Insights Profiler 사용
+Azure 애플리케이션에 대해 Application Insights Profiler 사용
 * [App Services](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Cloud Services](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric 응용 프로그램](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)

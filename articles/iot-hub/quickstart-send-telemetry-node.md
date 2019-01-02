@@ -77,7 +77,7 @@ https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip에서
 
     이 값은 빠른 시작의 뒷부분에서 사용합니다.
 
-1. 또한 백 엔드 응용 프로그램을 IoT 허브에 연결하여 메시지를 검색할 수 있게 하려면 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
+1. 또한 백 엔드 애플리케이션을 IoT 허브에 연결하여 메시지를 검색할 수 있게 하려면 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
    
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
@@ -123,7 +123,7 @@ https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip에서
 
     `connectionString` 변수의 값을 이전에 적어둔 서비스 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **ReadDeviceToCloudMessages.js** 파일에 저장합니다.
 
-1. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 백 엔드 응용 프로그램을 실행합니다.
+1. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 백 엔드 애플리케이션을 실행합니다.
 
     ```cmd/sh
     npm install

@@ -1124,7 +1124,7 @@ ms.locfileid: "53386964"
 > | **Id** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | **Actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
-> | Microsoft.Solutions/applications/read | 응용 프로그램 목록을 검색합니다. |
+> | Microsoft.Solutions/applications/read | 애플리케이션 목록을 검색합니다. |
 
 ## <a name="managed-applications-reader"></a>Managed Applications 읽기 권한자
 > [!div class="mx-tableFixed"]

@@ -1,6 +1,6 @@
 ---
 title: Windows Server 및 Linux에서 Service Fabric 클러스터 만들기 | Microsoft Docs
-description: 서비스 패브릭 클러스터는 Windows Server 및 Linux에서 실행됩니다. 즉, Windows Server 또는 Linux를 실행할 수 있는 모든 위치에 서비스 패브릭 응용 프로그램을 배포 및 호스트할 수 있습니다.
+description: 서비스 패브릭 클러스터는 Windows Server 및 Linux에서 실행됩니다. 즉, Windows Server 또는 Linux를 실행할 수 있는 모든 위치에 서비스 패브릭 애플리케이션을 배포 및 호스트할 수 있습니다.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -22,9 +22,9 @@ ms.lasthandoff: 12/01/2018
 ms.locfileid: "52726528"
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Windows Server 또는 Linux에서 Service Fabric 클러스터 만들기
-Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 머신 집합입니다. 클러스터의 일부인 컴퓨터나 VM을 클러스터 노드라고 합니다. 클러스터의 규모를 수천 개의 노드로 확장할 수 있습니다. 새 노드를 클러스터에 추가하면 Service Fabric이 증가된 수의 노드에서 서비스 파티션 복제본 및 인스턴스의 균형을 조정합니다. 전반적인 응용 프로그램 성능이 향상되고 메모리 액세스에 대한 경합이 감소합니다. 클러스터의 노드가 효율적으로 사용되지 않는 경우 클러스터의 노드 수를 줄일 수 있습니다. Service Fabric은 각 노드의 하드웨어를 보다 효율적으로 사용할 수 있도록 감소된 노드 수에 맞게 파티션 복제본 및 인스턴스의 균형을 다시 조정합니다.
+Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 머신 집합입니다. 클러스터의 일부인 컴퓨터나 VM을 클러스터 노드라고 합니다. 클러스터의 규모를 수천 개의 노드로 확장할 수 있습니다. 새 노드를 클러스터에 추가하면 Service Fabric이 증가된 수의 노드에서 서비스 파티션 복제본 및 인스턴스의 균형을 조정합니다. 전반적인 애플리케이션 성능이 향상되고 메모리 액세스에 대한 경합이 감소합니다. 클러스터의 노드가 효율적으로 사용되지 않는 경우 클러스터의 노드 수를 줄일 수 있습니다. Service Fabric은 각 노드의 하드웨어를 보다 효율적으로 사용할 수 있도록 감소된 노드 수에 맞게 파티션 복제본 및 인스턴스의 균형을 다시 조정합니다.
 
-Azure Service Fabric을 사용하면 Windows Server 또는 Linux를 실행하는 VM 또는 컴퓨터에서 Service Fabric 클러스터를 만들 수 있습니다. 다시 말해 온-프레미스든 Microsoft Azure든 클라우드 공급자든 Windows Server 또는 Linux 컴퓨터가 서로 연결된 모든 환경에 Service Fabric 응용 프로그램을 배포하고 실행할 수 있습니다.
+Azure Service Fabric을 사용하면 Windows Server 또는 Linux를 실행하는 VM 또는 컴퓨터에서 Service Fabric 클러스터를 만들 수 있습니다. 다시 말해 온-프레미스든 Microsoft Azure든 클라우드 공급자든 Windows Server 또는 Linux 컴퓨터가 서로 연결된 모든 환경에 Service Fabric 애플리케이션을 배포하고 실행할 수 있습니다.
 
 ## <a name="create-service-fabric-clusters-on-azure"></a>Azure에서 Service Fabric 클러스터 만들기
 Azure에서 클러스터 만들기는 리소스 모델 템플릿 또는 [Azure Portal](https://portal.azure.com)을 통해 수행됩니다. 자세한 내용은 [Resource Manager 템플릿을 사용하여 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-via-arm.md) 또는 [Azure Portal에서 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-via-portal.md)를 참조하세요.
@@ -57,8 +57,8 @@ Windows Server에서 독립 실행형 Service Fabric 클러스터 설치에 자�
 
 ### <a name="benefits-of-creating-standalone-service-fabric-clusters"></a>독립 실행형 서비스 패브릭 클러스터를 만들 경우의 이점
 * 클러스터를 호스트할 클라우드 공급자를 자유롭게 선택할 수 있습니다.
-* 서비스 패브릭 응용 프로그램을 한 번 작성한 다음 변경 없이 또는 최소한의 변경으로 여러 호스팅 환경에서 실행할 수 있습니다.
-* 호스팅 환경 간에 서비스 패브릭 응용 프로그램 빌드에 대한 지식이 전달됩니다.
+* 서비스 패브릭 애플리케이션을 한 번 작성한 다음 변경 없이 또는 최소한의 변경으로 여러 호스팅 환경에서 실행할 수 있습니다.
+* 호스팅 환경 간에 서비스 패브릭 애플리케이션 빌드에 대한 지식이 전달됩니다.
 * 환경 간에 서비스 패브릭 클러스터 실행 및 관리에 대한 운영 경험이 전달됩니다.
 * 호스팅 환경 제약을 받지 않아 고객 도달 범위가 넓습니다.
 * 데이터 센터 또는 클라우드에 블랙아웃이 발생하면 서비스를 다른 배포 환경으로 이동할 수 있으므로 안정성이 강화되고 대규모로 가동이 중단되는 일이 없습니다.

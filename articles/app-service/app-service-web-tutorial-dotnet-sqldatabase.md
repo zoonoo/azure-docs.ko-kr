@@ -165,7 +165,7 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 
 ![Azure 웹앱의 게시된 ASP.NET 애플리케이션](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-축하합니다! 데이터 기반 ASP.NET 응용 프로그램이 Azure App Service에서 라이브로 실행되고 있습니다.
+축하합니다! 데이터 기반 ASP.NET 애플리케이션이 Azure App Service에서 라이브로 실행되고 있습니다.
 
 ## <a name="access-the-sql-database-locally"></a>로컬에서 SQL Database에 액세스
 

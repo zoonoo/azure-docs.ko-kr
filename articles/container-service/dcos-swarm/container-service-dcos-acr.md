@@ -187,7 +187,7 @@ ACR 레지스트리에서 이미지를 사용하려면 파일 이름 *acrDemo.js
 }
 ```
 
-DC/OC CLI를 사용하여 응용 프로그램을 배포합니다.
+DC/OC CLI를 사용하여 애플리케이션을 배포합니다.
 
 ```azurecli-interactive
 dcos marathon app add acrDemo.json

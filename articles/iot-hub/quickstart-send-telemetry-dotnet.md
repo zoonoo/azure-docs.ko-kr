@@ -130,13 +130,13 @@ https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip에�
     | `s_eventHubsCompatiblePath`     | 변수 값을 이전에 적어둔 Event Hubs 호환 경로로 바꿉니다. |
     | `s_iotHubSasKey`                | 변수 값을 이전에 적어둔 iothubowner 기본 키로 바꿉니다. |
 
-3. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램에 필요한 라이브러리를 설치합니다.
+3. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 애플리케이션에 필요한 라이브러리를 설치합니다.
 
     ```cmd/sh
     dotnet restore
     ```
 
-4. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램을 빌드하고 실행합니다.
+4. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 애플리케이션을 빌드하고 실행합니다.
 
     ```cmd/sh
     dotnet run

@@ -42,7 +42,7 @@ Azure Event Hubs는 대부분 API 프로세스를 요청하는 HTTP 수 보다 �
 
 Event Hubs에는 여러 소비자 그룹에 이벤트를 스트림하는 기능이 있습니다. 이렇게 하면 이벤트를 다른 시스템에서 처리할 수 있습니다. 이렇게 하면 하나의 이벤트를 생성해야 하기 때문에 API Management 서비스 내에서 API 요청의 처리가 추가적으로 지연되지 않고 다양한 통합 시나리오를 지원합니다.
 
-## <a name="a-policy-to-send-applicationhttp-messages"></a>응용 프로그램/http 메시지를 보내는 정책
+## <a name="a-policy-to-send-applicationhttp-messages"></a>애플리케이션/http 메시지를 보내는 정책
 이벤트 허브는 이벤트 데이터를 간단한 문자열로 수락합니다. 이 문자열의 내용은 사용자의 몫입니다. HTTP 요청을 패키지하고 Event Hubs에 보낼 수 있으려면 요청 또는 응답 정보를 사용하여 문자열 형식을 지정해야 합니다. 이런 경우에 다시 사용할 수 있는 기존 형식이 있는 경우 고유한 구문 분석 코드를 작성할 필요가 없을 수 있습니다. 처음 필자는 HTTP 요청 및 응답을 보내는 데 [HAR](http://www.softwareishard.com/blog/har-12-spec/) 를 사용할 생각이었습니다. 그러나 이 형식은 JSON 기반 형식에 일련의 HTTP 요청을 저장하도록 최적화됩니다. 연결을 통해 HTTP 메시지를 전달하는 시나리오에 불필요 한 복잡성을 추가하는 여러 가지 필수 요소를 포함합니다.  
 
 대체 옵션은 HTTP 사양 [RFC 7230](https://tools.ietf.org/html/rfc7230)에 설명된 대로 `application/http` 미디어 형식을 사용하는 것입니다. 이 미디어 형식은 연결을 통해 실제로 HTTP 메시지를 보내는 데 사용되는 것과 동일한 형식을 사용하지만 전체 메시지는 다른 HTTP 요청의 본문에 삽입될 수 있습니다. 지금과 같은 경우에 본문을 메시지로 사용하여 Event Hubs에 보내려고 합니다. 이 형식을 구문 분석하고 네이티브 `HttpRequestMessage` 및 `HttpResponseMessage` 개체로 변환할 수 있는 [Microsoft ASP.NET Web API 2.2 클라이언트](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) 라이브러리에 존재하는 파서입니다.
@@ -267,7 +267,7 @@ public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 
 샘플은 이벤트 허브에서 들어오는 이벤트를 수신하는 간단한 콘솔 애플리케이션으로 해당 이벤트를 `HttpRequestMessage` 및 `HttpResponseMessage` 개체에 변환한 다음, Runscope API에 전달합니다.
 
-다음 애니메이션 이미지에서 개발자 포털에서 API에 생성된 요청과 수신, 처리 및 전달된 메시지를 보여주는 콘솔 응용 프로그램 그리고 Runscope 트래픽 관리자에 표시되는 요청 및 응답을 확인할 수 있습니다.
+다음 애니메이션 이미지에서 개발자 포털에서 API에 생성된 요청과 수신, 처리 및 전달된 메시지를 보여주는 콘솔 애플리케이션 그리고 Runscope 트래픽 관리자에 표시되는 요청 및 응답을 확인할 수 있습니다.
 
 ![Runscope에 전달된 요청의 데모](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
 

@@ -1,6 +1,6 @@
 ---
-title: Ansible을 사용하여 Azure에서 가상 머신 확장 집합에 응용 프로그램 배포
-description: Ansible을 사용하여 가상 머신 확장 집합을 구성하고 Azure의 가상 머신 확장 집합에서 응용 프로그램을 배포하는 방법 알아보기
+title: Ansible을 사용하여 Azure에서 가상 머신 확장 집합에 애플리케이션 배포
+description: Ansible을 사용하여 가상 머신 확장 집합을 구성하고 Azure의 가상 머신 확장 집합에서 애플리케이션을 배포하는 방법 알아보기
 ms.service: ansible
 keywords: ansible, azure, devops, bash, 플레이북, 가상 머신, 가상 머신 확장 집합, vmss
 author: tomarcher
@@ -15,8 +15,8 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/14/2018
 ms.locfileid: "53408377"
 ---
-# <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible을 사용하여 Azure에서 가상 머신 확장 집합에 응용 프로그램 배포
-Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 Azure에 응용 프로그램을 배포할 수 있습니다. 이 문서에서는 Azure VMSS(가상 머신 확장 집합)에 Java 애플리케이션을 배포하는 방법을 보여줍니다.  
+# <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible을 사용하여 Azure에서 가상 머신 확장 집합에 애플리케이션 배포
+Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 Azure에 애플리케이션을 배포할 수 있습니다. 이 문서에서는 Azure VMSS(가상 머신 확장 집합)에 Java 애플리케이션을 배포하는 방법을 보여줍니다.  
 
 ## <a name="prerequisites"></a>필수 조건
 - **Azure 구독** - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
@@ -59,7 +59,7 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
       - "{{ output.ansible_facts.azure_loadbalancers[0].properties.inboundNatRules }}"
   ```
 
-## <a name="prepare-an-application-for-deployment"></a>배포를 위한 응용 프로그램 준비  
+## <a name="prepare-an-application-for-deployment"></a>배포를 위한 애플리케이션 준비  
 
 이 섹션에서는 git을 사용하여 GitHub에서 Java 샘플 프로젝트를 복제하고 프로젝트를 빌드합니다. 다음 플레이북을 `app.yml`로 저장합니다.
 
@@ -104,9 +104,9 @@ Ansible 플레이북 명령의 출력은 GitHub에서 복제된 샘플 앱을 �
 
   ```
 
-## <a name="deploy-the-application-to-vmss"></a>VMSS에 응용 프로그램 배포
+## <a name="deploy-the-application-to-vmss"></a>VMSS에 애플리케이션 배포
 
-Ansible 플레이북의 다음 섹션에서는 **saclesethosts**라는 호스트 그룹에 JRE(Java Runtime Environment)를 설치하고, **saclesethosts**라는 호스트 그룹에 Java 응용 프로그램을 배포합니다. 
+Ansible 플레이북의 다음 섹션에서는 **saclesethosts**라는 호스트 그룹에 JRE(Java Runtime Environment)를 설치하고, **saclesethosts**라는 호스트 그룹에 Java 애플리케이션을 배포합니다. 
 
 (`admin_password`를 고유한 암호로 변경합니다.)
 

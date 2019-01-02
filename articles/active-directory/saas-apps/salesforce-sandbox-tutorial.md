@@ -26,7 +26,7 @@ ms.locfileid: "49114499"
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Salesforce Sandbox를 통합하는 방법에 대해 알아봅니다.
 
-샌드박스는 Salesforce 프로덕션 조직에서 데이터 및 응용 프로그램을 손상시키지 않고 개발, 테스트 및 훈련과 같은 다양한 목적으로 별도의 환경에서 조직의 여러 복사본을 만들 수 있는 기능을 제공합니다.
+샌드박스는 Salesforce 프로덕션 조직에서 데이터 및 애플리케이션을 손상시키지 않고 개발, 테스트 및 훈련과 같은 다양한 목적으로 별도의 환경에서 조직의 여러 복사본을 만들 수 있는 기능을 제공합니다.
 자세한 내용은 [샌드박스 개요](https://help.salesforce.com/articleView?id=create_test_instance.htm&language=en_us&type=5)를 참조하세요.
 
 Salesforce Sandbox를 Azure AD와 통합하면 다음과 같은 이점이 있습니다.
@@ -71,7 +71,7 @@ Salesforce Sandbox의 Azure AD 통합을 구성하려면 갤러리의 Salesforce
 
 2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
 
 3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
@@ -99,11 +99,11 @@ Salesforce Sandbox에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Salesforce Sandbox 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Salesforce Sandbox 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Salesforce Sandbox에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Salesforce Sandbox** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Salesforce Sandbox** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -281,7 +281,7 @@ Salesforce Sandbox에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **Salesforce Sandbox**를 선택합니다.
+2. 애플리케이션 목록에서 **Salesforce Sandbox**를 선택합니다.
 
     ![애플리케이션 목록의 Salesforce Sandbox 링크](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_app.png)  
 

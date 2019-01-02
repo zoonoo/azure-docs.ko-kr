@@ -19,15 +19,15 @@ ms.locfileid: "52967217"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Azure Application Insights의 로그 기반 및 사전 집계 메트릭
 
-이 문서에서는 로그를 기반으로 하는 "전통적" Application Insights 메트릭과 현재 공개 미리 보기로 제공되는 사전 집계 메트릭 사이의 차이점을 설명합니다. 두 메트릭 모두 Application Insights 사용자에게 제공되며 응용 프로그램 상태 모니터링, 진단 및 분석에서 각기 고유의 장점이 있습니다. 응용 프로그램을 계측하는 개발자는 응용 프로그램 크기, 예상되는 원격 분석 데이터 크기, 메트릭 정확도 및 경고에 대한 비즈니스 요구 사항에 따라 특정 시나리오에 가장 적합한 메트릭 유형을 선택할 수 있습니다.
+이 문서에서는 로그를 기반으로 하는 "전통적" Application Insights 메트릭과 현재 공개 미리 보기로 제공되는 사전 집계 메트릭 사이의 차이점을 설명합니다. 두 메트릭 모두 Application Insights 사용자에게 제공되며 애플리케이션 상태 모니터링, 진단 및 분석에서 각기 고유의 장점이 있습니다. 애플리케이션을 계측하는 개발자는 애플리케이션 크기, 예상되는 원격 분석 데이터 크기, 메트릭 정확도 및 경고에 대한 비즈니스 요구 사항에 따라 특정 시나리오에 가장 적합한 메트릭 유형을 선택할 수 있습니다.
 
 ## <a name="log-based-metrics"></a>로그 기반 메트릭
 
-최근까지 Application Insights의 응용 프로그램 모니터링 원격 분석 데이터 모델에서는 요청, 예외, 종속성 호출, 페이지 보기 등, 소규모의 미리 정의된 이벤트 유형만을 기준으로 했습니다. 개발자는 SDK를 사용하여 이러한 이벤트를 수동으로 내보내거나(명시적으로 SDK를 호출하는 코드 작성) 자동 계측의 자동 이벤트 수집을 사용할 수 있습니다. 두 경우 모두 Application Insights 백 엔드가 모든 수집된 이벤트를 로그로 저장하고 Azure Portal의 Application Insights 블레이드가 로그의 이벤트 기반 데이터를 시각화하기 위한 분석 및 진단 도구 역할을 합니다.
+최근까지 Application Insights의 애플리케이션 모니터링 원격 분석 데이터 모델에서는 요청, 예외, 종속성 호출, 페이지 보기 등, 소규모의 미리 정의된 이벤트 유형만을 기준으로 했습니다. 개발자는 SDK를 사용하여 이러한 이벤트를 수동으로 내보내거나(명시적으로 SDK를 호출하는 코드 작성) 자동 계측의 자동 이벤트 수집을 사용할 수 있습니다. 두 경우 모두 Application Insights 백 엔드가 모든 수집된 이벤트를 로그로 저장하고 Azure Portal의 Application Insights 블레이드가 로그의 이벤트 기반 데이터를 시각화하기 위한 분석 및 진단 도구 역할을 합니다.
 
-로그를 사용하여 이벤트 전체 집합을 유지하면 뛰어난 분석 및 진단 가치를 제공할 수 있습니다. 예를 들어, 특정 URL에 대한 정확한 요청 수와, 이러한 호출을 수행한 고유 사용자 수를 파악할 수 있습니다. 또는 사용자 세션에 대한 예외와 종속성 호출을 포함하여 상세 진단 추적을 얻을 수 있습니다. 이러한 정보 유형이 있으면 응용 프로그램 상태 및 사용에 대한 가시성이 크게 향상되어 앱 문제 진단에 필요한 시간을 줄일 수 있습니다. 
+로그를 사용하여 이벤트 전체 집합을 유지하면 뛰어난 분석 및 진단 가치를 제공할 수 있습니다. 예를 들어, 특정 URL에 대한 정확한 요청 수와, 이러한 호출을 수행한 고유 사용자 수를 파악할 수 있습니다. 또는 사용자 세션에 대한 예외와 종속성 호출을 포함하여 상세 진단 추적을 얻을 수 있습니다. 이러한 정보 유형이 있으면 애플리케이션 상태 및 사용에 대한 가시성이 크게 향상되어 앱 문제 진단에 필요한 시간을 줄일 수 있습니다. 
 
-동시에, 많은 원격 분석 데이터를 생성하는 응용 프로그램의 경우 전체 이벤트 집합을 수집하는 것이 실용적이지 못하거나 심지어 불가능할 수 있습니다. 이벤트 규모가 너무 큰 상황에서는 Application Insights가 [샘플링](https://docs.microsoft.com/azure/application-insights/app-insights-sampling), [필터링](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling)처럼 수집 및 저장되는 이벤트 수를 줄이는 여러 원격 분석 데이터 규모 절감 기법을 구현합니다. 그렇지만 저장된 이벤트 수가 줄면 그 뒤의 메트릭 정확도도 낮아지기 때문에 로그에 집계된 이벤트의 쿼리 시간 집계를 수행해야 합니다.
+동시에, 많은 원격 분석 데이터를 생성하는 애플리케이션의 경우 전체 이벤트 집합을 수집하는 것이 실용적이지 못하거나 심지어 불가능할 수 있습니다. 이벤트 규모가 너무 큰 상황에서는 Application Insights가 [샘플링](https://docs.microsoft.com/azure/application-insights/app-insights-sampling), [필터링](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling)처럼 수집 및 저장되는 이벤트 수를 줄이는 여러 원격 분석 데이터 규모 절감 기법을 구현합니다. 그렇지만 저장된 이벤트 수가 줄면 그 뒤의 메트릭 정확도도 낮아지기 때문에 로그에 집계된 이벤트의 쿼리 시간 집계를 수행해야 합니다.
 
 > [!NOTE]
 > Application Insights에서 로그에 저장된 이벤트 및 측정값의 쿼리 시간 집계를 기준으로 하는 메트릭을 로그 기반 메트릭이라 합니다. 일반적으로 이러한 메트릭은 이벤트 속성으로부터 여러 차원을 갖기 때문에 분석에 아주 적합하지만 샘플링과 필터링이 이 메트릭의 정확도에 부정적인 영향을 미칩니다.
@@ -43,7 +43,7 @@ ms.locfileid: "52967217"
 
 사전 집계를 구현하지 않는 SDK의 경우(즉 Application Insights SDK 구 버전 또는 브라우저 계측) 지속적으로 Application Insights 백 엔드가 Application Insights 이벤트 수집 엔드포인트에서 수신한 이벤트를 집계하여 새 메트릭을 입력합니다. 즉 실제 전송되는 데이터 규모는 줄지 않지만 사전 집계 메트릭을 사용할 수 있고, 수집 중에 메트릭을 사전 집계하지 않는 SDK에서 거의 실시간에 근접한 차원 경고 지원과 성능 향상을 경험할 수 있습니다.
 
-컬렉션 엔드포인트는 수집 샘플링 이전에 사전 집계를 수행하므로, 응용 프로그램에 사용 중인 SDK 버전에 관계없이 [수집 샘플링](https://docs.microsoft.com/azure/application-insights/app-insights-sampling)이 사전 집계 메트릭의 정확도에 영향을 미치지 않습니다.  
+컬렉션 엔드포인트는 수집 샘플링 이전에 사전 집계를 수행하므로, 애플리케이션에 사용 중인 SDK 버전에 관계없이 [수집 샘플링](https://docs.microsoft.com/azure/application-insights/app-insights-sampling)이 사전 집계 메트릭의 정확도에 영향을 미치지 않습니다.  
 
 ## <a name="using-pre-aggregation-with-application-insights-custom-metrics"></a>Application Insights 사용자 지정 메트릭에 사전 집계 사용
 

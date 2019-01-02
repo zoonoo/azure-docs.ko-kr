@@ -67,7 +67,7 @@ Azure PowerShell을 시작하고 [구독에 연결](/powershell/azure/overview)�
 ## <a name="example-1"></a>예 1
 HTTP 요청에 대한 서버의 응답이 5분 이상 평균 1초보다 느린 경우 전자 메일로 알립니다. Application Insights 리소스의 이름이 IceCreamWebApp이며 리소스 그룹 Fabrikam 내에 있습니다. 제가 Azure 구독의 소유자입니다.
 
-GUID는 구독 ID입니다(응용 프로그램의 계측 키 아님).
+GUID는 구독 ID입니다(애플리케이션의 계측 키 아님).
 
     Add-AzureRmMetricAlertRule -Name "slow responses" `
      -Description "email me if the server responds slowly" `
@@ -109,15 +109,15 @@ TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개
 | `performanceCounter.available_bytes.value` |사용 가능한 메모리 |처리를 위해서나 시스템에서 바로 사용할 수 있는 실제 메모리입니다. |
 | `performanceCounter.io_data_bytes_per_sec.value` |프로세스 IO 속도 |파일, 네트워크 및 디바이스에서 읽고 쓴 초당 총 바이트 수입니다. |
 | `performanceCounter.number_of_exceps_thrown_per_sec.value` |예외 속도 |초당 발생한 예외입니다. |
-| `performanceCounter.percentage_processor_time.value` |CPU 프로세스 |응용 프로그램 프로세스에 대한 지침 실행을 위해 프로세서가 사용한 모든 프로세스 스레드의 경과 시간 비율입니다. |
+| `performanceCounter.percentage_processor_time.value` |CPU 프로세스 |애플리케이션 프로세스에 대한 지침 실행을 위해 프로세서가 사용한 모든 프로세스 스레드의 경과 시간 비율입니다. |
 | `performanceCounter.percentage_processor_total.value` |프로세서 시간 |프로세서가 비 유휴 스레드에 소요한 시간의 비율입니다. |
-| `performanceCounter.process_private_bytes.value` |프로세스 전용 바이트 |모니터링되는 응용 프로그램의 프로세스에 독점적으로 할당된 메모리입니다. |
+| `performanceCounter.process_private_bytes.value` |프로세스 전용 바이트 |모니터링되는 애플리케이션의 프로세스에 독점적으로 할당된 메모리입니다. |
 | `performanceCounter.request_execution_time.value` |ASP.NET 요청 실행 시간 |가장 최근 요청의 실행 시간입니다. |
-| `performanceCounter.requests_in_application_queue.value` |실행 큐의 ASP.NET 요청 |응용 프로그램 요청 큐의 길이입니다. |
-| `performanceCounter.requests_per_sec.value` |ASP.NET 요청 속도 |ASP.NET에서 응용 프로그램에 전송된 모든 요청의 속도(초)입니다. |
-| `remoteDependencyFailed.durationMetric.count` |종속성 실패 |서버 응용 프로그램에서 외부 리소스에 보낸 호출이 실패한 횟수입니다. |
+| `performanceCounter.requests_in_application_queue.value` |실행 큐의 ASP.NET 요청 |애플리케이션 요청 큐의 길이입니다. |
+| `performanceCounter.requests_per_sec.value` |ASP.NET 요청 속도 |ASP.NET에서 애플리케이션에 전송된 모든 요청의 속도(초)입니다. |
+| `remoteDependencyFailed.durationMetric.count` |종속성 실패 |서버 애플리케이션에서 외부 리소스에 보낸 호출이 실패한 횟수입니다. |
 | `request.duration` |서버 응답 시간 |HTTP 요청을 받은 후 응답 전송을 완료한 때까지의 시간입니다. |
-| `request.rate` |요청 속도 |응용 프로그램에 전송된 모든 요청의 속도(초)입니다. |
+| `request.rate` |요청 속도 |애플리케이션에 전송된 모든 요청의 속도(초)입니다. |
 | `requestFailed.count` |실패한 요청 |응답 코드가 400 이상인 HTTP 요청의 개수입니다. |
 | `view.count` |페이지 보기 |웹 페이지에 대한 클라이언트 사용자 요청의 수입니다. 가상 트래픽은 필터링됩니다. |
 | {사용자 지정 메트릭 이름} |{사용자의 메트릭 이름} |메트릭 값은 [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric)에 의해 또는 [추적 호출의 측정 매개 변수](app-insights-api-custom-events-metrics.md#properties)에 보고됩니다. |

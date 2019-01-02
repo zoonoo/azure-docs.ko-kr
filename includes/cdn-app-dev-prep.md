@@ -34,7 +34,7 @@ CDN 관리 코드를 작성하려면 먼저 코드가 Azure Resource Manager와 
 ### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Azure AD 애플리케이션 만들기 및 사용 권한 적용
 Azure Active Directory로 앱을 인증하는 방법은 두 가지가 있습니다. 개별 사용자 또는 서비스 주체 인증입니다. 서비스 주체는 Windows의 서비스 계정과 비슷합니다.  특정 사용자에게 CDN 프로필과 상호 작용하는 권한을 부여하는 대신 서비스 주체에게 권한을 부여합니다.  일반적으로, 서비스 주체는 자동화된 비대화형 프로세스에 사용됩니다.  이 자습서에서는 대화형 콘솔 앱을 작성하지만, 서비스 주체 인증 방식에 초점을 맞출 것입니다.
 
-Azure Active Directory 응용 프로그램 만들기를 비롯하여 여러 반계로 구성된 서비스 주체를 만듭니다.  만들려면 [이 자습서를 따라야 합니다](../articles/active-directory/develop/howto-create-service-principal-portal.md).
+Azure Active Directory 애플리케이션 만들기를 비롯하여 여러 반계로 구성된 서비스 주체를 만듭니다.  만들려면 [이 자습서를 따라야 합니다](../articles/active-directory/develop/howto-create-service-principal-portal.md).
 
 > [!IMPORTANT]
 > [연결된 자습서](../articles/active-directory/develop/howto-create-service-principal-portal.md)의 모든 단계를 따르세요.  설명한 대로 완료하는 것이 *중요합니다*.  나중에 이 정보가 필요하므로 **테넌트 ID**, **테넌트 도메인 이름**(사용자 지정 도메인을 지정하지 않을 경우, 일반적으로는 *.onmicrosoft.com* 도메인), **클라이언트 ID**, **클라이언트 인증 키**를 메모합니다.  **클라이언트 ID**와 **클라이언트 인증 키**를 신중하게 보호해야 합니다. 이 자격 증명을 사용하는 사람은 누구나 서비스 주체로 작업을 실행할 수 있습니다.
@@ -59,7 +59,7 @@ Azure Active Directory 응용 프로그램 만들기를 비롯하여 여러 반�
 
 1. 애플리케이션을 만들 때 **웹 애플리케이션** 대신 **네이티브 애플리케이션**을 선택합니다.
 
-    ![네이티브 응용 프로그램](./media/cdn-app-dev-prep/cdn-native-application-include.png)
+    ![네이티브 애플리케이션](./media/cdn-app-dev-prep/cdn-native-application-include.png)
 2. 다음 페이지에서 **URI 리디렉션** 메시지가 표시됩니다.  이 URI은 유효성을 검사하지 않지만, 입력한 내용을 기억해야 합니다. 나중에 필요합니다.
 3. **클라이언트 인증 키**를 만들 필요가 없습니다.
 4. 서비스 주체를 **CDN 프로필 참가자** 역할에 할당하는 대신 개별 사용자 또는 그룹을 할당합니다.  이 예제에서는 *CDN 데모 사용자* 를 **CDN 프로필 참가자** 역할에 할당한 것을 알 수 있습니다.  

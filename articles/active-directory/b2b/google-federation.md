@@ -21,7 +21,7 @@ ms.locfileid: "51569008"
 
 Google과의 페더레이션을 설정하면 초대된 사용자가 MSA(Microsoft 계정) 또는 Azure AD 계정을 만들 필요 없이 자신의 Google 계정을 사용하여 공유된 앱 및 리소스에 로그인하도록 허용할 수 있습니다.  
 > [!NOTE]
-> Google 게스트 사용자는 테넌트 컨텍스트를 포함하는 링크를 사용하여 로그인해야 합니다(예: `https://myapps.microsoft.com/?tenantid=<tenant id>`). 응용 프로그램 및 리소스에 대한 직접 링크는 테넌트 컨텍스트를 포함하는 한 작동합니다. 게스트 사용자는 현재 테넌트 컨텍스트가 없는 엔드포인트를 사용하여 로그인할 수 없습니다. 예를 들어 `https://myapps.microsoft.com`, `https://portal.azure.com` 또는 팀 공통 엔드포인트를 사용하면 오류가 발생합니다.
+> Google 게스트 사용자는 테넌트 컨텍스트를 포함하는 링크를 사용하여 로그인해야 합니다(예: `https://myapps.microsoft.com/?tenantid=<tenant id>`). 애플리케이션 및 리소스에 대한 직접 링크는 테넌트 컨텍스트를 포함하는 한 작동합니다. 게스트 사용자는 현재 테넌트 컨텍스트가 없는 엔드포인트를 사용하여 로그인할 수 없습니다. 예를 들어 `https://myapps.microsoft.com`, `https://portal.azure.com` 또는 팀 공통 엔드포인트를 사용하면 오류가 발생합니다.
  
 ## <a name="what-is-the-experience-for-the-google-user"></a>Google 사용자를 위한 환경이란?
 Google Gmail 사용자에게 초대를 보낼 때 게스트 사용자는 테넌트 컨텍스트를 포함하는 링크를 사용하여 공유된 앱 또는 리소스에 액세스해야 합니다. 환경은 Google에 이미 로그인했는지 여부에 따라 달라집니다.

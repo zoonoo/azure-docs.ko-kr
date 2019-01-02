@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Central 응용 프로그램에서 작업 만들기 및 실행 | Microsoft Docs
+title: Azure IoT Central 애플리케이션에서 작업 만들기 및 실행 | Microsoft Docs
 description: Azure IoT Central 작업에서는 디바이스 속성/설정 업데이트, 명령 실행 등의 대량 디바이스 관리 기능을 사용할 수 있습니다.
 ms.service: iot-central
 services: iot-central
@@ -15,9 +15,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/01/2018
 ms.locfileid: "52724505"
 ---
-# <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에서 작업 만들기 및 실행
+# <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 작업 만들기 및 실행
 
-Microsoft Azure IoT Central에서는 작업을 사용하여 연결된 디바이스를 대규모로 관리할 수 있습니다. 이 작업 기능을 통해 디바이스 속성, 설정 및 명령의 대량 업데이트를 수행할 수 있습니다. 이 문서에서는 응용 프로그램에서 작업 사용을 시작하는 과정을 안내합니다.
+Microsoft Azure IoT Central에서는 작업을 사용하여 연결된 디바이스를 대규모로 관리할 수 있습니다. 이 작업 기능을 통해 디바이스 속성, 설정 및 명령의 대량 업데이트를 수행할 수 있습니다. 이 문서에서는 애플리케이션에서 작업 사용을 시작하는 과정을 안내합니다.
 
 ## <a name="create-and-run-a-job"></a>작업 만들기 및 실행
 
@@ -98,7 +98,7 @@ Microsoft Azure IoT Central에서는 작업을 사용하여 연결된 디바이�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT Central 응용 프로그램에서 작업을 만드는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
+Azure IoT Central 애플리케이션에서 작업을 만드는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
 
 - [디바이스 설정 사용](howto-use-device-sets.md)
 - [디바이스 관리](howto-manage-devices.md)

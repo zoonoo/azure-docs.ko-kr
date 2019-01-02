@@ -21,7 +21,7 @@ ms.locfileid: "53094035"
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-이 문서에서는 Ubuntu Linux 16.04용 C++ 콘솔 응용 프로그램을 만듭니다. Cognitive Services [Speech SDK](speech-sdk.md)를 사용하여 실시간으로 PC의 마이크로 음성을 텍스트로 변환할 수 있습니다. 응용 프로그램은 [Linux용 Speech SDK](https://aka.ms/csspeech/linuxbinary) 및 Linux 배포판의 C++ 컴파일러(예: `g++`)를 사용하여 빌드됩니다.
+이 문서에서는 Ubuntu Linux 16.04용 C++ 콘솔 애플리케이션을 만듭니다. Cognitive Services [Speech SDK](speech-sdk.md)를 사용하여 실시간으로 PC의 마이크로 음성을 텍스트로 변환할 수 있습니다. 애플리케이션은 [Linux용 Speech SDK](https://aka.ms/csspeech/linuxbinary) 및 Linux 배포판의 C++ 컴파일러(예: `g++`)를 사용하여 빌드됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -33,7 +33,7 @@ ms.locfileid: "53094035"
 
 Cognitive Services 음성 SDK의 현재 버전은 `1.1.0`입니다.
 
-Linux용 Speech SDK는 64비트 및 32비트 응용 프로그램을 빌드하는 데 사용할 수 있습니다. 필요한 라이브러리 및 헤더 파일은 https://aka.ms/csspeech/linuxbinary에서 tarfile로 다운로드할 수 있습니다.
+Linux용 Speech SDK는 64비트 및 32비트 애플리케이션을 빌드하는 데 사용할 수 있습니다. 필요한 라이브러리 및 헤더 파일은 https://aka.ms/csspeech/linuxbinary에서 tarfile로 다운로드할 수 있습니다.
 
 SDK를 다음과 같이 다운로드하고 설치합니다.
 

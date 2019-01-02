@@ -78,7 +78,7 @@ Azure AD에 Workplace by Facebook을 통합하도록 구성하려면 갤러리�
 
     ![Azure AD 테스트 사용자 만들기](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_search.png)
 
-1. 결과 패널에서 **Workplace by Facebook**을 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **Workplace by Facebook**을 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_addfromgallery.png)
 
@@ -104,7 +104,7 @@ Workplace by Facebook에서 Azure AD Single Sign-On을 구성하고 테스트하
 
 **Workplace by Facebook에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Workplace by Facebook** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Workplace by Facebook** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -227,7 +227,7 @@ Require SAML authentication for all users now(모든 사용자에게 SAML 인증
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Workplace by Facebook**을 선택합니다.
+1. 애플리케이션 목록에서 **Workplace by Facebook**을 선택합니다.
 
     ![Configure Single Sign-On](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_app.png) 
 

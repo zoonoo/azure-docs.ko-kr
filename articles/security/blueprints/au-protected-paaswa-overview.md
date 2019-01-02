@@ -1,6 +1,6 @@
 ---
-title: Azure 보안 및 규정 준수 청사진 - Australia PROTECTED용 PaaS 웹 응용 프로그램
-description: Azure 보안 및 규정 준수 청사진 - Australia PROTECTED용 PaaS 웹 응용 프로그램
+title: Azure 보안 및 규정 준수 청사진 - Australia PROTECTED용 PaaS 웹 애플리케이션
+description: Azure 보안 및 규정 준수 청사진 - Australia PROTECTED용 PaaS 웹 애플리케이션
 services: security
 author: meladie
 ms.assetid: 708aa129-b226-4e02-85c6-1f86e54564e4
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/17/2018
 ms.locfileid: "49390265"
 ---
-# <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure 보안 및 규정 준수 청사진 - Australia PROTECTED용 PaaS 웹 응용 프로그램
+# <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure 보안 및 규정 준수 청사진 - Australia PROTECTED용 PaaS 웹 애플리케이션
 
 ## <a name="overview"></a>개요
 
@@ -26,7 +26,7 @@ ms.locfileid: "49390265"
 ASD 규정 준수를 구현하려면 정보 보안 등록 평가자가 시스템을 감사해야 합니다. 요구 사항이 각 고객의 특정 구현에 따라 달라질 수 있으므로 고객은 이 아키텍처를 사용하여 구축된 솔루션에 대한 적절한 보안 및 규정 준수 평가를 수행해야 합니다.
 
 ## <a name="architecture-diagram-and-components"></a>아키텍처 다이어그램 및 구성 요소
-이 솔루션은 Azure SQL Database 백 엔드가 있는 PaaS 웹 애플리케이션에 대한 참조 아키텍처를 제공합니다. 웹 응용 프로그램은 Azure 데이터 센터의 개인 전용 환경인 격리된 Azure App Service Environment에서 호스팅됩니다. 환경은 Azure에서 관리되는 가상 머신 간에 웹 애플리케이션에 대한 트래픽의 부하를 분산합니다. 모든 웹 응용 프로그램 연결에는 최소 1.2 버전의 TLS가 필요합니다. 이 아키텍처에는 네트워크 보안 그룹, Application Gateway, Azure DNS 및 Load Balancer도 포함됩니다.
+이 솔루션은 Azure SQL Database 백 엔드가 있는 PaaS 웹 애플리케이션에 대한 참조 아키텍처를 제공합니다. 웹 애플리케이션은 Azure 데이터 센터의 개인 전용 환경인 격리된 Azure App Service Environment에서 호스팅됩니다. 환경은 Azure에서 관리되는 가상 머신 간에 웹 애플리케이션에 대한 트래픽의 부하를 분산합니다. 모든 웹 애플리케이션 연결에는 최소 1.2 버전의 TLS가 필요합니다. 이 아키텍처에는 네트워크 보안 그룹, Application Gateway, Azure DNS 및 Load Balancer도 포함됩니다.
 
 아키텍처는 온-프레미스 네트워크를 Azure 허용 웹 기반 작업으로 확장하는 보안 하이브리드 환경을 제공하여 조직의 비공개 로컬 영역 네트워크나 인터넷을 통해 안전하게 액세스할 수 있게 됩니다. 온-프레미스 솔루션의 경우 고객이 보안, 작업 및 규정 준수의 모든 측면을 담당합니다.
 
@@ -90,7 +90,7 @@ App Service Environment는 단일 고객의 애플리케이션만 실행하도�
 이 아키텍처에 대한 App Service Environment 사용은 다음 제어/구성에 대해 허용됩니다.
 
 - App Service Environment는 격리 서비스 요금제를 사용하도록 구성해야 함
-    - 응용 프로그램 분류별로 다른 App Service Environment 구성
+    - 애플리케이션 분류별로 다른 App Service Environment 구성
 - 보안된 Azure 가상 네트워크에서 호스트 및 네트워크 보안 규칙
 - HTTPS 통신을 위해 자체 서명된 내부 부하 분산 장치 인증서로 구성된 App Service Environment. 모범 사례로, Microsoft에서는 보안 강화를 위해 신뢰할 수 있는 인증 기관을 사용하는 것을 권장합니다.
 - [내부 부하 분산 모드](https://docs.microsoft.com/azure/app-service-web/app-service-environment-with-internal-load-balancer)(모드 3)
@@ -154,7 +154,7 @@ Azure는 기본적으로 Azure 데이터 센터와의 모든 통신을 암호화
 - [Azure Active Directory Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started)를 사용하면 고객이 특정 정보에 액세스할 수 있는 사용자 수를 최소화할 수 있습니다. 관리자는 Azure Active Directory Privileged Identity Management를 사용하여 권한 있는 ID와 리소스에 대한 액세스를 검색, 제한 및 모니터링할 수 있습니다. 필요한 경우 이 기능을 사용하여 요청 시 JIT(Just-In-Time) 관리 액세스를 적용할 수도 있습니다.
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)은 조직의 ID에 영향을 미치는 잠재적 취약성을 탐지하고, 조직의 ID와 관련하여 검색된 의심스러운 작업에 대한 자동화된 대응을 구성하며, 의심스러운 인시던트를 조사하여 이를 해결하기 위한 적절한 조치를 수행합니다.
 
-**Azure Multi-Factor Authentication**: ID를 보호하려면 다단계 인증을 구현해야 합니다. [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)은 인증의 두 번째 메서드를 제공하여 사용자를 보호하는 사용하기 쉽고 확장 가능한 신뢰할 수 있는 솔루션입니다. Azure Multi-Factor Authentication은 클라우드의 강력한 기능을 이용하며 온-프레미스 Active Directory와 사용자 지정 응용 프로그램을 통합합니다. 이러한 보호는 고용량 업무상 중요한 시나리오에 확장됩니다.
+**Azure Multi-Factor Authentication**: ID를 보호하려면 다단계 인증을 구현해야 합니다. [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)은 인증의 두 번째 메서드를 제공하여 사용자를 보호하는 사용하기 쉽고 확장 가능한 신뢰할 수 있는 솔루션입니다. Azure Multi-Factor Authentication은 클라우드의 강력한 기능을 이용하며 온-프레미스 Active Directory와 사용자 지정 애플리케이션을 통합합니다. 이러한 보호는 고용량 업무상 중요한 시나리오에 확장됩니다.
 
 ### <a name="security"></a>보안
 **비밀 관리**: 이 솔루션은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용하여 키와 비밀을 관리합니다. Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. 고객은 다음 Azure Key Vault 기능을 통해 데이터를 보호할 수 있습니다.
@@ -219,7 +219,7 @@ Azure Network Watcher: [Azure Network Watcher]9\ https://docs.microsoft.com/azur
 ## <a name="guidance-and-recommendations"></a>지침 및 권장 사항
 ### <a name="vpn-and-expressroute"></a>VPN 및 ExpressRoute
 
-분류된 정보의 경우 이 IaaS 웹 응용 프로그램 참조 아키텍처의 일부로 배포된 리소스에 대한 연결을 안전하게 설정하도록 보안 IPSec VPN 터널을 구성해야 합니다. IPSec VPN을 적절히 설정하면 고객이 전송 중인 데이터에 대한 보호 레이어를 추가할 수 있습니다.
+분류된 정보의 경우 이 IaaS 웹 애플리케이션 참조 아키텍처의 일부로 배포된 리소스에 대한 연결을 안전하게 설정하도록 보안 IPSec VPN 터널을 구성해야 합니다. IPSec VPN을 적절히 설정하면 고객이 전송 중인 데이터에 대한 보호 레이어를 추가할 수 있습니다.
 
 Azure를 통해 보안 IPSec VPN 터널을 구현하면 온-프레미스 네트워크와 Azure 가상 네트워크 간의 가상 사설 연결을 만들 수 있습니다. 이 연결은 인터넷을 통해 이루어지며, 고객이 고객의 네트워크와 Azure 간에 암호화된 링크 내에서 정보를 안전하게 "터널링"할 수 있습니다. 사이트 간 VPN은 수십 년 동안 모든 규모의 기업에서 배포해 온 안전하고 완성도 높은 기술입니다. 
 

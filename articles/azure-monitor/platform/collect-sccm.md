@@ -30,7 +30,7 @@ Log Analytics는 System Center Configuration Manager 현재 분기, 1606 이상 
 ## <a name="configuration-overview"></a>구성 개요
 다음 단계는 Log Analytics와 Configuration Manager 통합을 구성하는 단계를 요약하여 보여 줍니다.  
 
-1. Azure Portal에서 Configuration Manager를 웹 응용 프로그램 및/또는 Web API 앱으로 등록하고 Azure Active Directory에서 등록할 때 사용한 클라이언트 ID와 클라이언트 암호 키가 있는지 확인합니다. 이 단계를 수행하는 방법에 대한 자세한 내용은 [포털 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
+1. Azure Portal에서 Configuration Manager를 웹 응용 프로그램 및/또는 Web API 앱으로 등록하고 Azure Active Directory에서 등록할 때 사용한 클라이언트 ID와 클라이언트 암호 키가 있는지 확인합니다. 이 단계를 수행하는 방법에 대한 자세한 내용은 [포털 사용하여 리소스에 액세스할 수 있는 Active Directory 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 2. Azure Portal에서 [Configuration Manager(등록된 웹앱)에 Log Analytics에 대한 액세스 권한을 제공](#grant-configuration-manager-with-permissions-to-log-analytics)합니다.
 3. 구성 관리자에서 [DMS 연결 추가 마법사를 사용하여 연결을 추가](#add-an-oms-connection-to-configuration-manager)합니다.
 4. 구성 관리자에서 암호 또는 클라이언트 비밀 키가 만료되거나 분실된 경우 [연결 속성을 업데이트](#update-oms-connection-properties)합니다.
@@ -67,7 +67,7 @@ Log Analytics 연결을 추가하려면 구성 관리자 환경에 온라인 모
    
 2. **일반** 화면에서 아래의 작업을 완료했는지와 각 항목에 대한 상세 정보가 있는지 확인하고 **다음**을 선택합니다.
 
-   1. Azure Portal에서 Configuration Manager를 웹 응용 프로그램 및/또는 웹 API 앱으로 등록했는지 여부 및 [등록 시 지정한 클라이언트 ID](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md)가 있는지 여부
+   1. Azure Portal에서 구성 관리자를 웹 애플리케이션 및/또는 웹 API 앱으로 등록했는지 여부 및 [등록 시 지정한 클라이언트 ID](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md)가 있는지 여부
    2. Azure Portal에서 Azure Active Directory에 등록된 앱의 앱 비밀 키를 만들었는지 여부  
    3. Azure Portal에서 등록된 웹앱에 Log Analytics에 대한 액세스 권한을 제공했는지 여부  
       ![Log Analytics 마법사 일반 페이지에 연결](./media/collect-sccm/sccm-console-general01.png)

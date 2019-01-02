@@ -1,6 +1,6 @@
 ---
-title: Azure Application Gateway에서 웹 응용 프로그램 방화벽 규칙 사용자 지정 - Azure CLI | Microsoft Docs
-description: 이 문서에서는 Azure CLI를 통해 Application Gateway에서 웹 응용 프로그램 방화벽 규칙을 사용자 지정하는 방법을 설명합니다.
+title: Azure Application Gateway에서 웹 애플리케이션 방화벽 규칙 사용자 지정 - Azure CLI | Microsoft Docs
+description: 이 문서에서는 Azure CLI를 통해 Application Gateway에서 웹 애플리케이션 방화벽 규칙을 사용자 지정하는 방법을 설명합니다.
 documentationcenter: na
 services: application-gateway
 author: vhorne
@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
 ms.locfileid: "46964124"
 ---
-# <a name="customize-web-application-firewall-rules-through-the-azure-cli"></a>Azure CLI를 통해 웹 응용 프로그램 방화벽 규칙 사용자 지정
+# <a name="customize-web-application-firewall-rules-through-the-azure-cli"></a>Azure CLI를 통해 웹 애플리케이션 방화벽 규칙 사용자 지정
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-gateway-customize-waf-rules-portal.md)

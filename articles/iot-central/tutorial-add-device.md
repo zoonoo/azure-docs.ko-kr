@@ -78,7 +78,7 @@ ms.locfileid: "50154814"
 
 ## <a name="generate-connection-string-for-real-device-from-application"></a>애플리케이션에서 실제 디바이스에 대한 연결 문자열 생성
 
-디바이스 개발자는 디바이스에서 실행되는 코드에서 실제 디바이스에 대한 *연결 문자열*을 포함해야 합니다. 연결 문자열을 사용하면 디바이스를 Azure IoT Central 응용 프로그램에 안전하게 연결할 수 있습니다. 다음 단계에서는 Node.js로 작성한 클라이언트 노드 준비의 일환으로 연결 문자열을 생성합니다. Node.js 응용 프로그램은 실제 연결된 공조를 나타냅니다. 
+디바이스 개발자는 디바이스에서 실행되는 코드에서 실제 디바이스에 대한 *연결 문자열*을 포함해야 합니다. 연결 문자열을 사용하면 디바이스를 Azure IoT Central 응용 프로그램에 안전하게 연결할 수 있습니다. 다음 단계에서는 Node.js로 작성한 클라이언트 노드 준비의 일환으로 연결 문자열을 생성합니다. Node.js 애플리케이션은 실제 연결된 공조를 나타냅니다. 
 
 ## <a name="prepare-the-client-code"></a>클라이언트 코드 준비
 
@@ -88,7 +88,7 @@ ms.locfileid: "50154814"
 * 연결된 공조 디바이스로써 온도 원격 분석을 보냅니다.
 * Azure IoT Central 애플리케이션에 디바이스 속성을 보냅니다.
 * **온도 설정** 설정을 사용하는 운영자에게 응답합니다.
-* Azure IoT Central 응용 프로그램에서 Echo 명령을 처리합니다.
+* Azure IoT Central 애플리케이션에서 Echo 명령을 처리합니다.
 
 
 [다음 단계](#next-steps)에서 참조하는 "방법" 문서는 더 완벽한 샘플을 제공하고 다른 프로그래밍 언어의 사용을 보여줍니다. 디바이스를 Azure IoT Central에 연결하는 방법에 대한 자세한 내용은 [디바이스 연결](concepts-connectivity.md) 문서를 참조하세요.
@@ -176,7 +176,7 @@ ms.locfileid: "50154814"
 * Azure IoT Central 애플리케이션에 원격 분석을 보냅니다.
 * Azure IoT Central 애플리케이션에 디바이스 속성을 보냅니다.
 * Azure IoT Central 애플리케이션에서 설정을 받습니다.
-* Azure IoT Central 응용 프로그램에서 Echo 명령을 처리합니다.
+* Azure IoT Central 애플리케이션에서 Echo 명령을 처리합니다.
 
 
 1. Azure IoT Central 애플리케이션에 온도 원격 분석을 보내려면 다음 코드를 **ConnectedAirConditioner.js** 파일에 추가합니다.
@@ -263,7 +263,7 @@ ms.locfileid: "50154814"
     * 설정 변경 처리를 위해 호출하려면 적절한 함수를 찾습니다.
     * Azure IoT Central 애플리케이션으로 승인을 돌려 보냅니다.
 
-1. Azure IoT Central 응용 프로그램에서 **echo** 같은 명령에 응답하려면 다음 정의를 추가합니다.
+1. Azure IoT Central 애플리케이션에서 **echo** 같은 명령에 응답하려면 다음 정의를 추가합니다.
 
    ```javascript
    // Respond to the echo command

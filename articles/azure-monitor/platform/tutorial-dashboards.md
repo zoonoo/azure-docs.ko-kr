@@ -152,9 +152,9 @@ ms.locfileid: "53388454"
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway 액세스 로그|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway 성능 로그|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway 방화벽 로그|
-|Microsoft.Network/securegateways|AzureFirewallApplicationRule|Azure Firewall 응용 프로그램 규칙|
+|Microsoft.Network/securegateways|AzureFirewallApplicationRule|Azure Firewall 애플리케이션 규칙|
 |Microsoft.Network/securegateways|AzureFirewallNetworkRule|Azure Firewall 네트워크 규칙|
-|Microsoft.Network/azurefirewalls|AzureFirewallApplicationRule|Azure Firewall 응용 프로그램 규칙|
+|Microsoft.Network/azurefirewalls|AzureFirewallApplicationRule|Azure Firewall 애플리케이션 규칙|
 |Microsoft.Network/azurefirewalls|AzureFirewallNetworkRule|Azure Firewall 네트워크 규칙|
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|게이트웨이 진단 로그|
 |Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|터널 진단 로그|

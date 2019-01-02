@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: 음성 인식, .NET Framework(Windows) - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: 이 가이드에 따라 Windows용 .NET Framework 및 Speech SDK를 사용하여 음성을 텍스트로 변환하는 콘솔 응용 프로그램을 만들 수 있습니다. 작업을 마치면 컴퓨터의 마이크를 사용하여 실시간으로 음성을 텍스트로 변환할 수 있습니다.
+description: 이 가이드에 따라 Windows용 .NET Framework 및 Speech SDK를 사용하여 음성을 텍스트로 변환하는 콘솔 애플리케이션을 만들 수 있습니다. 작업을 마치면 컴퓨터의 마이크를 사용하여 실시간으로 음성을 텍스트로 변환할 수 있습니다.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
@@ -21,7 +21,7 @@ ms.locfileid: "53074898"
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-이 가이드에 따라 Windows용 .NET Framework 및 Speech SDK를 사용하여 음성을 텍스트로 변환하는 콘솔 응용 프로그램을 만들 수 있습니다. 작업을 마치면 컴퓨터의 마이크를 사용하여 실시간으로 음성을 텍스트로 변환할 수 있습니다.
+이 가이드에 따라 Windows용 .NET Framework 및 Speech SDK를 사용하여 음성을 텍스트로 변환하는 콘솔 애플리케이션을 만들 수 있습니다. 작업을 마치면 컴퓨터의 마이크를 사용하여 실시간으로 음성을 텍스트로 변환할 수 있습니다.
 
 이 빠른 시작에는 Microsoft Speech가 지원되는 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started)을 사용하여 구독 키를 가져올 수 있습니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "53074898"
 
     ![솔루션 빌드 옵션이 강조 표시된 Visual Studio 응용 프로그램의 스크린샷](media/sdk/qs-csharp-dotnet-windows-08-build.png "성공적인 빌드")
 
-1. 메뉴 모음에서 **디버그** > **디버깅 시작**을 선택하거나 **F5** 키를 눌러 응용 프로그램을 시작합니다.
+1. 메뉴 모음에서 **디버그** > **디버깅 시작**을 선택하거나 **F5** 키를 눌러 애플리케이션을 시작합니다.
 
     ![디버깅 시작 옵션이 강조 표시된 Visual Studio 응용 프로그램의 스크린샷](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "앱 디버깅 시작")
 

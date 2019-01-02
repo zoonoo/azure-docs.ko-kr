@@ -36,7 +36,7 @@ ms.locfileid: "52968615"
 서버 SDK에 대한 참조 설명서는 [Azure Mobile Apps .NET 참조][1]에서 찾을 수 있습니다.
 
 ## <a name="create-app"></a>방법: .NET 모바일 앱 백 엔드 만들기
-새 프로젝트를 시작하는 경우 [Azure Portal] 과 Visual Studio 중 하나를 사용하여 App Service 응용 프로그램을 만들 수 있습니다. App Service 응용 프로그램을 로컬로 실행하거나 클라우드 기반 앱 서비스 모바일 앱에 프로젝트를 게시할 수 있습니다.
+새 프로젝트를 시작하는 경우 [Azure Portal] 과 Visual Studio 중 하나를 사용하여 App Service 애플리케이션을 만들 수 있습니다. App Service 애플리케이션을 로컬로 실행하거나 클라우드 기반 앱 서비스 모바일 앱에 프로젝트를 게시할 수 있습니다.
 
 기존 프로젝트에 모바일 기능을 추가하는 경우 [SDK 다운로드 및 초기화](#install-sdk) 섹션을 참조하세요.
 
@@ -49,7 +49,7 @@ App Service 모바일 백 엔드를 만들려면 [빠른 시작 자습서][3]를
 
 ### <a name="create-a-net-backend-using-visual-studio-2017"></a>Visual Studio 2017을 사용하여 .NET 백 엔드 만들기
 
-Visual Studio 설치 관리자를 통해 Azure 워크로드를 설치하여 Visual Studio에서 Azure Mobile Apps 프로젝트에 게시합니다. SDK를 설치한 후 다음 단계를 사용하여 ASP.NET 응용 프로그램을 만듭니다.
+Visual Studio 설치 관리자를 통해 Azure 워크로드를 설치하여 Visual Studio에서 Azure Mobile Apps 프로젝트에 게시합니다. SDK를 설치한 후 다음 단계를 사용하여 ASP.NET 애플리케이션을 만듭니다.
 
 1. **새 프로젝트** 대화를 엽니다(**파일** > **새로 만들기** > **프로젝트...** 에서).
 2. **Visual C#** 를 확장하고 **웹**을 선택합니다.
@@ -62,7 +62,7 @@ Visual Studio 설치 관리자를 통해 Azure 워크로드를 설치하여 Visu
 
 ### <a name="create-a-net-backend-using-visual-studio-2015"></a>Visual Studio 2015를 사용하여 .NET 백 엔드 만들기
 
-Visual Studio에서 Azure Mobile Apps 프로젝트를 만들려면 [.NET용 Azure SDK][4](버전 2.9.0 이상)을 설치합니다. SDK를 설치한 후 다음 단계를 사용하여 ASP.NET 응용 프로그램을 만듭니다.
+Visual Studio에서 Azure Mobile Apps 프로젝트를 만들려면 [.NET용 Azure SDK][4](버전 2.9.0 이상)을 설치합니다. SDK를 설치한 후 다음 단계를 사용하여 ASP.NET 애플리케이션을 만듭니다.
 
 1. **새 프로젝트** 대화를 엽니다(**파일** > **새로 만들기** > **프로젝트...** 에서).
 2. **템플릿** > **Visual C#** 를 확장하고 **웹**을 선택합니다.
@@ -128,7 +128,7 @@ Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()** 을 호
 * `MapLegacyCrossDomainController()` 은(는) 로컬 개발을 위한 표준 CORS 헤더를 제공합니다.
 
 ### <a name="sdk-extensions"></a>SDK 확장
-다음 NuGet 기반 확장 패키지는 응용 프로그램에서 사용할 수 있는 다양한 모바일 기능을 제공합니다. **MobileAppConfiguration** 개체를 사용하여 초기화하는 동안 확장을 사용하도록 설정합니다.
+다음 NuGet 기반 확장 패키지는 애플리케이션에서 사용할 수 있는 다양한 모바일 기능을 제공합니다. **MobileAppConfiguration** 개체를 사용하여 초기화하는 동안 확장을 사용하도록 설정합니다.
 
 * [Microsoft.Azure.Mobile.Server.Quickstart] 기본 Mobile Apps 설정을 지원합니다. 초기화하는 동안 **UseDefaultConfiguration** 확장 메서드를 호출하여 구성에 추가했습니다. 이 확장은 다음과 같은 확장을 포함합니다. 알림, 인증, 엔터티, 테이블, Cross-domain 및 홈 패키지 이 패키지는 Azure 포털에서 사용할 수 있는 Mobile Apps 빠른 시작에서 사용됩니다.
 * [Microsoft.Azure.Mobile.Server.Home](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) 웹 사이트 루트에 대해 기본 *이 모바일 앱이 실행 중인 페이지* 를 구현합니다. **AddMobileAppHomeController** 확장 메서드를 호출하여 구성에 추가합니다.
@@ -299,7 +299,7 @@ App Service 인증/권한 부여 공급자 중 하나를 사용하지 않으려�
             }
         }
 
-`AppServiceLoginHandler.CreateToken()` 메서드는 *audience* 및 *issuer* 매개 변수를 포함합니다. 이러한 매개 변수 모두 HTTPS 체계를 사용하여 응용 프로그램 루트의 URL로 설정됩니다. 마찬가지로 *secretKey* 를 응용 프로그램의 서명 키의 값으로 설정해야 합니다. 키를 만들고 사용자를 가장하는 데 사용될 수 있으므로 클라이언트의 서명 키를 배포하지 마십시오. App Service에서 호스트하는 동안 *WEBSITE\_AUTH\_SIGNING\_KEY* 환경 변수를 참조하여 서명 키를 가져올 수 있습니다. 로컬 디버깅 컨텍스트에서 필요한 경우 [인증을 사용하여 로컬 디버깅](#local-debug) 섹션의 지침에 따라 키를 검색하고 이 키를 응용 프로그램 설정으로 저장합니다.
+`AppServiceLoginHandler.CreateToken()` 메서드는 *audience* 및 *issuer* 매개 변수를 포함합니다. 이러한 매개 변수 모두 HTTPS 체계를 사용하여 애플리케이션 루트의 URL로 설정됩니다. 마찬가지로 *secretKey*를 애플리케이션의 서명 키의 값으로 설정해야 합니다. 키를 만들고 사용자를 가장하는 데 사용될 수 있으므로 클라이언트의 서명 키를 배포하지 마십시오. App Service에서 호스트하는 동안 *WEBSITE\_AUTH\_SIGNING\_KEY* 환경 변수를 참조하여 서명 키를 가져올 수 있습니다. 로컬 디버깅 컨텍스트에서 필요한 경우 [인증을 사용하여 로컬 디버깅](#local-debug) 섹션의 지침에 따라 키를 검색하고 이 키를 애플리케이션 설정으로 저장합니다.
 
 발급된 토큰은 다른 클레임 및 만료 날짜를 포함할 수도 있습니다.  최소한 발급된 토큰은 제목(**sub**) 클레임을 포함해야 합니다.
 
@@ -429,7 +429,7 @@ Notification Hubs를 사용하면 태그를 사용하여 특정 등록에 대상
 인증된 클라이언트의 푸시 알림을 등록할 때 등록을 시도하기 전에 인증이 완료되었는지 확인합니다. 자세한 내용은 .NET 백 엔드에 대한 App Service Mobile Apps 완료된 빠른 시작 샘플에서 [사용자에게 푸시 알림 보내기][6]를 참조하세요.
 
 ## <a name="how-to-debug-and-troubleshoot-the-net-server-sdk"></a>방법: .NET 서버 SDK 디버그 및 문제 해결
-Azure App Service는 ASP.NET 응용 프로그램에 대한 여러 디버깅 및 문제 해결 기술을 제공합니다.
+Azure App Service는 ASP.NET 애플리케이션에 대한 여러 디버깅 및 문제 해결 기술을 제공합니다.
 
 * [Azure App Service 모니터링](../app-service/web-sites-monitor.md)
 * [Azure App Service에 진단 로그 사용](../app-service/web-sites-enable-diagnostic-log.md)
@@ -452,11 +452,11 @@ Azure App Service는 ASP.NET 응용 프로그램에 대한 여러 디버깅 및 
 5. [방법: 로그 다운로드](../app-service/web-sites-enable-diagnostic-log.md#download)에 설명된 대로 로그를 다운로드하고 평가합니다.
 
 ### <a name="local-debug"></a>인증을 사용하여 로컬 디버깅
-응용 프로그램을 로컬로 실행하여 변경 내용을 클라우드에 게시하기 전에 테스트할 수 있습니다. 대부분의 Azure Mobile Apps 백 엔드의 경우 Visual Studio에 있는 동안 *F5* 를 누릅니다. 그러나 인증을 사용할 때 몇 가지 추가 고려 사항이 있습니다.
+애플리케이션을 로컬로 실행하여 변경 내용을 클라우드에 게시하기 전에 테스트할 수 있습니다. 대부분의 Azure Mobile Apps 백 엔드의 경우 Visual Studio에 있는 동안 *F5* 를 누릅니다. 그러나 인증을 사용할 때 몇 가지 추가 고려 사항이 있습니다.
 
 클라우드 기반 모바일 앱에서 App Service 인증/권한 부여를 구성해야 하며 클라이언트가 클라우드 엔드포인트를 대체 로그인 호스트로 지정해야 합니다. 필요한 구체적인 단계는 클라이언트 플랫폼에 대한 설명서를 참조하세요.
 
-모바일 백 엔드에 [Microsoft.Azure.Mobile.Server.Authentication] 을 설치했는지 확인합니다. 그런 다음 `MobileAppConfiguration`를 `HttpConfiguration`에 적용한 후 응용 프로그램의 OWIN 시작 클래스에 다음을 추가합니다.
+모바일 백 엔드에 [Microsoft.Azure.Mobile.Server.Authentication] 을 설치했는지 확인합니다. 그런 다음 `MobileAppConfiguration`를 `HttpConfiguration`에 적용한 후 애플리케이션의 OWIN 시작 클래스에 다음을 추가합니다.
 
         app.UseAppServiceAuthentication(new AppServiceAuthenticationOptions()
         {
@@ -466,7 +466,7 @@ Azure App Service는 ASP.NET 응용 프로그램에 대한 여러 디버깅 및 
             TokenHandler = config.GetAppServiceTokenHandler()
         });
 
-앞의 예제에서는 HTTPS 체계를 사용하여 Web.config 파일 내에서 *authAudience* 및 *authIssuer* 응용 프로그램 설정을 응용 프로그램 루트의 URL로 구성해야 합니다. 마찬가지로 *authSigningKey* 를 응용 프로그램의 서명 키의 값으로 설정해야 합니다.
+앞의 예제에서는 HTTPS 체계를 사용하여 Web.config 파일 내에서 *authAudience* 및 *authIssuer* 애플리케이션 설정을 애플리케이션 루트의 URL로 구성해야 합니다. 마찬가지로 *authSigningKey*를 애플리케이션의 서명 키의 값으로 설정해야 합니다.
 서명 키를 가져오려면:
 
 1.  [Azure Portal]
@@ -474,7 +474,7 @@ Azure App Service는 ASP.NET 응용 프로그램에 대한 여러 디버깅 및 
 3. Kudu 관리 사이트에서 **환경**을 클릭합니다.
 4. *WEBSITE\_AUTH\_SIGNING\_KEY*에 대한 값을 찾습니다.
 
-로컬 응용 프로그램 구성에서 *authSigningKey* 매개 변수에 대한 서명 키를 사용합니다.  로컬로 실행 중일 때 모바일 백 엔드가 이제 클라이언트가 클라우드 기반 엔드포인트에서 가져오는 토큰을 확인하게 됩니다.
+로컬 애플리케이션 구성에서 *authSigningKey* 매개 변수에 대한 서명 키를 사용합니다.  로컬로 실행 중일 때 모바일 백 엔드가 이제 클라이언트가 클라우드 기반 엔드포인트에서 가져오는 토큰을 확인하게 됩니다.
 
 [1]: https://msdn.microsoft.com/library/azure/dn961176.aspx
 [2]: https://github.com/Azure/azure-mobile-apps-net-server

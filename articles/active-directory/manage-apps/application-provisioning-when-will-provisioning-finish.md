@@ -1,6 +1,6 @@
 ---
-title: Azure AD 갤러리 응용 프로그램에 대한 사용자 프로비저닝이 오래 걸림 | Microsoft Docs
-description: 응용 프로그램에 대한 프로비저닝이 예상보다 오래 걸리는 이유를 확인하는 방법
+title: Azure AD 갤러리 애플리케이션에 대한 사용자 프로비저닝이 오래 걸림 | Microsoft Docs
+description: 애플리케이션에 대한 프로비저닝이 예상보다 오래 걸리는 이유를 확인하는 방법
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -22,9 +22,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/11/2018
 ms.locfileid: "44356181"
 ---
-# <a name="user-provisioning-to-an-azure-ad-gallery-application-is-taking-hours-or-more"></a>Azure AD 갤러리 응용 프로그램에 대한 사용자 프로비저닝이 오래 걸림
+# <a name="user-provisioning-to-an-azure-ad-gallery-application-is-taking-hours-or-more"></a>Azure AD 갤러리 애플리케이션에 대한 사용자 프로비저닝이 오래 걸림
 
-응용 프로그램에 대한 자동 프로비저닝을 처음 사용하도록 설정할 경우 초기 동기화는 Azure AD 디렉터리의 크기와 프로비전 범위에 있는 사용자 수에 따라 20분에서 수 시간이 걸릴 수 있습니다. 
+애플리케이션에 대한 자동 프로비저닝을 처음 사용하도록 설정할 경우 초기 동기화는 Azure AD 디렉터리의 크기와 프로비전 범위에 있는 사용자 수에 따라 20분에서 수 시간이 걸릴 수 있습니다. 
 
 프로비전 서비스는 초기 동기화 후에 두 시스템의 상태를 나타내는 워터마크를 저장하므로, 초기 동기화 이후의 후속 동기화가 빨라져 후속 동기화의 성능이 향상됩니다.
 

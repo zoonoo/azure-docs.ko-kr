@@ -34,7 +34,7 @@ Azure Active Directory 응용 프로그램 프록시 및 Tableau를 사용하여
  
 ## <a name="enabling-application-proxy-for-tableau"></a>Tableau에 대해 응용 프로그램 프록시 사용 
 
-응용 프로그램 프록시는 Tableau가 제대로 작동하는 데 필요한 OAuth 2.0 Grant Flow를 지원합니다. 즉, 아래의 게시 단계를 따라 구성하기만 하면 더 이상 특별한 단계를 수행할 필요 없이 이 응용 프로그램을 활성화할 수 있습니다.
+애플리케이션 프록시는 Tableau가 제대로 작동하는 데 필요한 OAuth 2.0 Grant Flow를 지원합니다. 즉, 아래의 게시 단계를 따라 구성하기만 하면 더 이상 특별한 단계를 수행할 필요 없이 이 애플리케이션을 활성화할 수 있습니다.
 
 
 ## <a name="publish-your-applications-in-azure"></a>Azure에 응용 프로그램 게시 

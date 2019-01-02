@@ -70,7 +70,7 @@ Group API는 알 수 없는 얼굴 집합을 유사성에 따라 여러 그룹�
 
 ## <a name="sample-apps"></a>샘플 앱
 
-다음 응용 프로그램 예제는 Face API를 사용할 수 있는 몇 가지 방법을 소개합니다.
+다음 애플리케이션 예제는 Face API를 사용할 수 있는 몇 가지 방법을 소개합니다.
 
 - [Microsoft Face API: Windows 클라이언트 라이브러리 및 샘플](https://github.com/Microsoft/Cognitive-Face-Windows) - 얼굴 감지, 분석 및 식별에 해당하는 몇 가지 시나리오를 보여주는 WPF 앱입니다.
 - [FamilyNotes UWP 앱](https://github.com/Microsoft/Windows-appsample-familynotes) - 제품군 노트 공유 시나리오에서 음성, Cortana, 잉크 및 카메라와 함께 얼굴 인식을 사용하는 UWP(유니버설 Windows 플랫폼) 앱입니다.

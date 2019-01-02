@@ -40,7 +40,7 @@ ms.locfileid: "52969281"
 > * JSON 문서 만들기
 > * 항목, 컨테이너 및 데이터베이스에서 CRUD 작업 수행
 
-응용 프로그램을 만든 시간이 없나요? [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started)에서 전체 솔루션을 사용할 수 있습니다. 
+애플리케이션을 만든 시간이 없나요? [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started)에서 전체 솔루션을 사용할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -514,7 +514,7 @@ await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"
 
 ## <a id="Run"></a>C# 콘솔 애플리케이션 실행
 
-Visual Studio에서 **DocumentDBGettingStarted** 단추를 선택하여 디버그 모드에서 응용 프로그램을 빌드합니다. 시작한 앱의 출력이 콘솔 창에 표시됩니다. 출력은 추가한 쿼리 결과를 보여 주며, 아래 예제 텍스트와 일치해야 합니다.
+Visual Studio에서 **DocumentDBGettingStarted** 단추를 선택하여 디버그 모드에서 애플리케이션을 빌드합니다. 시작한 앱의 출력이 콘솔 창에 표시됩니다. 출력은 추가한 쿼리 결과를 보여 주며, 아래 예제 텍스트와 일치해야 합니다.
 
 ```bash
 Created FamilyDB_oa

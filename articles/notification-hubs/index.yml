@@ -27,7 +27,7 @@ abstract:
       height: 110
       src: media/index/video.png
       width: 250
-    title: Android 응용 프로그램에 대한 푸시 알림
+    title: Android 애플리케이션에 대한 푸시 알림
     href: https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Notification-Hubs-in-an-Android-Application
     width: 250
 sections:

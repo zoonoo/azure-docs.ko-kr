@@ -76,7 +76,7 @@ Jive의 Azure AD 통합을 구성하려면 갤러리의 Jive를 관리되는 Saa
 
     ![Azure AD 테스트 사용자 만들기](./media/jive-tutorial/tutorial_jive_search.png)
 
-1. 결과 창에서 **Jive**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **Jive**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/jive-tutorial/tutorial_jive_addfromgallery.png)
 
@@ -101,7 +101,7 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
 **Jive에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Jive** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Jive** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 

@@ -212,7 +212,7 @@ ms.locfileid: "52866069"
    |조치 | 허용  | |
    | | |
 
-4. 각 서비스에 대해 응용 프로그램 매니페스트에서 네트워킹 모드를 지정합니다. `<NetworkConfig NetworkType="Open">` **오픈** 네트워킹 모드에서는 서비스가 전용 IP 주소를 갖게 됩니다. 모드를 지정하지 않으면 서비스는 기본적으로 **nat** 모드가 됩니다. 다음 매니페스트 예제에서 `NodeContainerServicePackage1` 및 `NodeContainerServicePackage2` 서비스는 동일한 포트에서 각각 수신 대기할 수 있습니다(두 서비스는 모두 `Endpoint1`에서 수신 대기 중). 오픈 네트워킹 모드를 지정하면 `PortBinding` 구성을 지정할 수 없습니다.
+4. 각 서비스에 대해 애플리케이션 매니페스트에서 네트워킹 모드를 지정합니다. `<NetworkConfig NetworkType="Open">` **오픈** 네트워킹 모드에서는 서비스가 전용 IP 주소를 갖게 됩니다. 모드를 지정하지 않으면 서비스는 기본적으로 **nat** 모드가 됩니다. 다음 매니페스트 예제에서 `NodeContainerServicePackage1` 및 `NodeContainerServicePackage2` 서비스는 동일한 포트에서 각각 수신 대기할 수 있습니다(두 서비스는 모두 `Endpoint1`에서 수신 대기 중). 오픈 네트워킹 모드를 지정하면 `PortBinding` 구성을 지정할 수 없습니다.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>

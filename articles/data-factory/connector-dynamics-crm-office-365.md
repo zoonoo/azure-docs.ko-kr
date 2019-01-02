@@ -35,7 +35,7 @@ Dynamics 365(Common Data Service) 또는 Dynamics CRM에서 지원되는 모든 
 | Dynamics 365 온라인 <br> Dynamics CRM Online | Office365 | [Dynamics Online + Office365 인증](#dynamics-365-and-dynamics-crm-online) |
 | IFD로 Dynamics 365 온-프레미스 <br> IFD로 Dynamics CRM 2016 온-프레미스 <br> IFD로 Dynamics CRM 2015 온-프레미스 | IFD | [IFD + IFD 인증으로 Dynamics 온-프레미스](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
-구체적으로 Dynamics 365에 대해 다음 응용 프로그램 유형이 지원됩니다.
+구체적으로 Dynamics 365에 대해 다음 애플리케이션 유형이 지원됩니다.
 
 - Dynamics 365 for Sales
 - Dynamics 365 for Customer Service

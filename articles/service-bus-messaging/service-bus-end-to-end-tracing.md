@@ -86,7 +86,7 @@ async Task ProcessAsync(Message message)
 메시지 처리 중에 지원되는 외부 구성 요소를 호출하는 경우 해당 구성 요소도 자동으로 추적되고 상호 연결됩니다. 수동 추적 및 상관관계는 [Application Insights .NET SDK를 사용하여 사용자 지정 작업 추적](../application-insights/application-insights-custom-operations-tracking.md)을 참조하세요.
 
 ### <a name="tracking-without-tracing-system"></a>추적 시스템 없이 추적
-추적 시스템이 자동 Service Bus 호출 추적을 지원하지 않는 경우 추적 시스템 또는 응용 프로그램에 해당 지원을 추가하는 것이 좋습니다. 이 섹션에서는 Service Bus .NET 클라이언트가 보내는 진단 이벤트에 대해 설명합니다.  
+추적 시스템이 자동 Service Bus 호출 추적을 지원하지 않는 경우 추적 시스템 또는 애플리케이션에 해당 지원을 추가하는 것이 좋습니다. 이 섹션에서는 Service Bus .NET 클라이언트가 보내는 진단 이벤트에 대해 설명합니다.  
 
 Service Bus .NET 클라이언트는 .NET 추적 기본 형식 [System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) 및 [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md)를 사용하여 계측됩니다.
 

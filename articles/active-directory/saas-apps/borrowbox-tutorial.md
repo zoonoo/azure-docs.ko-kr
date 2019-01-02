@@ -72,7 +72,7 @@ Azure AD에 대한 BorrowBox 통합을 구성하려면 갤러리의 BorrowBox를
 
     ![이미지](./common/a_new_app.png)
 
-4. 검색 상자에 **BorrowBox**를 입력하고 결과 패널에서 **BorrowBox**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에 **BorrowBox**를 입력하고 결과 패널에서 **BorrowBox**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
      ![이미지](./media/borrowbox-tutorial/tutorial_borrowbox_addfromgallery.png)
 
@@ -92,7 +92,7 @@ BorrowBox에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 BorrowBox 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 BorrowBox 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **BorrowBox에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
@@ -121,7 +121,7 @@ BorrowBox에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     > [!NOTE]
     > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 얻으려면 [BorrowBox 클라이언트 지원 팀](mailto:borrowbox@bolinda.com)에 문의하세요.
 
-5. BorrowBox 응용 프로그램에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
+5. BorrowBox 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
 
     ![이미지](./media/borrowbox-tutorial/i4-attribute.png)
 
@@ -178,11 +178,11 @@ BorrowBox에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 이 섹션에서는 BorrowBox 액세스 권한을 부여하여 Britta Simon이 Azure Single Sign-On을 사용할 수 있도록 설정합니다.
 
-1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음, **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 
     ![이미지](./common/d_all_applications.png)
 
-2. 응용 프로그램 목록에서 **BorrowBox**를 선택합니다.
+2. 애플리케이션 목록에서 **BorrowBox**를 선택합니다.
 
     ![이미지](./media/borrowbox-tutorial/tutorial_borrowbox_app.png)
 
@@ -202,7 +202,7 @@ BorrowBox에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 BorrowBox 타일을 클릭하면 BorrowBox 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 BorrowBox 타일을 클릭하면 BorrowBox 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스

@@ -27,8 +27,8 @@ ms.locfileid: "51256457"
 
 - Azure에서 확정된 컨테이너(자격 증명 모음)를 만드는 방법
 - 키 자격 증명 모음에 키, 비밀 또는 인증서 추가
-- Azure Active Directory에 응용 프로그램 등록
-- 키 또는 비밀을 사용하여 응용 프로그램에 권한 부여
+- Azure Active Directory에 애플리케이션 등록
+- 키 또는 비밀을 사용하여 애플리케이션에 권한 부여
 - 키 자격 증명 모음 고급 액세스 정책 설정
 - HSM(하드웨어 보안 모듈) 작업
 - 키 자격 증명 모음 및 연결된 키와 비밀 삭제
@@ -70,7 +70,7 @@ az account set -h
 
 ## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>Azure에서 확정된 컨테이너(자격 증명 모음)를 만드는 방법
 
-자격 증명 모음은 하드웨어 보안 모듈의 지원을 받는 보안 컨테이너입니다. 자격 증명 모음은 응용 프로그램 비밀을 중앙 집중식으로 저장하여 보안 정보의 우발적인 손실 가능성을 줄이는 데 도움이 됩니다. Key Vault는 또한 저장된 모든 것에 대한 액세스를 제어하고 기록합니다. Azure Key Vault는 TLS(전송 계층 보안) 인증서의 요청 및 갱신을 처리할 수 있으므로, 강력한 인증서 수명 주기 관리 솔루션에 필요한 기능을 제공합니다. 다음 단계에서는 자격 증명 모음을 만듭니다.
+자격 증명 모음은 하드웨어 보안 모듈의 지원을 받는 보안 컨테이너입니다. 자격 증명 모음은 애플리케이션 비밀을 중앙 집중식으로 저장하여 보안 정보의 우발적인 손실 가능성을 줄이는 데 도움이 됩니다. Key Vault는 또한 저장된 모든 것에 대한 액세스를 제어하고 기록합니다. Azure Key Vault는 TLS(전송 계층 보안) 인증서의 요청 및 갱신을 처리할 수 있으므로, 강력한 인증서 수명 주기 관리 솔루션에 필요한 기능을 제공합니다. 다음 단계에서는 자격 증명 모음을 만듭니다.
 
 ### <a name="connect-to-your-subscriptions"></a>구독에 연결
 
@@ -188,7 +188,7 @@ az keyvault secret list --vault-name 'ContosoKeyVault'
 az keyvault certificate list --vault-name 'ContosoKeyVault'
 ```
 
-## <a name="registering-an-application-with-azure-active-directory"></a>Azure Active Directory에 응용 프로그램 등록
+## <a name="registering-an-application-with-azure-active-directory"></a>Azure Active Directory에 애플리케이션 등록
 
 이 단계는 일반적으로 별도의 컴퓨터에서 개발자가 수행할 수 있습니다. Azure Key Vault에만 한정되지는 않지만 이해를 돕기 위해 여기에 포함되었습니다. 애플리케이션 등록을 완료하려면 계정, 자격 증명 모음 및 애플리케이션이 동일한 Azure 디렉터리에 있어야 합니다.
 
@@ -199,7 +199,7 @@ az keyvault certificate list --vault-name 'ContosoKeyVault'
 
 애플리케이션은 토큰을 가져올 Azure Active Directory에 이 두 값 모두가 있어야 합니다. 토큰을 가져오도록 애플리케이션을 구성하는 방법은 애플리케이션에 따라 다릅니다. [Key Vault 샘플 응용 프로그램](https://www.microsoft.com/download/details.aspx?id=45343)의 경우, 응용 프로그램 소유자는 app.config 파일에서 이러한 값을 설정합니다.
 
-Azure Active Directory에 응용 프로그램을 등록하는 방법에 대한 자세한 단계를 알아보려면 [Azure Active Directory와 응용 프로그램 통합](../active-directory/develop/active-directory-integrating-applications.md), [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md) 및 [Azure CLI를 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli) 문서를 검토해야 합니다.
+Azure Active Directory에 애플리케이션을 등록하는 방법에 대한 자세한 단계를 알아보려면 [Azure Active Directory와 애플리케이션 통합](../active-directory/develop/active-directory-integrating-applications.md), [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md) 및 [Azure CLI를 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli) 문서를 검토해야 합니다.
 
 Azure Active Directory에서 애플리케이션을 등록하려면 다음을 수행합니다.
 
@@ -208,7 +208,7 @@ az ad sp create-for-rbac -n "MyApp" --password 'Pa$$w0rd' --skip-assignment
 # If you don't specify a password, one will be created for you.
 ```
 
-## <a name="authorizing-an-application-to-use-a-key-or-secret"></a>키 또는 비밀을 사용하여 응용 프로그램에 권한 부여
+## <a name="authorizing-an-application-to-use-a-key-or-secret"></a>키 또는 비밀을 사용하여 애플리케이션에 권한 부여
 
 애플리케이션이 자격 증명 모음의 키 또는 암호에 대한 액세스를 인증하려면 `az keyvault set-policy` 명령을 사용합니다.
 
@@ -218,7 +218,7 @@ az ad sp create-for-rbac -n "MyApp" --password 'Pa$$w0rd' --skip-assignment
 az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --key-permissions decrypt sign
 ```
 
-자격 증명 모음에서 비밀을 읽도록 동일한 응용 프로그램에 권한을 부여하려면 다음을 실행합니다.
+자격 증명 모음에서 비밀을 읽도록 동일한 애플리케이션에 권한을 부여하려면 다음을 실행합니다.
 
 ```azurecli
 az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get

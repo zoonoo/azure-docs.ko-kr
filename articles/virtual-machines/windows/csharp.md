@@ -56,7 +56,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 ## <a name="create-credentials"></a>자격 증명 만들기
 
-이 단계를 시작하기 전에 [Active Directory 서비스 주체](../../active-directory/develop/howto-create-service-principal-portal.md)에 액세스할 수 있는지 확인합니다. 또한 이후 단계에서 필요한 응용 프로그램 ID, 인증 키 및 테넌트 ID를 기록해 두어야 합니다.
+이 단계를 시작하기 전에 [Active Directory 서비스 주체](../../active-directory/develop/howto-create-service-principal-portal.md)에 액세스할 수 있는지 확인합니다. 또한 이후 단계에서 필요한 애플리케이션 ID, 인증 키 및 테넌트 ID를 기록해 두어야 합니다.
 
 ### <a name="create-the-authorization-file"></a>권한 부여 파일 만들기
 
@@ -114,7 +114,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 모든 리소스는 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md)에 포함되어야 합니다.
 
-응용 프로그램의 값을 지정하고 리소스 그룹을 만들려면 Main 메서드에 다음 코드를 추가합니다.
+애플리케이션의 값을 지정하고 리소스 그룹을 만들려면 Main 메서드에 다음 코드를 추가합니다.
 
 ```
 var groupName = "myResourceGroup";

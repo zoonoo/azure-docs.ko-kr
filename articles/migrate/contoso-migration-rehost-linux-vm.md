@@ -408,7 +408,7 @@ Contoso 관리자는 빠른 테스트 장애 조치를 실행한 다음, VM을 �
 
 ### <a name="connect-the-vm-to-the-database"></a>데이터베이스에 VM 연결
 
-마이그레이션 프로세스의 최종 단계로, Contoso 관리자는 **OSTICKETMYSQL** VM에서 실행 중인 앱 데이터베이스를 가리키도록 응용 프로그램의 연결 문자열을 업데이트합니다. 
+마이그레이션 프로세스의 최종 단계로, Contoso 관리자는 **OSTICKETMYSQL** VM에서 실행 중인 앱 데이터베이스를 가리키도록 애플리케이션의 연결 문자열을 업데이트합니다. 
 
 1. Putty 또는 다른 SSH 클라이언트를 사용하여 **OSTICKETWEB** VM에 대한 SSH 연결을 만듭니다. VM은 개인 VM이므로 개인 IP 주소를 사용하여 연결합니다.
 
@@ -462,7 +462,7 @@ Contoso 관리자는 빠른 테스트 장애 조치를 실행한 다음, VM을 �
 
 Contoso 보안 팀은 OSTICKETWEB 및 OSTICKETMYSQL VM을 검토하여 보안 문제를 확인합니다.
 
-- 그리고 액세스를 제어할 VM에 대한 NSG(네트워크 보안 그룹)를 검토합니다. NSG는 응용 프로그램에 허용된 트래픽만 통과할 수 있도록 제한하는 데 사용됩니다.
+- 그리고 액세스를 제어할 VM에 대한 NSG(네트워크 보안 그룹)를 검토합니다. NSG는 애플리케이션에 허용된 트래픽만 통과할 수 있도록 제한하는 데 사용됩니다.
 - 보안 팀은 디스크 암호화 및 Azure KeyVault를 사용하여 VM 디스크의 데이터 보안을 유지하는 것도 고려합니다.
 
 VM 보안 모범 사례에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control).

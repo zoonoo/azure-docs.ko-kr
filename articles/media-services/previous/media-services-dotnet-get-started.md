@@ -24,7 +24,7 @@ ms.locfileid: "50233619"
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>.NET SDK를 사용한 주문형 콘텐츠 제공 시작
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
-이 자습서에서는 Azure Media Services .NET SDK를 사용하는 AMS(Azure Media Services) 응용 프로그램으로 기본 VoD(주문형 비디오) 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
+이 자습서에서는 Azure Media Services .NET SDK를 사용하는 AMS(Azure Media Services) 애플리케이션으로 기본 VoD(주문형 비디오) 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -46,13 +46,13 @@ ms.locfileid: "50233619"
 5. 콘텐츠를 재생합니다.
 
 ## <a name="overview"></a>개요
-이 자습서에서는 Azure Media Services(AMS) SDK for .NET를 사용하여 VoD(주문형 비디오) 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다.
+이 자습서에서는 Azure Media Services(AMS) SDK for .NET를 사용하여 VoD(주문형 비디오) 콘텐츠 배달 애플리케이션을 구현하는 단계를 안내합니다.
 
 기본적인 Media Services 워크플로와 Media Services 개발에 필요한 가장 일반적인 프로그래밍 개체 및 작업을 소개합니다. 자습서를 마치면 업로드하고 인코딩하고 다운로드한 샘플 미디어 파일을 스트리밍하거나 점진적으로 다운로드할 수 있습니다.
 
 ### <a name="ams-model"></a>AMS 모델
 
-다음 이미지에서는 Media Services OData 모델에 대해 VoD 응용 프로그램을 개발할 때 가장 일반적으로 사용되는 개체 중 일부를 보여 줍니다.
+다음 이미지에서는 Media Services OData 모델에 대해 VoD 애플리케이션을 개발할 때 가장 일반적으로 사용되는 개체 중 일부를 보여 줍니다.
 
 전체 크기로 보려면 이미지를 클릭합니다.  
 

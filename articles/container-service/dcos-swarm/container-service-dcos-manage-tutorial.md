@@ -20,7 +20,7 @@ ms.locfileid: "53000414"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-DC/OS는 컨테이너화된 최신 응용 프로그램 실행을 위한 분산 플랫폼을 제공합니다. Azure Container Service를 통해 프로덕션이 준비된 DC/OS 클러스터를 프로비전하는 작업은 간단하고 빠릅니다. 이 빠른 시작에서는 DC/OS 클러스터를 배포하고 기본 워크로드를 실행하는 데 필요한 기본 단계를 자세히 설명합니다.
+DC/OS는 컨테이너화된 최신 애플리케이션 실행을 위한 분산 플랫폼을 제공합니다. Azure Container Service를 통해 프로덕션이 준비된 DC/OS 클러스터를 프로비전하는 작업은 간단하고 빠릅니다. 이 빠른 시작에서는 DC/OS 클러스터를 배포하고 기본 워크로드를 실행하는 데 필요한 기본 단계를 자세히 설명합니다.
 
 > [!div class="checklist"]
 > * ACS DC/OS 클러스터 만들기
@@ -86,9 +86,9 @@ CLI를 클러스터 함께 사용하기 전에 SSH 터널을 사용하도록 구
 dcos config set core.dcos_url http://localhost
 ```
 
-## <a name="run-an-application"></a>응용 프로그램 실행
+## <a name="run-an-application"></a>애플리케이션 실행
 
-ACS DC/OS 클러스터의 기본 예약 메커니즘은 Marathon입니다. Marathon은 응용 프로그램을 시작하고 DC/OS 클러스터에서 응용 프로그램의 상태를 관리하는 데 사용됩니다. Marathon을 통해 응용 프로그램을 예약하려면 **marathon-app.json**이라는 파일을 만들고 여기에 다음과 같은 내용을 복사합니다. 
+ACS DC/OS 클러스터의 기본 예약 메커니즘은 Marathon입니다. Marathon은 애플리케이션을 시작하고 DC/OS 클러스터에서 애플리케이션의 상태를 관리하는 데 사용됩니다. Marathon을 통해 애플리케이션을 예약하려면 **marathon-app.json**이라는 파일을 만들고 여기에 다음과 같은 내용을 복사합니다. 
 
 ```json
 {
@@ -116,7 +116,7 @@ ACS DC/OS 클러스터의 기본 예약 메커니즘은 Marathon입니다. Marat
 }
 ```
 
-DC/OS 클러스터에서 실행되도록 응용 프로그램을 예약하는 다음 명령을 실행합니다.
+DC/OS 클러스터에서 실행되도록 애플리케이션을 예약하는 다음 명령을 실행합니다.
 
 ```azurecli
 dcos marathon app add marathon-app.json
@@ -222,7 +222,7 @@ ACS DC/OS 클러스터는 인터넷에 액세스할 수 있는 공용 노드 집
 }
 ```
 
-DC/OS 클러스터에서 실행되도록 응용 프로그램을 예약하는 다음 명령을 실행합니다.
+DC/OS 클러스터에서 실행되도록 애플리케이션을 예약하는 다음 명령을 실행합니다.
 
 ```azurecli 
 dcos marathon app add nginx-public.json
@@ -275,7 +275,7 @@ az group delete --name myResourceGroup --no-wait
 > * DC/OS 클러스터 노드 크기 조정
 > * DC/OS 클러스터 삭제
 
-다음 자습서로 이동하여 Azure의 DC/OS에서 응용 프로그램의 부하를 분산하는 방법에 대해 알아봅니다. 
+다음 자습서로 이동하여 Azure의 DC/OS에서 애플리케이션의 부하를 분산하는 방법에 대해 알아봅니다. 
 
 > [!div class="nextstepaction"]
 > [부하 분산 응용 프로그램](container-service-load-balancing.md)

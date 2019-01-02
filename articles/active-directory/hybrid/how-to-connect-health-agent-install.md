@@ -31,7 +31,7 @@ ms.locfileid: "51279775"
 | --- | --- |
 | Azure AD Premium |Azure AD Connect Health는 Azure AD Premium 기능이기 때문에 Azure AD Premium이 필요합니다. </br></br>자세한 내용은 [Azure AD Premium 시작](../fundamentals/active-directory-get-started-premium.md)을 참조하세요. </br>30일 무료 평가판을 시작하려면 [평가판 시작](https://azure.microsoft.com/trial/get-started-active-directory/)을 참조하세요. |
 | 사용자는 Azure AD Connect Health를 시작할 수 있는 Azure AD의 전역 관리자여야 합니다. |기본적으로 전역 관리자만 Health Agent를 설치할 수 있고, 이것을 시작하고 포털에 액세스하고 Azure AD Connect Health 내에서 작업을 수행하도록 구성할 수 있습니다. 자세한 내용은 [Azure AD 디렉터리 관리](../fundamentals/active-directory-administer.md)를 참조하세요. <br><br> 역할 기반 Access Control를 사용하여 조직의 다른 사용자에게 Azure AD Connect Health에 대한 액세스를 허용할 수 있습니다. 자세한 내용은 [Azure AD Connect Health용 역할 기반 Access Control](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)을 참조하세요. </br></br>**중요:** 에이전트를 설치할 때 사용하는 계정은 직장 또는 학교 계정이어야 합니다. Microsoft 계정은 사용할 수 없습니다. 자세한 내용은 [조직으로 Azure 등록](../fundamentals/sign-up-organization.md)을 참조하세요. |
-| Azure AD Connect Health Agent는 각 대상 서버에 설치됩니다. | Azure AD Connect Health가 데이터를 수신하고 모니터링 및 분석 기능을 제공하려면 Health Agents가 대상 서버에 설치되고 구성되어야 합니다. </br></br>예를 들어, AD FS 인프라에서 데이터를 가져오려면 AD FS 및 웹 응용 프로그램 프록시 서버에 에이전트가 설치되어야 합니다. 마찬가지로 온-프레미스 AD DS 인프라에 대한 데이터를 가져오려면 에이전트는 도메인 컨트롤러에 설치되어야 합니다. </br></br> |
+| Azure AD Connect Health Agent는 각 대상 서버에 설치됩니다. | Azure AD Connect Health가 데이터를 수신하고 모니터링 및 분석 기능을 제공하려면 Health Agents가 대상 서버에 설치되고 구성되어야 합니다. </br></br>예를 들어, AD FS 인프라에서 데이터를 가져오려면 AD FS 및 웹 애플리케이션 프록시 서버에 에이전트가 설치되어야 합니다. 마찬가지로 온-프레미스 AD DS 인프라에 대한 데이터를 가져오려면 에이전트는 도메인 컨트롤러에 설치되어야 합니다. </br></br> |
 | Azure 서비스 엔드포인트에 대한 아웃바운드 연결 | 에이전트는 설치 및 런타임 중에 Azure AD Connect Health 서비스 엔드포인트에 연결되어야 합니다. 방화벽을 사용하여 아웃바운드 연결을 차단하는 경우 다음 엔드포인트가 허용 목록에 추가되어 있는지 확인합니다. [아웃바운드 연결 엔드포인트](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints)를 참조하세요. | 
 |IP 주소를 기반으로 하는 아웃바운드 연결 | 방화벽의 IP 주소 기반 필터링은 [Azure IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 참조하세요.|
 | 아웃바운드 트래픽에 대한 SSL 조사가 필터링 또는 해제됨 | 네트워크 계층에 아웃바운드 트래픽에 대한 종료 또는 SSL 조사가 있으면 에이전트 등록 단계 또는 데이터 업로드 작업이 실패할 수 있습니다. [SSL 검사를 설정하는 방법](https://technet.microsoft.com/library/ee796230.aspx)에 대해 자세히 알아보기 |
@@ -103,13 +103,13 @@ Windows Server 2008 R2 서버에 대한 단계:
 3. AD Health Agent를 설치하기 전에 각 서버에 Windows PowerShell 4.0을 설치합니다. Windows PowerShell 4.0을 설치하려면
    * 오프라인 설치 관리자를 다운로드하려면 다음 링크를 사용하여 [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=40779)를 설치합니다.
    * Windows 기능에서 PowerShell ISE를 설치합니다.
-   * [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)
+   *  [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)
    * 서버에서 Internet Explorer 버전 10 이상을 설치합니다. (Health Service에서 Azure 관리자 자격 증명을 사용하여 인증하는 데 필요합니다.)
 4. Windows Server 2008 R2에서 Windows PowerShell 4.0을 설치하는 방법에 대한 자세한 내용은 [여기](https://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx)에서 wiki 문서를 참조하세요.
 
 ### <a name="enable-auditing-for-ad-fs"></a>AD FS 감사 사용
 > [!NOTE]
-> 이 섹션은 AD FS 서버에만 해당됩니다. 웹 응용 프로그램 프록시 서버에서는 이 단계를 수행할 필요가 없습니다.
+> 이 섹션은 AD FS 서버에만 해당됩니다. 웹 애플리케이션 프록시 서버에서는 이 단계를 수행할 필요가 없습니다.
 >
 
 사용 현황 분석 기능을 통해 데이터를 수집하고 분석하려면 Azure AD Connect Health Agent에 AD FS 감사 로그의 정보가 필요합니다. 이러한 로그는 기본적으로 사용하도록 설정되어 있지 않습니다. AD FS 서버에서 AD FS 감사를 사용하도록 설정하고 AD FS 감사 로그를 찾으려면 다음 절차를 따르세요.
@@ -275,7 +275,7 @@ HTTP 프록시를 사용하도록 Azure AD Connect Health Agent를 구성하는 
 
 > [!NOTE]
 > 프록시 설정이 업데이트되도록 하려면 모든 Azure AD Connect Health Agent 서비스를 다시 시작해야 합니다. 다음 명령 실행:<br>
-> Restart-Service AdHealth*
+>  Restart-Service AdHealth*
 >
 >
 

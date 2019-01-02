@@ -1,7 +1,7 @@
 ---
 title: '자습서: Computer Vision C#'
 titleSuffix: Azure Cognitive Services
-description: ASP.NET Core 웹 응용 프로그램에서 Computer Vision API에 연결합니다.
+description: ASP.NET Core 웹 애플리케이션에서 Computer Vision API에 연결합니다.
 services: cognitive-services
 author: ghogen
 manager: cgronlun
@@ -247,7 +247,7 @@ Cognitive Services Computer Vision API를 사용하여 다양한 정보를 추�
         }
    ```
 
-1. 웹 응용 프로그램을 실행하고 이미지에서 Computer Vision API가 이미지에서 찾은 결과를 확인합니다.
+1. 웹 애플리케이션을 실행하고 이미지에서 Computer Vision API가 이미지에서 찾은 결과를 확인합니다.
 
    ![Computer Vision API 이미지 및 서식이 지정된 결과](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-4.PNG)  
 

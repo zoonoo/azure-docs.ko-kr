@@ -27,11 +27,11 @@ ms.locfileid: "52427345"
 # <a name="app-registration-reference"></a>앱 등록 참조
 이 문서에서는 [Microsoft 앱 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/)에 있는 다양한 기능에 대한 컨텍스트와 설명을 제공합니다.
 
-## <a name="my-applications-or-converged-applications"></a>내 응용 프로그램 또는 수렴된 응용 프로그램
+## <a name="my-applications-or-converged-applications"></a>내 애플리케이션 또는 수렴된 애플리케이션
 이 목록에는 Azure AD v2.0 엔드포인트에서 사용하도록 등록된 모든 애플리케이션이 포함되어 있습니다. 이러한 애플리케이션은 Azure Active Directory에서 개인 Microsoft 계정 및 회사/학교 계정 모두를 사용하는 사용자를 로그인할 수 있습니다. Azure AD v2.0 엔드포인트에 대한 자세한 내용은 [v2.0 개요](active-directory-appmodel-v2-overview.md)를 참조하세요. 이러한 애플리케이션을 사용하여 Microsoft 계정 인증 엔드포인트인 `https://login.live.com`과 통합할 수도 있습니다.
 
-## <a name="azure-ad-only-applications"></a>Azure AD 전용 응용 프로그램
-이 목록에는 Azure AD v1.0 엔드포인트에서 사용하도록 등록된 모든 응용 프로그램이 포함되어 있습니다. 이러한 응용 프로그램에는 Azure Active Directory에서 회사/학교 계정을 사용하여 사용자를 로그인하는 기능만 있습니다. 이 목록에는 [Azure Portal](https://portal.azure.com)의 **앱 등록** 환경을 사용하여 등록된 응용 프로그램이 포함됩니다.
+## <a name="azure-ad-only-applications"></a>Azure AD 전용 애플리케이션
+이 목록에는 Azure AD v1.0 엔드포인트에서 사용하도록 등록된 모든 애플리케이션이 포함되어 있습니다. 이러한 애플리케이션에는 Azure Active Directory에서 회사/학교 계정을 사용하여 사용자를 로그인하는 기능만 있습니다. 이 목록에는 [Azure Portal](https://portal.azure.com)의 **앱 등록** 환경을 사용하여 등록된 애플리케이션이 포함됩니다.
 
 ## <a name="live-sdk-applications"></a>Live SDK 애플리케이션
 이 목록에는 Microsoft 계정으로만 사용하도록 등록된 모든 애플리케이션이 포함되어 있습니다. Azure Active Directory에는 사용할 수 없습니다. 여기서는 이전에 `https://account.live.com/developers/applications`의 MSA 개발자 포털에 등록된 모든 애플리케이션을 찾을 수 있습니다. 이전에 `https://account.live.com/developers/applications`에서 수행한 모든 함수를 이제 이 새 포털 `https://apps.dev.microsoft.com`에서 수행할 수 있습니다.

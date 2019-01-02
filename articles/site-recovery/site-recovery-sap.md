@@ -1,6 +1,6 @@
 ---
 title: Azure Site Recovery를 사용하여 다중 계층 SAP NetWeaver 앱 배포를 위한 재해 복구 설정 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery를 사용하여 SAP NetWeaver 응용 프로그램 배포를 위한 재해 복구를 설정하는 방법에 대해 설명합니다.
+description: 이 문서에서는 Azure Site Recovery를 사용하여 SAP NetWeaver 애플리케이션 배포를 위한 재해 복구를 설정하는 방법에 대해 설명합니다.
 author: asgang
 manager: rochakm
 ms.service: site-recovery

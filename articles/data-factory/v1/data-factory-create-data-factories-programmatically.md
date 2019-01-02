@@ -26,7 +26,7 @@ ms.locfileid: "51257371"
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [복사 작업 자습서](../quickstart-create-data-factory-dot-net.md)를 참조하세요. 
 
 ## <a name="overview"></a>개요
-데이터 팩터리 .NET SDK를 사용하여 프로그래밍 방식으로 Azure Data Factory를 만들고, 모니터링하며, 관리할 수 있습니다. 이 문서에는 데이터 팩터리를 만들고 모니터링하는 샘플 .NET 콘솔 응용 프로그램을 만들 수 있는 연습이 포함되어 있습니다. 
+데이터 팩터리 .NET SDK를 사용하여 프로그래밍 방식으로 Azure Data Factory를 만들고, 모니터링하며, 관리할 수 있습니다. 이 문서에는 데이터 팩터리를 만들고 모니터링하는 샘플 .NET 콘솔 애플리케이션을 만들 수 있는 연습이 포함되어 있습니다. 
 
 > [!NOTE]
 > 이 문서는 모든 데이터 팩터리 .NET API를 다루지 않습니다. 데이터 팩터리용 .NET API에 대한 포괄적인 설명서는 [데이터 팩터리 .NET API 참조](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1)를 참조하세요. 
@@ -89,7 +89,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
     ```PowerShell
     New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
-9. 응용 프로그램 ID를 가져옵니다.
+9. 애플리케이션 ID를 가져옵니다.
 
     ```PowerShell
     $azureAdApplication 
@@ -100,7 +100,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
 
 * 테넌트 ID
 * 구독 ID
-* 응용 프로그램 UI
+* 애플리케이션 UI
 * (첫 번째 명령에 지정된)암호
 
 ## <a name="walkthrough"></a>연습

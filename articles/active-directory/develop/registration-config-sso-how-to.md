@@ -1,6 +1,6 @@
 ---
-title: 새 다중 테넌트 응용 프로그램을 구성하는 방법 | Microsoft Docs
-description: Azure AD로 개발 및 등록 중인 사용자 지정 응용 프로그램에 대해 Single Sign-On을 구성하는 방법.
+title: 새 다중 테넌트 애플리케이션을 구성하는 방법 | Microsoft Docs
+description: Azure AD로 개발 및 등록 중인 사용자 지정 애플리케이션에 대해 Single Sign-On을 구성하는 방법.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG

@@ -35,7 +35,7 @@ ms.locfileid: "52426896"
 4. Eclipse를 사용하여 이 Java 애플리케이션을 만드는 경우, Eclipse의 배포 어셈블리 기능을 사용하여 애플리케이션 배포 파일(WAR)에 Twilio JAR을 포함시킵니다. Eclipse를 사용하지 않고 이 Java 애플리케이션을 만드는 경우, 같은 Azure 역할 내에 Twilio JAR이 Java 애플리케이션으로 포함되어 있으며 애플리케이션의 클래스 경로에 추가되어 있는지 확인합니다.
 5. cacerts keystore에 MD5 지문이 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4인 Equifax Secure Certificate Authority 인증서가 포함되어 있는지 확인합니다(일련 번호는 35:DE:F4:CF이고 SHA1 지문은 D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A임). 이 인증서는 Twilio API를 사용할 때 호출되는 [https://api.twilio.com][twilio_api_service] 서비스에 대한 CA(인증 기관) 인증서입니다. JDK의 cacert 저장소에 이 CA 인증서 추가에 대한 내용은 [Java CA 인증서 저장소에 인증서 추가][add_ca_cert]를 참조하세요.
 
-또한 [Eclipse용 Azure 도구 키트를 사용하여 Hello World 응용 프로그램 만들기][azure_java_eclipse_hello_world]에 나온 정보나 Eclipse를 사용하지 않는 경우 Azure에서 Java 응용 프로그램을 호스트하는 다른 기술을 익히는 것이 좋습니다.
+또한 [Azure Toolkit for Eclipse를 사용하여 Hello World 애플리케이션 만들기][azure_java_eclipse_hello_world]에 나온 정보나 Eclipse를 사용하지 않는 경우 Azure에서 Java 애플리케이션을 호스트하는 다른 기술을 익히는 것이 좋습니다.
 
 ## <a name="create-a-web-form-for-making-a-call"></a>전화 걸기 웹 양식 만들기
 다음 코드는 전화를 걸기 위해 웹 양식을 만들고 사용자 데이터를 검색하는 방법을 보여 줍니다. 이 예제에서는 **TwilioCloud**라는 새 동적 웹 프로젝트가 생성되고 **callform.jsp**가 JSP 파일로 추가되었습니다.
@@ -167,7 +167,7 @@ ms.locfileid: "52426896"
 ![Twilio 및 Java를 사용하는 Azure 통화 응답][twilio_java_response]
 
 ## <a name="run-the-application"></a>애플리케이션 실행
-다음은 응용 프로그램을 실행하는 대략적인 단계이며, 이 단계에 대한 자세한 설명은 [Eclipse용 Azure 도구 키트를 사용하여 Hello World 응용 프로그램 만들기][azure_java_eclipse_hello_world]에서 찾을 수 있습니다.
+다음은 애플리케이션을 실행하는 대략적인 단계이며, 이 단계에 대한 자세한 설명은 [Azure Toolkit for Eclipse를 사용하여 Hello World 애플리케이션 만들기][azure_java_eclipse_hello_world]에서 찾을 수 있습니다.
 
 1. TwilioCloud WAR을 Azure **approot** 폴더로 내보냅니다. 
 2. **startup.cmd** 를 수정하여 TwilioCloud WAR의 압축을 풉니다.

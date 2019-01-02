@@ -35,7 +35,7 @@ Azure AD(Azure Active Directory)를 사용하여 ASP.NET MVC 웹 애플리케이
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>연결된 서비스 대화 상자를 사용하여 Azure Active Directory에 연결
 
-1. Visual Studio에서 ASP.NET MVC 프로젝트 또는 ASP.NET Web API 프로젝트를 만들거나 엽니다. MVC, Web API, 단일 페이지 응용 프로그램, Azure API 앱, Azure 모바일 앱 및 Azure 모바일 서비스 템플릿을 사용할 수 있습니다.
+1. Visual Studio에서 ASP.NET MVC 프로젝트 또는 ASP.NET Web API 프로젝트를 만들거나 엽니다. MVC, Web API, 단일 페이지 애플리케이션, Azure API 앱, Azure 모바일 앱 및 Azure 모바일 서비스 템플릿을 사용할 수 있습니다.
 
 1. **프로젝트 > 연결된 서비스 추가...**  메뉴 명령을 선택하거나 솔루션 탐색기의 프로젝트 아래에서 **연결된 서비스** 노드를 두 번 클릭합니다.
 

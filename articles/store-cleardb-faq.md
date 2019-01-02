@@ -59,7 +59,7 @@ ClearDB는 MySQL 호스팅 서비스이며 MySQL 인프라를 관리합니다. A
 아니요, 빈 ClearDB 클러스터 만들기는 지원되지 않습니다. Azure Portal을 사용하면 클러스터에서 데이터베이스를 만들 수 있으며 동시에 새 클러스터를 만들 수 있습니다.
 
 ## <a name="will-i-be-warned-if-i-try-to-delete-a-cleardb-mysql-database-that-is-in-use-by-one-of-my-applications"></a>내 애플리케이션 중 하나에서 사용 중인 ClearDB MySQL 데이터베이스를 삭제하려고 하면 경고가 표시되나요?
-아니요, 응용 프로그램이 사용하고 있는 마켓플레이스 구매 제품을 삭제할 경우 Azure는 경고를 표시하지 않습니다.
+아니요, 애플리케이션이 사용하고 있는 마켓플레이스 구매 제품을 삭제할 경우 Azure는 경고를 표시하지 않습니다.
 
 ## <a name="which-regions-can-i-create-cleardb-databases-in"></a>어떤 지역에서 ClearDB 데이터베이스를 만들 수 있나요?
 아제르바이잔, 크로아티아, 노르웨이 또는 푸에르토리코에서 등록한 고객은 Azure Marketplace를 사용할 수 없습니다. 이러한 지역에서는 ClearDB를 사용할 수 없습니다.
@@ -93,7 +93,7 @@ Web Apps의 경우 기본이나 더 높은 가격 책정 계층을 사용합니�
 
 * EA 구독으로 새 ClearDB 데이터베이스를 구매합니다.
 * 새 데이터베이스로 데이터를 마이그레이션합니다.
-* 새 데이터베이스를 사용할 응용 프로그램을 업데이트합니다.
+* 새 데이터베이스를 사용할 애플리케이션을 업데이트합니다.
 * 이전 ClearDB 데이터베이스를 삭제합니다.
 
 MySQL(ClearDB)을 사용하여 새 웹앱을 만들거나 MySQL 데이터베이스(ClearDB)를 만드는 경우 선택한 구독이 서비스에 대한 지불 방법을 결정합니다. EA 구독을 사용하면 Azure Portal의 ClearDB와 같은 타사 서비스의 조달이 차단되지 않습니다. EA 구독은 현금 약정 금액과 별도로 청구되며 분기별로 체납 청구됩니다. EA 고객은 모든 타사 마켓플레이스 서비스에 대해 지불하는 데 사용할 결제 방법(예: 신용 카드)을 설정해야 합니다.

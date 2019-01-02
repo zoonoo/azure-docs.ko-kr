@@ -50,7 +50,7 @@ ms.locfileid: "53283379"
 | SearchQuery |#searchquery |경고 규칙에서 사용하는 로그 검색 쿼리입니다. |
 | SearchResults |"IncludeSearchResults": true|“IncludeSearchResults”:true를 사용자 지정 JSON 웹후크 정의에 최상위 속성으로 추가할 경우 쿼리에서 JSON 테이블로 반환되는 레코드이며, 처음 1,000개 레코드로 제한됩니다. |
 | WorkspaceID |#workspaceid |Log Analytics 작업 영역의 ID입니다. |
-| 응용 프로그램 UI |#applicationid |Application Insight 앱의 ID입니다. |
+| 애플리케이션 UI |#applicationid |Application Insight 앱의 ID입니다. |
 | 구독 ID |#subscriptionid |Application Insights에서 사용되는 Azure 구독의 ID입니다. 
 
 > [!NOTE]

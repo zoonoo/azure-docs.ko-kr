@@ -41,11 +41,11 @@ Azure Storage에 저장된 데이터에 액세스하는 데 다음 형식 중 �
 |`wasb://<container-name>@<account-name>.blob.core.windows.net/`|기본이 아닌 스토리지 계정과 통신할 때 사용됩니다. |
 
 
-[Azure Storage 확장성 및 성능 목표](../../storage/common/storage-scalability-targets.md)는 Azure저장소 계정에 대한 현재 제한을 나열합니다. 응용 프로그램의 요구가 단일 저장소 계정의 확장성 목표를 초과하는 경우 여러 저장소 계정을 사용하도록 응용 프로그램을 빌드한 다음, 데이터 개체를 이러한 저장소 계정에 분할할 수 있습니다.
+[Azure Storage 확장성 및 성능 목표](../../storage/common/storage-scalability-targets.md)는 Azure저장소 계정에 대한 현재 제한을 나열합니다. 애플리케이션의 요구가 단일 저장소 계정의 확장성 목표를 초과하는 경우 여러 저장소 계정을 사용하도록 애플리케이션을 빌드한 다음, 데이터 개체를 이러한 저장소 계정에 분할할 수 있습니다.
 
 [Azure 저장소 분석](../../storage/storage-analytics.md)은 모든 저장소 서비스에 대한 메트릭을 제공하며 Azure Portal은 차트를 통해 시각화되도록 수집 메트릭을 구성할 수 있습니다. 저장소 리소스 메트릭의 임계값에 도달하면 사용자에게 알리도록 경고를 만들 수 있습니다.
 
-Azure Storage는 응용 프로그램 또는 다른 저장소 계정 사용자에 의해 실수로 수정되거나 삭제될 때 데이터를 복구할 수 있도록 [Blob 개체에 대한 일시 삭제](../../storage/blobs/storage-blob-soft-delete.md)를 제공합니다.
+Azure Storage는 애플리케이션 또는 다른 저장소 계정 사용자에 의해 실수로 수정되거나 삭제될 때 데이터를 복구할 수 있도록 [Blob 개체에 대한 일시 삭제](../../storage/blobs/storage-blob-soft-delete.md)를 제공합니다.
 
 [Blob 스냅숏](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)을 만들 수 있습니다. 스냅숏은 특정 시점에 생성된 Blob의 읽기 전용 버전이며 Blob을 백업하는 방법을 제공합니다. 스냅숏이 생성된 후에는 읽거나 복사하거나 삭제할 수 있지만 수정할 수는 없습니다.
 

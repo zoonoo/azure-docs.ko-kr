@@ -29,7 +29,7 @@ ms.locfileid: "52957244"
 
 OpenFOAM(오픈 필드 작업 및 조작에 대한)은 상업용 및 연구용 조직의 공학 및 과학에서 널리 사용되는 오픈 소스 CFD(컴퓨팅 유체 역학) 소프트웨어 패키지입니다. Meshing, 특히 snappyHexMesh, 복잡한 CAD 기하학 및 전처리 및 후처리에 대한 병렬화된 메셔에 대한 도구를 포함합니다. 거의 모든 프로세스는 마음껏 컴퓨터 하드웨어를 모두 활용하도록 병렬로 실행합니다.  
 
-Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함하는 대규모 HPC 및 병렬 응용 프로그램을 Microsoft Azure 가상 머신의 클러스터에서 실행하는 기능을 제공합니다. HPC 팩은 HPC 팩 클러스터에 배포된 Linux 계산 노드 VM에서 Linux HPC 응용 프로그램의 실행도 지원합니다. HPC 팩으로 Linux 계산 노드 사용에 대한 소개는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](hpcpack-cluster.md)을 참조하세요.
+Microsoft HPC 팩에서는 MPI 애플리케이션을 포함하는 대규모 HPC 및 병렬 애플리케이션을 Microsoft Azure 가상 머신의 클러스터에서 실행하는 기능을 제공합니다. HPC 팩은 HPC 팩 클러스터에 배포된 Linux 계산 노드 VM에서 Linux HPC 애플리케이션의 실행도 지원합니다. HPC 팩으로 Linux 계산 노드 사용에 대한 소개는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](hpcpack-cluster.md)을 참조하세요.
 
 > [!NOTE]
 > 이 문서에서는 HPC Pack을 사용하여 Linux MPI 워크로드를 실행하는 방법을 보여 줍니다. 또한 여기서는 Linux 시스템 관리 및 Linux 클러스터에서 실행 중인 MPI 작업에 대해 잘 알고 있다고 가정합니다. 이 문서에 표시된 것과 다른 MPI 및 OpenFOAM 버전을 사용하는 경우 일부 설치 및 구성 단계를 수정해야 할 수도 있습니다. 
@@ -97,7 +97,7 @@ Linux **ssh-keygen** 명령을 실행하여 공개 키 및 개인 키를 포함�
 > 
 
 ## <a name="set-up-a-file-share-for-linux-nodes"></a>사용자가 액세스할 파일 공유를 설정합니다.
-이제 헤드 노드에서 폴더에 대한 표준 SMB 공유를 설정합니다. Linux 노드에서 일반 경로로 응용 프로그램 파일에 액세스할 수 있도록 하려면 Linux 노드에 공유 폴더를 탑재합니다. 원하는 경우 여러 시나리오에서 권장되는 Azure 파일 공유 또는 NFS 공유와 같은 다른 파일 공유 옵션을 사용할 수 있습니다. [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](hpcpack-cluster.md)의 파일 공유 정보 및 자세한 단계를 참조하세요.
+이제 헤드 노드에서 폴더에 대한 표준 SMB 공유를 설정합니다. Linux 노드에서 일반 경로로 애플리케이션 파일에 액세스할 수 있도록 하려면 Linux 노드에 공유 폴더를 탑재합니다. 원하는 경우 여러 시나리오에서 권장되는 Azure 파일 공유 또는 NFS 공유와 같은 다른 파일 공유 옵션을 사용할 수 있습니다. [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](hpcpack-cluster.md)의 파일 공유 정보 및 자세한 단계를 참조하세요.
 
 1. 헤드 노드에서 폴더를 만들고 읽기/쓰기 권한을 설정하여 모든 사용자에게 공유합니다. 예를 들어 헤드 노드의 C:\OpenFOAM을 \\\\SUSE12RDMA-HN\OpenFOAM으로 공유합니다. 여기에서 *SUSE12RDMA-HN* 은 헤드 노드의 호스트 이름입니다.
 2. Windows PowerShell 창을 열고 다음 명령을 실행합니다.

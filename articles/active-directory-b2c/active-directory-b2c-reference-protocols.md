@@ -27,9 +27,9 @@ Azure AD B2C(Azure Active Directory B2C)는 두 개의 업계 표준 프로토�
 ## <a name="the-basics"></a>기본 사항
 Azure AD B2C를 사용하는 모든 앱은 [Azure 포털](https://portal.azure.com)의 B2C 디렉터리에 등록해야 합니다. 앱 등록 프로세스는 몇 개의 값을 수집하고 앱에 할당합니다.
 
-* 앱을 고유하게 식별하는 **응용 프로그램 ID**
+* 앱을 고유하게 식별하는 **애플리케이션 ID**
 * 응답을 다시 앱으로 보내는 데 사용할 수 있는 **리디렉션 URI** 또는 **패키지 식별자**.
-* 다른 몇 가지 시나리오 관련 값. 자세한 내용은 [응용 프로그램을 등록하는 방법](active-directory-b2c-app-registration.md)을 참조하세요.
+* 다른 몇 가지 시나리오 관련 값. 자세한 내용은 [애플리케이션을 등록하는 방법](active-directory-b2c-app-registration.md)을 참조하세요.
 
 앱을 등록하면 앱이 엔드포인트에 요청을 전송하여 Azure AD(Azure Active Directory)와 통신합니다.
 

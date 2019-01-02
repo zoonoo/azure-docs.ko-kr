@@ -21,7 +21,7 @@ ms.locfileid: "52868211"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>최대 10년 동안 Azure SQL Database 백업 저장
 
-여러 응용 프로그램에서는 규정, 규정 준수 또는 기타 비즈니스를 목적으로 Azure SQL Database의 [자동 백업](sql-database-automated-backups.md)에서 제공하는 데이터베이스 백업을 7-35일 넘게 보존하도록 요구합니다. LTR(장기 보존) 기능을 사용하여 [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) Blob 저장소에 최대 10년 동안 지정된 SQL 데이터베이스 전체 백업을 저장할 수 있습니다. 그런 다음, 새 데이터베이스로 모든 백업을 복원할 수 있습니다.
+여러 애플리케이션에서는 규정, 규정 준수 또는 기타 비즈니스를 목적으로 Azure SQL Database의 [자동 백업](sql-database-automated-backups.md)에서 제공하는 데이터베이스 백업을 7-35일 넘게 보존하도록 요구합니다. LTR(장기 보존) 기능을 사용하여 [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) Blob 저장소에 최대 10년 동안 지정된 SQL 데이터베이스 전체 백업을 저장할 수 있습니다. 그런 다음, 새 데이터베이스로 모든 백업을 복원할 수 있습니다.
 
 > [!NOTE]
 > Azure SQL Database 논리 서버에 호스트된 데이터베이스에서 LTR을 사용할 수 있습니다. Managed Instance에 호스트되는 데이터베이스에는 아직 사용할 수 없습니다. SQL 에이전트 작업을 사용하여 35일이 초과된 LTR의 대안으로 [복사 전용 데이터베이스 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server)을 예약할 수 있습니다.

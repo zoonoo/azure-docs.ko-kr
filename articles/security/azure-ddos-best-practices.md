@@ -48,13 +48,13 @@ DDoS 공격은 볼륨, 프로토콜 및 리소스라는 세 가지 범주로 분
 
 ### <a name="protocol-attacks"></a>프로토콜 공격
 
-프로토콜 공격은 응용 프로그램 프로토콜을 대상으로 합니다. 방화벽, 응용 프로그램 서버 및 부하 분산 디바이스 등의 인프라 디바이스에서 사용할 수 있는 모든 리소스를 남김 없이 사용하려고 시도합니다. 프로토콜 공격은 형식이 잘못되었거나 프로토콜 이상이 있는 패킷을 사용합니다. 이 공격은 대량의 열린 요청, 서버 및 기타 통신 디바이스 응답을 보내고 패킷 응답을 기다립니다. 대상이 열린 요청에 응답하려고 하면 결국 시스템이 크래시를 일으킵니다.
+프로토콜 공격은 애플리케이션 프로토콜을 대상으로 합니다. 방화벽, 응용 프로그램 서버 및 부하 분산 디바이스 등의 인프라 디바이스에서 사용할 수 있는 모든 리소스를 남김 없이 사용하려고 시도합니다. 프로토콜 공격은 형식이 잘못되었거나 프로토콜 이상이 있는 패킷을 사용합니다. 이 공격은 대량의 열린 요청, 서버 및 기타 통신 디바이스 응답을 보내고 패킷 응답을 기다립니다. 대상이 열린 요청에 응답하려고 하면 결국 시스템이 크래시를 일으킵니다.
 
 프로토콜 기반 DDoS 공격의 대표적인 예는 TCP SYN 초과입니다. 이 공격에서 TCP SYN 요청의 연속으로 대상에 과부하를 일으키려고 합니다. 대상이 응답하지 않게 만드는 것이 공격 목표입니다. 애플리케이션 레이어 공격과 달리 2016 Dyn 중단은 Dyn의 DNS 서버 포트 53을 대상으로 하는 TCP SYN 초과로 구성됩니다.
 
 ### <a name="resource-attacks"></a>리소스 공격
 
-리소스 공격은 응용 프로그램 계층을 대상으로 합니다. 시스템에 과부하를 일으키기 위해 백 엔드 프로세스를 트리거합니다. 리소스 공격은 정상으로 보이지만 CPU를 많이 사용하는 쿼리를 서버로 보내 트래픽을 유발합니다. 리소스를 고갈시키는 데 필요한 트래픽 볼륨이 다른 유형의 공격에 비해 적습니다. 리소스 공격의 트래픽과 정당한 트래픽을 구분할 수 없기 때문에 감지하기가 어렵습니다. 리소스 공격은 대부분 HTTP/HTTPS 및 DNS 서비스에서 이루어집니다.
+리소스 공격은 애플리케이션 계층을 대상으로 합니다. 시스템에 과부하를 일으키기 위해 백 엔드 프로세스를 트리거합니다. 리소스 공격은 정상으로 보이지만 CPU를 많이 사용하는 쿼리를 서버로 보내 트래픽을 유발합니다. 리소스를 고갈시키는 데 필요한 트래픽 볼륨이 다른 유형의 공격에 비해 적습니다. 리소스 공격의 트래픽과 정당한 트래픽을 구분할 수 없기 때문에 감지하기가 어렵습니다. 리소스 공격은 대부분 HTTP/HTTPS 및 DNS 서비스에서 이루어집니다.
 
 ## <a name="shared-responsibility-in-the-cloud"></a>클라우드의 공동 책임
 
@@ -85,7 +85,7 @@ Microsoft Azure에서 실행되는 서비스를 보호하기 위해 애플리케
 
 ### <a name="defense-in-depth"></a>심층 방어
 
-심층 방어의 개념은 다양한 방어 전략을 사용하여 위험을 관리하는 것입니다. 응용 프로그램에서 보안 방어를 계층화하면 공격이 성공할 가능성이 줄어듭니다. Azure 플랫폼의 기본 제공 기능을 사용하여 안전한 애플리케이션 디자인을 구현하는 것이 좋습니다.
+심층 방어의 개념은 다양한 방어 전략을 사용하여 위험을 관리하는 것입니다. 애플리케이션에서 보안 방어를 계층화하면 공격이 성공할 가능성이 줄어듭니다. Azure 플랫폼의 기본 제공 기능을 사용하여 안전한 애플리케이션 디자인을 구현하는 것이 좋습니다.
 
 예를 들어 공격 위험이 증가하면 애플리케이션의 크기(*노출 영역*)도 커집니다. 부하 분산 장치([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) 및 [Azure Application Gateway](../application-gateway/application-gateway-create-probe-portal.md))에 필요하지 않은 노출된 IP 주소 공간 및 수신 대기 포트를 종료하기 위해 허용 목록을 사용하여 노출 영역을 줄일 수 있습니다. [NSG(네트워크 보안 그룹)](../virtual-network/security-overview.md)는 공격 노출을 줄이기 위한 또 다른 방법입니다.
 [서비스 태그](../virtual-network/security-overview.md#service-tags) 및 [응용 프로그램 보안 그룹](../virtual-network/security-overview.md#application-security-groups)을 사용하여 보안 규칙을 만드는 복잡성을 최소화하고 응용 프로그램 구조의 기본 확장으로 네트워크 보안을 구성할 수 있습니다.
@@ -150,7 +150,7 @@ DDoS Protection 표준은 DDoS를 사용하도록 설정된 가상 네트워크�
 
 #### <a name="web-application-firewall-for-resource-attacks"></a>리소스 공격에 대한 웹 애플리케이션 방화벽
 
-애플리케이션 계층에서 이루어지는 리소스 공격과 관련하여 웹 애플리케이션을 보호할 수 있도록 WAF(웹 애플리케이션 방화벽)를 구성해야 합니다. WAF는 인바운드 웹 트래픽을 검사하여 SQL 주입, 사이트 간 스크립팅, DDoS 및 기타 레이어 7 공격을 차단합니다. Azure는 [WAF(웹 응용 프로그램 방화벽)](../application-gateway/application-gateway-web-application-firewall-overview.md)는 일반적인 악용 및 취약점으로부터 웹 응용 프로그램을 중앙 집중식으로 보호하는 Application Gateway 기능으로 WAF를 제공합니다. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=WAF&page=1)에는 Azure 파트너가 제공하는 기타 WAF가 있으며, 그 중에는 고객의 요구 사항에 보다 적합한 서비스가 있을 수도 있습니다.
+애플리케이션 계층에서 이루어지는 리소스 공격과 관련하여 웹 애플리케이션을 보호할 수 있도록 WAF(웹 애플리케이션 방화벽)를 구성해야 합니다. WAF는 인바운드 웹 트래픽을 검사하여 SQL 주입, 사이트 간 스크립팅, DDoS 및 기타 레이어 7 공격을 차단합니다. Azure는 [WAF(웹 애플리케이션 방화벽)](../application-gateway/application-gateway-web-application-firewall-overview.md)는 일반적인 악용 및 취약점으로부터 웹 애플리케이션을 중앙 집중식으로 보호하는 Application Gateway 기능으로 WAF를 제공합니다. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=WAF&page=1)에는 Azure 파트너가 제공하는 기타 WAF가 있으며, 그 중에는 고객의 요구 사항에 보다 적합한 서비스가 있을 수도 있습니다.
 
 웹 애플리케이션 방화벽조차 대규모 공격 및 상태 고갈 공격에 취약합니다. 대규모 공격 및 프로토콜 공격으로부터 보호할 수 있도록 WAF 가상 네트워크에서 DDoS Protection 표준을 사용하는 것이 좋습니다. 자세한 내용은 [DDoS Protection 참조 아키텍처](#ddos-protection-reference-architectures) 섹션을 참조하세요.
 
@@ -233,7 +233,7 @@ Azure DDoS Protection 표준은 사용자 개입 없이 DDoS 공격을 식별하
 
 - 확장 가능한 아키텍처가 부족하여 서비스 또는 사용자 환경이 중단되었습니까?
 
-- 가장 피해가 컸던 응용 프로그램 또는 서비스는 무엇입니까?
+- 가장 피해가 컸던 애플리케이션 또는 서비스는 무엇입니까?
 
 - DDoS 대응 전략이 얼마나 효과적이었으며 어떻게 개선할 수 있나요?
 
@@ -263,9 +263,9 @@ N 계층 아키텍처를 구현하는 방법은 여러 가지가 있습니다. �
 
 이 아키텍처에서 DDoS Protection 표준은 가상 네트워크에서 사용됩니다. 가상 네트워크의 모든 공용 IP는 레이어 3 및 4에 대해 DDoS 보호를 받습니다. 레이어 7 보호의 경우 WAF SKU에 Application Gateway를 배포합니다. 이 참조 아키텍처에 대한 자세한 내용은 [이 아티클](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/n-tier)을 참조하세요.
 
-#### <a name="paas-web-application"></a>PaaS 웹 응용 프로그램
+#### <a name="paas-web-application"></a>PaaS 웹 애플리케이션
 
-이 참조 아키텍처는 단일 지역에서 Azure App Service 응용 프로그램을 실행하는 방법을 보여줍니다. 이 아키텍처는  [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/)  및  [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)를 사용하는 웹 애플리케이션에 대한 일련의 검증된 사례를 보여줍니다.
+이 참조 아키텍처는 단일 지역에서 Azure App Service 애플리케이션을 실행하는 방법을 보여줍니다. 이 아키텍처는  [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/)  및  [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)를 사용하는 웹 애플리케이션에 대한 일련의 검증된 사례를 보여줍니다.
 장애 조치(failover) 시나리오에 대해 대기 지역을 설정합니다.
 
 ![PaaS 웹 애플리케이션에 대한 참조 아키텍처 다이어그램](media/azure-ddos-best-practices/image11.png)

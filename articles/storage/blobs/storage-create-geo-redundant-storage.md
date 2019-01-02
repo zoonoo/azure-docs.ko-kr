@@ -16,7 +16,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/31/2018
 ms.locfileid: "50415987"
 ---
-# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>자습서: Azure 저장소를 통해 응용 프로그램 데이터의 고가용성 향상
+# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>자습서: Azure 저장소를 통해 애플리케이션 데이터의 고가용성 향상
 
 이 자습서는 Azure에서 애플리케이션 데이터의 고가용성을 높이는 방법을 보여 주는 시리즈 중 제1부입니다. 작업을 완료하면 [RA-GRS](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage)(읽기 액세스 지역 중복)스토리지 계정으로 Blob을 업로드하고 검색하는 콘솔 애플리케이션을 갖게 됩니다. RA-GRS는 주 지역에서 보조 지역으로 트랜잭션을 복제하는 방식으로 작동합니다. 복제 프로세스는 보조 지역의 데이터가 결과적으로 일치하도록 보장합니다. 이 애플리케이션은 [회로 차단기](/azure/architecture/patterns/circuit-breaker) 패턴을 사용하여 연결할 엔드포인트를 결정하고 오류가 시뮬레이션되면 보조 끝점으로 전환합니다.
 

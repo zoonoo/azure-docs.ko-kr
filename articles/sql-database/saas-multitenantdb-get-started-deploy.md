@@ -19,7 +19,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/16/2018
 ms.locfileid: "49352214"
 ---
-# <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>분할된 다중 테넌트 응용 프로그램 배포 및 탐색
+# <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>분할된 다중 테넌트 애플리케이션 배포 및 탐색
 
 이 자습서에서는 Wingtip Tickets라는 샘플 다중 테넌트 SaaS 애플리케이션을 배포하고 탐색합니다. Wingtip Tickets 앱은 SaaS 시나리오 구현을 간소화하는 Azure SQL Database의 기능을 보여 주도록 설계되었습니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "49352214"
 ## <a name="learn-in-this-tutorial"></a>이 자습서에서 알아보기
 
 > [!div class="checklist"]
-> - Wingtip Tickets SaaS 응용 프로그램을 배포하는 방법.
+> - Wingtip Tickets SaaS 애플리케이션을 배포하는 방법.
 > - 애플리케이션 소스 코드 및 관리 스크립트를 가져올 위치.
 > - 앱을 구성하는 서버 및 데이터베이스 정보.
 > - *카탈로그*를 통해 테넌트가 데이터에 매핑되는 방법.

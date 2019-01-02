@@ -14,7 +14,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/04/2018
 ms.locfileid: "52838143"
 ---
-# <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>다중 계층 Dynamics AX 응용 프로그램에 대한 재해 복구 설정 
+# <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>다중 계층 Dynamics AX 애플리케이션에 대한 재해 복구 설정 
 
 
 

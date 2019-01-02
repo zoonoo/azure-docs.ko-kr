@@ -25,7 +25,7 @@ ms.locfileid: "53082384"
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-core"></a>.NET Core에서 이벤트 프로세서 호스트를 사용하여 메시지 수신 시작
 Event Hubs는 연결된 디바이스 및 응용 프로그램에서 많은 양의 이벤트 데이터(원격 분석)를 처리하는 서비스입니다. Event Hubs에 데이터를 수집한 후 저장소 클러스터를 사용하여 데이터를 저장하거나 실시간 분석 공급자를 사용하여 변환할 수 있습니다. 이 대규모 이벤트 수집 및 처리 기능은 IoT(사물 인터넷)를 포함하여 최신 애플리케이션 아키텍처의 핵심 구성 요소입니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
 
-이 자습서에서는 [이벤트 프로세서 호스트](event-hubs-event-processor-host.md)를 사용하여 이벤트 허브의 메시지를 수신하는 .NET Core 콘솔 응용 프로그램을 작성하는 방법을 보여 줍니다. [이벤트 프로세서 호스트](event-hubs-event-processor-host.md)는 영구적 검사점을 관리하여 Event Hubs의 이벤트 수신을 간소화하고 이러한 Event Hubs에서 병렬 수신하는 .NET 클래스입니다. 이벤트 프로세서 호스트를 사용하면 다른 노드에 호스트된 수신기를 비롯한 여러 수신기 간에 이벤트를 분할할 수 있습니다. 이 예제에서는 단일 수신기에 대해 이벤트 프로세서 호스트를 사용하는 방법을 보여 줍니다. [이벤트 프로세싱 규모 확장][Event Hubs를 사용하여 이벤트 처리 규모 확장] 샘플에서는 여러 수신기에서 이벤트 프로세서 호스트를 사용하는 방법을 보여 줍니다.
+이 자습서에서는 [이벤트 프로세서 호스트](event-hubs-event-processor-host.md)를 사용하여 이벤트 허브의 메시지를 수신하는 .NET Core 콘솔 애플리케이션을 작성하는 방법을 보여 줍니다. [이벤트 프로세서 호스트](event-hubs-event-processor-host.md)는 영구적 검사점을 관리하여 Event Hubs의 이벤트 수신을 간소화하고 이러한 Event Hubs에서 병렬 수신하는 .NET 클래스입니다. 이벤트 프로세서 호스트를 사용하면 다른 노드에 호스트된 수신기를 비롯한 여러 수신기 간에 이벤트를 분할할 수 있습니다. 이 예제에서는 단일 수신기에 대해 이벤트 프로세서 호스트를 사용하는 방법을 보여 줍니다. [이벤트 프로세싱 규모 확장][Event Hubs를 사용하여 이벤트 처리 규모 확장] 샘플에서는 여러 수신기에서 이벤트 프로세서 호스트를 사용하는 방법을 보여 줍니다.
 
 > [!NOTE]
 > [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver)에서 샘플로 이 빠른 시작을 다운로드하여 `EventHubConnectionString` 및 `EventHubName`, `StorageAccountName`, `StorageAccountKey`, `StorageContainerName` 문자열을 이벤트 허브 값으로 대체한 후 실행합니다. 또는 이 자습서의 단계를 수행하여 직접 만들 수 있습니다.

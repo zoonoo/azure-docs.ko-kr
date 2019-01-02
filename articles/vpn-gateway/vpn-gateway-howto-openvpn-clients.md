@@ -70,7 +70,7 @@ VPN 게이트웨이에 대해 OpenVPN을 구성하는 단계를 완료했는지 
 5. base64에서 P2S 클라이언트 인증서 개인 키를 사용하여 개인 키 섹션을 채웁니다. 개인 키를 추출하는 방법에 대한 자세한 내용은 [개인 키 내보내기](https://openvpn.net/community-resources/how-to/#pki)를 참조하세요.
 6. 다른 필드는 변경하지 마세요. 클라이언트 입력에 채워진 구성을 사용하여 VPN에 연결합니다.
 7. 프로필 파일을 두 번 클릭하여 tunnelblik에서 프로필을 만듭니다.
-8. 응용 프로그램 폴더에서 Tunnelblik를 시작합니다.
+8. 애플리케이션 폴더에서 Tunnelblik를 시작합니다.
 9. 시스템 트레이에서 Tunnelblik 아이콘을 클릭하고 연결을 선택합니다.
 
 ## <a name="linux"></a>Linux 클라이언트

@@ -34,7 +34,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 
 ## <a name="define-a-scale-set-in-a-template"></a>템플릿에서 확장 집합 정의
-Azure Resource Manager 템플릿을 사용하면 관련 리소스 그룹을 배포할 수 있습니다. 템플릿은 JSON(JavaScript Object Notation)으로 작성되며, 응용 프로그램에 대한 전체 Azure 인프라 환경을 정의합니다. 단일 템플릿에서 가상 머신 확장 집합을 만들고, 응용 프로그램을 설치하고, 자동 크기 조정 규칙을 구성할 수 있습니다. 변수와 매개 변수를 사용하면 이 템플릿을 다시 사용하여 기존의 확장 집합을 업데이트하거나 추가 확장 집합을 만들 수 있습니다. Azure Portal, Azure CLI 또는 Azure PowerShell을 통하거나 CI/CD(지속적인 통합/지속적인 업데이트) 파이프라인에서 템플릿을 배포할 수 있습니다.
+Azure Resource Manager 템플릿을 사용하면 관련 리소스 그룹을 배포할 수 있습니다. 템플릿은 JSON(JavaScript Object Notation)으로 작성되며, 애플리케이션에 대한 전체 Azure 인프라 환경을 정의합니다. 단일 템플릿에서 가상 머신 확장 집합을 만들고, 애플리케이션을 설치하고, 자동 크기 조정 규칙을 구성할 수 있습니다. 변수와 매개 변수를 사용하면 이 템플릿을 다시 사용하여 기존의 확장 집합을 업데이트하거나 추가 확장 집합을 만들 수 있습니다. Azure Portal, Azure CLI 또는 Azure PowerShell을 통하거나 CI/CD(지속적인 통합/지속적인 업데이트) 파이프라인에서 템플릿을 배포할 수 있습니다.
 
 템플릿에 대한 자세한 내용은 [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)를 참조하세요.
 

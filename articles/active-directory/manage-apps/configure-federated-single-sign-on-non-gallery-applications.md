@@ -78,7 +78,7 @@ Azure AD 갤러리에 없는 애플리케이션에 대해 Single Sign-On을 구�
 
    2. **저장**을 클릭합니다. 테이블에 새 특성이 표시됩니다.
 
-14. 응용 프로그램의 Single Sign-On을 구성하는 방법에 관한 문서에 액세스하려면 **&lt;응용 프로그램 이름&gt; 구성**을 클릭합니다. 또한 애플리케이션에 필요한 Azure AD URL과 인증서가 있습니다.
+14. 애플리케이션의 Single Sign-On을 구성하는 방법에 관한 문서에 액세스하려면 **&lt;애플리케이션 이름&gt; 구성**을 클릭합니다. 또한 애플리케이션에 필요한 Azure AD URL과 인증서가 있습니다.
 
 15. [응용 프로그램에 사용자를 할당합니다.](#assign-users-to-the-application)
 
@@ -118,7 +118,7 @@ Azure AD 갤러리에 없는 애플리케이션에 대해 Single Sign-On을 구�
 
 ## <a name="download-the-azure-ad-metadata-or-certificate"></a>Azure AD 메타데이터 또는 인증서 다운로드
 
-Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 다운로드하려면 아래 단계를 수행합니다.
+Azure AD에서 애플리케이션 메타데이터 또는 인증서를 다운로드하려면 아래 단계를 수행합니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 

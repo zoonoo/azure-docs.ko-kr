@@ -21,7 +21,7 @@ ms.locfileid: "49341823"
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-Bing Speech는 음성 오디오를 텍스트로 변환할 수 있는 최고급 알고리즘을 탑재한 클라우드 기반 플랫폼입니다. Bing Speech 프로토콜은 클라이언트 응용 프로그램과 서비스 간의 [연결 설정](#connection-establishment) 및 상대 간에 교환하는 음성 인식 메시지([클라이언트 시작 메시지](#client-originated-messages) 및 [서비스 시작 메시지](#service-originated-messages))를 정의합니다. 또한 [원격 분석 메시지](#telemetry-schema) 및 [오류 처리](#error-handling)를 설명합니다.
+Bing Speech는 음성 오디오를 텍스트로 변환할 수 있는 최고급 알고리즘을 탑재한 클라우드 기반 플랫폼입니다. Bing Speech 프로토콜은 클라이언트 애플리케이션과 서비스 간의 [연결 설정](#connection-establishment) 및 상대 간에 교환하는 음성 인식 메시지([클라이언트 시작 메시지](#client-originated-messages) 및 [서비스 시작 메시지](#service-originated-messages))를 정의합니다. 또한 [원격 분석 메시지](#telemetry-schema) 및 [오류 처리](#error-handling)를 설명합니다.
 
 ## <a name="connection-establishment"></a>연결 설정
 

@@ -28,7 +28,7 @@ Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 �
 
 이 빠른 시작은 Linux 개발자 컴퓨터에서 Eclipse IDE를 사용하여 Microsoft Azure Service Fabric에 첫 번째 Java 애플리케이션을 배포하는 방법을 보여줍니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 Java 웹 프런트 엔드가 있는 투표 응용 프로그램이 생깁니다.
 
-![응용 프로그램 스크린샷](./media/service-fabric-quickstart-java/votingapp.png)
+![애플리케이션 스크린샷](./media/service-fabric-quickstart-java/votingapp.png)
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 
@@ -86,7 +86,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 ### <a name="set-up-your-azure-service-fabric-cluster"></a>Azure Service Fabric Cluster 설정
 
-응용 프로그램을 Azure의 클러스터에 배포하려면 고유한 클러스터를 만듭니다.
+애플리케이션을 Azure의 클러스터에 배포하려면 고유한 클러스터를 만듭니다.
 
 파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 Service Fabric 팀에서 운영합니다. 파티 클러스터를 사용하여 애플리케이션을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 클러스터는 노드-노드 및 클라이언트-노드 보안에 단일 자체 서명 인증서를 사용합니다.
 
@@ -122,7 +122,7 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
 
    ![Firefox에서 인증서 설치](./media/service-fabric-quickstart-java/install-cert-firefox.png)
 
-### <a name="add-certificate-information-to-your-application"></a>응용 프로그램에 인증서 정보 추가
+### <a name="add-certificate-information-to-your-application"></a>애플리케이션에 인증서 정보 추가
 
 인증서 지문은 Service Fabric 프로그래밍 모델을 사용하므로 애플리케이션에 추가해야 합니다.
 
@@ -164,7 +164,7 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
 
 3. 웹 브라우저를 열고 **http://\<ConnectionIPOrURL>:8080**에 액세스하여 응용 프로그램에 액세스합니다.
 
-    ![응용 프로그램 프런트 엔드 클라우드](./media/service-fabric-quickstart-java/runningcloud.png)
+    ![애플리케이션 프런트 엔드 클라우드](./media/service-fabric-quickstart-java/runningcloud.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>클러스터에서 애플리케이션 및 서비스 크기 조정
 

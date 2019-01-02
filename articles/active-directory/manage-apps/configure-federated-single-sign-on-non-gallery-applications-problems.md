@@ -33,11 +33,11 @@ ms.locfileid: "44355687"
 
 -   첫 번째 인스턴스에 대해 사용한 것과 다른 인증서를 구성합니다.
 
-응용 프로그램이 이전 항목을 지원하지 않으면 두 번째 인스턴스를 구성할 수 없습니다.
+애플리케이션이 이전 항목을 지원하지 않으면 두 번째 인스턴스를 구성할 수 없습니다.
 
 ## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>EntityID(사용자 식별자) 형식을 설정하는 위치
 
-사용자 인증 후에 Azure AD에서 응답을 통해 응용 프로그램으로 보내는 EntityID(사용자 ID) 형식은 선택할 수 없습니다.
+사용자 인증 후에 Azure AD에서 응답을 통해 애플리케이션으로 보내는 EntityID(사용자 ID) 형식은 선택할 수 없습니다.
 
 Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 애플리케이션이 요청한 형식을 기반으로 NameID 특성(사용자 ID)의 형식을 선택합니다. 자세한 내용은 NameIDPolicy 섹션 아래의 [Single Sign-On SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) 문서에서 확인할 수 있습니다.
 

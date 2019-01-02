@@ -48,7 +48,7 @@ Oracle-WebLogic-Server  Oracle       Oracle-WebLogic-Server  Oracle:Oracle-WebLo
 또한 개인은 솔루션이 Azure에서 처음부터 만들거나 온-프레미스 환경에서 업로드한 사용자 지정 이미지를 기반으로 하도록 선택할 수도 있습니다.
 
 ## <a name="support-for-jd-edwards"></a>JD Edwards 지원
-Oracle 지원 참고 [Doc ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4)에 따라 JD Edwards EnterpriseOne 버전 9.2 이상은 특정 MTR(`Minimum Technical Requirements`)을 준수하는 **모든 공용 클라우드 제품**에서 지원됩니다.  OS 및 소프트웨어 응용 프로그램 호환성에 대한 해당 MTR 사양을 충족하는 사용자 지정 이미지를 만들어야 합니다. 
+Oracle 지원 참고 [Doc ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4)에 따라 JD Edwards EnterpriseOne 버전 9.2 이상은 특정 MTR(`Minimum Technical Requirements`)을 준수하는 **모든 공용 클라우드 제품**에서 지원됩니다.  OS 및 소프트웨어 애플리케이션 호환성에 대한 해당 MTR 사양을 충족하는 사용자 지정 이미지를 만들어야 합니다. 
 
 ## <a name="oracle-database-virtual-machine-images"></a>Oracle Database 가상 머신 이미지
 Oracle은 Oracle Linux 기반 가상 머신 이미지의 Azure에서 Oracle DB 12.1 Standard 및 Enterprise Edition을 실행하도록 지원합니다.  Azure에서 Oracle DB의 프로덕션 워크로드에 대한 최상의 성능을 위해 VM 이미지 크기를 적절히 조정하고 Premium Storage에서 지원되는 관리 디스크를 사용해야 합니다. Oracle에서 게시한 VM 이미지를 사용하여 Azure에서 Oracle DB를 신속하게 실행하는 방법에 대한 지침은 [Oracle DB 빠른 시작 연습](oracle-database-quick-create.md)을 참조하세요.

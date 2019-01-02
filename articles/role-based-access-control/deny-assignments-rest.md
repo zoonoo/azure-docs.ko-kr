@@ -1,6 +1,6 @@
 ---
 title: RBAC 및 REST API를 사용하여 거부 할당 나열 - Azure | Microsoft Docs
-description: RBAC(역할 기반 액세스 제어) 및 REST API를 사용하여 사용자, 그룹 및 응용 프로그램에 대한 거부 할당을 나열하는 방법을 알아봅니다.
+description: RBAC(역할 기반 액세스 제어) 및 REST API를 사용하여 사용자, 그룹 및 애플리케이션에 대한 거부 할당을 나열하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: na
 author: rolyon

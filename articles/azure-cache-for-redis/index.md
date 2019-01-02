@@ -167,7 +167,7 @@ ms.locfileid: "53020321"
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3> Redis로 읽기 전용 데이터를 캐싱하여 웹 응용 프로그램 최적화</h3>
+                        <h3> Redis로 읽기 전용 데이터를 캐싱하여 웹 애플리케이션 최적화</h3>
                     </div>
                 </div>
             </div>

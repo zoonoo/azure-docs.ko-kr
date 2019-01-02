@@ -21,11 +21,11 @@ ms.locfileid: "52425730"
 
 ### <a name="what-is-application-gateway"></a>Application Gateway란?
 
-Azure Application Gateway는 서비스 형태의 ADC(응용 프로그램 전달 컨트롤러)이며 응용 프로그램에 대한 다양한 계층 7 부하 분산 기능을 제공합니다. Azure에서 완전히 관리되는 고가용성의 확장성 있는 서비스를 제공합니다.
+Azure Application Gateway는 서비스 형태의 ADC(애플리케이션 전달 컨트롤러)이며 애플리케이션에 대한 다양한 계층 7 부하 분산 기능을 제공합니다. Azure에서 완전히 관리되는 고가용성의 확장성 있는 서비스를 제공합니다.
 
 ### <a name="what-features-does-application-gateway-support"></a>Application Gateway에서 지원하는 기능은 어떤 것이 있나요?
 
-Application Gateway에서는 자동 크기 조정, SSL 오프로딩 및 종단 간 SSL, 웹 응용 프로그램 방화벽, 쿠키 기반 세션 선호도, URL 경로 기반 라우팅, 다중 사이트 호스팅 등을 지원합니다. 지원되는 기능의 전체 목록은 [Application Gateway 소개](application-gateway-introduction.md)를 참조하세요.
+Application Gateway에서는 자동 크기 조정, SSL 오프로딩 및 종단 간 SSL, 웹 애플리케이션 방화벽, 쿠키 기반 세션 선호도, URL 경로 기반 라우팅, 다중 사이트 호스팅 등을 지원합니다. 지원되는 기능의 전체 목록은 [Application Gateway 소개](application-gateway-introduction.md)를 참조하세요.
 
 ### <a name="what-is-the-difference-between-application-gateway-and-azure-load-balancer"></a>Application Gateway와 Azure Load Balancer 간의 차이는 무엇인가요?
 
@@ -90,7 +90,7 @@ Application Gateway는 인스턴스당 하나의 개인 IP 주소를 사용하�
 
 ### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>Q. 둘 이상의 Application Gateway 리소스를 단일 서브넷에 배포할 수 있나요?**
 
-예. 지정된 Application Gateway 배포의 여러 인스턴스를 보유하는 것 외에도, 다른 응용 프로그램 게이트웨이 리소스를 포함하는 기존 서브넷에 다른 고유한 Application Gateway 리소스를 프로비전할 수 있습니다.
+예. 지정된 Application Gateway 배포의 여러 인스턴스를 보유하는 것 외에도, 다른 애플리케이션 게이트웨이 리소스를 포함하는 기존 서브넷에 다른 고유한 Application Gateway 리소스를 프로비전할 수 있습니다.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Application Gateway에서 x-forwarded-for 헤더를 지원하나요?
 
@@ -128,11 +128,11 @@ NSG(네트워크 보안 그룹)는 Application Gateway 서브넷에서 지원되
 
 * AzureLoadBalancer 태그의 트래픽을 허용해야 합니다.
 
-### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>응용 프로그램 게이트웨이 서브넷에서 사용자 정의 경로가 지원되나요?
+### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>애플리케이션 게이트웨이 서브넷에서 사용자 정의 경로가 지원되나요?
 
-UDR(사용자 정의 경로)은 종단 간 요청/응답 통신을 변경하지 않는 한 응용 프로그램 게이트웨이에서 지원됩니다.
+UDR(사용자 정의 경로)은 종단 간 요청/응답 통신을 변경하지 않는 한 애플리케이션 게이트웨이에서 지원됩니다.
 
-예를 들어 패킷 검사를 위한 방화벽 장비를 가리키도록 응용 프로그램 게이트웨이 서브넷에서 UDR을 설정할 수 있지만 패킷이 원하는 대상 사후 검사에 도달할 수 있는지 확인해야 합니다. 이렇게 하지 않으면 잘못된 상태 프로브 또는 트래픽 라우팅 동작을 초래할 수 있습니다. 여기에는 가상 네트워크에서 ExpressRoute 또는 VPN 게이트웨이를 통해 전파된 학습한 경로 또는 기본 0.0.0.0/0 경로가 포함됩니다.
+예를 들어 패킷 검사를 위한 방화벽 장비를 가리키도록 애플리케이션 게이트웨이 서브넷에서 UDR을 설정할 수 있지만 패킷이 원하는 대상 사후 검사에 도달할 수 있는지 확인해야 합니다. 이렇게 하지 않으면 잘못된 상태 프로브 또는 트래픽 라우팅 동작을 초래할 수 있습니다. 여기에는 가상 네트워크에서 ExpressRoute 또는 VPN 게이트웨이를 통해 전파된 학습한 경로 또는 기본 0.0.0.0/0 경로가 포함됩니다.
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Application Gateway에서 한도는 어떻게 되나요? 이러한 한도를 늘릴 수 있나요?
 
@@ -150,7 +150,7 @@ UDR(사용자 정의 경로)은 종단 간 요청/응답 통신을 변경하지 
 
 예, 트래픽이 허용되기만 한다면 가능합니다.
 
-### <a name="can-i-have-one-backend-pool-serving-many-applications-on-different-ports"></a>한 개의 백 엔드 풀에서 서로 다른 포트로 많은 응용 프로그램을 제공할 수 있나요?
+### <a name="can-i-have-one-backend-pool-serving-many-applications-on-different-ports"></a>한 개의 백 엔드 풀에서 서로 다른 포트로 많은 애플리케이션을 제공할 수 있나요?
 
 마이크로 서비스 아키텍처가 지원됩니다. 서로 다른 포트의 프로브에 대해 여러 http 설정이 구성되어야 합니다.
 

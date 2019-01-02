@@ -22,7 +22,7 @@ ms.locfileid: "51246687"
 **Microsoft Power BI 작업 영역 컬렉션**을 사용하면 Power BI 보고서를 웹 또는 모바일 응용 프로그램에 통합할 수 있습니다. 이 문서에서는 **Power BI 작업 영역 컬렉션** 시작 샘플을 소개합니다.
 
 > [!IMPORTANT]
-> Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 응용 프로그램에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.
+> Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 애플리케이션에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.
 
 다른 위치로 이동하기 전에 다음 리소스를 저장할 수 있습니다. 이러한 리소스는 Power BI 보고서를 샘플 앱 및 자체 앱에 통합할 때 도움이 됩니다.
 
@@ -68,7 +68,7 @@ Checking import state... Succeeded
 
 ## <a name="run-the-sample-web-app"></a>샘플 웹앱 실행
 
-웹앱 샘플은 **작업 영역**으로 가져온 보고서를 렌더링하는 샘플 응용 프로그램입니다. 웹앱 샘플을 구성하는 방법은 다음과 같습니다.
+웹앱 샘플은 **작업 영역**으로 가져온 보고서를 렌더링하는 샘플 애플리케이션입니다. 웹앱 샘플을 구성하는 방법은 다음과 같습니다.
 
 1. **PowerBI-embedded** Visual Studio 솔루션에서 **EmbedSample** 웹 응용 프로그램을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다.
 2. **web.config**의 **EmbedSample** 웹 응용 프로그램에서 **appSettings**, 즉 **AccessKey**, **WorkspaceCollection** 이름 및 **WorkspaceId**를 편집합니다.
@@ -85,11 +85,11 @@ Checking import state... Succeeded
 
 **EmbedSample** 웹 응용 프로그램을 실행하면 왼쪽 탐색 패널에 **보고서** 메뉴가 포함되어야 합니다. 가져온 보고서를 보려면 **보고서**를 확장하고 보고서를 클릭합니다. [소매 분석 샘플 PBIX](https://go.microsoft.com/fwlink/?LinkID=780547)를 가져온 경우 샘플 웹앱이 다음과 같이 보입니다.
 
-![샘플 응용 프로그램 내의 샘플 왼쪽 탐색 창](media/get-started-sample/sample-left-nav.png)
+![샘플 애플리케이션 내의 샘플 왼쪽 탐색 창](media/get-started-sample/sample-left-nav.png)
 
-보고서를 클릭하면 **EmbedSample** 웹 응용 프로그램이 다음과 같이 표시되어야 합니다.
+보고서를 클릭하면 **EmbedSample** 웹 애플리케이션이 다음과 같이 표시되어야 합니다.
 
-![응용 프로그램 내에 표시되는 샘플 보고서](media/get-started-sample/sample-web-app.png)
+![애플리케이션 내에 표시되는 샘플 보고서](media/get-started-sample/sample-web-app.png)
 
 ## <a name="explore-the-sample-code"></a>샘플 코드 탐색
 

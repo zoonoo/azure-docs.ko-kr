@@ -156,7 +156,7 @@ Grafana에 대한 데이터 원본으로 Azure Data Explorer를 구성하려면 
     | --- | --- | --- |
     | 구독 ID | 구독 ID | SubscriptionId |
     | 테넌트 ID | 디렉터리 ID | tenant |
-    | 클라이언트 ID | 응용 프로그램 UI | appId |
+    | 클라이언트 ID | 애플리케이션 UI | appId |
     | 클라이언트 암호 | 암호 | 암호 |
     | | | |
 

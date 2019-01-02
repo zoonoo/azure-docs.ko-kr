@@ -26,10 +26,10 @@ ms.locfileid: "51242129"
 ## <a name="overview"></a>개요
 이 자습서에서는 ASP.NET MVC 프런트 엔드를 사용하여 다중 계층 .NET 애플리케이션을 만들어 [Azure 클라우드 서비스](cloud-services-choose-me.md)에 배포하는 방법을 보여 줍니다. 이 애플리케이션은 [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279), [Azure Blob service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)(영문) 및 [Azure 큐 서비스](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)를 사용합니다. MSDN 코드 갤러리에서 [Visual Studio 프로젝트를 다운로드](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) 할 수 있습니다.
 
-이 자습서에서는 응용 프로그램을 구축하고 로컬에서 실행하는 방법, 응용 프로그램을 Azure에 배포하고 클라우드에서 실행하는 방법, 그리고 응용 프로그램을 처음부터 구축하는 방법을 보여 줍니다. 처음부터 구축하는 방법으로 시작한 다음 원하는 경우 나중에 테스트 및 배포 단계를 수행할 수 있습니다.
+이 자습서에서는 애플리케이션을 구축하고 로컬에서 실행하는 방법, 애플리케이션을 Azure에 배포하고 클라우드에서 실행하는 방법, 그리고 애플리케이션을 처음부터 구축하는 방법을 보여 줍니다. 처음부터 구축하는 방법으로 시작한 다음 원하는 경우 나중에 테스트 및 배포 단계를 수행할 수 있습니다.
 
-## <a name="contoso-ads-application"></a>Contoso Ads 응용 프로그램
-응용 프로그램은 광고 게시판입니다. 사용자는 텍스트를 입력하고 이미지를 업로드하여 광고를 만듭니다. 사용자는 썸네일 이미지로 광고 목록을 볼 수 있으며 자세한 내용을 확인하기 위해 광고를 선택하면 전체 크기 이미지를 볼 수 있습니다.
+## <a name="contoso-ads-application"></a>Contoso Ads 애플리케이션
+애플리케이션은 광고 게시판입니다. 사용자는 텍스트를 입력하고 이미지를 업로드하여 광고를 만듭니다. 사용자는 썸네일 이미지로 광고 목록을 볼 수 있으며 자세한 내용을 확인하기 위해 광고를 선택하면 전체 크기 이미지를 볼 수 있습니다.
 
 ![광고 목록](./media/cloud-services-dotnet-get-started/list.png)
 
@@ -47,9 +47,9 @@ ms.locfileid: "51242129"
 * 계층 간 통신에 Azure 큐 서비스를 사용하는 방법
 
 ## <a name="prerequisites"></a>필수 조건
-이 자습서에서는 *웹 역할* 및 *작업자 역할* 용어와 같이 [Azure Cloud Services에 대한 기본 개념](cloud-services-choose-me.md)을 알고 있다고 가정합니다.  또한 Visual Studio에서 [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)(영문) 또는 [웹 양식](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)(영문) 프로젝트를 작업하는 방법도 알고 있다고 가정합니다. 응용 프로그램 예제는 MVC를 사용하지만, 자습서 내용의 대부분은 Web Forms에도 적용됩니다.
+이 자습서에서는 *웹 역할* 및 *작업자 역할* 용어와 같이 [Azure Cloud Services에 대한 기본 개념](cloud-services-choose-me.md)을 알고 있다고 가정합니다.  또한 Visual Studio에서 [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)(영문) 또는 [웹 양식](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)(영문) 프로젝트를 작업하는 방법도 알고 있다고 가정합니다. 애플리케이션 예제는 MVC를 사용하지만, 자습서 내용의 대부분은 Web Forms에도 적용됩니다.
 
-Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로그램을 클라우드에 배포하려면 구독이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668)하거나 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668)할 수 있습니다.
+Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 애플리케이션을 클라우드에 배포하려면 구독이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668)하거나 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668)할 수 있습니다.
 
 자습서의 지침은 다음 제품 중 하나에 적용됩니다.
 
@@ -64,7 +64,7 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로
 
 ![광고 테이블](./media/cloud-services-dotnet-get-started/adtable.png)
 
-사용자가 이미지를 업로드하면 웹 역할로 실행 중인 프런트 엔드가 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)(영문)에 이미지를 저장하며 Blob을 가리키는 URL을 사용하여 데이터베이스에 광고 정보를 저장합니다. 이와 동시에 Azure 큐에 메시지를 기록합니다. 작업자 역할로 실행되는 백 엔드 프로세스는 정기적으로 큐를 폴링하여 새 메시지를 확인합니다. 새 메시지가 나타나면 작업자 역할은 해당 이미지의 미리 보기를 만들고 광고에 대한 미리 보기 URL 데이터베이스 필드를 업데이트합니다. 다음은 응용 프로그램의 여러 부분이 상호 작용하는 방법을 보여 주는 다이어그램입니다.
+사용자가 이미지를 업로드하면 웹 역할로 실행 중인 프런트 엔드가 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)(영문)에 이미지를 저장하며 Blob을 가리키는 URL을 사용하여 데이터베이스에 광고 정보를 저장합니다. 이와 동시에 Azure 큐에 메시지를 기록합니다. 작업자 역할로 실행되는 백 엔드 프로세스는 정기적으로 큐를 폴링하여 새 메시지를 확인합니다. 새 메시지가 나타나면 작업자 역할은 해당 이미지의 미리 보기를 만들고 광고에 대한 미리 보기 URL 데이터베이스 필드를 업데이트합니다. 다음은 애플리케이션의 여러 부분이 상호 작용하는 방법을 보여 주는 다이어그램입니다.
 
 ![Contoso Ads 아키텍처](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
@@ -78,12 +78,12 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로
 
     기본적으로 Visual Studio는 *.zip* 파일에 포함되지 않은 NuGet 패키지 콘텐츠를 자동으로 복원합니다. 패키지가 복원되지 않는 경우 **솔루션의 NuGet 패키지 관리** 대화 상자로 이동하고 오른쪽 위에서 **복원** 단추를 클릭하여 수동으로 설치합니다.
 5. **솔루션 탐색기**에서 시작 프로젝트로 **ContosoAdsCloudService**가 선택되었는지 확인합니다.
-6. Visual Studio 2015 이상을 사용하는 경우 ContosoAdsWeb 프로젝트의 응용 프로그램 *Web.config* 파일 및 ContosoAdsCloudService 프로젝트의 *ServiceConfiguration.Local.cscfg* 파일에서 SQL Server 연결 문자열을 변경합니다. 각각의 경우에서 "(localdb)\v11.0"을 "(localdb)\MSSQLLocalDB"로 변경합니다.
+6. Visual Studio 2015 이상을 사용하는 경우 ContosoAdsWeb 프로젝트의 애플리케이션 *Web.config* 파일 및 ContosoAdsCloudService 프로젝트의 *ServiceConfiguration.Local.cscfg* 파일에서 SQL Server 연결 문자열을 변경합니다. 각각의 경우에서 "(localdb)\v11.0"을 "(localdb)\MSSQLLocalDB"로 변경합니다.
 7. Ctrl+F5를 눌러 애플리케이션을 실행합니다.
 
     클라우드 서비스 프로젝트를 로컬에서 실행하면 Visual Studio는 Azure *계산 에뮬레이터* 및 Azure *저장소 에뮬레이터*를 자동으로 호출합니다. 계산 에뮬레이터는 컴퓨터의 리소스를 사용하여 웹 역할 및 작업자 역할 환경을 시뮬레이션합니다. 저장소 에뮬레이터는 [SQL Server Express LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) 데이터베이스를 사용하여 Azure 클라우드 저장소를 시뮬레이션합니다.
 
-    클라우드 서비스 프로젝트를 처음 실행하면 에뮬레이터가 시작되는 데 1분 정도 걸립니다. 에뮬레이터 시작이 완료되면 기본 브라우저가 열려 응용 프로그램 홈페이지가 표시됩니다.
+    클라우드 서비스 프로젝트를 처음 실행하면 에뮬레이터가 시작되는 데 1분 정도 걸립니다. 에뮬레이터 시작이 완료되면 기본 브라우저가 열려 애플리케이션 홈페이지가 표시됩니다.
 
     ![Contoso Ads 아키텍처](./media/cloud-services-dotnet-get-started/home.png)
 8. **광고 만들기**를 클릭합니다.
@@ -99,9 +99,9 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로
 
      ![자세히 페이지](./media/cloud-services-dotnet-get-started/details.png)
 
-클라우드 연결 없이 응용 프로그램을 전적으로 로컬 컴퓨터에서 실행했습니다. 저장소 에뮬레이터는 큐 및 Blob 데이터를 SQL Server Express LocalDB 데이터베이스에 저장하고, 응용 프로그램은 다른 LocalDB 데이터베이스에 광고 데이터를 저장합니다. 웹 앱이 처음으로 액세스하려고 시도했을 때 Entity Framework Code First는 자동으로 광고 데이터베이스를 만들었습니다.
+클라우드 연결 없이 애플리케이션을 전적으로 로컬 컴퓨터에서 실행했습니다. 저장소 에뮬레이터는 큐 및 Blob 데이터를 SQL Server Express LocalDB 데이터베이스에 저장하고, 애플리케이션은 다른 LocalDB 데이터베이스에 광고 데이터를 저장합니다. 웹 앱이 처음으로 액세스하려고 시도했을 때 Entity Framework Code First는 자동으로 광고 데이터베이스를 만들었습니다.
 
-다음 섹션에서는 솔루션이 클라우드에서 실행될 때 큐, Blob 및 응용 프로그램 데이터베이스에 대해 Azure 클라우드 리소스를 사용하도록 솔루션을 구성합니다. 로컬에서 계속 실행하고 클라우드 저장소 및 데이터베이스 리소스를 사용하려면 그렇게 할 수 있습니다. 어떻게 할지는 연결 문자열을 설정하기에 달려 있습니다.
+다음 섹션에서는 솔루션이 클라우드에서 실행될 때 큐, Blob 및 애플리케이션 데이터베이스에 대해 Azure 클라우드 리소스를 사용하도록 솔루션을 구성합니다. 로컬에서 계속 실행하고 클라우드 저장소 및 데이터베이스 리소스를 사용하려면 그렇게 할 수 있습니다. 어떻게 할지는 연결 문자열을 설정하기에 달려 있습니다.
 
 ## <a name="deploy-the-application-to-azure"></a>Azure에 애플리케이션 배포
 클라우드에서 애플리케이션을 실행하려면 다음 단계를 수행합니다.
@@ -114,7 +114,7 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로
 * Azure 클라우드 서비스에 프로젝트를 배포합니다.
 
 ### <a name="create-an-azure-cloud-service"></a>Azure 클라우드 서비스 만들기
-Azure 클라우드 서비스는 응용 프로그램이 실행되는 환경입니다.
+Azure 클라우드 서비스는 애플리케이션이 실행되는 환경입니다.
 
 1. 브라우저에서 [Azure Portal](https://portal.azure.com)을 엽니다.
 2. **리소스 만들기 > Compute > 클라우드 서비스**를 클릭합니다.
@@ -126,7 +126,7 @@ Azure 클라우드 서비스는 응용 프로그램이 실행되는 환경입니
 
 5. 애플리케이션을 배포할 지역을 선택합니다.
 
-    이 필드는 클라우드 서비스가 호스팅될 데이터센터를 지정합니다. 프로덕션 응용 프로그램의 경우 고객에게 가장 가까운 지역을 선택합니다. 이 자습서에서는 자신에게 가장 가까운 지역을 선택합니다.
+    이 필드는 클라우드 서비스가 호스팅될 데이터센터를 지정합니다. 프로덕션 애플리케이션의 경우 고객에게 가장 가까운 지역을 선택합니다. 이 자습서에서는 자신에게 가장 가까운 지역을 선택합니다.
 5. **만들기**를 클릭합니다.
 
     다음 이미지에서는 CSvccontosoads.cloudapp.net이라는 URL로 클라우드 서비스가 생성되었습니다.
@@ -161,7 +161,7 @@ Azure 클라우드 서비스는 응용 프로그램이 실행되는 환경입니
 ### <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
 Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기 위한 리소스를 제공합니다.
 
-실제 응용 프로그램에서는 일반적으로 응용 프로그램 데이터와 로깅 데이터를 위한 별도의 계정 및 테스트 데이터와 프로덕션 데이터를 위한 별도의 계정을 만듭니다. 이 자습서에서는 하나의 계정만 사용합니다.
+실제 애플리케이션에서는 일반적으로 애플리케이션 데이터와 로깅 데이터를 위한 별도의 계정 및 테스트 데이터와 프로덕션 데이터를 위한 별도의 계정을 만듭니다. 이 자습서에서는 하나의 계정만 사용합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기 > Storage > Storage 계정 - BLOB, 파일, 테이블, 큐**를 클릭합니다.
 2. **이름** 상자에 URL 접두사를 입력합니다.
@@ -227,7 +227,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 11. 변경 내용을 저장합니다.  
 
 ### <a name="configure-the-solution-to-use-your-azure-storage-account-when-it-runs-in-azure"></a>Azure에서 실행될 때 Azure 저장소 계정을 사용하도록 솔루션 구성
-웹 역할 프로젝트 및 작업자 역할 프로젝트에 대한 Azure 저장소 계정 연결 문자열은 클라우드 서비스 프로젝트의 환경 설정에 저장됩니다. 각 프로젝트에는 응용 프로그램이 로컬에서 실행될 때와 클라우드에서 실행될 때 사용되는 별도의 설정 집합이 있습니다. 웹 역할 및 작업자 역할 프로젝트의 클라우드 환경 설정을 업데이트합니다.
+웹 역할 프로젝트 및 작업자 역할 프로젝트에 대한 Azure 저장소 계정 연결 문자열은 클라우드 서비스 프로젝트의 환경 설정에 저장됩니다. 각 프로젝트에는 애플리케이션이 로컬에서 실행될 때와 클라우드에서 실행될 때 사용되는 별도의 설정 집합이 있습니다. 웹 역할 및 작업자 역할 프로젝트의 클라우드 환경 설정을 업데이트합니다.
 
 1. **솔루션 탐색기**에서 **ContosoAdsCloudService** 프로젝트의 **역할** 아래에 있는 **ContosoAdsWeb**을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 
@@ -303,17 +303,17 @@ Visual Studio UI를 사용하여 구성한 역할 환경 설정은 ContosoAdsClo
 
     ![Azure 활동 로그 창](./media/cloud-services-dotnet-get-started/waal.png)
 6. 배포 상태가 완료되면 **웹 앱 URL** 을 클릭하여 애플리케이션을 시작합니다.
-7. 이제 응용 프로그램을 로컬에서 실행할 때처럼 일부 광고를 만들고, 보고, 편집하는 방법으로 앱을 테스트할 수 있습니다.
+7. 이제 애플리케이션을 로컬에서 실행할 때처럼 일부 광고를 만들고, 보고, 편집하는 방법으로 앱을 테스트할 수 있습니다.
 
 > [!NOTE]
 > 테스트를 완료하면 클라우드 서비스를 삭제하거나 중지하세요. 클라우드 서비스를 사용하지 않더라도 가상 머신 리소스가 예약되어 있기 때문에 요금이 발생합니다. 또한 실행 중인 채로 두는 경우에는 누군가가 URL을 발견하면 광고를 만들고 볼 수 있습니다. [Azure Portal](https://portal.azure.com)에서 클라우드 서비스의 **개요** 탭으로 이동한 다음 페이지 맨 위에 있는 **삭제** 단추를 클릭합니다. 임시로 다른 사람이 사이트에 액세스하지 못하도록 만들려면 대신 **중지** 를 클릭합니다. 이 경우에는 요금이 계속해서 발생합니다. 더 이상 필요 없는 경우 비슷한 절차에 따라 SQL 데이터베이스 및 저장소 계정을 삭제할 수 있습니다.
 >
 >
 
-## <a name="create-the-application-from-scratch"></a>처음부터 응용 프로그램 만들기
+## <a name="create-the-application-from-scratch"></a>처음부터 애플리케이션 만들기
 아직 [완료된 애플리케이션](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4)(영문)을 다운로드하지 않았다면 다운로드하세요. 다운로드한 프로젝트에서 새 프로젝트로 파일을 복사합니다.
 
-Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합니다.
+Contoso Ads 애플리케이션을 만드는 데는 다음 단계가 필요합니다.
 
 * 클라우드 서비스 Visual Studio 솔루션을 만듭니다.
 * NuGet 패키지를 업데이트 및 추가합니다.
@@ -413,7 +413,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
    * *Views\Ad* 폴더(먼저 폴더 만들기): 5개의 *.cshtml* 파일
 3. ContosoAdsWorker 프로젝트에서 다운로드한 프로젝트에서 가져온 *WorkerRole.cs* 를 추가합니다.
 
-이제 자습서 앞부분의 지침에 따라 응용 프로그램을 구축하고 실행할 수 있습니다. 앱은 로컬 데이터베이스 및 저장소 에뮬레이터 리소스를 사용합니다.
+이제 자습서 앞부분의 지침에 따라 애플리케이션을 구축하고 실행할 수 있습니다. 앱은 로컬 데이터베이스 및 저장소 에뮬레이터 리소스를 사용합니다.
 
 다음 섹션에서는 Azure 환경, Blob 및 큐 작업과 관련된 코드에 대해 설명합니다. 이 자습서에 스캐폴딩을 사용하여 MVC 컨트롤러 및 보기를 만드는 방법(영문), SQL Server 데이터베이스를 사용하는 Entity Framework 코드를 작성하는 방법(영문) 또는 ASP.NET 4.5의 비동기 프로그래밍에 대한 기본 사항(영문)은 나와 있지 않습니다. 이러한 항목에 대한 내용은 다음 리소스를 참조하세요.
 
@@ -759,12 +759,12 @@ Azure에서 애플리케이션을 실행하거나 Azure 계산 에뮬레이터�
 
 전체 에뮬레이터를 사용하도록 프로젝트를 변경하려면 ContosoAdsCloudService 프로젝트를 마우스 오른쪽 단추를 클릭한 다음 **속성**을 클릭합니다. **속성** 창에서 **웹** 탭을 클릭한 다음 **전체 에뮬레이터 사용** 라디오 단추를 클릭합니다.
 
-전체 에뮬레이터를 사용하여 응용 프로그램을 실행하려면 관리자 권한으로 Visual Studio를 열어야 합니다.
+전체 에뮬레이터를 사용하여 애플리케이션을 실행하려면 관리자 권한으로 Visual Studio를 열어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-Contoso Ads 응용 프로그램은 시작 자습서용으로 의도적으로 단순하게 유지되었습니다. 예를 들어 이 응용 프로그램은 [종속성 주입](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection)(영문) 또는 [리포지토리 및 작업 단위 패턴](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo)(영문)을 구현하지 않고, [로깅용 인터페이스를 사용](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log)(영문)하지 않으며, 데이터 모델 변경을 관리하는 데 [EF Code First 마이그레이션](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application)(영문)을 사용하지 않고, 일시적인 네트워크 오류를 관리하는 데 [EF 연결 복원](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)(영문)을 사용하지 않습니다.
+Contoso Ads 애플리케이션은 시작 자습서용으로 의도적으로 단순하게 유지되었습니다. 예를 들어 이 응용 프로그램은 [종속성 주입](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection)(영문) 또는 [리포지토리 및 작업 단위 패턴](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo)(영문)을 구현하지 않고, [로깅용 인터페이스를 사용](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log)(영문)하지 않으며, 데이터 모델 변경을 관리하는 데 [EF Code First 마이그레이션](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application)(영문)을 사용하지 않고, 일시적인 네트워크 오류를 관리하는 데 [EF 연결 복원](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)(영문)을 사용하지 않습니다.
 
-다음은 더 실질적인 코딩 방식을 보여 주는 몇 가지 클라우드 서비스 샘플 응용 프로그램입니다. 복잡성이 낮은 것부터 높은 것 순서로 나열되었습니다.
+다음은 더 실질적인 코딩 방식을 보여 주는 몇 가지 클라우드 서비스 샘플 애플리케이션입니다. 복잡성이 낮은 것부터 높은 것 순서로 나열되었습니다.
 
 * [PhluffyFotos](https://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31)(영문). 개념이 Contoso Ads와 비슷하지만, 더 많은 기능과 더 실질적인 코딩 방식을 구현합니다.
 * [테이블, 큐 및 Blob이 포함된 Azure 클라우드 서비스 다중 계층 응용 프로그램](https://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)(영문). Azure Storage 테이블 뿐만 아니라 Blob 및 큐를 소개합니다. .NET용 Azure SDK의 이전 버전에 기반하여 현재 버전으로 작업하려면 약간 수정해야 합니다.

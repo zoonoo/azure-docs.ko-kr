@@ -1,7 +1,7 @@
 ---
 title: 기술 자료 게시, REST, Node.js
 titleSuffix: QnA Maker - Azure Cognitive Services
-description: 이 Node.js 빠른 시작에서는 KB(기술 자료)를 프로그래밍 방식으로 게시하는 방법을 안내합니다. 게시는 최신 버전의 기술 자료를 전용 Azure Search 인덱스에 푸시하고, 응용 프로그램 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
+description: 이 Node.js 빠른 시작에서는 KB(기술 자료)를 프로그래밍 방식으로 게시하는 방법을 안내합니다. 게시는 최신 버전의 기술 자료를 전용 Azure Search 인덱스에 푸시하고, 애플리케이션 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -20,7 +20,7 @@ ms.locfileid: "53164180"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-nodejs"></a>빠른 시작: Node.js를 사용하여 QnA Maker 기술 자료 게시
 
-이 REST 기반 빠른 시작에서는 KB(기술 자료)를 프로그래밍 방식으로 게시하는 방법을 안내합니다. 게시는 최신 버전의 기술 자료를 전용 Azure Search 인덱스에 푸시하고, 응용 프로그램 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
+이 REST 기반 빠른 시작에서는 KB(기술 자료)를 프로그래밍 방식으로 게시하는 방법을 안내합니다. 게시는 최신 버전의 기술 자료를 전용 Azure Search 인덱스에 푸시하고, 애플리케이션 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
 
 이 빠른 시작에서 호출하는 QnA Maker API는 다음과 같습니다.
 * [게시](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) - 이 API는 요청 본문에 어떤 정보도 요구하지 않습니다.
@@ -69,7 +69,7 @@ API 호출은 성공적인 게시에 대해 응답 본문에 내용이 없는 20
 
 프로그램을 빌드하고 실행합니다. 그러면 자동으로 기술 자료를 게시하기 위한 요청을 QnA Maker API에 보낸 다음, 응답이 콘솔 창에 출력됩니다.
 
-기술 자료가 게시되면 클라이언트 응용 프로그램 또는 챗봇을 사용하여 엔드포인트에서 쿼리할 수 있습니다. 
+기술 자료가 게시되면 클라이언트 애플리케이션 또는 챗봇을 사용하여 엔드포인트에서 쿼리할 수 있습니다. 
 
 ```bash
 node publish-knowledge-base.js

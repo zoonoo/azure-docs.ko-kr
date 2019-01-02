@@ -1,5 +1,5 @@
 ---
-title: Socket.io를 사용하는 Node.js 응용 프로그램 - Azure
+title: Socket.io를 사용하는 Node.js 애플리케이션 - Azure
 description: Azure에 호스트된 node.js 애플리케이션에서 socket.io를 사용하는 방법을 알아봅니다.
 services: cloud-services
 documentationcenter: nodejs
@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/13/2018
 ms.locfileid: "39001986"
 ---
-# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드
+# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 애플리케이션 빌드
 
 Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공합니다. 이 자습서는 Azure에서 채팅 애플리케이션을 기반으로 하는 socket.IO 호스팅에 대해 안내합니다. Socket.IO에 대한 자세한 내용은 [socket.io](http://socket.io)를 참조하세요.
 

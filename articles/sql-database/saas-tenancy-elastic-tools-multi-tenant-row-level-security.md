@@ -21,7 +21,7 @@ ms.locfileid: "51242911"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 애플리케이션
 
-[탄력적 데이터베이스 도구](sql-database-elastic-scale-get-started.md) 및 [RLS(행 수준 보안)][rls]는 Azure SQL Database를 사용하여 다중 테넌트 응용 프로그램의 데이터 계층을 확장할 수 있도록 지원합니다. 이러한 기술을 함께 사용하면 확장성이 뛰어난 데이터 계층이 있는 애플리케이션을 작성할 수 있습니다. 데이터 계층은 다중 테넌트 분할된 데이터베이스를 지원하며 **ADO.NET SqlClient** 또는 **Entity Framework**를 사용합니다. 자세한 내용은 [Azure SQL Database를 사용한 다중 테넌트 SaaS 응용 프로그램의 설계 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
+[탄력적 데이터베이스 도구](sql-database-elastic-scale-get-started.md) 및 [RLS(행 수준 보안)][rls]는 Azure SQL Database를 사용하여 다중 테넌트 응용 프로그램의 데이터 계층을 확장할 수 있도록 지원합니다. 이러한 기술을 함께 사용하면 확장성이 뛰어난 데이터 계층이 있는 애플리케이션을 작성할 수 있습니다. 데이터 계층은 다중 테넌트 분할된 데이터베이스를 지원하며 **ADO.NET SqlClient** 또는 **Entity Framework**를 사용합니다. 자세한 내용은 [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션의 설계 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
 
 - **탄력적 데이터베이스 도구**를 사용하면 개발자는 .NET 라이브러리 및 Azure 서비스 템플릿을 사용하여 표준 분할 방법을 통해 데이터 계층을 확장할 수 있습니다. [Elastic Database 클라이언트 라이브러리][s-d-elastic-database-client-library]를 사용하여 분할된 데이터베이스를 관리하면 일반적으로 분할과 관련된 여러 인프라 작업을 자동화 및 간소화하는 데 도움이 됩니다.
 - **행 수준 보안**을 사용하면 개발자가 동일한 데이터베이스에 여러 테넌트에 대한 데이터를 안전하게 저장할 수 있습니다. RLS 보안 정책은 쿼리를 실행하는 테넌트에 속하지 않는 행을 필터링합니다. 데이터베이스 내부에 필터 논리를 중앙화하면 유지 관리가 단순해지고 보안 오류 위험이 줄어듭니다. 모든 클라이언트 코드에 의존하여 보안을 강제 적용하는 다른 대안은 위험합니다.
@@ -44,7 +44,7 @@ ms.locfileid: "51242911"
 - 샘플 프로젝트 다운로드: [Azure SQL을 위한 탄력적 DB 도구 - 다중 테넌트 분할된 데이터베이스](https://go.microsoft.com/?linkid=9888163)
   -  **Program.cs** 
 
-이 프로젝트는 [Azure SQL을 위한 탄력적 DB 도구 - Entity Framework 통합](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) 에서 설명한 프로젝트에 다중 테넌트 분할된 데이터베이스에 대한 지원을 추가하는 확장 프로젝트입니다. 이 프로젝트는 블로그 및 게시물을 만들기 위한 간단한 콘솔 응용 프로그램을 작성합니다. 프로젝트에는 4명의 테넌트와 두 개의 다중 테넌트 분할 데이터베이스가 포함됩니다. 이 구성은 이전 다이어그램에 설명되어 있습니다. 
+이 프로젝트는 [Azure SQL을 위한 탄력적 DB 도구 - Entity Framework 통합](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) 에서 설명한 프로젝트에 다중 테넌트 분할된 데이터베이스에 대한 지원을 추가하는 확장 프로젝트입니다. 이 프로젝트는 블로그 및 게시물을 만들기 위한 간단한 콘솔 애플리케이션을 작성합니다. 프로젝트에는 4명의 테넌트와 두 개의 다중 테넌트 분할 데이터베이스가 포함됩니다. 이 구성은 이전 다이어그램에 설명되어 있습니다. 
 
 애플리케이션을 빌드 및 실행합니다. 그러면 탄력적 데이터베이스 도구의 분할된 데이터베이스 맵 관리자가 부트스트랩을 실행하고 다음 테스트를 수행합니다. 
 
@@ -57,7 +57,7 @@ ms.locfileid: "51242911"
 1. **응용 프로그램 계층**: 연결을 연 후 응용 프로그램 코드를 수정하여 SESSION\_CONTEXT에서 현재 TenantId를 항상 설정합니다. 샘플 프로젝트에서는 이미 TenantId를 이 방법으로 설정합니다. 
 2. **데이터 계층**: 각 분할된 데이터베이스에서 SESSION\_CONTEXT에 저장된 TenantId에 따라 행을 필터링하는 RLS 보안 정책을 만듭니다. 분할된 데이터베이스 각각에 대해 정책을 만듭니다. 그렇지 않으면 다중 테넌트 분할된 데이터베이스의 행이 필터링되지 않습니다. 
 
-## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. 응용 프로그램 계층: SESSION\_CONTEXT에서 TenantId 설정
+## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. 애플리케이션 계층: SESSION\_CONTEXT에서 TenantId 설정
 
 먼저 탄력적 데이터베이스 클라이언트 라이브러리의 데이터 종속 라우팅 API를 사용하여 분할된 데이터베이스에 연결합니다. 애플리케이션은 연결을 사용 중인 TenantId를 계속 데이터베이스에 알려야 합니다. TenantId는 어떤 행을 다른 테넌트에 속하는 것으로 필터링해야 하는지 RLS 보안 정책에 알려줍니다. 연결의 [SESSION\_CONTEXT](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql)에 현재 TenantId를 저장합니다.
 
@@ -65,7 +65,7 @@ SESSION\_CONTEXT에 대한 대안은 [CONTEXT\_INFO](https://docs.microsoft.com/
 
 ### <a name="entity-framework"></a>Entity Framework
 
-Entity Framework를 사용하는 응용 프로그램의 경우 가장 간단한 방법은 [EF DbContext를 사용하는 데이터 종속 라우팅](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext)에 설명된 ElasticScaleContext 재정의 내에서 SESSION\_CONTEXT를 설정하는 것입니다. SESSION\_CONTEX에서 TenantId를 연결에 대해 지정된 shardingKey로 설정하는 SqlCommand를 만들어서 실행합니다. 그러면 데이터 종속 라우팅을 통해 조정된 연결이 반환됩니다. 이 방법을 사용하면 SESSION\_CONTEXT를 설정하는 코드를 한 번만 작성하면 됩니다. 
+Entity Framework를 사용하는 애플리케이션의 경우 가장 간단한 방법은 [EF DbContext를 사용하는 데이터 종속 라우팅](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext)에 설명된 ElasticScaleContext 재정의 내에서 SESSION\_CONTEXT를 설정하는 것입니다. SESSION\_CONTEX에서 TenantId를 연결에 대해 지정된 shardingKey로 설정하는 SqlCommand를 만들어서 실행합니다. 그러면 데이터 종속 라우팅을 통해 조정된 연결이 반환됩니다. 이 방법을 사용하면 SESSION\_CONTEXT를 설정하는 코드를 한 번만 작성하면 됩니다. 
 
 ```csharp
 // ElasticScaleContext.cs 
@@ -147,7 +147,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### <a name="adonet-sqlclient"></a>ADO.NET SqlClient
 
-ADO.NET SqlClient를 사용하는 응용 프로그램에 대해 ShardMap.OpenConnectionForKey 메서드를 기준으로 래퍼 함수를 만듭니다. 연결을 반환하기 전에 래퍼는 SESSION\_CONTEXT의 TenantId를 현재 TenantId로 자동으로 설정합니다. SESSION\_CONTEXT가 항상 설정되도록 하기 위해 이 래퍼 함수를 사용해서만 연결을 열어야 합니다.
+ADO.NET SqlClient를 사용하는 애플리케이션에 대해 ShardMap.OpenConnectionForKey 메서드를 기준으로 래퍼 함수를 만듭니다. 연결을 반환하기 전에 래퍼는 SESSION\_CONTEXT의 TenantId를 현재 TenantId로 자동으로 설정합니다. SESSION\_CONTEXT가 항상 설정되도록 하기 위해 이 래퍼 함수를 사용해서만 연결을 열어야 합니다.
 
 ```csharp
 // Program.cs
@@ -217,11 +217,11 @@ All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
 
 ### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>각 테넌트가 액세스할 수 있는 행을 필터링하는 보안 정책 만들기
 
-응용 프로그램에서 SESSION\_CONTEXT를 현재 TenantId로 설정한 후 쿼리하므로 RLS 보안 정책에서 쿼리를 필터링하고 TenantId가 다른 행을 제외할 수 있습니다.  
+애플리케이션에서 SESSION\_CONTEXT를 현재 TenantId로 설정한 후 쿼리하므로 RLS 보안 정책에서 쿼리를 필터링하고 TenantId가 다른 행을 제외할 수 있습니다.  
 
 RLS는 Transact-SQL에서 구현됩니다. 사용자 정의 함수에서 액세스 논리를 정의하고, 보안 정책에서 이 함수를 모든 테이블에 바인딩합니다. 이 프로젝트의 경우:
 
-1. 이 함수는 응용 프로그램이 데이터베이스에 연결되었는지, SESSION\_CONTEXT에 저장된 'TenantId'가 지정된 행의 TenantId와 일치하는지 확인합니다.
+1. 이 함수는 애플리케이션이 데이터베이스에 연결되었는지, SESSION\_CONTEXT에 저장된 'TenantId'가 지정된 행의 TenantId와 일치하는지 확인합니다.
     - 애플리케이션은 다른 SQL 사용자 대신 연결됩니다.
 
 2. FILTER 조건자를 사용하면 SELECT, UPDATE 및 DELETE 쿼리에 대해 TenantId 필터와 일치하는 행을 제외시킬 수 있습니다.
@@ -256,7 +256,7 @@ GO
 > [!TIP]
 > 복잡한 프로젝트에서 수백 개의 테이블에 조건자를 추가하는 것은 지루한 작업이 될 수 있습니다. 자동으로 보안 정책을 생성하고 스키마의 모든 테이블에는 조건자를 추가하는 도우미 저장 프로시저가 있습니다. 자세한 내용은 [모든 테이블에 행 수준 보안 적용 – 도우미 스크립트(블로그)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script)에서 블로그 게시물을 참조하세요.
 
-이제 샘플 애플리케이션을 다시 실행하면 각 테넌트는 자신에게 속한 행만 보게 됩니다. 또한 응용 프로그램에서는 현재 분할된 데이터베이스에 연결된 테넌트 이외의 다른 테넌트에 속한 행을 삽입할 수 없습니다. 또한 앱은 표시되는 행의 TenantId를 업데이트할 수 없습니다. 앱에서 두 작업을 시도하면 DbUpdateException이 발생합니다.
+이제 샘플 애플리케이션을 다시 실행하면 각 테넌트는 자신에게 속한 행만 보게 됩니다. 또한 애플리케이션에서는 현재 분할된 데이터베이스에 연결된 테넌트 이외의 다른 테넌트에 속한 행을 삽입할 수 없습니다. 또한 앱은 표시되는 행의 TenantId를 업데이트할 수 없습니다. 앱에서 두 작업을 시도하면 DbUpdateException이 발생합니다.
 
 나중에 새 테이블을 추가하는 경우 보안 정책을 변경하고 새 테이블에 FILTER 및 BLOCK 조건자를 추가합니다.
 
@@ -307,7 +307,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### <a name="optional-enable-a-superuser-to-access-all-rows"></a>(선택 사항) 모든 행에 액세스 하려면 *superuser*를 사용 하도록 설정
 
-일부 응용 프로그램은 모든 행에 액세스할 수 있는 *superuser*를 만들어야 할 수 있습니다. superuser는 모든 분할된 데이터베이스의 모든 테넌트에서 보고를 사용할 수 있습니다. 또는 superuser가 데이터베이스 간에 테넌트 행 이동과 관련된 분할된 데이터베이스에서 분할-병합 작업을 수행할 수 있습니다.
+일부 애플리케이션은 모든 행에 액세스할 수 있는 *superuser*를 만들어야 할 수 있습니다. superuser는 모든 분할된 데이터베이스의 모든 테넌트에서 보고를 사용할 수 있습니다. 또는 superuser가 데이터베이스 간에 테넌트 행 이동과 관련된 분할된 데이터베이스에서 분할-병합 작업을 수행할 수 있습니다.
 
 superuser를 사용하려면 각 분할 데이터베이스에서 새 SQL 사용자(이 예에서 `superuser`)를 만듭니다. 그런 다음 사용자를 모든 행에 액세스할 수 있도록 하는 새 조건자 함수를 사용하여 보안 정책을 변경합니다. 해당 함수는 다음과 같이 제공됩니다.
 

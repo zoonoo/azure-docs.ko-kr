@@ -52,7 +52,7 @@ ms.locfileid: "52976581"
 * [Azure 데이터 팩터리](../../data-factory/copy-activity-overview.md)
 
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>웹 서버 로그 데이터(사용자 지정 응용 프로그램을 사용하여 업로드)
-웹 서버 로그 데이터의 분석은 빅 데이터 애플리케이션에 대한 일반적인 사용 사례이며 대용량 로그 파일을 Data Lake Storage Gen2에 업로드해야 하므로 이러한 유형의 데이터 세트가 특별히 호출됩니다. 다음 중 아무 도구를 사용하여 이러한 데이터를 업로드하는 고유의 스크립트 또는 응용 프로그램을 작성할 수 있습니다.
+웹 서버 로그 데이터의 분석은 빅 데이터 애플리케이션에 대한 일반적인 사용 사례이며 대용량 로그 파일을 Data Lake Storage Gen2에 업로드해야 하므로 이러한 유형의 데이터 세트가 특별히 호출됩니다. 다음 중 아무 도구를 사용하여 이러한 데이터를 업로드하는 고유의 스크립트 또는 애플리케이션을 작성할 수 있습니다.
 
 * [Azure 데이터 팩터리](../../data-factory/copy-activity-overview.md)
 

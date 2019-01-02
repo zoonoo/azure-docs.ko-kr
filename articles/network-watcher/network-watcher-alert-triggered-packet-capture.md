@@ -191,7 +191,7 @@ $Encryptedpassword
 
 #### <a name="azureclientid"></a>AzureClientID
 
-클라이언트 ID는 Azure Active Directory에 있는 응용 프로그램의 응용 프로그램 ID입니다.
+클라이언트 ID는 Azure Active Directory에 있는 애플리케이션의 애플리케이션 ID입니다.
 
 1. 사용할 애플리케이션이 아직 없으면 다음 예제를 실행하여 애플리케이션을 만듭니다.
 

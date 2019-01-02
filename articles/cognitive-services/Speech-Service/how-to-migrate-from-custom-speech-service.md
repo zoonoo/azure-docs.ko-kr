@@ -28,7 +28,7 @@ Custom Speech Service는 이제 Speech Service의 일부입니다. Speech Servic
 
 가격 책정 모델은 더 간단합니다. Speech Service에 대한 시간 기반 가격 책정 모델을 사용합니다.  
 
-1. 응용 프로그램을 사용할 수 있는 각 지역에서 Azure 리소스를 만듭니다. Azure 리소스 이름이 **Speech**입니다. 별도 리소스를 만드는 대신 동일한 지역에서 다음 서비스에 대해 단일 Azure 리소스를 사용할 수 있습니다.
+1. 애플리케이션을 사용할 수 있는 각 지역에서 Azure 리소스를 만듭니다. Azure 리소스 이름이 **Speech**입니다. 별도 리소스를 만드는 대신 동일한 지역에서 다음 서비스에 대해 단일 Azure 리소스를 사용할 수 있습니다.
 
     * 음성 텍스트 변환
     * 음성 텍스트 변환 사용자 지정
@@ -39,7 +39,7 @@ Custom Speech Service는 이제 Speech Service의 일부입니다. Speech Servic
 
 3. 올바른 API를 사용하기 위해 빠른 시작 가이드 및 SDK 샘플을 따릅니다. 또한 REST API를 사용하는 경우 올바른 엔드포인트 및 리소스 키를 사용해야 합니다.
 
-4. Speech Service 및 API를 사용하도록 클라이언트 응용 프로그램을 업데이트합니다.
+4. Speech Service 및 API를 사용하도록 클라이언트 애플리케이션을 업데이트합니다.
 
 > [!NOTE]
 > * LUIS(Language Understanding)에서 음성을 사용하도록 설정한 경우 동일한 지역에서 단일 LUIS 리소스는 모든 Speech Service뿐만 아니라 LUIS에서도 작동합니다. 자세한 내용은 [음성에서 의도 인식](how-to-recognize-intents-from-speech-csharp.md)을 참조하세요.

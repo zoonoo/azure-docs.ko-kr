@@ -1,6 +1,6 @@
 ---
 title: SQL Database 애플리케이션 개발 개요 | Microsoft 문서
-description: 사용 가능한 연결 라이브러리 및 SQL Database에 연결하는 응용 프로그램에 대한 모범 사례를 알아봅니다.
+description: 사용 가능한 연결 라이브러리 및 SQL Database에 연결하는 애플리케이션에 대한 모범 사례를 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development

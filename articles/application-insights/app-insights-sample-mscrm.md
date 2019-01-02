@@ -21,7 +21,7 @@ ms.lasthandoff: 12/06/2018
 ms.locfileid: "53002130"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>연습: Application Insights를 사용하여 Microsoft Dynamics CRM Online 작업에 대한 원격 분석 설정
-이 문서는 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/)를 사용하여 [Microsoft Dynamics CRM Online](https://www.dynamics.com/)에서 원격 분석 데이터를 가져오는 방법을 보여 줍니다. 응용 프로그램에 Application Insights 스크립트 추가, 데이터 캡처 및 데이터 시각화의 전체 프로세스를 연습합니다.
+이 문서에서는 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/)를 사용하여 [Microsoft Dynamics CRM Online](https://www.dynamics.com/)에서 원격 분석 데이터를 가져오는 방법을 보여 줍니다. 응용 프로그램에 Application Insights 스크립트 추가, 데이터 캡처 및 데이터 시각화의 전체 프로세스를 연습합니다.
 
 > [!NOTE]
 > [샘플 솔루션을 탐색합니다](https://dynamicsandappinsights.codeplex.com/).
@@ -29,7 +29,7 @@ ms.locfileid: "53002130"
 > 
 
 ## <a name="add-application-insights-to-new-or-existing-crm-online-instance"></a>기존 또는 새 CRM Online 인스턴스에 Application Insights를 추가합니다.
-응용 프로그램을 모니터링하려면 응용 프로그램에 Application Insights SDK를 추가합니다. SDK는 [Application Insights 포털](https://portal.azure.com)로 원격 분석을 보내며 여기서 강력한 분석 및 진단 도구를 사용하고 스토리지로 데이터를 내보낼 수 있습니다.
+애플리케이션을 모니터링하려면 애플리케이션에 Application Insights SDK를 추가합니다. SDK는 [Application Insights 포털](https://portal.azure.com)로 원격 분석을 보내며 여기서 강력한 분석 및 진단 도구를 사용하고 스토리지로 데이터를 내보낼 수 있습니다.
 
 ### <a name="create-an-application-insights-resource-in-azure"></a>Azure에서 Application Insights 리소스 만들기
 1. [Microsoft Azure에서 계정](https://azure.com/pricing)을 만듭니다. 
@@ -82,7 +82,7 @@ ms.locfileid: "53002130"
 
 표시되는 데이터의 샘플은 다음과 같습니다.
 
-#### <a name="application-health"></a>응용 프로그램 상태
+#### <a name="application-health"></a>애플리케이션 상태
 ![예제 페이지 로드 시간](./media/app-insights-sample-mscrm/15.png)
 
 ![예제 페이지 보기 차트](./media/app-insights-sample-mscrm/16.png)

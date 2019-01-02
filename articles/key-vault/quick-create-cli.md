@@ -68,7 +68,7 @@ az keyvault create --name 'Contoso-Vault2' --resource-group 'ContosoResourceGrou
 
 ## <a name="add-a-secret-to-key-vault"></a>Key Vault에 비밀 추가
 
-자격 증명 모음에 비밀을 추가하려면 몇 가지 추가 단계만 수행하면 됩니다. 이 암호는 응용 프로그램에서 사용할 수 있습니다. 암호는 **ExamplePassword**라고 명명되며 **Pa$$w0rd** 값을 저장합니다.
+자격 증명 모음에 비밀을 추가하려면 몇 가지 추가 단계만 수행하면 됩니다. 이 암호는 애플리케이션에서 사용할 수 있습니다. 암호는 **ExamplePassword**라고 명명되며 **Pa$$w0rd** 값을 저장합니다.
 
 아래의 명령을 입력하여 Key Vault에 값 **Pa$$w0rd**를 저장하는 **ExamplePassword**라는 비밀을 만듭니다.
 
@@ -97,7 +97,7 @@ az group delete --name ContosoResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Key Vault를 만들어 비밀을 저장했습니다. Key Vault와 이 Key Vault를 응용 프로그램과 함께 사용하는 방법에 대해 자세히 알아보려면 Key Vault와 함께 작동하는 웹 응용 프로그램에 대한 자습서를 진행합니다.
+이 빠른 시작에서는 Key Vault를 만들어 비밀을 저장했습니다. Key Vault와 이 Key Vault를 애플리케이션과 함께 사용하는 방법에 대해 자세히 알아보려면 Key Vault와 함께 작동하는 웹 애플리케이션에 대한 자습서를 진행합니다.
 
 > [!div class="nextstepaction"]
-> Azure 리소스에 대한 관리 ID를 사용하여 웹 응용 프로그램의 Key Vault에서 비밀을 읽는 방법을 알아보려면 [Key Vault에서 비밀을 읽도록 Azure 웹 응용 프로그램 구성](quick-create-net.md) 자습서를 계속 진행하세요.
+> Azure 리소스에 대한 관리 ID를 사용하여 웹 애플리케이션의 Key Vault에서 비밀을 읽는 방법을 알아보려면 [Key Vault에서 비밀을 읽도록 Azure 웹 애플리케이션 구성](quick-create-net.md) 자습서를 계속 진행하세요.

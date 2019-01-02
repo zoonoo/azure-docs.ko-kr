@@ -82,7 +82,7 @@ public static void Main(string[] args)
 }
 ```
 
-응용 프로그램이 업데이트된 후 응용 프로그램을 다시 빌드해야 합니다. `Command Prompt`를 열고 `D:\git\storage-dotnet-perf-scale-app`으로 이동합니다. 다음 예제에 표시된 대로 `dotnet build`를 실행하여 응용 프로그램을 다시 빌드합니다.
+애플리케이션이 업데이트된 후 애플리케이션을 다시 빌드해야 합니다. `Command Prompt`를 열고 `D:\git\storage-dotnet-perf-scale-app`으로 이동합니다. 다음 예제에 표시된 대로 `dotnet build`를 실행하여 애플리케이션을 다시 빌드합니다.
 
 ```
 dotnet build
@@ -90,7 +90,7 @@ dotnet build
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-이제 응용 프로그램이 다시 빌드되었으므로 업데이트된 코드로 응용 프로그램을 실행할 차례입니다. 아직 열지 않은 경우 `Command Prompt`를 열고 `D:\git\storage-dotnet-perf-scale-app`으로 이동합니다.
+이제 애플리케이션이 다시 빌드되었으므로 업데이트된 코드로 애플리케이션을 실행할 차례입니다. 아직 열지 않은 경우 `Command Prompt`를 열고 `D:\git\storage-dotnet-perf-scale-app`으로 이동합니다.
 
 `dotnet run`를 입력하여 응용 프로그램을 실행합니다.
 
@@ -98,7 +98,7 @@ dotnet build
 dotnet run
 ```
 
-응용 프로그램은 **storageconnectionstring**에 지정된 저장소 계정에 있는 컨테이너를 읽습니다. 컨테이너에 있는 [ListBlobsSegmented](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 메서드를 사용하여 한 번에 Blob을 10개 반복하고 [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 메서드를 사용하여 로컬 컴퓨터로 다운로드합니다.
+애플리케이션은 **storageconnectionstring**에 지정된 스토리지 계정에 있는 컨테이너를 읽습니다. 컨테이너에 있는 [ListBlobsSegmented](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 메서드를 사용하여 한 번에 Blob을 10개 반복하고 [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 메서드를 사용하여 로컬 컴퓨터로 다운로드합니다.
 다음 표에서는 다운로드된 각 Blob에 대해 정의된 [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet)를 보여 줍니다.
 
 |자산|값|설명|

@@ -39,7 +39,7 @@ Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 �
 
 **A:** Azure AD는 모든 웹 서비스에 공통 ID 및 액세스 기능을 제공합니다. Office 365, Microsoft Azure, Intune 또는 기타 제품을 사용하든지 이러한 모든 서비스에 대해 로그온 및 액세스 관리 설정을 지원하는 데 Azure AD를 이미 사용 중입니다.
 
-웹 서비스를 사용하도록 설정된 모든 사용자는 하나 이상의 Azure AD 인스턴스에 사용자 계정으로 정의되어 있습니다. 클라우드 응용 프로그램 액세스와 같은 무료 Azure AD 기능에 이러한 계정을 설정할 수 있습니다.
+웹 서비스를 사용하도록 설정된 모든 사용자는 하나 이상의 Azure AD 인스턴스에 사용자 계정으로 정의되어 있습니다. 클라우드 애플리케이션 액세스와 같은 무료 Azure AD 기능에 이러한 계정을 설정할 수 있습니다.
 
 Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적인 엔터프라이즈 규모 관리 및 보안 솔루션을 통해 Office 365 및 Microsoft Azure와 같은 기타 웹 서비스를 보완합니다.
 
@@ -78,7 +78,7 @@ Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적�
 - - -
 **Q: 온-프레미스 디렉터리와 클라우드 애플리케이션 간에 SSO를 설정하려면 어떻게 할까요?**
 
-**A:** 온-프레미스 디렉터리와 Azure AD 간에 SSO(Single Sign-On)만 설정하면 됩니다. Azure AD를 통해 클라우드 응용 프로그램에 액세스할 수만 있다면 서비스는 온-프레미스 자격 증명으로 올바르게 인증하도록 사용자를 자동으로 유도합니다.
+**A:** 온-프레미스 디렉터리와 Azure AD 간에 SSO(Single Sign-On)만 설정하면 됩니다. Azure AD를 통해 클라우드 애플리케이션에 액세스할 수만 있다면 서비스는 온-프레미스 자격 증명으로 올바르게 인증하도록 사용자를 자동으로 유도합니다.
 
 온-프레미스에서 SSO 구현은 AD FS(Active Directory Federation Services)와 같은 페더레이션 솔루션 또는 암호 해시 동기화 구성으로 쉽게 달성할 수 있습니다. 두 옵션 모두 Azure AD Connect 구성 마법사를 사용하여 쉽게 배포할 수 있습니다.
 
@@ -148,9 +148,9 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 **Q: Azure AD 및 해당 기능과 미리 통합된 애플리케이션의 목록을 어디에서 찾을 수 있나요?**
 
-**A:** Azure AD에는 Microsoft, 애플리케이션 서비스 공급 기업 및 파트너의 사전 통합된 애플리케이션이 2,600개 넘게 있습니다. 사전 통합된 모든 응용 프로그램에서 SSO(Single Sign-On)를 지원합니다. SSO를 사용하면 조직의 자격 증명을 사용하여 앱에 액세스할 수 있습니다. 일부 응용 프로그램은 자동화된 프로비전 및 프로비전 해제도 지원합니다.
+**A:** Azure AD에는 Microsoft, 애플리케이션 서비스 공급 기업 및 파트너의 사전 통합된 애플리케이션이 2,600개 넘게 있습니다. 사전 통합된 모든 애플리케이션에서 SSO(Single Sign-On)를 지원합니다. SSO를 사용하면 조직의 자격 증명을 사용하여 앱에 액세스할 수 있습니다. 일부 애플리케이션은 자동화된 프로비전 및 프로비전 해제도 지원합니다.
 
-미리 통합된 응용 프로그램의 전체 목록은 [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/)를 참조하세요.
+미리 통합된 애플리케이션의 전체 목록은 [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/)를 참조하세요.
 
 - - -
 **Q: 필요한 애플리케이션이 Azure AD 마켓플레이스에 없는 경우 어떻게 하나요?**
@@ -168,7 +168,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 **A:** Azure AD는 다음과 같이 사용자가 자신의 애플리케이션을 보고 액세스할 수 있는 여러 가지 방법을 제공합니다.
 
 * Azure AD 액세스 패널
-* Office 365 응용 프로그램 실행 프로그램
+* Office 365 애플리케이션 실행 프로그램
 * 페더레이션된 앱에 직접 로그인
 * 페더레이션된 앱, 암호로 보호된 앱 또는 기존 앱에 대한 딥 링크
 
@@ -188,9 +188,9 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 - - -
 **Q: 온-프레미스를 실행하는 애플리케이션을 추가할 수 있나요?**
 
-**A:** Azure AD 애플리케이션 프록시는 선택한 온-프레미스 웹 애플리케이션에 대해 손쉽고 안전한 액세스를 제공합니다. Azure AD에서 SaaS(Software as a Service) 앱에 액세스하는 것과 동일한 방식으로 이러한 응용 프로그램에 액세스할 수 있습니다. 네트워크 인프라 변경이나 VPN이 필요하지 않습니다.  
+**A:** Azure AD 애플리케이션 프록시는 선택한 온-프레미스 웹 애플리케이션에 대해 손쉽고 안전한 액세스를 제공합니다. Azure AD에서 SaaS(Software as a Service) 앱에 액세스하는 것과 동일한 방식으로 이러한 애플리케이션에 액세스할 수 있습니다. 네트워크 인프라 변경이나 VPN이 필요하지 않습니다.  
 
-자세한 내용은 [온-프레미스 응용 프로그램에 보안 원격 액세스를 제공하는 방법](../manage-apps/application-proxy.md)을 참조하세요.
+자세한 내용은 [온-프레미스 애플리케이션에 보안 원격 액세스를 제공하는 방법](../manage-apps/application-proxy.md)을 참조하세요.
 
 - - -
 **Q: 특정 애플리케이션에 액세스하는 사용자의 Multi-Factor Authentication을 어떻게 요청하나요?**
@@ -204,7 +204,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 **A:** Azure AD를 사용하여 대부분의 널리 사용되는 클라우드 SaaS 앱의 사용자 ID 만들기, 유지 관리 및 제거를 자동화합니다.
 
-자세한 내용은 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비전 및 프로비전 해제](../manage-apps/user-provisioning.md)를 참조하세요.
+자세한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비전 및 프로비전 해제](../manage-apps/user-provisioning.md)를 참조하세요.
 
 - - -
 **Q:  Azure AD에서 보안 LDAP 연결을 설정할 수 있나요?**

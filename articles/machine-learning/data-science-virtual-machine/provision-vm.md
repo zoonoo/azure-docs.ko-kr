@@ -48,11 +48,11 @@ Microsoft DSVM(Data Science Virtual Machine)은 Microsoft Azure VM(가상 머신
 
 1. 데이터 찾기, 로드 및 전처리
 1. 모델 빌드 및 테스트
-1. 지능형 응용 프로그램에서 사용하기 위한 모델 배포
+1. 지능형 애플리케이션에서 사용하기 위한 모델 배포
 
 데이터 과학자는 이러한 작업에 몇 가지 도구를 사용합니다. 적절한 버전의 소프트웨어를 찾고 다운로드하여 설치하는 데 시간이 오래 걸릴 수 있습니다. Microsoft Data Science Virtual Machine은 인기 있는 몇 가지 도구가 사전 설치되고 구성되어 Azure에서 프로비전할 수 있는 즉시 사용 가능한 이미지를 제공하여 시간을 절약합니다. 
 
-Microsoft 데이터 과학 Virtual Machine은 분석 프로젝트를 빠르게 시작합니다. R, Python, SQL 및 C#을 포함하여 다양한 언어로 작업을 수행할 수 있습니다. Visual Studio는 사용하기 쉬운 IDE(통합 개발 환경)를 제공하여 코드를 개발하고 테스트합니다. Azure SDK는 VM에 포함되어 있습니다. 따라서 Microsoft의 클라우드 플랫폼에서 다양한 서비스를 사용하여 응용 프로그램을 빌드할 수 있습니다. 
+Microsoft 데이터 과학 Virtual Machine은 분석 프로젝트를 빠르게 시작합니다. R, Python, SQL 및 C#을 포함하여 다양한 언어로 작업을 수행할 수 있습니다. Visual Studio는 사용하기 쉬운 IDE(통합 개발 환경)를 제공하여 코드를 개발하고 테스트합니다. Azure SDK는 VM에 포함되어 있습니다. 따라서 Microsoft의 클라우드 플랫폼에서 다양한 서비스를 사용하여 애플리케이션을 빌드할 수 있습니다. 
 
 이 데이터 과학 VM 이미지에 대한 소프트웨어 요금은 부과되지 않습니다. Azure 사용 요금만 지불하면 됩니다. 이 요금은 프로비전하는 가상 머신의 크기에 따라 다릅니다. 계산 요금에 대한 자세한 내용은 [Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=PlansAndPrice) 페이지의 **가격 책정 세부 정보** 섹션에 나와 있습니다. 
 
@@ -152,7 +152,7 @@ Visual Studio Community는 VM에 설치됩니다. Microsoft에서 제공하여 �
 * Azure HDInsight Hadoop 및 Spark
 * Azure Data Lake 
 
-Azure Machine Learning에 원활하게 통합되고 AI 응용 프로그램을 빠르게 빌드하는 데 도움이 되는 ```Azure Machine Learning for Visual Studio Code```라는 플러그 인도 있습니다. 
+Azure Machine Learning에 원활하게 통합되고 AI 애플리케이션을 빠르게 빌드하는 데 도움이 되는 ```Azure Machine Learning for Visual Studio Code```라는 플러그 인도 있습니다. 
 
 > [!NOTE]
 > 평가 기간이 만료되었다는 메시지가 표시될 수 있습니다. Microsoft 계정 자격 증명을 입력합니다. 또는 새 체험 계정을 만들어 Visual Studio Community에 액세스할 수 있습니다. 
@@ -160,7 +160,7 @@ Azure Machine Learning에 원활하게 통합되고 AI 응용 프로그램을 �
 > 
 
 ### <a name="sql-server-2017-developer-edition"></a>SQL Server 2017 디벨로퍼 버전
-데이터베이스 내 분석을 실행하는 Machine Learning Services가 포함된 SQL Server 2017 디벨로퍼 버전은 VM의 R 또는 Python에 제공됩니다. Machine Learning Services는 지능형 응용 프로그램을 개발하고 배포하기 위한 플랫폼을 제공합니다. 이러한 언어와 커뮤니티의 많은 패키지를 사용하여 모델을 만들고 SQL Server 데이터에 대한 예측을 생성할 수 있습니다. 데이터베이스 내 Machine Learning Services는 SQL Server 내에서 R 및 Python 언어를 모두 통합하므로 데이터와의 긴밀한 분석을 유지할 수 있습니다. 이 통합은 데이터 이동과 관련된 비용 및 보안 위험을 제거합니다.
+데이터베이스 내 분석을 실행하는 Machine Learning Services가 포함된 SQL Server 2017 디벨로퍼 버전은 VM의 R 또는 Python에 제공됩니다. Machine Learning Services는 지능형 애플리케이션을 개발하고 배포하기 위한 플랫폼을 제공합니다. 이러한 언어와 커뮤니티의 많은 패키지를 사용하여 모델을 만들고 SQL Server 데이터에 대한 예측을 생성할 수 있습니다. 데이터베이스 내 Machine Learning Services는 SQL Server 내에서 R 및 Python 언어를 모두 통합하므로 데이터와의 긴밀한 분석을 유지할 수 있습니다. 이 통합은 데이터 이동과 관련된 비용 및 보안 위험을 제거합니다.
 
 > [!NOTE]
 > SQL Server 디벨로퍼 버전은 개발 및 테스트 용도로만 사용할 수 있습니다. 프로덕션에서 실행하려면 라이선스가 필요합니다. 

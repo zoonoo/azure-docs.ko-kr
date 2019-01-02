@@ -52,7 +52,7 @@ Azure Cosmos DB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼리
 이 문서의 모든 스크린 샷은 Microsoft Visual Studio Community 2017을 사용하여 작성되었습니다. 시스템이 다른 버전으로 구성된 경우 화면과 옵션이 일부 달라질 수 있지만 위의 필수 구성 요소를 충족하면 솔루션을 사용할 수 있습니다.
 
 ## <a name="_Toc395637761"></a>1단계: Azure Cosmos DB 데이터베이스 계정 만들기
-Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB용 SQL 계정이 이미 있거나 이 자습서에 Azure Cosmos DB 에뮬레이터를 사용하고 있는 경우 [새 ASP.NET MVC 응용 프로그램 만들기](#_Toc395637762)로 건너뛸 수 있습니다.
+Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB용 SQL 계정이 이미 있거나 이 자습서에 Azure Cosmos DB 에뮬레이터를 사용하고 있는 경우 [새 ASP.NET MVC 애플리케이션 만들기](#_Toc395637762)로 건너뛸 수 있습니다.
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 

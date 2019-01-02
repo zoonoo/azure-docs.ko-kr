@@ -45,7 +45,7 @@ Azure Databricks는 다음을 포함하는 무 관리 클라우드 플랫폼을 
 
 - 완전히 관리되는 Spark 클러스터
 - 탐색 및 시각화를 위한 대화형 작업 영역
-- 즐겨 찾는 Spark 기반 응용 프로그램을 구동할 수 있는 플랫폼
+- 즐겨 찾는 Spark 기반 애플리케이션을 구동할 수 있는 플랫폼
 
 ### <a name="fully-managed-apache-spark-clusters-in-the-cloud"></a>클라우드에서 완전히 관리되는 Apache Spark 클러스터
 
@@ -66,7 +66,7 @@ Databricks 런타임은 Apache Spark를 기반으로 구축되었으며 기본�
 
 ### <a name="workspace-for-collaboration"></a>공동 작업을 위한 작업 영역
 
-Azure Databricks는 공동 작업 및 통합 환경을 통해 Spark에서 데이터 탐색, 프로토타입 생성 및 데이터 기반 응용 프로그램 실행 프로세스를 간소화합니다.
+Azure Databricks는 공동 작업 및 통합 환경을 통해 Spark에서 데이터 탐색, 프로토타입 생성 및 데이터 기반 애플리케이션 실행 프로세스를 간소화합니다.
 
 * 손쉬운 데이터 탐색으로 데이터를 사용하는 방법을 결정합니다.
 * R, Python, Scala 또는 SQL로 진행 상황을 노트북에 문서화합니다.

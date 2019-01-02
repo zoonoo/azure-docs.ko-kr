@@ -196,7 +196,7 @@ SQL ATP(Advanced Threat Protection)은 데이터 검색 및 분류, 취약성 �
 - 비정상적인 위치에서 액세스
 - 비정상적인 Azure 데이터 센터에서 액세스 
 - 알 수 없는 보안 주체에서 액세스 
-- 잠재적으로 위험한 응용 프로그램에서 액세스 
+- 잠재적으로 위험한 애플리케이션에서 액세스 
 - Azure Database for PostgreSQL 자격 증명에 대한 무차별 암호 대입 공격 
 
 [Azure Database for MySQL Advanced Threat Protection](../mysql/concepts-data-access-and-security-threat-protection.md)은 PostgreSQL Advanced Protection과 유사한 보호를 제공합니다.  

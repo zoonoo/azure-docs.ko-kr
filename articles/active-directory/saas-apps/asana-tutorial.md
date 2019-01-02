@@ -67,7 +67,7 @@ Asana의 Azure AD 통합을 구성하려면 갤러리의 Asana를 관리되는 S
 
 1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
 
 1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
@@ -95,7 +95,7 @@ Asana에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Asana 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Asana 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Asana에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
@@ -127,7 +127,7 @@ Asana에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     ![Asana 구성](./media/asana-tutorial/tutorial_asana_configure.png)
 
-1. 다른 브라우저 창에서 Asana 응용 프로그램에 로그온합니다. Asana에서 SSO를 구성하려면 화면 오른쪽 위 모서리에서 작업 영역 이름을 클릭하여 작업 영역 설정에 액세스합니다. 그런 다음 **\<작업 영역 이름\> 설정**을 클릭합니다.
+1. 다른 브라우저 창에서 Asana 애플리케이션에 로그온합니다. Asana에서 SSO를 구성하려면 화면 오른쪽 위 모서리에서 작업 영역 이름을 클릭하여 작업 영역 설정에 액세스합니다. 그런 다음 **\<작업 영역 이름\> 설정**을 클릭합니다.
 
     ![Asana SSO 설정](./media/asana-tutorial/tutorial_asana_09.png)
 

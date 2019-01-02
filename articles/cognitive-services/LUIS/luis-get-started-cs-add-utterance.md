@@ -125,7 +125,7 @@ Visual Studio에서 코드를 빌드합니다.
 
 ## <a name="run-code"></a>코드 실행
 
-프로젝트의 /bin/Debug 디렉터리에서 명령줄을 사용하여 응용 프로그램을 실행합니다. 
+프로젝트의 /bin/Debug 디렉터리에서 명령줄을 사용하여 애플리케이션을 실행합니다. 
 
 ```console
 ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status

@@ -30,7 +30,7 @@ ms.locfileid: "51705075"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- 미국 동부, 미국 동부 2, 미국 중부, 미국 서부 2, 서유럽, 동남 아시아, 캐나다 중부 또는 캐나다 동부 지역에서 Http 응용 프로그램 라우팅이 활성화된 상태로 Kubernetes 1.9.6 이상을 실행하는 Kubernetes 클러스터.
+- 미국 동부, 미국 동부 2, 미국 중부, 미국 서부 2, 서유럽, 동남 아시아, 캐나다 중부 또는 캐나다 동부 지역에서 Http 애플리케이션 라우팅이 활성화된 상태로 Kubernetes 1.9.6 이상을 실행하는 Kubernetes 클러스터.
 
   ![Http 애플리케이션 라우팅을 활성화해야 합니다.](media/common/Kubernetes-Create-Cluster-3.PNG)
 

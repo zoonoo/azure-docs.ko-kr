@@ -35,11 +35,11 @@ Azure SQL Database Managed Instance는 Azure VNet 및 Managed Instance 전용 �
 
 ![연결 아키텍처 엔터티](./media/managed-instance-connectivity-architecture/connectivityarch001.png)
 
-다이어그램 맨 아래에 표시되는 통신은 데이터 소스로서 Managed Instance에 연결되는 고객 응용 프로그램 및 도구를 나타냅니다.  
+다이어그램 맨 아래에 표시되는 통신은 데이터 소스로서 Managed Instance에 연결되는 고객 애플리케이션 및 도구를 나타냅니다.  
 
 Managed Instance는 PaaS(Platform-As-A-Services)로 제공되므로 Microsoft는 원격 분석 데이트 스트림을 기준으로 자동화 에이전트(관리, 배포 및 유지 관리)를 사용하여 이 서비스를 관리합니다. Managed Instance 관리는 전적으로 Microsoft의 책임이므로 고객은 RDP를 통해 관리되는 인스턴스 가상 클러스터 컴퓨터에 액세스할 수 없습니다.
 
-최종 사용자 또는 응용 프로그램이 시작하는 일부 SQL Server 작업을 위해서는 Managed Instance가 플랫폼과 상호 작용해야 할 수 있습니다. 하나는 포털, PowerShell 및 Azure CLI를 통해 노출되는 리소스인 Managed Instance 데이터베이스를 만드는 경우입니다.
+최종 사용자 또는 애플리케이션이 시작하는 일부 SQL Server 작업을 위해서는 Managed Instance가 플랫폼과 상호 작용해야 할 수 있습니다. 하나는 포털, PowerShell 및 Azure CLI를 통해 노출되는 리소스인 Managed Instance 데이터베이스를 만드는 경우입니다.
 
 Managed Instance는 적절한 작동을 위해 다른 Azure 서비스에 의존하며(예: 백업을 위해 Azure Storage, 원격 분석을 위해 Azure Service Bus, 인증을 위해 Azure AD, TDE를 위해 Azure Key Vault 등) 그에 따라 해당 서비스에 대한 연결을 시작합니다.
 
@@ -51,7 +51,7 @@ Managed Instance는 적절한 작동을 위해 다른 Azure 서비스에 의존�
 
 여러 Managed Instance가 단일 가상 클러스터에 호스트될 수 있습니다. 클러스터는 고객이 서브넷에서 프로비전된 인스턴스 수를 변경하면 필요에 따라 자동으로 확장 또는 축소됩니다.
 
-고객 응용 프로그램은 개인 IP 주소를 갖는 엔드포인트를 사용하여 가상 네트워크 또는 피어링된 가상 네트워크나 VPN/Express Route 연결 네트워크 내에서 실행되는 경우에만 Managed Instance에 연결하고 데이터베이스를 쿼리 및 업데이트할 수 있습니다.  
+고객 애플리케이션은 개인 IP 주소를 갖는 엔드포인트를 사용하여 가상 네트워크 또는 피어링된 가상 네트워크나 VPN/Express Route 연결 네트워크 내에서 실행되는 경우에만 Managed Instance에 연결하고 데이터베이스를 쿼리 및 업데이트할 수 있습니다.  
 
 ![연결 아키텍처 다이어그램](./media/managed-instance-connectivity-architecture/connectivityarch002.png)
 

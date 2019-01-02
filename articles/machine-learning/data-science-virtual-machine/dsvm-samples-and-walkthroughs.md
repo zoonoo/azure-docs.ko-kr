@@ -48,7 +48,7 @@ Azure Data Science Virtual Machines에는 포괄적인 샘플 코드 집합이 �
 
 ## <a name="access-jupyter"></a>액세스 Jupyter 
 
-Jupyter에 액세스하려면 데스크톱 또는 응용 프로그램 메뉴에서 `Jupyter` 아이콘을 선택하세요. 또한 Data Science Virtual Machines의 Linux 에디션에서 Jupyter에 액세스할 수 있습니다. Ubuntu에서 `https://<Full Domain Name or IP Address of the DSVM>:8000`을 방문하여 웹 브라우저에서 원격으로 액세스할 수 있습니다.
+Jupyter에 액세스하려면 데스크톱 또는 애플리케이션 메뉴에서 `Jupyter` 아이콘을 선택하세요. 또한 Data Science Virtual Machines의 Linux 에디션에서 Jupyter에 액세스할 수 있습니다. Ubuntu에서 `https://<Full Domain Name or IP Address of the DSVM>:8000`을 방문하여 웹 브라우저에서 원격으로 액세스할 수 있습니다.
 
 예외를 추가하고 브라우저에서 Jupyter 액세스를 사용 가능하게 하려면 다음 스크린샷을 참조하세요.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric에서 정기적인 백업 및 복원 | Microsoft Docs
-description: Service Fabric의 주기적 백업 및 복원 기능을 사용하여 응용 프로그램 데이터의 주기적인 데이터 백업을 사용하도록 설정합니다.
+description: Service Fabric의 주기적 백업 및 복원 기능을 사용하여 애플리케이션 데이터의 주기적인 데이터 백업을 사용하도록 설정합니다.
 services: service-fabric
 documentationcenter: .net
 author: hrushib
@@ -27,7 +27,7 @@ ms.locfileid: "52725865"
 > * [독립 실행형 클러스터](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
 > 
 
-Service Fabric은 안정성이 뛰어나고 분산된 마이크로 서비스 기반 클라우드 응용 프로그램을 손쉽게 개발 및 관리할 수 있도록 해주는 분산된 시스템 플랫폼입니다. 상태 비저장 및 상태 저장 마이크로 서비스를 모두 실행할 수 있습니다. 상태 저장 서비스는 요청 및 응답 또는 완전한 트랜잭션을 넘어서서 변경 가능하고 신뢰할 수 있는 상태를 유지할 수 있습니다. 상태 저장 서비스가 오랜 시간 동안 중단되거나 재해로 인해 정보가 손실되는 경우 백업된 후에 서비스를 계속 제공하기 위해 상태의 최신 백업으로 복원해야 할 수 있습니다.
+Service Fabric은 안정성이 뛰어나고 분산된 마이크로 서비스 기반 클라우드 애플리케이션을 손쉽게 개발 및 관리할 수 있도록 해주는 분산된 시스템 플랫폼입니다. 상태 비저장 및 상태 저장 마이크로 서비스를 모두 실행할 수 있습니다. 상태 저장 서비스는 요청 및 응답 또는 완전한 트랜잭션을 넘어서서 변경 가능하고 신뢰할 수 있는 상태를 유지할 수 있습니다. 상태 저장 서비스가 오랜 시간 동안 중단되거나 재해로 인해 정보가 손실되는 경우 백업된 후에 서비스를 계속 제공하기 위해 상태의 최신 백업으로 복원해야 할 수 있습니다.
 
 Service Fabric은 여러 노드에 걸쳐 상태를 복제하여 서비스의 가용성을 높입니다. 클러스터의 한 노드에서 오류가 발생해도 서비스를 지속적으로 사용할 수 있습니다. 그러나 어떤 경우에는 서비스 데이터가 광범위한 오류에 대해 신뢰할 수 있는 것이 여전히 바람직합니다.
  
@@ -38,7 +38,7 @@ Service Fabric은 여러 노드에 걸쳐 상태를 복제하여 서비스의 �
 - 데이터 손상을 초래하는 서비스 내 버그. 예를 들어 신뢰할 수 있는 컬렉션에 잘못된 데이터 작성을 시작하는 서비스 코드가 업그레이드되는 경우 발생할 수 있습니다. 이런 경우 코드와 데이터 모두 이전 상태로 되돌아가야 할 수도 있습니다.
 - 오프라인 데이터 처리. 데이터를 생성하는 서비스와는 별도로 비즈니스 인텔리전스를 위한 데이터를 오프라인 처리하는 것이 편리할 수 있습니다.
 
-Service Fabric은 특정 시점 [백업 및 복원](service-fabric-reliable-services-backup-restore.md)을 수행하는 기본 제공 API를 제공합니다. 응용 프로그램 개발자는 이러한 API를 사용하여 서비스 상태를 정기적으로 백업할 수 있습니다. 또한 서비스 관리자가 응용 프로그램을 업그레이드하기 전과 같이 특정 시간에 서비스 외부에서 백업을 트리거하려는 경우 개발자는 서비스에서 API로 백업(및 복원)을 공개해야 합니다. 백업을 유지 관리하는 것은 이 밖에도 추가 비용이 듭니다. 예를 들어 30분마다 5번의 증분 백업을 수행하고 전체 백업을 수행하려고 할 수 있습니다. 전체 백업 후에는 이전 증분 백업을 삭제할 수 있습니다. 이 방법은 추가 코드를 필요로 하므로 응용 프로그램 개발 중에 추가 비용이 발생합니다.
+Service Fabric은 특정 시점 [백업 및 복원](service-fabric-reliable-services-backup-restore.md)을 수행하는 기본 제공 API를 제공합니다. 애플리케이션 개발자는 이러한 API를 사용하여 서비스 상태를 정기적으로 백업할 수 있습니다. 또한 서비스 관리자가 애플리케이션을 업그레이드하기 전과 같이 특정 시간에 서비스 외부에서 백업을 트리거하려는 경우 개발자는 서비스에서 API로 백업(및 복원)을 공개해야 합니다. 백업을 유지 관리하는 것은 이 밖에도 추가 비용이 듭니다. 예를 들어 30분마다 5번의 증분 백업을 수행하고 전체 백업을 수행하려고 할 수 있습니다. 전체 백업 후에는 이전 증분 백업을 삭제할 수 있습니다. 이 방법은 추가 코드를 필요로 하므로 애플리케이션 개발 중에 추가 비용이 발생합니다.
 
 Service Fabric의 서비스 백업 및 복원에서는 상태 저장 서비스에 저장된 정보의 손쉬운 자동화 백업을 사용하도록 설정합니다. 애플리케이션 데이터를 정기적으로 백업하는 것은 데이터 손실 및 서비스 비가용성을 방지하는 데 필수적입니다. Service Fabric은 백업 및 복원 서비스(선택 사항)를 제공하므로 추가 코드를 작성할 필요 없이 상태 저장 Reliable Services(Actor Services 포함)의 정기적인 백업을 구성할 수 있습니다. 또한 이전에 수행한 백업 복원을 수월하게 수행할 수 있습니다. 
 
@@ -57,8 +57,8 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
 ## <a name="prerequisites"></a>필수 조건
 * Fabric 버전 6.2 이상을 포함하는 Service Fabric 클러스터. 클러스터는 Windows 서버에 설치해야 합니다. Azure 리소스 템플릿을 사용하여 Service Fabric 클러스터를 만드는 단계는 이 [문서](service-fabric-cluster-creation-via-arm.md)를 참조하세요.
 * 백업을 저장하기 위해 저장소에 연결하는 데 필요한 비밀 암호화를 위한 X.509 인증서. X.509 인증서를 가져오거나 만드는 방법에 대해 알아보려면 [문서](service-fabric-cluster-creation-via-arm.md)를 참조하세요.
-* Service Fabric SDK 버전 3.0 이상을 사용하여 빌드된 Service Fabric Reliable Stateful 응용 프로그램. .Net Core 2.0을 대상으로 하는 응용 프로그램은 Service Fabric SDK 버전 3.1 이상을 사용하여 빌드되어야 합니다.
-* 응용 프로그램 백업을 저장하기 위해 Azure Storage 계정을 만듭니다.
+* Service Fabric SDK 버전 3.0 이상을 사용하여 빌드된 Service Fabric Reliable Stateful 애플리케이션. .Net Core 2.0을 대상으로 하는 애플리케이션은 Service Fabric SDK 버전 3.1 이상을 사용하여 빌드되어야 합니다.
+* 애플리케이션 백업을 저장하기 위해 Azure Storage 계정을 만듭니다.
 
 ## <a name="enabling-backup-and-restore-service"></a>Backup 및 Restore 서비스 사용
 먼저 클러스터에서 _Backup 및 Restore 서비스_를 사용하도록 설정해야 합니다. 배포하려는 클러스터에 대한 템플릿을 가져옵니다. [샘플 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)을 사용하거나 Resource Manager 템플릿을 만들 수 있습니다. 다음 단계에 따라 _Backup 및 Restore 서비스_를 사용하도록 설정합니다.
@@ -108,7 +108,7 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
 ## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Reliable Stateful 서비스 및 Reliable Actors에 대해 정기적 백업 사용
 Reliable Stateful 서비스 및 Reliable Actors에 대한 정기적 백업을 사용하도록 설정하는 단계를 살펴보겠습니다. 이러한 단계에서는 다음을 가정합니다.
 - 클러스터는 _Backup 및 Restore 서비스_와 함께 X.509 보안을 사용하여 설치됩니다.
-- Reliable Stateful 서비스가 클러스터에 배포됩니다. 이 빠른 시작 가이드의 목적에 맞게 응용 프로그램 URI는 `fabric:/SampleApp`이며 이 응용 프로그램에 속한 Reliable Stateful 서비스의 URI는 `fabric:/SampleApp/MyStatefulService`입니다. 이 서비스는 단일 파티션과 함께 배포되고 파티션 ID는 `974bd92a-b395-4631-8a7f-53bd4ae9cf22`입니다.
+- Reliable Stateful 서비스가 클러스터에 배포됩니다. 이 빠른 시작 가이드의 목적에 맞게 애플리케이션 URI는 `fabric:/SampleApp`이며 이 애플리케이션에 속한 Reliable Stateful 서비스의 URI는 `fabric:/SampleApp/MyStatefulService`입니다. 이 서비스는 단일 파티션과 함께 배포되고 파티션 ID는 `974bd92a-b395-4631-8a7f-53bd4ae9cf22`입니다.
 - 관리자 역할이 있는 클라이언트 인증서는 아래 스크립트가 호출되는 컴퓨터의 _CurrentUser_ 인증서 저장소 위치의 _내_(_개인용_) 저장소 이름에 설치됩니다. 이 예에서는 `1b7ebe2174649c45474a4819dafae956712c31d3`를 인증서 지문으로 사용합니다. 클라이언트 인증서에 대한 자세한 내용은 [Service Fabric 클라이언트의 역할 기반 액세스 제어](service-fabric-cluster-security-roles.md)를 참조하세요.
 
 ### <a name="create-backup-policy"></a>백업 정책 만들기
@@ -151,9 +151,9 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ```
 
 ### <a name="enable-periodic-backup"></a>정기적 백업 사용
-응용 프로그램의 데이터 보호 요구 사항을 충족하도록 백업 정책을 정의한 후 백업 정책을 응용 프로그램과 연결해야 합니다. 요구 사항에 따라 백업 정책을 응용 프로그램, 서비스 또는 파티션과 연결할 수 있습니다.
+애플리케이션의 데이터 보호 요구 사항을 충족하도록 백업 정책을 정의한 후 백업 정책을 애플리케이션과 연결해야 합니다. 요구 사항에 따라 백업 정책을 애플리케이션, 서비스 또는 파티션과 연결할 수 있습니다.
 
-위의 단계에서 만든 이름이 `BackupPolicy1`인 백업 정책을 `SampleApp` 응용 프로그램과 연결하기 위해 필요한 REST API를 호출하기 위해 다음 PowerShell 스크립트를 실행합니다.
+위의 단계에서 만든 이름이 `BackupPolicy1`인 백업 정책을 `SampleApp` 애플리케이션과 연결하기 위해 필요한 REST API를 호출하기 위해 다음 PowerShell 스크립트를 실행합니다.
 
 ```powershell
 $BackupPolicyReference = @{
@@ -168,15 +168,15 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 ### <a name="verify-that-periodic-backups-are-working"></a>정기적 백업이 작동하는지 확인
 
-응용 프로그램 수준에서 백업을 사용하도록 설정하면 응용 프로그램의 Reliable Stateful 서비스 및 Reliable Actors에 속한 모든 파티션이 관련 백업 정책에 따라 정기적으로 백업되기 시작합니다. 
+애플리케이션 수준에서 백업을 사용하도록 설정하면 애플리케이션의 Reliable Stateful 서비스 및 Reliable Actors에 속한 모든 파티션이 관련 백업 정책에 따라 정기적으로 백업되기 시작합니다. 
 
 ![파티션 BackedUp 상태 이벤트][0]
 
 ### <a name="list-backups"></a>백업 목록
 
-응용 프로그램의 Reliable Stateful 서비스 및 Reliable Actors에 속한 모든 파티션과 관련된 백업은 _GetBackups_ API를 사용하여 열거할 수 있습니다. 백업은 응용 프로그램, 서비스 또는 파티션에 대해 열거할 수 있습니다.
+애플리케이션의 Reliable Stateful 서비스 및 Reliable Actors에 속한 모든 파티션과 관련된 백업은 _GetBackups_ API를 사용하여 열거할 수 있습니다. 백업은 애플리케이션, 서비스 또는 파티션에 대해 열거할 수 있습니다.
 
-HTTP API를 호출하는 다음 PowerShell 스크립트를 실행하여 `SampleApp` 응용 프로그램 내의 모든 파티션에 대해 생성된 백업을 열거합니다.
+HTTP API를 호출하는 다음 PowerShell 스크립트를 실행하여 `SampleApp` 애플리케이션 내의 모든 파티션에 대해 생성된 백업을 열거합니다.
 
 ```powershell
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/GetBackups?api-version=6.4"

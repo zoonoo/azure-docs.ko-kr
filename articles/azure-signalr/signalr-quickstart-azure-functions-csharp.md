@@ -16,7 +16,7 @@ ms.locfileid: "53255060"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>빠른 시작: C\#을 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
 
-Azure SignalR Service를 사용하면 응용 프로그램에 실시간 기능을 쉽게 추가할 수 있습니다. Azure Functions는 인프라를 관리하지 않고 코드를 실행할 수 있는 서버리스 플랫폼입니다. 이 빠른 시작에서는 SignalR Serivces와 Functions를 사용하여 서버리스, 실시간 대화 응용 프로그램을 빌드하는 방법에 대해 알아봅니다.
+Azure SignalR Service를 사용하면 애플리케이션에 실시간 기능을 쉽게 추가할 수 있습니다. Azure Functions는 인프라를 관리하지 않고 코드를 실행할 수 있는 서버리스 플랫폼입니다. 이 빠른 시작에서는 SignalR Serivces와 Functions를 사용하여 서버리스, 실시간 대화 애플리케이션을 빌드하는 방법에 대해 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -55,7 +55,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
 1. **디버그** 메뉴에서 **디버깅 시작**을 선택하여 응용 프로그램을 실행합니다.
 
-    ![응용 프로그램 디버그](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-debug-vs.png)
+    ![애플리케이션 디버그](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-debug-vs.png)
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
@@ -63,7 +63,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 VS Code에서 실시간 서버리스 응용 프로그램을 빌드하고 실행했습니다. 다음으로는 VS Code에서 Azure Functions를 배포하는 방법에 대해 자세히 알아보세요.
+이 빠른 시작에서는 VS Code에서 실시간 서버리스 애플리케이션을 빌드하고 실행했습니다. 다음으로는 VS Code에서 Azure Functions를 배포하는 방법에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 > [VS Code로 Azure Functions 배포](https://code.visualstudio.com/tutorials/functions-extension/getting-started)

@@ -28,14 +28,14 @@ IoT Central 애플리케이션을 만든 후 **관리** 섹션으로 이동할 �
 - 디바이스 연결 관리
 - 액세스 토큰 사용
 
-**관리** 섹션에 액세스하여 사용하려면 Azure IoT Central 응용 프로그램에서 **관리자** 역할이어야 합니다. Azure IoT Central 응용 프로그램을 만드는 사용자에게는 자동으로 해당 응용 프로그램의 **관리자** 역할이 할당됩니다. 이 문서의 [사용자 관리](#manage-users) 섹션에서는 다른 사용자에게 **관리자** 역할을 할당하는 방법을 자세히 설명합니다.
+**관리** 섹션에 액세스하여 사용하려면 Azure IoT Central 응용 프로그램에서 **관리자** 역할이어야 합니다. Azure IoT Central 애플리케이션을 만드는 사용자에게는 자동으로 해당 애플리케이션의 **관리자** 역할이 할당됩니다. 이 문서의 [사용자 관리](#manage-users) 섹션에서는 다른 사용자에게 **관리자** 역할을 할당하는 방법을 자세히 설명합니다.
 
 ## <a name="manage-application-settings"></a>응용 프로그램 설정 관리
 
 ### <a name="change-application-name-and-url"></a>애플리케이션 이름 및 URL 변경
 **애플리케이션 설정** 페이지에서 애플리케이션의 이름 및 URL을 변경한 다음, **저장**을 선택합니다.
 
-![응용 프로그램 설정 페이지](media/howto-administer/image0-a.png)
+![애플리케이션 설정 페이지](media/howto-administer/image0-a.png)
 
 > [!Note]
 > URL을 변경하면 이전 URL을 다른 Azure IoT Central 고객이 사용할 수 있습니다. 이 경우 해당 URL을 더 이상 사용할 수 없습니다. URL을 변경하면 이전 URL이 더 이상 작동하지 않으며 사용자에게 새 URL을 사용하라고 알려야 합니다.
@@ -48,11 +48,11 @@ IoT Central 애플리케이션을 만든 후 **관리** 섹션으로 이동할 �
 
 **복사** 단추를 클릭합니다. 대화 상자에서 새 종량제 애플리케이션에 대한 세부 정보를 입력합니다. 그런 다음, **복사** 단추를 클릭하여 진행 여부를 확인합니다. [애플리케이션 만들기](quick-deploy-iot-central.md) 빠른 시작에서 이 형식의 필드에 대해 자세히 알아보세요.
 
-![응용 프로그램 설정 페이지](media/howto-administer/appCopy2.png)
+![애플리케이션 설정 페이지](media/howto-administer/appCopy2.png)
 
 앱 복사 작업이 성공한 후, 표시되는 링크를 사용하여 애플리케이션을 복사하여 만든 새 애플리케이션으로 이동할 수 있습니다.
 
-![응용 프로그램 설정 페이지](media/howto-administer/appCopy3.png)
+![애플리케이션 설정 페이지](media/howto-administer/appCopy3.png)
 
 > [!Note]
 > 애플리케이션을 복사하면 규칙 및 작업의 정의도 복사됩니다. 그러나 원래 앱에 대한 액세스 권한이 있는 사용자는 복사한 앱에 복사되지 않으므로 사용자가 필수 구성 요소인 이메일 등의 작업에 사용자를 수동으로 추가해야 합니다. 일반적으로 새 앱에서 규칙 및 작업이 최신 상태인지 확인하는 것이 좋습니다.
@@ -60,7 +60,7 @@ IoT Central 애플리케이션을 만든 후 **관리** 섹션으로 이동할 �
 ### <a name="delete-an-application"></a>응용 프로그램 삭제
 
 > [!Note]
-> 응용 프로그램을 삭제하려면 응용 프로그램을 만들 때 선택한 Azure 구독의 리소스를 삭제할 수 있는 권한도 필요합니다. 자세한 내용은 [역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)를 참조하세요.
+> 애플리케이션을 삭제하려면 애플리케이션을 만들 때 선택한 Azure 구독의 리소스를 삭제할 수 있는 권한도 필요합니다. 자세한 내용은 [역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)를 참조하세요.
 
 IoT Central 애플리케이션을 영구적으로 삭제하려면 **삭제** 단추를 사용합니다. 그러면 해당 애플리케이션과 연결된 모든 데이터가 영구적으로 삭제됩니다.
 
@@ -101,7 +101,7 @@ IoT Central 애플리케이션을 영구적으로 삭제하려면 **삭제** 단
 
 **관리자** 역할의 사용자는 애플리케이션의 모든 기능에 액세스할 수 있습니다.
 
-응용 프로그램을 만드는 사용자에게는 자동으로 **관리자** 역할이 할당됩니다. **관리자** 역할의 사용자가 항상 1명 이상 있어야 합니다.
+애플리케이션을 만드는 사용자에게는 자동으로 **관리자** 역할이 할당됩니다. **관리자** 역할의 사용자가 항상 1명 이상 있어야 합니다.
 
 ### <a name="application-builder"></a>응용 프로그램 작성자
 
@@ -114,7 +114,7 @@ IoT Central 애플리케이션을 영구적으로 삭제하려면 **삭제** 단
 
 ## <a name="view-your-bill"></a>청구서 보기
 
-청구서를 보려면 **관리** 섹션의 **청구** 페이지로 이동합니다. 새 탭에서 Azure 청구 페이지가 열리고, 여기서 각 Azure IoT Central 응용 프로그램에 대한 청구서를 볼 수 있습니다.
+청구서를 보려면 **관리** 섹션의 **청구** 페이지로 이동합니다. 새 탭에서 Azure 청구 페이지가 열리고, 여기서 각 Azure IoT Central 애플리케이션에 대한 청구서를 볼 수 있습니다.
 
 ### <a name="convert-your-trial-to-pay-as-you-go"></a>평가판을 종량제로 변환
 
@@ -153,7 +153,7 @@ IoT Central 애플리케이션을 영구적으로 삭제하려면 **삭제** 단
 
 ## <a name="use-the-azure-sdks-for-control-plane-operations"></a>제어 평면 작업에 Azure SDK 사용
 
-IoT Central Azure Resource Manager SDK 패키지는 Node, Python, C#, Ruby, Java 및 Go에 사용할 수 있습니다. 이러한 라이브러리는 IoT Central의 제어 평면 작업을 지원하므로, IoT Central 응용 프로그램을 만들거나 나열, 업데이트 또는 삭제할 수 있습니다. 또한 각 언어에 특정한 인증 및 오류 처리를 다루기 위한 도우미를 제공합니다. 
+IoT Central Azure Resource Manager SDK 패키지는 Node, Python, C#, Ruby, Java 및 Go에 사용할 수 있습니다. 이러한 라이브러리는 IoT Central의 제어 평면 작업을 지원하므로, IoT Central 애플리케이션을 만들거나 나열, 업데이트 또는 삭제할 수 있습니다. 또한 각 언어에 특정한 인증 및 오류 처리를 다루기 위한 도우미를 제공합니다. 
 
 [https://github.com/emgarten/iotcentral-arm-sdk-examples](https://github.com/emgarten/iotcentral-arm-sdk-examples)에서 Azure Resource Manager SDK 사용 방법의 예제를 찾을 수 있습니다.
 
@@ -170,7 +170,7 @@ IoT Central Azure Resource Manager SDK 패키지는 Node, Python, C#, Ruby, Java
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT Central 응용 프로그램을 관리하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
+Azure IoT Central 애플리케이션을 관리하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
 
 > [!div class="nextstepaction"]
 > [디바이스 템플릿 설정](howto-set-up-template.md)

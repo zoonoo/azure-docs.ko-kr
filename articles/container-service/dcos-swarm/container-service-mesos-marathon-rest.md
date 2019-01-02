@@ -41,7 +41,7 @@ DC/OS 클러스터에 컨테이너를 배포하기 전에 이름, DC/OS 에이�
 curl http://localhost/mesos/master/slaves
 ```
 
-이제는 Marathon `/apps` 엔드포인트를 사용하여 DC/OS 클러스터에 대한 현재 응용 프로그램 배포를 확인합니다. 새 클러스터인 경우에 앱에 대한 빈 배열이 표시됩니다.
+이제는 Marathon `/apps` 엔드포인트를 사용하여 DC/OS 클러스터에 대한 현재 애플리케이션 배포를 확인합니다. 새 클러스터인 경우에 앱에 대한 빈 배열이 표시됩니다.
 
 ```bash
 curl localhost/marathon/v2/apps
@@ -114,13 +114,13 @@ Nginx 서버 출력은 다음과 유사합니다.
 
 
 ## <a name="scale-your-containers"></a>컨테이너 확장
-Marathon API를 사용하여 응용 프로그램 배포의 규모를 확장 또는 감축할 수 있습니다. 앞의 예제에서 응용 프로그램의 인스턴스를 하나 배포했습니다. 응용 프로그램의 세 인스턴스를 확장해 보겠습니다. 이렇게 하려면 다음 JSON 텍스트를 사용하여 JSON 파일을 만들고 액세스 가능한 위치에 저장합니다.
+Marathon API를 사용하여 애플리케이션 배포의 규모를 확장 또는 감축할 수 있습니다. 앞의 예제에서 애플리케이션의 인스턴스를 하나 배포했습니다. 애플리케이션의 세 인스턴스를 확장해 보겠습니다. 이렇게 하려면 다음 JSON 텍스트를 사용하여 JSON 파일을 만들고 액세스 가능한 위치에 저장합니다.
 
 ```json
 { "instances": 3 }
 ```
 
-터널링된 연결에서 응용 프로그램의 규모를 확장하려면 다음 명령을 실행합니다.
+터널링된 연결에서 애플리케이션의 규모를 확장하려면 다음 명령을 실행합니다.
 
 > [!NOTE]
 > URI은 http://localhost/marathon/v2/apps/이고 그 다음에 크기를 조정할 응용 프로그램의 ID가 표시됩니다. 여기에 제공된 Nginx 샘플을 사용하는 경우 URI는 http://localhost/marathon/v2/apps/nginx입니다.
@@ -173,13 +173,13 @@ Docker 형식 컨테이너를 배포하려면 액세스 가능한 위치에 JSON
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
 
-Marathon API를 사용하여 응용 프로그램 배포의 규모를 확장 또는 감축할 수도 있습니다. 앞의 예제에서 응용 프로그램의 인스턴스를 하나 배포했습니다. 응용 프로그램의 세 인스턴스를 확장해 보겠습니다. 이렇게 하려면 다음 JSON 텍스트를 사용하여 JSON 파일을 만들고 액세스 가능한 위치에 저장합니다.
+Marathon API를 사용하여 애플리케이션 배포의 규모를 확장 또는 감축할 수도 있습니다. 앞의 예제에서 애플리케이션의 인스턴스를 하나 배포했습니다. 애플리케이션의 세 인스턴스를 확장해 보겠습니다. 이렇게 하려면 다음 JSON 텍스트를 사용하여 JSON 파일을 만들고 액세스 가능한 위치에 저장합니다.
 
 ```json
 { "instances": 3 }
 ```
 
-응용 프로그램의 규모를 확장하려면 다음 명령을 실행합니다.
+애플리케이션의 규모를 확장하려면 다음 명령을 실행합니다.
 
 > [!NOTE]
 > URI은 http://localhost/marathon/v2/apps/이고 그 다음에 크기를 조정할 응용 프로그램의 ID가 표시됩니다. 여기에 제공된 Nginx 샘플을 사용하는 경우 URI는 http://localhost/marathon/v2/apps/nginx입니다.

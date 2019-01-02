@@ -97,7 +97,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 |이름|텍스트|  
 |----------|----------|  
-|WebApplicationsDetailsTitle|응용 프로그램 미리 보기|  
+|WebApplicationsDetailsTitle|애플리케이션 미리 보기|  
 |WebApplicationsRequirementsHeader|요구 사항|  
 |WebApplicationsScreenshotAlt|스크린샷|  
 |WebApplicationsScreenshotsHeader|스크린샷|  
@@ -106,7 +106,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 |이름|텍스트|  
 |----------|----------|  
-|WebDevelopersAppDeleteConfirmation|응용 프로그램을 제거하시겠습니까?|  
+|WebDevelopersAppDeleteConfirmation|애플리케이션을 제거하시겠습니까?|  
 |WebDevelopersAppNotPublished|게시되지 않음|  
 |WebDevelopersAppNotSubminted|제출되지 않음|  
 |WebDevelopersAppTableCategoryHeader|Category|  
@@ -116,7 +116,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |WebDevelopersRegisterAppLink|애플리케이션 등록|  
 |WebDevelopersRemoveLink|제거|  
 |WebDevelopersSubmitLink|Submit|  
-|WebDevelopersYourApplicationsHeader|응용 프로그램|  
+|WebDevelopersYourApplicationsHeader|애플리케이션|  
   
 ###  <a name="AppStrings"></a> AppStrings  
   
@@ -202,9 +202,9 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_ErrorDescription|<p\> 리소스 소유자가 액세스 요청을 거부하는 경우 또는 누락되거나 유효하지 않은 리디렉션 URI 이외의 다른 이유로 요청이 실패하는 경우 권한 부여 서버는 "application/x-www-form-urlencoded" 형식을 사용하는 리디렉션 URI의 조각 구성 요소에 다음 매개 변수를 추가하여 클라이언트에 알려줍니다. </p\>|  
 |OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_RequestDescription|<p\> OAuth 프로세스를 시작하려면 클라이언트 앱에서 사용자를 권한 부여 끝점으로 보내야 합니다.      권한 부여 끝점에서 사용자는 인증한 후 앱에 대한 액세스 권한을 부여하거나 거부합니다. </p\>|  
 |OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_ResponseDescription|<p\> 리소스 소유자가 액세스 요청을 승인하는 경우 권한 부여 서버는 "application/x-www-form-urlencoded" 형식을 사용하는 리디렉션 URI의 조각 구성 요소에 다음 매개 변수를 추가하여 액세스 토큰을 발급하고 클라이언트에 전달합니다. </p\>|  
-|OAuth2Flow_ObtainAuthorization_AuthorizationCodeGrant_Description|인증 코드 흐름은 자격 증명의 기밀성을 유지할 수 있는 클라이언트(예: PHP, Java, Python, Ruby, ASP.NET 등을 사용하여 구현된 웹 서버 응용 프로그램)에 최적화되어 있습니다.|  
+|OAuth2Flow_ObtainAuthorization_AuthorizationCodeGrant_Description|인증 코드 흐름은 자격 증명의 기밀성을 유지할 수 있는 클라이언트(예: PHP, Java, Python, Ruby, ASP.NET 등을 사용하여 구현된 웹 서버 애플리케이션)에 최적화되어 있습니다.|  
 |OAuth2Flow_ObtainAuthorization_AuthorizationCodeGrant_Name|인증 코드 부여|  
-|OAuth2Flow_ObtainAuthorization_ClientCredentialsGrant_Description|클라이언트 자격 증명 흐름은 클라이언트(응용 프로그램)에서 제어 하에 보호되는 리소스에 대한 액세스를 요청하는 경우에 적합합니다. 클라이언트는 리소스 소유자로 간주되므로 최종 사용자가 개입할 필요가 없습니다.|  
+|OAuth2Flow_ObtainAuthorization_ClientCredentialsGrant_Description|클라이언트 자격 증명 흐름은 클라이언트(애플리케이션)에서 제어 하에 보호되는 리소스에 대한 액세스를 요청하는 경우에 적합합니다. 클라이언트는 리소스 소유자로 간주되므로 최종 사용자가 개입할 필요가 없습니다.|  
 |OAuth2Flow_ObtainAuthorization_ClientCredentialsGrant_Name|클라이언트 자격 증명 부여|  
 |OAuth2Flow_ObtainAuthorization_ImplicitGrant_Description|암시적 흐름은 특정 리디렉션 URI를 작동하는 것으로 알려진 자격 증명의 기밀성을 유지할 수 없는 클라이언트에 최적화되어 있습니다. 이러한 클라이언트는 일반적으로 JavaScript와 같은 스크립팅 언어를 사용하는 브라우저에서 구현됩니다.|  
 |OAuth2Flow_ObtainAuthorization_ImplicitGrant_Name|암시적 부여|  
@@ -461,7 +461,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |WebAuthenticationUserNotFound|사용자를 찾을 수 없음|  
 |WebAuthenticationTenantNotRegistered|계정이 이 포털에 액세스할 수 있는 권한이 없는 Azure Active Directory 테넌트에 속합니다.|  
 |WebAuthenticationAuthenticationFailed|인증에 실패했습니다.|  
-|WebAuthenticationGooglePlusNotEnabled|인증에 실패했습니다. 응용 프로그램에 권한을 부여한 경우 관리자에게 문의하여 Google 인증이 올바르게 구성되었는지 확인하세요.|  
+|WebAuthenticationGooglePlusNotEnabled|인증에 실패했습니다. 애플리케이션에 권한을 부여한 경우 관리자에게 문의하여 Google 인증이 올바르게 구성되었는지 확인하세요.|  
 |ValidationErrorAllowedTenantIsRequired|허용된 테넌트는 필수입니다.|  
 |ValidationErrorTenantIsNotValid|‘{0}’ Azure Active Directory 테넌트가 유효하지 않습니다.|  
 |WebAuthenticationActiveDirectoryTitle|Azure Active Directory|  

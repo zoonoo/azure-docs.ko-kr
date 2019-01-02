@@ -114,7 +114,7 @@ az vmss create \
 ### <a name="install-applications-with-os-updates"></a>OS 업데이트를 사용하여 애플리케이션 설치
 새 OS 릴리스를 사용할 수 있는 경우 새 사용자 지정 이미지를 사용하거나 빌드하고 확장 집합에 [OS 업그레이드를 배포](virtual-machine-scale-sets-upgrade-scale-set.md)할 수 있습니다. 각 VM 인스턴스는 지정한 최신 이미지로 업그레이드됩니다. 미리 설치된 애플리케이션이 있는 사용자 지정 이미지, 사용자 지정 스크립트 확장 또는 PowerShell DSC를 사용하여 업그레이드를 수행할 때 애플리케이션을 자동으로 사용할 수 있습니다. 버전 호환성 문제가 없는지 확인하기 위해 이 프로세스를 수행할 때 애플리케이션 유지 관리를 계획해야 합니다.
 
-미리 설치된 애플리케이션이 있는 사용자 지정 VM 이미지를 사용하는 경우, 애플리케이션 업데이트를 배포 파이프라인과 통합하여 새 이미지를 빌드하고 확장 집합 전체에 OS 업그레이드를 배포할 수 있습니다. 이 방법을 사용하면 파이프라인에서 최신 애플리케이션 빌드를 선택하고, VM 이미지를 만들고 유효성을 검사한 다음, 확장 집합의 VM 인스턴스를 업그레이드할 수 있습니다. 사용자 지정 VM 이미지에서 응용 프로그램 업데이트를 빌드하고 배포하는 배포 파이프라인을 실행하려면 [Packer 이미지를 만들어 Azure DevOps Services를 사용하여 배포하거나](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset), [Spinnaker](https://www.spinnaker.io/) 또는 [Jenkins](https://jenkins.io/)와 같은 다른 플랫폼을 사용할 수 있습니다.
+미리 설치된 애플리케이션이 있는 사용자 지정 VM 이미지를 사용하는 경우, 애플리케이션 업데이트를 배포 파이프라인과 통합하여 새 이미지를 빌드하고 확장 집합 전체에 OS 업그레이드를 배포할 수 있습니다. 이 방법을 사용하면 파이프라인에서 최신 애플리케이션 빌드를 선택하고, VM 이미지를 만들고 유효성을 검사한 다음, 확장 집합의 VM 인스턴스를 업그레이드할 수 있습니다. 사용자 지정 VM 이미지에서 애플리케이션 업데이트를 빌드하고 배포하는 배포 파이프라인을 실행하려면 [Packer 이미지를 만들어 Azure DevOps Services를 사용하여 배포하거나](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset), [Spinnaker](https://www.spinnaker.io/) 또는 [Jenkins](https://jenkins.io/)와 같은 다른 플랫폼을 사용할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

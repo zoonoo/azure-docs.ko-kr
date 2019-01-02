@@ -255,7 +255,7 @@ Microsoft Azure, Office 365 및 Dynamics 365에 대한 액세스를 쉽게 구�
 | 컴퓨팅 | Azure 기능 | | App Service 환경 | |
 | 웹 및 모바일 | 내부 웹 응용 프로그램 | | App Service 환경| |
 | 웹 및 모바일 | 내부 모바일 응용 프로그램 | | App Service 환경 | |
-| 웹 및 모바일 | API 응용 프로그램 | | App Service 환경 | |
+| 웹 및 모바일 | API 애플리케이션 | | App Service 환경 | |
 | 컨테이너 | Azure Container Service | | | yes |
 | 컨테이너 | AKS(Azure Kubernetes Service) \* | | | yes |
 | 데이터베이스 | Azure SQL Database | | Azure SQL Database Managed Instance \* | Azure SQL |

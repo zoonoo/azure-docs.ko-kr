@@ -77,12 +77,12 @@ Azure 커넥터는 SAP LaMa 3.0 SP05부터 제공됩니다. SAP LaMa 3.0용 최�
 1. Azure Active Directory 블레이드 열기
 1. 앱 등록을 클릭합니다.
 1. 추가를 클릭합니다.
-1. 이름을 입력하고 응용 프로그램 유형 "웹앱/API"를 선택한 다음, 로그온 URL(예: http://localhost))을 입력하고 만들기를 클릭합니다.
+1. 이름을 입력하고 애플리케이션 유형 "웹앱/API"를 선택한 다음, 로그온 URL(예: http://localhost))을 입력하고 만들기를 클릭합니다.
 1. 로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있음
 1. 새 앱을 선택하고 설정 탭에서 키를 클릭합니다.
 1. 새 키의 설명을 입력하고 “무기한”을 선택한 다음, 저장을 클릭합니다.
 1. 값을 기록해 둡니다. 서비스 주체의 암호로 사용됩니다.
-1. 응용 프로그램 ID를 적어둡니다. 서비스 주체의 사용자 이름으로 사용됩니다.
+1. 애플리케이션 ID를 적어둡니다. 서비스 주체의 사용자 이름으로 사용됩니다.
 
 서비스 주체에는 기본적으로 Azure 리소스에 액세스할 권한이 없습니다. 액세스하려면 서비스 주체에 권한을 부여해야 합니다.
 
@@ -133,7 +133,7 @@ SAP LaMa는 SAP Host Agent를 사용하여 가상 머신과 통신합니다. 가
 
 SAP Note [2343511]에 나열된 지원되는 운영 체제 중 하나를 사용하여 새 가상 머신을 만듭니다. SAP 인스턴스에 대한 추가 IP 구성을 추가합니다. 각 인스턴스에는 IP 주소가 하나 이상 필요하며 가상 호스트 이름을 사용하여 설치해야 합니다.
 
-SAP NetWeaver ASCS 인스턴스에는 /sapmnt/\<SAPSID>, /usr/sap/\<SAPSID>, /usr/sap/trans 및 /usr/sap/\<sapsid>adm에 대한 디스크가 필요합니다. SAP NetWeaver Application Server에는 추가 디스크가 필요하지 않습니다. SAP 인스턴스와 관련된 모든 사항은 ASCS에 저장하고 NFS를 통해 내보내야 합니다. 그렇지 않으면, 현재는 SAP LaMa를 사용하여 추가 응용 프로그램 서버를 추가할 수 없습니다.
+SAP NetWeaver ASCS 인스턴스에는 /sapmnt/\<SAPSID>, /usr/sap/\<SAPSID>, /usr/sap/trans 및 /usr/sap/\<sapsid>adm에 대한 디스크가 필요합니다. SAP NetWeaver Application Server에는 추가 디스크가 필요하지 않습니다. SAP 인스턴스와 관련된 모든 사항은 ASCS에 저장하고 NFS를 통해 내보내야 합니다. 그렇지 않으면, 현재는 SAP LaMa를 사용하여 추가 애플리케이션 서버를 추가할 수 없습니다.
 
 ![Linux의 SAP NetWeaver ASCS](media/lama/sap-lama-ascs-app-linux.png)
 
@@ -256,7 +256,7 @@ acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 
 명령줄 도구 hdblcm을 사용하여 SAP HANA를 설치하는 경우에는 --hostname 매개 변수를 사용하여 가상 호스트 이름을 제공합니다. 데이터베이스의 가상 호스트 이름에 대한 IP 주소를 네트워크 인터페이스에 추가해야 합니다. 권장되는 방식은 sapacext를 사용하는 것입니다. sapacext를 사용하여 IP 주소를 마운트하는 경우에는 다시 부팅한 후 IP 주소를 다시 마운트해야 합니다.
 
-응용 프로그램 서버가 HANA 테넌트와 연결하는 데 사용하는 이름의 또 다른 가상 호스트 이름 및 IP 주소를 추가합니다.
+애플리케이션 서버가 HANA 테넌트와 연결하는 데 사용하는 이름의 또 다른 가상 호스트 이름 및 IP 주소를 추가합니다.
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -264,11 +264,11 @@ acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-db -n 255.255.255.128
 ```
 
-HANA 가상 머신이 아닌 응용 프로그램 서버 가상 머신에서 SWPM의 데이터베이스 인스턴스 설치를 실행합니다. *Database for SAP System* 대화 상자의 *데이터베이스 호스트*에 대해 *ah1-db*를 사용합니다.
+HANA 가상 머신이 아닌 애플리케이션 서버 가상 머신에서 SWPM의 데이터베이스 인스턴스 설치를 실행합니다. *Database for SAP System* 대화 상자의 *데이터베이스 호스트*에 대해 *ah1-db*를 사용합니다.
 
 #### <a name="install-sap-netweaver-application-server-for-sap-hana"></a>SAP HANA용 SAP NetWeaver Application Server 설치
 
-SAP SWPM(Software Provisioning Manager)을 시작하기 전에 응용 프로그램 서버의 가상 호스트 이름의 IP 주소를 마운트해야 합니다. 권장되는 방식은 sapacext를 사용하는 것입니다. sapacext를 사용하여 IP 주소를 마운트하는 경우에는 다시 부팅한 후 IP 주소를 다시 마운트해야 합니다.
+SAP SWPM(Software Provisioning Manager)을 시작하기 전에 애플리케이션 서버의 가상 호스트 이름의 IP 주소를 마운트해야 합니다. 권장되는 방식은 sapacext를 사용하는 것입니다. sapacext를 사용하여 IP 주소를 마운트하는 경우에는 다시 부팅한 후 IP 주소를 다시 마운트해야 합니다.
 
 ![Linux][Logo_Linux] Linux
 
@@ -336,7 +336,7 @@ SQL Server 가상 머신에서 SWPM의 데이터베이스 인스턴스 설치를
 
 #### <a name="install-sap-netweaver-application-server"></a>SAP NetWeaver Application Server 서버 설치
 
-SAP SWPM(Software Provisioning Manager)을 시작하기 전에 응용 프로그램 서버의 가상 호스트 이름의 IP 주소를 마운트해야 합니다. 권장되는 방식은 sapacext를 사용하는 것입니다. sapacext를 사용하여 IP 주소를 마운트하는 경우에는 다시 부팅한 후 IP 주소를 다시 마운트해야 합니다.
+SAP SWPM(Software Provisioning Manager)을 시작하기 전에 애플리케이션 서버의 가상 호스트 이름의 IP 주소를 마운트해야 합니다. 권장되는 방식은 sapacext를 사용하는 것입니다. sapacext를 사용하여 IP 주소를 마운트하는 경우에는 다시 부팅한 후 IP 주소를 다시 마운트해야 합니다.
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -379,7 +379,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
 
 ### <a name="errors-and-warnings-during-a-system-clone"></a>시스템 복제 중 오류 및 경고
 
-* ASCS 또는 응용 프로그램 서버의 *Forced Register and Start Instance Agent*(강제 등록 및 인스턴스 에이전트 시작) 단계에서 인스턴스 에이전트 등록을 시도하는 중 오류가 발생했습니다.
+* ASCS 또는 애플리케이션 서버의 *Forced Register and Start Instance Agent*(강제 등록 및 인스턴스 에이전트 시작) 단계에서 인스턴스 에이전트 등록을 시도하는 중 오류가 발생했습니다.
   * 인스턴스 에이전트 등록을 시도하는 중 오류가 발생했습니다. (RemoteException: '프로필 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0'에서 인스턴스 데이터를 로드하지 못했습니다.  프로필 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0'에 액세스할 수 없습니다. 해당하는 파일이나 디렉터리가 없습니다.')
   * 해결 방법  
    ASCS/SCS의 sapmnt 공유에 SAP_AS1_GlobalAdmin에 대한 전체 액세스 권한이 있는지 확인합니다.
@@ -387,7 +387,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
 * *Enable Startup Protection for Clone*(복제에 대한 시작 보호 사용) 단계의 오류
   * '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0' 파일을 열지 못했습니다. 원인: 해당하는 파일이나 디렉터리가 없습니다.
   * 해결 방법  
-    응용 프로그램 서버의 컴퓨터 계정에 프로필에 대한 쓰기 권한이 필요합니다.
+    애플리케이션 서버의 컴퓨터 계정에 프로필에 대한 쓰기 권한이 필요합니다.
 
 ### <a name="errors-and-warnings-during-create-system-replication"></a>시스템 복제 생성 중 오류 및 경고
 
@@ -435,7 +435,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
 * SAPinst 단계: checkClient 실행 중 오류 발생
   * SAPinst 단계: checkClient 실행 중 오류 발생" version="1.0" ERROR: (단계에서 보고한 마지막 오류: \<p> 사용자가 설치를 취소했습니다. \</p>)
   * 해결 방법  
-    응용 프로그램 서버를 설치하려는 가상 머신에 SQL Server용 Microsoft ODBC 드라이버가 설치되어 있는지 확인합니다.
+    애플리케이션 서버를 설치하려는 가상 머신에 SQL Server용 Microsoft ODBC 드라이버가 설치되어 있는지 확인합니다.
 
 * SAPinst 단계: copyScripts 실행 중 오류 발생
   * 단계에서 보고한 마지막 오류: 시스템 호출 실패입니다. 세부 정보: 파일 (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/filesystem/syxxcfstrm2.cpp), 줄 (494)의 매개 변수 (\\\as1-ascs/sapmnt/AS1/SYS/exe/uc/NTAMD64/strdbs.cmd, w)가 있는 시스템 호출 'fopenU' 실행 시 오류 13 (0x0000000d) (사용 권한 거부됨) 발생, 스택 추적:  

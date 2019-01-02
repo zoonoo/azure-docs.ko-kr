@@ -11,7 +11,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2018
 ms.locfileid: "52271316"
 ---
-## <a name="create-a-ruby-application"></a>Ruby 응용 프로그램 만들기
+## <a name="create-a-ruby-application"></a>Ruby 애플리케이션 만들기
 자세한 내용은 [Azure에서 Ruby 애플리케이션 만들기](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md)를 참조하세요.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Service Bus를 사용하도록 애플리케이션 구성

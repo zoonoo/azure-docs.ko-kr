@@ -73,7 +73,7 @@ Visual Search 결과는 `ImageTag` 개체입니다.  각 태그에는 `ImageActi
 Console.WriteLine("\r\n" + "ActionType: " + i.ActionType + " -> WebSearchUrl: " + i.WebSearchUrl);
 
 ```
-전체 응용 프로그램이 반환됩니다.
+전체 애플리케이션이 반환됩니다.
 
 * ActionType: PagesIncluding WebSearchURL:
 * ActionType: MoreSizes WebSearchURL:

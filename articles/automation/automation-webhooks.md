@@ -18,7 +18,7 @@ ms.locfileid: "53016694"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>웹후크를 사용하여 Azure Automation Runbook 시작
 
-*Webhook*를 사용하면 단일 HTTP 요청을 통해 Azure Automation에서 특정 runbook을 시작할 수 있습니다. 이는 Azure Automation API를 사용하여 전체 솔루션을 구현하지 않아도 Azure DevOps Services, GitHub, Azure Log Analytics 또는 사용자 지정 응용 프로그램과 같은 외부 서비스가 Runbook을 시작할 수 있게 해줍니다.  
+*Webhook*를 사용하면 단일 HTTP 요청을 통해 Azure Automation에서 특정 runbook을 시작할 수 있습니다. 이는 Azure Automation API를 사용하여 전체 솔루션을 구현하지 않아도 Azure DevOps Services, GitHub, Azure Log Analytics 또는 사용자 지정 애플리케이션과 같은 외부 서비스가 Runbook을 시작할 수 있게 해줍니다.  
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 [Azure Automation에서 Runbook 시작](automation-starting-a-runbook.md)

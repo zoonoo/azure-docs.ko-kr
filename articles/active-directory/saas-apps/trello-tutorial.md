@@ -66,13 +66,13 @@ Trello의 Azure AD 통합을 구성하려면 갤러리의 Trello를 관리되는
 
 1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
     
 1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 애플리케이션 단추][3]
 
-1. 검색 상자에서 **Trello**를 입력하고, 결과 패널에서 **Trello**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에서 **Trello**를 입력하고, 결과 패널에서 **Trello**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Trello](./media/trello-tutorial/tutorial_trello_addfromgallery.png)
 
@@ -94,7 +94,7 @@ Trello에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Trello 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Trello 애플리케이션에서 Single Sign-On을 구성합니다.
 
 >[!NOTE]
 >Trello에서 **\<enterprise\>** 동적 필드를 가져와야 합니다. 동적 필드 값이 없는 경우 [Trello 지원 팀](mailto:support@trello.com)에 문의하여 엔터프라이즈의 동적 필드를 가져오세요.
@@ -102,7 +102,7 @@ Trello에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 **Trello에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Trello** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Trello** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -126,7 +126,7 @@ Trello에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     나. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://trello.com/auth/saml/login/<enterprise>` 
 
-1. Trello 응용 프로그램은 특정 특성을 포함하는 SAML 어설션이 필요합니다. 이 응용 프로그램에 대한 다음 특성을 구성합니다. 응용 프로그램의 **"사용자 특성"** 에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+1. Trello 응용 프로그램은 특정 특성을 포함하는 SAML 어설션이 필요합니다. 이 애플리케이션에 대한 다음 특성을 구성합니다. 애플리케이션의 **"사용자 특성"** 에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
 
     ![Configure Single Sign-On](./media/trello-tutorial/tutorial_trello_attribute.png)
 
@@ -221,7 +221,7 @@ Trello에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 1. 애플리케이션 목록에서 **Trello**를 선택합니다.
 
-    ![응용 프로그램 목록의 Trello 연결](./media/trello-tutorial/tutorial_trello_app.png)  
+    ![애플리케이션 목록의 Trello 연결](./media/trello-tutorial/tutorial_trello_app.png)  
 
 1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -241,7 +241,7 @@ Trello에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Trello 타일을 클릭하면 Trello 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Trello 타일을 클릭하면 Trello 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스

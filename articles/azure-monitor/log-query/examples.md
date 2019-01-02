@@ -27,7 +27,7 @@ ms.locfileid: "52885811"
 
 ## <a name="events"></a>이벤트
 
-### <a name="search-application-level-events-described-as-cryptographic"></a>"cryptographic"으로 기술되는 응용 프로그램 수준 이벤트 검색
+### <a name="search-application-level-events-described-as-cryptographic"></a>"cryptographic"으로 기술되는 애플리케이션 수준 이벤트 검색
 이 예제에서는 **Events** 테이블에서 **EventLog**가 _Application_이며 **RenderedDescription**에 _cryptographic_이 포함된 레코드를 검색합니다. 검색 결과에는 지난 24시간 동안의 레코드가 포함됩니다.
 
 ```Kusto

@@ -23,7 +23,7 @@ ms.locfileid: "53322946"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Azure Cloud Service에 대한 성능 카운터 수집
 
-성능 카운터는 응용 프로그램과 호스트의 성능을 추적할 수 있는 방법을 제공합니다. Windows Server는 하드웨어, 응용 프로그램, 운영 체제 등과 관련된 다양한 성능 카운터를 제공합니다. 성능 카운터를 수집하고 Azure에 보내면 이 정보를 분석하여 더 나은 결정을 내릴 수 있습니다. 
+성능 카운터는 애플리케이션과 호스트의 성능을 추적할 수 있는 방법을 제공합니다. Windows Server는 하드웨어, 애플리케이션, 운영 체제 등과 관련된 다양한 성능 카운터를 제공합니다. 성능 카운터를 수집하고 Azure에 보내면 이 정보를 분석하여 더 나은 결정을 내릴 수 있습니다. 
 
 ## <a name="discover-available-counters"></a>사용 가능한 카운터 검색
 
@@ -121,7 +121,7 @@ Application Insights는 다음 성능 카운터를 자동으로 수집합니다.
 ### <a name="azure-diagnostics"></a>Azure 진단
 
 > [!IMPORTANT]
-> 이러한 모든 데이터가 저장소 계정에 집계되지만, 포털은 데이터를 차트로 작성하는 기본적인 방법을 제공하지 **않습니다**. Application Insights 등의 다른 진단 서비스를 응용 프로그램에 통합하는 것이 좋습니다.
+> 이러한 모든 데이터가 저장소 계정에 집계되지만, 포털은 데이터를 차트로 작성하는 기본적인 방법을 제공하지 **않습니다**. Application Insights 등의 다른 진단 서비스를 애플리케이션에 통합하는 것이 좋습니다.
 
 Cloud Services용 Azure 진단 확장을 사용하면 수집할 성능 카운터를 지정할 수 있습니다. Azure 진단을 설정하려면 [클라우드 서비스 모니터링 개요](cloud-services-how-to-monitor.md#setup-diagnostics-extension)를 참조하세요.
 
@@ -237,7 +237,7 @@ namespace WorkerRoleWithSBQueue1
 counterServiceUsed.Increment();
 ```
 
-이제 응용 프로그램에서 사용자 지정 카운터를 사용하므로 카운터를 추적하도록 Azure 진단 또는 Application Insights를 구성해야 합니다.
+이제 애플리케이션에서 사용자 지정 카운터를 사용하므로 카운터를 추적하도록 Azure 진단 또는 Application Insights를 구성해야 합니다.
 
 
 ### <a name="application-insights"></a>Application Insights

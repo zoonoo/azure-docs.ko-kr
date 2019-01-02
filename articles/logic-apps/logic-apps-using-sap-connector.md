@@ -19,7 +19,7 @@ ms.locfileid: "50231341"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
 
-이 문서에서는 SAP ECC(ERP Central Component) 커넥터를 사용하여 논리 앱 내부에서 온-프레미스 SAP 리소스에 액세스할 수 있는 방법을 보여줍니다. SAP ECC 커넥터는 IDoc(Intermediate Document) 또는 BAPI(비즈니스 응용 프로그램 프로그래밍 인터페이스) 또는 RFC(원격 함수 호출)를 통해 SAP Netweaver 기반 시스템과의 메시지 또는 데이터 통합을 지원합니다.
+이 문서에서는 SAP ECC(ERP Central Component) 커넥터를 사용하여 논리 앱 내부에서 온-프레미스 SAP 리소스에 액세스할 수 있는 방법을 보여줍니다. SAP ECC 커넥터는 IDoc(Intermediate Document) 또는 BAPI(비즈니스 애플리케이션 프로그래밍 인터페이스) 또는 RFC(원격 함수 호출)를 통해 SAP Netweaver 기반 시스템과의 메시지 또는 데이터 통합을 지원합니다.
 
 SAP ECC 커넥터는 <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP NCo(.Net Connector) 라이브러리</a>를 사용하고 다음과 같은 작업 또는 동작을 제공합니다.
 
@@ -385,7 +385,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 * 수신 시나리오에서는 null이 아닌 응답 반환이 지원되지 않습니다. 트리거 및 응답 작업을 사용하는 논리 앱이 예기치 않은 동작으로 이어집니다. 
 
-* SAP로 보내기 호출 또는 메시지 중 오직 하나만 tRFC에서 작동합니다. BAPI(비즈니스 응용 프로그램 프로그래밍 인터페이스) 커밋 패턴(예: 동일한 세션에서 여러 tRFC 호출 만들기)은 지원되지 않습니다.
+* SAP로 보내기 호출 또는 메시지 중 오직 하나만 tRFC에서 작동합니다. BAPI(비즈니스 애플리케이션 프로그래밍 인터페이스) 커밋 패턴(예: 동일한 세션에서 여러 tRFC 호출 만들기)은 지원되지 않습니다.
 
 * 첨부 파일이 포함된 RFC는 SAP로 보내기 및 스키마 생성 작업을 지원하지 않습니다.
 

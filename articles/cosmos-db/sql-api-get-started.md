@@ -104,7 +104,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
         private const string PrimaryKey = "<your primary key>";
         private DocumentClient client;
 
-다음으로 [Azure Portal](https://portal.azure.com)로 다시 이동하여 엔드포인트 URL과 기본 키를 검색합니다. 엔드포인트 URL과 기본 키는 응용 프로그램에서 연결할 위치를 식별하고 Azure Cosmos DB에서 응용 프로그램의 연결을 신뢰하는 데 필요합니다.
+다음으로 [Azure Portal](https://portal.azure.com)로 다시 이동하여 엔드포인트 URL과 기본 키를 검색합니다. 엔드포인트 URL과 기본 키는 애플리케이션에서 연결할 위치를 식별하고 Azure Cosmos DB에서 애플리케이션의 연결을 신뢰하는 데 필요합니다.
 
 Azure Portal에서 Azure Cosmos DB 계정으로 이동한 다음 **키**를 클릭합니다.
 

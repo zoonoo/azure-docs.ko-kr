@@ -57,7 +57,7 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 
 머신 수준 프록시 설정을 구성하려면 다음 단계를 수행합니다. 
 
-1. .NET 응용 프로그램에 대한 프록시 설정을 구성합니다. 
+1. .NET 애플리케이션에 대한 프록시 설정을 구성합니다. 
 
   - 다음 두 파일을 편집합니다.  
     C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  

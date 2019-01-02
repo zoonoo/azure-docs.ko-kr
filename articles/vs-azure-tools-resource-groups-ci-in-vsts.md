@@ -34,7 +34,7 @@ Azure 템플릿을 배포하려면 빌드, 테스트, Azure에 복사("준비"�
 
 * 중첩된 템플릿
 * 구성 스크립트 및 DSC 스크립트 
-* 응용 프로그램 이진 파일
+* 애플리케이션 이진 파일
 
 ### <a name="nested-templates-and-configuration-scripts"></a>중첩된 템플릿 및 구성 스크립트
 Visual Studio에서 제공하는 템플릿을 사용할 경우(또는 Visual Studio 스니펫으로 빌드한 템플릿) PowerShell 스크립트가 아티팩트를 스테이징할 뿐 아니라, 다른 배포를 위해 리소스에 대한 URI를 매개 변수화합니다. 그런 다음 스크립트는 아티팩트를 Azure의 보안 컨테이너에 복사하고, 해당 컨테이너에 대한 SaS 토큰을 만든 다음 이 정보를 템플릿 배포에 전달합니다. 중첩된 템플릿에 대한 자세한 내용은 [템플릿 배포 만들기](https://msdn.microsoft.com/library/azure/dn790564.aspx) 를 참조하세요.  Azure DevOps Services에서 태스크를 사용하는 경우 템플릿 배포에 적합한 태스크를 선택해야 하며, 필요에 따라 준비 단계의 매개 변수 값을 템플릿 배포에 전달해야 합니다.

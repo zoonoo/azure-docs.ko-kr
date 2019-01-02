@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery를 사용하여 다중 계층 SharePoint 응용 프로그램에 대한 재해 복구 설정 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery 기능을 사용하여 다중 계층 SharePoint 응용 프로그램에 대한 재해 복구를 설정하는 방법을 설명합니다.
+title: Azure Site Recovery를 사용하여 다중 계층 SharePoint 애플리케이션에 대한 재해 복구 설정 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery 기능을 사용하여 다중 계층 SharePoint 애플리케이션에 대한 재해 복구를 설정하는 방법을 설명합니다.
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
@@ -14,7 +14,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/04/2018
 ms.locfileid: "52848479"
 ---
-# <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 SharePoint 응용 프로그램에 대한 재해 복구 설정
+# <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 SharePoint 애플리케이션에 대한 재해 복구 설정
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 SharePoint 애플리케이션을 보호하는 방법을 자세히 설명합니다.
 

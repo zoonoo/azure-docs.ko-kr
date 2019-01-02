@@ -24,7 +24,7 @@ ms.locfileid: "50212967"
 <a name="saas-sell-through-azure---apis"></a>Azure 통한 SaaS 판매 - API
 ==============================
 
-이 문서에서는 API를 사용하여 SaaS 제안을 만드는 방법을 설명합니다. 이 API는 Azure를 통한 판매를 선택한 경우 SaaS 제안 구독을 허용하는 데 필요합니다. 상거래가 설정되지 않은 일반적인 SaaS 목록을 작성하려는 경우 [SaaS 응용 프로그램 기술 게시 가이드](./cloud-partner-portal-saas-offers-tech-publishing-guide.md)를 참조하세요.
+이 문서에서는 API를 사용하여 SaaS 제안을 만드는 방법을 설명합니다. 이 API는 Azure를 통한 판매를 선택한 경우 SaaS 제안 구독을 허용하는 데 필요합니다. 상거래가 설정되지 않은 일반적인 SaaS 목록을 작성하려는 경우 [SaaS 애플리케이션 기술 게시 가이드](./cloud-partner-portal-saas-offers-tech-publishing-guide.md)를 참조하세요.
 
 이 문서는 다음 두 개의 섹션으로 구분됩니다.
 
@@ -45,34 +45,34 @@ ms.locfileid: "50212967"
 <a name="service-to-service-authentication-between-saas-service-and-azure-marketplace"></a>SaaS 서비스와 Azure Marketplace 간의 서비스 간 인증
 ----------------------------------------------------------------------------
 
-Azure는 해당 최종 사용자에게 SaaS 서비스가 노출하는 인증을 제한하지 않습니다. 그러나 SaaS 서비스가 Azure Marketplace API와 통신하게 되면 Azure AD(Azure Active Directory) 응용 프로그램의 컨텍스트에서 인증이 수행됩니다.
+Azure는 해당 최종 사용자에게 SaaS 서비스가 노출하는 인증을 제한하지 않습니다. 그러나 SaaS 서비스가 Azure Marketplace API와 통신하게 되면 Azure AD(Azure Active Directory) 애플리케이션의 컨텍스트에서 인증이 수행됩니다.
 
-다음 섹션에서는 Azure AD 응용 프로그램을 만드는 방법을 설명합니다.
+다음 섹션에서는 Azure AD 애플리케이션을 만드는 방법을 설명합니다.
 
-### <a name="register-an-azure-ad-application"></a>Azure AD 응용 프로그램 등록
+### <a name="register-an-azure-ad-application"></a>Azure AD 애플리케이션 등록
 
-Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure AD 테넌트에 등록되어야 합니다. 이 등록 프로세스는 응용 프로그램이 위치한 URL, 사용자가 인증된 후 회신을 보낼 URL, 앱을 식별하는 URI 등과 같이 응용 프로그램에 대한 Azure AD 세부 정보의 제공이 포함됩니다.
+Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure AD 테넌트에 등록되어야 합니다. 이 등록 프로세스는 애플리케이션이 위치한 URL, 사용자가 인증된 후 회신을 보낼 URL, 앱을 식별하는 URI 등과 같이 애플리케이션에 대한 Azure AD 세부 정보의 제공이 포함됩니다.
 
-Azure Portal을 사용하여 새 응용 프로그램을 등록하려면 다음 단계를 수행합니다.
+Azure Portal을 사용하여 새 애플리케이션을 등록하려면 다음 단계를 수행합니다.
 
 1.  [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2.  계정이 하나 이상의 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 클릭하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
-3.  왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록** 및 **새 응용 프로그램 등록**을 차례로 클릭합니다.
+3.  왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록** 및 **새 애플리케이션 등록**을 차례로 클릭합니다.
 
     ![SaaS AD 앱 등록](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration.png)
 
-4.  만들기 페이지에서 응용 프로그램의 등록\' 정보를 입력합니다.
+4.  만들기 페이지에서 애플리케이션의 등록\' 정보를 입력합니다.
     -   **이름**: 의미 있는 응용 프로그램 이름을 입력합니다.
     -   **응용 프로그램 형식**: 
         - 디바이스에 로컬로 설치된 [클라이언트 애플리케이션](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application)의 경우 **네이티브**를 선택합니다. 이 설정은 OAuth 공개 [네이티브 클라이언트](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client)에 사용됩니다.
-        - 보안 서버에 설치된 [클라이언트 응용 프로그램](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) 및 [리소스/API 응용 프로그램](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server)의 경우 **웹앱/API**를 선택합니다. 이 설정은 OAuth 기밀 [웹 클라이언트](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) 및 공용 [사용자 에이전트 기반 클라이언트](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client)에 사용됩니다.
-        동일한 응용 프로그램이 클라이언트와 리소스/API를 모두 노출할 수도 있습니다.
-    -   **로그온 URL**: 웹앱/API 응용 프로그램에서 앱의 기준 URL을 제공합니다. 예를 들어 **http://localhost:31544**은 로컬 컴퓨터에서 실행 중인 웹앱의 URL일 수 있습니다. 사용자는 이 URL을 사용하여 웹 클라이언트 응용 프로그램에 로그인합니다.
-    -   **리디렉션 URI**: 네이티브 응용 프로그램의 경우 Azure AD에서 토큰 응답을 반환하는 데 사용하는 URI를 제공합니다. 응용 프로그램에 고유하게 해당되는 값을 입력합니다(예: **http://MyFirstAADApp**).
+        - 보안 서버에 설치된 [클라이언트 애플리케이션](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) 및 [리소스/API 애플리케이션](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server)의 경우 **웹앱/API**를 선택합니다. 이 설정은 OAuth 기밀 [웹 클라이언트](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) 및 공용 [사용자 에이전트 기반 클라이언트](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client)에 사용됩니다.
+        동일한 애플리케이션이 클라이언트와 리소스/API를 모두 노출할 수도 있습니다.
+    -   **로그온 URL**: 웹앱/API 응용 프로그램에서 앱의 기준 URL을 제공합니다. 예를 들어 **http://localhost:31544**은 로컬 컴퓨터에서 실행 중인 웹앱의 URL일 수 있습니다. 사용자는 이 URL을 사용하여 웹 클라이언트 애플리케이션에 로그인합니다.
+    -   **리디렉션 URI**: 네이티브 응용 프로그램의 경우 Azure AD에서 토큰 응답을 반환하는 데 사용하는 URI를 제공합니다. 애플리케이션에 고유하게 해당되는 값을 입력합니다(예: **http://MyFirstAADApp**).
 
         ![SaaS AD 앱 등록](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration-2.png) 웹 응용 프로그램 또는 네이티브 응용 프로그램에 대한 구체적인 예제를 보려면 [Azure AD 개발자 가이드](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started)의 시작하기 섹션에서 사용할 수 있는 빠른 시작 안내 설정을 확인하세요.
 
-5.  작업을 마쳤으면 **만들기**를 클릭합니다. Azure AD가 응용 프로그램에 고유한 응용 프로그램 ID를 할당하면 응용 프로그램의 기본 등록 페이지로 이동합니다. 애플리케이션이 웹 또는 네이티브 애플리케이션인지에 따라 애플리케이션에 기능을 추가하기 위해 다른 옵션이 제공됩니다.
+5.  작업을 마쳤으면 **만들기**를 클릭합니다. Azure AD가 애플리케이션에 고유한 애플리케이션 ID를 할당하면 애플리케이션의 기본 등록 페이지로 이동합니다. 애플리케이션이 웹 또는 네이티브 애플리케이션인지에 따라 애플리케이션에 기능을 추가하기 위해 다른 옵션이 제공됩니다.
 
     **참고:** 기본적으로 새로 등록된 응용 프로그램은 동일한 테넌트의 사용자만이 응용 프로그램에 로그인할 수 있도록 구성됩니다.
 
@@ -95,7 +95,7 @@ HTTP 메서드
 
 |  **매개 변수 이름**  | **필수**  | **설명**                               |
 |  ------------------  | ------------- | --------------------------------------------- |
-| tenantId             | True          | 등록된 AAD 응용 프로그램의 테넌트 ID입니다.   |
+| tenantId             | True          | 등록된 AAD 애플리케이션의 테넌트 ID입니다.   |
 |  |  |  |
 
 

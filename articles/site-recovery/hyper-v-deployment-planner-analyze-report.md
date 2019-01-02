@@ -288,7 +288,7 @@ Premium Storage | 16KB 이상| VM당 10MB/s | VM당 842GB
 ![온-프레미스 저장소 요구 사항](media/hyper-v-deployment-planner-analyze-report/on-premises-storage-requirement-h2a.png)
 
 ### <a name="why-do-i-need-free-space-on-the-hyper-v-server-for-the-replication"></a>복제를 위해 Hyper-V 서버에 여유 공간이 필요한 이유가 무엇인가요?
-* VM 복제를 사용하도록 설정하면 Site Recovery에서 초기 복제를 위해 VM의 각 VHD에 대한 스냅숏을 만듭니다. 초기 복제를 수행하는 동안 응용 프로그램에 의해 새로운 변경 내용이 디스크에 기록됩니다. Site Recovery는 로그 파일에서 이러한 델타 변경 내용을 추적하므로 추가 저장소 공간이 필요합니다. 초기 복제가 완료될 때까지 로그 파일은 로컬로 저장됩니다. 
+* VM 복제를 사용하도록 설정하면 Site Recovery에서 초기 복제를 위해 VM의 각 VHD에 대한 스냅숏을 만듭니다. 초기 복제를 수행하는 동안 애플리케이션에 의해 새로운 변경 내용이 디스크에 기록됩니다. Site Recovery는 로그 파일에서 이러한 델타 변경 내용을 추적하므로 추가 저장소 공간이 필요합니다. 초기 복제가 완료될 때까지 로그 파일은 로컬로 저장됩니다. 
 
     로그 파일과 스냅숏(AVHDX)에 충분한 공간을 사용할 수 없으면 복제가 다시 동기화 모드로 전환되고 완료되지 않습니다. 최악의 경우 초기 복제를 위한 VHD 크기의 100%에 해당하는 사용 가능한 공간이 추가로 필요합니다.
 * 초기 복제가 완료되면 델타 복제가 시작됩니다. Site Recovery는 VM의 VHD가 있는 볼륨에 저장된 로그 파일에서 이러한 델타 변경 내용을 추적합니다. 이러한 로그 파일은 구성된 복사 빈도로 Azure에 복제됩니다. 사용 가능한 네트워크 대역폭에 따라, 로그 파일이 Azure에 복제되는데 어느 정도 시간이 소요됩니다. 

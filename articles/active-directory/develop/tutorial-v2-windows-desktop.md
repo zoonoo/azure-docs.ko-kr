@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory v2.0 Windows 데스크톱 시작 | Microsoft Docs
-description: Windows 데스크톱 .NET(XAML) 응용 프로그램이 액세스 토큰을 가져와서 Azure Active Directory v2.0 엔드포인트로 보호된 API를 호출할 수 있는 방법입니다.
+description: Windows 데스크톱 .NET(XAML) 애플리케이션이 액세스 토큰을 가져와서 Azure Active Directory v2.0 엔드포인트로 보호된 API를 호출할 수 있는 방법입니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms

@@ -21,7 +21,7 @@ ms.locfileid: "52967762"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD(Azure Active Directory) B2C에서 웹 및 네이티브 응용 프로그램에 대한 KMSI(로그인 유지) 기능을 사용하도록 설정할 수 있습니다. 이 기능은 사용자 이름과 암호를 다시 입력하라는 메시지를 표시하지 않고 응용 프로그램에 반환되는 사용자에게 액세스 권한을 부여합니다. 사용자가 로그아웃하면 이 액세스 권한이 철회됩니다. 
+Azure AD(Azure Active Directory) B2C에서 웹 및 네이티브 애플리케이션에 대한 KMSI(로그인 유지) 기능을 사용하도록 설정할 수 있습니다. 이 기능은 사용자 이름과 암호를 다시 입력하라는 메시지를 표시하지 않고 애플리케이션에 반환되는 사용자에게 액세스 권한을 부여합니다. 사용자가 로그아웃하면 이 액세스 권한이 철회됩니다. 
 
 사용자는 공용 컴퓨터에서 이 옵션을 사용하면 안됩니다. 
 
@@ -81,7 +81,7 @@ Azure AD(Azure Active Directory) B2C에서 웹 및 네이티브 응용 프로그
     </ClaimsProviders>
     ```
 
-### <a name="add-the-application-identifiers-to-your-custom-policy"></a>사용자 지정 정책에 응용 프로그램 식별자 추가
+### <a name="add-the-application-identifiers-to-your-custom-policy"></a>사용자 지정 정책에 애플리케이션 식별자 추가
 
 *TrustFrameworkExtensions.xml* 파일에 응용 프로그램 식별자를 추가합니다.
 

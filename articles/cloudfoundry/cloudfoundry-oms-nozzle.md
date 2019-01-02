@@ -44,7 +44,7 @@ Log Analytics Nozzle(Nozzle)은 [Cloud Foundry Loggregator](https://docs.cloudfo
 
 ### <a name="2-install-the-cf-command-line-tools-for-deploying-the-nozzle"></a>2. Nozzle 배포를 위해 CF 명령줄 도구 설치
 
-Nozzle은 CF 환경에서 응용 프로그램을 실행합니다. 응용 프로그램을 배포하려면 CF CLI가 필요합니다.
+Nozzle은 CF 환경에서 애플리케이션을 실행합니다. 애플리케이션을 배포하려면 CF CLI가 필요합니다.
 
 Nozzle은 또한 Loggregator Firehose 및 클라우드 컨트롤러에 대한 액세스 권한이 필요합니다. 사용자를 만들고 구성하려면 UAA(사용자 계정 및 인증) 서비스가 필요합니다.
 
@@ -90,7 +90,7 @@ UAA 명령줄 클라이언트를 설치하기 전에 Rubygems가 설치되어 �
 
 ## <a name="deploy-the-nozzle"></a>Nozzle 배포
 
-PCF 타일로 또는 CF 응용 프로그램과 같은 다양한 방법으로 Nozzle을 배포할 수 있습니다.
+PCF 타일로 또는 CF 애플리케이션과 같은 다양한 방법으로 Nozzle을 배포할 수 있습니다.
 
 ### <a name="deploy-the-nozzle-as-a-pcf-ops-manager-tile"></a>PCF Ops Manager 타일로 Nozzle 배포
 
@@ -98,7 +98,7 @@ PCF 타일로 또는 CF 응용 프로그램과 같은 다양한 방법으로 Noz
 
 ### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>자동으로 Nozzle을 CF 애플리케이션으로 배포
 
-PCF Ops Manager를 사용하지 않는 경우 Nozzle을 응용 프로그램으로 배포합니다. 다음 섹션은 이 프로세스를 설명합니다.
+PCF Ops Manager를 사용하지 않는 경우 Nozzle을 애플리케이션으로 배포합니다. 다음 섹션은 이 프로세스를 설명합니다.
 
 #### <a name="sign-in-to-your-cf-deployment-as-an-admin-through-cf-cli"></a>CF CLI를 통해 관리자로 CF 배포에 로그인
 
@@ -155,7 +155,7 @@ LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle h
 LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Log Analytics. The default is 60 seconds.
 ```
 
-### <a name="push-the-application-from-your-development-computer"></a>개발 컴퓨터에서 응용 프로그램 푸시
+### <a name="push-the-application-from-your-development-computer"></a>개발 컴퓨터에서 애플리케이션 푸시
 
 현재 위치가 oms-log-analytics-firehose-nozzle 폴더인지 확인합니다. 다음 명령 실행:
 ```
@@ -179,7 +179,7 @@ OMS Nozzle 애플리케이션이 실행되고 있는지 확인합니다.
 
 ## <a name="view-the-data-in-the-azure-portal"></a>Azure Portal에서 데이터 보기
 
-마켓플레이스를 통해 모니터링 솔루션을 배포한 경우 Azure Portal로 이동하고 솔루션을 찾습니다. 이 솔루션은 템플릿에서 지정한 리소스 그룹에 있습니다. 솔루션을 클릭하고 “Log Analytics 콘솔”로 이동하면 주요 Cloud Foundry 시스템 KPI, 응용 프로그램 데이터, 경고 및 VM 상태 메트릭으로 미리 구성된 뷰가 나열됩니다. 
+마켓플레이스를 통해 모니터링 솔루션을 배포한 경우 Azure Portal로 이동하고 솔루션을 찾습니다. 이 솔루션은 템플릿에서 지정한 리소스 그룹에 있습니다. 솔루션을 클릭하고 “Log Analytics 콘솔”로 이동하면 주요 Cloud Foundry 시스템 KPI, 애플리케이션 데이터, 경고 및 VM 상태 메트릭으로 미리 구성된 뷰가 나열됩니다. 
 
 Log Analytics 작업 영역을 수동으로 만든 경우 다음 단계에 따라 뷰와 경고를 만듭니다.
 
@@ -223,7 +223,7 @@ Loggregator를 강화하려면 Doppler 버퍼 크기를 늘리거나 CF 매니�
 
 ## <a name="update"></a>주 지역에서
 
-Nozzle을 최신 버전으로 업데이트하려면 새 Nozzle 릴리스를 다운로드한 다음 “Nozzle 배포” 섹션의 단계에 따라 응용 프로그램을 다시 푸시합니다.
+Nozzle을 최신 버전으로 업데이트하려면 새 Nozzle 릴리스를 다운로드한 다음, “Nozzle 배포” 섹션의 단계에 따라 애플리케이션을 다시 푸시합니다.
 
 ### <a name="remove-the-nozzle-from-ops-manager"></a>Ops Manager에서 Nozzle 제거
 

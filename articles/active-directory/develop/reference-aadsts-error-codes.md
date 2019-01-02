@@ -34,7 +34,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 
 | 오류 | 설명 |
 |---|---|
-| AADSTS16000 | SelectUserAccount - 이것은 Azure AD에 의해 throw된 인터럽트로, 사용자가 여러 개의 유효한 SSO 세션 중에서 선택할 수 있는 UI가 나타납니다. 이 오류는 매우 일반적이며 `prompt=none`이 지정된 경우 응용 프로그램에 반환될 수 있습니다. |
+| AADSTS16000 | SelectUserAccount - 이것은 Azure AD에 의해 throw된 인터럽트로, 사용자가 여러 개의 유효한 SSO 세션 중에서 선택할 수 있는 UI가 나타납니다. 이 오류는 매우 일반적이며 `prompt=none`이 지정된 경우 애플리케이션에 반환될 수 있습니다. |
 | AADSTS16001 | UserAccountSelectionInvalid - 사용자가 세션 선택 논리가 거부한 타일을 클릭하면 이 오류가 표시됩니다. 이 오류가 트리거되면 사용자는 업데이트된 타일/세션 목록에서 선택하거나 다른 계정을 선택하여 복구할 수 있습니다. 이 오류는 코드 결함 또는 경합 상태로 인해 발생할 수 있습니다. |
 | AADSTS16002 | AppSessionSelectionInvalid - 앱 지정 SID 요구 사항이 충족되지 않았습니다.  |
 | AADSTS16003 | SsoUserAccountNotFoundInResourceTenant - 사용자가 테넌트에 명시적으로 추가되지 않았음을 나타냅니다. |
@@ -66,7 +66,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50029 | URI가 잘못되었습니다. 도메인 이름에 잘못된 문자가 있습니다. 테넌트 관리자에게 문의하세요. |
 | AADSTS50032 | WeakRsaKey - 잘못된 사용자가 약한 RSA 키를 사용하려고 했음을 나타냅니다. |
 | AADSTS50033 | RetryableError - 데이터베이스 작업과 관련이 없는 일시적인 오류를 나타냅니다. |
-| AADSTS50034 | UserAccountNotFound - 이 응용 프로그램에 로그인하려면 계정을 해당 디렉터리에 추가해야 합니다. |
+| AADSTS50034 | UserAccountNotFound - 이 애플리케이션에 로그인하려면 계정을 해당 디렉터리에 추가해야 합니다. |
 | AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - 쌍으로 된 식별자를 생성하는 데 필요한 솔트가 보안 주체에 없습니다. 테넌트 관리자에게 문의하세요. |
 | AADSTS50043 | UnableToGeneratePairwiseIdentifierWithMultipleSalts |
 | AADSTS50048 | SubjectMismatchesIssuer - 주체가 클라이언트 어설션의 발급자 클레임과 일치하지 않습니다. 테넌트 관리자에게 문의하세요. |
@@ -76,7 +76,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50055 | InvalidPasswordExpiredPassword - 암호가 만료되었습니다. |
 | AADSTS50056 | 암호가 잘못되었거나 null입니다. 이 사용자에 대한 저장소에 암호가 없습니다. |
 | AADSTS50057 | UserDisabled - 사용자 계정이 비활성화됩니다. 관리자가 사용하지 못하도록 설정한 계정입니다. |
-| AADSTS50058 | UserInformationNotProvided - 사용자가 로그인되지 않았습니다. 이는 사용자가 인증되지 않았고 아직 로그인하지 않은 경우에 발생하는 일반적인 오류입니다.</br>사용자가 이전에 로그인한 SSO 컨텍스트에서 이 오류가 발생하는 경우 SSO 세션을 찾을 수 없거나 SSO 세션이 잘못되었음을 의미합니다.</br>이 오류는 prompt=none이 지정된 경우 응용 프로그램에 반환될 수 있습니다. |
+| AADSTS50058 | UserInformationNotProvided - 사용자가 로그인되지 않았습니다. 이는 사용자가 인증되지 않았고 아직 로그인하지 않은 경우에 발생하는 일반적인 오류입니다.</br>사용자가 이전에 로그인한 SSO 컨텍스트에서 이 오류가 발생하는 경우 SSO 세션을 찾을 수 없거나 SSO 세션이 잘못되었음을 의미합니다.</br>이 오류는 prompt=none이 지정된 경우 애플리케이션에 반환될 수 있습니다. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided - 테넌트를 식별하는 정보가 요청에 없거나 제공된 자격 증명으로 암시되지 않습니다. 사용자는 문제를 해결하기 위해 테넌트 관리자에게 문의할 수 있습니다. |
 | AADSTS50061 | SignoutInvalidRequest - 로그아웃 요청이 잘못되었습니다. |
 | AADSTS50064 | CredentialAuthenticationError - 자격 증명 유효성 검사에 실패했습니다. |
@@ -137,12 +137,12 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS53003 | BlockedByConditionalAccess - 조건부 액세스 정책에 의해 액세스가 차단되었습니다. 액세스 정책에 따라 토큰 발급을 허용하지 않습니다. |
 | AADSTS53004 | ProofUpBlockedDueToRisk - 사용자는 이 콘텐츠에 액세스하기 전에 다단계 인증 등록 프로세스를 완료해야 합니다. 사용자가 다단계 인증을 등록해야 합니다. |
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
-| AADSTS65001 | DelegationDoesNotExist - 사용자 또는 관리자가 X ID로 응용 프로그램을 사용하는 데 동의하지 않았습니다. 이 사용자 및 리소스에 대한 대화형 권한 부여 요청을 보내세요. |
+| AADSTS65001 | DelegationDoesNotExist - 사용자 또는 관리자가 X ID로 애플리케이션을 사용하는 데 동의하지 않았습니다. 이 사용자 및 리소스에 대한 대화형 권한 부여 요청을 보내세요. |
 | AADSTS65004 | UserDeclinedConsent - 사용자가 앱에 액세스하는 데 동의하지 않았습니다. 사용자가 로그인을 다시 시도하고 응용 프로그램에 동의해야 합니다.|
 | AADSTS65005 | MisconfiguredApplication - 앱에 필요한 리소스 액세스 목록에 리소스에서 검색 가능한 앱이 없거나, 클라이언트 앱에서 필요한 리소스 액세스 목록에 지정되지 않은 리소스에 대한 액세스를 요청했거나, Graph 서비스에서 잘못된 요청 또는 찾을 수 없는 리소스를 반환했습니다. 앱에서 SAML을 지원하는 경우 잘못된 식별자(엔터티)로 앱을 구성했을 수 있습니다. 아래 링크를 사용하여 SAML에 대한 해결 방법을 시도해 보세요. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list) |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - 인증에 실패했습니다. 새로 고침 토큰이 잘못되었습니다. 다음과 같은 이유로 오류가 발생했을 수 있습니다.<ul><li>토큰 바인딩 헤더가 비어 있습니다.</li><li>토큰 바인딩 해시가 일치하지 않습니다.</li></ul> |
-| AADSTS70001 | UnauthorizedClient - 응용 프로그램을 사용할 수 없습니다. |
+| AADSTS70001 | UnauthorizedClient - 애플리케이션을 사용할 수 없습니다. |
 | AADSTS70002 | InvalidClient - 자격 증명 유효성을 검사하는 중 오류가 발생했습니다. 지정된 client_secret이 이 클라이언트에 대해 필요한 값과 일치하지 않습니다. client_secret을 수정한 후 다시 시도하세요. 자세한 내용은 [인증 코드를 사용하여 액세스 토큰 요청](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token)을 참조하세요. |
 | AADSTS70003 | UnsupportedGrantType - 앱에서 지원되지 않는 권한 부여 유형을 반환했습니다. |
 | AADSTS70004 | InvalidRedirectUri - 앱에서 잘못된 리디렉션 URI를 반환했습니다. 클라이언트에서 지정한 리디렉션 주소가 구성된 주소 또는 OIDC 승인 목록의 주소와 일치하지 않습니다. |

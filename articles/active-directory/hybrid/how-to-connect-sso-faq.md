@@ -42,7 +42,7 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 다음은 이러한 매개 변수를 Azure AD에 전송할 수 있는 애플리케이션의 부분 목록으로, Seamless SSO를 사용하여 자동 로그온 환경을 제공합니다(예: 사용자가 사용자 이름 또는 암호를 입력할 필요가 없음).
 
-| 응용 프로그램 이름 | 사용할 응용 프로그램 URL |
+| 애플리케이션 이름 | 사용할 응용 프로그램 URL |
 | -- | -- |
 | 액세스 패널 | https://myapps.microsoft.com/contoso.com |
 | 웹용 Outlook | https://outlook.office365.com/contoso.com |
@@ -50,7 +50,7 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 또한 애플리케이션이 Azure AD의 공통 엔드포인트(즉, https://login.microsoftonline.com/common/<...>) 대신 Azure AD의 테넌트 엔드포인트(즉, https://login.microsoftonline.com/contoso.com/<..> 또는 https://login.microsoftonline.com/<tenant_ID>/<..>)로 로그인 요청을 전송할 경우 사용자는 자동 로그온 환경을 사용합니다. 이러한 형식의 로그인을 요청하는 애플리케이션의 부분 목록이 아래에 나열됩니다.
 
-| 응용 프로그램 이름 | 사용할 응용 프로그램 URL |
+| 애플리케이션 이름 | 사용할 응용 프로그램 URL |
 | -- | -- |
 | SharePoint Online | https://contoso.sharepoint.com |
 | Azure portal | https://portal.azure.com/contoso.com |

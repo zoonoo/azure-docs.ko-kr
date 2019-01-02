@@ -108,7 +108,7 @@ Speech Devices SDK를 사용하여 개발을 시작하기 전에 필요한 정�
 
 ## <a name="run-a-sample-application"></a>샘플 응용 프로그램 실행
 
-ROOBO 테스트를 실행하고 개발 키트 설정의 유효성을 검사하려면 샘플 응용 프로그램을 빌드하고 설치합니다.
+ROOBO 테스트를 실행하고 개발 키트 설정의 유효성을 검사하려면 샘플 애플리케이션을 빌드하고 설치합니다.
 
 1.  Android Studio를 시작합니다.
 
@@ -118,9 +118,9 @@ ROOBO 테스트를 실행하고 개발 키트 설정의 유효성을 검사하�
 
 1.  C:\SDSDK\Android-Sample-Release\example로 이동합니다. **확인**을 선택하여 예제 프로젝트를 엽니다.
 
-1.  소스 코드에 음성 구독 키를 추가합니다. 의도 인식을 사용해 보려면 [Language Understanding 서비스](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) 구독 키 및 응용 프로그램 ID를 추가합니다.
+1.  소스 코드에 음성 구독 키를 추가합니다. 의도 인식을 사용해 보려면 [Language Understanding 서비스](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) 구독 키 및 애플리케이션 ID를 추가합니다.
 
-    키 및 응용 프로그램 정보는 MainActivity.java 원본 파일의 다음 줄에 표시됩니다.
+    키 및 애플리케이션 정보는 MainActivity.java 원본 파일의 다음 줄에 표시됩니다.
 
     ```java
     // Subscription
@@ -187,7 +187,7 @@ ROOBO 테스트를 실행하고 개발 키트 설정의 유효성을 검사하�
     |||두 개의 마이크를 사용하는 선형 개발 키트의 경우: `Linear2`|
 
 
-1.  응용 프로그램을 빌드하려면 **실행** 메뉴에서 **'앱' 실행**을 선택합니다. **배포 대상 선택** 대화 상자가 나타납니다.
+1.  애플리케이션을 빌드하려면 **실행** 메뉴에서 **'앱' 실행**을 선택합니다. **배포 대상 선택** 대화 상자가 나타납니다.
 
 1. 디바이스를 선택한 다음, **확인**을 선택하여 애플리케이션을 디바이스에 배포합니다.
 

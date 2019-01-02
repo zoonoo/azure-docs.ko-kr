@@ -16,7 +16,7 @@ ms.lasthandoff: 11/14/2018
 ms.locfileid: "51623654"
 ---
 # <a name="cloud-tiering-overview"></a>클라우드 계층화 개요
-Azure 파일 동기화의 선택적 기능인 클라우드 계층화를 사용하는 경우 액세스 빈도가 높은 파일은 서버에 로컬로 캐시되고 그 외의 모든 파일은 정책 설정에 따라 Azure Files에서 계층화됩니다. 파일을 계층화할 경우 Azure 파일 동기화 파일 시스템 필터(StorageSync.sys)는 파일을 포인터 또는 재분석 지점으로 로컬로 대체합니다. 재분석 지점은 Azure Files의 파일에 대한 URL을 나타냅니다. 계층화된 파일의 경우 NTFS에서 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS 특성과 “offline” 특성이 모두 설정되므로 타사 응용 프로그램이 계층화된 파일을 안전하게 식별할 수 있습니다.
+Azure 파일 동기화의 선택적 기능인 클라우드 계층화를 사용하는 경우 액세스 빈도가 높은 파일은 서버에 로컬로 캐시되고 그 외의 모든 파일은 정책 설정에 따라 Azure Files에서 계층화됩니다. 파일을 계층화할 경우 Azure 파일 동기화 파일 시스템 필터(StorageSync.sys)는 파일을 포인터 또는 재분석 지점으로 로컬로 대체합니다. 재분석 지점은 Azure Files의 파일에 대한 URL을 나타냅니다. 계층화된 파일의 경우 NTFS에서 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS 특성과 “offline” 특성이 모두 설정되므로 타사 애플리케이션이 계층화된 파일을 안전하게 식별할 수 있습니다.
  
 사용자가 계층화된 파일을 열면 Azure 파일 동기화가 Azure Files에서 파일 데이터를 원활하게 회수하므로, 사용자는 파일이 실제로는 Azure에 저장되어 있음을 몰라도 됩니다. 
  

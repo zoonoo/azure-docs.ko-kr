@@ -1,6 +1,6 @@
 ---
 title: URL 경로 기반 리디렉션으로 애플리케이션 게이트웨이 만들기 - Azure PowerShell
-description: Azure PowerShell을 사용하여 URL 경로 기반 리디렉션된 트래픽으로 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다.
+description: Azure PowerShell을 사용하여 URL 경로 기반 리디렉션된 트래픽으로 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -130,7 +130,7 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-default-listener-and-rule"></a>기본 수신기 및 규칙 만들기
 
-응용 프로그램 게이트웨이에서 트래픽을 백 엔드 풀로 적절하게 라우팅할 수 있으려면 수신기가 필요합니다. 이 자습서에서는 여러 개의 수신기를 만듭니다. 첫 번째 기본 수신기는 루트 URL에서 트래픽을 예상합니다. 다른 수신기는 특정 URL(예: *http://52.168.55.24:8080/images/* 또는 *http://52.168.55.24:8081/video/*)에서 트래픽을 예상합니다.
+애플리케이션 게이트웨이에서 트래픽을 백 엔드 풀로 적절하게 라우팅할 수 있으려면 수신기가 필요합니다. 이 자습서에서는 여러 개의 수신기를 만듭니다. 첫 번째 기본 수신기는 루트 URL에서 트래픽을 예상합니다. 다른 수신기는 특정 URL(예: *http://52.168.55.24:8080/images/* 또는 *http://52.168.55.24:8081/video/*)에서 트래픽을 예상합니다.
 
 이전에 만든 프론트 엔드 구성 및 프론트 엔드 포트로 [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener)를 사용하여 *defaultListener*라는 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule)을 사용하여 *rule1*이라는 기본 규칙을 만듭니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Application Gateway 만들기, 시작 또는 삭제 | Microsoft Docs
+title: 애플리케이션 게이트웨이 만들기, 시작 또는 삭제 | Microsoft Docs
 description: 이 페이지에서는 Azure 애플리케이션 게이트웨이를 만들고, 구성하고, 시작하고 삭제하기 위한 지침을 제공합니다.
 documentationcenter: na
 services: application-gateway
@@ -22,7 +22,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52994084"
 ---
-# <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>PowerShell을 사용하여 Application Gateway 만들기, 시작 또는 삭제 
+# <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>PowerShell을 사용하여 애플리케이션 게이트웨이 만들기, 시작 또는 삭제 
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-gateway-create-gateway-portal.md)
@@ -38,7 +38,7 @@ Azure Application Gateway는 계층 7 부하 분산 장치입니다. 클라우�
 ## <a name="before-you-begin"></a>시작하기 전에
 
 1. 웹 플랫폼 설치 관리자를 사용하여 Azure PowerShell cmdlet의 최신 버전을 설치합니다. **다운로드 페이지** 의 [Windows PowerShell](https://azure.microsoft.com/downloads/)섹션에서 최신 버전을 다운로드하여 설치할 수 있습니다.
-2. 기존 가상 네트워크가 있는 경우 기존의 빈 서브넷을 선택하거나 애플리케이션 게이트웨이에서 사용할 기존 가상 네트워크에만 새 서브넷을 만듭니다. Vnet 피어링을 사용하지 않으면 응용 프로그램 게이트웨이 뒤에 배포하려는 리소스가 아닌 다른 가상 네트워크에 응용 프로그램 게이트웨이를 배포할 수 없습니다. 더 자세히 알아보려면 [Vnet 피어링](../virtual-network/virtual-network-peering-overview.md)을 방문하세요.
+2. 기존 가상 네트워크가 있는 경우 기존의 빈 서브넷을 선택하거나 애플리케이션 게이트웨이에서 사용할 기존 가상 네트워크에만 새 서브넷을 만듭니다. Vnet 피어링을 사용하지 않으면 애플리케이션 게이트웨이 뒤에 배포하려는 리소스가 아닌 다른 가상 네트워크에 애플리케이션 게이트웨이를 배포할 수 없습니다. 더 자세히 알아보려면 [Vnet 피어링](../virtual-network/virtual-network-peering-overview.md)을 방문하세요.
 3. 유효한 서브넷과 작업 가상 네트워크가 있는지 확인합니다. 서브넷을 사용 중인 가상 머신 또는 클라우드 배포가 없는지 확인합니다. 애플리케이션 게이트웨이는 가상 네트워크 서브넷에서 단독이어야 합니다.
 4. 애플리케이션 게이트웨이를 사용하도록 구성된 서버가 존재하거나 가상 네트워크나 공용 IP/VIP가 할당된 해당 엔드포인트가 만들어져야 합니다.
 
@@ -56,7 +56,7 @@ Azure Application Gateway는 계층 7 부하 분산 장치입니다. 클라우�
 
 ## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
-응용 프로그램 게이트웨이를 만들려면
+애플리케이션 게이트웨이를 만들려면:
 
 1. 애플리케이션 게이트웨이 리소스를 만듭니다.
 2. 구성 XML 파일 또는 구성 개체를 만듭니다.
@@ -71,7 +71,7 @@ Azure Application Gateway는 계층 7 부하 분산 장치입니다. 클라우�
 
 게이트웨이를 생성하려면 `New-AzureApplicationGateway` cmdlet을 사용하여 해당 값을 원하는 값으로 바꿉니다. 게이트웨이에 대한 청구는 이 시점에서 시작되지 않습니다. 게이트웨이가 성공적으로 작동되면, 요금청구가 시작됩니다.
 
-다음 예제에서는 "testvnet1"이라는 가상 네트워크 및 "subnet-1"이라는 서브넷을 사용하여 응용 프로그램 게이트웨이를 만듭니다.
+다음 예제에서는 "testvnet1"이라는 가상 네트워크 및 "subnet-1"이라는 서브넷을 사용하여 애플리케이션 게이트웨이를 만듭니다.
 
 ```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -102,13 +102,13 @@ DnsName       :
 
 게이트웨이가 아직 시작되지 않았으므로 *VirtualIPs* 및 *DnsName*이 빈 값으로 표시됩니다. 이 값들은 게이트웨이가 실행 상태가 되면 생성됩니다.
 
-## <a name="configure-the-application-gateway"></a>응용 프로그램 게이트웨이 구성
+## <a name="configure-the-application-gateway"></a>애플리케이션 게이트웨이 구성
 
-XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 구성할 수 있습니다.
+XML 또는 구성 개체를 사용하여 애플리케이션 게이트웨이를 구성할 수 있습니다.
 
-### <a name="configure-the-application-gateway-by-using-xml"></a>XML을 사용하여 응용 프로그램 게이트웨이 구성
+### <a name="configure-the-application-gateway-by-using-xml"></a>XML을 사용하여 애플리케이션 게이트웨이 구성
 
-다음 예제에서는 XML 파일을 사용하여 모든 응용 프로그램 게이트웨이 설정을 구성하고 응용 프로그램 게이트웨이 리소스에 커밋합니다.  
+다음 예제에서는 XML 파일을 사용하여 모든 애플리케이션 게이트웨이 설정을 구성하고 애플리케이션 게이트웨이 리소스에 커밋합니다.  
 
 #### <a name="step-1"></a>1단계
 
@@ -164,7 +164,7 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 > [!IMPORTANT]
 > Http 또는 Https 프로토콜 항목은 대 소문자를 구분합니다.
 
-다음 예제에서는 구성 파일을 사용하여 응용 프로그램 게이트웨이를 설정하는 방법을 보여 줍니다. 예제에서는 공용 포트 80에서 HTTP 트래픽의 부하를 분산하고 두 IP 주소 사이의 백 엔드 포트 80에 네트워크 트래픽을 보냅니다.
+다음 예제에서는 구성 파일을 사용하여 애플리케이션 게이트웨이를 설정하는 방법을 보여 줍니다. 예제에서는 공용 포트 80에서 HTTP 트래픽의 부하를 분산하고 두 IP 주소 사이의 백 엔드 포트 80에 네트워크 트래픽을 보냅니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -221,7 +221,7 @@ Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 
 ### <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>구성 개체를 사용하여 애플리케이션 게이트웨이 구성
 
-다음 예제에서는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 구성하는 방법을 보여 줍니다. 모든 구성 항목은 개별적으로 구성된 다음 애플리케이션 게이트웨이 구성 개체에 추가해야 합니다. 구성 개체를 만든 후 `Set-AzureApplicationGateway` 명령을 사용하여 이전에 만든 애플리케이션 게이트웨이 리소스에 대한 구성을 커밋합니다.
+다음 예제에서는 구성 개체를 사용하여 애플리케이션 게이트웨이를 구성하는 방법을 보여 줍니다. 모든 구성 항목은 개별적으로 구성된 다음 애플리케이션 게이트웨이 구성 개체에 추가해야 합니다. 구성 개체를 만든 후 `Set-AzureApplicationGateway` 명령을 사용하여 이전에 만든 애플리케이션 게이트웨이 리소스에 대한 구성을 커밋합니다.
 
 > [!NOTE]
 > 각 구성 개체에 값을 할당하기 전에 PowerShell에서 저장소에 사용할 개체 종류를 선언해야 합니다. 개별 항목을 만드는 첫 줄은 어떤 `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)`이 사용되는지 정의합니다.
@@ -299,7 +299,7 @@ $rule.BackendAddressPool = "pool1"
 
 #### <a name="step-2"></a>2단계
 
-응용 프로그램 게이트웨이 구성 개체 ($appgwconfig)에 모든 개별 구성 항목을 할당합니다.
+애플리케이션 게이트웨이 구성 개체($appgwconfig)에 모든 개별 구성 항목을 할당합니다.
 
 프런트 엔드 IP를 구성에 추가합니다.
 
@@ -385,9 +385,9 @@ Vip           : 138.91.170.26
 DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
-## <a name="delete-the-application-gateway"></a>응용 프로그램 게이트웨이 삭제
+## <a name="delete-the-application-gateway"></a>애플리케이션 게이트웨이 삭제
 
-응용 프로그램 게이트웨이를 삭제하려면:
+애플리케이션 게이트웨이를 삭제하려면:
 
 1. `Stop-AzureApplicationGateway` cmdlet을 사용하여 게이트웨이를 중지합니다.
 2. `Remove-AzureApplicationGateway` cmdlet을 사용하여 게이트웨이를 제거합니다.

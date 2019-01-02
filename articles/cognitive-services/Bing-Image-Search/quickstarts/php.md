@@ -21,7 +21,7 @@ ms.locfileid: "53261129"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>빠른 시작: Bing Image Search REST API 및 PHP를 사용하여 이미지 검색
 
-이 빠른 시작을 사용하여 Bing Image Search API를 처음 호출하고 JSON 응답을 받습니다. 이 문서의 간단한 응용 프로그램은 검색 쿼리를 보내고 원시 결과를 표시합니다.
+이 빠른 시작을 사용하여 Bing Image Search API를 처음 호출하고 JSON 응답을 받습니다. 이 문서의 간단한 애플리케이션은 검색 쿼리를 보내고 원시 결과를 표시합니다.
 
 이 애플리케이션은 PHP에서 작성되었지만 API는 RESTful 웹 서비스로, HTTP를 요청하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "53261129"
 
 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
-## <a name="create-and-initialize-the-application"></a>응용 프로그램 만들기 및 초기화
+## <a name="create-and-initialize-the-application"></a>애플리케이션 만들기 및 초기화
 
 이 애플리케이션을 실행하려면 다음 단계를 따릅니다.
 

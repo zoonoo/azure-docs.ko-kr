@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric Mesh 개요 | Microsoft Docs
-description: Azure Service Fabric Mesh에 대해 자세히 알아봅니다. Service Fabric Mesh를 사용하여 응용 프로그램의 인프라 요구 사항을 걱정하지 않고 응용 프로그램을 배포하고 크기를 조정할 수 있습니다.
+description: Azure Service Fabric Mesh에 대해 자세히 알아봅니다. Service Fabric Mesh를 사용하여 애플리케이션의 인프라 요구 사항을 걱정하지 않고 애플리케이션을 배포하고 크기를 조정할 수 있습니다.
 services: service-fabric-mesh
 keywords: ''
 author: rwike77
@@ -21,7 +21,7 @@ ms.locfileid: "53000653"
 이 비디오에서는 Service Fabric Mesh에 대한 개요를 빠르게 제공합니다.
 > [!VIDEO https://www.youtube.com/embed/7qWeVGzAid0]
 
-Azure Service Fabric Mesh는 개발자가 가상 머신, 저장소 또는 네트워킹을 관리하지 않고 마이크로 서비스 애플리케이션을 배포할 수 있는 완전히 관리되는 서비스입니다. Service Fabric Mesh에서 호스팅되는 애플리케이션은 인프라 전원을 걱정하지 않고 실행되고 크기가 조정됩니다.  Service Fabric Mesh는 수천 대 머신의 클러스터로 구성됩니다.  모든 클러스터 작업은 개발자에게 숨겨집니다. 단순히 코드를 업로드하고 필요한 리소스, 가용성 요구 사항 및 리소스 제한을 지정합니다.  Service Fabric Mesh는 응용 프로그램을 항상 사용할 수 있도록 자동으로 인프라를 할당하고 인프라 오류를 처리합니다. 인프라가 아니라 응용 프로그램의 상태와 응답성을 고려해야 합니다.  
+Azure Service Fabric Mesh는 개발자가 가상 머신, 저장소 또는 네트워킹을 관리하지 않고 마이크로 서비스 애플리케이션을 배포할 수 있는 완전히 관리되는 서비스입니다. Service Fabric Mesh에서 호스팅되는 애플리케이션은 인프라 전원을 걱정하지 않고 실행되고 크기가 조정됩니다.  Service Fabric Mesh는 수천 대 머신의 클러스터로 구성됩니다.  모든 클러스터 작업은 개발자에게 숨겨집니다. 단순히 코드를 업로드하고 필요한 리소스, 가용성 요구 사항 및 리소스 제한을 지정합니다.  Service Fabric Mesh는 애플리케이션을 항상 사용할 수 있도록 자동으로 인프라를 할당하고 인프라 오류를 처리합니다. 인프라가 아니라 애플리케이션의 상태와 응답성을 고려해야 합니다.  
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -46,7 +46,7 @@ Service Fabric Mesh를 사용하여 다음을 수행할 수 있습니다.
 
 - 인프라를 명시적으로 프로비전하고 관리할 필요 없이 애플리케이션을 배포하고 관리합니다.  Service Fabric Mesh는 기본 인프라를 프로비전하고, 업그레이드하고, 패치하고, 유지 관리합니다.
 - 통합된 도구를 사용하는 연속 통합을 설정하여 애플리케이션을 쉽게 패키지하고 배포합니다.
-- Azure의 Service Fabric Mesh 서비스에 배포하는 모든 리소스(예: 응용 프로그램, 서비스, 비밀 등)가 Azure Resource Manager 리소스이므로 Azure Resource Manager 리소스의 모든 기능(예: 감사 추적 및 [역할 기반 액세스 제어](/azure/role-based-access-control/overview))을 활용합니다.
+- Azure의 Service Fabric Mesh 서비스에 배포하는 모든 리소스(예: 애플리케이션, 서비스, 비밀 등)가 Azure Resource Manager 리소스이므로 Azure Resource Manager 리소스의 모든 기능(예: 감사 추적 및 [역할 기반 액세스 제어](/azure/role-based-access-control/overview))을 활용합니다.
 - [Azure Portal](https://portal.azure.com), Resource Manager 템플릿 또는 Azure CLI/PowerShell 라이브러리를 사용하여 리소스를 배포하고 관리합니다.
 - [Application Insights](/azure/application-insights/)(또는 원하는 도구)를 사용하는 작업 모니터링 및 경고를 설정하여 플랫폼에서 운영 및 진단 추적을 캡처합니다.
 - [Application Insights](/azure/application-insights/) 또는 원하는 도구를 사용하여 응용 프로그램 모델에서 내보낸 응용 프로그램 진단 정보에 액세스합니다.

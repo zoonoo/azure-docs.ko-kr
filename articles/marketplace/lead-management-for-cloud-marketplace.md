@@ -62,12 +62,12 @@ ms.locfileid: "52840166"
 
 **리드를 Dynamics CRM에 저장할 수 없습니다. Dynamics CRM 계정 설정을 확인하세요. LastCRMError: Dynamics CRM(LastCRMException:**)에 로그인할 수 없습니다. 
 
-> O365 인증을 선택한 경우 사용자 계정 및 암호가 유효한지 확인합니다. AAD가 선택된 경우 테넌트 ID, 응용 프로그램 ID 및 응용 프로그램 비밀 키가 AAD에 설정된 것과 일치하는지 확인합니다. [여기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)에 설명된 지침을 따릅니다. 계정 사용자 이름/암호가 유효한 경우 Dynamics 365 액세스 권한이 있는지와 라이선스가 할당되었는지 확인합니다(Azure Active Directory를 사용하는 경우 11-15단계, Office 사용자를 사용하는 경우 보안 설정). 
+> O365 인증을 선택한 경우 사용자 계정 및 암호가 유효한지 확인합니다. AAD가 선택된 경우 테넌트 ID, 애플리케이션 ID 및 애플리케이션 비밀 키가 AAD에 설정된 것과 일치하는지 확인합니다. [여기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)에 설명된 지침을 따릅니다. 계정 사용자 이름/암호가 유효한 경우 Dynamics 365 액세스 권한이 있는지와 라이선스가 할당되었는지 확인합니다(Azure Active Directory를 사용하는 경우 11-15단계, Office 사용자를 사용하는 경우 보안 설정). 
 
  
 **리드를 Dynamics CRM에 저장할 수 없습니다. 사용자에게 리드 엔터티의 leadsourcecode 특성에 대한 만들기 권한이 없습니다.** 
 
-> 응용 프로그램/사용자에게 Microsoft Marketplace 리드 작성기에 대한 보안 역할이 없습니다. Azure Active Directory를 사용하는 경우 11-15단계를 따르고, Office 사용자를 사용하는 경우 [여기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)에서 보안 설정을 사용합니다.
+> 애플리케이션/사용자에게 Microsoft Marketplace 리드 작성기에 대한 보안 역할이 없습니다. Azure Active Directory를 사용하는 경우 11-15단계를 따르고, Office 사용자를 사용하는 경우 [여기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)에서 보안 설정을 사용합니다.
 
 **AAD를 사용하여 리드를 Dynamics CRM에 저장할 수 없습니다. 예외:: 테넌트를 찾을 수 없습니다. 이 인스턴스는 테넌트에 대한 활성 가입이 없는 경우 발생할 수 있습니다.**  
 
@@ -79,7 +79,7 @@ ms.locfileid: "52840166"
 
 **AAD를 사용하여 리드를 Dynamics CRM에 저장할 수 없습니다. 예외:: 식별자가 포함된 애플리케이션이 디렉터리에 없습니다** 
 
-> 리드 관리 섹션에 제공된 응용 프로그램 ID가 유효한 디렉터리가 아닙니다. [여기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)에서 8단계(Azure Active Directory 아래)의 지침에 따라 디렉터리 ID를 가져오세요. 
+> 리드 관리 섹션에 제공된 애플리케이션 ID가 유효한 디렉터리가 아닙니다. [여기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)에서 8단계(Azure Active Directory 아래)의 지침에 따라 디렉터리 ID를 가져오세요. 
 
 **AAD를 사용하여 리드를 Dynamics CRM에 저장할 수 없습니다. 예외:: 요청된 테넌트 식별자가 유효하지 않으며 유효한 외부 도메인 형식이 아닙니다** 
 

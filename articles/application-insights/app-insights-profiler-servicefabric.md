@@ -1,6 +1,6 @@
 ---
-title: Application Insights를 사용하여 라이브 Azure Service Fabric 응용 프로그램 프로파일링 | Microsoft Docs
-description: Service Fabric 응용 프로그램에 대해 Profiler 사용
+title: Application Insights를 사용하여 라이브 Azure Service Fabric 애플리케이션 프로파일링 | Microsoft Docs
+description: Service Fabric 애플리케이션에 대해 Profiler 사용
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -19,7 +19,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/01/2018
 ms.locfileid: "52721411"
 ---
-# <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure Service Fabric 응용 프로그램 프로파일링
+# <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure Service Fabric 애플리케이션 프로파일링
 
 또한 다음과 같은 서비스에서 Application Insights Profiler를 배포할 수도 있습니다.
 * [Azure Web Apps](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
@@ -49,8 +49,8 @@ Application Insights Profiler는 WAD(Windows Azure 진단)에 포함되어 있�
 
       배포 템플릿에 진단 확장을 추가하는 방법에 대한 정보는 [Windows VM 및 Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 사용](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 1. Azure Resource Manager 템플릿을 사용하여 Service Fabric 클러스터를 배포합니다. 설정이 올바른 경우 WAD 확장이 설치될 때 Application Insights Profiler가 설치되고 사용하도록 설정됩니다. 
-1. Service Fabric 응용 프로그램에 Application Insights를 추가합니다. Profiler가 요청을 위한 프로필을 수집하려면 응용 프로그램이 Application Insights로 요청 데이터를 전송해야 합니다. [여기](https://github.com/Microsoft/ApplicationInsights-ServiceFabric)에서 지침을 찾을 수 있습니다.
-1. 응용 프로그램을 다시 배포합니다.
+1. Service Fabric 애플리케이션에 Application Insights를 추가합니다. Profiler가 요청을 위한 프로필을 수집하려면 애플리케이션이 Application Insights로 요청 데이터를 전송해야 합니다. [여기](https://github.com/Microsoft/ApplicationInsights-ServiceFabric)에서 지침을 찾을 수 있습니다.
+1. 애플리케이션을 다시 배포합니다.
 
 > [팁] Virtual Machines의 경우 위의 json 기반 단계 대신, Azure Portal에서 **Virtual Machines** > **진단 설정** > **싱크**로 이동한 후 Application Insights로 진단 데이터를 보냅니다.를 **사용**으로 설정하고 Application Insights 계정 또는 특정 ikey를 선택합니다.
 

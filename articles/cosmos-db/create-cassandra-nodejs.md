@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Cassandra API와 Node.js - Azure Cosmos DB'
-description: 이 빠른 시작은 Node.js와 함께 Azure Cosmos DB Cassandra API를 사용하여 프로필 응용 프로그램을 만드는 방법을 보여줍니다.
+description: 이 빠른 시작은 Node.js와 함께 Azure Cosmos DB Cassandra API를 사용하여 프로필 애플리케이션을 만드는 방법을 보여줍니다.
 services: cosmos-db
 author: SnehaGunda
 ms.author: sngun

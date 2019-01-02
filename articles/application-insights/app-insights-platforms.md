@@ -21,7 +21,7 @@ ms.lasthandoff: 12/06/2018
 ms.locfileid: "53000545"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>개발자 분석: 언어, 플랫폼 및 통합
-이러한 항목은 타사에서 제공하는 구현을 포함하여 이미 알고 있는 [Application Insights](app-insights-overview.md) 의 구현입니다.
+이러한 항목은 타사에서 제공하는 구현을 포함하여 이미 알고 있는 [Application Insights](app-insights-overview.md)의 구현입니다.
 
 ## <a name="languages---officially-supported-by-application-insights-team"></a>언어 - Application Insights 팀에서 공식적으로 지원
 * [C#|VB (.NET)](app-insights-asp-net.md)

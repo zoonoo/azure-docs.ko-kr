@@ -124,7 +124,7 @@ New-AzureRmRoleDefinition -Role $role
 * 사용자가 모니터링 데이터 액세스만 필요할 경우 구독에서 이벤트 허브나 저장소 계정에 ListKeys 권한을 부여해서는 안 됩니다. 그 대신 리소스나 리소스 그룹(전용 모니터링 리소스 그룹이 있는 경우) 범위에서 사용자에게 해당 건한을 부여합니다.
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>모니터링 관련 저장소 계정에 대한 액세스 제한
-사용자나 응용 프로그램이 저장소 계정의 모니터링 데이터에 대한 액세스를 필요로 할 경우, Blob 저장소에 대한 서비스 수준 읽기 전용 액세스 권한을 통해 모니터링 데이터를 포함하는 저장소 계정에서 [계정 SAS를 생성](https://msdn.microsoft.com/library/azure/mt584140.aspx) 해야 합니다. PowerShell에서는 다음과 같습니다.
+사용자나 애플리케이션이 저장소 계정의 모니터링 데이터에 대한 액세스를 필요로 할 경우, Blob 저장소에 대한 서비스 수준 읽기 전용 액세스 권한을 통해 모니터링 데이터를 포함하는 저장소 계정에서 [계정 SAS를 생성](https://msdn.microsoft.com/library/azure/mt584140.aspx) 해야 합니다. PowerShell에서는 다음과 같습니다.
 
 ```powershell
 $context = New-AzureStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"

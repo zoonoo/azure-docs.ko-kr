@@ -126,7 +126,7 @@ mycontainer 컨테이너 그룹을 선택하여 컨테이너 그룹 속성을 �
 
 ![ACI 컨테이너 세부 정보][qs-portal-14]
 
-## <a name="view-the-application"></a>응용 프로그램 보기
+## <a name="view-the-application"></a>애플리케이션 보기
 
 컨테이너가 **실행** 상태가 되면 선호하는 브라우저를 사용하여 이전 단계에서 기록해 둔 IP 주소로 이동하여 애플리케이션을 표시합니다.
 

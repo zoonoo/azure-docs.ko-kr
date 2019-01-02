@@ -210,7 +210,7 @@ HRD 정책을 만든 후에 적용하려면 여러 애플리케이션 서비스 
 포털을 사용하거나 [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity)를 쿼리할 수 있습니다. [Graph 탐색기 도구](https://developer.microsoft.com/graph/graph-explorer)로 이동하고 Azure AD 계정에 로그인하여 조직의 모든 서비스 주체를 확인할 수 있습니다. PowerShell을 사용하기 때문에 get-AzureADServicePrincipal cmdlet을 사용하여 서비스 주체 및 해당 ID를 나열할 수 있습니다.
 
 #### <a name="step-3-assign-the-policy-to-your-service-principal"></a>3단계: 서비스 주체에게 정책 할당  
-자동 가속을 구성하려는 응용 프로그램의 서비스 주체 **ObjectID**를 찾은 후 다음 명령을 실행합니다. 이 명령은 1단계에서 만든 HRD 정책을 2단계에서 찾은 서비스 주체에 연결합니다.
+자동 가속을 구성하려는 애플리케이션의 서비스 주체 **ObjectID**를 찾은 후 다음 명령을 실행합니다. 이 명령은 1단계에서 만든 HRD 정책을 2단계에서 찾은 서비스 주체에 연결합니다.
 
 ``` powershell
 Add-AzureADServicePrincipalPolicy -Id <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>

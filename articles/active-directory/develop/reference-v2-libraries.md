@@ -64,7 +64,7 @@ v2.0 엔드포인트를 사용하는 라이브러리 목록은 이 문서의 다
 
 ## <a name="microsoft-supported-server-middleware-libraries"></a>Microsoft 지원 서버 미들웨어 라이브러리
 
-미들웨어 라이브러리는 웹 응용 프로그램 및 웹 API를 보호하는 데 사용됩니다. ASP.NET 또는 ASP.NET Core를 사용하여 작성된 웹앱 또는 웹 API의 경우 ASP.NET/ASP.NET Core에서 미들웨어 라이브러리가 사용됩니다.
+미들웨어 라이브러리는 웹 애플리케이션 및 웹 API를 보호하는 데 사용됩니다. ASP.NET 또는 ASP.NET Core를 사용하여 작성된 웹앱 또는 웹 API의 경우 ASP.NET/ASP.NET Core에서 미들웨어 라이브러리가 사용됩니다.
 
 | 플랫폼 | 라이브러리 | 다운로드 | 소스 코드 | 샘플 | 참고 자료
 | --- | --- | --- | --- | --- | --- |

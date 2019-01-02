@@ -24,7 +24,7 @@ ms.locfileid: "52444787"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>자습서: Application Insights를 사용하여 Service Fabric에서 ASP.NET Core 애플리케이션 모니터링 및 진단
 
-이 자습서는 시리즈의 5부입니다. Application Insights를 사용하여 Service Fabric 클러스터에서 실행되는 ASP.NET Core 응용 프로그램에 대한 모니터링 및 진단을 설정하는 단계를 안내합니다. 자습서의 1부, [.NET Service Fabric 애플리케이션 빌드](service-fabric-tutorial-create-dotnet-app.md)에서 개발한 애플리케이션에서 원격 분석 데이터를 수집합니다.
+이 자습서는 시리즈의 5부입니다. Application Insights를 사용하여 Service Fabric 클러스터에서 실행되는 ASP.NET Core 애플리케이션에 대한 모니터링 및 진단을 설정하는 단계를 안내합니다. 자습서의 1부, [.NET Service Fabric 애플리케이션 빌드](service-fabric-tutorial-create-dotnet-app.md)에서 개발한 애플리케이션에서 원격 분석 데이터를 수집합니다.
 
 자습서 시리즈의 4부에서는 다음 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -39,7 +39,7 @@ ms.locfileid: "52444787"
 > * [응용 프로그램을 원격 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [ASP.NET Core 프런트 엔드 서비스에 HTTPS 엔드포인트 추가](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * [Azure Pipelines를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-> * 응용 프로그램에 대한 모니터링 및 진단 설정
+> * 애플리케이션에 대한 모니터링 및 진단 설정
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -104,7 +104,7 @@ NuGet을 설정하는 단계는 다음과 같습니다.
 >[!NOTE]
 >Application Insights 패키지를 설치하기 전에 사전 설치되지 않은 경우 유사한 방식으로 Microsoft.ServiceFabric.Diagnostics.Internal 패키지를 설치해야 할 수도 있습니다.
 
-4. 오른쪽에서 응용 프로그램의 두 서비스, **VotingWeb** 및 **VotingData** 옆에 있는 두 확인란을 클릭하고 **설치**를 클릭합니다.
+4. 오른쪽에서 애플리케이션의 두 서비스, **VotingWeb** 및 **VotingData** 옆에 있는 두 확인란을 클릭하고 **설치**를 클릭합니다.
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
 5. 팝업되는 *변경 내용 검토* 대화 상자에서 **확인**을 클릭하고 *라이선스 승인*을 적용합니다. 서비스에 NuGet 추가가 완료됩니다.
 6. 이제 두 서비스에서 원격 분석 이니셜라이저를 설정해야 합니다. 이렇게 하려면 *VotingWeb.cs* 및 *VotingData.cs*를 엽니다. 둘 다에 대해 다음 두 단계를 수행합니다.
@@ -166,7 +166,7 @@ ConfigureServices(services => services
 )
 ```
 
-이제 응용 프로그램을 배포할 준비가 되었습니다. 맨 위에서 **시작**(또는 **F5**)을 클릭하면 Visual Studio가 애플리케이션을 빌드 및 패키지하고 로컬 클러스터를 설정한 다음, 애플리케이션을 배포합니다.
+이제 애플리케이션을 배포할 준비가 되었습니다. 맨 위에서 **시작**(또는 **F5**)을 클릭하면 Visual Studio가 애플리케이션을 빌드 및 패키지하고 로컬 클러스터를 설정한 다음, 애플리케이션을 배포합니다.
 
 애플리케이션 배포가 완료되면 Voting Sample 단일 페이지 애플리케이션을 볼 수 있는 [localhost:8080](localhost:8080)으로 이동합니다. 다른 몇 가지 선택 항목에 응답하여 일부 샘플 데이터와 원격 분석을 만듭니다.
 
@@ -262,7 +262,7 @@ public async Task<IActionResult> Delete(string name)
 > * Application Insights에서 앱 지도 기능 사용
 > * Application Insights API를 사용하여 사용자 지정 이벤트 추가
 
-이제 ASP.NET 응용 프로그램에 대한 모니터링 및 진단 설정을 완료했으므로 다음을 시도합니다.
+이제 ASP.NET 애플리케이션에 대한 모니터링 및 진단 설정을 완료했으므로 다음을 시도합니다.
 
 * [Service Fabric에서 모니터링 및 진단 추가 탐색](service-fabric-diagnostics-overview.md)
 * [Application Insights를 사용한 Service Fabric 이벤트 분석](service-fabric-diagnostics-event-analysis-appinsights.md)

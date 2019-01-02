@@ -217,7 +217,7 @@ DSVM IP 주소 | xxx|
 다음 두 파일은 프로젝트의 aml_config 폴더에 만들어집니다.
 
 -  dockerdsvm.compute: 이 파일은 원격 실행 대상에 대한 연결 및 구성 정보를 포함합니다.
--  dockerdsvm.runconfig: 이 파일은 Workbench 응용 프로그램 내에서 사용되는 실행 옵션의 집합입니다.
+-  dockerdsvm.runconfig: 이 파일은 Workbench 애플리케이션 내에서 사용되는 실행 옵션의 집합입니다.
 
 dockerdsvm.runconfig로 이동하고 다음과 같이 이러한 필드의 구성을 변경합니다.
 
@@ -280,7 +280,7 @@ DSVM Docker에서 `train.py` 스크립트를 실행합니다.
 다음 두 파일은 aml_config 폴더에 만들어집니다.
     
 -  myhdi.compute: 이 파일은 원격 실행 대상에 대한 연결 및 구성 정보를 포함합니다.
--  myhdi.runconfig: 이 파일은 Workbench 응용 프로그램 내에서 사용되는 실행 옵션의 집합입니다.
+-  myhdi.runconfig: 이 파일은 Workbench 애플리케이션 내에서 사용되는 실행 옵션의 집합입니다.
 
 
 myhdi.runconfig로 이동하고 다음과 같이 이러한 필드의 구성을 변경합니다.
@@ -347,7 +347,7 @@ Machine Learning Workbench에서 명령줄 프롬프트를 사용하여 CLI를 �
 
         az ml env setup -c -n [unique] --location eastus2 --cluster -z 5 --yes
 
-   `az ml env setup` 명령에서 `--cluster`를 사용하여 컨테이너 서비스를 환경으로 사용할 수 있습니다. [Azure Container Service](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-intro-kubernetes)에서 기계 학습 모델을 운영할 수 있습니다. 컨테이너화된 응용 프로그램의 배포, 크기 조정 및 관리 자동화에 [Kubernetes](https://kubernetes.io/)를 사용합니다. 이 명령은 실행되는 데 약 20분 정도 걸립니다. 다음을 사용하여 배포가 성공적으로 완료되었는지 확인합니다. 
+   `az ml env setup` 명령에서 `--cluster`를 사용하여 컨테이너 서비스를 환경으로 사용할 수 있습니다. [Azure Container Service](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-intro-kubernetes)에서 기계 학습 모델을 운영할 수 있습니다. 컨테이너화된 애플리케이션의 배포, 크기 조정 및 관리 자동화에 [Kubernetes](https://kubernetes.io/)를 사용합니다. 이 명령은 실행되는 데 약 20분 정도 걸립니다. 다음을 사용하여 배포가 성공적으로 완료되었는지 확인합니다. 
 
         az ml env show -g [unique]rg -n [unique]
 

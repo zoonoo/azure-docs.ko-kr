@@ -22,7 +22,7 @@ ms.locfileid: "53013239"
 ---
 # <a name="advisor-performance-recommendations"></a>Advisor 성능 권장 사항
 
-Azure Advisor 성능 권장 사항은 업무에 중요한 응용 프로그램의 속도 및 응답성을 향상시키는 데 도움이 됩니다. Advisor 대시보드의 **성능** 탭에서 Advisor를 사용하여 성능 권장 사항을 볼 수 있습니다.
+Azure Advisor 성능 권장 사항은 업무에 중요한 애플리케이션의 속도 및 응답성을 향상시키는 데 도움이 됩니다. Advisor 대시보드의 **성능** 탭에서 Advisor를 사용하여 성능 권장 사항을 볼 수 있습니다.
 
 ## <a name="reduce-dns-time-to-live-on-your-traffic-manager-profile-to-fail-over-to-healthy-endpoints-faster"></a>정상 엔드포인트로 더 빠르게 장애 조치(failover)할 수 있게 Traffic Manager의 DNS TTL(Time To Live) 단축
 

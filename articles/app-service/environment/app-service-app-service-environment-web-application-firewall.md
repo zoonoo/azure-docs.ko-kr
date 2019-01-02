@@ -1,6 +1,6 @@
 ---
 title: App Service Environment에 대해 WAF(웹 애플리케이션 방화벽) 구성 - Azure
-description: App Service Environment의 앞에 웹 응용 프로그램 방화벽을 구성하는 방법에 알아봅니다.
+description: App Service Environment의 앞에 웹 애플리케이션 방화벽을 구성하는 방법에 알아봅니다.
 services: app-service\web
 documentationcenter: ''
 author: naziml
@@ -22,7 +22,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/12/2018
 ms.locfileid: "53314876"
 ---
-# <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>App Service Environment에 대한 웹 응용 프로그램 방화벽(WAF) 구성
+# <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>App Service Environment에 대한 웹 애플리케이션 방화벽(WAF) 구성
 ## <a name="overview"></a>개요
 
 WAF(웹 응용 프로그램 방화벽)를 통해 SQL 삽입, 사이트 간 스크립팅, 맬웨어 업로드 및 응용 프로그램 DDoS와 기타 공격을 차단하기 위해 인바운드 웹 트래픽을 검사하여 웹 응용 프로그램을 보호할 수 있습니다. DLP(데이터 손실 방지)를 위해 백 엔드 웹 서버로부터의 응답도 검사합니다. App Service Environment는 격리와 추가 확장의 조합을 제공합니다. 이 조합은 악의적인 요청과 고용량 트래픽을 견뎌야 하는 호스트 비즈니스 중요한 웹 애플리케이션에 이상적인 환경을 제공합니다. Azure에서는 [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)를 사용하여 WAF 기능을 제공합니다.  Application Gateway와 App Service 환경을 통합하는 방법을 보려면 [Application Gateway와 ILB ASE 통합](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway) 문서를 참고하세요.
@@ -48,11 +48,11 @@ App Service Environment를 구성하려면 해당 제목의 [설명서](app-serv
 Barracuda에는 Azure의 가상 머신에 WAF를 배포하는 방법에 대한 [자세한 문서](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) 가 있습니다. 이 설명서를 따라할 때 중복성을 원하고 단일 실패 지점을 도입하지 않는 것뿐만 아니라, 동일한 클라우드 서비스 안에 최소 2개의 WAF 인스턴스 VM을 배포하는 것을 원합니다.
 
 ### <a name="adding-endpoints-to-cloud-service"></a>클라우드 서비스에 엔드포인트 추가
-클라우드 서비스 내에 2개 이상의 WAF VM이 있다면 [Azure 포털](https://portal.azure.com/) 을 사용하여 다음 이미지처럼 응용 프로그램에서 사용하는 HTTP와 HTTPS 엔드포인트를 추가할 수 있습니다.
+클라우드 서비스 내에 2개 이상의 WAF VM이 있다면 [Azure portal](https://portal.azure.com/) 을 사용하여 다음 이미지처럼 애플리케이션에서 사용하는 HTTP와 HTTPS 엔드포인트를 추가할 수 있습니다.
 
 ![엔드포인트 구성][ConfigureEndpoint]
 
-응용 프로그램에서 다른 엔드포인트를 사용하는 경우 이 목록에 추가해야 합니다. 
+애플리케이션에서 다른 엔드포인트를 사용하는 경우 이 목록에 추가해야 합니다. 
 
 ### <a name="configuring-barracuda-waf-through-its-management-portal"></a>해당 관리 포털을 통해 WAF Barracuda 구성
 해당 관리 포털을 통해 Barracuda WAF를 사용하여 TCP Port 8000에 대해 구성합니다. WAF VM의 여러 인스턴스가 있기 때문에 각 VM에 이 단계를 반복해서 수행해야 합니다. 
@@ -79,7 +79,7 @@ Barracuda에는 Azure의 가상 머신에 WAF를 배포하는 방법에 대한 [
 ![관리 서비스를 추가 합니다.][ManagementAddServices]
 
 > [!NOTE]
-> 응용 프로그램이 어떻게 구성되었는지, App Service Environment에서 어떤 기능들이 쓰이고 있는지에 따라서 트래픽을 80 및 443이 아닌 TCP 포트로 전달해야 합니다(예: 웹앱에 대한 IP SSL을 설치한 경우). App Service Environment에서 사용되는 네트워크 포트의 목록은 [인바운드 트래픽을 제어 설명서](app-service-app-service-environment-control-inbound-traffic.md)의 네트워크 포트 섹션을 참조하세요.
+> 애플리케이션이 어떻게 구성되었는지, App Service Environment에서 어떤 기능들이 쓰이고 있는지에 따라서 트래픽을 80 및 443이 아닌 TCP 포트로 전달해야 합니다(예: 웹앱에 대한 IP SSL을 설치한 경우). App Service Environment에서 사용되는 네트워크 포트의 목록은 [인바운드 트래픽을 제어 설명서](app-service-app-service-environment-control-inbound-traffic.md)의 네트워크 포트 섹션을 참조하세요.
 > 
 > 
 
@@ -92,7 +92,7 @@ Barracuda에는 Azure의 가상 머신에 WAF를 배포하는 방법에 대한 [
 
 ![Traffic Manager를 구성하는 방법][ConfigureTrafficManager]
 
-다음 예제와 같이 WAF에서 응용 프로그램으로 Traffic Manager Ping을 전송하려면, 웹 사이트 번역을 Barracuda WAF에 설치하여 트래픽을 응용 프로그램으로 전송하게 합니다.
+다음 예제와 같이 WAF에서 애플리케이션으로 Traffic Manager Ping을 전송하려면, 웹 사이트 번역을 Barracuda WAF에 설치하여 트래픽을 애플리케이션으로 전송하게 합니다.
 
 ![웹사이트 번역][WebsiteTranslations]
 

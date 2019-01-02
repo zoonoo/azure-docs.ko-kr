@@ -35,7 +35,7 @@ ms.locfileid: "50232905"
 > - 새 테넌트를 프로비전하는 방법.
 > - 앱에서 테넌트 활동을 모니터링하는 방법.
 
-[관련된 일련의 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)에서는 다양한 SaaS 디자인 및 관리 패턴을 탐색합니다. 이 자습서는 이 초기 배포 이후에도 빌드됩니다. 자습서를 사용하는 경우 제공된 스크립트를 검토하여 다양한 SaaS 패턴을 구현하는 방법을 확인할 수 있습니다. 스크립트는 SaaS 응용 프로그램 개발을 간소화하는 SQL Database의 기능을 보여줍니다.
+[관련된 일련의 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)에서는 다양한 SaaS 디자인 및 관리 패턴을 탐색합니다. 이 자습서는 이 초기 배포 이후에도 빌드됩니다. 자습서를 사용하는 경우 제공된 스크립트를 검토하여 다양한 SaaS 패턴을 구현하는 방법을 확인할 수 있습니다. 스크립트는 SaaS 애플리케이션 개발을 간소화하는 SQL Database의 기능을 보여줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -121,7 +121,7 @@ ms.locfileid: "50232905"
 
 ### <a name="azure-traffic-manager"></a>Azure Traffic Manager
 
-Wingtip 응용 프로그램에서는  [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md)를 사용하여 들어오는 요청의 분산을 제어합니다. 특정 테넌트의 이벤트 페이지에 액세스하는 URL은 다음 형식을 사용합니다.
+Wingtip 애플리케이션에서는  [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md)를 사용하여 들어오는 요청의 분산을 제어합니다. 특정 테넌트의 이벤트 페이지에 액세스하는 URL은 다음 형식을 사용합니다.
 
 - http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
 
@@ -255,14 +255,14 @@ Events Hub를 새로 고치면 목록에 새 테넌트가 나타납니다.
 - 자세한 내용은 [Wingtip Tickets SaaS 테넌트당 데이터베이스 애플리케이션을 기반으로 빌드되는 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)를 참조하세요.
 - 탄력적 풀에 대한 자세한 내용은  [Azure SQL 탄력적 풀이란?](sql-database-elastic-pool.md)을 참조하세요.
 - 탄력적 작업에 대한 자세한 내용은  [스케일 아웃된 클라우드 데이터베이스 관리](sql-database-elastic-jobs-overview.md)를 참조하세요.
-- 다중 테넌트 SaaS 응용 프로그램에 대한 자세한 내용은  [다중 테넌트 SaaS 응용 프로그램에 대한 디자인 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
+- 다중 테넌트 SaaS 애플리케이션에 대한 자세한 내용은  [다중 테넌트 SaaS 애플리케이션에 대한 디자인 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> - Wingtip Tickets SaaS 응용 프로그램을 배포하는 방법.
+> - Wingtip Tickets SaaS 애플리케이션을 배포하는 방법.
 > - 서버, 풀 및 앱을 구성하는 데이터베이스 정보.
 > - *카탈로그*를 통해 테넌트가 데이터에 매핑되는 방법.
 > - 새 테넌트를 프로비전하는 방법

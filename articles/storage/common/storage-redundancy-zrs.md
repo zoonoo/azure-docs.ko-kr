@@ -1,6 +1,6 @@
 ---
-title: ZRS(영역 중복 저장소)에서 고가용성 Azure Storage 응용 프로그램 빌드 | Microsoft Docs
-description: ZRS(영역 중복 저장소)는 고가용성 응용 프로그램을 빌드하는 간단한 방법을 제공합니다. ZRS는 데이터센터의 하드웨어 오류뿐 아니라 일부 지역적인 재해로부터 보호합니다.
+title: ZRS(영역 중복 저장소)에서 고가용성 Azure Storage 애플리케이션 빌드 | Microsoft Docs
+description: ZRS(영역 중복 저장소)는 고가용성 애플리케이션을 빌드하는 간단한 방법을 제공합니다. ZRS는 데이터센터의 하드웨어 오류뿐 아니라 일부 지역적인 재해로부터 보호합니다.
 services: storage
 author: tolandmike
 ms.service: storage

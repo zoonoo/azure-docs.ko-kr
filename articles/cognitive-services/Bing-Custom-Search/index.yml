@@ -49,7 +49,7 @@ sections:
 - title: 단계별 자습서
   items:
   - type: paragraph
-    text: Bing Custom Search API를 사용하여 응용 프로그램을 개발하는 방법을 알아봅니다.
+    text: Bing Custom Search API를 사용하여 애플리케이션을 개발하는 방법을 알아봅니다.
   - type: paragraph
     text: <a href="tutorials/custom-search-web-page">Custom Search 웹 페이지 빌드</a>
 - title: 참고 자료

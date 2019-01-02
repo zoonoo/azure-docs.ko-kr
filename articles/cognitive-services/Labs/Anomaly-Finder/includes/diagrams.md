@@ -20,7 +20,7 @@ ms.locfileid: "50165238"
 예상 값과 기본 상한 및 하한으로 데이터가 반환됩니다. 실제로 [sensitivity] 매개 변수를 정의한 다음, (ExpectedValue + sensitivity * UpperMargin)을 상한, (ExpectedValue - sensitivity * LowerMargin)을 하한으로 사용하여 변칙 요소를 직접 조정할 수 있습니다. [sensitivity] 값은 1보다 커야 합니다. 다음은 조정을 위한 몇 가지 다이어그램입니다.
 
 > [!NOTE]
-> 다이어그램은 응용 프로그램 예제가 아니라 별도의 도구에서 응용 프로그램 예제를 사용하여 생성된 것입니다.
+> 다이어그램은 애플리케이션 예제가 아니라 별도의 도구에서 애플리케이션 예제를 사용하여 생성된 것입니다.
 
 ![조정: sensitivity = 1.0](../media/sensitivity_1.png)
 ![조정: sensitivity = 1.5](../media/sensitivity_1.5.png)

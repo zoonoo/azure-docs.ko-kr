@@ -74,13 +74,13 @@ Storage 탐색기에서 열고 싶은 컨테이너로 이동한 후 현재 월�
 
 ![Storage 탐색기에 표시되는 예제 정보](./media/tutorial-export-acm-data/storage-explorer.png)
 
-CSV 파일 확장명을 열도록 설정된 프로그램 또는 응용 프로그램에서 파일이 열립니다. 다음은 Excel 예제입니다.
+CSV 파일 확장명을 열도록 설정된 프로그램 또는 애플리케이션에서 파일이 열립니다. 다음은 Excel 예제입니다.
 
 ![Excel에 표시되는 내보낸 CSV 데이터 예제](./media/tutorial-export-acm-data/example-export-data.png)
 
 ## <a name="access-exported-data-from-other-systems"></a>다른 시스템에서 내보낸 데이터에 액세스
 
-Cost Management 데이터를 내보내는 목적 중 하나는 외부 시스템에서 데이터에 액세스하는 것입니다. 대시보드 시스템 또는 기타 재무 시스템을 사용할 수 있습니다. 이러한 시스템의 종류는 매우 다양하기 때문에 예제를 보여드리는 것이 별 의미가 없습니다.  하지만 [Azure Storage 소개](../storage/common/storage-introduction.md) 문서를 참조하여 응용 프로그램에서 데이터에 액세스하는 방법을 알아볼 수 있습니다.
+Cost Management 데이터를 내보내는 목적 중 하나는 외부 시스템에서 데이터에 액세스하는 것입니다. 대시보드 시스템 또는 기타 재무 시스템을 사용할 수 있습니다. 이러한 시스템의 종류는 매우 다양하기 때문에 예제를 보여드리는 것이 별 의미가 없습니다.  하지만 [Azure Storage 소개](../storage/common/storage-introduction.md) 문서를 참조하여 애플리케이션에서 데이터에 액세스하는 방법을 알아볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

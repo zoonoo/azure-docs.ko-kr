@@ -23,9 +23,9 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 처리할 수 있는 �
 
 Event Hubs에 대한 자세한 내용은 [Event Hubs 개요][Event Hubs overview]를 참조하세요.
 
-이 자습서에서는 Go 응용 프로그램의 이벤트 허브에서 이벤트를 수신하는 방법을 설명합니다. 이벤트를 전송하는 방법을 알아보려면 [해당 보내기 문서](event-hubs-go-get-started-send.md)를 참조하세요.
+이 자습서에서는 Go 애플리케이션의 이벤트 허브에서 이벤트를 수신하는 방법을 설명합니다. 이벤트를 전송하는 방법을 알아보려면 [해당 보내기 문서](event-hubs-go-get-started-send.md)를 참조하세요.
 
-이 자습서의 코드는 [이 GitHub 샘플](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs)에서 가져온 것으로, 이 코드를 검사하면 가져온 명령문 및 변수 선언을 포함하여 온전하게 작동하는 응용 프로그램을 볼 수 있습니다.
+이 자습서의 코드는 [이 GitHub 샘플](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs)에서 가져온 것으로, 이 코드를 검사하면 가져온 명령문 및 변수 선언을 포함하여 온전하게 작동하는 애플리케이션을 볼 수 있습니다.
 
 다른 예는 [Event Hubs 패키지 리포지토리](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples)에 제공됩니다.
 
@@ -198,7 +198,7 @@ if err != nil {
 이 자습서에서는 **EventProcessorHost**의 단일 인스턴스를 사용합니다. 처리량과 안정성을 높이려면 여러 시스템에서 여러 **EventProcessorHost** 인스턴스를 실행해야 합니다. Leaser 시스템은 하나의 수신기만 연결하고, 지정된 시간에 지정된 파티션에서 메시지를 수신합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 이벤트 허브에서 메시지를 받는 Go 응용 프로그램을 만들었습니다. Go를 사용하여 이벤트 허브에 이벤트를 보내는 방법을 알아보려면 [이벤트 허브에서 이벤트 보내기 - Go](event-hubs-go-get-started-send.md)를 참조하세요.
+이 빠른 시작에서는 이벤트 허브에서 메시지를 받는 Go 애플리케이션을 만들었습니다. Go를 사용하여 이벤트 허브에 이벤트를 보내는 방법을 알아보려면 [이벤트 허브에서 이벤트 보내기 - Go](event-hubs-go-get-started-send.md)를 참조하세요.
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md

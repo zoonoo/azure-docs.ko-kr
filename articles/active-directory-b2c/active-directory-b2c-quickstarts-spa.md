@@ -19,7 +19,7 @@ ms.locfileid: "50250372"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>빠른 시작: Azure Active Directory B2C를 사용하여 단일 페이지 앱에 대한 로그인 설정 
 
-Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고객을 보호하기 위한 클라우드 ID 관리 기능을 제공합니다. Azure AD B2C를 사용하면 응용 프로그램에서 개방형 표준 프로토콜을 사용하여 소셜 계정 및 엔터프라이즈 계정을 인증할 수 있습니다. 이 빠른 시작에서는 단일 페이지 응용 프로그램에서 소셜 ID 공급자를 사용하여 로그인하고 Azure AD B2C로 보호되는 웹 API를 호출합니다.
+Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고객을 보호하기 위한 클라우드 ID 관리 기능을 제공합니다. Azure AD B2C를 사용하면 애플리케이션에서 개방형 표준 프로토콜을 사용하여 소셜 계정 및 엔터프라이즈 계정을 인증할 수 있습니다. 이 빠른 시작에서는 단일 페이지 애플리케이션에서 소셜 ID 공급자를 사용하여 로그인하고 Azure AD B2C로 보호되는 웹 API를 호출합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -50,7 +50,7 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
     Listening on port 6420...
     ```
 
-2. 응용 프로그램의 URL로 이동합니다. 예: `http://localhost:6420`.
+2. 애플리케이션의 URL로 이동합니다. 예: `http://localhost:6420`.
 
 ## <a name="sign-in-using-your-account"></a>계정을 사용하여 로그인
 
@@ -74,7 +74,7 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
 
 ![웹 API 응답](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
 
-샘플 단일 페이지 응용 프로그램은 보호되는 웹 API 리소스에 대한 요청에 액세스 토큰을 포함합니다.
+샘플 단일 페이지 애플리케이션은 보호되는 웹 API 리소스에 대한 요청에 액세스 토큰을 포함합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -82,7 +82,7 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 샘플 단일 페이지 응용 프로그램을 사용하여 사용자 지정 로그인 페이지에 로그인하고, 소셜 ID 공급자에 로그인하고, Azure AD B2C 계정을 만들고, Azure AD B2C로 보호되는 웹 API를 호출했습니다. 
+이 빠른 시작에서는 샘플 단일 페이지 애플리케이션을 사용하여 사용자 지정 로그인 페이지에 로그인하고, 소셜 ID 공급자에 로그인하고, Azure AD B2C 계정을 만들고, Azure AD B2C로 보호되는 웹 API를 호출했습니다. 
 
 사용자 고유의 Azure AD B2C 테넌트 만들기를 시작하세요.
 

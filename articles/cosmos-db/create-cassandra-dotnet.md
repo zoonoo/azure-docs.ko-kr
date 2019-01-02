@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Cassandra API와 .NET - Azure Cosmos DB'
-description: 이 빠른 시작에서는 Azure Portal 및 .NET과 함께 Azure Cosmos DB Cassandra API를 사용하여 프로필 응용 프로그램을 만드는 방법을 보여 줍니다.
+description: 이 빠른 시작에서는 Azure Portal 및 .NET과 함께 Azure Cosmos DB Cassandra API를 사용하여 프로필 애플리케이션을 만드는 방법을 보여 줍니다.
 services: cosmos-db
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
@@ -155,7 +155,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     ```cmd
     Install-Package CassandraCSharpDriver
     ```
-3. Ctrl+F5를 눌러 응용 프로그램을 실행합니다. 앱이 콘솔 창에 표시됩니다. 
+3. Ctrl+F5를 눌러 애플리케이션을 실행합니다. 앱이 콘솔 창에 표시됩니다. 
 
     ![출력 보기 및 확인](./media/create-cassandra-dotnet/output.png)
 

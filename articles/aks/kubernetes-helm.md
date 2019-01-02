@@ -24,7 +24,7 @@ ms.locfileid: "52993250"
 
 이 문서에 설명된 단계에서는 AKS 클러스터를 만들고 클러스터와 `kubectl` 연결을 설정했다고 가정합니다. 이러한 항목이 필요한 경우 [AKS 빠른 시작][aks-quickstart]을 참조하세요.
 
-Helm CLI도 설치되어 있어야 합니다. 이것은 개발 시스템에서 실행되는 클라이언트로, Helm으로 응용 프로그램을 시작, 중지 및 관리할 수 있습니다. Azure Cloud Shell을 사용하는 경우 Helm CLI가 이미 설치되어 있습니다. 로컬 플랫폼에 대한 설치 지침은 [Helm 설치][helm-install]를 참조하세요.
+Helm CLI도 설치되어 있어야 합니다. 이것은 개발 시스템에서 실행되는 클라이언트로, Helm으로 애플리케이션을 시작, 중지 및 관리할 수 있습니다. Azure Cloud Shell을 사용하는 경우 Helm CLI가 이미 설치되어 있습니다. 로컬 플랫폼에 대한 설치 지침은 [Helm 설치][helm-install]를 참조하세요.
 
 ## <a name="create-a-service-account"></a>서비스 계정 만들기
 
@@ -87,7 +87,7 @@ helm init \
 
 ## <a name="find-helm-charts"></a>Helm 차트 찾기
 
-Helm 차트는 Kubernetes 클러스터에 응용 프로그램을 배포하는 데 사용됩니다. 미리 만들어진 Helm 차트를 검색하려면 [helm search][helm-search] 명령을 사용합니다.
+Helm 차트는 Kubernetes 클러스터에 애플리케이션을 배포하는 데 사용됩니다. 미리 만들어진 Helm 차트를 검색하려면 [helm search][helm-search] 명령을 사용합니다.
 
 ```console
 helm search

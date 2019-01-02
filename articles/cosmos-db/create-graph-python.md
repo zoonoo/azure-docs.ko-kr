@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Gremlin API와 Python - Azure Cosmos DB'
-description: 이 빠른 시작은 Azure Portal 및 Python과 함께 Azure Cosmos DB Gremlin API를 사용하여 콘솔 응용 프로그램을 만드는 방법을 보여줍니다.
+description: 이 빠른 시작은 Azure Portal 및 Python과 함께 Azure Cosmos DB Gremlin API를 사용하여 콘솔 애플리케이션을 만드는 방법을 보여줍니다.
 services: cosmos-db
 author: luisbosquez
 ms.service: cosmos-db
@@ -160,7 +160,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
    pip install -r requirements.txt
    ```
 
-3. git 터미널 창에서 다음 명령을 사용하여 python 응용 프로그램을 시작합니다.
+3. git 터미널 창에서 다음 명령을 사용하여 Python 애플리케이션을 시작합니다.
     
     ```
     python connect.py

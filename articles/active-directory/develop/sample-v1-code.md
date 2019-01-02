@@ -39,9 +39,9 @@ Microsoft Azure AD(Azure Active Directory)를 사용하여 웹 애플리케이�
 
 GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsoft Azure Active Directory 샘플 및 설명서](https://github.com/Azure-Samples?page=3&query=active-directory)를 참조하세요.
 
-## <a name="single-page-applications"></a>단일 페이지 응용 프로그램
+## <a name="single-page-applications"></a>단일 페이지 애플리케이션
 
-이 샘플에서는 Azure AD로 보안이 설정된 단일 페이지 응용 프로그램을 작성하는 방법을 보여 줍니다.
+이 샘플에서는 Azure AD로 보안이 설정된 단일 페이지 애플리케이션을 작성하는 방법을 보여 줍니다.
 
  플랫폼 | 자체 API 호출 | 다른 Web API 호출
  -------- |  --------------------- | ------------------ | ----------------
@@ -52,7 +52,7 @@ GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Micro
 
 ### <a name="web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity"></a>웹 애플리케이션은 사용자 ID로 사용자를 로그인하고 Microsoft Graph 또는 Web API를 호출
 
-다음 샘플은 사용자를 로그인하는 웹 응용 프로그램을 보여 줍니다. 일부 응용 프로그램은 로그인한 사용자의 이름으로 Microsoft Graph 또는 사용자 고유의 Web API도 호출합니다.
+다음 샘플은 사용자를 로그인하는 웹 애플리케이션을 보여 줍니다. 일부 애플리케이션은 로그인한 사용자의 이름으로 Microsoft Graph 또는 사용자 고유의 Web API도 호출합니다.
 
  플랫폼 | 사용자만 로그인 | Microsoft Graph 또는 AAD Graph 호출| 또 다른 ASP.NET 또는 ASP.NET Core 2.0 Web API 호출
  -------- | ------------------- | --------------------- | -------------------------
@@ -64,7 +64,7 @@ GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Micro
 
 ### <a name="web-applications-demonstrating-role-based-access-control-authorization"></a>역할 기반 액세스 제어(권한 부여)를 보여주는 웹 애플리케이션
 
-다음 샘플은 RBAC(역할 기반 액세스 제어)를 구현하는 방법을 보여 줍니다. RBAC는 웹 응용 프로그램의 특정 기능에 대한 사용 권한을 특정 사용자로 제한하는 데 사용됩니다. 사용자가 **Azure AD 그룹**에 속해 있는지 또는 지정된 응용 프로그램 **역할**이 있는지에 따라 권한이 부여됩니다.
+다음 샘플은 RBAC(역할 기반 액세스 제어)를 구현하는 방법을 보여 줍니다. RBAC는 웹 애플리케이션의 특정 기능에 대한 사용 권한을 특정 사용자로 제한하는 데 사용됩니다. 사용자가 **Azure AD 그룹**에 속해 있는지 또는 지정된 애플리케이션 **역할**이 있는지에 따라 권한이 부여됩니다.
 
 플랫폼 | 샘플
  -------- | -------------------
@@ -72,7 +72,7 @@ GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Micro
 
 ## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>Microsoft Graph 또는 Web API를 호출하는 데스크톱 및 모바일 공용 클라이언트의 애플리케이션
 
-다음 샘플은 사용자 이름으로 Microsoft Graph 또는 Web API에 액세스하는 공용 클라이언트 응용 프로그램(데스크톱/모바일 응용 프로그램)을 보여 줍니다. 디바이스 및 플랫폼에 따라 애플리케이션에서 다른 방식(흐름/권한 부여)으로 사용자를 로그인할 수 있습니다. 
+다음 샘플은 사용자 이름으로 Microsoft Graph 또는 Web API에 액세스하는 공용 클라이언트 애플리케이션(데스크톱/모바일 애플리케이션)을 보여 줍니다. 디바이스 및 플랫폼에 따라 애플리케이션에서 다른 방식(흐름/권한 부여)으로 사용자를 로그인할 수 있습니다. 
 
 - 대화형으로
 - 자동으로(Windows의 Windows 통합 인증 또는 사용자 이름/암호 사용) 
@@ -105,7 +105,7 @@ ASP.NET 웹앱  | ![.NET](media/sample-v2-code/logo_NETframework.png) | 클라�
 
 다음 샘플은 Azure AD로 node.js web API를 보호하는 방법을 보여줍니다.
 
-이 문서의 이전 섹션에서 ASP.NET 또는 ASP.NET Core **Web API**를 **호출**하는 클라이언트 응용 프로그램을 보여 주는 다른 샘플을 확인할 수도 있습니다. 해당 샘플은 이 섹션에서 다시 언급되지 않지만 위 또는 아래 표의 마지막 열에 나와 있습니다.
+이 문서의 이전 섹션에서 ASP.NET 또는 ASP.NET Core **Web API**를 **호출**하는 클라이언트 애플리케이션을 보여 주는 다른 샘플을 확인할 수도 있습니다. 해당 샘플은 이 섹션에서 다시 언급되지 않지만 위 또는 아래 표의 마지막 열에 나와 있습니다.
 
 플랫폼 | 샘플
  -------- | -------------------

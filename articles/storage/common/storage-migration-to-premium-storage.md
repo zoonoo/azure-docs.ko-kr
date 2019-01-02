@@ -21,7 +21,7 @@ ms.locfileid: "51232561"
 > 이 문서는 관리되지 않는 표준 디스크를 사용하는 VM을 관리되지 않는 프리미엄 디스크를 사용하는 VM으로 마이그레이션하는 방법을 설명합니다. 새 VM에 Azure Managed Disks를 사용하고 이전의 관리되지 않은 디스크를 Managed Disks로 변환하는 것이 좋습니다. Managed Disks에서 내부 저장소 계정을 처리해 주기 때문에 사용자가 처리할 필요가 없습니다. 자세한 내용은 [Managed Disks 개요](../../virtual-machines/windows/managed-disks-overview.md)를 참조하세요.
 >
 
-Azure Premium Storage는 I/O 사용량이 많은 작업을 실행하는 가상 머신에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. 응용 프로그램의 VM 디스크를 Azure Premium Storage로 마이그레이션하여 이러한 디스크의 속도와 성능 혜택을 활용할 수 있습니다.
+Azure Premium Storage는 I/O 사용량이 많은 작업을 실행하는 가상 머신에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. 애플리케이션의 VM 디스크를 Azure Premium Storage로 마이그레이션하여 이러한 디스크의 속도와 성능 혜택을 활용할 수 있습니다.
 
 이 가이드의 목적은 Azure Premium Storage를 처음 사용하는 사용자가 현재 시스템에서 Premium Storage로 원활한 전환이 가능하도록 돕는 것입니다. 이 가이드에서는 이 프로세스의 세 가지 주요 구성 요소를 다룹니다.
 
@@ -32,10 +32,10 @@ Azure Premium Storage는 I/O 사용량이 많은 작업을 실행하는 가상 �
 VM을 다른 플랫폼에서 Azure Premium Storage로 마이그레이션할 수도 있고 기존 Azure VM을 표준 저장소에서 Premium Storage로 마이그레이션할 수도 있습니다. 이 가이드에서는 두 시나리오의 단계를 다룹니다. 시나리오에 따라 관련 섹션에 지정된 단계를 따릅니다.
 
 > [!NOTE]
-> Premium Storage의 기능 개요 및 가격 책정은 Premium Storage: [Azure Virtual Machine 워크로드를 위한 고성능 저장소](../../virtual-machines/windows/premium-storage.md)를 참조하세요. 응용 프로그램이 최고 성능을 낼 수 있도록 높은 IOPS가 필요한 모든 가상 머신 디스크를 Azure Premium Storage로 마이그레이션하는 것이 좋습니다. 디스크에 높은 IOPS가 필요하지 않은 경우, 가상 머신 디스크 데이터를 SSD가 아닌 하드 디스크 드라이브(HDD)에 저자하는 Standard Storage를 사용하여 비용을 절약할 수 있습니다.
+> Premium Storage의 기능 개요 및 가격 책정은 Premium Storage: [Azure Virtual Machine 워크로드를 위한 고성능 저장소](../../virtual-machines/windows/premium-storage.md)를 참조하세요. 애플리케이션이 최고 성능을 낼 수 있도록 높은 IOPS가 필요한 모든 가상 머신 디스크를 Azure Premium Storage로 마이그레이션하는 것이 좋습니다. 디스크에 높은 IOPS가 필요하지 않은 경우, 가상 머신 디스크 데이터를 SSD가 아닌 하드 디스크 드라이브(HDD)에 저자하는 Standard Storage를 사용하여 비용을 절약할 수 있습니다.
 >
 
-전체 마이그레이션 프로세스를 완료하기 위해서는 이 가이드에 제공된 단계 전과 후에 추가 작업이 필요할 수 있습니다. 이러한 작업의 예로는 가상 네트워크 또는 엔드포인트를 구성하거나 응용 프로그램 자체 내에서 코드를 변경하는 것이 포함되며 이러한 작업은 응용 프로그램에서 약간의 가동 중지 시간이 필요할 수 있습니다. 이러한 작업은 각 응용 프로그램에 대해 고유하며 Premium Storage로 가능한 한 원활하게 완전히 전환하기 위해서는 이 가이드에 제공된 단계에 따라 완료해야 합니다.
+전체 마이그레이션 프로세스를 완료하기 위해서는 이 가이드에 제공된 단계 전과 후에 추가 작업이 필요할 수 있습니다. 이러한 작업의 예로는 가상 네트워크 또는 엔드포인트를 구성하거나 애플리케이션 자체 내에서 코드를 변경하는 것이 포함되며 이러한 작업은 애플리케이션에서 약간의 가동 중지 시간이 필요할 수 있습니다. 이러한 작업은 각 애플리케이션에 대해 고유하며 Premium Storage로 가능한 한 원활하게 완전히 전환하기 위해서는 이 가이드에 제공된 단계에 따라 완료해야 합니다.
 
 ## <a name="plan-the-migration-to-premium-storage"></a>Premium Storage로 마이그레이션 계획 수립
 이 섹션은 이 문서의 마이그레이션 단계를 수행할 준비를 하고 가장 적합한 VM 및 디스크 유형을 선택할 수 있도록 도와주기 위한 섹션입니다.
@@ -46,7 +46,7 @@ VM을 다른 플랫폼에서 Azure Premium Storage로 마이그레이션할 수�
 * Premium Storage에서 실행되는 Azure VM을 사용하려는 경우 Premium Storage 지원 VM을 사용해야 합니다. Premium Storage 지원 VM에서 표준 저장소 디스크와 Premium Storage 디스크를 모두 사용할 수 있습니다. 프리미엄 저장소 디스크를 나중에 더 많은 VM 형식으로 사용할 수 있습니다. 사용 가능한 Azure VM 디스크 유형 및 크기에 대한 자세한 내용은 [가상 머신 크기](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [Cloud Services 크기](../../cloud-services/cloud-services-sizes-specs.md)를 참조하세요.
 
 ### <a name="considerations"></a>고려 사항
-Azure VM은 여러 Premium Storage 디스크의 연결을 지원하므로 응용 프로그램이 VM당 최대 256TB의 저장소를 지원할 수 있습니다. Premium Storage를 사용할 경우 읽기 작업의 대기 시간이 매우 짧은 상태로 VM당 80,000 IOPS(초당 입/출력 작업 수) 및 VM당 디스크 처리량 초당 2000MB를 얻을 수 있습니다. 다양한 VM 및 디스크 옵션이 있습니다. 이 섹션은 워크로드에 가장 적합한 옵션을 찾을 수 있도록 도와주기 위해 준비되었습니다.
+Azure VM은 여러 Premium Storage 디스크의 연결을 지원하므로 애플리케이션이 VM당 최대 256TB의 저장소를 지원할 수 있습니다. Premium Storage를 사용하면 애플리케이션은 읽기 작업의 대기 시간이 매우 짧은 상태로 VM당 80,000 IOPS(초당 입/출력 작업 수) 및 VM당 디스크 처리량 초당 2000MB를 얻을 수 있습니다. 다양한 VM 및 디스크 옵션이 있습니다. 이 섹션은 워크로드에 가장 적합한 옵션을 찾을 수 있도록 도와주기 위해 준비되었습니다.
 
 #### <a name="vm-sizes"></a>VM 크기
 Azure VM 크기 사양은 [가상 머신의 크기](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 나열되어 있습니다. Premium Storage와 작동하는 가상 머신의 성능 특징을 검토하고 워크로드에 가장 적합한 VM 크기를 선택합니다. VM에서 디스크 트래픽을 제어하기에 충분한 대역폭을 사용할 수 있는지 확인합니다.
@@ -63,7 +63,7 @@ VM에서 사용할 수 있는 디스크에는 다섯 종류가 있으며 각 종
 사용자 워크로드에 따라 추가 데이터 디스크가 VM에 필요한 경우를 결정합니다. VM에 여러 영구 데이터 디스크를 연결할 수 있습니다. 필요한 경우, 볼륨의 성능과 용량을 늘리도록 디스크에 걸쳐 스트라이핑할 수 있습니다. (디스크 스트라이프란 무엇인지 [여기서](../../virtual-machines/windows/premium-storage-performance.md#disk-striping) 확인하세요.) [저장소 공간][4]을 사용하여 Premium Storage 데이터 디스크를 스트라이프하는 경우, 사용되는 각 디스크에 대해 하나의 열로 구성해야 합니다. 그렇지 않으면 디스크에 트래픽이 고르게 분배되지 않아 스트라이프 볼륨의 전반적인 성능이 예상보다 저하될 수 있습니다. Linux VM의 경우 *mdadm* 유틸리티를 사용하여 동일한 작업을 수행할 수 있습니다. 자세한 내용은 [Linux에서 소프트웨어 RAID 구성](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서를 참조하세요.
 
 #### <a name="storage-account-scalability-targets"></a>Storage 계정의 확장성 목표
-Premium Storage 계정에는 [Azure Storage 확장성 및 성능 목표](storage-scalability-targets.md) 이외에 다음 확장성 목표가 있습니다. 응용 프로그램의 요구가 단일 저장소 계정의 확장성 목표를 초과하는 경우, 여러 저장소 계정을 사용하도록 응용 프로그램을 빌드하고 데이터를 이러한 저장소 계정에 분할합니다.
+Premium Storage 계정에는 [Azure Storage 확장성 및 성능 목표](storage-scalability-targets.md) 이외에 다음 확장성 목표가 있습니다. 애플리케이션의 요구가 단일 저장소 계정의 확장성 목표를 초과하는 경우, 여러 저장소 계정을 사용하도록 애플리케이션을 빌드하고 데이터를 이러한 저장소 계정에 분할합니다.
 
 | 총 계정 용량 | 로컬 중복 Storage 계정의 총 대역폭 |
 |:--- |:--- |
@@ -72,7 +72,7 @@ Premium Storage 계정에는 [Azure Storage 확장성 및 성능 목표](storage
 프리미엄 저장소 사양에 대한 자세한 내용은 [Premium Storage를 사용하는 경우 확장성 및 성능 목표](../../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)를 참조하세요.
 
 #### <a name="disk-caching-policy"></a>디스크 캐싱 정책
-기본적으로 디스크 캐싱 정책은 VM에 연결된 프리미엄 운영 체제 디스크에 대한 *읽기 / 쓰기* 및 모든 프리미엄 데이터 디스크에 대한 *읽기 전용*입니다. 응용 프로그램의 IO에 대한 최적의 성능을 얻으려면 이 구성 설정이 좋습니다. 쓰기가 많거나 쓰기 전용인 디스크의 경우(예: SQL Server 로그 파일) 더 나은 애플리케이션 성능을 얻기 위해 디스크 캐싱을 사용하지 않도록 설정합니다. [Azure Portal](https://portal.azure.com) 또는 *Set-AzureDataDisk* cmdlet의 *-HostCaching* 매개 변수를 사용하여 기존 데이터 디스크에 대한 캐시 설정을 업데이트할 수 있습니다.
+기본적으로 디스크 캐싱 정책은 VM에 연결된 프리미엄 운영 체제 디스크에 대한 *읽기 / 쓰기* 및 모든 프리미엄 데이터 디스크에 대한 *읽기 전용*입니다. 애플리케이션의 IO에 대한 최적의 성능을 얻으려면 이 구성 설정이 좋습니다. 쓰기가 많거나 쓰기 전용인 디스크의 경우(예: SQL Server 로그 파일) 더 나은 애플리케이션 성능을 얻기 위해 디스크 캐싱을 사용하지 않도록 설정합니다. [Azure Portal](https://portal.azure.com) 또는 *Set-AzureDataDisk* cmdlet의 *-HostCaching* 매개 변수를 사용하여 기존 데이터 디스크에 대한 캐시 설정을 업데이트할 수 있습니다.
 
 #### <a name="location"></a>위치
 Azure Premium Storage를 사용할 수 있는 위치를 선택합니다. 사용 가능한 위치에 대한 최신 정보는 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services)를 참조하세요. VM에 대한 디스크를 저장하는 Storage 계정과 동일한 지역에 있는 VM은 별도 영역에 있는 경우보다 훨씬 우수한 성능을 제공합니다.
@@ -81,7 +81,7 @@ Azure Premium Storage를 사용할 수 있는 위치를 선택합니다. 사용 
 Azure VM을 만들 때 특정 VM 설정을 구성해야 합니다. 나중에 다른 설정을 수정하거나 추가할 수 있지만 몇 가지 설정은 VM의 수명 동안 고정됩니다. 이러한 Azure VM 구성 설정을 검토 하고 워크로드 부하 요구 사항과 일치하도록 적절하게 구성되었는지 확인해야 합니다.
 
 ### <a name="optimization"></a>최적화
-[Azure Premium Storage: 고성능을 위한 설계](../../virtual-machines/windows/premium-storage-performance.md) Azure Premium Storage를 사용하여 고성능 응용 프로그램을 구축하기 위한 지침을 제공합니다. 응용 프로그램에서 사용되는 기술에 적용 가능한 성능 모범 사례가 결합된 지침을 사용할 수 있습니다.
+[Azure Premium Storage: 고성능을 위한 설계](../../virtual-machines/windows/premium-storage-performance.md) Azure Premium Storage를 사용하여 고성능 응용 프로그램을 구축하기 위한 지침을 제공합니다. 애플리케이션에서 사용되는 기술에 적용 가능한 성능 모범 사례가 결합된 지침을 사용할 수 있습니다.
 
 ## <a name="prepare-and-copy-virtual-hard-disks-VHDs-to-premium-storage"></a>VHD(가상 하드 디스크)를 준비하여 Premium Storage로 복사
 다음 섹션에서는 VM에서 VHD를 준비하여 Azure Storage에 VHD를 복사하기 위한 지침을 제공합니다.
@@ -141,7 +141,7 @@ Azure VM을 만들 때 특정 VM 설정을 구성해야 합니다. 나중에 다
 Ubuntu VM에 대해 동일한 작업을 수행할 virt sysprep를 사용할 수 있습니다. 자세한 내용은 [virt-sysprep](http://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html) 를 참조하세요. 다른 Linux 운영 체제는 공개 소스 [Linux 서버 프로비전 소프트웨어](http://www.cyberciti.biz/tips/server-provisioning-software.html) 의 일부도 참조하세요.
 
 ##### <a name="use-a-unique-operating-system-vhd-to-create-a-single-vm-instance"></a>고유의 운영 체제 VHD를 사용하여 단일 VM 인스턴스 만들기
-컴퓨터 특정 데이터를 필요로 하는 VM에서 실행 중인 애플리케이션이 있는 경우 VHD를 일반화하지 않습니다. 일반화되지 않은 VHD는 고유한 Azure VM 인스턴스를 만드는 데 사용될 수 있습니다. 예를들어 VHD에 도메인 컨트롤러가 있는 경우, sysprep를 실행하면 도메인 컨트롤러가 비효율적이게 됩니다. VHD를 일반화하기 전에 VM에서 실행 중인 응용 프로그램을 검토하고 이러한 응용 프로그램에서 sysprep를 실행할 때의 영향을 확인합니다.
+컴퓨터 특정 데이터를 필요로 하는 VM에서 실행 중인 애플리케이션이 있는 경우 VHD를 일반화하지 않습니다. 일반화되지 않은 VHD는 고유한 Azure VM 인스턴스를 만드는 데 사용될 수 있습니다. 예를들어 VHD에 도메인 컨트롤러가 있는 경우, sysprep를 실행하면 도메인 컨트롤러가 비효율적이게 됩니다. VHD를 일반화하기 전에 VM에서 실행 중인 애플리케이션을 검토하고 이러한 애플리케이션에서 sysprep를 실행할 때의 영향을 확인합니다.
 
 ##### <a name="register-data-disk-vhd"></a>데이터 디스크 VHD 등록
 Azure에 마이그레이션할 데이터 디스크가 있는 경우 이 데이터 디스크를 사용하는 VM을 종료해야 합니다.
@@ -237,7 +237,7 @@ C:\PS> Start-AzureStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceCont
 #### <a name="step-2-create-the-destination-for-your-vhd"></a>2단계. VHD에 대한 대상 만들기
 VHD를 유지 관리하기 위한 저장소 계정을 만듭니다. VHD를 저장할 위치를 계획할 때 다음 사항을 고려해야 합니다.
 
-* 응용 프로그램 요구 사항에 따라 대상 저장소 계정은 표준 또는 프리미엄 저장소가 될 수 있습니다.
+* 애플리케이션 요구 사항에 따라 대상 저장소 계정은 표준 또는 프리미엄 저장소가 될 수 있습니다.
 * 저장소 계정 지역은 최종 단계에서 만들 Premium Storage 지원 Azure VM과 동일해야 합니다. 새 저장소 계정으로 복사하거나 필요에 따라 동일한 저장소 계정을 사용할 수 있습니다.
 * 다음 단계는 대상 저장소 계정의 저장소 계정 키를 복사하고 저장합니다.
 
@@ -415,14 +415,14 @@ Update-AzureVM  -VM $vm
 ```
 
 > [!NOTE]
-> 이 가이드에서 다루지 않은 응용 프로그램을 지원하기 위해 추가 단계가 필요할 수 있습니다.
+> 이 가이드에서 다루지 않은 애플리케이션을 지원하기 위해 추가 단계가 필요할 수 있습니다.
 >
 >
 
 ### <a name="checking-and-plan-backup"></a>확인 및 백업 계획
 새 VM이 준비되고 실행 중이면 원본 VM과 동일한 로그인 ID 및 암호를 사용하여 액세스하고 모든 항목이 예상대로 작동하는지 확인합니다. 스트라이프 볼륨을 포함한 모든 설정이 새 VM에 제공됩니다.
 
-마지막 단계는 응용 프로그램 요구 사항에 따라 새 VM의 백업 및 유지 관리 일정을 계획하는 것입니다.
+마지막 단계는 애플리케이션 요구 사항에 따라 새 VM의 백업 및 유지 관리 일정을 계획하는 것입니다.
 
 ### <a name="a-sample-migration-script"></a>샘플 마이그레이션 스크립트
 마이그레이션할 여러 VM이 있는 경우 PowerShell 스크립트를 통한 자동화가 도움이 됩니다. 다음은 VM의 마이그레이션을 자동화하는 예제 스크립트입니다. 아래의 스크립트는 현재 VM 디스크에 대해 몇 가지 조건을 가정하고 만든 예제일 뿐입니다. 특정 시나리오에 맞게 스크립트를 업데이트해야 할 수 있습니다.
@@ -733,7 +733,7 @@ Update-AzureVM  -VM $vm
 ```
 
 #### <a name="optimization"></a>최적화
-표준 디스크와 잘 작동하도록 현재 VM 구성을 사용자 지정할 수 있습니다. 예를 들어, 스트라이프 볼륨의 많은 디스크를 사용하여 성능을 향상시킵니다. 예를 들어 Premium Storage에서 4개의 디스크를 개별적으로 사용하는 대신 단일 디스크를 사용하여 비용을 최적화할 수 있습니다. 이와 같은 최적화는 상황별로 처리해야 하며 마이그레이션 후 사용자 지정 단계가 필요합니다. 이 프로세스는 설치 시 정의된 디스크 레이아웃에 종속된 응용 프로그램 및 데이터베이스에 대해서는 제대로 작동하지 않을 수 있습니다.
+표준 디스크와 잘 작동하도록 현재 VM 구성을 사용자 지정할 수 있습니다. 예를 들어, 스트라이프 볼륨의 많은 디스크를 사용하여 성능을 향상시킵니다. 예를 들어 Premium Storage에서 4개의 디스크를 개별적으로 사용하는 대신 단일 디스크를 사용하여 비용을 최적화할 수 있습니다. 이와 같은 최적화는 상황별로 처리해야 하며 마이그레이션 후 사용자 지정 단계가 필요합니다. 이 프로세스는 설치 시 정의된 디스크 레이아웃에 종속된 애플리케이션 및 데이터베이스에 대해서는 제대로 작동하지 않을 수 있습니다.
 
 ##### <a name="preparation"></a>준비
 1. 이전 섹션에서 설명한 대로 간단한 마이그레이션을 완료합니다. 마이그레이션 후 새 VM에서 최적화가 수행됩니다.
@@ -748,7 +748,7 @@ Update-AzureVM  -VM $vm
 디스크 성능 향상을 위해 애플리케이션을 튜닝하는 방법은 [애플리케이션 성능 최적화](../../virtual-machines/windows/premium-storage-performance.md#optimizing-application-performance)를 참조하세요.
 
 ### <a name="application-migrations"></a>애플리케이션 마이그레이션
-데이터베이스 및 기타 복잡한 응용 프로그램에는 응용 프로그램 공급자가 마이그레이션에 대해 정의한 특별한 단계가 필요할 수 있습니다. 각각의 애플리케이션 설명서를 참조하세요. 예: 일반적으로 백업 및 복원을 통해 데이터베이스를 마이그레이션할 수 있습니다.
+데이터베이스 및 기타 복잡한 애플리케이션에는 애플리케이션 공급자가 마이그레이션에 대해 정의한 특별한 단계가 필요할 수 있습니다. 각각의 애플리케이션 설명서를 참조하세요. 예: 일반적으로 백업 및 복원을 통해 데이터베이스를 마이그레이션할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 가상 머신 마이그레이션에 대한 특정 시나리오에 대한 다음 리소스를 확인합니다.

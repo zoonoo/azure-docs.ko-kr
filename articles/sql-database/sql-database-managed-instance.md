@@ -92,7 +92,7 @@ Managed Instance는 두 개의 서비스 계층에서 사용할 수 있습니다
 
 다음 목록에서는 범용 서비스 계층의 주요 특징을 설명합니다.
 
-- 일반적인 성능 요구 사항이 있는 대부분의 비즈니스 응용 프로그램에 적합한 디자인
+- 일반적인 성능 요구 사항이 있는 대부분의 비즈니스 애플리케이션에 적합한 디자인
 - 고성능 Azure Premium 저장소(8TB)
 - 신뢰할 수 있는 Azure Premium Storage 및 [Azure Service Fabric](../service-fabric/service-fabric-overview.md)에 기반한 [고가용성](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) 기본 제공
 
@@ -156,7 +156,7 @@ AAD 로그인(**공개 미리 보기**)을 만들기 위한 새 구문인 **FROM
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory 통합 및 Multi-Factor Authentication
 
-Managed Instance를 사용하면 [Azure Active Directory 통합](sql-database-aad-authentication.md)에서 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 중앙 집중식으로 관리할 수 있습니다. 이 기능은 사용 권한 관리를 간소화하고 보안을 향상시킵니다. Azure Active Directory는 MFA([Multi-Factor Authentication](sql-database-ssms-mfa-authentication-configure.md))을 제공하여 SSO(Single Sign-On) 프로세스를 지원하는 동시에 데이터 및 응용 프로그램 보안을 향상시킵니다.
+Managed Instance를 사용하면 [Azure Active Directory 통합](sql-database-aad-authentication.md)에서 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 중앙 집중식으로 관리할 수 있습니다. 이 기능은 사용 권한 관리를 간소화하고 보안을 향상시킵니다. Azure Active Directory는 MFA([Multi-Factor Authentication](sql-database-ssms-mfa-authentication-configure.md))을 제공하여 SSO(Single Sign-On) 프로세스를 지원하는 동시에 데이터 및 애플리케이션 보안을 향상시킵니다.
 
 ### <a name="authentication"></a>인증
 

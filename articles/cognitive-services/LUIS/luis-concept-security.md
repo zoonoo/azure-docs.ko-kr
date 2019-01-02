@@ -39,7 +39,7 @@ ms.locfileid: "53132604"
 |학습|
 
 ## <a name="access-to-endpoint"></a>엔드포인트에 대한 액세스
-엔드포인트 쿼리에 대한 액세스는 **관리** 섹션, **응용 프로그램 정보** 페이지의 설정으로 제어됩니다. 
+엔드포인트 쿼리에 대한 액세스는 **관리** 섹션, **애플리케이션 정보** 페이지의 설정으로 제어됩니다. 
 
 ![앱을 공용으로 설정](./media/luis-concept-security/set-application-as-public.png)
 

@@ -78,7 +78,7 @@ ms.locfileid: "53250208"
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 ## <a name="service-to-service-authentication-with-client-secret"></a>클라이언트 암호를 사용하여 서비스 간 인증
-.NET 클라이언트 응용 프로그램에서 이 코드 조각을 추가합니다. 자리 표시자 값을 Microsoft Azure Active Directory 웹 응용 프로그램에서 검색된 값(필수 구성 요소로 나열된)으로 바꿉니다.  이 코드 조각을 사용하면 Azure AD 웹 응용 프로그램의 클라이언트 비밀/키를 사용하여 응용 프로그램을 Data Lake Storage Gen1에 **비 대화형으로** 인증할 수 있습니다. 
+.NET 클라이언트 응용 프로그램에서 이 코드 조각을 추가합니다. 자리 표시자 값을 Microsoft Azure Active Directory 웹 응용 프로그램에서 검색된 값(필수 구성 요소로 나열된)으로 바꿉니다.  이 코드 조각을 사용하면 Azure AD 웹 애플리케이션의 클라이언트 비밀/키를 사용하여 애플리케이션을 Data Lake Storage Gen1에 **비 대화형으로** 인증할 수 있습니다. 
 
     private static void Main(string[] args)
     {    
@@ -97,7 +97,7 @@ ms.locfileid: "53250208"
 
 ## <a name="service-to-service-authentication-with-certificate"></a>인증서를 사용하여 서비스 간 인증
 
-.NET 클라이언트 응용 프로그램에서 이 코드 조각을 추가합니다. 자리 표시자 값을 Microsoft Azure Active Directory 웹 응용 프로그램에서 검색된 값(필수 구성 요소로 나열된)으로 바꿉니다. 이 코드 조각을 사용하면 Azure AD 웹 응용 프로그램의 인증서를 사용하여 응용 프로그램을 Data Lake Storage Gen1에 **비 대화형으로** 인증할 수 있습니다. Microsoft Azure Active Directory 응용 프로그램을 만드는 방법에 대한 지침은 [인증서로 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate)를 참조하세요.
+.NET 클라이언트 응용 프로그램에서 이 코드 조각을 추가합니다. 자리 표시자 값을 Microsoft Azure Active Directory 웹 응용 프로그램에서 검색된 값(필수 구성 요소로 나열된)으로 바꿉니다. 이 코드 조각을 사용하면 Azure AD 웹 애플리케이션의 인증서를 사용하여 애플리케이션을 Data Lake Storage Gen1에 **비 대화형으로** 인증할 수 있습니다. Microsoft Azure Active Directory 애플리케이션을 만드는 방법에 대한 지침은 [인증서로 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate)를 참조하세요.
 
     
     private static void Main(string[] args)

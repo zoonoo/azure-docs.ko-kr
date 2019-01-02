@@ -1,7 +1,7 @@
 ---
 title: Azure Cosmos DB의 Python Flask 웹 애플리케이션 자습서
 description: Azure Cosmos DB를 사용하여 Azure에 호스트된 Python Flask 웹 애플리케이션에서 데이터를 저장하고 액세스하는 방법에 대한 데이터베이스 자습서를 검토합니다. 애플리케이션 개발 솔루션을 찾습니다.
-keywords: 응용 프로그램 개발, Python flask, Python 웹 응용 프로그램, Python 웹 개발
+keywords: 애플리케이션 개발, Python flask, Python 웹 애플리케이션, Python 웹 개발
 services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db

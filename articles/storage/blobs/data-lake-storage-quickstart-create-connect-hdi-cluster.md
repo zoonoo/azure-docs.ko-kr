@@ -196,7 +196,7 @@ HDInsight만 사용하려는 경우, 하나의 데이터 노드를 사용하는 
 
 HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용자가 설치할 수 있는 응용 프로그램입니다. Microsoft, 타사에서 제공하거나 또는 직접 개발한 응용 프로그램을 사용할 수 있습니다. 자세한 내용은 [Azure HDInsight에 타사 Hadoop 응용 프로그램 설치](../../hdinsight/hdinsight-apps-install-applications.md)를 참조하세요.
 
-HDInsight 응용 프로그램 대부분은 빈 Edge 노드에 설치됩니다.  빈 에지 노드는 헤드 노드에 설치되고 구성된 것과 동일한 클라이언트 도구를 사용하는 Linux 가상 머신입니다. 클러스터에 액세스하고, 클라이언트 응용 프로그램을 테스트하며 클라이언트 응용 프로그램을 호스트하는 데 에지 노드를 사용할 수 있습니다. 자세한 내용은 [HDInsight에서 빈 에지 노드 사용](../../hdinsight/hdinsight-apps-use-edge-node.md)을 참조하세요.
+HDInsight 응용 프로그램 대부분은 빈 Edge 노드에 설치됩니다.  빈 에지 노드는 헤드 노드에 설치되고 구성된 것과 동일한 클라이언트 도구를 사용하는 Linux 가상 머신입니다. 클러스터에 액세스하고, 클라이언트 애플리케이션을 테스트하며 클라이언트 애플리케이션을 호스트하는 데 에지 노드를 사용할 수 있습니다. 자세한 내용은 [HDInsight에서 빈 에지 노드 사용](../../hdinsight/hdinsight-apps-use-edge-node.md)을 참조하세요.
 
 ## <a name="advanced-settings-script-actions"></a>고급 설정: 스크립트 작업
 

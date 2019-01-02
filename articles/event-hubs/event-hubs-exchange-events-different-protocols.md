@@ -66,7 +66,7 @@ ConsumerRecord<Long, byte[]> cr = /* receive event */
 
 이 코드는 애플리케이션의 두 반쪽 간에 투명한 바이트 파이프라인을 만들며, 애플리케이션 개발자가 예를 들어 이벤트의 사용자 설정 속성에 있는 형식 또는 발신자 정보를 기반으로 하여 런타임에서의 역직렬화 결정을 포함하여 원하는 방식으로 수동으로 직렬화 및 역직렬화할 수 있도록 합니다.
 
-고정된 단일 이벤트 본문 유형이 있는 응용프로그램은 다른 Kafka 직렬 변환기(serializer)와 역직렬 변환기(deserializer)를 사용하여 데이터를 투명하게 변환할 수 있습니다. 예를 들어 JSON을 사용하는 애플리케이션을 생각해 보세요. JSON 문자열의 구성 및 해석은 애플리케이션 수준에서 수행됩니다. Event Hubs 수준에서 이벤트 본문은 항상 문자열이며, UTF-8 인코딩의 문자를 나타내는 바이트 시퀀스입니다. 이 경우, Kafka 생산자 또는 소비자는 다음 코드와 같이 제공된 StringSerializer 또는 StringDeserializer를 활용할 수 있습니다.
+고정된 단일 이벤트 본문 유형이 있는 애플리케이션은 다른 Kafka 직렬 변환기(serializer)와 역직렬 변환기(deserializer)를 사용하여 데이터를 투명하게 변환할 수 있습니다. 예를 들어 JSON을 사용하는 애플리케이션을 생각해 보세요. JSON 문자열의 구성 및 해석은 애플리케이션 수준에서 수행됩니다. Event Hubs 수준에서 이벤트 본문은 항상 문자열이며, UTF-8 인코딩의 문자를 나타내는 바이트 시퀀스입니다. 이 경우, Kafka 생산자 또는 소비자는 다음 코드와 같이 제공된 StringSerializer 또는 StringDeserializer를 활용할 수 있습니다.
 
 ### <a name="kafka-utf-8-string-producer"></a>Kafka UTF-8 문자열 생산자
 ```java

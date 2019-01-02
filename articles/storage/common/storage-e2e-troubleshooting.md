@@ -19,32 +19,32 @@ ms.locfileid: "51262321"
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure Storage 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
-진단 및 문제 해결은 Microsoft Azure Storage를 사용하는 클라이언트 응용 프로그램을 빌드 및 지원하기 위한 핵심 기술입니다. 오류 및 성능 문제의 진단 및 문제 해결은 Azure 응용 프로그램의 분산된 특성 때문에 기존 환경에서보다 더욱 복잡할 수 있습니다.
+진단 및 문제 해결은 Microsoft Azure Storage를 사용하는 클라이언트 애플리케이션을 빌드 및 지원하기 위한 핵심 기술입니다. 오류 및 성능 문제의 진단 및 문제 해결은 Azure 애플리케이션의 분산된 특성 때문에 기존 환경에서보다 더욱 복잡할 수 있습니다.
 
-이 자습서에서는 성능에 영향을 줄 수 있는 특정 오류를 확인하는 방법 및 클라이언트 응용 프로그램을 최적화하기 위해 Microsoft 및 Azure Storage에서 제공하는 도구를 사용하여 종단 간에서 비롯한 해당 오류의 문제 해결 방법을 보여 줍니다.
+이 자습서에서는 성능에 영향을 줄 수 있는 특정 오류를 확인하는 방법 및 클라이언트 애플리케이션을 최적화하기 위해 Microsoft 및 Azure Storage에서 제공하는 도구를 사용하여 종단 간에서 비롯한 해당 오류의 문제 해결 방법을 보여 줍니다.
 
 이 자습서는 종단 간 문제 해결 시나리오의 실습 탐색을 제공합니다. Azure Storage 애플리케이션의 문제 해결에 대한 심층적인 개념 가이드는 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
 
-## <a name="tools-for-troubleshooting-azure-storage-applications"></a>Azure Storage 응용 프로그램 문제 해결 도구
-Microsoft Azure Storage를 사용하는 클라이언트 응용 프로그램 문제를 해결하기 위해 여러 도구 조합을 사용하여 문제가 발생한 시기 및 문제의 가능한 원인을 확인할 수 있습니다. 이러한 도구로는 다음이 있습니다.
+## <a name="tools-for-troubleshooting-azure-storage-applications"></a>Azure Storage 애플리케이션 문제 해결 도구
+Microsoft Azure Storage를 사용하는 클라이언트 애플리케이션 문제를 해결하기 위해 여러 도구 조합을 사용하여 문제가 발생한 시기 및 문제의 가능한 원인을 확인할 수 있습니다. 이러한 도구로는 다음이 있습니다.
 
 * **Azure Storage 분석**. [Azure Storage 분석](/rest/api/storageservices/Storage-Analytics) 은 Azure Storage에 대한 로깅 및 메트릭을 제공합니다.
   
-  * **Storage 메트릭** 은 Storage 계정에 대한 트랜잭션 메트릭 및 용량 메트릭을 추적합니다. 메트릭을 사용하여 다양한 여러 측정값에 따른 응용 프로그램의 성능을 확인할 수 있습니다. 저장소 분석에서 추적하는 메트릭 유형에 대한 자세한 내용은 [저장소 분석 메트릭 테이블 스키마](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) 를 참조하세요.
+  * **Storage 메트릭** 은 Storage 계정에 대한 트랜잭션 메트릭 및 용량 메트릭을 추적합니다. 메트릭을 사용하여 다양한 여러 측정값에 따른 애플리케이션의 성능을 확인할 수 있습니다. 저장소 분석에서 추적하는 메트릭 유형에 대한 자세한 내용은 [저장소 분석 메트릭 테이블 스키마](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) 를 참조하세요.
   * **저장소 로깅** 은 Azure Storage 서비스에 대한 각 요청을 서버 쪽 로그에 기록합니다. 로그는 수행된 작업, 작업의 상태 및 대기 시간 정보를 비롯하여 각 요청의 자세한 데이터를 추적합니다. 저장소 분석에서 로그에 기록한 요청 및 응답 데이터에 대한 자세한 내용은 [저장소 분석 로그 형식](/rest/api/storageservices/Storage-Analytics-Log-Format) 을 참조하세요.
 
-* **Azure Portal**. [Azure Portal](https://portal.azure.com)에서 저장소 계정에 대한 메트릭 및 로깅을 구성할 수 있습니다. 또한 시간이 지남에 따라 응용 프로그램이 어떻게 수행되는지 보여 주는 차트 및 그래프를 볼 수 있으며, 응용 프로그램이 지정된 메트릭에 대해 예상과 다르게 수행되는 경우 이를 알려 주도록 경고를 구성할 수도 있습니다.
+* **Azure Portal**. [Azure Portal](https://portal.azure.com)에서 저장소 계정에 대한 메트릭 및 로깅을 구성할 수 있습니다. 또한 시간이 지남에 따라 애플리케이션이 어떻게 수행되는지 보여 주는 차트 및 그래프를 볼 수 있으며, 애플리케이션이 지정된 메트릭에 대해 예상과 다르게 수행되는 경우 이를 알려 주도록 경고를 구성할 수도 있습니다.
   
     Azure Portal에서 모니터링 구성에 대한 자세한 내용은 [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md) 을 참조하세요.
 * **AzCopy**. Azure Storage의 서버 로그는 Blob으로 저장되므로 AzCopy를 사용하여 해당 로그 Blob을, Microsoft Message Analyzer를 사용한 분석의 로컬 디렉터리로 복사할 수 있습니다. AzCopy에 대한 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md) 을 참조하세요.
 * **Microsoft Message Analyzer**. Message Analyzer는 로그 파일을 사용하여 로그 데이터를 시각적 형식으로 표시하는 도구입니다. 이 도구를 이용하면 오류 및 성능 문제를 분석하는 데 사용할 수 있는 유용한 집합으로 로그 데이터를 필터링, 검색 및 그룹화할 수 있습니다. Message Analyzer에 대한 자세한 내용은 [Microsoft Message Analyzer 운영 가이드](https://technet.microsoft.com/library/jj649776.aspx)를 참조하세요.
 
 ## <a name="about-the-sample-scenario"></a>샘플 시나리오 정보
-이 자습서에서는 Azure Storage 메트릭이 Azure Storage를 호출하는 응용 프로그램에 대한 낮은 성공률을 나타내는 시나리오를 살펴보겠습니다. 낮은 성공률 메트릭( **Azure Portal** 및 메트릭 테이블에서 [PercentSuccess](https://portal.azure.com) 로 표시됨)은 성공은 했지만 299보다 큰 HTTP 상태 코드를 반환하는 작업을 추적합니다. 서버 쪽 저장소 로그 파일에서 이러한 작업은 트랜잭션 상태 **ClientOtherErrors**로 기록됩니다. 낮은 비율의 성공 메트릭에 대한 자세한 내용은 [메트릭에 PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success)을 참조하세요.
+이 자습서에서는 Azure Storage 메트릭이 Azure Storage를 호출하는 애플리케이션에 대한 낮은 성공률을 나타내는 시나리오를 살펴보겠습니다. 낮은 성공률 메트릭( **Azure Portal** 및 메트릭 테이블에서 [PercentSuccess](https://portal.azure.com) 로 표시됨)은 성공은 했지만 299보다 큰 HTTP 상태 코드를 반환하는 작업을 추적합니다. 서버 쪽 저장소 로그 파일에서 이러한 작업은 트랜잭션 상태 **ClientOtherErrors**로 기록됩니다. 낮은 비율의 성공 메트릭에 대한 자세한 내용은 [메트릭에 PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success)을 참조하세요.
 
-Azure Storage 작업은 299보다 큰 HTTP 상태 코드를 정상적인 기능의 일부로 반환할 수 있습니다. 그러나 일부의 경우에 이러한 오류는 성능 향상을 위해 클라이언트 응용 프로그램을 최적화할 수 있음을 나타냅니다.
+Azure Storage 작업은 299보다 큰 HTTP 상태 코드를 정상적인 기능의 일부로 반환할 수 있습니다. 그러나 일부의 경우에 이러한 오류는 성능 향상을 위해 클라이언트 애플리케이션을 최적화할 수 있음을 나타냅니다.
 
-이 시나리오에서는 100%보다 낮으면 낮은 성공률로 생각합니다. 그러나에 필요에 따라 다른 메트릭 수준을 선택할 수 있습니다. 응용 프로그램을 테스트하는 동안 주요 성능 메트릭에 대해 기준 허용 오차를 설정하는 것이 좋습니다. 예를 들어 테스트에 따라 응용 프로그램이 90% 또는 85%의 일관된 성공률(백분율)을 유지해야 한다고 결정할 수 있습니다. 메트릭 데이터를 통해 응용 프로그램이 해당 수치에서 벗어난 것을 알게 되면 증가를 일으키는 원인을 조사할 수 있습니다.
+이 시나리오에서는 100%보다 낮으면 낮은 성공률로 생각합니다. 그러나에 필요에 따라 다른 메트릭 수준을 선택할 수 있습니다. 애플리케이션을 테스트하는 동안 주요 성능 메트릭에 대해 기준 허용 오차를 설정하는 것이 좋습니다. 예를 들어 테스트에 따라 애플리케이션이 90% 또는 85%의 일관된 성공률(백분율)을 유지해야 한다고 결정할 수 있습니다. 메트릭 데이터를 통해 애플리케이션이 해당 수치에서 벗어난 것을 알게 되면 증가를 일으키는 원인을 조사할 수 있습니다.
 
 샘플 시나리오의 경우, 성공률 메트릭을 100% 미만으로 설정하면 로그를 검토하여 메트릭과 상관관계가 있는 오류를 찾아 이를 활용하여 낮은 성공률을 일으키는 원인을 알아냅니다. 구체적으로 400번대 오류를 살펴보겠습니다. 그런 다음 404(찾을 수 없음) 오류를 더욱 자세하게 조사합니다.
 
@@ -79,7 +79,7 @@ Blob 또는 컨테이너를 찾을 수 없어서 컨테이너 또는 Blob에 대
 * **HTTP 네트워크 추적 로그**, Azure Storage에 대한 작업을 비롯하여 HTTP/HTTPS 요청 및 응답 데이터에 대한 데이터를 수집합니다. 이 자습서에서는 Message Analyzer를 통해 네트워크 추적을 생성합니다.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>서버 쪽 로깅 및 메트릭 구성
-먼저 Azure Storage 로깅 및 메트릭을 구성하여 분석할 클라이언트 응용 프로그램의 데이터를 수집해야 합니다. [Azure Portal](https://portal.azure.com)을 통해, PowerShell을 사용하여 또는 프로그래밍 방식 등의 다양한 방법으로 로깅 및 메트릭을 구성할 수 있습니다. 로깅 및 메트릭 구성에 대한 자세한 내용은 MSDN에서 [Storage 메트릭 사용 및 메트릭 데이터 보기](https://msdn.microsoft.com/library/azure/dn782843.aspx) 및 [저장소 로깅 사용 및 로그 데이터 액세스](https://msdn.microsoft.com/library/azure/dn782840.aspx)를 참조하세요.
+먼저 Azure Storage 로깅 및 메트릭을 구성하여 분석할 클라이언트 애플리케이션의 데이터를 수집해야 합니다. [Azure Portal](https://portal.azure.com)을 통해, PowerShell을 사용하여 또는 프로그래밍 방식 등의 다양한 방법으로 로깅 및 메트릭을 구성할 수 있습니다. 로깅 및 메트릭 구성에 대한 자세한 내용은 MSDN에서 [Storage 메트릭 사용 및 메트릭 데이터 보기](https://msdn.microsoft.com/library/azure/dn782843.aspx) 및 [저장소 로깅 사용 및 로그 데이터 액세스](https://msdn.microsoft.com/library/azure/dn782840.aspx)를 참조하세요.
 
 **Azure Portal을 통해**
 
@@ -124,14 +124,14 @@ Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하
     ```
 
 ### <a name="configure-net-client-side-logging"></a>.NET 클라이언트 쪽 로깅 구성
-.NET 응용 프로그램에 대해 클라이언트 쪽 로깅을 구성하려면 응용 프로그램의 구성 파일(web.config 또는 app.config)에서 .NET 진단을 사용하도록 설정합니다. 자세한 내용은 MSDN에서 [.NET 저장소 클라이언트 라이브러리를 사용한 클라이언트 쪽 로깅](https://msdn.microsoft.com/library/azure/dn782839.aspx) 및 [Microsoft Azure Storage SDK for Java를 사용한 클라이언트 쪽 로깅](https://msdn.microsoft.com/library/azure/dn782844.aspx)을 참조하세요.
+.NET 애플리케이션에 대해 클라이언트 쪽 로깅을 구성하려면 애플리케이션의 구성 파일(web.config 또는 app.config)에서 .NET 진단을 사용하도록 설정합니다. 자세한 내용은 MSDN에서 [.NET 저장소 클라이언트 라이브러리를 사용한 클라이언트 쪽 로깅](https://msdn.microsoft.com/library/azure/dn782839.aspx) 및 [Microsoft Azure Storage SDK for Java를 사용한 클라이언트 쪽 로깅](https://msdn.microsoft.com/library/azure/dn782844.aspx)을 참조하세요.
 
 클라이언트 쪽 로그에는 클라이언트가 요청을 준비하고 응답을 받아 처리하는 방법에 대한 자세한 정보가 포함됩니다.
 
-Storage 클라이언트 라이브러리는 응용 프로그램의 구성 파일(web.config 또는 app.config)에 지정된 위치에 클라이언트 쪽 로그 데이터를 저장합니다.
+Storage 클라이언트 라이브러리는 애플리케이션의 구성 파일(web.config 또는 app.config)에 지정된 위치에 클라이언트 쪽 로그 데이터를 저장합니다.
 
 ### <a name="collect-a-network-trace"></a>네트워크 추적 수집
-클라이언트 응용 프로그램이 실행되는 동안 Message Analyzer를 사용하여 HTTP/HTTPS 네트워크 추적을 수집할 수 있습니다. Message Analyzer는 백 엔드에서 [Fiddler](http://www.telerik.com/fiddler) 를 사용합니다. 네트워크 추적을 수집하기 전에 다음과 같이 암호화되지 않은 HTTPS 트래픽을 기록하도록 Fiddler를 구성하는 것이 좋습니다.
+클라이언트 애플리케이션이 실행되는 동안 Message Analyzer를 사용하여 HTTP/HTTPS 네트워크 추적을 수집할 수 있습니다. Message Analyzer는 백 엔드에서 [Fiddler](http://www.telerik.com/fiddler) 를 사용합니다. 네트워크 추적을 수집하기 전에 다음과 같이 암호화되지 않은 HTTPS 트래픽을 기록하도록 Fiddler를 구성하는 것이 좋습니다.
 
 1. [Fiddler](http://www.telerik.com/download/fiddler)를 설치합니다.
 2. Fiddler를 시작합니다.
@@ -163,7 +163,7 @@ Storage 클라이언트 라이브러리는 응용 프로그램의 구성 파일(
 자세한 내용은 Technet의 [네트워크 추적 기능 사용(영문)](https://technet.microsoft.com/library/jj674819.aspx) 을 참조하세요.
 
 ## <a name="review-metrics-data-in-the-azure-portal"></a>Azure Portal에서 메트릭 데이터 검토
-응용 프로그램을 일정 기간 실행하면 [Azure Portal](https://portal.azure.com)에 표시되는 메트릭 차트를 검토하여 서비스가 수행된 방법을 관찰할 수 있습니다.
+애플리케이션을 일정 기간 실행하면 [Azure Portal](https://portal.azure.com)에 표시되는 메트릭 차트를 검토하여 서비스가 수행된 방법을 관찰할 수 있습니다.
 
 먼저 Azure Portal의 저장소 계정으로 이동합니다. 기본적으로 **성공 비율**이 포함된 모니터링 차트가 계정 블레이드에 표시됩니다. 이전에 다른 메트릭을 표시하도록 차트를 수정한 경우 **성공 비율** 메트릭을 추가합니다.
 
@@ -189,7 +189,7 @@ AzCopy는 [Azure 다운로드](https://azure.microsoft.com/downloads/) 페이지
 서버 쪽 로그를 다운로드하는 방법에 대한 자세한 내용은 [저장소 로깅 로그 데이터 다운로드](https://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata)를 참조하세요.
 
 ## <a name="use-microsoft-message-analyzer-to-analyze-log-data"></a>Microsoft Message Analyzer를 사용하여 로그 데이터 분석
-Microsoft Message Analyzer는 문제 해결 및 진단 시나리오에서 프로토콜 메시징 트래픽, 이벤트 및 기타 시스템 또는 응용 프로그램 메시지를 캡처, 표시 및 분석하는 도구입니다. 또한, Message Analyzer를 통해 로그 및 저장된 추적 파일의 데이터를 로드, 집계 및 분석할 수 있습니다. Message Analyzer에 대한 자세한 내용은 [Microsoft Message Analyzer 운영 가이드(영문)](https://technet.microsoft.com/library/jj649776.aspx)를 참조하세요.
+Microsoft Message Analyzer는 문제 해결 및 진단 시나리오에서 프로토콜 메시징 트래픽, 이벤트 및 기타 시스템 또는 애플리케이션 메시지를 캡처, 표시 및 분석하는 도구입니다. 또한, Message Analyzer를 통해 로그 및 저장된 추적 파일의 데이터를 로드, 집계 및 분석할 수 있습니다. Message Analyzer에 대한 자세한 내용은 [Microsoft Message Analyzer 운영 가이드(영문)](https://technet.microsoft.com/library/jj649776.aspx)를 참조하세요.
 
 Message Analyzer에는 서버, 클라이언트 및 네트워크 로그를 분석하는 데 도움이 되는 Azure Storage에 대한 자산이 포함되어 있습니다. 이 섹션에서는 이러한 도구를 사용하여 저장소 로그에서의 낮은 성공 비율 문제를 해결하는 방법에 대해 논의합니다.
 
@@ -332,7 +332,7 @@ Message Analyzer에서 검색 조건이 클라이언트 요청 ID와 일치하�
 
 ![404 오류를 표시하는 클라이언트 로그 ](./media/storage-e2e-troubleshooting/client-log-analysis-grid1.png)
 
-이러한 두 탭에서 보기 레이아웃에 표시된 데이터를 사용하여 요청 데이터를 분석해 오류를 일으킨 원인을 확인할 수 있습니다. 또한, 이보다 앞선 요청을 살펴보고 이전 이벤트가 404 오류를 발생시킬 수 있었는지 확인할 수도 있습니다. 예를 들어 이 클라이언트 요청 ID에 앞선 클라이언트 로그 항목을 검토하여 Blob이 삭제될 수 있었는지 여부 또는 오류가 컨테이너 또는 Blob에서 CreateIfNotExists API를 호출하는 클라이언트 응용 프로그램 때문인지를 확인할 수 있습니다. 클라이언트 로그의 **설명** 필드에서 Blob의 주소를 찾을 수 있습니다. 서버 및 네트워크 추적 로그에서 이 정보는 **요약** 필드에 표시됩니다.
+이러한 두 탭에서 보기 레이아웃에 표시된 데이터를 사용하여 요청 데이터를 분석해 오류를 일으킨 원인을 확인할 수 있습니다. 또한, 이보다 앞선 요청을 살펴보고 이전 이벤트가 404 오류를 발생시킬 수 있었는지 확인할 수도 있습니다. 예를 들어 이 클라이언트 요청 ID에 앞선 클라이언트 로그 항목을 검토하여 Blob이 삭제될 수 있었는지 여부 또는 오류가 컨테이너 또는 Blob에서 CreateIfNotExists API를 호출하는 클라이언트 애플리케이션 때문인지를 확인할 수 있습니다. 클라이언트 로그의 **설명** 필드에서 Blob의 주소를 찾을 수 있습니다. 서버 및 네트워크 추적 로그에서 이 정보는 **요약** 필드에 표시됩니다.
 
 404 오류를 생성한 Blob의 주소를 알고 있다면 추가로 조사할 수 있습니다. 동일한 Blob에서 작업과 연결된 다른 메시지의 로그 항목을 검색하는 경우 클라이언트가 이전에 엔터티를 삭제했는지 확인할 수 있습니다.
 

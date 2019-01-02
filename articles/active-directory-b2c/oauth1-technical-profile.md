@@ -69,7 +69,7 @@ Azure AD(Azure Active Directory) B2C는 [OAuth 1.0](https://tools.ietf.org/html/
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| client_id | yes | ID 공급자의 응용 프로그램 식별자입니다. |
+| client_id | yes | ID 공급자의 애플리케이션 식별자입니다. |
 | ProviderName | 아니요 | ID 공급자의 이름입니다. |
 | request_token_endpoint | yes | RFC 5849에 따른 요청 토큰 엔드포인트의 URL입니다. |
 | authorization_endpoint | yes | RFC 5849에 따른 권한 부여 엔드포인트의 URL입니다. |
@@ -83,7 +83,7 @@ Azure AD(Azure Active Directory) B2C는 [OAuth 1.0](https://tools.ietf.org/html/
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| client_secret | yes | ID 공급자 응용 프로그램의 클라이언트 암호입니다.   | 
+| client_secret | yes | ID 공급자 애플리케이션의 클라이언트 암호입니다.   | 
 
 ## <a name="redirect-uri"></a>리디렉션 URI
 

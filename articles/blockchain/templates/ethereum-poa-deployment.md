@@ -22,7 +22,7 @@ ms.locfileid: "48242125"
 ## <a name="overview"></a>개요
 [이 솔루션](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium)은 최소한의 Azure 및 Ethereum 지식으로 다중 멤버 컨소시엄 인증 증명 Ethereum 네트워크를 더 쉽게 배포, 구성 및 관리할 수 있도록 설계되었습니다.
 
-Azure Portal을 통해 약간의 사용자 입력과 한 번의 클릭으로 배포하면 각 멤버가 전 세계의 Microsoft Azure Compute, 네트워킹 및 저장소 서비스를 사용하여 네트워크 공간을 프로비전할 수 있습니다. 각 멤버의 네트워크 공간은 응용 프로그램 또는 사용자가 Ethereum 트랜잭션을 제출하기 위해 상호 작용할 수 있는 일단의 부하 분산된 유효성 검사기 노드로 구성됩니다.
+Azure Portal을 통해 약간의 사용자 입력과 한 번의 클릭으로 배포하면 각 멤버가 전 세계의 Microsoft Azure Compute, 네트워킹 및 저장소 서비스를 사용하여 네트워크 공간을 프로비전할 수 있습니다. 각 멤버의 네트워크 공간은 애플리케이션 또는 사용자가 Ethereum 트랜잭션을 제출하기 위해 상호 작용할 수 있는 일단의 부하 분산된 유효성 검사기 노드로 구성됩니다.
 
 ## <a name="concepts"></a>개념
 
@@ -77,13 +77,13 @@ Azure Portal을 통해 약간의 사용자 입력과 한 번의 클릭으로 배
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
-이 솔루션은 노드 및 네트워크 통계를 추적하기 위해 Azure Monitor도 제공합니다. 응용 프로그램 개발자를 위해 기본 블록체인에 대한 가시성을 제공하여 블록 생성 통계를 추적합니다. 네트워크 운영자는 Azure Monitor를 사용하여 인프라 통계 및 쿼리 가능한 로그를 통해 네트워크 중단을 빠르게 감지하고 방지할 수 있습니다. 자세한 내용은 [서비스 모니터링](#service-monitoring)을 참조하세요.
+이 솔루션은 노드 및 네트워크 통계를 추적하기 위해 Azure Monitor도 제공합니다. 애플리케이션 개발자를 위해 기본 블록체인에 대한 가시성을 제공하여 블록 생성 통계를 추적합니다. 네트워크 운영자는 Azure Monitor를 사용하여 인프라 통계 및 쿼리 가능한 로그를 통해 네트워크 중단을 빠르게 감지하고 방지할 수 있습니다. 자세한 내용은 [서비스 모니터링](#service-monitoring)을 참조하세요.
 
 ### <a name="deployment-architecture"></a>배포 아키텍처
 
 #### <a name="description"></a>설명
 
-이 솔루션은 단일 또는 다중 지역 기반 다중 멤버 Ethereum 컨소시엄 네트워크를 배포할 수 있습니다. 기본적으로 RPC 및 피어링 엔드포인트는 공용 IP를 통해 액세스할 수 있으므로 구독 및 클라우드 간 연결을 간소화할 수 있습니다. 응용 프로그램 수준 액세스 제어에 [Parity의 권한 부여 계약](https://wiki.parity.io/Permissioning)을 활용하는 것이 좋습니다. 또한 구독 간 연결에 VNet 게이트웨이를 활용하는 VPN 뒤에 배포되는 네트워크도 지원합니다. 이러한 배포는 더 복잡하므로 먼저 공용 IP 모델부터 시작하는 것이 좋습니다.
+이 솔루션은 단일 또는 다중 지역 기반 다중 멤버 Ethereum 컨소시엄 네트워크를 배포할 수 있습니다. 기본적으로 RPC 및 피어링 엔드포인트는 공용 IP를 통해 액세스할 수 있으므로 구독 및 클라우드 간 연결을 간소화할 수 있습니다. 애플리케이션 수준 액세스 제어에 [Parity의 권한 부여 계약](https://wiki.parity.io/Permissioning)을 활용하는 것이 좋습니다. 또한 구독 간 연결에 VNet 게이트웨이를 활용하는 VPN 뒤에 배포되는 네트워크도 지원합니다. 이러한 배포는 더 복잡하므로 먼저 공용 IP 모델부터 시작하는 것이 좋습니다.
 
 #### <a name="consortium-member-overview"></a>컨소시엄 멤버 개요
 
@@ -130,7 +130,7 @@ Azure Portal을 통해 약간의 사용자 입력과 한 번의 클릭으로 배
 ## <a name="how-to-guides"></a>방법 가이드
 ### <a name="governance-dapp"></a>거버넌스 DApp
 
-인증 증명의 중심에는 분산 거버넌스가 있습니다. 거버넌스 DApp는 네트워크에서 기관을 관리하는 데 사용되는 미리 배포된 [스마트 계약](https://github.com/Azure-Samples/blockchain/tree/master/ethereum-on-azure/) 집합 및 웹 응용 프로그램입니다.
+인증 증명의 중심에는 분산 거버넌스가 있습니다. 거버넌스 DApp는 네트워크에서 기관을 관리하는 데 사용되는 미리 배포된 [스마트 계약](https://github.com/Azure-Samples/blockchain/tree/master/ethereum-on-azure/) 집합 및 웹 애플리케이션입니다.
 기관은 관리자 ID 및 유효성 검사기 노드로 분할됩니다.
 관리자는 일단의 검사기 노드에 합의 참여를 위임할 수 있습니다. 관리자는 네트워크 내부 또는 외부에서 다른 관리자에게 투표할 수도 있습니다.
 

@@ -21,7 +21,7 @@ ms.locfileid: "52722125"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Application Insights를 사용하여 요청을 추적하는 코드 작성
 
-성능 페이지에서 응용 프로그램에 대한 프로필을 보려면 Application Insights에서 응용 프로그램에 대한 요청을 추적해야 합니다. Application Insights는 이미 계측된 프레임워크(예: ASP.net 및 ASP.Net Core)에 빌드된 응용 프로그램에 대한 요청을 자동으로 추적할 수 있습니다. 하지만 Azure 클라우드 서비스 작업자 역할 및 Service Fabric 상태 비저장 API 등의 다른 응용 프로그램의 경우, 요청이 시작되고 끝나는 위치를 Application Insights에 알려주는 코드를 작성해야 합니다. 이 코드를 작성하면 요청 원격 분석이 Application Insights로 전송되고, 성능 페이지에서 원격 분석을 확인할 수 있습니다. 또한 해당 요청에 대해 프로필이 수집됩니다. 
+성능 페이지에서 애플리케이션에 대한 프로필을 보려면 Application Insights에서 애플리케이션에 대한 요청을 추적해야 합니다. Application Insights는 이미 계측된 프레임워크(예: ASP.net 및 ASP.Net Core)에 빌드된 애플리케이션에 대한 요청을 자동으로 추적할 수 있습니다. 하지만 Azure 클라우드 서비스 작업자 역할 및 Service Fabric 상태 비저장 API 등의 다른 애플리케이션의 경우, 요청이 시작되고 끝나는 위치를 Application Insights에 알려주는 코드를 작성해야 합니다. 이 코드를 작성하면 요청 원격 분석이 Application Insights로 전송되고, 성능 페이지에서 원격 분석을 확인할 수 있습니다. 또한 해당 요청에 대해 프로필이 수집됩니다. 
 
 요청을 수동으로 추적하기 위해 수행해야 하는 단계는 다음과 같습니다.
 

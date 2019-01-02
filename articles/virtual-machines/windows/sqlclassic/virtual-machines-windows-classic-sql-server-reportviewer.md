@@ -26,10 +26,10 @@ ms.locfileid: "51250410"
 > [!IMPORTANT] 
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
-Microsoft Azure Virtual Machine에 저장된 보고서를 표시하는 Visual Studio ReportViewer 컨트롤과 함께 Microsoft Azure 웹 사이트를 빌드할 수 있습니다. ReportViewer 컨트롤은 ASP.NET 웹 응용 프로그램 템플릿을 사용하여 빌드하는 웹 응용 프로그램에 있습니다.
+Microsoft Azure Virtual Machine에 저장된 보고서를 표시하는 Visual Studio ReportViewer 컨트롤과 함께 Microsoft Azure 웹 사이트를 빌드할 수 있습니다. ReportViewer 컨트롤은 ASP.NET 웹 애플리케이션 템플릿을 사용하여 빌드하는 웹 애플리케이션에 있습니다.
 
 > [!IMPORTANT]
-> ASP.NET MVC 웹 응용 프로그램 템플릿은 ReportViewer 컨트롤을 지원하지 않습니다.
+> ASP.NET MVC 웹 애플리케이션 템플릿은 ReportViewer 컨트롤을 지원하지 않습니다.
 
 Microsoft Azure 웹 사이트에 ReportViewer를 통합하려면 다음 작업을 완료해야 합니다.
 
@@ -46,7 +46,7 @@ Microsoft Azure 웹 사이트에 ReportViewer를 통합하려면 다음 작업�
 > 로컬 처리 모드에서 구성된 ReportViewer는 Microsoft Azure에서 지원되지 않습니다.
 
 ## <a name="adding-assemblies-to-the-deployment-package"></a>배포 패키지에 어셈블리 추가
-ASP.NET 응용 프로그램 온-프레미스를 호스트할 때 ReportViewer 어셈블리는 Visual Studio를 설치하는 동안 IIS 서버의 GAC(전역 어셈블리 캐시)에 일반적으로 직접 설치되고 응용 프로그램에서 직접 액세스할 수 있습니다. 그러나 클라우드에서 ASP.NET 응용 프로그램을 호스트할 때는 Microsoft Azure가 GAC에 어떤 것도 설치할 수 없도록 하기 때문에 ReportViewer 어셈블리가 응용 프로그램에 대해 로컬로 사용 가능한지 확인해야 합니다. 프로젝트에서 ReportViewer 어셈블리에 대한 참조를 추가하여 이 작업을 수행할 수 있으며 로컬로 복사하여 구성합니다.
+ASP.NET 애플리케이션 온-프레미스를 호스트할 때 ReportViewer 어셈블리는 Visual Studio를 설치하는 동안 IIS 서버의 GAC(전역 어셈블리 캐시)에 일반적으로 직접 설치되고 애플리케이션에서 직접 액세스할 수 있습니다. 그러나 클라우드에서 ASP.NET 애플리케이션을 호스트할 때는 Microsoft Azure가 GAC에 어떤 것도 설치할 수 없도록 하기 때문에 ReportViewer 어셈블리가 애플리케이션에 대해 로컬로 사용 가능한지 확인해야 합니다. 프로젝트에서 ReportViewer 어셈블리에 대한 참조를 추가하여 이 작업을 수행할 수 있으며 로컬로 복사하여 구성합니다.
 
 원격 처리 모드에서 ReportViewer 컨트롤은 다음 어셈블리를 사용합니다.
 

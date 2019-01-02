@@ -32,10 +32,10 @@ ms.locfileid: "47409306"
 
 ## <a name="step-1-add-authentication-support"></a>1단계: 인증 지원 추가
 
-### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>1.1단계: 프로젝트의 web.config 파일에 응용 프로그램 설정 추가
+### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>1.1단계: 프로젝트의 web.config 파일에 애플리케이션 설정 추가
 1. 앞에서 만든 Visual Studio 프로젝트를 엽니다. 
 
-2. 다음 응용 프로그램 설정을 `appSettings` 요소의 web.config 파일에 추가합니다.
+2. 다음 애플리케이션 설정을 `appSettings` 요소의 web.config 파일에 추가합니다.
 
     ```XML
     <add key="WebApp:ClientId" value="B2CServiceUserAccount" />
@@ -305,7 +305,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 1. **Azure AD B2C 설정**을 연 다음 **ID 경험 프레임워크**를 선택합니다.
 
     >[!NOTE]
-    >지금 실행을 사용하려면 하나 이상의 응용 프로그램이 테넌트에 미리 등록되어 있어야 합니다. 애플리케이션을 등록하는 방법은 Azure AD B2C [시작](active-directory-b2c-get-started.md) 문서 또는 [애플리케이션 등록](active-directory-b2c-app-registration.md) 문서를 참조하세요.
+    >지금 실행을 사용하려면 하나 이상의 애플리케이션이 테넌트에 미리 등록되어 있어야 합니다. 애플리케이션을 등록하는 방법은 Azure AD B2C [시작](active-directory-b2c-get-started.md) 문서 또는 [애플리케이션 등록](active-directory-b2c-app-registration.md) 문서를 참조하세요.
 
 2. 업로드한 RP(신뢰 당사자) 사용자 지정 정책인 **B2C_1A_signup_signin**을 연 다음 **지금 실행**을 선택합니다.
 
@@ -315,7 +315,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
     ![ID API 테스트](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
 
 4. **지정된 이름** 상자에서 ("Test" 이외의) 이름을 입력합니다.  
-    Azure AD B2C는 사용자를 등록한 후 전용 번호를 응용 프로그램에 보냅니다. 이 예제에서 번호를 적어둡니다.
+    Azure AD B2C는 사용자를 등록한 후 전용 번호를 애플리케이션에 보냅니다. 이 예제에서 번호를 적어둡니다.
 
     ```
     {

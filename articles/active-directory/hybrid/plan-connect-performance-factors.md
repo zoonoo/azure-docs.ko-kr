@@ -124,7 +124,7 @@ Active Directory CS의 여러 영구적인 [디스커넥터 개체](concept-azur
 - 개체를 MV에 프로젝트/조인하고 [cloudFiltered](how-to-connect-sync-configure-filtering.md#negative-filtering-do-not-sync-these) 특성을 True와 동일하게 설정하여 Azure AD CS에서 이러한 개체의 프로비전을 방지합니다.
 
 > [!NOTE]
-> 너무 많은 개체가 필터링되는 경우 사용자가 혼동하거나 응용 프로그램 사용 권한 문제가 발생할 수 있습니다. 예를 들어 하이브리드 Exchange Online 구현에서 온-프레미스 사서함이 있는 사용자는 Exchange Online에 사서함이 있는 사용자보다 더 많은 사용자가 전체 주소 목록에 표시됩니다. 다른 경우에 사용자는 개체의 필터링된 집합의 범위가 아닌 다른 사용자에게 클라우드 앱에 대한 액세스 권한을 부여할 수도 있습니다.
+> 너무 많은 개체가 필터링되는 경우 사용자가 혼동하거나 애플리케이션 사용 권한 문제가 발생할 수 있습니다. 예를 들어 하이브리드 Exchange Online 구현에서 온-프레미스 사서함이 있는 사용자는 Exchange Online에 사서함이 있는 사용자보다 더 많은 사용자가 전체 주소 목록에 표시됩니다. 다른 경우에 사용자는 개체의 필터링된 집합의 범위가 아닌 다른 사용자에게 클라우드 앱에 대한 액세스 권한을 부여할 수도 있습니다.
 
 ### <a name="attribute-flows"></a>특성 흐름
 
@@ -156,7 +156,7 @@ Azure AD는 DoS(서비스 거부) 공격으로부터 클라우드 서비스를 �
 
 
 - Azure AD에 내보내는 Azure AD Connect.
-- 동적 그룹 멤버 자격과 같이 백그라운드에서도 Azure AD에 직접 업데이트하는 PowerShell 스크립트 또는 응용 프로그램.
+- 동적 그룹 멤버 자격과 같이 백그라운드에서도 Azure AD에 직접 업데이트하는 PowerShell 스크립트 또는 애플리케이션.
 - MFA 또는 SSPR(셀프 서비스 암호 재설정)에 대한 등록과 같이 고유한 ID 레코드를 업데이트하는 사용자.
 - 그래픽 사용자 인터페이스 내 작업.
 

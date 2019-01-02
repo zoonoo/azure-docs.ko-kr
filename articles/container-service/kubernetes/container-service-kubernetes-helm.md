@@ -40,7 +40,7 @@ Helm에는 두 가지 구성 요소가 있습니다.
 
 ## <a name="helm-basics"></a>Helm 기초 
 
-Tiller를 설치하고 응용 프로그램을 배포하는 Kubernetes 클러스터에 대한 정보를 보려면 다음 명령을 입력합니다.
+Tiller를 설치하고 애플리케이션을 배포하는 Kubernetes 클러스터에 대한 정보를 보려면 다음 명령을 입력합니다.
 
 ```bash
 kubectl cluster-info 

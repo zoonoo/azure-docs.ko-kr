@@ -72,12 +72,12 @@ Azure AD는 SCIM 2.0 표준의 특정 부분을 구현하는 앱에 대한 일�
 
 ### <a name="pre-integrated-applications"></a>사전 통합된 애플리케이션
 
-Azure AD가 미리 통합된 프로비저닝 커넥터를 지원하는 모든 응용 프로그램 목록을 보려면 [사용자 프로비저닝에 대한 응용 프로그램 자습서 목록](../saas-apps/tutorial-list.md)을 참조하세요.
+Azure AD가 미리 통합된 프로비저닝 커넥터를 지원하는 모든 애플리케이션 목록을 보려면 [사용자 프로비저닝에 대한 애플리케이션 자습서 목록](../saas-apps/tutorial-list.md)을 참조하세요.
 
 Azure AD 엔지니어링 팀에 문의하여 추가 응용 프로그램에 대한 프로비전 지원을 요청하려면 [Azure Active Directory 피드백 포럼](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035)을 통해 메시지를 제출하세요.
 
 > [!NOTE]
-> 응용 프로그램에서 자동화된 사용자 프로비저닝을 지원하려면, 먼저 외부 프로그램에서 사용자 만들기, 유지 관리 및 제거를 자동화하는 데 필요한 사용자 관리 API를 제공해야 합니다. 따라서 모든 SaaS 앱이 이 기능과 호환되지는 않습니다. 사용자 관리 API를 지원하는 앱의 경우 Azure AD 엔지니어링 팀에서 해당 앱에 대한 프로비전 커넥터를 빌드할 수 있게 되며, 현재 및 잠재 고객의 요구 사항에 따라 이 작업의 우선 순위가 지정됩니다. 
+> 애플리케이션에서 자동화된 사용자 프로비저닝을 지원하려면, 먼저 외부 프로그램에서 사용자 만들기, 유지 관리 및 제거를 자동화하는 데 필요한 사용자 관리 API를 제공해야 합니다. 따라서 모든 SaaS 앱이 이 기능과 호환되지는 않습니다. 사용자 관리 API를 지원하는 앱의 경우 Azure AD 엔지니어링 팀에서 해당 앱에 대한 프로비전 커넥터를 빌드할 수 있게 되며, 현재 및 잠재 고객의 요구 사항에 따라 이 작업의 우선 순위가 지정됩니다. 
 
 ### <a name="connecting-applications-that-support-scim-20"></a>SCIM 2.0을 지원하는 애플리케이션 연결
 
@@ -159,7 +159,7 @@ ServiceNow, Google Apps, Box 등의 일부 애플리케이션은 사용자 프�
 >[!NOTE]
 > 필요에 따라 [특성 매핑](customize-application-attributes.md) 섹션의 **대상 개체 작업** 확인란을 사용하여 만들기, 업데이트 또는 삭제 작업을 사용하지 않도록 설정할 수 있습니다. 업데이트 중에 사용자를 해제하는 논리도 “accountEnabled”와 같은 필드의 특성 매핑을 통해 제어됩니다.
 
-프로비저닝 서비스는 다음 이벤트 중 하나가 발생할 때까지 [각 응용 프로그램과 관련된 자습서](../saas-apps/tutorial-list.md)에 정의된 간격마다 연속 증분 동기화를 무기한 실행합니다.
+프로비저닝 서비스는 다음 이벤트 중 하나가 발생할 때까지 [각 애플리케이션과 관련된 자습서](../saas-apps/tutorial-list.md)에 정의된 간격마다 연속 증분 동기화를 무기한 실행합니다.
 
 * 서비스가 Azure Portal을 사용하여 수동으로 중지되거나 적절한 Graph API 명령을 사용하여 중지됩니다. 
 * Azure Portal의 **상태 지우기 및 다시 시작** 옵션을 사용하거나 적절한 Graph API 명령을 사용하여 새 초기 동기화가 트리거됩니다. 이 경우 저장된 워터마크가 모두 지워지며 모든 소스 개체가 다시 평가됩니다.
@@ -243,23 +243,23 @@ Azure Portal에서 감사 로그를 읽는 방법에 대한 자세한 내용은 
 
 > [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
 
-응용 프로그램에 대한 아웃바운드 사용자 프로비저닝에 대한 단계별 배포 계획 예제는 [사용자 프로비저닝에 대한 ID 배포 가이드](https://aka.ms/userprovisioningdeploymentplan)를 참조하세요.
+애플리케이션에 대한 아웃바운드 사용자 프로비저닝에 대한 단계별 배포 계획 예제는 [사용자 프로비저닝에 대한 ID 배포 가이드](https://aka.ms/userprovisioningdeploymentplan)를 참조하세요.
 
 ## <a name="more-frequently-asked-questions"></a>기타 질문과 대답
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>SaaS 앱에 대한 자동 사용자 프로비저닝이 Azure AD의 B2B 사용자에게 작동하나요?
 
-예. Azure AD 사용자 프로비저닝 서비스를 사용하여 Azure AD의 B2B(또는 게스트) 사용자를 SaaS 응용 프로그램으로 프로비전할 수 있습니다.
+예. Azure AD 사용자 프로비저닝 서비스를 사용하여 Azure AD의 B2B(또는 게스트) 사용자를 SaaS 애플리케이션으로 프로비전할 수 있습니다.
 
-그러나 B2B 사용자가 Azure AD를 사용하여 SaaS 응용 프로그램에 로그인하려면 SaaS 응용 프로그램의 SAML 기반 Single Sign-On 기능을 특정 방식으로 구성해야 합니다. B2B 사용자의 로그인을 지원하도록 SaaS 응용 프로그램을 구성하는 방법에 대한 자세한 내용은 [B2B 공동 작업을 위한 SaaS 앱 구성]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps)을 참조하세요.
+그러나 B2B 사용자가 Azure AD를 사용하여 SaaS 애플리케이션에 로그인하려면 SaaS 애플리케이션의 SAML 기반 Single Sign-On 기능을 특정 방식으로 구성해야 합니다. B2B 사용자의 로그인을 지원하도록 SaaS 애플리케이션을 구성하는 방법에 대한 자세한 내용은 [B2B 공동 작업을 위한 SaaS 앱 구성]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps)을 참조하세요.
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>SaaS 앱에 대한 자동 사용자 프로비저닝이 Azure AD의 동적 그룹에 작동하나요?
 
-예. “할당된 사용자 및 그룹만 동기화”하도록 구성하면 Azure AD 사용자 프로비저닝 서비스는 [동적 그룹](../users-groups-roles/groups-create-rule.md)의 멤버인지 여부에 따라 SaaS 응용 프로그램에서 사용자를 프로비전하거나 프로비전 해제할 수 있습니다. 또한 동적 그룹은 “모든 사용자 및 그룹 동기화” 옵션을 사용할 때도 작동합니다.
+예. “할당된 사용자 및 그룹만 동기화”하도록 구성하면 Azure AD 사용자 프로비저닝 서비스는 [동적 그룹](../users-groups-roles/groups-create-rule.md)의 멤버인지 여부에 따라 SaaS 애플리케이션에서 사용자를 프로비전하거나 프로비전 해제할 수 있습니다. 또한 동적 그룹은 “모든 사용자 및 그룹 동기화” 옵션을 사용할 때도 작동합니다.
 
-그러나 동적 그룹의 사용은 Azure AD에서 SaaS 응용 프로그램으로의 종단 간 사용자 프로비저닝에 대한 전체 성능에 영향을 줄 수 있습니다. 동적 그룹을 사용하는 경우 다음과 같은 주의 사항 및 권장 사항에 유의하세요.
+그러나 동적 그룹의 사용은 Azure AD에서 SaaS 애플리케이션으로의 종단 간 사용자 프로비저닝에 대한 전체 성능에 영향을 줄 수 있습니다. 동적 그룹을 사용하는 경우 다음과 같은 주의 사항 및 권장 사항에 유의하세요.
 
-* 동적 그룹의 사용자가 SaaS 응용 프로그램에서 프로비전 또는 프로비전 해제되는 속도는 동적 그룹이 멤버 자격 변경을 평가하는 속도에 따라 좌우됩니다. 동적 그룹의 처리 상태를 확인하는 방법에 대한 내용은 [멤버 자격 규칙에 대한 처리 상태 확인](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule)을 참조하세요.
+* 동적 그룹의 사용자가 SaaS 애플리케이션에서 프로비전 또는 프로비전 해제되는 속도는 동적 그룹이 멤버 자격 변경을 평가하는 속도에 따라 좌우됩니다. 동적 그룹의 처리 상태를 확인하는 방법에 대한 내용은 [멤버 자격 규칙에 대한 처리 상태 확인](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule)을 참조하세요.
 
 * 동적 그룹을 사용하는 경우 멤버 자격을 손실하면 프로비저닝 해제 이벤트가 발생하므로 사용자 프로비전 및 프로비전 해제를 신중하게 고려하여 규칙을 지정해야 합니다.
 
@@ -267,7 +267,7 @@ Azure Portal에서 감사 로그를 읽는 방법에 대한 자세한 내용은 
 
  아니요. “할당된 사용자 및 그룹만 동기화”하도록 구성된 경우 Azure AD 사용자 프로비저닝 서비스는 중첩된 그룹에 있는 사용자를 읽거나 프로비전할 수 없습니다. 명시적으로 할당된 그룹의 직계 멤버인 사용자만 읽고 프로비전할 수 있습니다.
 
-이것은 Single Sign-On에도 영향을 미치는 “응용 프로그램에 대한 그룹 기반 할당”의 제한 사항으로, [그룹을 사용하여 SaaS 응용 프로그램에 대한 액세스 관리](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps )에 설명되어 있습니다.
+이것은 Single Sign-On에도 영향을 미치는 “애플리케이션에 대한 그룹 기반 할당”의 제한 사항으로, [그룹을 사용하여 SaaS 애플리케이션에 대한 액세스 관리](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps )에 설명되어 있습니다.
 
 문제를 해결하려면 프로비전해야 하는 사용자를 포함하는 그룹을 명시적으로 할당(또는 [범위 지정](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts))해야 합니다.
 

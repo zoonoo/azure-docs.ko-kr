@@ -108,7 +108,7 @@ items:
       items:
       - name: 리소스 관리자 배포 VM 준비
         href: backup-azure-arm-vms-prepare.md
-      - name: Linux VM의 응용 프로그램 일치 백업
+      - name: Linux VM의 애플리케이션 일치 백업
         href: backup-azure-linux-app-consistent.md
     - name: 환경 계획
       items:

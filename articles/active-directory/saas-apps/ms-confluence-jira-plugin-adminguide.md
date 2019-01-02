@@ -231,7 +231,7 @@ SAML 2.0과 함께 작동합니다.
 
 ### <a name="does-the-plug-in-do-user-provisioning"></a>플러그 인은 사용자 프로비저닝을 수행하나요?
 
- 아니요. 플러그 인은 SAML 2.0 기반 SSO만 제공합니다. SSO 로그인 전에 응용 프로그램에서 사용자를 프로비전해야 합니다.
+ 아니요. 플러그 인은 SAML 2.0 기반 SSO만 제공합니다. SSO 로그인 전에 애플리케이션에서 사용자를 프로비전해야 합니다.
 
 ### <a name="does-the-plug-in-support-cluster-versions-of-jira-and-confluence"></a>플러그 인에서 지원하는 Jira 및 Confluence 버전은 무엇인가요?
 

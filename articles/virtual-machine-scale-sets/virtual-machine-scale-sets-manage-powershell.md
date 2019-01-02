@@ -110,4 +110,4 @@ Remove-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScale
 
 
 ## <a name="next-steps"></a>다음 단계
-확장 집합에 대한 다른 공통 작업에는 [응용 프로그램을 배포](virtual-machine-scale-sets-deploy-app.md)하고 [VM 인스턴스를 업그레이드](virtual-machine-scale-sets-upgrade-scale-set.md)하는 방법이 포함됩니다. Azure PowerShell을 사용하여 [자동 크기 조정 규칙을 구성](virtual-machine-scale-sets-autoscale-overview.md)할 수도 있습니다.
+확장 집합에 대한 다른 공통 작업에는 [애플리케이션을 배포](virtual-machine-scale-sets-deploy-app.md)하고 [VM 인스턴스를 업그레이드](virtual-machine-scale-sets-upgrade-scale-set.md)하는 방법이 포함됩니다. Azure PowerShell을 사용하여 [자동 크기 조정 규칙을 구성](virtual-machine-scale-sets-autoscale-overview.md)할 수도 있습니다.

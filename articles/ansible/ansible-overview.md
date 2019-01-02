@@ -37,7 +37,7 @@ Azure 서비스와 상호 작용하기 위해 Ansible에는 Azure에서 인프�
 
 ## <a name="automate-cloud-native-application-in-azure"></a>Azure에서 클라우드 네이티브 애플리케이션 자동화
 
-Ansible을 사용하면 Azure 마이크로 서비스(예: [Azure Functions](https://azure.microsoft.com//services/functions/)와 [Azure의 Kubernetes](https://azure.microsoft.com/services/container-service/kubernetes/))를 사용하여 Azure에서 클라우드 네이티브 응용 프로그램을 자동화할 수 있습니다.  
+Ansible을 사용하면 Azure 마이크로 서비스(예: [Azure Functions](https://azure.microsoft.com//services/functions/)와 [Azure의 Kubernetes](https://azure.microsoft.com/services/container-service/kubernetes/))를 사용하여 Azure에서 클라우드 네이티브 애플리케이션을 자동화할 수 있습니다.  
 
 ## <a name="manage-deployments-with-dynamic-inventory"></a>동적 인벤토리를 사용하여 배포 관리
 Ansible은 [동적 인벤토리](https://docs.ansible.com/ansible/intro_dynamic_inventory.html) 기능을 통해 Azure 리소스에서 인벤토리를 끌어오는 기능을 제공합니다. 그런 다음, 기존 Azure 배포에 태그를 지정하고, Ansible을 통해 이러한 태그가 지정된 배포를 관리할 수 있습니다.

@@ -30,9 +30,9 @@ Log Analytics 시각화 예제를 구성하는 방법은 다음과 같습니다.
 4. 이전에 다운로드한 **AzureFirewall.omsview** 파일을 찾아 선택합니다.
 5. **저장**을 클릭합니다.
 
-응용 프로그램 규칙 로그 데이터에 대한 뷰는 다음과 같이 표시됩니다.
+애플리케이션 규칙 로그 데이터에 대한 뷰는 다음과 같이 표시됩니다.
 
-![응용 프로그램 규칙 로그 데이터](./media/log-analytics-samples/azurefirewall-applicationrulelogstats.png)
+![애플리케이션 규칙 로그 데이터](./media/log-analytics-samples/azurefirewall-applicationrulelogstats.png)
 
 또한 네트워크 규칙 로그 데이터의 경우:
 
@@ -40,9 +40,9 @@ Log Analytics 시각화 예제를 구성하는 방법은 다음과 같습니다.
 
 Azure Firewall은 범주를 사용하여 AzureDiagnostics 아래에 데이터를 **AzureFirewallApplicationRule** 또는 **AzureFirewallApplicationRule**로 기록합니다. 세부 정보가 포함된 데이터는 msg_s 필드에 저장됩니다. [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator) 연산자를 사용하면 msg_s 필드에서 다양한 흥미로운 속성을 추출할 수 있습니다. 아래 쿼리는 두 범주에 대한 정보를 추출합니다.
 
-## <a name="application-rules-log-data-query"></a>응용 프로그램 규칙 로그 데이터 쿼리
+## <a name="application-rules-log-data-query"></a>애플리케이션 규칙 로그 데이터 쿼리
 
-아래 쿼리는 응용 프로그램 규칙 로그 데이터를 구문 분석합니다. 다양한 주석 줄에 쿼리가 빌드된 방식에 대한 몇 가지 지침이 나와 있습니다.
+아래 쿼리는 애플리케이션 규칙 로그 데이터를 구문 분석합니다. 다양한 주석 줄에 쿼리가 빌드된 방식에 대한 몇 가지 지침이 나와 있습니다.
 
 ```Kusto
 AzureDiagnostics

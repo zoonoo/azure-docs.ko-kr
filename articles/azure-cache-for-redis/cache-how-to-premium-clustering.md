@@ -57,7 +57,7 @@ Azure에서 Redis 클러스터는 주/복제본 모델로 제공됩니다. 이 �
 
 > [!NOTE]
 > 
-> 클러스터링을 구성할 때 클라이언트 응용 프로그램에 필요한 몇 가지 사소한 차이점이 있습니다. 자세한 내용은 [클러스터링을 사용하려면 클라이언트 애플리케이션을 변경해야 합니까?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+> 클러스터링을 구성할 때 클라이언트 애플리케이션에 필요한 몇 가지 사소한 차이점이 있습니다. 자세한 내용은 [클러스터링을 사용하려면 클라이언트 애플리케이션을 변경해야 합니까?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 > 
 > 
 
@@ -98,8 +98,8 @@ Azure Cache for Redis 클러스터링에 대해 자주 묻는 질문과 대답�
 * [Redis ASP.NET 세션 상태 및 출력 캐싱 공급자와 함께 클러스터링을 사용할 수 있나요?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 * [StackExchange.Redis를 사용하고 클러스터링을 수행할 때 MOVE 예외가 발생합니다. 어떻게 해야 하나요?](#i-am-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do)
 
-### <a name="do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering"></a>클라이언트 응용 프로그램에 변경 사항이 필요하여 클러스터링을 사용해야 합니까?
-* 클러스터링 사용하는 경우 데이터베이스 0만을 사용할 수 있습니다. 클라이언트 응용 프로그램이 여러 데이터베이스를 사용하고 0이 아닌 데이터베이스에 읽기 또는 쓰기를 시도하는 경우 다음과 같은 예외가 발생합니다. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
+### <a name="do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering"></a>클라이언트 애플리케이션에 변경 사항이 필요하여 클러스터링을 사용해야 합니까?
+* 클러스터링 사용하는 경우 데이터베이스 0만을 사용할 수 있습니다. 클라이언트 애플리케이션이 여러 데이터베이스를 사용하고 0이 아닌 데이터베이스에 읽기 또는 쓰기를 시도하는 경우 다음과 같은 예외가 발생합니다. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
   
   자세한 내용은 [Redis 클러스터 사양 - 구현된 하위 집합](http://redis.io/topics/cluster-spec#implemented-subset)을 참조하세요.
 * [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/)를 사용하는 경우 1.0.481 이상을 사용해야 합니다. 클러스터링을 사용하지 않는 캐시에 연결할 때와 동일한 [엔드포인트, 포트 및 키](cache-configure.md#properties) 를 사용하여 캐시에 연결합니다. 유일한 차이점은 데이터베이스 0에 모든 읽기 및 쓰기를 수행해야 한다는 점입니다.

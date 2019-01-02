@@ -50,7 +50,7 @@ LUIS는 [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive
 ```
  
 ### <a name="whitelist-words"></a>허용 목록 단어
-LUIS에 사용된 Bing Spell Check API에서는 맞춤법 변경 동안 무시되는 단어의 허용 목록을 지원하지 않습니다. 단어 또는 축약어의 허용 목록을 지정해야 하는 경우 의도를 예측하기 위해 LUIS에 발화를 보내기 전에 허용 목록을 사용하여 클라이언트 응용 프로그램의 발화를 처리합니다.
+LUIS에 사용된 Bing Spell Check API에서는 맞춤법 변경 동안 무시되는 단어의 허용 목록을 지원하지 않습니다. 단어 또는 축약어의 허용 목록을 지정해야 하는 경우 의도를 예측하기 위해 LUIS에 발화를 보내기 전에 허용 목록을 사용하여 클라이언트 애플리케이션의 발화를 처리합니다.
 
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>미리 빌드된 datetimeV2 엔터티의 표준 시간대 변경
 LUIS 앱에서 미리 빌드된 datetimeV2 엔터티를 사용하는 경우, datetime 값이 예측 응답으로 반환될 수 있습니다. 요청의 표준 시간대는 반환할 올바른 datetime을 확인하는 데 사용됩니다. LUIS에 연결하기 전에 봇이나 다른 중앙 집중식 응용 프로그램에서 요청을 가져오는 경우, LUIS에서 사용하는 표준 시간대를 수정하세요. 

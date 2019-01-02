@@ -289,7 +289,7 @@ Azure 리소스에 대한 액세스를 허용하는 경우 항상 사용자에�
 
 -   **서비스 주체 개체**: 사용자 계정 및 그룹에 대한 액세스 권한을 제공할 뿐만 아니라 동일한 액세스 권한을 서비스 주체에게 부여할 수 있습니다.
 
-    > **사용 시기**: 프로그래밍 방식으로 Azure 리소스를 관리하거나 애플리케이션에 대한 액세스 권한을 부여하는 경우입니다. 자세한 내용은 [Active Directory 응용 프로그램 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
+    > **사용 시기**: 프로그래밍 방식으로 Azure 리소스를 관리하거나 애플리케이션에 대한 액세스 권한을 부여하는 경우입니다. 자세한 내용은 [Active Directory 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
 #### <a name="tags"></a>태그들
 

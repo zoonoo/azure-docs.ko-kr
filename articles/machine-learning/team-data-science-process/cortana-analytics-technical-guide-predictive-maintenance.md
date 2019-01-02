@@ -24,7 +24,7 @@ ms.locfileid: "53140186"
 이 문서는 더 이상 사용되지 않습니다. 항공 우주 분야에서의 예측 유지 관리와 관련된 논의가 여전히 있지만, 최신 정보는 [비즈니스 담당자를 위한 솔루션 개요](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace)를 참조하세요.
 
 
-솔루션 템플릿은 Cortana Intelligence Suite를 기반으로 E2E 데모 빌드 프로세스를 가속화하도록 디자인되었습니다. 배포된 템플릿은 필요한 Cortana Intelligence 구성 요소로 구독을 프로비전한 다음 이들 간의 관계를 빌드합니다. 또한 솔루션 템플릿을 배포한 후 다운로드하여 로컬 컴퓨터에 설치하는 데이터 생성기 응용 프로그램의 샘플 데이터로 데이터 파이프라인을 시드합니다. 생성기의 데이터는 데이터 파이프라인을 하이드레이션하며 나중에 Power BI 대시보드에서 시각화할 수 있는 기계 학습 예측을 생성하기 시작합니다.
+솔루션 템플릿은 Cortana Intelligence Suite를 기반으로 E2E 데모 빌드 프로세스를 가속화하도록 디자인되었습니다. 배포된 템플릿은 필요한 Cortana Intelligence 구성 요소로 구독을 프로비전한 다음 이들 간의 관계를 빌드합니다. 또한 솔루션 템플릿을 배포한 후 다운로드하여 로컬 컴퓨터에 설치하는 데이터 생성기 애플리케이션의 샘플 데이터로 데이터 파이프라인을 시드합니다. 생성기의 데이터는 데이터 파이프라인을 하이드레이션하며 나중에 Power BI 대시보드에서 시각화할 수 있는 기계 학습 예측을 생성하기 시작합니다.
 
 배포 프로세스는 솔루션 자격 증명을 설정하는 몇 가지 단계를 안내합니다. 솔루션 이름, 사용자 이름 및 배포하는 동안 제공하는 암호와 같은 자격 증명을 기록합니다. 
 
@@ -49,11 +49,11 @@ ms.locfileid: "53140186"
 
 ## <a name="data-source-and-ingestion"></a>데이터 원본 및 수집
 ### <a name="synthetic-data-source"></a>가상 데이터 원본
-이 템플릿의 경우 사용되는 데이터 원본은 성공적인 배포 후 로컬로 다운로드하여 실행하는 데스크톱 응용 프로그램에서 생성됩니다.
+이 템플릿의 경우 사용되는 데이터 원본은 성공적인 배포 후 로컬로 다운로드하여 실행하는 데스크톱 애플리케이션에서 생성됩니다.
 
-이 응용 프로그램 다운로드 및 설치에 대한 지침을 찾으려면 솔루션 템플릿 다이어그램에서 첫 번째 노드인 예측 유지 관리 데이터 생성기를 선택합니다. 지시 사항은 속성 표시줄에 있습니다. 이 응용 프로그램은 솔루션 흐름의 나머지 부분에서 사용되는 데이터 요소 또는 이벤트로 [Azure Event Hub](#azure-event-hub) 서비스를 피드합니다. 이 데이터 원본은 [Turbofan 엔진 성능 저하 시뮬레이션 데이터 집합](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan)을 사용한 [NASA 데이터 저장소](https://c3.nasa.gov/dashlink/resources/139/)의 공개적으로 사용할 수 있는 데이터에서 파생되었습니다.
+이 애플리케이션 다운로드 및 설치에 대한 지침을 찾으려면 솔루션 템플릿 다이어그램에서 첫 번째 노드인 예측 유지 관리 데이터 생성기를 선택합니다. 지시 사항은 속성 표시줄에 있습니다. 이 애플리케이션은 솔루션 흐름의 나머지 부분에서 사용되는 데이터 요소 또는 이벤트로 [Azure Event Hub](#azure-event-hub) 서비스를 피드합니다. 이 데이터 원본은 [Turbofan 엔진 성능 저하 시뮬레이션 데이터 집합](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan)을 사용한 [NASA 데이터 저장소](https://c3.nasa.gov/dashlink/resources/139/)의 공개적으로 사용할 수 있는 데이터에서 파생되었습니다.
 
-이벤트 생성 응용 프로그램은 컴퓨터에서 실행되는 동안 Azure Event Hub를 채웁니다.  
+이벤트 생성 애플리케이션은 컴퓨터에서 실행되는 동안 Azure Event Hub를 채웁니다.  
 
 ### <a name="azure-event-hub"></a>Azure Event Hub  
 [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) 서비스는 가상 데이터 원본에서 제공되는 입력을 받는 대상입니다.

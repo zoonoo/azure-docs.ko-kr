@@ -43,7 +43,7 @@ Log Analytics에서 Power BI 데이터 세트를 채우고 싶은 데이터를 �
 ## <a name="import-query-into-power-bi-desktop"></a>Power BI Desktop으로 쿼리 가져오기
 Power BI Desktop은 Power BI에 게시할 수 있는 데이터 세트 및 보고서를 만들 수 있는 데스크톱 응용 프로그램입니다.  Log Analytics에서 내보낸 파워 쿼리 언어를 사용하여 쿼리를 만드는 데도 사용할 수 있습니다. 
 
-1. 아직 설치하지 않았으면 [Power BI Desktop](https://powerbi.microsoft.com/desktop/)을 설치하고 응용 프로그램을 엽니다.
+1. 아직 설치하지 않았으면 [Power BI Desktop](https://powerbi.microsoft.com/desktop/)을 설치하고 애플리케이션을 엽니다.
 2. **데이터 가져오기** > **빈 쿼리**를 선택하여 새 쿼리를 엽니다.  그런 다음 **고급 편집기**를 선택하고 내보낸 파일의 내용을 쿼리에 붙여넣습니다. **Done**을 클릭합니다.
 
     ![Power BI 데스크톱 쿼리](media/powerbi/desktop-new-query.png)

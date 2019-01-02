@@ -150,8 +150,8 @@ Azure Storage 서비스 주체 인증은 일반적으로 [Azure Active Directory
 
 1. [Azure AD 테넌트에 응용 프로그램 등록](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant)에 따라 Azure AD(Azure Active Directory)에 응용 프로그램 항목을 등록합니다. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
 
-    - 응용 프로그램 UI
-    - 응용 프로그램 키
+    - 애플리케이션 UI
+    - 애플리케이션 키
     - 테넌트 ID
 
 2. Azure Blob 저장소에서 서비스 주체에게 적절한 권한을 부여합니다. 역할에 대한 자세한 내용은 [RBAC를 사용하여 Azure Storage 데이터에 대한 액세스 권한 관리](../storage/common/storage-auth-aad-rbac.md)를 참조하세요.
@@ -165,9 +165,9 @@ Azure Blob 저장소 연결된 서비스에 지원되는 속성은 다음과 같
 |:--- |:--- |:--- |
 | 형식 | type 속성은 **AzureBlobStorage**로 설정해야 합니다. |yes |
 | serviceEndpoint | 패턴이 `https://<accountName>.blob.core.windows.net/`인 Azure Blob 저장소 서비스 엔드포인트를 지정합니다. |yes |
-| servicePrincipalId | 응용 프로그램의 클라이언트 ID를 지정합니다. | yes |
-| servicePrincipalKey | 응용 프로그램의 키를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
-| tenant | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | yes |
+| servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | yes |
+| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | yes |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime(데이터 저장소가 사설망에 있는 경우)을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 >[!NOTE]

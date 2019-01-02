@@ -1,7 +1,7 @@
 ---
 title: Speech Devices SDK 정보 - Speech Services
 titleSuffix: Azure Cognitive Services
-description: Speech Service SDK(소프트웨어 개발 키트)를 사용하면 응용 프로그램 네이티브에서 Speech 서비스의 기능에 액세스할 수 있으므로 소프트웨어를 더 쉽게 개발할 수 있습니다. 이 문서에서는 Windows, Linux 및 Android용 SDK에 대한 추가 세부 정보를 제공합니다.
+description: Speech Service SDK(소프트웨어 개발 키트)를 사용하면 애플리케이션 네이티브에서 Speech 서비스의 기능에 액세스할 수 있으므로 소프트웨어를 더 쉽게 개발할 수 있습니다. 이 문서에서는 Windows, Linux 및 Android용 SDK에 대한 추가 세부 정보를 제공합니다.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -20,7 +20,7 @@ ms.locfileid: "53096845"
 ---
 # <a name="about-the-speech-service-sdk"></a>Speech Service SDK 정보
 
-Speech Service SDK(소프트웨어 개발 키트)를 사용하면 응용 프로그램 네이티브에서 Speech 서비스의 기능에 액세스할 수 있으므로 소프트웨어를 더 쉽게 개발할 수 있습니다. 현재 SDK에서는 **음성 텍스트 변환**, **음성 번역** 및 **의도 인식**에 대한 액세스 권한을 제공합니다.
+Speech Service SDK(소프트웨어 개발 키트)를 사용하면 애플리케이션 네이티브에서 Speech 서비스의 기능에 액세스할 수 있으므로 소프트웨어를 더 쉽게 개발할 수 있습니다. 현재 SDK에서는 **음성 텍스트 변환**, **음성 번역** 및 **의도 인식**에 대한 액세스 권한을 제공합니다.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
@@ -66,7 +66,7 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
   |`lib/x64`|응용 프로그램과 연결할 기본 x64 라이브러리|
   |`lib/x86`|응용 프로그램과 연결할 기본 x86 라이브러리|
 
-  응용 프로그램을 만들려면 개발 환경에 필수 이진 파일(및 라이브러리)을 복사하고 이동합니다. 필요에 따라 빌드 프로세스에 포함합니다.
+  애플리케이션을 만들려면 개발 환경에 필수 이진 파일(및 라이브러리)을 복사하고 이동합니다. 필요에 따라 빌드 프로세스에 포함합니다.
 
 ### <a name="android"></a>Android
 

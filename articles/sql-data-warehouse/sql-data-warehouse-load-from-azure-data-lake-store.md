@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 * 서비스 간 인증에 사용할 Azure Active Directory 애플리케이션. 만들려면 [Active Directory 인증](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 따릅니다.
 
 >[!NOTE] 
-> SQL Data Warehouse에서 Data Lake Storage Gen1 계정에 연결하려면 클라이언트 ID, 키 및 Active Directory 응용 프로그램의 OAuth2.0 토큰 엔드포인트 값이 필요합니다. 이러한 값을 가져오는 방법에 대한 세부 정보는 위의 링크에 있습니다. Azure Active Directory 앱 등록의 경우 '응용 프로그램 ID'를 클라이언트 ID로 사용합니다.
+> SQL Data Warehouse에서 Data Lake Storage Gen1 계정에 연결하려면 클라이언트 ID, 키 및 Active Directory 애플리케이션의 OAuth2.0 토큰 엔드포인트 값이 필요합니다. 이러한 값을 가져오는 방법에 대한 세부 정보는 위의 링크에 있습니다. Azure Active Directory 앱 등록의 경우 '애플리케이션 ID'를 클라이언트 ID로 사용합니다.
 > 
 
 * Azure SQL Data Warehouse입니다. [Azure SQL Data Warehouse 쿼리 및 만들기](create-data-warehouse-portal.md)를 참조합니다.
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ##  <a name="create-a-credential"></a>자격 증명 만들기
 Data Lake Storage Gen1 계정에 액세스하려면 다음 단계에서 사용되는 자격 증명 비밀을 암호화하는 데이터베이스 마스터 키를 만들어야 합니다. 그런 다음, AAD에 서비스 주체 자격 증명 설정을 저장하는 데이터베이스 범위 자격 증명을 만듭니다. Miscrosoft Azure Storage Blob에 연결하는 데 PolyBase를 사용한 사용자의 경우 자격 증명 구문은 다릅니다.
 
-Data Lake Storage Gen1에 연결하려면 **먼저** Azure Active Directory 응용 프로그램을 만들고, 액세스 키를 만들고, Data Lake Storage Gen1 리소스에 대한 액세스 권한을 응용 프로그램에 부여해야 합니다. 지침은 [Active Directory를 사용하여 Azure Data Lake Storage Gen1 인증하기](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)를 참조하세요.
+Data Lake Storage Gen1에 연결하려면 **먼저** Azure Active Directory 애플리케이션을 만들고, 액세스 키를 만들고, Data Lake Storage Gen1 리소스에 대한 액세스 권한을 애플리케이션에 부여해야 합니다. 지침은 [Active Directory를 사용하여 Azure Data Lake Storage Gen1 인증하기](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)를 참조하세요.
 
 ```sql
 -- A: Create a Database Master Key.

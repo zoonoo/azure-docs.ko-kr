@@ -324,9 +324,9 @@ device.objectid -ne null
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-사용자 지정 확장 속성은 온-프레미스 Windows Server AD 또는 연결된 SaaS 응용 프로그램에서 동기화되며 `user.extension_[GUID]__[Attribute]` 형식입니다.
+사용자 지정 확장 속성은 온-프레미스 Windows Server AD 또는 연결된 SaaS 애플리케이션에서 동기화되며 `user.extension_[GUID]__[Attribute]` 형식입니다.
 
-* [GUID]는 Azure AD에서 속성을 만든 응용 프로그램에 대한 Azure AD의 고유 식별자입니다.
+* [GUID]는 Azure AD에서 속성을 만든 애플리케이션에 대한 Azure AD의 고유 식별자입니다.
 * [Attribute]는 Azure AD에서 만든 속성의 이름입니다.
 
 사용자 지정 확장 속성을 사용하는 규칙의 예제는 다음과 같습니다.

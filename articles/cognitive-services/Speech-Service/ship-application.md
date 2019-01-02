@@ -18,7 +18,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/08/2018
 ms.locfileid: "53106501"
 ---
-# <a name="ship-an-application"></a>응용 프로그램 배송
+# <a name="ship-an-application"></a>애플리케이션 배송
 
 [Speech SDK 라이선스](https://aka.ms/csspeech/license201809)를 준수하고 Azure Cognitive Services Speech SDK를 배포할 경우 [타사 소프트웨어 공지 사항](https://csspeechstorage.blob.core.windows.net/drop/1.0.0/ThirdPartyNotices.html)도 준수합니다. 또한 [Microsoft 개인정보처리방침](https://aka.ms/csspeech/privacy)을 검토합니다.
 
@@ -33,11 +33,11 @@ Cognitive Services Speech SDK에는 [Visual Studio 2017용 Microsoft Visual C++ 
 - [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
 
-응용 프로그램에서 관리 코드를 사용하는 경우, 대상 머신에 `.NET Framework 4.6.1` 이상이 필요합니다.
+애플리케이션에서 관리 코드를 사용하는 경우, 대상 머신에 `.NET Framework 4.6.1` 이상이 필요합니다.
 
 마이크 입력을 위해 미디어 파운데이션 라이브러리를 설치해야 합니다. 이러한 라이브러리는 Windows 10 및 Windows Server 2016에 포함됩니다. 마이크를 오디오 입력 디바이스로 사용하지 않는 경우에는 이러한 라이브러리 없이 Speech SDK를 사용할 수 있습니다.
 
-필요한 Speech SDK 파일은 응용 프로그램과 동일한 디렉터리에 배포할 수 있습니다. 이렇게 하면 응용 프로그램이 라이브러리에 직접 액세스할 수 있습니다. 응용 프로그램과 일치하는 올바른 버전(Win32/x64)을 선택해야 합니다.
+필요한 Speech SDK 파일은 응용 프로그램과 동일한 디렉터리에 배포할 수 있습니다. 이렇게 하면 응용 프로그램이 라이브러리에 직접 액세스할 수 있습니다. 애플리케이션과 일치하는 올바른 버전(Win32/x64)을 선택해야 합니다.
 
 | 이름 | 함수
 |:-----|:----|
@@ -47,8 +47,8 @@ Cognitive Services Speech SDK에는 [Visual Studio 2017용 Microsoft Visual C++ 
 
 ## <a name="linux"></a>Linux
 
-네이티브 응용 프로그램의 경우 Speech SDK 라이브러리 `libMicrosoft.CognitiveServices.Speech.core.so`를 전달해야 합니다.
-응용 프로그램과 일치하는 버전(x86, x64)을 선택해야 합니다. Linux 버전에 따라 다음 종속성을 포함해야 할 수도 있습니다.
+네이티브 애플리케이션의 경우 Speech SDK 라이브러리 `libMicrosoft.CognitiveServices.Speech.core.so`를 전달해야 합니다.
+애플리케이션과 일치하는 버전(x86, x64)을 선택해야 합니다. Linux 버전에 따라 다음 종속성을 포함해야 할 수도 있습니다.
 
 * GNU C 라이브러리의 공유 라이브러리(POSIX Threads Programming 라이브러리, `libpthreads` 포함)
 * OpenSSL 라이브러리(`libssl.so.1.0.0`)

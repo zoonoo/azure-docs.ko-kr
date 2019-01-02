@@ -22,7 +22,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/19/2018
 ms.locfileid: "49467140"
 ---
-# <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Azure에서 다중 컨테이너 응용 프로그램 정의 및 실행을 위해 Docker 및 Compose 시작
+# <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Azure에서 다중 컨테이너 애플리케이션 정의 및 실행을 위해 Docker 및 Compose 시작
 [Compose](http://github.com/docker/compose)를 사용하면 간단한 텍스트 파일을 사용하여 여러 Docker 컨테이너로 구성된 응용 프로그램을 정의할 수 있습니다. 그런 다음, 정의된 환경을 배포하도록 모든 작업을 수행하는 단일 명령으로 애플리케이션을 스핀업합니다. 그 예로, 이 문서에서는 Ubuntu VM의 백 엔드 MariaDB SQL Database로 WordPress 블로그를 신속하게 설정하는 방법을 보여주지만 Compose를 사용하여 좀더 복잡한 애플리케이션을 설정할 수도 있습니다.
 
 

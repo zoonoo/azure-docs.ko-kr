@@ -69,7 +69,7 @@ Application Insights Profiler는 WAD(Windows Azure 진단) 확장과 함께 설�
     >  * `ApplicationInsightsProfiler` 싱크에 사용되는 키입니다.  
     >
     > *ServiceConfiguration.\*.cscfg* 파일의 `ApplicationInsights` 싱크에 사용되는 실제 계측 키 값을 찾을 수 있습니다.  
-    > Visual Studio 15.5 Azure SDK 릴리스 후에는 응용 프로그램과 `ApplicationInsightsProfiler` 싱크에서 사용하는 계측 키만 서로 일치해야 합니다.
+    > Visual Studio 15.5 Azure SDK 릴리스 후에는 애플리케이션과 `ApplicationInsightsProfiler` 싱크에서 사용하는 계측 키만 서로 일치해야 합니다.
 1. 새 진단 구성을 사용하여 서비스를 배포하면 서비스에서 실행되도록 Application Insights Profiler가 구성됩니다.
  
 ## <a name="next-steps"></a>다음 단계

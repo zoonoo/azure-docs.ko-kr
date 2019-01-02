@@ -172,6 +172,6 @@ ms.locfileid: "52720654"
 
 
 ## <a name="next-steps"></a>다음 단계
-Azure App Service에 의해 호스팅되는 사용자 지정 컨테이너를 사용하는 경우 [컨테이너화된 ASP.NET Core 응용 프로그램에 대한 서비스 프로파일러 활성화](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp)의 지침을 따라 Application Insights Profiler를 활성화합니다.
+Azure App Service에 의해 호스팅되는 사용자 지정 컨테이너를 사용하는 경우 [컨테이너화된 ASP.NET Core 애플리케이션에 대한 서비스 프로파일러 활성화](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp)의 지침을 따라 Application Insights Profiler를 활성화합니다.
 
 Application Insights GitHub 리포지토리([ApplicationInsights-Profiler-AspNetCore: Issues](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues))에 문제 또는 제안 사항을 보고합니다.

@@ -52,7 +52,7 @@ Application Insights Profiler는 App Services 런타임의 일부로 미리 설�
 
 성능 문제를 가능한 한 빨리 검색하려면 모든 웹앱에서 Profiler를 사용하도록 설정하는 것이 좋습니다.
 
-WebDeploy를 사용하여 웹 응용 프로그램에 변경 내용을 배포하는 경우 배포 중에 App_Data 폴더가 삭제되지 않도록 제외해야 합니다. 그렇지 않으면 다음에 Azure에 웹 응용 프로그램을 배포할 때 Profiler 확장의 파일이 삭제됩니다.
+WebDeploy를 사용하여 웹 애플리케이션에 변경 내용을 배포하는 경우 배포 중에 App_Data 폴더가 삭제되지 않도록 제외해야 합니다. 그렇지 않으면 다음에 Azure에 웹 응용 프로그램을 배포할 때 Profiler 확장의 파일이 삭제됩니다.
 
 
 

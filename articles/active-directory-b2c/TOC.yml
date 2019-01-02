@@ -41,7 +41,7 @@ items:
   href: code-samples.md
 - name: 개념
   items:
-  - name: 응용 프로그램 형식
+  - name: 애플리케이션 형식
     href: active-directory-b2c-apps.md
   - name: 인증 프로토콜
     href: active-directory-b2c-reference-protocols.md

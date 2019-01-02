@@ -140,7 +140,7 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>선택 사항 - 사용자 지정 필드를 보내도록 GraphAPI 업데이트
 
-Azure AD에서 인증에 대해 전송하는 보안 토큰의 목록은 [Azure AD 토큰 참조](../develop/v1-id-and-access-tokens.md)를 참조하세요. 다른 토큰을 전송하는 사용자 지정 클레임이 필요한 경우 Graph 탐색기 또는 Azure Portal에서 응용 프로그램의 매니페스트를 사용하여 앱 필드 *acceptMappedClaims*를 **True**로 설정합니다.    
+Azure AD에서 인증에 대해 전송하는 보안 토큰의 목록은 [Azure AD 토큰 참조](../develop/v1-id-and-access-tokens.md)를 참조하세요. 다른 토큰을 전송하는 사용자 지정 클레임이 필요한 경우 Graph 탐색기 또는 Azure Portal에서 애플리케이션의 매니페스트를 사용하여 앱 필드 *acceptMappedClaims*를 **True**로 설정합니다.    
 
 이 예에서는 Graph Explorer를 사용합니다.
 

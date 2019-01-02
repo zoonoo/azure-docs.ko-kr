@@ -20,7 +20,7 @@ ms.locfileid: "53094834"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>자습서: Azure Bot Service v3로 QnA 봇 만들기
 
-이 자습서에서는 코드를 작성하지 않고 [Azure Portal](https://portal.azure.com)에서 Azure Bot Service v3를 사용하여 QnA 봇을 빌드하는 과정을 안내합니다. 게시된 KB(기술 자료)를 봇에 연결하는 것은 봇 응용 프로그램 설정을 변경하는 것만큼 간단합니다. 
+이 자습서에서는 코드를 작성하지 않고 [Azure Portal](https://portal.azure.com)에서 Azure Bot Service v3를 사용하여 QnA 봇을 빌드하는 과정을 안내합니다. 게시된 KB(기술 자료)를 봇에 연결하는 것은 봇 애플리케이션 설정을 변경하는 것만큼 간단합니다. 
 
 > [!Note] 
 > 이 항목은 Bot SDK 버전 3에 대한 내용을 다룹니다. 버전 4는 [여기](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs)에서 찾을 수 있습니다. 

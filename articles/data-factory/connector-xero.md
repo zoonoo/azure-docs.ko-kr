@@ -52,7 +52,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 |:--- |:--- |:--- |
 | 형식 | type 속성을 다음으로 설정해야 합니다. **Xero** | yes |
 | host | Xero 서버(`api.xero.com`)의 엔드포인트입니다.  | yes |
-| consumerKey | Xero 응용 프로그램과 연결된 소비자 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| consumerKey | Xero 애플리케이션과 연결된 소비자 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
 | privateKey | Xero 개인 응용 프로그램에 대해 생성된 .pem 파일의 개인 키는 [공개/개인 키 쌍 만들기](https://developer.xero.com/documentation/api-guides/create-publicprivate-key)를 참조하세요. **512의 numbits로 privatekey.pem을 생성**하려면 `openssl genrsa -out privatekey.pem 512`를 사용합니다. 1024는 지원되지 않습니다. Unix 줄 끝(\n)을 포함하여 .pem 파일의 모든 텍스트를 포함합니다. 아래 샘플을 참조하세요.<br/><br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |

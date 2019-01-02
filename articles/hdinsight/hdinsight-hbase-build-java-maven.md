@@ -17,7 +17,7 @@ ms.lasthandoff: 12/14/2018
 ms.locfileid: "53384244"
 ---
 # <a name="use-apache-maven-to-build-java-applications-that-use-apache-hbase-with-windows-based-hdinsight-apache-hadoop"></a>Apache Maven을 사용하여 Windows 기반 HDInsight(Apache Hadoop)에서 Apache HBase를 사용하는 Java 애플리케이션 빌드
-Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) 응용 프로그램을 만들어 빌드하는 방법을 알아봅니다. 그런 다음, Azure HDInsight(Apache Hadoop)에서 애플리케이션을 사용합니다.
+Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) 애플리케이션을 만들어 빌드하는 방법을 알아봅니다. 그런 다음, Azure HDInsight(Apache Hadoop)에서 애플리케이션을 사용합니다.
 
 [Apache Maven](http://maven.apache.org/)은 Java 프로젝트용 소프트웨어, 문서화 및 보고를 빌드할 수 있는 소프트웨어 프로젝트 관리 및 종합 도구입니다. 이 문서에서는 Maven을 사용하여 Azure HDInsight 클러스터에서 HBase 테이블을 만들고, 쿼리하고, 삭제하는 기본 Java 응용 프로그램을 만드는 방법을 알아봅니다.
 

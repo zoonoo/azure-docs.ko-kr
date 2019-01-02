@@ -1,6 +1,6 @@
 ---
 title: Azure Batch의 컨테이너 워크로드 | Microsoft Docs
-description: Azure Batch에서 컨테이너 이미지의 응용 프로그램을 실행하는 방법을 알아봅니다.
+description: Azure Batch에서 컨테이너 이미지의 애플리케이션을 실행하는 방법을 알아봅니다.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -17,7 +17,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2018
 ms.locfileid: "52262434"
 ---
-# <a name="run-container-applications-on-azure-batch"></a>Azure Batch에서 컨테이너 응용 프로그램 실행
+# <a name="run-container-applications-on-azure-batch"></a>Azure Batch에서 컨테이너 애플리케이션 실행
 
 Azure Batch를 사용하면 Azure에서 많은 수의 일괄 처리 계산 작업을 실행하고 확장할 수 있습니다. Batch 작업은 Batch 풀의 가상 머신(노드)에서 직접 실행할 수 있지만 노드에서 Docker 호환 컨테이너의 작업을 실행하도록 Batch 풀을 설정할 수도 있습니다. 이 문서에서는 컨테이너 작업의 실행을 지원하는 계산 노드 풀을 만드는 방법과 풀에서 컨테이너 작업을 실행하는 방법을 보여 줍니다. 
 

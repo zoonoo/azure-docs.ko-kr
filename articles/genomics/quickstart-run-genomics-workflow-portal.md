@@ -59,7 +59,7 @@ Microsoft Genomics 계정을 만들려면 [Azure Portal](https://portal.azure.co
 
 Microsoft Genomics Python 클라이언트는 Python 2.7과 호환됩니다. 12 또는 2.7.xx 이상 버전; 2.7.15는 이 작성 시 최신 버전이며 2.7.14는 권장된 버전입니다. [여기](https://www.python.org/downloads/)에서 다운로드를 찾을 수 있습니다. 
 
-참고: Python 3.x는 Python 2.7.xx와 호환되지 않습니다.  MSGen은 Python 2.7 응용 프로그램입니다. MSGen를 실행하는 경우 활성 Python 환경에서 Python 2.7.xx 버전을 사용하는지 확인합니다. Python 3.x 버전에서 MSGen 사용하려고 할 때 오류가 발생할 수 있습니다.
+참고: Python 3.x는 Python 2.7.xx와 호환되지 않습니다.  MSGen은 Python 2.7 애플리케이션입니다. MSGen를 실행하는 경우 활성 Python 환경에서 Python 2.7.xx 버전을 사용하는지 확인합니다. Python 3.x 버전에서 MSGen 사용하려고 할 때 오류가 발생할 수 있습니다.
 
 
 ### <a name="install-the-microsoft-genomics-client"></a>Microsoft Genomics 클라이언트 설치

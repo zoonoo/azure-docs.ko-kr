@@ -19,7 +19,7 @@ ms.locfileid: "45738470"
 다음으로 이 가이드에 코드 예제를 사용할 준비가 되도록 Visual Studio에서 개발 환경을 설정합니다.
 
 ### <a name="create-a-windows-console-application-project"></a>Windows 콘솔 애플리케이션 프로젝트 만들기
-Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다. 다음 단계에서는 Visual Studio 2017에서 콘솔 응용 프로그램을 만드는 방법을 보여 줍니다. 이러한 단계는 다른 버전의 Visual Studio에서도 비슷합니다.
+Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다. 다음 단계에서는 Visual Studio 2017에서 콘솔 애플리케이션을 만드는 방법을 보여 줍니다. 이러한 단계는 다른 버전의 Visual Studio에서도 비슷합니다.
 
 1. **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 2. **설치됨** > **템플릿** > **Visual C#** > **Windows 클래식 바탕 화면**을 차례로 선택합니다.
@@ -56,7 +56,7 @@ NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단
 이 가이드의 예제를 실행하기 위해 다음과 같은 두 가지 환경 옵션이 있습니다.
 
 * 클라우드에서 Azure Storage 계정에 대한 코드를 실행할 수 있습니다. 
-* Azure 저장소 에뮬레이터에 대해 코드를 실행할 수 있습니다. 저장소 에뮬레이터는 클라우드에서 Azure Storage 계정을 에뮬레이트하는 로컬 환경입니다. 에뮬레이터는 응용 프로그램을 개발하는 동안 코드의 테스트 및 디버깅하기 위한 무료 옵션입니다. 에뮬레이터는 잘 알려진 계정 및 키를 사용합니다. 자세한 내용은 [개발 및 테스트에 Azure Storage 에뮬레이터 사용](../articles/storage/common/storage-use-emulator.md)을 참조하세요.
+* Azure 저장소 에뮬레이터에 대해 코드를 실행할 수 있습니다. 저장소 에뮬레이터는 클라우드에서 Azure Storage 계정을 에뮬레이트하는 로컬 환경입니다. 에뮬레이터는 애플리케이션을 개발하는 동안 코드의 테스트 및 디버깅하기 위한 무료 옵션입니다. 에뮬레이터는 잘 알려진 계정 및 키를 사용합니다. 자세한 내용은 [개발 및 테스트에 Azure Storage 에뮬레이터 사용](../articles/storage/common/storage-use-emulator.md)을 참조하세요.
 
 클라우드에서 저장소 계정을 대상으로 하는 경우 Azure Portal에서 저장소 계정에 대한 기본 선택키를 복사합니다. 자세한 내용은 [액세스 키](../articles/storage/common/storage-account-manage.md#access-keys)를 참조하세요.
 

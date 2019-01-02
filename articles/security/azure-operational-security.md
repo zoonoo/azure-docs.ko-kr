@@ -59,7 +59,7 @@ Microsoft Azure Log Analytics는 하이브리드 클라우드를 위한 IT 관�
 
 ![Log Analytics](./media/azure-operational-security/azure-operational-security-fig1.png)
 
-Log Analytics를 사용하면 경쟁 솔루션보다 저렴한 비용으로 온-프레미스, Azure, AWS, Windows Server, Linux, VMware 및 OpenStack을 포함한 모든 클라우드의 모든 인스턴스를 관리할 수 있습니다. 클라우드 우선 세계를 위해 구축된 Log Analytics는 새로운 비즈니스 과제를 충족하고 새로운 워크로드, 응용 프로그램 및 클라우드 환경을 수용할 수 있는 가장 빠르고 비용 효율적인 방법으로 기업을 관리하기 위한 새로운 방법을 제공합니다.
+Log Analytics를 사용하면 경쟁 솔루션보다 저렴한 비용으로 온-프레미스, Azure, AWS, Windows Server, Linux, VMware 및 OpenStack을 포함한 모든 클라우드의 모든 인스턴스를 관리할 수 있습니다. 클라우드 우선 세계를 위해 구축된 Log Analytics는 새로운 비즈니스 과제를 충족하고 새로운 워크로드, 애플리케이션 및 클라우드 환경을 수용할 수 있는 가장 빠르고 비용 효율적인 방법으로 기업을 관리하기 위한 새로운 방법을 제공합니다.
 
 ### <a name="log-analytics-services"></a>Log Analytics 서비스
 
@@ -175,7 +175,7 @@ Azure Monitor는 특정 유형의 리소스 정보에 대한 포인터를 제공
 ![Azure Monitor](./media/azure-operational-security/azure-operational-security-fig6.png)
 
 
-클라우드 응용 프로그램은 이동하는 부분이 많아 복잡합니다. 모니터링은 응용 프로그램을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다.
+클라우드 애플리케이션은 이동하는 부분이 많아 복잡합니다. 모니터링은 응용 프로그램을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다.
 
 또한 애플리케이션에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 통해 애플리케이션 성능이나 유지 관리를 개선하거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화하는 데 도움이 될 수 있습니다.
 
@@ -237,7 +237,7 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 
 ## <a name="azure-storage-analytics"></a>Azure Storage 분석
 
-[저장소 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 Storage 서비스 요청과 관련하여 집계된 트랜잭션 통계 및 용량 데이터를 포함하는 메트릭을 저장할 수 있습니다. 트랜잭션은 API 작업 수준과 저장소 서비스 수준에서 모두 보고되며 용량은 저장소 서비스 수준에서 보고됩니다. 메트릭 데이터를 사용하면 저장소 서비스 사용량을 분석하고 저장소 서비스에 대한 요청의 문제를 진단하며 서비스를 사용하는 응용 프로그램의 성능을 개선할 수 있습니다.
+[저장소 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 Storage 서비스 요청과 관련하여 집계된 트랜잭션 통계 및 용량 데이터를 포함하는 메트릭을 저장할 수 있습니다. 트랜잭션은 API 작업 수준과 저장소 서비스 수준에서 모두 보고되며 용량은 저장소 서비스 수준에서 보고됩니다. 메트릭 데이터를 사용하면 저장소 서비스 사용량을 분석하고 저장소 서비스에 대한 요청의 문제를 진단하며 서비스를 사용하는 애플리케이션의 성능을 개선할 수 있습니다.
 
 [Azure Storage 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 로깅을 수행하며 Storage 계정에 대한 메트릭 데이터를 제공합니다. 이 데이터를 사용하여 요청을 추적하고 사용량 추세를 분석하며 저장소 계정에 대한 문제를 진단할 수 있습니다. Storage 분석 로깅은 [Blob, 큐 및 Table service](https://docs.microsoft.com/azure/storage/storage-introduction)에서 사용할 수 있습니다. 저장소 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다.
 

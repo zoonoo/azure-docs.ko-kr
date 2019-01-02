@@ -31,8 +31,8 @@ ms.locfileid: "53020841"
 > [!div class="checklist"]
 > * Azure Cache for Redis를 사용하는 데이터를 저장하고 검색하여 데이터 처리량을 개선하고 데이터베이스 부하를 줄입니다.
 > * Redis 정렬된 집합을 사용하여 상위 5개 팀을 검색합니다.
-> * Resource Manager 템플릿을 사용하여 응용 프로그램에 대한 Azure 리소스를 프로비전합니다.
-> * Visual Studio를 사용하여 응용 프로그램을 Azure에 게시합니다.
+> * Resource Manager 템플릿을 사용하여 애플리케이션에 대한 Azure 리소스를 프로비전합니다.
+> * Visual Studio를 사용하여 애플리케이션을 Azure에 게시합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -636,9 +636,9 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 
 ## <a name="run-the-app-locally"></a>로컬에서 앱 실행하기
 
-팀을 지원하기 위해 추가된 기능을 확인하려면 사용자 컴퓨터에 응용 프로그램을 로컬로 실행합니다.
+팀을 지원하기 위해 추가된 기능을 확인하려면 사용자 컴퓨터에 애플리케이션을 로컬로 실행합니다.
 
-이 테스트에서 응용 프로그램 및 데이터베이스는 모두 로컬로 실행됩니다. 단, Azure Cache for Redis는 Azure에서 원격으로 호스팅됩니다. 따라서 캐시는 데이터베이스의 성능을 약간 저하시킬 가능성이 있습니다. 최상의 성능을 위해 클라이언트 애플리케이션 및 Azure Cache for Redis 인스턴스가 동일한 위치에 있어야 합니다. 다음 섹션에서는 모든 리소스를 Azure에 배포하여 캐시를 사용한 성능 향상을 확인합니다.
+이 테스트에서 애플리케이션 및 데이터베이스는 모두 로컬로 실행됩니다. 단, Azure Cache for Redis는 Azure에서 원격으로 호스팅됩니다. 따라서 캐시는 데이터베이스의 성능을 약간 저하시킬 가능성이 있습니다. 최상의 성능을 위해 클라이언트 애플리케이션 및 Azure Cache for Redis 인스턴스가 동일한 위치에 있어야 합니다. 다음 섹션에서는 모든 리소스를 Azure에 배포하여 캐시를 사용한 성능 향상을 확인합니다.
 
 로컬로 앱을 실행하려면 다음을 수행합니다.
 
@@ -682,7 +682,7 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 
     ![연결 문자열 표시](./media/cache-web-app-cache-aside-leaderboard/cache-show-connection-strings.png)
 
-1. Azure Portal에서 App Service로 이동하고 **응용 프로그램 설정**을 클릭한 다음, 연결 문자열 섹션에서 **새 연결 문자열 추가**를 클릭합니다.
+1. Azure Portal에서 App Service로 이동하고 **애플리케이션 설정**을 클릭한 다음, 연결 문자열 섹션에서 **새 연결 문자열 추가**를 클릭합니다.
 
 1. Entity Framework 데이터베이스 컨텍스트 클래스와 일치하도록 *TeamContext*라는 새 연결 문자열을 추가합니다. 새 데이터베이스에 대한 연결 문자열을 값으로 붙여넣습니다. 연결 문자열에서 다음과 같은 자리 표시자를 바꾸었는지 확인하고 **저장**을 클릭합니다.
 
@@ -691,11 +691,11 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
     | *{your_username}* | 방금 만든 데이터베이스 서버에 대한 **서버 관리자 로그인**을 사용합니다. |
     | *{your_password}* | 방금 만든 데이터베이스 서버에 대한 암호를 사용합니다. |
 
-    응용 프로그램 설정으로 사용자 이름 및 암호를 추가하면 사용자 이름 및 암호가 코드에 포함되지 않습니다. 이 방법은 해당 자격 증명을 보호하는 데 유용합니다.
+    애플리케이션 설정으로 사용자 이름 및 암호를 추가하면 사용자 이름 및 암호가 코드에 포함되지 않습니다. 이 방법은 해당 자격 증명을 보호하는 데 유용합니다.
 
-### <a name="publish-the-application-updates-to-azure"></a>응용 프로그램 업데이트를 Azure에 게시
+### <a name="publish-the-application-updates-to-azure"></a>애플리케이션 업데이트를 Azure에 게시
 
-자습서의 이 단계에서는 Azure에 응용 프로그램 업데이트를 게시하고 클라우드에서 실행합니다.
+자습서의 이 단계에서는 Azure에 애플리케이션 업데이트를 게시하고 클라우드에서 실행합니다.
 
 1. Visual Studio에서 **ContosoTeamStats** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 

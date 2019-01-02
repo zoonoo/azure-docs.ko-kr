@@ -237,7 +237,7 @@ $vnetRuleObject1 = New-AzureRmSqlServerVirtualNetworkRule `
 ![Fabrikam 웹 샘플][fabrikam-web-page-deployed]
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Service Fabric 클러스터와의 CI/CD(지속적인 통합 및 지속적인 배포) 설정
-Azure DevOps를 사용하여 Service Fabric 클러스터에 대한 CI/CD 응용 프로그램 배포를 구성하는 방법을 알아보려면 [자습서: Service Fabric 클러스터에 CI/CD로 응용 프로그램 배포](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)를 참조하세요. 이 자습서에 설명된 프로세스는 이 (FabrikamFiber) 프로젝트와 동일하므로, Voting 샘플 다운로드 과정을 건너뛰고 리포지토리 이름으로 Voting 대신 FabrikamFiber를 사용합니다.
+Azure DevOps를 사용하여 Service Fabric 클러스터에 대한 CI/CD 애플리케이션 배포를 구성하는 방법을 알아보려면 [자습서: Service Fabric 클러스터에 CI/CD로 애플리케이션 배포](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)를 참조하세요. 이 자습서에 설명된 프로세스는 이 (FabrikamFiber) 프로젝트와 동일하므로, Voting 샘플 다운로드 과정을 건너뛰고 리포지토리 이름으로 Voting 대신 FabrikamFiber를 사용합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 완료된 경우 만든 모든 리소스를 제거해야 합니다.  가장 간단한 방법은 Service Fabric 클러스터, Azure SQL DB 및 Azure Container Registry를 포함하는 리소스 그룹을 제거하는 것입니다.
@@ -266,7 +266,7 @@ Remove-AzureRmResourceGroup -Name $clusterresourcegroupname
 > * Azure Container Registry 만들기
 > * Azure에 Service Fabric 애플리케이션 배포
 
-자습서의 다음 부분에서 [Service Fabric 클러스터에 CI/CD로 컨테이너 응용 프로그램 배포](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md) 방법을 알아봅니다.
+자습서의 다음 부분에서 [Service Fabric 클러스터에 CI/CD로 컨테이너 애플리케이션 배포](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md) 방법을 알아봅니다.
 
 [link-fabrikam-github]: https://aka.ms/fabrikamcontainer
 [link-azure-powershell-install]: /powershell/azure/install-azurerm-ps

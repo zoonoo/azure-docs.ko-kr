@@ -26,7 +26,7 @@ ms.locfileid: "53188132"
 
 ## <a name="deploy-azure-ad-pass-through-authentication"></a>Azure AD 통과 인증 배포
 
-Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-프레미스와 클라우드 기반 응용 프로그램 둘 다에서 동일한 암호로 로그인할 수 있습니다. 통과 인증은 사용자의 암호를 온-프레미스 Active Directory와 직접 비교하여 유효성을 검사하고 사용자를 로그인합니다.
+Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-프레미스와 클라우드 기반 애플리케이션 둘 다에서 동일한 암호로 로그인할 수 있습니다. 통과 인증은 사용자의 암호를 온-프레미스 Active Directory와 직접 비교하여 유효성을 검사하고 사용자를 로그인합니다.
 
 >[!IMPORTANT]
 >AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 경우 [여기](https://aka.ms/adfstoPTADPDownload)에 게시된 자세한 배포 가이드를 따르는 것이 좋습니다.

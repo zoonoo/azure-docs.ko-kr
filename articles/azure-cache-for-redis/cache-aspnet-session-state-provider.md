@@ -93,7 +93,7 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 * **throwOnError** – 오류가 있는 경우 예외를 throw하려면 true이고 작업을 자동으로 실패하게 하려면 false입니다. 정적 Microsoft.Web.Redis.RedisSessionStateProvider.LastException 속성을 확인하여 오류를 확인할 수 있습니다. 기본값은 true입니다.
 * **retryTimeoutInMilliseconds** – 이 간격 동안 실패한 작업이 다시 시도되며 밀리초 단위로 지정됩니다. 처음 다시 시도는 20밀리초 후에 발생하고 다시 시도는 retryTimeoutInMilliseconds 간격이 만료될 때까지 매초 마다 발생합니다. 이 간격 후에 즉시 최종적으로 한 번 작업을 다시 시도합니다. 작업이 계속 실패하면 throwOnError 설정에 따라 호출자에게 예외가 다시 throw됩니다. 기본값은 다시 시도하지 않는다는 의미의 0입니다.
 * **databaseId** – 캐시 출력 데이터에 사용할 데이터베이스를 지정합니다. 지정하지 않으면 기본값 0이 사용됩니다.
-* **applicationName** – `{<Application Name>_<Session ID>}_Data`로 redis에 저장된 키입니다. 이 이름 지정 체계를 사용하면 여러 응용 프로그램에서 동일한 Redis 인스턴스를 공유할 수 있습니다. 이 매개변수는 선택적이며 사용자가 제공하지 않으면 기본값이 사용됩니다.
+* **applicationName** – `{<Application Name>_<Session ID>}_Data`로 redis에 저장된 키입니다. 이 이름 지정 체계를 사용하면 여러 애플리케이션에서 동일한 Redis 인스턴스를 공유할 수 있습니다. 이 매개변수는 선택적이며 사용자가 제공하지 않으면 기본값이 사용됩니다.
 * **connectionTimeoutInMilliseconds** – 이 설정은 StackExchange.Redis 클라이언트의 connectTimeout 설정을 무시할 수 있게 해줍니다. 지정하지 않으면 기본 connectTimeout 설정인 5000이 사용됩니다. 더 자세한 내용은 [StackExchange.Redis 구성 모델](https://go.microsoft.com/fwlink/?LinkId=398705)을 참조하세요.
 * **operationTimeoutInMilliseconds** – 이 설정은 StackExchange.Redis 클라이언트의 syncTimeout 설정을 무시할 수 있게 해 줍니다. 지정하지 않으면 기본 syncTimeout 설정인 1000이 사용됩니다. 더 자세한 내용은 [StackExchange.Redis 구성 모델](https://go.microsoft.com/fwlink/?LinkId=398705)을 참조하세요.
 * **redisSerializerType** - 이 설정을 사용하면 Redis로 전송되는 세션 콘텐츠의 사용자 지정 serialization을 지정할 수 있습니다. 지정된 형식은 `Microsoft.Web.Redis.ISerializer`를 구현해야 하며 공용 매개 변수가 없는 생성자를 선언해야 합니다. 기본적으로 `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter`가 사용됩니다.

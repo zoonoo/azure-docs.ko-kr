@@ -21,7 +21,7 @@ ms.locfileid: "52834241"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면 쿼리 문자열에 매개 변수를 보낼 수 있습니다. 매개 변수를 HTML 엔드포인트로 전달하면 페이지 콘텐츠를 동적으로 변경할 수 있습니다. 예를 들어 웹 또는 모바일 응용 프로그램에서 전달한 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다. 
+Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면 쿼리 문자열에 매개 변수를 보낼 수 있습니다. 매개 변수를 HTML 엔드포인트로 전달하면 페이지 콘텐츠를 동적으로 변경할 수 있습니다. 예를 들어 웹 또는 모바일 애플리케이션에서 전달한 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서는 사용자 지정 정책을 사용하여 *동적 콘텐츠*로 Azure AD B2C 사용자 인터페이스를 사용자 지정하는 방법에 중점을 둡니다. 시작하려면 [사용자 지정 정책에서 UI 사용자 지정](active-directory-b2c-ui-customization-custom.md)을 참조하세요. 
@@ -58,7 +58,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 이 문서에서는 쿼리 문자열 매개 변수를 수락하고 적절하게 응답할 수 있는 ASP.Net 웹앱을 사용합니다. 
 
 이 연습에서는 다음을 수행합니다.
-* HTML5 템플릿을 호스팅하는 ASP.NET Core 웹 응용 프로그램 만들기 
+* HTML5 템플릿을 호스팅하는 ASP.NET Core 웹 애플리케이션 만들기 
 * 사용자 지정 HTML5 템플릿 _unified.cshtml_ 추가 
 * Azure App Service에 웹앱 게시 
 * 웹앱에 대한 CORS(원본 간 리소스 공유) 설정
@@ -70,7 +70,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 2. **새 프로젝트** 창에서 **Visual C#** > **웹** > **ASP.NET Core 웹 응용 프로그램(.NET Core)** 을 선택합니다.
 
-3. 응용 프로그램 이름(예:*Contoso.AADB2C.UI*)을 지정한 후 **확인**을 선택합니다.
+3. 애플리케이션 이름(예:*Contoso.AADB2C.UI*)을 지정한 후 **확인**을 선택합니다.
 
     ![새 Visual Studio 프로젝트 만들기](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-create-project1.png)
 
@@ -78,7 +78,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 5. 인증을 **인증 없음**으로 설정합니다.
 
-    ![웹 응용 프로그램 템플릿 선택](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-create-project2.png)
+    ![웹 애플리케이션 템플릿 선택](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-create-project2.png)
 
 6. **확인**을 선택하여 프로젝트를 만듭니다.
 
@@ -232,7 +232,7 @@ HTML5 템플릿을 사용할 준비가 되었습니다. 하지만 `ContentDefini
 1. **Azure AD B2C 설정**을 선택한 다음 **ID 경험 프레임워크**를 선택합니다.
 
     >[!NOTE]
-    >지금 실행을 사용하려면 하나 이상의 응용 프로그램이 테넌트에 미리 등록되어 있어야 합니다. 응용 프로그램을 등록하는 방법은 Azure AD B2C [시작](active-directory-b2c-get-started.md) 문서 또는 [응용 프로그램 등록](active-directory-b2c-app-registration.md) 문서를 참조하세요.
+    >지금 실행을 사용하려면 하나 이상의 애플리케이션이 테넌트에 미리 등록되어 있어야 합니다. 응용 프로그램을 등록하는 방법은 Azure AD B2C [시작](active-directory-b2c-get-started.md) 문서 또는 [응용 프로그램 등록](active-directory-b2c-app-registration.md) 문서를 참조하세요.
 
 2. 업로드한 RP(신뢰 당사자) 사용자 지정 정책인 **B2C_1A_signup_signin**을 연 다음 **지금 실행**을 선택합니다.  
     앞에서 만든 배경으로 사용자 지정 HTML5를 볼 수 있어야 합니다.
@@ -240,7 +240,7 @@ HTML5 템플릿을 사용할 준비가 되었습니다. 하지만 `ContentDefini
     ![등록 또는 로그인 정책](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo1.png)
 
 ## <a name="step-8-add-dynamic-content"></a>8단계: 동적 콘텐츠 추가
-_campaignId_라는 쿼리 문자열 매개 변수에 기반하여 백그라운드를 변경합니다. RP 응용 프로그램(웹 및 모바일 앱)이 Azure AD B2C에 매개 변수를 보냅니다. 정책에서는 매개 변수를 읽고 HTML5 템플릿에 해당 값을 보냅니다. 
+_campaignId_라는 쿼리 문자열 매개 변수에 기반하여 백그라운드를 변경합니다. RP 애플리케이션(웹 및 모바일 앱)이 Azure AD B2C에 매개 변수를 보냅니다. 정책에서는 매개 변수를 읽고 HTML5 템플릿에 해당 값을 보냅니다. 
 
 ### <a name="step-81-add-a-content-definition-parameter"></a>8.1단계: 콘텐츠 정의 매개 변수 추가
 

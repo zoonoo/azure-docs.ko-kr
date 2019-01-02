@@ -44,7 +44,7 @@ hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows
 
 ### <a name="authentication"></a>인증
 
-ABFS 드라이버는 두 가지 형식의 인증을 지원하므로 Hadoop 응용 프로그램은 Data Lake Storage Gen2 지원 계정 내에 포함된 리소스에 안전하게 액세스할 수 있습니다. 사용 가능한 인증 체계의 전체 세부 정보는 [Azure Storage 보안 가이드](../common/storage-security-guide.md)에 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
+ABFS 드라이버는 두 가지 형식의 인증을 지원하므로 Hadoop 애플리케이션은 Data Lake Storage Gen2 지원 계정 내에 포함된 리소스에 안전하게 액세스할 수 있습니다. 사용 가능한 인증 체계의 전체 세부 정보는 [Azure Storage 보안 가이드](../common/storage-security-guide.md)에 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
 - **공유 키:** 이렇게 하면 사용자가 계정의 모든 리소스에 액세스할 수 있습니다. 키는 암호화되어 Hadoop 구성에 저장됩니다.
 

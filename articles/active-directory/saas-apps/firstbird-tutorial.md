@@ -59,7 +59,7 @@ Azure AD에 Firstbird 통합을 구성하려면 갤러리의 Firstbird를 관리
 
 2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드](common/enterprise_applications.png)
+    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise_applications.png)
 
 3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
@@ -192,7 +192,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
 1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션** 및 **Firstbird**를 차례로 선택합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드](common/enterprise_applications.png)
+    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise_applications.png)
 
 2. 애플리케이션 목록에 **Firstbird**를 입력하고 선택합니다.
 

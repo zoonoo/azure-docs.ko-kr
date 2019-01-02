@@ -77,7 +77,7 @@ code pom.xml
 
 
 > [!NOTE] 
-> 이 문서에서는 WAR 파일에 패키지된 Java 앱만 사용합니다. 플러그 인에서 JAR 웹 응용 프로그램도 지원됩니다. [Linux 기반 App Service에 Java SE JAR 파일 배포](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)를 방문하여 직접 확인해 보세요.
+> 이 문서에서는 WAR 파일에 패키지된 Java 앱만 사용합니다. 플러그 인에서 JAR 웹 애플리케이션도 지원됩니다. [Linux 기반 App Service에 Java SE JAR 파일 배포](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)를 방문하여 직접 확인해 보세요.
 
 
 플러그인 구성에서 다음 자리 표시자를 업데이트합니다.
@@ -96,7 +96,7 @@ code pom.xml
 mvn package azure-webapp:deploy
 ```
 
-배포가 완료되면 웹 브라우저에서 다음 URL을 사용하여 배포된 응용 프로그램으로 이동합니다(예: `http://<webapp>.azurewebsites.net/helloworld`). 
+배포가 완료되면 웹 브라우저에서 다음 URL을 사용하여 배포된 애플리케이션으로 이동합니다(예: `http://<webapp>.azurewebsites.net/helloworld`). 
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-java/java-hello-world-in-browser-curl.png)
 

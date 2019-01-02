@@ -47,8 +47,8 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 |:--- |:--- |:--- |
 | 형식 | type 속성을 다음으로 설정해야 합니다. **PayPal** | yes |
 | host | PayPal 인스턴스의 URL입니다. 즉, api.sandbox.paypal.com입니다.  | yes |
-| clientId | PayPal 응용 프로그램과 연결된 클라이언트 ID입니다.  | yes |
-| clientSecret | PayPal 응용 프로그램과 연결된 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| clientId | PayPal 애플리케이션과 연결된 클라이언트 ID입니다.  | yes |
+| clientSecret | PayPal 애플리케이션과 연결된 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |

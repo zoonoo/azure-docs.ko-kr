@@ -74,7 +74,7 @@ ms.locfileid: "53268719"
 | 리소스 그룹 | 권장 사항으로, App Service Certificate과 동일한 리소스 그룹을 선택합니다. |
 | 위치 | App Service 앱과 동일한 위치를 선택합니다. |
 | 가격 책정 계층  | 자세한 내용은 [Azure Key Vault 가격 책정 정보](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요. |
-| 액세스 정책| 응용 프로그램 및 자격 증명 모음 리소스에 허용된 액세스를 정의합니다. 나중에 [키 자격 증명 모음에 여러 응용 프로그램에 대한 액세스 권한 부여](../key-vault/key-vault-group-permissions-for-apps.md)의 단계에 따라 구성할 수 있습니다. |
+| 액세스 정책| 애플리케이션 및 자격 증명 모음 리소스에 허용된 액세스를 정의합니다. 나중에 [키 자격 증명 모음에 여러 애플리케이션에 대한 액세스 권한 부여](../key-vault/key-vault-group-permissions-for-apps.md)의 단계에 따라 구성할 수 있습니다. |
 | Virtual Network 액세스 | 특정 Azure Virtual Network에 대한 자격 증명 모음 액세스 액세스를 제한합니다. 나중에 [Azure Key Vault 방화벽 및 Virtual Network 구성](../key-vault/key-vault-network-security.md)의 단계에 따라 구성할 수 있습니다. |
 
 자격 증명 모음을 선택한 후에는 **Key Vault 리포지토리** 페이지를 닫습니다. **저장소** 옵션에 성공을 나타내는 녹색 확인 표시가 나타납니다. 다음 단계를 위해 페이지를 열어둡니다.

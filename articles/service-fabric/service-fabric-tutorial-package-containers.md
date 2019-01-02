@@ -25,15 +25,15 @@ ms.locfileid: "51255560"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>자습서: Yeoman을 사용하여 Service Fabric 애플리케이션으로 컨테이너 패키징 및 배포
 
-이 자습서는 시리즈의 2부입니다. 이 자습서에서는 Service Fabric 애플리케이션 정의를 생성하는 데 템플릿 생성기 도구(Yeoman)를 사용합니다. 그런 다음 이 응용 프로그램을 사용하여 Service Fabric에 컨테이너를 배포할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서는 시리즈의 2부입니다. 이 자습서에서는 Service Fabric 애플리케이션 정의를 생성하는 데 템플릿 생성기 도구(Yeoman)를 사용합니다. 그런 다음 이 애플리케이션을 사용하여 Service Fabric에 컨테이너를 배포할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Yeoman 설치
 > * Yeoman을 사용하여 애플리케이션 패키지 만들기
-> * 응용 프로그램 패키지에서 컨테이너에서 사용할 설정 구성
+> * 애플리케이션 패키지에서 컨테이너에서 사용할 설정 구성
 > * 애플리케이션 빌드
-> * 응용 프로그램 배포 및 실행
-> * 응용 프로그램 정리
+> * 애플리케이션 배포 및 실행
+> * 애플리케이션 정리
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -68,7 +68,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 애
     ```bash
     yo azuresfcontainer
     ```
-2. "TestContainer"를 입력하여 응용 프로그램의 이름을 지정하세요.
+2. "TestContainer"를 입력하여 애플리케이션의 이름을 지정하세요.
 3. "azurevotefront"를 입력하여 애플리케이션 서비스의 이름을 지정하세요.
 4. 예를 들어 '\<acrName>.azurecr.io/azure-vote-front:v1'과 같이 프런트 엔드 리포지토리에 대해 ACR의 컨테이너 이미지 경로를 제공합니다. \<acrName> 필드는 이전 자습서에서 사용된 값과 동일해야 합니다.
 5. 명령 섹션을 비어 두려면 Enter 키를 누릅니다.
@@ -90,7 +90,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 애
    create TestContainer/uninstall.sh
 ```
 
-Yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 응용 프로그램에 추가하려면 다음 단계를 수행합니다.
+Yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 애플리케이션에 추가하려면 다음 단계를 수행합니다.
 
 1. 디렉터리를 **TestContainer** 디렉터리로 한 수준 변경(예: *./TestContainer*)
 2. `yo azuresfcontainer:AddService` 실행
@@ -227,7 +227,7 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 
 ## <a name="create-a-service-fabric-cluster"></a>Service Fabric 클러스터 만들기
 
-응용 프로그램을 Azure의 클러스터에 배포하려면 고유한 클러스터를 만듭니다.
+애플리케이션을 Azure의 클러스터에 배포하려면 고유한 클러스터를 만듭니다.
 
 파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 누구든지 애플리케이션을 배포하고 플랫폼에 대해 알아볼 수 있는 Service Fabric 팀에서 실행합니다. 파티 클러스터에 대한 액세스 권한을 얻으려면 [지침에 따릅니다](https://aka.ms/tryservicefabric).
 
@@ -257,11 +257,11 @@ sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19
 ./install.sh
 ```
 
-브라우저를 열고 http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer에서 Service Fabric Explorer로 이동합니다. 응용 프로그램 노드를 확장하면 응용 프로그램 유형에 대한 항목 및 인스턴스에 대한 다른 항목이 만들어집니다.
+브라우저를 열고 http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer에서 Service Fabric Explorer로 이동합니다. 애플리케이션 노드를 확장하면 애플리케이션 유형에 대한 항목 및 인스턴스에 대한 다른 항목이 만들어집니다.
 
 ![Service Fabric Explorer][sfx]
 
-실행 중인 애플리케이션에 연결하려면 웹 브라우저를 열고 클러스터 URL(예: http://lin0823ryf2he.cloudapp.azure.com:80 )로 이동합니다. 웹 UI에서 선택 응용 프로그램이 표시됩니다.
+실행 중인 애플리케이션에 연결하려면 웹 브라우저를 열고 클러스터 URL(예: http://lin0823ryf2he.cloudapp.azure.com:80 )로 이동합니다. 웹 UI에서 선택 애플리케이션이 표시됩니다.
 
 ![votingapp][votingapp]
 
@@ -382,15 +382,15 @@ sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Yeoman을 사용하여 Service Fabric 응용 프로그램에 여러 컨테이너를 패키징했습니다. 그런 다음 이 응용 프로그램을 배포하고 Service Fabric 클러스터에서 실행했습니다. 다음 단계가 완료되었습니다.
+이 자습서에서는 Yeoman을 사용하여 Service Fabric 애플리케이션에 여러 컨테이너를 패키징했습니다. 그런 다음 이 애플리케이션을 배포하고 Service Fabric 클러스터에서 실행했습니다. 다음 단계가 완료되었습니다.
 
 > [!div class="checklist"]
 > * Yeoman 설치
 > * Yeoman을 사용하여 애플리케이션 패키지 만들기
-> * 응용 프로그램 패키지에서 컨테이너에서 사용할 설정 구성
+> * 애플리케이션 패키지에서 컨테이너에서 사용할 설정 구성
 > * 애플리케이션 빌드
-> * 응용 프로그램 배포 및 실행
-> * 응용 프로그램 정리
+> * 애플리케이션 배포 및 실행
+> * 애플리케이션 정리
 
 Service Fabric에서 애플리케이션의 장애 조치 및 크기 조정에 대한 자세한 내용은 다음 자습서를 진행하세요.
 

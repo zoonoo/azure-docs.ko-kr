@@ -98,7 +98,7 @@ mvn --version
 
 ## <a name="retrieve-the-service-connection-string"></a>서비스 연결 문자열 검색
 
-또한 백 엔드 응용 프로그램을 IoT 허브에 연결하여 메시지를 검색할 수 있게 하려면 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
+또한 백 엔드 애플리케이션을 IoT 허브에 연결하여 메시지를 검색할 수 있게 하려면 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
    
 **YourIoTHubName**: 이 자리 표시자를 IoT Hub용으로 선택한 이름으로 바꿉니다.
 
@@ -148,13 +148,13 @@ az iot hub show-connection-string --hub-name YourIoTHubName --output table
 
     `iotHubConnectionString` 변수의 값을 이전에 적어둔 서비스 연결 문자열로 바꿉니다. 그런 다음, 변경 내용을 **BackEndApplication.java** 파일에 저장합니다.
 
-3. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 백 엔드 응용 프로그램을 빌드합니다.
+3. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 백 엔드 애플리케이션을 빌드합니다.
 
     ```cmd/sh
     mvn clean package
     ```
 
-4. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램을 실행합니다.
+4. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 애플리케이션을 실행합니다.
 
     ```cmd/sh
     java -jar target/back-end-application-1.0.0-with-deps.jar

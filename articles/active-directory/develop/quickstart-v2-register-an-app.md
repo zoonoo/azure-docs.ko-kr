@@ -35,7 +35,7 @@ v2.0 엔드포인트에서는 일부 Azure AD 시나리오 및 기능만 지원�
 > [!NOTE]
 > 새 앱 등록? Azure Portal에서 새 **앱 등록(미리 보기)** 환경을 사용해 보세요. 시작하려면 [앱 등록(미리 보기)](quickstart-register-app.md)을 참조하세요.
 
-## <a name="step-1-sign-in-to-the-microsoft-application-registration-portal"></a>1단계: Microsoft 응용 프로그램 등록 포털에 로그인
+## <a name="step-1-sign-in-to-the-microsoft-application-registration-portal"></a>1단계: Microsoft 애플리케이션 등록 포털에 로그인
 
 1. [https://apps.dev.microsoft.com/](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에 있는 Microsoft 앱 등록 포털로 이동합니다.
 1. 개인, 직장 또는 학교 Microsoft 계정 중 하나로 로그인 합니다. 계정이 하나라도 없다면, 새로운 개인 계정을 등록합니다.

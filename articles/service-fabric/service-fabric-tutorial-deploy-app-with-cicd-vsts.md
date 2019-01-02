@@ -22,9 +22,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/08/2018
 ms.locfileid: "53094960"
 ---
-# <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>자습서: Service Fabric 클러스터에 CI/CD로 응용 프로그램 배포
+# <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>자습서: Service Fabric 클러스터에 CI/CD로 애플리케이션 배포
 
-이 자습서는 시리즈의 4부로, Azure Pipelines를 사용하여 Azure Service Fabric 애플리케이션에 대한 지속적인 통합 및 배포를 설정하는 방법을 설명합니다.  기존 Service Fabric 응용 프로그램이 필요하며 [.NET 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)에서 만든 응용 프로그램을 예제로 사용합니다.
+이 자습서는 시리즈의 4부로, Azure Pipelines를 사용하여 Azure Service Fabric 애플리케이션에 대한 지속적인 통합 및 배포를 설정하는 방법을 설명합니다.  기존 Service Fabric 애플리케이션이 필요하며 [.NET 애플리케이션 빌드](service-fabric-tutorial-create-dotnet-app.md)에서 만든 애플리케이션을 예제로 사용합니다.
 
 시리즈 3부에서는 다음 방법에 대해 알아봅니다.
 
@@ -70,7 +70,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="share-your-visual-studio-solution-to-a-new-azure-devops-git-repo"></a>새 Azure DevOps Git 리포지토리에 Visual Studio 솔루션 공유
 
-응용 프로그램 소스 파일을 Azure DevOps의 프로젝트에 공유하여 빌드를 생성할 수 있습니다.
+애플리케이션 소스 파일을 Azure DevOps의 프로젝트에 공유하여 빌드를 생성할 수 있습니다.
 
 Visual Studio의 오른쪽 하단의 상태 표시줄에서 **소스 제어에 추가** -> **Git**을 선택하여 프로젝트 대한 새 로컬 Git 리포지토리를 만듭니다.
 
@@ -86,9 +86,9 @@ Visual Studio의 오른쪽 하단의 상태 표시줄에서 **소스 제어에 �
 
 ## <a name="configure-continuous-delivery-with-azure-pipelines"></a>Azure Pipelines를 사용한 지속적인 배달 구성
 
-Azure Pipelines 빌드 파이프라인은 순차적으로 실행되는 빌드 단계 세트로 구성된 워크플로를 설명합니다. Service Fabric 응용 프로그램 패키지 및 기타 아티팩트를 생성하는 빌드 파이프라인을 만들어 Service Fabric 클러스터를 배포합니다. [Azure Pipelines 빌드 파이프라인](https://www.visualstudio.com/docs/build/define/create)에 대해 자세히 알아봅니다. 
+Azure Pipelines 빌드 파이프라인은 순차적으로 실행되는 빌드 단계 세트로 구성된 워크플로를 설명합니다. Service Fabric 애플리케이션 패키지 및 기타 아티팩트를 생성하는 빌드 파이프라인을 만들어 Service Fabric 클러스터를 배포합니다. [Azure Pipelines 빌드 파이프라인](https://www.visualstudio.com/docs/build/define/create)에 대해 자세히 알아봅니다. 
 
-Azure Pipelines 릴리스 파이프라인에서는 애플리케이션 패키지를 클러스터에 배포하는 워크플로를 설명합니다. 빌드 파이프라인과 릴리스 파이프라인을 함께 사용할 경우 소스 파일로 시작하여 클러스터에서 실행 중인 응용 프로그램에서 종료할 때까지 전체 워크플로를 실행합니다. [Azure Pipelines 릴리스 파이프라인](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)에 대해 자세히 알아봅니다.
+Azure Pipelines 릴리스 파이프라인에서는 애플리케이션 패키지를 클러스터에 배포하는 워크플로를 설명합니다. 빌드 파이프라인과 릴리스 파이프라인을 함께 사용할 경우 소스 파일로 시작하여 클러스터에서 실행 중인 애플리케이션에서 종료할 때까지 전체 워크플로를 실행합니다. [Azure Pipelines 릴리스 파이프라인](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)에 대해 자세히 알아봅니다.
 
 ### <a name="create-a-build-pipeline"></a>빌드 파이프라인 만들기
 
@@ -114,7 +114,7 @@ Azure Pipelines 릴리스 파이프라인에서는 애플리케이션 패키지�
 
 ![트리거 선택][save-and-queue2]
 
-푸시 또는 체크 인 시 트리거도 빌드합니다. 빌드 진행률을 확인하려면 **빌드** 탭으로 전환합니다.  빌드가 성공적으로 실행되는지 확인한 후 응용 프로그램을 클러스터에 배포하는 릴리스 파이프라인을 정의합니다.
+푸시 또는 체크 인 시 트리거도 빌드합니다. 빌드 진행률을 확인하려면 **빌드** 탭으로 전환합니다.  빌드가 성공적으로 실행되는지 확인한 후 애플리케이션을 클러스터에 배포하는 릴리스 파이프라인을 정의합니다.
 
 ### <a name="create-a-release-pipeline"></a>릴리스 파이프라인 만들기
 
@@ -144,7 +144,7 @@ Azure Active Directory 자격 증명의 경우 사용하려는 클러스터 및 
 
 **+ 릴리스** -> **릴리스 만들기** -> **만들기**를 선택하여 릴리스를 수동으로 만듭니다. **릴리스** 탭에서 릴리스 진행률을 모니터링할 수 있습니다.
 
-배포에 성공했고 클러스터에서 애플리케이션이 실행 중인지 확인합니다.  웹 브라우저를 열고 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)로 이동합니다.  응용 프로그램 버전을 확인합니다. 이 예제에서는 “1.0.0.20170616.3”입니다.
+배포에 성공했고 클러스터에서 애플리케이션이 실행 중인지 확인합니다.  웹 브라우저를 열고 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)로 이동합니다.  애플리케이션 버전을 확인합니다. 이 예제에서는 “1.0.0.20170616.3”입니다.
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>변경 내용 커밋 및 푸시, 릴리스 트리거
 
@@ -160,9 +160,9 @@ Azure DevOps의 일부 코드 변경을 체크 인하여 연속 통합 파이프
 
 ![변경 내용 푸시][push]
 
-Azure Pipelines에 변경 내용을 푸시하면 빌드가 자동으로 트리거됩니다.  빌드 파이프라인이 성공적으로 완료되면 릴리스가 자동으로 만들어지고 클러스터에서 응용 프로그램 업그레이드가 시작됩니다.
+Azure Pipelines에 변경 내용을 푸시하면 빌드가 자동으로 트리거됩니다.  빌드 파이프라인이 성공적으로 완료되면 릴리스가 자동으로 만들어지고 클러스터에서 애플리케이션 업그레이드가 시작됩니다.
 
-빌드 진행률을 확인하려면 Visual Studio의 **팀 탐색기**에서 **빌드** 탭으로 전환합니다.  빌드가 성공적으로 실행되는지 확인한 후 응용 프로그램을 클러스터에 배포하는 릴리스 파이프라인을 정의합니다.
+빌드 진행률을 확인하려면 Visual Studio의 **팀 탐색기**에서 **빌드** 탭으로 전환합니다.  빌드가 성공적으로 실행되는지 확인한 후 애플리케이션을 클러스터에 배포하는 릴리스 파이프라인을 정의합니다.
 
 배포에 성공했고 클러스터에서 애플리케이션이 실행 중인지 확인합니다.  웹 브라우저를 열고 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)로 이동합니다.  애플리케이션 버전을 확인합니다. 이 예제에서는 "1.0.0.20170815.3"입니다.
 
@@ -176,7 +176,7 @@ Azure Pipelines에 변경 내용을 푸시하면 빌드가 자동으로 트리�
 
 ![Service Fabric Explorer][sfx2]
 
-애플리케이션 업그레이드에는 몇 분 정도 걸릴 수 있습니다. 업그레이드가 완료되면 응용 프로그램이 다음 버전으로 실행됩니다.  이 예제에서는 "1.0.0.20170815.4"입니다.
+애플리케이션 업그레이드에는 몇 분 정도 걸릴 수 있습니다. 업그레이드가 완료되면 애플리케이션이 다음 버전으로 실행됩니다.  이 예제에서는 "1.0.0.20170815.4"입니다.
 
 ![Service Fabric Explorer][sfx3]
 

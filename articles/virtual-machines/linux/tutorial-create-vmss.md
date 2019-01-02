@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure에서 Linux용 가상 머신 확장 집합 만들기 | Microsoft Docs
-description: 이 자습서에서는 Azure CLI를 사용하여 가상 머신 확장 집합을 사용하는 Linux VM에서 고가용성 응용 프로그램을 만들고 배포하는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure CLI를 사용하여 가상 머신 확장 집합을 사용하는 Linux VM에서 고가용성 애플리케이션을 만들고 배포하는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: zr-msft
@@ -48,7 +48,7 @@ VM은 필요에 따라 확장 집합에 생성됩니다. 사용자는 확장 집
 
 
 ## <a name="create-an-app-to-scale"></a>크기를 조정하는 앱 만들기
-프로덕션 사용을 위해 설치되고 구성된 응용 프로그램을 포함하는 [사용자 지정 VM 이미지 만들기](tutorial-custom-images.md) 작업이 필요할 수 있습니다. 이 자습서에서는 처음 부팅 시 VM을 사용자 지정하여 확장 집합의 실제 동작을 신속하게 확인합니다.
+프로덕션 사용을 위해 설치되고 구성된 애플리케이션을 포함하는 [사용자 지정 VM 이미지 만들기](tutorial-custom-images.md) 작업이 필요할 수 있습니다. 이 자습서에서는 처음 부팅 시 VM을 사용자 지정하여 확장 집합의 실제 동작을 신속하게 확인합니다.
 
 이전 자습서에서 cloud-init를 사용하여 [처음 부팅 시 Linux 가상 머신을 사용자 지정하는 방법](tutorial-automate-vm-deployment.md)을 배웠습니다. 동일한 cloud-init 구성 파일을 사용하여 NGINX를 설치하고 간단한 'Hello World' Node.js 앱을 실행할 수 있습니다.
 

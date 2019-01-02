@@ -18,7 +18,7 @@ ms.locfileid: "50414984"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Python(미리 보기)에서 분산 추적 수집
 
-이제 Application Insights는 [OpenCensus](https://opencensus.io) 및 새로운 [로컬 전달자](./opencensus-local-forwarder.md)와의 통합을 통해 Python 응용 프로그램의 분산 추적을 지원합니다. 이 문서에서는 Python에 대해 OpenCensus를 설정하고 추적 데이터를 Application Insights로 가져오는 프로세스를 단계별로 안내합니다.
+이제 Application Insights는 [OpenCensus](https://opencensus.io) 및 새로운 [로컬 전달자](./opencensus-local-forwarder.md)와의 통합을 통해 Python 애플리케이션의 분산 추적을 지원합니다. 이 문서에서는 Python에 대해 OpenCensus를 설정하고 추적 데이터를 Application Insights로 가져오는 프로세스를 단계별로 안내합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-application-insights-resource"></a>Application Insights 리소스 만들기
 
-먼저 계측 키(ikey)를 생성할 Application Insights 리소스를 만들어야 합니다. 그런 다음, ikey를 사용하여 OpenCensus 계측 응용 프로그램에서 Application Insights로 분산 추적을 보내도록 로컬 전달자를 구성합니다.   
+먼저 계측 키(ikey)를 생성할 Application Insights 리소스를 만들어야 합니다. 그런 다음, ikey를 사용하여 OpenCensus 계측 애플리케이션에서 Application Insights로 분산 추적을 보내도록 로컬 전달자를 구성합니다.   
 
 1. **리소스 만들기** > **개발자 도구** > **Application Insights**를 선택합니다.
 
@@ -74,7 +74,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     </LocalForwarderConfiguration>
     ```
 
-3. 응용 프로그램 **로컬 전달자** 서비스를 다시 시작합니다.
+3. 애플리케이션 **로컬 전달자** 서비스를 다시 시작합니다.
 
 ## <a name="opencensus-python-package"></a>OpenCensus Python 패키지
 
@@ -166,7 +166,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Azure Portal에서 모니터링 시작
 
-1. 이제 Azure Portal에서 Application Insights **개요** 페이지를 다시 열어 현재 실행 중인 응용 프로그램에 대한 세부 정보를 볼 수 있습니다. **라이브 메트릭 스트림**을 선택합니다.
+1. 이제 Azure Portal에서 Application Insights **개요** 페이지를 다시 열어 현재 실행 중인 애플리케이션에 대한 세부 정보를 볼 수 있습니다. **라이브 메트릭 스트림**을 선택합니다.
 
    ![빨간색 상자에서 라이브 메트릭 스트림이 선택된 개요 창의 스크린샷](./media/opencensus-python/0005-overview-live-metrics-stream.png)
 
@@ -176,9 +176,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 3. **개요** 페이지로 다시 이동하고 종속성 관계의 시각적 개체 레이아웃에 대한 **응용 프로그램 맵**을 선택하고 응용 프로그램 구성 요소 간의 타이밍을 호출합니다.
 
-    ![기본 응용 프로그램 맵의 스크린샷](./media/opencensus-python/0007-application-map.png)
+    ![기본 애플리케이션 맵의 스크린샷](./media/opencensus-python/0007-application-map.png)
 
-    하나의 메서드 호출만 추적했으므로 응용 프로그램 맵은 흥미롭지 않습니다. 하지만 응용 프로그램은 훨씬 분산된 응용 프로그램을 시각화하도록 확장될 수 있습니다.
+    하나의 메서드 호출만 추적했으므로 애플리케이션 맵은 흥미롭지 않습니다. 하지만 애플리케이션은 훨씬 분산된 애플리케이션을 시각화하도록 확장될 수 있습니다.
 
    ![애플리케이션 맵](media/opencensus-python/application-map.png)
 
@@ -186,7 +186,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![성능 창의 스크린샷](./media/opencensus-python/0008-performance.png)
 
-5. **샘플**을 선택한 다음, 오른쪽 창에 표시되는 샘플 중 하나를 클릭하면 종단 간 트랜잭션 세부 정보 환경이 시작됩니다. 샘플 앱은 단일 이벤트만을 표시하지만 더 복잡한 응용 프로그램을 통해 개별 이벤트의 호출 스택의 수준까지 종단 간 트랜잭션을 탐색할 수 있습니다.
+5. **샘플**을 선택한 다음, 오른쪽 창에 표시되는 샘플 중 하나를 클릭하면 종단 간 트랜잭션 세부 정보 환경이 시작됩니다. 샘플 앱은 단일 이벤트만을 표시하지만 더 복잡한 애플리케이션을 통해 개별 이벤트의 호출 스택의 수준까지 종단 간 트랜잭션을 탐색할 수 있습니다.
 
      ![종단 간 트랜잭션 인터페이스의 스크린샷](./media/opencensus-python/0009-end-to-end-transaction.png)
 

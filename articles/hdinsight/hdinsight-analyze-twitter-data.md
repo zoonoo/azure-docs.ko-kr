@@ -68,7 +68,7 @@ ms.locfileid: "53017460"
 
 Twitter는 OAuth를 사용하여 API에 대한 권한 있는 액세스를 제공합니다. OAuth는 사용자가 암호를 공유하지 않아도 사용자를 대신하여 애플리케이션 작동을 승인할 수 있게 하는 인증 프로토콜입니다. 자세한 내용은 [oauth.net](http://oauth.net/)(영문) 또는 Hueniverse가 제공하는 유용한 [OAuth 초보자 가이드](http://hueniverse.com/oauth/)(영문)를 참조하세요.
 
-OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용 프로그램을 만드는 것입니다.
+OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 애플리케이션을 만드는 것입니다.
 
 **Twitter 응용 프로그램을 만들려면**
 
@@ -228,7 +228,7 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 
     변수|설명
     ---|---
-    $clusterName|응용 프로그램을 실행하려는 HDInsight 클러스터의 이름입니다.
+    $clusterName|애플리케이션을 실행하려는 HDInsight 클러스터의 이름입니다.
     $oauth_consumer_key|앞에서 Twitter 애플리케이션을 만들 때 적어 둔 Twitter 애플리케이션 **consumer key**입니다.
     $oauth_consumer_secret|앞에서 기록해 둔 Twitter 애플리케이션 **consumer secret** 입니다.
     $oauth_token|앞에서 기록해 둔 Twitter 애플리케이션 **access token** 입니다.
@@ -437,7 +437,7 @@ HiveQL 스크립트는 다음을 수행합니다.
 
    | 변수 | 설명 |
    | --- | --- |
-   |  $clusterName |응용 프로그램을 실행하려는 HDInsight 클러스터 이름을 입력합니다. |
+   |  $clusterName |애플리케이션을 실행하려는 HDInsight 클러스터 이름을 입력합니다. |
    |  $subscriptionID |Azure 구독 ID를 입력합니다. |
    |  $sourceDataPath |Hive 쿼리가 데이터를 읽는 Azure Blob 저장소 위치입니다. 이 변수를 변경할 필요가 없습니다. |
    |  $outputPath |Hive 쿼리가 결과를 출력하는 Azure Blob 저장소 위치입니다. 이 변수를 변경할 필요가 없습니다. |

@@ -80,7 +80,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     |--|--|--|
     |-Name|luis-profile-eastus|Azure Portal의 Traffic Manager 이름|
     |-ResourceGroupName|luis-traffic-manager|이전 섹션에서 만든 리소스 그룹 이름|
-    |-TrafficRoutingMethod|성능|자세한 내용은 [Traffic Manager 라우팅 방법][routing-methods]을 참조하세요. 성능을 사용하는 경우, 사용자의 지역에서 Traffic Manager에 대한 URL 요청을 가져와야 합니다. 챗봇이나 다른 응용 프로그램을 사용하는 경우, 챗봇이 Traffic Manager에 대한 호출에서 지역을 모방해야 합니다. |
+    |-TrafficRoutingMethod|성능|자세한 내용은 [Traffic Manager 라우팅 방법][routing-methods]을 참조하세요. 성능을 사용하는 경우, 사용자의 지역에서 Traffic Manager에 대한 URL 요청을 가져와야 합니다. 챗봇이나 다른 애플리케이션을 사용하는 경우, 챗봇이 Traffic Manager에 대한 호출에서 지역을 모방해야 합니다. |
     |-RelativeDnsName|luis-dns-eastus|서비스의 하위 도메인(luis-dns-eastus.trafficmanager.net)|
     |-Ttl|30|폴링 간격(30초)|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|LUIS에 대한 포트 및 프로토콜은 HTTPS/443입니다.|
@@ -148,7 +148,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     |--|--|--|
     |-Name|luis-profile-westus|Azure Portal의 Traffic Manager 이름|
     |-ResourceGroupName|luis-traffic-manager|이전 섹션에서 만든 리소스 그룹 이름|
-    |-TrafficRoutingMethod|성능|자세한 내용은 [Traffic Manager 라우팅 방법][routing-methods]을 참조하세요. 성능을 사용하는 경우, 사용자의 지역에서 Traffic Manager에 대한 URL 요청을 가져와야 합니다. 챗봇이나 다른 응용 프로그램을 사용하는 경우, 챗봇이 Traffic Manager에 대한 호출에서 지역을 모방해야 합니다. |
+    |-TrafficRoutingMethod|성능|자세한 내용은 [Traffic Manager 라우팅 방법][routing-methods]을 참조하세요. 성능을 사용하는 경우, 사용자의 지역에서 Traffic Manager에 대한 URL 요청을 가져와야 합니다. 챗봇이나 다른 애플리케이션을 사용하는 경우, 챗봇이 Traffic Manager에 대한 호출에서 지역을 모방해야 합니다. |
     |-RelativeDnsName|luis-dns-westus|서비스의 하위 도메인(luis-dns-westus.trafficmanager.net)|
     |-Ttl|30|폴링 간격(30초)|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|LUIS에 대한 포트 및 프로토콜은 HTTPS/443입니다.|
@@ -215,7 +215,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     |--|--|--|
     |-Name|luis-profile-parent|Azure Portal의 Traffic Manager 이름|
     |-ResourceGroupName|luis-traffic-manager|이전 섹션에서 만든 리소스 그룹 이름|
-    |-TrafficRoutingMethod|성능|자세한 내용은 [Traffic Manager 라우팅 방법][routing-methods]을 참조하세요. 성능을 사용하는 경우, 사용자의 지역에서 Traffic Manager에 대한 URL 요청을 가져와야 합니다. 챗봇이나 다른 응용 프로그램을 사용하는 경우, 챗봇이 Traffic Manager에 대한 호출에서 지역을 모방해야 합니다. |
+    |-TrafficRoutingMethod|성능|자세한 내용은 [Traffic Manager 라우팅 방법][routing-methods]을 참조하세요. 성능을 사용하는 경우, 사용자의 지역에서 Traffic Manager에 대한 URL 요청을 가져와야 합니다. 챗봇이나 다른 애플리케이션을 사용하는 경우, 챗봇이 Traffic Manager에 대한 호출에서 지역을 모방해야 합니다. |
     |-RelativeDnsName|luis-dns-parent|서비스의 하위 도메인(luis-dns-parent.trafficmanager.net)|
     |-Ttl|30|폴링 간격(30초)|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|LUIS에 대한 포트 및 프로토콜은 HTTPS/443입니다.|
@@ -360,7 +360,7 @@ LUIS 엔드포인트가 있는 성공한 응답은 다음과 같습니다.
 ```
 
 ## <a name="use-the-traffic-manager-parent-profile"></a>Traffic Manager 부모 프로필 사용
-엔드포인트 간의 트래픽을 관리하려면 Traffic Manager DNS에 대한 호출을 삽입하여 LUIS 엔드포인트를 찾아야 합니다. 이 호출은 모든 LUIS 엔드포인트 요청에 대해 수행되고 LUIS 클라이언트 응용 프로그램 사용자의 지리적 위치를 시뮬레이션해야 합니다. LUIS 클라이언트 응용 프로그램과 엔드포인트 예측을 위한 LUIS 요청 간에 DNS 응답 코드를 추가합니다. 
+엔드포인트 간의 트래픽을 관리하려면 Traffic Manager DNS에 대한 호출을 삽입하여 LUIS 엔드포인트를 찾아야 합니다. 이 호출은 모든 LUIS 엔드포인트 요청에 대해 수행되고 LUIS 클라이언트 애플리케이션 사용자의 지리적 위치를 시뮬레이션해야 합니다. LUIS 클라이언트 응용 프로그램과 엔드포인트 예측을 위한 LUIS 요청 간에 DNS 응답 코드를 추가합니다. 
 
 
 ## <a name="clean-up"></a>정리

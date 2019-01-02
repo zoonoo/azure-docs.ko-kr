@@ -46,7 +46,7 @@ ms.locfileid: "51228439"
 Azure Notification Hubs는 모바일 디바이스에 푸시 알림을 보내는 사용하기 쉽고 확장성 있는 다중 플랫폼 인프라를 제공합니다. 서비스 인프라에 대한 세부 정보는 [Azure Notification Hubs](https://msdn.microsoft.com/library/windowsazure/jj927170.aspx) 페이지를 참조하세요.
 
 ## <a name="create-a-nodejs-application"></a>Node.js 애플리케이션 만들기
-이 자습서의 첫 번째 단계는 새로운 빈 Node.js 애플리케이션을 만드는 것입니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포][nodejswebsite], Windows PowerShell을 사용한 [Node.js Cloud Service][Node.js Cloud Service] 또는 [WebMatrix를 사용하는 웹 사이트][webmatrix]를 참조하세요.
+이 자습서의 첫 번째 단계는 새로운 빈 Node.js 애플리케이션을 만드는 것입니다. Node.js 애플리케이션을 만드는 방법에 대한 지침은 [Node.js 애플리케이션을 만들어 Azure 웹 사이트에 배포][nodejswebsite], Windows PowerShell을 사용한 [Node.js Cloud Service][Node.js Cloud Service] 또는 [WebMatrix를 사용하는 웹 사이트][webmatrix]를 참조하세요.
 
 ## <a name="configure-your-application-to-use-notification-hubs"></a>Notification Hubs를 사용하도록 애플리케이션 구성
 Azure Notification Hubs를 사용하려면 푸시 알림 REST 라이브러리와 통신하는 일련의 기본 제공 도우미 라이브러리가 포함되어 있는 Node.js [Azure 패키지](https://www.npmjs.com/package/azure)를 다운로드하여 사용해야 합니다.

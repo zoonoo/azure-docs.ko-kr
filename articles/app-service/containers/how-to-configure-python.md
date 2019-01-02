@@ -104,7 +104,7 @@ gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 
 사용자 지정 명령을 제공하려면 다음 단계를 수행합니다.
 
-1. Azure Portal에서 [응용 프로그램 설정](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) 페이지로 이동합니다.
+1. Azure Portal에서 [애플리케이션 설정](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) 페이지로 이동합니다.
 
 1. **런타임** 설정에서 **스택** 옵션을 **Python 3.7**로 설정하고, **시작 파일** 필드에 명령을 직접 입력합니다.
 

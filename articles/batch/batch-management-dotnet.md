@@ -91,12 +91,12 @@ BatchAccountRegenerateKeyResponse newKeys =
 ```
 
 > [!TIP]
-> 관리 응용 프로그램에 대한 간소화된 연결 워크플로를 만들 수 있습니다. 먼저 [ListKeysAsync][net_list_keys]를 사용하여 관리하려는 Batch 계정에 대한 계정 키를 가져옵니다. 그런 다음 [BatchClient][net_batch_client]를 초기화할 때 사용되는 배치 .NET 라이브러리의 [BatchSharedKeyCredentials][net_sharedkeycred] 클래스를 초기화할 때 이 키를 사용합니다.
+> 관리 애플리케이션에 대한 간소화된 연결 워크플로를 만들 수 있습니다. 먼저 [ListKeysAsync][net_list_keys]를 사용하여 관리하려는 Batch 계정에 대한 계정 키를 가져옵니다. 그런 다음 [BatchClient][net_batch_client]를 초기화할 때 사용되는 배치 .NET 라이브러리의 [BatchSharedKeyCredentials][net_sharedkeycred] 클래스를 초기화할 때 이 키를 사용합니다.
 > 
 > 
 
 ## <a name="check-azure-subscription-and-batch-account-quotas"></a>Azure 구독 및 Batch 계정 할당량 확인
-Azure 구독 및 Batch와 같은 개별 Azure 서비스는 모두 포함되는 특정 엔터티 수를 제한하는 기본 할당량이 있습니다. Azure 구독에 대한 기본 할당량의 경우 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요. Batch 서비스의 기본 할당량의 경우 [Azure Batch 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요. Batch 관리 .NET 라이브러리를 사용하여 응용 프로그램에서 이러한 할당량을 확인할 수 있습니다. 계정 또는 풀과 같은 계산 리소스 및 계산 노드를 추가하기 전에 할당 결정을 내릴 수 있습니다.
+Azure 구독 및 Batch와 같은 개별 Azure 서비스는 모두 포함되는 특정 엔터티 수를 제한하는 기본 할당량이 있습니다. Azure 구독에 대한 기본 할당량의 경우 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요. Batch 서비스의 기본 할당량의 경우 [Azure Batch 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요. Batch 관리 .NET 라이브러리를 사용하여 애플리케이션에서 이러한 할당량을 확인할 수 있습니다. 계정 또는 풀과 같은 계산 리소스 및 계산 노드를 추가하기 전에 할당 결정을 내릴 수 있습니다.
 
 ### <a name="check-an-azure-subscription-for-batch-account-quotas"></a>Azure 구독에서 Batch 계정 할당량 확인
 지역에 Batch 계정을 만들기 전에 Azure 구독에서 해당 지역에 계정을 추가할 수 있는지 여부를 확인할 수 있습니다.

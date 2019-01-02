@@ -20,9 +20,9 @@ ms.lasthandoff: 12/15/2018
 ms.locfileid: "53433443"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Azure 모니터의 데이터 원본
-이 문서에서는 Azure Monitor에서 수집한 데이터 원본에 대해 설명하여 리소스 및 해당 리소스에서 실행 중인 응용 프로그램의 상태와 성능을 모니터링합니다. 이러한 리소스는 Azure, 다른 클라우드 또는 온-프레미스에 있을 수 있습니다.  이 데이터를 저장한 방법 및 이 데이터를 볼 수 있는 방법에 대한 자세한 내용은 [Azure Monitor에서 수집한 데이터](data-collection.md)를 참조하세요.
+이 문서에서는 Azure Monitor에서 수집한 데이터 원본에 대해 설명하여 리소스 및 해당 리소스에서 실행 중인 애플리케이션의 상태와 성능을 모니터링합니다. 이러한 리소스는 Azure, 다른 클라우드 또는 온-프레미스에 있을 수 있습니다.  이 데이터를 저장한 방법 및 이 데이터를 볼 수 있는 방법에 대한 자세한 내용은 [Azure Monitor에서 수집한 데이터](data-collection.md)를 참조하세요.
 
-Azure의 모니터링 데이터는 계층, 즉 응용 프로그램과 운영 체제인 가장 높은 계층 및 Azure 플랫폼의 구성 요소인 가장 낮은 계층으로 구성될 수 있는 다양한 원본에서 제공됩니다. 이 내용은 다음 섹션에서 자세히 설명하는 각 계층이 포함된 다음 다이어그램에 나와 있습니다.
+Azure의 모니터링 데이터는 계층, 즉 애플리케이션과 운영 체제인 가장 높은 계층 및 Azure 플랫폼의 구성 요소인 가장 낮은 계층으로 구성될 수 있는 다양한 원본에서 제공됩니다. 이 내용은 다음 섹션에서 자세히 설명하는 각 계층이 포함된 다음 다이어그램에 나와 있습니다.
 
 ![모니터링 데이터의 계층](media/data-sources/monitoring-tiers.png)
 
@@ -84,7 +84,7 @@ Windows 또는 Linux 가상 머신 또는 물리적 컴퓨터의 포괄적인 �
 
 모니터링 요구 사항에 따라 에이전트와 사용할 에이전트 간의 차이점을 더 이해하려면 [모니터링 에이전트 개요](agents-overview.md)를 참조하세요.
 
-## <a name="applications"></a>응용 프로그램
+## <a name="applications"></a>애플리케이션
 응용 프로그램이 게스트 운영 체제에 쓸 수 있는 원격 분석 외에도 자세한 응용 프로그램 모니터링은 [Application Insights](https://docs.microsoft.com/azure/application-insights/)를 사용하여 완료됩니다. Application Insights는 다양한 플랫폼에서 실행되는 응용 프로그램에서 데이터를 수집할 수 있습니다. 응용 프로그램은 Azure, 다른 클라우드 또는 온-프레미스에서 실행될 수 있습니다.
 
 ![응용 프로그램 데이터 수집](media/data-sources/application-collection.png)
@@ -102,7 +102,7 @@ Windows 또는 Linux 가상 머신 또는 물리적 컴퓨터의 포괄적인 �
 Application Insights의 [가용성 테스트](../../application-insights/app-insights-monitor-web-app-availability.md)는 공용 인터넷의 다른 위치에서 응용 프로그램의 가용성 및 응답성을 테스트할 수 있습니다. 사용자 시나리오를 시뮬레이션하는 웹 테스트를 만들려면 응용 프로그램이 활성 상태이거나 Visual Studio를 사용하는지 확인하는 간단한 ping 테스트를 할 수 있습니다.  가용성 테스트는 응용 프로그램에서 계측이 필요하지 않습니다.
 
 ## <a name="custom-sources"></a>사용자 지정 원본
-응용 프로그램의 표준 계층 외에 다른 데이터 원본과 함께 수집할 수 없는 원격 분석이 있는 다른 리소스를 모니터링해야 할 수도 있습니다. 해당 리소스의 경우 Azure Monitor API를 사용하여 이 데이터를 기록해야 합니다.
+애플리케이션의 표준 계층 외에 다른 데이터 원본과 함께 수집할 수 없는 원격 분석이 있는 다른 리소스를 모니터링해야 할 수도 있습니다. 해당 리소스의 경우 Azure Monitor API를 사용하여 이 데이터를 기록해야 합니다.
 
 ![사용자 지정 데이터 컬렉션](media/data-sources/custom-collection.png)
 

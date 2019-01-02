@@ -95,7 +95,7 @@ Azure AD 조건부 액세스를 사용하여 권한 있는 사용자가 클라�
 
 조건부 액세스 정책은 [페더레이션된 인증](../../security/azure-ad-choose-authn.md#federated-authentication)에서 원활하게 작동합니다. 이 지원에는 [Azure AD 보고](../reports-monitoring/concept-sign-ins.md)를 통해 정책이 활성 사용자 로그인에 적용되는 방식에 대한 모든 지원되는 조건 및 제어와 가시성이 포함됩니다.
 
-*Azure AD에 페더레이션된 인증*이란 신뢰할 수 있는 인증 서비스가 Azure AD에 대한 사용자 인증을 처리한다는 뜻입니다. 신뢰할 수 있는 인증 서비스의 예로는 AD FS(Active Directory Federation Services) 또는 기타 페더레이션 서비스가 있습니다. 이 구성에서는 기본 사용자 인증이 서비스 수준에서 수행된 다음, Azure AD를 사용하여 개별 응용 프로그램에 로그인합니다. Azure AD 조건부 액세스는 사용자가 액세스하는 응용 프로그램에 대한 액세스를 부여하기 전에 적용됩니다. 
+*Azure AD에 페더레이션된 인증*이란 신뢰할 수 있는 인증 서비스가 Azure AD에 대한 사용자 인증을 처리한다는 뜻입니다. 신뢰할 수 있는 인증 서비스의 예로는 AD FS(Active Directory Federation Services) 또는 기타 페더레이션 서비스가 있습니다. 이 구성에서는 기본 사용자 인증이 서비스 수준에서 수행된 다음, Azure AD를 사용하여 개별 애플리케이션에 로그인합니다. Azure AD 조건부 액세스는 사용자가 액세스하는 애플리케이션에 대한 액세스를 부여하기 전에 적용됩니다. 
 
 구성된 조건부 액세스 정책에 다단계 인증이 필요할 경우 Azure AD의 기본값은 Azure MFA를 사용하는 것입니다. MFA에 대해 페디레이션 서비스를 사용할 경우 [PowerShell](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings)에서 `-SupportsMFA`를 `$true`로 설정하여 페더레이션 서비스로 리디렉션하도록 Azure AD를 구성할 수 있습니다 이 설정은 `wauth= http://schemas.microsoft.com/claims/multipleauthn`을 사용하여 Azure AD에서 발행한 MFA 과제 요청을 지원하는 페더레이션된 인증 서비스에 적용됩니다.
 

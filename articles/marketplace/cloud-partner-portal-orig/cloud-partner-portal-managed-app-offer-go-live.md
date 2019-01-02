@@ -21,10 +21,10 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2018
 ms.locfileid: "52263594"
 ---
-<a name="make-your-azure-application-offer-live-on-azure-marketplace"></a>Azure Marketplace에서 Azure 응용 프로그램 제품을 라이브로 전환 
+<a name="make-your-azure-application-offer-live-on-azure-marketplace"></a>Azure Marketplace에서 Azure 애플리케이션 제품을 라이브로 전환 
 ===========================================================
 
-모든 제품 정보를 입력했으므로 이제 제품을 게시하고 Azure Marketplace에서 라이브로 전환합니다. 마케팅 콘텐츠와 응용 프로그램이 모두 Azure Certified를 받기 위한 품질 요구 사항을 충족하도록 하려면 웹 사이트에서 제품을 라이브로 전환하기 전에 몇 가지 단계를 수행해야 합니다.
+모든 제품 정보를 입력했으므로 이제 제품을 게시하고 Azure Marketplace에서 라이브로 전환합니다. 마케팅 콘텐츠와 애플리케이션이 모두 Azure Certified를 받기 위한 품질 요구 사항을 충족하도록 하려면 웹 사이트에서 제품을 라이브로 전환하기 전에 몇 가지 단계를 수행해야 합니다.
 
 ![게시 흐름](./media/cloud-partner-portal-publish-managed-app/publish_flow.png)
 
@@ -58,7 +58,7 @@ ms.locfileid: "52263594"
 
 ### <a name="certification-5-days"></a>인증(5일 미만) 
 
-이 단계에서는 다양한 테스트를 실행하여 Azure 응용 프로그램 패키지가 Azure Certified를 받기 위한 요구 사항을 충족하는지 확인합니다.
+이 단계에서는 다양한 테스트를 실행하여 Azure 애플리케이션 패키지가 Azure Certified를 받기 위한 요구 사항을 충족하는지 확인합니다.
 
 이 단계는 며칠이 소요될 수 있으며 클라우드 파트너 포털에서 로그아웃할 수 있습니다. 오류가 있는 경우 전자 메일 알림이 전송됩니다. 모든 항목이 성공으로 통과된 경우 프로세스가 프로비전 단계로 자동으로 넘어갑니다.
 
@@ -84,7 +84,7 @@ ms.locfileid: "52263594"
 
 ### <a name="live"></a>라이브
 
-이제 제품이 Azure Marketplace 및 Azure Portal에서 라이브 상태로 설정되었습니다. 고객은 자신의 Azure 구독에서 Azure를 통해 관리되는 응용 프로그램을 확인하고 배포할 수 있습니다. 모든 제품 탭을 클릭하여 오른쪽 열에 나열된 모든 제품의 상태를 확인할 수 있습니다. 상태를 클릭하면 제품에 대한 게시 흐름 상태가 자세히 표시됩니다.
+이제 제품이 Azure Marketplace 및 Azure Portal에서 라이브 상태로 설정되었습니다. 고객은 자신의 Azure 구독에서 Azure를 통해 관리되는 애플리케이션을 확인하고 배포할 수 있습니다. 모든 제품 탭을 클릭하여 오른쪽 열에 나열된 모든 제품의 상태를 확인할 수 있습니다. 상태를 클릭하면 제품에 대한 게시 흐름 상태가 자세히 표시됩니다.
 
 ### <a name="error-handling"></a>오류 처리 
 

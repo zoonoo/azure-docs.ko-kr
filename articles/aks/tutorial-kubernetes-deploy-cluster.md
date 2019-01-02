@@ -129,7 +129,7 @@ aks-nodepool1-66427764-0   Ready     agent     9m        v1.9.9
 > * Kubernetes CLI(kubectl) 설치
 > * AKS 클러스터에 연결하도록 kubectl 구성
 
-그 다음 자습서를 계속 진행하여 클러스터에 응용 프로그램을 배포하는 방법을 알아보세요.
+그 다음 자습서를 계속 진행하여 클러스터에 애플리케이션을 배포하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
 > [Kubernetes에서 응용 프로그램 배포][aks-tutorial-deploy-app]

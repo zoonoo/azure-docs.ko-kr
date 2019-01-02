@@ -130,7 +130,7 @@ Azure DevOps 서비스에 대 한 Azure Resource Manager는 서비스 주체를 
 
 2. 값을 기록해 **응용 프로그램 ID**합니다. Azure DevOps 서비스에서 서비스 끝점을 구성 하는 경우 해당 값을 사용 합니다.
 
-    ![응용 프로그램 UI](media/azure-stack-solution-hybrid-pipeline/000_02.png)
+    ![애플리케이션 UI](media/azure-stack-solution-hybrid-pipeline/000_02.png)
 
 3. 인증 키를 생성하려면 **설정**을 선택합니다.
 
@@ -144,7 +144,7 @@ Azure DevOps 서비스에 대 한 Azure Resource Manager는 서비스 주체를 
 
     ![키 설명 및 기간](media/azure-stack-solution-hybrid-pipeline/000_05.png)
 
-    키, 키를 저장 한 후 **값** 표시 됩니다. 이 값을 나중에 가져올 수 없습니다 때문에이 값을 복사 합니다. 제공 하는 **키 값** 응용 프로그램으로 로그인 하려면 응용 프로그램 id입니다. 응용 프로그램에서 검색할 수 있는 위치에 키 값을 저장합니다.
+    키, 키를 저장 한 후 **값** 표시 됩니다. 이 값을 나중에 가져올 수 없습니다 때문에이 값을 복사 합니다. 제공 하는 **키 값** 응용 프로그램으로 로그인 하려면 응용 프로그램 id입니다. 애플리케이션에서 검색할 수 있는 위치에 키 값을 저장합니다.
 
     ![키 값](media/azure-stack-solution-hybrid-pipeline/000_06.png)
 
@@ -190,7 +190,7 @@ Azure DevOps 서비스를 실행 하려면 서비스 끝점 구성의 일부로 
 
     ![소유자 역할](media/azure-stack-solution-hybrid-pipeline/000_14.png)
 
-6. 기본적으로 Azure Active Directory 응용 프로그램이 사용 가능한 옵션에 표시되지 않습니다. 응용 프로그램을 찾으려면에서 해당 이름을 제공 해야 합니다는 **선택** 필드를 검색 합니다. 앱을 선택합니다.
+6. 기본적으로 Azure Active Directory 애플리케이션이 사용 가능한 옵션에 표시되지 않습니다. 응용 프로그램을 찾으려면에서 해당 이름을 제공 해야 합니다는 **선택** 필드를 검색 합니다. 앱을 선택합니다.
 
     ![앱 검색 결과](media/azure-stack-solution-hybrid-pipeline/000_16.png)
 

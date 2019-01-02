@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: 이미지 검색 - C#용 Bing Image Search SDK'
-description: 이 빠른 시작을 통해 API에 대한 래퍼이며 동일한 기능을 포함하는 Bing Image Search SDK를 사용하여 첫 번째 이미지 검색을 수행합니다. 이 간단한 C# 응용 프로그램은 이미지 검색 쿼리를 보내고 JSON 응답을 구문 분석하고 반환된 첫 번째 이미지의 URL을 표시합니다.
+description: 이 빠른 시작을 통해 API에 대한 래퍼이며 동일한 기능을 포함하는 Bing Image Search SDK를 사용하여 첫 번째 이미지 검색을 수행합니다. 이 간단한 C# 애플리케이션은 이미지 검색 쿼리를 보내고 JSON 응답을 구문 분석하고 반환된 첫 번째 이미지의 URL을 표시합니다.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -20,7 +20,7 @@ ms.locfileid: "53261248"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-c"></a>빠른 시작: C#용 Bing Image Search SDK를 사용하여 이미지 검색
 
-이 빠른 시작을 통해 API에 대한 래퍼이며 동일한 기능을 포함하는 Bing Image Search SDK를 사용하여 첫 번째 이미지 검색을 수행합니다. 이 간단한 C# 응용 프로그램은 이미지 검색 쿼리를 보내고 JSON 응답을 구문 분석하고 반환된 첫 번째 이미지의 URL을 표시합니다.
+이 빠른 시작을 통해 API에 대한 래퍼이며 동일한 기능을 포함하는 Bing Image Search SDK를 사용하여 첫 번째 이미지 검색을 수행합니다. 이 간단한 C# 애플리케이션은 이미지 검색 쿼리를 보내고 JSON 응답을 구문 분석하고 반환된 첫 번째 이미지의 URL을 표시합니다.
 
 이 샘플에 대한 소스 코드는 추가 오류 처리 및 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch)에서 사용할 수 있습니다.
 
@@ -34,9 +34,9 @@ Visual Studio에서 Bing Image Search SDK를 설치하려면 Visual Studio의 �
 
 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
-## <a name="create-and-initialize-the-application"></a>응용 프로그램 만들기 및 초기화
+## <a name="create-and-initialize-the-application"></a>애플리케이션 만들기 및 초기화
 
-먼저 Visual Studio에서 새 C# 콘솔 응용 프로그램을 만듭니다. 그런 다음, 프로젝트에 다음 패키지를 추가합니다.
+먼저 Visual Studio에서 새 C# 콘솔 애플리케이션을 만듭니다. 그런 다음, 프로젝트에 다음 패키지를 추가합니다.
 
 ```csharp
 using System;

@@ -1,6 +1,6 @@
 ---
 title: Azure AD v2.0 UWP 시작 | Microsoft Docs
-description: UWP(유니버설 Windows 플랫폼) 응용 프로그램이 Azure Active Directory v2.0 엔드포인트로 보호되는 액세스 토큰을 필요로 하는 API를 호출하는 방식
+description: UWP(유니버설 Windows 플랫폼) 애플리케이션이 Azure Active Directory v2.0 엔드포인트로 보호되는 액세스 토큰을 필요로 하는 API를 호출하는 방식
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -38,7 +38,7 @@ ms.locfileid: "49986545"
 
 ![이 가이드에서 그래프를 작동하는 방법](./media/tutorial-v2-windows-uwp/uwp-intro.png)
 
-이 가이드는 Azure Active Directory v2.0 엔드포인트에서 토큰을 수락하는 Microsoft Graph API 또는 Web API를 쿼리하는 샘플 UWP 응용 프로그램을 만듭니다. 이 시나리오에서는 토큰은 권한 부여 헤더를 통해 HTTP 요청에 추가됩니다. MSAL(Microsoft 인증 라이브러리)에서는 토큰 획득 및 갱신을 처리합니다.
+이 가이드는 Azure Active Directory v2.0 엔드포인트에서 토큰을 수락하는 Microsoft Graph API 또는 Web API를 쿼리하는 샘플 UWP 애플리케이션을 만듭니다. 이 시나리오에서는 토큰은 권한 부여 헤더를 통해 HTTP 요청에 추가됩니다. MSAL(Microsoft 인증 라이브러리)에서는 토큰 획득 및 갱신을 처리합니다.
 
 ## <a name="nuget-packages"></a>NuGet 패키지
 
@@ -58,7 +58,7 @@ ms.locfileid: "49986545"
 > 이 샘플의 Visual Studio 프로젝트를 다운로드하고 싶으세요? [프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip)하고, 실행하기 전에 코드 샘플을 구성하려면 [응용 프로그램 등록](#register-your-application "응용 프로그램 등록 단계")의 단계로 건너뜁니다.
 
 
-### <a name="create-your-application"></a>응용 프로그램 만들기
+### <a name="create-your-application"></a>애플리케이션 만들기
 
 1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 2. **템플릿**에서 **Visual C#** 을 선택합니다.
@@ -101,7 +101,7 @@ ms.locfileid: "49986545"
     public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
     ```
 
-## <a name="create-your-applications-ui"></a>응용 프로그램 UI 만들기
+## <a name="create-your-applications-ui"></a>애플리케이션 UI 만들기
 
 **MainPage.xaml** 파일은 프로젝트 템플릿의 일부로 자동으로 생성됩니다. 이 파일을 연 다음, 지침을 따릅니다.
 
@@ -200,7 +200,7 @@ ms.locfileid: "49986545"
 
 `AcquireTokenSilentAsync` 메서드는 사용자 개입 없이 토큰 획득 및 갱신을 자동으로 처리합니다. `AcquireTokenAsync`가 처음으로 실행되고 사용자에게 자격 증명을 묻는 메시지가 표시된 후 자동으로 토큰을 획득하기 때문에 후속 호출에 대한 토큰을 요청하는 데 `AcquireTokenSilentAsync` 메서드를 사용해야 합니다. MSAL은 토큰 캐시 및 갱신을 처리합니다.
 
-결국 `AcquireTokenSilentAsync` 메서드가 실패합니다. 사용자가 로그아웃했거나 다른 디바이스에서 해당 암호를 변경하면 실패할 수 있습니다. MSAL이 대화형 작업을 요구해 이 문제를 해결할 수 있다고 감지하면 `MsalUiRequiredException` 예외를 발생합니다. 응용 프로그램에서는 이러한 예외를 다음 두 가지 방법으로 처리할 수 있습니다.
+결국 `AcquireTokenSilentAsync` 메서드가 실패합니다. 사용자가 로그아웃했거나 다른 디바이스에서 해당 암호를 변경하면 실패할 수 있습니다. MSAL이 대화형 작업을 요구해 이 문제를 해결할 수 있다고 감지하면 `MsalUiRequiredException` 예외를 발생합니다. 애플리케이션에서는 이러한 예외를 다음 두 가지 방법으로 처리할 수 있습니다.
 
 * 즉시 `AcquireTokenAsync`에 대해 호출할 수 있습니다. 이 호출로 인해 사용자에게 로그인하라는 메시지가 표시됩니다. 일반적으로 이 패턴은 사용자가 사용할 수 있는 오프라인 콘텐츠가 없는 온라인 애플리케이션에서 사용됩니다. 이 설정 안내에서 생성하는 샘플은 패턴을 따릅니다. 샘플을 처음으로 실행할 때 작업에 표시됩니다. 
     * 이 애플리케이션을 사용한 사용자가 없기 때문에 `PublicClientApp.Users.FirstOrDefault()`에는 null 값이 포함되며 `MsalUiRequiredException` 예외가 throw됩니다.

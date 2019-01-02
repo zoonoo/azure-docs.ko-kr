@@ -23,7 +23,7 @@ ms.locfileid: "51258853"
 ![Power BI 작업 영역 컬렉션의 행 수준 보안 흐름](media/row-level-security/flow-1.png)
 
 > [!IMPORTANT]
-> Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 응용 프로그램에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.
+> Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 애플리케이션에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.
 
 RLS를 활용하기 위해서는 사용자, 역할 및 규칙이라는 세 가지 주요 개념을 이해하는 것이 중요합니다. 이러한 개념 각각에 대해 조금 더 자세히 살펴보겠습니다.
 
@@ -35,7 +35,7 @@ RLS를 활용하기 위해서는 사용자, 역할 및 규칙이라는 세 가�
 
 ### <a name="example"></a>예
 
-이 문서의 나머지 부분에서는 RLS를 작성하는 예를 제공한 후 포함된 응용 프로그램 내에서 이를 사용하는 것을 보여 줍니다. 이 예에서는 [소매 분석 샘플](https://go.microsoft.com/fwlink/?LinkID=780547) PBIX 파일을 사용합니다.
+이 문서의 나머지 부분에서는 RLS를 작성하는 예를 제공한 후 포함된 애플리케이션 내에서 이를 사용하는 것을 보여 줍니다. 이 예에서는 [소매 분석 샘플](https://go.microsoft.com/fwlink/?LinkID=780547) PBIX 파일을 사용합니다.
 
 ![예제 판매 보고서](media/row-level-security/scenario-2.png)
 
@@ -108,9 +108,9 @@ to
 
 ![JSON Web Token 예제](media/row-level-security/app-token-string-12.png)
 
-이제 종합해보면 누군가가 이 보고서를 보기 위해 응용 프로그램에 로그인하면 행 수준 보안에 정의된 대로 자신에게 보기가 허용된 데이터만 표시됩니다.
+이제 종합해보면 누군가가 이 보고서를 보기 위해 애플리케이션에 로그인하면 행 수준 보안에 정의된 대로 자신에게 보기가 허용된 데이터만 표시됩니다.
 
-![응용 프로그램에 표시된 보고서](media/row-level-security/dashboard-13.png)
+![애플리케이션에 표시된 보고서](media/row-level-security/dashboard-13.png)
 
 ## <a name="see-also"></a>참고 항목
 

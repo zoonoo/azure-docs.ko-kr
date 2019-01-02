@@ -44,7 +44,7 @@ ms.locfileid: "53315726"
 
 ### <a name="maxconcurrentrequestsperprocess"></a>maxConcurrentRequestsPerProcess
 
-이 설정은 iisnode에서 각 node.exe로 보내는 최대 동시 요청 수를 제어합니다. Azure Web Apps에서 기본값은 무제한입니다. Azure Web Apps에서 호스트되지 않는 경우 기본값이 1024입니다. 응용 프로그램이 수신하는 요청 수와 응용 프로그램이 각 요청을 처리하는 속도에 따라 값을 구성할 수 있습니다.
+이 설정은 iisnode에서 각 node.exe로 보내는 최대 동시 요청 수를 제어합니다. Azure Web Apps에서 기본값은 무제한입니다. Azure Web Apps에서 호스트되지 않는 경우 기본값이 1024입니다. 애플리케이션이 수신하는 요청 수와 애플리케이션이 각 요청을 처리하는 속도에 따라 값을 구성할 수 있습니다.
 
 ### <a name="maxnamedpipeconnectionretry"></a>maxNamedPipeConnectionRetry
 
@@ -90,7 +90,7 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 ### <a name="watchedfiles"></a>watchedFiles
 
-변경 내용을 감시하는 세미콜론으로 구분된 파일 목록입니다. 파일에 대한 변경 내용으로 인해 응용 프로그램 재활용이 발생합니다. 각 항목은 주 응용 프로그램 진입점이 있는 디렉터리를 기준으로 선택적 디렉터리 이름 및 필수 파일 이름으로 구성됩니다. 파일 이름 부분에만 와일드 카드가 허용됩니다. 기본값은 `*.js;web.config`입니다.
+변경 내용을 감시하는 세미콜론으로 구분된 파일 목록입니다. 파일에 대한 변경 내용으로 인해 애플리케이션 재활용이 발생합니다. 각 항목은 주 애플리케이션 진입점이 있는 디렉터리를 기준으로 선택적 디렉터리 이름 및 필수 파일 이름으로 구성됩니다. 파일 이름 부분에만 와일드 카드가 허용됩니다. 기본값은 `*.js;web.config`입니다.
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
@@ -98,7 +98,7 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
-기본값은 이 기능을 사용하지 않는다는 의미의 0입니다. 0보다 큰 값으로 설정되면 iisnode에서 모든 하위 프로세스를 'idlePageOutTimePeriod' 밀리초마다 페이지 아웃합니다. 페이지 아웃에 대해 이해하려면 [설명서](https://msdn.microsoft.com/library/windows/desktop/ms682606.aspx)를 참조하세요. 이 설정은 대량의 메모리를 사용하고 간혹 메모리를 디스크로 페이지 아웃하여 RAM을 확보하려는 응용 프로그램의 경우 유용합니다.
+기본값은 이 기능을 사용하지 않는다는 의미의 0입니다. 0보다 큰 값으로 설정되면 iisnode에서 모든 하위 프로세스를 'idlePageOutTimePeriod' 밀리초마다 페이지 아웃합니다. 페이지 아웃에 대해 이해하려면 [설명서](https://msdn.microsoft.com/library/windows/desktop/ms682606.aspx)를 참조하세요. 이 설정은 대량의 메모리를 사용하고 간혹 메모리를 디스크로 페이지 아웃하여 RAM을 확보하려는 애플리케이션의 경우 유용합니다.
 
 > [!WARNING]
 > 프로덕션 애플리케이션에서 다음 구성 설정을 사용하도록 설정할 대는 주의하세요. 라이브 프로덕션 응용 프로그램에서 사용하지 않도록 설정하는 것이 좋습니다.
@@ -118,17 +118,17 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled(라이브 프로덕션 사이트에서 사용 안 함)
 
-이 설정은 디버깅 기능을 제어합니다. Iisnode는 node-inspector에 통합됩니다. 이 설정을 사용하여 노드 애플리케이션의 디버깅을 사용하도록 설정합니다. 이 설정을 사용하도록 설정하면 iisnode가 필요한 ‘debuggerVirtualDir’ 디렉터리의 node-inspector 파일을 노드 응용 프로그램에 대한 첫 번째 디버그 요청에 만듭니다. 요청을 http://yoursite/server.js/debug에 전송하여 node-inspector를 로드할 수 있습니다. ‘debuggerPathSegment’ 설정으로 디버그 URL 세그먼트를 제어할 수 있습니다. 기본적으로 debuggerPathSegment='debug'입니다. 예를 들어 `debuggerPathSegment`를 GUID로 설정할 수 있으므로 다른 사람이 검색하기 더 어렵습니다.
+이 설정은 디버깅 기능을 제어합니다. Iisnode는 node-inspector에 통합됩니다. 이 설정을 사용하여 노드 애플리케이션의 디버깅을 사용하도록 설정합니다. 이 설정을 사용하도록 설정하면 iisnode가 필요한 ‘debuggerVirtualDir’ 디렉터리의 node-inspector 파일을 노드 애플리케이션에 대한 첫 번째 디버그 요청에 만듭니다. 요청을 http://yoursite/server.js/debug에 전송하여 node-inspector를 로드할 수 있습니다. ‘debuggerPathSegment’ 설정으로 디버그 URL 세그먼트를 제어할 수 있습니다. 기본적으로 debuggerPathSegment='debug'입니다. 예를 들어 `debuggerPathSegment`를 GUID로 설정할 수 있으므로 다른 사람이 검색하기 더 어렵습니다.
 
-디버깅에 대한 자세한 내용은 [Windows에서 node.js 응용 프로그램 디버그](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html)를 읽어 보세요.
+디버깅에 대한 자세한 내용은 [Windows에서 node.js 애플리케이션 디버그](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html)를 읽어 보세요.
 
 ## <a name="scenarios-and-recommendationstroubleshooting"></a>시나리오 및 권장 사항/문제 해결
 
-### <a name="my-node-application-is-making-excessive-outbound-calls"></a>내 노드 응용 프로그램에서 너무 많은 아웃바운드 호출을 생성합니다.
+### <a name="my-node-application-is-making-excessive-outbound-calls"></a>내 노드 애플리케이션에서 너무 많은 아웃바운드 호출을 생성합니다.
 
 많은 애플리케이션에서 일반 작업의 일부로 아웃바운드 연결을 생성하려고 합니다. 예를 들어 요청이 들어오면 노드 앱은 다른 위치에서 REST API에 연결하고 요청을 처리할 일부 정보를 얻습니다. http 또는 https 호출을 수행할 때 연결 유지 에이전트를 사용하려고 합니다. 이러한 아웃바운드 호출을 수행할 때 연결 유지 에이전트로 agentkeepalive 모듈을 사용할 수 있습니다.
 
-agentkeepalive 모듈은 소켓이 Azure 웹앱 VM에서 다시 사용되도록 합니다. 각 아웃바운드 요청에서 새 소켓을 만들면 응용 프로그램에 오버 헤드가 추가됩니다. 응용 프로그램이 아웃바운드 요청에서 소켓을 재사용하면 응용 프로그램이 VM당 할당된 maxSockets를 초과하지 않도록 할 수 있습니다. Azure Web Apps에 대한 권장 사항은 agentKeepAlive maxSockets 값을 VM당 총 160개 소켓(node.exe의 인스턴스 4 \* 40 maxSockets/인스턴스)으로 설정하는 것입니다.
+agentkeepalive 모듈은 소켓이 Azure 웹앱 VM에서 다시 사용되도록 합니다. 각 아웃바운드 요청에서 새 소켓을 만들면 애플리케이션에 오버 헤드가 추가됩니다. 애플리케이션이 아웃바운드 요청에서 소켓을 재사용하면 애플리케이션이 VM당 할당된 maxSockets를 초과하지 않도록 할 수 있습니다. Azure Web Apps에 대한 권장 사항은 agentKeepAlive maxSockets 값을 VM당 총 160개 소켓(node.exe의 인스턴스 4 \* 40 maxSockets/인스턴스)으로 설정하는 것입니다.
 
 [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) 구성 예제:
 
@@ -145,10 +145,10 @@ var keepaliveAgent = new Agent({
 > 이 예에서는 VM에서 4개의 node.exe를 실행 중이라고 가정합니다. VM에서 다른 수의 node.exe가 실행 중인 경우 maxSockets 설정을 적절하게 수정해야 합니다.
 >
 
-#### <a name="my-node-application-is-consuming-too-much-cpu"></a>내 노드 응용 프로그램이 너무 많은 CPU를 사용하고 있습니다.
+#### <a name="my-node-application-is-consuming-too-much-cpu"></a>내 노드 애플리케이션이 너무 많은 CPU를 사용하고 있습니다.
 
 포털의 Azure Web Apps에서 높은 CPU 사용량에 대한 권장 사항을 받게 됩니다. 또한 특정 [메트릭](web-sites-monitor.md)을 감시하도록 모니터를 설정할 수도 있습니다. [Azure Portal 대시보드](../application-insights/app-insights-web-monitor-performance.md)에서 CPU 사용량을 확인할 때는 최고값을 놓치지 않도록 CPU에 대한 MAX 값을 확인하세요.
-응용 프로그램에서 CPU를 너무 많이 사용한다고 생각되고 그 이유를 설명할 수 없는 경우 노드 응용 프로그램을 프로파일링해서 찾을 수 있습니다.
+애플리케이션에서 CPU를 너무 많이 사용한다고 생각되고 그 이유를 설명할 수 없는 경우 노드 애플리케이션을 프로파일링해서 찾을 수 있습니다.
 
 #### <a name="profiling-your-node-application-on-azure-web-apps-with-v8-profiler"></a>V8-Profiler를 사용하여 Azure Web Apps에서 노드 응용프로그램 프로파일링
 
@@ -225,14 +225,14 @@ http.createServer(function (req, res) {
 #### <a name="leak-detection-and-heap-diff-for-nodejs"></a>node.js에 대한 누수 감지 및 힙 Diff
 
 [node-memwatch](https://github.com/lloyd/node-memwatch) 를 사용하여 메모리 누수를 확인할 수 있습니다.
-v8-profiler처럼 `memwatch`를 설치하고 힙을 캡처 및 diff하는 코드를 편집하여 응용 프로그램에서 메모리 누수를 확인할 수 있습니다.
+v8-profiler처럼 `memwatch`를 설치하고 힙을 캡처 및 diff하는 코드를 편집하여 애플리케이션에서 메모리 누수를 확인할 수 있습니다.
 
 ### <a name="my-nodeexes-are-getting-killed-randomly"></a>내 node.exe가 임의로 중지됨
 
 node.exe가 임의로 종료된 이유 몇 가지는 다음과 같습니다.
 
-1. 응용 프로그램에서 catch되지 않는 예외를 throw합니다. throw된 예외에 대한 자세한 내용은 d:\\home\\LogFiles\\Application\\logging-errors.txt 파일을 확인하세요. 이 파일에는 스택 추적이 있어 응용 프로그램을 디버그하고 수정하는 데 유용합니다.
-2. 응용 프로그램에서 너무 많은 메모리를 사용하여 다른 프로세스가 시작되는 데 영향을 줍니다. 총 VM 메모리가 100%에 근접한 경우 프로세스 관리자가 node.exe를 중지할 수 있습니다. 프로세스 관리자는 다른 프로세스가 작업을 수행할 수 있도록 일부 프로세스를 중지합니다. 이 문제를 해결하려면 메모리 누수에 대한 응용 프로그램을 프로파일링합니다. 응용 프로그램에 많은 양의 메모리가 필요한 경우 더 큰 VM으로 스케일 아웃합니다(이로 인해 VM에 사용할 수 있는 RAM이 증가됨).
+1. 응용 프로그램에서 catch되지 않는 예외를 throw합니다. throw된 예외에 대한 자세한 내용은 d:\\home\\LogFiles\\Application\\logging-errors.txt 파일을 확인하세요. 이 파일에는 스택 추적이 있어 애플리케이션을 디버그하고 수정하는 데 유용합니다.
+2. 애플리케이션에서 너무 많은 메모리를 사용하여 다른 프로세스가 시작되는 데 영향을 줍니다. 총 VM 메모리가 100%에 근접한 경우 프로세스 관리자가 node.exe를 중지할 수 있습니다. 프로세스 관리자는 다른 프로세스가 작업을 수행할 수 있도록 일부 프로세스를 중지합니다. 이 문제를 해결하려면 메모리 누수에 대한 애플리케이션을 프로파일링합니다. 애플리케이션에 많은 양의 메모리가 필요한 경우 더 큰 VM으로 스케일 아웃합니다(이로 인해 VM에 사용할 수 있는 RAM이 증가됨).
 
 ### <a name="my-node-application-does-not-start"></a>내 노드 응용 프로그램이 시작되지 않음
 
@@ -245,11 +245,11 @@ node.exe가 임의로 종료된 이유 몇 가지는 다음과 같습니다.
 
 ### <a name="my-node-application-crashed"></a>내 노드 응용 프로그램에 충돌 발생
 
-응용 프로그램에서 catch되지 않는 예외를 throw합니다. throw된 예외에 대한 자세한 내용은 `d:\\home\\LogFiles\\Application\\logging-errors.txt` 파일을 확인하세요. 이 파일에는 스택 추적이 있어 응용 프로그램을 진단하고 수정하는 데 유용합니다.
+애플리케이션에서 catch되지 않는 예외를 throw합니다. throw된 예외에 대한 자세한 내용은 `d:\\home\\LogFiles\\Application\\logging-errors.txt` 파일을 확인하세요. 이 파일에는 스택 추적이 있어 애플리케이션을 진단하고 수정하는 데 유용합니다.
 
 ### <a name="my-node-application-takes-too-much-time-to-start-cold-start"></a>내 노드 응용 프로그램을 시작하는 데 시간이 너무 오래 걸립니다(콜드 부팅).
 
-응용 프로그램 시작 시간이 긴 일반적인 원인은 node\_modules에 많은 수의 노드가 있기 때문입니다. 응용 프로그램은 시작할 때 이러한 파일의 대부분을 로드하려고 합니다. 기본적으로 파일은 Azure Web Apps의 네트워크 공유에 저장되므로 많은 파일을 로드하면 시간이 소요될 수 있습니다.
+애플리케이션 시작 시간이 긴 일반적인 원인은 node\_modules에 많은 수의 노드가 있기 때문입니다. 응용 프로그램은 시작할 때 이러한 파일의 대부분을 로드하려고 합니다. 기본적으로 파일은 Azure Web Apps의 네트워크 공유에 저장되므로 많은 파일을 로드하면 시간이 소요될 수 있습니다.
 이 프로세스 속도를 높이는 몇 가지 솔루션은 다음과 같습니다.
 
 1. npm3을 사용하여 플랫 종속성 구조가 있고 중복 종속성이 없는지 확인하고 모듈을 설치합니다.

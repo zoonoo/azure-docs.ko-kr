@@ -27,7 +27,7 @@ ms.locfileid: "53086813"
 이 문서에서는 [https://www.luis.ai](https://www.luis.ai)의 LUIS 포털에 만들어진 무료 LUIS 계정이 필요합니다. 
 
 ## <a name="create-a-new-app"></a>새 앱 만들기
-응용 프로그램은 **내 앱**에서 만들고 관리할 수 있습니다. 
+애플리케이션은 **내 앱**에서 만들고 관리할 수 있습니다. 
 
 1. LUIS 포털에 로그인합니다.
 
@@ -35,11 +35,11 @@ ms.locfileid: "53086813"
 
     [![앱 목록 스크린샷](media/luis-quickstart-new-app/app-list.png "앱 목록 스크린샷")](media/luis-quickstart-new-app/app-list.png)
 
-3. 대화 상자에서 응용 프로그램 이름을 "Home Automation"으로 지정합니다.
+3. 대화 상자에서 애플리케이션 이름을 "Home Automation"으로 지정합니다.
 
     [![새 앱 만들기 팝업 대화 상자 스크린샷](media/luis-quickstart-new-app/create-new-app-dialog.png "새 앱 만들기 팝업 대화 상자 스크린샷")](media/luis-quickstart-new-app/create-new-app-dialog.png)
 
-4. 응용 프로그램 문화권을 선택합니다. Home Automation 앱의 경우 영어를 선택합니다. 그런 후 **완료**를 선택합니다. LUIS에서 Home Automation 앱이 만들어집니다. 
+4. 애플리케이션 문화권을 선택합니다. Home Automation 앱의 경우 영어를 선택합니다. 그런 후 **완료**를 선택합니다. LUIS에서 Home Automation 앱이 만들어집니다. 
 
     >[!NOTE]
     >애플리케이션을 만든 후에는 문화권을 변경할 수 없습니다. 

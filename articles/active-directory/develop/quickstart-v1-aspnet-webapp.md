@@ -1,6 +1,6 @@
 ---
 title: ASP.NET 웹앱에 Microsoft로 로그인 추가 | Microsoft Docs
-description: OpenID Connect 표준을 사용하는 기존 웹 브라우저 기반 응용 프로그램을 통해 ASP.NET 솔루션에서 Microsoft 로그인을 추가하는 방법을 알아봅니다.
+description: OpenID Connect 표준을 사용하는 기존 웹 브라우저 기반 애플리케이션을 통해 ASP.NET 솔루션에서 Microsoft 로그인을 추가하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -26,9 +26,9 @@ ms.locfileid: "52970659"
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-이 빠른 시작에서는 OpenID Connect를 사용하는 브라우저 기반 응용 프로그램을 통해 ASP.NET MVC 솔루션을 사용하여 Microsoft로 로그인을 구현하는 방법을 알아봅니다. ASP.NET 응용 프로그램에서 회사 및 학교 계정의 로그인을 사용하도록 설정하는 방법을 알아봅니다.
+이 빠른 시작에서는 OpenID Connect를 사용하는 브라우저 기반 애플리케이션을 통해 ASP.NET MVC 솔루션을 사용하여 Microsoft로 로그인을 구현하는 방법을 알아봅니다. ASP.NET 애플리케이션에서 회사 및 학교 계정의 로그인을 사용하도록 설정하는 방법을 알아봅니다.
 
-이 빠른 시작을 마치면 응용 프로그램에서 Azure AD(Azure Active Directory)와 통합된 조직의 회사 및 학교 계정을 사용한 로그인을 허용하게 됩니다.
+이 빠른 시작을 마치면 애플리케이션에서 Azure AD(Azure Active Directory)와 통합된 조직의 회사 및 학교 계정을 사용한 로그인을 허용하게 됩니다.
 
 > [!NOTE]
 > 회사 및 학교 계정 외에 개인 계정의 로그인도 사용하도록 설정하려면 [v2.0 엔드포인트](azure-ad-endpoint-comparison.md)를 사용할 수 있습니다. 자세한 내용은 v2.0 엔드포인트에 대한 현재 제한 사항을 설명하는 [이 문서](active-directory-v2-limitations.md)와 함께 [v2.0 엔드포인트에 대한 이 ASP.NET 자습서](tutorial-v2-asp-webapp.md)를 참조하세요.
@@ -45,7 +45,7 @@ ms.locfileid: "52970659"
 
 이 시나리오에서는 브라우저가 ASP.NET 웹 사이트에 액세스하고 사용자가 로그인 단추를 사용하여 인증하도록 요청합니다. 이 시나리오에서는 웹 페이지를 렌더링하는 작업의 대부분이 서버 쪽에서 발생합니다.
 
-이 빠른 시작에서는 사용자가 빈 템플릿을 사용하여 ASP.NET 웹 응용 프로그램에 로그인하는 방법을 설명하며, 로그인 단추 추가와 같은 단계 및 모든 컨트롤러와 메서드를 포함하고, 이러한 작업에 포함된 개념에 대해 설명합니다. 또한 Azure AD 사용자가 [Visual Studio 웹 템플릿](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options)을 사용하고 **조직 계정**을 선택한 다음, 클라우드 옵션 중 하나를 선택하여 회사 및 학교 계정으로 로그인하는 프로젝트를 만들 수도 있습니다. 이 옵션에서는 추가 컨트롤러, 메서드 및 보기와 함께 다양한 템플릿을 사용합니다.
+이 빠른 시작에서는 사용자가 빈 템플릿을 사용하여 ASP.NET 웹 애플리케이션에 로그인하는 방법을 설명하며, 로그인 단추 추가와 같은 단계 및 모든 컨트롤러와 메서드를 포함하고, 이러한 작업에 포함된 개념에 대해 설명합니다. 또한 Azure AD 사용자가 [Visual Studio 웹 템플릿](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options)을 사용하고 **조직 계정**을 선택한 다음, 클라우드 옵션 중 하나를 선택하여 회사 및 학교 계정으로 로그인하는 프로젝트를 만들 수도 있습니다. 이 옵션에서는 추가 컨트롤러, 메서드 및 보기와 함께 다양한 템플릿을 사용합니다.
 
 ## <a name="libraries"></a>라이브러리
 
@@ -53,8 +53,8 @@ ms.locfileid: "52970659"
 
 | 라이브러리 | 설명 |
 |---|---|
-| [Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/) | 응용 프로그램이 인증에 OpenIdConnect를 사용할 수 있게 해주는 미들웨어입니다. |
-| [Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies) |응용 프로그램이 쿠키를 사용하여 사용자 세션을 유지하도록 하는 미들웨어 |
+| [Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/) | 애플리케이션이 인증에 OpenIdConnect를 사용할 수 있게 해주는 미들웨어입니다. |
+| [Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies) |애플리케이션이 쿠키를 사용하여 사용자 세션을 유지하도록 하는 미들웨어 |
 | [Microsoft.Owin.Host.SystemWeb](https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb) | OWIN 기반 애플리케이션이 ASP.NET 요청 파이프라인을 사용하여 IIS에서 실행되도록 함 |
 |  |  |
 
@@ -70,7 +70,7 @@ ms.locfileid: "52970659"
 
 1. Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**로 이동합니다.
 2. **Visual C#\Web**에서 **ASP.NET 웹 응용 프로그램(.NET Framework)** 을 선택합니다.
-3. 응용 프로그램의 이름을 지정하고 **확인**을 선택합니다.
+3. 애플리케이션의 이름을 지정하고 **확인**을 선택합니다.
 4. **비어 있음**을 선택한 다음, 확인란을 선택하여 **MVC** 참조를 추가합니다.
 
 ## <a name="step-3-add-authentication-components"></a>3단계: 인증 구성 요소 추가
@@ -86,7 +86,7 @@ ms.locfileid: "52970659"
 
 <!--start-collapse-->
 > ### <a name="about-these-packages"></a>이러한 패키지 정보
->위의 라이브러리는 쿠키 기반 인증을 통해 OpenID Connect를 사용하여 SSO(Single Sign-On)를 사용하도록 설정합니다. 인증이 완료되고 사용자를 나타내는 토큰이 응용 프로그램으로 전송되면 OWIN 미들웨어가 세션 쿠키를 생성합니다. 그러면 브라우저가 후속 요청 시 이 쿠키를 사용하므로 사용자가 다시 인증할 필요가 없고 추가 확인이 필요하지 않습니다.
+>위의 라이브러리는 쿠키 기반 인증을 통해 OpenID Connect를 사용하여 SSO(Single Sign-On)를 사용하도록 설정합니다. 인증이 완료되고 사용자를 나타내는 토큰이 애플리케이션으로 전송되면 OWIN 미들웨어가 세션 쿠키를 생성합니다. 그러면 브라우저가 후속 요청 시 이 쿠키를 사용하므로 사용자가 다시 인증할 필요가 없고 추가 확인이 필요하지 않습니다.
 <!--end-collapse-->
 
 ## <a name="step-4-configure-the-authentication-pipeline"></a>4단계: 인증 파이프라인 구성
@@ -145,7 +145,7 @@ Visual Studio에서 로그인 단추를 추가하고 인증 후 사용자 정보
 
     [!code-html[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
 
-<!--start-collapse--> 이 페이지는 SVG 형식으로 검은색 배경의 로그인 단추를 추가합니다.<br/>![Microsoft로 로그인](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> 더 자세한 로그인 단추는 [응용 프로그램을 위한 브랜딩 지침](howto-add-branding-in-azure-ad-apps.md)으로 이동하세요.
+<!--start-collapse--> 이 페이지는 SVG 형식으로 검은색 배경의 로그인 단추를 추가합니다.<br/>![Microsoft로 로그인](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> 더 자세한 로그인 단추는 [애플리케이션을 위한 브랜딩 지침](howto-add-branding-in-azure-ad-apps.md)으로 이동하세요.
 <!--end-collapse-->
 
 ## <a name="step-7-display-users-claims-by-adding-a-controller"></a>7단계: 컨트롤러를 추가하여 사용자 클레임 표시
@@ -199,18 +199,18 @@ Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이
 1. [Microsoft Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)으로 이동하여 응용 프로그램을 등록합니다.
 2. **새 응용 프로그램 등록**을 선택합니다.
 3. 애플리케이션의 이름을 입력합니다.
-4. Visual Studio 프로젝트의 *SSL URL*을 **로그온 URL**에 붙여넣습니다. 이 URL은 등록하는 응용 프로그램의 회신 URL 목록에도 자동으로 추가됩니다.
-5. **만들기**를 선택하여 응용 프로그램을 등록합니다. 그러면 응용 프로그램 목록으로 돌아갑니다.
-6. 이제 방금 만든 응용 프로그램을 검색 및/또는 선택하여 해상 속성을 엽니다.
+4. Visual Studio 프로젝트의 *SSL URL*을 **로그온 URL**에 붙여넣습니다. 이 URL은 등록하는 애플리케이션의 회신 URL 목록에도 자동으로 추가됩니다.
+5. **만들기**를 선택하여 응용 프로그램을 등록합니다. 그러면 애플리케이션 목록으로 돌아갑니다.
+6. 이제 방금 만든 애플리케이션을 검색 및/또는 선택하여 해상 속성을 엽니다.
 7. **응용 프로그램 ID**의 GUID를 클립보드에 복사합니다.
-8. Visual Studio로 돌아가서 `web.config`에서 `Enter_the_Application_Id_here`를 방금 등록한 응용 프로그램의 응용 프로그램 ID로 바꿉니다.
+8. Visual Studio로 돌아가서 `web.config`에서 `Enter_the_Application_Id_here`를 방금 등록한 애플리케이션의 애플리케이션 ID로 바꿉니다.
 
 > [!TIP]
-> 여러 디렉터리에 액세스하도록 계정이 구성된 경우 Azure Portal의 오른쪽 상단에 있는 계정 이름을 클릭한 다음, 선택한 디렉터리가 표시되는지 확인하여 응용 프로그램을 등록할 조직의 디렉터리를 올바로 선택해야 합니다.<br/>![올바른 디렉터리 선택](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
+> 여러 디렉터리에 액세스하도록 계정이 구성된 경우 Azure Portal의 오른쪽 상단에 있는 계정 이름을 클릭한 다음, 선택한 디렉터리가 표시되는지 확인하여 애플리케이션을 등록할 조직의 디렉터리를 올바로 선택해야 합니다.<br/>![올바른 디렉터리 선택](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
 
 ## <a name="step-10-configure-sign-in-options"></a>10단계: 로그인 옵션 구성
 
-한 조직의 Azure AD 인스턴스에 속한 사용자만 로그인하도록 허용하거나 어떠한 조직에 속한 사용자가 로그인하도록 수락하도록 응용 프로그램을 구성할 수 있습니다. 다음 선택 항목 중 하나의 지침을 따르세요.
+한 조직의 Azure AD 인스턴스에 속한 사용자만 로그인하도록 허용하거나 어떠한 조직에 속한 사용자가 로그인하도록 수락하도록 애플리케이션을 구성할 수 있습니다. 다음 선택 항목 중 하나의 지침을 따르세요.
 
 ### <a name="configure-your-application-to-allow-sign-ins-of-work-and-school-accounts-from-any-company-or-organization-multi-tenant"></a>모든 회사 또는 조직에서 회사 및 학교 계정의 로그인을 허용하도록 애플리케이션 구성(다중 테넌트)
 
@@ -220,13 +220,13 @@ Azure AD와 통합된 어떠한 회사 또는 조직에서 회사 및 학교 계
 2. **모든 설정**에서 **속성**을 선택합니다.
 3. **다중 테넌트** 속성을 **예**로 변경한 다음, **저장**을 선택합니다.
 
-이 설정과 다중 테넌트 응용 프로그램의 개념에 대한 자세한 내용은 [다중 테넌트 개요](howto-convert-app-to-be-multi-tenant.md)를 참조하세요.
+이 설정과 다중 테넌트 애플리케이션의 개념에 대한 자세한 내용은 [다중 테넌트 개요](howto-convert-app-to-be-multi-tenant.md)를 참조하세요.
 
 ### <a name="restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>한 조직의 Active Directory 인스턴스에 속한 사용자만 애플리케이션에 로그인하도록 제한(단일 테넌트)
 
-이 옵션은 LOB(기간 업무) 응용 프로그램에 대한 일반적인 시나리오입니다.
+이 옵션은 LOB(기간 업무) 애플리케이션에 대한 일반적인 시나리오입니다.
 
-응용 프로그램에서 특정 Azure AD 인스턴스에 속한 계정의 로그인만 수락하도록 하려면(해당 인스턴스의 *게스트 계정* 포함) 다음 단계를 수행합니다.
+애플리케이션에서 특정 Azure AD 인스턴스에 속한 계정의 로그인만 수락하도록 하려면(해당 인스턴스의 *게스트 계정* 포함) 다음 단계를 수행합니다.
 
 1. `Common`에서 *web.config*의 `Tenant` 매개 변수를 조직의 테넌트 이름으로 바꿉니다(예: *contoso.onmicrosoft.com*).
 1. [*OWIN 시작 클래스*](#configure-the-authentication-pipeline)의 `ValidateIssuer` 인수를 `true`로 변경합니다.

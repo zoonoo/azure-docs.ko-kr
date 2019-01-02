@@ -1,7 +1,7 @@
 ---
 title: Translator Speech 서비스란?
 titleSuffix: Azure Cognitive Services
-description: Translator Speech API를 사용하여 음성을 음성으로 및 음성을 텍스트로 번역을 응용 프로그램에 추가합니다.
+description: Translator Speech API를 사용하여 음성을 음성으로 및 음성을 텍스트로 번역을 애플리케이션에 추가합니다.
 services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
@@ -21,11 +21,11 @@ ms.locfileid: "50023580"
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
-Translator Speech API는 대상 OS 또는 개발 언어와 관계없이 다국어 음성 번역이 필요한 응용 프로그램, 도구 또는 솔루션에 통합형 실시간 음성 번역을 추가하는 데 사용할 수 있습니다. API는 음성 대 음성 및 음성 대 텍스트 번역 모두에 사용될 수 있습니다.
+Translator Speech API는 대상 OS 또는 개발 언어와 관계없이 다국어 음성 번역이 필요한 애플리케이션, 도구 또는 솔루션에 통합형 실시간 음성 번역을 추가하는 데 사용할 수 있습니다. API는 음성 대 음성 및 음성 대 텍스트 번역 모두에 사용될 수 있습니다.
 
 Translator Text API는 사용자 개발 프로젝트에서 쉽게 사용할 수 있는 클라우드의 AI 알고리즘 및 기계 학습의 [Azure Cognitive Services API 컬렉션](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive)에 속한 Azure 서비스입니다.
 
-Translator Speech API를 사용하여 클라이언트 응용 프로그램은 음성 오디오를 서비스로 스트리밍하고 텍스트 및 오디오 기반의 결과를 돌려받습니다. 여기에는 인식된 텍스트를 소스 언어로, 해당 번역을 대상 언어로 포함합니다. 텍스트 결과는 심층 신경망에 의해 작동하는 ASR(Automatic Speech Recognition)을 들어오는 오디오 스트리밍에 적용하여 생성합니다. 원시 ASR 출력은 TrueText라는 새 기술로 더욱 향상되어 사용자 의도를 더 밀접하게 반영합니다. 예를 들어 TrueText는 말더듬(으흠 및 콜록) 및 반복되는 단어를 제거하고, 적절한 구두점 및 대문자 사용을 복원합니다. 비속어를 제외하거나 마스킹하는 기능도 포함됩니다. 인식 및 번역 엔진은 특히 대화형 음성 처리를 학습합니다. 
+Translator Speech API를 사용하여 클라이언트 애플리케이션은 음성 오디오를 서비스로 스트리밍하고 텍스트 및 오디오 기반의 결과를 돌려받습니다. 여기에는 인식된 텍스트를 소스 언어로, 해당 번역을 대상 언어로 포함합니다. 텍스트 결과는 심층 신경망에 의해 작동하는 ASR(Automatic Speech Recognition)을 들어오는 오디오 스트리밍에 적용하여 생성합니다. 원시 ASR 출력은 TrueText라는 새 기술로 더욱 향상되어 사용자 의도를 더 밀접하게 반영합니다. 예를 들어 TrueText는 말더듬(으흠 및 콜록) 및 반복되는 단어를 제거하고, 적절한 구두점 및 대문자 사용을 복원합니다. 비속어를 제외하거나 마스킹하는 기능도 포함됩니다. 인식 및 번역 엔진은 특히 대화형 음성 처리를 학습합니다. 
 
 Translator Speech 서비스는 무음 감지 기능을 사용하여 발화의 마지막을 확인합니다. 음성 활동을 잠시 멈춘 뒤 서비스는 완성된 발언에 대한 최종 결과를 다시 스트리밍합니다. 서비스는 부분 결과를 돌려보내 진행 중인 발언에 대한 중간 인식과 번역을 제공할 수도 있습니다. 
 
@@ -34,7 +34,7 @@ Translator Speech 서비스는 무음 감지 기능을 사용하여 발화의 �
 Translator Speech API는 WebSocket 프로토콜을 사용하여 클라이언트 및 서버 간 전이중 통신 채널을 제공합니다. 
 
 ## <a name="about-microsoft-translator"></a>Microsoft Translator 정보
-Microsoft Translator는 클라우드 기반 기계 번역 서비스입니다. 이 서비스의 핵심에는 다양한 Microsoft 제품 및 서비스를 제공하고 전세계 수천 개 비즈니스가 해당 응용 프로그램 및 워크플로에서 사용하면서 해당 콘텐츠가 전세계 고객에게 도달하게 하는 Translator Text API 및 [Translator Speech API](https://www.microsoft.com/en-us/translator/translatorapi.aspx)가 있습니다.
+Microsoft Translator는 클라우드 기반 기계 번역 서비스입니다. 이 서비스의 핵심에는 다양한 Microsoft 제품 및 서비스를 제공하고 전세계 수천 개 비즈니스가 해당 애플리케이션 및 워크플로에서 사용하면서 해당 콘텐츠가 전세계 고객에게 도달하게 하는 Translator Text API 및 [Translator Speech API](https://www.microsoft.com/en-us/translator/translatorapi.aspx)가 있습니다.
 
 [Microsoft Translator 서비스](https://www.microsoft.com/en-us/translator/home.aspx)를 자세히 알아보기
 

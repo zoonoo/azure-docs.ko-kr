@@ -60,7 +60,7 @@ Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스�
 
 ## <a name="troubleshoot-performance-issues"></a>성능 문제 해결
 
-성능 문제를 진단하고 해결하려면 먼저 각 워크로드 상태와 관련된 성능 문제를 일으키는 각 활성 쿼리의 상태 및 조건을 이해해야 합니다. Azure SQL Database 성능을 개선하려면 응용 프로그램의 각 활성 쿼리 요청이 실행 중이거나 대기 상태인 것을 이해해야 합니다. Azure SQL Database의 성능 문제를 해결하려면 이 문서를 읽을 때 다음 차트를 염두에 두고 성능 문제를 진단하고 해결하세요.
+성능 문제를 진단하고 해결하려면 먼저 각 워크로드 상태와 관련된 성능 문제를 일으키는 각 활성 쿼리의 상태 및 조건을 이해해야 합니다. Azure SQL Database 성능을 개선하려면 애플리케이션의 각 활성 쿼리 요청이 실행 중이거나 대기 상태인 것을 이해해야 합니다. Azure SQL Database의 성능 문제를 해결하려면 이 문서를 읽을 때 다음 차트를 염두에 두고 성능 문제를 진단하고 해결하세요.
 
 ![워크로드 상태](./media/sql-database-monitor-tune-overview/workload-states.png)
 

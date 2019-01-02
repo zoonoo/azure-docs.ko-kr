@@ -114,7 +114,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 ## <a name="simulate-the-device"></a>디바이스 시뮬레이션
 
-1. 컴퓨터에서 Java 샘플 코드를 실행하는 명령 창에서 Enter 키를 눌러 응용 프로그램 실행을 계속합니다. 디바이스를 부팅하고 IoT Hub 정보를 얻기 위해 Device Provisioning Service에 연결하는 과정을 시뮬레이션하는 메시지를 확인합니다.  
+1. 컴퓨터에서 Java 샘플 코드를 실행하는 명령 창에서 Enter 키를 눌러 애플리케이션 실행을 계속합니다. 디바이스를 부팅하고 IoT Hub 정보를 얻기 위해 Device Provisioning Service에 연결하는 과정을 시뮬레이션하는 메시지를 확인합니다.  
 
     ![최종적인 Java TPM 디바이스 프로그램](./media/java-quick-create-simulated-device/program-final.png)
 

@@ -17,12 +17,12 @@ ms.locfileid: "53325597"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure Monitor의 사용자 지정 메트릭
 
-Azure에서 리소스 및 응용 프로그램을 배포하는 동안 성능 및 상태에 대한 정보를 얻기 위해 원격 분석 수집을 시작할 수 있습니다. Azure는 몇 가지 메트릭을 기본적으로 제공합니다. 이러한 메트릭을 표준 또는 플랫폼이라고 합니다. 그러나 메트릭은 본질적으로 제한되어 있습니다. 더욱 심층적인 인사이트를 제공하려면 일부 사용자 지정 성능 지표 또는 비즈니스 관련 메트릭을 수집하는 것이 좋습니다.
-이러한 **사용자 지정** 메트릭은 응용 프로그램 원격 분석, Azure 리소스에서 실행되는 에이전트 또는 외부 모니터링 시스템을 통해서도 수집되어 Azure Monitor로 직접 전송될 수 있습니다. Azure Monitor에 게시된 후에는 Azure에서 내보낸 표준 메트릭과 나란히, Azure 리소스 및 응용 프로그램에 대한 사용자 지정 메트릭을 찾아보고 쿼리 및 경고할 수 있습니다.
+Azure에서 리소스 및 애플리케이션을 배포하는 동안 성능 및 상태에 대한 정보를 얻기 위해 원격 분석 수집을 시작할 수 있습니다. Azure는 몇 가지 메트릭을 기본적으로 제공합니다. 이러한 메트릭을 표준 또는 플랫폼이라고 합니다. 그러나 메트릭은 본질적으로 제한되어 있습니다. 더욱 심층적인 인사이트를 제공하려면 일부 사용자 지정 성능 지표 또는 비즈니스 관련 메트릭을 수집하는 것이 좋습니다.
+이러한 **사용자 지정** 메트릭은 애플리케이션 원격 분석, Azure 리소스에서 실행되는 에이전트 또는 외부 모니터링 시스템을 통해서도 수집되어 Azure Monitor로 직접 전송될 수 있습니다. Azure Monitor에 게시된 후에는 Azure에서 내보낸 표준 메트릭과 나란히, Azure 리소스 및 애플리케이션에 대한 사용자 지정 메트릭을 찾아보고 쿼리 및 경고할 수 있습니다.
 
 ## <a name="send-custom-metrics"></a>사용자 지정 메트릭 보내기
 다음과 같은 여러 가지 방법으로 사용자 지정 메트릭을 Azure Monitor로 보낼 수 있습니다.
-- Azure Application Insights SDK를 사용하여 응용 프로그램을 계측하고 사용자 지정 원격 분석을 Azure Monitor로 보냅니다. 
+- Azure Application Insights SDK를 사용하여 애플리케이션을 계측하고 사용자 지정 원격 분석을 Azure Monitor로 보냅니다. 
 - [Azure VM](collect-custom-metrics-guestos-resource-manager-vm.md), [가상 머신 확장 집합](collect-custom-metrics-guestos-resource-manager-vmss.md), [클래식 VM](collect-custom-metrics-guestos-vm-classic.md) 또는 [클래식 Cloud Services](collect-custom-metrics-guestos-vm-cloud-service-classic.md)에 WAD(Microsoft Azure 진단) 확장을 설치하고 성능 카운터를 Azure Monitor로 보냅니다. 
 - Azure Linux VM에 [InfluxData Telegraf 에이전트](collect-custom-metrics-linux-telegraf.md)를 설치하고 Azure Monitor 출력 플러그 인을 사용하여 메트릭을 보냅니다.
 - 사용자 지정 메트릭을 [Azure Monitor REST API`https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`, ](../../monitoring-and-diagnostics/metrics-store-custom-rest-api.md)에 직접 보냅니다.
@@ -32,8 +32,8 @@ Azure Monitor에 사용자 지정 메트릭을 보낼 때 보고되는 각 데�
 ### <a name="authentication"></a>인증
 사용자 지정 메트릭을 Azure Monitor로 전송하려면 메트릭을 전송하는 엔터티에 유효한 Azure AD(Azure Active Directory) 토큰이 요청의 **전달자** 헤더에 있어야 합니다. 유효한 전달자 토큰을 획득하기 위한 지원되는 몇 가지 방법이 있습니다.
 1. [Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) Azure 리소스 자체(예: VM)에 ID를 제공합니다. MSI(관리 서비스 ID)는 특정 작업을 수행할 수 있는 권한을 리소스에 제공하도록 설계되었습니다. 예를 들어, 리소스가 해당 지표를 내보낼 수 있도록 허용합니다. 리소스 또는 해당 MSI에 다른 리소스에 대한 **모니터링 메트릭 게시자** 권한을 부여할 수 있습니다. 이 권한을 사용하면 MSI가 다른 리소스에 대한 지표도 내보낼 수 있습니다.
-2. [Azure AD 서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). 이 시나리오에서는 Azure 리소스에 대한 메트릭을 내보내는 권한을 Azure AD 응용 프로그램 또는 서비스에 할당할 수 있습니다.
-요청을 인증하기 위해 Azure Monitor는 Azure AD 공개 키를 사용하여 응용 프로그램 토큰의 유효성을 검사합니다. 기존 **모니터링 메트릭 게시자** 역할에는 이 사용 권한이 이미 있으며, Azure Portal에서 사용할 수 있습니다. 서비스 주체는 사용자 지정 메트릭을 내보낼 리소스에 따라 필요한 범위에서 **모니터링 메트릭 게시자** 역할을 부여받을 수 있습니다. 범위의 예로 구독, 리소스 그룹 또는 특정 리소스가 있습니다.
+2. [Azure AD 서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). 이 시나리오에서는 Azure 리소스에 대한 메트릭을 내보내는 권한을 Azure AD 애플리케이션 또는 서비스에 할당할 수 있습니다.
+요청을 인증하기 위해 Azure Monitor는 Azure AD 공개 키를 사용하여 애플리케이션 토큰의 유효성을 검사합니다. 기존 **모니터링 메트릭 게시자** 역할에는 이 사용 권한이 이미 있으며, Azure Portal에서 사용할 수 있습니다. 서비스 주체는 사용자 지정 메트릭을 내보낼 리소스에 따라 필요한 범위에서 **모니터링 메트릭 게시자** 역할을 부여받을 수 있습니다. 범위의 예로 구독, 리소스 그룹 또는 특정 리소스가 있습니다.
 
 > [!NOTE]  
 > 사용자 지정 메트릭을 내보내기 위해 Azure AD 토큰을 요청하는 경우 토큰이 요청되는 대상 그룹 또는 리소스가 https://monitoring.azure.com/이어야 합니다. 후행 슬래시(‘/’)를 포함해야 합니다.
@@ -97,7 +97,7 @@ Azure Monitor에 대한 결과 메트릭 게시는 다음과 같습니다.
 * 합계: 40
 * 개수: 4
 
-응용 프로그램이 로컬로 미리 집계할 수 없고 각 불연속 샘플 또는 이벤트를 수집되는 즉시 내보내야 하는 경우 원시 측정 값을 내보낼 수 있습니다. 예를 들어, 앱에서 로그인 트랜잭션이 발생할 때마다 단일 측정값만 사용하여 메트릭을 Azure Monitor에 게시합니다. 따라서 12밀리초가 걸리는 로그인 트랜잭션의 경우 메트릭 게시는 다음과 같습니다.
+애플리케이션이 로컬로 미리 집계할 수 없고 각 불연속 샘플 또는 이벤트를 수집되는 즉시 내보내야 하는 경우 원시 측정 값을 내보낼 수 있습니다. 예를 들어, 앱에서 로그인 트랜잭션이 발생할 때마다 단일 측정값만 사용하여 메트릭을 Azure Monitor에 게시합니다. 따라서 12밀리초가 걸리는 로그인 트랜잭션의 경우 메트릭 게시는 다음과 같습니다.
 * 최소: 12
 * 최대: 12
 * 합계: 12

@@ -29,7 +29,7 @@ ms.locfileid: "49405381"
 > [!NOTE]
 > 이 솔루션은 Azure Government에 배포됩니다.
 
-이 Azure Security 및 Compliance Blueprint Automation은 미리 구성된 보안 제어가 있는 IaaS 웹 응용 프로그램 참조 아키텍처를 자동으로 배포하여 고객이 FedRAMP 요구 사항을 준수할 수 있게 합니다. 이 솔루션은 리소스 배포 및 구성을 안내하는 Azure Resource Manager 템플릿과 PowerShell 스크립트로 구성되었습니다.
+이 Azure Security 및 Compliance Blueprint Automation은 미리 구성된 보안 제어가 있는 IaaS 웹 애플리케이션 참조 아키텍처를 자동으로 배포하여 고객이 FedRAMP 요구 사항을 준수할 수 있게 합니다. 이 솔루션은 리소스 배포 및 구성을 안내하는 Azure Resource Manager 템플릿과 PowerShell 스크립트로 구성되었습니다.
 
 이 아키텍처는 고객이 특정 요구 사항에 맞게 조정할 수 있는 기반이며 있는 프로덕션 환경에 그대로 사용해서는 안됩니다. 애플리케이션을 수정 없이 이러한 환경에 배포하는 것은 FedRAMP 높음 기준의 요구 사항을 온전히 충족하기에는 부족합니다. 다음 사항에 유의하세요.
 - 이 아키텍처는 고객이 FedRAMP 규격에 맞게 Azure를 사용하기 위한 기준을 제공합니다.

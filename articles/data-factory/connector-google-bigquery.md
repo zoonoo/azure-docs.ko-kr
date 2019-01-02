@@ -57,7 +57,7 @@ Google BigQuery에서 지원되는 모든 싱크 데이터 저장소로 데이�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| clientId | 새로 고침 토큰을 생성하는 데 사용되는 응용 프로그램의 ID입니다. | 아니요 |
+| clientId | 새로 고침 토큰을 생성하는 데 사용되는 애플리케이션의 ID입니다. | 아니요 |
 | clientSecret | 새로 고침 토큰을 생성하는 데 사용되는 응용 프로그램의 비밀입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
 | refreshToken | BigQuery에 대한 액세스 권한을 부여하는 데 사용되는 Google에서 가져온 새로 고침 토큰입니다. [OAuth 2.0 액세스 토큰 가져오기](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) 및 [이 커뮤니티 블로그](https://jpd.ms/getting-your-bigquery-refresh-token-for-azure-datafactory-f884ff815a59)에서 토큰을 가져오는 방법을 알아보세요. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
 

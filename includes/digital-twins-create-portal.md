@@ -35,6 +35,6 @@ ms.locfileid: "51626394"
 
    **관리 API** URL은 _https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger_ 형식입니다. 이 URL은 인스턴스에 적용되는 Azure Digital Twins REST API 설명서로 이동합니다. [Azure Digital Twins Swagger 사용 방법](../articles/digital-twins/how-to-use-swagger.md)을 읽고 이 API 설명서를 읽고 사용하는 방법을 알아봅니다.
 
-    **관리 API** URL을 _https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/_ 형식으로 수정합니다. 응용 프로그램은 수정된 URL을 기본 URL로 사용하여 인스턴스 액세스합니다. 수정된 이 URL을 임시 파일에 복사합니다. 다음 섹션에서 필요합니다.
+    **관리 API** URL을 _https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/_ 형식으로 수정합니다. 애플리케이션은 수정된 URL을 기본 URL로 사용하여 인스턴스 액세스합니다. 수정된 이 URL을 임시 파일에 복사합니다. 다음 섹션에서 필요합니다.
 
     ![관리 API](./media/create-digital-twins-portal/digital-twins-management-api.png)

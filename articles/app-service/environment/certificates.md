@@ -23,7 +23,7 @@ ms.locfileid: "53271898"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>인증서 및 App Service Environment 
 
-ASE(App Service Environment)는 Azure VNet(Virtual Network) 내에서 실행되는 Azure App Service의 배포입니다. 인터넷 액세스 가능 응용 프로그램 엔드포인트 또는 VNet에 있는 응용 프로그램 엔드포인트를 사용하여 배포할 수 있습니다. 인터넷 액세스 가능 엔드포인트를 사용하여 ASE를 배포하는 경우 해당 배포를 외부 ASE라고 합니다. VNet에 엔드포인트가 있는 ASE를 배포하면 해당 배포를 ILB ASE라고 합니다. [ILB ASE 만들기 및 사용](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase) 문서에서 ILB ASE에 대해 자세히 알아볼 수 있습니다.
+ASE(App Service Environment)는 Azure VNet(Virtual Network) 내에서 실행되는 Azure App Service의 배포입니다. 인터넷 액세스 가능 애플리케이션 엔드포인트 또는 VNet에 있는 애플리케이션 엔드포인트를 사용하여 배포할 수 있습니다. 인터넷 액세스 가능 엔드포인트를 사용하여 ASE를 배포하는 경우 해당 배포를 외부 ASE라고 합니다. VNet에 엔드포인트가 있는 ASE를 배포하면 해당 배포를 ILB ASE라고 합니다. [ILB ASE 만들기 및 사용](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase) 문서에서 ILB ASE에 대해 자세히 알아볼 수 있습니다.
 
 ASE는 단일 테넌트 시스템입니다. 단일 테넌트이므로 다중 테넌트 App Service에서 사용할 수 없는 ASE에서만 사용할 수 있는 일부 기능이 있습니다. 
 
@@ -81,7 +81,7 @@ ASE에서 인증서를 앱에 업로드하려면 다음을 수행합니다.
 2. Azure Portal에서 인증서가 필요한 앱으로 이동합니다.
 3. 앱에서 SSL 설정으로 이동합니다. [인증서 업로드]를 클릭합니다. [공용]을 선택합니다. [로컬 머신]을 선택합니다. 이름을 입력합니다. *.cer* 파일을 찾아서 선택합니다. 업로드를 선택합니다. 
 4. 지문을 복사합니다.
-5. [응용 프로그램 설정]으로 이동합니다. 지문을 값으로 사용하여 WEBSITE_LOAD_ROOT_CERTIFICATES 앱 설정을 만듭니다. 인증서가 여러 개 있으면 동일한 설정에 공백 없이 쉼표로 구분하여 배치할 수 있습니다. 예를 들어 다음과 같습니다. 
+5. [애플리케이션 설정]으로 이동합니다. 지문을 값으로 사용하여 WEBSITE_LOAD_ROOT_CERTIFICATES 앱 설정을 만듭니다. 인증서가 여러 개 있으면 동일한 설정에 공백 없이 쉼표로 구분하여 배치할 수 있습니다. 예를 들어 다음과 같습니다. 
 
     84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 

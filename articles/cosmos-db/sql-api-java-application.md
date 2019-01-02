@@ -17,7 +17,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/08/2018
 ms.locfileid: "53086542"
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Azure Cosmos DB 및 SQL API를 사용하여 Java 웹 응용 프로그램 빌드
+# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Azure Cosmos DB 및 SQL API를 사용하여 Java 웹 애플리케이션 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -98,7 +98,7 @@ SQL Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은 [Apach
    * **아티팩트 ID** 상자에 azure-documentdb를 입력합니다.
    * **버전** 상자에 1.5.1을 입력합니다.
      
-   ![SQL Java 응용 프로그램 SDK 설치](./media/sql-api-java-application/image13.png)
+   ![SQL Java 애플리케이션 SDK 설치](./media/sql-api-java-application/image13.png)
      
    * 또는 텍스트 편집기를 통해 Group ID 및 Artifact ID에 대한 종속성 XML을 pom.xml에 직접 추가합니다.
      

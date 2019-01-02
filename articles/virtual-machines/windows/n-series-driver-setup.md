@@ -64,7 +64,7 @@ GPU 디바이스 상태를 쿼리하려면 드라이버와 설치된 [nvidia-smi
   ```
   자세한 내용은 [Windows용 가상 머신 확장 및 기능](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
-RDMA 네트워크는 [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) 또는 Intel MPI 5.x를 사용하여 실행되는 응용 프로그램에 대한 MPI(Message Passing Interface) 트래픽을 지원합니다. 
+RDMA 네트워크는 [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) 또는 Intel MPI 5.x를 사용하여 실행되는 애플리케이션에 대한 MPI(Message Passing Interface) 트래픽을 지원합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -20,9 +20,9 @@ ms.locfileid: "53261980"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>빠른 시작: Bing Image Search REST API 및 Python을 사용하여 이미지 검색
 
-이 빠른 시작을 사용하여 Bing Image Search API를 처음 호출하고 JSON 응답을 받습니다. 이 간단한 Python 응용 프로그램은 검색 쿼리를 API에 보내고 원시 결과를 표시합니다.
+이 빠른 시작을 사용하여 Bing Image Search API를 처음 호출하고 JSON 응답을 받습니다. 이 간단한 Python 애플리케이션은 검색 쿼리를 API에 보내고 원시 결과를 표시합니다.
 
-이 응용 프로그램은 Python에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
+이 애플리케이션은 Python에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
 바인더 배지 시작을 클릭하여 [MyBinder](https://mybinder.org)에서 Jupyter 노트북으로 이 예제를 실행할 수 있습니다.
 

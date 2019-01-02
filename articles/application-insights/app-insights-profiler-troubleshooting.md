@@ -23,7 +23,7 @@ ms.locfileid: "52720442"
 
 ## <a id="troubleshooting"></a>일반적인 문제 해결
 
-### <a name="profiles-are-only-uploaded-if-there-are-requests-to-your-application-while-the-profiler-is-running"></a>Profiler가 실행되는 동안 응용 프로그램에 대한 요청이 있을 때만 업로드됨
+### <a name="profiles-are-only-uploaded-if-there-are-requests-to-your-application-while-the-profiler-is-running"></a>Profiler가 실행되는 동안 애플리케이션에 대한 요청이 있을 때만 업로드됨
 Application Insights Profiler는 매시간 2분 동안 또는 **Application Insights Profiler 구성** 페이지에서 [**지금 프로파일링**](app-insights-profiler-settings.md?toc=/azure/azure-monitor/toc.json) 단추를 누른 경우에만 Profiler 데이터를 수집합니다. 하지만 프로파일링 데이터는 Profiler가 실행되는 동안 발생한 요청에 첨부할 수 있을 때만 업로드됩니다. 
 
 Profiler는 Application Insights 리소스에 추적 메시지 및 사용자 지정 이벤트를 씁니다. 해당 이벤트를 사용하여 Profiler가 실행되는 방법을 확인할 수 있습니다. Profiler가 실행되고 있으며 추적을 캡처하고 있다고 생각되지만 성능 페이지에 표시되지 않으면 Profiler가 실행되는 방식을 확인할 수 있습니다.
@@ -35,7 +35,7 @@ Profiler는 Application Insights 리소스에 추적 메시지 및 사용자 지
     ```
     아래 스크린샷에는 두 개의 다른 AI 리소스를 사용한 두 가지 검색 예제가 나와 있습니다. 
     
-    * 왼쪽 예제는 Profiler를 실행하는 동안 요청을 가져오지 않는 응용 프로그램에 대한 것입니다. 활동이 없으므로 업로드가 취소되었다는 메시지를 볼 수 있습니다. 
+    * 왼쪽 예제는 Profiler를 실행하는 동안 요청을 가져오지 않는 애플리케이션에 대한 것입니다. 활동이 없으므로 업로드가 취소되었다는 메시지를 볼 수 있습니다. 
 
     * 오른쪽 예제에서는 Profiler가 실행되는 동안 발생한 요청을 검색했을 때 Profiler가 사용자 지정 이벤트를 시작하고 전송했다는 것을 확인할 수 있습니다. ServiceProfilerSample 사용자 지정 이벤트가 표시되지 않는 경우 Profiler가 요청에 추적을 첨부한 것이며, Application Insights 성능 페이지에서 추적을 볼 수 있습니다.
 
@@ -43,7 +43,7 @@ Profiler는 Application Insights 리소스에 추적 메시지 및 사용자 지
 
      ![Profiler 원격 분석 검색][profiler-search-telemetry]
 
-1. Profiler가 실행되는 기간 동안 요청이 있는 경우 Profiler가 사용하도록 설정된 응용 프로그램의 부분에서 요청이 처리되는지 확인합니다. 경우에 따라 응용 프로그램이 여러 구성 요소로 이루어져 있지만 Profiler가 전체가 아닌 일부 구성 요소에 대해서만 사용하도록 설정되어 있을 수 있습니다. Application Insights Profiler 구성 페이지에 추적이 업로드된 구성 요소가 표시됩니다.
+1. Profiler가 실행되는 기간 동안 요청이 있는 경우 Profiler가 사용하도록 설정된 애플리케이션의 부분에서 요청이 처리되는지 확인합니다. 경우에 따라 애플리케이션이 여러 구성 요소로 이루어져 있지만 Profiler가 전체가 아닌 일부 구성 요소에 대해서만 사용하도록 설정되어 있을 수 있습니다. Application Insights Profiler 구성 페이지에 추적이 업로드된 구성 요소가 표시됩니다.
 
 ### <a name="other-things-to-check"></a>기타 확인해야 할 사항:
 * 앱이 .NET Framework 4.6에서 실행되고 있는지 확인합니다.

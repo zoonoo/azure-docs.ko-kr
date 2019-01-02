@@ -322,9 +322,9 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 1. [Azure Portal](https://portal.azure.com)에서 알림 허브로 이동한 후 **액세스 정책**을 선택하고 **DefaultFullSharedAccessSignature** 정책 옆에 있는 복사 단추를 선택합니다. 그러면 *DefaultFullSharedAccessSignature* 정책에 대한 연결 문자열이 알림 허브로 복사됩니다. 이 연결 문자열을 사용하면 함수로 허브에 알림 메시지를 보낼 수 있습니다.
     ![알림 허브 연결 문자열 복사](./media/functions-bindings-notification-hubs/get-notification-hub-connection.png)
-1. Azure Portal에서 함수 앱으로 이동한 후 **응용 프로그램 설정**을 선택하고 **MyHubConnectionString**과 같은 키를 추가한 다음, 알림 허브에 대해 복사한 *DefaultFullSharedAccessSignature*를 값으로 붙여넣고 **저장**을 클릭합니다.
+1. Azure Portal에서 함수 앱으로 이동한 후 **애플리케이션 설정**을 선택하고 **MyHubConnectionString**과 같은 키를 추가한 다음, 알림 허브에 대해 복사한 *DefaultFullSharedAccessSignature*를 값으로 붙여넣고 **저장**을 클릭합니다.
 
-이 응용 프로그램 설정의 이름은 *function.json* 또는 .NET 특성의 출력 바인딩 연결 설정에 들어가는 내용입니다. 이 문서의 앞쪽에 있는 [구성 섹션](#configuration)을 참조하세요.
+이 애플리케이션 설정의 이름은 *function.json* 또는 .NET 특성의 출력 바인딩 연결 설정에 들어가는 내용입니다. 이 문서의 앞쪽에 있는 [구성 섹션](#configuration)을 참조하세요.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

@@ -64,7 +64,7 @@ ms.locfileid: "52961963"
 
 4. 방금 응용 프로그램에 등록한 인증서의 지문 및 응용 프로그램 ID를 적어 둡니다. 지문을 찾으려면 포털의 응용 프로그램 페이지에서 **설정**으로 이동하고 **키**를 클릭합니다. **공개 키** 목록 아래에 지문이 표시됩니다.
 
-5. 인라인 매니페스트 편집기에서 응용 프로그램 매니페스트를 열고 다음 스키마를 사용하여 *keyCredentials* 속성을 새 인증서 정보로 바꿉니다. 
+5. 인라인 매니페스트 편집기에서 애플리케이션 매니페스트를 열고 다음 스키마를 사용하여 *keyCredentials* 속성을 새 인증서 정보로 바꿉니다. 
 
    ```
    "keyCredentials": [
@@ -80,7 +80,7 @@ ms.locfileid: "52961963"
 
 6. 매니페스트를 저장합니다. 
   
-7. 이제 이 인증서를 사용하여 MS Graph API에 대한 액세스 토큰을 가져올 수 있습니다. MSCloudIdUtils PowerShell 모듈에서 **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet을 사용하여 이전 단계에서 가져온 응용 프로그램 ID와 지문을 전달합니다. 
+7. 이제 이 인증서를 사용하여 MS Graph API에 대한 액세스 토큰을 가져올 수 있습니다. MSCloudIdUtils PowerShell 모듈에서 **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet을 사용하여 이전 단계에서 가져온 애플리케이션 ID와 지문을 전달합니다. 
 
  ![Azure portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 

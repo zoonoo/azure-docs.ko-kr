@@ -514,7 +514,7 @@ public class Program
 
 많은 작업 기능이 동시에 실행될 수 있지만 콘솔은 단일 스레드이므로 콘솔 출력을 특정 메서드 호출에 연결할 수 없습니다. 따라서 SDK에서는 각 함수 호출에 고유한 로그 작성기 개체를 제공합니다.
 
-[응용 프로그램 추적 로그](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview)를 기록하려면 INFO로 표시되는 로그를 만드는 **Console.Out** 및 ERROR로 표시되는 로그를 만드는 **Console.Error**를 사용합니다. 그렇지 않으면 Info 및 Error 외에 Verbose, Warning 및 Critical 수준을 제공하는 [추적 또는 TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)를 사용합니다. 응용 프로그램 추적 로그는 Azure 웹 앱을 구성한 방식에 따라 웹 앱 로그 파일, Azure 테이블 또는 Azure Blob에 표시됩니다. 모든 콘솔 출력과 마찬가지로 가장 최근 100개의 응용 프로그램 로그도 함수 호출에 대한 페이지가 아니라 WebJob에 대한 대시보드 페이지에 표시됩니다.
+[응용 프로그램 추적 로그](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview)를 기록하려면 INFO로 표시되는 로그를 만드는 **Console.Out** 및 ERROR로 표시되는 로그를 만드는 **Console.Error**를 사용합니다. 그렇지 않으면 Info 및 Error 외에 Verbose, Warning 및 Critical 수준을 제공하는 [추적 또는 TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)를 사용합니다. 애플리케이션 추적 로그는 Azure 웹앱을 구성한 방식에 따라 웹앱 로그 파일, Azure 테이블 또는 Azure Blob에 표시됩니다. 모든 콘솔 출력과 마찬가지로 가장 최근 100개의 애플리케이션 로그도 함수 호출에 대한 페이지가 아니라 WebJob에 대한 대시보드 페이지에 표시됩니다.
 
 콘솔 출력은 프로그램이 Azure WebJob에서 실행되는 경우에만 대시보드에 표시되고, 프로그램이 로컬로 실행되거나 다른 환경에서 실행되는 경우에는 표시되지 않습니다.
 

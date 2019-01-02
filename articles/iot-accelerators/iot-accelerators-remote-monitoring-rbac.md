@@ -42,7 +42,7 @@ ms.locfileid: "51820225"
 | 작업 만들기           | yes   | 아니요        |
 | SIM 관리 업데이트 | yes   | 아니요        |
 
-기본적으로 솔루션을 배포한 사용자에게는 **관리자** 역할이 자동으로 할당되고 Azure Active Directory 애플리케이션 소유자입니다. 애플리케이션 소유자로서 Azure Portal을 통해 다른 사용자에게 역할을 할당할 수 있습니다. 다른 사용자가 솔루션에서 역할을 할당하게 하려면, Azure Portal에서 응용 프로그램 소유자로 설정해야 합니다.
+기본적으로 솔루션을 배포한 사용자에게는 **관리자** 역할이 자동으로 할당되고 Azure Active Directory 애플리케이션 소유자입니다. 애플리케이션 소유자로서 Azure Portal을 통해 다른 사용자에게 역할을 할당할 수 있습니다. 다른 사용자가 솔루션에서 역할을 할당하게 하려면, Azure Portal에서 애플리케이션 소유자로 설정해야 합니다.
 
 > [!NOTE]
 > 솔루션을 배포한 사용자는 만들어진 직후 볼 수 있는 **유일한 사용자**입니다. 읽기 전용, 관리자 또는 사용자 지정 역할 중 하나로 애플리케이션을 보는 다른 액세스 권한을 부여하려면 사용자 추가 또는 제거에 대한 아래의 다음 지침을 참조합니다.
@@ -55,17 +55,17 @@ Azure Active Directory 애플리케이션 소유자로서 Azure Portal을 사용
 
 1. 사용 중인[디렉터리에 사용자가 있는지](../active-directory/fundamentals/add-users-azure-active-directory.md) 확인합니다. 사용할 디렉터리는 [Microsoft Azure IoT Solution Accelerators](https://www.azureiotsolutions.com/Accelerators) 사이트에 로그인할 때 선택합니다. 디렉터리 이름은 해당 [페이지](https://www.azureiotsolutions.com/Accelerators)의 오른쪽 위 모서리에서 볼 수 있습니다.
 
-1. Azure Portal에서 솔루션에 대한 **엔터프라이즈 응용프로그램**을 찾습니다. 찾으면 **응용 프로그램 유형**을 **모든 응용 프로그램**으로 설정하여 목록을 필터링합니다. 응용 프로그램 이름으로 응용 프로그램을 검색합니다. 응용 프로그램 이름은 원격 모니터링 솔루션의 이름입니다. 다음 스크린샷에서 솔루션과 응용 프로그램 표시 이름은 **contoso-rm4**입니다.
+1. Azure Portal에서 솔루션에 대한 **엔터프라이즈 애플리케이션**을 찾습니다. 찾으면 **애플리케이션 유형**을 **모든 애플리케이션**으로 설정하여 목록을 필터링합니다. 애플리케이션 이름으로 애플리케이션을 검색합니다. 애플리케이션 이름은 원격 모니터링 솔루션의 이름입니다. 다음 스크린샷에서 솔루션과 애플리케이션 표시 이름은 **contoso-rm4**입니다.
 
-    ![엔터프라이즈 응용 프로그램](media/iot-accelerators-remote-monitoring-rbac/appregistration.png)
+    ![엔터프라이즈 애플리케이션](media/iot-accelerators-remote-monitoring-rbac/appregistration.png)
 
-1. 응용 프로그램을 클릭한 다음, **소유자**를 클릭하여 내가 응용 프로그램의 소유자인지 확인합니다. 다음 스크린샷에서 **Contoso admin**은 **contoso-rm4** 응용 프로그램의 소유자입니다.
+1. 애플리케이션을 클릭한 다음, **소유자**를 클릭하여 내가 애플리케이션의 소유자인지 확인합니다. 다음 스크린샷에서 **Contoso admin**은 **contoso-rm4** 애플리케이션의 소유자입니다.
 
     ![소유자](media/iot-accelerators-remote-monitoring-rbac/owners.png)
 
-    소유자가 아닌 경우에는 기존 소유자에게 나를 목록에 추가하도록 요청해야 합니다. 소유자만 **관리자**나 **읽기 전용**과 같은 응용 프로그램 역할을 다른 사용자에게 할당할 수 있습니다.
+    소유자가 아닌 경우에는 기존 소유자에게 나를 목록에 추가하도록 요청해야 합니다. 소유자만 **관리자**나 **읽기 전용**과 같은 애플리케이션 역할을 다른 사용자에게 할당할 수 있습니다.
 
-1. 응용 프로그램에서 역할에 할당된 사용자 목록을 보려면 **사용자 및 그룹**을 클릭합니다.
+1. 애플리케이션에서 역할에 할당된 사용자 목록을 보려면 **사용자 및 그룹**을 클릭합니다.
 
 1. 사용자를 추가하려면 **+ 사용자 추가**를 클릭한 다음, **사용자 및 그룹, 선택된 항목 없음**을 클릭하여 디렉터리에서 사용자를 선택합니다.
 
@@ -75,25 +75,25 @@ Azure Active Directory 애플리케이션 소유자로서 Azure Portal을 사용
 
 1. 이제 사용자는 역할에 의해 정의된 권한으로 원격 모니터링 솔루션에 액세스할 수 있습니다.
 
-1. 포털의 **사용자 및 그룹** 페이지에서는 응용 프로그램에서 사용자를 삭제할 수 있습니다.
+1. 포털의 **사용자 및 그룹** 페이지에서는 애플리케이션에서 사용자를 삭제할 수 있습니다.
 
 ## <a name="create-a-custom-role"></a>사용자 지정 역할 만들기
 
 원격 모니터링 솔루션은 처음 배포될 때 **관리자**와 **읽기 전용** 역할을 포함합니다. 다른 권한 집합으로 사용자 지정 역할을 추가할 수 있습니다. 사용자 지정 역할을 정의하려면 다음을 수행해야 합니다.
 
-- Azure Portal에서 응용 프로그램에 새 역할을 추가합니다.
+- Azure Portal에서 애플리케이션에 새 역할을 추가합니다.
 - 인증 및 권한 부여 마이크로 서비스에서 새 역할에 대한 정책을 정의합니다.
 - 솔루션의 웹 UI를 업데이트합니다.
 
 ### <a name="define-a-custom-role-in-the-azure-portal"></a>Azure Portal에서 사용자 지정 역할 정의
 
-다음 단계에서는 Azure Active Directory에서 응용 프로그램에 역할을 추가하는 방법을 설명합니다. 이 예제에서는 원격 모니터링 솔루션에서 멤버가 디바이스를 만들고 업데이트하고 삭제할 수 있는 새 역할을 만듭니다.
+다음 단계에서는 Azure Active Directory에서 애플리케이션에 역할을 추가하는 방법을 설명합니다. 이 예제에서는 원격 모니터링 솔루션에서 멤버가 디바이스를 만들고 업데이트하고 삭제할 수 있는 새 역할을 만듭니다.
 
-1. Azure Portal에서 솔루션에 대한 **앱 등록**을 찾습니다. 응용 프로그램 이름은 원격 모니터링 솔루션의 이름입니다. 다음 스크린샷에서 솔루션과 응용 프로그램 표시 이름은 **contoso-rm4**입니다.
+1. Azure Portal에서 솔루션에 대한 **앱 등록**을 찾습니다. 애플리케이션 이름은 원격 모니터링 솔루션의 이름입니다. 다음 스크린샷에서 솔루션과 애플리케이션 표시 이름은 **contoso-rm4**입니다.
 
     ![앱 등록](media/iot-accelerators-remote-monitoring-rbac/appregistration2.png)
 
-1. 응용 프로그램을 선택한 다음, **매니페스트**를 클릭합니다. 응용 프로그램에 대해 정의된 기존 [앱 역할](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) 두 개가 표시됩니다.
+1. 애플리케이션을 선택한 다음, **매니페스트**를 클릭합니다. 애플리케이션에 대해 정의된 기존 [앱 역할](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) 두 개가 표시됩니다.
 
     ![매니페스트 보기](media/iot-accelerators-remote-monitoring-rbac/viewmanifest.png)
 

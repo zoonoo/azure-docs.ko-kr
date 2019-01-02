@@ -143,7 +143,7 @@ V1에서는 IDotNetActivity 인터페이스의 Execute 메서드를 구현하는
 Data Factory 버전 1 기여자 역할을 사용하여 현재 버전의 Data Factory 리소스를 만들고 관리할 수 있습니다. 자세한 내용은 [Data Factory 기여자](../role-based-access-control/built-in-roles.md#data-factory-contributor)를 참조하세요.
 
 ## <a name="monitoring-experience"></a>모니터링 환경
-현재 버전에서는 [Azure Monitor](monitor-using-azure-monitor.md)를 사용하여 데이터 팩터리를 모니터링할 수도 있습니다. 새로운 PowerShell cmdlet은 [통합 런타임](monitor-integration-runtime.md)에 대한 모니터링을 지원합니다. V1과 V2 모두 Azure Portal에서 시작할 수 있는 모니터링 응용 프로그램을 통해 시각적인 모니터링을 지원합니다.
+현재 버전에서는 [Azure Monitor](monitor-using-azure-monitor.md)를 사용하여 데이터 팩터리를 모니터링할 수도 있습니다. 새로운 PowerShell cmdlet은 [통합 런타임](monitor-integration-runtime.md)에 대한 모니터링을 지원합니다. V1과 V2 모두 Azure Portal에서 시작할 수 있는 모니터링 애플리케이션을 통해 시각적인 모니터링을 지원합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

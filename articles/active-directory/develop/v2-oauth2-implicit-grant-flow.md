@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2.0 암시적 흐름을 사용하여 단일 페이지 응용 프로그램 보호 | Microsoft Docs
-description: 단일 페이지 앱에 대해 Azure AD의 v2.0 암시적 흐름 구현을 사용하여 웹 응용 프로그램을 빌드합니다.
+title: Azure AD v2.0 암시적 흐름을 사용하여 단일 페이지 애플리케이션 보호 | Microsoft Docs
+description: 단일 페이지 앱에 대해 Azure AD의 v2.0 암시적 흐름 구현을 사용하여 웹 애플리케이션을 빌드합니다.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -34,7 +34,7 @@ v2.0 엔드포인트를 사용하는 경우 사용자가 Microsoft 개인 계정
 * 대다수 권한 부여 서버 및 ID 공급자는 CORS 요청을 지원하지 않습니다.
 * 앱에서 멀어지는 전체 페이지 브라우저 리디렉션은 사용자 환경에 특히 방해가 됩니다.
 
-이러한 응용 프로그램(AngularJS, Ember.js, React.js 등)에 대해 Azure AD(Active Directory)는 OAuth 2.0 암시적 허용 흐름을 지원합니다. 암시적 흐름은 [OAuth 2.0 사양(영문)](https://tools.ietf.org/html/rfc6749#section-4.2)에 설명되어 있습니다. 이것의 주요 이점은 앱이 백 엔드 서버 자격 증명 교환을 수행하지 않고 Azure AD에서 토큰을 가져오도록 허용한다는 것입니다. 따라서 앱은 사용자 로그인, 세션 유지 관리, 다른 웹 API에 대한 토큰 가져오기를 모두 클라이언트 JavaScript 코드 내에서 수행할 수 있습니다. 암시적 흐름을 사용하는 경우 보안과 관련된 몇 가지 중요 사항(특히 [클라이언트](https://tools.ietf.org/html/rfc6749#section-10.3) 및 [사용자 가장](https://tools.ietf.org/html/rfc6749#section-10.3) 관련 사항)을 고려해야 합니다.
+이러한 애플리케이션(AngularJS, Ember.js, React.js 등)에 대해 Azure AD(Active Directory)는 OAuth 2.0 암시적 허용 흐름을 지원합니다. 암시적 흐름은 [OAuth 2.0 사양(영문)](https://tools.ietf.org/html/rfc6749#section-4.2)에 설명되어 있습니다. 이것의 주요 이점은 앱이 백 엔드 서버 자격 증명 교환을 수행하지 않고 Azure AD에서 토큰을 가져오도록 허용한다는 것입니다. 따라서 앱은 사용자 로그인, 세션 유지 관리, 다른 웹 API에 대한 토큰 가져오기를 모두 클라이언트 JavaScript 코드 내에서 수행할 수 있습니다. 암시적 흐름을 사용하는 경우 보안과 관련된 몇 가지 중요 사항(특히 [클라이언트](https://tools.ietf.org/html/rfc6749#section-10.3) 및 [사용자 가장](https://tools.ietf.org/html/rfc6749#section-10.3) 관련 사항)을 고려해야 합니다.
 
 암시적 흐름과 Azure AD를 사용하여 JavaScript 앱에 인증 기능을 추가하려는 경우에는 오픈 소스 JavaScript 라이브러리인 [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)를 사용하는 것이 좋습니다.
 

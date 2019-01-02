@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory B2C에서 사용자 지정 특성 정의 | Microsoft Docs
-description: Azure Active Directory B2C에서 응용 프로그램에 대한 사용자 지정 특성을 정의하여 고객에 대한 정보를 수집합니다.
+description: Azure Active Directory B2C에서 애플리케이션에 대한 사용자 지정 특성을 정의하여 고객에 대한 정보를 수집합니다.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -19,7 +19,7 @@ ms.locfileid: "52727820"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 특성 정의
 
- 모든 고객 대상 응용 프로그램은 수집해야 하는 정보에 대한 특정 요구 사항이 있습니다. Azure AD(Azure Active Directory) B2C 테넌트에는 이름, 성, 도시, 우편 번호 등의 특성에 저장된 일련의 기본 정보가 포함되어 있습니다. Azure AD B2C를 사용하면 각 고객 계정에 저장된 특성 집합을 확장할 수 있습니다. 
+ 모든 고객 대상 애플리케이션은 수집해야 하는 정보에 대한 특정 요구 사항이 있습니다. Azure AD(Azure Active Directory) B2C 테넌트에는 이름, 성, 도시, 우편 번호 등의 특성에 저장된 일련의 기본 정보가 포함되어 있습니다. Azure AD B2C를 사용하면 각 고객 계정에 저장된 특성 집합을 확장할 수 있습니다. 
  
  [Azure Portal](https://portal.azure.com/)에서 사용자 지정 특성을 만든 후 등록 사용자 흐름, 등록 또는 로그인 사용자 흐름 또는 프로필 편집 사용자 흐름에서 사용할 수 있습니다. 또한 [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)를 사용하여 이러한 특성을 읽고 쓸 수 있습니다. Azure AD B2C의 사용자 지정 특성은 [Azure AD Graph API 디렉터리 스키마 확장](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions)을 사용합니다.
 
@@ -51,5 +51,5 @@ ms.locfileid: "52727820"
 5. **응용 프로그램 클레임**을 선택하고 사용자 지정 특성을 선택합니다. 
 6. **저장**을 클릭합니다.
 
-사용자 흐름에 대해 **사용자 흐름 실행** 기능을 사용하여 고객 환경을 확인할 수 있습니다. 이제 등록 과정 동안 수집되는 특성 목록에 **ShoeSize**가 표시되며 응용 프로그램으로 다시 전송되는 토큰에도 표시됩니다.
+사용자 흐름에 대해 **사용자 흐름 실행** 기능을 사용하여 고객 환경을 확인할 수 있습니다. 이제 등록 과정 동안 수집되는 특성 목록에 **ShoeSize**가 표시되며 애플리케이션으로 다시 전송되는 토큰에도 표시됩니다.
 

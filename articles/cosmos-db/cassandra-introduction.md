@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB Cassandra API 소개
-description: Azure Cosmos DB를 사용하여 기존 응용 프로그램을 “리프트 앤 시프트”하고, 이미 익숙한 Cassandra 드라이버와 CQL을 사용하여 Cassandra API를 사용하는 새 응용 프로그램을 빌드하는 방법을 알아봅니다.
+description: Azure Cosmos DB를 사용하여 기존 애플리케이션을 “리프트 앤 시프트”하고, 이미 익숙한 Cassandra 드라이버와 CQL을 사용하여 Cassandra API를 사용하는 새 애플리케이션을 빌드하는 방법을 알아봅니다.
 services: cosmos-db
 author: kanshiG
 ms.service: cosmos-db
@@ -18,7 +18,7 @@ ms.locfileid: "52835023"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 소개
 
-Azure Cosmos DB Cassandra API는 [Apache Cassandra](https://cassandra.apache.org/)용으로 작성된 앱의 데이터 저장소로 사용할 수 있습니다. 이는 CQLv4와 호환되는 기존의 [Apache 드라이버](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver)를 사용하면 기존의 Cassandra 응용 프로그램이 이제는 Azure Cosmos DB Cassandra API와 통신할 수 있음을 의미합니다. 많은 경우 연결 문자열을 변경하는 것만으로 Apache Cassandra를 사용하는 것에서 Azure Cosmos DB의 Cassandra API를 사용하는 것으로 전환할 수 있습니다. 
+Azure Cosmos DB Cassandra API는 [Apache Cassandra](https://cassandra.apache.org/)용으로 작성된 앱의 데이터 저장소로 사용할 수 있습니다. 이는 CQLv4와 호환되는 기존의 [Apache 드라이버](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver)를 사용하면 기존의 Cassandra 애플리케이션이 이제는 Azure Cosmos DB Cassandra API와 통신할 수 있음을 의미합니다. 많은 경우 연결 문자열을 변경하는 것만으로 Apache Cassandra를 사용하는 것에서 Azure Cosmos DB의 Cassandra API를 사용하는 것으로 전환할 수 있습니다. 
 
 Cassandra API를 사용하면 이미 익숙한 CQL(Cassandra 쿼리 언어), Cassandra 기반 도구(예: cqlsh) 및 Cassandra 클라이언트 드라이버를 사용하여 Azure Cosmos DB에 저장된 데이터와 상호 작용할 수 있습니다.
 
@@ -26,7 +26,7 @@ Cassandra API를 사용하면 이미 익숙한 CQL(Cassandra 쿼리 언어), Cas
 
 **운영 관리 없음**: 완전히 관리되는 클라우드 서비스인 Azure Cosmos DB Cassandra API는 OS, JVM, yaml 파일 및 해당 상호 연동에서 무수한 설정을 관리하고 모니터링하는 것에 대한 오버헤드를 없애줍니다. Azure Cosmos DB는 처리량, 대기 시간, 저장소, 가용성 및 구성 가능한 경고에 대한 모니터링을 제공합니다.
 
-**성능 관리**: Azure Cosmos DB는 백분위수 99에서 짧은 대기 시간의 읽기 및 쓰기를 제공하며 SLA로 이를 지원합니다. 사용자는 고성능 및 짧은 대기 시간의 읽기 및 쓰기를 보장하기 위해 운영 오버 헤드를 걱정할 필요가 없습니다. 즉, 사용자는 압축 예약, 삭제 표식 관리, bloom 필터 및 복제본 설정을 수동으로 처리할 필요가 없습니다. Azure Cosmos DB는 이러한 문제를 관리하는 오버헤드를 없애주므로 사용자는 응용 프로그램 논리에 집중할 수 있습니다.
+**성능 관리**: Azure Cosmos DB는 백분위수 99에서 짧은 대기 시간의 읽기 및 쓰기를 제공하며 SLA로 이를 지원합니다. 사용자는 고성능 및 짧은 대기 시간의 읽기 및 쓰기를 보장하기 위해 운영 오버 헤드를 걱정할 필요가 없습니다. 즉, 사용자는 압축 예약, 삭제 표식 관리, bloom 필터 및 복제본 설정을 수동으로 처리할 필요가 없습니다. Azure Cosmos DB는 이러한 문제를 관리하는 오버헤드를 없애주므로 사용자는 애플리케이션 논리에 집중할 수 있습니다.
 
 **기존 코드 및 도구 사용 가능**: Azure Cosmos DB는 기존 Cassandra SDK 및 도구와 유선 프로토콜 수준의 호환성을 제공합니다. 이 호환성을 통해 간단한 변경 사항이 있는 Azure Cosmos DB Cassandra API와 함께 기존 코드베이스를 사용할 수 있습니다.
 
@@ -45,7 +45,7 @@ Cassandra API를 사용하면 이미 익숙한 CQL(Cassandra 쿼리 언어), Cas
   - [.NET 앱](create-cassandra-dotnet.md)
   - [Python 앱](create-cassandra-python.md)
 
-* Java 응용 프로그램을 사용하여 [Cassandra API 계정, 데이터베이스 및 테이블 만들기](create-cassandra-api-account-java.md)를 시작합니다.
+* Java 애플리케이션을 사용하여 [Cassandra API 계정, 데이터베이스 및 테이블 만들기](create-cassandra-api-account-java.md)를 시작합니다.
 
 * Java 응용 프로그램을 사용하여 [샘플 데이터를 Cassandra API 테이블에 로드](cassandra-api-load-data.md)합니다.
 

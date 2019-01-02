@@ -33,7 +33,7 @@ Azure SQL Data Warehouse에서 데이터를 지원되는 모든 싱크 데이터
 
 특히 이 Azure SQL Data Warehouse 커넥터는 다음 기능을 지원합니다.
 
-- Azure 리소스용 관리 ID 또는 서비스 주체를 통해 SQL 인증 및 Azure AD(Azure Active Directory) 응용 프로그램 토큰 인증을 사용하여 데이터를 복사합니다.
+- 서비스 주체 또는 Azure 리소스에 대한 관리 ID를 통해 SQL 인증 및 Azure AD(Azure Active Directory) 애플리케이션 토큰 인증을 사용하여 데이터를 복사합니다.
 - 원본으로 SQL 쿼리 또는 저장 프로시저를 사용하여 데이터를 검색합니다.
 - 싱크로 PolyBase 또는 대량 삽입을 사용하여 데이터를 로드합니다. 더 나은 복사 성능을 얻으려면 PolyBase를 사용하는 것이 좋습니다.
 
@@ -61,9 +61,9 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
 |:--- |:--- |:--- |
 | type | type 속성은 **AzureSqlDW**로 설정해야 합니다. | 예 |
 | connectionString | Azure SQL Data Warehouse 인스턴스에 연결하는 데 필요한 정보를 **connectionString** 속성에 대해 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| servicePrincipalId | 응용 프로그램의 클라이언트 ID를 지정합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
-| servicePrincipalKey | 응용 프로그램의 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
-| tenant | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
+| servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
+| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
+| tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니오 |
 
 다른 인증 형식의 경우, 각각의 필수 조건 및 JSON 샘플에 대한 다음 섹션을 참조하세요.
@@ -100,12 +100,12 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
 
 ### <a name="service-principal-authentication"></a>서비스 주체 인증
 
-서비스 주체 기반의 Azure AD 응용 프로그램 토큰 인증을 사용하려면 다음 단계를 따르세요.
+서비스 주체 기반의 Azure AD 애플리케이션 토큰 인증을 사용하려면 다음 단계를 따르세요.
 
-1. Azure Portal에서 **[Azure Active Directory 응용 프로그램을 만듭니다](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**. 응용 프로그램 이름 및 연결된 서비스를 정의하는 다음 값을 적어 둡니다.
+1. Azure Portal에서 **[Azure Active Directory 응용 프로그램을 만듭니다](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**. 애플리케이션 이름 및 연결된 서비스를 정의하는 다음 값을 적어 둡니다.
 
-    - 응용 프로그램 UI
-    - 응용 프로그램 키
+    - 애플리케이션 UI
+    - 애플리케이션 키
     - 테넌트 ID
 
 1. Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**(아직 하지 않은 경우)합니다. Azure AD 관리자는 Azure AD 사용자 또는 Azure AD 그룹일 수 있습니다. MSI가 있는 그룹에 관리자 역할을 부여하는 경우, 3단계와 4단계를 건너뜁니다. 관리자는 데이터베이스에 대한 모든 권한을 갖습니다.
@@ -159,7 +159,7 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
 > [!IMPORTANT]
 > PolyBase는 현재 MSI 인증에 대해 지원되지 않습니다.
 
-MSI 기반 Azure AD 응용 프로그램 토큰 인증을 사용하려면 다음 단계를 따르세요.
+MSI 기반 Azure AD 애플리케이션 토큰 인증을 사용하려면 다음 단계를 따르세요.
 
 1. **Azure AD에서 그룹을 만듭니다.** 팩터리 MSI를 그룹의 구성원으로 지정합니다.
 
@@ -388,7 +388,7 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 * 원본 데이터 저장소와 형식이 PolyBase에서 원래 지원되지 않는 경우, 대신 **[PolyBase를 사용한 준비된 복사](#staged-copy-by-using-polybase)** 기능을 사용합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. 이 기능은 데이터를 PolyBase 호환 형식으로 자동으로 변환합니다. 또한 Azure Blob Storage에 데이터를 저장합니다. 그런 다음, SQL Data Warehouse에 데이터를 로드합니다.
 
 > [!IMPORTANT]
-> PolyBase는 현재 MSI 기반 Azure AD 응용 프로그램 토큰 인증에 대해 지원되지 않습니다.
+> PolyBase는 현재 MSI 기반 Azure AD 애플리케이션 토큰 인증에 대해 지원되지 않습니다.
 
 ### <a name="direct-copy-by-using-polybase"></a>PolyBase를 사용한 직접 복사
 

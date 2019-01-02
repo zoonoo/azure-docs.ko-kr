@@ -42,7 +42,7 @@ Team Data Science Process를 실행하는 추가 데이터 과학 연습은 사�
 
 ## <a name="predict-taxi-tips-using-python-in-sql-server-stored-procedures"></a>SQL Server 저장 프로시저에서 Python을 사용하여 택시 팁 예측
 
-[SQL Server Python 서비스와 함께 T-SQL 사용](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) 연습에서는 SQL 프로그래머에게 SQL Server에서의 Machine Learning 솔루션 구축 경험을 제공합니다. 저장된 프로시저에 Python 코드를 추가하여 Python을 응용 프로그램으로 통합하는 방법을 보여 줍니다.
+[SQL Server Python 서비스와 함께 T-SQL 사용](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) 연습에서는 SQL 프로그래머에게 SQL Server에서의 Machine Learning 솔루션 구축 경험을 제공합니다. 저장된 프로시저에 Python 코드를 추가하여 Python을 애플리케이션으로 통합하는 방법을 보여 줍니다.
 
 
 ## <a name="next-steps"></a>다음 단계

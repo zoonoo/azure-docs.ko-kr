@@ -27,7 +27,7 @@ ASP.NET Core는 웹앱, IoT 앱 및 모바일 백 엔드와 같은 최신 클라
 
 이 문서는 NuGet 패키지의 **Microsoft.ServiceFabric.AspNetCore.*** 집합을 사용하여 Service Fabric Reliable Services에서 ASP.NET Core 서비스 호스팅에 대한 자세한 가이드입니다.
 
-Service Fabric에서 ASP.NET Core의 소개 자습서 및 개발 환경 설정을 가져오는 방법에 대한 지침은 [.NET 응용 프로그램 만들기](service-fabric-tutorial-create-dotnet-app.md)를 참조하세요.
+Service Fabric에서 ASP.NET Core의 소개 자습서 및 개발 환경 설정을 가져오는 방법에 대한 지침은 [.NET 애플리케이션 만들기](service-fabric-tutorial-create-dotnet-app.md)를 참조하세요.
 
 이 문서의 나머지 부분에서는 ASP.NET Core를 잘 알고 있다고 가정합니다. 그렇지 않은 경우 [ASP.NET Core 기본 사항](https://docs.microsoft.com/aspnet/core/fundamentals/index)을 통해 읽어 보는 것이 좋습니다.
 
@@ -88,7 +88,7 @@ Reliable Service 인스턴스는 `StatelessService` 또는 `StatefulService`에�
 
 동적으로 할당된 포트를 사용하는 서비스는 이 미들웨어를 사용해야 합니다.
 
-고유한 고정 포트를 사용하는 서비스는 공동 작업 환경에서 이 문제를 가지고 있지 않습니다. 고유한 고정 포트는 일반적으로 클라이언트 응용 프로그램이 연결될 잘 알려진 포트가 필요한 외부 연결 서비스에 사용됩니다. 예를 들어 대부분의 인터넷 연결 웹 애플리케이션은 웹 브라우저 연결에 80 또는 443 포트를 사용합니다. 이 경우에는 고유 식별자를 사용할 수 없습니다.
+고유한 고정 포트를 사용하는 서비스는 공동 작업 환경에서 이 문제를 가지고 있지 않습니다. 고유한 고정 포트는 일반적으로 클라이언트 애플리케이션이 연결될 잘 알려진 포트가 필요한 외부 연결 서비스에 사용됩니다. 예를 들어 대부분의 인터넷 연결 웹 애플리케이션은 웹 브라우저 연결에 80 또는 443 포트를 사용합니다. 이 경우에는 고유 식별자를 사용할 수 없습니다.
 
 다음 다이어그램에서는 미들웨어를 사용하도록 설정된 요청 흐름을 보여 줍니다.
 

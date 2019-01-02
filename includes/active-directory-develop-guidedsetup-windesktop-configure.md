@@ -53,7 +53,7 @@ ms.locfileid: "49988211"
 
 6. **응용 프로그램 ID** 상자에서 GUID를 복사합니다.
 
-7. Visual Studio로 이동하고, *App.xaml.cs* 파일을 열고, `your_client_id_here`을 방금 등록하고 복사한 응용 프로그램 ID로 바꿉니다.
+7. Visual Studio로 이동하고, *App.xaml.cs* 파일을 열고, `your_client_id_here`을 방금 등록하고 복사한 애플리케이션 ID로 바꿉니다.
 
     ```csharp
     private static string ClientId = "your_application_id_here";

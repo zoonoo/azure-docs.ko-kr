@@ -1,6 +1,6 @@
 ---
-title: Azure 보안 및 규정 준수 청사진 - FFIEC용 IaaS 웹 응용 프로그램
-description: Azure 보안 및 규정 준수 청사진 - FFIEC용 IaaS 웹 응용 프로그램
+title: Azure 보안 및 규정 준수 청사진 - FFIEC용 IaaS 웹 애플리케이션
+description: Azure 보안 및 규정 준수 청사진 - FFIEC용 IaaS 웹 애플리케이션
 services: security
 author: meladie
 ms.assetid: 8577e982-8bc0-4817-a16e-adf2ffefc6f5

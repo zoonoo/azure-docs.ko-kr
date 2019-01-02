@@ -19,6 +19,6 @@ ms.locfileid: "47044159"
 ---
 * LUIS **[제작 키](../articles/cognitive-services/luis/luis-concept-keys.md#authoring-key)**. 
 * LUIS-Samples GitHub 리포지토리에서 [TravelAgent 앱](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json)을 가져옵니다. 
-* 가져온 TravelAgent 앱의 LUIS [**응용 프로그램 ID**](../articles/cognitive-services/luis/luis-get-started-create-app.md)입니다. 애플리케이션 ID는 애플리케이션 대시보드에 표시되어 있습니다. 
+* 가져온 TravelAgent 앱의 LUIS [**애플리케이션 ID**](../articles/cognitive-services/luis/luis-get-started-create-app.md)입니다. 애플리케이션 ID는 애플리케이션 대시보드에 표시되어 있습니다. 
 * 가져올 예시 발언이 포함된 **[utterances.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/change-model/utterances.json)** 파일입니다. 
 * 발언을 수신하는 애플리케이션 내의 **버전 ID**입니다. 기본 ID는 "0.1"입니다.

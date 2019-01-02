@@ -212,7 +212,7 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 ## <a name="adding-more-guest-executables-to-an-existing-application-using-yeoman-on-linux"></a>Linux에서 Yeoman를 사용하여 기존 애플리케이션에 더 많은 게스트 실행 파일 추가
 
 `yo`을 사용하여 만든 응용 프로그램에 다른 서비스를 추가하려면 다음 단계를 수행합니다. 
-1. 기존 애플리케이션의 루트로 디렉터리를 변경합니다.  예를 들어 `MyApplication`이 Yeoman에서 만든 응용 프로그램인 경우 `cd ~/YeomanSamples/MyApplication`입니다.
+1. 기존 애플리케이션의 루트로 디렉터리를 변경합니다.  예를 들어 `MyApplication`이 Yeoman에서 만든 애플리케이션인 경우 `cd ~/YeomanSamples/MyApplication`입니다.
 2. `yo azuresfguest:AddService`를 실행하고 필요한 세부 정보를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계

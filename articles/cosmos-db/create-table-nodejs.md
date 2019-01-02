@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Table API와 Node.js - Azure Cosmos DB'
-description: 이 빠른 시작은 Azure Cosmos DB Table API를 사용하여 Azure Portal과 Node.js를 통해 응용 프로그램을 만드는 방법을 보여 줍니다.
+description: 이 빠른 시작은 Azure Cosmos DB Table API를 사용하여 Azure Portal과 Node.js를 통해 애플리케이션을 만드는 방법을 보여 줍니다.
 services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
