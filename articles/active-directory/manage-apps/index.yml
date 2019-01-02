@@ -6,9 +6,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/02/2018
 ms.locfileid: "50956590"
 documentType: LandingData
-title: 응용 프로그램 관리 설명서
+title: 애플리케이션 관리 설명서
 metadata:
-  title: Azure Active Directory 응용 프로그램 관리 설명서
+  title: Azure Active Directory 애플리케이션 관리 설명서
   meta.description: Learn how to manage and deploy applications with Azure Active Directory.
   services: active-directory
   author: barbkess
@@ -20,21 +20,21 @@ metadata:
   ms.date: 09/14/2018
   ms.author: barbkess
 abstract:
-  description: Azure Active Directory는 클라우드 및 온-프레미스 응용 프로그램에 안전하고 원활한 액세스를 제공합니다. 또한 암호를 관리할 필요가 없습니다. 최종 사용자는 한 번 로그인하여 Office 365 및 수천 개의 다른 응용 프로그램에 액세스할 수 있습니다. 빠른 시작, 자습서 및 가이드를 사용하여 응용 프로그램을 관리하고 배포하는 방법을 알아봅니다.
+  description: Azure Active Directory는 클라우드 및 온-프레미스 애플리케이션에 안전하고 원활한 액세스를 제공합니다. 또한 암호를 관리할 필요가 없습니다. 최종 사용자는 한 번 로그인하여 Office 365 및 수천 개의 다른 애플리케이션에 액세스할 수 있습니다. 빠른 시작, 자습서 및 가이드를 사용하여 애플리케이션을 관리하고 배포하는 방법을 알아봅니다.
   aside:
     image:
       alt: 
       height: 110
       src: media/index/video.png
       width: 250
-    title: Azure AD를 사용하여 응용 프로그램에 대한 액세스 보호(1:47)
+    title: Azure AD를 사용하여 애플리케이션에 대한 액세스 보호(1:47)
     href: https://youtu.be/BSUuXXcJKCk/
     width: 250
 sections:
 - title: 5분 빠른 시작
   items:
   - type: paragraph
-    text: Azure Active Directory를 통해 액세스하는 사용자에 대한 응용 프로그램을 추가하는 방법을 알아봅니다.
+    text: Azure Active Directory를 통해 액세스하는 사용자에 대한 애플리케이션을 추가하는 방법을 알아봅니다.
   - type: list
     style: icon48
     items:
@@ -44,12 +44,12 @@ sections:
       href: https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal
     - image:
         src: https://docs.microsoft.com/media/common/i_protect.svg
-      text: 응용 프로그램 보기
+      text: 애플리케이션 보기
       href: https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal
 - title: 단계별 자습서
   items:
   - type: paragraph
-    text: 응용 프로그램에 간단하고 안전한 로그인 프로세스를 사용하도록 설정하는 방법을 알아봅니다.
+    text: 애플리케이션에 간단하고 안전한 로그인 프로세스를 사용하도록 설정하는 방법을 알아봅니다.
   - type: list
     style: unordered
     items:

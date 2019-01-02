@@ -71,7 +71,7 @@ Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database의 단일 
 
 이 솔루션을 사용하려면 마이그레이션할 SQL Server 인스턴스에서 Azure SQL Database를 구독자로 구성합니다. 트랜잭션 복제 배포자는 새 트랜잭션이 계속 발생하는 동안 데이터베이스의 데이터를 동기화합니다(게시자).
 
-트랜잭션 복제를 사용하면 데이터 또는 스키마에 대한 모든 변경 내용이 Azure SQL Database에 표시됩니다. 동기화가 완료되고 마이그레이션 준비가 끝나면 Azure SQL Database를 가리키도록 애플리케이션의 연결 문자열을 변경합니다. 트랜잭션 복제를 통해 원본 데이터베이스에 남아 있는 모든 변경 사항을 비우고 모든 응용 프로그램이 Azure DB를 가리키면 트랜잭션 복제를 제거할 수 있습니다. Azure SQL Database는 현재 프로덕션 시스템입니다.
+트랜잭션 복제를 사용하면 데이터 또는 스키마에 대한 모든 변경 내용이 Azure SQL Database에 표시됩니다. 동기화가 완료되고 마이그레이션 준비가 끝나면 Azure SQL Database를 가리키도록 애플리케이션의 연결 문자열을 변경합니다. 트랜잭션 복제를 통해 원본 데이터베이스에 남아 있는 모든 변경 사항을 비우고 모든 애플리케이션이 Azure DB를 가리키면 트랜잭션 복제를 제거할 수 있습니다. Azure SQL Database는 현재 프로덕션 시스템입니다.
 
  ![SeedCloudTR 다이어그램](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 

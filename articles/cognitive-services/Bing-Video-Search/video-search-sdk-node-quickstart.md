@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Bing Video Search SDK, Node'
 titleSuffix: Azure Cognitive Services
-description: Bing Video Search SDK 콘솔 응용 프로그램을 설치합니다.
+description: Bing Video Search SDK 콘솔 애플리케이션을 설치합니다.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun

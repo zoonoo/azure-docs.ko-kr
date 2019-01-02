@@ -1,7 +1,7 @@
 ---
 title: 앱 게시
 titleSuffix: Azure Cognitive Services
-description: 활성 LUIS 빌드와 테스트를 마치면 엔드포인트에 게시하여 클라이언트 응용 프로그램에 적용하세요.
+description: 활성 LUIS 빌드와 테스트를 마치면 엔드포인트에 게시하여 클라이언트 애플리케이션에 적용하세요.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -20,7 +20,7 @@ ms.locfileid: "53136650"
 ---
 # <a name="publish-your-trained-app"></a>학습된 앱 게시
 
-활성 LUIS 빌드와 테스트를 마치면 엔드포인트에 게시하여 클라이언트 응용 프로그램에 적용하세요. 
+활성 LUIS 빌드와 테스트를 마치면 엔드포인트에 게시하여 클라이언트 애플리케이션에 적용하세요. 
 
 <a name="publish-your-trained-app-to-an-http-endpoint"></a>
 

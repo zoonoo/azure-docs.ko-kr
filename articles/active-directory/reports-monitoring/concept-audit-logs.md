@@ -162,7 +162,7 @@ Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?
 
 ### <a name="enterprise-applications-audit-logs"></a>Enterprise 애플리케이션 감사 로그
 
-응용 프로그램 기반 감사 보고서를 사용하여 다음과 같은 질문에 대한 답을 얻을 수 있습니다.
+애플리케이션 기반 감사 보고서를 사용하여 다음과 같은 질문에 대한 답을 얻을 수 있습니다.
 
 * 추가되거나 업데이트된 애플리케이션은 무엇인가요?
 * 제거된 애플리케이션은 무엇인가요?

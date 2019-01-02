@@ -106,7 +106,7 @@ Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 
         Endpoint=sb://YOURNAME-socialtwitter-eh-ns.servicebus.windows.net/;SharedAccessKeyName=socialtwitter-access;SharedAccessKey=Gw2NFZw6r...FxKbXaC2op6a0ZsPkI=
 
 
-## <a name="configure-and-start-the-twitter-client-application"></a>Twitter 클라이언트 응용 프로그램 구성 및 시작
+## <a name="configure-and-start-the-twitter-client-application"></a>Twitter 클라이언트 애플리케이션 구성 및 시작
 클라이언트 애플리케이션이 Twitter에서 트윗 이벤트를 직접 가져옵니다. 이렇게 하려면 Twitter Streaming API를 호출할 수 있는 권한이 필요합니다. 해당 사용 권한을 구성하려면 고유한 자격 증명(예: OAuth 토큰)을 생성하는 애플리케이션을 Twitter에서 만듭니다. 그런 다음 API를 호출할 때 이러한 자격 증명을 사용하도록 클라이언트 애플리케이션을 구성할 수 있습니다. 
 
 ### <a name="create-a-twitter-application"></a>Twitter 애플리케이션 만들기

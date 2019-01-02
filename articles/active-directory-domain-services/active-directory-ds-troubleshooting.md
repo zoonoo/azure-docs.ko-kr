@@ -61,7 +61,7 @@ Azure AD 디렉터리에 'Azure AD Domain Services Sync'라는 이름의 애플�
 
 1. [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)의 Azure AD 디렉터리에 있는 **응용 프로그램** 섹션으로 이동합니다.
 2. **표시** 드롭다운에서 **모든 응용 프로그램**을 선택합니다. **응용 프로그램 상태** 드롭다운에서 **모두**를 선택합니다. **응용 프로그램 표시** 드롭다운에서 **모두**를 선택합니다.
-3. 검색 상자에 **Azure AD Domain Services 동기화**를 입력합니다. 응용 프로그램이 있는 경우 클릭한 다음 도구 모음에서 **삭제** 단추를 클릭하여 삭제합니다.
+3. 검색 상자에 **Azure AD Domain Services 동기화**를 입력합니다. 애플리케이션이 있는 경우 클릭한 다음, 도구 모음에서 **삭제** 단추를 클릭하여 삭제합니다.
 4. 애플리케이션을 삭제한 후에는 Azure AD 도메인 서비스를 다시 사용하도록 설정합니다.
 
 ### <a name="invalid-configuration"></a>유효하지 않은 구성

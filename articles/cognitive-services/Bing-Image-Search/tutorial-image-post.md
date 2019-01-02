@@ -1,7 +1,7 @@
 ---
 title: '자습서: Bing Image Search API 및 C#을 사용하여 이미지 세부 정보 추출'
 titleSuffix: Azure Cognitive Services
-description: 이 문서를 사용하여 Bing Image Search API를 통해 이미지 세부 정보를 추출하는 C# 응용 프로그램을 만듭니다.
+description: 이 문서를 사용하여 Bing Image Search API를 통해 이미지 세부 정보를 추출하는 C# 애플리케이션을 만듭니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -19,7 +19,7 @@ ms.locfileid: "53259769"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>자습서: Bing Image Search API 및 C#을 사용하여 이미지 세부 정보 추출
 
-Bing Image Search API를 통해 사용할 수 있는 다양한 [엔드포인트](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-endpoint)가 있습니다. `/details` 엔드포인트는 이미지가 포함된 POST 요청을 허용하며 이미지에 대한 다양한 세부 정보를 반환할 수 있습니다. 이 C# 응용 프로그램은 API를 사용하여 이미지를 보내고 Bing에서 반환된 다음과 같은 JSON 개체인 세부 정보를 표시합니다.
+Bing Image Search API를 통해 사용할 수 있는 다양한 [엔드포인트](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-endpoint)가 있습니다. `/details` 엔드포인트는 이미지가 포함된 POST 요청을 허용하며 이미지에 대한 다양한 세부 정보를 반환할 수 있습니다. 이 C# 애플리케이션은 API를 사용하여 이미지를 보내고 Bing에서 반환된 다음과 같은 JSON 개체인 세부 정보를 표시합니다.
 
 ![[JSON 결과]](media/cognitive-services-bing-images-api/jsonResult.jpg)
 

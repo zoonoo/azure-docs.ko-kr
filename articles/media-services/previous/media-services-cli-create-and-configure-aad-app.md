@@ -22,7 +22,7 @@ ms.locfileid: "49944127"
 ---
 # <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-azure-media-services-api"></a>Azure CLI를 사용하여 Azure AD 앱을 만들고 Azure Media Services API에 액세스하도록 구성
 
-이 항목에서는 Azure CLI를 사용하여 Azure Media Services 리소스에 액세스하기 위한 Azure AD(Active Directory) 응용 프로그램과 서비스 사용자를 만드는 방법을 설명합니다. 
+이 항목에서는 Azure CLI를 사용하여 Azure Media Services 리소스에 액세스하기 위한 Azure AD(Active Directory) 애플리케이션과 서비스 사용자를 만드는 방법을 설명합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 

@@ -67,4 +67,4 @@ Azure Databricks에서 자동화된 프로세스로 실행할 Spark 프로그램
 
 ## <a name="next-steps"></a>다음 단계
 
-Java 응용 프로그램을 사용하여 [Cassandra API 계정, 데이터베이스 및 테이블 만들기](create-cassandra-api-account-java.md)를 시작합니다.
+Java 애플리케이션을 사용하여 [Cassandra API 계정, 데이터베이스 및 테이블 만들기](create-cassandra-api-account-java.md)를 시작합니다.

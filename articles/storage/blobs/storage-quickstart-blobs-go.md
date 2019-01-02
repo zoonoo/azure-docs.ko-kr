@@ -74,7 +74,7 @@ setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 
 ```go run storage-quickstart.go```
 
-다음 출력은 응용 프로그램 실행 시 반환되는 출력의 예제입니다.
+다음 출력은 애플리케이션 실행 시 반환되는 출력의 예제입니다.
   
 ```
 Azure Blob storage quick start sample

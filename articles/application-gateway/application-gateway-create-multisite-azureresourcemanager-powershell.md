@@ -1,6 +1,6 @@
 ---
-title: 여러 사이트를 호스팅하는 응용 프로그램 게이트웨이 만들기 - Azure PowerShell | Microsoft Docs
-description: Azure PowerShell을 사용하여 여러 사이트를 호스팅하는 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다.
+title: 여러 사이트를 호스팅하는 애플리케이션 게이트웨이 만들기 - Azure PowerShell | Microsoft Docs
+description: Azure PowerShell을 사용하여 여러 사이트를 호스팅하는 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -19,9 +19,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/14/2018
 ms.locfileid: "39055045"
 ---
-# <a name="create-an-application-gateway-with-multiple-site-hosting-using-azure-powershell"></a>Azure PowerShell을 사용하여 여러 사이트를 호스팅하는 응용 프로그램 게이트웨이 만들기
+# <a name="create-an-application-gateway-with-multiple-site-hosting-using-azure-powershell"></a>Azure PowerShell을 사용하여 여러 사이트를 호스팅하는 애플리케이션 게이트웨이 만들기
 
-Azure PowerShell을 사용하여 [응용 프로그램 게이트웨이](application-gateway-multi-site-overview.md)를 만들 때 [여러 웹 사이트의 호스팅](application-gateway-introduction.md)을 구성할 수 있습니다. 이 자습서에서는 가상 머신 확장 집합을 사용하여 백 엔드 풀을 만듭니다. 그런 다음, 웹 트래픽이 풀에서 적절한 서버에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 자습서에서는 여러 도메인을 소유하고 있으며 *www.contoso.com* 및 *www.fabrikam.com*의 예를 사용한다고 가정합니다.
+Azure PowerShell을 사용하여 [애플리케이션 게이트웨이](application-gateway-multi-site-overview.md)를 만들 때 [여러 웹 사이트의 호스팅](application-gateway-introduction.md)을 구성할 수 있습니다. 이 자습서에서는 가상 머신 확장 집합을 사용하여 백 엔드 풀을 만듭니다. 그런 다음, 웹 트래픽이 풀에서 적절한 서버에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 자습서에서는 여러 도메인을 소유하고 있으며 *www.contoso.com* 및 *www.fabrikam.com*의 예를 사용한다고 가정합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -113,7 +113,7 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-listeners-and-rules"></a>수신기 및 규칙 만들기
 
-응용 프로그램 게이트웨이에서 트래픽을 백 엔드 풀로 적절히 라우팅할 수 있는 수신기가 필요합니다. 이 자습서에서는 두 개의 도메인 각각에 수신기를 만듭니다. 이 예제에서는 *www.contoso.com* 및 *www.fabrikam.com*의 도메인에 대해 수신기가 생성됩니다.
+애플리케이션 게이트웨이에서 트래픽을 백 엔드 풀로 적절히 라우팅할 수 있는 수신기가 필요합니다. 이 자습서에서는 두 개의 도메인 각각에 수신기를 만듭니다. 이 예제에서는 *www.contoso.com* 및 *www.fabrikam.com*의 도메인에 대해 수신기가 생성됩니다.
 
 이전에 만든 프런트 엔드 구성 및 프런트 엔드 포트에서 [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener)를 사용하여 *contosoListener* 및 *fabrikamListener*라는 수신기를 만듭니다. 수신기가 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule)을 사용하여 *contosoRule* 및 *fabrikamRule*이라는 기본 규칙을 만듭니다.
 
@@ -250,7 +250,7 @@ for ($i=1; $i -le 2; $i++)
 
 ## <a name="create-cname-record-in-your-domain"></a>도메인에서 CNAME 레코드 만들기
 
-애플리케이션 게이트웨이가 해당 공용 IP 주소로 생성된 후 DNS 주소를 가져와 도메인에서 CNAME 레코드를 만드는 데 사용할 수 있습니다. [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress)를 사용하여 응용 프로그램 게이트웨이의 DNS 주소를 가져올 수 있습니다. DNSSettings의 *fqdn* 값을 복사하여 만드는 CNAME 레코드의 값으로 사용합니다. A 레코드를 사용할 경우 응용 프로그램 게이트웨이를 다시 시작할 때 VIP가 변경될 수 있으므로 권장되지 않습니다.
+애플리케이션 게이트웨이가 해당 공용 IP 주소로 생성된 후 DNS 주소를 가져와 도메인에서 CNAME 레코드를 만드는 데 사용할 수 있습니다. [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress)를 사용하여 응용 프로그램 게이트웨이의 DNS 주소를 가져올 수 있습니다. DNSSettings의 *fqdn* 값을 복사하여 만드는 CNAME 레코드의 값으로 사용합니다. A 레코드를 사용할 경우 애플리케이션 게이트웨이를 다시 시작할 때 VIP가 변경될 수 있으므로 권장되지 않습니다.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -260,11 +260,11 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http://www.contoso.com
 
-![응용 프로그램 게이트웨이에서 contoso 사이트 테스트](./media/application-gateway-create-multisite-azureresourcemanager-powershell/application-gateway-iistest.png)
+![애플리케이션 게이트웨이에서 contoso 사이트 테스트](./media/application-gateway-create-multisite-azureresourcemanager-powershell/application-gateway-iistest.png)
 
 주소를 다른 도메인으로 변경하면 다음 예제와 같은 내용이 표시됩니다.
 
-![응용 프로그램 게이트웨이에서 fabrikam 사이트 테스트](./media/application-gateway-create-multisite-azureresourcemanager-powershell/application-gateway-iistest2.png)
+![애플리케이션 게이트웨이에서 fabrikam 사이트 테스트](./media/application-gateway-create-multisite-azureresourcemanager-powershell/application-gateway-iistest2.png)
 
 ## <a name="next-steps"></a>다음 단계
 

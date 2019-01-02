@@ -19,7 +19,7 @@ ms.locfileid: "51572457"
 
 Azure Premium Storage는 입력/출력(I/O) 사용량이 많은 워크로드가 있는 VM(가상 머신)에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. Premium Storage를 사용하는 VM 디스크는 SSD(반도체 드라이브)에 데이터를 저장합니다. 프리미엄 저장소의 속도 및 성능을 활용하기 위해 기존 VM 디스크를 Premium Storage로 마이그레이션할 수 있습니다.
 
-Azure에서는 여러 프리미엄 저장소 디스크를 VM에 연결할 수 있습니다. 여러 디스크를 사용하면 응용 프로그램에 VM당 최대 256TB의 저장소가 제공되며, 미리 보기 크기를 사용할 경우에는 응용 프로그램에 VM 당 최대 약 2PiB의 저장소가 제공될 수 있습니다. Premium Storage를 사용할 경우 VM당 80,000 IOPS(초당 I/O 작업 수) 및 VM당 디스크 처리량을 2,000MB/초까지 달성할 수 있습니다. 읽기 작업의 대기 시간이 매우 짧습니다.
+Azure에서는 여러 프리미엄 저장소 디스크를 VM에 연결할 수 있습니다. 여러 디스크를 사용하면 애플리케이션에 VM당 최대 256TB의 저장소가 제공되며, 미리 보기 크기를 사용할 경우에는 애플리케이션에 VM 당 최대 약 2PiB의 저장소가 제공될 수 있습니다. Premium Storage를 사용할 경우 VM당 80,000 IOPS(초당 I/O 작업 수) 및 VM당 디스크 처리량을 2,000MB/초까지 달성할 수 있습니다. 읽기 작업의 대기 시간이 매우 짧습니다.
 
 Premium Storage를 사용하여 Azure는 Dynamics AX, Dynamics CRM, Exchange Server, SAP Business Suite 및 SharePoint 팜 등의 까다로운 엔터프라이즈 애플리케이션을 클라우드로 리프트 앤 시프트하는 기능을 제공합니다. 일관된 고성능 및 짧은 대기 시간을 필요로 하는 SQL Server, Oracle, MongoDB, MySQL, Redis 등 성능 집약적 데이터베이스 워크로드를 애플리케이션에서 실행할 수 있습니다.
 
@@ -51,7 +51,7 @@ Premium Storage 기능 중 일부는 다음과 같습니다.
 
 * **Premium Storage 디스크**
 
-    Premium Storage는 특정 크기-시리즈 VM에 연결할 수 있는 VM 디스크를 지원합니다. Premium Storage는 다양한 Azure VM을 지원합니다. 다음과 같은 8개의 GA 디스크 크기를 선택할 수 있습니다. P4(32GiB), P6(64GiB), P10(128GiB), P15(256GiB), P20(512GiB), P30(1,024GiB), P40(2,048GiB), P50(4,095GiB). 뿐만 아니라 다음과 같은 3개의 미리보기 디스크 크기를 선택할 수 있습니다. P60 8,192GiB(8TiB), P70 16,348GiB(16TiB), P80 32,767GiB(32TiB). P4, P6, P15, P60, P70 및 P80 디스크 크기는 현재 Managed Disks에만 지원됩니다. 디스크 크기마다 자체 성능 사양이 있습니다. 응용 프로그램 요구 사항에 따라 하나 이상의 디스크를 VM에 연결할 수 있습니다. 사양에 대한 자세한 내용은 [Premium Storage 확장성 및 성능 목표](#scalability-and-performance-targets)에서 설명합니다.
+    Premium Storage는 특정 크기-시리즈 VM에 연결할 수 있는 VM 디스크를 지원합니다. Premium Storage는 다양한 Azure VM을 지원합니다. 다음과 같은 8개의 GA 디스크 크기를 선택할 수 있습니다. P4(32GiB), P6(64GiB), P10(128GiB), P15(256GiB), P20(512GiB), P30(1,024GiB), P40(2,048GiB), P50(4,095GiB). 뿐만 아니라 다음과 같은 3개의 미리보기 디스크 크기를 선택할 수 있습니다. P60 8,192GiB(8TiB), P70 16,348GiB(16TiB), P80 32,767GiB(32TiB). P4, P6, P15, P60, P70 및 P80 디스크 크기는 현재 Managed Disks에만 지원됩니다. 디스크 크기마다 자체 성능 사양이 있습니다. 애플리케이션 요구 사항에 따라 하나 이상의 디스크를 VM에 연결할 수 있습니다. 사양에 대한 자세한 내용은 [Premium Storage 확장성 및 성능 목표](#scalability-and-performance-targets)에서 설명합니다.
 
 * **프리미엄 페이지 Blob**
 
@@ -161,7 +161,7 @@ Azure에서 Windows용 VM 유형 및 크기에 대한 자세한 내용은 [Windo
 
 > [!NOTE]
 > [Premium Storage 지원 VM](#premium-storage-supported-vms) 섹션에서 설명한 대로 VM에서 디스크 트래픽을 운용하기에 충분한 대역폭을 사용할 수 있는지 확인해야 합니다. 그렇지 않으면 처리량 및 IOPS가 낮은 값으로 제한됩니다. 최대 처리량 및 IOPS는 이전 표에 설명된 디스크 한도가 아닌 VM 한도를 기초로 합니다.  
-> Azure는 대규모로 병렬되도록 Premium Storage 플랫폼을 설계합니다. 응용 프로그램을 다중 스레드로 디자인하면 더 큰 디스크 크기에서 제공되는 고성능 목표를 달성하는 데 도움이 됩니다.
+> Azure는 대규모로 병렬되도록 Premium Storage 플랫폼을 설계합니다. 애플리케이션을 다중 스레드로 디자인하면 더 큰 디스크 크기에서 제공되는 고성능 목표를 달성하는 데 도움이 됩니다.
 
 다음은 Premium Storage 확장성 및 성능 목표에 대해 알아야 하는 중요한 사항입니다.
 

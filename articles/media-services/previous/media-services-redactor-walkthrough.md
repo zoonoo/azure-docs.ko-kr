@@ -104,7 +104,7 @@ JSON 주석 데이터를 구문 분석하려는 개발자는 Models.MetaData 내
 
 1. 분석 모드에서 Redactor MP를 사용하여 Azure Media Services 계정에서 비디오를 처리합니다. 
 2. 원본 비디오 파일 및 교정 - 분석 작업의 출력을 모두 다운로드합니다. 
-3. Visualizer 응용 프로그램을 실행하고 위의 파일을 선택합니다. 
+3. Visualizer 애플리케이션을 실행하고 위의 파일을 선택합니다. 
 
     ![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough011.png)
 

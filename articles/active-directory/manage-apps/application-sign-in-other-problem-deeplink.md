@@ -1,6 +1,6 @@
 ---
-title: 딥 링크를 사용하여 응용 프로그램에 로그인하는 문제 | Microsoft Docs
-description: Azure AD를 사용하여 딥 링크 URL에서 응용 프로그램에 액세스하는 문제를 해결하는 방법
+title: 딥 링크를 사용하여 애플리케이션에 로그인하는 문제 | Microsoft Docs
+description: Azure AD를 사용하여 딥 링크 URL에서 애플리케이션에 액세스하는 문제를 해결하는 방법
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -22,21 +22,21 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/11/2018
 ms.locfileid: "44355482"
 ---
-# <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>딥 링크를 사용하여 응용 프로그램에 로그인하는 문제
+# <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>딥 링크를 사용하여 애플리케이션에 로그인하는 문제
 
-액세스 패널은 웹 기반 포털로 Azure AD(Azure Active Directory)에 회사 또는 학교 계정이 있는 사용자가 Azure AD 관리자를 통해 액세스 권한을 부여 받은 클라우드 기반 응용 프로그램을 보고 시작할 수 있도록 합니다. 
+액세스 패널은 웹 기반 포털로 Azure AD(Azure Active Directory)에 회사 또는 학교 계정이 있는 사용자가 Azure AD 관리자를 통해 액세스 권한을 부여 받은 클라우드 기반 애플리케이션을 보고 시작할 수 있도록 합니다. 
 
-이러한 응용 프로그램은 Azure AD 포털에서 사용자를 대신하여 구성됩니다. 응용 프로그램을 액세스 패널에 표시하려면 응용 프로그램이 올바르게 구성되어 있고, 사용자나 그 사용자가 속한 그룹에 할당되어 있어야 합니다.
+이러한 애플리케이션은 Azure AD 포털에서 사용자를 대신하여 구성됩니다. 애플리케이션을 액세스 패널에 표시하려면 애플리케이션이 올바르게 구성되어 있고, 사용자나 그 사용자가 속한 그룹에 할당되어 있어야 합니다.
 
-딥 링크 또는 사용자 액세스 URL은 사용자가 해당 브라우저 URL 막대에서 직접 암호 SSO 응용 프로그램에 액세스하는 데 사용할 수 있는 링크입니다. 사용자는 이 링크로 이동하여 액세스 패널로 이동하지 않고도 응용 프로그램에 자동으로 로그인할 수 있습니다. 사용자는 동일한 링크를 Office 365 응용 프로그램 실행 프로그램에서 이러한 응용 프로그램에 액세스하는 데 사용합니다.
+딥 링크 또는 사용자 액세스 URL은 사용자가 해당 브라우저 URL 막대에서 직접 암호 SSO 애플리케이션에 액세스하는 데 사용할 수 있는 링크입니다. 사용자는 이 링크로 이동하여 액세스 패널로 이동하지 않고도 애플리케이션에 자동으로 로그인할 수 있습니다. 사용자는 동일한 링크를 Office 365 애플리케이션 실행 프로그램에서 이러한 애플리케이션에 액세스하는 데 사용합니다.
 
 ## <a name="general-issues-to-check-first"></a>먼저 확인해야 할 일반적인 문제
 
 -   액세스 패널에 대한 최소 요구 사항을 충족하는 **브라우저**를 사용하는지 확인합니다.
 
--   사용자의 브라우저에서 해당 **신뢰할 수 있는 사이트**에 응용 프로그램의 URL을 추가했는지 확인합니다.
+-   사용자의 브라우저에서 해당 **신뢰할 수 있는 사이트**에 애플리케이션의 URL을 추가했는지 확인합니다.
 
--   응용 프로그램이 올바르게 **구성**되었는지 확인합니다.
+-   애플리케이션이 올바르게 **구성**되었는지 확인합니다.
 
 -   사용자의 계정이 로그인에 대해 **활성화**되었는지 확인합니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "44355482"
 
    * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
-11. 딥 링크를 확인하려는 응용 프로그램을 선택합니다.
+11. 딥 링크를 확인하려는 애플리케이션을 선택합니다.
 
 12. **사용자 액세스 URL** 레이블을 찾습니다. 딥 링크가 이 URL과 일치해야 합니다.
 
@@ -100,7 +100,7 @@ ms.locfileid: "44355482"
 
 6.  설치되면 브라우저 세션을 **다시 시작**합니다.
 
-7.  액세스 패널에 로그인하고 암호 SSO 응용 프로그램을 **시작**할 수 있는지 확인합니다.
+7.  액세스 패널에 로그인하고 암호 SSO 애플리케이션을 **시작**할 수 있는지 확인합니다.
 
 아래와 같은 직접 링크에서 Chrome 및 Firefox에 대한 확장을 다운로드할 수 있습니다.
 
@@ -108,7 +108,7 @@ ms.locfileid: "44355482"
 
 -   [Firefox 액세스 패널 확장](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 응용 프로그램에 대해 암호 Single Sign-On을 구성하는 방법
+## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성하는 방법
 
 Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행해야 합니다.
 
@@ -134,13 +134,13 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 7.  Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
 
-8.  응용 프로그램을 추가하기 전에 **이름** 텍스트 상자에서 이름을 변경할 수 있습니다.
+8.  애플리케이션을 추가하기 전에 **이름** 텍스트 상자에서 이름을 변경할 수 있습니다.
 
 9.  애플리케이션을 추가하려면 **추가**를 클릭합니다.
 
 잠시 후 애플리케이션의 구성 창이 표시됩니다.
 
-### <a name="configure-the-application-for-password-single-sign-on"></a>암호 Single Sign-On에 대한 응용 프로그램 구성
+### <a name="configure-the-application-for-password-single-sign-on"></a>암호 Single Sign-On에 대한 애플리케이션 구성
 
 애플리케이션에 Single Sign-On을 구성하려면 아래 단계를 수행합니다.
 
@@ -174,7 +174,7 @@ Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행�
 
 -   [암호 Single Sign-On에 대한 응용 프로그램 구성](#configure-the-application-for-password-single-sign-on)
 
-### <a name="add-a-non-gallery-application"></a>비갤러리 응용 프로그램 추가
+### <a name="add-a-non-gallery-application"></a>비갤러리 애플리케이션 추가
 
 Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 수행합니다.
 
@@ -194,7 +194,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 잠시 후 애플리케이션의 구성 창이 표시됩니다.
 
-### <a name="configure-the-application-for-password-single-sign-on"></a>암호 Single Sign-On에 대한 응용 프로그램 구성
+### <a name="configure-the-application-for-password-single-sign-on"></a>암호 Single Sign-On에 대한 애플리케이션 구성
 
 애플리케이션에 Single Sign-On을 구성하려면 아래 단계를 수행합니다.
 
@@ -218,7 +218,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 9.  사용자가 로그인하려면 사용자 이름과 암호를 입력해야 하는 **로그인 URL**을 입력합니다. URL에서 로그인 필드가 표시되는지 확인합니다.
 
-10. 응용 프로그램에 사용자를 할당합니다.
+10. 애플리케이션에 사용자를 할당합니다.
 
 11. 또한 사용자의 행을 선택하고 **자격 증명 업데이트**를 클릭하고 사용자를 대신하여 사용자 이름 및 암호를 입력하여 사용자를 대신하여 자격 증명을 제공할 수도 있습니다. 그렇지 않으면 사용자는 시작할 때 자격 증명을 입력하라는 메시지를 받게 됩니다.
 
@@ -258,7 +258,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 15. **할당** 단추를 클릭하여 선택한 사용자에게 응용 프로그램을 할당합니다.
 
-짧은 시간 후에 선택한 사용자는 액세스 패널에서 이러한 응용 프로그램을 시작할 수 있습니다.
+짧은 시간 후에 선택한 사용자는 액세스 패널에서 이러한 애플리케이션을 시작할 수 있습니다.
 
 ## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>이러한 문제 해결 단계가 문제를 해결하지 않는 경우 
 

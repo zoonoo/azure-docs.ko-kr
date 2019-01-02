@@ -37,7 +37,7 @@ Windows 개발 머신에서 Azure Service Fabric Mesh 애플리케이션을 빌�
 
 ## <a name="visual-studio"></a>Visual Studio
 
-Visual Studio 2017은 Service Fabric Mesh 응용 프로그램을 배포하는 데 필요합니다. [설치 버전 15.6.0][download-visual-studio] 이상은 다음 워크로드를 사용하도록 설정합니다.
+Visual Studio 2017은 Service Fabric Mesh 애플리케이션을 배포하는 데 필요합니다. [설치 버전 15.6.0][download-visual-studio] 이상은 다음 워크로드를 사용하도록 설정합니다.
 
 * ASP.NET 및 웹 개발
 * Azure 개발

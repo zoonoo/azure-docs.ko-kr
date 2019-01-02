@@ -32,7 +32,7 @@ KCD(Kerberos 제한 위임)과 함께 IWA(Windows 통합 인증)를 사용하는
 - Microsoft Graph용 MIM 관리 에이전트 및 MIM(Microsoft Identity Manager) 2016 SP1을 사용할 수 있습니다.
 - PowerShell 스크립트를 사용할 수 있습니다. (이 솔루션에는 MIM이 필요하지 않습니다.)
 
-이러한 솔루션을 구현하는 방법에 대한 자세한 내용은 [Azure AD의 B2B 사용자에게 온-프레미스 응용 프로그램에 대한 액세스 권한 부여](hybrid-cloud-to-on-premises.md)를 참조하세요.
+이러한 솔루션을 구현하는 방법에 대한 자세한 내용은 [Azure AD의 B2B 사용자에게 온-프레미스 애플리케이션에 대한 액세스 권한 부여](hybrid-cloud-to-on-premises.md)를 참조하세요.
 
 ## <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources"></a>로컬로 관리되는 파트너 계정에 클라우드 리소스에 대한 액세스 권한 부여
 

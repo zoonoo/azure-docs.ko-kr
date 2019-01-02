@@ -43,7 +43,7 @@ FFIEC 규격을 취득하려면 자격 있는 감사자가 프로덕션 고객 �
 
 Azure SQL Database는 일반적으로 보안 VPN 또는 ExpressRoute 연결을 통해 Azure SQL Database에 액세스하도록 구성된 로컬 머신에서 실행되는 SQL Server Management Studio를 통해 관리됩니다.
 
-또한 Application Insights는 Log Analytics를 통해 실시간 응용 프로그램 성능 관리 및 분석을 제공합니다. **Microsoft에서는 참조 아키텍처 서브넷에 데이터 가져오기 및 관리를 위해 VPN 또는 ExpressRoute 연결을 구성하는 것을 권장합니다.**
+또한 Application Insights는 Log Analytics를 통해 실시간 애플리케이션 성능 관리 및 분석을 제공합니다. **Microsoft에서는 참조 아키텍처 서브넷에 데이터 가져오기 및 관리를 위해 VPN 또는 ExpressRoute 연결을 구성하는 것을 권장합니다.**
 
 ![FFIEC용 PaaS 웹 응용 프로그램 참조 아키텍처 다이어그램](images/ffiec-paaswa-architecture.png "FFIEC용 PaaS 웹 응용 프로그램 참조 아키텍처 다이어그램")
 
@@ -232,7 +232,7 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
     - 1A-ContosoWebStoreDemoAzureResources.ps1
         - 이 스크립트는 Contoso 샘플 데이터를 사용하여 웹 스토어 데모를 위한 Azure 리소스를 배포합니다.
     - 1-DeployAndConfigureAzureResources.ps1
-        - 이 스크립트는 고객 소유 웹 응용 프로그램에 대한 프로덕션 환경을 지원하는 데 필요한 Azure 리소스를 배포합니다. 고객은 조직 요구 사항에 따라 이 환경을 추가로 사용자 지정해야 합니다.
+        - 이 스크립트는 고객 소유 웹 애플리케이션에 대한 프로덕션 환경을 지원하는 데 필요한 Azure 리소스를 배포합니다. 고객은 조직 요구 사항에 따라 이 환경을 추가로 사용자 지정해야 합니다.
 
 ## <a name="guidance-and-recommendations"></a>지침 및 권장 사항
 

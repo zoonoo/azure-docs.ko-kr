@@ -48,7 +48,7 @@ AppSource 및 Azure Marketplace에 대한 다양한 [목록 옵션 및 제품 �
 | 컨테이너  | 해당 없음 | 해당 없음 | 해당 없음 | 아니요 |
 | 컨설팅 서비스  | 아니요 | 해당 없음 | 해당 없음 | 해당 없음 |
 
-SaaS 기술 요구 사항에 대한 자세한 내용은 [SaaS 응용 프로그램 제품 게시 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)를 참조하세요.
+SaaS 기술 요구 사항에 대한 자세한 내용은 [SaaS 애플리케이션 제품 게시 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)를 참조하세요.
 
 ## <a name="azure-ad-integration"></a>Azure AD 통합
 

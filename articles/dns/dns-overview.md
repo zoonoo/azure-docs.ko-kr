@@ -45,7 +45,7 @@ Azure DNS의 DNS 도메인은 DNS 이름 서버의 Azure 글로벌 네트워크�
 
 DNS 요금 청구는 Azure에서 호스팅되는 DNS 영역의 수와 수신되는 DNS 쿼리의 수에 따라 결정됩니다. 가격 책정에 대한 자세한 내용은 [Azure DNS 가격 책정](https://azure.microsoft.com/pricing/details/dns/)을 참조하세요.
 
-도메인과 레코드는 Azure Portal, Azure PowerShell cmdlet 및 플랫폼 간 Azure CLI를 사용하여 관리할 수 있습니다. 자동 DNS 관리가 필요한 응용 프로그램은 REST API 및 SDK를 사용하여 서비스와 통합할 수 있습니다.
+도메인과 레코드는 Azure Portal, Azure PowerShell cmdlet 및 플랫폼 간 Azure CLI를 사용하여 관리할 수 있습니다. 자동 DNS 관리가 필요한 애플리케이션은 REST API 및 SDK를 사용하여 서비스와 통합할 수 있습니다.
 
 ## <a name="customizable-virtual-networks-with-private-domains"></a>개인 도메인을 사용하여 사용자 지정할 수 있는 가상 네트워크
 

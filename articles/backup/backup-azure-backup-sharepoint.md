@@ -23,7 +23,7 @@ DPM의 Azure Backup은 다음 시나리오들을 지원합니다.
 
 | 워크로드 | 버전 | SharePoint 배포 | DPM 배포 유형 | DPM - System Center 2012 R2 | 보호 및 복구 |
 | --- | --- | --- | --- | --- | --- |
-| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint는 물리적 서버 또는 하이퍼-V/VMware 가상 머신으로 배포됨  <br> -------------- <br> SQL AlwaysOn |물리적 서버 또는 온-프레미스 Hyper-v 가상 머신 |업데이트 롤업 5에서 Azure에 백업을 지원 |SharePoint 팜 보호 복구 옵션: 복구 팜, 데이터베이스, 및 파일 또는 디스크 복구 지점의 목록 항목   Azure 복구 지점에서 팜 및 데이터베이스 복구 |
+| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint는 물리적 서버 또는 하이퍼-V/VMware 가상 머신으로 배포됨  <br> -------------- <br>  SQL AlwaysOn |물리적 서버 또는 온-프레미스 Hyper-v 가상 머신 |업데이트 롤업 5에서 Azure에 백업을 지원 |SharePoint 팜 보호 복구 옵션: 복구 팜, 데이터베이스, 및 파일 또는 디스크 복구 지점의 목록 항목   Azure 복구 지점에서 팜 및 데이터베이스 복구 |
 
 ## <a name="before-you-start"></a>시작하기 전에
 SharePoint 팜을 Azure에 백업하기 전에 몇 가지 확인이 필요합니다.
@@ -50,7 +50,7 @@ Azure에 대해 SharePoint 팜 보호를 시작하려면, DPM 업데이트 롤�
 자세한 내용은 [DPM 업데이트 롤업 5](http://blogs.technet.com/b/dpm/archive/2015/02/11/update-rollup-5-for-system-center-2012-r2-data-protection-manager-is-now-available.aspx)를 소개하는 블로그 게시물을 참조하세요.
 
 ### <a name="whats-not-supported"></a>지원 되지않는 사항
-* SharePoint 팜을 보호하는 DPM은 검색 인덱스 또는 응용 프로그램 서비스 데이터베이스를 보호하지 않습니다. 이러한 데이터베이스들은 별도로 보호를 구성해야 합니다.
+* SharePoint 팜을 보호하는 DPM은 검색 인덱스 또는 애플리케이션 서비스 데이터베이스를 보호하지 않습니다. 이러한 데이터베이스들은 별도로 보호를 구성해야 합니다.
 * DPM은 스케일 아웃 파일 서버(SOFS) 공유에 호스트되는 SharePoint SQL Server 데이터베이스의 백업을 제공하지 않습니다.
 
 ## <a name="configure-sharepoint-protection"></a>SharePoint 보호 구성
@@ -230,16 +230,16 @@ DPM을 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureSharePo
 
 ## <a name="faqs"></a>FAQ
 Q: SQL Server 2014 및 SQL 2012(SP2)를 지원하는 DPM 버전은 무엇인가요?<br>
-A: DPM 2012 R2 업데이트 롤업 4 버전이 두 가지를 모두 지원합니다.
+ A: DPM 2012 R2 업데이트 롤업 4 버전이 두 가지를 모두 지원합니다.
 
 Q: SharePoint가 SQL AlwaysOn을 사용하여 구성된 경우(디스크 보호를 사용하여), SharePoint 항목을 원본 위치로 복구할 수 있나요?<br>
-A: 예, 항목을 원본 SharePoint 사이트로 복구할 수 있습니다.
+ A: 예, 항목을 원본 SharePoint 사이트로 복구할 수 있습니다.
 
 Q: SharePoint가 SQL AlwaysOn을 사용하여 구성된 경우 SharePoint 데이터베이스를 원본 위치로 복구할 수 있나요?<br>
-A: SharePoint 데이터베이스가 SQL AlwaysOn 에서 구성되었으므로, 가용성 그룹을 제거하지 않으면 수정할 수 없습니다. 따라서 DPM은 원래 위치로 데이터베이스를 복원할 수 없습니다. SQL Server 데이터베이스를 다른 SQL Server 인스턴스로 복구할 수 있습니다.
+ A: SharePoint 데이터베이스가 SQL AlwaysOn 에서 구성되었으므로, 가용성 그룹을 제거하지 않으면 수정할 수 없습니다. 따라서 DPM은 원래 위치로 데이터베이스를 복원할 수 없습니다. SQL Server 데이터베이스를 다른 SQL Server 인스턴스로 복구할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * SharePoint의 DPM 보호에 대한 자세한 정보는 [SharePoint의 DPM 보호를 위한 비디오 시리즈](http://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
-* [System Center 2012 - Data Protection Manager에 대한 릴리스 정보](https://technet.microsoft.com/library/jj860415.aspx)
-* [System Center 2012 SP1의 Data Protection Manager에 대한 릴리스 정보](https://technet.microsoft.com/library/jj860394.aspx)
+*  [System Center 2012 - Data Protection Manager에 대한 릴리스 정보](https://technet.microsoft.com/library/jj860415.aspx)
+*  [System Center 2012 SP1의 Data Protection Manager에 대한 릴리스 정보](https://technet.microsoft.com/library/jj860394.aspx)
 

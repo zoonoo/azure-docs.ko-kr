@@ -28,7 +28,7 @@ Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서
 
 이 빠른 시작에서는 Service Fabric에 첫 번째 .NET 애플리케이션을 배포하는 방법을 보여 줍니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 ASP.NET Core 웹 프런트 엔드가 있는 투표 애플리케이션이 생깁니다.
 
-![응용 프로그램 스크린샷](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
+![애플리케이션 스크린샷](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
 이 애플리케이션을 사용하여 다음 방법에 대해 알아봅니다.
 
@@ -90,7 +90,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 * 웹 프런트 엔드 서비스(VotingWeb) - ASP.NET Core 웹 프런트 엔드 서비스로, 웹 페이지를 제공하며 백 엔드 서비스와 통신하기 위한 Web API를 공개합니다.
 * 백 엔드 서비스(VotingData) - ASP.NET Core 웹 서비스로, 투표 결과를 디스크에 보관된 신뢰할 수 있는 사전에 저장하기 위한 API를 공개합니다.
 
-![응용 프로그램 다이어그램](./media/service-fabric-quickstart-dotnet/application-diagram.png)
+![애플리케이션 다이어그램](./media/service-fabric-quickstart-dotnet/application-diagram.png)
 
 애플리케이션에 투표하는 경우 다음 이벤트가 발생합니다.
 
@@ -177,7 +177,7 @@ Thumbprint                                Subject
 
     ![[게시] 대화 상자](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-    클러스터의 각 응용 프로그램에는 고유한 이름이 있어야 합니다.  Party 클러스터가 공용 공유 환경이지만 기존 애플리케이션과 충돌이 발생할 수 있습니다.  이름이 충돌하는 경우 Visual Studio 프로젝트의 이름을 바꾸고 다시 배포합니다.
+    클러스터의 각 애플리케이션에는 고유한 이름이 있어야 합니다.  Party 클러스터가 공용 공유 환경이지만 기존 애플리케이션과 충돌이 발생할 수 있습니다.  이름이 충돌하는 경우 Visual Studio 프로젝트의 이름을 바꾸고 다시 배포합니다.
 
 3. **게시**를 클릭합니다.
 
@@ -232,7 +232,7 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 
     ![게시 대화 상자 업그레이드 설정](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
 
-    업그레이드가 실행되는 동안 응용 프로그램을 계속 사용할 수 있습니다. 클러스터에서 실행되는 서비스에는 두 인스턴스가 있으므로 일부 요청은 애플리케이션의 업그레이드된 버전을 가질 수 있는 반면 일부는 이전 버전을 가질 수 있습니다.
+    업그레이드가 실행되는 동안 애플리케이션을 계속 사용할 수 있습니다. 클러스터에서 실행되는 서비스에는 두 인스턴스가 있으므로 일부 요청은 애플리케이션의 업그레이드된 버전을 가질 수 있는 반면 일부는 이전 버전을 가질 수 있습니다.
 
 8. 브라우저를 열고 포트 19080에서 클러스터 주소로 이동합니다(예: `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`).
 9. 트리 뷰의 **애플리케이션** 노드를 클릭한 후 오른쪽 창에서 **Upgrades in Progress(진행 중인 업그레이드)** 를 클릭합니다. 업그레이드가 클러스터에서 업그레이드 도메인을 어떻게 통과하고 다음으로 진행하기 전에 각 도메인 상태가 정상인지 확인하게 됩니다. 도메인 상태가 확인되면 진행률 표시줄에 업그레이드 도메인이 녹색으로 표시됩니다.

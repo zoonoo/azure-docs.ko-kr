@@ -48,7 +48,7 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 응용 프로�
 
   ![AAD B2C ID 공급자 리디렉션 URL][api-management-howto-copy-b2c-identity-provider-redirect-url]
 
-4. 새 탭에서 Azure Portal의 Azure Active Directory B2C 테넌트에 액세스하고 **응용 프로그램** 블레이드를 엽니다.
+4. 새 탭에서 Azure Portal의 Azure Active Directory B2C 테넌트에 액세스하고 **애플리케이션** 블레이드를 엽니다.
 
   ![새 응용 프로그램 1 등록][api-management-howto-aad-b2c-portal-menu]
 

@@ -59,19 +59,19 @@ ms.locfileid: "50963601"
 
 4. 새로운 Azure IoT Central 애플리케이션을 만들려면:
     
-    * **평가판**을 선택합니다. 평가판 응용 프로그램을 만드는 데 Azure 구독이 필요하지 않습니다.
+    * **평가판**을 선택합니다. 평가판 애플리케이션을 만드는 데 Azure 구독이 필요하지 않습니다.
     
-       디렉터리 및 구독에 대한 자세한 내용은 [응용 프로그램 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
+       디렉터리 및 구독에 대한 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
     
     * **사용자 지정 응용 프로그램**을 선택합니다.
     
-    * 선택적으로 **Contoso 공조 장치** 같은 친숙한 응용 프로그램 이름을 선택할 수 있습니다. Azure IoT Central은 사용자를 위해 고유한 URL 접두사를 생성합니다. 이 URL 접두사를 더욱 기억하기 쉬운 것으로 변경할 수 있습니다.
+    * 선택적으로 **Contoso 공조 장치** 같은 친숙한 애플리케이션 이름을 선택할 수 있습니다. Azure IoT Central은 사용자를 위해 고유한 URL 접두사를 생성합니다. 이 URL 접두사를 더욱 기억하기 쉬운 것으로 변경할 수 있습니다.
     
     * **만들기**를 선택합니다.
 
     ![Azure IoT Central 애플리케이션 페이지](./media/tutorial-define-device-type/iotcentralcreate.png)
 
-    자세한 내용은 [응용 프로그램 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
+    자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
 
 ## <a name="create-a-new-custom-device-template"></a>새 사용자 지정 디바이스 템플릿 만들기
 

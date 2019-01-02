@@ -22,9 +22,9 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 처리할 수 있는 �
 
 Event Hubs에 대한 자세한 내용은 [Event Hubs 개요][Event Hubs overview]를 참조하세요.
 
-이 자습서에서는 Python으로 작성된 응용 프로그램의 이벤트 허브에서 이벤트를 수신하는 방법을 설명합니다. 이벤트를 전송하려면 [해당 보내기 문서](event-hubs-python-get-started-send.md)를 참조하세요.
+이 자습서에서는 Python으로 작성된 애플리케이션의 이벤트 허브에서 이벤트를 수신하는 방법을 설명합니다. 이벤트를 전송하려면 [해당 보내기 문서](event-hubs-python-get-started-send.md)를 참조하세요.
 
-이 자습서의 코드는 [이 GitHub 샘플](https://github.com/Azure/azure-event-hubs-python/tree/master/examples)에서 가져온 것으로, 이 코드를 검사하면 가져온 명령문 및 변수 선언을 포함하여 온전하게 작동하는 응용 프로그램을 볼 수 있습니다. 다른 예제는 동일한 GitHub 폴더에 제공됩니다.
+이 자습서의 코드는 [이 GitHub 샘플](https://github.com/Azure/azure-event-hubs-python/tree/master/examples)에서 가져온 것으로, 이 코드를 검사하면 가져온 명령문 및 변수 선언을 포함하여 온전하게 작동하는 애플리케이션을 볼 수 있습니다. 다른 예제는 동일한 GitHub 폴더에 제공됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -44,7 +44,7 @@ pip install azure-eventhub
 
 ## <a name="create-a-python-script-to-receive-events"></a>이벤트를 수신하는 Python 스크립트 만들기
 
-다음으로, 이벤트 허브에서 이벤트를 수신하는 Python 응용 프로그램을 만듭니다.
+다음으로, 이벤트 허브에서 이벤트를 수신하는 Python 애플리케이션을 만듭니다.
 
 1. 선호하는 Python 편집기(예: [Visual Studio Code][Visual Studio Code])를 엽니다.
 2. **recv.py**라는 스크립트를 만듭니다.
@@ -106,7 +106,7 @@ start python recv.py
 ```
  
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 이벤트 허브에서 메시지를 받는 Python 응용 프로그램을 만들었습니다. Python을 사용하여 이벤트 허브에 이벤트를 보내는 방법을 알아보려면 [이벤트 허브에서 이벤트 보내기 - Python](event-hubs-python-get-started-send.md)을 참조하세요.
+이 빠른 시작에서는 이벤트 허브에서 메시지를 받는 Python 애플리케이션을 만들었습니다. Python을 사용하여 이벤트 허브에 이벤트를 보내는 방법을 알아보려면 [이벤트 허브에서 이벤트 보내기 - Python](event-hubs-python-get-started-send.md)을 참조하세요.
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md

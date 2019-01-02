@@ -146,7 +146,7 @@ az network application-gateway http-listener create \
 
 규칙은 나열된 순서대로 처리되고 트래픽은 특이성에 관계없이 일치하는 첫 번째 규칙을 사용하여 전달됩니다. 예를 들어 기본 수신기를 사용하는 규칙과 다중 사이트 수신기를 사용하는 규칙이 둘 다 같은 포트에 있는 경우 다중 사이트 규칙이 예상대로 작동하려면 다중 사이트 수신기를 사용하는 규칙은 기본 수신기를 사용하는 규칙 앞에 나열되어야 합니다. 
 
-이 예제에서는 응용 프로그램 게이트웨이가 생성되었을 때 두 개의 새 규칙을 만들고 생성된 기본 규칙을 삭제합니다. [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create)를 사용하여 규칙을 추가할 수 있습니다.
+이 예제에서는 애플리케이션 게이트웨이가 생성되었을 때 두 개의 새 규칙을 만들고 생성된 기본 규칙을 삭제합니다. [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create)를 사용하여 규칙을 추가할 수 있습니다.
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -173,7 +173,7 @@ az network application-gateway rule delete \
 
 ## <a name="create-virtual-machine-scale-sets"></a>가상 머신 확장 집합 만들기
 
-이 예제에서는 응용 프로그램에서 세 개의 백 엔드 풀을 지원하는 세 개의 가상 머신 확장 집합을 만듭니다. 사용자가 만든 확장 집합의 이름은 *myvmss1*, *myvmss2* 및 *myvmss3*입니다. 각 확장 집합에는 IIS를 설치하는 두 개의 가상 머신 인스턴스가 포함됩니다.
+이 예제에서는 애플리케이션에서 세 개의 백 엔드 풀을 지원하는 세 개의 가상 머신 확장 집합을 만듭니다. 사용자가 만든 확장 집합의 이름은 *myvmss1*, *myvmss2* 및 *myvmss3*입니다. 각 확장 집합에는 IIS를 설치하는 두 개의 가상 머신 인스턴스가 포함됩니다.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -233,17 +233,17 @@ az network public-ip show \
   --output tsv
 ```
 
-A 레코드를 사용할 경우 응용 프로그램 게이트웨이를 다시 시작할 때 VIP가 변경될 수 있으므로 권장되지 않습니다.
+A 레코드를 사용할 경우 애플리케이션 게이트웨이를 다시 시작할 때 VIP가 변경될 수 있으므로 권장되지 않습니다.
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
 브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http://www.contoso.com
 
-![응용 프로그램 게이트웨이에서 contoso 사이트 테스트](./media/tutorial-multiple-sites-cli/application-gateway-nginxtest1.png)
+![애플리케이션 게이트웨이에서 contoso 사이트 테스트](./media/tutorial-multiple-sites-cli/application-gateway-nginxtest1.png)
 
 주소를 다른 도메인으로 변경하면 다음 예제와 같은 내용이 표시됩니다.
 
-![응용 프로그램 게이트웨이에서 fabrikam 사이트 테스트](./media/tutorial-multiple-sites-cli/application-gateway-nginxtest2.png)
+![애플리케이션 게이트웨이에서 fabrikam 사이트 테스트](./media/tutorial-multiple-sites-cli/application-gateway-nginxtest2.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

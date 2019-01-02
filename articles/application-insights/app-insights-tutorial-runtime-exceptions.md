@@ -66,7 +66,7 @@ Application Insights는 애플리케이션에서 모든 오류를 수집하고 �
 
     ![실패한 요청 샘플](media/app-insights-tutorial-runtime-exceptions/failed-requests-search.png)
 
-6. 실패한 요청에 대한 세부 정보는 Gantt 차트를 보여 줍니다. 이 차트에서는 전체 트랜잭션 기간의 50% 이상을 차지함으로써 발생한 두 개의 종속성 오류가 이 트랜잭션에 있음을 보여 줍니다. 이 환경은 이 작업 ID와 관련된 분산 응용 프로그램의 구성 요소 간에 모든 원격 분석을 제공합니다. [새 환경에 대해 자세히 알아보세요](app-insights-transaction-diagnostics.md). 항목 중 하나를 선택하여 세부 정보를 볼 수 있습니다. 
+6. 실패한 요청에 대한 세부 정보는 Gantt 차트를 보여 줍니다. 이 차트에서는 전체 트랜잭션 기간의 50% 이상을 차지함으로써 발생한 두 개의 종속성 오류가 이 트랜잭션에 있음을 보여 줍니다. 이 환경은 이 작업 ID와 관련된 분산 애플리케이션의 구성 요소 간에 모든 원격 분석을 제공합니다. [새 환경에 대해 자세히 알아보세요](app-insights-transaction-diagnostics.md). 항목 중 하나를 선택하여 세부 정보를 볼 수 있습니다. 
 
     ![실패한 요청 세부 정보](media/app-insights-tutorial-runtime-exceptions/failed-request-details.png)
 

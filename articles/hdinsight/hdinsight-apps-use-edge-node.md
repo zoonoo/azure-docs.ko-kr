@@ -18,7 +18,7 @@ ms.locfileid: "52498624"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>HDInsight의 Apache Hadoop 클러스터에서 빈 에지 노드 사용
 
-HDInsight 클러스터에 빈 에지 노드를 추가하는 방법을 알아봅니다. 빈 에지 노드는 [Apache Hadoop](https://hadoop.apache.org/) 서비스가 실행되지 않지만 헤드 노드에서처럼 설치되고 구성된 동일한 클라이언트 도구를 사용하는 Linux 가상 머신입니다. 클러스터에 액세스하고, 클라이언트 응용 프로그램을 테스트하며 클라이언트 응용 프로그램을 호스트하는 데 에지 노드를 사용할 수 있습니다. 
+HDInsight 클러스터에 빈 에지 노드를 추가하는 방법을 알아봅니다. 빈 에지 노드는 [Apache Hadoop](https://hadoop.apache.org/) 서비스가 실행되지 않지만 헤드 노드에서처럼 설치되고 구성된 동일한 클라이언트 도구를 사용하는 Linux 가상 머신입니다. 클러스터에 액세스하고, 클라이언트 애플리케이션을 테스트하며 클라이언트 애플리케이션을 호스트하는 데 에지 노드를 사용할 수 있습니다. 
 
 빈 에지 노드를 기존 HDInsight 클러스터에 추가할 수 있습니다(클러스터를 만들 때는 새 클러스터에 추가). 빈 에지 노드는 Azure Resource Manager 템플릿을 사용하여 추가합니다.  다음 예제는 템플릿을 사용하여 추가하는 방법을 보여 줍니다.
 

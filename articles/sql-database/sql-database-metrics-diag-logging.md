@@ -386,7 +386,7 @@ Azure SQL 분석을 사용하는 경우 Azure SQL 분석의 탐색 메뉴에서 
 
 ## <a name="metrics-and-logs-available"></a>사용 가능한 메트릭 및 로그
 
-수집한 모니터링 원격 분석을 [SQL Analytics 언어](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)를 사용하여 사용자 고유의 _사용자 지정 분석_ 및 _응용 프로그램 개발_에 사용할 수 있습니다. 
+수집한 모니터링 원격 분석을 [SQL Analytics 언어](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)를 사용하여 사용자 고유의 _사용자 지정 분석_ 및 _애플리케이션 개발_에 사용할 수 있습니다. 
 
 ## <a name="all-metrics"></a>모든 메트릭
 

@@ -30,7 +30,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 멀티모델 데이터�
 * **턴키 글로벌 배포**
     * [단추를 클릭](tutorial-global-distribution-sql-api.md)하여 원하는 수의 [Azure 지역](https://azure.microsoft.com/regions/)에 [데이터를 배포](distribute-data-globally.md)할 수 있습니다. 이렇게 하면 사용자가 있는 위치에 데이터를 배치하여 고객에게 가장 짧을 대기 시간을 보장할 수 있습니다. 
     * 앱에서는 Azure Cosmos DB의 멀티 호밍 API를 사용하여 가장 가까운 지역을 알고 가장 가까운 데이터 센터에 요청을 보냅니다. 이 모든 작업은 구성을 변경하지 않고 수행할 수 있습니다. 쓰기 지역 및 읽기 지역을 원하는 만큼 설정하면 나머지도 처리됩니다.
-    * Azure Cosmos DB 데이터베이스에 지역을 추가하거나 제거하는 경우 멀티 호밍(multi-homing) API 기능에 따라 응용 프로그램을 다시 배포할 필요가 없으며 높은 가용성을 계속 유지할 수 있습니다.
+    * Azure Cosmos DB 데이터베이스에 지역을 추가하거나 제거하는 경우 멀티 호밍(multi-homing) API 기능에 따라 애플리케이션을 다시 배포할 필요가 없으며 높은 가용성을 계속 유지할 수 있습니다.
 
 * **데이터 액세스 및 쿼리를 위한 다중 데이터 모델 및 주요 API**
     * Azure Cosmos DB가 빌드된 ARS(atom-record-sequence) 기반 데이터 모델은 기본적으로 문서, 그래프, 키-값, 테이블 및 열 계열 데이터 모델을 포함하지만 이를 제한하지 않는 여러 데이터 모델을 지원합니다.
@@ -84,7 +84,7 @@ Azure Cosmos DB는 기존의 관계형 및 비관계형 데이터베이스의 �
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Azure Cosmos DB를 활용하는 솔루션
 
-다양한 데이터에 대한 실시간에 준하는 응답 시간을 통해 [전역적으로](distribute-data-globally.md) 대량의 데이터, 읽기 및 쓰기를 처리해야 하는 모든 [웹, 모바일, 게임 및 IoT 응용 프로그램](use-cases.md)은 Azure Cosmos DB에서 [보장](https://azure.microsoft.com/support/legal/sla/cosmos-db/)하는 고가용성, 높은 처리량, 짧은 대기 시간 및 조정 가능한 일관성의 이점을 누릴 수 있습니다. Azure Cosmos DB를 [IoT 및 전자 통신 정보](use-cases.md#iot-and-telematics), [소매 및 마케팅](use-cases.md#retail-and-marketing), [게임](use-cases.md#gaming) 및 [웹 및 모바일 애플리케이션](use-cases.md#web-and-mobile-applications)에 적용하는 방법에 대해 알아보세요.
+다양한 데이터에 대한 실시간에 준하는 응답 시간을 통해 [전역적으로](distribute-data-globally.md) 대량의 데이터, 읽기 및 쓰기를 처리해야 하는 모든 [웹, 모바일, 게임 및 IoT 애플리케이션](use-cases.md)은 Azure Cosmos DB에서 [보장](https://azure.microsoft.com/support/legal/sla/cosmos-db/)하는 고가용성, 높은 처리량, 짧은 대기 시간 및 조정 가능한 일관성의 이점을 누릴 수 있습니다. Azure Cosmos DB를 [IoT 및 전자 통신 정보](use-cases.md#iot-and-telematics), [소매 및 마케팅](use-cases.md#retail-and-marketing), [게임](use-cases.md#gaming) 및 [웹 및 모바일 애플리케이션](use-cases.md#web-and-mobile-applications)에 적용하는 방법에 대해 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 다음 요약 설명서를 통해 Azure Cosmos DB를 시작해 보세요.

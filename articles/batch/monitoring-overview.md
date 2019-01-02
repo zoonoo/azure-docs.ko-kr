@@ -22,7 +22,7 @@ ms.locfileid: "51824086"
 
 Azure 및 Batch 서비스는 Batch 솔루션을 모니터링하는 다양한 서비스, 도구 및 API를 제공합니다. 이 개요 문서에서는 요구 사항에 적합한 모니터링 방법을 선택하도록 도와줍니다.
 
-Azure 리소스 모니터링에 사용할 수 있는 Azure 구성 요소 및 서비스에 대한 개요는 [Azure 응용 프로그램 및 리소스 모니터링](../monitoring-and-diagnostics/monitoring-overview.md)을 참조하세요.
+Azure 리소스 모니터링에 사용할 수 있는 Azure 구성 요소 및 서비스에 대한 개요는 [Azure 애플리케이션 및 리소스 모니터링](../monitoring-and-diagnostics/monitoring-overview.md)을 참조하세요.
 
 ## <a name="subscription-level-monitoring"></a>구독 수준 모니터링
 
@@ -41,7 +41,7 @@ Batch 계정을 포함하는 구독 수준에서, [Azure 활동 로그](../monit
 
 ## <a name="batch-resource-monitoring"></a>Batch 리소스 모니터링
 
-Batch 응용 프로그램에서 Batch API를 사용하여 작업, 태스크, 노드, 풀을 포함한 리소스 상태를 모니터링하거나 쿼리할 수 있습니다. 예: 
+Batch 애플리케이션에서 Batch API를 사용하여 작업, 태스크, 노드, 풀을 포함한 리소스 상태를 모니터링하거나 쿼리할 수 있습니다. 예: 
 
 * [상태별 태스크 및 계산 노드 카운팅](batch-get-resource-counts.md)
 * [Batch 리소스를 효율적으로 나열하는 쿼리 만들기](batch-efficient-list-queries.md)
@@ -53,11 +53,11 @@ Batch 응용 프로그램에서 Batch API를 사용하여 작업, 태스크, 노
 * [계정의 풀 사용량](/rest/api/batchservice/pool/listusagemetrics) 모니터링
 * [상태별로 풀 노드 집계](/rest/api/batchservice/account/listpoolnodecounts)
 
-## <a name="vm-performance-counters-and-application-monitoring"></a>VM 성능 카운터 및 응용 프로그램 모니터링
+## <a name="vm-performance-counters-and-application-monitoring"></a>VM 성능 카운터 및 애플리케이션 모니터링
 
 * [Application Insights](../application-insights/app-insights-overview.md)는 Batch 작업 및 태스크의 가용성, 성능, 사용량을 프로그래밍 방식으로 모니터링하는 데 사용할 수 있는 Azure 서비스입니다. 간편하게 계산 노드(VM)에서 성능 카운터를 가져오고 VM에서 태스크에 대한 사용자 지정 정보를 얻을 수 있습니다. 
 
-  예를 들어 [Application Insights를 사용하여 Batch .NET 응용 프로그램 모니터링 및 디버그](monitor-application-insights.md) 및 함께 제공되는 [코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights)을 참조하세요.
+  예를 들어 [Application Insights를 사용하여 Batch .NET 애플리케이션 모니터링 및 디버그](monitor-application-insights.md) 및 함께 제공되는 [코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights)을 참조하세요.
 
   > [!NOTE]
   > Application Insights를 사용하는 추가 비용이 발생할 수 있습니다. [가격 책정 옵션](https://azure.microsoft.com/pricing/details/application-insights/)을 참조하세요. 

@@ -1,6 +1,6 @@
 ---
 title: Azure Digital Twins로 사용 가능한 방 찾기(C#) | Microsoft Docs
-description: 이 빠른 시작에서는 시뮬레이션된 동작 및 이산화탄소 원격 분석 데이터를 Azure Digital Twins의 공간으로 보내는 두 개의 .NET Core 샘플 응용 프로그램을 실행합니다. 클라우드에서 계산 처리 후 관리 API에서 공기가 깨끗한 사용 가능한 회의실을 찾는 것이 목적입니다.
+description: 이 빠른 시작에서는 시뮬레이션된 동작 및 이산화탄소 원격 분석 데이터를 Azure Digital Twins의 공간으로 보내는 두 개의 .NET Core 샘플 애플리케이션을 실행합니다. 클라우드에서 계산 처리 후 관리 API에서 공기가 깨끗한 사용 가능한 회의실을 찾는 것이 목적입니다.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
@@ -49,7 +49,7 @@ Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이�
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
 
-## <a name="build-application"></a>응용 프로그램 빌드
+## <a name="build-application"></a>애플리케이션 빌드
 
 다음 단계에 따라 점유 애플리케이션을 빌드합니다.
 

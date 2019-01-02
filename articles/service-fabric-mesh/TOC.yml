@@ -32,9 +32,9 @@ items:
       href: service-fabric-mesh-tutorial-template-deploy-app.md
     - name: 2- 애플리케이션에서 서비스 확장
       href: service-fabric-mesh-tutorial-template-scale-services.md
-    - name: 3- 응용 프로그램 업그레이드
+    - name: 3- 애플리케이션 업그레이드
       href: service-fabric-mesh-tutorial-template-upgrade-app.md
-    - name: 4- 응용 프로그램 제거
+    - name: 4- 애플리케이션 제거
       href: service-fabric-mesh-tutorial-template-remove-app.md
 - name: 개념
   items:

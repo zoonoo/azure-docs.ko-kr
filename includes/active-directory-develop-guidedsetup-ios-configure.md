@@ -27,12 +27,12 @@ ms.locfileid: "49988266"
 
 ### <a name="option-1-express-mode"></a>옵션 1: 기본 모드
 
-이제 *Microsoft 응용 프로그램 등록 포털*에서 등용 프로그램을 등록해야 합니다.
+이제 *Microsoft 애플리케이션 등록 포털*에서 애플리케이션을 등록해야 합니다.
 
 1. [Microsoft 응용 프로그램 등록 포털](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure)을 통해 응용 프로그램을 등록합니다.
-2. 응용 프로그램 이름과 이메일을 입력합니다.
+2. 애플리케이션 이름과 이메일을 입력합니다.
 3. [단계별 설정] 옵션이 선택되어 있는지 확인합니다.
-4. 지침에 따라 응용 프로그램 ID를 가져와 코드에 붙여넣습니다.
+4. 지침에 따라 애플리케이션 ID를 가져와 코드에 붙여넣습니다.
 
 ### <a name="option-2-advanced-mode"></a>옵션 2: 고급 모드
 

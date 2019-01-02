@@ -126,7 +126,7 @@ ms.locfileid: "52316194"
     dotnet build 
     </pre>
     
-7. 다음 명령을 사용하여 응용 프로그램을 실행합니다. 이때 **PATH TO OUTPUT**을 6단계에서 참조되는 DLL 경로로 바꿉니다.
+7. 다음 명령을 사용하여 애플리케이션을 실행합니다. 이때 **PATH TO OUTPUT**을 6단계에서 참조되는 DLL 경로로 바꿉니다.
 
     <pre>    
     dotnet **PATH TO OUTPUT**

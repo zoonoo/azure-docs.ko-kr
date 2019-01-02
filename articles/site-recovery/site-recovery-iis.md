@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용하여 다중 계층 IIS 기반 웹 응용 프로그램에 대한 재해 복구 설정 | Microsoft Docs
+title: Azure Site Recovery를 사용하여 다중 계층 IIS 기반 웹 애플리케이션에 대한 재해 복구 설정 | Microsoft Docs
 description: Azure Site Recovery를 사용하여 IIS 웹 팜 가상 머신을 복제하는 방법을 알아봅니다.
 author: nsoneji
 manager: gauravd
@@ -14,7 +14,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/04/2018
 ms.locfileid: "52832959"
 ---
-# <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>다중 계층 IIS 기반 웹 응용 프로그램에 대한 재해 복구 설정
+# <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>다중 계층 IIS 기반 웹 애플리케이션에 대한 재해 복구 설정
 
 애플리케이션 소프트웨어는 조직에서 비즈니스 생산성의 엔진입니다. 다양한 웹 애플리케이션은 조직 내 여러 용도로 사용될 수 있습니다. 급여 처리, 재무 및 고객 지향 웹 사이트에 사용되는 애플리케이션과 같은 일부 애플리케이션은 조직에 중요할 수 있습니다. 생산성 저하를 방지하려면 조직에서 이러한 애플리케이션을 지속적으로 작동하고 실행해야 합니다. 더 중요한 것은 이러한 애플리케이션을 일관되게 사용할 수 있게 되면 조직의 브랜드 또는 이미지가 손상되지 않도록 하는 데 도움이 될 수 있습니다.
 

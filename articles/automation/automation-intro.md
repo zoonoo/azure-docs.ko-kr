@@ -1,6 +1,6 @@
 ---
 title: Azure Automation 개요
-description: Azure Automation을 사용하여 인프라 및 응용 프로그램의 수명 주기를 자동화하는 방법을 알아봅니다.
+description: Azure Automation을 사용하여 인프라 및 애플리케이션의 수명 주기를 자동화하는 방법을 알아봅니다.
 services: automation
 ms.service: automation
 ms.component: process-automation
@@ -34,7 +34,7 @@ Azure Automation은 빈번하고, 시간 소모적이며, 오류가 발생하기
 
 Azure Automation [DSC(Desired State Configuration)](automation-dsc-overview.md)는 엔터프라이즈 환경에 필요한 서비스를 제공하는 PowerShell DSC에 대한 클라우드 기반 솔루션입니다. Azure Automation에서 DSC 리소스를 관리하고 Azure 클라우드의 DSC 끌어오기 서버에서 가상 또는 실제 머신에 구성을 적용합니다. 노드가 할당된 구성에서 벗어난 경우와 같이 중요한 이벤트를 알려주는 풍부한 보고서를 제공합니다. 클라우드 또는 온-프레미스의 실제 및 가상 머신, Windows 또는 Linux에서 컴퓨터 구성을 모니터링하고 자동으로 업데이트할 수 있습니다.
 
-설치된 응용 프로그램 및 다른 구성 항목에 대한 가시성을 위해 게스트 내 리소스에 대한 인벤토리를 가져올 수 있습니다. 풍부한 보고 및 검색 기능을 사용하여 운영 체제 내에 구성된 설정을 이해하는 데 도움이 되는 자세한 정보를 빠르게 찾을 수 있습니다. 서비스, 디먼, 소프트웨어, 레지스트리 및 파일의 변경 내용을 추적하여 문제의 원인을 빠르게 식별할 수 있습니다. 또한 DSC를 사용하면 환경에서 원하지 않는 변경이 발생한 경우를 진단하고 경고할 수 있습니다.
+설치된 애플리케이션 및 다른 구성 항목에 대한 가시성을 위해 게스트 내 리소스에 대한 인벤토리를 가져올 수 있습니다. 풍부한 보고 및 검색 기능을 사용하여 운영 체제 내에 구성된 설정을 이해하는 데 도움이 되는 자세한 정보를 빠르게 찾을 수 있습니다. 서비스, 디먼, 소프트웨어, 레지스트리 및 파일의 변경 내용을 추적하여 문제의 원인을 빠르게 식별할 수 있습니다. 또한 DSC를 사용하면 환경에서 원하지 않는 변경이 발생한 경우를 진단하고 경고할 수 있습니다.
 
 ### <a name="update-management"></a>업데이트 관리
 
@@ -71,7 +71,7 @@ Runbook 및 모듈에 대한 [Automation 갤러리](automation-runbook-gallery.m
 
 ## <a name="common-scenarios-for-automation"></a>일반적인 자동화 시나리오
 
-Azure Automation은 인프라와 응용 프로그램의 수명 주기 전체를 관리합니다. 조직에서 작업을 제공하고 유지 관리하는 방법에 대한 지식을 시스템에 전송합니다. PowerShell, DSC(Desired State Configuration), Python 및 그래픽 Runbook과 같은 공용 언어로 작성합니다. 대상 지정, 보고 및 준수를 위해 배포되는 리소스에 대한 전체 인벤토리를 가져옵니다. 잘못된 구성이 발생하고 운영 준수를 향상시킬 수 있는 변경 내용을 식별합니다.
+Azure Automation은 인프라와 애플리케이션의 수명 주기 전체를 관리합니다. 조직에서 작업을 제공하고 유지 관리하는 방법에 대한 지식을 시스템에 전송합니다. PowerShell, DSC(Desired State Configuration), Python 및 그래픽 Runbook과 같은 공용 언어로 작성합니다. 대상 지정, 보고 및 준수를 위해 배포되는 리소스에 대한 전체 인벤토리를 가져옵니다. 잘못된 구성이 발생하고 운영 준수를 향상시킬 수 있는 변경 내용을 식별합니다.
 
 * **리소스 빌드/배포** - Runbook 및 Azure Resource Manager 템플릿을 사용하여 하이브리드 환경에서 VM을 배포합니다. Jenkins 및 Azure DevOps와 같은 개발 도구에 통합합니다.
 * **VM 구성** - 인프라 및 응용 프로그램에 대해 원하는 구성을 사용하여 Windows 및 Linux 컴퓨터를 평가하고 구성합니다.

@@ -32,7 +32,7 @@ FPGA는 프로그래밍 가능한 논리 블록 배열과 재구성 가능한 �
 
 |프로세서||설명|
 |---|:-------:|------|
-|응용 프로그램 관련 집적 회로|ASIC|Google의 TPU(TensorFlow Processor Units) 같은 사용자 지정 회로는 가장 높은 효율성을 제공합니다. 이러한 회로는 변하는 요구 사항에 따라 재구성할 수 없습니다.|
+|애플리케이션 관련 집적 회로|ASIC|Google의 TPU(TensorFlow Processor Units) 같은 사용자 지정 회로는 가장 높은 효율성을 제공합니다. 이러한 회로는 변하는 요구 사항에 따라 재구성할 수 없습니다.|
 |Field-programmable Gate Arrays|FPGA|Azure에서 사용할 수 있는 것과 같은 FPGA는 ASIC에 가까운 성능을 제공합니다. 또한 유연하고, 시간 경과에 따라 새 논리를 구현하기 위해 다시 구성할 수 있습니다.|
 |그래픽 처리 장치|GPU|GPU는 AI 계산에 널리 사용되며, CPU보다 이미지 렌더링 속도가 빠른 병렬 처리 기능을 제공합니다.|
 |중앙 처리 장치|CPU|범용 프로세서이며, 성능이 그래픽 및 비디오 처리에 적합하지 않습니다.|
@@ -57,7 +57,7 @@ Microsoft Azure는 FPGA 부문에서 세계 최대의 클라우드 투자 규모
 
 이 FPGA 지원 하드웨어 아키텍처를 사용하면 학습된 신경망이 낮은 대기 시간으로 신속하게 실행됩니다. Project Brainwave는 미리 학습된 DNN(심층 신경망)을 FPGA 전반에서 병렬로 실행하여 서비스 규모를 확장할 수 있습니다. DNN은 전송 학습을 위한 심층 기능 기능화기로 미리 학습하거나 업데이트된 가중치를 사용하여 미세 조정할 수 있습니다.
 
-### <a name="scenarios-and-applications"></a>시나리오 및 응용 프로그램
+### <a name="scenarios-and-applications"></a>시나리오 및 애플리케이션
 
 Project Brainwave는 Azure Machine Learning과 통합됩니다. Microsoft에서는 DNN 평가, Bing 검색 순위, SDN(소프트웨어 정의 네트워킹) 가속화에 FPGA를 사용하여 대기 시간을 줄이는 한편, CPU 리소스를 회수하여 다른 작업에 사용합니다.
 

@@ -61,7 +61,7 @@ Azure는 온-프레미스 네트워크에서 Azure에 빠르고 안정적으로 
 ### <a name="azurect---the-azure-connectivity-toolkit"></a>AzureCT - Azure 연결 도구 키트
 AzureCT PowerShell 모듈은 [가용성 테스트][Availability Doc] 및 [성능 테스트][Performance Doc]라는 두 가지 구성 요소를 포함하고 있습니다. 이 문서에서는 성능 테스트에 대한 내용만 다루기 때문에 이 PowerShell 모듈의 두 가지 링크 성능 명령을 집중적으로 살펴볼 것입니다.
 
-성능 테스트에 이 도구 키트를 사용하기 위한 세 가지 기본 단계가 있습니다. 1) PowerShell 모듈을 설치하고, 2) 지원 응용 프로그램 iPerf 및 PSPing을 설치하고, 3) 성능 테스트를 실행합니다.
+성능 테스트에 이 도구 키트를 사용하기 위한 세 가지 기본 단계가 있습니다. 1) PowerShell 모듈을 설치하고, 2) 지원 애플리케이션 iPerf 및 PSPing을 설치하고, 3) 성능 테스트를 실행합니다.
 
 1. PowerShell 모듈 설치
 
@@ -72,7 +72,7 @@ AzureCT PowerShell 모듈은 [가용성 테스트][Availability Doc] 및 [성능
 
     이 명령은 PowerShell 모듈을 다운로드하고 로컬로 설치합니다.
 
-2. 지원 응용 프로그램 설치
+2. 지원 애플리케이션 설치
     ```powershell
     Install-LinkPerformance
     ```
@@ -113,7 +113,7 @@ AzureCT PowerShell 모듈은 [가용성 테스트][Availability Doc] 및 [성능
 
 이제 다이어그램이 생겼으니, 네트워크를 여러 세그먼트로 나누고 문제 범위를 좁힙니다. 정상적으로 작동하는 곳과 그렇지 않은 곳을 확인합니다. 테스트 지점을 계속 이동하면서 문제가 있는 구성 요소까지 격리합니다.
 
-잊지 말고 OSI 모델의 다른 레이어도 확인해야 합니다. 네트워크 및 레이어 1-3(물리적, 데이터 및 네트워크 레이어)에 초점을 맞추기 쉽지만 응용 프로그램 계층의 레이어 7에 문제가 있을 가능성도 있습니다. 열린 마음으로 가정을 확인합니다.
+잊지 말고 OSI 모델의 다른 레이어도 확인해야 합니다. 네트워크 및 레이어 1-3(물리적, 데이터 및 네트워크 레이어)에 초점을 맞추기 쉽지만 애플리케이션 계층의 레이어 7에 문제가 있을 가능성도 있습니다. 열린 마음으로 가정을 확인합니다.
 
 ## <a name="advanced-expressroute-troubleshooting"></a>고급 ExpressRoute 문제 해결
 클라우드 에지가 실제로 어디인지 확실하지 않은 경우 Azure 구성 요소를 격리하는 것이 어려울 수 있습니다. ExpressRoute를 사용하는 경우 에지는 MSEE(Microsoft Enterprise Edge)라고 하는 네트워크 구성 요소입니다. **ExpressRoute를 사용하는 경우** MSEE는 Microsoft의 네트워크와 처음으로 접촉하는 접촉 지점이자 Microsoft 네트워크를 떠나는 마지막 홉입니다. VNet 게이트웨이와 ExpressRoute 회로 사이에 연결 개체를 만드는 것은 실제로는 MSEE에 대한 연결을 만드는 것입니다. Azure 네트워크 문제를 격리하여 문제가 Azure에 있다는 것을 증명하거나 WAN 또는 회사 네트워크로 추가 다운스트림하려면 MSEE를 첫 번째 또는 마지막 홉으로 인식(이동하는 방향에 따라)하는 것이 중요합니다. 

@@ -66,9 +66,9 @@ help 클러스터에서 쿼리를 실행하려면 각 쿼리 위의 **쿼리를 
 
 자체 클러스터에서 쿼리를 실행하려면 다음 단계를 수행합니다.
 
-1. 웹 기본 쿼리 응용 프로그램에 각 쿼리를 복사한 다음 쿼리를 선택하거나 쿼리에 커서를 놓습니다.
+1. 웹 기본 쿼리 애플리케이션에 각 쿼리를 복사한 다음, 쿼리를 선택하거나 쿼리에 커서를 놓습니다.
 
-1. 응용 프로그램 위쪽에서 **실행**을 선택합니다.
+1. 애플리케이션 위쪽에서 **실행**을 선택합니다.
 
 ### <a name="count"></a>count
 
@@ -263,7 +263,7 @@ StormEvents
 ```
 
 > [!NOTE]
-> **render** 연산자는 엔진의 일부라기보다는 클라이언트 쪽 기능이라 할 수 있으며 쉽게 사용할 수 있도록 언어에 통합됩니다. 웹 응용 프로그램은 barchart, columnchart, piechart, timechart, linechart 옵션을 지원합니다. 
+> **render** 연산자는 엔진의 일부라기보다는 클라이언트 쪽 기능이라 할 수 있으며 쉽게 사용할 수 있도록 언어에 통합됩니다. 웹 애플리케이션은 barchart, columnchart, piechart, timechart, linechart 옵션을 지원합니다. 
 
 ## <a name="scalar-operators"></a>스칼라 연산자
 
@@ -793,7 +793,7 @@ window)
 
 [**activity_engagement 플러그 인**](https://docs.microsoft.com/azure/kusto/query/activity-engagement-plugin): 슬라이딩 타임라인 윈도우에서 ID 열을 기준으로 하여 활동 참여 비율을 계산합니다. **activity_engagement 플러그 인**을 사용하면 DAU, WAU 및 MAU(매일/매주/매월 활성 사용자)를 계산할 수 있습니다.
 
-다음 쿼리는 이동하는 7일 윈도우에서 매주 응용 프로그램을 사용하는 총 고유 사용자 수와 비교한 매일 응용 프로그램을 사용하는 총 고유 사용자 비율을 반환합니다.
+다음 쿼리는 이동하는 7일 윈도우에서 매주 애플리케이션을 사용하는 총 고유 사용자 수와 비교한 매일 애플리케이션을 사용하는 총 고유 사용자 비율을 반환합니다.
 
 **\[**[**쿼리를 실행하려면 클릭**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAG1RQWrDMBC8G%2fyHvUVOHGy1lByKD6GBviDkUIoR1tpVsS0jr0MCeXxXiigpVAiBVjOzM6uigHcc0SlCcGrUdgCtSIFtYZnRgWrInA0ZnNOkR4J6JuUIKo9CMgOKp1LutqXknb1GDI76P8RzQHCXDqHW6gqt43ZRkeydNxNOIHWa3AAv5Ctei2xvx06IQNtGTlZInT0AHQN9BpFt5EO59kHmKvQVUUivX8q1y3L4c9%2fIks%2bt5LoMwsMZLxMrgtHVXcb7pOuEthWemEFvBkPARL%2fSpCjgTfXN0vuBHvbH4rQ%2fsikyNjg6q37xL3GsV47cqQ4HHEl8rIxefeZhNHmMmIehsB2dp8nunnZy9hsbiriDWuqTWqpfxdBsLb2ZGzhm8y%2f6b2i%2bWO8HLFcMGe8BAAA%3d)**\]**
 

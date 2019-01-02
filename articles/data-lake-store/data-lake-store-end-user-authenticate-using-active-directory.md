@@ -25,14 +25,14 @@ ms.locfileid: "49954785"
 > 
 > 
 
-Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사용합니다. Data Lake Storage Gen1 또는 Azure Data Lake Analytics와 함께 작동하는 응용 프로그램을 제작하기 전에 Azure AD(Azure Active Directory)를 사용하여 응용 프로그램을 인증하는 방법을 결정해야 합니다. 사용할 수 있는 두 가지 주요 옵션은 다음과 같습니다.
+Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사용합니다. Data Lake Storage Gen1 또는 Azure Data Lake Analytics와 함께 작동하는 애플리케이션을 제작하기 전에 Azure AD(Azure Active Directory)를 사용하여 애플리케이션을 인증하는 방법을 결정해야 합니다. 사용할 수 있는 두 가지 주요 옵션은 다음과 같습니다.
 
 * 최종 사용자 인증(이 문서)
 * 서비스 간 인증(위의 드롭다운에서 이 옵션을 선택)
 
-둘 중 어떤 옵션을 사용하든 응용 프로그램에는 OAuth 2.0 토큰이 제공됩니다. 이 토큰은 Data Lake Storage Gen1 또는 Azure Data Lake Analytics에 대한 각 요청에 연결됩니다.
+둘 중 어떤 옵션을 사용하든 애플리케이션에는 OAuth 2.0 토큰이 제공됩니다. 이 토큰은 Data Lake Storage Gen1 또는 Azure Data Lake Analytics에 대한 각 요청에 연결됩니다.
 
-이 문서에서는 최종 사용자 인증을 위한 **Microsoft Azure Active Directory 네이티브 응용 프로그램**을 만드는 방법에 대해 설명합니다. 서비스 간 인증용 Azure AD 응용 프로그램 구성 관련 지침은 [Azure Active Directory를 사용하여 Data Lake Storage Gen1로 서비스 간 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
+이 문서에서는 최종 사용자 인증을 위한 **Microsoft Azure Active Directory 네이티브 애플리케이션**을 만드는 방법에 대해 설명합니다. 서비스 간 인증용 Azure AD 애플리케이션 구성 관련 지침은 [Azure Active Directory를 사용하여 Data Lake Storage Gen1로 서비스 간 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 * Azure 구독. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -48,7 +48,7 @@ Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사�
 * Azure 테넌트 ID입니다. 테넌트 ID를 검색하는 방법에 대한 지침은 [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id)를 참조하세요.
 
 ## <a name="end-user-authentication"></a>최종 사용자 인증
-이 인증 메커니즘은 최종 사용자가 Microsoft Azure Active Directory를 통해 응용 프로그램에 로그인하기를 원하는 경우에 권장되는 방법입니다. 애플리케이션은 로그인한 최종 사용자와 동일한 수준의 액세스로 Azure 리소스에 액세스할 수 있게 됩니다. 최종 사용자는 응용 프로그램이 액세스를 유지할 수 있도록 주기적으로 자격 증명을 제공해야 합니다.
+이 인증 메커니즘은 최종 사용자가 Microsoft Azure Active Directory를 통해 애플리케이션에 로그인하기를 원하는 경우에 권장되는 방법입니다. 애플리케이션은 로그인한 최종 사용자와 동일한 수준의 액세스로 Azure 리소스에 액세스할 수 있게 됩니다. 최종 사용자는 애플리케이션이 액세스를 유지할 수 있도록 주기적으로 자격 증명을 제공해야 합니다.
 
 최종 사용자의 로그인으로 인해 애플리케이션에 액세스 토큰 및 새로 고침 토큰이 제공됩니다. 액세스 토큰은 Data Lake Storage Gen1 또는 Data Lake Analytics에 대한 각 요청에 연결되며, 기본적으로 1시간 동안 유효합니다. 새로 고침 토큰은 새 액세스 토큰을 가져오는 데 사용할 수 있고 기본적으로 최대 2주 동안 유효합니다. 최종 사용자 로그인에 두 가지 방법을 사용할 수 있습니다.
 
@@ -67,14 +67,14 @@ Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사�
 * Azure AD 도메인 이름. 이 요구 사항은 이 문서의 필수 구성 요소에 이미 나열되어 있습니다.
 * Microsoft Azure Active Directory 테넌트 ID. 이 요구 사항은 이 문서의 필수 구성 요소에 이미 나열되어 있습니다.
 * Azure AD **네이티브 애플리케이션**
-* Azure AD 네이티브 응용 프로그램에 대한 응용 프로그램 ID
-* Azure AD 네이티브 응용 프로그램에 대한 리디렉션 URI
+* Azure AD 네이티브 애플리케이션에 대한 애플리케이션 ID
+* Azure AD 네이티브 애플리케이션에 대한 리디렉션 URI
 * 위임된 권한 설정
 
 
 ## <a name="step-1-create-an-active-directory-native-application"></a>1단계: Active Directory 네이티브 애플리케이션 만들기
 
-Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용자를 인증하기 위한 Azure AD 네이티브 응용 프로그램을 만들고 구성합니다. 지침에 대해서는 [Azure AD 응용 프로그램 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
+Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용자를 인증하기 위한 Azure AD 네이티브 애플리케이션을 만들고 구성합니다. 지침에 대해서는 [Azure AD 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
 이 링크에 있는 지침을 수행하는 동안 다음 스크린샷과 같이 애플리케이션 유형으로 **네이티브**를 선택해야 합니다.
 
@@ -116,7 +116,7 @@ Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용�
 5. 마지막 두 단계를 반복하여 **Microsoft Azure Service Management API**에 대한 권한도 부여합니다.
    
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure AD 네이티브 애플리케이션을 만들고 .NET SDK, Java SDK, REST API 등을 사용하여 만든 클라이언트 애플리케이션에 필요한 정보를 수집했습니다. 계속해서 Azure AD 웹 응용 프로그램을 사용해 Data Lake Storage Gen1에 먼저 인증한 후 저장소에서 다른 작업을 수행하는 방법에 대해 설명하는 다음 문서를 확인할 수 있습니다.
+이 문서에서는 Azure AD 네이티브 애플리케이션을 만들고 .NET SDK, Java SDK, REST API 등을 사용하여 만든 클라이언트 애플리케이션에 필요한 정보를 수집했습니다. 계속해서 Azure AD 웹 애플리케이션을 사용해 Data Lake Storage Gen1에 먼저 인증한 후 저장소에서 다른 작업을 수행하는 방법에 대해 설명하는 다음 문서를 확인할 수 있습니다.
 
 * [Java SDK를 사용하여 Data Lake Storage Gen1로 최종 사용자 인증](data-lake-store-end-user-authenticate-java-sdk.md)
 * [.NET SDK를 사용하여 Data Lake Storage Gen1로 최종 사용자 인증](data-lake-store-end-user-authenticate-net-sdk.md)

@@ -141,7 +141,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    ![애플리케이션 이름 지정](./media/databricks-extract-load-sql-data-warehouse/create-app.png)
 
 Azure Databricks에서 Data Lake Store 계정에 액세스하려면 앞에서 만든 Azure Active Directory 서비스 사용자에 대한 다음 값이 있어야 합니다.
-- 응용 프로그램 UI
+- 애플리케이션 UI
 - 인증 키
 - 테넌트 ID
 
@@ -153,7 +153,7 @@ Azure Databricks에서 Data Lake Store 계정에 액세스하려면 앞에서 �
 
 1. Azure Active Directory의 **앱 등록**에서 애플리케이션을 선택합니다.
 
-   ![응용 프로그램 선택](./media/databricks-extract-load-sql-data-warehouse/select-app.png)
+   ![애플리케이션 선택](./media/databricks-extract-load-sql-data-warehouse/select-app.png)
 
 2. **응용 프로그램 ID**를 복사하고 응용 프로그램 코드에 저장합니다. 일부 [애플리케이션 예제](#log-in-as-the-application)에서는 이 값을 클라이언트 ID라고 합니다.
 
@@ -171,7 +171,7 @@ Azure Databricks에서 Data Lake Store 계정에 액세스하려면 앞에서 �
 
    ![키 저장](./media/databricks-extract-load-sql-data-warehouse/save-key.png)
 
-   키를 저장하면 키 값이 표시됩니다. 나중에 키를 검색할 수 없으므로 이 값을 복사해둡니다. 응용 프로그램으로 로그인하려면 응용 프로그램 ID와 함께 키 값을 제공합니다. 응용 프로그램에서 검색할 수 있는 위치에 키 값을 저장합니다.
+   키를 저장하면 키 값이 표시됩니다. 나중에 키를 검색할 수 없으므로 이 값을 복사해둡니다. 애플리케이션으로 로그인하려면 애플리케이션 ID와 함께 키 값을 제공합니다. 애플리케이션에서 검색할 수 있는 위치에 키 값을 저장합니다.
 
    ![공유 키](./media/databricks-extract-load-sql-data-warehouse/copy-key.png)
 

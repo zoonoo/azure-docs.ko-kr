@@ -49,7 +49,7 @@ AzCopy의 최신 미리 보기 버전을 다운로드합니다.
 
 ## <a name="post-installation-steps"></a>설치 후 단계
 
-AzCopy v10은 설치가 필요하지 않습니다. 선호하는 명령줄 응용 프로그램을 열고 `azcopy.exe` 실행 파일이 있는 폴더로 이동합니다. 원하는 경우 시스템 경로에 AzCopy 폴더 위치를 추가할 수 있습니다.
+AzCopy v10은 설치가 필요하지 않습니다. 선호하는 명령줄 애플리케이션을 열고 `azcopy.exe` 실행 파일이 있는 폴더로 이동합니다. 원하는 경우 시스템 경로에 AzCopy 폴더 위치를 추가할 수 있습니다.
 
 ## <a name="authentication-options"></a>인증 옵션
 

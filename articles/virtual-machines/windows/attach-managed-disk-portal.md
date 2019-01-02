@@ -56,4 +56,4 @@ ms.locfileid: "53075093"
 ## <a name="next-steps"></a>다음 단계
 
 - 또한 [PowerShell을 사용하여 데이터 디스크를 연결](attach-disk-ps.md)할 수 있습니다.
-- 응용 프로그램이 데이터를 저장하는 데 *D:* 드라이브를 사용해야 하면 [Windows 임시 디스크의 드라이브 문자를 변경](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)할 수 있습니다.
+- 애플리케이션이 데이터를 저장하는 데 *D:* 드라이브를 사용해야 하면 [Windows 임시 디스크의 드라이브 문자를 변경](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)할 수 있습니다.

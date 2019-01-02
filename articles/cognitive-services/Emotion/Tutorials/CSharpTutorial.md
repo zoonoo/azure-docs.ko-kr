@@ -60,7 +60,7 @@ ms.locfileid: "53163330"
 4.  이 예제 애플리케이션에서 사용할 예제 이미지가 있습니다. **데이터 폴더** 아래 [Face API GitHub 리포지토리](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data)에서 이러한 이미지를 찾을 수 있습니다. 이러한 이미지의 사용은 이 예제를 테스트하기 위해 사용하는 것은 문제 없지만 다시 게시하는 것은 안 된다는 공정한 사용 계약에 따라 라이선스됐습니다.
 
 ## <a name="Review">검토 및 학습</a>
-이제 실행 중인 응용 프로그램이 있으므로 이 예제 앱이 Microsoft Cognitive Services와 어떻게 통합되는지를 살펴보겠습니다. 이렇게 하면 계속해서 이 앱에 빌드하거나 Microsoft Emotion API를 사용하여 고유한 앱을 개발하는 작업이 더 쉬워집니다.
+이제 실행 중인 애플리케이션이 있으므로 이 예제 앱이 Microsoft Cognitive Services와 어떻게 통합되는지를 살펴보겠습니다. 이렇게 하면 계속해서 이 앱에 빌드하거나 Microsoft Emotion API를 사용하여 고유한 앱을 개발하는 작업이 더 쉬워집니다.
 
 이 예제 앱은 Microsoft Emotion API용 씬 C# 클라이언트 래퍼인 Emotion API 클라이언트 라이브러리를 사용합니다. 위에서 설명한 대로 예제 앱을 빌드한 경우 NuGet 패키지에서 클라이언트 라이브러리를 가져왔습니다. **Emotion**, **Windows**, **클라이언트 라이브러리** 아래의 “[클라이언트 라이브러리](https://github.com/Microsoft/Cognitive-Emotion-Windows/tree/master/ClientLibrary)” 폴더에서, 위의 [필수 조건](#Prerequisites)에 언급된 다운로드된 파일 리포지토리의 일부인 클라이언트 라이브러리 소스 코드를 검토할 수 있습니다.
 

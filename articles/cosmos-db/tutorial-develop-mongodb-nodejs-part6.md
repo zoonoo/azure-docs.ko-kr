@@ -34,7 +34,7 @@ ms.locfileid: "53139982"
 자습서의 이 부분을 시작하기 전에 자습서 [5부](tutorial-develop-mongodb-nodejs-part5.md)의 단계를 완료했는지 확인합니다.
 
 > [!TIP]
-> 이 자습서에서는 응용 프로그램을 구축하는 단계를 단계별로 설명합니다. 완료된 프로젝트를 다운로드하려는 경우 GitHub의 [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb)에서 완성된 응용 프로그램을 가져올 수 있습니다.
+> 이 자습서에서는 애플리케이션을 구축하는 단계를 단계별로 설명합니다. 완료된 프로젝트를 다운로드하려는 경우 GitHub의 [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb)에서 완성된 애플리케이션을 가져올 수 있습니다.
 
 ## <a name="add-a-post-function-to-the-hero-service"></a>Hero 서비스에 게시 함수 추가
 

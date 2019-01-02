@@ -221,4 +221,4 @@ New-AzureRmVmss `
 
 ## <a name="next-steps"></a>다음 단계
 
-지금까지 가용성 영역에서 확장 집합을 만들었으므로 [가상 머신 확장 집합에 응용 프로그램 배포](tutorial-install-apps-cli.md) 또는 [가상 머신 확장 집합에 자동 크기 조정 사용](tutorial-autoscale-cli.md) 방법을 알아볼 수 있습니다.
+지금까지 가용성 영역에서 확장 집합을 만들었으므로 [가상 머신 확장 집합에 애플리케이션 배포](tutorial-install-apps-cli.md) 또는 [가상 머신 확장 집합에 자동 크기 조정 사용](tutorial-autoscale-cli.md) 방법을 알아볼 수 있습니다.

@@ -230,7 +230,7 @@ Azure AD 사용자가 Adaptive Insights에 로그인할 수 있도록 하려면 
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Adaptive Insights에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음, **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 
     ![이미지](./media/adaptivesuite-tutorial/d_all_applications.png)
 

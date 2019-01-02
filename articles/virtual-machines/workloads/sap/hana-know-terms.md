@@ -28,7 +28,7 @@ ms.locfileid: "52275443"
 - **IaaS**: Infrastructure as a Service
 - **PaaS**: Platform as a Service
 - **SaaS**: Software as a service
-- **SAP 구성 요소**: ECC(ERP 중앙 구성 요소), BW(비즈니스 웨어하우스), 솔루션 관리자 또는 EP(엔터프라이즈 포털)과 같은 개별 SAP 응용 프로그램입니다. SAP 구성 요소는 기존의 ABAP 또는 Java 기술을 기반으로 하거나 비즈니스 개체와 같은 비NetWeaver 기반 응용 프로그램을 기반으로 사용할 수 있습니다.
+- **SAP 구성 요소**: ECC(ERP 중앙 구성 요소), BW(비즈니스 웨어하우스), 솔루션 관리자 또는 EP(엔터프라이즈 포털)과 같은 개별 SAP 응용 프로그램입니다. SAP 구성 요소는 기존의 ABAP 또는 Java 기술을 기반으로 하거나 비즈니스 개체와 같은 비NetWeaver 기반 애플리케이션을 기반으로 사용할 수 있습니다.
 - **SAP 환경:** 개발, 품질 보증, 교육, 재해 복구 또는 프로덕션과 같은 비즈니스 기능을 수행하기 위해 논리적으로 그룹화된 하나 이상의 SAP 구성 요소입니다.
 - **SAP 자산:** IT 환경의 SAP 자산 전체를 나타냅니다. SAP 지형에는 모든 프로덕션 및 비프로덕션 환경이 포함됩니다.
 - **SAP 시스템**: DBMS 계층과 응용 프로그램 계층(예: SAP ERP 개발 시스템, SAP BW 테스트 시스템, SAP CRM 프로덕션 시스템)의 조합입니다. Azure 배포는 온-프레미스와 Azure 간에 이러한 두 계층의 분할을 지원하지 않습니다. SAP 시스템은 온-프레미스 또는 Azure에 배포됩니다. SAP 자산의 서로 다른 시스템은 Azure 또는 온-프레미스에 배포할 수 있습니다. 예를 들어 Azure에는 SAP CRM 개발 및 테스트 시스템을 배포하고, 온-프레미스에는 SAP CRM 프로덕션 시스템을 배포할 수 있습니다. SAP HANA on Azure(대규모 인스턴스)의 경우 VM에서 SAP 시스템의 SAP 애플리케이션 계층을 호스팅하고, SAP HANA on Azure(대규모 인스턴스) 스탬프의 장치에서 관련된 SAP HANA 인스턴스를 호스팅하기 위한 것입니다.

@@ -20,7 +20,7 @@ ms.locfileid: "50232718"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Azure Service Bus 및 Azure Logic Apps를 사용하여 클라우드에서 메시지 교환
 
-Azure Logic Apps 및 Azure Service Bus 커넥터를 사용하면 영업 및 구매 주문, 저널 및 조직용 응용 프로그램 간 재고 이동과 같은 데이터를 전송하는 자동화된 작업 및 워크플로를 만들 수 있습니다. 커넥터는 메시지의 모니터링, 전송 및 관리뿐만 아니라 다음과 같이 큐, 세션, 토픽, 구독 등을 사용한 작업을 수행합니다.
+Azure Logic Apps 및 Azure Service Bus 커넥터를 사용하면 영업 및 구매 주문, 저널 및 조직용 애플리케이션 간 재고 이동과 같은 데이터를 전송하는 자동화된 작업 및 워크플로를 만들 수 있습니다. 커넥터는 메시지의 모니터링, 전송 및 관리뿐만 아니라 다음과 같이 큐, 세션, 토픽, 구독 등을 사용한 작업을 수행합니다.
 
 * 큐, 토픽 및 토픽 구독에 메시지가 도착하거나(자동 완성) 수신되면(보기 잠금) 모니터링합니다. 
 * 메시지를 보냅니다.

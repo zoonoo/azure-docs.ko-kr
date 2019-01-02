@@ -16,7 +16,7 @@ ms.locfileid: "51299132"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Kubernetes 웹 대시보드에 액세스
 
-Kubernetes에는 기본 관리 작업에 사용할 수 있는 웹 대시보드가 포함됩니다. 이 대시보드를 사용하면 응용 프로그램의 기본 상태와 메트릭을 보고 서비스를 작성 및 배포하며 기존 응용 프로그램을 편집할 수 있습니다. 이 문서에서는 Azure CLI를 사용하여 Kubernetes 대시보드에 액세스하는 방법을 보여준 후 일부 기본적인 대시보드 작업 과정을 안내합니다.
+Kubernetes에는 기본 관리 작업에 사용할 수 있는 웹 대시보드가 포함됩니다. 이 대시보드를 사용하면 애플리케이션의 기본 상태와 메트릭을 보고 서비스를 작성 및 배포하며 기존 애플리케이션을 편집할 수 있습니다. 이 문서에서는 Azure CLI를 사용하여 Kubernetes 대시보드에 액세스하는 방법을 보여준 후 일부 기본적인 대시보드 작업 과정을 안내합니다.
 
 Kubernetes 대시보드에 대한 자세한 내용은 [Kubernetes 웹 UI 대시보드][kubernetes-dashboard]를 참조하세요.
 
@@ -57,9 +57,9 @@ kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-adm
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
 
-Kubernetes 대시보드가 관리 작업의 복잡도를 줄일 수 있는 방법을 보기 위해 응용 프로그램을 작성해 보겠습니다. 텍스트 입력, YAML 파일을 제공하거나 그래픽 마법사를 통해 Kubernetes 대시보드에서 응용 프로그램을 작성할 수 있습니다.
+Kubernetes 대시보드가 관리 작업의 복잡도를 줄일 수 있는 방법을 보기 위해 애플리케이션을 작성해 보겠습니다. 텍스트 입력, YAML 파일을 제공하거나 그래픽 마법사를 통해 Kubernetes 대시보드에서 애플리케이션을 작성할 수 있습니다.
 
-응용 프로그램을 작성하려면 다음 단계를 완료하세요.
+애플리케이션을 작성하려면 다음 단계를 완료하세요.
 
 1. 오른쪽 상단 창에서 **만들기** 단추를 선택하세요.
 1. 그래픽 마법사를 사용하려면 **앱 만들기**를 선택하세요.
@@ -70,31 +70,31 @@ Kubernetes 대시보드가 관리 작업의 복잡도를 줄일 수 있는 방�
 
 ![Kubernetes 웹 대시보드에 앱 배포](./media/kubernetes-dashboard/create-app.png)
 
-공용 외부 IP 주소가 Kubernetes 서비스에 지정되는 데 1분이나 2분이 소요됩니다. 왼쪽에 있는 **감지 및 로드 밸런싱**에서 **서비스**를 선택하세요. 다음 예제에 표시된 대로 ‘외부 엔드포인트’를 포함하여 응용 프로그램 서비스가 나열됩니다.
+공용 외부 IP 주소가 Kubernetes 서비스에 지정되는 데 1분이나 2분이 소요됩니다. 왼쪽에 있는 **감지 및 로드 밸런싱**에서 **서비스**를 선택하세요. 다음 예제에 표시된 대로 ‘외부 엔드포인트’를 포함하여 애플리케이션 서비스가 나열됩니다.
 
 ![서비스 및 엔드포인트 목록 보기](./media/kubernetes-dashboard/view-services.png)
 
 웹 브라우저 창을 기본 NGINX 페이지로 열려면 엔드포인트 주소를 선택하세요.
 
-![배포된 응용 프로그램의 기본 NGINX 페이지 보기](./media/kubernetes-dashboard/default-nginx.png)
+![배포된 애플리케이션의 기본 NGINX 페이지 보기](./media/kubernetes-dashboard/default-nginx.png)
 
 ## <a name="view-pod-information"></a>Pod 정보 보기
 
 Kubernetes 대시보드는 기본 모니터링 메트릭 및 문제점 해결 정보(예:로그)를 제공할 수 있습니다.
 
-응용 프로그램 Pod에 대한 자세한 정보를 보려면 왼쪽 메뉴에서 **Pod**을 선택하세요. 사용 가능한 Pod 목록이 표시됩니다. 리소스 사용량과 같은 정보를 보려면 *nginx* Pod를 선택하세요.
+애플리케이션 Pod에 대한 자세한 정보를 보려면 왼쪽 메뉴에서 **Pod**을 선택하세요. 사용 가능한 Pod 목록이 표시됩니다. 리소스 사용량과 같은 정보를 보려면 *nginx* Pod를 선택하세요.
 
 ![Pod 정보 보기](./media/kubernetes-dashboard/view-pod-info.png)
 
-## <a name="edit-the-application"></a>응용 프로그램 편집
+## <a name="edit-the-application"></a>애플리케이션 편집
 
-Kubernetes 대시보드는 응용 프로그램을 만들고 보는 것 외에도 응용 프로그램 배포를 편집하고 업데이트하는 데 사용할 수 있습니다. 응용 프로그램에 추가 중복을 제공하려면 NGINX 복제본의 수를 늘리세요.
+Kubernetes 대시보드는 애플리케이션을 만들고 보는 것 외에도 애플리케이션 배포를 편집하고 업데이트하는 데 사용할 수 있습니다. 애플리케이션에 추가 중복을 제공하려면 NGINX 복제본의 수를 늘리세요.
 
 배포를 편집하려면 다음을 수행하세요.
 
 1. 왼쪽 메뉴에서 **배치**를 선택한 다음, *nginx* 배치를 선택하세요.
 1. 오른쪽 위 탐색 표시줄에서 **편집**을 선택합니다.
-1. 행 20 정도에서 `spec.replica` 값을 찾으세요. 응용 프로그램의 복제본 수를 늘리려면 이 값을 *1*에서 *3*으로 변경하세요.
+1. 행 20 정도에서 `spec.replica` 값을 찾으세요. 애플리케이션의 복제본 수를 늘리려면 이 값을 *1*에서 *3*으로 변경하세요.
 1. 준비가 되면 **업데이트**를 선택합니다.
 
 ![배치를 편집하여 복제본 수를 업데이트세요.](./media/kubernetes-dashboard/edit-deployment.png)

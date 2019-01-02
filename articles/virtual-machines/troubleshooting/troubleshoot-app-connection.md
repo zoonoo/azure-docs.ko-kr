@@ -1,6 +1,6 @@
 ---
-title: Azure에서 VM 응용 프로그램 액세스 문제 해결 | Microsoft Docs
-description: 이러한 자세한 문제 해결 단계를 사용하여 Azure의 가상 머신에서 실행되는 응용 프로그램에 연결 시 문제를 격리하세요.
+title: Azure에서 VM 애플리케이션 액세스 문제 해결 | Microsoft Docs
+description: 이러한 자세한 문제 해결 단계를 사용하여 Azure의 가상 머신에서 실행되는 애플리케이션에 연결 시 문제를 격리하세요.
 services: virtual-machines
 documentationcenter: ''
 author: genlin
@@ -23,7 +23,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/31/2018
 ms.locfileid: "50413165"
 ---
-# <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Azure의 가상 머신에서 응용 프로그램 연결 문제해결
+# <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Azure의 가상 머신에서 애플리케이션 연결 문제해결
 
 Azure VM(가상 머신)에서 실행되는 애플리케이션을 시작 또는 연결할 수 없는 다양한 이유가 있습니다. 이유로는 애플리케이션이 실행되지 않거나 예상된 포트에서 수신 대기하지 않거나, 수신 포트가 차단되었거나, 네트워킹 규칙이 애플리케이션에 트래픽을 올바르게 전달하지 않는 등의 경우가 포함됩니다. 이 문서에서는 문제를 찾고 해결하는 체계적인 방법을 설명합니다.
 

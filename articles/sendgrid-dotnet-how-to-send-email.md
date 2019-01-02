@@ -109,7 +109,7 @@ Azure Portal에서 응용 프로그램 설정을 클릭하고 앱 설정 아래�
     var apiKey = System.Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
     var client = new SendGridClient(apiKey);
 
-다음 예제에서는 콘솔 응용 프로그램에서 SendGrid Web API를 사용하여 이메일 메시지를 보내는 방법을 보여 줍니다.
+다음 예제에서는 콘솔 애플리케이션에서 SendGrid Web API를 사용하여 이메일 메시지를 보내는 방법을 보여 줍니다.
 
     using System;
     using System.Threading.Tasks;

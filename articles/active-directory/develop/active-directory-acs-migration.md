@@ -25,16 +25,16 @@ ms.locfileid: "53015775"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
-Microsoft Azure AD(Azure Active Directory) 서비스의 하나인 Azure ACS(Access Control)는 2018년 11월 7일부터 사용 중지됩니다. 현재 Access Control을 사용하는 응용 프로그램 및 서비스는 그때까지 다른 인증 메커니즘으로 완전히 마이그레이션되어야 합니다. 이 문서에서는 Access Control의 사용 중지를 계획 중인 기존 고객에게 몇 가지 권장 사항을 안내합니다. Access Control을 사용하지 않는 경우 어떤 조치도 취할 필요가 없습니다.
+Microsoft Azure AD(Azure Active Directory) 서비스의 하나인 Azure ACS(Access Control)는 2018년 11월 7일부터 사용 중지됩니다. 현재 Access Control을 사용하는 애플리케이션 및 서비스는 그때까지 다른 인증 메커니즘으로 완전히 마이그레이션되어야 합니다. 이 문서에서는 Access Control의 사용 중지를 계획 중인 기존 고객에게 몇 가지 권장 사항을 안내합니다. Access Control을 사용하지 않는 경우 어떤 조치도 취할 필요가 없습니다.
 
 ## <a name="overview"></a>개요
 
-Access Control은 사용자가 웹 응용 프로그램 및 서비스에 액세스할 수 있도록 인증하고 권한을 부여하는 간편한 방법을 제공하는 클라우드 인증 서비스입니다. 많은 인증 및 권한 부여 기능을 코드에서 제외할 수 있습니다. Access Control은 Microsoft .NET 클라이언트, ASP.NET 웹 응용 프로그램 및 Windows Communication Foundation(WCF) 웹 서비스 개발자 및 설계자가 주로 사용합니다.
+Access Control은 사용자가 웹 애플리케이션 및 서비스에 액세스할 수 있도록 인증하고 권한을 부여하는 간편한 방법을 제공하는 클라우드 인증 서비스입니다. 많은 인증 및 권한 부여 기능을 코드에서 제외할 수 있습니다. Access Control은 Microsoft .NET 클라이언트, ASP.NET 웹 애플리케이션 및 Windows Communication Foundation(WCF) 웹 서비스 개발자 및 설계자가 주로 사용합니다.
 
 Access Control의 용도는 다음과 같은 세 가지 범주로 나누어집니다.
 
-- Azure Service Bus 및 Dynamics CRM을 비롯한 특정 Microsoft 클라우드 서비스를 인증합니다. 클라이언트 응용 프로그램은 Access Control로부터 획득한 토큰으로 이러한 서비스를 인증하고 다양한 작업을 수행합니다.
-- 사용자 지정 및 미리 패키지된 웹 응용 프로그램(예: SharePoint)에 인증을 추가합니다. Access Control "수동" 인증을 사용하면 Microsoft 계정(이전의 Live ID)은 물론, Google, Facebook, Yahoo, Azure AD 및 AD FS(Active Directory Federation Services) 계정으로도 웹 응용 프로그램에 로그인할 수 있습니다.
+- Azure Service Bus 및 Dynamics CRM을 비롯한 특정 Microsoft 클라우드 서비스를 인증합니다. 클라이언트 애플리케이션은 Access Control로부터 획득한 토큰으로 이러한 서비스를 인증하고 다양한 작업을 수행합니다.
+- 사용자 지정 및 미리 패키지된 웹 애플리케이션(예: SharePoint)에 인증을 추가합니다. Access Control "수동" 인증을 사용하면 Microsoft 계정(이전의 Live ID)은 물론, Google, Facebook, Yahoo, Azure AD 및 AD FS(Active Directory Federation Services) 계정으로도 웹 애플리케이션에 로그인할 수 있습니다.
 - Access Control에서 발행하는 토큰으로 사용자 지정 웹 서비스를 보호합니다. 웹 서비스는 “능동” 인증을 사용하여 Access Control에서 인증한 클라이언트의 액세스만 허용할 수 있습니다.
 
 이어지는 섹션에서는 이러한 용도와 각각의 권장 마이그레이션 전략을 설명합니다.
@@ -56,7 +56,7 @@ Access Control의 구성 요소는 다음과 같습니다.
 https://<mynamespace>.accesscontrol.windows.net
 ```
 
-이 URL에서 STS 및 관리 작업과의 모든 통신이 이루어집니다. 용도별로 서로 다른 경로를 갖습니다. 응용 프로그램 또는 서비스에서 Access Control을 사용하는지 확인하려면 https://&lt;namespace&gt;.accesscontrol.windows.net으로의 트래픽을 모니터링합니다. 이 URL로 전달되는 모든 트래픽은 Access Control에서 처리하는 것으로, 사용 중지 계획을 세워야 합니다. 
+이 URL에서 STS 및 관리 작업과의 모든 통신이 이루어집니다. 용도별로 서로 다른 경로를 갖습니다. 애플리케이션 또는 서비스에서 Access Control을 사용하는지 확인하려면 https://&lt;namespace&gt;.accesscontrol.windows.net으로의 트래픽을 모니터링합니다. 이 URL로 전달되는 모든 트래픽은 Access Control에서 처리하는 것으로, 사용 중지 계획을 세워야 합니다. 
 
 이에 대한 예외는 모든 `https://accounts.accesscontrol.windows.net` 트래픽입니다. 이 URL로 전달되는 트래픽은 다른 서비스에 의해 처리되기 때문에 Access Control 사용 중지의 영향을 받지 **않습니다**. 
 
@@ -98,7 +98,7 @@ Access Control에 대한 자세한 내용은 [Access Control Service 2.0(보관)
 1. **Get-AcsSubscription** cmdlet을 사용하여 사용 가능한 Azure 구독을 나열합니다.
 1. **Get-AcsNamespace** cmdlet을 사용하여 ACS 네임스페이스를 나열합니다.
 
-### <a name="check-which-applications-will-be-impacted"></a>어떤 응용 프로그램이 영향을 받는지 확인합니다.
+### <a name="check-which-applications-will-be-impacted"></a>어떤 애플리케이션이 영향을 받는지 확인합니다.
 
 1. 이전 단계에서 해당 네임스페이스를 사용하고 `https://<namespace>.accesscontrol.windows.net`으로 이동합니다.
 
@@ -156,16 +156,16 @@ SharePoint 2013, 2016 및 SharePoint Online 고객은 오래 전부터 클라우
 | [SharePoint 추가 기능에 대한 낮은 신뢰 권한 부여(호스팅된 공급자 및 호스팅된 SharePoint)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. |
 | [SharePoint 클라우드 하이브리드 검색](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. |
 
-### <a name="web-applications-that-use-passive-authentication"></a>수동 인증을 사용하는 웹 응용 프로그램
+### <a name="web-applications-that-use-passive-authentication"></a>수동 인증을 사용하는 웹 애플리케이션
 
-사용자 인증에 Access Control을 사용하는 웹 응용 프로그램의 경우 Access Control은 웹 응용 프로그램 개발자 및 설계자에게 다음과 같은 기능을 제공합니다.
+사용자 인증에 Access Control을 사용하는 웹 애플리케이션의 경우 Access Control은 웹 애플리케이션 개발자 및 설계자에게 다음과 같은 기능을 제공합니다.
 
 - WIF(Windows Identity Foundation)와의 심층적인 통합.
 - Google, Facebook, Yahoo, Azure Active Directory 및 AD FS 계정, Microsoft 계정과의 페더레이션.
 - 다음 인증 프로토콜에 대한 지원: OAuth 2.0 Draft 13, WS-Trust 및 WS-Federation(Web Services Federation).
 - 다음 토큰 형식에 대한 지원: JWT(JSON Web Token), SAML 1.1, SAML 2.0 및 SWT(Simple Web Token).
-- 사용자가 로그인할 계정 유형을 직접 선택할 수 있는, WIF에 통합된 홈 영역 검색 환경. 이 환경은 웹 응용 프로그램에 의해 호스팅되며 원하는 대로 사용자 지정이 가능합니다.
-- 웹 응용 프로그램이 Access Control로부터 수신한 클레임을 다음과 같이 사용자 지정할 수 있는 토큰 변환:
+- 사용자가 로그인할 계정 유형을 직접 선택할 수 있는, WIF에 통합된 홈 영역 검색 환경. 이 환경은 웹 애플리케이션에 의해 호스팅되며 원하는 대로 사용자 지정이 가능합니다.
+- 웹 애플리케이션이 Access Control로부터 수신한 클레임을 다음과 같이 사용자 지정할 수 있는 토큰 변환:
     - ID 공급자의 클레임 전달.
     - 사용자 지정 클레임 추가.
     - 특정 조건이 충족되면 클레임을 발행하는 단순한 if-then 로직.
@@ -182,9 +182,9 @@ SharePoint 2013, 2016 및 SharePoint Online 고객은 오래 전부터 클라우
 
 한편 Azure AD는 Access Control 고객에게 몇 가지 이점을 제공합니다. Azure AD는 클라우드 호스팅된 Microsoft 회사 및 학교 계정을 지원합니다. Microsoft 회사 및 학교 계정은 Access Control 고객이 일반적으로 사용하는 계정이기도 합니다. 
 
-Azure AD 테넌트는 AD FS를 통해 하나 이상의 온-프레미스 Active Directory 인스턴스로 페더레이션될 수 있습니다. 이 방식으로 앱이 클라우드 기반 사용자와 온-프레미스로 호스트된 사용자를 인증할 수 있습니다. Ws-Federation 프로토콜도 지원하기 때문에 WIF를 사용하여 웹 응용 프로그램과 비교적 간단하게 통합할 수 있습니다.
+Azure AD 테넌트는 AD FS를 통해 하나 이상의 온-프레미스 Active Directory 인스턴스로 페더레이션될 수 있습니다. 이 방식으로 앱이 클라우드 기반 사용자와 온-프레미스로 호스트된 사용자를 인증할 수 있습니다. Ws-Federation 프로토콜도 지원하기 때문에 WIF를 사용하여 웹 애플리케이션과 비교적 간단하게 통합할 수 있습니다.
 
-다음 표에서는 웹 응용 프로그램과 관련 있는 Access Control의 기능과 Azure AD에서 제공되는 기능을 비교합니다. 
+다음 표에서는 웹 애플리케이션과 관련 있는 Access Control의 기능과 Azure AD에서 제공되는 기능을 비교합니다. 
 
 대략적으로 봤을 때 *사용자가 Microsoft 회사 및 학교 계정으로만 로그인하는 경우에는 Azure Active Directory를 선택하는 것이 좋습니다*.
 
@@ -213,15 +213,15 @@ Azure AD 테넌트는 AD FS를 통해 하나 이상의 온-프레미스 Active D
 | **Automation** | | |
 | 구성 및 관리 작업 자동화 | Access Control 관리 서비스를 통해 지원 | Microsoft Graph 및 Azure AD Graph API를 통해 지원 |
 
-Azure AD가 응용 프로그램 및 서비스에 적합한 마이그레이션 경로라고 판단한 경우, 앱에 Azure AD를 통합하는 두 가지 방법을 모두 알고 있어야 합니다.
+Azure AD가 애플리케이션 및 서비스에 적합한 마이그레이션 경로라고 판단한 경우, 앱에 Azure AD를 통합하는 두 가지 방법을 모두 알고 있어야 합니다.
 
-WS-Federation 또는 WIF를 사용하여 Azure AD와 통합하려면 [비갤러리 응용 프로그램에 대한 페더레이션된 Single Sign-On 구성](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery)에 설명된 방법을 따르는 것이 좋습니다. 이 문서에서는 SAML 기반 Single Sign-On을 위해 Azure AD를 구성하는 방법을 설명하고 있지만, Ws-Federation을 구성할 때도 마찬가지 방법을 사용할 수 있습니다. 이 방법을 사용하려면 Azure AD Premium 라이선스가 필요합니다. 이 방법에는 두 가지 이점이 있습니다.
+WS-Federation 또는 WIF를 사용하여 Azure AD와 통합하려면 [비갤러리 애플리케이션에 대한 페더레이션된 Single Sign-On 구성](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery)에 설명된 방법을 따르는 것이 좋습니다. 이 문서에서는 SAML 기반 Single Sign-On을 위해 Azure AD를 구성하는 방법을 설명하고 있지만, Ws-Federation을 구성할 때도 마찬가지 방법을 사용할 수 있습니다. 이 방법을 사용하려면 Azure AD Premium 라이선스가 필요합니다. 이 방법에는 두 가지 이점이 있습니다.
 
 - Azure AD 토큰 사용자 지정의 유연성이 제공됩니다. Access Control에서 발행한 클레임과 일치하도록 Azure AD에서 발행한 클레임을 사용자 지정할 수 있습니다. 특히 사용자 ID 또는 이름 식별자 클레임이 포함됩니다. 기술을 변경한 다음에도 사용자들이 전과 동일하게 사용자 식별자를 받기 위해서는 Azure AD에서 발행한 사용자 ID가 Access Control에서 발생한 사용자 ID와 일치해야 합니다.
-- 사용자가 직접 수명을 제어하는 응용 프로그램에 맞게 토큰 서명 인증서를 구성할 수 있습니다.
+- 사용자가 직접 수명을 제어하는 애플리케이션에 맞게 토큰 서명 인증서를 구성할 수 있습니다.
 
 > [!NOTE]
-> 이 방법을 사용하려면 Azure AD Premium 라이선스가 필요합니다. Access Control 고객이고 응용 프로그램에 대한 Single Sign-On을 설정하기 위해 Premium 라이선스가 필요한 경우 저희에게 문의하세요. 사용할 수 있는 개발자 라이선스를 제공합니다.
+> 이 방법을 사용하려면 Azure AD Premium 라이선스가 필요합니다. Access Control 고객이고 애플리케이션에 대한 Single Sign-On을 설정하기 위해 Premium 라이선스가 필요한 경우 저희에게 문의하세요. 사용할 수 있는 개발자 라이선스를 제공합니다.
 
 또 다른 방법은 [이 코드 샘플](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation)을 따르는 것입니다. 코드 샘플에서는 Ws-Federation을 설정하는 다른 방법을 설명합니다. 코드 샘플에서는 WIF가 아닌 ASP.NET 4.5 OWIN 미들웨어를 사용하지만 WIF를 사용하는 앱에서도 유효한 앱 등록 방법을 사용할 수 있으며, 이때 Azure AD Premium 라이선스가 필요하지 않습니다. 
 
@@ -231,13 +231,13 @@ OpenID Connect 또는 OAuth 프로토콜을 통해 Azure AD와 통합할 수 있
 
 #### <a name="migrate-to-azure-active-directory-b2c"></a>Azure Active Directory B2C로 마이그레이션
 
-또 다른 마이그레이션 방법으로 Azure AD B2C가 있습니다. Azure AD B2C는 Access Control처럼 개발자들이 인증 및 ID 관리 로직을 클라우드 서비스로 아웃소싱할 수 있도록 해 주는 클라우드 인증 서비스입니다. Azure AD B2C는 엄청나게 많은 활성 사용자를 갖는 소비자용 응용 프로그램을 위해 설계된 유료 서비스로, 무료 등급과 프리미엄 등급이 제공됩니다.
+또 다른 마이그레이션 방법으로 Azure AD B2C가 있습니다. Azure AD B2C는 Access Control처럼 개발자들이 인증 및 ID 관리 로직을 클라우드 서비스로 아웃소싱할 수 있도록 해 주는 클라우드 인증 서비스입니다. Azure AD B2C는 엄청나게 많은 활성 사용자를 갖는 소비자용 애플리케이션을 위해 설계된 유료 서비스로, 무료 등급과 프리미엄 등급이 제공됩니다.
 
-Azure AD B2C는 Access Control과 마찬가지로 다양한 계정 유형을 지원합니다. Azure AD B2C로 Microsoft 계정이나 Facebook, Google, LinkedIn, GitHub 또는 Yahoo 계정 등을 사용하여 사용자가 로그인하도록 할 수 있습니다. Azure AD B2C는 사용자가 특정 응용 프로그램을 위해 만드는 사용자 이름과 암호, 즉 “로컬 계정”도 지원합니다. 또한 Azure AD B2C는 로그인 흐름을 사용자 지정할 수 있도록 확장성도 제공합니다. 
+Azure AD B2C는 Access Control과 마찬가지로 다양한 계정 유형을 지원합니다. Azure AD B2C로 Microsoft 계정이나 Facebook, Google, LinkedIn, GitHub 또는 Yahoo 계정 등을 사용하여 사용자가 로그인하도록 할 수 있습니다. Azure AD B2C는 사용자가 특정 애플리케이션을 위해 만드는 사용자 이름과 암호, 즉 “로컬 계정”도 지원합니다. 또한 Azure AD B2C는 로그인 흐름을 사용자 지정할 수 있도록 확장성도 제공합니다. 
 
 그러나 Azure AD B2C는 Access Control 고객에게 필요할 수도 있는 다양한 인증 프로토콜과 토큰 형식을 지원하지 않습니다. 또한 ID 공급자, Microsoft 등으로부터 토큰을 받고 사용자에 관한 추가 정보를 쿼리하는 데도 Azure AD B2C를 사용할 수 없습니다.
 
-다음 표에서는 웹 응용 프로그램과 관련 있는 Access Control의 기능과 Azure AD B2C에서 제공되는 기능을 비교합니다. 대략적으로 봤을 때 *응용 프로그램이 소비자용이거나 다양한 계정 유형을 지원하는 경우 Azure AD B2C를 선택하는 것이 좋습니다.*
+다음 표에서는 웹 애플리케이션과 관련 있는 Access Control의 기능과 Azure AD B2C에서 제공되는 기능을 비교합니다. 대략적으로 봤을 때 *응용 프로그램이 소비자용이거나 다양한 계정 유형을 지원하는 경우 Azure AD B2C를 선택하는 것이 좋습니다.*
 
 | 기능 | Access Control 지원 | Azure AD B2C 지원 |
 | ---------- | ----------- | ---------------- |
@@ -262,9 +262,9 @@ Azure AD B2C는 Access Control과 마찬가지로 다양한 계정 유형을 지
 | 사용자 지정 토큰 서명 인증서 업로드 | 지원됨 | 사용자 정책을 통해 사용자 지정 서명 키 지원(인증서는 지원 불가) |
 | 토큰의 클레임 사용자 지정 |- ID 공급자의 입력 클레임 전달<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기<br />- 입력 클레임의 값을 바탕으로 출력 클레임 발행<br />- 상수 값을 사용하여 출력 클레임 발행 |- ID 공급자의 클레임 전달 가능. 일부 클레임에는 사용자 지정 정책 필요<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기 불가<br />- 사용자 지정 정책을 통해 입력 클레임의 값을 바탕으로 출력 클레임 발행 가능<br />- 사용자 지정 정책을 통해 상수 값을 바탕으로 출력 클레임 발행 가능 |
 | **Automation** | | |
-| 구성 및 관리 작업 자동화 | Access Control 관리 서비스를 통해 지원 |- Azure AD Graph API를 통한 사용자 생성 허용<br />- B2C 테넌트, 응용 프로그램 또는 정책을 프로그래밍 방식으로 생성 불가 |
+| 구성 및 관리 작업 자동화 | Access Control 관리 서비스를 통해 지원 |- Azure AD Graph API를 통한 사용자 생성 허용<br />- B2C 테넌트, 애플리케이션 또는 정책을 프로그래밍 방식으로 생성 불가 |
 
-Azure AD B2C가 응용 프로그램 및 서비스에 적합한 마이그레이션 경로라고 판단한 경우, 다음 리소스를 살펴보세요.
+Azure AD B2C가 애플리케이션 및 서비스에 적합한 마이그레이션 경로라고 판단한 경우, 다음 리소스를 살펴보세요.
 
 - [Azure AD B2C 설명서](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
 - [Azure AD B2C 사용자 지정 정책](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
@@ -272,15 +272,15 @@ Azure AD B2C가 응용 프로그램 및 서비스에 적합한 마이그레이�
 
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Ping ID 또는 Auth0로 마이그레이션
 
-경우에 따라 주요 코드를 변경하지 않고 웹 응용 프로그램에서 Access Control을 교체하는 데 Azure AD와 Azure AD B2C만으로 충분하지 않을 수 있습니다. 다음과 같은 몇 가지 일반적인 예가 있습니다.
+경우에 따라 주요 코드를 변경하지 않고 웹 애플리케이션에서 Access Control을 교체하는 데 Azure AD와 Azure AD B2C만으로 충분하지 않을 수 있습니다. 다음과 같은 몇 가지 일반적인 예가 있습니다.
 
-- Google 또는 Facebook 등과 같은 소셜 ID 공급자에서 WIF 또는 WS-Federation을 로그인에 사용하는 웹 응용 프로그램.
-- WS-Federation 프로토콜을 통해 엔터프라이즈 ID 공급자에 대한 직접 페더레이션을 수행하는 웹 응용 프로그램.
-- Access Control에서 발행한 토큰의 클레임으로 소셜 ID 공급자(예: Google 또는 Facebook)에서 발행한 액세스 토큰이 필요한 웹 응용 프로그램.
-- Azure AD 또는 Azure AD B2C가 재현할 수 없는 복잡한 토큰 변환 규칙을 사용하는 웹 응용 프로그램.
-- 많은 ID 공급자에 대한 페더레이션을 중앙에서 ACS를 사용하여 관리하는 다중 테넌트 웹 응용 프로그램
+- Google 또는 Facebook 등과 같은 소셜 ID 공급자에서 WIF 또는 WS-Federation을 로그인에 사용하는 웹 애플리케이션.
+- WS-Federation 프로토콜을 통해 엔터프라이즈 ID 공급자에 대한 직접 페더레이션을 수행하는 웹 애플리케이션.
+- Access Control에서 발행한 토큰의 클레임으로 소셜 ID 공급자(예: Google 또는 Facebook)에서 발행한 액세스 토큰이 필요한 웹 애플리케이션.
+- Azure AD 또는 Azure AD B2C가 재현할 수 없는 복잡한 토큰 변환 규칙을 사용하는 웹 애플리케이션.
+- 많은 ID 공급자에 대한 페더레이션을 중앙에서 ACS를 사용하여 관리하는 다중 테넌트 웹 애플리케이션
 
-이러한 경우 웹 응용 프로그램을 다른 클라우드 인증 서비스로 마이그레이션하는 것을 고려해 보는 것이 좋습니다. 다음 옵션에 대해 알아보세요. 다음 옵션은 Access Control과 비슷한 기능을 제공합니다.
+이러한 경우 웹 애플리케이션을 다른 클라우드 인증 서비스로 마이그레이션하는 것을 고려해 보는 것이 좋습니다. 다음 옵션에 대해 알아보세요. 다음 옵션은 Access Control과 비슷한 기능을 제공합니다.
 
 |     |     | 
 | --- | --- |
@@ -320,8 +320,8 @@ Access Control의 서비스 ID는 일반적으로 서버-투-서버(S2S) 인증�
 
 | 기능 | Access Control 지원 | Azure AD 지원 |
 | ---------- | ----------- | ---------------- |
-| 웹 서비스를 등록하는 방법 | Access Control 관리 포털에서 신뢰 당사자 만들기 | Azure Portal에서 Azure AD 웹 응용 프로그램 만들기 |
-| 클라이언트를 등록하는 방법 | Access Control 관리 포털에서 서비스 ID 만들기 | Azure Portal에서 또 다른 Azure AD 웹 응용 프로그램 만들기 |
+| 웹 서비스를 등록하는 방법 | Access Control 관리 포털에서 신뢰 당사자 만들기 | Azure Portal에서 Azure AD 웹 애플리케이션 만들기 |
+| 클라이언트를 등록하는 방법 | Access Control 관리 포털에서 서비스 ID 만들기 | Azure Portal에서 또 다른 Azure AD 웹 애플리케이션 만들기 |
 | 사용되는 프로토콜 |- OAuth WRAP 프로토콜<br />- OAuth 2.0 초안 13 클라이언트 자격 증명 부여 | OAuth 2.0 클라이언트 자격 증명 부여 |
 | 클라이언트 인증 방법 |- 단순한 암호<br />- 서명된 SWT<br />- 페더레이션 ID 공급자로부터 전달된 SAML 토큰 |- 단순한 암호<br />- 서명된 JWT |
 | 토큰 형식 |- JWT<br />- SAML 1.1<br />- SAML 2.0<br />- SWT<br /> | JWT만 |
@@ -342,7 +342,7 @@ Access Control의 서비스 ID는 일반적으로 서버-투-서버(S2S) 인증�
 - 외부 ID 공급자가 제공하는 입력 토큰을 사용하는 서버-투-서버 인증.
 - Azure AD가 재현할 수 없는 토큰 변환 규칙을 사용하는 서버-투-서버 인증.
 
-이런 경우 웹 응용 프로그램을 다른 클라우드 인증 서비스로 마이그레이션하는 것을 고려해 볼 수 있습니다. 다음 옵션에 대해 알아보세요. 다음 옵션은 Access Control과 비슷한 기능을 제공합니다.
+이런 경우 웹 애플리케이션을 다른 클라우드 인증 서비스로 마이그레이션하는 것을 고려해 볼 수 있습니다. 다음 옵션에 대해 알아보세요. 다음 옵션은 Access Control과 비슷한 기능을 제공합니다.
 
 |     |     | 
 | --- | --- |

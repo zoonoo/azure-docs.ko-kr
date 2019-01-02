@@ -1,7 +1,7 @@
 ---
 title: C# 데스크톱 라이브러리를 사용하여 Bing Speech Recognition API 시작 | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Bing Speech Recognition API를 사용하여 음성 오디오를 텍스트로 변환하는 기본 Windows 응용 프로그램을 개발합니다.
+description: Bing Speech Recognition API를 사용하여 음성 오디오를 텍스트로 변환하는 기본 Windows 애플리케이션을 개발합니다.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma

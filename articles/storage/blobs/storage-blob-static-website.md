@@ -1,6 +1,6 @@
 ---
 title: Azure Storage에서 정적 웹 사이트 호스팅
-description: 최신 웹 응용 프로그램을 호스팅하는 비용 효율적이고 확장 가능한 솔루션을 제공하는 정적 웹 사이트 호스팅입니다.
+description: 최신 웹 애플리케이션을 호스팅하는 비용 효율적이고 확장 가능한 솔루션을 제공하는 정적 웹 사이트 호스팅입니다.
 services: storage
 author: tamram
 ms.service: storage

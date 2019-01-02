@@ -74,7 +74,7 @@ SDK만 필요한 경우 다음 패키지를 설치할 수 있습니다.
 지원되는 버전 목록은 [Service Fabric 지원](service-fabric-support.md)을 참조하세요.
 
 > [!NOTE]
-> 단일 컴퓨터 클러스터(OneBox)는 응용 프로그램 또는 클러스터 업그레이드용으로 지원되지 않습니다. 클러스터 업그레이드를 수행해야 하거나 응용 프로그램 업그레이드 수행 시에 문제가 발생하는 경우에는 OneBox 클러스터를 삭제한 후에 다시 만드세요. 
+> 단일 컴퓨터 클러스터(OneBox)는 애플리케이션 또는 클러스터 업그레이드용으로 지원되지 않습니다. 클러스터 업그레이드를 수행해야 하거나 애플리케이션 업그레이드 수행 시에 문제가 발생하는 경우에는 OneBox 클러스터를 삭제한 후에 다시 만드세요. 
 
 ## <a name="enable-powershell-script-execution"></a>PowerShell 스크립트 실행 활성화
 서비스 패브릭은 로컬 개발 클러스터를 만들고 Visual Studio에서 애플리케이션을 배포하기 위해 Windows PowerShell 스크립트를 사용합니다. 기본적으로 Windows에서는 이러한 스크립트의 실행을 차단합니다. 따라서 이러한 스크립트를 사용하려면 PowerShell 실행 정책을 수정해야 합니다. 관리자로 PowerShell을 열고 다음 명령을 입력합니다.
@@ -83,7 +83,7 @@ SDK만 필요한 경우 다음 패키지를 설치할 수 있습니다.
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 ## <a name="install-docker-optional"></a>Docker 설치(선택 사항)
-Service Fabric은 머신 클러스터에 마이크로 서비스를 배포하기 위한 [컨테이너 오케스트레이터](service-fabric-containers-overview.md)입니다. 로컬 개발 클러스터에서 Windows 컨테이너 응용 프로그램을 실행하려면 먼저 Windows용 Docker를 설치해야 합니다. [Windows용 Docker CE(안정화)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)를 가져옵니다. Docker를 설치하고 시작한 후에 트레이 아이콘을 마우스 오른쪽 단추로 클릭하고 **Windows 컨테이너로 전환**을 선택합니다. 이 단계는 Windows 기반의 Docker 이미지를 실행하는 데 필요합니다.
+Service Fabric은 머신 클러스터에 마이크로 서비스를 배포하기 위한 [컨테이너 오케스트레이터](service-fabric-containers-overview.md)입니다. 로컬 개발 클러스터에서 Windows 컨테이너 애플리케이션을 실행하려면 먼저 Windows용 Docker를 설치해야 합니다. [Windows용 Docker CE(안정화)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)를 가져옵니다. Docker를 설치하고 시작한 후에 트레이 아이콘을 마우스 오른쪽 단추로 클릭하고 **Windows 컨테이너로 전환**을 선택합니다. 이 단계는 Windows 기반의 Docker 이미지를 실행하는 데 필요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 개발 환경의 설정을 마쳤으므로 앱을 빌드하고 실행하기 시작할 수 있습니다.

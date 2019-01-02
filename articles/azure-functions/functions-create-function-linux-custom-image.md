@@ -227,7 +227,7 @@ _deployment-container-image-name_ 매개 변수는 Docker 허브에서 호스팅
 
 ## <a name="configure-the-function-app"></a>함수 앱 구성
 
-함수에는 기본 저장소 계정에 연결하기 위한 연결 문자열이 필요합니다. 사용자 지정 이미지를 개인 컨테이너 계정에 게시하는 경우 [ENV 명령](https://docs.docker.com/engine/reference/builder/#env) 또는 비슷한 것을 사용하여 Dockerfile에서 이러한 응용 프로그램 설정을 환경 변수로 대신 설정해야 합니다.
+함수에는 기본 저장소 계정에 연결하기 위한 연결 문자열이 필요합니다. 사용자 지정 이미지를 개인 컨테이너 계정에 게시하는 경우 [ENV 명령](https://docs.docker.com/engine/reference/builder/#env) 또는 비슷한 것을 사용하여 Dockerfile에서 이러한 애플리케이션 설정을 환경 변수로 대신 설정해야 합니다.
 
 이 경우 `<storage_account>`는 만든 기본 저장소 계정의 이름입니다. [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) 명령으로 연결 문자열을 가져옵니다. 함수 앱에서 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 명령으로 이 애플리케이션 설정을 추가합니다.
 

@@ -22,7 +22,7 @@ ms.locfileid: "53087918"
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 이 문서에서는 음성을 텍스트로 변환하는 Cognitive Services Speech SDK의 JavaScript 바인딩을 사용하여 웹 사이트를 만드는 방법을 설명합니다.
-이 응용 프로그램은 Cognitive Services Speech SDK([다운로드 버전 1.1.0](https://aka.ms/csspeech/jsbrowserpackage))를 기반으로 합니다.
+이 애플리케이션은 Cognitive Services Speech SDK([다운로드 버전 1.1.0](https://aka.ms/csspeech/jsbrowserpackage))를 기반으로 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -80,7 +80,7 @@ Speech SDK를 [.zip 패키지](https://aka.ms/csspeech/jsbrowserpackage)로 다�
 
 ## <a name="create-the-token-source-optional"></a>토큰 소스 만들기(선택 사항)
 
-웹 서버에 웹 페이지를 호스트하려는 경우 필요에 따라 데모 응용 프로그램의 토큰 소스를 제공하면 됩니다.
+웹 서버에 웹 페이지를 호스트하려는 경우 필요에 따라 데모 애플리케이션의 토큰 소스를 제공하면 됩니다.
 이 방식을 사용하면 사용자가 권한 부여 코드를 직접 입력하지 않고 음성 기능을 사용할 수 있으면서도 구독 키가 절대 서버를 벗어나지 않습니다.
 
 1. 이름이 `token.php`인 새 파일을 만듭니다. 이 예제에서는 웹 서버에서 PHP 스크립팅 언어를 지원한다고 가정하겠습니다. 다음 코드를 입력합니다.

@@ -44,7 +44,7 @@ IntelliJ용 HDInsight 도구를 사용하여 컴퓨터에서 실행되는 [Horto
   5. 설치를 완료하려면 **IntelliJ IDEA 다시 시작**을 선택합니다.
   6. 4~5단계를 반복하여 **IntelliJ용 Azure 도구 키트**를 설치합니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트 설치](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation)를 참조하세요.
 
-## <a name="create-a-spark-scala-application"></a>Spark Scala 응용 프로그램 만들기
+## <a name="create-a-spark-scala-application"></a>Spark Scala 애플리케이션 만들기
 
 이 섹션에서는 IntelliJ IDEA를 사용하여 샘플 Scala 프로젝트를 만듭니다. 다음 섹션에서는 프로젝트를 제출하기 전에 Hortonworks 샌드박스(에뮬레이터)에 IntelliJ IDEA를 연결합니다.
 

@@ -18,7 +18,7 @@ ms.locfileid: "52970685"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Azure HDInsight에서 실행 중인 Apache Spark 작업 디버그
 
-이 문서에서는 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI, Spark UI 및 Spark 기록 서버를 사용하여 HDInsight 클러스터에서 실행 중인 [Apache Spark](https://spark.apache.org/) 작업을 추적하고 디버깅하는 방법을 알아봅니다. Spark 클러스터에서 사용할 수 있는 Notebook을 통해 Spark 작업, **Machine Learning: MLLib를 사용하여 식품 검사 데이터에 대한 예측 분석**을 시작합니다. 다음 단계를 사용하여 **spark-submit** 등의 다른 방법으로 제출한 응용 프로그램을 추적할 수 있습니다.
+이 문서에서는 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI, Spark UI 및 Spark 기록 서버를 사용하여 HDInsight 클러스터에서 실행 중인 [Apache Spark](https://spark.apache.org/) 작업을 추적하고 디버깅하는 방법을 알아봅니다. Spark 클러스터에서 사용할 수 있는 Notebook을 통해 Spark 작업, **Machine Learning: MLLib를 사용하여 식품 검사 데이터에 대한 예측 분석**을 시작합니다. 다음 단계를 사용하여 **spark-submit** 등의 다른 방법으로 제출한 애플리케이션을 추적할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 다음이 있어야 합니다.
@@ -96,7 +96,7 @@ Spark UI에서 이전에 시작한 응용 프로그램에 의해 생성된 Spark
    > 또는 Ambari UI에서 Spark 기록 서버를 시작할 수도 있습니다. Ambari UI를 시작하려면 개요 블레이드의 **클러스터 대시보드**에서 **Ambari 홈**을 클릭합니다. Ambari UI에서 **Spark**, **빠른 링크**, **Spark 기록 서버 UI**를 차례로 클릭합니다.
    > 
    > 
-2. 완료된 응용 프로그램이 모두 표시됩니다. 자세한 내용은 응용 프로그램 ID를 클릭하여 응용 프로그램에 대해 더 자세히 살펴봅니다.
+2. 완료된 애플리케이션이 모두 표시됩니다. 자세한 내용은 응용 프로그램 ID를 클릭하여 응용 프로그램에 대해 더 자세히 살펴봅니다.
    
     ![Spark 기록 서버 시작](./media/apache-spark-job-debugging/view-completed-applications.png)
 

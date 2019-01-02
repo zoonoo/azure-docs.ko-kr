@@ -64,7 +64,7 @@ setx ACCOUNT_KEY=<youraccountkey>
 ## <a name="run-the-sample"></a>샘플 실행
 이 샘플에서는 '.' 폴더에 테스트 파일을 만듭니다. 샘플 프로그램은 Blob 저장소에 테스트 파일을 업로드하고, 컨테이너에 Blob를 나열하며, 새 이름으로 파일을 다운로드합니다. 
 
-샘플을 실행합니다. 다음 출력은 응용 프로그램 실행 시 반환되는 출력의 예제입니다.
+샘플을 실행합니다. 다음 출력은 애플리케이션 실행 시 반환되는 출력의 예제입니다.
   
 ```
 Uploading BlockBlob: HelloWorld.txt
