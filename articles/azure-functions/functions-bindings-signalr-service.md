@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/23/2018
 ms.author: cshoe
-ms.openlocfilehash: 40cad9eec87c07a205a86f1009074cdbeaf58d15
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 74092f57b3531a037aee71d433c33dddf8c2b694
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249977"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001793"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Azure Functions의 SignalR Service 바인딩
 
@@ -30,7 +30,7 @@ ms.locfileid: "50249977"
 
 ## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
 
-SignalR Service 바인딩은 [Microsoft.Azure.WebJobs.Extensions.SignalRService](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet 패키지 버전 1.0.0-preview1-*에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub 리포지토리에 있습니다.
+SignalR Service 바인딩은 [Microsoft.Azure.WebJobs.Extensions.SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet 패키지 버전 1.0.0-preview1-*에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub 리포지토리에 있습니다.
 
 > [!NOTE]
 > Azure SignalR Service는 일반적으로 사용할 수 있습니다. 그러나 Azure Functions의 SignalR Service 바인딩은 현재 미리 보기로 제공됩니다.
@@ -249,7 +249,7 @@ module.exports = function (context, req) {
 |**direction**|| `in`로 설정해야 합니다.|
 |**name**|| 연결 정보 개체에 대한 함수 코드에 사용되는 변수 이름입니다. |
 |**hubName**|**HubName**| 이 값은 연결 정보가 생성되는 SignalR 허브의 이름으로 설정되어야 합니다.|
-|**userId**|**UserId**| 선택 사항: 액세스 키 토큰에서 설정될 사용자 식별자 클레임의 값입니다. |
+|**userId**|**UserId**| 선택 사항: 액세스 키 토큰에서 설정할 사용자 식별자 클레임의 값입니다. |
 |**connectionStringSetting**|**ConnectionStringSetting**| SignalR Service 연결 문자열("AzureSignalRConnectionString"에 대한 기본값)을 포함하는 앱 설정의 이름 |
 
 ### <a name="signalr"></a>SignalR
