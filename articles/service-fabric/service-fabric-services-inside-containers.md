@@ -103,7 +103,7 @@ Service Fabric은 Service Fabric 마이크로 서비스(Reliable Services 및 Re
 </Policies>
  ```
 
-9. 컨테이너 격리 모드 구성에 대해 알아보려면 [격리 모드 구성]( https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode)을 참조하세요. Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격리 모드를 지원합니다. 다음 코드 조각은 격리 모드가 응용 프로그램 매니페스트 파일에서 지정되는 방법을 보여 줍니다.
+9. 컨테이너 격리 모드 구성에 대해 알아보려면 [격리 모드 구성]( https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode)을 참조하세요. Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격리 모드를 지원합니다. 다음 코드 조각은 격리 모드가 애플리케이션 매니페스트 파일에서 지정되는 방법을 보여 줍니다.
 
  ```xml
 <Policies>

@@ -203,11 +203,11 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 
 #### <a name="interactive-login-or-usernamepassword"></a>대화형 로그인 또는 사용자 이름/암호
 
-이러한 형식의 인증을 위해서는 필요한 API 사용 권한이 할당된 상태로 Azure 응용 프로그램이 생성되어야 합니다. 
+이러한 형식의 인증을 위해서는 필요한 API 사용 권한이 할당된 상태로 Azure 애플리케이션이 생성되어야 합니다. 
 
-1.  Azure Portal에서 **리소스 만들기** > **Azure Active Directory** > **앱 등록** > **새 응용 프로그램 등록**을 클릭합니다.
+1.  Azure Portal에서 **리소스 만들기** > **Azure Active Directory** > **앱 등록** > **새 애플리케이션 등록**을 클릭합니다.
 
-    ![새 응용 프로그램 등록](./media/analysis-services-async-refresh/aas-async-app-reg.png)
+    ![새 애플리케이션 등록](./media/analysis-services-async-refresh/aas-async-app-reg.png)
 
 
 2.  **만들기**에서 이름을 입력하고 **네이티브** 응용 프로그램 유형을 선택합니다. **리디렉션 URI**에 대해 **urn:ietf:wg:oauth:2.0:oob**를 입력하고 **만들기**를 클릭합니다.

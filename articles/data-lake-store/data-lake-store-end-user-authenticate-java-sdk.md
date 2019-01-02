@@ -56,9 +56,9 @@ ms.locfileid: "46126941"
           </dependency>
         </dependencies>
    
-    첫 번째 종속성은 Maven 리포지토리에서 Data Lake Storage Gen1 SDK(`azure-data-lake-store-sdk`)를 사용하는 것입니다. 두 번째 종속성은 이 응용 프로그램에 사용하는 로깅 프레임워크(`slf4j-nop`)를 지정하는 것입니다. Data Lake Storage Gen1 SDK는 [slf4j](http://www.slf4j.org/) 로깅 외관을 사용하며 이로 인해 log4j, Java 로깅, logback 혹은 로깅 없음과 같은 다양하고 인기 있는 로깅 프레임워크를 선택할 수 있습니다. 이 예제에서 로깅을 비활성화하므로 **slf4j-nop** 바인딩을 사용합니다. 앱에서 다른 로깅 옵션을 사용하려면 [여기](http://www.slf4j.org/manual.html#projectDep)를 참조하세요.
+    첫 번째 종속성은 Maven 리포지토리에서 Data Lake Storage Gen1 SDK(`azure-data-lake-store-sdk`)를 사용하는 것입니다. 두 번째 종속성은 이 애플리케이션에 사용하는 로깅 프레임워크(`slf4j-nop`)를 지정하는 것입니다. Data Lake Storage Gen1 SDK는 [slf4j](http://www.slf4j.org/) 로깅 외관을 사용하며 이로 인해 log4j, Java 로깅, logback 혹은 로깅 없음과 같은 다양하고 인기 있는 로깅 프레임워크를 선택할 수 있습니다. 이 예제에서 로깅을 비활성화하므로 **slf4j-nop** 바인딩을 사용합니다. 앱에서 다른 로깅 옵션을 사용하려면 [여기](http://www.slf4j.org/manual.html#projectDep)를 참조하세요.
 
-3. 응용 프로그램에 다음 import 문을 추가합니다.
+3. 애플리케이션에 다음 import 문을 추가합니다.
 
         import com.microsoft.azure.datalake.store.ADLException;
         import com.microsoft.azure.datalake.store.ADLStoreClient;
@@ -67,7 +67,7 @@ ms.locfileid: "46126941"
         import com.microsoft.azure.datalake.store.oauth2.AccessTokenProvider;
         import com.microsoft.azure.datalake.store.oauth2.DeviceCodeTokenProvider;
 
-4. Java 응용 프로그램에서 다음 코드 조각을 사용하여 앞에서 `DeviceCodeTokenProvider` 명령으로 만든 Active Directory 네이티브 응용 프로그램에 대한 토큰을 가져옵니다. **FILL-IN-HERE**를 Azure Active Directory 네이티브 응용 프로그램의 실제 값으로 바꿉니다.
+4. Java 애플리케이션에서 다음 코드 조각을 사용하여 앞에서 `DeviceCodeTokenProvider` 명령으로 만든 Active Directory 네이티브 애플리케이션에 대한 토큰을 가져옵니다. **FILL-IN-HERE**를 Azure Active Directory 네이티브 응용 프로그램의 실제 값으로 바꿉니다.
 
         private static String nativeAppId = "FILL-IN-HERE";
             

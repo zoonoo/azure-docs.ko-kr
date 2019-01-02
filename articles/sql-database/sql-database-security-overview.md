@@ -34,7 +34,7 @@ SQL Database는 이동 중인 데이터의 경우 [전송 계층 보안](https:/
 > [!IMPORTANT]
 > Azure SQL Database는 항상 모든 연결에 암호화(SSL/TLS)를 적용하여 데이터베이스와 클라이언트 간에 “전송”되는 모든 데이터를 암호화합니다. 이 동작은 연결 문자열의 **암호화** 또는 **TrustServerCertificate** 설정에 관계없이 발생합니다.
 >
-> 응용 프로그램의 연결 문자열에서, 암호화된 연결을 사용하고 서비스 인증서를 신뢰하지 *않도록* 지정해야 합니다(ADO.NET 드라이버의 경우 **Encrypt=True** 및 **TrustServerCertificate=False**). 이렇게 하면 응용 프로그램이 서버를 확인하고 암호화를 적용하도록 강제하여 중간자 공격으로부터 응용 프로그램을 보호할 수 있습니다. Azure Portal에서 연결 문자열을 얻는 경우 올바른 설정이 사용됩니다.
+> 애플리케이션의 연결 문자열에서, 암호화된 연결을 사용하고 서비스 인증서를 신뢰하지 *않도록* 지정해야 합니다(ADO.NET 드라이버의 경우 **Encrypt=True** 및 **TrustServerCertificate=False**). 이렇게 하면 애플리케이션이 서버를 확인하고 암호화를 적용하도록 강제하여 중간자 공격으로부터 애플리케이션을 보호할 수 있습니다. Azure Portal에서 연결 문자열을 얻는 경우 올바른 설정이 사용됩니다.
 >
 > TLS 및 연결에 대한 정보는 [TLS 고려 사항](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)을 참조하세요.
 

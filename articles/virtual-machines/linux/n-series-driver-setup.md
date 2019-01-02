@@ -158,7 +158,7 @@ GPU 디바이스 상태를 쿼리하려면 VM에 대해 SSH를 실행하고 드�
 
 ## <a name="rdma-network-connectivity"></a>RDMA 네트워크 연결
 
-동일한 가용성 집합 또는 VM 확장 집합의 단일 배치 그룹에 배포된 NC24r과 같은 RDMA 지원 N 시리즈 VM에서 RDMA 네트워크 연결을 사용할 수 있습니다. RDMA 네트워크는 Intel MPI 5.x 이상 버전을 사용하여 실행되는 응용 프로그램에 대한 MPI(Message Passing Interface) 트래픽을 지원합니다. 추가 요구 사항은 다음과 같습니다.
+동일한 가용성 집합 또는 VM 확장 집합의 단일 배치 그룹에 배포된 NC24r과 같은 RDMA 지원 N 시리즈 VM에서 RDMA 네트워크 연결을 사용할 수 있습니다. RDMA 네트워크는 Intel MPI 5.x 이상 버전을 사용하여 실행되는 애플리케이션에 대한 MPI(Message Passing Interface) 트래픽을 지원합니다. 추가 요구 사항은 다음과 같습니다.
 
 ### <a name="distributions"></a>배포
 

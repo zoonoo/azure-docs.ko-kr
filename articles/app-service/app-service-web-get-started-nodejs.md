@@ -52,13 +52,13 @@ _index.js_를 열어서 다음 줄을 찾습니다.
 var port = process.env.PORT || 1337;
 ```
 
-App Service가 process.env.PORT를 응용 프로그램에 삽입하기 때문에 코드가 변수를 사용하여 수신할 포트를 파악합니다. 
+App Service가 process.env.PORT를 애플리케이션에 삽입하기 때문에 코드가 변수를 사용하여 수신할 포트를 파악합니다. 
 
 터미널 창에서 샘플 Node.js 프로젝트의 루트 디렉터리(_index.js_ 포함)로 이동합니다.
 
 ## <a name="run-the-app-locally"></a>로컬에서 앱 실행하기
 
-응용 프로그램을 로컬로 실행하여 Azure에 응용 프로그램을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고 `npm start` 스크립트를 사용하여 기본 제공 Node.js HTTP 서버를 시작합니다.
+애플리케이션을 로컬로 실행하여 Azure에 애플리케이션을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고 `npm start` 스크립트를 사용하여 기본 제공 Node.js HTTP 서버를 시작합니다.
 
 ```bash
 npm start
@@ -153,7 +153,7 @@ Node.js 샘플 코드는 Azure App Service 웹앱에서 실행 중입니다.
 response.end("Hello Azure!");
 ```
 
-로컬 터미널 창에서 응용 프로그램의 루트 디렉터리로 이동하고, 업데이트된 프로젝트에 대한 새 ZIP 파일을 만듭니다.
+로컬 터미널 창에서 애플리케이션의 루트 디렉터리로 이동하고, 업데이트된 프로젝트에 대한 새 ZIP 파일을 만듭니다.
 
 ```
 # Bash

@@ -23,7 +23,7 @@ ms.locfileid: "52967915"
 
 C#, Java, Node.js, PHP 및 Python과 같은 프로그래밍 언어를 빠르게 시작하려면 [자습서 시작](https://aka.ms/sqldev)을 확인하세요. 그런 다음 Linux 또는 Windows 또는 macOS의 Docker에서 SQL Server를 사용하여 앱을 빌드합니다.
 
-다음 표는 클라이언트 응용 프로그램이 다양한 언어를 사용하여 온-프레미스 또는 클라우드에서 실행 중인 SQL Server에 연결하고 사용할 수 있는 연결 라이브러리 또는 *드라이버*를 나열합니다. Linux, Windows 또는 Docker에서 사용할 수 있으며 이를 사용하여 Azure SQL Database 및 Azure SQL Data Warehouse에 연결할 수 있습니다. 
+다음 표는 클라이언트 애플리케이션이 다양한 언어를 사용하여 온-프레미스 또는 클라우드에서 실행 중인 SQL Server에 연결하고 사용할 수 있는 연결 라이브러리 또는 *드라이버*를 나열합니다. Linux, Windows 또는 Docker에서 사용할 수 있으며 이를 사용하여 Azure SQL Database 및 Azure SQL Data Warehouse에 연결할 수 있습니다. 
 
 | 언어 | 플랫폼 | 추가 리소스 | 다운로드 | 시작하기 |
 | :-- | :-- | :-- | :-- | :-- |
@@ -35,7 +35,7 @@ C#, Java, Node.js, PHP 및 Python과 같은 프로그래밍 언어를 빠르게 
 | Ruby | Windows, Linux, macOS | [SQL Server용 Ruby 드라이버](https://msdn.microsoft.com/library/mt691981.aspx) | [설치](https://msdn.microsoft.com/library/mt711041.aspx) | [시작](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
 | C++ | Windows, Linux, macOS | [SQL Server용 Microsoft ODBC 드라이버](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) | [다운로드](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) |  
 
-다음 표는 클라이언트 응용 프로그램이 온-프레미스 또는 클라우드에서 실행 중인 SQL Server를 사용할 수 있는 ORM(개체-관계형 매핑) 프레임워크 및 웹 프레임워크의 예를 나열합니다. Linux, Windows 또는 Docker에서 프레임워크를 사용할 수 있으며 이를 사용하여 SQL Database 및 SQL Data Warehouse에 연결할 수 있습니다. 
+다음 표는 클라이언트 애플리케이션이 온-프레미스 또는 클라우드에서 실행 중인 SQL Server를 사용할 수 있는 ORM(개체-관계형 매핑) 프레임워크 및 웹 프레임워크의 예를 나열합니다. Linux, Windows 또는 Docker에서 프레임워크를 사용할 수 있으며 이를 사용하여 SQL Database 및 SQL Data Warehouse에 연결할 수 있습니다. 
 
 | 언어 | 플랫폼 | ORM |
 | :-- | :-- | :-- |

@@ -34,7 +34,7 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
 *   MySQL
 *   Oracle 데이터베이스
 *   PostgreSQL
-*   SAP 응용 프로그램 서버 
+*   SAP 애플리케이션 서버 
 *   SAP 메시지 서버
 *   SharePoint Server
 *   SQL Server

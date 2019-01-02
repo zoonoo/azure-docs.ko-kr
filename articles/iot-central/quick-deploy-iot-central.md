@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Central 애플리케이션 만들기 | Microsoft Docs
-description: 새로운 Azure IoT Central 응용 프로그램을 만듭니다. 응용 프로그램 템플릿을 사용하여 평가판 또는 종량제 응용 프로그램을 만듭니다.
+description: 새로운 Azure IoT Central 애플리케이션을 만듭니다. 애플리케이션 템플릿을 사용하여 평가판 또는 종량제 애플리케이션을 만듭니다.
 author: viv-liu
 ms.author: viviali
 ms.date: 10/31/2018
@@ -22,7 +22,7 @@ _작성기_로 Azure IoT Central UI를 사용하여 Microsoft Azure IoT Central 
 
 Azure IoT Central [애플리케이션 관리자](https://aka.ms/iotcentral) 페이지로 이동합니다. Microsoft 개인 또는 회사 또는 학교 계정을 사용하여 로그인해야 합니다.
 
-새로운 Azure IoT Central 응용 프로그램 만들기를 시작하려면 **새 응용 프로그램**을 선택합니다. **응용 프로그램 만들기** 페이지로 이동합니다.
+새로운 Azure IoT Central 애플리케이션 만들기를 시작하려면 **새 애플리케이션**을 선택합니다. **응용 프로그램 만들기** 페이지로 이동합니다.
 
 ![Azure IoT Central 애플리케이션 페이지](media/quick-deploy-iot-central/iotcentralcreate.png)
 
@@ -36,7 +36,7 @@ Azure IoT Central [애플리케이션 관리자](https://aka.ms/iotcentral) 페�
 
 1. **Contoso IoT** 같은 친숙한 응용 프로그램 이름을 선택합니다. Azure IoT Central은 사용자를 위해 고유한 URL 접두사를 생성합니다. 이 URL 접두사를 더욱 기억하기 쉬운 것으로 변경할 수 있습니다.
 
-1. 응용 프로그램 템플릿을 선택합니다. 응용 프로그램 템플릿에는 시작하는 데 도움이 되는 디바이스 템플릿이나 대시보드 같은 미리 정의된 항목이 포함될 수 있습니다.
+1. 애플리케이션 템플릿을 선택합니다. 응용 프로그램 템플릿에는 시작하는 데 도움이 되는 디바이스 템플릿이나 대시보드 같은 미리 정의된 항목이 포함될 수 있습니다.
     | 애플리케이션 템플릿 | 설명 |
     | -------------------- | ----------- |
     | 샘플 Contoso       | Refrigerated Vending Machine에 대해 이미 만든 디바이스 템플릿을 포함하는 애플리케이션을 만듭니다. 이 템플릿을 사용하여 Azure IoT Central 탐색을 시작하세요. |
@@ -57,7 +57,7 @@ Azure IoT Central [애플리케이션 관리자](https://aka.ms/iotcentral) 페�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 IoT Central 응용 프로그램을 만들었습니다. 권장되는 단계는 다음과 같습니다.
+이 빠른 시작에서는 IoT Central 애플리케이션을 만들었습니다. 권장되는 단계는 다음과 같습니다.
 
 > [!div class="nextstepaction"]
 > [IoT Central 둘러보기](https://docs.microsoft.com/azure/iot-central/overview-iot-central-tour)

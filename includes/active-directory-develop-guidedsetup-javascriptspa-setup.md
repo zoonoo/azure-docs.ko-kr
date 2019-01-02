@@ -48,11 +48,11 @@ ms.locfileid: "48842953"
 > Visual Studio를 사용하며 새 프로젝트를 만드는 경우 아래 단계에 따라 새 Visual Studio 솔루션을 만드세요.
 > 1.    Visual Studio: **파일 > 새로 만들기 > 프로젝트**
 > 2.    **Visual C#\Web**에서 **ASP.NET 웹 응용 프로그램(.NET Framework)** 을 선택합니다.
-> 3.    응용 프로그램 이름을 입력하고 **확인**을 선택합니다.
+> 3.    애플리케이션 이름을 입력하고 **확인**을 선택합니다.
 > 4.    **새 ASP.NET 웹 응용 프로그램**에서 **비어 있음**을 선택합니다.
 
 
-## <a name="create-your-single-page-applications-ui"></a>단일 페이지 응용 프로그램의 UI 만들기
+## <a name="create-your-single-page-applications-ui"></a>단일 페이지 애플리케이션의 UI 만들기
 1.  JavaScript SPA에 대한 `index.html` 파일을 만듭니다. Visual Studio를 사용하는 경우 프로젝트(프로젝트 루트 폴더)를 마우스 오른쪽 단추로 클릭하고 **추가 > 새 항목 > HTML 페이지**를 선택하고 이름을 index.html로 지정합니다.
 
 2.  페이지에 다음 코드를 추가합니다.

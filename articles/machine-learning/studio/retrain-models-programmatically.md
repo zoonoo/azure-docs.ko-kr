@@ -88,7 +88,7 @@ ms.locfileid: "53257396"
 
 
 ## <a name="retrain-the-model-with-new-data-using-bes"></a>BES를 사용하여 새 데이터로 모델 다시 학습
-이 예에서는 재학습 응용 프로그램을 만드는 데 C#을 사용합니다. 또한 Python 또는 R 샘플 코드를 사용하여 이 작업을 수행할 수 있습니다.
+이 예에서는 재학습 애플리케이션을 만드는 데 C#을 사용합니다. 또한 Python 또는 R 샘플 코드를 사용하여 이 작업을 수행할 수 있습니다.
 
 재학습 API를 호출하려면:
 
@@ -161,7 +161,7 @@ BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusIpnput.csv") 
 다이어그램 4: 다시 학습 출력.
 
 ## <a name="evaluate-the-retraining-results"></a>재학습 결과 평가
-응용 프로그램을 실행할 때 출력은 평가 결과를 액세스하는 데 필요한 URL 및 SAS 토큰을 포함합니다.
+애플리케이션을 실행할 때 출력은 평가 결과를 액세스하는 데 필요한 URL 및 SAS 토큰을 포함합니다.
 
 *output2*에 대한 출력 결과의 *BaseLocation*, *RelativeLocation* 및 *SasBlobToken*을 조합하고(앞서 재학습 출력 이미지에 표시된 것처럼) 브라우저 주소 표시줄에 전체 URL을 붙여넣어 다시 학습된 모델의 성능 결과를 확인할 수 있습니다.  
 

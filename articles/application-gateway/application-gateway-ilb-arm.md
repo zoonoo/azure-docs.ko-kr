@@ -23,9 +23,9 @@ ms.locfileid: "34598490"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>ILB(내부 부하 분산 장치)를 사용하여 Application Gateway 만들기
 
-Azure Application Gateway는 인터넷 연결 VIP 또는 ILB(내부 부하 분산 장치) 끝점이라고 알려진 인터넷에 노출되지 않은 내부 끝점을 사용하여 구성할 수 있습니다. ILB를 사용하여 게이트웨이를 구성하는 것은 인터넷에 노출되지 않은 비즈니스 응용 프로그램의 내부 라인에 대해 유용합니다. 또한 인터넷에 노출되지 않은 보안 경계에 앉아 있는 다중 계층 응용 프로그램 내에 포함된 서비스 및 계층에 유용하지만 여전히 라운드 로빈 부하 분산, 세션 인력 또는 SSL(Secure Sockets Layer) 종료가 필요합니다.
+Azure Application Gateway는 인터넷 연결 VIP 또는 ILB(내부 부하 분산 장치) 끝점이라고 알려진 인터넷에 노출되지 않은 내부 끝점을 사용하여 구성할 수 있습니다. ILB를 사용하여 게이트웨이를 구성하는 것은 인터넷에 노출되지 않은 비즈니스 애플리케이션의 내부 라인에 대해 유용합니다. 또한 인터넷에 노출되지 않은 보안 경계에 앉아 있는 다중 계층 애플리케이션 내에 포함된 서비스 및 계층에 유용하지만 여전히 라운드 로빈 부하 분산, 세션 인력 또는 SSL(Secure Sockets Layer) 종료가 필요합니다.
 
-이 문서는 ILB와 응용 프로그램 게이트웨이 구성 단계를 안내합니다.
+이 문서는 ILB와 애플리케이션 게이트웨이 구성 단계를 안내합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -35,7 +35,7 @@ Azure Application Gateway는 인터넷 연결 VIP 또는 ILB(내부 부하 분�
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>애플리케이션 게이트웨이를 만드는 데 필요한 것은 무엇입니까?
 
-* **백 엔드 서버 풀:** 백 엔드 서버의 IP 주소 목록입니다. 나열된 IP 주소는 응용 프로그램 게이트웨이에 대한 다른 서브넷의 가상 네트워크에 속하거나 공용 IP/VIP이어야 합니다.
+* **백 엔드 서버 풀:** 백 엔드 서버의 IP 주소 목록입니다. 나열된 IP 주소는 애플리케이션 게이트웨이에 대한 다른 서브넷의 가상 네트워크에 속하거나 공용 IP/VIP이어야 합니다.
 * **백 엔드 서버 풀 설정:** 모든 풀에는 포트, 프로토콜 및 쿠키 기반의 선호도와 같은 설정이 있습니다. 이러한 설정은 풀에 연결 및 풀 내의 모든 서버에 적용 됩니다.
 * **프런트 엔드 포트:** 이 포트는 응용 프로그램 게이트웨이에 열려 있는 공용 포트입니다. 트래픽이 이 포트에 도달하면, 백 엔드 서버 중의 하나로 리디렉트됩니다.
 * **수신기:** 수신기에는 프런트 엔드 포트, 프로토콜(Http 또는 Https, 이 경우 대/소문자 구분) 및 SSL 인증서 이름(SSL 오프로드를 구성하는 경우)이 있습니다.
@@ -43,8 +43,8 @@ Azure Application Gateway는 인터넷 연결 VIP 또는 ILB(내부 부하 분�
 
 ## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
-Azure Classic 및 Azure Resource Manager 간의 차이점은 응용 프로그램 게이트웨이를 만드는 순서와 구성할 항목입니다.
-Resource Manager를 사용하면 응용 프로그램 게이트웨이를 만드는 모든 항목이 개별적으로 구성된 후 응용 프로그램 게이트웨이 리소스를 만드는 데 사용됩니다.
+Azure Classic 및 Azure Resource Manager 간의 차이점은 애플리케이션 게이트웨이를 만드는 순서와 구성할 항목입니다.
+Resource Manager를 사용하면 애플리케이션 게이트웨이를 만드는 모든 항목이 개별적으로 구성된 후 애플리케이션 게이트웨이 리소스를 만드는 데 사용됩니다.
 
 다음은 애플리케이션 게이트웨이를 만드는 데 필요한 단계입니다.
 
@@ -129,7 +129,7 @@ $subnet = $vnet.subnets[0]
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 ```
 
-이 단계에서는 "gatewayIP01"이라는 응용 프로그램 게이트웨이 IP 구성을 만듭니다. Application Gateway는 시작되면 구성된 서브넷에서 IP 주소를 선택하고 백 엔드 IP 풀의 IP 주소로 네트워크 트래픽을 라우팅합니다. 인스턴스마다 하나의 IP 주소를 사용합니다.
+이 단계에서는 "gatewayIP01"이라는 애플리케이션 게이트웨이 IP 구성을 만듭니다. Application Gateway는 시작되면 구성된 서브넷에서 IP 주소를 선택하고 백 엔드 IP 풀의 IP 주소로 네트워크 트래픽을 라우팅합니다. 인스턴스마다 하나의 IP 주소를 사용합니다.
 
 ### <a name="step-2"></a>2단계
 
@@ -210,7 +210,7 @@ Application Gateway를 삭제하려면 다음 단계를 순서대로 수행해�
 
 ### <a name="step-1"></a>1단계
 
-응용 프로그램 게이트웨이 개체를 가져오고 "$getgw" 변수에 연결합니다.
+애플리케이션 게이트웨이 개체를 가져오고 "$getgw" 변수에 연결합니다.
 
 ```powershell
 $getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg

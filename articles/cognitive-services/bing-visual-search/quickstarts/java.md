@@ -32,7 +32,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-이 아티클에는 Bing Visual Search API 요청을 보내고 JSON 검색 결과를 표시하는 간단한 콘솔 응용 프로그램이 포함되어 있습니다. 이 애플리케이션은 Java에서 작성되었지만 API는 RESTful 웹 서비스로, HTTP를 요청하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다. 
+이 문서에는 Bing Visual Search API 요청을 보내고 JSON 검색 결과를 표시하는 간단한 콘솔 애플리케이션이 포함되어 있습니다. 이 애플리케이션은 Java에서 작성되었지만 API는 RESTful 웹 서비스로, HTTP를 요청하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다. 
 
 
 ## <a name="prerequisites"></a>필수 조건

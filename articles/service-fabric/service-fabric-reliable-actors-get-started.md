@@ -26,7 +26,7 @@ ms.locfileid: "44054760"
 > * [Windows에서 C#](service-fabric-reliable-actors-get-started.md)
 > * [Linux에서 Java](service-fabric-reliable-actors-get-started-java.md)
 
-이 문서에서는 Visual Studio에서 간단한 Reliable Actor 응용 프로그램을 만들고 디버그하는 과정을 안내합니다. Reliable Actors에 대한 자세한 내용은 [Service Fabric Reliable Actors 소개](service-fabric-reliable-actors-introduction.md)를 참조하세요.
+이 문서에서는 Visual Studio에서 간단한 Reliable Actor 애플리케이션을 만들고 디버그하는 과정을 안내합니다. Reliable Actors에 대한 자세한 내용은 [Service Fabric Reliable Actors 소개](service-fabric-reliable-actors-introduction.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -34,7 +34,7 @@ ms.locfileid: "44054760"
 
 ## <a name="create-a-new-project-in-visual-studio"></a>Visual Studio에서 새 프로젝트 만들기
 
-관리자 권한으로 Visual Studio 2015 이상을 시작하고 새로운 **Service Fabric 응용 프로그램** 프로젝트를 만듭니다.
+관리자 권한으로 Visual Studio 2015 이상을 시작하고 새로운 **Service Fabric 애플리케이션** 프로젝트를 만듭니다.
 
 ![Visual Studio용 서비스 패브릭 도구 - 새 프로젝트][1]
 
@@ -93,7 +93,7 @@ internal class HelloWorld : Actor, IHelloWorld
 
 ## <a name="add-a-client"></a>클라이언트 추가
 
-행위자 서비스를 호출하는 간단한 콘솔 응용 프로그램을 만듭니다.
+행위자 서비스를 호출하는 간단한 콘솔 애플리케이션을 만듭니다.
 
 1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 프로젝트...** 를 클릭합니다.
 
@@ -102,9 +102,9 @@ internal class HelloWorld : Actor, IHelloWorld
     ![새 프로젝트 추가 대화 상자][6]    
     
     > [!NOTE]
-    > 콘솔 응용 프로그램은 일반적으로 Service Fabric에서 클라이언트로 사용하는 앱 유형이 아니지만 로컬 Service Fabric 클러스터를 사용하여 디버그 및 테스트하기 위한 편리한 예제를 만들어줍니다.
+    > 콘솔 애플리케이션은 일반적으로 Service Fabric에서 클라이언트로 사용하는 앱 유형이 아니지만 로컬 Service Fabric 클러스터를 사용하여 디버그 및 테스트하기 위한 편리한 예제를 만들어줍니다.
 
-3. 콘솔 응용 프로그램은 인터페이스 프로젝트와의 호환성과 기타 종속성을 유지하기 위해 64비트 응용 프로그램이어야 합니다.  솔루션 탐색기에서 **ActorClient** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.  **빌드** 탭에서 **플랫폼 대상**을 **x64**로 설정합니다.
+3. 콘솔 애플리케이션은 인터페이스 프로젝트와의 호환성과 기타 종속성을 유지하기 위해 64비트 애플리케이션이어야 합니다.  솔루션 탐색기에서 **ActorClient** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.  **빌드** 탭에서 **플랫폼 대상**을 **x64**로 설정합니다.
     
     ![빌드 속성][8]
 
@@ -150,9 +150,9 @@ internal class HelloWorld : Actor, IHelloWorld
 
 ![서비스 패브릭 디버깅 출력 창][3]
 
-출력에 *The application is ready*가 포함되면 ActorClient 응용 프로그램을 사용하여 서비스를 테스트할 수 있습니다.  솔루션 탐색기에서 마우스 오른쪽 단추로 **ActorClient** 프로젝트를 클릭하고 **디버그** > **새 인스턴스 시작**을 클릭합니다.  명령줄 응용 프로그램에는 행위자 서비스의 출력이 표시됩니다.
+출력에 *The application is ready*가 포함되면 ActorClient 애플리케이션을 사용하여 서비스를 테스트할 수 있습니다.  솔루션 탐색기에서 마우스 오른쪽 단추로 **ActorClient** 프로젝트를 클릭하고 **디버그** > **새 인스턴스 시작**을 클릭합니다.  명령줄 애플리케이션에는 행위자 서비스의 출력이 표시됩니다.
 
-![응용 프로그램 출력][9]
+![애플리케이션 출력][9]
 
 > [!TIP]
 > 서비스 패브릭 행위자 런타임에서는 일부 [행위자 메서드와 관련된 이벤트 및 성능 카운터](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters)를 내보냅니다. 진단 및 성능 모니터링에 유용합니다.

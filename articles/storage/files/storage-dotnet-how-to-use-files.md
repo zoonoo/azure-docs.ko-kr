@@ -20,7 +20,7 @@ ms.locfileid: "51253706"
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-이 자습서에서는 [Azure Files](storage-files-introduction.md)를 사용하여 파일 데이터를 저장하는 응용 프로그램을 .NET을 사용하여 개발하는 기본 사항을 보여줍니다. 이 자습서에서는 간단한 콘솔 애플리케이션을 만들어서 .NET 및 Azure Files에서 기본 작업을 수행합니다.
+이 자습서에서는 [Azure Files](storage-files-introduction.md)를 사용하여 파일 데이터를 저장하는 애플리케이션을 .NET을 사용하여 개발하는 기본 사항을 보여줍니다. 이 자습서에서는 간단한 콘솔 애플리케이션을 만들어서 .NET 및 Azure Files에서 기본 작업을 수행합니다.
 
 * 파일 내용 가져오기
 * 파일 공유에 대한 할당량(최대 크기) 설정

@@ -59,9 +59,9 @@ Azure IoT Central 애플리케이션에서 **Windows IoT Core** 디바이스 템
 
 실제 Windows 10 IoT Core 디바이스를 설정하려면 Windows 10 IoT Core를 실행하는 디바이스가 필요합니다. Windows 10 IoT Core 디바이스를 설정하는 방법은 [여기](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup)서 알아볼 수 있습니다.
 
-Azure IoT Central과 통신할 수 있는 클라이언트 응용 프로그램도 필요합니다. Azure SDK를 사용하여 자신만의 고유한 사용자 지정 애플리케이션을 빌드하고 Visual Studio를 사용하여 디바이스에 배포할 수도 있고, [미리 작성된 샘플](https://developer.microsoft.com/windows/iot/samples)을 다운로드하여 간단하게 디바이스에 배포하고 실행할 수도 있습니다. 
+Azure IoT Central과 통신할 수 있는 클라이언트 애플리케이션도 필요합니다. Azure SDK를 사용하여 자신만의 고유한 사용자 지정 애플리케이션을 빌드하고 Visual Studio를 사용하여 디바이스에 배포할 수도 있고, [미리 작성된 샘플](https://developer.microsoft.com/windows/iot/samples)을 다운로드하여 간단하게 디바이스에 배포하고 실행할 수도 있습니다. 
 
-### <a name="deploying-the-sample-client-application"></a>샘플 클라이언트 응용 프로그램 배포
+### <a name="deploying-the-sample-client-application"></a>샘플 클라이언트 애플리케이션 배포
 
 이전 단계의 클라이언트 애플리케이션을 Windows 10 IoT 디바이스에 배포하여 준비하려면:
 
@@ -83,7 +83,7 @@ Azure IoT Central과 통신할 수 있는 클라이언트 응용 프로그램도
 
 ![Azure IoT Hub 클라이언트 앱의 스크린샷](./media/howto-connect-windowsiotcore/IoTHubForegroundClientScreenshot.png)
 
-Azure IoT Central에서, Raspberry Pi에서 실행되는 코드가 응용 프로그램과 상호 작용하는 방식을 살펴볼 수 있습니다.
+Azure IoT Central에서, Raspberry Pi에서 실행되는 코드가 애플리케이션과 상호 작용하는 방식을 살펴볼 수 있습니다.
 
 * 실제 디바이스의 **측정값** 페이지에서 원격 분석 데이터를 볼 수 있습니다.
 * **속성** 페이지에서, 보고된 다이 번호 속성 값을 볼 수 있습니다.

@@ -163,7 +163,7 @@ private void createDatabaseIfNotExists() throws Exception
 
 ## <a id="CreateColl"></a>컬렉션 만들기
 
-컬렉션은 DocumentClient 클래스의 `createDocumentCollectionIfNotExists()` 메서드를 사용하여 만들 수 있습니다. 컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다.
+컬렉션은 DocumentClient 클래스의 `createDocumentCollectionIfNotExists()` 메서드를 사용하여 만들 수 있습니다. 컬렉션은 JSON 문서 및 관련 JavaScript 애플리케이션 논리의 컨테이너입니다.
 
 > [!WARNING]
 > **createCollection**은 가격 책정 의미가 포함된 예약된 처리량이 있는 새 컬렉션을 만듭니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.

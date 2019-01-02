@@ -140,17 +140,17 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 
 주문형 HDInsight 연결된 서비스가 사용자를 대신해 HDInsight 클러스터를 만들려면 서비스 주체 인증이 필요합니다. 서비스 주체 인증을 사용하려면 Azure AD(Azure Active Directory)에 응용 프로그램 엔터티를 등록하고 HDInsight 클러스터가 만들어진 리소스 그룹 또는 구독의 **참가자** 역할을 응용 프로그램 엔터티에 부여합니다. 자세한 단계는 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)를 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
 
-- 응용 프로그램 UI
-- 응용 프로그램 키 
+- 애플리케이션 UI
+- 애플리케이션 키 
 - 테넌트 ID
 
 다음 속성을 지정하여 서비스 주체 인증을 사용합니다.
 
 | 자산                | 설명                              | 필수 |
 | :---------------------- | :--------------------------------------- | :------- |
-| **servicePrincipalId**  | 응용 프로그램의 클라이언트 ID를 지정합니다.     | yes      |
-| **servicePrincipalKey** | 응용 프로그램의 키를 지정합니다.           | yes      |
-| **테넌트**              | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | yes      |
+| **servicePrincipalId**  | 애플리케이션의 클라이언트 ID를 지정합니다.     | yes      |
+| **servicePrincipalKey** | 애플리케이션의 키를 지정합니다.           | yes      |
+| **테넌트**              | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | yes      |
 
 ### <a name="advanced-properties"></a>고급 속성
 
@@ -383,9 +383,9 @@ Azure Machine Learning 연결된 서비스를 만들어 데이터 팩토리에 �
 | mlEndpoint             | 일괄 처리 점수 매기기 URL입니다.                   | yes                                      |
 | apiKey                 | 게시된 작업 영역 모델의 API입니다.     | yes                                      |
 | updateResourceEndpoint | 학습된 모델 파일이 있는 예측 웹 서비스를 업데이트하는 데 사용되는 Azure ML Web Service 엔드포인트에 대한 업데이트 리소스 URL입니다. | 아니요                                       |
-| servicePrincipalId     | 응용 프로그램의 클라이언트 ID를 지정합니다.     | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
-| servicePrincipalKey    | 응용 프로그램의 키를 지정합니다.           | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
-| tenant                 | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
+| servicePrincipalId     | 애플리케이션의 클라이언트 ID를 지정합니다.     | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
+| servicePrincipalKey    | 애플리케이션의 키를 지정합니다.           | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
+| tenant                 | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
 | connectVia             | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니요                                       |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics 연결된 서비스
@@ -427,9 +427,9 @@ Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연�
 | dataLakeAnalyticsUri | Azure 데이터 레이크 분석 URI입니다.           | 아니요                                       |
 | subscriptionId       | Azure 구독 ID                    | 아니요                                       |
 | resourceGroupName    | Azure 리소스 그룹 이름                | 아니요                                       |
-| servicePrincipalId   | 응용 프로그램의 클라이언트 ID를 지정합니다.     | yes                                      |
-| servicePrincipalKey  | 응용 프로그램의 키를 지정합니다.           | yes                                      |
-| tenant               | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | yes                                      |
+| servicePrincipalId   | 애플리케이션의 클라이언트 ID를 지정합니다.     | yes                                      |
+| servicePrincipalKey  | 애플리케이션의 키를 지정합니다.           | yes                                      |
+| tenant               | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | yes                                      |
 | connectVia           | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니요                                       |
 
 

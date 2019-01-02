@@ -38,7 +38,7 @@ ms.locfileid: "46946547"
 
 ### <a name="create-the-sample-project"></a>샘플 프로젝트 만들기
 
-이 서버 응용 프로그램에는 Azure AD에 전달되는 계정 정보뿐만 아니라 Restify 및 Passport를 지원하기 위한 몇 가지 패키지 종속성이 필요합니다.
+이 서버 애플리케이션에는 Azure AD에 전달되는 계정 정보뿐만 아니라 Restify 및 Passport를 지원하기 위한 몇 가지 패키지 종속성이 필요합니다.
 
 먼저 `package.json` 파일에 다음 코드를 추가합니다.
 
@@ -77,8 +77,8 @@ az ad app create --display-name node-aad-demo --homepage http://localhost --iden
 | 인수  | 설명 |
 |---------|---------|
 |`display-name` | 등록의 이름 |
-|`homepage` | 사용자가 로그인하여 응용 프로그램을 사용할 수 있는 URL |
-|`identifier-uris` | Azure AD가 이 응용 프로그램에 사용할 수 있는 공백으로 구분된 고유 URI |
+|`homepage` | 사용자가 로그인하여 애플리케이션을 사용할 수 있는 URL |
+|`identifier-uris` | Azure AD가 이 애플리케이션에 사용할 수 있는 공백으로 구분된 고유 URI |
 
 Azure Active Directory에 연결하려면 다음 정보가 필요합니다.
 
@@ -253,5 +253,5 @@ Unauthorized
 
 ## <a name="next-steps"></a>다음 단계
 
-* 로그인, 로그아웃 및 토큰 관리를 처리하는 서버에 연결하려면 해당 클라이언트를 구현해야 합니다. 코드 기반 예제를 보려면 [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) 및 [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)에서 클라이언트 응용 프로그램을 참조하세요.
+* 로그인, 로그아웃 및 토큰 관리를 처리하는 서버에 연결하려면 해당 클라이언트를 구현해야 합니다. 코드 기반 예제를 보려면 [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) 및 [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)에서 클라이언트 애플리케이션을 참조하세요.
 * 단계별 자습서는 [Azure AD에서 Node.js 웹앱 로그인 및 로그아웃](quickstart-v1-openid-connect-code.md)을 참조하세요.

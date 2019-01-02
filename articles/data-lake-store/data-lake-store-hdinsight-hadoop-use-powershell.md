@@ -123,7 +123,7 @@ PowerShell을 사용하여 Data Lake Storage Gen1과 함께 작동하도록 HDIn
 
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-storage-gen1"></a>Data Lake Storage Gen1에 대한 역할 기반 액세스를 위한 인증 설정
 
-모든 Azure 구독은 Azure Active Directory와 연결됩니다. Azure Portal 또는 Azure Resource Manager API를 사용하여 구독 리소스에 액세스하는 사용자와 서비스는 먼저 해당 Azure Active Directory에 인증해야 합니다. Azure 리소스에 대한 적절한 역할을 할당하여 Azure 구독과 서비스에 액세스 권한을 부여합니다.  서비스의 경우 서비스 주체는 Azure Active Directory(AAD)의 서비스를 식별합니다. 이 섹션에서는 응용 프로그램에 대한 서비스 주체를 만들고 Azure PowerShell을 통해 역할을 할당하여 HDInsight와 같은 응용 프로그램 서비스에 Azure 리소스(이전에 만든 Data Lake Storage Gen1)에 대한 액세스 권한을 할당하는 방법을 설명합니다.
+모든 Azure 구독은 Azure Active Directory와 연결됩니다. Azure Portal 또는 Azure Resource Manager API를 사용하여 구독 리소스에 액세스하는 사용자와 서비스는 먼저 해당 Azure Active Directory에 인증해야 합니다. Azure 리소스에 대한 적절한 역할을 할당하여 Azure 구독과 서비스에 액세스 권한을 부여합니다.  서비스의 경우 서비스 주체는 Azure Active Directory(AAD)의 서비스를 식별합니다. 이 섹션에서는 애플리케이션에 대한 서비스 주체를 만들고 Azure PowerShell을 통해 역할을 할당하여 HDInsight와 같은 애플리케이션 서비스에 Azure 리소스(이전에 만든 Data Lake Storage Gen1)에 대한 액세스 권한을 할당하는 방법을 설명합니다.
 
 Data Lake Storage Gen1에 대한 Active Directory 인증을 설정하려면 다음 작업을 수행해야 합니다.
 

@@ -57,7 +57,7 @@ DR(재해 복구)을 사용하도록 설정하는 사용자에게 키를 복사�
 
 1. [이 링크](https://aka.ms/ade-asr-copy-keys-code)를 클릭하여 브라우저 창에서 ‘CopyKeys’ 원시 스크립트 코드를 엽니다.
 2. 파일에 스크립트를 복사하고 파일 이름을 ‘Copy-keys.ps1’로 지정합니다.
-2. Windows PowerShell 응용 프로그램을 열고 파일이 있는 폴더 위치로 이동합니다.
+2. Windows PowerShell 애플리케이션을 열고 파일이 있는 폴더 위치로 이동합니다.
 3. 'Copy-keys.ps1'을 시작합니다.
 4. Azure 로그인 자격 증명을 입력합니다.
 5. VM의 **Azure 구독**을 선택합니다.

@@ -22,7 +22,7 @@ ms.locfileid: "53191838"
 ---
 # <a name="app-expression-in-log-analytics-query"></a>Log Analytics 쿼리의 app() 식
 
-`app` 식은 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 Application Insights 앱에서 데이터를 검색하기 위해 Log Analytics 쿼리에서 사용됩니다. 이 식은 Log Analytics 쿼리에 응용 프로그램 데이터를 포함하고 Application Insights 쿼리를 통해 여러 응용 프로그램의 데이터를 쿼리하는 데 유용합니다.
+`app` 식은 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 Application Insights 앱에서 데이터를 검색하기 위해 Log Analytics 쿼리에서 사용됩니다. 이 식은 Log Analytics 쿼리에 애플리케이션 데이터를 포함하고 Application Insights 쿼리를 통해 여러 애플리케이션의 데이터를 쿼리하는 데 유용합니다.
 
 
 
@@ -45,8 +45,8 @@ ms.locfileid: "53191838"
 
 ## <a name="notes"></a>메모
 
-* 응용 프로그램에 대한 읽기 권한이 있어야 합니다.
-* 응용 프로그램을 이름으로 식별하면 액세스 가능한 모든 구독에서 고유한 것으로 가정합니다. 지정된 이름의 응용 프로그램이 여러 개 있으면 모호성으로 인해 쿼리가 실패합니다. 이런 경우 다른 식별자 중 하나를 사용해야 합니다.
+* 애플리케이션에 대한 읽기 권한이 있어야 합니다.
+* 애플리케이션을 이름으로 식별하면 액세스 가능한 모든 구독에서 고유한 것으로 가정합니다. 지정된 이름의 애플리케이션이 여러 개 있으면 모호성으로 인해 쿼리가 실패합니다. 이런 경우 다른 식별자 중 하나를 사용해야 합니다.
 * 관련된 식 [작업 영역](workspace-expression.md)을 사용하여 Log Analytics 작업 영역 전체를 쿼리합니다.
 
 ## <a name="examples"></a>예

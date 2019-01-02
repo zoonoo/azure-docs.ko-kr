@@ -65,7 +65,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 - 로그인 날짜
 - 관련된 사용자
-- 사용자가 로그인한 응용 프로그램
+- 사용자가 로그인한 애플리케이션
 - 로그인 상태
 - 위험 검색 상태
 - MFA(Multi-Factor Authentication) 요구 사항 상태
@@ -195,7 +195,7 @@ Azure AD 외에도 Azure Portal에서는 로그인 데이터에 대한 추가 �
 - 사용자 ID
 - 사용자
 - 사용자 이름
-- 응용 프로그램 UI
+- 애플리케이션 UI
 - 애플리케이션
 - 클라이언트
 - 위치
@@ -208,7 +208,7 @@ Azure AD 외에도 Azure Portal에서는 로그인 데이터에 대한 추가 �
 
 ![로그인 활동](./media/concept-sign-ins/08.png "로그인 활동")
 
-## <a name="usage-of-managed-applications"></a>관리되는 응용 프로그램의 사용량
+## <a name="usage-of-managed-applications"></a>관리되는 애플리케이션의 사용량
 
 로그인 데이터의 애플리케이션 중심 보기를 사용하여 다음과 같은 질문에 대답할 수 있습니다.
 
@@ -220,7 +220,7 @@ Azure AD 외에도 Azure Portal에서는 로그인 데이터에 대한 추가 �
 
 ![로그인 활동](./media/concept-sign-ins/10.png "로그인 활동")
 
-지정된 기간 동안 상위 3가지 응용 프로그램에 대한 로그인의 주간 사용량 그래프 집계입니다. 시간에 대한 기본값은 30일입니다.
+지정된 기간 동안 상위 3가지 애플리케이션에 대한 로그인의 주간 사용량 그래프 집계입니다. 시간에 대한 기본값은 30일입니다.
 
 ![로그인 활동](./media/concept-sign-ins/47.png "로그인 활동")
 

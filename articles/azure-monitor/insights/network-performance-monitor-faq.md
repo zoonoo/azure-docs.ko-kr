@@ -25,7 +25,7 @@ ms.locfileid: "53166611"
 
 이 문서에서는 NPM(네트워크 성능 모니터)에 대한 FAQ(질문과 대답)를 캡처합니다.
 
-[네트워크 성능 모니터](/azure/networking/network-monitoring-overview)는 네트워크 인프라의 다양한 지점 간 네트워크 성능을 모니터링하는 데 도움이 되는 클라우드 기반 [하이브리드 네트워크 모니터링](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) 솔루션입니다. 또한 [서비스 및 응용 프로그램 엔드포인트](../../azure-monitor/insights/network-performance-monitor-service-endpoint.md)에 대한 네트워크 연결을 모니터링하고 [Azure ExpressRoute의 성능을 모니터링하는](../../azure-monitor/insights/network-performance-monitor-expressroute.md) 데 도움이 됩니다. 
+[네트워크 성능 모니터](/azure/networking/network-monitoring-overview)는 네트워크 인프라의 다양한 지점 간 네트워크 성능을 모니터링하는 데 도움이 되는 클라우드 기반 [하이브리드 네트워크 모니터링](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) 솔루션입니다. 또한 [서비스 및 애플리케이션 엔드포인트](../../azure-monitor/insights/network-performance-monitor-service-endpoint.md)에 대한 네트워크 연결을 모니터링하고 [Azure ExpressRoute의 성능을 모니터링하는](../../azure-monitor/insights/network-performance-monitor-expressroute.md) 데 도움이 됩니다. 
 
 네트워크 성능 모니터는 트래픽 블랙홀링, 라우팅 오류와 같은 네트워크 문제와 기존 네트워크 모니터링 방법으로 감지할 수 없는 문제를 감지합니다. 이 솔루션은 네트워크 링크에 임계값이 위반되면 경고를 생성하고 사용자에게 알립니다. 또한 네트워크 성능 문제를 적시에 감지하고 문제의 원인을 특정 네트워크 세그먼트 또는 디바이스로 국한시킵니다. 
 
@@ -194,7 +194,7 @@ NPM은 Azure Portal뿐만 아니라 OMS 포털에서도 사용할 수 있지만 
 * 네트워크 측정 수행 확인란이 테스트 구성에서 비어 있습니다.
 
 ### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-is-na-but-network-loss-as-well-as-latency-are-valid"></a>서비스 연결 모니터 기능에서 서비스 응답 시간이 NA이지만 네트워크 연결 끊김뿐만 아니라 대기 시간도 유효합니다.
-이 상황은 대상 서비스가 웹 응용 프로그램이 아니지만 테스트가 웹 테스트로 구성된 경우에 발생할 수 있습니다. 테스트 구성을 편집하고, 테스트 형식을 웹이 아닌 네트워크로 선택합니다.
+이 상황은 대상 서비스가 웹 애플리케이션이 아니지만 테스트가 웹 테스트로 구성된 경우에 발생할 수 있습니다. 테스트 구성을 편집하고, 테스트 형식을 웹이 아닌 네트워크로 선택합니다.
 
 ## <a name="miscellaneous"></a>기타
 

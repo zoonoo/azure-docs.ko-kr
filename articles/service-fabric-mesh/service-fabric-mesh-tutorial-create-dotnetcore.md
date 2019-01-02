@@ -1,6 +1,6 @@
 ---
-title: 자습서 - Service Fabric Mesh에 대한 다중 서비스 응용 프로그램 만들기, 디버그, 배포 및 모니터링 | Microsoft Docs
-description: 이 자습서에서는 백 엔드 웹 서비스와 통신하고, 로컬로 디버그하고, Azure에 게시하는 ASP.NET Core 웹 사이트로 구성된 다중 서비스 Azure Service Fabric Mesh 응용 프로그램을 만듭니다.
+title: 자습서 - Service Fabric Mesh에 대한 다중 서비스 애플리케이션 만들기, 디버그, 배포 및 모니터링 | Microsoft Docs
+description: 이 자습서에서는 백 엔드 웹 서비스와 통신하고, 로컬로 디버그하고, Azure에 게시하는 ASP.NET Core 웹 사이트로 구성된 다중 서비스 Azure Service Fabric Mesh 애플리케이션을 만듭니다.
 services: service-fabric-mesh
 documentationcenter: .net
 author: TylerMSFT
@@ -84,7 +84,7 @@ Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트...** 
 
 ![Visual Studio의 새 ASP.NET Core 애플리케이션](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
-이제 Service Fabric Mesh 응용 프로그램이 만들어졌습니다. 다음으로, 할 일 정보에 대한 모델을 만들겠습니다.
+이제 Service Fabric Mesh 애플리케이션이 만들어졌습니다. 다음으로, 할 일 정보에 대한 모델을 만들겠습니다.
 
 ## <a name="create-the-to-do-items-model"></a>할 일 항목 모델 만들기
 

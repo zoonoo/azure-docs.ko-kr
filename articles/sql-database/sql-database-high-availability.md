@@ -78,7 +78,7 @@ SQL 데이터베이스 엔진 프로세스와 기본 mdf/ldf 파일이 SSD 저�
 
 ## <a name="conclusion"></a>결론
 
-Azure SQL Database는 Azure 플랫폼과 긴밀하게 통합되어 있으며, Azure Storage Blob(데이터 보호용) 및 가용성 영역(높은 내결함성용)에 대한 장애 검색 및 복구를 위한 Service Fabric에 따라 크게 달라집니다. 동시에 Azure SQL Database는 복제 및 장애 조치(failover)를 위해 SQL Server 제품군의 Always On 가용성 그룹 기술을 최대한 활용합니다. 이러한 기술의 조합을 통해 응용 프로그램은 혼합 저장소 모델의 이점을 완전히 실현하고 가장 까다로운 SLA를 지원할 수 있습니다.
+Azure SQL Database는 Azure 플랫폼과 긴밀하게 통합되어 있으며, Azure Storage Blob(데이터 보호용) 및 가용성 영역(높은 내결함성용)에 대한 장애 검색 및 복구를 위한 Service Fabric에 따라 크게 달라집니다. 동시에 Azure SQL Database는 복제 및 장애 조치(failover)를 위해 SQL Server 제품군의 Always On 가용성 그룹 기술을 최대한 활용합니다. 이러한 기술의 조합을 통해 애플리케이션은 혼합 저장소 모델의 이점을 완전히 실현하고 가장 까다로운 SLA를 지원할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

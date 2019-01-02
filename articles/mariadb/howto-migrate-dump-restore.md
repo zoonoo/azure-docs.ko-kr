@@ -34,7 +34,7 @@ MySQL Workbench, mysqldump, Toad 또는 Navicat과 같은 일반 유틸리티 �
 
 <!--In other scenarios, you may use the [Import and Export](howto-migrate-import-export.md) approach instead.-->
 
-- 전체 데이터베이스를 마이그레이션할 때 데이터베이스 덤프를 사용합니다. 많은 양의 데이터를 이동하거나 실시간 사이트 또는 응용 프로그램에 대한 서비스 중단을 최소화하려는 경우 이 권장 사항이 유지됩니다. 
+- 전체 데이터베이스를 마이그레이션할 때 데이터베이스 덤프를 사용합니다. 많은 양의 데이터를 이동하거나 실시간 사이트 또는 애플리케이션에 대한 서비스 중단을 최소화하려는 경우 이 권장 사항이 유지됩니다. 
 -  데이터베이스의 모든 테이블이 데이터를 Azure Database for MariaDB로 로드할 때 InnoDB 저장소 엔진을 사용해야 합니다. Azure Database for MariaDB는 InnoDB 저장소 엔진만을 지원하므로 대체 저장소 엔진을 지원하지 않습니다. 테이블이 다른 저장소 엔진으로 구성된 경우 Azure Database for MariaDB로 마이그레이션하기 전에 해당 테이블을InnoDB 엔진 형식으로 변환합니다.
    예를 들어 MyISAM 테이블을 사용하는 WordPress 또는 WebApp이 있는 경우 Azure Database for MariaDB로 복원하기 전에 InnoDB 형식으로 마이그레이션하여 먼저 해당 테이블을 변환합니다. `ENGINE=InnoDB` 절을 사용하여 새 테이블을 만들 때 사용되는 엔진을 설정한 다음 복원 전에 데이터를 호환되는 테이블로 전송합니다. 
 

@@ -24,7 +24,7 @@ ms.locfileid: "52632894"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>자습서: Azure 가상 네트워크에 Service Fabric Windows 클러스터 배포
 
-이 자습서는 시리즈의 1부입니다. PowerShell 및 템플릿을 사용하여 [Azure VNET(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 및 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)에 Windows를 실행 중인 Service Fabric 클러스터를 배포하는 방법을 알아봅니다. 작업이 완료되면 응용 프로그램을 배포할 수 있는, 클라우드에서 실행되는 클러스터가 생깁니다.  Azure CLI를 사용하여 Linux 클러스터를 만들려면 [Azure에서 보안 Linux 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)를 참조하세요.
+이 자습서는 시리즈의 1부입니다. PowerShell 및 템플릿을 사용하여 [Azure VNET(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 및 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)에 Windows를 실행 중인 Service Fabric 클러스터를 배포하는 방법을 알아봅니다. 작업이 완료되면 애플리케이션을 배포할 수 있는, 클라우드에서 실행되는 클러스터가 생깁니다.  Azure CLI를 사용하여 Linux 클러스터를 만들려면 [Azure에서 보안 Linux 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)를 참조하세요.
 
 이 자습서는 프로덕션 시나리오를 설명합니다.  테스트 목적으로 더 작은 클러스터를 빠르게 만들려면 [테스트 클러스터 만들기](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)를 참조하세요.
 
@@ -111,7 +111,7 @@ Azure Key Vault는 Azure에서 서비스 패브릭 클러스터에 대한 인증
 * 애플리케이션 포트: 443
 * Service Fabric 역방향 프록시: 19081
 
-다른 응용 프로그램 포트가 필요한 경우 트래픽을 허용하도록 **Microsoft.Network/loadBalancers** 리소스 및 **Microsoft.Network/networkSecurityGroups** 리소스를 조정해야 합니다.
+다른 애플리케이션 포트가 필요한 경우 트래픽을 허용하도록 **Microsoft.Network/loadBalancers** 리소스 및 **Microsoft.Network/networkSecurityGroups** 리소스를 조정해야 합니다.
 
 ### <a name="virtual-network-subnet-and-network-security-group"></a>가상 네트워크, 서브넷 및 네트워크 보안 그룹
 
@@ -131,7 +131,7 @@ Azure Key Vault는 Azure에서 서비스 패브릭 클러스터에 대한 인증
 * 애플리케이션 포트 범위 – 49152~65534(서비스 간 통신에 사용되며 부하 분산 장치에서 열리지 않음)
 * 다른 모든 포트 차단
 
-다른 응용 프로그램 포트가 필요한 경우 트래픽을 허용하도록 **Microsoft.Network/loadBalancers** 리소스 및 **Microsoft.Network/networkSecurityGroups** 리소스를 조정해야 합니다.
+다른 애플리케이션 포트가 필요한 경우 트래픽을 허용하도록 **Microsoft.Network/loadBalancers** 리소스 및 **Microsoft.Network/networkSecurityGroups** 리소스를 조정해야 합니다.
 
 ## <a name="set-template-parameters"></a>템플릿 매개 변수 설정
 

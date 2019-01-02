@@ -100,7 +100,7 @@ Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌�
 ## <a name="download-the-web-app-bot"></a>웹앱 봇 다운로드 
 웹앱 봇 코드를 개발하기 위해 코드를 다운로드하여 로컬 컴퓨터에서 사용합니다. 
 
-1. 여전히 Azure Portal의 웹앱 봇 리소스에서 **응용 프로그램 설정**을 선택하고 **botFilePath** 및 **botFileSecret**의 값을 복사합니다. 이러한 값은 나중에 환경 파일에 추가해야 합니다. 
+1. 여전히 Azure Portal의 웹앱 봇 리소스에서 **애플리케이션 설정**을 선택하고 **botFilePath** 및 **botFileSecret**의 값을 복사합니다. 이러한 값은 나중에 환경 파일에 추가해야 합니다. 
 
 2. Azure Portal의 **봇 관리** 섹션에서 **빌드**를 선택합니다. 
 
@@ -203,7 +203,7 @@ Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌�
     botFileSecret=
     ```
 
-    환경 변수 값을 **[웹앱 봇 다운로드](#download-the-web-app-bot)** 섹션 1 단계의 Azure 봇 서비스 [응용 프로그램 설정]에서 복사한 값으로 설정합니다.
+    환경 변수 값을 **[웹앱 봇 다운로드](#download-the-web-app-bot)** 섹션 1 단계의 Azure 봇 서비스 [애플리케이션 설정]에서 복사한 값으로 설정합니다.
 
 4. 감시 모드에서 봇을 시작합니다. 이렇게 시작한 후에 코드를 변경하면 앱이 자동으로 다시 시작됩니다.
 

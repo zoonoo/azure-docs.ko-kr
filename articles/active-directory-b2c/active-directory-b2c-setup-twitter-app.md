@@ -21,7 +21,7 @@ ms.locfileid: "52719864"
 
 ## <a name="create-an-application"></a>응용 프로그램 만들기
 
-Azure AD B2C에서 ID 공급자로 Twitter를 사용하려면 Twitter 응용 프로그램을 만들어야 합니다. Twitter 계정이 없는 경우 [https://twitter.com/signup](https://twitter.com/signup)에서 얻을 수 있습니다.
+Azure AD B2C에서 ID 공급자로 Twitter를 사용하려면 Twitter 애플리케이션을 만들어야 합니다. Twitter 계정이 없는 경우 [https://twitter.com/signup](https://twitter.com/signup)에서 얻을 수 있습니다.
 
 1. Twitter 계정 자격 증명을 사용하여 [Twitter 개발자](https://developer.twitter.com/en/apps) 웹 사이트에 로그인합니다.
 2. **앱 만들기**를 선택합니다.

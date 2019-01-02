@@ -34,15 +34,15 @@ ms.locfileid: "52993581"
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>빠른 시작 앱 등록 및 다운로드
-> 빠른 시작 응용 프로그램을 시작하는 옵션은 두 가지가 있습니다.
+> 빠른 시작 애플리케이션을 시작하는 옵션은 두 가지가 있습니다.
 > * [기본] [옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
 > * [수동] [옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
 > 1. [Azure Portal - 앱 등록(미리 보기)](https://aka.ms/aspnetcore2-1-aad-quickstart-v2)으로 이동합니다.
-> 1. 응용 프로그램 이름을 입력하고 **등록**을 선택합니다.
-> 1. 지침에 따라 클릭 한 번으로 새 응용 프로그램을 다운로드하고 자동으로 구성합니다.
+> 1. 애플리케이션 이름을 입력하고 **등록**을 선택합니다.
+> 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성
 >
@@ -90,15 +90,15 @@ ms.locfileid: "52993581"
 > - `Enter_the_Application_Id_here` - Azure Portal에 등록된 애플리케이션의 **애플리케이션(클라이언트) ID**입니다. 앱의 **개요** 페이지에서 **애플리케이션(클라이언트) ID**를 찾을 수 있습니다.
 > - `Enter_the_Tenant_Info_Here` - 다음 옵션 중 하나입니다.
 >   - 애플리케이션이 **이 조직 디렉터리의 계정만** 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
->   - 응용 프로그램이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
->   - 응용 프로그램이 **모든 Microsoft 계정 사용자**를 지원하는 경우 이 값을 `common`으로 바꾸세요.
+>   - 애플리케이션이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
+>   - 애플리케이션이 **모든 Microsoft 계정 사용자**를 지원하는 경우 이 값을 `common`으로 바꾸세요.
 >
 > > [!TIP]
 > > **응용 프로그램(클라이언트) ID**, **디렉터리(테넌트) ID** 및 **지원되는 계정 유형**의 값을 찾아보려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다.
 
 ## <a name="more-information"></a>자세한 정보
 
-이 섹션에서는 로그인 사용자에 필요한 코드에 대한 개요를 제공합니다. 이는 코드가 작동하는 방식과 기본 인수를 이해하려는 경우뿐만 아니라 기존 ASP.NET Core 응용 프로그램에 로그인을 추가하려는 경우에도 유용할 수 있습니다.
+이 섹션에서는 로그인 사용자에 필요한 코드에 대한 개요를 제공합니다. 이는 코드가 작동하는 방식과 기본 인수를 이해하려는 경우뿐만 아니라 기존 ASP.NET Core 애플리케이션에 로그인을 추가하려는 경우에도 유용할 수 있습니다.
 
 ### <a name="startup-class"></a>시작 클래스
 

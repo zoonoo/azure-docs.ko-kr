@@ -57,7 +57,7 @@ Azure Database Migration Service를 사용하면 최소의 중단 시간으로 �
 - Azure Database Migration Service가 데이터베이스 마이그레이션에 사용할 수 있는 모든 데이터베이스 전체 데이터베이스 백업 파일과 후속 트랜잭션 로그 백업 파일이 포함된 SMB 네트워크 공유를 제공합니다.
 - 원본 SQL Server 인스턴스를 실행 중인 서비스 계정에 본인이 만든 네트워크 공유에 대한 쓰기 권한이 있고, 원본 서버의 컴퓨터 계정에 동일한 공유에 대한 읽기/쓰기 액세스 권한이 있는지 확인합니다.
 - 이전에 만든 네트워크 공유에 대한 전체 제어 권한을 갖고 있는 Windows 사용자(및 암호)를 메모해 둡니다. Azure Database Migration Service는 사용자 자격 증명을 가장하여 복원 작업을 위한 Azure Storage 컨테이너에 백업 파일을 업로드합니다.
-- DMS 서비스가 대상 Azure Database Managed Instance 및 Azure Storage 컨테이너에 연결하는데 사용할 수 있는 응용 프로그램 ID 키를 생성하는 Azure Active Directory 응용 프로그램 ID를 만듭니다. 자세한 내용은 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)를 참조하세요.
+- DMS 서비스가 대상 Azure Database Managed Instance 및 Azure Storage 컨테이너에 연결하는데 사용할 수 있는 애플리케이션 ID 키를 생성하는 Azure Active Directory 애플리케이션 ID를 만듭니다. 자세한 내용은 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)를 참조하세요.
 - DMS 서비스가 데이터베이스 백업 파일을 업로드하여 데이터베이스를 마이그레이션하는 데 사용할 수 있는 **표준 성능 계층**, Azure Storage 계정을 만들거나 기록합니다.  생성한 DMS 서비스와 동일한 지역에 Azure Storage 계정을 만들어야 합니다.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration 리소스 공급자 등록
@@ -143,7 +143,7 @@ Azure Database Migration Service를 사용하면 최소의 중단 시간으로 �
 
 1.  **마이그레이션 대상 세부 정보** 화면에서 DMS 인스턴스가 Azure SQL Database Managed Instance 및 Azure Storage Account의 대상 인스턴스에 연결하는 데 사용할 수 있는 **응용 프로그램 ID**와 **키**를 지정합니다.
 
-    자세한 내용은 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)를 참조하세요.
+    자세한 내용은 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)를 참조하세요.
     
 2. Azure SQL Database Managed Instance의 대상 인스턴스가 포함된 **구독**을 선택한 다음, 대상 인스턴스를 선택합니다.
 
@@ -215,7 +215,7 @@ Azure SQL Database Managed Instance의 대상 인스턴스에서 전체 데이�
 
     ![중단 완료 준비](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
 
-5.  데이터베이스 마이그레이션 상태가 **완료됨**으로 표시되면 응용 프로그램을 Azure SQL Database Managed Instance의 새 대상 인스턴스에 연결합니다.
+5.  데이터베이스 마이그레이션 상태가 **완료됨**으로 표시되면 애플리케이션을 Azure SQL Database Managed Instance의 새 대상 인스턴스에 연결합니다.
 
     ![중단 완료](media/tutorial-sql-server-to-managed-instance-online/dms-cutover-complete.png)
 
@@ -223,4 +223,4 @@ Azure SQL Database Managed Instance의 대상 인스턴스에서 전체 데이�
 
 - T-SQL RESTORE 명령을 사용하여 Managed Instance로 데이터베이스를 마이그레이션하는 방법을 보여 주는 자습서는 [복원 명령을 사용하여 백업을 Managed Instance에 복원](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md)을 참조하세요.
 - Managed Instance에 대한 자세한 내용은 [Managed Instance란?](../sql-database/sql-database-managed-instance.md)을 참조하세요.
-- Managed Instance에 앱을 연결하는 내용은 [응용 프로그램 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요.
+- Managed Instance에 앱을 연결하는 내용은 [애플리케이션 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요.

@@ -34,7 +34,7 @@ Azure Machine Learning Service 최신 릴리스에는 다음이 포함되어 있
 
 [아키텍처](concept-azure-machine-learning-architecture.md)는 사용 편의성을 염두에 두고 다시 설계되었습니다. 여러 Azure 리소스 및 계정 대신 [Azure Machine Learning Service 작업 영역](concept-azure-machine-learning-architecture.md#workspace)만 있으면 됩니다.  [Azure Portal](quickstart-get-started.md)에서 신속하게 작업 영역을 만들 수 있습니다.  여러 사용자가 작업 영역을 사용하여 교육 및 배포 계산 대상, 모델 실험, Docker 이미지, 배포된 모델 등을 저장할 수 있습니다.
 
-최신 릴리스에 향상된 새 CLI와 SDK 클라이언트가 있기는 하지만, 데스크톱 Workbench 응용 프로그램 자체는 사용되지 않습니다. 이제 [Azure 웹 포털의 작업 영역 대시보드](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal)에서 실험을 모니터링할 수 있습니다. 대시보드를 사용하여 실험 기록을 가져오고, 작업 영역에 연결된 계산 대상을 관리하고, 모델 및 Docker 이미지를 관리하고, 심지어 웹 서비스를 배포할 수 있습니다.
+최신 릴리스에 향상된 새 CLI와 SDK 클라이언트가 있기는 하지만, 데스크톱 Workbench 애플리케이션 자체는 사용되지 않습니다. 이제 [Azure 웹 포털의 작업 영역 대시보드](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal)에서 실험을 모니터링할 수 있습니다. 대시보드를 사용하여 실험 기록을 가져오고, 작업 영역에 연결된 계산 대상을 관리하고, 모델 및 Docker 이미지를 관리하고, 심지어 웹 서비스를 배포할 수 있습니다.
 
 ## <a name="how-do-i-migrate"></a>마이그레이션하려면 어떻게 해야 하나요?
 
@@ -44,7 +44,7 @@ Azure Machine Learning Service 최신 릴리스에는 다음이 포함되어 있
 
 ## <a name="support-timeline"></a>지원 타임라인
 
-2018년 9월 이후 당분간은 실험 및 모델 관리 계정과 Workbench 응용 프로그램을 계속 사용할 수 있습니다. 다음 리소스에 대한 지원은 해당 릴리스 출시 3-4개월 후에 점진적으로 제거됩니다. 여전히 목차 맨 아래의 [리소스 섹션](../desktop-workbench/tutorial-classifying-iris-part-1.md)에서 이전 기능에 대한 설명서를 찾을 수 있습니다.
+2018년 9월 이후 당분간은 실험 및 모델 관리 계정과 Workbench 애플리케이션을 계속 사용할 수 있습니다. 다음 리소스에 대한 지원은 해당 릴리스 출시 3-4개월 후에 점진적으로 제거됩니다. 여전히 목차 맨 아래의 [리소스 섹션](../desktop-workbench/tutorial-classifying-iris-part-1.md)에서 이전 기능에 대한 설명서를 찾을 수 있습니다.
 
 |사용 중지&nbsp;단계|이전 기능의 지원 정보|
 |:---:|----------------|

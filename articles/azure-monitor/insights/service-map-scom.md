@@ -1,6 +1,6 @@
 ---
 title: System Center Operations Manager와 서비스 맵 통합 | Microsoft Docs
-description: 서비스 맵은 Windows 및 Linux 시스템의 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 서비스 맵을 사용하여 Operations Manager에 자동으로 분산 응용 프로그램 다이어그램을 만드는 방법을 설명합니다.
+description: 서비스 맵은 Windows 및 Linux 시스템의 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 서비스 맵을 사용하여 Operations Manager에 자동으로 분산 애플리케이션 다이어그램을 만드는 방법을 설명합니다.
 services: monitoring
 documentationcenter: ''
 author: daveirwin1
@@ -27,7 +27,7 @@ ms.locfileid: "53187214"
   
 서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 서비스 맵을 사용하면 생각하는 방식대로 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다. 자세한 내용은 [서비스 맵 설명서]( service-map.md)를 참조하세요.
 
-서비스 맵과 System Center Operations Manager 간의 이러한 통합을 통해 서비스 맵의 동적 종속성 맵을 기준으로 하는 분산 응용 프로그램 다이어그램을 Operations Manager에서 자동으로 만들 수 있습니다.
+서비스 맵과 System Center Operations Manager 간의 이러한 통합을 통해 서비스 맵의 동적 종속성 맵을 기준으로 하는 분산 애플리케이션 다이어그램을 Operations Manager에서 자동으로 만들 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * 일련의 서버를 관리하는 Operations Manager 관리 그룹(2012 R2 이상)
@@ -68,7 +68,7 @@ Operations Manager와 서비스 맵의 통합은 Microsoft.SystemCenter.ServiceM
     
 5. **서버 선택** 창에서 Operations Manager 및 서비스 맵 간에 동기화하려는 서버가 있는 서비스 맵 서버 그룹을 구성합니다. **서버 추가/제거**를 클릭합니다.   
     
-    통합 기능을 통해 서버에 대한 분산 응용 프로그램 다이어그램을 만들려면 서버가 다음 조건을 충족해야 합니다.
+    통합 기능을 통해 서버에 대한 분산 애플리케이션 다이어그램을 만들려면 서버가 다음 조건을 충족해야 합니다.
 
     * Operations Manager에서 관리됨
     * 서비스 맵에서 관리됨
@@ -99,11 +99,11 @@ Log Analytics 작업 영역이 연결되면 새 폴더인 Service Map이 Operati
 
 * **머신 그룹 종속성 보기**: 서비스 맵에서 동기화되는 모든 머신 그룹을 나열합니다. 원하는 그룹을 클릭하여 해당 그룹의 배포 애플리케이션 다이어그램을 볼 수 있습니다.
 
-    ![Operations Manager 분산 응용 프로그램 다이어그램](media/service-map-scom/scom-group-dad.png)
+    ![Operations Manager 분산 애플리케이션 다이어그램](media/service-map-scom/scom-group-dad.png)
 
-* **서버 종속성 보기**: 서비스 맵에서 동기화되는 모든 서버를 나열합니다. 원하는 서버를 클릭하면 해당 서버의 분산 응용 프로그램 다이어그램을 볼 수 있습니다.
+* **서버 종속성 보기**: 서비스 맵에서 동기화되는 모든 서버를 나열합니다. 원하는 서버를 클릭하면 해당 서버의 분산 애플리케이션 다이어그램을 볼 수 있습니다.
 
-    ![Operations Manager 분산 응용 프로그램 다이어그램](media/service-map-scom/scom-dad.png)
+    ![Operations Manager 분산 애플리케이션 다이어그램](media/service-map-scom/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>작업 영역 편집 또는 삭제
 **서비스 맵 개요** 창(**관리** 창 --> Operations Management Suite**Operations Management Suite** > **서비스 맵**)을 통해 구성된 작업 영역을 편집하거나 삭제할 수 있습니다.

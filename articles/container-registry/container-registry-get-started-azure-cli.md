@@ -162,7 +162,7 @@ Azure Resource Manager에서 컨테이너의 세부 정보와 함께 초기 응�
 az container show --resource-group myResourceGroup --name acr-quickstart --query instanceView.state
 ```
 
-## <a name="view-the-application"></a>응용 프로그램 보기
+## <a name="view-the-application"></a>애플리케이션 보기
 
 ACI에 대한 배포가 성공하면 [az container show][az-container-show] 명령으로 컨테이너의 FQDN을 가져옵니다.
 

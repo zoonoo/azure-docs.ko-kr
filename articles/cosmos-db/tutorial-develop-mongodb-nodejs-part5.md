@@ -42,7 +42,7 @@ ms.locfileid: "53134134"
 자습서의 이 부분을 시작하기 전에 자습서 [4부](tutorial-develop-mongodb-nodejs-part4.md)의 단계를 완료했는지 확인합니다.
 
 > [!TIP]
-> 이 자습서에서는 응용 프로그램을 구축하는 단계를 단계별로 설명합니다. 완료된 프로젝트를 다운로드하려는 경우 GitHub의 [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb)에서 완성된 응용 프로그램을 가져올 수 있습니다.
+> 이 자습서에서는 애플리케이션을 구축하는 단계를 단계별로 설명합니다. 완료된 프로젝트를 다운로드하려는 경우 GitHub의 [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb)에서 완성된 애플리케이션을 가져올 수 있습니다.
 
 ## <a name="use-mongoose-to-connect-to-azure-cosmos-db"></a>Mongoose를 사용하여 Azure Cosmos DB에 연결
 
@@ -226,7 +226,7 @@ ms.locfileid: "53134134"
 
 1. 이제 앱을 다시 실행하겠습니다. Visual Studio Code에서 모든 변경 내용을 저장하고, 왼쪽에서 **디버그** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png)을 클릭하고 **디버깅 시작** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png)을 클릭합니다.
 
-3. 이제 브라우저로 전환하여 개발자 도구 및 네트워크 탭을 열고 http://localhost:3000로 이동하면 응용 프로그램이 있습니다.
+3. 이제 브라우저로 전환하여 개발자 도구 및 네트워크 탭을 열고 http://localhost:3000로 이동하면 애플리케이션이 있습니다.
 
     ![Azure Portal의 새 Azure Cosmos DB 계정](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 

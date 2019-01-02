@@ -58,7 +58,7 @@ OKD는 커뮤니티가 지원하는 OpenShift의 [오픈 소스](https://www.okd
 
 ## <a name="openshift-dedicated"></a>OpenShift Dedicated
 
-Dedicated는 OpenShift Container Platform을 사용하는 Red Hat이 관리하는 *단일 테넌트* OpenShift입니다. Red Hat이 모든 기본 인프라(VM, OpenShift 클러스터, 네트워킹, 저장소 등)를 관리합니다. 클러스터는 한 고객 전용이며 공용 클라우드(예: AWS 또는 Google)에서 실행됩니다. 시작 클러스터에는 4개의 응용 프로그램 노드가 포함되며 모든 비용은 연 단위로 선불로 지불됩니다.
+Dedicated는 OpenShift Container Platform을 사용하는 Red Hat이 관리하는 *단일 테넌트* OpenShift입니다. Red Hat이 모든 기본 인프라(VM, OpenShift 클러스터, 네트워킹, 저장소 등)를 관리합니다. 클러스터는 한 고객 전용이며 공용 클라우드(예: AWS 또는 Google)에서 실행됩니다. 시작 클러스터에는 4개의 애플리케이션 노드가 포함되며 모든 비용은 연 단위로 선불로 지불됩니다.
 
 ## <a name="openshift-online"></a>OpenShift Online
 

@@ -1,6 +1,6 @@
 ---
 title: Azure에서 서비스 맵 구성 | Microsoft Docs
-description: 서비스 맵은 Windows 및 Linux 시스템의 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 사용자 환경에 서비스 맵을 배포하고 다양한 시나리오에서 사용하는 것에 대해 자세히 설명합니다.
+description: 서비스 맵은 Windows 및 Linux 시스템의 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 사용자 환경에 서비스 맵을 배포하고 다양한 시나리오에서 사용하는 것에 대해 자세히 설명합니다.
 services: monitoring
 documentationcenter: ''
 author: mgoedtel

@@ -285,7 +285,7 @@ com.microsoft.azure.eventprocessorhost.ICheckpointManager 인터페이스를 구
 com.microsoft.azure.eventprocessorhost.EventProcessorHost 클래스는 EventProcessorHost의 검사점 관리자를 재정의할 수 있는 2가지 생성자를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 이벤트 허브에서 메시지를 받는 Java 응용 프로그램을 만들었습니다. Java를 사용하여 이벤트 허브에 이벤트를 보내는 방법을 알아보려면 [이벤트 허브에서 이벤트 보내기 - Java](event-hubs-java-get-started-send.md)를 참조하세요.
+이 빠른 시작에서는 이벤트 허브에서 메시지를 받는 Java 애플리케이션을 만들었습니다. Java를 사용하여 이벤트 허브에 이벤트를 보내는 방법을 알아보려면 [이벤트 허브에서 이벤트 보내기 - Java](event-hubs-java-get-started-send.md)를 참조하세요.
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

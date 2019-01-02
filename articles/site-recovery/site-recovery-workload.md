@@ -15,7 +15,7 @@ ms.locfileid: "52850121"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까?
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용한 재해 복구를 위해 보호할 수 있는 워크로드 및 응용 프로그램에 대해 설명합니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용한 재해 복구를 위해 보호할 수 있는 워크로드 및 애플리케이션에 대해 설명합니다.
 
 
 
@@ -25,7 +25,7 @@ ms.locfileid: "52850121"
 
 Site Recovery는 BCDR 전략에 기여하는 Azure 서비스로 Site Recovery를 사용하여 애플리케이션 인식 복제를 클라우드 또는 보조 사이트에 배포할 수 있습니다. 앱이 Windows 또는 Linux 기반이거나, VMware 또는 Hyper-V의 어떤 물리적 서버에서 실행되든지 Site Recovery를 사용하여 복제를 오케스트레이션하고 재해 복구 테스트를 수행하며 장애 조치 및 정애 복구를 실행할 수 있습니다.
 
-Site Recovery는 SharePoint, Exchange, Dynamics, SQL Server 및 Active Directory를 비롯한 Microsoft 응용 프로그램과 통합됩니다. 또한 Oracle, SAP 및 Red Hat을 비롯한 주요 공급 업체와 긴밀히 협력하고 있습니다. 앱 단위로 복제 솔루션을 사용자 지정할 수 있습니다.
+Site Recovery는 SharePoint, Exchange, Dynamics, SQL Server 및 Active Directory를 비롯한 Microsoft 애플리케이션과 통합됩니다. 또한 Oracle, SAP 및 Red Hat을 비롯한 주요 공급 업체와 긴밀히 협력하고 있습니다. 앱 단위로 복제 솔루션을 사용자 지정할 수 있습니다.
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>애플리케이션 복제에 Site Recovery를 사용해야 하는 이유
 

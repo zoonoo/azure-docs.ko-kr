@@ -21,7 +21,7 @@ ms.locfileid: "53106484"
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>개요
-이 문서에서는 Node.js 응용 프로그램의 Azure Table service 또는 Azure Cosmos DB를 사용하는 일반 시나리오를 수행하는 방법을 설명합니다.
+이 문서에서는 Node.js 애플리케이션의 Azure Table service 또는 Azure Cosmos DB를 사용하는 일반 시나리오를 수행하는 방법을 설명합니다.
 
 ## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
 

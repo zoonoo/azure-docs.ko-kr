@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 응용 프로그램의 사용자 인터페이스 사용자 지정 | Microsoft Docs
+title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션의 사용자 인터페이스 사용자 지정 | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 사용자 인터페이스를 사용자 지정하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
@@ -17,7 +17,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/04/2018
 ms.locfileid: "52833947"
 ---
-# <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 응용 프로그램의 사용자 인터페이스 사용자 지정
+# <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션의 사용자 인터페이스 사용자 지정
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 

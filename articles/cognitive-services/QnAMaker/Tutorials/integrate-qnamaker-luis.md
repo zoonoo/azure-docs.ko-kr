@@ -54,7 +54,7 @@ QnA Maker에서 간단하게 여러 기술 자료를 만들 수 있지만, 들�
 1. LUIS 템플릿을 사용하여 [웹앱 봇을 만듭니다](https://docs.microsoft.com/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample). 3.x SDK 및 C# 프로그래밍 언어를 선택합니다.
 
 1. 웹앱 봇이 만들어지면 Azure Portal에서 해당 웹앱 봇을 선택합니다.
-1. 웹앱 봇 서비스 탐색에서 **응용 프로그램 설정**을 선택하고 아래로 스크롤하여 사용 가능한 설정의 **응용 프로그램 설정** 섹션으로 이동합니다.
+1. 웹앱 봇 서비스 탐색에서 **애플리케이션 설정**을 선택하고 아래로 스크롤하여 사용 가능한 설정의 **애플리케이션 설정** 섹션으로 이동합니다.
 1. **LuisAppId**를 이전 섹션에서 만든 LUIS 앱의 값으로 변경한 후 **저장**을 선택합니다.
 
 

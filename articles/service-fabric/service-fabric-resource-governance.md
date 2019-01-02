@@ -25,7 +25,7 @@ ms.locfileid: "52956843"
 
 동일한 노드 또는 클러스터에서 여러 서비스를 실행하는 경우 한 서비스가 프로세스의 다른 서비스보다 많은 리소스를 사용할 수 있습니다. 이 문제를 방해가 되는 이웃 문제라고 합니다. Azure Service Fabric을 사용하면 개발자가 서비스당 예약 및 제한을 지정하여 리소스를 보장하고 리소스 사용량을 제한할 수 있습니다.
 
-> 이 문서를 진행하기 전에 [Service Fabric 응용 프로그램 모델](service-fabric-application-model.md) 및 [Service Fabric 호스팅 모델](service-fabric-hosting-model.md)에 대해 익숙해져야 합니다.
+> 이 문서를 진행하기 전에 [Service Fabric 애플리케이션 모델](service-fabric-application-model.md) 및 [Service Fabric 호스팅 모델](service-fabric-hosting-model.md)에 대해 익숙해져야 합니다.
 >
 
 ## <a name="resource-governance-metrics"></a>리소스 관리 메트릭
@@ -212,4 +212,4 @@ CPU 및 메모리 외에도 컨테이너의 다른 리소스 한도를 지정할
 ## <a name="next-steps"></a>다음 단계
 
 * 클러스터 리소스 관리자에 대한 자세한 내용은 [Service Fabric 클러스터 리소스 관리자 소개](service-fabric-cluster-resource-manager-introduction.md)를 확인하세요.
-* 응용 프로그램 모델, 서비스 패키지, 코드 패키지 및 복제본 매핑 방식에 대한 자세한 내용은 [Service Fabric의 응용 프로그램 모델링](service-fabric-application-model.md)을 참조하세요.
+* 애플리케이션 모델, 서비스 패키지, 코드 패키지 및 복제본 매핑 방식에 대한 자세한 내용은 [Service Fabric의 애플리케이션 모델링](service-fabric-application-model.md)을 참조하세요.

@@ -34,7 +34,7 @@ Azure Key Vault에 인증하려면 Azure AD(Active Directory) 자격 증명, 공
 <a name="asal"></a>
 ## <a name="using-the-library"></a>라이브러리 사용
 
-.NET 응용 프로그램의 경우 `Microsoft.Azure.Services.AppAuthentication` 패키지를 통해 관리 ID를 사용하는 것이 가장 간단한 방법입니다. 시작 방법은 다음과 같습니다.
+.NET 애플리케이션의 경우 `Microsoft.Azure.Services.AppAuthentication` 패키지를 통해 관리 ID를 사용하는 것이 가장 간단한 방법입니다. 시작 방법은 다음과 같습니다.
 
 1. 애플리케이션에 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet 패키지의 참조를 추가합니다.
 
@@ -163,7 +163,7 @@ Azure에 로그인하고 나면 `AzureServiceTokenProvider`는 서비스 주체�
 이 경우는 로컬 개발에만 적용됩니다. Azure에 솔루션이 배포되면 라이브러리가 관리 ID 인증으로 전환됩니다.
 
 <a name="msi"></a>
-## <a name="running-the-application-using-managed-identity"></a>관리 ID를 사용하여 응용 프로그램 실행 
+## <a name="running-the-application-using-managed-identity"></a>관리 ID를 사용하여 애플리케이션 실행 
 
 Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 코드를 실행하는 경우 라이브러리는 자동으로 관리 ID를 사용합니다. 코드 변경은 필요하지 않습니다. 
 

@@ -28,9 +28,9 @@ ms.locfileid: "53344179"
 * 함수에서 기다릴 때마다 자동으로 진행 상황 검사점을 설정합니다. 프로세스가 재활용되거나 VM이 다시 부팅되더라도 로컬 상태가 손실되지 않습니다.
 
 > [!NOTE]
-> 지속성 함수는 모든 애플리케이션에 적합하지는 않는 Azure Functions의 고급 확장입니다. 이 문서의 나머지 부분에서는 [Azure Functions](../functions-overview.md) 개념과 서버를 사용하지 않는 응용 프로그램 개발과 관련된 문제에 대해 잘 알고 있다고 가정합니다.
+> 지속성 함수는 모든 애플리케이션에 적합하지는 않는 Azure Functions의 고급 확장입니다. 이 문서의 나머지 부분에서는 [Azure Functions](../functions-overview.md) 개념과 서버를 사용하지 않는 애플리케이션 개발과 관련된 문제에 대해 잘 알고 있다고 가정합니다.
 
-지속성 함수에 대한 기본 사용 사례는 서버를 사용하지 않는 응용 프로그램에서 복잡한 상태 저장 조정 문제를 단순화하는 것입니다. 다음 섹션에서는 지속성 함수를 활용할 수 있는 몇 가지 일반적인 응용 프로그램 패턴에 대해 설명합니다.
+Durable Functions에 대한 기본 사용 사례는 서버를 사용하지 않는 애플리케이션에서 복잡한 상태 저장 조정 문제를 단순화하는 것입니다. 다음 섹션에서는 Durable Functions를 활용할 수 있는 몇 가지 일반적인 애플리케이션 패턴에 대해 설명합니다.
 
 ## <a name="pattern-1-function-chaining"></a>패턴 #1: 함수 체이닝
 
@@ -393,7 +393,7 @@ module.exports = async function (context) {
 
 지속성 함수 확장은 Application Insights 계측 키로 함수 앱을 구성할 때 [Application Insights](../functions-monitoring.md)에 구조적 추적 데이터를 자동으로 내보냅니다. 이 추적 데이터는 오케스트레이션의 동작 및 진행 상황을 모니터링하는 데 사용할 수 있습니다.
 
-다음은 [Application Insights 분석](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)을 사용하여 Application Insights 포털에서 지속성 함수 추적 이벤트를 보여 주는 예제입니다.
+다음은 [Application Insights 분석](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)을 사용하여 Application Insights 포털에서 Durable Functions 추적 이벤트를 보여 주는 예제입니다.
 
 ![Application Insights 쿼리 결과](./media/durable-functions-overview/app-insights-1.png)
 

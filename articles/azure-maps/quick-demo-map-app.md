@@ -57,7 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 4. 대화형 검색 환경을 사용해 봅니다. 데모 웹 애플리케이션의 왼쪽 위 모서리에 있는 검색 상자에서 **식당**을 검색합니다.
 5. 검색 상자 아래 표시되는 주소/위치 목록 위에 마우스를 가져가 지도 위의 해당 핀에 해당 위치에 관한 정보가 어떻게 팝업 표시되는지 확인합니다. 개인 회사의 정보 보호를 위해 가상의 이름과 주소가 표시됩니다.
 
-    ![대화형 검색 웹 응용 프로그램](./media/quick-demo-map-app/interactive-search.png)
+    ![대화형 검색 웹 애플리케이션](./media/quick-demo-map-app/interactive-search.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

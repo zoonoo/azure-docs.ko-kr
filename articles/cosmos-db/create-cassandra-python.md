@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Cassandra API와 Python - Azure Cosmos DB'
-description: 이 빠른 시작은 Python과 함께 Azure Cosmos DB의 Apache Cassandra API를 사용하여 프로필 응용 프로그램을 만드는 방법을 보여 줍니다.
+description: 이 빠른 시작은 Python과 함께 Azure Cosmos DB의 Apache Cassandra API를 사용하여 프로필 애플리케이션을 만드는 방법을 보여 줍니다.
 services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
@@ -189,7 +189,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     python -m pip install pyopenssl
     ```
 
-2. 다음 명령을 실행하여 노드 응용 프로그램을 시작합니다.
+2. 다음 명령을 실행하여 노드 애플리케이션을 시작합니다.
 
     ```
     python pyquickstart.py

@@ -24,7 +24,7 @@ ms.locfileid: "52866146"
 
 **최신 버전:** [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)로 이동합니다.
 
-새 라이브러리를 사용하여 응용 프로그램을 다시 빌드하고 새로운 기능을 지원하도록 Azure SQL 데이터베이스에 저장된 기존 분할된 데이터베이스 맵 관리자 메타데이터를 변경합니다.
+새 라이브러리를 사용하여 애플리케이션을 다시 빌드하고 새로운 기능을 지원하도록 Azure SQL 데이터베이스에 저장된 기존 분할된 데이터베이스 맵 관리자 메타데이터를 변경합니다.
 
 이러한 단계를 순서대로 수행하면 메타데이터 개체를 업데이트할 때 클라이언트 라이브러리의 이전 버전이 환경에 더 이상 포함되어 있지 않으므로 업그레이드 후에 이전 버전 메타데이터 개체가 생성되지 않습니다.   
 

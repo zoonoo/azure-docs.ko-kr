@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Cassandra API와 Java - Azure Cosmos DB'
-description: 이 빠른 시작은 Azure Portal 및 Java와 함께 Azure Cosmos DB Cassandra API를 사용하여 프로필 응용 프로그램을 만드는 방법을 보여 줍니다.
+description: 이 빠른 시작은 Azure Portal 및 Java와 함께 Azure Cosmos DB Cassandra API를 사용하여 프로필 애플리케이션을 만드는 방법을 보여 줍니다.
 services: cosmos-db
 ms.service: cosmos-db
 author: SnehaGunda
@@ -198,7 +198,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     mvn clean install
     ```
 
-3. git 터미널 창에서 다음 명령을 실행하여 Java 응용 프로그램을 시작합니다.
+3. git 터미널 창에서 다음 명령을 실행하여 Java 애플리케이션을 시작합니다.
 
     ```git
     java -cp target/cosmosdb-cassandra-examples.jar com.azure.cosmosdb.cassandra.examples.UserProfile

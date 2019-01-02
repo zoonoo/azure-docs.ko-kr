@@ -98,7 +98,7 @@ Elastic Scale은 분할 키로 다음의 형식을 지원합니다.
 ## <a name="constructing-a-shardmapmanager"></a>ShardMapManager 생성
 **ShardMapManager** 개체는 팩터리([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory)) 패턴을 사용하여 생성됩니다. **ShardMapManagerFactory.GetSqlShardMapManager**([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.getsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)) 메서드는 **ConnectionString** 형식으로 자격 증명(GSM을 보유하고 있는 데이터베이스 이름 및 서버 이름 포함)을 가져오고 **ShardMapManager** 인스턴스를 반환합니다.  
 
-**참고:** **ShardMapManager**는 애플리케이션용 초기화 코드 내에서 앱 도메인별로 한 번만 인스턴스화해야 합니다. 동일한 AppDomain에서 ShardMapManager의 추가 인스턴스를 만들면 응용 프로그램의 메모리와 CPU 사용률이 증가합니다. **ShardMapManager** 는 분할된 데이터베이스 맵을 개수와 관계없이 포함할 수 있습니다. 많은 응용 프로그램의 경우 단일 분할된 데이터베이스 맵으로 충분할 수 있지만 서로 다른 스키마에 대해서 또는 고유성을 위해서는 서로 다른 데이터베이스 집합이 사용되며 이러한 경우 다중 분할된 데이터베이스 맵을 사용하는 것이 좋습니다. 
+**참고:** **ShardMapManager**는 애플리케이션용 초기화 코드 내에서 앱 도메인별로 한 번만 인스턴스화해야 합니다. 동일한 AppDomain에서 ShardMapManager의 추가 인스턴스를 만들면 애플리케이션의 메모리와 CPU 사용률이 증가합니다. **ShardMapManager** 는 분할된 데이터베이스 맵을 개수와 관계없이 포함할 수 있습니다. 많은 응용 프로그램의 경우 단일 분할된 데이터베이스 맵으로 충분할 수 있지만 서로 다른 스키마에 대해서 또는 고유성을 위해서는 서로 다른 데이터베이스 집합이 사용되며 이러한 경우 다중 분할된 데이터베이스 맵을 사용하는 것이 좋습니다. 
 
 이 코드는 응용 프로그램에서 TryGetSqlShardMapManager([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) 메서드를 사용하여 기존 **ShardMapManager**를 열려고 합니다. GSM(글로벌 **ShardMapManager**)을 나타내는 개체가 아직 데이터베이스 내에 없는 경우 클라이언트 라이브러리에서 CreateSqlShardMapManager([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) 메서드를 사용하여 해당 개체를 데이터베이스에 만듭니다.
 
@@ -213,7 +213,7 @@ public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shard
 **ShardMapManager** 데이터를 채우거나 변경하는 데 사용되는 메서드는 분할된 데이터베이스 자체에 저장된 사용자 데이터를 변경하지 않습니다. 예를 들어 **CreateShard**, **DeleteShard**, **UpdateMapping** 등의 메서드는 분할된 데이터베이스 맵 메타데이터에만 적용됩니다. 분할된 데이터베이스에 포함된 사용자 데이터를 제거, 추가 또는 변경하지 않습니다. 대신, 이러한 메서드는 실제 데이터베이스를 생성 또는 제거하기 위해 수행하는 개별 작업 또는 분할된 환경을 리밸런스하기 위해 분할된 데이터베이스 간에 행을 이동하는 개별 작업과 함께 사용하도록 설계되었습니다.  탄력적 데이터베이스 도구에 포함된 **분할-병합** 도구는 분할된 데이터베이스 간의 실제 데이터 이동을 조정하면서 이러한 API를 사용합니다. [Elastic Database 분할/병합 도구를 사용하여 확장하기](sql-database-elastic-scale-overview-split-and-merge.md)를 참조하세요.
 
 ## <a name="data-dependent-routing"></a>데이터 종속 라우팅
-분할된 데이터베이스 맵 관리자는 앱별 작업을 수행하기 위해 데이터베이스 연결이 필요한 응용 프로그램에서 사용됩니다. 이러한 연결은 올바른 데이터베이스와 연결되어야 합니다. 이를 **데이터 종속 라우팅**이라고 합니다. 이러한 응용 프로그램의 경우 GSM 데이터베이스에 대한 읽기 전용 액세스 권한이 있는 자격 증명을 사용하여 팩터리의 분할된 데이터베이스 맵 관리자 개체를 인스턴스화합니다. 이후 연결에 대한 개별 요청은 적합한 분할된 데이터베이스에 연결하는 데 필요한 자격 증명을 제공합니다.
+분할된 데이터베이스 맵 관리자는 앱별 작업을 수행하기 위해 데이터베이스 연결이 필요한 애플리케이션에서 사용됩니다. 이러한 연결은 올바른 데이터베이스와 연결되어야 합니다. 이를 **데이터 종속 라우팅**이라고 합니다. 이러한 응용 프로그램의 경우 GSM 데이터베이스에 대한 읽기 전용 액세스 권한이 있는 자격 증명을 사용하여 팩터리의 분할된 데이터베이스 맵 관리자 개체를 인스턴스화합니다. 이후 연결에 대한 개별 요청은 적합한 분할된 데이터베이스에 연결하는 데 필요한 자격 증명을 제공합니다.
 
 읽기 전용 자격 증명으로 열린 **ShardMapManager**를 사용하는 이러한 애플리케이션은 맵 또는 매핑을 변경할 수 없습니다. 이러한 요구 사항을 위해, 앞서 설명한 대로 더 높은 권한의 자격 증명을 제공하는 PowerShell 스크립트 또는 관리별 응용 프로그램을 만듭니다. [Elastic Database 클라이언트 라이브러리에 액세스하는 데 사용되는 자격 증명](sql-database-elastic-scale-manage-credentials.md)을 참조하세요.
 
@@ -247,7 +247,7 @@ public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shard
 ```
 
 ## <a name="adding-a-shard"></a>분할된 데이터베이스 추가
-이미 존재하는 분할된 데이터베이스 맵의 경우 응용 프로그램은 대개 새 키 또는 키 범위에서 예상되는 데이터를 처리할 새로운 분할된 데이터베이스를 추가해야 합니다. 예를 들어 테넌트 ID를 기준으로 분할된 애플리케이션이 새로운 테넌트에 대한 새로운 분할된 데이터베이스를 프로비전해야 할 수 있습니다. 또는 월별로 분할된 데이터의 경우 새로운 달이 시작되기 전에 새로운 분할된 데이터베이스를 프로비전해야 할 수 있습니다. 
+이미 존재하는 분할된 데이터베이스 맵의 경우 애플리케이션은 대개 새 키 또는 키 범위에서 예상되는 데이터를 처리할 새로운 분할된 데이터베이스를 추가해야 합니다. 예를 들어 테넌트 ID를 기준으로 분할된 애플리케이션이 새로운 테넌트에 대한 새로운 분할된 데이터베이스를 프로비전해야 할 수 있습니다. 또는 월별로 분할된 데이터의 경우 새로운 달이 시작되기 전에 새로운 분할된 데이터베이스를 프로비전해야 할 수 있습니다. 
 
 키 값의 새로운 범위가 기존 매핑에 속하지 않으며 데이터를 이동할 필요가 없는 경우에는 새로운 분할된 데이터베이스를 추가하고 새 키 또는 범위를 해당 분할된 데이터베이스에 연결하면 됩니다. 새로운 분할된 데이터베이스를 추가하는 방법에 대한 자세한 내용은 [새로운 분할된 데이터베이스 추가](sql-database-elastic-scale-add-a-shard.md)를 참조하세요.
 

@@ -59,7 +59,7 @@ TargetProcess의 Azure AD 통합을 구성하려면 갤러리의 TargetProcess�
 
 2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드](common/enterprise-applications.png)
+    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
 3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
@@ -129,11 +129,11 @@ TargetProcess에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
     ![이미지](./media/target-process-tutorial/install_extension.png)
 
-8. 브라우저에 확장을 추가한 후 **TargetProcess 설정**을 클릭하면 TargetProcess 애플리케이션으로 이동됩니다. 애플리케이션에서 관리자 자격 증명을 입력하여 TargetProcess에 로그인합니다. 브라우저 확장이 응용 프로그램을 자동으로 구성하고 9~13단계를 자동으로 수행합니다.
+8. 브라우저에 확장을 추가한 후 **TargetProcess 설정**을 클릭하면 TargetProcess 애플리케이션으로 이동됩니다. 애플리케이션에서 관리자 자격 증명을 입력하여 TargetProcess에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 9~13단계를 자동으로 수행합니다.
 
     **애플리케이션을 수동으로 구성하려는 경우 다음 단계를 수행합니다.**
 
-9. TargetProcess 응용 프로그램에 관리자 권한으로 로그온합니다.
+9. TargetProcess 애플리케이션에 관리자 권한으로 로그온합니다.
 
 10. 위쪽의 메뉴에서 **설정**을 클릭합니다.
 
@@ -195,7 +195,7 @@ TargetProcess에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
 1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택하고 **TargetProcess**를 선택합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드](common/enterprise-applications.png)
+    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
 2. 애플리케이션 목록에 **TargetProcess**를 입력하고 선택합니다.
 

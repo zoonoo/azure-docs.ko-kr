@@ -82,7 +82,7 @@ Service Fabric 클러스터는 이름 지정 서비스 및 장애 조치(Failove
 
 일반적으로 그렇지 않습니다. Service Fabric은 임시 로컬 디스크에 상태를 저장하므로 가상 머신이 다른 호스트로 이동하는 경우 데이터가 이동하지 않습니다. 정상 작동 시에는 새 노드가 다른 노드에 의해 최신 상태가 되므로 문제가 되지 않습니다. 그러나 모든 노드를 중지하고 나중에 다시 시작하는 경우 대부분의 노드가 새 호스트에서 실행되고 시스템을 복구할 수 없을 가능성이 높습니다.
 
-배포하기 전 응용 프로그램 테스트를 위해 클러스트를 만드는 경우 해당 클러스터를 [연속 통합/연속 배포 파이프라인](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)의 일부로 동적으로 만드는 것이 좋습니다.
+배포하기 전 애플리케이션 테스트를 위해 클러스트를 만드는 경우 해당 클러스터를 [연속 통합/연속 배포 파이프라인](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)의 일부로 동적으로 만드는 것이 좋습니다.
 
 
 ### <a name="how-do-i-upgrade-my-operating-system-for-example-from-windows-server-2012-to-windows-server-2016"></a>운영 체제를 업그레이드(예: Windows Server 2012를 Windows Server 2016으로)하려면 어떻게 해야 하나요?
@@ -118,13 +118,13 @@ Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 �
 | FabricRM.exe |
 | FileStoreService.exe |
  
-### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>비밀을 가져오도록 내 응용 프로그램을 KeyVault로 어떻게 인증하나요?
-다음은 응용 프로그램을 keyVault로 인증하기 위해 자격 증명을 얻기 위한 방법입니다.
+### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>비밀을 가져오도록 내 애플리케이션을 KeyVault로 어떻게 인증하나요?
+다음은 애플리케이션을 keyVault로 인증하기 위해 자격 증명을 얻기 위한 방법입니다.
 
-a. 응용 프로그램 빌드/압축 작업을 하는 동안 인증서를 SF 앱의 데이터 패키지로 가져오고, 이를 사용하여 KeyVault에 인증할 수 있습니다.
+a. 애플리케이션 빌드/압축 작업을 하는 동안 인증서를 SF 앱의 데이터 패키지로 가져오고, 이를 사용하여 KeyVault에 인증할 수 있습니다.
 B. 가상 머신 확장 집합 MSI가 활성화된 호스트의 경우 SF 앱에 대한 간단한 PowerShell SetupEntryPoint를 개발하여 [MSI 엔드포인트에서 액세스 토큰](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)을 가져온 다음, [keyVault에서 비밀을 검색](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0)할 수 있습니다.
 
-## <a name="application-design"></a>응용 프로그램 설계
+## <a name="application-design"></a>애플리케이션 설계
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Reliable Collection의 파티션에 대해 데이터를 쿼리하는 가장 좋은 방법은 무엇인가요?
 

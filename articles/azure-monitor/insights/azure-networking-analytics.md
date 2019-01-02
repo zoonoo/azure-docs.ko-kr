@@ -126,7 +126,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $work
   * Application Gateway에 대한 사용자 에이전트별 오류
 * Application Gateway 성능 
   * Application Gateway에 대한 호스트 상태
-  * Application Gateway 실패한 요청에 대해 최대값 및 95번째 백분위수
+  * Application Gateway 실패한 요청에 대해 최댓값 및 95번째 백분위수
 
 ![Azure Application Gateway 분석 대시보드 이미지](media/azure-networking-analytics/log-analytics-appgateway01.png)
 

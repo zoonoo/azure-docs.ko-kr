@@ -17,7 +17,7 @@ ms.locfileid: "53189611"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Container Instances에서 컨테이너 애플리케이션 실행
 
-Azure Container Instances를 사용하여 Azure에서 Docker 컨테이너를 간단하고 빠르게 실행합니다. 가상 머신을 배포하거나 Kubernetes와 같은 전체 컨테이너 오케스트레이션 플랫폼을 사용할 필요가 없습니다. 이 빠른 시작에서는 Azure CLI를 사용하여 Azure에서 컨테이너를 만들고 FQDN(정규화된 도메인 이름)을 통해 해당 애플리케이션을 사용할 수 있도록 합니다. 단일 배포 명령을 실행한 후 몇 초 내에 실행 중인 응용 프로그램을 찾아볼 수 있습니다.
+Azure Container Instances를 사용하여 Azure에서 Docker 컨테이너를 간단하고 빠르게 실행합니다. 가상 머신을 배포하거나 Kubernetes와 같은 전체 컨테이너 오케스트레이션 플랫폼을 사용할 필요가 없습니다. 이 빠른 시작에서는 Azure CLI를 사용하여 Azure에서 컨테이너를 만들고 FQDN(정규화된 도메인 이름)을 통해 해당 애플리케이션을 사용할 수 있도록 합니다. 단일 배포 명령을 실행한 후 몇 초 내에 실행 중인 애플리케이션을 찾아볼 수 있습니다.
 
 ![Azure Container Instances에 배포되어 브라우저에 표시된 응용 프로그램][aci-app-browser]
 
@@ -62,15 +62,15 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-컨테이너의 `ProvisioningState`가 **Succeeded**(성공)이면 브라우저에서 해당 FQDN으로 이동합니다. 다음과 비슷한 웹 페이지가 표시됩니다. Docker 컨테이너에서 실행되는 응용 프로그램이 Azure에 성공적으로 배포되었습니다.
+컨테이너의 `ProvisioningState`가 **Succeeded**(성공)이면 브라우저에서 해당 FQDN으로 이동합니다. 다음과 비슷한 웹 페이지가 표시됩니다. Docker 컨테이너에서 실행되는 애플리케이션이 Azure에 성공적으로 배포되었습니다.
 
-![Azure 컨테이너 인스턴스에서 실행되는 응용 프로그램을 보여주는 브라우저 스크린샷][aci-app-browser]
+![Azure 컨테이너 인스턴스에서 실행되는 애플리케이션을 보여주는 브라우저 스크린샷][aci-app-browser]
 
-처음에 응용 프로그램이 표시되지 않으면 DNS가 전파되는 동안 잠시 기다린 후에 브라우저를 새로 고쳐야 할 수 있습니다.
+처음에 애플리케이션이 표시되지 않으면 DNS가 전파되는 동안 잠시 기다린 후에 브라우저를 새로 고쳐야 할 수 있습니다.
 
 ## <a name="pull-the-container-logs"></a>컨테이너 로그 끌어오기
 
-컨테이너 또는 컨테이너가 실행되는 응용 프로그램의 문제를 해결해야 하거나 해당 문제에 대한 출력만 보려는 경우 컨테이너 인스턴스의 로그를 확인하면서 시작합니다.
+컨테이너 또는 컨테이너가 실행되는 애플리케이션의 문제를 해결해야 하거나 해당 문제에 대한 출력만 보려는 경우 컨테이너 인스턴스의 로그를 확인하면서 시작합니다.
 
 [az container logs][az-container-logs] 명령을 사용하여 컨테이너 인스턴스 로그를 끌어옵니다.
 

@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: 개요
   items:
-  - name: 응용 프로그램 게이트웨이 정보
+  - name: 애플리케이션 게이트웨이 정보
     href: overview.md
 - name: 빠른 시작
   items:

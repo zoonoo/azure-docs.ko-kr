@@ -29,7 +29,7 @@ Azure SQL Database에서 클라우드 서비스를 빌드하고 배포하는 경
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>시나리오 1: 두 Azure 지역을 사용하여 가동 중지 시간을 최소화하고 비즈니스 연속성 유지
 
-이 시나리오에서는 응용 프로그램에 다음과 같은 특징이 있습니다.
+이 시나리오에서는 애플리케이션에 다음과 같은 특징이 있습니다.
 
 * 애플리케이션이 한 Azure 지역에서 활성
 * 모든 데이터베이스 세션에서 데이터에 대한 읽기 및 쓰기 액세스(RW) 필요

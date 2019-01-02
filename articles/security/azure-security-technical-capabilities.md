@@ -27,9 +27,9 @@ ms.locfileid: "51249033"
 
 ## <a name="azure-platform"></a>Azure 플랫폼
 
-[Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/)는 데이터 서비스 및 고급 분석, 개발자 도구 및 서비스가 통합되고 Microsoft의 공용 클라우드 데이터 센터 내에 호스트된 인프라 및 응용 프로그램 서비스로 구성된 클라우드 플랫폼입니다. 고객은 기본 계산, 네트워킹 및 저장부터 모바일 및 웹앱 서비스, 사물 인터넷 같은 전체 클라우드 시나리오에 이르는 다양한 기능 및 시나리오에 Azure를 사용합니다. Azure는 오픈 소스 기술과 함께 사용할 수 있고 하이브리드 클라우드로 배포되거나 고객의 데이터 센터 내에서 호스트될 수 있습니다. Azure는 기업이 비용을 절감하고, 더 빠르게 혁신을 이루고, 사전 대응적으로 시스템을 관리하는 데 도움이 되는 기본 구성 요소로서 클라우드 기술을 제공합니다. IT 자산을 만들거나 클라우드 공급자로 마이그레이션하는 경우 조직에서 제공하는 서비스와 제어를 통해 응용 프로그램과 데이터를 보호할 수 있는 해당 조직의 능력에 의존하여 클라우드 기반 자산의 보안을 관리합니다.
+[Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/)는 데이터 서비스 및 고급 분석, 개발자 도구 및 서비스가 통합되고 Microsoft의 공용 클라우드 데이터 센터 내에 호스트된 인프라 및 응용 프로그램 서비스로 구성된 클라우드 플랫폼입니다. 고객은 기본 계산, 네트워킹 및 저장부터 모바일 및 웹앱 서비스, 사물 인터넷 같은 전체 클라우드 시나리오에 이르는 다양한 기능 및 시나리오에 Azure를 사용합니다. Azure는 오픈 소스 기술과 함께 사용할 수 있고 하이브리드 클라우드로 배포되거나 고객의 데이터 센터 내에서 호스트될 수 있습니다. Azure는 기업이 비용을 절감하고, 더 빠르게 혁신을 이루고, 사전 대응적으로 시스템을 관리하는 데 도움이 되는 기본 구성 요소로서 클라우드 기술을 제공합니다. IT 자산을 만들거나 클라우드 공급자로 마이그레이션하는 경우 조직에서 제공하는 서비스와 제어를 통해 애플리케이션과 데이터를 보호할 수 있는 해당 조직의 능력에 의존하여 클라우드 기반 자산의 보안을 관리합니다.
 
-Microsoft Azure는 팀이 Microsoft 플랫폼 및 타사 플랫폼의 데이터, 오픈 프레임워크 및 도구를 통해 통찰력을 얻도록 하는 통합 데이터 서비스 및 분석 기능을 사용하여 다양한 클라우드 기술 집합 및 다양한 복잡성의 프로젝트 내에서 작업할 수 있도록 하는 안전하고 일관된 응용 프로그램 플랫폼 및 Infrastructure-as-a-Service를 제공하는 유일한 클라우드 컴퓨팅 공급자로, 온-프레미스와 클라우드를 통합하거나 온-프레미스 데이터 센터 내에서 Azure Cloud Services를 배포할 수 있습니다. Microsoft 신뢰 클라우드의 일부로, 고객은 Azure에서 업계 최고의 보안, 안정성, 규정 준수, 개인 정보 보호와 클라우드에서 조직을 지원하기 위한 방대한 사용자, 파트너 및 프로세스 네트워크를 획득할 수 있습니다.
+Microsoft Azure는 팀이 Microsoft 플랫폼 및 타사 플랫폼의 데이터, 오픈 프레임워크 및 도구를 통해 통찰력을 얻도록 하는 통합 데이터 서비스 및 분석 기능을 사용하여 다양한 클라우드 기술 집합 및 다양한 복잡성의 프로젝트 내에서 작업할 수 있도록 하는 안전하고 일관된 애플리케이션 플랫폼 및 Infrastructure-as-a-Service를 제공하는 유일한 클라우드 컴퓨팅 공급자로, 온-프레미스와 클라우드를 통합하거나 온-프레미스 데이터 센터 내에서 Azure Cloud Services를 배포할 수 있습니다. Microsoft 신뢰 클라우드의 일부로, 고객은 Azure에서 업계 최고의 보안, 안정성, 규정 준수, 개인 정보 보호와 클라우드에서 조직을 지원하기 위한 방대한 사용자, 파트너 및 프로세스 네트워크를 획득할 수 있습니다.
 
 Microsoft Azure를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
@@ -45,15 +45,15 @@ Microsoft Azure를 사용하면 다음과 같은 작업을 수행할 수 있습�
 
 이 백서에서는 Microsoft Azure의 핵심 구성 요소, 즉 [Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL Database](https://docs.microsoft.com/azure/sql-database/), [Microsoft Azure의 가상 머신 모델](https://docs.microsoft.com/azure/virtual-machines/)과 이를 관리하는 도구 및 인프라를 지원하는 보안 특징 및 기능을 중점적으로 소개합니다. 또한 이 백서는 고객이 데이터의 보안 및 개인 정보 보호를 이행하는 데 사용할 수 있는 Microsoft Azure 기술 기능에 주안점을 둡니다.
 
-이러한 공유 책임 모델을 이해하는 것은 클라우드로 전환하려는 고객에게 필수적입니다. 클라우드 공급자는 보안 및 규정 준수 활동에 대해 상당한 이점을 제공하지만 이러한 장점만으로 고객이 데이터, 응용 프로그램 및 서비스 제품을 보호하지 않아도 되는 것은 아닙니다.
+이러한 공유 책임 모델을 이해하는 것은 클라우드로 전환하려는 고객에게 필수적입니다. 클라우드 공급자는 보안 및 규정 준수 활동에 대해 상당한 이점을 제공하지만 이러한 장점만으로 고객이 데이터, 애플리케이션 및 서비스 제품을 보호하지 않아도 되는 것은 아닙니다.
 
-IaaS 솔루션의 경우 고객은 운영 체제, 네트워크 구성, 응용 프로그램, ID, 클라이언트 및 데이터의 보호와 관리에 대해 책임 또는 공동 책임을 갖습니다.  IaaS 배포를 토대로 구축되는 PaaS 솔루션의 경우 고객은 응용 프로그램, ID, 클라이언트 및 데이터의 보호와 관리에 대해 책임 또는 공동 책임을 갖습니다. 그렇지만 SaaS 솔루션의 경우 고객이 계속해서 책임을 져야 합니다. 데이터가 올바르게 분류되는지 확인하고, 해당 사용자 및 끝점 디바이스를 관리하는 책임을 공유해야 합니다.
+IaaS 솔루션의 경우 고객은 운영 체제, 네트워크 구성, 애플리케이션, ID, 클라이언트 및 데이터의 보호와 관리에 대해 책임 또는 공동 책임을 갖습니다.  IaaS 배포를 토대로 구축되는 PaaS 솔루션의 경우 고객은 애플리케이션, ID, 클라이언트 및 데이터의 보호와 관리에 대해 책임 또는 공동 책임을 갖습니다. 그렇지만 SaaS 솔루션의 경우 고객이 계속해서 책임을 져야 합니다. 데이터가 올바르게 분류되는지 확인하고, 해당 사용자 및 끝점 디바이스를 관리하는 책임을 공유해야 합니다.
 
 이 문서에서 Azure 웹 사이트, Azure Active Directory, HDInsight, Media Services 등의 관련된 Microsoft Azure 플랫폼 구성 요소와 핵심 구성 요소 위에 계층화되는 기타 서비스를 자세히 다루지는 않습니다. 최소 수준의 일반 정보가 제공되지만, 사용자가 Microsoft에서 제공하고 이 백서에 제공된 링크에 포함되어 있는 기타 참조에 설명된 Azure 기본 개념에 익숙하다고 가정합니다.
 
 ## <a name="available-security-technical-capabilities-to-fulfil-user-customer-responsibility---big-picture"></a>사용자(고객) 책임을 이행하기 위한 보안 기술 기능 - 전반적 이해
 
-Microsoft Azure는 고객이 보안, 개인 정보 보호 및 규정 준수 요구를 충족하도록 도와줄 수 있는 서비스를 제공합니다. 다음 그림은 사용자가 업계 표준을 기준으로 안전하고 호환 가능한 응용 프로그램 인프라를 구축하는 데 사용할 수 있는 다양한 Azure 서비스를 설명하는 데 도움이 됩니다.
+Microsoft Azure는 고객이 보안, 개인 정보 보호 및 규정 준수 요구를 충족하도록 도와줄 수 있는 서비스를 제공합니다. 다음 그림은 사용자가 업계 표준을 기준으로 안전하고 호환 가능한 애플리케이션 인프라를 구축하는 데 사용할 수 있는 다양한 Azure 서비스를 설명하는 데 도움이 됩니다.
 
 ![사용 가능한 보안 기술 기능 - 전반적 이해](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig1.png)
 
@@ -69,13 +69,13 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 - 하이브리드 엔터프라이즈에서 사용자, 그룹 및 디바이스의 동기화를 유지하도록 각 사용자에 대한 단일 ID 만들기 및 관리
 
-- 수천 개의 미리 통합된 SaaS 앱을 포함한 응용 프로그램에 대한 Single Sign-On 액세스 제공
+- 수천 개의 미리 통합된 SaaS 앱을 포함한 애플리케이션에 대한 Single Sign-On 액세스 제공
 
-- 온-프레미스 및 클라우드 응용 프로그램 모두에 대해 규칙 기반 Multi-Factor Authentication을 적용하여 응용 프로그램 액세스 보안을 사용하도록 설정
+- 온-프레미스 및 클라우드 애플리케이션 모두에 대해 규칙 기반 Multi-Factor Authentication을 적용하여 애플리케이션 액세스 보안을 사용하도록 설정
 
-- Azure AD 응용 프로그램 프록시를 통해 온-프레미스 웹 응용 프로그램에 대한 보안 원격 액세스 프로비전
+- Azure AD 애플리케이션 프록시를 통해 온-프레미스 웹 애플리케이션에 대한 보안 원격 액세스 프로비전
 
-[Azure Active Directory 포털](http://aad.portal.azure.com/)은 Azure Portal의 일부로 사용할 수 있습니다. 이 대시보드에서 조직 상태에 대한 개요를 보고 디렉터리, 사용자 또는 응용 프로그램 액세스 관리에 대해 쉽게 알아볼 수 있습니다.
+[Azure Active Directory 포털](http://aad.portal.azure.com/)은 Azure Portal의 일부로 사용할 수 있습니다. 이 대시보드에서 조직 상태에 대한 개요를 보고 디렉터리, 사용자 또는 애플리케이션 액세스 관리에 대해 쉽게 알아볼 수 있습니다.
 
 ![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
@@ -97,13 +97,13 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 #### <a name="single-sign-on"></a>SSO(Single sign-on)
 
-[SSO(Single Sign-On)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는 데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 응용 프로그램에 액세스할 수 있습니다.
+[SSO(Single Sign-On)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는 데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 애플리케이션에 액세스할 수 있습니다.
 
-대부분의 조직에서는 최종 사용자 생산성을 위해 Office 365, Box, Salesforce와 같은 SaaS(Software as a Service) 응용 프로그램에 의존합니다. 지금까지 IT 담당자는 각 SaaS 애플리케이션에서 사용자 계정을 개별적으로 만들고 업데이트해야 하며, 사용자는 각 SaaS 애플리케이션에 대한 암호를 기억해야 했습니다.
+대부분의 조직에서는 최종 사용자 생산성을 위해 Office 365, Box, Salesforce와 같은 SaaS(Software as a Service) 애플리케이션에 의존합니다. 지금까지 IT 담당자는 각 SaaS 애플리케이션에서 사용자 계정을 개별적으로 만들고 업데이트해야 하며, 사용자는 각 SaaS 애플리케이션에 대한 암호를 기억해야 했습니다.
 
 [Azure AD는 온-프레미스 Active Directory를 클라우드](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)로 확장하여 사용자가 자신의 기본 조직 계정을 사용하여 해당 도메인에 가입된 장치 및 회사 리소스뿐만 아니라 작업에 필요한 모든 웹 및 SaaS 응용 프로그램에 로그인할 수 있도록 합니다.
 
-사용자는 여러 사용자 이름과 암호 집합을 관리할 필요가 없을 뿐만 아니라, 조직 그룹 및 직원으로서의 상태에 따라 해당 응용 프로그램 액세스를 자동으로 프로비전하거나 프로비전을 해제할 수 있습니다. [Azure AD는 SaaS 응용 프로그램에 대한 사용자의 액세스를 중앙에서 관리할 수 있는 보안 및 액세스 관리 제어를 도입](https://docs.microsoft.com/azure/active-directory/active-directory-sso-integrate-saas-apps)했습니다.
+사용자는 여러 사용자 이름과 암호 집합을 관리할 필요가 없을 뿐만 아니라, 조직 그룹 및 직원으로서의 상태에 따라 해당 애플리케이션 액세스를 자동으로 프로비전하거나 프로비전을 해제할 수 있습니다. [Azure AD는 SaaS 응용 프로그램에 대한 사용자의 액세스를 중앙에서 관리할 수 있는 보안 및 액세스 관리 제어를 도입](https://docs.microsoft.com/azure/active-directory/active-directory-sso-integrate-saas-apps)했습니다.
 
 #### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
@@ -117,9 +117,9 @@ Azure Portal 또는 [Azure Active Directory 포털](http://aad.portal.azure.com/
 
 - 비정상 보고서 – 비정상으로 확인된 로그인 이벤트가 포함됩니다. 이러한 활동을 인식하고 이벤트가 의심스러운지 확인할 수 있게 해 줍니다.
 
-- 통합 애플리케이션 보고서 – 클라우드 애플리케이션이 조직에서 사용되는 방식을 파악할 수 있게 해 줍니다. Azure Active Directory는 수천 개의 클라우드 응용 프로그램과 통합을 제공합니다.
+- 통합 애플리케이션 보고서 – 클라우드 애플리케이션이 조직에서 사용되는 방식을 파악할 수 있게 해 줍니다. Azure Active Directory는 수천 개의 클라우드 애플리케이션과 통합을 제공합니다.
 
-- 오류 보고서 – 외부 응용 프로그램에 계정을 프로비전할 때 발생할 수 있는 오류를 나타냅니다.
+- 오류 보고서 – 외부 애플리케이션에 계정을 프로비전할 때 발생할 수 있는 오류를 나타냅니다.
 
 - 사용자별 보고서 – 특정 사용자에 대한 디바이스/로그인 활동 데이터를 표시합니다.
 
@@ -129,7 +129,7 @@ Azure Portal 또는 [Azure Active Directory 포털](http://aad.portal.azure.com/
 
 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)는 몇 억 개의 ID로 확장하는 소비자 지향 응용 프로그램에 항상 사용 가능한 전역적인 ID 관리 서비스입니다. 이 서비스는 모바일 및 웹 플랫폼에 통합될 수 있습니다. 고객은 사용자 지정 가능한 환경을 통해 기존 소셜 계정을 사용하거나 새 자격 증명을 만들어 모든 애플리케이션에 로그온할 수 있습니다.
 
-이전에는 [고객을 응용 프로그램에 가입 및 로그인](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)하게 하려고 했던 응용 프로그램 개발자들이 자체 코드를 작성했습니다. 또한 온-프레미스 데이터베이스나 시스템을 사용하여 사용자 이름과 암호를 저장했습니다. Azure Active Directory B2C는 조직에게 안전한 표준 기반 플랫폼 및 확장할 수 있는 정책의 다양한 집합으로 소비자 ID 관리를 응용 프로그램에 통합하는 더 나은 방법을 제공합니다.
+이전에는 [고객을 애플리케이션에 가입 및 로그인](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)하게 하려고 했던 애플리케이션 개발자들이 자체 코드를 작성했습니다. 또한 온-프레미스 데이터베이스나 시스템을 사용하여 사용자 이름과 암호를 저장했습니다. Azure Active Directory B2C는 조직에게 안전한 표준 기반 플랫폼 및 확장할 수 있는 정책의 다양한 집합으로 소비자 ID 관리를 애플리케이션에 통합하는 더 나은 방법을 제공합니다.
 
 Azure Active Directory B2C를 사용하면 소비자는 기존 소셜 계정(Facebook, Google, Amazon, LinkedIn)을 사용하거나 새 자격 증명(전자 메일 주소 및 암호 또는 사용자 이름 및 암호)을 만들어서 애플리케이션을 등록할 수 있습니다.
 
@@ -199,10 +199,10 @@ RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당
 
 **데이터를 저장하는 모든 위치 식별**
 
-휴지 상태의 암호화는 모든 데이터를 암호화하는 것을 목표로 합니다. 이렇게 하면 중요한 데이터 또는 모든 지속형 위치가 누락될 가능성이 없어집니다. 응용 프로그램에 의해 저장된 모든 데이터가 열거됩니다. 
+휴지 상태의 암호화는 모든 데이터를 암호화하는 것을 목표로 합니다. 이렇게 하면 중요한 데이터 또는 모든 지속형 위치가 누락될 가능성이 없어집니다. 애플리케이션에 의해 저장된 모든 데이터가 열거됩니다. 
 
 > [!Note] 
-> "응용 프로그램 데이터" 또는 "PII' 뿐만 아니라 계정 메타데이터(구독 매핑, 계약 정보, PII)를 포함하여 응용 프로그램과 관련된 모든 데이터가 열거됩니다.
+> "애플리케이션 데이터" 또는 "PII' 뿐만 아니라 계정 메타데이터(구독 매핑, 계약 정보, PII)를 포함하여 애플리케이션과 관련된 모든 데이터가 열거됩니다.
 
 데이터를 저장하는 데 어떤 저장소를 사용할지 고려하세요. 예: 
 
@@ -234,7 +234,7 @@ Service Fabric을 사용하여 PaaS v2에서 실행되는 서비스는 VMSS[Virt
 
 #### <a name="paas-v1"></a>PaaS v1
 
-Azure Disk Encryption은 현재 PaaS v1에서 지원되지 않습니다. 따라서 휴지 상태에서 지속형 데이터를 암호화하는 데는 응용 프로그램 수준 암호화를 사용해야 합니다.  여기에는 응용 프로그램 데이터, 임시 파일, 로그 및 크래시 덤프가 포함되지만 이에 국한되지 않습니다.
+Azure Disk Encryption은 현재 PaaS v1에서 지원되지 않습니다. 따라서 휴지 상태에서 지속형 데이터를 암호화하는 데는 애플리케이션 수준 암호화를 사용해야 합니다.  여기에는 애플리케이션 데이터, 임시 파일, 로그 및 크래시 덤프가 포함되지만 이에 국한되지 않습니다.
 
 대부분의 서비스는 저장소 리소스 공급자의 암호화를 활용하려고 합니다. 일부 서비스는 명시적 암호화를 수행해야 합니다. 예를 들어 지속형 키 자료(인증서, 루트/마스터 키)는 Key Vault에 저장되어야 합니다.
 
@@ -277,9 +277,9 @@ Azure VPN 옵션에 대한 자세한 내용은 [VPN Gateway 계획 및 설계](h
 Azure RMS를 사용하여 파일을 보호하면 [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html)를 완벽하게 지원하는 업계 표준 암호화를 사용하는 것입니다. Azure RMS를 활용하여 데이터를 보호하면 클라우드 저장소 서비스처럼 IT의 제어를 받지 않는 저장소로 파일이 복사되더라도 파일 보호가 유지되므로 안심할 수 있습니다. 전자 메일을 통해 공유되는 파일도 마찬가지입니다. 파일이 전자 메일 메시지의 첨부 파일로 보호되며 보호되는 첨부 파일을 여는 방법에 대한 지침이 함께 제공됩니다.
 Azure RMS 도입 계획을 세울 때 다음 사항을 권장합니다.
 
-- [RMS 공유 앱](https://technet.microsoft.com/library/dn339006.aspx) 설치. 이 앱은 사용자가 간편하게 파일을 직접 보호할 수 있도록 Office 추가 기능을 설치하여 Office와 통합됩니다.
+- [RMS 공유 앱](https://technet.microsoft.com/library/dn339006.aspx) 설치. 이 앱은 사용자가 간편하게 파일을 직접 보호할 수 있도록 Office 추가 기능을 설치하여 Office 애플리케이션과 통합됩니다.
 
-- Azure RMS를 지원하도록 응용 프로그램 및 서비스 구성
+- Azure RMS를 지원하도록 애플리케이션 및 서비스 구성
 
 - 비즈니스 요구 사항을 반영하는 [사용자 지정 템플릿](https://technet.microsoft.com/library/dn642472.aspx) 만들기. 예: 모든 극비 관련 전자 메일에 적용해야 하는 극비 데이터 템플릿.
 
@@ -288,8 +288,8 @@ Azure RMS 도입 계획을 세울 때 다음 사항을 권장합니다.
 > [!Note]
 > Azure RMS에 대한 자세한 내용은 [Azure Rights Management 시작](https://technet.microsoft.com/library/jj585016.aspx) 문서를 참조하세요.
 
-## <a name="secure-your-application-protect"></a>응용 프로그램 보안(보호)
-Azure가 애플리케이션이 실행되는 인프라 및 플랫폼의 보안을 담당하는 반면 애플리케이션 자체를 보호하는 것은 사용자 책임입니다. 즉, 애플리케이션 코드 및 콘텐츠를 안전한 방식으로 개발, 배포 및 관리해야 합니다. 이렇게 하지 않으면 응용 프로그램 코드 또는 콘텐츠는 위협에 취약할 수 있습니다.
+## <a name="secure-your-application-protect"></a>애플리케이션 보안(보호)
+Azure가 애플리케이션이 실행되는 인프라 및 플랫폼의 보안을 담당하는 반면 애플리케이션 자체를 보호하는 것은 사용자 책임입니다. 즉, 애플리케이션 코드 및 콘텐츠를 안전한 방식으로 개발, 배포 및 관리해야 합니다. 이렇게 하지 않으면 애플리케이션 코드 또는 콘텐츠는 위협에 취약할 수 있습니다.
 
 ### <a name="web-application-firewall-waf"></a>WAF(웹 애플리케이션 방화벽)
 [WAF(웹 응용 프로그램 방화벽)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview)는 일반적인 악용 및 취약점으로부터 웹 응용 프로그램에 대해 중앙 집중화된 보호를 제공하는 [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)의 기능입니다.
@@ -315,7 +315,7 @@ Azure가 애플리케이션이 실행되는 인프라 및 플랫폼의 보안을
 > [!Note]
 > 더 자세한 규칙 목록 및 해당 보호는 다음 [핵심 규칙 집합](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview#core-rule-sets)을 참조하세요.
 
-또한 Azure에서는 앱에 대한 안전한 인바운드 및 아웃바운드 트래픽에 도움이 되는 사용하기 쉬운 몇 가지 기능도 제공합니다. 그뿐 아니라 Azure에서는 웹 응용 프로그램에서 취약점을 검색하는 기능을 외부적으로 제공함으로써 응용프로그램 코드의 보안에 도움을 줍니다.
+또한 Azure에서는 앱에 대한 안전한 인바운드 및 아웃바운드 트래픽에 도움이 되는 사용하기 쉬운 몇 가지 기능도 제공합니다. 그뿐 아니라 Azure에서는 웹 애플리케이션에서 취약점을 검색하는 기능을 외부적으로 제공함으로써 애플리케이션 코드의 보안에 도움을 줍니다.
 
 - [앱에 대한 Azure Active Directory 인증 설정](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
@@ -344,7 +344,7 @@ Azure가 애플리케이션이 실행되는 인프라 및 플랫폼의 보안을
 Azure App Service는 Azure Cloud Services 및 Virtual Machines에서 사용하는 것과 동일한 맬웨어 방지 솔루션을 사용합니다. 자세한 내용은 [맬웨어 방지 설명서](https://docs.microsoft.com/azure/security/azure-security-antimalware)
 
 ## <a name="secure-your-network-protect"></a>네트워크 보안(보호)
-Microsoft Azure에는 사용자의 응용 프로그램과 서비스 연결 요구 사항을 지원하기 위한 강력한 네트워킹 인프라가 포함되어 있습니다. 네트워크 연결은 Azure에 위치한 리소스 간, 온-프레미스와 Azure 호스팅 리소스 간, 그리고 인터넷과 Azure 간에 가능합니다.
+Microsoft Azure에는 사용자의 애플리케이션과 서비스 연결 요구 사항을 지원하기 위한 강력한 네트워킹 인프라가 포함되어 있습니다. 네트워크 연결은 Azure에 위치한 리소스 간, 온-프레미스와 Azure 호스팅 리소스 간, 그리고 인터넷과 Azure 간에 가능합니다.
 
 [Azure 네트워크 인프라](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-networking-guidelines)를 사용하면 Azure 리소스와 [VNet(가상 네트워크)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)을 서로 안전하게 연결할 수 있습니다. VNet은 클라우드에 있는 사용자의 네트워크를 나타내며, 구독 전용 Azure 클라우드 네트워크를 논리적으로 격리한 것이 VNet입니다. 또한 온-프레미스 네트워크에 VNet을 연결할 수 있습니다.
 
@@ -366,7 +366,7 @@ Azure를 통해 가상 머신을 악성 파일, 애드웨어 및 기타 위협�
 
 Azure Cloud Services 및 Virtual Machines를 위한 Microsoft 맬웨어 방지 프로그램은 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별 및 제거하는 데 도움이 되는 실시간 보호 기능입니다. Microsoft 맬웨어 방지 프로그램은 알려진 악성 또는 원치 않는 소프트웨어가 Azure 시스템에서 스스로의 설치나 실행을 시도할 때 구성 가능한 경고를 제공합니다.
 
-[Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)은 자본 투자 없이 최소의 비용으로 응용 프로그램 데이터를 보호하는 확장성이 뛰어난 솔루션입니다. 응용 프로그램 오류로 인해 데이터가 손상되고 사용자 오류로 인해 응용 프로그램에 버그가 발생할 수 있습니다. Azure Backup은 Windows 및 Linux를 실행하는 가상 머신의 보호에 도움이 됩니다.
+[Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)은 자본 투자 없이 최소의 비용으로 응용 프로그램 데이터를 보호하는 확장성이 뛰어난 솔루션입니다. 애플리케이션 오류로 인해 데이터가 손상되고 사용자 오류로 인해 애플리케이션에 버그가 발생할 수 있습니다. Azure Backup은 Windows 및 Linux를 실행하는 가상 머신의 보호에 도움이 됩니다.
 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하면 기본 위치가 중단되는 경우 보조 위치에서 사용할 수 있도록 워크로드 및 앱의 복제, 장애 조치 및 복구를 오케스트레이션할 수 있습니다.
 
@@ -390,7 +390,7 @@ Microsoft는 조직이 클라우드로의 전환을 고려할 때 실사 작업�
 
 - 각 공급자에게 동일한 조건, 정의, 메트릭 및 전달 방식으로 일관된 질문을 제공함으로써 다양한 클라우드 서비스 공급자의 제품을 보다 간편하게 비교할 수 있습니다.
 
-## <a name="azure-infrastructure-and-application-security-validation-detect"></a>Azure 인프라 및 응용 프로그램 보안 유효성 검사(검색)
+## <a name="azure-infrastructure-and-application-security-validation-detect"></a>Azure 인프라 및 애플리케이션 보안 유효성 검사(검색)
 
 [Azure 운영 보안](https://docs.microsoft.com/azure/security/azure-operational-security)은 사용자가 Microsoft Azure에서 자신의 데이터, 응용 프로그램 및 기타 자산을 보호할 수 있는 서비스, 제어 및 기능을 나타냅니다.
 
@@ -404,7 +404,7 @@ Azure 운영 보안은 Microsoft SDL(Security Development Lifecycle), Microsoft 
 
 ![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
 
-Log Analytics를 사용하면 경쟁 솔루션보다 저렴한 비용으로 온-프레미스, Azure, AWS, Windows Server, Linux, VMware 및 OpenStack을 포함한 모든 클라우드의 모든 인스턴스를 관리할 수 있습니다. 클라우드 우선 세계를 위해 구축된 Log Analytics는 새로운 비즈니스 과제를 충족하고 새로운 워크로드, 응용 프로그램 및 클라우드 환경을 수용할 수 있는 가장 빠르고 비용 효율적인 방법으로 기업을 관리하기 위한 새로운 방법을 제공합니다.
+Log Analytics를 사용하면 경쟁 솔루션보다 저렴한 비용으로 온-프레미스, Azure, AWS, Windows Server, Linux, VMware 및 OpenStack을 포함한 모든 클라우드의 모든 인스턴스를 관리할 수 있습니다. 클라우드 우선 세계를 위해 구축된 Log Analytics는 새로운 비즈니스 과제를 충족하고 새로운 워크로드, 애플리케이션 및 클라우드 환경을 수용할 수 있는 가장 빠르고 비용 효율적인 방법으로 기업을 관리하기 위한 새로운 방법을 제공합니다.
 
 ### <a name="log-analytics"></a>Log Analytics
 
@@ -446,7 +446,7 @@ Log Analytics를 사용하면 경쟁 솔루션보다 저렴한 비용으로 온-
 
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)는 특정 유형의 리소스 정보에 대한 포인터를 제공합니다. Azure 인프라(활동 로그)와 개별 Azure 리소스(진단 로그)의 데이터에 대한 시각화, 쿼리, 라우팅, 경고, 자동 크기 조정 및 자동화를 제공합니다.
 
-클라우드 응용 프로그램은 이동하는 부분이 많아 복잡합니다. 모니터링은 애플리케이션을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다.
+클라우드 애플리케이션은 이동하는 부분이 많아 복잡합니다. 모니터링은 애플리케이션을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다.
 
 ![Azure Monitor](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig10.png) 또한 응용 프로그램에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 통해 애플리케이션 성능이나 유지 관리를 개선하거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화하는 데 도움이 될 수 있습니다.
 
@@ -458,7 +458,7 @@ Log Analytics를 사용하면 경쟁 솔루션보다 저렴한 비용으로 온-
 
 ### <a name="storage-analytics"></a>저장소 분석
 
-[저장소 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 Storage 서비스 요청과 관련하여 집계된 트랜잭션 통계 및 용량 데이터를 포함하는 메트릭을 저장할 수 있습니다. 트랜잭션은 API 작업 수준과 저장소 서비스 수준에서 모두 보고되며 용량은 저장소 서비스 수준에서 보고됩니다. 메트릭 데이터를 사용하면 저장소 서비스 사용량을 분석하고 저장소 서비스에 대한 요청의 문제를 진단하며 서비스를 사용하는 응용 프로그램의 성능을 개선할 수 있습니다.
+[저장소 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 Storage 서비스 요청과 관련하여 집계된 트랜잭션 통계 및 용량 데이터를 포함하는 메트릭을 저장할 수 있습니다. 트랜잭션은 API 작업 수준과 저장소 서비스 수준에서 모두 보고되며 용량은 저장소 서비스 수준에서 보고됩니다. 메트릭 데이터를 사용하면 저장소 서비스 사용량을 분석하고 저장소 서비스에 대한 요청의 문제를 진단하며 서비스를 사용하는 애플리케이션의 성능을 개선할 수 있습니다.
 
 ### <a name="application-insights"></a>Application Insights
 
@@ -486,7 +486,7 @@ Log Analytics를 사용하면 경쟁 솔루션보다 저렴한 비용으로 온-
 
 - 판매된 품목, 승리한 게임 등의 비즈니스 이벤트를 추적하기 위해 개발자가 직접 클라이언트 또는 서버 코드로 작성하는 **사용자 지정 이벤트 및 메트릭**.
 
-응용 프로그램에 대한 인프라는 일반적으로 가상 컴퓨터, 저장소 계정 및 가상 네트워크 또는 웹앱, 데이터베이스, 데이터베이스 서버 및 타사 서비스 등의 많은 구성 요소를 만듭니다. 이러한 구성 요소를 별도 엔터티로 표시하지 않으면, 대신 관련된 단일 엔터티의 상호 종속적으로 부분으로 표시됩니다. 그룹으로 배포, 관리 및 모니터링하려고 합니다. [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다.
+애플리케이션에 대한 인프라는 일반적으로 가상 컴퓨터, 저장소 계정 및 가상 네트워크 또는 웹앱, 데이터베이스, 데이터베이스 서버 및 타사 서비스 등의 많은 구성 요소를 만듭니다. 이러한 구성 요소를 별도 엔터티로 표시하지 않으면, 대신 관련된 단일 엔터티의 상호 종속적으로 부분으로 표시됩니다. 그룹으로 배포, 관리 및 모니터링하려고 합니다. [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다.
 
 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 리소스 관리자는 보안, 감사 및 태그 기능을 제공하여 배포 후에 리소스를 관리할 수 있습니다.
 

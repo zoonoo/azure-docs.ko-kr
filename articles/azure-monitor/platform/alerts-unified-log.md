@@ -29,7 +29,7 @@ ms.locfileid: "53386216"
 로그 검색 규칙은 일정한 간격으로 지정된 로그 쿼리를 자동으로 실행하도록 Azure Alerts에 의해 만들어집니다.  로그 쿼리 결과가 특정 조건과 일치하는 경우 경고 레코드가 만들어집니다. 그런 다음, 규칙은 [작업 그룹](../../azure-monitor/platform/action-groups.md)을 사용하여 하나 이상의 작업을 자동으로 실행할 수 있습니다. 
 
 로그 검색 규칙은 다음 세부 정보에 의해 정의됩니다.
-- **로그 쿼리**  경고 규칙이 실행될 때마다 실행되는 쿼리입니다.  이 쿼리에서 반환된 레코드는 경고를 생성할지 여부를 결정하는 데 사용됩니다. 사용자에게 외부 응용 프로그램에 대한 액세스 권한이 있다면 Analytics 쿼리에는 [응용 프로그램 간 호출](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), 작업 영역 간 호출 및 [리소스 간 호출](../../azure-monitor/log-query/cross-workspace-query.md)이 포함될 수 있습니다. 
+- **로그 쿼리**  경고 규칙이 실행될 때마다 실행되는 쿼리입니다.  이 쿼리에서 반환된 레코드는 경고를 생성할지 여부를 결정하는 데 사용됩니다. 사용자에게 외부 애플리케이션에 대한 액세스 권한이 있다면 Analytics 쿼리에는 [애플리케이션 간 호출](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), 작업 영역 간 호출 및 [리소스 간 호출](../../azure-monitor/log-query/cross-workspace-query.md)이 포함될 수 있습니다. 
 
     > [!IMPORTANT]
     > 사용자에게는 경고 규칙 또는 경고 쿼리의 분석 대상에 대한 액세스 및 쿼리 실행 권한과 함께 Azure Monitor에서 로그 경고 생성, 수정 및 업데이트에 대한 [Azure 모니터링 기여자](../../azure-monitor/platform/roles-permissions-security.md) 역할이 있어야 합니다. 만드는 사용자에게 경고 규칙 또는 경고 쿼리의 모든 분석 대상에 대한 액세스 권한이 없는 경우 규칙 만들기가 실패할 수 있거나, 로그 경고 규칙이 부분적인 결과를 통해 실행됩니다.

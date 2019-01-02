@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric 클러스터에 CI/CD로 컨테이너 응용 프로그램 배포
+title: Azure Service Fabric 클러스터에 CI/CD로 컨테이너 애플리케이션 배포
 description: 이 자습서에서는 Visual Studio Azure DevOps를 사용하여 Azure Service Fabric 컨테이너 애플리케이션에 대한 지속적인 통합 및 배포를 설정하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
@@ -22,9 +22,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/04/2018
 ms.locfileid: "52872971"
 ---
-# <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>자습서: Service Fabric 클러스터에 CI/CD로 컨테이너 응용 프로그램 배포
+# <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>자습서: Service Fabric 클러스터에 CI/CD로 컨테이너 애플리케이션 배포
 
-이 자습서는 시리즈의 2부로, Visual Studio 및 Azure DevOps를 사용하여 Azure Service Fabric 컨테이너 애플리케이션에 대한 지속적인 통합 및 배포를 설정하는 방법을 설명합니다.  기존 Service Fabric 응용 프로그램이 필요하며 [Azure Service Fabric에 Windows 컨테이너로 .NET 응용 프로그램 배포](service-fabric-host-app-in-a-container.md)에서 만든 응용 프로그램을 예제로 사용합니다.
+이 자습서는 시리즈의 2부로, Visual Studio 및 Azure DevOps를 사용하여 Azure Service Fabric 컨테이너 애플리케이션에 대한 지속적인 통합 및 배포를 설정하는 방법을 설명합니다.  기존 Service Fabric 애플리케이션이 필요하며 [Azure Service Fabric에 Windows 컨테이너로 .NET 애플리케이션 배포](service-fabric-host-app-in-a-container.md)에서 만든 애플리케이션을 예제로 사용합니다.
 
 시리즈 2부에서는 다음 방법에 대해 알아봅니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "52872971"
 
 ## <a name="prepare-a-publish-profile"></a>게시 프로필 준비
 
-이제 [컨테이너 응용 프로그램을 배포](service-fabric-host-app-in-a-container.md)했으므로 연속 통합을 설정할 준비가 되었습니다.  먼저, Azure DevOps 내에서 실행할 배포 프로세스에 사용할 게시 프로필을 응용 프로그램 내에서 준비하는 것입니다.  게시 프로필은 이전에 만든 클러스터를 대상으로 지정하도록 구성해야 합니다.  Visual Studio를 시작하고 기존 Service Fabric 애플리케이션 프로젝트를 엽니다.  **솔루션 탐색기**에서 응용 프로그램을 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택합니다.
+이제 [컨테이너 애플리케이션을 배포](service-fabric-host-app-in-a-container.md)했으므로 연속 통합을 설정할 준비가 되었습니다.  먼저, Azure DevOps 내에서 실행할 배포 프로세스에 사용할 게시 프로필을 애플리케이션 내에서 준비하는 것입니다.  게시 프로필은 이전에 만든 클러스터를 대상으로 지정하도록 구성해야 합니다.  Visual Studio를 시작하고 기존 Service Fabric 애플리케이션 프로젝트를 엽니다.  **솔루션 탐색기**에서 응용 프로그램을 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택합니다.
 
 연속 통합 워크플로로 사용할 대상 프로필을 애플리케이션 프로젝트 내에서 선택합니다(예: 클라우드).  클러스터 연결 엔드포인트를 지정합니다.  **응용 프로그램 업그레이드** 확인란을 선택하여 Azure DevOps의 각 배포에 대해 응용 프로그램이 업그레이드되도록 합니다.  **저장** 하이퍼링크를 클릭하여 설정을 게시 프로필에 저장한 후 **취소**를 클릭하여 대화 상자를 닫습니다.
 
@@ -132,7 +132,7 @@ Azure Active Directory 자격 증명의 경우 사용하려는 클러스터 및 
 
 
 
-에이전트 단계 아래에서 **Service Fabric 응용 프로그램 배포**를 클릭합니다.
+에이전트 단계 아래에서 **Service Fabric 애플리케이션 배포**를 클릭합니다.
 **Docker 설정**을 클릭하고 **Docker 설정 구성**을 클릭합니다. **레지스트리 자격 증명 소스**에서 **Azure Resource Manager 서비스 연결**을 선택합니다. 그런 후 **Azure 구독**을 선택합니다.
 
 ![릴리스 파이프라인 에이전트][release-pipeline-agent]
@@ -147,7 +147,7 @@ Azure Active Directory 자격 증명의 경우 사용하려는 클러스터 및 
 
 **+ 릴리스** -> **릴리스 만들기** -> **만들기**를 선택하여 릴리스를 수동으로 만듭니다. **릴리스** 탭에서 릴리스 진행률을 모니터링할 수 있습니다.
 
-배포에 성공했고 클러스터에서 애플리케이션이 실행 중인지 확인합니다.  웹 브라우저를 열고 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)로 이동합니다.  응용 프로그램 버전을 확인합니다. 이 예제에서는 “1.0.0.20170616.3”입니다.
+배포에 성공했고 클러스터에서 애플리케이션이 실행 중인지 확인합니다.  웹 브라우저를 열고 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)로 이동합니다.  애플리케이션 버전을 확인합니다. 이 예제에서는 “1.0.0.20170616.3”입니다.
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>변경 내용 커밋 및 푸시, 릴리스 트리거
 
@@ -179,7 +179,7 @@ Azure DevOps에 변경 내용을 푸시하면 빌드가 자동으로 트리거�
 
 ![Service Fabric Explorer][sfx2]
 
-애플리케이션 업그레이드에는 몇 분 정도 걸릴 수 있습니다. 업그레이드가 완료되면 응용 프로그램이 다음 버전으로 실행됩니다.  이 예제에서는 "1.0.0.20170815.4"입니다.
+애플리케이션 업그레이드에는 몇 분 정도 걸릴 수 있습니다. 업그레이드가 완료되면 애플리케이션이 다음 버전으로 실행됩니다.  이 예제에서는 "1.0.0.20170815.4"입니다.
 
 ![Service Fabric Explorer][sfx3]
 

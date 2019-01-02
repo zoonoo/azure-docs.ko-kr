@@ -1,6 +1,6 @@
 ---
-title: Azure에서 확장 가능한 응용 프로그램에 필요한 VM 및 저장소 계정 만들기 | Microsoft Docs
-description: Azure Blob Storage를 사용하여 확장 가능한 응용 프로그램을 실행하는 데 사용할 VM을 배포하는 방법을 알아봅니다.
+title: Azure에서 확장 가능한 애플리케이션에 필요한 VM 및 저장소 계정 만들기 | Microsoft Docs
+description: Azure Blob Storage를 사용하여 확장 가능한 애플리케이션을 실행하는 데 사용할 VM을 배포하는 방법을 알아봅니다.
 services: storage
 author: roygara
 ms.service: storage
@@ -17,9 +17,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50230763"
 ---
-# <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>확장 가능한 응용 프로그램에 필요한 가상 머신 및 저장소 계정 만들기
+# <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>확장 가능한 애플리케이션에 필요한 가상 머신 및 저장소 계정 만들기
 
-이 자습서는 시리즈의 1부입니다. 이 자습서에서는 Azure Storage 계정으로 대량의 임의 데이터를 업로드하고 다운로드하는 응용 프로그램을 배포하는 방법을 설명합니다. 이 자습서를 마치면 대량의 데이터를 저장소 계정으로 업로드하고 다운로드하는 가상 머신에서 실행되는 콘솔 응용 프로그램이 생깁니다.
+이 자습서는 시리즈의 1부입니다. 이 자습서에서는 Azure Storage 계정으로 대량의 임의 데이터를 업로드하고 다운로드하는 애플리케이션을 배포하는 방법을 설명합니다. 이 자습서를 마치면 대량의 데이터를 저장소 계정으로 업로드하고 다운로드하는 가상 머신에서 실행되는 콘솔 애플리케이션이 생깁니다.
 
 시리즈 1부에서는 다음 방법에 대해 알아봅니다.
 

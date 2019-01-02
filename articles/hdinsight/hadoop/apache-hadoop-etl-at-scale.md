@@ -46,7 +46,7 @@ Azure Data Factory를 사용하면 다음을 수행할 수 있습니다.
 
 1. 서로 다른 데이터 저장소의 데이터를 수집하는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 예약합니다.
 2. Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, Azure Batch 및 Azure Machine Learning과 같은 계산 서비스를 사용하여 데이터를 처리하고 변환합니다.
-3. 사용할 BI(비즈니스 인텔리전스) 응용 프로그램용 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시합니다.
+3. 사용할 BI(비즈니스 인텔리전스) 애플리케이션용 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시합니다.
 
 Azure Data Factory에 대한 자세한 내용은 [이 설명서](../../data-factory/introduction.md)를 참조하세요.
 
@@ -92,7 +92,7 @@ Azure SQL DW는 분석 작업에 최적화된 관계형 데이터베이스 저�
 
 Apache HBase는 Azure HDInsight에서 사용할 수 있는 키-값 저장소입니다.  Apache HBase는 Hadoop을 기반으로 하고 Google BigTable 이후에 모델링된 오픈 소스 NoSQL 데이터베이스입니다. HBase는 열 패밀리로 구성되고 스키마가 없는 데이터베이스에서 대량의 비구조적/반구조적 데이터에 대해 고성능 임의 액세스 및 강력한 일관성을 제공합니다.
 
-데이터는 테이블의 행에 저장되고 행 내의 데이터는 열 제품군으로 그룹화됩니다. HBase는 사용 전에 열과 열에 저장되는 데이터 형식을 정의할 필요가 없다는 점에서 스키마 없는 데이터베이스입니다. 오픈 소스 코드는 수천 대의 노드에 있는 페타바이트 크기의 데이터를 처리할 수 있을 정도로 선형으로 확장됩니다. HBase는 Hadoop 에코시스템의 분산 응용 프로그램에서 제공하는 데이터 중복, 일괄 처리 및 기타 기능을 사용할 수 있습니다.   
+데이터는 테이블의 행에 저장되고 행 내의 데이터는 열 제품군으로 그룹화됩니다. HBase는 사용 전에 열과 열에 저장되는 데이터 형식을 정의할 필요가 없다는 점에서 스키마 없는 데이터베이스입니다. 오픈 소스 코드는 수천 대의 노드에 있는 페타바이트 크기의 데이터를 처리할 수 있을 정도로 선형으로 확장됩니다. HBase는 Hadoop 에코시스템의 분산 애플리케이션에서 제공하는 데이터 중복, 일괄 처리 및 기타 기능을 사용할 수 있습니다.   
 
 HBase는 향후 분석을 위한 센서 및 로그 데이터에 대한 뛰어난 대상입니다.
 
@@ -110,7 +110,7 @@ Azure는 PAAS(Platform-as-a-Service)와 같은 별도의 세 가지 관계형 �
 
 ## <a name="azure-analysis-services"></a>Azure Analysis Services 
 
-AAS(Azure Analysis Services)는 의사 결정 지원 및 비즈니스 분석에 사용되는 분석 데이터 엔진으로, Power BI, Excel, Reporting Services 보고서 및 다른 데이터 시각화 도구와 같은 비즈니스 보고서 및 클라이언트 응용 프로그램에 대한 분석 데이터를 제공합니다.
+AAS(Azure Analysis Services)는 의사 결정 지원 및 비즈니스 분석에 사용되는 분석 데이터 엔진으로, Power BI, Excel, Reporting Services 보고서 및 다른 데이터 시각화 도구와 같은 비즈니스 보고서 및 클라이언트 애플리케이션에 대한 분석 데이터를 제공합니다.
 
 분석 큐브의 크기는 개별 큐브 각각에 대한 계층을 변경하여 조정할 수 있습니다.  자세한 내용은 [Azure Analysis Services 가격](https://azure.microsoft.com/pricing/details/analysis-services/)을 참조하세요.
 
@@ -126,7 +126,7 @@ Sqoop은 MapReduce를 사용하여 데이터를 가져오고 내보내고, 병�
 
 ### <a name="apache-flume"></a>Apache Flume
 
-Apache Flume은 대량의 로그 데이터를 효율적으로 수집, 집계 및 이동하기 위해 안정적으로 사용할 수 있는 분산 서비스입니다. Flume은 스트리밍 데이터 흐름에 기반한 간단하고 유연한 아키텍처입니다. Flume은 튜닝할 수 있는 안정성 메커니즘과 다양한 장애 조치 및 복구 메커니즘을 통해 내결함성이 있는 강력한 도구입니다. Flume은 온라인 분석 응용 프로그램을 허용하는 확장 가능한 간단한 데이터 모델을 사용합니다.
+Apache Flume은 대량의 로그 데이터를 효율적으로 수집, 집계 및 이동하기 위해 안정적으로 사용할 수 있는 분산 서비스입니다. Flume은 스트리밍 데이터 흐름에 기반한 간단하고 유연한 아키텍처입니다. Flume은 튜닝할 수 있는 안정성 메커니즘과 다양한 장애 조치 및 복구 메커니즘을 통해 내결함성이 있는 강력한 도구입니다. Flume은 온라인 분석 애플리케이션을 허용하는 확장 가능한 간단한 데이터 모델을 사용합니다.
 
 Apache Flume은 Azure HDInsight와 함께 사용할 수 없습니다.  온-프레미스 Hadoop 설치에서는 Flume을 사용하여 Azure Storage Blob 또는 Azure Data Lake Storage에 데이터를 보낼 수 있습니다.  자세한 내용은 [HDInsight와 함께 Apache Flume 사용](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/)을 참조하세요.
 

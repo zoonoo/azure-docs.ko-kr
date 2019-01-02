@@ -38,7 +38,7 @@ ms.locfileid: "46363652"
 
 ## <a name="create-the-application"></a>애플리케이션 만들기
 
-1. Visual Studio에서 새 C# 콘솔 응용 프로그램을 만듭니다.
+1. Visual Studio에서 새 C# 콘솔 애플리케이션을 만듭니다.
 
 2. 다음 코드를 __Program.cs__ 파일의 본문으로 사용합니다.
 
@@ -104,9 +104,9 @@ ms.locfileid: "46363652"
     }
     ```
 
-## <a name="use-the-application"></a>응용 프로그램 사용
+## <a name="use-the-application"></a>애플리케이션 사용
 
-응용 프로그램을 실행하는 경우 이미지 파일의 경로를 입력합니다. 이미지가 API에 제출되고 결과가 JSON 문서로 반환됩니다. 다음 JSON은 응답의 예입니다.
+애플리케이션을 실행하는 경우 이미지 파일의 경로를 입력합니다. 이미지가 API에 제출되고 결과가 JSON 문서로 반환됩니다. 다음 JSON은 응답의 예입니다.
 
 ```json
 {

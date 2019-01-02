@@ -1,6 +1,6 @@
 ---
 title: VM용 Azure Monitor(미리 보기)란? | Microsoft Docs
-description: VM용 Azure Monitor는 Azure VM 운영 체제의 상태 및 성능 모니터링뿐만 아니라 응용 프로그램 구성 요소 및 종속성의 자동 검색도 다른 리소스와 결합하고, 이러한 항목 간의 통신을 매핑하는 Azure Monitor의 기능입니다. 이 문서에서는 개요를 제공합니다.
+description: VM용 Azure Monitor는 Azure VM 운영 체제의 상태 및 성능 모니터링뿐만 아니라 애플리케이션 구성 요소 및 종속성의 자동 검색도 다른 리소스와 결합하고, 이러한 항목 간의 통신을 매핑하는 Azure Monitor의 기능입니다. 이 문서에서는 개요를 제공합니다.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel

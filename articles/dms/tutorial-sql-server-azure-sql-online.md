@@ -294,7 +294,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
  
 2.  원본 데이터베이스로 들어오는 모든 트랜잭션을 중지해야 합니다. **보류 중인 변경 내용** 카운터가 **0**으로 표시될 때까지 기다립니다.
 3.  **확인**, **적용**을 차례로 선택합니다.
-4. 데이터베이스 마이그레이션 상태가 **완료됨**으로 표시되면 응용 프로그램을 새 대상 Azure SQL Database에 연결합니다.
+4. 데이터베이스 마이그레이션 상태가 **완료됨**으로 표시되면 애플리케이션을 새 대상 Azure SQL Database에 연결합니다.
  
     ![작업 상태 - 완료됨](media/tutorial-sql-server-to-azure-sql-online/dms-activity-completed.png)
 

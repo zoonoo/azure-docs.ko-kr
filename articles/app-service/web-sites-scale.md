@@ -35,7 +35,7 @@ ms.locfileid: "53251058"
   가격 책정 계층에 따라 최대 20개의 인스턴스로 확장할 수 있습니다. [고립](environment/intro.md) 계층에서 **App Service 환경**은 규모 확장 수를 100개 인스턴스까지 증대합니다. 규모 확장에 대한 자세한 내용은 [수동 또는 자동으로 인스턴스 개수 조정](../monitoring-and-diagnostics/insights-how-to-scale.md)을 참조하세요. 자동 크기 조정을 사용하는 방법을 찾아볼 수 있으며 이는 미리 정의된 규칙 및 일정에 따라 자동으로 인스턴스 개수를 조정합니다.
 
 크기 조정 설정을 적용하는 데 몇 초밖에 걸리지 않으며 [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)의 모든 앱에 영향을 줍니다.
-코드를 변경하거나 응용 프로그램을 다시 배포할 필요가 없습니다.
+코드를 변경하거나 애플리케이션을 다시 배포할 필요가 없습니다.
 
 개별 App Service 계획의 가격 책정 및 기능에 대한 자세한 내용은 [App Service 가격 정보](https://azure.microsoft.com/pricing/details/web-sites/)를 참조하세요.  
 

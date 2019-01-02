@@ -73,7 +73,7 @@ SHOWHOST = 'false'
 docker-compose up --build -d
 ```
 
-## <a name="test-application-locally"></a>로컬에서 응용 프로그램 테스트
+## <a name="test-application-locally"></a>로컬에서 애플리케이션 테스트
 
 http://localhost:8080으로 이동하여 업데이트된 응용 프로그램을 확인합니다.
 

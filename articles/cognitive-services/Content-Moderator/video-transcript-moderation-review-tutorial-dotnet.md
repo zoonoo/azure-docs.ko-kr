@@ -23,7 +23,7 @@ Content Moderator의 비디오 API를 사용하면 사용자 검토 도구에서
 
 이 자세한 자습서는 컴퓨터 지원 조정 및 사람이 개입된(human-in-the-loop) 검토 생성을 통해 완벽한 비디오 및 대본 조정 솔루션을 빌드하는 방법을 이해하는 데 도움이 됩니다.
 
-이 자습서에 대해서는 [C# 콘솔 응용 프로그램](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp)을 다운로드합니다. 콘솔 응용 프로그램은 SDK 및 관련 패키지를 사용하여 다음 작업을 수행합니다.
+이 자습서에 대해서는 [C# 콘솔 애플리케이션](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp)을 다운로드합니다. 콘솔 애플리케이션은 SDK 및 관련 패키지를 사용하여 다음 작업을 수행합니다.
 
 - 신속한 처리를 위해 입력 비디오 압축
 - 비디오를 조정하여 인사이트가 있는 촬영 및 프레임 가져오기
@@ -47,7 +47,7 @@ Content Moderator의 비디오 API를 사용하면 사용자 검토 도구에서
 
   ![비디오 조정 사용자 지정 태그](images/video-tutorial-custom-tags.png)
 
-1. 샘플 응용 프로그램을 실행하려면 Azure 계정 및 Azure Media Services 계정이 필요합니다. 또한 Content Moderator 비공개 미리 보기에 액세스해야 합니다. 마지막으로 Azure Active Directory 인증 자격 증명이 필요합니다. 이 정보를 얻는 방법에 대한 자세한 내용은 [비디오 조정 API 빠른 시작](video-moderation-api.md)을 참조합니다.
+1. 샘플 애플리케이션을 실행하려면 Azure 계정 및 Azure Media Services 계정이 필요합니다. 또한 Content Moderator 비공개 미리 보기에 액세스해야 합니다. 마지막으로 Azure Active Directory 인증 자격 증명이 필요합니다. 이 정보를 얻는 방법에 대한 자세한 내용은 [비디오 조정 API 빠른 시작](video-moderation-api.md)을 참조합니다.
 
 1. 파일 `App.config`를 편집하고 Active Directory 테넌트 이름, 서비스 엔드포인트 및 `#####`에서 표시한 구독 키를 추가합니다. 다음 정보가 필요합니다.
 
@@ -126,7 +126,7 @@ Content Moderator의 비디오 API를 사용하면 사용자 검토 도구에서
 명령줄 인수가 없는 경우 `Main()`은 `GetUserInputs()`을 호출합니다. 이 메서드는 사용자가 단일 비디오 파일의 경로를 입력하고 텍스트 대본을 생성해야 할지 여부를 지정하게 합니다.
 
 > [!NOTE]
-> 콘솔 응용 프로그램은 [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2)를 사용하여 업로드된 비디오의 오디오 트랙에서 대본을 생성합니다. 결과는 WebVTT 형식으로 제공됩니다. 이 형식에 대한 자세한 내용은 [Web Video Text Tracks 형식](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API)을 참조하세요.
+> 콘솔 애플리케이션은 [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2)를 사용하여 업로드된 비디오의 오디오 트랙에서 대본을 생성합니다. 결과는 WebVTT 형식으로 제공됩니다. 이 형식에 대한 자세한 내용은 [Web Video Text Tracks 형식](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API)을 참조하세요.
 
 ### <a name="initialize-and-processvideo-methods"></a>초기화 및 ProcessVideo 메서드
 
@@ -200,7 +200,7 @@ Content Moderator의 비디오 API를 사용하면 사용자 검토 도구에서
 
 ## <a name="compressing-the-video"></a>비디오 압축
 
-네트워크 트래픽을 최소화하려면 응용 프로그램은 비디오 파일을 H.264(MPEG-4 AVC) 형식으로 변환하고 최대 너비 640픽셀로 크기를 조정합니다. 높은 효율성(압축률) 때문에 H.264 코덱이 권장됩니다. 압축은 Visual Studio 솔루션의 `Lib` 폴더에 포함된 무료 `ffmpeg` 명령줄 도구를 사용하여 이루어집니다. 입력 파일은 가장 일반적으로 사용되는 비디오 파일 형식 및 코덱을 포함하여 `ffmpeg`에서 지원하는 모든 형식이 될 수 있습니다.
+네트워크 트래픽을 최소화하려면 애플리케이션은 비디오 파일을 H.264(MPEG-4 AVC) 형식으로 변환하고 최대 너비 640픽셀로 크기를 조정합니다. 높은 효율성(압축률) 때문에 H.264 코덱이 권장됩니다. 압축은 Visual Studio 솔루션의 `Lib` 폴더에 포함된 무료 `ffmpeg` 명령줄 도구를 사용하여 이루어집니다. 입력 파일은 가장 일반적으로 사용되는 비디오 파일 형식 및 코덱을 포함하여 `ffmpeg`에서 지원하는 모든 형식이 될 수 있습니다.
 
 > [!NOTE]
 > 명령줄 옵션을 사용하여 프로그램을 시작할 경우 조정을 위해 제출될 비디오 파일을 포함하는 디렉터리를 지정합니다. `.mp4` 파일 이름 확장명를 가진 이 디렉터리의 모든 파일이 처리됩니다. 다른 파일 이름 확장명을 처리하려면 `Program.cs`의 `Main()` 메서드를 업데이트하여 원하는 확장명을 포함시킵니다.
@@ -420,7 +420,7 @@ Content Moderator의 비디오 API를 사용하면 사용자 검토 도구에서
 비디오에서 오디오의 전사는 `GenerateVTT` 플래그가 설정되는 경우 생성됩니다.
 
 > [!NOTE]
-> 콘솔 응용 프로그램은 [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2)를 사용하여 업로드된 비디오의 오디오 트랙에서 대본을 생성합니다. 결과는 WebVTT 형식으로 제공됩니다. 이 형식에 대한 자세한 내용은 [Web Video Text Tracks 형식](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API)을 참조하세요.
+> 콘솔 애플리케이션은 [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2)를 사용하여 업로드된 비디오의 오디오 트랙에서 대본을 생성합니다. 결과는 WebVTT 형식으로 제공됩니다. 이 형식에 대한 자세한 내용은 [Web Video Text Tracks 형식](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API)을 참조하세요.
 
 
 ## <a name="creating-the-human-in-the-loop-review"></a>사람이 개입된(human-in-the-loop) 검토 만들기
@@ -462,7 +462,7 @@ Content Moderator의 비디오 API를 사용하면 사용자 검토 도구에서
 `CreateVideoReviewInContentModerator()`는 다음 작업을 수행하려면 다른 여러 메서드를 호출합니다.
 
 > [!NOTE]
-> 콘솔 응용 프로그램은 썸네일을 생성하기 위한 [FFmpeg](https://ffmpeg.org/) 라이브러리를 사용합니다. 이러한 썸네일(이미지)은 [비디오 조정 출력](#sample-video-moderation-response)에서 프레임 타임스탬프에 해당합니다.
+> 콘솔 애플리케이션은 썸네일을 생성하기 위한 [FFmpeg](https://ffmpeg.org/) 라이브러리를 사용합니다. 이러한 썸네일(이미지)은 [비디오 조정 출력](#sample-video-moderation-response)에서 프레임 타임스탬프에 해당합니다.
 
 |Task|메서드|파일|
 |-|-|-|
@@ -480,7 +480,7 @@ Content Moderator의 비디오 API를 사용하면 사용자 검토 도구에서
 
 지금까지 이 자습서에 제공된 코드는 시각적 콘텐츠에 중점을 뒀습니다. 음성 콘텐츠 검토는 언급했듯이 오디오에서 생성된 대본을 사용하는 별도의 선택적 프로세스입니다. 이제 텍스트 대본이 검토 프로세스에서 생성되고 사용되는 방법에 대해 살펴볼 때가 됐습니다. 대본 생성 작업은 [Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-index-content) 서비스의 몫입니다.
 
-이 응용 프로그램은 다음 작업을 수행합니다.
+이 애플리케이션은 다음 작업을 수행합니다.
 
 |Task|메서드|파일|
 |-|-|-|
@@ -508,11 +508,11 @@ Content Moderator의 비디오 API를 사용하면 사용자 검토 도구에서
 솔루션의 `Lib` 폴더의 파일 `MediaIndexerConfig.json`에서 대본 작업에 대한 구성을 읽습니다. 전사 프로세스의 출력 및 구성 파일에 대해 AMS 자산을 생성합니다. AMS 작업이 실행될 때 이 작업은 비디오 파일의 오디오 트랙에서 텍스트 대본을 만듭니다.
 
 > [!NOTE]
-> 샘플 응용 프로그램은 미국 영어로 된 음성만 인식합니다.
+> 샘플 애플리케이션은 미국 영어로 된 음성만 인식합니다.
 
 ### <a name="transcript-generation"></a>대본 생성
 
-대본은 AMS 자산으로 게시됩니다. 대본에서 불쾌한 콘텐츠를 검사하려면 응용 프로그램은 Azure Media Services에서 자산을 다운로드합니다. `CreateAzureMediaServicesJobToModerateVideo()`는 여기에 표시된 `GenerateTranscript()`를 호출하여 파일을 검색합니다.
+대본은 AMS 자산으로 게시됩니다. 대본에서 불쾌한 콘텐츠를 검사하려면 애플리케이션은 Azure Media Services에서 자산을 다운로드합니다. `CreateAzureMediaServicesJobToModerateVideo()`는 여기에 표시된 `GenerateTranscript()`를 호출하여 파일을 검색합니다.
 
     public bool GenerateTranscript(IAsset asset)
     {

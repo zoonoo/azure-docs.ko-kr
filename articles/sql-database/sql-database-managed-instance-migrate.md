@@ -53,7 +53,7 @@ Azure SQL Database Managed Instance에서 제거되지 않은 일부 보고된 �
 
 Managed Instance는 클라우드로 이동할 온-프레미스 작업에 맞게 조정됩니다. 작업에 적합한 수준의 리소스를 선택할 때 유연성이 높은 [새 구매 모델](sql-database-service-tiers-vcore.md)이 도입되었습니다. 온-프레미스 환경에서는 실제 코어 및 IO 대역폭을 사용하여 이러한 작업의 크기를 조정하는 데 익숙할 것입니다. Managed Instance에 대한 새 구매 모델은 가상 코어 수 또는 "vCore 수"를 기반으로 하며, 추가 저장소 및 IO를 별도로 사용할 수 있습니다. vCore 모델은 현재 온-프레미스에서 사용하는 제품과 비교하여 클라우드의 컴퓨팅 요구 사항을 더 쉽게 이해할 수 있는 방법입니다. 새로운 이 모델을 사용하면 클라우드에서 대상 환경의 크기를 올바르게 조정할 수 있습니다.
 
-배포 시 컴퓨팅 및 저장소 리소스를 선택한 다음, 나중에 [Azure Portal](sql-database-scale-resources.md)을 사용하여 응용 프로그램의 가동 중지 시간을 도입하지 않고 변경할 수 있습니다.
+배포 시 컴퓨팅 및 저장소 리소스를 선택한 다음, 나중에 [Azure Portal](sql-database-scale-resources.md)을 사용하여 애플리케이션의 가동 중지 시간을 도입하지 않고 변경할 수 있습니다.
 
 ![관리되는 인스턴스 크기 조정](./media/sql-database-managed-instance-migration/managed-instance-sizing.png)
 
@@ -64,7 +64,7 @@ VNet 인프라와 Managed Instance를 만드는 방법을 알아보려면 [Manag
 
 ## <a name="select-migration-method-and-migrate"></a>마이그레이션 방법 선택 및 마이그레이션
 
-Managed Instance는 온-프레미스 또는 IaaS 데이터베이스 구현에서 대량의 데이터베이스 마이그레이션이 필요한 사용자 시나리오를 대상으로 합니다. 인스턴스 수준 및/또는 데이터베이스 간 기능을 정기적으로 사용하는 응용 프로그램의 백 엔드를 리프트 앤 시프트 방식으로 이동해야 하는 경우에 최적의 선택입니다. 이러한 시나리오의 경우 응용 프로그램을 다시 구성하지 않고도 Azure에서 전체 인스턴스를 해당 환경으로 이동할 수 있습니다.
+Managed Instance는 온-프레미스 또는 IaaS 데이터베이스 구현에서 대량의 데이터베이스 마이그레이션이 필요한 사용자 시나리오를 대상으로 합니다. 인스턴스 수준 및/또는 데이터베이스 간 기능을 정기적으로 사용하는 응용 프로그램의 백 엔드를 리프트 앤 시프트 방식으로 이동해야 하는 경우에 최적의 선택입니다. 이러한 시나리오의 경우 애플리케이션을 다시 구성하지 않고도 Azure에서 전체 인스턴스를 해당 환경으로 이동할 수 있습니다.
 
 SQL 인스턴스를 이동하려면 다음을 신중하게 계획해야 합니다.
 
@@ -111,7 +111,7 @@ SAS 자격 증명을 사용하여 Managed Instance에 데이터베이스 백업�
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
-## <a name="monitor-applications"></a>응용 프로그램 모니터링
+## <a name="monitor-applications"></a>애플리케이션 모니터링
 
 마이그레이션 후에 응용 프로그램의 동작과 성능을 추적합니다. Managed Instance에서 일부 변경은 [데이터베이스 호환성 수준이 변경된 경우](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database)에만 활성화됩니다. Azure SQL Database로의 데이터베이스 마이그레이션은 대부분의 경우 원래의 호환성 수준을 유지합니다. 마이그레이션 전에 사용자 데이터베이스의 호환성 수준이 100 이상인 경우 마이그레이션 후에도 동일하게 유지됩니다. 마이그레이션 전에 사용자 데이터베이스의 호환성 수준이 90인 경우 업그레이드된 데이터베이스에서 호환성 수준은 100으로 설정됩니다. 이 수준은 Managed Instance에서 지원되는 가장 낮은 호환성 수준입니다. 시스템 데이터베이스의 호환성 수준은 140입니다.
 

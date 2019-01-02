@@ -77,7 +77,7 @@ Azure AD 라이선스를 선택하면 조직에서 사용 가능한 다음 기�
 
 |Category|설명|
 |-------|-----------|
-|응용 프로그램 관리|애플리케이션 프록시, Single Sign-On, 내 앱 포털(액세스 패널이라고도 함) 및 SaaS(Software as a Service) 앱을 사용하여 클라우드 및 온-프레미스 앱을 관리합니다. 자세한 내용은 [온-프레미스 애플리케이션에 대한 보안 원격 액세스를 제공하는 방법](../manage-apps/application-proxy.md) 및 [애플리케이션 관리 설명서](../manage-apps/index.yml)를 참조하세요.|
+|애플리케이션 관리|애플리케이션 프록시, Single Sign-On, 내 앱 포털(액세스 패널이라고도 함) 및 SaaS(Software as a Service) 앱을 사용하여 클라우드 및 온-프레미스 앱을 관리합니다. 자세한 내용은 [온-프레미스 애플리케이션에 대한 보안 원격 액세스를 제공하는 방법](../manage-apps/application-proxy.md) 및 [애플리케이션 관리 설명서](../manage-apps/index.yml)를 참조하세요.|
 |인증|Azure Active Directory 셀프 서비스 암호 재설정, Multi-Factor Authentication, 사용자 지정 금지된 암호 목록 및 스마트 잠금을 관리합니다. 자세한 내용은 [Azure AD 인증 설명서](../authentication/index.yml)를 참조하세요.|
 |B2B(Business to Business)|회사 데이터에 대한 제어를 유지하면서도 게스트 사용자 및 외부 파트너를 관리합니다. 자세한 내용은 [Azure Active Directory B2B 설명서](../b2b/index.yml)를 참조하세요.|
 |B2C(Business to Consumer)|사용자가 앱을 사용할 때 프로필을 등록, 로그인 및 관리하는 방법을 사용자 지정하고 제어합니다. 자세한 내용은 [Azure Active Directory B2C 설명서](../../active-directory-b2c/index.yml)를 참조하세요.|

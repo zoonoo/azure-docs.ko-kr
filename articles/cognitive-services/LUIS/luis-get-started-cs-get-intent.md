@@ -59,7 +59,7 @@ C#을 사용하여 예측 엔드포인트 GET [API](https://westus.dev.cognitive
 
 4. `YOUR_KEY` 값을 LUIS 키로 대체합니다.
 
-5. 콘솔 응용 프로그램을 작성하고 실행합니다. 브라우저 창에서 앞서 본 것과 동일한 JSON을 표시합니다.
+5. 콘솔 애플리케이션을 작성하고 실행합니다. 브라우저 창에서 앞서 본 것과 동일한 JSON을 표시합니다.
 
     ![콘솔 창에서는 LUIS의 JSON 결과를 표시합니다.](./media/luis-get-started-cs-get-intent/console-turn-on.png)
 

@@ -29,7 +29,7 @@ ms.locfileid: "53141383"
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
-이 빠른 시작에서는 Node.js로 작성된 기존 MongoDB 앱을 사용하고, [MongoDB API](mongodb-introduction.md)를 통해 MongoDB 클라이언트 연결을 지원하는 Azure Cosmos DB 데이터베이스에 연결하는 방법을 보여 줍니다. 즉, Node.js 응용 프로그램은 MongoDB API를 사용하여 데이터베이스에 연결됩니다. Azure Cosmos DB에 데이터가 저장되는 애플리케이션에 대해 투명합니다.
+이 빠른 시작에서는 Node.js로 작성된 기존 MongoDB 앱을 사용하고, [MongoDB API](mongodb-introduction.md)를 통해 MongoDB 클라이언트 연결을 지원하는 Azure Cosmos DB 데이터베이스에 연결하는 방법을 보여 줍니다. 즉, Node.js 애플리케이션은 MongoDB API를 사용하여 데이터베이스에 연결됩니다. Azure Cosmos DB에 데이터가 저장되는 애플리케이션에 대해 투명합니다.
 
 완료하고 나면 MEAN 애플리케이션(MongoDB, Express, Angular 및 Node.js)이 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)에서 실행됩니다. 
 
@@ -46,11 +46,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Azure CLI 외에도 `npm` 및 `git` 명령을 실행하려면 [Node.js](https://nodejs.org/) 및 [Git](https://www.git-scm.com/downloads)가 로컬로 설치되어 있어야 합니다.
 
-Node.js에 대한 실무 지식이 있어야 합니다. 이 빠른 시작은 일반적으로 Node.js 응용 프로그램을 개발하는 데 도움이 되지 않습니다.
+Node.js에 대한 실무 지식이 있어야 합니다. 이 빠른 시작은 일반적으로 Node.js 애플리케이션을 개발하는 데 도움이 되지 않습니다.
 
 ## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
-다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 이 샘플 리포지토리에는 기본 [MEAN.js](https://meanjs.org/) 응용 프로그램이 들어 있습니다.
+다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 이 샘플 리포지토리에는 기본 [MEAN.js](https://meanjs.org/) 애플리케이션이 들어 있습니다.
 
 1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
@@ -79,7 +79,7 @@ cd mean
 npm install
 npm start
 ```
-응용 프로그램은 MongoDB 원본에 연결을 시도했다가 실패하고, 계속 진행하다가, 출력이 “[MongoError: connect ECONNREFUSED 127.0.0.1:27017]”을 반환하면 응용 프로그램을 종료합니다.
+애플리케이션은 MongoDB 원본에 연결을 시도했다가 실패하고, 계속 진행하다가, 출력이 “[MongoError: connect ECONNREFUSED 127.0.0.1:27017]”을 반환하면 애플리케이션을 종료합니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
@@ -156,12 +156,12 @@ DB/databaseAccounts/<cosmosdb-name>",
 } 
 ```
 
-## <a name="connect-your-nodejs-application-to-the-database"></a>데이터베이스에 Node.js 응용 프로그램 연결
+## <a name="connect-your-nodejs-application-to-the-database"></a>데이터베이스에 Node.js 애플리케이션 연결
 
-이 단계에서는 MongoDB 연결 문자열을 사용하여 MEAN.js 샘플 응용 프로그램을 방금 만든 Azure Cosmos DB 데이터베이스에 연결합니다. 
+이 단계에서는 MongoDB 연결 문자열을 사용하여 MEAN.js 샘플 애플리케이션을 방금 만든 Azure Cosmos DB 데이터베이스에 연결합니다. 
 
 <a name="devconfig"></a>
-## <a name="configure-the-connection-string-in-your-nodejs-application"></a>Node.js 응용 프로그램에 연결 문자열 구성
+## <a name="configure-the-connection-string-in-your-nodejs-application"></a>Node.js 애플리케이션에 연결 문자열 구성
 
 MEAN.js 리포지토리에서 `config/env/local-development.js`를 엽니다.
 
@@ -195,7 +195,7 @@ Azure CLI는 다음 예와 유사한 정보를 출력합니다.
 
 변경 내용을 저장합니다.
 
-### <a name="run-the-application-again"></a>응용 프로그램을 다시 실행합니다.
+### <a name="run-the-application-again"></a>애플리케이션을 다시 실행합니다.
 
 `npm start`을 다시 실행합니다. 
 
@@ -222,11 +222,11 @@ Azure Cosmos DB에서 저장된 데이터는 Azure Portal에서 비즈니스 논
 ![Azure Portal의 데이터 탐색기](./media/create-mongodb-nodejs/cosmosdb-connect-mongodb-data-explorer.png)
 
 
-## <a name="deploy-the-nodejs-application-to-azure"></a>Azure에 Node.js 응용 프로그램 배포
+## <a name="deploy-the-nodejs-application-to-azure"></a>Azure에 Node.js 애플리케이션 배포
 
-이 단계에서는 MongoDB에 연결된 Node.js 응용 프로그램을 Azure Cosmos DB에 배포합니다.
+이 단계에서는 MongoDB에 연결된 Node.js 애플리케이션을 Azure Cosmos DB에 배포합니다.
 
-개발 환경을 위해 이전에 변경한 구성 파일을 알 수 있습니다(`/config/env/local-development.js`). 응용 프로그램을 App Service에 배포하면 기본적으로 프로덕션 환경에서 실행합니다. 이제 해당 구성 파일을 동일하게 변경해야 합니다.
+개발 환경을 위해 이전에 변경한 구성 파일을 알 수 있습니다(`/config/env/local-development.js`). 애플리케이션을 App Service에 배포하면 기본적으로 프로덕션 환경에서 실행합니다. 이제 해당 구성 파일을 동일하게 변경해야 합니다.
 
 MEAN.js 리포지토리에서 `config/env/production.js`를 엽니다.
 

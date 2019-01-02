@@ -22,7 +22,7 @@ ms.locfileid: "53190223"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>컨테이너용 Azure Monitor 개요
 
-컨테이너용 Azure Monitor는 AKS(Azure Kubernetes Service)에 호스트된 Azure Container Instances 또는 관리되는 Kubernetes 클러스터에 배포된 컨테이너 워크로드의 성능을 모니터링하도록 설계된 기능입니다. 컨테이너 모니터링은 특히 여러 응용 프로그램을 사용하여 대규모의 프로덕션 클러스터를 실행하는 경우에 중요합니다.
+컨테이너용 Azure Monitor는 AKS(Azure Kubernetes Service)에 호스트된 Azure Container Instances 또는 관리되는 Kubernetes 클러스터에 배포된 컨테이너 워크로드의 성능을 모니터링하도록 설계된 기능입니다. 컨테이너 모니터링은 특히 여러 애플리케이션을 사용하여 대규모의 프로덕션 클러스터를 실행하는 경우에 중요합니다.
 
 컨테이너용 Azure Monitor는 Metrics API를 통해 Kubernetes에서 사용할 수 있는 컨트롤러, 노드 및 컨테이너의 메모리 및 프로세서 메트릭을 수집하여 성능을 시각적으로 표시합니다. 컨테이너 로그도 수집됩니다.  Kubernetes 클러스터에서 모니터링을 사용하도록 설정하면, 이러한 메트릭 및 로그가 Linux용 Log Analytics 에이전트의 컨테이너화된 버전을 통해 자동으로 수집되어 [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) 작업 영역에 저장됩니다. 
  

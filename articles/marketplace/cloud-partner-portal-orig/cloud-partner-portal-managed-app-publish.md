@@ -1,6 +1,6 @@
 ---
-title: Azure Marketplace에 Azure 관리되는 응용 프로그램 게시
-description: Azure Marketplace에 Azure 관리되는 응용 프로그램 게시
+title: Azure Marketplace에 Azure 관리되는 애플리케이션 게시
+description: Azure Marketplace에 Azure 관리되는 애플리케이션 게시
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: qianw211
@@ -21,12 +21,12 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/05/2018
 ms.locfileid: "48808025"
 ---
-<a name="publish-an-azure-managed-application-to-azure-marketplace"></a>Azure Marketplace에 Azure 관리되는 응용 프로그램 게시 
+<a name="publish-an-azure-managed-application-to-azure-marketplace"></a>Azure Marketplace에 Azure 관리되는 애플리케이션 게시 
 ========================================================
 
-이 문서에서는 Azure Marketplace에 관리되는 응용 프로그램 제품을 게시하는 과정에서 수행하는 여러 단계에 대해 설명합니다.
+이 문서에서는 Azure Marketplace에 관리되는 애플리케이션 제품을 게시하는 과정에서 수행하는 여러 단계에 대해 설명합니다.
 
-<a name="pre-requisites-for-publishing-a-managed-application"></a>관리되는 응용 프로그램을 게시하기 위한 필수 구성 요소 
+<a name="pre-requisites-for-publishing-a-managed-application"></a>관리되는 애플리케이션을 게시하기 위한 필수 구성 요소 
 ---------------------------------------------------
 
 Azure Marketplace에 등록하기 위한 필수 조건
@@ -61,14 +61,14 @@ Azure Marketplace에 등록하기 위한 필수 조건
 
     -   사용 약관, Microsoft 개인정보처리방침 및 Microsoft Azure Certified 프로그램 계약을 준수한다는 데 동의해야 합니다.
 
-<a name="how-to-create-a-new-azure-application-offer"></a>새 Azure 응용 프로그램 제품을 만드는 방법 
+<a name="how-to-create-a-new-azure-application-offer"></a>새 Azure 애플리케이션 제품을 만드는 방법 
 -------------------------------------------
 
-모든 필수 구성 요소를 충족하면 관리되는 응용 프로그램 제품을 작성할 준비가 된 것입니다. 시작하기 전에 제품 및 SKU를 간략히 요약하겠습니다.
+모든 필수 구성 요소를 충족하면 관리되는 애플리케이션 제품을 작성할 준비가 된 것입니다. 시작하기 전에 제품 및 SKU를 간략히 요약하겠습니다.
 
 **제안**
 
-Azure 응용 프로그램 제품은 게시자가 제공하는 제품 클래스에 해당합니다. Azure Marketplace에 게시할 새 솔루션/응용 프로그램이 있다면 새 제품을 만들어야 합니다. 제품은 SKU의 컬렉션입니다. 모든 제품은 Azure Marketplace에 고유 엔터티로 나타납니다.
+Azure 애플리케이션 제품은 게시자가 제공하는 제품 클래스에 해당합니다. Azure Marketplace에 게시할 새 솔루션/응용 프로그램이 있다면 새 제품을 만들어야 합니다. 제품은 SKU의 컬렉션입니다. 모든 제품은 Azure Marketplace에 고유 엔터티로 나타납니다.
 
 **SKU**
 
@@ -82,7 +82,7 @@ SKU는 Azure Marketplace의 상위 제품 아래에 표시되지만 azure.com에
 
 1.  [클라우드 파트너 포털](http://cloudpartner.azure.com)에 로그인합니다.
 
-2.  왼쪽 탐색 모음에서 \"+ 새 제품\"을 클릭하고 \"Azure 응용 프로그램\"을 선택합니다.
+2.  왼쪽 탐색 모음에서 \"+ 새 제품\"을 클릭하고 \"Azure 애플리케이션\"을 선택합니다.
 
     ![새 제품](./media/cloud-partner-portal-publish-managed-app/newOffer.png)
 
@@ -90,7 +90,7 @@ SKU는 Azure Marketplace의 상위 제품 아래에 표시되지만 azure.com에
 
 4.  작성해야 할 \"양식\"은 \"편집기\" 보기 내의 왼쪽에 표시됩니다. 각 \"양식\"은 작성해야 할 필드 집합으로 구성됩니다. 필수 필드는 빨간색 별표(\*)로 표시됩니다.
 
-    > 관리되는 응용 프로그램을 작성하기 위한 4가지 기본 양식은 다음과 같습니다.
+    > 관리되는 애플리케이션을 작성하기 위한 4가지 기본 양식은 다음과 같습니다.
 
     -   제품 설정
 
@@ -145,7 +145,7 @@ ID는 대시로 끝나면 안 되며 50자까지 입력할 수 있습니다. 이
 
 **설명** - SKU에 대한 자세한 설명을 입력합니다.
 
-**SKU 형식** - 허용되는 값은 \"관리되는 응용 프로그램\" 및 \"솔루션 템플릿\"입니다. 여기서는 \"관리되는 응용 프로그램\"을 선택합니다.
+**SKU 형식** - 허용되는 값은 \"관리되는 응용 프로그램\" 및 \"솔루션 템플릿\"입니다. 여기서는 \"관리되는 애플리케이션\"을 선택합니다.
 
 ### <a name="how-to-fill-package-details-section"></a>패키지 세부 정보 섹션을 작성하는 방법 
 
@@ -171,11 +171,11 @@ mainTemplate.json - Microsoft.Solution/appliances 리소스만 포함하는 템�
 값은 \[publisherId\].\[OfferId\]-preview\[SKUID\].\[PackageVersion\]과 같이 연결하는 방식으로 생성해야 합니다.
 이러한 각 값은 아래에 나와 있는 방법으로 가져올 수 있습니다.
 
-이 패키지는 이 응용 프로그램을 올바르게 프로비전하는 데 필요한 기타 중첩된 템플릿 또는 스크립트를 포함해야 합니다. mainTemplate.json, applianceMainTemplate.json 및 applianceCreateUIDefinition.json은 루트 폴더에 있어야 합니다.
+이 패키지는 이 애플리케이션을 올바르게 프로비전하는 데 필요한 기타 중첩된 템플릿 또는 스크립트를 포함해야 합니다. mainTemplate.json, applianceMainTemplate.json 및 applianceCreateUIDefinition.json은 루트 폴더에 있어야 합니다.
 
-**Authorizations** - 이 속성은 고객 구독의 리소스 액세스 권한이 제공되는 사용자 및 리소스 액세스 권한 수준을 정의합니다. 따라서 게시자는 고객을 대신하여 응용 프로그램을 관리할 수 있습니다.
+**Authorizations** - 이 속성은 고객 구독의 리소스 액세스 권한이 제공되는 사용자 및 리소스 액세스 권한 수준을 정의합니다. 따라서 게시자는 고객을 대신하여 애플리케이션을 관리할 수 있습니다.
 
--   PrincipalId - 고객 구독에서 리소스에 대한 특정 권한(역할 정의에 설명됨)을 부여할 사용자, 사용자 그룹 또는 응용 프로그램의 Azure Active Directory 식별자입니다.
+-   PrincipalId - 고객 구독에서 리소스에 대한 특정 권한(역할 정의에 설명됨)을 부여할 사용자, 사용자 그룹 또는 애플리케이션의 Azure Active Directory 식별자입니다.
 
 -   역할 정의 - Azure AD가 제공하는 모든 기본 제공 RBAC 역할 목록입니다. 가장 적합한 역할을 선택하여 고객 대신 리소스를 관리할 수 있습니다.
 
@@ -186,7 +186,7 @@ RBAC에 대한 자세한 내용은 다음 페이지에서 확인할 수 있습�
 <a name="marketplace-form"></a>Marketplace 양식
 ----------------
 
-Azure 응용 프로그램 제품 내의 Marketplace 양식에서는 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Azure Portal](https://portal.azure.com/)에 표시할 정보를 필드에 입력해야 합니다. 다음은 몇몇 필드에 대한 일부 정보입니다.
+Azure 애플리케이션 제품 내의 Marketplace 양식에서는 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Azure Portal](https://portal.azure.com/)에 표시할 정보를 필드에 입력해야 합니다. 다음은 몇몇 필드에 대한 일부 정보입니다.
 
 #### <a name="preview-subscription-ids"></a>미리 보기 구독 ID
 

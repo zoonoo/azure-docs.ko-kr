@@ -146,7 +146,7 @@ python3 --version
     pip install azure-iothub-service-client future
     ```
 
-1. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램을 실행합니다.
+1. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 애플리케이션을 실행합니다.
 
     ```cmd/sh
     python BackEndApplication.py

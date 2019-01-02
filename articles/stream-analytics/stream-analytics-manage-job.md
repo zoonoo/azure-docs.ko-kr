@@ -18,7 +18,7 @@ ms.locfileid: "53316015"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Stream Analytics를 사용하여 전화 통화 데이터 분석 및 Power BI 대시보드에서 결과 시각화
 
-이 자습서에서는 Azure Stream Analytics를 사용하여 전화 통화 데이터를 분석하는 방법을 설명합니다. 클라이언트 응용 프로그램에서 생성한 전화 통화 데이터에는 일부 사기성 호출이 포함되어 있으며 이러한 호출은 Stream Analytics 작업을 통해 필터링됩니다.
+이 자습서에서는 Azure Stream Analytics를 사용하여 전화 통화 데이터를 분석하는 방법을 설명합니다. 클라이언트 애플리케이션에서 생성한 전화 통화 데이터에는 일부 사기성 호출이 포함되어 있으며 이러한 호출은 Stream Analytics 작업을 통해 필터링됩니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -69,7 +69,7 @@ Stream Analytics가 사기성 호출 데이터 스트림을 분석하려면 Azur
 
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>이벤트 허브에 대한 액세스 부여 및 연결 문자열 가져오기
 
-응용 프로그램에서 Event Hubs로 데이터를 보낼 수 있으려면 이벤트 허브에 적절한 액세스 권한을 허용하는 정책이 있어야 합니다. 액세스 정책은 권한 부여 정보를 포함하는 연결 문자열을 생성합니다.
+애플리케이션에서 Event Hubs로 데이터를 보낼 수 있으려면 이벤트 허브에 적절한 액세스 권한을 허용하는 정책이 있어야 합니다. 액세스 정책은 권한 부여 정보를 포함하는 연결 문자열을 생성합니다.
 
 1. 이전 섹션에서 만든 이벤트 허브 *MyEventHub*로 이동합니다. **설정** 아래에서 **공유 액세스 정책**을 선택한 다음, **+ 추가**를 선택합니다.
 
@@ -89,7 +89,7 @@ Stream Analytics가 사기성 호출 데이터 스트림을 분석하려면 Azur
 
    연결 문자열에는 **Endpoint**, **SharedAccessKeyName**, **SharedAccessKey**, **EntityPath** 등 여러 개의 키-값 쌍이 세미콜론으로 구분되어 포함됩니다.
 
-## <a name="start-the-event-generator-application"></a>이벤트 생성기 응용 프로그램 시작
+## <a name="start-the-event-generator-application"></a>이벤트 생성기 애플리케이션 시작
 
 TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 데이터를 전송하도록 앱을 구성해야 합니다.
 
@@ -102,7 +102,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
    * *Microsoft.ServiceBus.ConnectionString* 키 값을 EntityPath 값을 뺀 연결 문자열로 설정합니다.
 
 4. 파일을 저장합니다.
-5. 명령 창을 열고 TelcoGenerator 응용 프로그램 압축을 푼 폴더로 변경합니다. 다음 명령을 입력합니다.
+5. 명령 창을 열고 TelcoGenerator 애플리케이션 압축을 푼 폴더로 변경합니다. 다음 명령을 입력합니다.
 
    ```cmd
    telcodatagen.exe 1000 0.2 2
@@ -258,22 +258,22 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
    * 값을 추가하고 **fraudulentcalls**를 선택합니다.
    * **표시할 시간 창**에 지난 10분을 선택합니다.
 
-7. 두 타일이 모두 추가되면 대시보드가 아래 예제처럼 보입니다. 이벤트 허브 발신자 응용 프로그램 및 Stream Analytics 응용 프로그램이 실행 중이면 새 데이터가 도착할 때마다 PowerBI 대시보드가 주기적으로 업데이트됩니다.
+7. 두 타일이 모두 추가되면 대시보드가 아래 예제처럼 보입니다. 이벤트 허브 발신자 애플리케이션 및 Stream Analytics 애플리케이션이 실행 중이면 새 데이터가 도착할 때마다 PowerBI 대시보드가 주기적으로 업데이트됩니다.
 
    ![Power BI 대시보드에서 결과 보기](media/stream-analytics-manage-job/power-bi-results-dashboard.png)
 
-## <a name="embedding-your-powerbi-dashboard-in-a-web-application"></a>웹 응용 프로그램에 PowerBI 대시보드 포함
+## <a name="embedding-your-powerbi-dashboard-in-a-web-application"></a>웹 애플리케이션에 PowerBI 대시보드 포함
 
-자습서의 이 부분에서는 PowerBI 팀에서 만든 [ASP.NET](https://asp.net/) 웹 응용 프로그램을 사용하여 대시보드를 포함할 것입니다. 대시보드를 포함하는 방법에 대한 자세한 내용은 [Power BI를 통해 포함](https://docs.microsoft.com/power-bi/developer/embedding) 문서를 참조하세요.
+자습서의 이 부분에서는 PowerBI 팀에서 만든 [ASP.NET](https://asp.net/) 웹 애플리케이션을 사용하여 대시보드를 포함할 것입니다. 대시보드를 포함하는 방법에 대한 자세한 내용은 [Power BI를 통해 포함](https://docs.microsoft.com/power-bi/developer/embedding) 문서를 참조하세요.
 
 애플리케이션을 설정하려면 [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) GitHub 리포지토리로 이동한 다음, **User Owns Data** 섹션 아래의 지침을 따릅니다(**integrate-dashboard-web-app** 하위 섹션 아래에 있는 리디렉션 및 홈페이지 URL 사용). 우리는 대시보드 예제를 사용할 예정이므로 [GitHub 리포지토리](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app)에 있는 **통합-대시보드-웹앱** 샘플 코드를 사용합니다.
-브라우저에서 응용 프로그램을 실행한 후에는 다음 단계에 따라 앞에서 만든 대시보드를 웹 페이지에 포함합니다.
+브라우저에서 애플리케이션을 실행한 후에는 다음 단계에 따라 앞에서 만든 대시보드를 웹 페이지에 포함합니다.
 
 1. **Power BI에 로그인**을 선택합니다. 그러면 PowerBI 계정에 대시보드에 대한 응용 프로그램 액세스 권한이 부여됩니다.
 
 2. **대시보드 가져오기** 단추를 선택합니다. 그러면 계정의 대시보드가 테이블에 표시됩니다. 앞에서 만든 대시보드 이름(**powerbi-embedded-dashboard**)을 찾아서 해당 **EmbedUrl**을 복사합니다.
 
-3. 마지막으로 **EmbedUrl**을 해당 텍스트 필드에 붙여넣고 **대시보드 포함**을 선택합니다. 이제 웹 응용 프로그램에 동일한 대시보드가 포함된 것을 볼 수 있습니다.
+3. 마지막으로 **EmbedUrl**을 해당 텍스트 필드에 붙여넣고 **대시보드 포함**을 선택합니다. 이제 웹 애플리케이션에 동일한 대시보드가 포함된 것을 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

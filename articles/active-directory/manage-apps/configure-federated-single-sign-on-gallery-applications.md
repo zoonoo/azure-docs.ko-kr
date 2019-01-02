@@ -42,7 +42,7 @@ Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행�
 
 ## <a name="add-an-application-from-the-azure-ad-gallery"></a>Azure AD 갤러리에서 애플리케이션 추가
 
-Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를 수행합니다.
+Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 수행합니다.
 
 1.  [Azure Portal](https://portal.azure.com)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
@@ -58,7 +58,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 7.  Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
 
-8.  응용 프로그램을 추가하기 전에 **이름** 텍스트 상자에서 이름을 변경할 수 있습니다.
+8.  애플리케이션을 추가하기 전에 **이름** 텍스트 상자에서 이름을 변경할 수 있습니다.
 
 9.  **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
@@ -66,7 +66,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 ## <a name="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery"></a>Azure AD 갤러리에서 애플리케이션의 Single Sign-On 구성
 
-응용 프로그램에 Single Sign-On을 구성하려면 아래 단계를 수행합니다.
+애플리케이션에 대한 Single Sign-On을 구성하려면 아래 단계를 따릅니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
@@ -104,11 +104,11 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
    1. **저장**을 클릭합니다. 테이블에 새 특성이 표시됩니다.
 
-13. 응용 프로그램의 Single Sign-On을 구성하는 방법에 관한 문서에 액세스하려면 **&lt;응용 프로그램 이름&gt; 구성**을 클릭합니다. 또한 애플리케이션에 SSO를 설정하는 데 필요한 메타데이터 URL 및 인증서는 있습니다.
+13. 애플리케이션의 Single Sign-On을 구성하는 방법에 관한 문서에 액세스하려면 **&lt;애플리케이션 이름&gt; 구성**을 클릭합니다. 또한 애플리케이션에 SSO를 설정하는 데 필요한 메타데이터 URL 및 인증서는 있습니다.
 
 14. 구성을 저장하려면 **Save**를 클릭합니다.
 
-15. 응용 프로그램에 사용자를 할당합니다.
+15. 애플리케이션에 사용자를 할당합니다.
 
 ## <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>사용자 식별자를 선택하고 애플리케이션에 보낼 사용자 특성 추가
 
@@ -133,7 +133,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 8.  **사용자 특성** 섹션 아래의 **사용자 식별자** 드롭다운에서 사용자의 고유한 식별자를 선택합니다. 사용자를 인증하려면 선택한 옵션이 애플리케이션의 예상 값과 일치해야 합니다.
 
   >[!NOTE] 
-  >Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 응용 프로그램이 요청한 형식을 기반으로 NameID 특성(사용자 식별자)의 형식을 선택합니다. 자세한 내용은 NameIDPolicy 섹션 아래의 [Single Sign-On SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) 문서에서 확인할 수 있습니다.
+  >Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 애플리케이션이 요청한 형식을 기반으로 NameID 특성(사용자 식별자)의 형식을 선택합니다. 자세한 내용은 NameIDPolicy 섹션 아래의 [Single Sign-On SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) 문서에서 확인할 수 있습니다.
   >
   >
 
@@ -147,7 +147,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 ## <a name="download-the-azure-ad-metadata-or-certificate"></a>Azure AD 메타데이터 또는 인증서 다운로드
 
-Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 다운로드하려면 아래 단계를 수행합니다.
+Azure AD에서 애플리케이션 메타데이터 또는 인증서를 다운로드하려면 아래 단계를 수행합니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 

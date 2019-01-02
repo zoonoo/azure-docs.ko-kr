@@ -66,7 +66,7 @@ public static final String storageConnectionString =
 
 명령줄에서 Maven을 사용하여 샘플을 실행합니다. 셸을 열고 복제한 디렉터리 내부의 **blobAzureApp**으로 이동합니다. 그런 후 `mvn compile exec:java`를 입력합니다. 
 
-다음 예제는 Windows에서 응용 프로그램을 실행하는 경우의 출력을 보여줍니다.
+다음 예제는 Windows에서 애플리케이션을 실행하는 경우의 출력을 보여줍니다.
 
 ```
 Azure Blob storage quick start sample
@@ -115,7 +115,7 @@ Deleting the source, and downloaded files
 
 이 섹션에서는 개체의 인스턴스를 만들고, 새 컨테이너를 만든 다음, 컨테이너에 대해 사용 권한을 설정하여 Blob을 공용 Blob으로 유지하고 URL을 통해서만 액세스할 수 있게 합니다. 컨테이너를 **quickstartcontainer**로 지칭합니다. 
 
-이 예제에서는 샘플이 실행될 때마다 새 컨테이너를 만들려고 하기 때문에 [CreateIfNotExists](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.createifnotexists)를 사용합니다. 응용 프로그램 전체에서 동일한 컨테이너를 사용하는 프로덕션 환경에서는 **CreateIfNotExists**를 한 번만 호출하는 것이 더 좋은 방법입니다. 또는 코드에서 만들 필요가 없도록 컨테이너를 미리 만들 수도 있습니다.
+이 예제에서는 샘플이 실행될 때마다 새 컨테이너를 만들려고 하기 때문에 [CreateIfNotExists](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.createifnotexists)를 사용합니다. 애플리케이션 전체에서 동일한 컨테이너를 사용하는 프로덕션 환경에서는 **CreateIfNotExists**를 한 번만 호출하는 것이 더 좋은 방법입니다. 또는 코드에서 만들 필요가 없도록 컨테이너를 미리 만들 수도 있습니다.
 
 ```java
 // Parse the connection string and create a blob client to interact with Blob storage

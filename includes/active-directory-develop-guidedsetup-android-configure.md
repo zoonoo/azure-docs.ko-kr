@@ -46,7 +46,7 @@ ms.locfileid: "49988351"
     ```
 <!-- Workaround for Docs conversion bug -->
 7. **앱** > **매니페스트** 아래에서 *AndroidManifest.xml* 파일을 엽니다.
-8. `manifest\application`에서 다음 작업을 추가합니다. Microsoft에서 인증을 완료한 후 응용 프로그램을 콜백할 수 있도록 하는 `BrowserTabActivity` 작업:
+8. `manifest\application`에서 다음 작업을 추가합니다. Microsoft에서 인증을 완료한 후 애플리케이션을 콜백할 수 있도록 하는 `BrowserTabActivity` 작업:
 
     ```xml
     <!--Intent filter to capture System Browser calling back to our app after sign-in-->

@@ -19,7 +19,7 @@ ms.lasthandoff: 12/10/2018
 ms.locfileid: "53135103"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 GeographyV2 미리 빌드된 엔터티
-미리 빌드된 geographyV2 엔터티는 위치를 검색합니다. 이 엔터티를 이미 학습했기 때문에 GeographyV2를 응용 프로그램 의도에 포함하는 예제 발화를 추가할 필요가 없습니다. GeographyV2 엔터티는 영어 [문화권](luis-reference-prebuilt-entities.md)에서 지원됩니다.
+미리 빌드된 geographyV2 엔터티는 위치를 검색합니다. 이 엔터티를 이미 학습했기 때문에 GeographyV2를 애플리케이션 의도에 포함하는 예제 발화를 추가할 필요가 없습니다. GeographyV2 엔터티는 영어 [문화권](luis-reference-prebuilt-entities.md)에서 지원됩니다.
 
 ## <a name="subtypes"></a>하위 유형
 지리적 위치에는 하위 유형이 있습니다.

@@ -115,7 +115,7 @@ Data Box Gateway에 대해 지원되는 저장소 형식의 목록은 다음과 
 
 ## <a name="url-patterns-for-firewall-rules"></a>방화벽 규칙에 대한 URL 패턴
 
-네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. Data Box Gateway 디바이스 및 Data Box Gateway 서비스는 Azure Service Bus, Azure Active Directory Access Control, 저장소 계정 및 Microsoft 업데이트 서버 등의 다른 Microsoft 애플리케이션에 의존합니다. 이러한 응용 프로그램과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 응용 프로그램과 연결된 URL 패턴은 달라질 수 있습니다. 따라서 네트워크 관리자는 Data Box Gateway에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다.
+네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. Data Box Gateway 디바이스 및 Data Box Gateway 서비스는 Azure Service Bus, Azure Active Directory Access Control, 저장소 계정 및 Microsoft 업데이트 서버 등의 다른 Microsoft 애플리케이션에 의존합니다. 이러한 애플리케이션과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 애플리케이션과 연결된 URL 패턴은 달라질 수 있습니다. 따라서 네트워크 관리자는 Data Box Gateway에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다.
 
 Data Box Gateway 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아웃바운드 트래픽에 대한 방화벽 규칙을 설정하는 것이 좋습니다. 그러나 보안 환경을 만드는 데 필요한 고급 방화벽 규칙을 설정하려면 아래 정보를 사용할 수 있습니다.
 

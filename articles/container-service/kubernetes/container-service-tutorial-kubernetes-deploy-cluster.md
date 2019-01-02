@@ -99,7 +99,7 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.6.2
 > * Kubernetes CLI(kubectl) 설치
 > * kubectl 구성
 
-다음 자습서로 이동하여 클러스터에서 응용 프로그램 실행에 대해 알아봅니다.
+다음 자습서로 이동하여 클러스터에서 애플리케이션 실행에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [Kubernetes에서 응용 프로그램 배포](./container-service-tutorial-kubernetes-deploy-application.md)

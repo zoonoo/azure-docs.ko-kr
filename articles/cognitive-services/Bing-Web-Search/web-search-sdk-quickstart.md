@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: C#용 Bing Web Search SDK 사용'
 titleSuffix: Azure Cognitive Services
-description: Bing Web Search SDK를 사용하면 Bing Web Search를 C# 응용 프로그램에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 클라이언트를 인스턴스화하고, 요청을 보내며, 응답을 출력하는 방법에 대해 알아봅니다.
+description: Bing Web Search SDK를 사용하면 Bing Web Search를 C# 애플리케이션에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 클라이언트를 인스턴스화하고, 요청을 보내며, 응답을 출력하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -19,7 +19,7 @@ ms.locfileid: "52309983"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>빠른 시작: C#용 Bing Web Search SDK 사용
 
-Bing Web Search SDK를 사용하면 Bing Web Search를 C# 응용 프로그램에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 클라이언트를 인스턴스화하고, 요청을 보내며, 응답을 출력하는 방법에 대해 알아봅니다.
+Bing Web Search SDK를 사용하면 Bing Web Search를 C# 애플리케이션에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 클라이언트를 인스턴스화하고, 요청을 보내며, 응답을 출력하는 방법에 대해 알아봅니다.
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
@@ -39,7 +39,7 @@ Bing Web Search SDK를 사용하면 Bing Web Search를 C# 응용 프로그램에
 > [!TIP]
 > [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)에서 최신 코드를 Visual Studio 솔루션으로 가져옵니다.
 
-첫 번째 단계는 새 콘솔 프로젝트를 만드는 것입니다. 콘솔 프로젝트를 설정하는 데 도움이 필요하면 [Hello World - 프로그램 처음 만들기(C# 프로그래밍 가이드)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program)를 참조하세요. 응용 프로그램에서 Bing Web Search SDK를 사용하려면 NuGet 패키지 관리자를 사용하여 `Microsoft.Azure.CognitiveServices.Search.WebSearch`를 설치해야 합니다.
+첫 번째 단계는 새 콘솔 프로젝트를 만드는 것입니다. 콘솔 프로젝트를 설정하는 데 도움이 필요하면 [Hello World - 프로그램 처음 만들기(C# 프로그래밍 가이드)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program)를 참조하세요. 애플리케이션에서 Bing Web Search SDK를 사용하려면 NuGet 패키지 관리자를 사용하여 `Microsoft.Azure.CognitiveServices.Search.WebSearch`를 설치해야 합니다.
 
 또한 [Web Search SDK 패키지](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0)는 다음을 설치합니다.
 
@@ -61,7 +61,7 @@ using System.Linq;
 
 ## <a name="create-project-scaffolding"></a>프로젝트 스캐폴딩 만들기
 
-새 콘솔 프로젝트가 만들어지면 응용 프로그램에 대한 네임스페이스 및 클래스가 만들어져 있습니다. 프로그램은 다음과 같습니다.
+새 콘솔 프로젝트가 만들어지면 애플리케이션에 대한 네임스페이스 및 클래스가 만들어져 있습니다. 프로그램은 다음과 같습니다.
 
 ```csharp
 namespace WebSearchSDK
@@ -75,7 +75,7 @@ namespace WebSearchSDK
 }
 ```
 
-다음 섹션에서는 이 클래스 내에 샘플 응용 프로그램을 빌드합니다.
+다음 섹션에서는 이 클래스 내에 샘플 애플리케이션을 빌드합니다.
 
 ## <a name="construct-a-request"></a>요청 구성
 
@@ -206,7 +206,7 @@ else
 
 ## <a name="declare-the-main-method"></a>main 메서드 선언
 
-이 응용 프로그램에서 main 메서드는 클라이언트를 인스턴스화하고, `subscriptionKey`의 유효성을 검사하고, `WebResults`를 호출하는 코드를 포함합니다. 계속하기 전에 Azure 계정에 유효한 구독 키를 입력했는지 확인합니다.
+이 애플리케이션에서 main 메서드는 클라이언트를 인스턴스화하고, `subscriptionKey`의 유효성을 검사하고, `WebResults`를 호출하는 코드를 포함합니다. 계속하기 전에 Azure 계정에 유효한 구독 키를 입력했는지 확인합니다.
 
 ```csharp
 static void Main(string[] args)
@@ -222,7 +222,7 @@ static void Main(string[] args)
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-응용 프로그램을 실행해 보겠습니다!
+애플리케이션을 실행해 보겠습니다!
 
 ```console
 dotnet run
@@ -230,7 +230,7 @@ dotnet run
 
 ## <a name="define-functions-and-filter-results"></a>함수 정의 및 결과 필터링
 
-이제 Bing Web Search API에 대한 첫 번째 호출이 수행되었으므로 SDK 기능을 강조 표시하여 쿼리를 구체화하고 결과를 필터링하는 몇 가지 함수를 살펴보겠습니다. 각 함수는 이전 섹션에서 만든 C# 응용 프로그램에 추가할 수 있습니다.
+이제 Bing Web Search API에 대한 첫 번째 호출이 수행되었으므로 SDK 기능을 강조 표시하여 쿼리를 구체화하고 결과를 필터링하는 몇 가지 함수를 살펴보겠습니다. 각 함수는 이전 섹션에서 만든 C# 애플리케이션에 추가할 수 있습니다.
 
 ### <a name="limit-the-number-of-results-returned-by-bing"></a>Bing에서 반환하는 결과 수 제한
 
@@ -408,7 +408,7 @@ dotnet run
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 프로젝트가 완료되면 응용 프로그램의 코드에서 구독 키를 제거해야 합니다.
+이 프로젝트가 완료되면 애플리케이션의 코드에서 구독 키를 제거해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

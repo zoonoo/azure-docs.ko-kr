@@ -35,7 +35,7 @@ Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>클라우드 서비스 및 저장소 계정 프로비전 
 
-1. 클래식 클라우드 서비스를 만들고 배포합니다. 샘플 클래식 Cloud Services 응용 프로그램 및 배포는 [Azure Cloud Services 및 ASP.NET 시작](../../cloud-services/cloud-services-dotnet-get-started.md)에서 확인할 수 있습니다. 
+1. 클래식 클라우드 서비스를 만들고 배포합니다. 샘플 클래식 Cloud Services 애플리케이션 및 배포는 [Azure Cloud Services 및 ASP.NET 시작](../../cloud-services/cloud-services-dotnet-get-started.md)에서 확인할 수 있습니다. 
 
 2. 기존 저장소 계정을 사용하거나 새 저장소 계정을 배포할 수 있습니다. 직접 만든 클래식 클라우드 서비스와 동일한 지역에 저장소 계정이 있는 것이 가장 좋습니다. Azure Portal에서 **저장소 계정** 리소스 블레이드로 이동한 다음, **키**를 선택합니다. 저장소 계정 이름과 저장소 계정 키를 적어 둡니다. 이 정보는 이후 단계에서 필요합니다.
 

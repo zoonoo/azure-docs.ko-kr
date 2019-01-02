@@ -17,7 +17,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/16/2018
 ms.locfileid: "49340429"
 ---
-# <a name="tutorial-translator-speech-application-in-c"></a>자습서: C#의 Translator Speech 응용 프로그램
+# <a name="tutorial-translator-speech-application-in-c"></a>자습서: C#의 Translator Speech 애플리케이션
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
@@ -29,13 +29,13 @@ ms.locfileid: "49340429"
 > * 음성 수신 및 텍스트로 변환
 > * 필요에 따라 발화(텍스트 음성 변환) 버전의 변환 재생
 
-이 응용 프로그램에 대한 Visual Studio 솔루션 파일은 [GitHub에서 사용](https://github.com/MicrosoftTranslator/SpeechTranslator)할 수 있습니다.
+이 애플리케이션에 대한 Visual Studio 솔루션 파일은 [GitHub에서 사용](https://github.com/MicrosoftTranslator/SpeechTranslator)할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서에서는 Community Edition을 포함하여 Visual Studio 2017의 모든 버전이 필요합니다. 
 
-Visual Studio 솔루션은 응용 프로그램에 대한 설치 관리자도 빌드합니다. 이 기능을 지원하려면 [WiX 도구 집합](http://wixtoolset.org/) 및 [WiX 도구 집합 Visual Studio 확장](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension)이 필요합니다.
+Visual Studio 솔루션은 애플리케이션에 대한 설치 관리자도 빌드합니다. 이 기능을 지원하려면 [WiX 도구 집합](http://wixtoolset.org/) 및 [WiX 도구 집합 Visual Studio 확장](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension)이 필요합니다.
 
 Microsoft Azure 대시보드에서 얻을 수 있는 Translator Speech 서비스에 대한 구독 키도 필요합니다. 체험 가격 책정 계층에서는 음성을 매월 최대 10시간까지 무료로 변환할 수 있습니다. 이 자습서에서는 이 계층이면 충분합니다.
 
@@ -43,7 +43,7 @@ Microsoft Azure 대시보드에서 얻을 수 있는 Translator Speech 서비스
 
 ## <a name="trying-the-translation-app"></a>변환 응용 프로그램 사용해 보기
 
-Visual Studio에서 Speech Translator 솔루션(`SpeechTranslator.sln`)을 연 후에 F5 키를 눌러 응용 프로그램을 빌드하고 시작합니다.  프로그램의 주 창이 나타납니다.
+Visual Studio에서 Speech Translator 솔루션(`SpeechTranslator.sln`)을 연 후에 F5 키를 눌러 애플리케이션을 빌드하고 시작합니다.  프로그램의 주 창이 나타납니다.
 
 ![[Speech Translator 주 창]](media/speech-translator-main-window.png)
 
@@ -63,7 +63,7 @@ Visual Studio에서 Speech Translator 솔루션(`SpeechTranslator.sln`)을 연 �
 
 즉 음성 변환의 경우 소스 언어는 전사에 지원되는 언어여야 합니다. 텍스트 결과를 원한다고 가정하는 경우 출력 언어는 텍스트 변환에 지원되는 언어 중 하나일 수 있습니다. 음성 출력을 원하는 경우 텍스트 음성 변환에 지원되는 언어로만 변환할 수 있습니다.
 
-Microsoft는 수시로 새 언어에 대한 지원을 추가할 수 있습니다. 이러한 이유로 응용 프로그램에서 지원되는 언어에 대한 지식을 하드 코드하면 안됩니다. 대신, Translator Speech API는 런타임에서 지원되는 언어를 검색할 수 있는 언어 엔드포인트를 제공합니다. 다음 언어 목록 중에서 하나 이상을 받도록 선택할 수 있습니다. 
+Microsoft는 수시로 새 언어에 대한 지원을 추가할 수 있습니다. 이러한 이유로 애플리케이션에서 지원되는 언어에 대한 지식을 하드 코드하면 안됩니다. 대신, Translator Speech API는 런타임에서 지원되는 언어를 검색할 수 있는 언어 엔드포인트를 제공합니다. 다음 언어 목록 중에서 하나 이상을 받도록 선택할 수 있습니다. 
 
 | | |
 |-|-|
@@ -197,7 +197,7 @@ Languages 엔드포인트는 요청의 `Accept-Languages` 헤더를 사용하여
 
 사용자가 선택한 [대상 언어]에 따라 사용할 수 있는 음성이 달라지기 때문에 아직은 [음성] 메뉴를 설정할 수 없습니다. 대신, 각 언어에 사용할 수 있는 음성은 나중에 사용하기 위해 저장됩니다. 나중에 사용자가 [대상 언어]를 선택할 때 `ToLanguage_SelectionChanged` 처리기(동일한 소스 파일에 있음)에서 `UpdateVoiceComboBox()`를 호출하여 [음성] 메뉴를 업데이트합니다. 
 
-단순히 재미를 위해, 사용자가 앞에서 응용 프로그램을 실행하지 않은 경우 [대상 언어]가 임의로 선택됩니다. (메뉴 설정은 세션 간에 저장됩니다.)
+단순히 재미를 위해, 사용자가 앞에서 애플리케이션을 실행하지 않은 경우 [대상 언어]가 임의로 선택됩니다. (메뉴 설정은 세션 간에 저장됩니다.)
 
 ## <a name="authenticating-requests"></a>요청 인증
 
@@ -429,7 +429,7 @@ private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAu
 
 ## <a name="next-steps"></a>다음 단계
 
-이 코드 샘플은 Translator Speech API를 사용하는 방법을 보여 주는 다양한 기능을 갖춘 응용 프로그램입니다. 따라서 이해하기 위해 이동해야 하는 부분이 상당히 많습니다. 여기서는 가장 중요한 부분을 안내했습니다. 나머지 부분의 경우 Visual Studio에서 몇 가지 중단점을 설정하고 변환 프로세스를 진행하는 것이 좋습니다. 샘플 응용 프로그램을 이해하면 자신의 응용 프로그램에서 Translator Speech 서비스를 사용할 수 있습니다.
+이 코드 샘플은 Translator Speech API를 사용하는 방법을 보여 주는 다양한 기능을 갖춘 애플리케이션입니다. 따라서 이해하기 위해 이동해야 하는 부분이 상당히 많습니다. 여기서는 가장 중요한 부분을 안내했습니다. 나머지 부분의 경우 Visual Studio에서 몇 가지 중단점을 설정하고 변환 프로세스를 진행하는 것이 좋습니다. 샘플 애플리케이션을 이해하면 자신의 애플리케이션에서 Translator Speech 서비스를 사용할 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [Microsoft Translator Speech API 참조](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

@@ -243,7 +243,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
             ]
       }
       ```
-      이 경우에는 애플리케이션에서 수신할 수 있는 각 토큰 유형에 서로 다른 선택적 클레임이 추가되었습니다. 이제 ID 토큰에는 페더레이션 사용자의 UPN이 전체 형식으로 포함됩니다(`<upn>_<homedomain>#EXT#@<resourcedomain>`). 다른 클라이언트가 이 응용 프로그램용으로 요청하는 액세스 토큰에는 이제 auth_time 클레임이 포함됩니다. SAML 토큰은 skypeId 디렉터리 스키마 확장을 포함합니다(이 예제에서 이 앱의 앱 ID는 ab603c56068041afb2f6832e2a17e237임). SAML 토큰은 Skype ID를 `extension_skypeId`로 노출합니다.
+      이 경우에는 애플리케이션에서 수신할 수 있는 각 토큰 유형에 서로 다른 선택적 클레임이 추가되었습니다. 이제 ID 토큰에는 페더레이션 사용자의 UPN이 전체 형식으로 포함됩니다(`<upn>_<homedomain>#EXT#@<resourcedomain>`). 다른 클라이언트가 이 애플리케이션용으로 요청하는 액세스 토큰에는 이제 auth_time 클레임이 포함됩니다. SAML 토큰은 skypeId 디렉터리 스키마 확장을 포함합니다(이 예제에서 이 앱의 앱 ID는 ab603c56068041afb2f6832e2a17e237임). SAML 토큰은 Skype ID를 `extension_skypeId`로 노출합니다.
 
 1. 매니페스트 업데이트가 끝나면 **저장**을 클릭하여 매니페스트를 저장합니다.
 

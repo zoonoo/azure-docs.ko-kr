@@ -115,7 +115,7 @@ Rails 서버를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
 ## <a name="create-postgres-in-azure"></a>Azure에서 Postgres 만들기
 
-이 단계에서는 [Azure Database for PostgreSQL](/azure/postgresql/)에서 Postgres 데이터베이스를 만듭니다. 나중에 이 데이터베이스에 연결할 Ruby on Rails 응용 프로그램을 구성합니다.
+이 단계에서는 [Azure Database for PostgreSQL](/azure/postgresql/)에서 Postgres 데이터베이스를 만듭니다. 나중에 이 데이터베이스에 연결할 Ruby on Rails 애플리케이션을 구성합니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 

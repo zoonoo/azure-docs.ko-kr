@@ -66,7 +66,7 @@ Azure AD 엔드포인트에 대한 자세한 내용은 [Azure AD의 인증 시�
 
 Azure AD를 사용하여 인증하는 첫 번째 단계는 Azure AD 테넌트에 응용 프로그램을 등록하는 것입니다. 응용 프로그램을 등록하면 코드에서 Azure [Active Directory 인증 라이브러리][aad_adal](ADAL)를 호출할 수 있습니다. ADAL은 응용 프로그램에서 Azure AD로 인증하는 API를 제공합니다. 통합 인증 또는 서비스 주체를 사용하려면 응용 프로그램을 등록해야 합니다.
 
-응용 프로그램을 등록할 때 응용 프로그램에 대한 정보를 Azure AD에 제공합니다. 그런 다음, Azure AD는 런타임 시 응용 프로그램을 Azure AD와 연결하는 데 사용하는 응용 프로그램 ID(*클라이언트 ID*라고도 함)를 제공합니다. 응용 프로그램 ID에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요.
+응용 프로그램을 등록할 때 응용 프로그램에 대한 정보를 Azure AD에 제공합니다. 그런 다음, Azure AD는 런타임 시 애플리케이션을 Azure AD와 연결하는 데 사용하는 애플리케이션 ID(*클라이언트 ID*라고도 함)를 제공합니다. 응용 프로그램 ID에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요.
 
 Batch 응용 프로그램을 등록하려면 [Azure Active Directory와 응용 프로그램 통합][aad_integrate]에서 [응용 프로그램 추가](../active-directory/develop/quickstart-v1-add-azure-ad-app.md) 섹션의 단계를 따릅니다. 응용 프로그램을 네이티브 응용 프로그램으로 등록하는 경우 **리디렉션 URI**에 유효한 URI를 지정할 수 있습니다. 실제 엔드포인트일 필요는 없습니다.
 
@@ -98,7 +98,7 @@ Azure AD에 응용 프로그램을 등록하는 방법에 대한 자세한 내�
 
     ![응용 프로그램 이름 검색](./media/batch-aad-auth/search-app-registration.png)
 
-3. 응용 프로그램을 클릭하고 **설정**을 클릭합니다. **API 액세스** 섹션에서 **필요한 사용 권한**을 선택합니다.
+3. 애플리케이션을 클릭하고 **설정**을 클릭합니다. **API 액세스** 섹션에서 **필요한 사용 권한**을 선택합니다.
 4. **필요한 사용 권한** 블레이드에서 **추가** 단추를 클릭합니다.
 5. **API 선택**에서 일괄 처리 API를 검색합니다. API를 찾을 때까지 다음 문자열 각각을 검색합니다.
     1. **MicrosoftAzureBatch**
@@ -108,7 +108,7 @@ Azure AD에 응용 프로그램을 등록하는 방법에 대한 자세한 내�
 7. **권한 선택**에서 **Azure Batch 서비스에 액세스** 옆의 확인란을 선택하고 **선택**을 클릭합니다.
 8. **Done**을 클릭합니다.
 
-이제 **필요한 권한** 창이 Azure AD 응용 프로그램에 ADAL 및 Batch 서비스 API 모두에 대한 액세스 권한이 있음을 보여 줍니다. Azure AD에 앱을 처음 등록할 때 자동으로 ADAL에 권한이 부여됩니다.
+이제 **필요한 권한** 창이 Azure AD 애플리케이션에 ADAL 및 Batch 서비스 API 모두에 대한 액세스 권한이 있음을 보여 줍니다. Azure AD에 앱을 처음 등록할 때 자동으로 ADAL에 권한이 부여됩니다.
 
 ![API 권한 부여](./media/batch-aad-auth/required-permissions-data-plane.png)
 
@@ -127,7 +127,7 @@ Azure Portal에서 다음 단계를 따릅니다.
 
 1. Azure Portal의 왼쪽 탐색 창에서 **모든 서비스**를 선택합니다. **앱 등록**을 클릭합니다.
 2. 앱 등록 목록에서 응용 프로그램의 이름을 검색합니다.
-3. 응용 프로그램을 클릭하고 **설정**을 클릭합니다. **API 액세스** 섹션에서 **키**를 선택합니다.
+3. 애플리케이션을 클릭하고 **설정**을 클릭합니다. **API 액세스** 섹션에서 **키**를 선택합니다.
 4. 키를 만들려면 키에 대한 설명을 입력합니다. 그런 다음 키의 기간으로 1년 또는 2년을 선택합니다. 
 5. **저장** 단추를 클릭하여 키를 만들고 표시합니다. 블레이드를 닫은 후에 다시 액세스할 수 없으므로 키 값을 안전한 곳에 복사해 둡니다. 
 
@@ -207,7 +207,7 @@ private const string BatchAccountUrl = "https://myaccount.mylocation.batch.azure
 private const string ClientId = "<application-id>";
 ```
 
-또한 네이티브 응용 프로그램으로 응용 프로그램을 등록하는 경우 사용자가 지정한 리디렉션 URI를 복사합니다. 코드에 지정된 리디렉션 URI는 응용 프로그램을 등록할 때 제공한 리디렉션 URI와 일치해야 합니다.
+또한 네이티브 애플리케이션으로 애플리케이션을 등록하는 경우 사용자가 지정한 리디렉션 URI를 복사합니다. 코드에 지정된 리디렉션 URI는 응용 프로그램을 등록할 때 제공한 리디렉션 URI와 일치해야 합니다.
 
 ```csharp
 private const string RedirectUri = "http://mybatchdatasample";

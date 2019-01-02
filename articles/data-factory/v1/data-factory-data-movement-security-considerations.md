@@ -64,7 +64,7 @@ Azure Data Factory는 **Microsoft에서 관리하는 인증서**를 사용하여
 Azure SQL Data Warehouse의 TDE(투명한 데이터 암호화)는 미사용 데이터에 대한 실시간 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 데 도움을 줍니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [SQL Data Warehouse에서 데이터베이스 보호](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)를 참조하세요.
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
-Azure SQL Database는 응용 프로그램을 변경할 필요 없이 실시간으로 데이터 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 TDE(투명한 데이터 암호화)도 지원합니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [Azure SQL Database를 사용한 투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)를 참조하세요. 
+Azure SQL Database는 애플리케이션을 변경할 필요 없이 실시간으로 데이터 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 TDE(투명한 데이터 암호화)도 지원합니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [Azure SQL Database를 사용한 투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)를 참조하세요. 
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 또한 Azure Data Lake Store는 계정에 저장된 데이터에 대한 암호화를 제공합니다. 사용할 경우 Data Lake Store는 자동으로 데이터를 영구 저장하기 전에 데이터를 암호화하고, 검색하기 전에 데이터를 해독하므로 데이터에 액세스하는 클라이언트는 투명합니다. 자세한 내용은 [Azure Data Lake Store의 데이터 보안](../../data-lake-store/data-lake-store-security-overview.md)을 참조하세요. 
@@ -93,8 +93,8 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 
 - Azure Portal/복사 마법사에서 HTTPS를 통해 **일반 텍스트**(보안 수준 낮음)를 사용합니다. 자격 증명은 일반 텍스트로 온-프레미스 게이트웨이에 전달됩니다.
 - **복사 마법사에서 JavaScript 암호화 라이브러리** 사용 중.
-- **한 번 클릭 기반 자격 증명 관리자 앱** 사용. 1회성 응용 프로그램은 게이트웨이에 액세스할 수 있는 온-프레미스 시스템에서 실행되며 데이터 저장소에 대한 인증 정보를 설정합니다. 이 옵션과 다음 옵션은 가장 안전한 옵션입니다. 자격 증명 관리자 앱은 기본적으로 보안 통신을 위해 게이트웨이가 있는 컴퓨터에서 포트 8050을 사용합니다.  
-- [New-AzureRmDataFactoryEncryptValue](/powershell/module/azurerm.datafactories/New-AzureRmDataFactoryEncryptValue) PowerShell cmdlet을 사용하여 자격 증명을 암호화합니다. Cmdlet은 해당 게이트웨이 구성하는 인증서를 사용하여 자격 증명을 암호화를 사용합니다. 이 cmdlet에서 반환한 암호화된 자격 증명을 사용하여 [New-AzureRmDataFactoryLinkedService](/powershell/module/azurerm.datafactories/new-azurermdatafactorylinkedservice) cmdlet과 함께 사용하는 JSON 파일에서 **connectionString**의 **EncryptedCredential** 요소에 추가할 수 있습니다. 또는 포털의 Data Factory Editor에 있는 JSON 코드 조각에 있습니다. 이 옵션과 클릭 1회 응용 프로그램은 가장 안전한 옵션입니다. 
+- **한 번 클릭 기반 자격 증명 관리자 앱** 사용. 1회성 애플리케이션은 게이트웨이에 액세스할 수 있는 온-프레미스 시스템에서 실행되며 데이터 저장소에 대한 인증 정보를 설정합니다. 이 옵션과 다음 옵션은 가장 안전한 옵션입니다. 자격 증명 관리자 앱은 기본적으로 보안 통신을 위해 게이트웨이가 있는 컴퓨터에서 포트 8050을 사용합니다.  
+- [New-AzureRmDataFactoryEncryptValue](/powershell/module/azurerm.datafactories/New-AzureRmDataFactoryEncryptValue) PowerShell cmdlet을 사용하여 자격 증명을 암호화합니다. Cmdlet은 해당 게이트웨이 구성하는 인증서를 사용하여 자격 증명을 암호화를 사용합니다. 이 cmdlet에서 반환한 암호화된 자격 증명을 사용하여 [New-AzureRmDataFactoryLinkedService](/powershell/module/azurerm.datafactories/new-azurermdatafactorylinkedservice) cmdlet과 함께 사용하는 JSON 파일에서 **connectionString**의 **EncryptedCredential** 요소에 추가할 수 있습니다. 또는 포털의 Data Factory Editor에 있는 JSON 코드 조각에 있습니다. 이 옵션과 클릭 1회 애플리케이션은 가장 안전한 옵션입니다. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>JavaScript 암호화 라이브러리 기반 암호화
 [복사 마법사](data-factory-copy-wizard.md)의 [JavaScript Cryptography 라이브러리](https://www.microsoft.com/download/details.aspx?id=52439)를 사용하여 데이터 저장소 자격 증명을 암호화할 수 있습니다. 이 옵션을 선택하면 복사 마법사가 게이트웨이의 공개 키를 검색하여 이를 사용하여 데이터 저장소 자격 증명을 암호화합니다. 자격 증명은 게이트웨이 컴퓨터에 의해 해독되고 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx)에 의해 보호됩니다.
@@ -102,11 +102,11 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 **지원되는 브라우저:** IE8, IE9, IE10, IE11, Microsoft Edge 및 최신 Firefox, Chrome, Opera, Safari 브라우저를 지원합니다. 
 
 #### <a name="click-once-credentials-manager-app"></a>클릭 한 번 자격 증명 관리자 앱
-파이프라인을 제작할 때 Azure Portal/복사 마법사에서 클릭 한번 기반의 자격 증명 관리자 앱을 시작할 수 있습니다. 이 응용 프로그램은 자격 증명이 일반 텍스트로 전송되지 않도록 합니다. 기본적으로 보안 통신을 위해 게이트웨이가 있는 시스템에서 **8050** 포트를 사용합니다. 필요한 경우 이 포트를 변경할 수 있습니다.  
+파이프라인을 제작할 때 Azure Portal/복사 마법사에서 클릭 한번 기반의 자격 증명 관리자 앱을 시작할 수 있습니다. 이 애플리케이션은 자격 증명이 일반 텍스트로 전송되지 않도록 합니다. 기본적으로 보안 통신을 위해 게이트웨이가 있는 시스템에서 **8050** 포트를 사용합니다. 필요한 경우 이 포트를 변경할 수 있습니다.  
   
 ![게이트웨이용 HTTPS 포트](media/data-factory-data-movement-security-considerations/https-port-for-gateway.png)
 
-현재 Data Management Gateway는 단일 **인증서**를 사용합니다. 이 인증서는 게이트웨이 설치 중 작성됩니다(2016년 11월 이후에 작성된 Data Management Gateway 및 2.4.xxxx.x 이상 버전에 적용됨). 이 인증서를 자신의 SSL/TLS 인증서로 바꿀 수 있습니다. 이 인증서는 일회용 신임 관리자 응용 프로그램에서 데이터 저장소 자격 증명을 설정하기 위해 게이트웨이 시스템에 안전하게 연결하는 데 사용됩니다. 게이트웨이가 있는 컴퓨터에서 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx)를 사용하여 데이터 저장소 자격 증명을 안전하게 온-프레미스에 저장합니다. 
+현재 Data Management Gateway는 단일 **인증서**를 사용합니다. 이 인증서는 게이트웨이 설치 중 작성됩니다(2016년 11월 이후에 작성된 Data Management Gateway 및 2.4.xxxx.x 이상 버전에 적용됨). 이 인증서를 자신의 SSL/TLS 인증서로 바꿀 수 있습니다. 이 인증서는 일회용 신임 관리자 애플리케이션에서 데이터 저장소 자격 증명을 설정하기 위해 게이트웨이 시스템에 안전하게 연결하는 데 사용됩니다. 게이트웨이가 있는 컴퓨터에서 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx)를 사용하여 데이터 저장소 자격 증명을 안전하게 온-프레미스에 저장합니다. 
 
 > [!NOTE]
 > 2016년 11월 또는 버전 2.3.xxxx.x 이전에 설치된 이전 게이트웨이는 암호화된 정보를 사용하여 클라우드에 계속 저장됩니다. 게이트웨이를 최신 버전으로 업그레이드하더라도 자격 증명이 온-프레미스 컴퓨터로 마이그레이션되지 않습니다.    
@@ -164,7 +164,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 
 | 인바운드 포트 | 설명 | 
 | ------------- | ----------- | 
-| 8050(TCP) | 게이트웨이의 온-프레미스 데이터 저장소에 대한 신임을 안전하게 설정하기 위해 신임 관리자 응용 프로그램에서 필요합니다. | 
+| 8050(TCP) | 게이트웨이의 온-프레미스 데이터 저장소에 대한 신임을 안전하게 설정하기 위해 신임 관리자 애플리케이션에서 필요합니다. | 
 
 ![게이트웨이 포트 요구 사항](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
 
@@ -185,10 +185,10 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 **대답:** 이 기능을 지원하지 않습니다. 적극적으로 노력하고 있습니다.
 
 **질문:** 게이트웨이가 작동하는 데 필요한 포트 요구 사항은 무엇입니까?
-**대답:** 게이트웨이는 인터넷을 열 수 있는 HTTP 기반 연결을 만듭니다. 이 연결을 만들기 위해 게이트웨이에서 **443 및 80 아웃바운드 포트**를 열어야 합니다. Credential Manager 응용 프로그램의 경우(회사 방화벽 수준이 아닌) 시스템 수준에서만 **8050 인바운드 포트**를 엽니다. Azure SQL Database 또는 Azure SQL Data Warehouse가 원본/대상으로 사용되는 경우 **1433** 포트도 열어야 합니다. 자세한 내용은 [방화벽 구성 및 허용 IP 주소](#firewall-configurations-and-whitelisting-ip-address-of gateway) 섹션을 참조하세요. 
+**대답:** 게이트웨이는 인터넷을 열 수 있는 HTTP 기반 연결을 만듭니다. 이 연결을 만들기 위해 게이트웨이에서 **443 및 80 아웃바운드 포트**를 열어야 합니다. Credential Manager 애플리케이션의 경우(회사 방화벽 수준이 아닌) 시스템 수준에서만 **8050 인바운드 포트**를 엽니다. Azure SQL Database 또는 Azure SQL Data Warehouse가 원본/대상으로 사용되는 경우 **1433** 포트도 열어야 합니다. 자세한 내용은 [방화벽 구성 및 허용 IP 주소](#firewall-configurations-and-whitelisting-ip-address-of gateway) 섹션을 참조하세요. 
 
 **질문:** 게이트웨이의 인증서 요구 사항은 무엇입니까?
-**대답:** 현재 게이트웨이에는 데이터 저장소 자격 증명을 안전하게 설정하기 위해 자격 증명 관리자 애플리케이션에서 사용하는 인증서가 필요합니다. 이 인증서는 게이트웨이 설정에 의해 생성되고 구성된 자체 서명된 인증서입니다. 대신 자신의 TLS/SSL 인증서를 사용할 수 있습니다. 자세한 정보는 [클릭 한번 자격 증명 관리자 응용 프로그램](#click-once-credentials-manager-app) 섹션을 참조하세요. 
+**대답:** 현재 게이트웨이에는 데이터 저장소 자격 증명을 안전하게 설정하기 위해 자격 증명 관리자 애플리케이션에서 사용하는 인증서가 필요합니다. 이 인증서는 게이트웨이 설정에 의해 생성되고 구성된 자체 서명된 인증서입니다. 대신 자신의 TLS/SSL 인증서를 사용할 수 있습니다. 자세한 정보는 [클릭 한번 자격 증명 관리자 애플리케이션](#click-once-credentials-manager-app) 섹션을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 복사 활동의 성능에 대한 자세한 내용은 [복사 활동 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.

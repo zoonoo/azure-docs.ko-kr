@@ -67,7 +67,7 @@ ms.locfileid: "53100296"
 
 1. Go 파일을 만든 디렉터리에서 명령 프롬프트에 `go build add-utterances.go`를 입력하여 Go 파일을 컴파일합니다. 명령 프롬프트에는 빌드 성공에 대한 정보가 반환되지 않습니다.
 
-2. 명령 프롬프트에서 다음 텍스트를 입력하여 명령줄에서 Go 응용 프로그램을 실행합니다. 
+2. 명령 프롬프트에서 다음 텍스트를 입력하여 명령줄에서 Go 애플리케이션을 실행합니다. 
 
     ```console
     add-utterances -appID <your-app-id> -authoringKey <add-your-authoring-key> -version <your-version-id> -region westus -utteranceFile utterances.json

@@ -58,12 +58,12 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 Azure VM에 연결할 수 
 #### <a name="step-1-check-the-rdp-port"></a>1단계: RDP 포트 확인
 
 1. PowerShell 인스턴스에서 [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
-)를 사용하여 포트 8080이 다른 응용 프로그램에서 사용되는지 여부를 확인합니다.
+)를 사용하여 포트 8080이 다른 애플리케이션에서 사용되는지 여부를 확인합니다.
 
         Netstat -anob |more
-2. Termservice.exe가 8080 포트를 사용하는 경우 2단계로 이동합니다. Termservice.exe 이외의 다른 서비스 또는 응용 프로그램이 8080 포트를 사용하는 경우 다음 단계를 수행합니다.
+2. Termservice.exe가 8080 포트를 사용하는 경우 2단계로 이동합니다. Termservice.exe 이외의 다른 서비스 또는 애플리케이션이 8080 포트를 사용하는 경우 다음 단계를 수행합니다.
 
-    1. 3389 서비스를 사용하는 응용 프로그램에 대한 서비스를 중지합니다.
+    1. 3389 서비스를 사용하는 애플리케이션에 대한 서비스를 중지합니다.
 
         Stop-Service -Name<ServiceName>
 
@@ -71,7 +71,7 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 Azure VM에 연결할 수 
 
         Start-Service -Name Termservice
 
-2. 응용 프로그램을 중지할 수 없거나 이 방법이 사용자에게 적용되지 않으면 RDP에 대한 포트를 변경합니다.
+2. 애플리케이션을 중지할 수 없거나 이 방법이 사용자에게 적용되지 않으면 RDP에 대한 포트를 변경합니다.
 
     1. 포트를 변경합니다.
 

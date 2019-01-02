@@ -46,7 +46,7 @@ ms.locfileid: "53080914"
  git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started.git 
 ```
 
-복제한 리포지토리에는 “\azure-cosmosdb-bulkexecutor-java-getting-started\samples\bulkexecutor-sample\src\main\java\com\microsoft\azure\cosmosdb\bulkexecutor” 폴더에 대한 두 개의 샘플 “bulkimport” 및 “bulkupdate”가 포함됩니다. “bulkimport” 응용 프로그램은 임의의 문서를 생성하고 Azure Cosmos DB에 가져옵니다. “bulkupdate” 응용 프로그램은 Azure Cosmos DB에서 일부 문서를 업데이트합니다. 다음 섹션에서는 이러한 각 샘플 앱에서 코드를 검토하겠습니다. 
+복제한 리포지토리에는 “\azure-cosmosdb-bulkexecutor-java-getting-started\samples\bulkexecutor-sample\src\main\java\com\microsoft\azure\cosmosdb\bulkexecutor” 폴더에 대한 두 개의 샘플 “bulkimport” 및 “bulkupdate”가 포함됩니다. “bulkimport” 애플리케이션은 임의의 문서를 생성하고 Azure Cosmos DB에 가져옵니다. “bulkupdate” 애플리케이션은 Azure Cosmos DB에서 일부 문서를 업데이트합니다. 다음 섹션에서는 이러한 각 샘플 앱에서 코드를 검토하겠습니다. 
 
 ## <a name="bulk-import-data-to-azure-cosmos-db"></a>Azure Cosmos DB로 데이터 대량 가져오기
 
@@ -120,7 +120,7 @@ ms.locfileid: "53080914"
    |List<Exception> getErrors() |  대량 가져오기 API 호출에 적용된 일괄 처리 중에서 일부 문서가 삽입에 실패한 경우 오류의 목록을 가져옵니다.       |
    |List<Object> getBadInputDocuments()  |    대량 가져오기 API 호출에 성공적으로 가져오지 못한 잘못된 형식의 문서 목록입니다. 사용자는 반환된 문서를 수정하고 가져오기를 다시 시도해야 합니다. 잘못된 형식의 문서에는 ID 값이 문자열이 아닌 문서가 포함됩니다(null 또는 다른 데이터 형식이 잘못된 것으로 간주됨).     |
 
-5. 대량 가져오기 응용 프로그램을 준비한 후, ‘mvn clean package’ 명령을 사용하여 원본의 명령줄 도구를 빌드합니다. 이 명령은 대상 폴더에서 jar 파일을 생성합니다.  
+5. 대량 가져오기 애플리케이션을 준비한 후, ‘mvn clean package’ 명령을 사용하여 원본의 명령줄 도구를 빌드합니다. 이 명령은 대상 폴더에서 jar 파일을 생성합니다.  
 
    ```java
    mvn clean package
@@ -183,7 +183,7 @@ BulkUpdateAsync API를 사용하여 기존 문서를 업데이트할 수 있습�
    |Duration getTotalTimeTaken()  |   실행을 완료하기까지 대량 업데이트 API 호출에서 사용하는 총 시간입니다.      |
    |List<Exception> getErrors()   |     대량 업데이트 API 호출에 적용된 일괄 처리 중에서 일부 문서가 삽입에 실패한 경우 오류의 목록을 가져옵니다.      |
 
-3. 대량 업데이트 응용 프로그램을 준비한 후, ‘mvn clean package’ 명령을 사용하여 원본의 명령줄 도구를 빌드합니다. 이 명령은 대상 폴더에서 jar 파일을 생성합니다.  
+3. 대량 업데이트 애플리케이션을 준비한 후, ‘mvn clean package’ 명령을 사용하여 원본의 명령줄 도구를 빌드합니다. 이 명령은 대상 폴더에서 jar 파일을 생성합니다.  
 
    ```
    mvn clean package

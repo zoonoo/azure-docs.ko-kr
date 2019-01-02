@@ -58,7 +58,7 @@ Vnet의 모든 사용자 지정 DNS 서버는 App Service Environment 생성보�
 
 ![네트워크 Access Control 목록 예][NetworkAccessControlListExample]
 
-SQL Server와 동일한 가상 네트워크의 App Service Environment에서 실행되는 모든 응용 프로그램은 SQL Server 가상 머신에 대한 **VNet 내부** IP 주소를 사용하여 SQL Server 인스턴스에 연결할 수 있습니다.  
+SQL Server와 동일한 가상 네트워크의 App Service Environment에서 실행되는 모든 애플리케이션은 SQL Server 가상 머신에 대한 **VNet 내부** IP 주소를 사용하여 SQL Server 인스턴스에 연결할 수 있습니다.  
 
 아래 예제 연결 문자열은 해당 개인 IP 주소를 사용하여 SQL Server를 참조합니다.
 

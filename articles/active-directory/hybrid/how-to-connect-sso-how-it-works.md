@@ -67,7 +67,7 @@ Seamless SSO는 [여기](how-to-connect-sso-quick-start.md)서 보여 주듯이 
 7. 브라우저는 Active Directory에서 받은 Kerberos 티켓을 Azure AD에 전달합니다.
 8. Azure AD는 이전에 공유한 키를 사용하여 회사 디바이스에 로그인한 사용자의 ID가 포함된 Kerberos 티켓을 암호 해독합니다.
 9. 평가 후에 Azure AD는 응용 프로그램에 토큰을 반환하거나 사용자에게 Multi-Factor Authentication과 같은 추가 증명을 수행하도록 요청합니다.
-10. 사용자 로그인에 성공하면 해당 사용자는 해당 응용 프로그램에 액세스할 수 있습니다.
+10. 사용자 로그인에 성공하면 해당 사용자는 해당 애플리케이션에 액세스할 수 있습니다.
 
 다음 다이어그램은 관련된 모든 구성 요소와 단계를 보여 줍니다.
 

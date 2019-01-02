@@ -1,6 +1,6 @@
 ---
 title: 웹 트래픽 관리 - Azure PowerShell
-description: Azure PowerShell을 사용하여 가상 머신 확장 집합으로 웹 트래픽을 관리하는 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다.
+description: Azure PowerShell을 사용하여 가상 머신 확장 집합으로 웹 트래픽을 관리하는 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 manager: jpconnock

@@ -50,7 +50,7 @@ Go를 사용하여 이전 단계의 브라우저 창에서 본 것과 동일한 
 
 2. 파일을 만든 위치와 같은 디렉터리에서 명령 프롬프트에 `go build endpoint.go`를 입력하여 Go 파일을 컴파일합니다. 명령 프롬프트에는 빌드 성공에 대한 정보가 반환되지 않습니다.
 
-3. 명령 프롬프트에서 다음 텍스트를 입력하여 명령줄에서 Go 응용 프로그램을 실행합니다. 
+3. 명령 프롬프트에서 다음 텍스트를 입력하여 명령줄에서 Go 애플리케이션을 실행합니다. 
 
     ```CMD
     go run endpoint.go -appID df67dcdb-c37d-46af-88e1-8b97951ca1c2 -endpointKey <add-your-key> -region westus

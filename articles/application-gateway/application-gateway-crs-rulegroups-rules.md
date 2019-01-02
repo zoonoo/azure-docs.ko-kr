@@ -1,5 +1,5 @@
 ---
-title: Azure Application Gateway의 웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙
+title: Azure Application Gateway의 웹 애플리케이션 방화벽 CRS 규칙 그룹 및 규칙
 description: 이 페이지는 웹 애플리케이션 방화벽 CRS 규칙 그룹 및 규칙에 대한 정보를 제공합니다.
 documentationcenter: na
 services: application-gateway

@@ -65,15 +65,15 @@ Expensify와 Azure AD의 통합을 구성하려면 갤러리의 Expensify를 관
 
     ![이미지](./media/expensify-tutorial/selectazuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![이미지](./media/expensify-tutorial/a_select_app.png)
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![이미지](./media/expensify-tutorial/a_new_app.png)
 
-4. 검색 상자에서 **Expensify**를 입력하고, 결과 패널에서 **Expensify**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에서 **Expensify**를 입력하고, 결과 패널에서 **Expensify**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
      ![이미지](./media/expensify-tutorial/a_add_app.png)
 
@@ -177,7 +177,7 @@ Expensify에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Expensify에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음, **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 
     ![이미지](./media/expensify-tutorial/d_all_applications.png)
 

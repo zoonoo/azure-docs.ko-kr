@@ -28,7 +28,7 @@ ms.locfileid: "51634161"
 
 ## <a name="transient-errors-transient-faults"></a>일시적인 오류(일시 장애)
 
-일시 결함으로도 알려진 일시적인 오류에는 자체적으로 신속히 확인되는 원인이 있습니다. 일시적 오류가 발생하는 이유는 가끔 Azure 시스템에서 다양한 워크로드의 부하를 더 효율적으로 분산하기 위해 하드웨어를 신속하게 변경하는 경우가 포함됩니다. 이러한 재구성 이벤트는 60초 이내에 완료됩니다. 이 재구성 기간 중에는 SQL Database에 대한 연결에 문제가 있을 수 있습니다. SQL Database에 연결하는 응용 프로그램은 이러한 일시적인 오류를 예상하도록 빌드되어야 합니다. 이를 처리하기 위해 사용자에게 응용 프로그램 오류로 표시되는 대신 해당 코드에서 재시도 논리를 구현합니다.
+일시 결함으로도 알려진 일시적인 오류에는 자체적으로 신속히 확인되는 원인이 있습니다. 일시적 오류가 발생하는 이유는 가끔 Azure 시스템에서 다양한 워크로드의 부하를 더 효율적으로 분산하기 위해 하드웨어를 신속하게 변경하는 경우가 포함됩니다. 이러한 재구성 이벤트는 60초 이내에 완료됩니다. 이 재구성 기간 중에는 SQL Database에 대한 연결에 문제가 있을 수 있습니다. SQL Database에 연결하는 애플리케이션은 이러한 일시적인 오류를 예상하도록 빌드되어야 합니다. 이를 처리하기 위해 사용자에게 애플리케이션 오류로 표시되는 대신 해당 코드에서 재시도 논리를 구현합니다.
 
 클라이언트 프로그램에서 ADO.NET을 사용하는 경우 사용자 프로그램에 **SqlException**이 throw되어 일시적 오류가 발생했다는 메시지가 표시됩니다. **숫자** 속성을 본 문서 윗부분의 [SQL Database 클라이언트 응용 프로그램의 SQL 오류 메시지](sql-database-develop-error-messages.md)에 있는 일시적 오류 목록과 비교합니다.
 
@@ -267,7 +267,7 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 클라이언트에서 발생한 모든 오류를 기록하면 진단에 도움이 될 수 있습니다. 로그 항목과 SQL Database에서 내부적으로 기록하는 오류 데이터의 상관 관계를 분석할 수 있습니다.
 
-Enterprise Library 6(EntLib60)은 로깅을 지원하기 위해 .NET 관리 클래스를 제공합니다. 자세한 내용은 [5 - 간단한 응용 프로그램 블록 로깅 사용](https://msdn.microsoft.com/library/dn440731.aspx)을 참조하세요.
+Enterprise Library 6(EntLib60)은 로깅을 지원하기 위해 .NET 관리 클래스를 제공합니다. 자세한 내용은 [5 - 간단한 애플리케이션 블록 로깅 사용](https://msdn.microsoft.com/library/dn440731.aspx)을 참조하세요.
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
@@ -327,7 +327,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 Enterprise Library 6(EntLib60)은 SQL Database를 포함한 견고한 클라우드 서비스 클라이언트를 구현할 수 있는 .NET 클래스의 프레임워크입니다. EntLib60을 이용할 수 있는 각 영역에 해당하는 항목을 찾으려면 [Enterprise Library 6 – 2013년 4월](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)을 참조하세요.
 
-일시적 오류 처리에 대한 재시도 논리는 EntLib60을 이용할 수 있는 한 가지 영역입니다. 자세한 내용은 [4 - 모든 성공의 인내와 비밀: 일시적 오류 처리 응용 프로그램 블록 사용](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)을 참조하세요.
+일시적 오류 처리에 대한 재시도 논리는 EntLib60을 이용할 수 있는 한 가지 영역입니다. 자세한 내용은 [4 - 모든 성공의 인내와 비밀: 일시적 오류 처리 애플리케이션 블록 사용](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)을 참조하세요.
 
 > [!NOTE]
 > EntLib60에 대한 소스 코드는 [다운로드 센터](https://go.microsoft.com/fwlink/p/?LinkID=290898)의 공용 다운로드에서 사용할 수 있습니다. Microsoft는 EntLib에 추가 기능 또는 유지 관리를 업데이트할 계획이 없습니다.
@@ -356,7 +356,7 @@ Enterprise Library 6(EntLib60)은 SQL Database를 포함한 견고한 클라우�
 
 - 무료 책 다운로드: [Microsoft Enterprise Library에 대한 개발자 가이드, 2판](https://www.microsoft.com/download/details.aspx?id=41145)
 - 모범 사례: [재시도 일반 지침](../best-practices-retry-general.md) 에서 재시도 논리에 대해 깊이 있게 다룹니다.
-- NuGet 다운로드: [Enterprise Library - 일시적 오류 처리 응용 프로그램 블록 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
+- NuGet 다운로드: [Enterprise Library - 일시적 오류 처리 애플리케이션 블록 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
@@ -366,9 +366,9 @@ Enterprise Library 6(EntLib60)은 SQL Database를 포함한 견고한 클라우�
   - 다양한 위치에서 메시지를 만들고 저장합니다.
   - 메시지를 분류 및 필터링합니다.
   - 디버깅, 추적, 감사 및 일반 로깅 요구 사항에 유용한 문맥 정보를 수집합니다.
-- 로깅 블록은 대상 로깅 저장소의 위치 및 유형과 상관없이 응용 프로그램 코드의 일관성을 유지하도록 로그 대상에서 로깅 기능을 추상화합니다.
+- 로깅 블록은 대상 로깅 저장소의 위치 및 유형과 상관없이 애플리케이션 코드의 일관성을 유지하도록 로그 대상에서 로깅 기능을 추상화합니다.
 
-자세한 내용은 [5 - 간단한 응용 프로그램 블록 로깅 사용](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)을 참조하세요.
+자세한 내용은 [5 - 간단한 애플리케이션 블록 로깅 사용](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)을 참조하세요.
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 

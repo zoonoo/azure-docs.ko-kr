@@ -71,7 +71,7 @@ GetThere의 Azure AD 통합을 구성하려면 갤러리의 GetThere를 관리�
 
     ![이미지](./media/getthere-tutorial/a_new_app.png)
 
-4. 검색 상자에 **GetThere**를 입력하고 결과 패널에서 **GetThere**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에 **GetThere**를 입력하고 결과 패널에서 **GetThere**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
      ![이미지](./media/getthere-tutorial/tutorial_getthere_addfromgallery.png)
 
@@ -91,7 +91,7 @@ GetThere에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 GetThere 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 GetThere 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **GetThere에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
@@ -125,7 +125,7 @@ GetThere에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     | `https://gtx2-gcte2.getthere.net/login/saml/ssoaasvalidate.act` |
     | `https://wx1.getthere.net/login/saml/ssoaavalidate.act` |
     
-5. GetThere 응용 프로그램을 사용하려면 Username 클레임에 고유한 **Username** 값이 있어야 합니다. 고객은 Username 클레임의 올바른 값을 매핑할 수 있습니다. 아래 예제에서는 **Username**을 **user.mail**에 매핑했으나 조직 설정에 따라 이 매핑을 변경할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
+5. GetThere 애플리케이션을 사용하려면 Username 클레임에 고유한 **Username** 값이 있어야 합니다. 고객은 Username 클레임의 올바른 값을 매핑할 수 있습니다. 아래 예제에서는 **Username**을 **user.mail**에 매핑했으나 조직 설정에 따라 이 매핑을 변경할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
     ![이미지](./media/getthere-tutorial/i4-attribute.png)
 
@@ -203,11 +203,11 @@ GetThere에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 GetThere에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음, **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 
     ![이미지](./media/getthere-tutorial/d_all_applications.png)
 
-2. 응용 프로그램 목록에서 **GetThere**를 선택합니다.
+2. 애플리케이션 목록에서 **GetThere**를 선택합니다.
 
     ![이미지](./media/getthere-tutorial/tutorial_getthere_app.png)
 
@@ -227,7 +227,7 @@ GetThere에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 GetThere 타일을 클릭하면 GetThere 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 GetThere 타일을 클릭하면 GetThere 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스

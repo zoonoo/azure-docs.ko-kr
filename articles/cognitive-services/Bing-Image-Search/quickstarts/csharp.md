@@ -19,16 +19,16 @@ ms.locfileid: "53249518"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>빠른 시작: Bing Image Search REST API 및 C#을 사용하여 이미지 검색
 
-이 빠른 시작을 사용하여 Bing Image Search API를 처음 호출하고 JSON 응답에서 결과를 확인합니다. 이 간단한 C# 응용 프로그램은 HTTP 이미지 검색 쿼리를 API에 보내고 반환된 첫 번째 이미지의 URL을 표시합니다.
+이 빠른 시작을 사용하여 Bing Image Search API를 처음 호출하고 JSON 응답에서 결과를 확인합니다. 이 간단한 C# 애플리케이션은 HTTP 이미지 검색 쿼리를 API에 보내고 반환된 첫 번째 이미지의 URL을 표시합니다.
 
-이 응용 프로그램은 C#에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
+이 애플리케이션은 C#에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
 이 샘플에 대한 소스 코드는 추가 오류 처리 및 코드 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs)에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
 * NuGet 패키지로 사용 가능한 [Json.NET](https://www.newtonsoft.com/json) 프레임워크.
-* Linux/MacOS를 사용하는 경우 이 응용 프로그램은 [Mono](http://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
+* Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](http://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -156,7 +156,7 @@ namespace BingSearchApisQuickstart
     Console.WriteLine("URL for the first image result: " + firstJsonObj["webSearchUrl"]+"\n");
     ```  
 
-3. 응용 프로그램의 코드에서 구독 키를 제거해야 합니다.
+3. 애플리케이션의 코드에서 구독 키를 제거해야 합니다.
 
 ## <a name="json-response"></a>JSON 응답
 

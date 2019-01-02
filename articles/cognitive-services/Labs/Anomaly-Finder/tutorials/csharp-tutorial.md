@@ -62,11 +62,11 @@ Ctrl+Shift+B를 누르거나, 리본 메뉴에서 빌드를 클릭하고 솔루�
 <a name="Review"></a>
 ### <a name="review-and-learn"></a>검토 및 학습
 
-이제 실행 중인 응용 프로그램이 있으므로 예제 앱이 Cognitive Services 기술과 어떻게 통합되는지를 살펴보겠습니다. 이 단계를 사용하면 계속해서 이 앱에 빌드하거나 Microsoft 변칙 검색을 사용하여 고유한 앱을 개발하는 작업이 더 쉬워집니다.
+이제 실행 중인 애플리케이션이 있으므로 예제 앱이 Cognitive Services 기술과 어떻게 통합되는지를 살펴보겠습니다. 이 단계를 사용하면 계속해서 이 앱에 빌드하거나 Microsoft 변칙 검색을 사용하여 고유한 앱을 개발하는 작업이 더 쉬워집니다.
 
 이 예제 앱은 변칙 검색 Restful API 엔드포인트를 활용합니다.
 
-Restful API가 예제 응용 프로그램에서 사용되는 방법을 검토하면서 **AnomalyDetectionClient.cs**의 코드 조각을 살펴보겠습니다. 이 파일에는 아래에 재현된 코드 조각을 찾는 데 도움이 되도록 “KEY SAMPLE CODE STARTS HERE” 및 “KEY SAMPLE CODE ENDS HERE”를 표시하는 코드 주석이 포함되어 있습니다.
+Restful API가 예제 애플리케이션에서 사용되는 방법을 검토하면서 **AnomalyDetectionClient.cs**의 코드 조각을 살펴보겠습니다. 이 파일에는 아래에 재현된 코드 조각을 찾는 데 도움이 되도록 “KEY SAMPLE CODE STARTS HERE” 및 “KEY SAMPLE CODE ENDS HERE”를 표시하는 코드 주석이 포함되어 있습니다.
 
 ```csharp
             // ----------------------------------------------------------------------

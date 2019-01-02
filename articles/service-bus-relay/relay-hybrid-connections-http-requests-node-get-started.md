@@ -46,7 +46,7 @@ ms.locfileid: "51616183"
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
 ## <a name="create-a-server-application-listener"></a>서버 애플리케이션(수신기) 만들기
-릴레이에서 메시지를 수신 대기하고 받으려면 Node.js 콘솔 응용 프로그램을 작성합니다.
+릴레이에서 메시지를 수신 대기하고 받으려면 Node.js 콘솔 애플리케이션을 작성합니다.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-http-requests-node-get-started-server.md)]
 

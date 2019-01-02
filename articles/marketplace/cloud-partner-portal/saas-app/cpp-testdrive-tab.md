@@ -33,7 +33,7 @@ ms.locfileid: "53196446"
 
 ## <a name="how-a-test-drive-works"></a>시험 사용의 작동 방식
 
-잠재 고객은 Marketplace에서 응용 프로그램을 검색합니다. 고객은 로그인하여 사용 약관에 동의합니다. 이때 고객은 일정 시간 동안 사용해 보도록 미리 구성된 환경을 받고 여러분은 향후 연락할 우수한 잠재 고객을 얻게 됩니다. 자세한 내용은 [시험 사용이란?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/what-is-test-drive)을 참조하세요.
+잠재 고객은 Marketplace에서 애플리케이션을 검색합니다. 고객은 로그인하여 사용 약관에 동의합니다. 이때 고객은 일정 시간 동안 사용해 보도록 미리 구성된 환경을 받고 여러분은 향후 연락할 우수한 잠재 고객을 얻게 됩니다. 자세한 내용은 [시험 사용이란?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/what-is-test-drive)을 참조하세요.
 
 ## <a name="publishing-steps"></a>게시 단계
 
@@ -51,7 +51,7 @@ ms.locfileid: "53196446"
 |  ---------------   |  ---------------  |  ---------------  |
 |     Azure 리소스 관리자               |    Azure Resource Manager 시험 사용은 게시자가 빌드한 솔루션을 구성하는 모든 Azure 리소스가 포함된 배포 템플릿입니다. 이 유형의 시험 사용에 맞는 제품은 Azure 리소스만 사용하는 제품입니다.               |       [Azure Resource Manager 시험 사용](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/azure-resource-manager-test-drive)            |
 |       호스트형             |       호스트형 시험 사용을 진행하면 시험 사용 사용자 프로비저닝 및 프로비전 해제를 수행하는 서비스를 Microsoft에서 호스팅하고 유지 관리하므로 복잡한 설정을 수행할 필요가 없습니다.             |         [호스팅된 시험 사용](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/hosted-test-drive)          |
-|      논리 앱              |       논리 앱 시험 사용은 모든 복잡한 솔루션 아키텍처가 포함된 배포 템플릿입니다. 모든 Dynamics 응용 프로그램 또는 사용자 지정 제품은 이 유형의 시험 사용을 사용해야 합니다.            |      [논리 앱 시험 사용](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/logic-app-test-drive)             |
+|      논리 앱              |       논리 앱 시험 사용은 모든 복잡한 솔루션 아키텍처가 포함된 배포 템플릿입니다. 모든 Dynamics 애플리케이션 또는 사용자 지정 제품은 이 유형의 시험 사용을 사용해야 합니다.            |      [논리 앱 시험 사용](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/logic-app-test-drive)             |
 |       Power BI             |         Power BI 시험 사용은 사용자 지정 빌드 대시보드에 포함된 링크로 구성됩니다. 대화형 Power BI 시각적 개체를 보여 주려는 제품은 이 유형의 시험 사용을 사용해야 합니다. 포함된 Power BI URL만 업로드하면 됩니다.          |        [Power BI 시험 사용](#Power-BI-test-drive)           |
 
 ### <a name="power-bi-test-drive"></a>Power BI 시험 사용

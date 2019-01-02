@@ -34,7 +34,7 @@ ms.locfileid: "52844688"
     - **최신 앱 일치**: 이 옵션은 계획의 모든 VM을 Site Recovery에서 처리된 최신 애플리케이션 일치 복구 지점으로 장애 조치(failover)합니다. 특정 VM에 대한 최신 복구 지점을 보려면 VM 설정에서 **최신 복구 지점**을 선택하세요.
     - **최신**: 이 옵션은 Site Recovery 서비스로 보낸 모든 데이터를 먼저 처리한 다음 각 VM에 대한 복구 지점을 만든 후에 해당 복구 지점으로 장애 조치(failover)합니다. 이 옵션은 장애 조치(failover) 후에 생성된 VM은 장애 조치(failover)가 트리거되었을 때 Site Recovery로 복제된 모든 데이터를 보유하므로 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
     - **최신 다중 VM이 처리됨**: 이 옵션은 다중 VM 일치가 사용하도록 설정된 하나 이상의 VM이 포함된 복구 계획에 사용할 수 있습니다. 이 설정이 사용하도록 설정된 VM은 최신 일반 다중 VM 일치 복구 지점으로 장애 조치(Failover)됩니다. 다른 VM은 처리된 최신 복구 지점으로 장애 조치(Failover)됩니다.  
-    - **최신 다중 VM 앱 일치**: 이 옵션은 다중 VM 일치가 사용하도록 설정된 하나 이상의 VM이 포함된 복구 계획에 사용할 수 있습니다. 복제 그룹에 속하는 VM은 공통된 최신 다중 VM 응용 프로그램 일관성 복구 지점으로 장애 조치(failover)됩니다. 다른 VM은 최신 응용 프로그램 일치 복구 지점으로 장애 조치(Failover)됩니다.
+    - **최신 다중 VM 앱 일치**: 이 옵션은 다중 VM 일치가 사용하도록 설정된 하나 이상의 VM이 포함된 복구 계획에 사용할 수 있습니다. 복제 그룹에 속하는 VM은 공통된 최신 다중 VM 애플리케이션 일관성 복구 지점으로 장애 조치(failover)됩니다. 다른 VM은 최신 애플리케이션 일치 복구 지점으로 장애 조치(Failover)됩니다.
     - **사용자 지정**: 이 옵션은 특정 VM을 특정 복구 지점으로 장애 조치(failover)하는 데 사용합니다.
 3. 테스트 VM을 만들 Azure Virtual Network를 선택합니다.
 
@@ -91,13 +91,13 @@ ms.locfileid: "52844688"
 
 - 테스트 장애 조치(Failover)를 실행할 때 기본 VM이 종료되어 있는지 확인합니다. 이렇게 하지 않으면 ID가 같은 두 VM이 동시에 존재하며 동일한 네트워크에서 동시에 실행됩니다. 이로 인해 예기치 않은 결과가 발생할 수 있습니다.
 - 테스트 장애 조치(Failover)용으로 만든 VM에서 변경한 내용은 장애 조치(Failover)를 정리하면 손실됩니다. 즉, 이러한 변경 내용이 기본 VM에 다시 복제되지 않습니다.
-- 프로덕션 환경에서 테스트를 수행하면 프로덕션 응용 프로그램이 가동 중지됩니다. 사용자는 테스트 장애 조치(Failover)가 진행 중일 때 VM에서 실행되는 앱을 사용하지 않아야 합니다.  
+- 프로덕션 환경에서 테스트를 수행하면 프로덕션 애플리케이션이 가동 중지됩니다. 사용자는 테스트 장애 조치(Failover)가 진행 중일 때 VM에서 실행되는 앱을 사용하지 않아야 합니다.  
 
 
 
 ## <a name="prepare-active-directory-and-dns"></a>Active Directory 및 DNS 준비
 
-응용 프로그램 테스트를 위해 테스트 장애 조치(Failover)를 실행하려면 테스트 환경에서 프로덕션 Active Directory 환경의 복사본이 필요합니다. 자세한 내용은 [Active Directory의 테스트 장애 조치(Failover) 시 고려 사항](site-recovery-active-directory.md#test-failover-considerations)을 읽어보세요.
+애플리케이션 테스트를 위해 테스트 장애 조치(Failover)를 실행하려면 테스트 환경에서 프로덕션 Active Directory 환경의 복사본이 필요합니다. 자세한 내용은 [Active Directory의 테스트 장애 조치(Failover) 시 고려 사항](site-recovery-active-directory.md#test-failover-considerations)을 읽어보세요.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>장애 조치(Failover) 후 Azure VM에 연결할 준비
 

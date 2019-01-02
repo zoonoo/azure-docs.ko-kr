@@ -31,7 +31,7 @@ ms.locfileid: "52291269"
 
 ## <a name="application-insights-sdk"></a>Application Insights SDK
 
-Application Insights에는 즉시 사용이 가능한 Service Fabric과의 통합이 있습니다. 사용자는 AI Service Fabric NuGet 패키지를 추가하고 Azure Portal에서 볼 수 있도록 만들어지고 수집된 데이터 및 로그를 받습니다. 또한 사용자는 해당 응용 프로그램을 진단 및 디버그하고 응용 프로그램에서 가장 많이 사용되는 서비스 및 부분을 추적하기 위해 고유한 원격 분석을 추가하는 것이 좋습니다. SDK에서 [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) 클래스는 응용 프로그램에서 원격 분석을 추적하는 여러 방법을 제공합니다. [.NET 응용 프로그램 모니터링 및 진단](service-fabric-tutorial-monitoring-aspnet.md)에 대한 자습서에서 Application Insights를 계측하고 응용 프로그램에 추가하는 방법의 예를 확인합니다.
+Application Insights에는 즉시 사용이 가능한 Service Fabric과의 통합이 있습니다. 사용자는 AI Service Fabric NuGet 패키지를 추가하고 Azure Portal에서 볼 수 있도록 만들어지고 수집된 데이터 및 로그를 받습니다. 또한 사용자는 해당 애플리케이션을 진단 및 디버그하고 애플리케이션에서 가장 많이 사용되는 서비스 및 부분을 추적하기 위해 고유한 원격 분석을 추가하는 것이 좋습니다. SDK에서 [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) 클래스는 애플리케이션에서 원격 분석을 추적하는 여러 방법을 제공합니다. [.NET 응용 프로그램 모니터링 및 진단](service-fabric-tutorial-monitoring-aspnet.md)에 대한 자습서에서 Application Insights를 계측하고 응용 프로그램에 추가하는 방법의 예를 확인합니다.
 
 ## <a name="eventsource"></a>EventSource
 

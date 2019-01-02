@@ -35,11 +35,11 @@ Azure Monitor의 일부인 Azure Application Insights는 응용 프로그램 모
 
 ## <a name="monitoring-in-application-insights"></a>Application Insights에서 모니터링
 
-Application Insights는 Service Fabric을 사용할 때 바로 사용 가능한 환경을 제공합니다. 개요 페이지에서, Application Insights는 응답 시간, 처리된 요청 수 등 서비스에 대한 핵심 정보를 제공합니다. 맨 위에서 '검색' 단추를 클릭하면 응용 프로그램의 최근 요청 목록을 볼 수 있습니다. 또한 여기에 실패한 요청을 보고 어떤 오류가 발생했는지 진단할 수 있습니다.
+Application Insights는 Service Fabric을 사용할 때 바로 사용 가능한 환경을 제공합니다. 개요 페이지에서, Application Insights는 응답 시간, 처리된 요청 수 등 서비스에 대한 핵심 정보를 제공합니다. 맨 위에서 '검색' 단추를 클릭하면 애플리케이션의 최근 요청 목록을 볼 수 있습니다. 또한 여기에 실패한 요청을 보고 어떤 오류가 발생했는지 진단할 수 있습니다.
 
 ![Application Insights 개요](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 
-이전 이미지의 오른쪽 패널을 보면 목록에 두 가지 주요 유형인 요청과 이벤트가 있습니다. 이 예에서 요청은 HTTP 요청을 통해 앱의 API로 호출되고, 호출은 코드의 아무 위치에나 추가할 수 있는 원격 분석 데이터 역할을 하는 사용자 지정 이벤트입니다. [사용자 지정 이벤트 및 메트릭용 Application Insights API](../application-insights/app-insights-api-custom-events-metrics.md)에서 응용 프로그램 계측을 추가로 탐색할 수 있습니다. 요청을 클릭하면 다음 이미지처럼 Application Insights Service Fabric nuget 패키지에서 수집되는 Service Fabric 관련 데이터를 포함하여 자세한 정보가 표시됩니다. 이 정보는 문제를 해결하고 응용 프로그램 상태를 파악하는 데 유용하며, 이 모든 정보는 Application Insights 내에서 검색할 수 있습니다.
+이전 이미지의 오른쪽 패널을 보면 목록에 두 가지 주요 유형인 요청과 이벤트가 있습니다. 이 예에서 요청은 HTTP 요청을 통해 앱의 API로 호출되고, 호출은 코드의 아무 위치에나 추가할 수 있는 원격 분석 데이터 역할을 하는 사용자 지정 이벤트입니다. [사용자 지정 이벤트 및 메트릭용 Application Insights API](../application-insights/app-insights-api-custom-events-metrics.md)에서 응용 프로그램 계측을 추가로 탐색할 수 있습니다. 요청을 클릭하면 다음 이미지처럼 Application Insights Service Fabric nuget 패키지에서 수집되는 Service Fabric 관련 데이터를 포함하여 자세한 정보가 표시됩니다. 이 정보는 문제를 해결하고 애플리케이션 상태를 파악하는 데 유용하며, 이 모든 정보는 Application Insights 내에서 검색할 수 있습니다.
 
 ![Application Insights 요청 세부 정보](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
 

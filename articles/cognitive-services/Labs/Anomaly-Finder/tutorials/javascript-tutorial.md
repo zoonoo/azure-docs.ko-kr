@@ -17,7 +17,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2018
 ms.locfileid: "48883706"
 ---
-# <a name="tutorial-anomaly-detection-with-javascript-application"></a>자습서: Javascript 응용 프로그램을 사용하여 변칙 검색
+# <a name="tutorial-anomaly-detection-with-javascript-application"></a>자습서: Javascript 애플리케이션을 사용하여 변칙 검색
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
@@ -68,9 +68,9 @@ ms.locfileid: "48883706"
 <a name="Review"></a>
 ### <a name="review-and-learn"></a>검토 및 학습
 
-이제 실행 중인 응용 프로그램을 가져옵니다. 예제 앱을 Cognitive Services 기술과 통합하는 방법을 검토해보겠습니다. 이 단계를 사용하면 계속해서 이 앱에 빌드하거나 Microsoft 변칙 검색을 사용하여 고유한 앱을 개발하는 작업이 더 쉬워집니다.
+이제 실행 중인 애플리케이션을 가져옵니다. 예제 앱을 Cognitive Services 기술과 통합하는 방법을 검토해보겠습니다. 이 단계를 사용하면 계속해서 이 앱에 빌드하거나 Microsoft 변칙 검색을 사용하여 고유한 앱을 개발하는 작업이 더 쉬워집니다.
 이 예제 앱은 변칙 검색 Restful API 엔드포인트를 활용합니다.
-Restful API가 예제 응용 프로그램에서 사용되는 방법을 검토하면서 anomalydetection.html에서 코드 조각을 살펴보겠습니다.
+Restful API가 예제 애플리케이션에서 사용되는 방법을 검토하면서 anomalydetection.html에서 코드 조각을 살펴보겠습니다.
 ```JavaScript
 function anomalyDetection(url, subscriptionKey, points, period) {
     var obj = new Object();

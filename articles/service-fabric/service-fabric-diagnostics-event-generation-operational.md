@@ -71,9 +71,9 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 | EventId | 이름 | Category | 설명 |원본(태스크) | Level | 
 | --- | --- | --- | --- | --- | --- | 
-| 29620 | ApplicationCreated | LifeCycle | 새 응용 프로그램이 만들어졌습니다. | CM | 정보 제공 | 
-| 29625 | ApplicationDeleted | LifeCycle | 기존 응용 프로그램이 삭제되었습니다. | CM | 정보 제공 | 
-| 23083 | ApplicationProcessExited | LifeCycle | 응용 프로그램 내 프로세스가 종료되었습니다. | Hosting | 정보 제공 | 
+| 29620 | ApplicationCreated | LifeCycle | 새 애플리케이션이 만들어졌습니다. | CM | 정보 제공 | 
+| 29625 | ApplicationDeleted | LifeCycle | 기존 애플리케이션이 삭제되었습니다. | CM | 정보 제공 | 
+| 23083 | ApplicationProcessExited | LifeCycle | 애플리케이션 내 프로세스가 종료되었습니다. | Hosting | 정보 제공 | 
 
 **응용 프로그램 업그레이드 이벤트**
 
@@ -81,10 +81,10 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 | EventId | 이름 | Category | 설명 |원본(태스크) | Level | 
 | --- | --- | ---| --- | --- | --- | 
-| 29621 | ApplicationUpgradeStarted | 업그레이드 | 응용 프로그램 업그레이드가 시작되었습니다. | CM | 정보 제공 | 
-| 29622 | ApplicationUpgradeCompleted | 업그레이드 | 응용 프로그램 업그레이드가 완료되었습니다. | CM | 정보 제공 | 
-| 29623 | ApplicationUpgradeRollbackStarted | 업그레이드 | 응용 프로그램 업그레이드 롤백이 시작되었습니다. |CM | Warning | 
-| 29624 | ApplicationUpgradeRollbackCompleted | 업그레이드 | 응용 프로그램 롤백이 완료되었습니다. | CM | Warning | 
+| 29621 | ApplicationUpgradeStarted | 업그레이드 | 애플리케이션 업그레이드가 시작되었습니다. | CM | 정보 제공 | 
+| 29622 | ApplicationUpgradeCompleted | 업그레이드 | 애플리케이션 업그레이드가 완료되었습니다. | CM | 정보 제공 | 
+| 29623 | ApplicationUpgradeRollbackStarted | 업그레이드 | 애플리케이션 업그레이드 롤백이 시작되었습니다. |CM | Warning | 
+| 29624 | ApplicationUpgradeRollbackCompleted | 업그레이드 | 애플리케이션 롤백이 완료되었습니다. | CM | Warning | 
 | 29626 | ApplicationUpgradeDomainCompleted | 업그레이드 | 업그레이드 도메인이 애플리케이션 업그레이드 중 업그레이드를 완료했습니다. | CM | 정보 제공 | 
 
 ## <a name="service-events"></a>서비스 이벤트
@@ -140,11 +140,11 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 | EventId | 이름 | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
-| 54425 | ApplicationNewHealthReport | 새 응용 프로그램 상태 보고서가 만들어졌습니다. 배포되지 않은 응용 프로그램에 대한 보고서입니다. | HM | 정보 제공 | 1 |
-| 54426 | DeployedApplicationNewHealthReport | 새로 배포된 응용 프로그램 상태 보고서가 만들어졌습니다. | HM | 정보 제공 | 1 |
+| 54425 | ApplicationNewHealthReport | 새 애플리케이션 상태 보고서가 만들어졌습니다. 배포되지 않은 애플리케이션에 대한 보고서입니다. | HM | 정보 제공 | 1 |
+| 54426 | DeployedApplicationNewHealthReport | 새로 배포된 애플리케이션 상태 보고서가 만들어졌습니다. | HM | 정보 제공 | 1 |
 | 54427 | DeployedServicePackageNewHealthReport | 새로 배포된 서비스 상태 보고서가 만들어졌습니다. | HM | 정보 제공 | 1 |
-| 54434 | ApplicationHealthReportExpired | 기존 응용 프로그램 상태 보고서가 만료되었습니다. | HM | 정보 제공 | 1 |
-| 54435 | DeployedApplicationHealthReportExpired | 기존 배포된 응용 프로그램 상태 보고서가 만료되었습니다. | HM | 정보 제공 | 1 |
+| 54434 | ApplicationHealthReportExpired | 기존 애플리케이션 상태 보고서가 만료되었습니다. | HM | 정보 제공 | 1 |
+| 54435 | DeployedApplicationHealthReportExpired | 기존 배포된 애플리케이션 상태 보고서가 만료되었습니다. | HM | 정보 제공 | 1 |
 | 54436 | DeployedServicePackageHealthReportExpired | 기존 배포된 서비스 상태 보고서가 만료되었습니다. | HM | 정보 제공 | 1 |
 
 **서비스 상태 보고서 이벤트**

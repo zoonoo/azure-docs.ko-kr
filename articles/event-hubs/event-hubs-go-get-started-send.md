@@ -21,7 +21,7 @@ ms.locfileid: "53091063"
 
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 장치에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
 
-이 자습서에서는 Go로 작성된 응용 프로그램에서 이벤트 허브로 이벤트를 전송하는 방법을 설명합니다. 
+이 자습서에서는 Go로 작성된 애플리케이션에서 이벤트 허브로 이벤트를 전송하는 방법을 설명합니다. 
 
 > [!NOTE]
 > [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs)에서 샘플로 이 빠른 시작을 다운로드하여 `EventHubConnectionString` 및 `EventHubName` 문자열을 이벤트 허브 값으로 대체하고, 실행합니다. 또는 이 자습서의 단계를 수행하여 직접 만들 수 있습니다.
@@ -126,7 +126,7 @@ if err != nil {
 log.Printf("got partition IDs: %s\n, info.PartitionIDs)
 ```
 
-응용 프로그램을 실행하여 이벤트 허브에 이벤트를 보냅니다. 
+애플리케이션을 실행하여 이벤트 허브에 이벤트를 보냅니다. 
 
 축하합니다! 이제 Event Hub에 메시지를 보냈습니다.
 

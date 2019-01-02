@@ -141,7 +141,7 @@ grant_type=authorization_code
 | 매개 변수 |  | 설명 |
 | --- | --- | --- |
 | tenant |필수 |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 테넌트 독립 토큰에 대한 테넌트 식별자(예: `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com`, `common`)입니다. |
-| client_id |필수 |Azure AD에 등록할 때 앱에 할당된 애플리케이션 ID입니다. Azure Portal에서 이러한 값을 확인할 수 있습니다. 응용 프로그램 ID가 앱 등록의 설정에 표시됩니다. |
+| client_id |필수 |Azure AD에 등록할 때 앱에 할당된 애플리케이션 ID입니다. Azure Portal에서 이러한 값을 확인할 수 있습니다. 애플리케이션 ID가 앱 등록의 설정에 표시됩니다. |
 | grant_type |필수 |인증 코드 흐름에 대한 `authorization_code` 여야 합니다. |
 | 코드 |필수 |이전 섹션에서 획득한 `authorization_code` 입니다. |
 | redirect_uri |필수 |`authorization_code`를 획득하는 데 사용된 동일한 `redirect_uri` 값입니다. |

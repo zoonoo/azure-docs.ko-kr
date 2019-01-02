@@ -84,7 +84,7 @@ $ az container show --resource-group myResourceGroup --name aci-tutorial-app --q
 "aci-demo.eastus.azurecontainer.io"
 ```
 
-실행 중인 응용 프로그램을 보려면 원하는 브라우저에서 표시된 DNS 이름으로 이동합니다.
+실행 중인 애플리케이션을 보려면 원하는 브라우저에서 표시된 DNS 이름으로 이동합니다.
 
 ![브라우저의 Hello World 앱][aci-app-browser]
 
@@ -117,7 +117,7 @@ az group delete --name myResourceGroup
 
 > [!div class="checklist"]
 > * Azure CLI를 사용하여 Azure Container Registry의 컨테이너 배포
-> * 브라우저에서 응용 프로그램 보기
+> * 브라우저에서 애플리케이션 보기
 > * 컨테이너 로그 보기
 
 기본 사항을 알아보았으니, 컨테이너 그룹의 작동 방식 등 Azure Container Instances에 대해 자세히 알아보겠습니다.

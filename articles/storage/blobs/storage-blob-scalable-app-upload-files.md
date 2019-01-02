@@ -19,7 +19,7 @@ ms.locfileid: "51565737"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Azure Storage에 대량의 임의 데이터를 병렬로 업로드
 
-이 자습서는 시리즈의 2부입니다. 이 자습서에서는 Azure Storage 계정에 대량의 임의 데이터를 업로드하는 응용 프로그램을 배포하는 방법을 설명합니다.
+이 자습서는 시리즈의 2부입니다. 이 자습서에서는 Azure Storage 계정에 대량의 임의 데이터를 업로드하는 애플리케이션을 배포하는 방법을 설명합니다.
 
 시리즈 2부에서는 다음 방법에 대해 알아봅니다.
 
@@ -29,13 +29,13 @@ ms.locfileid: "51565737"
 > * 애플리케이션 실행
 > * 연결 수의 유효성 검사
 
-Azure Blob Storage는 데이터를 저장하기 위한 확장 가능한 서비스를 제공합니다. 응용 프로그램 성능을 가능한 한 높게 유지하려면 Blob Storage 작동 방식을 이해하는 것이 좋습니다. Azure Blob에 대한 제한을 알고 있어야 합니다. 이러한 제한을 자세히 알아보려면 [Blob Storage 확장성 대상](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets)을 참조하세요.
+Azure Blob Storage는 데이터를 저장하기 위한 확장 가능한 서비스를 제공합니다. 애플리케이션 성능을 가능한 한 높게 유지하려면 Blob Storage 작동 방식을 이해하는 것이 좋습니다. Azure Blob에 대한 제한을 알고 있어야 합니다. 이러한 제한을 자세히 알아보려면 [Blob Storage 확장성 대상](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets)을 참조하세요.
 
 [파티션 이름 지정](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47)은 Blob을 사용하여 고성능 응용 프로그램을 설계할 때 고려한 또 다른 중요한 요소입니다. Azure Storage는 범위를 기준으로 한 파티션 구성표를 사용하여 확장/축소 및 부하 분산을 수행합니다. 이 구성은 이름 지정 규칙 또는 접두사가 유사한 파일이 동일한 파티션으로 이동함을 의미합니다. 이 논리에는 파일이 업로드되는 컨테이너의 이름이 포함됩니다. 이 자습서에서는 임의로 생성된 콘텐츠뿐만 아니라 이름에 대한 GUID가 있는 파일을 사용합니다. 그런 다음, 임의 이름을 가진 5개의 다른 컨테이너로 업로드됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 완료하려면 이전 저장소 자습서 [확장 가능한 응용 프로그램에 필요한 가상 머신 및 저장소 계정 만들기][previous-tutorial]를 완료해야 합니다.
+이 자습서를 완료하려면 이전 저장소 자습서 [확장 가능한 애플리케이션에 필요한 가상 머신 및 저장소 계정 만들기][previous-tutorial]를 완료해야 합니다.
 
 ## <a name="remote-into-your-virtual-machine"></a>가상 머신에 원격으로 연결
 
@@ -53,7 +53,7 @@ Azure Portal에서 저장소 계정으로 이동합니다. 저장소 계정의 *
 setx storageconnectionstring "<storageConnectionString>" /m
 ```
 
-완료되면 다른 **명령 프롬프트**를 열고, `D:\git\storage-dotnet-perf-scale-app`으로 이동한 다음, `dotnet build`를 입력하여 응용 프로그램을 빌드합니다.
+완료되면 다른 **명령 프롬프트**를 열고, `D:\git\storage-dotnet-perf-scale-app`으로 이동한 다음, `dotnet build`를 입력하여 애플리케이션을 빌드합니다.
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
@@ -65,7 +65,7 @@ setx storageconnectionstring "<storageConnectionString>" /m
 dotnet run
 ```
 
-응용 프로그램은 임의 이름이 지정된 5개의 컨테이너를 만들고 스테이징 디렉터리에 있는 파일을 저장소 계정으로 업로드하기 시작합니다. 응용 프로그램은 최소 스레드를 100으로 설정하고 [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx)을 100으로 설정하여 응용 프로그램을 실행할 때 많은 수의 동시 연결이 허용되도록 합니다.
+애플리케이션은 임의 이름이 지정된 5개의 컨테이너를 만들고 스테이징 디렉터리에 있는 파일을 저장소 계정으로 업로드하기 시작합니다. 애플리케이션은 최소 스레드를 100으로 설정하고 [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx)을 100으로 설정하여 애플리케이션을 실행할 때 많은 수의 동시 연결이 허용되도록 합니다.
 
 스레딩 및 연결 제한 설정을 설정하는 것 외에 [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) 메서드에 대한 [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet)는 병렬 처리를 사용하지만 MD5 해시 유효성 검사를 사용하지 않도록 구성됩니다. 파일은100mb 블록으로 업로드됩니다. 이 구성은 향상된 성능을 제공하지만, 전체 100mb 블록이 다시 시도되는 오류가 있는 것처럼 성능이 저하된 네트워크를 사용할 경우 비용이 많이 들 수 있습니다.
 
@@ -74,7 +74,7 @@ dotnet run
 |[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| 설정은 업로드할 때 Blob을 블록으로 나눕니다. 최고 성능을 위해 이 값은 코어 수의 8배여야 합니다. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| 이 속성은 업로드된 콘텐츠의 MD5 해시를 검사하지 않도록 설정합니다. MD5 유효성 검사를 사용하지 않으면 더 빠른 전송이 생성됩니다. 그러나 전송 중인 파일의 유효성 또는 무결성을 확인하지 않습니다.   |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| 이 속성은 MD5 해시를 계산하고 파일과 함께 저장할지를 결정합니다.   |
-| [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| 최대 10회 재시도를 사용한 2초 백오프 |요청의 재시도 정책을 결정합니다. 연결 실패가 다시 시도됩니다. 이 예제에서 [ExponentialRetry](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.exponentialretry?view=azure-dotnet) 정책은 2초 백오프 및 최대 10회 재시도를 사용하여 구성됩니다. 응용 프로그램이 [Blob Storage 확장성 대상](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets)을 적중하기 위해 접근할 경우 이 설정이 중요합니다.  |
+| [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| 최대 10회 재시도를 사용한 2초 백오프 |요청의 재시도 정책을 결정합니다. 연결 실패가 다시 시도됩니다. 이 예제에서 [ExponentialRetry](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.exponentialretry?view=azure-dotnet) 정책은 2초 백오프 및 최대 10회 재시도를 사용하여 구성됩니다. 애플리케이션이 [Blob Storage 확장성 대상](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets)을 적중하기 위해 접근할 경우 이 설정이 중요합니다.  |
 
 `UploadFilesAsync` 작업은 다음 예제에 표시됩니다.
 
@@ -153,7 +153,7 @@ private static async Task UploadFilesAsync()
 }
 ```
 
-다음 예제는 Windows 시스템에서 실행 중인 잘린 응용 프로그램 출력입니다.
+다음 예제는 Windows 시스템에서 실행 중인 잘린 애플리케이션 출력입니다.
 
 ```
 Created container https://mystorageaccount.blob.core.windows.net/9efa7ecb-2b24-49ff-8e5b-1d25e5481076

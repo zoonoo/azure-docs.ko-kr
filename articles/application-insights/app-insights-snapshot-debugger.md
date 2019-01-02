@@ -39,7 +39,7 @@ ms.locfileid: "53136718"
 * Windows Server 2012 R2 이상을 실행하는 온-프레미스 가상 또는 물리적 컴퓨터
 
 > [!NOTE]
-> 클라이언트 응용 프로그램(예를 들어, WPF, Windows Forms 또는 UWP)은 지원되지 않습니다.
+> 클라이언트 애플리케이션(예를 들어, WPF, Windows Forms 또는 UWP)은 지원되지 않습니다.
 
 ### <a name="configure-snapshot-collection-for-aspnet-applications"></a>ASP.NET 응용 프로그램에 대한 스냅숏 컬렉션 구성
 
@@ -166,11 +166,11 @@ ms.locfileid: "53136718"
 
 ### <a name="configure-snapshot-collection-for-other-net-applications"></a>다른 .NET 응용 프로그램에 대한 스냅숏 컬렉션 구성
 
-1. 응용 프로그램이 아직 Application Insights로 계측되지 않는 경우 먼저 [Application Insights를 사용하도록 설정하고 계측 키를 설정](app-insights-windows-desktop.md)합니다.
+1. 애플리케이션이 아직 Application Insights로 계측되지 않는 경우 먼저 [Application Insights를 사용하도록 설정하고 계측 키를 설정](app-insights-windows-desktop.md)합니다.
 
 2. [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 앱에 추가합니다.
 
-3. 스냅숏은 Application Insights에 보고되는 예외에 대해서만 수집됩니다. 예외를 보고하도록 코드를 수정해야 할 수도 있습니다. 예외 처리 코드는 응용 프로그램의 구조에 따라 달라집니다. 예제는 다음과 같습니다.
+3. 스냅숏은 Application Insights에 보고되는 예외에 대해서만 수집됩니다. 예외를 보고하도록 코드를 수정해야 할 수도 있습니다. 예외 처리 코드는 애플리케이션의 구조에 따라 달라집니다. 예제는 다음과 같습니다.
     ```csharp
    TelemetryClient _telemetryClient = new TelemetryClient();
 
@@ -262,7 +262,7 @@ Visual Studio 2017의 15.2 버전 이상은 App Service에 게시할 때 기본�
     <ExcludeGeneratedDebugSymbol>False</ExcludeGeneratedDebugSymbol>
 ```
 
-Azure Compute 및 기타 형식의 경우 기호 파일이 주 응용 프로그램 .dll의 동일한 폴더(일반적으로 `wwwroot/bin`)에 있거나 현재 경로에서 사용할 수 있는지 확인합니다.
+Azure Compute 및 기타 형식의 경우 기호 파일이 주 애플리케이션 .dll의 동일한 폴더(일반적으로 `wwwroot/bin`)에 있거나 현재 경로에서 사용할 수 있는지 확인합니다.
 
 ### <a name="optimized-builds"></a>최적화된 빌드
 경우에 따라 JIT 컴파일러에서 적용한 최적화로 인해 릴리스 빌드에서 지역 변수가 표시되지 않습니다.
@@ -353,14 +353,14 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
     DateTime=2018-03-09T01:47:19.4614027Z
 ```
 
-App Service에서 호스팅되지 _않는_ 응용 프로그램의 경우 업로더 로그는 미니덤프와 동일한 폴더 `%TEMP%\Dumps\<ikey>`(여기서 `<ikey>`는 계측 키)에 저장됩니다.
+App Service에서 호스팅되지 _않는_ 애플리케이션의 경우 업로더 로그는 미니덤프와 동일한 폴더 `%TEMP%\Dumps\<ikey>`(여기서 `<ikey>`는 계측 키)에 저장됩니다.
 
 ### <a name="troubleshooting-cloud-services"></a>Cloud Services 문제 해결
 Cloud Services의 역할의 경우, 기본 임시 폴더가 너무 작아서 미니 덤프 파일을 저장할 수 없게 되어 스냅숏이 손실될 수 있습니다.
 필요한 공간은 응용 프로그램의 전체 작업 집합과 동시 스냅숏 수에 따라 다릅니다.
 32비트 ASP.NET 웹 역할의 작업 집합은 일반적으로 200MB ~ 500MB 사이입니다.
 둘 이상의 동시 스냅숏을 허용합니다.
-예를 들어, 응용 프로그램이 1GB의 전체 작업 집합을 사용하는 경우, 스냅숏 저장을 위해 2GB 이상의 디스크 공간이 있는지 확인해야 합니다.
+예를 들어, 애플리케이션이 1GB의 전체 작업 집합을 사용하는 경우, 스냅숏 저장을 위해 2GB 이상의 디스크 공간이 있는지 확인해야 합니다.
 스냅숏용 전용 로컬 리소스가 있는 클라우드 서비스 역할을 구성하려면 다음 단계를 수행합니다.
 
 1. 클라우드 서비스 정의(.csdef) 파일을 편집하여 클라우드 서비스에 새 로컬 리소스를 추가합니다. 다음 예제에서는 크기가 5GB인 `SnapshotStore`라는 리소스를 정의합니다.
@@ -421,7 +421,7 @@ Snapshot Collector는 잘 알려진 위치 몇 곳에서 Snapshot Uploader 바�
 
 복사에 실패하면 Snapshot Collector는 `ShadowCopyFailed` 오류를 보고합니다.
 
-업로더를 시작할 수 없으면 Snapshot Collector는 `UploaderCannotStartFromShadowCopy` 오류를 보고합니다. 메시지 본문에 `System.UnauthorizedAccessException`이 포함되는 경우가 많습니다. 일반적으로 이 오류는 권한이 축소된 계정으로 응용 프로그램이 실행되기 때문에 발생합니다. 계정에 섀도 복사본 폴더에 쓸 수 있는 권한은 있지만 코드를 실행할 수 있는 권한이 없습니다.
+업로더를 시작할 수 없으면 Snapshot Collector는 `UploaderCannotStartFromShadowCopy` 오류를 보고합니다. 메시지 본문에 `System.UnauthorizedAccessException`이 포함되는 경우가 많습니다. 일반적으로 이 오류는 권한이 축소된 계정으로 애플리케이션이 실행되기 때문에 발생합니다. 계정에 섀도 복사본 폴더에 쓸 수 있는 권한은 있지만 코드를 실행할 수 있는 권한이 없습니다.
 
 이러한 오류는 일반적으로 시작하는 동안 발생하기 때문에 _"Uploader failed to start."_(업로드를 시작하지 못했습니다.)라는 `ExceptionDuringConnect` 오류 다음에 발생합니다.
 
@@ -437,7 +437,7 @@ Snapshot Collector는 잘 알려진 위치 몇 곳에서 Snapshot Uploader 바�
    </TelemetryProcessors>
    ```
 
-또는 .NET Core 응용 프로그램과 appsettings.json을 사용하는 경우:
+또는 .NET Core 애플리케이션과 appsettings.json을 사용하는 경우:
 
    ```json
    {

@@ -66,7 +66,7 @@ VM 액세스 및 설정을 제어하는 조직은 해당 VM의 전반적인 보�
 ## <a name="use-multiple-vms-for-better-availability"></a>가용성 향상을 위해 여러 VM 사용
 VM에서 고가용성의 중요한 응용 프로그램을 실행할 경우에는 여러 VM을 사용하는 것이 좋습니다. 가용성 향상을 위해 [가용성 집합](../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)을 사용합니다.
 
-가용성 집합은 해당 집합에 배치한 VM 리소스가 Azure 데이터 센터에 배포될 때 서로 간에 격리되도록 하기 위해 Azure에서 사용할 수 있는 논리적 그룹화입니다. Azure는 가용성 집합에 배치한 VM을 여러 물리적 서버, 계산 랙, 저장 장치 및 네트워크 스위치에서 실행되도록 합니다. 하드웨어 또는 Azure 소프트웨어 오류가 발생할 경우 VM의 하위 집합에만 영향을 주는 한편 전체 응용 프로그램은 고객이 계속 사용할 수 있습니다. 가용성 집합은 안정적인 클라우드 솔루션을 빌드하려고 할 때 필수적인 기능입니다.
+가용성 집합은 해당 집합에 배치한 VM 리소스가 Azure 데이터 센터에 배포될 때 서로 간에 격리되도록 하기 위해 Azure에서 사용할 수 있는 논리적 그룹화입니다. Azure는 가용성 집합에 배치한 VM을 여러 물리적 서버, 계산 랙, 저장 장치 및 네트워크 스위치에서 실행되도록 합니다. 하드웨어 또는 Azure 소프트웨어 오류가 발생할 경우 VM의 하위 집합에만 영향을 주는 한편 전체 애플리케이션은 고객이 계속 사용할 수 있습니다. 가용성 집합은 안정적인 클라우드 솔루션을 빌드하려고 할 때 필수적인 기능입니다.
 
 ## <a name="protect-against-malware"></a>맬웨어로부터 보호
 맬웨어 방지 보호를 설치하여 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별하고 제거해야 합니다. [Microsoft Antimalware](azure-security-antimalware.md) 또는 Microsoft 파트너의 엔드포인트 보호 솔루션([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/search/result.aspx?q=Windows+defender+endpoint+protection) 및 [System Center Endpoint Protection](https://www.microsoft.com/search/result.aspx?q=System+Center+endpoint+protection))을 설치할 수 있습니다.
@@ -103,7 +103,7 @@ Windows 업데이트를 사용하면 해당 설정을 활성화 상태로 유지
 **세부 정보**: [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 VM을 정의하므로 쉽게 배포할 수 있습니다. 템플릿을 사용하면 필요한 경우 패치된 보안 VM을 제공합니다.
 
 **모범 사례**: 최신 보안 업데이트 설치   
-**세부 정보**: 고객이 Azure로 이동하는 첫 번째 작업 일부는 실습 및 외부 연결 시스템입니다. Azure VM이 인터넷에 액세스할 수 있어야 하는 응용 프로그램 또는 서비스를 호스트하는 경우 패치 적용에 유의해야 합니다. 운영 체제에 대해 패치를 설치합니다. 파트너 응용 프로그램의 취약점을 패치하지 않으면 적절한 패치 관리가 진행되어도 우회할 수 있는 문제가 야기될 수도 있습니다.
+**세부 정보**: 고객이 Azure로 이동하는 첫 번째 작업 일부는 실습 및 외부 연결 시스템입니다. Azure VM이 인터넷에 액세스할 수 있어야 하는 애플리케이션 또는 서비스를 호스트하는 경우 패치 적용에 유의해야 합니다. 운영 체제에 대해 패치를 설치합니다. 파트너 애플리케이션의 취약점을 패치하지 않으면 적절한 패치 관리가 진행되어도 우회할 수 있는 문제가 야기될 수도 있습니다.
 
 **모범 사례**: 백업 솔루션 배포 및 테스트   
 **세부 정보**: 다른 작업을 처리하는 것과 동일한 방식으로 백업을 처리해야 합니다. 클라우드로 확장되는 프로덕션 환경에 속하는 시스템의 경우도 마찬가지입니다.
@@ -128,7 +128,7 @@ Windows 업데이트를 사용하면 해당 설정을 활성화 상태로 유지
 
 Security Center는 위협을 적극적으로 모니터링할 수 있으며 잠재적 위협은 보안 경고에 표시됩니다. 상호 관련된 위협은 보안 인시던트라고 하는 단일 보기로 집계됩니다.
 
-Security Center에서는 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)에 데이터를 저장합니다. Log Analytics에서는 응용 프로그램 및 리소스의 작업에 대한 인사이트를 제공하는 쿼리 언어 및 분석 엔진을 제공합니다. 또한 데이터는 온-프레미스의 가상 머신에 설치된 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), 관리 솔루션 및 클라우드 또는 에이전트에서 수집됩니다. 이렇게 공유된 기능은 환경에 대한 전체적인 그림을 만드는 데 도움이 됩니다.
+Security Center에서는 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)에 데이터를 저장합니다. Log Analytics에서는 애플리케이션 및 리소스의 작업에 대한 인사이트를 제공하는 쿼리 언어 및 분석 엔진을 제공합니다. 또한 데이터는 온-프레미스의 가상 머신에 설치된 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), 관리 솔루션 및 클라우드 또는 에이전트에서 수집됩니다. 이렇게 공유된 기능은 환경에 대한 전체적인 그림을 만드는 데 도움이 됩니다.
 
 VM에 대해 강력한 보안을 적용하지 않는 조직은 권한이 없는 사용자가 보안 컨트롤을 억제하는 잠재적인 시도를 알지 못하는 상태가 됩니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights로 Java 웹앱 분석 | Microsoft Docs
-description: 'Application Insights를 사용하여 Java 웹앱에 대한 응용 프로그램 성능 모니터링. '
+description: 'Application Insights를 사용하여 Java 웹앱에 대한 애플리케이션 성능 모니터링. '
 services: application-insights
 documentationcenter: java
 author: lgayhardt
@@ -39,7 +39,7 @@ Spring 프레임워크를 선호하는 경우 [Application Insights 가이드를
 
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Application Insights 계측 키 가져오기
 1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. Application Insights 리소스 만들기 Java 웹 응용 프로그램에 대한 응용 프로그램 종류를 설정합니다.
+2. Application Insights 리소스 만들기 Java 웹 애플리케이션에 대한 애플리케이션 종류를 설정합니다.
 
     ![이름을 채우고 Java 웹 앱을 선택하여 만들기 클릭](./media/app-insights-java-get-started/02-create.png)
 3. 새 리소스의 계측 키를 찾습니다. 코드 프로젝트에 이 키를 곧바로 붙여넣어야 합니다.
@@ -241,7 +241,7 @@ public class AppInsightsConfig {
 
 이 클래스는 `WebRequestTrackingFilter`가 http 필터 체인에서 첫 번째 필터가 되도록 구성합니다. 또한 사용 가능한 경우 운영 체제 환경 변수에서 계측 키를 끌어옵니다.
 
-> Spring Boot 응용 프로그램이고 고유한 Spring MVC가 구성되었기 때문에 Spring MVC를 구성하지 않고 웹 http 필터 구성을 사용합니다. Spring MVC 특정 구성은 아래 섹션을 참조하세요.
+> Spring Boot 애플리케이션이고 고유한 Spring MVC가 구성되었기 때문에 Spring MVC를 구성하지 않고 웹 http 필터 구성을 사용합니다. Spring MVC 특정 구성은 아래 섹션을 참조하세요.
 
 ### <a name="applications-using-webxml"></a>Web.xml를 사용하는 응용 프로그램
 프로젝트에서 web.xml 파일을 찾아 열고, 응용 프로그램 필터가 구성된 웹앱 노드 아래에 다음 코드를 병합합니다.
@@ -295,7 +295,7 @@ Struts 구성 파일에 이 항목 추가(일반적으로 struts.xml 또는 stru
 
 기본 스택에 정의된 인터셉터가 있는 경우 해당 인터셉터를 스택에 추가하면 됩니다.
 
-## <a name="5-run-your-application"></a>5. 응용 프로그램 실행
+## <a name="5-run-your-application"></a>5. 애플리케이션 실행
 응용 프로그램을 디버그 모드로 개발 컴퓨터에서 실행하거나 서버에 게시합니다.
 
 ## <a name="6-view-your-telemetry-in-application-insights"></a>6. Application Insights에서 원격 분석 보기
@@ -311,7 +311,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
-> Application Insights는 MVC 응용 프로그램에 대한 HTTP 요청 형식을 다음과 같이 가정합니다. `VERB controller/action` 예를들어, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` 및 `GET Home/Product/sdf96vws`은(는) `GET Home/Product`(으)로 그룹화됩니다. 이 그룹화를 통해 요청 수와 같은 의미 있는 집계 및 요청에 대한 평균 실행 시간을 사용할 수 있습니다.
+> Application Insights는 MVC 애플리케이션에 대한 HTTP 요청 형식을 다음과 같이 가정합니다. `VERB controller/action` 예를들어, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` 및 `GET Home/Product/sdf96vws`은(는) `GET Home/Product`(으)로 그룹화됩니다. 이 그룹화를 통해 요청 수와 같은 의미 있는 집계 및 요청에 대한 평균 실행 시간을 사용할 수 있습니다.
 >
 >
 
@@ -332,7 +332,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 ## <a name="7-install-your-app-on-the-server"></a>7. 서버에 앱 설치
 이제 서버에 앱을 게시하고, 사람들이 사용하게 한 다음 포털에 표시되는 원격 분석을 확인합니다.
 
-* 방화벽에서 응용 프로그램이 다음 포트에 원격 분석을 보내도록 허용하는지 확인합니다.
+* 방화벽에서 애플리케이션이 다음 포트에 원격 분석을 보내도록 허용하는지 확인합니다.
 
   * dc.services.visualstudio.com:443
   * f5.services.visualstudio.com:443

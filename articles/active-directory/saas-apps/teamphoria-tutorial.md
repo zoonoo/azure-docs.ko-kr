@@ -76,7 +76,7 @@ Teamphoria의 Azure AD 통합을 구성하려면 갤러리의 Teamphoria를 관�
 
     ![Azure AD 테스트 사용자 만들기](./media/teamphoria-tutorial/tutorial_teamphoria_search.png)
 
-1. 결과 창에서 **Teamphoria**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **Teamphoria**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/teamphoria-tutorial/tutorial_teamphoria_addfromgallery.png)
 
@@ -223,7 +223,7 @@ Azure AD 사용자가 Teamphoria에 로그인할 수 있도록 하려면 Teampho
 
     ![사용자 할당][201]
 
-1. 응용 프로그램 목록에서 **Teamphoria**를 선택합니다.
+1. 애플리케이션 목록에서 **Teamphoria**를 선택합니다.
 
     ![Configure Single Sign-On](./media/teamphoria-tutorial/tutorial_teamphoria_app.png) 
 

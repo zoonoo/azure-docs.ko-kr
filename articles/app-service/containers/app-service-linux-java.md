@@ -22,7 +22,7 @@ ms.locfileid: "53407340"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux 기반의 App Service에 대한 Java 개발자 가이드
 
-Linux 기반의 Azure App Service는 Java 개발자가 Tomcat 또는 Java SE(Standard Edition) 패키지 웹 응용 프로그램을 신속하게 구축하고, 완벽하게 관리되는 Linux 기반 서비스에 배포하고, 규모를 조정할 수 있게 도와줍니다. 명령줄에서 또는 IntelliJ, Eclipse, Visual Studio Code 같은 편집기에서 Maven 플러그 인을 사용하여 응용 프로그램을 배포할 수 있습니다.
+Linux 기반의 Azure App Service는 Java 개발자가 Tomcat 또는 Java SE(Standard Edition) 패키지 웹 애플리케이션을 신속하게 구축하고, 완벽하게 관리되는 Linux 기반 서비스에 배포하고, 규모를 조정할 수 있게 도와줍니다. 명령줄에서 또는 IntelliJ, Eclipse, Visual Studio Code 같은 편집기에서 Maven 플러그 인을 사용하여 애플리케이션을 배포할 수 있습니다.
 
 이 가이드에서는 Linux용 App Service를 사용하는 Java 개발자를 위해 핵심 개념을 설명하고 지침을 제공합니다. Linux용 Azure App Service를 사용한 경험이 없는 분들은 먼저 [Java 빠른 시작](quickstart-java.md)을 정독해야 합니다. Java 개발에 국한되지 않는 Linux용 App Service 사용에 대한 일반적인 질문의 답은 [App Service Linux FAQ](app-service-linux-faq.md)에서 찾을 수 있습니다.
 
@@ -58,9 +58,9 @@ az webapp log tail --name webappname --resource-group myResourceGroup
 
 ### <a name="app-logging"></a>앱 로깅
 
-Azure Portal 또는 [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config)를 통해 [응용 프로그램 로깅](/azure/app-service/web-sites-enable-diagnostic-log#enablediag)을 사용하도록 설정하여 응용 프로그램의 표준 콘솔 출력 및 표준 콘솔 오류 스트림을 로컬 파일 시스템 또는 Azure Blob Storage에 쓰도록 App Service를 구성할 수 있습니다. 로컬 App Service 파일 시스템 인스턴스에 로깅하는 동작은 구성된 지 12시간 후에 비활성화 됩니다. 더 긴 시간 동안 보존하기를 원하는 경우 Blob 저장소 컨테이너에 출력을 쓰도록 응용 프로그램을 구성합니다.
+Azure Portal 또는 [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config)를 통해 [애플리케이션 로깅](/azure/app-service/web-sites-enable-diagnostic-log#enablediag)을 사용하도록 설정하여 애플리케이션의 표준 콘솔 출력 및 표준 콘솔 오류 스트림을 로컬 파일 시스템 또는 Azure Blob Storage에 쓰도록 App Service를 구성할 수 있습니다. 로컬 App Service 파일 시스템 인스턴스에 로깅하는 동작은 구성된 지 12시간 후에 비활성화 됩니다. 더 긴 시간 동안 보존하기를 원하는 경우 Blob 저장소 컨테이너에 출력을 쓰도록 애플리케이션을 구성합니다.
 
-응용 프로그램에서 [Logback](https://logback.qos.ch/) 또는 [Log4j](https://logging.apache.org/log4j)를 추적에 사용하는 경우 [Application Insights에서 Java 추적 로그 탐색](/azure/application-insights/app-insights-java-trace-logs)의 로깅 프레임워크 구성 지침에 따라 이러한 추적 로그를 Azure Application Insights로 전송하여 검토할 수 있습니다. 
+애플리케이션에서 [Logback](https://logback.qos.ch/) 또는 [Log4j](https://logging.apache.org/log4j)를 추적에 사용하는 경우 [Application Insights에서 Java 추적 로그 탐색](/azure/application-insights/app-insights-java-trace-logs)의 로깅 프레임워크 구성 지침에 따라 이러한 추적 로그를 Azure Application Insights로 전송하여 검토할 수 있습니다. 
 
 ## <a name="customization-and-tuning"></a>사용자 지정 및 튜닝
 
@@ -73,9 +73,9 @@ Linux용 Azure App Service는 기본적으로 Azure Portal 및 CLI를 통해 튜
 
 ### <a name="set-java-runtime-options"></a>Java 런타임 옵션 설정
 
-Tomcat 및 Java SE 환경에서 할당된 메모리 또는 기타 JVM 런타임 옵션을 설정하려면 아래와 같이 [응용 프로그램 설정](/azure/app-service/web-sites-configure#app-settings)으로 JAVA_OPTS를 설정합니다. App Service Linux는 시작될 때 이 설정을 Java 런타임에 환경 변수로 전달합니다.
+Tomcat 및 Java SE 환경에서 할당된 메모리 또는 기타 JVM 런타임 옵션을 설정하려면 아래와 같이 [애플리케이션 설정](/azure/app-service/web-sites-configure#app-settings)으로 JAVA_OPTS를 설정합니다. App Service Linux는 시작될 때 이 설정을 Java 런타임에 환경 변수로 전달합니다.
 
-Azure Portal에서, 웹앱의 **응용 프로그램 설정** 아래에서 `$JAVA_OPTS -Xms512m -Xmx1204m`처럼 추가 설정을 포함하는 `JAVA_OPTS`라고 하는 새 앱 설정을 만듭니다.
+Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에서 `$JAVA_OPTS -Xms512m -Xmx1204m`처럼 추가 설정을 포함하는 `JAVA_OPTS`라고 하는 새 앱 설정을 만듭니다.
 
 Azure App Service Linux Maven 플러그 인에서 앱 설정을 구성하려면 Azure 플러그 인 섹션에서 설정/값 태그를 추가합니다. 다음 예제에서는 특정 최소 및 최대 Java 힙 크기를 설정합니다.
 
@@ -88,18 +88,18 @@ Azure App Service Linux Maven 플러그 인에서 앱 설정을 구성하려면 
 </appSettings> 
 ```
 
-App Service 계획에서 배포 슬롯 하나를 사용하여 단일 응용 프로그램을 실행하는 개발자는 다음 옵션을 사용할 수 있습니다.
+App Service 계획에서 배포 슬롯 하나를 사용하여 단일 애플리케이션을 실행하는 개발자는 다음 옵션을 사용할 수 있습니다.
 
 - B1 및 S1 인스턴스: -Xms1024m -Xmx1024m
 - B2 및 S2 인스턴스: -Xms3072m -Xmx3072m
 - B3 및 S3 인스턴스: -Xms6144m -Xmx6144m
 
 
-응용 프로그램 힙 설정을 튜닝할 때 App Service 계획 세부 정보를 검토하고 여러 응용 프로그램 및 배포 슬롯 요구 사항을 고려하여 최적의 메모리 할당을 찾아보세요.
+애플리케이션 힙 설정을 튜닝할 때 App Service 계획 세부 정보를 검토하고 여러 애플리케이션 및 배포 슬롯 요구 사항을 고려하여 최적의 메모리 할당을 찾아보세요.
 
 ### <a name="turn-on-web-sockets"></a>웹 소켓 켜기
 
-응용 프로그램의 Azure Portal **응용 프로그램 설정**에서 웹 소켓을 켭니다. 설정을 적용하려면 응용 프로그램을 다시 시작해야 합니다.
+애플리케이션의 Azure Portal **애플리케이션 설정**에서 웹 소켓을 켭니다. 설정을 적용하려면 애플리케이션을 다시 시작해야 합니다.
 
 Azure CLI에서 다음 명령을 사용하여 웹 소켓 지원을 켭니다.
 
@@ -107,7 +107,7 @@ Azure CLI에서 다음 명령을 사용하여 웹 소켓 지원을 켭니다.
 az webapp config set -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME} --web-sockets-enabled true 
 ```
 
-그런 다음, 응용 프로그램을 다시 시작합니다.
+그런 다음, 애플리케이션을 다시 시작합니다.
 
 ```azurecli-interactive
 az webapp stop -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME} 
@@ -116,7 +116,7 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 ### <a name="set-default-character-encoding"></a>기본 문자 인코딩 설정 
 
-Azure Portal에서, 웹앱의 **응용 프로그램 설정** 아래에 `$JAVA_OPTS -Dfile.encoding=UTF-8` 값을 사용하여 `JAVA_OPTS`이라고 하는 새 앱 설정을 만듭니다.
+Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에 `$JAVA_OPTS -Dfile.encoding=UTF-8` 값을 사용하여 `JAVA_OPTS`이라고 하는 새 앱 설정을 만듭니다.
 
 또는 App Service Maven 플러그 인을 사용하여 앱 설정을 구성할 수 있습니다. 플러그 인 구성에서 설정 이름 및 값 태그를 추가합니다. 
 
@@ -131,7 +131,7 @@ Azure Portal에서, 웹앱의 **응용 프로그램 설정** 아래에 `$JAVA_OP
 
 ## <a name="secure-applications"></a>보안 애플리케이션
 
-Linux용 App Service에서 실행되는 Java 응용 프로그램의 [보안 모범 사례](/azure/security/security-paas-applications-using-app-services) 집합은 다른 응용 프로그램과 동일합니다. 
+Linux용 App Service에서 실행되는 Java 애플리케이션의 [보안 모범 사례](/azure/security/security-paas-applications-using-app-services) 집합은 다른 애플리케이션과 동일합니다. 
 
 ### <a name="authenticate-users"></a>사용자 인증
 
@@ -139,18 +139,18 @@ Azure Portal에서 **인증 및 권한 부여** 옵션을 사용하여 앱 인�
 
 여러 로그인 공급자를 사용하도록 설정해야 하는 경우 [App Service 인증 사용자 지정](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to) 문서의 지침을 따르세요.
 
- Spring Boot 개발자는 [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable)를 사용하여 친숙한 Spring Security 주석 및 API로 응용 프로그램을 보호할 수 있습니다.
+ Spring Boot 개발자는 [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable)를 사용하여 친숙한 Spring Security 주석 및 API로 애플리케이션을 보호할 수 있습니다.
 
 ### <a name="configure-tlsssl"></a>TLS/SSL 구성
 
-[기존 사용자 지정 SSL 인증서 바인딩](/azure/app-service/app-service-web-tutorial-custom-ssl)의 지침에 따라 기존 SSL 인증서를 업로드하고 응용 프로그램의 도메인 이름에 바인딩합니다. 기본적으로 응용 프로그램에서 HTTP 연결을 계속 허용합니다. 자습서의 단계에 따라 SSL 및 TLS를 적용하세요.
+[기존 사용자 지정 SSL 인증서 바인딩](/azure/app-service/app-service-web-tutorial-custom-ssl)의 지침에 따라 기존 SSL 인증서를 업로드하고 응용 프로그램의 도메인 이름에 바인딩합니다. 기본적으로 애플리케이션에서 HTTP 연결을 계속 허용합니다. 자습서의 단계에 따라 SSL 및 TLS를 적용하세요.
 
 ## <a name="tomcat"></a>Tomcat 
 
 ### <a name="connecting-to-data-sources"></a>데이터 원본에 연결
 
 >[!NOTE]
-> 응용 프로그램에서 Spring Framework 또는 Spring Boot를 사용하는 경우 Spring Data JPA에 대한 데이터베이스 연결 정보를 [응용 프로그램 속성 파일]에 환경 변수로 설정할 수 있습니다. 그런 다음, Azure Portal 또는 CLI에서 [앱 설정](/azure/app-service/web-sites-configure#app-settings)을 사용하여 응용 프로그램에 대한 이러한 값을 정의합니다.
+> 애플리케이션에서 Spring Framework 또는 Spring Boot를 사용하는 경우 Spring Data JPA에 대한 데이터베이스 연결 정보를 [애플리케이션 속성 파일]에 환경 변수로 설정할 수 있습니다. 그런 다음, Azure Portal 또는 CLI에서 [앱 설정](/azure/app-service/web-sites-configure#app-settings)을 사용하여 애플리케이션에 대한 이러한 값을 정의합니다.
 
 이러한 지침은 데이터베이스 연결에 적용됩니다. 선택한 데이터베이스의 드라이버 클래스 이름 및 JAR 파일로 자리 표시자를 채워야 합니다. 공통 데이터베이스에 대한 클래스 이름 및 드라이버 다운로드가 포함된 표가 제공됩니다.
 
@@ -178,7 +178,7 @@ JDBC(Java Database Connectivity) 또는 JPA(Java Persistence API)를 사용하�
 
 다음으로, 데이터 원본을 한 애플리케이션에만 제공할 것인지 또는 Tomcat 서블릿에서 실행 중인 모든 애플리케이션에 제공할 것인지 결정합니다.
 
-#### <a name="for-application-level-data-sources"></a>응용 프로그램 수준 데이터 원본의 경우: 
+#### <a name="for-application-level-data-sources"></a>애플리케이션 수준 데이터 원본의 경우: 
 
 1. 프로젝트의 `META-INF/` 디렉터리에 `context.xml` 파일을 만듭니다. `META-INF/` 디렉터리가 없으면 디렉터리를 만듭니다.
 
@@ -197,7 +197,7 @@ JDBC(Java Database Connectivity) 또는 JPA(Java Persistence API)를 사용하�
     </Context>
     ```
 
-3. 응용 프로그램의 데이터 원본을 사용하도록 응용 프로그램의 `web.xml`을 업데이트합니다.
+3. 애플리케이션의 데이터 원본을 사용하도록 애플리케이션의 `web.xml`을 업데이트합니다.
 
     ```xml
     <resource-env-ref>
@@ -233,7 +233,7 @@ JDBC(Java Database Connectivity) 또는 JPA(Java Persistence API)를 사용하�
     </Server>
     ```
 
-3. 응용 프로그램의 데이터 원본을 사용하도록 응용 프로그램의 `web.xml`을 업데이트합니다.
+3. 애플리케이션의 데이터 원본을 사용하도록 애플리케이션의 `web.xml`을 업데이트합니다.
 
     ```xml
     <resource-env-ref>
@@ -269,10 +269,10 @@ JDBC(Java Database Connectivity) 또는 JPA(Java Persistence API)를 사용하�
 
 ## <a name="runtime-availability-and-statement-of-support"></a>런타임 가용성 및 문 지원
 
-Linux용 App Service는 Java 웹 응용 프로그램의 관리되는 호스팅에 다음과 같은 두 가지 런타임을 지원합니다.
+Linux용 App Service는 Java 웹 애플리케이션의 관리되는 호스팅에 다음과 같은 두 가지 런타임을 지원합니다.
 
-- 웹 보관(WAR) 파일로 패키징된 응용 프로그램을 실행하기 위한 [Tomcat 서블릿 컨테이너](https://tomcat.apache.org/). 지원되는 버전은 8.5 및 9.0입니다.
-- Java 보관(JAR) 파일로 패키징된 응용 프로그램을 실행하기 위한 Java SE 런타임 환경. 유일하게 지원되는 주 버전은 Java 8입니다.
+- 웹 보관(WAR) 파일로 패키징된 애플리케이션을 실행하기 위한 [Tomcat 서블릿 컨테이너](https://tomcat.apache.org/). 지원되는 버전은 8.5 및 9.0입니다.
+- Java 보관(JAR) 파일로 패키징된 애플리케이션을 실행하기 위한 Java SE 런타임 환경. 유일하게 지원되는 주 버전은 Java 8입니다.
 
 ## <a name="java-runtime-statement-of-support"></a>Java 런타임 문 지원 
 

@@ -138,7 +138,7 @@ public static String prettify(String json_text) {
 
 ## <a name="declare-the-main-method"></a>main 메서드 선언
 
-이 메서드는 필수이며, 프로그램 시작 시 호출되는 첫 번째 메서드입니다. 이 응용 프로그램에서는 `subscriptionKey`의 유효성을 검사하고, 요청하고, JSON 응답을 출력하는 코드가 포함됩니다.
+이 메서드는 필수이며, 프로그램 시작 시 호출되는 첫 번째 메서드입니다. 이 애플리케이션에서는 `subscriptionKey`의 유효성을 검사하고, 요청하고, JSON 응답을 출력하는 코드가 포함됩니다.
 
 ```java
 public static void main (String[] args) {

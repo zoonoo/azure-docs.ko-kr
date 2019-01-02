@@ -45,7 +45,7 @@ Azure Machine Learning 서비스의 첫 번째 미리 보기에서 만든 대부
 [이 릴리스의 변경 내용](overview-what-happened-to-workbench.md)에 대해 자세히 알아보세요.
 
 >[!Warning]
->Azure Machine Learning Studio 사용자는 이 문서의 정보를 참조하면 안 됩니다. 이 문서에서는 Workbench(미리 보기) 응용 프로그램을 설치했거나 실험 및 모델 관리 미리 보기 계정이 있는 Azure Machine Learning 서비스 고객을 위한 정보를 제공합니다.
+>Azure Machine Learning Studio 사용자는 이 문서의 정보를 참조하면 안 됩니다. 이 문서에서는 Workbench(미리 보기) 애플리케이션을 설치했거나 실험 및 모델 관리 미리 보기 계정이 있는 Azure Machine Learning 서비스 고객을 위한 정보를 제공합니다.
 
 <a name="resources"></a>
 

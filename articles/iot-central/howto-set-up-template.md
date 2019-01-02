@@ -175,7 +175,7 @@ ms.locfileid: "50158944"
 
 ![위치 타일](./media/howto-set-up-template/propertiestile.png)
 
-타일을 만든 후 응용 프로그램 속성 값을 변경할 수 있습니다. 먼저 화면의 오른쪽 윗부분에서 **완료**를 선택합니다.
+타일을 만든 후 애플리케이션 속성 값을 변경할 수 있습니다. 먼저 화면의 오른쪽 윗부분에서 **완료**를 선택합니다.
 
 ### <a name="create-a-location-property-through-azure-maps"></a>Azure Maps를 통해 위치 속성 만들기
 Azure IoT Central에서 위치 데이터에 지리적 컨텍스트를 제공하고 거리 주소의 모든 위도 및 경도 좌표를 매핑할 수 있습니다. 또는 단순히 위도 및 경고 좌표를 매핑할 수 있습니다. Azure Maps는 IoT Central에서 이 기능을 구현합니다.
@@ -184,7 +184,7 @@ Azure IoT Central에서 위치 데이터에 지리적 컨텍스트를 제공하�
 - 단순히 응용 프로그램에 저장되는 **응용 프로그램 속성으로 위치** 디바이스는 애플리케이션 속성을 인식하지 않습니다.
 - 장치에서 응용 프로그램에 보고하는 **장치 속성인 위치**.
 
-#### <a name="add-location-as-an-application-property"></a>응용 프로그램 속성으로 위치 추가 
+#### <a name="add-location-as-an-application-property"></a>애플리케이션 속성으로 위치 추가 
 IoT Central 애플리케이션에서 Azure Maps를 사용하여 애플리케이션 속성으로 위치 속성을 만들 수 있습니다. 예를 들어 디바이스 설치 주소를 추가할 수 있습니다. 
 
 1. **속성** 탭에서 **템플릿 편집**을 선택합니다.
@@ -226,7 +226,7 @@ IoT Central 애플리케이션에서 Azure Maps를 사용하여 애플리케이�
 
    ![위치에 대한 세부 정보가 있는 "디바이스 속성 구성" 양식](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-실제 디바이스가 연결되면 디바이스 속성으로 추가한 위치가 디바이스에서 전송한 값으로 업데이트됩니다. 응용 프로그램 속성으로 추가한 위치인 설치 주소는 편집 가능한 타일입니다. 위치 속성을 구성했으므로 [디바이스 대시보드에서 위치를 시각화하려면 지도를 추가](#add-an-azure-maps-location-in-the-dashboard)할 수 있습니다.
+실제 디바이스가 연결되면 디바이스 속성으로 추가한 위치가 디바이스에서 전송한 값으로 업데이트됩니다. 애플리케이션 속성으로 추가한 위치인 설치 주소는 편집 가능한 타일입니다. 위치 속성을 구성했으므로 [디바이스 대시보드에서 위치를 시각화하려면 지도를 추가](#add-an-azure-maps-location-in-the-dashboard)할 수 있습니다.
 
 ## <a name="commands"></a>명령
 

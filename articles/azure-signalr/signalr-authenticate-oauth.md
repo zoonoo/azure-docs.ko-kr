@@ -22,7 +22,7 @@ ms.locfileid: "53254125"
 
 처음에 빠른 시작의 대화방 애플리케이션에서 사용된 인증은 실제 시나리오에 비해 너무 간단합니다. 이 애플리케이션에서 각 클라이언트는 자신이 누구인지 클레임할 수 있으며, 서버는 간단히 수락합니다. 이 방법은 Rogue 사용자가 다른 사람을 가장하여 중요한 데이터에 액세스하는 실제 애플리케이션에서는 별로 유용하지 않습니다.
 
-[GitHub](https://github.com/)는 [OAuth](https://oauth.net/)라는 인기 있는 업계 표준 프로토콜에 따른 인증 API를 제공합니다. 이러한 API는 타사 애플리케이션에서 GitHub 계정을 인증할 수 있도록 합니다. 이 자습서에서는 클라이언트가 대화방 응용 프로그램에 로그인하도록 허용하기 전에 이러한 API를 사용하여 GitHub 계정을 통한 인증을 구현합니다. GitHub 계정을 인증한 후 계정 정보는 웹 클라이언트가 인증받는 데 사용하는 쿠키로 추가됩니다.
+[GitHub](https://github.com/)는 [OAuth](https://oauth.net/)라는 인기 있는 업계 표준 프로토콜에 따른 인증 API를 제공합니다. 이러한 API는 타사 애플리케이션에서 GitHub 계정을 인증할 수 있도록 합니다. 이 자습서에서는 클라이언트가 대화방 애플리케이션에 로그인하도록 허용하기 전에 이러한 API를 사용하여 GitHub 계정을 통한 인증을 구현합니다. GitHub 계정을 인증한 후 계정 정보는 웹 클라이언트가 인증받는 데 사용하는 쿠키로 추가됩니다.
 
 GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [인증 기본 사항](https://developer.github.com/v3/guides/basics-of-authentication/)을 참조하세요.
 
@@ -61,7 +61,7 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
     | 설정 이름 | 제안 값 | 설명 |
     | ------------ | --------------- | ----------- |
-    | 응용 프로그램 이름 | *Azure SignalR Chat* | GitHub 사용자는 인증하는 앱을 인식하고 신뢰할 수 있어야 합니다.   |
+    | 애플리케이션 이름 | *Azure SignalR Chat* | GitHub 사용자는 인증하는 앱을 인식하고 신뢰할 수 있어야 합니다.   |
     | 홈페이지 URL | *http://localhost:5000/home* | |
     | 애플리케이션 설명 | *GitHub 인증에서 Azure SignalR Service를 사용하는 대화방 샘플* | 애플리케이션 사용자가 사용 중인 인증 컨텍스트를 이해하는 데 도움이 되는 애플리케이션에 대한 유용한 설명입니다. |
     | 권한 부여 호출 URL | *http://localhost:5000/signin-github* | 이 설정은 OAuth 애플리케이션에 대한 가장 중요한 설정입니다. GitHub가 성공적인 인증 후에 사용자를 반환하는 콜백 URL입니다. 이 자습서에서는 *AspNet.Security.OAuth.GitHub* 패키지에 대한 기본 콜백 URL인 */signin-github*를 사용해야 합니다.  |

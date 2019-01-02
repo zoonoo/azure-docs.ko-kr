@@ -17,17 +17,17 @@ ms.locfileid: "53261316"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>자습서: 지리적 복제 Azure Container Registry 준비
 
-Azure Container Registry는 네트워크를 배포에 가깝게 유지할 수 있는 Azure에 배포된 개인 Docker 레지스트리입니다. 3부로 구성된 이 자습서에서는 지리적 복제를 사용하여 Linux 컨테이너에서 실행되는 ASP.NET Core 웹 응용 프로그램을 두 개의 [Web Apps for Containers](../app-service/containers/index.yml) 인스턴스에 배포하는 방법을 알아봅니다. Azure에서 가장 가까운 지리적 복제 리포지토리의 각 웹앱 인스턴스에 이미지를 자동으로 배포하는 방법을 확인할 수 있습니다.
+Azure Container Registry는 네트워크를 배포에 가깝게 유지할 수 있는 Azure에 배포된 개인 Docker 레지스트리입니다. 3부로 구성된 이 자습서에서는 지리적 복제를 사용하여 Linux 컨테이너에서 실행되는 ASP.NET Core 웹 애플리케이션을 두 개의 [Web Apps for Containers](../app-service/containers/index.yml) 인스턴스에 배포하는 방법을 알아봅니다. Azure에서 가장 가까운 지리적 복제 리포지토리의 각 웹앱 인스턴스에 이미지를 자동으로 배포하는 방법을 확인할 수 있습니다.
 
 총 3부 중 1부인 이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
 > * 지리적 복제 Azure Container Registry 만들기
-> * GitHub에서 응용 프로그램 원본 코드 복제
-> * 응용 프로그램 원본에서 Docker 컨테이너 이미지 만들기
+> * GitHub에서 애플리케이션 원본 코드 복제
+> * 애플리케이션 원본에서 Docker 컨테이너 이미지 만들기
 > * 컨테이너 이미지를 레지스트리에 푸시하기
 
-후속 자습서에서는 개인 레지스트리의 컨테이너를 두 개의 Azure 지역에서 실행되는 웹앱에 배포합니다. 그런 다음 응용 프로그램에서 코드를 업데이트하고 레지스트리에 대한 단일 `docker push`로 두 개의 웹앱 인스턴스를 업데이트합니다.
+후속 자습서에서는 개인 레지스트리의 컨테이너를 두 개의 Azure 지역에서 실행되는 웹앱에 배포합니다. 그런 다음, 애플리케이션에서 코드를 업데이트하고 레지스트리에 대한 단일 `docker push`로 두 개의 웹앱 인스턴스를 업데이트합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

@@ -81,7 +81,7 @@ Azure Digital Twins에 대한 활동 로깅이 기본적으로 사용되며 다�
 
 ## <a name="azure-monitor-and-log-analytics"></a>Azure Monitor 및 Log Analytics
 
-IoT 애플리케이션은 서로 다른 리소스, 디바이스, 위치 및 데이터를 하나로 통합합니다. 세밀한 로깅은 전체 응용 프로그램 아키텍처의 각 부분, 서비스 또는 구성 요소에 대한 자세한 정보를 제공하지만, 유지 관리 및 디버깅을 위해 통합 개요가 필요한 경우가 많습니다.
+IoT 애플리케이션은 서로 다른 리소스, 디바이스, 위치 및 데이터를 하나로 통합합니다. 세밀한 로깅은 전체 애플리케이션 아키텍처의 각 부분, 서비스 또는 구성 요소에 대한 자세한 정보를 제공하지만, 유지 관리 및 디버깅을 위해 통합 개요가 필요한 경우가 많습니다.
 
 Azure Monitor는 한 위치에서 로깅 원본을 살펴보고 분석할 수 있는 강력한 Log Analytics 서비스를 제공합니다. 따라서 Azure Monitor는 복잡한 IoT 앱 내에서 로그를 분석하는 데 매우 유용합니다.
 
@@ -120,7 +120,7 @@ Azure Log Analytics는 **문제 진단 및 해결**을 클릭하면 볼 수 있�
 
 ## <a name="other-options"></a>기타 옵션
 
-Azure Digital Twins는 응용 프로그램별 로깅 및 보안 감사도 지원합니다. Azure Digital Twins 인스턴스에 제공되는 모든 Azure 로깅 옵션의 개요는 [Azure 로그 감사](https://docs.microsoft.com/azure/security/azure-log-audit) 문서를 참조하세요.
+Azure Digital Twins는 애플리케이션별 로깅 및 보안 감사도 지원합니다. Azure Digital Twins 인스턴스에 제공되는 모든 Azure 로깅 옵션의 개요는 [Azure 로그 감사](https://docs.microsoft.com/azure/security/azure-log-audit) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

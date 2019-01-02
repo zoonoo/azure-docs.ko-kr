@@ -145,7 +145,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 규칙은 나열된 순서대로 처리되고 트래픽은 특이성에 관계없이 일치하는 첫 번째 규칙을 사용하여 전달됩니다. 예를 들어 기본 수신기를 사용하는 규칙과 다중 사이트 수신기를 사용하는 규칙이 둘 다 같은 포트에 있는 경우 다중 사이트 규칙이 예상대로 작동하려면 다중 사이트 수신기를 사용하는 규칙은 기본 수신기를 사용하는 규칙 앞에 나열되어야 합니다. 
 
-이 예제에서는 응용 프로그램 게이트웨이가 생성되었을 때 두 개의 새 규칙을 만들고 생성된 기본 규칙을 삭제합니다. 
+이 예제에서는 애플리케이션 게이트웨이가 생성되었을 때 두 개의 새 규칙을 만들고 생성된 기본 규칙을 삭제합니다. 
 
 1. **규칙**을 클릭한 다음, **기본**을 클릭합니다.
 2. 이름에 *contosoRule*을 입력합니다.
@@ -160,11 +160,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-cname-record-in-your-domain"></a>도메인에서 CNAME 레코드 만들기
 
-애플리케이션 게이트웨이가 해당 공용 IP 주소로 생성된 후 DNS 주소를 가져와 도메인에서 CNAME 레코드를 만드는 데 사용할 수 있습니다. A 레코드를 사용할 경우 응용 프로그램 게이트웨이를 다시 시작할 때 VIP가 변경될 수 있으므로 권장되지 않습니다.
+애플리케이션 게이트웨이가 해당 공용 IP 주소로 생성된 후 DNS 주소를 가져와 도메인에서 CNAME 레코드를 만드는 데 사용할 수 있습니다. A 레코드를 사용할 경우 애플리케이션 게이트웨이를 다시 시작할 때 VIP가 변경될 수 있으므로 권장되지 않습니다.
 
 1. **모든 리소스**를 클릭한 다음, **myAGPublicIPAddress**를 클릭합니다.
 
-    ![응용 프로그램 게이트웨이 DNS 주소 기록](./media/create-multiple-sites-portal/application-gateway-multisite-dns.png)
+    ![애플리케이션 게이트웨이 DNS 주소 기록](./media/create-multiple-sites-portal/application-gateway-multisite-dns.png)
 
 2. DNS 주소를 복사하고 도메인에서 새 CNAME 레코드에 대한 값으로 사용합니다.
 
@@ -172,11 +172,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http://www.contoso.com
 
-    ![응용 프로그램 게이트웨이에서 contoso 사이트 테스트](./media/create-multiple-sites-portal/application-gateway-iistest.png)
+    ![애플리케이션 게이트웨이에서 contoso 사이트 테스트](./media/create-multiple-sites-portal/application-gateway-iistest.png)
 
 2. 주소를 다른 도메인으로 변경하면 다음 예제와 같은 내용이 표시됩니다.
 
-    ![응용 프로그램 게이트웨이에서 fabrikam 사이트 테스트](./media/create-multiple-sites-portal/application-gateway-iistest2.png)
+    ![애플리케이션 게이트웨이에서 fabrikam 사이트 테스트](./media/create-multiple-sites-portal/application-gateway-iistest2.png)
 
 ## <a name="next-steps"></a>다음 단계
 

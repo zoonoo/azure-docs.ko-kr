@@ -19,11 +19,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/03/2018
 ms.locfileid: "50978618"
 ---
-# <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Azure DevTest Labs 인프라의 거버넌스 - 응용 프로그램 마이그레이션 및 통합
+# <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Azure DevTest Labs 인프라의 거버넌스 - 애플리케이션 마이그레이션 및 통합
 개발/테스트 랩 환경을 설정한 후에는 다음 사항을 고려해야 합니다.
 
 - 프로젝트 팀 내에서 환경을 활용하는 방법
-- 조직의 필수 정책을 준수하면서 지속적으로 응용 프로그램에 유용한 기능을 신속하게 추가할 방법
+- 조직의 필수 정책을 준수하면서 지속적으로 애플리케이션에 유용한 기능을 신속하게 추가할 방법
 
 ## <a name="azure-marketplace-images-vs-custom-images"></a>Azure Marketplace 이미지와 사용자 지정 이미지 비교
 
@@ -33,8 +33,8 @@ Azure Marketplace 이미지와 고유한 사용자 지정 조직 이미지는 �
 ### <a name="answer"></a>응답
 구체적인 문제나 조직 요구 사항이 없다면 기본적으로 Azure Marketplace 이미지를 사용해야 합니다. 사용자 지정 조직 이미지를 사용해야 하는 몇 가지 일반적인 예는 다음과 같습니다.
 
-- 기본 이미지의 일부분으로 응용 프로그램을 포함해야 하는 복잡한 응용 프로그램 설정
-- 응용 프로그램 설치와 설정에 몇 시간이 걸릴 수 있는 경우(Azure Marketplace 이미지에서 계산 시간을 추가해야 하므로 효율적인 사용 방식이 아님)
+- 기본 이미지의 일부분으로 애플리케이션을 포함해야 하는 복잡한 애플리케이션 설정
+- 애플리케이션 설치와 설정에 몇 시간이 걸릴 수 있는 경우(Azure Marketplace 이미지에서 계산 시간을 추가해야 하므로 효율적인 사용 방식이 아님)
 - 개발자 및 테스터가 가상 머신에 빠르게 액세스해야 하며 새 가상 머신 설정 시간을 최소화하려는 경우
 - 모든 시스템에 대해 규정 준수 또는 규제 조건(예: 보안 정책)을 적용해야 하는 경우
 

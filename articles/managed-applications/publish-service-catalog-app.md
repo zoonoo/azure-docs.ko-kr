@@ -16,7 +16,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/05/2018
 ms.locfileid: "48801270"
 ---
-# <a name="create-and-publish-a-managed-application-definition"></a>관리되는 응용 프로그램 정의 만들기 및 게시
+# <a name="create-and-publish-a-managed-application-definition"></a>관리되는 애플리케이션 정의 만들기 및 게시
 
 조직의 구성원을 위한 Azure [관리되는 애플리케이션](overview.md)을 만들고 게시할 수 있습니다. 예를 들어 IT 부서에서는 조직 표준을 충족하는 관리되는 애플리케이션을 게시할 수 있습니다. 이러한 관리되는 애플리케이션은 Azure Marketplace가 아닌 서비스 카탈로그를 통해 사용할 수 있습니다.
 
@@ -170,7 +170,7 @@ Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
 
 ### <a name="create-an-azure-active-directory-user-group-or-application"></a>Azure Active Directory 사용자 그룹 또는 애플리케이션 만들기
 
-다음 단계는 고객을 대신하여 리소스를 관리하기 위한 사용자 그룹 또는 응용 프로그램을 선택하는 것입니다. 이 사용자 그룹 또는 애플리케이션에는 할당된 역할에 따라 관리형 리소스 그룹에 대한 권한이 있습니다. 역할은 소유자 또는 참가자와 같은 기본 제공 RBAC(역할 기반 Access Control) 역할일 수 있습니다. 개별 사용자에게도 리소스를 관리할 수 있는 권한을 부여할 수 있지만, 일반적으로 사용자 그룹에 이 권한을 할당합니다. 새 Active Directory 사용자 그룹을 만들려면 [그룹을 만들고 Azure Active Directory에 구성원 추가](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
+다음 단계는 고객을 대신하여 리소스를 관리하기 위한 사용자 그룹 또는 애플리케이션을 선택하는 것입니다. 이 사용자 그룹 또는 애플리케이션에는 할당된 역할에 따라 관리형 리소스 그룹에 대한 권한이 있습니다. 역할은 소유자 또는 참가자와 같은 기본 제공 RBAC(역할 기반 Access Control) 역할일 수 있습니다. 개별 사용자에게도 리소스를 관리할 수 있는 권한을 부여할 수 있지만, 일반적으로 사용자 그룹에 이 권한을 할당합니다. 새 Active Directory 사용자 그룹을 만들려면 [그룹을 만들고 Azure Active Directory에 구성원 추가](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
 
 리소스 관리에 사용할 사용자 그룹의 개체 ID가 필요합니다. 
 
@@ -180,7 +180,7 @@ $groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
 
 ### <a name="get-the-role-definition-id"></a>역할 정의 ID 가져오기
 
-다음으로 사용자, 사용자 그룹 또는 응용 프로그램에 대한 액세스 권한을 부여하려는 RBAC 기본 제공 역할에 대한 역할 정의 ID가 필요합니다. 일반적으로 소유자 또는 참가자 또는 읽기 권한자 역할을 사용합니다. 다음 명령은 소유자 역할에 대한 역할 정의 ID를 가져오는 방법을 보여 줍니다.
+다음으로 사용자, 사용자 그룹 또는 애플리케이션에 대한 액세스 권한을 부여하려는 RBAC 기본 제공 역할에 대한 역할 정의 ID가 필요합니다. 일반적으로 소유자 또는 참가자 또는 읽기 권한자 역할을 사용합니다. 다음 명령은 소유자 역할에 대한 역할 정의 ID를 가져오는 방법을 보여 줍니다.
 
 ```powershell
 $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
@@ -216,5 +216,5 @@ New-AzureRmManagedApplicationDefinition `
 
 ## <a name="next-steps"></a>다음 단계
 
-* 관리되는 응용 프로그램을 Azure Marketplace에 게시하려면 [Marketplace의 Azure 관리되는 응용 프로그램](publish-marketplace-app.md)을 참조하세요.
-* 관리되는 응용 프로그램 인스턴스를 배포하려면 [Azure Portal을 통해 서비스 카탈로그 앱 배포](deploy-service-catalog-quickstart.md)를 참조하세요.
+* 관리되는 애플리케이션을 Azure Marketplace에 게시하려면 [Marketplace의 Azure 관리되는 애플리케이션](publish-marketplace-app.md)을 참조하세요.
+* 관리되는 애플리케이션 인스턴스를 배포하려면 [Azure Portal을 통해 서비스 카탈로그 앱 배포](deploy-service-catalog-quickstart.md)를 참조하세요.

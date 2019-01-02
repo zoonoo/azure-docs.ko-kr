@@ -279,7 +279,7 @@ Application Insights 리소스에서 추적 로그를 보려면 **검색**을 �
 
 ### <a name="view-unhandled-exceptions"></a>처리되지 않은 예외 보기
 
-다음 스크린샷은 애플리케이션에서 Application Insights 로그 예외가 throw되는 원리를 보여줍니다. 이 예에서는 응용 프로그램이 예외를 throw한 후 수 초 이내에 특정 예외를 자세히 들여다 보고 문제를 진단할 수 있습니다.
+다음 스크린샷은 애플리케이션에서 Application Insights 로그 예외가 throw되는 원리를 보여줍니다. 이 예에서는 애플리케이션이 예외를 throw한 후 수 초 이내에 특정 예외를 자세히 들여다 보고 문제를 진단할 수 있습니다.
 
 ![처리되지 않은 예외](./media/monitor-application-insights/exception.png)
 
@@ -333,7 +333,7 @@ pool.StartTask = new StartTask()
 ```
 
 > [!TIP]
-> 솔루션의 관리 효율성을 개선하려면 어셈블리를 [응용 프로그램 패키지](./batch-application-packages.md)에 번들화하면 됩니다. 그런 다음, 풀에 애플리케이션 패키지를 자동으로 배포하도록 풀 구성에 애플리케이션 패키지 참조를 추가합니다.
+> 솔루션의 관리 효율성을 개선하려면 어셈블리를 [애플리케이션 패키지](./batch-application-packages.md)에 번들화하면 됩니다. 그런 다음, 풀에 애플리케이션 패키지를 자동으로 배포하도록 풀 구성에 애플리케이션 패키지 참조를 추가합니다.
 >
 
 ## <a name="throttle-and-sample-data"></a>스로틀 및 샘플 데이터 

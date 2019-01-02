@@ -164,7 +164,7 @@ ms.locfileid: "51259329"
 
 1. Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정**을 선택합니다. **여러 개의 시작 프로젝트**를 선택한 다음 **ReadFileUploadNotification** 및 **SimulatedDevice**에 대한 **시작** 작업을 선택합니다.
 
-2. **F5**키를 누릅니다. 두 응용 프로그램이 모두 시작됩니다. 한 콘솔 앱에서 완료된 업로드와 다른 콘솔 앱에서 수신한 업로드 알림 메시지가 표시됩니다. [Azure Portal](https://portal.azure.com/) 또는 Visual Studio 서버 탐색기를 사용하여 Azure Storage 계정에서 업로드한 파일의 현재 상태를 확인할 수 있습니다.
+2. **F5**키를 누릅니다. 두 애플리케이션이 모두 시작됩니다. 한 콘솔 앱에서 완료된 업로드와 다른 콘솔 앱에서 수신한 업로드 알림 메시지가 표시됩니다. [Azure Portal](https://portal.azure.com/) 또는 Visual Studio 서버 탐색기를 사용하여 Azure Storage 계정에서 업로드한 파일의 현재 상태를 확인할 수 있습니다.
 
     ![출력 화면을 보여주는 스크린샷](./media/iot-hub-csharp-csharp-file-upload/run-apps1.png)
 

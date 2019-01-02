@@ -21,13 +21,13 @@ ms.locfileid: "53163976"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Azure SQL Database를 사용하여 다중 테넌트 SaaS 앱에 대해 인덱싱되고 주석이 지정된 동영상
 
-이 문서는 SaaS 테넌트 모델 또는 패턴에 관한 81분짜리 동영상의 시간 위치에 달린 주석이 지정된 인덱스입니다. 이 문서를 사용하면 동영상에서 관심이 있는 부분으로 뒤로 또는 앞으로 건너뛸 수 있습니다. 동영상은 Azure SQL Database에서 다중 테넌트 데이터베이스 응용 프로그램에 대한 주요 디자인 옵션을 설명합니다. 동영상은 데모, 관리 코드의 연습 및 때로 쓰여진 설명서보다 경험에 의해 알려지는 더 자세한 내용을 포함합니다.
+이 문서는 SaaS 테넌트 모델 또는 패턴에 관한 81분짜리 동영상의 시간 위치에 달린 주석이 지정된 인덱스입니다. 이 문서를 사용하면 동영상에서 관심이 있는 부분으로 뒤로 또는 앞으로 건너뛸 수 있습니다. 동영상은 Azure SQL Database에서 다중 테넌트 데이터베이스 애플리케이션에 대한 주요 디자인 옵션을 설명합니다. 동영상은 데모, 관리 코드의 연습 및 때로 쓰여진 설명서보다 경험에 의해 알려지는 더 자세한 내용을 포함합니다.
 
 동영상은 다음에서 찾을 수 있는 쓰여진 설명서에 나오는 내용을 증폭합니다. 
 - *개념:* [다중 테넌트 SaaS 데이터베이스 테넌시 패턴][saas-concept-design-patterns-563e]
 - *자습서:* [Wingtip Tickets SaaS 애플리케이션][saas-how-welcome-wingtip-app-679t]
 
-동영상과 문서는 클라우드의 Azure SQL Database에서 다중 테넌트 응용 프로그램을 만드는 여러 단계를 설명합니다. Azure SQL Database의 특수 기능을 사용하면 관리하기 쉽고 안정적인 성능을 발휘하는 다중 테넌트 앱을 보다 쉽게 개발하고 구현할 수 있습니다.
+동영상과 문서는 클라우드의 Azure SQL Database에서 다중 테넌트 애플리케이션을 만드는 여러 단계를 설명합니다. Azure SQL Database의 특수 기능을 사용하면 관리하기 쉽고 안정적인 성능을 발휘하는 다중 테넌트 앱을 보다 쉽게 개발하고 구현할 수 있습니다.
 
 우리는 쓰여진 설명서를 정기적으로 업데이트합니다. 동영상은 편집되거나 업데이트되지 않으므로, 결국 세부적인 부분의 상당량이 구식이 되고 말 것입니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "53163976"
 - [21. GitHub 리포지토리 Microsoft/WingtipSaaS, 0:50:38](#anchor-image-wtip-min05038)
 - [22. 패턴 탐색, 0:56:20](#anchor-image-wtip-min05620)
 - [23. 테넌트 및 온보딩 프로비전, 0:57:44](#anchor-image-wtip-min05744)
-- [24. 테넌트 및 응용 프로그램 연결 프로비전, 0:58:58](#anchor-image-wtip-min05858)
+- [24. 테넌트 및 애플리케이션 연결 프로비전, 0:58:58](#anchor-image-wtip-min05858)
 - [25. 단일 테넌트를 프로비전하는 관리 스크립트 데모, 0:59:43](#anchor-image-wtip-min05943)
 - [26. 프로비전 및 카탈로그에 대한 PowerShell, 1:00:02](#anchor-image-wtip-min10002)
 - [27. T-SQL SELECT * FROM TenantsExtended, 1:03:30](#anchor-image-wtip-min10330)
@@ -219,7 +219,7 @@ ms.locfileid: "53163976"
 
 
 &nbsp; <a name="anchor-image-wtip-min05858"/>
-#### <a name="24-provisioning-tenants-and-application-connection-05752"></a>24. 테넌트 및 응용 프로그램 연결 프로비전, 0:57:52
+#### <a name="24-provisioning-tenants-and-application-connection-05752"></a>24. 테넌트 및 애플리케이션 연결 프로비전, 0:57:52
 [![테넌트 및 응용 프로그램 연결 프로비전][image-wtip-min05858-provisioning-tenants-app-connection-2]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3472)
 
 

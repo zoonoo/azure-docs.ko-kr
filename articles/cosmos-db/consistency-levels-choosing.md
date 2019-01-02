@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB를 사용하는 애플리케이션에 대한 올바른 일관성 수준 선택
-description: Azure Cosmos DB에서 응용 프로그램에 대한 올바른 일관성 수준 선택
+description: Azure Cosmos DB에서 애플리케이션에 대한 올바른 일관성 수준 선택
 keywords: 일관성, 성능, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
 author: markjbrown
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/04/2018
 ms.locfileid: "52849295"
 ---
-# <a name="choose-the-right-consistency-level-for-your-application"></a>응용 프로그램에 대한 올바른 일관성 수준 선택
+# <a name="choose-the-right-consistency-level-for-your-application"></a>애플리케이션에 대한 올바른 일관성 수준 선택
 
 고가용성, 낮은 대기 시간 또는 둘 다에 대한 복제에 의존하는 분산 데이터베이스는 읽기 일관성과 가용성, 대기 시간 및 처리량 간의 기본적인 절충을 수행합니다. 상업적으로 사용할 수 있는 대부분의 분산 데이터베이스는 개발자가 두 가지의 극단적인 일관성 모델: 강력한 일관성과 최종 일관성 간에 선택하도록 합니다. 개발자는 Azure Cosmos DB를 통해 5가지 잘 정의된 일관성 모델(강력, 제한된 부실, 세션, 일관적인 접두사, 결과적) 중에서 선택할 수 있습니다. 이러한 각 일관성 모델은 잘 정의되었으며, 직관적이고, 특정 실제 시나리오에 사용할 수 있습니다. 5가지 일관성 모델은 각각 [가용성 및 성능 장단점](consistency-levels-tradeoffs.md)을 제공하고 포괄적인 SLA로 지원됩니다. 다음 간단한 고려 사항은 여러 가지 일반적인 시나리오에서 올바른 선택을 하는 데 도움이 됩니다.
 

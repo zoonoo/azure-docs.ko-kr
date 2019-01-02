@@ -28,7 +28,7 @@ Azure Maps는 웹 및 모바일 애플리케이션에 정확한 지리적 컨텍
 
 ### <a name="web-control"></a>웹 컨트롤
 
-Azure Maps 웹 컨트롤을 사용하면 웹 또는 모바일 응용 프로그램에 표시할 자체 콘텐츠와 이미지를 통해 대화형 지도를 사용자 지정할 수 있습니다. 이 컨트롤을 통해 WebGL을 사용하여 성능이 높은 대형 데이터 집합을 렌더링할 수 있습니다. JavaScript 또는 TypeScript를 사용하여 컨트롤로 개발합니다.
+Azure Maps 웹 컨트롤을 사용하면 웹 또는 모바일 애플리케이션에 표시할 자체 콘텐츠와 이미지를 통해 대화형 지도를 사용자 지정할 수 있습니다. 이 컨트롤을 통해 WebGL을 사용하여 성능이 높은 대형 데이터 집합을 렌더링할 수 있습니다. JavaScript 또는 TypeScript를 사용하여 컨트롤로 개발합니다.
 
 ![Azure Maps 웹 컨트롤](media/about-azure-maps/Introduction_WebMapControl.png)
 
@@ -97,7 +97,7 @@ Traffic Service는 개발자가 트래픽을 요구하는 웹 및 모바일 애�
 
 ### <a name="ip-to-location"></a>IP to Location
 
-IP to Location 서비스를 사용하여 제공된 IP 주소의 검색된 두 글자 국가 번호를 미리 볼 수 있습니다. 이 서비스는 지리적 위치를 기반으로 사용자 지정 응용 프로그램 콘텐츠를 제공하여 사용자 환경을 조정하고 개선하는 데 도움을 줄 수 있습니다.
+IP to Location 서비스를 사용하여 제공된 IP 주소의 검색된 두 글자 국가 번호를 미리 볼 수 있습니다. 이 서비스는 지리적 위치를 기반으로 사용자 지정 애플리케이션 콘텐츠를 제공하여 사용자 환경을 조정하고 개선하는 데 도움을 줄 수 있습니다.
 
 IP to Location 서비스용 REST API에 대한 정보는 [Azure Maps Geolocation API](https://docs.microsoft.com/rest/api/maps/geolocation) 페이지를 참조하세요.
 
@@ -111,7 +111,7 @@ Azure Maps는 이동성을 위해 빌드되었으며 플랫폼 간 애플리케�
 
 Maps 서비스에 액세스하려면 [Azure Portal](http://portal.azure.com)로 이동하여 Azure Maps 계정을 만들어야 합니다.
 
-Azure Maps는 키 기반 인증 체계를 사용합니다. 계정에는 미리 생성된 두 개의 키가 함께 제공됩니다. 하나의 키를 사용하고 Azure Maps 서비스에 대한 요청을 만들어 이러한 위치 기능을 응용 프로그램에 통합하는 작업을 시작합니다.
+Azure Maps는 키 기반 인증 체계를 사용합니다. 계정에는 미리 생성된 두 개의 키가 함께 제공됩니다. 하나의 키를 사용하고 Azure Maps 서비스에 대한 요청을 만들어 이러한 위치 기능을 애플리케이션에 통합하는 작업을 시작합니다.
 
 ## <a name="supported-regions"></a>지원되는 지역
 

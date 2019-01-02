@@ -1,6 +1,6 @@
 ---
 title: Linux에서 Java 웹앱 성능 모니터링 - Azure | Microsoft Docs
-description: Application Insights용 CollectD 플러그 인을 사용한 Java 웹 사이트의 포괄적인 응용 프로그램 성능 모니터링
+description: Application Insights용 CollectD 플러그 인을 통해 Java 웹 사이트의 확장된 애플리케이션 성능 모니터링.
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -100,7 +100,7 @@ Application Insights 리소스에서 [메트릭 탐색기 및 차트 추가하�
 기본적으로 메트릭을 수집한 모든 호트스 컴퓨터의 메트릭이 집계됩니다. 차트 세부 정보 블레이드에서 호스트마다 메트릭을 보려면 그룹화를 설정하고 CollectD 호스트별로 그룹화를 선택합니다.
 
 ## <a name="to-exclude-upload-of-specific-statistics"></a>특정 통계의 업로드를 제외하려면
-기본적으로 Application Insights 플러그 인은 모든 사용할 수 있는 collectd ‘읽기’ 플러그 인에 의해 수집된 모든 데이터를 보냅니다. 
+기본적으로 Application Insights 플러그 인은 모든 사용할 수 있는 수집된 ‘읽기’ 플러그 인에 의해 수집된 모든 데이터를 보냅니다. 
 
 특정 플로그인 또는 데이터 소스의 데이터를 제외하려면:
 
@@ -119,7 +119,7 @@ Application Insights 리소스에서 [메트릭 탐색기 및 차트 추가하�
 
 * [검색][diagnostic]을 열고 원시 이벤트가 도착했는지 확인합니다. 때로는 메트릭 탐색기에 나타날 때 시간이 오래 걸립니다.
 *  [나가는 데이터에 대한 방화벽 예외를 설정](app-insights-ip-addresses.md)
-* Application insights 플러그인에서 추적을 사용할 수 있습니다. `<Plugin ApplicationInsightsWriter>`에서 이 줄 추가:
+* Application insights 플러그 인에서 추적을 사용할 수 있습니다. `<Plugin ApplicationInsightsWriter>`에서 이 줄 추가:
   * `SDKLogger true`
 * 터미널을 열고 세부정보 표시 모드를 시작하여 어떤 문제가 보고되었는지 확인합니다.
   * `sudo collectd -f`

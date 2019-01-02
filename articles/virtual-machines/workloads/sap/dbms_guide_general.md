@@ -61,7 +61,7 @@ ms.locfileid: "52966010"
 * IaaS: 서비스 제공 인프라(Infrastructure as a Service)
 * PaaS: 서비스로서의 플랫폼(Platform as a Service)
 * SaaS: 서비스 제공 소프트웨어(Software as a Service)
-* SAP 구성 요소: ECC, BW, Solution Manager 또는 EP와 같은 개별 SAP 애플리케이션입니다.  SAP 구성 요소는 기존의 ABAP 또는 Java 기술을 기반으로 하거나 비즈니스 개체와 같은 비NetWeaver 기반 응용 프로그램을 기반으로 사용할 수 있습니다.
+* SAP 구성 요소: ECC, BW, Solution Manager 또는 EP와 같은 개별 SAP 애플리케이션입니다.  SAP 구성 요소는 기존의 ABAP 또는 Java 기술을 기반으로 하거나 비즈니스 개체와 같은 비NetWeaver 기반 애플리케이션을 기반으로 사용할 수 있습니다.
 * SAP 환경: 하나 이상의 SAP 구성 요소가 논리적으로 그룹화되어 개발, QAS, 교육, DR 또는 프로덕션과 같은 비즈니스 기능을 수행합니다.
 * SAP 자산: 고객의 IT 자산 중 SAP 자산 전체를 의미합니다. SAP 지형에는 모든 프로덕션 및 비프로덕션 환경이 포함됩니다.
 * SAP 시스템: SAP ERP 개발 시스템, SAP BW 테스트 시스템, SAP CRM 프로덕션 시스템 등의 애플리케이션 계층과 DBMS 계층의 조합입니다. Azure 배포에서는 온-프레미스와 Azure 간에 이러한 두 계층을 나눌 수 없습니다. 따라서 SAP 시스템은 온-프레미스에 배포되거나 Azure에 배포됩니다. 그러나 Azure 또는 온-프레미스에는 SAP 배경의 서로 다른 시스템을 배포할 수 있습니다. 예를 들어 Azure에는 SAP CRM 개발 및 테스트 시스템을 배포할 수 있지만 온-프레미스에는 SAP CRM 프로덕션 시스템을 배포할 수 있습니다.
@@ -267,8 +267,8 @@ Azure 가용성 집합을 설정하는 방법은 [이 자습서](https://docs.mi
 
 수백 개의 고객 배포에 따른 다음 몇 가지 모범 사례가 있습니다.
 
-- SAP 응용 프로그램이 배포된 VNet은 인터넷에 액세스할 수 없습니다.
-- 데이터베이스 VM은 응용 프로그램 계층과 동일한 VNet에서 실행됩니다.
+- SAP 애플리케이션이 배포된 VNet은 인터넷에 액세스할 수 없습니다.
+- 데이터베이스 VM은 애플리케이션 계층과 동일한 VNet에서 실행됩니다.
 - VNet 내의 VM에는 개인 IP 주소의 정적 할당이 있습니다. 참고 자료로 [Azure의 IP 주소 유형 및 할당 방법](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) 문서를 참조하세요.
 - DBMS VM 간의 라우팅 제한은 로컬 DBMS VM에 설치된 방화벽으로 **설정되지 않습니다**. 대신 트래픽 라우팅은 [Azure NSG(네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/security-overview)로 정의됩니다.
 - DBMS VM으로의 트래픽을 분리하고 격리하기 위해 서로 다른 NIC를 VM에 할당합니다. 모든 NIC에는 서로 다른 IP 주소가 있으며, 각 NIC는 모두 서로 다른 NSG 규칙이 있는 별도의 VNet 서브넷에 할당됩니다. 네트워크 트래픽의 격리 또는 분리는 라우팅에 대한 측정값일 뿐이며 네트워크 처리량에 대한 할당량 설정을 허용하지 않습니다.
@@ -285,26 +285,26 @@ Azure 가용성 집합을 설정하는 방법은 [이 자습서](https://docs.mi
 > [!IMPORTANT]
 > 지원되지 **않는** 다른 디자인은 SAP 애플리케이션 계층과 DBMS 계층을 서로 [피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)되지 않은 다른 Azure 가상 네트워크로 분리하는 것입니다. 다른 Azure 가상 네트워크를 사용하는 대신, Azure 가상 네트워크 내의 서브넷을 사용하여 SAP 애플리케이션 계층과 DBMS 계층을 분리하는 것이 좋습니다. 권장 사항을 따르지 않고 두 계층을 다른 가상 네트워크로 분리하려는 경우에는 두 가상 네트워크가 [피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)되어야 합니다. [피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)된 두 Azure 가상 네트워크 간의 네트워크 트래픽에는 전송 비용이 부과됩니다. SAP 애플리케이션 계층과 DBMS 계층이 피어링된 두 Azure 가상 네트워크 간에 분리되어 있으면 SAP 애플리케이션 계층과 DBMS 계층 간에 교환되는 수 테라바이트의 거대한 데이터 볼륨으로 인해 상당한 비용이 누적될 수 있습니다.  
 
-Azure 가용성 집합 내에 프로덕션 DBMS를 배포하기 위한 두 개의 VM, SAP 응용 프로그램 계층에 대한 별도의 라우팅 및 두 개의 DBMS VM에 대한 관리 및 운영 트래픽을 사용하는 경우 대략적인 다이어그램은 다음과 같습니다.
+Azure 가용성 집합 내에 프로덕션 DBMS를 배포하기 위한 두 개의 VM, SAP 애플리케이션 계층에 대한 별도의 라우팅 및 두 개의 DBMS VM에 대한 관리 및 운영 트래픽을 사용하는 경우 대략적인 다이어그램은 다음과 같습니다.
 
 ![두 서브넷에 있는 두 VM에 대한 다이어그램](./media/virtual-machines-shared-sap-deployment-guide/general_two_dbms_two_subnets.PNG)
 
 
 ### <a name="azure-load-balancer-for-redirecting-traffic"></a>트래픽을 리디렉션하기 위한 Azure 부하 분산 장치
-SQL Server Always On 또는 HANA System Replication과 같은 기능에 사용되는 개인 가상 IP 주소를 사용하려면 Azure Load Balancer를 구성해야 합니다. Azure Load Balancer는 프로브 포트를 통해 활성 DBMS 노드를 결정하고 해당 활성 데이터베이스 노드로만 트래픽을 라우팅할 수 있습니다. 데이터베이스 노드를 장애 조치하는 경우 SAP 응용 프로그램을 다시 구성할 필요가 없습니다. 대신 가장 일반적인 SAP 응용 프로그램 아키텍처가 개인 가상 IP 주소에 다시 연결됩니다. 한편 Azure 부하 분산 장치는 개인 가상 IP 주소에 대한 트래픽을 두 번째 노드로 리디렉션하여 노드 장애 조치에 대응했습니다.
+SQL Server Always On 또는 HANA System Replication과 같은 기능에 사용되는 개인 가상 IP 주소를 사용하려면 Azure Load Balancer를 구성해야 합니다. Azure Load Balancer는 프로브 포트를 통해 활성 DBMS 노드를 결정하고 해당 활성 데이터베이스 노드로만 트래픽을 라우팅할 수 있습니다. 데이터베이스 노드를 장애 조치하는 경우 SAP 애플리케이션을 다시 구성할 필요가 없습니다. 대신 가장 일반적인 SAP 애플리케이션 아키텍처가 개인 가상 IP 주소에 다시 연결됩니다. 한편 Azure 부하 분산 장치는 개인 가상 IP 주소에 대한 트래픽을 두 번째 노드로 리디렉션하여 노드 장애 조치에 대응했습니다.
 
 Azure는 서로 다른 두 개의 [부하 분산 장치 SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview), 즉 기본 SKU 및 표준 SKU를 제공합니다. Azure 가용성 영역을 통해 배포하지 않으려는 경우 기본 부하 분산 장치 SKU가 정상적으로 수행됩니다. 
 
-DBMS VM과 SAP 응용 프로그램 계층 간의 트래픽은 항상 Azure 부하 분산 장치를 통해 언제나 라우팅되는가요? 대답은 부하 분산 장치를 구성하는 방법에 따라 다릅니다. 이 시점에서 DBMS VM으로 들어오는 트래픽은 항상 Azure 부하 분산 장치를 통해 라우팅됩니다. DBMS VM에서 응용 프로그램 계층 VM으로 나가는 트래픽 경로는 Azure 부하 분산 장치의 구성에 따라 다릅니다. 부하 분산 장치는 DirectServerReturn 옵션을 제공합니다. 이 옵션이 구성되면 DBMS VM에서 SAP 응용 프로그램 계층으로 향하는 트래픽이 Azure 부하 분산 장치를 통해 **라우팅되지 않습니다**. 대신 응용 프로그램 계층으로 직접 이동합니다. DirectServerReturn이 구성되지 않으면 SAP 응용 프로그램 계층으로 반환되는 트래픽이 Azure 부하 분산 장치를 통해 라우팅됩니다.
+DBMS VM과 SAP 애플리케이션 계층 간의 트래픽은 항상 Azure 부하 분산 장치를 통해 언제나 라우팅되나요? 대답은 부하 분산 장치를 구성하는 방법에 따라 다릅니다. 이 시점에서 DBMS VM으로 들어오는 트래픽은 항상 Azure 부하 분산 장치를 통해 라우팅됩니다. DBMS VM에서 애플리케이션 계층 VM으로 나가는 트래픽 경로는 Azure 부하 분산 장치의 구성에 따라 다릅니다. 부하 분산 장치는 DirectServerReturn 옵션을 제공합니다. 이 옵션이 구성되면 DBMS VM에서 SAP 응용 프로그램 계층으로 향하는 트래픽이 Azure 부하 분산 장치를 통해 **라우팅되지 않습니다**. 대신 애플리케이션 계층으로 직접 이동합니다. DirectServerReturn이 구성되지 않으면 SAP 애플리케이션 계층으로 반환되는 트래픽이 Azure 부하 분산 장치를 통해 라우팅됩니다.
 
-SAP 응용 프로그램 계층과 DBMS 계층 간의 네트워크 대기 시간을 줄이려면 두 계층 간에 배치되는 Azure 부하 분산 장치와 함께 DirectServerReturn을 구성하는 것이 좋습니다
+SAP 애플리케이션 계층과 DBMS 계층 간의 네트워크 대기 시간을 줄이려면 두 계층 간에 배치되는 Azure 부하 분산 장치와 함께 DirectServerReturn을 구성하는 것이 좋습니다
 
 이러한 구성을 설정하는 예제는 [이 문서](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener)에서 SQL 서버 Always On과 관련하여 게시되어 있습니다.
 
 Azure에서 게시된 github JSON 템플릿을 SAP 인프라 배포에 대한 참조로 사용하려는 경우 이 [SAP 3계층 시스템용 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/4099ad9bee183ed39b88c62cd33f517ae4e25669/sap-3-tier-marketplace-image-converged-md)을 연구해야 합니다. 이 템플릿에서는 Azure 부하 분산 장치의 올바른 설정도 연구할 수 있습니다.
 
 ### <a name="azure-accelerated-networking"></a>Azure 가속 네트워킹
-Azure VM 간의 네트워크 대기 시간을 더 줄이려면 SAP 워크로드용 Azure VM을 배포할 때 [Azure 가속 네트워킹](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) 옵션을 선택하는 것이 좋습니다. 특히 SAP 응용 프로그램 계층과 SAP DBMS 계층에 이 옵션을 사용하는 것이 좋습니다. 
+Azure VM 간의 네트워크 대기 시간을 더 줄이려면 SAP 워크로드용 Azure VM을 배포할 때 [Azure 가속 네트워킹](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) 옵션을 선택하는 것이 좋습니다. 특히 SAP 애플리케이션 계층과 SAP DBMS 계층에 이 옵션을 사용하는 것이 좋습니다. 
 
 > [!NOTE]
 > 모든 VM 유형에서 가속 네트워킹을 지원하는 것은 아닙니다. 참조되는 문서에는 가속 네트워킹을 지원하는 VM 유형이 나와 있습니다. 

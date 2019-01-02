@@ -29,7 +29,7 @@ ms.locfileid: "51626410"
 
 1. 등록된 앱을 열고, **애플리케이션 ID** 필드의 값을 임시 파일에 복사합니다. 이 값은 Azure Active Directory 앱을 식별합니다. 애플리케이션 ID는 다음 섹션에서 샘플 애플리케이션을 구성하는 데 사용됩니다.
 
-    ![Azure Active Directory 응용 프로그램 ID](./media/digital-twins-permissions/aad-app-reg-app-id.png)
+    ![Azure Active Directory 애플리케이션 ID](./media/digital-twins-permissions/aad-app-reg-app-id.png)
 
 1. 앱 등록 창을 엽니다. **설정** > **필수 사용 권한**을 선택하고 다음 작업을 수행합니다.
 

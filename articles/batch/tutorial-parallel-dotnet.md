@@ -95,7 +95,7 @@ const string appPackageVersion = "3.4";
 
 ### <a name="build-and-run-the-sample-project"></a>샘플 프로젝트 빌드 및 실행
 
-Visual Studio 또는 명령줄에서 `dotnet build` 및 `dotnet run` 명령을 사용하여 응용 프로그램을 빌드 및 실행합니다. 애플리케이션이 실행되면 코드를 검토하여 애플리케이션의 각 부분에서 수행하는 작업을 알아봅니다. 예를 들어 Visual Studio의 경우 다음과 같습니다.
+Visual Studio 또는 명령줄에서 `dotnet build` 및 `dotnet run` 명령을 사용하여 애플리케이션을 빌드 및 실행합니다. 애플리케이션이 실행되면 코드를 검토하여 애플리케이션의 각 부분에서 수행하는 작업을 알아봅니다. 예를 들어 Visual Studio의 경우 다음과 같습니다.
 
 * 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **솔루션 빌드**를 클릭합니다. 
 

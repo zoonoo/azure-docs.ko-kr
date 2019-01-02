@@ -84,7 +84,7 @@ pip install azure-datalake-store
 
 ## <a name="service-to-service-authentication-with-client-secret-for-account-management"></a>계정 관리를 위해 클라이언트 암호로 서비스 간 인증
 
-Data Lake Storage Gen1에서 Data Lake Storage Gen1 계정 만들기, Data Lake Storage Gen1 계정 삭제 등의 계정 관리 작업을 수행할 수 있도록 이 코드 조각을 사용하여 Azure AD에 인증합니다. 다음 코드 조각은 기존 Microsoft Azure Active Directory "웹앱" 응용 프로그램의 응용 프로그램/서비스 주체에 대한 클라이언트 암호를 사용하여 비대화형으로 응용 프로그램을 인증하는 데 사용할 수 있습니다.
+Data Lake Storage Gen1에서 Data Lake Storage Gen1 계정 만들기, Data Lake Storage Gen1 계정 삭제 등의 계정 관리 작업을 수행할 수 있도록 이 코드 조각을 사용하여 Azure AD에 인증합니다. 다음 코드 조각은 기존 Microsoft Azure Active Directory "웹앱" 애플리케이션의 애플리케이션/서비스 주체에 대한 클라이언트 암호를 사용하여 비대화형으로 애플리케이션을 인증하는 데 사용할 수 있습니다.
 
     authority_host_uri = 'https://login.microsoftonline.com'
     tenant = '<TENANT>'

@@ -43,7 +43,7 @@ Azure Active Directory(Azure AD) 기업 간(B2B) 공동 작업에 대한 이러�
 이 기능은 향후 릴리스에 추가될 예정이며, 사용자(초대하는 조직)의 Multi-Factor Authentication에서 제외할 특정 파트너를 선택할 수 있게 됩니다.
 
 ### <a name="how-can-i-use-delayed-invitations"></a>지연된 초대는 어떻게 사용할 수 있나요?
-어떤 조직에서는 B2B 공동 작업 사용자를 추가하고 필요한 경우 응용 프로그램에 프로비전한 다음 초대를 보내려고 합니다. B2B 공동 작업 초대 API를 사용하여 온보딩 워크플로를 사용자 지정할 수 있습니다.
+어떤 조직에서는 B2B 공동 작업 사용자를 추가하고 필요한 경우 애플리케이션에 프로비전한 다음, 초대를 보내려고 합니다. B2B 공동 작업 초대 API를 사용하여 온보딩 워크플로를 사용자 지정할 수 있습니다.
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>게스트 사용자를 Exchange 전역 주소 목록에 표시할 수 있나요?
 예. 기본적으로 게스트 개체는 조직의 글로벌 주소 목록에 표시되지 않지만 볼 수 있도록 Azure Active Directory PowerShell을 사용할 수 있습니다. [Office 365 그룹의 게스트 액세스](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ)에서 **게스트 개체를 글로벌 주소 목록에 표시할 수 있나요?** 를 참조하세요.

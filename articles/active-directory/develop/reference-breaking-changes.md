@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory 새로운 변경 참조 | Microsoft Docs
-description: 응용 프로그램에 영향을 줄 수 있는 Azure AD 프로토콜의 변경 내용을 알아봅니다.
+description: 애플리케이션에 영향을 줄 수 있는 Azure AD 프로토콜의 변경 내용을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -36,7 +36,7 @@ ms.locfileid: "52282387"
 - 사용되지 않는 기능
 
 > [!TIP] 
-> 이 페이지는 정기적으로 업데이트되므로 자주 방문해 주세요. 별도로 명시되지 않는 한, 이 변경 내용은 새로 등록된 응용 프로그램에만 적용됩니다.  
+> 이 페이지는 정기적으로 업데이트되므로 자주 방문해 주세요. 별도로 명시되지 않는 한, 이 변경 내용은 새로 등록된 애플리케이션에만 적용됩니다.  
 
 ## <a name="upcoming-changes"></a>예정된 변경
 
@@ -68,11 +68,11 @@ ms.locfileid: "52282387"
 
 **영향을 받는 프로토콜**: 암시적 흐름 및 [OBO 흐름](v1-oauth2-on-behalf-of-flow.md)
 
-2018년 5월 1일 이 OBO 흐름에서 새 응용 프로그램의 어설션으로 id_token을 사용할 수 없습니다. API를 보호하려면 클라이언트와 동일한 응용 프로그램의 중간 계층 사이에서도 액세스 토큰을 대신 사용해야 합니다. 2018년 5월 1일 전에 등록된 앱은 계속 작동하고 id_token을 액세스 토큰으로 교환할 수 있지만 이 패턴은 모범 사례로 간주되지 않습니다.
+2018년 5월 1일 이 OBO 흐름에서 새 애플리케이션의 어설션으로 id_token을 사용할 수 없습니다. API를 보호하려면 클라이언트와 동일한 애플리케이션의 중간 계층 사이에서도 액세스 토큰을 대신 사용해야 합니다. 2018년 5월 1일 전에 등록된 앱은 계속 작동하고 id_token을 액세스 토큰으로 교환할 수 있지만 이 패턴은 모범 사례로 간주되지 않습니다.
 
 이 변경 문제를 해결하려면 다음을 수행할 수 있습니다.
 
 1. 하나 이상의 범위가 있는 애플리케이션의 Web API를 만듭니다. 이 명시적 진입점으로 인해 더 세분화된 제어 및 보안이 가능합니다.
 1. 앱 매니페스트, [Azure Portal](https://portal.azure.com) 또는 [앱 등록 포털](https://apps.dev.microsoft.com)에서 앱이 암시적 흐름을 통해 액세스 토큰을 발급할 수 있는지 확인합니다. 이 작업은 `oauth2AllowImplicitFlow` 키를 통해 제어됩니다.
-1. 클라이언트 응용 프로그램에서 `response_type=id_token`을 통해 id_token을 요청할 때 위에서 만든 Web API의 액세스 토큰(`response_type=token`)도 요청합니다. 따라서 v2.0 엔드포인트를 사용하는 경우 `scope` 매개 변수는 `api://GUID/SCOPE`와 비슷하게 표시되어야 합니다. V1.0 엔드포인트에서 `resource` 매개 변수는 Web API의 앱 URI여야 합니다.
+1. 클라이언트 애플리케이션에서 `response_type=id_token`을 통해 id_token을 요청할 때 위에서 만든 Web API의 액세스 토큰(`response_type=token`)도 요청합니다. 따라서 v2.0 엔드포인트를 사용하는 경우 `scope` 매개 변수는 `api://GUID/SCOPE`와 비슷하게 표시되어야 합니다. V1.0 엔드포인트에서 `resource` 매개 변수는 Web API의 앱 URI여야 합니다.
 1. Id_token 대신 중간 계층으로 이 액세스 토큰을 전달합니다.  

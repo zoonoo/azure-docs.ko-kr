@@ -17,7 +17,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/31/2018
 ms.locfileid: "50419030"
 ---
-# <a name="tutorial-anomaly-detection-with-java-application"></a>자습서: Java 응용 프로그램을 사용하여 변칙 검색
+# <a name="tutorial-anomaly-detection-with-java-application"></a>자습서: Java 애플리케이션을 사용하여 변칙 검색
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 

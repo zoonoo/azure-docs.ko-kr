@@ -34,7 +34,7 @@ items:
       href: image-sdk-java-quickstart.md
 - name: 자습서
   items:
-  - name: 이미지 검색 웹 응용 프로그램 빌드
+  - name: 이미지 검색 웹 애플리케이션 빌드
     href: tutorial-bing-image-search-single-page-app.md
   - name: 이미지 세부 정보 추출
     href: tutorial-image-post.md

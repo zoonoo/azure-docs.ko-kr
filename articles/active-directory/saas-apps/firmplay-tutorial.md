@@ -79,7 +79,7 @@ Azure AD와 FirmPlay - Employee Advocacy for Recruiting이 통합되도록 구�
 
     ![Azure AD 테스트 사용자 만들기](./media/firmplay-tutorial/tutorial_firmplay_001.png)
 
-1. 결과 창에서 **FirmPlay - Employee Advocacy for Recruiting**을 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **FirmPlay - Employee Advocacy for Recruiting**을 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/firmplay-tutorial/tutorial_firmplay_0001.png)
 
@@ -101,11 +101,11 @@ FirmPlay - Employee Advocacy for Recruiting에서 Azure AD Single Sign-On을 구
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure 관리 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 FirmPlay - Employee Advocacy for Recruiting 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure 관리 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 FirmPlay - Employee Advocacy for Recruiting 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **FirmPlay - Employee Advocacy for Recruiting에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure 관리 포털의 **FirmPlay - Employee Advocacy for Recruiting** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure 관리 포털의 **FirmPlay - Employee Advocacy for Recruiting** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -146,7 +146,7 @@ FirmPlay - Employee Advocacy for Recruiting에서 Azure AD Single Sign-On을 구
 
     ![Configure Single Sign-On](./media/firmplay-tutorial/tutorial_firmplay_07.png)
 
-1. 응용 프로그램에 대해 구성된 SSO를 얻으려면 [FirmPlay - Employee Advocacy for Recruiting 지원 팀](mailto:engineering@firmplay.com)에 문의하고 다음을 제공하세요. 
+1. 애플리케이션에 대해 구성된 SSO를 얻으려면 [FirmPlay - Employee Advocacy for Recruiting 지원 팀](mailto:engineering@firmplay.com)에 문의하고 다음을 제공하세요. 
 
     •  다운로드한 **인증서 파일**
 
@@ -203,11 +203,11 @@ FirmPlay - Employee Advocacy for Recruiting에서 Azure AD Single Sign-On을 구
 
 **FirmPlay - Employee Advocacy for Recruiting에 Britta Simon을 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 관리 포털에서 응용 프로그램 보기를 열고 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure 관리 포털에서 애플리케이션 보기를 열고 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **FirmPlay - Employee Advocacy for Recruiting**을 선택합니다.
+1. 애플리케이션 목록에서 **FirmPlay - Employee Advocacy for Recruiting**을 선택합니다.
 
     ![Configure Single Sign-On](./media/firmplay-tutorial/tutorial_firmplay_50.png) 
 
@@ -231,7 +231,7 @@ FirmPlay - Employee Advocacy for Recruiting에서 Azure AD Single Sign-On을 구
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 FirmPlay - Employee Advocacy for Recruiting 타일을 클릭하는 경우 FirmPlay - Employee Advocacy for Recruiting 응용 프로그램에 자동으로 로그인되어야 합니다.
+액세스 패널에서 FirmPlay - Employee Advocacy for Recruiting 타일을 클릭하는 경우 FirmPlay - Employee Advocacy for Recruiting 애플리케이션에 자동으로 로그인되어야 합니다.
 
 
 ## <a name="additional-resources"></a>추가 리소스

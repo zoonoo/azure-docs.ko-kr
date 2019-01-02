@@ -323,10 +323,10 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
 
 ![AzCopy의 출력][21]
 
-사용자 고유의 데이터를 사용할 수 있습니다. 데이터가 실제 응용 프로그램의 온-프레미스 컴퓨터에 있으면 AzCopy을 사용하여 개인 Azure Blob 저장소에 온-프레미스 데이터를 업로드할 수 있습니다. PowerShell 스크립트 파일의 AzCopy 명령에서 **원본** 위치인 `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`를 데이터가 있는 로컬 디렉터리로 변경해야만 합니다.
+사용자 고유의 데이터를 사용할 수 있습니다. 데이터가 실제 애플리케이션의 온-프레미스 컴퓨터에 있으면 AzCopy을 사용하여 개인 Azure Blob 저장소에 온-프레미스 데이터를 업로드할 수 있습니다. PowerShell 스크립트 파일의 AzCopy 명령에서 **원본** 위치인 `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`를 데이터가 있는 로컬 디렉터리로 변경해야만 합니다.
 
 > [!TIP]
-> 데이터가 실제 응용 프로그램의 개인 Azure Blob 저장소에 이미 있으면 PowerShell 스크립트에서 AzCopy 단계를 건너뛰고 직접 Azure SQL DW에 데이터를 업로드할 수 있습니다. 데이터 형식에 맞추려면 스크립트를 추가로 편집해야 합니다.
+> 데이터가 실제 애플리케이션의 개인 Azure Blob 저장소에 이미 있으면 PowerShell 스크립트에서 AzCopy 단계를 건너뛰고 직접 Azure SQL DW에 데이터를 업로드할 수 있습니다. 데이터 형식에 맞추려면 스크립트를 추가로 편집해야 합니다.
 > 
 > 
 

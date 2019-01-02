@@ -1885,7 +1885,7 @@ ms.locfileid: "53017790"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Cache for Redis</h3>
-                                                    <p>높은 처리량과 대기 시간이 짧은 데이터 액세스로 빠르고 확장 가능한 응용 프로그램 빌드</p>
+                                                    <p>높은 처리량과 대기 시간이 짧은 데이터 액세스로 빠르고 확장 가능한 애플리케이션 빌드</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3046,7 +3046,7 @@ ms.locfileid: "53017790"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure Germany</h3>
-                                                    <p>데이터 트러스티의 추가 제어와 함께 주요 국제 표준 및 독일 규정에 따라 응용 프로그램 빌드 및 호스팅</p>
+                                                    <p>데이터 트러스티의 추가 제어와 함께 주요 국제 표준 및 독일 규정에 따라 애플리케이션 빌드 및 호스팅</p>
                                                 </div>
                                             </div>
                                         </div>

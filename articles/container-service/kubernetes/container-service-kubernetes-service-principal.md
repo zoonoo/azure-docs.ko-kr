@@ -68,7 +68,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 
 ### <a name="specify-service-principal-when-creating-the-kubernetes-cluster"></a>Kubernetes 클러스터를 만들 때 서비스 주체 지정
 
-Kubernetes 클러스터를 만들 때 기존 서비스 주체의 **클라이언트 ID**(응용 프로그램 ID의 경우 `appId`라고도 함) 및 **클라이언트 비밀**(`password`)을 매개 변수로 제공합니다. 서비스 주체가 이 문서의 시작 부분에 나오는 요구 사항을 충족하는지 확인합니다.
+Kubernetes 클러스터를 만들 때 기존 서비스 주체의 **클라이언트 ID**(애플리케이션 ID의 경우 `appId`라고도 함) 및 **클라이언트 비밀**(`password`)을 매개 변수로 제공합니다. 서비스 주체가 이 문서의 시작 부분에 나오는 요구 사항을 충족하는지 확인합니다.
 
 포털, [Azure CLI(명령줄 인터페이스)](container-service-kubernetes-walkthrough.md), [Azure Portal](../dcos-swarm/container-service-deployment.md) 또는 다른 방법을 사용하여 Kubernetes 클러스터를 배포할 때 이러한 매개 변수를 지정할 수 있습니다.
 

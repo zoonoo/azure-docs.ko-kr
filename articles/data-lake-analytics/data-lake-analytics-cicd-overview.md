@@ -475,7 +475,7 @@ Azure Pipelines에서 데이터베이스 배포 작업을 설정하려면 다음
 |테넌트|테넌트 이름은 Azure AD(Azure Active Directory) 도메인 이름입니다. Azure Portal의 구독 관리 페이지에서 찾을 수 있습니다.|null|true|
 |AzureSDKPath|Azure SDK에서 종속 어셈블리를 검색하기 위한 경로입니다.|null|true|
 |대화형|인증에 대화형 모드를 사용할지 여부입니다.|false|false|
-|clientid|비대화형 인증을 위해 필요한 Azure AD 응용 프로그램 ID입니다.|null|비대화형 인증에 필요합니다.|
+|clientid|비대화형 인증을 위해 필요한 Azure AD 애플리케이션 ID입니다.|null|비대화형 인증에 필요합니다.|
 |Secrete|비대화형 인증을 위한 비밀 또는 암호입니다. 신뢰할 수 있고 안전한 환경에서만 사용해야 합니다.|null|비대화형 인증에서 필수입니다. 그렇지 않으면 SecreteFile을 사용합니다.|
 |SecreteFile|비대화형 인증을 위한 비밀 또는 암호를 저장하는 파일입니다. 현재 사용자만 읽을 수 있도록 유지해야 합니다.|null|비대화형 인증에서 필수입니다. 그렇지 않으면 비밀을 사용합니다.|
 |CertFile|비대화형 인증을 위한 X.509 인증서를 저장하는 파일입니다. 기본값은 클라이언트 비밀 인증을 사용하는 것입니다.|null|false|

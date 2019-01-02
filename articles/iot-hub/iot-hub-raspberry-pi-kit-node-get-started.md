@@ -191,7 +191,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    sudo apt-get -y install nodejs
    ```
 
-3. 샘플 응용 프로그램을 복제합니다.
+3. 샘플 애플리케이션을 복제합니다.
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-client-app
@@ -224,7 +224,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
 
 ### <a name="run-the-sample-application"></a>샘플 애플리케이션 실행
 
-다음 명령을 실행하여 샘플 응용 프로그램을 실행합니다.
+다음 명령을 실행하여 샘플 애플리케이션을 실행합니다.
 
    ```bash
    sudo node index.js '<YOUR AZURE IOT HUB DEVICE CONNECTION STRING>'

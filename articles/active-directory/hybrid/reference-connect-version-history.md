@@ -382,7 +382,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 상태: 2017년 10월 19일
 
 > [!IMPORTANT]
-> Azure AD Connect 버전 1.1.647.0과 Azure AD Connect Health Agent(동기화용) 버전 3.0.127.0 사이에 알려진 호환성 문제가 있습니다. 이 문제로 인해 Health Agent가 Azure AD Connect 동기화 서비스에 대한 상태 데이터(개체 동기화 오류 및 실행 기록 데이터 포함)를 Azure AD Health Service에 보낼 수 없습니다. Azure AD Connect 배포를 버전 1.1.647.0으로 수동으로 업그레이드하기 전에 Azure AD Connect 서버에 설치된 Azure AD Connect Health Agent의 현재 버전을 확인하십시오. 이를 수행하려면 *제어판 → 프로그램 추가/제거*로 이동하여 *동기화용 Microsoft Azure AD Connect Health Agent* 응용 프로그램을 찾으십시오. 해당 버전이 3.0.127.0인 경우 업그레이드하기 전에 다음 Azure AD Connect 버전을 사용할 수 있을 때까지 기다리는 것이 좋습니다. Health Agent 버전이 3.0.127.0이 아닌 경우 수동 전체 업그레이드를 수행해도 됩니다. 이 문제는 스윙 업그레이드 또는 Azure AD Connect를 새로 설치하는 고객에게는 영향을 미치지 않습니다.
+> Azure AD Connect 버전 1.1.647.0과 Azure AD Connect Health Agent(동기화용) 버전 3.0.127.0 사이에 알려진 호환성 문제가 있습니다. 이 문제로 인해 Health Agent가 Azure AD Connect 동기화 서비스에 대한 상태 데이터(개체 동기화 오류 및 실행 기록 데이터 포함)를 Azure AD Health Service에 보낼 수 없습니다. Azure AD Connect 배포를 버전 1.1.647.0으로 수동으로 업그레이드하기 전에 Azure AD Connect 서버에 설치된 Azure AD Connect Health Agent의 현재 버전을 확인하십시오. 이를 수행하려면 *제어판 → 프로그램 추가/제거*로 이동하여 *동기화용 Microsoft Azure AD Connect Health Agent* 애플리케이션을 찾으십시오. 해당 버전이 3.0.127.0인 경우 업그레이드하기 전에 다음 Azure AD Connect 버전을 사용할 수 있을 때까지 기다리는 것이 좋습니다. Health Agent 버전이 3.0.127.0이 아닌 경우 수동 전체 업그레이드를 수행해도 됩니다. 이 문제는 스윙 업그레이드 또는 Azure AD Connect를 새로 설치하는 고객에게는 영향을 미치지 않습니다.
 >
 >
 
@@ -621,7 +621,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 * 이전에는 [원본 앵커로서의 ms-DS-ConsistencyGuid](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) 기능을 새 배포에만 사용할 수 있었습니다. 이제 기존 배포에도 사용할 수 있습니다. 더 구체적으로 살펴보면 다음과 같습니다.
   * 기능에 액세스하려면 Azure AD Connect 마법사를 시작하고 *원본 앵커 업데이트* 옵션을 선택합니다.
   * 이 옵션은 objectGuid를 sourceAnchor 특성으로 사용하는 기존 배포에만 표시됩니다.
-  * 옵션을 구성할 때 마법사는 온-프레미스 Active Directory의 ms-DS-ConsistencyGuid 특성 상태를 확인합니다. 특성이 디렉터리에 있는 사용자 개체에 구성되어 있지 않으면, 마법사는 ms-DS-ConsistencyGuid를 sourceAnchor 특성으로 사용합니다. 특성이 디렉터리에 있는 하나 이상의 사용자 개체에 구성되어 있으면, 마법사는 특성이 다른 응용 프로그램에서 사용되고 있으며 sourceAnchor 특성으로 적합하지 않다고 결정하고 원본 앵커 변경이 진행되지 않도록 합니다. 기존 응용 프로그램에서 특성을 사용하지 않는다고 확신하는 경우, 오류를 표시하지 않는 방법에 대한 정보를 얻기 위해 지원에 문의해야 합니다.
+  * 옵션을 구성할 때 마법사는 온-프레미스 Active Directory의 ms-DS-ConsistencyGuid 특성 상태를 확인합니다. 특성이 디렉터리에 있는 사용자 개체에 구성되어 있지 않으면, 마법사는 ms-DS-ConsistencyGuid를 sourceAnchor 특성으로 사용합니다. 특성이 디렉터리에 있는 하나 이상의 사용자 개체에 구성되어 있으면, 마법사는 특성이 다른 애플리케이션에서 사용되고 있으며 sourceAnchor 특성으로 적합하지 않다고 결정하고 원본 앵커 변경이 진행되지 않도록 합니다. 기존 응용 프로그램에서 특성을 사용하지 않는다고 확신하는 경우, 오류를 표시하지 않는 방법에 대한 정보를 얻기 위해 지원에 문의해야 합니다.
 
 * 디바이스 개체의 **userCertificate** 특성과 관련해서, Azure AD Connect는 이제 [Windows 10 환경용 Azure AD에 도메인 가입 디바이스를 연결](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy)하는 데 필요한 인증서 값을 찾은 다음 Azure AD에 동기화하기 전에 나머지 값을 필터링합니다. 이 동작을 사용하도록 설정하기 위해 기본 제공 동기화 규칙 "Out to AAD - Device Join SOAInAD"가 업데이트되었습니다.
 
@@ -723,7 +723,7 @@ Azure AD Connect 동기화
 * DirSync 전체 업그레이드가 성공하지만 디렉터리 동기화에 필요한 실행 프로필을 만들지 않는 443 빌드 문제가 있었습니다. 이 문제를 해결하는 논리가 Azure AD Connect의 이 빌드에 포함되었습니다. 고객이 이 빌드로 업그레이드할 때 Azure AD Connect에서 누락된 실행 프로필을 검색하고, 없는 경우 해당 프로필을 만듭니다.
 * 6900 이벤트 ID 및 *"동일한 키가 있는 항목이 이미 추가되었습니다."* 라는 오류 메시지와 함께 암호 동기화 프로세스가 시작되지 않는 문제를 해결했습니다. AD 구성 파티션을 포함하도록 OU 필터링 구성을 업데이트하면 이 문제가 발생합니다. 이 문제를 해결하기 위해 암호 동기화 프로세스는 이제 AD 도메인 파티션의 암호 변경만 동기화합니다. 구성 파티션과 같은 비도메인 파티션은 건너뜁니다.
 * Azure AD Connect는 기본 설치 중에 AD 커넥터에서 온-프레미스 AD와 통신하는 데 사용할 온-프레미스 AD DS 계정을 만듭니다. 이전에는 user-Account-Control 특성에 설정된 PASSWD_NOTREQD 플래그가 있는 계정을 만들어 이 계정에 임의의 암호를 설정했습니다. 이제 Azure AD Connect는 계정에 암호를 설정한 후에 PASSWD_NOTREQD 플래그를 명시적으로 제거합니다.
-* mailNickname 특성이 온-프레미스 AD 스키마에 있지만 AD User 개체 클래스에 바인딩되지 않으면 *"응용 프로그램 잠금을 획득하려고 하는 SQL 서버에서 교착 상태가 발생했습니다."* 라는 오류 메시지와 함께 DirSync 업그레이드가 실패하는 문제를 해결했습니다.
+* mailNickname 특성이 온-프레미스 AD 스키마에 있지만 AD User 개체 클래스에 바인딩되지 않으면 *"애플리케이션 잠금을 획득하려고 하는 SQL 서버에서 교착 상태가 발생했습니다."* 라는 오류 메시지와 함께 DirSync 업그레이드가 실패하는 문제를 해결했습니다.
 * 관리자가 Azure AD Connect 마법사를 사용하여 Azure AD Connect 동기화 구성을 업데이트할 때 디바이스 쓰기 저장 기능을 자동으로 비활성화하는 문제를 해결했습니다. 이 문제는 마법사에서 온-프레미스 AD의 기존 디바이스 쓰기 저장 구성에 대한 필수 조건 확인을 수행함으로써 발생하는 것이며, 이 확인은 실패합니다. 이제 디바이스 쓰기 저장을 사용하도록 이미 설정되어 있는지 확인하는 것을 건너뛰도록 했습니다.
 * OU 필터링을 구성하려면 Azure AD Connect 마법사 또는 동기화 서비스 관리자를 사용하면 됩니다. 이전에는 Azure AD Connect 마법사를 사용하여 OU 필터링을 구성하는 경우 그 후에 만든 새 OU가 디렉터리 동기화에 포함되었습니다. 새 OU를 포함하지 않도록 하려면 동기화 서비스 관리자를 사용하여 OU 필터링을 구성해야 합니다. 이제는 Azure AD Connect 마법사를 사용하여 동일한 동작을 수행할 수 있습니다.
 * Azure AD Connect에 필요한 저장 프로시저를 dbo 스키마 대신 설치 관리자 스키마에서 만드는 문제를 해결했습니다.
@@ -803,7 +803,7 @@ Azure AD Connect 동기화
 * Azure AD 테넌트에는 테넌트에 대해 암호 동기화 기능을 사용할지 여부를 나타내는 서비스 구성이 있습니다. 이전에는 활성화된 스테이징 서비스가 있을 경우 Azure AD Connect에서 서비스 구성을 잘못 구성하기 쉽습니다. 이제 Azure AD Connect는 서비스 구성을 오직 활성 Azure AD Connect 서버와 일치하게 유지하려고 합니다.
 * Azure AD Connect 마법사는 이제 온-프레미스 AD에서 AD 휴지통이 사용되지 않는 경우 경고를 감지하고 반환합니다.
 * 이전에는 일괄 처리의 전체 개체 크기가 특정 임계값을 초과할 경우 Azure AD로 내보내기의 시간이 초과되고 내보내기에 실패합니다. 이제 동기화 서비스는 문제가 발생한 경우 별도의 더 작은 일괄 처리로 개체를 다시 보내려고 재시도합니다.
-* 동기화 서비스 키 관리 응용 프로그램이 Windows [시작] 메뉴에서 제거되었습니다. 암호화 키 관리는 miiskmu.exe를 사용하는 명령줄 인터페이스를 통해 계속 지원됩니다. 암호화 키 관리에 대한 자세한 내용은 [Abandoning the Azure AD Connect Sync encryption key](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-azure-ad-connect-sync-encryption-key)(Azure AD Connect 동기화 암호화 키 중단) 문서를 참조하세요.
+* 동기화 서비스 키 관리 애플리케이션이 Windows [시작] 메뉴에서 제거되었습니다. 암호화 키 관리는 miiskmu.exe를 사용하는 명령줄 인터페이스를 통해 계속 지원됩니다. 암호화 키 관리에 대한 자세한 내용은 [Abandoning the Azure AD Connect Sync encryption key](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-azure-ad-connect-sync-encryption-key)(Azure AD Connect 동기화 암호화 키 중단) 문서를 참조하세요.
 * 이전에는 Azure AD Connect 동기화 서비스 계정 암호를 변경하면 암호화 키를 제거하고 Azure AD Connect 동기화 서비스 계정 암호를 다시 초기화할 때까지 동기화 서비스를 제대로 시작할 수 없습니다. 이제 이 프로세스는 더 이상 필요하지 않습니다.
 
 데스크톱 SSO
@@ -1144,7 +1144,7 @@ Azure AD Sync에서 Azure AD Connect로 이름을 변경했습니다.
 **새로운 기능:**
 
 * 이제 특성 기반 필터링을 사용하는 암호 동기화가 지원됩니다. 자세한 내용은 [필터링으로 암호 동기화](how-to-connect-sync-configure-filtering.md)를 참조하세요.
-* ms-DS-ExternalDirectoryObjectID 특성이 다시 Active Directory에 기록됩니다. 이 기능을 통해 Office 365 응용 프로그램에 대한 지원이 추가됩니다. 이 기능은 OAuth2를 사용하여 하이브리드 Exchange 배포의 온라인 및 온-프레미스 사서함에 액세스합니다.
+* ms-DS-ExternalDirectoryObjectID 특성이 다시 Active Directory에 기록됩니다. 이 기능을 통해 Office 365 애플리케이션에 대한 지원이 추가됩니다. 이 기능은 OAuth2를 사용하여 하이브리드 Exchange 배포의 온라인 및 온-프레미스 사서함에 액세스합니다.
 
 **수정된 업그레이드 문제:**
 

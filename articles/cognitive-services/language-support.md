@@ -1,7 +1,7 @@
 ---
 title: 언어 지원
 titleSuffix: Cognitive Services - Azure
-description: Azure Cognitive Services를 사용하면 사용자를 보고, 듣고, 대화하고, 이해하는 응용 프로그램을 빌드할 수 있습니다. 이러한 서비스 간에 36개 이상의 언어가 지원되므로 사용자가 자연스러운 방식으로 응용 프로그램과 통신할 수 있습니다.
+description: Azure Cognitive Services를 사용하면 사용자를 보고, 듣고, 대화하고, 이해하는 애플리케이션을 빌드할 수 있습니다. 이러한 서비스 간에 36개 이상의 언어가 지원되므로 사용자가 자연스러운 방식으로 애플리케이션과 통신할 수 있습니다.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -19,7 +19,7 @@ ms.locfileid: "53435755"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Azure Cognitive Services에 대한 자연어 지원
 
-Azure Cognitive Services를 사용하면 사용자를 보고, 듣고, 대화하고, 이해하는 응용 프로그램을 빌드할 수 있습니다. 이러한 서비스 간에 36개 이상의 언어가 지원되므로 사용자가 자연스러운 방식으로 응용 프로그램과 통신할 수 있습니다.
+Azure Cognitive Services를 사용하면 사용자를 보고, 듣고, 대화하고, 이해하는 애플리케이션을 빌드할 수 있습니다. 이러한 서비스 간에 36개 이상의 언어가 지원되므로 사용자가 자연스러운 방식으로 애플리케이션과 통신할 수 있습니다.
 
 이 문서는 두 개의 섹션으로 구분됩니다. 첫 번째 섹션에는 Azure Cognitive Services에서 일반적으로 지원되는 핵심 언어가 나열됩니다. 두 번째 섹션은 각 서비스에 대한 추가 언어 지원에 초점을 맞춥니다. 언어 가용성은 국가/지역 및 시장에 따라 다를 수 있습니다.
 

@@ -54,7 +54,7 @@ NVA HA 시나리오의 경우 HA 포트는 다음과 같은 장점을 제공합�
 
 ### <a name="load-balancing-large-numbers-of-ports"></a>많은 수의 포트에서 부하 분산
 
-또한 많은 수의 포트에서 부하를 분산해야 하는 응용 프로그램에 대해 HA 포트를 사용할 수도 있습니다. HA 포트와 함께 내부 [Standard Load Balancer](load-balancer-standard-overview.md)를 사용하여 이러한 시나리오를 단순화할 수 있습니다. 단일 부하 분산 규칙은 여러 개의 개별 부하 분산 규칙을 모든 포트에 대해 하나씩 대체합니다.
+또한 많은 수의 포트에서 부하를 분산해야 하는 애플리케이션에 대해 HA 포트를 사용할 수도 있습니다. HA 포트와 함께 내부 [Standard Load Balancer](load-balancer-standard-overview.md)를 사용하여 이러한 시나리오를 단순화할 수 있습니다. 단일 부하 분산 규칙은 여러 개의 개별 부하 분산 규칙을 모든 포트에 대해 하나씩 대체합니다.
 
 ## <a name="region-availability"></a>지역 가용성
 

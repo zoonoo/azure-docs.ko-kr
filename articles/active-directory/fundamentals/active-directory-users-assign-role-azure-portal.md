@@ -42,7 +42,7 @@ PIM(Privileged Identity Management)을 사용하여 역할을 할당할 수도 �
 
     ![선택한 역할을 보여 주는 디렉터리 역할 페이지](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 
-    응용 프로그램 관리자 역할이 Alain Charon에 할당되고 **Alain Charon - 디렉터리 역할** 페이지에 표시됩니다.
+    애플리케이션 관리자 역할이 Alain Charon에 할당되고 **Alain Charon - 디렉터리 역할** 페이지에 표시됩니다.
 
 ## <a name="remove-a-role-assignment"></a>역할 할당 제거
 사용자에서 역할 할당을 제거해야 할 경우 **Alain Charon - 디렉터리 역할** 페이지에서 제거할 수도 있습니다.
@@ -55,7 +55,7 @@ PIM(Privileged Identity Management)을 사용하여 역할을 할당할 수도 �
 
     ![선택한 역할 및 제거 옵션을 보여 주는 디렉터리 역할 페이지](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
 
-    응용 프로그램 관리자 역할이 Alain Charon에서 제거되고 **Alain Charon - 디렉터리 역할** 페이지에 더 이상 표시되지 않습니다.
+    애플리케이션 관리자 역할이 Alain Charon에서 제거되고 **Alain Charon - 디렉터리 역할** 페이지에 더 이상 표시되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [사용자 추가 또는 삭제](add-users-azure-active-directory.md)

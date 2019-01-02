@@ -58,7 +58,7 @@ Zscaler Internet Access Administrator의 Azure AD 통합을 구성하려면 갤�
 
 2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드](common/enterprise-applications.png)
+    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
 3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
@@ -234,7 +234,7 @@ Zscaler Internet Access Administrator에서 Azure AD Single Sign-On을 구성하
 
 1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택하고, **모든 애플리케이션**을 선택한 다음, **Zscaler Internet Access Administrator**를 선택합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드](common/enterprise-applications.png)
+    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
 2. 애플리케이션 목록에서 **Zscaler Internet Access Administrator**를 입력하고 선택합니다.
 

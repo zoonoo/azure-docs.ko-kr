@@ -58,7 +58,7 @@ ms.locfileid: "53255434"
 1. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) 페이지에 표시된 대로 Azure 함수 앱을 만듭니다.
 2. 새로 만든 함수 앱을 엽니다.
 3. 앱 내에서 **플랫폼 기능 -> 응용 프로그램 설정**으로 이동합니다.
-4. 다음 [응용 프로그램 설정](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings)을 정의합니다.
+4. 다음 [애플리케이션 설정](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings)을 정의합니다.
 
 > [!NOTE]
 > **cm: Region**은 지역의 이름이어야 합니다(공백 없이).

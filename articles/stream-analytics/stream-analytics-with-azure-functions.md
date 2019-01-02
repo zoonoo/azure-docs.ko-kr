@@ -179,7 +179,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
         WHERE CS1.SwitchNum != CS2.SwitchNum
    ```
 
-5. 명령줄에서 다음 명령을 실행하여 telcodatagen.exe 응용 프로그램을 시작합니다(`telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]` 형식 사용).  
+5. 명령줄에서 다음 명령을 실행하여 telcodatagen.exe 애플리케이션을 시작합니다(`telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]` 형식 사용).  
    
    **telcodatagen.exe 1000 .2 2**
     

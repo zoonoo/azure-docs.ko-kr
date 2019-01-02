@@ -46,7 +46,7 @@ StorSimple은 [저장소 계층화](#automatic-storage-tiering) 를 사용하여
 | 비즈니스 연속성 |StorSimple 5000~7000 시리즈 사용자가 StorSimple 8000 시리즈 디바이스에 해당 데이터를 마이그레이션할 수 있습니다. |
 | Azure Government 포털의 가용성 |StorSimple은 Azure Government 포털에서 사용 가능합니다. 자세한 내용은 [정부 포털에서 온-프레미스 StorSimple 디바이스 배포](storsimple-8000-deployment-walkthrough-gov-u2.md)를 참조하세요. |
 | 데이터 보호 및 가용성 |StorSimple 8000 시리즈는 LRS(로컬 중복 저장소) 및 GRS(지역 중복 저장소) 외에도 ZRS(영역 중복 저장소)를 지원합니다. ZRS 세부 정보는 [Azure Storage 중복 옵션에 대한 기사](https://azure.microsoft.com/documentation/articles/storage-redundancy/) 를 참조하세요. |
-| 중요한 응용 프로그램에 대한 지원 |StorSimple을 사용하면 적절한 로컬 고정 볼륨을 식별할 수 있습니다. 따라서 중요한 응용 프로그램에 필요한 데이터를 클라우드에 계층화하지 않아도 됩니다. 로컬로 고정된 볼륨은 클라우드 대기 시간 또는 연결 문제가 적용되지 않습니다. 로컬 고정 볼륨에 대한 자세한 내용은 [StorSimple 디바이스 관리자 서비스를 사용하여 볼륨 관리](storsimple-8000-manage-volumes-u2.md)를 참조하세요. |
+| 중요한 애플리케이션에 대한 지원 |StorSimple을 사용하면 적절한 로컬 고정 볼륨을 식별할 수 있습니다. 따라서 중요한 애플리케이션에 필요한 데이터를 클라우드에 계층화하지 않아도 됩니다. 로컬로 고정된 볼륨은 클라우드 대기 시간 또는 연결 문제가 적용되지 않습니다. 로컬 고정 볼륨에 대한 자세한 내용은 [StorSimple 디바이스 관리자 서비스를 사용하여 볼륨 관리](storsimple-8000-manage-volumes-u2.md)를 참조하세요. |
 | 짧은 대기 시간 및 고성능 |Azure Premium Storage의 고성능 및 낮은 대기 시간 기능을 활용하는 클라우드 어플라이언스를 만들 수 있습니다. StorSimple Premium Cloud Appliance에 대한 자세한 내용은 [Azure에서 StorSimple Cloud Appliance 배포 및 관리](storsimple-8000-cloud-appliance-u2.md)로 이동합니다. |
 
 
@@ -132,7 +132,7 @@ Azure PowerShell StorSimple cmdlet은 명령줄에서 서비스 수준 작업 �
 StorSimple 스냅숏 관리자는 로컬 및 클라우드 데이터의 일관된 지정 시간 백업 복사본을 만드는 데 사용할 수 있는 Microsoft Management Console(MMC) 스냅인입니다. 스냅인은 Windows Server 기반 호스트에서 실행됩니다. StorSimple 스냅숏 관리자를 사용하여 다음을 수행할 수 있습니다.
 
 * 볼륨을 구성, 백업 및 삭제합니다.
-* 백업된 데이터가 응용 프로그램과 일관되도록 볼륨 그룹을 구성합니다.
+* 백업된 데이터가 애플리케이션과 일관되도록 볼륨 그룹을 구성합니다.
 * 데이터를 미리 결정된 일정에 따라 백업하고 지정된 위치(로컬 또는 클라우드에)에 저장되도록 백업 정책을 관리합니다.
 * 볼륨 및 개별 파일을 복원합니다.
 
@@ -307,7 +307,7 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 | 볼륨 |드라이브 형태로 제공되는 논리 저장소 영역입니다. StorSimple 볼륨은 iSCSI 및 StorSimple 디바이스를 사용하여 검색된 볼륨을 포함하여 호스트에 의해 탑재된 볼륨에 해당합니다. |
 | 볼륨 컨테이너 |볼륨 및 볼륨에 적용되는 설정의 그룹화입니다. StorSimple 디바이스의 모든 볼륨은 볼륨 컨테이너로 그룹화됩니다. 볼륨 컨테이너 설정에는 저장소 계정, 연결된 암호화 키와 함께 클라우드에 전송된 데이터에 대한 암호화 설정 및 클라우드 관련 작업에 사용된 대역폭이 포함됩니다. |
 | 볼륨 그룹 |StorSimple 스냅숏 관리자에서 볼륨 그룹은 백업 처리가 용이하도록 구성된 볼륨 컬렉션입니다. |
-| 볼륨 섀도 복사본 서비스(VSS) |VSS 인식 응용 프로그램과의 통신을 통해 증분 스냅숏 생성을 조정하여 응용 프로그램 일관성을 높이는 Windows Server 운영 체제 서비스입니다. VSS는 스냅숏을 만들 때 응용 프로그램이 일시적으로 비활성화되도록 합니다. |
+| 볼륨 섀도 복사본 서비스(VSS) |VSS 인식 애플리케이션과의 통신을 통해 증분 스냅숏 생성을 조정하여 애플리케이션 일관성을 높이는 Windows Server 운영 체제 서비스입니다. VSS는 스냅숏을 만들 때 애플리케이션이 일시적으로 비활성화되도록 합니다. |
 | StorSimple용 Windows PowerShell |StorSimple 디바이스를 작동 및 관리하는 데 사용되는 Windows PowerShell 기반 명령줄 인터페이스입니다. Windows PowerShell의 일부 기본 기능을 유지하는 동시에 이 인터페이스는 StorSimple 디바이스를 관리하기 위한 전용 cmdlet을 추가로 포함합니다. |
 
 ## <a name="next-steps"></a>다음 단계

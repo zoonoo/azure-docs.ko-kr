@@ -93,7 +93,7 @@ Contoso는 장점 및 단점 목록을 함께 조합하여 제안된 디자인�
 
 **고려 사항** | **세부 정보**
 --- | ---
-**장점** | Azure Service Fabric으로 마이그레이션하기 위해 SmartHotel360 앱 코드를 변경해야 합니다. 하지만 Service Fabric SDK 도구를 사용하여 변경하면 간단합니다.<br/><br/> Service Fabric으로 이동하면 Contoso는 원래 코드 베이스에 대한 위험 없이 차후에 신속하게 응용 프로그램에 추가할 마이크로 서비스 개발을 시작할 수 있습니다.<br/><br/> Windows 컨테이너는 일반 컨테이너와 동일한 혜택을 제공합니다. 민첩성, 이식성 및 제어성이 향상됩니다.<br/><br/> Contoso는 SQL Server와 Windows Server에 대한 Azure 하이브리드 혜택을 사용하여 Software Assurance에 대한 투자를 활용할 수 있습니다.<br/><br/> 마이그레이션 후에는 Windows Server 2008 R2를 더 이상 지원할 필요가 없습니다. [자세히 알아보기](https://support.microsoft.com/lifecycle).<br/><br/> Contoso는 더 이상 단일 실패 지점이 되지 않도록 여러 인스턴스를 사용하여 앱의 웹 계층을 구성할 수 있습니다.<br/><br/> 더 이상 오래된 SQL Server 2008 R2에 의존할 필요가 없습니다.<br/><br/> SQL Database는 Contoso의 기술 요구 사항을 지원합니다. Contoso 관리자는 Database Migration Assistant를 사용하여 온-프레미스 데이터베이스를 평가하고 호환된다는 것을 확인했습니다.<br/><br/> SQL Database에는 Contoso에서 설정할 필요가 없는 기본 제공 내결함성이 있습니다. 따라서 데이터 계층은 더 이상 단일 장애 조치(failover) 지점이 아닙니다.
+**장점** | Azure Service Fabric으로 마이그레이션하기 위해 SmartHotel360 앱 코드를 변경해야 합니다. 하지만 Service Fabric SDK 도구를 사용하여 변경하면 간단합니다.<br/><br/> Service Fabric으로 이동하면 Contoso는 원래 코드 베이스에 대한 위험 없이 차후에 신속하게 애플리케이션에 추가할 마이크로 서비스 개발을 시작할 수 있습니다.<br/><br/> Windows 컨테이너는 일반 컨테이너와 동일한 혜택을 제공합니다. 민첩성, 이식성 및 제어성이 향상됩니다.<br/><br/> Contoso는 SQL Server와 Windows Server에 대한 Azure 하이브리드 혜택을 사용하여 Software Assurance에 대한 투자를 활용할 수 있습니다.<br/><br/> 마이그레이션 후에는 Windows Server 2008 R2를 더 이상 지원할 필요가 없습니다. [자세히 알아보기](https://support.microsoft.com/lifecycle).<br/><br/> Contoso는 더 이상 단일 실패 지점이 되지 않도록 여러 인스턴스를 사용하여 앱의 웹 계층을 구성할 수 있습니다.<br/><br/> 더 이상 오래된 SQL Server 2008 R2에 의존할 필요가 없습니다.<br/><br/> SQL Database는 Contoso의 기술 요구 사항을 지원합니다. Contoso 관리자는 Database Migration Assistant를 사용하여 온-프레미스 데이터베이스를 평가하고 호환된다는 것을 확인했습니다.<br/><br/> SQL Database에는 Contoso에서 설정할 필요가 없는 기본 제공 내결함성이 있습니다. 따라서 데이터 계층은 더 이상 단일 장애 조치(failover) 지점이 아닙니다.
 **단점** | 컨테이너는 다른 마이그레이션 옵션보다 복잡합니다. 컨테이너에 대한 학습 곡선이 Contoso에는 문제가 될 수 있습니다.  학습 곡선에도 불구하고 여러 가치를 제공하는 새로운 복잡성이 추가됩니다.<br/><br/> Contoso의 운영 팀은 Azure, 컨테이너 및 앱용 마이크로 서비스를 이해하고 지원하기 위해 노력해야 합니다.<br/><br/> Contoso에서 해당 데이터베이스를 마이그레이션하는 데 Data Migration Service 대신 Data Migration Assistant를 사용하는 경우 Contoso에는 대규모 데이터베이스 마이그레이션을 위해 준비된 인프라가 없습니다.
 
 
@@ -363,7 +363,7 @@ Contoso 관리자는 이제 데이터베이스를 마이그레이션합니다.
 
 ## <a name="step-6-set-up-azure-devops-services"></a>6단계: Azure DevOps Services 설정
 
-Contoso는 응용 프로그램에 대한 DevOps 인프라 및 파이프라인을 빌드해야 합니다.  이를 위해 Contoso 관리자는 새 Azure DevOps 프로젝트를 만들고 해당 코드를 가져온 다음 파이프라인을 빌드 및 릴리스합니다.
+Contoso는 애플리케이션에 대한 DevOps 인프라 및 파이프라인을 빌드해야 합니다.  이를 위해 Contoso 관리자는 새 Azure DevOps 프로젝트를 만들고 해당 코드를 가져온 다음 파이프라인을 빌드 및 릴리스합니다.
 
 1.   Contoso DevOps 계정에서 새 프로젝트(**ContosoSmartHotelRearchitect**)를 만들고 버전 제어용 **Git**을 선택합니다.
 ![새 프로젝트](./media/contoso-migration-rearchitect-container-sql/vsts1.png)

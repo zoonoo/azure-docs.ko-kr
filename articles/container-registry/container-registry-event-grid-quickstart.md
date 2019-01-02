@@ -1,6 +1,6 @@
 ---
 title: 빠른 시작 - Event Grid로 Azure Container Registry 이벤트 전송
-description: 이 빠른 시작에서는 컨테이너 레지스트리에 Event Grid 이벤트를 활성화한 다음, 응용 프로그램 예제에 컨테이너 이미지 push 및 delete 이벤트를 전송합니다.
+description: 이 빠른 시작에서는 컨테이너 레지스트리에 Event Grid 이벤트를 활성화한 다음, 애플리케이션 예제에 컨테이너 이미지 push 및 delete 이벤트를 전송합니다.
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -17,11 +17,11 @@ ms.locfileid: "53260252"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>빠른 시작: 개인 컨테이너 레지스트리에서 Event Grid에 이벤트 보내기
 
-Azure Event Grid는 게시-구독 모델을 사용하여 균일한 이벤트 소비를 제공하는 완전히 관리되는 이벤트 라우팅 서비스입니다. 이 빠른 시작에서는 Azure CLI를 사용하여 컨테이너 레지스트리를 만들고, 레지스트리 이벤트를 구독한 다음, 샘플 웹 응용 프로그램을 배포하여 이벤트를 수신합니다. 마지막으로, 컨테이너 이미지 `push` 및 `delete` 이벤트를 트리거하고 응용 프로그램 예제에서 이벤트 페이로드를 봅니다.
+Azure Event Grid는 게시-구독 모델을 사용하여 균일한 이벤트 소비를 제공하는 완전히 관리되는 이벤트 라우팅 서비스입니다. 이 빠른 시작에서는 Azure CLI를 사용하여 컨테이너 레지스트리를 만들고, 레지스트리 이벤트를 구독한 다음, 샘플 웹 애플리케이션을 배포하여 이벤트를 수신합니다. 마지막으로, 컨테이너 이미지 `push` 및 `delete` 이벤트를 트리거하고 애플리케이션 예제에서 이벤트 페이로드를 봅니다.
 
 이 문서의 단계를 완료하면 컨테이너 레지스트리에서 Event Grid로 전송된 이벤트가 샘플 웹앱에 표시됩니다.
 
-![수신된 이벤트 세 개로 샘플 웹 응용 프로그램을 렌더링하는 웹 브라우저][sample-app-01]
+![수신된 이벤트 세 개로 샘플 웹 애플리케이션을 렌더링하는 웹 브라우저][sample-app-01]
 
 Azure 구독이 없는 경우 시작하기 전에 [체험 계정][azure-account]을 만듭니다.
 
@@ -75,7 +75,7 @@ az acr create --resource-group $RESOURCE_GROUP_NAME --name $ACR_NAME --sku Basic
 
 ## <a name="create-an-event-endpoint"></a>이벤트 엔드포인트 만들기
 
-이 섹션에서는 GitHub 리포지토리에 있는 Resource Manager 템플릿을 사용하여 Azure App Service에 미리 작성된 샘플 웹 응용 프로그램을 배포합니다. 나중에 레지스트리의 Event Grid 이벤트를 구독하고 이벤트가 전송되는 엔드포인트로 이 앱을 지정합니다.
+이 섹션에서는 GitHub 리포지토리에 있는 Resource Manager 템플릿을 사용하여 Azure App Service에 미리 작성된 샘플 웹 애플리케이션을 배포합니다. 나중에 레지스트리의 Event Grid 이벤트를 구독하고 이벤트가 전송되는 엔드포인트로 이 앱을 지정합니다.
 
 샘플 앱을 배포하려면 `SITE_NAME`을 웹앱의 고유한 이름으로 설정하고 다음 명령을 실행합니다. 사이트 이름은 웹앱의 FQDN(정규화된 도메인 이름)의 일부를 형성하기 때문에 Azure 내에서 고유해야 합니다. 이후 섹션에서 레지스트리의 이벤트를 보려면 웹 브라우저에서 앱의 FQDN으로 이동합니다.
 
@@ -227,7 +227,7 @@ Event Grid 설명서에서 Azure Container Registry 이벤트 메시지 스키�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 컨테이너 레지스트리를 배포하고, ACR Tasks로 이미지를 빌드한 후 삭제하고, Event Grid에서 응용 프로그램 예제로 레지스트리의 이벤트를 사용했습니다. 이제 ACR Tasks 자습서로 넘어가서 기본 이미지 업데이트에 대한 자동 빌드 등 클라우드에 컨테이너 이미지를 빌드하는 방법에 대해 자세히 알아보세요.
+이 빠른 시작에서는 컨테이너 레지스트리를 배포하고, ACR Tasks로 이미지를 빌드한 후 삭제하고, Event Grid에서 애플리케이션 예제로 레지스트리의 이벤트를 사용했습니다. 이제 ACR Tasks 자습서로 넘어가서 기본 이미지 업데이트에 대한 자동 빌드 등 클라우드에 컨테이너 이미지를 빌드하는 방법에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 > [ACR Tasks를 사용하여 클라우드에 컨테이너 이미지 빌드](container-registry-tutorial-quick-task.md)

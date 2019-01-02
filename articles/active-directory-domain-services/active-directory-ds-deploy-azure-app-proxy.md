@@ -59,7 +59,7 @@ Azure AD 애플리케이션 프록시를 처음 사용하는 경우 다음에 �
 
 
 ## <a name="task-2---provision-domain-joined-windows-servers-to-deploy-the-azure-ad-application-proxy-connector"></a>작업 2 - 도메인에 가입된 Windows 서버를 프로비전하여 Azure AD 응용 프로그램 프록시 커넥터를 배포
-Azure AD 응용 프로그램 프록시 커넥터를 설치할 수 있는 도메인에 가입된 Windows Server 가상 머신이 필요합니다. 응용 프로그램에 따라 커넥터가 설치된 여러 서버를 프로비전하도록 선택할 수도 있습니다. 이 배포 옵션을 선택하면 가용성이 높아지고 더 많은 인증 부하를 처리하는 데 도움이 됩니다.
+Azure AD 응용 프로그램 프록시 커넥터를 설치할 수 있는 도메인에 가입된 Windows Server 가상 머신이 필요합니다. 애플리케이션에 따라 커넥터가 설치된 여러 서버를 프로비전하도록 선택할 수도 있습니다. 이 배포 옵션을 선택하면 가용성이 높아지고 더 많은 인증 부하를 처리하는 데 도움이 됩니다.
 
 Azure AD Domain Services 관리되는 도메인을 사용할 수 있는 동일한 가상 네트워크(또는 연결/피어링된 가상 네트워크)에서 커넥터 서버를 프로비전합니다. 마찬가지로, 응용 프로그램 프록시를 통해 게시한 응용 프로그램을 호스팅하는 서버는 동일한 Azure 가상 네트워크에 설치해야 합니다.
 
@@ -67,7 +67,7 @@ Azure AD Domain Services 관리되는 도메인을 사용할 수 있는 동일�
 
 
 ## <a name="task-3---install-and-register-the-azure-ad-application-proxy-connector"></a>작업 3 - Azure AD 응용 프로그램 프록시 커넥터 설치 및 등록
-사전에 Windows Server 가상 컴퓨터를 프로비전하고 관리되는 도메인에 가입했습니다. 이 작업에서는 이 가상 머신에 Azure AD 응용 프로그램 프록시 커넥터를 설치합니다.
+사전에 Windows Server 가상 컴퓨터를 프로비전하고 관리되는 도메인에 가입했습니다. 이 작업에서는 이 가상 머신에 Azure AD 애플리케이션 프록시 커넥터를 설치합니다.
 
 1. Azure AD 웹 응용 프로그램 프록시 커넥터를 설치하는 VM에 커넥터 설치 패키지를 복사합니다.
 
@@ -105,8 +105,8 @@ Azure AD Domain Services 관리되는 도메인을 사용할 수 있는 동일�
 응용 프로그램 프록시 커넥터 사용 권한을 부여하여 사용자를 가장하고 사용자를 대신해서 토큰을 보내고 받음으로써 IWA(Windows 통합 인증)를 사용하여 응용 프로그램에 Single Sign-On을 사용하도록 설정합니다. 커넥터에 대한 Kerberos 제한 위임(KCD)을 구성하여 관리되는 도메인의 리소스에 액세스하는 데 필요한 권한을 부여합니다. 보안 향상을 위해 관리되는 도메인에서 리소스 기반 KCD 메커니즘을 사용합니다.
 
 
-### <a name="enable-resource-based-kerberos-constrained-delegation-for-the-azure-ad-application-proxy-connector"></a>Azure AD 응용 프로그램 프록시 커넥터에 대한 리소스 기반 Kerberos 제한 위임을 사용하도록 설정
-관리되는 도메인에서 사용자를 가장할 수 있도록 Azure 응용 프로그램 프록시 커넥터는 Kerberos 제한 위임(KCD)에 대해 구성되어야 합니다. Azure AD Domain Services 관리되는 도메인에서 도메인 관리자 권한이 없습니다. 따라서 **관리되는 도메인에 기존 계정 수준 KCD를 구성할 수 없습니다**.
+### <a name="enable-resource-based-kerberos-constrained-delegation-for-the-azure-ad-application-proxy-connector"></a>Azure AD 애플리케이션 프록시 커넥터에 대한 리소스 기반 Kerberos 제한 위임을 사용하도록 설정
+관리되는 도메인에서 사용자를 가장할 수 있도록 Azure 애플리케이션 프록시 커넥터는 Kerberos 제한 위임(KCD)에 대해 구성되어야 합니다. Azure AD Domain Services 관리되는 도메인에서 도메인 관리자 권한이 없습니다. 따라서 **관리되는 도메인에 기존 계정 수준 KCD를 구성할 수 없습니다**.
 
 이 [문서](active-directory-ds-enable-kcd.md)에 설명된 대로 리소스 기반 KCD를 사용합니다.
 

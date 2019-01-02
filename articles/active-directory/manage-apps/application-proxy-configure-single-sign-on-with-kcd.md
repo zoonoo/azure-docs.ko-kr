@@ -29,7 +29,7 @@ Windows 통합 인증으로 보안되는 애플리케이션 프록시를 통해 
 Active Directory에 애플리케이션 프록시 커넥터 사용 권한을 부여하여 사용자를 가장함으로써 IWA(Windows 통합 인증)를 사용하여 애플리케이션에 SSO(Single Sign On)를 사용하게 할 수 있습니다. 커넥터는 이 사용 권한을 사용하여 사용자 대신 토큰을 주고받습니다.
 
 ## <a name="how-single-sign-on-with-kcd-works"></a>KCD를 사용하는 Single Sign-On 작동 방식
-사용자가 IWA를 사용하는 온-프레미스 응용 프로그램에 액세스를 시도할 때 이 다이어그램이 흐름을 설명합니다.
+사용자가 IWA를 사용하는 온-프레미스 애플리케이션에 액세스를 시도할 때 이 다이어그램이 흐름을 설명합니다.
 
 ![Microsoft AAD 인증 흐름 다이어그램](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
@@ -78,7 +78,7 @@ Sharepointserviceaccount는 해당 SPS 앱 풀이 실행되고 있는 SPS 컴퓨
 1. [응용 프로그램 프록시로 응용 프로그램 게시](application-proxy-add-on-premises-application.md)에 설명된 지침에 따라 응용 프로그램을 게시합니다. 반드시 **Azure Active Directory**를 **사전 인증 메서드**로 선택해야 합니다.
 2. 애플리케이션이 엔터프라이즈 애플리케이션 목록에 나타나면 선택하고 **Single Sign-On**을 클릭합니다.
 3. Single Sign-On 모드를 **Windows 통합 인증**으로 설정합니다.  
-4. 애플리케이션 서버의 **내부 애플리케이션 SPN**을 입력합니다. 이 예제에서는 게시된 응용 프로그램에 대한 SPN이 http/www.contoso.com입니다. 이 SPN은 커넥터가 위임된 자격 증명을 제공할 수 있는 서비스 목록에 있어야 합니다. 
+4. 애플리케이션 서버의 **내부 애플리케이션 SPN**을 입력합니다. 이 예제에서는 게시된 애플리케이션에 대한 SPN이 http/www.contoso.com입니다. 이 SPN은 커넥터가 위임된 자격 증명을 제공할 수 있는 서비스 목록에 있어야 합니다. 
 5. 커넥터에 대한 **위임된 로그인 ID**를 선택하여 사용자를 대신하여 사용합니다. 자세한 내용은 [다른 온-프레미스 및 클라우드 ID로 작업](#Working-with-different-on-premises-and-cloud-identities) 참조
 
    ![고급 애플리케이션 구성](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
@@ -121,7 +121,7 @@ Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 
 
 ![위임된 로그인 ID 매개 변수 스크린샷](./media/application-proxy-configure-single-sign-on-with-kcd/app_proxy_sso_diff_id_upn.png)
 
-위임된 로그인 ID가 사용되는 경우 값은 조직 내의 모든 도메인 또는 포리스트에 대해 고유하지 않을 수도 있습니다. 다른 두 가지 커넥터 그룹을 사용하여 이러한 애플리케이션을 두 번 게시함으로써 이 문제를 방지할 수 있습니다. 각 응용 프로그램에는 다른 사용자 대상 그룹이 있으므로 다른 도메인에 해당 커넥터를 조인할 수 있습니다.
+위임된 로그인 ID가 사용되는 경우 값은 조직 내의 모든 도메인 또는 포리스트에 대해 고유하지 않을 수도 있습니다. 다른 두 가지 커넥터 그룹을 사용하여 이러한 애플리케이션을 두 번 게시함으로써 이 문제를 방지할 수 있습니다. 각 애플리케이션에는 다른 사용자 대상 그룹이 있으므로 다른 도메인에 해당 커넥터를 조인할 수 있습니다.
 
 ### <a name="configure-sso-for-different-identities"></a>다른 ID에 대한 SSO 구성
 1. 주 ID가 전자 메일 주소가 되도록 Azure AD Connect 설정을 구성합니다(mail). 이 작업은 동기화 설정에서 **사용자 계정 이름** 필드를 변경하여 사용자 지정 프로세스의 일부로 수행됩니다. 또한 이러한 설정은 사용자가 ID 저장소로 Azure AD를 사용하는 Office 365, Windows 10 디바이스 및 다른 응용 프로그램에 로그인하는 방법을 결정합니다.  

@@ -65,7 +65,7 @@ $ az acs kubernetes browse -g [Resource Group] -n [Container service instance na
 
     ![Kubernetes 만들기 UI](./media/container-service-kubernetes-ui/create.png)
 
-    응용 프로그램을 만들기 시작할 수 있는 대화 상자가 열립니다.
+    애플리케이션을 만들기 시작할 수 있는 대화 상자가 열립니다.
 
 2. 이름 `hello-nginx`를 지정합니다. Docker의 [`nginx` 컨테이너](https://hub.docker.com/_/nginx/)를 사용하고 이 웹 서비스의 3개 복제본을 배포합니다.
 

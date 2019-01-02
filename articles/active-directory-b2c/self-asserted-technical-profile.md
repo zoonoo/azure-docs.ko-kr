@@ -123,7 +123,7 @@ Azure AD(Active Directory) B2C에서 사용자가 입력을 제공해야 하는 
 
 [Azure Active Directory](active-directory-technical-profile.md) 또는 [REST API](restful-technical-profile.md) 기술 프로필과 같이 정책에 포함된 어떤 기술 프로필이든 유효성 검사 기술 프로필로 사용될 수 있습니다. 위의 예제에서 `LocalAccountSignUpWithLogonEmail` 기술 프로필은 signinName이 디렉터리에 없는지 유효성을 검사합니다. signinName이 디렉터리에 없으면 유효성 검사 기술 프로필은 로컬 계정을 만들고 objectId, authenticationSource, newUser를 반환합니다. `SelfAsserted-LocalAccountSignin-Email` 기술 프로필은 사용자 자격 증명의 유효성을 검사하기 위해 `login-NonInteractive` 유효성 검사 기술 프로필을 호출합니다.
 
-비즈니스 논리를 사용하여 REST API 기술 프로필을 호출하거나, 입력 클레임을 덮어쓰거나, 회사 LOB(기간 업무) 응용 프로그램과 추가로 통합하여 사용자 데이터를 보강할 수도 있습니다. 자세한 내용은 [유효성 검사 기술 프로필](validation-technical-profile.md)을 참조하세요.
+비즈니스 논리를 사용하여 REST API 기술 프로필을 호출하거나, 입력 클레임을 덮어쓰거나, 회사 LOB(기간 업무) 애플리케이션과 추가로 통합하여 사용자 데이터를 보강할 수도 있습니다. 자세한 내용은 [유효성 검사 기술 프로필](validation-technical-profile.md)을 참조하세요.
 
 ## <a name="metadata"></a>Metadata
 

@@ -33,7 +33,7 @@ ms.locfileid: "44348483"
 
 호스팅 모델을 이해하기 위해 한 가지 예를 살펴보겠습니다. *ServiceType* 'MyServiceType'이 있는 *ApplicationType* 'MyAppType'이 있다고 가정합니다. 'MyServiceType'은 *CodePackage* 'MyCodePackage'가 있는 *ServicePackage* 'MyServicePackage'에서 제공됩니다. 'MyCodePackage'는 실행될 때 *ServiceType* 'MyServiceType'을 등록합니다.
 
-3개의 노드 클러스터가 있고, 'MyAppType' 형식의 *응용 프로그램* **fabric:/App1**을 만든다고 가정합니다. 이 응용 프로그램 **fabric:/App1** 내에서 'MyServiceType' 형식의 **fabric:/App1/ServiceA** 서비스를 만듭니다. 이 서비스에는 두 개의 파티션(예: **P1** 및 **P2**) 및 파티션당 세 개의 복제본이 있습니다. 다음 다이어그램은 이 애플리케이션이 노드에 배포된 상태 보기를 보여 줍니다.
+3개의 노드 클러스터가 있고, 'MyAppType' 형식의 *응용 프로그램* **fabric:/App1**을 만든다고 가정합니다. 이 애플리케이션 **fabric:/App1** 내에서 'MyServiceType' 형식의 **fabric:/App1/ServiceA** 서비스를 만듭니다. 이 서비스에는 두 개의 파티션(예: **P1** 및 **P2**) 및 파티션당 세 개의 복제본이 있습니다. 다음 다이어그램은 이 애플리케이션이 노드에 배포된 상태 보기를 보여 줍니다.
 
 
 ![배포된 애플리케이션의 노드 보기 다이어그램][node-view-one]
@@ -91,13 +91,13 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
   </Service>
 </DefaultServices>
 ```
-이제 응용 프로그램 **fabric:/App1**에서 **fabric:/App1/ServiceC**라는 다른 서비스를 만들어 보겠습니다. 이 서비스에는 두 개의 파티션(예: **P6** 및 **P7**) 및 파티션당 세 개의 복제본이 있습니다. **ServicePackageActivationMode**를 'ExclusiveProcess'로 설정합니다. 다음 다이어그램은 새로운 노드 보기를 보여줍니다.
+이제 애플리케이션 **fabric:/App1**에서 **fabric:/App1/ServiceC**라는 다른 서비스를 만들어 보겠습니다. 이 서비스에는 두 개의 파티션(예: **P6** 및 **P7**) 및 파티션당 세 개의 복제본이 있습니다. **ServicePackageActivationMode**를 'ExclusiveProcess'로 설정합니다. 다음 다이어그램은 새로운 노드 보기를 보여줍니다.
 
 
 ![배포된 애플리케이션의 노드 보기 다이어그램][node-view-four]
 
 
-보시는 것처럼 Service Fabric은 **P6** 및 **P7** 파티션의 각 복제본에 대해 하나씩 두 개의 새로운 'MyServicePackage' 복제본을 활성화했습니다. Service Fabric은 *CodePackage*의 전용 복사본에 각 복제본을 배치했습니다. 단독 프로세스 모델을 사용하는 경우 지정된 응용 프로그램에 대해 지정된 *ServicePackage*의 여러 복사본을 노드에서 활성화할 수 있습니다. 앞의 예제에서 'MyServicePackage'의 세 개 복사본이 **fabric:/App1**에 대해 활성화되었습니다. 'MyServicePackage'의 각 활성 복사본에는 **ServicePackageActivationId**가 연결되어 있습니다. 이 ID는 **fabric:/App1** 응용 프로그램 내에서 해당 복사본을 식별합니다.
+보시는 것처럼 Service Fabric은 **P6** 및 **P7** 파티션의 각 복제본에 대해 하나씩 두 개의 새로운 'MyServicePackage' 복제본을 활성화했습니다. Service Fabric은 *CodePackage*의 전용 복사본에 각 복제본을 배치했습니다. 단독 프로세스 모델을 사용하는 경우 지정된 애플리케이션에 대해 지정된 *ServicePackage*의 여러 복사본을 노드에서 활성화할 수 있습니다. 앞의 예제에서 'MyServicePackage'의 세 개 복사본이 **fabric:/App1**에 대해 활성화되었습니다. 'MyServicePackage'의 각 활성 복사본에는 **ServicePackageActivationId**가 연결되어 있습니다. 이 ID는 **fabric:/App1** 애플리케이션 내에서 해당 복사본을 식별합니다.
 
 애플리케이션에 공유 프로세스 모델을 사용하는 경우 노드에는 *ServicePackage*의 활성 복사본이 하나만 있습니다. 이 활성화에서 *ServicePackage*의 **ServicePackageActivationId**는 빈 문자열입니다. 예를 들어 **fabric:/App2**를 사용하는 경우입니다.
 
@@ -116,7 +116,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 노드에서 [배포된 서비스 패키지][p3] 목록을 쿼리하여 배포된 서비스 패키지의 **ServicePackageActivationId**를 확인할 수 있습니다. 노드에서 [배포된 서비스 형식][p6], [배포된 복제본][p7] 및 [배포된 코드 패키지][p8]를 쿼리하는 경우 쿼리 결과에는 배포된 부모 서비스 패키지의 **ServicePackageActivationId**도 포함됩니다.
 
 > [!NOTE]
->- 공유 프로세스 호스팅 모델 아래의 지정된 노드에서 지정된 응용 프로그램에 대해 *ServicePackage* 복사본 하나만 활성화됩니다. *빈 문자열*과 같은 **ServicePackageActivationId**가 있으며, 배포된 서비스 패키지와 관련된 작업을 수행할 때 지정할 필요가 없습니다. 
+>- 공유 프로세스 호스팅 모델 아래의 지정된 노드에서 지정된 애플리케이션에 대해 *ServicePackage* 복사본 하나만 활성화됩니다. *빈 문자열*과 같은 **ServicePackageActivationId**가 있으며, 배포된 서비스 패키지와 관련된 작업을 수행할 때 지정할 필요가 없습니다. 
 >
 > - 단독 프로세스 호스팅 모델의 경우 지정된 노드에서 지정된 애플리케이션에 대해 하나 이상의 *ServicePackage* 복사본이 활성화될 수 있습니다. 각 활성화의 **ServicePackageActivationId**는 *비어 있지 않으며*, 배포된 서비스 패키지에 관련된 작업을 수행할 때 지정됩니다. 
 >
@@ -127,7 +127,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 >
 
 ## <a name="guest-executable-and-container-applications"></a>게스트 실행 파일 및 컨테이너 애플리케이션
-Service Fabric은 [게스트 실행 파일][a2] 및 [컨테이너][a3] 응용 프로그램을 자체 포함된 상태 비저장 서비스로 처리합니다. *ServiceHost*(프로세스 또는 컨테이너)에는 Service Fabric 런타임이 없습니다. 이러한 서비스가 자체 포함되기 때문에 *ServiceHost*당 복제본 수가 적용되지 않습니다. 이러한 서비스에 사용되는 가장 일반적인 구성은 [InstanceCount][c2]가 -1과 같은 단일 파티션입니다(클러스터의 각 노드에서 서비스 코드 복사본 하나가 실행되고 있음). 
+Service Fabric은 [게스트 실행 파일][a2] 및 [컨테이너][a3] 애플리케이션을 자체 포함된 상태 비저장 서비스로 처리합니다. *ServiceHost*(프로세스 또는 컨테이너)에는 Service Fabric 런타임이 없습니다. 이러한 서비스가 자체 포함되기 때문에 *ServiceHost*당 복제본 수가 적용되지 않습니다. 이러한 서비스에 사용되는 가장 일반적인 구성은 [InstanceCount][c2]가 -1과 같은 단일 파티션입니다(클러스터의 각 노드에서 서비스 코드 복사본 하나가 실행되고 있음). 
 
 이러한 서비스에 대한 기본 **ServicePackageActivationMode**는 **SharedProcess**입니다. 이 경우에 Service Fabric은 지정된 애플리케이션에 대해 노드에서 *ServicePackage* 복사본 하나만을 활성화합니다.  즉, 서비스 코드 복사본 하나만 노드를 실행합니다. 서비스 코드의 여러 복사본을 노드에서 실행하려는 경우 서비스를 만들 때 **ServicePackageActivationMode**를 **ExclusiveProcess**로 지정합니다. 예를 들어 *ServiceType*(*ServiceManifest*에 지정)의 여러 서비스(*Service1*에서 *ServiceN*)를 만들 때 또는 서비스를 다중 분할할 때 수행할 수 있습니다. 
 
@@ -140,7 +140,7 @@ Service Fabric은 [게스트 실행 파일][a2] 및 [컨테이너][a3] 응용 �
  단독 프로세스 모델은 해당 프로세스의 모든 복제본에 대한 격리 기능을 제공합니다. 하나의 복제본에 오류가 있는 경우 다른 복제본에 영향을 주지 않습니다. 이 모델은 통신 프로토콜에서 포트 공유를 지원하지 않는 경우에 유용합니다. 복제본 수준에서 리소스 관리를 쉽게 적용할 수 있습니다. 그러나 단독 프로세스는 노드의 각 복제본마다 프로세스 하나를 생성하기 때문에 더 많은 운영 체제 리소스를 사용합니다.
 
 ## <a name="exclusive-process-model-and-application-model-considerations"></a>단독 프로세스 모델 및 애플리케이션 모델 고려 사항
-대부분의 응용 프로그램의 경우 *ServicePackage*당 하나의 *ServiceType*을 유지하여 Service Fabric에서 응용 프로그램을 모델링할 수 있습니다. 
+대부분의 애플리케이션의 경우 *ServicePackage*당 하나의 *ServiceType*을 유지하여 Service Fabric에서 애플리케이션을 모델링할 수 있습니다. 
 
 특정한 경우에 Service Fabric은 *ServicePackage*당 둘 이상의 *ServiceType*을 허용하며 하나의 *CodePackage*는 둘 이상의 *ServiceType*을 등록할 수 있습니다. 다음은 이러한 구성이 유용할만한 몇 가지 시나리오입니다.
 
@@ -148,7 +148,7 @@ Service Fabric은 [게스트 실행 파일][a2] 및 [컨테이너][a3] 응용 �
 - 서로 다른 *ServiceTypes*의 복제본이 초기화 또는 메모리 비용이 높은 몇 가지 공통 데이터를 공유해야 합니다.
 - 무료 서비스 제품이 있으며, 서비스의 모든 복제본을 동일한 프로세스에 배치하여 리소스 사용률에 제한을 적용하려고 합니다.
 
-단독 프로세스 호스팅 모델은 *ServicePackage*당 여러 *ServiceTypes*가 있는 응용 프로그램 모델과 일치하지 않습니다. *ServicePackage*당 여러 *ServiceTypes*가 복제본 간의 리소스 공유를 높이도록 설계되었으며 프로세스당 복제본 고밀도를 지원하기 때문입니다. 단독 프로세스 모델은 이와 다른 결과를 달성하도록 설계되었습니다.
+단독 프로세스 호스팅 모델은 *ServicePackage*당 여러 *ServiceTypes*가 있는 애플리케이션 모델과 일치하지 않습니다. *ServicePackage*당 여러 *ServiceTypes*가 복제본 간의 리소스 공유를 높이도록 설계되었으며 프로세스당 복제본 고밀도를 지원하기 때문입니다. 단독 프로세스 모델은 이와 다른 결과를 달성하도록 설계되었습니다.
 
 다른 *CodePackage*가 각 *ServiceType*을 등록하는 *ServicePackage*당 여러 *ServiceTypes*의 경우를 고려해보세요. 가령, *CodePackages* 2개가 있는 *ServicePackage* 'MultiTypeServicePackge'가 있다고 가정합니다.
 

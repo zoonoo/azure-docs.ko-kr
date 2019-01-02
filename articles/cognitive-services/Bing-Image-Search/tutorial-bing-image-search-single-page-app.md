@@ -1,7 +1,7 @@
 ---
 title: '자습서: 단일 페이지 웹앱 만들기 - Bing Image Search API'
 titleSuffix: Azure cognitive services
-description: Bing Image Search API를 사용하면 웹에서 고품질 관련 이미지를 검색할 수 있습니다. 이 자습서를 사용하여 검색 쿼리를 API에 보낼 수 있는 단일 페이지 웹 응용 프로그램을 빌드하고 웹 페이지 내에 결과를 표시합니다.
+description: Bing Image Search API를 사용하면 웹에서 고품질 관련 이미지를 검색할 수 있습니다. 이 자습서를 사용하여 검색 쿼리를 API에 보낼 수 있는 단일 페이지 웹 애플리케이션을 빌드하고 웹 페이지 내에 결과를 표시합니다.
 services: cognitive-services
 author: aahi
 manager: cgronlun
@@ -19,7 +19,7 @@ ms.locfileid: "53253955"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>자습서: Bing Image Search API를 사용하여 단일 페이지 앱 만들기
 
-Bing Image Search API를 사용하면 웹에서 고품질 관련 이미지를 검색할 수 있습니다. 이 자습서를 사용하여 검색 쿼리를 API에 보낼 수 있는 단일 페이지 웹 응용 프로그램을 빌드하고 웹 페이지 내에 결과를 표시합니다. 이 자습서는 Bing Web Search에 대한 [해당 자습서](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md)와 유사합니다.
+Bing Image Search API를 사용하면 웹에서 고품질 관련 이미지를 검색할 수 있습니다. 이 자습서를 사용하여 검색 쿼리를 API에 보낼 수 있는 단일 페이지 웹 애플리케이션을 빌드하고 웹 페이지 내에 결과를 표시합니다. 이 자습서는 Bing Web Search에 대한 [해당 자습서](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md)와 유사합니다.
 
 자습서 앱은 다음 방법을 보여 줍니다.
 
@@ -40,7 +40,7 @@ Bing Image Search API를 사용하면 웹에서 고품질 관련 이미지를 �
 
 ## <a name="manage-and-store-user-subscription-keys"></a>사용자 구독 키 관리 및 저장
 
-이 응용 프로그램은 웹 브라우저의 영구적 저장소를 사용하여 API 구독 키를 저장합니다. 키가 저장되지 않은 경우 웹 페이지에서 해당 키를 요청하는 메시지를 사용자에게 표시하고 나중에 사용할 수 있도록 키를 저장합니다. 나중에 키가 API에서 거부되면 앱이 저장소에서 키를 제거합니다.
+이 애플리케이션은 웹 브라우저의 영구적 저장소를 사용하여 API 구독 키를 저장합니다. 키가 저장되지 않은 경우 웹 페이지에서 해당 키를 요청하는 메시지를 사용자에게 표시하고 나중에 사용할 수 있도록 키를 저장합니다. 나중에 키가 API에서 거부되면 앱이 저장소에서 키를 제거합니다.
 
 
 `storeValue` 및 `retrieveValue` 함수를 정의하여 `localStorage` 개체(브라우저가 지원하는 경우) 또는 쿠키를 사용합니다.
@@ -95,7 +95,7 @@ function getSubscriptionKey() {
 }
 ```
 
-HTML `<form>` 태그 `onsubmit`는 `bingWebSearch` 함수를 호출하여 검색 결과를 반환합니다. `bingWebSearch`는 `getSubscriptionKey`를 사용하여 각 쿼리를 인증합니다. 이전 정의에 표시된 것처럼 키를 입력하지 않은 경우 `getSubscriptionKey`는 사용자에게 키를 확인하는 메시지를 표시합니다. 그런 다음, 응용 프로그램에서 계속 사용할 수 있도록 키가 저장됩니다.
+HTML `<form>` 태그 `onsubmit`는 `bingWebSearch` 함수를 호출하여 검색 결과를 반환합니다. `bingWebSearch`는 `getSubscriptionKey`를 사용하여 각 쿼리를 인증합니다. 이전 정의에 표시된 것처럼 키를 입력하지 않은 경우 `getSubscriptionKey`는 사용자에게 키를 확인하는 메시지를 표시합니다. 그런 다음, 애플리케이션에서 계속 사용할 수 있도록 키가 저장됩니다.
 
 ```html
 <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value,
@@ -104,7 +104,7 @@ bingSearchOptions(this), getSubscriptionKey())">
 
 ## <a name="send-search-requests"></a>검색 요청 보내기
 
-이 응용 프로그램은 `onsubmit` 특성을 사용하여 `newBingImageSearch()`를 호출하는 사용자 검색 요청을 처음에 보내는 데 HTML `<form>`을 사용합니다.
+이 애플리케이션은 `onsubmit` 특성을 사용하여 `newBingImageSearch()`를 호출하는 사용자 검색 요청을 처음에 보내는 데 HTML `<form>`을 사용합니다.
 
 ```html
 <form name="bing" onsubmit="return newBingImageSearch(this)">
@@ -116,7 +116,7 @@ bingSearchOptions(this), getSubscriptionKey())">
 
 ![[Bing Image Search 양식]](media/cognitive-services-bing-images-api/image-search-spa-form.png)
 
-Bing Image Search API는 검색 범위를 좁히고 검색 결과를 필터링하기 위한 여러 [필터 쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#filter-query-parameters)를 제공합니다. 이 응용 프로그램의 HTML 양식은 다음 매개 변수 옵션을 사용하고 표시합니다.
+Bing Image Search API는 검색 범위를 좁히고 검색 결과를 필터링하기 위한 여러 [필터 쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#filter-query-parameters)를 제공합니다. 이 애플리케이션의 HTML 양식은 다음 매개 변수 옵션을 사용하고 표시합니다.
 
 |              |                                                                                                                                                                                    |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -323,11 +323,11 @@ Bing Image Search API는 각각 최상위 개체에서 사용자 검색 환경�
 | `relatedSearches`  | 또한 원래 검색을 입력했던 다른 사용자가 입력한 쿼리입니다. 예를 들어 “Mount Rainier”를 검색하는 경우 관련 검색은 “Mt. Saint Helens”일 수 있습니다.                       |
 | `similarTerms`     | 원래 검색과 의미가 유사한 쿼리입니다. 예를 들어, "kittens"를 검색하는 경우 비슷한 용어로 "cute"가 있을 수 있습니다.                                                                   |
 
-이 응용 프로그램은 `relatedItems` 제안만 렌더링하고 결과 링크를 페이지의 사이드바에 배치합니다.
+이 애플리케이션은 `relatedItems` 제안만 렌더링하고 결과 링크를 페이지의 사이드바에 배치합니다.
 
 ## <a name="rendering-search-results"></a>검색 결과 렌더링
 
-이 응용 프로그램에서 `searchItemRenderers` 개체에는 각 종류의 검색 결과에 대한 HTML을 생성하는 렌더러 함수가 포함됩니다.
+이 애플리케이션에서 `searchItemRenderers` 개체에는 각 종류의 검색 결과에 대한 HTML을 생성하는 렌더러 함수가 포함됩니다.
 
 ```javascript
 searchItemRenderers = {
@@ -384,7 +384,7 @@ Bing Search API의 응답에는 후속 요청과 함께 API로 다시 전송되�
 브라우저 보안 정책(CORS) 때문에 JavaScript에서 `X-MSEdge-ClientID` 헤더를 사용하지 못할 수 있습니다. 이러한 제한은 검색 응답의 원본이 해당 응답을 요청한 페이지와 다른 경우에 발생합니다. 프로덕션 환경에서는 웹 페이지와 동일한 도메인에 대해 API 호출을 수행하는 서버 쪽 스크립트를 호스트하여 이 정책 문제를 해결해야 합니다. 스크립트의 원본은 웹 페이지와 동일하므로 JavaScript에서 `X-MSEdge-ClientID` 헤더를 사용할 수 있습니다.
 
 > [!NOTE]
-> 그래도 프로덕션 웹 응용 프로그램의 경우 서버 쪽에서 요청을 수행해야 합니다. 서버 쪽에서 수행하지 않을 경우 소스를 보는 누구나 사용할 수 있는 웹 페이지에 Bing Search API 키를 포함해야 합니다. 권한 없는 사람이 수행한 요청을 포함하여 API 구독 키를 통한 모든 사용량에 요금이 청구되므로, 키를 노출하지 않는 것이 중요합니다.
+> 그래도 프로덕션 웹 애플리케이션의 경우 서버 쪽에서 요청을 수행해야 합니다. 서버 쪽에서 수행하지 않을 경우 소스를 보는 누구나 사용할 수 있는 웹 페이지에 Bing Search API 키를 포함해야 합니다. 권한 없는 사람이 수행한 요청을 포함하여 API 구독 키를 통한 모든 사용량에 요금이 청구되므로, 키를 노출하지 않는 것이 중요합니다.
 
 개발 목적으로 CORS 프록시를 통해 Bing Web Search API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 허용 목록에 추가하고 JavaScript에서 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
 

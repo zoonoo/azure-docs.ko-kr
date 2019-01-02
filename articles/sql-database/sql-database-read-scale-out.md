@@ -31,7 +31,7 @@ ms.locfileid: "52955057"
 
 특정 데이터베이스에서 읽기 확장 기능을 사용하려면, 데이터베이스를 만들 때 또는 나중에 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) 또는 [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet을 호출하는 PowerShell을 사용하거나 [데이터베이스 - 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) 방법을 사용하는 Azure Resource Manager REST API를 통해 해당 구성을 변경하여 명시적으로 사용하도록 설정해야 합니다.
 
-데이터베이스에 대해 읽기 확장을 사용하도록 설정하면, 응용 프로그램의 연결 문자열에 구성된 `ApplicationIntent` 속성에 따라 해당 데이터베이스에 연결하는 응용 프로그램이 해당 데이터베이스의 읽기/쓰기 복제본 또는 읽기 전용 복제본으로 전달됩니다. `ApplicationIntent` 속성에 대한 자세한 내용은 [응용 프로그램 의도 지정](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)을 참조하세요.
+데이터베이스에 대해 읽기 확장을 사용하도록 설정하면, 애플리케이션의 연결 문자열에 구성된 `ApplicationIntent` 속성에 따라 해당 데이터베이스에 연결하는 애플리케이션이 해당 데이터베이스의 읽기-쓰기 복제본 또는 읽기 전용 복제본으로 전달됩니다. `ApplicationIntent` 속성에 대한 자세한 내용은 [응용 프로그램 의도 지정](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)을 참조하세요.
 
 읽기 스케일 아웃을 사용할 수 없거나 지원되지 않는 서비스 계층에서 ReadScale 속성을 설정한 경우 모든 연결은 `ApplicationIntent` 속성과 독립적으로 읽기/쓰기 복제본으로 이동됩니다.
 

@@ -42,9 +42,9 @@ Microsoft ID 플랫폼을 사용하여 다음을 수행할 수 있습니다.
 
 GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsoft Azure Active Directory 샘플 및 설명서](https://github.com/Azure-Samples?page=3&query=active-directory)를 참조하세요.
 
-## <a name="single-page-applications-spa"></a>SPA(단일 페이지 응용 프로그램)
+## <a name="single-page-applications-spa"></a>SPA(단일 페이지 애플리케이션)
 
-이 샘플에서는 Azure AD로 보안이 설정된 단일 페이지 응용 프로그램을 작성하는 방법을 보여 줍니다. 이 샘플은 MSAL.js의 특징 중 하나를 사용합니다.
+이 샘플에서는 Azure AD로 보안이 설정된 단일 페이지 애플리케이션을 작성하는 방법을 보여 줍니다. 이 샘플은 MSAL.js의 특징 중 하나를 사용합니다.
 
 * [JavaScript용 Microsoft 인증 라이브러리](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core)
 * [Angular용 Microsoft 인증 라이브러리](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)
@@ -58,7 +58,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 ## <a name="web-applications"></a>웹 애플리케이션
 
-다음 샘플은 사용자를 로그인하는 웹 응용 프로그램을 보여 줍니다. 일부 샘플은 사용자 ID를 사용하여 Microsoft Graph 또는 사용자 고유의 웹 API를 호출하는 응용 프로그램도 보여 줍니다.
+다음 샘플은 사용자를 로그인하는 웹 애플리케이션을 보여 줍니다. 일부 샘플은 사용자 ID를 사용하여 Microsoft Graph 또는 사용자 고유의 웹 API를 호출하는 애플리케이션도 보여 줍니다.
 
  플랫폼 | 사용자만 로그인 | 사용자를 로그인하고 Microsoft Graph를 호출
  -------- | ------------------- | ---------------------------------
@@ -69,7 +69,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>데스크톱 및 모바일 공용 클라이언트 앱
 
-다음 샘플은 사용자 이름으로 Microsoft Graph API 또는 사용자 고유의 Web API에 액세스하는 공용 클라이언트 응용 프로그램(데스크톱/모바일 응용 프로그램)을 보여 줍니다. 이러한 클라이언트 응용 프로그램은 모두 MSAL(Microsoft 인증 라이브러리)을 사용합니다.
+다음 샘플은 사용자 이름으로 Microsoft Graph API 또는 사용자 고유의 Web API에 액세스하는 공용 클라이언트 애플리케이션(데스크톱/모바일 애플리케이션)을 보여 줍니다. 이러한 클라이언트 애플리케이션은 모두 MSAL(Microsoft 인증 라이브러리)을 사용합니다.
 
 클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 | ASP.NET Core 2.0 Web API 호출
 ------------------ | -------- |  ----------| ---------- | -------------------------
@@ -83,16 +83,16 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 ## <a name="daemon-applications"></a>디먼 애플리케이션
 
-다음 샘플은 고유 ID(사용자 없음)로 Microsoft Graph API에 액세스하는 응용 프로그램을 보여 줍니다.
+다음 샘플은 고유 ID(사용자 없음)로 Microsoft Graph API에 액세스하는 애플리케이션을 보여 줍니다.
 
 클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출
 ------------------ | -------- | ---------- | --------------------
 콘솔 | ![.NET Core](media/sample-v2-code/logo_NETcore.png)<p/> ASP.NET  | 클라이언트 자격 증명 | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2)
 웹앱 | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET  | 클라이언트 자격 증명 | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2)
 
-## <a name="headless-applications"></a>헤드리스 응용 프로그램
+## <a name="headless-applications"></a>헤드리스 애플리케이션
 
-다음 샘플은 웹 브라우저가 없는 디바이스에서 실행되는 공용 클라이언트 애플리케이션을 보여 줍니다. 앱은 명령줄 도구이거나 Linux/Mac 또는 IoT 응용 프로그램에서 실행될 수 있습니다. 샘플에는 다른 디바이스(예: 휴대폰)에서 대화형으로 로그인하는 사용자 이름으로 Microsoft Graph API에 액세스하는 앱이 있습니다. 이 클라이언트 응용 프로그램은 MSAL(Microsoft 인증 라이브러리)을 사용합니다.
+다음 샘플은 웹 브라우저가 없는 디바이스에서 실행되는 공용 클라이언트 애플리케이션을 보여 줍니다. 앱은 명령줄 도구이거나 Linux/Mac 또는 IoT 애플리케이션에서 실행될 수 있습니다. 샘플에는 다른 디바이스(예: 휴대폰)에서 대화형으로 로그인하는 사용자 이름으로 Microsoft Graph API에 액세스하는 앱이 있습니다. 이 클라이언트 애플리케이션은 MSAL(Microsoft 인증 라이브러리)을 사용합니다.
 
 클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출
 ------------------ | -------- |  ----------| ----------
@@ -100,7 +100,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 ## <a name="web-apis"></a>Web API
 
-다음 샘플은 Azure AD v2.0 엔드포인트로 Web API를 보호하는 방법을 보여 줍니다. 이 API는 WPF 응용 프로그램이 실행하지만, 모든 응용 프로그램에서 호출할 수 있습니다.
+다음 샘플은 Azure AD v2.0 엔드포인트로 Web API를 보호하는 방법을 보여 줍니다. 이 API는 WPF 애플리케이션이 실행하지만, 모든 애플리케이션에서 호출할 수 있습니다.
 
 플랫폼 | 샘플
  -------- | -------------------

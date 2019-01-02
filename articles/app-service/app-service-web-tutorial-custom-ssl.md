@@ -262,7 +262,7 @@ New-AzureRmWebAppSSLBinding `
 ## <a name="public-certificates-optional"></a>공용 인증서(선택 사항)
 앱이 클라이언트로써 원격 리소스에 액세스해야 하고 원격 리소스에 인증서 인증이 필요한 경우 웹앱에 [공용 인증서](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/)를 업로드하면 됩니다. 앱의 SSL 바인딩에는 공용 인증서가 필요하지 않습니다.
 
-앱에서 공용 인증서를 로드 및 사용하는 방법에 대한 자세한 내용은 [Azure App Service의 응용 프로그램 코드에서 SSL 인증서 사용](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load)을 참조하세요. App Service Environments의 앱에도 공용 인증서를 사용할 수 있습니다. LocalMachine 인증서 저장소에 인증서를 저장해야 하는 경우 App Service Environments에서 웹앱을 사용해야 합니다. 자세한 내용은 [웹앱에 공용 인증서를 구성하는 방법](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer)을 참조하세요.
+앱에서 공용 인증서를 로드 및 사용하는 방법에 대한 자세한 내용은 [Azure App Service의 애플리케이션 코드에서 SSL 인증서 사용](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load)을 참조하세요. App Service Environments의 앱에도 공용 인증서를 사용할 수 있습니다. LocalMachine 인증서 저장소에 인증서를 저장해야 하는 경우 App Service Environments에서 웹앱을 사용해야 합니다. 자세한 내용은 [웹앱에 공용 인증서를 구성하는 방법](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer)을 참조하세요.
 
 ![공용 인증서 업로드](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
@@ -283,4 +283,4 @@ New-AzureRmWebAppSSLBinding `
 > [!div class="nextstepaction"]
 > [Azure App Service에 CDN(Content Delivery Network) 추가](../cdn/cdn-add-to-web-app.md)
 
-자세한 내용은 [Azure App Service의 응용 프로그램 코드에서 SSL 인증서 사용](app-service-web-ssl-cert-load.md)을 참조하세요.
+자세한 내용은 [Azure App Service의 애플리케이션 코드에서 SSL 인증서 사용](app-service-web-ssl-cert-load.md)을 참조하세요.

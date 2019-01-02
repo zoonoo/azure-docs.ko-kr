@@ -21,10 +21,10 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/14/2018
 ms.locfileid: "45574611"
 ---
-# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Azure Cloud Services에서 Express를 사용하여 Node.js 웹 응용 프로그램 빌드 및 배포
+# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Azure Cloud Services에서 Express를 사용하여 Node.js 웹 애플리케이션 빌드 및 배포
 
 Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다.
-개발자는 Node.js 애플리케이션을 개발할 때 추가 기능을 제공하기 위해 종종 타사 모듈을 사용합니다. 이 자습서에서는 Node.js 웹 응용 프로그램을 만들기 위해 MVC 프레임워크를 제공하는 [Express](https://github.com/expressjs/express) 모듈을 사용하여 새 응용 프로그램을 만듭니다.
+개발자는 Node.js 애플리케이션을 개발할 때 추가 기능을 제공하기 위해 종종 타사 모듈을 사용합니다. 이 자습서에서는 Node.js 웹 애플리케이션을 만들기 위해 MVC 프레임워크를 제공하는 [Express](https://github.com/expressjs/express) 모듈을 사용하여 새 애플리케이션을 만듭니다.
 
 아래에는 완성된 애플리케이션의 스크린샷이 표시되어 있습니다.
 
@@ -98,7 +98,7 @@ Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다.
    
    ![index.jade 파일의 내용](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
-   Jade는 Express 응용 프로그램에서 사용하는 기본 뷰 엔진입니다. Jade 뷰 엔진에 대한 자세한 내용은 [http://jade-lang.com][http://jade-lang.com]을 참조하세요.
+   Jade는 Express 애플리케이션에서 사용하는 기본 뷰 엔진입니다. Jade 뷰 엔진에 대한 자세한 내용은 [http://jade-lang.com][http://jade-lang.com]을 참조하세요.
 2. **in Azure**를 추가하여 텍스트의 마지막 줄을 수정합니다.
    
    ![index.jade 파일, 마지막 줄: p Welcome to \#{title} in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)

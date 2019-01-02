@@ -1,6 +1,6 @@
 ---
-title: 액세스 패널의 응용 프로그램에 로그인하는 문제 | Microsoft Docs
-description: myapps.microsoft.com의 Microsoft Azure AD 액세스 패널에서 응용 프로그램에 액세스하는 문제를 해결하는 방법
+title: 액세스 패널의 애플리케이션에 로그인하는 문제 | Microsoft Docs
+description: myapps.microsoft.com의 Microsoft Azure AD 액세스 패널에서 애플리케이션에 액세스하는 문제를 해결하는 방법
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -22,11 +22,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/11/2018
 ms.locfileid: "44356166"
 ---
-# <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>액세스 패널의 응용 프로그램에 로그인하는 문제
+# <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>액세스 패널의 애플리케이션에 로그인하는 문제
 
-액세스 패널은 웹 기반 포털로 Azure AD(Azure Active Directory)에 회사 또는 학교 계정이 있는 사용자가 Azure AD 관리자를 통해 액세스 권한을 부여 받은 클라우드 기반 응용 프로그램을 보고 시작할 수 있도록 합니다. 
+액세스 패널은 웹 기반 포털로 Azure AD(Azure Active Directory)에 회사 또는 학교 계정이 있는 사용자가 Azure AD 관리자를 통해 액세스 권한을 부여 받은 클라우드 기반 애플리케이션을 보고 시작할 수 있도록 합니다. 
 
-이러한 응용 프로그램은 Azure AD 포털에서 사용자를 대신하여 구성됩니다. 응용 프로그램을 액세스 패널에 표시하려면 응용 프로그램이 올바르게 구성되어 있고, 사용자나 그 사용자가 속한 그룹에 할당되어 있어야 합니다.
+이러한 애플리케이션은 Azure AD 포털에서 사용자를 대신하여 구성됩니다. 애플리케이션을 액세스 패널에 표시하려면 애플리케이션이 올바르게 구성되어 있고, 사용자나 그 사용자가 속한 그룹에 할당되어 있어야 합니다.
 
 사용자가 볼 수 있는 앱의 종류는 다음과 같은 범주로 분류됩니다.
 
@@ -42,9 +42,9 @@ ms.locfileid: "44356166"
 
 -   액세스 패널에 대한 최소 요구 사항을 충족하는 **브라우저**를 사용하는지 확인합니다.
 
--   사용자의 브라우저에서 해당 **신뢰할 수 있는 사이트**에 응용 프로그램의 URL을 추가했는지 확인합니다.
+-   사용자의 브라우저에서 해당 **신뢰할 수 있는 사이트**에 애플리케이션의 URL을 추가했는지 확인합니다.
 
--   응용 프로그램이 올바르게 **구성**되었는지 확인합니다.
+-   애플리케이션이 올바르게 **구성**되었는지 확인합니다.
 
 -   사용자의 계정이 로그인에 대해 **활성화**되었는지 확인합니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "44356166"
 
 1.  지원되는 브라우저 중 하나에서 [액세스 패널](https://myapps.microsoft.com)을 열고 Azure AD에서 **사용자**로 로그인합니다.
 
-2.  액세스 패널에서 **암호-SSO 응용 프로그램**을 클릭합니다.
+2.  액세스 패널에서 **암호-SSO 애플리케이션**을 클릭합니다.
 
 3.  소프트웨어를 설치하라는 프롬프트에서 **지금 설치**를 선택합니다.
 
@@ -90,7 +90,7 @@ ms.locfileid: "44356166"
 
 6.  설치되면 브라우저 세션을 **다시 시작**합니다.
 
-7.  액세스 패널에 로그인하고 암호 SSO 응용 프로그램을 **시작**할 수 있는지 확인합니다.
+7.  액세스 패널에 로그인하고 암호 SSO 애플리케이션을 **시작**할 수 있는지 확인합니다.
 
 아래와 같은 직접 링크에서 Chrome 및 Edge에 대한 확장을 다운로드할 수 있습니다.
 
@@ -98,9 +98,9 @@ ms.locfileid: "44356166"
 
 -   [Edge 액세스 패널 확장](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
-## <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 응용 프로그램에 대해 페더레이션된 Single Sign-On을 구성하는 방법
+## <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성하는 방법
 
-Azure AD 갤러리에서 Enterprise Single Sign-On 기능을 사용하도록 설정된 모든 응용 프로그램은 단계별 자습서를 사용할 수 있습니다. [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/)에 액세스하면 자세한 단계별 지침을 볼 수 있습니다.
+Azure AD 갤러리에서 Enterprise Single Sign-On 기능을 사용하도록 설정된 모든 애플리케이션은 단계별 자습서를 사용할 수 있습니다. [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/)에 액세스하면 자세한 단계별 지침을 볼 수 있습니다.
 
 Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행해야 합니다.
 
@@ -118,7 +118,7 @@ Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행�
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>Azure AD 갤러리에서 애플리케이션 추가
 
-Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를 수행합니다.
+Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 수행합니다.
 
 1.  [Azure Portal](https://portal.azure.com)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
@@ -134,7 +134,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 7.  Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
 
-8.  응용 프로그램을 추가하기 전에 **이름** 텍스트 상자에서 이름을 변경할 수 있습니다.
+8.  애플리케이션을 추가하기 전에 **이름** 텍스트 상자에서 이름을 변경할 수 있습니다.
 
 9.  **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
@@ -142,7 +142,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 ### <a name="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery"></a>Azure AD 갤러리에서 애플리케이션의 Single Sign-On 구성
 
-응용 프로그램에 Single Sign-On을 구성하려면 아래 단계를 수행합니다.
+애플리케이션에 대한 Single Sign-On을 구성하려면 아래 단계를 따릅니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 <span id="_Hlk477187909" class="anchor"><span id="_Hlk477001983" class="anchor"></span></span>열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
@@ -180,11 +180,11 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
    2. **저장**을 클릭합니다. 테이블에 새 특성이 표시됩니다.
 
-13. 응용 프로그램의 Single Sign-On을 구성하는 방법에 관한 문서에 액세스하려면 **&lt;응용 프로그램 이름&gt; 구성**을 클릭합니다. 또한 애플리케이션에 SSO를 설정하는 데 필요한 메타데이터 URL 및 인증서는 있습니다.
+13. 애플리케이션의 Single Sign-On을 구성하는 방법에 관한 문서에 액세스하려면 **&lt;애플리케이션 이름&gt; 구성**을 클릭합니다. 또한 애플리케이션에 SSO를 설정하는 데 필요한 메타데이터 URL 및 인증서는 있습니다.
 
 14. 구성을 저장하려면 **Save**를 클릭합니다.
 
-15. 응용 프로그램에 사용자를 할당합니다.
+15. 애플리케이션에 사용자를 할당합니다.
 
 ### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>사용자 식별자를 선택하고 애플리케이션에 보낼 사용자 특성 추가
 
@@ -200,7 +200,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
 
-  * 여기에 표시하려는 응용 프로그램이 표시되지 않으면 **모든 응용 프로그램 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 응용 프로그램**으로 설정합니다.
+  * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
 6.  Single Sign-On을 구성한 애플리케이션을 선택합니다.
 
@@ -209,7 +209,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 8.  **사용자 특성** 섹션 아래의 **사용자 식별자** 드롭다운에서 사용자의 고유한 식별자를 선택합니다. 사용자를 인증하려면 선택한 옵션이 애플리케이션의 예상 값과 일치해야 합니다.
 
     >[!NOTE]
-    >Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 응용 프로그램이 요청한 형식을 기반으로 NameID 특성(사용자 식별자)의 형식을 선택합니다. 자세한 내용은 NameIDPolicy 섹션 아래의 [Single Sign-On SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) 문서에서 확인할 수 있습니다.
+    >Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 애플리케이션이 요청한 형식을 기반으로 NameID 특성(사용자 식별자)의 형식을 선택합니다. 자세한 내용은 NameIDPolicy 섹션 아래의 [Single Sign-On SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) 문서에서 확인할 수 있습니다.
     >
     >
 
@@ -223,7 +223,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 ### <a name="download-the-azure-ad-metadata-or-certificate"></a>Azure AD 메타데이터 또는 인증서 다운로드
 
-Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 다운로드하려면 아래 단계를 수행합니다.
+Azure AD에서 애플리케이션 메타데이터 또는 인증서를 다운로드하려면 아래 단계를 수행합니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
@@ -297,7 +297,7 @@ Azure AD 갤러리에 없는 애플리케이션에 대해 Single Sign-On을 구�
 
    2. **저장**을 클릭합니다. 테이블에 새 특성이 표시됩니다.
 
-14. 응용 프로그램의 Single Sign-On을 구성하는 방법에 관한 문서에 액세스하려면 **&lt;응용 프로그램 이름&gt; 구성**을 클릭합니다. 또한 애플리케이션에 필요한 Azure AD URL과 인증서가 있습니다.
+14. 애플리케이션의 Single Sign-On을 구성하는 방법에 관한 문서에 액세스하려면 **&lt;애플리케이션 이름&gt; 구성**을 클릭합니다. 또한 애플리케이션에 필요한 Azure AD URL과 인증서가 있습니다.
 
 ### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>사용자 식별자를 선택하고 애플리케이션에 보낼 사용자 특성 추가
 
@@ -322,7 +322,7 @@ Azure AD 갤러리에 없는 애플리케이션에 대해 Single Sign-On을 구�
 8.  **사용자 특성** 섹션 아래의 **사용자 식별자** 드롭다운에서 사용자의 고유한 식별자를 선택합니다. 사용자를 인증하려면 선택한 옵션이 애플리케이션의 예상 값과 일치해야 합니다.
 
    >[!NOTE]
-   >Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 응용 프로그램이 요청한 형식을 기반으로 NameID 특성(사용자 식별자)의 형식을 선택합니다. 자세한 내용은 NameIDPolicy 섹션 아래의 [Single Sign-On SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) 문서에서 확인할 수 있습니다.
+   >Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 애플리케이션이 요청한 형식을 기반으로 NameID 특성(사용자 식별자)의 형식을 선택합니다. 자세한 내용은 NameIDPolicy 섹션 아래의 [Single Sign-On SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) 문서에서 확인할 수 있습니다.
    >
    >
 
@@ -336,7 +336,7 @@ Azure AD 갤러리에 없는 애플리케이션에 대해 Single Sign-On을 구�
 
 ### <a name="download-the-azure-ad-metadata-or-certificate"></a>Azure AD 메타데이터 또는 인증서 다운로드
 
-Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 다운로드하려면 아래 단계를 수행합니다.
+Azure AD에서 애플리케이션 메타데이터 또는 인증서를 다운로드하려면 아래 단계를 수행합니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
@@ -358,7 +358,7 @@ Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 다운로
 
     Azure AD에서는 메타데이터를 가져오는 URL을 제공하지 않습니다. 메타데이터는 XML 파일로만 검색할 수 있습니다.
 
-## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 응용 프로그램에 대해 암호 Single Sign-On을 구성하는 방법
+## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성하는 방법
 
 Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행해야 합니다.
 
@@ -368,7 +368,7 @@ Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행�
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>Azure AD 갤러리에서 애플리케이션 추가
 
-Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를 수행합니다.
+Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 수행합니다.
 
 1.  [Azure Portal](https://portal.azure.com)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
@@ -382,17 +382,17 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 6.  **갤러리에서 추가** 섹션의 **이름 입력** 텍스트 상자에 응용 프로그램 이름을 입력합니다.
 
-7.  Single Sign-On을 구성하려는 응용 프로그램 선택
+7.  Single Sign-On을 구성하려는 애플리케이션 선택
 
-8.  응용 프로그램을 추가하기 전에 **이름** 텍스트 상자에서 이름을 변경할 수 있습니다.
+8.  애플리케이션을 추가하기 전에 **이름** 텍스트 상자에서 이름을 변경할 수 있습니다.
 
 9.  **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
 잠시 후에 애플리케이션의 구성 창을 볼 수 있습니다.
 
-### <a name="configure-the-application-for-password-single-sign-on"></a>암호 Single Sign-On에 대한 응용 프로그램 구성
+### <a name="configure-the-application-for-password-single-sign-on"></a>암호 Single Sign-On에 대한 애플리케이션 구성
 
-응용 프로그램에 Single Sign-On을 구성하려면 아래 단계를 수행합니다.
+애플리케이션에 대한 Single Sign-On을 구성하려면 아래 단계를 따릅니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
@@ -412,7 +412,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 8.  **암호 기반 로그온** 모드를 선택합니다.
 
-9.  응용 프로그램에 사용자를 할당합니다.
+9.  애플리케이션에 사용자를 할당합니다.
 
 10. 또한 사용자의 행을 선택하고 **자격 증명 업데이트**를 클릭하고 사용자를 대신하여 사용자 이름 및 암호를 입력하여 사용자를 대신하여 자격 증명을 제공할 수도 있습니다. 그렇지 않으면 사용자는 시작할 때 자격 증명을 입력하라는 메시지를 받게 됩니다.
 
@@ -424,9 +424,9 @@ Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행�
 
 -   [암호 Single Sign-On에 대한 응용 프로그램 구성](#configure-the-application-for-password-single-sign-on)
 
-### <a name="add-a-non-gallery-application"></a>비갤러리 응용 프로그램 추가
+### <a name="add-a-non-gallery-application"></a>비갤러리 애플리케이션 추가
 
-Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를 수행합니다.
+Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 수행합니다.
 
 1.  [Azure Portal](https://portal.azure.com)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
@@ -444,9 +444,9 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 짧은 시간 후에 애플리케이션의 구성 창을 볼 수 있습니다.
 
-### <a name="configure-the-application-for-password-single-sign-on"></a>암호 Single Sign-On에 대한 응용 프로그램 구성
+### <a name="configure-the-application-for-password-single-sign-on"></a>암호 Single Sign-On에 대한 애플리케이션 구성
 
-응용 프로그램에 Single Sign-On을 구성하려면 아래 단계를 수행합니다.
+애플리케이션에 대한 Single Sign-On을 구성하려면 아래 단계를 따릅니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
@@ -468,7 +468,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 9.  **로그온 URL**을 입력합니다. 사용자가 로그인하기 위해 사용자 이름과 암호를 입력하는 URL입니다. URL에서 로그인 필드가 표시되는지 확인합니다.
 
-10. 응용 프로그램에 사용자를 할당합니다.
+10. 애플리케이션에 사용자를 할당합니다.
 
 11. 또한 사용자의 행을 선택하고 **자격 증명 업데이트**를 클릭하고 사용자를 대신하여 사용자 이름 및 암호를 입력하여 사용자를 대신하여 자격 증명을 제공할 수도 있습니다. 그렇지 않으면 사용자는 시작할 때 자격 증명을 입력하라는 메시지를 받게 됩니다.
 
@@ -508,7 +508,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 15. **할당** 단추를 클릭하여 선택한 사용자에게 응용 프로그램을 할당합니다.
 
-짧은 시간 후에 선택한 사용자는 액세스 패널에서 이러한 응용 프로그램을 시작할 수 있습니다.
+짧은 시간 후에 선택한 사용자는 액세스 패널에서 이러한 애플리케이션을 시작할 수 있습니다.
 
 ## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>이러한 문제 해결 단계가 문제를 해결하지 않는 경우
 

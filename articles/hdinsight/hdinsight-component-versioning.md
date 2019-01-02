@@ -186,7 +186,7 @@ HDInsight Windows 클러스터가 그대로 실행되지만 새로운 HDInsight 
 * Hadoop 및 기타 빅 데이터 기술에 대한 오픈 소스 커뮤니티의 활발한 개발 기능
 
 ### <a name="does-hdinsight-on-linux-provide-additional-functionality-beyond-what-is-available-in-hdinsight-on-windows"></a>Linux HDInsight는 Windows HDInsight에서 사용할 수 있는 기능 이외의 추가 기능을 제공하나요?
-HDInsight 버전 3.4부터 Microsoft는 Linux OS에서만 HDInsight를 릴리스했습니다. 결과적으로 HDInsight 내의 구성 요소 중 일부가 Linux에서만 제공됩니다. 기본 파일 시스템으로 Apache Ranger, Kafka, 대화형 쿼리, Spark, HDInsight 응용 프로그램 및 Azure Data Lake Store가 포함됩니다. 
+HDInsight 버전 3.4부터 Microsoft는 Linux OS에서만 HDInsight를 릴리스했습니다. 결과적으로 HDInsight 내의 구성 요소 중 일부가 Linux에서만 제공됩니다. 기본 파일 시스템으로 Apache Ranger, Kafka, 대화형 쿼리, Spark, HDInsight 애플리케이션 및 Azure Data Lake Store가 포함됩니다. 
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>HDInsight 클러스터 버전의 서비스 수준 약정
 SLA(서비스 수준 약정)는 _지원 기간_ 면에서 정의됩니다. 지원 기간은 Microsoft 고객 지원에서 HDInsight 클러스터 버전을 지원하는 기간을 나타냅니다. 버전의 _지원 만료 날짜_가 날짜를 지난 경우 HDInsight 클러스터는 지원 기간이 종료된 것입니다. 지원되는 버전에 대한 자세한 내용은 [지원되는 HDInsight 클러스터 버전](hdinsight-migrate-from-windows-to-linux.md) 목록을 참조하세요. 새로운 X+1 버전이 사용 가능해진 후에 지정된 HDInsight 버전의 지원 만료 날짜는 다음 수식 중 후자로 계산됩니다.  

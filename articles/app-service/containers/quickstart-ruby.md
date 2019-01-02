@@ -49,7 +49,7 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 ## <a name="run-the-application-locally"></a>로컬에서 애플리케이션 실행
 
-응용 프로그램을 로컬로 실행하여 Azure에 응용 프로그램을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고, `hello-world` 디렉터리로 변경하고, `rails server` 명령을 사용하여 서버를 시작합니다.
+애플리케이션을 로컬로 실행하여 Azure에 애플리케이션을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고, `hello-world` 디렉터리로 변경하고, `rails server` 명령을 사용하여 서버를 시작합니다.
 
 첫 번째 단계는 필요한 Gem을 설치하는 것입니다. 샘플에 `Gemfile`이 포함되어 있으므로 설치할 Gem을 지정하지 않아도 됩니다. 이를 위해 번들러를 사용합니다.
 

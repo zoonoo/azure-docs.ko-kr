@@ -1,6 +1,6 @@
 ---
-title: 자습서 - Azure Active Directory B2C에서 응용 프로그램의 사용자 인터페이스 사용자 지정 | Microsoft Docs
-description: Azure Portal를 사용하여 Azure Active Directory B2C에서 응용 프로그램의 사용자 인터페이스 사용자 지정하는 방법에 대해 알아봅니다.
+title: 자습서 - Azure Active Directory B2C에서 애플리케이션의 사용자 인터페이스 사용자 지정 | Microsoft Docs
+description: Azure Portal를 사용하여 Azure Active Directory B2C에서 애플리케이션의 사용자 인터페이스 사용자 지정하는 방법에 대해 알아봅니다.
 services: B2C
 author: davidmu1
 manager: mtillman
@@ -141,15 +141,15 @@ Azure 저장소 계정 및 컨테이너를 만든 다음, 기본 HTML 및 CSS �
 
 이 자습서의 단계를 완료하려면 Azure AD B2C에서 테스트 애플리케이션 및 가입 또는 로그인 사용자 흐름을 만들어야 합니다. 이 자습서에 설명된 원칙을 프로필 편집과 같은 다른 사용자 환경에 적용할 수 있습니다.
 
-### <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 응용 프로그램 만들기
+### <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 애플리케이션 만들기
 
-Azure AD B2C와의 통신은 테넌트에서 만드는 응용 프로그램을 통해 수행됩니다. 다음 단계에서는 [https://jwt.ms](https://jwt.ms)로 반환되는 권한 부여 토큰을 리디렉션하는 응용 프로그램을 만듭니다.
+Azure AD B2C와의 통신은 테넌트에서 만드는 애플리케이션을 통해 수행됩니다. 다음 단계에서는 [https://jwt.ms](https://jwt.ms)로 반환되는 권한 부여 토큰을 리디렉션하는 애플리케이션을 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. **응용 프로그램**을 선택하고 **추가**를 선택합니다.
-5. 응용 프로그램 이름(예: *testapp1*)을 입력합니다.
+5. 애플리케이션 이름(예: *testapp1*)을 입력합니다.
 6. **웹앱/웹 API**에서 `Yes`를 선택하고 **회신 URL**에는 `https://jwt.ms`를 입력합니다.
 7. **만들기**를 클릭합니다.
 

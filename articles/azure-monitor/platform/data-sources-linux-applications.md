@@ -22,7 +22,7 @@ ms.locfileid: "53434633"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Azure Monitor에서 Linux 애플리케이션에 대한 성능 카운터 수집 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-이 문서에서는 특정 애플리케이션에 대한 성능 카운터를 Azure Monitor 로드로 수집하도록 [Linux용 Log Analytics 에이전트](https://github.com/Microsoft/OMS-Agent-for-Linux)를 구성하는 방법에 대한 세부 정보를 제공합니다.  이 문서에 포함된 응용 프로그램은 다음과 같습니다.  
+이 문서에서는 특정 애플리케이션에 대한 성능 카운터를 Azure Monitor 로드로 수집하도록 [Linux용 Log Analytics 에이전트](https://github.com/Microsoft/OMS-Agent-for-Linux)를 구성하는 방법에 대한 세부 정보를 제공합니다.  이 문서에 포함된 애플리케이션은 다음과 같습니다.  
 
 - [MySQL](#MySQL)
 - [Apache HTTP 서버](#apache-http-server)

@@ -33,7 +33,7 @@ REST API와 메시징 통합은 외부 시스템의 트랜잭션을 Azure Blockc
 
 ## <a name="rest-api-based-integration"></a>REST API 기반 통합
 
-Azure Blockchain Workbench에서 생성된 웹 애플리케이션의 기능은 REST API를 통해 공개됩니다. 기능에는 Azure Blockchain Workbench 업로드, 응용 프로그램 구성 및 관리, 트랜잭션을 분산 원장으로 전송, 응용 프로그램 메타데이터 및 원장 데이터 쿼리가 포함됩니다.
+Azure Blockchain Workbench에서 생성된 웹 애플리케이션의 기능은 REST API를 통해 공개됩니다. 기능에는 Azure Blockchain Workbench 업로드, 애플리케이션 구성 및 관리, 트랜잭션을 분산 원장으로 전송, 애플리케이션 메타데이터 및 원장 데이터 쿼리가 포함됩니다.
 
 REST API는 주로 웹, 모바일 및 봇 애플리케이션과 같은 대화형 클라이언트에 사용됩니다.
 

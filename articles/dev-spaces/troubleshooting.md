@@ -169,9 +169,9 @@ Azure Dev Spaces는 C# 및 Node.js에 대해 네이티브 지원을 제공합니
 다른 언어로 작성된 코드를 사용하여 Azure Dev Spaces를 계속 사용할 수 있지만, 처음으로 *azds up*을 실행하기 전에는 Dockerfile을 직접 만들어야 합니다.
 
 ### <a name="try"></a>다음을 시도해 보세요.
-응용 프로그램이 Azure Dev Spaces가 고유하게 지원하지 않는 언어로 작성된 경우 코드를 실행하는 컨테이너 이미지를 빌드하기 위해 적절한 Dockerfile을 제공해야 합니다. Docker는 필요에 맞는 Dockerfile을 작성하는 데 활용할 수 있는 [Dockerfile 참조](https://docs.docker.com/engine/reference/builder/)와 함께 [Dockerfile 작성에 대한 모범 사례 목록](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)을 제공합니다.
+애플리케이션이 Azure Dev Spaces가 고유하게 지원하지 않는 언어로 작성된 경우 코드를 실행하는 컨테이너 이미지를 빌드하기 위해 적절한 Dockerfile을 제공해야 합니다. Docker는 필요에 맞는 Dockerfile을 작성하는 데 활용할 수 있는 [Dockerfile 참조](https://docs.docker.com/engine/reference/builder/)와 함께 [Dockerfile 작성에 대한 모범 사례 목록](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)을 제공합니다.
 
-적절한 Dockerfile을 만들고 나면 *azds up*을 계속 실행하여 Azure Dev Spaces에서 응용 프로그램을 실행할 수 있습니다.
+적절한 Dockerfile을 만들고 나면 *azds up*을 계속 실행하여 Azure Dev Spaces에서 애플리케이션을 실행할 수 있습니다.
 
 ## <a name="error-upstream-connect-error-or-disconnectreset-before-headers"></a>오류 '업스트림 연결 오류 또는 헤더 전에 연결 끊김/다시 설정'
 서비스에 액세스하려고 할 때 이 오류가 표시될 수 있습니다. 예를 들어 브라우저에서 서비스의 URL로 이동하는 경우입니다. 

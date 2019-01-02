@@ -298,7 +298,7 @@ public class JmsQueueQuickstart {
 
 ### <a name="run-the-application"></a>애플리케이션 실행
 공유 액세스 정책의 **연결 문자열**을 전달하여 애플리케이션을 실행합니다.
-응용 프로그램을 실행하면 다음과 같은 양식 출력이 표시됩니다.
+애플리케이션을 실행하면 다음과 같은 양식 출력이 표시됩니다.
 
 ```
 > mvn clean package

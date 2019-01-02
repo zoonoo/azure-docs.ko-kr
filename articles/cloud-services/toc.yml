@@ -27,9 +27,9 @@ items:
     items:
     - name: PHP 웹 및 작업자 역할 만들기
       href: ../cloud-services-php-create-web-role.md
-    - name: Node.js 응용 프로그램 빌드 및 배포
+    - name: Node.js 애플리케이션 빌드 및 배포
       href: cloud-services-nodejs-develop-deploy-app.md
-    - name: Express를 사용하여 Node.js 웹 응용 프로그램 빌드
+    - name: Express를 사용하여 Node.js 웹 애플리케이션 빌드
       href: cloud-services-nodejs-develop-deploy-express-app.md
     - name: 저장소 및 Visual Studio
       items:
@@ -152,7 +152,7 @@ items:
       href: cloud-services-disaster-recovery-guidance.md
     - name: Cloud Services FAQ
       items:
-      - name: 응용 프로그램 및 서비스 가용성 FAQ
+      - name: 애플리케이션 및 서비스 가용성 FAQ
         href: cloud-services-application-and-service-availability-faq.md
       - name: 구성 및 관리 FAQ
         href: cloud-services-configuration-and-management-faq.md
