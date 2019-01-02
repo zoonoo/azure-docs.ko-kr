@@ -1,5 +1,5 @@
 ---
-title: 응용 프로그램 등록 - Custom Decision Service
+title: 애플리케이션 등록 - Custom Decision Service
 titlesuffix: Azure Cognitive Services
 description: Azure Custom Decision Service에 새 앱을 등록하는 방법에 대한 단계별 가이드입니다.
 services: cognitive-services

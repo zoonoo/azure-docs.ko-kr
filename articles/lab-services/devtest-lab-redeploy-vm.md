@@ -22,7 +22,7 @@ ms.lasthandoff: 09/25/2018
 ms.locfileid: "47095398"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩에서 VM 다시 배포
-원격 데스크톱 연결을 통해 랩의 VM(가상 머신)에 연결할 수 없는 경우 VM을 다시 배포하고 연결을 다시 시도해 봅니다. VM을 다시 배포하면 DevTest Labs가 VM을 실행 중인 노드에서 Azure 인프라 내의 새 노드로 이동합니다. 그런 다음 모든 구성 옵션 및 관련 리소스는 그대로 유지하고 VM을 시작합니다. 이 기능을 사용하면 랩의 Windows 기반 VM에 대한 응용 프로그램 액세스 또는 원격 데스크톱 연결 관련 문제를 해결하는 시간을 줄일 수 있습니다. 
+원격 데스크톱 연결을 통해 랩의 VM(가상 머신)에 연결할 수 없는 경우 VM을 다시 배포하고 연결을 다시 시도해 봅니다. VM을 다시 배포하면 DevTest Labs가 VM을 실행 중인 노드에서 Azure 인프라 내의 새 노드로 이동합니다. 그런 다음 모든 구성 옵션 및 관련 리소스는 그대로 유지하고 VM을 시작합니다. 이 기능을 사용하면 랩의 Windows 기반 VM에 대한 애플리케이션 액세스 또는 원격 데스크톱 연결 관련 문제를 해결하는 시간을 줄일 수 있습니다. 
 
 ## <a name="steps-to-redeploy-a-vm-in-a-lab"></a>랩에서 VM을 다시 배포하는 단계 
 Azure DevTest Labs의 랩에서 VM을 다시 배포하려면 다음 단계를 수행합니다. 

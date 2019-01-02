@@ -66,7 +66,7 @@ ms.locfileid: "46306852"
 
 먼저 **범위**를 선택합니다. 데이터(RDN, DN 앵커, 하위 트리) 또는 개체의 상태(다른 모든 옵션)에 따라 검색할 수 있습니다.  
 ![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
-예를 들어 하위 트리 검색을 수행하는 경우 모든 개체를 하나의 OU로 가져옵니다.  
+ 예를 들어 하위 트리 검색을 수행하는 경우 모든 개체를 하나의 OU로 가져옵니다.  
 ![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 이 표에서 개체를 선택하고, **속성**을 선택한 다음 원본 커넥터 공간의 메타버스, 대상 커넥터 공간으로 이어지는 [흐름을 따릅니다](tshoot-connect-object-not-syncing.md).
 
@@ -74,7 +74,7 @@ ms.locfileid: "46306852"
 계정 암호를 변경하는 경우 동기화 서비스가 더 이상 온-프레미스 AD에 대한 변경 내용을 가져오거나 내보낼 수 없습니다.   다음이 표시될 수 있습니다.
 
 - AD 커넥터에 대한 가져오기/내보내기 단계가 "no-start-credentials" 오류를 나타내며 실패합니다.
-- Windows 이벤트 뷰어에서 응용 프로그램 이벤트 로그에는 이벤트 ID 6000 오류 및 메시지 “자격 증명이 잘못되었기 때문에 "contoso.com" 관리 에이전트를 실행하지 못했습니다.”가 포함됩니다.
+- Windows 이벤트 뷰어에서 애플리케이션 이벤트 로그에는 이벤트 ID 6000 오류 및 메시지 “자격 증명이 잘못되었기 때문에 "contoso.com" 관리 에이전트를 실행하지 못했습니다.”가 포함됩니다.
 
 이 문제를 해결하려면 다음을 사용하여 AD DS 사용자 계정을 업데이트합니다.
 

@@ -31,7 +31,7 @@ ms.locfileid: "34204637"
 
 애플리케이션 유형은 애플리케이션에 대한 분류이며 여러 서비스 유형으로 구성됩니다. 서비스 유형은 서비스에 대한 분류입니다. 분류에는 다양한 설정과 구성이 포함될 수 있지만 핵심 기능은 동일하게 유지됩니다 서비스 인스턴스는 같은 서비스 유형의 다른 서비스 구성 변형입니다.  
 
-애플리케이션 및 서비스의 클래스(또는 "형식")는 XML 파일(애플리케이션 매니페스트 및 서비스 매니페스트)을 통해 설명됩니다.  매니페스트는 응용 프로그램 및 서비스에 대해 설명하며 클러스터의 이미지 저장소에서 대상 응용 프로그램을 인스턴스화할 수 있는 템플릿입니다.  매니페스트는 [응용 프로그램 및 서비스 매니페스트](service-fabric-application-and-service-manifests.md)에서 자세히 다룹니다. ServiceManifest.xml 및 ApplicationManifest.xml에 대한 스키마 정의는 Service Fabric SDK 및 도구와 함께 *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*에 설치됩니다. XML 스키마는 [ServiceFabricServiceModel.xsd 스키마 설명서](service-fabric-service-model-schema.md)에 설명되어 있습니다.
+애플리케이션 및 서비스의 클래스(또는 "형식")는 XML 파일(애플리케이션 매니페스트 및 서비스 매니페스트)을 통해 설명됩니다.  매니페스트는 애플리케이션 및 서비스에 대해 설명하며 클러스터의 이미지 저장소에서 대상 애플리케이션을 인스턴스화할 수 있는 템플릿입니다.  매니페스트는 [애플리케이션 및 서비스 매니페스트](service-fabric-application-and-service-manifests.md)에서 자세히 다룹니다. ServiceManifest.xml 및 ApplicationManifest.xml에 대한 스키마 정의는 Service Fabric SDK 및 도구와 함께 *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*에 설치됩니다. XML 스키마는 [ServiceFabricServiceModel.xsd 스키마 설명서](service-fabric-service-model-schema.md)에 설명되어 있습니다.
 
 서로 다른 애플리케이션 인스턴스에 대한 코드는 동일한 Service Fabric 노드에 의해 호스팅되는 경우에도 별도의 프로세스로 실행됩니다. 뿐만 아니라 각 애플리케이션 인스턴스의 수명 주기를 독립적으로 관리(예: 업그레이드)할 수 있습니다. 다음 다이어그램에서는 애플리케이션 유형이 어떻게 서비스 유형으로 구성되고, 다시 서비스 유형이 코드, 구성 및 데이터 패키지로 구성되는지를 보여줍니다. 다이어그램을 간소화하려면 `ServiceType4`에 대한 코드/구성/데이터 패키지만을 표시하지만 각 서비스 형식은 패키지 형식의 일부 또는 모두를 포함합니다.
 

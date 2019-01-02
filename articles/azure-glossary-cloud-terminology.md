@@ -99,7 +99,7 @@ Azure 솔루션에 속한 항목입니다. 각 Azure 서비스를 사용하면 �
 [Azure Resource Manager 개요](azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
 ## <a name="resource-group"></a>리소스 그룹
-리소스 관리자에서 응용 프로그램에 관련된 리소스를 보유하는 컨테이너입니다. 리소스 그룹에는 모든 애플리케이션에 대한 리소스 또는 논리적으로 그룹화된 리소스만 포함될 수 있습니다. 사용자의 조직에 가장 적합한 내용에 따라 어떻게 리소스 그룹에 리소스를 할당할지 결정할 수 있습니다.  
+리소스 관리자에서 애플리케이션에 관련된 리소스를 보유하는 컨테이너입니다. 리소스 그룹에는 모든 애플리케이션에 대한 리소스 또는 논리적으로 그룹화된 리소스만 포함될 수 있습니다. 사용자의 조직에 가장 적합한 내용에 따라 어떻게 리소스 그룹에 리소스를 할당할지 결정할 수 있습니다.  
 [Azure Resource Manager 개요](azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
 ## <a name="arm-template"></a>리소스 관리자 템플릿

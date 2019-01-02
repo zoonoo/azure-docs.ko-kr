@@ -2208,7 +2208,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure DDoS Protection</h3>
-                                                    <p>DDoS(배포된 서비스 거부) 공격으로부터 응용 프로그램 보호</p>
+                                                    <p>DDoS(배포된 서비스 거부) 공격으로부터 애플리케이션 보호</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2774,7 +2774,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Visual Studio App Center</h3>
-                                                    <p>응용 프로그램 수명 주기를 자동화하여 더 빠르게 앱 제공</p>
+                                                    <p>애플리케이션 수명 주기를 자동화하여 더 빠르게 앱 제공</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4550,7 +4550,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure DDoS Protection</h3>
-                                                    <p>DDoS(배포된 서비스 거부) 공격으로부터 응용 프로그램 보호</p>
+                                                    <p>DDoS(배포된 서비스 거부) 공격으로부터 애플리케이션 보호</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4764,7 +4764,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Visual Studio App Center</h3>
-                                                    <p>응용 프로그램 수명 주기를 자동화하여 더 빠르게 앱 제공</p>
+                                                    <p>애플리케이션 수명 주기를 자동화하여 더 빠르게 앱 제공</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5681,7 +5681,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>Azure Stack 사용자</h3>
-                                                <p>Azure Stack에서 서비스 사용 및 응용 프로그램 빌드</p>
+                                                <p>Azure Stack에서 서비스 사용 및 애플리케이션 빌드</p>
                                             </div>
                                         </div>
                                     </div>
@@ -5723,7 +5723,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure Germany</h3>
-                                                    <p>데이터 트러스티의 추가 제어와 함께 주요 국제 표준 및 독일 규정에 따라 응용 프로그램 빌드 및 호스팅</p>
+                                                    <p>데이터 트러스티의 추가 제어와 함께 주요 국제 표준 및 독일 규정에 따라 애플리케이션 빌드 및 호스팅</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -6278,7 +6278,7 @@ Azure 아키텍처 센터에는 Microsoft Azure에서 종단 간 솔루션을 �
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure 응용 프로그램 아키텍처 가이드</h3>
+                                                    <h3>Azure 애플리케이션 아키텍처 가이드</h3>
                                                     <p>이 가이드는 확장성과 복원력이 있고 가용성이 뛰어난 Azure에서 애플리케이션을 디자인하기 위한 체계적인 방식을 제시합니다. 고객의 참여를 통해 확보한 검증된 사례를 기반으로 합니다.</p>
                                                 </div>
                                             </div>

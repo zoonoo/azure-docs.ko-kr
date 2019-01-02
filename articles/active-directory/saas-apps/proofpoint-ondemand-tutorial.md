@@ -66,13 +66,13 @@ Proofpoint on Demand의 Azure AD 통합을 구성하려면 갤러리의 Proofpoi
 
 1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
     
 1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 애플리케이션 단추][3]
 
-1. 검색 상자에서 **Proofpoint on Demand**를 입력하고, 결과 패널에서 **Proofpoint on Demand**를 선택한 다음 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에서 **Proofpoint on Demand**를 입력하고, 결과 패널에서 **Proofpoint on Demand**를 선택한 다음 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Proofpoint on Demand](./media/proofpoint-ondemand-tutorial/tutorial_proofpointondemand_addfromgallery.png)
 

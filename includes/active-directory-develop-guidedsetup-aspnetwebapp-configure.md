@@ -30,16 +30,16 @@ ms.locfileid: "49988522"
 다음을 수행하여 애플리케이션을 신속하게 등록할 수 있습니다.
 
 1. [Microsoft 응용 프로그램 등록 포털](https://apps.dev.microsoft.com/portal/register-app?appType=serverSideWebApp&appTech=aspNetWebAppOwin&step=configure)을 통해 응용 프로그램을 등록합니다.
-2. 응용 프로그램 이름과 이메일을 입력합니다.
+2. 애플리케이션 이름과 이메일을 입력합니다.
 3. [단계별 설정] 옵션이 선택되어 있는지 확인합니다.
-4. 지침에 따라 응용 프로그램에 리디렉션 URL을 추가합니다.
+4. 지침에 따라 애플리케이션에 리디렉션 URL을 추가합니다.
 
 ### <a name="option-2-advanced-mode"></a>옵션 2: 고급 모드
 
 애플리케이션을 등록하고 애플리케이션 등록 정보를 솔루션에 추가하려면 다음을 수행합니다.
 
 1. [Microsoft 응용 프로그램 등록 포털](https://apps.dev.microsoft.com/portal/register-app)로 이동하여 응용 프로그램을 등록합니다.
-2. 응용 프로그램 이름과 이메일을 입력합니다.
+2. 애플리케이션 이름과 이메일을 입력합니다.
 3. 안내식 설정 옵션이 선택 취소되어 있는지 확인합니다.
 4. `Add Platform`, `Web`을 차례로 선택합니다.
 5. Visual Studio로 돌아가 솔루션 탐색기에서 프로젝트를 선택하고 [속성] 창을 확인합니다([속성] 창이 보이지 않으면 F4 누르기).

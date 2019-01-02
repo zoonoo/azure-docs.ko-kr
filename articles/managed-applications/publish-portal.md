@@ -27,7 +27,7 @@ ms.locfileid: "47096039"
 
 관리되는 애플리케이션 정의가 포함된 .zip 파일은 URI를 통해 제공되어야 합니다. 저장소 Blob에 .zip 파일을 업로드하는 것이 좋습니다. 
 
-## <a name="create-managed-application-with-portal"></a>포털을 사용하여 관리되는 응용 프로그램 만들기
+## <a name="create-managed-application-with-portal"></a>포털을 사용하여 관리되는 애플리케이션 만들기
 
 1. 왼쪽 위 모서리에서 **+ 새로 만들기**를 선택합니다.
 
@@ -35,13 +35,13 @@ ms.locfileid: "47096039"
 
 1. **서비스 카탈로그**를 검색합니다.
 
-1. 결과에서 **서비스 카탈로그 관리되는 응용 프로그램 정의**를 찾을 때까지 스크롤합니다. 이를 선택합니다.
+1. 결과에서 **서비스 카탈로그 관리되는 애플리케이션 정의**를 찾을 때까지 스크롤 합니다. 이를 선택합니다.
 
-   ![관리되는 응용 프로그램 정의 검색](./media/publish-portal/select-managed-apps-definition.png)
+   ![관리되는 애플리케이션 정의 검색](./media/publish-portal/select-managed-apps-definition.png)
 
 1. **만들기**를 선택하여 관리 응용 프로그램 정의 만들기 프로세스를 시작합니다.
 
-   ![관리되는 응용 프로그램 정의 만들기](./media/publish-portal/create-definition.png)
+   ![관리되는 애플리케이션 정의 만들기](./media/publish-portal/create-definition.png)
 
 1. 이름, 표시 이름, 설명, 위치, 구독 및 리소스 그룹에 대한 값을 제공합니다. 패키지 파일 URI의 경우 만든 zip 파일의 경로를 제공합니다.
 
@@ -57,7 +57,7 @@ ms.locfileid: "47096039"
 
 1. 모든 값을 입력했으면 **만들기**를 선택합니다.
 
-   ![관리되는 응용 프로그램 만들기](./media/publish-portal/create-app.png)
+   ![관리되는 애플리케이션 만들기](./media/publish-portal/create-app.png)
 
 ## <a name="next-steps"></a>다음 단계
 

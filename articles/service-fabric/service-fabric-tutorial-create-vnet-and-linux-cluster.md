@@ -24,7 +24,7 @@ ms.locfileid: "48831486"
 ---
 # <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>자습서: Azure 가상 네트워크에 Linux Service Fabric 클러스터 배포
 
-이 자습서는 시리즈의 1부입니다. Azure CLI 및 템플릿을 사용하여 [Azure VNET(가상 네트워크)](../virtual-network/virtual-networks-overview.md)에 Linux Service Fabric 클러스터를 배포하는 방법을 알아봅니다. 작업이 완료되면 응용 프로그램을 배포할 수 있는, 클라우드에서 실행되는 클러스터가 생깁니다. PowerShell을 사용하여 Windows 클러스터를 만들려면 [Azure에서 보안 Windows 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 참조하세요.
+이 자습서는 시리즈의 1부입니다. Azure CLI 및 템플릿을 사용하여 [Azure VNET(가상 네트워크)](../virtual-network/virtual-networks-overview.md)에 Linux Service Fabric 클러스터를 배포하는 방법을 알아봅니다. 작업이 완료되면 애플리케이션을 배포할 수 있는, 클라우드에서 실행되는 클러스터가 생깁니다. PowerShell을 사용하여 Windows 클러스터를 만들려면 [Azure에서 보안 Windows 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 참조하세요.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -113,7 +113,7 @@ Azure Key Vault는 Azure에서 서비스 패브릭 클러스터에 대한 인증
 * 가상 네트워크 주소 공간: 10.0.0.0/16
 * Service Fabric 서브넷 주소 공간: 10.0.2.0/24
 
-다른 응용 프로그램 포트가 필요한 경우 트래픽을 허용하도록 Microsoft.Network/loadBalancers 리소스를 조정해야 합니다.
+다른 애플리케이션 포트가 필요한 경우 트래픽을 허용하도록 Microsoft.Network/loadBalancers 리소스를 조정해야 합니다.
 
 ## <a name="set-template-parameters"></a>템플릿 매개 변수 설정
 

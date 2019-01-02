@@ -41,7 +41,7 @@ ms.locfileid: "34356038"
 
 ### <a name="cause"></a>원인
 
-NSG, UDR 또는 사용자 지정 DNS가 있어 백 엔드에 대한 액세스가 차단된 경우 Application Gateway 인스턴스는 백 엔드 풀에 도달할 수 없으며 이로 인해 502 오류를 야기하는 프로브 오류가 발생합니다. NSG/UDR은 Application Gateway 서브넷이나 응용 프로그램 VM이 배포된 서브넷에 있을 수 있습니다. 마찬가지로 VNET에 사용자 지정 DNS가 있는 경우, FQDN이 백 엔드 풀 멤버에 사용되고 VNET에 대해 사용자가 구성한 DNS 서버에서 FQDN이 올바르게 확인되지 않으면 문제가 발생할 수 있습니다.
+NSG, UDR 또는 사용자 지정 DNS가 있어 백 엔드에 대한 액세스가 차단된 경우 Application Gateway 인스턴스는 백 엔드 풀에 도달할 수 없으며 이로 인해 502 오류를 야기하는 프로브 오류가 발생합니다. NSG/UDR은 Application Gateway 서브넷이나 애플리케이션 VM이 배포된 서브넷에 있을 수 있습니다. 마찬가지로 VNET에 사용자 지정 DNS가 있는 경우, FQDN이 백 엔드 풀 멤버에 사용되고 VNET에 대해 사용자가 구성한 DNS 서버에서 FQDN이 올바르게 확인되지 않으면 문제가 발생할 수 있습니다.
 
 ### <a name="solution"></a>해결 방법
 

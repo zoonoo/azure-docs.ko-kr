@@ -66,7 +66,7 @@ EasyTerritory와 Azure AD의 통합을 구성하려면 갤러리의 EasyTerritor
 
 1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
     
 1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
@@ -184,7 +184,7 @@ EasyTerritory에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **EasyTerritory**를 선택합니다.
+1. 애플리케이션 목록에서 **EasyTerritory**를 선택합니다.
 
     ![애플리케이션 목록의 EasyTerritory 링크](./media/easyterritory-tutorial/tutorial_easyterritory_app.png)  
 

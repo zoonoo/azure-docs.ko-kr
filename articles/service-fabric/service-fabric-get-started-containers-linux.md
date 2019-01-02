@@ -166,7 +166,7 @@ Linux용 Service Fabric SDK는 쉽게 애플리케이션을 만들고 컨테이�
 
 Service Fabric 컨테이너 애플리케이션을 만들려면 터미널 창을 열고 `yo azuresfcontainer`을 실행합니다. 
 
-응용 프로그램 이름(예: `mycontainer`)을 지정하고 응용 프로그램 서비스 이름(예: `myservice`)을 지정합니다.
+애플리케이션 이름(예: `mycontainer`)을 지정하고 애플리케이션 서비스 이름(예: `myservice`)을 지정합니다.
 
 이미지 이름에 컨테이너 레지스트리에서 컨테이너 이미지의 URL을 제공합니다(예: "myregistry.azurecr.io/samples/helloworldapp"). 
 
@@ -378,7 +378,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 애플리케이션에 추가하려면 다음 단계를 수행합니다.
 
-1. 기존 애플리케이션의 루트로 디렉터리를 변경합니다. 예를 들어 `MyApplication`이 Yeoman에서 만든 응용 프로그램인 경우 `cd ~/YeomanSamples/MyApplication`입니다.
+1. 기존 애플리케이션의 루트로 디렉터리를 변경합니다. 예를 들어 `MyApplication`이 Yeoman에서 만든 애플리케이션인 경우 `cd ~/YeomanSamples/MyApplication`입니다.
 2. `yo azuresfcontainer:AddService` 실행
 
 <a id="manually"></a>

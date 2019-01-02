@@ -172,7 +172,7 @@ Keeper Password Manager & Digital Vault에서 Azure AD Single Sign-On을 구성�
  
 ### <a name="creating-a-keeper-password-manager--digital-vault-test-user"></a>Keeper Password Manager & Digital Vault 테스트 사용자 만들기
 
-Keeper Password Manager & Digital Vault에 로그인할 수 있도록 Azure AD 사용자를 설정하려면 Keeper Password Manager & Digital Vault에 프로비전해야 합니다. 응용 프로그램이 JIT(Just-in-time) 사용자 프로비저닝을 지원하며 인증 후에 응용 프로그램에서 사용자가 자동으로 만들어집니다. 사용자를 수동으로 설정하려는 경우 [Keeper 지원](https://keepersecurity.com/contact.html)에 문의하세요.
+Keeper Password Manager & Digital Vault에 로그인할 수 있도록 Azure AD 사용자를 설정하려면 Keeper Password Manager & Digital Vault에 프로비전해야 합니다. 애플리케이션이 JIT(Just-in-time) 사용자 프로비저닝을 지원하며 인증 후에 애플리케이션에서 사용자가 자동으로 만들어집니다. 사용자를 수동으로 설정하려는 경우 [Keeper 지원](https://keepersecurity.com/contact.html)에 문의하세요.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 

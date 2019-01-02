@@ -43,7 +43,7 @@ Load Balancer 리소스는 만들려는 시나리오를 달성하기 위해 Azur
 
 ## <a name="why-use-standard-load-balancer"></a>표준 Load Balancer를 사용해야 하는 이유
 
-표준 Load Balancer를 사용하면 크고 복잡한 다중 영역 아키텍처에 대한 소규모 배포에 맞게 응용 프로그램의 크기를 조정하고 고가용성을 만들 수 있습니다.
+표준 Load Balancer를 사용하면 크고 복잡한 다중 영역 아키텍처에 대한 소규모 배포에 맞게 애플리케이션의 크기를 조정하고 고가용성을 만들 수 있습니다.
 
 표준 Load Balancer 및 기본 Load Balancer 간의 차이점에 대한 개요는 아래 표를 검토하세요.
 
@@ -65,7 +65,7 @@ Load Balancer 리소스는 만들려는 시나리오를 달성하기 위해 Azur
 
 ### <a name="probes"></a>상태 프로브
   
-표준 Load Balancer는 HTTPS 응용 프로그램을 정확하게 모니터링하려면 [HTTPS 상태 프로브](load-balancer-custom-probe-overview.md#httpprobe)(TLS(전송 계층 보안) 래퍼를 사용한 HTTP 프로브)에 대한 지원을 추가합니다.  
+표준 Load Balancer는 HTTPS 애플리케이션을 정확하게 모니터링하려면 [HTTPS 상태 프로브](load-balancer-custom-probe-overview.md#httpprobe)(TLS(전송 계층 보안) 래퍼를 사용한 HTTP 프로브)에 대한 지원을 추가합니다.  
 
 또한, 전체 백 엔드 풀에서 [조사](load-balancer-custom-probe-overview.md#probedown)하는 경우 표준 Load Balancer는 설정된 모든 TCP 연결이 지속되도록 허용합니다. (기본 Load Balancer는 모든 인스턴스에 대한 모든 TCP 연결을 종료합니다).
 

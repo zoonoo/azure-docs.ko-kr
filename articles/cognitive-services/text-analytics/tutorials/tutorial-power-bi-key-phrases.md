@@ -19,7 +19,7 @@ ms.locfileid: "45733332"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>자습서: Text Analytics Cognitive Service와 Power BI 통합
 
-Microsoft Power BI Desktop은 데이터에 연결하고, 데이터를 변환 및 시각화할 수 있는 무료 응용 프로그램입니다. Microsoft Azure Cognitive Services의 일부인 Text Analytics 서비스는 자연어 처리를 제공합니다. 원시 비구조 텍스트가 주어지면 이 서비스는 가장 중요한 구를 추출하고, 감정을 분석하고, 브랜드와 같은 잘 알려진 엔터티를 식별할 수 있습니다. 이러한 도구를 함께 사용하면 고객이 말하는 제품이 무엇인지, 그 제품에 대해 어떻게 생각하는지 빨리 파악할 수 있습니다.
+Microsoft Power BI Desktop은 데이터에 연결하고, 데이터를 변환 및 시각화할 수 있는 무료 애플리케이션입니다. Microsoft Azure Cognitive Services의 일부인 Text Analytics 서비스는 자연어 처리를 제공합니다. 원시 비구조 텍스트가 주어지면 이 서비스는 가장 중요한 구를 추출하고, 감정을 분석하고, 브랜드와 같은 잘 알려진 엔터티를 식별할 수 있습니다. 이러한 도구를 함께 사용하면 고객이 말하는 제품이 무엇인지, 그 제품에 대해 어떻게 생각하는지 빨리 파악할 수 있습니다.
 
 이 자습서에서 학습할 방법은 다음과 같습니다.
 

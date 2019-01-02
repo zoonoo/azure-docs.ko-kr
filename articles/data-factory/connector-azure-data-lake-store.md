@@ -63,8 +63,8 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 
 서비스 주체 인증을 사용하려면 Azure Active Directory에서 애플리케이션 엔터티를 등록한 후 이 엔터티에 Data Lake Store 액세스 권한을 부여합니다. 자세한 단계는 [서비스 간 인증](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
 
-- 응용 프로그램 UI
-- 응용 프로그램 키
+- 애플리케이션 UI
+- 애플리케이션 키
 - 테넌트 ID
 
 >[!IMPORTANT]
@@ -82,7 +82,7 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | yes |
-| servicePrincipalKey | 응용 프로그램의 키를 지정합니다. 이 필드를 `SecureString`으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 `SecureString`으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | yes |
 
 **예제:**

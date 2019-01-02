@@ -21,7 +21,7 @@ ms.locfileid: "49340361"
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-클라우드 기반 Microsoft Bing Speech API를 사용하면 개발자가 음성 명령 제어, 자연스러운 음성 대화를 사용하는 사용자 대화 및 음성 전사/받아쓰기와 같이 응용 프로그램에서 강력한 음성 사용 기능을 쉽게 만들 수 있습니다. Microsoft Speech API는 *Speech to Text* 및 *Text to Speech* 변환을 모두 지원합니다.
+클라우드 기반 Microsoft Bing Speech API를 사용하면 개발자가 음성 명령 제어, 자연스러운 음성 대화를 사용하는 사용자 대화 및 음성 전사/받아쓰기와 같이 애플리케이션에서 강력한 음성 사용 기능을 쉽게 만들 수 있습니다. Microsoft Speech API는 *Speech to Text* 및 *Text to Speech* 변환을 모두 지원합니다.
 
 - **Speech to Text**(음성 - 텍스트 변환) API는 인간의 음성을 텍스트로 변환하여 응용 프로그램을 제어하기 위한 입력 또는 명령으로 사용할 수 있습니다.
 - **Text to Speech**(텍스트 음성 변환) API는 텍스트를 오디오 스트림으로 변환하여 응용 프로그램 사용자에게 재생할 수 있습니다.

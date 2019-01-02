@@ -1,6 +1,6 @@
 ---
 title: 'Azure Backup: Linux VM의 애플리케이션 일치 백업'
-description: Azure에 Linux 가상 머신의 응용 프로그램 일치 백업을 만듭니다. 이 문서에서는 Azure 배포 Linux VM을 백업하는 스크립트 프레임워크를 구성하는 내용에 대해 설명합니다. 이 문서에는 문제 해결 정보도 포함되어 있습니다.
+description: Azure에 Linux 가상 머신의 애플리케이션 일치 백업을 만듭니다. 이 문서에서는 Azure 배포 Linux VM을 백업하는 스크립트 프레임워크를 구성하는 내용에 대해 설명합니다. 이 문서에는 문제 해결 정보도 포함되어 있습니다.
 services: backup
 author: anuragmehrotra
 manager: shivamg
@@ -16,15 +16,15 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 06/01/2018
 ms.locfileid: "34605215"
 ---
-# <a name="application-consistent-backup-of-azure-linux-vms"></a>Azure Linux VM의 응용 프로그램 일치 백업
+# <a name="application-consistent-backup-of-azure-linux-vms"></a>Azure Linux VM의 애플리케이션 일치 백업
 
-VM의 백업 스냅숏을 만들 때 응용 프로그램 일관성이란 복원 후 VM이 부팅될 때 응용 프로그램이 시작되는 것을 의미합니다. 짐작할 수 있듯이 응용 프로그램 일관성은 매우 중요합니다. Linux VM의 응용 프로그램 일관성을 보장하기 위해 Linux 사전 스크립트 및 사후 스크립트 프레임워크를 사용하여 응용 프로그램 일치 백업을 만들 수 있습니다. 사전 스크립트 및 사후 스크립트 프레임워크는 Azure Resource Manager에서 배포한 Linux 가상 머신을 지원합니다. 응용 프로그램 일관성을 위한 스크립트는 Service Manager 배포 가상 머신 또는 Windows 가상 머신을 지원하지 않습니다.
+VM의 백업 스냅숏을 만들 때 애플리케이션 일관성이란 복원 후 VM이 부팅될 때 애플리케이션이 시작되는 것을 의미합니다. 짐작할 수 있듯이 애플리케이션 일관성은 매우 중요합니다. Linux VM의 애플리케이션 일관성을 보장하기 위해 Linux 사전 스크립트 및 사후 스크립트 프레임워크를 사용하여 애플리케이션 일치 백업을 만들 수 있습니다. 사전 스크립트 및 사후 스크립트 프레임워크는 Azure Resource Manager에서 배포한 Linux 가상 머신을 지원합니다. 애플리케이션 일관성을 위한 스크립트는 Service Manager 배포 가상 머신 또는 Windows 가상 머신을 지원하지 않습니다.
 
 ## <a name="how-the-framework-works"></a>프레임워크의 작동 원리
 
-프레임워크는 VM 스냅숏을 만드는 동안 사용자 지정 사전 스크립트 및 사후 스크립트를 실행하는 옵션을 제공합니다. 사전 스크립트는 VM 스냅숏을 만들기 직전에 실행되고 사후 스크립트는 VM 스냅숏을 만든 직후에 실행됩니다. 사전 스크립트와 사후 스크립트는 VM 스냅숏을 만드는 동안 응용 프로그램과 환경을 제어하도록 유연성을 제공합니다.
+프레임워크는 VM 스냅숏을 만드는 동안 사용자 지정 사전 스크립트 및 사후 스크립트를 실행하는 옵션을 제공합니다. 사전 스크립트는 VM 스냅숏을 만들기 직전에 실행되고 사후 스크립트는 VM 스냅숏을 만든 직후에 실행됩니다. 사전 스크립트와 사후 스크립트는 VM 스냅숏을 만드는 동안 애플리케이션과 환경을 제어하도록 유연성을 제공합니다.
 
-사전 스크립트는 IO를 정지하고 메모리 내 콘텐츠를 디스크로 플러시하는 네이티브 응용 프로그램 API를 호출합니다. 이 작업을 통해 스냅숏의 응용 프로그램 일관성이 보장됩니다. 사후 스크립트는 네이티브 응용 프로그램 API를 사용하여 IO를 재개합니다. 이를 통해 응용 프로그램이 VM 스냅숏 후 정상 작동을 재개할 수 있습니다.
+사전 스크립트는 IO를 정지하고 메모리 내 콘텐츠를 디스크로 플러시하는 네이티브 애플리케이션 API를 호출합니다. 이 작업을 통해 스냅숏의 애플리케이션 일관성이 보장됩니다. 사후 스크립트는 네이티브 애플리케이션 API를 사용하여 IO를 재개합니다. 이를 통해 애플리케이션이 VM 스냅숏 후 정상 작동을 재개할 수 있습니다.
 
 ## <a name="steps-to-configure-pre-script-and-post-script"></a>사전 스크립트 및 사후 스크립트를 구성하는 단계
 
@@ -32,7 +32,7 @@ VM의 백업 스냅숏을 만들 때 응용 프로그램 일관성이란 복원 
 
 2. [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig)에서 **VMSnapshotScriptPluginConfig.json**을 다운로드하여 백업할 모든 VM의 **/etc/azure** 폴더에 복사합니다. **/etc/azure** 폴더가 없으면 만듭니다.
 
-3. 백업할 모든 VM의 응용 프로그램에 대한 사전 스크립트와 사후 스크립트를 복사합니다. VM의 어떤 위치로도 스크립트를 복사할 수 있습니다. **VMSnapshotScriptPluginConfig.json** 파일에서 스크립트 파일의 전체 경로를 업데이트해야 합니다.
+3. 백업할 모든 VM의 애플리케이션에 대한 사전 스크립트와 사후 스크립트를 복사합니다. VM의 어떤 위치로도 스크립트를 복사할 수 있습니다. **VMSnapshotScriptPluginConfig.json** 파일에서 스크립트 파일의 전체 경로를 업데이트해야 합니다.
 
 4. 다음 파일에 대해 다음과 같은 권한이 있는지 확인합니다.
 

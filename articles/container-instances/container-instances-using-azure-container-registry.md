@@ -108,7 +108,7 @@ $ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_N
 "aci-demo-25007.eastus.azurecontainer.io"
 ```
 
-컨테이너가 성공적으로 시작되면, 브라우저에서 해당 FQDN으로 이동하여 응용 프로그램이 성공적으로 실행되고 있는지 확인할 수 있습니다.
+컨테이너가 성공적으로 시작되면, 브라우저에서 해당 FQDN으로 이동하여 애플리케이션이 성공적으로 실행되고 있는지 확인할 수 있습니다.
 
 ## <a name="deploy-with-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 배포
 

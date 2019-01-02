@@ -44,7 +44,7 @@ ms.locfileid: "46993360"
 
 이 자습서를 시작하기 전에:
 
-* 할 일 앱을 배포하지 않은 경우 [Service Fabric Mesh 웹 응용 프로그램 게시](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)의 지침을 따르세요.
+* 할 일 앱을 배포하지 않은 경우 [Service Fabric Mesh 웹 애플리케이션 게시](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)의 지침을 따르세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

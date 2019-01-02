@@ -75,7 +75,7 @@ Intralinks의 Azure AD 통합을 구성하려면 갤러리의 Intralinks를 관�
 
     ![Azure AD 테스트 사용자 만들기](./media/intralinks-tutorial/tutorial_intralinks_search.png)
 
-1. 결과 창에서 **Intralinks**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **Intralinks**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/intralinks-tutorial/tutorial_intralinks_addfromgallery.png)
 
@@ -96,11 +96,11 @@ Intralinks에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Intralinks 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Intralinks 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Intralinks에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Intralinks** 응용 프로그램 통합 페이지에서 **Single sign-on**을 클릭합니다.
+1. Azure Portal의 **Intralinks** 애플리케이션 통합 페이지에서 **Single sign-on**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -195,11 +195,11 @@ Intralinks에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="add-intralinks-via-or-elite-application"></a>Intralinks VIA 또는 Elite 응용 프로그램 추가
+### <a name="add-intralinks-via-or-elite-application"></a>Intralinks VIA 또는 Elite 애플리케이션 추가
 
-Intralinks는 Deal Nexus 응용 프로그램을 제외한 모든 다른 Intralinks 응용 프로그램에 대해 동일한 SSO ID 플랫폼을 사용합니다. 따라서 다른 Intralinks 응용 프로그램을 사용하려는 경우 먼저 위에 설명된 절차를 사용하여 하나의 주 Intralinks 응용 프로그램에 대해 SSO를 구성해야 합니다.
+Intralinks는 Deal Nexus 애플리케이션을 제외한 모든 다른 Intralinks 애플리케이션에 대해 동일한 SSO ID 플랫폼을 사용합니다. 따라서 다른 Intralinks 애플리케이션을 사용하려는 경우 먼저 위에 설명된 절차를 사용하여 하나의 주 Intralinks 애플리케이션에 대해 SSO를 구성해야 합니다.
 
-그 후 아래 절차에 따라 SSO에 이 주 응용 프로그램을 활용할 수 있는 테넌트에 다른 Intralinks 응용 프로그램을 추가할 수 있습니다. 
+그 후 아래 절차에 따라 SSO에 이 주 애플리케이션을 활용할 수 있는 테넌트에 다른 Intralinks 애플리케이션을 추가할 수 있습니다. 
 
 >[!NOTE]
 >이 기능은 Azure AD 프리미엄 SKU 고객만 사용할 수 있으며 무료 또는 기본 SKU 고객은 사용할 수 없습니다.
@@ -229,7 +229,7 @@ Intralinks는 Deal Nexus 응용 프로그램을 제외한 모든 다른 Intralin
 
     b. **추가** 단추를 클릭합니다.
 
-1.  Azure Portal의 **Intralinks** 응용 프로그램 통합 페이지에서 **Single sign-on**을 클릭합니다.
+1.  Azure Portal의 **Intralinks** 애플리케이션 통합 페이지에서 **Single sign-on**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -241,7 +241,7 @@ Intralinks는 Deal Nexus 응용 프로그램을 제외한 모든 다른 Intralin
     
      ![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_intralinks_customappurl.png)
     
-     로그온 URL 텍스트 상자에 다음 패턴을 사용하여 사용자가 Intralinks 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다.
+     로그온 URL 텍스트 상자에 다음 패턴을 사용하여 사용자가 Intralinks 애플리케이션에 로그온하는 데 사용할 URL을 입력합니다.
    
     `https://<company name>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<AzureADTenantID>`
 

@@ -1,7 +1,7 @@
 ---
 title: '자습서: C#과 함께 Text Analytics 사용'
 titleSuffix: Azure Cognitive Services
-description: ASP.NET Core 웹 응용 프로그램에서 Text Analytics에 연결합니다.
+description: ASP.NET Core 웹 애플리케이션에서 Text Analytics에 연결합니다.
 services: cognitive-services
 author: ghogen
 manager: cgronlun
@@ -32,7 +32,7 @@ Text Analytics 서비스를 사용하여 다양한 정보를 추출하여 시각
 
 ## <a name="add-support-to-your-project-for-the-text-analytics-service"></a>Text Analytics 서비스에 대한 지원을 프로젝트에 추가
 
-1. TextAnalyticsDemo 라는 새 ASP.NET Core 웹 프로젝트를 만듭니다. 모든 기본 설정을 사용하여 웹 응용 프로그램(Model-View-Controller) 프로젝트 템플릿을 사용합니다. 프로젝트에 코드를 복사할 때 네임스페이스가 일치하도록 프로젝트 이름을 MyWebApplication으로 지정하는 것이 중요합니다.  이 문서의 예제에서는 MVC를 사용하지만 모든 ASP.NET 프로젝트 형식에 Text Analytics 연결된 서비스를 사용할 수 있습니다.
+1. TextAnalyticsDemo 라는 새 ASP.NET Core 웹 프로젝트를 만듭니다. 모든 기본 설정을 사용하여 웹 애플리케이션(Model-View-Controller) 프로젝트 템플릿을 사용합니다. 프로젝트에 코드를 복사할 때 네임스페이스가 일치하도록 프로젝트 이름을 MyWebApplication으로 지정하는 것이 중요합니다.  이 문서의 예제에서는 MVC를 사용하지만 모든 ASP.NET 프로젝트 형식에 Text Analytics 연결된 서비스를 사용할 수 있습니다.
 
 1. **솔루션 탐색기**에서 **연결된 서비스** 항목을 두 번 클릭합니다.
    연결된 서비스 페이지가 나타나고 프로젝트에 추가할 수 있는 서비스가 표시됩니다.

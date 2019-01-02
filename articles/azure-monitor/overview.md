@@ -21,7 +21,7 @@ ms.locfileid: "53436180"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 개요
 
-Azure Monitor는 클라우드 및 온-프레미스 환경에서 원격 분석 데이터를 수집, 분석하고 그에 따라 조치를 취하는 포괄적인 솔루션을 제공함으로써 응용 프로그램의 성능과 가용성을 최대화합니다. 응용 프로그램을 수행하는 방법과 응용 프로그램 및 종속된 리소스에 영향을 주는 문제를 사전에 식별하는 방법을 파악할 수 있습니다.
+Azure Monitor는 클라우드 및 온-프레미스 환경에서 원격 분석 데이터를 수집, 분석하고 그에 따라 조치를 취하는 포괄적인 솔루션을 제공함으로써 애플리케이션의 성능과 가용성을 최대화합니다. 애플리케이션을 수행하는 방법과 애플리케이션 및 종속된 리소스에 영향을 주는 문제를 사전에 식별하는 방법을 파악할 수 있습니다.
 
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
@@ -60,7 +60,7 @@ Azure 구독을 만들고 가상 머신이나 웹앱 같은 리소스 추가를 
 
 [진단을 사용하도록 설정](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)하고 계산 리소스에 [에이전트를 추가](platform/agent-windows.md)하여 수집하는 데이터를 실제 리소스 작업으로 확장할 수 있습니다. 이렇게 하면 리소스의 내부 작업에 대한 원격 분석 데이터가 수집되며, Windows 및 Linux 게스트 운영 체제에서 로그 및 메트릭을 수집하도록 여러 [데이터 원본](platform/agent-data-sources.md)을 구성할 수 있습니다. 
 
-[응용 프로그램에 계측 패키지를 추가](../application-insights/app-insights-azure-web-apps.md)하고 페이지 보기, 응용 프로그램 요청 및 예외를 포함하여 응용 프로그램에 대한 자세한 정보를 수집하도록 Application Insights를 설정하세요. 사용자 트래픽을 시뮬레이션하도록 [가용성 테스트](../application-insights/app-insights-monitor-web-app-availability.md)를 구성하여 응용 프로그램의 가용성을 추가로 확인하세요.
+[응용 프로그램에 계측 패키지를 추가](../application-insights/app-insights-azure-web-apps.md)하고 페이지 보기, 응용 프로그램 요청 및 예외를 포함하여 응용 프로그램에 대한 자세한 정보를 수집하도록 Application Insights를 설정하세요. 사용자 트래픽을 시뮬레이션하도록 [가용성 테스트](../application-insights/app-insights-monitor-web-app-availability.md)를 구성하여 애플리케이션의 가용성을 추가로 확인하세요.
 
 ### <a name="custom-sources"></a>사용자 지정 원본
 Azure Monitor는 [데이터 수집기 API](../azure-monitor/platform/data-collector-api.md)를 사용하여 REST 클라이언트에서 로그 데이터를 수집할 수 있습니다. 그러면 사용자 정의 모니터링 시나리오를 작성하고 다른 소스를 통해 원격 분석을 표시하지 않는 리소스까지 모니터링을 확장할 수 있습니다.
@@ -68,7 +68,7 @@ Azure Monitor는 [데이터 수집기 API](../azure-monitor/platform/data-collec
 
 
 ## <a name="insights"></a>자세한 정보
-데이터 모니터링은 계산 환경의 작업에 대한 가시성을 높일 수 있는 경우에만 유용합니다. Azure Monitor는 응용 프로그램 및 응용 프로그램에서 사용하는 다른 리소스에 대한 소중한 인사이트를 제공하는 여러 기능과 도구를 포함하고 있습니다. [Application Insights](../application-insights/app-insights-overview.md) 및 Container Insights 같은 [모니터링 솔루션](insights/solutions.md)과 여러 기능은 응용 프로그램 및 특정 Azure 서비스의 다양한 측면에 대한 심층 정보를 제공합니다. 
+데이터 모니터링은 계산 환경의 작업에 대한 가시성을 높일 수 있는 경우에만 유용합니다. Azure Monitor는 애플리케이션 및 애플리케이션에서 사용하는 다른 리소스에 대한 소중한 인사이트를 제공하는 여러 기능과 도구를 포함하고 있습니다. [Application Insights](../application-insights/app-insights-overview.md) 및 Container Insights 같은 [모니터링 솔루션](insights/solutions.md)과 여러 기능은 응용 프로그램 및 특정 Azure 서비스의 다양한 측면에 대한 심층 정보를 제공합니다. 
 
 ### <a name="application-insights"></a>Application Insights
 [Application Insights](../application-insights/app-insights-overview.md)는 클라우드 또는 온-프레미스에 호스트되는 웹 응용 프로그램의 가용성, 성능 및 사용량을 모니터링할 수 있습니다. Azure Monitor의 강력한 데이터 분석 플랫폼을 활용하여 애플리케이션의 작업에 대한 심층 인사이트를 제공하고, 사용자가 오류를 보고할 때까지 기다리지 않고 오류를 진단합니다. Application Insights는 다양한 개발 도구에 대한 연결점을 포함하고 있으며 Visual Studio와 통합되어 DevOps 프로세스를 지원합니다.
@@ -81,13 +81,13 @@ Azure Monitor는 [데이터 수집기 API](../azure-monitor/platform/data-collec
 ![컨테이너 상태](media/overview/container-insights.png)
 
 ### <a name="azure-monitor-for-vms"></a>VM용 Azure Monitor
-Azure Monitor VM 인사이트는 Windows 및 Linux VM의 성능과 상태를 분석하여 대규모 Azure VM(가상 머신)을 모니터링하며, 여기에는 VM의 여러 프로세스, 그리고 다른 리소스 및 외부 프로세스에 대한 상호 연결된 종속성이 포함됩니다. 이 솔루션에는 온-프레미스 또는 다른 클라우드 공급자에 호스트되는 VM의 성능 및 응용 프로그램 종속성 모니터링에 대한 지원이 포함됩니다.  
+Azure Monitor VM 인사이트는 Windows 및 Linux VM의 성능과 상태를 분석하여 대규모 Azure VM(가상 머신)을 모니터링하며, 여기에는 VM의 여러 프로세스, 그리고 다른 리소스 및 외부 프로세스에 대한 상호 연결된 종속성이 포함됩니다. 이 솔루션에는 온-프레미스 또는 다른 클라우드 공급자에 호스트되는 VM의 성능 및 애플리케이션 종속성 모니터링에 대한 지원이 포함됩니다.  
 
 
 ![VM 인사이트](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>모니터링 솔루션
-Azure Monitor의 [관리 솔루션](insights/solutions.md)은 특정 응용 프로그램이나 서비스를 깊이 있게 이해하도록 하는 패키지된 논리 집합입니다. 여기에는 애플리케이션 또는 서비스에 대한 모니터링 데이터를 수집하기 위한 논리, 해당 데이터를 분석하기 위한 [쿼리](log-query/log-query-overview.md) 및 시각화를 위한 [뷰](../log-analytics/log-analytics-view-designer.md)가 포함됩니다. 모니터링 솔루션은 다양한 Azure 서비스 및 다른 응용 프로그램에 대한 모니터링이 가능하도록 [Microsoft](insights/solutions-inventory.md) 및 파트너 업체에서 제공합니다.
+Azure Monitor의 [관리 솔루션](insights/solutions.md)은 특정 응용 프로그램이나 서비스를 깊이 있게 이해하도록 하는 패키지된 논리 집합입니다. 여기에는 애플리케이션 또는 서비스에 대한 모니터링 데이터를 수집하기 위한 논리, 해당 데이터를 분석하기 위한 [쿼리](log-query/log-query-overview.md) 및 시각화를 위한 [뷰](../log-analytics/log-analytics-view-designer.md)가 포함됩니다. 모니터링 솔루션은 다양한 Azure 서비스 및 다른 애플리케이션에 대한 모니터링이 가능하도록 [Microsoft](insights/solutions-inventory.md) 및 파트너 업체에서 제공합니다.
 
 ![모니터링 솔루션](media/overview/solutions-overview.png)
 

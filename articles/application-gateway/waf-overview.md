@@ -1,6 +1,6 @@
 ---
-title: Azure Application Gateway용 WAF(웹 응용 프로그램 방화벽) 소개
-description: 이 문서에서는 Application Gateway용 WAF(웹 응용 프로그램 방화벽)의 개요를 제공합니다.
+title: Azure Application Gateway용 WAF(웹 애플리케이션 방화벽) 소개
+description: 이 문서에서는 Application Gateway용 WAF(웹 애플리케이션 방화벽)의 개요를 제공합니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -66,7 +66,7 @@ Application Gateway가 제공하는 향상된 보안 기능으로는 SSL 정책 
 - **요청 크기 제한** - 사용자는 웹 응용 프로그램 방화벽을 통해 상한과 하한 사이의 범위에서 요청 크기 제한을 구성할 수 있습니다.
 - **제외 목록** - 사용자는 WAF 제외 목록을 통해 WAF 평가에서 특정 요청 특성을 생략할 수 있습니다. 일반적인 예로는 인증 또는 암호 필드에 사용되는 Active Directory 삽입 토큰이 있습니다.
 
-WAF 공개 미리 보기에 대한 자세한 내용은 [웹 응용 프로그램 방화벽 요청 크기 제한 및 제외 목록(공개 미리 보기)](application-gateway-waf-configuration.md)을 참조하세요.
+WAF 공개 미리 보기에 대한 자세한 내용은 [웹 애플리케이션 방화벽 요청 크기 제한 및 제외 목록(공개 미리 보기)](application-gateway-waf-configuration.md)을 참조하세요.
 
 
 
@@ -189,5 +189,5 @@ Application Gateway WAF는 감지된 각 위협에 대한 상세 보고를 제�
 
 ## <a name="next-steps"></a>다음 단계
 
-WAF에 대해 살펴본 후에는 [Application Gateway에서 웹 응용 프로그램 방화벽을 구성하는 방법](tutorial-restrict-web-traffic-powershell.md)을 참조하세요.
+WAF에 대해 살펴본 후에는 [Application Gateway에서 웹 애플리케이션 방화벽을 구성하는 방법](tutorial-restrict-web-traffic-powershell.md)을 참조하세요.
 

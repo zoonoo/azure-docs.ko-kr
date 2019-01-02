@@ -74,7 +74,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 | 이름 | yes | Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed 또는 WsTrust입니다. |
 | PartnerClaimType | yes | 사용할 클레임 형식 이름입니다. |
 
-다음 예제에서는 ID 경험 프레임워크가 SAML2 ID 공급자 또는 신뢰 당사자 응용 프로그램과 상호 작용할 때 **surname** 클레임이 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`에 매핑되며 OpenIdConnect 및 OAuth2와 상호 작용할 때는 `family_name`에 매핑됩니다.
+다음 예제에서는 ID 경험 프레임워크가 SAML2 ID 공급자 또는 신뢰 당사자 애플리케이션과 상호 작용할 때 **surname** 클레임이 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`에 매핑되며 OpenIdConnect 및 OAuth2와 상호 작용할 때는 `family_name`에 매핑됩니다.
 
 ```XML
 <ClaimType Id="surname">

@@ -1,5 +1,5 @@
 ---
-title: v2.0에 대한 응용 프로그램 유형 | Azure
+title: v2.0에 대한 애플리케이션 유형 | Azure
 description: Azure Active Directory v2.0 엔드포인트에서 지원되는 앱 형식 및 시나리오입니다.
 services: active-directory
 documentationcenter: ''
@@ -24,7 +24,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
 ms.locfileid: "46952055"
 ---
-# <a name="application-types-for-v20"></a>v2.0에 대한 응용 프로그램 유형
+# <a name="application-types-for-v20"></a>v2.0에 대한 애플리케이션 유형
 
 Azure AD(Azure Active Directory) v2.0 엔드포인트는 모두 업계 표준 프로토콜 [OAuth 2.0 또는 OpenID Connect](active-directory-v2-protocols.md)를 기반으로 하는 다양한 최신 앱 아키텍처에 대한 인증을 지원합니다. 이 문서에서는 기본 설정 언어 또는 플랫폼에 관계없이 Azure AD v2.0을 사용하여 빌드할 수 있는 앱 형식을 설명합니다. 이 문서의 정보는 [코드 작업을 시작](v2-overview.md#getting-started)하기 전에 개략적인 시나리오를 이해하는 데 도움이 됩니다.
 

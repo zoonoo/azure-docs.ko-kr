@@ -596,7 +596,7 @@ Azure Data Lake Store 연결된 서비스를 정의하려면 연결된 서비스
 | subscriptionId | Data Lake Store가 속하는 Azure 구독 ID입니다. | 싱크에 필요 |
 | resourceGroupName | Data Lake Store가 속하는 Azure 리소스 그룹 이름입니다. | 싱크에 필요 |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예(서비스 주체 인증의 경우) |
-| servicePrincipalKey | 응용 프로그램의 키를 지정합니다. | 예(서비스 주체 인증의 경우) |
+| servicePrincipalKey | 애플리케이션의 키를 지정합니다. | 예(서비스 주체 인증의 경우) |
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 예(서비스 주체 인증의 경우) |
 | 권한 부여 | **Data Factory 편집기**에서 **권한 부여** 단추를 클릭하고 자격 증명을 입력합니다. 그러면 자동 생성된 authorization URL이 이 속성에 할당됩니다. | 예(사용자 자격 증명 인증의 경우)|
 | sessionid | OAuth 권한 부여 세션에서 가져온 OAuth 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있으며  이 설정은 Data Factory 편집기를 사용하는 경우 자동으로 생성됩니다. | 예(사용자 자격 증명 인증의 경우) |

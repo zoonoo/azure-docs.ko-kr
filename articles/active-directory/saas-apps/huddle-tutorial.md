@@ -73,7 +73,7 @@ Huddle의 Azure AD 통합을 구성하려면 갤러리의 Huddle을 관리되는
 
     ![애플리케이션][3]
 
-4. 검색 상자에 **Huddle**을 입력합니다. 결과 패널에서 **Huddle**을 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에 **Huddle**을 입력합니다. 결과 패널에서 **Huddle**을 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/huddle-tutorial/tutorial_huddle_addfromgallery.png)
 
@@ -224,7 +224,7 @@ Azure AD 사용자가 Huddle에 로그인할 수 있도록 하려면 Huddle로 �
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Huddle에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 
     ![사용자 할당][201]
 

@@ -17,12 +17,12 @@ ms.locfileid: "49426008"
 ---
 # <a name="connecting-to-servers"></a>서버에 연결
 
-이 문서에서는 SSMS(SQL Server Management Studio) 또는 SSDT(SQL Server 데이터 도구)와 같은 데이터 모델링 및 관리 응용 프로그램을 사용하여 서버에 연결하는 방법에 대해 설명합니다. 또는 Microsoft Excel, Power BI Desktop 또는 사용자 지정 응용 프로그램과 같은 클라이언트 보고 응용 프로그램을 사용합니다. Azure Analysis Services에 연결에서 HTTPS를 사용합니다.
+이 문서에서는 SSMS(SQL Server Management Studio) 또는 SSDT(SQL Server 데이터 도구)와 같은 데이터 모델링 및 관리 애플리케이션을 사용하여 서버에 연결하는 방법에 대해 설명합니다. 또는 Microsoft Excel, Power BI Desktop 또는 사용자 지정 애플리케이션과 같은 클라이언트 보고 애플리케이션을 사용합니다. Azure Analysis Services에 연결에서 HTTPS를 사용합니다.
 
 ## <a name="client-libraries"></a>클라이언트 라이브러리
 [최신 클라이언트 라이브러리 가져오기](analysis-services-data-providers.md)
 
-종류에 관계없이 모든 서버 연결에서 Analysis Services 서버에 연결하고 인터페이스하려면 업데이트된 AMO, ADOMD.NET 및 OLEDB 클라이언트 라이브러리가 필요합니다. SSMS, SSDT, Excel 2016 및 Power BI의 경우 최신 클라이언트 라이브러리가 설치되어 있거나 월별 릴리스로 업데이트해야 합니다. 그러나 경우에 따라 응용 프로그램에 최신 버전이 없을 수 있습니다. 예를 들어 정책 지연 업데이트 또는 Office 365 업데이트가 지연된 채널에 있는 경우입니다.
+종류에 관계없이 모든 서버 연결에서 Analysis Services 서버에 연결하고 인터페이스하려면 업데이트된 AMO, ADOMD.NET 및 OLEDB 클라이언트 라이브러리가 필요합니다. SSMS, SSDT, Excel 2016 및 Power BI의 경우 최신 클라이언트 라이브러리가 설치되어 있거나 월별 릴리스로 업데이트해야 합니다. 그러나 경우에 따라 애플리케이션에 최신 버전이 없을 수 있습니다. 예를 들어 정책 지연 업데이트 또는 Office 365 업데이트가 지연된 채널에 있는 경우입니다.
 
 ## <a name="server-name"></a>서버 이름
 

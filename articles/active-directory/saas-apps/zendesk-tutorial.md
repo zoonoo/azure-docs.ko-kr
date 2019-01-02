@@ -75,7 +75,7 @@ Zendesk의 Azure AD 통합을 구성하려면 갤러리의 Zendesk를 관리되�
 
     ![이미지](./media/zendesk-tutorial/a_new_app.png)
 
-4. 검색 상자에 **Zendesk**를 입력하고 결과 패널에서 **Zendesk**를 선택한 다음 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에 **Zendesk**를 입력하고 결과 패널에서 **Zendesk**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
      ![이미지](./media/zendesk-tutorial/a_add_app.png)
 
@@ -128,7 +128,7 @@ Zendesk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Zendesk 클라이언트 지원 팀](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise)에 문의하세요.
 
-6. Zendesk에는 특정 형식의 SAML 어설션이 필요합니다. 필수 SAML 특성은 없지만 필요에 따라 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 특성을 추가할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
+6. Zendesk에는 특정 형식의 SAML 어설션이 필요합니다. 필수 SAML 특성은 없지만 필요에 따라 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 특성을 추가할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
     ![이미지](./media/zendesk-tutorial/i4-attribute.png)
 
@@ -183,7 +183,7 @@ Zendesk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![이미지](./media/zendesk-tutorial/install_extension.png)
 
-12. 브라우저에 확장을 추가한 후 **Zendesk 설정**을 클릭하면 Zendesk 응용 프로그램으로 이동됩니다. 응용 프로그램에서 관리자 자격 증명을 입력하여 Zendesk에 로그인합니다. 브라우저 확장이 응용 프로그램을 자동으로 구성하고 13단계를 자동으로 수행합니다.
+12. 브라우저에 확장을 추가한 후 **Zendesk 설정**을 클릭하면 Zendesk 애플리케이션으로 이동됩니다. 응용 프로그램에서 관리자 자격 증명을 입력하여 Zendesk에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 13단계를 자동으로 수행합니다.
 
      ![이미지](./media/zendesk-tutorial/d2_saml.png) 
 
@@ -263,7 +263,7 @@ Zendesk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Zendesk에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음, **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 
     ![이미지](./media/zendesk-tutorial/d_all_applications.png)
 

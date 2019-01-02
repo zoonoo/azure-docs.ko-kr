@@ -1,6 +1,6 @@
 ---
-title: 자습서 - Service Fabric Mesh 응용 프로그램 배포 | Microsoft Docs
-description: Visual Studio를 사용하여 백 엔드 웹 서비스와 통신하는 ASP.NET Core 웹 사이트로 구성된 Azure Service Fabric Mesh 응용 프로그램을 게시하는 방법을 알아봅니다.
+title: 자습서 - Service Fabric Mesh 애플리케이션 배포 | Microsoft Docs
+description: Visual Studio를 사용하여 백 엔드 웹 서비스와 통신하는 ASP.NET Core 웹 사이트로 구성된 Azure Service Fabric Mesh 애플리케이션을 게시하는 방법을 알아봅니다.
 services: service-fabric-mesh
 documentationcenter: .net
 author: TylerMSFT
@@ -22,7 +22,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
 ms.locfileid: "46963324"
 ---
-# <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>자습서: Service Fabric Mesh 응용 프로그램 배포
+# <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>자습서: Service Fabric Mesh 애플리케이션 배포
 
 이 자습서는 시리즈의 3부이며, Visual Studio에서 직접 Azure Service Fabric Mesh 웹 애플리케이션을 게시하는 방법을 보여 줍니다.
 

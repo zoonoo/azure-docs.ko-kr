@@ -57,13 +57,13 @@ Java용 Media Services SDK를 사용하려면 [Azure Media Services Java SDK](ht
 
 이 코드를 사용하려면 먼저 Media Services 계정을 설정해야 합니다. 계정 설정에 대한 자세한 내용은 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)(영문)을 참조하세요.
 
-이 코드는 Azure AD 서비스 주체 인증을 사용하여 Azure Media Services API에 연결됩니다. Azure AD 응용 프로그램을 만들고 코드에서 다음 변수의 값을 지정합니다.
+이 코드는 Azure AD 서비스 주체 인증을 사용하여 Azure Media Services API에 연결됩니다. Azure AD 애플리케이션을 만들고 코드에서 다음 변수의 값을 지정합니다.
 * `tenant`: Azure AD 응용 프로그램이 있는 Azure AD 테넌트 도메인
 * `clientId`: Azure AD 응용 프로그램의 클라이언트 ID
 * `clientKey`: Azure AD 응용 프로그램의 클라이언트 키
 * `restApiEndpoint`: Azure Media Services 계정의 REST API 엔드포인트
 
-Azure AD 응용 프로그램을 만들고 Azure Portal에서 위의 구성 값을 얻을 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 Azure AD 인증 시작](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad)의 **서비스 주체 인증** 섹션을 참조하세요.
+Azure AD 애플리케이션을 만들고 Azure Portal에서 위의 구성 값을 얻을 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 Azure AD 인증 시작](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad)의 **서비스 주체 인증** 섹션을 참조하세요.
 
 또한 이 코드는 로컬에 저장된 비디오 파일을 사용합니다. 업로드할 사용자 고유의 로컬 파일을 제공하도록 코드를 편집해야 합니다.
 

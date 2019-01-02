@@ -41,7 +41,7 @@ ms.locfileid: "51620700"
 ## <a name="azure-active-directory-account-sharing"></a>Azure Active Directory 계정 공유
 Azure AD는 이러한 단점을 제거하는 새로운 방법의 공유 계정 사용을 제공합니다.
 
-Azure AD 관리자는 해당 응용 프로그램에 대해 액세스 패널을 사용하고 가장 적합한 Single Sign On 형식을 선택하여 액세스할 수 있는 응용 프로그램을 구성합니다. 이러한 유형 중 하나인 *암호 기반 Single Sign-on*을 통해 Azure AD는 해당 앱의 로그온 프로세스 중에 일종의 "broker"로 작동합니다.
+Azure AD 관리자는 해당 애플리케이션에 대해 액세스 패널을 사용하고 가장 적합한 Single Sign On 형식을 선택하여 액세스할 수 있는 애플리케이션을 구성합니다. 이러한 유형 중 하나인 *암호 기반 Single Sign-on*을 통해 Azure AD는 해당 앱의 로그온 프로세스 중에 일종의 "broker"로 작동합니다.
 
 사용자가 조직 계정으로 한번에 로그인합니다. 정기적으로 데스크톱 또는 이메일에 액세스하는 데 사용하는 것과 동일한 계정입니다. 사용자는 자신에게 할당된 애플리케이션만 확인하고 액세스할 수 있습니다. 공유 계정을 사용하면 이 애플리케이션 목록이 수에 관계없이 공유 자격 증명을 포함할 수 있습니다. 최종 사용자는 자신이 사용하는 다양한 계정을 기억하거나 기록해 둘 필요가 없습니다.
 
@@ -68,7 +68,7 @@ Azure AD를 사용하여 계정을 공유하려면 다음이 필요합니다.
 * [그룹 기반 할당](groups-saasapps.md)을 사용하고 옵션을 선택하여 공유 자격 증명 입력
 * 선택 사항: Facebook, Twitter 또는 LinkedIn 등의 일부 애플리케이션에서는 [Azure AD 자동 암호 롤오버](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/)
 
-또한 MFA(Multi-Factor Authentication)로 공유 계정의 보안을 강화하고([Azure AD를 통한 응용 프로그램 보호](../authentication/concept-mfa-whichversion.md)에 대한 자세한 정보) [Azure AD 셀프 서비스](groups-self-service-management.md) 그룹 관리를 사용하여 응용 프로그램에 대한 액세스 권한이 있는 관리자에게 기능을 위임할 수 있습니다.
+또한 MFA(Multi-Factor Authentication)로 공유 계정의 보안을 강화하고([Azure AD를 통한 애플리케이션 보호](../authentication/concept-mfa-whichversion.md)에 대한 자세한 정보) [Azure AD 셀프 서비스](groups-self-service-management.md) 그룹 관리를 사용하여 애플리케이션에 대한 액세스 권한이 있는 관리자에게 기능을 위임할 수 있습니다.
 
 ## <a name="related-articles"></a>관련 문서
 * [Azure Active Directory의 응용 프로그램 관리](../manage-apps/what-is-application-management.md)

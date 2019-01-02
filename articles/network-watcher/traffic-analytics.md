@@ -302,7 +302,7 @@ AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherCo
 
 **검색**
 
-- 서브넷, 토폴로지, 서브넷으로 가는 상위 트래픽 소스, 서브넷과 대화하는 상위 불량 네트워크, 대화하는 상위 응용 프로그램 프로토콜별 트래픽 분포.
+- 서브넷, 토폴로지, 서브넷으로 가는 상위 트래픽 소스, 서브넷과 대화하는 상위 불량 네트워크, 대화하는 상위 애플리케이션 프로토콜별 트래픽 분포.
     - 어떤 서브넷이 어떤 서브넷과 대화하는지 파악. 예기치 않은 대화가 발견되면 구성을 수정할 수 있습니다.
     - 불량 네트워크가 서브넷과 대화하는 경우 불량 네트워크를 차단하도록 NSG 규칙을 구성하여 수정할 수 있습니다.
 - 서브넷 토폴로지는 활성/비활성 서브넷, 외부 연결, 활성 흐름, 서브넷의 악의적인 흐름 등과 같은 매개 변수를 선택할 수 있는 상단 리본을 보여줍니다.
@@ -315,7 +315,7 @@ AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherCo
 응용 프로그램 게이트웨이 및 Load Balancer, 토폴로지, 상위 트래픽 소스, 응용 프로그램 게이트웨이 및 Load Balancer와 대화하는 상위 불량 네트워크, 대화하는 상위 응용 프로그램 프로토콜별 트래픽 분포. 
     
  - 응용 프로그램 게이트웨이 또는 Load Balancer와 대화하는 서브넷을 알고 있음. 예기치 않은 대화가 발견되면 구성을 수정할 수 있습니다.
- - 불량 네트워크가 응용 프로그램 게이트웨이 또는 Load Balancer와 대화하는 경우 불량 네트워크를 차단하도록 NSG 규칙을 구성하여 수정할 수 있습니다. 
+ - 불량 네트워크가 애플리케이션 게이트웨이 또는 Load Balancer와 대화하는 경우 불량 네트워크를 차단하도록 NSG 규칙을 구성하여 수정할 수 있습니다. 
 
     ![subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 

@@ -40,7 +40,7 @@ ms.locfileid: "51035038"
 2. **표시** 드롭다운에서 **모든 응용 프로그램**을 선택하고 **적용**을 클릭합니다.
 3. 다음 표를 사용하여 검색 상자에 ID를 붙여 넣어 Enter 키를 눌러 각 애플리케이션 ID를 검색합니다. 검색 결과가 비어 있으면 "해결 방법" 열에 나와 있는 단계를 수행하여 서비스 주체를 다시 만들어야 합니다.
 
-| 응용 프로그램 UI | 해결 방법 |
+| 애플리케이션 UI | 해결 방법 |
 | :--- | :--- | :--- |
 | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [PowerShell을 사용하여 누락된 서비스 주체 다시 만들기](#recreate-a-missing-service-principal-with-powershell) |
 | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Microsoft.AAD 네임스페이스에 다시 등록](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |

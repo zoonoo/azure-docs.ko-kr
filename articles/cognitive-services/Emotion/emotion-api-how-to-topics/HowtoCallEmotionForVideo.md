@@ -49,7 +49,7 @@ var emotionServiceClient = new emotionServiceClient("Your subscription key");
 구독 키를 얻으려면 [구독](https://azure.microsoft.com/try/cognitive-services/)을 참조하세요.
 
 ### <a name="Step2">2단계: 서비스에 비디오 업로드 및 상태 확인</a>
-비디오용 Emotion API 호출을 수행하는 가장 기초적인 방법은 직접 비디오를 업로드하는 것입니다. 비디오 파일에서 데이터 판독과 함께 응용 프로그램/옥텟 스트림 콘텐츠 형식으로 "POST" 요청을 보내 수행합니다. 비디오의 최대 크기는 100MB입니다.
+비디오용 Emotion API 호출을 수행하는 가장 기초적인 방법은 직접 비디오를 업로드하는 것입니다. 비디오 파일에서 데이터 판독과 함께 애플리케이션/옥텟 스트림 콘텐츠 형식으로 "POST" 요청을 보내 수행합니다. 비디오의 최대 크기는 100MB입니다.
 
 클라이언트 라이브러리를 사용하면 업로드를 통한 안정화는 스트리밍 개체를 전달하여 수행됩니다. 아래 예제를 참조하세요.
 

@@ -1,6 +1,6 @@
 ---
 title: Linux 기반 HDInsight에서 Hadoop MapReduce와 함께 .NET 사용 - Azure
-description: Linux 기반 HDInsight에서 MapReduce 스트리밍을 위해 .NET 응용 프로그램을 사용하는 방법에 대해 알아보세요.
+description: Linux 기반 HDInsight에서 MapReduce 스트리밍을 위해 .NET 애플리케이션을 사용하는 방법에 대해 알아보세요.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -18,7 +18,7 @@ ms.locfileid: "53384204"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Windows 기반 HDInsight용 .NET 솔루션을 Linux 기반 HDInsight로 마이그레이션
 
-Linux 기반 HDInsight 클러스터는 [Mono(https://mono-project.com)](https://mono-project.com)를 사용하여 .NET 응용 프로그램을 실행합니다. Mono에서는 MapReduce 응용 프로그램 등의 .NET 구성 요소와 Linux 기반 HDInsight를 함께 사용할 수 있습니다. 이 문서에서는 Linux 기반 HDInsight의 Mono와 함께 사용할 수 있도록 Windows 기반 HDInsight 클러스터용으로 만든 .NET 솔루션을 마이그레이션하는 방법에 대해 배웁니다.
+Linux 기반 HDInsight 클러스터는 [Mono(https://mono-project.com)](https://mono-project.com)를 사용하여 .NET 애플리케이션을 실행합니다. Mono에서는 MapReduce 애플리케이션 등의 .NET 구성 요소와 Linux 기반 HDInsight를 함께 사용할 수 있습니다. 이 문서에서는 Linux 기반 HDInsight의 Mono와 함께 사용할 수 있도록 Windows 기반 HDInsight 클러스터용으로 만든 .NET 솔루션을 마이그레이션하는 방법에 대해 배웁니다.
 
 ## <a name="mono-compatibility-with-net"></a>Mono와 .NET의 호환성
 
@@ -31,7 +31,7 @@ Mono와 .NET 간 호환성에 대한 자세한 내용은 [Mono 호환성(http://
 
 ## <a name="automated-portability-analysis"></a>자동 이식성 분석
 
-[.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)를 사용하여 응용 프로그램과 Mono 간 비호환성 보고서를 생성할 수 있습니다. 분석기를 구성하여 응용 프로그램의 Mono 이식성을 확인하려면 다음 단계를 사용하세요.
+[.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)를 사용하여 응용 프로그램과 Mono 간 비호환성 보고서를 생성할 수 있습니다. 분석기를 구성하여 애플리케이션의 Mono 이식성을 확인하려면 다음 단계를 사용하세요.
 
 1. [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)를 설치합니다. 설치 중 사용하려는 Visual Studio의 버전을 선택합니다.
 
@@ -60,7 +60,7 @@ Mono와 .NET 간 호환성에 대한 자세한 내용은 [Mono 호환성(http://
 
 ## <a name="deploy-and-test"></a>배포 및 테스트
 
-.NET Portability Analyzer 또는 수동 분석의 권장 사항을 사용하여 솔루션을 수정한 후에는 HDInsight로 테스트해야 합니다. Linux 기반 HDInsight 클러스터에서 솔루션을 테스트할 경우 해결해야 할 사소한 문제가 발견될 수 있습니다. 테스트하는 동안 응용 프로그램에서 추가 기록을 활성화하는 것이 좋습니다.
+.NET Portability Analyzer 또는 수동 분석의 권장 사항을 사용하여 솔루션을 수정한 후에는 HDInsight로 테스트해야 합니다. Linux 기반 HDInsight 클러스터에서 솔루션을 테스트할 경우 해결해야 할 사소한 문제가 발견될 수 있습니다. 테스트하는 동안 애플리케이션에서 추가 기록을 활성화하는 것이 좋습니다.
 
 로그에 액세스하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 

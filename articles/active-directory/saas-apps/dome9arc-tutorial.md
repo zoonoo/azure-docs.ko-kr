@@ -69,7 +69,7 @@ Azure AD에 Dome9 Arc를 통합하도록 구성하려면 갤러리의 Dome9 Arc�
 
 2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
 
 3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
@@ -150,7 +150,7 @@ Dome9 Arc에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     d. **Ok**를 클릭합니다.
     
     > [!NOTE]
-    > 응용 프로그램에 대한 역할을 구성 및 설정하는 방법은 이 [링크](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management)를 참조하세요.
+    > 애플리케이션에 대한 역할을 구성 및 설정하는 방법은 이 [링크](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management)를 참조하세요.
 
 7. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 

@@ -222,7 +222,7 @@ Linux 기반 HDInsight는 원격 데스크톱 기능을 제공하지 않습니�
 
 Oozie 워크플로에서는 셸 작업이 가능합니다. 셸 작업은 운영 체제의 기본 셸을 사용하여 명령줄 명령을 실행합니다. Windows 셸에 의존하는 Oozie 워크플로가 있는 경우 Linux 셸 환경(Bash)에 의존하도록 워크플로를 다시 작성해야 합니다. Oozie와 함께 셸 작업을 사용하는 방법에 대한 자세한 내용은 [Oozie 셸 작업 확장](http://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html)을 참조하세요.
 
-C# 응용 프로그램을 사용하는 워크플로가 있는 경우 Linux 환경에서 해당 응용 프로그램의 유효성을 검사하세요. 자세한 내용은 [.NET 솔루션을 Linux 기반 HDInsight로 마이그레이션](hdinsight-hadoop-migrate-dotnet-to-linux.md)을 참조하세요.
+C# 애플리케이션을 사용하는 워크플로가 있는 경우 Linux 환경에서 해당 애플리케이션의 유효성을 검사하세요. 자세한 내용은 [.NET 솔루션을 Linux 기반 HDInsight로 마이그레이션](hdinsight-hadoop-migrate-dotnet-to-linux.md)을 참조하세요.
 
 ## <a name="storm"></a>Storm
 

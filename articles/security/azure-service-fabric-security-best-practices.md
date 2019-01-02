@@ -64,7 +64,7 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 
 다양한 기술을 사용하여 클러스터 보안을 구현하기 위해 세 가지 [시나리오](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)가 있습니다.
 
--   노드 - 노드 보안: 이 시나리오는 VM과 클러스터 내 컴퓨터 간의 통신을 보호합니다. 이러한 보안 형태는 클러스터에 가입하도록 인증된 컴퓨터만 클러스터에서 응용 프로그램 및 서비스를 호스팅할 수 있습니다.
+-   노드 - 노드 보안: 이 시나리오는 VM과 클러스터 내 컴퓨터 간의 통신을 보호합니다. 이러한 보안 형태는 클러스터에 가입하도록 인증된 컴퓨터만 클러스터에서 애플리케이션 및 서비스를 호스팅할 수 있습니다.
 이 시나리오에서 Azure에서 실행되는 클러스터 또는 Windows에서 실행되는 독립 실행형 클러스터는 Windows Server 컴퓨터에 대해 [인증서 보안](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) 또는 [Windows 보안](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security)을 사용할 수 있습니다.
 -   클라이언트 - 노드 보안: 이 시나리오는 클라이언트를 인증하고 Service Fabric 클라이언트와 클러스터의 개별 노드 간 통신을 보호합니다.
 -   역할 기반 액세스 제어(RBAC): 이 시나리오는 클러스터에 액세스하는 각 관리자와 사용자 클라이언트 역할에 대해 별도의 ID(인증서, Azure AD 인증서 등)를 사용합니다. 클러스터를 만들 때 역할 ID를 지정합니다.
@@ -102,7 +102,7 @@ Azure Resource Manager 템플릿을 사용합니다.
 X.509 인증서를 사용하는 방법에 대한 자세한 내용은 [Service Fabric 클러스터에 대한 인증서 추가 또는 제거](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-update-certs-azure)를 참조하세요.
 
 ## <a name="configure-security-policies"></a>보안 정책 구성
-Service Fabric은 애플리케이션에서 사용되는 리소스를 보호합니다. 파일, 디렉터리 및 인증서와 같은 리소스는 응용 프로그램을 배포할 때 사용자 계정에 저장됩니다. 이 기능은 공유된 호스팅 환경에서도 서로 더욱 안전하게 응용 프로그램이 실행되도록 합니다.
+Service Fabric은 애플리케이션에서 사용되는 리소스를 보호합니다. 파일, 디렉터리 및 인증서와 같은 리소스는 애플리케이션을 배포할 때 사용자 계정에 저장됩니다. 이 기능은 공유된 호스팅 환경에서도 서로 더욱 안전하게 애플리케이션이 실행되도록 합니다.
 
 -   Active Directory 도메인 그룹 또는 사용자 사용: Active Directory 사용자 또는 그룹 계정에 대한 자격 증명에서 서비스를 실행합니다. 도메인 내의 Active Directory 온-프레미스를 사용하고 Azure Active Directory는 사용하지 않습니다. 도메인 사용자 또는 그룹을 사용하여 권한이 부여된 도메인의 다른 리소스를 액세스합니다. 예를 들어, 파일 공유와 같은 리소스입니다.
 
@@ -118,7 +118,7 @@ Service Fabric에서 보안 정책을 사용하는 방법에 대한 자세한 �
 -   일련의 행위자에 걸친 상태를 쿼리하는 등 외부 구성 요소에서 중요한 상호 작용을 필요로 하지 않는 단일 스레드 개체로 작업하려고 합니다.
 -   행위자 인스턴스는 I/O 작업을 실행하여 예측할 수 없는 지연으로 호출자를 차단하지 않습니다.
 
-Service Fabric의 경우 행위자는 Reliable Actors 응용 프로그램 프레임워크에서 구현됩니다. 이 프레임워크는 행위자 패턴을 기반으로 하며 [Service Fabric Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction) 위에 구축됩니다. 작성한 신뢰할 수 있는 서비스는 각각 분할된 상태 저장 신뢰할 수 있는 서비스입니다.
+Service Fabric의 경우 행위자는 Reliable Actors 애플리케이션 프레임워크에서 구현됩니다. 이 프레임워크는 행위자 패턴을 기반으로 하며 [Service Fabric Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction) 위에 구축됩니다. 작성한 신뢰할 수 있는 서비스는 각각 분할된 상태 저장 신뢰할 수 있는 서비스입니다.
 
 .NET 개체가 .NET 형식의 인스턴스인 것과 동일하게 모든 행위자는 행위자 형식의 인스턴스로 정의됩니다. 예를 들어, 계산기의 기능을 구현하는 **행위자 형식**에는 클러스터 전체에 걸쳐 다양한 노드에 배포되는 해당 형식의 여러 행위자가 있을 수 있습니다. 분산된 각각의 행위자는 행위자 식별자에 의해 고유하게 특징 지어집니다.
 
@@ -129,7 +129,7 @@ Service Fabric의 경우 행위자는 Reliable Actors 응용 프로그램 프레
 서버 인증 프로세스는 관리 클라이언트에 대해 클러스터 관리 끝점을 [인증](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)합니다. 그러면 관리 클라이언트가 실제 클러스터와 통신하고 있음을 인식합니다. 이 인증은 HTTPS 관리 API 및 HTTPS를 통한 Service Fabric Explorer용 [SSL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)도 제공합니다.
 클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. 인증 기관으로부터 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
 
-응용 프로그램에 대해 SSL을 구성하려면 먼저 CA에서 서명한 SSL 인증서를 얻어야 합니다. CA가 SSL 보안 목적을 위해 인증서를 발급하는 신뢰할 수 있는 타사입니다. SSL 인증서가 아직 없는 경우 SSL 인증서를 판매하는 회사에서 구입해야 합니다.
+애플리케이션에 대해 SSL을 구성하려면 먼저 CA에서 서명한 SSL 인증서를 얻어야 합니다. CA가 SSL 보안 목적을 위해 인증서를 발급하는 신뢰할 수 있는 타사입니다. SSL 인증서가 아직 없는 경우 SSL 인증서를 판매하는 회사에서 구입해야 합니다.
 
 인증서는 Azure의 SSL 인증서에 대한 다음 요구 사항을 충족해야 합니다.
 -   인증서에 개인 키가 포함되어 있어야 합니다.
@@ -153,14 +153,14 @@ SSL 인증서 사용에 대한 자세한 내용은 [Azure 애플리케이션에 
 ## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>Azure Service Fabric을 통한 네트워크 격리 및 보안 사용
 [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)을 샘플로 사용하여 3 nodetype 보안 클러스터를 설정합니다. 템플릿 및 네트워크 보안 그룹을 사용하여 인바운드 및 아웃바운드 네트워크 트래픽을 제어합니다.
 
-템플릿에는 각 가상 머신 확장 집합(VMSS)에 대한 NSG가 있으며, 이 집합을 드나드는 트래픽을 제어하는 데 사용됩니다. 규칙은 기본적으로 템플릿에서 지정된 시스템 서비스와 응용 프로그램 포트에 필요한 모든 트래픽을 허용하도록 구성됩니다. 이러한 규칙을 검토하고 응용 프로그램에 대한 새 규칙을 추가하는 등 필요에 따라 변경합니다.
+템플릿에는 각 가상 머신 확장 집합(VMSS)에 대한 NSG가 있으며, 이 집합을 드나드는 트래픽을 제어하는 데 사용됩니다. 규칙은 기본적으로 템플릿에서 지정된 시스템 서비스와 애플리케이션 포트에 필요한 모든 트래픽을 허용하도록 구성됩니다. 이러한 규칙을 검토하고 애플리케이션에 대한 새 규칙을 추가하는 등 필요에 따라 변경합니다.
 
 자세한 내용은 [Azure Service Fabric의 일반적인 네트워킹 시나리오](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking)를 참조하세요.
 
 ## <a name="set-up-azure-key-vault-for-security"></a>보안을 위해 Azure Key Vault 설정
-Service Fabric은 인증서를 사용하여 클러스터와 해당 응용 프로그램에 인증 및 암호화를 제공합니다.
+Service Fabric은 인증서를 사용하여 클러스터와 해당 애플리케이션에 인증 및 암호화를 제공합니다.
 
-Service Fabric은 클러스터에 보안을 적용하고 응용 프로그램 보안 기능을 제공하기 위해 X.509 인증서를 사용합니다. Azure Key Vault는 Azure의 Service Fabric 클러스터에 대한 [인증서를 관리](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-update-certs-azure)하는 데 사용됩니다. 클러스터를 만드는 Azure 리소스 공급자는 키 자격 증명 모음에서 인증서를 가져옵니다. 그런 다음 공급자는 Azure에서 클러스터를 배포할 때 인증서를 VM에 설치합니다.
+Service Fabric은 클러스터에 보안을 적용하고 애플리케이션 보안 기능을 제공하기 위해 X.509 인증서를 사용합니다. Azure Key Vault는 Azure의 Service Fabric 클러스터에 대한 [인증서를 관리](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-update-certs-azure)하는 데 사용됩니다. 클러스터를 만드는 Azure 리소스 공급자는 키 자격 증명 모음에서 인증서를 가져옵니다. 그런 다음 공급자는 Azure에서 클러스터를 배포할 때 인증서를 VM에 설치합니다.
 
 인증서 관계는 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), Service Fabric 클러스터, 인증서를 사용하는 리소스 공급자 사이에 존재합니다. 클러스터가 생성될 때 인증서 관계에 관한 정보는 키 자격 증명 모음에 저장됩니다.
 

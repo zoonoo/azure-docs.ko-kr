@@ -1,6 +1,6 @@
 ---
-title: 응용 프로그램 큐레이션을 위한 필수 구성 요소 | Microsoft Docs
-description: 응용 프로그램 큐레이션을 위한 필수 구성 요소 목록을 제공합니다.
+title: 애플리케이션 큐레이션을 위한 필수 구성 요소 | Microsoft Docs
+description: 애플리케이션 큐레이션을 위한 필수 구성 요소 목록을 제공합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/05/2018
 ms.locfileid: "48808225"
 ---
-<a name="prerequisites-for-application-curation"></a>응용 프로그램 큐레이션을 위한 필수 구성 요소
+<a name="prerequisites-for-application-curation"></a>애플리케이션 큐레이션을 위한 필수 구성 요소
 ===============================
 
 Microsoft에서는 다음 요구 사항이 충족되었는지 유효성을 검사하기 위해 특정 검토를 요구하고 있습니다.

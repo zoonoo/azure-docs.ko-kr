@@ -20,7 +20,7 @@ Azure 파일은 파일 공유의 공유 스냅숏을 생성하는 기능을 제�
 
 ## <a name="when-to-use-share-snapshots"></a>공유 스냅숏을 사용하는 경우
 
-### <a name="protection-against-application-error-and-data-corruption"></a>응용 프로그램 오류 및 데이터 손상으로부터 보호
+### <a name="protection-against-application-error-and-data-corruption"></a>애플리케이션 오류 및 데이터 손상으로부터 보호
 파일 공유를 사용하는 애플리케이션은 쓰기, 읽기, 저장, 전송 및 처리 등의 작업을 수행합니다. 애플리케이션이 잘못 구성되거나 의도하지 않은 버그가 발생하여 일부 블록을 실수로 덮어쓰거나 손상시킬 수 있습니다. 이러한 시나리오를 방지하기 위해 새 애플리케이션 코드를 배포하기 전에 공유 스냅숏을 생성할 수 있습니다. 새 배포에서 버그 또는 애플리케이션 오류가 발생하면 해당 파일 공유에 있는 이전 버전의 데이터로 돌아갈 수 있습니다. 
 
 ### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>실수로 삭제 또는 의도하지 않은 변경 방지

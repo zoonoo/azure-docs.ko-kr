@@ -27,7 +27,7 @@ SQL Data Warehouse는 규모 확장 아키텍처를 활용하여 여러 노드�
 
 ![SQL Data Warehouse 아키텍처](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-SQL Data Warehouse는 노드 기반 아키텍처를 사용합니다. 응용 프로그램은 데이터 웨어하우스의 단일 입력 지점인 제어 노드에 연결하고 T-SQL 명령을 보냅니다. 제어 노드는 병렬 처리를 위해 쿼리를 최적화하는 MPP 엔진을 실행한 다음 연산을 계산 노드에 전달하여 병렬로 처리되도록 합니다. 계산 노드는 모든 사용자 데이터를 Azure Storage에 저장하고 병렬 쿼리를 실행합니다. DMS(Data Movement Service)는 쿼리를 병렬로 실행하고 정확한 결과를 반환하기 위해 필요할 때 노드에서 데이터를 이동시키는 시스템 수준의 내부 서비스입니다. 
+SQL Data Warehouse는 노드 기반 아키텍처를 사용합니다. 애플리케이션은 데이터 웨어하우스의 단일 입력 지점인 제어 노드에 연결하고 T-SQL 명령을 보냅니다. 제어 노드는 병렬 처리를 위해 쿼리를 최적화하는 MPP 엔진을 실행한 다음 연산을 계산 노드에 전달하여 병렬로 처리되도록 합니다. 계산 노드는 모든 사용자 데이터를 Azure Storage에 저장하고 병렬 쿼리를 실행합니다. DMS(Data Movement Service)는 쿼리를 병렬로 실행하고 정확한 결과를 반환하기 위해 필요할 때 노드에서 데이터를 이동시키는 시스템 수준의 내부 서비스입니다. 
 
 분리된 저장소 및 계산을 사용하여 SQL Data Warehouse는 다음을 수행할 수 있습니다.
 

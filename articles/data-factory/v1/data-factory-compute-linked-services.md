@@ -356,8 +356,8 @@ Data Lake Analytics 연결된 서비스에 대해 서비스 주체 또는 사용
 
 #### <a name="service-principal-authentication-recommended"></a>서비스 주체 인증(권장)
 서비스 주체 인증을 사용하려면 Azure AD(Azure Active Directory)에서 애플리케이션 엔터티를 등록합니다. 그런 다음, Data Lake Store에 Azure AD 액세스를 부여합니다. 자세한 단계는 [서비스 간 인증](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
-* 응용 프로그램 UI
-* 응용 프로그램 키 
+* 애플리케이션 UI
+* 애플리케이션 키 
 * 테넌트 ID
 
 다음 속성을 지정하여 서비스 주체 인증을 사용합니다.

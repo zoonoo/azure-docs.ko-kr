@@ -55,7 +55,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 * **그룹 관리 서비스 계정**을 사용하려는 경우 Azure AD Connect 서버가 Windows Server 2012 이상이어야 합니다.
 * Azure AD Connect 서버에는 [.NET Framework 4.5.1](#component-prerequisites) 이상 및 [Microsoft PowerShell 3.0](#component-prerequisites) 이상이 설치되어 있어야 합니다.
 * Azure AD Connect 서버에는 PowerShell 기록 그룹 정책을 사용하도록 설정되면 안됩니다.
-* Active Directory Federation Services를 배포하는 경우 AD FS 또는 웹 응용 프로그램 프록시가 설치될 서버는 Windows Server 2012 R2 이상이어야 합니다. [Windows 원격 관리](#windows-remote-management) 를 사용할 수 있어야 합니다.
+* Active Directory Federation Services를 배포하는 경우 AD FS 또는 웹 애플리케이션 프록시가 설치될 서버는 Windows Server 2012 R2 이상이어야 합니다. [Windows 원격 관리](#windows-remote-management) 를 사용할 수 있어야 합니다.
 * Active Directory Federation Services를 배포하고 있는 경우 [SSL 인증서](#ssl-certificate-requirements)가 필요합니다.
 * Active Directory Federation Services를 배포하고 있는 경우 [이름 확인](#name-resolution-for-federation-servers)을 구성해야 합니다.
 * 전역 관리자가 MFA를 사용하도록 설정한 경우 URL **https://secure.aadcdn.microsoftonline-p.com**이 신뢰할 수 있는 사이트 목록에 있어야 합니다. MFA 챌린지를 묻는 메시지가 표시되기 전에 이 사이트를 추가하지 않은 경우 신뢰할 수 있는 사이트 목록에 추가하라는 메시지가 표시됩니다. Internet Explorer를 사용하여 신뢰할 수 있는 사이트에 추가할 수 있습니다.
@@ -146,7 +146,7 @@ Azure AD Connect는 Microsoft PowerShell 및 .NET Framework 4.5.1에 따라 다�
 
 ## <a name="prerequisites-for-federation-installation-and-configuration"></a>페더레이션 설치 및 구성을 위한 필수 조건
 ### <a name="windows-remote-management"></a>Windows 원격 관리
-Azure AD Connect를 사용하여 웹 응용 프로그램 프록시 또는 Active Directory Federation Services를 배포하는 경우 아래 요구 사항을 확인합니다.
+Azure AD Connect를 사용하여 웹 애플리케이션 프록시 또는 Active Directory Federation Services를 배포하는 경우 아래 요구 사항을 확인합니다.
 
 * 대상 서버가 도메인에 가입된 경우 Windows 원격 관리가 사용되는지 확인합니다.
   * 관리자 권한 PSH 명령 창에서 `Enable-PSRemoting –force`
@@ -162,10 +162,10 @@ Azure AD Connect를 사용하여 웹 응용 프로그램 프록시 또는 Active
       * 서버 관리자 모든 서버 탭에서 원격 PSH 연결 유효성을 검사하려면, WAP 서버를 마우스 오른쪽 단추로 클릭하고 Windows PowerShell을 선택합니다. 원격 PowerShell 세션을 설정할 수 있도록 원격 PSH 세션을 열어야 합니다.
 
 ### <a name="ssl-certificate-requirements"></a>SSL 인증서 요구 사항
-* AD FS 팜의 모든 노드 및 모든 웹 응용 프로그램 프록시 서버에서 동일한 SSL 인증서를 사용하는 것이 가장 좋습니다.
+* AD FS 팜의 모든 노드 및 모든 웹 애플리케이션 프록시 서버에서 동일한 SSL 인증서를 사용하는 것이 가장 좋습니다.
 * 인증서는 X509 인증서여야 합니다.
 * 테스트 랩 환경의 페더레이션 서버에서 자체 서명된 인증서를 사용할 수 있습니다. 그러나 프로덕션 환경에서는 공용 CA에서 인증서를 가져오는 것이 좋습니다.
-  * 공개적으로 신뢰할 수 없는 인증서를 사용하면 각 웹 응용 프로그램 프록시 서버에 설치된 인증서가 모든 페더레이션 서버 및 로컬 서버에서 신뢰할 수 있는 지 확인합니다.
+  * 공개적으로 신뢰할 수 없는 인증서를 사용하면 각 웹 애플리케이션 프록시 서버에 설치된 인증서가 모든 페더레이션 서버 및 로컬 서버에서 신뢰할 수 있는 지 확인합니다.
 * 인증서의 ID는 페더레이션 서비스 이름(예: sts.contoso.com)과 일치해야 합니다.
   * ID는 dNSName 유형의 주체 대체 이름(SAN)의 확장 유형이거나, SAN 항목이 없는 경우 공통 이름으로 지정된 주제 이름입니다.  
   * 그 중 하나가 페더레이션 서비스 이름과 일치하는 경우 여러 SAN 항목이 인증서에 있을 수 있습니다.
@@ -175,8 +175,8 @@ Azure AD Connect를 사용하여 웹 응용 프로그램 프록시 또는 Active
 
 ### <a name="name-resolution-for-federation-servers"></a>페더레이션 서버에 대한 이름 확인
 * 인트라넷(내부 DNS 서버) 및 엑스트라넷(도메인 등록 기관을 통한 공용 DNS) 모두의 AD FS 페더레이션 서비스 이름(예: sts.contoso.com)에 대한 DNS 레코드를 설정합니다. 인트라넷 DNS 레코드의 경우, CNAME 레코드가 아닌 A 레코드를 사용해야 합니다. 도메인 연결된 컴퓨터에서 제대로 작동 하려면 windows 인증이 필요합니다.
-* 둘 이상의 AD FS 서버 또는 웹 응용 프로그램 프록시 서버를 배포하는 경우 사용자 부하 분산 장치를 구성하고 AD FS 페더레이션 서비스 이름(예: sts.contoso.com)에 대한 DNS 레코드가 부하 분산 장치를 가리키는지 확인합니다.
-* Windows 통합된 인증이 인트라넷에서 Internet Explorer를 사용하여 브라우저 응용 프로그램을 작동하려면 AD FS 페더레이션 서비스 이름(예: sts.contoso.com)이 IE에서 인트라넷 영역에 추가되었는지를 확인합니다. 그룹 정책을 통해 제어되고 모든 사용자 도메인에 가입된 컴퓨터에 배포될 수 있습니다.
+* 둘 이상의 AD FS 서버 또는 웹 애플리케이션 프록시 서버를 배포하는 경우 사용자 부하 분산 장치를 구성하고 AD FS 페더레이션 서비스 이름(예: sts.contoso.com)에 대한 DNS 레코드가 부하 분산 장치를 가리키는지 확인합니다.
+* Windows 통합된 인증이 인트라넷에서 Internet Explorer를 사용하여 브라우저 애플리케이션을 작동하려면 AD FS 페더레이션 서비스 이름(예: sts.contoso.com)이 IE에서 인트라넷 영역에 추가되었는지를 확인합니다. 그룹 정책을 통해 제어되고 모든 사용자 도메인에 가입된 컴퓨터에 배포될 수 있습니다.
 
 ## <a name="azure-ad-connect-supporting-components"></a>Azure AD Connect 지원 구성 요소
 다음은 Azure AD Connect를 설치한 서버에서 Azure AD Connect가 설치되는 데 필요한 구성 요소의 목록입니다. 이 목록은 기본 Express 설치에 해당합니다. 동기화 서비스 설치 페이지에서 다른 SQL Server를 사용하도록 선택하는 경우 SQL Express LocalDB는 로컬에 설치되지 않습니다.
@@ -200,7 +200,7 @@ Azure AD Connect를 사용하여 웹 응용 프로그램 프록시 또는 Active
 | 300,000–600,000개 |1.6GHz |32GB |450GB |
 | 600,000개 초과 |1.6GHz |32GB |500GB |
 
-AD FS 또는 웹 응용 프로그램 서버를 실행하는 컴퓨터에 대한 최소 요구 사항은 다음과 같습니다.
+AD FS 또는 웹 애플리케이션 서버를 실행하는 컴퓨터에 대한 최소 요구 사항은 다음과 같습니다.
 
 * CPU: 듀얼 코어 1.6GHz 이상
 * 메모리: 2GB 이상

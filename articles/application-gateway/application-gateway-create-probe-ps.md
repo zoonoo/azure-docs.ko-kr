@@ -29,14 +29,14 @@ ms.locfileid: "33202034"
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure 클래식 PowerShell](application-gateway-create-probe-classic-ps.md)
 
-이 문서에서는 PowerShell을 사용하여 기존 응용 프로그램 게이트웨이에 사용자 지정 프로브를 추가합니다. 사용자 지정 프로브는 특정 상태 확인 페이지를 사용하는 응용 프로그램이나 기본 웹 응용 프로그램에서 성공적으로 응답을 제공하지 않는 응용 프로그램에 유용합니다.
+이 문서에서는 PowerShell을 사용하여 기존 애플리케이션 게이트웨이에 사용자 지정 프로브를 추가합니다. 사용자 지정 프로브는 특정 상태 확인 페이지를 사용하는 애플리케이션이나 기본 웹 애플리케이션에서 성공적으로 응답을 제공하지 않는 애플리케이션에 유용합니다.
 
 > [!NOTE]
 > Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다.  이 문서에서는 Resource Manager 배포 모델 사용을 설명하며 Microsoft에서는 대부분의 새로운 배포에 대해 [클래식 배포 모델](application-gateway-create-probe-classic-ps.md) 대신 이 모델을 사용하도록 권장합니다.
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-an-application-gateway-with-a-custom-probe"></a>사용자 지정 프로브를 사용하여 응용 프로그램 게이트웨이 만들기
+## <a name="create-an-application-gateway-with-a-custom-probe"></a>사용자 지정 프로브를 사용하여 애플리케이션 게이트웨이 만들기
 
 ### <a name="sign-in-and-create-resource-group"></a>로그인하여 리소스 그룹 만들기
 
@@ -70,7 +70,7 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 ### <a name="create-a-virtual-network-and-a-subnet"></a>가상 네트워크 및 서브넷 만들기
 
-다음 예제에서는 응용 프로그램 게이트웨이에 대한 가상 네트워크와 서브넷을 만듭니다. 응용 프로그램 게이트웨이에는 자체 서브넷이 필요합니다. 이러한 이유로 응용 프로그램 게이트웨이를 위해 만드는 서브넷은 VNET의 주소 공간보다 작아야 다른 서브넷을 만들고 사용할 수 있습니다.
+다음 예제에서는 애플리케이션 게이트웨이에 대한 가상 네트워크와 서브넷을 만듭니다. 애플리케이션 게이트웨이에는 자체 서브넷이 필요합니다. 이러한 이유로 애플리케이션 게이트웨이를 위해 만드는 서브넷은 VNET의 주소 공간보다 작아야 다른 서브넷을 만들고 사용할 수 있습니다.
 
 ```powershell
 # Assign the address range 10.0.0.0/24 to a subnet variable to be used to create a virtual network.
@@ -85,7 +85,7 @@ $subnet = $vnet.Subnets[0]
 
 ### <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>프런트 엔드 구성에 대한 공용 IP 주소 만들기
 
-미국 서부 지역의 리소스 그룹 **appgw-rg**에 공용 IP 리소스 **publicIP01**을 만듭니다. 이 예제에서는 응용 프로그램 게이트웨이의 프런트 엔드 IP 주소에 공용 IP 주소를 사용합니다.  응용 프로그램 게이트웨이를 사용하려면 공용 IP 주소에 동적으로 만들어진 DNS 이름이 있어야 하므로 공용 IP 주소를 만드는 동안에는 `-DomainNameLabel`을 지정할 수 없습니다.
+미국 서부 지역의 리소스 그룹 **appgw-rg**에 공용 IP 리소스 **publicIP01**을 만듭니다. 이 예제에서는 애플리케이션 게이트웨이의 프런트 엔드 IP 주소에 공용 IP 주소를 사용합니다.  애플리케이션 게이트웨이를 사용하려면 공용 IP 주소에 동적으로 만들어진 DNS 이름이 있어야 하므로 공용 IP 주소를 만드는 동안에는 `-DomainNameLabel`을 지정할 수 없습니다.
 
 ```powershell
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location 'West US' -AllocationMethod Dynamic
@@ -93,15 +93,15 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name publicI
 
 ### <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
-Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다. 다음 예제에서는 응용 프로그램 게이트웨이 리소스에 필요한 구성 항목을 만듭니다.
+Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다. 다음 예제에서는 애플리케이션 게이트웨이 리소스에 필요한 구성 항목을 만듭니다.
 
 | **구성 요소** | **설명** |
 |---|---|
-| **게이트웨이 IP 구성** | 응용 프로그램 게이트웨이에 대한 IP 구성입니다.|
-| **백 엔드 풀** | 웹 응용 프로그램을 호스팅하는 응용 프로그램 서버에 대한 IP 주소, FQDN 또는 NIC의 풀입니다.|
+| **게이트웨이 IP 구성** | 애플리케이션 게이트웨이에 대한 IP 구성입니다.|
+| **백 엔드 풀** | 웹 애플리케이션을 호스팅하는 애플리케이션 서버에 대한 IP 주소, FQDN 또는 NIC의 풀입니다.|
 | **상태 프로브** | 백 엔드 풀 멤버의 상태를 모니터링하는 데 사용되는 사용자 지정 프로브입니다|
 | **HTTP 설정** | 포트, 프로토콜, 쿠키 기반 선호도, 프로브 및 시간 제한을 포함한 설정의 모음입니다.  이러한 설정은 트래픽이 백 엔드 풀 멤버로 라우팅되는 방법을 결정합니다.|
-| **프런트 엔드 포트** | 응용 프로그램 게이트웨이에서 트래픽을 수신 대기하는 포트입니다.|
+| **프런트 엔드 포트** | 애플리케이션 게이트웨이에서 트래픽을 수신 대기하는 포트입니다.|
 | **수신기** | 프로토콜, 프론트 엔드 IP 구성 및 프론트 엔드 포트의 조합이며, 들어오는 요청을 수신 대기하는 것입니다.
 |**규칙**| HTTP 설정에 따라 트래픽을 적절한 백 엔드로 라우팅합니다.|
 
@@ -139,7 +139,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 
 ## <a name="add-a-probe-to-an-existing-application-gateway"></a>기존 애플리케이션 게이트웨이에 프로브 추가
 
-다음 코드 조각에서는 기존 응용 프로그램 게이트웨이에 프로브를 추가합니다.
+다음 코드 조각에서는 기존 애플리케이션 게이트웨이에 프로브를 추가합니다.
 
 ```powershell
 # Load the application gateway resource into a PowerShell variable by using Get-AzureRmApplicationGateway.
@@ -157,7 +157,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 
 ## <a name="remove-a-probe-from-an-existing-application-gateway"></a>기존 애플리케이션 게이트웨이에서 프로브 제거
 
-다음 코드 조각에서는 기존 응용 프로그램 게이트웨이에서 프로브를 제거합니다.
+다음 코드 조각에서는 기존 애플리케이션 게이트웨이에서 프로브를 제거합니다.
 
 ```powershell
 # Load the application gateway resource into a PowerShell variable by using Get-AzureRmApplicationGateway.

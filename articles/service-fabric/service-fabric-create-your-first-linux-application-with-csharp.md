@@ -1,6 +1,6 @@
 ---
 title: C#을 사용하여 Linux에서 Azure Service Fabric 앱 처음 만들기 | Microsoft Docs
-description: C# 및 .NET Core 2.0을 사용하여 Service Fabric 응용 프로그램을 만들고 배포하는 방법을 알아봅니다.
+description: C# 및 .NET Core 2.0을 사용하여 Service Fabric 애플리케이션을 만들고 배포하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: csharp
 author: mani-ramaswamy
@@ -37,7 +37,7 @@ Service Fabric은 .NET Core 및 Java 모두에서 Linux에 대한 서비스를 �
 또한 [Service Fabric CLI](service-fabric-cli.md)를 설치합니다.
 
 ### <a name="install-and-set-up-the-generators-for-c"></a>C#용 생성기 설치 및 설정
-Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Service Fabric 응용 프로그램을 만들 수 있는 스캐폴딩 도구를 제공합니다. C#용 Service Fabric Yeoman 템플릿 생성기를 설정하려면 이러한 단계를 수행합니다.
+Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Service Fabric 애플리케이션을 만들 수 있는 스캐폴딩 도구를 제공합니다. C#용 Service Fabric Yeoman 템플릿 생성기를 설정하려면 이러한 단계를 수행합니다.
 
 1. 컴퓨터에서 Node.js 및 NPM 설치
 
@@ -50,7 +50,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
   ```bash
   npm install -g yo
   ```
-3. NPM에서 Service Fabric Yeoman C# 응용 프로그램 생성기 설치
+3. NPM에서 Service Fabric Yeoman C# 애플리케이션 생성기 설치
 
   ```bash
   npm install -g generator-azuresfcsharp
@@ -71,7 +71,7 @@ Service Fabric 애플리케이션은 애플리케이션의 기능을 제공하�
 >
 
 ## <a name="build-the-application"></a>애플리케이션 빌드
-Service Fabric Yeoman 템플릿은 빌드 스크립트를 포함하며 이것을 사용하여 터미널에서 앱을 빌드할 수 있습니다(응용 프로그램 폴더로 이동한 후).
+Service Fabric Yeoman 템플릿은 빌드 스크립트를 포함하며 이것을 사용하여 터미널에서 앱을 빌드할 수 있습니다(애플리케이션 폴더로 이동한 후).
 
   ```sh
  cd myapp
@@ -98,7 +98,7 @@ Service Fabric Yeoman 템플릿은 빌드 스크립트를 포함하며 이것을
 
 애플리케이션 패키지 내에 생성된 매니페스트에서 이러한 명령의 매개 변수를 찾을 수 있습니다.
 
-응용 프로그램이 배포되면 브라우저를 열고 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)에 있는 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)로 이동합니다. 그런 다음 **애플리케이션** 노드를 확장하면 애플리케이션 형식에 대한 항목 및 해당 형식의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
+애플리케이션이 배포되면 브라우저를 열고 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)에 있는 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)로 이동합니다. 그런 다음 **애플리케이션** 노드를 확장하면 애플리케이션 형식에 대한 항목 및 해당 형식의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
 
 > [!IMPORTANT]
 > 애플리케이션을 Azure의 보안 Linux 클러스터에 배포하려면 Service Fabric 런타임으로 애플리케이션의 유효성을 검사하는 인증서를 구성해야 합니다. 이렇게 하면 Reliable Services 서비스에서 기본 Service Fabric 런타임 API와 통신할 수 있습니다. 자세히 알아보려면 [Linux 클러스터에서 실행하도록 Reliable Services 앱 구성](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)을 참조하세요.  
@@ -129,7 +129,7 @@ Service Fabric Yeoman 템플릿은 빌드 스크립트를 포함하며 이것을
 ## <a name="adding-more-services-to-an-existing-application"></a>기존 애플리케이션에 더 많은 서비스 추가
 
 `yo`을 사용하여 만든 응용 프로그램에 다른 서비스를 추가하려면 다음 단계를 수행합니다.
-1. 기존 애플리케이션의 루트로 디렉터리를 변경합니다.  예를 들어 `MyApplication`이 Yeoman에서 만든 응용 프로그램인 경우 `cd ~/YeomanSamples/MyApplication`입니다.
+1. 기존 애플리케이션의 루트로 디렉터리를 변경합니다.  예를 들어 `MyApplication`이 Yeoman에서 만든 애플리케이션인 경우 `cd ~/YeomanSamples/MyApplication`입니다.
 2. `yo azuresfcsharp:AddService` 실행
 
 ## <a name="next-steps"></a>다음 단계

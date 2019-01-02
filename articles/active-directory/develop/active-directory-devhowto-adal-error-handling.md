@@ -182,7 +182,7 @@ AcquireToken 오류를 처리하는 경우 애플리케이션이 달성하려고
 
 - 네이티브 클라이언트 애플리케이션(iOS, Android, .NET Desktop 또는 Xamarin)
 - 리소스 API를 호출하는 웹 애플리케이션(.NET)
-- 단일 페이지 응용 프로그램(JavaScript)
+- 단일 페이지 애플리케이션(JavaScript)
 - 서비스 간 애플리케이션(.NET, Java)
   - On-behalf-of를 포함한 모든 시나리오
   - On-Behalf-of 특정 시나리오
@@ -365,9 +365,9 @@ catch (AdalException e) {
 }
 ```
 
-### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>오류 사례 및 실행 가능한 단계: 단일 페이지 응용 프로그램(adal.js)
+### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>오류 사례 및 실행 가능한 단계: 단일 페이지 애플리케이션(adal.js)
 
-AcquireToken과 adal.js를 사용하여 단일 페이지 응용 프로그램을 빌드하는 경우 오류 처리 코드는 일반적인 자동 호출 코드와 유사합니다. 특히 adal.js에서는 AcquireToken에서 UI를 표시하지 않습니다. 
+AcquireToken과 adal.js를 사용하여 단일 페이지 애플리케이션을 빌드하는 경우 오류 처리 코드는 일반적인 자동 호출 코드와 유사합니다. 특히 adal.js에서는 AcquireToken에서 UI를 표시하지 않습니다. 
 
 실패한 AcquireToken의 사례는 다음과 같습니다.
 

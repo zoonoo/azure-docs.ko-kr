@@ -1,6 +1,6 @@
 ---
-title: Azure의 Kubernertes 자습서 - 응용 프로그램 배포
-description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Azure Container Registry에 저장된 사용자 지정 이미지를 사용하여 클러스터에 다중 컨테이너 응용 프로그램을 배포합니다.
+title: Azure의 Kubernertes 자습서 - 애플리케이션 배포
+description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Azure Container Registry에 저장된 사용자 지정 이미지를 사용하여 클러스터에 다중 컨테이너 애플리케이션을 배포합니다.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -18,11 +18,11 @@ ms.locfileid: "41917597"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 실행
 
-Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제공합니다. 고유의 응용 프로그램 및 서비스를 빌드하여 Kubernetes 클러스터에 배포하고, 클러스터가 가용성 및 연결을 관리하게 합니다. 7개 중 4단계인 이 자습서에서는 애플리케이션 예제를 Kubernetes 클러스터에 배포합니다. 다음 방법에 대해 알아봅니다.
+Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제공합니다. 고유의 애플리케이션 및 서비스를 빌드하여 Kubernetes 클러스터에 배포하고, 클러스터가 가용성 및 연결을 관리하게 합니다. 7개 중 4단계인 이 자습서에서는 애플리케이션 예제를 Kubernetes 클러스터에 배포합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Kubernetes 매니페스트 파일 업데이트
-> * Kubernetes에서 응용 프로그램 실행
+> * Kubernetes에서 애플리케이션 실행
 > * 애플리케이션 테스트
 
 후속 자습서에서 이 애플리케이션은 확장되고 업데이트됩니다.
@@ -39,7 +39,7 @@ Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제�
 
 ## <a name="update-the-manifest-file"></a>매니페스트 파일 업데이트
 
-이 자습서에서는 ACR(Azure Container Registry) 인스턴스가 응용 프로그램 예제용 컨테이너 이미지를 저장합니다. 응용 프로그램을 배포하려면 ACR 로그인 서버 이름을 포함하도록 Kubernetes 매니페스트 파일에서 이미지 이름을 업데이트해야 합니다.
+이 자습서에서는 ACR(Azure Container Registry) 인스턴스가 애플리케이션 예제용 컨테이너 이미지를 저장합니다. 애플리케이션을 배포하려면 ACR 로그인 서버 이름을 포함하도록 Kubernetes 매니페스트 파일에서 이미지 이름을 업데이트해야 합니다.
 
 다음과 같이 [az acr list][az-acr-list] 명령을 사용하여 ACR 로그인 서버 이름을 가져옵니다.
 
@@ -73,7 +73,7 @@ containers:
 
 ## <a name="deploy-the-application"></a>애플리케이션 배포
 
-응용 프로그램을 배포하려면 [kubectl apply][kubectl-apply] 명령을 사용합니다. 이 명령은 매니페스트 파일을 구문 분석하고 정의된 Kubernetes 개체를 만듭니다. 다음 예제처럼 샘플 매니페스트 파일을 지정합니다.
+애플리케이션을 배포하려면 [kubectl apply][kubectl-apply] 명령을 사용합니다. 이 명령은 매니페스트 파일을 구문 분석하고 정의된 Kubernetes 개체를 만듭니다. 다음 예제처럼 샘플 매니페스트 파일을 지정합니다.
 
 ```console
 kubectl apply -f azure-vote-all-in-one-redis.yaml
@@ -110,11 +110,11 @@ azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 ```
 
-응용 프로그램이 실제로 작동하는 모습을 보려면 웹 브라우저를 외부 IP 주소로 엽니다.
+애플리케이션이 실제로 작동하는 모습을 보려면 웹 브라우저를 외부 IP 주소로 엽니다.
 
 ![Azure의 Kubernetes 클러스터 이미지](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-응용 프로그램이 로드되지 않는 경우 이미지 레지스트의 권한 부여 문제가 원인일 수 있습니다. 컨테이너 상태를 보려면 `kubectl get pods` 명령을 사용합니다. 컨테이너 이미지를 풀할 수 없는 경우 [Kubernetes 비밀을 사용하여 Container Registry에 대한 액세스 허용](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret)을 참조하세요.
+애플리케이션이 로드되지 않는 경우 이미지 레지스트의 권한 부여 문제가 원인일 수 있습니다. 컨테이너 상태를 보려면 `kubectl get pods` 명령을 사용합니다. 컨테이너 이미지를 풀할 수 없는 경우 [Kubernetes 비밀을 사용하여 Container Registry에 대한 액세스 허용](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -122,10 +122,10 @@ azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 
 > [!div class="checklist"]
 > * Kubernetes 매니페스트 파일 업데이트
-> * Kubernetes에서 응용 프로그램 실행
+> * Kubernetes에서 애플리케이션 실행
 > * 애플리케이션 테스트
 
-그 다음 자습서로 이동하여 Kubernetes 응용 프로그램 및 기본 Kubernetes 인프라 규모를 조정하는 방법을 알아보세요.
+그 다음 자습서로 이동하여 Kubernetes 애플리케이션 및 기본 Kubernetes 인프라 규모를 조정하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
 > [Kubernetes 응용 프로그램 및 인프라 크기 조정][aks-tutorial-scale]

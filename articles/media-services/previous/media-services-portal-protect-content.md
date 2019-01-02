@@ -77,7 +77,7 @@ Widevine 권한 템플릿에 대한 자세한 내용은 [Widevine 라이선스 �
 ![고급 콘텐츠 보호](./media/media-services-portal-content-protection/media-services-content-protection005.png)
 
 ## <a name="fairplay-configuration"></a>FairPlay 구성
-FairPlay 암호화를 사용하도록 설정하려면 **FairPlay 구성**을 선택합니다. 그런 후 **앱 인증서**를 선택하고 **응용 프로그램 암호 키**를 입력합니다. FairPlay 구성 및 요구 사항에 대한 자세한 내용은 [Microsoft PlayReady 또는 Apple FairPlay로 HLS 콘텐츠 보호](media-services-protect-hls-with-FairPlay.md)를 참조하세요.
+FairPlay 암호화를 사용하도록 설정하려면 **FairPlay 구성**을 선택합니다. 그런 후 **앱 인증서**를 선택하고 **애플리케이션 암호 키**를 입력합니다. FairPlay 구성 및 요구 사항에 대한 자세한 내용은 [Microsoft PlayReady 또는 Apple FairPlay로 HLS 콘텐츠 보호](media-services-protect-hls-with-FairPlay.md)를 참조하세요.
 
 ![FairPlay 구성](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
@@ -110,7 +110,7 @@ FairPlay 암호화를 사용하도록 설정하려면 **FairPlay 구성**을 선
     
     e. **HLS만 사용하는 FairPlay** - FairPlay의 HLS 스트림을 동적으로 암호화합니다.
 
-1. FairPlay 암호화를 사용하도록 설정하려면 **콘텐츠 보호 전역 설정** 블레이드에서 **FairPlay 구성**을 선택합니다. 그런 후 **앱 인증서**를 선택하고 **응용 프로그램 암호 키**를 입력합니다.
+1. FairPlay 암호화를 사용하도록 설정하려면 **콘텐츠 보호 전역 설정** 블레이드에서 **FairPlay 구성**을 선택합니다. 그런 후 **앱 인증서**를 선택하고 **애플리케이션 암호 키**를 입력합니다.
 
     ![암호화 형식](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 

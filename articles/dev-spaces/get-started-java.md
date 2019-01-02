@@ -93,11 +93,11 @@ Kubernetes 디버깅과 같은 다양한 기능은 VS Code를 사용하는 .NET 
 1. [VS Code](https://code.visualstudio.com/Download)가 없으면 이를 설치합니다.
 1. [VS Azure Dev Spaces 확장](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)을 다운로드하여 설치합니다. 확장의 Marketplace 페이지 및 VS Code에서 [설치]를 한 번 클릭합니다. 
 
-Azure Dev Spaces를 사용하여 Java 응용 프로그램을 디버그하려면 VS Code용 [Java Debugger for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) 확장을 다운로드하여 설치합니다. 확장의 Marketplace 페이지 및 VS Code에서 [설치]를 한 번 클릭합니다.
+Azure Dev Spaces를 사용하여 Java 애플리케이션을 디버그하려면 VS Code용 [Java Debugger for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) 확장을 다운로드하여 설치합니다. 확장의 Marketplace 페이지 및 VS Code에서 [설치]를 한 번 클릭합니다.
 
 ## <a name="create-a-web-app-running-in-a-container"></a>컨테이너에서 실행되는 웹앱 만들기
 
-이 섹션에서는 Java 웹 응용 프로그램을 만들어 Kubernetes의 컨테이너에서 실행합니다.
+이 섹션에서는 Java 웹 애플리케이션을 만들어 Kubernetes의 컨테이너에서 실행합니다.
 
 ### <a name="create-a-java-web-app"></a>Java 웹앱 만들기
 https://github.com/Azure/dev-spaces로 이동하여 GitHub에서 코드를 다운로드하고 **복제 또는 다운로드**을 선택하여 GitHub 리포지토리를 로컬 환경으로 다운로드합니다. 이 가이드의 코드는 `samples/java/getting-started/webfrontend`에 있습니다.
@@ -158,7 +158,7 @@ Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아
 1. 파일을 저장합니다.
 1. 터미널 창에서 `azds up`를 실행합니다.
 
-이 명령은 컨테이너 이미지를 다시 빌드하고 Helm 차트를 다시 배포합니다. 실행 중인 응용 프로그램에서 적용하는 코드 변경 내용을 보려면 브라우저를 새로 고칩니다.
+이 명령은 컨테이너 이미지를 다시 빌드하고 Helm 차트를 다시 배포합니다. 실행 중인 애플리케이션에서 적용하는 코드 변경 내용을 보려면 브라우저를 새로 고칩니다.
 
 하지만 코드 개발에 사용할 수 있는 *훨씬 더 빠른 방법*이 있으며, 이에 대해서는 다음 섹션에서 살펴볼 예정입니다. 
 

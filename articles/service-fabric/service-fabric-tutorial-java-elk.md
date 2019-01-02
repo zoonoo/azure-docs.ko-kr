@@ -37,7 +37,7 @@ ms.locfileid: "37112506"
 > * [Java Service Fabric Reliable Services 응용 프로그램 빌드](service-fabric-tutorial-create-java-app.md)
 > * [로컬 클러스터에서 응용 프로그램 배포 및 디버그](service-fabric-tutorial-debug-log-local-cluster.md)
 > * [Azure 클러스터에 응용 프로그램 배포](service-fabric-tutorial-java-deploy-azure.md)
-> * 응용 프로그램에 대한 모니터링 및 진단 설정
+> * 애플리케이션에 대한 모니터링 및 진단 설정
 > * [CI/CD를 설정합니다](service-fabric-tutorial-java-jenkins.md).
 
 ## <a name="prerequisites"></a>필수 조건

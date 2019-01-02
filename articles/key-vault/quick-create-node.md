@@ -33,7 +33,7 @@ ms.locfileid: "44714397"
 계속 진행하기 전에 [기본 개념](key-vault-whatis.md#basic-concepts)을 숙지하시기 바랍니다.
 
 >[!NOTE]
-아래 자습서가 모범 사례인 이유를 이해하려면 몇 가지 개념을 이해해야 합니다. Key Vault는 프로그래밍 방식으로 비밀을 저장하는 중앙 리포지토리입니다. 하지만 이렇게 하려면 응용 프로그램/사용자가 먼저 Key Vault에 인증해야 합니다. 즉, 비밀을 입력해야 합니다. 보안 모범 사례를 따르기 위해 이 첫 번째 비밀도 정기적으로 순환해야 합니다. 하지만 [Azure 리소스의 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하면 Azure에서 실행되는 응용 프로그램에 Azure에서 자동으로 관리하는 ID가 할당됩니다. 이렇게 하면 **비밀 도입 문제**가 해결되므로 사용자/응용 프로그램이 모범 사례를 준수할 수 있고 첫 번째 비밀의 순환에 대해 걱정할 필요가 없습니다.
+아래 자습서가 모범 사례인 이유를 이해하려면 몇 가지 개념을 이해해야 합니다. Key Vault는 프로그래밍 방식으로 비밀을 저장하는 중앙 리포지토리입니다. 하지만 이렇게 하려면 애플리케이션/사용자가 먼저 Key Vault에 인증해야 합니다. 즉, 비밀을 입력해야 합니다. 보안 모범 사례를 따르기 위해 이 첫 번째 비밀도 정기적으로 순환해야 합니다. 하지만 [Azure 리소스의 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하면 Azure에서 실행되는 애플리케이션에 Azure에서 자동으로 관리하는 ID가 할당됩니다. 이렇게 하면 **비밀 도입 문제**가 해결되므로 사용자/애플리케이션이 모범 사례를 준수할 수 있고 첫 번째 비밀의 순환에 대해 걱정할 필요가 없습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -80,7 +80,7 @@ az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGr
 
 ## <a name="add-a-secret-to-key-vault"></a>키 자격 증명 모음에 비밀 추가
 
-이 작업을 설명하기 위한 비밀을 추가하고 있습니다. 안전하게 보관해야 하면서도 응용 프로그램에 제공해야 하는 SQL 연결 문자열 또는 기타 정보를 저장할 수 있습니다. 이 자습서에서 암호는 **AppSecret**이고 그 안에 **MySecret** 값이 저장됩니다.
+이 작업을 설명하기 위한 비밀을 추가하고 있습니다. 안전하게 보관해야 하면서도 애플리케이션에 제공해야 하는 SQL 연결 문자열 또는 기타 정보를 저장할 수 있습니다. 이 자습서에서 암호는 **AppSecret**이고 그 안에 **MySecret** 값이 저장됩니다.
 
 아래 명령을 입력하여 값 **MySecret**을 저장하는 **AppSecret**이라는 비밀을 Key Vault에 만듭니다.
 
@@ -113,7 +113,7 @@ git clone https://github.com/Azure-Samples/key-vault-node-quickstart.git
 * [ms-rest-azure](https://www.npmjs.com/package/ms-rest-azure) 
 * [azure-keyvault](https://www.npmjs.com/package/azure-keyvault)
 
-## <a name="publish-the-web-application-to-azure"></a>Azure에 웹 응용 프로그램 게시
+## <a name="publish-the-web-application-to-azure"></a>Azure에 웹 애플리케이션 게시
 
 아래는 우리가 해야 할 몇 가지 단계입니다.
 
@@ -160,13 +160,13 @@ git clone https://github.com/Azure-Samples/key-vault-node-quickstart.git
 
 Azure Key Vault를 사용하면 자격 증명과 기타 키 및 비밀을 안전하게 저장할 수 있습니다. 하지만 이러한 자격 증명/키/비밀을 검색하려면 코드가 Key Vault에 인증해야 합니다. [Azure 리소스에 대한 관리 ID 개요](../active-directory/managed-identities-azure-resources/overview.md)를 통해 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공함으로써 이 문제를 보다 간편하게 해결할 수 있습니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
 
-이 응용 프로그램에 대한 ID를 만들려면 assign-identity 명령을 실행합니다.
+이 애플리케이션에 대한 ID를 만들려면 assign-identity 명령을 실행합니다.
 
 ```azurecli
 az webapp identity assign --name <app_name> --resource-group "<YourResourceGroupName>"
 ```
 
-이 명령은 포털로 이동하여 웹 응용 프로그램 속성에서 **ID/시스템 할당됨** 설정을 **켜기**로 전환하는 것과 동일합니다.
+이 명령은 포털로 이동하여 웹 애플리케이션 속성에서 **ID/시스템 할당됨** 설정을 **켜기**로 전환하는 것과 동일합니다.
 
 ### <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>애플리케이션에 Key Vault에서 비밀을 읽을 수 있는 권한 할당
 

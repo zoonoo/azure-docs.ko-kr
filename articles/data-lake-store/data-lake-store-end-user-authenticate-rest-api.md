@@ -38,7 +38,7 @@ ms.locfileid: "46124442"
 * **[cURL](http://curl.haxx.se/)**. 이 문서에서는 cURL을 사용하여 Data Lake Storage Gen1 계정에 대해 REST API 호출을 수행하는 방법을 설명합니다.
 
 ## <a name="end-user-authentication"></a>최종 사용자 인증
-최종 사용자 인증은 사용자가 Microsoft Azure Active Directory를 사용하여 응용 프로그램에 로그인하기를 원하는 경우에 권장되는 방법입니다. 응용 프로그램은 로그인한 사용자와 동일한 수준의 액세스 권한으로 Azure 리소스에 액세스할 수 있습니다. 사용자는 응용 프로그램이 액세스를 유지할 수 있도록 주기적으로 자격 증명을 입력해야 합니다.
+최종 사용자 인증은 사용자가 Microsoft Azure Active Directory를 사용하여 애플리케이션에 로그인하기를 원하는 경우에 권장되는 방법입니다. 애플리케이션은 로그인한 사용자와 동일한 수준의 액세스 권한으로 Azure 리소스에 액세스할 수 있습니다. 사용자는 애플리케이션이 액세스를 유지할 수 있도록 주기적으로 자격 증명을 입력해야 합니다.
 
 최종 사용자의 로그인으로 인해 애플리케이션에 액세스 토큰 및 새로 고침 토큰이 제공됩니다. 액세스 토큰은 Data Lake Storage Gen1 또는 Data Lake Analytics에 대해 만들어진 각 요청에 연결하며 기본적으로 1시간 동안 유효합니다. 새로 고침 토큰은 새 액세스 토큰을 가져오는 데 사용할 수 있고 정기적으로 사용되는 경우 기본적으로 최대 2주 동안 유효합니다. 최종 사용자 로그인에 두 가지 방법을 사용할 수 있습니다.
 
@@ -71,7 +71,7 @@ ms.locfileid: "46124442"
    > 
    > 
 
-3. 응답은 액세스 토큰(예: `"access_token": "<ACCESS_TOKEN>"`) 및 새로 고침 토큰(예: `"refresh_token": "<REFRESH_TOKEN>"`)을 포함하는 JSON 개체입니다. 응용 프로그램은 Azure Data Lake Storage Gen1에 액세스할 때 액세스 토큰을 사용하고 액세스 토큰이 만료되면 다른 액세스 토큰을 가져오는 새로 고침 토큰을 사용합니다.
+3. 응답은 액세스 토큰(예: `"access_token": "<ACCESS_TOKEN>"`) 및 새로 고침 토큰(예: `"refresh_token": "<REFRESH_TOKEN>"`)을 포함하는 JSON 개체입니다. 애플리케이션은 Azure Data Lake Storage Gen1에 액세스할 때 액세스 토큰을 사용하고 액세스 토큰이 만료되면 다른 액세스 토큰을 가져오는 새로 고침 토큰을 사용합니다.
    
         {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before":    "1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
 

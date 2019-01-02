@@ -162,9 +162,9 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 
 서비스가 이동하거나 다시 시작하는 경우에도 카운터 값을 상태 비저장에서 항상 사용 가능하고 지속되게 만들려면 상태 저장 서비스가 필요합니다.
 
-HelloWorld 응용 프로그램과 같은 디렉터리에서 `yo azuresfjava:AddService` 명령을 실행하여 새 서비스를 추가할 수 있습니다. 프레임워크에서 "신뢰할 수 있는 상태 저장 서비스"를 선택하고 서비스 이름을 "HelloWorldStateful"로 지정합니다. 
+HelloWorld 애플리케이션과 같은 디렉터리에서 `yo azuresfjava:AddService` 명령을 실행하여 새 서비스를 추가할 수 있습니다. 프레임워크에서 "신뢰할 수 있는 상태 저장 서비스"를 선택하고 서비스 이름을 "HelloWorldStateful"로 지정합니다. 
 
-응용 프로그램에 이제 상태 비저장 서비스 HelloWorld 및 상태 저장 서비스 HelloWorldStateful이라는 두 서비스가 있어야 합니다.
+애플리케이션에 이제 상태 비저장 서비스 HelloWorld 및 상태 저장 서비스 HelloWorldStateful이라는 두 서비스가 있어야 합니다.
 
 상태 저장 서비스에는 상태 비저장 서비스와 동일한 진입점이 있습니다. 주요 차이점은 상태를 안정적으로 저장할 수 있는 상태 제공자의 가용성입니다. Service Fabric은 신뢰할 수 있는 상태 관리자를 통해 복제된 데이터 구조를 만들 수 있는 신뢰할 수 있는 컬렉션이라는 상태 제공자 구현과 함께 제공됩니다. 상태 저장 Reliable Service는 기본적으로 이 상태 제공자를 사용합니다.
 
@@ -266,7 +266,7 @@ $ gradle
 
 애플리케이션 패키지 내에 생성된 매니페스트에서 이러한 명령의 매개 변수를 찾을 수 있습니다.
 
-응용 프로그램이 배포되면 브라우저를 열고 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)에 있는 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)로 이동합니다. 그런 다음 **애플리케이션** 노드를 확장하면 애플리케이션 형식에 대한 항목 및 해당 형식의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
+애플리케이션이 배포되면 브라우저를 열고 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)에 있는 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)로 이동합니다. 그런 다음 **애플리케이션** 노드를 확장하면 애플리케이션 형식에 대한 항목 및 해당 형식의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
 
 > [!IMPORTANT]
 > 애플리케이션을 Azure의 보안 Linux 클러스터에 배포하려면 Service Fabric 런타임으로 애플리케이션의 유효성을 검사하는 인증서를 구성해야 합니다. 이렇게 하면 Reliable Services 서비스에서 기본 Service Fabric 런타임 API와 통신할 수 있습니다. 자세히 알아보려면 [Linux 클러스터에서 실행하도록 Reliable Services 앱 구성](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)을 참조하세요.  

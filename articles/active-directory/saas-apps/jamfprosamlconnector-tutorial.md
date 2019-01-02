@@ -140,7 +140,7 @@ Jamf Pro에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![이미지](./media/jamfprosamlconnector-tutorial/install_extension.png)
  
-8. 브라우저에 확장을 추가한 후 **Jamf Pro 설정**을 클릭하면 Jamf Pro 응용 프로그램으로 이동됩니다. 응용 프로그램에서 관리자 자격 증명을 입력하여 Jamf Pro에 로그인합니다. 브라우저 확장이 응용 프로그램을 자동으로 구성하고 9~12단계를 자동으로 수행합니다.
+8. 브라우저에 확장을 추가한 후 **Jamf Pro 설정**을 클릭하면 Jamf Pro 애플리케이션으로 이동됩니다. 응용 프로그램에서 관리자 자격 증명을 입력하여 Jamf Pro에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 9~12단계를 자동으로 수행합니다.
 
     ![이미지](./media/jamfprosamlconnector-tutorial/d1_saml.png)
 
@@ -256,7 +256,7 @@ Azure AD 사용자가 Jamf Pro에 로그인할 수 있도록 하려면 Jamf Pro�
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Jamf Pro에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음, **모든 응용 프로그램**을 선택하고 **Jamf Pro**를 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택하고 **Jamf Pro**를 선택합니다.
 
     ![이미지](./media/jamfprosamlconnector-tutorial/d_all_applications.png)
 

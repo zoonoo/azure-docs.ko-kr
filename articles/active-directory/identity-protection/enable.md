@@ -43,7 +43,7 @@ Azure Active Directory ID 보호는 Azure AD(Azure Active Directory)의 기능�
    
     ![만들기](./media/enable/01.png "만들기")
 
-3. 응용 프로그램 목록에서 **ID**를 클릭합니다.
+3. 애플리케이션 목록에서 **ID**를 클릭합니다.
    
     ![만들기](./media/enable/05.png "만들기")
 

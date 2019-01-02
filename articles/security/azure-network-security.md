@@ -50,7 +50,7 @@ Azure의 네트워크 서비스는 기본적으로 유연성, 가용성, 탄력�
 -   Azure 공용 클라우드의 네트워크 보안과 관련해서 논의 중인 Azure 네트워킹 기술 및 서비스에 대한 고급 정보를 원하는 SME 또는 비즈니스 프로세스 실무 담당자
 
 ## <a name="azure-networking-big-picture"></a>Azure 네트워킹의 전반적 이해
-Microsoft Azure에는 사용자의 응용 프로그램과 서비스 연결 요구 사항을 지원하기 위한 강력한 네트워킹 인프라가 포함되어 있습니다. 네트워크 연결은 Azure에 위치한 리소스 간, 온-프레미스와 Azure 호스팅 리소스 간, 그리고 인터넷과 Azure 간에 가능합니다.
+Microsoft Azure에는 사용자의 애플리케이션과 서비스 연결 요구 사항을 지원하기 위한 강력한 네트워킹 인프라가 포함되어 있습니다. 네트워크 연결은 Azure에 위치한 리소스 간, 온-프레미스와 Azure 호스팅 리소스 간, 그리고 인터넷과 Azure 간에 가능합니다.
 
 ![Azure 네트워킹의 전반적 이해](media/azure-network-security/azure-network-security-fig-1.png)
 

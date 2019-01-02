@@ -1,6 +1,6 @@
 ---
-title: 여러 응용 프로그램에 Azure Key Vault 액세스 권한 부여 | Microsoft Docs
-description: 여러 응용 프로그램에 Key Vault 액세스 권한을 부여하는 방법을 알아봅니다.
+title: 여러 애플리케이션에 Azure Key Vault 액세스 권한 부여 | Microsoft Docs
+description: 여러 애플리케이션에 Key Vault 액세스 권한을 부여하는 방법을 알아봅니다.
 services: key-vault
 documentationcenter: ''
 author: amitbapat
@@ -21,12 +21,12 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/13/2018
 ms.locfileid: "49309249"
 ---
-# <a name="grant-several-applications-access-to-a-key-vault"></a>키 자격 증명 모음에 여러 응용 프로그램 액세스 권한 부여
+# <a name="grant-several-applications-access-to-a-key-vault"></a>키 자격 증명 모음에 여러 애플리케이션 액세스 권한 부여
 
-액세스 제어 정책을 사용하여 키 자격 증명 모음에 다수의 응용 프로그램 액세스 권한을 부여할 수 있습니다. 액세스 제어 정책은 최대 1024개 응용 프로그램을 지원할 수 있으며 다음과 같이 구성됩니다.
+액세스 제어 정책을 사용하여 키 자격 증명 모음에 다수의 애플리케이션 액세스 권한을 부여할 수 있습니다. 액세스 제어 정책은 최대 1024개 애플리케이션을 지원할 수 있으며 다음과 같이 구성됩니다.
 
 1. Azure Active Directory 보안 그룹을 만듭니다. 
-2. 모든 응용 프로그램의 연관된 서비스 주체를 보안 그룹에 추가합니다.
+2. 모든 애플리케이션의 연관된 서비스 주체를 보안 그룹에 추가합니다.
 3. Key Vault에 보안 그룹 액세스 권한을 부여합니다.
 
 다음은 필수 조건입니다.
@@ -59,7 +59,7 @@ Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.
 # Of course you can adjust the permissions as required 
 ```
 
-응용 프로그램 그룹에 다른 권한 집합을 부여해야 할 경우 이러한 응용 프로그램에 대해 별도의 Azure Active Directory 보안 그룹을 만듭니다.
+애플리케이션 그룹에 다른 권한 집합을 부여해야 할 경우 이러한 애플리케이션에 대해 별도의 Azure Active Directory 보안 그룹을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 

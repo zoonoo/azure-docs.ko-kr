@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric Reliable Services 응용 프로그램 매니페스트 예제 | Microsoft Docs
-description: Reliable Services Service Fabric 응용 프로그램에 대한 응용 프로그램 및 서비스 매니페스트 설정을 구성하는 방법을 알아봅니다.
+title: Azure Service Fabric Reliable Services 애플리케이션 매니페스트 예제 | Microsoft Docs
+description: Reliable Services Service Fabric 애플리케이션에 대한 애플리케이션 및 서비스 매니페스트 설정을 구성하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: na
 author: rwike77
@@ -22,7 +22,7 @@ ms.lasthandoff: 09/25/2018
 ms.locfileid: "47096636"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Reliable Services 애플리케이션 및 서비스 매니페스트 예제
-다음은 ASP.NET Core 웹 프런트 엔드 및 상태 저장 백 엔드를 사용하는 Service Fabric 응용 프로그램용 응용 프로그램 및 서비스 매니페스트 예제입니다. 이러한 예제의 목적은 사용 가능한 설정 및 사용 방법을 보여주는 것입니다. 이러한 응용 프로그램 및 서비스 매니페스트는 [Service Fabric .NET 빠른 시작](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) 매니페스트를 기반으로 합니다.
+다음은 ASP.NET Core 웹 프런트 엔드 및 상태 저장 백 엔드를 사용하는 Service Fabric 애플리케이션용 애플리케이션 및 서비스 매니페스트 예제입니다. 이러한 예제의 목적은 사용 가능한 설정 및 사용 방법을 보여주는 것입니다. 이러한 애플리케이션 및 서비스 매니페스트는 [Service Fabric .NET 빠른 시작](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) 매니페스트를 기반으로 합니다.
 
 다음 기능이 표시됩니다.
 |매니페스트|기능|
@@ -31,9 +31,9 @@ ms.locfileid: "47096636"
 |[FrontEndService 서비스 매니페스트](#frontendservice-service-manifest)| [서비스 시작 시 스크립트 실행](service-fabric-run-script-at-service-startup.md), [HTTPS 엔드포인트 정의](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
 |[BackEndService 서비스 매니페스트](#backendservice-service-manifest)| [구성 패키지 선언](service-fabric-application-and-service-manifests.md), [데이터 패키지 선언](service-fabric-application-and-service-manifests.md), [엔드포인트 구성](service-fabric-service-manifest-resources.md)| 
 
-특정 XML 요소에 대한 자세한 내용은 [응용 프로그램 매니페스트 요소](#application-manifest-elements), [VotingWeb 서비스 매니페스트 요소](#votingweb-service-manifest-elements) 및 [VotingData 서비스 매니페스트 요소](#votingdata-service-manifest-elements)를 참조하세요.
+특정 XML 요소에 대한 자세한 내용은 [애플리케이션 매니페스트 요소](#application-manifest-elements), [VotingWeb 서비스 매니페스트 요소](#votingweb-service-manifest-elements) 및 [VotingData 서비스 매니페스트 요소](#votingdata-service-manifest-elements)를 참조하세요.
 
-## <a name="application-manifest"></a>응용 프로그램 매니페스트.
+## <a name="application-manifest"></a>애플리케이션 매니페스트
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -279,7 +279,7 @@ ms.locfileid: "47096636"
 
 ```
 
-## <a name="application-manifest-elements"></a>응용 프로그램 매니페스트 요소
+## <a name="application-manifest-elements"></a>애플리케이션 매니페스트 요소
 ### <a name="applicationmanifest-element"></a>ApplicationManifest 요소
 애플리케이션 유형 및 버전을 선언적으로 설명합니다. 구성 요소 서비스의 서비스 매니페스트 하나 이상에서 애플리케이션 유형을 작성하기 위해 참조됩니다. 구성 요소 서비스의 구성 설정은 매개 변수화된 애플리케이션 설정을 사용하여 재정의할 수 있습니다. 기본 서비스, 서비스 템플릿, 보안 주체, 정책, 진단 설정 및 인증서도 애플리케이션 수준에서 선언할 수 있습니다. 자세한 내용은 [ApplicationManifest 요소](service-fabric-service-model-schema-elements.md#ApplicationManifestElementApplicationManifestTypeComplexType)를 참조하세요.
 
@@ -399,10 +399,10 @@ ServiceManifestImport 섹션에 정의된 특정 RunAsPolicy가 없는 모든 �
  자세한 내용은 [Arguments 요소](service-fabric-service-model-schema-elements.md#ArgumentsElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)를 참조하세요.
 
 ### <a name="workingfolder-element"></a>WorkingFolder 요소
-응용 프로그램이 배포된 클러스터 노드에서 코드 패키지의 프로세스에 대한 작업 디렉터리입니다. 작업(기본값), CodePackage 또는 CodeBase의 세 가지 값으로 지정할 수 있습니다. CodeBase를 사용하면 작업 디렉터리는 코드 패키지에서 EXE가 정의되는 디렉터리로 설정됩니다. CodePackage를 사용하면 작업 디렉터리는 코드 패키지 디렉터리에서 EXE가 있는 위치에 관계 없이 코드 패키지의 루트로 설정됩니다. 작업을 사용하면 작업 디렉터리는 노드에 만들어진 고유 폴더로 설정됩니다.  이 폴더는 전체 응용 프로그램 인스턴스에서 동일합니다. 기본적으로 응용 프로그램에서 모든 프로세스의 작업 디렉터리가 응용 프로그램 작업 폴더에 설정됩니다. 프로세스가 이 폴더에 데이터를 쓸 수 있습니다. 이러한 폴더는 여러 응용 프로그램 인스턴스 간에 공유할 수 있고 삭제가 가능하므로 코드 패키지 또는 코드 베이스에 데이터를 쓰지 않는 것이 좋습니다. 자세한 내용은 [WorkingFolder 요소](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)를 참조하세요.
+애플리케이션이 배포된 클러스터 노드에서 코드 패키지의 프로세스에 대한 작업 디렉터리입니다. 작업(기본값), CodePackage 또는 CodeBase의 세 가지 값으로 지정할 수 있습니다. CodeBase를 사용하면 작업 디렉터리는 코드 패키지에서 EXE가 정의되는 디렉터리로 설정됩니다. CodePackage를 사용하면 작업 디렉터리는 코드 패키지 디렉터리에서 EXE가 있는 위치에 관계 없이 코드 패키지의 루트로 설정됩니다. 작업을 사용하면 작업 디렉터리는 노드에 만들어진 고유 폴더로 설정됩니다.  이 폴더는 전체 애플리케이션 인스턴스에서 동일합니다. 기본적으로 애플리케이션에서 모든 프로세스의 작업 디렉터리가 애플리케이션 작업 폴더에 설정됩니다. 프로세스가 이 폴더에 데이터를 쓸 수 있습니다. 이러한 폴더는 여러 애플리케이션 인스턴스 간에 공유할 수 있고 삭제가 가능하므로 코드 패키지 또는 코드 베이스에 데이터를 쓰지 않는 것이 좋습니다. 자세한 내용은 [WorkingFolder 요소](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)를 참조하세요.
 
 ### <a name="consoleredirection-element"></a>ConsoleRedirection 요소
-경고합니다! 프로덕션 응용 프로그램에서 콘솔 리디렉션을 사용하지 마세요. 로컬 개발 및 디버깅에만 사용하세요. 시작 스크립트의 콘솔 출력을 응용 프로그램이 배포되고 실행되는 클러스터 노드의 "log"라는 응용 프로그램 폴더에 있는 출력 파일로 리디렉션합니다. 자세한 내용은 [ConsoleRedirection 요소](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)를 참조하세요.
+경고합니다! 프로덕션 애플리케이션에서 콘솔 리디렉션을 사용하지 마세요. 로컬 개발 및 디버깅에만 사용하세요. 시작 스크립트의 콘솔 출력을 애플리케이션이 배포되고 실행되는 클러스터 노드의 "log"라는 애플리케이션 폴더에 있는 출력 파일로 리디렉션합니다. 자세한 내용은 [ConsoleRedirection 요소](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)를 참조하세요.
 
 ### <a name="entrypoint-element"></a>EntryPoint 요소
 EntryPoint에서 지정한 실행 파일은 일반적으로 장기 실행 서비스 호스트입니다. 별도의 설정 진입점이 있으면 한동안은 높은 권한을 사용하여 서비스 호스트를 실행하지 않아도 됩니다. SetupEntryPoint가 성공적으로 종료된 후에 EntryPoint에서 지정한 실행 파일이 실행됩니다. 결과 프로세스를 모니터링하고, 종료되거나 충돌하는 경우 다시 시작합니다(SetupEntryPoint를 사용하여 다시 시작). 자세한 내용은 [EntryPoint 요소](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)를 참조하세요.
@@ -447,7 +447,7 @@ EntryPoint에서 지정한 실행 파일은 일반적으로 장기 실행 서비
 실행 파일 이름입니다.  예를 들어 "MySetup.bat" 또는 "MyServiceHost.exe"입니다. 자세한 내용은 [Program 요소](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)를 참조하세요.
 
 ### <a name="workingfolder-element"></a>WorkingFolder 요소
-응용 프로그램이 배포된 클러스터 노드에서 코드 패키지의 프로세스에 대한 작업 디렉터리입니다. 작업(기본값), CodePackage 또는 CodeBase의 세 가지 값으로 지정할 수 있습니다. CodeBase를 사용하면 작업 디렉터리는 코드 패키지에서 EXE가 정의되는 디렉터리로 설정됩니다. CodePackage를 사용하면 작업 디렉터리는 코드 패키지 디렉터리에서 EXE가 있는 위치에 관계 없이 코드 패키지의 루트로 설정됩니다. 작업을 사용하면 작업 디렉터리는 노드에 만들어진 고유 폴더로 설정됩니다.  이 폴더는 전체 응용 프로그램 인스턴스에서 동일합니다. 기본적으로 응용 프로그램에서 모든 프로세스의 작업 디렉터리가 응용 프로그램 작업 폴더에 설정됩니다. 프로세스가 이 폴더에 데이터를 쓸 수 있습니다. 이러한 폴더는 여러 응용 프로그램 인스턴스 간에 공유할 수 있고 삭제가 가능하므로 코드 패키지 또는 코드 베이스에 데이터를 쓰지 않는 것이 좋습니다. 자세한 내용은 [WorkingFolder 요소](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)를 참조하세요.
+애플리케이션이 배포된 클러스터 노드에서 코드 패키지의 프로세스에 대한 작업 디렉터리입니다. 작업(기본값), CodePackage 또는 CodeBase의 세 가지 값으로 지정할 수 있습니다. CodeBase를 사용하면 작업 디렉터리는 코드 패키지에서 EXE가 정의되는 디렉터리로 설정됩니다. CodePackage를 사용하면 작업 디렉터리는 코드 패키지 디렉터리에서 EXE가 있는 위치에 관계 없이 코드 패키지의 루트로 설정됩니다. 작업을 사용하면 작업 디렉터리는 노드에 만들어진 고유 폴더로 설정됩니다.  이 폴더는 전체 애플리케이션 인스턴스에서 동일합니다. 기본적으로 애플리케이션에서 모든 프로세스의 작업 디렉터리가 애플리케이션 작업 폴더에 설정됩니다. 프로세스가 이 폴더에 데이터를 쓸 수 있습니다. 이러한 폴더는 여러 애플리케이션 인스턴스 간에 공유할 수 있고 삭제가 가능하므로 코드 패키지 또는 코드 베이스에 데이터를 쓰지 않는 것이 좋습니다. 자세한 내용은 [WorkingFolder 요소](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)를 참조하세요.
 
 ### <a name="configpackage-element"></a>ConfigPackage 요소
 Settings.xml 파일을 포함하는 PackageRoot 아래에 Name 특성을 통해 이름이 지정되는 폴더를 선언합니다. 이 파일은 런타임에 프로세스에서 다시 읽을 수 있는 사용자 정의 키-값 쌍 설정의 섹션을 포함합니다. 업그레이드하는 동안 ConfigPackage 버전만 변경되면 실행 중인 프로세스가 다시 시작되지 않습니다. 대신, 콜백에서는 구성 설정이 변경되어 동적으로 다시 로드할 수 있음을 프로세스에 알립니다. 자세한 내용은 [ConfigPackage 요소](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)를 참조하세요.

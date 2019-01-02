@@ -156,7 +156,7 @@ Source Anchor 특성으로 objectGUID에서 ConsistencyGuid로 전환하려면:
 
 ![기존 배포에 대해 ConsistencyGuid 사용 - 오류](./media/plan-connect-design-concepts/consistencyguidexistingdeploymenterror.png)
 
- 특성이 다른 기존 응용 프로그램에서 사용되지 않는다고 확신하는 경우 **/SkipLdapSearchcontact**를 지정한 Azure AD Connect 마법사를 다시 시작하여 오류를 무시할 수 있습니다. 이렇게 하려면 명령 프롬프트 창에서 다음 명령을 실행합니다.
+ 특성이 다른 기존 애플리케이션에서 사용되지 않는다고 확신하는 경우 **/SkipLdapSearchcontact**를 지정한 Azure AD Connect 마법사를 다시 시작하여 오류를 무시할 수 있습니다. 이렇게 하려면 명령 프롬프트 창에서 다음 명령을 실행합니다.
 
 ```
 "c:\Program Files\Microsoft Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch

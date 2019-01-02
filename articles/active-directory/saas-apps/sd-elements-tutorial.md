@@ -75,7 +75,7 @@ SD Elements의 Azure AD 통합을 구성하려면 갤러리의 SD Elements를 �
 
     ![Azure AD 테스트 사용자 만들기](./media/sd-elements-tutorial/tutorial_sdelements_search.png)
 
-1. 결과 패널에서 **SD Elements**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **SD Elements**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/sd-elements-tutorial/tutorial_sdelements_addfromgallery.png)
 
@@ -96,11 +96,11 @@ SD Elements에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 SD Elements 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 SD Elements 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **SD Elements에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **SD Elements** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **SD Elements** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -119,7 +119,7 @@ SD Elements에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [SD Elements 지원 팀](mailto:support@sdelements.com)에 문의하세요.
 
-1. SD Elements 응용 프로그램에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램의 **"사용자 특성"** 탭에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+1. SD Elements 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션의 **"사용자 특성"** 탭에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
 
     ![Configure Single Sign-On](./media/sd-elements-tutorial/tutorial_sdelements_attribute.png)
 
@@ -274,7 +274,7 @@ SD Elements에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
 이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.
   
-액세스 패널에서 SD Elements 타일을 클릭하면 SD Elements 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 SD Elements 타일을 클릭하면 SD Elements 애플리케이션에 자동으로 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

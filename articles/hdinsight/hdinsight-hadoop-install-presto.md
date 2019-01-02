@@ -125,7 +125,7 @@ HDInsight 클러스터에서 Presto를 사용하려면 다음 단계를 사용�
 
 6. 변경 내용이 클러스터 구성에 적용되면 다음 단계를 사용하여 Airpal 웹 인터페이스에 액세스할 수 있습니다.
 
-    1. 클러스터 대화 상자에서 **응용 프로그램**을 클릭합니다.
+    1. 클러스터 대화 상자에서 **애플리케이션**을 클릭합니다.
 
         ![HDInsight에서 Presto 클러스터에 Airpal 시작](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal.png)
 

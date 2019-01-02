@@ -16,7 +16,7 @@ ms.locfileid: "49068187"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure 디스크가 포함된 볼륨을 수동으로 만들어 사용
 
-컨테이너 기반 애플리케이션은 종종 외부 데이터 볼륨의 데이터를 액세스하고 유지해야 합니다. Pod 하나가 저장소에 액세스해야 하는 경우 Azure 디스크를 사용하여 응용 프로그램에서 사용하도록 할 기본 볼륨을 제공할 수 있습니다. 이 문서에서는 Azure 디스크를 수동으로 만들어 AKS의 Pod에 연결하는 방법을 설명합니다.
+컨테이너 기반 애플리케이션은 종종 외부 데이터 볼륨의 데이터를 액세스하고 유지해야 합니다. Pod 하나가 저장소에 액세스해야 하는 경우 Azure 디스크를 사용하여 애플리케이션에서 사용하도록 할 기본 볼륨을 제공할 수 있습니다. 이 문서에서는 Azure 디스크를 수동으로 만들어 AKS의 Pod에 연결하는 방법을 설명합니다.
 
 > [!NOTE]
 > Azure 디스크는 한 번에 한 Pod에만 탑재할 수 있습니다. 여러 Pod에서 영구 볼륨을 공유해야 하는 경우에는 [Azure Files][azure-files-volume]를 사용하세요.

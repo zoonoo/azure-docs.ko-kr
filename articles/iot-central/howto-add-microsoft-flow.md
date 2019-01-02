@@ -119,7 +119,7 @@ Azure IoT Central 커넥터에 연결하는 데 문제가 있는 경우 다음�
 
 1. Microsoft 개인 계정(예: @hotmail.com, @live.com, @outlook.com 도메인)은 현재 지원되지 않습니다. AAD 회사 또는 학교 계정을 사용해야 합니다.
 
-2. Microsoft Flow에서 IoT Central 커넥터를 사용하려면 IoT Central 응용 프로그램에 한 번 이상 로그인한 적이 있어야 합니다. 그렇지 않으면 응용 프로그램이 응용 프로그램 드롭다운에 표시되지 않습니다.
+2. Microsoft Flow에서 IoT Central 커넥터를 사용하려면 IoT Central 애플리케이션에 한 번 이상 로그인한 적이 있어야 합니다. 그렇지 않으면 애플리케이션이 애플리케이션 드롭다운에 표시되지 않습니다.
 
 3. AAD 계정을 사용하는 동안 오류를 수신하는 경우 Windows PowerShell을 열고 관리자 권한으로 다음 commandlet을 실행합니다.
     ``` PowerShell

@@ -75,7 +75,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
     ![Azure AD 테스트 사용자 만들기](./media/10000ftplans-tutorial/tutorial_10,000ftplans_search.png)
 
-5. 결과 창에서 **10,000ft Plans**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+5. 결과 창에서 **10,000ft Plans**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/10000ftplans-tutorial/tutorial_10,000ftplans_addfromgallery.png)
 
@@ -96,11 +96,11 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 10,000ft Plans 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 10,000ft Plans 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **10,000ft Plans에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **10,000ft Plans** 응용 프로그램 통합 페이지에서 **Single sign-on**을 클릭합니다.
+1. Azure Portal의 **10,000ft Plans** 애플리케이션 통합 페이지에서 **Single sign-on**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -207,7 +207,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.  
-액세스 패널에서 10,000ft Plans 타일을 클릭하면 10,000ft Plans 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 10,000ft Plans 타일을 클릭하면 10,000ft Plans 애플리케이션에 자동으로 로그온됩니다.
  
 ## <a name="additional-resources"></a>추가 리소스
 

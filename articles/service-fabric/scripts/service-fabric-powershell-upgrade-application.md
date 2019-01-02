@@ -24,7 +24,7 @@ ms.locfileid: "27927916"
 ---
 # <a name="upgrade-a-service-fabric-application"></a>Service Fabric 애플리케이션 업그레이드
 
-이 샘플 스크립트는 실행 중인 Service Fabric 애플리케이션 인스턴스를 버전 1.3.0으로 업그레이드합니다. 이 스크립트는 새 응용 프로그램 패키지를 클러스터 이미지 저장소에 복사하고, 응용 프로그램 유형을 등록하고, 불필요한 응용 프로그램 패키지를 제거합니다.  또한 모니터링되는 업그레이드를 시작하고 업그레이드가 완료되거나 롤백될 때까지 업그레이드 상태를 계속 확인합니다. 필요에 따라 매개 변수를 사용자 지정합니다. 
+이 샘플 스크립트는 실행 중인 Service Fabric 애플리케이션 인스턴스를 버전 1.3.0으로 업그레이드합니다. 이 스크립트는 새 애플리케이션 패키지를 클러스터 이미지 저장소에 복사하고, 애플리케이션 유형을 등록하고, 불필요한 애플리케이션 패키지를 제거합니다.  또한 모니터링되는 업그레이드를 시작하고 업그레이드가 완료되거나 롤백될 때까지 업그레이드 상태를 계속 확인합니다. 필요에 따라 매개 변수를 사용자 지정합니다. 
 
 필요한 경우 [Service Fabric SDK](../service-fabric-get-started.md)를 사용하여 Service Fabric PowerShell 모듈을 설치합니다. 
 
@@ -45,7 +45,7 @@ ms.locfileid: "27927916"
 | [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | Service Fabric 애플리케이션 패키지를 이미지 저장소에 복사합니다.  |
 | [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) | Service Fabric 애플리케이션 유형을 등록합니다. |
 | [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps) | Service Fabric 애플리케이션을 지정된 애플리케이션 유형 버전으로 업그레이드합니다. |
-| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | 이미지 저장소에서 Service Fabric 응용 프로그램 패키지를 제거합니다.|
+| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | 이미지 저장소에서 Service Fabric 애플리케이션 패키지를 제거합니다.|
 
 
 ## <a name="next-steps"></a>다음 단계

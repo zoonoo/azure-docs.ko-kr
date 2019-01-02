@@ -58,7 +58,7 @@ ms.locfileid: "51706265"
    ![Http 애플리케이션 라우팅 사용](media/common/Kubernetes-Create-Cluster-3.PNG)
 
     > [!Note]
-    > 기존 클러스터에서 [Http 응용 프로그램 라우팅](/azure/aks/http-application-routing)을 사용하도록 설정하려면 `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing` 명령을 사용합니다.
+    > 기존 클러스터에서 [Http 애플리케이션 라우팅](/azure/aks/http-application-routing)을 사용하도록 설정하려면 `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing` 명령을 사용합니다.
 
 1. **검토 + 만들기**를 선택한 후 완료되면 **만들기**를 선택합니다.
 

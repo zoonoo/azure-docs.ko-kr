@@ -1,9 +1,9 @@
 items:
-- name: 응용 프로그램 관리 설명서
+- name: 애플리케이션 관리 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: 응용 프로그램 관리 정보
+  - name: 애플리케이션 관리 정보
     href: what-is-application-management.md
 - name: 빠른 시작
   items:
@@ -48,7 +48,7 @@ items:
       href: user-provisioning.md
     - name: SCIM 사용 앱
       href: use-scim-to-provision-users-and-groups.md
-    - name: 응용 프로그램 특성 사용자 지정
+    - name: 애플리케이션 특성 사용자 지정
       href: Customize-application-attributes.md
     - name: 특성 매핑 식 작성
       href: functions-for-customizing-application-data.md
@@ -122,13 +122,13 @@ items:
         href: application-proxy-integrate-with-tableau.md
       - name: Qlik와 통합
         href: application-proxy-qlik.md
-    - name: 응용 프로그램 프록시 문제 해결
+    - name: 애플리케이션 프록시 문제 해결
       items:
       - name: 앱 페이지를 표시할 때 문제
         href: application-proxy-page-appearance-broken-problem.md
-      - name: 너무 긴 응용 프로그램 로드
+      - name: 너무 긴 애플리케이션 로드
         href: application-proxy-page-load-speed-problem.md
-      - name: 응용 프로그램 페이지에서 링크가 작동하지 않음
+      - name: 애플리케이션 페이지에서 링크가 작동하지 않음
         href: application-proxy-page-links-broken-problem.md
       - name: 내 앱에 대해 열 포트
         href: application-proxy-connectivity-ports-how-to.md
@@ -144,9 +144,9 @@ items:
         href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
       - name: PingAccess를 사용하여 구성
         href: application-proxy-back-end-ping-access-how-to.md
-      - name: 회사 응용 프로그램에 액세스할 수 없음 오류
+      - name: 회사 애플리케이션에 액세스할 수 없음 오류
         href: application-proxy-sign-in-bad-gateway-timeout-error.md
-      - name: 응용 프로그램 프록시 에이전트 커넥터를 설치할 때 문제 발생
+      - name: 애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생
         href: application-proxy-connector-installation-problem.md
       - name: 로그인 문제
         href: application-sign-in-problem-on-premises-application-proxy.md
@@ -168,7 +168,7 @@ items:
       href: application-provisioning-config-problem-wrong-users-provisioned.md
   - name: 애플리케이션 액세스
     items:
-    - name: 응용 프로그램 형식
+    - name: 애플리케이션 형식
       href: application-types.md
     - name: 사용자 동의 구성
       href: configure-user-consent.md
@@ -250,7 +250,7 @@ items:
       href: application-sign-in-other-problem-deeplink.md
     - name: 액세스 패널에서 로그인하는 문제
       href: application-sign-in-other-problem-access-panel.md
-    - name: 응용 프로그램 로그인 페이지의 오류
+    - name: 애플리케이션 로그인 페이지의 오류
       href: application-sign-in-problem-application-error.md
     - name: 암호 Single Sign-On 관련 문제 - 비갤러리 앱
       href: application-sign-in-problem-password-sso-non-gallery.md

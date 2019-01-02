@@ -17,7 +17,7 @@ ms.locfileid: "47454468"
 ---
 저장소 최적화 VM 크기는 높은 디스크 처리량 및 IO를 제공하고 빅 데이터, SQL 및 NoSQL 데이터베이스에 적합합니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다. 
 
-Ls 시리즈는 [Intel® Xeon® 프로세서 E5 v3 제품군](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html)을 사용하여 최대 32개의 vCPU를 제공합니다. Ls 시리즈는 G/GS 시리즈와 CPU 성능이 동일하며 vCPU당 8GiB 메모리가 제공됩니다.  Ls 시리즈 VM은 대기 시간이 낮고, 처리량이 높고, 로컬 디스크 저장소가 커야 하는 응용 프로그램에 이상적입니다. 
+Ls 시리즈는 [Intel® Xeon® 프로세서 E5 v3 제품군](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html)을 사용하여 최대 32개의 vCPU를 제공합니다. Ls 시리즈는 G/GS 시리즈와 CPU 성능이 동일하며 vCPU당 8GiB 메모리가 제공됩니다.  Ls 시리즈 VM은 대기 시간이 낮고, 처리량이 높고, 로컬 디스크 저장소가 커야 하는 애플리케이션에 이상적입니다. 
 
 사용 사례에는 Cassandra, MongoDB, Cloudera 및 Redis와 같은 NoSQL 데이터베이스, 데이터 웨어하우스, 대규모 트랜잭션 데이터가 포함됩니다.
 

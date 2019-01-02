@@ -60,7 +60,7 @@ Computer Vision API를 호출할 때마다 구독 키가 필요합니다. 이 �
 ```var visionClient = new VisionServiceClient(“Your subscriptionKey”);```
 
 ### <a name="Step2">2단계: Computer Vision API 서비스에 이미지를 업로드하고 태그, 설명 및 유명인 다시 가져오기</a>
-Computer Vision API 호출을 수행하는 기본적인 방법은 직접 이미지를 업로드하는 것입니다. 이미지에서 데이터 판독과 함께 응용 프로그램/옥텟 스트림 콘텐츠 형식으로 “POST” 요청을 보내 수행합니다. “태그” 및 “설명”의 경우 이 업로드 메서드는 모든 Computer Vision API 호출에 동일합니다. 유일한 차이점은 사용자가 지정하는 쿼리 매개 변수입니다. 
+Computer Vision API 호출을 수행하는 기본적인 방법은 직접 이미지를 업로드하는 것입니다. 이미지에서 데이터 판독과 함께 애플리케이션/옥텟 스트림 콘텐츠 형식으로 “POST” 요청을 보내 수행합니다. “태그” 및 “설명”의 경우 이 업로드 메서드는 모든 Computer Vision API 호출에 동일합니다. 유일한 차이점은 사용자가 지정하는 쿼리 매개 변수입니다. 
 
 제공된 이미지의 “태그” 및 “설명”을 가져오는 방법은 다음과 같습니다.
 
@@ -111,7 +111,7 @@ var models = await visionClient.ListModelsAsync();
 ```
 **옵션 2:** 고급 분석 - [86개 범주 분류](../Category-Taxonomy.md)를 통해 추가 정보를 제공하도록 분석
 
-하나 이상 도메인별 모델의 세부 정보 외에 일반 이미지 분석을 가져오려는 응용 프로그램의 경우 모델 쿼리 매개 변수를 사용하여 v1 API를 확장합니다.
+하나 이상 도메인별 모델의 세부 정보 외에 일반 이미지 분석을 가져오려는 애플리케이션의 경우 모델 쿼리 매개 변수를 사용하여 v1 API를 확장합니다.
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?details=celebrities
 ```

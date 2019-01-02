@@ -18,7 +18,7 @@ ms.locfileid: "33934696"
 ---
 # <a name="scale-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 크기 조정
 
-서로 다른 노드 수로 AKS 클러스터의 크기를 조정하는 것은 쉽습니다.  원하는 노드 수를 선택하고 `az aks scale` 명령을 실행합니다.  축소하는 경우 노드를 신중하게 [통제하고 드레이닝][kubernetes-drain]하여 실행 중인 응용 프로그램의 중단을 최소화합니다.  확장하는 경우 `az` 명령은 노드가 `Ready` Kubernetes 클러스터에 의해 표시될 때까지 대기합니다.
+서로 다른 노드 수로 AKS 클러스터의 크기를 조정하는 것은 쉽습니다.  원하는 노드 수를 선택하고 `az aks scale` 명령을 실행합니다.  축소하는 경우 노드를 신중하게 [통제하고 드레이닝][kubernetes-drain]하여 실행 중인 애플리케이션의 중단을 최소화합니다.  확장하는 경우 `az` 명령은 노드가 `Ready` Kubernetes 클러스터에 의해 표시될 때까지 대기합니다.
 
 ## <a name="scale-the-cluster-nodes"></a>클러스터 노드 크기 조정
 

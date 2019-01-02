@@ -20,13 +20,13 @@ ms.locfileid: "46967662"
 ---
 # <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1에 인증
 
-Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사용합니다. Azure Data Lake Storage Gen1과 함께 작동하는 응용 프로그램을 제작하기 전에 Azure AD(Azure Active Directory)를 사용하여 응용 프로그램을 인증하는 방법을 결정해야 합니다.
+Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사용합니다. Azure Data Lake Storage Gen1과 함께 작동하는 애플리케이션을 제작하기 전에 Azure AD(Azure Active Directory)를 사용하여 애플리케이션을 인증하는 방법을 결정해야 합니다.
 
 ## <a name="authentication-options"></a>인증 옵션
 
-* **최종 사용자 인증** - 최종 사용자의 Azure 자격 증명은 Data Lake Storage Gen1에 인증하는 데 사용됩니다. Data Lake Storage Gen1과 함께 작동하도록 만드는 응용 프로그램은 이러한 사용자 자격 증명을 요구합니다. 결과적으로 이 인증 메커니즘은 *대화형*이고 응용 프로그램은 로그인된 사용자의 컨텍스트에서 실행됩니다. 자세한 내용 및 지침은 [Data Lake Storage Gen1에 대한 최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md)을 참조하세요.
+* **최종 사용자 인증** - 최종 사용자의 Azure 자격 증명은 Data Lake Storage Gen1에 인증하는 데 사용됩니다. Data Lake Storage Gen1과 함께 작동하도록 만드는 애플리케이션은 이러한 사용자 자격 증명을 요구합니다. 결과적으로 이 인증 메커니즘은 *대화형*이고 애플리케이션은 로그인된 사용자의 컨텍스트에서 실행됩니다. 자세한 내용 및 지침은 [Data Lake Storage Gen1에 대한 최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md)을 참조하세요.
 
-* **서비스 간 인증** - 응용 프로그램이 직접 Data Lake Storage Gen1에 인증하게 하려면 이 옵션을 사용합니다. 이 경우 Azure AD(Active Directory) 응용 프로그램 만들고 Azure AD 응용 프로그램의 키를 사용하여 Data Lake Storage Gen1에 인증합니다. 결과적으로 이 인증 메커니즘은 *비 대화형*입니다. 자세한 내용 및 지침은 [Data Lake Storage Gen1에 대한 서비스 간 인증](data-lake-store-service-to-service-authenticate-using-active-directory.md)을 참조하세요.
+* **서비스 간 인증** - 응용 프로그램이 직접 Data Lake Storage Gen1에 인증하게 하려면 이 옵션을 사용합니다. 이 경우 Azure AD(Active Directory) 애플리케이션 만들고 Azure AD 애플리케이션의 키를 사용하여 Data Lake Storage Gen1에 인증합니다. 결과적으로 이 인증 메커니즘은 *비 대화형*입니다. 자세한 내용 및 지침은 [Data Lake Storage Gen1에 대한 서비스 간 인증](data-lake-store-service-to-service-authenticate-using-active-directory.md)을 참조하세요.
 
 다음 표에는 Data Lake Storage Gen1에서 최종 사용자 및 서비스 간 인증 메커니즘을 지원하는 방식이 정리되어 있습니다. 표를 읽는 방법은 다음과 같습니다.
 

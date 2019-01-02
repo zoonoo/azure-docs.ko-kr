@@ -159,7 +159,7 @@ CREATE DATABASE mypgsqldb;
 
 pgAdmin은 PostgreSQL에서 사용되는 오픈 소스 도구입니다. [pgAdmin 웹 사이트](https://www.pgadmin.org/)에서 pgAdmin을 설치할 수 있습니다. 사용 중인 pgAdmin 버전이 이 빠른 시작에 사용된 버전과 다를 수 있습니다. 추가 지침이 필요하면 pgAdmin 설명서를 참조하세요.
 
-1. 클라이언트 컴퓨터에서 pgAdmin 응용 프로그램을 엽니다.
+1. 클라이언트 컴퓨터에서 pgAdmin 애플리케이션을 엽니다.
 
 2. 도구 모음에서 **개체**로 이동하고, 마우스로 **만들기**를 가리킨 다음, **서버**를 선택합니다.
 

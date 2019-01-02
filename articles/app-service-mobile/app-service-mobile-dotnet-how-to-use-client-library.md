@@ -38,7 +38,7 @@ ms.locfileid: "53409737"
 * iOS 버전 8.0 이상을 위한 Xamarin iOS 릴리스
 * 범용 Windows 플랫폼
 * Windows Phone 8.1
-* Silverlight 응용 프로그램을 제외한 Windows Phone 8.0
+* Silverlight 애플리케이션을 제외한 Windows Phone 8.0
 
 "서버-흐름" 인증은 표시된 UI에 웹 보기를 사용합니다.  디바이스가 웹 보기 UI를 표시할 수 없는 경우 다른 인증 방법이 필요합니다.  따라서 이 SDK는 Watch 유형 또는 그와 비슷하게 제한된 디바이스에는 적합하지 않습니다.
 
@@ -324,7 +324,7 @@ var inserted = await table.InsertAsync(jo);
 ```
 
 ### <a name="working-with-id-values"></a>ID 값으로 작업
-Mobile Apps는 테이블의 **id** 열에 대한 고유한 사용자 지정 문자열 값을 지원합니다. 문자열 값은 응용 프로그램에서 전자 메일 주소 또는 사용자 이름과 같은 사용자 지정 값을 ID에 사용할 수 있습니다.  문자열 ID는 다음과 같은 이점을 제공합니다.
+Mobile Apps는 테이블의 **id** 열에 대한 고유한 사용자 지정 문자열 값을 지원합니다. 문자열 값은 애플리케이션에서 전자 메일 주소 또는 사용자 이름과 같은 사용자 지정 값을 ID에 사용할 수 있습니다.  문자열 ID는 다음과 같은 이점을 제공합니다.
 
 * ID는 데이터베이스에 대한 왕복 없이도 생성됩니다.
 * 여러 테이블 또는 데이터베이스의 레코드를 병합하기가 더 쉽습니다.
@@ -376,7 +376,7 @@ await table.DeleteAsync(jo);
 ### <a name="optimisticconcurrency"></a>방법: 충돌 해결에 낙관적 동시성 사용
 두 개 이상의 클라이언트가 동시에 동일 항목의 변경 내용을 작성할 수 있습니다. 충돌 검색 없이, 마지막으로 쓴 내용이 이전 업데이트를 덮어씁니다. **낙관적 동시성 제어** 에서는 각 트랜잭션이 커밋할 수 있으므로 리소스 잠금을 사용하지 않는다고 가정합니다.  트랜잭션을 커밋하기 전에 낙관적 동시성 제어는 다른 트랜잭션에서 데이터를 수정하지 않았음을 확인합니다. 데이터가 수정된 경우에는 커밋 중인 트랜잭션이 롤백됩니다.
 
-Mobile Apps는 Mobile App 백 엔드의 각 테이블에 대해 정의된 `version` 시스템 속성 열을 사용하는 각 항목의 변경 내용을 추적하여 낙관적 동시성 제어를 지원합니다. 레코드가 업데이트될 때마다 Mobile Apps는 해당 레코드의 `version` 속성을 새 값으로 설정합니다. 각 업데이트 요청 중에 요청에 포함된 레코드의 `version` 속성이 서버에 있는 레코드의 동일 속성과 비교됩니다. 요청과 함께 전달된 버전이 백 엔드와 일치하지 않는 경우 클라이언트 라이브러리는 `MobileServicePreconditionFailedException<T>` 예외를 발생시킵니다. 예외에 포함된 형식은 백 엔드의 레코드이며 서버 버전의 레코드를 포함하고 있습니다. 그러면 응용 프로그램은 이 정보를 사용하여 변경을 커밋하기 위해 백 엔드의 올바른 `version` 값으로 업데이트 요청을 다시 실행할지 여부를 결정할 수 있습니다.
+Mobile Apps는 Mobile App 백 엔드의 각 테이블에 대해 정의된 `version` 시스템 속성 열을 사용하는 각 항목의 변경 내용을 추적하여 낙관적 동시성 제어를 지원합니다. 레코드가 업데이트될 때마다 Mobile Apps는 해당 레코드의 `version` 속성을 새 값으로 설정합니다. 각 업데이트 요청 중에 요청에 포함된 레코드의 `version` 속성이 서버에 있는 레코드의 동일 속성과 비교됩니다. 요청과 함께 전달된 버전이 백 엔드와 일치하지 않는 경우 클라이언트 라이브러리는 `MobileServicePreconditionFailedException<T>` 예외를 발생시킵니다. 예외에 포함된 형식은 백 엔드의 레코드이며 서버 버전의 레코드를 포함하고 있습니다. 그러면 애플리케이션은 이 정보를 사용하여 변경을 커밋하기 위해 백 엔드의 올바른 `version` 값으로 업데이트 요청을 다시 실행할지 여부를 결정할 수 있습니다.
 
 낙관적 동시성을 사용하기 위해 `version` 시스템 속성의 테이블 클래스에 대해 열을 정의합니다. 예: 
 
@@ -397,7 +397,7 @@ public class TodoItem
 }
 ```
 
-형식화되지 않은 테이블을 사용하는 응용 프로그램은 다음과 같이 테이블의 `SystemProperties`에 대해 `Version` 플래그를 설정하여 낙관적 동시성을 사용합니다.
+형식화되지 않은 테이블을 사용하는 애플리케이션은 다음과 같이 테이블의 `SystemProperties`에 대해 `Version` 플래그를 설정하여 낙관적 동시성을 사용합니다.
 
 ```csharp
 //Enable optimistic concurrency by retrieving version
@@ -650,9 +650,9 @@ Mobile Apps는 다음과 같이 다양한 외부 ID 공급자를 사용하여 �
 #### <a name="adal"></a>Active Directory 인증 라이브러리를 사용하여 사용자 인증
 Azure Active Directory 인증을 사용하여 클라이언트에서 사용자 인증을 시작하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다.
 
-1. 다음으로 [Active Directory 로그인에 대한 App Service를 구성하는 방법] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 응용 프로그램을 등록하는 선택적 단계를 완료해야 합니다.
+1. 다음으로 [Active Directory 로그인에 대한 App Service를 구성하는 방법] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 애플리케이션을 등록하는 선택적 단계를 완료해야 합니다.
 2. Visual Studio 또는 Xamarin Studio에서 프로젝트를 열고 `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet 패키지에 참조를 추가합니다. 검색할 때 시험판 버전을 포함합니다.
-3. 사용하는 플랫폼에 따라 응용 프로그램에 다음 코드를 추가합니다. 각각에서 다음과 같이 대체합니다.
+3. 사용하는 플랫폼에 따라 애플리케이션에 다음 코드를 추가합니다. 각각에서 다음과 같이 대체합니다.
 
    * **INSERT-AUTHORITY-HERE** 를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com이어야 합니다. 이 값은 [Azure Portal]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
    * **INSERT-RESOURCE-ID-HERE** 를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 Azure **Active Directory 설정**에 있는 **고급** 탭에서 클라이언트 ID를 가져올 수 있습니다.

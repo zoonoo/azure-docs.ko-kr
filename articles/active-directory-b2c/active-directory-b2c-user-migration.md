@@ -43,10 +43,10 @@ Azure AD B2C를 사용하면 [Azure AD Graph API][B2C-GraphQuickStart]를 통해
 ## <a name="step-1-use-azure-ad-graph-api-to-migrate-users"></a>1단계: Azure AD Graph API를 사용하여 사용자 마이그레이션
 (암호 또는 임의의 암호를 사용하여) Graph API를 통해 Azure AD B2C 사용자 계정을 만듭니다. 이 섹션에서는 Graph API를 사용하여 Azure AD B2C 디렉터리에서 사용자 계정을 만드는 프로세스를 설명합니다.
 
-### <a name="step-11-register-your-application-in-your-tenant"></a>1.1단계: 테넌트에서 응용 프로그램 등록
-Graph API와 통신하려면 먼저 관리자 권한이 있는 서비스 계정이 있어야 합니다. Azure AD에서 Azure AD에 응용 프로그램 및 인증을 등록합니다. 응용 프로그램 자격 증명은 **응용 프로그램 ID** 및 **응용 프로그램 비밀**입니다. 응용 프로그램은 사용자로서가 아닌 자체로서 Graph API를 호출합니다.
+### <a name="step-11-register-your-application-in-your-tenant"></a>1.1단계: 테넌트에서 애플리케이션 등록
+Graph API와 통신하려면 먼저 관리자 권한이 있는 서비스 계정이 있어야 합니다. Azure AD에서 Azure AD에 애플리케이션 및 인증을 등록합니다. 애플리케이션 자격 증명은 **애플리케이션 ID** 및 **애플리케이션 비밀**입니다. 애플리케이션은 사용자로서가 아닌 자체로서 Graph API를 호출합니다.
 
-먼저 Azure AD에서 마이그레이션 응용 프로그램을 등록합니다. 그런 다음 응용 프로그램 키(응용 프로그램 비밀)를 만들고 쓰기 권한으로 응용 프로그램을 설정합니다.
+먼저 Azure AD에서 마이그레이션 애플리케이션을 등록합니다. 그런 다음, 애플리케이션 키(애플리케이션 비밀)를 만들고 쓰기 권한으로 애플리케이션을 설정합니다.
 
 1. [Azure Portal][Portal]에 로그인합니다.
    
@@ -58,26 +58,26 @@ Graph API와 통신하려면 먼저 관리자 권한이 있는 서비스 계정�
    
 1. **새 응용 프로그램 등록**을 선택합니다.
    
-   ![새 응용 프로그램 등록](media/active-directory-b2c-user-migration/pre-migration-app-registration.png)
+   ![새 애플리케이션 등록](media/active-directory-b2c-user-migration/pre-migration-app-registration.png)
    
-1. 다음을 수행하여 새 응용 프로그램을 만듭니다.
+1. 다음을 수행하여 새 애플리케이션을 만듭니다.
    - **이름**에서 **B2CUserMigratioin** 또는 원하는 다른 이름을 사용합니다.
    - **응용 프로그램 종류**에는 **웹앱/API**를 사용합니다.
    - **로그온 URL**에서 **https://localhost**(이 응용 프로그램에 관련되지 않기 때문에)를 사용합니다.
    - **만들기**를 선택합니다.
    
-1. 응용 프로그램을 만든 후 **응용 프로그램** 목록에서 새로 만든 **B2CUserMigration** 응용 프로그램을 선택합니다.
+1. 애플리케이션을 만든 후 **애플리케이션** 목록에서 새로 만든 **B2CUserMigration** 애플리케이션을 선택합니다.
    
 1. **속성**을 선택하고 **응용 프로그램 ID**를 복사하여 나중에 사용할 수 있도록 저장해 둡니다.
 
-### <a name="step-12-create-the-application-secret"></a>1.2단계: 응용 프로그램 비밀 만들기
+### <a name="step-12-create-the-application-secret"></a>1.2단계: 애플리케이션 비밀 만들기
 1. Azure Portal **등록된 앱** 창에서 **키**를 선택합니다.
    
 1. 새 키(클라이언트 비밀이라고도 함)를 추가한 다음 나중에 사용하기 위해 키를 복사합니다.
    
-   ![응용 프로그램 ID 및 키](media/active-directory-b2c-user-migration/pre-migration-app-id-and-key.png)
+   ![애플리케이션 ID 및 키](media/active-directory-b2c-user-migration/pre-migration-app-id-and-key.png)
    
-### <a name="step-13-grant-administrative-permission-to-your-application"></a>1.3단계 응용 프로그램에 관리 권한 부여
+### <a name="step-13-grant-administrative-permission-to-your-application"></a>1.3단계 애플리케이션에 관리 권한 부여
 1. Azure Portal **등록된 앱** 창에서 **필요한 권한**을 선택합니다.
 
 1. **Windows Azure Active Directory**를 선택합니다.
@@ -88,10 +88,10 @@ Graph API와 통신하려면 먼저 관리자 권한이 있는 서비스 계정�
    
    ![애플리케이션 사용 권한](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
    
-이제 Azure AD B2C 테넌트에서 사용자를 만들고, 읽고, 업데이트할 수 있는 권한이 있는 응용 프로그램이 있습니다.
+이제 Azure AD B2C 테넌트에서 사용자를 만들고, 읽고, 업데이트할 수 있는 권한이 있는 애플리케이션이 있습니다.
 
 ### <a name="step-14-optional-environment-cleanup"></a>1.4단계: (선택 사항) 환경 정리
-디렉터리 데이터 읽기 및 쓰기 권한에는 사용자를 삭제하는 권한이 포함되지 *않습니다*. 응용 프로그램에 사용자를 삭제할 수 있는 권한을 부여하려면(환경을 정리하기 위해) PowerShell을 실행하여 사용자 계정 관리자 권한을 설정해야 하는 추가 단계를 수행해야 합니다. 그렇지 않으면 다음 섹션으로 건너뛸 수 있습니다.
+디렉터리 데이터 읽기 및 쓰기 권한에는 사용자를 삭제하는 권한이 포함되지 *않습니다*. 애플리케이션에 사용자를 삭제할 수 있는 권한을 부여하려면(환경을 정리하기 위해) PowerShell을 실행하여 사용자 계정 관리자 권한을 설정해야 하는 추가 단계를 수행해야 합니다. 그렇지 않으면 다음 섹션으로 건너뛸 수 있습니다.
 
 > [!IMPORTANT]
 > B2C 테넌트에 대해 *로컬*인 B2C 테넌트 Administrator 계정을 사용해야 합니다. 계정 이름 구문은 *admin@contosob2c.onmicrosoft.com*입니다.
@@ -102,7 +102,7 @@ Graph API와 통신하려면 먼저 관리자 권한이 있는 서비스 계정�
 PowerShell 스크립트에서 다음을 수행합니다.
 1. 온라인 서비스에 연결 이렇게 하려면 Windows PowerShell 명령 프롬프트에서 `Connect-AzureAD` cmdlet을 실행하고 자격 증명을 제공합니다.
    
-1. **응용 프로그램 ID**를 사용하여 응용 프로그램에 사용자 계정 관리자 역할을 할당할 수 있습니다. 이러한 역할은 잘 알려진 식별자로서 스크립트에 **응용 프로그램 ID**를 입력하기만 하면 됩니다.
+1. **응용 프로그램 ID**를 사용하여 응용 프로그램에 사용자 계정 관리자 역할을 할당할 수 있습니다. 이러한 역할은 잘 알려진 식별자로서 스크립트에 **애플리케이션 ID**를 입력하기만 하면 됩니다.
    
 ```PowerShell
 Connect-AzureAD
@@ -134,7 +134,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 
 `$AppId` 값을 Azure AD **응용 프로그램 ID**로 변경합니다.
 
-## <a name="step-2-pre-migration-application-sample"></a>2단계: 사전 마이그레이션 응용 프로그램 샘플
+## <a name="step-2-pre-migration-application-sample"></a>2단계: 사전 마이그레이션 애플리케이션 샘플
 [샘플 코드를 다운로드하고 실행합니다][UserMigrationSample]. .zip 파일로 다운로드할 수 있습니다.
 
 ### <a name="step-21-edit-the-migration-data-file"></a>2.1단계: 마이그레이션 데이터 파일 편집
@@ -154,7 +154,7 @@ JSON 파일을 편집하려면 `AADB2C.UserMigration.sln` Visual Studio 솔루�
 > [!NOTE]
 > 컴파일 시 Visual Studio는 파일을 `bin` 디렉터리로 복사합니다.
 
-### <a name="step-22-configure-the-application-settings"></a>2.2단계: 응용 프로그램 설정 구성
+### <a name="step-22-configure-the-application-settings"></a>2.2단계: 애플리케이션 설정 구성
 `AADB2C.UserMigration` 프로젝트에서 *App.config* 파일을 엽니다. 다음과 같은 앱 설정을 고유한 값으로 바꿉니다.
 
 ```XML
@@ -189,7 +189,7 @@ JSON 파일을 편집하려면 `AADB2C.UserMigration.sln` Visual Studio 솔루�
    
    1. 검색 상자에 사용자의 표시 이름을 입력한 다음 사용자 프로필을 확인합니다.
    
-- 로그인 이메일 주소로 사용자를 검색하려면 이 응용 프로그램 예제를 사용합니다.
+- 로그인 이메일 주소로 사용자를 검색하려면 이 애플리케이션 예제를 사용합니다.
    
    1. 다음 명령 실행:
    
@@ -208,11 +208,11 @@ JSON 파일을 편집하려면 `AADB2C.UserMigration.sln` Visual Studio 솔루�
 Azure AD 테넌트를 정리하고 Azure AD 디렉터리에서 사용자를 제거하려면 `UserMigration.exe 5` 명령을 실행합니다.
 
 > [!NOTE]
-> * 테넌트를 정리하려면 응용 프로그램에 대한 사용자 계정 관리자 권한을 구성합니다.
+> * 테넌트를 정리하려면 애플리케이션에 대한 사용자 계정 관리자 권한을 구성합니다.
 > * 샘플 마이그레이션 앱은 JSON 파일에 나열된 모든 사용자를 정리합니다.
 
 ### <a name="step-26-sign-in-with-migrated-users-with-password"></a>2.6단계: 마이그레이션된 사용자로 로그인(암호 사용)
-사용자 암호를 사용하여 사전 마이그레이션 프로세스를 실행하고 나면 계정을 사용할 준비가 되고 사용자는 Azure AD B2C를 사용하여 응용 프로그램에 로그인할 수 있습니다. 사용자 암호에 액세스할 수 없는 경우 다음 섹션을 진행합니다.
+사용자 암호를 사용하여 사전 마이그레이션 프로세스를 실행하고 나면 계정을 사용할 준비가 되고 사용자는 Azure AD B2C를 사용하여 애플리케이션에 로그인할 수 있습니다. 사용자 암호에 액세스할 수 없는 경우 다음 섹션을 진행합니다.
 
 ## <a name="step-3-help-users-reset-their-password"></a>3단계: 사용자가 암호를 다시 설정하도록 돕기
 임의의 암호로 사용자를 마이그레이션하는 경우 사용자는 자신의 암호를 다시 설정해야 합니다. 암호를 다시 설정하도록 도우려면 링크가 있는 환영 전자 메일을 보내서 암호를 재설정하도록 합니다.
@@ -221,10 +221,10 @@ Azure AD 테넌트를 정리하고 Azure AD 디렉터리에서 사용자를 제�
 
 1. **Azure AD B2C 설정**을 선택한 다음 **암호 다시 설정** 정책 속성을 선택합니다.
 
-1. 응용 프로그램을 선택합니다.
+1. 애플리케이션을 선택합니다.
 
     > [!NOTE]
-    > 지금 실행을 사용하려면 하나 이상의 응용 프로그램이 테넌트에 미리 등록되어 있어야 합니다. 애플리케이션을 등록하는 방법은 Azure AD B2C [시작][B2C-GetStarted] 문서 또는 [애플리케이션 등록][B2C-AppRegister] 문서를 참조하세요.
+    > 지금 실행을 사용하려면 하나 이상의 애플리케이션이 테넌트에 미리 등록되어 있어야 합니다. 애플리케이션을 등록하는 방법은 Azure AD B2C [시작][B2C-GetStarted] 문서 또는 [애플리케이션 등록][B2C-AppRegister] 문서를 참조하세요.
 
 1. **지금 실행**을 선택한 다음 정책을 확인합니다.
 
@@ -254,7 +254,7 @@ Azure AD 테넌트를 정리하고 Azure AD 디렉터리에서 사용자를 제�
 >[!NOTE]
 >Azure 테이블을 사용하여 이 샘플을 간소화합니다. Azure AD B2C 계정의 사용자 지정 속성으로 또는 원하는 데이터베이스에 마이그레이션 상태를 저장할 수 있습니다.
 
-### <a name="41-update-your-application-setting"></a>4.1: 응용 프로그램 설정 업데이트
+### <a name="41-update-your-application-setting"></a>4.1: 애플리케이션 설정 업데이트
 1. RESTful API 데모를 테스트하려면 Visual Studio에서 `AADB2C.UserMigration.sln`을 엽니다.
 
 1. `AADB2C.UserMigration.API` 프로젝트에서 *appsettings.json* 파일을 엽니다. 설정을 [2.2단계](#step-22-configure-the-application-settings)에서 구성된 것으로 바꿉니다.
@@ -266,7 +266,7 @@ Azure AD 테넌트를 정리하고 Azure AD 디렉터리에서 사용자를 제�
     }
     ```
 
-### <a name="step-42-deploy-your-web-application-to-azure-app-service"></a>4.2단계: Azure App Services에 웹 응용 프로그램 배포
+### <a name="step-42-deploy-your-web-application-to-azure-app-service"></a>4.2단계: Azure App Services에 웹 애플리케이션 배포
 솔루션 탐색기에서 `AADB2C.UserMigration.API`를 마우스 오른쪽 단추로 클릭하고, "게시..."를 선택합니다. 지침을 따라 Azure App Service에 게시합니다. 자세한 내용은 [Azure App Service에 앱 배포][AppService-Deploy]를 참조하세요.
 
 ### <a name="step-43-add-a-technical-profile-and-technical-profile-validation-to-your-policy"></a>4.3단계: 정책에 기술 프로필 및 기술 프로필 유효성 검사 추가
@@ -340,7 +340,7 @@ RESTful API에 대한 기술 프로필을 정의한 후에 Azure AD B2C 정책�
 ### <a name="step-46-optional-troubleshoot-your-rest-api"></a>4.6단계: (선택 사항) REST API 문제 해결
 거의 실시간으로 로깅 정보를 볼 수 있고 모니터링할 수 있습니다.
 
-1. RESTful 응용 프로그램 설정 메뉴의 **모니터링에서**에서 **진단 로그**를 선택합니다.
+1. RESTful 애플리케이션 설정 메뉴의 **모니터링에서**에서 **진단 로그**를 선택합니다.
 
 1. **응용 프로그램 로깅 사용(파일 시스템)** 을 **켜기**로 설정합니다.
 

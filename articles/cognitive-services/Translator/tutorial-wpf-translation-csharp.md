@@ -1,7 +1,7 @@
 ---
-title: '자습서: C#에서 WPF 응용 프로그램 만들기 - Translator Text API'
+title: '자습서: C#에서 WPF 애플리케이션 만들기 - Translator Text API'
 titleSuffix: Azure Cognitive Services
-description: 이 자습서에서는 Translator Text API를 사용하여 C#을 통해 WPF 응용 프로그램을 빌드하여 텍스트를 번역하고, 지원되는 언어의 지역화된 목록을 가져오는 등의 방법을 알아봅니다.
+description: 이 자습서에서는 Translator Text API를 사용하여 C#을 통해 WPF 애플리케이션을 빌드하여 텍스트를 번역하고, 지원되는 언어의 지역화된 목록을 가져오는 등의 방법을 알아봅니다.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -53,7 +53,7 @@ Microsoft Translator Text API의 소스 코드입니다. 앱을 실행하려면 
 
 ### <a name="mainwindowxamlcs"></a>MainWindow.xaml.cs
 
-응용 프로그램의 기능을 제공하는 코드 숨김 파일입니다.
+애플리케이션의 기능을 제공하는 코드 숨김 파일입니다.
 
 ```csharp
 using System;

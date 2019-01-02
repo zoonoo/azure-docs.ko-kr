@@ -54,7 +54,7 @@ sections:
 - title: 5분 빠른 시작
   items:
   - type: paragraph
-    text: 응용 프로그램을 사용하는 고객에 대한 ID 관리를 설정하는 방법에 대해 알아봅니다.
+    text: 애플리케이션을 사용하는 고객에 대한 ID 관리를 설정하는 방법에 대해 알아봅니다.
   - type: list
     style: icon48
     items:
@@ -73,7 +73,7 @@ sections:
 - title: 단계별 자습서
   items:
   - type: paragraph
-    text: ASP.NET, 데스크톱 또는 단일 페이지 Node.js 응용 프로그램에서 등록, 로그인 및 고객 프로필을 관리하는 방법에 대해 알아봅니다.
+    text: ASP.NET, 데스크톱 또는 단일 페이지 Node.js 애플리케이션에서 등록, 로그인 및 고객 프로필을 관리하는 방법에 대해 알아봅니다.
   - type: list
     style: cards
     className: cardsD
@@ -87,7 +87,7 @@ sections:
 - title: 샘플
   items:
   - type: paragraph
-    text: 응용 프로그램에서 고객 ID를 관리하는 방법을 보여 주는 샘플을 찾습니다.
+    text: 애플리케이션에서 고객 ID를 관리하는 방법을 보여 주는 샘플을 찾습니다.
   - type: list
     style: unordered
     className: spaced noBullet

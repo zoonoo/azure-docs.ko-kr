@@ -75,7 +75,7 @@ The Funding Portal의 Azure AD 통합을 구성하려면 갤러리의 The Fundin
 
     ![Azure AD 테스트 사용자 만들기](./media/thefundingportal-tutorial/tutorial_thefundingportal_search.png)
 
-1. 결과 창에서 **The Funding Portal**을 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **The Funding Portal**을 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/thefundingportal-tutorial/tutorial_thefundingportal_addfromgallery.png)
 
@@ -96,11 +96,11 @@ The Funding Portal에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 The Funding Portal 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 The Funding Portal 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **The Funding Portal에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **The Funding Portal** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **The Funding Portal** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -119,7 +119,7 @@ The Funding Portal에서 Azure AD Single Sign-On을 구성하고 테스트하려
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [The Funding Portal 클라이언트 지원 팀](mailto:info@regenteducation.com)에 문의하세요. 
 
-1. The Funding Portal 응용 프로그램은 SAML 어셜선이 "externalId1"이라는 특성을 포함할 것으로 예상합니다. "externalId1"의 값은 인식된 studentID이어야 합니다. 이 응용 프로그램에 대한 "externalId1" 클레임을 구성하세요. 응용 프로그램의 **"사용자 특성"** 에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+1. The Funding Portal 애플리케이션은 SAML 어셜선이 "externalId1"이라는 특성을 포함할 것으로 예상합니다. "externalId1"의 값은 인식된 studentID이어야 합니다. 이 애플리케이션에 대한 "externalId1" 클레임을 구성하세요. 애플리케이션의 **"사용자 특성"** 에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
 
     ![Configure Single Sign-On](./media/thefundingportal-tutorial/tutorial_thefundingportal_attribute.png)
 

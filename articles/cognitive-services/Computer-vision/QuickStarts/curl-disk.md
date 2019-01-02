@@ -47,7 +47,7 @@ curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: applic
 
 ## <a name="examine-the-response"></a>응답 검사
 
-성공적인 응답이 JSON을 통해 반환됩니다. 응용 프로그램 예제는 다음 예제와 유사하게 명령 프롬프트 창에서 성공한 응답을 구문 분석하고 표시합니다.
+성공적인 응답이 JSON을 통해 반환됩니다. 애플리케이션 예제는 다음 예제와 유사하게 명령 프롬프트 창에서 성공한 응답을 구문 분석하고 표시합니다.
 
 ```json
 {

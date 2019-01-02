@@ -140,7 +140,7 @@ namespace Stateless1
 
 `ServiceFabricDiagnosticsPipelineFactory`의 `CreatePipeline` 메서드 매개 변수 형태로 전달되는 이름은 EventFlow 로그 수집 파이프라인을 나타내는 *상태 개체*의 이름입니다. EventFlow에서 오류가 발생하고 Service Fabric 상태 하위 시스템을 통해 보고할 경우 이 이름을 사용합니다.
 
-### <a name="use-service-fabric-settings-and-application-parameters-in-eventflowconfig"></a>eventFlowConfig에서 Service Fabric 설정 및 응용 프로그램 매개 변수 사용
+### <a name="use-service-fabric-settings-and-application-parameters-in-eventflowconfig"></a>eventFlowConfig에서 Service Fabric 설정 및 애플리케이션 매개 변수 사용
 
 EventFlow는 Service Fabric 설정 및 애플리케이션 매개 변수를 사용하여 EventFlow 설정 구성을 지원합니다. 값에 대해 다음 특수 구문을 사용하여 Service Fabric 설정 매개 변수를 참조할 수 있습니다.
 

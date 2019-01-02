@@ -68,7 +68,7 @@ MaxxPoint의 Azure AD 통합을 구성하려면 갤러리의 MaxxPoint를 관리
 
     ![애플리케이션][2]
     
-1. 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭하여 새 응용 프로그램을 추가합니다.
+1. 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭하여 새 애플리케이션을 추가합니다.
 
     ![애플리케이션][3]
 
@@ -76,7 +76,7 @@ MaxxPoint의 Azure AD 통합을 구성하려면 갤러리의 MaxxPoint를 관리
 
     ![Azure AD 테스트 사용자 만들기](./media/maxxpoint-tutorial/tutorial_maxxpoint_001.png)
 
-1. 결과 창에서 **MaxxPoint**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **MaxxPoint**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/maxxpoint-tutorial/tutorial_maxxpoint_0001.png)
 
@@ -97,11 +97,11 @@ MaxxPoint에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 MaxxPoint 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 MaxxPoint 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **MaxxPoint에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **MaxxPoint** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **MaxxPoint** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -132,7 +132,7 @@ MaxxPoint에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Configure Single Sign-On](./media/maxxpoint-tutorial/tutorial_general_400.png)
 
-1. 응용 프로그램에 대해 SSO를 구성하려면 MaxxPoint 지원 팀(**888-728-0950**)에 문의합니다. 그러면 다운로드한 **메타데이터 XML** 파일을 제공하는 방법에 대한 추가 지원을 받을 수 있습니다. 
+1. 애플리케이션에 대해 SSO를 구성하려면 MaxxPoint 지원 팀(**888-728-0950**)에 문의합니다. 그러면 다운로드한 **메타데이터 XML** 파일을 제공하는 방법에 대한 추가 지원을 받을 수 있습니다. 
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
@@ -170,7 +170,7 @@ MaxxPoint에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### <a name="creating-a-maxxpoint-test-user"></a>MaxxPoint 테스트 사용자 만들기
 
-이 섹션에서는 MaxxPoint에서 Britta Simon이라는 사용자를 만듭니다. MaxxPoint 응용 프로그램에서 사용자를 추가하려면 MaxxPoint 지원 팀(**888-728-0950**)에 문의하세요.
+이 섹션에서는 MaxxPoint에서 Britta Simon이라는 사용자를 만듭니다. MaxxPoint 애플리케이션에서 사용자를 추가하려면 MaxxPoint 지원 팀(**888-728-0950**)에 문의하세요.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -184,7 +184,7 @@ MaxxPoint에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **MaxxPoint**를 선택합니다.
+1. 애플리케이션 목록에서 **MaxxPoint**를 선택합니다.
 
     ![Configure Single Sign-On](./media/maxxpoint-tutorial/tutorial_maxxpoint_50.png) 
 
@@ -206,7 +206,7 @@ MaxxPoint에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 MaxxPoint 타일을 클릭하면 MaxxPoint 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 MaxxPoint 타일을 클릭하면 MaxxPoint 애플리케이션에 자동으로 로그온됩니다.
 
 
 ## <a name="additional-resources"></a>추가 리소스

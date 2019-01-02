@@ -66,13 +66,13 @@ Ceridian Dayforce HCM의 Azure AD 통합을 구성하려면 갤러리의 Ceridia
 
 1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
     
 1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 애플리케이션 단추][3]
 
-1. 검색 상자에 **Ceridian Dayforce HCM**을 입력하고 결과 패널에서 **Ceridian Dayforce HCM**을 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에 **Ceridian Dayforce HCM**을 입력하고 결과 패널에서 **Ceridian Dayforce HCM**을 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Ceridian Dayforce HCM](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_addfromgallery.png)
 
@@ -208,7 +208,7 @@ Ceridian Dayforce HCM에서 Azure AD Single Sign-On을 구성하고 테스트하
  
 ### <a name="create-a-ceridian-dayforce-hcm-test-user"></a>Ceridian Dayforce HCM 테스트 사용자 만들기
 
-이 섹션은 Ceridian Dayforce HCM에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Ceridian Dayforce HCM 응용 프로그램에서 사용자를 추가하려면 [Ceridian Dayforce HCM 지원팀](https://www.ceridian.com/support)과 함께 작업하세요. 
+이 섹션은 Ceridian Dayforce HCM에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Ceridian Dayforce HCM 애플리케이션에서 사용자를 추가하려면 [Ceridian Dayforce HCM 지원팀](https://www.ceridian.com/support)과 함께 작업하세요. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -254,7 +254,7 @@ Ceridian Dayforce HCM에서 Azure AD Single Sign-On을 구성하고 테스트하
 
 1. 애플리케이션 목록에서 **Ceridian Dayforce HCM**을 선택합니다.
 
-    ![응용 프로그램 목록의 Ceridian Dayforce HCM 링크](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_app.png)  
+    ![애플리케이션 목록의 Ceridian Dayforce HCM 링크](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_app.png)  
 
 1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -273,7 +273,7 @@ Ceridian Dayforce HCM에서 Azure AD Single Sign-On을 구성하고 테스트하
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.  
-액세스 패널에서 Ceridian Dayforce HCM 타일을 클릭하면 Ceridian Dayforce HCM 응용 프로그램에 자동으로 로그온됩니다. 
+액세스 패널에서 Ceridian Dayforce HCM 타일을 클릭하면 Ceridian Dayforce HCM 애플리케이션에 자동으로 로그온됩니다. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

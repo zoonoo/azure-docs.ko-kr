@@ -246,7 +246,7 @@ ms.locfileid: "34656716"
 **표 3**: 스케일 아웃 파일 서버 클러스터
 
 
-## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>SAP ASCS/SCS 클러스터, DBMS(데이터베이스 관리 시스템) 클러스터 및 SAP 응용 프로그램 서버 인스턴스에 대한 VM을 배포합니다.
+## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>SAP ASCS/SCS 클러스터, DBMS(데이터베이스 관리 시스템) 클러스터 및 SAP 애플리케이션 서버 인스턴스에 대한 VM을 배포합니다.
 
 Azure 인프라를 준비하려면 다음을 완료합니다.
 

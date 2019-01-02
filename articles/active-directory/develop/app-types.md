@@ -1,5 +1,5 @@
 ---
-title: v1.0의 응용 프로그램 유형 | Azure
+title: v1.0의 애플리케이션 유형 | Azure
 description: Azure Active Directory v2.0 엔드포인트에서 지원되는 앱 유형 및 시나리오에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
@@ -23,11 +23,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/05/2018
 ms.locfileid: "48816347"
 ---
-# <a name="application-types-in-v10"></a>v1.0의 응용 프로그램 유형
+# <a name="application-types-in-v10"></a>v1.0의 애플리케이션 유형
 
 Azure AD(Azure Active Directory)는 모두 업계 표준 프로토콜 OAuth 2.0 또는 OpenID Connect를 기반으로 하는 다양한 최신 앱 아키텍처에 대한 인증을 지원합니다.
 
-다음 다이어그램은 이 시나리오 및 응용 프로그램 유형, 다양한 구성 요소를 추가할 수 있는 방법 등을 보여 줍니다.
+다음 다이어그램은 이 시나리오 및 애플리케이션 유형, 다양한 구성 요소를 추가할 수 있는 방법 등을 보여 줍니다.
 
 ![애플리케이션 종류 및 시나리오](./media/authentication-scenarios/application_types_and_scenarios.png)
 

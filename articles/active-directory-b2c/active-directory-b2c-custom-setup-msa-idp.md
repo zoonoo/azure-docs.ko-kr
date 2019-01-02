@@ -30,7 +30,7 @@ ms.locfileid: "48887243"
 
 ## <a name="add-an-application"></a>애플리케이션 추가
 
-Azure AD B2C에서 ID 공급자로 Microsoft 계정을 사용하려면 Microsoft 계정 응용 프로그램을 추가해야 합니다.
+Azure AD B2C에서 ID 공급자로 Microsoft 계정을 사용하려면 Microsoft 계정 애플리케이션을 추가해야 합니다.
 
 1. Microsoft 계정 자격 증명을 사용하여 [Microsoft 애플리케이션 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에 로그인합니다.
 2. 오른쪽 위 모서리에서 **앱 추가**를 선택합니다.
@@ -151,9 +151,9 @@ Azure AD B2C에서 ID 공급자로 Microsoft 계정을 사용하려면 Microsoft
 
 3. *TrustFrameworkExtensions.xml* 파일을 저장한 다음 확인을 위해 다시 업로드합니다.
 
-## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 응용 프로그램 만들기
+## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 애플리케이션 만들기
 
-Azure AD B2C와의 통신은 테넌트에서 만드는 응용 프로그램을 통해 수행됩니다. 이 섹션에서는 테스트 응용 프로그램을 아직 만들지 않은 경우 만들기 위해 완료할 수 있는 선택적 단계를 설명합니다.
+Azure AD B2C와의 통신은 테넌트에서 만드는 애플리케이션을 통해 수행됩니다. 이 섹션에서는 테스트 응용 프로그램을 아직 만들지 않은 경우 만들기 위해 완료할 수 있는 선택적 단계를 설명합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.

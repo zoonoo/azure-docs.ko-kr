@@ -75,7 +75,7 @@ Zscaler One이 Azure AD에 통합되도록 구성하려면 갤러리의 Zscaler 
 
     ![Azure AD 테스트 사용자 만들기](./media/zscaler-one-tutorial/tutorial_zscalerone_search.png)
 
-1. 결과 패널에서 **Zscaler One**을 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **Zscaler One**을 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/zscaler-one-tutorial/tutorial_zscalerone_addfromgallery.png)
 
@@ -97,11 +97,11 @@ Zscaler One에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Zscaler One 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Zscaler One 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Zscaler One에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Zscaler One** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Zscaler One** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -113,7 +113,7 @@ Zscaler One에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     ![Configure Single Sign-On](./media/zscaler-one-tutorial/tutorial_zscalerone_url.png)
 
-    [로그온 URL] 텍스트 상자에 사용자가 Zscaler One 응용 프로그램에 로그인하는 데 사용하는 URL을 입력합니다.
+    [로그온 URL] 텍스트 상자에 사용자가 Zscaler One 애플리케이션에 로그인하는 데 사용하는 URL을 입력합니다.
 
     > [!NOTE] 
     > 이 값은 실제 로그온 URL로 업데이트해야 합니다. 이러한 값을 얻으려면 [Zscaler One 클라이언트 지원 팀](https://www.zscaler.com/company/contact)에 문의하세요.
@@ -277,7 +277,7 @@ Azure AD 사용자가 Zscaler One에 로그인할 수 있도록 하려면 사용
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Zscaler One**을 선택합니다.
+1. 애플리케이션 목록에서 **Zscaler One**을 선택합니다.
 
     ![Configure Single Sign-On](./media/zscaler-one-tutorial/tutorial_zscalerone_app.png) 
 
@@ -299,7 +299,7 @@ Azure AD 사용자가 Zscaler One에 로그인할 수 있도록 하려면 사용
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Zscaler One 타일을 클릭하면 Zscaler One 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Zscaler One 타일을 클릭하면 Zscaler One 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스

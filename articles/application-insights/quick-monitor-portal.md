@@ -79,7 +79,7 @@ Application Insights는 실행 중인 위치에 관계 없이 애플리케이션
 
     Azure에서 애플리케이션을 호스팅할 준비가 되었으면 이제 게시할 수 있습니다. [ASP.NET 웹앱 빠른 시작 만들기](../app-service/app-service-web-get-started-dotnet.md#update-the-app-and-redeploy)에 설명된 단계를 따릅니다.
 
-5. Visual Studio를 사용하여 Application Insights 모니터링을 추가할 경우 클라이언트 쪽 모니터링을 자동으로 추가할 수 있습니다. 응용 프로그램에 수동으로 클라이언트 측 모니터링을 추가하려면 다음 JavaScript를 응용 프로그램에 추가합니다.
+5. Visual Studio를 사용하여 Application Insights 모니터링을 추가할 경우 클라이언트 쪽 모니터링을 자동으로 추가할 수 있습니다. 애플리케이션에 수동으로 클라이언트 측 모니터링을 추가하려면 다음 JavaScript를 애플리케이션에 추가합니다.
 
 ```html
 <!-- 

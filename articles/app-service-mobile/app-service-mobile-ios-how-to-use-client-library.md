@@ -548,7 +548,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로그인하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다. ID 공급자 SDK를 사용하는 클라이언트 흐름 인증이 `loginWithProvider:completion:` 메서드보다 선호도가 높습니다.  클라이언트 흐름 인증은 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기 때문입니다.
 
-1. [Active Directory 로그인에 App Service를 구성하는 방법][7] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 응용 프로그램을 등록하는 선택적 단계를 완료해야 합니다. iOS의 경우 권장하는 리디렉션 URI는 `<app-scheme>://<bundle-id>` 형식입니다. 자세한 내용은 [ADAL iOS 빠른 시작][8]을 참조하세요.
+1. [Active Directory 로그인에 App Service를 구성하는 방법][7] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 애플리케이션을 등록하는 선택적 단계를 완료해야 합니다. iOS의 경우 권장하는 리디렉션 URI는 `<app-scheme>://<bundle-id>` 형식입니다. 자세한 내용은 [ADAL iOS 빠른 시작][8]을 참조하세요.
 2. Cocoapods를 사용하여 ADAL을 설치합니다. 다음 정의를 포함하도록 Podfile을 편집합니다. 이때 **YOUR-PROJECT**를 Xcode 프로젝트의 이름으로 바꿉니다.
 
         source 'https://github.com/CocoaPods/Specs.git'
@@ -835,7 +835,7 @@ Google 로그인을 사용하여 응용 프로그램에 사용자를 로그인�
     GIDSignIn.sharedInstance().serverClientID = "SERVER_CLIENT_ID"
     ```
 
-5. 사용하는 언어에 따라 다음 코드를 `GIDSignInUIDelegate` 프로토콜을 구현하는 UIViewController의 응용 프로그램에 추가합니다.  로그아웃되었다가 다시 로그인되며, 자격 증명을 다시 입력할 필요는 없지만 동의 대화 상자가 표시됩니다.  세션 토큰이 만료된 경우에만 이 메서드를 호출합니다.
+5. 사용하는 언어에 따라 다음 코드를 `GIDSignInUIDelegate` 프로토콜을 구현하는 UIViewController의 애플리케이션에 추가합니다.  로그아웃되었다가 다시 로그인되며, 자격 증명을 다시 입력할 필요는 없지만 동의 대화 상자가 표시됩니다.  세션 토큰이 만료된 경우에만 이 메서드를 호출합니다.
 
    **Objective-C**:
 

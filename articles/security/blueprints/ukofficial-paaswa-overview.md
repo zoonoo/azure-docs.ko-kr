@@ -159,7 +159,7 @@ Azure Storage 보안에 대한 자세한 내용은 [보안 가이드](https://do
 
 #### <a name="azure-key-vault"></a>Azure Key Vault
 
-[Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)는 제3자가 액세스할 수 없도록 응용 프로그램 키와 비밀을 보호하는 데 사용됩니다. Key Vault는 사용자 암호 저장소로 사용할 수 없습니다. 자격 증명 모음이라는 보안 컨테이너를 여러 개 만들 수 있습니다. 이러한 자격 증명 모음은 HSM(하드웨어 보안 모듈)에 의해 백업됩니다. 자격 증명 모음은 응용 프로그램 비밀을 중앙 집중식으로 저장하여 보안 정보의 우발적인 손실 가능성을 줄이는 데 도움이 됩니다. Key Vault는 또한 저장된 모든 것에 대한 액세스를 제어하고 기록합니다. Azure Key Vault는 TLS(전송 계층 보안) 인증서의 요청 및 갱신을 처리할 수 있으므로, 강력한 인증서 수명 주기 관리 솔루션에 필요한 기능을 제공합니다.
+[Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)는 제3자가 액세스할 수 없도록 응용 프로그램 키와 비밀을 보호하는 데 사용됩니다. Key Vault는 사용자 암호 저장소로 사용할 수 없습니다. 자격 증명 모음이라는 보안 컨테이너를 여러 개 만들 수 있습니다. 이러한 자격 증명 모음은 HSM(하드웨어 보안 모듈)에 의해 백업됩니다. 자격 증명 모음은 애플리케이션 비밀을 중앙 집중식으로 저장하여 보안 정보의 우발적인 손실 가능성을 줄이는 데 도움이 됩니다. Key Vault는 또한 저장된 모든 것에 대한 액세스를 제어하고 기록합니다. Azure Key Vault는 TLS(전송 계층 보안) 인증서의 요청 및 갱신을 처리할 수 있으므로, 강력한 인증서 수명 주기 관리 솔루션에 필요한 기능을 제공합니다.
 
 #### <a name="azure-key-vault-in-this-blueprint"></a>이 청사진의 Azure Key Vault
 

@@ -75,7 +75,7 @@ Lessonly.com과 Azure AD의 통합을 구성하려면 갤러리의 Lessonly.com�
 
     ![Azure AD 테스트 사용자 만들기](./media/lessonly-tutorial/tutorial_lessonly.com_search.png)
 
-1. 결과 창에서 **Lessonly.com**을 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **Lessonly.com**을 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/lessonly-tutorial/tutorial_lessonly.com_addfromgallery.png)
 
@@ -96,11 +96,11 @@ Lessonly.com에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Lessonly.com 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Lessonly.com 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Lessonly.com에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Lessonly.com** 응용 프로그램 통합 페이지에서 **Single sign-on**을 클릭합니다.
+1. Azure Portal의 **Lessonly.com** 애플리케이션 통합 페이지에서 **Single sign-on**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -132,7 +132,7 @@ Lessonly.com에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![Configure Single Sign-On](./media/lessonly-tutorial/tutorial_lessonly.com_certificate.png)
 
-1. Lessonly.com 응용 프로그램에는 특정 서식에서 SAML 어설션이 필요하므로, **SAML 토큰 특성** 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 이에 대한 예를 보여 줍니다.
+1. Lessonly.com 애플리케이션에는 특정 서식에서 SAML 어설션이 필요하므로, **SAML 토큰 특성** 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 이에 대한 예를 보여 줍니다.
 
     ![Configure Single Sign-On](./media/lessonly-tutorial/tutorial_lessonly_06.png)
            
@@ -222,7 +222,7 @@ Lessonly.com에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Lessonly.com**을 선택합니다.
+1. 애플리케이션 목록에서 **Lessonly.com**을 선택합니다.
 
     ![Configure Single Sign-On](./media/lessonly-tutorial/tutorial_lessonly.com_app.png)
 
@@ -244,7 +244,7 @@ Lessonly.com에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.
 
-액세스 패널에서 Lessonly.com 타일을 클릭하면 Lessonly.com 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Lessonly.com 타일을 클릭하면 Lessonly.com 애플리케이션에 자동으로 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

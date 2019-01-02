@@ -125,7 +125,7 @@ ms.locfileid: "53435449"
 - 추가 Grafana 인프라를 지원하는 데 비용이 들거나 Grafana Cloud에 대한 추가 비용이 필요합니다.
 
 
-## <a name="build-your-own-custom-application"></a>고유한 사용자 지정 응용 프로그램 빌드
+## <a name="build-your-own-custom-application"></a>고유한 사용자 지정 애플리케이션 빌드
 고유한 사용자 지정 웹 사이트 및 애플리케이션을 빌드할 수 있는 REST 클라이언트를 사용하면 해당 API를 통해 Azure Monitor의 로그 및 메트릭 데이터에 액세스할 수 있습니다.
 
 ### <a name="advantages"></a>장점

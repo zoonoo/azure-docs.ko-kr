@@ -53,7 +53,7 @@ Batch API는 한 번에 하나 외에도 *컬렉션*으로 작업(job)에 작업
 
 작업(job)에 대규모 작업(task)의 컬렉션을 추가하는 데 다소 시간이 걸릴 수 있습니다(예: .NET API를 통해 20,000개의 작업을 추가하는 데 최대 1분). Batch API 및 워크로드에 따라 다음 중 하나 이상을 수정하여 작업 처리량을 높일 수 있습니다.
 
-* **작업 크기** - 대규모 작업을 추가하는 것은 작은 작업을 추가하는 것보다 시간이 오래 걸립니다. 컬렉션에서 각 작업의 크기를 줄이려면 태스크 명령줄을 간소화하고, 환경 변수의 수를 줄이거나 태스크 실행에 대한 요구 사항을 보다 효율적으로 처리할 수 있습니다. 예를 들어 많은 수의 리소스 파일을 사용하는 대신 풀에서 [시작 작업](batch-api-basics.md#start-task)을 사용하여 작업 종속성을 설치하거나 [응용 프로그램 패키지](batch-application-packages.md) 또는 [Docker 컨테이너](batch-docker-container-workloads.md)를 사용합니다.
+* **작업 크기** - 대규모 작업을 추가하는 것은 작은 작업을 추가하는 것보다 시간이 오래 걸립니다. 컬렉션에서 각 작업의 크기를 줄이려면 태스크 명령줄을 간소화하고, 환경 변수의 수를 줄이거나 태스크 실행에 대한 요구 사항을 보다 효율적으로 처리할 수 있습니다. 예를 들어 많은 수의 리소스 파일을 사용하는 대신 풀에서 [시작 작업](batch-api-basics.md#start-task)을 사용하여 작업 종속성을 설치하거나 [애플리케이션 패키지](batch-application-packages.md) 또는 [Docker 컨테이너](batch-docker-container-workloads.md)를 사용합니다.
 
 * **병렬 작업의 수** - Batch API에 따라 Batch 클라이언트에서 동시 실행 작업의 최대 수를 늘려서 처리량을 증가시킵니다. .NET API의 [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) 속성 또는 Batch Python SDK 확장의 [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#add-collection)과 같은 메서드의 `threads` 매개 변수를 사용하여 이 설정을 구성합니다. (이 속성은 네이티브 Batch Python SDK에서 사용할 수 없습니다.) 기본적으로 이 속성은 1로 설정되지만 작업의 처리량을 개선하도록 더 높게 설정합니다. 네트워크 대역폭 및 일부 CPU 성능을 사용하여 향상된 처리량의 균형을 유지합니다. 작업 처리량은 `MaxDegreeOfParallelism` 또는 `threads`의 최대 100배까지 증가합니다. 실제로 100 미만의 동시 실행 작업 수를 설정해야 합니다. 
  

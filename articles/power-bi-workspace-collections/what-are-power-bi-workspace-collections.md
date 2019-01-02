@@ -21,12 +21,12 @@ ms.locfileid: "43052042"
 
 **Power BI 작업 영역 컬렉션**을 사용하면 Power BI 보고서를 웹 또는 모바일 응용 프로그램에 통합할 수 있습니다.
 
-![응용 프로그램 다이어그램](media/what-are-power-bi-workspace-collections/what-is.png)
+![애플리케이션 다이어그램](media/what-are-power-bi-workspace-collections/what-is.png)
 
 > [!IMPORTANT]
-> Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 응용 프로그램에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.
+> Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 애플리케이션에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.
 
-Power BI 작업 영역 컬렉션은 ISV(독립 소프트웨어 공급업체) 및 앱 개발자가 응용 프로그램 내에서 Power BI 데이터 환경을 표시할 수 있도록 하는 **Azure 서비스** 입니다. 개발자가 애플리케이션을 구축한 경우 이러한 애플리케이션에는 고유한 사용자 및 고유한 기능 집합이 있습니다. 이러한 앱에는 이제 Microsoft Power BI 작업 영역 컬렉션을 통해 강력한 기능을 가질 수 있는 차트 및 보고서와 같은 일부 기본 제공 데이터 요소가 있을 수도 있습니다. 앱을 사용하기 위한 Power BI 계정이 필요 없습니다. 이전처럼 애플리케이션에 계속 로그인할 수 있으며 추가 라이선스를 요구하지 않고 Power BI 보고 환경을 보고 조작할 수 있습니다.
+Power BI 작업 영역 컬렉션은 ISV(독립 소프트웨어 공급업체) 및 앱 개발자가 애플리케이션 내에서 Power BI 데이터 환경을 표시할 수 있도록 하는 **Azure 서비스** 입니다. 개발자가 애플리케이션을 구축한 경우 이러한 애플리케이션에는 고유한 사용자 및 고유한 기능 집합이 있습니다. 이러한 앱에는 이제 Microsoft Power BI 작업 영역 컬렉션을 통해 강력한 기능을 가질 수 있는 차트 및 보고서와 같은 일부 기본 제공 데이터 요소가 있을 수도 있습니다. 앱을 사용하기 위한 Power BI 계정이 필요 없습니다. 이전처럼 애플리케이션에 계속 로그인할 수 있으며 추가 라이선스를 요구하지 않고 Power BI 보고 환경을 보고 조작할 수 있습니다.
 
 ## <a name="licensing-for-microsoft-power-bi-workspace-collections"></a>Microsoft Power BI 작업 영역 라이선스
 
@@ -34,7 +34,7 @@ Power BI 작업 영역 컬렉션은 ISV(독립 소프트웨어 공급업체) 및
 
 ## <a name="microsoft-power-bi-workspace-collections-conceptual-model"></a>Microsoft Power BI 작업 영역 컬렉션 개념적 모델
 
-![작업 영역 컬렉션을 사용하는 응용 프로그램 흐름](media/what-are-power-bi-workspace-collections/model.png)
+![작업 영역 컬렉션을 사용하는 애플리케이션 흐름](media/what-are-power-bi-workspace-collections/model.png)
 
 Azure의 다른 서비스와 같이 Power BI 작업 영역 컬렉션의 리소스는 [Azure Resource Manager API](https://msdn.microsoft.com/library/mt712306.aspx)를 통해 프로비전됩니다. 이 경우에 프로비전하는 리소스는 **Power BI 작업 영역 컬렉션**입니다.
 
@@ -60,7 +60,7 @@ Azure의 다른 서비스와 같이 Power BI 작업 영역 컬렉션의 리소�
 
 ## <a name="authentication-and-authorization-with-app-tokens"></a>앱 토큰으로 인증 및 권한 부여
 
-**Microsoft Power BI 작업 영역 컬렉션**은 응용 프로그램에 따라 필요한 모든 사용자 인증 및 권한 부여를 수행합니다. 최종 사용자가 Azure AD(Azure Active Directory)의 고객이어야 한다는 명시적인 요구 사항은 없습니다.  대신, 응용 프로그램은 **Microsoft Power BI 작업 영역 컬렉션** 권한 부여에서 **응용 프로그램 인증 토큰(앱 토큰)** 을 사용하여 Power BI 보고서를 렌더링하도록 지시합니다.  이러한 **앱 토큰** 은 앱에서 보고서를 렌더링하려고 할 때 필요한 경우에 만들어집니다.
+**Microsoft Power BI 작업 영역 컬렉션**은 응용 프로그램에 따라 필요한 모든 사용자 인증 및 권한 부여를 수행합니다. 최종 사용자가 Azure AD(Azure Active Directory)의 고객이어야 한다는 명시적인 요구 사항은 없습니다.  대신, 애플리케이션은 **Microsoft Power BI 작업 영역 컬렉션** 권한 부여에서 **애플리케이션 인증 토큰(앱 토큰)** 을 사용하여 Power BI 보고서를 렌더링하도록 지시합니다.  이러한 **앱 토큰** 은 앱에서 보고서를 렌더링하려고 할 때 필요한 경우에 만들어집니다.
 
 ![앱 토큰 사용 다이어그램](media/what-are-power-bi-workspace-collections/app-tokens.png)
 
@@ -74,7 +74,7 @@ Azure의 다른 서비스와 같이 Power BI 작업 영역 컬렉션의 리소�
 
 ## <a name="create-or-edit-reports-within-your-application"></a>애플리케이션 내에서 보고서 만들기 또는 편집
 
-이제 Power BI Desktop을 사용하지 않고도 응용 프로그램에서 직접 기존 보고서를 편집하거나 새 보고서를 만들 수 있습니다. 이렇게 하려면 작업 영역 내에 데이터 세트가 있어야 합니다.
+이제 Power BI Desktop을 사용하지 않고도 애플리케이션에서 직접 기존 보고서를 편집하거나 새 보고서를 만들 수 있습니다. 이렇게 하려면 작업 영역 내에 데이터 세트가 있어야 합니다.
 
 ## <a name="see-also"></a>참고 항목
 

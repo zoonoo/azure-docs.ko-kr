@@ -79,7 +79,7 @@ FilesAnywhere를 Azure AD로 통합하도록 구성하려면 갤러리에서 Fil
 
     ![Azure AD 테스트 사용자 만들기](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_search.png)
 
-1. 결과 창에서 **FilesAnywhere**를 선택하고 **추가** 단추를 클릭하여 해당 응용 프로그램을 추가합니다.
+1. 결과 창에서 **FilesAnywhere**를 선택하고 **추가** 단추를 클릭하여 해당 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_addfromgallery.png)
 
@@ -101,11 +101,11 @@ FilesAnywhere에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure 관리 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 FilesAnywhere 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure 관리 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 FilesAnywhere 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **FilesAnywhere에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure 관리 포털의 **FilesAnywhere** 응용 프로그램 통합 페이지에서 **Single sign-on**을 클릭합니다.
+1. Azure 관리 포털의 **FilesAnywhere** 애플리케이션 통합 페이지에서 **Single sign-on**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -132,7 +132,7 @@ FilesAnywhere에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 회신 URL로 값을 업데이트해야 합니다. 이러한 값을 얻으려면 [FilesAnywhere 지원 팀](mailto:support@FilesAnywhere.com)에 문의하세요. 
 
-1. FilesAnywhere Software 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대한 다음 클레임을 구성하세요. 애플리케이션 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+1. FilesAnywhere Software 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대한 다음 클레임을 구성하세요. 애플리케이션 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
     
     ![Configure Single Sign-On](./media/filesanywhere-tutorial/tutorial_filesanywhere_attribute.png)
     
@@ -173,7 +173,7 @@ FilesAnywhere에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![Configure Single Sign-On](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_configuresignon.png)
 
-1.  FilesAnywhere 쪽에서 응용 프로그램에 대한 SSO 구성이 완료되도록 하려면 [FilesAnywhere 지원 팀](mailto:support@FilesAnywhere.com)에 문의하고 다운로드된 SAML 토큰 서명 인증서 및 SSO(Single Sign On) URL을 제공하십시오.
+1.  FilesAnywhere 쪽에서 애플리케이션에 대한 SSO 구성이 완료되도록 하려면 [FilesAnywhere 지원 팀](mailto:support@FilesAnywhere.com)에 문의하고 다운로드된 SAML 토큰 서명 인증서 및 SSO(Single Sign On) URL을 제공하십시오.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure 관리 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
@@ -210,7 +210,7 @@ FilesAnywhere에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 ### <a name="creating-a-filesanywhere-test-user"></a>FilesAnywhere 테스트 사용자 만들기
 
-응용 프로그램이 JIT(Just-in-time) 사용자 프로비저닝을 지원하며 인증 후에 응용 프로그램에서 사용자가 자동으로 만들어집니다. 
+애플리케이션이 JIT(Just-in-time) 사용자 프로비저닝을 지원하며 인증 후에 애플리케이션에서 사용자가 자동으로 만들어집니다. 
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
@@ -221,11 +221,11 @@ FilesAnywhere에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 **Britta Simon을 FilesAnywhere에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 관리 포털에서 응용 프로그램 보기를 열고 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure 관리 포털에서 애플리케이션 보기를 열고 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **FilesAnywhere**를 선택합니다.
+1. 애플리케이션 목록에서 **FilesAnywhere**를 선택합니다.
 
     ![Configure Single Sign-On](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_app.png) 
 
@@ -249,7 +249,7 @@ FilesAnywhere에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 FilesAnywhere 타일을 클릭하면 FilesAnywhere 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 FilesAnywhere 타일을 클릭하면 FilesAnywhere 애플리케이션에 자동으로 로그온됩니다.
 
 
 ## <a name="additional-resources"></a>추가 리소스

@@ -38,7 +38,7 @@ ms.locfileid: "39346526"
 
 - **인증 문자 또는 전화 통화를 받을 수 없는 경우** 문자나 전화 통화를 받을 수 없는 몇 가지 이유가 있습니다. 과거에 문자나 전화 통화를 성공적으로 받은 경우에는 계정이 아니라 휴대폰 공급자의 문제일 수 있습니다. 종종 잘못된 신호로 인해 지연된 경우, 모바일 디바이스에서 [Microsoft Authenticator 앱](microsoft-authenticator-app-how-to.md)을 사용하는 것이 좋습니다. 이 앱은 셀 신호 또는 인터넷 연결이 없어도 로그인용으로 임의 보안 코드를 생성할 수 있습니다.<br><br>문자 메시지를 받으려는 경우, 친구에게 테스트로 문자를 보내도록 부탁하여 문자를 받을 수 있는지 확인하고, 여러 개의 메시지를 받은 경우에는 가장 최근 문자의 코드를 사용하고 있는지 확인합니다.
 
-- **앱 암호가 작동하지 않는 경우** 2단계 인증을 지원하지 않는 이전 데스크톱 응용 프로그램의 경우, 앱 암호가 사용자의 일반 암호를 대체합니다. 먼저 암호를 올바르게 입력했는지 확인합니다. 그래도 문제가 해결되지 않으면 로그인을 시도하여 [새 앱 암호를 만들](multi-factor-authentication-end-user-app-passwords.md)거나 관리자에게 문의하여 새 암호를 만들 수 있도록 [기존 앱 암호를 삭제](../authentication/howto-mfa-userdevicesettings.md)하도록 요청합니다.
+- **앱 암호가 작동하지 않는 경우** 2단계 인증을 지원하지 않는 이전 데스크톱 애플리케이션의 경우, 앱 암호가 사용자의 일반 암호를 대체합니다. 먼저 암호를 올바르게 입력했는지 확인합니다. 그래도 문제가 해결되지 않으면 로그인을 시도하여 [새 앱 암호를 만들](multi-factor-authentication-end-user-app-passwords.md)거나 관리자에게 문의하여 새 암호를 만들 수 있도록 [기존 앱 암호를 삭제](../authentication/howto-mfa-userdevicesettings.md)하도록 요청합니다.
 
 ## <a name="sign-in-using-another-verification-method"></a>또 다른 인증 방법을 사용하여 로그인
 

@@ -15,10 +15,10 @@ ms.locfileid: "40036757"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>자산 및 출력 파일을 렌더링하기 위한 저장소 및 데이터 이동 옵션
 
-풀 VM에서 렌더링하는 응용 프로그램에 장면 및 자산 파일을 사용할 수 있도록 하는 옵션이 있습니다.
+풀 VM에서 렌더링하는 애플리케이션에 장면 및 자산 파일을 사용할 수 있도록 하는 옵션이 있습니다.
 
 * [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction):
-  * 장면 및 자산 파일은 로컬 파일 시스템에서 Blob Storage로 업로드됩니다. 응용 프로그램이 작업에 의해 실행되면 필수 파일이 Blob Storage에서 VM으로 복사되므로 렌더링하는 응용 프로그램에서 액세스할 수 있습니다. 출력 파일은 렌더링하는 응용 프로그램에 의해 VM 디스크에 기록된 다음, Blob Storage로 복사됩니다.  필요한 경우 Blob Storage에서 로컬 파일 시스템으로 출력 파일을 다운로드할 수 있습니다.
+  * 장면 및 자산 파일은 로컬 파일 시스템에서 Blob Storage로 업로드됩니다. 애플리케이션이 작업에 의해 실행되면 필수 파일이 Blob Storage에서 VM으로 복사되므로 렌더링하는 애플리케이션에서 액세스할 수 있습니다. 출력 파일은 렌더링하는 애플리케이션에 의해 VM 디스크에 기록된 다음, Blob Storage로 복사됩니다.  필요한 경우 Blob Storage에서 로컬 파일 시스템으로 출력 파일을 다운로드할 수 있습니다.
   * Azure Blob Storage는 소규모 프로젝트에 대한 간단하고 비용 효율적인 옵션입니다.  각 풀 VM에 모든 자산에 파일이 필요하므로 자산 파일의 크기와 수가 증가되면 파일 전송이 최대한 효율적으로 수행되도록 주의해야 합니다.  
 * [blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)를 사용하는 파일 시스템인 Azure Storage입니다.
   * Linux VM의 경우 blobfuse 가상 파일 시스템 드라이버를 사용할 때 저장소 계정을 노출하고 파일 시스템으로 사용할 수 있습니다.

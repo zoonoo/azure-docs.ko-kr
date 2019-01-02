@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - Load Balancer에서 응용 프로그램 포트 열기 | Microsoft Docs
+title: Azure PowerShell 스크립트 샘플 - Load Balancer에서 애플리케이션 포트 열기 | Microsoft Docs
 description: Azure PowerShell 스크립트 샘플 - Service Fabric 애플리케이션에 대한 Azure Load Balancer에서 애플리케이션 포트 열기
 services: service-fabric
 documentationcenter: ''

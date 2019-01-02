@@ -1,6 +1,6 @@
 ---
 title: Azure의 Kubernetes 자습서 - 컨테이너 레지스트리 만들기
-description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Azure Container Registry 인스턴스를 만들고 응용 프로그램 예제 컨테이너 이미지를 업로드합니다.
+description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Azure Container Registry 인스턴스를 만들고 애플리케이션 예제 컨테이너 이미지를 업로드합니다.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -18,7 +18,7 @@ ms.locfileid: "41919560"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>자습서: Azure Container Registry 배포 및 사용
 
-ACR(Azure Container Registry)은 Docker 컨테이너 이미지를 위한 Azure 기반의 개인 레지스트리입니다. 개인 컨테이너 레지스트리를 사용하면 응용 프로그램 및 사용자 지정 코드를 안전하게 빌드하고 배포할 수 있습니다. 7부 중 2부에 해당하는 이 자습서에서는 ACR 인스턴스를 배포하고 컨테이너 이미지를 푸시합니다. 다음 방법에 대해 알아봅니다.
+ACR(Azure Container Registry)은 Docker 컨테이너 이미지를 위한 Azure 기반의 개인 레지스트리입니다. 개인 컨테이너 레지스트리를 사용하면 애플리케이션 및 사용자 지정 코드를 안전하게 빌드하고 배포할 수 있습니다. 7부 중 2부에 해당하는 이 자습서에서는 ACR 인스턴스를 배포하고 컨테이너 이미지를 푸시합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * ACR(Azure Container Registry) 인스턴스 만들기
@@ -26,7 +26,7 @@ ACR(Azure Container Registry)은 Docker 컨테이너 이미지를 위한 Azure �
 > * ACR에 이미지 업로드
 > * 레지스트리의 이미지 보기
 
-후속 자습서에서 이 ACR 인스턴스는 AKS의 Kubernetes 클러스터와 통합되고, 이미지로 응용 프로그램을 배포합니다.
+후속 자습서에서 이 ACR 인스턴스는 AKS의 Kubernetes 클러스터와 통합되고, 이미지로 애플리케이션을 배포합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

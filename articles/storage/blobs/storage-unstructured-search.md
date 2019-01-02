@@ -103,7 +103,7 @@ ms.locfileid: "47181195"
 
 ## <a name="create-a-search-service"></a>검색 서비스 만들기
 
-Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 응용 프로그램에 대한 풍부한 검색 환경을 추가하기 위한 API 및 도구를 제공하는 SaaS(Search-as-a-Service) 클라우드 솔루션입니다.
+Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 애플리케이션에 대한 풍부한 검색 환경을 추가하기 위한 API 및 도구를 제공하는 SaaS(Search-as-a-Service) 클라우드 솔루션입니다.
 
 검색 서비스를 만드는 과정에 대해 잘 모르는 경우에는 다음 만드는 방법을 참조하세요.
 

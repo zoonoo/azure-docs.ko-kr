@@ -176,7 +176,7 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 
 ### <a name="protect-your-storage-account-using-vnets-and-firewalls"></a>Vnet 및 방화벽을 사용하여 저장소 계정 보호
 
-기본적으로 모든 저장소 계정은 인터넷에 액세스할 수 있는 네트워크를 통해 액세스 가능합니다. 그러나 특정 가상 네트워크의 응용 프로그램만 저장소 계정에 액세스하도록 허용하는 네트워크 규칙을 구성할 수 있습니다. 자세한 내용은 [Azure Storage 방화벽 및 Virtual Networks 구성](storage-network-security.md)을 참조하세요. 
+기본적으로 모든 저장소 계정은 인터넷에 액세스할 수 있는 네트워크를 통해 액세스 가능합니다. 그러나 특정 가상 네트워크의 애플리케이션만 스토리지 계정에 액세스하도록 허용하는 네트워크 규칙을 구성할 수 있습니다. 자세한 내용은 [Azure Storage 방화벽 및 Virtual Networks 구성](storage-network-security.md)을 참조하세요. 
 
 이 문서에서는 PowerShell cmdlet를 사용하여 이러한 설정을 관리하는 방법을 보여 줍니다.
 * [Add-AzureRmStorageAccountNetworkRule](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)

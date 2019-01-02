@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 클러스터에 응용 프로그램 배포 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - 클러스터에 응용 프로그램 배포
+title: Azure PowerShell 스크립트 샘플 - 클러스터에 애플리케이션 배포 | Microsoft Docs
+description: Azure PowerShell 스크립트 샘플 - 클러스터에 애플리케이션 배포
 services: service-fabric
 documentationcenter: ''
 author: rwike77
@@ -24,7 +24,7 @@ ms.locfileid: "27927603"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 애플리케이션 배포
 
-이 샘플 스크립트는 클러스터 이미지 저장소에 응용 프로그램 패키지를 복사하고, 응용 프로그램 유형을 클러스터에 등록하고, 불필요한 응용 프로그램 패키지를 제거하고, 해당 응용 프로그램 유형에서 응용 프로그램 인스턴스를 만듭니다.  기본 서비스가 대상 응용 프로그램 형식의 응용 프로그램 매니페스트에 정의된 경우 이때 이러한 서비스도 생성됩니다. 필요에 따라 매개 변수를 사용자 지정합니다. 
+이 샘플 스크립트는 클러스터 이미지 저장소에 애플리케이션 패키지를 복사하고, 애플리케이션 유형을 클러스터에 등록하고, 불필요한 애플리케이션 패키지를 제거하고, 해당 애플리케이션 유형에서 애플리케이션 인스턴스를 만듭니다.  기본 서비스가 대상 애플리케이션 형식의 애플리케이션 매니페스트에 정의된 경우 이때 이러한 서비스도 생성됩니다. 필요에 따라 매개 변수를 사용자 지정합니다. 
 
 필요한 경우 [Service Fabric SDK](../service-fabric-get-started.md)를 사용하여 Service Fabric PowerShell 모듈을 설치합니다. 
 
@@ -43,10 +43,10 @@ ms.locfileid: "27927603"
 | 명령 | 메모 |
 |---|---|
 |[Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)| Service Fabric 클러스터에 대한 끝점을 만듭니다. |
-|[Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | 응용 프로그램 패키지를 클러스터 이미지 저장소에 복사합니다.  |
-|[Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)| 응용 프로그램 유형 및 버전을 클러스터에 등록합니다. |
-|[New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps)| 등록된 응용 프로그램 유형에서 응용 프로그램을 만듭니다. |
-| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | 이미지 저장소에서 Service Fabric 응용 프로그램 패키지를 제거합니다.|
+|[Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | 애플리케이션 패키지를 클러스터 이미지 저장소에 복사합니다.  |
+|[Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)| 애플리케이션 유형 및 버전을 클러스터에 등록합니다. |
+|[New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps)| 등록된 애플리케이션 유형에서 애플리케이션을 만듭니다. |
+| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | 이미지 저장소에서 Service Fabric 애플리케이션 패키지를 제거합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

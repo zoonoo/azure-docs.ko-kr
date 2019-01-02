@@ -21,7 +21,7 @@ ms.locfileid: "49345359"
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-클라우드 기반 Bing Speech Service를 사용하여 REST API를 통해 음성 오디오를 텍스트로 변환함으로써 응용 프로그램을 개발할 수 있습니다.
+클라우드 기반 Bing Speech Service를 사용하여 REST API를 통해 음성 오디오를 텍스트로 변환함으로써 애플리케이션을 개발할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

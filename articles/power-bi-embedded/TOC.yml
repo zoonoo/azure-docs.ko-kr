@@ -25,7 +25,7 @@ items:
     href: https://docs.microsoft.com/power-bi/developer/get-azuread-access-token
   - name: 질문 및 답변 포함
     href: https://docs.microsoft.com/power-bi/developer/qanda
-  - name: 포함된 응용 프로그램 문제 해결
+  - name: 포함된 애플리케이션 문제 해결
     href: https://docs.microsoft.com/power-bi/developer/embedded-troubleshoot
   - name: Azure에서 용량 관리
     items:

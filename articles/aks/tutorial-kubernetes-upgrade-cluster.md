@@ -18,7 +18,7 @@ ms.locfileid: "48901942"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 Kubernetes 업그레이드
 
-응용 프로그램 및 클러스터 수명 주기의 일부로, Kubernetes 최신 버전으로 업그레이드하여 새 기능을 사용할 수 있습니다. Azure CLI를 사용하여 AKS(Azure Kubernetes Service) 클러스터를 업그레이드할 수 있습니다. 애플리케이션을 실행하는 방해를 최소화하려면 업그레이드 프로세스 동안 Kubernetes 노드를 신중하게 [통제하고 드레이닝][kubernetes-drain]합니다.
+애플리케이션 및 클러스터 수명 주기의 일부로, Kubernetes 최신 버전으로 업그레이드하여 새 기능을 사용할 수 있습니다. Azure CLI를 사용하여 AKS(Azure Kubernetes Service) 클러스터를 업그레이드할 수 있습니다. 애플리케이션을 실행하는 방해를 최소화하려면 업그레이드 프로세스 동안 Kubernetes 노드를 신중하게 [통제하고 드레이닝][kubernetes-drain]합니다.
 
 총 7부 중 7부인 이 자습서에서는 Kubernetes 클러스터가 업그레이드됩니다. 다음 방법에 대해 알아봅니다.
 

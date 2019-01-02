@@ -90,7 +90,7 @@ X.509 디바이스를 인증하려면 먼저 CA 인증서로 디바이스에 서
 
 다음으로 IoT Hub에 등록된 X.509 디바이스를 시뮬레이트하는 C# 응용 프로그램을 만드는 방법을 보여줍니다. 시뮬레이트된 디바이스에서 허브로 온도 및 습도 값을 전송합니다. 이 자습서에서는 디바이스 응용 프로그램만 만듭니다. 이 시뮬레이트된 디바이스에서 보낸 이벤트에 응답을 보낼 IoT Hub 서비스 응용 프로그램을 작성하는 것은 독자가 연습하도록 남겨두었습니다. C# 애플리케이션은 [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)의 단계를 수행했다고 가정합니다.
 
-1. Visual Studio에서 콘솔 응용 프로그램 프로젝트 템플릿을 사용하여 새 Visual C# Windows 클래식 데스크톱 프로젝트를 만듭니다. 프로젝트의 이름을 **SimulateX509Device**로 지정합니다.
+1. Visual Studio에서 콘솔 애플리케이션 프로젝트 템플릿을 사용하여 새 Visual C# Windows 클래식 데스크톱 프로젝트를 만듭니다. 프로젝트의 이름을 **SimulateX509Device**로 지정합니다.
    ![Visual Studio에서 X.509 장치 프로젝트 만들기](./media/iot-hub-security-x509-get-started/create-device-project.png)
 
 2. 솔루션 탐색기에서 **SimulateX509Device** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...** 를 클릭합니다. NuGet 패키지 관리자 창에서 **찾아보기**를 선택하고 **microsoft.azure.devices.client**를 검색합니다. **설치**를 선택하여 **Microsoft.Azure.Devices.Client** 패키지를 설치한 후 사용 약관에 동의합니다. 이 프로시저에서는 Azure IoT 디바이스 SDK NuGet 패키지 및 해당 종속성에 대한 참조를 다운로드, 설치 및 추가합니다.

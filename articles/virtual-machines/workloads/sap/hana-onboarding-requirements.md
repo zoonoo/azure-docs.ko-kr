@@ -37,7 +37,7 @@ ms.locfileid: "44030658"
 
 **운영 체제**
 
-- SAP 응용 프로그램용 SUSE Linux Enterprise Server 12에 대한 라이선스
+- SAP 애플리케이션용 SUSE Linux Enterprise Server 12에 대한 라이선스
 
    > [!NOTE] 
    > Microsoft에서 제공하는 운영 체제가 SUSE에 등록되어 있지 않습니다. 구독 관리 도구 인스턴스에 연결되어 있지 않습니다.

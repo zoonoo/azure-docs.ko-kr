@@ -127,7 +127,7 @@ SQL/데이터 관리자는 Azure SQL 데이터베이스에 업로드하기 위�
 -   [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)은 조직의 ID에 영향을 미치는 잠재적 취약성을 탐지하고, 조직의 ID와 관련하여 검색된 의심스러운 작업에 대한 자동화된 대응을 구성하며, 의심스러운 인시던트를 조사하여 이를 해결하기 위한 적절한 조치를 수행합니다.
 -   [Azure RBAC(Role-based Access Control)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)은 Azure에 초점을 맞춘 액세스 관리를 지원합니다. 구독 액세스는 구독 관리자로 제한됩니다.
 
-Azure SQL Database의 보안 기능 사용에 대한 자세한 내용은 [Contoso Clinic 데모 응용 프로그램](https://github.com/Microsoft/azure-sql-security-sample) 샘플을 참조하세요.
+Azure SQL Database의 보안 기능 사용에 대한 자세한 내용은 [Contoso Clinic 데모 애플리케이션](https://github.com/Microsoft/azure-sql-security-sample) 샘플을 참조하세요.
 
 ### <a name="security"></a>보안
 **비밀 관리**: 이 솔루션은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용하여 키와 비밀을 관리합니다. Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다.

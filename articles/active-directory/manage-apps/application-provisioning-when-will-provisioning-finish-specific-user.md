@@ -1,6 +1,6 @@
 ---
-title: 특정 사용자가 응용 프로그램에 액세스할 수 있는 시점 파악 | Microsoft Docs
-description: 매우 중요한 사용자가 Azure AD를 사용하여 사용자를 프로비저닝하도록 구성한 응용 프로그램에 액세스할 수 있는 시기를 찾는 방법
+title: 특정 사용자가 애플리케이션에 액세스할 수 있는 시점 파악 | Microsoft Docs
+description: 매우 중요한 사용자가 Azure AD를 사용하여 사용자를 프로비저닝하도록 구성한 애플리케이션에 액세스할 수 있는 시기를 찾는 방법
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -22,8 +22,8 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/11/2018
 ms.locfileid: "44355342"
 ---
-# <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>특정 사용자가 응용 프로그램에 액세스할 수 있는 시점 파악
-응용 프로그램에서 자동 사용자 프로비저닝을 사용하는 경우 Azure AD는 정기적으로 예약된 시간 간격(일반적으로 10분 간격)으로 [사용자 및 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)과 같은 항목을 기반으로 앱에서 사용자 계정을 자동으로 프로비저닝하고 업데이트합니다.
+# <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>특정 사용자가 애플리케이션에 액세스할 수 있는 시점 파악
+애플리케이션에서 자동 사용자 프로비저닝을 사용하는 경우 Azure AD는 정기적으로 예약된 시간 간격(일반적으로 10분 간격)으로 [사용자 및 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)과 같은 항목을 기반으로 앱에서 사용자 계정을 자동으로 프로비저닝하고 업데이트합니다.
 
 ## <a name="how-long-does-it-take"></a>소요 시간
 

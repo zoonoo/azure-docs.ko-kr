@@ -366,11 +366,11 @@ ms.locfileid: "53410536"
 > | 액션(Action) | Microsoft.ApiManagement/service/updatehostname/action | API Management 서비스에 대한 사용자 지정 도메인 이름 설정, 업데이트 또는 제거합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/users/action | 새 사용자를 등록합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/users/applications/attachments/delete | 첨부 파일을 제거합니다. |
-> | 액션(Action) | Microsoft.ApiManagement/service/users/applications/attachments/read | 응용 프로그램 첨부 파일을 가져오거나 첨부 파일을 가져옵니다. |
-> | 액션(Action) | Microsoft.ApiManagement/service/users/applications/attachments/write | 응용 프로그램에 첨부 파일을 추가합니다. |
-> | 액션(Action) | Microsoft.ApiManagement/service/users/applications/delete | 기존 응용 프로그램을 제거합니다. |
-> | 액션(Action) | Microsoft.ApiManagement/service/users/applications/read | 모든 사용자 응용 프로그램 목록을 가져오거나 API Management 응용 프로그램 세부 정보를 가져옵니다. |
-> | 액션(Action) | Microsoft.ApiManagement/service/users/applications/write | API Management에 응용 프로그램을 등록하거나 응용 프로그램 세부 정보를 업데이트합니다. |
+> | 액션(Action) | Microsoft.ApiManagement/service/users/applications/attachments/read | 애플리케이션 첨부 파일을 가져오거나 첨부 파일을 가져옵니다. |
+> | 액션(Action) | Microsoft.ApiManagement/service/users/applications/attachments/write | 애플리케이션에 첨부 파일을 추가합니다. |
+> | 액션(Action) | Microsoft.ApiManagement/service/users/applications/delete | 기존 애플리케이션을 제거합니다. |
+> | 액션(Action) | Microsoft.ApiManagement/service/users/applications/read | 모든 사용자 애플리케이션 목록을 가져오거나 API Management 애플리케이션 세부 정보를 가져옵니다. |
+> | 액션(Action) | Microsoft.ApiManagement/service/users/applications/write | API Management에 애플리케이션을 등록하거나 애플리케이션 세부 정보를 업데이트합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/users/delete | 사용자 계정을 제거합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/users/generateSsoUrl/action | SSO URL을 생성합니다. 이 URL은 관리 포털에 액세스하는 데 사용할 수 있습니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/users/groups/read | 사용자 그룹의 목록을 가져옵니다. |
@@ -568,13 +568,13 @@ ms.locfileid: "53410536"
 > [!div class="mx-tdCol2BreakAll"]
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | 액션(Action) | Microsoft.Batch/batchAccounts/applications/delete | 응용 프로그램을 삭제합니다. |
-> | 액션(Action) | Microsoft.Batch/batchAccounts/applications/read | 응용 프로그램을 나열하거나 응용 프로그램의 속성을 가져옵니다. |
-> | 액션(Action) | Microsoft.Batch/batchAccounts/applications/versions/activate/action | 응용 프로그램 패키지를 활성화합니다. |
-> | 액션(Action) | Microsoft.Batch/batchAccounts/applications/versions/delete | 응용 프로그램 패키지를 삭제합니다. |
-> | 액션(Action) | Microsoft.Batch/batchAccounts/applications/versions/read | 응용 프로그램 패키지의 속성을 가져옵니다. |
-> | 액션(Action) | Microsoft.Batch/batchAccounts/applications/versions/write | 새 응용 프로그램 패키지를 만들거나 기존 응용 프로그램 패키지를 업데이트합니다. |
-> | 조치 | Microsoft.Batch/batchAccounts/applications/write | 새 응용 프로그램을 만들거나 기존 응용 프로그램을 업데이트합니다. |
+> | 액션(Action) | Microsoft.Batch/batchAccounts/applications/delete | 애플리케이션을 삭제합니다. |
+> | 액션(Action) | Microsoft.Batch/batchAccounts/applications/read | 애플리케이션을 나열하거나 애플리케이션의 속성을 가져옵니다. |
+> | 액션(Action) | Microsoft.Batch/batchAccounts/applications/versions/activate/action | 애플리케이션 패키지를 활성화합니다. |
+> | 액션(Action) | Microsoft.Batch/batchAccounts/applications/versions/delete | 애플리케이션 패키지를 삭제합니다. |
+> | 액션(Action) | Microsoft.Batch/batchAccounts/applications/versions/read | 애플리케이션 패키지의 속성을 가져옵니다. |
+> | 액션(Action) | Microsoft.Batch/batchAccounts/applications/versions/write | 새 애플리케이션 패키지를 만들거나 기존 애플리케이션 패키지를 업데이트합니다. |
+> | 조치 | Microsoft.Batch/batchAccounts/applications/write | 새 애플리케이션을 만들거나 기존 애플리케이션을 업데이트합니다. |
 > | 액션(Action) | Microsoft.Batch/batchAccounts/certificateOperationResults/read | 배치 계정에 대한 장기 실행 인증서 작업의 결과를 가져옵니다. |
 > | 액션(Action) | Microsoft.Batch/batchAccounts/certificates/cancelDelete/action | 배치 계정에서 실패한 인증서 삭제를 취소합니다. |
 > | 액션(Action) | Microsoft.Batch/batchAccounts/certificates/delete | 배치 계정에서 인증서를 삭제합니다. |
@@ -2213,9 +2213,9 @@ ms.locfileid: "53410536"
 > [!div class="mx-tdCol2BreakAll"]
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | 액션(Action) | Microsoft.HDInsight/clusters/applications/delete | HDInsight 클러스터용 응용 프로그램을 삭제합니다. |
-> | 액션(Action) | Microsoft.HDInsight/clusters/applications/read | HDInsight 클러스터용 응용 프로그램을 가져옵니다. |
-> | 액션(Action) | Microsoft.HDInsight/clusters/applications/write | HDInsight 클러스터용 응용 프로그램을 만들거나 업데이트합니다. |
+> | 액션(Action) | Microsoft.HDInsight/clusters/applications/delete | HDInsight 클러스터용 애플리케이션을 삭제합니다. |
+> | 액션(Action) | Microsoft.HDInsight/clusters/applications/read | HDInsight 클러스터용 애플리케이션을 가져옵니다. |
+> | 액션(Action) | Microsoft.HDInsight/clusters/applications/write | HDInsight 클러스터용 애플리케이션을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.HDInsight/clusters/changerdpsetting/action | HDInsight 클러스터의 RDP 설정을 변경합니다. |
 > | 액션(Action) | Microsoft.HDInsight/clusters/configurations/action | HDInsight 클러스터 구성을 업데이트합니다. |
 > | 액션(Action) | Microsoft.HDInsight/clusters/configurations/read | HDInsight 클러스터 구성을 가져옵니다. |
@@ -3213,11 +3213,11 @@ ms.locfileid: "53410536"
 > | 조치 | Microsoft.Network/applicationGateways/start/action | Application Gateway를 시작합니다. |
 > | 액션(Action) | Microsoft.Network/applicationGateways/stop/action | Application Gateway를 중지합니다. |
 > | 액션(Action) | Microsoft.Network/applicationGateways/write | Application Gateway를 만들거나 Application Gateway를 업데이트합니다. |
-> | 액션(Action) | Microsoft.Network/applicationSecurityGroups/delete | 응용 프로그램 보안 그룹을 삭제합니다. |
-> | 액션(Action) | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action | IP 구성을 응용 프로그램 보안 그룹에 조인합니다. |
-> | 액션(Action) | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | 보안 규칙을 응용 프로그램 보안 그룹에 조인합니다. |
-> | 액션(Action) | Microsoft.Network/applicationSecurityGroups/read | 응용 프로그램 보안 그룹 ID를 가져옵니다. |
-> | 액션(Action) | Microsoft.Network/applicationSecurityGroups/write | 응용 프로그램 보안 그룹을 만들거나 기존 응용 프로그램 보안 그룹을 업데이트합니다. |
+> | 액션(Action) | Microsoft.Network/applicationSecurityGroups/delete | 애플리케이션 보안 그룹을 삭제합니다. |
+> | 액션(Action) | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action | IP 구성을 애플리케이션 보안 그룹에 조인합니다. |
+> | 액션(Action) | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | 보안 규칙을 애플리케이션 보안 그룹에 조인합니다. |
+> | 액션(Action) | Microsoft.Network/applicationSecurityGroups/read | 애플리케이션 보안 그룹 ID를 가져옵니다. |
+> | 액션(Action) | Microsoft.Network/applicationSecurityGroups/write | 애플리케이션 보안 그룹을 만들거나 기존 애플리케이션 보안 그룹을 업데이트합니다. |
 > | 액션(Action) | Microsoft.Network/azureFirewallFqdnTags/read | Azure Firewall FQDN 태그를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/azurefirewalls/delete | Azure Firewall을 삭제합니다. |
 > | 조치 | Microsoft.Network/azurefirewalls/read | Azure Firewall을 가져옵니다. |
@@ -4263,8 +4263,8 @@ ms.locfileid: "53410536"
 > | 액션(Action) | Microsoft.Security/advancedThreatProtectionSettings/read | 리소스에 대한 Advanced Threat Protection 설정을 가져옵니다. |
 > | 액션(Action) | Microsoft.Security/advancedThreatProtectionSettings/write | 리소스에 대한 Advanced Threat Protection 설정을 업데이트합니다. |
 > | 액션(Action) | Microsoft.Security/alerts/read | 모든 사용 가능한 보안 경고를 가져옵니다. |
-> | 액션(Action) | Microsoft.Security/applicationWhitelistings/read | 응용 프로그램 허용 목록을 가져옵니다. |
-> | 액션(Action) | Microsoft.Security/applicationWhitelistings/write | 새 응용 프로그램 허용 목록을 만들거나 기존 응용 프로그램 허용 목록을 업데이트합니다. |
+> | 액션(Action) | Microsoft.Security/applicationWhitelistings/read | 애플리케이션 허용 목록을 가져옵니다. |
+> | 액션(Action) | Microsoft.Security/applicationWhitelistings/write | 새 애플리케이션 허용 목록을 만들거나 기존 애플리케이션 허용 목록을 업데이트합니다. |
 > | 액션(Action) | Microsoft.Security/complianceResults/read | 리소스에 대한 준수 결과를 가져옵니다. |
 > | 조치 | Microsoft.Security/informationProtectionPolicies/read | 리소스에 대한 정보 보호 정책을 가져옵니다. |
 > | 조치 | Microsoft.Security/informationProtectionPolicies/write | 리소스에 대한 정보 보호 정책을 업데이트합니다. |
@@ -4300,9 +4300,9 @@ ms.locfileid: "53410536"
 > | 조치 | Microsoft.Security/settings/write | 범위에 대한 설정을 업데이트합니다. |
 > | 조치 | Microsoft.Security/tasks/read | 모든 사용 가능한 보안 권장 사항을 가져옵니다. |
 > | 조치 | Microsoft.Security/unregister/action | Azure Security Center에서 구독을 등록 취소합니다. |
-> | 조치 | Microsoft.Security/webApplicationFirewalls/delete | 웹 응용 프로그램 방화벽을 삭제합니다. |
-> | 액션(Action) | Microsoft.Security/webApplicationFirewalls/read | 웹 응용 프로그램 방화벽을 가져옵니다. |
-> | 액션(Action) | Microsoft.Security/webApplicationFirewalls/write | 새 웹 응용 프로그램 방화벽을 만들거나 기존 웹 응용 프로그램 방화벽을 업데이트합니다. |
+> | 조치 | Microsoft.Security/webApplicationFirewalls/delete | 웹 애플리케이션 방화벽을 삭제합니다. |
+> | 액션(Action) | Microsoft.Security/webApplicationFirewalls/read | 웹 애플리케이션 방화벽을 가져옵니다. |
+> | 액션(Action) | Microsoft.Security/webApplicationFirewalls/write | 새 웹 애플리케이션 방화벽을 만들거나 기존 웹 애플리케이션 방화벽을 업데이트합니다. |
 > | 액션(Action) | Microsoft.Security/workspaceSettings/connect/action | 작업 영역 설정 재연결 설정을 변경합니다. |
 > | 액션(Action) | Microsoft.Security/workspaceSettings/delete | 작업 영역 설정을 삭제합니다. |
 > | 액션(Action) | Microsoft.Security/workspaceSettings/read | 작업 영역 설정을 가져옵니다. |
@@ -4402,21 +4402,21 @@ ms.locfileid: "53410536"
 > [!div class="mx-tdCol2BreakAll"]
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | 액션(Action) | Microsoft.ServiceFabric/clusters/applications/delete | 응용 프로그램을 삭제합니다. |
-> | 액션(Action) | Microsoft.ServiceFabric/clusters/applications/read | 응용 프로그램을 읽습니다. |
+> | 액션(Action) | Microsoft.ServiceFabric/clusters/applications/delete | 애플리케이션을 삭제합니다. |
+> | 액션(Action) | Microsoft.ServiceFabric/clusters/applications/read | 애플리케이션을 읽습니다. |
 > | 액션(Action) | Microsoft.ServiceFabric/clusters/applications/services/delete | 서비스를 삭제합니다. |
 > | 액션(Action) | Microsoft.ServiceFabric/clusters/applications/services/partitions/read | 파티션을 읽습니다. |
 > | 액션(Action) | Microsoft.ServiceFabric/clusters/applications/services/partitions/replicas/read | 복제본을 읽습니다. |
 > | 액션(Action) | Microsoft.ServiceFabric/clusters/applications/services/read | 서비스를 읽습니다. |
 > | 액션(Action) | Microsoft.ServiceFabric/clusters/applications/services/statuses/read | 서비스 상태를 읽습니다. |
 > | 액션(Action) | Microsoft.ServiceFabric/clusters/applications/services/write | 서비스를 만들거나 업데이트합니다. |
-> | 액션(Action) | Microsoft.ServiceFabric/clusters/applications/write | 응용 프로그램을 만들거나 업데이트합니다. |
-> | 액션(Action) | Microsoft.ServiceFabric/clusters/applicationTypes/delete | 응용 프로그램 유형을 삭제합니다. |
-> | 액션(Action) | Microsoft.ServiceFabric/clusters/applicationTypes/read | 응용 프로그램 유형을 읽습니다. |
-> | 액션(Action) | Microsoft.ServiceFabric/clusters/applicationTypes/versions/delete | 응용 프로그램 유형 버전을 삭제합니다. |
-> | 액션(Action) | Microsoft.ServiceFabric/clusters/applicationTypes/versions/read | 응용 프로그램 유형 버전을 읽습니다. |
-> | 액션(Action) | Microsoft.ServiceFabric/clusters/applicationTypes/versions/write | 응용 프로그램 유형 버전을 만들거나 업데이트합니다. |
-> | 액션(Action) | Microsoft.ServiceFabric/clusters/applicationTypes/write | 응용 프로그램 유형을 만들거나 업데이트합니다. |
+> | 액션(Action) | Microsoft.ServiceFabric/clusters/applications/write | 애플리케이션을 만들거나 업데이트합니다. |
+> | 액션(Action) | Microsoft.ServiceFabric/clusters/applicationTypes/delete | 애플리케이션 유형을 삭제합니다. |
+> | 액션(Action) | Microsoft.ServiceFabric/clusters/applicationTypes/read | 애플리케이션 유형을 읽습니다. |
+> | 액션(Action) | Microsoft.ServiceFabric/clusters/applicationTypes/versions/delete | 애플리케이션 유형 버전을 삭제합니다. |
+> | 액션(Action) | Microsoft.ServiceFabric/clusters/applicationTypes/versions/read | 애플리케이션 유형 버전을 읽습니다. |
+> | 액션(Action) | Microsoft.ServiceFabric/clusters/applicationTypes/versions/write | 애플리케이션 유형 버전을 만들거나 업데이트합니다. |
+> | 액션(Action) | Microsoft.ServiceFabric/clusters/applicationTypes/write | 애플리케이션 유형을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.ServiceFabric/clusters/delete | 클러스터를 삭제합니다. |
 > | 액션(Action) | Microsoft.ServiceFabric/clusters/nodes/read | 노드를 읽습니다. |
 > | 액션(Action) | Microsoft.ServiceFabric/clusters/read | 클러스터를 읽습니다. |
@@ -4446,12 +4446,12 @@ ms.locfileid: "53410536"
 > [!div class="mx-tdCol2BreakAll"]
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | 액션(Action) | Microsoft.Solutions/applicationDefinitions/delete | 응용 프로그램 정의를 제거합니다. |
-> | 액션(Action) | Microsoft.Solutions/applicationDefinitions/read | 응용 프로그램 정의 목록을 검색합니다. |
-> | 액션(Action) | Microsoft.Solutions/applicationDefinitions/write | 응용 프로그램 정의를 추가 또는 수정합니다. |
-> | 액션(Action) | Microsoft.Solutions/applications/delete | 응용 프로그램을 제거합니다. |
-> | 액션(Action) | Microsoft.Solutions/applications/read | 응용 프로그램 목록을 검색합니다. |
-> | 액션(Action) | Microsoft.Solutions/applications/write | 응용 프로그램을 만듭니다. |
+> | 액션(Action) | Microsoft.Solutions/applicationDefinitions/delete | 애플리케이션 정의를 제거합니다. |
+> | 액션(Action) | Microsoft.Solutions/applicationDefinitions/read | 애플리케이션 정의 목록을 검색합니다. |
+> | 액션(Action) | Microsoft.Solutions/applicationDefinitions/write | 애플리케이션 정의를 추가 또는 수정합니다. |
+> | 액션(Action) | Microsoft.Solutions/applications/delete | 애플리케이션을 제거합니다. |
+> | 액션(Action) | Microsoft.Solutions/applications/read | 애플리케이션 목록을 검색합니다. |
+> | 액션(Action) | Microsoft.Solutions/applications/write | 애플리케이션을 만듭니다. |
 > | 액션(Action) | Microsoft.Solutions/jitRequests/delete | JitRequest를 제거합니다. |
 > | 액션(Action) | Microsoft.Solutions/jitRequests/read | JitRequests 목록을 검색합니다. |
 > | 액션(Action) | Microsoft.Solutions/jitRequests/write | JitRequest를 만듭니다. |

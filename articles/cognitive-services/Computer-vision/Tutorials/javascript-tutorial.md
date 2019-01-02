@@ -23,7 +23,7 @@ ms.locfileid: "49341313"
 
 Computer Vision REST API를 사용하는 JavaScript 애플리케이션을 탐색하여 OCR(광학 인식)을 수행하고, 스마트하게 잘리는 썸네일을 만들고, 이미지에서 얼굴을 포함한 시각적 기능을 감지, 분류, 태그 지정 및 설명합니다. 이 예제에서는 분석 또는 처리할 이미지 URL을 제출할 수 있습니다. 이 오픈 소스 예제는 Computer Vision REST API를 사용하는 사용자 고유의 JavaScript 앱을 빌드하기 위한 템플릿으로 사용할 수 있습니다.
 
-JavaScript 양식 응용 프로그램은 이미 작성되어 있지만 Computer Vision 기능이 없습니다. 이 자습서에서는 Computer Vision REST API 관련 코드를 추가하여 응용 프로그램의 기능을 완성합니다.
+JavaScript 양식 애플리케이션은 이미 작성되어 있지만 Computer Vision 기능이 없습니다. 이 자습서에서는 Computer Vision REST API 관련 코드를 추가하여 애플리케이션의 기능을 완성합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -45,7 +45,7 @@ JavaScript 양식 응용 프로그램은 이미 작성되어 있지만 Computer 
 
 ## <a name="add-the-tutorial-code-to-the-project"></a>프로젝트에 자습서 코드 추가
 
-JavaScript 응용 프로그램은 각 기능마다 하나씩 6개의 .html 파일로 설정되어 있습니다. 각 파일에서는 서로 다른 Computer Vision 함수(분석, OCR 등)를 보여 줍니다. 6개의 자습서 섹션은 서로 종속되지 않으므로 하나의 파일, 6개의 파일 모두 또는 몇 개의 파일에만 자습서 코드를 추가할 수 있습니다. 그리고 자습서 코드는 임의의 순서로 파일에 추가할 수 있습니다.
+JavaScript 애플리케이션은 각 기능마다 하나씩 6개의 .html 파일로 설정되어 있습니다. 각 파일에서는 서로 다른 Computer Vision 함수(분석, OCR 등)를 보여 줍니다. 6개의 자습서 섹션은 서로 종속되지 않으므로 하나의 파일, 6개의 파일 모두 또는 몇 개의 파일에만 자습서 코드를 추가할 수 있습니다. 그리고 자습서 코드는 임의의 순서로 파일에 추가할 수 있습니다.
 
 이제 시작하겠습니다.
 
@@ -53,7 +53,7 @@ JavaScript 응용 프로그램은 각 기능마다 하나씩 6개의 .html 파�
 
 Computer Vision의 [분석] 기능은 이미지를 검사하여 2,000개가 넘는 인식 가능한 물체, 생물, 풍경 및 동작을 분석합니다. 분석이 완료되면 [분석]에서 설명 태그, 색 분석, 캡션 등으로 이미지를 설명하는 JSON 개체를 반환합니다.
 
-자습서 응용 프로그램의 [분석] 기능을 완성하려면 다음 단계를 수행합니다.
+자습서 애플리케이션의 [분석] 기능을 완성하려면 다음 단계를 수행합니다.
 
 #### <a name="add-the-event-handler-code-for-the-form-button"></a>양식 단추에 대한 이벤트 처리기 코드 추가
 
@@ -161,7 +161,7 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 
 Computer Vision의 [랜드마크] 기능은 산이나 유명한 건물과 같은 자연 및 인공 랜드마크에 대한 이미지를 분석합니다. 분석이 완료되면 [랜드마크]에서 이미지에 있는 랜드마크를 식별하는 JSON 개체를 반환합니다.
 
-자습서 응용 프로그램의 [랜드마크] 기능을 완성하려면 다음 단계를 수행합니다.
+자습서 애플리케이션의 [랜드마크] 기능을 완성하려면 다음 단계를 수행합니다.
 
 #### <a name="add-the-event-handler-code-for-the-form-button"></a>양식 단추에 대한 이벤트 처리기 코드 추가
 
@@ -268,7 +268,7 @@ function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
 
 Computer Vision의 [유명 인사] 기능은 유명 인사에 대한 이미지를 분석합니다. 분석이 완료되면 [유명 인사]에서 이미지에 있는 유명 인사를 식별하는 JSON 개체를 반환합니다.
 
-자습서 응용 프로그램의 [유명 인사] 기능을 완성하려면 다음 단계를 수행합니다.
+자습서 애플리케이션의 [유명 인사] 기능을 완성하려면 다음 단계를 수행합니다.
 
 #### <a name="add-the-event-handler-code-for-the-form-button"></a>양식 단추에 대한 이벤트 처리기 코드 추가
 
@@ -371,7 +371,7 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 
 Computer Vision의 [썸네일] 기능은 이미지에서 썸네일을 생성합니다. **스마트 자르기** 기능을 사용하면 [썸네일] 기능에서 이미지의 관심 영역을 식별하고 이 영역에서 썸네일을 가운데에 맞춰 미적으로 더욱 만족스러운 썸네일 이미지를 생성할 수 있습니다.
 
-자습서 응용 프로그램의 [썸네일] 기능을 완성하려면 다음 단계를 수행합니다.
+자습서 애플리케이션의 [썸네일] 기능을 완성하려면 다음 단계를 수행합니다.
 
 #### <a name="add-the-event-handler-code-for-the-form-button"></a>양식 단추에 대한 이벤트 처리기 코드 추가
 
@@ -492,7 +492,7 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 
 Computer Vision의 OCR(광학 인식) 기능은 인쇄된 텍스트의 이미지를 분석합니다. 분석이 완료되면 OCR에서 텍스트와 이미지 내 텍스트 위치가 포함된 JSON 개체를 반환합니다.
 
-자습서 응용 프로그램의 OCR 기능을 완성하려면 다음 단계를 수행합니다.
+자습서 애플리케이션의 OCR 기능을 완성하려면 다음 단계를 수행합니다.
 
 ### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>OCR 1단계: 양식 단추에 대한 이벤트 처리기 코드 추가
 
@@ -587,7 +587,7 @@ function ReadOcrImage(sourceImageUrl, responseTextArea) {
 
 Computer Vision의 [필기 인식] 기능은 손으로 쓴 텍스트의 이미지를 분석합니다. 분석이 완료되면 [필기 인식]에서 텍스트와 이미지 내 텍스트 위치가 포함된 JSON 개체를 반환합니다.
 
-자습서 응용 프로그램의 [필기 인식] 기능을 완성하려면 다음 단계를 수행합니다.
+자습서 애플리케이션의 [필기 인식] 기능을 완성하려면 다음 단계를 수행합니다.
 
 #### <a name="add-the-event-handler-code-for-the-form-button"></a>양식 단추에 대한 이벤트 처리기 코드 추가
 

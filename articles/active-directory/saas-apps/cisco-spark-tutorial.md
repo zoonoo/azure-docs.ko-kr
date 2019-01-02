@@ -123,7 +123,7 @@ Cisco Spark에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial_ciscospark_certificate.png) 
 
-1. Cisco Spark 애플리케이션은 특정 특성을 포함하는 SAML 어설션이 필요합니다. 이 응용 프로그램에 대한 다음 특성을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+1. Cisco Spark 애플리케이션은 특정 특성을 포함하는 SAML 어설션이 필요합니다. 이 애플리케이션에 대한 다음 특성을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
     
     ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial_ciscospark_07.png) 
 

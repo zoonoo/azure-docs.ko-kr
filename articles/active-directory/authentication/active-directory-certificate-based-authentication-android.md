@@ -30,7 +30,7 @@ Android 디바이스는 연결할 때 자신의 디바이스에서 클라이언�
 
 이 기능은 Office 365 미국 국방부 및 연방 정부 계획에서 미리 보기 상태로 제공됩니다.
 
-## <a name="microsoft-mobile-applications-support"></a>Microsoft 모바일 응용 프로그램 지원
+## <a name="microsoft-mobile-applications-support"></a>Microsoft 모바일 애플리케이션 지원
 
 | 앱 | 지원 |
 | --- | --- |

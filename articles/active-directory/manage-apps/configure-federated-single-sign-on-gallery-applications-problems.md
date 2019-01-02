@@ -39,9 +39,9 @@ ms.locfileid: "44355642"
 
 식별자 또는 회신 URL을 구성할 수 없는 경우는 식별자 및 회신 URL 값이 애플리케이션에 대해 미리 구성된 패턴과 일치하는지 확인합니다.
 
-응용 프로그램에 대해 미리 구성된 패턴을 알려면:
+애플리케이션에 대해 미리 구성된 패턴을 알려면:
 
-1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다. 7단계로 이동합니다. 이미 Azure AD의 응용 프로그램 구성 블레이드에 있는 경우.
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다. 7단계로 이동합니다. 이미 Azure AD의 애플리케이션 구성 블레이드에 있는 경우.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -61,7 +61,7 @@ ms.locfileid: "44355642"
 
 9.  **도메인 및 URL 섹션** 아래의 **식별자** 또는 **회신 URL** 텍스트 상자로 이동합니다.
 
-10. 응용 프로그램에 대해 지원되는 패턴을 아는 방법은 세 가지가 있습니다.
+10. 애플리케이션에 대해 지원되는 패턴을 아는 방법은 세 가지가 있습니다.
 
    * 텍스트 상자에서 지원되는 패턴이 자리 표시자로 표시됩니다. *예:* <https://contoso.com>.
 
@@ -71,7 +71,7 @@ ms.locfileid: "44355642"
 
 값이 Azure AD에 미리 구성된 패턴과 일치하지 않을 경우. 다음을 수행할 수 있습니다.
 
--   응용 프로그램 공급업체의 도움을 받아 Azure AD에 미리 구성된 패턴과 일치하는 값을 얻습니다.
+-   애플리케이션 공급업체의 도움을 받아 Azure AD에 미리 구성된 패턴과 일치하는 값을 얻습니다.
 
 -   또는 <aadapprequest@microsoft.com>으로 Azure AD 팀에 문의하거나 자습서에 애플리케이션에서 지원되는 패턴으로 업데이트해 달라는 요청을 남길 수 있습니다.
 
@@ -79,9 +79,9 @@ ms.locfileid: "44355642"
 
 사용자 인증 후에 Azure AD에서 응답을 통해 애플리케이션으로 보내는 EntityID(사용자 식별자) 형식은 선택할 수 없습니다.
 
-Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 응용 프로그램이 요청한 형식을 기반으로 NameID 특성(사용자 식별자)의 형식을 선택합니다. 자세한 내용은 NameIDPolicy 섹션 아래의 [Single Sign-On SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) 문서에서 확인할 수 있습니다.
+Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 애플리케이션이 요청한 형식을 기반으로 NameID 특성(사용자 식별자)의 형식을 선택합니다. 자세한 내용은 NameIDPolicy 섹션 아래의 [Single Sign-On SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) 문서에서 확인할 수 있습니다.
 
-## <a name="cant-find-the-azure-ad-metadata-to-complete-the-configuration-with-the-application"></a>Azure AD 메타데이터를 찾아서 응용 프로그램 구성을 완료할 수 없음
+## <a name="cant-find-the-azure-ad-metadata-to-complete-the-configuration-with-the-application"></a>Azure AD 메타데이터를 찾아서 애플리케이션 구성을 완료할 수 없음
 
 Azure AD에서 애플리케이션 메타데이터 또는 인증서를 다운로드하려면 아래 단계를 수행합니다.
 

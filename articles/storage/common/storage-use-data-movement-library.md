@@ -23,7 +23,7 @@ Microsoft Azure Storage 데이터 이동 라이브러리는 Azure Storage Blob �
 
 이 라이브러리는 .NET Core를 사용하기 때문에 Windows, Linux 및 macOS용 .NET 앱을 빌드할 때 사용할 수 있습니다. .NET Core에 대한 자세한 내용은 [.NET Core 설명서](https://dotnet.github.io/)를 참조하세요. 또한 이 라이브러리는 전통적인 Windows용 .NET Framework 앱에서도 작동합니다. 
 
-이 문서에서는 Windows, Linux 및 macOS에서 실행되는 .NET Core 콘솔 응용 프로그램을 만들고 다음 시나리오를 수행하는 방법을 보여 줍니다.
+이 문서에서는 Windows, Linux 및 macOS에서 실행되는 .NET Core 콘솔 애플리케이션을 만들고 다음 시나리오를 수행하는 방법을 보여 줍니다.
 
 - Blob Storage에 파일과 디렉터리를 업로드합니다.
 - 데이터를 전송할 때 수행할 병렬 작업 수를 정의합니다.

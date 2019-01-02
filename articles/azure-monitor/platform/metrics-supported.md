@@ -779,26 +779,26 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |browserTimings/receiveDuration|응답 수신 시간|밀리초|평균|첫 번째 및 마지막 바이트 사이 또는 연결 끊기까지의 시간입니다.|차원 없음|
 |browserTimings/sendDuration|요청 전송 시간|밀리초|평균|네트워크 연결과 첫 번째 바이트 받기 사이의 시간입니다.|차원 없음|
 |browserTimings/totalDuration|브라우저 페이지 로드 시간|밀리초|평균|사용자가 요청한 때부터 DOM, 스타일시트, 스크립트 및 이미지가 로드될 때까지 소요된 시간입니다.|차원 없음|
-|dependencies/count|종속성 호출|개수|개수|외부 리소스에 대해 응용 프로그램이 만든 호출 수입니다.|dependency/type, dependency/performanceBucket, dependency/success, operation/synthetic, cloud/roleInstance, cloud/roleName|
-|dependencies/duration|종속성 기간|밀리초|평균|외부 리소스에 대한 서버 응용 프로그램의 호출 기간입니다.|dependency/type, dependency/performanceBucket, dependency/success, operation/synthetic, cloud/roleInstance, cloud/roleName|
-|dependencies/failed|종속성 실패|개수|개수|외부 리소스에 대해 응용 프로그램이 만든 실패한 종속성 호출 수입니다.|dependency/type, dependency/performanceBucket, operation/synthetic, cloud/roleInstance, cloud/roleName|
+|dependencies/count|종속성 호출|개수|개수|외부 리소스에 대해 애플리케이션이 만든 호출 수입니다.|dependency/type, dependency/performanceBucket, dependency/success, operation/synthetic, cloud/roleInstance, cloud/roleName|
+|dependencies/duration|종속성 기간|밀리초|평균|외부 리소스에 대한 서버 애플리케이션의 호출 기간입니다.|dependency/type, dependency/performanceBucket, dependency/success, operation/synthetic, cloud/roleInstance, cloud/roleName|
+|dependencies/failed|종속성 실패|개수|개수|외부 리소스에 대해 애플리케이션이 만든 실패한 종속성 호출 수입니다.|dependency/type, dependency/performanceBucket, operation/synthetic, cloud/roleInstance, cloud/roleName|
 |pageViews/count|페이지 보기|개수|개수|페이지 보기 수입니다.|operation/synthetic|
 |pageViews/duration|페이지 보기 로드 시간|밀리초|평균|페이지 보기 로드 시간|operation/synthetic|
 |performanceCounters/requestExecutionTime|HTTP 요청 실행 시간|밀리초|평균|가장 최근 요청의 실행 시간입니다.|cloud/roleInstance|
-|performanceCounters/requestsInQueue|응용 프로그램 큐의 HTTP 요청|개수|평균|응용 프로그램 요청 큐의 길이입니다.|cloud/roleInstance|
-|performanceCounters/requestsPerSecond|HTTP 요청 속도|초당 개수|평균|ASP.NET에서 응용 프로그램에 전송된 모든 요청의 속도(초)입니다.|cloud/roleInstance|
+|performanceCounters/requestsInQueue|애플리케이션 큐의 HTTP 요청|개수|평균|애플리케이션 요청 큐의 길이입니다.|cloud/roleInstance|
+|performanceCounters/requestsPerSecond|HTTP 요청 속도|초당 개수|평균|ASP.NET에서 애플리케이션에 전송된 모든 요청의 속도(초)입니다.|cloud/roleInstance|
 |performanceCounters/exceptionsPerSecond|예외 속도|초당 개수|평균|.NET 예외 및 .NET 예외로 변환된 관리되지 않는 예외를 포함하여 Windows에 보고된 처리된 예외 및 처리되지 않은 예외 수입니다.|cloud/roleInstance|
 |performanceCounters/processIOBytesPerSecond|프로세스 IO 속도|초당 바이트 수|평균|파일, 네트워크 및 디바이스에서 읽고 쓴 초당 총 바이트 수입니다.|cloud/roleInstance|
 |performanceCounters/processCpuPercentage|CPU 프로세스|백분율|평균|모든 프로세스 스레드가 명령을 실행하기 위해 프로세서를 사용한 경과된 시간의 백분율입니다. 0~100 사이로 달라질 수 있습니다. 이 메트릭은 w3wp 프로세스만의 성능을 나타냅니다.|cloud/roleInstance|
 |performanceCounters/processorCpuPercentage|프로세서 시간|백분율|평균|프로세서가 비 유휴 스레드에 소요한 시간의 비율입니다.|cloud/roleInstance|
 |performanceCounters/memoryAvailableBytes|사용 가능한 메모리|바이트|평균|프로세스에 할당하거나 시스템에서 사용할 수 있는 실제 메모리입니다.|cloud/roleInstance|
-|performanceCounters/processPrivateBytes|프로세스 전용 바이트|바이트|평균|모니터링되는 응용 프로그램의 프로세스에 독점적으로 할당된 메모리입니다.|cloud/roleInstance|
+|performanceCounters/processPrivateBytes|프로세스 전용 바이트|바이트|평균|모니터링되는 애플리케이션의 프로세스에 독점적으로 할당된 메모리입니다.|cloud/roleInstance|
 |requests/duration|서버 응답 시간|밀리초|평균|HTTP 요청을 받은 후 응답 전송을 완료한 때까지의 시간입니다.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
 |requests/count|서버 요청|개수|개수|완료된 HTTP 요청 수입니다.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
 |requests/failed|실패한 요청|개수|개수|실패한 것으로 표시된 HTTP 요청 수입니다. 대부분의 경우 응답 코드가 >= 400이고 401과 같지 않은 요청입니다.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, cloud/roleName|
 |exceptions/count|예외|개수|합계|모든 Catch되지 않은 예외의 결합된 수입니다.|cloud/roleName, cloud/roleInstance, client/type|
 |exceptions/browser|브라우저 예외|개수|합계|브라우저에서 발생한 확인할 수 없는 예외의 개수입니다.|차원 없음|
-|exceptions/server|서버 예외|개수|합계|서버 응용 프로그램에서 발생된 확인할 수 없는 예외의 수입니다.|cloud/roleName, cloud/roleInstance|
+|exceptions/server|서버 예외|개수|합계|서버 애플리케이션에서 발생된 확인할 수 없는 예외의 수입니다.|cloud/roleName, cloud/roleInstance|
 |traces/count|개수 추적|개수|합계|문서 개수 추적|trace/severityLevel, operation/synthetic, cloud/roleName, cloud/roleInstance|
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
@@ -1041,7 +1041,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |BackendRequestLatency|백 엔드 요청 대기 시간|밀리초|평균|HTTP/S 프록시에서 백 엔드의 마지막 응답 바이트를 받을 때까지 HTTP/S 프록시에서 백 엔드로 요청이 전송될 때 계산된 시간|백 엔드|
 |TotalLatency|총 대기 시간|밀리초|평균|클라이언트가 HTTP/S 프록시의 마지막 응답 바이트를 승인할 때까지 클라이언트 요청이 HTTP/S 프록시에서 수신될 때 계산된 시간|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
 |BackendHealthPercentage|백 엔드 상태 비율|백분율|평균|HTTP/S 프록시에서 백 엔드로 성공한 상태 프로브의 비율|Backend, BackendPool|
-|WebApplicationFirewallRequestCount|웹 응용 프로그램 방화벽 요청 수|개수|합계|웹 응용 프로그램 방화벽에서 처리된 클라이언트 요청 수|PolicyName, RuleName, Action|
+|WebApplicationFirewallRequestCount|웹 애플리케이션 방화벽 요청 수|개수|합계|웹 애플리케이션 방화벽에서 처리된 클라이언트 요청 수|PolicyName, RuleName, Action|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 

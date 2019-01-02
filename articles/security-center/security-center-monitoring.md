@@ -31,7 +31,7 @@ ms.locfileid: "53338603"
 
 리소스의 보안 상태 및 리소스 종류별 모든 문제를 볼 수 있습니다.
 
-- 컴퓨터 리소스 및 앱의 상태를 모니터링하고 보안 향상을 위한 권장 사항을 얻으려면 [Azure Security Center에서 머신 및 응용 프로그램 보호](security-center-virtual-machine-protection.md)를 참조하세요.
+- 컴퓨터 리소스 및 앱의 상태를 모니터링하고 보안 향상을 위한 권장 사항을 얻으려면 [Azure Security Center에서 머신 및 애플리케이션 보호](security-center-virtual-machine-protection.md)를 참조하세요.
 - 가상 머신, 네트워크 보안 그룹 및 엔드포인트와 같은 네트워크 리소스를 모니터링하고 보안 향상을 위한 권장 사항을 받으려면 [Azure Security Center에서 네트워크 보호](security-center-network-recommendations.md)를 참조하세요. 
 - SQL Server 및 저장소 계정과 같은 데이터 및 저장소 리소스를 모니터링하고 보안 향상을 위한 권장 사항을 받으려면 [Azure Security Center에서 Azure SQL 서비스 및 데이터 보호](security-center-sql-service-recommendations.md)를 참조하세요. 
 - MFA 및 계정 권한을 비롯한 ID 및 액세스 리소스를 모니터링하고 보안 향상을 위한 권장 사항을 받으려면 [Azure Security Center에서 ID 및 액세스 모니터링](security-center-identity-access.md)을 참조하세요. 

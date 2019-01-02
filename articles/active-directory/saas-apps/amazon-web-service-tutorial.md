@@ -45,7 +45,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 **다음과 같은 이유로 이 방법을 사용하는 것이 좋습니다.**
 
-a. 각 응용 프로그램에는 고유한 X509 인증서가 제공되므로 각 인스턴스의 인증서 만료 날짜가 서로 다를 수 있습니다. 또한, 사용자가 개별 AWS 계정 기준에 따라 인증서를 관리할 수 있습니다. 이 경우 전체 인증서 롤오버가 쉽게 진행됩니다.
+a. 각 애플리케이션에는 고유한 X509 인증서가 제공되므로 각 인스턴스의 인증서 만료 날짜가 서로 다를 수 있습니다. 또한, 사용자가 개별 AWS 계정 기준에 따라 인증서를 관리할 수 있습니다. 이 경우 전체 인증서 롤오버가 쉽게 진행됩니다.
 
 b. Azure AD에서 AWS 앱을 사용하여 사용자 프로비저닝을 사용하도록 설정하면 Azure 서비스에서 해당 AWS 계정의 모든 역할을 가져옵니다. 따라서 앱에서 AWS 역할을 수동으로 추가하거나 업데이트할 필요가 없습니다.
 
@@ -141,7 +141,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![AWS(Amazon Web Services) 도메인 및 URL Single Sign-On 정보](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_identifier.png)
 
-6. AWS(Amazon Web Services) 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
+6. AWS(Amazon Web Services) 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
 
     ![이미지](./media/amazon-web-service-tutorial/i4-attribute.png)
 
@@ -400,7 +400,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 AWS(Amazon Web Services)에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음, **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 
     ![이미지](./media/amazon-web-service-tutorial/d_all_applications.png)
 
@@ -425,7 +425,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
     ![이미지](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_roles.png)
 
     >[!NOTE]
-    >응용 프로그램과 함께 사용자 프로비전을 사용하도록 설정한 후에는 AWS(Amazon Web Services)에서 모든 역할을 가져올 때까지 30분 정도 기다렸다가 페이지를 새로 고칩니다. 그런 후에 사용자 및 그룹으로 응용 프로그램을 할당하면 해당 사용자의 역할이 표시됩니다.
+    >애플리케이션과 함께 사용자 프로비전을 사용하도록 설정한 후에는 AWS(Amazon Web Services)에서 모든 역할을 가져올 때까지 30분 정도 기다렸다가 페이지를 새로 고칩니다. 그런 후에 사용자 및 그룹으로 애플리케이션을 할당하면 해당 사용자의 역할이 표시됩니다.
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 선택합니다.
 

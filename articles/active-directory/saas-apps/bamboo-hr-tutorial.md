@@ -68,7 +68,7 @@ Azure AD에 BambooHR을 통합하도록 구성하려면 다음을 수행하여 �
 
     ![엔터프라이즈 애플리케이션 창][2]
     
-1. 응용 프로그램을 추가하려면 **새 응용 프로그램**을 선택합니다.
+1. 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
 
     !["새 애플리케이션" 단추][3]
 
@@ -88,9 +88,9 @@ BambooHR에서 Azure AD SSO를 구성하고 테스트하려면 다음 5개 섹�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD SSO를 사용하도록 설정하고 다음을 수행하여 BambooHR 응용 프로그램에서 SSO를 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD SSO를 사용하도록 설정하고 다음을 수행하여 BambooHR 애플리케이션에서 SSO를 구성합니다.
 
-1. Azure Portal의 **BambooHR** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. Azure Portal의 **BambooHR** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -214,7 +214,7 @@ Britta Simon을 BambooHR에 할당하려면 다음을 수행합니다.
 
 1. **엔터프라이즈 응용 프로그램** 목록에서 **BambooHR**을 선택합니다.
 
-    ![엔터프라이즈 응용 프로그램 목록의 BambooHR 링크](./media/bamboo-hr-tutorial/tutorial_bamboohr_app.png)  
+    ![엔터프라이즈 애플리케이션 목록의 BambooHR 링크](./media/bamboo-hr-tutorial/tutorial_bamboohr_app.png)  
 
 1. 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
 
@@ -234,7 +234,7 @@ Britta Simon을 BambooHR에 할당하려면 다음을 수행합니다.
 
 액세스 패널을 사용하여 Azure AD SSO 구성을 테스트합니다.
 
-액세스 패널에서 **BambooHR** 타일을 선택하면 BambooHR 응용 프로그램에 자동으로 로그인됩니다.
+액세스 패널에서 **BambooHR** 타일을 선택하면 BambooHR 애플리케이션에 자동으로 로그인됩니다.
 
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 

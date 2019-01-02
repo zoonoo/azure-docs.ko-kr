@@ -86,7 +86,7 @@ Azure Monitor에서 수집되는 메트릭의 세 가지 기본 원본이 있습
 **응용 프로그램 메트릭**은 모니터링된 응용 프로그램에 대한 Application Insights에 의해 생성되며 성능 문제를 감지하고 응용 프로그램이 사용되는 추세를 추적하는 데 도움이 됩니다. _서버 응답 시간_ 및 _브라우저 예외_와 같은 값을 포함합니다.
 
 **사용자 지정 메트릭**은 자동으로 사용할 수 있는 표준 메트릭 외에 정의하는 메트릭입니다. 사용자 지정 메트릭은 해당 리소스와 동일한 지역에서 단일 리소스에 대해 생성되어야 합니다. 다음 메서드를 사용하여 사용자 지정 메트릭을 만들 수 있습니다.
-    - Application Insights에서 모니터링되는 [응용 프로그램에서 사용자 지정 메트릭을 정의합니다](../../application-insights/app-insights-api-custom-events-metrics.md). 응용 프로그램 메트릭의 표준 집합 이외의 것입니다.
+    - Application Insights에서 모니터링되는 [응용 프로그램에서 사용자 지정 메트릭을 정의합니다](../../application-insights/app-insights-api-custom-events-metrics.md). 애플리케이션 메트릭의 표준 집합 이외의 것입니다.
     - [Windows 진단 확장(WAD)](../../azure-monitor/platform/diagnostics-extension-overview.md)을 사용하여 Windows 가상 머신에서 사용자 지정 메트릭을 게시합니다.
     - [InfluxData Telegraf 에이전트](https://www.influxdata.com/time-series-platform/telegraf/)를 사용하여 Linux 가상 머신에서 사용자 지정 메트릭을 게시합니다.
     - 사용자 지정 메트릭 API를 사용하여 Azure 서비스에서 사용자 지정 메트릭을 작성합니다.
@@ -132,7 +132,7 @@ Azure Monitor는 Azure 내와 온-프레미스 리소스의 다양한 원본에�
 - 해당 작업에 대한 정보를 제공하는 해당 구성 및 상태에 대한 정보와 [진단 로그](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md)를 포함하는 Azure 리소스의 [활동 로그](collect-activity-logs.md)
 - 구성하는 [데이터 원본](data-sources.md)에 따라 게스트 운영 체제 및 애플리케이션에서 Azure Monitor로 원격 분석을 전송하는 [Windows](agent-windows.md) 및 [Linux](../learn/quick-collect-linux-computer.md) 가상 머신에 대한 에이전트
 - [Application Insights](https://docs.microsoft.com/azure/application-insights/)에서 수집된 응용 프로그램 데이터
-- 특정 응용 프로그램 또는 [모니터링 솔루션](../insights/solutions.md)의 서비스 또는 Container Insights, VM Insights 또는 Resource Group Insights와 같은 기능에 대한 정보를 제공하는 데이터
+- 특정 애플리케이션 또는 [모니터링 솔루션](../insights/solutions.md)의 서비스 또는 Container Insights, VM Insights 또는 Resource Group Insights와 같은 기능에 대한 정보를 제공하는 데이터
 - [Azure Security Center](https://docs.microsoft.com/azure/security-center/)에서 수집된 보안 데이터
 - Azure 리소스의 [메트릭](#metrics) 이를 통해 메트릭을 93일 이상 저장하고 다른 로그 데이터와 함께 분석할 수 있습니다.
 - [Azure Storage](azure-storage-iis-table.md)에 작성된 원격 분석

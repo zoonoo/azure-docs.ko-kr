@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 클러스터에 응용 프로그램 인증서 추가 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - Service Fabric 클러스터에 응용 프로그램 인증서 추가
+title: Azure PowerShell 스크립트 샘플 - 클러스터에 애플리케이션 인증서 추가 | Microsoft Docs
+description: Azure PowerShell 스크립트 샘플 - Service Fabric 클러스터에 애플리케이션 인증서 추가
 services: service-fabric
 documentationcenter: ''
 author: rwike77
@@ -22,7 +22,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/19/2018
 ms.locfileid: "31598713"
 ---
-# <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 응용 프로그램 인증서 추가
+# <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 애플리케이션 인증서 추가
 
 이 샘플 스크립트는 지정된 Azure Key Vault에서 자체 서명된 인증서를 만들고 Service Fabric 클러스터의 모든 노드에 설치합니다. 또한 인증서는 로컬 폴더로도 다운로드됩니다. 다운로드한 인증서의 이름은 Key Vault의 인증서 이름과 동일합니다. 필요에 따라 매개 변수를 사용자 지정합니다.
 

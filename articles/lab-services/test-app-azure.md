@@ -1,6 +1,6 @@
 ---
 title: Azure에서 앱을 테스트하는 방법 | Microsoft Docs
-description: 랩에서 파일 공유를 만들어 랩의 로컬 컴퓨터 및 가상 머신에 파일 공유를 탑재하는 방법을 알아본 다음, 데스크톱/웹 응용 프로그램을 파일 공유에 배포하고 테스트해 보세요.
+description: 랩에서 파일 공유를 만들어 랩의 로컬 컴퓨터 및 가상 머신에 파일 공유를 탑재하는 방법을 알아본 다음, 데스크톱/웹 애플리케이션을 파일 공유에 배포하고 테스트해 보세요.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -20,7 +20,7 @@ ms.lasthandoff: 09/06/2018
 ms.locfileid: "44030883"
 ---
 # <a name="test-your-app-in-azure"></a>Azure에서 앱 테스트 
-이 문서에서는 DevTest Lab을 사용하여 Azure에서 응용 프로그램을 테스트하는 방법에 대한 단계를 제공합니다. 먼저 랩 내에서 파일 공유를 설정하고 로컬 개발 컴퓨터의 드라이브 및 랩 내의 VM으로 탑재합니다. 그러면 Visual Studio 2017을 사용하여 앱을 파일 공유에 배포하므로 랩의 VM에서 앱을 실행할 수 있습니다.  
+이 문서에서는 DevTest Lab을 사용하여 Azure에서 애플리케이션을 테스트하는 방법에 대한 단계를 제공합니다. 먼저 랩 내에서 파일 공유를 설정하고 로컬 개발 컴퓨터의 드라이브 및 랩 내의 VM으로 탑재합니다. 그러면 Visual Studio 2017을 사용하여 앱을 파일 공유에 배포하므로 랩의 VM에서 앱을 실행할 수 있습니다.  
 
 ## <a name="prerequisites"></a>필수 조건 
 1. Azure 구독이 아직 없는 경우에는 [Azure 구독을 만들고](https://azure.microsoft.com/free/) [Azure Portal](https://portal.azure.com)에 로그인합니다.
@@ -62,7 +62,7 @@ ms.locfileid: "44030883"
 ## <a name="publish-your-app-from-visual-studio"></a>Visual Studio에서 앱 게시
 이 섹션에서는 Visual Studio에서 클라우드의 테스트 VM으로 앱을 게시합니다.
 
-1. Visual Studio 2017을 사용하여 데스크톱/웹 응용 프로그램을 만듭니다.
+1. Visual Studio 2017을 사용하여 데스크톱/웹 애플리케이션을 만듭니다.
 2. 앱을 빌드합니다.
 3. 앱을 게시하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. 
 4. **게시 마법사**에서 파일 공유에 매핑된 **드라이브**를 입력합니다.
@@ -75,7 +75,7 @@ ms.locfileid: "44030883"
 
     ![웹앱](media/test-app-in-azure/web-app.png)
 
-1. **다음**을 선택하여 게시 워크플로를 완료하고 **마침**을 선택합니다. 마법사 단계를 마치면 Visual Studio에서 응용 프로그램을 빌드하고 파일 공유에 게시합니다. 
+1. **다음**을 선택하여 게시 워크플로를 완료하고 **마침**을 선택합니다. 마법사 단계를 마치면 Visual Studio에서 애플리케이션을 빌드하고 파일 공유에 게시합니다. 
 
 
 ## <a name="test-the-app-on-your-test-vm-in-the-lab"></a>랩의 테스트 VM에서 앱 테스트

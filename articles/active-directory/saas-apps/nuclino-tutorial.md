@@ -67,13 +67,13 @@ Nuclino의 Azure AD 통합을 구성하려면 갤러리의 Nuclino를 관리되�
 
 2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
 
 3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 애플리케이션 단추][3]
 
-4. 검색 상자에 **Nuclino**를 입력하고 결과 패널에서 **Nuclino**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에 **Nuclino**를 입력하고 결과 패널에서 **Nuclino**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Nuclino](./media/nuclino-tutorial/tutorial_nuclino_addfromgallery.png)
 
@@ -93,11 +93,11 @@ Nuclino에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Nuclino 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Nuclino 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Nuclino에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Nuclino** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Nuclino** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -125,7 +125,7 @@ Nuclino에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     > [!NOTE]
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Nuclino 클라이언트 지원 팀](mailto:contact@nuclino.com)에 문의하세요.
 
-5. Nuclino 응용 프로그램에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대한 다음 클레임을 구성하세요. 애플리케이션 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+5. Nuclino 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대한 다음 클레임을 구성하세요. 애플리케이션 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
 
     ![Configure Single Sign-On](./media/Nuclino-tutorial/tutorial_attribute.png)
 
@@ -243,9 +243,9 @@ Nuclino에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![사용자 할당][201]
 
-2. 응용 프로그램 목록에서 **Nuclino**를 선택합니다.
+2. 애플리케이션 목록에서 **Nuclino**를 선택합니다.
 
-    ![응용 프로그램 목록의 Nuclino 링크](./media/nuclino-tutorial/tutorial_nuclino_app.png)  
+    ![애플리케이션 목록의 Nuclino 링크](./media/nuclino-tutorial/tutorial_nuclino_app.png)  
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -265,7 +265,7 @@ Nuclino에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Nuclino 타일을 클릭하면 Nuclino 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Nuclino 타일을 클릭하면 Nuclino 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스

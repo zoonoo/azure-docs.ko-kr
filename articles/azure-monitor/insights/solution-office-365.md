@@ -61,22 +61,22 @@ Office 365 구독에서 수집할 정보:
 - 클라이언트 ID: Office 365 클라이언트를 나타내는 16자 길이의 문자열입니다.
 - 클라이언트 암호: 인증에 필요한 암호화된 문자열입니다.
 
-### <a name="create-an-office-365-application-in-azure-active-directory"></a>Azure Active Directory에서 Office 365 응용 프로그램 만들기
-첫 번째 단계는 Azure Active Directory에 관리 솔루션이 Office 365 솔루션에 액세스할 때 사용할 응용 프로그램을 만드는 것입니다.
+### <a name="create-an-office-365-application-in-azure-active-directory"></a>Azure Active Directory에서 Office 365 애플리케이션 만들기
+첫 번째 단계는 Azure Active Directory에 관리 솔루션이 Office 365 솔루션에 액세스할 때 사용할 애플리케이션을 만드는 것입니다.
 
 1. Azure Portal([https://portal.azure.com](https://portal.azure.com/))에 로그인합니다.
 1. **Azure Active Directory**를 선택한 다음, **앱 등록**을 선택합니다.
 1. **새 응용 프로그램 등록**을 클릭합니다.
 
     ![앱 등록 추가](media/solution-office-365/add-app-registration.png)
-1. 응용 프로그램 **이름** 및 **로그온 URL**을 입력합니다.  이름은 구체적이어야 합니다.  URL로 _http://localhost_를 사용하고, **응용프로그램 형식**은 _웹앱/API_로 유지합니다.
+1. 애플리케이션 **이름** 및 **로그온 URL**을 입력합니다.  이름은 구체적이어야 합니다.  URL로 _http://localhost_를 사용하고, **애플리케이션 형식**은 _웹앱/API_로 유지합니다.
     
-    ![응용 프로그램 만들기](media/solution-office-365/create-application.png)
+    ![애플리케이션 만들기](media/solution-office-365/create-application.png)
 1. **만들기**를 클릭하고 응용 프로그램 정보의 유효성을 검사합니다.
 
     ![앱 등록](media/solution-office-365/registered-app.png)
 
-### <a name="configure-application-for-office-365"></a>Office 365에 대한 응용 프로그램 구성
+### <a name="configure-application-for-office-365"></a>Office 365에 대한 애플리케이션 구성
 
 1. **설정**을 클릭하여 **설정** 메뉴를 엽니다.
 1. **속성**을 선택합니다. **다중 테넌트**를 _예_로 변경합니다.
@@ -100,7 +100,7 @@ Office 365 구독에서 수집할 정보:
 
     ![권한 부여](media/solution-office-365/grant-permissions.png)
 
-### <a name="add-a-key-for-the-application"></a>응용 프로그램 키 추가
+### <a name="add-a-key-for-the-application"></a>애플리케이션 키 추가
 
 1. **설정** 메뉴에서 **키**를 선택합니다.
 1. 새 키의 **설명** 및 **기간**을 입력합니다.
@@ -109,7 +109,7 @@ Office 365 구독에서 수집할 정보:
     ![구성](media/solution-office-365/keys.png)
 
 ### <a name="add-admin-consent"></a>관리자 동의 추가
-관리 계정을 처음으로 사용하는 경우 응용 프로그램에 대한 관리자 동의를 제공해야 합니다. 이 작업은 PowerShell 스크립트를 사용하여 수행할 수 있습니다. 
+관리 계정을 처음으로 사용하는 경우 애플리케이션에 대한 관리자 동의를 제공해야 합니다. 이 작업은 PowerShell 스크립트를 사용하여 수행할 수 있습니다. 
 
 1. 다음 스크립트를 *office365_consent.ps1*로 저장합니다.
 
@@ -173,7 +173,7 @@ Office 365 구독에서 수집할 정보:
     ![관리자 동의](media/solution-office-365/admin-consent.png)
 
 ### <a name="subscribe-to-log-analytics-workspace"></a>Log Analytics 작업 영역에 가입
-마지막 단계는 응용 프로그램을 Log Analytics 작업 영역에 가입하는 것입니다. 이 작업 역시 PowerShell 스크립트를 사용합니다.
+마지막 단계는 애플리케이션을 Log Analytics 작업 영역에 가입하는 것입니다. 이 작업 역시 PowerShell 스크립트를 사용합니다.
 
 1. 다음 스크립트를 *office365_subscription.ps1*로 저장합니다.
 
@@ -540,7 +540,7 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectoryAccountLogon |
-| 애플리케이션 | Office 15 등의 계정 로그인 이벤트를 트리거하는 응용 프로그램입니다. |
+| 애플리케이션 | Office 15 등의 계정 로그인 이벤트를 트리거하는 애플리케이션입니다. |
 | 클라이언트 | 계정 로그인 이벤트에 사용된 클라이언트 디바이스, 디바이스 OS 및 디바이스 브라우저에 대한 세부 정보입니다. |
 | LoginStatus | OrgIdLogon.LoginStatus에서 직접 생성되는 속성입니다. 알림 알고리즘을 사용하면 로그온 실패를 다양한 방식으로 매핑할 수 있습니다. |
 | UserDomain | TII(테넌트 ID 정보)입니다. | 

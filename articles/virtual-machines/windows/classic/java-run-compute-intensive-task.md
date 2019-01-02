@@ -1,5 +1,5 @@
 ---
-title: VM의 계산 집약적 Java 응용 프로그램
+title: VM의 계산 집약적 Java 애플리케이션
 description: 다른 Java 애플리케이션에 의해 모니터링될 수 있는 계산 집약적인 Java 애플리케이션을 실행하는 가상 머신을 만드는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: java

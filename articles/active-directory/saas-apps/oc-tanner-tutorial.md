@@ -100,7 +100,7 @@ O.C.를 사용하여 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 **O.C.를 사용하여 Azure AD Single Sign-On을 구성하려면 Tanner - AppreciateHub, 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **O.C. Tanner - AppreciateHub** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **O.C. Tanner - AppreciateHub** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -192,7 +192,7 @@ O.C.를 사용하여 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **O.C.를 선택합니다. Tanner - AppreciateHub**.
+1. 애플리케이션 목록에서 **O.C.를 선택합니다. Tanner - AppreciateHub**.
 
     ![Configure Single Sign-On](./media/oc-tanner-tutorial/tutorial_octannerappreciatehub_app.png) 
 

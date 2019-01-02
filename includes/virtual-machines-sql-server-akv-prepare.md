@@ -41,7 +41,7 @@ Azure Key Vault 통합을 사용하여 SQL Server VM을 구성하려면 몇 가�
 * 애플리케이션을 추가한 후 **등록된 앱** 블레이드에서 **애플리케이션 ID**를 찾습니다.
     애플리케이션 ID는 나중에 Azure Key Vault 통합을 활성화하기 위해 PowerShell 스크립트의 **$spName** (서비스 주체 이름) 매개 변수에 할당됩니다.
 
-   ![응용 프로그램 UI](./media/virtual-machines-sql-server-akv-prepare/aad-application-id.png)
+   ![애플리케이션 UI](./media/virtual-machines-sql-server-akv-prepare/aad-application-id.png)
 
 * 이 단계에서 키를 만드는 동안 다음 스크린샷에 보이는 것처럼 키 암호를 복사합니다. 이 키 암호는 나중에 PowerShell 스크립트의 **$spSecret** (서비스 주체 암호) 매개 변수에 할당됩니다.
 

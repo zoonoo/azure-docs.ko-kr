@@ -75,7 +75,7 @@ Tableau Online의 Azure AD 통합을 구성하려면 갤러리의 Tableau Online
 
     ![Azure AD 테스트 사용자 만들기](./media/tableauonline-tutorial/tutorial_tableauonline_search.png)
 
-1. 결과 창에서 **Tableau Online**을 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **Tableau Online**을 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/tableauonline-tutorial/tutorial_tableauonline_addfromgallery.png)
 
@@ -96,11 +96,11 @@ Tableau Online에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Tableau Online 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Tableau Online 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Tableau Online에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Tableau Online** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Tableau Online** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -124,7 +124,7 @@ Tableau Online에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
     ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_general_400.png)
 
-1. 다른 브라우저 창에서 Tableau Online 응용 프로그램에 로그온합니다. **설정** 및 **인증**에 차례로 이동합니다.
+1. 다른 브라우저 창에서 Tableau Online 애플리케이션에 로그온합니다. **설정** 및 **인증**에 차례로 이동합니다.
    
     ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_09.png)
     
@@ -138,7 +138,7 @@ Tableau Online에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 1. **어설션 일치** 섹션에서 **이메일 주소**, **이름** 및 **성**에 대한 해당 ID 공급자 어설션 이름을 삽입합니다. Azure Ad에서 이 정보 얻으려면 
   
-    a. Azure Portal에서 **Tableau Online** 응용 프로그램 통합 페이지로 이동합니다.
+    a. Azure Portal에서 **Tableau Online** 애플리케이션 통합 페이지로 이동합니다.
     
     나. 특성 섹션에서 **"기타 모든 사용자 특성 보기 및 편집"** 확인란을 선택합니다. 
     
@@ -156,7 +156,7 @@ Tableau Online에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
     f. email 및 surname에 대한 네임스페이스 값을 복사하려면 이전 단계를 따릅니다.
 
-    g. Tableau Onlin 응용 프로그램으로 전환한 후 **Tableau Online 특성** 섹션을 다음과 같이 설정합니다.
+    g. Tableau Onlin 애플리케이션으로 전환한 후 **Tableau Online 특성** 섹션을 다음과 같이 설정합니다.
      * 전자 메일: **메일** 또는 **userprincipalname**
      * 이름: **givenname**
      * 성: **surname**
@@ -240,7 +240,7 @@ Tableau Online에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 이 섹션은 액세스 패널을 사용하여 Azure AD SSO 구성을 테스트하기 위한 것입니다.
 
-액세스 패널에서 Tableau Online 타일을 클릭하면 Tableau Online 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Tableau Online 타일을 클릭하면 Tableau Online 애플리케이션에 자동으로 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

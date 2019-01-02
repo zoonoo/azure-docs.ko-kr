@@ -75,7 +75,7 @@ SkyDesk Email의 Azure AD 통합을 구성하려면 갤러리의 SkyDesk Email�
 
     ![Azure AD 테스트 사용자 만들기](./media/skydeskemail-tutorial/tutorial_skydeskemail_search.png)
 
-1. 결과 창에서 **SkyDesk Email**을 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **SkyDesk Email**을 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/skydeskemail-tutorial/tutorial_skydeskemail_addfromgallery.png)
 
@@ -96,11 +96,11 @@ SkyDesk Email에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 SkyDesk Email 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 SkyDesk Email 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **SkyDesk Email에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **SkyDesk Email** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **SkyDesk Email** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -235,7 +235,7 @@ SkyDesk Email에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **SkyDesk Email**를 선택합니다.
+1. 애플리케이션 목록에서 **SkyDesk Email**를 선택합니다.
 
     ![Configure Single Sign-On](./media/skydeskemail-tutorial/tutorial_skydeskemail_app.png) 
 
@@ -257,7 +257,7 @@ SkyDesk Email에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 이 섹션은 액세스 패널을 사용하여 Azure AD SSO 구성을 테스트하기 위한 것입니다.
 
-액세스 패널에서 SkyDesk Email 타일을 클릭하면 SkyDesk Email 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 SkyDesk Email 타일을 클릭하면 SkyDesk Email 애플리케이션에 자동으로 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

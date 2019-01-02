@@ -1,5 +1,5 @@
 ---
-title: Azure 관리되는 응용 프로그램 만들기 | Microsoft Docs
+title: Azure 관리되는 애플리케이션 만들기 | Microsoft Docs
 description: 조직의 구성원을 위한 Azure 관리형 애플리케이션을 만드는 방법이 나와 있습니다.
 services: managed-applications
 author: tfitzmac
@@ -16,11 +16,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/05/2018
 ms.locfileid: "48804915"
 ---
-# <a name="publish-an-azure-managed-application-definition"></a>관리되는 응용 프로그램 정의 게시
+# <a name="publish-an-azure-managed-application-definition"></a>관리되는 애플리케이션 정의 게시
 
-이 빠른 시작에서는 관리되는 응용 프로그램의 작업에 대해 소개합니다. 조직의 사용자에 대한 내부 카탈로그에 관리되는 애플리케이션 정의를 추가합니다. 간략히 소개하기 위해 이미 관리되는 애플리케이션용 파일을 빌드했습니다. 이러한 파일은 GitHub를 통해 사용할 수 있습니다. [서비스 카탈로그 응용 프로그램 만들기](publish-service-catalog-app.md) 자습서에서 이러한 파일을 빌드하는 방법을 알아볼 수 있습니다.
+이 빠른 시작에서는 관리되는 애플리케이션의 작업에 대해 소개합니다. 조직의 사용자에 대한 내부 카탈로그에 관리되는 애플리케이션 정의를 추가합니다. 간략히 소개하기 위해 이미 관리되는 애플리케이션용 파일을 빌드했습니다. 이러한 파일은 GitHub를 통해 사용할 수 있습니다. [서비스 카탈로그 응용 프로그램 만들기](publish-service-catalog-app.md) 자습서에서 이러한 파일을 빌드하는 방법을 알아볼 수 있습니다.
 
-작업이 완료되면 관리되는 응용 프로그램 정의가 있는 **appDefinitionGroup**이라는 리소스 그룹이 있습니다.
+작업이 완료되면 관리되는 애플리케이션 정의가 있는 **appDefinitionGroup**이라는 리소스 그룹이 있습니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -36,7 +36,7 @@ az group create --name appDefinitionGroup --location westcentralus
 
 ## <a name="create-the-managed-application-definition"></a>관리형 애플리케이션 정의 만들기
 
-관리되는 응용 프로그램을 정의하는 경우 소비자에 대한 리소스를 관리하는 사용자, 그룹 또는 응용 프로그램을 선택합니다. 이 ID에는 할당된 역할에 따라 관리되는 리소스 그룹에 대한 권한이 있습니다. 일반적으로 Azure Active Directory 그룹을 만들어 리소스를 관리합니다. 그러나 이 문서에서는 자신의 ID를 사용합니다.
+관리되는 애플리케이션을 정의하는 경우 소비자에 대한 리소스를 관리하는 사용자, 그룹 또는 애플리케이션을 선택합니다. 이 ID에는 할당된 역할에 따라 관리되는 리소스 그룹에 대한 권한이 있습니다. 일반적으로 Azure Active Directory 그룹을 만들어 리소스를 관리합니다. 그러나 이 문서에서는 자신의 ID를 사용합니다.
 
 ID의 개체 ID를 가져오려면 다음 명령에서 UPN(사용자 계정 이름)을 입력합니다.
 
@@ -75,7 +75,7 @@ az managedapp definition create \
 
 ## <a name="next-steps"></a>다음 단계
 
-관리되는 응용 프로그램 정의를 게시했습니다. 이제 해당 정의의 인스턴스를 배포하는 방법을 알아보세요.
+관리되는 애플리케이션 정의를 게시했습니다. 이제 해당 정의의 인스턴스를 배포하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
 > [빠른 시작: 서비스 카탈로그 앱 배포](deploy-service-catalog-quickstart.md)

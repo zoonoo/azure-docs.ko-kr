@@ -185,7 +185,7 @@ Sample complete, hit ENTER to exit...
 ![Azure 포털에서 작업 준비 속성][1]
 
 ## <a name="next-steps"></a>다음 단계
-### <a name="application-packages"></a>응용 프로그램 패키지
+### <a name="application-packages"></a>애플리케이션 패키지
 작업 준비 태스크 외에도 Batch의 [애플리케이션 패키지](batch-application-packages.md) 기능을 사용하여 태스크 실행을 위한 계산 노드를 준비할 수 있습니다. 이 기능은 설치 관리자를 실행하지 않아도 되는 애플리케이션, 100개 이상의 파일을 포함하는 애플리케이션 또는 엄격한 버전 제어를 필요로 하는 애플리케이션을 배포하는 데 특히 유용합니다.
 
 ### <a name="installing-applications-and-staging-data"></a>애플리케이션 설치 및 데이터 준비

@@ -17,7 +17,7 @@ ms.locfileid: "49068245"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>OSBA(Open Service Broker for Azure)를 사용하여 Azure에서 관리되는 서비스와 통합
 
-[Kubernetes 서비스 카탈로그][kubernetes-service-catalog]와 함께 OSBA(Open Service Broker for Azure)를 사용하면 개발자가 Kubernetes에서 Azure 관리 서비스를 활용할 수 있습니다. 이 가이드는 Kubernetes 서비스 카탈로그, OSBA(Open Service Broker for Azure) 및 Kubernetes를 사용하는 Azure에서 관리되는 서비스를 사용하는 응용 프로그램 배포에 중점을 두고 있습니다.
+[Kubernetes 서비스 카탈로그][kubernetes-service-catalog]와 함께 OSBA(Open Service Broker for Azure)를 사용하면 개발자가 Kubernetes에서 Azure 관리 서비스를 활용할 수 있습니다. 이 가이드는 Kubernetes 서비스 카탈로그, OSBA(Open Service Broker for Azure) 및 Kubernetes를 사용하는 Azure에서 관리되는 서비스를 사용하는 애플리케이션 배포에 중점을 두고 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * Azure 구독

@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2.0 JavaScript SPA(단일 페이지 응용 프로그램) 단계별 설정 | Microsoft Docs
-description: JavaScript SPA 응용 프로그램이 Azure Active Directory v2.0 엔드포인트로 보호되는 액세스 토큰을 필요로 하는 API를 호출하는 방식
+title: Azure AD v2.0 JavaScript SPA(단일 페이지 애플리케이션) 단계별 설정 | Microsoft Docs
+description: JavaScript SPA 애플리케이션이 Azure Active Directory v2.0 엔드포인트로 보호되는 액세스 토큰을 필요로 하는 API를 호출하는 방식
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms

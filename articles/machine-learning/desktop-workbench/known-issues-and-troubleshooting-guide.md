@@ -234,7 +234,7 @@ Windows의 로컬 Docker 컨테이너에서 실행하는 경우 `aml_config` 아
 대개 이 작업은 수행할 필요가 없습니다. 하지만 설치를 완전히 초기화해야 하는 경우, 다음 단계를 따르십시오.
 
 - Windows에서:
-  - 먼저 _제어판_에서 _프로그램 추가/제거_ 애플릿을 사용하여 _Azure Machine Learning Workbench_ 응용 프로그램 항목을 제거해야 합니다.  
+  - 먼저 _제어판_에서 _프로그램 추가/제거_ 애플릿을 사용하여 _Azure Machine Learning Workbench_ 애플리케이션 항목을 제거해야 합니다.  
   - 그런 다음, 다음 스크립트 중 하나를 다운로드하여 실행합니다.
     - [Windows 명령줄 스크립트](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.cmd).
     - [Windows PowerShell 스크립트](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (스크립트를 실행하기 전에 상승된 권한(관리자)으로 PowerShell 창에서 `Set-ExecutionPolicy Unrestricted`를 실행해야 할 수도 있습니다.)

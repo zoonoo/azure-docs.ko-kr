@@ -572,12 +572,12 @@ ASCS/SCS 클러스터의 *두* 노드에 ERS(Enqueue Replication Server) 인스�
 
 **\<제품>** > **\<DBMS>** > **설치** > **추가 SAP 시스템 인스턴스** > **Enqueue Replication Server 인스턴스**
 
-## <a name="install-a-dbms-instance-and-sap-application-servers"></a>DBMS 인스턴스 및 SAP 응용 프로그램 서버 설치
+## <a name="install-a-dbms-instance-and-sap-application-servers"></a>DBMS 인스턴스 및 SAP 애플리케이션 서버 설치
 
 다음 항목을 설치하여 SAP 시스템 설치를 완료합니다.
 * DBMS 인스턴스.
 * 기본 SAP 애플리케이션 서버.
-* 추가 SAP 응용 프로그램 서버.
+* 추가 SAP 애플리케이션 서버.
 
 ## <a name="next-steps"></a>다음 단계
 

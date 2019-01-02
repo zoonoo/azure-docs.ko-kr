@@ -66,13 +66,13 @@ Boomi의 Azure AD 통합을 구성하려면 갤러리의 Boomi를 관리되는 S
 
 1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
     
 1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 애플리케이션 단추][3]
 
-1. 검색 상자에 **Boomi**를 입력하고 결과 패널에서 **Boomi**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에 **Boomi**를 입력하고 결과 패널에서 **Boomi**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Boomi](./media/boomi-tutorial/tutorial_boomi_addfromgallery.png)
 
@@ -251,7 +251,7 @@ Azure AD 사용자가 Boomi에 로그인할 수 있도록 하려면 Boomi로 프
 
 1. 애플리케이션 목록에서 **Boomi**를 선택합니다.
 
-    ![응용 프로그램 목록의 Boomi 링크](./media/boomi-tutorial/tutorial_boomi_app.png)  
+    ![애플리케이션 목록의 Boomi 링크](./media/boomi-tutorial/tutorial_boomi_app.png)  
 
 1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 

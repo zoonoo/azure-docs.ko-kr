@@ -120,7 +120,7 @@ Azure AD 응용 프로그램 통합의 경우 Azure AD는 예를 들어 [Microso
 
 ## <a name="microsoft-identity-platform"></a>Microsoft ID 플랫폼
 
-Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) ID 서비스와 개발자 플랫폼의 발전된 형태입니다. 이 플랫폼을 사용하면 개발자가 모든 Microsoft ID에 로그인하고, Microsoft Graph, 기타 Microsoft API 또는 개발자가 빌드한 API를 호출하기 위한 토큰을 가져오는 응용 프로그램을 빌드할 수 있습니다. 인증 서비스, 라이브러리, 응용 프로그램 등록 및 구성, 완전한 개발자 설명서, 코드 샘플 및 기타 개발자 콘텐츠로 구성된 모든 기능을 갖춘 플랫폼입니다. Microsoft ID 플랫폼은 OAuth 2.0 및 OpenID Connect 등의 산업 표준 프로토콜을 지원합니다. 자세한 내용은 [Microsoft ID 플랫폼 정보](about-microsoft-identity-platform.md)를 참조하세요.
+Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) ID 서비스와 개발자 플랫폼의 발전된 형태입니다. 이 플랫폼을 사용하면 개발자가 모든 Microsoft ID에 로그인하고, Microsoft Graph, 기타 Microsoft API 또는 개발자가 빌드한 API를 호출하기 위한 토큰을 가져오는 애플리케이션을 빌드할 수 있습니다. 인증 서비스, 라이브러리, 애플리케이션 등록 및 구성, 완전한 개발자 설명서, 코드 샘플 및 기타 개발자 콘텐츠로 구성된 모든 기능을 갖춘 플랫폼입니다. Microsoft ID 플랫폼은 OAuth 2.0 및 OpenID Connect 등의 산업 표준 프로토콜을 지원합니다. 자세한 내용은 [Microsoft ID 플랫폼 정보](about-microsoft-identity-platform.md)를 참조하세요.
 
 ## <a name="multi-tenant-application"></a>다중 테넌트 애플리케이션
 
@@ -207,7 +207,7 @@ OAuth2 [권한 부여](#authorization-grant)를 지원하기 위해 [권한 부�
 
 ## <a name="user-agent-based-client"></a>사용자 에이전트 기반 클라이언트
 
-웹 서버에서 코드를 다운로드하고 SPA(단일 페이지 응용 프로그램)와 같은 사용자 에이전트(예: 웹 브라우저) 내에서 실행하는 [클라이언트 응용 프로그램](#client-application)의 유형입니다. 모든 코드가 디바이스에서 실행되기 때문에 자격 증명을 비공개로/기밀로 저장할 수 없으므로 “공용” 클라이언트로 간주합니다. 자세한 내용은 [OAuth2 클라이언트 형식 및 프로필][OAuth2-Client-Types]을 참조하세요.
+웹 서버에서 코드를 다운로드하고 SPA(단일 페이지 애플리케이션)와 같은 사용자 에이전트(예: 웹 브라우저) 내에서 실행하는 [클라이언트 애플리케이션](#client-application)의 유형입니다. 모든 코드가 디바이스에서 실행되기 때문에 자격 증명을 비공개로/기밀로 저장할 수 없으므로 “공용” 클라이언트로 간주합니다. 자세한 내용은 [OAuth2 클라이언트 형식 및 프로필][OAuth2-Client-Types]을 참조하세요.
 
 ## <a name="user-principal"></a>사용자 주체
 

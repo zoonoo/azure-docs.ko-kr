@@ -75,7 +75,7 @@ LCVista가 Azure AD에 통합되도록 구성하려면 갤러리에서 LCVista�
 
     ![Azure AD 테스트 사용자 만들기](./media/lcvista-tutorial/tutorial_lcvista_search.png)
 
-1. 결과 패널에서 **LCVista**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **LCVista**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/lcvista-tutorial/tutorial_lcvista_addfromgallery.png)
 
@@ -96,11 +96,11 @@ LCVista에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 LCVista 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 LCVista 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **LCVista에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **LCVista** 응용 프로그램 통합 페이지에서 **Single sign-on**을 클릭합니다.
+1. Azure Portal의 **LCVista** 애플리케이션 페이지에서 **Single sign-on**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -131,7 +131,7 @@ LCVista에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![Configure Single Sign-On](./media/lcvista-tutorial/tutorial_lcvista_configure.png) 
 
-1.  LCVista 응용 프로그램에 관리자 권한으로 로그온합니다.
+1.  LCVista 애플리케이션에 관리자 권한으로 로그온합니다.
 
 1. **SAML Config(SAML 구성)** 섹션에서 **Enable SAML login(SAML 로그인 사용)** 을 선택하고 아래 이미지의 설명에 따라 세부 정보를 입력합니다. 
 
@@ -190,7 +190,7 @@ LCVista에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
  
 ### <a name="creating-a-lcvista-test-user"></a>LCVista 테스트 사용자 만들기
 
-이 섹션에서는 LCVista에서 Britta Simon이라는 사용자를 만듭니다. LCVista 응용 프로그램에 사용자를 추가하려면 [LCVista 클라이언트 지원 팀](https://lcvista.com/contact)에 문의해야 합니다. 
+이 섹션에서는 LCVista에서 Britta Simon이라는 사용자를 만듭니다. LCVista 애플리케이션에 사용자를 추가하려면 [LCVista 클라이언트 지원 팀](https://lcvista.com/contact)에 문의해야 합니다. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -204,7 +204,7 @@ LCVista에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **LCVista**를 선택합니다.
+1. 애플리케이션 목록에서 **LCVista**를 선택합니다.
 
     ![Configure Single Sign-On](./media/lcvista-tutorial/tutorial_lcvista_app.png) 
 
@@ -224,7 +224,7 @@ LCVista에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 액세스 패널에서 LCVista 타일을 클릭하면 조직 로그온 페이지로 리디렉션됩니다. 로그인이 성공한 후 LCVista 응용 프로그램에 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
+이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 액세스 패널에서 LCVista 타일을 클릭하면 조직 로그온 페이지로 리디렉션됩니다. 로그인이 성공한 후 LCVista 애플리케이션에 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

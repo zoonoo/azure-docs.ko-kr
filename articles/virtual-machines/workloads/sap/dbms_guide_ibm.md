@@ -321,13 +321,13 @@ Azure에서 LUW용 DB2의 SAP에 대한 추가 정보 및 업데이트는 SAP No
 
 | Note 번호 | 제목 |
 | --- | --- |
-| [1928533] |Azure의 SAP 응용 프로그램: 지원 제품 및 Azure VM 유형 |
+| [1928533] |Azure의 SAP 애플리케이션: 지원 제품 및 Azure VM 유형 |
 | [2015553] |Microsoft Azure의 SAP: 지원 필수 조건 |
 | [1999351] |SAP용 고급 Azure 모니터링 문제 해결 |
 | [2178632] |Microsoft Azure의 SAP용 주요 모니터링 메트릭 |
 | [1409604] |Windows에서의 가상화: 향상된 모니터링 |
 | [2191498] |Azure와 Linux의 SAP: 향상된 모니터링 |
-| [2233094] |DB6: Linux, UNIX 및 Windows용 IBM DB2를 사용하는 SAP 응용 프로그램 - 추가 정보 |
+| [2233094] |DB6: Linux, UNIX 및 Windows용 IBM DB2를 사용하는 SAP 애플리케이션 - 추가 정보 |
 | [2243692] |Microsoft Azure(IaaS) VM의 Linux: SAP 라이선스 문제 |
 | [1984787] |SUSE LINUX Enterprise Server 12: 설치 참고 |
 | [2002167] |Red Hat Enterprise Linux 7.x: 설치 및 업그레이드 |

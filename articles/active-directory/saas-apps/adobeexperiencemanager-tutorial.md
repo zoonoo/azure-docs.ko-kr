@@ -66,7 +66,7 @@ Adobe Experience Manager의 Azure AD 통합을 구성하려면 갤러리의 Adob
 
 2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
     
 3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 선택합니다.
 
@@ -94,7 +94,7 @@ Adobe Experience Manager에서 Azure AD Single Sign-On을 구성하고 테스트
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Adobe Experience Manager 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Adobe Experience Manager 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Adobe Experience Manager에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
@@ -254,9 +254,9 @@ Adobe Experience Manager에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **Adobe Experience Manager**를 선택합니다.
+2. 애플리케이션 목록에서 **Adobe Experience Manager**를 선택합니다.
 
-    ![응용 프로그램 목록의 Adobe Experience Manager 링크](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_app.png)  
+    ![애플리케이션 목록의 Adobe Experience Manager 링크](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_app.png)  
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
 

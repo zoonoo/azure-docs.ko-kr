@@ -50,7 +50,7 @@ C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](fu
 
 이전에 Azure에 앱을 게시했어야 합니다. 아직 이렇게 수행하지 않은 경우 [함수 앱을 Azure에 게시](functions-develop-vs.md#publish-to-azure)합니다.
 
-1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고, **게시** > **응용 프로그램 설정 관리...** 를 선택합니다. **설정 추가**를 선택하고, **새 앱 설정 이름**에서 `sqldb_connection`을 입력하고, **확인**을 선택합니다.
+1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고, **게시** > **애플리케이션 설정 관리...** 를 선택합니다. **설정 추가**를 선택하고, **새 앱 설정 이름**에서 `sqldb_connection`을 입력하고, **확인**을 선택합니다.
 
     ![함수 앱에 대한 애플리케이션 설정입니다.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 

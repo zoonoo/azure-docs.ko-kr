@@ -322,6 +322,6 @@ Apache Solr 백업 및 복원 작업에 대한 자세한 내용은 [https://cwik
 
 * [HDInsight 클러스터에서 Apache Giraph 설치](hdinsight-hadoop-giraph-install-linux.md) 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Giraph를 설치합니다. Giraph를 통해 Hadoop을 사용하여 그래프 처리를 수행할 수 있으며, Azure HDInsight에서 이를 사용할 수도 있습니다.
 
-* [HDInsight 클러스터에서 Hue를 설치](hdinsight-hadoop-hue-linux.md)합니다. 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에서 Hue를 설치합니다. Hue는 Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 응용 프로그램 집합입니다.
+* [HDInsight 클러스터에서 Hue를 설치](hdinsight-hadoop-hue-linux.md)합니다. 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에서 Hue를 설치합니다. Hue는 Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 애플리케이션 집합입니다.
 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

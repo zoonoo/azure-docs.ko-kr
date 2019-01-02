@@ -49,7 +49,7 @@ Speech Service의 주요 기능은 음성 텍스트 변환(음성 인식 또는 
 
 ## <a name="use-the-speech-service"></a>Speech 서비스 사용
 
-음성 지원 응용 프로그램의 개발을 간소화하기 위해 Microsoft는 Speech 서비스에서 사용할 [Speech SDK](speech-sdk.md)를 제공합니다. Speech SDK는 C#, C++ 및 Java에 일관된 네이티브 Speech to Text 및 Speech Translation API를 제공합니다. 이러한 언어 중 하나를 사용하여 개발하는 경우 Speech SDK를 통해 네트워크 세부 정보를 처리하여 더 쉽게 개발할 수 있습니다.
+음성 지원 애플리케이션의 개발을 간소화하기 위해 Microsoft는 Speech 서비스에서 사용할 [Speech SDK](speech-sdk.md)를 제공합니다. Speech SDK는 C#, C++ 및 Java에 일관된 네이티브 Speech to Text 및 Speech Translation API를 제공합니다. 이러한 언어 중 하나를 사용하여 개발하는 경우 Speech SDK를 통해 네트워크 세부 정보를 처리하여 더 쉽게 개발할 수 있습니다.
 
 또한 Speech Service에는 HTTP 요청을 수행할 수 있는 모든 프로그래밍 언어에서 작동하는 [REST API](rest-apis.md)도 있습니다. REST 인터페이스는 SDK의 실시간 스트리밍 기능을 제공하지 않습니다.
 

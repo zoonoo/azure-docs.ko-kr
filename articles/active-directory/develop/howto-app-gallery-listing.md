@@ -24,7 +24,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/05/2018
 ms.locfileid: "48815222"
 ---
-# <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>방법: Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열
+# <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>방법: Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>Azure AD 애플리케이션 갤러리란?
 
@@ -37,15 +37,15 @@ ms.locfileid: "48815222"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- 페더레이션 응용 프로그램(Open ID 및 SAML/WS-Fed)의 경우 응용 프로그램은 Azure AD 갤러리에 나열된 SaaS 모델을 지원해야 합니다. 엔터프라이즈 갤러리 응용 프로그램은 특정 고객이 아닌 여러 고객 구성을 지원해야 합니다.
+- 페더레이션 애플리케이션(Open ID 및 SAML/WS-Fed)의 경우 애플리케이션은 Azure AD 갤러리에 나열된 SaaS 모델을 지원해야 합니다. 엔터프라이즈 갤러리 애플리케이션은 특정 고객이 아닌 여러 고객 구성을 지원해야 합니다.
 
-- Open ID Connect의 경우 응용 프로그램은 다중 테넌트화되어야 하며, [Azure AD 동의 프레임워크](consent-framework.md)는 응용 프로그램에 대해 올바르게 구현되어야 합니다. 모든 고객이 응용 프로그램에 동의를 제공할 수 있도록 사용자가 공통 엔드포인트에 로그인 요청을 보낼 수 있습니다. 토큰에 수신된 테넌트 ID 및 사용자의 UPN을 기반으로 사용자 액세스를 제어할 수 있습니다.
+- Open ID Connect의 경우 애플리케이션은 다중 테넌트화되어야 하며, [Azure AD 동의 프레임워크](consent-framework.md)는 애플리케이션에 대해 올바르게 구현되어야 합니다. 모든 고객이 애플리케이션에 동의를 제공할 수 있도록 사용자가 공통 엔드포인트에 로그인 요청을 보낼 수 있습니다. 토큰에 수신된 테넌트 ID 및 사용자의 UPN을 기반으로 사용자 액세스를 제어할 수 있습니다.
 
-- SAML 2.0/WS-Fed의 경우 SP 또는 IDP 모드에서 SAML/WS-Fed SSO 통합을 수행하는 기능이 응용 프로그램에 있어야 합니다. 요청을 제출하기 전에 제대로 작동하는지 확인하세요.
+- SAML 2.0/WS-Fed의 경우 SP 또는 IDP 모드에서 SAML/WS-Fed SSO 통합을 수행하는 기능이 애플리케이션에 있어야 합니다. 요청을 제출하기 전에 제대로 작동하는지 확인하세요.
 
-- 암호 SSO의 경우 암호 보관을 수행하여 Single Sign-On이 예상대로 작동할 수 있도록 응용 프로그램이 폼 인증을 지원하는지 확인하세요.
+- 암호 SSO의 경우 암호 보관을 수행하여 Single Sign-On이 예상대로 작동할 수 있도록 애플리케이션이 폼 인증을 지원하는지 확인하세요.
 
-- 자동 사용자 프로비전 요청의 경우 응용 프로그램이 위에서 설명한 페더레이션 프로토콜 중 하나를 사용하여 Single Sign-On 기능이 활성화된 갤러리에 나열되어야 합니다. 아직 나열되어 있지 않은 경우 포털에서 SSO 및 사용자 프로비저닝을 함께 요청할 수 있습니다.
+- 자동 사용자 프로비전 요청의 경우 애플리케이션이 위에서 설명한 페더레이션 프로토콜 중 하나를 사용하여 Single Sign-On 기능이 활성화된 갤러리에 나열되어야 합니다. 아직 나열되어 있지 않은 경우 포털에서 SSO 및 사용자 프로비저닝을 함께 요청할 수 있습니다.
 
 ## <a name="submit-the-request-in-the-portal"></a>포털에서 요청 제출
 
@@ -88,7 +88,7 @@ Azure AD 앱 갤러리에 애플리케이션을 나열하려면 먼저 Azure AD�
 
 ## <a name="implementing-sso-using-password-sso"></a>암호 SSO를 사용하여 SSO 구현
 
-HTML 로그인 페이지가 있는 웹 응용 프로그램을 만들어서 [암호 기반 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 구성합니다. 암호 보관이라고도 하는 암호 기반 SSO를 사용하면 ID 페더레이션을 지원하지 않는 웹 애플리케이션에 대한 사용자 액세스 및 암호를 관리할 수 있습니다. 여러 사용자가 조직의 소셜 미디어 앱 계정과 같은 단일 계정을 공유해야 하는 시나리오에도 유용합니다.
+HTML 로그인 페이지가 있는 웹 애플리케이션을 만들어서 [암호 기반 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 구성합니다. 암호 보관이라고도 하는 암호 기반 SSO를 사용하면 ID 페더레이션을 지원하지 않는 웹 애플리케이션에 대한 사용자 액세스 및 암호를 관리할 수 있습니다. 여러 사용자가 조직의 소셜 미디어 앱 계정과 같은 단일 계정을 공유해야 하는 시나리오에도 유용합니다.
 
 ![갤러리에 암호 SSO 애플리케이션을 나열하는 타임라인](./media/howto-app-gallery-listing/passwordsso.png)
 
@@ -104,7 +104,7 @@ Azure AD 앱 갤러리에서 기존 애플리케이션을 업데이트 또는 �
     ![SAML 애플리케이션을 갤러리 목록에 올리는 타임라인](./media/howto-app-gallery-listing/updateorremove.png)
 
     * 기존 애플리케이션을 업데이트하려는 경우 **기존 애플리케이션 목록 업데이트**를 선택합니다.
-    * Azure AD 갤러리에서 기존 응용 프로그램을 제거하려는 경우 **기존 응용 프로그램 목록 제거**를 선택합니다.
+    * Azure AD 갤러리에서 기존 애플리케이션을 제거하려는 경우 **기존 애플리케이션 목록 제거**를 선택합니다.
     * 액세스 관련 문제가 발생하면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의하세요. 
 
 ## <a name="timelines"></a>타임라인

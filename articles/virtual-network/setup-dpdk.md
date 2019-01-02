@@ -23,13 +23,13 @@ ms.locfileid: "48268279"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Linux 가상 머신에서 DPDK 설정
 
-Azure의 DPDK(데이터 평면 개발 키트)는 성능 집약적 응용 프로그램에 대해 더 빠른 사용자 공간 패킷 처리 프레임워크를 제공합니다. 이 프레임워크에는 가상 머신의 커널 네트워크 스택을 무시합니다.
+Azure의 DPDK(데이터 평면 개발 키트)는 성능 집약적 애플리케이션에 대해 더 빠른 사용자 공간 패킷 처리 프레임워크를 제공합니다. 이 프레임워크에는 가상 머신의 커널 네트워크 스택을 무시합니다.
 
 커널 네트워크 스택을 사용하는 일반적인 패킷 처리에서 프로세스는 인터럽트를 기준으로 합니다. 네트워크 인터페이스가 들어오는 패킷을 수신할 때 커널 공간에서 사용자 공간까지 패킷 및 컨텍스트 스위치를 처리하기 위한 커널 인터럽트가 있습니다. DPDK는 빠른 패킷 처리를 위한 폴링 모드 드라이버를 사용하는 사용자 공간 구현 대신 컨텍스트 전환 및 인터럽트 기반 메서드를 제거합니다.
 
 DPDK는 하위 수준 리소스에 대한 액세스를 제공하는 사용자 공간 라이브러리의 집합으로 구성됩니다. 이러한 리소스는 하드웨어, 논리 코어, 메모리 관리 및 네트워크 인터페이스 카드의 폴링 모드 드라이버에 포함할 수 있습니다.
 
-DPDK는 여러 운영 체제 배포를 지원하는 Azure Virtual Machines에서 실행될 수 있습니다. DPDK는 네트워크 기능 가상화 구현을 구동할 때 핵심 성과 차별화를 제공합니다. 이러한 구현은 가상 라우터, 방화벽, VPN, 부하 분산 장치, 발전된 패킷 코어 및 DDoS(서비스 거부) 응용 프로그램 같은 NVA(네트워크 가상 어플라이언스) 형식을 취할 수 있습니다.
+DPDK는 여러 운영 체제 배포를 지원하는 Azure Virtual Machines에서 실행될 수 있습니다. DPDK는 네트워크 기능 가상화 구현을 구동할 때 핵심 성과 차별화를 제공합니다. 이러한 구현은 가상 라우터, 방화벽, VPN, 부하 분산 장치, 발전된 패킷 코어 및 DDoS(서비스 거부) 애플리케이션 같은 NVA(네트워크 가상 어플라이언스) 형식을 취할 수 있습니다.
 
 ## <a name="benefit"></a>혜택
 
@@ -138,15 +138,15 @@ zypper \
 3. PCI 주소
 
    * `ethtool -i <vf interface name>`을 사용하여 *VF*에 사용할 PCI 주소를 찾습니다.
-   * *eth0*이 가속 네트워킹을 사용하도록 설정한 경우 testpmd가 *eth0*에 대한 VF pci 장치를 실수로 넘겨받지 않도록 해야 합니다. DPDK 응용 프로그램이 실수로 관리 네트워크 인터페이스를 넘겨받아 SSH 연결 손실을 초래한 경우 직렬 콘솔을 사용하여 DPDK 응용 프로그램을 중지합니다. 또는 직렬 콘솔을 사용하여 가상 머신을 중지 또는 시작할 수도 있습니다.
+   * *eth0*이 가속 네트워킹을 사용하도록 설정한 경우 testpmd가 *eth0*에 대한 VF pci 장치를 실수로 넘겨받지 않도록 해야 합니다. DPDK 애플리케이션이 실수로 관리 네트워크 인터페이스를 넘겨받아 SSH 연결 손실을 초래한 경우 직렬 콘솔을 사용하여 DPDK 애플리케이션을 중지합니다. 또는 직렬 콘솔을 사용하여 가상 머신을 중지 또는 시작할 수도 있습니다.
 
 4. `modprobe -a ib_uverbs`로 다시 부팅할 때마다 *ibuverbs*를 로드합니다. SLES 15의 경우만 `modprobe -a mlx4_ib`로 *mlx4_ib*를 로드합니다.
 
 ## <a name="failsafe-pmd"></a>Failsafe PMD
 
-DPDK 응용 프로그램은 Azure에서 공개되는 failsafe PMD에서 실행되어야 합니다. 응용 프로그램이 직접 VF PMD에서 실행되는 경우 일부 패킷이 가상 인터페이스에 표시되므로 VM을 대상으로 한 **모든** 패킷을 수신하지는 않습니다. 
+DPDK 애플리케이션은 Azure에서 공개되는 failsafe PMD에서 실행되어야 합니다. 애플리케이션이 직접 VF PMD에서 실행되는 경우 일부 패킷이 가상 인터페이스에 표시되므로 VM을 대상으로 한 **모든** 패킷을 수신하지는 않습니다. 
 
-Failsafe PMD 통해 DPDK 응용 프로그램을 실행하는 경우 응용 프로그램이 대상으로 지정된 모든 패킷을 수신하게 됩니다. 또한 호스트에 서비스가 제공될 때 VF가 호출되더라도 응용 프로그램은 DPDK 모드에서 계속 실행됩니다. Failsafe PMD에 대한 자세한 내용은 [Failsafe 폴링 모드 드라이버 라이브러리](http://doc.dpdk.org/guides/nics/fail_safe.html)를 참조하세요.
+Failsafe PMD 통해 DPDK 애플리케이션을 실행하는 경우 애플리케이션이 대상으로 지정된 모든 패킷을 수신하게 됩니다. 또한 호스트에 서비스가 제공될 때 VF가 호출되더라도 애플리케이션은 DPDK 모드에서 계속 실행됩니다. Failsafe PMD에 대한 자세한 내용은 [Failsafe 폴링 모드 드라이버 라이브러리](http://doc.dpdk.org/guides/nics/fail_safe.html)를 참조하세요.
 
 ## <a name="run-testpmd"></a>testpmd 실행
 
@@ -154,7 +154,7 @@ Failsafe PMD 통해 DPDK 응용 프로그램을 실행하는 경우 응용 프�
 
 ### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>기초: 정상 여부 검사, failsafe 어댑터 초기화
 
-1. 단일 포트 testpmd 응용 프로그램을 시작하려면 다음 명령을 실행합니다.
+1. 단일 포트 testpmd 애플리케이션을 시작하려면 다음 명령을 실행합니다.
 
    ```bash
    testpmd -w <pci address from previous step> \
@@ -163,7 +163,7 @@ Failsafe PMD 통해 DPDK 응용 프로그램을 실행하는 경우 응용 프�
      --port-topology=chained
     ```
 
-2. 이중 포트 testpmd 응용 프로그램을 시작하려면 다음 명령을 실행합니다.
+2. 이중 포트 testpmd 애플리케이션을 시작하려면 다음 명령을 실행합니다.
 
    ```bash
    testpmd -w <pci address nic1> \

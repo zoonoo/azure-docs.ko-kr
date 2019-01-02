@@ -70,7 +70,7 @@ SAP NetWeaver의 Azure AD 통합을 구성하려면 갤러리의 SAP NetWeaver�
 
 2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
 
 3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
@@ -96,7 +96,7 @@ SAP NetWeaver에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 SAP NetWeaver 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 SAP NetWeaver 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **SAP NetWeaver에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
@@ -159,7 +159,7 @@ SAP NetWeaver에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     다. 컴퓨터에 생성된 **메타데이터 XML 파일**을 저장하고 **기본 SAML 구성** 섹션에 업로드하면 Azure Portal에서 **식별자** 및 **회신 URL** 값이 자동으로 입력됩니다.
 
-8. Azure Portal의 **SAP NetWeaver** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+8. Azure Portal의 **SAP NetWeaver** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -336,7 +336,7 @@ SAP NetWeaver에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 SAP NetWeaver에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음, **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 
     ![사용자 할당][201]
 

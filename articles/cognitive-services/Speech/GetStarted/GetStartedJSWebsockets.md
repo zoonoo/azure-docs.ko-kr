@@ -1,7 +1,7 @@
 ---
 title: JavaScript에서 Bing Speech Recognition API 시작 | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Cognitive Services의 Bing Speech Recognition API를 사용하여 음성 오디오를 텍스트로 계속 변환하는 응용 프로그램을 개발합니다.
+description: Cognitive Services의 Bing Speech Recognition API를 사용하여 음성 오디오를 텍스트로 계속 변환하는 애플리케이션을 개발합니다.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma

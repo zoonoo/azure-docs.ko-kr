@@ -1,6 +1,6 @@
 ---
 title: 페이지의 링크가 애플리케이션 프록시 애플리케이션에서 작동하지 않음 | Microsoft Docs
-description: Azure AD와 통합한 응용 프로그램 프록시 응용 프로그램에 대한 링크가 끊어지는 문제를 해결하는 방법
+description: Azure AD와 통합한 애플리케이션 프록시 애플리케이션에 대한 링크가 끊어지는 문제를 해결하는 방법
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -43,7 +43,7 @@ ms.locfileid: "44378417"
 
     내부 URL에 대한 애플리케이션 내의 링크도 외부에서 인식하므로 이 옵션은 애플리케이션의 링크가 애플리케이션 프록시를 통해 외부에서 액세스될 수 있도록 합니다. 모든 링크는 아직 게시된 애플리케이션에 속해야 합니다. 그러나 이 옵션을 사용하면 링크가 동일한 애플리케이션에 속하지 않고 여러 애플리케이션에 속할 수 있습니다.
 
-3.  이러한 옵션을 모두 실행할 수 없는 경우 인라인 링크 변환을 구현할 수 있는 여러 가지 옵션이 있습니다. 이러한 옵션에는 Intune Managed Browser, 내 앱 확장 사용 또는 응용 프로그램의 링크 변환 설정 사용이 포함됩니다. 이러한 각 옵션 및 사용하도록 설정하는 방법을 자세히 알아보려면 [Azure AD 응용 프로그램 프록시를 사용하여 게시된 앱에 대해 하드 코드된 링크 리디렉션](application-proxy-configure-hard-coded-link-translation.md)을 참조하세요.
+3.  이러한 옵션을 모두 실행할 수 없는 경우 인라인 링크 변환을 구현할 수 있는 여러 가지 옵션이 있습니다. 이러한 옵션에는 Intune Managed Browser, 내 앱 확장 사용 또는 애플리케이션의 링크 변환 설정 사용이 포함됩니다. 이러한 각 옵션 및 사용하도록 설정하는 방법을 자세히 알아보려면 [Azure AD 애플리케이션 프록시를 사용하여 게시된 앱에 대해 하드 코드된 링크 리디렉션](application-proxy-configure-hard-coded-link-translation.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [기존 온-프레미스 프록시 서버 작업](application-proxy-configure-connectors-with-proxy-servers.md)

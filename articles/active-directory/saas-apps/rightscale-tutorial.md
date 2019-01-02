@@ -75,7 +75,7 @@ Rightscale이 Azure AD에 통합되도록 구성하려면 갤러리의 Rightscal
 
     ![Azure AD 테스트 사용자 만들기](./media/rightscale-tutorial/tutorial_rightscale_search.png)
 
-1. 결과 패널에서 **Rightscale**을 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **Rightscale**을 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/rightscale-tutorial/tutorial_rightscale_addfromgallery.png)
 
@@ -96,11 +96,11 @@ Rightscale에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Rightscale 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Rightscale 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Rightscale에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Rightscale** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Rightscale** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -132,7 +132,7 @@ Rightscale에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Single Sign-On 구성](./media/rightscale-tutorial/tutorial_rightscale_configure.png) 
 <CS>
-1. 응용 프로그램에 대해 구성된 SSO를 가져오려면 관리자 권한으로 RightScale 테넌트에 로그온해야 합니다.
+1. 애플리케이션에 대해 구성된 SSO를 가져오려면 관리자 권한으로 RightScale 테넌트에 로그온해야 합니다.
 
     a. 위쪽 메뉴에서 **설정** 탭을 클릭하고 **Single Sign-On**을 선택합니다.
    
@@ -215,7 +215,7 @@ Rightscale에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Rightscale**을 선택합니다.
+1. 애플리케이션 목록에서 **Rightscale**을 선택합니다.
 
     ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_app.png) 
 
@@ -237,7 +237,7 @@ Rightscale에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 이 섹션은 액세스 패널을 사용하여 Azure AD SSO 구성을 테스트하기 위한 것입니다.  
 
-액세스 패널에서 RightScale 타일을 클릭하면 RightScale 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 RightScale 타일을 클릭하면 RightScale 애플리케이션에 자동으로 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

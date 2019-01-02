@@ -75,7 +75,7 @@ myPolicies가 Azure AD에 통합되도록 구성하려면 갤러리의 myPolicie
 
     ![Azure AD 테스트 사용자 만들기](./media/mypolicies-tutorial/tutorial_mypolicies_search.png)
 
-1. 결과 패널에서 **myPolicies**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **myPolicies**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/mypolicies-tutorial/tutorial_mypolicies_addfromgallery.png)
 
@@ -96,11 +96,11 @@ myPolicies에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 myPolicies 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 myPolicies 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **myPolicies에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **myPolicies** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **myPolicies** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -119,7 +119,7 @@ myPolicies에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [myPolicies 지원 팀](mailto:support@mypolicies.com)에 문의하세요.
 
-1. myPolicies 응용 프로그램에는 특정 형식의 SAML 어설션이 필요하므로, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. 
+1. myPolicies 애플리케이션에는 특정 형식의 SAML 어설션이 필요하므로, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. 
 
     ![Configure Single Sign-On](./media/mypolicies-tutorial/tutorial_mypolicies_attribute.png)
 
@@ -205,7 +205,7 @@ myPolicies에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **myPolicies**를 선택합니다.
+1. 애플리케이션 목록에서 **myPolicies**를 선택합니다.
 
     ![Configure Single Sign-On](./media/mypolicies-tutorial/tutorial_mypolicies_app.png) 
 
@@ -227,7 +227,7 @@ myPolicies에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 myPolicies 타일을 클릭하면 myPolicies 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 myPolicies 타일을 클릭하면 myPolicies 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스

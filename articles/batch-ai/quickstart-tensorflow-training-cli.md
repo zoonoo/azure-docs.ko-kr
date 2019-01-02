@@ -64,7 +64,7 @@ az batchai workspace create \
 Batch AI 클러스터를 만들려면 `az batchai cluster create` 명령을 사용합니다. 다음 예제에서는 다음과 같은 속성을 사용하여 1노드 클러스터를 만듭니다.
 
 * NVIDIA Tesla K80 GPU가 1개 있는 NC6 VM 크기를 사용합니다. Azure는 다양한 NVIDIA GPU를 갖는 여러 VM 크기를 제공합니다.
-* 컨테이너 기반 응용 프로그램을 호스트하도록 디자인된 기본 Ubuntu Server 이미지를 실행합니다. 이 배포의 학습 워크로드 대부분을 실행할 수 있습니다. 
+* 컨테이너 기반 애플리케이션을 호스트하도록 디자인된 기본 Ubuntu Server 이미지를 실행합니다. 이 배포의 학습 워크로드 대부분을 실행할 수 있습니다. 
 * *myusername*이라는 사용자 계정을 추가하고, SSH 키가 로컬 환경의 기본 키 위치(*~/.ssh*)에 아직 없는 경우 생성합니다.
 
 ```azurecli-interactive

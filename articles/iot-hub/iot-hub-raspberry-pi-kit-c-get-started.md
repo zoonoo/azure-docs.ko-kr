@@ -164,7 +164,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
 
 ### <a name="configure-the-sample-application"></a>샘플 응용 프로그램 구성
 
-1. 다음 명령을 실행하여 샘플 응용 프로그램을 복제합니다.
+1. 다음 명령을 실행하여 샘플 애플리케이션을 복제합니다.
 
    ```bash
    sudo apt-get install git-core
@@ -193,7 +193,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    
    ![빌드 출력](./media/iot-hub-raspberry-pi-kit-c-get-started/7_build-output.png)
 
-1. 다음 명령을 실행하여 샘플 응용 프로그램을 실행합니다.
+1. 다음 명령을 실행하여 샘플 애플리케이션을 실행합니다.
 
    ```bash
    sudo ./app '<DEVICE CONNECTION STRING>'

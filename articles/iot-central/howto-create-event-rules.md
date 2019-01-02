@@ -120,7 +120,7 @@ Microsoft Flow 및 webhook와 같은 다른 작업을 규칙에 추가할 수 �
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT Central 응용 프로그램에서 규칙을 만드는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
+Azure IoT Central 애플리케이션에서 규칙을 만드는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
 
 - [규칙에 Microsoft Flow 작업 추가](howto-add-microsoft-flow.md)
 - [규칙에 Webhook 작업 추가](howto-create-webhooks.md)

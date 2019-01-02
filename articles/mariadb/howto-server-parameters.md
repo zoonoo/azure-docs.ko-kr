@@ -33,7 +33,7 @@ Azure Database for MariaDB에서는 일부 서버 매개 변수를 구성할 수
 
 ## <a name="list-of-configurable-server-parameters"></a>구성 가능한 서버 매개 변수 목록
 
-지원되는 서버 매개 변수 목록은 계속 확장됩니다. Azure Portal의 서버 매개 변수 탭을 사용하여 정의를 가져오고 응용 프로그램 요구 사항에 따라 서버 매개 변수를 구성합니다.
+지원되는 서버 매개 변수 목록은 계속 확장됩니다. Azure Portal의 서버 매개 변수 탭을 사용하여 정의를 가져오고 애플리케이션 요구 사항에 따라 서버 매개 변수를 구성합니다.
 
 ## <a name="non-configurable-server-parameters"></a>구성 불가능한 서버 매개 변수
 

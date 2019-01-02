@@ -143,7 +143,7 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
 ## <a name="use-the-async-await-pattern-with-common-queue-apis"></a>일반적인 큐 API와 함께 Async-Await 패턴 사용
 
-이 예제에서는 `Async`로 끝나는 큐 API와 함께 async-await 패턴을 사용하는 방법을 보여줍니다. 비동기 메서드가 사용되는 경우 호출이 완료될 때까지 async-await 패턴이 로컬 실행을 일시 중단합니다. 이 동작은 현재 스레드가 성능 병목 현상을 방지해주는 다른 작업을 수행할 수 있게 해주며, 응용 프로그램의 전반적인 응답성을 향상시킵니다.
+이 예제에서는 `Async`로 끝나는 큐 API와 함께 async-await 패턴을 사용하는 방법을 보여줍니다. 비동기 메서드가 사용되는 경우 호출이 완료될 때까지 async-await 패턴이 로컬 실행을 일시 중단합니다. 이 동작은 현재 스레드가 성능 병목 현상을 방지해주는 다른 작업을 수행할 수 있게 해주며, 애플리케이션의 전반적인 응답성을 향상시킵니다.
 
 ```cs
 // Create a message to add to the queue.

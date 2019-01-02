@@ -64,8 +64,8 @@ MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵
 ## <a name="run-ruby-code"></a>Ruby 코드 실행 
 1. 아래 섹션에서 Ruby 코드를 텍스트 파일에 붙여넣고 .rb 파일 확장명이 포함된 프로젝트 폴더에 저장합니다(예: `C:\rubymysql\createtable.rb` 또는 `/home/username/rubymysql/createtable.rb`).
 2. 코드를 실행하려면 명령 프롬프트 또는 Bash 셸을 시작합니다. 디렉터리를 프로젝트 폴더로 변경합니다(예: `cd rubymysql`).
-3. 그런 다음 응용 프로그램을 실행하려면 Ruby 명령 다음에 파일 이름을 입력합니다(예: `ruby createtable.rb`).
-4. Windows OS에서 Ruby 응용 프로그램이 경로 환경 변수에 없는 경우 전체 경로를 사용하여 노드 응용 프로그램을 시작해야 할 수도 있습니다(예: `"c:\Ruby23-x64\bin\ruby.exe" createtable.rb`).
+3. 그런 다음, 애플리케이션을 실행하려면 Ruby 명령 다음에 파일 이름을 입력합니다(예: `ruby createtable.rb`).
+4. Windows OS에서 Ruby 애플리케이션이 경로 환경 변수에 없는 경우 전체 경로를 사용하여 노드 애플리케이션을 시작해야 할 수도 있습니다(예: `"c:\Ruby23-x64\bin\ruby.exe" createtable.rb`).
 
 ## <a name="connect-and-create-a-table"></a>테이블 연결 및 생성
 **CREATE TABLE** SQL 문 다음에 테이블에 행을 추가하는 **INSERT INTO** SQL 문을 사용하여 테이블을 연결 및 생성하려면 다음 코드를 사용합니다.

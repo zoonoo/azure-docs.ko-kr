@@ -44,7 +44,7 @@ Azure Database for MariaDB 서버 내에서 하나 이상의 데이터베이스�
 | **프로토콜** | 이 서비스는 MySQL에서 사용되는 메시지 기반 프로토콜을 지원합니다. |
 | **TCP/IP** | 이 프로토콜은 TCP/IP 및 Unix 도메인 소켓을 통해 지원됩니다. |
 | **방화벽** | 데이터를 보호하기 위해, 방화벽 규칙은 사용자가 권한 있는 컴퓨터를 지정하기 전에는 데이터베이스 서버에 대한 모든 액세스를 차단합니다. [ 서버 방화벽 규칙](./concepts-firewall-rules.md)을 참조하세요. |
-| **SSL** | 이 서비스는 응용 프로그램 및 데이터베이스 서버 간의 SSL 연결 적용을 지원합니다. [Azure Database for MariaDB에 안전하게 연결하기 위한 사용자 응용 프로그램의 SSL 연결 구성](./howto-configure-ssl.md)을 참조하세요. |
+| **SSL** | 이 서비스는 애플리케이션 및 데이터베이스 서버 간의 SSL 연결 적용을 지원합니다. [Azure Database for MariaDB에 안전하게 연결하기 위한 사용자 응용 프로그램의 SSL 연결 구성](./howto-configure-ssl.md)을 참조하세요. |
 
 ## <a name="how-do-i-manage-a-server"></a>서버는 어떻게 관리해야 하나요?
 Azure Portal 또는 Azure CLI를 사용하여 Azure Database for MariaDB 서버를 관리할 수 있습니다.

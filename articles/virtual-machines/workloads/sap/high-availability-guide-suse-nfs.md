@@ -129,7 +129,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 1. Virtual Network 만들기
 1. 가용성 집합 만들기  
    최대 업데이트 도메인 설정
-1. Virtual Machine 1 만들기 SLES4SAP 12 SP3 이상 사용, 이 예제에서는 SAP 응용 프로그램 12 SP3용 SLES4SAP 12 SP3 BYOS 이미지 SLES(BYOS)가 사용됨  
+1. Virtual Machine 1 만들기 SLES4SAP 12 SP3 이상 사용, 이 예제에서는 SAP 애플리케이션 12 SP3용 SLES4SAP 12 SP3 BYOS 이미지 SLES(BYOS)가 사용됨  
    이전에 만든 가용성 집합 선택  
 1. Virtual Machine 2 만들기 SLES4SAP 12 SP3 이상 사용, 이 예제에서는 SLES4SAP 12 SP3 BYOS 이미지 사용  
    SAP 애플리케이션 12 SP3용 SLES(BYOS)가 사용됨  

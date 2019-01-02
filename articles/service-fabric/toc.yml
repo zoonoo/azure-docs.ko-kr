@@ -50,7 +50,7 @@ items:
     items:
     - name: 1- Docker Compose를 사용하여 .NET 앱 배포
       href: service-fabric-host-app-in-a-container.md
-    - name: 2- CI/CD를 사용하여 컨테이너 응용 프로그램 배포
+    - name: 2- CI/CD를 사용하여 컨테이너 애플리케이션 배포
       href: service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md
     - name: 3- 컨테이너 모니터링
       href: service-fabric-tutorial-monitoring-wincontainers.md
@@ -164,7 +164,7 @@ items:
         href: service-fabric-reliable-actors-notes-on-actor-type-serialization.md
     - name: 게스트 실행 파일
       href: service-fabric-guest-executables-introduction.md
-  - name: 응용 프로그램 및 서비스
+  - name: 애플리케이션 및 서비스
     items:
     - name: 애플리케이션 모델
       href: service-fabric-application-model.md
@@ -197,7 +197,7 @@ items:
         href: service-fabric-reverseproxy.md
       - name: ASP.NET Core
         href: service-fabric-reliable-services-communication-aspnetcore.md
-    - name: 응용 프로그램 수명 주기
+    - name: 애플리케이션 수명 주기
       items:
       - name: 애플리케이션 수명 주기 개요
         href: service-fabric-application-lifecycle.md
@@ -215,7 +215,7 @@ items:
           href: service-fabric-application-upgrade-advanced.md
       - name: 여러 환경에 대한 애플리케이션 관리
         href: service-fabric-manage-multiple-environment-app-configuration.md
-      - name: 응용 프로그램 테스트
+      - name: 애플리케이션 테스트
         items:
         - name: 단위 테스트 상태 저장 서비스
           href: service-fabric-concepts-unit-testing.md
@@ -651,7 +651,7 @@ items:
     items:
     - name: 일반적인 시나리오 진단
       href: service-fabric-diagnostics-common-scenarios.md
-    - name: 응용 프로그램 모니터링
+    - name: 애플리케이션 모니터링
       items:
       - name: 애플리케이션에 로깅 추가
         href: service-fabric-how-to-diagnostics-log.md

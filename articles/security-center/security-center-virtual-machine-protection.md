@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center에서 머신 및 응용 프로그램 보호 | Microsoft Docs
+title: Azure Security Center에서 머신 및 애플리케이션 보호 | Microsoft Docs
 description: 이 문서에서는 가상 머신, 컴퓨터, 웹 앱 및 App Service 환경을 보호하는 데 도움이 되는 Security Center의 권장 사항을 설명합니다.
 services: security-center
 documentationcenter: na
@@ -21,10 +21,10 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/13/2018
 ms.locfileid: "53340830"
 ---
-# <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Azure Security Center에서 머신 및 응용 프로그램 보호
-Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니다. 보안 센터가 잠재적인 보안 취약점을 식별하는 경우 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다. 이러한 권장 사항은 VM(가상 머신)과 컴퓨터, 응용 프로그램, 네트워킹, SQL과 ID 및 액세스 등의 Azure 리소스 유형에 적용됩니다.
+# <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Azure Security Center에서 머신 및 애플리케이션 보호
+Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니다. 보안 센터가 잠재적인 보안 취약점을 식별하는 경우 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다. 이러한 권장 사항은 VM(가상 머신)과 컴퓨터, 애플리케이션, 네트워킹, SQL과 ID 및 액세스 등의 Azure 리소스 유형에 적용됩니다.
 
-이 문서에서는 머신과 응용 프로그램에 적용되는 권장 사항에 대해 설명합니다.
+이 문서에서는 머신과 애플리케이션에 적용되는 권장 사항에 대해 설명합니다.
 
 ## <a name="monitoring-security-health"></a>보안 상태 모니터링
 **Security Center - 개요** 대시보드에서 리소스의 보안 상태를 모니터링할 수 있습니다. **리소스** 섹션에는 파악된 문제 수와 각 리소스 유형의 보안 상태가 제공됩니다.
@@ -151,11 +151,11 @@ VM 또는 컴퓨터에 대한 보안 세부 정보는 다음과 같습니다. �
 
 ![App Services 환경][18] App Services 환경입니다.
 
-![웹 응용 프로그램][19] 웹 응용 프로그램입니다.
+![웹 애플리케이션][19] 웹 애플리케이션입니다.
 
-![함수 응용 프로그램][24] 함수 응용 프로그램입니다.
+![함수 애플리케이션][24] 함수 애플리케이션입니다.
 
-1. 웹 응용 프로그램을 선택합니다. 요약 보기는 다음과 같은 세 개의 탭으로 열립니다.
+1. 웹 애플리케이션을 선택합니다. 요약 보기는 다음과 같은 세 개의 탭으로 열립니다.
 
   - **권장 사항**: 실패한 Security Center에서 수행된 평가를 기반으로 합니다.
   - **통과된 평가**: 전달된 Security Center에서 수행된 평가의 목록입니다.

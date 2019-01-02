@@ -63,7 +63,7 @@ Azure Container Registry 인증에 대한 자세한 내용은 [Azure Container R
 
 ## <a name="manage-registry-size"></a>레지스트리 크기 관리
 
-각 [컨테이너 레지스트리 SKU][container-registry-skus]의 저장소 제약 조건은 일반적인 시나리오(시작의 경우 **기본**, 대다수 프로덕션 응용 프로그램의 경우 **표준** 및 대규모 성능과 [지역 복제][container-registry-geo-replication]의 경우 **프리미엄**)와 일치하도록 설계되었습니다. 레지스트리 수명 동안에 미사용 콘텐츠는 정기적으로 삭제하여 크기를 관리해야 합니다.
+각 [컨테이너 레지스트리 SKU][container-registry-skus]의 스토리지 제약 조건은 일반적인 시나리오(시작의 경우 **기본**, 대다수 프로덕션 애플리케이션의 경우 **표준** 및 대규모 성능과 [지역 복제][container-registry-geo-replication]의 경우 **프리미엄**)와 일치하도록 설계되었습니다. 레지스트리 수명 동안에 미사용 콘텐츠는 정기적으로 삭제하여 크기를 관리해야 합니다.
 
 Azure CLI 명령 [az acr show-usage][az-acr-show-usage]를 사용하여 레지스트리의 현재 크기를 표시합니다.
 

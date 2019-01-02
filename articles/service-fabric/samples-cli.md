@@ -35,6 +35,6 @@ ms.locfileid: "39003003"
 | [보안 Linux 클러스터 만들기](./scripts/cli-create-cluster.md)| Azure Service Fabric 클러스터를 만듭니다. |
 | **응용 프로그램 관리**(Service Fabric CLI 사용)||
 | [응용 프로그램 나열](./scripts/sfctl-list-applications.md)| 클러스터에 프로비전된 애플리케이션을 나열합니다.|
-| [응용 프로그램 배포](./scripts/cli-deploy-application.md)| 클러스터에 응용 프로그램을 배포합니다.|
-| [응용 프로그램 제거](./scripts/cli-remove-application.md)| 클러스터에서 응용 프로그램을 제거합니다.|
+| [응용 프로그램 배포](./scripts/cli-deploy-application.md)| 클러스터에 애플리케이션을 배포합니다.|
+| [응용 프로그램 제거](./scripts/cli-remove-application.md)| 클러스터에서 애플리케이션을 제거합니다.|
 | [응용 프로그램 업그레이드](./scripts/sfctl-upgrade-application.md)| 이미 배포된 애플리케이션을 업그레이드합니다.|
