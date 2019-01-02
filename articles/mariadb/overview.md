@@ -8,17 +8,17 @@ services: mariadb
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/14/2018
-ms.openlocfilehash: ed4c05afdc5b061c7779a0b1ca34975f8b06ad7d
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 12/03/2018
+ms.openlocfilehash: b1e458339c2befdb51439cd23ef5f22ba4379c78
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686027"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850264"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Azure Database for MariaDB란?
 
-Azure Database for MariaDB는 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. Azure Database for MariaDB는 [MariaDB 커뮤니티 버전](https://mariadb.org/download/) 데이터베이스 엔진 10.2를 기반으로 합니다. 이 서비스는 공개 미리 보기 상태입니다. 
+Azure Database for MariaDB는 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. Azure Database for MariaDB는 [MariaDB 커뮤니티 버전](https://mariadb.org/download/) 데이터베이스 엔진 10.2를 기반으로 합니다.
 
 Azure Database for MariaDB에서는 다음과 같은 기능을 제공합니다.
 
@@ -29,7 +29,7 @@ Azure Database for MariaDB에서는 다음과 같은 기능을 제공합니다.
 - 최대 35일 동안 자동 백업 및 지정 시간 복원
 - 엔터프라이즈급 보안 및 규정 준수
 
-이러한 기능에는 인증이 필요합니다. 추가 비용 없이 제공 됩니다. Azure Database for MariaDB를 사용하면 앱을 신속히 개발하고 출시 기간을 단축할 수 있습니다. 소중한 시간과 리소스를 가상 머신 및 인프라 관리에 할애할 필요가 없습니다. 원하는 오픈 소스 도구와 플랫폼을 사용해서도 응용 프로그램을 개발할 수 있습니다. 새로운 기술 습득 없이도 비즈니스에 필요한 속도와 효율성을 제공합니다.
+이러한 기능에는 인증이 필요합니다. 추가 비용 없이 제공 됩니다. Azure Database for MariaDB를 사용하면 앱을 신속히 개발하고 출시 기간을 단축할 수 있습니다. 소중한 시간과 리소스를 가상 머신 및 인프라 관리에 할애할 필요가 없습니다. 원하는 오픈 소스 도구와 플랫폼을 사용해서도 애플리케이션을 개발할 수 있습니다. 새로운 기술 습득 없이도 비즈니스에 필요한 속도와 효율성을 제공합니다.
 
 성능, 확장성, 관리 효율성 등을 포함한 Azure Database for MariaDB의 핵심 개념과 특징에 대한 정보는 다음 빠른 시작을 참조하세요.
 
@@ -43,7 +43,7 @@ For a set of Azure CLI samples, see:
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>몇 초 이내 성능 및 규모 조정
 
-미리 보기에서 Azure Database for MariaDB 서비스는 기본, 범용 및 메모리 최적화와 같은 몇 가지 서비스 계층을 제공합니다. 각 계층은 경량급에서 중량급까지 데이터베이스 워크로드를 지원하기 위해 다양한 성능 및 기능을 제공합니다. 한 달에 몇 달러로 작은 데이터베이스에 첫 번째 앱을 빌드하고 솔루션의 요구에 맞게 규모를 조정할 수 있습니다. 동적 확장성을 사용하면 데이터베이스가 빠르게 변화하는 리소스 요구 사항에 투명하게 대응할 수 있습니다. 필요할 경우 필요한 리소스에 대해서만 요금을 지불합니다. 자세한 내용은  [가격 책정 계층](concepts-pricing-tiers.md)을 참조하세요.
+Azure Database for MariaDB 서비스는 기본, 범용 및 메모리 최적화와 같은 몇 가지 서비스 계층을 제공합니다. 각 계층은 경량급에서 중량급까지 데이터베이스 워크로드를 지원하기 위해 다양한 성능 및 기능을 제공합니다. 한 달에 몇 달러로 작은 데이터베이스에 첫 번째 앱을 빌드하고 솔루션의 요구에 맞게 규모를 조정할 수 있습니다. 동적 확장성을 사용하면 데이터베이스가 빠르게 변화하는 리소스 요구 사항에 투명하게 대응할 수 있습니다. 필요할 경우 필요한 리소스에 대해서만 요금을 지불합니다. 자세한 내용은  [가격 책정 계층](concepts-pricing-tiers.md)을 참조하세요.
 
 ## <a name="monitoring-and-alerting"></a>모니터링 및 경고
 
@@ -51,7 +51,7 @@ For a set of Azure CLI samples, see:
 
 ## <a name="keep-your-app-and-business-running"></a>앱 및 비즈니스 운영 유지
 
-Azure에서는 Microsoft에서 관리하는 데이터 센터로 구성된 전 세계 네트워크를 통해 업계 최고 수준을 자랑하는 99.99% SLA(서비스 수준 계약)가 보장됩니다(공개 미리 보기에서는 제공되지 않음). 네트워크는 앱을 24/7로 실행하는 데 도움이 됩니다. Azure Database for MariaDB의 기본 제공 보안, 내결함성 및 데이터 보호를 활용할 수 있습니다. Azure Database for MariaDB를 사용하면 특정 시점 복원 기능을 통해 최대 35일 전의 상태로 서버를 복구할 수 있습니다.
+Azure에서는 Microsoft에서 관리하는 데이터 센터로 구성된 글로벌 네트워크를 통해 업계 최고 수준을 자랑하는 99.99% 가용성 SLA가 보장됩니다. 네트워크는 앱을 24/7로 실행하는 데 도움이 됩니다. Azure Database for MariaDB의 기본 제공 보안, 내결함성 및 데이터 보호를 활용할 수 있습니다. Azure Database for MariaDB를 사용하면 특정 시점 복원 기능을 통해 최대 35일 전의 상태로 서버를 복구할 수 있습니다.
 
 ## <a name="secure-your-data"></a>데이터 보호
 
@@ -59,7 +59,7 @@ Azure 데이터베이스는 Azure Database for MariaDB가 가지고 있는 데�
 
 Azure Database for MariaDB 서비스는 미사용 데이터에 대해 저장소 암호화를 사용합니다. 백업 데이터를 포함하여 데이터가 디스크에서 암호화됩니다. 쿼리를 실행할 때 엔진에서 만든 임시 파일은 디스크에서 암호화되지 않습니다. 이 서비스는 Azure Storage 암호화에 포함된 AES 256비트 암호화를 사용합니다. 키는 시스템에서 관리됩니다. 저장소 암호화는 항상 켜져 있고 해제할 수 없습니다.
 
-기본적으로 Azure Database for MariaDB 서비스는 네트워크를 통해 이동하는 데이터에 대해 [SSL 연결 보안 ](./concepts-ssl-connection-security.md)을 요구하도록 구성됩니다. 데이터베이스 서버와 클라이언트 응용 프로그램 간 SSL 연결을 적용하면 서버와 응용 프로그램 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다. 필요에 따라 클라이언트 응용 프로그램이 SSL 연결을 지원하지 않을 경우 데이터베이스 서비스에 연결하기 위해 SSL 요구 사항을 사용하지 않도록 설정할 수 있습니다.
+기본적으로 Azure Database for MariaDB 서비스는 네트워크를 통해 이동하는 데이터에 대해 [SSL 연결 보안 ](./concepts-ssl-connection-security.md)을 요구하도록 구성됩니다. 데이터베이스 서버와 클라이언트 애플리케이션 간 SSL 연결을 적용하면 서버와 애플리케이션 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다. 필요에 따라 클라이언트 애플리케이션이 SSL 연결을 지원하지 않을 경우 데이터베이스 서비스에 연결하기 위해 SSL 요구 사항을 사용하지 않도록 설정할 수 있습니다.
 
 ## <a name="contacts"></a>연락처
 

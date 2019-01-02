@@ -25,7 +25,7 @@ ms.locfileid: "53074698"
 이 문서에는 SQL API를 통해 공간 데이터를 사용하는 방법을 보여 줍니다. 코드 샘플은 이 [GitHub 프로젝트](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)를 참조하세요.
 
 ## <a name="introduction-to-spatial-data"></a>공간 데이터 소개
-공간 데이터는 공간에서 개체의 위치와 모양을 설명합니다. 대부분의 응용 프로그램에서 이러한 데이터는 지구의 개체 및 지리 공간 데이터에 해당합니다. 공간 데이터를 사용하여 사람, 관심 있는 장소 또는 도시나 호수 경계의 위치를 나타낼 수 있습니다. 일반적인 사용 사례에는 종종 근접 쿼리(예: “내 현재 위치 근처의 모든 커피숍 찾기”)가 포함됩니다. 
+공간 데이터는 공간에서 개체의 위치와 모양을 설명합니다. 대부분의 애플리케이션에서 이러한 데이터는 지구의 개체 및 지리 공간 데이터에 해당합니다. 공간 데이터를 사용하여 사람, 관심 있는 장소 또는 도시나 호수 경계의 위치를 나타낼 수 있습니다. 일반적인 사용 사례에는 종종 근접 쿼리(예: “내 현재 위치 근처의 모든 커피숍 찾기”)가 포함됩니다. 
 
 ### <a name="geojson"></a>GeoJSON
 Azure Cosmos DB는 인덱싱 및 지리 공간 지점 데이터의 쿼리를 지원하고 [GeoJSON 사양](https://tools.ietf.org/html/rfc7946)을 사용하여 나타납니다. GeoJSON 데이터 구조는 항상 유효한 JSON 개체이므로 특수 도구나 라이브러리 없이 Azure Cosmos DB를 사용하여 저장 및 쿼리할 수 있습니다. Azure Cosmos DB SDK는 쉽게 공간 데이터로 작업할 수 있게 해주는 도우미 클래스와 메서드를 제공합니다. 
@@ -116,7 +116,7 @@ client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfile
 });
 ```
 
-SQL API로 작업하는 경우 `Microsoft.Azure.Documents.Spatial` 네임스페이스 내에서 `Point` 및 `Polygon` 클래스를 사용하여 위치 정보를 응용 프로그램 개체 내에 포함할 수 있습니다. 이러한 클래스는 GeoJSON으로 공간 데이터 직렬화 및 역직렬화를 간소화하는 데 도움이 됩니다.
+SQL API로 작업하는 경우 `Microsoft.Azure.Documents.Spatial` 네임스페이스 내에서 `Point` 및 `Polygon` 클래스를 사용하여 위치 정보를 애플리케이션 개체 내에 포함할 수 있습니다. 이러한 클래스는 GeoJSON으로 공간 데이터 직렬화 및 역직렬화를 간소화하는 데 도움이 됩니다.
 
 **.NET에서 지리 공간 데이터를 포함하는 문서 만들기**
 

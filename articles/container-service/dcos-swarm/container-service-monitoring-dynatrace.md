@@ -23,7 +23,7 @@ ms.locfileid: "53001979"
 이 문서에서는 [Dynatrace](https://www.dynatrace.com/) OneAgent를 배포하여 Azure Container Service 클러스터의 모든 에이전트 노드를 모니터링하는 방법을 보여 줍니다. 이러한 구성을 위해서는 Dynatrace SaaS/Managed 계정이 필요합니다. 
 
 ## <a name="dynatrace-saasmanaged"></a>Dynatrace SaaS/Managed
-Dynatrace는 매우 동적인 컨테이너 및 클러스터 환경을 위한 클라우드 네이티브 모니터링 솔루션입니다. 이러한 솔루션을 통해 실시간 사용 현황 데이터를 사용하여 컨테이너 배포 및 메모리 할당을 보다 효과적으로 최적화할 수 있습니다. 자동화된 기준 지정, 문제 상관 관계 및 근본 원인 검색을 제공하여 응용 프로그램 및 인프라 문제를 자동으로 파악할 수 있습니다.
+Dynatrace는 매우 동적인 컨테이너 및 클러스터 환경을 위한 클라우드 네이티브 모니터링 솔루션입니다. 이러한 솔루션을 통해 실시간 사용 현황 데이터를 사용하여 컨테이너 배포 및 메모리 할당을 보다 효과적으로 최적화할 수 있습니다. 자동화된 기준 지정, 문제 상관 관계 및 근본 원인 검색을 제공하여 애플리케이션 및 인프라 문제를 자동으로 파악할 수 있습니다.
 
 다음 그림에서는 Dynatrace UI를 보여 줍니다.
 
@@ -33,7 +33,7 @@ Dynatrace는 매우 동적인 컨테이너 및 클러스터 환경을 위한 클
 Azure Container Service를 통해 구성된 클러스터를 [배포](container-service-deployment.md) 및 [연결](./../container-service-connect.md)합니다. [Marathon UI](container-service-mesos-marathon-ui.md)를 탐색합니다. [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/)로 이동하여 Dynatrace SaaS 계정을 설정합니다.  
 
 ## <a name="configure-a-dynatrace-deployment-with-marathon"></a>Marathon으로 Dynatrace 배포 구성
-이러한 단계는 Marathon으로 클러스터에 Dynatrace 응용 프로그램을 배포 및 구성하는 방법을 보여 줍니다.
+이러한 단계는 Marathon으로 클러스터에 Dynatrace 애플리케이션을 배포 및 구성하는 방법을 보여 줍니다.
 
 1. [http://localhost:80/](http://localhost:80/)을 통해 DC/OS UI에 액세스합니다. DC/OS UI에 액세스했으면 **Universe** 탭으로 이동한 다음 **Dynatrace**를 찾습니다.
 

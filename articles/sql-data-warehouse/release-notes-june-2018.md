@@ -36,7 +36,7 @@ New-AzureRmSqlDatabaseRestorePoint
 ## <a name="column-level-security"></a>열 수준 보안
 데이터 웨어하우스에서 데이터 액세스 및 보안을 관리하는 일은 고객 및 파트너와 신뢰를 구축하는 데 매우 중요합니다. SQL Data Warehouse는 데이터 웨어하우스를 다시 디자인할 필요 없이 사용자 액세스를 테이블의 특정 열로 제한하여 중요한 데이터를 볼 수 있는 권한을 조정하는 [CLS(열 수준 보안)을 지원](https://azure.microsoft.com/blog/column-level-security-is-now-supported-in-azure-sql-data-warehouse/)합니다.
 
-CLS(열 수준 보안)에서는 표준 [GRANT](https://docs.microsoft.com/azure/sql-data-warehouse/column-level-security) T-SQL 문을 사용하여 사용자의 실행 컨텍스트 또는 해당 그룹 멤버 자격을 기준으로 테이블 열에 대한 액세스를 제어할 수 있습니다. 액세스 제한 논리는 다른 응용 프로그램 계층의 데이터가 아닌 데이터베이스 계층에 있으므로 전반적인 보안 구현이 간소화됩니다.
+CLS(열 수준 보안)에서는 표준 [GRANT](https://docs.microsoft.com/azure/sql-data-warehouse/column-level-security) T-SQL 문을 사용하여 사용자의 실행 컨텍스트 또는 해당 그룹 멤버 자격을 기준으로 테이블 열에 대한 액세스를 제어할 수 있습니다. 액세스 제한 논리는 다른 애플리케이션 계층의 데이터가 아닌 데이터베이스 계층에 있으므로 전반적인 보안 구현이 간소화됩니다.
 
 
 ```sql

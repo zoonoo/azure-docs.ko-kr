@@ -1,6 +1,6 @@
 ---
 title: 검색 상자에 자동 완성을 추가하는 방법에 대한 자습서 - Azure Search
-description: Azure Search 자동 완성 및 제안 API를 사용하여 데이터 중심 응용 프로그램의 최종 사용자 환경을 개선하는 방법 예제.
+description: Azure Search 자동 완성 및 제안 API를 사용하여 데이터 중심 애플리케이션의 최종 사용자 환경을 개선하는 방법 예제.
 manager: pablocas
 author: mrcarter8
 services: search
@@ -48,19 +48,19 @@ ms.locfileid: "53316185"
 
 ### <a name="set-up-azure-search-optional"></a>Azure Search 설정(선택 사항)
 
-자체 인덱스로 NYCJobs 샘플 응용 프로그램에 대한 데이터를 가져오려면 이 섹션의 단계를 따릅니다. 이 단계는 선택 사항입니다.  제공된 샘플 인덱스를 사용하려면 다음 섹션으로 건너뛰어 샘플을 실행합니다.
+자체 인덱스로 NYCJobs 샘플 애플리케이션에 대한 데이터를 가져오려면 이 섹션의 단계를 따릅니다. 이 단계는 선택 사항입니다.  제공된 샘플 인덱스를 사용하려면 다음 섹션으로 건너뛰어 샘플을 실행합니다.
 
 1. NYCJobs 샘플 코드의 DataLoader 폴더의 DataLoader.sln 솔루션 파일을 Visual Studio에서 엽니다.
 
 1. Azure Search 서비스에 대한 연결 정보를 업데이트합니다.  DataLoader 프로젝트 안에서 App.config를 열고 Azure Search 서비스 및 Azure Search Service API 키에 맞게 TargetSearchServiceName 및 TargetSearchServiceApiKey appSettings를 변경합니다.  이 정보는 Azure Portal에서 찾을 수 있습니다.
 
-1. F5 키를 눌러 응용 프로그램을 시작합니다.  그러면 두 인덱스를 만들고 NYCJob 샘플 데이터를 가져옵니다.
+1. F5 키를 눌러 애플리케이션을 시작합니다.  그러면 두 인덱스를 만들고 NYCJob 샘플 데이터를 가져옵니다.
 
 1. 자습서 샘플 코드의 AutocompleteTutorial.sln 솔루션 파일을 Visual Studio에서 엽니다.  AutocompleteTutorial 프로젝트 내에서 Web.config를 열고 SearchServiceName 및 SearchServiceApiKey 값을 위와 동일하게 변경합니다.
 
 ### <a name="running-the-sample"></a>샘플 실행
 
-이제 자습서 샘플 응용 프로그램을 실행할 준비가 되었습니다.  AutocompleteTutorial.sln 솔루션 파일을 Visual Studio에서 열어 자습서를 실행합니다.  솔루션은 ASP.NET MVC 프로젝트를 포함합니다.  원하는 브라우저에서 F5를 눌러 프로젝트를 실행하고 페이지를 로드합니다.  맨 위에 C# 또는 JavaScript를 선택하는 옵션이 표시됩니다.  C# 옵션은 브라우저에서 HomeController를 호출하고 Azure Search .Net SDK를 사용하여 결과를 검색합니다.  브라우저에서 직접 Azure Search REST API를 호출하는 JavaScript 옵션입니다.  이 옵션은 컨트롤러를 흐름 밖으로 꺼내기 때문에 일반적으로 성능이 눈에 띄게 높습니다.  요구 사항 및 언어 기본 설정에 부합하는 옵션을 선택할 수 있습니다.  각각에 대한 지침이 있는 페이지에 몇 가지 자동 완성 예제가 있습니다.  예제마다 테스트해볼 수 있는 몇 가지 권장 샘플 텍스트가 있습니다.  각 검색 상자에 몇 자 입력해보고 결과를 확인합니다.
+이제 자습서 샘플 애플리케이션을 실행할 준비가 되었습니다.  AutocompleteTutorial.sln 솔루션 파일을 Visual Studio에서 열어 자습서를 실행합니다.  솔루션은 ASP.NET MVC 프로젝트를 포함합니다.  원하는 브라우저에서 F5를 눌러 프로젝트를 실행하고 페이지를 로드합니다.  맨 위에 C# 또는 JavaScript를 선택하는 옵션이 표시됩니다.  C# 옵션은 브라우저에서 HomeController를 호출하고 Azure Search .Net SDK를 사용하여 결과를 검색합니다.  브라우저에서 직접 Azure Search REST API를 호출하는 JavaScript 옵션입니다.  이 옵션은 컨트롤러를 흐름 밖으로 꺼내기 때문에 일반적으로 성능이 눈에 띄게 높습니다.  요구 사항 및 언어 기본 설정에 부합하는 옵션을 선택할 수 있습니다.  각각에 대한 지침이 있는 페이지에 몇 가지 자동 완성 예제가 있습니다.  예제마다 테스트해볼 수 있는 몇 가지 권장 샘플 텍스트가 있습니다.  각 검색 상자에 몇 자 입력해보고 결과를 확인합니다.
 
 ## <a name="how-this-works-in-code"></a>코드에서의 작동 방식
 
@@ -117,7 +117,7 @@ source: "/home/suggest?highlights=false&fuzzy=false&",
 source: "/home/suggest?highlights=false&fuzzy=true&",
 ```
 
-F5를 눌러 응용 프로그램을 시작합니다.
+F5를 눌러 애플리케이션을 시작합니다.
 
 "execative" 등의 항목을 입력하면 입력한 글자가 정확히 일치하지 않더라도 "executive"에 대한 결과가 불러지는 것을 확인합니다.
 
@@ -208,7 +208,7 @@ $(function () {
 
 ## <a name="takeaways"></a>핵심 내용
 
-이 자습서에서는 자동 완성 및 제안을 지원하는 검색 상자 빌드를 위한 기본 단계를 보여 줍니다.  ASP.NET MVC 응용 프로그램을 빌드하고 Azure Search .Net SDK 또는 REST API를 사용하여 제안을 검색하는 방법을 살펴보았습니다.
+이 자습서에서는 자동 완성 및 제안을 지원하는 검색 상자 빌드를 위한 기본 단계를 보여 줍니다.  ASP.NET MVC 애플리케이션을 빌드하고 Azure Search .Net SDK 또는 REST API를 사용하여 제안을 검색하는 방법을 살펴보았습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

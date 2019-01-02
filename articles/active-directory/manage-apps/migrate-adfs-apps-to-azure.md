@@ -1,6 +1,6 @@
 ---
 title: AD FS에서 Azure AD로 앱 이동 | Microsoft Docs
-description: 이 문서는 조직에서 페더레이션된 SaaS 응용 프로그램에 중점을 두고 응용 프로그램을 Azure AD로 이동하는 방법을 이해할 수 있도록 돕기 위한 것입니다.
+description: 이 문서는 조직에서 페더레이션된 SaaS 애플리케이션에 중점을 두고 애플리케이션을 Azure AD로 이동하는 방법을 이해할 수 있도록 돕기 위한 것입니다.
 services: active-directory
 author: barbkess
 manager: mtillman
@@ -19,9 +19,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/10/2018
 ms.locfileid: "53141937"
 ---
-# <a name="move-applications-from-ad-fs-to-azure-ad"></a>AD FS에서 Azure AD로 응용 프로그램 이동 
+# <a name="move-applications-from-ad-fs-to-azure-ad"></a>AD FS에서 Azure AD로 애플리케이션 이동 
 
-이 문서는 응용 프로그램을 AD FS에서 Azure AD(Azure Active Directory)로 이동하는 방법을 이해하는 데 도움이 됩니다. 페더레이션된 SaaS 응용 프로그램에 중점을 두고 있습니다. 
+이 문서는 애플리케이션을 AD FS에서 Azure AD(Azure Active Directory)로 이동하는 방법을 이해하는 데 도움이 됩니다. 페더레이션된 SaaS 응용 프로그램에 중점을 두고 있습니다. 
 
 이 문서에서는 단계별 지침을 제공하지 않습니다. 대신 온-프레미스 구성이 Azure AD로 변환되는 방식을 이해함으로써 마이그레이션을 수행하는 데 도움이 되는 개념적 지침을 제공합니다. 또한 일반적인 시나리오에 대해서도 설명합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "53141937"
 
 그리고 대부분의 조직과 마찬가지로 클라우드 응용 프로그램 및 ID를 도입하는 과정에 있을 가능성도 있습니다. 아마도 Office 365 및 Azure AD Connect를 사용하여 실행하고 있을 것입니다. 일부 주요 작업을 위해 클라우드 기반 SaaS 응용 프로그램을 설정했을 수도 있지만 전부는 아닙니다.  
 
-많은 조직에서는 Office 365 및 Azure AD 기반 응용 프로그램과 함께 SaaS 또는 사용자 지정 LOB(기간 업무) 응용 프로그램이 온-프레미스 로그온 서비스(예: AD FS(Active Directory Federation Services))에 직접 페더레이션되어 있습니다. 이 가이드에서는 응용 프로그램을 Azure AD로 이동하는 이유 및 방법을 설명합니다.
+많은 조직에서는 Office 365 및 Azure AD 기반 응용 프로그램과 함께 SaaS 또는 사용자 지정 LOB(기간 업무) 응용 프로그램이 온-프레미스 로그온 서비스(예: AD FS(Active Directory Federation Services))에 직접 페더레이션되어 있습니다. 이 가이드에서는 애플리케이션을 Azure AD로 이동하는 이유 및 방법을 설명합니다.
 
 >[!NOTE]
 >이 가이드는 사용자 지정 LOB 응용 프로그램에 대한 고급 정보와 함께 SaaS 응용 프로그램 구성 및 마이그레이션에 대한 자세한 정보를 제공합니다. 사용자 지정 LOB 응용 프로그램에 대한 자세한 지침은 나중에 제공할 예정입니다.

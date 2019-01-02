@@ -46,7 +46,7 @@ Intelligent Insights는 쿼리 실행 대기 시간, 오류 또는 시간 제한
 | [탄력적 풀 DTU 부족](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | 탄력적 풀에서 사용 가능한 eDTU가 부족하여 SQL Database 성능에 영향을 주고 있습니다. | vCore 모델을 사용하므로 Managed Instance에서 사용할 수 없습니다. |
 | [계획 회귀](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | 새 계획 또는 기존 계획의 워크로드가 변경되었습니다. 이는 SQL Database 성능에 영향을 줍니다. | 새 계획 또는 기존 계획의 워크로드가 변경되었습니다. 이는 데이터베이스 성능에 영향을 줍니다. |
 | [데이터베이스 범위 구성 값 변경](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | SQL Database의 구성 변경으로 인해 데이터베이스 성능에 영향을 주고 있습니다. | 데이터베이스의 구성 변경으로 인해 데이터베이스 성능에 영향을 주고 있습니다. |
-| [느린 클라이언트](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | 느린 응용 프로그램 클라이언트는 데이터베이스의 출력을 충분히 신속하게 사용할 수 없습니다. 이는 SQL Database 성능에 영향을 줍니다. | 느린 응용 프로그램 클라이언트는 데이터베이스의 출력을 충분히 신속하게 사용할 수 없습니다. 이는 데이터베이스 성능에 영향을 줍니다. |
+| [느린 클라이언트](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | 느린 애플리케이션 클라이언트는 데이터베이스의 출력을 충분히 신속하게 사용할 수 없습니다. 이는 SQL Database 성능에 영향을 줍니다. | 느린 애플리케이션 클라이언트는 데이터베이스의 출력을 충분히 신속하게 사용할 수 없습니다. 이는 데이터베이스 성능에 영향을 줍니다. |
 | [가격 책정 계층 다운그레이드](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | 가격 책정 계층 다운그레이드 작업으로 사용 가능한 리소스가 감소되었습니다. 이는 SQL Database 성능에 영향을 줍니다. | 가격 책정 계층 다운그레이드 작업으로 사용 가능한 리소스가 감소되었습니다. 이는 데이터베이스 성능에 영향을 줍니다. |
 
 > [!TIP]

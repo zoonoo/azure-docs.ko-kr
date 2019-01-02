@@ -15,7 +15,7 @@ ms.locfileid: "53255179"
 ---
 # <a name="what-is-azure-signalr-service"></a>Azure SignalR Service란?
 
-Azure SignalR Service는 HTTP를 통해 응용 프로그램에 실시간 웹 기능을 추가하는 프로세스를 간소화합니다. 이 실시간 기능을 사용하면 서비스가 연결된 클라이언트(예: 단일 페이지 웹 또는 모바일 응용 프로그램)에 콘텐츠 업데이트를 푸시할 수 있습니다. 결과적으로 클라이언트가 서버를 폴링하거나 업데이트에 대한 새 HTTP 요청을 제출하지 않고도 업데이트됩니다.
+Azure SignalR Service는 HTTP를 통해 애플리케이션에 실시간 웹 기능을 추가하는 프로세스를 간소화합니다. 이 실시간 기능을 사용하면 서비스가 연결된 클라이언트(예: 단일 페이지 웹 또는 모바일 애플리케이션)에 콘텐츠 업데이트를 푸시할 수 있습니다. 결과적으로 클라이언트가 서버를 폴링하거나 업데이트에 대한 새 HTTP 요청을 제출하지 않고도 업데이트됩니다.
 
 이 문서에서는 Azure SignalR Service에 대한 개요를 제공합니다.
 
@@ -28,9 +28,9 @@ Azure SignalR Service는 HTTP를 통해 응용 프로그램에 실시간 웹 기
 * 공동 작업 앱. 예를 들어 화이트보드 앱 및 팀 회의 소프트웨어가 있습니다.
 * 알림이 필요한 앱. 소셜 네트워크, 이메일, 채팅, 게임, 여행 경고 및 다른 많은 앱에서 알림을 사용합니다.
 
-SignalR은 실시간 웹 응용 프로그램을 빌드하는 데 사용되는 다양한 기술에 대한 추상화를 제공합니다. [Websocket](https://wikipedia.org/wiki/WebSocket)이 최적의 전송이지만, 다른 옵션을 사용할 수 없는 경우 [SSE(Server-Sent Events)](https://wikipedia.org/wiki/Server-sent_events) 및 Long Polling과 같은 다른 기술이 사용됩니다. SignalR은 서버와 클라이언트에서 지원되는 기능에 따라 적절한 전송을 자동으로 감지하고 초기화합니다.
+SignalR은 실시간 웹 애플리케이션을 빌드하는 데 사용되는 다양한 기술에 대한 추상화를 제공합니다. [Websocket](https://wikipedia.org/wiki/WebSocket)이 최적의 전송이지만, 다른 옵션을 사용할 수 없는 경우 [SSE(Server-Sent Events)](https://wikipedia.org/wiki/Server-sent_events) 및 Long Polling과 같은 다른 기술이 사용됩니다. SignalR은 서버와 클라이언트에서 지원되는 기능에 따라 적절한 전송을 자동으로 감지하고 초기화합니다.
 
-또한 SignalR은 서버가 모든 연결 또는 특정 사용자에 속하거나 임의의 그룹에 배치된 연결의 하위 집합에 메시지를 보낼 수 있게 하는 실시간 응용 프로그램에 대한 프로그래밍 모델을 제공합니다.
+또한 SignalR은 서버가 모든 연결 또는 특정 사용자에 속하거나 임의의 그룹에 배치된 연결의 하위 집합에 메시지를 보낼 수 있게 하는 실시간 애플리케이션에 대한 프로그래밍 모델을 제공합니다.
 
 ## <a name="how-to-use-azure-signalr-service"></a>Azure SignalR Service 사용 방법
 

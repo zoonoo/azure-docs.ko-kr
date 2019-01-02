@@ -19,7 +19,7 @@ ms.locfileid: "52720544"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Azure Active Directory B2C의 리디렉션 URL을 b2clogin.com으로 설정
 
-Azure AD(Azure Active Directory) B2C 응용 프로그램의 등록 및 로그인을 위한 ID 공급자를 설정하는 경우 리디렉션 URL을 지정해야 합니다. 이전에는 login.microsoftonline.com을 사용했지만 지금은 b2clogin.com을 사용해야 합니다.
+Azure AD(Azure Active Directory) B2C 애플리케이션의 등록 및 로그인을 위한 ID 공급자를 설정하는 경우 리디렉션 URL을 지정해야 합니다. 이전에는 login.microsoftonline.com을 사용했지만 지금은 b2clogin.com을 사용해야 합니다.
 
 b2clogin.com을 사용하면 다음과 같은 추가적인 이점이 제공됩니다.
 
@@ -28,14 +28,14 @@ b2clogin.com을 사용하면 다음과 같은 추가적인 이점이 제공됩�
 
 b2clogin.com을 사용하는 경우 변경해야 할 수 있는 다음 설정을 고려하세요.
 
-- ID 공급자 응용 프로그램의 리디렉션 URL에 b2clogin.com이 사용되도록 설정합니다. 
+- ID 공급자 애플리케이션의 리디렉션 URL에 b2clogin.com이 사용되도록 설정합니다. 
 - 사용자 흐름 참조 및 토큰 엔드포인트에 대해 b2clogin.com을 사용하도록 Azure AD B2C 애플리케이션을 설정합니다. 
 - MSAL을 사용하는 경우 **ValidateAuthority** 속성을 `false`로 설정해야 합니다.
 - [사용자 인터페이스 사용자 지정](active-directory-b2c-ui-customization-custom-dynamic.md)의 CORS 설정에서 정의한 **허용된 원본**을 변경해야 합니다.  
 
 ## <a name="change-redirect-urls"></a>리디렉션 URL 변경
 
-b2clogin.com을 사용하려면 ID 공급자 응용 프로그램의 설정에서 신뢰할 수 있는 URL 목록을 찾은 후 Azure AD B2C로 다시 리디렉션하도록 변경합니다.  현재는 일부 login.microsoftonline.com 사이트로 다시 리디렉션하도록 설정한 상태일 것입니다. 
+b2clogin.com을 사용하려면 ID 공급자 애플리케이션의 설정에서 신뢰할 수 있는 URL 목록을 찾은 후 Azure AD B2C로 다시 리디렉션하도록 변경합니다.  현재는 일부 login.microsoftonline.com 사이트로 다시 리디렉션하도록 설정한 상태일 것입니다. 
 
 `your-tenant-name.b2clogin.com`이 인증되도록 리디렉션 URL을 변경해야 합니다. `your-tenant-name`을 Azure AD B2C 테넌트의 이름으로 바꾸고 `/te`가 URL에 있으면 제거합니다. ID 공급자마다 이 URL이 약간씩 다르므로 해당 페이지에서 정확한 URL을 확인하세요.
 
@@ -54,7 +54,7 @@ b2clogin.com을 사용하려면 ID 공급자 응용 프로그램의 설정에서
 - [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md)
 - [Custom OIDC](active-directory-b2c-setup-oidc-idp.md)
 
-## <a name="update-your-application"></a>응용 프로그램 업데이트
+## <a name="update-your-application"></a>애플리케이션 업데이트
 
 Azure AD B2C 애플리케이션은 사용자 흐름 참조 및 토큰 엔드포인트 등의 여러 위치에서 `login.microsoftonline.com`을 참조할 수 있습니다.  권한 부여 엔드포인트, 토큰 엔드포인트 및 발급자가 `your-tenant-name.b2clogin.com`을 사용하도록 업데이트되었는지 확인합니다.  
 

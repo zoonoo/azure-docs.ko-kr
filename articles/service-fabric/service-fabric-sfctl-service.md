@@ -346,7 +346,7 @@ Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정�
 
 |인수|설명|
 | --- | --- |
-| --application-type-name    [필수] | 응용 프로그램 유형의 이름입니다. |
+| --application-type-name    [필수] | 애플리케이션 유형의 이름입니다. |
 | --application-type-version [필수] | 응용 프로그램 유형의 버전입니다. |
 | --service-manifest-name    [필수] | Service Fabric 클러스터에 응용 프로그램 유형의 일부로 등록된 서비스 매니페스트의 이름입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
@@ -543,7 +543,7 @@ Service Fabric 클러스터에 프로비저닝된 응용 프로그램 유형에�
 
 |인수|설명|
 | --- | --- |
-| --application-type-name    [필수] | 응용 프로그램 유형의 이름입니다. |
+| --application-type-name    [필수] | 애플리케이션 유형의 이름입니다. |
 | --application-type-version [필수] | 응용 프로그램 유형의 버전입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 

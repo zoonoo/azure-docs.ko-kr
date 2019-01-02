@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/24/2018
 ms.locfileid: "49988269"
 ---
-## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>iOS 응용 프로그램에서 Microsoft Graph API 쿼리 테스트
+## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>iOS 애플리케이션에서 Microsoft Graph API 쿼리 테스트
 
 **Command** + **R**을 눌러 시뮬레이터에서 코드를 실행합니다.
 

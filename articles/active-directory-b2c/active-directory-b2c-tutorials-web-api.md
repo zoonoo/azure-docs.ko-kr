@@ -38,7 +38,7 @@ ms.locfileid: "52726409"
 
 ## <a name="register-web-api"></a>웹 API 등록
 
-Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 제공하는 [클라이언트 응용 프로그램](../active-directory/develop/developer-glossary.md#client-application)을 통해 [보호된 리소스 요청](../active-directory/develop/developer-glossary.md#resource-server)을 수락하고 이에 응답하려면, 먼저 웹 API 리소스를 테넌트에 등록해야 합니다. 등록하면 [응용 프로그램 및 서비스 사용자 개체](../active-directory/develop/developer-glossary.md#application-object)가 테넌트에 설정됩니다. 
+Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 제공하는 [클라이언트 애플리케이션](../active-directory/develop/developer-glossary.md#client-application)을 통해 [보호된 리소스 요청](../active-directory/develop/developer-glossary.md#resource-server)을 수락하고 이에 응답하려면, 먼저 웹 API 리소스를 테넌트에 등록해야 합니다. 등록하면 [애플리케이션 및 서비스 사용자 개체](../active-directory/develop/developer-glossary.md#application-object)가 테넌트에 설정됩니다. 
 
 Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -69,7 +69,7 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
 
 **응용 프로그램 클라이언트 ID**를 적어 둡니다. ID는 API를 고유하게 식별하며 자습서의 뒷부분에서 API를 구성할 때 필요합니다.
 
-Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정의됩니다. API가 B2C에 등록되어 있으므로 이제 API는 다른 응용 프로그램에서 받은 B2C 액세스 토큰을 신뢰할 수 있습니다.
+Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정의됩니다. API가 B2C에 등록되어 있으므로 이제 API는 다른 애플리케이션에서 받은 B2C 액세스 토큰을 신뢰할 수 있습니다.
 
 ## <a name="define-and-configure-scopes"></a>범위 정의 및 구성
 
@@ -156,7 +156,7 @@ Visual Studio에서 **B2C-WebAPI-DotNet** 솔루션을 엽니다.
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
     ```
 
-3. 클라이언트 ID를 API에 대해 등록된 응용 프로그램 ID로 설정합니다.
+3. 클라이언트 ID를 API에 대해 등록된 애플리케이션 ID로 설정합니다.
 
     ```C#
     <add key="ida:ClientId" value="<The Application ID for your web API obtained from the Azure portal>"/>
@@ -183,10 +183,10 @@ Visual Studio에서 **B2C-WebAPI-DotNet** 솔루션을 엽니다.
 2. **여러 시작 프로젝트** 라디오 단추를 선택합니다.
 3. **시작**할 두 프로젝트에 대한 **작업**을 변경합니다.
 4. [확인]을 클릭하여 구성을 저장합니다.
-5. **F5** 키를 눌러 두 응용 프로그램을 모두 실행합니다. 각 응용 프로그램은 자체 브라우저 탭에서 열립니다. `https://localhost:44316/`은 웹앱이고,
+5. **F5** 키를 눌러 두 응용 프로그램을 모두 실행합니다. 각 애플리케이션은 자체 브라우저 탭에서 열립니다. `https://localhost:44316/`은 웹앱이고,
     `https://localhost:44332/`는 웹 API입니다.
 
-6. 웹앱의 메뉴 배너에서 등록/로그인 링크를 클릭하여 웹 응용 프로그램에 등록합니다. [웹앱 프로그램 자습서](active-directory-b2c-tutorials-web-app.md)에서 만든 계정을 사용합니다. 
+6. 웹앱의 메뉴 배너에서 등록/로그인 링크를 클릭하여 웹 애플리케이션에 등록합니다. [웹앱 프로그램 자습서](active-directory-b2c-tutorials-web-app.md)에서 만든 계정을 사용합니다. 
 7. 로그인한 후 **할 일 목록** 링크를 클릭하고 할 일 목록 항목을 만듭니다.
 
 할 일 목록 항목을 만들면 웹앱에서 할 일 목록 항목을 생성하는 웹 API를 요청합니다. 보호된 웹앱은 Azure AD B2C 테넌트에서 보호된 웹 API를 호출합니다.

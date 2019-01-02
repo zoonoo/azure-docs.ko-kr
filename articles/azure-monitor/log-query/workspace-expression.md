@@ -44,7 +44,7 @@ ms.locfileid: "53182947"
 ## <a name="notes"></a>메모
 
 * 작업 영역에 대한 읽기 권한이 있어야 합니다.
-* 관련 식은 Application Insights 응용 프로그램 전체에서 쿼리할 수 있는 `app`입니다.
+* 관련 식은 Application Insights 애플리케이션 전체에서 쿼리할 수 있는 `app`입니다.
 
 ## <a name="examples"></a>예
 

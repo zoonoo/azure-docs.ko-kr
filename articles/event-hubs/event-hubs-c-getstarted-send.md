@@ -27,7 +27,7 @@ ms.locfileid: "53076395"
 ## <a name="introduction"></a>소개
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 장치에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
 
-이 자습서에서는 C의 콘솔 응용 프로그램을 사용하여 이벤트 허브로 이벤트를 전송하는 방법을 설명합니다. 
+이 자습서에서는 C의 콘솔 애플리케이션을 사용하여 이벤트 허브로 이벤트를 전송하는 방법을 설명합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음이 필요합니다.
@@ -154,9 +154,9 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 
     ```
 
     > [!NOTE]
-    > 이 코드에서는 발신 창 1을 사용하여 메시지가 최대한 빨리 출력되도록 합니다. 응용 프로그램에서는 메시지를 일괄 처리하여 처리량을 늘리는 것이 좋습니다. 이 환경과 다른 환경 및 바인딩이 제공되는 플랫폼(현재 Perl, PHP, Python 및 Ruby)에서 Qpid Proton 라이브러리를 사용하는 방법에 대한 자세한 내용은 [Qpid AMQP Messenger 페이지](https://qpid.apache.org/proton/messenger.html)를 참조하세요.
+    > 이 코드에서는 발신 창 1을 사용하여 메시지가 최대한 빨리 출력되도록 합니다. 애플리케이션에서는 메시지를 일괄 처리하여 처리량을 늘리는 것이 좋습니다. 이 환경과 다른 환경 및 바인딩이 제공되는 플랫폼(현재 Perl, PHP, Python 및 Ruby)에서 Qpid Proton 라이브러리를 사용하는 방법에 대한 자세한 내용은 [Qpid AMQP Messenger 페이지](https://qpid.apache.org/proton/messenger.html)를 참조하세요.
 
-응용 프로그램을 실행하여 이벤트 허브에 메시지를 보냅니다. 
+애플리케이션을 실행하여 이벤트 허브에 메시지를 보냅니다. 
 
 축하합니다! 이제 Event Hub에 메시지를 보냈습니다.
 

@@ -61,7 +61,7 @@ ms.locfileid: "51281662"
 
 ## <a name="setting-auto-scaling-policy"></a>자동 크기 조정 정책 설정
 
-### <a name="using-application-manifest"></a>응용 프로그램 매니페스트 사용
+### <a name="using-application-manifest"></a>애플리케이션 매니페스트 사용
 ``` xml
 <LoadMetrics>
 <LoadMetric Name="MetricB" Weight="High"/>
@@ -143,7 +143,7 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 
 ## <a name="setting-auto-scaling-policy"></a>자동 크기 조정 정책 설정
 
-### <a name="using-application-manifest"></a>응용 프로그램 매니페스트 사용
+### <a name="using-application-manifest"></a>애플리케이션 매니페스트 사용
 ``` xml
 <ServiceScalingPolicies>
     <ScalingPolicy>
@@ -205,7 +205,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ],
 ```
 실제 물리적 리소스를 나타내는 두 가지 메트릭이 있습니다. 그 중 하나인 servicefabric:/_CpuCores는 실제 CPU 사용량을 나타내며(따라서 0.5는 코어의 절반을 나타냄) 다른 하나는 servicefabric:/_MemoryInMB로 메모리 사용량(MB)을 나타냅니다.
-ResourceMonitorService는 사용자 서비스의 cpu 및 메모리 사용량을 추적하는 일을 담당합니다. 이 서비스는 잠재적인 일시적 급증을 설명하기 위해 가중 이동 평균을 적용합니다. 리소스 모니터링은 Windows의 컨테이너화 및 컨테이너화되지 않은 응용 프로그램과 Linux의 컨테이너화된 응용 프로그램 모두에서 지원됩니다. 리소스에 대한 자동 크기 조정은 [단독 프로세스 모델](service-fabric-hosting-model.md#exclusive-process-model)에서 활성화된 서비스에만 사용할 수 있습니다.
+ResourceMonitorService는 사용자 서비스의 cpu 및 메모리 사용량을 추적하는 일을 담당합니다. 이 서비스는 잠재적인 일시적 급증을 설명하기 위해 가중 이동 평균을 적용합니다. 리소스 모니터링은 Windows의 컨테이너화 및 컨테이너화되지 않은 애플리케이션과 Linux의 컨테이너화된 애플리케이션 모두에서 지원됩니다. 리소스에 대한 자동 크기 조정은 [단독 프로세스 모델](service-fabric-hosting-model.md#exclusive-process-model)에서 활성화된 서비스에만 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [응용 프로그램 확장성](service-fabric-concepts-scalability.md)에 대해 자세히 알아봅니다.

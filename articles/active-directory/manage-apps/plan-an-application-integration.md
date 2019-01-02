@@ -24,12 +24,12 @@ ms.locfileid: "44345447"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>애플리케이션과 Azure Active Directory 통합 시작 가이드
 
-이 항목에서는 Azure AD(Active Directory)와 응용 프로그램을 통합하기 위한 프로세스를 간단히 설명합니다. 아래의 각 섹션에는 더 자세한 항목의 요약이 포함되므로 이 시작 가이드의 어떤 부분이 사용자와 관련 있는지 식별할 수 있습니다.
+이 항목에서는 Azure AD(Active Directory)와 애플리케이션을 통합하기 위한 프로세스를 간단히 설명합니다. 아래의 각 섹션에는 더 자세한 항목의 요약이 포함되므로 이 시작 가이드의 어떤 부분이 사용자와 관련 있는지 식별할 수 있습니다.
 
 자세한 배포 계획을 다운로드하려면 [다음 단계](#next-steps)를 참조하세요.
 
 ## <a name="take-inventory"></a>인벤토리 가져오기
-응용 프로그램을 Azure AD와 통합하기 전에 현재 위치와 목표를 아는 것이 중요합니다.  다음 질문은 Azure AD 애플리케이션 통합 프로젝트에 대해 생각해볼 수 있도록 하기 위한 용도로 제공됩니다.
+애플리케이션을 Azure AD와 통합하기 전에 현재 위치와 목표를 아는 것이 중요합니다.  다음 질문은 Azure AD 애플리케이션 통합 프로젝트에 대해 생각해볼 수 있도록 하기 위한 용도로 제공됩니다.
 
 ### <a name="application-inventory"></a>애플리케이션 인벤토리
 * 애플리케이션은 모두 어디에 있습니까? 누가 소유합니까?
@@ -59,7 +59,7 @@ ms.locfileid: "44345447"
 
 아마 이러한 모든 질문에 대한 답변은 없겠지만 괜찮습니다.  이 가이드는 이러한 일부 질문에 대답하고 합리적인 결정을 내릴 수 있습니다.
 
-### <a name="find-unsanctioned-cloud-applications-with-cloud-discovery"></a>Cloud Discovery를 사용하여 허용되지 않은 클라우드 응용 프로그램 찾기
+### <a name="find-unsanctioned-cloud-applications-with-cloud-discovery"></a>Cloud Discovery를 사용하여 허용되지 않은 클라우드 애플리케이션 찾기
 
 위에서 설명한 대로 지금까지 조직에서 관리하지 않은 애플리케이션이 있을 수 있습니다.  인벤토리 프로세스의 일부로 허용되지 않은 클라우드 애플리케이션을 찾을 수 있습니다. [Cloud Discovery 설정](/cloud-app-security/set-up-cloud-discovery)을 참조하세요.
 
@@ -91,7 +91,7 @@ Azure 애플리케이션 갤러리에 사용자 지정 애플리케이션을 추
 * [계정 공유](../active-directory-sharing-accounts.md)
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 [GitHub](https://aka.ms/deploymentplans)에서 Azure Active Directory 배포 계획을 다운로드할 수 있습니다. 갤러리 응용 프로그램의 경우 [Azure Portal](https://portal.azure.com)을 통해 Single Sign-On, 조건부 액세스 및 사용자 프로비저닝에 대한 배포 계획을 다운로드할 수 있습니다. 
+자세한 내용은 [GitHub](https://aka.ms/deploymentplans)에서 Azure Active Directory 배포 계획을 다운로드할 수 있습니다. 갤러리 애플리케이션의 경우 [Azure Portal](https://portal.azure.com)을 통해 Single Sign-On, 조건부 액세스 및 사용자 프로비저닝에 대한 배포 계획을 다운로드할 수 있습니다. 
 
 Azure Portal에서 배포 계획을 다운로드하려면:
 

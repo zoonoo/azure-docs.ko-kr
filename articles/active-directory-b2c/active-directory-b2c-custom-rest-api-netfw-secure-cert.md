@@ -115,7 +115,7 @@ ms.locfileid: "43344968"
 1. **Azure AD B2C 설정**을 연 다음 **ID 경험 프레임워크**를 선택합니다.
 
     >[!NOTE]
-    >지금 실행을 사용하려면 하나 이상의 응용 프로그램이 테넌트에 미리 등록되어 있어야 합니다. 애플리케이션을 등록하는 방법은 Azure AD B2C [시작](active-directory-b2c-get-started.md) 문서 또는 [애플리케이션 등록](active-directory-b2c-app-registration.md) 문서를 참조하세요.
+    >지금 실행을 사용하려면 하나 이상의 애플리케이션이 테넌트에 미리 등록되어 있어야 합니다. 애플리케이션을 등록하는 방법은 Azure AD B2C [시작](active-directory-b2c-get-started.md) 문서 또는 [애플리케이션 등록](active-directory-b2c-app-registration.md) 문서를 참조하세요.
 
 2. 업로드한 RP(신뢰 당사자) 사용자 지정 정책인 **B2C_1A_signup_signin**을 연 다음 **지금 실행**을 선택합니다.
 
@@ -125,7 +125,7 @@ ms.locfileid: "43344968"
     ![ID API 테스트](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
 
 4. **지정된 이름** 상자에서 ("Test" 이외의) 이름을 입력합니다.  
-    Azure AD B2C는 사용자를 등록한 후 전용 번호를 응용 프로그램에 보냅니다. 이 JWT 예제의 번호를 적어둡니다.
+    Azure AD B2C는 사용자를 등록한 후 전용 번호를 애플리케이션에 보냅니다. 이 JWT 예제의 번호를 적어둡니다.
 
    ```
    {
@@ -159,8 +159,8 @@ Azure AD B2C에서 RESTful 서비스에 전송한 클라이언트 인증서는 �
 > [!NOTE]
 >클라이언트 인증서 인증을 위해 Azure App Service를 구성하는 방법에 대한 자세한 내용은 [웹앱에 TLS 상호 인증 구성](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)을 참조하세요.
 
-### <a name="61-add-application-settings-to-your-projects-webconfig-file"></a>6.1 프로젝트의 web.config 파일에 응용 프로그램 설정 추가
-앞서 만든 Visual Studio 프로젝트에서 `appSettings` 요소 뒤에 *web.config* 파일에 다음 응용 프로그램 설정을 추가합니다.
+### <a name="61-add-application-settings-to-your-projects-webconfig-file"></a>6.1 프로젝트의 web.config 파일에 애플리케이션 설정 추가
+앞서 만든 Visual Studio 프로젝트에서 `appSettings` 요소 뒤에 *web.config* 파일에 다음 애플리케이션 설정을 추가합니다.
 
 ```XML
 <add key="ClientCertificate:Subject" value="CN=Subject name" />
@@ -265,9 +265,9 @@ private bool IsValidClientCertificate()
 
 위의 샘플 코드에서 다음 조건이 모두 충족되는 경우에만 인증서를 유효한 것으로 수락합니다.
 * 인증서가 만료되지 않고 현재 서버에서 활성화되어 있습니다.
-* 인증서의 `Subject` 이름은 `ClientCertificate:Subject` 응용 프로그램 설정 값과 같습니다.
-* 인증서의 `Issuer` 이름은 `ClientCertificate:Issuer` 응용 프로그램 설정 값과 같습니다.
-* 인증서의 `thumbprint`는 `ClientCertificate:Thumbprint` 응용 프로그램 설정 값과 같습니다.
+* 인증서의 `Subject` 이름은 `ClientCertificate:Subject` 애플리케이션 설정 값과 같습니다.
+* 인증서의 `Issuer` 이름은 `ClientCertificate:Issuer` 애플리케이션 설정 값과 같습니다.
+* 인증서의 `thumbprint`는 `ClientCertificate:Thumbprint` 애플리케이션 설정 값과 같습니다.
 
 >[!IMPORTANT]
 >서비스의 중요도에 따라 더 많은 유효성 검사를 추가해야 합니다. 예를 들어 인증서가 신뢰할 수 있는 루트 인증 기관, 발급자 조직 이름 유효성 검사 등에 연결되었는지 테스트해야 합니다.

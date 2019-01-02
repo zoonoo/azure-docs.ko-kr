@@ -44,7 +44,7 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스 앱은 단일 테넌트 데
 
 데이터베이스 성능 관리는 성능 데이터 컴파일과 분석 및 그런 다음 응용 프로그램에 대해 허용되는 응답 시간을 유지하도록 매개 변수를 조정하여 이 데이터에 반응하는 과정으로 구성됩니다. 여러 테넌트를 호스팅할 때 Elastic Database 풀은 예측 불가능한 워크로드를 가진 데이터베이스 그룹에 대한 리소스를 제공하고 관리하는 비용 효율적인 방법입니다. 특정 워크로드 패턴의 경우 풀에서 관리하면 S3 데이터베이스 두 개만 이점을 얻을 수 있습니다.
 
-![응용 프로그램 다이어그램](./media/saas-dbpertenant-performance-monitoring/app-diagram.png)
+![애플리케이션 다이어그램](./media/saas-dbpertenant-performance-monitoring/app-diagram.png)
 
 풀 및 풀에 있는 데이터베이스를 모니터링하여 성능의 허용 범위로 유지되는지 확인해야 합니다. 풀 구성을 모든 데이터베이스의 집계 워크로드에 대한 요구에 맞게 조정하여 풀 eDTU가 전체 워크로드에 적합하게 해야 합니다. 데이터베이스별 최소 및 데이터베이스별 최대 eDTU 값을 특정 응용 프로그램 요구 사항에 적합한 값으로 조정합니다.
 
@@ -61,7 +61,7 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스 앱은 단일 테넌트 데
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS Database Per Tenant 응용 프로그램 스크립트 가져오기
 
-Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 확인할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
+Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플리케이션 소스 코드는 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 확인할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
 
 ## <a name="provision-additional-tenants"></a>추가 테넌트 프로비전
 

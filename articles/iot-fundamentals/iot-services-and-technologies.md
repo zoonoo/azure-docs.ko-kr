@@ -18,7 +18,7 @@ ms.locfileid: "51288716"
 
 Microsoft는 모든 사람이 디지털 변환의 혜택을 누릴 수 있도록 모든 고객의 요구 사항을 지원하는 포트폴리오를 만들었습니다. Azure IoT 제품 포트폴리오는 사용 가능한 PaaS/SaaS 기술 및 솔루션의 개요를 보여줍니다. 고객이 고유의 솔루션을 구축하는 데 사용할 수 있는 두 가지 경로를 제공합니다.
 
-- PaaS(Platform as a Service): 다음 서비스 중 하나를 사용하여 응용 프로그램을 빌드합니다.
+- PaaS(Platform as a Service): 다음 서비스 중 하나를 사용하여 애플리케이션을 빌드합니다.
     - [Azure IoT 솔루션 가속기](https://www.azureiotsolutions.com/) - 사용자 지정 IoT 솔루션 개발 속도를 높일 수 있도록 미리 구성된 엔터프라이즈급 솔루션 컬렉션. 
     - [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/) - 물리적 환경을 모델링하여 공간 인텔리전스 그래프 및 도메인 관련 개체 모델을 사용하여 컨텍스트 인식 IoT 솔루션을 만들 수 있습니다.
 

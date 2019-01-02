@@ -210,7 +210,7 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 
 ### <a name="search-for-object-ids"></a>개체 ID 검색
 
-역할을 할당하려면 개체(사용자, 그룹 또는 응용 프로그램)와 범위 둘 다를 식별해야 합니다.
+역할을 할당하려면 개체(사용자, 그룹 또는 애플리케이션)와 범위 둘 다를 식별해야 합니다.
 
 구독 ID를 모르는 경우 Azure Portal의 **구독** 블레이드에서 확인하거나 [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription)을 사용할 수 있습니다.
 

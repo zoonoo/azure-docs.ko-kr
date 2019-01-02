@@ -48,7 +48,7 @@ HDInsight Spark 클러스터는 애플리케이션 테스트를 위해 [Apache S
    > 
    > 
 
-3. **새로 만들기**를 클릭하고 **Pyspark**, **PySpark3** 또는 **Spark** 중 하나를 클릭하여 Notebook을 만듭니다. Scala 응용 프로그램에 대해 Spark 커널을, Python2 응용 프로그램에 대해 PySpark 커널을, Python3 응용 프로그램에 대해 PySpark3 커널을 사용합니다.
+3. **새로 만들기**를 클릭하고 **Pyspark**, **PySpark3** 또는 **Spark** 중 하나를 클릭하여 Notebook을 만듭니다. Scala 애플리케이션에 대해 Spark 커널을, Python2 애플리케이션에 대해 PySpark 커널을, Python3 애플리케이션에 대해 PySpark3 커널을 사용합니다.
    
     ![Spark의 Jupyter 노트북에 대한 커널](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Spark의 Jupyter 노트북에 대한 커널") 
 

@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 허용되는 애플리케이션 게이트웨이 SKU
-description: 이 샘플 정책을 적용하려면 응용 프로그램 게이트웨이에서 승인된 SKU를 사용해야 합니다.
+description: 이 샘플 정책을 적용하려면 애플리케이션 게이트웨이에서 승인된 SKU를 사용해야 합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm

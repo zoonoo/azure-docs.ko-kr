@@ -45,7 +45,7 @@ SSPR(셀프 서비스 암호 재설정)을 사용하여 다른 사람에게 문�
 
 ## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>내 앱 보안 로그인 확장을 설치하는 데 문제가 있습니다.
 
-MyApps 포털에는 JavaScript를 지원하고 CSS를 사용하도록 설정된 브라우저가 필요합니다. 암호 기반 Single Sign-On 앱을 사용하는 경우 포함되는 확장도 설치해야 합니다. 이 확장은 암호 기반 Single Sign-On 앱에 구성된 응용 프로그램을 시작할 때 자동으로 다운로드됩니다.
+MyApps 포털에는 JavaScript를 지원하고 CSS를 사용하도록 설정된 브라우저가 필요합니다. 암호 기반 Single Sign-On 앱을 사용하는 경우 포함되는 확장도 설치해야 합니다. 이 확장은 암호 기반 Single Sign-On 앱에 구성된 애플리케이션을 시작할 때 자동으로 다운로드됩니다.
 
 다음 브라우저 요구 사항을 충족하는지 확인합니다.
 

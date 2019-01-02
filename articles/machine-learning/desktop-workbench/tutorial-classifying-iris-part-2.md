@@ -113,7 +113,7 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
 
    이 설치는 약 1분이 걸립니다.
 
-1. Workbench 응용 프로그램으로 돌아갑니다. 
+1. Workbench 애플리케이션으로 돌아갑니다. 
 
 1. **iris_sklearn.py**라는 탭을 찾습니다. 
 

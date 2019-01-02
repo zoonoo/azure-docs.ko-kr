@@ -21,7 +21,7 @@ ms.locfileid: "48900516"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Service Fabric에서 구성 파일을 매개 변수화하는 방법
 
-이 문서에서는 Service Fabric에서 구성 파일을 매개 변수화하는 방법을 보여 줍니다.  여러 환경에 대한 응용 프로그램 관리의 핵심 개념에 익숙하지 않은 경우 [여러 환경에 대한 응용 프로그램 관리](service-fabric-manage-multiple-environment-app-configuration.md)를 읽어보세요.
+이 문서에서는 Service Fabric에서 구성 파일을 매개 변수화하는 방법을 보여 줍니다.  여러 환경에 대한 애플리케이션 관리의 핵심 개념에 익숙하지 않은 경우 [여러 환경에 대한 애플리케이션 관리](service-fabric-manage-multiple-environment-app-configuration.md)를 읽어보세요.
 
 ## <a name="procedure-for-parameterizing-configuration-files"></a>구성 파일 매개 변수화 절차
 

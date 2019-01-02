@@ -89,7 +89,7 @@ sections:
         src: /azure/machine-learning/media/index/ml-server.png
       title: Microsoft Machine Learning 서버
     - href: /azure/machine-learning/team-data-science-process
-      html: <p>팀에 도움이 되는 공동 데이터 과학 방법론은 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적으로 제공합니다.</p>
+      html: <p>팀에 도움이 되는 공동 데이터 과학 방법론은 예측 분석 솔루션 및 지능형 애플리케이션을 효율적으로 제공합니다.</p>
       image:
         src: /azure/machine-learning/media/index/tdsp.png
       title: Team Data Science Process

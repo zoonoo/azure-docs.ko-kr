@@ -26,7 +26,7 @@ ms.locfileid: "52889670"
 
 Service Fabric 리소스 모델에서는 Service Fabric Mesh 애플리케이션을 구성하는 리소스를 정의하는 간단한 방법을 설명합니다. 개별 리소스는 모든 Service Fabric 환경에 배포할 수 있습니다.  Service Fabric 리소스 모델은 Azure Resource Manager 모델과도 호환됩니다. 다음 형식의 리소스가 현재 이 모델에서 지원됩니다.
 
-- 응용 프로그램 및 서비스
+- 애플리케이션 및 서비스
 - 네트워크
 - 게이트웨이
 - 비밀 및 비밀/값

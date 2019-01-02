@@ -331,7 +331,7 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 생겼으니, Azure Co
 > [!WARNING]
 컨테이너를 만드는 것은 가격 책정에 영향을 줍니다. 예상되는 결과를 확인하려면 [가격 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 방문하세요.
 
-컨테이너는 `createIfNotExists` 또는 **Containers** 클래스의 create 함수를 사용하여 만들 수 있습니다.  컨테이너는 항목(SQL API의 경우 JSON 문서) 및 관련 JavaScript 응용 프로그램 논리로 구성됩니다.
+컨테이너는 `createIfNotExists` 또는 **Containers** 클래스의 create 함수를 사용하여 만들 수 있습니다.  컨테이너는 항목(SQL API의 경우 JSON 문서) 및 관련 JavaScript 애플리케이션 논리로 구성됩니다.
 
 1. **createContainer** 및 **readContainer** 함수를 복사하여 app.js 파일의 **readDatabase** 함수 아래에 붙여넣습니다. **createContainer** 함수는 아직 ID가 없으면 ```config```에서 지정된 ```containerId```를 사용하여 새 컨테이너를 만듭니다. **readContainer** 함수는 컨테이너 정의를 읽어서 컨테이너가 있는지 확인합니다.
 

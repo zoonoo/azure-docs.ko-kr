@@ -41,9 +41,9 @@ ms.locfileid: "52852721"
 > * 데이터베이스 삭제
 
 
-응용 프로그램을 만든 시간이 없나요? 염려하지 마십시오. [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-core-getting-started)에서 전체 솔루션을 사용할 수 있습니다. 빠른 지침을 보려면 [전체 솔루션 다운로드 섹션](#GetSolution) 으로 이동하세요.
+애플리케이션을 만든 시간이 없나요? 염려하지 마십시오. [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-core-getting-started)에서 전체 솔루션을 사용할 수 있습니다. 빠른 지침을 보려면 [전체 솔루션 다운로드 섹션](#GetSolution) 으로 이동하세요.
 
-SQL API 및 .NET Core SDK를 사용하여 Xamarin iOS, Android 또는 Forms 응용 프로그램을 빌드하시겠어요? [Xamarin 및 Azure Cosmos DB를 사용하여 모바일 응용 프로그램 빌드](mobile-apps-with-xamarin.md)를 참조하세요.
+SQL API 및 .NET Core SDK를 사용하여 Xamarin iOS, Android 또는 Forms 애플리케이션을 빌드하시겠어요? [Xamarin 및 Azure Cosmos DB를 사용하여 모바일 응용 프로그램 빌드](mobile-apps-with-xamarin.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 

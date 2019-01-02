@@ -24,7 +24,7 @@ DNS(Domain Name System)는 웹 사이트 또는 서비스 이름을 해당 IP �
 
 Azure DNS의 DNS 도메인은 DNS 이름 서버의 Azure 글로벌 네트워크에 호스트됩니다. 이 시스템은 사용 가능한 가장 가까운 DNS 서버에서 각 DNS 쿼리에 응답하도록 애니캐스트 네트워킹을 사용합니다. Azure DNS는 도메인에 대해 빠른 성능과 고가용성을 제공합니다.
 
-Azure DNS는 Azure Resource Manager를 기반으로 합니다. Azure DNS는 역할 기반 액세스 제어, 감사 로그 및 리소스 잠금과 같은 리소스 관리자 기능의 이점을 누릴 수 있습니다. 도메인과 레코드는 Azure 포털, Azure PowerShell cmdlet 및 플랫폼 간 Azure CLI를 통해 관리할 수 있습니다. 자동 DNS 관리가 필요한 응용 프로그램은 REST API 및 SDK를 통해 서비스와 통합할 수 있습니다.
+Azure DNS는 Azure Resource Manager를 기반으로 합니다. Azure DNS는 역할 기반 액세스 제어, 감사 로그 및 리소스 잠금과 같은 리소스 관리자 기능의 이점을 누릴 수 있습니다. 도메인과 레코드는 Azure 포털, Azure PowerShell cmdlet 및 플랫폼 간 Azure CLI를 통해 관리할 수 있습니다. 자동 DNS 관리가 필요한 애플리케이션은 REST API 및 SDK를 통해 서비스와 통합할 수 있습니다.
 
 ### <a name="how-much-does-azure-dns-cost"></a>Azure DNS 비용은 얼마입니까?
 
@@ -122,10 +122,10 @@ Azure DNS 영역에서 다음 레코드 유형의 별칭 레코드 집합이 지
 예. Azure REST API, PowerShell, CLI 및 SDK와 함께 Azure Portal에서 별칭 레코드를 만들거나 관리할 수 있습니다.
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-deleted-when-the-underlying-public-ip-is-deleted"></a>별칭 레코드를 사용하면 기본 공용 IP가 삭제될 때 DNS 레코드 집합이 삭제되는지 확인할 수 있나요?
-예. 이것은 별칭 레코드의 핵심 기능 중 하나입니다. 응용 프로그램의 사용자를 위한 잠재적인 중단을 방지하는 데 도움이 됩니다.
+예. 이것은 별칭 레코드의 핵심 기능 중 하나입니다. 애플리케이션의 사용자를 위한 잠재적인 중단을 방지하는 데 도움이 됩니다.
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-updated-to-the-correct-ip-address-when-the-underlying-public-ip-address-changes"></a>별칭 레코드를 사용하면 기본 공용 IP 주소가 변경될 때 DNS 레코드가 올바른 IP 주소로 업데이트되는지 확인할 수 있나요?
-예. 이것은 별칭 레코드의 핵심 기능 중 하나입니다. 응용 프로그램의 사용자를 위한 잠재적인 중단 또는 보안 위험을 방지하는 데 도움이 됩니다.
+예. 이것은 별칭 레코드의 핵심 기능 중 하나입니다. 애플리케이션의 사용자를 위한 잠재적인 중단 또는 보안 위험을 방지하는 데 도움이 됩니다.
 
 ### <a name="are-there-any-restrictions-when-using-alias-record-sets-for-a-or-aaaa-records-to-point-to-traffic-manager"></a>A 또는 AAAA 레코드에 대한 별칭 레코드 집합을 사용하여 Traffic Manager를 가리키는 경우 제한 사항이 있나요?
 예. A 또는 AAAA 레코드 집합의 별칭으로 Traffic Manager 프로필을 가리키려면 Traffic Manager 프로필이 외부 엔드포인트만 사용해야 합니다. Traffic Manager에서 외부 엔드포인트를 만들 때 엔드포인트의 실제 IP 주소를 제공해야 합니다.

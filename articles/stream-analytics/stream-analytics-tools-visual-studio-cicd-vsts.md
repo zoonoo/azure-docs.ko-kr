@@ -49,7 +49,7 @@ ms.locfileid: "53164078"
 
 ## <a name="share-your-visual-studio-solution-to-a-new-azure-repos-git-repo"></a>새 Azure Repos Git 리포지토리에 Visual Studio 솔루션 공유
 
-응용 프로그램 소스 파일을 Azure DevOps의 프로젝트에 공유하여 빌드를 생성할 수 있습니다.  
+애플리케이션 소스 파일을 Azure DevOps의 프로젝트에 공유하여 빌드를 생성할 수 있습니다.  
 
 1. Visual Studio의 오른쪽 하단의 상태 표시줄에서 **소스 제어에 추가**를 선택한 다음, **Git**을 선택하여 프로젝트에 대한 새 로컬 Git 리포지토리를 만듭니다. 
 
@@ -66,7 +66,7 @@ ms.locfileid: "53164078"
 ## <a name="configure-continuous-delivery-with-azure-devops"></a>Azure DevOps를 사용한 지속적인 업데이트 구성
 Azure Pipelines 빌드 파이프라인은 순차적으로 실행되는 빌드 단계로 구성된 워크플로를 설명합니다. [Azure Pipelines 빌드 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav)에 대해 자세히 알아봅니다. 
 
-Azure Pipelines 릴리스 파이프라인에서는 응용 프로그램 패키지를 클러스터에 배포하는 워크플로를 설명합니다. 빌드 파이프라인과 릴리스 파이프라인을 함께 사용할 경우 소스 파일로 시작하여 클러스터에서 실행 중인 응용 프로그램에서 종료할 때까지 전체 워크플로를 실행합니다. Azure Pipelines [릴리스 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)에 대해 자세히 알아봅니다.
+Azure Pipelines 릴리스 파이프라인에서는 애플리케이션 패키지를 클러스터에 배포하는 워크플로를 설명합니다. 빌드 파이프라인과 릴리스 파이프라인을 함께 사용할 경우 소스 파일로 시작하여 클러스터에서 실행 중인 애플리케이션에서 종료할 때까지 전체 워크플로를 실행합니다. Azure Pipelines [릴리스 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)에 대해 자세히 알아봅니다.
 
 ### <a name="create-a-build-pipeline"></a>빌드 파이프라인 만들기
 웹 브라우저를 열고 [Azure DevOps](https://app.vsaex.visualstudio.com/)에서 방금 만든 프로젝트로 이동합니다. 
@@ -83,7 +83,7 @@ Azure Pipelines 릴리스 파이프라인에서는 응용 프로그램 패키지
     
     ![지속적인 통합 사용 트리거 상태](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger-status-ci.png)
 
-4. 빌드는 푸시 또는 체크인할 때도 트리거됩니다. 빌드 진행률을 확인하려면 **빌드** 탭으로 전환합니다.  빌드가 성공적으로 실행되는지 확인한 후에는 응용 프로그램을 클러스터에 배포하는 릴리스 파이프라인을 정의해야 합니다. 빌드 파이프라인 옆의 줄임표를 마우스 오른쪽 단추로 클릭하고 **편집**을 선택합니다.
+4. 빌드는 푸시 또는 체크인할 때도 트리거됩니다. 빌드 진행률을 확인하려면 **빌드** 탭으로 전환합니다.  빌드가 성공적으로 실행되는지 확인한 후에는 애플리케이션을 클러스터에 배포하는 릴리스 파이프라인을 정의해야 합니다. 빌드 파이프라인 옆의 줄임표를 마우스 오른쪽 단추로 클릭하고 **편집**을 선택합니다.
 
 5.  **작업**에서 **에이전트 큐**로 "호스트된"을 입력합니다.
     

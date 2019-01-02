@@ -1,6 +1,6 @@
 ---
 title: Azure에서 Kestrel을 사용하여 Service Fabric 앱에 HTTPS 엔드포인트 추가 | Microsoft Docs
-description: 이 자습서에서는 Kestrel을 사용하여 ASP.NET Core 프런트 엔드 웹 서비스에 HTTPS 엔드포인트를 추가하고 클러스터에 응용 프로그램을 배포하는 방법을 알아봅니다.
+description: 이 자습서에서는 Kestrel을 사용하여 ASP.NET Core 프런트 엔드 웹 서비스에 HTTPS 엔드포인트를 추가하고 클러스터에 애플리케이션을 배포하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -54,7 +54,7 @@ ms.locfileid: "49115079"
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>인증서를 받거나 자체 서명된 개발 인증서 만들기
 
-프로덕션 응용 프로그램의 경우 [CA(인증 기관)](https://wikipedia.org/wiki/Certificate_authority)의 인증서를 사용합니다. 개발 및 테스트 목적으로 자체 서명된 인증서를 만들어 사용할 수 있습니다. Service Fabric SDK는 *CertSetup.ps1* 스크립트를 제공하며, 자체 서명된 인증서를 만들어 `Cert:\LocalMachine\My` 인증서 저장소로 가져옵니다. 관리자 권한으로 명령 프롬프트를 열고 "CN=localhost"라는 주체를 사용하여 인증서를 만들려면 다음 명령을 실행합니다.
+프로덕션 애플리케이션의 경우 [CA(인증 기관)](https://wikipedia.org/wiki/Certificate_authority)의 인증서를 사용합니다. 개발 및 테스트 목적으로 자체 서명된 인증서를 만들어 사용할 수 있습니다. Service Fabric SDK는 *CertSetup.ps1* 스크립트를 제공하며, 자체 서명된 인증서를 만들어 `Cert:\LocalMachine\My` 인증서 저장소로 가져옵니다. 관리자 권한으로 명령 프롬프트를 열고 "CN=localhost"라는 주체를 사용하여 인증서를 만들려면 다음 명령을 실행합니다.
 
 ```powershell
 PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=localhost
@@ -288,7 +288,7 @@ if ($cert -eq $null)
 
 ### <a name="run-the-setup-script-as-a-local-administrator"></a>로컬 관리자 권한으로 설치 스크립트 실행
 
-기본적으로 서비스 설치 진입점 실행 파일은 Service Fabric과 동일한 자격 증명(일반적으로 NetworkService 계정)으로 실행됩니다. *SetCertAccess.ps1*을 실행하려면 관리자 권한이 필요합니다. 응용 프로그램 매니페스트에서 로컬 관리자 계정으로 시작 스크립트를 실행하도록 보안 권한을 변경할 수 있습니다.
+기본적으로 서비스 설치 진입점 실행 파일은 Service Fabric과 동일한 자격 증명(일반적으로 NetworkService 계정)으로 실행됩니다. *SetCertAccess.ps1*을 실행하려면 관리자 권한이 필요합니다. 애플리케이션 매니페스트에서 로컬 관리자 계정으로 시작 스크립트를 실행하도록 보안 권한을 변경할 수 있습니다.
 
 솔루션 탐색기에서 *Voting/ApplicationPackageRoot/ApplicationManifest.xml*을 엽니다. 먼저 **보안 주체** 섹션을 만들고 새 사용자를 추가합니다(예: "SetupAdminUser"). SetupAdminUser 사용자 계정을 관리자 시스템 그룹에 추가합니다.
 그런 다음, VotingWebPkg **ServiceManifestImport** 섹션에서 **RunAsPolicy**를 구성하여 SetupAdminUser 보안 주체를 설치 진입점에 적용합니다. 이 정책은 Service Fabric에 Setup.bat 파일이 Service SetupAdminUser(관리자 권한 있음) 권한으로 실행됨을 알립니다.

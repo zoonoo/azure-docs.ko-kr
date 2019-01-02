@@ -55,7 +55,7 @@ Azure Portal은 쿼리 및 작업 성능을 모니터링하고 문제를 해결�
 
 ## <a name="latest-output"></a>최신 출력
 사용자 작업을 모니터링하기 위한 또 다른 흥미로운 데이터 요소는 개요 페이지에 표시되는 마지막 출력 시간입니다.
-이 시간은 작업의 최신 출력에 대한 응용 프로그램 시간(즉, 이벤트 데이터의 타임스탬프를 사용한 시간)입니다.
+이 시간은 작업의 최신 출력에 대한 애플리케이션 시간(즉, 이벤트 데이터의 타임스탬프를 사용한 시간)입니다.
 
 ## <a name="get-help"></a>도움말 보기
 추가 지원이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)

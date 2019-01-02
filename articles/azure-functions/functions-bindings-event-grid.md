@@ -425,7 +425,7 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 포털의 **함수 앱 설정** 탭에서 함수 앱에 대한 마스터 키를 가져올 수 있습니다.
 
 > [!IMPORTANT]
-> 마스터 키는 함수 앱에 대한 관리자 액세스를 제공합니다. 이 키를 타사와 공유하거나 네이티브 클라이언트 응용 프로그램에 배포하지 마십시오.
+> 마스터 키는 함수 앱에 대한 관리자 액세스를 제공합니다. 이 키를 타사와 공유하거나 네이티브 클라이언트 애플리케이션에 배포하지 마십시오.
 
 자세한 내용은 HTTP 트리거 참조 문서에서 [인증 키](functions-bindings-http-webhook.md#authorization-keys)를 참조하세요.
 

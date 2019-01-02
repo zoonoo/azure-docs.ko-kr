@@ -25,7 +25,7 @@ ms.locfileid: "53162820"
 
 Azure AD(Azure Active Directory) B2C에서 GitHub 계정을 ID 공급자로 사용하려면 테넌트에 해당 계정을 나타내는 애플리케이션을 만들어야 합니다. GitHub 계정이 아직 없는 경우 [https://www.github.com/](https://www.github.com/)에서 구할 수 있습니다.
 
-## <a name="create-a-github-oauth-application"></a>GitHub OAuth 응용 프로그램 만들기
+## <a name="create-a-github-oauth-application"></a>GitHub OAuth 애플리케이션 만들기
 
 1. GitHub 자격 증명을 사용하여 [GitHub Developer](https://github.com/settings/developers) 웹 사이트에 로그인합니다.
 2. **OAuth 앱**, **새 OAuth 앱**을 차례로 선택합니다.

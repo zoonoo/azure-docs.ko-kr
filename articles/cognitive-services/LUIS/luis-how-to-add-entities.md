@@ -1,7 +1,7 @@
 ---
 title: 엔터티 추가
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: LUIS(Language Understanding) 앱에서 엔터티(응용 프로그램 도메인의 키 데이터)를 추가합니다.
+description: LUIS(Language Understanding) 앱에서 엔터티(애플리케이션 도메인의 키 데이터)를 추가합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -30,7 +30,7 @@ ms.locfileid: "53139489"
 
 ## <a name="add-prebuilt-entity"></a>미리 빌드된 엔터티 추가
 
-응용 프로그램에 추가되는 일반적인 미리 빌드된 엔터티는 *number*와 *datetimeV2*입니다. 
+애플리케이션에 추가되는 일반적인 미리 빌드된 엔터티는 *number*와 *datetimeV2*입니다. 
 
 1. 앱의 **빌드** 섹션에서 왼쪽 패널의 **엔터티**를 선택합니다.
  

@@ -71,7 +71,7 @@ Standard Storage의 기능 중 일부를 살펴보겠습니다. 자세한 내용
 
 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../articles/storage/common/storage-scalability-targets.md)를 참조하세요.
 
-응용 프로그램의 요구가 단일 저장소 계정의 확장성 목표를 초과하는 경우, 응용 프로그램에서 여러 저장소 계정을 사용하도록 빌드하고 이러한 저장소 계정에 데이터를 분할합니다. 아니면 Azure Managed Disks를 사용하여 Azure가 데이터의 분할 및 배치를 알아서 관리하도록 할 수 있습니다.
+애플리케이션의 요구가 단일 저장소 계정의 확장성 목표를 초과하는 경우, 애플리케이션에서 여러 저장소 계정을 사용하도록 빌드하고 이러한 저장소 계정에 데이터를 분할합니다. 아니면 Azure Managed Disks를 사용하여 Azure가 데이터의 분할 및 배치를 알아서 관리하도록 할 수 있습니다.
 
 ### <a name="standard-disks-limits"></a>표준 디스크 한도
 

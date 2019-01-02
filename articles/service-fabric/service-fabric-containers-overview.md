@@ -31,7 +31,7 @@ Service Fabric은 머신 클러스터에 마이크로 서비스를 배포하기 
 
 마이크로 서비스는 [Service Fabric 프로그래밍 모델](service-fabric-choose-framework.md), [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) 사용부터 [선택한 코드](service-fabric-guest-executables-introduction.md) 배포에 이르는 다양한 방식으로 개발될 수 있습니다. 또는 [컨테이너를 배포 및 관리](service-fabric-containers-overview.md)하려는 경우 Service Fabric이 가장 적합합니다.
 
-기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. 프로세스는 클러스터 내에서 리소스의 최고밀도 사용과 가장 신속한 활성화를 제공합니다. Service Fabric도 컨테이너 이미지에 서비스를 배포할 수 있습니다. 동일한 응용 프로그램에서 프로세스의 서비스와 컨테이너의 서비스를 혼합할 수 있습니다.
+기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. 프로세스는 클러스터 내에서 리소스의 최고밀도 사용과 가장 신속한 활성화를 제공합니다. Service Fabric도 컨테이너 이미지에 서비스를 배포할 수 있습니다. 동일한 애플리케이션에서 프로세스의 서비스와 컨테이너의 서비스를 혼합할 수 있습니다.
 
 지금 바로 Service Fabric에서 컨테이너를 시험해보려면 빠른 시작, 자습서 또는 샘플을 사용합니다.  
 
@@ -42,9 +42,9 @@ Service Fabric은 머신 클러스터에 마이크로 서비스를 배포하기 
 
 ## <a name="what-are-containers"></a>컨테이너란?
 
-컨테이너는 실행할 응용 프로그램에 대한 변경이 불가능한 환경을 제공하여 안정적으로 다양한 컴퓨팅 환경에서 응용 프로그램을 실행하는 문제를 해결합니다. 컨테이너는 컨테이너 내에서 소프트웨어를 실행하는 데 필요한 모든 것이 포함된 자체 격리된 '상자'에 라이브러리 및 구성 파일 같은 응용 프로그램과 해당 종속성 모두를 래핑합니다. 컨테이너가 어디에서 실행되든 컨테이너 내부의 응용 프로그램에는 올바른 버전의 해당 종속 라이브러리, 모든 구성 파일 및 실행에 필요한 다른 항목 등 실행에 필요한 모든 항목이 항상 포함돼 있습니다.
+컨테이너는 실행할 애플리케이션에 대한 변경이 불가능한 환경을 제공하여 안정적으로 다양한 컴퓨팅 환경에서 애플리케이션을 실행하는 문제를 해결합니다. 컨테이너는 컨테이너 내에서 소프트웨어를 실행하는 데 필요한 모든 것이 포함된 자체 격리된 '상자'에 라이브러리 및 구성 파일 같은 애플리케이션과 해당 종속성 모두를 래핑합니다. 컨테이너가 어디에서 실행되든 컨테이너 내부의 애플리케이션에는 올바른 버전의 해당 종속 라이브러리, 모든 구성 파일 및 실행에 필요한 다른 항목 등 실행에 필요한 모든 항목이 항상 포함돼 있습니다.
 
-컨테이너는 커널 바로 위에서 실행되며 파일 시스템 및 기타 리소스에 대한 격리된 뷰를 갖습니다. 컨테이너의 응용 프로그램에는 다른 응용 프로그램 또는 해당 컨테이너의 외부 프로세스에 대한 정보가 없습니다. 각 응용 프로그램, 해당 런타임, 종속성, 시스템 라이브러리는 운영 체제의 자체적으로 격리된 뷰에 대해 전체, 개인 액세스 권한이 있는 컨테이너 내에서 실행됩니다. 다양한 컴퓨팅 환경에서 실행하는 데 필요한 모든 응용 프로그램의 종속성을 쉽게 제공하는 것 외에 Service Fabric에서 컨테이너를 사용하며, 그렇지 않은 경우 프로세스에서 서비스를 실행하는 이점 중 중요한 것은 보안 및 리소스 격리입니다.
+컨테이너는 커널 바로 위에서 실행되며 파일 시스템 및 기타 리소스에 대한 격리된 뷰를 갖습니다. 컨테이너의 애플리케이션에는 다른 애플리케이션 또는 해당 컨테이너의 외부 프로세스에 대한 정보가 없습니다. 각 애플리케이션, 해당 런타임, 종속성, 시스템 라이브러리는 운영 체제의 자체적으로 격리된 뷰에 대해 전체, 개인 액세스 권한이 있는 컨테이너 내에서 실행됩니다. 다양한 컴퓨팅 환경에서 실행하는 데 필요한 모든 애플리케이션의 종속성을 쉽게 제공하는 것 외에 Service Fabric에서 컨테이너를 사용하며, 그렇지 않은 경우 프로세스에서 서비스를 실행하는 이점 중 중요한 것은 보안 및 리소스 격리입니다.
 
 가상 머신에 비해 컨테이너는 다음과 같은 이점이 있습니다.
 
@@ -60,14 +60,14 @@ Service Fabric은 Linux와 Windows 모두에서 컨테이너를 지원하고 Win
 #### <a name="docker-containers-on-linux"></a>Linux의 Docker 컨테이너
 
 Docker는 API를 제공하여 Linux 커널 컨테이너 위에서 컨테이너를 만들고 관리합니다. Docker 허브는 컨테이너 이미지를 저장하고 검색하기 위한 중앙 리포지토리를 제공합니다.
-Linux 기반 자습서는 [Linux에서 첫 번째 Service Fabric 컨테이너 응용 프로그램 만들기](service-fabric-get-started-containers-linux.md)를 참조하세요.
+Linux 기반 자습서는 [Linux에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기](service-fabric-get-started-containers-linux.md)를 참조하세요.
 
 #### <a name="windows-server-containers"></a>Windows Server 컨테이너
 
 Windows Server 2016은 격리 수준이 다른 두 가지 유형의 컨테이너를 제공합니다. Windows Server 컨테이너와 Docker 컨테이너는 둘 다 네임스페이스와 파일 시스템 격리가 있다는 점에서 유사하지만 이들 컨테이너가 실행되는 호스트와 커널을 공유합니다. Linux에서, 이러한 격리는 일반적으로 cgroups 및 네임스페이스에 의해 제공되었으며 Windows Server 컨테이너도 유사하게 작동합니다.
 
 Hyper-V 지원을 사용하는 Windows 컨테이너는 컨테이너가 다른 컨테이너 또는 호스트와 운영 체제 커널을 공유하지 않기 때문에 격리 및 보안이 강화됩니다. 이렇게 보안 격리 수준이 높은 Hyper-V 사용 컨테이너는 잠재적으로 적대적인 다중 테넌트 시나리오를 대상으로 합니다.
-Windows 기반 자습서는 [ Windows에서 첫 번째 Service Fabric 컨테이너 응용 프로그램 만들기](service-fabric-get-started-containers.md)를 참조하세요.
+Windows 기반 자습서는 [ Windows에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기](service-fabric-get-started-containers.md)를 참조하세요.
 
 다음 그림은 사용 가능한 다양한 유형의 가상화 및 격리 수준을 보여줍니다.
 ![Service Fabric 플랫폼][Image1]
@@ -86,11 +86,11 @@ Windows 기반 자습서는 [ Windows에서 첫 번째 Service Fabric 컨테이�
 
 Service Fabric은 Linux에서 Docker 컨테이너의 배포를 지원하고 Hyper-V 격리 모드에 대한 지원과 함께 Windows Server 2016에서 Windows Server 컨테이너의 배포를 지원합니다. 
 
-Service Fabric은 컨테이너가 다수의 서비스 복제본이 배치되는 응용 프로그램 호스트를 나타내는 [응용 프로그램 모델](service-fabric-application-model.md)을 제공합니다. 또한 Service Fabric은 기본 제공 Service Fabric 프로그래밍 모델을 사용하지 않고 대신 모든 언어 또는 프레임워크를 사용하여 컨테이너 내에서 작성된 기존 응용 프로그램을 패키지하는 [게스트 실행 파일 시나리오](service-fabric-guest-executables-introduction.md)를 지원합니다. 이 시나리오는 컨테이너에 대한 일반 사용 사례입니다.
+Service Fabric은 컨테이너가 다수의 서비스 복제본이 배치되는 애플리케이션 호스트를 나타내는 [애플리케이션 모델](service-fabric-application-model.md)을 제공합니다. 또한 Service Fabric은 기본 제공 Service Fabric 프로그래밍 모델을 사용하지 않고 대신 모든 언어 또는 프레임워크를 사용하여 컨테이너 내에서 작성된 기존 애플리케이션을 패키지하는 [게스트 실행 파일 시나리오](service-fabric-guest-executables-introduction.md)를 지원합니다. 이 시나리오는 컨테이너에 대한 일반 사용 사례입니다.
 
 [컨테이너 내에서 Service Fabric 서비스](service-fabric-services-inside-containers.md)를 실행할 수도 있습니다. 컨테이너 내에서 Service Fabric 서비스 실행에 대한 지원은 현재 제한됩니다.
 
-Service Fabric은 다음과 같은 컨테이너화된 마이크로 서비스로 구성된 응용 프로그램을 빌드하는 데 도움이 되는 몇 가지 컨테이너 기능을 제공합니다.
+Service Fabric은 다음과 같은 컨테이너화된 마이크로 서비스로 구성된 애플리케이션을 빌드하는 데 도움이 되는 몇 가지 컨테이너 기능을 제공합니다.
 
 * 컨테이너 이미지 배포 및 활성화
 * Azure 클러스터에서 리소스 값 설정을 기본적으로 포함하는 리소스 관리

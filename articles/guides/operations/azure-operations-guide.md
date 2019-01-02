@@ -67,7 +67,7 @@ Azure에는 가상 머신, 가상 머신 확장 집합 및 관련 네트워킹 �
 
 #### <a name="paas-platform-as-a-service"></a>PaaS: 서비스 제공 플랫폼
 
-PaaS를 사용하면 클라우드 서비스 공급업체가 제공하는 환경에 응용 프로그램을 배포할 수 있습니다. 모든 인프라 관리는 공급업체에서 수행하므로 응용 프로그램 개발 및 데이터 관리에 집중할 수 있습니다.
+PaaS를 사용하면 클라우드 서비스 공급업체가 제공하는 환경에 응용 프로그램을 배포할 수 있습니다. 모든 인프라 관리는 공급업체에서 수행하므로 애플리케이션 개발 및 데이터 관리에 집중할 수 있습니다.
 
 Azure는 Azure App Service 및 Azure Cloud Services(웹 및 작업자 역할)의 Web Apps 기능을 포함한 여러 가지 PaaS 계산 제공 사항을 제공합니다. 두 경우 모두 개발자는 지원에 대한 세부적인 지식이 없어도 여러 가지 방법으로 응용 프로그램을 배포할 수 있습니다. 개발자는 VM(가상 머신)을 만들거나 RDP(원격 데스크톱 프로토콜)를 사용하여 각 응용 프로그램에 로그인하거나 응용 프로그램을 설치할 필요가 없습니다. 단추 하나만 누르면(또는 가까이 가면) Microsoft에서 제공하는 도구가 VM을 프로비저닝한 다음 VM에 응용 프로그램을 배포 및 설치합니다.
 
@@ -463,7 +463,7 @@ Azure storage 계정은 Visual Studio 클라우드 탐색기와 같은 다양한
 
 Azure Virtual network는 기본적으로 Azure에 저장된 리소스에만 액세스할 수 있습니다. 동일한 가상 네트워크에 연결된 리소스는 서로 통신할 수 있습니다. 가상 머신 네트워크 인터페이스 및 부하 분산 장치를 공용 IP 주소와 연결하여 인터넷을 통해 가상 머신에 액세스할 수 있습니다. 네트워크 보안 그룹을 사용하여 공개적으로 노출된 리소스에 대한 액세스를 보호할 수 있습니다.
 
-![2계층 웹 응용 프로그램에 대한 Azure Virtual Network](https://docs.microsoft.com/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
+![2계층 웹 애플리케이션에 대한 Azure Virtual Network](https://docs.microsoft.com/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
 
 ### <a name="hybrid-virtual-networks"></a>하이브리드 가상 네트워크
 

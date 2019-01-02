@@ -21,7 +21,7 @@ ms.lasthandoff: 07/13/2018
 ms.locfileid: "39002316"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Azure Cloud Services 정의 WebRole 스키마
-Azure 웹 역할은 ASP.NET, PHP, Windows Communication Foundation 및 FastCGI와 같이 IIS 7에서 지원되는 것처럼 웹 응용 프로그램 프로그래밍에 대해 사용자 지정된 역할입니다.
+Azure 웹 역할은 ASP.NET, PHP, Windows Communication Foundation 및 FastCGI와 같이 IIS 7에서 지원되는 것처럼 웹 애플리케이션 프로그래밍에 대해 사용자 지정된 역할입니다.
 
 서비스 정의 파일의 기본 확장명은 .csdef입니다.
 
@@ -208,7 +208,7 @@ Azure 웹 역할은 ASP.NET, PHP, Windows Communication Foundation 및 FastCGI�
 입력 및 내부 끝점은 개별적으로 할당됩니다. 서비스에는 입력, 내부 및 인스턴스 입력 끝점이 총 25개가 있을 수 있으며, 서비스에 허용된 25개의 역할에 할당할 수 있습니다. 예를 들어 역할이 5개라면 역할당 5개 입력 끝점을 할당하거나, 25개 입력 끝점을 단일 역할에 할당하거나, 1개 입력 끝점을 25개 역할에 각각 할당할 수 있습니다.
 
 > [!NOTE]
->  배포된 각 역할은 각 역할에 하나의 인스턴스가 필요합니다. 구독에 대한 기본 프로비전은 20개의 코어로 제한되므로 역할의 인스턴스도 20개로 제한됩니다. 응용 프로그램에 프로비전에서 제공된 것보다 더 많은 인스턴스가 필요한 경우 [대금 청구, 구독 관리 및 할당량 지원](https://azure.microsoft.com/support/options/)에서 할당량 증가에 대한 자세한 내용을 참조하세요.
+>  배포된 각 역할은 각 역할에 하나의 인스턴스가 필요합니다. 구독에 대한 기본 프로비전은 20개의 코어로 제한되므로 역할의 인스턴스도 20개로 제한됩니다. 애플리케이션에 프로비전에서 제공된 것보다 더 많은 인스턴스가 필요한 경우 [대금 청구, 구독 관리 및 할당량 지원](https://azure.microsoft.com/support/options/)에서 할당량 증가에 대한 자세한 내용을 참조하세요.
 
 ##  <a name="InputEndpoint"></a> InputEndpoint  
 `InputEndpoint` 요소는 웹 역할에 대한 외부 끝점을 설명합니다.
@@ -349,7 +349,7 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 |xpath|string|선택 사항입니다. 인스턴스에 대한 배포 설정의 위치 경로입니다. 자세한 내용은 [XPath를 사용한 구성 변수](cloud-services-role-config-xpath.md)를 참조하세요.<br /><br /> 값 특성 또는 `RoleInstanceValue` 요소를 포함해야 합니다.|  
 
 ##  <a name="EntryPoint"></a> EntryPoint  
-`EntryPoint` 요소는 역할에 대한 진입점을 지정합니다. 이 요소는 `NetFxEntryPoint` 요소의 부모입니다. 이러한 요소를 사용하면 역할 진입점으로 동작하도록 기본 WaWorkerHost.exe 이외의 응용 프로그램을 지정할 수 있습니다.
+`EntryPoint` 요소는 역할에 대한 진입점을 지정합니다. 이 요소는 `NetFxEntryPoint` 요소의 부모입니다. 이러한 요소를 사용하면 역할 진입점으로 동작하도록 기본 WaWorkerHost.exe 이외의 애플리케이션을 지정할 수 있습니다.
 
 `EntryPoint` 요소는 Azure SDK 버전 1.5 이상이어야 사용할 수 있습니다.
 
@@ -380,11 +380,11 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 
 | 특성 | type | 설명 |  
 | --------- | ---- | ----------- |  
-|이름|string|필수 사항입니다. 웹 사이트 또는 응용 프로그램의 이름입니다.|  
+|이름|string|필수 사항입니다. 웹 사이트 또는 애플리케이션의 이름입니다.|  
 |physicalDirectory|string|사이트 루트에 대한 콘텐츠 디렉터리의 위치입니다. 위치는 절대 경로로 지정하거나 .csdef 위치에 대해 상대적일 수 있습니다.|  
 
 ##  <a name="VirtualApplication"></a> VirtualApplication  
-`VirtualApplication` 요소는 IIS(인터넷 정보 서비스) 7의 응용 프로그램을 정의합니다. 이는 파일을 그룹화한 것으로, 콘텐츠를 전달하고 HTTP와 같은 프로토콜을 통해 서비스를 제공합니다. IIS 7에서 응용 프로그램을 만들 때 응용 프로그램의 경로는 사이트 URL의 일부가 됩니다.
+`VirtualApplication` 요소는 IIS(인터넷 정보 서비스) 7의 응용 프로그램을 정의합니다. 이는 파일을 그룹화한 것으로, 콘텐츠를 전달하고 HTTP와 같은 프로토콜을 통해 서비스를 제공합니다. IIS 7에서 애플리케이션을 만들 때 애플리케이션의 경로는 사이트 URL의 일부가 됩니다.
 
 `VirtualApplication` 요소는 Azure SDK 버전 1.3 이상이어야 사용할 수 있습니다.
 
@@ -392,8 +392,8 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 
 | 특성 | type | 설명 |  
 | --------- | ---- | ----------- |  
-|이름|string|필수 사항입니다. 가상 응용 프로그램을 식별하는 이름을 지정합니다.|  
-|physicalDirectory|string|필수 사항입니다. 가상 응용 프로그램을 포함하는 개발 컴퓨터의 경로를 지정합니다. 계산 에뮬레이터에서 IIS는 이 위치에서 콘텐츠를 검색하도록 구성됩니다. Azure로 배포하는 경우 실제 디렉터리의 콘텐츠는 서비스의 나머지 부분과 함께 패키지됩니다. 서비스 패키지를 Azure에 배포하는 경우 IIS는 패키지되지 않은 콘텐츠의 위치로 구성됩니다.|  
+|이름|string|필수 사항입니다. 가상 애플리케이션을 식별하는 이름을 지정합니다.|  
+|physicalDirectory|string|필수 사항입니다. 가상 애플리케이션을 포함하는 개발 컴퓨터의 경로를 지정합니다. 계산 에뮬레이터에서 IIS는 이 위치에서 콘텐츠를 검색하도록 구성됩니다. Azure로 배포하는 경우 실제 디렉터리의 콘텐츠는 서비스의 나머지 부분과 함께 패키지됩니다. 서비스 패키지를 Azure에 배포하는 경우 IIS는 패키지되지 않은 콘텐츠의 위치로 구성됩니다.|  
 
 ##  <a name="VirtualDirectory"></a> VirtualDirectory  
 `VirtualDirectory` 요소는 IIS에서 지정하고 로컬 또는 원격 서버에서 실제 디렉터리에 매핑하는 디렉터리 이름(경로라고도 함)을 지정합니다.
@@ -433,7 +433,7 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 |우선 순위|int|내부 전용입니다.|  
 
 ##  <a name="Task"></a> Task  
-`Task` 요소는 역할이 시작될 때 발생하는 시작 작업을 지정합니다. 시작 작업은 이러한 설치 소프트웨어 구성 요소를 실행하거나 다른 응용 프로그램을 실행하기 위해 역할을 준비하는 작업을 수행하는 데 사용할 수 있습니다. 작업은 `Startup` 요소 블록 내 표시되는 순서대로 실행됩니다.
+`Task` 요소는 역할이 시작될 때 발생하는 시작 작업을 지정합니다. 시작 작업은 이러한 설치 소프트웨어 구성 요소를 실행하거나 다른 애플리케이션을 실행하기 위해 역할을 준비하는 작업을 수행하는 데 사용할 수 있습니다. 작업은 `Startup` 요소 블록 내 표시되는 순서대로 실행됩니다.
 
 `Task` 요소는 Azure SDK 버전 1.3 이상이어야 사용할 수 있습니다.
 

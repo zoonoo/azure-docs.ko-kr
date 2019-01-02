@@ -263,7 +263,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
     # /etc/azure/post_script.sh
     ```
 
-자세한 내용은 [Linux VM에 대한 응용 프로그램 일치 백업](https://azure.microsoft.com/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/)을 참조하세요.
+자세한 내용은 [Linux VM에 대한 애플리케이션 일치 백업](https://azure.microsoft.com/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/)을 참조하세요.
 
 
 ### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>5 단계: Azure Recovery Services 자격 증명 모음을 사용하여 VM 백업

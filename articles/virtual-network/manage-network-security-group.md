@@ -185,7 +185,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 ## <a name="work-with-application-security-groups"></a>애플리케이션 보안 그룹으로 작업
 
-애플리케이션 보안 그룹에는 0개 이상의 네트워크 인터페이스가 포함되어 있습니다. 자세한 내용은 [응용 프로그램 보안 그룹](security-overview.md#application-security-groups)을 참조하세요. 애플리케이션 보안 그룹의 모든 네트워크 인터페이스는 동일한 가상 네트워크에 있어야 합니다. 응용 프로그램 보안 그룹에 네트워크 인터페이스를 추가하는 방법을 알아보려면 [응용 프로그램 보안 그룹에 네트워크 인터페이스 추가](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups)를 참조합니다.
+애플리케이션 보안 그룹에는 0개 이상의 네트워크 인터페이스가 포함되어 있습니다. 자세한 내용은 [애플리케이션 보안 그룹](security-overview.md#application-security-groups)을 참조하세요. 애플리케이션 보안 그룹의 모든 네트워크 인터페이스는 동일한 가상 네트워크에 있어야 합니다. 애플리케이션 보안 그룹에 네트워크 인터페이스를 추가하는 방법을 알아보려면 [애플리케이션 보안 그룹에 네트워크 인터페이스 추가](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups)를 참조합니다.
 
 ### <a name="create-an-application-security-group"></a>애플리케이션 보안 그룹 만들기
 
@@ -237,7 +237,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 ### <a name="delete-an-application-security-group"></a>애플리케이션 보안 그룹 삭제
 
-응용 프로그램 보안 그룹에 모든 네트워크 인터페이스가 있는 경우 해당 보안 그룹은 삭제할 수 없습니다. 네트워크 인터페이스 설정을 변경하거나 네트워크 인터페이스를 삭제하여 애플리케이션 보안 그룹에서 모든 네트워크 인터페이스를 제거해야 합니다. 자세한 내용은 [응용 프로그램 보안 그룹에서 네트워크 인터페이스 추가 또는 제거](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) 또는 [네트워크 인터페이스 삭제](virtual-network-network-interface.md#delete-a-network-interface)를 참조합니다.
+애플리케이션 보안 그룹에 모든 네트워크 인터페이스가 있는 경우 해당 보안 그룹은 삭제할 수 없습니다. 네트워크 인터페이스 설정을 변경하거나 네트워크 인터페이스를 삭제하여 애플리케이션 보안 그룹에서 모든 네트워크 인터페이스를 제거해야 합니다. 자세한 내용은 [애플리케이션 보안 그룹에서 네트워크 인터페이스 추가 또는 제거](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) 또는 [네트워크 인터페이스 삭제](virtual-network-network-interface.md#delete-a-network-interface)를 참조합니다.
 
 1. Azure Portal의 왼쪽 위 모서리에서 **모든 서비스**를 선택합니다.
 2. **모든 서비스 필터** 상자에 *응용 프로그램 보안 그룹*을 입력하고, 검색 결과에 표시되면 **응용 프로그램 보안 그룹**을 선택합니다.

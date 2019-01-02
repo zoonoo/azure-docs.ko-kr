@@ -99,7 +99,7 @@ export DOCKER_HOST=localhost:2374
 이제 Docker Swarm에서 Docker 서비스를 실행할 준비가 되었습니다.
 
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
 `azure-vote.yaml`이라는 파일을 만들고 다음 콘텐츠를 복사합니다.
 

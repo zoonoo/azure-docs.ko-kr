@@ -564,14 +564,14 @@ WEBVM을 마이그레이션하기 전에 테스트 장애 조치를 사용하면
 
 ### <a name="update-the-connection-string"></a>연결 문자열 업데이트
 
-마이그레이션 프로세스의 마지막 단계로, Contoso 관리자는 Contoso의 Managed Instance에서 실행되는 마이그레이션된 데이터베이스를 가리키도록 응용 프로그램의 연결 문자열을 업데이트합니다.
+마이그레이션 프로세스의 마지막 단계로, Contoso 관리자는 Contoso의 Managed Instance에서 실행되는 마이그레이션된 데이터베이스를 가리키도록 애플리케이션의 연결 문자열을 업데이트합니다.
 
 1. Azure Portal에서 **설정** > **연결 문자열**을 차례로 선택하여 연결 문자열을 찾습니다.
 
     ![연결 문자열](./media/contoso-migration-rehost-vm-sql-managed-instance/failover4.png)  
 
 2. 문자열을 SQL Database Managed Instance의 사용자 이름과 암호로 업데이트합니다.
-3. 문자열이 구성되면 해당 응용 프로그램의 web.config 파일에 있는 현재 연결 문자열을 바꿉니다.
+3. 문자열이 구성되면 해당 애플리케이션의 web.config 파일에 있는 현재 연결 문자열을 바꿉니다.
 4. 파일이 업데이트되고 저장되면 명령 프롬프트 창에서 `IISRESET /RESTART`를 실행하여 WEBVM에서 IIS를 다시 시작합니다.
 5. IIS가 다시 시작되면 응용 프로그램이 SQL Database Managed Instance에서 실행되는 데이터베이스를 사용합니다.
 6. 이 시점에서 온-프레미스에서 SQLVM 머신을 종료할 수 있습니다. 마이그레이션이 완료되었습니다.

@@ -374,7 +374,7 @@ internal sealed class NotificationMessage
 
 이 섹션에서는 태스크에 Webhook 알림을 추가하는 코드가 표시됩니다. 작업 수준 알림을 추가할 수도 있습니다. 그러면 연결된 태스크를 사용하여 작업에 더 유용합니다.  
 
-1. Visual Studio를 사용하여 새 C# 콘솔 응용 프로그램을 만듭니다. 이름, 위치 및 솔루션 이름을 입력하고 확인을 클릭합니다.
+1. Visual Studio를 사용하여 새 C# 콘솔 애플리케이션을 만듭니다. 이름, 위치 및 솔루션 이름을 입력하고 확인을 클릭합니다.
 2. [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices)을 사용하여 Azure Media Services를 설치합니다.
 3. App.config 파일을 적절한 값으로 업데이트합니다. 
     

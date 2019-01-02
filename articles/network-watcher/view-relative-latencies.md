@@ -25,7 +25,7 @@ ms.locfileid: "51300611"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>특정 위치에서 Azure 지역에 연결할 때의 상대적 대기 시간 보기
 
-이 자습서에서는 Azure [Network Watcher](network-watcher-monitoring-overview.md) 서비스를 사용하여 사용자 인구 통계를 기준으로 응용 프로그램 또는 서비스를 배포할 Azure 지역을 결정하는 데 도움을 얻는 방법을 알아봅니다. 또한 이 서비스를 사용하여 Azure에 대한 서비스 공급자 연결을 평가할 수 있습니다.  
+이 자습서에서는 Azure [Network Watcher](network-watcher-monitoring-overview.md) 서비스를 사용하여 사용자 인구 통계를 기준으로 애플리케이션 또는 서비스를 배포할 Azure 지역을 결정하는 데 도움을 얻는 방법을 알아봅니다. 또한 이 서비스를 사용하여 Azure에 대한 서비스 공급자 연결을 평가할 수 있습니다.  
         
 ## <a name="create-a-network-watcher"></a>네트워크 감시자 만들기
 

@@ -320,10 +320,10 @@ Python 작업을 제출한 후 전송 로그가 VS Code의 **출력** 창에 나
 
     | 이름 | description | 형식 | 
     | :- | :- | :- | 
-    | file | 실행할 응용 프로그램을 포함하는 파일 | 경로(필수) | 
+    | file | 실행할 애플리케이션을 포함하는 파일 | 경로(필수) | 
     | proxyUser | 작업을 실행할 때 가장하는 사용자 | string | 
-    | className | 응용 프로그램 Java/Spark 주 클래스 | string |
-    | args | 응용 프로그램에 대한 명령줄 인수 | 문자열 목록 | 
+    | className | 애플리케이션 Java/Spark 주 클래스 | string |
+    | args | 애플리케이션에 대한 명령줄 인수 | 문자열 목록 | 
     | ./jars | 이 세션에 사용할 jars | 문자열 목록 | 
     | pyFiles | 이 세션에 사용할 Python 파일 | 문자열 목록 |
     | 업로드 | 이 세션에 사용할 파일 | 문자열 목록 |
@@ -343,8 +343,8 @@ Python 작업을 제출한 후 전송 로그가 VS Code의 **출력** 창에 나
     | 이름 | description | 형식 | 
     | :- | :- | :- | 
     | id | 세션 ID | int | 
-    | appId | 이 세션의 응용 프로그램 ID |  문자열 |
-    | appInfo | 자세한 응용 프로그램 정보 | key=val의 맵 |
+    | appId | 이 세션의 애플리케이션 ID |  문자열 |
+    | appInfo | 자세한 애플리케이션 정보 | key=val의 맵 |
     | 로그 | 로그 줄 | 문자열 목록 |
     | state |   일괄 처리 상태 | string |
 
@@ -411,7 +411,7 @@ HDInsight for VS Code에서 지원하는 기능은 다음과 같습니다.
 * [Machine Learning과 Apache Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](spark/apache-spark-custom-library-website-log-analysis.md)
 
-### <a name="create-and-running-applications"></a>응용 프로그램 만들기 및 실행
+### <a name="create-and-running-applications"></a>애플리케이션 만들기 및 실행
 * [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](spark/apache-spark-create-standalone-application.md)
 * [Apache Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](spark/apache-spark-livy-rest-interface.md)
 

@@ -22,11 +22,11 @@ ms.locfileid: "53138969"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>애플리케이션 프록시를 사용하여 Single Sign-On에 대한 암호 자격 증명 모음 설정
 
-Azure Active Directory 응용 프로그램 프록시는 원격 직원들이 안전하게 액세스할 수 있도록 온-프레미스 응용 프로그램을 게시하여 생산성을 개선하는 데 도움을 줍니다. Azure Portal에서는 이러한 앱에 대한 SSO(Single Sign-On)을 설정할 수도 있습니다. 사용자는 Azure AD만으로 인증해야 하며, 다시 로그인할 필요 없이 엔터프라이즈 애플리케이션에 액세스할 수 있습니다.
+Azure Active Directory 애플리케이션 프록시는 원격 직원들이 안전하게 액세스할 수 있도록 온-프레미스 애플리케이션을 게시하여 생산성을 개선하는 데 도움을 줍니다. Azure Portal에서는 이러한 앱에 대한 SSO(Single Sign-On)을 설정할 수도 있습니다. 사용자는 Azure AD만으로 인증해야 하며, 다시 로그인할 필요 없이 엔터프라이즈 애플리케이션에 액세스할 수 있습니다.
 
 애플리케이션 프록시에서는 여러 [Single Sign-On 모드](what-is-single-sign-on.md#choosing-a-single-sign-on-method)를 지원합니다. 암호 기반 로그인은 인증에 사용자 이름/암호 조합을 사용하는 애플리케이션을 위한 것입니다. 애플리케이션에 대한 암호 기반 로그인을 구성하는 경우 사용자는 온-프레미스 애플리케이션에 한 번 로그인해야 합니다. 그런 다음 Azure Active Directory에서 로그인 정보를 저장하고 사용자가 원격으로 액세스할 때 애플리케이션에 자동으로 제공합니다. 
 
-이미 응용 프로그램 프록시를 사용하여 앱을 게시하고 테스트했을 것입니다. 그렇지 않은 경우 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](application-proxy-add-on-premises-application.md)의 단계를 수행한 다음 여기로 다시 돌아옵니다. 
+이미 애플리케이션 프록시를 사용하여 앱을 게시하고 테스트했을 것입니다. 그렇지 않은 경우 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](application-proxy-add-on-premises-application.md)의 단계를 수행한 다음 여기로 다시 돌아옵니다. 
 
 ## <a name="set-up-password-vaulting-for-your-application"></a>애플리케이션에 대한 암호 보관 설정
 

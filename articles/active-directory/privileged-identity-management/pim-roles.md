@@ -27,7 +27,7 @@ ms.locfileid: "52841577"
 
 전역 관리자는 [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)에 설명된 대로 포털을 통해 또는 [PowerShell 명령](/powershell/module/azuread#directory_roles)을 사용하여 Azure AD에서 역할에 **영구적으로** 할당된 사용자를 업데이트할 수 있습니다.
 
-Azure AD Privileged Identity Management(PIM)는 Azure AD에서 사용자에 대한 권한 있는 액세스의 정책을 관리합니다. PIM은 Azure AD에서 사용자에게 하나 이상의 역할을 할당하고, 다른 사용자를 역할에 영구적으로 할당하거나 또는 역할에 대해 적격이 되도록 할당할 수 있습니다. 사용자가 역할에 영구적으로 할당되거나 적격 역할 할당을 활성화하는 경우 해당 역할에 할당된 권한으로 Azure Active Directory, Office 365 및 기타 응용 프로그램을 관리할 수 있습니다.
+Azure AD Privileged Identity Management(PIM)는 Azure AD에서 사용자에 대한 권한 있는 액세스의 정책을 관리합니다. PIM은 Azure AD에서 사용자에게 하나 이상의 역할을 할당하고, 다른 사용자를 역할에 영구적으로 할당하거나 또는 역할에 대해 적격이 되도록 할당할 수 있습니다. 사용자가 역할에 영구적으로 할당되거나 적격 역할 할당을 활성화하는 경우 해당 역할에 할당된 권한으로 Azure Active Directory, Office 365 및 기타 애플리케이션을 관리할 수 있습니다.
 
 영구 및 적격 역할 할당을 비교했을 때 이 둘을 통해 다른 사람에게 주어진 액세스에는 차이가 없습니다. 유일한 차이는 사람들이 그 액세스를 항상 필요로 하지 않는다는 점입니다. 그런 사람들은 역할에 대해 적격이 되도록 하며, 언제라도 필요할 때 켜고 끄도록 할 수 있습니다.
 
@@ -67,7 +67,7 @@ PIM에서는 사용자가 [필요할 때 역할을 활성화](pim-how-to-add-rol
 
 
 ## <a name="user-roles-and-signing-in"></a>사용자 역할 및 로그인
-일부 Microsoft 서비스 및 응용 프로그램의 경우 사용자를 역할에 할당하는 방법만으로 사용자를 관리자로 지정하지 못할 수 있습니다.
+일부 Microsoft 서비스 및 애플리케이션의 경우 사용자를 역할에 할당하는 방법만으로 사용자를 관리자로 지정하지 못할 수 있습니다.
 
 Azure Portal에 액세스하려면 사용자가 Azure 구독을 관리할 필요가 없더라도 Azure 구독의 소유자여야 합니다.  예를 들어 Azure AD의 구성 설정을 관리하려면 사용자는 Azure AD의 글로벌 관리자인 동시에 Azure 구독의 소유자여야 합니다.  Azure 구독에 사용자를 추가하는 방법을 알아보려면 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../..//role-based-access-control/role-assignments-portal.md)를 참조하세요.
 

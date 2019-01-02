@@ -31,7 +31,7 @@ Datadog은 Azure 컨테이너 서비스 클러스터 내의 컨테이너에서 �
 ![Datadog UI](./media/container-service-monitoring/datadog4.png)
 
 ## <a name="configure-a-datadog-deployment-with-marathon"></a>Marathon으로 Datadog 배포 구성
-이러한 단계는 Marathon으로 클러스터에 Datadog 응용 프로그램을 배포 및 구성하는 방법을 보여줍니다. 
+이러한 단계는 Marathon으로 클러스터에 Datadog 애플리케이션을 배포 및 구성하는 방법을 보여줍니다. 
 
 [http://localhost:80/](http://localhost:80/)을 통해 DC/OS UI에 액세스합니다. DC/OS UI에 들어가면 왼쪽 아래에 있는 "Universe"로 이동한 다음 "Datadog"를 검색하고 "설치"를 클릭합니다.
 

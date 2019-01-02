@@ -136,7 +136,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이 앱을 배포하려면 Azure에서 새 웹앱을 만들고 이 GitHub 리포지토리의 포크로 지속적인 배포를 사용하도록 설정할 수 있습니다. 이 [자습서](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment)에 따라 Azure에서 GitHub를 사용하여 지속적인 배포를 설정합니다.
 
-Azure에 배포할 때 응용 프로그램 키를 제거하고 아래 섹션이 주석 처리되어 있지 않은지 확인해야 합니다.
+Azure에 배포할 때 애플리케이션 키를 제거하고 아래 섹션이 주석 처리되어 있지 않은지 확인해야 합니다.
 
 ```python
     client = MongoClient(os.getenv("MONGOURL"))
@@ -144,16 +144,16 @@ Azure에 배포할 때 응용 프로그램 키를 제거하고 아래 섹션이 
     db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
-그런 다음 MONGOURL, MONGO_PASSWORD 및 MONGO_USERNAME을 응용 프로그램 설정에 추가해야 합니다. Azure Web Apps의 응용 프로그램 설정에 대한 자세한 내용은 이 [자습서](https://docs.microsoft.com/azure/app-service-web/web-sites-configure#application-settings)를 참조하세요.
+그런 다음, MONGOURL, MONGO_PASSWORD 및 MONGO_USERNAME을 애플리케이션 설정에 추가해야 합니다. Azure Web Apps의 애플리케이션 설정에 대한 자세한 내용은 이 [자습서](https://docs.microsoft.com/azure/app-service-web/web-sites-configure#application-settings)를 참조하세요.
 
-이 리포지토리의 포크를 만들지 않으려면 아래의 [Azure에 배포] 단추를 클릭할 수도 있습니다. 그런 다음 Azure로 이동하고 Cosmos DB 계정 정보를 사용하여 응용 프로그램 설정을 지정해야 합니다.
+이 리포지토리의 포크를 만들지 않으려면 아래의 [Azure에 배포] 단추를 클릭할 수도 있습니다. 그런 다음, Azure로 이동하고 Cosmos DB 계정 정보를 사용하여 애플리케이션 설정을 지정해야 합니다.
 
 <a href="https://deploy.azure.com/?repository=https://github.com/heatherbshapiro/To-Do-List---Flask-MongoDB-Example" target="_blank">
 <img src="https://azuredeploy.net/deploybutton.png" alt="Click to Deploy to Azure">
 </a>
 
 > [!NOTE]
-> GitHub 또는 다른 원본 제어 옵션에 코드를 저장하려면 코드에서 연결 문자열을 제거합니다. 대신 웹앱에 대한 응용 프로그램 설정을 사용하여 지정할 수 있습니다.
+> GitHub 또는 다른 원본 제어 옵션에 코드를 저장하려면 코드에서 연결 문자열을 제거합니다. 대신 웹앱에 대한 애플리케이션 설정을 사용하여 지정할 수 있습니다.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 

@@ -79,7 +79,7 @@ const string searchTerm = "Microsoft Cognitive Services";
 
 ## <a name="declare-the-main-method"></a>Main 메서드 선언
 
-`Main()`은 필수이며, 프로그램 시작 시 호출되는 첫 번째 메서드입니다. 이 응용 프로그램에서 main 메서드는 `accessKey`의 유효성을 검사하고, 요청하고, 응답을 출력합니다.
+`Main()`은 필수이며, 프로그램 시작 시 호출되는 첫 번째 메서드입니다. 이 애플리케이션에서 main 메서드는 `accessKey`의 유효성을 검사하고, 요청하고, 응답을 출력합니다.
 
 `main()`은 다음 몇 개의 섹션에서 만드는 메서드에 따라 달라집니다.
 

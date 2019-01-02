@@ -75,9 +75,9 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
     ![LocalForwarder.log 파일의 스크린샷](./media/opencensus-local-forwarder/003-log-file.png)
 
-#### <a name="console-application"></a>콘솔 응용 프로그램
+#### <a name="console-application"></a>콘솔 애플리케이션
 
-특정 사용 사례의 경우 로컬 전달자를 콘솔 응용 프로그램으로 실행하는 것이 유익할 수 있습니다. 릴리스는 콘솔 호스트의 다음 실행 버전으로 제공됩니다.
+특정 사용 사례의 경우 로컬 전달자를 콘솔 애플리케이션으로 실행하는 것이 유익할 수 있습니다. 릴리스는 콘솔 호스트의 다음 실행 버전으로 제공됩니다.
 * 프레임워크 종속 .NET Core 이진 */ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll*. 이 이진을 실행하려면 .NET Core 런타임을 설치해야 합니다. 자세한 내용은 이 다운로드 [페이지](https://www.microsoft.com/net/download/dotnet-core/2.1)를 참조하세요.
 ```batchfile
 E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
@@ -152,7 +152,7 @@ systemctl start localforwarder
 macOS에서는 로컬 전달자가 작동할 수는 있지만 현재 공식적으로 지원되는 것은 아닙니다.
 
 ### <a name="self-hosting"></a>자체 호스팅
-또한 로컬 전달자는 .NET 응용 프로그램 자체 내에서 호스트할 수 있도록 .NET Standard NuGet 패키지로 분산됩니다.
+또한 로컬 전달자는 .NET 애플리케이션 자체 내에서 호스트할 수 있도록 .NET Standard NuGet 패키지로 분산됩니다.
 
 ```C#
 using Library;

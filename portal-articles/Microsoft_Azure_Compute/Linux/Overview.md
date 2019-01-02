@@ -50,7 +50,7 @@ Azure에서 Linux VM을 배포하고 관리하며 확장하는 방법에 대해 
 
 ## <a name="samples"></a>샘플 
 
-Azure에 첫 번째 응용 프로그램을 배포합니다.
+Azure에 첫 번째 애플리케이션을 배포합니다.
 
 - [Azure CLI](/azure/virtual-machines/virtual-machines-linux-cli-samples)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-linux-powershell-samples)

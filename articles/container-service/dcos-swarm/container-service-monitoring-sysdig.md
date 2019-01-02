@@ -31,7 +31,7 @@ Sysdig은 클러스터 내에서 컨테이너를 모니터링할 수 있는 모�
 ![Sysdig UI](./media/container-service-monitoring-sysdig/sysdig6.png) 
 
 ## <a name="configure-a-sysdig-deployment-with-marathon"></a>Marathon으로 Sysdig 배포 구성
-이러한 단계는 Marathon으로 클러스터에 Sysdig 응용 프로그램을 배포 및 구성하는 방법을 보여줍니다. 
+이러한 단계는 Marathon으로 클러스터에 Sysdig 애플리케이션을 배포 및 구성하는 방법을 보여줍니다. 
 
 [http://localhost:80/](http://localhost:80/)을 통해 DC/OS UI에 액세스 DC/OS UI에 들어가면 왼쪽 아래에 있는 "Universe"로 이동한 다음, "Sysdig"를 검색합니다.
 

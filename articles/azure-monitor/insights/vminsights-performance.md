@@ -1,6 +1,6 @@
 ---
 title: VM용 Azure Monitor(미리 보기)를 사용하여 성능을 차트로 표시하는 방법 | Microsoft Docs
-description: 성능은 Windows 및 Linux 시스템의 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 VM의 Azure Monitor 기능입니다. 이 문서에서는 다양한 시나리오에서 이 기능을 사용하는 방법에 대해 자세하게 설명합니다.
+description: 성능은 Windows 및 Linux 시스템의 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 VM의 Azure Monitor 기능입니다. 이 문서에서는 다양한 시나리오에서 이 기능을 사용하는 방법에 대해 자세하게 설명합니다.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -110,4 +110,4 @@ VM에 대한 Azure Monitor의 일부로 사용하도록 설정된 성능 메트�
 이러한 추가 메트릭 및 경고 규칙의 컬렉션을 구성하기 전에 기본적인 차이점 및 기타 고려 사항을 자세히 이해하려면 [Azure Monitor를 사용하여 메트릭 및 로그의 컬렉션](../../azure-monitor/platform/data-collection.md?toc=/azure/azure-monitor/toc.json)의 개요를 검토하세요.  
 
 ## <a name="next-steps"></a>다음 단계
-상태 기능을 사용하는 방법을 알아보려면 [VM용 Azure Monitor 상태 보기](vminsights-health.md)를 참조하고, 검색된 응용 프로그램 종속성을 보려면 [VM 맵에 대한 Azure Monitor 보기](vminsights-maps.md)를 참조하세요. 
+상태 기능을 사용하는 방법을 알아보려면 [VM용 Azure Monitor 상태 보기](vminsights-health.md)를 참조하고, 검색된 애플리케이션 종속성을 보려면 [VM 맵에 대한 Azure Monitor 보기](vminsights-maps.md)를 참조하세요. 

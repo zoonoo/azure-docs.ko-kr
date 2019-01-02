@@ -91,7 +91,7 @@ Security Center에서는 Security Center 표준 계층이 적용되지 않은 �
 
 ## <a name="advanced-cloud-defense"></a>고급 클라우드 방어
 
-Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 수 있습니다. 이러한 기능에는 JIT(Just-In-Time) VM(가상 머신) 액세스 및 적응형 응용 프로그램 컨트롤이 포함됩니다.
+Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 수 있습니다. 이러한 기능에는 JIT(Just-In-Time) VM(가상 머신) 액세스 및 적응형 애플리케이션 제어가 포함됩니다.
 
 다음 리소스를 사용하여 Security Center에서 이러한 기능을 사용하는 방법을 알아봅니다.
 

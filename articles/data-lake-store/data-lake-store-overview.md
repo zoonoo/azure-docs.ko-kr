@@ -35,7 +35,7 @@ Data Lake Storage Gen1은 WebHDFS 호환 REST API를 사용하여 Hadoop(HDInsig
 Data Lake Storage Gen1의 주요 기능 중 일부는 다음과 같습니다.
 
 ### <a name="built-for-hadoop"></a>Hadoop용으로 작성
-Data Lake Storage Gen1은 HDFS(Hadoop 분산 파일 시스템)와 호환되는 Apache Hadoop 파일 시스템이며 Hadoop 에코시스템과 함께 작동됩니다.  WebHDFS API를 사용하는 기존 HDInsight 응용 프로그램 또는 서비스는 Data Lake Storage Gen1과 쉽게 통합할 수 있습니다. Data Lake Storage Gen1은 또한 응용 프로그램에 대한 WebHDFS 호환 REST 인터페이스를 노출합니다.
+Data Lake Storage Gen1은 HDFS(Hadoop 분산 파일 시스템)와 호환되는 Apache Hadoop 파일 시스템이며 Hadoop 에코시스템과 함께 작동됩니다.  WebHDFS API를 사용하는 기존 HDInsight 애플리케이션 또는 서비스는 Data Lake Storage Gen1과 쉽게 통합할 수 있습니다. Data Lake Storage Gen1은 또한 애플리케이션에 대한 WebHDFS 호환 REST 인터페이스를 노출합니다.
 
 Data Lake Storage Gen1에 저장된 데이터는 MapReduce 또는 Hive와 같은 Hadoop 분석 프레임워크를 사용하여 쉽게 분석될 수 있습니다. Microsoft Azure HDInsight 클러스터는 Data Lake Storage Gen1에 저장된 데이터에 직접 액세스하도록 프로비전되고 구성될 수 있습니다.
 
@@ -60,7 +60,7 @@ Data Lake Storage Gen1은 인증 및 ACL(액세스 제어 목록)을 위해 Azur
 
 | 기능 | 설명 |
 | --- | --- |
-| 인증 |Data Lake Storage Gen1은 Data Lake Storage Gen1에 저장된 모든 데이터에 대한 ID 및 액세스 관리를 위해 Azure Active Directory(AAD)와 통합합니다. 통합의 결과로 Data Lake Storage Gen1은 다단계 인증, 조건부 액세스, 역할 기반 액세스 제어, 응용 프로그램 사용 모니터링, 보안 모니터링 및 경고 등을 포함한 모든 AAD 기능의 이점을 얻습니다. Data Lake Storage Gen1은 REST 인터페이스에서 인증을 위한 OAuth 2.0 프로토콜을 지원합니다. [Data Lake Storage Gen1 인증](data-lakes-store-authentication-using-azure-active-directory.md)을 참조하세요.|
+| 인증 |Data Lake Storage Gen1은 Data Lake Storage Gen1에 저장된 모든 데이터에 대한 ID 및 액세스 관리를 위해 Azure Active Directory(AAD)와 통합합니다. 통합의 결과로 Data Lake Storage Gen1은 다단계 인증, 조건부 액세스, 역할 기반 액세스 제어, 애플리케이션 사용 모니터링, 보안 모니터링 및 경고 등을 포함한 모든 AAD 기능의 이점을 얻습니다. Data Lake Storage Gen1은 REST 인터페이스에서 인증을 위한 OAuth 2.0 프로토콜을 지원합니다. [Data Lake Storage Gen1 인증](data-lakes-store-authentication-using-azure-active-directory.md)을 참조하세요.|
 | Access Control |Data Lake Storage Gen1은 WebHDFS 프로토콜에 의해 노출되는 POSIX 스타일 권한을 지원하여 액세스 제어를 제공합니다. ACL은 루트 폴더, 하위 폴더 및 개별 파일에서도 사용할 수 있습니다. Data Lake Storage Gen1의 컨텍스트에서 ACL 작동 방법에 대한 자세한 내용은 [Data Lake Storage Gen1의 액세스 제어](data-lake-store-access-control.md)를 참조하세요. |
 | 암호화 |또한 Data Lake Storage Gen1은 계정에 저장된 데이터에 대한 암호화를 제공합니다. Data Lake Storage Gen1 계정을 만드는 동안 암호화 설정을 지정합니다. 암호화된 데이터 또는 암호화 없음을 선택할 수 있습니다. 자세한 내용은 [Data Lake Storage Gen1의 암호화](data-lake-store-encryption.md)를 참조하세요. 암호화 관련 구성을 제공하는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요. |
 
@@ -69,10 +69,10 @@ Data Lake Storage Gen1의 데이터를 보호하는 방법에 대해 자세히 �
 * Data Lake Storage Gen1의 데이터 보안 방법에 대한 지침은 [Azure Data Lake Storage Gen1의 데이터 보안](data-lake-store-secure-data.md)을 참조하세요.
 * 비디오를 선호하십니까? Data Lake Storage Gen1에 저장된 데이터를 보호하는 방법을 알려주는 [이 비디오를 참고하세요](https://mix.office.com/watch/1q2mgzh9nn5lx).
 
-## <a name="applications-compatible-with-data-lake-storage-gen1"></a>Data Lake Storage Gen1과 호환되는 응용 프로그램
+## <a name="applications-compatible-with-data-lake-storage-gen1"></a>Data Lake Storage Gen1과 호환되는 애플리케이션
 Data Lake Storage Gen1은 Hadoop 에코시스템의 오픈 소스 구성 요소 대부분과 호환됩니다. 또한 다른 Azure 서비스와 원활하게 통합됩니다. 따라서 Data Lake Storage Gen1은 데이터 저장소 요구 사항에 맞는 완벽한 옵션입니다. 다른 Azure 서비스뿐만 아니라 오픈 소스 구성 요소와 함께 Data Lake Storage Gen1을 사용할 수 있는 방법을 자세히 알아보려면 아래 링크를 따라갑니다.
 
-* Data Lake Storage Gen1과 상호 운용 가능한 오픈 소스 응용 프로그램 목록은 [Azure Data Lake Storage Gen1과 호환되는 응용 프로그램 및 서비스](data-lake-store-compatible-oss-other-applications.md)를 참조하세요.
+* Data Lake Storage Gen1과 상호 운용 가능한 오픈 소스 애플리케이션 목록은 [Azure Data Lake Storage Gen1과 호환되는 애플리케이션 및 서비스](data-lake-store-compatible-oss-other-applications.md)를 참조하세요.
 * Data Lake Storage Gen1을 다른 Azure 서비스와 사용하여 광범위한 시나리오를 활성화할 방법을 이해하려면 [다른 Azure 서비스와 통합](data-lake-store-integrate-with-other-services.md)을 참조하세요.
 * [Data Lake Storage Gen1을 사용하는 시나리오](data-lake-store-data-scenarios.md)를 참조하여 데이터 수집, 데이터 처리, 데이터 다운로드 및 데이터 시각화와 같은 시나리오에서 Data Lake Storage Gen1을 사용하는 방법을 알아봅니다.
 

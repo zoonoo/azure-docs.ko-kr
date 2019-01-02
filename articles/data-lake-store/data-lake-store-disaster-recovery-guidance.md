@@ -34,7 +34,7 @@ Azure Data Lake Storage Gen1에서는 LRS(로컬 중복 저장소)를 제공합�
 지역 가동 중단이 발생하는 경우 데이터가 복사된 지역에 있는 데이터에 액세스할 수 있습니다. [Azure 서비스 상태 대시보드](https://azure.microsoft.com/status/)를 모니터링하여 전세계의 Azure 서비스 상태를 확인할 수 있습니다.
 
 ## <a name="data-corruption-or-accidental-deletion-recovery-guidance"></a>데이터 손상 또는 삭제 실수 복구 지침
-Data Lake Storage Gen1에서 자동화된 복제본을 통해 데이터 복원 기능을 제공하기는 하지만, 응용 프로그램이나 개발자/사용자가 데이터를 손상시키거나 실제로 삭제하는 행위를 방지할 수는 없습니다.
+Data Lake Storage Gen1에서 자동화된 복제본을 통해 데이터 복원 기능을 제공하기는 하지만, 애플리케이션이나 개발자/사용자가 데이터를 손상시키거나 실제로 삭제하는 행위를 방지할 수는 없습니다.
 
 ### <a name="best-practices"></a>모범 사례
 실수로 데이터를 삭제하지 않으려면 먼저 Data Lake Storage Gen1 계정에 대해 올바른 액세스 정책을 설정하는 것이 좋습니다.  이 과정에서는 [Azure 리소스 잠금](../azure-resource-manager/resource-group-lock-resources.md)을 적용하여 중요한 리소스를 잠그고, 사용 가능한 [Data Lake Storage Gen1 보안 기능](data-lake-store-security-overview.md)을 통해 계정 및 파일 수준 액세스 제어를 적용합니다. 그리고 다른 Data Lake Storage Gen1 계정, 폴더 또는 Azure 구독에서 [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) 또는 [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)를 사용하여 중요한 데이터의 복사본을 정기적으로 만드는 것이 좋습니다.  데이터 손상 또는 삭제 인시던트로부터 복구하는 데 사용할 수 있습니다. Azure Data Factory는 반복적으로 데이터 이동 파이프라인을 만들고 배포하기 위한 유용한 서비스입니다.

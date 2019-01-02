@@ -1,7 +1,7 @@
 ---
 title: Visual Studio의 연결된 서비스 및 C#을 사용하여 Bing News Search API에 연결
 titleSuffix: Azure Cognitive Services
-description: ASP.NET Core 웹 응용 프로그램에서 Bing News Search에 연결합니다.
+description: ASP.NET Core 웹 애플리케이션에서 Bing News Search에 연결합니다.
 services: cognitive-services
 author: ghogen
 manager: cgronlun
@@ -32,7 +32,7 @@ Bing News Search를 사용하여 앱 및 서비스가 웹까지 적용되는 광
 
 ## <a name="add-support-to-your-project-for-bing-news-search-api"></a>프로젝트에 Bing News Search API에 대한 지원 추가
 
-1. MyWebApplication이라는 새 ASP.NET Core 웹 프로젝트를 만듭니다. 모든 기본 설정을 사용하여 **웹 응용 프로그램(Model-View-Controller)** 프로젝트 템플릿을 사용합니다. 프로젝트에 코드를 복사할 때 네임스페이스가 일치하도록 프로젝트 이름을 MyWebApplication으로 지정하는 것이 중요합니다. 
+1. MyWebApplication이라는 새 ASP.NET Core 웹 프로젝트를 만듭니다. 모든 기본 설정을 사용하여 **웹 애플리케이션(Model-View-Controller)** 프로젝트 템플릿을 사용합니다. 프로젝트에 코드를 복사할 때 네임스페이스가 일치하도록 프로젝트 이름을 MyWebApplication으로 지정하는 것이 중요합니다. 
 
 1. **솔루션 탐색기**에서 **추가** > **연결된 서비스**를 선택합니다.
    연결된 서비스 페이지가 프로젝트에 추가할 수 있는 서비스와 함께 표시됩니다.
@@ -254,7 +254,7 @@ Bing News Search를 사용하여 앱 및 서비스가 웹까지 적용되는 광
     </div>
     ```
 
-1. 로컬에서 웹 응용 프로그램을 시작하고 방금 만든 페이지의 URL(IntelligentSearch/BingSearchResult)을 입력한 후 검색 단추를 사용하여 검색 요청을 게시합니다.
+1. 로컬에서 웹 애플리케이션을 시작하고 방금 만든 페이지의 URL(IntelligentSearch/BingSearchResult)을 입력한 후 검색 단추를 사용하여 검색 요청을 게시합니다.
 
    ![Bing News Search 결과 스크린샷](media/vs-bing-news-search-connected-service/Cog-News-Search-Results.PNG)
            

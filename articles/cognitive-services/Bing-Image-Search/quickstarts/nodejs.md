@@ -21,9 +21,9 @@ ms.locfileid: "53251167"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-nodejs"></a>빠른 시작: Bing Image Search REST API 및 Node.js를 사용하여 이미지 검색
 
-이 빠른 시작을 사용하여 Bing Image Search API를 처음 호출하고 JSON 응답을 받습니다. 이 간단한 JavaScript 응용 프로그램은 검색 쿼리를 API에 보내고 원시 결과를 표시합니다.
+이 빠른 시작을 사용하여 Bing Image Search API를 처음 호출하고 JSON 응답을 받습니다. 이 간단한 JavaScript 애플리케이션은 검색 쿼리를 API에 보내고 원시 결과를 표시합니다.
 
-이 응용 프로그램은 JavaScript에서 작성되고 Node.js에서 실행되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
+이 애플리케이션은 JavaScript에서 작성되고 Node.js에서 실행되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
 이 샘플에 대한 소스 코드는 추가 오류 처리 및 코드 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js)에서 사용할 수 있습니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "53251167"
 
 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
-## <a name="create-and-initialize-the-application"></a>응용 프로그램 만들기 및 초기화
+## <a name="create-and-initialize-the-application"></a>애플리케이션 만들기 및 초기화
 
 1. 즐겨 찾는 IDE 또는 편집기에서 새 JavaScript 파일을 만들고 엄격성 및 HTTPS 요구 사항을 설정합니다.
 

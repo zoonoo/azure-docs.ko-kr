@@ -29,7 +29,7 @@ items:
   expanded: true
 - name: 자습서
   items:
-  - name: 1 - AKS를 위한 응용 프로그램 준비
+  - name: 1 - AKS를 위한 애플리케이션 준비
     href: tutorial-kubernetes-prepare-app.md
   - name: 2 - 컨테이너 레지스트리 만들기
     href: tutorial-kubernetes-prepare-acr.md
@@ -145,7 +145,7 @@ items:
       items:
       - name: 기본 컨트롤러 만들기
         href: ingress-basic.md
-      - name: HTTP 응용 프로그램 라우팅 사용
+      - name: HTTP 애플리케이션 라우팅 사용
         href: http-application-routing.md
       - name: 내부 네트워크 사용
         href: ingress-internal-ip.md
@@ -211,9 +211,9 @@ items:
           href: ../dev-spaces/team-development-nodejs.md
           maintainContext: true
       maintainContext: true
-    - name: Helm을 사용하여 응용 프로그램 실행
+    - name: Helm을 사용하여 애플리케이션 실행
       href: kubernetes-helm.md
-    - name: Draft를 사용하여 응용 프로그램 개발
+    - name: Draft를 사용하여 애플리케이션 개발
       href: kubernetes-draft.md
     - name: Open Service Broker for Azure 사용
       href: integrate-azure.md

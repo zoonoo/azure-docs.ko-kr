@@ -22,7 +22,7 @@ ms.locfileid: "53250419"
 
 이 아티클은 Azure의 Microsoft Cognitive Services 일부인 Bing Search API를 사용하는 방법을 보여줍니다. 이 문서에서는 C#을 사용하지만 API는 RESTful 웹 서비스로, HTTP 요청을 수행하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다. 
 
-예제 코드는 최소 외부 종속성을 사용하여 C#에서 .NET Core 응용 프로그램으로 작성되었으므로, Mono를 사용하여 Linux 또는 Mac OS X 에서 실행할 수도 있습니다.
+예제 코드는 최소 외부 종속성을 사용하여 C#에서 .NET Core 애플리케이션으로 작성되었으므로, Mono를 사용하여 Linux 또는 Mac OS X 에서 실행할 수도 있습니다.
 
 API에 대한 기술 정보는 [API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)를 참조하세요.
 

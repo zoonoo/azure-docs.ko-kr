@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB NoSQL 마이그레이션 및 응용 프로그램 개발 파트너
+title: Azure Cosmos DB NoSQL 마이그레이션 및 애플리케이션 개발 파트너
 description: Azure Cosmos DB를 지원하는 마이그레이션 솔루션이 있는 Microsoft 파트너를 나열합니다.
 services: cosmos-db
 author: SnehaGunda
@@ -14,9 +14,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/08/2018
 ms.locfileid: "53082413"
 ---
-# <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL 마이그레이션 및 응용 프로그램 개발 파트너
+# <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL 마이그레이션 및 애플리케이션 개발 파트너
 
-NoSQL 마이그레이션에서 응용 프로그램 개발에 이르기까지 다양한 숙련된 시스템 통합자 파트너 및 도구에서 선택하여 Azure Cosmos DB 솔루션을 지원할 수 있습니다. 
+NoSQL 마이그레이션에서 애플리케이션 개발에 이르기까지 다양한 숙련된 시스템 통합자 파트너 및 도구에서 선택하여 Azure Cosmos DB 솔루션을 지원할 수 있습니다. 
 
 ## <a name="migration-tools"></a>마이그레이션 도구
 

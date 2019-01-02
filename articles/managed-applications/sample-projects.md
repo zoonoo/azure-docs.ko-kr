@@ -27,7 +27,7 @@ ms.locfileid: "26753063"
 |  |  |
 | --- | --- |
 | **예** | |
-| [새 또는 기존 가상 네트워크로 관리되는 응용 프로그램(평가판 또는 프로덕션)](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-app-using-existing-vnet) | 고객에 대한 유연한 배포 옵션을 만드는 방법을 보여 줍니다. 이 관리되는 애플리케이션은 새 가상 네트워크 또는 기존 가상 네트워크에 배포될 수 있습니다. 고객은 관리되는 응용 프로그램의 평가판 또는 프로덕션 버전을 지정할 수 있습니다. |
+| [새 또는 기존 가상 네트워크로 관리되는 응용 프로그램(평가판 또는 프로덕션)](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-app-using-existing-vnet) | 고객에 대한 유연한 배포 옵션을 만드는 방법을 보여 줍니다. 이 관리되는 애플리케이션은 새 가상 네트워크 또는 기존 가상 네트워크에 배포될 수 있습니다. 고객은 관리되는 애플리케이션의 평가판 또는 프로덕션 버전을 지정할 수 있습니다. |
 | [관리되는 Azure Storage 계정](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-storage-account) | 단일 저장소 계정을 배포합니다. 이 샘플 프로젝트는 관리되는 애플리케이션 만들기를 소개합니다. |
 | [Azure Management Services를 통해 관리되는 Service Fabric](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-service-fabric) | Service Fabric 클러스터 및 가상 머신 확장 집합을 배포합니다. 로깅 및 진단을 위한 저장소 계정을 포함합니다. |
 | [Azure Management Services를 통해 관리되는 웹 응용 프로그램(IaaS)](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-web-app) | 웹 애플리케이션을 호스팅하는 가상 머신을 배포합니다. |

@@ -70,11 +70,11 @@ ms.locfileid: "51260553"
 - [Batch AI](https://github.com/Azure/BatchAI) Python SDK 및 Azure CLI
     - [Batch AI Recipes README](https://github.com/Azure/BatchAI/tree/master/recipes)의 다음 섹션을 완료합니다.
         - "필수 구성 요소"
-        - "AAD(Azure Active Directory) 응용 프로그램 만들기 및 가져오기"
+        - "AAD(Azure Active Directory) 애플리케이션 만들기 및 가져오기"
         - “등록된 BatchAI 리소스 공급자”(“Azure CLI로 레시피 실행” 아래)
         - "Azure Batch AI 관리 클라이언트 설치"
         - "Azure Python SDK 설치"
-    - 만들도록 지시받은 Azure Active Directory 응용 프로그램의 클라이언트 ID, 비밀 및 테넌트 ID를 기록합니다. 이 자격 증명은 이 자습서의 뒷부분에서 사용합니다.
+    - 만들도록 지시받은 Azure Active Directory 애플리케이션의 클라이언트 ID, 비밀 및 테넌트 ID를 기록합니다. 이 자격 증명은 이 자습서의 뒷부분에서 사용합니다.
     - 이 문서를 작성하는 시점에서 Azure Machine Learning Workbench 및 Azure Batch AI는 별도의 Azure CLI 포크를 사용했습니다. 명확한 구분을 위해 Workbench의 CLI 버전을 “Azure Machine Learning Workbench에서 시작한 CLI”로, 일반 릴리스 버전(Batch AI 포함)을 “Azure CLI”로 지칭하겠습니다.
 - [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), Azure 저장소 계정 간의 파일 전송을 조정하기 위한 유틸리티
     - AzCopy 실행 파일이 있는 폴더가 시스템의 PATH 환경 변수에 있는지 확인합니다. (사용할 수 있는 환경 변수를 수정하기 위한 지침은 [여기](https://support.microsoft.com/help/310519/how-to-manage-environment-variables-in-windows-xp)에서 확인할 수 있습니다.)
