@@ -3,23 +3,22 @@ title: Azure Stack에 대 한 서비스 주체 만들기 | Microsoft Docs
 description: 리소스에 대 한 액세스를 관리 하려면 Azure Resource Manager에서 역할 기반 액세스 제어를 사용 하 여 사용할 수 있는 서비스 주체를 만드는 방법을 설명 합니다.
 services: azure-resource-manager
 documentationcenter: na
-author: sethmanheim
+author: mattbriggs
 manager: femila
-ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
-ms.author: sethm
+ms.date: 12/12/2018
+ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: a32327109bc71a41f871682936c5f27ed490975c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 4c205055239b7bf16bbb73448c21818de419e623
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958317"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715834"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>응용 프로그램 리소스 액세스 권한을 부여 Azure Stack에서 서비스 주체 만들기
 
@@ -52,7 +51,7 @@ Azure Stack에 대 한 Active Directory를 구성 하는 방법은 서비스 주
 
 단계에 할당 하기 위한 서비스 사용자 역할을 동일한 azure AD 및 AD FS 합니다. 서비스 주체를 만들 수 있습니다 [권한을 위임할](azure-stack-create-service-principals.md#assign-role-to-service-principal) 역할에 할당 하 여 합니다.
 
-## <a name="create-a-service-principal-for-azure-ad"></a>Azure AD에 대 한 서비스 주체 만들기
+## <a name="create-service-principal-for-azure-ad"></a>Azure AD에 대 한 서비스 주체 만들기
 
 Azure Stack에 Azure AD를 사용 하 여 id 저장소로, 하는 경우 서비스를 Azure portal을 사용 하 여 Azure에서와 같이 동일한 단계를 사용 하 여 주 만들 수 있습니다.
 
@@ -95,7 +94,7 @@ AD FS를 사용 하 여 id 저장소로 Azure Stack을 배포한 경우에 다�
 * 역할에 서비스 주체를 할당 합니다.
 * 서비스 주체의 id를 사용 하 여 로그인 합니다.
 
-서비스 주체를 만드는 방법에 대 한 세부 정보를 참조 하세요 [AD FS에 대 한 서비스 주체 만들기](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs)합니다.
+서비스 주체를 만드는 방법에 대 한 세부 정보를 참조 하세요 [AD FS에 대 한 서비스 주체 만들기](../azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs)합니다.
 
 ## <a name="assign-the-service-principal-to-a-role"></a>서비스 주체를 역할 할당
 
@@ -114,9 +113,7 @@ AD FS를 사용 하 여 id 저장소로 Azure Stack을 배포한 경우에 다�
 
 3. 선택 **액세스 제어 (IAM)** 구독에 대 한 합니다.
 
-     ![액세스 제어를 선택 합니다.](./media/azure-stack-create-service-principal/image17.png)
-
-4. **추가**를 선택합니다.
+4. **역할 할당 추가**를 선택합니다.
 
 5. 애플리케이션에 할당할 역할을 선택합니다.
 

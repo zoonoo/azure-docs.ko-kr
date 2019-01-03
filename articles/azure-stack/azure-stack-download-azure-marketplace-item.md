@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2018
+ms.date: 12/10/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: ec73083d1bb66e7c7735a2bee8e89eeb56cf7620
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 70bbade2877b62c3d211600f69e1825677f12040
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282501"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721872"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure에서 Azure Stack marketplace 항목 다운로드
 
@@ -90,6 +90,8 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
 
 - 마켓플레이스 배포 도구는 첫 번째 절차 중에 다운로드 됩니다. 
 
+- 설치할 수 있습니다 [AzCopy](../storage/common/storage-use-azcopy.md) 최적의 다운로드 성능은 되지만이 필요 하지 않습니다.
+
 ### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>마켓플레이스 배포 도구를 사용 하 여 marketplace 항목 다운로드
 
 1. 인터넷에 연결 된 컴퓨터에서 관리자 권한으로 PowerShell 콘솔을 엽니다.
@@ -126,10 +128,7 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
    ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
-   Sync-AzSOfflineMarketplaceItem 
-      -Destination "Destination folder path in quotes" `
-      -AzureTenantID $AzureContext.Tenant.TenantId ` 
-      -AzureSubscriptionId $AzureContext.Subscription.Id 
+   Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" 
    ```
 
 6. 도구를 실행 하는 경우 다음 이미지에서는 사용할 수 있는 marketplace 항목 목록 사용 하 여 비슷한 화면이 표시 됩니다.
@@ -144,7 +143,35 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
 
 9. 다운로드 하는 경우 항목의 크기에 따라 달라 집니다. 다운로드가 완료 되 면 항목을 스크립트에 지정 된 폴더에서 제공 됩니다. 다운로드는 VHD 파일 (가상 머신) 또는 (가상 머신 확장)에 대 한.zip 파일을 포함합니다. 갤러리 패키지를 포함할 수도 있습니다는 *.azpkg* 단순한.zip 파일 형식입니다.
 
-### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>다운로드를 가져오고 Azure Stack Marketplace에 게시
+10. 다운로드가 실패 하는 경우 다음 PowerShell cmdlet을 다시 실행 하 여 다시 시도할 수 있습니다.
+
+    ```powershell
+    Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes”
+    ```
+
+    다시 시도 하기 전에 다운로드 하지 못했습니다 제품 폴더를 제거 합니다. 예를 들어 다운로드 스크립트를 다운로드 하는 경우 실패 `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1`를 제거 합니다 `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1` 폴더에서 다음 cmdlet 다시 실행 합니다.
+ 
+### <a name="import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher"></a>다운로드를 가져오고 (1811 이상) Azure Stack Marketplace에 게시
+
+1. 해야 하는 파일을 이동 해야 [이전에 다운로드 한](#use-the-marketplace-syndication-tool-to-download-marketplace-items) 로컬로 되도록 Azure Stack 환경에 사용할 수 있습니다. 마켓플레이스 배포 도구를 도구를 사용 하 여 가져오기 작업을 수행 해야 하기 때문에 Azure Stack 환경에 사용할 수 있는 수도 있어야 합니다.
+
+   다음 이미지에는 폴더 구조 예제를 보여 줍니다. `D:\downloadfolder` 모든 다운로드 한 마켓플레이스 항목을 포함합니다. 각 하위 폴더는 marketplace 항목 (예를 들어 `microsoft.custom-script-linux-arm-2.0.3`) 명명 된 제품 id 각 하위 폴더 내에서 marketplace 항목의 다운로드 한 콘텐츠가입니다.
+
+   [ ![Marketplace 다운로드 디렉터리 구조](media/azure-stack-download-azure-marketplace-item/mp1sm.png "Marketplace 다운로드 디렉터리 구조") ](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
+
+2. 지침을 따릅니다 [이 문서에서는](azure-stack-powershell-configure-admin.md) Azure Stack 연산자 PowerShell 세션을 구성 합니다. 
+
+3. 배포 모듈을 가져올 다음 다음 스크립트를 실행 하 여 마켓플레이스 배포 도구를 시작 합니다.
+
+   ```PowerShell
+   $credential = Get-Credential -Message "Enter the azure stack operator credential:"
+   Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -armendpoint "Environment Arm Endpoint" -AzsCredential $credential
+   ```
+   `-AzsCredential` 매개 변수는 선택 사항입니다. 만료 된 경우 액세스 토큰을 갱신에 사용 됩니다. 경우는 `-AzsCredential` 매개 변수가 지정 되지 토큰이 만료 되 고 연산자 자격 증명을 입력 하 라는 메시지가 나타납니다.
+
+4. 스크립트를 성공적으로 완료 된 후 항목 사용할지 Azure Stack Marketplace에서.
+
+### <a name="import-the-download-and-publish-to-azure-stack-marketplace-1809-and-lower"></a>다운로드를 가져오고 (1809 및 낮은) Azure Stack Marketplace에 게시
 
 1. 가상 머신 이미지에 있는 솔루션 템플릿 파일 [이전에 다운로드 한](#use-the-marketplace-syndication-tool-to-download-marketplace-items) Azure Stack 환경에 로컬로 사용할 수 있어야 합니다.  
 
@@ -159,7 +186,7 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
    3. 사용 하 여 선택한 컨테이너를 선택 **업로드** 열려는 합니다 **blob 업로드** 창입니다.  
       [ ![컨테이너](media/azure-stack-download-azure-marketplace-item/container.png "컨테이너") ](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
    
-   4. 패키지 및 디스크 파일을 저장소로 로드 하 고 선택한 업로드 blob 창에서 이동할 **업로드할**: [ ![업로드](media/azure-stack-download-azure-marketplace-item/uploadsm.png "업로드") ](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
+   4. 패키지 및 디스크 파일을 저장소로 로드 하 고 선택한 업로드 blob 창에서 이동할 **업로드**: [ ![업로드할](media/azure-stack-download-azure-marketplace-item/uploadsm.png "업로드") ](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
 
    5. 업로드 된 파일 컨테이너 창에 나타납니다. 파일을 선택 하 고 다음에서 URL을 복사 합니다 **Blob 속성** 창입니다. Azure Stack에 마켓플레이스 항목을 가져올 때 다음 단계에서이 URL을 사용 합니다.  다음 이미지는 컨테이너는 *blob-테스트-저장소* 있고 파일이 *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*합니다.  파일 URL *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*합니다.  
       [ ![Blob 속성](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "Blob 속성") ](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
@@ -168,10 +195,10 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
 
    가져올 수 있습니다 합니다 *게시자*를 *제공*, 및 *sku* AZPKG 파일을 다운로드 하는 텍스트 파일에서 이미지의 값입니다. 텍스트 파일의 대상 위치에 저장 됩니다. 합니다 *버전* 값은 Azure에서 이전 절차에서 항목을 다운로드 하는 경우 명시 버전입니다. 
  
-   다음 예제 스크립트에서는 서버 코어 가상 머신에서 Windows Server 2016 Datacenter-에 대 한 값이 사용 됩니다. 에 대 한 값 *-Osuri* 항목에 대 한 blob 저장소 위치를 예제 경로입니다. 
+   다음 예제 스크립트에서는 서버 코어 가상 머신에서 Windows Server 2016 Datacenter-에 대 한 값이 사용 됩니다. 에 대 한 값 *-Osuri* 항목에 대 한 blob 저장소 위치를 예제 경로입니다.
 
    이 스크립트를 대신 사용할 수 있습니다 합니다 [이 문서에 설명 된 절차](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) 가져오려는 합니다. Azure portal을 사용 하 여 VHD 이미지입니다.
- 
+
    ```PowerShell  
    Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
@@ -181,7 +208,7 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
     -Version "2016.127.20171215" `
     -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
-   
+
    **솔루션 템플릿에 대 한:** 일부 템플릿에서 작은 3MB를 포함할 수 있습니다. VHD 파일 이름의 **fixed3.vhd**합니다. Azure Stack에 해당 파일을 가져올 필요가 없습니다. Fixed3.vhd 합니다.  이 파일은 Azure Marketplace에 대 한 게시 요구 사항에 맞게 일부 솔루션 템플릿을 사용 하 여 포함 합니다.
 
    템플릿 설명을 검토 하 고 다운로드 가져와서 솔루션 템플릿을 사용 하 여 작동 하는 데 필요한 Vhd와 같은 추가 요구 사항입니다.  
