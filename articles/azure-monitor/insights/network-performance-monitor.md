@@ -103,7 +103,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 1. [Azure 마켓플레이스](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)에서 작업 영역에 네트워크 성능 모니터 솔루션을 추가합니다. [솔루션 갤러리에서 Log Analytics 솔루션 추가](../../azure-monitor/insights/solutions.md)에서 설명한 프로세스를 사용할 수도 있습니다. 
 2. Log Analytics 작업 영역을 열고 **개요** 타일을 선택합니다. 
-3.  *솔루션에 추가 구성이 필요합니다.* 라는 메시지가 있는 **네트워크 성능 모니터** 타일을 선택합니다.
+3. 솔 *루션에 추가 구성이 필요합니다.* 라는 메시지가 있는 **네트워크 성능 모니터** 타일을 선택합니다.
 
    ![네트워크 성능 모니터 타일](media/network-performance-monitor/npm-config.png)
 
@@ -170,7 +170,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 | 플랫폼 | 직접 에이전트 | System Center Operations Manager 에이전트 | Azure Storage | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
-|  Windows | &#8226; | &#8226; |  |  |  |TCP는 5초마다 핸드셰이크/ICMP ECHO 메시지를 전송하며 3분마다 데이터가 전송됩니다. |
+| Windows | &#8226; | &#8226; |  |  |  |TCP는 5초마다 핸드셰이크/ICMP ECHO 메시지를 전송하며 3분마다 데이터가 전송됩니다. |
  
 
  
