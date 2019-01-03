@@ -60,8 +60,8 @@ Azure VM(Virtual Machines)에서 Azure의 HANA 시스템 복제는 현재 지원
   * 지원되는 SAP 소프트웨어 및 OS(운영 체제)와 데이터베이스 조합.
   * Microsoft Azure에서 Windows 및 Linux에 필요한 SAP 커널 버전.
 * SAP Note [2015553]은 Azure에서 SAP를 지원하는 SAP 소프트웨어 배포에 대한 필수 구성 요소가 나열되어 있습니다.
-* SAP Note [2205917]은 SAP 응용 프로그램용 SUSE Linux Enterprise Server에 권장되는 OS 설정이 나와 있습니다.
-* SAP Note [1944799]는 SAP 응용 프로그램용 SUSE Linux Enterprise Server에 대한 SAP HANA 지침이 나와 있습니다.
+* SAP Note [2205917]은 SAP 애플리케이션용 SUSE Linux Enterprise Server에 권장되는 OS 설정이 나와 있습니다.
+* SAP Note [1944799]는 SAP 애플리케이션용 SUSE Linux Enterprise Server에 대한 SAP HANA 지침이 나와 있습니다.
 * SAP Note [2178632]는 Azure에서 SAP에 대해 보고된 모든 모니터링 메트릭에 대한 자세한 정보를 포함하고 있습니다.
 * SAP Note [2191498]는 Azure에서 Linux에 필요한 SAP Host Agent 버전을 포함하고 있습니다.
 * SAP Note [2243692]는 Azure에서 Linux의 SAP 라이선스에 대한 정보를 포함하고 있습니다.
@@ -73,8 +73,8 @@ Azure VM(Virtual Machines)에서 Azure의 HANA 시스템 복제는 현재 지원
 * [Linux에서 SAP용 Azure Virtual Machines 배포][deployment-guide](이 문서).
 * [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide] 가이드.
 * [SAP 응용 프로그램 12 SP3용 SUSE Linux Enterprise Server 모범 사례 가이드][sles-for-sap-bp]
-  * SAP HANA SR 성능 최적화 인프라 설정(SAP 응용 프로그램 12 SP1용 SLES). 이 가이드에는 온-프레미스 개발을 위해 SAP HANA 시스템 복제를 설정하는 데 필요한 모든 정보가 들어 있습니다. 이 가이드를 기준으로 사용합니다.
-  * SAP HANA SR 비용 최적화 인프라 설정(SAP 응용 프로그램 12 SP1용 SLES).
+  * SAP HANA SR 성능 최적화 인프라 설정(SAP 애플리케이션 12 SP1용 SLES). 이 가이드에는 온-프레미스 개발을 위해 SAP HANA 시스템 복제를 설정하는 데 필요한 모든 정보가 들어 있습니다. 이 가이드를 기준으로 사용합니다.
+  * SAP HANA SR 비용 최적화 인프라 설정(SAP 애플리케이션 12 SP1용 SLES).
 
 ## <a name="overview"></a>개요
 
@@ -685,7 +685,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 사용 사례에 따라 SAP HANA SR 성능 최적화 시나리오 또는 SAP HANA SR 비용 최적화 시나리오 가이드에 나열된 모든 테스트 사례를 실행합니다. 가이드는 [SAP용 SLES 모범 사례 페이지][sles-for-sap-bp]에서 찾을 수 있습니다.
 
-다음 테스트는 SAP HANA SR 성능 최적화 시나리오 SAP 응용 프로그램 12 SP1용 SUSE Linux Enterprise Server 가이드의 테스트 설명을 복사한 것입니다. 최신 버전의 경우 항상 자체 가이드를 읽습니다. 테스트를 시작하기 전에 항상 HANA가 동기화되어 있는지 확인하고, Pacemaker 구성이 올바른지 확인합니다.
+다음 테스트는 SAP HANA SR 성능 최적화 시나리오 SAP 애플리케이션 12 SP1용 SUSE Linux Enterprise Server 가이드의 테스트 설명을 복사한 것입니다. 최신 버전의 경우 항상 자체 가이드를 읽습니다. 테스트를 시작하기 전에 항상 HANA가 동기화되어 있는지 확인하고, Pacemaker 구성이 올바른지 확인합니다.
 
 다음 테스트 설명에서는 PREFER_SITE_TAKEOVER=“true” 및 AUTOMATED_REGISTER=“false”로 가정합니다.
 참고: 다음 테스트는 이전 테스트가 종료된 상태에서 시퀀스에서 실행하도록 설계되었습니다.

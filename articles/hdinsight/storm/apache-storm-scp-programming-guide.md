@@ -355,12 +355,12 @@ SCP.NET에는 트랜잭션 토폴로지를 정의하는 다음 함수가 추가�
 | **새 함수** | **매개 변수** | **설명** |
 | --- | --- | --- |
 | **tx-topolopy** |topology-name<br />spout-map<br />bolt-map |토폴로지 이름, &nbsp;Spout 정의 맵 및 Bolt 정의 맵으로 트랜잭션 토폴로지를 정의합니다. |
-| **scp-tx-spout** |exec-name<br />args<br />fields |트랜잭션 Spout를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br /> ***fields*** 는 Spout의 출력 필드입니다. |
+| **scp-tx-spout** |exec-name<br />args<br />fields |트랜잭션 Spout를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />***fields*** 는 Spout의 출력 필드입니다. |
 | **scp-tx-batch-bolt** |exec-name<br />args<br />fields |트랜잭션 Batch Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />Fields는 Bolt의 출력 필드입니다. |
-| **scp-tx-commit-bolt** |exec-name<br />args<br />fields |트랜잭션 커밋 Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br /> ***fields*** 는 Bolt의 출력 필드입니다. |
+| **scp-tx-commit-bolt** |exec-name<br />args<br />fields |트랜잭션 커밋 Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />***fields*** 는 Bolt의 출력 필드입니다. |
 | **nontx-topolopy** |topology-name<br />spout-map<br />bolt-map |토폴로지 이름, &nbsp; Spout 정의 맵 및 Bolt 정의 맵으로 비트랜잭션 토폴로지를 정의합니다. |
-| **scp-spout** |exec-name<br />args<br />fields<br />매개 변수 |비트랜잭션 Spout를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br /> ***fields*** 는 Spout의 출력 필드입니다.<br /><br />***parameters***는 선택적 항목으로, "nontransactional.ack.enabled"와 같은 일부 매개 변수를 지정하는 데 사용됩니다. |
-| **scp-bolt** |exec-name<br />args<br />fields<br />매개 변수 |비트랜잭션 Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br /> ***fields*** 는 Bolt의 출력 필드입니다.<br /><br />***parameters***는 선택적 항목으로, "nontransactional.ack.enabled"와 같은 일부 매개 변수를 지정하는 데 사용됩니다. |
+| **scp-spout** |exec-name<br />args<br />fields<br />매개 변수 |비트랜잭션 Spout를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />***fields*** 는 Spout의 출력 필드입니다.<br /><br />***parameters***는 선택적 항목으로, "nontransactional.ack.enabled"와 같은 일부 매개 변수를 지정하는 데 사용됩니다. |
+| **scp-bolt** |exec-name<br />args<br />fields<br />매개 변수 |비트랜잭션 Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />***fields*** 는 Bolt의 출력 필드입니다.<br /><br />***parameters***는 선택적 항목으로, "nontransactional.ack.enabled"와 같은 일부 매개 변수를 지정하는 데 사용됩니다. |
 
 SCP.NET에는 다음 키워드가 정의되어 있습니다.
 

@@ -288,7 +288,7 @@ Azure Virtual Machine에 연결하는 데 다음과 같은 두 가지 일반적�
 
 ## <a name="analysis-services-configuration"></a>Analysis Services 구성
 ### <a name="remote-access-to-analysis-services-server"></a>Analysis Services 서버에 대한 원격 액세스
-Analysis Services 서버는 Windows 인증만 지원합니다. SQL Server Management Studio 또는 SQL Server Data Tools 같은 클라이언트 응용 프로그램에서 원격으로 Analysis Services에 액세스하려면 가상 머신이 Azure 가상 네트워킹을 사용하여 로컬 도메인에 가입되어야 합니다. 자세한 내용은 [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md)를 참조하세요.
+Analysis Services 서버는 Windows 인증만 지원합니다. SQL Server Management Studio 또는 SQL Server Data Tools 같은 클라이언트 애플리케이션에서 원격으로 Analysis Services에 액세스하려면 가상 머신이 Azure 가상 네트워킹을 사용하여 로컬 도메인에 가입되어야 합니다. 자세한 내용은 [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
 Analysis Services의 **기본 인스턴스**는 TCP 포트 **2383**에서 수신합니다. 가상 머신 방화벽에서 포트를 엽니다. 또한 Analysis Services의 클러스터된 명명된 인스턴스도 **2383**포트에서 수신합니다.
 
@@ -333,7 +333,7 @@ Analysis Services의 **명명된 인스턴스** 의 경우 포트 액세스를 �
 
 다음 다이어그램에서는 VM의 기능 및 구성 요소에 대한 원격 액세스를 허용하기 위해 VM 방화벽에서 열 포트를 보여 줍니다.
 
-![Azure VM에서 bi 응용 프로그램에 대해 열 포트](./media/virtual-machines-windows-classic-ps-sql-bi/IC654385.gif)
+![Azure VM에서 bi 애플리케이션에 대해 열 포트](./media/virtual-machines-windows-classic-ps-sql-bi/IC654385.gif)
 
 ## <a name="resources"></a>리소스
 * Azure Virtual Machine 환경에서 사용되는 Microsoft 서버 소프트웨어에 대한 지원 정책을 검토합니다. 다음 항목은 BitLocker, 장애 조치(failover) 클러스터링 및 네트워크 부하 분산 등의 기능에 대한 지원을 요약합니다. [Azure Virtual Machines에 대한 Microsoft 서버 소프트웨어 지원](https://support.microsoft.com/kb/2721672).

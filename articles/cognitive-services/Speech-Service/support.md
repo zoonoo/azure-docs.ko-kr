@@ -1,7 +1,7 @@
 ---
 title: 지원 및 도움말 옵션
 titlesuffix: Azure Cognitive Services
-description: Speech Service와 통합되는 응용 프로그램을 만들 때 질문 및 문제에 대한 도움과 지원을 얻는 방법입니다.
+description: Speech Service와 통합되는 애플리케이션을 만들 때 질문 및 문제에 대한 도움과 지원을 얻는 방법입니다.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun

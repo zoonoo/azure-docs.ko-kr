@@ -79,7 +79,7 @@ Azure 리포지토리 및 GitHub에 대한 사용 권한은 Data Factory 사용 
   이 시나리오에는 역할 두 개를 할당해야 합니다.
 
   1. 데이터 팩터리 수준에서 기본 제공 **참가자** 역할을 할당합니다.
-  2. 권한이 *Microsoft.Resources/deployments/**인 사용자 지정 역할을 만듭니다. 리소스 그룹 수준에서 사용자에게 이 사용자 지정 역할을 할당합니다.
+  2. 권한이 *Microsoft.Resources/deployments/*\*인 사용자 지정 역할을 만듭니다. 리소스 그룹 수준에서 사용자에게 이 사용자 지정 역할을 할당합니다.
 
 - 사용자가 PowerShell이나 SDK에서는 데이터 팩터리를 업데이트할 수 있지만 Azure Portal에서는 업데이트할 수 없도록 설정합니다.
 
