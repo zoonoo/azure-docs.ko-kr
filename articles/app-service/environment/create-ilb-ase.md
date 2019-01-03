@@ -40,7 +40,7 @@ VNet의 인터넷 액세스 가능 엔드포인트 또는 IP 주소를 사용하
 
 결과적으로 다음과 같은 작업을 수행할 수 있습니다.
 
--   사이트 간 또는 Azure ExpressRoute VPN을 통해 액세스하는 클라우드에서 인트라넷 응용 프로그램을 안전하게 호스트
+-   사이트 간 또는 Azure ExpressRoute VPN을 통해 액세스하는 클라우드에서 인트라넷 애플리케이션을 안전하게 호스트
 -   공용 DNS 서버에 나열되지 않은 클라우드에 앱 호스트
 -   프런트 엔드 앱이 안전하게 통합될 수 있는 인터넷 격리 백 엔드 앱 만들기
 
@@ -215,9 +215,9 @@ ILB ASE의 앱에 대한 게시 엔드포인트에서는 ILB ASE가 만들어진
 
 ## <a name="couple-an-ilb-ase-with-a-waf-device"></a>WAF 디바이스로 ILB ASE 연결 ##
 
-Azure App Service는 시스템을 보호하는 많은 보안 조치를 제공합니다. 앱이 해킹되었는지를 확인할 수도 있습니다. 웹 응용 프로그램을 보호하기 위해 WAF(웹 응용 프로그램 방화벽)를 사용하여 Azure App Service와 같은 호스팅 플랫폼을 결합해야 합니다. ILB ASE에 네트워크 격리 응용 프로그램 엔드포인트가 있기 때문에 사용하기에 적합합니다.
+Azure App Service는 시스템을 보호하는 많은 보안 조치를 제공합니다. 앱이 해킹되었는지를 확인할 수도 있습니다. 웹 애플리케이션을 보호하기 위해 WAF(웹 애플리케이션 방화벽)를 사용하여 Azure App Service와 같은 호스팅 플랫폼을 결합해야 합니다. ILB ASE에 네트워크 격리 애플리케이션 엔드포인트가 있기 때문에 사용하기에 적합합니다.
 
-WAF 디바이스를 사용하여 ILB ASE를 구성하는 방법에 대한 자세한 내용은 [App Service Environment를 사용하여 웹 응용 프로그램 방화벽 구성][ASEWAF]을 참조하세요. 이 문서에서는 ASE를 사용하여 Barracuda 가상 어플라이언스를 사용하는 방법을 보여줍니다. 다른 방법은 Azure Application Gateway를 사용하는 것입니다. Application Gateway는 이후에 배치할 모든 응용 프로그램을 보호하기 위해 OWASP 핵심 규칙을 사용합니다. Application Gateway에 대한 자세한 내용은 [Azure 웹 애플리케이션 방화벽 소개][AppGW]를 참조하세요.
+WAF 디바이스를 사용하여 ILB ASE를 구성하는 방법에 대한 자세한 내용은 [App Service Environment를 사용하여 웹 응용 프로그램 방화벽 구성][ASEWAF]을 참조하세요. 이 문서에서는 ASE를 사용하여 Barracuda 가상 어플라이언스를 사용하는 방법을 보여줍니다. 다른 방법은 Azure Application Gateway를 사용하는 것입니다. Application Gateway는 이후에 배치할 모든 애플리케이션을 보호하기 위해 OWASP 핵심 규칙을 사용합니다. Application Gateway에 대한 자세한 내용은 [Azure 웹 애플리케이션 방화벽 소개][AppGW]를 참조하세요.
 
 ## <a name="get-started"></a>시작하기 ##
 
