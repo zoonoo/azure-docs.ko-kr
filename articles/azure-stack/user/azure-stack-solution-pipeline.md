@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 36637137741aef6b34ab8e70109d692f5399043a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 12f9ed6d5b5d4c8dc7e5b0b68a0a394749cc72bd
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967064"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714613"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>자습서: Azure 및 Azure에 앱을 배포 스택
+# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack에 앱 배포
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
@@ -72,7 +72,7 @@ CI 및 CD에 대 한 자세한 정보를 알아보려면:
 ### <a name="azure-requirements"></a>Azure 요구 사항
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* 만들기는 [웹 앱](https://docs.microsoft.com/azure/app-service/app-service-web-overview) Azure에서. 웹 앱 url을 확인, 자습서에서 사용 해야 합니다.
+* 만들기는 [웹 앱](https://docs.microsoft.com/azure/app-service/overview) Azure에서. 웹 앱 url을 확인, 자습서에서 사용 해야 합니다.
 
 ### <a name="azure-stack-requirements"></a>Azure Stack 요구 사항
 
@@ -180,9 +180,7 @@ Azure DevOps 서비스를 실행 하려면 서비스 끝점 구성의 일부로 
 
 3. Visual Studio Enterprise에서 선택 **액세스 제어 (IAM)** 합니다.
 
-    ![액세스 제어(IAM)](media/azure-stack-solution-hybrid-pipeline/000_12.png)
-
-4. **추가**를 선택합니다.
+4. **역할 할당 추가**를 선택합니다.
 
     ![추가](media/azure-stack-solution-hybrid-pipeline/000_13.png)
 
@@ -350,7 +348,7 @@ CI/CD 하이브리드 응용 프로그램 코드와 인프라 코드를 적용�
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>두 클라우드 모두에서 App Services에 대 한 자체 포함 된 웹 앱 배포 만들기
 
-1. 편집 합니다 **WebApplication.csproj** 파일: 선택 **runtimeidentifier-** 추가한 `win10-x64.` 자세한 내용은 참조 하십시오 [자체 포함된 배포](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) 설명서입니다.
+1. 편집 된 **WebApplication.csproj** 파일: 선택 **runtimeidentifier-** 추가한 `win10-x64.` 자세한 내용은 참조 하십시오 [자체 포함된 배포](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) 설명서.
 
     ![Runtimeidentifier-구성](media/azure-stack-solution-hybrid-pipeline/019_runtimeidentifer.png)
 

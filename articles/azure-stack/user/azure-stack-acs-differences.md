@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 1d1811549978d78a8dddad8e89895fdf605ed02b
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 1393dd32aea8cb6d348092ea1fc56752f659beab
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341901"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717877"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 저장소: 차이점 및 고려 사항
 
@@ -34,8 +34,8 @@ Azure Stack 저장소는 Microsoft Azure Stack의 storage 클라우드 서비스
 | 기능 | Azure (전역) | Azure Stack |
 | --- | --- | --- |
 |File Storage|지원 되는 클라우드 기반 SMB 파일 공유|아직 지원 되지 않음
-|미사용 데이터에 대 한 azure storage 서비스 암호화|256 비트 AES 암호화|BitLocker 128 비트 AES 암호화
-|Storage 계정 유형|범용 및 Azure blob storage 계정|범용만 합니다.
+|미사용 데이터에 대 한 azure storage 서비스 암호화|256 비트 AES 암호화 합니다. 고객 관리 키를 사용 하 여 Key Vault에 암호화를 지원 합니다.|BitLocker 128 비트 AES 암호화 합니다. 고객 관리 키를 사용 하 여 암호화가 지원 되지 않습니다.
+|Storage 계정 유형|범용 V1, V2 및 Blob storage 계정|범용 V1에만 해당 합니다.
 |복제 옵션|로컬 중복 저장소, 지역 중복 저장소, 읽기 액세스 지역 중복 저장소 및 영역 중복 저장소|로컬 중복 저장소입니다.
 |Premium Storage|완전하게 지원|성능 제한이 있지만 프로비저닝할 수 있습니다 하거나 보장 합니다.
 |관리 디스크|프리미엄 및 표준 지원|1808 이상 버전을 사용할 때 지원 됩니다.
@@ -44,11 +44,14 @@ Azure Stack 저장소는 Microsoft Azure Stack의 storage 클라우드 서비스
 |페이지 blob 스냅숏 복사|지원 되는 실행 중인 VM에 연결 된 백업 Azure 관리 되지 않는 VM 디스크|아직 지원 되지 않습니다.
 |페이지 blob 증분 스냅숏 복사|Premium 및 지원 되는 표준 Azure 페이지 blob|아직 지원 되지 않습니다.
 |Blob storage에 대 한 저장소 계층|핫, 쿨 및 보관 저장소 계층입니다.|아직 지원 되지 않습니다.
-Blob storage에 대 한 일시 삭제|미리 보기|아직 지원 되지 않습니다.
+|Blob storage에 대 한 일시 삭제|사용 가능한 일반|아직 지원 되지 않습니다.
 |페이지 blob의 최대 크기|8 TB|1TB
 |페이지 blob 페이지 크기|512바이트|4KB
 |테이블 파티션 키와 행 키 크기|1,024 자 (2,048 바이트)|400 자 (800 바이트)
-|Blob 스냅숏|하나의 blob 스냅숏의 최대 수는 제한 되지 않습니다.|하나의 blob 스냅숏의 최대 수는 1,000입니다.|
+|Blob 스냅숏|하나의 blob 스냅숏의 최대 수는 제한 되지 않습니다.|하나의 blob 스냅숏의 최대 수는 1,000입니다.
+|저장소에 대 한 azure AD 인증|미리 보기|아직 지원 되지 않습니다.
+|변경할 수 없는 Blob|사용 가능한 일반|아직 지원 되지 않습니다.
+|방화벽 및 저장소에 대 한 가상 네트워크 규칙|사용 가능한 일반|아직 지원 되지 않습니다.|
 
 저장소 메트릭 사용 하 여 차이점도 있습니다.
 
@@ -61,7 +64,17 @@ Blob storage에 대 한 일시 삭제|미리 보기|아직 지원 되지 않습�
 
 Azure Storage 서비스 Api:
 
-업데이트 1802 이상:
+1811 업데이트 또는 최신 버전:
+
+ - [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
+ - [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
+ - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+ - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+ - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+ - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+
+1809 업데이트 1802 업데이트:
 
 - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
@@ -79,6 +92,12 @@ Azure Storage 서비스 관리 Api:
 - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
+이전 버전:
+
+ - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ - [2015-05-01-미리 보기](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ 
 ## <a name="sdk-versions"></a>SDK 버전
 
 Azure Stack 저장소 클라이언트 라이브러리를 지원합니다.
