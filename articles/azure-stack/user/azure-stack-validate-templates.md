@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 73a0766baee8da782f0192fbc17fb2898a8360ac
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.reviewer: ''
+ms.openlocfilehash: f6ef1dfdef68136ae129faced7443302e738d5b9
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42139386"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810376"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>템플릿 유효성 검사 도구를 사용 하 여 Azure Stack에 대 한 템플릿을 확인합니다
 
@@ -32,25 +32,25 @@ ms.locfileid: "42139386"
 
 템플릿을 확인을 위해 클라우드 기능을 구축할 수 있는 첫 번째 파일을 다음 유효성 검사 도구를 실행 합니다. Azure Stack 도구에서 다음 PowerShell 모듈을 사용 하는 경우:
 
-- 에 **CloudCapabilities** 폴더:<br>         AzureRM.CloudCapabilities.psm1은 서비스 및 Azure Stack 클라우드에 버전을 나타내는 클라우드 기능 JSON 파일을 만듭니다.
+- 에 **CloudCapabilities** 폴더:<br>         `AzureRM.CloudCapabilities.psm1` 서비스 및 Azure Stack 클라우드에 버전을 나타내는 클라우드 기능 JSON 파일을 만듭니다.
 - 에 **TemplateValidator** 폴더:<br>
-AzureRM.TemplateValidator.psm1은 클라우드 기능 JSON 파일을 사용 하 여 Azure Stack의 템플릿 배포에 대 한 테스트.
+`AzureRM.TemplateValidator.psm1` 클라우드 기능 JSON 파일을 사용 하 여 Azure Stack의 템플릿 배포에 대 한 테스트.
 
 ## <a name="build-the-cloud-capabilities-file"></a>클라우드 기능 파일 빌드
 
-템플릿 유효성 검사기를 사용 하기 전에 JSON 파일을 빌드합니다 AzureRM.CloudCapabilities PowerShell 모듈을 실행 합니다.
+템플릿 유효성 검사기를 사용 하기 전에 실행 된 **AzureRM.CloudCapabilities** JSON 파일을 작성 하는 PowerShell 모듈.
 
 >[!NOTE]
 >통합된 시스템을 업데이트 하거나 새 서비스 또는 가상 확장을 추가 하는 경우이 모듈을 다시 실행 해야 있습니다.
 
 1. Azure Stack에 연결 되어 있는지 확인 합니다. Azure Stack 개발 키트 호스트에서 이러한 단계를 수행할 수 있습니다 또는 사용할 수는 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) 워크스테이션에서 연결 합니다.
-2. AzureRM.CloudCapabilities PowerShell 모듈을 가져옵니다.
+2. 가져오기의 **AzureRM.CloudCapabilities** PowerShell 모듈:
 
     ```PowerShell
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
-3. Get-CloudCapabilities cmdlet을 사용 하 여 서비스 버전을 검색 하 고 클라우드 기능 JSON 파일을 만듭니다. 지정 하지 않으면 **-OutputPath**, 파일 AzureCloudCapabilities.Json 현재 디렉터리에 만들어집니다. 사용자의 실제 위치를 사용 합니다.
+3. 사용 된 `Get-CloudCapabilities` 서비스 버전을 검색 하 고 클라우드 기능 JSON 파일을 만들 cmdlet. 지정 하지 않으면 **-OutputPath**, 파일 AzureCloudCapabilities.Json 현재 디렉터리에 만들어집니다. 사용자의 실제 위치를 사용 합니다.
 
     ```PowerShell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
@@ -58,9 +58,9 @@ AzureRM.TemplateValidator.psm1은 클라우드 기능 JSON 파일을 사용 하 
 
 ## <a name="validate-templates"></a>템플릿 유효성 검사
 
-이러한 단계를 사용 하 여 템플릿 AzureRM.TemplateValidator PowerShell 모듈을 사용 하 여 유효성을 검사 합니다. 사용자 고유의 템플릿을 사용 하거나 유효성을 검사 합니다 [Azure Stack 빠른 시작 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates)합니다.
+템플릿을 사용 하 여 유효성을 검사 하려면 다음이 단계를 사용 합니다 **AzureRM.TemplateValidator** PowerShell 모듈. 사용자 고유의 템플릿을 사용 하거나 유효성을 검사 합니다 [Azure Stack 빠른 시작 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates)합니다.
 
-1. AzureRM.TemplateValidator.psm1 PowerShell 모듈을 가져옵니다.
+1. 가져오기의 **AzureRM.TemplateValidator.psm1** PowerShell 모듈:
 
     ```PowerShell
     cd "c:\AzureStack-Tools-master\TemplateValidator"
@@ -86,12 +86,12 @@ AzureRM.TemplateValidator.psm1은 클라우드 기능 JSON 파일을 사용 하 
 | 매개 변수 | 설명 | 필수 |
 | ----- | -----| ----- |
 | TemplatePath | 재귀적으로 경로 Azure Resource Manager 템플릿의 찾을 지정합니다 | 예 | 
-| TemplatePattern | 와 일치 하도록 템플릿 파일의 이름을 지정 합니다. | 아니요 |
+| TemplatePattern | 와 일치 하도록 템플릿 파일의 이름을 지정 합니다. | 아닙니다. |
 | CapabilitiesPath | 클라우드 기능 JSON 파일의 경로를 지정합니다. | 예 | 
-| IncludeComputeCapabilities | VM 크기 및 VM 확장 등의 IaaS 리소스의 평가 포함합니다. | 아니요 |
-| IncludeStorageCapabilities | SKU 형식 같은 storage 리소스의 평가 포함합니다. | 아니요 |
-| 보고서 | 생성 된 HTML 보고서의 이름을 지정합니다. | 아니요 |
-| 자세한 정보 표시 | 콘솔에 오류 및 경고를 기록합니다. | 아니요|
+| IncludeComputeCapabilities | VM 크기 및 VM 확장 등의 IaaS 리소스의 평가 포함합니다. | 아닙니다. |
+| IncludeStorageCapabilities | SKU 형식 같은 storage 리소스의 평가 포함합니다. | 아닙니다. |
+| 보고서 | 생성 된 HTML 보고서의 이름을 지정합니다. | 아닙니다. |
+| 자세한 정보 표시 | 콘솔에 오류 및 경고를 기록합니다. | 아닙니다.|
 
 ### <a name="examples"></a>예
 
@@ -100,8 +100,8 @@ AzureRM.TemplateValidator.psm1은 클라우드 기능 JSON 파일을 사용 하 
 ```PowerShell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 -CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json `
--TemplatePattern MyStandardTemplateName.json`
--IncludeComputeCapabilities`
+-TemplatePattern MyStandardTemplateName.json `
+-IncludeComputeCapabilities `
 -Report TemplateReport.html
 ```
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: aef706d18d558f5fe321735c7f93361a5ef50606
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 0723d0e2a60c0f43633e5e5ca771ccfe88d2db68
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139690"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808063"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>가상 머신 만들기 및 Azure Stack key vault에서 검색 한 인증서를 설치 합니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "42139690"
 
 1. 비밀을 Key Vault를 만듭니다.
 2. Azuredeploy.parameters.json 파일을 업데이트 합니다.
-3. 템플릿 배포
+3. 템플릿을 배포합니다.
 
 > [!NOTE]
 > VPN을 통해 연결 되어 있는 경우 외부 클라이언트 또는 Azure Stack 개발 키트에서 다음이 단계를 사용할 수 있습니다.
@@ -49,8 +49,8 @@ ms.locfileid: "42139690"
 ## <a name="prerequisites"></a>필수 조건
 
 * Key Vault 서비스를 포함 하는 제품을 구독 해야 합니다.
-* [Azure Stack 용 PowerShell을 설치 합니다.](azure-stack-powershell-install.md)
-* [Azure Stack 사용자의 PowerShell 환경 구성](azure-stack-powershell-configure-user.md)
+* [Azure Stack 용 PowerShell 설치](azure-stack-powershell-install.md)합니다.
+* [Azure Stack 사용자의 PowerShell 환경을 구성](azure-stack-powershell-configure-user.md)합니다.
 
 ## <a name="create-a-key-vault-secret"></a>Key Vault 비밀 만들기
 
@@ -60,7 +60,6 @@ ms.locfileid: "42139690"
 > 사용 해야는 `-EnabledForDeployment` key vault를 만들 때 매개 변수입니다. 이 매개 변수를 사용 하면 Azure Resource Manager 템플릿에서 key vault를 참조할 수 있습니다.
 
 ```powershell
-
 # Create a certificate in the .pfx format
 New-SelfSignedCertificate `
   -certstorelocation cert:\LocalMachine\My `
@@ -117,16 +116,15 @@ Set-AzureKeyVaultSecret `
   -VaultName $vaultName `
   -Name $secretName `
    -SecretValue $secret
-
 ```
 
-앞의 스크립트를 실행 하면 출력 비밀 URI를 포함 합니다. 이 URI를 기록해 둡니다. 참조 해야 합니다 [푸시 인증서를 Windows Resource Manager 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate)합니다. 다운로드 합니다 [푸시 인증서 windows vm 템플릿을](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) 개발 컴퓨터에 폴더입니다. 이 폴더에는 `azuredeploy.json` 및 `azuredeploy.parameters.json` 파일을 다음 단계에서 필요 합니다.
+앞의 스크립트를 실행 하면 출력 비밀 URI를 포함 합니다. 이 URI를 기록해 둡니다. 참조 해야 합니다 [푸시 인증서를 Windows Resource Manager 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate)합니다. 다운로드 합니다 [푸시 인증서 windows vm](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) 개발 컴퓨터에 템플릿 폴더입니다. 이 폴더에는 `azuredeploy.json` 및 `azuredeploy.parameters.json` 파일을 다음 단계에서 필요 합니다.
 
-수정 된 `azuredeploy.parameters.json` 환경 값에 따라 파일입니다. 특별 한 관심 매개 변수는 자격 증명 모음 이름, 자격 증명 모음 리소스 그룹 및 암호 (이전 스크립트에서 생성) 하는 대로 URI는 합니다. 다음 파일은 매개 변수 파일의 예입니다.
+수정 된 `azuredeploy.parameters.json` 환경 값에 따라 파일입니다. 특별 한 관심 매개 변수는 자격 증명 모음 이름, 자격 증명 모음 리소스 그룹 및 암호 (이전 스크립트에서 생성) 하는 대로 URI는 합니다. 다음 섹션에는 매개 변수 파일의 예가 나와 있습니다.
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Azuredeploy.parameters.json 파일 업데이트
 
-vaultName, 비밀 URI, VmName, 및 사용자 환경에 따라 다른 값을 사용 하 여 azuredeploy.parameters.json 파일을 업데이트 합니다. 다음 JSON 파일 템플릿 매개 변수 파일의 예를 보여 줍니다.
+업데이트를 `azuredeploy.parameters.json` 파일을 `vaultName`, 비밀 URI `VmName`, 및 사용자 환경에 따라 다른 값입니다. 다음 JSON 파일 템플릿 매개 변수 파일의 예를 보여 줍니다.
 
 ```json
 {
@@ -178,10 +176,10 @@ New-AzureRmResourceGroupDeployment `
 
 ![템플릿 배포 결과](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
 
-Azure Stack 배포 중 가상 컴퓨터에 인증서를 푸시합니다. 인증서의 위치는 VM의 운영 체제에 따라 달라 집니다.
+Azure Stack 배포 중 가상 컴퓨터에 인증서를 푸시합니다. 인증서 위치는 VM의 운영 체제에 따라 달라 집니다.
 
-* Windows, 사용자가 제공한 인증서 저장소를 사용 하 여 LocalMachine 인증서 위치에 인증서 추가 됩니다.
-* Linux에서 인증서 아래에 배치 됩니다 /var/lib/waagent 디렉터리에 파일 이름의 &lt;UppercaseThumbprint&gt;.crt는 x509 인증서 파일 및 &lt;UppercaseThumbprint&gt;.prv 개인 키에 대 한 .
+* Windows에서 인증서에 추가 됩니다는 **LocalMachine** 인증서 사용자가 제공한 인증서 저장소를 사용 하 여 위치입니다.
+* Linux에서 인증서 아래에 배치 됩니다 합니다 `/var/lib/waagent directory`, 파일 이름의 &lt;UppercaseThumbprint&gt;.crt는 x509 인증서 파일 및 &lt;UppercaseThumbprint&gt;.prv 개인 키에 대 한 합니다.
 
 ## <a name="retire-certificates"></a>인증서를 사용 중지
 

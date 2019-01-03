@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: 3015755d8046f72c03cd1a1485d90a7f720a8909
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b1b4ea5775a661712838c1495ef0025a83b8c518
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353025"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607946"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack 개요에 대한 App Service
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-Azure Stack의 azure App Service는 Azure Stack에 사용할 수 있는 Microsoft Azure의 플랫폼-as a service (PaaS) 제품입니다. 서비스에 내부 또는 외부 고객에 게 웹, API 및 Azure Functions를 만들 수 있도록 모든 플랫폼 또는 장치에 대 한 응용 프로그램입니다. 온-프레미스 응용 프로그램을 사용 하 여 앱을 통합할 수 있으며 해당 비즈니스 프로세스를 자동화. Azure Stack 클라우드 운영자는 선택한 공유 VM 리소스 또는 전용된 Vm을 사용 하 여 완전히 관리 되는 virtual machines (Vm)에서 고객 앱을 실행할 수 있습니다.
+Azure Stack의 azure App Service는 Azure Stack에 사용할 수 있는 Microsoft Azure의 플랫폼-as a service (PaaS) 제품입니다. 서비스에 내부 또는 외부 고객에 게 웹, API 및 Azure Functions를 만들 수 있도록 모든 플랫폼 또는 장치에 대 한 응용 프로그램입니다. 앱을 온-프레미스 애플리케이션과 통합하여 비즈니스 프로세스를 자동화할 수 있습니다. Azure Stack 클라우드 연산자는 원하는 공유 VM 리소스 또는 전용 VM으로 완전 관리형 VM(가상 머신)에서 사용자 지정 앱을 실행할 수 있습니다.
 
 Azure App Service를 사용 하면 비즈니스 프로세스를 자동화 하 고 클라우드 Api를 호스팅할 수 있습니다. Azure App Service는 단일 통합 서비스로 websites, REST Api를 단일 솔루션으로 비즈니스 프로세스 등의 다양 한 구성 요소를 결합할 수 있습니다.
 
@@ -33,7 +33,7 @@ Azure App Service를 사용 하면 비즈니스 프로세스를 자동화 하 �
 
 다음은 App Service의 몇 가지 주요 기능입니다.
 
-- **여러 언어 및 프레임 워크**: App Service에 ASP.NET, Node.js, Java, PHP 및 Python에 대 한 최고 수준의 지원 합니다. 또한 App Service Vm에서 Windows PowerShell 및 기타 스크립트 또는 실행 파일을 실행할 수 있습니다.
+- **여러 언어 및 프레임 워크**: App Service는 ASP.NET, Node.js, Java, PHP 및 Python에 대 한 최고 수준의 지원 합니다. 또한 App Service Vm에서 Windows PowerShell 및 기타 스크립트 또는 실행 파일을 실행할 수 있습니다.
 - **DevOps 최적화**: 지속적인 통합 및 로컬 Git, GitHub, BitBucket을 사용 하 여 배포를 설정 합니다. 테스트 및 스테이징 환경에서을 통해 업데이트를 승격 하 고 Azure PowerShell 또는 플랫폼 간 명령줄 인터페이스 (CLI)를 사용 하 여 App Service에서 앱을 관리할 수 있습니다.
 - **Visual Studio 통합**: Visual Studio의 전용된 도구를 만들고 응용 프로그램 배포 작업을 간소화 합니다.
 
@@ -41,8 +41,8 @@ Azure App Service를 사용 하면 비즈니스 프로세스를 자동화 하 �
 
 App Service는 각각 특정 워크 로드를 호스트 하기 위한 여러 가지 앱 유형을 제공 합니다.
 
-- [웹 앱](../app-service/app-service-web-overview.md) 웹 사이트와 웹 응용 프로그램을 호스트 합니다.
-- [API Apps](../app-service/app-service-web-overview.md) REST Api를 호스트 하는 것에 대 한 합니다.
+- [웹 앱](../app-service/overview.md) 웹 사이트와 웹 응용 프로그램을 호스트 합니다.
+- [API Apps](../app-service/overview.md) REST Api를 호스트 하는 것에 대 한 합니다.
 - 이벤트 기반의 서버 리스 워크 로드 호스팅을 위한 azure 함수입니다.
 
 단어 *앱* 작업 실행을 전담 하는 호스팅 리소스를 가리킵니다. 수행 *웹 앱* 예를 들어 익숙할 계산 리소스 및 응용 프로그램 코드를 브라우저에 해당 제공 기능으로 웹 앱의 생각을 합니다. App Service에서 웹 앱은 응용 프로그램 코드를 호스트 하기 위한 Azure Stack이 제공 하는 계산 리소스입니다.
