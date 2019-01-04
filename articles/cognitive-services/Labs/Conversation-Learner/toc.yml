@@ -1,70 +1,77 @@
+items:
 - name: Conversation Learner 설명서
 - name: 개요
-  expanded: true
   items:
-    - name: Conversation Learner란?
-      href: overview.md
-    - name: 지원되는 언어
-      href: languages-supported.md
+  - name: Conversation Learner란?
+    href: overview.md
+  - name: 지원되는 언어
+    href: languages-supported.md
+  expanded: true
 - name: 개념
   items:
-    - name: 흐름 제어
-      href: control-flow.md
-    - name: 기본값 및 경계
-      href: cl-values-and-boundaries.md
+  - name: 흐름 제어
+    href: control-flow.md
+  - name: 기본값 및 경계
+    href: cl-values-and-boundaries.md
 - name: 방법 가이드
   items:
-    - name: Conversation Learner 시작
-      href: quickstart.md
-    - name: Hello world
-      href: tutorials/1-hello-world.md
-    - name: 대기 및 비 대기 작업
-      href: tutorials/2-wait-vs-nonwait-actions.md
-    - name: 엔터티 소개
-      href: tutorials/3-introduction-to-entities.md
-    - name: 필요한 엔터티
-      href: tutorials/4-expected-entity.md
-    - name: 무효화할 수 있는 엔터티
-      href: tutorials/5-negatable-entities.md
-    - name: 다중 값 엔터티
-      href: tutorials/6-multi-value-entities.md
-    - name: 기본 제공 엔터티
-      href: tutorials/7-built-in-entities.md
-    - name: 대체 입력
-      href: tutorials/8-alternative-inputs.md
-    - name: 로그 대화 상자
-      href: tutorials/9-log-dialogs.md
-    - name: 엔터티 검색 콜백
-      href: tutorials/10-entity-detection-callback.md
-    - name: 세션 콜백
-      href: tutorials/11-session-callbacks.md
-    - name: API 호출
-      href: tutorials/12-api-calls.md
-    - name: 카드 1부
-      href: tutorials/13-cards-1.md
-    - name: 카드 2부
-      href: tutorials/14-cards-2.md
-    - name: 분기 및 실행 취소
-      href: tutorials/15-branching-and-undo.md
-    - name: 버전 관리 및 태그 지정
-      href: tutorials/16-versioning-and-tagging.md
-    - name: 하이브리드 봇
-      href: tutorials/17-hybrid-bots.md
-    - name: 데모 - 암호 재설정
-      href: tutorials/demo-password-reset.md
-    - name: 데모 - 피자 주문
-      href: tutorials/demo-pizza-order.md
-    - name: 데모 - VR 앱 시작 관리자
-      href: tutorials/demo-vr-app-launcher.md
-    - name: Conversation Learner 봇 배포
-      href: deploy-to-bf.md
-    - name: Conversation Learner로 교육하는 방법
-      href: how-to-teach-cl.md
-    - name: 사용자 데이터 관리 방법
-      href: managing-data.md
+  - name: Conversation Learner 시작
+    href: quickstart.md
+  - name: Hello world
+    href: tutorials/01-hello-world.md
+  - name: 학습 소개
+    href: tutorials/02-intro-to-training.md
+  - name: 대기 및 비 대기 작업
+    href: tutorials/03-wait-vs-nonwait-actions.md
+  - name: 엔터티 소개
+    href: tutorials/04-introduction-to-entities.md
+  - name: 필요한 엔터티
+    href: tutorials/05-expected-entity.md
+  - name: 무효화할 수 있는 엔터티
+    href: tutorials/06-negatable-entities.md
+  - name: 다중 값 엔터티
+    href: tutorials/07-multi-value-entities.md
+  - name: 미리 학습된 엔터티
+    href: tutorials/08-pre-trained-entities.md
+  - name: 엔터티 확인자
+    href: tutorials/09-entity-resolvers.md
+  - name: 대체 입력
+    href: tutorials/10-alternative-inputs.md
+  - name: 로그 대화 상자
+    href: tutorials/11-log-dialogs.md
+  - name: 엔터티 검색 콜백
+    href: tutorials/12-entity-detection-callback.md
+  - name: 세션 콜백
+    href: tutorials/13-session-callbacks.md
+  - name: API 호출
+    href: tutorials/14-api-calls.md
+  - name: 카드
+    href: tutorials/15-cards.md
+  - name: 하이브리드 봇
+    href: tutorials/16-hybrid-bots.md
+  - name: 분기 및 실행 취소
+    href: tutorials/17-branch-undo.md
+  - name: 버전 관리 및 태그 지정
+    href: tutorials/18-version-tag.md
+  - name: 데모 - 암호 재설정
+    href: tutorials/demo-password-reset.md
+  - name: 데모 - 피자 주문
+    href: tutorials/demo-pizza-order.md
+  - name: Conversation Learner 봇 배포
+    href: deploy-to-bf.md
+  - name: Conversation Learner로 교육하는 방법
+    href: how-to-teach-cl.md
+  - name: 사용자 데이터 관리 방법
+    href: managing-data.md
 - name: 리소스
   items:
-    - name: Conversation Learner 샘플 봇
-      href: 'https://github.com/Microsoft/ConversationLearner-Samples'
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/'
+  - name: Conversation Learner 샘플 봇
+    href: https://github.com/Microsoft/ConversationLearner-Samples
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/roadmap/
+ms.openlocfilehash: ac1c54259fd7660bc0ebf51fc44936577f5dab61
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792088"

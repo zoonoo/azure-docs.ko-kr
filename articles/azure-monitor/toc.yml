@@ -9,19 +9,19 @@ items:
     href: azure-monitor-rebrand.md
 - name: 빠른 시작
   items:
-  - name: 애플리케이션
+  - name: 응용 프로그램
     items:
-    - name: .NET 애플리케이션
+    - name: .NET 응용 프로그램
       href: ../application-insights/quick-monitor-portal.md?toc=/azure/azure-monitor/toc.json
     - name: .NET Core 애플리케이션
       href: ../application-insights/app-insights-dotnetcore-quick-start.md?toc=/azure/azure-monitor/toc.json
     - name: Node.js 애플리케이션
       href: ../application-insights/app-insights-nodejs-quick-start.md?toc=/azure/azure-monitor/toc.json
-    - name: Java 애플리케이션
+    - name: Java 응용 프로그램
       href: ../application-insights/app-insights-java-quick-start.md?toc=/azure/azure-monitor/toc.json
-    - name: 모바일 애플리케이션
+    - name: 모바일 응용 프로그램
       href: ../application-insights/app-insights-mobile-center-quickstart.md?toc=/azure/azure-monitor/toc.json
-    - name: 웹 애플리케이션
+    - name: 웹 응용 프로그램
       href: ../application-insights/app-insights-website-monitoring.md?toc=/azure/azure-monitor/toc.json
   - name: 가상 머신
     items:
@@ -44,13 +44,13 @@ items:
     href: learn/tutorial-response.md
   - name: 성능 및 일정에 대한 자동 크기 조정
     href: learn/tutorial-autoscale-performance-schedule.md
-  - name: 애플리케이션 런타임 예외 찾기
+  - name: 응용 프로그램 런타임 예외 찾기
     href: ../application-insights/app-insights-tutorial-runtime-exceptions.md?toc=/azure/azure-monitor/toc.json
-  - name: 애플리케이션 성능 문제 찾기
+  - name: 응용 프로그램 성능 문제 찾기
     href: ../application-insights/app-insights-tutorial-performance.md?toc=/azure/azure-monitor/toc.json
-  - name: 애플리케이션 상태에 대한 경고
+  - name: 응용 프로그램 상태에 대한 경고
     href: ../application-insights/app-insights-tutorial-alert.md?toc=/azure/azure-monitor/toc.json
-  - name: 애플리케이션 사용자 이해
+  - name: 응용 프로그램 사용자 이해
     href: ../application-insights/app-insights-tutorial-users.md?toc=/azure/azure-monitor/toc.json
   - name: 사용자 지정 대시보드 만들기
     href: ../application-insights/app-insights-tutorial-dashboards.md?toc=/azure/azure-monitor/toc.json
@@ -86,8 +86,8 @@ items:
         href: platform/data-security.md
       - name: 개인 로그 데이터 처리
         href: platform/personal-data-mgmt.md
-      - name: 애플리케이션 데이터 수집, 보존 및 저장
-        href: ../application-insights/app-insights-data-retention-privacy.md?toc=/azure/azure-monitor/toc.json
+      - name: 응용 프로그램 데이터 수집, 보존 및 저장
+        href: app/data-retention-privacy.md
   - name: 자세한 정보
     items:
     - name: Application Insights
@@ -95,9 +95,9 @@ items:
       - name: 개요
         href: ../application-insights/app-insights-overview.md?toc=/azure/azure-monitor/toc.json
       - name: DevOps
-        href: ../application-insights/app-insights-detect-triage-diagnose.md?toc=/azure/azure-monitor/toc.json
+        href: app/detect-triage-diagnose.md
       - name: 분산된 추적
-        href: ../application-insights/distributed-tracing.md?toc=/azure/azure-monitor/toc.json
+        href: app/distributed-tracing.md
       - name: 로그 기반 및 사전 집계 메트릭
         href: ../application-insights/pre-aggregated-metrics-log-metrics.md?toc=/azure/azure-monitor/toc.json
     - name: 컨테이너
@@ -154,20 +154,20 @@ items:
         href: platform/roles-permissions-security.md
       - name: 작업 영역
         href: platform/manage-access.md
-      - name: 애플리케이션
+      - name: 응용 프로그램
         href: ../application-insights/app-insights-resources-roles-access-control.md?toc=/azure/azure-monitor/toc.json
       - name: IP 주소
-        href: ../application-insights/app-insights-ip-addresses.md?toc=/azure/azure-monitor/toc.json
-    - name: 애플리케이션 모니터링
+        href: app/ip-addresses.md
+    - name: 응용 프로그램 모니터링
       items:
       - name: 웹앱 및 서비스 심층 진단
         href: ../application-insights/app-insights-devops.md?toc=/azure/azure-monitor/toc.json
-      - name: 웹 애플리케이션의 성능 모니터링
+      - name: 웹 응용 프로그램의 성능 모니터링
         href: ../application-insights/app-insights-web-monitor-performance.md?toc=/azure/azure-monitor/toc.json
       - name: 개발, 테스트 및 프로덕션 구분
         href: ../application-insights/app-insights-separate-resources.md?toc=/azure/azure-monitor/toc.json
-      - name: Application Insights에서 어떻게 할까요?
-        href: ../application-insights/app-insights-how-do-i.md?toc=/azure/azure-monitor/toc.json
+      - name: Application Insights에서 다음을 수행하는 방법
+        href: app/how-do-i.md
     - name: 작업 영역 관리
       items:
       - name: 작업 영역 만들기
@@ -250,7 +250,7 @@ items:
         href: platform/data-sources-syslog.md
       - name: 성능 카운터
         href: platform/data-sources-performance-counters.md
-      - name: Linux 애플리케이션 성능
+      - name: Linux 응용 프로그램 성능
         href: platform/data-sources-linux-applications.md
       - name: IIS 로그
         href: platform/data-sources-iis-logs.md
@@ -258,14 +258,14 @@ items:
         href: platform/data-sources-custom-logs.md
       - name: 사용자 지정 필드
         href: platform/custom-fields.md
-    - name: 애플리케이션 구성
+    - name: 응용 프로그램 구성
       items:
       - name: Azure 앱
         items:
         - name: Azure 웹앱
-          href: ../application-insights/app-insights-azure-web-apps.md?toc=/azure/azure-monitor/toc.json
+          href: app/azure-web-apps.md
         - name: Azure Cloud Services
-          href: ../application-insights/app-insights-cloudservices.md?toc=/azure/azure-monitor/toc.json
+          href: app/cloudservices.md
         - name: 연속 모니터링 추가
           href: ../application-insights/app-insights-vsts-continuous-monitoring.md?toc=/azure/azure-monitor/toc.json
         - name: 프로파일러
@@ -293,54 +293,54 @@ items:
       - name: ASP.NET 앱
         items:
         - name: 웹 앱
-          href: ../application-insights/app-insights-asp-net.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net.md
         - name: 상태 모니터
-          href: ../application-insights/app-insights-monitor-performance-live-website-now.md?toc=/azure/azure-monitor/toc.json
+          href: app/monitor-performance-live-website-now.md
         - name: Windows 서비스
           href: ../application-insights/app-insights-windows-services.md?toc=/azure/azure-monitor/toc.json
         - name: Windows 데스크톱
           href: ../application-insights/app-insights-windows-desktop.md?toc=/azure/azure-monitor/toc.json
         - name: ASP.NET Core
-          href: ../application-insights/app-insights-asp-net-core.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net-core.md
           items:
           - name: Linux 앱 서비스에 대한 Profiler
             href: ../application-insights/app-insights-profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json
         - name: 콘솔
-          href: ../application-insights/application-insights-console.md?toc=/azure/azure-monitor/toc.json
-        - name: 애플리케이션 대시보드
+          href: app/console.md
+        - name: 응용 프로그램 대시보드
           href: ../application-insights/app-insights-overview-dashboard.md?toc=/azure/azure-monitor/toc.json
         - name: 더 많은 원격 분석 수집
-          href: ../application-insights/app-insights-asp-net-more.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net-more.md
         - name: 예외
-          href: ../application-insights/app-insights-asp-net-exceptions.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net-exceptions.md
         - name: 로그 추적
-          href: ../application-insights/app-insights-asp-net-trace-logs.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net-trace-logs.md
         - name: 성능 카운터
           href: ../application-insights/app-insights-performance-counters.md?toc=/azure/azure-monitor/toc.json
         - name: 종속성
-          href: ../application-insights/app-insights-asp-net-dependencies.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net-dependencies.md
         - name: 릴리스 주석
           href: app/annotations.md
         - name: ApplicationInsights.config
-          href: ../application-insights/app-insights-configuration-with-applicationinsights-config.md?toc=/azure/azure-monitor/toc.json
+          href: app/configuration-with-applicationinsights-config.md
         - name: 스냅숏 디버거
           href: ../application-insights/app-insights-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
       - name: Java 앱
         items:
         - name: 웹 앱
-          href: ../application-insights/app-insights-java-get-started.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-get-started.md
         - name: 웹앱 - 런타임
-          href: ../application-insights/app-insights-java-live.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-live.md
         - name: Docker 앱
-          href: ../application-insights/app-insights-docker.md?toc=/azure/azure-monitor/toc.json
+          href: app/docker.md
         - name: 로그 추적
-          href: ../application-insights/app-insights-java-trace-logs.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-trace-logs.md
         - name: Unix 메트릭
-          href: ../application-insights/app-insights-java-collectd.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-collectd.md
         - name: 종속성
-          href: ../application-insights/app-insights-java-agent.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-agent.md
         - name: 필터 원격 분석
-          href: ../application-insights/app-insights-java-filter-telemetry.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-filter-telemetry.md
         - name: 마이크로미터 메트릭
           href: ../application-insights/micrometer-java.md?toc=/azure/azure-monitor/toc.json
       - name: Node.js 앱
@@ -350,7 +350,7 @@ items:
       - name: 웹 페이지
         items:
         - name: JavaScript
-          href: ../application-insights/app-insights-javascript.md?toc=/azure/azure-monitor/toc.json
+          href: app/javascript.md
       - name: Azure Functions 모니터링
         href: ../azure-functions/functions-monitoring.md?toc=/azure/application-insights/toc.json
       - name: 분산된 추적
@@ -393,13 +393,13 @@ items:
       - name: 문제 해결
         items:
         - name: .NET에 대한 데이터 없음
-          href: ../application-insights/app-insights-asp-net-troubleshoot-no-data.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net-troubleshoot-no-data.md
         - name: 스냅숏 디버거
           href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
         - name: 분석
           href: app/analytics-troubleshooting.md
         - name: 자바
-          href: ../application-insights/app-insights-java-troubleshoot.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-troubleshoot.md
         - name: 사용 현황 분석
           href: ../application-insights/app-insights-usage-troubleshoot.md?toc=/azure/azure-monitor/toc.json
     - name: Azure 리소스
@@ -417,7 +417,7 @@ items:
       - name: Azure PaaS 리소스
         href: platform/collect-azurepass-posh.md
       - name: 사용자 지정 데이터 원본 상관 관계 만들기
-        href: ../application-insights/app-insights-custom-data-correlation.md?toc=/azure/azure-monitor/toc.json
+        href: app/custom-data-correlation.md
     - name: 사용자 지정 데이터 수집
       items:
       - name: Log Analytics 데이터 수집기 API
@@ -432,7 +432,7 @@ items:
       items:
       - name: 구성 관리자
         href: platform/collect-sccm.md
-      - name: SCOM을 사용하여 애플리케이션 성능 모니터링
+      - name: SCOM을 사용하여 응용 프로그램 성능 모니터링
         href: ../application-insights/app-insights-scom.md?toc=/azure/azure-monitor/toc.json
     - name: 데이터 라우팅
       items:
@@ -450,37 +450,37 @@ items:
         href: platform/diagnostic-logs-stream-event-hubs.md
       - name: 애플리케이션 데이터를 Log Analytics로 라우팅
         href: platform/app-insights-connector.md
-      - name: 애플리케이션 데이터 내보내기
+      - name: 응용 프로그램 데이터 내보내기
         items:
         - name: 연속 내보내기
-          href: ../application-insights/app-insights-export-telemetry.md?toc=/azure/azure-monitor/toc.json
+          href: app/export-telemetry.md
           items:
           - name: 코드 샘플
             items:
             - name: Stream Analytics를 사용하여 SQL로 내보내기
-              href: ../application-insights/app-insights-code-sample-export-sql-stream-analytics.md?toc=/azure/azure-monitor/toc.json
+              href: app/code-sample-export-sql-stream-analytics.md
             - name: Stream Analytics로 내보내기
-              href: ../application-insights/app-insights-export-stream-analytics.md?toc=/azure/azure-monitor/toc.json
+              href: app/export-stream-analytics.md
         - name: 데이터 모델 내보내기
-          href: ../application-insights/app-insights-export-data-model.md?toc=/azure/azure-monitor/toc.json
+          href: app/export-data-model.md
   - name: 인사이트 얻기
     items:
-    - name: 애플리케이션 모니터링
+    - name: 응용 프로그램 모니터링
       items:
       - name: Application Insights 포털
         items:
         - name: 검색
-          href: ../application-insights/app-insights-diagnostic-search.md?toc=/azure/azure-monitor/toc.json
+          href: app/diagnostic-search.md
         - name: 메트릭
           href: ../application-insights/app-insights-metrics-explorer.md?toc=/azure/azure-monitor/toc.json
         - name: 라이브 스트림
           href: ../application-insights/app-insights-live-stream.md?toc=/azure/azure-monitor/toc.json
-        - name: 애플리케이션 맵
+        - name: 응용 프로그램 맵
           href: app/app-map.md
         - name: 트랜잭션 진단
           href: ../application-insights/app-insights-transaction-diagnostics.md?toc=/azure/azure-monitor/toc.json
         - name: HockeyApp 데이터
-          href: ../application-insights/app-insights-hockeyapp-bridge-app.md?toc=/azure/azure-monitor/toc.json
+          href: app/hockeyapp-bridge-app.md
       - name: Visual Studio
         items:
         - name: F5 통찰력
@@ -531,8 +531,8 @@ items:
           href: insights/container-insights-troubleshoot.md
       - name: Docker 및 Windows 컨테이너 모니터링
         href: insights/containers.md
-      - name: Docker 애플리케이션 모니터링
-        href: ../application-insights/app-insights-docker.md?toc=/azure/azure-monitor/toc.json
+      - name: Docker 응용 프로그램 모니터링
+        href: app/docker.md
     - name: 리소스 그룹 모니터링
       href: insights/resource-group-insights.md
     - name: 데이터베이스 모니터링
@@ -638,13 +638,13 @@ items:
       items:
       - name: 로그
         href: platform/dashboards.md
-      - name: 애플리케이션
+      - name: 응용 프로그램
         href: app/app-insights-dashboards.md
     - name: Power BI
       items:
       - name: 로그 데이터 내보내기
         href: platform/powerbi.md
-      - name: 애플리케이션 데이터 내보내기
+      - name: 응용 프로그램 데이터 내보내기
         href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
     - name: 데이터를 Grafana에 보내기
       href: platform/grafana-plugin.md
@@ -710,7 +710,7 @@ items:
           href: log-query/workspace-expression.md
       - name: 로그 데이터
         items:
-        - name: 애플리케이션 데이터
+        - name: 응용 프로그램 데이터
           href: app/analytics.md
         - name: 표준 속성
         - name: 텍스트 데이터 구문 분석
@@ -759,10 +759,10 @@ items:
           href: platform/migrate-management-alerts.md
         - name: 서비스 알림에 대한 경고 구성
           href: platform/alerts-activity-log-service-notifications.md
-      - name: 애플리케이션 경고 사용
+      - name: 응용 프로그램 경고 사용
         items:
         - name: 가용성
-          href: ../application-insights/app-insights-monitor-web-app-availability.md?toc=/azure/azure-monitor/toc.json
+          href: app/monitor-web-app-availability.md
         - name: 메트릭 경고
           href: app/alerts.md
       - name: 경고가 있는 작업 그룹 사용
@@ -829,14 +829,10 @@ items:
     items:
     - name: 사용량 및 예상 비용
       href: platform/usage-estimated-costs.md
-    - name: 애플리케이션 데이터 볼륨 및 보존
+    - name: 애플리케이션 사용량 및 비용
       href: ../application-insights/app-insights-pricing.md?toc=/azure/azure-monitor/toc.json
-    - name: 애플리케이션 엔터프라이즈 계획 세부 정보
-      href: ../application-insights/app-insights-pricing-enterprise-details.md?toc=/azure/azure-monitor/toc.json
-    - name: 로그 데이터 볼륨 및 보존
+    - name: 로그 데이터 사용량 및 비용
       href: platform/manage-cost-storage.md
-    - name: 로그 데이터 모니터 사용량
-      href: platform/data-usage.md
   - name: 자동화
     items:
     - name: PowerShell
@@ -845,7 +841,7 @@ items:
         href: platform/powershell-quickstart-samples.md
       - name: PowerShell cmdlet
         href: platform/powershell-workspace-configuration.md
-      - name: 애플리케이션
+      - name: 응용 프로그램
         items:
         - name: Application Insights 리소스 만들기
           href: ../application-insights/app-insights-powershell.md?toc=/azure/azure-monitor/toc.json
@@ -865,22 +861,22 @@ items:
         href: platform/rest-api-walkthrough.md
       - name: 알림 API
         href: platform/api-alerts.md
-    - name: 애플리케이션
+    - name: 응용 프로그램
       items:
       - name: Microsoft Flow 자동화
-        href: ../application-insights/app-insights-automate-with-flow.md?toc=/azure/azure-monitor/toc.json
+        href: app/automate-with-flow.md
       - name: Azure 논리 앱과 자동화
-        href: ../application-insights/automate-with-logic-apps.md?toc=/azure/azure-monitor/toc.json
+        href: app/automate-with-logic-apps.md
       - name: 사용자 지정 이메일 보고서
-        href: ../application-insights/automate-custom-reports.md?toc=/azure/azure-monitor/toc.json
+        href: app/automate-custom-reports.md
   - name: Extend
     items:
-    - name: 애플리케이션
+    - name: 응용 프로그램
       items:
       - name: 사용자 지정 이벤트 및 메트릭용 API
         href: app/api-custom-events-metrics.md
       - name: .NET SDK에서 사용자 지정 작업 추적
-        href: ../application-insights/application-insights-custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json
+        href: app/custom-operations-tracking.md
       - name: 필터링 및 원격 분석 전처리
         href: app/api-filtering-sampling.md
       - name: 샘플링
@@ -906,9 +902,9 @@ items:
   - name: Application Insights
     items:
     - name: 종속성 자동 수집
-      href: ../application-insights/auto-collect-dependencies.md?toc=/azure/azure-monitor/toc.json
+      href: app/auto-collect-dependencies.md
     - name: 원격 분석 상관 관계
-      href: ../application-insights/application-insights-correlation.md?toc=/azure/azure-monitor/toc.json
+      href: app/correlation.md
     - name: NuGet 패키지
       href: ../application-insights/app-insights-nuget.md?toc=/azure/azure-monitor/toc.json
     - name: 플랫폼 지원
@@ -916,21 +912,21 @@ items:
   - name: Application Insights 데이터 모델
     items:
     - name: 개요
-      href: ../application-insights/application-insights-data-model.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model.md
     - name: 요청
-      href: ../application-insights/application-insights-data-model-request-telemetry.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model-request-telemetry.md
     - name: 종속성
-      href: ../application-insights/application-insights-data-model-dependency-telemetry.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model-dependency-telemetry.md
     - name: 예외
-      href: ../application-insights/application-insights-data-model-exception-telemetry.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model-exception-telemetry.md
     - name: 추적
-      href: ../application-insights/application-insights-data-model-trace-telemetry.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model-trace-telemetry.md
     - name: 행사
-      href: ../application-insights/application-insights-data-model-event-telemetry.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model-event-telemetry.md
     - name: 메트릭
-      href: ../application-insights/application-insights-data-model-metric-telemetry.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model-metric-telemetry.md
     - name: Context
-      href: ../application-insights/application-insights-data-model-context.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model-context.md
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Azure 기능
@@ -1008,9 +1004,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 코드 샘플
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 819cce3f144c3073f5b831d78cb3d9fa1b0a0a8a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1b80318e470995d060467f42aa61cdf6f4e8f34b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726451"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974576"

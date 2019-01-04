@@ -56,6 +56,12 @@ items:
   items:
   - name: SSH 문제 해결
     href: troubleshoot-ssh-connection.md
+  - name: 파일 시스템 오류 해결
+    href: https://support.microsoft.com/help/3213321
+  - name: 커널 관련 부팅 문제 해결
+    href: https://support.microsoft.com/help/4091524
+  - name: fstab 오류 해결
+    href: https://support.microsoft.com/help/3206699
   - name: 자세한 SSH 문제 해결
     href: detailed-troubleshoot-ssh-connection.md
 - name: 일반적인 오류 메시지
@@ -105,6 +111,8 @@ items:
   href: unexpected-reboots-attached-vhds.md
 - name: Windows 정품 인증 문제
   href: troubleshoot-activation-problems.md
+- name: 강제 터널링을 사용한 정품 인증 문제
+  href: custom-routes-enable-kms-activation.md
 - name: 애플리케이션 액세스 문제
   href: troubleshoot-app-connection.md
 - name: 새 VM 배포
@@ -162,9 +170,9 @@ items:
   href: understand-vm-reboot.md
 - name: 원격 문제 해결 도구
   href: remote-tools-troubleshoot-azure-vm-issues.md
-ms.openlocfilehash: af1f284108a326b3ce099ee49cb15a8f51cc61af
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b745b9e42c700ea446d934df7d2e3201b555f075
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434861"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976327"
