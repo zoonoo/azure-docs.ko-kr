@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: clemensv
-ms.openlocfilehash: 3e1bdcc9340cc6cf997bebcdf1567bf676521ea5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 87a89ffd627454752924bfc69e44da87b071b5e5
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276131"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651438"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Azure Service Bus에서 Virtual Network 서비스 엔드포인트 사용
 
@@ -39,7 +39,7 @@ ms.locfileid: "53276131"
 > - Azure Data Explorer
 >
 > 아래 Microsoft 서비스는 가상 네트워크에 있어야 합니다.
-> - Azure Web Apps
+> - Azure App Service
 > - Azure 기능
 
 > [!IMPORTANT]
@@ -47,7 +47,7 @@ ms.locfileid: "53276131"
 
 ## <a name="enable-service-endpoints-with-service-bus"></a>Service Bus에서 서비스 엔드포인트를 사용하도록 설정
 
-Service Bus에서 VNet 서비스 엔드포인트를 사용할 경우의 중요한 고려 사항은 표준 및 프리미엄 계층 Service Bus 네임스페이스를 혼합하는 응용 프로그램에서는 이러한 엔드포인트를 사용하지 않아야 한다는 것입니다. 표준 계층은 VNet을 지원하지 않으므로, 엔드포인트는 프리미엄 계층 네임스페이스로만 제한됩니다. VNet은 표준 네임스페이스로의 트래픽을 차단합니다.
+Service Bus에서 VNet 서비스 엔드포인트를 사용할 경우의 중요한 고려 사항은 표준 및 프리미엄 계층 Service Bus 네임스페이스를 혼합하는 애플리케이션에서는 이러한 엔드포인트를 사용하지 않아야 한다는 것입니다. 표준 계층은 VNet을 지원하지 않으므로, 엔드포인트는 프리미엄 계층 네임스페이스로만 제한됩니다. VNet은 표준 네임스페이스로의 트래픽을 차단합니다.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>VNet 통합에서 사용하도록 설정한 고급 보안 시나리오 
 

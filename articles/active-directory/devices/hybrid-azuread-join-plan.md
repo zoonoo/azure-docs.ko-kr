@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b22f79195a7246c87a8d5d5b4b5e012cc30a62dd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c951d4f646fdaec9731ec4b6320e5f625ad91a42
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274567"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993291"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>하이브리드 Azure Active Directory 조인 구현을 계획하는 방법
 
@@ -146,9 +146,9 @@ DC(도메인 컨트롤러) 역할을 실행하는 Windows Server의 등록은 �
 
 ## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Hybrid Azure AD 조인에서 대체 로그인 ID 지원
 
-Windows 10 하이브리드 Azure AD 조인은 대체 로그인 ID 유형, [인증 방법](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn), 도메인 유형 및 Windows 10 버전에 따라 [대체 로그인 ID](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)를 제한적으로 지원합니다. 사용자 환경에 존재할 수 있는 두 가지 유형의 대체 로그인 ID가 있습니다.
+Windows 10 하이브리드 Azure AD 조인은 대체 로그인 ID 유형, [인증 방법](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), 도메인 유형 및 Windows 10 버전에 따라 [대체 로그인 ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)를 제한적으로 지원합니다. 사용자 환경에 존재할 수 있는 두 가지 유형의 대체 로그인 ID가 있습니다.
 
- - 라우팅 가능 대체 로그인 ID: 라우팅 가능 대체 로그인 ID에는 도메인 등록 기관에 등록된 유효한 확인된 도메인이 있습니다. 예를 들어 contoso.com이 기본 도메인인 경우 contoso.org 및 contoso.co.uk는 Contoso에서 소유하고 [Azure AD에서 확인](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain)된 유효한 도메인입니다.
+ - 라우팅 가능 대체 로그인 ID: 라우팅 가능 대체 로그인 ID에는 도메인 등록 기관에 등록된 유효한 확인된 도메인이 있습니다. 예를 들어 contoso.com이 기본 도메인인 경우 contoso.org 및 contoso.co.uk는 Contoso에서 소유하고 [Azure AD에서 확인](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)된 유효한 도메인입니다.
  
  - 라우팅 불가능 대체 로그인 ID: 라우팅 불가능 대체 로그인 ID에는 확인된 도메인이 없습니다. 조직의 개인 네트워크에만 적용할 수 있습니다. 예를 들어 contoso.com이 기본 도메인인 경우 contoso.local은 인터넷에서 확인 가능한 도메인이 아니라 Contoso 네트워크 내에서 사용됩니다.
  

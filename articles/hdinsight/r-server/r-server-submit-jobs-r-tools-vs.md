@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: d9d34441f36ea60141ed2659b3e33efdaac94ad3
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 351734ea394b8820e87799a6d9a87979dd9c3807
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497117"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604534"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio용 R 도구에서 작업 제출
 
@@ -28,14 +28,14 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https:/
 
     ![Visual Studio 2017에서 RTVS 설치](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
 
-2. *데이터 과학 및 분석 응용 프로그램* 워크로드를 선택한 후 **R 언어 지원**, **R 개발에 대한 런타임 지원** 및  **Microsoft R Client** 옵션을 선택합니다.
+2. *데이터 과학 및 분석 애플리케이션* 워크로드를 선택한 후 **R 언어 지원**, **R 개발에 대한 런타임 지원** 및  **Microsoft R Client** 옵션을 선택합니다.
 
 3. SSH 인증에 대한 공용 및 개인 키가 필요합니다.
 <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
 4. 컴퓨터에 [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows)를 설치합니다. ML Server는 [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) 및 `RxSpark` 함수를 제공합니다.
 
-5. [PuTTY](http://www.putty.org/)를 설치하여 로컬 클라이언트에서 HDInsight 클러스터로 `RevoScaleR` 함수를 실행하기 위한 계산 컨텍스트를 제공합니다.
+5. [PuTTY](https://www.putty.org/)를 설치하여 로컬 클라이언트에서 HDInsight 클러스터로 `RevoScaleR` 함수를 실행하기 위한 계산 컨텍스트를 제공합니다.
 
 6. Visual Studio 환경에 데이터 과학 설정을 적용하여 작업 영역에 R 도구를 위한 새 레이아웃을 제공하는 옵션이 제공됩니다.
     1. 현재 Visual Studio 설정을 저장하려면 **도구 > 설정 가져오기 및 내보내기** 명령을 사용한 다음, **선택한 환경 설정 내보내기**를 선택하고 파일 이름을 지정합니다. 이러한 설정을 복원하려면 동일한 명령을 사용하고 **선택한 환경 설정 가져오기**를 선택합니다.
@@ -44,7 +44,7 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https:/
 
         ![데이터 과학 설정...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > 1단계의 방법을 사용하여, **데이터 과학 설정** 명령을 반복할 필요 없이 개인 설정된 데이터 과학 레이아웃을 저장 및 복원할 수도 있습니다.
 
 ## <a name="execute-local-r-methods"></a>로컬 R 메서드 실행

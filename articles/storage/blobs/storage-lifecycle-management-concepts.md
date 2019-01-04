@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: 4dff63a20f9ae3372e37cbd413dd3ec6187ea2cc
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5c77d7d8f1ce3b4a13e497d461244aae5b34d08c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310262"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631365"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Azure Blob Storage 수명 주기 관리(미리 보기)
 
@@ -43,14 +43,16 @@ ms.locfileid: "53310262"
 
 ### <a name="powershell"></a>PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 요청을 제출하려면:
 
 ```powershell
-Register-AzureRmProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage 
+Register-AzProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage 
 ```
 다음 명령을 사용하여 등록 승인 상태를 확인할 수 있습니다.
 ```powershell
-Get-AzureRmProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
+Get-AzProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
 ```
 승인 및 적절한 등록을 수행하면 이전 요청을 제출할 때 *등록* 상태가 수신됩니다.
 
@@ -69,7 +71,7 @@ az feature show --namespace Microsoft.Storage --name DLM
 
 ## <a name="add-or-remove-a-policy"></a>정책 추가 또는 제거 
 
-Azure Portal, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [Azure CLI](https://docs.microsoft.com/cli/azure/ext/storage-preview/storage/account/management-policy?view=azure-cli-latest#ext-storage-preview-az-storage-account-management-policy-create), [REST API](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/createorupdate) 또는 클라이언트 도구를 사용하여 [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2) 언어로 정책을 추가, 편집 또는 제거할 수 있습니다. 
+Azure Portal, [PowerShell](https://www.powershellgallery.com/packages/Az.Storage), [Azure CLI](https://docs.microsoft.com/cli/azure/ext/storage-preview/storage/account/management-policy?view=azure-cli-latest#ext-storage-preview-az-storage-account-management-policy-create), [REST API](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/createorupdate) 또는 클라이언트 도구를 사용하여 [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2) 언어로 정책을 추가, 편집 또는 제거할 수 있습니다. 
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -84,9 +86,9 @@ Azure Portal, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.St
 ```powershell
 $rules = '{ ... }' 
 
-Set-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName] -Policy $rules 
+Set-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName] -Policy $rules 
 
-Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName]
+Get-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName]
 ```
 
 ### <a name="azure-cli"></a>Azure CLI
@@ -187,7 +189,7 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 
 | 필터 이름 | 필터 형식 | 메모 | 필수 여부 |
 |-------------|-------------|-------|-------------|
-| blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 미리 보기 릴리스는 `blockBlob`만 지원합니다. | yes |
+| blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 미리 보기 릴리스는 `blockBlob`만 지원합니다. | 예 |
 | prefixMatch | 접두사를 매칭할 문자열 배열입니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어, "https://myaccount.blob.core.windows.net/container1/foo/..." 아래의 모든 Blob을 일치시키려는 경우 규칙에 대한 prefixMatch는 `container1/foo`입니다. | prefixMatch를 정의하지 않으면 규칙은 계정 내의 모든 Blob에 적용됩니다. | 아니요 |
 
 ### <a name="rule-actions"></a>규칙 작업

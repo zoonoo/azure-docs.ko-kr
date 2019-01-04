@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: f1c42a3e091bc4b3804edfe835e521a99fcee880
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 95aff0bb37a91c1e2ac117f2f3b90c726e9f88d8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976706"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792892"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>빠른 시작: HDInsight에서 클러스터 설정
 
@@ -57,7 +57,7 @@ Hadoop 클러스터는 작업의 분산 처리에 사용되는 여러 가상 머
 
 ## <a name="resource-group-name"></a>리소스 그룹 이름
 
-[Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)를 사용하면 Azure 리소스 그룹이라는 그룹으로서 응용 프로그램에서 리소스로 작업할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트, 모니터링 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.
+[Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)를 사용하면 Azure 리소스 그룹이라는 그룹으로서 애플리케이션에서 리소스로 작업할 수 있습니다. 애플리케이션에 대한 모든 리소스의 배포, 업데이트, 모니터링 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.
 
 ## <a name="cluster-types"></a> 클러스터 유형 및 구성
 
@@ -71,7 +71,7 @@ Azure HDInsight는 현재 각각이 특정 기능을 제공하는 구성 요소 
 | [Hadoop](../../hdinsight/hadoop/apache-hadoop-introduction.md) |저장된 데이터의 일괄 처리 쿼리 및 분석 |
 | [HBase](../../hdinsight/hbase/apache-hbase-overview.md) |많은 양의 스키마 없는 NoSQL 데이터에 대한 처리 |
 | [Interactive Query](../../hdinsight/interactive-query/apache-interactive-query-get-started.md) |대화형 및 더 빠른 Hive 쿼리에 대한 메모리 내 캐싱 |
-| [Kafka](../../hdinsight/kafka/apache-kafka-introduction.md) | 실시간 스트리밍 데이터 파이프라인과 응용 프로그램을 만드는 데 사용할 수 있는 분산형 스트리밍 플랫폼 |
+| [Kafka](../../hdinsight/kafka/apache-kafka-introduction.md) | 실시간 스트리밍 데이터 파이프라인과 애플리케이션을 만드는 데 사용할 수 있는 분산형 스트리밍 플랫폼 |
 | [R Server](../../hdinsight/r-server/r-server-overview.md) |다양한 빅 데이터 통계, 예측 모델링 및 기계 학습 기능 |
 | [Spark](../../hdinsight/spark/apache-spark-overview.md) |메모리 내 처리, 대화형 쿼리, 마이크로 배치 스트림 처리 |
 | [Storm](../../hdinsight/storm/apache-storm-overview.md) |실시간 이벤트 처리 |
@@ -100,7 +100,7 @@ Hadoop의 온-프레미스 설치가 클러스터의 저장소에 HDFS(Hadoop �
 > [!WARNING]
 > HDInsight 클러스터와 다른 위치에서는 추가 저장소 계정을 사용할 수 없습니다.
 
-구성하는 동안 기본 저장소 엔드포인트에 대해 Data Lake Storage를 지정합니다. 기본 저장소에는 응용 프로그램 및 시스템 로그가 포함되어 있습니다. 필요에 따라 클러스터에서 액세스할 수 있는 Data Lake Storage Gen2를 사용한 연결된 스토리지 계정을 추가로 지정할 수 있습니다. HDInsight 클러스터와 종속된 저장소 계정은 같은 Azure 위치에 있어야 합니다.
+구성하는 동안 기본 저장소 엔드포인트에 대해 Data Lake Storage를 지정합니다. 기본 저장소에는 애플리케이션 및 시스템 로그가 포함되어 있습니다. 필요에 따라 클러스터에서 액세스할 수 있는 Data Lake Storage Gen2를 사용한 연결된 스토리지 계정을 추가로 지정할 수 있습니다. HDInsight 클러스터와 종속된 저장소 계정은 같은 Azure 위치에 있어야 합니다.
 
 ![클러스터 스토리지 설정: HDFS 호환 스토리지 엔드포인트](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
@@ -186,17 +186,17 @@ HDInsight만 사용하려는 경우, 하나의 데이터 노드를 사용하는 
 
 사용자 지정 클러스터 설정은 빨리 만들기 설정에 빌드되며 다음 옵션을 추가합니다.
 
-- [HDInsight 응용 프로그램](#hdinsight-applications)
+- [HDInsight 애플리케이션](#hdinsight-applications)
 - [클러스터 크기](#cluster-size):
 - 고급 설정
   - [스크립트 동작](#customize-clusters-using-script-action)
   - [가상 네트워크](#use-virtual-network)
 
-## <a name="install-hdinsight-applications-on-clusters"></a>클러스터에 HDInsight 응용 프로그램 설치
+## <a name="install-hdinsight-applications-on-clusters"></a>클러스터에 HDInsight 애플리케이션 설치
 
-HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용자가 설치할 수 있는 응용 프로그램입니다. Microsoft, 타사에서 제공하거나 또는 직접 개발한 응용 프로그램을 사용할 수 있습니다. 자세한 내용은 [Azure HDInsight에 타사 Hadoop 응용 프로그램 설치](../../hdinsight/hdinsight-apps-install-applications.md)를 참조하세요.
+HDInsight 애플리케이션은 Linux 기반 HDInsight 클러스터에 사용자가 설치할 수 있는 애플리케이션입니다. Microsoft, 타사에서 제공하거나 또는 직접 개발한 애플리케이션을 사용할 수 있습니다. 자세한 내용은 [Azure HDInsight에 타사 Hadoop 애플리케이션 설치](../../hdinsight/hdinsight-apps-install-applications.md)를 참조하세요.
 
-HDInsight 응용 프로그램 대부분은 빈 Edge 노드에 설치됩니다.  빈 에지 노드는 헤드 노드에 설치되고 구성된 것과 동일한 클라이언트 도구를 사용하는 Linux 가상 머신입니다. 클러스터에 액세스하고, 클라이언트 애플리케이션을 테스트하며 클라이언트 애플리케이션을 호스트하는 데 에지 노드를 사용할 수 있습니다. 자세한 내용은 [HDInsight에서 빈 에지 노드 사용](../../hdinsight/hdinsight-apps-use-edge-node.md)을 참조하세요.
+HDInsight 애플리케이션 대부분은 빈 Edge 노드에 설치됩니다.  빈 에지 노드는 헤드 노드에 설치되고 구성된 것과 동일한 클라이언트 도구를 사용하는 Linux 가상 머신입니다. 클러스터에 액세스하고, 클라이언트 애플리케이션을 테스트하며 클라이언트 애플리케이션을 호스트하는 데 에지 노드를 사용할 수 있습니다. 자세한 내용은 [HDInsight에서 빈 에지 노드 사용](../../hdinsight/hdinsight-apps-use-edge-node.md)을 참조하세요.
 
 ## <a name="advanced-settings-script-actions"></a>고급 설정: 스크립트 작업
 
@@ -239,7 +239,7 @@ Azure Virtual Network 내에서 두 개의 클러스터 유형을 사용하는 �
 
 ## <a name="troubleshoot-access-control-issues"></a>액세스 제어 문제 해결
 
-HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](../../hdinsight/hdinsight-administer-use-portal-linux.md#create-clusters)을 참조하세요.
+HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](../../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

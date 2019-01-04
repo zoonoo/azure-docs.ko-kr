@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: 5f03f4fe1422f1665d857269c98a50827ed75d55
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: b880a80e19c5a85a35d5e1d78022fe4acc74f0e1
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958361"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999172"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>이전 Java Service Fabric 애플리케이션을 업데이트하여 Maven에서 Java 라이브러리 페치
 최근에 Service Fabric Java 이진 파일을 Service Fabric Java SDK에서 Maven 호스트로 이동했습니다. 이제 **mavencentral**을 사용하여 최신 Service Fabric Java 종속성을 페치할 수 있습니다. 이 빠른 시작을 통해 Yeoman 템플릿이나 Eclipse 중 하나를 사용하여 Maven 기반 빌드와 호환하도록 Service Fabric Java SDK에서 사용하기 위해 이전에 만들어진 기존 Java 애플리케이션을 업데이트할 수 있습니다.
@@ -220,7 +220,7 @@ task copyDeps <<{
     }
 }
 ```
-일반적으로 Service Fabric 상태 비저장 Java 서비스에서 빌드 스크립트의 모양에 대한 전반적인 관념을 가져오려면 시작 예제의 샘플을 참조하면 됩니다. EchoServer 샘플의 [build.gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/Services/EchoServer/EchoServer1.0/EchoServerService/build.gradle)을 다음과 같습니다.
+일반적으로 Service Fabric 상태 비저장 Java 서비스에서 빌드 스크립트의 모양에 대한 전반적인 관념을 가져오려면 시작 예제의 샘플을 참조하면 됩니다. EchoServer 샘플의 [build.gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/reliable-services-actor-sample/build.gradle)을 다음과 같습니다.
 
 ## <a name="migrating-service-fabric-actor-service"></a>Service Fabric 행위자 서비스 마이그레이션
 
@@ -475,6 +475,6 @@ task copyDeps<< {
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Yeoman을 사용하여 Linux에서 첫 번째 Service Fabric Java 응용 프로그램 만들기 및 배포](service-fabric-create-your-first-linux-application-with-java.md)
-* [Eclipse용 Service Fabric 플러그 인을 사용하여 Linux에서 첫 번째 Service Fabric Java 응용 프로그램 만들기 및 배포](service-fabric-get-started-eclipse.md)
+* [Yeoman을 사용하여 Linux에서 첫 번째 Service Fabric Java 애플리케이션 만들기 및 배포](service-fabric-create-your-first-linux-application-with-java.md)
+* [Eclipse용 Service Fabric 플러그 인을 사용하여 Linux에서 첫 번째 Service Fabric Java 애플리케이션 만들기 및 배포](service-fabric-get-started-eclipse.md)
 * [Service Fabric CLI를 사용하여 Service Fabric 클러스터와 상호 작용](service-fabric-cli.md)

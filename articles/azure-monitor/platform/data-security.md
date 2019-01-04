@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 12/19/2018
 ms.author: magoedte
-ms.openlocfilehash: fa7d89d749d50d62ce54ea71d604831e8919b454
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 581d5ddc0930a84bad4dd74a0e8dbcc3787f1a16
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189849"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652067"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 데이터 보안
 이 문서는 [Azure 보안 센터](../../security/security-microsoft-trust-center.md)의 정보를 보완하기 위해 Azure Monitor의 기능인 Log Analytics에 고유한 정보를 제공합니다.  
@@ -60,7 +60,7 @@ Log Analytics 서비스에서 데이터를 수집하면 해당 데이터는 서�
 ## <a name="data-retention"></a>데이터 보존
 인덱싱된 로그 검색 데이터가 저장되고 가격 계획에 따라 유지됩니다. 자세한 내용은 [Log Analytics 가격](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.
 
-[구독 계약](https://azure.microsoft.com/support/legal/subscription-agreement/)의 일부로 Microsoft는 계약 조건에 따라 데이터를 유지합니다.  데이터가 삭제되면 데이터가 있는 Azure Storage 계정도 삭제됩니다.  고객 데이터가 제거될 때 물리적 드라이브는 소멸되지 않습니다.  
+[구독 계약](https://azure.microsoft.com/support/legal/subscription-agreement/)의 일부로 Microsoft는 계약 조건에 따라 데이터를 유지합니다.  고객 데이터가 제거될 때 물리적 드라이브는 소멸되지 않습니다.  
 
 다음 표에는 사용할 수 있는 솔루션 및 각 솔루션이 수집하는 데이터 형식의 예가 나와 있습니다.
 
@@ -150,7 +150,7 @@ Azure Log Analytics는 다음 요구 사항을 충족합니다.
 * [조직 ID](../../active-directory/fundamentals/sign-up-organization.md)
 * [Microsoft 계정 - Outlook, Office Live, MSN](https://account.microsoft.com/account)
 
-Log Analytics 작업 영역은 데이터를 수집, 집계, 분석 및 제공하는 데 사용됩니다. 작업 영역은 주로 데이터를 분할하는 데 사용되며, 각 작업 영역은 고유합니다. 예를 들어 하나의 작업 영역을 사용하여 프로덕션 데이터를 관리하고 다른 작업 영역을 사용하여 테스트 데이터를 관리할 수 있습니다. 관리자는 작업 영역을 사용하여 데이터에 대한 사용자 액세스를 제어할 수 있습니다. 각 작업 영역에는 여러 사용자 계정이 연결될 수 있으며, 각 사용자 계정은 여러 Log Analytics 작업 영역에 액세스할 수 있습니다. 데이터 센터 영역을 기준으로 작업 영역을 만듭니다. 각 작업 영역은 기본적으로 Log Analytics 서비스 가용성을 보장하기 위해 영역 내 다른 데이터 센터로 복제됩니다.
+Log Analytics 작업 영역은 데이터를 수집, 집계, 분석 및 제공하는 데 사용됩니다. 작업 영역은 주로 데이터를 분할하는 데 사용되며, 각 작업 영역은 고유합니다. 예를 들어 하나의 작업 영역을 사용하여 프로덕션 데이터를 관리하고 다른 작업 영역을 사용하여 테스트 데이터를 관리할 수 있습니다. 관리자는 작업 영역을 사용하여 데이터에 대한 사용자 액세스를 제어할 수 있습니다. 각 작업 영역에는 여러 사용자 계정이 연결될 수 있으며, 각 사용자 계정은 여러 Log Analytics 작업 영역에 액세스할 수 있습니다. 데이터 센터 영역을 기준으로 작업 영역을 만듭니다.
 
 Operations Manager의 경우 Operations Manager 관리 그룹에서 Log Analytics 서비스와의 연결을 설정합니다. 그런 다음, 관리 그룹에서 데이터를 수집해 서비스로 보낼 수 있는 에이전트 관리 대상 시스템을 구성합니다. 활성화한 솔루션에 따라 이러한 솔루션의 데이터는 Operations Manager 관리 서버에서 Log Analytics 서비스로 직접 전송되거나 에이전트 관리 시스템에서 수집된 데이터의 양으로 인해 에이전트에서 해당 서비스로 직접 전송됩니다. Operations Manager가 모니터링하지 않는 시스템의 경우 각 시스템이 Log Analytics 서비스에 직접 안전하게 연결합니다.
 

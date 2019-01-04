@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: ffa619351ca4a4bfd3a812775ee7ff6cd71ddea4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c953d4635ce43ee05fe7c507076c5bd11e9d8c81
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089704"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000566"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>논리 앱 배포를 위한 Azure Resource Manager 템플릿 만들기
 
@@ -187,7 +187,7 @@ GitHub에 [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnec
 <a name="team-services"></a>
 ## <a name="azure-devops-azure-pipelines"></a>Azure DevOps Azure Pipelines
 
-환경을 배포 및 관리하는 일반적인 시나리오는 논리 앱 배포 템플릿과 함께 Azure DevOps의 Azure Pipelines와 같은 도구를 사용하는 것입니다. Azure DevOps에는 모든 빌드 또는 릴리스 파이프라인에 추가할 수 있는 [Azure 리소스 그룹 배포](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) 작업이 포함됩니다. [서비스 주체](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)가 있어야 배포 권한을 부여한 다음 릴리스 파이프라인을 생성할 수 있습니다.
+환경을 배포 및 관리하는 일반적인 시나리오는 논리 앱 배포 템플릿과 함께 Azure DevOps의 Azure Pipelines와 같은 도구를 사용하는 것입니다. Azure DevOps에는 모든 빌드 또는 릴리스 파이프라인에 추가할 수 있는 [Azure 리소스 그룹 배포](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) 작업이 포함됩니다. [서비스 주체](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)가 있어야 배포 권한을 부여한 다음 릴리스 파이프라인을 생성할 수 있습니다.
 
 1. Azure Pipelines에서 빈 파이프라인을 생성할 수 있도록 **비어 있음**을 선택합니다.
 

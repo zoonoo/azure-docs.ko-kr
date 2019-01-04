@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.date: 09/17/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 96f83f86a03b4fa6b12962c28ce1488d4250ba5a
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 4cfa25b8d32a37c4ccbf8a18f21a0e56a219b156
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384584"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601647"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Windows 컨테이너를 사용하여 ASP.NET 앱을 Azure App Service로 마이그레이션(미리 보기)
 
-[Azure App Service](app-service-web-overview.md)는 IIS에서 실행하는 ASP.NET 또는 Node.js와 같은 Windows에서 미리 정의된 응용 프로그램 스택을 제공합니다. 미리 구성된 Windows 환경은 관리자 액세스의 운영 체제, 소프트웨어 설치, 글로벌 어셈블리 캐시 변경 내용을 잠급니다([Azure App Service의 운영 체제 기능](operating-system-functionality.md) 참조). 하지만 App Service에서 사용자 지정 Windows 컨테이너를 사용하면 앱에 필요한 OS 변경이 가능합니다. 따라서 사용자 지정 OS 및 소프트웨어 구성이 필요한 온-프레미스 앱을 쉽게 마이그레이션할 수 있습니다. 이 자습서에서는 Windows 글꼴 라이브러리에 설치된 사용자 지정 글꼴을 사용하는 ASP.NET 앱을 App Service로 마이그레이션하는 방법을 보여줍니다. 사용자 지정 구성된 Windows 이미지를 Visual Studio에서 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)로 배포한 다음, App Service에서 실행합니다.
+[Azure App Service](overview.md)는 IIS에서 실행하는 ASP.NET 또는 Node.js와 같은 Windows에서 미리 정의된 애플리케이션 스택을 제공합니다. 미리 구성된 Windows 환경은 관리자 액세스의 운영 체제, 소프트웨어 설치, 글로벌 어셈블리 캐시 변경 내용을 잠급니다([Azure App Service의 운영 체제 기능](operating-system-functionality.md) 참조). 하지만 App Service에서 사용자 지정 Windows 컨테이너를 사용하면 앱에 필요한 OS 변경이 가능합니다. 따라서 사용자 지정 OS 및 소프트웨어 구성이 필요한 온-프레미스 앱을 쉽게 마이그레이션할 수 있습니다. 이 자습서에서는 Windows 글꼴 라이브러리에 설치된 사용자 지정 글꼴을 사용하는 ASP.NET 앱을 App Service로 마이그레이션하는 방법을 보여줍니다. 사용자 지정 구성된 Windows 이미지를 Visual Studio에서 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)로 배포한 다음, App Service에서 실행합니다.
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
@@ -47,7 +47,7 @@ ms.locfileid: "53384584"
 - [샘플 프로젝트를 다운로드합니다](https://github.com/Azure-Samples/custom-font-win-container/archive/master.zip).
 - *custom-font-win-container.zip* 파일을 추출(압축 해제)합니다.
 
-샘플 프로젝트에는 Windows 글꼴 라이브러리에 설치된 사용자 지정 글꼴을 사용하는 간단한 ASP.NET 응용 프로그램이 포함되어 있습니다. 글꼴을 설치할 필요는 없지만 기본 OS와 통합된 앱의 예입니다. 이러한 앱을 App Service로 마이그레이션하려면 코드 아키텍처를 변경하여 통합을 제거하거나 사용자 지정 Windows 컨테이너에서 그대로 마이그레이션합니다.
+샘플 프로젝트에는 Windows 글꼴 라이브러리에 설치된 사용자 지정 글꼴을 사용하는 간단한 ASP.NET 애플리케이션이 포함되어 있습니다. 글꼴을 설치할 필요는 없지만 기본 OS와 통합된 앱의 예입니다. 이러한 앱을 App Service로 마이그레이션하려면 코드 아키텍처를 변경하여 통합을 제거하거나 사용자 지정 Windows 컨테이너에서 그대로 마이그레이션합니다.
 
 ### <a name="install-the-font"></a>글꼴 설치
 
@@ -180,7 +180,7 @@ Azure 작업이 완료되면 알림 상자가 표시됩니다.
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
-**축하합니다.** ASP.NET 응용 프로그램이 Windows 컨테이너의 Azure App Service로 마이그레이션되었습니다.
+**축하합니다.** ASP.NET 애플리케이션이 Windows 컨테이너의 Azure App Service로 마이그레이션되었습니다.
 
 ## <a name="see-container-start-up-logs"></a>컨테이너 시작 로그를 참조하세요.
 

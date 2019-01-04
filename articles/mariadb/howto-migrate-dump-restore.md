@@ -3,17 +3,15 @@ title: Azure Database for MariaDB에서 덤프 및 복원을 사용하여 MariaD
 description: 이 문서에서는 mysqldump, MySQL Workbench 및 PHPMyAdmin과 같은 도구를 사용하여 Azure Database for MariaDB에서 데이터베이스를 백업 및 복원하는 2가지 일반적인 방법에 대해 설명합니다.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 5ac80ef36241b58812832c66511c0a09d49b365f
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: bcb76fcbba02bf53b48cc462e3dad8f264db02ed
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986987"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540446"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>덤프 및 복원을 사용하여 MariaDB Database를 Azure Database for MariaDB로 마이그레이션
 이 문서에서는 Azure Database for MariaDB에서 데이터베이스를 백업 및 복원하는 2가지 일반적인 방법에 대해 설명
@@ -126,7 +124,7 @@ $ mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p te
 6. **이동** 단추를 클릭하여 백업을 내보내고 SQL 명령을 실행하고, 데이터베이스를 다시 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Database for MariaDB에 응용 프로그램을 연결](./howto-connection-string.md)합니다.
+- [Azure Database for MariaDB에 애플리케이션을 연결](./howto-connection-string.md)합니다.
  
 <!--
 - For more information about migrating databases to Azure Database for MariaDB, see the [Database Migration Guide](https://aka.ms/datamigration).

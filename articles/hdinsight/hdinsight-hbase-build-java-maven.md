@@ -1,6 +1,6 @@
 ---
-title: Windows 기반 Azure HDInsight용 Java HBase 응용 프로그램 빌드
-description: Apache Maven을 사용하여 Java 기반 Apache HBase 응용 프로그램을 빌드한 다음 Windows 기반 Azure HDInsight 클러스터에 배포하는 방법에 대해 알아봅니다.
+title: Windows 기반 Azure HDInsight용 Java HBase 애플리케이션 빌드
+description: Apache Maven을 사용하여 Java 기반 Apache HBase 애플리케이션을 빌드한 다음, Windows 기반 Azure HDInsight 클러스터에 배포하는 방법에 대해 알아봅니다.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.date: 02/05/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: a88d4b09178ea32526cb8d035b47e1aef9c19dc3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ea2fe0f7e326db00a63529c0279c9c15d30c744c
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384244"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744822"
 ---
 # <a name="use-apache-maven-to-build-java-applications-that-use-apache-hbase-with-windows-based-hdinsight-apache-hadoop"></a>Apache Maven을 사용하여 Windows 기반 HDInsight(Apache Hadoop)에서 Apache HBase를 사용하는 Java 애플리케이션 빌드
-Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) 애플리케이션을 만들어 빌드하는 방법을 알아봅니다. 그런 다음, Azure HDInsight(Apache Hadoop)에서 애플리케이션을 사용합니다.
+Apache Maven을 사용하여 Java로 [Apache HBase](https://hbase.apache.org/) 애플리케이션을 만들어 빌드하는 방법을 알아봅니다. 그런 다음, Azure HDInsight(Apache Hadoop)에서 애플리케이션을 사용합니다.
 
-[Apache Maven](http://maven.apache.org/)은 Java 프로젝트용 소프트웨어, 문서화 및 보고를 빌드할 수 있는 소프트웨어 프로젝트 관리 및 종합 도구입니다. 이 문서에서는 Maven을 사용하여 Azure HDInsight 클러스터에서 HBase 테이블을 만들고, 쿼리하고, 삭제하는 기본 Java 응용 프로그램을 만드는 방법을 알아봅니다.
+[Apache Maven](https://maven.apache.org/)은 Java 프로젝트용 소프트웨어, 문서화 및 보고를 빌드할 수 있는 소프트웨어 프로젝트 관리 및 종합 도구입니다. 이 문서에서는 Maven을 사용하여 Azure HDInsight 클러스터에서 HBase 테이블을 만들고, 쿼리하고, 삭제하는 기본 Java 애플리케이션을 만드는 방법을 알아봅니다.
 
 > [!IMPORTANT]  
 > 이 문서의 단계에는 Windows를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a name="requirements"></a>요구 사항
 * [Java 플랫폼 JDK](https://aka.ms/azure-jdks) 7 이상
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 * Windows 기반 HDInsight 클러스터 및 HBase
 
     > [!NOTE]  
@@ -40,7 +40,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
     이 명령은 현재 위치에 디렉터리를 만들며, 이름은 **artifactID** 매개 변수로 지정됩니다(이 예제에서는 **hbaseapp**). 이 디렉터리에는 다음과 같은 항목이 포함됩니다.
 
-   * **pom.xml**:  [POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)(프로젝트 개체 모델)은 프로젝트를 빌드하는 데 사용된 정보 및 구성 세부 정보를 포함합니다.
+   * **pom.xml**:  [POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)(프로젝트 개체 모델)은 프로젝트를 빌드하는 데 사용된 정보 및 구성 세부 정보를 포함합니다.
    * **src**: **main\java\com\microsoft\examples** 디렉터리를 포함하는 디렉터리이며 여기서 애플리케이션을 작성합니다.
 3. **src\test\java\com\microsoft\examples\apptest.java** 파일은 이 예제에서 사용되지 않으므로 이 파일을 삭제합니다.
 
@@ -53,7 +53,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
           <version>1.1.2</version>
         </dependency>
 
-    이 섹션을 통해 Maven은 프로젝트에 **hbase-client** 버전 **1.1.2**가 필요하다는 것을 인식합니다. 컴파일 시간에 이 종속성이 기본 Maven 리포지토리에서 다운로드됩니다. [Apache Maven 중앙 리포지토리 검색](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar)을 사용하여 이 종속성에 대한 자세한 정보를 확인할 수 있습니다.
+    이 섹션을 통해 Maven은 프로젝트에 **hbase-client** 버전 **1.1.2**가 필요하다는 것을 인식합니다. 컴파일 시간에 이 종속성이 기본 Maven 리포지토리에서 다운로드됩니다. [Apache Maven 중앙 리포지토리 검색](https://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar)을 사용하여 이 종속성에 대한 자세한 정보를 확인할 수 있습니다.
 
    > [!IMPORTANT]  
    > 버전 번호는 HDInsight 클러스터와 함께 제공되는 HBase 버전과 일치해야 합니다. 다음 표를 사용하여 올바른 버전 번호를 찾으세요.
@@ -127,9 +127,9 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
    >
    >
 
-    이 `<plugins>` 섹션에서는 [Apache Maven 컴파일러 플러그 인](http://maven.apache.org/plugins/maven-compiler-plugin/) 및 [Apache Maven 음영 플러그 인](http://maven.apache.org/plugins/maven-shade-plugin/)도 구성합니다. 컴파일러 플러그 인은 토폴로지를 컴파일하는 데 사용됩니다. 음영 플러그 인은 Maven으로 빌드된 JAR 패키지에서 라이선스 중복을 방지하는 데 사용됩니다. 이 플러그 인을 사용하는 이유는 중복 라이선스 파일이 HDInsight 클러스터에서 런타임으로 오류를 일으키기 때문입니다. `ApacheLicenseResourceTransformer` 구현에서 maven-shade-plugin을 사용하면 이 오류가 방지됩니다.
+    이 `<plugins>` 섹션에서는 [Apache Maven 컴파일러 플러그 인](https://maven.apache.org/plugins/maven-compiler-plugin/) 및 [Apache Maven 음영 플러그 인](https://maven.apache.org/plugins/maven-shade-plugin/)도 구성합니다. 컴파일러 플러그 인은 토폴로지를 컴파일하는 데 사용됩니다. 음영 플러그 인은 Maven으로 빌드된 JAR 패키지에서 라이선스 중복을 방지하는 데 사용됩니다. 이 플러그 인을 사용하는 이유는 중복 라이선스 파일이 HDInsight 클러스터에서 런타임으로 오류를 일으키기 때문입니다. `ApacheLicenseResourceTransformer` 구현에서 maven-shade-plugin을 사용하면 이 오류가 방지됩니다.
 
-    또한 maven-shade-plugin은 응용 프로그램에 필요한 모든 종속성을 포함하는 uber jar(또는 fat jar)도 생성합니다.
+    또한 maven-shade-plugin은 애플리케이션에 필요한 모든 종속성을 포함하는 uber jar(또는 fat jar)도 생성합니다.
 4. **pom.xml** 파일을 저장합니다.
 5. **hbaseapp** 디렉터리에 **conf**이라는 새 디렉터리를 만듭니다. **conf** 디렉터리에 **hbase-site.xml**이라는 파일을 만듭니다. 파일 내용으로 다음을 사용합니다.
 
@@ -147,7 +147,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
           * "License"); you may not use this file except in compliance
           * with the License.  You may obtain a copy of the License at
           *
-          *     http://www.apache.org/licenses/LICENSE-2.0
+          *     https://www.apache.org/licenses/LICENSE-2.0
           *
           * Unless required by applicable law or agreed to in writing, software
           * distributed under the License is distributed on an "AS IS" BASIS,
@@ -178,7 +178,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 6. **hbase-site.xml** 파일을 저장합니다.
 
-## <a name="create-the-application"></a>응용 프로그램 만들기
+## <a name="create-the-application"></a>애플리케이션 만들기
 1. **hbaseapp\src\main\java\com\microsoft\examples** 디렉터리로 이동하여 app.java 파일 이름을 **CreateTable.java**로 바꿉니다.
 2. **CreateTable.java** 파일을 열고 기존 내용을 다음 코드로 바꿉니다.
 
@@ -350,7 +350,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 ## <a name="build-and-package-the-application"></a>애플리케이션 빌드 및 패키지화
 1. 명령 프롬프트를 열고 **hbaseapp** 디렉터리로 이동합니다.
-2. 다음 명령을 사용하여 응용 프로그램을 포함하는 JAR 파일을 빌드합니다.
+2. 다음 명령을 사용하여 애플리케이션을 포함하는 JAR 파일을 빌드합니다.
 
         mvn clean package
 
@@ -358,7 +358,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 3. 명령이 완료되면 **hbaseapp\target** 디렉터리에 **hbaseapp-1.0-SNAPSHOT.jar**이라는 파일이 포함됩니다.
 
    > [!NOTE]  
-   > **hbaseapp-1.0-SNAPSHOT.jar** 파일은 응용 프로그램을 실행하는 데 필요한 모든 종속성을 포함하는 uber jar(fat jar라고도 함)입니다.
+   > **hbaseapp-1.0-SNAPSHOT.jar** 파일은 애플리케이션을 실행하는 데 필요한 모든 종속성을 포함하는 uber jar(fat jar라고도 함)입니다.
 
 ## <a name="upload-the-jar-file-and-start-a-job"></a>JAR 파일 업로드 및 작업 시작
 [HDInsight에서 Apache Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md)에서 설명한 대로 HDInsight 클러스터에 파일을 업로드하는 방법은 많습니다. 다음 단계에서는 Azure PowerShell을 사용합니다.

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: f82ac972e54dac6df5a913a8059417b701e2f7e0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: c9b1f3570ae3f9b945c87c2ce316c3f72e32b4ad
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191583"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792053"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 HDInsight 클러스터 만들기
 
@@ -70,7 +70,7 @@ PowerShell 또는 Bash 등의 명령줄에서 다음 단계를 수행해야 합�
 
     * `storagename`을 저장소 계정의 고유한 이름으로 바꿉니다.
 
-        > [!NOTE]
+        > [!NOTE]  
         > 이 명령에서 사용된 매개 변수에 대한 자세한 내용을 보려면 `azure storage account create -h`를 사용하여 이 명령에 대한 도움말을 표시합니다.
 
 5. 저장소 계정에 액세스하는 데 사용된 키를 검색합니다.
@@ -90,7 +90,7 @@ PowerShell 또는 Bash 등의 명령줄에서 다음 단계를 수행해야 합�
 
     * `Hadoop`을 만들려는 클러스터 유형으로 대체합니다. 예를 들어 `Hadoop`, `HBase`, `Kafka`, `Spark` 또는 `Storm`입니다.
 
-      > [!IMPORTANT]
+      > [!IMPORTANT]  
       > HDInsight 클러스터는 워크로드 또는 클러스터에 대한 튜닝 기술에 해당하는 다양한 형식을 제공합니다. 하나의 클러스터에서 Storm 및 HBase 등의 여러 유형을 결합하는 클러스터를 만들기 위해 지원되는 메서드가 없습니다.
 
     * `location`을 이전 단계에서 사용된 동일한 위치로 바꿉니다.
@@ -105,7 +105,7 @@ PowerShell 또는 Bash 등의 명령줄에서 다음 단계를 수행해야 합�
 
     * `sshuser` 및 `sshuserpassword`를 SSH를 통해 클러스터에 액세스할 때 사용할 사용자 이름 및 암호로 바꿉니다.
 
-      > [!IMPORTANT]
+      > [!IMPORTANT]  
       > 이 예제에서는 2개의 작업자 노드를 사용하여 클러스터를 만듭니다. 클러스터를 만든 후 크기 조정 작업을 수행하여 작업자 노드 수를 변경할 수도 있습니다. 사용하려는 작업자 노드 수가 32개를 초과하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다. 클러스터를 만드는 동안 `--headNodeSize` 매개 변수를 사용하여 헤드 노드 크기를 설정할 수 있습니다.
       >
       > 노드 크기 및 관련된 비용에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
@@ -114,7 +114,7 @@ PowerShell 또는 Bash 등의 명령줄에서 다음 단계를 수행해야 합�
 
 ## <a name="troubleshoot"></a>문제 해결
 
-HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](hdinsight-administer-use-portal-linux.md#create-clusters)을 참조하세요.
+HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](hdinsight-hadoop-create-linux-clusters-portal.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -124,7 +124,7 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 
 * [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
 * [HDInsight에서 Apache Pig 사용](hadoop/hdinsight-use-pig.md)
-* [HDInsight에서 Apache Hadoop MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
+* [HDInsight와 함께 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase 클러스터
 

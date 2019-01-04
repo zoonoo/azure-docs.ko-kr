@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 412ec0a7d2cd8574aadf6e9f104407792ddb29ed
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a09dcfbffb6daa2ae2514c608e88c8dc475c9676
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341528"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581439"
 ---
 # <a name="alerts-on-activity-log"></a>활동 로그에 대한 경고 
 
@@ -28,11 +28,11 @@ ms.locfileid: "53341528"
 * Azure 구독의 리소스에서 특정 작업이 발생하는 경우. 특정 리소스 그룹 또는 리소스로 범위를 지정하기도 합니다. 예를 들어 myProductionResourceGroup에서 가상 머신이 삭제되는 경우 알림을 받도록 할 수 있습니다. 또는 새 규칙이 사용자 구독의 사용자에 할당되는 경우 알림을 받도록 할 수도 있습니다.
 * 서비스 상태 이벤트가 발생하는 경우. 서비스 상태 이벤트가 구독에서 리소스에 적용되는 인시던트 및 유지 관리 이벤트의 알림을 포함합니다.
 
-활동 로그에 대한 경고 규칙을 만들 수 있는 조건을 이해하는 간단한 방법은 [Azure Portal의 Activity Log](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal)를 통해 이벤트를 탐색하고 필터링하는 것입니다. Azure Monitor-활동 로그에서 필요한 이벤트를 필터링하거나 찾고 **활동 로그 경고 추가** 단추를 사용하여 경고를 만들 수 있습니다.
+활동 로그에 대한 경고 규칙을 만들 수 있는 조건을 이해하는 간단한 방법은 [Azure Portal의 Activity Log](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal)를 통해 이벤트를 탐색하고 필터링하는 것입니다. Azure Monitor-활동 로그에서 필요한 이벤트를 필터링하거나 찾고 **활동 로그 경고 추가** 단추를 사용하여 경고를 만들 수 있습니다.
 
 두 경우 모두 활동 로그 경고는 경고가 생성되는 구독의 이벤트만 모니터링합니다.
 
-활동 로그 이벤트에 대한 JSON 개체의 모든 최상위 속성에 따라 활동 로그 경고를 구성할 수 있습니다. 자세한 내용은 [Azure 활동 로그 개요](./../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#categories-in-the-activity-log)를 참조하세요. 서비스 상태 이벤트에 대한 자세한 내용은 [서비스 알림에서 활동 로그 경고 수신](./../../azure-monitor/platform/alerts-activity-log-service-notifications.md)을 참조하세요. 
+활동 로그 이벤트에 대한 JSON 개체의 모든 최상위 속성에 따라 활동 로그 경고를 구성할 수 있습니다. 자세한 내용은 [Azure 활동 로그 개요](./../../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log)를 참조하세요. 서비스 상태 이벤트에 대한 자세한 내용은 [서비스 알림에서 활동 로그 경고 수신](./../../azure-monitor/platform/alerts-activity-log-service-notifications.md)을 참조하세요. 
 
 활동 로그 경고에는 다음과 같은 몇 가지 공통 옵션이 있습니다.
 
@@ -64,5 +64,5 @@ ms.locfileid: "53341528"
 - [경고 개요](../../azure-monitor/platform/alerts-overview.md)를 확인하세요.
 - [활동 로그 경고 만들기 및 수정](../../azure-monitor/platform/alerts-activity-log.md)에 관해 알아보세요.
 - [활동 로그 경고 웹후크 스키마](activity-log-alerts-webhook.md)를 검토하세요.
-- [서비스 상태 알림](../../monitoring-and-diagnostics/monitoring-service-notifications.md)에 대해 자세히 알아보세요.
+- [서비스 상태 알림](../../azure-monitor/platform/service-notifications.md)에 대해 자세히 알아보세요.
 

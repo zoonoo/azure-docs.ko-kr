@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 245372b39f4b730128c593ddd04225bd82875393
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 138368c8e79d68a9a9c5a711b99d8926da7dc68d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387100"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601562"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅
 
@@ -32,7 +32,7 @@ Azure SQL Database, 탄력적 풀, Managed Instance 및 Managed Instance의 데�
 다양한 Azure 서비스에서 지원하는 메트릭 및 로그 범주에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Microsoft Azure의 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Azure 진단 로그 개요](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 이 문서에서는 데이터베이스, 탄력적 풀 및 Managed Instance에 대한 진단 원격 분석을 사용하도록 설정하는 데 도움이 되는 지침을 제공합니다. 또한 이를 통해 데이터베이스 진단 원격 분석을 보기 위한 모니터링 도구로 Azure SQL 분석을 구성하는 방법을 이해할 수 있습니다.
 
@@ -65,14 +65,14 @@ SQL Database 및 Managed Instance의 데이터베이스에 대한 메트릭과 �
 
 | 데이터베이스에 대한 원격 분석 모니터링 | Azure SQL Database 지원 | Managed Instance 지원 데이터베이스 |
 | :------------------- | ------------------- | ------------------- |
-| [모든 메트릭](sql-database-metrics-diag-logging.md#all-metrics): DTU/CPU 백분율, DTU/CPU 제한, 물리 데이터 읽기 백분율, 로그 쓰기 백분율, 방화벽에서 성공/실패/차단된 연결, 세션 백분율, 작업자 백분율, 스토리지, 스토리지 백분율, XTP 스토리지 백분율을 포함합니다. | yes | 아니요 |
-| [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): CPU 사용량 및 쿼리 기간 통계와 같은 쿼리 런타임 통계에 대한 정보를 포함합니다. | yes | yes |
-| [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): CPU, LOG, LOCKING 등 쿼리 대기 통계(쿼리가 대기한 항목)에 대한 정보를 포함합니다. | yes | yes |
-| [Errors](sql-database-metrics-diag-logging.md#errors-dataset): 데이터베이스의 SQL 오류에 대한 정보를 포함합니다. | yes | 아니요 |
-| [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): 대기 형식에 따라 데이터베이스가 대기하는 데 사용된 시간에 대한 정보를 포함합니다. | yes | 아니요 |
-| [Timeouts](sql-database-metrics-diag-logging.md#time-outs-dataset): 데이터베이스에서 발생한 시간 제한에 대한 정보를 포함합니다. | yes | 아니요 |
-| [Blocks](sql-database-metrics-diag-logging.md#blockings-dataset): 데이터베이스의 차단 이벤트에 대한 정보를 포함합니다. | yes | 아니요 |
-| [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): 성능에 대한 Intelligent Insights를 포함합니다. 자세한 내용은 [Intelligent Insights](sql-database-intelligent-insights.md)를 참조하세요. | yes | yes |
+| [모든 메트릭](sql-database-metrics-diag-logging.md#all-metrics): DTU/CPU 백분율, DTU/CPU 제한, 물리 데이터 읽기 백분율, 로그 쓰기 백분율, 방화벽에서 성공/실패/차단된 연결, 세션 백분율, 작업자 백분율, 스토리지, 스토리지 백분율, XTP 스토리지 백분율을 포함합니다. | 예 | 아니요 |
+| [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): CPU 사용량 및 쿼리 기간 통계와 같은 쿼리 런타임 통계에 대한 정보를 포함합니다. | 예 | 예 |
+| [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): CPU, LOG, LOCKING 등 쿼리 대기 통계(쿼리가 대기한 항목)에 대한 정보를 포함합니다. | 예 | 예 |
+| [Errors](sql-database-metrics-diag-logging.md#errors-dataset): 데이터베이스의 SQL 오류에 대한 정보를 포함합니다. | 예 | 아니요 |
+| [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): 대기 형식에 따라 데이터베이스가 대기하는 데 사용된 시간에 대한 정보를 포함합니다. | 예 | 아니요 |
+| [Timeouts](sql-database-metrics-diag-logging.md#time-outs-dataset): 데이터베이스에서 발생한 시간 제한에 대한 정보를 포함합니다. | 예 | 아니요 |
+| [Blocks](sql-database-metrics-diag-logging.md#blockings-dataset): 데이터베이스의 차단 이벤트에 대한 정보를 포함합니다. | 예 | 아니요 |
+| [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): 성능에 대한 Intelligent Insights를 포함합니다. 자세한 내용은 [Intelligent Insights](sql-database-intelligent-insights.md)를 참조하세요. | 예 | 예 |
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -691,7 +691,7 @@ Azure SQL Database 및 Managed Instance 데이터베이스 로그에 대한 자�
 로깅을 사용하도록 설정하는 방법을 알아보고 여러 Azure 서비스에서 지원되는 메트릭과 로그 범주를 이해하려면 다음을 참조하세요.
 
 * [Microsoft Azure의 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Azure 진단 로그 개요](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 Event Hubs에 대해 알아보려면 다음을 확인합니다.
 

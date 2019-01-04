@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 34506266ed4a2103f0d3bd7a8014b9a038b25491
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 408141650a11a81f0c6000c6e7927af8333e2afe
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338042"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548479"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Linux 기반의 App Service에 대한 Java Enterprise 가이드
 
@@ -49,7 +49,7 @@ Wildfly를 구성하는 데 CLI의 대화형 모드를 사용하지 마십시오
 /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/path/to/your/jboss_commands.cli
 ```
 
-시작 스크립트를 App Service 인스턴스의 `/home/site/deployments/tools`에 업로드합니다. FTP 자격 증명을 가져오는 방법에 대한 지침은 [이 문서](/azure/app-service/app-service-deployment-credentials#userscope)를 참조하세요. 
+시작 스크립트를 App Service 인스턴스의 `/home/site/deployments/tools`에 업로드합니다. FTP 자격 증명을 가져오는 방법에 대한 지침은 [이 문서](/azure/app-service/deploy-configure-credentials#userscope)를 참조하세요. 
 
 다음 예와 같이 Azure Portal의 **시작 스크립트** 필드를 시작 셸 스크립트의 위치에 설정합니다. `/home/site/deployments/tools/your-startup-script.sh`
 
@@ -108,7 +108,7 @@ Service Bus를 메시징 메커니즘으로 사용하여 메시지 기반 Bean�
 
 ## <a name="enable-web-sockets"></a>웹 소켓 사용
 
-기본적으로 App Service에서 웹 소켓은 사용하도록 설정되어 있습니다. 애플리케이션에서 Websocket을 사용하여 시작하려면 [이 빠른 시작](https://github.com/wildfly/quickstart/tree/master/websocket-hello)을 참조하세요.
+기본적으로 App Service에서 웹 소켓은 사용하도록 설정되어 있습니다. 애플리케이션에서 WebSockets를 사용하여 시작하려면 [이 빠른 시작](https://github.com/wildfly/quickstart/tree/master/websocket-hello)을 참조하세요.
 
 ## <a name="logs-and-troubleshooting"></a>로그 및 문제 해결
 

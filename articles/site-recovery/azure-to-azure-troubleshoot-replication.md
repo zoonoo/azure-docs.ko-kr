@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 9a32ac1ae71cb7bd89c4252157c3a5cd395b2694
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4a18e009f7defc8d41846b867f9b7a65d2b853dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842342"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993334"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Azure 간 VM 지속적인 복제 문제 해결
 
@@ -44,7 +44,7 @@ Azure Site Recovery는 원본 가상 머신의 데이터 변경률이 지원되�
 
 
 #### <a name="azure-site-recovery-limits"></a>Azure Site Recovery 제한
-다음 테이블에는 Azure Site Recovery 제한이 제공됩니다. 이러한 한도는 테스트를 기반으로 하지만 모든 가능한 응용 프로그램 I/O 조합을 다룰 수는 없습니다. 실제 결과는 응용 프로그램 I/O 조합에 따라 달라질 수 있습니다. 디스크 데이터 변동별 및 가상 머신 데이터 변동별 고려해야 할 두 가지 제한 사항이 있습니다.
+다음 테이블에는 Azure Site Recovery 제한이 제공됩니다. 이러한 한도는 테스트를 기반으로 하지만 모든 가능한 애플리케이션 I/O 조합을 다룰 수는 없습니다. 실제 결과는 애플리케이션 I/O 조합에 따라 달라질 수 있습니다. 디스크 데이터 변동별 및 가상 머신 데이터 변동별 고려해야 할 두 가지 제한 사항이 있습니다.
 예를 들어 아래 테이블에서 프리미엄 P20 디스크를 보면 Site Recovery는 VM당 25MB/s 총 변동 제한으로 인해 VM당 이러한 최대 5개의 디스크로 디스크당 5MB/s 변동을 처리할 수 있습니다.
 
 **복제 저장소 대상** | **평균 원본 디스크 I/O 크기** |**평균 원본 디스크 데이터 변동** | **일일 총 원본 디스크 데이터 변동**
@@ -78,8 +78,8 @@ Azure Site Recovery에 디스크의 유형에 따른 데이터 변경률 제한�
 
 #### <a name="network-latency-to-cache-storage-account-"></a>캐시 스토리지 계정의 네트워크 대기 시간:
  가상 머신에서 캐시 스토리지 계정으로 데이터를 업로드하는 속도가 3초당 4MB 미만인 경우 Site Recovery는 복제된 데이터를 캐시 스토리지 계정으로 보내고 문제가 발생할 수 있습니다. 대기 시간과 관련된 문제가 있는지 확인하려면 [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)를 사용하여 가상 머신에서 캐시 스토리지 계정으로 데이터를 업로드합니다.<br>
-대기 시간이 높은 경우 VM에서 아웃바운드 네트워크 트래픽을 제어하는 데 네트워크 가상 어플라이언스를 사용 중인지 확인합니다. 모든 복제 트래픽이 NVA를 통과하는 경우 어플라이언스가 제한될 수 있습니다. 복제 트래픽이 NVA로 이동하지 않도록 "Storage"에 대한 가상 네트워크에서 네트워크 서비스 엔드포인트를 만드는 것이 좋습니다. [네트워크 가상 어플라이언스 구성](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)을 참조하세요.
+대기 시간이 높은 경우 VM에서 아웃바운드 네트워크 트래픽을 제어하는 데 네트워크 가상 어플라이언스를 사용 중인지 확인합니다. 모든 복제 트래픽이 NVA를 통과하는 경우 어플라이언스가 제한될 수 있습니다. 복제 트래픽이 NVA로 이동하지 않도록 "Storage"에 대한 가상 네트워크에서 네트워크 서비스 엔드포인트를 만드는 것이 좋습니다. [네트워크 가상 어플라이언스 구성](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)을 참조하세요.
 
 #### <a name="network-connectivity"></a>네트워크 연결
 Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 대한 아웃바운드 연결이 필요합니다. VM이 방화벽 뒤에 있거나 NSG(네트워크 보안 그룹) 규칙을 사용하여 아웃바운드 연결을 제어하는 경우 이러한 문제 중 하나가 발생할 수 있습니다.</br>
-[Site Recovery URL에 대한 아웃바운드 연결](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)을 참조하여 모든 URL이 연결되었는지 확인하세요. 
+[Site Recovery URL에 대한 아웃바운드 연결](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)을 참조하여 모든 URL이 연결되었는지 확인하세요. 

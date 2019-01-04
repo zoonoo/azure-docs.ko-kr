@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/7/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 14e959e4aa26b04ec70cbb03ea3feaf0e93f31c1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: cf643c8c2a0921cfbe1f5599a9e96a27770ef1ef
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344179"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718591"
 ---
 # <a name="durable-functions-overview"></a>지속성 함수 개요
 
-*지속성 함수*는 서버를 사용하지 않는 환경에서 상태 저장 함수를 작성할 수 있게 하는 [Azure Functions](../functions-overview.md) 및 [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md)의 확장입니다. 확장은 상태, 검사점 및 다시 시작을 관리합니다.
+*지속성 함수*는 서버를 사용하지 않는 환경에서 상태 저장 함수를 작성할 수 있게 하는 [Azure Functions](../functions-overview.md) 및 [Azure WebJobs](../../app-service/webjobs-create.md)의 확장입니다. 확장은 상태, 검사점 및 다시 시작을 관리합니다.
 
 이 확장을 통해 [*오케스트레이터 함수*](durable-functions-types-features-overview.md#orchestrator-functions)라는 새 유형의 함수에서 상태 저장 워크플로를 정의할 수 있습니다. 다음은 오케스트레이터 함수의 이점 중 일부입니다.
 

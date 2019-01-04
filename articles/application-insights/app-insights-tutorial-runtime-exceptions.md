@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 9c36920d2d1d201a874abaeeaac9eb965e0e641b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 820f43a8caa5e0d6d9960985fd1d46271071b0fb
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084015"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742833"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Azure Application Insights를 사용하여 런타임 예외 찾기 및 진단
 
@@ -39,7 +39,7 @@ Azure Application Insights는 애플리케이션에서 원격 분석을 수집�
     - Azure 개발
 - [Visual Studio 스냅숏 디버거](https://aka.ms/snapshotdebugger)를 다운로드 및 설치합니다.
 - [Visual Studio 스냅숏 디버거](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) 사용
-- Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](app-insights-asp-net.md)합니다. 
+- Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](../azure-monitor/app/asp-net.md)합니다. 
 - 자습서는 애플리케이션에서 예외의 ID를 추적하여 개발 또는 테스트 환경에서 코드를 수정하여 예외를 생성합니다. 
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
@@ -49,12 +49,12 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 ## <a name="analyze-failures"></a>실패 분석
 Application Insights는 애플리케이션에서 모든 오류를 수집하고 여러 작업 간에 빈도를 볼 수 있도록 하여 가장 높은 영향으로 해당 내용에 집중할 수 있도록 돕습니다.  그런 다음 이러한 실패의 세부 정보를 드릴다운하여 근본 원인을 식별할 수 있습니다.   
 
-1. **Application Insights**를 선택한 다음 구독을 선택합니다.  
+1. **Application Insights**를 선택한 다음, 구독을 선택합니다.  
 2. **실패** 패널을 열려면 **조사** 메뉴 아래의 **실패**를 선택하거나 **실패한 요청** 그래프를 클릭합니다.
 
     ![실패한 요청](media/app-insights-tutorial-runtime-exceptions/failed-requests.png)
 
-3. **실패한 요청** 패널은 실패한 요청 수 및 응용 프로그램의 각 작업에 대해 영향을 받는 사용자 수를 표시합니다.  사용자가 이 정보를 정렬하여 사용자에게 가장 큰 영향을 주는 이러한 오류를 식별할 수 있습니다.  이 예제에서는 **직원 가져오기/만들기** 및 **고객/세부 정보 가져오기**는 큰 실패 수 및 영향을 받는 사용자로 인해 조사할 후보일 가능성이 있습니다.  작업을 선택하면 이 작업에 대한 자세한 정보가 오른쪽 패널에 표시됩니다.
+3. **실패한 요청** 패널은 실패한 요청 수 및 애플리케이션의 각 작업에 대해 영향을 받는 사용자 수를 표시합니다.  사용자가 이 정보를 정렬하여 사용자에게 가장 큰 영향을 주는 이러한 오류를 식별할 수 있습니다.  이 예제에서는 **직원 가져오기/만들기** 및 **고객/세부 정보 가져오기**는 큰 실패 수 및 영향을 받는 사용자로 인해 조사할 후보일 가능성이 있습니다.  작업을 선택하면 이 작업에 대한 자세한 정보가 오른쪽 패널에 표시됩니다.
 
     ![실패한 요청 패널](media/app-insights-tutorial-runtime-exceptions/failed-requests-blade.png)
 
