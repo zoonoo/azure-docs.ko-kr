@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 29c7fc279aec79750df48c70be7792869e89ae78
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a42f4ce85214ad2a8c5692736b7d36101ccb62ed
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094358"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556223"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성
 
@@ -41,7 +41,7 @@ ms.locfileid: "53094358"
 ## <a name="prerequisites"></a>필수 조건
 
 Azure IoT Edge 디바이스를 게이트웨이로 구성합니다. 다음 운영 체제를 위한 단계에 따라 개발 머신 또는 가상 머신을 IoT Edge 디바이스로 사용할 수 있습니다.
-* [Windows](./how-to-install-iot-edge-windows-with-windows.md)
+* [Windows](./how-to-install-iot-edge-windows.md)
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
@@ -60,7 +60,7 @@ Windows 디바이스에서 테스트 인증서를 생성하려면 이 섹션의 
    >[!NOTE]
    >Windows 디바이스에 이미 OpenSSL을 설치한 경우 이 단계를 건너뛰어도 되지만 PATH 환경 변수에서 openssl.exe를 사용할 수 있는지 확인하세요.
 
-* **간편:** [타사 OpenSSL 이진 파일](https://wiki.openssl.org/index.php/Binaries)을 다운로드하여 설치합니다(예: [SourceForge의 이 프로젝트](https://sourceforge.net/projects/openssl/)). PATH 환경 변수에 openssl.exe에 대한 전체 경로를 추가합니다. 
+* **간편:** 타사 OpenSSL 이진 파일을 다운로드하여 설치합니다(예: [SourceForge의 이 프로젝트](https://sourceforge.net/projects/openssl/)). PATH 환경 변수에 openssl.exe에 대한 전체 경로를 추가합니다. 
    
 * **권장:** 직접 또는 [vcpkg](https://github.com/Microsoft/vcpkg)를 통해 OpenSSL 소스 코드를 다운로드하고 머신에서 이진 파일을 빌드합니다. 아래에 나열된 지침은 vcpkg를 사용하여 간단한 단계를 통해 소스 코드를 다운로드하고, 컴파일하고, Windows 머신에 OpenSSL을 설치합니다.
 
