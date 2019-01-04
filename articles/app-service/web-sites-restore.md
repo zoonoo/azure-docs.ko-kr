@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 603a6bab75c4a5da4425bcc57d2cc5ccda728636
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1e8bebdb3f54ac59ec19ef798cc3e794473bbec0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274142"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721464"
 ---
 # <a name="restore-an-app-in-azure"></a>Azure에서 앱 복원
-이 문서에서는 이전에 백업한 [Azure App Service](../app-service/app-service-web-overview.md)에서 앱을 복원하는 방법을 보여 줍니다([Azure에서 앱 백업](web-sites-backup.md) 참조). 요청 시 연결된 데이터베이스와 함께 앱을 이전 상태로 복원하거나, 원래 앱의 백업 중 하나를 기반으로 하여 새 앱을 만들 수 있습니다. Azure App Service는 백업 및 복원을 위해 다음과 같은 데이터베이스를 지원합니다.
+이 문서에서는 이전에 백업한 [Azure App Service](../app-service/overview.md)에서 앱을 복원하는 방법을 보여 줍니다([Azure에서 앱 백업](manage-backup.md) 참조). 요청 시 연결된 데이터베이스와 함께 앱을 이전 상태로 복원하거나, 원래 앱의 백업 중 하나를 기반으로 하여 새 앱을 만들 수 있습니다. Azure App Service는 백업 및 복원을 위해 다음과 같은 데이터베이스를 지원합니다.
 - [SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)
@@ -91,8 +91,8 @@ ms.locfileid: "53274142"
 
 샘플을 보려면 다음을 참조하세요.
 
-- [Azure CLI 샘플](app-service-cli-samples.md)
-- [Azure PowerShell 샘플](app-service-powershell-samples.md)
+- [Azure CLI 샘플](samples-cli.md)
+- [Azure PowerShell 샘플](samples-powershell.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

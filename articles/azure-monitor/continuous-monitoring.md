@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: fa5c3d65daa86a678ec278bc49759e1de7da7f0c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 2d58a39efca8733902d157083489e59bf22ef161
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386539"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002283"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Azure Monitor를 사용하여 연속 모니터링
 
@@ -33,8 +33,8 @@ ms.locfileid: "53386539"
 
 - [Azure DevOps Projects](../devops-project/overview.md)는 기존 코드와 Git 리포지토리가 포함된 간소화된 환경을 제공하거나 샘플 애플리케이션 중 하나를 선택하여 Azure에 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인을 만듭니다.
 - [DevOps 릴리스 파이프라인의 연속 모니터링](../application-insights/app-insights-vsts-continuous-monitoring.md)을 사용하면 모니터링 데이터를 기반으로 배포를 제어 또는 롤백할 수 있습니다.
-- [상태 모니터](../application-insights/app-insights-monitor-performance-live-website-now.md)를 사용하면 코드를 수정하거나 다시 배포하지 않고도 Azure Application Insights를 사용하여 Windows에서 라이브 .NET 앱을 계측할 수 있습니다.
-- 애플리케이션의 코드에 액세스할 수 있는 경우 [.NET](../application-insights/quick-monitor-portal.md), [Java](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md) 또는 [기타 프로그래밍 언어](../application-insights/app-insights-platforms.md)용 Azure Monitor Application Insights SDK를 설치하여 [Application Insights](../application-insights/app-insights-overview.md)를 통해 전체 모니터링을 사용하도록 설정합니다. 이렇게 하면 애플리케이션 및 비즈니스에 관련된 사용자 지정 이벤트, 메트릭 또는 페이지 보기를 지정할 수 있습니다.
+- [상태 모니터](../azure-monitor/app/monitor-performance-live-website-now.md)를 사용하면 코드를 수정하거나 다시 배포하지 않고도 Azure Application Insights를 사용하여 Windows에서 라이브 .NET 앱을 계측할 수 있습니다.
+- 애플리케이션의 코드에 액세스할 수 있는 경우 [.NET](../application-insights/quick-monitor-portal.md), [Java](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md) 또는 [기타 프로그래밍 언어](../azure-monitor/app/platforms.md)용 Azure Monitor Application Insights SDK를 설치하여 [Application Insights](../application-insights/app-insights-overview.md)를 통해 전체 모니터링을 사용하도록 설정합니다. 이렇게 하면 애플리케이션 및 비즈니스에 관련된 사용자 지정 이벤트, 메트릭 또는 페이지 보기를 지정할 수 있습니다.
 
 
 
@@ -56,7 +56,7 @@ ms.locfileid: "53386539"
 ##  <a name="combine-resources-in-azure-resource-groups"></a>Azure 리소스 그룹의 리소스 결합
 현재 Azure의 일반적인 애플리케이션에는 VM 및 App Services나 Cloud Services, AKS 클러스터 또는 Service Fabric에 호스트된 마이크로서비스와 같은 다양한 리소스가 포함됩니다. 이러한 애플리케이션은 Event Hubs, Storage, SQL 및 Service Bus와 같은 종속성을 자주 사용합니다.
 
-- Azure 리소스 그룹의 리소스를 결합하여 다양한 애플리케이션을 구성하는 모든 리소스에서 완전한 가시성을 얻습니다. [리소스 그룹용 Azure Monitor](../monitoring-and-diagnostics/resource-group-insights.md)는 전체 스택 애플리케이션의 상태 및 성능을 추적하고 조사 또는 디버깅을 위해 개별 구성 요소로 드릴다운할 수 있는 간단한 방법을 제공합니다.
+- Azure 리소스 그룹의 리소스를 결합하여 다양한 애플리케이션을 구성하는 모든 리소스에서 완전한 가시성을 얻습니다. [리소스 그룹용 Azure Monitor](../azure-monitor/insights/resource-group-insights.md)는 전체 스택 애플리케이션의 상태 및 성능을 추적하고 조사 또는 디버깅을 위해 개별 구성 요소로 드릴다운할 수 있는 간단한 방법을 제공합니다.
 
 ## <a name="ensure-quality-through-continuous-deployment"></a>지속적인 배포를 통해 품질 보장
 연속 통합/지속적인 배포를 사용하면 자동화된 테스트의 결과에 따라 코드 변경 내용을 애플리케이션에 자동으로 통합하고 배포할 수 있습니다. 배포 프로세스를 간소화하고 프로덕션으로 이동하기 전에 변경 내용의 품질을 보장합니다.
@@ -74,7 +74,7 @@ ms.locfileid: "53386539"
 - 관리자에게 알리는 가장 효과적인 수단을 사용하도록 경고 작업을 정의합니다. 사용 가능한 [알림 작업](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal)은 SMS, 메일, 푸시 알림 또는 음성 통화입니다.
 - 고급 작업을 사용하여 [웹후크](platform/activity-log-alerts-webhook.md)를 통해 [ITSM 도구에 연결](platform/itsmc-overview.md)하거나 기타 경고 관리 시스템에 연결합니다.
 - 웹후크를 사용하여 경고에서 시작될 수 있는 [Azure Automation Runbook](../automation/automation-webhooks.md) 또는 [Logic Apps](/connectors/custom-connectors/create-webhook-trigger)와 함께 경고에서 식별된 상황도 수정합니다. 
-- [자동 크기 조정](../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md)을 사용하여 수집된 메트릭을 기반으로 컴퓨팅 리소스를 동적으로 늘리고 줄입니다.
+- [자동 크기 조정](../azure-monitor/learn/tutorial-autoscale-performance-schedule.md)을 사용하여 수집된 메트릭을 기반으로 컴퓨팅 리소스를 동적으로 늘리고 줄입니다.
 
 ## <a name="prepare-dashboards-and-workbooks"></a>대시보드 및 통합 문서 준비
 개발 및 운영이 동일한 원격 분석 및 도구에 액세스할 수 있도록 하면 전체 환경에서 패턴을 보고 MTTD(평균 검색 시간) 및 MTTR(평균 복원 시간)을 최소화할 수 있습니다.

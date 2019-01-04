@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 71be338aeb6d0234d22d412d6838e36a26797b20
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5a74097521cc7dceea2c47f78c1dbb2f17e292aa
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002123"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726683"
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>기존 Node.js Azure 모바일 서비스를 App Service로 업그레이드
 App Service 모바일은 Microsoft Azure를 사용하여 모바일 애플리케이션을 빌드하는 새로운 방법입니다. 자세한 내용은 [Mobile Apps 정의]를 참조하세요.
@@ -98,7 +98,7 @@ ZIP 형식의 스크립트를 다운로드합니다.  로컬 컴퓨터에 새 �
 2. **+새로 만들기** > **웹 + 모바일** > **모바일 앱**을 클릭한 다음 모바일 앱 백 엔드에 대한 이름을 제공합니다.
 3. **리소스 그룹**에 대해 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다(앱과 같은 이름 사용).
 
-    다른 App Service 계획을 선택하거나 새 App Service 계획을 만들 수 있습니다. App Services 계획에 대한 자세한 내용과 다른 가격 책정 계층 및 원하는 위치에서 새 계획을 만드는 방법은 [Azure App Service 계획의 포괄 개요](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)를 참조하세요.
+    다른 App Service 계획을 선택하거나 새 App Service 계획을 만들 수 있습니다. App Services 계획에 대한 자세한 내용과 다른 가격 책정 계층 및 원하는 위치에서 새 계획을 만드는 방법은 [Azure App Service 계획의 포괄 개요](../app-service/overview-hosting-plans.md)를 참조하세요.
 4. **App Service 계획**에 대해서는 기본 계획( [표준 계층](https://azure.microsoft.com/pricing/details/app-service/)에)이 선택되어 있습니다. 또한 다른 계획을 선택하거나 [새 계획을 만들 수 있습니다](../app-service/app-service-plan-manage.md#create-an-app-service-plan). App Service 계획의 설정에 따라 앱과 연결된 [위치, 기능, 비용 및 계산 리소스](https://azure.microsoft.com/pricing/details/app-service/) 가 결정됩니다.
 
     계획을 결정한 다음 **만들기**를 클릭합니다. 이렇게 모바일 앱 백 엔드를 만듭니다.
@@ -162,7 +162,7 @@ Azure Mobile Apps를 사용하면 서비스 내에서 Azure Active Directory, Fa
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [App Service 가격 책정]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[인증 개념]: ../app-service/app-service-authentication-overview.md
+[인증 개념]: ../app-service/overview-authentication-authorization.md
 [인증 빠른 시작]: app-service-mobile-auth.md
 
 [Azure Portal]: https://portal.azure.com/

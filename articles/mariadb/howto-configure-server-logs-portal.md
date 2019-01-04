@@ -3,17 +3,15 @@ title: Azure Portal에서 Azure Database for MariaDB에 대한 서버 로그 구
 description: 이 문서에서는 Azure Portal에서 Azure Database for MariaDB의 서버 로그를 구성 및 액세스하는 방법을 설명합니다.
 author: rachel-msft
 ms.author: raagyema
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 566d5b047078b6e65b0c320027cc8c63c81a282b
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 4ff2fbd5976a8e203bbc43a87b31ddb1bed63402
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986600"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548819"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Azure Portal에서 서버 로그 구성 및 액세스
 

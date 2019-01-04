@@ -9,23 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6cedc269e279a9154e63bae241f02e766e06ec96
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 027f8ad854cfc4c412a56a293de3b02a425d6858
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383904"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713831"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>HDInsight Hadoop 클러스터에 Apache Giraph를 설치하고 Giraph를 사용하여 대규모 그래프를 처리합니다.
 
 HDInsight 클러스터에 Apache Giraph를 설치하는 방법을 알아봅니다. Hdinsight의 스크립트 작업 기능을 사용하면 bash 스크립트를 실행하여 클러스터를 사용자 지정할 수 있습니다. 클러스터를 만드는 도중 및 만든 후에 클러스터를 사용자 지정하는 데 스크립트를 사용할 수 있습니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a name="whatis"></a>Giraph 정의
 
-[Apache Giraph](http://giraph.apache.org/)를 통해 Hadoop을 사용하여 그래프 처리를 수행할 수 있으며, Azure HDInsight에서 이를 사용할 수도 있습니다. Graph는 개체 간의 관계를 모델링합니다. 예를 들어 인터넷 또는 소셜 네트워크 상의 사람들 간 관계와 같은 대규모 네트워크의 라우터 간의 연결입니다. 그래프 처리를 통해 그래프의 개체 간 관계를 추론하여 다음을 수행할 수 있습니다.
+[Apache Giraph](https://giraph.apache.org/)를 통해 Hadoop을 사용하여 그래프 처리를 수행할 수 있으며, Azure HDInsight에서 이를 사용할 수도 있습니다. Graph는 개체 간의 관계를 모델링합니다. 예를 들어 인터넷 또는 소셜 네트워크 상의 사람들 간 관계와 같은 대규모 네트워크의 라우터 간의 연결입니다. 그래프 처리를 통해 그래프의 개체 간 관계를 추론하여 다음을 수행할 수 있습니다.
 
 * 현재 관계를 기반으로 하여 잠재적인 친구 파악.
 
@@ -36,7 +36,7 @@ HDInsight 클러스터에 Apache Giraph를 설치하는 방법을 알아봅니�
 > [!WARNING]  
 > HDInsight 클러스터와 함께 제공되는 구성 요소는 완벽하게 지원됩니다. Microsoft 지원은 이러한 구성 요소와 관련된 문제를 격리하고 해결하는 데 도움이 됩니다.
 >
-> Giraph와 같은 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. Microsoft 지원은 문제를 해결할 수 있습니다. 그렇지 않으면 해당 기술에 대한 전문 지식을 찾을 수 있는 오픈 소스 커뮤니티를 참조해야 합니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [http://apache.org](http://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](http://hadoop.apache.org/)).
+> Giraph와 같은 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. Microsoft 지원은 문제를 해결할 수 있습니다. 그렇지 않으면 해당 기술에 대한 전문 지식을 찾을 수 있는 오픈 소스 커뮤니티를 참조해야 합니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [https://apache.org](https://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](https://hadoop.apache.org/)).
 
 
 ## <a name="what-the-script-does"></a>스크립트가 수행하는 작업
@@ -55,7 +55,7 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
 이 섹션에서는 Azure 포털을 사용하여 클러스터를 만들면서 샘플 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 스크립트 작업은 다음 방법 중 하나를 사용하여 적용될 수 있습니다.
 > * Azure PowerShell
 > * Azure 클래식 CLI
@@ -86,7 +86,7 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
 ## <a name="usegiraph"></a>HDInsight에서 Giraph를 사용하는 방법
 
-클러스터를 만든 후 다음 단계를 사용하여 Giraph에 포함된 SimpleShortestPathsComputation 예제를 실행합니다. 이 예제는 그래프의 개체 간 가장 짧은 경로를 찾기 위한 기본 [Pregel](http://people.apache.org/~edwardyoon/documents/pregel.pdf) 구현을 사용합니다.
+클러스터를 만든 후 다음 단계를 사용하여 Giraph에 포함된 SimpleShortestPathsComputation 예제를 실행합니다. 이 예제는 그래프의 개체 간 가장 짧은 경로를 찾기 위한 기본 [Pregel](https://people.apache.org/~edwardyoon/documents/pregel.pdf) 구현을 사용합니다.
 
 1. SSH를 사용하여 HDInsight 클러스터에 연결합니다.
 
@@ -146,7 +146,7 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
    | `-op` |출력 위치입니다. |
    | `-w 2` |사용할 작업자의 수입니다. 이 예제에서는 2입니다. |
 
-    이 밖에 Giraph 샘플과 함께 사용된 기타 매개 변수에 대한 자세한 내용은 [Giraph 빠른 시작](http://giraph.apache.org/quick_start.html)을 참조하세요.
+    이 밖에 Giraph 샘플과 함께 사용된 기타 매개 변수에 대한 자세한 내용은 [Giraph 빠른 시작](https://giraph.apache.org/quick_start.html)을 참조하세요.
 
 6. 작업이 완료되면 결과는 **/example/out/shotestpathss** 디렉터리에 저장됩니다. 출력 파일 이름은 **part-m-** 으로 시작하고 첫 번째, 두 번째 파일 등을 나타내는 숫자로 끝납니다. 다음 명령을 사용하여 출력을 봅니다.
 

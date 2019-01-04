@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6b6dd80f649b0c92aacdb5711e88d7710db5f51b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 50d071c420eec106f5ab28530aa7b2ff9a55fe4a
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424445"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558757"
 ---
 # <a name="azure-active-directory-code-samples-v20-endpoint"></a>Azure Active Directory 코드 샘플(v2.0 엔드포인트)
 
@@ -62,8 +62,8 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
  플랫폼 | 사용자만 로그인 | 사용자를 로그인하고 Microsoft Graph를 호출
  -------- | ------------------- | ---------------------------------
-![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)<p/>ASP.NET Core 2.1 | [aspnetcore-webapp-openidconnect-v2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) | [aspnetcore2-2-signInAndCallGraph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/aspnetcore2-2-signInAndCallGraph) 분기의 동일한 샘플
-![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET | [ASP.NET 빠른 시작](https://GitHub.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) <p/> [dotnet-webapp-openidconnect-v2](https://GitHub.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) <p/>[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
+![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.1 | [aspnetcore-webapp-openidconnect-v2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) | [aspnetcore2-2-signInAndCallGraph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/aspnetcore2-2-signInAndCallGraph) 분기의 동일한 샘플
+![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET 빠른 시작](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p>[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 ![Node.js](media/sample-v2-code/logo_nodejs.png)  |                   | [Node.js 빠른 시작](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs)
 ![Ruby](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp)
 
@@ -73,12 +73,12 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 | ASP.NET Core 2.0 Web API 호출
 ------------------ | -------- |  ----------| ---------- | -------------------------
-데스크톱(WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | 대화형 | [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+데스크톱(WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | 대화형 | [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://github.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
 데스크톱(콘솔)   | ![.NET/C#(데스크톱)](media/sample-v2-code/logo_NET.png) | Windows 통합 인증 |[dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2)
 데스크톱(콘솔)   | ![.NET/C#(데스크톱)](media/sample-v2-code/logo_NETcore.png) | 사용자 이름/암호 |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)
 모바일(UWP)   | ![.NET/C#(UWP)](media/sample-v2-code/logo_windows.png) | 대화형 |[dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |
-모바일(Android, iOS, UWP)   | ![.NET/C#(Xamarin)](media/sample-v2-code/logo_xamarin.png) | 대화형 |[xamarin-native-v2](https://Github.com/azure-samples/active-directory-xamarin-native-v2) |
-모바일(iOS)       | ![iOS/Objective C 또는 swift](media/sample-v2-code/logo_iOS.png) | 대화형 |[ios-swift-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) <p/> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |
+모바일(Android, iOS, UWP)   | ![.NET/C#(Xamarin)](media/sample-v2-code/logo_xamarin.png) | 대화형 |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |
+모바일(iOS)       | ![iOS/Objective C 또는 swift](media/sample-v2-code/logo_iOS.png) | 대화형 |[ios-swift-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |
 모바일(Android)   | ![Android/Java](media/sample-v2-code/logo_Android.png) | 대화형 |  [android-native-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |
 
 ## <a name="daemon-applications"></a>디먼 애플리케이션
@@ -87,12 +87,12 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출
 ------------------ | -------- | ---------- | --------------------
-콘솔 | ![.NET Core](media/sample-v2-code/logo_NETcore.png)<p/> ASP.NET  | 클라이언트 자격 증명 | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2)
-웹앱 | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET  | 클라이언트 자격 증명 | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2)
+콘솔 | ![.NET Core](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | 클라이언트 자격 증명 | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2)
+웹앱 | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | 클라이언트 자격 증명 | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2)
 
 ## <a name="headless-applications"></a>헤드리스 애플리케이션
 
-다음 샘플은 웹 브라우저가 없는 디바이스에서 실행되는 공용 클라이언트 애플리케이션을 보여 줍니다. 앱은 명령줄 도구이거나 Linux/Mac 또는 IoT 애플리케이션에서 실행될 수 있습니다. 샘플에는 다른 디바이스(예: 휴대폰)에서 대화형으로 로그인하는 사용자 이름으로 Microsoft Graph API에 액세스하는 앱이 있습니다. 이 클라이언트 애플리케이션은 MSAL(Microsoft 인증 라이브러리)을 사용합니다.
+다음 샘플은 웹 브라우저가 없는 장치에서 실행되는 공용 클라이언트 애플리케이션을 보여 줍니다. 앱은 명령줄 도구이거나 Linux/Mac 또는 IoT 애플리케이션에서 실행될 수 있습니다. 샘플에는 다른 디바이스(예: 휴대폰)에서 대화형으로 로그인하는 사용자 이름으로 Microsoft Graph API에 액세스하는 앱이 있습니다. 이 클라이언트 애플리케이션은 MSAL(Microsoft 인증 라이브러리)을 사용합니다.
 
 클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출
 ------------------ | -------- |  ----------| ----------
@@ -104,7 +104,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 플랫폼 | 샘플
  -------- | -------------------
-![.NET/C#](media/sample-v2-code/logo_NET.png) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)의 WebAPI(서비스)
+![.NET/C#](media/sample-v2-code/logo_NET.png) | [dotnet-native-aspnetcore-v2](https://github.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)의 WebAPI(서비스)
 
 ## <a name="other-microsoft-graph-samples"></a>다른 Microsoft Graph 샘플
 

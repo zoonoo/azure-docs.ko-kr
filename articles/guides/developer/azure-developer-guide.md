@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 80f7d93037c0b900608301ebf6463f85be10f2de
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 84d8d3838740ec5d448b14b5c4539f7d78c96b5e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311323"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714358"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -43,9 +43,9 @@ Azure에서 제공하는 모든 서비스에서 솔루션 아키텍처를 지원
 
 ### <a name="application-hosting"></a>애플리케이션 호스팅
 
-Azure는 인프라 세부 정보에 대해 걱정하지 않고 애플리케이션을 실행할 수 있는 다양한 클라우드 기반 계산 제공 사항을 지원합니다. 응용 프로그램 사용량의 증가에 따라 리소스를 쉽게 확장할 수 있습니다.
+Azure는 인프라 세부 정보에 대해 걱정하지 않고 애플리케이션을 실행할 수 있는 다양한 클라우드 기반 계산 제공 사항을 지원합니다. 애플리케이션 사용량의 증가에 따라 리소스를 쉽게 확장할 수 있습니다.
 
-Azure는 필요한 애플리케이션 개발 및 호스팅 요구 사항을 지원하는 서비스를 제공합니다. Azure는 응용 프로그램 호스팅에 대한 모든 권한을 제공하는 IaaS(Infrastructure-as-a-Service)를 제공합니다. Azure의 PaaS(Platform-as-a-Service) 제공 사항은 앱을 지원하는 데 필요한 완전히 관리되는 서비스를 제공합니다. Azure에는 코드만 작성하면 되는 서버를 사용하지 않는 호스팅도 있습니다.
+Azure는 필요한 애플리케이션 개발 및 호스팅 요구 사항을 지원하는 서비스를 제공합니다. Azure는 애플리케이션 호스팅에 대한 모든 권한을 제공하는 IaaS(Infrastructure-as-a-Service)를 제공합니다. Azure의 PaaS(Platform-as-a-Service) 제공 사항은 앱을 지원하는 데 필요한 완전히 관리되는 서비스를 제공합니다. Azure에는 코드만 작성하면 되는 서버를 사용하지 않는 호스팅도 있습니다.
 
 ![Azure 애플리케이션 호스팅 옵션](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
@@ -56,11 +56,11 @@ Azure는 필요한 애플리케이션 개발 및 호스팅 요구 사항을 지�
 
 웹앱, 모바일 앱 백 엔드 및 API 앱을 만들 수 있습니다.
 
-세 개의 앱 유형 모두 App Service 런타임을 공유하므로 동일한 프로젝트나 솔루션에서 웹 사이트를 호스트하고 모바일 클라이언트를 지원하며 Azure의 API를 노출할 수 있습니다. App Service에 대해 자세히 알아보려면 [Azure Web Apps이란?](../../app-service/app-service-web-overview.md)을 참조하세요.
+세 개의 앱 유형 모두 App Service 런타임을 공유하므로 동일한 프로젝트나 솔루션에서 웹 사이트를 호스트하고 모바일 클라이언트를 지원하며 Azure의 API를 노출할 수 있습니다. App Service에 대해 자세히 알아보려면 [Azure Web Apps이란?](../../app-service/overview.md)을 참조하세요.
 
 App Service는 DevOps를 염두에 두고 설계되었습니다. GitHub webhooks, Jenkins, Azure DevOps, TeamCity 등을 포함하여 게시 및 연속 통합 배포를 위한 다양한 도구를 지원합니다.
 
-[온라인 마이그레이션 도구](https://www.migratetoazure.net/)를 사용하여 App Service에 기존 응용 프로그램을 마이그레이션할 수 있습니다.
+[온라인 마이그레이션 도구](https://www.migratetoazure.net/)를 사용하여 App Service에 기존 애플리케이션을 마이그레이션할 수 있습니다.
 
 >**사용 시기**: 기존 웹 애플리케이션을 Azure에 마이그레이션하는 경우 및 웹앱에 완전 관리형 호스팅 플랫폼이 필요한 경우 App Service를 사용합니다. 앱에서 모바일 클라이언트를 지원하거나 REST API를 노출해야 하는 경우에도 App Service를 사용할 수 있습니다.
 
@@ -70,7 +70,7 @@ App Service는 DevOps를 염두에 두고 설계되었습니다. GitHub webhooks
 
 #### <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
-IaaS(infrastructure-as-a-Service) 공급자로 Azure를 사용하면 Windows 또는 Linux VM에 응용 프로그램을 배포하거나 마이그레이션할 수 있습니다. Azure Virtual Network와 함께 Azure Virtual Machines는 Azure에 Windows 또는 Linux VM의 배포를 지원합니다. VM에서는 사용자가 컴퓨터의 구성을 완전히 제어할 수 있습니다. VM을 사용하는 경우 사용자가 모든 서버 소프트웨어 설치, 구성, 유지 관리 및 운영 체제 패치를 담당합니다.
+IaaS(infrastructure-as-a-Service) 공급자로 Azure를 사용하면 Windows 또는 Linux VM에 애플리케이션을 배포하거나 마이그레이션할 수 있습니다. Azure Virtual Network와 함께 Azure Virtual Machines는 Azure에 Windows 또는 Linux VM의 배포를 지원합니다. VM에서는 사용자가 컴퓨터의 구성을 완전히 제어할 수 있습니다. VM을 사용하는 경우 사용자가 모든 서버 소프트웨어 설치, 구성, 유지 관리 및 운영 체제 패치를 담당합니다.
 
 VM에 대한 제어 수준으로 인해 Azure에서 PaaS 모델에 적합하지 않은 광범위한 서버 워크로드를 실행할 수 있습니다. 이러한 워크로드에는 데이터베이스 서버, Windows Server Active Directory 및 Microsoft SharePoint가 포함됩니다. 자세한 내용은 [Linux용](/azure/virtual-machines/linux/) 또는 [Windows용](/azure/virtual-machines/windows/) Virtual Machines 설명서를 참조하세요.
 
@@ -168,7 +168,7 @@ Azure는 애플리케이션에서 컨테이너를 사용하는 여러 방법을 
 
     >**사용 시기**: Azure AD, 소셜 ID 공급자 또는 둘 다를 사용하여 App Service 앱에서 인증을 사용하도록 설정하려는 경우입니다.
 
-    >**시작**: App Service에서 인증에 대한 자세한 내용은 [Azure App Service에서 인증 및 권한 부여](../../app-service/app-service-authentication-overview.md)를 참조하세요.
+    >**시작**: App Service에서 인증에 대한 자세한 내용은 [Azure App Service에서 인증 및 권한 부여](../../app-service/overview-authentication-authorization.md)를 참조하세요.
 
 Azure의 보안 모범 사례에 대해 알아보려면 [Azure 보안 모범 사례 및 패턴](../../security/security-best-practices-and-patterns.md)을 참조하세요.
 
@@ -190,7 +190,7 @@ VM을 프로비전하든 연속 통합을 사용하여 웹앱을 게시하든, A
 
 >**지금 사용해 보기:** [다양한 DevOps 통합을 사용해 봅니다](https://azure.microsoft.com/try/devops/).
 
->**시작**: App Service 앱의 DevOps 옵션을 보려면 [Azure App Service에 연속 배포](../../app-service/app-service-continuous-deployment.md)를 참조하세요.
+>**시작**: App Service 앱의 DevOps 옵션을 보려면 [Azure App Service에 연속 배포](../../app-service/deploy-continuous-deployment.md)를 참조하세요.
 
 
 ## <a name="azure-regions"></a>Azure 지역
@@ -227,7 +227,7 @@ Azure Portal은 Azure 리소스 및 서비스를 만들고 관리하고 제거�
 
 ### <a name="rest-apis"></a>REST API
 
-Azure는 Azure Portal UI를 지원하는 REST API 집합을 기반으로 합니다. 또한 대부분의 REST API는 인터넷 사용 디바이스에서 Azure 리소스와 응용 프로그램을 프로그래밍 방식으로 프로비저닝하고 관리할 수 있도록 지원됩니다. 전체 REST API 설명서를 보려면 [Azure REST SDK 참조](https://docs.microsoft.com/rest/api/)를 참조하세요.
+Azure는 Azure Portal UI를 지원하는 REST API 집합을 기반으로 합니다. 또한 대부분의 REST API는 인터넷 사용 장치에서 Azure 리소스와 애플리케이션을 프로그래밍 방식으로 프로비저닝하고 관리할 수 있도록 지원됩니다. 전체 REST API 설명서를 보려면 [Azure REST SDK 참조](https://docs.microsoft.com/rest/api/)를 참조하세요.
 
 ### <a name="apis"></a>API
 
@@ -245,7 +245,7 @@ REST API 외에도 여러 Azure 서비스를 사용하여 다음 개발 플랫�
 
 ### <a name="azure-resource-manager"></a>Azure 리소스 관리자 
     
-Azure에서 앱 실행에는 여러 Azure 서비스 작업이 포함될 수 있습니다. 이러한 서비스 작업은 모두 같은 수명 주기를 따르고 논리적 단위로 간주될 수 있습니다. 예를 들어 웹앱은 Web Apps, SQL Database, Storage, Azure Cache for Redis 및 Azure Content Delivery Network 서비스를 사용할 수 있습니다. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)를 사용하면 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 조정된 단일 작업에서 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다.
+Azure에서 앱 실행에는 여러 Azure 서비스 작업이 포함될 수 있습니다. 이러한 서비스 작업은 모두 같은 수명 주기를 따르고 논리적 단위로 간주될 수 있습니다. 예를 들어 웹앱은 Web Apps, SQL Database, Storage, Azure Cache for Redis 및 Azure Content Delivery Network 서비스를 사용할 수 있습니다. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)를 사용하면 그룹으로 애플리케이션에서 리소스와 함께 사용할 수 있습니다. 조정된 단일 작업에서 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다.
 
 관련 리소스를 논리적으로 그룹화하고 관리하는 것 외에도 Azure Resource Manager에는 관련 리소스의 배포 및 구성을 사용자 지정할 수 있는 배포 기능이 포함되어 있습니다. 예를 들어 Resource Manager를 사용하면 여러 가상 머신, 부하 분산 장치 및 Azure SQL Database를 단일 단위로 구성하는 애플리케이션을 배포 및 구성할 수 있습니다.
 

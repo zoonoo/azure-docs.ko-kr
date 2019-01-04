@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 3f88965e0d48a9ed3e9a91b4df42a79b83d2a79b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a198fa7fe5e1ed81e30987990359f9ecedbe225b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313329"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631552"
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Azure Search에서 다국어 문서에 대한 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ ms.locfileid: "53313329"
 ![][2]
 *각 필드에 대해 지원되는 분석기 중 하나를 선택합니다.*
 
-기본적으로 모든 검색 가능 필드에서는 언어 중립적인 [표준 Lucene 분석기](http://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) 를 사용합니다. 지원되는 전체 분석기 목록을 보려면 [Azure Search의 언어 지원](https://msdn.microsoft.com/library/azure/dn879793.aspx)을 참조하세요.
+기본적으로 모든 검색 가능 필드에서는 언어 중립적인 [표준 Lucene 분석기](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) 를 사용합니다. 지원되는 전체 분석기 목록을 보려면 [Azure Search의 언어 지원](https://msdn.microsoft.com/library/azure/dn879793.aspx)을 참조하세요.
 
 필드에 대해 언어 분석기를 선택한 후에는 해당 필드의 모든 인덱싱 및 검색 요청에 해당 분석기를 사용합니다. 다른 분석기를 사용하는 여러 필드에 대해 쿼리가 실행된 경우 이 쿼리는 각 필드에 부합하는 분석기를 통해 독립적으로 처리됩니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "53313329"
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2017-11-11`
 
-.NET 개발자인 경우 [Azure Search .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Search)를 사용하여 언어 분석기를 구성할 수 있습니다. 최신 릴리스에는 Microsoft 언어 분석기에 대한 지원도 포함되어 있습니다.
+.NET 개발자인 경우 [Azure Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search)를 사용하여 언어 분석기를 구성할 수 있습니다. 최신 릴리스에는 Microsoft 언어 분석기에 대한 지원도 포함되어 있습니다.
 
 <!-- Image References -->
 [1]: ./media/search-language-support/AnalyzerTab.png

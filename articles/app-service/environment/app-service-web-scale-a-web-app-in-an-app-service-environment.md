@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c94e7f761dcbc7e05965e359d7f9a864335c9c6b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6e683eb07b690d7d5680b7a4d429d1150f22f67e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269348"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717845"
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>App Service Environment에서 앱 확장
 Azure App Service에서는 일반적으로 다음 세 가지를 확장할 수 있습니다.
@@ -61,7 +61,7 @@ ASE의 ASP에 대한 자동 크기 조정 규칙은 일반적인 경우와 동�
 한 작업자 풀에서 다른 작업자 풀로 ASP를 이동하기 전에 ASP에 대해 적절한 용량이 있는지 확인하는 것이 중요합니다.  작업자 풀 목록에는 작업자 풀 이름이 나열될 뿐만 아니라 해당 작업자 풀에서 사용 가능한 작업자 수도 표시됩니다.  App Service 계획을 포함할 수 있는 충분한 인스턴스가 있는지 확인합니다.  이동할 작업자 풀에 추가 계산 리소스가 필요한 경우 ASE 관리자에게 추가하도록 요청합니다.  
 
 > [!NOTE]
-> 한 작업자 풀에서 ASP를 이동하면 해당 ASP에서 앱이 콜드 부팅됩니다.  이렇게 하면 앱이 새 계산 리소스에서 시작할 때 요청이 느리게 실행될 수 있습니다.  Azure App Service에서 [애플리케이션 준비 기능][AppWarmup]을 사용하여 콜드 부팅을 방지할 수 있습니다.  앱이 새 계산 리소스에서 콜드 시작하는 경우에 초기화 프로세스가 호출되기 때문에 문서에서 설명하는 응용 프로그램 초기화 모듈은 콜드 시작에서도 작동합니다. 
+> 한 작업자 풀에서 ASP를 이동하면 해당 ASP에서 앱이 콜드 부팅됩니다.  이렇게 하면 앱이 새 계산 리소스에서 시작할 때 요청이 느리게 실행될 수 있습니다.  Azure App Service에서 [애플리케이션 준비 기능][AppWarmup]을 사용하여 콜드 부팅을 방지할 수 있습니다.  앱이 새 계산 리소스에서 콜드 시작하는 경우에 초기화 프로세스가 호출되기 때문에 문서에서 설명하는 애플리케이션 초기화 모듈은 콜드 시작에서도 작동합니다. 
 > 
 > 
 
@@ -79,7 +79,7 @@ App Service 환경을 시작하려면 [App Service 환경을 만드는 방법][H
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
 [CreateWebappinASE]: app-service-web-how-to-create-a-web-app-in-an-ase.md
-[Appserviceplans]: ../azure-web-sites-web-hosting-plans-in-depth-overview.md
+[Appserviceplans]: ../overview-hosting-plans.md
 [AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [AppScale]: ../web-sites-scale.md

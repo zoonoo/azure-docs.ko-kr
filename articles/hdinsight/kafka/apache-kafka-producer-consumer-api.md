@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: dd4c077e23170a295a29a75df08cf8f29f8ba3e4
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 23a676c64ec2788ec4a9b3d61f86529fa437079f
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413356"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580385"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>자습서: Apache Kafka 생산자 및 소비자 API 사용
 
@@ -39,7 +39,7 @@ API에 대한 자세한 내용은 [생산자 API](https://kafka.apache.org/docum
 
 * [Java JDK 8](https://aka.ms/azure-jdks) 또는 이와 동등한 프로그램(예: OpenJDK)
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * SSH 클라이언트 및 `scp` 명령입니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md) 문서를 참조하세요.
 
@@ -82,7 +82,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
     </dependency>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > `${kafka.version}` 항목은 `pom.xml`의 `<properties>..</properties>` 섹션에서 선언되며, HDInsight 클러스터의 Kafka 버전으로 구성됩니다.
 
 * 플러그 인: Maven 플러그 인은 다양한 기능을 제공합니다. 이 프로젝트에서는 다음 플러그 인이 사용됩니다.
@@ -220,7 +220,7 @@ indow -h 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygr
 
 동일한 그룹 내에서 클라이언트에 의한 소비는 토픽에 대한 파티션을 통해 처리됩니다. 이 코드 샘플에서, 앞에서 만든 `test` 토픽에는 8개의 파티션이 있습니다. 8명의 소비자를 시작하는 경우 각 소비자는 토픽에 대한 단일 파티션에서 레코드를 읽습니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 소비자 그룹에는 파티션보다 더 많은 소비자 인스턴스가 있을 수 없습니다. 이 예제에서 하나의 소비자 그룹은 토픽의 파티션 수이기 때문에 최대 8개 소비자를 포함할 수 있습니다. 또는 소비자가 8개 이하인 소비자 그룹이 여러 개 있을 수 있습니다.
 
 Kafka에 저장된 레코드는 파티션에서 받은 순서대로 저장됩니다. *파티션 내의* 레코드에 대해 순서대로 전달하려면 파티션 수와 일치하는 소비자 인스턴스가 있는 소비자 그룹을 만듭니다. *토픽 내의* 레코드에 대해 순서대로 전달하려면 하나의 소비자 인스턴스만 사용하는 소비자 그룹을 만듭니다.

@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: alerts
-ms.openlocfilehash: 76ed904a90b84e7b0bac86b2ed5380289d7802c1
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 79375dbbc7c966f2e972389788cefe8a0fe3692d
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387979"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582680"
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Azure 구독에서 중요한 작업에 대한 알림 감사 및 수신
 
@@ -98,4 +98,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이 빠른 시작에서는 활동 로그 이벤트를 생성하는 작업을 수행한 다음 나중에 이 작업이 다시 발생할 때 알림을 받을 활동 로그 경고를 만들었습니다. 그런 다음 해당 작업을 다시 수행하여 경고를 테스트했습니다. Azure에서는 지난 90일 동안의 활동 로그 이벤트를 제공합니다. 이벤트를 90일 이상 보존해야 할 경우 활동 로그 데이터를 다른 모니터링 데이터와 함께 보관하세요.
 
 > [!div class="nextstepaction"]
-> [모니터링 데이터 보관](./../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md)
+> [모니터링 데이터 보관](./../../azure-monitor/learn/tutorial-archive-data.md)

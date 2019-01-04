@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: b8172ba50f7fec8f0aa1ba768c05d087ecabf8c8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 064aeaea47dd59a1dd75cf19ea4060d8f9c2c4bf
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283799"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53559062"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
 메시 비밀 값 리소스를 가져오고 삭제합니다.

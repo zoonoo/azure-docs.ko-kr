@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: a65dbbcfddf33692ee179755b4306019ffa8863e
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3c2924380ef5175b330deb5052a962bfecf820ae
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53399930"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594284"
 ---
 진단 및 로그 데이터를 수집, 보기 및 분석하여 VM을 모니터링하는 데 많은 기회를 활용할 수 있습니다. VM의 간단한 [모니터링](../articles/azure-monitor/overview.md)을 수행하려면 Azure Portal에서 VM에 대한 개요 화면을 사용할 수 있습니다. [확장](../articles/virtual-machines/windows/extensions-features.md)을 사용하여 추가 메트릭 데이터를 수집하도록 VM에서 진단을 구성할 수 있습니다. [Application Insights](../articles/application-insights/app-insights-overview.md) 및 [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md)와 같은 더 많은 고급 모니터링 옵션을 사용할 수도 있습니다.
 
@@ -43,23 +43,23 @@ Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(애플리케�
 
 ## <a name="logs"></a>로그
 
-[Azure 활동 로그](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)는 Azure에서 발생한 구독 수준 이벤트에 대한 정보를 제공하는 구독 로그입니다. 로그에는 Azure Resource Manager 작동 데이터에서 서비스 상태 이벤트 업데이트에 이르기까지 광범위한 데이터가 포함됩니다. Azure Portal에서 활동 로그를 클릭하여 VM에 대한 로그를 확인할 수 있습니다.
+[Azure 활동 로그](../articles/azure-monitor/platform/activity-logs-overview.md)는 Azure에서 발생한 구독 수준 이벤트에 대한 정보를 제공하는 구독 로그입니다. 로그에는 Azure Resource Manager 작동 데이터에서 서비스 상태 이벤트 업데이트에 이르기까지 광범위한 데이터가 포함됩니다. Azure Portal에서 활동 로그를 클릭하여 VM에 대한 로그를 확인할 수 있습니다.
 
 활동 로그를 통해 수행할 수 있는 몇 가지 작업은 다음과 같습니다.
 
-- [활동 로그 이벤트에서 경고](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)를 만듭니다.
-- 타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)에서 수집하도록 [Event Hub로 스트리밍합니다](../articles/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md).
+- [활동 로그 이벤트에서 경고](../articles/azure-monitor/platform/activity-logs-overview.md)를 만듭니다.
+- 타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)에서 수집하도록 [Event Hub로 스트리밍합니다](../articles/azure-monitor/platform/activity-logs-stream-event-hubs.md).
 - [PowerBI 콘텐츠 팩](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 PowerBI에서 분석합니다.
 - 보관 또는 수동 검사를 위해 [저장소 계정에 저장합니다](../articles/azure-monitor/platform/archive-activity-log.md). 로그 프로필을 사용하여 보존 기간(일)을 지정할 수 있습니다.
 
 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor) 또는 [REST API 모니터](https://docs.microsoft.com/rest/api/monitor/)를 사용하여 활동 로그 데이터에 액세스할 수도 있습니다.
 
-[Azure 진단 로그](../articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)는 해당 작업에 대한 풍부하고 빈번한 데이터를 제공하는 VM에서 내보낸 로그입니다. 진단 로그는 VM 내에서 수행된 작업에 대한 정보를 제공하여 활동 로그에서 다릅니다.
+[Azure 진단 로그](../articles/azure-monitor/platform/diagnostic-logs-overview.md)는 해당 작업에 대한 풍부하고 빈번한 데이터를 제공하는 VM에서 내보낸 로그입니다. 진단 로그는 VM 내에서 수행된 작업에 대한 정보를 제공하여 활동 로그에서 다릅니다.
 
 진단 로그를 통해 수행할 수 있는 몇 가지 작업은 다음과 같습니다.
 
 - 감사 또는 수동 검사를 위해 [저장소 계정에 저장합니다](../articles/azure-monitor/platform/archive-diagnostic-logs.md). 리소스 진단 설정을 사용하여 보존 기간(일)을 지정할 수 있습니다.
-- 타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)으로 수집을 위해 [Event Hubs로 스트림](../articles/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)합니다.
+- 타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)으로 수집을 위해 [Event Hubs로 스트림](../articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)합니다.
 - [OMS Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md)를 사용하여 분석합니다.
 
 ## <a name="advanced-monitoring"></a>고급 모니터링

@@ -1,20 +1,17 @@
 ---
 title: PostgreSQL용 Azure 데이터베이스의 제한 사항
 description: 이 문서는 Azure Database for PostgreSQL에 대한 연결 수 및 저장소 엔진 옵션과 같은 제한 사항을 설명합니다.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/12/2018
-ms.openlocfilehash: 108d2ac83c0dc317dee2f8c66f95f01d3569a7c4
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 4616ab535e7edca6d5f919824e9cadaf90886d5f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311663"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548565"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스의 제한 사항
 다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다.

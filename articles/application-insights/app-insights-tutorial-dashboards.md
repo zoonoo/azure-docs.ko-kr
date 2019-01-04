@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 50d2545d5145f1d93a1ea9fed3e4f98b474d41b2
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: a67f8c0f6be1c388c4138ee0269d7ad8b76d8c4c
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29178199"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744337"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Azure Application Insights를 사용하여 사용자 지정 KPI 대시보드 만들기
 
@@ -34,10 +34,10 @@ ms.locfileid: "29178199"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](app-insights-asp-net.md)합니다. 
+- Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](../azure-monitor/app/asp-net.md)합니다. 
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
-[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인합니다.
 
 ## <a name="create-a-new-dashboard"></a>새 대시보드 만들기
 단일 대시보드는 여러 애플리케이션, 리소스 그룹 및 구독에서 리소스를 포함할 수 있습니다.  애플리케이션에 대한 새 대시보드를 만들어서 자습서를 시작합니다.  

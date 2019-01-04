@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.date: 09/17/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0883784d5c7f833556a07f2bc6431470febdc4c7
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: f1d072d40967ac6d106de7489e0a2148fe7948ed
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384159"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598104"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Azure에서 사용자 지정 Windows 컨테이너 실행(미리 보기)
 
-[Azure App Service](app-service-web-overview.md)는 IIS에서 실행하는 ASP.NET 또는 Node.js와 같은 Windows에서 미리 정의된 응용 프로그램 스택을 제공합니다. 미리 구성된 Windows 환경은 관리자 액세스의 운영 체제, 소프트웨어 설치, 글로벌 어셈블리 캐시 변경 내용을 잠급니다([Azure App Service의 운영 체제 기능](operating-system-functionality.md) 참조). 애플리케이션에 미리 구성된 환경에서 허용하는 것보다 많은 액세스 권한이 필요한 경우 대신 사용자 지정 Windows 컨테이너를 배포할 수 있습니다. 이 빠른 시작에서는 Windows 이미지의 ASP.NET 앱을 Visual Studio의 [Docker 허브](https://hub.docker.com/)에 배포하고 Azure App Service의 사용자 지정 컨테이너에서 실행하는 방법을 보여줍니다.
+[Azure App Service](overview.md)는 IIS에서 실행하는 ASP.NET 또는 Node.js와 같은 Windows에서 미리 정의된 애플리케이션 스택을 제공합니다. 미리 구성된 Windows 환경은 관리자 액세스의 운영 체제, 소프트웨어 설치, 글로벌 어셈블리 캐시 변경 내용을 잠급니다([Azure App Service의 운영 체제 기능](operating-system-functionality.md) 참조). 애플리케이션에 미리 구성된 환경에서 허용하는 것보다 많은 액세스 권한이 필요한 경우 대신 사용자 지정 Windows 컨테이너를 배포할 수 있습니다. 이 빠른 시작에서는 Windows 이미지의 ASP.NET 앱을 Visual Studio의 [Docker 허브](https://hub.docker.com/)에 배포하고 Azure App Service의 사용자 지정 컨테이너에서 실행하는 방법을 보여줍니다.
 
 ![](media/app-service-web-get-started-windows-container/app-running-vs.png)
 
@@ -42,7 +42,7 @@ ms.locfileid: "53384159"
 
 Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여 프로젝트를 만듭니다. 
 
-**새 프로젝트** 대화 상자에서 **Visual C# > 웹 > ASP.NET 웹 응용 프로그램(.NET Framework)** 을 선택합니다.
+**새 프로젝트** 대화 상자에서 **Visual C# &gt; 웹 &gt; ASP.NET 웹 애플리케이션(.NET Framework)** 을 선택합니다.
 
 애플리케이션 이름을 _myFirstAzureWebApp_으로 지정한 다음, **확인**을 선택합니다.
    

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: e11c34b2587dcb7602161d36ba4deda1dca73c82
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 5e5a53027126f96c27a6a6f0abb8aeacb94d7c11
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720976"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000366"
 ---
 # <a name="monitor-performance-in-web-applications"></a>웹 애플리케이션의 성능 모니터링
 
@@ -32,14 +32,14 @@ Application Insights는 클라이언트 쪽에서 iOS, Android 및 Windows 스�
 ## <a name="setup"></a>성능 모니터링 설정
 Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로젝트에 ApplicationInsights.config가 없음) 다음 방법 중 하나를 선택하여 작업을 시작합니다.
 
-* [ASP.NET 웹 앱](app-insights-asp-net.md)
-  * [예외 모니터링 추가](app-insights-asp-net-exceptions.md)
-  * [종속성 모니터링 추가](app-insights-monitor-performance-live-website-now.md)
-* [J2EE 웹앱](app-insights-java-get-started.md)
-  * [종속성 모니터링 추가](app-insights-java-agent.md)
+* [ASP.NET 웹 앱](../azure-monitor/app/asp-net.md)
+  * [예외 모니터링 추가](../azure-monitor/app/asp-net-exceptions.md)
+  * [종속성 모니터링 추가](../azure-monitor/app/monitor-performance-live-website-now.md)
+* [J2EE 웹앱](../azure-monitor/app/java-get-started.md)
+  * [종속성 모니터링 추가](../azure-monitor/app/java-agent.md)
 
 ## <a name="view"></a>성능 메트릭 탐색
-[Azure 포털](https://portal.azure.com)에서 응용 프로그램에 대해 설정한 Application Insights 리소스를 찾습니다. 개요 블레이드에 기본 성능 데이터가 표시됩니다.
+[Azure 포털](https://portal.azure.com)에서 애플리케이션에 대해 설정한 Application Insights 리소스를 찾습니다. 개요 블레이드에 기본 성능 데이터가 표시됩니다.
 
 무엇이든 클릭하면 추가 세부 정보와 장기간에 걸친 결과를 확인할 수 있습니다. 예를 들어 요청 타일을 클릭하고 시간 범위를 선택합니다.
 
@@ -112,7 +112,7 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 * 요청 수를 다른 메트릭과 비교하여 오류 또는 느린 응답이 부하와 관련되어 있는지 확인합니다.
 * 코드에서 [검사 추적 문을 삽입 및 검색][diagnostic]하여 문제를 파악합니다.
 * [라이브 메트릭 스트림][livestream]을 사용하여 작업에서 웹앱을 모니터링합니다.
-* [스냅숏 디버거][snapshot]를 사용하여 .Net 응용 프로그램의 상태를 캡처합니다.
+* [스냅숏 디버거][snapshot]를 사용하여 .Net 애플리케이션의 상태를 캡처합니다.
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>성능 조사 환경을 사용하여 성능 병목 현상 찾기 및 수정
 
@@ -140,11 +140,11 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
 
 ## <a name="next"></a>다음 단계
-[웹 테스트][availability] - 전 세계에서 웹 요청이 일정한 간격으로 응용 프로그램에 전송되도록 합니다.
+[웹 테스트][availability] - 전 세계에서 웹 요청이 일정한 간격으로 애플리케이션에 전송되도록 합니다.
 
 [진단 추적 캡처 및 검색][diagnostic] - 추적 호출을 삽입하고 결과를 확인하여 문제를 파악합니다.
 
-[사용 현황 추적][usage] - 사용자의 응용 프로그램 사용 방식을 파악합니다.
+[사용 현황 추적][usage] - 사용자의 애플리케이션 사용 방식을 파악합니다.
 
 [문제 해결][qna] - 질문과 대답
 
@@ -152,14 +152,14 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
 <!--Link references-->
 
-[availability]: app-insights-monitor-web-app-availability.md
-[diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-asp-net.md
+[availability]: ../azure-monitor/app/monitor-web-app-availability.md
+[diagnostic]: ../azure-monitor/app/diagnostic-search.md
+[greenbrown]: ../azure-monitor/app/asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
+[redfield]: ../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
-[livestream]: app-insights-live-stream.md
+[livestream]: ../azure-monitor/app/live-stream.md
 [snapshot]: app-insights-snapshot-debugger.md
 
 

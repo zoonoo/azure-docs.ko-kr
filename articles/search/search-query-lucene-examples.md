@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 0ce230bc6a926229ed383c828f83aafd60117471
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 962c1cff91a5ac3f52dc67c30bd2c7a4e2e22b9d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317161"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631841"
 ---
 # <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Azure Search에서 고급 쿼리를 작성하기 위한 Lucene 구문 퀴리 예제
 Azure Search에 대한 쿼리를 생성하는 경우 기본 [단순 쿼리 파서](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)를 좀 더 복잡한 [Azure Search의 Lucene 쿼리 파서](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)로 바꾸어 특수 및 고급 쿼리 정의를 작성할 수 있습니다. 
@@ -174,7 +174,7 @@ musicstoreindex 예제에서 **genre** 와 같이, 특정 필드에서 일치 �
 
 ## <a name="example-6-regex"></a>예제 6: Regex
 
-정규식 검색은 [RegExp 클래스](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html)에 나와 있는 것처럼 슬래시("/") 사이의 내용에 기반하여 일치 항목을 찾습니다.
+정규식 검색은 [RegExp 클래스](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html)에 나와 있는 것처럼 슬래시("/") 사이의 내용에 기반하여 일치 항목을 찾습니다.
 
 이 쿼리에서 용어 Senior 또는 Junior 중 하나를 사용하여 작업을 검색합니다. `search=business_title:/(Sen|Jun)ior/``
 

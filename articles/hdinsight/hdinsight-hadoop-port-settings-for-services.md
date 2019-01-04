@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 22e15f58f3d4e7f4db3ac3bd519dbb286a36ef95
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: be264be41b198e95dae64730ef31f431ec06a2e7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384142"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715463"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight의 Apache Hadoop 서비스에서 사용하는 포트
 
@@ -101,9 +101,9 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있으며 �
 | --- | --- | --- | --- | --- |
 | Resource Manager 웹 UI |헤드 노드 |8088 |HTTP |Resource Manager용 웹 UI |
 | Resource Manager 웹 UI |헤드 노드 |8090 |HTTPS |Resource Manager용 웹 UI |
-| Resource Manager 관리 인터페이스 |헤드 노드 |8141 |IPC |응용 프로그램 제출용(Hive, Hive server, Pig 등) |
+| Resource Manager 관리 인터페이스 |헤드 노드 |8141 |IPC |애플리케이션 제출용(Hive, Hive server, Pig 등) |
 | Resource Manager 스케줄러 |헤드 노드 |8030 |HTTP |관리 인터페이스 |
-| Resource Manager 응용 프로그램 인터페이스 |헤드 노드 |8050 |HTTP |응용 프로그램 관리자 인터페이스의 주소 |
+| Resource Manager 애플리케이션 인터페이스 |헤드 노드 |8050 |HTTP |애플리케이션 관리자 인터페이스의 주소 |
 | NodeManager |모든 작업자 노드 |30050 |&nbsp; |컨테이너 관리자의 주소 |
 | NodeManager 웹 UI |모든 작업자 노드 |30060 |HTTP |Resource Manager 인터페이스 |
 | 타임라인 주소 |헤드 노드 |10200 |RPC |타임라인 서비스 RPC 서비스. |
@@ -141,8 +141,8 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있으며 �
 
 | 서비스 | 노드 | 포트 | 프로토콜 | 설명 |
 | --- | --- | --- | --- | --- |
-| 타임라인(응용 프로그램 기록) |헤드 노드 |6188 |HTTP |타임라인 서비스 웹 UI |
-| 타임라인(응용 프로그램 기록) |헤드 노드 |30200 |RPC |타임라인 서비스 웹 UI |
+| 타임라인(애플리케이션 기록) |헤드 노드 |6188 |HTTP |타임라인 서비스 웹 UI |
+| 타임라인(애플리케이션 기록) |헤드 노드 |30200 |RPC |타임라인 서비스 웹 UI |
 
 ### <a name="hbase-ports"></a>HBase 포트
 
@@ -157,7 +157,7 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있으며 �
 
 | 서비스 | 노드 | 포트 | 프로토콜 | 설명 |
 | --- | --- | --- | --- | --- |
-| Broker |작업자 노드 |9092 |[Kafka 유선 프로토콜](http://kafka.apache.org/protocol.html) |클라이언트 통신에 사용됨 |
+| Broker |작업자 노드 |9092 |[Kafka 유선 프로토콜](https://kafka.apache.org/protocol.html) |클라이언트 통신에 사용됨 |
 | &nbsp; |Zookeeper 노드 |2181 |&nbsp; |클라이언트가 ZooKeeper 연결에 사용하는 포트 |
 
 ### <a name="spark-ports"></a>Spark 포트

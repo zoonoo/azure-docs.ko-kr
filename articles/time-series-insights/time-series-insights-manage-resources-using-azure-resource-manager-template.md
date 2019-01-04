@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights 템플릿 관리 - Azure Resource Manager 템플릿을 사용하여 Azure Time Series Insights 환경을 관리하는 방법 | Microsoft Docs
+title: Azure Resource Manager 템플릿을 사용하여 Azure Time Series Insights 환경을 관리하는 방법 | Microsoft Docs
 description: 이 문서에서는 Azure Resource Manager를 사용하여 프로그래밍 방식으로 Azure Time Series Insights 환경을 관리하는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: 70f82c19bced7618027379fcf9451348ac2591eb
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 9200b3b8cd85bfd94bbc4c66cccb35b78a97aaff
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270623"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554693"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Time Series Insights 리소스 만들기
 
@@ -108,8 +108,8 @@ GitHub에서 [201-timeseriesinsights-environment-with-eventhub](https://raw.gith
    | eventSourceDisplayName | 이벤트 원본 이름 대신 도구 또는 사용자 인터페이스에 표시할 선택적 이름입니다. |
    | eventSourceTimestampPropertyName | 이벤트 원본의 타임스탬프로 사용될 이벤트 속성입니다. timestampPropertyName에 대한 값을 지정하지 않은 경우 또는 null 또는 빈 문자열을 지정하는 경우 이벤트 생성 시간이 사용됩니다. |
    | eventSourceKeyName | Time Series Insights 서비스가 Event Hub에 연결하는 데 사용하는 공유 액세스 키의 이름입니다. |
-   | accessPolicyReaderObjectIds | Azure AD에서 환경에 대한 판독기 액세스 권한이 있어야 하는 사용자 또는 응용 프로그램의 개체 ID 목록입니다. **Get-AzureRMADUser** 또는 **Get-AzureRMADServicePrincipal** cmdlet을 호출하여 서비스 주체 objectId를 가져올 수 있습니다. Azure AD 그룹에 대한 액세스 정책을 만드는 작업은 아직 지원되지 않습니다. |
-   | accessPolicyContributorObjectIds | Azure AD에서 환경에 대한 참가자 액세스 권한이 있어야 하는 사용자 또는 응용 프로그램의 개체 ID 목록입니다. **Get-AzureRMADUser** 또는 **Get-AzureRMADServicePrincipal** cmdlet을 호출하여 서비스 주체 objectId를 가져올 수 있습니다. Azure AD 그룹에 대한 액세스 정책을 만드는 작업은 아직 지원되지 않습니다. |
+   | accessPolicyReaderObjectIds | Azure AD에서 환경에 대한 판독기 액세스 권한이 있어야 하는 사용자 또는 애플리케이션의 개체 ID 목록입니다. **Get-AzureRMADUser** 또는 **Get-AzureRMADServicePrincipal** cmdlet을 호출하여 서비스 주체 objectId를 가져올 수 있습니다. Azure AD 그룹에 대한 액세스 정책을 만드는 작업은 아직 지원되지 않습니다. |
+   | accessPolicyContributorObjectIds | Azure AD에서 환경에 대한 참가자 액세스 권한이 있어야 하는 사용자 또는 애플리케이션의 개체 ID 목록입니다. **Get-AzureRMADUser** 또는 **Get-AzureRMADServicePrincipal** cmdlet을 호출하여 서비스 주체 objectId를 가져올 수 있습니다. Azure AD 그룹에 대한 액세스 정책을 만드는 작업은 아직 지원되지 않습니다. |
 
 예를 들어, 다음 매개 변수 파일은 기존 Event Hub의 이벤트를 읽는 환경 및 이벤트 원본을 만드는 데 사용할 수 있습니다. 또한 환경에 대한 참가자 액세스 권한을 부여하는 두 개의 액세스 정책을 만듭니다.
 

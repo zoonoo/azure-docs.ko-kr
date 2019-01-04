@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2fb1f5ad0c3b46623550cbcc1204761b57f6093b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 98d3d1f6fc0f2f30196f360811808579dfbab312
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251058"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727482"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Azure에서 앱 강화
 
@@ -34,7 +34,7 @@ ms.locfileid: "53251058"
 * [규모 확장](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): 앱을 실행하는 VM 인스턴스 수가 증가합니다.
   가격 책정 계층에 따라 최대 20개의 인스턴스로 확장할 수 있습니다. [고립](environment/intro.md) 계층에서 **App Service 환경**은 규모 확장 수를 100개 인스턴스까지 증대합니다. 규모 확장에 대한 자세한 내용은 [수동 또는 자동으로 인스턴스 개수 조정](../monitoring-and-diagnostics/insights-how-to-scale.md)을 참조하세요. 자동 크기 조정을 사용하는 방법을 찾아볼 수 있으며 이는 미리 정의된 규칙 및 일정에 따라 자동으로 인스턴스 개수를 조정합니다.
 
-크기 조정 설정을 적용하는 데 몇 초밖에 걸리지 않으며 [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)의 모든 앱에 영향을 줍니다.
+크기 조정 설정을 적용하는 데 몇 초밖에 걸리지 않으며 [App Service 계획](../app-service/overview-hosting-plans.md)의 모든 앱에 영향을 줍니다.
 코드를 변경하거나 애플리케이션을 다시 배포할 필요가 없습니다.
 
 개별 App Service 계획의 가격 책정 및 기능에 대한 자세한 내용은 [App Service 가격 정보](https://azure.microsoft.com/pricing/details/web-sites/)를 참조하세요.  

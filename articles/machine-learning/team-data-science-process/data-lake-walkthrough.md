@@ -147,7 +147,7 @@ U-SQL을 실행하려면 Visual Studio를 열고 **파일 --> 새로 만들기 -
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
 ### <a name="ingest"></a>데이터 수집: 공용 Blob에서 데이터 읽기
-Azure Blob에서 데이터 위치는 **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**으로 참조되고 **Extractors.Csv()** 를 사용하여 추출할 수 있습니다. 다음 스크립트에서 wasb 주소의 container_name@blob_storage_account_name에 대한 사용자 고유 컨테이너 이름과 저장소 계정 이름을 대체합니다. 파일 이름은 같은 형식이므로 12개 trip 파일을 모두 읽는 데 **trip\_data_{\*\}.csv\**를 사용할 수 있습니다. 
+Azure Blob에서 데이터 위치는 **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**으로 참조되고 **Extractors.Csv()** 를 사용하여 추출할 수 있습니다. 다음 스크립트에서 wasb 주소의 container_name@blob_storage_account_name에 대한 사용자 고유 컨테이너 이름과 저장소 계정 이름을 대체합니다. 파일 이름은 같은 형식이므로 12개 trip 파일을 모두 읽는 데 **trip\_data_{\*\}.csv\** 를 사용할 수 있습니다. 
 
     ///Read in Trip data
     @trip0 =

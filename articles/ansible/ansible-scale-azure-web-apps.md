@@ -8,15 +8,15 @@ manager: jeconnoc
 ms.author: kyliel
 ms.topic: tutorial
 ms.date: 12/08/2018
-ms.openlocfilehash: 4ec5a0691ce73a2ffebe07b316ce5b1dde8c2b49
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 740ff6d6a636377f9d58a5231692c87f935ae6d2
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249382"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601868"
 ---
 # <a name="scale-azure-app-service-web-apps-by-using-ansible"></a>Ansible을 사용하여 Azure App Service 웹앱 크기 조정
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview)(또는 간단히 Web Apps)는 웹 애플리케이션, REST API 및 모바일 백 엔드를 호스팅합니다. .NET, .NET Core, Java, Ruby, Node.js, PHP 또는 Python 등 원하는 언어로 개발할 수 있습니다.
+[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview)(또는 간단히 Web Apps)는 웹 애플리케이션, REST API 및 모바일 백 엔드를 호스팅합니다. .NET, .NET Core, Java, Ruby, Node.js, PHP 또는 Python 등 원하는 언어로 개발할 수 있습니다.
 
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. 이 문서에서는 Ansible을 사용하여 Azure App Service에서 앱의 크기를 조정하는 방법에 대해 설명합니다.
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: eee37f5a77331b78aa587ba2e3eb61132d7d6adc
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 738ef5df0b2e2a7f31a7316a1d2ef4395168d41e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385570"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722025"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리
 
@@ -26,7 +26,7 @@ Apache Ambari는 손쉬운 Web UI 및 REST API 사용을 제공하여 Apache Had
 
 ## <a id="whatis"></a>Apache Ambari란?
 
-[Apache Ambari](http://ambari.apache.org)는 사용하기 쉬운 웹 UI를 제공하여 Hadoop 관리를 단순화합니다. Ambari를 사용하여 Hadoop 클러스터를 관리 및 모니터링할 수 있습니다. 개발자는 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)를 사용하여 자신의 애플리케이션에 이러한 기능을 통합할 수 있습니다.
+[Apache Ambari](https://ambari.apache.org)는 사용하기 쉬운 웹 UI를 제공하여 Hadoop 관리를 단순화합니다. Ambari를 사용하여 Hadoop 클러스터를 관리 및 모니터링할 수 있습니다. 개발자는 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)를 사용하여 자신의 애플리케이션에 이러한 기능을 통합할 수 있습니다.
 
 Ambari 웹 UI는 기본적으로 Linux 운영 체제를 사용하는 HDInsight 클러스터와 함께 제공됩니다.
 
@@ -181,12 +181,12 @@ Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵�
 
    * **Decommission** - 호스트를 클러스터에서 제거합니다.
 
-     > [!NOTE]
+     > [!NOTE]  
      > HDInsight 클러스터에서는 이 작업을 사용하지 마세요.
 
    * **Recommission** - 이전에 서비스를 해지한 호스트를 클러스터에 추가합니다.
 
-     > [!NOTE]
+     > [!NOTE]  
      > HDInsight 클러스터에서는 이 작업을 사용하지 마세요.
 
 ### <a id="service"></a>Services

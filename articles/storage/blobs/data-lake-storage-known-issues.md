@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: normesta
-ms.openlocfilehash: d42d05046f4ef133aa3dfb52bbe4e2b72255ccce
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: bc6f59922286663435782623a72345c19adb494c
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322895"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995037"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -66,10 +66,6 @@ Azure Portal의 Blob 보기 도구는 Azure Data Lake Storage Gen2를 제한적�
 AzCopy 버전 8은 Azure Data Lake Storage Gen2를 지원하지 않습니다.
 
 대신 Azure Data Lake Storage Gen2 엔드포인트를 지원하는 최신 미리 보기 버전의 AzCopy([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json))를 사용합니다.
-
-## <a name="oauth-authentication"></a>OAuth 인증
-
-HDInsight, Azure Data Factory와 같은 서비스는 Azure AD(Azure Active Directory) OAuth 전달자 토큰 인증을 사용하여 통합되지 않습니다.
 
 ## <a name="azure-event-grid"></a>Azure Event Grid
 

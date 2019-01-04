@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6f1869b83f46f97d0c54eb874a8879521a43b1e2
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 253cfd7ddeb04a12a3609ab5e14a37365015a568
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387066"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790880"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
 
@@ -51,12 +51,12 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| servers | yes | yes |
+| servers | 예 | 예 |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | --------------- | ----------- |
-| 서비스 | yes | yes |
+| 서비스 | 예 | 예 |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -66,19 +66,19 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| automationaccounts | yes | yes |
-| automationaccounts/configurations | yes | yes |
-| automationaccounts/runbooks | yes | yes |
+| automationaccounts | 예 | 예 |
+| automationaccounts/configurations | 예 | 예 |
+| automationaccounts/runbooks | 예 | 예 |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| b2cdirectories | yes | yes |
+| b2cdirectories | 예 | 예 |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| registrations | yes | yes |
+| registrations | 예 | 예 |
 
 ## <a name="microsoftbackup"></a>Microsoft.Backup
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -88,7 +88,7 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| batchaccounts | yes | yes |
+| batchaccounts | 예 | 예 |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -98,7 +98,7 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| biztalk | yes | yes |
+| biztalk | 예 | 예 |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -108,29 +108,29 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| botservices | yes | yes |
+| botservices | 예 | 예 |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| redis | yes | yes |
+| redis | 예 | 예 |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| 프로필 | yes | yes |
-| profiles/endpoints | yes | yes |
+| 프로필 | 예 | 예 |
+| profiles/endpoints | 예 | 예 |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| certificateorders | yes | yes |
+| certificateorders | 예 | 예 |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| domainnames | yes | 아니요 |
-| virtualmachines | yes | 아니요 |
+| domainnames | 예 | 아니요 |
+| virtualmachines | 예 | 아니요 |
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -142,29 +142,29 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| storageaccounts | yes | 아니요 |
+| storageaccounts | 예 | 아니요 |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| 계정 | yes | yes |
+| 계정 | 예 | 예 |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| availabilitysets | yes | yes |
-| disks | yes | yes |
+| availabilitysets | 예 | 예 |
+| disks | 예 | 예 |
 | galleries | 아니요 | 아니요 |
 | galleries/images | 아니요 | 아니요 |
 | galleries/images/versions | 아니요 | 아니요 |
-| images | yes | yes |
+| images | 예 | 예 |
 | restorepointcollections | 아니요 | 아니요 |
 | sharedvmimages | 아니요 | 아니요 |
 | sharedvmimages/versions | 아니요 | 아니요 |
-| snapshots | yes | yes |
-| virtualmachines | yes | yes |
-| virtualmachines/extensions | yes | yes |
-| virtualmachinescalesets | yes | yes |
+| snapshots | 예 | 예 |
+| virtualmachines | 예 | 예 |
+| virtualmachines/extensions | 예 | 예 |
+| virtualmachinescalesets | 예 | 예 |
 
 ## <a name="microsoftcontainer"></a>Microsoft.Container
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -179,11 +179,11 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| registries | yes | yes |
-| registries/buildtasks | yes | yes |
+| registries | 예 | 예 |
+| registries/buildtasks | 예 | 예 |
 | registries/replications | 아니요 | 아니요 |
-| registries/tasks | yes | yes |
-| registries/webhooks | yes | yes |
+| registries/tasks | 예 | 예 |
+| registries/webhooks | 예 | 예 |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -195,17 +195,17 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| 애플리케이션 | yes | yes |
+| 애플리케이션 | 예 | 예 |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| 커넥터 | yes | yes |
+| 커넥터 | 예 | 예 |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| hubs | yes | yes |
+| hubs | 예 | 예 |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -225,13 +225,13 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| catalogs | yes | yes |
+| catalogs | 예 | 예 |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| datafactories | yes | yes |
-| factories | yes | yes |
+| datafactories | 예 | 예 |
+| factories | 예 | 예 |
 
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -241,12 +241,12 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| 계정 | yes | yes |
+| 계정 | 예 | 예 |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| 계정 | yes | yes |
+| 계정 | 예 | 예 |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -263,13 +263,13 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| servers | yes | yes |
+| servers | 예 | 예 |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
 | servergroups | 아니요 | 아니요 |
-| servers | yes | yes |
+| servers | 예 | 예 |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -283,16 +283,16 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| iothubs | yes | yes |
-| provisioningservices | yes | yes |
+| iothubs | 예 | 예 |
+| provisioningservices | 예 | 예 |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
 | labcenters | 아니요 | 아니요 |
-| labs | yes | 아니요 |
-| labs/servicerunners | yes | yes |
-| labs/virtualmachines | yes | 아니요 |
+| labs | 예 | 아니요 |
+| labs/servicerunners | 예 | 예 |
+| labs/virtualmachines | 예 | 아니요 |
 | schedules | 아니요 | 아니요 |
 
 ## <a name="microsoftdns"></a>microsoft.dns
@@ -311,28 +311,28 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| databaseaccounts | yes | yes |
+| databaseaccounts | 예 | 예 |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| domains | yes | yes |
+| domains | 예 | 예 |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| topics | yes | yes |
+| topics | 예 | 예 |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| clusters | yes | yes |
-| namespaces | yes | yes |
+| clusters | 예 | 예 |
+| namespaces | 예 | 예 |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| hanainstances | yes | yes |
+| hanainstances | 예 | 예 |
 
 ## <a name="microsofthardwaresecuritymodules"></a>Microsoft.HardwareSecurityModules
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -342,98 +342,98 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| clusters | yes | yes |
+| clusters | 예 | 예 |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| jobs | yes | yes |
+| jobs | 예 | 예 |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| actiongroups | yes | yes |
+| actiongroups | 예 | 예 |
 | activitylogalerts | 아니요 | 아니요 |
-| alertrules | yes | yes |
-| autoscalesettings | yes | yes |
-| components | yes | yes |
+| alertrules | 예 | 예 |
+| autoscalesettings | 예 | 예 |
+| components | 예 | 예 |
 | metricalerts | 아니요 | 아니요 |
-| scheduledqueryrules | yes | yes |
-| webtests | yes | yes |
-| workbooks | yes | yes |
+| scheduledqueryrules | 예 | 예 |
+| webtests | 예 | 예 |
+| workbooks | 예 | 예 |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| iotapps | yes | yes |
+| iotapps | 예 | 예 |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| vaults | yes | yes |
+| vaults | 예 | 예 |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| labaccounts | yes | yes |
+| labaccounts | 예 | 예 |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| 계정 | yes | yes |
+| 계정 | 예 | 예 |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| 계정 | yes | yes |
+| 계정 | 예 | 예 |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| integrationaccounts | yes | yes |
-| workflows | yes | yes |
+| integrationaccounts | 예 | 예 |
+| workflows | 예 | 예 |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| commitmentplans | yes | yes |
-| webservices | yes | 아니요 |
-| workspaces | yes | yes |
+| commitmentplans | 예 | 예 |
+| webservices | 예 | 아니요 |
+| workspaces | 예 | 예 |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| operationalizationclusters | yes | yes |
+| operationalizationclusters | 예 | 예 |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| 계정 | yes | yes |
-| accounts/workspaces | yes | yes |
-| accounts/workspaces/projects | yes | yes |
-| teamaccounts | yes | yes |
-| teamaccounts/workspaces | yes | yes |
-| teamaccounts/workspaces/projects | yes | yes |
+| 계정 | 예 | 예 |
+| accounts/workspaces | 예 | 예 |
+| accounts/workspaces/projects | 예 | 예 |
+| teamaccounts | 예 | 예 |
+| teamaccounts/workspaces | 예 | 예 |
+| teamaccounts/workspaces/projects | 예 | 예 |
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| 계정 | yes | yes |
+| 계정 | 예 | 예 |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| workspaces | yes | yes |
+| workspaces | 예 | 예 |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| userassignedidentities | yes | yes |
+| userassignedidentities | 예 | 예 |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| 계정 | yes | yes |
+| 계정 | 예 | 예 |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -443,9 +443,9 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 ## <a name="microsoftmedia"></a>Microsoft.Media
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| mediaservices | yes | yes |
-| mediaservices/liveevents | yes | yes |
-| mediaservices/streamingendpoints | yes | yes |
+| mediaservices | 예 | 예 |
+| mediaservices/liveevents | 예 | 예 |
+| mediaservices/streamingendpoints | 예 | 예 |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -456,123 +456,123 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
 | applicationgateways | 아니요 | 아니요 |
-| applicationsecuritygroups | yes | yes |
-| azurefirewalls | yes | yes |
-| connections | yes | yes |
+| applicationsecuritygroups | 예 | 예 |
+| azurefirewalls | 아니요 | 아니요 |
+| connections | 예 | 예 |
 | ddosprotectionplans | 아니요 | 아니요 |
-| dnszones | yes | yes |
+| dnszones | 예 | 예 |
 | expressroutecircuits | 아니요 | 아니요 |
 | expressroutecrossconnections | 아니요 | 아니요 |
 | expressroutegateways | 아니요 | 아니요 |
 | expressrouteports | 아니요 | 아니요 |
-| frontdoors | yes | yes |
-| frontdoorwebapplicationfirewallpolicies | yes | yes |
+| frontdoors | 예 | 예 |
+| frontdoorwebapplicationfirewallpolicies | 예 | 예 |
 | interfaceendpoints | 아니요 | 아니요 |
-| loadbalancers | yes | yes |
-| localnetworkgateways | yes | yes |
-| networkintentpolicies | yes | yes |
-| networkinterfaces | yes | yes |
+| loadbalancers | 예 | 예 |
+| localnetworkgateways | 예 | 예 |
+| networkintentpolicies | 예 | 예 |
+| networkinterfaces | 예 | 예 |
 | networkprofiles | 아니요 | 아니요 |
-| networksecuritygroups | yes | yes |
-| networkwatchers | yes | yes |
-| networkwatchers/connectionmonitors | yes | yes |
-| networkwatchers/lenses | yes | yes |
-| networkwatchers/pingmeshes | yes | yes |
-| publicipaddresses | yes | yes |
-| publicipprefixes | yes | yes |
+| networksecuritygroups | 예 | 예 |
+| networkwatchers | 예 | 예 |
+| networkwatchers/connectionmonitors | 예 | 예 |
+| networkwatchers/lenses | 예 | 예 |
+| networkwatchers/pingmeshes | 예 | 예 |
+| publicipaddresses | 예 | 예 |
+| publicipprefixes | 예 | 예 |
 | routefilters | 아니요 | 아니요 |
-| routetables | yes | yes |
-| serviceendpointpolicies | yes | yes |
-| trafficmanagerprofiles | yes | yes |
-| virtualhubs | yes | yes |
-| virtualnetworkgateways | yes | yes |
-| virtualnetworks | yes | yes |
+| routetables | 예 | 예 |
+| serviceendpointpolicies | 예 | 예 |
+| trafficmanagerprofiles | 예 | 예 |
+| virtualhubs | 예 | 예 |
+| virtualnetworkgateways | 예 | 예 |
+| virtualnetworks | 예 | 예 |
 | virtualnetworktaps | 아니요 | 아니요 |
-| virtualwans | yes | yes |
-| vpngateways | yes | yes |
-| vpnsites | yes | yes |
-| webapplicationfirewallpolicies | yes | yes |
+| virtualwans | 예 | 예 |
+| vpngateways | 예 | 예 |
+| vpnsites | 예 | 예 |
+| webapplicationfirewallpolicies | 예 | 예 |
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| namespaces | yes | yes |
-| namespaces/notificationhubs | yes | yes |
+| namespaces | 예 | 예 |
+| namespaces/notificationhubs | 예 | 예 |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| workspaces | yes | yes |
+| workspaces | 예 | 예 |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| managementconfigurations | yes | yes |
-| solutions | yes | yes |
-| 뷰 | yes | yes |
+| managementconfigurations | 예 | 예 |
+| solutions | 예 | 예 |
+| 뷰 | 예 | 예 |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| dashboards | yes | yes |
+| dashboards | 예 | 예 |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| workspacecollections | yes | yes |
+| workspacecollections | 예 | 예 |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| capacities | yes | yes |
+| capacities | 예 | 예 |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| vaults | yes | yes |
+| vaults | 예 | 예 |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| namespaces | yes | yes |
+| namespaces | 예 | 예 |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| 애플리케이션 | yes | 아니요 |
+| 애플리케이션 | 예 | 아니요 |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| flows | yes | yes |
-| jobcollections | yes | yes |
+| flows | 예 | 예 |
+| jobcollections | 예 | 예 |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| searchservices | yes | yes |
+| searchservices | 예 | 예 |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| namespaces | yes | yes |
+| namespaces | 예 | 예 |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| clusters | yes | yes |
+| clusters | 예 | 예 |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| 애플리케이션 | yes | yes |
-| networks | yes | yes |
-| volumes | yes | yes |
+| 애플리케이션 | 예 | 예 |
+| networks | 예 | 예 |
+| volumes | 예 | 예 |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| signalr | yes | yes |
+| signalr | 예 | 예 |
 
 ## <a name="microsoftsiterecovery"></a>Microsoft.SiteRecovery
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -590,22 +590,22 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| managedinstances | yes | yes |
-| managedinstances/databases | yes | yes |
-| servers | yes | yes |
-| servers/databases | yes | yes |
-| servers/elasticpools | yes | yes |
-| virtualclusters | yes | yes |
+| managedinstances | 예 | 예 |
+| managedinstances/databases | 예 | 예 |
+| servers | 예 | 예 |
+| servers/databases | 예 | 예 |
+| servers/elasticpools | 예 | 예 |
+| virtualclusters | 예 | 예 |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| storageaccounts | yes | yes |
+| storageaccounts | 예 | 예 |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| storagesyncservices | yes | yes |
+| storagesyncservices | 예 | 예 |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -615,40 +615,40 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| streamingjobs | yes | yes |
+| streamingjobs | 예 | 예 |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| environments | yes | yes |
-| environments/eventsources | yes | yes |
-| environments/referencedatasets | yes | yes |
+| environments | 예 | 예 |
+| environments/eventsources | 예 | 예 |
+| environments/referencedatasets | 예 | 예 |
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| 계정 | yes | yes |
-| account/extension | yes | yes |
-| account/project | yes | yes |
+| 계정 | 예 | 예 |
+| account/extension | 예 | 예 |
+| account/project | 예 | 예 |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| certificates | 아니요 | yes |
+| certificates | 아니요 | 예 |
 | classicmobileservices | 아니요 | 아니요 |
-| connectiongateways | yes | yes |
-| connections | yes | yes |
-| customapis | yes | yes |
+| connectiongateways | 예 | 예 |
+| connections | 예 | 예 |
+| customapis | 예 | 예 |
 | hostingenvironments | 아니요 | 아니요 |
-| serverfarms | yes | yes |
-| sites | yes | yes |
-| sites/premieraddons | yes | yes |
-| sites/slots | yes | yes |
+| serverfarms | 예 | 예 |
+| sites | 예 | 예 |
+| sites/premieraddons | 예 | 예 |
+| sites/slots | 예 | 예 |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| deviceservices | yes | yes |
+| deviceservices | 예 | 예 |
 
 
 ## <a name="third-party-services"></a>타사 서비스

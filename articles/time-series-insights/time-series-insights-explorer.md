@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights 탐색기 데이터 탐색 - Azure Time Series Insights 탐색기를 사용하여 데이터 탐색 | Microsoft Docs
+title: Azure Time Series Insights 탐색기로 데이터 탐색 | Microsoft Docs
 description: 이 문서에서는 웹 브라우저에서 Azure Time Series Insights 탐색기를 사용하여 빅 데이터의 글로벌 보기를 한눈에 확인하고 IoT 환경을 검증하는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.custom: seodec18
-ms.openlocfilehash: 7508db8bd4b7f21308f2e7b0e92c44570dfc7b18
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: d65ce83465f54a30b96bc1ee6644319e1b4fb020
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273139"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556597"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights 탐색기
 이 문서에서는 Time Series Insights 탐색기 웹앱의 다양한 기능과 옵션을 살펴봅니다. 웹 브라우저에서 Time Series Insights 탐색기를 사용하여 데이터를 시각화할 수 있습니다.

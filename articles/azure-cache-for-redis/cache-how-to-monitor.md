@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 5ab2f1df72f04b6456f1083de6870fb86bad6616
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e6292c97d3e7bbbe74477188586257b4fbf91218
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438296"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582714"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Azure Cache for Redis를 모니터링하는 방법
 Azure Cache for Redis에서는 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)를 사용하여 캐시 인스턴스를 모니터링하기 위한 몇 가지 옵션을 제공합니다. 메트릭을 보고, 메트릭 차트를 시작 보드에 고정하고, 모니터링 차트의 날짜 및 시간 범위를 사용자 지정하고, 차트에서 메트릭을 추가 및 제거하고, 특정 조건이 충족될 경우의 경고를 설정할 수 있습니다. 이러한 도구는 Azure Cache for Redis 인스턴스의 상태를 모니터링할 수 있게 해주며 캐싱 애플리케이션 관리에 도움이 됩니다.
@@ -79,7 +79,7 @@ Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용�
 >
 >
 
-메트릭에 액세스하려면 이 문서 앞부분에서 설명한 대로 Azure Portal에서 보고 [Azure Monitor 메트릭 REST API](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)를 사용하여 액세스할 수도 있습니다.
+메트릭에 액세스하려면 이 문서 앞부분에서 설명한 대로 Azure Portal에서 보고 [Azure Monitor 메트릭 REST API](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)를 사용하여 액세스할 수도 있습니다.
 
 > [!NOTE]
 > 저장소 계정을 변경하는 경우 이전에 구성된 저장소 계정의 데이터는 계속 다운로드할 수는 있으나 Azure 포털에 표시되지는 않습니다.  
@@ -100,10 +100,10 @@ Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용�
 | --- | --- |
 | 캐시 적중 |지정한 보고 간격 동안 성공한 키 조회 수입니다. 이 값은 Redis [INFO](http://redis.io/commands/info) 명령에서 `keyspace_hits`에 매핑됩니다. |
 | 캐시 대기 시간(미리 보기) | 캐시의 대기 시간은 캐시의 노드 간 대기 시간에 따라 계산됩니다. 이 메트릭은 마이크로초 단위로 측정되고, "평균", "최소" 및 "최대"라는 3차원이 있습니다. 해당 차원은 각각 지정된 보고 간격 동안 캐시의 평균, 최소 및 최대 대기 시간을 나타냅니다. |
-| 캐시 누락 |지정한 보고 간격 동안 실패한 키 조회 수입니다. 이 값은 Redis INFO 명령에서 `keyspace_misses` 에 매핑됩니다. 캐시 누락이 반드시 캐시에 문제가 있음을 의미하는 것은 아닙니다. 예를 들어 캐시 배제 프로그래밍 패턴을 사용하는 경우 응용 프로그램은 먼저 캐시에서 항목을 찾습니다. 항목이 캐시에 없으면(캐시 누락) 데이터베이스에서 항목을 검색하고 다음 검색을 위해 캐시에 항목을 추가합니다. 캐시 누락은 캐시 배제 프로그래밍 패턴의 일반적인 동작입니다. 캐시 누락 수가 예상보다 높은 경우 캐시를 채우고 캐시에서 읽는 응용 프로그램 논리를 검사합니다. 메모리 압력 때문에 캐시에서 항목이 제거되고 있는 경우 캐시 누락이 있을 수 있으며 메모리 압력을 모니터링하는 데 더 유용한 메트릭은 `Used Memory` 또는 `Evicted Keys`입니다. |
+| 캐시 누락 |지정한 보고 간격 동안 실패한 키 조회 수입니다. 이 값은 Redis INFO 명령에서 `keyspace_misses` 에 매핑됩니다. 캐시 누락이 반드시 캐시에 문제가 있음을 의미하는 것은 아닙니다. 예를 들어 캐시 배제 프로그래밍 패턴을 사용하는 경우 애플리케이션은 먼저 캐시에서 항목을 찾습니다. 항목이 캐시에 없으면(캐시 누락) 데이터베이스에서 항목을 검색하고 다음 검색을 위해 캐시에 항목을 추가합니다. 캐시 누락은 캐시 배제 프로그래밍 패턴의 일반적인 동작입니다. 캐시 누락 수가 예상보다 높은 경우 캐시를 채우고 캐시에서 읽는 애플리케이션 논리를 검사합니다. 메모리 압력 때문에 캐시에서 항목이 제거되고 있는 경우 캐시 누락이 있을 수 있으며 메모리 압력을 모니터링하는 데 더 유용한 메트릭은 `Used Memory` 또는 `Evicted Keys`입니다. |
 | 캐시 읽기 |지정한 보고 간격 동안 캐시에서 읽은 초당 메가바이트(MB/s) 단위의 데이터 양입니다. 이 값은 캐시를 호스트하는 가상 컴퓨터를 지원하는 네트워크 인터페이스 카드에서 가져오며 Redis에 특정한 값이 아닙니다. **이 값은 캐시에서 사용되는 네트워크 대역폭에 해당합니다. 서버 쪽 네트워크 대역폭 제한에 대한 경고를 설정하려면 `Cache Read` 카운터를 사용하여 경고를 생성합니다. 다양한 캐시 가격 책정 계층 및 크기에 대해 관찰된 대역폭 제한은 [이 테이블](cache-faq.md#cache-performance)을 참조하세요.** |
 | 캐시 쓰기 |지정한 보고 간격 동안 캐시에 쓰는 초당 메가바이트(MB/s) 단위의 데이터 양입니다. 이 값은 캐시를 호스트하는 가상 머신을 지원하는 네트워크 인터페이스 카드에서 가져오며 Redis에 특정한 값이 아닙니다. 이 값은 클라이언트에서 캐시로 전송되는 데이터의 네트워크 대역폭에 해당됩니다. |
-| 연결된 클라이언트 |지정한 보고 간격 동안 캐시에 설정된 클라이언트 연결 수입니다. 이 값은 Redis INFO 명령에서 `connected_clients` 에 매핑됩니다. [연결 제한](cache-configure.md#default-redis-server-configuration) 에 도달하면 캐시에 대한 후속 연결 시도가 실패합니다. 활성 클라이언트 응용 프로그램이 없는 경우에도 내부 프로세스 및 연결 때문에 연결된 클라이언트 인스턴스가 여전히 몇 개 있을 수 있습니다. |
+| 연결된 클라이언트 |지정한 보고 간격 동안 캐시에 설정된 클라이언트 연결 수입니다. 이 값은 Redis INFO 명령에서 `connected_clients` 에 매핑됩니다. [연결 제한](cache-configure.md#default-redis-server-configuration) 에 도달하면 캐시에 대한 후속 연결 시도가 실패합니다. 활성 클라이언트 애플리케이션이 없는 경우에도 내부 프로세스 및 연결 때문에 연결된 클라이언트 인스턴스가 여전히 몇 개 있을 수 있습니다. |
 | CPU |지정한 보고 간격 동안의 Azure Cache for Redis 서버 CPU 사용률(%)입니다. 이 값은 운영 체제 `\Processor(_Total)\% Processor Time` 성능 카운터에 매핑됩니다. |
 | 오류 | 지정된 보고 간격 동안 캐시에서 특정 오류 및 성능 문제가 발생할 수 있습니다. 이 메트릭에는 여러 오류 형식을 나타내는 8차원이 있지만 나중에 더 추가될 수 있습니다. 이제 표시된 오류 형식은 다음과 같습니다. <br/><ul><li>**장애 조치** – 캐시가 장애 조치하는 경우(슬레이브가 마스터로 승격)</li><li>**충돌** – 캐시가 노드 중 하나에서 예기치 않게 충돌하는 경우</li><li>**데이터 손실** - 캐시에 데이터 손실이 발생하는 경우</li><li>**UnresponsiveClients** – 클라이언트가 서버에서 데이터를 충분히 빠르게 읽고 있지 않은 경우</li><li>**AOF** – AOF 지속성과 관련된 문제가 발생하는 경우</li><li>**RDB** – RDB 지속성과 관련된 문제가 발생하는 경우</li><li>**가져오기** – 가져오기 RDB와 관련된 문제가 발생하는 경우</li><li>**내보내기** – 내보내기 RDB와 관련된 문제가 발생하는 경우</li></ul> |
 | 제거된 키 |지정한 보고 간격 동안 `maxmemory` 제한 때문에 캐시에서 제거된 항목의 수입니다. 이 값은 Redis INFO 명령에서 `evicted_keys` 에 매핑됩니다. |
@@ -142,7 +142,7 @@ Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용�
 
 캐시에 대한 활동 로그를 보려면 **리소스 메뉴**에서 **활동 로그**를 클릭합니다.
 
-활동 로그에 대한 자세한 내용은 [Azure 활동 로그 개요](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)를 참조하세요.
+활동 로그에 대한 자세한 내용은 [Azure 활동 로그 개요](../azure-monitor/platform/activity-logs-overview.md)를 참조하세요.
 
 
 

@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 1de3743d6ec37d263e16b168d32d2b56b0a28295
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 868658062a6407dce901b455cc92f95008df798c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310541"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631945"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Azure Search의 텍스트 처리용 분석기
 
@@ -76,7 +76,7 @@ Azure Search는 추가적인 `indexAnalyzer` 및 `searchAnalyzer` 필드 매개 
 
 ### <a name="compare-english-analyzers"></a>영어 분석기 비교
 
-[검색 분석기 데모](http://alice.unearth.ai/)는 표준 Lucene 분석기, Lucene의 영어 분석기 및 Microsoft의 영어 자연어 프로세서를 나란히 비교하여 보여 주는 타사 데모 앱입니다. 인덱스가 수정되었습니다. 잘 알려진 이야기의 텍스트가 포함되어 있습니다. 사용자가 입력한 각 검색 입력에 대해 각 분석기의 결과가 인접한 창에 표시되어 분석기별로 동일한 문자열을 어떤 식으로 처리하는지 살펴볼 수 있습니다. 
+[검색 분석기 데모](https://alice.unearth.ai/)는 표준 Lucene 분석기, Lucene의 영어 분석기 및 Microsoft의 영어 자연어 프로세서를 나란히 비교하여 보여 주는 타사 데모 앱입니다. 인덱스가 수정되었습니다. 잘 알려진 이야기의 텍스트가 포함되어 있습니다. 사용자가 입력한 각 검색 입력에 대해 각 분석기의 결과가 인접한 창에 표시되어 분석기별로 동일한 문자열을 어떤 식으로 처리하는지 살펴볼 수 있습니다. 
 
 ## <a name="examples"></a>예
 
@@ -244,13 +244,13 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
 
 + [전체 텍스트 검색이 Azure Search에서 작동하는 방식](search-lucene-query-architecture.md)의 포괄적인 설명을 검토하세요. 이 문서에서는 화면에서 직관적이지 않은 것처럼 보일 수 있는 동작을 설명하는 예제를 사용합니다.
 
-+ 포털의 Search 탐색기에서 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) 예제 섹션 또는 [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)의 추가 쿼리 구문을 사용해 보세요.
++ 포털의 Search 탐색기에서 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) 예제 섹션 또는 [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)의 추가 쿼리 구문을 사용해 보세요.
 
 + [언어별 어휘 분석기](https://docs.microsoft.com/rest/api/searchservice/language-support)를 적용하는 방법을 알아보세요.
 
 + 개별 필드에 대해 최소한의 처리 또는 특수한 처리를 수행하려면 [사용자 지정 분석기를 구성](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)하세요.
 
-+ 이 데모 웹 사이트의 인접한 창에서 [표준 및 영어 분석기를 나란히 비교](http://alice.unearth.ai/)하세요. 
++ 이 데모 웹 사이트의 인접한 창에서 [표준 및 영어 분석기를 나란히 비교](https://alice.unearth.ai/)하세요. 
 
 ## <a name="see-also"></a>참고 항목
 
