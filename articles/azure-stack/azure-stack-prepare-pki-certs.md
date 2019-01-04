@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 7a4c0d62fd1ea675c6569840c26ed1fb8e388850
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 5f31d995ba4390eb5a893c3ebde49ee4e96e8023
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631484"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021138"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Azure Stack PKI 인증서를 배포 또는 회전 사용 준비
 인증서 파일 [선택한 CA에서 얻은](azure-stack-get-pki-certs.md) 가져오고 Azure Stack 인증서 요구 사항 일치 하는 속성을 사용 하 여 내보낸 해야 합니다.
@@ -73,7 +73,14 @@ ms.locfileid: "53631484"
 
 1. 선택 **예, 개인 키를 내보냅니다**를 클릭 하 고 **다음**합니다.
 
-1. 파일 내보내기 형식 섹션에서 선택 **확장 속성 모두 내보내기** 을 클릭 한 다음 **다음**합니다.
+1. 파일 내보내기 형식 섹션:
+    
+    - 선택 **가능한 경우 인증서의 인증서 모두 포함**합니다.  
+    - 선택 **확장 속성 모두 내보내기**합니다.  
+    - 선택 **인증서 개인 정보 사용**합니다.  
+    - **다음**을 클릭합니다.  
+    
+    ![선택한 옵션을 사용 하 여 인증서 내보내기 마법사](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
 1. 선택 **암호** 인증서에 대 한 암호를 제공 합니다. 배포 매개 변수로 사용 되기 때문에이 암호를 기억해 둡니다. **다음**을 선택합니다.
 
@@ -82,4 +89,5 @@ ms.locfileid: "53631484"
 1. **마침**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 [PKI 인증서의 유효성 검사](azure-stack-validate-pki-certs.md)

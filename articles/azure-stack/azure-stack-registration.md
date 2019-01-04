@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/28/2018
+ms.date: 01/02/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: b036f0b1c38222b6bb3ebee1a3fab0d1613260f7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 15c86d1d5af3ba4d373f8dfb199d9ea56edb60b4
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811021"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002487"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
@@ -309,6 +309,11 @@ Get-AzsActivationKey에서 만든 정품 인증 키에서 파일 또는 텍스�
     [ ![지역 관리 타일](media/azure-stack-registration/admin1sm.png "지역 관리 타일") ](media/azure-stack-registration/admin1.png#lightbox)
 
 3. **속성**을 선택합니다. 이 블레이드는 상태 및 사용자 환경의 세부 정보를 보여 줍니다. 상태 수 있습니다 **Registered** 또는 **등록 되지 않은**합니다. 등록 하는 경우 또한 보여줍니다 Azure 구독 ID를 사용 하 여 Azure Stack에 등록 리소스 그룹 및 이름과 함께 등록를.
+
+또는 Marketplace 관리 기능을 사용 하 여 등록에 성공 했는지 여부를 확인할 수 있습니다. Marketplace 관리 블레이드에서 marketplace 항목 목록에 표시 되 면 등록에 성공 했습니다. 그러나 연결이 끊어진 환경에서 있습니다 됩니다 Marketplace 관리에서 마켓플레이스 항목을 볼 수 있습니다. 그러나 등록을 확인 하려면 오프 라인 도구를 사용할 수 있습니다.
+
+> [!NOTE]
+> 등록이 완료 되 면 등록 하지 활성 경고가 더 이상 표시 됩니다. 연결이 끊긴된 시나리오에서는 Marketplace 관리 성공적으로 등록 한 경우에 등록 및 Azure Stack에 활성화 하 라는 메시지가 표시 됩니다.
 
 ## <a name="renew-or-change-registration"></a>갱신 또는 등록 변경
 

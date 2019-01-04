@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 39edcb97f062693d11fd5c0ce332c206ebd4b54a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 12219e2df875d317aece73cabebdfb55115f7b41
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43343556"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021087"
 ---
 # <a name="border-connectivity"></a>테두리 연결 
 네트워크 통합 계획은 성공적으로 Azure Stack 통합 시스템 배포, 작업 및 관리는 중요 한 필수 구성 요소입니다. BGP (경계 게이트웨이 프로토콜)를 사용 하 여 동적 라우팅을 사용 여부를 선택 하 여 테두리 연결 계획을 시작 합니다. (공용 또는 개인)는 16 비트 BGP 익명 시스템 번호를 할당 합니다. 그러려면 하거나 정적 라우팅을 사용 하면 여기서 정적 기본 경로에 지정 된 테두리 장치입니다.
@@ -29,9 +29,9 @@ ms.locfileid: "43343556"
 > Tor () 스위치의 맨 위에 필요한 지점 간 Ip를 사용 하 여 3 계층 업링크 (30 / 네트워크) 물리적 인터페이스에 구성 합니다. Azure Stack 작업을 지 원하는 TOR 스위치를 사용 하 여 계층 2 업링크를 사용 하는 지원 되지 않습니다. 
 
 ## <a name="bgp-routing"></a>BGP 라우팅
-BGP와 같은 동적 라우팅 프로토콜을 사용 하 여 시스템은 항상 네트워크 변경 내용을 인식 하 고 관리를 용이 하 게 보장 합니다. 
+BGP와 같은 동적 라우팅 프로토콜을 사용 하 여 시스템은 항상 네트워크 변경 내용을 인식 하 고 관리를 용이 하 게 보장 합니다. Enhaced 보안에는 암호 TOR 테두리 사이의 피어 링 BGP에 설정할 수 있습니다. 
 
-다음 다이어그램에 표시 된 것과 같이 개인 ip 보급 TOR 스위치에 공간이 접두사 목록을 사용 하 여 제한 합니다. 접두사 목록을 개인 IP 서브넷 및 경로 맵 TOR 및 테두리 사이의 연결에 적용 하는 것을 정의 합니다.
+다음 다이어그램에 표시 된 것과 같이 개인 ip 보급 TOR 스위치에는 공간 차단 됩니다 접두사 목록을 사용 하 여. 개인 네트워크의 보급을 거부 하는 접두사 목록 및 맵으로 경로-TOR 및 테두리 사이의 연결에 적용 됩니다.
 
 소프트웨어 부하 분산 장치 (SLB)를 Azure Stack 솔루션 내에서 실행 되는 TOR 장치에 피어 링 된 VIP 주소를 보급할 동적으로 수 있도록 합니다.
 
