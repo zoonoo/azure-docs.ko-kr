@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: b884fc15770e91268d1033dc4bab9bf96766de94
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: af85975fce20a87af8365f8fe6ea73ed1e6e1416
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868944"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998917"
 ---
 # <a name="smart-detection-in-application-insights"></a>Application Insights의 스마트 감지
  스마트 감지는 웹 애플리케이션에서 잠재적인 성능 문제를 자동으로 경고해 줍니다. 앱에서 [Application Insights](app-insights-overview.md)로 보내는 원격 분석의 사전 분석을 수행합니다. 실패율이나 클라이언트 또는 서버 성능의 비정상적인 패턴이 갑자기 증가하는 경우 경고가 발생합니다. 이 기능에는 구성이 필요하지 않습니다. 애플리케이션에서 충분한 원격 분석을 보내는 경우 작동합니다.
@@ -27,7 +27,7 @@ ms.locfileid: "52868944"
 ## <a name="review-your-smart-detections"></a>스마트 감지 검토
 두 가지 방법으로 자동 관리 검색을 검색할 수 있습니다.
 
-* **전자 메일을 받습니다** . 일반적인 예는 다음과 같습니다.
+* Application Insights에서 **전자 메일을 받습니다**. 일반적인 예는 다음과 같습니다.
   
     ![전자 메일 경고](./media/app-insights-proactive-diagnostics/03.png)
   
@@ -54,12 +54,12 @@ ms.locfileid: "52868944"
 ## <a name="next-steps"></a>다음 단계
 이러한 진단 도구를 사용하면 앱에서 원격 분석을 검사할 수 있습니다.
 
-* [메트릭 탐색기](app-insights-metrics-explorer.md)
-* [검색 탐색기](app-insights-diagnostic-search.md)
+* [메트릭 탐색기](../azure-monitor/app/metrics-explorer.md)
+* [검색 탐색기](../azure-monitor/app/diagnostic-search.md)
 * [분석 - 강력한 쿼리 언어](../azure-monitor/log-query/get-started-portal.md)
 
 스마트 감지는 완전 자동입니다. 하지만 보다 많은 경고를 설정하고 싶을 수 있습니다.
 
-* [수동으로 구성된 메트릭 경고](app-insights-alerts.md)
-* [가용성 웹 테스트](app-insights-monitor-web-app-availability.md) 
+* [수동으로 구성된 메트릭 경고](../azure-monitor/app/alerts.md)
+* [가용성 웹 테스트](../azure-monitor/app/monitor-web-app-availability.md) 
 
