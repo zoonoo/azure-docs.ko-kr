@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: cb36c6fea20f5976f159780f3482d9aae669f951
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 40a7552ffd0bfcab173d2e35c52313a94ec3d0bb
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42817959"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960331"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Apache Cordova 앱에 푸시 알림 추가
 
@@ -213,7 +213,7 @@ pushRegistration = PushNotification.init({
 });
 ```
 
-#### <a name="configure-device"></a>USB 디버깅을 위해 Android 장치 구성
+#### <a name="configure-device"></a>USB 디버깅을 위해 Android 디바이스 구성
 
 Android 디바이스에 응용 프로그램을 배포하려면 먼저 USB 디버깅을 사용하도록 설정해야 합니다. Android 휴대폰에서 다음 단계를 수행합니다.
 
@@ -240,7 +240,7 @@ Android 디바이스에 응용 프로그램을 배포하려면 먼저 USB 디버
 
 이제 앱을 실행하고 TodoItem 테이블에 항목을 삽입하여 푸시 알림을 테스트할 수 있습니다. 동일한 백 엔드를 사용하는 한, 같은 디바이스에서 테스트해도 되고 두 번째 디바이스에서 테스트해도 됩니다. 다음 방법 중 하나로 Android 플랫폼에서 Cordova 앱을 테스트합니다.
 
-* *실제 장치에서:* USB 케이블을 사용하여 Android 장치를 개발 컴퓨터에 연결합니다.  **Google Android 에뮬레이터** 대신 **장치**를 선택합니다. Visual Studio에서 디바이스에 응용 프로그램을 배포하고 응용 프로그램을 실행합니다. 이제 디바이스에서 응용 프로그램과 상호 작용할 수 있습니다.
+* *실제 디바이스에서:* USB 케이블을 사용하여 Android 디바이스를 개발 컴퓨터에 연결합니다.  **Google Android Emulator** 대신 **디바이스**를 선택합니다. Visual Studio에서 디바이스에 응용 프로그램을 배포하고 응용 프로그램을 실행합니다. 이제 디바이스에서 응용 프로그램과 상호 작용할 수 있습니다.
 
   [Mobizen] [ 20]과 같은 화면 공유 응용 프로그램을 사용하면 Android 응용 프로그램을 개발하는 데 도움이 될 수 있습니다. Mobizen은 PC의 웹 브라우저에 Android 화면을 투영합니다.
 
@@ -252,7 +252,7 @@ Android 디바이스에 응용 프로그램을 배포하려면 먼저 USB 디버
 
     더 빠른 x86 에뮬레이터를 사용하려는 경우 [HAXM 드라이버를 설치][11]하고 해당 드라이버를 사용하도록 에뮬레이터를 구성합니다.
 
-    **앱** > **설정** > **계정 추가**를 선택하여 Android 장치에 Google 계정을 추가합니다. 그런 다음, 표시되는 메시지를 따릅니다.
+    **앱** > **설정** > **계정 추가**를 선택하여 Android 디바이스에 Google 계정을 추가합니다. 그런 다음, 표시되는 메시지를 따릅니다.
 
     ![Android 디바이스에 Google 계정 추가](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
 
@@ -279,7 +279,7 @@ IOS용 앱을 빌드할 수 있는지 확인합니다. 설치 가이드의 단�
 
 ```xml
 <widget defaultlocale="en-US" id="io.cordova.myapp7777777"
-    version="1.0.0" windows-packageVersion="1.1.0.0" xmlns="http://www.w3.org/ns/widgets"
+    version="1.0.0" windows-packageVersion="1.1.0.0" xmlns="https://www.w3.org/ns/widgets"
     xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
 ```
 
@@ -393,17 +393,17 @@ Visual Studio에서 Windows 플랫폼이 배포 대상(예: **Windows-x64** 또�
 
 <!-- URLs -->
 [1]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[2]: http://www.visualstudio.com/
+[2]: https://www.visualstudio.com/
 [3]: https://azure.microsoft.com/pricing/free-trial/
 [4]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [5]: app-service-mobile-cordova-get-started.md
-[6]: http://go.microsoft.com/fwlink/p/?LinkId=268302
+[6]: https://go.microsoft.com/fwlink/p/?LinkId=268302
 [7]: https://developer.apple.com/programs/
 [8]: https://developer.microsoft.com/en-us/store/register
 [9]: https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-3-Create-azure-notification-hub
 [10]: https://www.npmjs.com/
 [11]: https://taco.visualstudio.com/en-us/docs/run-app-apache/#HAXM
-[12]: http://taco.visualstudio.com/en-us/docs/ios-guide/
+[12]: https://taco.visualstudio.com/en-us/docs/ios-guide/
 [13]: https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-6-Set-up-wns-for-push
 [14]: app-service-mobile-cordova-get-started-users.md
 [15]: app-service-mobile-cordova-how-to-use-client-library.md
@@ -412,4 +412,4 @@ Visual Studio에서 Windows 플랫폼이 배포 대상(예: **Windows-x64** 또�
 [18]: https://console.developers.google.com/home/dashboard
 [19]: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md
 [20]: https://www.mobizen.com/
-[21]: http://taco.visualstudio.com/en-us/docs/build_ios_cloud/
+[21]: https://taco.visualstudio.com/en-us/docs/build_ios_cloud/

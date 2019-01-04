@@ -1,6 +1,6 @@
 ---
 title: Linux 기반 HDInsight에서 Hadoop MapReduce와 함께 .NET 사용 - Azure
-description: Linux 기반 HDInsight에서 MapReduce 스트리밍을 위해 .NET 응용 프로그램을 사용하는 방법에 대해 알아보세요.
+description: Linux 기반 HDInsight에서 MapReduce 스트리밍을 위해 .NET 애플리케이션을 사용하는 방법에 대해 알아보세요.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: dc7cfb4df768fb7554bc7b5c772a6a778a8a793a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3681f87780f1ef2a6b42e33bcd6fc2d761994d5c
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008116"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384204"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Windows 기반 HDInsight용 .NET 솔루션을 Linux 기반 HDInsight로 마이그레이션
 
-Linux 기반 HDInsight 클러스터는 [Mono(https://mono-project.com)](https://mono-project.com)를 사용하여 .NET 응용 프로그램을 실행합니다. Mono에서는 MapReduce 응용 프로그램 등의 .NET 구성 요소와 Linux 기반 HDInsight를 함께 사용할 수 있습니다. 이 문서에서는 Linux 기반 HDInsight의 Mono와 함께 사용할 수 있도록 Windows 기반 HDInsight 클러스터용으로 만든 .NET 솔루션을 마이그레이션하는 방법에 대해 배웁니다.
+Linux 기반 HDInsight 클러스터는 [Mono(https://mono-project.com)](https://mono-project.com)를 사용하여 .NET 애플리케이션을 실행합니다. Mono에서는 MapReduce 애플리케이션 등의 .NET 구성 요소와 Linux 기반 HDInsight를 함께 사용할 수 있습니다. 이 문서에서는 Linux 기반 HDInsight의 Mono와 함께 사용할 수 있도록 Windows 기반 HDInsight 클러스터용으로 만든 .NET 솔루션을 마이그레이션하는 방법에 대해 배웁니다.
 
 ## <a name="mono-compatibility-with-net"></a>Mono와 .NET의 호환성
 
@@ -26,12 +26,12 @@ Mono 버전 4.2.1은 HDInsight 버전 3.6에 포함되어 있습니다. HDInsigh
 
 Mono와 .NET 간 호환성에 대한 자세한 내용은 [Mono 호환성(http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) 문서를 참조하세요.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > SCP.NET 프레임워크는 Mono와 호환됩니다. Mono와 함께 SCP.NET을 사용하는 방법에 대한 자세한 내용은 [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](storm/apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
 
 ## <a name="automated-portability-analysis"></a>자동 이식성 분석
 
-[.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)를 사용하여 응용 프로그램과 Mono 간 비호환성 보고서를 생성할 수 있습니다. 분석기를 구성하여 응용 프로그램의 Mono 이식성을 확인하려면 다음 단계를 사용하세요.
+[.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)를 사용하여 응용 프로그램과 Mono 간 비호환성 보고서를 생성할 수 있습니다. 분석기를 구성하여 애플리케이션의 Mono 이식성을 확인하려면 다음 단계를 사용하세요.
 
 1. [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)를 설치합니다. 설치 중 사용하려는 Visual Studio의 버전을 선택합니다.
 
@@ -47,7 +47,7 @@ Mono와 .NET 간 호환성에 대한 자세한 내용은 [Mono 호환성(http://
 
     ![이식성 분석기 결과 대화 상자](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 분석기는 솔루션의 모든 문제를 탐지할 수 없습니다. 예를 들어 Mono가 Windows에서 실행 중이면 `c:\temp\file.txt`의 파일 경로가 정상으로 간주됩니다. 동일한 경로가 Linux 플랫폼에서는 유효하지 않습니다.
 
 ## <a name="manual-portability-analysis"></a>수동 이식성 분석
@@ -60,16 +60,16 @@ Mono와 .NET 간 호환성에 대한 자세한 내용은 [Mono 호환성(http://
 
 ## <a name="deploy-and-test"></a>배포 및 테스트
 
-.NET Portability Analyzer 또는 수동 분석의 권장 사항을 사용하여 솔루션을 수정한 후에는 HDInsight로 테스트해야 합니다. Linux 기반 HDInsight 클러스터에서 솔루션을 테스트할 경우 해결해야 할 사소한 문제가 발견될 수 있습니다. 테스트하는 동안 응용 프로그램에서 추가 기록을 활성화하는 것이 좋습니다.
+.NET Portability Analyzer 또는 수동 분석의 권장 사항을 사용하여 솔루션을 수정한 후에는 HDInsight로 테스트해야 합니다. Linux 기반 HDInsight 클러스터에서 솔루션을 테스트할 경우 해결해야 할 사소한 문제가 발견될 수 있습니다. 테스트하는 동안 애플리케이션에서 추가 기록을 활성화하는 것이 좋습니다.
 
 로그에 액세스하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Linux 기반 HDInsight에서 YARN 응용 프로그램 로그에 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Linux 기반 HDInsight에서 Apache Hadoop YARN 애플리케이션 로그에 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
 ## <a name="next-steps"></a>다음 단계
 
 * [HDInsight에서 MapReduce와 함께 C# 사용](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Hive 및 Pig과 함께 C# 사용자 정의 함수 사용](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Apache Hive 및 Apache Pig과 함께 C# 사용자 정의 함수 사용](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [HDInsight에서 Storm용 C# 토폴로지 개발](storm/apache-storm-develop-csharp-visual-studio-topology.md)
+* [HDInsight에서 Apache Storm용 C# 토폴로지 개발](storm/apache-storm-develop-csharp-visual-studio-topology.md)

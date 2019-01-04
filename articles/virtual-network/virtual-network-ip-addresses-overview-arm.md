@@ -46,7 +46,7 @@ Azure 리소스 관리자에서 [공용 IP](virtual-network-public-ip-address.md
 * 가상 머신 네트워크 인터페이스
 * 인터넷 연결 부하 분산 장치
 * VPN 게이트웨이
-* 응용 프로그램 게이트웨이
+* 애플리케이션 게이트웨이
 
 ### <a name="ip-address-version"></a>IP 주소 버전
 
@@ -121,9 +121,9 @@ Azure 관리 DNS 서버에서 공용 IP 주소에 대한 *domainnamelabel*.*loca
 
 [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)는 Azure 가상 네트워크를 다른 Azure 가상 네트워크 또는 온-프레미스 네트워크에 연결합니다. 공용 IP 주소를 VPN Gateway에 할당하여 원격 네트워크와의 통신을 구현할 수 있습니다. VPN Gateway에 기본 *동적* 공용 IP 주소만을 할당할 수 있습니다.
 
-### <a name="application-gateways"></a>응용 프로그램 게이트웨이
+### <a name="application-gateways"></a>애플리케이션 게이트웨이
 
-공용 IP 주소를 게이트웨이의 [프런트 엔드](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)구성에 할당하여 Azure **Application Gateway**와 연결할 수 있습니다. 이 공용 IP 주소는 부하 분산 VIP로 사용됩니다. 응용 프로그램 게이트웨이 프런트 엔드 구성에 기본 *동적* 공용 IP 주소만을 할당할 수 있습니다.
+공용 IP 주소를 게이트웨이의 [프런트 엔드](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)구성에 할당하여 Azure **Application Gateway**와 연결할 수 있습니다. 이 공용 IP 주소는 부하 분산 VIP로 사용됩니다. 애플리케이션 게이트웨이 프런트 엔드 구성에 기본 *동적* 공용 IP 주소만을 할당할 수 있습니다.
 
 ### <a name="at-a-glance"></a>요약
 다음 표는 공용 IP 주소를 최상위 리소스와 연결할 수 있는 특정 속성 및 사용 가능한 할당 메서드(동적 또는 고정)를 보여줍니다.
@@ -133,7 +133,7 @@ Azure 관리 DNS 서버에서 공용 IP 주소에 대한 *domainnamelabel*.*loca
 | 가상 머신 |Linux |yes |yes |
 | 인터넷 연결 부하 분산 장치 |프런트 엔드 구성 |yes |yes |
 | VPN 게이트웨이 |게이트웨이 IP 구성 |yes |yes |
-| 응용 프로그램 게이트웨이 |프런트 엔드 구성 |yes |yes |
+| 애플리케이션 게이트웨이 |프런트 엔드 구성 |yes |yes |
 
 ## <a name="private-ip-addresses"></a>개인 IP 주소
 개인 IP 주소를 사용하면 Azure 리소스가 인터넷 연결이 가능한 IP 주소를 사용하지 않고 VPN 게이트웨이 또는 ExpressRoute 회로를 통해 [가상 네트워크](virtual-networks-overview.md) 또는 온-프레미스 네트워크의 다른 리소스와 통신할 수 있습니다.
@@ -142,7 +142,7 @@ Azure Resource Manager 배포 모델에서 개인 IP 주소는 다음과 같은 
 
 * 가상 머신 네트워크 인터페이스
 * 내부 부하 분산 장치(ILB)
-* 응용 프로그램 게이트웨이
+* 애플리케이션 게이트웨이
 
 ### <a name="ip-address-version"></a>IP 주소 버전
 
@@ -180,7 +180,7 @@ Azure 관리 DNS 서버를 사용하여 구성된 가상 머신은 동일한 가
 | --- | --- | --- | --- |
 | 가상 머신 |Linux |yes |yes |
 | 부하 분산 장치 |프런트 엔드 구성 |yes |yes |
-| 응용 프로그램 게이트웨이 |프런트 엔드 구성 |yes |yes |
+| 애플리케이션 게이트웨이 |프런트 엔드 구성 |yes |yes |
 
 ## <a name="limits"></a>제한
 IP 주소 지정에 적용되는 제한은 Azure에서 [네트워킹에 대한 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) 전체 집합에 나와 있습니다. 제한은 지역별, 구독별로 적용됩니다. 비즈니스에 따라 최대 한도까지 기본 제한을 증가시키려면 [지원에 문의](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 하세요.

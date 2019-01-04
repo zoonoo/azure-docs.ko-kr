@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 먼저, 모두 단일 파트너 회사 소속인 게스트 사용자 그룹을 만들겠습니다. 이들에게는 특별한 라이선스가 필요하므로, 이 용도에 사용할 그룹을 따로 만드는 것이 종종 더 효율적입니다.
 
-1. 테넌트의 글로벌 관리자인 계정으로 Azure Portal https://portal.azure.com)에 로그인합니다.
+1. 테넌트의 글로벌 관리자인 계정으로 Azure Portal [https://portal.azure.com](https://portal.azure.com) 에 로그인합니다.
 2. **Azure Active Directory** > **그룹** > **새 그룹**을 선택합니다.
   ![새 그룹 명령 선택](./media/groups-dynamic-tutorial/new-group.png)
 3. **그룹** 블레이드에서:

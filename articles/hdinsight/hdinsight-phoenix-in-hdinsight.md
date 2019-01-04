@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: d86600dd000d3e9c71a38b632aa75e82239401dd
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 86b10d65ecaa52055244f3530f91c1cabbe219e0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104582"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435551"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>HDInsight의 Apache Phoenix
 
-[Apache Phoenix](http://phoenix.apache.org/)는 [HBase](hbase/apache-hbase-overview.md)에서 구축되는 오픈 소스 대규모 병렬 관계형 데이터베이스 계층입니다. Phoenix를 사용하면 HBase를 통해 SQL 유사 쿼리를 사용할 수 있습니다. Phoenix는 아래의 JDBC 드라이버를 사용하여 사용자가 개별적으로 및 대량으로 SQL 테이블, 인덱스, 뷰 및 시퀀스를 생성, 삭제, 변경하고, 행을 Upsert할 수 있도록 합니다. Phoenix는 MapReduce를 사용하여 쿼리를 컴파일하는 대신, noSQL 네이티브 컴파일을 사용하여 HBase 위에 대기 시간이 짧은 응용 프로그램을 만들 수 있도록 합니다. Phoenix는 서버의 주소 공간에서 클라이언트 제공 코드를 실행하도록 지원하는 보조 프로세서를 추가하고, 데이터와 함께 있는 코드를 실행합니다. 이 접근 방법은 클라이언트/서버 데이터 전송을 최소화합니다.
+[Apache Phoenix](http://phoenix.apache.org/)는 [Apache HBase](hbase/apache-hbase-overview.md)에서 구축되는 오픈 소스 대규모 병렬 관계형 데이터베이스 계층입니다. Phoenix를 사용하면 HBase를 통해 SQL 유사 쿼리를 사용할 수 있습니다. Phoenix는 아래의 JDBC 드라이버를 사용하여 사용자가 개별적으로 및 대량으로 SQL 테이블, 인덱스, 뷰 및 시퀀스를 생성, 삭제, 변경하고, 행을 Upsert할 수 있도록 합니다. Phoenix는 MapReduce를 사용하여 쿼리를 컴파일하는 대신, noSQL 네이티브 컴파일을 사용하여 HBase 위에 대기 시간이 짧은 응용 프로그램을 만들 수 있도록 합니다. Phoenix는 서버의 주소 공간에서 클라이언트 제공 코드를 실행하도록 지원하는 보조 프로세서를 추가하고, 데이터와 함께 있는 코드를 실행합니다. 이 접근 방법은 클라이언트/서버 데이터 전송을 최소화합니다.
 
-Apache Phoenix는 프로그래밍이 아닌, SQL 유사 구문을 사용할 수 있는 개발자가 아닌 사용자에게 빅 데이터 쿼리를 제공합니다. Phoenix는 [Hive](hadoop/hdinsight-use-hive.md) 및 Spark SQL 등의 다른 도구와 달리, HBase용으로 고도로 최적화되어 있습니다. 개발자는 훨씬 적은 코드로 고성능 쿼리를 작성할 수 있다는 이점이 있습니다.
+Apache Phoenix는 프로그래밍이 아닌, SQL 유사 구문을 사용할 수 있는 개발자가 아닌 사용자에게 빅 데이터 쿼리를 제공합니다. Phoenix는 [Hive](hadoop/hdinsight-use-hive.md) 및 Apache Spark SQL 등의 다른 도구와 달리, HBase용으로 고도로 최적화되어 있습니다. 개발자는 훨씬 적은 코드로 고성능 쿼리를 작성할 수 있다는 이점이 있습니다.
 <!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 SQL 쿼리를 제출하면 Phoenix는 최적화를 위해 쿼리를 HBase 네이티브 호출로 컴파일하는 작업과 검색(또는 계획) 실행 작업을 동시에 진행합니다. 이 추상 계층은 개발자가 MapReduce 작업을 작성하지 않아도 되도록 함으로써, Phoenix의 빅 데이터 저장소를 중심으로 하는 비즈니스 논리 및 응용 프로그램 워크플로에 집중할 수 있도록 합니다.
@@ -122,7 +122,7 @@ CREATE TABLE Saltedweblogs (
     shippingamount DOUBLE NULL) SALT_BUCKETS=4;
 ```
 
-## <a name="enable-and-tune-phoenix-with-ambari"></a>Ambari에서 Phoenix 사용 및 조정
+## <a name="enable-and-tune-phoenix-with-apache-ambari"></a>Apache Ambari에서 Phoenix 사용 및 조정
 
 HDInsight HBase 클러스터에는 구성을 변경하기 위한 [Ambari UI](hdinsight-hadoop-manage-ambari.md)가 포함되어 있습니다.
 

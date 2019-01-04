@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: f32dd0fb1ffd1bbd2c58f187b2dbc310a48f65ff
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ee0d46cd07de4e9b123357bcc4ee9d1e51926f49
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011071"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312979"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -137,8 +137,8 @@ Azure 파일 동기화 배포에서 가장 먼저 할 일은 선택한 그룹의
 열리는 창에 다음 정보를 입력합니다.
 
 - **이름**: 저장소 동기화 서비스의 고유 이름(구독별)입니다.
-- **구독**: 저장소 동기화 서비스를 만들 구독입니다. 조직의 구성 전략에 따라 하나 이상의 구독에 대한 액세스 권한이 있을 수 있습니다. Azure 구독은 각 클라우드 서비스(예: Azure Files)에 대한 비용을 청구하는 가장 기본적인 컨테이너입니다.
-- **리소스 그룹**: 리소스 그룹은 저장소 계정 또는 저장소 동기화 서비스와 같은 Azure 리소스의 논리적 그룹입니다. Azure 파일 동기화를 위한 새 리소스 그룹을 생성하거나 기존 리소스 그룹을 사용할 수 있습니다. (HR 리소스 또는 특정 프로젝트의 리소스를 그룹화하듯이 리소스 그룹을 컨테이너로 사용하여 조직의 리소스를 논리적으로 격리하는 것이 좋습니다.)
+- **구독**: 스토리지 동기화 서비스를 만들 구독입니다. 조직의 구성 전략에 따라 하나 이상의 구독에 대한 액세스 권한이 있을 수 있습니다. Azure 구독은 각 클라우드 서비스(예: Azure Files)에 대한 비용을 청구하는 가장 기본적인 컨테이너입니다.
+- **리소스 그룹**: 리소스 그룹은 스토리지 계정 또는 스토리지 동기화 서비스와 같은 Azure 리소스의 논리적 그룹입니다. Azure 파일 동기화를 위한 새 리소스 그룹을 생성하거나 기존 리소스 그룹을 사용할 수 있습니다. (HR 리소스 또는 특정 프로젝트의 리소스를 그룹화하듯이 리소스 그룹을 컨테이너로 사용하여 조직의 리소스를 논리적으로 격리하는 것이 좋습니다.)
 - **위치**: Azure 파일 동기화를 배포할 지역입니다. 이 목록에는 지원되는 지역만 표시됩니다.
 
 작업이 끝나면 **만들기**를 선택하여 저장소 동기화 서비스를 배포합니다.
@@ -201,7 +201,7 @@ if ($resourceGroups -notcontains $resourceGroup) {
 # it enables subsequent AFS cmdlets to be executed with minimal 
 # repetition of parameters or separate authentication 
 Login-AzureRmStorageSync `
-    –SubscriptionId $subID `
+    -SubscriptionId $subID `
     -ResourceGroupName $resourceGroup `
     -TenantId $tenantID `
     -Location $region
@@ -223,15 +223,15 @@ New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
 > 서버 등록 시 Azure 자격 증명을 사용하여 스토리지 동기화 서비스와 Windows Server 사이에 트러스트 관계가 생성되지만, 그 이후 서버는 고유의 ID를 만들어서 사용하며 이 ID는 서버의 등록 상태가 유지되고 현재 공유 액세스 서명 토큰(Storage SAS)이 유효한 동안에는 유효성을 유지합니다. 서버가 등록되지 않으면 새 SAS 토큰을 발급할 수 없으며, 따라서 Azure 파일 공유에 액세스하는 서버 기능이 제거되고 모든 동기화가 중지됩니다.
 
 # <a name="portaltabportal"></a>[포털](#tab/portal)
-Azure 파일 동기화 에이전트 설치 후 서버 등록 UI가 자동으로 열립니다. 그렇지 않은 경우 파일 위치(C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe)에서 수동으로 열 수 있습니다. 서버 등록 UI가 열리면 **로그인**을 선택하여 시작합니다.
+Azure 파일 동기화 에이전트 설치 후 서버 등록 UI가 자동으로 열립니다. 그렇지 않으면 다음 파일 위치에서 수동으로 열 수 있습니다. C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. 서버 등록 UI가 열리면 **로그인**을 선택하여 시작합니다.
 
 로그인한 후에 다음 정보를 묻는 메시지가 나타납니다.
 
 ![서버 등록 UI 스크린샷](media/storage-sync-files-deployment-guide/register-server-scubed-1.png)
 
-- **Azure 구독**: 저장소 동기화 서비스가 포함된 구독입니다([저장소 동기화 서비스 배포](#deploy-the-storage-sync-service) 참조). 
-- **리소스 그룹**: 저장소 동기화 서비스를 포함하는 리소스 그룹입니다.
-- **저장소 동기화 서비스**: 등록하려는 저장소 동기화 서비스의 이름입니다.
+- **Azure 구독**: 스토리지 동기화 서비스가 포함된 구독입니다([스토리지 동기화 서비스 배포](#deploy-the-storage-sync-service) 참조). 
+- **리소스 그룹**: 스토리지 동기화 서비스를 포함하는 리소스 그룹입니다.
+- **스토리지 동기화 서비스**: 등록하려는 스토리지 동기화 서비스의 이름입니다.
 
 적절한 정보를 선택한 후 **등록**을 선택하여 서버 등록을 완료합니다. 등록 프로세스의 일부로 추가 로그인을 요구하는 메시지가 표시됩니다.
 
@@ -245,7 +245,7 @@ $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $s
 ## <a name="create-a-sync-group-and-a-cloud-endpoint"></a>동기화 그룹 및 클라우드 엔드포인트 만들기
 동기화 그룹은 파일 집합에 대한 동기화 토폴로지를 정의합니다. 동기화 그룹 내 엔드포인트는 서로 동기화된 상태를 유지합니다. 동기화 그룹은 Azure 파일 공유를 나타내는 하나의 클라우드 엔드포인트와 하나 이상의 서버 엔드포인트를 포함해야 합니다. 서버 엔드포인트는 등록된 서버의 경로를 나타냅니다. 한 서버가 여러 동기화 그룹에서 서버 엔드포인트를 가질 수 있습니다. 원하는 동기화 토폴로지를 적절하게 설명하는 데 필요한 만큼 동기화 그룹을 만들 수 있습니다.
 
-클라우드 엔드포인트는 Azure 파일 공유에 대한 포인터입니다. 모든 서버 엔드포인트는 클라우드 엔드포인트와 동기화되어 클라우드 엔드포인트를 허브로 만듭니다. Azure 파일 공유에 대한 저장소 계정은 저장소 동기화 서비스와 동일한 영역에 있어야 합니다. Azure 파일 공유 전체가 동기화되지만, 한 가지 예외가 있습니다. NTFS 볼륨의 숨겨진 "시스템 볼륨 정보" 폴더와 비슷한 특수 폴더가 프로비전됩니다. 이 디렉터리를 ".SystemShareInformation"이라고 부릅니다. 이 디렉터리에는 다른 엔드포인트와 동기화되지 않는 중요한 동기화 메타데이터가 포함되어 있습니다. 이 디렉터리를 사용하거나 삭제하지 마세요!
+클라우드 엔드포인트는 Azure 파일 공유에 대한 포인터입니다. 모든 서버 엔드포인트는 클라우드 엔드포인트와 동기화되어 클라우드 엔드포인트를 허브로 만듭니다. Azure 파일 공유에 대한 저장소 계정은 저장소 동기화 서비스와 동일한 영역에 있어야 합니다. Azure 파일 공유 전체가 동기화되지만, 한 가지 예외가 있습니다. NTFS 볼륨의 숨겨진 “시스템 볼륨 정보” 폴더와 비슷한 특수 폴더가 프로비전됩니다. 이 디렉터리를 ".SystemShareInformation"이라고 부릅니다. 이 디렉터리에는 다른 엔드포인트와 동기화되지 않는 중요한 동기화 메타데이터가 포함되어 있습니다. 이 디렉터리를 사용하거나 삭제하지 마세요!
 
 > [!Important]  
 > 동기화 그룹의 클라우드 엔드포인트 또는 서버 엔드포인트를 변경할 수 있고, 파일이 동기화 그룹의 다른 엔드포인트와 동기화되도록 할 수 있습니다. 클라우드 엔드포인트(Azure 파일 공유)를 직접 변경하는 경우 변경 사항은 먼저 Azure 파일 동기화 변경 내용 검색 작업으로 검색되어야 합니다. 변경 내용 검색 작업은 클라우드 엔드포인트에 대해 24시간마다 한 번씩만 시작됩니다. 자세한 내용은 [Azure Files 질문과 대답](storage-files-faq.md#afs-change-detection)을 참조하세요.
@@ -258,8 +258,8 @@ $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $s
 열리는 창에서 다음 정보를 입력하여 클라우드 엔드포인트가 있는 동기화 그룹을 만듭니다.
 
 - **동기화 그룹 이름**: 만들 동기화 그룹의 이름입니다. 이 이름은 저장소 동기화 서비스 내에서 고유해야 하지만 사용자에게 논리적인 어떤 이름도 될 수 있습니다.
-- **구독**: [저장소 동기화 서비스 배포](#deploy-the-storage-sync-service)에서 저장소 동기화 서비스를 배포한 구독입니다.
-- **저장소 계정**: **저장소 계정 선택**을 선택하면 동기화할 Azure 파일 공유가 있는 저장소 계정을 선택할 수 있는 또 다른 창이 나타납니다.
+- **구독**: [스토리지 동기화 서비스 배포](#deploy-the-storage-sync-service)에서 스토리지 동기화 서비스를 배포한 구독입니다.
+- **스토리지 계정**: **스토리지 계정 선택**을 선택하면 동기화할 Azure 파일 공유가 있는 스토리지 계정을 선택할 수 있는 또 다른 창이 나타납니다.
 - **Azure 파일 공유**: 동기화할 Azure 파일 공유의 이름입니다.
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
@@ -303,7 +303,7 @@ if ($fileShare -eq $null) {
 New-AzureRmStorageSyncCloudEndpoint `
     -StorageSyncServiceName $storageSyncName `
     -SyncGroupName $syncGroupName ` 
-    -StorageAccountResourceId $storageAccount.Id
+    -StorageAccountResourceId $storageAccount.Id `
     -StorageAccountShareName $fileShare.Name
 ```
 
@@ -320,7 +320,7 @@ New-AzureRmStorageSyncCloudEndpoint `
 **서버 엔드포인트 추가** 창에 다음 정보를 입력하여 서버 엔드포인트를 만듭니다.
 
 - **등록된 서버**: 서버 엔드포인트를 만들 서버 또는 클러스터의 이름입니다.
-- **경로**: 동기화 그룹의 일부분으로 동기화할 Windows Server 경로입니다.
+- **경로**: 동기화 그룹의 일부로 동기화할 Windows Server 경로입니다.
 - **클라우드 계층화**: 클라우드 계층화를 사용하거나 사용하지 않도록 설정할 스위치입니다. 클라우드 계층화를 사용하면 드물게 사용하거나 액세스하는 파일은 Azure 파일로 계층화할 수 있습니다.
 - **사용 가능한 볼륨 공간**: 서버 엔드포인트가 있는 볼륨에서 예약할 여유 공간의 크기입니다. 예를 들어 단일 서버 엔드포인트가 있는 볼륨에서 사용 가능한 볼륨 공간을 50%로 설정하는 경우 데이터 양의 절반 정도가 Azure Files로 계층화됩니다. 클라우드 계층화를 사용하도록 설정할지 여부에 관계없이, Azure 파일 공유는 항상 동기화 그룹에 데이터의 전체 복사본을 유지합니다.
 
@@ -376,7 +376,7 @@ else {
 8. 원하는 경우 클라우드 계층화 정책을 사용하여 새 파일 공유에 서버 엔드포인트를 만듭니다. 이 단계를 수행하려면 초기 설정에 사용할 수 있는 추가 저장소가 필요합니다.
 9. 실제 데이터 전송 없이 Azure 파일 동기화 에이전트가 전체 네임스페이스를 신속하게 복원하도록 합니다. 전체 네임스페이스가 동기화된 후 동기화 엔진은 서버 엔드포인트에 대한 클라우드 계층화 정책에 따라 로컬 디스크 공간을 채웁니다. 
 10. 동기화를 완료하고 필요에 따라 토폴로지를 테스트합니다. 
-11. 사용자와 응용 프로그램을 이 새로운 공유로 리디렉션합니다.
+11. 사용자와 애플리케이션을 이 새로운 공유로 리디렉션합니다.
 12. 필요에 따라 서버에서 중복 공유를 삭제할 수 있습니다.
  
 초기 온보딩을 위한 추가 저장소가 없으며 기존 공유에 연결하려는 경우 Azure 파일 공유의 데이터를 사전 시드할 수 있습니다. 이 접근 방법은 가동 중지 시간이 허용되고 초기 온보딩 프로세스 중에 서버 공유의 데이터가 변경되지 않는 것이 확실한 경우에만 사용하는 것이 좋습니다. 

@@ -19,7 +19,7 @@ ms.locfileid: "52582567"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Java에서 Apache Storm 토폴로지 만들기
 
-[Apache Storm](http://storm.apache.org/)에 대한 Java 기반 토폴로지를 만드는 방법을 알아봅니다. 단어 계산 응용 프로그램을 구현하는 Storm 토폴로지를 만들어야 합니다. [Apache Maven](https://maven.apache.org/)을 사용하여 프로젝트를 빌드하고 패키징합니다. 그런 다음 Flux 프레임워크를 사용하여 토폴로지를 정의하는 방법을 알아봅니다.
+[Apache Storm](http://storm.apache.org/)에 대한 Java 기반 토폴로지를 만드는 방법을 알아봅니다. 단어 계산 애플리케이션을 구현하는 Storm 토폴로지를 만들어야 합니다. [Apache Maven](https://maven.apache.org/)을 사용하여 프로젝트를 빌드하고 패키징합니다. 그런 다음 Flux 프레임워크를 사용하여 토폴로지를 정의하는 방법을 알아봅니다.
 
 이 문서의 단계를 완료한 후에 HDInsight에서 Apache Storm에 토폴로지를 배포할 수 있습니다.
 
@@ -69,7 +69,7 @@ mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupI
 
 ### <a name="remove-the-generated-example-code"></a>생성된 예제 코드 제거
 
-생성된 테스트 및 응용 프로그램 파일을 삭제합니다.
+생성된 테스트 및 애플리케이션 파일을 삭제합니다.
 
 * **src\test\java\com\microsoft\example\AppTest.java**
 * **src\main\java\com\microsoft\example\App.java**
@@ -192,7 +192,7 @@ Java에서 구현된 Apache Storm 토폴로지의 경우 [Exec Maven 플러그 �
 </plugin>
 ```
 
-다른 유용한 플러그 인은 컴파일 옵션을 변경하는 데 사용되는 [Apache Maven 컴파일러 플러그 인](http://maven.apache.org/plugins/maven-compiler-plugin/)입니다. 사용자의 응용 프로그램에 대한 원본 및 대상에 Maven이 사용하는 Java 버전이 변경됩니다.
+다른 유용한 플러그 인은 컴파일 옵션을 변경하는 데 사용되는 [Apache Maven 컴파일러 플러그 인](http://maven.apache.org/plugins/maven-compiler-plugin/)입니다. 사용자의 애플리케이션에 대한 원본 및 대상에 Maven이 사용하는 Java 버전이 변경됩니다.
 
 * HDInsight __3.4 이하__의 경우 원본과 대상의 Java 버전을 __1.7__로 설정합니다.
 
@@ -768,7 +768,7 @@ Flux 프레임워크의 다른 기능에 대한 자세한 내용은 [Flux(http:/
 
 [Trident](http://storm.apache.org/releases/current/Trident-API-Overview.html)는 Storm에서 제공하는 높은 수준의 추상화이며 상태 저장 처리를 지원합니다. Trident의 주요 이점은 토폴로지가 입력하는 모든 메시지가 한 번만 처리된다는 점입니다. Trident를 사용하지 않으면 토폴로지는 메시지가 최소한 한 번은 처리된다는 것만 보장할 수 있습니다. Bolt를 만드는 대신 사용할 수 있는 기본 제공 구성 요소와 같은 다른 차이점도 있습니다. 사실 Bolt는 필터, 프로젝션 및 함수와 같이 덜 일반적인 구성 요소로 대체됩니다.
 
-Trident 응용 프로그램은 Maven 프로젝트를 사용하여 만들 수 있습니다. 이 문서의 앞부분에 제공된 것과 동일한 기본 단계를 거치며 코드만 다릅니다. Trident도 현재 Flux 프레임워크에서 사용할 수 없습니다.
+Trident 애플리케이션은 Maven 프로젝트를 사용하여 만들 수 있습니다. 이 문서의 앞부분에 제공된 것과 동일한 기본 단계를 거치며 코드만 다릅니다. Trident도 현재 Flux 프레임워크에서 사용할 수 없습니다.
 
 Trident에 대한 자세한 내용은 [Trident API 개요](http://storm.apache.org/releases/current/Trident-API-Overview.html)를 참조하세요.
 

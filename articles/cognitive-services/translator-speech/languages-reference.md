@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: b7005811898df9132be6bc199e26f6c6dc358618
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: aa0af6f0c075dc555757a9c716a1d0569197287d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345206"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256403"
 ---
 # <a name="translator-speech-api-languages"></a>Translator Speech API: 언어
 
@@ -23,7 +23,7 @@ ms.locfileid: "49345206"
 
 Translator Speech는 서비스에서 지원되는 언어 목록을 지속적으로 확장합니다. 이 API를 사용하여 현재 Translator Speech 서비스에서 사용할 수 있는 언어 집합을 검색합니다.
 
-이 API를 사용하여 사용 가능한 언어를 확인하는 방법을 보여 주는 코드 샘플은 [Microsoft Translator Github 사이트](https://github.com/MicrosoftTranslator)에서 사용할 수 있습니다.
+이 API를 사용하여 사용 가능한 언어를 확인하는 방법을 보여 주는 코드 샘플은 [Microsoft Translator GitHub 사이트](https://github.com/MicrosoftTranslator)에서 사용할 수 있습니다.
 
 ## <a name="implementation-notes"></a>구현 참고 사항
 
@@ -33,11 +33,11 @@ GET /languages
 
 클라이언트는 `scope` 쿼리 매개 변수를 사용하여 관심 있는 언어의 집합을 정의합니다.
 
-* **음성-텍스트:** 쿼리 매개 변수 `scope=speech`를 사용하여 음성을 텍스트로 기록하는 데 사용할 수 있는 언어 집합을 검색합니다.
-* **텍스트 번역:** 쿼리 매개 변수 `scope=text`를 사용하여 기록한 텍스트를 번역하는 데 사용할 수 있는 언어 집합을 검색합니다.
-* **텍스트 음성 변환:** 쿼리 매개 변수 `scope=tts`를 사용하여 번역된 텍스트를 다시 음성으로 합성하는 데 사용할 수 있는 언어 및 음성 집합을 검색합니다.
+* **음성을 텍스트로:** 쿼리 매개 변수 `scope=speech`를 사용하여 음성을 텍스트로 기록하는 데 사용할 수 있는 언어 세트를 검색합니다.
+* **텍스트 번역:** 쿼리 매개 변수 `scope=text`를 사용하여 기록한 텍스트를 번역하는 데 사용할 수 있는 언어 세트를 검색합니다.
+* **텍스트를 음성으로:**  쿼리 매개 변수 `scope=tts`를 사용하여 번역된 텍스트를 다시 음성으로 합성하는 데 사용할 수 있는 언어 및 음성 세트를 검색합니다.
 
-클라이언트는 쉼표로 구분된 선택 항목 목록을 지정하여 동시에 여러 집합을 검색할 수 있습니다. 예: `scope=speech,text,tts`.
+클라이언트는 쉼표로 구분된 선택 항목 목록을 지정하여 동시에 여러 집합을 검색할 수 있습니다. 예: `scope=speech,text,tts`
 
 성공적인 응답은 요청된 각 집합에 대한 하나의 속성이 있는 JSON 개체입니다.
 
@@ -98,10 +98,10 @@ TTS(텍스트 음성 변환) 속성과 연결된 값은 각 키가 지원되는 
 
 * `displayName`: 음성의 표시 이름입니다.
 * `gender`: 음성의 성별(남성 또는 여성)입니다.
-* `locale`: 주 언어 하위 태브 및 지역 하위 태그가 지정된 음성의 언어 태그입니다.
+* `locale`: 주 언어 하위 태그 및 지역 하위 태그가 지정된 음성의 언어 태그입니다.
 * `language`: 연결된 문자 언어의 언어 태그입니다.
 * `languageName`: 언어의 표시 이름입니다.
-* `regionName`:이 언어에 대한 지역의 표시 이름입니다.
+* `regionName`: 이 언어에 대한 지역의 표시 이름입니다.
 
 예제는 다음과 같습니다.
 
@@ -140,7 +140,7 @@ X-RequestId|서버가 요청을 식별하기 위해 생성하며, 문제 해결�
 |매개 변수|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|
 |api-version    |클라이언트에서 요청한 API 버전입니다. 허용되는 값은 `1.0`입니다.|쿼리|string|
-|scope  |클라이언트에 반환될 지원되는 언어 또는 음성 설정입니다. 이 매개 변수는 쉼표로 구분된 키워드 목록으로 지정됩니다. 사용할 수 있는 키워드는 다음과 같습니다.<ul><li>`speech`: 음성을 기록하도록 지원되는 언어 집합을 제공합니다.</li><li>`tts`: 텍스트 음성 변환이 지원되는 음성의 집합을 제공합니다.</li><li>`text`: 텍스트를 번역하도록 지원되는 언어 집합을 제공합니다.</li></ul>값을 지정하지 않으면 `scope` 값의 기본값은 `text`입니다.|쿼리|string|
+|scope  |클라이언트에 반환될 지원되는 언어 또는 음성 설정입니다. 이 매개 변수는 쉼표로 구분된 키워드 목록으로 지정됩니다. 사용할 수 있는 키워드는 다음과 같습니다.<ul><li>`speech`: 음성을 기록하도록 지원되는 언어 세트를 제공합니다.</li><li>`tts`: 텍스트를 음성으로 변환이 지원되는 음성의 세트를 제공합니다.</li><li>`text`: 텍스트를 번역하기 위해 지원되는 언어 세트를 제공합니다.</li></ul>값을 지정하지 않으면 `scope` 값의 기본값은 `text`입니다.|쿼리|string|
 |X-ClientTraceId    |요청을 추적하는 데 사용되는 클라이언트 생성 GUID입니다. 용이한 문제 해결을 위해, 클라이언트는 각 요청에 새 값을 제공하고 로깅해야 합니다.|머리글|string|
 |Accept-Language    |응답에 있는 필드 중 일부는 언어 또는 지역 이름입니다. 이 매개 변수를 사용하여 이름을 반환하는 언어를 정의합니다. 언어는 올바른 형식의 BCP 47 언어 태그를 제공하여 지정됩니다. `text` 범위와 함께 반환된 언어 식별자 목록에서 태그를 선택합니다. 지원되지 않는 언어의 경우 이 이름은 영어로 제공됩니다.<br/>예를 들어, `fr` 값을 사용하여 프랑스어로 이름을 요청하거나 `zh-Hant` 값을 사용하여 중국어 번체로 이름을 요청합니다.|머리글|string|
     

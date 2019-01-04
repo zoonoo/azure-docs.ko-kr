@@ -19,7 +19,7 @@ ms.locfileid: "49342656"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>자습서: 이미지 처리 앱 빌드 - C#
 
-Computer Vision을 사용하는 기본 Windows 응용 프로그램을 탐색합니다. 이 프로그램은 OCR(광학 문자 인식)을 수행하고, 스마트하게 자른 썸네일을 만들고, 이미지에서 얼굴을 비롯한 시각적 특징을 감지하고, 분류하고, 태그를 지정하고, 설명합니다. 아래 예제에서는 이미지 URL 또는 로컬로 저장된 파일을 제출할 수 있습니다. .NET Framework의 일부인 WPF(Windows Presentation Foundation) 및 Computer Vision API를 사용하여 고유한 Windows용 앱을 빌드하기 위한 템플릿으로 이 오픈 소스 예제를 사용할 수 있습니다.
+Computer Vision을 사용하는 기본 Windows 애플리케이션을 탐색합니다. 이 프로그램은 OCR(광학 문자 인식)을 수행하고, 스마트하게 자른 썸네일을 만들고, 이미지에서 얼굴을 비롯한 시각적 특징을 감지하고, 분류하고, 태그를 지정하고, 설명합니다. 아래 예제에서는 이미지 URL 또는 로컬로 저장된 파일을 제출할 수 있습니다. .NET Framework의 일부인 WPF(Windows Presentation Foundation) 및 Computer Vision API를 사용하여 고유한 Windows용 앱을 빌드하기 위한 템플릿으로 이 오픈 소스 예제를 사용할 수 있습니다.
 
 > [!div class="checklist"]
 > * GitHub에서 샘플 앱 가져오기
@@ -179,7 +179,7 @@ private async Task<ImageAnalysis> UploadAndAnalyzeImageAsync(string imageFilePat
 
 ### <a name="explore-the-client-library"></a>클라이언트 라이브러리 탐색
 
-이 예제 앱은 Azure Cognitive Services의 Computer Vision API용 씬 C# 클라이언트 래퍼인 Computer Vision API 클라이언트 라이브러리를 사용합니다. 클라이언트 라이브러리는 [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) 패키지의 NuGet에서 제공됩니다. Visual Studio 응용 프로그램을 빌드할 때 해당하는 NuGet 패키지에서 클라이언트 라이브러리를 검색했습니다. 또한 `Microsoft/Cognitive-Vision-Windows` 리포지토리의 `/ClientLibrary` 폴더에서 클라이언트 라이브러리에 대한 소스 코드를 볼 수 있습니다.
+이 예제 앱은 Azure Cognitive Services의 Computer Vision API용 씬 C# 클라이언트 래퍼인 Computer Vision API 클라이언트 라이브러리를 사용합니다. 클라이언트 라이브러리는 [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) 패키지의 NuGet에서 제공됩니다. Visual Studio 애플리케이션을 빌드할 때 해당하는 NuGet 패키지에서 클라이언트 라이브러리를 검색했습니다. 또한 `Microsoft/Cognitive-Vision-Windows` 리포지토리의 `/ClientLibrary` 폴더에서 클라이언트 라이브러리에 대한 소스 코드를 볼 수 있습니다.
 
 클라이언트 라이브러리의 기능은 `Microsoft.Azure.CognitiveServices.Vision.ComputerVision` 네임스페이스의 `ComputerVisionClient` 클래스를 중심으로 하며, Computer Vision과 상호 작용할 때 `ComputerVisionClient` 클래스에서 사용되는 모델은 `Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models` 네임스페이스에 있습니다. 샘플 앱에 포함된 다양한 XAML 시나리오 페이지에서 해당 네임스페이스에 대한 다음 `using` 지시문을 확인할 수 있습니다.
 

@@ -14,18 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/03/2017
 ms.author: rli; juliako;
-ms.openlocfilehash: d7a6abaeff0e939ed9e299e16e2fe59b65127aba
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 81618446930a23a7ea713da19bb7c63a06d135ed
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785962"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162445"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Azure 미디어 분석으로 얼굴 편집 안내
 
 ## <a name="overview"></a>개요
 
-**Azure Media Redactor** 는 클라우드에서 확장성 있는 얼굴 편집 기능을 제공하는 [Azure Media Analytics](media-services-analytics-overview.md) MP(미디어 프로세서)입니다. 얼굴 편집을 사용하면 선택한 개인의 얼굴을 흐리게 표시하기 위해 동영상을 수정할 수 있습니다. 공공 안전과 새 미디어 시나리오를 위해 얼굴 편집 서비스를 사용할 수 있습니다. 짧은 장면이라도 여러 명의 얼굴이 포함된 경우 수동으로 편집하려면 많은 시간이 걸릴 수 있지만 이 서비스를 사용하면 몇 번의 간단한 단계를 통해 얼굴을 편집할 수 있습니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/azure-media-redactor/) 를 참조하세요.
+**Azure Media Redactor**는 클라우드에서 확장성 있는 얼굴 편집 기능을 제공하는 [Azure Media Analytics](media-services-analytics-overview.md) MP(미디어 프로세서)입니다. 얼굴 편집을 사용하면 선택한 개인의 얼굴을 흐리게 표시하기 위해 동영상을 수정할 수 있습니다. 공공 안전과 새 미디어 시나리오를 위해 얼굴 편집 서비스를 사용할 수 있습니다. 짧은 장면이라도 여러 명의 얼굴이 포함된 경우 수동으로 편집하려면 많은 시간이 걸릴 수 있지만 이 서비스를 사용하면 몇 번의 간단한 단계를 통해 얼굴을 편집할 수 있습니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/azure-media-redactor/) 를 참조하세요.
 
 **Azure Media Redactor**에 대한 자세한 내용은 [얼굴 교정 개요](media-services-face-redaction.md) 항목을 참조하세요.
 
@@ -35,7 +35,7 @@ ms.locfileid: "33785962"
 
 ## <a name="azure-media-services-explorer-workflow"></a>Azure Media Services 탐색기 워크플로
 
-Redactor를 시작하는 가장 쉬운 방법은 github에서 오픈 소스 AMSE 도구를 사용하는 것입니다. 주석 json 또는 얼굴 jpg 이미지에 액세스할 필요가 없는 경우 **결합** 모드를 통해 간소화된 워크플로를 실행할 수 있습니다.
+Redactor를 시작하는 가장 쉬운 방법은 GitHub에서 오픈 소스 AMSE 도구를 사용하는 것입니다. 주석 json 또는 얼굴 jpg 이미지에 액세스할 필요가 없는 경우 **결합** 모드를 통해 간소화된 워크플로를 실행할 수 있습니다.
 
 ### <a name="download-and-setup"></a>다운로드 및 설치
 
@@ -104,7 +104,7 @@ JSON 주석 데이터를 구문 분석하려는 개발자는 Models.MetaData 내
 
 1. 분석 모드에서 Redactor MP를 사용하여 Azure Media Services 계정에서 비디오를 처리합니다. 
 2. 원본 비디오 파일 및 교정 - 분석 작업의 출력을 모두 다운로드합니다. 
-3. Visualizer 응용 프로그램을 실행하고 위의 파일을 선택합니다. 
+3. Visualizer 애플리케이션을 실행하고 위의 파일을 선택합니다. 
 
     ![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough011.png)
 

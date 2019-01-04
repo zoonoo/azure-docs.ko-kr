@@ -23,7 +23,7 @@ ms.locfileid: "48884371"
 
 각 요청에는 액세스 키 및 HTTP 엔드포인트를 포함해야 합니다. 엔드포인트는 등록 시 선택한 지역, 서비스 URL 및 요청에 사용되는 리소스를 지정합니다(`sentiment`, `keyphrases`, `languages` 및 `entities`). 
 
-다시 말하지만 Text Analytics는 상태 비저장 서비스이므로 관리할 데이터 자산이 없습니다. 텍스트는 업로드되고, 수신된 후 분석됩니다. 그러면 결과가 호출 응용 프로그램에 즉시 반환됩니다.
+다시 말하지만 Text Analytics는 상태 비저장 서비스이므로 관리할 데이터 자산이 없습니다. 텍스트는 업로드되고, 수신된 후 분석됩니다. 그러면 결과가 호출 애플리케이션에 즉시 반환됩니다.
 
 > [!Tip]
 > 1번 호출하여 API의 작동 방식을 보려는 경우 [API 문서 페이지](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)에서 사용할 수 있는 기본 제공 **API 테스트 콘솔**에서 POST 요청을 보낼 수 있습니다. 설치할 필요는 없으며, 액세스 키 및 JSON 문서를 요청에 붙여 넣기만 하면 됩니다. 

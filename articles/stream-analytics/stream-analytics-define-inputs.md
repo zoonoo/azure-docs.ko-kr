@@ -4,17 +4,17 @@ description: Azure Stream Analytics에서 데이터 연결을 설정하는 방�
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.openlocfilehash: 2bd2a90c6bac280b6f68bde378b7f7d32b7fcd38
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 66e57d95125bd6404ec23302e4c336ab0b71ea78
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248748"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099735"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream Analytics에 입력으로 데이터 스트리밍
 
@@ -29,7 +29,7 @@ Stream Analytics는 세 종류 리소스의 입력으로 Azure 데이터 스트�
 Stream Analytics는 모든 데이터 스트림 입력 원본에서 압축을 지원합니다. 현재 지원되는 참조 형식은 None, GZip 및 Deflate 압축입니다. 참조 데이터에는 압축이 지원되지 않습니다. 입력 형식이 압축된 Avro 데이터인 경우 투명하게 처리됩니다. Avro serialization에서는 압축 형식을 지정할 필요가 없습니다. 
 
 ## <a name="create-edit-or-test-inputs"></a>입력 만들기, 편집 또는 테스트
-[Azure Portal](https://portal.azure.com)을 사용하여 [새 입력을 만들고](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-input-to-the-job) 스트리밍 작업에서 기존 입력을 보거나 편집할 수 있습니다. 입력 연결을 테스트하고 샘플 데이터에서 [쿼리를 테스트](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query)할 수도 있습니다. 쿼리를 작성할 때 FROM 절에 입력이 나열됩니다. 포털의 **쿼리** 페이지에서 사용 가능한 입력 목록을 가져올 수 있습니다. 여러 입력을 사용하려는 경우 `JOIN`하거나 여러 `SELECT` 쿼리를 작성할 수 있습니다.
+[Azure Portal](https://portal.azure.com)을 사용하여 [새 입력을 만들고](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-input) 스트리밍 작업에서 기존 입력을 보거나 편집할 수 있습니다. 입력 연결을 테스트하고 샘플 데이터에서 [쿼리를 테스트](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query)할 수도 있습니다. 쿼리를 작성할 때 FROM 절에 입력이 나열됩니다. 포털의 **쿼리** 페이지에서 사용 가능한 입력 목록을 가져올 수 있습니다. 여러 입력을 사용하려는 경우 `JOIN`하거나 여러 `SELECT` 쿼리를 작성할 수 있습니다.
 
 
 ## <a name="stream-data-from-event-hubs"></a>이벤트 허브에서 데이터 스트리밍

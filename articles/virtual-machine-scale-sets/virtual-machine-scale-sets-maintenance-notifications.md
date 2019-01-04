@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 82a3ce9f899e94a1cc737f2ca2dc1dc79688a224
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 4e30b143a11e35fc83103abfa03e3fb7f29cf9dc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42146945"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270137"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>가상 머신 규모 집합에 대한 계획된 유지 관리 알림
 
@@ -70,7 +70,7 @@ Azure Portal, PowerShell, REST API 및 Azure CLI를 사용하여 가상 머신 �
 
 - 관리 또는 고객에게 정확한 유지 관리 기간을 전달해야 합니다. 
 - 특정 날짜까지 유지 관리를 완료해야 합니다. 
-- 유지 관리 순서를 제어해야 합니다(예: 안전한 복구를 보장하기 위해 다층 계층 응용 프로그램에서).
+- 유지 관리 순서를 제어해야 합니다(예: 안전한 복구를 보장하기 위해 다층 계층 애플리케이션에서).
 - 두 업데이트 도메인 간에 30분을 초과하는 VM 복구 시간이 필요합니다. 업데이트 도메인 간의 시간을 제어하려면 한 번에 하나의 업데이트 도메인에서 VM의 유지 관리를 트리거해야 합니다.
 
  
@@ -105,7 +105,7 @@ Azure에서는 구독 소유자 및 공동 소유자 그룹에 이메일을 보�
    - **서비스**: **Virtual Machine Scale Sets 및 Virtual Machines**를 선택합니다.
    - **유형**: **계획된 유지 관리**를 선택합니다. 
     
-활동 로그 경고를 구성하는 방법에 대한 자세한 내용은 [활동 로그 경고 만들기](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md)를 참조하세요.
+활동 로그 경고를 구성하는 방법에 대한 자세한 내용은 [활동 로그 경고 만들기](../azure-monitor/platform/activity-log-alerts.md)를 참조하세요.
     
     
 ## <a name="start-maintenance-on-your-virtual-machine-scale-set-from-the-portal"></a>포털에서 가상 머신 확장 집합에 대해 유지 관리 시작
@@ -179,7 +179,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **Q: 지금 내 VM을 다시 부팅해야 하는 이유는 무엇인가요?**
 
-**A:** Azure 플랫폼에 대한 대부분의 업데이트와 업그레이드는 VM 가용성에 영향을 주지 않지만, Azure에서 호스팅되는 VM을 다시 부팅해야 하는 경우도 있습니다. 서버를 다시 시작해야 하는 여러 변경이 누적되어 VM이 다시 부팅됩니다.
+**A:** Azure 플랫폼에 대한 대부분의 업데이트와 업그레이드는 VM 가용성에 영향을 주지 않지만, Azure에서 호스트되는 VM을 다시 부팅해야 하는 경우도 있습니다. 서버를 다시 시작해야 하는 여러 변경이 누적되어 VM이 다시 부팅됩니다.
 
 **Q: 가용성 집합을 사용하여 고가용성 권장 사항을 따르는 경우 안전한가요?**
 
@@ -201,7 +201,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **Q: 내 VM을 다시 부팅하는 데 얼마나 걸리나요?**
 
-**A:** VM의 크기에 따라 셀프 서비스 유지 관리 기간 동안 다시 부팅하는 데 최대 몇 분이 걸릴 수 있습니다. Azure가 예약된 유지 관리 기간에서 다시 부팅을 시작하는 동안 일반적으로 다시 부팅하는 데 약 25분 정도 걸립니다. Cloud Services(웹/작업자 역할), 가상 머신 확장 집합 또는 가용성 집합을 사용하는 경우, 예약된 유지 관리 기간 동안 각 VM 그룹(도메인 업데이트) 간에 30분이 제공됩니다. 
+**A:**  VM의 크기에 따라 셀프 서비스 유지 관리 기간 동안 다시 부팅하는 데 최대 몇 분이 걸릴 수 있습니다. Azure가 예약된 유지 관리 기간에서 다시 부팅을 시작하는 동안 일반적으로 다시 부팅하는 데 약 25분 정도 걸립니다. Cloud Services(웹/작업자 역할), 가상 머신 확장 집합 또는 가용성 집합을 사용하는 경우, 예약된 유지 관리 기간 동안 각 VM 그룹(도메인 업데이트) 간에 30분이 제공됩니다. 
 
 **Q: 내 VM에 관한 유지 관리 정보가 전혀 표시되지 않았습니다. 무엇이 문제인가요?**
 

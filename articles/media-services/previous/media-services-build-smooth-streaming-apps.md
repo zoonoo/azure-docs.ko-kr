@@ -53,7 +53,7 @@ Smooth Streaming Client SDK for Windows 8을 사용하면 개발자가 주문형
 
 ![부드러운 스트리밍 Windows 스토어 응용 프로그램 예][PlayerApplication]
 
-Windows 스토어 응용 프로그램 개발에 대한 자세한 내용은 [유용한 Windows 8용 앱 개발](https://msdn.microsoft.com/windows/apps/br229512.aspx)을 참조하십시오. 이 단원에는 다음 절차가 포함되어 있습니다.
+Windows 스토어 애플리케이션 개발에 대한 자세한 내용은 [유용한 Windows 8용 앱 개발](https://msdn.microsoft.com/windows/apps/br229512.aspx)을 참조하십시오. 이 단원에는 다음 절차가 포함되어 있습니다.
 
 1. Windows 스토어 프로젝트 만들기
 2. 사용자 인터페이스 디자인(XAML)

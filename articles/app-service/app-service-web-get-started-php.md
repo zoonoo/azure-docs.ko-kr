@@ -1,5 +1,5 @@
 ---
-title: Azure에서 PHP 웹앱 만들기 | Microsoft Docs
+title: PHP 웹앱 만들기 - Azure App Service | Microsoft Docs
 description: 몇 분 안에 Azure App Service Web Apps에서 첫 번째 PHP Hello World를 배포합니다.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: cephalin;cfowler
-ms.custom: mvc
-ms.openlocfilehash: 0dd8f90a39abc18263fcaa5bdb63a5b743728952
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.custom: seodec18
+ms.openlocfilehash: 02c80f3b3883af4b32b5bc0fb837680dad1e0ecf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42884967"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261554"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Azure에서 PHP 웹앱 만들기
 
@@ -41,20 +41,20 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 여기서 설명하는 단�
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
 * <a href="https://git-scm.com/" target="_blank">Git 설치</a>
-* <a href="http://php.net/manual/install.php" target="_blank">PHP 설치</a>
+* <a href="https://php.net/manual/install.php" target="_blank">PHP 설치</a>
 
 ## <a name="download-the-sample-locally"></a>로컬로 샘플 다운로드
 
-터미널 창에서 다음 명령을 실행합니다. 그러면 응용 프로그램 예제가 로컬 컴퓨터에 복제되고 샘플 코드가 들어 있는 디렉터리로 이동합니다. 
+터미널 창에서 다음 명령을 실행합니다. 그러면 애플리케이션 예제가 로컬 컴퓨터에 복제되고 샘플 코드가 들어 있는 디렉터리로 이동합니다. 
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
 cd php-docs-hello-world
 ```
 
-## <a name="run-the-app-locally"></a>로컬에서 앱 실행
+## <a name="run-the-app-locally"></a>로컬에서 앱 실행하기
 
-응용 프로그램을 로컬로 실행하여 Azure에 응용 프로그램을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고 `php` 명령을 사용하여 기본 제공 PHP 웹 서버를 시작합니다.
+애플리케이션을 로컬로 실행하여 Azure에 애플리케이션을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고 `php` 명령을 사용하여 기본 제공 PHP 웹 서버를 시작합니다.
 
 ```bash
 php -S localhost:8080
@@ -150,7 +150,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ## <a name="browse-to-the-app"></a>앱으로 이동
 
-웹 브라우저를 사용하여 배포된 응용 프로그램으로 이동합니다.
+웹 브라우저를 사용하여 배포된 애플리케이션으로 이동합니다.
 
 ```
 http://<app_name>.azurewebsites.net

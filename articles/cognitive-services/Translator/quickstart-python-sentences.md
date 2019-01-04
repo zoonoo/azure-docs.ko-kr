@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 64831f13811029263a2b76f8030589d9329dd318
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 1d7ba50bf57a5c7f88f4380c4874d6053f07082e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086134"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992600"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python을 사용하는 문장 길이 확인
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python을 통해 문장 길이 확인
 
 이 빠른 시작에서는 Python 및 Translator Text REST API를 사용하여 문장 길이(문자 수)를 확인하는 방법을 알아봅니다.
 
@@ -69,7 +69,7 @@ else:
 이 샘플의 `params`는 제공된 텍스트의 언어를 설정하는 데 사용됩니다. `breaksentence` 경로에는 `params`가 필요하지 않습니다. API는 요청에서 제외될 경우 제공된 텍스트의 언어를 감지하려고 하고, 응답에 신뢰도 점수와 이 정보를 제공합니다.
 
 >[!NOTE]
-> 엔드포인트, 루트 및 요청 매개 변수에 대한 자세한 내용은 [Translator Text API 3.0: Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence)를 참조하세요.
+> 엔드포인트, 루트 및 요청 매개 변수에 대한 자세한 내용은 [Translator Text API 3.0: 언어](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence)를 참조하세요.
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -153,7 +153,7 @@ python sentence-length.py
 
 ## <a name="see-also"></a>참고 항목
 
-텍스트 음차뿐만 아니라 다음과 같은 Translator Text API 사용 방법을 알아봅니다.
+Translator Text API를 사용하여 다음을 수행하는 방법을 알아봅니다.
 
 * [텍스트 번역](quickstart-python-translate.md)
 * [텍스트 음역](quickstart-python-transliterate.md)

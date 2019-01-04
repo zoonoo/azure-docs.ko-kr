@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1f7bd4bc74e63e3b4dd25a7185ce3641712538f1
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 6a62c30235fdd262f0df5937b6a829382d2b45ef
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284390"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866290"
 ---
 # <a name="available-skus-for-hli"></a>HLI에 사용 가능한 SKU
 
@@ -52,7 +52,7 @@ SAP HANA TDIv5에서 SAP는 고객 특정 규모 지정과 고객 특정 프로�
 
 | SKU|CPU | 메모리 | Storage | 가용성 |
 | ---| --- | --- | --- | --- |
-| S96 | Azure의 SAP HANA S96<br /> – 2개 Intel® Xeon® Processor E7-8890 v4,<br /> 48개 CPU 코어 및 96개 CPU 스레드 |  768TB |  3 TB | 사용 가능 |
+| S96 | Azure의 SAP HANA S96<br /> – 2개 Intel® Xeon® Processor E7-8890 v4,<br /> 48개 CPU 코어 및 96개 CPU 스레드 |  768 GB |  3 TB | 사용 가능 |
 
 
 | 메모리 확장이 가능한 <br /> 원래의 SKU | CPU | 메모리 | Storage | 가용성 |
@@ -77,8 +77,8 @@ SAP HANA TDIv5에서 SAP는 고객 특정 규모 지정과 고객 특정 프로�
 HANA 대규모 인스턴스 스탬프 전체는 단일 고객용으로만 할당되지 않습니다. 이 사실은 Azure에 배포된 네트워크 패브릭을 통해 연결된 계산 및 저장소 리소스 랙에도 적용됩니다. HANA 대규모 인스턴스 인프라는 Azure와 마찬가지로 다음 세 가지 수준에서 서로 격리된 서로 다른 고객 &quot;테넌트&quot;를 배포합니다.
 
 - **네트워크**: HANA 대규모 인스턴스 스탬프 내에서 가상 네트워크를 통해 격리됩니다.
-- **저장소**: 저장소 볼륨이 할당되고 테넌트 간 저장소 볼륨을 격리하는 저장소 가상 머신을 통해 격리됩니다.
-- **계산**: 서버 장치를 전용으로 단일 테넌트에 할당합니다. 서버 장치에 대한 하드 분할 또는 소프트 분할이 없습니다. 테넌트 간 단일 서버 또는 호스트 단위의 공유 없음. 
+- **저장소**: 스토리지 볼륨을 할당하고 테넌트 간 스토리지 볼륨을 격리하는 스토리지 가상 머신을 통해 격리됩니다.
+- **컴퓨팅**: 서버 단위를 단일 테넌트에 전용으로 할당합니다. 서버 장치에 대한 하드 분할 또는 소프트 분할이 없습니다. 테넌트 간 단일 서버 또는 호스트 단위의 공유 없음. 
 
 서로 다른 테넌트 간의 HANA 대규모 인스턴스 장치 배포는 상호 간에 표시되지 않습니다. 서로 다른 테넌트에 배포된 HANA 대규모 인스턴스 장치는 HANA 대규모 인스턴스 스탬프 수준에서 서로 직접 통신 할 수 없습니다. 한 테넌트 내의 HANA 대규모 인스턴스 장치만 HANA 대규모 인스턴스 스탬프 수준에서 서로 통신할 수 있습니다.
 

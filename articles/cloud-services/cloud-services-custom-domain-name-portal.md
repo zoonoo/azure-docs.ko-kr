@@ -1,6 +1,6 @@
 ---
 title: Cloud Services에서 사용자 지정 도메인 이름 구성| Microsoft Docs
-description: DNS 설정을 구성하여 사용자 지정 도메인에서 Azure 응용 프로그램이나 데이터를 인터넷에 노출하는 방법을 알아봅니다.  이 예제는 Azure 포털을 사용합니다.
+description: DNS 설정을 구성하여 사용자 지정 도메인에서 Azure 애플리케이션이나 데이터를 인터넷에 노출하는 방법을 알아봅니다.  이 예제는 Azure 포털을 사용합니다.
 services: cloud-services
 documentationcenter: .net
 author: jpconnock
@@ -22,7 +22,7 @@ ms.lasthandoff: 11/07/2018
 ms.locfileid: "51237250"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성
-클라우드 서비스를 만들면 Azure에서 **cloudapp.net**의 하위 도메인에 이 서비스를 할당합니다. 예를 들어 클라우드 서비스의 이름이 "contoso"인 경우 사용자가 http://contoso.cloudapp.net과 같은 URL에서 응용 프로그램에 액세스할 수 있습니다. Azure는 가상 IP 주소도 할당합니다.
+클라우드 서비스를 만들면 Azure에서 **cloudapp.net**의 하위 도메인에 이 서비스를 할당합니다. 예를 들어 클라우드 서비스의 이름이 "contoso"인 경우 사용자가 http://contoso.cloudapp.net과 같은 URL에서 애플리케이션에 액세스할 수 있습니다. Azure는 가상 IP 주소도 할당합니다.
 
 그러나 **contoso.com**등의 고유한 도메인 이름에도 애플리케이션을 표시할 수 있습니다. 이 문서에서는 클라우드 서비스 웹 역할에 대해 사용자 지정 도메인 이름을 예약 또는 구성하는 방법에 대해 설명합니다.
 

@@ -22,7 +22,7 @@ ms.locfileid: "52282552"
 ---
 # <a name="message-deferral"></a>메시지 지연
 
-큐 또는 구독 클라이언트가 처리하려는 메시지를 받았으나 응용 프로그램 내의 특수한 상황으로 인해 처리가 현재 가능하지 않을 경우 메시지의 검색을 나중으로 "연기"하기 위한 옵션이 제공됩니다. 메시지는 큐나 구독에 남아 있지만 따로 분리됩니다.
+큐 또는 구독 클라이언트가 처리하려는 메시지를 받았으나 애플리케이션 내의 특수한 상황으로 인해 처리가 현재 가능하지 않을 경우 메시지의 검색을 나중으로 "연기"하기 위한 옵션이 제공됩니다. 메시지는 큐나 구독에 남아 있지만 따로 분리됩니다.
 
 연기는 워크플로 처리 시나리오를 위해 특별히 만들어진 기능입니다. 워크플로 프레임워크는 특정 작업이 특정 순서로 처리되도록 요구하며, 다른 메시지가 알려준 사전 설정된 사전 작업이 완료될 때까지 수신된 일부 메시지의 처리를 연기해야 할 수 있습니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "52282552"
 
 이 API는 .NET Framework 클라이언트의 [BrokeredMessage.Defer](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.defer?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_Defer) 또는 [BrokeredMessage.DeferAsync](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deferasync?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeferAsync), .NET Standard 클라이언트의 [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync), Java 클라이언트의 **mesageReceiver.defer** 또는 **messageReceiver.deferSync**입니다. 
 
-연기된 메시지는 다른 모든 활성 메시지와 함께 기본 큐에 남아 있지만(하위 큐에 유지되는 배달 못 한 메시지와 다름), 더 이상 일반적인 Receive/ReceiveAsync 함수를 사용하여 수신될 수 없습니다. 연기된 메시지는 응용 프로그램이 추적하지 못할 경우 [메시지 찾아보기](message-browsing.md)를 통해 검색할 수 있습니다.
+연기된 메시지는 다른 모든 활성 메시지와 함께 기본 큐에 남아 있지만(하위 큐에 유지되는 배달 못 한 메시지와 다름), 더 이상 일반적인 Receive/ReceiveAsync 함수를 사용하여 수신될 수 없습니다. 연기된 메시지는 애플리케이션이 추적하지 못할 경우 [메시지 찾아보기](message-browsing.md)를 통해 검색할 수 있습니다.
 
 지연된 메시지를 검색하기 위해 소유자는 메시지를 연기할 때 [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber)를 기억해야 합니다. 지연된 메시지의 시퀀스 번호를 알고 있는 수신자는 나중에 `Receive(sequenceNumber)`를 사용하여 해당 메시지를 명시적으로 수신할 수 있습니다.
 

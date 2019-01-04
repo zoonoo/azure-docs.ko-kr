@@ -1,6 +1,6 @@
 ---
-title: Azure Search를 위해 Azure Cosmos DB 데이터 원본 인덱싱 | Microsoft Docs
-description: 이 문서에서는 Azure Cosmos DB 데이터 원본을 사용하여 Azure Search 인덱서를 만드는 방법을 보여 줍니다.
+title: Azure Cosmos DB 데이터 원본 인덱싱 - Azure Search
+description: Azure Cosmos DB 데이터 원본을 크롤링하고 Azure Search의 전체 텍스트 검색 가능 인덱스에 데이터를 수집합니다. 인덱서는 Azure Cosmos DB와 같은 선택된 데이터 원본에 대해 데이터 수집을 자동화합니다.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
-ms.openlocfilehash: 07768ee1590fa087a1eb1486cb59ab0f57d02b64
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.custom: seodec2018
+ms.openlocfilehash: 80759394ac920907c74f67cf9ee6dfcb52bfd9a8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747544"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311816"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>인덱서를 사용해서 Cosmos DB를 Azure Search에 연결
 
@@ -95,17 +96,17 @@ Azure Cosmos DB 인덱서를 설정하려면 인덱스, 데이터 원본, 인덱
 
 요청 본문에는 다음 필드를 포함해야 하는 데이터 소스 정의가 포함됩니다.
 
-* **이름**: 데이터베이스를 나타낼 이름을 선택합니다.
-* **형식**: `documentdb`여야 합니다.
+* **name**: 데이터베이스를 나타낼 이름을 선택합니다.
+* **type**: `documentdb`이어야 합니다.
 * **자격 증명**:
   
-  * **connectionString**: 필수입니다. Azure Cosmos DB 데이터베이스에 대한 연결 정보를 `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` 형식으로 지정합니다. MongoDB 컬렉션의 경우 **ApiKind=MongoDb**를 연결 문자열에 추가합니다. `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
+  * **connectionString**: 필수 사항입니다. Azure Cosmos DB 데이터베이스에 대한 연결 정보를 다음 형식으로 지정합니다. `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`. MongoDB 컬렉션의 경우 **ApiKind=MongoDb**를 연결 문자열에 추가합니다. `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
   엔드포인트 URL에는 포트 번호를 사용하지 않습니다. 포트 번호를 포함하는 경우 Azure Search는 Azure Cosmos DB 데이터베이스를 인덱싱할 수 없습니다.
 * **컨테이너**:
   
-  * **이름**: 필수입니다. 인덱싱할 데이터베이스 컬렉션의 ID를 지정합니다.
-  * **쿼리**: 선택 사항입니다. 추상 JSON 문서를 Azure Search가 인덱싱할 수 있는 평면 스키마로 평면화하는 쿼리를 지정할 수 있습니다. MongoDB 컬렉션의 경우 쿼리가 지원되지 않습니다. 
-* **dataChangeDetectionPolicy**: 권장 사항입니다. [변경된 문서 인덱싱](#DataChangeDetectionPolicy) 섹션을 참조하세요.
+  * **name**: 필수 사항입니다. 인덱싱할 데이터베이스 컬렉션의 ID를 지정합니다.
+  * **query**: 선택 사항입니다. 추상 JSON 문서를 Azure Search가 인덱싱할 수 있는 평면 스키마로 평면화하는 쿼리를 지정할 수 있습니다. MongoDB 컬렉션의 경우 쿼리가 지원되지 않습니다. 
+* **dataChangeDetectionPolicy**: 권장됩니다. [변경된 문서 인덱싱](#DataChangeDetectionPolicy) 섹션을 참조하세요.
 * **dataDeletionDetectionPolicy**: 선택 사항입니다. [삭제된 문서 인덱싱](#DataDeletionDetectionPolicy) 섹션을 참조하세요.
 
 ### <a name="using-queries-to-shape-indexed-data"></a>쿼리를 사용하여 인덱싱된 데이터 형성
@@ -187,7 +188,7 @@ Azure Cosmos DB 인덱서를 설정하려면 인덱스, 데이터 원본, 인덱
 | 문자열 |Edm.String |
 | 기본 형식의 배열, 예: ["a", "b", "c"] |Collection(Edm.String) |
 | 날짜처럼 보이는 문자열 |Edm.DateTimeOffset, Edm.String |
-| GeoJSON 개체, 예: { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
+| GeoJSON 개체(예: { “type”: “Point”, “coordinates”: [long, lat] } |Edm.GeographyPoint |
 | 기타 JSON 개체 |해당 없음 |
 
 <a name="CreateIndexer"></a>

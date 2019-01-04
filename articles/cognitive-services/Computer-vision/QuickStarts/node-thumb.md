@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 940d5f87e8e411d520c3d30f3e9f08e982162748
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3d92849eae64e48cb2052b233b89c96ad702e622
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338593"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971065"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-nodejs-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Node.js를 사용하여 썸네일 생성
 
@@ -48,9 +48,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     1. `subscriptionKey`의 값을 구독 키로 바꿉니다.
     1. 필요한 경우 `uriBase`의 값을 구독 키를 가져온 Azure 지역의 [썸네일 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) 메서드에 대한 엔드포인트 URL로 바꿉니다.
     1. 필요한 경우 `imageUrl`의 값을 분석하려는 다른 이미지의 URL로 바꿉니다.
-1. 코드를 `.js` 확장명의 파일로 저장합니다. 예: `get-thumbnail.js`.
+1. 코드를 `.js` 확장명의 파일로 저장합니다. 예: `get-thumbnail.js`
 1. 명령 프롬프트 창을 엽니다.
-1. 프롬프트에서 `node` 명령을 사용하여 파일을 실행합니다. 예: `node get-thumbnail.js`.
+1. 프롬프트에서 `node` 명령을 사용하여 파일을 실행합니다. 예: `node get-thumbnail.js`
 
 ```nodejs
 'use strict';

@@ -40,17 +40,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ### <a name="azure-net-sdk"></a>Azure .NET SDK
 [Azure .NET SDK](https://azure.microsoft.com/downloads/)를 컴퓨터에 다운로드하여 설치합니다.
 
-## <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory에서 응용 프로그램 만들기
+## <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션 만들기
 [이 아티클](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)의 섹션에 있는 지침을 따라 다음과 같은 작업을 수행합니다. 
 
-1. **Azure Active Directory 응용 프로그램을 만듭니다**. 이 자습서에서 만드는.NET 응용 프로그램을 나타내는 Microsoft Azure Active Directory에 응용 프로그램을 만듭니다. sign-on URL의 경우 (`https://contoso.org/exampleapp`)에 보이는 더미 URL을 제공할 수 있습니다.
+1. **Azure Active Directory 응용 프로그램을 만듭니다**. 이 자습서에서 만드는.NET 애플리케이션을 나타내는 Microsoft Azure Active Directory에 애플리케이션을 만듭니다. sign-on URL의 경우 (`https://contoso.org/exampleapp`)에 보이는 더미 URL을 제공할 수 있습니다.
 2. **응용 프로그램 ID** 및 **인증 키**를 가져오고, 이 자습서의 뒷부분에서 사용하기 위해 이러한 값을 적어둡니다. 
 3. **테넌트 ID**를 가져오고, 이 자습서의 뒷부분에서 사용하기 위해 이 값을 적어둡니다.
-4. 응용 프로그램이 구독에 데이터 팩터리를 생성할 수 있도록 구독 수준에서 응용 프로그램을 **참여자** 역할에 할당합니다.
+4. 애플리케이션이 구독에 데이터 팩터리를 생성할 수 있도록 구독 수준에서 애플리케이션을 **참여자** 역할에 할당합니다.
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
-Visual Studio 2013/2015/2017을 사용하여 C# .NET 콘솔 응용 프로그램을 만듭니다.
+Visual Studio 2013/2015/2017을 사용하여 C# .NET 콘솔 애플리케이션을 만듭니다.
 
 1. **Visual Studio**를 시작합니다.
 2. **File**을 클릭하고 **New**를 가리킨 다음 **프로젝트**를 클릭합니다.
@@ -295,7 +295,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## <a name="run-the-code"></a>코드 실행
 
-응용 프로그램을 빌드하고 시작한 다음 파이프라인 실행을 확인합니다.
+애플리케이션을 빌드하고 시작한 다음, 파이프라인 실행을 확인합니다.
 
 콘솔에서 데이터 팩터리, 연결된 서비스, 데이터 세트, 파이프라인 및 파이프라인 실행 만들기에 대한 진행 상황을 출력합니다. 그런 다음 파이프라인 실행 상태를 확인합니다. 데이터를 읽고/쓴 크기가 있는 복사 작업 실행 세부 정보가 표시될 때까지 기다립니다. 그런 다음 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용하여 Blob이 변수에 지정한 대로 “inputBlobPath”에서 “outputBlobPath”로 복사되었는지 검사합니다.
 

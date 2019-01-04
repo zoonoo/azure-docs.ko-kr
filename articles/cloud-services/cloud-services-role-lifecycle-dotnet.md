@@ -78,7 +78,7 @@ public override bool OnStart()
 **Run** 메서드 재정의는 필요하지 않습니다. 기본 구현은 영원히 중지되는 스레드를 시작합니다. **Run** 메서드를 재정의하는 경우, 코드가 무기한으로 차단되어야 합니다. **Run** 메서드가 반환되면, 역할이 자동으로 정상적으로 재활용됩니다. 즉, 역할이 오프라인 상태로 전환되기 전에 종료 시퀀스가 실행될수 있도록 Azure는 **Stopping** 이벤트를 발생시키고 **OnStop** 메서드를 호출합니다.
 
 ### <a name="implementing-the-aspnet-lifecycle-methods-for-a-web-role"></a>웹 역할에 대한 ASP.NET 수명 주기 메서드 구현
-**RoleEntryPoint** 클래스에서 제공하는 것 외에도 ASP.NET 수명 주기 메서드를 사용하여 웹 역할에 대한 초기화 및 종료 시퀀스를 관리할 수 있습니다. 이 기존 ASP.NET 응용 프로그램을 Azure에 이식하는 경우 호환성을 위해 유용할 수 있습니다. ASP.NET 수명 주기 메서드는 **RoleEntryPoint** 메서드 내에서 호출됩니다. **Application\_Start** 메서드는 **RoleEntryPoint.OnStart** 메서드를 완료한 후 호출됩니다. **Application\_End** 메서드는 **RoleEntryPoint.OnStop** 메서드를 호출하기 전에 호출됩니다.
+**RoleEntryPoint** 클래스에서 제공하는 것 외에도 ASP.NET 수명 주기 메서드를 사용하여 웹 역할에 대한 초기화 및 종료 시퀀스를 관리할 수 있습니다. 이 기존 ASP.NET 애플리케이션을 Azure에 이식하는 경우 호환성을 위해 유용할 수 있습니다. ASP.NET 수명 주기 메서드는 **RoleEntryPoint** 메서드 내에서 호출됩니다. **Application\_Start** 메서드는 **RoleEntryPoint.OnStart** 메서드를 완료한 후 호출됩니다. **Application\_End** 메서드는 **RoleEntryPoint.OnStop** 메서드를 호출하기 전에 호출됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 [클라우드 서비스 패키지를 만드는](cloud-services-model-and-package.md)방법에 대해 알아봅니다.

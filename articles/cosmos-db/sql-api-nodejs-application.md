@@ -34,9 +34,9 @@ ms.locfileid: "53383430"
 
 > [!div class="checklist"]
 > * Azure Cosmos DB 계정 만들기
-> * 새 Node.js 응용 프로그램 만들기
-> * Azure Cosmos DB에 응용 프로그램 연결
-> * 응용 프로그램을 실행하고 Azure에 배포
+> * 새 Node.js 애플리케이션 만들기
+> * Azure Cosmos DB에 애플리케이션 연결
+> * 애플리케이션을 실행하고 Azure에 배포
 
 ## <a name="_Toc395783176"></a>필수 조건
 
@@ -62,9 +62,9 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
 1. Node.js 명령 프롬프트와 같이 줄겨찾는 터미널을 엽니다.
 
-1. 새 응용 프로그램을 저장하려는 디렉터리로 이동합니다.
+1. 새 애플리케이션을 저장하려는 디렉터리로 이동합니다.
 
-1. Express 생성기를 사용해서 **todo**라는 새로운 응용 프로그램을 생성합니다.
+1. Express 생성기를 사용해서 **todo**라는 새로운 애플리케이션을 생성합니다.
 
    ```bash
    express todo
@@ -77,21 +77,21 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
    npm install
    ```
 
-1. 새 응용 프로그램을 실행합니다.
+1. 새 애플리케이션을 실행합니다.
 
    ```bash
    npm start
    ```
 
-1. 브라우저에서 [http://localhost:3000](http://localhost:3000)으로 이동하여 새 응용 프로그램을 확인할 수 있습니다.
+1. 브라우저에서 [http://localhost:3000](http://localhost:3000)으로 이동하여 새 애플리케이션을 확인할 수 있습니다.
    
-   ![Node.js 알아보기 - 브라우저 창에 표시된 Hello World 응용 프로그램의 스크린샷](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
+   ![Node.js 알아보기 - 브라우저 창에 표시된 Hello World 애플리케이션의 스크린샷](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
  터미널 창에서 Ctrl+C를 사용하여 애플리케이션을 중지하고, **y**를 선택하여 일괄 작업을 종료합니다.
 
 ## <a name="_Toc395783179"></a>필요한 모듈 설치
 
-**package.json** 파일은 프로젝트 루트에 생성되는 파일 중 하나입니다. 이 파일에는 Node.js 응용 프로그램에 필요한 추가 모듈의 목록이 들어 있습니다. 이 응용 프로그램을 Azure에 배포할 때, 응용 프로그램을 지원하려면 어떤 모듈을 Azure에 설치해야 하는지 이 파일을 사용하여 확인합니다. 이 자습서에서는 다음 두 패키지를 더 설치합니다.
+**package.json** 파일은 프로젝트 루트에 생성되는 파일 중 하나입니다. 이 파일에는 Node.js 애플리케이션에 필요한 추가 모듈의 목록이 들어 있습니다. 이 애플리케이션을 Azure에 배포할 때, 애플리케이션을 지원하려면 어떤 모듈을 Azure에 설치해야 하는지 이 파일을 사용하여 확인합니다. 이 자습서에서는 다음 두 패키지를 더 설치합니다.
 
 1. 터미널을 열고, npm을 통해 **async** 모듈을 설치합니다.
 
@@ -106,7 +106,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
    ```
 
 ## <a name="_Toc395783180"></a>Azure Cosmos DB에 Node.js 애플리케이션 연결
-초기 설치 및 구성을 마쳤으니, 다음으로 todo 응용 프로그램이 Azure Cosmos DB와 통신하는 데 필요한 코드를 작성하겠습니다.
+초기 설치 및 구성을 마쳤으니, 다음으로 todo 애플리케이션이 Azure Cosmos DB와 통신하는 데 필요한 코드를 작성하겠습니다.
 
 ### <a name="create-the-model"></a>모델 만들기
 1. 프로젝트의 루트 디렉터리에서 **models**라는 새 디렉터리를 만듭니다.  
@@ -254,7 +254,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
 1. 프로젝트 디렉터리의 루트에서 **config.js**라는 새 파일을 만듭니다. 
 
-2. 다음 코드를 **config.js** 파일에 추가합니다. 이 코드는 응용 프로그램에 필요한 구성 설정 및 값을 정의합니다.
+2. 다음 코드를 **config.js** 파일에 추가합니다. 이 코드는 애플리케이션에 필요한 구성 설정 및 값을 정의합니다.
    
    ```nodejs
    const config = {};
@@ -281,7 +281,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
 ### <a name="modify-appjs"></a>app.js 수정
 
-1. 프로젝트 디렉터리에서 **app.js** 파일을 엽니다. 이 파일은 이전에 Express 웹 응용 프로그램을 만들 때 생성되었습니다.  
+1. 프로젝트 디렉터리에서 **app.js** 파일을 엽니다. 이 파일은 이전에 Express 웹 애플리케이션을 만들 때 생성되었습니다.  
 
 2. 다음 코드를 **app.js** 파일에 추가합니다. 이 코드는 사용할 구성 파일을 정의하고, 다음 섹션에서 사용할 값을 일부 변수에 로드합니다. 
    
@@ -360,7 +360,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
 ## <a name="_Toc395783181"></a>사용자 인터페이스 작성
 
-이제 사용자가 응용 프로그램과 상호 작용할 수 있도록 사용자 인터페이스를 빌드하겠습니다. 이전 섹션에서 만든 Express 응용 프로그램은 **Jade**를 보기 엔진으로 사용합니다.
+이제 사용자가 애플리케이션과 상호 작용할 수 있도록 사용자 인터페이스를 빌드하겠습니다. 이전 섹션에서 만든 Express 애플리케이션은 **Jade**를 보기 엔진으로 사용합니다.
 
 1. **views** 디렉터리의 **layout.jade** 파일은 다른 **.jade** 파일에 대한 전역 템플릿으로 사용됩니다. 이 단계에서는 웹 사이트를 디자인하는 데 사용되는 도구 키트인 Twitter Bootstrap을 사용하도록 수정합니다.  
 
@@ -384,7 +384,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
     이 코드는 애플리케이션에 대한 일부 HTML을 렌더링하도록 **Jade** 엔진에 지시하고, 콘텐츠 페이지의 레이아웃을 제공할 수 있는 **content**라는 **block**을 만듭니다. **layout.jade** 파일을 저장하고 닫습니다.
 
-3. 이제 응용 프로그램에 사용되는 보기인 **index.jade** 파일을 열고, 파일 콘텐츠를 다음 코드로 바꿉니다.
+3. 이제 애플리케이션에 사용되는 보기인 **index.jade** 파일을 열고, 파일 콘텐츠를 다음 코드로 바꿉니다.
 
    ```html
    extends layout
@@ -432,7 +432,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
 첫 번째 양식에는 데이터에 대한 테이블 및 컨트롤러의 **/completeTask** 메서드에 게시하여 항목을 업데이트할 수 있게 해주는 단추 및 데이터 테이블이 포함됩니다.
     
-두 번째 양식에는 컨트롤러의 **/addtask** 메서드에 게시하여 새 항목을 만들 수 있게 해주는 단추와 2개의 입력 필드가 포함됩니다. 이것만 있으면 응용 프로그램이 작동합니다.
+두 번째 양식에는 컨트롤러의 **/addtask** 메서드에 게시하여 새 항목을 만들 수 있게 해주는 단추와 2개의 입력 필드가 포함됩니다. 이것만 있으면 애플리케이션이 작동합니다.
 
 ## <a name="_Toc395783181"></a>로컬로 애플리케이션 실행
 
@@ -440,7 +440,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
 1. 로컬 머신에서 애플리케이션을 테스트하려면 터미널에서 `npm start`를 실행하여 애플리케이션을 시작한 다음, [http://localhost:3000](http://localhost:3000) 브라우저 페이지를 새로 고칩니다. 이제 페이지가 다음 스크린샷과 비슷하게 표시됩니다.
    
-    ![브라우저 창에 표시된 MyTodo List 응용 프로그램의 스크린샷](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
+    ![브라우저 창에 표시된 MyTodo List 애플리케이션의 스크린샷](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
 
     > [!TIP]
     > layout.jade 파일 또는 index.jade 파일에서 들여쓰기에 대한 오류가 발생하면 두 파일의 처음 두 줄을 공백 없이 왼쪽에 맞춥니다. 처음 두 줄 앞에 공백이 있으면 이를 제거하고, 두 파일을 모두 저장한 다음, 브라우저 창을 새로 고칩니다. 
@@ -449,11 +449,11 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
 3. 페이지가 업데이트되어 새로 만든 항목을 ToDo 목록에 표시합니다.
    
-    ![할 일 모음에 새 항목이 포함된 응용 프로그램의 스크린샷](./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png)
+    ![할 일 모음에 새 항목이 포함된 애플리케이션의 스크린샷](./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png)
 
 4. 작업을 완료하려면 [완료] 열의 확인란을 선택한 다음, **작업 업데이트**를 선택합니다. 그러면 이미 만든 문서가 업데이트되고 보기에서 제거됩니다.
 
-5. 응용 프로그램을 중지하려면 터미널 창에서 Ctrl+C를 누르고 **Y**를 선택하여 배치 작업을 종료합니다.
+5. 애플리케이션을 중지하려면 터미널 창에서 Ctrl+C를 누르고 **Y**를 선택하여 배치 작업을 종료합니다.
 
 ## <a name="_Toc395783182"></a>Web Apps에 애플리케이션 배포
 
@@ -467,13 +467,13 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
    git remote add azure https://username@your-azure-website.scm.azurewebsites.net:443/your-azure-website.git
    ```
 
-3. 원격에 푸시하여 응용 프로그램을 배포합니다.
+3. 원격에 푸시하여 애플리케이션을 배포합니다.
    
    ```bash
    git push azure master
    ```
 
-4. 몇 초 후 웹 응용 프로그램이 게시되고 브라우저에서 시작됩니다.
+4. 몇 초 후 웹 애플리케이션이 게시되고 브라우저에서 시작됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

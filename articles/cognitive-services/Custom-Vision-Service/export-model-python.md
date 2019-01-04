@@ -197,7 +197,7 @@ with tf.Session() as sess:
 ```
 ## <a name="next-steps"></a>다음 단계
 
-또한 모바일 응용 프로그램으로 모델을 래핑할 수도 있습니다.
+또한 모바일 애플리케이션으로 모델을 래핑할 수도 있습니다.
 * [Android 응용 프로그램에서 내보낸 Tensorflow 모델 사용](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
 * [Swift iOS 응용 프로그램에서 내보낸 CoreML 모델 사용](https://go.microsoft.com/fwlink/?linkid=857726)
 * [Xamarin을 사용하는 iOS 응용 프로그램에서 내보낸 CoreML 모델 사용](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)

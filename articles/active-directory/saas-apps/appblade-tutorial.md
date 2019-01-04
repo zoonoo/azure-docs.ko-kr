@@ -31,7 +31,7 @@ AppBlade를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 AppBlade(Single Sign-on)에 자동으로 로그인하도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -63,11 +63,11 @@ AppBlade의 Azure AD 통합을 구성하려면 갤러리의 AppBlade를 관리�
 
     ![Active Directory][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![애플리케이션][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![애플리케이션][3]
 
@@ -75,7 +75,7 @@ AppBlade의 Azure AD 통합을 구성하려면 갤러리의 AppBlade를 관리�
 
     ![Azure AD 테스트 사용자 만들기](./media/appblade-tutorial/tutorial_appblade_search.png)
 
-5. 결과 패널에서 **AppBlade**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+5. 결과 패널에서 **AppBlade**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/appblade-tutorial/tutorial_appblade_addfromgallery.png)
 
@@ -96,11 +96,11 @@ AppBlade에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 AppBlade 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 AppBlade 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **AppBlade에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **AppBlade** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **AppBlade** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -166,7 +166,7 @@ AppBlade에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 이 섹션은 AppBlade에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. AppBlade는 적시에 프로비전을 지원하며 기본적으로 사용하도록 설정합니다. **사용자 프로비전에 대한 도메인 이름이 AppBlade로 구성되어 있는지 확인합니다. 그 이후에만 Just-In-Time 사용자 프로비전이 작동합니다.**
 
-사용자가 계정에 AppBlade로 구성된 도메인으로 끝나는 이메일 주소가 있는 경우 사용자는 자동으로 "기본"(응용 프로그램 설치만 할 수 있는 기본 사용자), "팀 멤버"(새 응용 프로그램 버전을 업로드하고 프로젝트를 관리할 수 있는 사용자) 또는 "관리자"(계정에 관한 전체 관리자 권한) 중 하나의 지정된 권한 수준을 가진 구성원으로 계정에 가입됩니다. 일반적으로 기본을 선택한 다음 관리자 로그인을 통해 수동으로 사용자를 승격합니다(AppBlade는 사전에 전자 메일 기반 관리자 로그인을 미리 구성하거나 고객을 대신하여 로그인한 후 사용자를 승격할 필요가 있음).
+사용자가 계정에 AppBlade로 구성된 도메인으로 끝나는 이메일 주소가 있는 경우 사용자는 자동으로 "기본"(애플리케이션 설치만 할 수 있는 기본 사용자), "팀 멤버"(새 애플리케이션 버전을 업로드하고 프로젝트를 관리할 수 있는 사용자) 또는 "관리자"(계정에 관한 전체 관리자 권한) 중 하나의 지정된 권한 수준을 가진 구성원으로 계정에 가입됩니다. 일반적으로 기본을 선택한 다음 관리자 로그인을 통해 수동으로 사용자를 승격합니다(AppBlade는 사전에 전자 메일 기반 관리자 로그인을 미리 구성하거나 고객을 대신하여 로그인한 후 사용자를 승격할 필요가 있음).
 
 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 AppBlade에 액세스를 시도하는 동안 만들어질 수 있습니다. 
 
@@ -181,11 +181,11 @@ AppBlade에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 **Britta Simon을 AppBlade에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **AppBlade**를 선택합니다.
+2. 애플리케이션 목록에서 **AppBlade**를 선택합니다.
 
     ![Configure Single Sign-On](./media/appblade-tutorial/tutorial_appblade_app.png) 
 
@@ -206,7 +206,7 @@ AppBlade에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.  
-액세스 패널에서 AppBlade 타일을 클릭하면 AppBlade 응용 프로그램에 자동으로 로그인됩니다. 
+액세스 패널에서 AppBlade 타일을 클릭하면 AppBlade 애플리케이션에 자동으로 로그인됩니다. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

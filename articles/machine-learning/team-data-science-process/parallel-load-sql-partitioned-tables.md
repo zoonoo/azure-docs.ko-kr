@@ -1,6 +1,6 @@
 ---
-title: Azure VM에서 SQL Server로 데이터를 빠르게 병렬로 가져오기 위한 테이블 빌드 및 최적화 | Microsoft Docs
-description: SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기
+title: SQL 파티션 테이블의 대량 데이터를 병렬로 가져오기 - 팀 데이터 과학 프로세스
+description: 분할된 테이블을 빌드하여 SQL Server 데이터베이스로 대량 데이터를 빠르게 병렬로 가져옵니다.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: f437de3043cbd3d689f85dc3524b419b1633553f
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 25c79f15c11dcf84ab6b3e5946f17361a98737fa
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446469"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140254"
 ---
-# <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기
+# <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Azure VM에서 SQL Server로 데이터를 빠르게 병렬로 가져오기 위한 테이블 빌드 및 최적화
 
 이 문서에서는 분할된 테이블을 만들어서 SQL Server 데이터베이스로 대량의 데이터를 병렬로 더 빨리 가져오는 방법을 설명합니다. SQL Database로 빅 데이터를 로드/전송할 때 *분할된 테이블 및 뷰*를 사용하여 SQL DB로 데이터를 가져오는 작업과 후속 쿼리의 성능을 개선할 수 있습니다. 
 

@@ -35,12 +35,12 @@ items:
     items:
     - name: Apache HBase.NET SDK 사용
       href: apache-hbase-rest-sdk.md
-    - name: Java 응용 프로그램 배포
+    - name: Java 애플리케이션 배포
       href: apache-hbase-build-java-maven-linux.md
     - name: 빈 에지 노드 사용
       href: ../hdinsight-apps-use-edge-node.md
       maintainContext: true
-    - name: 비대화형 인증 .NET HDInsight 응용 프로그램 만들기
+    - name: 비대화형 인증 .NET HDInsight 애플리케이션 만들기
       href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
       maintainContext: true
     - name: HDInsight의 Apache Phoenix
@@ -66,7 +66,7 @@ items:
     - name: 스크립트 작업 개발
       href: ../hdinsight-hadoop-script-actions-linux.md
       maintainContext: true
-    - name: HDInsight 응용 프로그램 빌드
+    - name: HDInsight 애플리케이션 빌드
       items:
       - name: 사용자 지정 앱 설치
         href: ../hdinsight-apps-install-custom-applications.md
@@ -76,7 +76,7 @@ items:
       - name: Azure Marketplace에 HDInsight 앱 게시
         href: ../hdinsight-apps-publish-applications.md
         maintainContext: true
-      - name: 게시된 앱 설치 - Cask 데이터 응용 프로그램 플랫폼(CDAP)
+      - name: 게시된 앱 설치 - Cask 데이터 애플리케이션 플랫폼(CDAP)
         href: ../hdinsight-apps-install-cask.md
         maintainContext: true
       - name: 게시된 앱 설치 - Dataiku

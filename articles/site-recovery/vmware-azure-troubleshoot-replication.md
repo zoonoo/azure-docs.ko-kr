@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 915f7d7d2d6be02dfef0cd6bb9a2fa156ed565bc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: ae2f32a02005bc015d2521e576ea5625bef2d377
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214735"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846014"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버에 대한 복제 문제 해결
 
@@ -43,7 +43,7 @@ Azure Site Recovery를 사용하여 VMware 가상 머신 또는 물리적 서버
 
 그렇지 않은 경우 아래 나열된 단계를 따르세요.
 
-* **프로세스 서버가 Azure Blob에 연결할 수 있는지 확인**: 'TCP 연결'을 보도록 cbengine.exe를 선택하고 확인하여 프로세스 서버에서 Azure Storage Blob URL로 연결이 있는지 확인합니다.
+* **프로세스 서버가 Azure Blob에 연결할 수 있는지 확인**: ‘TCP 연결’을 보도록 cbengine.exe를 선택하고 확인하여 프로세스 서버에서 Azure Storage Blob URL로 연결되어 있는지 확인합니다.
 
 ![복제 사용](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
 
@@ -71,7 +71,7 @@ Azure Site Recovery를 사용하여 VMware 가상 머신 또는 물리적 서버
 
 * **프로세스 서버의 IP 주소 기반 방화벽이 액세스를 차단하지 않는지 확인**: 서버에서 IP 주소 기반 방화벽 규칙을 사용하는 경우 [여기](https://www.microsoft.com/download/details.aspx?id=41653)에서 Microsoft Azure 데이터 센터 IP 범위의 전체 목록을 다운로드하고 방화벽 구성에 추가하여 Azure(및 HTTPS(443) 포트)에 대한 통신을 허용하도록 합니다.  구독하는 Azure 지역과 미국 서부에 해당하는 IP 주소 범위를 허용하세요(Access Control 및 ID 관리에 사용됨).
 
-* **프로세스 서버의 URL 기반 방화벽이 액세스를 차단하지 않는지 확인**: 서버에서 URL 기반 방화벽 규칙을 사용하는 경우 다음 URL이 방화벽 구성에 추가되었는지 확인합니다.
+* **프로세스 서버의 URL 주소 기반 방화벽이 액세스를 차단하지 않는지 확인**:  서버에서 URL 기반 방화벽 규칙을 사용하는 경우 다음 URL이 방화벽 구성에 추가되었는지 확인합니다.
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
@@ -86,7 +86,7 @@ Microsoft Azure Backup 검색
 해당 항목을 열고 작업 > 속성 변경을 클릭합니다. 프록시 구성 탭 아래에 레지스트리 설정에 의해 표시된 것과 동일해야 하는 프록시 주소가 표시됩니다. 그렇지 않은 경우 동일한 주소로 변경하세요.
 
 
-* **대역폭 제한이 프로세스 서버에서 제한되지 않는지 확인**: 대역폭을 늘리고 문제가 여전히 있는지 확인합니다.
+* **프로세스 서버에서 스로틀 대역폭이 제한되지 않는지 확인**:  대역폭을 늘리고 문제가 아직 있는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 도움이 필요한 경우 [Azure Site Recovery 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)에 쿼리를 게시하세요. 활발히 유지되는 커뮤니티가 있으며 엔지니어 중 하나가 도움을 줄 수 있습니다.

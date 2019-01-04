@@ -31,7 +31,7 @@ BeeLine을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 BeeLine에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -63,11 +63,11 @@ BeeLine의 Azure AD 통합을 구성하려면 갤러리의 BeeLine을 관리되�
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![애플리케이션][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![애플리케이션][3]
 
@@ -75,7 +75,7 @@ BeeLine의 Azure AD 통합을 구성하려면 갤러리의 BeeLine을 관리되�
 
     ![Azure AD 테스트 사용자 만들기](./media/beeline-tutorial/tutorial_beeline_search.png)
 
-1. 결과 패널에서 **BeeLine**을 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **BeeLine**을 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/beeline-tutorial/tutorial_beeline_addfromgallery.png)
 
@@ -96,11 +96,11 @@ BeeLine에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 BeeLine 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 BeeLine 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **BeeLine에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **BeeLine** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **BeeLine** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -127,7 +127,7 @@ BeeLine에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![Configure Single Sign-On](./media/beeline-tutorial/tutorial_beeline_certificate.png) 
 
-1. Beeline 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 응용 프로그램에 매핑되는 올바른 사용자 ID를 식별하려면 [BeeLine 지원 팀](https://www.beeline.com/contact-us/)에 먼저 문의하세요. 또한 이 매핑에 사용하려는 특성에 대한 [BeeLine 지원 팀](https://www.beeline.com/contact-us/)의 지침을 수행하세요. 응용 프로그램의 **사용자 특성** 탭에서 이 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. 여기서는 고유한 사용자 ID를 제공하는 **userprincipalname** 특성으로 **사용자 ID** 클레임을 매핑했으며, 성공적인 모든 SAML 응답에서 BeeLine 응용 프로그램으로 전송됩니다.
+1. Beeline 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 애플리케이션에 매핑되는 올바른 사용자 ID를 식별하려면 [BeeLine 지원 팀](https://www.beeline.com/contact-us/)에 먼저 문의하세요. 또한 이 매핑에 사용하려는 특성에 대한 [BeeLine 지원 팀](https://www.beeline.com/contact-us/)의 지침을 수행하세요. 애플리케이션의 **사용자 특성** 탭에서 이 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. 여기서는 고유한 사용자 ID를 제공하는 **userprincipalname** 특성으로 **사용자 ID** 클레임을 매핑했으며, 성공적인 모든 SAML 응답에서 BeeLine 애플리케이션으로 전송됩니다.
 
     ![Configure Single Sign-On](./media/beeline-tutorial/tutorial_attribute.png)    
 
@@ -178,7 +178,7 @@ BeeLine에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
  
 ### <a name="creating-a-beeline-test-user"></a>BeeLine 테스트 사용자 만들기
 
-이 섹션에서는 Beeline에서 Britta Simon이라는 사용자를 만듭니다. Beeline 응용 프로그램에서는 Single Sign On을 수행하기 전에 모든 사용자를 프로비전해야 합니다. 따라서 모든 사용자를 응용 프로그램에 프로비전하려면 [BeeLine 지원 팀](https://www.beeline.com/contact-us/)에 문의하세요. 
+이 섹션에서는 Beeline에서 Britta Simon이라는 사용자를 만듭니다. Beeline 애플리케이션에서는 Single Sign On을 수행하기 전에 모든 사용자를 프로비전해야 합니다. 따라서 모든 사용자를 애플리케이션에 프로비전하려면 [BeeLine 지원 팀](https://www.beeline.com/contact-us/)에 문의하세요. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -188,11 +188,11 @@ BeeLine에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 **Britta Simon을 BeeLine에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **BeeLine**을 선택합니다.
+1. 애플리케이션 목록에서 **BeeLine**을 선택합니다.
 
     ![Configure Single Sign-On](./media/beeline-tutorial/tutorial_beeline_app.png) 
 
@@ -212,7 +212,7 @@ BeeLine에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 액세스 패널에서 Beeline 타일을 클릭하면 Beeline 응용 프로그램에 자동으로 로그온됩니다.
+이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 액세스 패널에서 Beeline 타일을 클릭하면 Beeline 애플리케이션에 자동으로 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

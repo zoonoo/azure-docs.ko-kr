@@ -200,7 +200,7 @@ items:
         href: virtual-machine-scale-sets-autoscale-portal.md
       - name: 고급 자동 크기 조정
         href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
-    - name: 크기 집합의 응용 프로그램
+    - name: 크기 집합의 애플리케이션
       href: virtual-machine-scale-sets-deploy-app.md
     - name: 확장 집합으로 데이터 디스크 사용
       href: virtual-machine-scale-sets-attached-disks.md

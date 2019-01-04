@@ -1,6 +1,6 @@
 ---
 title: Apache Hadoop용 Java MapReduce 만들기 - Azure HDInsight
-description: Apache Maven을 사용하여 Java 기반 MapReduce 응용 프로그램을 만든 다음 Azure HDInsight의 Hadoop과 함께 실행하는 방법을 알아봅니다.
+description: Apache Maven을 사용하여 Java 기반 MapReduce 애플리케이션을 만든 다음 Azure HDInsight의 Hadoop과 함께 실행하는 방법을 알아봅니다.
 services: hdinsight
 ms.reviewer: jasonh
 author: hrasheed-msft
@@ -138,7 +138,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
     </build>
    ```
 
-    첫 번째 플러그 인은 응용 프로그램에 필요한 종속성을 포함하는 uberjar(fatjar이라고도 함)을 빌드하는 데 사용되는 [Maven Shade Plugin](https://maven.apache.org/plugins/maven-shade-plugin/)을 구성합니다. 또한 일부 시스템에서 문제를 일으킬 수 있는 jar 패키지 내 라이선스 중복을 방지합니다.
+    첫 번째 플러그 인은 애플리케이션에 필요한 종속성을 포함하는 uberjar(fatjar이라고도 함)을 빌드하는 데 사용되는 [Maven Shade Plugin](https://maven.apache.org/plugins/maven-shade-plugin/)을 구성합니다. 또한 일부 시스템에서 문제를 일으킬 수 있는 jar 패키지 내 라이선스 중복을 방지합니다.
 
     두 번째 플러그 인은 대상 Java 버전을 구성합니다.
 
@@ -147,7 +147,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 3. `pom.xml` 파일을 저장합니다.
 
-## <a name="create-the-mapreduce-application"></a>MapReduce 응용 프로그램 만들기
+## <a name="create-the-mapreduce-application"></a>MapReduce 애플리케이션 만들기
 
 1. `wordcountjava/src/main/java/org/apache/hadoop/examples` 디렉터리로 이동하여 `App.java` 파일의 이름을 `WordCount.java`으로 지정합니다.
 
@@ -228,17 +228,17 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 3. 파일을 저장합니다.
 
-## <a name="build-the-application"></a>응용 프로그램 빌드
+## <a name="build-the-application"></a>애플리케이션 빌드
 
 1. 아직 이동하지 않은 경우 `wordcountjava` 디렉터리로 변경합니다.
 
-2. 다음 명령을 사용하여 응용 프로그램을 포함하는 JAR 파일을 빌드합니다.
+2. 다음 명령을 사용하여 애플리케이션을 포함하는 JAR 파일을 빌드합니다.
 
    ```
    mvn clean package
    ```
 
-    이 명령은 이전 빌드 아티팩트를 정리하고, 아직 설치되지 않은 모든 종속성을 다운로드한 후 응용 프로그램을 빌드 및 패키지화합니다.
+    이 명령은 이전 빌드 아티팩트를 정리하고, 아직 설치되지 않은 모든 종속성을 다운로드한 후 애플리케이션을 빌드 및 패키지화합니다.
 
 3. 명령이 마무리되면 `wordcountjava/target` 디렉터리는 `wordcountjava-1.0-SNAPSHOT.jar` 파일을 포함합니다.
    
@@ -261,7 +261,7 @@ __USERNAME__을 클러스터의 SSH 사용자 이름으로 바꿉니다. __CLUST
 
 1. SSH를 사용하여 HDInsight에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-2. SSH 세션에서 다음 명령을 사용하여 MapReduce 응용 프로그램을 실행합니다.
+2. SSH 세션에서 다음 명령을 사용하여 MapReduce 애플리케이션을 실행합니다.
    
    ```bash
    yarn jar wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /example/data/gutenberg/davinci.txt /example/data/wordcountout

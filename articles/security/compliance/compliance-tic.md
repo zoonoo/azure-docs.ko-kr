@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: d52785dd7569560f4b6986080b14723762537ec8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b1a406c15377cb6931f92594f5ce1526a2f2ab99
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388323"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017102"
 ---
 # <a name="trusted-internet-connections-guidance"></a>TIC(Trusted Internet Connections) 지침
 
@@ -41,9 +41,9 @@ TIC의 목표는 기관에서 다음 항목을 파악하도록 하는 것입니�
 Azure 서비스에 연결하는 세 가지 주요 옵션은 다음과 같습니다.
 
 - 직접 인터넷 연결: 개방형 인터넷 연결을 통해 Azure 서비스에 직접 연결합니다. 매체와 연결은 공용입니다. 응용 프로그램 및 전송 수준 암호화를 통해 개인 정보를 보호합니다. 대역폭은 사이트의 인터넷 연결로 인해 제한됩니다. 둘 이상의 활성 공급자를 사용하여 복원력을 보장합니다.
-- VPN(가상 사설망): VPN 게이트웨이를 사용하여 Azure 가상 네트워크에 비공개로 연결합니다.
+- VPN(가상 사설망) VPN 게이트웨이를 사용하여 Azure 가상 네트워크에 비공개로 연결합니다.
 매체는 사이트의 표준 인터넷 연결을 트래버스하기 때문에 공개되지만, 개인 정보를 보호하기 위해 터널에서 연결이 암호화됩니다. 대역폭은 선택한 구성 및 VPN 디바이스에 따라 제한됩니다. Azure 지점 간 연결은 일반적으로 100Mbps로 제한되고, 사이트 간 연결은 1.25Gbps로 제한됩니다.
-- Azure ExpressRoute: Microsoft 서비스에 대한 직접 연결입니다. 연결이 격리된 파이버 채널을 통해 이루어지므로 사용된 구성에 따라 연결이 공개 또는 비공개가 될 수 있습니다. 대역폭은 일반적으로 최대 10Gbps로 제한됩니다.
+- Azure ExpressRoute: ExpressRoute는 Microsoft 서비스에 대한 직접 연결입니다. 연결이 격리된 파이버 채널을 통해 이루어지므로 사용된 구성에 따라 연결이 공개 또는 비공개가 될 수 있습니다. 대역폭은 일반적으로 최대 10Gbps로 제한됩니다.
 
 DHS의 “TIC(Trusted Internet Connections) 참조 아키텍처 문서 버전 2.0”에서 명시한 대로 TIC 부록 H(클라우드 고려 사항) 요구 사항이 충족되는 몇 가지 방법이 있습니다. 이 문서에서 DHS TIC 지침은 **TIC 2.0**이라고 합니다.
 
@@ -66,7 +66,7 @@ Azure IaaS TIC 준수는 다음 두 가지 주요 단계로 구분됩니다.
 - 1단계: 구성
 - 2단계: 감사
 
-### <a name="azure-iaas-tic-compliance-configuration"></a>Azure IaaS TIC 준수: 구성
+### <a name="azure-iaas-tic-compliance-configuration"></a>Azure IaaS TIC 규정 준수: 구성
 
 Azure를 사용하여 TIC 준수 아키텍처를 구성하려면 먼저 가상 네트워크에 대한 직접 인터넷 연결을 방지한 다음, 온-프레미스 네트워크를 통해 인터넷 트래픽을 강제로 적용해야 합니다.
 
@@ -97,7 +97,7 @@ Azure는 시스템 경로를 자동으로 만들고 가상 네트워크의 각 �
 
 ExpressRoute 또는 BGP 지원 가상 네트워크 게이트웨이를 사용하는 경우 BGP가 경로 보급에 대한 기본 설정 메커니즘입니다. BGP 보급 경로가 0.0.0.0/0이면 ExpressRoute 및 BGP 인식 가상 네트워크 게이트웨이에서 이 기본 경로가 가상 네트워크 내의 모든 서브넷에 적용되도록 합니다.
 
-### <a name="azure-iaas-tic-compliance-auditing"></a>Azure IaaS TIC 준수 감사
+### <a name="azure-iaas-tic-compliance-auditing"></a>Azure IaaS TIC 규정 준수: 감사
 
 Azure는 TIC 준수를 감사하는 몇 가지 방법을 제공합니다.
 
@@ -124,8 +124,8 @@ Azure Storage와 같은 Azure PaaS 서비스는 인터넷 연결 가능한 URL�
 
 Azure PaaS 서비스가 가상 네트워크와 통합되면 해당 가상 네트워크에서 비공개로 이 서비스에 액세스할 수 있습니다. 사용자 정의 경로 또는 BGP를 통해 0.0.0.0/0에 대한 사용자 지정 라우팅을 적용할 수 있습니다. 사용자 지정 라우팅을 사용하면 모든 인터넷에 바인딩된 모든 트래픽이 온-프레미스에서 TIC를 트래버스하도록 라우팅할 수 있습니다. 다음 패턴을 사용하여 Azure 서비스를 가상 네트워크에 통합합니다.
 
-- **서비스 전용 인스턴스 배포**: 가상 네트워크에 연결된 엔드포인트가 있는 전용 인스턴스로 배포될 수 있는 PaaS 서비스의 수가 점점 증가하고 있습니다. 네트워크 엔드포인트를 가상 네트워크로 제한할 수 있도록 "격리" 모드에서 PowerApps용 App Service Environment를 배포할 수 있습니다. 그러면 App Service Environment에서 Azure Web Apps, Azure API Management 및 Azure Functions와 같이 다양한 Azure PaaS 서비스를 호스팅할 수 있습니다.
-- **가상 네트워크 서비스 엔드포인트 사용**: 엔드포인트를 공용 주소 대신 가상 네트워크 사설 IP로 이동하는 옵션을 허용하는 PaaS 서비스의 수가 점점 증가하고 있습니다.
+- **서비스의 전용 인스턴스 배포**: 가상 네트워크에 연결된 엔드포인트가 있는 전용 인스턴스로 배포될 수 있는 PaaS 서비스의 수가 점점 증가하고 있습니다. 네트워크 엔드포인트를 가상 네트워크로 제한할 수 있도록 "격리" 모드에서 PowerApps용 App Service Environment를 배포할 수 있습니다. 그러면 App Service Environment에서 Azure Web Apps, Azure API Management 및 Azure Functions와 같이 다양한 Azure PaaS 서비스를 호스팅할 수 있습니다.
+- **가상 네트워크 서비스 엔드포인트 사용**: 엔드포인트를 공용 주소 대신 가상 네트워크 사설 IP로 이동하는 옵션을 허용하는 PaaS 서비스 수가 점점 증가하고 있습니다.
 
 2018년 5월 현재 전용 인스턴스를 가상 네트워크에 배포하거나 서비스 엔드포인트를 사용할 수 있도록 지원하는 서비스는 다음 표에 나와 있습니다.
 
@@ -157,7 +157,7 @@ Azure PaaS 서비스가 가상 네트워크와 통합되면 해당 가상 네트
 |Azure Active Directory                | GA               |
 |Azure Batch                           | GA               |
 |App Service 환경               | GA               |
-|Azure Redis 캐시(영문)                     | GA               |
+|Azure Cache for Redis                     | GA               |
 |Azure HDInsight                       | GA               |
 |가상 머신 크기 집합             | GA               |
 |Azure Cloud Services                  | GA               |
@@ -165,7 +165,7 @@ Azure PaaS 서비스가 가상 네트워크와 통합되면 해당 가상 네트
 
 ### <a name="virtual-network-integration-details"></a>가상 네트워크 통합 세부 정보
 
-다음 다이어그램에서는 PaaS 서비스 액세스에 대한 일반적인 네트워크 흐름을 보여 줍니다. 가상 네트워크 삽입 및 가상 네트워크 서비스 터널링에서의 액세스가 모두 표시되어 있습니다. 네트워크 서비스 게이트웨이, 가상 네트워크 및 서비스 태그에 대한 자세한 내용은 [네트워크 및 응용 프로그램 보안 그룹: 서비스 태그](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)를 참조하세요.
+다음 다이어그램에서는 PaaS 서비스 액세스에 대한 일반적인 네트워크 흐름을 보여 줍니다. 가상 네트워크 삽입 및 가상 네트워크 서비스 터널링에서의 액세스가 모두 표시되어 있습니다. 네트워크 서비스 게이트웨이, 가상 네트워크 및 서비스 태그에 대한 자세한 내용은 [네트워크 및 애플리케이션 보안 그룹: 서비스 태그](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)를 참조하세요.
 
 ![TIC 준수 PaaS 연결 옵션](media/tic-diagram-e.png)
 
@@ -255,7 +255,7 @@ Microsoft Azure, Office 365 및 Dynamics 365에 대한 액세스를 쉽게 구�
 | 컴퓨팅 | Azure 기능 | | App Service 환경 | |
 | 웹 및 모바일 | 내부 웹 응용 프로그램 | | App Service 환경| |
 | 웹 및 모바일 | 내부 모바일 응용 프로그램 | | App Service 환경 | |
-| 웹 및 모바일 | API 응용 프로그램 | | App Service 환경 | |
+| 웹 및 모바일 | API 애플리케이션 | | App Service 환경 | |
 | 컨테이너 | Azure Container Service | | | yes |
 | 컨테이너 | AKS(Azure Kubernetes Service) \* | | | yes |
 | 데이터베이스 | Azure SQL Database | | Azure SQL Database Managed Instance \* | Azure SQL |
@@ -263,7 +263,7 @@ Microsoft Azure, Office 365 및 Dynamics 365에 대한 액세스를 쉽게 구�
 | 데이터베이스 | Azure Database for PostgreSQL | | | yes |
 | 데이터베이스 | Azure SQL Data Warehouse | | | yes |
 | 데이터베이스 | Azure Cosmos DB | | | yes |
-| 데이터베이스 | Azure Redis 캐시(영문) | | yes | |
+| 데이터베이스 | Azure Cache for Redis | | yes | |
 | Storage | Azure Blob 저장소 | yes | | |
 | Storage | Azure 파일 | yes | | |
 | Storage | Azure Queue 저장소 | yes | | |

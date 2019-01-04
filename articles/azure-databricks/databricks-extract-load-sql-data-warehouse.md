@@ -23,7 +23,7 @@ ms.locfileid: "53413679"
 
 이 자습서의 단계에서는 Azure Databricks용 SQL Data Warehouse 커넥터를 사용하여 Azure Databricks로 데이터를 전송합니다. 그러면 이 커넥터는 Azure Blob Storage를 Azure Databricks 클러스터와 Azure SQL Data Warehouse 간에 전송되는 데이터의 임시 저장소로 사용합니다.
 
-다음 그림에서는 응용 프로그램 흐름을 보여줍니다.
+다음 그림에서는 애플리케이션 흐름을 보여줍니다.
 
 ![Azure Databricks를 Data Lake Store 및 SQL Data Warehouse와 함께 사용](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks를 Data Lake Store 및 SQL Data Warehouse와 함께 사용")
 
@@ -136,26 +136,26 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    ![앱 추가](./media/databricks-extract-load-sql-data-warehouse/select-add-app.png)
 
-4. 응용 프로그램에 대한 이름 및 URL을 제공합니다. 만들려는 응용 프로그램 유형으로 **웹앱/API**를 선택합니다. 로그온 URL을 입력하고 **만들기**를 선택합니다.
+4. 애플리케이션에 대한 이름 및 URL을 제공합니다. 만들려는 애플리케이션 유형으로 **웹앱/API**를 선택합니다. 로그온 URL을 입력하고 **만들기**를 선택합니다.
 
-   ![응용 프로그램 이름 지정](./media/databricks-extract-load-sql-data-warehouse/create-app.png)
+   ![애플리케이션 이름 지정](./media/databricks-extract-load-sql-data-warehouse/create-app.png)
 
 Azure Databricks에서 Data Lake Store 계정에 액세스하려면 앞에서 만든 Azure Active Directory 서비스 사용자에 대한 다음 값이 있어야 합니다.
-- 응용 프로그램 UI
+- 애플리케이션 UI
 - 인증 키
 - 테넌트 ID
 
 다음 섹션에서는 앞에서 만든 Azure Active Directory 서비스 사용자에 대한 다음 값을 검색합니다.
 
-### <a name="get-application-id-and-authentication-key-for-the-service-principal"></a>서비스 사용자의 응용 프로그램 ID 및 인증 키 가져오기
+### <a name="get-application-id-and-authentication-key-for-the-service-principal"></a>서비스 사용자의 애플리케이션 ID 및 인증 키 가져오기
 
-프로그래밍 방식으로 로그인하는 경우 응용 프로그램에 대한 ID 및 인증 키가 필요합니다. 이러한 값을 가져오려면 다음 단계를 사용합니다.
+프로그래밍 방식으로 로그인하는 경우 애플리케이션에 대한 ID 및 인증 키가 필요합니다. 이러한 값을 가져오려면 다음 단계를 사용합니다.
 
-1. Azure Active Directory의 **앱 등록**에서 응용 프로그램을 선택합니다.
+1. Azure Active Directory의 **앱 등록**에서 애플리케이션을 선택합니다.
 
-   ![응용 프로그램 선택](./media/databricks-extract-load-sql-data-warehouse/select-app.png)
+   ![애플리케이션 선택](./media/databricks-extract-load-sql-data-warehouse/select-app.png)
 
-2. **응용 프로그램 ID**를 복사하고 응용 프로그램 코드에 저장합니다. 일부 [응용 프로그램 예제](#log-in-as-the-application)에서는 이 값을 클라이언트 ID라고 합니다.
+2. **응용 프로그램 ID**를 복사하고 응용 프로그램 코드에 저장합니다. 일부 [애플리케이션 예제](#log-in-as-the-application)에서는 이 값을 클라이언트 ID라고 합니다.
 
    ![클라이언트 ID](./media/databricks-extract-load-sql-data-warehouse/copy-app-id.png)
 
@@ -171,7 +171,7 @@ Azure Databricks에서 Data Lake Store 계정에 액세스하려면 앞에서 �
 
    ![키 저장](./media/databricks-extract-load-sql-data-warehouse/save-key.png)
 
-   키를 저장하면 키 값이 표시됩니다. 나중에 키를 검색할 수 없으므로 이 값을 복사해둡니다. 응용 프로그램으로 로그인하려면 응용 프로그램 ID와 함께 키 값을 제공합니다. 응용 프로그램에서 검색할 수 있는 위치에 키 값을 저장합니다.
+   키를 저장하면 키 값이 표시됩니다. 나중에 키를 검색할 수 없으므로 이 값을 복사해둡니다. 애플리케이션으로 로그인하려면 애플리케이션 ID와 함께 키 값을 제공합니다. 애플리케이션에서 검색할 수 있는 위치에 키 값을 저장합니다.
 
    ![공유 키](./media/databricks-extract-load-sql-data-warehouse/copy-key.png)
 

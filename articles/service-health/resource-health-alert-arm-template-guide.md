@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/4/2018
 ms.author: shtabriz
-ms.openlocfilehash: ac1b9dbbb5739dd015c0bda5f1ea82fe26bb0c70
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dcc978c8e169cca2e2cd91a63ef1814a8c3bd87c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625949"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184103"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 리소스 상태 경고 구성
 
@@ -32,7 +32,7 @@ Azure Resource Health는 Azure 리소스의 현재 및 과거 상태에 대한 �
 이 페이지의 지침을 따르려면 미리 몇 가지 사항을 설정해야 합니다.
 
 1. [Azure PowerShell 모듈](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)(`AzureRm`)을 설치해야 합니다.
-2. 내게 알려주도록 구성된 [작업 그룹을 만들거나 재사용](../monitoring-and-diagnostics/monitoring-action-groups.md)해야 합니다.
+2. 내게 알려주도록 구성된 [작업 그룹을 만들거나 재사용](../azure-monitor/platform/action-groups.md)해야 합니다.
 
 ## <a name="instructions"></a>지침
 1. PowerShell을 사용하여 계정으로 Azure에 로그인하고 상호 작용하려는 구독을 선택합니다.
@@ -233,7 +233,7 @@ Resource Health 경고는 세 가지 다른 범위에서 이벤트를 모니터�
 
 ### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>"알 수 없음" 이벤트를 방지하기 위해 Resource Health 경고 조정
 
-Azure Resource Health는 Test Runner를 사용하여 리소스를 지속적으로 모니터링하여 리소스의 최신 상태를 보고할 수 있습니다. 관련된 보고 상태는 "사용할 수 있음", "사용할 수 없음" 및 "저하됨"입니다. 하지만 Runner와 Azure 리소스가 통신할 수 없는 상황에서는 리소스에 대해 "알 수 없음" 상태가 보고되며 이것은 "활성" 상태 이벤트로 간주됩니다.
+Azure Resource Health는 Test Runner를 사용하여 리소스를 지속적으로 모니터링하여 리소스의 최신 상태를 보고할 수 있습니다. 보고된 관련 상태는 다음과 같습니다. "사용 가능함", "사용 불가능함" 및 "성능 저하됨". 하지만 Runner와 Azure 리소스가 통신할 수 없는 상황에서는 리소스에 대해 "알 수 없음" 상태가 보고되며 이것은 "활성" 상태 이벤트로 간주됩니다.
 
 하지만 리소스가 "알 수 없음"으로 보고되면 가장 최근의 정확한 보고서 이후로 상태가 변경되지 않았을 가능성이 큽니다. "알 수 없음" 이벤트에 대한 경고를 제거하려면 템플릿에서 해당 논리를 지정하면 됩니다.
 
@@ -435,4 +435,4 @@ Resource Health에 대해 알아봅니다.
 -  [Azure Resource Health를 통해 사용할 수 있는 리소스 유형 및 상태 검사](resource-health-checks-resource-types.md)
 
 Service Health 경고 만들기:
--  [Service Health에 대한 경고 구성](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) 
+-  [Service Health에 대한 경고 구성](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

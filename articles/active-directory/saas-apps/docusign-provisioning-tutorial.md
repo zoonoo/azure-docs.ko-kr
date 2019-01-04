@@ -48,7 +48,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 *   DocuSign에 사용자를 할당할 때 유효한 사용자 역할을 선택해야 합니다. "기본 액세스" 역할은 프로비전에 작동하지 않습니다.
 
 > [!NOTE]
-> Azure AD는 Docusign 응용 프로그램을 통한 그룹 프로비저닝을 지원하지 않으며 사용자만 프로비저닝할 수 있습니다.
+> Azure AD는 Docusign 애플리케이션을 통한 그룹 프로비저닝을 지원하지 않으며 사용자만 프로비저닝할 수 있습니다.
 
 ## <a name="enable-user-provisioning"></a>사용자 프로비저닝 사용
 
@@ -63,7 +63,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory > 엔터프라이즈 앱 > 모든 응용 프로그램** 섹션으로 이동합니다.
 
-1. Single Sign-On에 대한 DocuSign을 이미 구성한 경우 검색 필드를 사용하여 DocuSign의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **DocuSign**을 검색합니다. 검색 결과에서 DocuSign을 선택하고 응용 프로그램의 목록에 추가합니다.
+1. Single Sign-On에 대한 DocuSign을 이미 구성한 경우 검색 필드를 사용하여 DocuSign의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **DocuSign**을 검색합니다. 검색 결과에서 DocuSign을 선택하고 애플리케이션의 목록에 추가합니다.
 
 1. DocuSign의 인스턴스를 선택한 다음 **프로비전** 탭을 선택합니다.
 

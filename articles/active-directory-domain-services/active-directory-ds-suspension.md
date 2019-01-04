@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: ergreenl
-ms.openlocfilehash: 31e7307e427b175eb7424ecaee380bd90ce8150e
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 161a9f1ac517d372884e7606dbd2ef30c910bf6b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443409"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968103"
 ---
 # <a name="suspended-domains"></a>일시 중단된 도메인
 Azure AD DS(Azure Active Directory Domain Services)가 관리되는 도메인을 오랫동안 서비스할 수 없는 경우 관리되는 도메인이 일시 중단됨 상태로 전환됩니다. 이 문서에서는 관리되는 도메인이 일시 중단된 이유와 일시 중단된 도메인을 수정하는 방법을 설명합니다.
@@ -28,7 +28,7 @@ Azure AD DS(Azure Active Directory Domain Services)가 관리되는 도메인을
 
 ## <a name="states-your-managed-domain-can-be-in"></a>관리되는 도메인의 가능한 상태
 
-![일시 중단된 도메인 타임라인](media\active-directory-domain-services-suspension\suspension-timeline.PNG)
+![일시 중단된 도메인 타임라인](media/active-directory-domain-services-suspension/suspension-timeline.PNG)
 
 앞의 그림은 Azure AD DS 관리되는 도메인의 가능한 상태를 간략하게 설명합니다.
 
@@ -67,7 +67,7 @@ Azure AD DS(Azure Active Directory Domain Services)가 관리되는 도메인을
 관리되는 도메인이 **일시 중단됨** 상태로 전환되는 이유는 다음과 같습니다.
 
 * 15일 이내에 해결되지 않은 중요한 경고가 하나 이상 있습니다. 중요한 경고는 Azure AD DS에 필요한 리소스에 대한 액세스를 차단하는 잘못된 구성으로 인해 발생할 수 있습니다.
-    * 관리되는 도메인에서 [AADDS104: 네트워크 오류](active-directory-ds-troubleshoot-nsg.md) 경고가 16일 이상 해결되지 않은 경우를 예로 들 수 있습니다.
+    * 관리되는 도메인에서 [AADDS104: 네트워크 오류](active-directory-ds-troubleshoot-nsg.md) 경고가 15일을 초과하여 해결되지 않은 경우를 예로 들 수 있습니다.
 * Azure 구독에 청구 문제가 있거나 Azure 구독이 만료되었습니다.
 
 Microsoft에서 지속적으로 도메인을 관리, 모니터링, 패치 또는 백업할 수 없는 경우, 관리되는 도메인이 일시 중단됩니다.

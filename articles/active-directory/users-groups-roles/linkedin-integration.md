@@ -31,7 +31,7 @@ ms.locfileid: "44492875"
 > * 독일에서 프로비전된 테넌트에 대해서는 설정이 기본적으로 꺼져 있습니다. Microsoft Cloud Germany를 사용하는 고객은 이 설정을 사용할 수 없습니다.
 > * 프랑스에서 프로비전된 테넌트에 대해서는 설정이 기본적으로 꺼져 있습니다.
 
-> 통합은 사용하도록 설정했으며, 사용자가 자신을 대신해서 회사 데이터에 액세스하는 앱에 동의할 수 있도록 허용한 경우에만 작동합니다. 동의 설정에 대한 자세한 내용은 [응용 프로그램에 대한 사용자 액세스를 제거하는 방법](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment)을 참조하세요.
+> 통합은 사용하도록 설정했으며, 사용자가 자신을 대신해서 회사 데이터에 액세스하는 앱에 동의할 수 있도록 허용한 경우에만 작동합니다. 동의 설정에 대한 자세한 내용은 [애플리케이션에 대한 사용자 액세스를 제거하는 방법](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment)을 참조하세요.
 
 ## <a name="enable-or-disable-linkedin-account-connections-for-your-tenant-in-the-azure-portal"></a>Azure Portal에서 테넌트에 대한 LinkedIn 계정 연결 사용 또는 사용 안 함
 
@@ -56,8 +56,8 @@ ms.locfileid: "44492875"
   
  상태 | 결과
 ------ | ------
-**사용** | Office 2016 옵션의 **Office 응용 프로그램에 LinkedIn 기능 표시** 설정이 사용으로 설정됩니다. 조직 내 사용자가 Office 응용 프로그램에서 LinkedIn 기능을 사용할 수 있습니다.
- **사용 안 함** | Office 2016 옵션의 **Office 응용 프로그램에 LinkedIn 기능 표시** 설정이 사용 안 함으로 설정되며, 최종 사용자가 이 설정을 변경할 수 없습니다. 조직 내 사용자가 Office 2016 응용 프로그램에서 LinkedIn 기능을 사용할 수 있습니다.
+**사용** | Office 2016 옵션의 **Office 애플리케이션에 LinkedIn 기능 표시** 설정이 사용으로 설정됩니다. 조직 내 사용자가 Office 애플리케이션에서 LinkedIn 기능을 사용할 수 있습니다.
+ **사용 안 함** | Office 2016 옵션의 **Office 애플리케이션에 LinkedIn 기능 표시** 설정이 사용 안 함으로 설정되며, 최종 사용자가 이 설정을 변경할 수 없습니다. 조직 내 사용자가 Office 2016 애플리케이션에서 LinkedIn 기능을 사용할 수 있습니다.
 
 이 그룹 정책은 로컬 컴퓨터용 Office 2016 앱에만 영향을 줍니다. 사용자가 Office 2016 앱에서 LinkedIn을 해제하더라도 Office 365 전체의 카드 프로필에 LinkedIn 기능이 표시됩니다.
 

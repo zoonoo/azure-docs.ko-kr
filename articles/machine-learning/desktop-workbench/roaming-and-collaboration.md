@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 07a9d46dff17b43d01a6b411292cf240c32476f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0117a08c76288cda25da2196ec18433b3678e24b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983721"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724641"
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench에서 로밍 및 공동 작업
 
@@ -115,7 +115,7 @@ az ml workspace show --query "id"
 az role assignment create --assignee bob@contoso.com --role Owner --scope <workspace Resource Manager ID>
 ```
 
-직접 또는 상속을 통해 역할이 할당되면 Bob은 Machine Learning Workbench 프로젝트 목록에서 프로젝트를 볼 수 있습니다. Bob이 프로젝트를 보려면 응용 프로그램을 다시 시작해야 할 수도 있습니다. 그런 후 Bob은 [로밍](#roaming)에 설명된 대로 프로젝트를 다운로드하고 Alice와 공동 작업을 시작할 수 있습니다. 
+직접 또는 상속을 통해 역할이 할당되면 Bob은 Machine Learning Workbench 프로젝트 목록에서 프로젝트를 볼 수 있습니다. Bob이 프로젝트를 보려면 애플리케이션을 다시 시작해야 할 수도 있습니다. 그런 후 Bob은 [로밍](#roaming)에 설명된 대로 프로젝트를 다운로드하고 Alice와 공동 작업을 시작할 수 있습니다. 
 
 프로젝트를 공동 작업하는 모든 사용자의 실행 기록은 동일한 원격 Git 리포지토리로 커밋됩니다. Alice가 실행할 때 Bob은 Machine Learning Workbench 앱의 프로젝트 실행 기록 섹션에서 해당 실행을 볼 수 있습니다. 또한 Bob은 Alice가 시작한 실행을 포함하여 프로젝트를 원하는 실행 상태로 복원할 수 있습니다. 
 
@@ -124,9 +124,9 @@ az role assignment create --assignee bob@contoso.com --role Owner --scope <works
 ### <a name="use-the-azure-portal-to-add-users"></a>Azure Portal을 사용하여 사용자 추가
 <a name="portal"></a>
 
-Machine Learning 실험 계정, 작업 영역 및 프로젝트는 Azure Resource Manager 리소스입니다. 역할을 할당하려면 **Azure Portal**에서 [액세스 제어](https://portal.azure.com) 링크를 사용하면 됩니다. 
+Machine Learning 실험 계정, 작업 영역 및 프로젝트는 Azure Resource Manager 리소스입니다. 역할을 할당하려면 [Azure Portal](https://portal.azure.com)에서 **액세스 제어(IAM)** 링크를 사용하면 됩니다. 
 
-**모든 리소스** 보기를 사용하여 사용자를 추가할 리소스를 찾습니다. **액세스 제어(IAM)** 링크를 선택한 다음 **사용자 추가**를 선택합니다. 
+**모든 리소스** 보기를 사용하여 사용자를 추가할 리소스를 찾습니다. **액세스 제어(IAM)** 링크를 선택한 다음, **역할 할당 추가**를 선택합니다. 
 
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
 

@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0ee756828a50cdf62471923614afbe88e238b9ef
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 7535aad95f7410d25ada232b4946fe52ebc4ba67
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624560"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961963"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>자습서: 인증서와 함께 Azure Active Directory Reporting API를 사용하여 데이터 가져오기
 
@@ -39,9 +39,7 @@ ms.locfileid: "51624560"
     - ADAL을 사용하는 사용자, 응용 프로그램 키 및 인증서의 액세스 토큰
     - Graph API를 처리하는 페이지 단위의 결과
 
-4. 모듈을 처음 사용하는 경우 **Install-MSCloudIdUtilsModule**을 실행하고, 그렇지 않으면 **Import-Module** Powershell 명령을 사용하여 모듈을 가져옵니다. 세션은 다음 화면과 유사하게 표시됩니다.
-
-        ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+4. 모듈을 처음 사용하는 경우 **Install-MSCloudIdUtilsModule**을 실행하고, 그렇지 않으면 **Import-Module** Powershell 명령을 사용하여 모듈을 가져옵니다. 세션은 다음 화면과 유사하게 표시됩니다. ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
   
 5. **New-SelfSignedCertificate** Powershell commandlet을 사용하여 테스트 인증서를 만듭니다.
 
@@ -66,7 +64,7 @@ ms.locfileid: "51624560"
 
 4. 방금 응용 프로그램에 등록한 인증서의 지문 및 응용 프로그램 ID를 적어 둡니다. 지문을 찾으려면 포털의 응용 프로그램 페이지에서 **설정**으로 이동하고 **키**를 클릭합니다. **공개 키** 목록 아래에 지문이 표시됩니다.
 
-5. 인라인 매니페스트 편집기에서 응용 프로그램 매니페스트를 열고 다음 스키마를 사용하여 *keyCredentials* 속성을 새 인증서 정보로 바꿉니다. 
+5. 인라인 매니페스트 편집기에서 애플리케이션 매니페스트를 열고 다음 스키마를 사용하여 *keyCredentials* 속성을 새 인증서 정보로 바꿉니다. 
 
    ```
    "keyCredentials": [
@@ -82,7 +80,7 @@ ms.locfileid: "51624560"
 
 6. 매니페스트를 저장합니다. 
   
-7. 이제 이 인증서를 사용하여 MS Graph API에 대한 액세스 토큰을 가져올 수 있습니다. MSCloudIdUtils PowerShell 모듈에서 **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet을 사용하여 이전 단계에서 가져온 응용 프로그램 ID와 지문을 전달합니다. 
+7. 이제 이 인증서를 사용하여 MS Graph API에 대한 액세스 토큰을 가져올 수 있습니다. MSCloudIdUtils PowerShell 모듈에서 **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet을 사용하여 이전 단계에서 가져온 애플리케이션 ID와 지문을 전달합니다. 
 
  ![Azure portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 

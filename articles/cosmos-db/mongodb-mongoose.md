@@ -1,25 +1,24 @@
 ---
-title: Azure Cosmos DB에 Mongoose 프레임워크 사용 | Microsoft Docs
-description: Node.js Mongoose 앱을 Azure Cosmos DB에 연결하는 방법을 알아봅니다.
-services: cosmos-db
-author: slyons
-manager: kfile
+title: Azure Cosmos DB에 Node.js Mongoose 애플리케이션 연결
+description: Mongoose 프레임워크를 사용하여 Azure Cosmos DB에서 데이터를 저장 및 관리하는 방법을 알아봅니다.
+author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 01/08/2018
-ms.author: sclyon
-ms.openlocfilehash: 8cfa53a1792d8e01c05aad8e4a1a0b5239a092c1
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 12/06/2018
+ms.author: sngun
+ms.custom: seodec18
+ms.openlocfilehash: ec47c265c3d6f826bc1b7e7d8038e284c6981b7a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857399"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134933"
 ---
-# <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB: Azure Cosmos DB에 Mongoose 프레임워크 사용
+# <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Azure Cosmos DB에 Node.js Mongoose 애플리케이션 연결
 
-이 자습서에서는 Azure Cosmos DB에 데이터를 저장할 때 [Mongoose 프레임워크](http://mongoosejs.com/)를 사용하는 방법을 보여 줍니다. 이 연습에서는 Azure Cosmos DB용 MongoDB API를 사용합니다. 잘 모르는 사람도 있겠지만, Mongoose는 Node.js에 있는 MongoDB용 개체 모델링 프레임워크이며 응용 프로그램 데이터를 모델링하기 위한 간단한 스키마 기반 솔루션을 제공합니다.
+이 자습서에서는 Azure Cosmos DB에 데이터를 저장할 때 [Mongoose 프레임워크](https://mongoosejs.com/)를 사용하는 방법을 보여 줍니다. 이 연습에서는 Azure Cosmos DB용 MongoDB API를 사용합니다. 잘 모르는 사람도 있겠지만, Mongoose는 Node.js에 있는 MongoDB용 개체 모델링 프레임워크이며 응용 프로그램 데이터를 모델링하기 위한 간단한 스키마 기반 솔루션을 제공합니다.
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다.
 
@@ -96,7 +95,7 @@ Mongoose는 사용자가 만드는 각 모델에 대한 새 MongoDB 컬렉션을
 
 이 연습에서는 두 모델을 모두 다룹니다. 먼저 컬렉션당 하나의 데이터 형식을 저장하는 연습을 합니다. 이는 사실상 Mongoose에 대한 동작입니다.
 
-또한 Mongoose에는 [판별자](http://mongoosejs.com/docs/discriminators.html)라는 개념이 있습니다. 판별자는 스키마 상속 메커니즘입니다. 판별자를 통해 동일한 기본 MongoDB 컬렉션에서 스키마가 겹치는 여러 모델을 사용할 수 있습니다.
+또한 Mongoose에는 [판별자](https://mongoosejs.com/docs/discriminators.html)라는 개념이 있습니다. 판별자는 스키마 상속 메커니즘입니다. 판별자를 통해 동일한 기본 MongoDB 컬렉션에서 스키마가 겹치는 여러 모델을 사용할 수 있습니다.
 
 동일한 컬렉션에 다양한 데이터 모델을 저장한 다음 쿼리 시 필터 절을 사용하여 필요한 데이터만 가져올 수 있습니다.
 
@@ -196,7 +195,7 @@ Mongoose는 사용자가 만드는 각 모델에 대한 새 MongoDB 컬렉션을
 
 ### <a name="using-mongoose-discriminators-to-store-data-in-a-single-collection"></a>Mongoose 판별자를 사용하여 단일 컬렉션에 데이터 저장
 
-이 방법에서는 [Mongoose 판별자](http://mongoosejs.com/docs/discriminators.html)를 사용하여 각 Azure Cosmos DB 컬렉션의 비용에 최적화합니다. 판별자를 사용하면 차별화 ‘키’를 정의할 수 있으며, 이 키를 통해 여러 개체 모델을 저장, 구별 및 필터링할 수 있습니다.
+이 방법에서는 [Mongoose 판별자](https://mongoosejs.com/docs/discriminators.html)를 사용하여 각 Azure Cosmos DB 컬렉션의 비용에 최적화합니다. 판별자를 사용하면 차별화 ‘키’를 정의할 수 있으며, 이 키를 통해 여러 개체 모델을 저장, 구별 및 필터링할 수 있습니다.
 
 이 예제에서는 기본 개체 모델을 만들고, 차별화 ‘키’를 정의하고, ‘Family’ 및 ‘VacationDestinations’를 기본 모델의 확장으로 추가합니다.
 

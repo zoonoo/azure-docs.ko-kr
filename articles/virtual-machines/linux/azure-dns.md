@@ -58,7 +58,7 @@ Azure에서는 공용 DNS 이름 확인과 함께, 동일한 가상 네트워크
 * WINS 및 NetBIOS는 지원되지 않습니다.
 * 호스트 이름은 DNS와 호환되어야 합니다.
     이름에는 0-9, a-z 및 '-'만 사용이 가능하며, '-'로 시작하거나 끝날 수 없습니다. RFC 3696 섹션을 2를 참조하세요.
-* DNS 쿼리 트래픽은 각 가상 컴퓨터에 대해 제한됩니다. 이 제한은 대부분의 응용 프로그램에 영향을 주지 않아야 합니다.  요청 제한이 확인되는 경우 클라이언트쪽 캐싱이 사용하도록 설정되었는지 확인합니다.  자세한 내용은 [Azure에서 제공하는 이름 확인 활용](#getting-the-most-from-name-resolution-that-azure-provides)을 참조하세요.
+* DNS 쿼리 트래픽은 각 가상 컴퓨터에 대해 제한됩니다. 이 제한은 대부분의 애플리케이션에 영향을 주지 않아야 합니다.  요청 제한이 확인되는 경우 클라이언트쪽 캐싱이 사용하도록 설정되었는지 확인합니다.  자세한 내용은 [Azure에서 제공하는 이름 확인 활용](#getting-the-most-from-name-resolution-that-azure-provides)을 참조하세요.
 
 ### <a name="getting-the-most-from-name-resolution-that-azure-provides"></a>Azure에서 제공하는 이름 확인 활용
 **클라이언트쪽 캐싱:**

@@ -1,5 +1,5 @@
 ---
-title: Azure Policy 샘플 - 태그 일치 패턴 적용
+title: 샘플 - 태그 일치 패턴 적용
 description: 이 샘플 정책에서는 리소스가 태그 값에 대한 일치 패턴을 충족해야 합니다.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 4de75212567c03b4fd5395818dbeae7644ee4926
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 237a5e9a54394f1227e270c0a42a160f9259710a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963239"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313890"
 ---
 # <a name="enforce-tag-match-pattern-for-tag-values"></a>태그 값에 대한 태그 일치 패턴 적용
 

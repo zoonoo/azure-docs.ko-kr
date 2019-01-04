@@ -12,18 +12,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/12/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: 9f229caa76059db403ced5b74c7a35ec2f0b8e9d
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 91966bf2958b1670559aa57076eae7a62214fec5
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721894"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809807"
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>주요 고려 사항: 서비스를 사용 하 여 또는 Azure Stack에 대 한 앱 빌드
 
-서비스를 사용 하거나 Azure Stack에 대 한 앱을 작성 하기 전에 Azure Stack 및 Azure 간의 차이점을 이해 해야 합니다. 이 문서에서는 하이브리드 클라우드 개발 환경으로 Azure Stack을 사용 하는 경우 중요 한 고려 사항을 식별 합니다.
+서비스를 사용 하거나 Azure Stack에 대 한 앱을 작성 하기 전에 Azure Stack 및 Azure 간의 차이점을 이해 해야 합니다. 이 문서에서는 하이브리드 클라우드 개발 환경으로 Azure Stack을 사용 하는 경우 주요 고려 사항을 식별 합니다.
 
 ## <a name="overview"></a>개요
 
@@ -36,11 +36,12 @@ Azure 기술 콘텐츠는 Azure Stack 대신 Azure 서비스에 대 한 앱이 �
 * Azure Stack이 제공 된 **하위 집합** 서비스 및 Azure에서 사용할 수 있는 기능.
 * 회사 또는 서비스 공급자를 제공 하고자 하는 서비스를 선택할 수 있습니다. 사용 가능한 옵션은 사용자 지정된 서비스 또는 응용 프로그램에 포함 될 수 있습니다. 자체 사용자 지정 된 설명서를 제공할 수 있습니다.
 * 올바른 사용 해야 합니다 (예: 포털 주소 및 Azure Resource Manager 끝점의 Url) Azure Stack 별 끝점입니다.
-* Azure Stack에서 지원 되는 PowerShell 및 API 버전을 사용 해야 합니다. 지원 되는 버전을 사용 하 여 Azure Stack 및 Azure 둘 다에서 앱은 작동 하는지 확인 합니다.
+* Azure Stack에서 지원 되는 PowerShell 및 API 버전을 사용 해야 합니다. 지원 되는 버전을 사용 하 여 앱이 Azure Stack 및 Azure 둘 다에서 작동 하는지 확인 합니다.
 
-## <a name="cheat-sheet-high-level-differences"></a>치트 시트: 고급 차이점
+## <a name="cheat-sheet-high-level-differences"></a>참고 자료: 상위 수준의 차이점
 
 다음 표에서 Azure Stack 및 Azure 간의 대략적인 차이 설명 합니다. Azure Stack 용 개발 하거나 Azure Stack 서비스를 사용할 때 이러한 차이점에 주의 유지 합니다.
+
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 | 영역 | Azure (전역) | Azure Stack |
@@ -52,17 +53,17 @@ Azure 기술 콘텐츠는 Azure Stack 대신 Azure 서비스에 대 한 앱이 �
 | 포털 URL * | [https://portal.azure.com](https://portal.azure.com) | Azure Stack 통합 시스템, 귀하가 Azure Stack 운영자가 제공한 URL로 이동 합니다.<br><br>개발 키트를 사용 합니다. https://portal.local.azurestack.external
 | 지역 | 배포할 지역을 선택할 수 있습니다. | Azure Stack 통합 시스템, 시스템에서 사용할 수 있는 영역을 사용 합니다.<br><br>개발 키트에 대 한 지역은 항상 **로컬**합니다.
 | 리소스 그룹 | 리소스 그룹을 여러 지역에 걸쳐 있습니다. | 통합된 시스템 및 개발 키트 모두에 대 한 지역 하나만 있습니다.
-|지원 되는 네임 스페이스, 리소스 유형 및 API 버전 | 최신 (또는 이전 버전을 아직 사용 되지 됩니다). | Azure Stack 특정 버전을 지원합니다. 이 문서의 "버전 요구 사항" 섹션을 참조 하세요.
+|지원 되는 네임 스페이스, 리소스 유형 및 API 버전 | 최신 (또는 이전 버전을 아직 사용 되지 됩니다). | Azure Stack 특정 버전을 지원합니다. 참조 된 [버전 요구 사항](#version-requirements) 이 문서의 섹션입니다.
 | | |
 
 * Azure Stack 운영자 인 경우 참조 [관리자 포털을 사용 하 여](../azure-stack-manage-portals.md) 하 고 [관리 기본 사항](../azure-stack-manage-basics.md) 자세한 내용은 합니다.
 
 ## <a name="helpful-tools-and-best-practices"></a>유용한 도구 및 모범 사례
  
- Microsoft은 Azure Stack 용 개발 하는 여러 가지 도구와 도움이 되는 지침을 제공 합니다.
+ Microsoft은 Azure Stack 용 개발 도구 및 도움이 되는 지침을 제공 합니다.
 
-| 권장 사항 | 참조 | 
-| -------- | ------------- | 
+| 권장 사항 | 참조 |
+| -------- | ------------- |
 | 개발자 워크스테이션에서 올바른 도구를 설치 합니다. | - [PowerShell 설치](azure-stack-powershell-install.md)<br>- [도구 다운로드](azure-stack-powershell-download.md)<br>- [PowerShell 구성](azure-stack-powershell-configure-user.md)<br>- [Visual Studio 설치](azure-stack-install-visual-studio.md) 
 | 다음 항목에 대 한 정보를 검토 합니다.<br>-Azure Resource Manager 템플릿 고려 사항<br>-빠른 시작 템플릿을 찾는 방법<br>-Azure를 사용 하 여 Azure Stack 용으로 개발할 수 있도록 정책 모듈을 사용 합니다. | [Azure Stack에 대한 개발](azure-stack-developer.md) | 
 | 검토 하 고 템플릿에 대 한 모범 사례를 따르세요. | [Resource Manager 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#best-practices)
@@ -75,9 +76,9 @@ Azure Stack 특정 버전의 Azure PowerShell 및 Azure 서비스 Api 지원합�
 사용 하 여 올바른 버전의 Azure PowerShell 사용 [API 버전 프로필](azure-stack-version-profiles.md)합니다. 사용할 수 있는 최신 API 버전 프로필을 확인 하려면 사용 하는 Azure Stack의 빌드에 대해 알아봅니다. Azure Stack 관리자에 게이 정보를 가져올 수 있습니다.
 
 >[!NOTE]
- Azure Stack Development Kit를 사용 하는 경우 관리자 권한이의 "현재 버전 확인" 섹션을 참조 하세요 [업데이트 관리](../azure-stack-updates.md#determine-the-current-version) Azure Stack 빌드를 확인 하려면.
+ Azure Stack Development Kit를 사용 하는 경우 관리 액세스 권한이 표시 합니다 [현재 버전 확인](../azure-stack-updates.md#determine-the-current-version) Azure Stack 빌드를 확인 하려면 섹션입니다.
 
-다른 Api에 대 한 네임 스페이스, 리소스 유형 및 Azure Stack 구독에 지원 되는 API 버전을 출력 하려면 다음 PowerShell 명령을 실행 합니다. 여기에 메모 속성 수준에서 차이 수 있습니다. (이 명령이 작동 하려면 해야 이미 [설치](azure-stack-powershell-install.md) 하 고 [구성](azure-stack-powershell-configure-user.md) Azure Stack 환경에 대 한 PowerShell. 또한 해야 Azure Stack 제품을 구독 합니다.)
+다른 Api에 대 한 네임 스페이스, 리소스 유형 및 Azure Stack 구독에 지원 되는 API 버전을 출력 하려면 다음 PowerShell 명령을 실행 합니다. 여기에 메모 속성 수준에서 차이 수 있습니다. 이 명령이 작동 하려면 해야 이미 [설치](azure-stack-powershell-install.md) 하 고 [구성](azure-stack-powershell-configure-user.md) Azure Stack 환경에 대 한 PowerShell. Azure Stack 제품에 대 한 구독이 있어야 합니다.
 
 ```powershell
 Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `

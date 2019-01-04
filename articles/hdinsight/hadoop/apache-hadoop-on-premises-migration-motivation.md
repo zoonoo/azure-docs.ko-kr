@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 82792414da9df32524e48031089dc18d2dc521cc
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 94dec611a04819580696133c48db66da1ea9c463
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288121"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000444"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 동기 부여 및 혜택
 
@@ -32,7 +32,7 @@ Azure HDInsight는  [HDP(Hortonworks Data Platform)](https://hortonworks.com/pr
 - Apache HBase
 - R
 
-## <a name="advantages-that-azure-hdinsight-offers-over-on-premises-hadoop"></a>Azure HDInsight가 온-프레미스 Hadoop보다 우수한 점
+## <a name="azure-hdinsight-advantages-over-on-premises-hadoop"></a>온-프레미스 Hadoop에 비해 Azure HDInsight의 이점
 
 - **저렴한 비용** - [주문형 클러스터를 만들고](../hdinsight-hadoop-create-linux-clusters-adf.md) 사용한 만큼만 지불하여 비용을 줄일 수 있습니다. 계산과 저장소가 분리되어 클러스터 크기에 관계 없이 데이터 볼륨이 유지되므로 유연성이 우수합니다.
 
@@ -48,7 +48,7 @@ Azure HDInsight는  [HDP(Hortonworks Data Platform)](https://hortonworks.com/pr
 
 - **버전 관리 간소화** - Azure HDInsight는 Hadoop 에코 시스템 구성 요소의 버전을 관리하고 최신 상태로 유지합니다. 소프트웨어 업데이트는 일반적으로 온-프레미스 배포를 위한 복잡한 프로세스입니다.
 
-- **더 작아지고 특정 워크로드에 최적화되고 구성 요소 간 종속성이 적은 클러스터** - 일반적인 온-프레미스 Hadoop 설치 시 다목적 단일 클러스터를 사용합니다. Azure HDInsight를 사용하면 워크로드 관련 클러스터를 만들 수 있습니다. 특정 워크로드에 대한 클러스터를 만들면 복잡성이 점점 증가하는 단일 클러스터를 유지할 필요가 없습니다.
+- **구성 요소 간 종속성이 적고 특정 워크로드에 최적화된 더 작아진 클러스터** - 일반적인 온-프레미스 Hadoop 설치 시 다목적 단일 클러스터를 사용합니다. Azure HDInsight를 사용하면 워크로드 관련 클러스터를 만들 수 있습니다. 특정 워크로드에 대한 클러스터를 만들면 복잡성이 점점 증가하는 단일 클러스터를 유지할 필요가 없습니다.
 
 - **생산성** - 원하는 개발 환경에서 다양한 Hadoop 및 Spark용 도구를 사용할 수 있습니다.
 
@@ -67,7 +67,7 @@ Azure HDInsight는  [HDP(Hortonworks Data Platform)](https://hortonworks.com/pr
 
 - **자동 복구 프로세스 및 구성 요소** - HDInsight는 자체 모니터링 인프라를 사용하여 지속적으로 인프라 및 오픈 소스 구성 요소를 확인합니다. 또한 오픈 소스 구성 요소 및 노드를 사용할 수 없는 경우처럼 중요한 오류를 자동으로 복구합니다. OSS 구성 요소에 장애가 발생하면 Ambari에서 경고가 트리거됩니다.
 
-자세한 내용은 [Azure HDInsight 및 Hadoop 기술 스택이란?](../hadoop/apache-hadoop-introduction.md) 문서를 참조하세요.
+자세한 내용은 [Azure HDInsight 및 Apache Hadoop 기술 스택이란?](../hadoop/apache-hadoop-introduction.md) 문서를 참조하세요.
 
 ## <a name="migration-planning-process"></a>마이그레이션 계획 프로세스
 
@@ -90,7 +90,7 @@ Azure HDInsight는  [HDP(Hortonworks Data Platform)](https://hortonworks.com/pr
 
 | **질문** | **예제** | **대답** |
 |---|---|---|
-|**토픽**: **환경**|||
+|**항목**: **환경**|||
 |클러스터 배포 유형|Hortonworks, Cloudera, MapR| |
 |클러스터 배포 버전|HDP 2.6.5, CDH 5.7|
 |빅 데이터 에코시스템 구성 요소|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
@@ -108,7 +108,7 @@ Azure HDInsight는  [HDP(Hortonworks Data Platform)](https://hortonworks.com/pr
 |재해 복구/백업|백업 클러스터 지원 여부|  
 |클러스터에 종속된 시스템|SQL Server, Teradata, Power BI, MongoDB|
 |타사 통합|Tableau, GridGain, Qubole, Informatica, Splunk|
-|**토픽**: **보안**|||
+|**항목**: **보안**|||
 |경계 보안|방화벽|
 |클러스터 인증 및 권한 부여|Active Directory, Ambari, Cloudera Manager, 인증 없음|
 |HDFS 액세스 제어|  수동, ssh 사용자|
@@ -123,7 +123,7 @@ Azure HDInsight는  [HDP(Hortonworks Data Platform)](https://hortonworks.com/pr
 
 |**질문**|**예제**|**대답**|
 |---|---|---|
-|**토픽**: **워크로드 및 빈도**|||
+|**항목**: **워크로드 및 빈도**|||
 |MapReduce 작업|10개 작업 -- 하루 2회||
 |Hive 작업|100개 작업 -- 1시간마다||
 |Spark 일괄 작업|50개 작업 -- 15분마다||
@@ -132,53 +132,53 @@ Azure HDInsight는  [HDP(Hortonworks Data Platform)](https://hortonworks.com/pr
 |ML 모델 학습 작업|2개 작업 -- 주당 1회||
 |프로그래밍 언어|Python, Scala, Java||
 |스크립팅|셸, Python||
-|**토픽**: **데이터**|||
+|**항목**: **데이터**|||
 |데이터 원본|플랫 파일, Json, Kafka, RDBMS||
 |데이터 오케스트레이션|Oozie 워크플로, Airflow||
 |메모리 내 조회|Apache Ignite, Redis||
 |데이터 대상|HDFS, RDBMS, Kafka, MPP ||
-|**토픽**: **메타데이터**|||
+|**항목**: **메타 데이터**|||
 |Hive DB 형식|Mysql, Postgres||
 | 아니요. Hive metastore 수|2||
 | 아니요. Hive 테이블 수|100||
 | 아니요. Ranger 정책 수|20||
 | 아니요. Oozie 워크플로 수|100||
-|**토픽**: **규모**|||
+|**항목**: **규모**|||
 |복제를 비롯한 데이터 볼륨|100TB||
 |일일 수집 볼륨|50GB||
 |데이터 증가 속도|연 10%||
 |클러스터 노드 증가 속도|연 5%
-|**토픽**: **클러스터 사용률**|||
+|**항목**: **클러스터 사용률**|||
 |평균 CPU 사용률(%)|60%||
 |평균 메모리 사용률(%)|75%||
 |디스크 공간 사용률|75%||
 |평균 네트워크 사용률(%)|25%
-|**토픽**: **직원**|||
+|**항목**: **직원**|||
 | 아니요. 관리자 수|2||
 | 아니요. 개발자 수|10||
 | 아니요. 최종 사용자 수|100||
 |기술|Hadoop, Spark||
 | 아니요. 마이그레이션 작업에 사용 가능한 리소스|2||
-|**토픽**: **제한 사항**|||
+|**항목**: **제한 사항**|||
 |현재 제한 사항|대기 시간이 높음||
 |현재 과제|동시성 문제||
 
 ### <a name="azure-requirements-questionnaire"></a>Azure 요구 사항 설문지
 
-|**토픽**: **인프라** |||
+|**항목**: **인프라** |||
 |---|---|---|
 |**질문**|**예제**|**대답**|
 | 기본 지역|미국 동부||
 |VNet이 기본 설정입니까?|yes||
 |HA/DR이 필요합니까?|yes||
 |다른 클라우드 서비스와의 통합 여부|ADF, CosmosDB||
-|**토픽**: **데이터 이동**  |||
+|**항목**:   **데이터 이동**  |||
 |초기 로드 기본 설정|DistCp, Data box, ADF, WANDisco||
 |데이터 전송 델타|DistCp, AzCopy||
 |지속적인 증분 데이터 전송|DistCp, Sqoop||
-|**토픽**: **모니터링 및 경고** |||
+|**항목**:   **모니터링 및 경고** |||
 |Azure와 타사의 모니터링 및 경고 사용 비교|Azure 모니터링 및 경고 사용||
-|**토픽**: **보인 기본 설정** |||
+|**항목**:   **보안 기본 설정** |||
 |보호되는 비공개 데이터 파이프라인입니까?|yes||
 |도메인 가입 클러스터(ESP)입니까?|     yes||
 |온-프레미스 AD가 클라우드와 동기화됩니까?|     yes||
@@ -191,7 +191,7 @@ Azure HDInsight는  [HDP(Hortonworks Data Platform)](https://hortonworks.com/pr
 |감사가 필요합니까?|                  yes||
 |저장 데이터 암호화를 사용합니까?|          yes||
 |전송 중 데이터 암호화를 사용합니까?|       yes||
-|**토픽**: **재설계 기본 설정** |||
+|**항목**:   **재설계 기본 설정** |||
 |단일 클러스터 vs 특정 클러스터 형식|특정 클러스터 형식||
 |공동 배치된 저장소 Vs 원격 저장소|원격 저장소||
 |데이터로 더 작은 클러스터 크기는 원격으로 저장되나요?|더 작은 클러스터 크기||

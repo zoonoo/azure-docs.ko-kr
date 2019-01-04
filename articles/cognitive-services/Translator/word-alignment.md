@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 12/06/2018
 ms.author: v-jansko
-ms.openlocfilehash: 15b2d96cdf1794ae0f72c087ef95055da7c0964e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.custom: seodec18
+ms.openlocfilehash: 74e26d4bb9b9c901524a85248dbf7f9d6ead5e95
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646374"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091478"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>단어 맞춤 정보를 받는 방법
 
@@ -27,7 +28,7 @@ ms.locfileid: "49646374"
 
 [[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
 
-맞춤 문자열 예: “0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21”.
+맞춤 문자열 예제: “0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21”.
 
 즉, 콜론은 시작 및 끝 인덱스를 구분하고, 대시는 언어를 구분하고, 공백은 단어를 구분합니다. 한 단어는 다른 언어의 0개, 1개 또는 여러 단어와 정렬될 수 있고, 정렬된 단어가 비연속적일 수도 있습니다. 맞춤 정보를 사용할 수 없는 경우 Alignment 요소가 비어 있습니다. 이 경우에는 메서드가 오류를 반환하지 않습니다.
 

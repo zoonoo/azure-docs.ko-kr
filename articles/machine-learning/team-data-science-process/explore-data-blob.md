@@ -1,6 +1,6 @@
 ---
-title: pandas를 사용하여 Azure Blob Storage의 데이터 탐색 | Microsoft Docs
-description: pandas를 사용하여 Azure Blob 컨테이너에 저장된 데이터를 탐색하는 방법입니다.
+title: pandas를 사용하여 Azure Blob Storage에서 데이터 탐색 - Team Data Science Process
+description: pandas Python 패키지를 사용하여 Azure Blob 컨테이너에 저장된 데이터를 탐색하는 방법
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 12e277168d27786581d14adc4c32b94d0979df6d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 43dcb5d207b754938469abca9353b83687797335
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441589"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141393"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>pandas를 사용하여 Azure Blob 저장소의 데이터 탐색
 
@@ -63,7 +63,7 @@ ms.locfileid: "52441589"
 1. **행** 및 열 수 
    
         print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
-2. 다음 데이터 집합에서 첫 번째 또는 마지막 몇 **행**을 **검사**합니다.
+2. 다음 데이터 세트에서 첫 번째 또는 마지막 몇 **행**을 **검사**합니다.
    
         dataframe_blobdata.head(10)
    

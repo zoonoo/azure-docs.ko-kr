@@ -34,7 +34,7 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
 *   MySQL
 *   Oracle 데이터베이스
 *   PostgreSQL
-*   SAP 응용 프로그램 서버 
+*   SAP 애플리케이션 서버 
 *   SAP 메시지 서버
 *   SharePoint Server
 *   SQL Server
@@ -333,7 +333,7 @@ TcpTestSucceeded       : True
 **A**: 아니요. 게이트웨이는 온-프레미스 데이터 원본에만 연결됩니다.
 
 **Q**: 데이터 원본과 동일한 컴퓨터에 게이트웨이를 설치해야 하나요? <br/>
-**A**: 아니요. 게이트웨이는 제공된 연결 정보를 사용하여 데이터 원본에 연결됩니다. 이러한 의미에서 게이트웨이를 클라이언트 응용 프로그램이라고 생각할 수 있습니다. 게이트웨이는 제공된 서버 이름에 연결할 수 있는 기능이 필요합니다.
+**A**: 아니요. 게이트웨이는 제공된 연결 정보를 사용하여 데이터 원본에 연결됩니다. 이러한 의미에서 게이트웨이를 클라이언트 애플리케이션이라고 생각할 수 있습니다. 게이트웨이는 제공된 서버 이름에 연결할 수 있는 기능이 필요합니다.
 
 <a name="why-azure-work-school-account"></a>
 

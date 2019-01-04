@@ -31,7 +31,7 @@ ms.locfileid: "51234190"
 ## <a name="getting-started"></a>시작
 1. 솔루션을 인증 받아서 Azure Marketplace에 등록하는 과정의 첫 번째 단계는 [Microsoft Azure Certified](https://createopportunity.azurewebsites.net) 웹 페이지에서 신청 양식을 작성하는 것입니다.
 2. 자격 조건을 충족하고 신청이 승인되면 Azure Marketplace에 솔루션을 등록하기 위한 작업을 사용자와 함께 시작합니다.
-3. 파트너 계정 관리자나 DX 파트너 관리자와 함께 작업하는 경우 Azure Certified 프로그램의 솔루션을 추천해달라고 요청하거나, [Microsoft Azure Certified](http://createopportunity.azurewebsites.net) 웹 페이지로 이동하여 응용 프로그램 양식을 작성하고 Microsoft 스폰서 연락처 필드에 파트너 계정 관리자나 DX 파트너 관리자의 메일을 입력합니다.
+3. 파트너 계정 관리자나 DX 파트너 관리자와 함께 작업하는 경우 Azure Certified 프로그램의 솔루션을 추천해달라고 요청하거나, [Microsoft Azure Certified](http://createopportunity.azurewebsites.net) 웹 페이지로 이동하여 애플리케이션 양식을 작성하고 Microsoft 스폰서 연락처 필드에 파트너 계정 관리자나 DX 파트너 관리자의 메일을 입력합니다.
 
 > [!IMPORTANT]
 > **"판매" 국가** - Microsoft Azure Marketplace에서 서비스를 판매하기 위해서는 등록된 법인이 승인된 “판매” 국가 중 하나에 속해 있어야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. Microsoft는 가까운 장래에 이 국가 목록을 확장하기 위해 적극 노력하고 있으니 기대해 주세요. 전체 목록은 [Azure Marketplace 참가 정책](https://go.microsoft.com/fwlink/?LinkID=526833)의 섹션 1b를 참조하세요.

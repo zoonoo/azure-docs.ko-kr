@@ -22,7 +22,7 @@ ms.lasthandoff: 11/07/2018
 ms.locfileid: "51258064"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Service Fabric Reliable Actors 알아보기
-Reliable Actors는 [가상의 행위자](https://research.microsoft.com/en-us/projects/orleans/) 패턴을 기반으로 한 Service Fabric 응용 프로그램 프레임워크입니다. Reliable Actors API는 Service Fabric에서 보장하는 확장성과 안정성을 바탕으로 단일 스레드 프로그래밍 모델을 제공합니다.
+Reliable Actors는 [가상의 행위자](https://research.microsoft.com/en-us/projects/orleans/) 패턴을 기반으로 한 Service Fabric 애플리케이션 프레임워크입니다. Reliable Actors API는 Service Fabric에서 보장하는 확장성과 안정성을 바탕으로 단일 스레드 프로그래밍 모델을 제공합니다.
 
 ## <a name="what-are-actors"></a>행위자(Actor)란?
 하나의 행위자(actor)는 독립적이며 격리된 연산의 단위이며 단일 스레드로 실행되는 상태를 가리킵니다. 많은 수의 행위자가 모여 동시에 상호독립적으로 실행할 수 있게 되는 동시 또는 분산 시스템을 위한 컴퓨팅 모델을 [행위자 패턴](https://en.wikipedia.org/wiki/Actor_model)이라고 합니다. 행위자 간에는 통신이 가능할 뿐 아니라 더 많은 행위자를 만들어 낼 수도 있습니다.
@@ -37,7 +37,7 @@ Service Fabric Reliable Actors는 행위자 디자인 패턴을 구현한 것입
 * I/O 작업 실행으로 인한 예측할 수 없는 지연을 이유로 행위자 인스턴스가 호출자를 차단하지 않는 경우
 
 ## <a name="actors-in-service-fabric"></a>Service Fabric 내에서의 행위자
-Service Fabric 내에서의 행위자는 Reliable Actors 프레임워크, 즉, [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md)에 기반한 행위자 패턴을 기반으로 한 응용 프로그램 프레임워크에서 구현됩니다. 작성하는 각 Reliable Actor 서비스는 실제로 분할되고, 상태가 유지되는 Reliable Service입니다.
+Service Fabric 내에서의 행위자는 Reliable Actors 프레임워크, 즉, [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md)에 기반한 행위자 패턴을 기반으로 한 애플리케이션 프레임워크에서 구현됩니다. 작성하는 각 Reliable Actor 서비스는 실제로 분할되고, 상태가 유지되는 Reliable Service입니다.
 
 .NET 개체가 .NET 형식의 인스턴스인 것과 동일하게 모든 행위자는 행위자 형식의 인스턴스로 정의됩니다. 예를 들어, 계산기의 기능을 구현하는 행위자 형식이 있을 수 있으며 클러스터 전체에 걸쳐 다양한 노드에 배포되는 해당 형식의 여러 행위자가 있을 수 있습니다. 이러한 각 행위자는 행위자 ID에 의해 고유하게 식별됩니다.
 
@@ -99,7 +99,7 @@ myActor.DoWorkAsync().get();
 ```
 
 
-행위자 프록시 개체를 만드는 데 사용된 두 가지 정보는 행위자 ID 및 응용 프로그램 이름입니다. 응용 프로그램 이름은 행위자가 배포된 [Service Fabric 응용 프로그램](service-fabric-reliable-actors-platform.md#application-model)을 식별하고 해당 행위자 ID는 행위자를 고유하게 식별합니다.
+행위자 프록시 개체를 만드는 데 사용된 두 가지 정보는 행위자 ID 및 애플리케이션 이름입니다. 애플리케이션 이름은 행위자가 배포된 [Service Fabric 애플리케이션](service-fabric-reliable-actors-platform.md#application-model)을 식별하고 해당 행위자 ID는 행위자를 고유하게 식별합니다.
 
 클라이언트 쪽 `ActorProxy`(C#)/`ActorProxyBase`(Java) 클래스는 ID를 기준으로 행위자를 찾는 데 필요한 해결 방법을 수행하고 통신 채널을 엽니다. 또한 통신 오류 및 장애 조치(failover) 시에 행위자를 찾도록 다시 시도합니다. 결과적으로 메시지 전달에는 다음과 같은 특징이 있습니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
 ms.author: TylerMSFT
-ms.openlocfilehash: 1041f37486c556ae29eed47728336a1ccb518e78
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 154869c3e6bcd44a71480a3cf7363537dddcebf9
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040369"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727684"
 ---
 # <a name="supported-service-fabric-versions"></a>지원되는 Service Fabric 버전
 
@@ -42,5 +42,6 @@ ms.locfileid: "48040369"
 | 5.7.* | 5.4.164.* |버전 2.7보다 작거나 같음 |2017년 12월 15일  |
 | 6.0.* | 5.6.205.* |버전 2.8보다 작거나 같음 |2018년 3월 30일     |
 | 6.1.* | 5.7.221.* |버전 3.0보다 작거나 같음 |2018년 7월15일      |
-| 6.2.* | 6.0.232.* |버전 3.1보다 작거나 같음 |2018년 10월 26일 |
-| 6.3.* | 6.1.480.* |버전 3.2보다 작거나 같음 |현재 버전 및 종료 날짜 |
+| 6.2.* | 6.0.232.* |버전 3.1보다 작거나 같음 |2018년 10월 26일   |
+| 6.3.* | 6.1.480.* |버전 3.2보다 작거나 같음 |2019년 2월 28일  |
+| 6.4.* | 6.2.301.* |버전 3.3보다 작거나 같음 |현재 버전 및 종료 날짜 |

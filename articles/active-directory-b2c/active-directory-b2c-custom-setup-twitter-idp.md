@@ -28,9 +28,9 @@ ms.locfileid: "48887352"
 - [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다.
 - Twitter 계정이 없는 경우 [Twitter 가입 페이지](https://twitter.com/signup)에서 계정을 생성하세요.
 
-## <a name="create-an-application"></a>응용 프로그램 만들기
+## <a name="create-an-application"></a>애플리케이션 만들기
 
-Azure AD B2C에서 ID 공급자로 Twitter를 사용하려면 Twitter 응용 프로그램을 만들어야 합니다.
+Azure AD B2C에서 ID 공급자로 Twitter를 사용하려면 Twitter 애플리케이션을 만들어야 합니다.
 
 1. Twitter 계정 자격 증명을 사용하여 [Twitter 개발자](https://developer.twitter.com/en/apps) 웹 사이트에 로그인합니다.
 2. **앱 만들기**를 선택합니다.
@@ -152,15 +152,15 @@ Azure AD B2C에서 ID 공급자로 Twitter를 사용하려면 Twitter 응용 프
 
 3. *TrustFrameworkExtensions.xml* 파일을 저장하고 확인을 위해 다시 업로드합니다.
 
-## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 응용 프로그램 만들기
+## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 애플리케이션 만들기
 
-Azure AD B2C와의 통신은 테넌트에서 만드는 응용 프로그램을 통해 수행됩니다. 이 섹션에서는 테스트 응용 프로그램을 아직 만들지 않은 경우 이를 만들기 위해 완료할 수 있는 선택적 단계를 설명합니다.
+Azure AD B2C와의 통신은 테넌트에서 만드는 애플리케이션을 통해 수행됩니다. 이 섹션에서는 테스트 애플리케이션을 아직 만들지 않은 경우 이를 만들기 위해 완료할 수 있는 선택적 단계를 설명합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. **응용 프로그램**을 선택하고 **추가**를 선택합니다.
-5. 응용 프로그램 이름(예: *testapp1*)을 입력합니다.
+5. 애플리케이션 이름(예: *testapp1*)을 입력합니다.
 6. **웹앱/웹 API**에서 `Yes`를 선택하고 **회신 URL**에는 `https://jwt.ms`를 입력합니다.
 7. **만들기**를 클릭합니다.
 

@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: Bing News Search SDK, C#'
+title: '빠른 시작: 뉴스 검색 수행 - C#용 Bing News Search SDK'
 titleSuffix: Azure Cognitive Services
-description: Bing News Search SDK 콘솔 응용 프로그램을 설정합니다.
+description: 이 빠른 시작을 사용하여 Python용 Bing News Search SDK를 통해 뉴스를 검색하고 응답을 처리합니다.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,23 +10,24 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 447c59d45e3b1614ce8dbddc56f9dba0dd156e90
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: d116f2553ce35c2d4041f37cc3fe4567e1595adc
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317061"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258766"
 ---
-# <a name="quickstart-bing-news-search-sdk-with-c"></a>빠른 시작: C#을 통해 Bing News Search SDK 설정
+# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>빠른 시작: C#용 Bing News Search SDK로 뉴스 검색 수행
 
 Bing News Search SDK는 뉴스 쿼리 및 구문 분석 결과에 대한 REST API 기능을 포함하고 있습니다. 
 
 [C# Bing News Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch)은 Git Hub에서 얻을 수 있습니다.
 
-## <a name="application-dependencies"></a>응용 프로그램 종속성
+## <a name="application-dependencies"></a>애플리케이션 종속성
 **검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.  
 
-Bing News Search SDK를 사용하여 콘솔 응용 프로그램을 설정하려면 Visual Studio의 솔루션 탐색기에서 `Manage NuGet Packages` 옵션을 찾습니다.  `Microsoft.Azure.CognitiveServices.Search.NewsSearch` 패키지를 추가합니다.
+Bing News Search SDK를 사용하여 콘솔 애플리케이션을 설정하려면 Visual Studio의 솔루션 탐색기에서 `Manage NuGet Packages` 옵션을 찾습니다.  `Microsoft.Azure.CognitiveServices.Search.NewsSearch` 패키지를 추가합니다.
 
 [NuGet News Search SDK 패키지](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0)를 설치하면 다음을 포함한 종속성도 설치됩니다.
 * Microsoft.Rest.ClientRuntime
@@ -72,9 +73,9 @@ else
 }
 
 ```
-## <a name="complete-console-application"></a>전체 콘솔 응용 프로그램
+## <a name="complete-console-application"></a>전체 콘솔 애플리케이션
 
-다음 콘솔 응용 프로그램은 이전에 정의된 쿼리를 실행하고 "Quantum Computing"에 대한 뉴스를 검색합니다. 요청에는 `market` 및 `count` 매개 변수가 포함됩니다. 이 코드는 결과의 수를 확인하고 첫 번째 뉴스 결과의 `totalEstimatedMatches`, `name`, `url`, `description`, `published time` 및 `provider` `name`을 출력합니다.
+다음 콘솔 애플리케이션은 이전에 정의된 쿼리를 실행하고 "Quantum Computing"에 대한 뉴스를 검색합니다. 요청에는 `market` 및 `count` 매개 변수가 포함됩니다. 이 코드는 결과의 수를 확인하고 첫 번째 뉴스 결과의 `totalEstimatedMatches`, `name`, `url`, `description`, `published time` 및 `provider` `name`을 출력합니다.
 
 ```
 using System;

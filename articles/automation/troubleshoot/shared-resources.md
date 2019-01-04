@@ -4,16 +4,16 @@ description: Azure Automation 공유 리소스 문제를 해결하는 방법 알
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/05/2018
+ms.date: 12/3/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 385d2969e65647ab0b5c5e21c07b127104587e7e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ce78c86cdae9a06100fd17d00e0229805e42983b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263418"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848462"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>공유 리소스 오류 해결
 
@@ -21,15 +21,15 @@ ms.locfileid: "51263418"
 
 ## <a name="modules"></a>모듈
 
-### <a name="module-stuck-importing"></a>시나리오: 모듈이 가져오기 상태에서 중단
+### <a name="module-stuck-importing"></a>시나리오: 모듈이 가져오기 상태에서 중단됨
 
 #### <a name="issue"></a>문제
 
 Azure Automation에서 모듈을 가져오거나 업데이트할 때 모듈이 **가져오기** 상태에서 중단됩니다.
 
-#### <a name="error"></a>오류
+#### <a name="cause"></a>원인
 
-PowerShell 모듈 가져오기는 복잡한 다단계 프로세스입니다. 이 프로세스는 모듈 가져오기가 제대로 수행되지 않을 가능성이 있습니다. 이 경우 가져오는 모듈이 일시적인 상태에서 중단될 수 있습니다. 이 프로세스에 대한 자세한 내용은 [PowerShell 모듈 가져오기]( /powershell/developer/module/importing-a-powershell-module#the-importing-process)를 참조하세요.
+PowerShell 모듈 가져오기는 복잡한 다단계 프로세스입니다. 이 프로세스는 모듈 가져오기가 제대로 수행되지 않을 가능성이 있습니다. 이 문제가 발생하는 경우 가져오는 모듈이 일시적인 상태에서 중단될 수 있습니다. 이 프로세스에 대한 자세한 내용은 [PowerShell 모듈 가져오기]( /powershell/developer/module/importing-a-powershell-module#the-importing-process)를 참조하세요.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -38,6 +38,28 @@ PowerShell 모듈 가져오기는 복잡한 다단계 프로세스입니다. 이
 ```azurepowershell-interactive
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
+
+## <a name="run-as-accounts"></a>실행 계정
+
+### <a name="unable-create-update"></a>시나리오: 실행 계정을 만들거나 업데이트할 수 없음
+
+#### <a name="issue"></a>문제
+
+실행 계정을 만들거나 업데이트하려고 할 때 다음 오류 메시지와 비슷한 오류가 표시됩니다.
+
+```error
+You do not have permissions to create…
+```
+
+#### <a name="cause"></a>원인
+
+실행 계정을 만들거나 업데이트해야 하는 권한이 없거나 리소스 그룹 수준에서 리소스가 잠겨 있습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+실행 계정을 만들거나 업데이트하려면 실행 계정에서 사용된 다양한 리소스에 대해 적절한 권한이 있어야 합니다. 실행 계정을 만들거나 업데이트하는 데 필요한 권한에 대해 알아보려면 [실행 계정 권한](../manage-runas-account.md#permissions)을 참조하세요.
+
+문제가 잠금으로 인해 발생한 경우 잠금을 제거하고 잠겨 있는 리소스로 이동해도 문제 없는지 확인하고, 잠금을 마우스 오른쪽 단추로 클릭하고, **삭제**를 선택하여 잠금을 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

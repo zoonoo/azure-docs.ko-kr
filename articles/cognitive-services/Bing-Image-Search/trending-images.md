@@ -1,7 +1,7 @@
 ---
-title: 유행하는 최신 이미지에 대한 웹 검색 - Bing Image Search API
+title: Bing Image Search API를 사용하여 유행하는 이미지 가져오기
 titleSuffix: Azure Cognitive Services
-description: Bing Images Search API를 사용하여 웹에서 유행하는 최신 이미지를 검색하는 방법을 알아봅니다.
+description: Bing Image Search API를 사용하여 웹에서 유행하는 최신 이미지를 검색합니다.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 00d992da1d061ddbbee59e93898a92b6701f1ffb
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: seodec2018
+ms.openlocfilehash: 8d58c188275dc6b546d418b51835514c99f25d28
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296314"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258971"
 ---
-# <a name="get-trending-images-from-the-bing-image-search-api"></a>Bing Image Search API에서 유행하는 최신 이미지 가져오기
+# <a name="get-trending-images-from-the-web"></a>웹에서 유행하는 이미지 가져오기
 
 현재 유행하는 최신 이미지를 가져오려면 다음 GET 요청을 보냅니다.  
 

@@ -23,7 +23,7 @@ ms.locfileid: "52495577"
 > [!NOTE]
 > 일반적으로 HDFS는 HDInsight 클러스터 내에 배포되어 저장소를 제공하지 않습니다. 대신 Hadoop 구성 요소에서 HDFS 호환 인터페이스 계층을 사용합니다. 실제 저장소 용량은 Azure Storage 또는 Azure Data Lake Store에서 제공합니다. Hadoop의 경우 HDFS가 있는 것처럼 HDInsight 클러스터에서 실행되는 MapReduce 작업이 실행되므로 저장소 요구 사항을 지원하기 위해 변경할 필요가 없습니다. HDInsight의 Hadoop에서 저장소는 아웃소싱되지만 YARN 처리는 핵심 구성 요소로 남아 있습니다. 자세한 내용은 [Azure HDInsight 소개](hadoop/apache-hadoop-introduction.md)를 참조하세요.
 
-이 문서에서는 YARN과 HDInsight에서 응용 프로그램 실행을 조정하는 방법에 대해 소개합니다.
+이 문서에서는 YARN과 HDInsight에서 애플리케이션 실행을 조정하는 방법에 대해 소개합니다.
 
 ## <a name="apache-hadoop-yarn-basics"></a>Apache Hadoop YARN 기본 내용 
 
@@ -32,15 +32,15 @@ YARN은 Hadoop의 데이터 처리를 제어하고 오케스트레이션합니�
 * ResourceManager 
 * NodeManager
 
-ResourceManager는 MapReduce 작업과 같은 응용 프로그램에 클러스터 계산 리소스를 제공합니다. ResourceManager는 이러한 리소스를 컨테이너로 제공하며, 각 컨테이너는 CPU 코어 수 및 RAM 메모리의 할당으로 구성됩니다. 클러스터에서 사용할 수 있는 모든 리소스를 결합한 다음, 코어 및 메모리를 블록으로 분산한 경우 각 리소스 블록이 컨테이너가 됩니다. 클러스터의 각 노드에는 특정 수의 컨테이너에 대한 용량이 있으므로, 클러스터에는 사용할 수 있는 컨테이너 수에 대해 고정된 제한이 있습니다. 컨테이너에 있는 리소스의 할당은 구성할 수 있습니다. 
+ResourceManager는 MapReduce 작업과 같은 애플리케이션에 클러스터 계산 리소스를 제공합니다. ResourceManager는 이러한 리소스를 컨테이너로 제공하며, 각 컨테이너는 CPU 코어 수 및 RAM 메모리의 할당으로 구성됩니다. 클러스터에서 사용할 수 있는 모든 리소스를 결합한 다음, 코어 및 메모리를 블록으로 분산한 경우 각 리소스 블록이 컨테이너가 됩니다. 클러스터의 각 노드에는 특정 수의 컨테이너에 대한 용량이 있으므로, 클러스터에는 사용할 수 있는 컨테이너 수에 대해 고정된 제한이 있습니다. 컨테이너에 있는 리소스의 할당은 구성할 수 있습니다. 
 
-MapReduce 응용 프로그램이 클러스터에서 실행될 때, ResourceManager는 실행할 컨테이너를 응용 프로그램에 제공합니다. ResourceManager는 실행 중인 응용 프로그램의 상태와 사용 가능한 클러스터 용량을 추적하고, 리소스가 완료되고 해제될 때 응용 프로그램을 추적합니다. 
+MapReduce 애플리케이션이 클러스터에서 실행될 때, ResourceManager는 실행할 컨테이너를 애플리케이션에 제공합니다. ResourceManager는 실행 중인 애플리케이션의 상태와 사용 가능한 클러스터 용량을 추적하고, 리소스가 완료되고 해제될 때 애플리케이션을 추적합니다. 
 
-또한 ResourceManager는 응용 프로그램의 상태를 모니터링하기 위한 웹 사용자 인터페이스를 제공하는 웹 서버 프로세스도 실행합니다.
+또한 ResourceManager는 애플리케이션의 상태를 모니터링하기 위한 웹 사용자 인터페이스를 제공하는 웹 서버 프로세스도 실행합니다.
 
-사용자가 클러스터에서 실행할 MapReduce 응용 프로그램을 제출하면 해당 응용 프로그램이 ResourceManager에 제출됩니다. 이에 따라 ResourceManager는 사용 가능한 NodeManager 노드에 컨테이너를 할당합니다. NodeManager 노드는 실제로 응용 프로그램이 실행되는 위치입니다. 할당된 첫 번째 컨테이너에서 ApplicationMaster라는 특별한 응용 프로그램을 실행합니다. 이 ApplicationMaster는 제출된 응용 프로그램을 실행하는 데 필요한 리소스를 후속 컨테이너의 형태로 확보해야 합니다. ApplicationMaster는 응용 프로그램의 단계(예: 맵 단계 및 축소 단계)를 검사하고 처리해야 할 데이터의 양을 결정합니다. 그런 다음 ApplicationMaster는 응용 프로그램을 대신하여 ResourceManager에서 리소스를 요청(*협상*)합니다. 이에 따라 ResourceManager는 응용 프로그램을 실행하는 데 사용하도록 클러스터의 NodeManager에서 ApplicationMaster로 리소스를 제공합니다. 
+사용자가 클러스터에서 실행할 MapReduce 애플리케이션을 제출하면 해당 애플리케이션이 ResourceManager에 제출됩니다. 이에 따라 ResourceManager는 사용 가능한 NodeManager 노드에 컨테이너를 할당합니다. NodeManager 노드는 실제로 애플리케이션이 실행되는 위치입니다. 할당된 첫 번째 컨테이너에서 ApplicationMaster라는 특별한 애플리케이션을 실행합니다. 이 ApplicationMaster는 제출된 애플리케이션을 실행하는 데 필요한 리소스를 후속 컨테이너의 형태로 확보해야 합니다. ApplicationMaster는 애플리케이션의 단계(예: 맵 단계 및 축소 단계)를 검사하고 처리해야 할 데이터의 양을 결정합니다. 그런 다음, ApplicationMaster는 애플리케이션을 대신하여 ResourceManager에서 리소스를 요청(*협상*)합니다. 이에 따라 ResourceManager는 애플리케이션을 실행하는 데 사용하도록 클러스터의 NodeManager에서 ApplicationMaster로 리소스를 제공합니다. 
 
-NodeManager는 응용 프로그램을 구성하는 작업을 실행한 다음, 진행 상황과 상태를 ApplicationMaster에 다시 보고합니다. ApplicationMaster는 다시 응용 프로그램의 상태를 ResourceManager에 보고합니다. 이에 따라 ResourceManager는 모든 결과를 클라이언트에 반환합니다.
+NodeManager는 애플리케이션을 구성하는 작업을 실행한 다음, 진행 상황과 상태를 ApplicationMaster에 다시 보고합니다. ApplicationMaster는 다시 애플리케이션의 상태를 ResourceManager에 보고합니다. 이에 따라 ResourceManager는 모든 결과를 클라이언트에 반환합니다.
 
 ## <a name="yarn-on-hdinsight"></a>HDInsight의 YARN
 

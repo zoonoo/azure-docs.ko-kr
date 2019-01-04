@@ -1,6 +1,6 @@
 ---
 title: 스마트 검색 - Azure Application Insights에서 검색된 클라우드 리소스의 낮은 사용률 | Microsoft Docs
-description: Azure Application Insights를 사용하여 응용 프로그램에서 클라우드 리소스의 낮은 사용률을 모니터링합니다.
+description: Azure Application Insights를 사용하여 애플리케이션에서 클라우드 리소스의 낮은 사용률을 모니터링합니다.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -21,7 +21,7 @@ ms.locfileid: "52726919"
 ---
 # <a name="low-cpu-utilization-in-cloud-resources-preview"></a>클라우드 리소스의 낮은 CPU 사용률(미리 보기)
 
-Application Insight는 응용 프로그램에서 각 역할 인스턴스의 CPU 사용을 자동으로 분석하고 CPU 사용률이 낮은 인스턴스를 검색합니다. 이 검색을 사용하면 각 역할이 사용하는 역할 인스턴스 수를 줄이거나 역할 수를 줄여 Azure 리소스를 줄이고 비용을 절감할 수 있습니다.
+Application Insight는 애플리케이션에서 각 역할 인스턴스의 CPU 사용을 자동으로 분석하고 CPU 사용률이 낮은 인스턴스를 검색합니다. 이 검색을 사용하면 각 역할이 사용하는 역할 인스턴스 수를 줄이거나 역할 수를 줄여 Azure 리소스를 줄이고 비용을 절감할 수 있습니다.
 
 이 기능을 사용하려면 앱에 대한 [성능 카운터 구성](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) 이외의 특별한 설정이 필요하지 않습니다. 앱에서 충분한 CPU 성능 카운터 원격 분석(% 프로세서 시간)을 생성하면 이 기능이 활성화됩니다.
 

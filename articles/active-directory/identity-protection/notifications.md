@@ -2,7 +2,7 @@
 title: Azure Active Directory ID 보호 알림 | Microsoft Docs
 description: 알림에서 조사 활동을 지원하는 방법에 대해 알아봅니다.
 services: active-directory
-keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
+keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 애플리케이션 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -57,7 +57,7 @@ Azure AD ID 보호는 두 가지 유형의 자동화된 알림 전자 메일을 
 ## <a name="weekly-digest-email"></a>주간 다이제스트 전자 메일
 
 주 단위 요약 메일은 새로운 위험 이벤트의 요약을 포함합니다.  
-다음을 포함합니다.
+ 다음을 포함합니다.
 
 - 위험에 노출된 사용자
 

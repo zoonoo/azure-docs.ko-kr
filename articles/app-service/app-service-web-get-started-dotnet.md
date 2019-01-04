@@ -1,6 +1,6 @@
 ---
-title: Azure에서 C# ASP.NET Core 웹앱 만들기 | Microsoft Docs
-description: 기본 C# ASP.NET 웹앱을 배포하여 Azure App Service에서 웹앱을 실행하는 방법을 알아봅니다.
+title: C# ASP.NET Core 웹앱 만들기 - Azure App Service | Microsoft Docs
+description: 기본 C# ASP.NET Core 웹앱을 배포하여 Azure App Service에서 웹앱을 실행하는 방법을 알아봅니다.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: ad17488c4e1fd5eb3965049b26d3f00270dce50f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.custom: seodec18
+ms.openlocfilehash: 70c24b8aef1672696c0e7d7289e23b98b6b49dfe
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51301036"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341442"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Azure에서 ASP.NET Core 웹앱 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "51301036"
 > 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_의 App Service에 배포하려면 [Linux의 App Service에서 .NET Core 웹앱 만들기](./containers/quickstart-dotnetcore.md)를 참조하세요. 
 >
 
-[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작은 첫 번째 ASP.NET Core 웹앱을 Azure Web Apps에 배포하는 방법을 보여 줍니다. 완료되면 배포된 웹 응용 프로그램으로 App Service 플랜 및 Azure 웹앱으로 구성된 리소스 그룹을 갖습니다.
+[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작은 첫 번째 ASP.NET Core 웹앱을 Azure Web Apps에 배포하는 방법을 보여 줍니다. 완료되면 배포된 웹 애플리케이션으로 App Service 플랜 및 Azure 웹앱으로 구성된 리소스 그룹을 갖습니다.
 
 ![](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
@@ -49,11 +49,11 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 
 **새 프로젝트** 대화 상자에서 **Visual C# > 웹 > ASP.NET Core 웹 응용 프로그램**을 선택합니다.
 
-응용 프로그램 이름을 _myFirstAzureWebApp_으로 지정한 다음 **확인**을 선택합니다.
+애플리케이션 이름을 _myFirstAzureWebApp_으로 지정한 다음, **확인**을 선택합니다.
    
 ![새 프로젝트 대화 상자](./media/app-service-web-get-started-dotnet/new-project.png)
 
-모든 종류의 ASP.NET Core 웹앱을 Azure에 배포할 수 있습니다. 이 빠른 시작의 경우 **웹 응용 프로그램** 템플릿을 선택하고 인증이 **인증 없음**으로 설정되어 있고 선택된 다른 옵션이 없는지 확인합니다.
+모든 종류의 ASP.NET Core 웹앱을 Azure에 배포할 수 있습니다. 이 빠른 시작의 경우 **웹 애플리케이션** 템플릿을 선택하고 인증이 **인증 없음**으로 설정되어 있고 선택된 다른 옵션이 없는지 확인합니다.
       
 **확인**을 선택합니다.
 

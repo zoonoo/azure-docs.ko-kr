@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 31eec9e146c64e2310ab27414952593140f11cb2
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 8c4f14849c39414217837a3c86fb6e067cd87c90
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276923"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434344"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 Virtual Network 서비스 엔드포인트 및 규칙 사용
 
@@ -37,7 +37,7 @@ ms.locfileid: "52276923"
 
 **서브넷:** 가상 네트워크에 **서브넷**이 포함됩니다. 소유한 Azure VM(가상 머신)은 서브넷에 할당됩니다. 하나의 서브넷에 여러 VM 또는 다른 계산 노드가 포함될 수 있습니다. 액세스를 허용하도록 보안을 구성해야 가상 네트워크 외부의 계산 노드가 가상 네트워크에 액세스할 수 있습니다.
 
-**Virtual Network 서비스 엔드포인트:**[Virtual Network 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]는 속성 값에 하나 이상의 정식 Azure 서비스 유형 이름이 포함된 서브넷입니다. 이 문서에서는 SQL Database라는 Azure 서비스를 나타내는 **Microsoft.Sql**의 형식 이름을 살펴봅니다. 이 서비스 태그는 Azure Database for MariaDB, MySQL 및 PostgreSQL 서비스에도 적용됩니다. **Microsoft.Sql** 서비스 태그를 VNet 서비스 엔드포인트에 적용하는 경우 서브넷의 모든 Azure SQL Database, Azure Database for MariaDB, Azure Database for MySQL 및 Azure Database for PostgreSQL 서버에 대한 서비스 엔드포인트 트래픽을 구성해야 합니다.
+**Virtual Network 서비스 엔드포인트:** [Virtual Network 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]는 속성 값에 하나 이상의 정식 Azure 서비스 유형 이름이 포함된 서브넷입니다. 이 문서에서는 SQL Database라는 Azure 서비스를 나타내는 **Microsoft.Sql**의 형식 이름을 살펴봅니다. 이 서비스 태그는 Azure Database for MariaDB, MySQL 및 PostgreSQL 서비스에도 적용됩니다. **Microsoft.Sql** 서비스 태그를 VNet 서비스 엔드포인트에 적용하는 경우 서브넷의 모든 Azure SQL Database, Azure Database for MariaDB, Azure Database for MySQL 및 Azure Database for PostgreSQL 서버에 대한 서비스 엔드포인트 트래픽을 구성해야 합니다.
 
 **가상 네트워크 규칙:** Azure Database for MariaDB 서버에 대한 가상 네트워크 규칙은 Azure Database for MariaDB 서버의 ACL(액세스 제어 목록)에 나열된 서브넷입니다. Azure Database for MariaDB 서버에 대한 ACL에 있으려면 서브넷에 **Microsoft.Sql** 형식 이름이 있어야 합니다.
 
@@ -93,7 +93,7 @@ VM에 대한 *정적* IP 주소를 가져와서 IP 옵션을 복원할 수 있�
 
 Virtual Network 서비스 엔드포인트 관리에는 보안 역할 분리가 있습니다. 다음과 같은 각 역할의 작업이 필요합니다.
 
-- **네트워크 관리자:**&nbsp; 엔드포인트를 켭니다.
+- **네트워크 관리자:** &nbsp; 엔드포인트를 켭니다.
 - **데이터베이스 관리자:** &nbsp; ACL(액세스 제어 목록)을 업데이트하여 지정된 서브넷을 Azure Database for MariaDB 서버에 추가합니다.
 
 *RBAC 대체:*
@@ -117,7 +117,7 @@ Azure Database for MariaDB의 경우 가상 네트워크 규칙 기능에는 다
 
 - 가상 네트워크 규칙은 Azure Resource Manager 가상 네트워크에만 적용되고 [클래식 배포 모델][resource-manager-deployment-model-568f] 네트워크에는 적용되지 않습니다.
 
-- **Microsoft.Sql** 서비스 태그를 사용하여 Azure Database for MariaDB에 가상 네트워크 서비스 엔드포인트를 설정하면, 모든 Azure 데이터베이스 서비스(Azure Database for MariaDB, Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database 및 Azure SQL Data Warehouse)에 대한 엔드포인트도 사용하도록 설정할 수 있습니다.
+- **Microsoft.Sql** 서비스 태그를 사용하여 Azure Database for MariaDB에 가상 네트워크 서비스 엔드포인트를 설정하면 모든 Azure Database 서비스 (Azure Database for MariaDB, Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database 및 Azure SQL Data Warehouse)에 엔드포인트를 사용하도록 설정할 수 있습니다.
 
 - VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.
 
@@ -149,7 +149,7 @@ VNet 규칙 만들기에 대한 아티클은 다음을 참조하세요.
 - [Create and manage Azure Database for MariaDB VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)
 -->
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md

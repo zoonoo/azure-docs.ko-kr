@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge 디바이스의 Azure Blob Storage | Microsoft Docs
+title: 디바이스에 블록 Blob 저장 - Azure IoT Edge | Microsoft Docs
 description: 에지에 데이터를 저장하도록 IoT Edge 디바이스에 Azure Blob Storage 모듈을 배포합니다.
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fa88ff46b4fb93d55aa0087cca0e6184f3e087a0
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: e56d49208740686b51cdaef1bab778e2c08a9b58
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567284"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077923"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>IoT Edge(미리 보기)에서 Azure Blob Storage를 사용하여 에지에 데이터 저장
 
@@ -29,7 +30,7 @@ IoT Edge의 Azure Blog Storage는 에지에 [블록 Blob](https://docs.microsoft
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure IoT Edge 디바이스:
+Azure IoT Edge 장치:
 
 * [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다.
 * IoT Edge 모듈의 Azure Blob Storage는 다음 디바이스 구성을 지원합니다.
@@ -63,7 +64,7 @@ IoT Edge 디바이스에 모듈을 배포하는 여러 가지 방법이 있는�
 
 #### <a name="steps-to-deploy"></a>배포 단계
 
-**IoT Edge 모듈의 대상 장치**
+**IoT Edge 모듈의 대상 디바이스**
 
 1. IoT Hub가 배포되는 "구독"을 선택합니다.
 2. 해당하는 "IoT Hub"를 선택합니다.
@@ -74,9 +75,9 @@ IoT Edge 디바이스에 모듈을 배포하는 여러 가지 방법이 있는�
 
 1. "모듈 추가" 섹션의 "배포 모듈" 아래에서는 해당 모듈이 "AzureBlobStorageonIoTEdge"로 시작하는 이름으로 이미 나열된 것을 볼 수 있습니다. 
 2. "배포 모듈" 목록에서 Blob 저장소 모듈을 **선택**합니다. "IoT Edge 사용자 지정 모듈" 측면 패널이 열립니다.
-3. **이름**: 여기에 모듈 이름을 변경할 수 있습니다.
+3. **이름**: 여기서 모듈 이름을 변경할 수 있습니다.
 4. **이미지 URI**: URI를 **mcr.microsoft.com/azure-blob-storage:latest**로 바꿉니다.
-5. **컨테이너 만들기 옵션**: 포털 페이지에서 아래의 JSON 값을 각자 해당하는 값으로 편집하고 JSON으로 바꿉니다.
+5. **컨테이너 만들기 옵션**: 포털 페이지에서 아래의 JSON 값을 해당 값으로 편집하고 JSON으로 바꿉니다.
    
    ```json
    {
@@ -105,7 +106,7 @@ IoT Edge 디바이스에 모듈을 배포하는 여러 가지 방법이 있는�
    > [!CAUTION]
    > **\<Storage directory bind>** 값에 대한 "/blobroot"(Linux인 경우) 및 "C:/BlobRoot"(Windows인 경우)를 변경하지 마세요.
 
-    ![모듈 값 업데이트](./media/how-to-store-data-blob/edit-module.png)
+    ![업데이트 모듈 컨테이너 만들기 옵션 - 포털](./media/how-to-store-data-blob/edit-module.png)
 
 6. "IoT Edge 사용자 지정 모듈"에서 값을 **저장**합니다.
 7. "모듈 설정" 섹션에서 **다음**을 클릭합니다.
@@ -149,7 +150,7 @@ VS Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만든 다음,
    {\"Env\": [\"LOCAL_STORAGE_ACCOUNT_NAME=$STORAGE_ACCOUNT_NAME\",\" LOCAL_STORAGE_ACCOUNT_KEY=$STORAGE_ACCOUNT_KEY\"],\"HostConfig\": {\"Binds\": [\"<storage directory bind>\"],\"PortBindings\": {\"11002/tcp\": [{\"HostPort\":\"11002\"}]}}}
    ```
 
-   ![모듈 만들기 옵션 업데이트](./media/how-to-store-data-blob/create-options.png)
+   ![모듈 createOptions 업데이트 - VS Code](./media/how-to-store-data-blob/create-options.png)
 
 4. 만들기 옵션 JSON에서 컨테이너 운영 체제에 따라 `<storage directory bind>`를 업데이트합니다. IoT Edge 디바이스에서 Blob 모듈이 데이터를 저장할 [볼륨](https://docs.docker.com/storage/volumes/) 이름 또는 디렉터리 절대 경로를 제공합니다.  
 

@@ -8,24 +8,23 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: d8bb7a975bd5bab8698d20e5d21514b79945eac6
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 4a7b5cd925bd4b66e25754c30de5cbaf866dab0b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564921"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970631"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights 코호트
 
 코호트는 공통점이 있는 다양한 사용자, 세션, 이벤트 또는 작업의 집합입니다. Azure Application Insights에서 코호트는 분석 쿼리에 의해 정의됩니다. 특정 사용자 또는 이벤트 집합을 반복적으로 분석해야 하는 경우 코호트 기능이 사용자가 관심을 두는 집합을 보다 유연하게 정확히 나타낼 수 있습니다.
 
-![코호트 창](.\media\app-insights-usage-cohorts\001.png)
+![코호트 창](./media/app-insights-usage-cohorts/001.png)
 
 ## <a name="cohorts-versus-basic-filters"></a>코호트 및 기본 필터
 
@@ -36,7 +35,7 @@ ms.locfileid: "51564921"
 > [!NOTE]
 > 코호트가 만들어지면 사용자, 세션, 이벤트 및 사용자 흐름 도구에서 사용할 수 있습니다.
 
-## <a name="example-engaged-users"></a>예: 참여한 사용자
+## <a name="example-engaged-users"></a>예제: 참여한 사용자
 
 팀에서는 특정 월에 앱을 5번 이상 사용하는 모든 사용자를 참여도 높은 사용자로 정의하고 있습니다. 이 섹션에서는 이러한 참여한 사용자의 코호트를 정의합니다.
 
@@ -53,14 +52,14 @@ ms.locfileid: "51564921"
 
 4. **UsedAtLeastCustom**을 **5+ days**로 변경하고, **Period**를 기본값인 28일로 둡니다.
 
-    ![참여한 사용자](.\media\app-insights-usage-cohorts\003.png)
+    ![참여한 사용자](./media/app-insights-usage-cohorts/003.png)
 
     이제 이 코호트는 지난 28일 중에서 별도의 5일 동안의 사용자 지정 이벤트 또는 페이지 보기와 함께 전송된 모든 사용자 ID를 나타냅니다.
 
 5. **저장**을 선택합니다.
 
    > [!TIP]
-   >  코호트에 "참여한 사용자(5+ 일)"와 같은 이름을 지정합니다. 이 Appication Insights 리소스에 대해 액세스 권한이 있는 다른 사람들이 이 코호트를 볼 수 있게 할지 여부에 따라 "내 보고서" 또는 “공유 보고서”에 저장합니다.
+   > 코호트에 "참여한 사용자(5+ 일)"와 같은 이름을 지정합니다. 이 Appication Insights 리소스에 대해 액세스 권한이 있는 다른 사람들이 이 코호트를 볼 수 있게 할지 여부에 따라 "내 보고서" 또는 “공유 보고서”에 저장합니다.
 
 6. **갤러리로 돌아가기**를 선택합니다.
 
@@ -70,15 +69,16 @@ ms.locfileid: "51564921"
 
 이제 사용자 도구는 다음 사용자 코호트로 필터링됩니다.
 
-![특정 코호트로 필터링된 사용자 창](.\media\app-insights-usage-cohorts\004.png)
+![특정 코호트로 필터링된 사용자 창](./media/app-insights-usage-cohorts/004.png)
 
 다음 몇 가지 사항에 유의하세요.
+
 * 기본 필터를 통해 이 집합을 만들 수 없습니다. 날짜 논리의 수준이 좀 더 높습니다.
 * 사용자 도구에서 일반 필터를 사용하여 이 코호트를 추가로 필터링할 수 있습니다. 따라서 코호트가 28일 기간으로 정의되어도 사용자 도구에서 시간 범위를 30, 60 또는 90일로 조정할 수 있습니다.
 
 이러한 필터는 쿼리 작성기로 표현할 수 없는 더 복잡한 질문을 지원합니다. 예를 들어 다음과 같습니다. _지난 28일 동안 참여한 사람입니다. 이러한 동일한 사람은 지난 60일 동안 어떻게 동작했나요?_
 
-## <a name="example-events-cohort"></a>예: 이벤트 코호트
+## <a name="example-events-cohort"></a>예제: 이벤트 코호트
 
 이벤트의 코호트를 만들 수도 있습니다. 이 섹션에서는 이벤트 및 페이지 보기의 코호트를 정의합니다. 그러면 다른 도구에서 사용하는 방법을 알게 됩니다. 이 코호트는 팀에서 _활성 사용_으로 간주하는 이벤트 집합 또는 특정 새 기능과 관련된 집합을 정의할 수 있습니다.
 
@@ -88,21 +88,21 @@ ms.locfileid: "51564921"
 
 3. **이벤트 선택**을 선택합니다.
 
-    ![이벤트 선택 스크린샷](.\media\app-insights-usage-cohorts\006.png)
+    ![이벤트 선택 스크린샷](./media/app-insights-usage-cohorts/006.png)
 
 4. **활동** 드롭다운 상자에서 코호트에 포함하려는 이벤트를 선택합니다.
 
 5. 코호트에 이름을 지정하여 저장합니다.
 
-## <a name="example-active-users-where-you-modify-a-query"></a>예: 쿼리를 수정하는 경우의 활성 사용자
+## <a name="example-active-users-where-you-modify-a-query"></a>예제: 쿼리를 수정하는 경우의 활성 사용자
 
 앞에 나온 두 코호트는 드롭다운 상자를 사용하여 정의되었습니다. 하지만 전체적인 유연성을 위해 분석 쿼리를 사용하여 코호트를 정의할 수도 있습니다. 방법을 알아보기 위해 영국의 사용자 코호트를 만듭니다.
 
-![코호트 도구의 사용법을 단계별로 보여주는 애니메이션 이미지](.\media\app-insights-usage-cohorts\cohorts0001.gif)
+![코호트 도구의 사용법을 단계별로 보여주는 애니메이션 이미지](./media/app-insights-usage-cohorts/cohorts0001.gif)
 
 1. 코호트 도구를 열고, **템플릿 갤러리** 탭을 선택하고, **빈 사용자 코호트**를 선택합니다.
 
-    ![빈 사용자 코호트](.\media\app-insights-usage-cohorts\001.png)
+    ![빈 사용자 코호트](./media/app-insights-usage-cohorts/001.png)
 
     여기에는 다음 3개의 섹션이 있습니다.
     * Markdown 텍스트 섹션: 여기서 팀의 다른 사용자를 위해 코호트를 좀 더 자세히 설명합니다.
@@ -137,7 +137,8 @@ _특정 국가의 사용자 코호트를 정의했습니다. 사용자 도구의
 * 필터 버전은 영국의 이벤트만 표시합니다. 하지만 국가 또는 지역별로 분할해도 영국만 표시됩니다.
 
 ## <a name="learn-more"></a>자세한 정보
-- [분석 쿼리 언어](https://go.microsoft.com/fwlink/?linkid=856587)
-- [사용자, 세션, 이벤트](app-insights-usage-segmentation.md)
-- [사용자 흐름](app-insights-usage-flows.md)
-- [사용 현황 개요](app-insights-usage-overview.md)
+
+* [분석 쿼리 언어](https://go.microsoft.com/fwlink/?linkid=856587)
+* [사용자, 세션, 이벤트](app-insights-usage-segmentation.md)
+* [사용자 흐름](app-insights-usage-flows.md)
+* [사용 현황 개요](app-insights-usage-overview.md)

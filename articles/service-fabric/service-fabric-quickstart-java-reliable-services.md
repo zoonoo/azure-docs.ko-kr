@@ -15,27 +15,27 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a7e71b4f93f3b890ea73e36052570f9047fc8f32
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 43a059e13945be3e39f65995e18ccd552727b874
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228235"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312581"
 ---
-# <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>빠른 시작: Service Fabric에 Java 안정적인 서비스 응용 프로그램 배포
+# <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>빠른 시작: Service Fabric에 Java Reliable Services 애플리케이션 배포
 
 Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다.
 
-이 빠른 시작은 Linux 개발자 컴퓨터에서 Eclipse IDE를 사용하여 Microsoft Azure Service Fabric에 첫 번째 Java 응용 프로그램을 배포하는 방법을 보여줍니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 Java 웹 프런트 엔드가 있는 투표 응용 프로그램이 생깁니다.
+이 빠른 시작은 Linux 개발자 컴퓨터에서 Eclipse IDE를 사용하여 Microsoft Azure Service Fabric에 첫 번째 Java 애플리케이션을 배포하는 방법을 보여줍니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 Java 웹 프런트 엔드가 있는 투표 응용 프로그램이 생깁니다.
 
-![응용 프로그램 스크린샷](./media/service-fabric-quickstart-java/votingapp.png)
+![애플리케이션 스크린샷](./media/service-fabric-quickstart-java/votingapp.png)
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 
 * Eclipse를 Service Fabric Java 응용 프로그램을 위한 도구로 사용
 * 로컬 클러스터에 응용 프로그램 배포
-* Azure에서 응용 프로그램을 클러스터에 배포
-* 응용 프로그램을 여러 노드에 걸쳐 스케일 아웃
+* Azure에서 애플리케이션을 클러스터에 배포
+* 애플리케이션을 여러 노드에 걸쳐 스케일 아웃
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -54,7 +54,7 @@ Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 �
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ```
 
-## <a name="run-the-application-locally"></a>로컬에서 응용 프로그램 실행
+## <a name="run-the-application-locally"></a>로컬에서 애플리케이션 실행
 
 1. 다음 명령을 실행하여 클러스터를 만듭니다.
 
@@ -67,7 +67,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 2. Eclipse를 엽니다.
 3. 파일 -> 가져오기 -> Gradle-> 기존 Gradle 프로젝트를 클릭하고 마법사를 따릅니다.
-4. Directory를 클릭하고 Github에서 복제한 `service-fabric-java-quickstart` 폴더에서 `Voting` 디렉터리를 선택합니다. Finish를 클릭합니다. 
+4. 디렉터리를 클릭하고 GitHub에서 복제한 `service-fabric-java-quickstart` 폴더에서 `Voting` 디렉터리를 선택합니다. Finish를 클릭합니다.
 
     ![Eclipse Import 대화 상자](./media/service-fabric-quickstart-java/eclipseimport.png)
 
@@ -80,15 +80,15 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
     ![응용 프로그램 프런트 엔드](./media/service-fabric-quickstart-java/runninglocally.png)
 
-이제 투표 옵션 집합을 추가하고 투표 하기를 시작할 수 있습니다. 응용 프로그램이 실행되고 모든 데이터가 Service Fabric 클러스터에 저장되며 별도의 데이터베이스가 필요하지 않습니다.
+이제 투표 옵션 집합을 추가하고 투표 하기를 시작할 수 있습니다. 애플리케이션이 실행되고 모든 데이터가 Service Fabric 클러스터에 저장되며 별도의 데이터베이스가 필요하지 않습니다.
 
 ## <a name="deploy-the-application-to-azure"></a>Azure에 응용 프로그램 배포
 
 ### <a name="set-up-your-azure-service-fabric-cluster"></a>Azure Service Fabric Cluster 설정
 
-응용 프로그램을 Azure의 클러스터에 배포하려면 고유한 클러스터를 만듭니다.
+애플리케이션을 Azure의 클러스터에 배포하려면 고유한 클러스터를 만듭니다.
 
-파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 Service Fabric 팀에서 운영합니다. 파티 클러스터를 사용하여 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 클러스터는 노드-노드 및 클라이언트-노드 보안에 단일 자체 서명 인증서를 사용합니다.
+파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 Service Fabric 팀에서 운영합니다. 파티 클러스터를 사용하여 애플리케이션을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 클러스터는 노드-노드 및 클라이언트-노드 보안에 단일 자체 서명 인증서를 사용합니다.
 
 [Linux 클러스터](https://aka.ms/tryservicefabric)에 로그인하고 조인합니다. **PFX** 링크를 클릭하여 PFX 인증서를 컴퓨터에 다운로드합니다. **추가 정보** 링크를 클릭하여 인증서 암호 및 다양한 환경에서 인증서를 사용하도록 구성하는 방법에 대한 지침을 찾습니다. **시작** 페이지와 **추가 정보** 페이지를 모두 열어두고 다음 단계에서 일부 지침을 사용합니다.
 
@@ -116,15 +116,15 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
 
 가장 편리한 방법을 사용하여 시스템에서 인증서를 가져옵니다. 예: 
 
-* Windows: PFX 파일을 두 번 클릭하고 프롬프트에 따라 개인 저장소 `Certificates - Current User\Personal\Certificates`에 인증서를 설치합니다. 또는 **추가 정보** 지침의 PowerShell 명령을 사용할 수 있습니다.
-* Mac: PFX 파일을 두 번 클릭하고 프롬프트에 따라 키 집합에 인증서를 설치합니다.
-* Ubuntu: Mozilla Firefox는 Ubuntu 16.04의 기본 브라우저입니다. 인증서를 Firefox로 가져 오려면 브라우저의 오른쪽 위 모서리에 있는 메뉴 단추를 클릭한 다음 **옵션**을 클릭합니다. **기본 설정** 페이지에서 검색 상자를 사용하여 "인증서"를 검색합니다. **인증서 보기**를 클릭하고 **Your Certificates**(인증서) 탭을 선택하고 **가져오기**를 클릭하여 프롬프트에 따라 인증서를 가져옵니다.
+* Windows에서: PFX 파일을 두 번 클릭하고 프롬프트에 따라 개인 저장소 `Certificates - Current User\Personal\Certificates`에 인증서를 설치합니다. 또는 **추가 정보** 지침의 PowerShell 명령을 사용할 수 있습니다.
+* Mac에서: PFX 파일을 두 번 클릭하고 프롬프트에 따라 키 집합에 인증서를 설치합니다.
+* Ubuntu에서: Mozilla Firefox가 Ubuntu 16.04의 기본 브라우저입니다. 인증서를 Firefox로 가져 오려면 브라우저의 오른쪽 위 모서리에 있는 메뉴 단추를 클릭한 다음 **옵션**을 클릭합니다. **기본 설정** 페이지에서 검색 상자를 사용하여 "인증서"를 검색합니다. **인증서 보기**를 클릭하고 **Your Certificates**(인증서) 탭을 선택하고 **가져오기**를 클릭하여 프롬프트에 따라 인증서를 가져옵니다.
 
    ![Firefox에서 인증서 설치](./media/service-fabric-quickstart-java/install-cert-firefox.png)
 
-### <a name="add-certificate-information-to-your-application"></a>응용 프로그램에 인증서 정보 추가
+### <a name="add-certificate-information-to-your-application"></a>애플리케이션에 인증서 정보 추가
 
-인증서 지문은 Service Fabric 프로그래밍 모델을 사용하므로 응용 프로그램에 추가해야 합니다.
+인증서 지문은 Service Fabric 프로그래밍 모델을 사용하므로 애플리케이션에 추가해야 합니다.
 
 1. 보안 클러스터에서 실행할 때 인증서의 지문이 `Voting/VotingApplication/ApplicationManifest.xml` 파일에 있어야 합니다. 다음 명령을 실행하여 인증서의 지문을 추출합니다.
 
@@ -132,7 +132,7 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
     openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
-2. `Voting/VotingApplication/ApplicationManifest.xml` 파일에서 **ApplicationManifest** 태그 아래에 다음 코드 조각을 추가합니다. **X509FindValue**는 이전 단계의 지문이어야 합니다(세미콜론 없음). 
+2. `Voting/VotingApplication/ApplicationManifest.xml` 파일에서 **ApplicationManifest** 태그 아래에 다음 코드 조각을 추가합니다. **X509FindValue**는 이전 단계의 지문이어야 합니다(세미콜론 없음).
 
     ```xml
     <Certificates>
@@ -142,7 +142,7 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
 
 ### <a name="deploy-the-application-using-eclipse"></a>Eclipse를 사용하여 응용 프로그램 배포
 
-응용 프로그램과 클러스터가 준비되면 Eclipse에서 클러스터에 직접 배포할 수 있습니다.
+애플리케이션과 클러스터가 준비되면 Eclipse에서 클러스터에 직접 배포할 수 있습니다.
 
 1. **PublishProfiles** 디렉터리 아래에서 **Cloud.json** 파일을 열고 `ConnectionIPOrURL`과 `ConnectionPort` 필드에 정보를 적절히 입력합니다. 예제가 제공됩니다.
 
@@ -164,9 +164,9 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
 
 3. 웹 브라우저를 열고 **http://\<ConnectionIPOrURL>:8080**에 액세스하여 응용 프로그램에 액세스합니다.
 
-    ![응용 프로그램 프런트 엔드 클라우드](./media/service-fabric-quickstart-java/runningcloud.png)
+    ![애플리케이션 프런트 엔드 클라우드](./media/service-fabric-quickstart-java/runningcloud.png)
 
-## <a name="scale-applications-and-services-in-a-cluster"></a>클러스터에서 응용 프로그램 및 서비스 크기 조정
+## <a name="scale-applications-and-services-in-a-cluster"></a>클러스터에서 애플리케이션 및 서비스 크기 조정
 
 서비스는 해당 서비스에 대한 로드 변동량을 수용하도록 클러스터 간에 쉽게 크기를 조정할 수 있습니다. 클러스터에서 실행되는 인스턴스 수를 변경하여 서비스 크기를 조정합니다. 서비스의 크기를 조정하는 여러 가지 방법이 있으며 예를 들어, Service Fabric CLI(sfctl)의 스크립트 또는 명령을 사용할 수 있습니다. 다음 단계에서는 Service Fabric Explorer를 사용합니다.
 
@@ -195,9 +195,9 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 이 빠른 시작에서는 다음을 수행하는 방법을 알아보았습니다.
 
 * Eclipse를 Service Fabric Java 응용 프로그램을 위한 도구로 사용
-* 로컬 클러스터에 Java 응용 프로그램 배포
+* 로컬 클러스터에 Java 애플리케이션 배포
 * Azure에서 Java 응용 프로그램을 클러스터에 배포
-* 응용 프로그램을 여러 노드에 걸쳐 스케일 아웃
+* 애플리케이션을 여러 노드에 걸쳐 스케일 아웃
 
 Service Fabric에서 Java 앱 작업에 대해 자세히 알아보려면 Java 앱에 대한 자습서를 계속 진행하십시오.
 

@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: cded90d4f36e353241bb594bae35b7c7e03599b9
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 0ede6c0c55e2f953e0d109d2d371313759ed4d06
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436012"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965158"
 ---
 # <a name="what-is-api-management"></a>API Management란?
 
@@ -32,14 +32,12 @@ APIM(API Management)을 사용하여 조직은 외부, 파트너 및 내부의 �
 API Management를 사용하려면 관리자가 API를 만듭니다. 각 API는 하나 이상의 작업으로 구성되며, 각 API는 하나 이상의 제품에 추가할 수 있습니다. API를 사용하려면 개발자는 해당 API가 포함된 제품을 구독합니다. 그런 다음 적용 중인 사용 정책에 따라 API의 작업을 호출할 수 있습니다. 일반적인 시나리오는 다음과 같습니다.
 
 * **모바일 인프라 보안** 
-* 
-  **ISV 파트너 시스템 사용**
-* 
-  **내부 API 프로그램 실행**
+* **ISV 파트너 시스템 사용**
+* **내부 API 프로그램 실행**
 
 시스템은 다음 구성 요소로 구성되어 있습니다.
 
-* **API 게이트웨이** 는 다음 작업을 수행하는 끝점입니다.
+* **API 게이트웨이** 는 다음 작업을 수행하는 엔드포인트입니다.
   
   * API 호출 수락 후 백 엔드로 라우팅합니다.
   * API 키, JWT 토큰, 인증서 및 기타 자격 증명을 확인합니다.
@@ -61,7 +59,7 @@ API Management를 사용하려면 관리자가 API를 만듭니다. 각 API는 �
   * 계정을 만들고 구독하여 API 키를 받습니다.
   * 자신의 사용량에 대한 분석에 액세스합니다.
 
-자세한 내용은 [클라우드 기반 API Management: API 기능을 활용](http://j.mp/ms-apim-whitepaper) PDF 백서를 참조하세요. CITO Research의 API Management에 대한 이 소개 백서는 다음을 설명합니다. 
+자세한 내용은 [클라우드 기반 API Management: API의 기능 활용](https://j.mp/ms-apim-whitepaper) PDF 백서를 참조하세요. CITO Research의 API Management에 대한 이 소개 백서는 다음을 설명합니다. 
  
  * 공통 API 요구 사항 및 특징
  * API 분리 및 외관 제공
@@ -86,7 +84,7 @@ API는 API Management 서비스 인스턴스의 기반입니다. 각 API는 개�
 그룹은 제품을 개발자에게 표시하는 옵션을 관리하는 데 사용됩니다. API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 있습니다.
 
 * **관리자** - Azure 구독 관리자가 이 그룹의 구성원입니다. 관리자는 API Management 서비스 인스턴스를 관리하며 개발자가 사용하는 API, 작업 및 제품을 만듭니다.
-* **개발자** - 인증된 개발자 포털 사용자가 이 그룹에 속합니다. 개발자는 API를 사용하여 응용 프로그램을 빌드하는 고객입니다. 개발자는 개발자 포털에 액세스할 수 있는 권한을 받으며 API의 작업을 호출하는 응용 프로그램을 빌드합니다.
+* **개발자** - 인증된 개발자 포털 사용자가 이 그룹에 속합니다. 개발자는 API를 사용하여 애플리케이션을 빌드하는 고객입니다. 개발자는 개발자 포털에 액세스할 수 있는 권한을 받으며 API의 작업을 호출하는 애플리케이션을 빌드합니다.
 * **게스트** - API Management 인스턴스의 개발자 포털을 방문하는 인증되지 않은 개발자 포털 사용자(예: 잠재 고객)가 이 그룹에 속합니다. 예를 들어 API를 볼 수 있지만 호출할 수는 없는 기능과 같이 특정 읽기 전용 액세스 권한을 받을 수 있습니다.
 
 이러한 시스템 그룹 외에도 관리자는 사용자 지정 그룹을 만들거나 [연관된 Azure Active Directory 테넌트에서 외부 그룹을 가져올 수 있습니다](api-management-howto-aad.md). 사용자 지정 및 외부 그룹은 시스템 그룹과 함께 사용되어 개발자에게 API 제품에 대한 표시 여부 및 액세스를 제공합니다. 예를 들어, 특정 파트너 조직과 관련된 개발자를 위한 하나의 사용자 지정 그룹을 만들고 관련 API만을 포함한 제품에서 API에 대한 액세스를 허용합니다. 사용자는 두 그룹 이상의 구성원이 될 수 있습니다.

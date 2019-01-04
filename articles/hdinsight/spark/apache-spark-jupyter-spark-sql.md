@@ -52,11 +52,11 @@ Azure Resource Manager 템플릿을 사용하여 HDInsight Spark 클러스터를
 
 HDInsight 클러스터를 만드는 데 문제가 발생하는 경우 이를 수행하기 위한 적절한 사용 권한이 없을 수 있습니다. 자세한 내용은 [액세스 제어 요구 사항](../hdinsight-administer-use-portal-linux.md#create-clusters)을 참조하세요.
 
-## <a name="install-intellijeclipse-for-spark-application"></a>Spark 응용 프로그램에 대한 IntelliJ/Eclipse 설치
-IntelliJ/Eclipse 플러그 인용 Azure 도구 키트를 사용하여 [Scala](https://www.scala-lang.org/)로 작성된 Spark 애플리케이션을 개발한 후 IntelliJ/Eclipse IDE(통합 개발 환경)에서 직접 Azure HDInsight Spark 클러스터로 제출합니다. 자세한 내용은 [IntelliJ를 사용하여 Spark 응용 프로그램 작성/제출](./apache-spark-intellij-tool-plugin.md) 및 [Eclipse를 사용하여 Spark 응용 프로그램 작성/제출](./apache-spark-eclipse-tool-plugin.md)을 참조하세요.
+## <a name="install-intellijeclipse-for-spark-application"></a>Spark 애플리케이션에 대한 IntelliJ/Eclipse 설치
+IntelliJ/Eclipse 플러그 인용 Azure 도구 키트를 사용하여 [Scala](https://www.scala-lang.org/)로 작성된 Spark 애플리케이션을 개발한 후 IntelliJ/Eclipse IDE(통합 개발 환경)에서 직접 Azure HDInsight Spark 클러스터로 제출합니다. 자세한 내용은 [IntelliJ를 사용하여 Spark 애플리케이션 작성/제출](./apache-spark-intellij-tool-plugin.md) 및 [Eclipse를 사용하여 Spark 애플리케이션 작성/제출](./apache-spark-eclipse-tool-plugin.md)을 참조하세요.
 
-## <a name="install-vscode-for-pysparkhive-applications"></a>PySpark/hive 응용 프로그램에 대한 VSCode 설치
-Azure HDInsight Tools for Visual Studio Code(VSCode)를 사용하여 Hive 배치, 대화형 Hive 쿼리, PySpark 일괄 처리 및 PySpark 대화형 스크립트를 만들고 제출하는 방법에 대해 알아봅니다. Azure HDInsight Tools는 VSCode에서 지원하는 플랫폼에 설치할 수 있습니다. 여기에는 Windows, Linux, macOS가 포함됩니다. 자세한 내용은 [VSCode를 사용하여 PySpark 응용 프로그램 작성/제출](../hdinsight-for-vscode.md)을 참조하세요.
+## <a name="install-vscode-for-pysparkhive-applications"></a>PySpark/hive 애플리케이션에 대한 VSCode 설치
+Azure HDInsight Tools for Visual Studio Code(VSCode)를 사용하여 Hive 배치, 대화형 Hive 쿼리, PySpark 일괄 처리 및 PySpark 대화형 스크립트를 만들고 제출하는 방법에 대해 알아봅니다. Azure HDInsight Tools는 VSCode에서 지원하는 플랫폼에 설치할 수 있습니다. 여기에는 Windows, Linux, macOS가 포함됩니다. 자세한 내용은 [VSCode를 사용하여 PySpark 애플리케이션 작성/제출](../hdinsight-for-vscode.md)을 참조하세요.
 
 ## <a name="create-a-jupyter-notebook"></a>Jupyter Notebook 만들기
 
@@ -93,7 +93,7 @@ SQL(구조적 쿼리 언어)은 데이터 쿼리 및 변환에 가장 일반적�
     %%sql
     SHOW TABLES
     ```
-    Jupyter Notebook을 HDInsight Spark 클러스터와 함께 사용하는 경우 Spark SQL을 사용하여 Hive 쿼리를 실행하는 데 사용할 수 있는 미리 설정된 `spark` 세션을 얻게 됩니다. `%%sql`은 Jupyter Notebook에 미리 설정된 `spark` 세션을 사용하여 Hive 쿼리를 실행하도록 지시합니다. 쿼리는 기본적으로 모든 HDInsight 클러스터와 함께 제공되는 Hive 테이블(**hivesampletable**)에서 상위 10개의 행을 검색합니다. 쿼리 Jupyter를 처음으로 제출하면 Notebook에 대한 Spark 응용 프로그램이 만들어집니다. 완료하는 데 약 30초가 걸립니다. Spark 응용 프로그램이 준비되면 약 1초 후 쿼리가 실행되어 결과를 생성합니다. 출력은 다음과 같이 표시됩니다. 
+    Jupyter Notebook을 HDInsight Spark 클러스터와 함께 사용하는 경우 Spark SQL을 사용하여 Hive 쿼리를 실행하는 데 사용할 수 있는 미리 설정된 `spark` 세션을 얻게 됩니다. `%%sql`은 Jupyter Notebook에 미리 설정된 `spark` 세션을 사용하여 Hive 쿼리를 실행하도록 지시합니다. 쿼리는 기본적으로 모든 HDInsight 클러스터와 함께 제공되는 Hive 테이블(**hivesampletable**)에서 상위 10개의 행을 검색합니다. 쿼리 Jupyter를 처음으로 제출하면 Notebook에 대한 Spark 애플리케이션이 만들어집니다. 완료하는 데 약 30초가 걸립니다. Spark 애플리케이션이 준비되면 약 1초 후 쿼리가 실행되어 결과를 생성합니다. 출력은 다음과 같이 표시됩니다. 
 
     ![HDInsight Spark의 Hive 쿼리](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "HDInsight Spark의 Hive 쿼리")
 
@@ -110,7 +110,7 @@ SQL(구조적 쿼리 언어)은 데이터 쿼리 및 변환에 가장 일반적�
 
     ![HDInsight Spark의 Hive 쿼리 출력](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query-output.png "HDInsight Spark의 Hive 쿼리 출력")
 
-2. Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 선택합니다. Notebook을 종료하면 Spark 응용 프로그램을 비롯한 클러스터 리소스가 릴리스됩니다.
+2. Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 선택합니다. Notebook을 종료하면 Spark 애플리케이션을 비롯한 클러스터 리소스가 릴리스됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 HDInsight는 Azure Storage 또는 Azure Data Lake Store에 데이터와 Jupyter Notebook을 저장하므로 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. [다음 단계](#next-steps)에 나열된 자습서를 즉시 수행하려는 경우 클러스터를 유지할 수 있습니다.

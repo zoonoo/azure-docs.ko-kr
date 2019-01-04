@@ -144,7 +144,7 @@ Azure Terraform 확장이 설치된 확장 목록에 표시됩니다.
 
     ![Do you want to open Cloud Shell?(Cloud Shell을 열까요?)](media/terraform-vscode-extension/tf-do-you-want-to-open-cloud-shell.png)
 
-1. 새 폴더에서 Cloud Shell을 처음 시작하면 웹 응용 프로그램을 설정하라는 메시지가 표시됩니다. **열기**를 선택합니다.
+1. 새 폴더에서 Cloud Shell을 처음 시작하면 웹 애플리케이션을 설정하라는 메시지가 표시됩니다. **열기**를 선택합니다.
 
     ![Cloud Shell 처음 시작](media/terraform-vscode-extension/tf-first-launch-of-cloud-shell.png)
 

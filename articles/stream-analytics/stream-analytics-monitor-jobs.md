@@ -30,7 +30,7 @@ ms.locfileid: "53089420"
 
 ## <a name="create-a-project"></a>프로젝트 만들기
 
-1. Visual Studio C# .NET 콘솔 응용 프로그램을 만듭니다.
+1. Visual Studio C# .NET 콘솔 애플리케이션을 만듭니다.
 2. 패키지 관리자 콘솔에서 NuGet 패키지를 설치하려면 다음 명령을 실행합니다. 첫 번째는 Azure Stream Analytics 관리.NET SDK입니다. 두 번째는 모니터링을 사용하도록 설정하는 데 사용되는 Azure Monitor SDK입니다. 마지막은 인증에 사용되는 Azure Active Directory 클라이언트입니다.
    
    ```powershell

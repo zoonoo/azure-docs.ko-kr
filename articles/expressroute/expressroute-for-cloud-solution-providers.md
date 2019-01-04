@@ -1,25 +1,19 @@
 ---
-title: 클라우드 솔루션 공급자용 Azure ExpressRoute | Microsoft Docs
-description: 이 문서에서는 Azure 서비스 및 ExpressRoute를 자신의 제품에 통합하려는 클라우드 서비스 공급자에 대한 정보를 제공합니다.
-documentationcenter: na
+title: 클라우드 솔루션 공급자용 ExpressRoute -Azure | Microsoft Docs
+description: 이 문서에서는 Azure 서비스 및 ExpressRoute를 자신의 제품에 통합하려는 클라우드 솔루션 공급자에 대한 정보를 제공합니다.
 services: expressroute
 author: richcar
-manager: carmonm
-editor: ''
-ms.assetid: f6c5f8ee-40ba-41a1-ae31-67669ca419a6
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: article
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: 9991da5d5ab6f43cc8c5ebf1672d7da0f1ad061e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.custom: seodec18
+ms.openlocfilehash: 842654f860a94481b53ebf9732fc4ed8be24cf4a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405707"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077514"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>클라우드 솔루션 공급자(CSP)용 ExpressRoute
 Microsoft는 새 서비스 개발에 투자할 필요 없이 고객을 위한 새 서비스 및 솔루션을 신속하게 프로비전할 수 있도록 기존 대리점 및 배포자(CSP)를 위한 대규모 서비스를 제공합니다. 클라우드 솔루션 공급자(CSP)에 이러한 새 서비스를 직접 관리하는 능력을 부여하기 위해 Microsoft는 CSP가 고객을 대신해 Microsoft Azure 리소스를 관리할 수 있도록 하는 프로그램 및 API를 제공합니다. 이러한 리소스 중 하나가 ExpressRoute입니다. ExpressRoute를 통해 CSP는 기존 고객 리소스를 Azure 서비스에 연결할 수 있습니다. ExpressRoute는 Azure에서 고속의 개인 통신 링크입니다. 
@@ -37,7 +31,7 @@ Microsoft Azure에서는 고객에게 제공할 수 있는 서비스를 점점 �
 Microsoft는 CSP에게 사용자 고유의 서비스 관리 시스템과 프로그래밍 방식의 통합을 허용하여 Azure 고객 구독을 관리하는 API를 제공합니다. 지원되는 관리 기능은 [여기](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx)에서 확인할 수 있습니다.
 
 ## <a name="microsoft-azure-resource-management"></a>Microsoft Azure 리소스 관리
-고객과 맺은 계약에 따라 구독이 관리되는 방법이 결정됩니다. CSP는 리소스의 생성 및 유지 관리를 직접 관리할 수 있으며 고객은 Microsoft Azure 구독에 대한 제어를 유지 관리하고 필요한 Azure 리소스를 만들 수 있습니다. 고객이 Microsoft Azure 구독에서 리소스 생성을 관리하는 경우 “*Connect-Through*” 또는 “*Direct-To*”라는 두 가지 모델 중 하나를 사용합니다. 이러한 모델은 다음 섹션에 자세히 설명되어 있습니다.  
+고객과 맺은 계약에 따라 구독이 관리되는 방법이 결정됩니다. CSP는 리소스의 생성 및 유지 관리를 직접 관리할 수 있으며 고객은 Microsoft Azure 구독에 대한 제어를 유지 관리하고 필요한 Azure 리소스를 만들 수 있습니다. 고객이 Microsoft Azure 구독에서 리소스 생성을 관리하는 경우 다음의 두 가지 모델 중 하나를 사용합니다. “*Connect-Through*” 모델 또는 “*Direct-To*” 모델 이러한 모델은 다음 섹션에 자세히 설명되어 있습니다.  
 
 ### <a name="connect-through-model"></a>Connect-through 모델
 ![대체 텍스트](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
@@ -94,7 +88,7 @@ connect-to 구성에서 고객은 Azure에 대한 기존 연결을 보유하거�
 ## <a name="expressroute-routing-domains"></a>ExpressRoute 라우팅 도메인
 ExpressRoute는 공용, 개인 및 Microsoft 피어링의 세 가지 라우팅 도메인을 제공합니다. 각 라우팅 도메인은 고가용성을 위해 활성-활성 구성에서 동일한 라우터로 구성됩니다. ExpressRoute 라우팅 도메인에 대한 자세한 내용은 [여기](expressroute-circuit-peerings.md)를 확인하세요.
 
-허용 또는 필요한 경로만 허용하도록 사용자 지정 경로 필터를 정의할 수 있습니다. 자세한 내용 또는 변경 방법을 보려면 라우팅 필터에 대해 자세히 나와 있는 [PowerShell을 사용하여 ExpressRoute 회로의 라우팅 만들기 및 수정](expressroute-howto-routing-classic.md) 문서를 참조하세요.
+허용 또는 필요한 경로만 허용하도록 사용자 지정 경로 필터를 정의할 수 있습니다. 자세한 내용 또는 이러한 변경을 수행하는 방법을 보려면 다음 문서를 참조하세요. 라우팅 필터에 대한 자세한 내용은 [PowerShell을 사용하여 ExpressRoute 회로에 대한 라우팅 만들기 및 수정](expressroute-howto-routing-classic.md)을 참조하세요.
 
 > [!NOTE]
 > Microsoft에서 공용 피어링 연결은 고객 또는 CSP가 소유한 공용 IP 주소를 통해야 하며 정의된 모든 규칙을 준수해야 합니다. 자세한 내용은 [ExpressRoute 필수 구성 요소](expressroute-prerequisites.md) 페이지를 참조하세요.  

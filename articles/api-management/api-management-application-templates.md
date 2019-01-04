@@ -1,6 +1,6 @@
 ---
-title: Azure API Management의 응용 프로그램 템플릿 | Microsoft Docs
-description: Azure API Management의 개발자 포털에서 응용 프로그램 페이지의 콘텐츠를 사용자 지정하는 방법을 알아봅니다.
+title: Azure API Management의 애플리케이션 템플릿 | Microsoft Docs
+description: Azure API Management의 개발자 포털에서 애플리케이션 페이지의 콘텐츠를 사용자 지정하는 방법을 알아봅니다.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -21,10 +21,10 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/28/2018
 ms.locfileid: "52446247"
 ---
-# <a name="application-templates-in-azure-api-management"></a>Azure API Management의 응용 프로그램 템플릿
+# <a name="application-templates-in-azure-api-management"></a>Azure API Management의 애플리케이션 템플릿
 Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사용하여 개발자 포털 페이지의 콘텐츠를 사용자 지정하는 기능을 제공합니다. 이러한 템플릿에서 [DotLiquid](http://dotliquidmarkup.org/) 구문 및 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) 및 제공된 지역화 [String 리소스](api-management-template-resources.md#strings), [Glyph 리소스](api-management-template-resources.md#glyphs) 및 [Page 컨트롤](api-management-page-controls.md)의 집합과 같은 선택한 편집기를 사용하여 필요에 따라 페이지 콘텐츠를 유연하게 구성할 수 있습니다.  
   
- 이 섹션의 템플릿을 사용하여 개발자 포털의 응용 프로그램 페이지의 콘텐츠를 사용자 지정할 수 있습니다.  
+ 이 섹션의 템플릿을 사용하여 개발자 포털의 애플리케이션 페이지의 콘텐츠를 사용자 지정할 수 있습니다.  
   
 -   [응용 프로그램 목록](#ProductList)  
   
@@ -81,9 +81,9 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 |자산|type|설명|  
 |--------------|----------|-----------------|  
-|페이징|[페이징](api-management-template-data-model-reference.md#Paging) 엔터티입니다.|응용 프로그램 컬렉션에 대한 페이징 정보입니다.|  
-|애플리케이션|[응용 프로그램](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자에게 표시되는 응용 프로그램입니다.|  
-|CategoryName|string|응용 프로그램의 범주입니다.|  
+|페이징|[페이징](api-management-template-data-model-reference.md#Paging) 엔터티입니다.|애플리케이션 컬렉션에 대한 페이징 정보입니다.|  
+|애플리케이션|[응용 프로그램](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자에게 표시되는 애플리케이션입니다.|  
+|CategoryName|string|애플리케이션의 범주입니다.|  
   
 ### <a name="sample-template-data"></a>샘플 템플릿 데이터  
   

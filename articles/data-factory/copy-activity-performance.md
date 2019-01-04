@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7dc60c18e105c9be190b5bfede786f61a65feec3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7602524675edbf0e3ca96c74a2aba2eac48c417b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416939"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084076"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -70,7 +70,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
     </tr>
     <tr>
         <td>네트워크</td>
-        <td>인터넷 인터페이스: 10Gbps. 인트라넷 인터페이스: 40Gbps</td>
+        <td>인터넷 인터페이스: 10Gbps; 인트라넷 인터페이스: 40Gbps</td>
     </tr>
     </table>
 
@@ -196,6 +196,9 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 | **path** |준비 데이터를 포함할 Blob 저장소 경로를 지정합니다. 경로를 제공하지 않으면 서비스는 임시 데이터를 저장하는 컨테이너를 만듭니다. <br/><br/> 공유 액세스 서명을 포함한 저장소를 사용하거나 특정 위치에 임시 데이터가 필요한 경우에만 경로를 지정합니다. |해당 없음 |아니요 |
 | **enableCompression** |대상에 복사하기 전에 데이터를 압축할지 여부를 지정합니다. 이 설정은 전송되는 데이터 양을 줄입니다. |False |아니요 |
 
+>[!NOTE]
+> 압축이 활성화된 단계적 복사를 사용하는 경우 준비 Blob 연결된 서비스에 대한 서비스 주체 또는 MSI 인증은 지원되지 않습니다.
+
 앞의 표에 설명된 속성이 있는 복사 작업의 샘플 정의는 다음과 같습니다.
 
 ```json
@@ -260,7 +263,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 
 복사 작업이 자체 호스팅 Integration Runtime에서 실행될 경우 다음에 유의합니다.
 
-**설정**: 전용 컴퓨터를 사용하여 Integration Runtime을 호스팅하는 것이 좋습니다. [자체 호스팅 Integration Runtime 사용을 위한 고려 사항](concepts-integration-runtime.md)을 참조하세요.
+**설정**: 전용 머신을 사용하여 Integration Runtime을 호스팅하는 것이 좋습니다. [자체 호스팅 Integration Runtime 사용을 위한 고려 사항](concepts-integration-runtime.md)을 참조하세요.
 
 **규모 확장**: 하나 이상의 노드가 있는 단일 논리 자체 호스팅 Integration Runtime은 동시에 여러 개의 복사 작업 실행을 사용할 수 있습니다. 동시 복사 작업 실행 수가 많거나 복사할 데이터 양이 많은 하이브리드 데이터 이동이 절실한 경우 복사를 지원하도록 더 많은 리소스를 프로비전할 수 있도록 [자체 호스팅 Integration Runtime 규모 확장](create-self-hosted-integration-runtime.md#high-availability-and-scalability)을 고려해 보세요.
 
@@ -278,8 +281,8 @@ Microsoft 데이터 저장소의 경우 데이터 저장소 성능 특성을 이
 
 ### <a name="file-based-data-stores"></a>파일 기반 데이터 저장소
 
-* **평균 파일 크기 및 파일 개수**: 복사 작업은 데이터를 한 번에 하나씩 전송합니다. 동일한 양의 데이터를 이동하는 경우 각 파일에 대한 부트스트랩 단계이기 때문에 적은 수의 큰 파일보다는 많은 수의 작은 파일로 데이터가 구성되는 경우 전체 처리량은 느려집니다. 따라서 가능하면 작은 파일을 더 큰 파일에 결합하여 처리량을 높입니다.
-* **파일 형식 및 압축**: 성능을 향상하는 다양한 방법은 [직렬화/역직렬화에 대한 고려 사항](#considerations-for-serialization-and-deserialization) 및 [압축에 대한 고려 사항](#considerations-for-compression) 섹션을 참조하세요.
+* **평균 파일 크기 및 파일 개수**: 복사 작업은 한 번에 하나의 파일로 데이터를 전송합니다. 동일한 양의 데이터를 이동하는 경우 각 파일에 대한 부트스트랩 단계이기 때문에 적은 수의 큰 파일보다는 많은 수의 작은 파일로 데이터가 구성되는 경우 전체 처리량은 느려집니다. 따라서 가능하면 작은 파일을 더 큰 파일에 결합하여 처리량을 높입니다.
+* **파일 형식 및 압축**: 성능을 향상하는 다양한 방법은 [직렬화 및 역직렬화에 대한 고려 사항](#considerations-for-serialization-and-deserialization) 및 [압축에 대한 고려 사항](#considerations-for-compression) 섹션을 참조하세요.
 
 ### <a name="relational-data-stores"></a>관계형 데이터 저장소
 
@@ -301,7 +304,7 @@ Microsoft 데이터 저장소의 경우 데이터 저장소에 대한 [모니터
 ### <a name="file-based-data-stores"></a>파일 기반 데이터 저장소
 
 * **복사 동작**: 서로 다른 파일 기반 저장소에서 데이터를 복사하는 경우 복사 작업에는 **copyBehavior** 속성을 통해 3가지 옵션이 제공됩니다. 계층 구조를 유지하고 평면화하며 파일을 병합합니다. 계층 구조를 유지 또는 평면화하는 작업은 성능 오버 헤드가 거의 또는 전혀 발생하지 않는 반면 파일을 병합하는 작업은 성능 오버 헤드가 증가합니다.
-* **파일 형식 및 압축**: 성능을 개선하는 다양한 방법은 [직렬화/역직렬화에 대한 고려 사항](#considerations-for-serialization-and-deserialization) 및 [압축에 대한 고려 사항](#considerations-for-compression) 섹션을 참조하세요.
+* **파일 형식 및 압축**: 성능을 향상하는 다양한 방법은 [직렬화 및 역직렬화에 대한 고려 사항](#considerations-for-serialization-and-deserialization) 및 [압축에 대한 고려 사항](#considerations-for-compression) 섹션을 참조하세요.
 
 ### <a name="relational-data-stores"></a>관계형 데이터 저장소
 
@@ -336,7 +339,7 @@ Microsoft 데이터 저장소의 경우 데이터 저장소에 대한 [모니터
 
 입력 또는 출력 데이터 집합이 파일인 경우 대상에 데이터를 쓸 때 복사 작업을 설정하여 압축하거나 압축을 해제할 수 있습니다. 압축을 선택할 때 입력/출력(I/O) 및 CPU 간에 균형을 유지합니다. 계산 리소스에서 데이터를 압축하는 데 추가 비용이 발생합니다. 대신에, 네트워크 I/O 및 저장소는 감소합니다. 데이터에 따라 전체 복사 처리량이 향상되는 것을 볼 수 있습니다.
 
-**코덱**: 압축 코덱마다 각기 장점이 있습니다. 예를 들어 bzip2는 가장 낮은 복사 처리량을 갖지만 처리를 위해 분할될 수 있으므로 bzip2로 최상의 Hive 쿼리 성능을 얻게 됩니다. Gzip는 가장 균형 있는 옵션을 제공하고 가장 흔하게 사용됩니다. 종단 간 시나리오에 가장 적합한 코덱을 선택합니다.
+**코덱**: 압축 코덱에는 각각 장점이 있습니다. 예를 들어 bzip2는 가장 낮은 복사 처리량을 갖지만 처리를 위해 분할될 수 있으므로 bzip2로 최상의 Hive 쿼리 성능을 얻게 됩니다. Gzip는 가장 균형 있는 옵션을 제공하고 가장 흔하게 사용됩니다. 종단 간 시나리오에 가장 적합한 코덱을 선택합니다.
 
 **수준**: 각 압축 코덱의 경우 빠른 압축 및 최적 압축이라는 두 옵션 중에서 선택할 수 있습니다. 파일이 최적으로 압축되지 않은 경우에도 가장 빠르게 압축된 옵션은 데이터를 최대한 빨리 압축합니다. 최적으로 압축된 옵션은 압축에 더 많은 시간을 사용하고 최소한의 데이터를 생성합니다. 두 옵션 모두 테스트하여 어떤 옵션이 사용자에게 더 나은 성능을 제공하는지 확인할 수 있습니다.
 
@@ -356,19 +359,19 @@ Microsoft 데이터 저장소의 경우 데이터 저장소에 대한 [모니터
 
 Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하는 데이터 집합 및 복사 작업 수에 주의하세요. 많은 동시 복사 작업은 데이터 저장소를 제한하고 성능 저하, 복사 작업 내부 재시도 및 일부 경우 실행 오류를 발생시킬 수 있습니다.
 
-## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>샘플 시나리오: 온-프레미스 SQL Server에서 Blob 저장소로 복사
+## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>샘플 시나리오: 온-프레미스 SQL Server에서 Blob 스토리지로 복사
 
-**시나리오**: 파이프라인은 온-프레미스 SQL Server에서 Blob 저장소로 CSV 형식으로 데이터를 복사하도록 작성됩니다. 복사 작업을 더 빠르게 하려면 CSV 파일이 bzip2 형식으로 압축되어야 합니다.
+**시나리오**: 파이프라인은 온-프레미스 SQL Server에서 Blob 스토리지로 CSV 형식으로 데이터를 복사하도록 작성됩니다. 복사 작업을 더 빠르게 하려면 CSV 파일이 bzip2 형식으로 압축되어야 합니다.
 
 **테스트 및 분석**: 복사 작업의 처리량이 2MBps보다 적고 성능 벤치마크보다 훨씬 더 느립니다.
 
 **성능 분석 및 튜닝**: 성능 문제를 해결하기 위해 데이터가 처리되고 이동되는 방법을 살펴보겠습니다.
 
-1. **데이터 읽기**: Integration Runtime 은 SQL Server에 연결을 열고 쿼리를 보냅니다. SQL Server는 데이터 스트림을 인트라넷을 통해 Integration Runtime으로 전송하여 응답합니다.
-2. **데이터 직렬화 및 압축**: Integration Runtime은 데이터 스트림을 CSV 형식으로 직렬화하고 데이터를 bzip2 스트림으로 압축합니다.
-3. **데이터 쓰기**: Integration Runtime은 인터넷을 통해 Blob 저장소로 bzip2 스트림을 업로드합니다.
+1. **데이터 읽기**: 통합 런타임은 SQL Server에 연결을 열고 쿼리를 보냅니다. SQL Server는 데이터 스트림을 인트라넷을 통해 Integration Runtime으로 전송하여 응답합니다.
+2. **데이터 직렬화 및 압축**: 통합 런타임은 데이터 스트림을 CSV 형식으로 직렬화하고, 데이터를 bzip2 스트림으로 압축합니다.
+3. **데이터 쓰기**: 통합 런타임은 인터넷을 통해 Blob 스토리지로 bzip2 스트림을 업로드합니다.
 
-보이는 대로 데이터를 처리하고 SQL Server > LAN > Integration Runtime > WAN > Blob Storage 순으로 이동합니다. SQL Server -> LAN -> 게이트웨이 -> WAN -> Blob 저장소 **전반적인 성능은 파이프라인을 통해 최소 처리량에서 제어됩니다**.
+보이는 대로 데이터를 처리하고 다음 스트리밍 순으로 이동합니다. SQL Server > LAN > 통합 런타임 > WAN > Blob 스토리지 SQL Server -> LAN -> 게이트웨이 -> WAN -> Blob 저장소 **전반적인 성능은 파이프라인을 통해 최소 처리량에서 제어됩니다**.
 
 ![데이터 흐름](./media/copy-activity-performance/case-study-pic-1.png)
 
@@ -376,12 +379,12 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 
 * **원본**: SQL Server 자체가 과도한 로드로 인해 처리량이 낮아집니다.
 * **자체 호스팅 Integration Runtime**:
-  * **LAN**: Integration Runtime이 SQL Server 컴퓨터에서 멀리 떨어져 있고 낮은 대역폭 연결을 사용합니다.
-  * **Integration Runtime**: Integration Runtime은 다음 작업을 수행하는 로드 제한에 도달했습니다.
+  * **LAN**: 통합 런타임이 SQL Server 머신에서 멀리 떨어져 있고 낮은 대역폭 연결을 사용합니다.
+  * **통합 런타임**: 통합 런타임은 다음 작업을 수행하는 로드 제한에 도달했습니다.
     * **직렬화**: CSV 형식에 대한 데이터 스트림을 직렬화하면 처리량이 느려집니다.
     * **압축**: 느린 압축 코덱을 선택했습니다(예: Core i7 2.8MBps의 bzip2).
   * **WAN**: 회사 네트워크 및 Azure 서비스 간의 대역폭이 낮습니다(예: T1 = 1,544kbps, T2 = 6,312kbps).
-* **싱크**: Blob 저장소의 처리량이 낮습니다. (이 시나리오에서는 해당 SLA가 최소 60MBps를 보장하므로 가능성이 없습니다.)
+* **싱크**: Blob 스토리지의 처리량이 낮습니다. (이 시나리오에서는 해당 SLA가 최소 60MBps를 보장하므로 가능성이 없습니다.)
 
 이 경우 bzip2 데이터 압축은 전체 파이프라인을 느리게 만들 수 있습니다. gzip 압축 코덱을 전환하면 병목 상태를 완화할 수 있습니다.
 
@@ -389,12 +392,12 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 
 다음은 지원되는 데이터 저장소에 대한 몇 가지 성능 모니터링 및 튜닝 참조입니다.
 
-* Azure Storage(Blob 저장소 및 테이블 저장소 포함): [Azure Storage 확장성 목표](../storage/common/storage-scalability-targets.md) 및 [Azure Storage 성능 및 확장성 검사 목록](../storage/common/storage-performance-checklist.md)
+* Azure Storage(Blob 스토리지 및 테이블 스토리지 포함): [Azure Storage 확장성 대상](../storage/common/storage-scalability-targets.md) 및 [Azure Storage 성능 및 확장성 검사 목록](../storage/common/storage-performance-checklist.md)
 * Azure SQL Database: [성능을 모니터링](../sql-database/sql-database-single-database-monitor.md)하고 DTU(데이터베이스 트랜잭션 단위) 비율을 확인할 수 있습니다.
-* Azure SQL Data Warehouse: 해당 기능은 DWU(데이터 웨어하우스 단위)로 측정됩니다. [Azure SQL Data Warehouse의 계산 능력 관리(개요)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)를 참조하세요.
-* Azure Cosmos DB: [Azure Cosmos DB의 성능 수준](../cosmos-db/performance-levels.md)
-* 온-프레미스 SQL Server: [성능에 대한 모니터링 및 튜닝](https://msdn.microsoft.com/library/ms189081.aspx)
-* 온-프레미스 파일 서버: [파일 서버에 대한 성능 튜닝](https://msdn.microsoft.com/library/dn567661.aspx)
+* Azure SQL Data Warehouse: 해당 기능은 DWU(데이터 웨어하우스 단위)로 측정됩니다. [Azure SQL Data Warehouse의 컴퓨팅 능력 관리(개요)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)를 참조하세요.
+* Azure Cosmos DB는 [Azure Cosmos DB의 성능 수준](../cosmos-db/performance-levels.md)
+* 온-프레미스 SQL Server: [성능 모니터링 및 튜닝](https://msdn.microsoft.com/library/ms189081.aspx)
+* 온-프레미스 파일 서버: [파일 서버에 대한 성능 조정](https://msdn.microsoft.com/library/dn567661.aspx)
 
 ## <a name="next-steps"></a>다음 단계
 다른 복사 작업 문서를 참조하세요.

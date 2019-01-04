@@ -123,7 +123,7 @@ Azure AD Connect가 설치된 서버가 [여기](how-to-connect-pta-quick-start.
 
 ### <a name="authentication-agent-event-logs"></a>인증 에이전트 이벤트 로그
 
-인증 에이전트 관련 오류의 경우 서버에서 이벤트 뷰어 응용 프로그램을 열고 **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**에서 확인합니다.
+인증 에이전트 관련 오류의 경우 서버에서 이벤트 뷰어 애플리케이션을 열고 **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**에서 확인합니다.
 
 자세한 분석을 위해 "세션" 로그를 활성화합니다(이벤트 뷰어 애플리케이션 내에서 마우스 오른쪽 단추로 클릭하여 이 옵션을 찾습니다). 정상 작동 중에는 이 로그를 활성화한 상태에서 인증 에이전트를 실행하지 마세요. 문제 해결에만 이 로그를 사용하세요. 로그 내용은 로그를 다시 비활성화한 후에만 볼 수 있습니다.
 

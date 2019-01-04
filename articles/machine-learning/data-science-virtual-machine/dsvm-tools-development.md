@@ -1,11 +1,12 @@
 ---
 title: 데이터 과학 Virtual Machine 개발 도구 - Azure | Microsoft Docs
-description: 데이터 과학 가상 머신 개발 도구입니다.
+description: Data Science Virtual Machine에 사전 설치된 도구 및 통합 개발 환경에 대해 알아봅니다.
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 2f642a91bd656cb74cdce2a98c44372a64f23cb9
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ee1e7003a9f1479db7311072e29132cf491cbc88
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50237880"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073757"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine의 개발 도구
 
@@ -30,9 +31,9 @@ DSVM(데이터 과학 Virtual Machine)은 많이 사용되는 여러 도구와 I
 |    |           |
 | ------------- | ------------- |
 | 무엇인가요?   | 범용 IDE      |
-| 지원되는 DSVM 버전      | Windows      |
+| 지원되는 DSVM 버전      |  Windows      |
 | 일반적인 사용 용도      | 소프트웨어 개발    |
-| DSVM에 구성/설치 방법      | 데이터 과학 워크로드(Python 및 R 도구), Azure 워크로드(Hadoop, Data Lake), Node.js, SQL Server 도구, [Visual Studio Tools for AI](https://github.com/Microsoft/vs-tools-for-ai)    |
+| DSVM에 구성/설치 방법      | 데이터 과학 워크로드(Python 및 R 도구), Azure 워크로드(Hadoop, Data Lake), Node.js, SQL Server 도구, [Azure Machine Learning for Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
 | 사용/실행 방법      | 바탕 화면 바로 가기(`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
 | DSVM의 관련 도구      |     Visual Studio Code, RStudio, Juno  |
 
@@ -87,7 +88,7 @@ DSVM(데이터 과학 Virtual Machine)은 많이 사용되는 여러 도구와 I
 |    |           |
 | ------------- | ------------- |
 | 무엇인가요?   | 대화형 데이터 시각화 및 BI 도구    |
-| 지원되는 DSVM 버전      | Windows  |
+| 지원되는 DSVM 버전      |  Windows  |
 | 일반적인 사용 용도      |  데이터 시각화 및 대시보드 작성   |
 | 사용/실행 방법      | 바탕 화면 바로 가기(`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | DSVM의 관련 도구      |   Visual Studio 2017, Visual Studio Code, Juno      |

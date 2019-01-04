@@ -94,7 +94,7 @@ items:
       href: notification-hubs-php-push-notification-tutorial.md
     - name: 알림 허브 만들기 - Python
       href: notification-hubs-python-push-notification-tutorial.md
-  - name: 응용 프로그램 백 엔드에 등록
+  - name: 애플리케이션 백 엔드에 등록
     href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
   - name: Apple 디바이스에서 토큰 기반 인증 사용
     href: notification-hubs-push-notification-http2-token-authentification.md

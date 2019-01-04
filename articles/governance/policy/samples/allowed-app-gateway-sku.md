@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 허용되는 애플리케이션 게이트웨이 SKU
-description: 이 샘플 정책을 적용하려면 응용 프로그램 게이트웨이에서 승인된 SKU를 사용해야 합니다.
+description: 이 샘플 정책을 적용하려면 애플리케이션 게이트웨이에서 승인된 SKU를 사용해야 합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -15,9 +15,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/12/2018
 ms.locfileid: "53317902"
 ---
-# <a name="allowed-application-gateway-skus"></a>허용되는 응용 프로그램 게이트웨이 SKU
+# <a name="allowed-application-gateway-skus"></a>허용되는 애플리케이션 게이트웨이 SKU
 
-이 정책을 적용하려면 응용 프로그램 게이트웨이에서 승인된 SKU를 사용해야 합니다. 승인된 SKU 배열을 지정합니다.
+이 정책을 적용하려면 애플리케이션 게이트웨이에서 승인된 SKU를 사용해야 합니다. 승인된 SKU 배열을 지정합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 

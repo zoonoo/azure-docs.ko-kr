@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9ab3c5399263e301760b7822488fe00145149d2a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 69eeadd8252d20dd25ac6d0abbbf0c6c158383d5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633345"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438628"
 ---
 # <a name="run-apache-pig-jobs-from-a-remote-desktop-connection"></a>원격 데스크탑 연결에서 Apache Pig 작업 실행
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-이 문서에서는 Windows 기반 HDInsight 클러스터에 대한 원격 데스크톱 연결을 통해 Apache Pig 명령을 사용하여 Pig Latin 문을 실행하는 과정을 설정합니다. Pig Latin을 사용하면 매핑하고 함수를 줄이는 대신 데이터 변환을 설명하여 MapReduce 응용 프로그램을 만들 수 있습니다.
+이 문서에서는 Windows 기반 HDInsight 클러스터에 대한 원격 데스크톱 연결을 통해 Apache Pig 명령을 사용하여 Pig Latin 문을 실행하는 과정을 설정합니다. Pig Latin을 사용하면 매핑하고 함수를 줄이는 대신 데이터 변환을 설명하여 MapReduce 애플리케이션을 만들 수 있습니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 원격 데스크톱은 Windows를 운영 체제로 사용하는 HDInsight 클러스터에서만 사용할 수 있습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 >
-> HDInsight 3.4 이상의 경우 명령줄에서 클러스터의 Pig 작업을 대화형으로 실행하는 방법에 대한 자세한 내용은 [HDInsight 및 SSH로 Pig 사용](apache-hadoop-use-pig-ssh.md)을 참조하세요.
+> HDInsight 3.4 이상의 경우 명령줄에서 클러스터의 Pig 작업을 대화형으로 실행하는 방법에 대한 자세한 내용은 [HDInsight 및 SSH로 Apache Pig 사용](apache-hadoop-use-pig-ssh.md)을 참조하세요.
 
 ## <a id="prereq"></a>필수 조건
 이 문서의 단계를 완료하려면 다음이 필요합니다.
@@ -78,7 +78,7 @@ HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정�
 
         STORE RESULT into 'wasb:///example/data/pigout'
 
-   > [!NOTE]
+   > [!NOTE]  
    > 데이터는 지정된 디렉터리에 **part-nnnnn**이라는 파일로 저장됩니다. 해당 디렉터리가 이미 존재하는 경우 오류 메시지가 발생합니다.
    >
    >
@@ -119,9 +119,9 @@ Pig 명령을 사용하여 파일에 포함된 Pig Latin을 실행할 수도 있
 ## <a id="nextsteps"></a>다음 단계
 HDInsight의 Pig에 대한 일반적인 정보:
 
-* [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용](hdinsight-use-pig.md)
 
 HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
-* [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
-* [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 Apache Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)

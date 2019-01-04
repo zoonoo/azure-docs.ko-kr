@@ -1,6 +1,6 @@
 ---
-title: Azure Search에서 데이터 가져오기 | Microsoft Docs
-description: Azure Search에서 인덱스에 데이터를 업로드하는 방법에 대해 알아봅니다.
+title: 검색 인덱스로 데이터를 수집하기 위한 데이터 가져오기 - Azure Search
+description: 외부 데이터 원본에서 Azure Search의 인덱스로 데이터를 채우고 업로드합니다.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist
-ms.openlocfilehash: ab26adb330e69f71d94aa296ede558b44e47a187
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 731519b4e099bd696002af3aa08ada145e490260
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249781"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314859"
 ---
-# <a name="indexing-in-azure-search"></a>Azure Search의 인덱싱
+# <a name="indexing-external-data-for-queries-in-azure-search"></a>Azure Search의 쿼리를 위해 외부 데이터 인덱싱
 > [!div class="op_single_selector"]
 > * [개요](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
@@ -23,7 +24,7 @@ ms.locfileid: "51249781"
 > 
 > 
 
-Azure Search에서는 [검색 인덱스](search-what-is-an-index.md)에 로드된 콘텐츠에 대해 쿼리가 실행됩니다. 이 문서에서는 인덱스에 콘텐츠를 로드하는 두 가지 기본 방법인 데이터를 인덱스에 프로그래밍 방식으로 *푸시* 또는 지원되는 데이터 원본에서 데이터로 *끌어올* [Azure Search 인덱서](search-indexer-overview.md) 지정에 대해 알아보겠습니다.
+Azure Search에서는 [검색 인덱스](search-what-is-an-index.md)에 로드되어 저장된 콘텐츠에 대해 쿼리가 실행됩니다. 이 문서에서는 인덱스를 채우는 두 가지 기본 방법인 프로그래밍 방식으로 데이터를 인덱스에 *푸시*하거나 [Azure Search 인덱서](search-indexer-overview.md)에서 지원되는 데이터 원본을 가리켜 데이터를 *풀*하는 방법을 알아보겠습니다.
 
 ## <a name="pushing-data-to-an-index"></a>인덱스에 데이터 푸시
 데이터를 Azure Search에 프로그래밍 방식으로 보내는 데 사용되는 푸시 모델은 가장 유연한 방법입니다. 첫째, 데이터 원본 형식의 제한이 없습니다. JSON 문서로 구성된 모든 데이터 세트를 Azure Search 인덱스로 푸시할 수 있으며, 데이터 세트의 각 문서에는 인덱스 스키마에 정의된 필드로 매핑되는 필드가 있습니다. 둘째, 실행 빈도의 제한이 없습니다. 원하는 만큼 자주 변경 내용을 인덱스에 푸시할 수 있습니다. 대기 시간 요구 사항이 매우 낮은 응용 프로그램의 경우(예: 검색 작업이 동적 재고 데이터베이스와 동기화되어야 하는 경우) 푸시 모델이 유일한 옵션입니다.

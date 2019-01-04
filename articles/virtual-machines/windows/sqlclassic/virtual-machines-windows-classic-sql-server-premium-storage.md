@@ -394,8 +394,8 @@ $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 
 Always On 가용성 그룹 사용 여부에 따라 SQL Server 배포 관련 고려 사항이 달라집니다. Always On을 사용하지 않으며 기존 독립 실행형 SQL Server가 있는 경우 새 클라우드 서비스 및 Storage 계정을 사용하여 Premium Storage로 업그레이드할 수 있습니다. 이때 다음 옵션을 사용할 수 있습니다.
 
-* **새 SQL Server VM 만들기**. 새 배포에서 설명하는 것처럼 Premium Storage 계정을 사용하는 새 SQL Server VM을 만들 수 있습니다. 그런 후에 SQL Server 구성과 사용자 데이터베이스를 백업 및 복원합니다. 내부 또는 외부에서 액세스되는 경우 새 SQL Server를 참조하도록 응용 프로그램을 업데이트해야 합니다. 병렬(SxS) SQL Server 마이그레이션을 수행하는 것처럼 db 외부의 모든 개체를 복사해야 합니다. 여기에는 로그인, 인증서, 연결된 서버 등의 개체도 포함됩니다.
-* **기존 SQL Server VM 마이그레이션**. 이 옵션을 사용하는 경우 SQL Server VM을 오프라인으로 전환한 다음, 새 클라우드 서비스로 전송해야 합니다. 이때 연결된 모든 VHD를 Premium Storage 계정으로 복사합니다. VM이 온라인 상태가 되면 응용 프로그램은 이전과 같이 서버 호스트 이름을 참조합니다. 기존 디스크의 크기가 성능 특성에 영향을 준다는 것에 유의하세요. 예를 들어 400GB 디스크의 경우 P20으로 반올림될 수 있습니다. 그만큼 높은 디스크 성능이 필요하지 않으면 VM을 DS 시리즈 VM으로 다시 만든 다음 필요한 크기/성능 사양의 Premium Storage VHD를 연결하면 됩니다. 그런 후에 SQL DB 파일을 분리했다가 다시 연결합니다.
+* **새 SQL Server VM 만들기**. 새 배포에서 설명하는 것처럼 Premium Storage 계정을 사용하는 새 SQL Server VM을 만들 수 있습니다. 그런 후에 SQL Server 구성과 사용자 데이터베이스를 백업 및 복원합니다. 내부 또는 외부에서 액세스되는 경우 새 SQL Server를 참조하도록 애플리케이션을 업데이트해야 합니다. 병렬(SxS) SQL Server 마이그레이션을 수행하는 것처럼 db 외부의 모든 개체를 복사해야 합니다. 여기에는 로그인, 인증서, 연결된 서버 등의 개체도 포함됩니다.
+* **기존 SQL Server VM 마이그레이션**. 이 옵션을 사용하는 경우 SQL Server VM을 오프라인으로 전환한 다음, 새 클라우드 서비스로 전송해야 합니다. 이때 연결된 모든 VHD를 Premium Storage 계정으로 복사합니다. VM이 온라인 상태가 되면 애플리케이션은 이전과 같이 서버 호스트 이름을 참조합니다. 기존 디스크의 크기가 성능 특성에 영향을 준다는 것에 유의하세요. 예를 들어 400GB 디스크의 경우 P20으로 반올림될 수 있습니다. 그만큼 높은 디스크 성능이 필요하지 않으면 VM을 DS 시리즈 VM으로 다시 만든 다음 필요한 크기/성능 사양의 Premium Storage VHD를 연결하면 됩니다. 그런 후에 SQL DB 파일을 분리했다가 다시 연결합니다.
 
 > [!NOTE]
 > VHD 디스크를 복사할 때는 크기를 고려해야 합니다. 즉, 디스크는 크기에 따라 각기 다른 Premium Storage 디스크 형식에 속하며 해당하는 디스크 성능 사양이 결정됩니다. Azure에서는 디스크 크기를 가장 가까운 크기로 반올림하므로 400GB 디스크의 경우 P20으로 반올림됩니다. OS VHD의 기존 IO 요구 사항에 따라서는 해당 디스크를 Premium Storage 계정으로 마이그레이션하지 않아도 될 수 있습니다.
@@ -469,7 +469,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 14. 가용성 그룹에서 원래 노드를 제거합니다.
 
 ##### <a name="advantages"></a>장점
-* 새 SQL Server(SQL Server 및 응용 프로그램)를 Always On에 추가하기 전에 테스트할 수 있습니다.
+* 새 SQL Server(SQL Server 및 애플리케이션)를 Always On에 추가하기 전에 테스트할 수 있습니다.
 * VM 크기를 변경할 수 있으며 정확한 요구 사항에 맞게 저장소를 사용자 지정할 수 있습니다. 그러나 모든 SQL 파일 경로는 동일하게 유지하는 것이 좋습니다.
 * 보조 복제본에 DB 백업이 전송이 시작되는 시간을 제어할 수 있습니다. 이 방식은 Azure **Start-AzureStorageBlobCopy** commandlet을 사용하여 VHD를 복사하는 비동기 복사와는 다릅니다.
 
@@ -483,10 +483,10 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 두 번째 전략은 새 클라우드 서비스에서 새 노드를 사용하여 Always On 클러스터를 새로 만든 다음 클라이언트가 해당 클러스터를 사용하도록 리디렉션하는 것입니다.
 
 ##### <a name="points-of-downtime"></a>가동 중지 시간 발생 시점
-응용 프로그램 및 사용자를 새 Always On 수신기로 전송할 때 가동 중지 시간이 발생합니다. 가동 중지 시간은 다음 시간에 따라 달라집니다.
+애플리케이션 및 사용자를 새 Always On 수신기로 전송할 때 가동 중지 시간이 발생합니다. 가동 중지 시간은 다음 시간에 따라 달라집니다.
 
 * 최종 트랜잭션 로그 백업을 새 서버의 데이터베이스로 복원하는 데 걸리는 시간
-* 새 Always On 수신기를 사용하도록 클라이언트 응용 프로그램을 업데이트하는 데 걸리는 시간
+* 새 Always On 수신기를 사용하도록 클라이언트 애플리케이션을 업데이트하는 데 걸리는 시간
 
 ##### <a name="advantages"></a>장점
 * 실제 프로덕션 환경, SQL Serve 및 OS 빌드 변경 내용을 테스트할 수 있습니다.
@@ -495,7 +495,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 * 이전 Always On 클러스터를 명확한 롤백 대상으로 사용할 수 있습니다.
 
 ##### <a name="disadvantages"></a>단점
-* 두 Always On 클러스터를 동시에 실행하려는 경우 수신기의 DNS 이름을 변경해야 합니다. 따라서 클라이언트 응용 프로그램 문자열이 새 수신기 이름을 반영해야 하므로 마이그레이션 중에 관리 오버헤드가 추가됩니다.
+* 두 Always On 클러스터를 동시에 실행하려는 경우 수신기의 DNS 이름을 변경해야 합니다. 따라서 클라이언트 애플리케이션 문자열이 새 수신기 이름을 반영해야 하므로 마이그레이션 중에 관리 오버헤드가 추가됩니다.
 * 마이그레이션 전에 최종 동기화 요구 사항을 최소화할 수 있도록 두 환경 간의 동기화 메커니즘을 최대한 근접하게 구현해야 합니다.
 * 새 환경을 실행하는 동안 마이그레이션 중에 비용이 추가됩니다.
 
@@ -568,7 +568,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 * 백업과 복원 시에 SQL Server 데이터를 이동할 필요가 없습니다.
 
 ##### <a name="disadvantages"></a>단점
-* SQL Server에 대한 클라이언트 액세스에 따라 SQL Server가 응용 프로그램에 대한 대체 DC에서 실행될 때는 대기 시간이 길어질 수 있습니다.
+* SQL Server에 대한 클라이언트 액세스에 따라 SQL Server가 애플리케이션에 대한 대체 DC에서 실행될 때는 대기 시간이 길어질 수 있습니다.
 * 프리미엄 저장소에 VHD를 복사하는 데 시간이 오래 걸릴 수 있습니다. 이러한 시간 증가는 가용성 그룹에 노드를 유지할지를 결정하는 데 영향을 줄 수 있습니다. 마이그레이션 중에 로그를 많이 사용하는 워크로드를 실행하는 경우 이 사항을 고려해야 합니다. 주 노드에서 복제되지 않은 트랜잭션을 트랜잭션 로그에 보관해야 하기 때문입니다. 따라서 로그의 크기가 대폭 증가할 수 있습니다.
 * 이 시나리오에서는 비동기 Azure **Start-AzureStorageBlobCopy** commandlet을 사용합니다. 완료 시 SLA는 제공되지 않습니다. 복사 시간은 큐의 대기 시간과 전송할 데이터 양에 따라 달라집니다. 따라서 두 번째 데이터 센터에 노드가 하나뿐인 경우에는 테스트할 때보다 복사 시간이 오래 걸리면 완화 단계를 수행해야 합니다. 이러한 완화 단계에는 다음 아이디어가 포함됩니다.
   * 가동 중지 시간을 합의한 마이그레이션을 수행하기 전에 HA용 두 번째 임시 SQL 노드를 추가합니다.
@@ -698,7 +698,7 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter RegisterAllProvidersIP  
 
 이후 마이그레이션 단계에서는 부하 분산 장치를 참조하는 업데이트된 IP 주소를 사용하여 Always On 수신기를 업데이트해야 합니다. 여기에는 IP 주소 리소스 제거 및 추가가 포함됩니다. IP 업데이트 후에는 DNS 영역에서 새 IP 주소가 업데이트되었으며 클라이언트가 로컬 DNS 캐시를 업데이트하는지를 확인해야 합니다.
 
-클라이언트가 다른 네트워크 세그먼트에 있으며 다른 DNS 서버를 참조하는 경우에는 마이그레이션 중에 DNS 영역 전송과 관련하여 발생하는 현상을 고려해야 합니다. 응용 프로그램 다시 연결 시간은 최소한 수신기에 대한 새 IP 주소의 영역 전송 시간에 의해 제한되기 때문입니다. 여기서 시간 제약이 있는 경우에는 Windows 팀과 논의하여 강제 증분 영역 전송을 테스트해야 하며, 클라이언트가 업데이트되도록 DNS 호스트 레코드의 TTL(Time to Live)을 줄여야 합니다. 자세한 내용은 [증분 영역 전송](https://technet.microsoft.com/library/cc958973.aspx) 및 [Start-DnsServerZoneTransfer](https://docs.microsoft.com/powershell/module/dnsserver/start-dnsserverzonetransfer)를 참조하세요.
+클라이언트가 다른 네트워크 세그먼트에 있으며 다른 DNS 서버를 참조하는 경우에는 마이그레이션 중에 DNS 영역 전송과 관련하여 발생하는 현상을 고려해야 합니다. 애플리케이션 다시 연결 시간은 최소한 수신기에 대한 새 IP 주소의 영역 전송 시간에 의해 제한되기 때문입니다. 여기서 시간 제약이 있는 경우에는 Windows 팀과 논의하여 강제 증분 영역 전송을 테스트해야 하며, 클라이언트가 업데이트되도록 DNS 호스트 레코드의 TTL(Time to Live)을 줄여야 합니다. 자세한 내용은 [증분 영역 전송](https://technet.microsoft.com/library/cc958973.aspx) 및 [Start-DnsServerZoneTransfer](https://docs.microsoft.com/powershell/module/dnsserver/start-dnsserverzonetransfer)를 참조하세요.
 
 기본적으로 Azure에서 Always On 수신기와 연결된 DNS 레코드의 TTL은 1200초입니다. 마이그레이션 중에 시간 제약이 있는 경우에는 클라이언트가 수신기에 대해 업데이트된 IP 주소로 DNS를 업데이트하도록 이 시간을 줄일 수 있습니다. VNN의 구성을 덤프하면 구성을 확인하고 수정할 수 있습니다.
 
@@ -715,8 +715,8 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 12
 > [!NOTE]
 > ‘HostRecordTTL’이 낮을수록 DNS 트래픽이 더 많이 발생합니다.
 
-##### <a name="client-application-settings"></a>클라이언트 응용 프로그램 설정
-SQL 클라이언트 응용 프로그램에서 .Net 4.5 SQLClient를 지원하는 경우 ‘MULTISUBNETFAILOVER=TRUE’ 키워드를 사용할 수 있습니다. 이 키워드는 장애 조치(failover) 중 SQL Always On 가용성 그룹에 더 빠르게 연결할 수 있게 하므로 적용해야 합니다. 이 키워드는 Always On 수신기에 연결된 모든 IP 주소를 병렬로 열거하며 장애 조치(failover) 중에 TCP 연결 다시 시도를 더 빠르게 수행합니다.
+##### <a name="client-application-settings"></a>클라이언트 애플리케이션 설정
+SQL 클라이언트 애플리케이션에서 .Net 4.5 SQLClient를 지원하는 경우 ‘MULTISUBNETFAILOVER=TRUE’ 키워드를 사용할 수 있습니다. 이 키워드는 장애 조치(failover) 중 SQL Always On 가용성 그룹에 더 빠르게 연결할 수 있게 하므로 적용해야 합니다. 이 키워드는 Always On 수신기에 연결된 모든 IP 주소를 병렬로 열거하며 장애 조치(failover) 중에 TCP 연결 다시 시도를 더 빠르게 수행합니다.
 
 이전 설정에 대한 자세한 내용은 [MultiSubnetFailover 키워드 및 관련 기능](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover)을 참조하세요. 또한 [SqlClient의 고가용성 및 재해 복구 지원](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx)도 참조하세요.
 

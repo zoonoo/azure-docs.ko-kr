@@ -31,7 +31,7 @@ ms.locfileid: "37053119"
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우 [Data Factory 파이프라인 모니터링 및 관리](../monitor-visually.md)를 참조하세요.
 
-이 문서는 모니터링 및 관리 앱을 사용하여 Data Factory 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 다음 비디오를 시청하여 응용 프로그램 사용을 시작할 수 있습니다.
+이 문서는 모니터링 및 관리 앱을 사용하여 Data Factory 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 다음 비디오를 시청하여 애플리케이션 사용을 시작할 수 있습니다.
 
 > [!NOTE]
 > 비디오에 표시된 사용자 인터페이스는 포털에 표시된 것과 정확하게 일치하지 않을 수 있습니다. 약간 더 오래되었지만 개념은 동일합니다. 
@@ -57,7 +57,7 @@ ms.locfileid: "37053119"
 - 맨 위에 있는 **시작 시간** 및 **종료 시간** 필터를 업데이트하여 파이프라인의 시작 및 종료 시간을 일치시킨 다음 **적용** 단추를 클릭합니다.  
 - 작업 창 목록은 자동으로 고쳐지지 않습니다. **작업 창** 목록의 도구 모음에서 **새로 고침** 단추를 클릭합니다.  
 
-이러한 단계를 테스트할 데이터 팩터리 응용 프로그램이 없는 경우 자습서: [데이터 팩터리를 사용하여 Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 수행합니다.
+이러한 단계를 테스트할 데이터 팩터리 애플리케이션이 없는 경우 자습서: [데이터 팩터리를 사용하여 Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 수행합니다.
 
 ## <a name="understand-the-monitoring-and-management-app"></a>모니터링 및 관리 앱 이해
 왼쪽에 **리소스 탐색기**, **Monitoring Views**(모니터링 뷰) 및 **경고**라는 세 개의 탭이 있습니다. 첫 번째 탭(**리소스 탐색기**)은 기본적으로 선택됩니다.

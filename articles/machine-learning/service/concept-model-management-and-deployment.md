@@ -1,31 +1,33 @@
 ---
-title: Azure Machine Learning Service에서 모델 관리 및 배포
+title: ML 모델 관리, 등록, 배포 및 모니터링
+titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning Service를 통해 모델을 배포, 관리 및 모니터링하여 지속적으로 개선하는 방법을 알아봅니다. Azure Machine Learning Service를 사용하여 학습시킨 모델을 로컬 컴퓨터 또는 다른 원본에서 배포할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-author: hjerez
-ms.author: hjerez
+author: chris-lauren
+ms.author: clauren
 ms.date: 09/24/2018
-ms.openlocfilehash: b09ef259d73744612c41adc4fc40ea0235da9bcb
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.custom: seodec18
+ms.openlocfilehash: 25f149ad4df43a7e5b443d6abd72be91072cb47f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885070"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250209"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Azure Machine Learning Service를 사용하여 모델 관리, 배포 및 모니터링
 
 이 문서에서는 Azure Machine Learning Service를 통해 모델을 배포, 관리 및 모니터링하여 지속적으로 개선하는 방법을 알아볼 수 있습니다. Azure Machine Learning을 사용하여 학습한 모델을 로컬 머신 또는 다른 원본에서 배포할 수 있습니다. 
 
-다음 다이어그램에서는 배포 워크플로 전체를 보여 줍니다. [ ![Azure Machine Learning의 배포 워크플로](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
+다음 다이어그램은 전체 배포 워크플로를 보여 줍니다. [ ![Azure Machine Learning에 대한 배포 워크플로](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 배포 워크플로에는 다음 단계가 포함됩니다.
 1. Azure Machine Learning Service 작업 영역에서 호스팅되는 레지스트리에 **모델 등록**
 1. 이식 가능한 컨테이너에서 점수 매기기 스크립트 및 종속성과 모델이 쌍을 이루는 **이미지 등록** 
-1. 클라우드 또는 에지 장치에서 웹 서비스로 이미지 **배포**
+1. 클라우드 또는 에지 디바이스에서 웹 서비스로 이미지 **배포**
 1. **모니터링 및 데이터 수집**
 
 각 단계는 독립적으로 또는 단일 배포 명령의 일환으로 수행할 수 있습니다. 또한 이 그래픽에서 보여 주듯이 배포를 **CI/CD 워크플로**에 통합할 수 있습니다.
@@ -46,7 +48,7 @@ ms.locfileid: "48885070"
 
 * 모델
 * 점수 매기기 엔진
-* 점수 매기기 파일 또는 응용 프로그램
+* 점수 매기기 파일 또는 애플리케이션
 * 모델 점수 매기기에 필요한 모든 종속성
 
 또한 이미지에는 로깅 및 모니터링을 위한 SDK 구성 요소가 포함될 수 있습니다. SDK 로그 데이터는 모델의 입력 및 출력을 포함하여 모델을 자세히 튜닝하거나 재학습하는 데 사용할 수 있습니다.
@@ -77,7 +79,7 @@ Azure Machine Learning은 가장 인기 있는 프레임워크를 지원하지�
 
 모델 로깅 및 데이터 캡처를 수행하는 SDK를 사용할 수 있으므로 모델에서 입력, 출력 및 기타 관련 데이터를 모니터링할 수 있습니다. 데이터는 작업 영역에 대한 Azure Storage 계정에 Blob으로 저장됩니다.
 
-모델을 통해 SDK를 사용하려면 SDK를 점수 매기기 스크립트 또는 응용 프로그램으로 가져옵니다. 그런 다음, SDK를 사용하여 매개 변수, 결과 또는 입력 세부 정보와 같은 데이터를 기록할 수 있습니다.
+모델을 통해 SDK를 사용하려면 SDK를 점수 매기기 스크립트 또는 애플리케이션으로 가져옵니다. 그런 다음, SDK를 사용하여 매개 변수, 결과 또는 입력 세부 정보와 같은 데이터를 기록할 수 있습니다.
 
 이미지를 배포할 때마다 [모델 데이터 수집을 사용하도록 설정](how-to-enable-data-collection.md)하려면 개인 Blob 저장소에 대한 자격 증명과 같이 데이터를 캡처하는 데 필요한 세부 정보가 자동으로 프로비전됩니다.
 

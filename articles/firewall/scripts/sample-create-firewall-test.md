@@ -19,7 +19,7 @@ ms.locfileid: "50230882"
 
 이 스크립트 샘플은 방화벽 및 테스트 네트워크 환경을 만듭니다. 네트워크에는 *AzureFirewallSubnet*, *ServersSubnet* 및 *JumpboxSubnet* 등 세 개의 서브넷이 포함된 하나의 VNet이 있습니다. ServersSubnet 및 JumpboxSubnet 각각에는 2코어 Windows Server 하나씩 있습니다.
 
-방화벽은 AzureFirewallSubnet에 있으며, www.microsoft.com에 대한 액세스를 허용하는 단일 규칙이 포함된 응용 프로그램 규칙 컬렉션으로 구성됩니다.
+방화벽은 AzureFirewallSubnet에 있으며, www.microsoft.com에 대한 액세스를 허용하는 단일 규칙이 포함된 애플리케이션 규칙 컬렉션으로 구성됩니다.
 
 방화벽 규칙이 적용된 방화벽을 통해 ServersSubnet에서 네트워크 트래픽을 가리키는 사용자 정의 경로가 만들어집니다.
 
@@ -72,7 +72,7 @@ Remove-AzureRmResourceGroup -Name AzfwSampleScriptEastUS -Force
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 리소스 그룹 및 포함된 모든 리소스를 제거합니다. |
 |[New-AzureRmFirewall](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermfirewall?view=azurermps-6.9.0)| 새 Azure Firewall을 만듭니다.|
 |[Get-AzureRmFirewall](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermfirewall?view=azurermps-6.9.0)|Azure Firewall 개체를 가져옵니다.|
-|[New-AzureRmFirewallApplicationRule](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermfirewallapplicationrule?view=azurermps-6.9.0)|새 Azure Firewall 응용 프로그램 규칙을 만듭니다.|
+|[New-AzureRmFirewallApplicationRule](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermfirewallapplicationrule?view=azurermps-6.9.0)|새 Azure Firewall 애플리케이션 규칙을 만듭니다.|
 |[Set-AzureRmFirewall](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermfirewall?view=azurermps-6.9.0)|Azure Firewall 개체의 변경 내용을 커밋합니다.|
 
 

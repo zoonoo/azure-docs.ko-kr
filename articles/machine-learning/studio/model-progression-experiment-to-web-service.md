@@ -4,9 +4,8 @@ description: Azure Machine Learning 모델을 통해 개발 실험에서 조작 
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 1254f41d4961956acc8f7abc7d5490fedbb8c5d0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5cfa11042d269353cf33f99d1238265ff9657853
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310102"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253870"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>실험에서 조작 가능한 웹 서비스까지 Machine Learning Studio 모델 진행 과정
 Azure Machine Learning Studio는 예측 분석 모델을 대신하는 ***실험***을 개발, 실행, 테스트 및 반복할 수 있는 대화형 캔버스를 제공합니다. 다음 작업에 사용할 수 있는 모듈을 매우 다양하게 갖추고 있습니다.
@@ -81,7 +80,7 @@ Azure Machine Learning Studio는 *예측 분석 모델*을 개발 및 배포하�
 실험을 반복한 후 만족한 경우:
 
 1. **웹 서비스 설정**을 클릭하고 **재학습 웹 서비스**를 선택합니다. 입력 및 출력 노드가 자동으로 추가됩니다.
-2.  **실행**을 클릭합니다.
+2. **실행**을 클릭합니다.
 3. **웹 서비스 배포**를 클릭하고 배포하려는 환경에 따라 **웹 서비스 배포[기존]** 또는 **웹 서비스 배포[신규]** 를 선택합니다.
 
 이제 웹 서비스가 배포되고 예측 웹 서비스처럼 액세스하고 관리할 수 있습니다.
@@ -95,7 +94,7 @@ Azure Machine Learning Studio는 *예측 분석 모델*을 개발 및 배포하�
 
 모델을 변경하지 않는 대신 웹 서비스에서 데이터를 처리하는 방법만 변경하는 경우에는 예측 실험을 편집한 후 또다시 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[기존]** 또는 **웹 서비스 배포[신규]** 를 선택합니다. 웹 서비스를 중지한 다음 업데이트된 예측 실험을 배포하고서 웹 서비스를 다시 시작합니다.
 
-다음 예제에서는 예측 실험이 예측된 결과와 함께 입력 데이터의 전체 행을 반환한다고 가정합니다. 웹 서비스에서 결과만 반환하도록 결정할 수 있습니다. 따라서 예측 실험에서 출력 포트 바로 앞에 **프로젝트 열** 모듈을 추가하여 결과 이외의 열을 제외할 수 있습니다. 또다시 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[기존]** 또는 **웹 서비스 배포[신규]** 를 선택하면 해당 웹 서비스가 업데이트됩니다.
+예를 들면 다음과 같습니다. 예측 실험이 예측된 결과와 함께 입력 데이터의 전체 행을 반환한다고 가정합니다. 웹 서비스에서 결과만 반환하도록 결정할 수 있습니다. 따라서 예측 실험에서 출력 포트 바로 앞에 **프로젝트 열** 모듈을 추가하여 결과 이외의 열을 제외할 수 있습니다. 또다시 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[기존]** 또는 **웹 서비스 배포[신규]** 를 선택하면 해당 웹 서비스가 업데이트됩니다.
 
 **새 데이터로 모델을 재학습하려고 합니다.**
 

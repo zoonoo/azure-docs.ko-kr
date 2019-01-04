@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0f9d786988cb547771b8fd999b911bd228cdc3e2
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b667cfad6eb2a2a13e4b84dacaad0bcd3dfa91b9
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311044"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017136"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight에서 Apache HBase 예제 시작
 
@@ -28,7 +28,7 @@ HDInsight에서 [Apache HBase](http://hbase.apache.org/) 클러스터를 만들�
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * [SSH(Secure Shell)](../hdinsight-hadoop-linux-use-ssh-unix.md). 
-* [curl](http://curl.haxx.se/download.html).
+* [curl](https://curl.haxx.se/download.html).
 
 ## <a name="create-apache-hbase-cluster"></a>Apache HBase 클러스터 만들기
 다음 절차에서는 Azure Resource Manager 템플릿을 사용하여 HBase 클러스터 및 종속된 기본 Azure Storage 계정을 만듭니다. 절차에 사용되는 매개 변수와 다른 클러스터 생성 메서드를 이해하려면 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. Data Lake Storage Gen2를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
@@ -41,7 +41,7 @@ HDInsight에서 [Apache HBase](http://hbase.apache.org/) 클러스터를 만들�
    * **구독**: 클러스터를 만드는 데 사용할 Azure 구독을 선택합니다.
    * **리소스 그룹**: Azure 리소스 관리 그룹을 만들거나 기존 그룹을 사용합니다.
    * **위치**: 리소스 그룹의 위치를 지정합니다. 
-   * **클러스터 이름**: HBase 클러스터의 이름을 입력합니다.
+   * **ClusterName**: HBase 클러스터의 이름을 입력합니다.
    * **클러스터 로그인 이름 및 암호**: 기본 로그인 이름은 **admin**입니다.
    * **SSH 사용자 이름 및 암호**: 기본 사용자 이름은 **sshuser**입니다.  이름은 변경할 수 있습니다.
      
@@ -174,7 +174,7 @@ HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>Curl을 사용하여 HBase REST API 사용
 
-REST API는 [기본 인증](http://en.wikipedia.org/wiki/Basic_access_authentication)을 통해 보안됩니다. 자격 증명이 안전하게 서버에 전송되도록 하려면 항상 보안 HTTP(HTTPS)를 사용하여 요청해야 합니다.
+REST API는 [기본 인증](https://en.wikipedia.org/wiki/Basic_access_authentication)을 통해 보안됩니다. 자격 증명이 안전하게 서버에 전송되도록 하려면 항상 보안 HTTP(HTTPS)를 사용하여 요청해야 합니다.
 
 2. 다음 명령을 사용하여 기존의 HBase 테이블을 나열합니다.
 
@@ -272,7 +272,7 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 
 자세한 내용은 다음을 참조하세요.
 
-* [HDInsight HBase 개요][hdinsight-hbase-overview]: Apache HBase는 대량의 비구조적/반구조적 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Apache Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
+* [HDInsight HBase 개요][hdinsight-hbase-overview]: Apache HBase는 구조화되지 않은/반구조화된 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Apache Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 
@@ -288,11 +288,11 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 [hdinsight-hbase-overview]:apache-hbase-overview.md
 [hdinsight-hbase-provision-vnet]:apache-hbase-provision-vnet.md
 [hdinsight-versions]: hdinsight-component-versioning.md
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [azure-portal]: https://portal.azure.com/
-[azure-create-storageaccount]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
+[azure-create-storageaccount]: https://azure.microsoft.com/documentation/articles/storage-create-storage-account/
 
 [img-hbase-shell]: ./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png
 [img-hbase-sample-data-tabular]: ./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png

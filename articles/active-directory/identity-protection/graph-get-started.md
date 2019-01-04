@@ -39,7 +39,7 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
 
 - Azure AD P2 테넌트
 
-- Azure AD에서 응용 프로그램을 만드는 관리자 권한
+- Azure AD에서 애플리케이션을 만드는 관리자 권한
 
 - 테넌트의 도메인 이름(예: contoso.onmicrosoft.com)
 
@@ -50,7 +50,7 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
 
 2. 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
    
-    ![응용 프로그램 만들기](./media/graph-get-started/41.png)
+    ![애플리케이션 만들기](./media/graph-get-started/41.png)
 
 3. **사용자 지정 도메인 이름**을 클릭합니다.
 
@@ -66,16 +66,16 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
 
 1. **Active Directory** 페이지의 **관리** 섹션에서 **앱 등록**을 클릭합니다.
 
-    ![응용 프로그램 만들기](./media/graph-get-started/42.png)
+    ![애플리케이션 만들기](./media/graph-get-started/42.png)
 
 
-2. 위에 있는 메뉴에서 **새 응용 프로그램 등록**을 클릭합니다.
+2. 위에 있는 메뉴에서 **새 애플리케이션 등록**을 클릭합니다.
    
-    ![응용 프로그램 만들기](./media/graph-get-started/43.png)
+    ![애플리케이션 만들기](./media/graph-get-started/43.png)
 
 3. **만들기** 페이지에서 다음 단계를 수행합니다.
    
-    ![응용 프로그램 만들기](./media/graph-get-started/44.png)
+    ![애플리케이션 만들기](./media/graph-get-started/44.png)
 
     a. **이름** 텍스트 상자에 응용 프로그램의 이름으 입력합니다(예: AADIP 위험 이벤트 API 응용 프로그램).
    
@@ -90,39 +90,39 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
 5. **응용 프로그램 ID**를 복사합니다.
 
 
-## <a name="grant-your-application-permission-to-use-the-api"></a>API를 사용하도록 응용 프로그램에 권한 부여
+## <a name="grant-your-application-permission-to-use-the-api"></a>API를 사용하도록 애플리케이션에 권한 부여
 
 1. **설정** 페이지에서 **필요한 권한**을 클릭합니다.
    
-    ![응용 프로그램 만들기](./media/graph-get-started/15.png)
+    ![애플리케이션 만들기](./media/graph-get-started/15.png)
 
 2. **필요한 권한** 페이지의 위쪽 도구 모음에서 **추가**를 클릭합니다.
    
-    ![응용 프로그램 만들기](./media/graph-get-started/16.png)
+    ![애플리케이션 만들기](./media/graph-get-started/16.png)
    
 3. **API 액세스 추가** 페이지에서 **API 선택**을 클릭합니다.
    
-    ![응용 프로그램 만들기](./media/graph-get-started/17.png)
+    ![애플리케이션 만들기](./media/graph-get-started/17.png)
 
 4. **API 선택** 페이지에서 **Microsoft Graph**를 선택한 다음, **선택**을 클릭합니다.
    
-    ![응용 프로그램 만들기](./media/graph-get-started/18.png)
+    ![애플리케이션 만들기](./media/graph-get-started/18.png)
 
 5. **API 액세스 추가** 페이지에서 **권한 선택**을 클릭합니다.
    
-    ![응용 프로그램 만들기](./media/graph-get-started/19.png)
+    ![애플리케이션 만들기](./media/graph-get-started/19.png)
 
 6. **액세스 허용** 페이지에서 **모든 ID 위험 정보 읽기**, **선택**을 차례로 클릭합니다.
    
-    ![응용 프로그램 만들기](./media/graph-get-started/20.png)
+    ![애플리케이션 만들기](./media/graph-get-started/20.png)
 
 7. **API 액세스 추가** 페이지에서 **완료**를 클릭합니다.
    
-    ![응용 프로그램 만들기](./media/graph-get-started/21.png)
+    ![애플리케이션 만들기](./media/graph-get-started/21.png)
 
 8. **필요한 권한** 페이지에서 **사용 권한 부여**를 클릭한 다음 **예**를 클릭합니다.
    
-    ![응용 프로그램 만들기](./media/graph-get-started/22.png)
+    ![애플리케이션 만들기](./media/graph-get-started/22.png)
 
 
 
@@ -130,11 +130,11 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
 
 1. **설정** 페이지에서 **키**를 클릭합니다.
    
-    ![응용 프로그램 만들기](./media/graph-get-started/23.png)
+    ![애플리케이션 만들기](./media/graph-get-started/23.png)
 
 2. **키** 페이지에서 다음 단계를 수행합니다.
    
-    ![응용 프로그램 만들기](./media/graph-get-started/24.png)
+    ![애플리케이션 만들기](./media/graph-get-started/24.png)
 
     a. **키 설명** 텍스트 상자에서 설명을 입력합니다(예: *AADIP 위험 이벤트*).
     
@@ -219,7 +219,7 @@ API를 호출하려면 다음 매개 변수를 사용하여 헤더를 만듭니�
 축하합니다! Microsoft Graph에 대한 호출을 처음으로 만들었습니다.  
 이제 ID 위험 이벤트를 쿼리하고 적절하게 데이터를 사용할 수 있습니다.
 
-Microsoft Graph 및 Graph API를 사용하여 응용 프로그램을 구축하는 방법에 대한 자세한 내용은 [설명서](https://developer.microsoft.com/graph/docs) 및 [Microsoft Graph 사이트](https://developer.microsoft.com/graph/)에서 확인합니다. 또한 Graph에서 사용할 수 있는 ID 보호 API를 모두 나열하는 [Azure AD ID 보호 API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root) 페이지에 책갈피를 설정해야 합니다. API를 통해 ID 보호를 사용하는 새로운 방법을 추가하는 대로 해당 페이지에 표시됩니다.
+Microsoft Graph 및 Graph API를 사용하여 애플리케이션을 구축하는 방법에 대한 자세한 내용은 [설명서](https://developer.microsoft.com/graph/docs) 및 [Microsoft Graph 사이트](https://developer.microsoft.com/graph/)에서 확인합니다. 또한 Graph에서 사용할 수 있는 ID 보호 API를 모두 나열하는 [Azure AD ID 보호 API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root) 페이지에 책갈피를 설정해야 합니다. API를 통해 ID 보호를 사용하는 새로운 방법을 추가하는 대로 해당 페이지에 표시됩니다.
 
 관련 정보는 다음을 참조하세요.
 

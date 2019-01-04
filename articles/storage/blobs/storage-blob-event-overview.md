@@ -17,9 +17,9 @@ ms.locfileid: "45735887"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Blob 저장소 이벤트에 대응
 
-Azure Storage 이벤트를 사용하면 응용 프로그램은 서버 없는 최신 아키텍처를 사용하여 Blob의 생성 및 삭제에 대응할 수 있습니다. 복잡한 코드나 비용이 많이 들고 비효율적인 폴링 서비스가 없어도 이렇게 할 수 있습니다.  대신, 이벤트는 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)를 통해 [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)와 같은 구독자로 푸시되거나 사용자 지정 HTTP 수신기로도 푸시되며, 요금은 사용한 만큼만 청구됩니다.
+Azure Storage 이벤트를 사용하면 애플리케이션은 서버 없는 최신 아키텍처를 사용하여 BLOB의 생성 및 삭제에 대응할 수 있습니다. 복잡한 코드나 비용이 많이 들고 비효율적인 폴링 서비스가 없어도 이렇게 할 수 있습니다.  대신, 이벤트는 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)를 통해 [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)와 같은 구독자로 푸시되거나 사용자 지정 HTTP 수신기로도 푸시되며, 요금은 사용한 만큼만 청구됩니다.
 
-Blob Storage 이벤트는 다양한 다시 시도 정책 및 배달 못한 편지를 통해 응용 프로그램에 신뢰할 수 있는 배달 서비스를 제공하는 Event Grid 서비스에 안정적으로 전송됩니다.
+Blob Storage 이벤트는 다양한 다시 시도 정책 및 배달 못한 편지를 통해 애플리케이션에 신뢰할 수 있는 배달 서비스를 제공하는 Event Grid 서비스에 안정적으로 전송됩니다.
 
 일반적인 Blob 저장소 이벤트 시나리오에는 이미지 또는 비디오 처리, 검색 인덱싱, 또는 파일 중심의 워크플로가 포함됩니다.  비동기 파일 업로드는 이벤트에 매우 적합합니다.  변경 빈도가 낮더라도 즉각적인 대응이 필요한 시나리오에서는 이벤트 기반 아키텍처가 특히 효율적일 수 있습니다.
 
@@ -121,7 +121,7 @@ Blob 이름 접두사를 공유하는 특정 컨테이너에서 생성된 Blob�
 Blob 접미사를 공유하는 특정 컨테이너에 만들어진 Blob의 이벤트와 일치시키려면 `subjectEndsWith` 필터(예: ".log" 또는 ".jpg")를 사용합니다. 자세한 내용은 [Event Grid 개념](../../event-grid/concepts.md#event-subscriptions)을 참조하세요.
 
 ## <a name="practices-for-consuming-events"></a>이벤트 사용에 관한 지침
-Blob Storage 이벤트를 처리하는 응용 프로그램은 아래 권장되는 몇 가지 지침을 따라야 합니다.
+Blob Storage 이벤트를 처리하는 애플리케이션은 아래 권장되는 몇 가지 지침을 따라야 합니다.
 > [!div class="checklist"]
 > * 동일한 이벤트 처리기로 이벤트를 라우팅하도록 여러 구독이 구성될 수 있으므로, 이벤트가 특정 원본에서 온 것이라고 가정하지 않고 메시지의 토픽을 확인하여 예상하는 저장소 계정에서 왔음을 확실히 아는 것이 중요합니다.
 > * 마찬가지로, eventType이 본인이 처리하려는 형식인지 확인하고, 수신된 모든 이벤트가 예상하는 형식일 것이라고 간주하지 않도록 합니다.

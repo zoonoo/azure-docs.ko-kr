@@ -1,6 +1,6 @@
 ---
 title: Azure에서 서비스 맵 솔루션 사용 | Microsoft Docs
-description: 서비스 맵은 Windows 및 Linux 시스템의 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 사용자 환경에 서비스 맵을 배포하고 다양한 시나리오에서 사용하는 것에 대해 자세히 설명합니다.
+description: 서비스 맵은 Windows 및 Linux 시스템의 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 사용자 환경에 서비스 맵을 배포하고 다양한 시나리오에서 사용하는 것에 대해 자세히 설명합니다.
 services: monitoring
 documentationcenter: ''
 author: mgoedtel
@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: c25bc5d577096078694e3af0de74debe0f906251
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: cd55e97edb6cd0b4a2a3eceee406ce5718db8bd4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51827562"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186500"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure에서 서비스 맵 솔루션 사용
 서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 서비스 맵을 사용하면 생각하는 방식 즉 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스, 인바운드/아웃바운드 연결 대기 시간 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
@@ -38,7 +37,7 @@ ms.locfileid: "51827562"
 2. 검색 창에 **서비스 맵**을 입력하고 **Enter** 키를 누릅니다.
 3. 마켓플레이스 검색 결과 페이지의 목록에서 **서비스 맵**을 선택합니다.<br><br> ![Azure Marketplace 검색 결과에서 서비스 맵 솔루션 선택](./media/service-map/marketplace-search-results.png)<br>
 4. **서비스 맵** 개요 창에서 솔루션 세부 정보를 검토한 다음, **만들기**를 클릭하여 Log Analytics 작업 영역에서 온보딩 프로세스를 시작합니다.<br><br> ![서비스 맵 솔루션을 등록합니다](./media/service-map/service-map-onboard.png).
-5. **솔루션 구성** 창에서 기존 Log Analytics 작업 영역을 선택하거나 새 Log Analytics 작업 영역을 만듭니다.  새 작업 영역을 만드는 방법에 대한 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../log-analytics/log-analytics-quick-create-workspace.md)를 참조합니다. 필요한 정보를 제공한 후 **만들기**를 클릭합니다.  
+5. **솔루션 구성** 창에서 기존 Log Analytics 작업 영역을 선택하거나 새 Log Analytics 작업 영역을 만듭니다.  새 작업 영역을 만드는 방법에 대한 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../azure-monitor/learn/quick-create-workspace.md)를 참조합니다. 필요한 정보를 제공한 후 **만들기**를 클릭합니다.  
 
 정보가 확인되고 솔루션이 배포되는 동안 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다. 
 
@@ -56,7 +55,7 @@ Log Analytics 작업 영역의 Azure Portal에서 서비스 맵에 액세스하�
 서비스 맵을 사용하면, Azure Migration을 효과적으로 계획, 가속화 및 검증할 수 있으므로 아무것도 남기지 않고 임의의 중단이 발생하지 않도록 할 수 있습니다. 함께 마이그레이션해야 하는 모든 상호 종속적인 시스템을 검색하고 시스템 구성 및 용량을 평가하며 실행 중인 시스템이 여전히 사용자에게 서비스 중인지, 마이그레이션 대신 서비스 해제가 적합한지 여부를 식별합니다. 이동이 완료되면 클라이언트 로드 및 ID를 확인하여 테스트 시스템과 고객이 연결 중인지 확인할 수 있습니다. 서브넷 계획 및 방화벽 정의에 문제가 있으면 서비스 맵 맵에서 실패한 연결을 통해 사용자는 연결이 필요한 시스템으로 안내됩니다.
 
 ### <a name="business-continuity"></a>비즈니스 연속성
-Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복구 시퀀스를 정의하는 데 도움이 필요한 경우 서비스 맵은 시스템이 서로 어떻게 의존하여 복구 계획의 안정성을 보장하는지를 자동으로 보여 줄 수 있습니다. 중요한 서버나 그룹을 선택하고 클라이언트를 보면 서버가 복원되어 사용 가능할 때 복구할 프런트 엔드 시스템을 식별할 수 있습니다. 반대로 중요한 서버의 백 엔드 종속성을 살펴보고 포커스 시스템을 복원하기 전에 복구할 시스템을 식별할 수 있습니다.
+Azure Site Recovery를 사용 중이고 애플리케이션 환경에 대한 복구 시퀀스를 정의하는 데 도움이 필요한 경우 서비스 맵은 시스템이 서로 어떻게 의존하여 복구 계획의 안정성을 보장하는지를 자동으로 보여 줄 수 있습니다. 중요한 서버나 그룹을 선택하고 클라이언트를 보면 서버가 복원되어 사용 가능할 때 복구할 프런트 엔드 시스템을 식별할 수 있습니다. 반대로 중요한 서버의 백 엔드 종속성을 살펴보고 포커스 시스템을 복원하기 전에 복구할 시스템을 식별할 수 있습니다.
 
 ### <a name="patch-management"></a>패치 관리
 서비스 맵은 다른 어떤 팀과 서버가 사용자의 서비스에 종속되어 있는지를 보여 주어 시스템 업데이트 평가 사용을 개선하므로 패치 적용을 위해 시스템이 중단되기 전에 사전에 알릴 수 있습니다. 또한 서비스 맵은 서비스가 사용 가능한지, 패치 적용되어 다시 시작된 후 제대로 연결되었는지를 표시하여 패치 관리를 개선합니다.
@@ -277,7 +276,7 @@ Linux:
 ![컴퓨터 변경 내용 추적 창](media/service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Log Analytics 레코드
-서비스 맵 컴퓨터 및 프로세스 인벤토리 데이터는 Log Analytics에서 [검색](../../log-analytics/log-analytics-queries.md)할 수 있습니다. 마이그레이션 계획, 용량 분석, 검색 및 주문형 성능 문제 해결을 포함하는 시나리오에 이 데이터를 적용할 수 있습니다.
+서비스 맵 컴퓨터 및 프로세스 인벤토리 데이터는 Log Analytics에서 [검색](../../azure-monitor/log-query/log-query-overview.md)할 수 있습니다. 마이그레이션 계획, 용량 분석, 검색 및 주문형 성능 문제 해결을 포함하는 시나리오에 이 데이터를 적용할 수 있습니다.
 
 프로세스 또는 컴퓨터가 시작되거나 서비스 맵에 등록된 경우 생성되는 레코드 외에도 고유한 각 컴퓨터 및 프로세스에 대해 시간당 하나의 레코드가 생성됩니다. 이러한 레코드는 다음 표의 속성을 가집니다. ServiceMapComputer_CL 이벤트의 필드 및 값은 ServiceMap Azure Resource Manager API의 컴퓨터 리소스 필드에 매핑됩니다. ServiceMapProcess_CL 이벤트의 필드 및 값은 ServiceMap Azure Resource Manager API의 프로세스 리소스 필드에 매핑됩니다. ResourceName_s 필드는 해당하는 Resource Manager 리소스의 이름 필드와 일치합니다. 
 
@@ -330,9 +329,9 @@ Linux:
 |ResponseTimeMin |보고 기간 동안 관찰된 최소 응답 시간(밀리초).  값이 없는 경우 속성은 비어 있습니다.|
 |ResponseTimeSum |보고 기간 동안 관찰된 모든 응답 시간의 합계(밀리초).  값이 없는 경우 속성은 비어 있습니다.|
 
-보고할 데이터의 세 번째 형식은 호출자가 원격 엔드포인트에서 처리 및 응답할 연결을 통해 전송된 요청을 대기하는 데 걸리는 시간인 응답 시간입니다. 보고된 응답 시간은 기본 응용 프로그램 프로토콜의 true 응답 시간에 대한 추정치입니다. 물리적 네트워크 연결의 원본 및 대상 끝 사이의 데이터 흐름을 관찰하여 그에 따른 추론 방식을 사용하여 계산됩니다. 개념적으로는 발신자가 요청의 마지막 바이트를 보낸 시간과 응답의 마지막 바이트가 다시 도착할 때의 시간 사이에는 차이가 있습니다. 이러한 두 타임스탬프는 지정된 물리적 연결에서 요청 및 응답 이벤트를 설명하는 데 사용됩니다. 그 차이는 단일 요청의 응답 시간을 나타냅니다. 
+보고할 데이터의 세 번째 형식은 호출자가 원격 엔드포인트에서 처리 및 응답할 연결을 통해 전송된 요청을 대기하는 데 걸리는 시간인 응답 시간입니다. 보고된 응답 시간은 기본 애플리케이션 프로토콜의 true 응답 시간에 대한 추정치입니다. 물리적 네트워크 연결의 원본 및 대상 끝 사이의 데이터 흐름을 관찰하여 그에 따른 추론 방식을 사용하여 계산됩니다. 개념적으로는 발신자가 요청의 마지막 바이트를 보낸 시간과 응답의 마지막 바이트가 다시 도착할 때의 시간 사이에는 차이가 있습니다. 이러한 두 타임스탬프는 지정된 물리적 연결에서 요청 및 응답 이벤트를 설명하는 데 사용됩니다. 그 차이는 단일 요청의 응답 시간을 나타냅니다. 
 
-이 기능의 이 첫 번째 릴리스에서 해당 알고리즘은 지정된 네트워크 연결에 사용된 실제 응용 프로그램 프로토콜에 따라 각기 다른 성공도로 작동할 수도 있는 근사값입니다. 예를 들어, 현재 접근 방식은 HTTP(S)와 같은 프로토콜 기반 요청-응답에는 적합하지만, 단방향 또는 메시지 큐 기반 프로토콜에는 작동하지 않습니다.
+이 기능의 이 첫 번째 릴리스에서 해당 알고리즘은 지정된 네트워크 연결에 사용된 실제 애플리케이션 프로토콜에 따라 각기 다른 성공도로 작동할 수도 있는 근사값입니다. 예를 들어, 현재 접근 방식은 HTTP(S)와 같은 프로토콜 기반 요청-응답에는 적합하지만, 단방향 또는 메시지 큐 기반 프로토콜에는 작동하지 않습니다.
 
 고려할 몇 가지 중요한 사항은 다음과 같습니다.
 
@@ -504,7 +503,7 @@ Microsoft는 서비스 맵 서비스를 사용하여 사용 현황 및 성능 �
 
 
 ## <a name="next-steps"></a>다음 단계
-Log Analytics의 [로그 검색](../../log-analytics/log-analytics-queries.md)에 대해 자세히 알아보고 서비스 맵이 수집한 데이터를 검색합니다.
+Log Analytics의 [로그 검색](../../azure-monitor/log-query/log-query-overview.md)에 대해 자세히 알아보고 서비스 맵이 수집한 데이터를 검색합니다.
 
 
 ## <a name="troubleshooting"></a>문제 해결

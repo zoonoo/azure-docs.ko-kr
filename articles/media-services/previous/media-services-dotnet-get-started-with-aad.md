@@ -33,8 +33,8 @@ windowsazure.mediaservices 4.0.0.4부터는 Azure Media Services에서 Azure AD(
 
 Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가지 방법 중 하나로 인증할 수 있습니다.
 
-- **사용자 인증**은 Azure Media Services 리소스와 상호 작용하는 데 앱을 사용하는 사용자를 인증합니다. 대화형 응용 프로그램은 먼저 사용자에게 자격 증명을 묻는 메시지를 표시합니다. 예제는 권한 있는 사용자가 인코딩 작업 또는 라이브 스트리밍을 모니터링하기 위해 사용한 관리 콘솔 앱입니다. 
-- **서비스 주체 인증**은 서비스를 인증합니다. 이 인증 방법을 일반적으로 사용하는 응용 프로그램은 디먼 서비스, 중간 계층 서비스 또는 예약된 작업(예: 웹앱, 함수 앱, 논리 앱, API 또는 마이크로 서비스)을 실행하는 앱입니다.
+- **사용자 인증**은 Azure Media Services 리소스와 상호 작용하는 데 앱을 사용하는 사용자를 인증합니다. 대화형 애플리케이션은 먼저 사용자에게 자격 증명을 묻는 메시지를 표시합니다. 예제는 권한 있는 사용자가 인코딩 작업 또는 라이브 스트리밍을 모니터링하기 위해 사용한 관리 콘솔 앱입니다. 
+- **서비스 주체 인증**은 서비스를 인증합니다. 이 인증 방법을 일반적으로 사용하는 애플리케이션은 디먼 서비스, 중간 계층 서비스 또는 예약된 작업(예: 웹앱, 함수 앱, 논리 앱, API 또는 마이크로서비스)을 실행하는 앱입니다.
 
 >[!IMPORTANT]
 >현재 Azure Media Services는 Azure Access Control Service 인증 모델을 지원합니다. 그러나 Access Control 권한 부여는 2018년 6월 22일부로 더 이상 사용되지 않을 예정입니다. 가능한 빨리 Azure Active Directory 인증 모델로 마이그레이션하는 것이 좋습니다.
@@ -43,7 +43,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가�
 
 Azure AD 인증으로 Azure Media Services API에 연결하려면 클라이언트 앱에서 Azure AD 액세스 토큰을 요청해야 합니다. Media Services .NET 클라이언트 SDK를 사용할 경우 Azure AD 액세스 토큰을 확보하는 방법에 대한 대부분의 세부 내용은 [AzureAdTokenProvider](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.Authentication/AzureAdTokenProvider.cs) 및 [AzureAdTokenCredentials](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.Authentication/AzureAdTokenCredentials.cs) 클래스에 래핑되어 간소화되어 있습니다. 
 
-예를 들어 Azure AD 인증 기관, Media Services 리소스 URI 또는 원시 Azure AD 응용 프로그램 정보를 제공하지 않아도 됩니다. 이들은 Azure AD 액세스 토큰 공급자 클래스에 의해 이미 구성된 잘 알려진 값입니다. 
+예를 들어 Azure AD 인증 기관, Media Services 리소스 URI 또는 원시 Azure AD 애플리케이션 정보를 제공하지 않아도 됩니다. 이들은 Azure AD 액세스 토큰 공급자 클래스에 의해 이미 구성된 잘 알려진 값입니다. 
 
 Azure Media Service .NET SDK를 사용하지 않는 경우 [Azure AD 인증 라이브러리](../../active-directory/develop/active-directory-authentication-libraries.md)를 사용하는 것이 좋습니다. Azure AD 인증 라이브러리와 함께 사용해야 하는 매개 변수 값을 가져오려면 [Azure Portal을 사용하여 Azure AD 인증 설정 액세스](media-services-portal-get-started-with-aad.md)를 참조하세요.
 
@@ -54,7 +54,7 @@ Azure Media Service .NET SDK를 사용하지 않는 경우 [Azure AD 인증 라�
 >[!NOTE] 
 >Media Services .NET SDK와 함께 Azure AD 인증을 사용하려면 최신 [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) 패키지가 있어야 합니다. 또한 **Microsoft.IdentityModel.Clients.ActiveDirectory** 어셈블리에 참조를 추가합니다. 기존 앱을 사용하고 있는 경우 **Microsoft.WindowsAzure.MediaServices.Client.Common.Authentication.dll** 어셈블리를 포함합니다. 
 
-1. Visual Studio를 사용하여 새 C# 콘솔 응용 프로그램을 만듭니다.
+1. Visual Studio를 사용하여 새 C# 콘솔 애플리케이션을 만듭니다.
 2. [windowsazure.mediaservices](https://www.nuget.org/packages/windowsazure.mediaservices) NuGet 패키지를 사용하여 **Azure Media Services .NET SDK**를 설치합니다. 
 
     NuGet을 사용하여 참조를 추가하려면 다음 단계를 수행합니다. **솔루션 탐색기**에서 마우스 오른쪽 단추로 프로젝트 이름을 클릭한 다음 **NuGet 패키지 관리**를 선택합니다. 그런 다음 **windowsazure.mediaservices**를 검색하고 **설치**를 선택합니다.
@@ -75,8 +75,8 @@ Azure Media Service .NET SDK를 사용하지 않는 경우 [Azure AD 인증 라�
 
 - Azure AD 테넌트 엔드포인트. Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자 위로 마우스를 가져갑니다.
 - Media Services 리소스 URI.
-- Media Services(원시) 응용 프로그램 클라이언트 ID. 
-- Media Services(원시) 응용 프로그램 리디렉션 URI. 
+- Media Services(원시) 애플리케이션 클라이언트 ID. 
+- Media Services(원시) 애플리케이션 리디렉션 URI. 
 
 이러한 매개 변수 값은 **AzureEnvironments.AzureCloudEnvironment**에서 확인할 수 있습니다. **AzureEnvironments.AzureCloudEnvironment** 상수는 공용 Azure 데이터 센터에 대해 적절한 환경 변수 설정을 가져오는 .NET SDK의 도우미입니다. 
 
@@ -126,7 +126,7 @@ Azure Media Service .NET SDK를 사용하지 않는 경우 [Azure AD 인증 라�
 
 ## <a name="use-service-principal-authentication"></a>서비스 주체 인증 사용
     
-서비스 주체 옵션으로 Azure Media Services API에 연결하려면 중간 계층 앱(웹 API 또는 웹 응용 프로그램)에서 다음 매개 변수와 함께 Azure AD 토큰을 요청해야 합니다.  
+서비스 주체 옵션으로 Azure Media Services API에 연결하려면 중간 계층 앱(웹 API 또는 웹 애플리케이션)에서 다음 매개 변수와 함께 Azure AD 토큰을 요청해야 합니다.  
 
 - Azure AD 테넌트 엔드포인트. Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자 위로 마우스를 가져갑니다.
 - Media Services 리소스 URI.

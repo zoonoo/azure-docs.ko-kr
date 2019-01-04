@@ -134,7 +134,7 @@ items:
       href: apache-hadoop-hive-pig-udf-dotnet-csharp.md
     - name: Apache Hive 및 Apache Pig와 함께 Python 사용
       href: python-udf-hdinsight.md
-    - name: 비대화형 인증 .NET HDInsight 응용 프로그램 만들기
+    - name: 비대화형 인증 .NET HDInsight 애플리케이션 만들기
       href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
       maintainContext: true
   - name: HDInsight 도구 사용
@@ -216,7 +216,7 @@ items:
     - name: Apache Zeppelin 사용
       href: ../hdinsight-apache-spark-zeppelin-notebook.md
       maintainContext: true
-    - name: HDInsight 응용 프로그램 빌드
+    - name: HDInsight 애플리케이션 빌드
       items:
       - name: 사용자 지정 앱 설치
         href: ../hdinsight-apps-install-custom-applications.md
@@ -226,7 +226,7 @@ items:
       - name: Azure Marketplace에 HDInsight 앱 게시
         href: ../hdinsight-apps-publish-applications.md
         maintainContext: true
-      - name: 게시된 앱 설치 - Cask 데이터 응용 프로그램 플랫폼(CDAP)
+      - name: 게시된 앱 설치 - Cask 데이터 애플리케이션 플랫폼(CDAP)
         href: ../hdinsight-apps-install-cask.md
         maintainContext: true
       - name: 게시된 앱 설치 - Dataiku

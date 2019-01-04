@@ -1,5 +1,5 @@
 ---
-title: Azure Search의 쿼리 유형 및 구성 | Microsoft Docs
+title: 쿼리 유형 및 구성 - Azure Search
 description: Azure Search에서 검색 쿼리 작성, 매개 변수를 사용하여 결과 필터링, 선택 및 정렬에 대한 기본 사항입니다.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.openlocfilehash: a1dad30148da9f6b322c75fd40dc01098c4d6b63
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.custom: seodec2018
+ms.openlocfilehash: 03ec588b1627b82a01021a9b71958e9d66aab0ce
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42144864"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315590"
 ---
 # <a name="query-types-and-composition-in-azure-search"></a>Azure Search의 쿼리 유형 및 구성
 

@@ -1,6 +1,6 @@
 ---
 title: 지정된 API에 대한 사용 권한을 선택하는 방법 | Microsoft Docs
-description: 개발 중이거나 Azure AD에 등록 중인 사용자 지정 응용 프로그램의 인증 엔드포인트를 찾는 방법입니다.
+description: 개발 중이거나 Azure AD에 등록 중인 사용자 지정 애플리케이션의 인증 엔드포인트를 찾는 방법입니다.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -33,7 +33,7 @@ ms.locfileid: "49364934"
 
 -   그러면 테넌트의 모든 인증 엔드포인트가 나열되는 **엔드포인트** 페이지가 열립니다.
 
--   응용 프로그램 ID와 함께 사용하는 인증 프로토콜에 해당하는 엔드포인트를 사용하여 응용 프로그램에 해당하는 인증 요청을 만듭니다.
+-   애플리케이션 ID와 함께 사용하는 인증 프로토콜에 해당하는 엔드포인트를 사용하여 애플리케이션에 해당하는 인증 요청을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory 개발자 가이드](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)

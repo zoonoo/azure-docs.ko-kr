@@ -15,12 +15,12 @@ ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 388fd812185bc8bd2ef68a1dbcea6303d30dcdf3
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2afe75045444fbc0ca36ee1cfca3d96f5b218ab0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230797"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135494"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 원격 데스크톱 게시
 
@@ -49,7 +49,7 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
 
 - RD 웹 및 RD 게이트웨이 엔드포인트는 둘 다 같은 컴퓨터에 있고 공통 루트를 사용해야 합니다. RD 웹 및 RD 게이트웨이는 응용 프로그램 프록시와 함께 단일 응용 프로그램으로 게시되므로 두 응용 프로그램 간에 Single Sign-On 환경이 있을 수 있습니다.
 
-- 이미 [RDS를 배포](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure)하고 [응용 프로그램 프록시를 사용하도록 설정](application-proxy-enable.md)했어야 합니다.
+- 이미 [RDS를 배포](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure)하고 [애플리케이션 프록시를 사용하도록 설정](application-proxy-add-on-premises-application.md)했어야 합니다.
 
 - 이 시나리오에서는 최종 사용자가 RD 웹 페이지를 통해 연결하는 Windows 7 또는 Windows 10 데스크톱에서 Internet Explorer를 수행한다고 가정합니다. 다른 운영 체제를 지원해야 하는 경우 [다른 클라이언트 구성 지원](#support-for-other-client-configurations)을 참조하세요.
 
@@ -57,15 +57,15 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
 
 - Internet Explorer에서 RDS ActiveX 추가 기능을 사용하도록 설정합니다.
 
-## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>공동 RDS 및 응용 프로그램 프록시 시나리오 배포
+## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>공동 RDS 및 애플리케이션 프록시 시나리오 배포
 
 환경에 대해 RDS 및 Azure AD 응용 프로그램 프록시를 설정한 후 두 가지 솔루션을 결합하는 단계를 따릅니다. 이러한 단계에서는 두 개의 웹 연결 RDS 엔드포인트(RD 웹 및 RD 게이트웨이)를 응용 프로그램으로 게시하고 나서 응용 프로그램 프록시를 통과하도록 RDS의 트래픽을 전달하는 작업을 안내합니다.
 
 ### <a name="publish-the-rd-host-endpoint"></a>RD 호스트 엔드포인트 게시
 
-1. 다음 값을 사용하여 [새 응용 프로그램 프록시 응용 프로그램을 게시](application-proxy-publish-azure-portal.md)합니다.
+1. 다음 값을 사용하여 [새 응용 프로그램 프록시 응용 프로그램을 게시](application-proxy-add-on-premises-application.md)합니다.
    - 내부 URL: `https://\<rdhost\>.com/`, 여기서 `\<rdhost\>`는 RD 웹과 RD 게이트웨이에서 공유하는 공통 루트입니다.
-   - 외부 URL: 이 필드는 응용 프로그램 이름에 따라 자동으로 채워지지만 수정할 수 있습니다. 사용자는 RDS에 액세스하면 이 URL로 이동합니다.
+   - 외부 URL: 이 필드는 애플리케이션 이름에 따라 자동으로 채워지지만 수정할 수 있습니다. 사용자는 RDS에 액세스하면 이 URL로 이동합니다.
    - 사전 인증 방법: Azure Active Directory
    - URL 헤더 변환: 아니요
 2. 게시된 RD 응용 프로그램에 사용자를 할당합니다. 모든 사용자가 RDS에도 액세스할 수 있는지 확인합니다.
@@ -114,7 +114,7 @@ Windows 7 또는 10 컴퓨터에서 Internet Explorer를 사용하여 시나리�
 1. 설정한 외부 URL로 이동하거나 [MyApps](https://myapps.microsoft.com) 패널에서 응용 프로그램을 찾습니다.
 2. Azure Active Directory에 대해 인증할지 묻는 메시지가 표시됩니다. 응용 프로그램에 할당한 계정을 사용합니다.
 3. RD 웹에 대해 인증할지 묻는 메시지가 표시됩니다.
-4. RDS 인증이 성공하면 원하는 데스크톱 또는 응용 프로그램을 선택하고 작동을 시작할 수 있습니다.
+4. RDS 인증이 성공하면 원하는 데스크톱 또는 애플리케이션을 선택하고 작동을 시작할 수 있습니다.
 
 ## <a name="support-for-other-client-configurations"></a>다른 클라이언트 구성에 대한 지원
 

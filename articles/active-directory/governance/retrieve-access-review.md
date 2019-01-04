@@ -24,7 +24,7 @@ ms.locfileid: "45607553"
 ---
 # <a name="retrieve-access-review-results"></a>액세스 검토 결과 검색
 
-관리자는 Azure AD(Azure Active Directory)를 사용하여 응용 프로그램에 할당된 그룹 구성원 또는 사용자에 대한 [액세스 검토를 만들 수](create-access-review.md) 있습니다.  **전역 관리자**, **사용자 계정 관리자**, **보안 관리자** 또는 **보안 판독기** 역할을 하는 사용자는 액세스 검토 결과를 읽을 수 있습니다.  이러한 역할 중 하나에 사용자를 할당하려면 권한있는 역할 관리자는 Azure AD PIM를 사용하여 사용자가 역할을 활성화하기에 적합하게 만들 수 있거나 전역 관리자가 영구적으로 [사용자를 역할에 할당](../fundamentals/active-directory-users-assign-role-azure-portal.md)할 수 있습니다.
+관리자는 Azure AD(Azure Active Directory)를 사용하여 애플리케이션에 할당된 그룹 구성원 또는 사용자에 대한 [액세스 검토를 만들 수](create-access-review.md) 있습니다.  **전역 관리자**, **사용자 계정 관리자**, **보안 관리자** 또는 **보안 판독기** 역할을 하는 사용자는 액세스 검토 결과를 읽을 수 있습니다.  이러한 역할 중 하나에 사용자를 할당하려면 권한있는 역할 관리자는 Azure AD PIM를 사용하여 사용자가 역할을 활성화하기에 적합하게 만들 수 있거나 전역 관리자가 영구적으로 [사용자를 역할에 할당](../fundamentals/active-directory-users-assign-role-azure-portal.md)할 수 있습니다.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 

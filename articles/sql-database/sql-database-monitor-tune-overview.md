@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: 0d728d81a29c5520938c8553c026727c0f94cc43
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.date: 12/10/2018
+ms.openlocfilehash: 9e8b9b24707577aba5df754984953ef2f59b9ff9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957006"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272867"
 ---
 # <a name="monitoring-and-performance-tuning"></a>모니터링 및 성능 튜닝
 
@@ -60,7 +60,7 @@ Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스�
 
 ## <a name="troubleshoot-performance-issues"></a>성능 문제 해결
 
-성능 문제를 진단하고 해결하려면 먼저 각 워크로드 상태와 관련된 성능 문제를 일으키는 각 활성 쿼리의 상태 및 조건을 이해해야 합니다. Azure SQL Database 성능을 개선하려면 응용 프로그램의 각 활성 쿼리 요청이 실행 중이거나 대기 상태인 것을 이해해야 합니다. Azure SQL Database의 성능 문제를 해결하려면 이 문서를 읽을 때 다음 차트를 염두에 두고 성능 문제를 진단하고 해결하세요.
+성능 문제를 진단하고 해결하려면 먼저 각 워크로드 상태와 관련된 성능 문제를 일으키는 각 활성 쿼리의 상태 및 조건을 이해해야 합니다. Azure SQL Database 성능을 개선하려면 애플리케이션의 각 활성 쿼리 요청이 실행 중이거나 대기 상태인 것을 이해해야 합니다. Azure SQL Database의 성능 문제를 해결하려면 이 문서를 읽을 때 다음 차트를 염두에 두고 성능 문제를 진단하고 해결하세요.
 
 ![워크로드 상태](./media/sql-database-monitor-tune-overview/workload-states.png)
 
@@ -85,7 +85,91 @@ Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스�
 > [!IMPORTANT]
 > 이러한 DMV를 사용하여 CPU 사용률 문제를 해결하는 T-SQL 쿼리 집합은 [CPU 성능 문제 식별](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues)을 참조하세요.
 
+### <a name="troubleshoot-queries-with-parameter-sensitive-query-execution-plan-issues"></a>쿼리의 매개 변수가 중요한 쿼리 실행 계획 문제 해결
+
+PSP(매개 변수가 중요한 계획) 문제는 쿼리 최적화 프로그램이 특정 매개 변수 값(또는 값 세트)에 대해서만 최적 상태인 쿼리 실행 계획을 생성하고 캐시된 계획이 연속 실행에 사용되는 매개 변수 값에 대한 최적이 아닌 시나리오를 나타냅니다. 최적이 아닌 계획을 사용하면 쿼리 성능 문제가 발생하고 전반적인 워크로드 처리량이 저하될 수 있습니다.
+
+문제를 완화하는 데 사용되는 몇 가지 해결 방법과 관련된 절충안 및 단점은 다음과 같습니다.
+
+- 각 쿼리 실행 시 [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 쿼리 힌트를 사용합니다. 이 해결 방법을 사용할 경우 품질은 향상되지만 컴파일 시간 및 CPU가 늘어납니다. 경우에 따라 높은 처리량이 필요한 워크로드에는 `RECOMPILE` 옵션을 사용하지 못할 수 있습니다.
+- 실제 매개 변수 값을 대부분의 매개 변수 값에 충분히 적합한 계획을 생성하는 일반적인 매개 변수 값으로 재정의하려면 [OPTION (OPTIMIZE FOR…)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 쿼리 힌트를 사용합니다.   이 옵션을 사용하려면 최적의 매개 변수 값 및 관련 계획 특성을 적절히 이해해야 합니다.
+- 밀도 벡터 평균을 사용하는 대신, 실제 매개 변수 값을 재정의하려면 [OPTION (OPTIMIZE FOR UNKNOWN)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 쿼리 힌트를 사용합니다. 이 작업을 수행하는 또 다른 방법은 수신 매개 변수 값을 로컬 변수에 캡처하고, 매개 변수 자체를 사용하는 대신 조건자 내에서 해당 로컬 변수를 사용하는 것입니다. 평균 밀도는 이러한 특정 해결 방법에 *충분히 적절해야* 합니다.
+- [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 쿼리 힌트를 사용하여 매개 변수 검색을 완전히 사용하지 않도록 설정합니다.
+- 캐시에 있는 동안 다시 컴파일하지 않으려면 [KEEPFIXEDPLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 쿼리 힌트를 사용합니다. 이 해결 방법은 *충분히 좋은* 일반 계획이 캐시에 이미 있다고 가정합니다. 적절한 계획이 제거되고 새로운 나쁜 계획이 컴파일될 가능성을 줄이기 위해 통계 자동 업데이트도 사용하지 않도록 설정할 수 있습니다.
+- [USE PLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 쿼리 힌트를 명시적으로 사용하여 계획을 강제로 적용합니다(명시적으로 지정하거나, 쿼리 저장소를 사용하여 특정 계획을 설정하거나, [자동 튜닝](sql-database-automatic-tuning.md)을 사용하도록 설정).
+- 단일 프로시저를 각각을 조건부 논리 및 연결된 매개 변수 값을 기준으로 사용할 수 있는 중첩된 프로시저 세트로 바꿉니다.
+- 정적 프로시저 정의를 대신하는 동적 문자열 실행을 만듭니다.
+
+이러한 유형의 문제를 해결하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+
+- 이 [smell a parameter](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/)(매개 변수 진단) 블로그 게시물
+- 이 [parameter sniffing problem and workarounds](https://blogs.msdn.microsoft.com/turgays/2013/09/10/parameter-sniffing-problem-and-possible-workarounds/)(매개 변수 검색 문제 및 해결 방법) 블로그 게시물
+- 이렇게 [elephant and mouse parameter sniffing](ttps://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/)(코끼리 및 쥐 매개 변수 검색) 블로그 게시물
+- 이 [dynamic sql versus plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)(동적 SQL 및 매개 변수가 있는 쿼리의 계획 품질) 블로그 게시물
+
+### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>부적절한 매개 변수화로 인한 컴파일 활동 문제 해결
+
+쿼리에 리터럴이 있는 경우 데이터베이스 엔진이 자동으로 문을 매개 변수화하도록 선택하거나, 사용자가 컴파일 수를 줄이기 위해 문을 명시적으로 매개 변수화할 수 있습니다. 패턴이 같지만 다른 리터럴 값을 사용하는 쿼리를 여러 번 컴파일하면 CPU 사용률이 높아질 수 있습니다. 마찬가지로, 리터럴을 계속 포함하는 쿼리를 부분적으로만 매개 변수화해도 데이터베이스 엔진이 추가로 매개 변수화하지는 않습니다.  다음은 부분적으로 매개 변수가 있는 쿼리 예제입니다.
+
+```sql
+select * from t1 join t2 on t1.c1=t2.c1
+where t1.c1=@p1 and t2.c2='961C3970-0E54-4E8E-82B6-5545BE897F8F'
+```
+
+이전 예제에서 `t1.c1`은 `@p1`을 사용하지만 `t2.c2`는 계속해서 GUID를 리터럴로 사용합니다. 이러한 경우 `c2` 값을 변경하면 쿼리는 다른 쿼리로 처리되고 새 컴파일이 발생합니다. 이전 예제에서 컴파일을 줄이려면 GUID도 매개 변수화해야 합니다.
+
+다음 쿼리는 쿼리가 적절히 매개 변수화되었는지를 확인하기 위한 쿼리 해시별 쿼리 수를 보여 줍니다.
+
+```sql
+   SELECT  TOP 10  
+      q.query_hash
+      , count (distinct p.query_id ) AS number_of_distinct_query_ids
+      , min(qt.query_sql_text) AS sampled_query_text
+   FROM sys.query_store_query_text AS qt
+      JOIN sys.query_store_query AS q
+         ON qt.query_text_id = q.query_text_id
+      JOIN sys.query_store_plan AS p 
+         ON q.query_id = p.query_id
+      JOIN sys.query_store_runtime_stats AS rs 
+         ON rs.plan_id = p.plan_id
+      JOIN sys.query_store_runtime_stats_interval AS rsi
+         ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
+   WHERE
+      rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
+      AND query_parameterization_type_desc IN ('User', 'None')
+   GROUP BY q.query_hash
+   ORDER BY count (distinct p.query_id) DESC
+```
+
+### <a name="resolve-problem-queries-or-provide-more-resources"></a>문제 쿼리 해결 또는 더 많은 리소스 제공
+
 문제를 식별한 후에는 문제 쿼리를 튜닝하거나 계산 크기 또는 서비스 계층을 업그레이드하여 CPU 요구 사항을 충족하도록 Azure SQL 데이터베이스의 용량을 늘릴 수 있습니다. 단일 데이터베이스의 리소스 크기 조정에 대한 자세한 내용은 [Azure SQL Database에서 단일 데이터베이스 리소스 크기 조정](sql-database-single-database-scale.md) 및 [Azure SQL Database에서 탄력적 풀 리소스 크기 조정](sql-database-elastic-pool-scale.md)을 참조하세요. 관리되는 인스턴스 크기 조정에 대한 자세한 내용은 [인스턴스 수준 리소스 제한](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits)을 참조하세요.
+
+### <a name="determine-if-running-issues-due-to-increase-workload-volume"></a>워크로드 볼륨 증가를 가져오는 문제 확인
+
+애플리케이션 트래픽 및 워크로드 증가로 인해 CPU 사용률이 증가할 수 있지만 이 문제를 적절히 진단하려면 주의해야 합니다. CPU 사용량이 많은 시나리오에서는 다음 질문에 답변하여 실제로 CPU가 워크로드 볼륨 변경으로 인해 증가하는지 확인합니다.
+
+1. 애플리케이션의 쿼리가 CPU 증가 문제의 원인이 되나요?
+2. CPU를 상당히 많이 사용하는 쿼리의 경우(식별 가능한 경우):
+
+   - 동일한 쿼리와 연결된 실행 계획이 많이 있는지 확인합니다. 이러한 경우라면 이유를 확인합니다.
+   - 동일한 실행 계획이 있는 쿼리의 경우, 실행 시간이 일관되는지와 실행 수가 증가하는지 확인합니다. 이러한 경우 워크로드 증가로 인해 성능 문제가 발생할 가능성이 높습니다.
+
+즉, 쿼리 실행 계획은 다르게 실행되지만 CPU 사용률은 실행 수에 따라 증가할 경우 워크로드 증가와 관련된 성능 문제가 있을 수 있습니다.
+
+워크로드 볼륨 변경이 CPU 문제를 유발한다는 결론을 항상 쉽게 내릴 수 있는 것은 아닙니다.   고려할 요인: 
+
+- **리소스 사용량 변경**
+
+  예를 들어, 장시간 동안 CPU가 80%까지 증가하는 시나리오를 고려해 보세요.  CPU 사용률만으로는 워크로드 볼륨이 달라지지 않습니다.  애플리케이션이 정확히 동일한 워크로드를 실행하더라도 쿼리 실행 계획 회귀 및 데이터 분포 변경 또한 리소스 사용량 증가에 영향을 줄 수 있습니다.
+
+- **새 쿼리 표시**
+
+   애플리케이션이 서로 다른 시간에 새 쿼리 세트를 구동할 수 있습니다.
+
+- **요청 수가 증가 또는 감소**
+
+   이 시나리오는 워크로드를 가장 명확히 나타내는 측정 방식입니다. 쿼리 수가 많다고 해서 항상 리소스 사용률이 많은 것은 아닙니다. 그렇지만 이 메트릭은 다른 요소가 변경되지 않을 경우 중대한 신호가 됩니다.
 
 ## <a name="waiting-related-performance-issues"></a>대기 관련 성능 문제
 
@@ -94,6 +178,13 @@ CPU 사용량이 높은 실행 관련 성능 문제가 아닌 것으로 확인�
 - [쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)는 시간에 따른 쿼리당 대기 통계를 제공합니다. 쿼리 저장소에서 대기 유형은 대기 범주로 결합됩니다. 대기 범주와 대기 유형의 매핑은 [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table)에서 사용할 수 있습니다.
 - [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database)는 작업 중에 실행된 스레드로 인해 발생한 모든 대기에 대한 정보를 반환합니다. 이 집계 보기를 사용하여 Azure SQL Database와 특정 쿼리 및 일괄 처리의 성능 문제를 진단할 수 있습니다.
 - [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql)는 일부 리소스에서 대기 중인 작업의 대기 큐에 대한 정보를 반환합니다.
+
+높은 CPU 시나리오에서는 다음과 같은 두 가지 이유 때문에 쿼리 저장소 및 대기 통계가 항상 CPU 사용률을 반영하지 않을 수도 있습니다.
+
+- CPU를 많이 소비하는 쿼리가 여전히 실행 중일 수 있으며 쿼리가 완료되지 않았습니다.
+- 장애 조치(Failover)가 발생했을 때 CPU를 많이 소비하는 쿼리가 실행 중이었습니다.
+
+쿼리 저장소 및 대기 통계 추적 동적 관리 뷰는 성공적으로 완료되고 제한 시간을 초과한 쿼리의 결과만 표시하고, 현재 실행 중인 문에 대한 데이터는 표시하지 않습니다(완료될 때까지).  동적 관리 뷰 [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)를 사용하여 현재 실행 중인 쿼리와 관련된 작업자 시간을 추적할 수 있습니다.
 
 이전 차트에 표시된 것처럼, 가장 일반적인 대기는 다음과 같습니다.
 

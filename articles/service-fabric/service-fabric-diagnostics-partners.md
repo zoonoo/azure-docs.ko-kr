@@ -23,7 +23,7 @@ ms.locfileid: "49458991"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Azure Service Fabric 모니터링 파트너
 
-이 문서에서는 몇 가지 파트너 솔루션을 사용하여 Service Fabric 응용 프로그램, 클러스터 및 인프라를 모니터링하는 방법을 설명합니다. Service Fabric에 대한 통합된 제품을 만들기 위해 아래의 각 파트너와 협력했습니다.
+이 문서에서는 몇 가지 파트너 솔루션을 사용하여 Service Fabric 애플리케이션, 클러스터 및 인프라를 모니터링하는 방법을 설명합니다. Service Fabric에 대한 통합된 제품을 만들기 위해 아래의 각 파트너와 협력했습니다.
 
 ## <a name="dynatrace"></a>Dynatrace
 
@@ -35,11 +35,11 @@ Datadog에는 Windows 및 Linux 인스턴스 모두에 대한 VMSS의 확장명�
 
 ## <a name="appdynamics"></a>AppDynamics
 
-AppDynamics와 Service Fabric 통합은 응용 프로그램 수준에 있습니다. 환경 변수를 업데이트하고 App Dynamics NuGets를 사용하여 AppDynamics에 응용 프로그램 원격 분석을 보낼 수 있습니다. AppDynamics와 .NET Service Fabric 응용 프로그램을 통합하는 방법은 이러한 [지침](https://docs.appdynamics.com/display/AZURE/Install+AppDynamics+for+Azure+Service+Fabric)을 참조하세요.
+AppDynamics와 Service Fabric 통합은 애플리케이션 수준에 있습니다. 환경 변수를 업데이트하고 App Dynamics NuGets를 사용하여 AppDynamics에 애플리케이션 원격 분석을 보낼 수 있습니다. AppDynamics와 .NET Service Fabric 애플리케이션을 통합하는 방법은 이러한 [지침](https://docs.appdynamics.com/display/AZURE/Install+AppDynamics+for+Azure+Service+Fabric)을 참조하세요.
 
 ## <a name="new-relic"></a>New Relic
 
-New Relic은 Service Fabric 응용 프로그램과 잘 통합되는 다른 응용 프로그램 성능 관리 도구입니다. New Relic NuGet 패키지를 설치하고 매니페스트 파일에서 특정 환경 변수를 추가하여 New Relic에 응용 프로그램 원격 분석을 보낼 수 있습니다. .NET Service Fabric 응용 프로그램에 대해 New Relic 원격 분석을 활성화하려면 이러한 [지침](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/install-net-agent-azure-service-fabric)을 확인합니다.
+New Relic은 Service Fabric 애플리케이션과 잘 통합되는 다른 애플리케이션 성능 관리 도구입니다. New Relic NuGet 패키지를 설치하고 매니페스트 파일에서 특정 환경 변수를 추가하여 New Relic에 애플리케이션 원격 분석을 보낼 수 있습니다. .NET Service Fabric 애플리케이션에 대해 New Relic 원격 분석을 활성화하려면 이러한 [지침](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/install-net-agent-azure-service-fabric)을 확인합니다.
 
 ## <a name="elk"></a>ELK 
 

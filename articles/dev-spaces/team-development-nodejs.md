@@ -72,7 +72,7 @@ ms.locfileid: "51706571"
 1. `webfrontend` 프로젝트에서 F5 키를 누릅니다.
 1. 웹앱을 열고 두 서비스에서 코드를 단계별로 실행합니다. 웹앱에는 두 서비스로 연결된 "Hello from webfrontend and Hello from mywebapi.(webfrontend에서 보낸 Hello 및 mywebapi에서 보낸 Hello입니다.)"라는 메시지가 표시됩니다.
 
-모두 완료되었습니다! 이제 각 컨테이너를 개별적으로 개발하고 배포할 수 있는 다중 컨테이너 응용 프로그램이 있습니다.
+모두 완료되었습니다! 이제 각 컨테이너를 개별적으로 개발하고 배포할 수 있는 다중 컨테이너 애플리케이션이 있습니다.
 
 ## <a name="learn-about-team-development"></a>팀 개발 알아보기
 

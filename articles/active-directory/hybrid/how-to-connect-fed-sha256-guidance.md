@@ -30,7 +30,7 @@ AD FS(Active Directory Federation Services)는 변조될 수 없음을 확인하
 >Microsoft에서는 SHA1보다 더 안전하지만 SHA1이 여전히 지원되는 옵션이므로 토큰을 서명하는 알고리즘으로 SHA256을 사용하는 것이 좋습니다.
 
 ## <a name="change-the-token-signing-algorithm"></a>토큰 서명 알고리즘 변경
-아래의 두 절차 중 하나를 사용하여 서명 알고리즘을 설정한 후 AD FS는 SHA256으로 Office 365 신뢰 당사자 트러스트에 대한 토큰을 서명합니다. 추가 구성을 변경할 필요가 없으며 이 변경은 Office 365 또는 다른 Azure AD 응용 프로그램에 액세스하는 기능에 영향을 주지 않습니다.
+아래의 두 절차 중 하나를 사용하여 서명 알고리즘을 설정한 후 AD FS는 SHA256으로 Office 365 신뢰 당사자 트러스트에 대한 토큰을 서명합니다. 추가 구성을 변경할 필요가 없으며 이 변경은 Office 365 또는 다른 Azure AD 애플리케이션에 액세스하는 기능에 영향을 주지 않습니다.
 
 ### <a name="ad-fs-management-console"></a>AD FS 관리 콘솔
 1. 기본 AD FS 서버에서 AD FS 관리 콘솔을 엽니다.

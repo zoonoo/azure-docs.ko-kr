@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: a97032344b904442ed3606c6297251578c3b4ff7
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e866b205fb5cdd65dc690101503613714271e36c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263896"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075355"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Azure Cosmos 컨테이너 및 데이터베이스에 대한 처리량 프로비전
 
@@ -19,7 +19,7 @@ Azure Cosmos 데이터베이스는 컨테이너 세트의 관리 단위입니다
 
 Azure Cosmos DB를 사용하면 두 가지 세분성, 즉 **Azure Cosmos 컨테이너**와 **Azure Cosmos 데이터베이스**에서 처리량을 구성할 수 있습니다.
 
-# <a name="setting-throughput-on-a-azure-cosmos-container"></a>Azure Cosmos 컨테이너에서 처리량 설정  
+## <a name="setting-throughput-on-a-container"></a>컨테이너에서 처리량 설정  
 
 Azure Cosmos 컨테이너에 프로비전된 처리량은 컨테이너에 독점적으로 예약됩니다. 컨테이너는 항상 프로비전된 처리량을 받습니다. 컨테이너에 프로비전된 처리량은 재정적으로 SLA의 지원을 받습니다. 컨테이너에서 처리량을 구성하려면 [Azure Cosmos 컨테이너에서 처리량을 프로비전하는 방법](how-to-provision-container-throughput.md)을 참조하세요.
 
@@ -31,7 +31,7 @@ Azure Cosmos 컨테이너에서 프로비전된 처리량은 컨테이너의 모
 
 ![리소스 파티션](./media/set-throughput/resource-partition.png)
 
-# <a name="setting-throughput-on-a-azure-cosmos-database"></a>Azure Cosmos 데이터베이스에서 처리량 설정
+## <a name="setting-throughput-on-a-database"></a>데이터베이스에서 처리량 설정
 
 Azure Cosmos 데이터베이스에서 처리량을 프로비전할 때 특정 컨테이너에 프로비전되는 처리량을 지정하지 않는 이상, 데이터베이스의 모든 컨테이너 간에 처리량이 공유됩니다. 컨테이너 간에 데이터베이스 처리량을 공유하는 것은 머신 클러스터에 데이터베이스를 호스트하는 것과 비슷합니다. 데이터베이스 내의 모든 컨테이너가 머신에 제공되는 리소스를 공유하므로 당연히 특정 컨테이너에 대한 예상 성능이 제공되지 않습니다. 데이터베이스의 처리량을 구성하려면 [Azure Cosmos 데이터베이스에 프로비전된 처리량을 구성하는 방법](how-to-provision-database-throughput.md)을 참조하세요.
 
@@ -53,11 +53,11 @@ Azure Cosmos 데이터베이스에 처리량을 설정하면 항상 프로비전
 
 ![리소스 파티션](./media/set-throughput/resource-partition2.png)
 
-## <a name="setting-throughput-on-a-azure-cosmos-database-and-a-container"></a>Azure Cosmos 데이터베이스 및 컨테이너의 처리량 설정
+## <a name="setting-throughput-on-a-database-and-a-container"></a>데이터베이스 및 컨테이너의 처리량 설정
 
 두 모델을 결합하여 데이터베이스와 컨테이너의 처리량을 모두 프로비전할 수 있습니다. 다음 예제는 Azure Cosmos 데이터베이스 및 컨테이너의 처리량을 프로비전하는 방법을 보여줍니다.
 
-* 이름은 ‘Z’이고 프로비전된 처리량은 ‘K’ RU인 Azure Cosmos 데이터베이스를 만들 수 있습니다. 
+* 이름은 'Z'이고 프로비전된 처리량은 'K' RU인 Azure Cosmos 데이터베이스를 만들 수 있습니다. 
 * 다음으로, 데이터베이스 내에서 5개 컨테이너 A, B, C, D, E를 만듭니다.
 * 컨테이너 'B'에 프로비전된 처리량의 'P' RU를 명시적으로 구성할 수 있습니다.
 * 'K' RU 처리량은 A, C, D, E 4개 컨테이너 간에 공유됩니다. A, C, D 또는 E에서 사용할 수 있는 정확한 처리량은 상황에 따라 다르며 개별 컨테이너의 처리량에 대한 SLA는 없습니다.
@@ -67,7 +67,7 @@ Azure Cosmos 데이터베이스에 처리량을 설정하면 항상 프로비전
 
 |**할당량**  |**데이터베이스에 프로비전된 처리량**  |**컨테이너에 프로비전된 처리량**|
 |---------|---------|---------|
-|최소 RU |400 |400|
+|최소 RU |400(처음 네 개의 컨테이너 후 각 추가 컨테이너에는 최소 100RU/s가 필요합니다.) |400|
 |컨테이너당 최소 RU|100|400|
 |스토리지 1GB를 사용하는 데 필요한 최소 RU|40|40|
 |최대 RU|데이터베이스에서 무제한|컨테이너에서 무제한|

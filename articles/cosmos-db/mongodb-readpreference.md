@@ -1,22 +1,20 @@
 ---
-title: Azure Cosmos DB MongoDB API에서 MongoDB 읽기 기본 설정 사용 | Microsoft Docs
+title: Azure Cosmos DB MongoDB API에서 MongoDB 읽기 기본 설정 사용
 description: Azure Cosmos DB MongoDB API에서 MongoDB 읽기 기본 설정을 사용하는 방법을 알아봅니다.
 services: cosmos-db
 author: vidhoonv
-manager: kfile
+ms.author: sclyon
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: ''
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2018
-ms.author: sclyon
-ms.openlocfilehash: b0af47f9ed72507fe9bc47023b456fcb157e25de
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 4f40a2dac04102a19be7b3209c6bf37be9252cde
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091683"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875351"
 ---
 # <a name="how-to-globally-distribute-reads-using-read-preference-with-the-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB MongoDB API에서 읽기 기본 설정을 사용하여 읽기를 전역적으로 배포하는 방법 
 
@@ -45,7 +43,7 @@ git bash와 같은 git 터미널 창을 열고 `cd`를 수행하여 작업 디�
 git clone <sample repo url>
 ```
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
 사용된 플랫폼에 따라 필요한 패키지를 설치하고 응용 프로그램을 시작합니다. 종속성을 설치하려면 샘플 응용 프로그램 리포지토리에 포함된 추가 정보 파일을 따릅니다. 예를 들어 NodeJS 샘플 응용 프로그램에서 다음 명령을 사용하여 필요한 패키지를 설치하고 응용 프로그램을 시작합니다.
 

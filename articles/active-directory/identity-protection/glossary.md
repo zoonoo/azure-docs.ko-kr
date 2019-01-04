@@ -2,7 +2,7 @@
 title: Azure Active Directory ID 보호 용어집 | Microsoft Docs
 description: Azure Active Directory ID 보호 용어집
 services: active-directory
-keywords: Azure Active Directory ID 보호, Cloud App Discovery, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약성, 보안 정책, 용어집
+keywords: Azure Active Directory ID 보호, Cloud App Discovery, 애플리케이션 관리, 보안, 위험, 위험 수준, 취약성, 보안 정책, 용어집
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman

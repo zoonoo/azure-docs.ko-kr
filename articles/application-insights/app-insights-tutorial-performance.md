@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights를 사용하여 성능 문제 진단 | Microsoft Docs
-description: Azure Application Insights를 사용하여 응용 프로그램에서 성능 문제를 찾고 진단하는 자습서입니다.
+description: Azure Application Insights를 사용하여 애플리케이션에서 성능 문제를 찾고 진단하는 자습서입니다.
 services: application-insights
 keywords: ''
 author: mrbullwinkle
@@ -19,7 +19,7 @@ ms.locfileid: "42812874"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Azure Application Insights를 사용하여 성능 문제 찾기 및 진단
 
-Azure Application Insights는 응용 프로그램에서 원격 분석을 수집하여 해당 작업 및 성능 분석을 돕습니다.  이 정보를 사용하여 발생할 수 있는 문제를 식별하거나 사용자에게 가장 큰 영향을 주는 응용 프로그램에 대한 개선 사항을 식별할 수 있습니다.  이 자습서에서는 응용 프로그램의 서버 구성 요소 및 클라이언트 관점의 성능을 분석하는 프로세스를 안내합니다.  다음 방법에 대해 알아봅니다.
+Azure Application Insights는 애플리케이션에서 원격 분석을 수집하여 해당 작업 및 성능 분석을 돕습니다.  이 정보를 사용하여 발생할 수 있는 문제를 식별하거나 사용자에게 가장 큰 영향을 주는 애플리케이션에 대한 개선 사항을 식별할 수 있습니다.  이 자습서에서는 애플리케이션의 서버 구성 요소 및 클라이언트 관점의 성능을 분석하는 프로세스를 안내합니다.  다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 서버 쪽 작업의 성능 식별
@@ -35,14 +35,14 @@ Azure Application Insights는 응용 프로그램에서 원격 분석을 수집�
 - 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/downloads/)을 설치합니다.
     - ASP.NET 및 웹 개발
     - Azure 개발
-- Azure에 .NET 응용 프로그램을 배포하고 [Application Insights SDK를 사용하도록 설정](app-insights-asp-net.md)합니다.
+- Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](app-insights-asp-net.md)합니다.
 - 응용 프로그램에 대한 [Application Insights 프로파일러를 활성화합니다](app-insights-profiler.md#installation).
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인합니다.
 
 ## <a name="identify-slow-server-operations"></a>느린 서버 작업 식별
-Application Insights는 응용 프로그램에서 다른 작업에 대한 성능 정보를 수집합니다. 가장 긴 기간으로 이러한 작업을 식별하여 잠재적인 문제를 진단하거나 진행 중인 개발을 대상으로 하여 응용 프로그램의 전반적인 성능을 개선할 수 있습니다.
+Application Insights는 애플리케이션에서 다른 작업에 대한 성능 정보를 수집합니다. 가장 긴 기간으로 이러한 작업을 식별하여 잠재적인 문제를 진단하거나 진행 중인 개발을 대상으로 하여 애플리케이션의 전반적인 성능을 개선할 수 있습니다.
 
 1. **Application Insights**를 선택한 다음 구독을 선택합니다.  
 1. **성능** 패널을 열려면 **조사** 메뉴 아래의 **성능**을 선택하거나 **서버 응답 시간** 그래프를 클릭합니다.
@@ -93,11 +93,11 @@ Application Insights Analytics는 Application Insights에서 수집된 모든 �
 ## <a name="identify-slow-client-operations"></a>느린 클라이언트 작업 식별
 Application Insights는 최적화를 위한 서버 프로세스 식별 외에도 클라이언트 브라우저의 관점을 분석할 수 있습니다.  이를 통해 클라이언트 구성 요소에 대한 잠재적인 개선 사항을 식별하고 다양한 브라우저 또는 다른 위치에서 문제를 식별할 수도 있습니다.
 
-1. **조사** 아래의 **브라우저**를 선택하여 브라우저 요약을 엽니다.  이는 브라우저의 관점에서 응용 프로그램의 다양한 원격 분석의 시각적 요약을 제공합니다.
+1. **조사** 아래의 **브라우저**를 선택하여 브라우저 요약을 엽니다.  이는 브라우저의 관점에서 애플리케이션의 다양한 원격 분석의 시각적 요약을 제공합니다.
 
     ![브라우저 요약](media/app-insights-tutorial-performance/browser-summary.png)
 
-2.  아래의 **가장 느린 페이지는 무엇인가요?** 로 스크롤합니다.  클라이언트가 로드하는 데 가장 긴 시간이 소요되는 응용 프로그램의 페이지 목록을 표시합니다.  이 정보를 사용하여 사용자에 가장 큰 영향을 주는 해당 페이지의 우선 순위를 지정할 수 있습니다.
+2.  아래의 **가장 느린 페이지는 무엇인가요?** 로 스크롤합니다.  클라이언트가 로드하는 데 가장 긴 시간이 소요되는 애플리케이션의 페이지 목록을 표시합니다.  이 정보를 사용하여 사용자에 가장 큰 영향을 주는 해당 페이지의 우선 순위를 지정할 수 있습니다.
 3.  페이지 중 하나를 클릭하여 **페이지 보기** 패널을 엽니다.  예제에서 **/FabrikamProd** 페이지는 과도 한 평균 기간을 표시합니다.  **페이지 보기** 패널은 다른 기간 범위의 분석을 포함하여 이 페이지에 대한 세부 정보를 제공합니다.
 
     ![페이지 보기](media/app-insights-tutorial-performance/page-view.png)

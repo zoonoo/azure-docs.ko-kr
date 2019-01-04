@@ -1,19 +1,19 @@
 ---
-title: 'PowerShell을 사용하여 ExpressRoute용 VNet 게이트웨이 구성: classic: Azure | Microsoft Docs'
+title: 'ExpressRoute에 대한 VNet 게이트웨이 구성 - 클래식: Azure PowerShell | Microsoft Docs'
 description: ExpressRoute 구성을 위해 PowerShell을 사용하여 클래식 배포 모델 VNet에 대한 VNet 게이트웨이 구성
-documentationcenter: na
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: article
 ms.date: 11/05/2018
 ms.author: charwen
-ms.openlocfilehash: 366aed206e8b1fb72547a64a957d83eec78c1358
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 101e03d07a15e9058ef236a575251b052017db32
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161987"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083279"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>PowerShell을 사용하여 ExpressRoute용 가상 네트워크 게이트웨이 구성(클래식)
 > [!div class="op_single_selector"]

@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs를 사용하여 iOS 앱에 알림 푸시 | Microsoft Docs
-description: 이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 응용 프로그램으로 푸시 알림을 보내는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 애플리케이션으로 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: ios
 keywords: 푸시 알림, 푸시알림,ios 푸시 알림
@@ -27,7 +27,7 @@ ms.locfileid: "49353971"
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 응용 프로그램으로 알림을 푸시합니다. [APNS(Apple Push Notification Service)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)를 사용하여 푸시 알림을 받는 빈 iOS 앱을 만듭니다. 
+이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 애플리케이션으로 알림을 푸시합니다. [APNS(Apple Push Notification Service)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)를 사용하여 푸시 알림을 받는 빈 iOS 앱을 만듭니다. 
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -77,9 +77,9 @@ ms.locfileid: "49353971"
 
 ## <a name="connect-your-ios-app-to-notification-hubs"></a>Notification Hubs에 iOS 앱 연결
 
-1. Xcode에서 새 iOS 프로젝트를 만들고 **응용 프로그램 단일 보기** 템플릿을 선택합니다.
+1. Xcode에서 새 iOS 프로젝트를 만들고 **애플리케이션 단일 보기** 템플릿을 선택합니다.
 
-    ![Xcode - 단일 보기 응용 프로그램][8]
+    ![Xcode - 단일 보기 애플리케이션][8]
 
 2. 새 프로젝트에 대한 옵션을 설정하는 경우 Apple Developer 포털에서 번들 식별자를 설정할 때 사용한 것과 동일한 **제품 이름** 및 **조직 식별자**를 사용해야 합니다.
 

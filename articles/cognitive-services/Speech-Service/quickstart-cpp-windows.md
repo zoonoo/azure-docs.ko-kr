@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Speech Service SDK를 사용하여 Windows의 C++에서 음성 인식'
+title: '빠른 시작: 음성 인식, C++(Windows) - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Speech Service SDK를 사용하여 Windows 데스크톱에서 음성을 인식하는 방법 알아보기
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 8947ba3f39cebf51e956db0d841e393963832bc4
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 454b84f4ba5e492f61daf67c980b204c82a2090d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218741"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075190"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Windows의 C++에서 음성 인식
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-이 문서에서는 Windows용 C++ 콘솔 응용 프로그램을 만듭니다. Cognitive Services [Speech SDK](speech-sdk.md)를 사용하여 실시간으로 PC 마이크의 음성을 텍스트로 변환할 수 있습니다. 이 응용 프로그램은 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017(모든 버전)로 빌드되었습니다.
+이 문서에서는 Windows용 C++ 콘솔 애플리케이션을 만듭니다. Cognitive Services [Speech SDK](speech-sdk.md)를 사용하여 실시간으로 PC 마이크의 음성을 텍스트로 변환할 수 있습니다. 이 애플리케이션은 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017(모든 버전)로 빌드되었습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -31,11 +31,11 @@ ms.locfileid: "51218741"
 
 1. Visual Studio 2017을 시작합니다.
 
-1. **C++를 사용한 데스크톱 개발** 워크로드를 사용할 수 있도록 합니다. Visual Studio 메뉴 모음에서 **도구** > **도구 및 기능 가져오기**를 선택하여 Visual Studio 설치 관리자를 엽니다. 이 워크로드를 이미 사용하는 경우 다음 단계를 건너뜁니다. 
+1. **C++를 사용한 데스크톱 개발** 워크로드를 사용할 수 있도록 합니다. Visual Studio 메뉴 모음에서 **도구** > **도구 및 기능 가져오기**를 선택하여 Visual Studio 설치 관리자를 엽니다. 이 워크로드를 이미 사용하는 경우 다음 단계를 건너뜁니다.
 
     ![Visual Studio 워크로드 탭의 스크린샷](media/sdk/vs-enable-cpp-workload.png)
 
-    그렇지 않으면 **C++를 사용한 데스크톱 개발** 옆에 있는 확인란을 선택합니다. 
+    그렇지 않으면 **C++를 사용한 데스크톱 개발** 옆에 있는 확인란을 선택합니다.
 
 1. **NuGet 패키지 관리자** 구성 요소를 사용할 수 있도록 합니다. 아직 사용하도록 설정되지 않은 경우 Visual Studio 설치 관리자 대화 상자의 **개별 구성 요소** 탭으로 전환하고, **NuGet 패키지 관리자**를 선택합니다.
 
@@ -43,11 +43,11 @@ ms.locfileid: "51218741"
 
 1. C++ 워크로드 또는 NuGet을 사용하도록 설정해야 하는 경우 대화 상자의 오른쪽 아래 모서리에서 **수정**을 선택합니다. 새로운 기능을 설치하려면 잠시 시간이 걸립니다. 두 기능을 모두 이미 사용하도록 설정한 경우 대신 대화 상자를 닫습니다.
 
-1. 새로운 Visual C++ Windows 데스크톱 창 콘솔 응용 프로그램을 만듭니다. 먼저, 메뉴에서 **파일** > **새로 만들기** > **프로젝트**를 선택합니다. **새 프로젝트** 대화 상자의 왼쪽 창에서 **설치됨** > **Visual C++** > **Windows Desktop**을 확장합니다. 그런 다음, **Windows 콘솔 응용 프로그램 만들기**를 선택합니다. 프로젝트 이름으로 *helloworld*를 입력합니다.
+1. 새로운 Visual C++ Windows 데스크톱 창 콘솔 애플리케이션을 만듭니다. 먼저, 메뉴에서 **파일** > **새로 만들기** > **프로젝트**를 선택합니다. **새 프로젝트** 대화 상자의 왼쪽 창에서 **설치됨** > **Visual C++** > **Windows Desktop**을 확장합니다. 그런 다음, **Windows 콘솔 애플리케이션 만들기**를 선택합니다. 프로젝트 이름으로 *helloworld*를 입력합니다.
 
     ![새 프로젝트 대화 상자 스크린샷](media/sdk/qs-cpp-windows-01-new-console-app.png)
 
-1. 64비트 Windows를 실행하는 경우 Visual Studio 도구 모음에서 드롭다운 메뉴를 사용하여 빌드 플랫폼을 `x64`로 전환할 수 있습니다. (64비트 버전의 Windows에서는 32비트 응용 프로그램을 실행할 수 있으므로 요구 사항은 아닙니다.)
+1. 64비트 Windows를 실행하는 경우 Visual Studio 도구 모음에서 드롭다운 메뉴를 사용하여 빌드 플랫폼을 `x64`로 전환할 수 있습니다. (64비트 버전의 Windows에서는 32비트 애플리케이션을 실행할 수 있으므로 요구 사항은 아닙니다.)
 
     ![x64 옵션을 강조 표시한 Visual Studio 도구 모음 스크린샷](media/sdk/qs-cpp-windows-02-switch-to-x64.png)
 
@@ -82,13 +82,13 @@ ms.locfileid: "51218741"
 
 ## <a name="build-and-run-the-app"></a>앱 빌드 및 실행
 
-1. 응용 프로그램을 빌드합니다. 메뉴 모음에서 **빌드** > **솔루션 빌드**를 선택합니다. 코드는 오류 없이 컴파일됩니다.
+1. 애플리케이션을 빌드합니다. 메뉴 모음에서 **빌드** > **솔루션 빌드**를 선택합니다. 코드는 오류 없이 컴파일됩니다.
 
-   ![솔루션 빌드 옵션이 강조 표시된 Visual Studio 응용 프로그램의 스크린샷](media/sdk/qs-cpp-windows-06-build.png)
+   ![솔루션 빌드 옵션이 강조 표시된 Visual Studio 애플리케이션의 스크린샷](media/sdk/qs-cpp-windows-06-build.png)
 
-1. 응용 프로그램을 시작합니다. 메뉴 모음에서 **디버그** > **디버깅 시작**을 선택하거나 **F5** 키를 누릅니다.
+1. 애플리케이션을 시작합니다. 메뉴 모음에서 **디버그** > **디버깅 시작**을 선택하거나 **F5** 키를 누릅니다.
 
-   ![디버깅 시작 옵션이 강조 표시된 Visual Studio 응용 프로그램의 스크린샷](media/sdk/qs-cpp-windows-07-start-debugging.png)
+   ![디버깅 시작 옵션이 강조 표시된 Visual Studio 애플리케이션의 스크린샷](media/sdk/qs-cpp-windows-07-start-debugging.png)
 
 1. 콘솔 창이 나타나면 무엇이든 말해보라는 메시지가 표시됩니다. 영어 구 또는 문장을 말씀하세요. 음성은 음성 서비스로 전송되어 텍스트로 변환되고, 동일한 창에 표시됩니다.
 

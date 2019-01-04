@@ -100,7 +100,7 @@ ms.locfileid: "51259329"
 
 이 섹션에서는 IoT Hub에서 파일 업로드 알림 메시지를 수신하는 .NET 콘솔 앱을 작성합니다.
 
-1. 최신 Visual Studio 솔루션에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 프로젝트를 만듭니다. 프로젝트 이름을 **ReadFileUploadNotification**으로 지정합니다.
+1. 최신 Visual Studio 솔루션에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사용하여 Visual C# Windows 프로젝트를 만듭니다. 프로젝트 이름을 **ReadFileUploadNotification**으로 지정합니다.
 
     ![Visual Studio의 새 프로젝트](./media/iot-hub-csharp-csharp-file-upload/file-upload-project-csharp1.png)
 
@@ -158,13 +158,13 @@ ms.locfileid: "51259329"
     Console.ReadLine();
     ```
 
-## <a name="run-the-applications"></a>응용 프로그램 실행
+## <a name="run-the-applications"></a>애플리케이션 실행
 
-이제 응용 프로그램을 실행할 준비가 되었습니다.
+이제 애플리케이션을 실행할 준비가 되었습니다.
 
 1. Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정**을 선택합니다. **여러 개의 시작 프로젝트**를 선택한 다음 **ReadFileUploadNotification** 및 **SimulatedDevice**에 대한 **시작** 작업을 선택합니다.
 
-2. **F5**키를 누릅니다. 두 응용 프로그램이 모두 시작됩니다. 한 콘솔 앱에서 완료된 업로드와 다른 콘솔 앱에서 수신한 업로드 알림 메시지가 표시됩니다. [Azure Portal](https://portal.azure.com/) 또는 Visual Studio 서버 탐색기를 사용하여 Azure Storage 계정에서 업로드한 파일의 현재 상태를 확인할 수 있습니다.
+2. **F5**키를 누릅니다. 두 애플리케이션이 모두 시작됩니다. 한 콘솔 앱에서 완료된 업로드와 다른 콘솔 앱에서 수신한 업로드 알림 메시지가 표시됩니다. [Azure Portal](https://portal.azure.com/) 또는 Visual Studio 서버 탐색기를 사용하여 Azure Storage 계정에서 업로드한 파일의 현재 상태를 확인할 수 있습니다.
 
     ![출력 화면을 보여주는 스크린샷](./media/iot-hub-csharp-csharp-file-upload/run-apps1.png)
 

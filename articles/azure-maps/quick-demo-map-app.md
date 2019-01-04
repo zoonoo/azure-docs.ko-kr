@@ -3,22 +3,22 @@ title: Azure Maps를 사용한 대화형 지도 검색 | Microsoft Docs
 description: Azure 빠른 시작 - Azure Maps를 사용하여 데모 대화형 맵 검색 시작
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/26/2018
+ms.date: 12/02/2018
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d2aa3385dd7556cfc169b42b36d94a3e1d9ee3dd
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 5f828bfd2ceee81daf86382846be0c5ee7f1fe8c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209975"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836579"
 ---
 # <a name="launch-an-interactive-search-map-using-azure-maps"></a>Azure Maps를 사용하여 대화형 검색 맵 시작
 
-이 문서에서는 사용자에게 대화형 검색 환경을 제공하는 지도를 만드는 Azure Maps의 기능을 보여 줍니다. 자체 Maps 계정을 만들고 데모 웹 응용 프로그램에 사용할 계정 키를 가져오는 방법도 안내합니다.
+이 문서에서는 사용자에게 대화형 검색 환경을 제공하는 지도를 만드는 Azure Maps의 기능을 보여 줍니다. 자체 Maps 계정을 만들고 데모 웹 애플리케이션에 사용할 계정 키를 가져오는 방법도 안내합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     - 새 계정의 *이름*.
     - 이 계정에 사용하려는 *구독*.
     - 이 계정에 대한 *리소스 그룹*. *새로 만들기* 또는 *기존* 리소스 그룹 사용을 선택할 수도 있습니다.
-    - *리소스 그룹 위치*를 선택합니다.
+    - 선택 항목에서 *가격 책정 계층*을 선택합니다.
     - *라이선스* 및 *개인정보처리방침*을 읽고 조건에 동의하는 확인란을 선택합니다.
     - 마지막으로 **만들기** 단추를 클릭합니다.
 
@@ -43,21 +43,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 5. 계정을 만든 후에는 해당 계정을 열고 계정 메뉴의 설정 섹션을 찾습니다. **키**를 클릭하여 Azure Maps 계정에 대한 기본 및 보조 키를 확인합니다. **기본 키** 값은 로컬 클립보드에 복사하여 다음 섹션에서 사용합니다.
 
-## <a name="download-the-application"></a>응용 프로그램 다운로드
+## <a name="download-the-application"></a>애플리케이션 다운로드
 
 1. [interactiveSearch.html](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/interactiveSearch.html) 파일의 콘텐츠를 다운로드하거나 복사합니다.
 2. 이 파일의 콘텐츠를 **AzureMapDemo.html**에 로컬로 저장하고 텍스트 편집기에서 엽니다.
 3. `<insert-key>` 문자열을 검색하여 이전 섹션에서 구한 **기본 키** 값으로 바꿉니다.
 
-## <a name="launch-the-application"></a>응용 프로그램 시작
+## <a name="launch-the-application"></a>애플리케이션 시작
 
 1. 원하는 브라우저에서 **AzureMapDemo.html** 파일을 엽니다.
 2. 로스앤젤레스의 지도를 관찰합니다. 확대 및 축소하여 확대/축소 수준에 따라 지도가 더 많거나 더 적은 정보로 자동으로 렌더링되도록 하는 방법을 확인합니다. 
 3. 지도의 기본 센터를 변경합니다. **AzureMapDemo.html** 파일에서 **center**라는 변수를 검색합니다. 이 변수에 대한 위도, 경도 쌍 값을 새 값인 **[-74.0060, 40.7128]** 로 바꿉니다. 파일을 저장하고 브라우저를 새로 고칩니다.
-4. 대화형 검색 환경을 사용해 봅니다. 데모 웹 응용 프로그램의 왼쪽 위 모서리에 있는 검색 상자에서 **식당**을 검색합니다.
+4. 대화형 검색 환경을 사용해 봅니다. 데모 웹 애플리케이션의 왼쪽 위 모서리에 있는 검색 상자에서 **식당**을 검색합니다.
 5. 검색 상자 아래 표시되는 주소/위치 목록 위에 마우스를 가져가 지도 위의 해당 핀에 해당 위치에 관한 정보가 어떻게 팝업 표시되는지 확인합니다. 개인 회사의 정보 보호를 위해 가상의 이름과 주소가 표시됩니다.
 
-    ![대화형 검색 웹 응용 프로그램](./media/quick-demo-map-app/interactive-search.png)
+    ![대화형 검색 웹 애플리케이션](./media/quick-demo-map-app/interactive-search.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -68,7 +68,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Maps 계정을 만들고 데모 앱을 시작했습니다. Maps API를 사용하여 자체 응용 프로그램을 만드는 방법은 다음 자습서에서 알아보세요.
+이 빠른 시작에서는 Maps 계정을 만들고 데모 앱을 시작했습니다. Maps API를 사용하여 자체 애플리케이션을 만드는 방법은 다음 자습서에서 알아보세요.
 
 > [!div class="nextstepaction"]
 > [Maps를 사용하여 관심 지점 검색](./tutorial-search-location.md)

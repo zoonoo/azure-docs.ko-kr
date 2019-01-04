@@ -116,7 +116,7 @@ Data Lake Storage Gen1 계정을 만들려면 다음을 수행합니다.
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-storage-gen1"></a>Data Lake Storage Gen1에 대한 역할 기반 액세스를 위한 인증 설정
 모든 Azure 구독은 Azure AD 엔터티와 연결됩니다. Azure Portal 또는 Azure Resource Manager API를 사용하여 구독 리소스에 액세스하는 사용자와 서비스는 먼저 Azure AD에 인증해야 합니다. Azure 리소스에 대한 적절한 역할을 할당하여 Azure 구독과 서비스에 액세스 권한을 부여합니다. 서비스의 경우 서비스 주체는 Azure AD에서 서비스를 식별합니다.
 
-이 섹션에서는 HDInsight와 같은 응용 프로그램 서비스에 권한을 부여하고 Azure 리소스(앞에서 만든 Data Lake Storage Gen1 계정)에 액세스하는 방법을 설명합니다. 이렇게 하려면 응용 프로그램에 서비스 주체를 만들고 PowerShell을 통해 역할을 할당합니다.
+이 섹션에서는 HDInsight와 같은 애플리케이션 서비스에 권한을 부여하고 Azure 리소스(앞에서 만든 Data Lake Storage Gen1 계정)에 액세스하는 방법을 설명합니다. 이렇게 하려면 애플리케이션에 서비스 주체를 만들고 PowerShell을 통해 역할을 할당합니다.
 
 Data Lake Storage Gen1의 Active Directory 인증을 설정하려면 다음 두 개의 섹션에 있는 작업을 수행해야 합니다.
 
@@ -138,7 +138,7 @@ Data Lake Storage Gen1의 Active Directory 인증을 설정하려면 다음 두 
     메시지가 표시되면 이전에 지정한 개인 키 암호를 입력합니다. **-po** 매개 변수에 대해 지정한 값은 .pfx 파일에 연관된 암호입니다. 또한 명령을 성공적으로 완료한 후에 지정한 인증서 디렉터리에서 **CertFile.pfx**를 확인해야 합니다.
 
 ### <a name="create-an-azure-ad-and-a-service-principal"></a>Azure AD 및 서비스 주체 만들기
-이 섹션에서는 Azure AD 응용 프로그램에 대한 서비스 주체를 만들고, 서비스 주체에 역할을 할당하고, 인증서를 제공하여 서비스 주체로 인증합니다. Azure AD에서 응용 프로그램을 만들려면 다음과 같은 명령을 실행합니다.
+이 섹션에서는 Azure AD 애플리케이션에 대한 서비스 주체를 만들고, 서비스 주체에 역할을 할당하고, 인증서를 제공하여 서비스 주체로 인증합니다. Azure AD에서 애플리케이션을 만들려면 다음과 같은 명령을 실행합니다.
 
 1. PowerShell 콘솔 창에 다음 cmdlet을 붙여 넣습니다. **-DisplayName** 속성에 대해 지정한 값이 고유한지 확인합니다. **-HomePage** 및 **-IdentiferUris**의 값은 자리 표시자이며 확인되지 않습니다.
 
@@ -161,7 +161,7 @@ Data Lake Storage Gen1의 Active Directory 인증을 설정하려면 다음 두 
             -EndDate $certificatePFX.NotAfter
 
         $applicationId = $application.ApplicationId
-2. 응용 프로그램 ID를 사용하여 서비스 주체를 만듭니다.
+2. 애플리케이션 ID를 사용하여 서비스 주체를 만듭니다.
 
         $servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $applicationId
 

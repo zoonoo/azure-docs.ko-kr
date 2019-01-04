@@ -1,21 +1,22 @@
 ---
-title: '자습서 1: 사용자 지정 LUIS 앱에서 의도 찾기'
+title: 의도 예측
 titleSuffix: Azure Cognitive Services
 description: 사용자의 의도를 예측하는 사용자 지정 앱을 만듭니다. 이 앱은 이메일 주소 또는 날짜 등의 발화 텍스트에서 다양한 데이터 요소를 추출하지 않으므로 가장 간단한 형식의 LUIS 앱입니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 30c9f572d77caacbeecf5f15d74fd8517e9fa883
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b1a9718fdf7222dae06f7fe9b3a0f14b50293c08
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426862"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097797"
 ---
 # <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>자습서 1: 사용자 지정 앱을 빌드하여 사용자 의도 확인
 
@@ -43,11 +44,11 @@ LUIS가 JSON 응답은 반환한 후에 이 요청에서 LUIS가 완료됩니다
 
 2. **새 앱 만들기**를 선택합니다.  
 
-    [![](media/luis-quickstart-intents-only/app-list.png "Language Understanding(LUIS) 내 앱 페이지 스크린샷")](media/luis-quickstart-intents-only/app-list.png#lightbox)
+    [![Language Understanding(LUIS) 내 앱 페이지 스크린샷](media/luis-quickstart-intents-only/app-list.png "Language Understanding(LUIS) 내 앱 페이지 스크린샷")](media/luis-quickstart-intents-only/app-list.png#lightbox)
 
 3. 팝업 대화 상자에 `HumanResources` 이름을 입력하고 기본 문화권인 **영어**를 유지합니다. 설명을 비워둡니다.
 
-    ![LUIS 새 앱](./media/luis-quickstart-intents-only/create-app.png)
+    ![LUIS 새 HumanResources 앱 만들기](./media/luis-quickstart-intents-only/create-app.png)
 
     다음으로, 앱에 **없음** 의도가 있는 **의도** 페이지가 표시됩니다.
 
@@ -55,7 +56,7 @@ LUIS가 JSON 응답은 반환한 후에 이 요청에서 LUIS가 완료됩니다
 
 1. **새 의도 만들기**를 선택합니다. `GetJobInformation`이라는 새 의도 이름을 입력합니다. 이 의도는 사용자가 회사 내 공석에 관한 정보를 원할 때마다 예측됩니다.
 
-    ![](media/luis-quickstart-intents-only/create-intent.png "Language Understanding(LUIS) 새 의도 대화 상자 스크린샷")
+    ![Language Understanding(LUIS) 새 의도 대화 상자 스크린샷](media/luis-quickstart-intents-only/create-intent.png "Language Understanding(LUIS) 새 의도 대화 상자 스크린샷")
 
 2. _예제 발화_를 입력하여 이 의도에 대해 예측되어야 하는 발화의 종류에 대해 LUIS를 훈련하게 됩니다. 사용자가 요청해야 하는 이 의도에 다음과 같은 몇 가지 예제 발화를 추가합니다.
 
@@ -69,13 +70,13 @@ LUIS가 JSON 응답은 반환한 후에 이 요청에서 LUIS가 완료됩니다
     |새 업무|
     |시애틀 지사에 빈자리가 있나요?|
 
-    [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "MyStore 의도에 대한 새 발화 입력 스크린샷")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
+    [![MyStore 의도에 대한 새 발화 입력 스크린샷](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "MyStore 의도에 대한 새 발화 입력 스크린샷")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
 
 ## <a name="none-intent"></a>None 의도 
-클라이언트 응용 프로그램은 발화가 응용 프로그램의 주체 도메인의 외부에 있는지를 알아야 합니다. LUIS가 발화에 대해 **없음** 의도를 반환하는 경우 클라이언트 응용 프로그램에서는 사용자가 대화를 종료하려는지 물어볼 수 있습니다. 사용자가 종료하지 않으려고 하는 경우 클라이언트 응용 프로그램에서 대화를 계속하기 위해 더 많은 지침을 제공할 수도 있습니다. 
+클라이언트 애플리케이션은 발화가 애플리케이션의 주체 도메인의 외부에 있는지를 알아야 합니다. LUIS가 발화에 대해 **없음** 의도를 반환하는 경우 클라이언트 애플리케이션에서는 사용자가 대화를 종료하려는지 물어볼 수 있습니다. 사용자가 종료하지 않으려고 하는 경우 클라이언트 애플리케이션에서 대화를 계속하기 위해 더 많은 지침을 제공할 수도 있습니다. 
 
 주체 도메인 외부에 있는 이러한 예제 발화는 **없음** 의도로 그룹화됩니다. 이 의도를 비워 두지 마세요. 
 
@@ -150,7 +151,7 @@ LUIS 웹 사이트로 돌아가서 새 의도를 만들고 사용자 발화를 �
     |제 이력서가 있습니다. 654234 업무 관련|
     |567890 업무 및 내 서류|
 
-    [![](media/luis-quickstart-intents-only/utterance-applyforjob.png "ApplyForJob 의도에 대한 새 발화 입력 스크린샷")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
+    [![ApplyForJob 의도에 대한 새 발화 입력 스크린샷](media/luis-quickstart-intents-only/utterance-applyforjob.png "ApplyForJob 의도에 대한 새 발화 입력 스크린샷")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
 
     LUIS는 현재 의도가 정확한지 확신하지 못하므로 레이블의 의도에 빨간색 밑줄이 있습니다. 앱 학습에서 LUIS에게 발화가 정확한 의도임을 알립니다. 
 
@@ -168,7 +169,7 @@ LUIS 웹 사이트로 돌아가서 새 의도를 만들고 사용자 발화를 �
 
 2. 새 브라우저 창에서 URL의 마지막에 `Can I submit my resume for job 235986`을 입력합니다. 
 
-    ```JSON
+    ```json
     {
       "query": "Can I submit my resume for job 235986",
       "topScoringIntent": {

@@ -151,7 +151,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    
    e. **서비스 주체 ID**에는 HDInsight 클러스터를 만들 수 있는 권한이 있는 서비스 주체의 ID를 입력합니다. 
    
-      이 서비스 주체는 클러스터를 만든 구독 또는 리소스 그룹의 참가자 역할의 구성원이어야 합니다. 자세한 내용은 [Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
+      이 서비스 주체는 클러스터를 만든 구독 또는 리소스 그룹의 참가자 역할의 구성원이어야 합니다. 자세한 내용은 [Azure Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
    
    f. **서비스 주체 키**에 키를 입력합니다. 
    

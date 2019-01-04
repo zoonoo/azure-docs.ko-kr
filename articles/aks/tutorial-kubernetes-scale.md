@@ -1,5 +1,5 @@
 ---
-title: Azure의 Kubernetes 자습서 - 응용 프로그램 크기 조정
+title: Azure의 Kubernetes 자습서 - 애플리케이션 크기 조정
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Kubernetes에서 노드 및 Pod 크기를 조정하고 수평 방향 Pod 자동 크기 조정을 구현하는 방법을 알아봅니다.
 services: container-service
 author: iainfoulds
@@ -16,20 +16,20 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/31/2018
 ms.locfileid: "50414185"
 ---
-# <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 응용 프로그램 크기 조정
+# <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 크기 조정
 
 자습서를 수행하고 있다면 AKS에서 작동하는 Kubernetes 클러스터가 있으며 Azure Voting 앱을 배포한 상태입니다. 7개 중 5단계인 이 자습서에서는 앱의 Pod를 스케일 아웃하고 Pod 자동 크기 조정을 시도합니다. Azure VM 노드 수를 조정하여 워크로드 호스팅을 위한 클러스터 용량을 변경하는 방법도 알아봅니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Kubernetes 노드 크기 조정
-> * 응용 프로그램을 실행하는 Kubernetes Pod의 크기를 수동으로 조정
+> * 애플리케이션을 실행하는 Kubernetes Pod의 크기를 수동으로 조정
 > * 앱 프런트 엔드를 실행하는 Pod 자동 크기 조정 구성
 
-후속 자습서에서 Azure Vote 응용 프로그램은 새 버전으로 업데이트됩니다.
+후속 자습서에서 Azure Vote 애플리케이션은 새 버전으로 업데이트됩니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이전 자습서에서는 응용 프로그램을 컨테이너 이미지에 패키지하고, 이 이미지를 Azure Container Registry에 업로드하고, Kubernetes 클러스터를 만들었습니다. 그런 다음 Kubernetes 클러스터에서 응용 프로그램을 실행했습니다. 이러한 단계를 아직 수행하지 않았으나 수행하려는 경우 [자습서 1 - 컨테이너 이미지 만들기][aks-tutorial-prepare-app]로 돌아갑니다.
+이전 자습서에서는 애플리케이션을 컨테이너 이미지에 패키지하고, 이 이미지를 Azure Container Registry에 업로드하고, Kubernetes 클러스터를 만들었습니다. 그런 다음, Kubernetes 클러스터에서 애플리케이션을 실행했습니다. 이러한 단계를 아직 수행하지 않았으나 수행하려는 경우 [자습서 1 - 컨테이너 이미지 만들기][aks-tutorial-prepare-app]로 돌아갑니다.
 
 이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.38 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
@@ -145,10 +145,10 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 
 > [!div class="checklist"]
 > * Kubernetes 노드 크기 조정
-> * 응용 프로그램을 실행하는 Kubernetes Pod의 크기를 수동으로 조정
+> * 애플리케이션을 실행하는 Kubernetes Pod의 크기를 수동으로 조정
 > * 앱 프런트 엔드를 실행하는 Pod 자동 크기 조정 구성
 
-그 다음 자습서로 이동하여 Kubernetes에서 응용 프로그램을 업데이트하는 방법을 알아보세요.
+그 다음 자습서로 이동하여 Kubernetes에서 애플리케이션을 업데이트하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
 > [Kubernetes에서 응용 프로그램 업데이트][aks-tutorial-update-app]

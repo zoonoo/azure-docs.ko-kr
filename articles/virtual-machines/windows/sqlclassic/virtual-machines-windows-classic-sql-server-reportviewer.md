@@ -26,10 +26,10 @@ ms.locfileid: "51250410"
 > [!IMPORTANT] 
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
-Microsoft Azure Virtual Machine에 저장된 보고서를 표시하는 Visual Studio ReportViewer 컨트롤과 함께 Microsoft Azure 웹 사이트를 빌드할 수 있습니다. ReportViewer 컨트롤은 ASP.NET 웹 응용 프로그램 템플릿을 사용하여 빌드하는 웹 응용 프로그램에 있습니다.
+Microsoft Azure Virtual Machine에 저장된 보고서를 표시하는 Visual Studio ReportViewer 컨트롤과 함께 Microsoft Azure 웹 사이트를 빌드할 수 있습니다. ReportViewer 컨트롤은 ASP.NET 웹 애플리케이션 템플릿을 사용하여 빌드하는 웹 애플리케이션에 있습니다.
 
 > [!IMPORTANT]
-> ASP.NET MVC 웹 응용 프로그램 템플릿은 ReportViewer 컨트롤을 지원하지 않습니다.
+> ASP.NET MVC 웹 애플리케이션 템플릿은 ReportViewer 컨트롤을 지원하지 않습니다.
 
 Microsoft Azure 웹 사이트에 ReportViewer를 통합하려면 다음 작업을 완료해야 합니다.
 
@@ -46,7 +46,7 @@ Microsoft Azure 웹 사이트에 ReportViewer를 통합하려면 다음 작업�
 > 로컬 처리 모드에서 구성된 ReportViewer는 Microsoft Azure에서 지원되지 않습니다.
 
 ## <a name="adding-assemblies-to-the-deployment-package"></a>배포 패키지에 어셈블리 추가
-ASP.NET 응용 프로그램 온-프레미스를 호스트할 때 ReportViewer 어셈블리는 Visual Studio를 설치하는 동안 IIS 서버의 GAC(전역 어셈블리 캐시)에 일반적으로 직접 설치되고 응용 프로그램에서 직접 액세스할 수 있습니다. 그러나 클라우드에서 ASP.NET 응용 프로그램을 호스트할 때는 Microsoft Azure가 GAC에 어떤 것도 설치할 수 없도록 하기 때문에 ReportViewer 어셈블리가 응용 프로그램에 대해 로컬로 사용 가능한지 확인해야 합니다. 프로젝트에서 ReportViewer 어셈블리에 대한 참조를 추가하여 이 작업을 수행할 수 있으며 로컬로 복사하여 구성합니다.
+ASP.NET 애플리케이션 온-프레미스를 호스트할 때 ReportViewer 어셈블리는 Visual Studio를 설치하는 동안 IIS 서버의 GAC(전역 어셈블리 캐시)에 일반적으로 직접 설치되고 애플리케이션에서 직접 액세스할 수 있습니다. 그러나 클라우드에서 ASP.NET 애플리케이션을 호스트할 때는 Microsoft Azure가 GAC에 어떤 것도 설치할 수 없도록 하기 때문에 ReportViewer 어셈블리가 애플리케이션에 대해 로컬로 사용 가능한지 확인해야 합니다. 프로젝트에서 ReportViewer 어셈블리에 대한 참조를 추가하여 이 작업을 수행할 수 있으며 로컬로 복사하여 구성합니다.
 
 원격 처리 모드에서 ReportViewer 컨트롤은 다음 어셈블리를 사용합니다.
 
@@ -56,7 +56,7 @@ ASP.NET 응용 프로그램 온-프레미스를 호스트할 때 ReportViewer �
 ### <a name="to-add-a-reference-to-microsoftreportviewercommon"></a>Microsoft.ReportViewer.Common에 대한 참조를 추가하려면
 * 프로젝트의 **참조** 노드를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 선택한 다음 .NET 탭에서 어셈블리를 선택하고 **확인**을 클릭합니다.
 
-### <a name="to-make-the-assemblies-locally-accessible-by-your-aspnet-application"></a>ASP.NET 응용 프로그램에서 어셈블리를 로컬로 액세스할 수 있도록 하려면
+### <a name="to-make-the-assemblies-locally-accessible-by-your-aspnet-application"></a>ASP.NET 애플리케이션에서 어셈블리를 로컬로 액세스할 수 있도록 하려면
 1. **참조** 폴더에서 Microsoft.ReportViewer.Common 어셈블리를 클릭하여 해당 속성을 속성 창에 표시합니다.
 2. 속성 창에서 **로컬 복사** 를 True로 설정합니다.
 3. Microsoft.ReportViewer.WebForms에 대해 1단계 및 2단계를 반복합니다.
@@ -77,8 +77,8 @@ ASP.NET 응용 프로그램 온-프레미스를 호스트할 때 ReportViewer �
 ## <a name="configuring-authentication-and-authorization"></a>인증 및 권한 부여 구성
 ReportViewer는 적절한 자격 증명을 사용하여 보고서 서버로 인증해야 하고 원하는 보고서에 액세스하는 보고서 서버에서 자격 증명의 권한을 부여해야 합니다. 인증에 대한 자세한 내용은 [Reporting Services 보고서 뷰어 컨트롤 및 Microsoft Azure 가상 머신 기반 보고서 서버](https://msdn.microsoft.com/library/azure/dn753698.aspx)백서를 참조하세요.
 
-## <a name="publish-the-aspnet-web-application-to-azure"></a>Azure에 ASP.NET 웹 응용 프로그램 게시
-Azure에 ASP.NET 웹 응용 프로그램을 게시하기 위한 지침은 [Visual Studio에서 Azure에 웹 응용 프로그램 마이그레이션 및 게시 방법](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) 및 [Web Apps 및 ASP.NET 시작](../../../app-service/app-service-web-get-started-dotnet.md)을 참조하세요.
+## <a name="publish-the-aspnet-web-application-to-azure"></a>Azure에 ASP.NET 웹 애플리케이션 게시
+Azure에 ASP.NET 웹 애플리케이션을 게시하기 위한 지침은 [Visual Studio에서 Azure에 웹 애플리케이션 마이그레이션 및 게시 방법](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) 및 [Web Apps 및 ASP.NET 시작](../../../app-service/app-service-web-get-started-dotnet.md)을 참조하세요.
 
 > [!IMPORTANT]
 > Azure 배포 프로젝트 추가 또는 Azure 클라우드 서비스 프로젝트 추가 명령이 솔루션 탐색기의 바로 가기 메뉴에 나타나지 않으면 프로젝트에 대한 대상 프레임워크를 .NET Framework 4로 변경해야 할 수 있습니다.

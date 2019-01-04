@@ -20,7 +20,7 @@ ms.locfileid: "53438286"
 ---
 # <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>Core Tools 및 Azure CLI(미리 보기)를 사용하여 Linux에 호스트되는 첫 번째 함수 만들기
 
-Azure Functions를 사용하면 먼저 VM을 만들거나 웹 응용 프로그램을 게시하지 않고도 [서버리스](https://azure.com/serverless) Linux 환경에서 코드를 실행할 수 있습니다. Linux 호스팅은 현재 미리 보기이므로 [Functions 2.0 런타임](functions-versions.md)이 필요합니다. Linux에서 함수 앱을 실행하기 위한 미리 보기 고려 사항에 대해 자세히 알아보려면 [이 Linux의 함수 문서](https://aka.ms/funclinux)를 참조하세요.
+Azure Functions를 사용하면 먼저 VM을 만들거나 웹 애플리케이션을 게시하지 않고도 [서버리스](https://azure.com/serverless) Linux 환경에서 코드를 실행할 수 있습니다. Linux 호스팅은 현재 미리 보기이므로 [Functions 2.0 런타임](functions-versions.md)이 필요합니다. Linux에서 함수 앱을 실행하기 위한 미리 보기 고려 사항에 대해 자세히 알아보려면 [이 Linux의 함수 문서](https://aka.ms/funclinux)를 참조하세요.
 
 이 빠른 시작 문서에서는 Azure CLI를 사용하여 Linux에서 실행되는 첫 번째 함수 앱을 만드는 방법을 안내합니다. [Azure Functions Core Tools](functions-run-local.md)를 사용하여 함수 코드를 로컬로 만든 후 Azure에 배포합니다.
 

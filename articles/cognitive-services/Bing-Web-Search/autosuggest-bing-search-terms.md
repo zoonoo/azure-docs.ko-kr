@@ -17,7 +17,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2018
 ms.locfileid: "52164033"
 ---
-# <a name="autosuggest-bing-search-terms-in-your-application"></a>응용 프로그램의 Autosuggest Bing 검색어
+# <a name="autosuggest-bing-search-terms-in-your-application"></a>애플리케이션의 Autosuggest Bing 검색어
 
 사용자가 자신의 검색 용어를 입력할 수 있는 검색 상자를 제공하는 경우 [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md)를 사용하여 환경을 개선합니다. API는 부분 검색 용어 기반의 제안된 쿼리 문자열을 사용자 형식으로 반환합니다.
 

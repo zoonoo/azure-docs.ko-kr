@@ -24,7 +24,7 @@ ms.locfileid: "52995628"
 
 * Azure Databricks 작업 영역, Spark 클러스터 및 클러스터와 연결된 샘플 데이터가 있어야 합니다. 이러한 필수 구성 요소가 아직 없으면 [Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행](quickstart-create-databricks-workspace-portal.md) 빠른 시작을 완료합니다.
 
-* [Databricks 드라이버 다운로드 페이지](https://databricks.com/spark/odbc-driver-download)에서 Databricks ODBC 드라이버를 다운로드합니다. Azure Databricks에 연결하려는 응용 프로그램에 따라 32비트 또는 64비트 버전을 설치합니다. 예를 들어 Excel에서 연결하려면 32비트 버전의 드라이버를 설치합니다. R 및 Python에서 연결하려면 64비트 버전의 드라이버를 설치합니다.
+* [Databricks 드라이버 다운로드 페이지](https://databricks.com/spark/odbc-driver-download)에서 Databricks ODBC 드라이버를 다운로드합니다. Azure Databricks에 연결하려는 애플리케이션에 따라 32비트 또는 64비트 버전을 설치합니다. 예를 들어 Excel에서 연결하려면 32비트 버전의 드라이버를 설치합니다. R 및 Python에서 연결하려면 64비트 버전의 드라이버를 설치합니다.
 
 * Databricks에서 개인용 액세스 토큰을 설정합니다. 지침은 [토큰 관리](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management)를 참조하세요.
 
@@ -40,7 +40,7 @@ DSN(데이터 원본 이름)은 특정 데이터 원본에 대한 정보를 포�
 
     ![Databricks 구성 가져오기](./media/connect-databricks-excel-python-r/get-databricks-jdbc-configuration.png "Databricks 구성 가져오기")
 
-3. 컴퓨터에서 응용 프로그램에 따라 **ODBC 데이터 원본** 응용 프로그램(32비트 또는 64비트)을 시작합니다. Excel에서 연결하려면 32비트 버전을 사용합니다. R 및 Python에서 연결하려면 64비트 버전을 사용합니다.
+3. 컴퓨터에서 애플리케이션에 따라 **ODBC 데이터 원본** 애플리케이션(32비트 또는 64비트)을 시작합니다. Excel에서 연결하려면 32비트 버전을 사용합니다. R 및 Python에서 연결하려면 64비트 버전을 사용합니다.
 
     ![ODBC 시작](./media/connect-databricks-excel-python-r/launch-odbc-app.png "ODBC 앱 시작")
 

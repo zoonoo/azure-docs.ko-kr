@@ -45,7 +45,7 @@ To allow access to a singular IP address, provide the same address in the `--sta
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name AllowSingleIpAddress --start-ip-address 13.83.152.1 --end-ip-address 13.83.152.1
 ```
-Azure IP 주소의 응용 프로그램에서 Azure Database for PostgreSQL 서버에 연결할 수 있게 하려면 다음 예제와 같이 0.0.0.0 IP 주소를 시작 IP와 끝 IP로 제공합니다.
+Azure IP 주소의 애플리케이션에서 Azure Database for PostgreSQL 서버에 연결할 수 있게 하려면 다음 예제와 같이 0.0.0.0 IP 주소를 시작 IP와 끝 IP로 제공합니다.
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name AllowAllAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```

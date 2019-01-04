@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 61fb9904e69f5269c345b733ef2396294c6c790a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8c29d054f2e4e9ff4b57785a57e5c6ea512623a6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448175"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840667"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>자습서: Azure Active Directory와 Perception United States(비 UltiPro) 통합
 
@@ -50,7 +50,7 @@ Perception United States(비 UltiPro)와의 Azure AD 통합을 구성하려면 �
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Perception United States(비 UltiPro) 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -64,11 +64,11 @@ Perception United States(비 UltiPro)의 Azure AD 통합을 구성하려면 갤�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
 
@@ -112,7 +112,7 @@ Perception United States(비 UltiPro)에서 Azure AD Single Sign-On을 구성하
 
     a. **식별자** 텍스트 상자에 URL `https://perception.kanjoya.com/sp`을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://perception.kanjoya.com/sso?idp=<entity_id>`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://perception.kanjoya.com/sso?idp=<entity_id>`
 
     > [!NOTE] 
     > 이 값은 실제 값이 아닙니다. 자습서 뒷부분에 설명된 실제 회신 URL로 값을 업데이트하게 됩니다.
@@ -129,7 +129,7 @@ Perception United States(비 UltiPro)에서 Azure AD Single Sign-On을 구성하
 
     a. **Perception United States(비 UltiPro)** 응용 프로그램이 URI 인코딩이 되려면 복사한 **SAML 엔터티 ID** 값이 필요합니다. uri 인코딩 값을 가져오려면 **http://www.url-encode-decode.com/** 링크를 사용합니다.
 
-    나. URI 인코딩된 값을 얻은 후 아래에서 설명된 것과 같이 **회신 URL**과 결합합니다.
+    b. URI 인코딩된 값을 얻은 후 아래에서 설명된 것과 같이 **회신 URL**과 결합합니다.
 
     `https://perception.kanjoya.com/sso?idp=<URI encooded entity_id>`
     
@@ -149,7 +149,7 @@ Perception United States(비 UltiPro)에서 Azure AD Single Sign-On을 구성하
 
     a. **회사 이름** 텍스트 상자에 **회사**의 이름을 입력합니다.
     
-    나. **계정 이름** 텍스트 상자에 **계정**의 이름을 입력합니다.
+    b. **계정 이름** 텍스트 상자에 **계정**의 이름을 입력합니다.
 
     다. **기본 회신 전자 메일** 텍스트 상자에 유효한 **전자 메일**을 입력합니다.
 
@@ -161,7 +161,7 @@ Perception United States(비 UltiPro)에서 Azure AD Single Sign-On을 구성하
 
     a. **전자 메일**로 **SAML NameID 유형**을 선택합니다.
 
-    나. **SSO 구성 이름** 텍스트 상자에 **구성**의 이름을 입력합니다.
+    b. **SSO 구성 이름** 텍스트 상자에 **구성**의 이름을 입력합니다.
     
     다. **ID 공급자 이름** 텍스트 상자에 Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 붙여 넣습니다. 
 
@@ -173,7 +173,7 @@ Perception United States(비 UltiPro)에서 Azure AD Single Sign-On을 구성하
 
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -209,7 +209,7 @@ Perception United States(비 UltiPro)에서 Azure AD Single Sign-On을 구성하
   
 ### <a name="create-a-perception-united-states-non-ultipro-test-user"></a>Perception United States(비 UltiPro) 테스트 사용자 만들기
 
-이 섹션에서는 Perception United States(비 UltiPro)에서 Britta Simon이라는 사용자를 만듭니다. Perception United States(비 UltiPro) 플랫폼에 사용자를 추가하려면 [Perception United States(비 UltiPro) 지원 팀](http://www.ultimatesoftware.com/Contact/ContactUs)에 문의하세요.
+이 섹션에서는 Perception United States(비 UltiPro)에서 Britta Simon이라는 사용자를 만듭니다. Perception United States(비 UltiPro) 플랫폼에 사용자를 추가하려면 [Perception United States(비 UltiPro) 지원 팀](https://www.ultimatesoftware.com/Contact/ContactUs)에 문의하세요.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -219,7 +219,7 @@ Perception United States(비 UltiPro)에서 Azure AD Single Sign-On을 구성하
 
 **Britta Simon을 Perception United States(비 UltiPro)에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 

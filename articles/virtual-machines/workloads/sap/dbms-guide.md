@@ -323,7 +323,7 @@ ms.locfileid: "42146069"
 * IaaS: 서비스 제공 인프라
 * PaaS: Platform as a Service
 * SaaS: Software as a Service.
-* SAP 구성 요소: ECC, BW, Solution Manager 또는 EP 등의 개별 SAP 응용 프로그램.  SAP 구성 요소는 기존의 ABAP 또는 Java 기술을 기반으로 하거나 비즈니스 개체와 같은 비NetWeaver 기반 응용 프로그램을 기반으로 사용할 수 있습니다.
+* SAP 구성 요소: ECC, BW, Solution Manager 또는 EP 등의 개별 SAP 애플리케이션.  SAP 구성 요소는 기존의 ABAP 또는 Java 기술을 기반으로 하거나 비즈니스 개체와 같은 비NetWeaver 기반 애플리케이션을 기반으로 사용할 수 있습니다.
 * SAP 환경: 하나 이상의 SAP 구성 요소가 논리적으로 그룹화되어 개발, QAS, 교육, DR 또는 프로덕션과 같은 비즈니스 기능을 수행합니다.
 * SAP 배경: 고객 IT 환경의 전체 SAP 자산입니다. SAP 지형에는 모든 프로덕션 및 비프로덕션 환경이 포함됩니다.
 * SAP 시스템: SAP ERP 개발 시스템, SAP BW 테스트 시스템, SAP CRM 프로덕션 시스템 등의 응용 프로그램 계층과 DBMS 계층의 조합입니다. Azure 배포에서는 온-프레미스와 Azure 간에 이러한 두 계층을 나눌 수 없습니다. 즉, SAP 시스템은 온-프레미스에 배포되거나 Azure에 배포됩니다. 그러나 Azure 또는 온-프레미스에는 SAP 배경의 서로 다른 시스템을 배포할 수 있습니다. 예를 들어 Azure에는 SAP CRM 개발 및 테스트 시스템을 배포할 수 있지만 온-프레미스에는 SAP CRM 프로덕션 시스템을 배포할 수 있습니다.
@@ -348,14 +348,14 @@ ms.locfileid: "42146069"
 
 | Note 번호 | 제목 |
 | --- | --- |
-| [1928533] |Azure의 SAP 응용 프로그램: 지원 제품 및 Azure VM 유형 |
+| [1928533] |Azure의 SAP 애플리케이션: 지원 제품 및 Azure VM 유형 |
 | [2015553] |Microsoft Azure의 SAP: 지원 필수 조건 |
 | [1999351] |SAP용 고급 Azure 모니터링 문제 해결 |
 | [2178632] |Microsoft Azure의 SAP용 주요 모니터링 메트릭 |
 | [1409604] |Windows에서의 가상화: 향상된 모니터링 |
 | [2191498] |Azure와 Linux의 SAP: 향상된 모니터링 |
-| [2039619] |Oracle Database를 사용하는 Microsoft Azure의 SAP 응용 프로그램: 지원 제품 및 버전 |
-| [2233094] |DB6: Linux, UNIX 및 Windows용 IBM DB2를 사용하는 SAP 응용 프로그램 - 추가 정보 |
+| [2039619] |Oracle Database를 사용하는 Microsoft Azure의 SAP 애플리케이션: 지원 제품 및 버전 |
+| [2233094] |DB6: Linux, UNIX 및 Windows용 IBM DB2를 사용하는 SAP 애플리케이션 - 추가 정보 |
 | [2243692] |Microsoft Azure(IaaS) VM의 Linux: SAP 라이선스 문제 |
 | [1984787] |SUSE LINUX Enterprise Server 12: 설치 참고 |
 | [2002167] |Red Hat Enterprise Linux 7.x: 설치 및 업그레이드 |
@@ -408,11 +408,11 @@ Azure는 데이터 디스크 IOPS 할당량을 적용합니다. 이러한 할당
 - - -
 > ![ Windows][Logo_Windows]  Windows
 > 
-> Azure VM의 드라이브 D:\는 Azure 계산 노드의 일부 로컬 디스크에서 지원하는 비지속형 드라이브입니다. 비지속형이기 때문에 VM을 다시 부팅하면 D:\ 드라이브의 변경 내용이 손실됩니다. "변경 내용"이란 저장된 파일, 생성된 디렉터리, 설치된 응용 프로그램 등을 의미합니다.
+> Azure VM의 드라이브 D:\는 Azure 계산 노드의 일부 로컬 디스크에서 지원하는 비지속형 드라이브입니다. 비지속형이기 때문에 VM을 다시 부팅하면 D:\ 드라이브의 변경 내용이 손실됩니다. "변경 내용"이란 저장된 파일, 생성된 디렉터리, 설치된 애플리케이션 등을 의미합니다.
 > 
 > ![Linux][Logo_Linux] Linux
 > 
-> Linux Azure VM은 Azure 계산 노드의 로컬 디스크에서 지원하는 비지속형 드라이브의 /mnt/resource에 자동으로 탑재됩니다. 비지속형이기 때문에 VM을 다시 부팅하면 /mnt/resource의 변경 내용이 손실됩니다. 변경 내용이란 저장된 파일, 생성된 디렉터리, 설치된 응용 프로그램 등을 의미합니다.
+> Linux Azure VM은 Azure 계산 노드의 로컬 디스크에서 지원하는 비지속형 드라이브의 /mnt/resource에 자동으로 탑재됩니다. 비지속형이기 때문에 VM을 다시 부팅하면 /mnt/resource의 변경 내용이 손실됩니다. 변경 내용이란 저장된 파일, 생성된 디렉터리, 설치된 애플리케이션 등을 의미합니다.
 > 
 > 
 
@@ -597,13 +597,13 @@ DBMS 배포의 고가용성 구성을 생성하려는 경우(사용된 개별 DB
 > 
 
 ## <a name="deployment-of-host-monitoring"></a>호스트 모니터링 배포
-Azure Virtual Machines에서 SAP 응용 프로그램을 생산적으로 사용하려면 Azure Virtual Machines를 실행 중인 물리적 호스트에서 호스트 모니터링 데이터를 가져오는 기능이 SAP에 필요합니다. SAPOSCOL 및 SAP HostAgent에서 이 기능을 사용하려면 특정 SAP HostAgent 패치 수준이 필요합니다. 정확한 패치 수준은 SAP Note [1409604]에 설명되어 있습니다.
+Azure Virtual Machines에서 SAP 애플리케이션을 생산적으로 사용하려면 Azure Virtual Machines를 실행 중인 물리적 호스트에서 호스트 모니터링 데이터를 가져오는 기능이 SAP에 필요합니다. SAPOSCOL 및 SAP HostAgent에서 이 기능을 사용하려면 특정 SAP HostAgent 패치 수준이 필요합니다. 정확한 패치 수준은 SAP Note [1409604]에 설명되어 있습니다.
 
 SAPOSCOL 및 SAP 호스트 에이전트에 호스트 데이터를 제공하는 구성 요소의 배포 및 이러한 구성 요소의 수명 주기 관리에 대한 자세한 내용은 [배포 가이드][deployment-guide]를 참조하세요.
 
 ## <a name="3264829e-075e-4d25-966e-a49dad878737"></a>Microsoft SQL Server에 대한 고유 정보
 ### <a name="sql-server-iaas"></a>SQL Server IaaS
-Microsoft Azure부터 Windows Server 플랫폼에 빌드된 기존 SQL Server 응용 프로그램을 쉽게 Azure Virtual Machines로 마이그레이션할 수 있습니다. Virtual Machine에서 SQL Server를 사용하면 이러한 응용 프로그램을 Microsoft Azure로 쉽게 마이그레이션하여 엔터프라이즈 수준의 응용 프로그램에 대한 배포, 관리 및 유지 관리의 총 소유 비용을 줄일 수 있습니다. Azure Virtual Machine에서 SQL Server를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다. 
+Microsoft Azure부터 Windows Server 플랫폼에 빌드된 기존 SQL Server 애플리케이션을 쉽게 Azure Virtual Machines로 마이그레이션할 수 있습니다. Virtual Machine에서 SQL Server를 사용하면 이러한 응용 프로그램을 Microsoft Azure로 쉽게 마이그레이션하여 엔터프라이즈 수준의 응용 프로그램에 대한 배포, 관리 및 유지 관리의 총 소유 비용을 줄일 수 있습니다. Azure Virtual Machine에서 SQL Server를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다. 
 
 > [!IMPORTANT]
 > 여기에서는 Microsoft Azure 플랫폼의 PaaS(Platform as a Service) 제품인 Microsoft Azure SQL Database에 대해서는 다루지 않습니다. 이 문서에서는 Azure의 IaaS(서비스 제공 인프라)를 활용하여 Azure Virtual Machines에서 온-프레미스 배포에 대해 알려진 SQL Server 제품을 실행하는 방법에 대해 설명합니다. 이러한 두 환경에서의 데이터베이스 기능은 다르므로 서로 혼합하지 않아야 합니다. <https://azure.microsoft.com/services/sql-database/>도 참조하세요.
@@ -758,7 +758,7 @@ Microsoft는 Azure Marketplace에서 이미 SQL Server를 포함하는 버전의
 * Azure Marketplace에서 제공되는 VM에 설치되는 SQL Server 인스턴스의 데이터 정렬은 SAP NetWeaver에서 SQL Server 인스턴스를 실행하는 데 필요한 데이터 정렬이 아닙니다. 다음 섹션의 지침을 사용하여 데이터 정렬을 변경할 수 있습니다.
 
 #### <a name="changing-the-sql-server-collation-of-a-microsoft-windowssql-server-vm"></a>Microsoft Windows/SQL Server VM의 SQL Server 데이터 정렬 변경
-Azure Marketplace의 SQL Server 이미지는 SAP NetWeaver 응용 프로그램에서 요구하는 데이터 정렬을 사용하도록 설정되어 있지 않으므로 배포 후 즉시 변경해야 합니다. SQL Server 2012의 경우 VM을 배포하자마자 다음 단계를 통해 이 작업을 수행할 수 있으며 관리자가 배포된 VM에 로그인할 수 있습니다.
+Azure Marketplace의 SQL Server 이미지는 SAP NetWeaver 애플리케이션에서 요구하는 데이터 정렬을 사용하도록 설정되어 있지 않으므로 배포 후 즉시 변경해야 합니다. SQL Server 2012의 경우 VM을 배포하자마자 다음 단계를 통해 이 작업을 수행할 수 있으며 관리자가 배포된 VM에 로그인할 수 있습니다.
 
 * 관리자 권한으로 Windows 명령 창을 엽니다.
 * 디렉터리를 C:\Program Files\Microsoft SQL Server\110\Setup Bootstrap\SQLServer2012로 변경합니다.
@@ -775,7 +775,7 @@ Azure Marketplace의 SQL Server 이미지는 SAP NetWeaver 응용 프로그램�
 
     Latin1-General, binary code point comparison sort for Unicode Data, SQL Server Sort Order 40 on Code Page 850 for non-Unicode Data
 
-원하는 결과가 아닌 경우 SAP 배포를 중지하고 설치 명령이 원하는 대로 작동되지 않은 이유를 확인합니다. 위에서 언급한 것과 다른 SQL Server 코드 페이지를 사용하여 SAP NetWeaver 응용 프로그램을 SQL Server 인스턴스에 배포할 수는 **없습니다** .
+원하는 결과가 아닌 경우 SAP 배포를 중지하고 설치 명령이 원하는 대로 작동되지 않은 이유를 확인합니다. 위에서 언급한 것과 다른 SQL Server 코드 페이지를 사용하여 SAP NetWeaver 애플리케이션을 SQL Server 인스턴스에 배포할 수는 **없습니다**.
 
 ### <a name="sql-server-high-availability-for-sap-in-azure"></a>Azure의 SAP용 SQL Server 고가용성
 이 문서 앞부분에서 언급했듯이 이전 SQL Server 고가용성 기능 활용에 필요한 공유 저장소를 만들 수는 없습니다. 이 기능은 사용자 데이터베이스(및 tempdb)용 공유 디스크를 사용하여 WSFC(Windows Server 장애 조치(failover) 클러스터)에 둘 이상의 SQL Server 인스턴스를 설치합니다. 이는 SAP에서도 지원되는 오래된 표준 고가용성 방법입니다. Azure에서는 공유 저장소를 지원하지 않으므로 공유 디스크 클러스터 구성의 SQL Server 고가용성 구성을 인식할 수 없습니다. 그러나 여러 가지 다른 고가용성 방법을 사용할 수 있으며 다음 섹션에서 설명합니다.
@@ -861,13 +861,13 @@ Always On의 경우 데이터베이스 미러링에 비해 더 복잡한 설정�
 10. [배포 가이드][deployment-guide]에서 설명한 대로 Azure용 SAP 호스트 모니터링을 설치 및 구성합니다.
 
 ## <a name="specifics-to-sap-ase-on-windows"></a>Windows의 SAP ASE에 대한 고유 정보
-Microsoft Azure부터 기존 SAP ASE 응용 프로그램을 쉽게 Azure Virtual Machines로 마이그레이션할 수 있습니다. Virtual Machine에서 SAP ASE를 사용하면 이러한 응용 프로그램을 Microsoft Azure로 쉽게 마이그레이션하여 엔터프라이즈 수준의 응용 프로그램에 대한 배포, 관리 및 유지 관리의 총 소유 비용을 줄일 수 있습니다. Azure Virtual Machine에서 SAP ASE를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
+Microsoft Azure부터 기존 SAP ASE 애플리케이션을 쉽게 Azure Virtual Machines로 마이그레이션할 수 있습니다. Virtual Machine에서 SAP ASE를 사용하면 이러한 응용 프로그램을 Microsoft Azure로 쉽게 마이그레이션하여 엔터프라이즈 수준의 응용 프로그램에 대한 배포, 관리 및 유지 관리의 총 소유 비용을 줄일 수 있습니다. Azure Virtual Machine에서 SAP ASE를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
 
 Azure Virtual Machines에 대한 SLA는 <https://azure.microsoft.com/support/legal/sla/virtual-machines>에 있습니다.
 
 Microsoft Azure에서 호스팅하는 Virtual Machines는 다른 공용 클라우드 가상화 제품에 비해 뛰어난 성능을 제공하지만 개별 결과는 다를 수 있습니다. 서로 다른 SAP 인증 VM SKU의 SAP 크기 조정 SAPS 번호는 별도 SAP Note [1928533]에서 제공됩니다.
 
-이 문서의 처음 네 챕터에서 설명한 것처럼 SAP 응용 프로그램과 함께 SAP ASE를 배포할 때는 Azure Storage 사용, SAP VM 또는 SAP 모니터링 배포와 관련된 설명 및 권장 사항이 적용됩니다.
+이 문서의 처음 네 챕터에서 설명한 것처럼 SAP 애플리케이션과 함께 SAP ASE를 배포할 때는 Azure Storage 사용, SAP VM 또는 SAP 모니터링 배포와 관련된 설명 및 권장 사항이 적용됩니다.
 
 ### <a name="sap-ase-version-support"></a>SAP ASE 버전 지원
 SAP는 현재 SAP ASE 버전 16.0을 SAP Business Suite 제품과 함께 사용하도록 지원합니다. SAP Business Suite 제품에서 사용되는 SAP ASE 서버 또는 JDBC 및 ODBC 드라이버에 대한 모든 업데이트는 <https://support.sap.com/swdc>에 있는 SAP Service Marketplace를 통해서만 제공됩니다.
@@ -1009,13 +1009,13 @@ SRS 설치 및 작동은 Azure Virtual Machine 서비스에서 호스트되는 V
 SAP ASE HADR는 Azure 내부 부하 분산 장치를 필요로 하지 않으며, OS 수준 클러스터링을 사용하지 않고, Azure Windows 및 Linux VM에서 작동합니다. SAP ASE HADR에 대한 자세한 내용은 [SAP ASE HADR 사용자 가이드](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.3/en-US/a6645e28bc2b1014b54b8815a64b87ba.html)를 참조하세요.
 
 ## <a name="specifics-to-sap-ase-on-linux"></a>Linux의 SAP ASE에 대한 고유 정보
-Microsoft Azure부터 기존 SAP ASE 응용 프로그램을 쉽게 Azure Virtual Machines로 마이그레이션할 수 있습니다. Virtual Machine에서 SAP ASE를 사용하면 이러한 응용 프로그램을 Microsoft Azure로 쉽게 마이그레이션하여 엔터프라이즈 수준의 응용 프로그램에 대한 배포, 관리 및 유지 관리의 총 소유 비용을 줄일 수 있습니다. Azure Virtual Machine에서 SAP ASE를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
+Microsoft Azure부터 기존 SAP ASE 애플리케이션을 쉽게 Azure Virtual Machines로 마이그레이션할 수 있습니다. Virtual Machine에서 SAP ASE를 사용하면 이러한 응용 프로그램을 Microsoft Azure로 쉽게 마이그레이션하여 엔터프라이즈 수준의 응용 프로그램에 대한 배포, 관리 및 유지 관리의 총 소유 비용을 줄일 수 있습니다. Azure Virtual Machine에서 SAP ASE를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
 
 Azure VM을 배포하는 경우 <https://azure.microsoft.com/support/legal/sla>에 있는 공식 SLA에 대해 알고 있어야 합니다.
 
 SAP 크기 조정 정보 및 SAP 인증 VM SKU 목록은 SAP Note [1928533]을 참조하세요. Azure 가상 머신에 대한 SAP 크기 지정 추가 문서는 <http://blogs.msdn.com/b/saponsqlserver/archive/2015/06/19/how-to-size-sap-systems-running-on-azure-vms.aspx> 및 <http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>에서 찾을 수 있습니다.
 
-이 문서의 처음 네 챕터에서 설명한 것처럼 SAP 응용 프로그램과 함께 SAP ASE를 배포할 때는 Azure Storage 사용, SAP VM 또는 SAP 모니터링 배포와 관련된 설명 및 권장 사항이 적용됩니다.
+이 문서의 처음 네 챕터에서 설명한 것처럼 SAP 애플리케이션과 함께 SAP ASE를 배포할 때는 Azure Storage 사용, SAP VM 또는 SAP 모니터링 배포와 관련된 설명 및 권장 사항이 적용됩니다.
 
 다음 두 SAP Note에는 Linux의 ASE 및 클라우드의 ASE에 대한 일반 정보가 포함되어 있습니다.
 
@@ -1164,7 +1164,7 @@ SAP Replication Server를 통한 ASE HADR은 현재 지원되지 않습니다. �
 ## <a name="specifics-to-oracle-database-on-windows"></a>Windows의 Oracle 데이터베이스에 대한 고유 정보
 Microsoft Windows Hyper-V 및 Azure에서 Oracle 소프트웨어가 지원됩니다. 
 
-일반 지원에 따라 Oracle 데이터베이스를 활용하는 SAP 응용 프로그램의 특정 시나리오도 지원됩니다. 자세한 내용은 문서의 이 부분에 나와 있습니다.
+일반 지원에 따라 Oracle 데이터베이스를 활용하는 SAP 애플리케이션의 특정 시나리오도 지원됩니다. 자세한 내용은 문서의 이 부분에 나와 있습니다.
 
 ### <a name="oracle-version-support"></a>Oracle 지원 버전
 Azure Virtual Machines에서 Oracle의 SAP 실행을 위해 지원되는 Oracle 버전 및 해당 OS 버전에 대한 자세한 내용은 SAP Note [2039619]에서 찾을 수 있습니다.
@@ -1202,7 +1202,7 @@ Azure 가용성 집합 또는 SAP 모니터링과 같은 다른 일반적 영역
 ## <a name="specifics-to-oracle-database-on-oracle-linux"></a>Oracle Linux의 Oracle 데이터베이스에 대한 고유 정보
 Microsoft Windows Hyper-V 및 Azure에서 Oracle 소프트웨어가 지원됩니다. 
 
-일반 지원에 따라 Oracle 데이터베이스를 활용하는 SAP 응용 프로그램의 특정 시나리오도 지원됩니다. 자세한 내용은 문서의 이 부분에 나와 있습니다.
+일반 지원에 따라 Oracle 데이터베이스를 활용하는 SAP 애플리케이션의 특정 시나리오도 지원됩니다. 자세한 내용은 문서의 이 부분에 나와 있습니다.
 
 ### <a name="oracle-version-support"></a>Oracle 지원 버전
 Azure Virtual Machines에서 Oracle의 SAP 실행을 위해 지원되는 Oracle 버전 및 해당 OS 버전에 대한 자세한 내용은 SAP Note [2039619]에서 찾을 수 있습니다.
@@ -1318,7 +1318,7 @@ Azure에서 지원되는 SAP liveCache용 Microsoft Windows 버전을 찾으려�
 
 ### <a name="sap-livecache-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Azure VM의 SAP 설치에 대한 SAP liveCache 구성 지침
 #### <a name="recommended-azure-vm-types"></a>권장되는 Azure VM 유형
-SAP liveCache는 많은 계산을 수행하는 응용 프로그램이므로 RAM과 CPU의 양 및 속도가 SAP liveCache 성능에 큰 영향을 줍니다. 
+SAP liveCache는 많은 계산을 수행하는 애플리케이션이므로 RAM과 CPU의 양 및 속도가 SAP liveCache 성능에 큰 영향을 줍니다. 
 
 SAP에서 지원하는 Azure VM 형식(SAP Note [1928533])의 경우, VM에 할당된 모든 가상 CPU 리소스가 하이퍼바이저의 전용 물리적 CPU 리소스에 의해 지원됩니다. 오버프로비저닝이 발생되지 않습니다(따라서 CPU 리소스에 대한 경쟁 없음).
 
@@ -1341,7 +1341,7 @@ SAP liveCache는 컴퓨팅 기능을 집중적으로 사용하므로 생산적�
 다른 일반적 영역은 모두 SAP MaxDB 관련의 [이][dbms-guide-8.4.4] 챕터에서 이미 설명하고 있습니다. 
 
 ## <a name="specifics-for-the-sap-content-server-on-windows"></a>Windows의 SAP Content Server에 대한 고유 정보
-SAP Content Server는 다양한 형식의 전자 문서와 같은 콘텐츠를 저장하기 위한 별도의 서버 기반 구성 요소입니다. SAP Content Server는 기술 개발을 통해 제공되며 SAP 응용 프로그램의 응용 프로그램 간에 사용됩니다. 별도의 시스템에 설치됩니다. 일반적인 콘텐츠는 기술 웨어하우스 설명서 또는 mySAP PLM 문서 관리 시스템의 기술 드로잉 및 교육 자료입니다. 
+SAP Content Server는 다양한 형식의 전자 문서와 같은 콘텐츠를 저장하기 위한 별도의 서버 기반 구성 요소입니다. SAP Content Server는 기술 개발을 통해 제공되며 SAP 애플리케이션의 애플리케이션 간에 사용됩니다. 별도의 시스템에 설치됩니다. 일반적인 콘텐츠는 기술 웨어하우스 설명서 또는 mySAP PLM 문서 관리 시스템의 기술 드로잉 및 교육 자료입니다. 
 
 ### <a name="sap-content-server-version-support"></a>SAP Content Server 버전 지원
 SAP에서 현재 다음을 지원합니다.
@@ -1398,7 +1398,7 @@ SAP MaxDB 데이터베이스에 파일을 저장하도록 SAP Content Server를 
 * SAP Note [1619726]  
 
 ## <a name="specifics-to-ibm-db2-for-luw-on-windows"></a>Windows의 LUW용 IBM DB2에 대한 고유 정보
-Microsoft Azure를 사용하면 Linux, UNIX, Windows(LUW)용 IBM DB2에서 실행 중인 기존 SAP 응용 프로그램을 Azure 가상 머신으로 쉽게 마이그레이션할 수 있습니다. LUW용 IBM DB2에서 SAP를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
+Microsoft Azure를 사용하면 Linux, UNIX, Windows(LUW)용 IBM DB2에서 실행 중인 기존 SAP 애플리케이션을 Azure 가상 머신으로 쉽게 마이그레이션할 수 있습니다. LUW용 IBM DB2에서 SAP를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
 LUW용 IBM DB2에서 SAP Business Suite를 실행하는 방법에 대한 일반적인 내용은 SCN(SAP Community Network)의 <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>에서 찾을 수 있습니다.
 
 Azure에서 LUW용 DB2의 SAP에 대한 추가 정보 및 업데이트는 SAP Note [2233094]를 참조하세요. 
@@ -1455,7 +1455,7 @@ Azure 가용성 집합 또는 SAP 모니터링과 같은 다른 일반적 영역
 또한 [Azure의 SAP용 SQL Server에 대한 일반적 요약][dbms-guide-5.8] 챕터를 참조하세요.
 
 ## <a name="specifics-to-ibm-db2-for-luw-on-linux"></a>Linux의 LUW용 IBM DB2에 대한 고유 정보
-Microsoft Azure를 사용하면 Linux, UNIX, Windows(LUW)용 IBM DB2에서 실행 중인 기존 SAP 응용 프로그램을 Azure 가상 머신으로 쉽게 마이그레이션할 수 있습니다. LUW용 IBM DB2에서 SAP를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다. LUW용 IBM DB2에서 SAP Business Suite를 실행하는 방법에 대한 일반적인 내용은 SCN(SAP Community Network)의 <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>에서 찾을 수 있습니다.
+Microsoft Azure를 사용하면 Linux, UNIX, Windows(LUW)용 IBM DB2에서 실행 중인 기존 SAP 애플리케이션을 Azure 가상 머신으로 쉽게 마이그레이션할 수 있습니다. LUW용 IBM DB2에서 SAP를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다. LUW용 IBM DB2에서 SAP Business Suite를 실행하는 방법에 대한 일반적인 내용은 SCN(SAP Community Network)의 <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>에서 찾을 수 있습니다.
 
 Azure에서 LUW용 DB2의 SAP에 대한 추가 정보 및 업데이트는 SAP Note [2233094]를 참조하세요.
 

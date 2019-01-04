@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory 테넌트 만들기 | Microsoft Docs
-description: Azure AD 테넌트를 만들어 응용 프로그램 등록 및 빌드에 사용하는 방법을 알아봅니다.
+description: Azure AD 테넌트를 만들어 애플리케이션 등록 및 빌드에 사용하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -47,7 +47,7 @@ Microsoft ID 플랫폼을 통해 개발자는 다양한 사용자 지정 Microso
 
 대부분의 개발자는 이미 Azure AD 테넌트(예: Microsoft 365 또는 Azure 구독)와 연결된 서비스 또는 구독을 통해 테넌트를 확보하고 있습니다.
 
-1. 테넌트를 확인하려면 응용 프로그램을 관리하는 데 사용하려는 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 테넌트를 확인하려면 애플리케이션을 관리하는 데 사용하려는 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 오른쪽 위 모서리를 확인합니다. 테넌트가 있으면 자동으로 로그인되고 계정 이름 바로 아래에 테넌트 이름이 표시됩니다.
    * Azure Portal의 오른쪽 위에 있는 사용자의 계정 이름을 가리켜 사용자의 이름, 이메일, 디렉터리/테넌트 ID(GUID) 및 사용자의 도메인을 표시합니다.
    * 계정이 여러 테넌트와 연결되어 있으면, 계정 이름을 선택하여 테넌트 간에 전환할 수 있는 메뉴를 열 수 있습니다. 각 테넌트가 자기만의 ID를 가지고 있습니다.

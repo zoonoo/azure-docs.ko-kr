@@ -160,7 +160,7 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
 
 ### <a name="agent-key"></a> 에이전트 키를 제출할 수 없음
 
-에이전트에 대한 키를 만들거나 다시 만든 후 SqlAzureDataSyncAgent 응용 프로그램을 통해 해당 키를 제출하려고 하지만, 제출이 완료되지 않습니다.
+에이전트에 대한 키를 만들거나 다시 만든 후 SqlAzureDataSyncAgent 애플리케이션을 통해 해당 키를 제출하려고 하지만, 제출이 완료되지 않습니다.
 
 ![동기화 오류 대화 상자 - 에이전트 키를 제출할 수 없음](media/sql-database-troubleshoot-data-sync/sync-error-cant-submit-agent-key.png)
 
@@ -188,7 +188,7 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
 
   1. 파일 탐색기에서 에이전트 설치 디렉터리로 이동합니다. 기본 설치 디렉터리는 C:\\Program Files (x86)\\Microsoft SQL Data Sync입니다.
   1. bin 하위 디렉터리를 두 번 클릭합니다.
-  1. SqlAzureDataSyncAgent 응용 프로그램을 엽니다.
+  1. SqlAzureDataSyncAgent 애플리케이션을 엽니다.
   1. **에이전트 키 제출**을 선택합니다.
   1. 제공된 공간에 클립보드의 키를 붙여 넣습니다.
   1. **확인**을 선택합니다.

@@ -28,7 +28,7 @@ ms.locfileid: "52423435"
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-OAuth 2.0 On-Behalf-Of 흐름은 응용 프로그램이 서비스/웹 API를 호출하고 차례로 다른 서비스/웹 API를 호출해야 하는 사용 사례를 제공합니다. 요청 체인을 통해 위임된 사용자 ID 및 사용 권한을 전파하는 개념입니다. 중간 계층 서비스가 다운스트림 서비스에 대해 인증된 요청을 수행하도록 하려면 사용자를 대신하여 Azure AD(Azure Active Directory)에서 액세스 토큰을 보호해야 합니다.
+OAuth 2.0 On-Behalf-Of 흐름은 애플리케이션이 서비스/웹 API를 호출하고 차례로 다른 서비스/웹 API를 호출해야 하는 사용 사례를 제공합니다. 요청 체인을 통해 위임된 사용자 ID 및 사용 권한을 전파하는 개념입니다. 중간 계층 서비스가 다운스트림 서비스에 대해 인증된 요청을 수행하도록 하려면 사용자를 대신하여 Azure AD(Azure Active Directory)에서 액세스 토큰을 보호해야 합니다.
 
 > [!NOTE]
 > v2.0 엔드포인트에서는 일부 Azure Active Directory 시나리오 및 기능만 지원합니다. v2.0 엔드포인트를 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
@@ -38,14 +38,14 @@ OAuth 2.0 On-Behalf-Of 흐름은 응용 프로그램이 서비스/웹 API를 호
 > 2018년 5월부터 위임자 흐름에는 `id_token`을 사용할 수 없습니다. SPA는 OBO 흐름을 수행하려면 중간 계층 기밀 클라이언트에 **액세스 토큰**을 전달해야 합니다. 클라이언트가 위임자 호출을 수행할 수 있는 데 관한 자세한 내용은 [제한](#client-limitations)을 참조하세요.
 
 ## <a name="protocol-diagram"></a>프로토콜 다이어그램
-사용자가 [OAuth 2.0 권한 부여 코드 부여 흐름](v2-oauth2-auth-code-flow.md)을 사용하여 응용 프로그램에 대해 인증되었다고 가정합니다. 이 시점에서 응용 프로그램에는 사용자의 클레임 및 중간 계층 웹 API(API A) 액세스에 대한 동의가 있는 *API A용* 액세스 토큰(토큰 A)이 있습니다. 이제 API A는 다운스트림 웹 API(API B)에 대해 인증된 요청을 해야 합니다.
+사용자가 [OAuth 2.0 권한 부여 코드 부여 흐름](v2-oauth2-auth-code-flow.md)을 사용하여 애플리케이션에 대해 인증되었다고 가정합니다. 이 시점에서 애플리케이션에는 사용자의 클레임 및 중간 계층 웹 API(API A) 액세스에 대한 동의가 있는 *API A용* 액세스 토큰(토큰 A)이 있습니다. 이제 API A는 다운스트림 웹 API(API B)에 대해 인증된 요청을 해야 합니다.
 
 다음 단계는 On-Behalf-Of 흐름을 구성하며 다음 다이어그램을 통해 쉽게 이해할 수 있습니다.
 
 ![OAuth2.0 On-Behalf-Of 흐름](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 
-1. 클라이언트 응용 프로그램은 토큰 A(API A의 `aud` 클레임 포함)를 사용하여 API A에 요청합니다.
+1. 클라이언트 애플리케이션은 토큰 A(API A의 `aud` 클레임 포함)를 사용하여 API A에 요청합니다.
 2. API A는 Azure AD 토큰 발급 엔드포인트를 인증하고 API B에 액세스하기 위해 토큰을 요청합니다.
 3. Azure AD 토큰 발급 엔드포인트는 토큰 A와 함께 API A의 자격 증명의 유효성을 검사하고 API B(토큰 B)에 대한 액세스 토큰을 발급합니다.
 4. 토큰 B는 API B에 대한 요청의 권한 부여 헤더에 설정됩니다.
@@ -62,7 +62,7 @@ OAuth 2.0 On-Behalf-Of 흐름은 응용 프로그램이 서비스/웹 API를 호
 https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 ```
 
-클라이언트 응용 프로그램이 공유 암호 또는 인증서 중에서 어떤 방식으로 보호되도록 선택되는지에 따라 두 가지 사례가 있습니다.
+클라이언트 애플리케이션이 공유 암호 또는 인증서 중에서 어떤 방식으로 보호되도록 선택되는지에 따라 두 가지 사례가 있습니다.
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>첫 번째 사례: 공유 암호를 사용한 액세스 토큰 요청
 공유 암호를 사용할 경우 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
@@ -71,7 +71,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 | --- | --- | --- |
 | grant_type |필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
 | client_id |필수 | [응용 프로그램 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에서 앱에 할당한 응용 프로그램 ID입니다. |
-| client_secret |필수 | 응용 프로그램 등록 포털에서 앱에 대해 생성한 응용 프로그램 비밀입니다. |
+| client_secret |필수 | 애플리케이션 등록 포털에서 앱에 대해 생성한 애플리케이션 비밀입니다. |
 | 어설션 |필수 | 요청에 사용된 토큰 값입니다. |
 | scope |필수 | 토큰 요청에 대해 공백으로 구분된 범위 목록입니다. 자세한 내용은 [범위](v2-permissions-and-consent.md)를 참조하세요.|
 | requested_token_use |필수 | 요청 처리 방법을 지정합니다. On-Behalf-Of 흐름에서 이 값은 **on_behalf_of**여야 합니다. |
@@ -102,7 +102,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 | grant_type |필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
 | client_id |필수 | [응용 프로그램 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에서 앱에 할당한 응용 프로그램 ID입니다. |
 | client_assertion_type |필수 |값은 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`이어야 합니다. |
-| client_assertion |필수 | 응용 프로그램의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명해야 하는 어설션(JSON Web Token)입니다. 인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요.|
+| client_assertion |필수 | 애플리케이션의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명해야 하는 어설션(JSON Web Token)입니다. 인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요.|
 | 어설션 |필수 | 요청에 사용된 토큰 값입니다. |
 | requested_token_use |필수 | 요청 처리 방법을 지정합니다. On-Behalf-Of 흐름에서 이 값은 **on_behalf_of**여야 합니다. |
 | scope |필수 | 토큰 요청에 대해 공백으로 구분된 범위 목록입니다. 자세한 내용은 [범위](v2-permissions-and-consent.md)를 참조하세요.|
@@ -154,11 +154,11 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ```
 
 > [!NOTE]
-> 위의 액세스 토큰은 V1 형식의 토큰입니다. 이는 토큰이 액세스되는 리소스에 따라 제공되기 때문입니다. Microsoft Graph는 V1 토큰을 요청하므로 클라이언트에서 Microsoft Graph용 토큰을 요청할 때 Azure AD에서 V1 액세스 토큰을 생성합니다. 응용 프로그램만 액세스 토큰을 검사해야 하며 클라이언트는 검사할 필요가 없습니다. 
+> 위의 액세스 토큰은 V1 형식의 토큰입니다. 이는 토큰이 액세스되는 리소스에 따라 제공되기 때문입니다. Microsoft Graph는 V1 토큰을 요청하므로 클라이언트에서 Microsoft Graph용 토큰을 요청할 때 Azure AD에서 V1 액세스 토큰을 생성합니다. 애플리케이션만 액세스 토큰을 검사해야 하며 클라이언트는 검사할 필요가 없습니다. 
 
 
 ### <a name="error-response-example"></a>오류 응답 예제
-다운스트림 API에 설정된 Multi-Factor Authentication과 같은 조건부 액세스 정책이 있는 경우, 다운스트림 API에 대한 액세스 토큰을 얻으려고 할 때 Azure AD 토큰 엔드포인트에서 오류 응답이 반환됩니다. 중간 계층 서비스는 이 오류를 클라이언트 응용 프로그램에 전달하여 클라이언트 응용 프로그램이 조건부 액세스 정책을 충족시키기 위해 사용자 상호 작용을 제공할 수 있도록 해야 합니다.
+다운스트림 API에 설정된 Multi-Factor Authentication과 같은 조건부 액세스 정책이 있는 경우, 다운스트림 API에 대한 액세스 토큰을 얻으려고 할 때 Azure AD 토큰 엔드포인트에서 오류 응답이 반환됩니다. 중간 계층 서비스는 이 오류를 클라이언트 애플리케이션에 전달하여 클라이언트 애플리케이션이 조건부 액세스 정책을 충족시키기 위해 사용자 상호 작용을 제공할 수 있도록 해야 합니다.
 
 ```
 {

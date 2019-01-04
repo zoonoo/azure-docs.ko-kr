@@ -9,14 +9,14 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 460dfb168894d28d5fbc5e5585a6054917127931
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 984a027a1fe2f9c894701058452490bdf12b66c4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633567"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338739"
 ---
-# <a name="example-how-to-detect-language-in-text-analytics"></a>예: Text Analytics에서 언어를 감지하는 방법
+# <a name="example-how-to-detect-language-in-text-analytics"></a>예제: Text Analytics에서 언어를 감지하는 방법
 
 [언어 감지 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)는 텍스트 입력을 평가하고, 각 문서에 대해 분석 강도를 나타내는 점수가 있는 언어 식별자를 반환합니다. Text Analytics는 최대 120개 언어를 인식합니다.
 
@@ -52,7 +52,7 @@ id, text 형식의 JSON 문서가 있어야 합니다.
             },                
             {
                 "id": "5",
-                "text": "Этот документ находится на английском языке."
+                "text": "Этот документ на английском языке."
             }
         ]
     }
@@ -62,7 +62,7 @@ id, text 형식의 JSON 문서가 있어야 합니다.
 
 요청 정의에 대한 자세한 내용은 [텍스트 분석 API를 호출하는 방법](text-analytics-how-to-call-api.md)에서 찾을 수 있습니다. 편의상 다음 사항을 다시 설명합니다.
 
-+ **POST** 요청을 만듭니다. 이 요청에 대한 [언어 감지 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) 설명서를 검토합니다.
++ **POST** 요청을 만듭니다. 이 요청에 대한 API 문서인 [언어 감지 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)를 검토합니다.
 
 + Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용하여 언어 검색을 위한 HTTP 엔드포인트를 설정합니다. `/languages` 리소스를 포함해야 합니다(예: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`).
 
@@ -84,7 +84,7 @@ id, text 형식의 JSON 문서가 있어야 합니다.
 
 모든 POST 요청에서는 ID 및 감지된 속성이 있는 JSON 형식의 응답을 반환합니다.
 
-출력은 즉시 반환됩니다. JSON을 승인하는 응용 프로그램으로 결과를 스트림하거나 로컬 시스템의 파일에 출력을 저장하고, 데이터를 정렬, 검색 및 조작할 수 있는 응용 프로그램으로 가져올 수 있습니다.
+출력은 즉시 반환됩니다. JSON을 승인하는 애플리케이션으로 결과를 스트림하거나 로컬 시스템의 파일에 출력을 저장하고, 데이터를 정렬, 검색 및 조작할 수 있는 애플리케이션으로 가져올 수 있습니다.
 
 예제 요청의 결과는 다음 JSON과 같습니다. 여러 항목이 있는 하나의 문서입니다. 출력은 영어로 되어 있습니다. 언어 식별자에는 친숙한 이름과 [ISO 639-1](https://www.iso.org/standard/22109.html) 형식의 언어 코드가 포함됩니다.
 

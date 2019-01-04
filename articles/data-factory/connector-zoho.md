@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e052b656f12a9059a5ee9d3ea21d0fa20fc00c6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 75594bf77f9bde7549b14e3a154f18ba67ebac3d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123065"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103390"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Zoho에서 데이터 복사(미리 보기)
 
@@ -45,7 +45,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성은 **Zoho**로 설정해야 합니다. | yes |
+| 형식 | type 속성을 다음으로 설정해야 합니다. **Zoho** | yes |
 | endpoint | Zoho 서버의 엔드포인트입니다(`crm.zoho.com/crm/private`). | yes |
 | accessToken | Zoho 인증에 대한 액세스 토큰입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
@@ -74,7 +74,12 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Zoho 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Zoho에서 데이터를 복사하려면 데이터 세트의 type 속성을 **ZohoObject**로 설정합니다. 이 형식의 데이터 세트에는 추가적인 형식별 속성이 없습니다.
+Zoho에서 데이터를 복사하려면 데이터 세트의 type 속성을 **ZohoObject**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+
+| 속성 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| 형식 | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **ZohoObject** | yes |
+| tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
 
@@ -86,7 +91,8 @@ Zoho에서 데이터를 복사하려면 데이터 세트의 type 속성을 **Zoh
         "linkedServiceName": {
             "referenceName": "<Zoho linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -95,14 +101,14 @@ Zoho에서 데이터를 복사하려면 데이터 세트의 type 속성을 **Zoh
 
 작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인](concepts-pipelines-activities.md) 문서를 참조하세요. 이 섹션에서는 Zoho 원본에서 지원하는 속성의 목록을 제공합니다.
 
-### <a name="zohosource-as-source"></a>ZohoSource를 원본으로 설정
+### <a name="zoho-as-source"></a>Zoho를 원본으로
 
 Zoho에서 데이터를 복사하려면 복사 작업의 원본 형식을 **ZohoSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성은 **ZohoSource**로 설정해야 합니다. | yes |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Accounts"` | yes |
+| 형식 | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **ZohoSource** | yes |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Accounts"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 

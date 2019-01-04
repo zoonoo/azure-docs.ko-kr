@@ -1,6 +1,6 @@
 ---
-title: Service Fabric CLI 스크립트 샘플 - 클러스터의 응용 프로그램 나열
-description: Service Fabric CLI 스크립트 샘플 - Service Fabric 클러스터에서 프로비전된 응용 프로그램 나열.
+title: Service Fabric CLI 스크립트 샘플 - 클러스터의 애플리케이션 나열
+description: Service Fabric CLI 스크립트 샘플 - Service Fabric 클러스터에서 프로비전된 애플리케이션 나열.
 services: service-fabric
 documentationcenter: ''
 author: TylerMSFT
@@ -22,9 +22,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/17/2018
 ms.locfileid: "39070201"
 ---
-# <a name="list-applications-running-in-a-service-fabric-cluster"></a>Service Fabric 클러스터에서 실행 중인 응용 프로그램 목록
+# <a name="list-applications-running-in-a-service-fabric-cluster"></a>Service Fabric 클러스터에서 실행 중인 애플리케이션 목록
 
-이 샘플 스크립트는 Service Fabric 클러스터에 연결된 다음, 모든 프로비전된 응용 프로그램을 나열합니다.
+이 샘플 스크립트는 Service Fabric 클러스터에 연결된 다음, 모든 프로비전된 애플리케이션을 나열합니다.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../../includes/service-fabric-sfctl.md)]
 

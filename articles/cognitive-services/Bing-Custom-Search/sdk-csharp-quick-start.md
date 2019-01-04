@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Custom Search SDK, C#'
 titleSuffix: Azure Cognitive Services
-description: Custom Search SDK C# 콘솔 응용 프로그램을 설치합니다.
+description: Custom Search SDK C# 콘솔 애플리케이션을 설치합니다.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun

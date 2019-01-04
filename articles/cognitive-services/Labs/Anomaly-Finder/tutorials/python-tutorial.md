@@ -10,14 +10,14 @@ ms.component: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 98f83fbc4db8685526833c3d4f1d15903419ad3f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: d1e9afc32625cdbf97f576ee091d7dc03271e2fc
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887754"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164809"
 ---
-# <a name="tutorial-anomaly-detection-with-python-application"></a>자습서: Python 응용 프로그램을 사용하여 변칙 검색
+# <a name="tutorial-anomaly-detection-with-python-application"></a>자습서: Python 애플리케이션을 사용하여 변칙 검색
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
@@ -31,7 +31,7 @@ ms.locfileid: "48887754"
 
 ## <a name="download-the-example-code"></a>예제 코드 다운로드
 
-1. [GitHub의 자습서 노트북](https://github.com/MicrosoftAnomalyDetection/python-sample)으로 이동합니다.
+1. [GitHub에서 자습서 노트북](https://github.com/MicrosoftAnomalyDetection/python-sample)으로 이동합니다.
 2. 녹색 단추를 클릭하여 자습서를 복제하거나 다운로드합니다. 
 
 ## <a name="opening-the-tutorial-notebook-in-jupyter"></a>Jupyter에서 자습서 노트북 열기

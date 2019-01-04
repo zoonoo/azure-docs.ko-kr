@@ -1,5 +1,5 @@
 ---
-title: Linux 기반의 Azure App Service에서 Java Enterprise 웹앱 빌드 | Microsoft Docs
+title: Linux에서 Java Enterprise 웹앱 빌드 - Azure App Service | Microsoft Docs
 description: Linux 기반 Azure App Service의 Wildfly에서 작동하는 Java Enterprise 앱을 만드는 방법을 알아봅니다.
 author: JasonFreeberg
 manager: routlaw
@@ -10,16 +10,17 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
-ms.openlocfilehash: 0772dbb1aaa6b00994bd653c19b006114377dc5f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 2a38b117cde6d6b51b101f6b0ef0eb3a19b42ba3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165461"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344230"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>자습서: Azure에서 Java EE 및 Postgres 웹앱 빌드
 
-이 자습서에서는 Azure App Service에서 Java EE(Enterprise Edition) 웹앱을 만들어서 Postgres 데이터베이스에 연결하는 방법을 보여줍니다. 자습서를 마치면 [Linux용 App Service](app-service-linux-intro.md)에서 실행되는 [Postgres용 Azure 데이터베이스](https://azure.microsoft.com/services/postgresql/)에 데이터를 저장하는 [WildFly](http://www.wildfly.org/about/) 애플리케이션이 생깁니다.
+이 자습서에서는 Azure App Service에서 Java EE(Enterprise Edition) 웹앱을 만들어서 Postgres 데이터베이스에 연결하는 방법을 보여줍니다. 자습서를 마치면 [Linux용 App Service](app-service-linux-intro.md)에서 실행되는 [Postgres용 Azure 데이터베이스](https://azure.microsoft.com/services/postgresql/)에 데이터를 저장하는 [WildFly](https://www.wildfly.org/about/) 애플리케이션이 생깁니다.
 
 이 자습서에서는 다음 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -32,8 +33,8 @@ ms.locfileid: "52165461"
 ## <a name="prerequisites"></a>필수 조건
 
 1. [Git 다운로드 및 설치](https://git-scm.com/)
-1. [Maven 3를 다운로드하여 설치](https://maven.apache.org/install.html)
-1. [Azure CLI를 다운로드하여 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)
+2. [Maven 3를 다운로드하여 설치](https://maven.apache.org/install.html)
+3. [Azure CLI를 다운로드하여 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 ## <a name="clone-and-edit-the-sample-app"></a>샘플 앱 복제 및 편집
 
@@ -84,7 +85,7 @@ _pom.xml_의 `<plugins>` 섹션으로 스크롤하여 Azure 플러그 인을 검
 ```
 
 
-## <a name="build-and-deploy-the-application"></a>응용 프로그램 빌드 및 배포
+## <a name="build-and-deploy-the-application"></a>애플리케이션 빌드 및 배포
 
 이제 Maven을 사용하여 애플리케이션을 빌드하고 App Service에 배포할 것입니다.
 
@@ -163,7 +164,7 @@ _pom.xml_에서 자리 표시자 값을 Postgres 서버 이름, 관리자 로그
 - **postgresql-42.2.5.jar**: 이 JAR 파일은 Postgres용 JDBC 드라이버입니다. 자세한 내용은 [공식 웹 사이트](https://jdbc.postgresql.org/index.html)를 참조하세요.
 - **postgres-module.xml**: 이 XML 파일은 Postgres 모듈의 이름을 선언합니다(org.postgres). 모듈을 사용하는 데 필요한 리소스와 종속성도 지정합니다.
 - **jboss_cli_commands.cl**: 이 파일은 JBoss CLI에서 실행될 구성 명령을 포함합니다. WildFly 애플리케이션 서버에 Postgres 모듈을 추가하고, 자격 증명을 제공하고, JNDI 이름을 선언하고, 시간 제한 임계값을 설정하는 등의 명령을 포함합니다. JBoss CLI를 잘 모르는 경우 [공식 설명서](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli)를 참조하세요.
-- **startup_script.sh**: 마지막으로, 이 셸 스크립트는 App Service 인스턴스가 시작될 때마다 실행됩니다. 이 스크립트는 `jboss_cli_commands.cli`의 명령을 JBoss CLI로 파이핑하는 한 가지 기능만 수행합니다.
+- **startup_script.sh**: 마지막으로, 이 셸 스크립트는 App Service 인스턴스를 시작할 때마다 실행됩니다. 이 스크립트는 `jboss_cli_commands.cli`의 명령을 JBoss CLI로 파이핑하는 한 가지 기능만 수행합니다.
 
 이러한 파일의 콘텐츠, 특히 _jboss_cli_commands.cli_를 꼭 읽어보시기 바랍니다.
 

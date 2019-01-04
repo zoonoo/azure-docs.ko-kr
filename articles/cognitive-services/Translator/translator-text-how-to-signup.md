@@ -1,5 +1,5 @@
 ---
-title: Translator Text에 등록하는 방법 - Translator Text API
+title: 시작하기 - Translator Text API
 titleSuffix: Azure Cognitive Services
 description: Translator Text API에 등록하고 구독 키를 가져오는 방법을 알아봅니다.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: e7ba72c95959a0c31ca724f91f519ac705d669fb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 011e1db141c36c44ef51edc62d0123fdf3c036c7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245786"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091564"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Translator Text API에 등록하는 방법
 
@@ -48,6 +49,8 @@ Translator Text에 등록하면 구독에 고유한 개인 설정 액세스 키�
 
 - [GitHub의 코드 예제](https://github.com/MicrosoftTranslator)
 - [Microsoft Translator 지원 포럼](https://www.aka.ms/TranslatorForum)
+
+일반적으로 Microsoft Translator가 구독 계정 상태를 확인하기 전에 사용자는 처음 몇 개의 요청을 전달할 수 있습니다. 처음 몇 개의 Microsoft Translator API 요청에 성공한 다음, 호출에 실패한 경우 오류 응답이 문제를 표시합니다. 이유를 확인할 수 있도록 API 응답을 기록하세요.
 
 ## <a name="pricing-options"></a>가격 책정 옵션
 

@@ -259,7 +259,7 @@ Azure AD 특성 이름을 포함하는 **PartnerClaimType** 특성이 지정되�
 | UserMessageIfClaimsPrincipalDoesNotExist | 아니요 | 오류가 발생해야 한다면(RaiseErrorIfClaimsPrincipalDoesNotExist 특성 설명 참조), 사용자 개체가 없는 경우 사용자에게 표시할 메시지를 지정합니다. 값을 [지역화](localization.md)할 수 있습니다.| 
 | RaiseErrorIfClaimsPrincipalAlreadyExists | 아니요 | 사용자 개체가 이미 있는 경우 오류가 발생합니다. 가능한 값은 `true` 또는 `false`입니다.| 
 | UserMessageIfClaimsPrincipalAlreadyExists | 아니요 | 오류가 발생해야 한다면(RaiseErrorIfClaimsPrincipalAlreadyExists 특성 설명 참조), 사용자 개체가 이미 있는 경우 사용자에게 표시할 메시지를 지정합니다. 값을 [지역화](localization.md)할 수 있습니다.| 
-| ApplicationObjectId | 아니요 | 확장 특성에 대한 응용 프로그램 개체 ID입니다. 값은 응용 프로그램의 ObjectId입니다. 자세한 내용은 [사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)을 참조하세요. | 
+| ApplicationObjectId | 아니요 | 확장 특성에 대한 애플리케이션 개체 ID입니다. 값은 애플리케이션의 ObjectId입니다. 자세한 내용은 [사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)을 참조하세요. | 
 | clientid | 아니요 | 테넌트에 제3자로 액세스하기 위한 클라이언트 식별자입니다. 자세한 내용은 [사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)을 참조하세요. | 
 
 

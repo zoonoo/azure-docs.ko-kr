@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub에 원격 분석 전송 빠른 시작(Python) | Microsoft Docs
-description: 이 빠른 시작에서는 샘플 Python 응용 프로그램을 실행하여 시뮬레이션된 원격 분석을 IoT Hub로 보내고, 유틸리티를 사용하여 원격 분석을 IoT Hub에서 읽습니다.
+description: 이 빠른 시작에서는 샘플 Python 애플리케이션을 실행하여 시뮬레이션된 원격 분석을 IoT Hub로 보내고, 유틸리티를 사용하여 원격 분석을 IoT Hub에서 읽습니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -23,7 +23,7 @@ ms.locfileid: "51515457"
 
 IoT Hub는 저장 또는 처리를 위해 IoT 디바이스에서 클라우드로 다량의 원격 분석 데이터를 수집할 수 있게 해주는 Azure 서비스입니다. 이 빠른 시작에서는 시뮬레이션된 디바이스 응용 프로그램에서 IoT Hub를 통해 백 엔드 응용 프로그램으로 원격 분석을 처리를 위해 보냅니다.
 
-빠른 시작은 미리 작성된 Python 응용 프로그램을 사용하여 원격 분석을 보내고 CLI 유틸리티를 사용하여 허브에서 원격 분석을 읽기 위한 것입니다. 이 두 응용 프로그램을 실행하기 전에 IoT 허브를 만들고 허브에 디바이스를 등록합니다.
+빠른 시작은 미리 작성된 Python 애플리케이션을 사용하여 원격 분석을 보내고 CLI 유틸리티를 사용하여 허브에서 원격 분석을 읽기 위한 것입니다. 이 두 응용 프로그램을 실행하기 전에 IoT 허브를 만들고 허브에 디바이스를 등록합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -31,7 +31,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작에서 실행하는 두 개의 샘플 응용 프로그램은 Python을 사용하여 작성되었습니다. 개발 컴퓨터에 Python 2.7.x 또는 3.5.x가 필요합니다.
+이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 Python을 사용하여 작성되었습니다. 개발 컴퓨터에 Python 2.7.x 또는 3.5.x가 필요합니다.
 
 [Python.org](https://www.python.org/downloads/)에서 여러 플랫폼용 Python을 다운로드할 수 있습니다. 선택한 Python 설치 관리자는 사용하는 시스템의 아키텍처를 기반으로 해야 합니다. 시스템 CPU 아키텍처가 32비트이면 Python.org의 기본 설치 관리자인 x86을 다운로드하고 64비트 아키텍처이면 x86-64 설치 관리자를 다운로드해야 합니다.
 
@@ -118,7 +118,7 @@ az iot hub monitor-events --device-id MyPythonDevice --hub-name YourIoTHubName
 
 다음 스크린샷은 시뮬레이션된 디바이스가 허브에 보낸 원격 분석 데이터를 확장 프로그램이 수신하면서 출력한 내용을 보여 줍니다.
 
-![백 엔드 응용 프로그램 실행](media/quickstart-send-telemetry-python/ReadDeviceToCloud.png)
+![백 엔드 애플리케이션 실행](media/quickstart-send-telemetry-python/ReadDeviceToCloud.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

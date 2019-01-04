@@ -124,7 +124,7 @@ static const char* iot_event = "{\"topic\":\"iot\"}";
 
 앱 초기화 후 A 단추를 클릭했다가 놓은 다음, DevKit 보드를 살살 흔듭니다. 이 동작은 앞에서 지정한 해시태그를 포함하고 있는 임의의 트윗을 검색합니다. 몇 초 안에 DevKit 화면에 트윗이 표시됩니다.
 
-### <a name="arduino-application-initializing"></a>Arduino 응용 프로그램 초기화 중...
+### <a name="arduino-application-initializing"></a>Arduino 애플리케이션 초기화 중...
 
 ![Arduino 응용 프로그램 초기화 중](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-1.png)
 

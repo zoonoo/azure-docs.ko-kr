@@ -1,26 +1,20 @@
 ---
-title: '공존할 수 있는 ExpressRoute 및 사이트 간 VPN 연결 구성: 클래식: Azure | Microsoft Docs'
+title: 'ExpressRoute 및 사이트 간 VPN 연결 구성 - 공존:클래식: Azure | Microsoft Docs'
 description: 이 문서에서는 클래식 배포 모델에 대해 공존할 수 있는 ExpressRoute와 사이트 간 VPN 연결을 구성하는 과정을 안내합니다.
 documentationcenter: na
 services: expressroute
 author: charwen
-manager: carmonm
-editor: ''
-tags: azure-service-management
-ms.assetid: dcf1a5af-a289-466a-b812-0bfedbd2bda0
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/21/2017
+ms.topic: conceptual
+ms.date: 12/06/2018
 ms.author: charwen
-ms.openlocfilehash: f868c4d63209da641b4faa336e7ef78b36ef6454
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 70e7c689acac094890545ac1e65374e9377a0be0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165444"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084212"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>ExpressRoute 및 사이트 간 공존 연결 구성(클래식)
 > [!div class="op_single_selector"]
@@ -29,7 +23,7 @@ ms.locfileid: "52165444"
 > 
 > 
 
-사이트 간 VPN 및 ExpressRoute를 구성하는 기능이 있으면 여러 장점이 있습니다. 사이트 간 VPN을 ExpressRoute의 보안 장애 조치 경로로 구성하거나, 사이트 간 VPN을 사용하여 ExpressRoute를 통해 연결되지 않은 사이트에 연결할 수 있습니다. 이 문서에서는 두 시나리오 모두를 구성하는 단계를 설명합니다. 이 문서는 클래식 배포 모델에 적용됩니다. 이 구성은 포털에서 사용할 수 없습니다.
+이 문서에서는 공존하는 ExpressRoute 및 사이트 간 VPN 연결을 구성합니다. 사이트 간 VPN 및 ExpressRoute를 구성하는 기능이 있으면 여러 장점이 있습니다. 사이트 간 VPN을 ExpressRoute의 보안 장애 조치 경로로 구성하거나, 사이트 간 VPN을 사용하여 ExpressRoute를 통해 연결되지 않은 사이트에 연결할 수 있습니다. 이 문서에서는 두 시나리오 모두를 구성하는 단계를 설명합니다. 이 문서는 클래식 배포 모델에 적용됩니다. 이 구성은 포털에서 사용할 수 없습니다.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 

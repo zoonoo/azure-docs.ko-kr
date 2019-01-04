@@ -24,7 +24,7 @@ ms.lasthandoff: 11/07/2018
 ms.locfileid: "51230515"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합에 대한 사용자 지정 이미지 만들기 및 사용
-확장 집합을 만들 때 VM 인스턴스 배포 시 사용할 이미지를 지정합니다. VM 인스턴스가 배포된 후 작업의 수를 줄이려면 사용자 지정 VM 이미지를 사용할 수 있습니다. 이 사용자 지정 VM 이미지에는 필요한 모든 응용 프로그램 설치 또는 구성이 포함됩니다. 확장 집합에서 만들어진 모든 VM 인스턴스는 사용자 지정 VM 이미지를 사용하며, 응용 프로그램 트래픽을 처리할 준비가 되어 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+확장 집합을 만들 때 VM 인스턴스 배포 시 사용할 이미지를 지정합니다. VM 인스턴스가 배포된 후 작업의 수를 줄이려면 사용자 지정 VM 이미지를 사용할 수 있습니다. 이 사용자 지정 VM 이미지에는 필요한 모든 애플리케이션 설치 또는 구성이 포함됩니다. 확장 집합에서 만들어진 모든 VM 인스턴스는 사용자 지정 VM 이미지를 사용하며, 애플리케이션 트래픽을 처리할 준비가 되어 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * VM 만들기 및 사용자 지정
@@ -70,7 +70,7 @@ VM과의 원격 연결을 만듭니다. Azure Cloud Shell을 사용하는 경우
 mstsc /v:<IpAddress>
 ```
 
-VM을 사용자 지정하기 위해 기본 웹 서버를 설치해 보겠습니다. 확장 집합의 VM 인스턴스가 배포되면 웹 응용 프로그램을 실행하는 데 필요한 모든 패키지가 포함되어 있습니다. VM에서 로컬 PowerShell 프롬프트를 열고, 다음과 같이 [Install-WindowsFeature](/powershell/module/servermanager/install-windowsfeature)를 사용하여 IIS 웹 서버를 설치합니다.
+VM을 사용자 지정하기 위해 기본 웹 서버를 설치해 보겠습니다. 확장 집합의 VM 인스턴스가 배포되면 웹 애플리케이션을 실행하는 데 필요한 모든 패키지가 포함되어 있습니다. VM에서 로컬 PowerShell 프롬프트를 열고, 다음과 같이 [Install-WindowsFeature](/powershell/module/servermanager/install-windowsfeature)를 사용하여 IIS 웹 서버를 설치합니다.
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -163,7 +163,7 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
 > * 사용자 지정 VM 이미지 만들기
 > * 사용자 지정 VM 이미지를 사용하는 확장 집합 배포
 
-응용 프로그램을 확장 집합에 배포하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
+애플리케이션을 확장 집합에 배포하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [확장 집합에 응용 프로그램 배포](tutorial-install-apps-powershell.md)

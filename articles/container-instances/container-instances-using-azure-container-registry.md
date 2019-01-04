@@ -81,11 +81,11 @@ Azure Key Vault을 만들고 다음 두 암호를 저장했습니다.
 * `$ACR_NAME-pull-usr`: 서비스 주체 ID로, 컨테이너 레지스트리 **username**으로 사용됩니다.
 * `$ACR_NAME-pull-pwd`: 서비스 주체 암호로, 컨테이너 레지스트리 **password**로 사용됩니다.
 
-이제 사용자나 응용 프로그램 및 서비스가 레지스트리에서 이미지를 끌어올 때 이러한 암호를 이름으로 참조할 수 있습니다.
+이제 사용자나 애플리케이션 및 서비스가 레지스트리에서 이미지를 끌어올 때 이러한 암호를 이름으로 참조할 수 있습니다.
 
 ## <a name="deploy-container-with-azure-cli"></a>Azure CLI를 사용하여 컨테이너 배포
 
-서비스 주체 자격 증명은 Azure Key Vault 암호에 저장되므로, 응용 프로그램 및 서비스는 해당 자격 증명을 사용하여 개인 레지스트리에 액세스할 수 있습니다.
+서비스 주체 자격 증명은 Azure Key Vault 암호에 저장되므로, 애플리케이션 및 서비스는 해당 자격 증명을 사용하여 개인 레지스트리에 액세스할 수 있습니다.
 
 다음 [az container create][az-container-create] 명령을 실행하여 컨테이너 인스턴스를 배포합니다. 이 명령은 Azure Key Vault에 저장된 서비스 주체의 자격 증명을 사용하여 컨테이너 레지스트리에서 인증을 받고, 사용자가 이전에 [aci-helloworld](container-instances-quickstart.md) 이미지를 레지스트리에 밀어넣었다고 가정합니다. 레지스트리의 다른 이미지를 사용하려는 경우 `--image` 값을 업데이트합니다.
 
@@ -108,7 +108,7 @@ $ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_N
 "aci-demo-25007.eastus.azurecontainer.io"
 ```
 
-컨테이너가 성공적으로 시작되면, 브라우저에서 해당 FQDN으로 이동하여 응용 프로그램이 성공적으로 실행되고 있는지 확인할 수 있습니다.
+컨테이너가 성공적으로 시작되면, 브라우저에서 해당 FQDN으로 이동하여 애플리케이션이 성공적으로 실행되고 있는지 확인할 수 있습니다.
 
 ## <a name="deploy-with-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 배포
 

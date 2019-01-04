@@ -61,7 +61,7 @@ Apache HBase를 업그레이드하기 전에 원본 및 대상 클러스터의 H
 
 다음 시나리오는 동일한 HBase 주 버전을 사용하여 HDInsight 3.4에서 3.6으로 업그레이드하는 경우입니다(둘 다 Apache HBase 1.1.2와 함께 제공됨). 원본 버전과 대상 버전 간에 호환성 문제가 없는 한 다른 버전 업그레이드도 비슷합니다.
 
-1. HBase 호환성 매트릭스 및 릴리스 정보에서 표시한 대로 응용 프로그램이 새 버전과 호환되는지 확인합니다. HDInsight 및 HBase의 대상 버전을 실행하는 클러스터에서 응용 프로그램을 테스트합니다.
+1. HBase 호환성 매트릭스 및 릴리스 정보에서 표시한 대로 애플리케이션이 새 버전과 호환되는지 확인합니다. HDInsight 및 HBase의 대상 버전을 실행하는 클러스터에서 애플리케이션을 테스트합니다.
 
 2. 동일한 저장소 계정을 사용하지만 다른 컨테이너 이름으로 [새 대상 HDInsight 클러스터를 설정합니다](../hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -187,7 +187,7 @@ Apache HBase를 업그레이드하기 전에 원본 및 대상 클러스터의 H
     
 4. 이전 HBase 클러스터에 대한 수집을 중지합니다.
 5. memstore의 최근 데이터가 플러시되도록 하려면 이전 스크립트를 다시 실행합니다.
-6. 이전 클러스터(https://OLDCLUSTERNAME.azurehdidnsight.net))에서 [Apache Ambari](https://ambari.apache.org/)에 로그인하고 HBase 서비스를 중지합니다. 서비스를 중지하려는 것인지 묻는 메시지가 표시되면 상자를 선택하여 HBase에 대한 유지 관리 모드를 켭니다. Ambari 연결 및 사용에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari.md)를 참조하세요.
+6. 이전 클러스터(https://OLDCLUSTERNAME.azurehdidnsight.net) 에서 [Apache Ambari](https://ambari.apache.org/)에 로그인하고 HBase 서비스를 중지합니다. 서비스를 중지하려는 것인지 묻는 메시지가 표시되면 상자를 선택하여 HBase에 대한 유지 관리 모드를 켭니다. Ambari 연결 및 사용에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
     ![Ambari에서 [서비스] 탭을 클릭하고, 왼쪽 메뉴에서 HBase를 클릭한 다음, [서비스 작업]에서 [중지]를 클릭함](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
 
@@ -201,10 +201,10 @@ Apache HBase를 업그레이드하기 전에 원본 및 대상 클러스터의 H
 
 8. 변경 내용을 저장합니다.
 9. Ambari에서 표시한 대로 필요한 모든 서비스를 다시 시작합니다.
-10. 응용 프로그램이 새 클러스터를 가리키도록 합니다.
+10. 애플리케이션이 새 클러스터를 가리키도록 합니다.
 
     > [!NOTE]
-    > 업그레이드할 때 응용 프로그램에 대한 고정 DNS가 변경됩니다. 이 DNS를 하드 코딩하는 대신, 도메인 이름의 DNS 설정에서 클러스터 이름을 가리키는 CNAME을 구성할 수 있습니다. 또 다른 옵션은 다시 배포하지 않고 업데이트할 수 있는 응용 프로그램에 대한 구성 파일을 사용하는 것입니다.
+    > 업그레이드할 때 애플리케이션에 대한 고정 DNS가 변경됩니다. 이 DNS를 하드 코딩하는 대신, 도메인 이름의 DNS 설정에서 클러스터 이름을 가리키는 CNAME을 구성할 수 있습니다. 또 다른 옵션은 다시 배포하지 않고 업데이트할 수 있는 애플리케이션에 대한 구성 파일을 사용하는 것입니다.
 
 11. 수집을 시작하여 모든 항목이 예상대로 작동하는지 확인합니다.
 12. 새 클러스터가 만족스러운 경우 원래 클러스터를 삭제합니다.

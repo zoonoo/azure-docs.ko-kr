@@ -1,5 +1,5 @@
 ---
-title: Azure Search 여러 언어 인덱싱 | Microsoft Docs
+title: 영어 이외의 검색 쿼리를 위한 다국어 인덱싱 - Azure Search
 description: Azure Search는 Lucene 및 Microsoft 제공 자연어 처리 기술을 통해 56개 언어를 지원합니다.
 author: yahnoosh
 manager: jlembicz
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 38f93f5415282d2f976d9f3acc2b0a7aeead6c3d
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.custom: seodec2018
+ms.openlocfilehash: 3f88965e0d48a9ed3e9a91b4df42a79b83d2a79b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093357"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313329"
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Azure Search에서 다국어 문서에 대한 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -56,7 +57,7 @@ ms.locfileid: "47093357"
 
 필드에 대해 언어 분석기를 선택한 후에는 해당 필드의 모든 인덱싱 및 검색 요청에 해당 분석기를 사용합니다. 다른 분석기를 사용하는 여러 필드에 대해 쿼리가 실행된 경우 이 쿼리는 각 필드에 부합하는 분석기를 통해 독립적으로 처리됩니다.
 
-전세계의 많은 웹 및 모바일 응용 프로그램 서버 사용자가 각기 다른 언어를 사용합니다. 지원되는 각각의 언어에 대해 필드를 만들면 이러한 시나리오를 위한 인덱스를 정의할 수 있습니다.
+전세계의 많은 웹 및 모바일 애플리케이션 서버 사용자가 각기 다른 언어를 사용합니다. 지원되는 각각의 언어에 대해 필드를 만들면 이러한 시나리오를 위한 인덱스를 정의할 수 있습니다.
 
 ![][3]
 *지원되는 각 언어에 대한 설명 필드가 있는 인덱스 정의*

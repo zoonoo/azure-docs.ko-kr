@@ -77,7 +77,7 @@ az batchai experiment create --resource-group batchai.horovod --workspace batcha
 
 다음으로, GPU 클러스터를 설정하여 실험을 실행합니다. Batch AI는 특정 요구에 맞게 클러스터를 사용자 지정하기 위한 다양한 옵션을 제공합니다.
 
-다음 `az batchai cluster create` 명령은 작업 영역 및 리소스 그룹 아래에 `nc6cluster`라는 4노드 클러스터를 만듭니다. 기본적으로 클러스터의 VM은 컨테이너 기반 응용 프로그램을 호스트하도록 디자인된 Ubuntu Server 이미지를 실행합니다. 이 예제의 클러스터 노드는 NVIDIA Tesla K80 GPU 1개를 포함하는 `Standard_NC6` 크기를 사용합니다.
+다음 `az batchai cluster create` 명령은 작업 영역 및 리소스 그룹 아래에 `nc6cluster`라는 4노드 클러스터를 만듭니다. 기본적으로 클러스터의 VM은 컨테이너 기반 애플리케이션을 호스트하도록 디자인된 Ubuntu Server 이미지를 실행합니다. 이 예제의 클러스터 노드는 NVIDIA Tesla K80 GPU 1개를 포함하는 `Standard_NC6` 크기를 사용합니다.
 
 ```azurecli-interactive
 az batchai cluster create --resource-group batchai.horovod --workspace batchaidev --name nc6cluster --vm-priority dedicated  --vm-size Standard_NC6 --target 4 --generate-ssh-keys
@@ -455,7 +455,7 @@ Epoch 1/25
 
 스크립트가 완료되고 아무 문제가 없으면 유효성 검사 정확도가 약 70-75%여야 하며 학습된 모델이 `cifar/saved_models/keras_cifar10_trained_model.h5`의 파일 공유에 저장됩니다. 
 
-모델 학습은 일반적으로 좀 더 큰 워크플로의 일부입니다. 예를 들어 학습된 모델을 다른 응용 프로그램에서 공개할 수 있습니다. 학습된 모델을 로컬로 다운로드하려면 `az storage file download` 명령을 사용합니다. 
+모델 학습은 일반적으로 좀 더 큰 워크플로의 일부입니다. 예를 들어 학습된 모델을 다른 애플리케이션에서 공개할 수 있습니다. 학습된 모델을 로컬로 다운로드하려면 `az storage file download` 명령을 사용합니다. 
 
 ```azurecli-interactive
 az storage file download --path cifar/saved_models/keras_cifar10_trained_model.h5 --share-name myshare --account-name mystorageaccount

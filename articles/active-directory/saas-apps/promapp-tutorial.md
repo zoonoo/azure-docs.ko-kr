@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 6bcd1add3985112fe60aab22f1799e40ad8889b2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6ed07ea3cc625c518d6733f7a86f4542f91f425c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421865"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017119"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>자습서: Promapp과 Azure Active Directory 통합
 
@@ -49,7 +49,7 @@ Promapp과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Promapp 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -63,13 +63,13 @@ Promapp의 Azure AD 통합을 구성하려면 갤러리의 Promapp을 관리되�
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
 1. 검색 상자에 **Promapp**을 입력합니다.
 
@@ -113,6 +113,7 @@ Promapp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     ![Configure Single Sign-On](./media/promapp-tutorial/tutorial_promapp_url.png)
 
     a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
+    
     | |
     |--|
     | `https://go.promapp.com/TENANTNAME/`|
@@ -124,7 +125,7 @@ Promapp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     > [!NOTE] 
     > 현재 Azure AD와 Promapp의 통합은 서비스에서 시작하는 인증에 대해서만 구성되었습니다. 예를 들어 Promapp URL로 이동하면 인증 프로세스가 시작됩니다. 그러나 회신 URL은 필수 필드입니다.
     
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://DOMAINNAME.promapp.com/azuread/saml/authenticate.aspx`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://DOMAINNAME.promapp.com/azuread/saml/authenticate.aspx`
 
 1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
@@ -163,7 +164,7 @@ Promapp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     
     a. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL**을 **SSO 로그인 URL** 텍스트 상자에 붙여 넣습니다.
     
-    나. **SSO - Single Sign-On 모드**로 **옵션**을 선택한 다음 **저장**을 클릭합니다.
+    b. **SSO - Single Sign-On 모드**로 **옵션**을 선택한 다음 **저장**을 클릭합니다.
 
     > [!NOTE]
     > **옵션** 모드는 테스트용으로만 사용됩니다. 구성을 완료하면 모든 사용자가 Azure AD를 사용하여 인증하도록 모든 사용자에게 강제 적용하는 **필수** 모드를 선택합니다.
@@ -171,7 +172,7 @@ Promapp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     다. 다운로드한 인증서를 메모장에서 열고 첫 번째 줄(---**인증서 시작**---) 및 마지막 줄(---**인증서 끝**---) 없이 인증서 콘텐츠를 복사하며 **SSO-x.509 인증서** 텍스트 상자에 붙여넣은 다음 **저장**을 클릭합니다.
         
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -199,7 +200,7 @@ Promapp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -207,7 +208,7 @@ Promapp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
  
 ### <a name="creating-a-promapp-test-user"></a>Promapp 테스트 사용자 만들기
 
-Promapp 응용 프로그램은 적시에 프로비전을 지원합니다. 즉, 필요한 경우 액세스 패널을 사용하여 응용 프로그램에 액세스하는 동안 사용자 계정은 자동으로 만들어집니다.
+Promapp 응용 프로그램은 적시에 프로비전을 지원합니다. 즉, 필요한 경우 액세스 패널을 사용하여 애플리케이션에 액세스하는 동안 사용자 계정은 자동으로 만들어집니다.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -217,7 +218,7 @@ Promapp 응용 프로그램은 적시에 프로비전을 지원합니다. 즉, �
 
 **Britta Simon을 Promapp에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 

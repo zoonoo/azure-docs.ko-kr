@@ -133,7 +133,7 @@ ms.locfileid: "51515148"
 
 * reported 속성을 사용하여 디바이스 및 해당 디바이스가 마지막으로 재부팅한 시간을 확인하는 디바이스 쌍 쿼리를 사용하도록 설정합니다.
 
-1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. 프로젝트 **SimulateManagedDevice**의 이름을 지정합니다.
+1. Visual Studio에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. 프로젝트 **SimulateManagedDevice**의 이름을 지정합니다.
    
     ![새 Visual C# Windows 클래식 디바이스 앱](./media/iot-hub-csharp-csharp-device-management-get-started/createdeviceapp.png)
     

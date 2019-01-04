@@ -28,7 +28,7 @@ ms.locfileid: "50232498"
 >
 >
 
-Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그를 중앙 위치에 수집하는 것이 좋습니다. 중앙 위치에 로그를 두면 클러스터나 해당 클러스터에서 실행 중인 응용 프로그램 및 서비스의 문제를 분석하고 해결하는 데 도움이 됩니다.
+Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그를 중앙 위치에 수집하는 것이 좋습니다. 중앙 위치에 로그를 두면 클러스터나 해당 클러스터에서 실행 중인 애플리케이션 및 서비스의 문제를 분석하고 해결하는 데 도움이 됩니다.
 
 로그를 업로드 및 수집하는 방법 중 하나는 MAD(Microsoft Azure 진단) 확장을 사용하는 것입니다. 이 확장을 사용하면 Azure Storage에 로그를 업로드하고 Azure Application Insights 또는 Event Hubs에 로그를 보낼 수 있습니다. 또한 외부 프로세스를 사용하여 저장소의 이벤트를 읽고 분석 플랫폼 제품(예: [Log Analytics](../log-analytics/log-analytics-service-fabric.md) 또는 기타 로그 구문 분석 솔루션)에 배치할 수 있습니다.
 
@@ -41,7 +41,7 @@ Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그�
 
 ## <a name="service-fabric-platform-events"></a>Service Fabric 플랫폼 이벤트
 Service Fabric은 몇 가지 [기본 로깅 채널](service-fabric-diagnostics-event-generation-infra.md)을 제공하며, 다음 채널은 확장을 사용하여 모니터링 및 진단 데이터를 저장소 테이블이나 다른 곳에 보내도록 사전 구성되어 있습니다.
-  * [작업 이벤트](service-fabric-diagnostics-event-generation-operational.md): Service Fabric 플랫폼이 수행하는 상위 수준 작업입니다. 응용 프로그램 및 서비스 만들기, 노드 상태 변경, 업그레이드 정보 등을 예로 들 수 있습니다. 이러한 이벤트를 ETW(Windows용 이벤트 추적) 로그로 내보냅니다.
+  * [작업 이벤트](service-fabric-diagnostics-event-generation-operational.md): Service Fabric 플랫폼이 수행하는 상위 수준 작업입니다. 애플리케이션 및 서비스 만들기, 노드 상태 변경, 업그레이드 정보 등을 예로 들 수 있습니다. 이러한 이벤트를 ETW(Windows용 이벤트 추적) 로그로 내보냅니다.
   * [Reliable Actors 프로그래밍 모델 이벤트](service-fabric-reliable-actors-diagnostics.md)
   * [Reliable Services 프로그래밍 모델 이벤트](service-fabric-reliable-services-diagnostics.md)
 
@@ -196,7 +196,7 @@ template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플
 ## <a name="log-collection-configurations"></a>로그 컬렉션 구성
 컬렉션에 대한 추가 채널의 로그도 사용할 수 있습니다. 여기서는 Azure에서 실행되는 클러스터용 템플릿에서 수행할 수 있는 가장 일반적인 몇 가지 구성을 소개합니다.
 
-* 작동 채널 - 기본: 기본적으로 사용하도록 설정됩니다. 노드에 대해 발생하는 이벤트, 배포되는 새 응용 프로그램, 업그레이드 롤백 등을 포함하여 Service Fabric 및 클러스터에서 수행하는 상위 수준 작업입니다. 이벤트 목록은 [작동 채널 이벤트](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational)를 참조하세요.
+* 작동 채널 - 기본: 기본적으로 사용하도록 설정됩니다. 노드에 대해 발생하는 이벤트, 배포되는 새 애플리케이션, 업그레이드 롤백 등을 포함하여 Service Fabric 및 클러스터에서 수행하는 상위 수준 작업입니다. 이벤트 목록은 [작동 채널 이벤트](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational)를 참조하세요.
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
@@ -265,7 +265,7 @@ template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플
 
 ## <a name="collect-from-new-eventsource-channels"></a>새 EventSource 채널에서 수집
 
-배포하려는 새 응용 프로그램을 나타내는 새 EventSource 채널에서 로그를 수집하도록 진단을 업데이트하려면 기존 클러스터에 대한 이전 설명과 동일한 단계를 수행해야 합니다.
+배포하려는 새 애플리케이션을 나타내는 새 EventSource 채널에서 로그를 수집하도록 진단을 업데이트하려면 기존 클러스터에 대한 이전 설명과 동일한 단계를 수행해야 합니다.
 
 새 EventSource 채널의 항목을 추가하도록 template.json 파일의 `EtwEventSourceProviderConfiguration` 섹션을 업데이트한 후 `New-AzureRmResourceGroupDeployment` PowerShell 명령을 사용하여 구성 업데이트를 적용합니다. 이벤트 원본의 이름은 ServiceEventSource.cs 파일을 생성한 Visual Studio에서 코드의 일부로 정의됩니다.
 

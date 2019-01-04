@@ -1,5 +1,5 @@
 ---
-title: Docker Compose 구성을 사용하여 Azure Web App for Containers에서 다중 컨테이너(미리 보기) 앱 만들기
+title: Docker Compose를 사용하여 다중 컨테이너 앱 만들기 - Azure App Service
 description: Azure Web App for Containers에서 몇 분 안에 첫 번째 다중 컨테이너 앱 배포
 keywords: Azure App Service, 웹앱, Linux, Docker, Compose, 다중 컨테이너, 다중-컨테이너, 컨테이너용 웹앱, 다중 컨테이너, 컨테이너, Kubernetes, WordPress, Azure DB for MySQL, 컨테이너를 포함한 프로덕션 데이터베이스
 services: app-service\web
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: 1d54d914edb306b89dc6f2604aa5af3d17cb535d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: seodec18
+ms.openlocfilehash: 404be7a064e0e4b09178830b7802192e8775e121
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576785"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316583"
 ---
-# <a name="create-a-multi-container-preview-app-using-web-app-for-containers"></a>Web App for Containers를 사용하여 다중 컨테이너(미리 보기) 앱 만들기
+# <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Docker Compose 구성을 사용하여 다중 컨테이너(미리 보기) 앱 만들기
 
 [Web App for Containers](app-service-linux-intro.md)는 Docker 이미지를 사용할 수 있는 유연한 방법을 제공합니다. 이 빠른 시작은 Docker Compose 구성을 사용하여 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)에서 Web App for Containers에 다중 컨테이너 앱을 배포하는 방법을 보여줍니다. MySQL용 Azure DB를 사용하는 Kubernetes 및 전체 종단 간 솔루션은 [다중 컨테이너 자습서](tutorial-multi-container-app.md)를 수행합니다.
 
@@ -40,7 +40,7 @@ Cloud Shell에서 이 빠른 시작을 완료하지만 [Azure CLI](/cli/azure/in
 
 [!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
-Cloud Shell에서 빠른 시작 디렉터리를 만든 다음, 변경합니다.
+Cloud Shell에서 quickstart 디렉터리를 만든 다음, 해당 디렉토리로 이동합니다.
 
 ```bash
 mkdir quickstart
@@ -48,7 +48,7 @@ mkdir quickstart
 cd quickstart
 ```
 
-다음으로 다음 명령을 실행하여 빠른 시작 디렉터리에 샘플 앱 리포지토리를 복제합니다. 그런 다음, `multicontainerwordpress` 디렉터리로 변경합니다.
+이어서 다음 명령을 실행하여 quickstart 디렉터리에 샘플 앱 리포지토리를 복제합니다. 그런 다음, `multicontainerwordpress` 디렉터리로 변경합니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/multicontainerwordpress

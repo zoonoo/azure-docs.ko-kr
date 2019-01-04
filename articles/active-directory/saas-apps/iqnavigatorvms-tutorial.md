@@ -31,7 +31,7 @@ IQNavigator VMS를 Azure AD와 통합하면 다음과 같은 이점이 있습니
 - 사용자가 자신의 Azure AD 계정으로 IQNavigator VMS에 자동으로 로그온(Single Sign-On) 되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -63,11 +63,11 @@ IQNavigator VMS가 Azure AD에 통합되도록 구성하려면 갤러리에서 I
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![애플리케이션][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![애플리케이션][3]
 
@@ -75,7 +75,7 @@ IQNavigator VMS가 Azure AD에 통합되도록 구성하려면 갤러리에서 I
 
     ![Azure AD 테스트 사용자 만들기](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_search.png)
 
-1. 결과 창에서 **IQNavigator VMS**를 선택한 다음 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **IQNavigator VMS**를 선택한 다음 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_addfromgallery.png)
 
@@ -96,11 +96,11 @@ IQNavigator VMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 IQNavigator VMS 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 IQNavigator VMS 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **IQNavigator VMS에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **IQNavigator VMS** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **IQNavigator VMS** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -129,7 +129,7 @@ IQNavigator VMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면
     
     ![Configure Single Sign-On](./media/iqnavigatorvms-tutorial/tutorial_metadataurl.png)
 
-1. IQNavigator 응용 프로그램은 이름 식별자 클레임에 고유한 사용자 ID 값을 필요로 합니다. 고객은 이름 식별자 클레임에 대한 올바른 값을 매핑할 수 있습니다. 이 경우 데모 목적으로 user.UserPrincipalName을 매핑했습니다. 그러나 조직 설정에 따라 올바른 값을 매핑해야 합니다.
+1. IQNavigator 애플리케이션은 이름 식별자 클레임에 고유한 사용자 ID 값을 필요로 합니다. 고객은 이름 식별자 클레임에 대한 올바른 값을 매핑할 수 있습니다. 이 경우 데모 목적으로 user.UserPrincipalName을 매핑했습니다. 그러나 조직 설정에 따라 올바른 값을 매핑해야 합니다.
 
     ![Configure Single Sign-On](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_attribute.png)
 
@@ -186,11 +186,11 @@ IQNavigator VMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
 **Britta Simon을 IQNavigator VMS에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201]
 
-1. 응용 프로그램 목록에서 **IQNavigator VMS**를 선택합니다.
+1. 애플리케이션 목록에서 **IQNavigator VMS**를 선택합니다.
 
     ![Configure Single Sign-On](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_app.png)
 
@@ -212,7 +212,7 @@ IQNavigator VMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 IQNavigator VMS 타일을 클릭하면 IQNavigator VMS 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 IQNavigator VMS 타일을 클릭하면 IQNavigator VMS 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스

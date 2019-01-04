@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2018
+ms.date: 12/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 2f9075cef671128cacc37f16e8bf29bf0f60401d
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 46dfb96df7b16fe03bd5c2c69fd9e2e33b04bbd2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619642"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408581"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 조건부 액세스 설정 참조
 
@@ -179,22 +179,29 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 |---|---|---|
 |Azure 원격 앱|Azure 원격 앱 서비스|Windows 10, Windows 8.1, Windows 7, iOS, Android 및 Mac OS X|
 |Dynamics CRM 앱|Dynamics CRM|Windows 10, Windows 8.1, iOS 및 Android|
-|메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)|Office 365 Exchange Online|윈도우 10|
+|메일/일정/피플 앱, Outlook 2016, Outlook 2013 |Office 365 Exchange Online|윈도우 10|
 |앱에 대한 MFA 및 위치 정책입니다. 디바이스 기반 정책은 지원되지 않습니다. |모든 My Apps 앱 서비스|Android 및 iOS|
 |Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다.|Microsoft 팀|Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS |
-|Office 2016 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조)|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조), Office 그룹 지원은 나중에 지원될 예정입니다. SharePoint 앱 지원은 나중에 지원될 예정입니다.|Office 365 SharePoint Online|윈도우 10|
+|Office 2016 앱, Office 2013, OneDrive 동기화 클라이언트([참고](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조)|Office 365 SharePoint Online|Windows 8.1, Windows 7|
+|Office 2016 앱, Universal Office 앱, Office 2013, OneDrive 동기화 클라이언트([참고](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조), Office 그룹 지원은 나중에 지원될 예정입니다. SharePoint 앱 지원은 나중에 지원될 예정입니다.|Office 365 SharePoint Online|윈도우 10|
 |macOS용 Office 2016(Word, Excel, PowerPoint, OneNote만 해당) 향후 제공될 예정인 비즈니스용 OneDrive 지원|Office 365 SharePoint Online|Mac OS X|
 |Office 모바일 앱|Office 365 SharePoint Online|Android, iOS|
 |Office Yammer 앱|Office 365 Yammer|Windows 10, iOS, Android|
 |Outlook 2016(macOS용 Office)|Office 365 Exchange Online|Mac OS X|
-|Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용)|Office 365 Exchange Online|Windows 8.1, Windows 7|
+|Outlook 2016, Outlook 2013, 비즈니스용 Skype|Office 365 Exchange Online|Windows 8.1, Windows 7|
 |Outlook 모바일 앱|Office 365 Exchange Online|Android, iOS|
 |PowerBI 앱|PowerBI 서비스|Windows 10, Windows 8.1, Windows 7, Android 및 iOS|
 |비즈니스용 Skype|Office 365 Exchange Online|Android, iOS |
 |Azure DevOps 앱|Azure DevOps|Windows 10, Windows 8.1, Windows 7, iOS 및 Android|
 
 
+## <a name="support-for-legacy-authentication"></a>레거시 인증 지원
+
+**다른 클라이언트**를 선택하여 IMAP, MAPI, POP, SMTP 및 최신 인증을 사용하지 않는 이전 Office 앱과 같은 메일 프로토콜과 함께 기본 인증을 사용하는 앱에 영향을 미치는 조건을 지정할 수 있습니다.  
+
+![기타 클라이언트](./media/technical-reference/11.png)
+
+자세한 내용은 [클라이언트 앱](conditions.md#client-apps)을 참조하세요.
 
 ## <a name="approved-client-app-requirement"></a>승인된 클라이언트 앱 요구 사항 
 
@@ -229,13 +236,13 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 
 
 
-**설명**
+**주의**
 
 - 승인된 클라이언트 앱은 Intune 모바일 응용 프로그램 관리 기능을 지원합니다.
 
 - **승인된 클라이언트 앱 필요** 요구 사항:
 
-    - [장치 플랫폼 조건](#device-platforms-condition)에서는 iOS 및 Android만 지원됩니다.
+    - [디바이스 플랫폼 조건](#device-platforms-condition)에서는 iOS 및 Android만 지원됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

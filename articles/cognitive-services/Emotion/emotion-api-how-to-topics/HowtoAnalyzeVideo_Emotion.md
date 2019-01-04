@@ -194,7 +194,7 @@ namespace VideoFrameConsoleApplication
     - [Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview)
 2. [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub 리포지토리 복제
 
-3. Visual Studio 2015에서 샘플을 열고 샘플 응용 프로그램을 빌드 및 실행합니다.
+3. Visual Studio 2015에서 샘플을 열고 샘플 애플리케이션을 빌드 및 실행합니다.
     - BasicConsoleSample의 경우 Face API 키가 [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs)에 직접 하드 코딩되어 있습니다.
     - LiveCameraSample의 경우 앱의 설정 창에 키를 입력해야 합니다. 키는 사용자 데이터로 세션 간에 지속됩니다.
 

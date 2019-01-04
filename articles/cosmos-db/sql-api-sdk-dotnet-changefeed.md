@@ -1,21 +1,20 @@
 ---
-title: 'Azure Cosmos DB: .NET 변경 피드 프로세서 API, SDK 및 리소스 | Microsoft Docs'
+title: 'Azure Cosmos DB: .NET 변경 피드 프로세서 API, SDK 및 리소스'
 description: 릴리스 날짜, 사용 중지 날짜 및 .NET 변경 피드 프로세서 SDK의 각 버전 간 변경 내용을 포함하여 변경 피드 프로세서 API 및 SDK에 대한 모든 것을 알아봅니다.
 services: cosmos-db
 author: ealsur
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 327873d228fe92a9da495f802c97eb73612caef9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7b6fefd575901648a99bb3a67a05e705622bb74a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632486"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407867"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -28,7 +27,7 @@ ms.locfileid: "52632486"
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -42,6 +41,10 @@ ms.locfileid: "52632486"
 ## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="v2-builds"></a>v2 빌드
+
+### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
+* 공유 데이터베이스 처리량을 사용하는 컬렉션으로 분할 처리에 대한 지원이 추가되었습니다.
+  * 이 릴리스는 두 개가 아닌 하나의 하위 파티션 키 범위만 만들어진 파티션 부하 다시 분산으로 결과를 분할할 때 공유 데이터베이스 처리량을 사용하는 컬렉션으로 분할 중에 발생할 수 있는 문제를 해결합니다. 이 경우 변경 피드 프로세서에서 이전 파티션 키 범위의 임대 삭제가 중단되고 새 임대 만들기는 중단되지 않을 수 있습니다. 이 문제는 이 릴리스에서 해결되었습니다.
 
 ### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
 * 요청 연속 토큰에서 변경 피드 시작을 지원하기 위해 새 속성 ChangeFeedProcessorOptions.StartContinuation을 추가했습니다. 이 속성은 임대 컬렉션이 비어 있거나 임대에 ContinuationToken이 설정되어 있지 않은 경우에만 사용됩니다. ContinuationToken이 설정된 임대 컬렉션의 임대의 경우 ContinuationToken이 사용되며 ChangeFeedProcessorOptions.StartContinuation은 무시됩니다.
@@ -155,6 +158,10 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.2.5](#2.2.5) |2018년 12월 13일 |--- |
+| [2.2.4](#2.2.4) |2018년 11월 29일 |--- |
+| [2.2.3](#2.2.3) |2018년 11월 19일 |--- |
+| [2.2.2](#2.2.2) |2018년 10월 31일 |--- |
 | [2.2.1](#2.2.1) |2018년 10월 24일 |--- |
 | [1.3.3](#1.3.3) |2018년 5월 8일 |--- |
 | [1.3.2](#1.3.2) |2018년 4월 18일 |--- |

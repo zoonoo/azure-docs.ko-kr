@@ -29,7 +29,7 @@ ms.locfileid: "52863825"
 [Azure SQL Database에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md)를 참조하세요. 
 
 ## <a name="about-management-credentials"></a>관리 자격 증명 정보
-관리 자격 증명은 분할된 데이터베이스 맵을 조작하는 응용 프로그램에 대한 **ShardMapManager**([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) 개체를 만드는 데 사용됩니다. (예를 들어 [Elastic Database 도구를 사용하여 분할된 데이터베이스 추가](sql-database-elastic-scale-add-a-shard.md) 및 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)을 참조하세요.) 탄력적인 크기의 클라이언트 라이브러리 사용자는 SQL 사용자 및 SQL 로그인을 만들고 각각에 대해 글로벌 분할된 데이터베이스 맵 데이터베이스는 물론 모든 분할된 데이터베이스 맵에 대한 읽기/쓰기 권한을 부여합니다. 이러한 자격 증명은 분할된 데이터베이스 맵에 대한 변경을 수행할 때 전역 분할된 데이터베이스 맵 및 로컬 분할된 데이터베이스 맵을 유지 관리 하는 데 사용됩니다. 예를 들어 관리 자격 증명을 사용하여 분할된 데이터베이스 맵 관리자 개체를 만듭니다(**GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.getsqlshardmapmanager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx) 사용). 
+관리 자격 증명은 분할된 데이터베이스 맵을 조작하는 애플리케이션에 대한 **ShardMapManager**([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) 개체를 만드는 데 사용됩니다. (예를 들어 [Elastic Database 도구를 사용하여 분할된 데이터베이스 추가](sql-database-elastic-scale-add-a-shard.md) 및 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)을 참조하세요.) 탄력적인 크기의 클라이언트 라이브러리 사용자는 SQL 사용자 및 SQL 로그인을 만들고 각각에 대해 글로벌 분할된 데이터베이스 맵 데이터베이스는 물론 모든 분할된 데이터베이스 맵에 대한 읽기/쓰기 권한을 부여합니다. 이러한 자격 증명은 분할된 데이터베이스 맵에 대한 변경을 수행할 때 전역 분할된 데이터베이스 맵 및 로컬 분할된 데이터베이스 맵을 유지 관리 하는 데 사용됩니다. 예를 들어 관리 자격 증명을 사용하여 분할된 데이터베이스 맵 관리자 개체를 만듭니다(**GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.getsqlshardmapmanager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx) 사용). 
 
 ```
 // Obtain a shard map manager. 
@@ -45,7 +45,7 @@ ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager(s
 username@server 형태의 값을 사용하지 말고, "username" 값을 사용합니다.  자격 증명은 분할된 데이터베이스 맵 관리자 데이터베이스와 각기 다른 서버에 있을 수 있는 개별 분할된 데이터베이스에 대해 모두 작동해야 하기 때문입니다.
 
 ## <a name="access-credentials"></a>액세스 자격 증명
-분할된 데이터베이스 맵을 관리하지 않는 응용 프로그램에 분할된 데이터베이스 맵 관리자를 만드는 경우, 글로벌 분할된 데이터베이스 맵에 대해 읽기 전용 권한이 있는 자격 증명을 사용합니다. 이러한 자격 증명으로 글로벌 분할된 데이터베이스 맵에서 검색한 정보는 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md) 에 사용되며, 클라이언트의 분할된 데이터베이스 맵 캐시를 채우는 데에도 사용됩니다. 자격 증명은 **GetSqlShardMapManager**에 대한 동일한 호출 패턴을 통해 제공됩니다. 
+분할된 데이터베이스 맵을 관리하지 않는 애플리케이션에 분할된 데이터베이스 맵 관리자를 만드는 경우, 글로벌 분할된 데이터베이스 맵에 대해 읽기 전용 권한이 있는 자격 증명을 사용합니다. 이러한 자격 증명으로 글로벌 분할된 데이터베이스 맵에서 검색한 정보는 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md) 에 사용되며, 클라이언트의 분할된 데이터베이스 맵 캐시를 채우는 데에도 사용됩니다. 자격 증명은 **GetSqlShardMapManager**에 대한 동일한 호출 패턴을 통해 제공됩니다. 
 
 ```
 // Obtain shard map manager. 

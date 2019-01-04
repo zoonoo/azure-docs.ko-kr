@@ -23,7 +23,7 @@ ms.locfileid: "40038611"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure 진단을 사용하도록 설정
 
-Azure 진단은 배포된 애플리케이션에서 진단 데이터를 수집할 수 있도록 하는 Azure 내 기능입니다. 진단 확장을 사용하여 Windows를 실행 중인 Azure 가상 머신(VM)에서 응용 프로그램 로그 또는 성능 카운터 등과 같은 진단 데이터를 수집할 수 있습니다. 이 문서는 Windows PowerShell을 사용하여 VM에 대해 진단 확장을 사용하도록 설정하는 방법을 설명합니다. 이 문서에 필요한 필수 조건은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하세요.
+Azure 진단은 배포된 애플리케이션에서 진단 데이터를 수집할 수 있도록 하는 Azure 내 기능입니다. 진단 확장을 사용하여 Windows를 실행 중인 Azure 가상 머신(VM)에서 애플리케이션 로그 또는 성능 카운터 등과 같은 진단 데이터를 수집할 수 있습니다. 이 문서는 Windows PowerShell을 사용하여 VM에 대해 진단 확장을 사용하도록 설정하는 방법을 설명합니다. 이 문서에 필요한 필수 조건은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하세요.
 
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-resource-manager-deployment-model"></a>리소스 관리자 배포 모델을 사용하는 경우 진단 확장을 사용하도록 설정
 Azure 리소스 관리자 배포 모델을 통해 Windows VM을 만드는 동안 리소스 관리자 템플릿에 확장 구성을 추가하여 진단 확장을 사용하도록 설정할 수 있습니다. [Azure Resource Manager를 사용하여 Windows 가상 머신과 모니터링 및 진단 기능 만들기](diagnostics-template.md)를 참조하세요.
@@ -75,7 +75,7 @@ cmdlet은 *PublicSettings*를 반환하며, 여기에는 진단 구성이 포함
     Update-AzureVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
 
 ## <a name="sample-diagnostics-configuration"></a>샘플 진단 구성
-위의 스크립트를 통해 진단 공용 구성에 다음과 같은 XML을 사용할 수 있습니다. 이 샘플 구성은 Windows 이벤트 로그의 응용 프로그램, 보안 및 시스템 채널 오류 및 진단 인프라 로그의 오류와 함께 다양한 성능 카운터를 저장소 계정으로 전송합니다.
+위의 스크립트를 통해 진단 공용 구성에 다음과 같은 XML을 사용할 수 있습니다. 이 샘플 구성은 Windows 이벤트 로그의 애플리케이션, 보안 및 시스템 채널 오류 및 진단 인프라 로그의 오류와 함께 다양한 성능 카운터를 스토리지 계정으로 전송합니다.
 
 다음을 포함하도록 구성을 업데이트해야 합니다.
 

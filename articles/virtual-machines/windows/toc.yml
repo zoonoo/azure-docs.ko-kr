@@ -117,7 +117,7 @@ items:
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
   - name: 네트워킹
     href: network-overview.md
-  - name: 자동 크기 조정 응용 프로그램
+  - name: 자동 크기 조정 애플리케이션
     href: autoscale.md
   - name: 인프라 자동화
     href: infrastructure-automation.md
@@ -282,7 +282,7 @@ items:
       href: chef-automation.md
     - name: Visual Studio에서 웹앱 게시
       href: publish-web-app-from-visual-studio.md
-  - name: 응용 프로그램 실행
+  - name: 애플리케이션 실행
     items:
     - name: SQL Server
       href: sql/virtual-machines-windows-sql-server-iaas-overview.md

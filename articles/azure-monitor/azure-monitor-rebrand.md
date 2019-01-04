@@ -28,7 +28,7 @@ Azure 리소스와 하이브리드 환경을 모니터링하는 단일 통합 �
 각 서비스의 문서는 Azure Monitor용 단일 콘텐츠 집합으로 통합되었습니다. 따라서 여러 콘텐츠 집합을 참조할 필요 없이 한 위치에서 특정 모니터링 시나리오의 모든 콘텐츠를 찾을 수 있습니다. 통합 서비스가 진행됨에 따라 콘텐츠가 더 많이 통합됩니다.
 
 ## <a name="log-analytics-redefinition"></a>Log Analytics 재정의
-Log Analytics는 다양한 원본에서 원격 분석 및 기타 데이터를 수집하고 응용 프로그램 및 리소스의 작업에 대한 통찰력을 제공하는 쿼리 언어 및 분석 엔진을 제공하여 Azure 관리에서 중심적인 역할을 수행합니다. 이 기능은 Azure Monitor의 이 중요한 역할을 계속 수행합니다. 에이전트 및 솔루션과 같은 Log Analytics의 일부로 간주되는 다른 기능은 Azure Monitor의 기능으로 재배치됩니다. Azure Portal에서 기능이 잠재적으로 향상되는 것 이외에 이 기능은 변경되지 않았습니다.
+Log Analytics는 다양한 원본에서 원격 분석 및 기타 데이터를 수집하고 애플리케이션 및 리소스의 작업에 대한 통찰력을 제공하는 쿼리 언어 및 분석 엔진을 제공하여 Azure 관리에서 중심적인 역할을 수행합니다. 이 기능은 Azure Monitor의 이 중요한 역할을 계속 수행합니다. 에이전트 및 솔루션과 같은 Log Analytics의 일부로 간주되는 다른 기능은 Azure Monitor의 기능으로 재배치됩니다. Azure Portal에서 기능이 잠재적으로 향상되는 것 이외에 이 기능은 변경되지 않았습니다.
 
 ## <a name="retirement-of-operations-management-suite-brand"></a>Operations Management Suite 브랜드 만료
 OMS(Operations Management Suite)는 라이센스 부여에 사용되는 다음 Azure 관리 서비스를 번들한 것입니다.

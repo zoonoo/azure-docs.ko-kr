@@ -165,7 +165,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
    ![SQL Server 선택](./media/tutorial-hybrid-copy-data-tool/select-source-data-store.png)
 
-1. 새로 연결된 서비스(SQL Server) **이름****에서 **SqlServerLinkedService**를 입력합니다. **통합 런타임을 통해 연결**에서 **+새로 만들기**를 선택합니다. 자체 호스팅 통합 런타임을 만들고, 컴퓨터에 다운로드하고, Data Factory에 등록해야 합니다. 자체 호스팅 통합 런타임은 온-프레미스 환경과 클라우드 간에 데이터를 복사합니다.
+1. 새로 연결된 서비스(SQL Server) **이름**\*\*에서 **SqlServerLinkedService**를 입력합니다. **통합 런타임을 통해 연결**에서 **+새로 만들기**를 선택합니다. 자체 호스팅 통합 런타임을 만들고, 컴퓨터에 다운로드하고, Data Factory에 등록해야 합니다. 자체 호스팅 통합 런타임은 온-프레미스 환경과 클라우드 간에 데이터를 복사합니다.
 
    ![자체 호스팅 통합 런타임 만들기](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-link.png)
 
@@ -181,7 +181,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
     ![이 컴퓨터에서 빠른 설치 시작 링크](./media/tutorial-hybrid-copy-data-tool/launch-express-setup-link.png)
 
-1. 다운로드한 응용 프로그램을 실행합니다. 창에 빠른 설치의 상태가 표시됩니다. 
+1. 다운로드한 애플리케이션을 실행합니다. 창에 빠른 설치의 상태가 표시됩니다. 
 
     ![빠른 설치 상태](./media/tutorial-hybrid-copy-data-tool/express-setup-status.png)
 
@@ -223,7 +223,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 1. **새로 연결된 서비스(Azure Blob Storage)** 대화 상자에서 다음 단계를 수행합니다. 
 
-     a. **이름****아래에서 **AzureStorageLinkedService**를 입력합니다.
+     a. **이름**\*\*아래에서 **AzureStorageLinkedService**를 입력합니다.
 
      b. **통합 런타임을 통해 연결**에서 **TutorialIntegrationRuntime**을 선택합니다.
 

@@ -52,9 +52,9 @@ IT 리더십 팀은 비즈니스 파트너와의 긴밀한 협력을 통해 다�
 
 Contoso 클라우드 팀은 최상의 마이그레이션 방법을 확인하기 위해 이 마이그레이션의 목표를 정했습니다.
 
-- 현재 온-프레미스 용량 및 성능을 능가하도록 응용 프로그램을 확장해야 합니다.  Contoso는 Azure의 주문형 크기 조정 기능을 활용하기 위해 응용 프로그램을 옮기고 있습니다.
+- 현재 온-프레미스 용량 및 성능을 능가하도록 애플리케이션을 확장해야 합니다.  Contoso는 Azure의 주문형 크기 조정 기능을 활용하기 위해 애플리케이션을 옮기고 있습니다.
 - Contoso는 앱 코드 기반을 지속적인 업데이트 파이프라인으로 이동하려고 합니다.  앱 변경 내용이 GitHub에 푸시될 때, Contoso는 운영 담당자가 작업을 수행하지 않고 이러한 변경 사항을 배포하려고 합니다.
-- 응용 프로그램은 확장 및 장애 조치(failover) 기능과 함께 복원력이 있어야 합니다. Contoso는 서로 다른 Azure 지역 두 곳에 앱을 배포하고 자동으로 규모가 조정되도록 설정하려고 합니다.
+- 애플리케이션은 확장 및 장애 조치(failover) 기능과 함께 복원력이 있어야 합니다. Contoso는 서로 다른 Azure 지역 두 곳에 앱을 배포하고 자동으로 규모가 조정되도록 설정하려고 합니다.
 - Contoso는 앱이 클라우드로 이동되면 데이터베이스 관리 작업을 최소화하려고 합니다.
 
 ## <a name="solution-design"></a>솔루션 디자인
@@ -108,7 +108,7 @@ Contoso는 다음과 같이 마이그레이션 프로세스를 완료합니다.
 
 **서비스** | **설명** | **비용**
 --- | --- | ---
-[Azure App Service](https://azure.microsoft.com/services/app-service/) | 이 서비스는 웹 사이트에 대해 Azure PaaS 서비스를 사용하여 응용 프로그램을 실행하고 규모를 조정합니다.  | 인스턴스의 크기와 필요한 기능에 따라 가격이 책정됩니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/app-service/windows/).
+[Azure App Service](https://azure.microsoft.com/services/app-service/) | 이 서비스는 웹 사이트에 대해 Azure PaaS 서비스를 사용하여 애플리케이션을 실행하고 규모를 조정합니다.  | 인스턴스의 크기와 필요한 기능에 따라 가격이 책정됩니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/app-service/windows/).
 [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) | DNS를 사용하여 사용자를 Azure 또는 외부 웹 사이트 및 서비스로 보내는 부하 분산 장치입니다. | 수신한 DNS 쿼리의 수와 모니터링되는 엔드포인트 수에 따라 가격이 책정됩니다. | [자세히 알아보기](https://azure.microsoft.com/pricing/details/traffic-manager/).
 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) | 데이터베이스는 오픈 소스 MySQL 서버 엔진을 기반으로 합니다. 완전히 관리되는 엔터프라이즈용 커뮤니티 MySQL 데이터베이스를 앱 개발 및 배포용 서비스로 제공합니다. | 계산, 저장소 및 백업 요구 사항에 따라 가격이 책정됩니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/mysql/).
 
@@ -284,7 +284,7 @@ Contoso 관리자는 개인 GitHub 리포지토리를 새로 만들어서 Azure 
 
     ![GitHub](./media/contoso-migration-refactor-linux-app-service-mysql/github5.png)
 
-6. 각 웹앱(**osticket-eus2** 및 **osticket-cus**)에 대해 Azure Portal에서 **응용 프로그램 설정**을 수정합니다.
+6. 각 웹앱(**osticket-eus2** 및 **osticket-cus**)에 대해 Azure Portal에서 **애플리케이션 설정**을 수정합니다.
 
     ![GitHub](./media/contoso-migration-refactor-linux-app-service-mysql/github6.png)
 

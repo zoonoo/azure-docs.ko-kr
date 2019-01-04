@@ -1,21 +1,19 @@
 ---
-title: 사용 중지된 Azure Cosmos DB 성능 수준 | Microsoft Docs
+title: 사용 중지된 Azure Cosmos DB 성능 수준
 description: Azure Cosmos DB에서 이전에 사용할 수 있는 S1, S2 및 S3 성능 수준에 대해 알아봅니다.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d1bb7551e6dfb6c42853ab95096f17f5285c69c1
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 27e9e8c2cb3201ea4d4522662cd49609a2163997
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796651"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865559"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>S1, S2 및 S3 성능 수준 사용 중지
 

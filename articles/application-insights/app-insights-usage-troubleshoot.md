@@ -8,21 +8,20 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: c1e5b420c4821732aa8cc19328b0955070100926
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 7da0717273892893bec03c164b9b297f28e5218d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138508"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995535"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Application Insights에서 사용자 동작 분석 도구 문제 해결
-[Application Insights의 사용자 동작 분석 도구](app-insights-usage-overview.md)에서 [사용자, 세션, 이벤트](app-insights-usage-segmentation.md), [유입 경로](usage-funnels.md), [사용자 흐름](app-insights-usage-flows.md), [재방문 주기](app-insights-usage-retention.md) 또는 코호트에 대해 질문이 있으신가요? 다음은 몇 가지 대답입니다.
+[Application Insights의 사용자 동작 분석 도구](app-insights-usage-overview.md)에서 [사용자, 세션, 이벤트](app-insights-usage-segmentation.md), [유입 경로](usage-funnels.md), [사용자 흐름](app-insights-usage-flows.md), [재방문 주기](app-insights-usage-retention.md) 또는 코호트에 대한 질문이 있나요? 다음은 몇 가지 대답입니다.
 
 ## <a name="counting-users"></a>사용자 수 계산
 **사용자 동작 분석 도구에 따르면 내 앱에 하나의 사용자/세션이 있다고 표시되지만 내가 알기로 내 앱에는 여러 사용자/세션이 있습니다. 이러한 잘못된 수를 어떻게 수정할 수 있나요?**
@@ -57,5 +56,5 @@ Application Insights의 모든 원격 분석 이벤트에는 표준 속성 중 2
 * [사용자 동작 분석 도구 개요](app-insights-usage-overview.md)
 
 ## <a name="get-help"></a>도움말 보기
-* [스택 오버플로](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [스택 오버플로](https://stackoverflow.com/questions/tagged/ms-application-insights)
 

@@ -5,14 +5,14 @@ author: bsiva
 manager: abhemra
 ms.service: site-recovery
 ms.topic: troubleshooting
-ms.date: 07/19/2018
+ms.date: 11/27/2018
 ms.author: bsiva
-ms.openlocfilehash: dc089e29889b12a5a6d3fcb17328cfc13fe8d0c9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e34409490f9e120cb39daf99b280cc52c59f54e2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211811"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845648"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Site Recovery 모니터링 및 문제 해결
 
@@ -57,7 +57,7 @@ Warning | 복제에 영향을 줄 수 있는 하나 이상의 경고 증상이 �
 
 ## <a name="monitor-configuration-issues"></a>구성 문제 모니터링
 
-**구성 문제** 섹션에는 성공적으로 장애 조치(Failover)하는 데 영향을 줄 수 있는 문제 목록이 표시됩니다.
+ **구성 문제** 섹션에는 성공적으로 장애 조치(Failover)하는 데 영향을 줄 수 있는 문제 목록이 표시됩니다.
 
 - 구성 문제(소프트웨어 업데이트의 가용성 제외)는 기본적으로 12시간마다 실행되는 주기적인 유효성 검사 작업을 통해 검색됩니다. **구성 문제** 섹션 제목 옆에 있는 새로 고침 아이콘을 클릭하여 유효성 검사기 작업을 즉시 실행하도록 강제할 수 있습니다.
 - 세부 정보를 보려면 링크를 클릭합니다. 특정 컴퓨터에 영향을 주는 문제의 경우 **대상 구성** 열에서 **주의 필요**를 클릭합니다. 세부 정보에는 수정 권장 사항이 포함됩니다.
@@ -154,12 +154,12 @@ Warning | 복제에 영향을 줄 수 있는 하나 이상의 경고 증상이 �
 5. 컴퓨터를 마우스 오른쪽 단추로 클릭하여 테스트 장애 조치(Failover)와 같은 작업을 시작하거나 연결된 특정 오류 세부 정보를 볼 수 있습니다.
 6. 컴퓨터를 클릭하여 자세한 내용을 드릴합니다. 세부 정보는 다음과 같습니다.
       - **복제 정보**: 머신의 현재 상태입니다.
-      - **RPO**(복구 지점 목표): 가상 머신에 대한 현재 RPO 및 RPO가 마지막으로 계산된 시간입니다.
+      - **RPO**(복구 지점 목표): 가상 머신에 대한 현재 RPO 및 RPO가 마지막으로 컴퓨팅된 시간입니다.
       - **복구 지점**: 머신에 대해 사용 가능한 최신 복구 지점입니다.
-      - **장애 조치(Failover) 준비**: 머신에 대해 테스트 장애 조치(Failover)가 실행되었는지 여부, 머신에서 실행 중인 에이전트 버전, 구성 문제를 나타냅니다.
+      - **장애 조치(Failover) 준비**: 머신에 대해 테스트 장애 조치(Failover)가 실행되었는지 여부, 머신(모바일 서비스를 실행 중인 머신)에서 실행 중인 에이전트 버전, 구성 문제를 나타냅니다.
       - **오류**: 현재 머신에서 관찰되는 복제 오류 증상과 가능한 원인/작업 목록입니다.
       - **이벤트**: 머신에 영향을 주는 최근 이벤트가 시간순으로 나열된 목록입니다. 이벤트는 컴퓨터에 영향을 미친 문제에 대한 기록이지만, 오류 세부 정보는 현재 관찰 가능한 오류 증상을 보여 줍니다.
-      - **인프라 보기**: 머신이 Azure로 복제하는 시나리오에 대한 인프라의 상태를 보여 줍니다.
+      - **인프라 보기**: 머신이 Azure로 복제되는 시나리오의 인프라 상태를 보여줍니다.
 
     ![Site Recovery 복제된 항목 세부 정보/개요](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 

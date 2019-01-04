@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric 컨테이너 응용 프로그램 매니페스트 예제 | Microsoft Docs
-description: 다중 컨테이너 Service Fabric 응용 프로그램에 대한 응용 프로그램 및 서비스 매니페스트 설정을 구성하는 방법을 알아봅니다.
+title: Azure Service Fabric 컨테이너 애플리케이션 매니페스트 예제 | Microsoft Docs
+description: 다중 컨테이너 Service Fabric 애플리케이션에 대한 애플리케이션 및 서비스 매니페스트 설정을 구성하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: na
 author: rwike77
@@ -21,8 +21,8 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2018
 ms.locfileid: "53262455"
 ---
-# <a name="multi-container-application-and-service-manifest-examples"></a>다중 컨테이너 응용 프로그램 및 서비스 매니페스트 예제
-다음은 다중 컨테이너 Service Fabric 응용 프로그램에 대한 응용 프로그램 및 서비스 매니페스트의 예제입니다. 이러한 예제의 목적은 사용 가능한 설정 및 사용 방법을 보여주는 것입니다. 이러한 응용 프로그램 및 서비스 매니페스트는 [Windows Server 2016 컨테이너 샘플](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) 매니페스트를 기반으로 합니다.
+# <a name="multi-container-application-and-service-manifest-examples"></a>다중 컨테이너 애플리케이션 및 서비스 매니페스트 예제
+다음은 다중 컨테이너 Service Fabric 애플리케이션에 대한 애플리케이션 및 서비스 매니페스트의 예제입니다. 이러한 예제의 목적은 사용 가능한 설정 및 사용 방법을 보여주는 것입니다. 이러한 애플리케이션 및 서비스 매니페스트는 [Windows Server 2016 컨테이너 샘플](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) 매니페스트를 기반으로 합니다.
 
 다음 기능이 표시됩니다.
 |매니페스트|기능|
@@ -31,9 +31,9 @@ ms.locfileid: "53262455"
 |[FrontEndService 서비스 매니페스트](#frontendservice-service-manifest)| [환경 변수 설정](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [엔드포인트 구성](service-fabric-get-started-containers.md#configure-communication), 컨테이너에 명령 전달, [컨테이너로 인증서 가져오기](service-fabric-securing-containers.md)| 
 |[BackEndService 서비스 매니페스트](#backendservice-service-manifest)|[환경 변수 설정](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [엔드포인트 구성](service-fabric-get-started-containers.md#configure-communication), [볼륨 드라이버 구성](service-fabric-containers-volume-logging-drivers.md)| 
 
-특정 XML 요소에 대한 자세한 내용은 [응용 프로그램 매니페스트 요소](#application-manifest-elements), [FrontEndService 서비스 매니페스트 요소](#frontendservice-service-manifest-elements) 및 [BackEndService 서비스 매니페스트 요소](#backendservice-service-manifest-elements)를 참조하세요.
+특정 XML 요소에 대한 자세한 내용은 [애플리케이션 매니페스트 요소](#application-manifest-elements), [FrontEndService 서비스 매니페스트 요소](#frontendservice-service-manifest-elements) 및 [BackEndService 서비스 매니페스트 요소](#backendservice-service-manifest-elements)를 참조하세요.
 
-## <a name="application-manifest"></a>응용 프로그램 매니페스트.
+## <a name="application-manifest"></a>애플리케이션 매니페스트
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -263,18 +263,18 @@ ms.locfileid: "53262455"
 </ServiceManifest>
 ```
 
-## <a name="application-manifest-elements"></a>응용 프로그램 매니페스트 요소
+## <a name="application-manifest-elements"></a>애플리케이션 매니페스트 요소
 ### <a name="applicationmanifest-element"></a>ApplicationManifest 요소
-응용 프로그램 유형 및 버전을 선언적으로 설명합니다. 구성 요소 서비스의 서비스 매니페스트 하나 이상에서 응용 프로그램 유형을 작성하기 위해 참조됩니다. 구성 요소 서비스의 구성 설정은 매개 변수화된 응용 프로그램 설정을 사용하여 재정의할 수 있습니다. 기본 서비스, 서비스 템플릿, 보안 주체, 정책, 진단 설정 및 인증서도 응용 프로그램 수준에서 선언할 수 있습니다. 자세한 내용은 [ApplicationManifest 요소](service-fabric-service-model-schema-elements.md#ApplicationManifestElementApplicationManifestTypeComplexType)를 참조하세요.
+애플리케이션 유형 및 버전을 선언적으로 설명합니다. 구성 요소 서비스의 서비스 매니페스트 하나 이상에서 애플리케이션 유형을 작성하기 위해 참조됩니다. 구성 요소 서비스의 구성 설정은 매개 변수화된 애플리케이션 설정을 사용하여 재정의할 수 있습니다. 기본 서비스, 서비스 템플릿, 보안 주체, 정책, 진단 설정 및 인증서도 애플리케이션 수준에서 선언할 수 있습니다. 자세한 내용은 [ApplicationManifest 요소](service-fabric-service-model-schema-elements.md#ApplicationManifestElementApplicationManifestTypeComplexType)를 참조하세요.
 
 ### <a name="parameters-element"></a>Parameters 요소
-이 응용 프로그램 매니페스트에 사용되는 매개 변수를 선언합니다. 응용 프로그램이 인스턴스화되고 응용 프로그램 또는 서비스 구성 설정을 재정의하는 데 사용될 수 있을 때 이러한 매개 변수의 값을 제공할 수 있습니다. 자세한 내용은 [Parameters 요소](service-fabric-service-model-schema-elements.md#ParametersElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)를 참조하세요.
+이 애플리케이션 매니페스트에 사용되는 매개 변수를 선언합니다. 애플리케이션이 인스턴스화되고 애플리케이션 또는 서비스 구성 설정을 재정의하는 데 사용될 수 있을 때 이러한 매개 변수의 값을 제공할 수 있습니다. 자세한 내용은 [Parameters 요소](service-fabric-service-model-schema-elements.md#ParametersElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)를 참조하세요.
 
 ### <a name="parameter-element"></a>Parameter 요소
-이 매니페스트에 사용할 응용 프로그램 매개 변수입니다. 매개 변수 값은 응용 프로그램 인스턴스하는 동안 변경될 수 있거나, 값이 제공되지 않으면 기본값이 사용됩니다. 자세한 내용은 [Parameter 요소](service-fabric-service-model-schema-elements.md#ParameterElementanonymouscomplexTypeComplexTypeDefinedInParameterselement)를 참조하세요.
+이 매니페스트에 사용할 애플리케이션 매개 변수입니다. 매개 변수 값은 애플리케이션 인스턴스하는 동안 변경될 수 있거나, 값이 제공되지 않으면 기본값이 사용됩니다. 자세한 내용은 [Parameter 요소](service-fabric-service-model-schema-elements.md#ParameterElementanonymouscomplexTypeComplexTypeDefinedInParameterselement)를 참조하세요.
 
 ### <a name="servicemanifestimport-element"></a>ServiceManifestImport 요소
-서비스 개발자가 만든 서비스 매니페스트를 가져옵니다. 응용 프로그램의 각 구성 요소 서비스에 대한 서비스 매니페스트를 가져와야 합니다. 서비스 매니페스트에 대한 구성 재정의 및 정책을 선언할 수 있습니다. 자세한 내용은 [ServiceManifestImport 요소](service-fabric-service-model-schema-elements.md#ServiceManifestImportElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)를 참조하세요.
+서비스 개발자가 만든 서비스 매니페스트를 가져옵니다. 애플리케이션의 각 구성 요소 서비스에 대한 서비스 매니페스트를 가져와야 합니다. 서비스 매니페스트에 대한 구성 재정의 및 정책을 선언할 수 있습니다. 자세한 내용은 [ServiceManifestImport 요소](service-fabric-service-model-schema-elements.md#ServiceManifestImportElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)를 참조하세요.
 
 ### <a name="servicemanifestref-element"></a>ServiceManifestRef 요소
 참조별로 서비스 매니페스트를 가져옵니다. 현재 이 빌드 패키지에 서비스 매니페스트 파일(ServiceManifest.xml)이 있어야 합니다. 자세한 내용은 [ServiceManifestRef 요소](service-fabric-service-model-schema-elements.md#ServiceManifestRefElementServiceManifestRefTypeComplexTypeDefinedInServiceManifestImportelement)를 참조하세요.
@@ -317,14 +317,14 @@ Windows Server 컨테이너는 여러 OS 버전에서 호환되지 않을 수 �
 
 ### <a name="certificateref-element"></a>CertificateRef 요소
 컨테이너 환경에 노출해야 하는 X509 인증서에 대한 정보를 지정합니다. 모든 클러스터 노드의 LocalMachine 저장소에 인증서를 설치해야 합니다.
-응용 프로그램이 시작되면 런타임이 인증서를 읽고 PFX 파일 및 암호를 생성하거나(Windows인 경우) PEM 파일을 생성합니다(Linux인 경우).
+애플리케이션이 시작되면 런타임이 인증서를 읽고 PFX 파일 및 암호를 생성하거나(Windows인 경우) PEM 파일을 생성합니다(Linux인 경우).
 PFX 파일과 암호는 Certificates_ServicePackageName_CodePackageName_CertName_PFX 및 Certificates_ServicePackageName_CodePackageName_CertName_Password 환경 변수를 사용하여 컨테이너에서 액세스할 수 있습니다. PEM 파일은 Certificates_ServicePackageName_CodePackageName_CertName_PEM 및 Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey 환경 변수를 사용하여 컨테이너에서 액세스할 수 있습니다. 자세한 내용은 [CertificateRef 요소](service-fabric-service-model-schema-elements.md#CertificateRefElementContainerCertificateTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)를 참조하세요.
 
 ### <a name="defaultservices-element"></a>DefaultServices 요소
-이 응용 프로그램 유형에 대해 응용 프로그램이 인스턴스화될 때마다 자동으로 만드는 서비스 인스턴스를 선언합니다. 자세한 내용은 [DefaultServices 요소](service-fabric-service-model-schema-elements.md#DefaultServicesElementDefaultServicesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInApplicationInstanceTypecomplexType)를 참조하세요.
+이 애플리케이션 유형에 대해 애플리케이션이 인스턴스화될 때마다 자동으로 만드는 서비스 인스턴스를 선언합니다. 자세한 내용은 [DefaultServices 요소](service-fabric-service-model-schema-elements.md#DefaultServicesElementDefaultServicesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInApplicationInstanceTypecomplexType)를 참조하세요.
 
 ### <a name="service-element"></a>Service 요소
-응용 프로그램이 인스턴스화될 때 자동으로 만드는 서비스를 선언합니다. 자세한 내용은 [Service 요소](service-fabric-service-model-schema-elements.md#ServiceElementanonymouscomplexTypeComplexTypeDefinedInDefaultServicesTypecomplexType)를 참조하세요.
+애플리케이션이 인스턴스화될 때 자동으로 만드는 서비스를 선언합니다. 자세한 내용은 [Service 요소](service-fabric-service-model-schema-elements.md#ServiceElementanonymouscomplexTypeComplexTypeDefinedInDefaultServicesTypecomplexType)를 참조하세요.
 
 ### <a name="statelessservice-element"></a>StatelessService 요소
 상태 비저장 서비스를 정의합니다. 자세한 내용은 [StatelessService 요소](service-fabric-service-model-schema-elements.md#StatelessServiceElementStatelessServiceTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceelement)를 참조하세요.
@@ -365,7 +365,7 @@ Name 특성으로 명명되고 Settings.xml 파일이 포함된 폴더를 선언
 Name 특성으로 명명되고 정적 데이터 파일이 포함된 폴더를 선언합니다. Service Fabric에서 서비스 매니페스트에 나열된 데이터 패키지를 업그레이드할 때 호스트 및 지원 패키지에 지정된 모든 EXE 및 DLLHOST를 재활용합니다. 자세한 내용은 [DataPackage 요소](service-fabric-service-model-schema-elements.md#DataPackageElementDataPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedDataPackageelement)를 참조하세요.
 
 ### <a name="resources-element"></a>Resources 요소
-이 서비스에서 사용하는 리소스를 설명합니다. 이 리소스는 컴파일된 코드를 수정하지 않고 선언할 수 있으며, 서비스를 배포할 때 변경할 수 있습니다. 이러한 리소스에 대한 액세스는 응용 프로그램 매니페스트의 Principals 및 Policies 섹션을 통해 제어됩니다. 자세한 내용은 [Resources 요소](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType)를 참조하세요.
+이 서비스에서 사용하는 리소스를 설명합니다. 이 리소스는 컴파일된 코드를 수정하지 않고 선언할 수 있으며, 서비스를 배포할 때 변경할 수 있습니다. 이러한 리소스에 대한 액세스는 애플리케이션 매니페스트의 Principals 및 Policies 섹션을 통해 제어됩니다. 자세한 내용은 [Resources 요소](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType)를 참조하세요.
 
 ### <a name="endpoints-element"></a>Endpoints 요소
 서비스에 대한 엔드포인트를 정의합니다. 자세한 내용은 [Endpoints 요소](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourcesTypecomplexType)를 참조하세요.
@@ -409,7 +409,7 @@ https://hub.docker.com의 리포지토리 및 이미지 또는 Azure Container R
 Name 특성으로 명명되고 Settings.xml 파일이 포함된 폴더를 선언합니다. 이 파일은 런타임에 프로세스에서 다시 읽을 수 있는 사용자 정의 키-값 쌍 설정의 섹션을 포함합니다. 업그레이드하는 동안 ConfigPackage 버전만 변경되면 실행 중인 프로세스가 다시 시작되지 않습니다. 대신, 콜백에서는 구성 설정이 변경되어 동적으로 다시 로드할 수 있음을 프로세스에 알립니다. 자세한 내용은 [ConfigPackage 요소](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)를 참조하세요.
 
 ### <a name="resources-element"></a>Resources 요소
-이 서비스에서 사용하는 리소스를 설명합니다. 이 리소스는 컴파일된 코드를 수정하지 않고 선언할 수 있으며, 서비스를 배포할 때 변경할 수 있습니다. 이러한 리소스에 대한 액세스는 응용 프로그램 매니페스트의 Principals 및 Policies 섹션을 통해 제어됩니다. 자세한 내용은 [Resources 요소](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType)를 참조하세요.
+이 서비스에서 사용하는 리소스를 설명합니다. 이 리소스는 컴파일된 코드를 수정하지 않고 선언할 수 있으며, 서비스를 배포할 때 변경할 수 있습니다. 이러한 리소스에 대한 액세스는 애플리케이션 매니페스트의 Principals 및 Policies 섹션을 통해 제어됩니다. 자세한 내용은 [Resources 요소](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType)를 참조하세요.
 
 ### <a name="endpoints-element"></a>Endpoints 요소
 서비스에 대한 엔드포인트를 정의합니다. 자세한 내용은 [Endpoints 요소](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourcesTypecomplexType)를 참조하세요.

@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c154b0124acb5bee93211adb611356555526d2c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9c638ed9132612db7b82168d3a57057aba9b2d60
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996216"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870337"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>실제 시나리오에 대한 예측 유지 관리
 
@@ -98,13 +98,13 @@ az ml notebook start
 
 ## <a name="data-description"></a>데이터 설명
 
-[시뮬레이트된 데이터](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data)는 5개의 쉼표로 구분된 값(.csv) 파일로 구성됩니다. 다음 링크를 사용하여 데이터 집합에 대한 자세한 설명은 확인합니다.
+[시뮬레이트된 데이터](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide)는 [5개의 쉼표로 구분된 값(.csv) 파일로 구성됩니다](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data).
 
-* [컴퓨터](https://pdmmodelingguide.blob.core.windows.net/pdmdata/machines.csv): 사용 기간 및 모델과 같이 각 컴퓨터를 구분하는 기능입니다.
-* [오류](https://pdmmodelingguide.blob.core.windows.net/pdmdata/errors.csv): 오류 로그에는 기계가 여전히 작동 중일 때 발생하는 줄 바꿈하지 않는 오류가 포함됩니다. 이러한 오류는 향후 실패 이벤트를 예측할 수는 있지만 실패로 간주되지 않습니다. 오류의 날짜-시간 값은 원격 분석 데이터가 시간당 속도로 수집된 이후 가장 가까운 시간으로 반올림됩니다.
-* [유지 관리](https://pdmmodelingguide.blob.core.windows.net/pdmdata/maint.csv): 유지 관리 로그에는 예정된 유지 관리 레코드와 예정되지 않은 유지 관리 레코드가 모두 들어 있습니다. 예약된 유지 관리는 구성 요소의 정기적 검사와 일치합니다. 예약되지 않은 유지 관리는 기계적 장애 또는 기타 성능 저하로 인해 발생할 수 있습니다. 유지 관리의 날짜-시간 값은 원격 분석 데이터가 시간당 속도로 수집된 이후 가장 가까운 시간으로 반올림됩니다.
-* [원격 분석](https://pdmmodelingguide.blob.core.windows.net/pdmdata/telemetry.csv): 원격 분석 데이터는 각 컴퓨터 내의 여러 센서에서 측정되는 시계열 측정값으로 구성됩니다. 이 데이터는 1시간 간격으로 평균 센서 값으로 기록됩니다.
-* [오류](https://pdmmodelingguide.blob.core.windows.net/pdmdata/failures.csv): 오류는 유지 관리 로그 내의 구성 요소 교체에 해당합니다. 각 레코드에는 컴퓨터 ID, 구성 요소 유형 및 대체 날짜와 시간이 포함됩니다. 이러한 레코드는 모델이 예측하려고 하는 기계 학습 레이블을 작성하는 데 사용됩니다.
+* [머신](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/machines.csv): 사용 기간 및 모델과 같이 각 머신을 구분하는 기능입니다.
+* [오류](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/errors.csv): 오류 로그에는 머신이 여전히 작동 중일 때 발생하는 줄 바꿈하지 않는 오류가 포함됩니다. 이러한 오류는 향후 실패 이벤트를 예측할 수는 있지만 실패로 간주되지 않습니다. 오류의 날짜-시간 값은 원격 분석 데이터가 시간당 속도로 수집된 이후 가장 가까운 시간으로 반올림됩니다.
+* [유지 관리](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/maint.csv): 유지 관리 로그에는 예정된 유지 관리 레코드와 예정되지 않은 유지 관리 레코드가 모두 들어 있습니다. 예약된 유지 관리는 구성 요소의 정기적 검사와 일치합니다. 예약되지 않은 유지 관리는 기계적 장애 또는 기타 성능 저하로 인해 발생할 수 있습니다. 유지 관리의 날짜-시간 값은 원격 분석 데이터가 시간당 속도로 수집된 이후 가장 가까운 시간으로 반올림됩니다.
+* [원격 분석](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/telemetry.csv): 원격 분석 데이터는 각 머신 내의 여러 센서에서 측정되는 시계열 측정값으로 구성됩니다. 이 데이터는 1시간 간격으로 평균 센서 값으로 기록됩니다.
+* [실패](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/failures.csv): 실패는 유지 관리 로그 내의 구성 요소 교체에 해당합니다. 각 레코드에는 컴퓨터 ID, 구성 요소 유형 및 대체 날짜와 시간이 포함됩니다. 이러한 레코드는 모델이 예측하려고 하는 기계 학습 레이블을 작성하는 데 사용됩니다.
 
 GitHub 리포지토리에서 원시 데이터 집합을 다운로드하고 이 분석을 위해 PySpark 데이터 집합을 만들려면 코드 섹션의 [데이터 수집](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb) Jupyter 노트 시나리오를 참조하세요.
 
@@ -115,13 +115,13 @@ GitHub 리포지토리에서 원시 데이터 집합을 다운로드하고 이 �
 
 [Code\1_data_ingestion.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb): 이 노트는 5개의 입력 .csv 파일을 다운로드하고 예비 데이터 정리 및 시각화를 수행합니다. 노트는 각 데이터 집합을 PySpark 형식으로 변환하고, 기능 엔지니어링 노트에 사용하도록 결과를 Azure Blob 컨테이너에 저장합니다.
 
-[Code\2_feature_engineering.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/2_feature_engineering.ipynb): 모델 기능은 원격 분석, 오류 및 유지 관리 데이터에 대한 표준 시계열 접근 방식을 사용하여 Azure Blob 저장소의 원시 데이터 집합에서 구성됩니다. 오류 관련 구성 요소 대체는 어떤 구성 요소에 오류가 있는지 설명하는 모델 레이블을 구성하는 데 사용됩니다. 레이블이 지정된 기능 데이터는 모델 빌드 노트를 위해 Azure Blob에 저장됩니다.
+[Code\2_feature_engineering.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/2_feature_engineering.ipynb): 모델 기능은 원격 분석, 오류 및 유지 관리 데이터에 대한 표준 시계열 접근 방식을 사용하여 Azure Blob Storage의 원시 데이터 세트에서 구성됩니다. 오류 관련 구성 요소 대체는 어떤 구성 요소에 오류가 있는지 설명하는 모델 레이블을 구성하는 데 사용됩니다. 레이블이 지정된 기능 데이터는 모델 빌드 노트를 위해 Azure Blob에 저장됩니다.
 
-[Code\3_model_building.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/3_model_building.ipynb): 모델 빌드 노트는 레이블이 지정된 기능 데이터 집합을 사용하고, 데이터를 날짜-시간 스탬프에 따라 학습 및 개발 데이터 집합으로 분할합니다. 이 노트는 pyspark.ml.classification 모델을 사용하는 실험으로 설정됩니다. 학습 데이터는 벡터화됩니다. 사용자는 **DecisionTreeClassifier** 또는 **RandomForestClassifier**로 실험하면서 잘 작동하는 모델을 찾도록 하이퍼 매개 변수를 조작할 수 있습니다. 성능은 개발 데이터 집합에 대한 측정값 통계를 평가하여 결정됩니다. 이러한 통계는 추적을 위해 Machine Learning Workbench 실행 시간 화면에 다시 기록됩니다. 노트는 각 실행의 결과 모델을 Jupyter 노트 커널을 실행하는 로컬 디스크에 저장합니다. 
+[Code\3_model_building.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/3_model_building.ipynb): 모델 빌드 노트는 레이블이 지정된 기능 데이터 세트를 사용하고, 데이터를 날짜-시간 스탬프에 따라 학습 및 개발 데이터 세트로 분할합니다. 이 노트는 pyspark.ml.classification 모델을 사용하는 실험으로 설정됩니다. 학습 데이터는 벡터화됩니다. 사용자는 **DecisionTreeClassifier** 또는 **RandomForestClassifier**로 실험하면서 잘 작동하는 모델을 찾도록 하이퍼 매개 변수를 조작할 수 있습니다. 성능은 개발 데이터 집합에 대한 측정값 통계를 평가하여 결정됩니다. 이러한 통계는 추적을 위해 Machine Learning Workbench 실행 시간 화면에 다시 기록됩니다. 노트는 각 실행의 결과 모델을 Jupyter 노트 커널을 실행하는 로컬 디스크에 저장합니다. 
 
 [Code\4_operationalization.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/4_operationalization.ipynb): 이 노트는 로컬(Jupyter 노트 커널) 디스크에 저장된 마지막 모델을 사용하여 모델을 Azure 웹 서비스로 배포하기 위한 구성 요소를 빌드합니다. 전체 운용 자산은 다른 Azure BLOB 컨테이너에 저장된 o16n.zip 파일로 압축됩니다. 압축 파일에는 다음이 포함됩니다.
 
-* **service_schema.json**: 배포할 스키마 정의 파일입니다. 
+* **service_schema.json**: 배포용 스키마 정의 파일입니다. 
 * **pdmscore.py**: Azure 웹 서비스에 필요한 **init()** 및 **run()** 함수입니다.
 * **pdmrfull.model**: 모델 정의 디렉터리입니다.
     

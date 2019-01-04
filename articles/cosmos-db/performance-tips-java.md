@@ -1,21 +1,20 @@
 ---
-title: Java용 Azure Cosmos DB 성능 팁 | Microsoft Docs
+title: Java용 Azure Cosmos DB 성능 팁
 description: Azure Cosmos DB 데이터베이스 성능 향상을 위한 클라이언트 구성 옵션에 대한 자세한 정보
 keywords: 데이터베이스 성능 개선 방법
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: f0792e220b27ec564c124f610d0616d0873e2d68
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: afbeb8211baea6da363a5e0162e92a0588581346
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447013"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872988"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Java용 Azure Cosmos DB에 대한 성능 팁
 

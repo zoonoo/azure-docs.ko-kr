@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: Node.js를 사용하여 검색 수행 - Bing Web Search API'
+title: '빠른 시작: Node.js를 사용하여 웹 검색 수행 - Bing Web Search REST API'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Node.js를 사용하여 Bing Web Search API를 처음 호출하고 JSON 응답을 받는 방법을 알아봅니다.
+description: 이 빠른 시작을 사용하여 Node.js를 통해 Bing Web Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 9/26/2018
 ms.author: aahi
-ms.openlocfilehash: 4c6e74d4ce9e3c1f9d81e640f7fa8071f73ec776
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 3d8b323a316dcef10a0d7beb5d1d2dd122b0e2ba
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309302"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255587"
 ---
-# <a name="quickstart-use-nodejs-to-call-the-bing-web-search-api"></a>빠른 시작: Node.js를 사용하여 Bing Web Search API 호출  
+# <a name="search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Bing Web Search REST API 및 Node.js를 사용하여 웹 검색
 
 이 빠른 시작을 사용하여 Bing Web Search API를 처음 호출하고 10분 내에 JSON 응답을 받습니다.
 

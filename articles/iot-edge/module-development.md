@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Edge용 모듈 개발 | Microsoft Docs
-description: Azure IoT Edge용 사용자 지정 모듈을 만드는 방법을 알아봅니다.
+description: 런타임 및 IoT Hub과 통신할 수 있는 Azure IoT Edge용 사용자 지정 모듈을 개발합니다.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cb97e2cf6d554753f64afc76de84f43e38443909
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 50e9c0667761e43c63b03fbaf5f8ce93eb49e749
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567233"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100092"
 ---
 # <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>IoT Edge 모듈을 개발하기 위한 요구 사항 및 도구 이해
 
@@ -29,7 +30,7 @@ IoT Edge 허브는 IoT Hub에 프록시 및 로컬 통신이라는 두 가지 �
 IoT Hub는 다음과 같은 점에서 디바이스와 비슷하게 모듈 인스턴스를 표시합니다.
 
 * [디바이스 쌍](../iot-hub/iot-hub-devguide-device-twins.md) 및 해당 디바이스의 다른 모듈 쌍과 별개이며 격리된 모듈 쌍이 있습니다.
-* [장치-클라우드 메시지](../iot-hub/iot-hub-devguide-messaging.md)를 보낼 수 있습니다.
+* [디바이스-클라우드 메시지](../iot-hub/iot-hub-devguide-messaging.md)를 보낼 수 있습니다.
 * 특별히 해당 ID에서 대상으로 지정된 [직접 메서드](../iot-hub/iot-hub-devguide-direct-methods.md)를 받을 수 있습니다.
 
 현재 모듈은 클라우드-장치 메시지를 받거나 파일 업로드 기능을 사용할 수 없습니다.

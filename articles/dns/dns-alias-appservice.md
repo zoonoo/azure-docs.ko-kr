@@ -16,9 +16,9 @@ ms.locfileid: "50980375"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>영역 루트에서 워크로드가 분산된 Azure 웹앱 호스트
 
-DNS 프로토콜은 영역 루트에서 A 또는 AAAA 레코드를 제외한 다른 레코드의 할당을 방지합니다. 예제 영역 루트는 contoso.com입니다. 이 제한은 Traffic Manager 뒤에 워크로드가 분산된 응용 프로그램 있는 응용 프로그램 소유자의 문제를 나타냅니다. 영역 apex 레코드에서 Traffic Manager 프로필을 가리킬 수는 없습니다. 결과적으로, 응용 프로그램 소유자는 해결 방법을 사용해야 합니다. 응용 프로그램 계층에서 리디렉션을 수행하면 영역 apex에서 다른 도메인으로 리디렉션됩니다. contoso.com에서 www.contoso.com으로의 리디렉션을 예로 들 수 있습니다. 이 정렬은 리디렉션 함수에 대한 단일 실패 지점을 나타냅니다.
+DNS 프로토콜은 영역 루트에서 A 또는 AAAA 레코드를 제외한 다른 레코드의 할당을 방지합니다. 예제 영역 루트는 contoso.com입니다. 이 제한은 Traffic Manager 뒤에 워크로드가 분산된 애플리케이션 있는 애플리케이션 소유자의 문제를 나타냅니다. 영역 apex 레코드에서 Traffic Manager 프로필을 가리킬 수는 없습니다. 결과적으로, 애플리케이션 소유자는 해결 방법을 사용해야 합니다. 애플리케이션 계층에서 리디렉션을 수행하면 영역 apex에서 다른 도메인으로 리디렉션됩니다. contoso.com에서 www.contoso.com으로의 리디렉션을 예로 들 수 있습니다. 이 정렬은 리디렉션 함수에 대한 단일 실패 지점을 나타냅니다.
 
-별칭 레코드를 사용하면 이 문제가 더 이상 발생하지 않습니다. 이제 응용 프로그램 소유자는 영역 apex 레코드에서 외부 엔드포인트가 있는 Traffic Manager 프로필을 가리키도록 할 수 있습니다. 응용 프로그램 소유자는 DNS 영역 내 다른 모든 도메인에 사용되는 Traffic Manager 프로필을 가리킬 수 있습니다.
+별칭 레코드를 사용하면 이 문제가 더 이상 발생하지 않습니다. 이제 애플리케이션 소유자는 영역 apex 레코드에서 외부 엔드포인트가 있는 Traffic Manager 프로필을 가리키도록 할 수 있습니다. 애플리케이션 소유자는 DNS 영역 내 다른 모든 도메인에 사용되는 Traffic Manager 프로필을 가리킬 수 있습니다.
 
 예를 들어 contoso.com 및 www.contoso.com은 동일한 Traffic Manager 프로필을 가리킬 수 있습니다. 단, Traffic Manager 프로필에 외부 엔드포인트만 구성되어 있어야 합니다.
 
@@ -45,7 +45,7 @@ Azure DNS에서 도메인을 호스트하기 위한 지침은 [자습서: Azure 
 
 |이름  |운영 체제  |위치  |가격 책정 계층  |
 |---------|---------|---------|---------|
-|ASP-01     |Windows|미국 동부|개발/테스트 D1-공유|
+|ASP-01     | Windows|미국 동부|개발/테스트 D1-공유|
 |ASP-02     |Windows|미국 중부|개발/테스트 D1-공유|
 
 ## <a name="create-app-services"></a>App Services 만들기

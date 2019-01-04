@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 1e9f6778f12f4f6260bfc20c3a78f7929f13405b
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 84780d7c432e818153f964522063f29d8540e0ec
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634535"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434310"
 ---
 # <a name="use-azure-powershell-to-run-apache-pig-jobs-with-hdinsight"></a>Azure PowerShell을 사용하여 HDInsight에서 Apache Pig 작업 실행
 
@@ -22,29 +22,29 @@ ms.locfileid: "51634535"
 
 이 문서에서는 Azure PowerShell을 사용하여 HDInsight의 Apache Hadoop 클러스터에 Apache Pig 작업을 제출하는 예제를 보여줍니다. Pig를 사용하면 매핑하고 함수를 줄이는 대신 데이터 변환을 모델링하는 언어(Pig Latin)를 사용하여 MapReduce 작업을 작성할 수 있습니다.
 
-> [!NOTE]
-> 이 문서에는 예제에 사용된 Pig Latin 문이 수행하는 작업에 대해 자세한 설명을 제공하지 않습니다. 이 예제에 사용된 Pig Latin에 대한 자세한 내용은 [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)을 참조하세요.
+> [!NOTE]  
+> 이 문서에는 예제에 사용된 Pig Latin 문이 수행하는 작업에 대해 자세한 설명을 제공하지 않습니다. 이 예제에 사용된 Pig Latin에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop과 Apache Pig 사용](hdinsight-use-pig.md)을 참조하세요.
 
 ## <a id="prereq"></a>필수 조건
 
 * **Azure HDInsight 클러스터**
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 * **Azure PowerShell이 포함된 워크스테이션**.
 
-## <a id="powershell"></a>Pig 작업 실행
+## <a id="powershell"></a>Apache Pig 작업 실행
 
 Azure PowerShell은 HDInsight에서 Pig 작업을 원격으로 실행할 수 있는 *cmdlet* 을 제공합니다. 내부적으로 PowerShell은 HDInsight 클러스터에서 실행되는 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat)으로 REST 호출을 사용합니다.
 
 다음 cmdlet은 원격 HDInsight 클러스터에서 Pig 작업을 실행할 때 사용됩니다.
 
 * **Connect-AzureRmAccount**: Azure 구독에 대해 Azure PowerShell을 인증합니다.
-* **New-AzureRmHDInsightPigJobDefinition**: 지정한 Pig Latin 문을 사용하여 *작업 정의*를 만듭니다.
+* **New-AzureRmHDInsightPigJobDefinition**: 지정한 Pig Latin 문을 사용하여 작업 정의를 만듭니다.
 * **Start-AzureRmHDInsightJob**: HDInsight에 작업 정의를 보내고 작업을 시작합니다. *작업* 개체가 반환됩니다.
 * **Wait-AzureRmHDInsightJob**: 작업 개체를 사용하여 작업 상태를 확인합니다. 작업이 완료될 때까지 기다리거나 대기 시간이 초과될 때까지 기다립니다.
-* **Get-AzureRmHDInsightJobOutput**: 작업 출력을 검색하는 데 사용됩니다.
+* **Get-AzureRmHDInsightJobOutput**: 작업의 출력을 검색하는 데 사용합니다.
 
 다음 단계는 HDInsight 클러스터에서 작업을 실행하기 위해 이러한 cmdlet을 사용하는 방법에 대해 설명합니다.
 
@@ -90,9 +90,9 @@ Azure PowerShell은 HDInsight에서 Pig 작업을 원격으로 실행할 수 있
 ## <a id="nextsteps"></a>다음 단계
 HDInsight의 Pig에 대한 일반적인 정보:
 
-* [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용](hdinsight-use-pig.md)
 
 HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
-* [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
-* [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 Apache Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)

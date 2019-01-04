@@ -479,7 +479,7 @@ Azure Cosmos DB의 모든 문서에는 고유 ID가 있어야 합니다. `Patien
 
 ### <a name="source-code"></a>소스 코드
 
-Logic Apps 예외 관리 API 응용 프로그램에 대한 소스 코드는 이 [GitHub 리포지토리](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "논리 앱 예외 관리 API")에서 프로젝트의 높은 수준의 비디오를 볼 수 있습니다.
+Logic Apps 예외 관리 API 애플리케이션에 대한 소스 코드는 이 [GitHub 리포지토리](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "논리 앱 예외 관리 API")에서 프로젝트의 높은 수준의 비디오를 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

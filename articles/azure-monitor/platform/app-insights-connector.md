@@ -20,20 +20,20 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/10/2018
 ms.locfileid: "53187852"
 ---
-# <a name="application-insights-connector-management-solution-preview"></a>Application Insights 커넥터관 리 솔루션(미리 보기)
+# <a name="application-insights-connector-management-solution-preview"></a>Application Insights 커넥터관리 솔루션(미리 보기)
 
 ![Application Insights 기호](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
 > [cross-resource queries](../../azure-monitor/log-query/cross-workspace-query.md)를 지원하면 Application Insights 커넥터 관리 솔루션이 더 이상 필요하지 않고 사용되지 않습니다. 7월부터 새 Application Insights 리소스를 Log Analytics 작업 영역에 연결할 수 없게 됩니다. 기존 링크 및 대시보드는 2018년 11월까지 서비스될 예정입니다. 자세한 내용은 [Azure로 이동하는 OMS 포털](../../azure-monitor/platform/oms-portal-transition.md)을 참조하세요.
 
-Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Application Insights](../../application-insights/app-insights-overview.md)를 통해 모니터링하는 경우 사용자가 해당 앱으로 수행하는 작업을 파악하는 데 도움이 됩니다. 개발자가 Application Insights에서 참조하는 것과 동일한 응용 프로그램 원격 분석 뷰를 Log Analytics에서 사용할 수 있습니다. 그러나 Log Analytics와 Application Insights 앱을 통합하는 경우 작업 및 응용 프로그램 데이터가 한 곳에 있게 되므로 응용 프로그램에 대한 가시성이 향상됩니다. 동일한 뷰가 있으면 앱 개발자와 공동 작업을 수행하는 데 도움이 됩니다. 공통 뷰는 응용 프로그램 및 플랫폼 문제를 감지하고 해결하는 데 소요되는 시간을 줄일 수 있습니다.
+Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Application Insights](../../application-insights/app-insights-overview.md)를 통해 모니터링하는 경우 사용자가 해당 앱으로 수행하는 작업을 파악하는 데 도움이 됩니다. 개발자가 Application Insights에서 참조하는 것과 동일한 애플리케이션 원격 분석 뷰를 Log Analytics에서 사용할 수 있습니다. 그러나 Log Analytics와 Application Insights 앱을 통합하는 경우 작업 및 애플리케이션 데이터가 한 곳에 있게 되므로 애플리케이션에 대한 가시성이 향상됩니다. 동일한 뷰가 있으면 앱 개발자와 공동 작업을 수행하는 데 도움이 됩니다. 공통 뷰는 애플리케이션 및 플랫폼 문제를 감지하고 해결하는 데 소요되는 시간을 줄일 수 있습니다.
 
 이 솔루션을 사용하면 다음을 수행할 수 있습니다.
 
 - Application Insights 앱이 서로 다른 Azure 구독에 있는 경우에도 모두 한 곳에서 보기
-- 응용 프로그램 데이터와 인프라 데이터 연결
-- 로그 검색에서 큐브 뷰로 응용 프로그램 데이터 시각화
+- 애플리케이션 데이터와 인프라 데이터 연결
+- 로그 검색에서 큐브 뷰로 애플리케이션 데이터 시각화
 - Azure Portal의 Log Analytics 데이터에서 Application Insights 앱으로 피벗
 
 ## <a name="connected-sources"></a>연결된 소스
@@ -90,22 +90,22 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 | **열** | **설명** |
 | --- | --- |
-| 응용 프로그램 - 응용 프로그램 수 | 응용 프로그램 리소스에 응용 프로그램 수를 표시합니다. 응용 프로그램 이름과 각 항목의 응용 프로그램 레코드 수도 나열합니다. <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code>에 대한 로그 검색을 실행할 번호를 클릭합니다. <br><br>  호스트별 응용 프로그램 레코드, 원격 분석 유형별 레코드 및 형식별 모든 데이터(마지막 날 기준)를 보여 주는 응용 프로그램에 대한 로그 검색을 실행할 응용 프로그램 이름을 클릭합니다. |
-| 데이터 볼륨 - 데이터를 전송하는 호스트 | 데이터를 전송하는 컴퓨터 호스트의 수를 보여 줍니다. 컴퓨터 호스트 및 각 호스트의 레코드 수도 나열합니다. <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code>에 대한 로그 검색을 실행할 번호를 클릭합니다. <br><br> 호스트별 응용 프로그램 레코드, 원격 분석 유형별 레코드 및 형식별 모든 데이터(마지막 날 기준)를 보여 주는 호스트에 대한 로그 검색을 실행할 컴퓨터 이름을 클릭합니다. |
-| 가용성 - 웹 테스트 결과 | 웹 테스트 결과를 성공 또는 실패로 나타내는 도넛형 차트를 보여 줍니다. 차트를 클릭하면 <code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code>에 대한 로그 검색이 실행됩니다. <br><br> 결과는 모든 테스트의 성공 및 실패 수를 보여 줍니다. 마지막 1분 동안 트래픽이 발생한 모든 Web Apps가 표시됩니다. 실패한 웹 테스트에 대한 세부 정보를 보여 주는 로그 검색을 보려면 응용 프로그램 이름을 클릭합니다. |
-| 서버 요청 – 시간당 요청 | 다양한 응용 프로그램의 시간당 서버 요청에 대한 꺾은선형 차트를 보여 줍니다. 차트의 선을 마우스로 가리키면 특정 시점에 요청을 가장 많이 수신한 상위 3개 응용 프로그램이 표시됩니다. 요청을 수신한 응용 프로그램 목록과 선택한 기간의 요청 수도 보여 줍니다. <br><br>다양한 응용 프로그램의 시간당 서버 요청에 대한 더 자세한 꺾은선형 차트를 보여 주는 <code>ApplicationInsights &#124; where TelemetryType == "Request" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code>에 대한 로그 검색을 실행하려면 그래프를 클릭합니다. <br><br> 요청 목록, 시간 및 요청 기간에 따른 요청 차트, 요청 응답 코드 목록을 보여 주는 <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code>에 대한 로그 검색을 실행하려면 목록에서 응용 프로그램을 클릭합니다.   |
-| 실패 - 시간당 실패한 요청 수 | 시간당 실패한 응용 프로그램 요청 수에 대한 꺾은선형 차트를 보여 줍니다. 차트를 마우스로 가리키면 특정 시점에 실패한 요청이 가장 많은 상위 3개 응용 프로그램이 표시됩니다. 각 응용 프로그램의 실패한 요청 수가 표시된 응용 프로그램 목록도 보여 줍니다. 실패한 응용 프로그램 요청을 자세한 꺾은선형 차트로 보여 주는 <code>ApplicationInsights &#124; where TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code>에 대한 로그 검색을 실행하려면 차트를 클릭합니다. <br><br>실패한 요청, 시간 및 요청 기간에 따른 실패한 요청 차트, 실패한 요청 응답 코드 목록을 보여 주는 <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code>에 대한 로그 검색을 실행하려면 목록에서 항목을 클릭합니다. |
-| 예외 – 시간당 예외 | 시간당 예외에 대한 꺾은선형 차트를 보여 줍니다. 차트를 마우스로 가리키면 특정 시점에 예외가 가장 많은 상위 3개 응용 프로그램이 표시됩니다. 각 응용 프로그램의 예외 수가 표시된 응용 프로그램 목록도 보여 줍니다. 예외에 대한 더 자세한 연결 차트를 보여 주는 <code>ApplicationInsights &#124; where TelemetryType == "Exception" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code>에 대한 로그 검색을 실행하려면 차트를 클릭합니다. <br><br>예외 목록, 시간 및 실패한 요청에 따른 예외 차트, 예외 형식 목록을 보여 주는 <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Exception"</code>에 대한 로그 검색을 실행하려면 목록에서 항목을 클릭합니다.  |
+| 애플리케이션 - 애플리케이션 수 | 애플리케이션 리소스에 애플리케이션 수를 표시합니다. 애플리케이션 이름과 각 항목의 애플리케이션 레코드 수도 나열합니다. <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code>에 대한 로그 검색을 실행할 번호를 클릭합니다. <br><br>  호스트별 애플리케이션 레코드, 원격 분석 유형별 레코드 및 형식별 모든 데이터(마지막 날 기준)를 보여주는 애플리케이션에 대한 로그 검색을 실행할 애플리케이션 이름을 클릭합니다. |
+| 데이터 볼륨 - 데이터를 전송하는 호스트 | 데이터를 전송하는 컴퓨터 호스트의 수를 보여 줍니다. 컴퓨터 호스트 및 각 호스트의 레코드 수도 나열합니다. <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code>에 대한 로그 검색을 실행할 번호를 클릭합니다. <br><br> 호스트별 애플리케이션 레코드, 원격 분석 유형별 레코드 및 형식별 모든 데이터(마지막 날 기준)를 보여주는 호스트에 대한 로그 검색을 실행할 컴퓨터 이름을 클릭합니다. |
+| 가용성 - 웹 테스트 결과 | 웹 테스트 결과를 성공 또는 실패로 나타내는 도넛형 차트를 보여 줍니다. 차트를 클릭하면 <code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code>에 대한 로그 검색이 실행됩니다. <br><br> 결과는 모든 테스트의 성공 및 실패 수를 보여 줍니다. 마지막 1분 동안 트래픽이 발생한 모든 Web Apps가 표시됩니다. 실패한 웹 테스트에 대한 세부 정보를 보여주는 로그 검색을 보려면 애플리케이션 이름을 클릭합니다. |
+| 서버 요청 – 시간당 요청 | 다양한 애플리케이션의 시간당 서버 요청에 대한 꺾은선형 차트를 보여줍니다. 차트의 선을 마우스로 가리키면 특정 시점에 요청을 가장 많이 수신한 상위 3개 애플리케이션이 표시됩니다. 요청을 수신한 애플리케이션 목록과 선택한 기간의 요청 수도 보여줍니다. <br><br>다양한 애플리케이션의 시간당 서버 요청에 대한 더 자세한 꺾은선형 차트를 보여주는 <code>ApplicationInsights &#124; where TelemetryType == "Request" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code>에 대한 로그 검색을 실행하려면 그래프를 클릭합니다. <br><br> 요청 목록, 시간 및 요청 기간에 따른 요청 차트, 요청 응답 코드 목록을 보여주는 <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code>에 대한 로그 검색을 실행하려면 목록에서 애플리케이션을 클릭합니다.   |
+| 실패 - 시간당 실패한 요청 수 | 시간당 실패한 애플리케이션 요청 수에 대한 꺾은선형 차트를 보여줍니다. 차트를 마우스로 가리키면 특정 시점에 실패한 요청이 가장 많은 상위 3개 애플리케이션이 표시됩니다. 각 애플리케이션의 실패한 요청 수가 표시된 애플리케이션 목록도 보여줍니다. 실패한 애플리케이션 요청을 자세한 꺾은선형 차트로 보여주는 <code>ApplicationInsights &#124; where TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code>에 대한 로그 검색을 실행하려면 차트를 클릭합니다. <br><br>실패한 요청, 시간 및 요청 기간에 따른 실패한 요청 차트, 실패한 요청 응답 코드 목록을 보여 주는 <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code>에 대한 로그 검색을 실행하려면 목록에서 항목을 클릭합니다. |
+| 예외 – 시간당 예외 | 시간당 예외에 대한 꺾은선형 차트를 보여 줍니다. 차트를 마우스로 가리키면 특정 시점에 예외가 가장 많은 상위 3개 애플리케이션이 표시됩니다. 각 애플리케이션의 예외 수가 표시된 애플리케이션 목록도 보여줍니다. 예외에 대한 더 자세한 연결 차트를 보여 주는 <code>ApplicationInsights &#124; where TelemetryType == "Exception" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code>에 대한 로그 검색을 실행하려면 차트를 클릭합니다. <br><br>예외 목록, 시간 및 실패한 요청에 따른 예외 차트, 예외 형식 목록을 보여 주는 <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Exception"</code>에 대한 로그 검색을 실행하려면 목록에서 항목을 클릭합니다.  |
 
 ### <a name="view-the-application-insights-perspective-with-log-search"></a>로그 검색을 통해 Application Insights 큐브 뷰 보기
 
 대시보드에서 임의의 항목을 클릭하면 검색에 Application Insights 큐브 뷰가 표시됩니다. 큐브 뷰는 선택한 원격 분석 유형에 따라 확장된 시각화를 제공합니다. 따라서 원격 분석 유형에 따라 시각화 콘텐츠가 변경됩니다.
 
-응용 프로그램 블레이드에서 아무 곳이나 클릭하면 기본 **응용 프로그램** 큐브 뷰가 표시됩니다.
+애플리케이션 블레이드에서 아무 곳이나 클릭하면 기본 **애플리케이션** 큐브 뷰가 표시됩니다.
 
-![Application Insights 응용 프로그램 큐브 뷰](./media/app-insights-connector/applications-blade-drill-search.png)
+![Application Insights 애플리케이션 큐브 뷰](./media/app-insights-connector/applications-blade-drill-search.png)
 
-큐브 뷰는 선택한 응용 프로그램에 대한 개요를 보여 줍니다.
+큐브 뷰는 선택한 애플리케이션에 대한 개요를 보여줍니다.
 
 **가용성** 블레이드는 웹 테스트 결과와 관련된 실패한 요청을 볼 수 있는 다양한 큐브 뷰를 보여 줍니다.
 
@@ -119,19 +119,19 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 ![Application Insights 예외 블레이드](./media/app-insights-connector/exceptions-blade-drill-search.png)
 
-항목을 클릭한 위치가 **Application Insights 커넥터** 대시보드인지, **검색** 페이지 내인지 상관없이 Application Insights 데이터를 반환하는 쿼리는 Application Insights 큐브 뷰를 보여 줍니다. 예를 들어 Application Insights 데이터를 보고 있는 경우 **&#42;** 쿼리도 다음 이미지와 같은 큐브 뷰 탭을 보여 줍니다.
+항목을 클릭한 위치가 **Application Insights 커넥터** 대시보드인지, **검색** 페이지 내인지 상관없이 Application Insights 데이터를 반환하는 쿼리는 Application Insights 큐브 뷰를 보여줍니다. 예를 들어 Application Insights 데이터를 보고 있는 경우 **&#42;** 쿼리도 다음 이미지와 같은 큐브 뷰 탭을 보여 줍니다.
 
 ![Application Insights ](./media/app-insights-connector/app-insights-search.png)
 
 큐브 뷰 구성 요소는 검색 쿼리에 따라 업데이트됩니다. 즉, 데이터를 볼 수 있는 기능을 제공하는 검색 필드를 사용하여 결과를 필터링할 수 있습니다.
 
-- 모든 응용 프로그램
-- 선택된 단일 응용 프로그램
-- 응용 프로그램 그룹
+- 모든 애플리케이션
+- 선택된 단일 애플리케이션
+- 애플리케이션 그룹
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>Azure Portal에서 앱에 피벗
 
-Application Insights 커넥터 블레이드는 사용자가 *Azure Portal을 사용하는 경우* 선택한 Application Insights 앱에 피벗할 수 있도록 설계되었습니다. 솔루션을 앱 문제 해결에 도움이 되는 상위 수준 모니터링 플랫폼으로 사용할 수 있습니다. 연결된 응용 프로그램에서 잠재적인 문제가 발견되면 Log Analytics 검색에서 자세히 알아보거나 Application Insights 앱에 직접 피벗할 수 있습니다.
+Application Insights 커넥터 블레이드는 사용자가 *Azure Portal을 사용하는 경우* 선택한 Application Insights 앱에 피벗할 수 있도록 설계되었습니다. 솔루션을 앱 문제 해결에 도움이 되는 상위 수준 모니터링 플랫폼으로 사용할 수 있습니다. 연결된 애플리케이션에서 잠재적인 문제가 발견되면 Log Analytics 검색에서 자세히 알아보거나 Application Insights 앱에 직접 피벗할 수 있습니다.
 
 피벗하려면 각 행의 끝에 표시되는 줄임표(**…**)를 클릭하고 **Open in Application Insights**(Application Insights에서 열기)를 선택합니다.
 
@@ -150,9 +150,9 @@ Application Insights는 *[샘플링 수정](../../application-insights/app-insig
 ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by TelemetryType
 ```
 
-**Sampled Count**(샘플링된 수) 필드는 모든 항목에 있으며 항목이 나타내는 데이터 요소 수를 보여 줍니다. Application Insights 앱에 대해 샘플링이 설정된 경우 **Sampled Count**(샘플링된 수)가 1보다 큽니다. 응용 프로그램에서 생성하는 실제 항목 수를 계산하려면 **Sampled Count**(샘플링된 수) 필드를 합산합니다.
+**Sampled Count**(샘플링된 수) 필드는 모든 항목에 있으며 항목이 나타내는 데이터 요소 수를 보여 줍니다. Application Insights 앱에 대해 샘플링이 설정된 경우 **Sampled Count**(샘플링된 수)가 1보다 큽니다. 애플리케이션에서 생성하는 실제 항목 수를 계산하려면 **Sampled Count**(샘플링된 수) 필드를 합산합니다.
 
-샘플링은 응용 프로그램에서 생성하는 총 항목 수에만 영향을 줍니다. **RequestDuration** 또는 **AvailabilityDuration** 같은 메트릭 필드는 표시된 항목의 평균을 보여 주므로 해당 필드에 대한 샘플링은 수정할 필요가 없습니다.
+샘플링은 애플리케이션에서 생성하는 총 항목 수에만 영향을 줍니다. **RequestDuration** 또는 **AvailabilityDuration** 같은 메트릭 필드는 표시된 항목의 평균을 보여 주므로 해당 필드에 대한 샘플링은 수정할 필요가 없습니다.
 
 ## <a name="input-data"></a>데이터 입력
 
@@ -252,7 +252,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 | URL | 호스트를 포함하지 않는 요청의 URL |
 | 호스트 | 웹 서버 호스트 |
 | URLBase | 요청의 전체 URL |
-| ApplicationProtocol | 응용 프로그램에서 사용되는 프로토콜의 유형 |
+| ApplicationProtocol | 애플리케이션에서 사용되는 프로토콜의 유형 |
 | RequestCount | 100/(샘플링 속도)입니다. 예를 들어 4 =&gt; 25%입니다. |
 | RequestDurationCount | 100/(샘플링 속도)입니다. 예를 들어 4 =&gt; 25%입니다. |
 | RequestDurationMin | 샘플링된 레코드의 경우 이 필드는 표시된 데이터 요소의 최소 요청 기간(밀리초)을 보여 줍니다. |

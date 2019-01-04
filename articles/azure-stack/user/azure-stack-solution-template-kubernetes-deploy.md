@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 5573c7f122360b3bd3adeb9dcca1c827a1933f70
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 07cacc4a127c333e4c19c4979b7520226919c14b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959464"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722399"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Azure Stack에 Kubernetes 배포
 
@@ -68,7 +68,7 @@ Kubernetes에서 사용할 수 있습니다.
 
     ![AD 테 넌 트 선택](media/azure-stack-solution-template-kubernetes-deploy/tenantselector.png)
 
-1. Azure AD 응용 프로그램을 만듭니다.
+1. Azure AD 애플리케이션을 만듭니다.
 
     a. 선택 **Azure Active Directory** > **+ 앱 등록** > **새 응용 프로그램 등록**합니다.
 
@@ -101,7 +101,7 @@ Kubernetes에서 사용할 수 있습니다.
 
 1. Kubernetes 클러스터를 사용 하 여 연산자에 의해 만들어진 구독을 선택 합니다.
 
-1. 선택 **액세스 제어 (IAM)** > 선택 **+ 추가**합니다.
+1. 선택 **액세스 제어 (IAM)** > 선택 **역할 할당 추가**합니다.
 
 1. 선택 된 **참가자** 역할입니다.
 

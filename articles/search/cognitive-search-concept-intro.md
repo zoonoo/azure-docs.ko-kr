@@ -1,5 +1,5 @@
 ---
-title: Azure Search의 데이터 추출, 자연어 AI 처리를 위한 Cognitive Search
+title: 데이터 추출, 자연어 AI 처리를 위한 Cognitive Search - Azure Search
 description: 인식 기술 및 AI 알고리즘을 사용하여 Azure Search 인덱싱에서 검색 가능한 콘텐츠를 만들기 위한 콘텐츠 추출, NLP(자연어 처리) 및 이미지 처리입니다.
 manager: cgronlun
 author: HeidiSteen
@@ -9,14 +9,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: heidist
-ms.openlocfilehash: 68d546fc4c853f1a19230b8aee7e86519aaa7e4c
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 62d2e7af40d6abf6f316789051dfe78f73208eb3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729055"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315611"
 ---
-# <a name="what-is-cognitive-search"></a>Cognitive Search란?
+# <a name="what-is-cognitive-search-in-azure-search"></a>Azure Search에서 "Cognitive Search"란?
 
 Cognitive Search는 인덱싱 파이프라인에 AI 알고리즘을 연결하여 검색할 수 없는 콘텐츠에 대한 검색 가능한 정보를 만듭니다. AI 통합은 검색 인덱스로 이어지는 원본 문서를 보강하는 *인식 기술*을 통해 이루어집니다. 
 
@@ -26,12 +27,14 @@ Cognitive Search는 인덱싱 파이프라인에 AI 알고리즘을 연결하여
 
 ![Cognitive Search 파이프라인 다이어그램](./media/cognitive-search-intro/cogsearch-architecture.png "Cognitive Search 파이프라인 개요")
 
-Azure Search의 인식 기술은 Cognitive Services API에 사용되는 것과 동일한 AI 알고리즘을 기반으로 합니다. [Named Entity Recognition API](cognitive-search-skill-named-entity-recognition.md), [Key Phrase Extraction API](cognitive-search-skill-keyphrases.md) 및 [OCR API](cognitive-search-skill-ocr.md)는 그 중 일부입니다. 
+Azure Search의 인식 기술은 Cognitive Services API에서 사용되는 동일한 AI 알고리즘을 기준으로 합니다. [Named Entity Recognition API](cognitive-search-skill-named-entity-recognition.md), [Key Phrase Extraction API](cognitive-search-skill-keyphrases.md) 및 [OCR API](cognitive-search-skill-ocr.md)는 일부에 불과합니다. 
 
 자연어 및 이미지 처리는 Azure Search에서 검색 가능한 인덱스에 문서의 컴퍼지션의 일부가 되는 결과를 사용하여 데이터 수집 단계 동안 적용됩니다. 데이터는 Azure 데이터 집합으로 소싱된 다음, 필요한 [기본 제공 기술](cognitive-search-predefined-skills.md)을 사용하여 인덱싱 파이프라인을 통해 푸시됩니다. 아키텍처는 확장이 가능하므로 기본 제공 기술이 충분하지 않은 경우 사용자 지정 처리를 통합하도록 [사용자 지정 기술](cognitive-search-create-custom-skill-example.md)을 만들고 연결할 수 있습니다. 예에는 금융, 과학 출판물 또는 의약품과 같은 특정 도메인을 대상으로 하는 사용자 지정 엔터티 모듈 또는 문서 분류자가 있습니다.
 
 > [!NOTE]
-> 인식 검색은 현재 공개 미리 보기로 제공됩니다. 기능 실행과 이미지 추출 및 정규화는 현재 무료로 제공됩니다. 이러한 기능의 가격은 추후에 발표될 예정입니다. 
+> 2018년 12월 21일부터 Cognitive Services 리소스를 Azure Search 기술과 연결할 수 있습니다. 이를 통해 Microsoft는 기술 실행 요금을 부과할 수 있습니다. 또한 문서 해독 단계의 일부로 이미지 추출에 대한 요금 청구가 이 날짜에서 시작됩니다. 문서에서의 텍스트 추출은 추가 비용 없이 계속 제공됩니다.
+>
+> 기본 제공 기술의 실행에 대한 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격은 미리 보기 가격으로 책정되며 [Azure Search 가격 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다. [자세히](cognitive-search-attach-cognitive-services.md) 알아봅니다.
 
 ## <a name="components-of-cognitive-search"></a>Cognitive Search의 구성 요소
 
@@ -78,7 +81,7 @@ Cognitive Search 파이프라인은 데이터 원본을 탐색하고 종단간 �
 | 데이터 추출 | 광범위한 처리를 포함하지만 Cognitive Search에 속하는 명명된 엔터티 인식 기술은 해당 정보를 기본적으로 제공하지 않는 원본으로부터 데이터(엔터티)를 추출하는 데 가장 일반적으로 사용됩니다. | [명명된 엔터티 인식 기술](cognitive-search-skill-named-entity-recognition.md)| 
 | 이미지 처리 | 이정표를 인식하는 기능, 이미지에서 텍스트를 추출하는 기능처럼 이미지의 텍스트를 유추합니다. 일반적인 예에는 스캔한 문서(JPEG) 파일에서 문자를 인식하거나 도로 표지판이 포함된 사진에서 거리 이름을 인식하는 OCR이 있습니다. | [이미지 분석 기술](cognitive-search-skill-image-analysis.md) 또는 [OCR 기술](cognitive-search-skill-ocr.md)
 | 자연어 처리 | 입력 텍스트에 대한 정보 및 인사이트를 위한 텍스트 처리입니다. 언어 감지, 감정 분석 및 핵심 구 추출은 자연어 처리에 해당하는 기술입니다.  | [핵심 구 추출 기술](cognitive-search-skill-keyphrases.md), [언어 감지 기술](cognitive-search-skill-language-detection.md), [감정 분석 기술](cognitive-search-skill-sentiment.md) |
-| 문서 크래킹 | 인덱싱 중에 텍스트가 아닌 원본에서 텍스트 콘텐츠를 추출하거나 만드는 프로세스입니다. OCR(광학 문자 인식)은 하나의 예이며, 일반적으로 인덱서가 응용 프로그램 파일에서 콘텐츠를 추출하는 핵심 인덱서 기능을 말합니다. 원본 파일 위치를 제공하는 데이터 원본과 필드 매핑을 제공하는 인덱서 정의는 문서 크래킹의 핵심 요소입니다. | [인덱서](search-indexer-overview.md)를 참조하세요. |
+| 문서 크래킹 | 인덱싱 중에 텍스트가 아닌 원본에서 텍스트 콘텐츠를 추출하거나 만드는 프로세스입니다. OCR(광학 문자 인식)은 하나의 예이며, 일반적으로 인덱서가 애플리케이션 파일에서 콘텐츠를 추출하는 핵심 인덱서 기능을 말합니다. 원본 파일 위치를 제공하는 데이터 원본과 필드 매핑을 제공하는 인덱서 정의는 문서 크래킹의 핵심 요소입니다. | [인덱서](search-indexer-overview.md)를 참조하세요. |
 | 셰이핑 | 추가적인 다운스트림 처리를 위해 텍스트 조각을 더 큰 구조에 통합하거나 반대로 큰 텍스트 청크를 처리할 수 있는 크기로 분해합니다. | [쉐이퍼 기술](cognitive-search-skill-shaper.md), [텍스트 병합기 기술](cognitive-search-skill-textmerger.md), [텍스트 분할 기술](cognitive-search-skill-textsplit.md) |
 | 보강된 문서 | 코드로 직접 액세스할 수 없는 일시적인 내부 구조입니다. 처리 중에 보강된 문서가 생성되지만 최종 출력만 검색 인덱스에 유지됩니다. 필드 매핑은 인덱스에 추가할 데이터 요소를 결정합니다. | [보강된 문서에 액세스](cognitive-search-tutorial-blob.md#access-enriched-document)를 참조하세요. |
 | 인덱서 |  외부 데이터 원본에서 검색 가능한 데이터 및 메타데이터를 추출하고 문서 크래킹을 위한 인덱스와 데이터 원본 간의 필드 간 매핑에 따라 인덱스를 채우는 크롤러입니다. Cognitive Search 보강을 위해 인덱서는 기술 집합을 호출하고 인덱스의 대상 필드에 보강 출력을 연결하는 필드 매핑을 포함합니다. 인덱서 정의에는 파이프라인 작업에 대한 모든 지침과 참조가 포함되며 인덱서를 실행하면 파이프라인이 호출됩니다. | [인덱서](search-indexer-overview.md) |
@@ -90,8 +93,19 @@ Cognitive Search 파이프라인은 데이터 원본을 탐색하고 종단간 �
 
 **1단계: API가 제공되는 지역에 검색 서비스 만들기** 
 
++ 미국 중서부
 + 미국 중남부
++ 미국 동부
++ 미국 동부 2
++ 미국 서부 2
++ 캐나다 중부
 + 서유럽
++ 영국 남부
++ 북유럽
++ 브라질 남부
++ 동남아시아
++ 인도 중부
++ 오스트레일리아 동부
 
 **2단계: 워크플로를 완벽하게 습득하기 위한 실무 경험**
 

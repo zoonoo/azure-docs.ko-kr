@@ -1,26 +1,27 @@
 ---
-title: '자습서 4: 정확한 텍스트 일치 - LUIS 목록 엔터티'
+title: 정확히 일치하는 텍스트
 titleSuffix: Azure Cognitive Services
 description: 미리 정의된 항목 목록과 일치하는 데이터를 가져옵니다. 목록의 각 항목과 정확하게 일치하는 동의어가 있을 수 있음
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a4e294687b6c3ea2ba6ff8003e7a8f1ac69ea639
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 5706e0b124bb9ceaf1abf7228faf088dc4e510ce
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425074"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096692"
 ---
-# <a name="tutorial-4-extract-exact-text-matches"></a>자습서 4: 정확하게 일치하는 텍스트 추출
+# <a name="tutorial-4-extract-exact-text-matches"></a>자습서 4: 정확한 텍스트 일치 항목 추출
 이 자습서에서는 미리 정의된 항목 목록과 일치하는 데이터를 가져오는 방법을 설명합니다. 목록의 각 항목은 동의어 목록을 포함할 수 있습니다. 인사 관리 앱의 경우 이름, 이메일, 전화 번호, 미국 연방 세금 ID 등의 여러 핵심 정보 조각으로 직원을 식별할 수 있습니다. 
 
-인사 관리 앱은 한 건물에서 다른 건물로 이동하는 직원이 누구인지 확인해야 합니다. 직원 이동에 대한 발언의 경우 LUIS는 의도를 확인하고, 직원을 이동하는 표준 순서를 클라이언트 응용 프로그램에서 만들 수 있도록 직원을 추출합니다.
+인사 관리 앱은 한 건물에서 다른 건물로 이동하는 직원이 누구인지 확인해야 합니다. 직원 이동에 대한 발언의 경우 LUIS는 의도를 확인하고, 직원을 이동하는 표준 순서를 클라이언트 애플리케이션에서 만들 수 있도록 직원을 추출합니다.
 
 이 앱은 목록 엔터티를 사용하여 직원을 추출합니다. 이름, 회사 내선 번호, 휴대폰 번호, 이메일 또는 미국 사회 보장 번호를 사용하여 직원을 참조할 수 있습니다. 
 
@@ -106,11 +107,11 @@ ms.locfileid: "52425074"
 
 3. 엔터티 팝업 대화 상자에서 엔터티 이름으로 `Employee`를 입력하고 엔터티 형식으로 **목록**을 입력합니다. **완료**를 선택합니다.  
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "새 엔터티 만들기 대화 상자의 스크린샷")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
+    [![새 엔터티 만들기 대화 상자의 스크린샷](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "새 엔터티 만들기 대화 상자의 스크린샷")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
 
 4. 직원 엔터티 페이지에서 새 값으로 `Employee-24612`를 입력합니다.
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "값을 입력하는 스크린샷")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
+    [![값을 입력하는 스크린샷](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "값을 입력하는 스크린샷")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
 
 5. 동의어로 다음 값을 추가합니다.
 
@@ -122,7 +123,7 @@ ms.locfileid: "52425074"
     |개인 휴대폰 번호|425-555-1212|
     |미국 사회 보장 번호|123-45-6789|
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "동의어를 입력하는 스크린샷")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
+    [![동의어를 입력하는 스크린샷](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "동의어를 입력하는 스크린샷")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 6. 새 값으로 `Employee-45612`를 입력합니다.
 
@@ -150,7 +151,7 @@ ms.locfileid: "52425074"
 
 2. 주소의 URL 끝으로 이동하고 `shift 123-45-6789 from Z-1242 to T-54672`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 `q`, 발화 **q** 쿼리입니다. 이 발언은 레이블이 지정된 발언과 같지 않으므로 유용한 테스트이며, `Employee`가 추출된 `MoveEmployee`를 반환해야 합니다.
 
-  ```JSON
+  ```json
   {
     "query": "shift 123-45-6789 from Z-1242 to T-54672",
     "topScoringIntent": {

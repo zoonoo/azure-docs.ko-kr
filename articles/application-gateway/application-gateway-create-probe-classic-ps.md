@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 97d1376dc7908b72d8e8ec15145229cf3cf4acae
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 2b661968fd64f4d2a61bc59f9b99b1eea6b01f86
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33201949"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997280"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>PowerShell을 사용하여 Azure Application Gateway(클래식)에 대한 사용자 지정 프로브 만들기
 
@@ -29,26 +29,26 @@ ms.locfileid: "33201949"
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure 클래식 PowerShell](application-gateway-create-probe-classic-ps.md)
 
-이 문서에서는 PowerShell을 사용하여 기존 응용 프로그램 게이트웨이에 사용자 지정 프로브를 추가합니다. 사용자 지정 프로브는 특정 상태 확인 페이지를 사용하는 응용 프로그램이나 기본 웹 응용 프로그램에서 성공적으로 응답을 제공하지 않는 응용 프로그램에 유용합니다.
+이 문서에서는 PowerShell을 사용하여 기존 애플리케이션 게이트웨이에 사용자 지정 프로브를 추가합니다. 사용자 지정 프로브는 특정 상태 확인 페이지를 사용하는 애플리케이션이나 기본 웹 애플리케이션에서 성공적으로 응답을 제공하지 않는 애플리케이션에 유용합니다.
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 모델을 사용하여 이러한 단계를 수행하는](application-gateway-create-probe-ps.md) 방법을 알아봅니다.
+> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 모델을 사용하여 이러한 단계를 수행하는](application-gateway-create-probe-ps.md) 방법을 알아봅니다.
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 ## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
 
-응용 프로그램 게이트웨이를 만들려면
+애플리케이션 게이트웨이를 만들려면:
 
 1. 응용 프로그램 게이트웨이 리소스를 만듭니다.
 2. 구성 XML 파일 또는 구성 개체를 만듭니다.
 3. 구성을 새로 만든 응용 프로그램 게이트웨이 리소스에 커밋합니다.
 
-### <a name="create-an-application-gateway-resource-with-a-custom-probe"></a>사용자 지정 프로브를 사용하여 응용 프로그램 게이트웨이 리소스 만들기
+### <a name="create-an-application-gateway-resource-with-a-custom-probe"></a>사용자 지정 프로브를 사용하여 애플리케이션 게이트웨이 리소스 만들기
 
 게이트웨이를 생성하려면 `New-AzureApplicationGateway` cmdlet을 사용하여 해당 값을 원하는 값으로 바꿉니다. 게이트웨이에 대한 청구는 이 시점에서 시작되지 않습니다. 게이트웨이가 성공적으로 작동되면, 요금청구가 시작됩니다.
 
-다음 예제에서는 "testvnet1"이라는 가상 네트워크 및 "subnet-1"이라는 서브넷을 사용하여 응용 프로그램 게이트웨이를 만듭니다.
+다음 예제에서는 "testvnet1"이라는 가상 네트워크 및 "subnet-1"이라는 서브넷을 사용하여 애플리케이션 게이트웨이를 만듭니다.
 
 ```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -67,14 +67,14 @@ Get-AzureApplicationGateway AppGwTest
 
 게이트웨이가 아직 시작되지 않았으므로 *VirtualIPs* 및 *DnsName*이 빈 값으로 표시됩니다. 이 값들은 게이트웨이가 실행 상태가 되면 생성됩니다.
 
-### <a name="configure-an-application-gateway-by-using-xml"></a>XML을 사용하여 응용 프로그램 게이트웨이 구성
+### <a name="configure-an-application-gateway-by-using-xml"></a>XML을 사용하여 애플리케이션 게이트웨이 구성
 
-다음 예제에서는 XML 파일을 사용하여 모든 응용 프로그램 게이트웨이 설정을 구성하고 응용 프로그램 게이트웨이 리소스에 커밋합니다.  
+다음 예제에서는 XML 파일을 사용하여 모든 애플리케이션 게이트웨이 설정을 구성하고 애플리케이션 게이트웨이 리소스에 커밋합니다.  
 
 다음 텍스트를 메모장에 복사합니다.
 
 ```xml
-<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+<ApplicationGatewayConfiguration xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
 <FrontendIPConfigurations>
     <FrontendIPConfiguration>
         <Name>fip1</Name>
@@ -139,7 +139,7 @@ Get-AzureApplicationGateway AppGwTest
 
 구성 항목에 대한 괄호 사이의 값을 편집합니다. 확장명이 .xml인 파일을 저장합니다.
 
-다음 예제에서는 구성 파일을 사용하여 공용 포트 80에서 HTTP 트래픽의 부하를 분산하는 응용 프로그램 게이트웨이를 설정하고 사용자 지정 프로브를 사용하여 두 IP 주소 사이의 백 엔드 포트 80으로 네트워크 트래픽을 전송하는 방법을 보여 줍니다.
+다음 예제에서는 구성 파일을 사용하여 공용 포트 80에서 HTTP 트래픽의 부하를 분산하는 애플리케이션 게이트웨이를 설정하고 사용자 지정 프로브를 사용하여 두 IP 주소 사이의 백 엔드 포트 80으로 네트워크 트래픽을 전송하는 방법을 보여 줍니다.
 
 > [!IMPORTANT]
 > Http 또는 Https 프로토콜 항목은 대 소문자를 구분합니다.
@@ -152,16 +152,16 @@ Get-AzureApplicationGateway AppGwTest
 |---|---|
 |**Name** |사용자 지정 프로브에 대한 참조 이름입니다. |
 * **Protocol** | 사용되는 프로토콜입니다(가능한 값: HTTP 또는 HTTPS).|
-| **Host** 및 **Path** | 응용 프로그램 게이트웨이에서 인스턴스 상태를 확인하기 위해 호출하는 완전한 URL 경로입니다. 예: 웹 사이트가 http://contoso.com/인 경우 프로브를 확인하여 성공적으로 HTTP에 응답하도록 "http://contoso.com/path/custompath.htm"에 대해 사용자 지정 프로브를 구성할 수 있습니다.|
+| **Host** 및 **Path** | 애플리케이션 게이트웨이에서 인스턴스 상태를 확인하기 위해 호출하는 완전한 URL 경로입니다. 예: 웹 사이트가 http://contoso.com/인 경우 프로브를 확인하여 성공적으로 HTTP에 응답하도록 "http://contoso.com/path/custompath.htm"에 대해 사용자 지정 프로브를 구성할 수 있습니다.|
 | **간격** | 프로브 간격 확인을 구성합니다(단위: 초).|
 | **시간 제한** | HTTP 응답 확인에 대한 프로브 시간 제한을 정의합니다.|
 | **UnhealthyThreshold** | 백 엔드 인스턴스를 *unhealthy*(비정상) 플래그로 지정하는 데 필요한 실패한 HTTP 응답 수입니다.|
 
 프로브 이름은 사용자 지정 프로브 설정에 사용할 백 엔드 풀을 할당하는 \<BackendHttpSettings\> 구성에서 참조합니다.
 
-## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>기존 응용 프로그램 게이트웨이에 사용자 지정 프로브 추가
+## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>기존 애플리케이션 게이트웨이에 사용자 지정 프로브 추가
 
-현재 응용 프로그램 게이트웨이 구성 변경에 필요한 세 단계는 현재 XML 구성 파일 가져오기, 사용자 지정 프로브 수정 및 새 XML 설정으로 응용 프로그램 게이트웨이 구성입니다.
+애플리케이션 게이트웨이의 현재 구성을 변경하는 데는 다음의 세 단계가 필요합니다. 현재 XML 구성 파일 가져오기, 사용자 지정 프로브 수정 및 새 XML 설정으로 애플리케이션 게이트웨이 구성
 
 1. `Get-AzureApplicationGatewayConfig`을 사용하여 XML 파일을 가져옵니다. 이 cmdlet은 프로브 설정을 추가하기 위해 수정할 XML 구성을 내보냅니다.
 
@@ -200,7 +200,7 @@ Get-AzureApplicationGateway AppGwTest
 
   XML 파일을 저장합니다.
 
-1. `Set-AzureApplicationGatewayConfig`을 사용하여 새 XML 파일로 Application Gateway 구성을 업데이트합니다. 이 cmdlet은 Application Gateway를 새 구성으로 업데이트합니다.
+1. `Set-AzureApplicationGatewayConfig`을 사용하여 새 XML 파일로 Application Gateway 구성을 업데이트합니다. 이 cmdlet은 애플리케이션 게이트웨이를 새 구성으로 업데이트합니다.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
@@ -208,7 +208,7 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 ## <a name="next-steps"></a>다음 단계
 
-SSL(Secure Sockets Layer) 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 응용 프로그램 게이트웨이 구성](application-gateway-ssl.md)을 참조하세요.
+SSL(Secure Sockets Layer) 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 애플리케이션 게이트웨이 구성](application-gateway-ssl.md)을 참조하세요.
 
-내부 부하 분산 장치에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
+내부 부하 분산 장치에서 사용되도록 애플리케이션 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 애플리케이션 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
 

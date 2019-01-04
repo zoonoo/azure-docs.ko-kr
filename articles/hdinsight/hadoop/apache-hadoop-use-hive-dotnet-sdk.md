@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 790cc11e3d4cf1d0260b1099efd82bdddec85785
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: d3c9c8eab0ce13aee5dbe7bdb732d45555e547fb
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634569"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407170"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 Apache Hive 쿼리 실행
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
 HDInsight.NET SDK를 사용하여 Apache Hive 쿼리를 제출하는 방법에 대해 알아봅니다. Hive 테이블을 나열하기 위한 Hive 쿼리를 제출한 후 결과를 표시하는 C# 프로그램을 작성합니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 이 문서의 단계는 Windows 클라이언트에서 수행되어야 합니다. Hive와 함께 작동하도록 Linux, OS X 또는 Unix 클라이언트를 사용하는 방법에 대한 정보를 보려면 문서 맨 위에 표시된 탭 선택기를 사용합니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -29,8 +29,8 @@ HDInsight.NET SDK를 사용하여 Apache Hive 쿼리를 제출하는 방법에 �
 
 * **HDInsight의 Apache Hadoop 클러스터** [HDInsight에서 Linux 기반 Hadoop 사용 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
-    > [!WARNING]
-    > 2017년 9월 15일부터 HDInsight .NET SDK는 Azure Storage 계정의 Hive 쿼리 결과만 반환할 수 있습니다. Azure Data Lake Store를 주 저장소로 사용하는 HDInsight 클러스터에서 이 예제를 사용하면 .NET SDK를 사용하여 검색 결과를 검색할 수 없습니다.
+    > [!WARNING]  
+    > 2017년 9월 15일부터 HDInsight .NET SDK는 Azure Storage 계정의 Hive 쿼리 결과만 반환할 수 있습니다. Azure Data Lake Storage를 주 스토리지로 사용하는 HDInsight 클러스터에서 이 예제를 사용하면 .NET SDK를 사용하여 검색 결과를 검색할 수 없습니다.
 
 * **Visual Studio 2013/2015/2017**
 
@@ -39,7 +39,7 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 
 **작업을 제출하려면**
 
-1. Visual Studio를 사용하여 C# 콘솔 응용 프로그램을 만듭니다.
+1. Visual Studio를 사용하여 C# 콘솔 애플리케이션을 만듭니다.
 2. NuGet 패키지 관리자 콘솔에서 다음 명령을 실행합니다.
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
@@ -130,7 +130,7 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
     ```
 4. **F5** 키를 눌러 응용 프로그램을 실행합니다.
 
-응용 프로그램의 출력은 다음과 유사합니다.
+애플리케이션의 출력은 다음과 유사합니다.
 
 ![HDInsight Hadoop Hive 작업 출력](./media/apache-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png)
 
@@ -138,11 +138,11 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 이 문서에서는 HDInsight 클러스터를 만드는 여러 가지 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure HDInsight 시작](apache-hadoop-linux-tutorial-get-started.md)
-* [HDInsight에서 Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)
-* [Azure Portal을 사용하여 HDInsight의 Hadoop 클러스터 관리](../hdinsight-administer-use-management-portal.md)
+* [HDInsight에 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)
+* [Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](../hdinsight-administer-use-management-portal.md)
 * [HDInsight .NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
-* [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
-* [HDInsight에서 Sqoop 사용](apache-hadoop-use-sqoop-mac-linux.md)
+* [HDInsight에서 Apache Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Apache Sqoop 사용](apache-hadoop-use-sqoop-mac-linux.md)
 * [비대화형 인증 .NET HDInsight 응용 프로그램 만들기](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
  
 

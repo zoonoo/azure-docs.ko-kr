@@ -4,14 +4,14 @@ description: Azure Migrate에 대한 질문과 대답 해결
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 12/05/2018
 ms.author: snehaa
-ms.openlocfilehash: 2f04fe103d010a64a77b7d80730cf80007c3c126
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ebc4393341341b3b73165a166a650ae1a6f431ff
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256378"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257797"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - FAQ(질문과 대답)
 
@@ -46,9 +46,14 @@ Azure Migrate는 마이그레이션 계획 도구이며 Azure Site Recovery Depl
 
 **VMware/Hyper-V에서 Azure로의 재해 복구**: Azure Site Recovery(Site Recovery)를 사용하여 Azure에서 DR(재해 복구)을 수행하려는 경우 DR 계획에 Site Recovery Deployment Planner를 사용합니다. Site Recovery Deployment Planner는 온-프레미스 환경에 대한 심도 있는 ASR 특정 평가를 수행합니다. 가상 머신의 복제, 장애 조치(failover) 등 성공적인 DR 작업을 위해 Site Recovery에 필요한 권장 사항을 제공합니다.  
 
-### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Azure Migrate에서 지원되는 Azure 지역은 어디인가요?
+### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Azure Migrate에서 지원되는 Azure 지역은 어디인가요?
 
-Azure Migrate는 현재 마이그레이션 프로젝트 위치로 미국 동부 및 미국 중서부를 지원합니다. 미국 중서부 및 미국 동부에서만 마이그레이션 프로젝트를 만들 수 있더라도 [여러 대상 위치](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties)에 대해 여전히 컴퓨터를 평가할 수 있습니다. 프로젝트 위치는 검색된 데이터를 저장하는 데에만 사용됩니다.
+Azure Migrate는 현재 미국 및 Azure Government를 프로젝트 지역으로 지원합니다. 이러한 지역에서만 마이그레이션 프로젝트를 만들 수 있더라도 여전히 [여러 대상 위치](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties)에 대해 머신을 평가할 수 있습니다. 프로젝트 지역은 검색된 메타데이터를 저장하는 데만 사용됩니다.
+
+**지리** | **메타데이터 스토리지 위치**
+--- | ---
+미국 | 미국 중서부 또는 미국 동부
+Azure Government | 미국 정부 버지니아
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>온-프레미스 사이트에서 Azure Migrate로 연결하려면 어떻게 하나요?
 
@@ -137,9 +142,12 @@ Azure Migrate는 어플라이언스 기반 검색 및 에이전트 기반 검색
 Azure Migrate는 현재 [기업 계약 제품](https://azure.microsoft.com/offers/enterprise-agreement-support/)에 대해 비용 예측을 지원하지 않습니다. 해결 방법은 종량제를 제품에 지정하고 평가 속성의 ‘할인’ 필드에 할인율(구독에 적용)을 수동으로 지정하는 것입니다.
 
   ![할인](./media/resources-faq/discount.png)
-  
+
 
 ## <a name="dependency-visualization"></a>종속성 시각화
+
+> [!NOTE]
+> Azure Government에서는 종속성 시각화 기능을 사용할 수 없습니다.
 
 ### <a name="what-is-dependency-visualization"></a>종속성 시각화란?
 
@@ -147,11 +155,11 @@ Azure Migrate는 현재 [기업 계약 제품](https://azure.microsoft.com/offer
 
 ### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>종속성 시각화 기능을 사용하면 비용을 지불해야 하나요?
 
-아니요. [여기](https://azure.microsoft.com/pricing/details/azure-migrate/)에서 Azure Migrate 가격 책정에 대해 자세히 알아보세요.
+ 아니요. [여기](https://azure.microsoft.com/pricing/details/azure-migrate/)에서 Azure Migrate 가격 책정에 대해 자세히 알아보세요.
 
 ### <a name="do-i-need-to-install-anything-for-dependency-visualization"></a>종속성 시각화를 사용하려면 무엇을 설치해야 하나요?
 
-종속성 시각화를 사용하려면 평가할 각 온-프레미스 머신에 에이전트를 다운로드하여 설치해야 합니다. 
+종속성 시각화를 사용하려면 평가할 각 온-프레미스 머신에 에이전트를 다운로드하여 설치해야 합니다.
 
 - 각 머신에 [MMA(Microsoft Monitoring Agent)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)를 설치해야 합니다.
 - 각 머신에 [종속성 에이전트](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure)를 설치해야 합니다.

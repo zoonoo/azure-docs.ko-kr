@@ -218,7 +218,7 @@
 ##### [일반적인 문제 - 갤러리 앱](manage-apps/adding-gallery-app-common-problems.md)
 ##### [일반적인 문제 - 비갤러리 앱](manage-apps/adding-non-gallery-app-common-problems.md)
 
-#### 응용 프로그램 프록시
+#### 애플리케이션 프록시
 ##### [앱 페이지를 표시할 때 문제](manage-apps/application-proxy-page-appearance-broken-problem.md)
 ##### [너무 긴 응용 프로그램 로드](manage-apps/application-proxy-page-load-speed-problem.md)
 ##### [응용 프로그램 페이지에서 링크가 작동하지 않음](manage-apps/application-proxy-page-links-broken-problem.md)
@@ -233,7 +233,7 @@
 ##### [응용 프로그램 프록시 에이전트 커넥터 설치 시 문제](manage-apps/application-proxy-connector-installation-problem.md)
 
 
-#### 응용 프로그램 등록
+#### 애플리케이션 등록
 ##### [응용 프로그램 개체에 대한 필드 입력](develop/registration-config-specific-application-property-how-to.md)
 ##### [토큰 수명 기본값 변경](develop/registration-config-change-token-lifetime-how-to.md)
 

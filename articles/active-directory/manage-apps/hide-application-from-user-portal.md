@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory의 사용자 환경에서 응용 프로그램 숨기기 | Microsoft Docs
-description: Azure Active Directory 액세스 패널 또는 Office 365 시작 관리자의 사용자 환경에서 응용 프로그램을 숨기는 방법입니다.
+title: Azure Active Directory의 사용자 환경에서 애플리케이션 숨기기 | Microsoft Docs
+description: Azure Active Directory 액세스 패널 또는 Office 365 시작 관리자의 사용자 환경에서 애플리케이션을 숨기는 방법입니다.
 services: active-directory
 author: barbkess
 manager: mtillman

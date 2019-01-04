@@ -107,7 +107,7 @@ sections:
 - title: 단계별 자습서
   items:
   - type: paragraph
-    text: Azure에서 보안 웹 응용 프로그램을 배포, 관리 및 모니터링하는 방법을 알아봅니다.
+    text: Azure에서 보안 웹 애플리케이션을 배포, 관리 및 모니터링하는 방법을 알아봅니다.
   - type: list
     style: ordered
     items:
@@ -121,7 +121,7 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: Azure App 서비스를 사용하는 웹 응용 프로그램 호스트
+    - title: Azure App 서비스를 사용하는 웹 애플리케이션 호스트
       href: /learn/modules/host-a-web-app-with-azure-app-service/
       image:
         src: /learn/achievements/host-a-web-app-with-azure-app-service.svg

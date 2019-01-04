@@ -26,7 +26,7 @@ ms.locfileid: "49352951"
 Azure Cloud Shell은 Azure 리소스에 대한 관리 ID를 통한 인증을 지원합니다. Azure 서비스와 안전하게 통신하기 위해 이를 활용하여 액세스 토큰을 검색합니다.
 
 ## <a name="about-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID 정보
-클라우드 응용 프로그램을 빌드할 때 일반적으로 발생하는 문제 중 하나는 클라우드 서비스에 인증하기 위해 코드에 포함해야 하는 자격 증명을 안전하게 관리하는 방법입니다. Cloud Shell에서는 스크립트에 필요할 수 있는 자격 증명을 위해 Key Vault에서 검색을 인증해야 할 수 있습니다.
+클라우드 애플리케이션을 빌드할 때 일반적으로 발생하는 문제 중 하나는 클라우드 서비스에 인증하기 위해 코드에 포함해야 하는 자격 증명을 안전하게 관리하는 방법입니다. Cloud Shell에서는 스크립트에 필요할 수 있는 자격 증명을 위해 Key Vault에서 검색을 인증해야 할 수 있습니다.
 
 Azure 리소스에 대한 관리 ID를 사용하면 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공하여 이 문제를 더 간편하게 해결할 수 있습니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
 

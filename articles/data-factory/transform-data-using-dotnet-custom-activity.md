@@ -93,7 +93,7 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
   }
 ```
 
-이 샘플에서 helloworld.exe는 resourceLinkedService에 사용되는 Azure Storage 계정의 customactv2/helloworld 폴더에 저장된 사용자 지정 응용 프로그램입니다. 사용자 지정 작업은 Azure Batch에서 실행될 이 사용자 지정 응용 프로그램을 제출합니다. Azure Batch 풀 노드의 대상 운영 체제에서 실행될 수 있는 기본 응용 프로그램에 대한 명령을 바꿀 수 있습니다. 
+이 샘플에서 helloworld.exe는 resourceLinkedService에 사용되는 Azure Storage 계정의 customactv2/helloworld 폴더에 저장된 사용자 지정 애플리케이션입니다. 사용자 지정 작업은 Azure Batch에서 실행될 이 사용자 지정 애플리케이션을 제출합니다. Azure Batch 풀 노드의 대상 운영 체제에서 실행될 수 있는 기본 애플리케이션에 대한 명령을 바꿀 수 있습니다. 
 
 다음 표에는 이 작업과 관련된 속성 이름과 설명이 나와 있습니다. 
 
@@ -103,11 +103,11 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 | description           | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니요       |
 | 형식                  | 사용자 지정 작업의 경우 작업 유형은 **사용자 지정**입니다. | yes      |
 | linkedServiceName     | Azure Batch에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요.  | yes      |
-| command               | 실행할 사용자 지정 응용 프로그램의 명령입니다. Azure Batch 풀 노드에 사용할 수 있는 응용 프로그램이 이미 있으면 resourceLinkedService 및 folderPath를 건너뛸 수 있습니다. 예를 들어 명령을 기본적으로 Windows Batch 풀 노드에 의해 지원되는 `cmd /c dir`로 지정할 수 있습니다. | yes      |
-| resourceLinkedService | 사용자 지정 응용 프로그램이 저장된 저장소 계정에 대한 Azure Storage 연결된 서비스입니다. | 아니요       |
-| folderPath            | 사용자 지정 응용 프로그램 및 모든 해당 종속성 폴더에 대한 경로입니다.<br/><br/>종속성이 하위 폴더(즉, *folderPath* 아래의 계층 폴더 구조)에 저장된 경우, 해당 파일이 Azure Batch에 복사될 때 폴더 구조가 손쉽게 평면화됩니다. 즉, 모든 파일이 하위 폴더가 없는 단일 폴더에 복사됩니다. 이 동작을 해결하려면 파일을 압축하고 압축 파일을 복사한 다음, 원하는 위치에서 사용자 지정 코드로 압축을 푸세요. | 아니요       |
+| command               | 실행할 사용자 지정 애플리케이션의 명령입니다. Azure Batch 풀 노드에 사용할 수 있는 애플리케이션이 이미 있으면 resourceLinkedService 및 folderPath를 건너뛸 수 있습니다. 예를 들어 명령을 기본적으로 Windows Batch 풀 노드에 의해 지원되는 `cmd /c dir`로 지정할 수 있습니다. | yes      |
+| resourceLinkedService | 사용자 지정 애플리케이션이 저장된 Storage 계정에 대한 Azure Storage 연결된 서비스입니다. | 아니요       |
+| folderPath            | 사용자 지정 애플리케이션 및 모든 해당 종속성 폴더에 대한 경로입니다.<br/><br/>종속성이 하위 폴더(즉, *folderPath* 아래의 계층 폴더 구조)에 저장된 경우, 해당 파일이 Azure Batch에 복사될 때 폴더 구조가 손쉽게 평면화됩니다. 즉, 모든 파일이 하위 폴더가 없는 단일 폴더에 복사됩니다. 이 동작을 해결하려면 파일을 압축하고 압축 파일을 복사한 다음, 원하는 위치에서 사용자 지정 코드로 압축을 푸세요. | 아니요       |
 | referenceObjects      | 기존 연결된 서비스 및 데이터 세트의 배열입니다. 사용자 지정 코드가 Data Factory의 리소스를 참조할 수 있도록 참조된 연결된 서비스 및 데이터 세트는 JSON 형식으로 사용자 지정 응용 프로그램에 전달됩니다. | 아니요       |
-| extendedProperties    | 사용자 지정 코드가 추가 속성을 참조할 수 있도록 사용자 정의 속성은 JSON 형식으로 사용자 지정 응용 프로그램에 전달될 수 있습니다. | 아니요       |
+| extendedProperties    | 사용자 지정 코드가 추가 속성을 참조할 수 있도록 사용자 정의 속성은 JSON 형식으로 사용자 지정 애플리케이션에 전달될 수 있습니다. | 아니요       |
 
 ## <a name="custom-activity-permissions"></a>사용자 지정 활동 권한
 
@@ -139,7 +139,7 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 
 ## <a name="passing-objects-and-properties"></a>개체 및 속성 전달
 
-이 샘플에서는 referenceObjects 및 extendedProperties를 사용하여 Data Factory 개체 및 사용자 정의 속성을 사용자 지정 응용 프로그램에 전달하는 방법을 보여줍니다. 
+이 샘플에서는 referenceObjects 및 extendedProperties를 사용하여 Data Factory 개체 및 사용자 정의 속성을 사용자 지정 애플리케이션에 전달하는 방법을 보여줍니다. 
 
 
 ```json
@@ -256,7 +256,7 @@ namespace SampleApp
   $result.Error -join "`r`n"
   ```
 
-  사용자 지정 응용 프로그램의 **stdout** 및 **stderr**은 작업의 GUID를 사용하여 Azure Batch 연결된 서비스를 만들 때 정의한 Azure Storage 연결된 서비스의 **adfjobs** 컨테이너에 저장됩니다. 다음 코드 조각에 나와 있는 것처럼 작업 실행 출력에서 자세한 경로를 얻을 수 있습니다. 
+  사용자 지정 애플리케이션의 **stdout** 및 **stderr**은 작업의 GUID를 사용하여 Azure Batch 연결된 서비스를 만들 때 정의한 Azure Storage 연결된 서비스의 **adfjobs** 컨테이너에 저장됩니다. 다음 코드 조각에 나와 있는 것처럼 작업 실행 출력에서 자세한 경로를 얻을 수 있습니다. 
 
   ```shell
   Pipeline ' MyCustomActivity' run finished. Result:
@@ -292,7 +292,7 @@ namespace SampleApp
 
   > [!IMPORTANT]
   > - activity.json, linkedServices.json 및 datasets.json은 Batch 작업의 런타임 폴더에 저장됩니다. 이 예제의 경우 activity.json, linkedServices.json 및 datasets.json은 "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" 경로에 저장됩니다. 필요한 경우 개별적으로 정리해야 합니다. 
-  > - 자체 호스팅 통합 런타임을 사용하는 연결된 서비스의 경우 키 또는 암호와 같은 중요한 정보를 자체 호스팅 통합 런타임으로 암호화하여 사용자 정의 개인 네트워크 환경에 자격 증명을 유지해야 합니다. 이러한 방식으로 사용자 지정 응용 프로그램 코드에서 참조하는 경우 일부 중요한 필드가 누락될 수 있습니다. 필요한 경우 연결된 서비스 참조를 사용하는 대신 extendedProperties에서 SecureString을 사용합니다. 
+  > - 자체 호스팅 통합 런타임을 사용하는 연결된 서비스의 경우 키 또는 암호와 같은 중요한 정보를 자체 호스팅 통합 런타임으로 암호화하여 사용자 정의 개인 네트워크 환경에 자격 증명을 유지해야 합니다. 이러한 방식으로 사용자 지정 애플리케이션 코드에서 참조하는 경우 일부 중요한 필드가 누락될 수 있습니다. 필요한 경우 연결된 서비스 참조를 사용하는 대신 extendedProperties에서 SecureString을 사용합니다. 
 
 ## <a name="pass-outputs-to-another-activity"></a>다른 활동으로 출력 전달
 

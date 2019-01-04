@@ -47,7 +47,7 @@ ms.locfileid: "52619285"
     az storage account show -n storageaccountname (Copy ID field out of the result of this command)
     ```
     
-2. Azure Key Vault의 서비스 주체에 대한 응용 프로그램 ID를 가져옵니다. 
+2. Azure Key Vault의 서비스 주체에 대한 애플리케이션 ID를 가져옵니다. 
 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093

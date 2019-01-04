@@ -63,7 +63,7 @@ Visual Studio에서 Storm 토폴로지를 제출하면 SCP.NET은 토폴로지 �
 
 3. `PATH` 환경 변수는 `%JAVA_HOME%\bin` 디렉터리를 포함해야 합니다.
 
-다음 C# 콘솔 응용 프로그램을 사용하여 Java 및 JDK가 올바르게 설치되었는지 확인할 수 있습니다.
+다음 C# 콘솔 애플리케이션을 사용하여 Java 및 JDK가 올바르게 설치되었는지 확인할 수 있습니다.
 
 ```csharp
 using System;
@@ -117,7 +117,7 @@ Data Lake Tools for Visual Studio는 다음 템플릿을 제공합니다.
 > [!WARNING]
 > 일부 템플릿은 Linux 기반 HDInsight에서 작동합니다. 템플릿에서 사용하는 NuGet 패키지는 Mono와 호환되지 않을 수 있습니다. [Mono 호환성](http://www.mono-project.com/docs/about-mono/compatibility/) 문서를 확인하고 [.NET 이식성 분석기](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis)를 사용하여 잠재적 문제를 식별합니다.
 
-이 문서의 단계에서는 기본 Storm 응용 프로그램 프로젝트 형식을 사용하여 토폴로지를 만들 수 있습니다.
+이 문서의 단계에서는 기본 Storm 애플리케이션 프로젝트 형식을 사용하여 토폴로지를 만들 수 있습니다.
 
 ### <a name="apache-hbase-templates-notes"></a>Apache HBase 템플릿 정보
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs를 사용하여 특정 Android 응용 프로그램 사용자에게 알림 푸시 | Microsoft Docs
+title: Azure Notification Hubs를 사용하여 특정 Android 애플리케이션 사용자에게 알림 푸시 | Microsoft Docs
 description: Azure Notification Hubs를 사용하여 특정 사용자에게 푸시 알림을 보내는 방법을 알아봅니다.
 documentationcenter: android
 services: notification-hubs
@@ -22,7 +22,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
 ms.locfileid: "33776290"
 ---
-# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 Android 응용 프로그램 사용자에게 알림 푸시
+# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 Android 애플리케이션 사용자에게 알림 푸시
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 이 자습서에서는 Azure Notification Hubs를 사용하여 특정 디바이스에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. [앱 백 엔드에서 등록](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) 지침 문서에 나와 있는 대로 ASP.NET WebAPI 백 엔드는 클라이언트를 인증하고 알림을 생성하는 데 사용됩니다. 이 자습서는 만든 알림 허브에 빌드는 [자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시](notification-hubs-android-push-notification-google-gcm-get-started.md)에서 만든 알림 허브에 대한 내용을 제공합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "33776290"
 
 > [!div class="checklist"]
 > * 사용자를 인증하는 백 엔드 Web API 프로젝트를 만듭니다.  
-> * Android 응용 프로그램을 업데이트합니다. 
+> * Android 애플리케이션을 업데이트합니다. 
 > * 앱 테스트
 
 ## <a name="prerequisites"></a>필수 조건

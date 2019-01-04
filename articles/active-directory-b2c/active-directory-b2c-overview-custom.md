@@ -7,33 +7,33 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5634c14ee2b25600d66ff0f2c7385b2aaa9f1810
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a1457b2aa571b58502b7d819eb3bcf142c10dac1
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699501"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725066"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-사용자 지정 정책은 Azure AD(Azure Active Directory) B2C 테넌트의 동작을 정의하는 구성 파일입니다. 기본 제공 정책은 가장 일반적인 ID 태스크에 대해 Azure AD B2C 포털에서 미리 정의됩니다. 사용자 지정 정책은 많은 다른 태스크를 완료하기 위해 ID 개발자가 완전히 편집할 수 있습니다.
+사용자 지정 정책은 Azure AD(Azure Active Directory) B2C 테넌트의 동작을 정의하는 구성 파일입니다. 사용자 흐름은 가장 일반적인 ID 태스크에 대해 Azure AD B2C 포털에서 미리 정의됩니다. 사용자 지정 정책은 많은 다른 태스크를 완료하기 위해 ID 개발자가 완전히 편집할 수 있습니다.
 
-## <a name="comparing-built-in-policies-and-custom-policies"></a>기본 제공 정책과 사용자 지정 정책 비교
+## <a name="comparing-user-flows-and-custom-policies"></a>사용자 흐름 및 사용자 지정 정책 비교
 
-| | 기본 제공 정책 | 사용자 지정 정책 |
+| | 사용자 흐름 | 사용자 지정 정책 |
 |-|-------------------|-----------------|
-| 대상 사용자 | ID 전문 지식이 있거나 없는 모든 응용 프로그램 개발자 | ID 전문가, 시스템 통합 서비스, 컨설턴트 및 사내 ID 팀. OpenIDConnect 흐름에 만족하고 ID 공급자와 클레임 기반 인증을 이해합니다. |
+| 대상 사용자 | ID 전문 지식이 있거나 없는 모든 애플리케이션 개발자 | ID 전문가, 시스템 통합 서비스, 컨설턴트 및 사내 ID 팀. OpenIDConnect 흐름에 만족하고 ID 공급자와 클레임 기반 인증을 이해합니다. |
 | 구성 방법 | 사용자에게 친숙한 UI(사용자 인터페이스)를 사용하는 Azure Portal | XML 파일 직접 편집 및 Azure Portal에 업로드 |
 | UI 사용자 지정 | HTML 및 CSS를 비롯한 전체 UI 사용자 지정<br><br>사용자 지정 문자열을 사용하는 다국어 지원 | 동일 |
 | 특성 사용자 지정 | 표준 및 사용자 지정 특성 | 동일 |
 | 토큰 및 세션 관리 | 사용자 지정 토큰 및 다중 세션 옵션 | 동일 |
 | ID 공급자 | 미리 정의된 로컬, 소셜 공급자 | 표준 기반 OIDC, OAUTH 및 SAML |
-| ID 작업 | 로컬 또는 많은 소셜 계정을 사용하여 등록 또는 로그인<br><br>셀프 서비스 암호 재설정<br><br>프로필 편집<br><br>Multi-Factor Authentication.<br><br>토큰 및 세션을 사용자 지정합니다.<br><br>액세스 토큰 흐름. | 사용자 지정 ID 공급자를 사용하는 기본 정책과 동일한 작업을 완료하거나 사용자 지정 범위를 사용합니다.<br><br>등록 시 다른 시스템에서 사용자를 프로비전합니다.<br><br>고유한 이메일 서비스 공급자를 사용하여 환영 이메일을 보냅니다.<br><br>Azure AD B2C 외부의 사용자 저장소를 사용합니다.<br><br>API를 사용하여 신뢰할 수 있는 시스템으로 사용자 제공 정보의 유효성을 검사합니다. |
+| ID 작업 | 로컬 또는 많은 소셜 계정을 사용하여 등록 또는 로그인<br><br>셀프 서비스 암호 재설정<br><br>프로필 편집<br><br>Multi-Factor Authentication.<br><br>토큰 및 세션을 사용자 지정합니다.<br><br>액세스 토큰 흐름. | 사용자 지정 ID 공급자를 사용하는 사용자 흐름과 동일한 작업을 완료하거나 사용자 지정 범위를 사용합니다.<br><br>등록 시 다른 시스템에서 사용자를 프로비전합니다.<br><br>고유한 이메일 서비스 공급자를 사용하여 환영 이메일을 보냅니다.<br><br>Azure AD B2C 외부의 사용자 저장소를 사용합니다.<br><br>API를 사용하여 신뢰할 수 있는 시스템으로 사용자 제공 정보의 유효성을 검사합니다. |
 
 ## <a name="policy-files"></a>정책 파일
 
@@ -41,9 +41,9 @@ ms.locfileid: "43699501"
 
 - **기본 파일** - 대부분의 정의를 포함합니다. 문제 해결 및 정책을 장기적인 유지 관리에 도움이 되도록 이 파일을 최소한으로 변경하는 것이 좋습니다.
 - **확장 파일** - 테넌트에 대한 고유한 구성 변경 내용을 보유합니다.
-- **RP(신뢰 당사자) 파일** - 응용 프로그램 또는 서비스(신뢰 당사자라고도 함)에 의해 직접 호출되는 단일 작업 중심 파일입니다. 각 고유 작업에는 고유한 RP이 필요하고 브랜딩 요구 사항에 따라 "전체 응용 프로그램 x 전체 사용 사례 수"일 수 있습니다.
+- **RP(신뢰 당사자) 파일** - 응용 프로그램 또는 서비스(신뢰 당사자라고도 함)에 의해 직접 호출되는 단일 작업 중심 파일입니다. 각 고유 작업에는 고유한 RP이 필요하고 브랜딩 요구 사항에 따라 "전체 애플리케이션 x 전체 사용 사례 수"일 수 있습니다.
 
-Azure AD B2C의 기본 제공 정책은 위에 표시된 3개의 파일 패턴을 따르지만 개발자는 Azure Portal이 확장 파일에 대한 변경 내용을 백그라운드에서 수행하는 동안 개발자는 RP 파일만을 확인할 수 있습니다.
+Azure AD B2C의 사용자 흐름은 위에 표시된 3개의 파일 패턴을 따르지만 개발자는 Azure Portal이 확장 파일에 대한 변경 내용을 백그라운드에서 수행하는 동안 개발자는 RP 파일만을 확인할 수 있습니다.
 
 ## <a name="custom-policy-core-concepts"></a>사용자 지정 정책 핵심 개념
 
@@ -61,7 +61,7 @@ ID 경험 프레임워크는 OpenIDConnect, OAuth, SAML, WSFed 및 일부 비표
 
 ### <a name="inheritance-model"></a>상속 모델
 
-응용 프로그램에서 RP 정책 파일을 호출하면 Azure AD B2C의 ID 경험 프레임워크에서 기본 파일, 확장 파일 및 RP 정책 파일의 모든 요소를 차례로 추가하여 현재 적용 중인 정책을 효과적으로 조합합니다.  RP 파일에서 동일한 형식 및 이름이라는 요소는 확장에 있는 동일한 요소를 재정의하고 확장의 요소는 기본 요소를 재정의합니다.
+애플리케이션에서 RP 정책 파일을 호출하면 Azure AD B2C의 ID 경험 프레임워크에서 기본 파일, 확장 파일 및 RP 정책 파일의 모든 요소를 차례로 추가하여 현재 적용 중인 정책을 효과적으로 조합합니다.  RP 파일에서 동일한 형식 및 이름이라는 요소는 확장에 있는 동일한 요소를 재정의하고 확장의 요소는 기본 요소를 재정의합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

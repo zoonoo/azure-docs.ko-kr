@@ -1,21 +1,19 @@
 ---
-title: 데이터베이스 보안 - Azure Cosmos DB | Microsoft Docs
+title: 데이터베이스 보안 - Azure Cosmos DB
 description: Azure Cosmos DB에서 데이터에 대해 데이터베이스 보호 및 데이터 보안을 제공하는 방법을 알아봅니다.
 keywords: nosql 데이터베이스 보안, 정보 보안, 데이터 보안, 데이터베이스 암호화, 데이터베이스 보호, 보안 정책, 보안 테스트
 services: cosmos-db
 author: rafats
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: 11e1a6d8c0a21c64c38ca1d9cb0583c75056dd08
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 0ffd07269570b26b527286f1a0b5a57a6b5c6018
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620509"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093423"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 데이터베이스 보안
 
@@ -49,7 +47,7 @@ ms.locfileid: "52620509"
 - 보호된 데이터 센터에서 서버의 물리적 보호
 - 인증서
 
-명백해 보일지 모르지만, 최근의 [대규모 데이터베이스 침해](http://thehackernews.com/2017/01/mongodb-database-security.html)는 다음과 같은 요구 사항의 간단하지만 민감한 중요성을 상기시켜 줍니다.
+명백해 보일지 모르지만, 최근의 [대규모 데이터베이스 침해](https://thehackernews.com/2017/01/mongodb-database-security.html)는 다음과 같은 요구 사항의 간단하지만 민감한 중요성을 상기시켜 줍니다.
 - 최신 상태로 유지되는 패치된 서버
 - HTTPS(기본값)/SSL 암호화
 - 강력한 암호를 사용하는 관리 계정
@@ -77,14 +75,14 @@ ms.locfileid: "52620509"
 |지오-펜싱|Azure Cosmos DB는 독립적인 지역(예: 독일, 중국, US Gov)에 대해 데이터 거버넌스를 보장합니다.|
 |보호된 기능|Azure Cosmos DB의 데이터는 SSD의 Azure 보호된 데이터 센터에 저장됩니다.<br><br>[Microsoft 글로벌 데이터 센터](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)에 대한 자세한 정보|
 |HTTPS/SSL/TLS 암호화|모든 클라이언트-서비스 Azure Cosmos DB 상호 작용에는 SSL/TLS 1.2가 지원됩니다. 또한 모든 데이터 센터 내부 및 데이터 센터 간 복제에는 SSL/TLS 1.2가 적용됩니다.|
-|휴지 상태의 암호화|Azure Cosmos DB에 저장된 모든 데이터는 미사용 암호화됩니다. 자세한 내용은 [Azure Cosmos DB 미사용 암호화](.\database-encryption-at-rest.md)를 참조하세요.|
+|휴지 상태의 암호화|Azure Cosmos DB에 저장된 모든 데이터는 미사용 암호화됩니다. 자세한 내용은 [Azure Cosmos DB 미사용 암호화](./database-encryption-at-rest.md)를 참조하세요.|
 |패치된 서버|관리되는 데이터베이스인 Azure Cosmos DB를 사용하면 직접 서버를 관리하고 패치를 적용하지 않아도 자동으로 처리됩니다.|
 |강력한 암호를 사용하는 관리 계정|이 요구 사항은 당연하게 여겨질 수 있지만, 일부 경쟁업체와 달리 Azure Cosmos DB에서는 관리 계정에 반드시 암호가 있어야 합니다.<br><br> SSL 및 HMAC 비밀 기반 인증을 통한 보안이 기본적으로 반영됩니다.|
 |보안 및 데이터 보호 인증서|가장 최신의 인증서 목록의 경우 모든 인증서가 포함된(Cosmos 검색) 최신 [Azure Compliance 문서](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)와 더불어 전체 [Azure Compliance 사이트](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings)를 참조하세요. 더 중점적인 내용은 SOCS 1/2 Type 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPAA, FedRAMP High 등을 포함한 2018년 4월 25일 게시물 [Azure #CosmosDB: 보안, 개인, 준수](https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/)를 확인하세요.
 
-다음 스크린샷은 Azure Portal에서 액세스 제어(IAM)를 사용하는 Active Directory 통합(RBAC)을 보여 줍니다. ![Azure Portal에서 액세스 제어(IAM) - 데이터베이스 보안 설명](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)
+다음 스크린샷은 Azure Portal에서 액세스 제어(IAM)를 사용하는 Active Directory 통합(RBAC)을 보여줍니다. ![Azure Portal에서 액세스 제어(IAM) - 데이터베이스 보안 설명](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)
 
-다음 스크린샷은 감사 로깅 및 활동 로그를 사용하여 계정을 어떻게 모니터링할 수 있는지 보여 줍니다. ![Azure Cosmos DB에 대한 활동 로그](./media/database-security/nosql-database-security-application-logging.png)
+다음 스크린샷은 감사 로깅 및 활동 로그를 사용하여 계정을 어떻게 모니터링할 수 있는지 보여줍니다. ![Azure Cosmos DB에 대한 활동 로그](./media/database-security/nosql-database-security-application-logging.png)
 
 ## <a name="next-steps"></a>다음 단계
 

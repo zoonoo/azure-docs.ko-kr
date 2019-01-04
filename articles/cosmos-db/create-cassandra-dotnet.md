@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Cassandra API와 .NET - Azure Cosmos DB'
-description: 이 빠른 시작에서는 Azure Portal 및 .NET과 함께 Azure Cosmos DB Cassandra API를 사용하여 프로필 응용 프로그램을 만드는 방법을 보여 줍니다.
+description: 이 빠른 시작에서는 Azure Portal 및 .NET과 함께 Azure Cosmos DB Cassandra API를 사용하여 프로필 애플리케이션을 만드는 방법을 보여 줍니다.
 services: cosmos-db
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
@@ -10,19 +10,19 @@ ms.custom: quick start connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 3708027b766ff9070831dd3677e821565e0dd4fa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 50c2362e961d882afc109a0554303d364d52384b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994958"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089434"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>빠른 시작: .NET 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
 > * [Java](create-cassandra-java.md)
-> * [Node.js](create-cassandra-nodejs.md)
+> * [Node.JS](create-cassandra-nodejs.md)
 > * [Python](create-cassandra-python.md)
 >  
 
@@ -44,11 +44,11 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 [!INCLUDE [cosmos-db-create-dbaccount-cassandra](../../includes/cosmos-db-create-dbaccount-cassandra.md)]
 
 
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
 이제 코드 사용으로 전환해 보겠습니다. GitHub에서 Cassandra API 앱을 복제하고 연결 문자열을 설정한 다음 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
-1. 명령 프롬프트를 엽니다. 이름이 `git-samples`인 새 폴더를 만듭니다. 그런 다음 명령 프롬프트를 닫습니다.
+1. 명령 프롬프트를 엽니다. 이름이 `git-samples`인 새 폴더를 만듭니다. 그런 다음, 명령 프롬프트를 닫습니다.
 
     ```bash
     md "C:\git-samples"
@@ -96,7 +96,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 * uprofile keyspace에 연결하는 새 세션과 함께 IMapper 개체를 사용하여 사용자 엔터티를 삽입합니다.
 
     ```csharp
-    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
+    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
     ```
     
 * 모든 사용자 정보를 가져오기 위한 쿼리입니다.
@@ -118,7 +118,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다. 연결 문자열 정보를 통해 앱이 호스트된 데이터베이스와 통신할 수 있습니다.
 
-1. [Azure Portal](http://portal.azure.com/)에서 **연결 문자열**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **연결 문자열**을 선택합니다.
 
     화면 오른쪽에 있는 ![복사 단추](./media/create-cassandra-dotnet/copy.png) 단추를 사용하여 USERNAME 값을 복사합니다.
 
@@ -155,7 +155,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     ```cmd
     Install-Package CassandraCSharpDriver
     ```
-3. Ctrl+F5를 눌러 응용 프로그램을 실행합니다. 앱이 콘솔 창에 표시됩니다. 
+3. Ctrl+F5를 눌러 애플리케이션을 실행합니다. 앱이 콘솔 창에 표시됩니다. 
 
     ![출력 보기 및 확인](./media/create-cassandra-dotnet/output.png)
 

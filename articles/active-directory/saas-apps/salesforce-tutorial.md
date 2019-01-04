@@ -32,7 +32,7 @@ Salesforce를 Azure AD와 통합하면 다음과 같은 이점이 있습니다.
 - 사용자가 해당 Azure AD 계정으로 Salesforce에 자동으로 로그인(Single Sign-On)하도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -66,15 +66,15 @@ Salesforce의 Azure AD 통합을 구성하려면 갤러리의 Salesforce를 관�
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
 
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
-4. 검색 상자에 **Salesforce**를 입력하고 결과 패널에서 **Salesforce**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에 **Salesforce**를 입력하고 결과 패널에서 **Salesforce**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Salesforce](./media/salesforce-tutorial/tutorial_salesforce_addfromgallery.png)
 
@@ -224,13 +224,13 @@ Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 **Salesforce에 사용자를 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201]
 
 2. 애플리케이션 목록에서 **Salesforce**를 선택합니다.
 
-    ![응용 프로그램 목록의 Salesforce 연결](./media/salesforce-tutorial/tutorial_salesforce_app.png)
+    ![애플리케이션 목록의 Salesforce 연결](./media/salesforce-tutorial/tutorial_salesforce_app.png)
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -250,7 +250,7 @@ Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Salesforce 타일을 클릭하면 Salesforce 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Salesforce 타일을 클릭하면 Salesforce 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스

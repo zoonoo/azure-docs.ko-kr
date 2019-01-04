@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/09/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 0adc821f7a3d5b059d549509b7ed18cda95b86bc
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 77a5b455e3ef86484119983af24b6461a2fba229
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273802"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074490"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Azure Cost Management로 클라우드 투자를 최적화하는 방법
 
@@ -64,7 +64,7 @@ Azure Cost Management에는 지출을 계획, 분석 및 절약하여 클라우�
 
 조직의 모든 사용자가 비용 관리 수명 주기에 관여해야 합니다. 비용을 최적화하기 위해 지속적으로 참여해야 합니다. 반복적인 프로세스를 엄격하게 준수하고 조직 내에서 책임감 있는 클라우드 관리를 위한 핵심 요소로 활용해야 합니다.
 
-![핵심 원칙](./media/cost-mgt-best-practices/principles.png)
+![표시 유형, 책임감 및 최적화를 보여주는 핵심 원칙 다이어그램](./media/cost-mgt-best-practices/principles.png)
 
 ## <a name="plan-with-cost-in-mind"></a>비용을 고려한 계획
 
@@ -140,7 +140,7 @@ Azure Migrate는 온-프레미스 데이터 센터에서 조직의 현재 워크
 
 ### <a name="export-billing-data-on-a-schedule"></a>일정에 따라 청구 데이터 내보내기
 
-대시보드나 재무 시스템과 같은 외부 시스템으로 청구 데이터를 가져올 필요가 있습니까? 매달 수동으로 파일을 다운로드할 필요 없이 매일 자동화된 보고서를 예약할 수 있습니다. 청구 데이터를 Azure 스토리지 계정으로 내보내고 [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)을 사용하여 알림을 받을 수 있습니다. 그런 다음 Azure 데이터를 사용하여 내 시스템에서 사용할 수 있는 사용자 지정 데이터와 결합할 수 있습니다.
+대시보드나 재무 시스템과 같은 외부 시스템으로 청구 데이터를 가져올 필요가 있습니까? Azure Storage에 자동화된 내보내기를 설정하고 수동으로 매달 파일을 다운로드하지 않도록 방지 합니다. 그런 다음, 다른 시스템을 통해 자동 통합을 쉽게 설정하여 청구 데이터를 동기화 상태로 유지할 수 있습니다.
 
 청구 데이터 내보내기에 대한 자세한 내용은 [내보낸 데이터를 만들고 관리](tutorial-export-acm-data.md)를 참조하세요.
 

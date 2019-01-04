@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 1e52f199847b9e03eb31da71f1f0577df92d2b51
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 827d3ceac267c78be9740adba6c890460ca3f2e9
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230413"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162990"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Python에서 큐 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -47,9 +47,9 @@ pip install azure-storage-queue
 > 
 > 
 
-대체 설치 방법을 확인하려면 [Github의 Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python/)을 방문하세요.
+대체 설치 방법을 확인하려면 [GitHub의 Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python/)을 방문하세요.
 
-## <a name="how-to-create-a-queue"></a>큐를 만드는 방법
+## <a name="how-to-create-a-queue"></a>방법: 큐 만들기
 **QueueService** 개체를 사용하면 큐로 작업할 수 있습니다. 다음 코드는 **QueueService** 개체를 만듭니다. 프로그래밍 방식으로 Azure Storage에 액세스하려는 Python 파일의 맨 위쪽에 다음을 추가합니다.
 
 ```python
@@ -64,14 +64,14 @@ queue_service = QueueService(account_name='myaccount', account_key='mykey')
 queue_service.create_queue('taskqueue')
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>큐에 메시지를 삽입하는 방법
+## <a name="how-to-insert-a-message-into-a-queue"></a>방법: 큐에 메시지 삽입
 큐에 메시지를 삽입하려면 **put\_message** 메서드를 사용하여 새 메시지를 만들고 큐에 추가합니다.
 
 ```python
 queue_service.put_message('taskqueue', u'Hello World')
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>다음 메시지를 보는 방법
+## <a name="how-to-peek-at-the-next-message"></a>방법: 다음 메시지 피킹
 큐에서 메시지를 제거하지 않고도 **peek\_messages** 메서드를 호출하여 큐의 맨 앞에서 원하는 메시지를 볼 수 있습니다. 기본적으로 **peek\_messages**는 단일 메시지를 읽습니다.
 
 ```python
@@ -100,7 +100,7 @@ for message in messages:
     queue_service.delete_message('taskqueue', message.id, message.pop_receipt)        
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>대기 중인 메시지의 콘텐츠 변경 방법
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>방법: 큐 대기 메시지의 콘텐츠 변경
 큐에 있는 메시지의 콘텐츠를 변경할 수 있습니다. 메시지가 작업을 나타내는 경우 이 기능을 사용하여 작업의 상태를 업데이트할 수 있습니다. 아래 코드에서는 **update\_message** 메서드를 사용하여 메시지를 업데이트합니다. 표시 제한 시간은 0으로 설정되어 있습니다.이는 메시지가 즉시 표시되고 콘텐츠가 업데이트됨을 의미합니다.
 
 ```python

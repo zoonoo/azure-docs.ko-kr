@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure CLI를 사용하여 Azure에서 개인 Docker 레지스트리 만들기
+title: 빠른 시작 - Azure에서 개인 Docker 레지스트리 만들기 - Azure CLI
 description: Azure CLI를 사용한 개인 Docker 컨테이너 레지스트리 만들기에 대해 빠르게 알아봅니다.
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: danlep
-ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 57c72056b669865278fa8109cd7f4963a1f0887a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, H1Hack27Feb2017, mvc
+ms.openlocfilehash: e75a2d126680c71542aa04bae5a30ea7c376cea1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855241"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255927"
 ---
-# <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 컨테이너 레지스트리 만들기
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 개인 컨테이너 레지스트리 만들기
 
 Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하는 데 사용되는 관리되는 Docker 컨테이너 레지스트리 서비스입니다. 이 가이드는 Azure CLI를 사용하여 Azure Container Registry 인스턴스 만들기, 컨테이너 이미지를 레지스트리로 푸시, 마지막으로 레지스트리의 컨테이너에서 ACI(Azure Container Instances)로 배포를 설명합니다.
 
@@ -162,7 +162,7 @@ Azure Resource Manager에서 컨테이너의 세부 정보와 함께 초기 응�
 az container show --resource-group myResourceGroup --name acr-quickstart --query instanceView.state
 ```
 
-## <a name="view-the-application"></a>응용 프로그램 보기
+## <a name="view-the-application"></a>애플리케이션 보기
 
 ACI에 대한 배포가 성공하면 [az container show][az-container-show] 명령으로 컨테이너의 FQDN을 가져옵니다.
 
@@ -172,7 +172,7 @@ az container show --resource-group myResourceGroup --name acr-quickstart --query
 
 예제 출력: `"aci-demo.eastus.azurecontainer.io"`
 
-실행 중인 응용 프로그램을 보려면 원하는 브라우저에서 공용 IP 주소로 이동합니다.
+실행 중인 애플리케이션을 보려면 원하는 브라우저에서 공용 IP 주소로 이동합니다.
 
 ![브라우저의 Hello World 앱][aci-app-browser]
 

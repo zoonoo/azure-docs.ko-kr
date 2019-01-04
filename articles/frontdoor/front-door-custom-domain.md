@@ -20,7 +20,7 @@ ms.lasthandoff: 09/24/2018
 ms.locfileid: "46995061"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>자습서: Front Door에 사용자 지정 도메인 추가
-이 자습서에서는 사용자 지정 도메인을 Front Door에 추가하는 방법을 알아봅니다. 응용 프로그램 전송에 Azure Front Door Service를 사용하는 경우 고유한 도메인 이름을 최종 사용자 요청에 표시하려면 사용자 지정 도메인이 필요합니다. 볼 수 있는 도메인 이름이 있다면 고객에게 편리하고 브랜딩 목적상 유용합니다.
+이 자습서에서는 사용자 지정 도메인을 Front Door에 추가하는 방법을 알아봅니다. 애플리케이션 전송에 Azure Front Door Service를 사용하는 경우 고유한 도메인 이름을 최종 사용자 요청에 표시하려면 사용자 지정 도메인이 필요합니다. 볼 수 있는 도메인 이름이 있다면 고객에게 편리하고 브랜딩 목적상 유용합니다.
 
 Front Door를 만든 후, 기본적으로 백 엔드에서 Front Door 콘텐츠를 전송하기 위해 기본 프런트 엔드 호스트(`azurefd.net`의 하위 도메인)가 URL에 포함됩니다(예: https:\//contoso.azurefd.net/activeusers.htm). 사용자 편의를 위해 Azure Front Door는 사용자 지정 도메인을 기본 호스트에 연결하는 옵션을 제공합니다. 이 옵션을 사용하면 URL에 Front Door 소유의 도메인 이름 대신 사용자 지정 도메인을 사용하여 콘텐츠를 전송합니다(예: https:\//www.contoso.com/photo.png). 
 

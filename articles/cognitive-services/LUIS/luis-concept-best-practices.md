@@ -1,21 +1,22 @@
 ---
-title: LUIS로 앱을 빌드하는 경우의 모범 사례 - Language Understanding
-titleSuffix: Azure Cognitive Services
-description: 최상의 결과를 얻기 위해 LUIS 모범 사례를 알아봅니다.
+title: 모범 사례
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: LUIS 앱의 모델에서 최상의 결과를 얻기 위해 LUIS 모범 사례를 알아봅니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6b7b9c8a2a3e7da1628ef3e6f93a4b632ce38615
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: e63d6ed584c0e8afc823bbcdc6e70ceabbf43db6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637783"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085283"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Cognitive Services로 Language Understanding 앱을 빌드하는 경우의 모범 사례
 앱 작성 프로세스를 사용하여 LUIS 앱을 빌드합니다. 
@@ -50,10 +51,10 @@ LUIS가 학습을 효율적으로 진행하려면 예제 및 엔드포인트 발
 
 다음 예제 발화를 고려해 보세요.
 
-```
-Book a flight
-Book a hotel
-```
+|예제 발화|
+|--|
+|항공권 예약|
+|호텔 예약|
 
 “항공편 예약” 및 “호텔 예약”에는 “예약”이라는 동일한 어휘가 사용됩니다. 이는 겹치므로 항공편 및 호텔에서 추출된 엔터티의 서로 다른 단어가 포함된 동일한 의도여야 합니다. 
 

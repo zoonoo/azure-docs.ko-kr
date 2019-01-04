@@ -30,11 +30,11 @@ ms.locfileid: "52495151"
 * Azure PowerShell 및/또는 Azure 클래식 CLI
 
 ### <a name="resource-manager-templates"></a>리소스 관리자 템플릿
-Resource Manager 템플릿을 사용하면 조정된 단일 작업으로 응용 프로그램에 대해 다음 리소스를 쉽게 만들 수 있습니다.
+Resource Manager 템플릿을 사용하면 조정된 단일 작업으로 애플리케이션에 대해 다음 리소스를 쉽게 만들 수 있습니다.
 * HDInsight 클러스터 및 해당 종속 리소스(예: 기본 저장소 계정)
 * 기타 리소스(예: [Apache Sqoop](http://sqoop.apache.org/)을 사용하는 Azure SQL Database)
 
-템플릿에서 응용 프로그램에 필요한 리소스를 정의합니다. 또한 다양한 환경에 대한 값을 입력하기 위한 배포 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용하는 JSON과 식으로 구성됩니다.
+템플릿에서 애플리케이션에 필요한 리소스를 정의합니다. 또한 다양한 환경에 대한 값을 입력하기 위한 배포 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용하는 JSON과 식으로 구성됩니다.
 
 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?term=hdinsight)에서 HDInsight 템플릿 샘플을 찾을 수 있습니다. [Resource Manager 확장](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) 또는 텍스트 편집기에서 플랫폼 간 [Visual Studio Code](https://code.visualstudio.com/#alt-downloads)를 사용하여 템플릿을 워크스테이션의 파일에 저장합니다. 
 

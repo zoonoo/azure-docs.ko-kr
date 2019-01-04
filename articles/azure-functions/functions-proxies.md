@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 2aa8036149f4056f2d197f0712b86104f5cf2215
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 18398326e21ac6f3d64e43a577cf7d57cfb23438
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095048"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139523"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
 
@@ -80,7 +80,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 #### <a name="additional-request-parameters"></a>추가 요청 매개 변수
 경로 템플릿 매개 변수 외에도 구성 값에 다음 값을 사용할 수 있습니다.
 
-* **{request.method}** : 원래 요청에 사용된 HTTP 메서드입니다.
+* **{request.method}**: 원래 요청에 사용된 HTTP 메서드입니다.
 * **{request.headers.\<HeaderName\>}**: 원래 요청에서 읽어올 수 있는 헤더입니다. *\<HeaderName\>* 을 읽으려는 헤더 이름으로 바꿉니다. 헤더가 요청에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
 * **{request.querystring.\<ParameterName\>}**: 원래 요청에서 읽어올 수 있는 쿼리 문자열 매개 변수입니다. *\<ParameterName\>* 을 읽으려는 매개 변수 이름으로 바꿉니다. 매개 변수가 요청에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
 
@@ -88,8 +88,8 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 응답 매개 변수는 클라이언트에 대한 응답을 수정하는 일부로 사용할 수 있습니다. 구성 값에 다음 값을 사용할 수 있습니다.
 
-* **{backend.response.statusCode}**: 백 엔드 응답에 반환할 HTTP 상태 코드입니다.
-* **{backend.response.statusReason}**: 백 엔드 응답에 반환할 HTTP 이유 구문입니다.
+* **{backend.response.statusCode}**: 백 엔드 응답에 반환되는 HTTP 상태 코드입니다.
+* **{backend.response.statusReason}**: 백 엔드 응답에 반환되는 HTTP 이유 구문입니다.
 * **{backend.response.headers.\<HeaderName\>}**: 백 엔드 응답에서 읽어올 수 있는 헤더입니다. *\<HeaderName\>* 을 읽으려는 헤더 이름으로 바꿉니다. 헤더가 응답에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
 
 ### <a name="use-appsettings"></a>응용 프로그램 설정 참조
@@ -140,7 +140,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 각 프록시에는 위의 코드 예제의 *proxy1*과 같은 이름이 지정됩니다. 해당하는 프록시 정의 개체는 다음과 같은 속성으로 정의됩니다.
 
 * **matchCondition**: 필수--이 프록시의 실행을 트리거하는 요청을 정의하는 개체입니다. [HTTP 트리거]와 공유되는 두 가지 속성이 포함되어 있습니다.
-    * _메서드_: 프록시가 응답하는 HTTP 메서드의 배열입니다. 이 속성을 지정하지 않으면 프록시는 경로의 모든 HTTP 메서드에 응답합니다.
+    * _methods_: 프록시가 응답하는 HTTP 메서드의 배열입니다. 이 속성을 지정하지 않으면 프록시는 경로의 모든 HTTP 메서드에 응답합니다.
     * _route_: 필수--경로 템플릿을 정의하여 프록시에서 응답할 요청 URL을 제어합니다. HTTP 트리거와 달리 기본값이 없습니다.
 * **backendUri**: 요청이 프록시되어야 하는 백 엔드 리소스의 URL입니다. 이 값은 응용 프로그램 설정 및 원래 클라이언트 요청의 매개 변수를 참조할 수 있습니다. 이 속성을 포함하지 않으면 Azure Functions는 HTTP 200 OK로 응답합니다.
 * **requestOverrides**: 변환을 백 엔드 요청으로 정의하는 개체입니다. [requestOverrides 개체 정의]를 참조하세요.
@@ -149,7 +149,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 > [!NOTE] 
 > Azure Functions 프록시의 *route* 속성은 함수 앱 호스트 구성의 *routePrefix* 속성을 유지하지 않습니다. `/api` 같은 접두사를 포함하려는 경우 *route* 속성에 포함해야 합니다.
 
-### <a name="disableProxies"></a>개별 프록시 사용 안 함
+### <a name="disableProxies"></a> 개별 프록시 사용 안 함
 
 `proxies.json` 파일의 프록시에 `"disabled": true`를 추가하면 개별 프록시를 사용하지 않도록 설정할 수 있습니다. 이렇게 하면 matchCondidtion을 충족하는 모든 요청이 404를 반환합니다.
 ```json
@@ -167,15 +167,31 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 }
 ```
 
+### <a name="applicationSettings"></a> 애플리케이션 설정
+
+여러 앱 설정에 따라 프록시 동작을 제어할 수 있습니다. [함수 앱 설정 참조](./functions-app-settings.md)에 모두 설명되어 있습니다.
+
+* [AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL](./functions-app-settings.md#azurefunctionproxydisablelocalcall)
+* [AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES](./functions-app-settings.md#azurefunctionproxybackendurldecodeslashes)
+
+### <a name="reservedChars"></a> 예약된 문자(문자열 형식)
+
+프록시는 중괄호 및 슬래시를 제외하고 해석 없이 모든 문자열을 읽습니다.
+
+|문자|이스케이프된 문자|예|
+|-|-|-|
+|{ 또는 }|{{ 또는 }}|`{{ example }}` --> `{ example }`
+|/|///| `example.com///text.html` --> `example.com/text.html`
+
 ### <a name="requestOverrides"></a>requestOverrides 개체 정의
 
 requestOverrides 개체는 백 엔드 리소스가 호출될 때 요청에 대한 변경 내용을 정의합니다. 개체는 다음 속성으로 정의됩니다.
 
-* **backend.request.method**: 백 엔드를 호출하는 데 사용될 HTTP 메서드입니다.
+* **backend.request.method**: 백 엔드를 호출하는 데 사용되는 HTTP 메서드입니다.
 * **backend.request.querystring.\<ParameterName\>**: 백 엔드에 대한 호출에 설정할 수 있는 쿼리 문자열 매개 변수입니다. *\<ParameterName\>* 을 설정하려는 매개 변수 이름으로 바꿉니다. 빈 문자열이 제공되면 매개 변수는 백 엔드 요청에 포함되지 않습니다.
 * **backend.request.headers.\<HeaderName\>**: 백 엔드 호출을 위해 설정할 수 있는 헤더입니다. *\<HeaderName\>* 을 설정하려는 헤더 이름으로 바꿉니다. 빈 문자열을 제공하면 헤더는 백 엔드 요청에 포함되지 않습니다.
 
-값은 응용 프로그램 설정 및 원래 클라이언트 요청의 매개 변수를 참조할 수 있습니다.
+값은 애플리케이션 설정 및 원래 클라이언트 요청의 매개 변수를 참조할 수 있습니다.
 
 예제 구성은 다음과 유사할 수 있습니다.
 

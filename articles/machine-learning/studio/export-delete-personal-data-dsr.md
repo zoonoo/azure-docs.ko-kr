@@ -3,22 +3,21 @@ title: Machine Learning Studio에서 데이터 내보내기 및 삭제 - Azure |
 description: Azure Machine Learning Studio에서 저장하는 제품 내 데이터는 Azure Portal 및 인증된 REST API를 통해 내보내고 삭제할 수 있습니다. 원격 분석 데이터는 Azure 개인 정보 보호 포털을 통해 액세스할 수 있습니다. 이 문서는 방법을 안내합니다.
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: cgronlun
 ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.component: studio
 ms.topic: conceptual
 ms.date: 05/25/2018
-ms.openlocfilehash: 04b26dc9ad9f4b7a4feb03039d92854385d75465
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e69883022937ccb4ad0f83f144afef0b5b1e0e56
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262375"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276267"
 ---
-# <a name="export-and-delete-in-product-user-data-from-machine-learning-studio"></a>Machine Learning Studio에서 제품 내 사용자 데이터 내보내기 및 삭제
+# <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 제품 내 사용자 데이터 내보내기 및 삭제
 
 Azure Portal, Studio 인터페이스, PowerShell 및 인증된 REST API를 사용하여 Azure Machine Learning Studio에서 저장한 제품 내 데이터를 삭제하거나 내보낼 수 있습니다. 이 문서에서는 이러한 작업을 수행하는 방법에 대해 설명합니다. 
 
@@ -33,8 +32,8 @@ Azure Portal, Studio 인터페이스, PowerShell 및 인증된 REST API를 사�
 이 서비스의 경우 사용자 데이터는 작업 영역에 액세스하도록 권한이 부여된 사용자 및 서비스와의 사용자 상호 작용에 대한 원격 분석 레코드에 대한 정보로 구성됩니다.
 
 Machine Learning Studio에는 다음 두 가지 종류의 사용자 데이터가 있습니다.
-- **개인 계정 데이터:** 계정과 연결된 계정 ID 및 이메일 주소
-- **고객 데이터:** 분석을 위해 업로드한 데이터
+- **개인 계정 데이터:** 계정과 연결된 계정 ID 및 이메일 주소입니다.
+- **고객 데이터:** 분석을 위해 업로드한 데이터입니다.
 
 ## <a name="studio-account-types-and-how-data-is-stored"></a>Studio 계정 유형 및 데이터 저장 방법
 
@@ -66,7 +65,7 @@ Machine Learning Studio에는 다음 세 가지 종류의 계정이 있습니다
 
 사용자가 전체 작업 영역을 삭제할 수도 있습니다.
 - 유료 작업 영역: Azure Portal을 통해 삭제합니다.
-- 체험 작업 영역: **설정** 창에서 삭제 단추를 사용합니다.
+- 평가판 작업 영역: **설정** 창에서 삭제 단추를 사용합니다.
 
 ![Machine Learning Studio에서 체험 작업 영역 삭제](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  

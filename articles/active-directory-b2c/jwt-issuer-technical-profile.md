@@ -21,7 +21,7 @@ ms.locfileid: "50413505"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD(Azure Active Directory) B2C는 각 인증 흐름의 처리 과정에서 여러 유형의 보안 토큰을 내보냅니다. JWT 토큰 발급자의 기술 프로필은 다시 신뢰 당사자 응용 프로그램으로 반환되는 JWT 토큰을 내보냅니다. 일반적으로 이 기술 프로필은 사용자 경험의 마지막 오케스트레이션 단계입니다.
+Azure AD(Azure Active Directory) B2C는 각 인증 흐름의 처리 과정에서 여러 유형의 보안 토큰을 내보냅니다. JWT 토큰 발급자의 기술 프로필은 다시 신뢰 당사자 애플리케이션으로 반환되는 JWT 토큰을 내보냅니다. 일반적으로 이 기술 프로필은 사용자 경험의 마지막 오케스트레이션 단계입니다.
 
 ## <a name="protocol"></a>프로토콜
 
@@ -50,8 +50,8 @@ Azure AD(Azure Active Directory) B2C는 각 인증 흐름의 처리 과정에서
 | SendTokenResponseBodyWithJsonNumbers | 아니요 | 항상 `true`로 설정합니다. 숫자 값이 JSON 번호 대신 문자열로 제공되는 레거시 형식의 경우 `false`로 설정합니다. 이 특성은 해당 속성을 문자열로 반환한 이전 구현에서 종속성을 사용한 클라이언트에 필요합니다. | 
 | token_lifetime_secs | 아니요 | 액세스 토큰 수명입니다. 보호된 리소스에 대한 액세스 권한을 얻는 데 사용되는 OAuth 2.0 전달자 토큰의 수명입니다. 기본값은 3,600초(1시간)입니다. 최소값(포함)은 300초(5분)입니다. 최댓값(포함)은 86,400초(24시간)입니다. | 
 | id_token_lifetime_secs | 아니요 | ID 토큰 수명입니다. 기본값은 3,600초(1시간)입니다. 최소값(포함)은 300초(5분)입니다. 최댓값(포함)은 86,400초(24시간)입니다. | 
-| refresh_token_lifetime_secs | 아니요 | 새로 고침 토큰 수명입니다. 응용 프로그램에 offline_access 범위가 부여된 경우 새 액세스 토큰을 획득하는 데 새로 고침 토큰을 사용할 수 있기 전까지의 최대 기간입니다. 기본값은 120,9600초(14일)입니다. 최소값(포함)은 86,400초(24시간)입니다. 최댓값(포함)은 7,776,000초(90일)입니다. | 
-| rolling_refresh_token_lifetime_secs | 아니요 | 새로 고침 토큰 슬라이딩 윈도우 수명입니다. 이 기간이 경과하면 응용 프로그램이 획득한 대부분의 최근 새로 고침 토큰의 유효 기간에 관계없이 사용자는 강제로 다시 인증을 받게 됩니다. 슬라이딩 윈도우 수명을 적용하지 않으려면 allow_infinite_rolling_refresh_token 값을 `true`로 설정합니다. 기본값은 7,776,000초(90일)입니다. 최소값(포함)은 86,400초(24시간)입니다. 최댓값(포함)은 31,536,000초(365일)입니다. | 
+| refresh_token_lifetime_secs | 아니요 | 새로 고침 토큰 수명입니다. 애플리케이션에 offline_access 범위가 부여된 경우 새 액세스 토큰을 획득하는 데 새로 고침 토큰을 사용할 수 있기 전까지의 최대 기간입니다. 기본값은 120,9600초(14일)입니다. 최소값(포함)은 86,400초(24시간)입니다. 최댓값(포함)은 7,776,000초(90일)입니다. | 
+| rolling_refresh_token_lifetime_secs | 아니요 | 새로 고침 토큰 슬라이딩 윈도우 수명입니다. 이 기간이 경과하면 애플리케이션이 획득한 대부분의 최근 새로 고침 토큰의 유효 기간에 관계없이 사용자는 강제로 다시 인증을 받게 됩니다. 슬라이딩 윈도우 수명을 적용하지 않으려면 allow_infinite_rolling_refresh_token 값을 `true`로 설정합니다. 기본값은 7,776,000초(90일)입니다. 최소값(포함)은 86,400초(24시간)입니다. 최댓값(포함)은 31,536,000초(365일)입니다. | 
 | allow_infinite_rolling_refresh_token | 아니요 | `true`로 설정하면 새로 고침 토큰 슬라이딩 윈도우 수명이 만료되지 않습니다. |
 | IssuanceClaimPattern | yes | 발급자(iss) 클레임을 제어합니다. 다음 값 중 하나입니다.<ul><li>AuthorityAndTenantGuid - iss 클레임에는 도메인 이름(예: `login.microsoftonline` 또는 `tenant-name.b2clogin.com`) 및 테넌트 식별자 https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/가 포함됩니다.</li><li>AuthorityWithTfp - iss 클레임에는 도메인 이름(예: `login.microsoftonline` 또는 `tenant-name.b2clogin.com`), 테넌트 식별자 및 신뢰 당사자 정책 이름이 포함됩니다. https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/</li></ul> | 
 | AuthenticationContextReferenceClaimPattern | 아니요 | `acr` 클레임 값을 제어합니다.<ul><li>None - Azure AD B2C가 acr 클레임을 발급하지 않습니다.</li><li>PolicyId - `acr` 클레임에 정책 이름이 포함됩니다.</li></ul>이 값을 설정하기 위한 옵션은 TFP(보안 프레임워크 정책) 및 ACR(인증 컨텍스트 참조)입니다. 이 값을 TFP로 설정하는 것이 좋습니다. 값을 설정하려면 `Key="AuthenticationContextReferenceClaimPattern"`과 함께 `<Item>`이 존재하고 값이 `None`인지 확인합니다. 신뢰 당사자 정책에서 <OutputClaims> 항목을 추가하고 이 요소 `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`를 추가합니다. 또한 정책에 클레임 형식 `<ClaimType Id="trustFrameworkPolicy"> <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>`이 포함되어 있는지 확인합니다. | 

@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: b9451d51bf0c0c684cebf89ad448b66fee59d9ea
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.custom: seodec18
+ms.openlocfilehash: 6777765e4ae57aefc5944d0dde597d2becfe0430
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210706"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091444"
 ---
-# <a name="qna-maker-rest-api-with-go"></a>Go에서 QnA Maker REST API 사용 
+# <a name="how-to-use-the-qna-maker-rest-api-with-go"></a>Go에서 QnA Maker REST API를 사용하는 방법 
 <a name="HOLTop"></a>
 
 이 문서에서는 Go에서 [Microsoft QnA Maker API](../Overview/overview.md) 를 사용하여 다음을 수행하는 방법을 보여 줍니다.

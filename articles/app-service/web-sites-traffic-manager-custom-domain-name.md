@@ -1,5 +1,5 @@
 ---
-title: 부하 분산을 위해 Traffic Manager를 사용하는 Azure App Service의 사용자 지정 도메인 이름 구성
+title: Configure Traffic Manager를 사용하는 앱의 DNS 이름 구성 - Azure App Service
 description: 부하 분산을 위해 Traffic Manager를 포함하는 Azure App Service의 웹 앱에 대한 사용자 지정 도메인 이름을 사용합니다.
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
-ms.openlocfilehash: b140ccba2b45dbfb1e4413c9fbeb12e9fec6bc8a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 35493d9a7f47bda3344dbc8b0ea415d4492c5741
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227181"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340059"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Traffic Manager를 사용하는 Azure App Service의 웹앱에 대한 사용자 지정 도메인 이름 구성
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -70,8 +71,6 @@ ms.locfileid: "51227181"
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [Node.js 개발자 센터](https://azure.microsoft.com/develop/nodejs/)를 참조하세요.
-
-[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
 

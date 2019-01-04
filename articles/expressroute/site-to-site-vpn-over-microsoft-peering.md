@@ -1,5 +1,5 @@
 ---
-title: Azure ExpressRoute에서 Microsoft 피어링을 통해 사이트 간 VPN 구성 | Microsoft Docs
+title: Microsoft 피어링을 통해 사이트 간 VPN 구성 - ExpressRoute - Azure | Microsoft Docs
 description: 사이트 간 VPN Gateway를 사용하여 ExpressRoute Microsoft 피어링 회로를 통해 Azure에 대한 IPsec/IKE 연결을 구성합니다.
 services: expressroute
 author: cherylmc
@@ -7,25 +7,25 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5fb4a4034a744b8b2b769a1cfd2d9df12ea90dde
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.custom: seodec18
+ms.openlocfilehash: 3ba9d7ab9e05c3c5480e1832cc5ddd0ce91a3ae1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240914"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094205"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>ExpressRoute Microsoft 피어링을 통해 사이트 간 VPN 구성
 
-이 문서를 사용하면 ExpressRoute 개인 연결을 통해 온-프레미스 네트워크와 Azure VNet(가상 네트워크) 간에 암호화된 보안 연결을 구성할 수 있습니다. ExpressRoute를 통해 보안 터널을 구성하면 기밀성, 재생 방지, 신뢰성 및 무결성이 보장된 데이터 교환이 가능합니다.
+이 문서를 사용하면 ExpressRoute 개인 연결을 통해 온-프레미스 네트워크와 Azure VNet(가상 네트워크) 간에 암호화된 보안 연결을 구성할 수 있습니다. Microsoft 피어링을 사용하여 선택한 온-프레미스 네트워크와 Azure VNet 간에 사이트 간 IPsec/IKE VPN 터널을 설정할 수 있습니다. ExpressRoute를 통해 보안 터널을 구성하면 기밀성, 재생 방지, 신뢰성 및 무결성이 보장된 데이터 교환이 가능합니다.
 
-## <a name="architecture"></a>아키텍처
-
-Microsoft 피어링을 활용하여 선택한 온-프레미스 네트워크와 Azure VNet 간에 사이트 간 IPsec/IKE VPN 터널을 설정할 수 있습니다.
-
-  >[!NOTE]
+>[!NOTE]
 >Microsoft 피어링을 통해 사이트 간 VPN을 설정하면 VPN Gateway 및 VPN 송신에 대한 요금이 청구됩니다. 자세한 내용은 [VPN Gateway 가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway)을 참조하세요.
 >
 >
+
+## <a name="architecture"></a>아키텍처
+
 
   ![연결 개요](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
 

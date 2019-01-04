@@ -135,7 +135,7 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 
 `MessageTemplate`은 시뮬레이션된 장치가 전송하는 JSON 메시지의 구조를 정의합니다. `MessageTemplate`의 자리 표시자는 `${NAME}` 구문을 사용합니다. 여기서 `NAME`은 [장치 상태 개체](#simulation)의 키입니다. 문자열은 따옴표로 묶어야 하고 숫자는 따옴표로 묶으면 안 됩니다.
 
-`MessageSchema`는 시뮬레이션된 장치가 전송하는 메시지의 스키마를 정의합니다. 또한 백 엔드 응용 프로그램이 정보를 다시 사용하여 들어오는 원격 분석을 해석할 수 있도록 메시지 스키마가 IoT Hub에도 게시됩니다.
+`MessageSchema`는 시뮬레이션된 장치가 전송하는 메시지의 스키마를 정의합니다. 또한 백 엔드 애플리케이션이 정보를 다시 사용하여 들어오는 원격 분석을 해석할 수 있도록 메시지 스키마가 IoT Hub에도 게시됩니다.
 
 현재, JSON 메시지 스키마만 사용할 수 있습니다. 스키마에 나열된 필드는 다음 형식일 수 있습니다.
 

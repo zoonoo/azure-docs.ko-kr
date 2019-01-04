@@ -1,9 +1,9 @@
 ---
 title: 지리적으로 분산된 Azure SQL Database 솔루션 구현 | Microsoft Docs
-description: Azure SQL Database와 응용 프로그램을 복제된 데이터베이스로 장애 조치하도록 구성하고 장애 조치를 테스트합니다.
+description: Azure SQL Database와 애플리케이션을 복제된 데이터베이스로 장애 조치하도록 구성하고 장애 조치를 테스트합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,42 +12,41 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/01/2018
-ms.openlocfilehash: 2508d43e876a7e463d68eed1b1ca93ddf0d1e9d1
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 0fe24c22c42c826db28b6cee460936597b8de83c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913347"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269253"
 ---
-# <a name="tutorial-implement-a-geo-distributed-database"></a>자습서: 지역 분산 데이터베이스 구현
+# <a name="tutorial-implement-a-geo-distributed-database"></a>자습서: 지리적으로 분산된 데이터베이스 구현
 
-이 자습서에서는 Azure SQL Database와 응용 프로그램을 원격 지역으로 장애 조치하도록 구성한 다음 장애 조치 계획을 테스트합니다. 다음 방법에 대해 알아봅니다. 
+이 자습서에서는 Azure SQL Database와 응용 프로그램을 원격 지역으로 장애 조치하도록 구성한 다음 장애 조치 계획을 테스트합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 데이터베이스 사용자를 만들고 권한 부여
-> * 데이터베이스 수준 방화벽 규칙 설정
-> * [지역에서 복제 장애 조치(failover) 그룹](sql-database-geo-replication-overview.md)
-> * Azure SQL Database를 쿼리하기 위한 Java 응용 프로그램 만들기 및 컴파일
-> * 재해 복구 훈련 수행
+> - 데이터베이스 사용자를 만들고 권한 부여
+> - 데이터베이스 수준 방화벽 규칙 설정
+> - [장애 조치(failover) 그룹](sql-database-auto-failover-group.md) 만들기
+> - Azure SQL Database를 쿼리하기 위한 Java 애플리케이션 만들기 및 컴파일
+> - 재해 복구 훈련 수행
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
-- 최신 [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)을 설치했습니다. 
+- 최신 [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)을 설치했습니다.
 - Azure SQL Database를 설치했습니다. 이 자습서에서는 다음 빠른 시작 중 하나에서 **mySampleDatabase** 이름의 AdventureWorksLT 샘플 데이터베이스를 사용합니다.
 
-   - [DB 만들기 - 포털](sql-database-get-started-portal.md)
-   - [DB 만들기 - CLI](sql-database-cli-samples.md)
-   - [DB 만들기 - PowerShell](sql-database-powershell-samples.md)
+  - [DB 만들기 - 포털](sql-database-get-started-portal.md)
+  - [DB 만들기 - CLI](sql-database-cli-samples.md)
+  - [DB 만들기 - PowerShell](sql-database-powershell-samples.md)
 
 - 데이터베이스에서 SQL 스크립트를 실행할 메서드를 식별한 경우 다음 쿼리 도구 중 하나를 사용할 수 있습니다.
-   - [Azure Portal](https://portal.azure.com)의 쿼리 편집기. Azure Portal에서 쿼리 편집기를 사용하는 방법에 대한 자세한 내용은 [쿼리 편집기를 사용하여 연결 및 쿼리](sql-database-get-started-portal.md#query-the-sql-database)를 참조하세요.
-   - Microsoft Windows의 SQL Server에서 SQL Database에 이르는 모든 SQL 인프라를 관리할 수 있는 통합된 환경인 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)의 최신 버전.
-   - Microsoft SQL Server, Azure SQL Database 및 SQL Data Warehouse를 쿼리하는 [mssql 확장](https://aka.ms/mssql-marketplace)을 비롯한 여러 확장을 지원하는 Linux, macOS, Windows용 그래픽 코드 편집기인 [Visual Studio Code](https://code.visualstudio.com/docs)의 최신 버전. Azure SQL Database에서 이 도구를 사용하는 방법에 대한 자세한 내용은 [VS Code를 사용하여 연결 및 쿼리](sql-database-connect-query-vscode.md)를 참조하세요. 
+  - [Azure Portal](https://portal.azure.com)의 쿼리 편집기. Azure Portal에서 쿼리 편집기를 사용하는 방법에 대한 자세한 내용은 [쿼리 편집기를 사용하여 연결 및 쿼리](sql-database-get-started-portal.md#query-the-sql-database)를 참조하세요.
+  - Microsoft Windows의 SQL Server에서 SQL Database에 이르는 모든 SQL 인프라를 관리할 수 있는 통합된 환경인 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)의 최신 버전.
+  - Microsoft SQL Server, Azure SQL Database 및 SQL Data Warehouse를 쿼리하는 [mssql 확장](https://aka.ms/mssql-marketplace)을 비롯한 여러 확장을 지원하는 Linux, macOS, Windows용 그래픽 코드 편집기인 [Visual Studio Code](https://code.visualstudio.com/docs)의 최신 버전. Azure SQL Database에서 이 도구를 사용하는 방법에 대한 자세한 내용은 [VS Code를 사용하여 연결 및 쿼리](sql-database-connect-query-vscode.md)를 참조하세요.
 
 ## <a name="create-database-users-and-grant-permissions"></a>데이터베이스 사용자를 만들고 권한 부여
 
@@ -59,12 +58,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이러한 사용자 계정은 보조 서버에 자동으로 복제되고 계속 동기화됩니다. SQL Server Management Studio 또는 Visual Studio Code를 사용하려면 아직 방화벽을 구성하지 않은 IP 주소의 클라이언트에서 연결하는 경우 방화벽 규칙을 구성해야 할 수도 있습니다. 자세한 단계에 대해서는 [서버 수준 방화벽 규칙 만들기](sql-database-get-started-portal-firewall.md)를 참조하세요.
 
-- 쿼리 창에서 다음 쿼리를 실행하여 데이터베이스에 두 개의 사용자 계정을 만듭니다. 이 스크립트는 **db_owner** 권한을 **app_admin** 계정에 부여하고 **SELECT** 및 **UPDATE** 권한을 **app_user** 계정에 부여합니다. 
+- 쿼리 창에서 다음 쿼리를 실행하여 데이터베이스에 두 개의 사용자 계정을 만듭니다. 이 스크립트는 **db_owner** 권한을 **app_admin** 계정에 부여하고 **SELECT** 및 **UPDATE** 권한을 **app_user** 계정에 부여합니다.
 
    ```sql
    CREATE USER app_admin WITH PASSWORD = 'ChangeYourPassword1';
    --Add SQL user to db_owner role
-   ALTER ROLE db_owner ADD MEMBER app_admin; 
+   ALTER ROLE db_owner ADD MEMBER app_admin;
    --Create additional SQL user
    CREATE USER app_user WITH PASSWORD = 'ChangeYourPassword1';
    --grant permission to SalesLT schema
@@ -82,9 +81,9 @@ SQL Database에 대한 [데이터베이스 수준 방화벽 규칙](https://docs
    EXECUTE sp_set_database_firewall_rule @name = N'myGeoReplicationFirewallRule',@start_ip_address = '0.0.0.0', @end_ip_address = '0.0.0.0';
    ```
 
-## <a name="create-an-active-geo-replication-auto-failover-group"></a>활성 지역 복제 자동 장애 조치(failover) 그룹 만들기 
+## <a name="create-a-failover-group"></a>장애 조치 그룹 만들기
 
-Azure PowerShell을 사용하여 Azure 지역의 기존 Azure SQL Server와 새로운 빈 Azure SQL Server 사이에 [활성 지역 복제 자동 장애 조치(failover) 그룹](sql-database-geo-replication-overview.md)을 만들고 나서 장애 조치(failover) 그룹에 샘플 데이터베이스를 추가합니다.
+Azure PowerShell을 사용하여 Azure 지역의 기존 Azure SQL Server와 새로운 빈 Azure SQL Server 사이에 [장애 조치(failover) 그룹](sql-database-auto-failover-group.md)을 만들고 나서 장애 조치(failover) 그룹에 샘플 데이터베이스를 추가합니다.
 
 > [!IMPORTANT]
 > 이러한 cmdlet에는 Azure PowerShell 4.0이 필요합니다. [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
@@ -111,7 +110,7 @@ Azure PowerShell을 사용하여 Azure 지역의 기존 Azure SQL Server와 새�
       -ServerName $mydrservername `
       -Location $mydrlocation `
       -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
-   $mydrserver   
+   $mydrserver
    ```
 
 3. 두 서버 사이에 장애 조치(failover) 그룹을 만듭니다.
@@ -124,7 +123,7 @@ Azure PowerShell을 사용하여 Azure 지역의 기존 Azure SQL Server와 새�
       –FailoverGroupName $myfailovergroupname `
       –FailoverPolicy Automatic `
       -GracePeriodWithDataLossHours 2
-   $myfailovergroup   
+   $myfailovergroup
    ```
 
 4. 장애 조치(failover) 그룹에 데이터베이스를 추가합니다.
@@ -138,15 +137,16 @@ Azure PowerShell을 사용하여 Azure 지역의 기존 Azure SQL Server와 새�
       -ResourceGroupName $myresourcegroupname ` `
       -ServerName $myservername `
       -FailoverGroupName $myfailovergroupname
-   $myfailovergroup   
+   $myfailovergroup
    ```
 
 ## <a name="install-java-software"></a>Java 소프트웨어 설치
 
-이 섹션의 단계에서는 Java를 사용하여 개발하는 것에 익숙하고 Azure SQL Database 작업에 익숙하지 않다고 가정합니다. 
+이 섹션의 단계에서는 Java를 사용하여 개발하는 것에 익숙하고 Azure SQL Database 작업에 익숙하지 않다고 가정합니다.
 
-### <a name="mac-os"></a>**Mac OS**
-터미널을 열고 Java 프로젝트를 만들려는 디렉터리로 이동합니다. 다음 명령을 입력하여 **brew** 및 **Maven**을 설치합니다. 
+### <a name="mac-os"></a>Mac OS
+
+터미널을 열고 Java 프로젝트를 만들려는 디렉터리로 이동합니다. 다음 명령을 입력하여 **brew** 및 **Maven**을 설치합니다.
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -156,7 +156,8 @@ brew install maven
 
 Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 지침을 보려면 [SQL Server를 사용하여 앱 빌드](https://www.microsoft.com/sql-server/developer-get-started/)로 이동하여 **Java**, **MacOS**를 차례로 선택하고 1.2 및 1.3단계에서 Java 및 Maven 구성에 대한 자세한 지침을 따르세요.
 
-### <a name="linux-ubuntu"></a>**Linux(Ubuntu)**
+### <a name="linux-ubuntu"></a>Linux(Ubuntu)
+
 터미널을 열고 Java 프로젝트를 만들려는 디렉터리로 이동합니다. 다음 명령을 입력하여 **Maven**을 설치합니다.
 
 ```bash
@@ -165,15 +166,18 @@ sudo apt-get install maven
 
 Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 지침을 보려면 [SQL Server를 사용하여 앱 빌드](https://www.microsoft.com/sql-server/developer-get-started/)로 이동하여 **Java**, **Ubuntu**를 차례로 선택하고 1.2, 1.3 및 1.4단계에서 Java 및 Maven 구성에 대한 자세한 지침을 따르세요.
 
-### <a name="windows"></a>**Windows**
+### <a name="windows"></a> Windows
+
 공식 설치 관리자를 사용하여 [Maven](https://maven.apache.org/download.cgi)을 설치합니다. Maven을 사용하여 종속성을 관리하고 Java 프로젝트를 빌드, 테스트 및 실행합니다. Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 지침을 보려면 [SQL Server를 사용하여 앱 빌드](https://www.microsoft.com/sql-server/developer-get-started/)로 이동하여 **Java**, Windows를 차례로 선택하고 1.2 및 1.3단계에서 Java 및 Maven 구성에 대한 자세한 지침을 따르세요.
 
 ## <a name="create-sqldbsample-project"></a>SqlDbSample 프로젝트 만들기
 
-1. 명령 콘솔(예: Bash)에서 Maven 프로젝트를 만듭니다. 
+1. 명령 콘솔(예: Bash)에서 Maven 프로젝트를 만듭니다.
+
    ```bash
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
+
 2. **Y**를 입력하고 **Enter**를 클릭합니다.
 3. 디렉터리를 새로 만든 프로젝트로 변경합니다.
 
@@ -181,9 +185,9 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
    cd SqlDbSamples
    ```
 
-4. 원하는 편집기를 사용하여 프로젝트 폴더에서 pom.xml 파일을 엽니다. 
+4. 원하는 편집기를 사용하여 프로젝트 폴더에서 pom.xml 파일을 엽니다.
 
-5. 원하는 텍스트 편집기를 열고 다음 줄을 복사하여 pom.xml 파일에 붙여넣는 방식으로 SQL Server용 Microsoft JDBC Driver 종속성을 Maven 프로젝트에 추가합니다. 파일에 미리 입력된 기존 값을 덮어쓰지 마세요. JDBC 종속성은 더 큰 “dependencies” 섹션( )에 붙여넣어야 합니다.   
+5. 원하는 텍스트 편집기를 열고 다음 줄을 복사하여 pom.xml 파일에 붙여넣는 방식으로 SQL Server용 Microsoft JDBC Driver 종속성을 Maven 프로젝트에 추가합니다. 파일에 미리 입력된 기존 값을 덮어쓰지 마세요. JDBC 종속성은 더 큰 “dependencies” 섹션( )에 붙여넣어야 합니다.
 
    ```xml
    <dependency>
@@ -193,7 +197,7 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
    </dependency>
    ```
 
-6. 다음 “properties” 섹션을 pom.xml 파일의 "dependencies" 섹션 뒤에 추가하여 프로젝트를 컴파일할 대상 Java 버전을 지정합니다. 
+6. 다음 “properties” 섹션을 pom.xml 파일의 "dependencies" 섹션 뒤에 추가하여 프로젝트를 컴파일할 대상 Java 버전을 지정합니다.
 
    ```xml
    <properties>
@@ -201,7 +205,8 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
      <maven.compiler.target>1.8</maven.compiler.target>
    </properties>
    ```
-7. 다음 "build" 섹션을 pom.xml 파일의 "properties" 섹션 뒤에 추가하여 JAR에서 매니페스트 파일을 지원합니다.       
+
+7. 다음 "build" 섹션을 pom.xml 파일의 "properties" 섹션 뒤에 추가하여 JAR에서 매니페스트 파일을 지원합니다.
 
    ```xml
    <build>
@@ -221,6 +226,7 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
      </plugins>
    </build>
    ```
+
 8. pom.xml 파일을 저장하고 닫습니다.
 9. App.java 파일(C:\apache-maven-3.5.0\SqlDbSample\src\main\java\com\sqldbsamples\App.java)을 열고 기존 콘텐츠를 다음 콘텐츠로 바꿉니다. 장애 조치(failover) 그룹 이름을 사용할 장애 조치(failover) 그룹 이름으로 바꿉니다. 데이터베이스 이름, 사용자 또는 암호의 값을 변경한 경우 해당 값도 변경하세요.
 
@@ -251,7 +257,7 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
          System.out.println("#######################################");
          System.out.println("## GEO DISTRIBUTED DATABASE TUTORIAL ##");
          System.out.println("#######################################");
-         System.out.println(""); 
+         System.out.println("");
 
          int highWaterMark = getHighWaterMarkId();
 
@@ -272,7 +278,7 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
       // Insert data into the product table with a unique product name that we can use to find the product again later
       String sql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
 
-      try (Connection connection = DriverManager.getConnection(READ_WRITE_URL); 
+      try (Connection connection = DriverManager.getConnection(READ_WRITE_URL);
               PreparedStatement pstmt = connection.prepareStatement(sql)) {
          pstmt.setString(1, "BrandNewProduct" + id);
          pstmt.setInt(2, 200989 + id + 10000);
@@ -290,7 +296,7 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
       // Query the data that was previously inserted into the primary database from the geo replicated database
       String sql = "SELECT Name, Color, ListPrice FROM SalesLT.Product WHERE Name = ?";
 
-      try (Connection connection = DriverManager.getConnection(READ_ONLY_URL); 
+      try (Connection connection = DriverManager.getConnection(READ_ONLY_URL);
               PreparedStatement pstmt = connection.prepareStatement(sql)) {
          pstmt.setString(1, "BrandNewProduct" + id);
          try (ResultSet resultSet = pstmt.executeQuery()) {
@@ -302,11 +308,10 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
    }
 
    private static int getHighWaterMarkId() {
-      // Query the high water mark id that is stored in the table to be able to make unique inserts 
+      // Query the high water mark id that is stored in the table to be able to make unique inserts
       String sql = "SELECT MAX(ProductId) FROM SalesLT.Product";
       int result = 1;
-        
-      try (Connection connection = DriverManager.getConnection(READ_WRITE_URL); 
+      try (Connection connection = DriverManager.getConnection(READ_WRITE_URL);
               Statement stmt = connection.createStatement();
               ResultSet resultSet = stmt.executeQuery(sql)) {
          if (resultSet.next()) {
@@ -319,7 +324,8 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
       }
    }
    ```
-6. App.java 파일을 저장하고 닫습니다.
+
+10. App.java 파일을 저장하고 닫습니다.
 
 ## <a name="compile-and-run-the-sqldbsample-project"></a>SqlDbSample 프로젝트 컴파일 및 실행
 
@@ -328,11 +334,12 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
    ```bash
    mvn package
    ```
-2. 완료되면 다음 명령을 실행하여 응용 프로그램을 실행합니다(수동으로 중지하지 않으면 약 1시간 동안 실행됨).
+
+2. 완료되면 다음 명령을 실행하여 애플리케이션을 실행합니다(수동으로 중지하지 않으면 약 1시간 동안 실행됨).
 
    ```bash
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
-   
+
    #######################################
    ## GEO DISTRIBUTED DATABASE TUTORIAL ##
    #######################################
@@ -344,7 +351,7 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
 
 ## <a name="perform-disaster-recovery-drill"></a>재해 복구 훈련 수행
 
-1. 장애 조치(failover) 그룹의 수동 장애 조치(failover)를 호출합니다. 
+1. 장애 조치(failover) 그룹의 수동 장애 조치(failover)를 호출합니다.
 
    ```powershell
    Switch-AzureRMSqlDatabaseFailoverGroup `
@@ -353,7 +360,7 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
    -FailoverGroupName $myfailovergroupname
    ```
 
-2. 장애 조치(failover) 중에 응용 프로그램 결과를 관찰합니다. DNS 캐시를 새로 고치는 동안 일부 삽입이 실패합니다.     
+2. 장애 조치(failover) 중에 애플리케이션 결과를 관찰합니다. DNS 캐시를 새로 고치는 동안 일부 삽입이 실패합니다.
 
 3. 재해 복구 서버가 수행하는 역할을 파악합니다.
 
@@ -370,7 +377,7 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
    -FailoverGroupName $myfailovergroupname
    ```
 
-5. 장애 복구(failback) 중에 응용 프로그램 결과를 관찰합니다. DNS 캐시를 새로 고치는 동안 일부 삽입이 실패합니다.     
+5. 장애 복구(failback) 중에 애플리케이션 결과를 관찰합니다. DNS 캐시를 새로 고치는 동안 일부 삽입이 실패합니다.
 
 6. 재해 복구 서버가 수행하는 역할을 파악합니다.
 
@@ -384,17 +391,16 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure SQL 데이터베이스와 응용 프로그램을 원격 지역으로 장애 조치(failover)하도록 구성한 다음, 장애 조치(failover) 계획을 테스트하는 것을 알아봤습니다.  다음 방법에 대해 알아보았습니다. 
+이 자습서에서는 Azure SQL 데이터베이스와 애플리케이션을 원격 지역으로 장애 조치(failover)하도록 구성한 다음, 장애 조치(failover) 계획을 테스트하는 것을 알아봤습니다.  다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * 데이터베이스 사용자를 만들고 권한 부여
-> * 데이터베이스 수준 방화벽 규칙 설정
-> * 지역에서 복제 장애 조치(failover) 그룹 만들기
-> * Azure SQL Database를 쿼리하기 위한 Java 응용 프로그램 만들기 및 컴파일
-> * 재해 복구 훈련 수행
+> - 데이터베이스 사용자를 만들고 권한 부여
+> - 데이터베이스 수준 방화벽 규칙 설정
+> - 지역에서 복제 장애 조치(failover) 그룹 만들기
+> - Azure SQL Database를 쿼리하기 위한 Java 애플리케이션 만들기 및 컴파일
+> - 재해 복구 훈련 수행
 
 DMS를 사용하여 SQL Server를 Azure SQL Database Managed Instance로 마이그레이션하려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 >[DMS를 사용하여 Azure SQL Database Managed Instance로 SQL Server 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)
-

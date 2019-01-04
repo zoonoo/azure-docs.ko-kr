@@ -18,7 +18,7 @@ ms.locfileid: "52314510"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>psql을 사용하여 Apache Phoenix로 데이터 대량 로드
 
-[Apache Phoenix](http://phoenix.apache.org/)는 [Apache HBase](../hbase/apache-hbase-overview.md)에서 구축되는 오픈 소스 대규모 병렬 관계형 데이터베이스입니다. Phoenix는 HBase보다는 SQL과 비슷한 쿼리를 제공합니다. Phoenix는 JDBC 드라이버를 사용하여 사용자가 개별적으로 및 대량으로 SQL 테이블, 인덱스, 뷰 및 시퀀스를 생성, 삭제 및 변경하고, 행을 Upsert할 수 있도록 합니다. Phoenix는 MapReduce를 사용하여 쿼리를 컴파일하는 대신, noSQL 네이티브 컴파일을 사용하여 HBase 위에 대기 시간이 짧은 응용 프로그램을 만듭니다. Phoenix는 서버의 주소 공간에서 클라이언트 제공 코드를 실행하도록 지원하는 보조 프로세서를 추가하고, 데이터와 함께 있는 코드를 실행합니다. 따라서 클라이언트/서버 데이터 전송이 최소화됩니다.  HDInsight에서 Phoenix를 사용하여 데이터로 작업하려면 먼저 테이블을 만든 다음, 데이터를 로드합니다.
+[Apache Phoenix](http://phoenix.apache.org/)는 [Apache HBase](../hbase/apache-hbase-overview.md)에서 구축되는 오픈 소스 대규모 병렬 관계형 데이터베이스입니다. Phoenix는 HBase보다는 SQL과 비슷한 쿼리를 제공합니다. Phoenix는 JDBC 드라이버를 사용하여 사용자가 개별적으로 및 대량으로 SQL 테이블, 인덱스, 뷰 및 시퀀스를 생성, 삭제 및 변경하고, 행을 Upsert할 수 있도록 합니다. Phoenix는 MapReduce를 사용하여 쿼리를 컴파일하는 대신, noSQL 네이티브 컴파일을 사용하여 HBase 위에 대기 시간이 짧은 애플리케이션을 만듭니다. Phoenix는 서버의 주소 공간에서 클라이언트 제공 코드를 실행하도록 지원하는 보조 프로세서를 추가하고, 데이터와 함께 있는 코드를 실행합니다. 따라서 클라이언트/서버 데이터 전송이 최소화됩니다.  HDInsight에서 Phoenix를 사용하여 데이터로 작업하려면 먼저 테이블을 만든 다음, 데이터를 로드합니다.
 
 ## <a name="bulk-loading-with-apache-phoenix"></a>Apache Phoenix를 사용하여 대량 로드
 

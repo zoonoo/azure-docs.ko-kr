@@ -1,21 +1,22 @@
 ---
-title: C# 빠른 시작 - 의도 예측 - LUIS
-titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 사용 가능한 공용 LUIS 앱을 통해 대화형 텍스트에서 사용자의 의도를 판단합니다. C#을 사용하여 공용 앱의 HTTP 예측 엔드포인트에 사용자의 의도를 텍스트로 보냅니다. 엔드포인트에서 LUIS는 공용 앱의 모델을 적용하여 자연어 텍스트의 의미를 분석하고 전반적인 의도를 판단하여 앱의 주체 도메인에 적절한 데이터를 추출합니다.
+title: 의도 가져오기, C#
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 이 C# 빠른 시작에서는 사용 가능한 공용 LUIS 앱을 통해 대화형 텍스트에서 사용자의 의도를 판단합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 51c23029cc771db5351575ce329944a9f06dd286
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0e58fb35fa29cde16b1ccf50dc20dacc693a4757
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035847"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141767"
 ---
 # <a name="quickstart-get-intent-using-c"></a>빠른 시작: C#을 사용하여 의도 가져오기
 
@@ -44,13 +45,13 @@ ms.locfileid: "47035847"
 
 C#을 사용하여 예측 엔드포인트 GET [API](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)를 쿼리하여 이전 섹션의 브라우저 창에 표시된 것과 동일한 결과를 냅니다. 
 
-1. Visual Studio에서 새 콘솔 응용 프로그램을 만듭니다. 
+1. Visual Studio에서 새 콘솔 애플리케이션을 만듭니다. 
 
-    ![LUIS 사용자 설정 메뉴 액세스](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
+    ![Visual Studio에서 새 콘솔 애플리케이션 만들기](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
 
 2. Visual Studio 프로젝트의 솔루션 탐색기에서 **참조 추가**를 선택한 다음, 어셈블리 탭에서 **System.Web**을 선택합니다.
 
-    ![LUIS 사용자 설정 메뉴 액세스](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
+    ![참조 추가를 선택한 다음, 어셈블리 탭에서 System.Web 선택](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
 
 3. Program.cs를 다음 코드로 덮어씁니다.
     
@@ -58,7 +59,7 @@ C#을 사용하여 예측 엔드포인트 GET [API](https://westus.dev.cognitive
 
 4. `YOUR_KEY` 값을 LUIS 키로 대체합니다.
 
-5. 콘솔 응용 프로그램을 작성하고 실행합니다. 브라우저 창에서 앞서 본 것과 동일한 JSON을 표시합니다.
+5. 콘솔 애플리케이션을 작성하고 실행합니다. 브라우저 창에서 앞서 본 것과 동일한 JSON을 표시합니다.
 
     ![콘솔 창에서는 LUIS의 JSON 결과를 표시합니다.](./media/luis-get-started-cs-get-intent/console-turn-on.png)
 

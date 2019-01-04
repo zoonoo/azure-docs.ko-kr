@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fe35f26fe73661901fa85da65e353fe66adf5d47
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 538208c39d6436c15b95760133e00c980e2e8277
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094220"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727905"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation의 역할 기반 Access Control
 
@@ -274,12 +274,13 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하고 Automation 계정 페이지에서 Automation 계정을 엽니다.
 2. 왼쪽 위 모서리에 있는 **액세스 제어(IAM)** 컨트롤을 클릭합니다. 그러면 새 사용자, 그룹, 응용 프로그램을 추가하여 Automation 계정을 관리하고 Automation 계정에 구성 가능한 기존 역할을 볼 수 있는 **액세스 제어(IAM)** 페이지가 열립니다.
+3. **역할 할당** 탭을 클릭합니다.
 
    ![액세스 단추](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>새 사용자 추가 및 역할 할당
 
-1. **액세스 제어(IAM)** 페이지에서 **+추가**를 클릭하여 사용자, 그룹 또는 응용 프로그램을 추가할 수 있는 **사용 권한 추가** 페이지를 열고 역할을 할당합니다.
+1. **액세스 제어(IAM)** 페이지에서 **+ 역할 할당 추가**를 클릭하여 사용자, 그룹 또는 애플리케이션을 추가할 수 있는 **역할 할당 추가** 페이지를 열고, 역할을 할당합니다.
 
 2. 사용 가능한 역할 목록에서 역할을 선택합니다. Automation 계정이 지원하는 기본 제공 역할이나 사용자가 정의한 사용자 지정 역할을 선택할 수 있습니다.
 

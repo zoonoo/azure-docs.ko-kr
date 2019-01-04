@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: 텍스트 음성 변환, Python - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Python 및 Text-to-Speech REST API를 사용하여 텍스트를 음성으로 변환하는 방법을 알아봅니다. 이 가이드에 포함된 샘플 텍스트는 SSML(Speech Synthesis Markup Language)로 구조화되어 있습니다. 이를 통해 음성 응답의 음성 및 언어를 선택할 수 있습니다. REST API는 일반 텍스트(ASCII 또는 UTF-8)를 지원하지만, 일반 텍스트가 제공된 경우 응답이 Speech Service의 기본 음성 및 언어로 반환됩니다.
+description: 이 빠른 시작에서는 Python 및 Text-to-Speech REST API를 사용하여 텍스트를 음성으로 변환하는 방법을 알아봅니다. 이 가이드에 포함된 샘플 텍스트는 SSML(Speech Synthesis Markup Language)로 구조화되어 있습니다. 이를 통해 음성 응답의 음성 및 언어를 선택할 수 있습니다.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 11/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 38bcd67dfb6d9b1a1955658872fee7b8b7a14a0c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 7512c443c49f1518d6a6f7ace7e981d3508b1d7a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447734"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090060"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>빠른 시작: Python을 사용하여 텍스트 음성 변환
 
@@ -151,7 +152,7 @@ python tts.py
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-샘플 앱의 원본 코드에서 구독 키와 같은 기밀 정보를 제거해야 합니다.
+샘플 앱의 소스 코드에서 구독 키와 같은 기밀 정보를 제거해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

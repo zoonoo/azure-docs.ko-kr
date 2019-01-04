@@ -7,22 +7,22 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: overview
 ms.date: 10/04/2018
-ms.openlocfilehash: ade162d0261b765336cbff9ea8a6429f9bd2d871
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 34582e66dec3b2f97efba7856ccfbf678f8f1f63
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801834"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408088"
 ---
 # <a name="hdinsight-40-overview-preview"></a>HDInsight 4.0 개요(미리 보기)
 
-Azure HDInsight는 Azure에서 오픈 소스 Hadoop 및 Spark 분석을 위해 기업 고객들 사이에서 가장 인기 있는 서비스 중 하나입니다. HDI(HDInsight) 4.0은 [HDP(Hortonworks Data Platform) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html)의 Hadoop 구성 요소의 클라우드 배포판입니다. 이 문서에서는 가장 최근 Azure HDInsight 릴리스 및 업그레이드 방법에 대한 정보를 제공합니다.
+Azure HDInsight는 Azure에서 오픈 소스 Apache Hadoop 및 Apache Spark 분석을 위해 기업 고객들 사이에서 가장 인기 있는 서비스 중 하나입니다. HDI(HDInsight) 4.0은 [HDP(Hortonworks Data Platform) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html)의 Apache Hadoop 구성 요소의 클라우드 배포판입니다. 이 문서에서는 가장 최근 Azure HDInsight 릴리스 및 업그레이드 방법에 대한 정보를 제공합니다.
 
 ## <a name="whats-new-in-hdi-40"></a>HDI 4.0의 새로운 기능
 
-### <a name="hive-30-and-llap"></a>Hive 3.0 및 LLAP
+### <a name="apache-hive-30-and-llap"></a>Apache Hive 3.0 및 LLAP
 
-Hive LLAP(짧은 대기 시간 분석 처리)는 영구적인 쿼리 서버 및 메모리 내 캐싱을 사용하여 원격 클라우드 저장소의 데이터에 빠른 SQL 쿼리 결과를 전달합니다. Hive LLAP는 Hive 쿼리의 조각을 실행하는 영구 디먼 집합을 활용합니다. LLAP에서 쿼리 실행은 컨테이너 대신 LLAP 디먼 내에서 실행 중인 작업자 태스크를 사용하는 LLAP 없는 Hive와 비슷합니다.
+Apache Hive LLAP(짧은 대기 시간 분석 처리)는 영구적인 쿼리 서버 및 메모리 내 캐싱을 사용하여 원격 클라우드 스토리지의 데이터에 빠른 SQL 쿼리 결과를 전달합니다. Hive LLAP는 Hive 쿼리의 조각을 실행하는 영구 디먼 집합을 활용합니다. LLAP에서 쿼리 실행은 컨테이너 대신 LLAP 디먼 내에서 실행 중인 작업자 태스크를 사용하는 LLAP 없는 Hive와 비슷합니다.
 
 Hive LLAP의 이점은 다음과 같습니다.
 
@@ -72,7 +72,7 @@ Spark에서 직접 Hive 트랜잭션 테이블에 실수로 액세스하여 일�
 [Apache Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/spark-overview/content/analyzing_data_with_apache_spark.html)에 대해 자세히 알아봅니다.
 
 
-### <a name="oozie"></a>Oozie
+### <a name="apache-oozie"></a>Apache Oozie
 
 Apache Oozie 4.3.1은 다음 변경 내용으로 HDI 4.0에 포함됩니다.
 
@@ -90,7 +90,7 @@ Apache Oozie 4.3.1은 다음 변경 내용으로 HDI 4.0에 포함됩니다.
 
 ## <a name="limitations"></a>제한 사항
 
-* HDI 4.0은 MapReduce를 지원하지 않습니다. 대신 Tez를 사용합니다. [Apache Tez](https://tez.apache.org/)에 대해 자세히 알아봅니다.
+* HDI 4.0은 MapReduce를 지원하지 않습니다. 대신 Apache Tez를 사용하세요. [Apache Tez](https://tez.apache.org/)에 대해 자세히 알아봅니다.
 
 * Hive 보기는 HDI 4.0에서 더 이상 사용할 수 없습니다. 
 

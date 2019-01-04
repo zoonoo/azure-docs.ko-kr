@@ -177,9 +177,9 @@ Spark 작업자 노드와 Azure Cosmos DB 데이터 노드(파티션) 간에 데
 
 4. Twitter 피드 샘플의 콘텐츠를 추출하고 config.py 파일을 엽니다. masterKey, host, databaseId, collectionId 및 preferredLocations 값을 업데이트합니다.  
 
-5. `https://apps.twitter.com/`으로 이동하고 Twitter 피드 응용 프로그램을 등록합니다. 응용 프로그램 이름을 선택하면 **소비자 키, 소비자 암호, 액세스 토큰 및 액세스 토큰 암호**가 제공됩니다. 이 값을 복사하고 config.py 파일에서 업데이트하여 Twitter에 대한 응용 프로그램의 프로그래밍 방식 액세스를 Twitter 피드에 제공합니다.   
+5. `https://apps.twitter.com/`으로 이동하고 Twitter 피드 응용 프로그램을 등록합니다. 애플리케이션 이름을 선택하면 **소비자 키, 소비자 암호, 액세스 토큰 및 액세스 토큰 암호**가 제공됩니다. 이 값을 복사하고 config.py 파일에서 업데이트하여 Twitter에 대한 애플리케이션의 프로그래밍 방식 액세스를 Twitter 피드에 제공합니다.   
 
-6. config.py 파일을 저장합니다. 명령 프롬프트를 열고, 다음 명령을 사용하여 Python 응용 프로그램을 실행합니다.
+6. config.py 파일을 저장합니다. 명령 프롬프트를 열고, 다음 명령을 사용하여 Python 애플리케이션을 실행합니다.
 
    ```bash
    Python driver.py

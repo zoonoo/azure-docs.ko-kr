@@ -1,6 +1,6 @@
 ---
 title: Azure AD v2 Windows 데스크톱 빠른 시작 | Microsoft Docs
-description: Windows 데스크톱 .NET(XAML) 응용 프로그램이 액세스 토큰을 가져와서 Azure Active Directory v2.0 엔드포인트로 보호된 API를 호출할 수 있는 방법을 알아봅니다.
+description: Windows 데스크톱 .NET(XAML) 애플리케이션이 액세스 토큰을 가져와서 Azure Active Directory v2.0 엔드포인트로 보호된 API를 호출할 수 있는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -27,26 +27,26 @@ ms.locfileid: "52284253"
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-이 빠른 시작에서는 개인, 회사 및 학교 계정에 로그인하고, 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 Windows 데스크톱 .NET(WPF) 응용 프로그램을 작성하는 방법을 알아봅니다.
+이 빠른 시작에서는 개인, 회사 및 학교 계정에 로그인하고, 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 Windows 데스크톱 .NET(WPF) 애플리케이션을 작성하는 방법을 알아봅니다.
 
 ![이 빠른 시작에서 생성된 샘플 앱의 작동 방식](media/quickstart-v2-windows-desktop/windesktop-intro.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>빠른 시작 앱 등록 및 다운로드
-> 빠른 시작 응용 프로그램을 시작하는 옵션은 두 가지가 있습니다.
+> 빠른 시작 애플리케이션을 시작하는 옵션은 두 가지가 있습니다.
 > * [기본] [옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * [수동] [옵션 2: 응용 프로그램 및 코드 샘플을 등록하고 수동으로 구성](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> * [수동] [옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
 > 1. [Azure Portal - 응용 프로그램 등록(미리 보기)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs)으로 이동합니다.
-> 1. 응용 프로그램 이름을 입력하고 **등록**을 선택합니다.
-> 1. 지침에 따라 클릭 한 번으로 새 응용 프로그램을 다운로드하고 자동으로 구성합니다.
+> 1. 애플리케이션 이름을 입력하고 **등록**을 선택합니다.
+> 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>옵션 2: 응용 프로그램 및 코드 샘플을 등록하고 수동으로 구성
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성
 >
-> #### <a name="step-1-register-your-application"></a>1단계: 응용 프로그램 등록
-> 응용 프로그램을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
+> #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
+> 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
 >
 > 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 > 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
@@ -60,7 +60,7 @@ ms.locfileid: "52284253"
 > 1. **저장**을 선택합니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-azure-portal"></a>1단계: Azure Portal에서 응용 프로그램 구성
+> #### <a name="step-1-configure-your-application-in-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
 > 이 빠른 시작의 코드 샘플이 작동하려면 회신 URL을 **urn:ietf:wg:oauth:2.0:oob**로 추가해야 합니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [자동 변경]()
@@ -87,9 +87,9 @@ ms.locfileid: "52284253"
 > 위치:
 > - `Enter_the_Application_Id_here` - 등록한 응용 프로그램의 **응용 프로그램(클라이언트) ID**입니다.
 > - `Enter_the_Tenant_Info_Here` - 다음 옵션 중 하나로 설정됩니다.
->   - 응용 프로그램이 **이 조직 디렉터리의 계정**을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
->   - 응용 프로그램이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
->   - 응용 프로그램이 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 지원하는 경우 이 값을 `common`으로 바꿉니다.
+>   - 애플리케이션이 **이 조직 디렉터리의 계정**을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
+>   - 애플리케이션이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
+>   - 애플리케이션이 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 지원하는 경우 이 값을 `common`으로 바꿉니다.
 >
 > > [!TIP]
 > > **응용 프로그램(클라이언트) ID**, **디렉터리(테넌트) ID** 및 **지원되는 계정 유형**의 값을 찾아보려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다.
@@ -120,7 +120,7 @@ public static PublicClientApplication PublicClientApp = new PublicClientApplicat
 
 > |위치: ||
 > |---------|---------|
-> | `ClientId` | Azure Portal에 등록된 응용 프로그램의 **응용 프로그램(클라이언트) ID**입니다. 이 값은 Azure Portal에서 앱의 **개요** 페이지에 있습니다. |
+> | `ClientId` | Azure Portal에 등록된 애플리케이션의 **애플리케이션(클라이언트) ID**입니다. 이 값은 Azure Portal에서 앱의 **개요** 페이지에 있습니다. |
 
 ### <a name="requesting-tokens"></a>토큰 요청
 
@@ -130,9 +130,9 @@ MSAL에는 토큰 가져오기에 사용되는 두 가지 메서드인 `AcquireT
 
 일부 상황에서는 사용자가 팝업 창을 통해 Azure AD v2.0 엔드포인트를 조작하여 자격 증명의 유효성을 검사하거나 동의를 제공해야 합니다. 일부 사례:
 
-- 처음으로 사용자가 응용 프로그램에 로그인한 경우
+- 처음으로 사용자가 애플리케이션에 로그인한 경우
 - 암호가 만료되어 사용자가 자격 증명을 다시 입력해야 할 경우
-- 응용 프로그램이 사용자 동의가 필요한 리소스에 액세스를 요청하고 있는 경우
+- 애플리케이션이 사용자 동의가 필요한 리소스에 액세스를 요청하고 있는 경우
 - 2단계 인증이 필요한 경우
 
 ```csharp
@@ -161,7 +161,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작의 전체 설명을 포함하여 응용 프로그램 및 새로운 기능 빌드에 대한 완전한 단계별 가이드를 제공하는 Windows 데스크톱 자습서를 사용해 보세요.
+이 빠른 시작의 전체 설명을 포함하여 애플리케이션 및 새로운 기능 빌드에 대한 완전한 단계별 가이드를 제공하는 Windows 데스크톱 자습서를 사용해 보세요.
 
 > [!div class="nextstepaction"]
 > [Graph API 호출 자습서](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-windesktop)

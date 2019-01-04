@@ -67,7 +67,7 @@ Azure Functions 1.x 실험 언어는 새 모델을 사용하도록 업데이트�
 
 * 모니터링을 향상시키기 위해 [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard) 설정을 사용하는 포털의 WebJobs 대시보드가 [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsightsinstrumentationkey) 설정을 사용하는 Azure Application Insights로 바뀌었습니다. 자세한 내용은 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
 
-* 함수 앱의 모든 함수가 동일한 언어를 공유해야 합니다. 함수 앱을 만들 때 앱의 런타임 스택을 선택해야 합니다. 런타임 스택은 응용 프로그램 설정의 [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functionsworkerruntime) 값으로 지정됩니다. 이 요구 사항은 공간 효율성 및 시작 시간을 개선하기 위해 추가되었습니다. 로컬로 개발하는 경우 [local.settings.json 파일](functions-run-local.md#local-settings-file)에 이 설정을 포함해야 합니다.
+* 함수 앱의 모든 함수가 동일한 언어를 공유해야 합니다. 함수 앱을 만들 때 앱의 런타임 스택을 선택해야 합니다. 런타임 스택은 애플리케이션 설정의 [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functionsworkerruntime) 값으로 지정됩니다. 이 요구 사항은 공간 효율성 및 시작 시간을 개선하기 위해 추가되었습니다. 로컬로 개발하는 경우 [local.settings.json 파일](functions-run-local.md#local-settings-file)에 이 설정을 포함해야 합니다.
 
 * App Service 계획의 함수에 대한 기본 시간 제한은 30분으로 변경되었습니다. host.json에서 [functionTimeout](functions-host-json.md#functiontimeout) 설정을 사용하여 수동으로 제한 시간을 다시 무제한으로 변경할 수 있습니다.
 
@@ -77,7 +77,7 @@ Azure Functions 1.x 실험 언어는 새 모델을 사용하도록 업데이트�
 
 * Event Grid 트리거 웹후크의 URL 형식은 `https://{app}/runtime/webhooks/{triggerName}`으로 변경되었습니다.
 
-### <a name="migrating-a-locally-developed-application"></a>로컬에서 개발한 응용 프로그램 마이그레이션
+### <a name="migrating-a-locally-developed-application"></a>로컬에서 개발한 애플리케이션 마이그레이션
 
 버전 1.x 런타임을 사용하여 로컬로 개발한 기존 함수 앱 프로젝트가 있을 수 있습니다. 버전 2.x로 업그레이드하려면 버전 2.x용 로컬 함수 앱 프로젝트를 만든 후 기존 코드를 새 앱으로 이식해야 합니다. 기존 프로젝트 및 코드를 수동으로 업데이트할 수 있습니다(일종의 "전체" 업그레이드). 그러나 버전 1.x와 버전 2.x 간에는 아직도 많은 기능 개선이 필요합니다. 예를 들어 C#의 디버깅 개체가 `TraceWriter`에서 `ILogger`로 변경되었습니다. 새 버전 2.x 프로젝트를 만들어 최신 버전 2.x 템플릿을 기준으로 하는 업데이트된 함수로 시작합니다.
 
@@ -109,7 +109,7 @@ Visual Studio Code 개발의 경우 설치된 도구의 버전과 일치하도�
 
 ### <a name="changing-version-of-apps-in-azure"></a>Azure에서 앱 버전 변경
 
-Azure에 게시된 앱에서 사용하는 Functions 런타임 버전은 [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functionsextensionversion) 응용 프로그램 설정에 따라 결정됩니다. `~2` 값은 버전 2.x 런타임을 대상으로 하고 `~1`은 버전 1.x 런타임을 대상으로 합니다. 이 설정을 임의로 변경하지 않도록 합니다. 함수의 다른 앱 설정 및 코드도 변경해야 할 수 있기 때문입니다. 함수 앱을 다른 런타임 버전으로 마이그레이션하기 위한 권장 방법에 대한 자세한 내용은 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md)을 참조하세요.
+Azure에 게시된 앱에서 사용하는 Functions 런타임 버전은 [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functionsextensionversion) 애플리케이션 설정에 따라 결정됩니다. `~2` 값은 버전 2.x 런타임을 대상으로 하고 `~1`은 버전 1.x 런타임을 대상으로 합니다. 이 설정을 임의로 변경하지 않도록 합니다. 함수의 다른 앱 설정 및 코드도 변경해야 할 수 있기 때문입니다. 함수 앱을 다른 런타임 버전으로 마이그레이션하기 위한 권장 방법에 대한 자세한 내용은 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md)을 참조하세요.
 
 ## <a name="bindings"></a>바인딩
 

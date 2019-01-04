@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge 모듈 이해 | Microsoft Docs
-description: Azure IoT Edge 모듈 및 구성 방법에 대해 알아보기
+title: 모듈이 디바이스에서 로직을 실행하는 방법 알아보기 - Azure IoT Edge | Microsoft Docs
+description: Azure IoT Edge 모듈은 IoT Edge 디바이스에서 비즈니스 논리를 실행할 수 있도록 원격으로 배포 및 관리할 수 있는 컨테이너화된 논리 단위입니다.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,19 +8,20 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3d76f5931e3636f19c2030c4090116a0791db819
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 90fb6eadb2edb92d4516d8565d8c2c2bd5120c05
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567335"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094188"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Azure IoT Edge 모듈 이해
 
 Azure IoT Edge를 사용하면 에지에서 비즈니스 논리를 *모듈* 형태로 배포하고 관리할 수 있습니다. Azure IoT Edge 모듈은 IoT Edge가 관리하는 계산의 최소 단위이며 Azure 서비스(예: Azure Stream Analytics) 또는 고유한 솔루션별 코드를 포함할 수 있습니다. 모듈을 개발, 배포 및 유지 관리하는 방법을 이해하려면 모듈을 구성하는 4가지 개념적 요소를 고려하는 것이 좋습니다.
 
 * **모듈 이미지**는 모듈을 정의하는 소프트웨어가 포함된 패키지입니다.
-* **모듈 인스턴스**는 IoT Edge 장치에서 모듈 이미지를 실행하는 특정 계산 단위입니다. 모듈 인스턴스는 IoT Edge 런타임에 의해 시작됩니다.
+* **모듈 인스턴스**는 IoT Edge 디바이스에서 모듈 이미지를 실행하는 특정 계산 단위입니다. 모듈 인스턴스는 IoT Edge 런타임에 의해 시작됩니다.
 * **모듈 ID**는 각 모듈 인스턴스에 연결된 IoT Hub에 저장된 정보(보안 자격 증명 포함)입니다.
 * **모듈 쌍**은 IoT Hub에 저장된 JSON 문서로, 메타데이터, 구성 및 조건 등 모듈 인스턴스의 상태 정보를 포함합니다. 
 
@@ -31,7 +32,7 @@ IoT Edge 모듈 이미지에는 IoT Edge 런타임의 관리, 보안 및 통신 
 
 모듈 이미지가 디바이스에 배포되고 IoT Edge 런타임에서 시작될 때마다 해당 모듈의 새 인스턴스가 만들어집니다. 전 세계의 다른 지역에 있는 두 디바이스가 동일한 모듈 이미지를 사용할 수 있습니다. 그러나 각 모듈이 디바이스에서 시작될 때 고유한 모듈 인스턴스를 사용하게 됩니다. 
 
-![클라우드의 모듈 이미지 - 디바이스의 모듈 인스턴스](./media/iot-edge-modules/image_instance.png)
+![다이어그램 - 클라우드의 모듈 이미지, 디바이스의 모듈 인스턴스](./media/iot-edge-modules/image_instance.png)
 
 구현 시 모듈 이미지는 컨테이너 이미지로 리포지토리에 존재하며 모듈 인스턴스는 디바이스의 컨테이너입니다. 
 
@@ -46,7 +47,7 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 
 동일한 디바이스에 하나의 모듈 이미지를 여러 번 배포해야 하는 경우 동일한 이미지를 다른 이름으로 여러 번 배포할 수 있습니다.
 
-![모듈 ID가 고유한 경우](./media/iot-edge-modules/identity.png)
+![다이어그램 - 모듈 ID는 디바이스 내에서나 디바이스 간에 고유합니다.](./media/iot-edge-modules/identity.png)
 
 ## <a name="module-twins"></a>모듈 쌍
 

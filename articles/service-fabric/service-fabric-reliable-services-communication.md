@@ -22,7 +22,7 @@ ms.lasthandoff: 05/16/2018
 ms.locfileid: "34210762"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Reliable Services 통신 API를 사용하는 방법
-플랫폼인 Azure 서비스 패브릭은 서비스 간에 이루어지는 통신을 전혀 알 수 없습니다. UDP에서 HTTP까지 모든 프로토콜 및 스택이 허용됩니다. 서비스 개발자가 서비스가 통신하는 방법을 선택합니다. Reliable Services 응용 프로그램 프레임워크는 사용자 지정 통신 구성 요소를 빌드하는 데 사용할 수 있는 API 뿐만 아니라 기본 제공 통신 스택을 제공합니다.
+플랫폼인 Azure 서비스 패브릭은 서비스 간에 이루어지는 통신을 전혀 알 수 없습니다. UDP에서 HTTP까지 모든 프로토콜 및 스택이 허용됩니다. 서비스 개발자가 서비스가 통신하는 방법을 선택합니다. Reliable Services 애플리케이션 프레임워크는 사용자 지정 통신 구성 요소를 빌드하는 데 사용할 수 있는 API 뿐만 아니라 기본 제공 통신 스택을 제공합니다.
 
 ## <a name="set-up-service-communication"></a>서비스 통신 설정
 Reliable Services API는 서비스 통신을 위해 간단한 인터페이스를 사용합니다. 서비스에 대한 끝점을 열려면 다음 인터페이스를 구현하기만 하면 됩니다.
@@ -197,7 +197,7 @@ public CompletableFuture<String> openAsync(CancellationToken cancellationToken)
 Service Fabric은 클라이언트 및 기타 서비스가 서비스 이름별로 이 주소를 요청할 수 있게 해주는 API를 제공합니다. 서비스 주소가 정적이 아니기 때문에 중요합니다. 서비스는 리소스 균형 조정 및 가용성을 위한 클러스터 주변으로 이동됩니다. 이는 클라이언트가 서비스의 수신 대기 주소를 확인할 수 있도록 하는 메커니즘입니다.
 
 > [!NOTE]
-> C#의 경우는 [OWIN 자체 호스팅이 포함된 Service Fabric 웹 API 서비스](service-fabric-reliable-services-communication-webapi.md)에서 통신 수신기를 작성하는 방법에 대한 전체 연습을 참조합니다. Java의 경우는 HTTP 서버 구현을 직접 작성할 수 있습니다. https://github.com/Azure-Samples/service-fabric-java-getting-started에서 EchoServer 응용 프로그램 예제를 참조합니다.
+> C#의 경우는 [OWIN 자체 호스팅이 포함된 Service Fabric 웹 API 서비스](service-fabric-reliable-services-communication-webapi.md)에서 통신 수신기를 작성하는 방법에 대한 전체 연습을 참조합니다. Java의 경우는 HTTP 서버 구현을 직접 작성할 수 있습니다. https://github.com/Azure-Samples/service-fabric-java-getting-started에서 EchoServer 애플리케이션 예제를 참조합니다.
 >
 >
 

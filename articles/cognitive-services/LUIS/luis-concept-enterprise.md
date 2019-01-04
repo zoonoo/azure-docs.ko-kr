@@ -1,21 +1,22 @@
 ---
-title: LUIS 앱의 엔터프라이즈 개념 - Language Understanding
-titleSuffix: Azure Cognitive Services
-description: 대형 LUIS 앱의 디자인 개념을 이해합니다.
+title: 엔터프라이즈 개념
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 규모가 큰 LUIS 앱 또는 LUIS 및 QnA Maker를 함께 포함하는 여러 앱에 대한 디자인 개념을 이해합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bb4078c9131488e5077795df792de259d7c789dc
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 60e1e8d49fcbae7d7049c97e9ee756dc938ca5ff
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638276"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105940"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>LUIS 앱의 엔터프라이즈 전략
 엔터프라이즈 앱의 이러한 디자인 전략을 검토합니다.

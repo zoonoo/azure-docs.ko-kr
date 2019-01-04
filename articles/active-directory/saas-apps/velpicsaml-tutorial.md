@@ -31,7 +31,7 @@ Azure AD에 Velpic SAML을 통합하면 다음과 같은 이점을 얻을 수 �
 - 사용자가 해당 Azure AD 계정으로 Velpic SAML에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure 관리 포털에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -63,7 +63,7 @@ Velpic SAML의 Azure AD 통합을 구성하려면 갤러리의 Velpic SAML을 �
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![애플리케이션][2]
     
@@ -75,7 +75,7 @@ Velpic SAML의 Azure AD 통합을 구성하려면 갤러리의 Velpic SAML을 �
 
     ![Azure AD 테스트 사용자 만들기](./media/velpicsaml-tutorial/tutorial_velpicsaml_search.png)
 
-1. 결과 창에서 **Velpic SAML**을 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **Velpic SAML**을 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/velpicsaml-tutorial/tutorial_velpicsaml_addfromgallery.png)
 
@@ -96,11 +96,11 @@ Velpic SAML에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure 관리 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Velpic SAML 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure 관리 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Velpic SAML 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Velpic SAML에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure 관리 포털의 **Velpic SAML** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure 관리 포털의 **Velpic SAML** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -117,7 +117,7 @@ Velpic SAML에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
     b. **식별자** 텍스트 상자에 **'Single Sign-On URL'** 값 `https://auth.velpic.com/saml/v2/<entity-id>/login`을 붙여 넣습니다.
     
     > [!NOTE]
-    > Velpic SAML 쪽에서 SSO 플러그 인을 구성한 경우 로그온 URL은 Velpic SAML 팀에서 제공하고 식별자 값을 사용할 수 있습니다. Velpic SAML 응용 프로그램 페이지에서 해당 값을 복사하고 여기에 붙여 넣어야 합니다.
+    > Velpic SAML 쪽에서 SSO 플러그 인을 구성한 경우 로그온 URL은 Velpic SAML 팀에서 제공하고 식별자 값을 사용할 수 있습니다. Velpic SAML 애플리케이션 페이지에서 해당 값을 복사하고 여기에 붙여넣어야 합니다.
 
 1. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 XML 파일을 저장합니다.
 
@@ -196,7 +196,7 @@ Velpic SAML에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
  
 ### <a name="creating-a-velpic-saml-test-user"></a>Velpic SAML 테스트 사용자 만들기
 
-응용 프로그램은 JIT(Just-In-Time) 사용자 프로비전을 지원하므로 이 단계는 일반적으로 필요하지 않습니다. 자동 사용자 프로비전이 활성화되지 않은 경우 수동 사용자 만들기는 아래에서 설명한 대로 실행될 수 있습니다.
+애플리케이션은 JIT(Just-In-Time) 사용자 프로비전을 지원하므로 이 단계는 일반적으로 필요하지 않습니다. 자동 사용자 프로비전이 활성화되지 않은 경우 수동 사용자 만들기는 아래에서 설명한 대로 실행될 수 있습니다.
 
 Velpic SAML 회사 사이트에 관리자 권한으로 로그인하고 다음 단계를 수행합니다.
     
@@ -228,11 +228,11 @@ Velpic SAML 회사 사이트에 관리자 권한으로 로그인하고 다음 �
 
 **Britta Simon을 Velpic SAML에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 관리 포털에서 응용 프로그램 보기를 열고 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure 관리 포털에서 애플리케이션 보기를 열고 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Velpic SAML**을 선택합니다.
+1. 애플리케이션 목록에서 **Velpic SAML**을 선택합니다.
 
     ![Configure Single Sign-On](./media/velpicsaml-tutorial/tutorial_velpicsaml_app.png) 
 
@@ -254,7 +254,7 @@ Velpic SAML 회사 사이트에 관리자 권한으로 로그인하고 다음 �
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-1. 액세스 패널에서 Velpic SAML 타일을 클릭할 때 Velpic SAML 응용 프로그램의 로그인 페이지를 가져와야 합니다. 로그인 페이지에 **'Azure AD를 사용하여 로그인'** 단추가 표시됩니다.
+1. 액세스 패널에서 Velpic SAML 타일을 클릭할 때 Velpic SAML 애플리케이션의 로그인 페이지를 가져와야 합니다. 로그인 페이지에 **'Azure AD를 사용하여 로그인'** 단추가 표시됩니다.
 
     ![플러그 인](./media/velpicsaml-tutorial/velpic_6.png)
 

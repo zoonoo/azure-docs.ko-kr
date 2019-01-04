@@ -54,7 +54,7 @@ Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초�
 * Azure Backup 에이전트를 실행하는 컴퓨터에 Azure PowerShell 3.7.0이 필요합니다. [Azure PowerShell 3.7.0 버전을 다운로드하여 설치](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017)하는 것이 좋습니다.
 * Azure Backup 에이전트를 실행하는 컴퓨터에 Microsoft Edge 또는 Internet Explorer 11이 설치되어 있고 JavaScript가 활성화되어 있는지 확인합니다. 
 * Recovery Services 자격 증명 모음과 동일한 구독에 Azure Storage 계정을 만듭니다. 
-* Azure Active Directory 응용 프로그램을 만드는 데 [필요한 권한](../active-directory/develop/howto-create-service-principal-portal.md)이 있는지 확인합니다. 오프라인 백업 워크플로는 Azure Storage 계정과 연결된 구독에 Azure Active Directory 응용 프로그램을 만듭니다. 응용 프로그램의 목표는 Azure Backup에 오프라인 백업 워크플로에 필요한 Azure Import 서비스에 대해 안전하고 범위가 지정된 액세스를 제공하는 것입니다. 
+* Azure Active Directory 애플리케이션을 만드는 데 [필요한 권한](../active-directory/develop/howto-create-service-principal-portal.md)이 있는지 확인합니다. 오프라인 백업 워크플로는 Azure Storage 계정과 연결된 구독에 Azure Active Directory 애플리케이션을 만듭니다. 애플리케이션의 목표는 Azure Backup에 오프라인 백업 워크플로에 필요한 Azure Import 서비스에 대해 안전하고 범위가 지정된 액세스를 제공하는 것입니다. 
 * Azure Storage 계정이 포함된 구독에 Microsoft.ImportExport 리소스 공급자를 등록합니다. 리소스 공급자 등록하려면:
     1. 주 메뉴에서 **구독**을 클릭합니다.
     2. 여러 구독에 등록한 경우 오프라인 백업에 사용하는 구독을 선택합니다. 구독을 하나만 사용하는 경우에는 구독이 나타납니다.
@@ -83,7 +83,7 @@ Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초�
   
   화면에 입력을 제공하고 **다음**을 클릭합니다. 디스크를 준비하는 데 필요하므로 제공한 *준비 위치* 및 *Azure 가져오기 작업 이름*을 저장합니다.
 
-2. 메시지가 표시되면 Azure 구독에 로그인합니다. Azure Backup이 Azure Active Directory 응용 프로그램을 만들고 Azure Import 서비스에 액세스하는 데 필요한 권한을 제공할 수 있도록 로그인해야 합니다.
+2. 메시지가 표시되면 Azure 구독에 로그인합니다. Azure Backup이 Azure Active Directory 애플리케이션을 만들고 Azure Import 서비스에 액세스하는 데 필요한 권한을 제공할 수 있도록 로그인해야 합니다.
 
     ![지금 Backup](./media/backup-azure-backup-import-export/azurelogin.png)
 

@@ -16,7 +16,7 @@ ms.locfileid: "51218640"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>클러스터에서 Kubernetes 모범 사례 확인
 
-응용 프로그램에 대한 최고의 성능과 복원력을 보장하기 위해 Kubernetes 배포 시 따라야 하는 몇 가지 모범 사례가 있습니다. kube-advisor 도구를 사용하여 이러한 제안 사항을 따르지 않는 배포를 찾을 수 있습니다.
+애플리케이션에 대한 최고의 성능과 복원력을 보장하기 위해 Kubernetes 배포 시 따라야 하는 몇 가지 모범 사례가 있습니다. kube-advisor 도구를 사용하여 이러한 제안 사항을 따르지 않는 배포를 찾을 수 있습니다.
 
 ## <a name="about-kube-advisor"></a>kube-advisor에 대한 정보
 

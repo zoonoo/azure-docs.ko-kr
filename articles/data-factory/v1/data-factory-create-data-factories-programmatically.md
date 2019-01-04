@@ -26,7 +26,7 @@ ms.locfileid: "51257371"
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [복사 작업 자습서](../quickstart-create-data-factory-dot-net.md)를 참조하세요. 
 
 ## <a name="overview"></a>개요
-데이터 팩터리 .NET SDK를 사용하여 프로그래밍 방식으로 Azure Data Factory를 만들고, 모니터링하며, 관리할 수 있습니다. 이 문서에는 데이터 팩터리를 만들고 모니터링하는 샘플 .NET 콘솔 응용 프로그램을 만들 수 있는 연습이 포함되어 있습니다. 
+데이터 팩터리 .NET SDK를 사용하여 프로그래밍 방식으로 Azure Data Factory를 만들고, 모니터링하며, 관리할 수 있습니다. 이 문서에는 데이터 팩터리를 만들고 모니터링하는 샘플 .NET 콘솔 애플리케이션을 만들 수 있는 연습이 포함되어 있습니다. 
 
 > [!NOTE]
 > 이 문서는 모든 데이터 팩터리 .NET API를 다루지 않습니다. 데이터 팩터리용 .NET API에 대한 포괄적인 설명서는 [데이터 팩터리 .NET API 참조](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1)를 참조하세요. 
@@ -34,10 +34,10 @@ ms.locfileid: "51257371"
 ## <a name="prerequisites"></a>필수 조건
 * Visual Studio 2012, 2013 또는 2015
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/)를 다운로드하여 설치합니다.
-* Azure PowerShell. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 문서의 지침을 수행하여 컴퓨터에 Azure PowerShell을 설치합니다. Azure PowerShell을 사용하여 Azure Active Directory 응용 프로그램을 만듭니다.
+* Azure PowerShell. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 문서의 지침을 수행하여 컴퓨터에 Azure PowerShell을 설치합니다. Azure PowerShell을 사용하여 Azure Active Directory 애플리케이션을 만듭니다.
 
-### <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory에서 응용 프로그램 만들기
-Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램의 서비스 주체를 만들고 **데이터 팩터리 참가자** 역할에 할당합니다.
+### <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션 만들기
+Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의 서비스 주체를 만들고 **데이터 팩터리 참가자** 역할에 할당합니다.
 
 1. **PowerShell**을 시작합니다.
 2. 다음 명령을 실행하고 Azure 포털에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
@@ -68,7 +68,7 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
     리소스 그룹이 이미 있다면 업데이트(Y)할지 또는 유지(N)할지를 지정합니다.
 
     다른 리소스 그룹을 사용하는 경우 이 자습서에서 ADFTutorialResourceGroup 대신 해당 리소스 그룹의 이름을 사용해야 합니다.
-6. Azure Active Directory 응용 프로그램을 만듭니다.
+6. Azure Active Directory 애플리케이션을 만듭니다.
 
     ```PowerShell
     $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
@@ -89,18 +89,18 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
     ```PowerShell
     New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
-9. 응용 프로그램 ID를 가져옵니다.
+9. 애플리케이션 ID를 가져옵니다.
 
     ```PowerShell
     $azureAdApplication 
     ```
-    출력에서 응용 프로그램 ID(applicationID)를 적어둡니다.
+    출력에서 애플리케이션 ID(applicationID)를 적어둡니다.
 
 이 단계에서 다음과 같은 4가지 값이 있어야 합니다.
 
 * 테넌트 ID
 * 구독 ID
-* 응용 프로그램 UI
+* 애플리케이션 UI
 * (첫 번째 명령에 지정된)암호
 
 ## <a name="walkthrough"></a>연습
@@ -108,11 +108,11 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
 
 복사 작업은 Azure Data Factory에서 데이터 이동을 수행합니다. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고 안정적이며 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
 
-1. Visual Studio 2012/2013/2015를 사용하여 C# .NET 콘솔 응용 프로그램을 만듭니다.
+1. Visual Studio 2012/2013/2015를 사용하여 C# .NET 콘솔 애플리케이션을 만듭니다.
    1. **Visual Studio** 2012/2013/2015를 실행합니다.
    2. **파일**을 클릭하고 **새로 만들기**를 가리킨 다음 **프로젝트**를 클릭합니다.
    3. **템플릿**을 확장하고 **Visual C#** 을 선택합니다. 이 연습에서는 C#을 사용하지만 모든 .NET 언어를 사용할 수 있습니다.
-   4. 오른쪽의 프로젝트 형식 목록에서 **콘솔 응용 프로그램** 을 선택합니다.
+   4. 오른쪽의 프로젝트 형식 목록에서 **콘솔 애플리케이션**을 선택합니다.
    5. 이름에 **DataFactoryAPITestApp** 을 입력합니다.
    6. **C:\ADFGetStarted**를 [위치]로 선택합니다.
    7. **확인**을 클릭하여 프로젝트를 만듭니다.
@@ -137,7 +137,7 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
         </appSettings>
     </configuration>
     ```
-5. App.Config 파일에서 **&lt;응용 프로그램 ID&gt;**, **&lt;암호&gt;**, **&lt;구독 ID&gt;** 및 **&lt;테넌트 ID&gt;** 의 값을 고유한 값으로 업데이트합니다.
+5. App.Config 파일에서 **&lt;애플리케이션 ID&gt;**, **&lt;암호&gt;**, **&lt;구독 ID&gt;** 및 **&lt;테넌트 ID&gt;** 의 값을 고유한 값으로 업데이트합니다.
 6. 프로젝트의 **Program.cs** 파일에 다음 **using** 문을 추가합니다.
 
     ```csharp
@@ -446,7 +446,7 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
     ```
 
 15. 솔루션 탐색기에서 프로젝트 **DataFactoryAPITestApp**을 확장하고 **참조**를 마우스 오른쪽 단추로 클릭한 다음 **참조 추가**를 클릭합니다. `System.Configuration` 어셈블리에 대한 확인란을 선택하고 **확인**을 클릭합니다.
-15. 콘솔 응용 프로그램을 빌드합니다. 메뉴에서 **빌드**를 클릭하고 **솔루션 빌드**를 클릭합니다.
+15. 콘솔 애플리케이션을 빌드합니다. 메뉴에서 **빌드**를 클릭하고 **솔루션 빌드**를 클릭합니다.
 16. Azure Blob 저장소의 adftutorial 컨테이너에 하나 이상의 파일이 있는지 확인합니다. 그렇지 않은 경우 메모장에서 다음 내용이 포함된 Emp.txt 파일을 만들어 adftutorial 컨테이너에 업로드합니다.
 
     ```

@@ -1,20 +1,18 @@
 ---
-title: Azure Cosmos DB에서 데이터에 대한 액세스를 보호하는 방법 | Microsoft Docs
+title: Azure Cosmos DB에서 데이터에 대한 액세스를 보호하는 방법
 description: 마스터 키, 읽기 전용 키, 사용자 및 권한을 포함해서 Azure Cosmos DB의 액세스 제어 개념에 대해 알아봅니다.
 services: cosmos-db
 author: rafats
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: ed97a2c31897d1e5e61421ea489a35af377f4f37
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 1d1bc011de579588567fac3debe9d0b4af5d29f7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621448"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878350"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Azure Cosmos DB 데이터에 대한 액세스 보호
 이 문서에서는 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)에 저장된 데이터에 대한 액세스를 보호하는 방법을 개괄적으로 설명합니다.
@@ -44,7 +42,7 @@ Azure Portal을 사용하여 주, 보조, 읽기 전용 및 읽기-쓰기 마스
 
 ![Azure Portal에서 액세스 제어(IAM) - NoSQL 데이터베이스 보안 설명](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
 
-마스터 키를 회전하는 프로세스는 간단합니다. Azure Portal로 이동하여 보조 키를 검색한 후 응용 프로그램에서 주 키를 보조 키로 바꾼 다음 Azure Portal에서 주 키를 회전합니다.
+마스터 키를 회전하는 프로세스는 간단합니다. Azure Portal로 이동하여 보조 키를 검색한 후 애플리케이션에서 주 키를 보조 키로 바꾼 다음 Azure Portal에서 주 키를 회전합니다.
 
 ![Azure Portal에서 마스터 키 회전 - NoSQL 데이터베이스 보안 설명](./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png)
 
@@ -74,7 +72,7 @@ Database database = await client.CreateDatabaseAsync(
 
 ## <a name="resource-tokens"></a>리소스 토큰
 
-리소스 토큰은 데이터베이스 내에서 응용 프로그램 리소스에 대한 액세스를 제공합니다. 리소스 토큰:
+리소스 토큰은 데이터베이스 내에서 애플리케이션 리소스에 대한 액세스를 제공합니다. 리소스 토큰:
 - 특정 컨테이너, 파티션 키, 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF에 대한 액세스를 제공합니다.
 - [사용자](#users)에게 특정 리소스에 대한 [사용 권한](#permissions)이 부여된 경우 생성됩니다.
 - POST, GET 또는 PUT 호출로 권한 리소스가 작동할 때 다시 생성됩니다.
@@ -89,10 +87,10 @@ Cosmos DB 리소스 토큰은 사용자가 부여한 권한에 따라 마스터 
 
 다음은 리소스 토큰을 요청, 생성 및 클라이언트에 제공할 수 있는 일반적인 디자인 패턴이 있습니다.
 
-1. 중간 계층 서비스는 모바일 응용 프로그램이 사용자 사진을 공유하도록 설정됩니다. 
+1. 중간 계층 서비스는 모바일 애플리케이션이 사용자 사진을 공유하도록 설정됩니다. 
 2. 중간 계층 서비스는 Cosmos DB 계정의 마스터 키를 소유합니다.
 3. 사진 앱은 최종 사용자 모바일 디바이스에 설치됩니다. 
-4. 로그인하면 사진 앱이 중간 계층 서비스를 사용해서 사용자의 ID를 설정합니다. ID 설정 방식은 순전히 응용 프로그램에 달려 있습니다.
+4. 로그인하면 사진 앱이 중간 계층 서비스를 사용해서 사용자의 ID를 설정합니다. ID 설정 방식은 순전히 애플리케이션에 달려 있습니다.
 5. ID가 설정된 다음에는 중간 계층 서비스 요청 권한이 ID를 기반으로 합니다.
 6. 중간 계층 서비스는 리소스 토큰을 다시 전화 앱으로 전송합니다.
 7. 전화 앱은 계속 리소스 토큰을 사용해서 리소스의 토큰으로 정의된 권한을 사용하여 리소스 토큰에서 허용하는 간격으로 Cosmos DB 리소스에 직접 액세스합니다. 
@@ -127,7 +125,7 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 <a id="permissions"></a>
 
 ## <a name="permissions"></a>권한
-Cosmos DB 권한 리소스는 Cosmos DB 사용자와 연결됩니다.  각 사용자는 0개 이상의 Cosmos DB 권한을 포함할 수 있습니다.  권한 리소스는 사용자가 특정 응용 프로그램 리소스에 액세스하려고 시도할 때 필요한 보안 토큰에 대한 액세스 권한을 제공합니다.
+Cosmos DB 권한 리소스는 Cosmos DB 사용자와 연결됩니다.  각 사용자는 0개 이상의 Cosmos DB 권한을 포함할 수 있습니다.  권한 리소스는 사용자가 특정 애플리케이션 리소스에 액세스하려고 시도할 때 필요한 보안 토큰에 대한 액세스 권한을 제공합니다.
 권한 리소스에서 제공될 수 있는 사용 가능한 액세스 수준은 다음 두 가지입니다.
 
 * 전체: 사용자가 리소스에 대한 모든 권한을 갖습니다.
@@ -180,8 +178,8 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 사용자 계정에 Azure Cosmos DB 계정 독자 액세스를 추가하려면 구독 소유자가 Azure Portal에서 다음 단계를 수행하도록 합니다.
 
 1. Azure Portal을 열고, Azure Cosmos DB 계정을 선택합니다.
-2. **Access Control(IAM)** 탭을 클릭한 다음, **+ 추가**를 클릭합니다.
-3. **사용 권한 추가** 창의 **역할** 상자에서 **Cosmos DB 계정 독자 역할**을 선택합니다.
+2. **Access Control(IAM)** 탭을 클릭한 다음, **+ 역할 할당 추가**를 클릭합니다.
+3. **역할 할당 추가** 창의 **역할** 상자에서 **Cosmos DB 계정 독자 역할**을 선택합니다.
 4. **다음에 대한 액세스 할당** 상자에서 **Azure AD 사용자, 그룹 또는 응용 프로그램**을 선택합니다.
 5. 액세스 권한을 부여하려는 디렉터리에서 사용자, 그룹 또는 응용 프로그램을 선택합니다.  표시 이름, 이메일 주소 또는 개체 식별자로 디렉터리를 검색할 수 있습니다.
     선택한 사용자, 그룹 또는 응용 프로그램이 선택한 멤버 목록에 나타납니다.

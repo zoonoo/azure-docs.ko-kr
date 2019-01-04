@@ -38,9 +38,9 @@ Resource Manager를 사용하는 경우 Azure Load Balancer에 다음과 같은 
 
 ## <a name="quickstart-templates"></a>빠른 시작 템플릿
 
-Azure Resource Manager를 사용하면 선언적 템플릿을 통해 응용 프로그램을 프로비전할 수 있습니다. 단일 템플릿에서 여러 서비스를 해당 종속성과 함께 배포할 수 있습니다. 동일한 템플릿을 사용하여 응용 프로그램 수명 주기의 각 단계 중에 응용 프로그램을 반복해서 배포합니다.
+Azure Resource Manager를 사용하면 선언적 템플릿을 통해 애플리케이션을 프로비전할 수 있습니다. 단일 템플릿에서 여러 서비스를 해당 종속성과 함께 배포할 수 있습니다. 동일한 템플릿을 사용하여 애플리케이션 수명 주기의 각 단계 중에 애플리케이션을 반복해서 배포합니다.
 
-템플릿은 Virtual Machines, Virtual Network, 가용성 집합, NIC(네트워크 인터페이스), Storage 계정, 부하 분산 장치, 네트워크 보안 그룹 및 공용 IP에 대한 정의를 포함할 수 있습니다. 템플릿을 사용하면 복잡한 응용 프로그램에 필요한 모든 항목을 만들 수 있습니다. 버전 제어 및 공동 작업을 위해 템플릿 파일을 콘텐츠 관리 시스템에 체크 인할 수 있습니다.
+템플릿은 Virtual Machines, Virtual Network, 가용성 집합, NIC(네트워크 인터페이스), Storage 계정, 부하 분산 장치, 네트워크 보안 그룹 및 공용 IP에 대한 정의를 포함할 수 있습니다. 템플릿을 사용하면 복잡한 애플리케이션에 필요한 모든 항목을 만들 수 있습니다. 버전 제어 및 공동 작업을 위해 템플릿 파일을 콘텐츠 관리 시스템에 체크 인할 수 있습니다.
 
 [템플릿에 대한 자세한 정보](../azure-resource-manager/resource-manager-template-walkthrough.md)
 
@@ -67,4 +67,4 @@ Azure Resource Manager cmdlet, 명령줄 도구 및 REST API 시작
 
 [인터넷 연결 부하 분산 장치를 시작](load-balancer-get-started-internet-arm-ps.md)하고 특정 부하 분산 장치 네트워크 트래픽 동작에 대한 [배포 모드](load-balancer-distribution-mode.md) 유형을 구성할 수도 있습니다.
 
-[부하 분산 장치의 유휴 TCP 시간 제한 설정](load-balancer-tcp-idle-timeout.md)을 관리하는 방법을 파악합니다. 응용 프로그램이 부하 분산 장치를 통해 서버에 대한 연결 상태를 유지해야 하는 경우에는 이 내용을 숙지하고 있어야 합니다.
+[부하 분산 장치의 유휴 TCP 시간 제한 설정](load-balancer-tcp-idle-timeout.md)을 관리하는 방법을 파악합니다. 애플리케이션이 부하 분산 장치를 통해 서버에 대한 연결 상태를 유지해야 하는 경우에는 이 내용을 숙지하고 있어야 합니다.

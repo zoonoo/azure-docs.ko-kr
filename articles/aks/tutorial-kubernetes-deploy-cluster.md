@@ -18,7 +18,7 @@ ms.locfileid: "41917971"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>자습서: AKS(Azure Kubernetes Service) 클러스터 배포
 
-Kubernetes는 컨테이너화된 응용 프로그램용 분산 플랫폼을 제공합니다. AKS를 사용하면 프로덕션 준비 Kubernetes 클러스터를 신속하게 프로비전할 수 있습니다. 총 7부 중 3부인 이 자습서에서는 Kubernetes 클러스터가 AKS에 배포됩니다. 다음 방법에 대해 알아봅니다.
+Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제공합니다. AKS를 사용하면 프로덕션 준비 Kubernetes 클러스터를 신속하게 프로비전할 수 있습니다. 총 7부 중 3부인 이 자습서에서는 Kubernetes 클러스터가 AKS에 배포됩니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 리소스 상호 작용에 대한 서비스 사용자 만들기
@@ -26,7 +26,7 @@ Kubernetes는 컨테이너화된 응용 프로그램용 분산 플랫폼을 제�
 > * Kubernetes CLI(kubectl) 설치
 > * AKS 클러스터에 연결하도록 kubectl 구성
 
-후속 자습서에서 Azure Vote 응용 프로그램은 클러스터에 배포되고, 크기가 조정되며, 업데이트됩니다.
+후속 자습서에서 Azure Vote 애플리케이션은 클러스터에 배포되고, 크기가 조정되며, 업데이트됩니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -129,7 +129,7 @@ aks-nodepool1-66427764-0   Ready     agent     9m        v1.9.9
 > * Kubernetes CLI(kubectl) 설치
 > * AKS 클러스터에 연결하도록 kubectl 구성
 
-그 다음 자습서를 계속 진행하여 클러스터에 응용 프로그램을 배포하는 방법을 알아보세요.
+그 다음 자습서를 계속 진행하여 클러스터에 애플리케이션을 배포하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
 > [Kubernetes에서 응용 프로그램 배포][aks-tutorial-deploy-app]

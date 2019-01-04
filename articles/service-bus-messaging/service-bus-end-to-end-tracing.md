@@ -47,7 +47,7 @@ Microsoft Azure Service Bus 메시징에는 생산자와 소비자가 이러한 
 프로젝트 유형에 따라 Application Insights SDK를 설치합니다.
 - [ASP.NET](../application-insights/app-insights-asp-net.md) - 버전 2.5-beta2 이상 설치
 - [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) - 버전 2.2.0-beta2 이상 설치
-이러한 링크는 SDK 설치, 리소스 만들기 및 SDK 구성(필요한 경우)에 대한 세부 정보를 제공합니다. 비 ASP.NET 응용 프로그램의 경우 [콘솔 응용 프로그램용 Azure Application Insights](../application-insights/application-insights-console.md) 문서를 참조하세요.
+이러한 링크는 SDK 설치, 리소스 만들기 및 SDK 구성(필요한 경우)에 대한 세부 정보를 제공합니다. 비 ASP.NET 애플리케이션의 경우 [콘솔 애플리케이션용 Azure Application Insights](../application-insights/application-insights-console.md) 문서를 참조하세요.
 
 [메시지 처리기 패턴](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler)을 사용하여 메시지를 처리하는 경우 특별히 수행할 작업이 없습니다. 서비스에서 수행하는 모든 Service Bus 호출이 자동으로 추적되고 다른 원격 분석 항목과 상호 연결됩니다. 또는 수동 메시지 처리 추적은 다음 예제를 참조하세요.
 
@@ -86,7 +86,7 @@ async Task ProcessAsync(Message message)
 메시지 처리 중에 지원되는 외부 구성 요소를 호출하는 경우 해당 구성 요소도 자동으로 추적되고 상호 연결됩니다. 수동 추적 및 상관관계는 [Application Insights .NET SDK를 사용하여 사용자 지정 작업 추적](../application-insights/application-insights-custom-operations-tracking.md)을 참조하세요.
 
 ### <a name="tracking-without-tracing-system"></a>추적 시스템 없이 추적
-추적 시스템이 자동 Service Bus 호출 추적을 지원하지 않는 경우 추적 시스템 또는 응용 프로그램에 해당 지원을 추가하는 것이 좋습니다. 이 섹션에서는 Service Bus .NET 클라이언트가 보내는 진단 이벤트에 대해 설명합니다.  
+추적 시스템이 자동 Service Bus 호출 추적을 지원하지 않는 경우 추적 시스템 또는 애플리케이션에 해당 지원을 추가하는 것이 좋습니다. 이 섹션에서는 Service Bus .NET 클라이언트가 보내는 진단 이벤트에 대해 설명합니다.  
 
 Service Bus .NET 클라이언트는 .NET 추적 기본 형식 [System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) 및 [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md)를 사용하여 계측됩니다.
 

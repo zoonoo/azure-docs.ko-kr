@@ -58,7 +58,7 @@ ms.locfileid: "47435831"
 
 풀에 노드가 있다고 가정할 때 풀 삭제 작업을 수행하면 노드가 먼저 삭제된 다음 풀 개체 자체가 삭제됩니다.  풀 노드가 삭제되려면 몇 분 정도 걸릴 수 있습니다.
 
-삭제 프로세스 중에는 [풀 상태](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate)가 ‘deleting’으로 설정됩니다.  호출 응용 프로그램은 ‘state’ 및 ‘stateTransitionTime’ 속성을 사용하여 풀 삭제가 너무 오래 걸리는지를 검색할 수 있습니다.
+삭제 프로세스 중에는 [풀 상태](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate)가 ‘deleting’으로 설정됩니다.  호출 애플리케이션은 ‘state’ 및 ‘stateTransitionTime’ 속성을 사용하여 풀 삭제가 너무 오래 걸리는지를 검색할 수 있습니다.
 
 ## <a name="pool-compute-node-errors"></a>풀 계산 노드 오류
 
@@ -76,11 +76,11 @@ ms.locfileid: "47435831"
 
 일반적인 작업과 마찬가지로 시작 작업 역시 여러 가지 원인으로 인해 실패할 수 있습니다.  문제를 해결하려면 stdout, stderr 및 추가 작업 관련 로그 파일을 확인해야 합니다.
 
-### <a name="application-package-download-failure"></a>응용 프로그램 패키지 다운로드 실패
+### <a name="application-package-download-failure"></a>애플리케이션 패키지 다운로드 실패
 
-필요에 따라 풀용으로 응용 프로그램 패키지를 하나 이상 지정할 수 있습니다. 지정한 패키지는 노드가 시작된 후 작업을 예약하기 전에 각 노드에 다운로드되어 압축이 해제됩니다.  일반적으로는 응용 프로그램 패키지와 함께 시작 작업 명령줄을 사용하여 다른 위치에 파일을 복사하거나 설치를 실행하는 등의 방식을 사용합니다.
+필요에 따라 풀용으로 애플리케이션 패키지를 하나 이상 지정할 수 있습니다. 지정한 패키지는 노드가 시작된 후 작업을 예약하기 전에 각 노드에 다운로드되어 압축이 해제됩니다.  일반적으로는 애플리케이션 패키지와 함께 시작 작업 명령줄을 사용하여 다른 위치에 파일을 복사하거나 설치를 실행하는 등의 방식을 사용합니다.
 
-노드 [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) 속성이 응용 프로그램 패키지 다운로드 및 압축 풀기 실패를 보고합니다.  이 경우 노드 상태는 'unusable'로 설정됩니다.
+노드 [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) 속성이 애플리케이션 패키지 다운로드 및 압축 풀기 실패를 보고합니다.  이 경우 노드 상태는 'unusable'로 설정됩니다.
 
 ### <a name="node-in-unusable-state"></a>unusable 상태의 노드
 
@@ -101,4 +101,4 @@ ms.locfileid: "47435831"
 
 ## <a name="next-steps"></a>다음 단계
 
-응용 프로그램이 문제를 빠르게 검색하고 진단할 수 있도록 특히 비동기 작업에 대해 포괄적인 오류 검사를 구현했는지 확인합니다.
+애플리케이션이 문제를 빠르게 검색하고 진단할 수 있도록 특히 비동기 작업에 대해 포괄적인 오류 검사를 구현했는지 확인합니다.

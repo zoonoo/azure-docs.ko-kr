@@ -1,6 +1,6 @@
 ---
 title: Azure에서 Jenkins 서버 만들기
-description: Jenkins 솔루션 템플릿에서 Azure Linux 가상 머신에 Jenkins를 설치하고 샘플 Java 응용 프로그램을 빌드합니다.
+description: Jenkins 솔루션 템플릿에서 Azure Linux 가상 머신에 Jenkins를 설치하고 샘플 Java 애플리케이션을 빌드합니다.
 ms.service: jenkins
 keywords: Jenkins, Azure, DevOps, 포털, 가상 머신, 솔루션 템플릿
 author: tomarcher

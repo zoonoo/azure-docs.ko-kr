@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric 응용 프로그램 암호 관리 | Microsoft Docs
-description: Service Fabric 응용 프로그램에서 암호 값을 보호하는 방법에 대해 설명합니다.
+title: Azure Service Fabric 애플리케이션 암호 관리 | Microsoft Docs
+description: Service Fabric 애플리케이션에서 암호 값을 보호하는 방법에 대해 설명합니다.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -21,10 +21,10 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 06/20/2018
 ms.locfileid: "36295456"
 ---
-# <a name="manage-secrets-in-service-fabric-applications"></a>Service Fabric 응용 프로그램에서 비밀 관리
-이 가이드에서는 서비스 패브릭 응용 프로그램에서 비밀을 관리하는 단계를 안내합니다. 저장소 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 모든 민감한 정보를 비밀로 처리할 수 있습니다.
+# <a name="manage-secrets-in-service-fabric-applications"></a>Service Fabric 애플리케이션에서 비밀 관리
+이 가이드에서는 Service Fabric 애플리케이션에서 비밀을 관리하는 단계를 안내합니다. 저장소 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 모든 민감한 정보를 비밀로 처리할 수 있습니다.
 
-[Azure Key Vault][key-vault-get-started]는 인증서에 대한 안전한 저장소 위치이자 Azure의 Service Fabric 클러스터에 설치된 인증서를 가져오는 수단으로 사용됩니다. Azure에 배포하지 않는 경우 서비스 패브릭 응용 프로그램의 비밀을 관리하기 위해 주요 자격 증명 모음을 사용할 필요가 없습니다. 하지만 응용 프로그램에서 비밀을 *사용* 하는 것은 클라우드 플랫폼에 구애를 받지 않으므로 그 어디에 호스트된 클러스터에도 응용 프로그램을 배포할 수 있습니다. 
+[Azure Key Vault][key-vault-get-started]는 인증서에 대한 안전한 저장소 위치이자 Azure의 Service Fabric 클러스터에 설치된 인증서를 가져오는 수단으로 사용됩니다. Azure에 배포하지 않는 경우 서비스 패브릭 애플리케이션의 비밀을 관리하기 위해 주요 자격 증명 모음을 사용할 필요가 없습니다. 하지만 애플리케이션에서 비밀을 *사용* 하는 것은 클라우드 플랫폼에 구애를 받지 않으므로 그 어디에 호스트된 클러스터에도 애플리케이션을 배포할 수 있습니다. 
 
 ## <a name="obtain-a-data-encipherment-certificate"></a>데이터 암호화 인증서 가져오기
 데이터 암호화 인증서는 서비스에 포함된 Settings.xml의 구성 값을 암호화하고 해독하는 용도로만 엄격하게 사용되며 암호화 텍스트의 인증에는 사용되지 않습니다. 인증서는 다음 요구 사항을 충족해야 합니다.
@@ -42,8 +42,8 @@ ms.locfileid: "36295456"
 ## <a name="install-the-certificate-in-your-cluster"></a>클러스터에 인증서 설치
 클러스터의 각 노드에 이 인증서를 설치해야 합니다. 이 인증서는 런타임에 서비스의 Settings.xml에 저장된 값을 해독하는 데 사용됩니다. 설정 지침은 [Azure Resource Manager를 사용하여 클러스터를 만드는 방법][service-fabric-cluster-creation-via-arm]을 참조하세요. 
 
-## <a name="encrypt-application-secrets"></a>응용 프로그램 비밀 암호화
-응용 프로그램을 배포할 때 인증서를 사용하여 비밀 값을 암호화하고 서비스의 Settings.xml 구성 파일에 삽입합니다. 서비스 패브릭 SDK는 비밀 암호화 및 암호 해독 기능이 기본적으로 제공됩니다. 작성 시 비밀 값을 암호화한 후 서비스 코드에서 프로그래밍 방식으로 해독하여 읽을 수 있습니다. 
+## <a name="encrypt-application-secrets"></a>애플리케이션 비밀 암호화
+애플리케이션을 배포할 때 인증서를 사용하여 비밀 값을 암호화하고 서비스의 Settings.xml 구성 파일에 삽입합니다. 서비스 패브릭 SDK는 비밀 암호화 및 암호 해독 기능이 기본적으로 제공됩니다. 작성 시 비밀 값을 암호화한 후 서비스 코드에서 프로그래밍 방식으로 해독하여 읽을 수 있습니다. 
 
 다음 PowerShell 명령은 비밀을 암호화하는 데 사용됩니다. 이 명령은 값을 암호화합니다. 암호화 텍스트에 서명하지 **않습니다**. 클러스터에 설치된 것과 동일한 암호화 인증서를 사용하여 비밀 값의 암호 텍스트를 생성해야 합니다.
 
@@ -62,11 +62,11 @@ Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text 
 </Settings>
 ```
 
-### <a name="inject-application-secrets-into-application-instances"></a>응용 프로그램 비밀을 응용 프로그램 인스턴스에 삽입
-여러 환경에 배포할 때에는 배포를 최대한 자동화하는 것이 좋습니다. 빌드 환경에서 비밀 암호화를 수행하고 응용 프로그램 인스턴스를 만들 때 암호화된 비밀을 매개 변수로 제공하면 배포를 자동화할 수 있습니다.
+### <a name="inject-application-secrets-into-application-instances"></a>애플리케이션 비밀을 애플리케이션 인스턴스에 삽입
+여러 환경에 배포할 때에는 배포를 최대한 자동화하는 것이 좋습니다. 빌드 환경에서 비밀 암호화를 수행하고 애플리케이션 인스턴스를 만들 때 암호화된 비밀을 매개 변수로 제공하면 배포를 자동화할 수 있습니다.
 
 #### <a name="use-overridable-parameters-in-settingsxml"></a>Settings.xml에 재정의 가능한 매개 변수 사용
-Settings.xml 구성 파일은 응용 프로그램 생성 시 제공할 수 있는 재정의 가능한 매개 변수를 허용합니다. 매개 변수 값을 입력하는 대신 `MustOverride` 특성을 사용합니다.
+Settings.xml 구성 파일은 애플리케이션 생성 시 제공할 수 있는 재정의 가능한 매개 변수를 허용합니다. 매개 변수 값을 입력하는 대신 `MustOverride` 특성을 사용합니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -98,7 +98,7 @@ Settings.xml의 값을 재정의하려면 ApplicationManifest.xml에서 서비�
   </ServiceManifestImport>
  ```
 
-이제 응용 프로그램의 인스턴스를 만들 때 이 값을 *응용 프로그램 매개 변수* 로 지정할 수 있습니다. 응용 프로그램 인스턴스 만들기를 PowerShell로 스크립팅하거나 C#으로 작성하면 빌드 프로세스에 쉽게 통합할 수 있습니다.
+이제 애플리케이션의 인스턴스를 만들 때 이 값을 *애플리케이션 매개 변수* 로 지정할 수 있습니다. 애플리케이션 인스턴스 만들기를 PowerShell로 스크립팅하거나 C#으로 작성하면 빌드 프로세스에 쉽게 통합할 수 있습니다.
 
 PowerShell을 사용하면 매개 변수가 `New-ServiceFabricApplication` 명령에 [해시 테이블](https://technet.microsoft.com/library/ee692803.aspx)로 제공됩니다.
 
@@ -106,7 +106,7 @@ PowerShell을 사용하면 매개 변수가 `New-ServiceFabricApplication` 명�
 PS C:\Users\vturecek> New-ServiceFabricApplication -ApplicationName fabric:/MyApp -ApplicationTypeName MyAppType -ApplicationTypeVersion 1.0.0 -ApplicationParameter @{"MySecret" = "I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM="}
 ```
 
-C#을 사용하면 응용 프로그램 매개 변수가 `ApplicationDescription`에 `NameValueCollection`로 지정됩니다.
+C#을 사용하면 애플리케이션 매개 변수가 `ApplicationDescription`에 `NameValueCollection`로 지정됩니다.
 
 ```csharp
 FabricClient fabricClient = new FabricClient();
@@ -152,7 +152,7 @@ await fabricClient.ApplicationManager.CreateApplicationAsync(applicationDescript
 > 
 > 
 
-### <a name="use-application-secrets-in-service-code"></a>서비스 코드에 응용 프로그램 암호 사용
+### <a name="use-application-secrets-in-service-code"></a>서비스 코드에 애플리케이션 암호 사용
 구성 패키지의 Settings.xml에서 구성 값에 액세스할 수 있는 API를 사용하면 `IsEncrypted` 특성이 `true`로 설정된 값을 간단하게 해독할 수 있습니다. 암호화된 텍스트에는 암호화에 사용된 인증서 정보가 포함되어 있으므로 수동으로 인증서를 찾을 필요가 없습니다. 서비스가 실행되고 있는 노드에 인증서를 설치하기만 하면 됩니다. 간단하게 `DecryptValue()` 메서드를 호출하여 원래 비밀 값을 검색합니다.
 
 ```csharp

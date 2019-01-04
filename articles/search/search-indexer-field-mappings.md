@@ -1,6 +1,6 @@
 ---
-title: Azure Search 인덱서의 필드 매핑
-description: 필드 이름 및 데이터 표현의 차이를 처리하도록 Azure Search 인덱서 필드 매핑 구성
+title: 인덱서를 사용한 자동 인덱싱을 위한 필드 매핑 - Azure Search
+description: 필드 이름 및 데이터 표현의 차이를 처리하도록 Azure Search 인덱서 필드 매핑을 구성합니다.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 01edc7001ec463cb16d8b6c715794b0028508143
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: 94a7274c0e950661d118ad5421e7c763fe555434
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404726"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312700"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Azure Search 인덱서의 필드 매핑
 Azure Search 인덱서를 사용할 때 입력 데이터가 대상 인덱스 스키마와 정확히 일치하지 않는 경우에 직면할 수 있습니다. 이러한 경우 **필드 매핑** 을 사용하여 데이터를 원하는 모양으로 변환할 수 있습니다.
@@ -134,7 +135,7 @@ Blob 사용자 지정 메타데이터 값은 ASCII 인코딩되어야 합니다.
 <a name="base64details"></a>
 
 ### <a name="details-of-base64-encoding-and-decoding"></a>base64 인코딩 및 디코딩 세부 정보
-Azure Search에서는 HttpServerUtility URL 토큰과 URL 지원 base64 인코딩(패딩 제외) 등, 두 가지 base64 인코딩을 지원합니다. 검색을 위해 문서 키를 인코딩하려면 매핑 함수와 동일한 인코딩을 사용하고, 인덱서가 디코딩할 값을 인코딩하거나, 인덱서가 인코딩한 필드로 디코딩해야 합니다.
+Azure Search에서는 HttpServerUtility URL 토큰과 URL 지원 Base64 인코딩(패딩 제외) 등, 두 가지 Base64 인코딩을 지원합니다. 검색을 위해 문서 키를 인코딩하려면 매핑 함수와 동일한 인코딩을 사용하고, 인덱서가 디코딩할 값을 인코딩하거나, 인덱서가 인코딩한 필드로 디코딩해야 합니다.
 
 인코딩 및 디코딩을 위한 `useHttpServerUtilityUrlTokenEncode` 또는 `useHttpServerUtilityUrlTokenDecode` 매개 변수가 각각 `true`로 설정되면 `base64Encode`는 [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx)처럼 작동하고, `base64Decode`는 [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx)처럼 작동합니다.
 

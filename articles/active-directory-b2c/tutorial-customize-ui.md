@@ -1,31 +1,31 @@
 ---
-title: 자습서 - Azure Active Directory B2C에서 응용 프로그램의 사용자 인터페이스 사용자 지정 | Microsoft Docs
-description: Azure Portal를 사용하여 Azure Active Directory B2C에서 응용 프로그램의 사용자 인터페이스 사용자 지정하는 방법에 대해 알아봅니다.
+title: 자습서 - Azure Active Directory B2C에서 애플리케이션의 사용자 인터페이스 사용자 지정 | Microsoft Docs
+description: Azure Portal를 사용하여 Azure Active Directory B2C에서 애플리케이션의 사용자 인터페이스 사용자 지정하는 방법에 대해 알아봅니다.
 services: B2C
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 588ce454248f0577a52515a4327d1e43013d34a5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f8ebb282d3f6abbc37739891c0f7228bef110d82
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581802"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842682"
 ---
-# <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 응용 프로그램의 사용자 인터페이스 사용자 지정
+# <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 애플리케이션의 사용자 인터페이스 사용자 지정
 
-등록, 로그인 및 프로필 편집과 같은 보다 일반적인 사용자 환경을 위해 Azure AD(Azure Active Directory) B2C에서 [기본 제공 정책](active-directory-b2c-reference-policies.md)을 사용할 수 있습니다. 이 자습서의 정보는 고유한 HTML 및 CSS 파일을 사용하여 이러한 환경의 [UI(사용자 인터페이스)를 사용자 지정](customize-ui-overview.md)하는 방법을 알아보는 데 도움이 됩니다.
+가입, 로그인 및 프로필 편집과 같은 보다 일반적인 사용자 환경을 위해 Azure AD(Azure Active Directory) B2C에서 [사용자 흐름](active-directory-b2c-reference-policies.md)을 사용할 수 있습니다. 이 자습서의 정보는 고유한 HTML 및 CSS 파일을 사용하여 이러한 환경의 [UI(사용자 인터페이스)를 사용자 지정](customize-ui-overview.md)하는 방법을 알아보는 데 도움이 됩니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * UI 사용자 지정 파일 만들기
-> * 파일을 사용하는 등록 및 로그인 정책 만들기
+> * 파일을 사용하는 가입 및 로그인 사용자 흐름 만들기
 > * 사용자 지정된 UI 테스트
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
@@ -61,7 +61,7 @@ Azure 저장소 계정 및 컨테이너를 만든 다음, 기본 HTML 및 CSS �
 
 ### <a name="enable-cors"></a>CORS를 사용하도록 설정
 
- 브라우저의 Azure AD B2C 코드는 현대적이고 표준적인 방법을 사용하여 정책에 지정하는 URL에서 사용자 지정 콘텐츠를 로드합니다. CORS(원본 간 리소스 공유)를 사용하면 웹 페이지의 제한된 리소스를 다른 도메인에서 요청할 수 있습니다.
+ 브라우저의 Azure AD B2C 코드는 현대적이고 표준적인 방법을 사용하여 사용자 흐름에서 지정하는 URL의 사용자 지정 콘텐츠를 로드합니다. CORS(원본 간 리소스 공유)를 사용하면 웹 페이지의 제한된 리소스를 다른 도메인에서 요청할 수 있습니다.
 
 1. 메뉴에서 **CORS**를 선택합니다.
 2. **허용된 원본**에 `https://your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예: `https://fabrikam.b2clogin.com` 테넌트 이름을 입력할 때는 모두 소문자를 사용해야 합니다.
@@ -137,45 +137,50 @@ Azure 저장소 계정 및 컨테이너를 만든 다음, 기본 HTML 및 CSS �
 4. 자습서 뒷부분에서 사용하기 위해 업로드한 파일의 URL을 복사합니다.
 5. *style.css* 파일에 대해 3 ~ 4단계를 반복합니다.
 
-## <a name="create-a-sign-up-and-sign-in-policy"></a>등록 및 로그인 정책 만들기
+## <a name="create-a-sign-up-and-sign-in-user-flow"></a>가입 및 로그인 사용자 흐름 만들기
 
-이 자습서의 단계를 완료하려면 Azure AD B2C에서 테스트 응용 프로그램과 등록 또는 로그인 정책을 만들어야 합니다. 이 자습서에 설명된 원칙을 프로필 편집과 같은 다른 사용자 환경에 적용할 수 있습니다.
+이 자습서의 단계를 완료하려면 Azure AD B2C에서 테스트 애플리케이션 및 가입 또는 로그인 사용자 흐름을 만들어야 합니다. 이 자습서에 설명된 원칙을 프로필 편집과 같은 다른 사용자 환경에 적용할 수 있습니다.
 
-### <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 응용 프로그램 만들기
+### <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 애플리케이션 만들기
 
-Azure AD B2C와의 통신은 테넌트에서 만드는 응용 프로그램을 통해 수행됩니다. 다음 단계에서는 [https://jwt.ms](https://jwt.ms)로 반환되는 권한 부여 토큰을 리디렉션하는 응용 프로그램을 만듭니다.
+Azure AD B2C와의 통신은 테넌트에서 만드는 애플리케이션을 통해 수행됩니다. 다음 단계에서는 [https://jwt.ms](https://jwt.ms)로 반환되는 권한 부여 토큰을 리디렉션하는 애플리케이션을 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. **응용 프로그램**을 선택하고 **추가**를 선택합니다.
-5. 응용 프로그램 이름(예: *testapp1*)을 입력합니다.
+5. 애플리케이션 이름(예: *testapp1*)을 입력합니다.
 6. **웹앱/웹 API**에서 `Yes`를 선택하고 **회신 URL**에는 `https://jwt.ms`를 입력합니다.
 7. **만들기**를 클릭합니다.
 
-### <a name="create-the-policy"></a>정책 만들기
+### <a name="create-the-user-flow"></a>사용자 흐름 만들기
 
-사용자 지정 파일을 테스트하려면 이전에 만든 응용 프로그램을 사용하는 기본 제공 등록 또는 로그인 정책을 만듭니다.
+사용자 지정 파일을 테스트하려면 이전에 만든 애플리케이션을 사용하는 기본 제공 가입 또는 로그인 사용자 흐름을 만듭니다.
 
-1. Azure AD B2C 테넌트에서 **등록 또는 로그인 정책**을 선택한 다음, **추가**를 클릭합니다.
-2. 정책에 대한 이름을 입력합니다. 예: *signup_signin*. 정책이 생성될 때 접두사 *B2C_1*가 이름에 자동으로 추가됩니다.
-3. **ID 공급자**를 선택하고 로컬 계정에 대해 **이메일 등록**을 설정한 다음, **확인**을 클릭합니다.
-4. **등록 특성**을 선택하고, 등록하는 동안 고객으로부터 수집할 특성을 선택합니다. 예를 들어 **국가/지역**, **표시 이름** 및 **우편 번호**를 설정한 다음, **확인**을 클릭합니다.
-5. **응용 프로그램 클레임**을 선택하고, 성공적인 등록 또는 로그인 환경 이후에 응용 프로그램으로 다시 전송된 권한 부여 토큰에서 반환할 클레임을 선택합니다. 예를 들어 **표시 이름**, **ID 공급자**, **우편 번호**, **사용자 새로 만들기** 및 **사용자의 개체 ID**를 선택한 다음, **확인**을 클릭합니다.
-6. **페이지 UI 사용자 지정**을 선택하고 **통합 등록 또는 로그인 페이지**를 선택한 다음, **사용자 지정 페이지 사용**에 대해 **예**를 클릭합니다.
-7. **사용자 지정 페이지 URI**에서 이전에 기록한 *custom-ui.html* 파일의 URL을 입력한 다음, **확인**을 클릭합니다.
-8. **만들기**를 클릭합니다.
+1. Azure AD B2C 테넌트에서 **사용자 흐름**을 선택한 다음, **새 사용자 흐름**을 클릭합니다.
+2. **추천** 탭에서 **가입 및 로그인**을 클릭합니다.
+3. 사용자 흐름의 이름을 입력합니다. 예: *signup_signin*. 사용자 흐름이 생성될 때 *B2C_1* 접두사가 이름에 자동으로 추가됩니다.
+4. **ID 공급 기업**에서 **이메일 가입**을 선택합니다.
+5. **사용자 특성 및 클레임**에서 **자세히 표시**를 선택합니다.
+6. **수집 특성** 열에서 가입하는 동안 고객에게서 수집하려는 특성을 선택합니다. 예를 들어 **국가/지역**, **표시 이름** 및 **우편 번호**를 설정합니다.
+7. **클레임 반환** 열에서 성공적인 가입 또는 로그인 환경 이후에 애플리케이션으로 다시 전송된 권한 부여 토큰에서 반환하려는 클레임을 선택합니다. 예를 들어 **표시 이름**, **ID 공급자**, **우편 번호**, **새 사용자** 및 **사용자의 개체 ID**를 선택합니다.
+8. **확인**을 클릭합니다.
+9. **만들기**를 클릭합니다.
+10. **사용자 지정**에서 **페이지 레이아웃**을 선택합니다. **통합 가입 또는 로그인 페이지**를 선택한 다음, **사용자 지정 페이지 콘텐츠 사용**에 대해 **예**를 클릭합니다.
+11. **사용자 지정 페이지 URI**에서 이전에 기록한 *custom-ui.html* 파일의 URL을 입력합니다.
+12. 페이지 위쪽에서 **저장**을 클릭합니다.
 
-## <a name="test-the-policy"></a>정책 테스트
+## <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
-1. Azure AD B2C 테넌트에서 **등록 또는 로그인 정책**을 선택한 다음, 생성한 정책을 선택합니다. 예: *B2C_1_signup_signin*.
-2. 생성한 응용 프로그램이 **응용 프로그램 선택**에서 선택되었는지 확인한 다음, **지금 실행**을 클릭합니다.
+1. Azure AD B2C 테넌트에서 **사용자 흐름**을 선택하고 만든 사용자 흐름을 선택합니다. 예: *B2C_1_signup_signin*.
+2. 페이지 맨 위에서 **사용자 흐름 실행**을 클릭합니다.
+3. **사용자 흐름 실행** 단추를 클릭합니다.
 
-    ![등록 또는 로그인 정책 실행](./media/tutorial-customize-ui/signup-signin.png)
+    ![가입 또는 로그인 사용자 흐름 실행](./media/tutorial-customize-ui/run-user-flow.png)
 
     생성한 CSS 파일에 따라 요소가 중심에 있는 다음 예제와 유사한 페이지가 표시됩니다.
 
-    ![정책 결과](./media/tutorial-customize-ui/run-now.png) 
+    ![사용자 흐름 결과](./media/tutorial-customize-ui/run-now.png) 
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -183,7 +188,7 @@ Azure AD B2C와의 통신은 테넌트에서 만드는 응용 프로그램을 �
 
 > [!div class="checklist"]
 > * UI 사용자 지정 파일 만들기
-> * 파일을 사용하는 등록 및 로그인 정책 만들기
+> * 파일을 사용하는 가입 및 로그인 사용자 흐름 만들기
 > * 사용자 지정된 UI 테스트
 
 > [!div class="nextstepaction"]

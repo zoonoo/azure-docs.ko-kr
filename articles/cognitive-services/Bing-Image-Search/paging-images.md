@@ -1,7 +1,7 @@
 ---
-title: 사용 가능한 이미지를 페이징하는 방법 - Bing Image Search API
+title: Bing Image Search API로 반환된 이미지 페이징
 titleSuffix: Azure Cognitive Services
-description: Bing이 반환할 수 있는 모든 이미지를 페이징하는 방법을 알아봅니다.
+description: Bing Image Search API로 반환된 이미지의 여러 페이지를 이동합니다.
 services: cognitive-services
 author: swhite-msft
 manager: cgonlun
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 0db8c62bbb4da1a6fa1230b439c5074325bbe9c3
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.custom: seodec2018
+ms.openlocfilehash: 69829066e543e5ab3badc4d1d3f77ff3c1d16ffd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739369"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259752"
 ---
-# <a name="paging-results"></a>페이징 결과
+# <a name="page-through-the-images-results"></a>이미지 결과 페이징
 
 Image Search API를 호출하는 경우 Bing은 결과 목록을 반환합니다. 목록은 쿼리와 관련된 결과의 총 수의 하위 집합입니다. 예상되는 총 사용 가능한 결과 수를 가져오려면 응답 개체의 [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#totalestimatedmatches) 필드에 액세스해야 합니다.  
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: dobett
-ms.openlocfilehash: 1d9e5b46460f04ad491ac741a62ee6d644985e61
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 724f655229347aa73747476e6bb4837b30e0fc4f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283430"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839010"
 ---
 # <a name="upload-files-with-iot-hub"></a>IoT Hub를 사용하여 파일 업로드
 
@@ -54,7 +54,7 @@ IoT Hub는 파일을 업로드하기 위해 디바이스에서 사용할 다음 
 ```json
 {
     "correlationId": "somecorrelationid",
-    "hostName": "contoso.azure-devices.net",
+    "hostName": "yourstorageaccount.blob.core.windows.net",
     "containerName": "testcontainer",
     "blobName": "test-device1/image.jpg",
     "sasToken": "1234asdfSAStoken"
@@ -100,7 +100,7 @@ IoT Hub는 파일 업로드를 지원하는 두 개의 REST 엔드포인트를 �
 | 자산 | 설명 |
 | --- | --- |
 | EnqueuedTimeUtc |알림을 만든 시간을 나타내는 타임스탬프입니다. |
-| deviceId |**DeviceId** 입니다. |
+| deviceId |**DeviceId**입니다. |
 | BlobUri |업로드된 파일의 URI입니다. |
 | BlobName |업로드된 파일의 이름입니다. |
 | LastUpdatedTime |파일이 마지막으로 업데이트된 시간을 나타내는 타임스탬프입니다. |
@@ -125,10 +125,10 @@ IoT Hub는 파일 업로드를 지원하는 두 개의 REST 엔드포인트를 �
 
 | 자산 | 설명 | 범위 및 기본값 |
 | --- | --- | --- |
-| **enableFileUploadNotifications** |파일 업로드 알림이 파일 알림 엔드포인트에 작성되는지를 제어합니다. |Bool. 기본값은 True입니다. |
-| **fileNotifications.ttlAsIso8601** |파일 업로드 알림에 대한 기본 TTL입니다. |최대 48H(최소 1 분)까지 ISO_8601 간격입니다. 기본값은 1시간입니다. |
-| **fileNotifications.lockDuration** |파일 업로드 알림 큐에 대한 잠금 기간입니다. |5에서 300초(최소 5초)입니다. 기본값은 60초입니다. |
-| **fileNotifications.maxDeliveryCount** |파일 업로드 알림 큐에 대한 최대 배달 횟수입니다. |1에서 100까지입니다. 기본값은 100입니다. |
+| **enableFileUploadNotifications** |파일 업로드 알림이 파일 알림 엔드포인트에 작성되는지를 제어합니다. |Bool. Default: True |
+| **fileNotifications.ttlAsIso8601** |파일 업로드 알림에 대한 기본 TTL입니다. |최대 48H(최소 1 분)까지 ISO_8601 간격입니다. Default: 1시간 |
+| **fileNotifications.lockDuration** |파일 업로드 알림 큐에 대한 잠금 기간입니다. |5에서 300초(최소 5초)입니다. Default: 60초 |
+| **fileNotifications.maxDeliveryCount** |파일 업로드 알림 큐에 대한 최대 배달 횟수입니다. |1에서 100까지입니다. Default: 100 |
 
 ## <a name="additional-reference-material"></a>추가 참조 자료
 
@@ -138,9 +138,9 @@ IoT Hub는 파일 업로드를 지원하는 두 개의 REST 엔드포인트를 �
 
 * [제한 및 할당량](iot-hub-devguide-quotas-throttling.md)은 IoT Hub 서비스에 적용되는 할당량과 제한 동작에 대해 설명합니다.
 
-* [Azure IoT 장치 및 서비스 SDK](iot-hub-devguide-sdks.md)는 IoT Hub와 상호 작용하는 장치 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
+* [Azure IoT 디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md)는 IoT Hub와 상호 작용하는 디바이스 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
 
-* [IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)는 IoT Hub에서 장치 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 쿼리 언어에 대해 설명합니다.
+* [IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)는 IoT Hub에서 디바이스 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 쿼리 언어에 대해 설명합니다.
 
 * [IoT Hub MQTT 지원](iot-hub-mqtt-support.md)은 MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
 
@@ -148,16 +148,16 @@ IoT Hub는 파일 업로드를 지원하는 두 개의 REST 엔드포인트를 �
 
 IoT Hub를 사용하여 디바이스에서 파일을 업로드하는 방법에 대해 알아보았으므로 다음 IoT Hub 개발자 가이드 항목에 관심이 있을 수 있습니다.
 
-* [IoT Hub에서 장치 ID 관리](iot-hub-devguide-identity-registry.md)
+* [IoT Hub에서 디바이스 ID 관리](iot-hub-devguide-identity-registry.md)
 
 * [IoT Hub에 대한 액세스 제어](iot-hub-devguide-security.md)
 
-* [장치 쌍을 사용하여 상태 및 구성 동기화](iot-hub-devguide-device-twins.md)
+* [디바이스 쌍을 사용하여 상태 및 구성 동기화](iot-hub-devguide-device-twins.md)
 
-* [장치에서 직접 메서드 호출](iot-hub-devguide-direct-methods.md)
+* [디바이스에서 직접 메서드 호출](iot-hub-devguide-direct-methods.md)
 
-* [여러 장치에서 작업 예약](iot-hub-devguide-jobs.md)
+* [여러 디바이스에서 작업 예약](iot-hub-devguide-jobs.md)
 
 이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 참조하세요.
 
-* [IoT Hub를 사용하여 장치에서 클라우드로 파일을 업로드하는 방법](iot-hub-csharp-csharp-file-upload.md)
+* [IoT Hub를 사용하여 디바이스에서 클라우드로 파일을 업로드하는 방법](iot-hub-csharp-csharp-file-upload.md)

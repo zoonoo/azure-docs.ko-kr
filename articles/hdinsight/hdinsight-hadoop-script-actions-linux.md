@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 90bba26bf1fd941085568cacd4d005f10eaed1b8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 768dc4f555ade9483e11c3aec0f4622fe6b441c1
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005396"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384203"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight를 사용하여 스크립트 작업 개발
 
 Bash 스크립트를 사용하여 HDInsight 클러스터를 사용자 지정하는 방법에 대해 알아봅니다. 스크립트 작업은 클러스터를 만드는 동안 또는 만든 후에 HDInsight를 사용자 지정하는 방법입니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a name="what-are-script-actions"></a>스크립트 작업 정의
@@ -43,7 +43,7 @@ Bash 스크립트를 사용하여 HDInsight 클러스터를 사용자 지정하�
 
 HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 유의해야 하는 몇 가지 모범 사례는 다음과 같습니다.
 
-* [Hadoop 버전 대상](#bPS1)
+* [Apache Hadoop 버전 대상](#bPS1)
 * [OS 버전 대상](#bps10)
 * [스크립트 리소스에 대한 안정적인 링크 제공](#bPS2)
 * [사전 컴파일한 리소스 사용](#bPS4)
@@ -54,10 +54,10 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 * [줄 끝을 LF인 파일을 ASCII로 저장](#bps8)
 * [다시 시도 논리를 사용하여 일시적 오류에서 복구](#bps9)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 스크립트 작업은 60분 이내에 완료하지 않으면 프로세스에 실패합니다. 노드 프로비전 중에는 스크립트가 다른 설정 및 구성 프로세스와 동시에 실행됩니다. CPU 시간 또는 네트워크 대역폭 등의 리소스에 대한 경합으로 인해 스크립트 실행이 개발 환경에서보다 더 오래 걸릴 수 있습니다.
 
-### <a name="bPS1"></a>Hadoop 버전 대상
+### <a name="bPS1"></a>Apache Hadoop 버전 대상
 
 HDInsight의 서로 다른 버전에는 설치된 Hadoop 서비스 및 구성 요소의 서로 다른 버전이 있습니다. 스크립트가 특정 버전의 서비스 또는 구성 요소를 기대하는 경우 필수 구성 요소를 포함하는 HDInsight의 버전으로 스크립트를 사용해야 합니다. [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md) 문서를 사용하여 HDInsight가 포함된 구성 요소 버전에 대한 정보를 찾을 수 있습니다.
 
@@ -110,7 +110,7 @@ Systemd와 Upstart 간의 차이점을 이해하려면 [Upstart 사용자에 대
 
 구독의 Azure Storage 계정에 모든 것을 다운로드하고 보관하는 것이 좋습니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 사용된 저장소 계정은 클러스터의 기본 저장소 계정 또는 다른 모든 저장소 계정의 공용 읽기 전용 컨테이너에 있어야 합니다.
 
 예를 들어 Microsoft에서 제공하는 샘플은 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) 저장소 계정에 저장됩니다. 이 위치는 HDInsight 팀에서 유지 관리하는 공용, 읽기 전용 컨테이너입니다.
@@ -129,12 +129,12 @@ Systemd와 Upstart 간의 차이점을 이해하려면 [Upstart 사용자에 대
 
 Linux 기반 HDInsight 클러스터는 클러스터 내에서 활성화 되는 두 헤드 노드를 제공하며 스크립트 작업은 두 노드에서 실행됩니다. 설치하는 구성 요소가 하나의 헤드 노드만 예상하는 경우 두 헤드 노드에 구성 요소를 설치하지 마십시오.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > HDInsight의 일부로 제공되는 서비스는 두 헤드 노드 간에 필요에 따라 장애 조치하도록 설계되었습니다. 이 기능은 스크립트 작업을 통해 설치된 구성 요소를 사용자 지정하도록 확장되지 않습니다. 사용자 지정 구성 요소에 대한 고가용성이 필요한 경우 사용자 고유의 장애 조치 메커니즘을 구현해야 합니다.
 
 ### <a name="bPS6"></a>Azure Blob 저장소를 사용하도록 사용자 지정 구성 요소 구성
 
-클러스터에 설치하는 구성 요소에는 HDFS(Hadoop 분산 파일 시스템) 저장소를 사용하기 위한 기본 구성이 있을 수 있습니다. HDInsight는 Azure Storage 또는 Data Lake Store를 기본 저장소로 사용합니다. 클러스터가 삭제되는 경우에도 데이터가 지속되는 HDFS 호환 가능 파일 시스템을 제공합니다. 설치하는 구성 요소가 HDFS 대신 WASB 또는 ADL을 사용하도록 구성해야 할 수 있습니다.
+클러스터에 설치하는 구성 요소에는 Apache HDFS(Hadoop 분산 파일 시스템) 스토리지를 사용하기 위한 기본 구성이 있을 수 있습니다. HDInsight는 Azure Storage 또는 Data Lake Store를 기본 저장소로 사용합니다. 클러스터가 삭제되는 경우에도 데이터가 지속되는 HDFS 호환 가능 파일 시스템을 제공합니다. 설치하는 구성 요소가 HDFS 대신 WASB 또는 ADL을 사용하도록 구성해야 할 수 있습니다.
 
 대부분의 작업의 경우 파일 시스템을 지정할 필요가 없습니다. 예를 들어 다음은 giraph-examples.jar 파일을 로컬 파일 시스템에서 클러스터 저장소로 복사합니다.
 
@@ -148,8 +148,8 @@ hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 
 HDInsight는 STDOUT 및 STDERR로 작성된 스크립트 출력을 기록합니다. Ambari 웹 UI를 사용하여 이 정보를 볼 수 있습니다.
 
-> [!NOTE]
-> Ambari는 클러스터를 정상적으로 만든 경우에만 사용할 수 있습니다. 클러스터를 만드는 동안 스크립트 작업을 사용하며 만들기에 실패하는 경우 문제 해결 섹션 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) 에서 로깅된 정보에 액세스하는 다른 방법을 확인해보세요.
+> [!NOTE]  
+> Apache Ambari는 클러스터를 정상적으로 만든 경우에만 사용할 수 있습니다. 클러스터를 만드는 동안 스크립트 작업을 사용하며 만들기에 실패하는 경우 문제 해결 섹션 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) 에서 로깅된 정보에 액세스하는 다른 방법을 확인해보세요.
 
 대부분의 유틸리티 및 설치 패키지는 STDOUT 및 STDERR에 정보를 쓰지만 추가 로깅을 추가하려 할 수도 있습니다. 텍스트를 STDOUT에 보내려면 `echo`를 사용합니다. 예: 
 
@@ -280,14 +280,14 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 * HDInsight 클러스터와 연결된 __Azure Data Lake Store 계정__ HDInsight에서 Azure Data Lake Store를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
 
-    > [!NOTE]
+    > [!NOTE]  
     > HDInsight에서 Data Lake Store에 액세스하는 데 사용하는 서비스 주체에는 스크립트에 대한 읽기 권한이 있어야 합니다.
 
 스크립트에서 사용되는 리소스는 공개적으로도 사용할 수 있어야 합니다.
 
 Azure Storage 계정 또는 Azure Data Lake Store에서 파일을 저장하면 Azure 네트워크 내에서 두 가지 모두 빠른 액세스를 제공합니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 스크립트를 참조하는 데 사용되는 URI 형식은 사용 중인 서비스에 따라 다릅니다. HDInsight 클러스터와 연결된 저장소 계정의 경우 `wasb://` 또는 `wasbs://`를 사용합니다. 공개적으로 읽을 수 있는 URI의 경우 `http://` 또는 `https://`를 사용합니다. Data Lake Store의 경우 `adl://`을 사용합니다.
 
 ### <a name="checking-the-operating-system-version"></a>운영 체제 버전 검사
@@ -332,8 +332,8 @@ fi
 Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘플 스크립트를 제공합니다. 더 많은 예제 스크립트 작업은 다음 링크를 참조하세요.
 
 * [HDInsight에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)
-* [HDInsight 클러스터에 Solr 설치 및 사용](hdinsight-hadoop-solr-install-linux.md)
-* [HDInsight 클러스터에 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)
+* [HDInsight 클러스터에 Apache Solr 설치 및 사용](hdinsight-hadoop-solr-install-linux.md)
+* [HDInsight 클러스터에 Apache Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)
 * [HDInsight 클러스터에 Mono 설치 또는 업그레이드](hdinsight-hadoop-install-mono.md)
 
 ## <a name="troubleshooting"></a>문제 해결
@@ -342,13 +342,13 @@ Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘�
 
 **오류**: `$'\r': command not found`. 때로는 `syntax error: unexpected end of file`이 이어집니다.
 
-*원인*:이 오류는 스크립트에서 줄이 CRLF로 끝날 때 발생합니다. Unix 시스템은 줄 끝에 LF이 필요합니다.
+*원인*: 이 오류는 스크립트에서 줄이 CRLF로 끝날 때 발생합니다. Unix 시스템은 줄 끝에 LF이 필요합니다.
 
 스크립트가 Windows 환경에서 작성된 경우 CRLF은 Windows의 많은 텍스트 편집기에서 줄 끝에 흔하게 쓰이기 때문에 이 문제가 가장 자주 발생합니다.
 
-*해상도*: 텍스트 편집기에서 옵션인 경우 줄 끝에 LF 또는 Unix 형식을 선택합니다. 또한 Unix 시스템에서 다음 명령을 사용하여 CRLF는 LF로 변경할 수 있습니다.
+*해결 방법*: 텍스트 편집기에서 옵션인 경우 줄 끝에 LF 또는 Unix 형식을 선택합니다. 또한 Unix 시스템에서 다음 명령을 사용하여 CRLF는 LF로 변경할 수 있습니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 다음 명령은 CRLF 줄 끝을 LF으로 변경해야 하는 것과 거의 동일합니다. 시스템에서 사용할 수 있는 유틸리티에 따라 하나를 선택합니다.
 
 | 명령 | 메모 |
@@ -362,7 +362,7 @@ Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘�
 
 *원인*: 스크립트가 바이트 순서 표시(BOM)를 사용하여 UTF-8로 저장될 때 이 오류가 발생합니다.
 
-*해상도*: ASCII로 또는 BOM을 사용하지 않고 UTF-8로 파일을 저장합니다. Linux 또는 Unix 시스템에서 다음 명령을 사용하여 BOM을 사용하지 않고 파일을 만들 수도 있습니다.
+*해결 방법*: ASCII로 또는 BOM을 사용하지 않고 UTF-8로 파일을 저장합니다. Linux 또는 Unix 시스템에서 다음 명령을 사용하여 BOM을 사용하지 않고 파일을 만들 수도 있습니다.
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 
@@ -370,6 +370,6 @@ Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘�
 
 ## <a name="seeAlso"></a>다음 단계
 
-* [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)
+*  [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)
 * [HDInsight.NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) 를 사용하여 HDInsight를 관리하는 .NET 응용 프로그램을 만드는 방법을 알아봅니다.
 * [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) 를 사용하여 REST를 통해 HDInsight 클러스터에서 관리 작업을 수행하는 방법을 알아봅니다.

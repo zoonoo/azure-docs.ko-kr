@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 배포 계획 | Microsoft Docs
-description: Azure Active Directory 기능을 배포하는 방법에 대한 포괄적인 지침을 제공합니다.
+title: 배포 계획 - Azure Active Directory | Microsoft Docs
+description: 많은 Azure Active Directory 기능을 배포하는 방법에 대한 포괄적인 지침입니다.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,12 +10,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: lizross
-ms.openlocfilehash: f5a148cba172b4e1e4490b52afb3b500da3a593c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: f471f1183a7d0d695b5817003fe70a018787731d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434163"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094785"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory 배포 계획
 Azure AD(Azure Active Directory) 기능을 배포하는 방법에 대한 포괄적인 지침을 찾고 계신가요? 다음 배포 계획은 보다 일반적인 Azure AD 기능을 성공적으로 출시하기 위해 필요한 비즈니스 가치, 계획 고려 사항, 디자인 및 운영 절차를 안내합니다. 
@@ -28,7 +29,7 @@ Azure AD(Azure Active Directory) 기능을 배포하는 방법에 대한 포괄�
 |-|-|
 |[Single Sign-On](https://aka.ms/SSODPDownload)|Single Sign-On은 단일 사용자 계정을 사용하여 한 번만 로그인하면 비즈니스 수행에 필요한 모든 앱과 리소스에 액세스할 수 있게 해줍니다. 로그인한 후에는 다시 인증(예: 암호 입력)할 필요 없이 Microsoft Office에서 SalesForce로, Box로 이동할 수 있습니다.|
 |[Workday 기반 인바운드 사용자 프로비저닝](https://aka.ms/WorkdayDeploymentPlan)|Workday 기반 인바운드 사용자를 Active Directory에 프로비전하면 지속적인 ID 거버넌스를 위한 기반을 만들고, 신뢰할 수 있는 ID 데이터를 사용하는 비즈니스 프로세스의 품질을 향상시킬 수 있습니다. 이 기능을 사용하면 연결기-이동기-이탈기(Joiner-Mover-Leaver) 프로세스(예: 새 고용, 해지, 이전)를 IT 프로비전 작업(예: 계정 만들기, 사용, 사용 안 함, 삭제)에 매핑하는 규칙을 구성하여 직원 및 비정규 작업자의 ID 수명 주기를 원활하게 관리할 수 있습니다.|
-|[액세스 패널](https://aka.ms/AccessPanelDPDownload)|사용자에게 모든 응용 프로그램을 검색 및 액세스할 수 있는 간단한 허브를 제공합니다. 새 앱 및 그룹에 대한 액세스를 요청하거나 다른 사용자를 대신하여 이러한 리소스에 대한 액세스를 관리하는 기능과 같은 셀프 서비스 기능을 통해 생산성을 높일 수 있습니다.|
+|[액세스 패널](https://aka.ms/AccessPanelDPDownload)|사용자에게 모든 애플리케이션을 검색 및 액세스할 수 있는 간단한 허브를 제공합니다. 새 앱 및 그룹에 대한 액세스를 요청하거나 다른 사용자를 대신하여 이러한 리소스에 대한 액세스를 관리하는 기능과 같은 셀프 서비스 기능을 통해 생산성을 높일 수 있습니다.|
 |[사용자 프로비전](https://aka.ms/UserProvisioningDPDownload)|Azure AD를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우드 응용 프로그램(SaaS)에서 사용자 ID 만들기, 유지 관리 및 제거를 자동화할 수 있습니다.|
 |[Multi-Factor Authentication](https://aka.ms/MFADPDownload)|Azure Multi-factor Authentication(MFA)은 Microsoft의 2단계 인증 솔루션입니다. 관리자가 승인한 인증 방법을 사용하는 Azure MFA는 간단한 로그인 프로세스에 대한 요구를 충족하는 동시에 데이터와 응용 프로그램에 대한 액세스를 보호합니다.|
 |[조건부 액세스](https://aka.ms/CADPDownload)|조건부 액세스를 사용하면 조건에 따라 클라우드 앱에 액세스할 수 있는 사용자를 결정하는 자동 액세스 제어 결정 시스템을 구현할 수 있습니다.|

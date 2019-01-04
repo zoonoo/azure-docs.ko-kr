@@ -54,9 +54,9 @@ pip install azure-mgmt-datalake-store
 pip install azure-datalake-store
 ```
 
-## <a name="create-a-new-python-application"></a>새 Python 응용 프로그램 만들기
+## <a name="create-a-new-python-application"></a>새 Python 애플리케이션 만들기
 
-1. 원하는 IDE에서 **mysample.py**와 같이 새 Python 응용 프로그램을 만듭니다.
+1. 원하는 IDE에서 **mysample.py**와 같이 새 Python 애플리케이션을 만듭니다.
 
 2. 다음 코드 조각을 추가하여 필요한 모듈 가져오기
 
@@ -84,7 +84,7 @@ pip install azure-datalake-store
 
 ## <a name="service-to-service-authentication-with-client-secret-for-account-management"></a>계정 관리를 위해 클라이언트 암호로 서비스 간 인증
 
-Data Lake Storage Gen1에서 Data Lake Storage Gen1 계정 만들기, Data Lake Storage Gen1 계정 삭제 등의 계정 관리 작업을 수행할 수 있도록 이 코드 조각을 사용하여 Azure AD에 인증합니다. 다음 코드 조각은 기존 Microsoft Azure Active Directory "웹앱" 응용 프로그램의 응용 프로그램/서비스 주체에 대한 클라이언트 암호를 사용하여 비대화형으로 응용 프로그램을 인증하는 데 사용할 수 있습니다.
+Data Lake Storage Gen1에서 Data Lake Storage Gen1 계정 만들기, Data Lake Storage Gen1 계정 삭제 등의 계정 관리 작업을 수행할 수 있도록 이 코드 조각을 사용하여 Azure AD에 인증합니다. 다음 코드 조각은 기존 Microsoft Azure Active Directory "웹앱" 애플리케이션의 애플리케이션/서비스 주체에 대한 클라이언트 암호를 사용하여 비대화형으로 애플리케이션을 인증하는 데 사용할 수 있습니다.
 
     authority_host_uri = 'https://login.microsoftonline.com'
     tenant = '<TENANT>'
@@ -99,7 +99,7 @@ Data Lake Storage Gen1에서 Data Lake Storage Gen1 계정 만들기, Data Lake 
 
 ## <a name="service-to-service-authentication-with-client-secret-for-filesystem-operations"></a>파일 시스템 작업을 위해 클라이언트 암호로 서비스 간 인증
 
-Data Lake Storage Gen1에서 폴더 만들기, 파일 업로드 등의 파일 시스템 작업을 수행할 수 있도록 다음 코드 조각을 사용하여 Azure AD에 인증합니다. 다음 코드 조각은 응용 프로그램/서비스 주체에 대한 클라이언트 비밀을 사용하여 비대화형으로 응용 프로그램을 인증하는 데 사용될 수 있습니다. 기존 Azure AD "Web App" 응용 프로그램과 함께 사용합니다.
+Data Lake Storage Gen1에서 폴더 만들기, 파일 업로드 등의 파일 시스템 작업을 수행할 수 있도록 다음 코드 조각을 사용하여 Azure AD에 인증합니다. 다음 코드 조각은 애플리케이션/서비스 주체에 대한 클라이언트 비밀을 사용하여 비대화형으로 애플리케이션을 인증하는 데 사용될 수 있습니다. 기존 Azure AD "Web App" 애플리케이션과 함께 사용합니다.
 
     tenant = '<TENANT>'
     RESOURCE = 'https://datalake.azure.net/'

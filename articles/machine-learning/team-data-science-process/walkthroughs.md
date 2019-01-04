@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Team Data Science Process 실행 연습 | Microsoft Docs
+title: Azure에서 Team Data Science Process 실행 연습
 description: 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법입니다.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 28586d960bab75704a0aae6e39517ae83a74d60e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5a5a63bfdc9019afe292dd7623051123c3eb2dbf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495898"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132689"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Azure에서 Team Data Science Process 실행 연습
 
@@ -42,5 +42,5 @@ Team Data Science Process를 구성하는 주요 구성의 논의는 [Team Data 
 
 데이터 과학 프로젝트를 구성하는 데 사용할 수 있는 Team Data Science Process 수명 주기의 논의는 [Team Data Science Process 수명 주기](lifecycle.md)를 참조하세요. 수명 주기는 일반적으로 프로젝트가 실행될 때 시작부터 끝까지 따라야 하는 단계를 간략하게 설명합니다. 
 
-Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는 토픽에 대한 개요는 [데이터 과학 프로세스](https://aka.ms/datascienceprocess)를 참조하세요. 
+Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는 토픽에 대한 개요는 [데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)를 참조하세요. 
 

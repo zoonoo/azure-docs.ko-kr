@@ -116,7 +116,7 @@ ms.locfileid: "48017810"
 
     !["배포 완료" 페이지](./media/quickstart-create-data-factory-copy-data-tool/deployment-page.png)
 
-1. 응용 프로그램이 **모니터** 탭으로 전환됩니다. 이 탭에서 파이프라인의 상태가 표시됩니다. **새로 고침**을 선택하여 목록을 새로 고칩니다. 
+1. 애플리케이션이 **모니터** 탭으로 전환됩니다. 이 탭에서 파이프라인의 상태가 표시됩니다. **새로 고침**을 선택하여 목록을 새로 고칩니다. 
     
     ![파이프라인 실행 모니터링](./media/quickstart-create-data-factory-copy-data-tool/pipeline-monitoring.png)
 

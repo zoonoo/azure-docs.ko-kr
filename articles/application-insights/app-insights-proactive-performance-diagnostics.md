@@ -9,17 +9,16 @@ ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 099e597982172bcea39fedd0fd1445f466eb2bc1
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b9428e4451ebef921907809b1250238bf084706d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960823"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864964"
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 감지 - 성능 이상
 
@@ -70,7 +69,7 @@ Application Insights가 응용 프로그램 성능이 다음과 같은 방식 �
 ## <a name="faq"></a>FAQ
 
 * *그렇다면, 내 데이터를 확인하나요?*
-  * 아니요. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [비공개](app-insights-data-retention-privacy.md)입니다.
+  *  아니요. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [비공개](app-insights-data-retention-privacy.md)입니다.
 * *Application Insights를 통해 수집되는 모든 데이터를 분석하나요?*
   * 현재는 암호화되지 않습니다. 현재는 요청 응답 시간, 종속성 응답 시간 및 페이지 로드 시간을 분석합니다. 추가 메트릭에 대한 분석은 현재 서비스를 위해 작업 중입니다.
 
@@ -86,13 +85,13 @@ Application Insights가 응용 프로그램 성능이 다음과 같은 방식 �
 
   * 원격 분석 데이터에 대한 분석은 전날부터 매일 실행됩니다(UTC 표준 시간대로 하루 종일).
 * 이것이 *메트릭 경고[를 대신하나요](app-insights-alerts.md)?*
-  * 아니요.  비정상이라고 간주할만한 동작을 모두 감지한다고 커밋할 수 없습니다.
+  *  아니요.  비정상이라고 간주할만한 동작을 모두 감지한다고 커밋할 수 없습니다.
 
 
 * *알림에 대한 응답으로 아무 작업도 수행하지 않을 경우 미리 알림이 제공되나요?*
   * 아니요, 각 문제에 대해 한 번만 메시지가 나타납니다. 문제가 지속되면 스마트 검색 피드 블레이드에서 업데이트됩니다.
 * *이메일이 삭제되었습니다. 포털의 어디에서 알림을 찾을 수 있습니까?*
-  * 앱의 Application Insights 개요에서 **스마트 감지** 타일을 클릭합니다. 여기에서 90일 내의 모든 알림을 찾을 수 있습니다.
+  * 앱의 Application Insights 개요에서 **스마트 검색** 타일을 클릭합니다. 여기에서 90일 내의 모든 알림을 찾을 수 있습니다.
 
 ## <a name="how-can-i-improve-performance"></a>성능을 어떻게 향상시킬 수 있나요?
 느리고 실패한 응답은 경험상 알고 계신대로 웹 사이트 사용자에게 있어 가장 큰 불만 중 하나입니다. 따라서 문제를 해결하는 것이 중요합니다.
@@ -117,9 +116,9 @@ Application Insights가 응용 프로그램 성능이 다음과 같은 방식 �
 ### <a name="improve-slow-pages"></a>느린 페이지 개선
 서버 응답 및 페이지 로드 시간을 향상시키는 데 대한 조언이 가득한 웹이 있으므로 여기서 모두 반복하지는 않겠습니다. 다음은 이미 알고 있는 몇 가지 팁을 상기시켜 드립니다.
 
-* 큰 파일로 인해 로드 속도가 느리다면 스크립트 및 기타 부분을 비동기적으로 로드합니다. 스크립트 묶음을 사용합니다. 해당 데이터를 별도로 로드하는 위젯에 기본 페이지를 나눕니다. 긴 테이블에 이전의 단순한 HTML을 보내지 않습니다. JSON 또는 다른 압축 형식으로 데이터를 요청하는 스크립트를 사용한 다음 테이블을 채웁니다. 이 모든 것을 도울 유용한 프레임워크가 있습니다. (또한 스크립트가 크다는 제약이 따릅니다.)
-* 서버 종속성이 느리면 구성 요소의 지리적 위치를 고려합니다. 예를 들어 Azure를 사용하는 경우 웹 서버와 데이터베이스가 동일한 지역에 있는지를 확인합니다. 쿼리가 필요한 양 보다 많은 정보를 검색합니까? 캐싱 또는 배치가 도움이 됩니까?
-* 용량 문제는 응답 시간 및 요청 수의 서버 메트릭을 살펴봅니다. 응답 시간이 요청 개수에서 불균형적으로 급증하면 서버가 늘어났을 가능성이 있습니다.
+* 큰 파일로 인한 느린 로딩: 스크립트 및 기타 부분을 비동기적으로 로드합니다. 스크립트 묶음을 사용합니다. 해당 데이터를 별도로 로드하는 위젯에 기본 페이지를 나눕니다. 긴 테이블에 이전의 단순한 HTML을 보내지 않습니다. JSON 또는 다른 압축 형식으로 데이터를 요청하는 스크립트를 사용한 다음 테이블을 채웁니다. 이 모든 것을 도울 유용한 프레임워크가 있습니다. (또한 스크립트가 크다는 제약이 따릅니다.)
+* 느린 서버 종속성: 구성 요소의 지리적 위치를 고려합니다. 예를 들어 Azure를 사용하는 경우 웹 서버와 데이터베이스가 동일한 지역에 있는지를 확인합니다. 쿼리가 필요한 양 보다 많은 정보를 검색합니까? 캐싱 또는 배치가 도움이 됩니까?
+* 용량 문제: 응답 시간 및 요청 수의 서버 메트릭을 살펴봅니다. 응답 시간이 요청 개수에서 불균형적으로 급증하면 서버가 늘어났을 가능성이 있습니다.
 
 
 ## <a name="server-response-time-degradation"></a>서버 응답 시간 성능 저하
@@ -185,7 +184,7 @@ Application Insights는 일부 사용자에게만 영향을 주거나 일부 경
 
 * [프로파일러](app-insights-profiler.md) 
 * [스냅숏 디버거](app-insights-snapshot-debugger.md)
-* [분석](../log-analytics/query-language/get-started-analytics-portal.md)
+* [분석](../azure-monitor/log-query/get-started-portal.md)
 * [분석 스마트 진단](app-insights-analytics.md)
 
 스마트 감지는 완전히 자동으로 수행됩니다. 하지만 보다 많은 경고를 설정하고 싶을 수 있습니다.

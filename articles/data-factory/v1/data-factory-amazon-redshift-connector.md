@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7ece34809734478ddb52c12d5dbd92291231f439
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ee0cd90b8d1b901f9e8a506674b3f04167b48899
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045690"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968786"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Amazon Redshift에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +53,7 @@ Azure Portal, Visual Studio, Azure PowerShell 또는 다른 도구를 사용하�
 2. 복사 활동의 입력 및 출력 데이터를 나타내는 데이터 세트를 만듭니다. 
 3. 입력과 출력으로 각각의 데이터 세트를 사용하는 복사 활동이 포함된 파이프라인을 만듭니다. 
 
-복사 마법사를 사용하는 경우 이러한 Data Factory 엔터티에 대한 JSON 정의가 자동으로 만들어집니다. 도구 또는 API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 Data Factory 엔터티를 정의합니다. [JSON 예제: Amazon Redshift에서 Azure Blob Storage로 데이터 복사](#json-example-copy-data-from-amazon-redshift-to-azure-blob)에서는 Amazon Redshift 데이터 저장소에서 데이터를 복사하는 데 사용되는 Data Factory 엔터티에 대한 JSON 정의를 보여 줍니다.
+복사 마법사를 사용하는 경우 이러한 Data Factory 엔터티에 대한 JSON 정의가 자동으로 만들어집니다. 도구 또는 API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 Data Factory 엔터티를 정의합니다. [JSON 예제: Amazon Redshift에서 Azure Blob 스토리지로 데이터 복사](#json-example-copy-data-from-amazon-redshift-to-azure-blob)에서는 Amazon Redshift 데이터 저장소에서 데이터를 복사하는 데 사용되는 Data Factory 엔터티에 대한 JSON 정의를 보여줍니다.
 
 다음 섹션에서는 Amazon Redshift에 대한 Data Factory 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 설명합니다.
 
@@ -63,18 +63,18 @@ Azure Portal, Visual Studio, Azure PowerShell 또는 다른 도구를 사용하�
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| **type** |이 속성은 **AmazonRedshift**로 설정되어야 합니다. |예 |
-| **server** |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |예 |
+| **type** |이 속성은 **AmazonRedshift**로 설정되어야 합니다. |yes |
+| **server** |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |yes |
 | **port** |Amazon Redshift 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트 수입니다. |아니요(기본값: 5439) |
-| **database** |Amazon Redshift 데이터베이스의 이름입니다. |예 |
-| **사용자 이름** |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |예 |
-| **암호** |사용자 계정의 암호입니다. |예 |
+| **database** |Amazon Redshift 데이터베이스의 이름입니다. |yes |
+| **사용자 이름** |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |yes |
+| **암호** |사용자 계정의 암호입니다. |yes |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트를 정의하는 데 사용할 수 있는 섹션 및 속성 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. **structure**, **availability** 및 **policy** 섹션은 모든 데이터 집합 형식에 대해 유사합니다. 데이터 세트 형식의 예로 Azure SQL, Azure Blob Storage 및 Azure Table Storage가 있습니다.
+데이터 세트를 정의하는 데 사용할 수 있는 섹션 및 속성 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. **structure**, **availability** 및 **policy** 섹션은 모든 데이터 세트 형식에 대해 유사합니다. 데이터 세트 형식의 예로 Azure SQL, Azure Blob Storage 및 Azure Table Storage가 있습니다.
 
-**typeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **RelationalTable** 형식(Amazon Redshift 데이터 집합을 포함)의 데이터 집합에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
+**typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **RelationalTable** 형식(Amazon Redshift 데이터 세트를 포함)의 데이터 세트에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
@@ -89,7 +89,7 @@ Azure Portal, Visual Studio, Azure PowerShell 또는 다른 도구를 사용하�
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | **query** | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |아니요(데이터 세트의 **tableName** 속성이 지정된 경우) |
-| **redshiftUnloadSettings** | Redshift **UNLOAD** 명령을 사용하는 경우 속성 그룹을 포함합니다. | 아니오 |
+| **redshiftUnloadSettings** | Redshift **UNLOAD** 명령을 사용하는 경우 속성 그룹을 포함합니다. | 아니요 |
 | **s3LinkedServiceName** | 중간 저장소로 사용할 Amazon S3입니다. 연결된 서비스는 **AwsAccessKey** 형식의 Azure Data Factory 이름을 사용하여 지정됩니다. | **redshiftUnloadSettings** 속성을 사용할 때 필요합니다. |
 | **bucketName** | 중간 데이터를 저장하는 데 사용할 Amazon S3 버킷을 나타냅니다. 이 속성을 제공하지 않으면 복사 작업에서 자동으로 버킷을 생성합니다. | **redshiftUnloadSettings** 속성을 사용할 때 필요합니다. |
 
@@ -109,7 +109,7 @@ Amazon Redshift [ **UNLOAD** ](http://docs.aws.amazon.com/redshift/latest/dg/r_U
 
 이 샘플 사용 사례의 경우 먼저 복사 작업이 **redshiftUnloadSettings** 옵션에 구성된 대로 Amazon Redshift에서 Amazon S3로 데이터를 언로드합니다. 다음으로, **stagingSettings** 옵션에 지정된 대로 데이터가 Amazon S3에서 Azure Blob Storage로 복사됩니다. 마지막으로 PolyBase는 SQL Data Warehouse에 데이터를 로드합니다. 모든 중간 형식은 복사 작업에서 처리됩니다.
 
-![Amazon Redshift에서 SQL Data Warehouse로 워크플로 복사](media\data-factory-amazon-redshift-connector\redshift-to-sql-dw-copy-workflow.png)
+![Amazon Redshift에서 SQL Data Warehouse로 워크플로 복사](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 {
@@ -139,15 +139,15 @@ Amazon Redshift [ **UNLOAD** ](http://docs.aws.amazon.com/redshift/latest/dg/r_U
 }
 ```
 
-## <a name="json-example-copy-data-from-amazon-redshift-to-azure-blob-storage"></a>JSON 예제: Amazon Redshift에서 Azure Blob Storage로 데이터 복사
+## <a name="json-example-copy-data-from-amazon-redshift-to-azure-blob-storage"></a>JSON 예제: Amazon Redshift에서 Azure Blob 스토리지로 데이터 복사
 이 샘플은 Amazon Redshift 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 복사 작업을 사용하여 모든 [지원되는 싱크](data-factory-data-movement-activities.md#supported-data-stores-and-formats)로 직접 데이터를 복사할 수 있습니다.  
 
 이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 
 * [AmazonRedshift](#linked-service-properties) 형식의 연결된 서비스
 * [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
-* [RelationalTable](#dataset-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
-* [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
+* [RelationalTable](#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)
+* [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
 * [RelationalSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md##copy-activity-properties) 속성을 사용하는 복사 활동이 있는 [파이프라인](data-factory-create-pipelines.md)
 
 샘플에서는 Amazon Redshift의 쿼리 결과에서 Azure Blob으로 매시간 데이터를 복사합니다. 샘플에 사용된 JSON 속성은 엔터티 정의 뒤에 나오는 섹션에서 설명됩니다.
@@ -185,9 +185,9 @@ Amazon Redshift [ **UNLOAD** ](http://docs.aws.amazon.com/redshift/latest/dg/r_U
   }
 }
 ```
-**Amazon Redshift 입력 데이터 집합**
+**Amazon Redshift 입력 데이터 세트**
 
-**external** 속성을 "true"로 설정하면 데이터 집합이 데이터 팩터리의 외부에 있다는 사실이 Data Factory 서비스에 전달됩니다. 이 속성 설정은 데이터 세트가 데이터 팩터리의 작업에 의해 생성되지 않음을 나타냅니다. 파이프라인에서의 활동에 의해 생성되지 않은 입력 데이터 세트에서 속성을 true로 설정합니다.
+**external** 속성을 "true"로 설정하면 데이터 세트가 데이터 팩터리의 외부에 있다는 사실이 Data Factory 서비스에 전달됩니다. 이 속성 설정은 데이터 세트가 데이터 팩터리의 작업에 의해 생성되지 않음을 나타냅니다. 파이프라인에서의 활동에 의해 생성되지 않은 입력 데이터 세트에서 속성을 true로 설정합니다.
 
 ```json
 {
@@ -207,7 +207,7 @@ Amazon Redshift [ **UNLOAD** ](http://docs.aws.amazon.com/redshift/latest/dg/r_U
 }
 ```
 
-**Azure Blob 출력 데이터 집합**
+**Azure Blob 출력 데이터 세트**
 
 **frequency** 속성을 "Hour"로 설정하고 **interval** 속성을 1로 설정하여 매시간 새 Blob에 데이터를 씁니다. Blob에 대한 **folderPath** 속성은 동적으로 평가됩니다. 속성 값은 처리 중인 조각의 시작 시간을 기반으로 합니다. 폴더 경로는 시작 시간의 년, 월, 일 및 시 부분을 사용합니다.
 

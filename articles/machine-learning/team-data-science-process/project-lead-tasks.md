@@ -1,6 +1,6 @@
 ---
-title: Team Data Science Process 프로젝트 리더 작업 - Azure | Microsoft Docs
-description: 프로젝트 리더가 데이터 과학 팀 프로젝트에서 수행하는 작업에 대한 개요입니다.
+title: Team Data Science Process에서 프로젝트 리더의 작업
+description: 프로젝트 리더가 데이터 과학 팀 프로젝트에서 수행해야 하는 작업에 대한 개요입니다.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 0b5129c4642a0c4381591f751bc4d5a51990b256
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 39e8c5b8dab33ba95b34c4edb9d0a994bc8ec6dc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442900"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135167"
 ---
-# <a name="project-lead-tasks"></a>프로젝트 리더 작업
+# <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Team Data Science Process에서 프로젝트 리더의 작업
 
 이 자습서에서는 프로젝트 리더가 데이터 과학 팀을 위해 수행해야 하는 작업에 대해 간략히 설명합니다. 목표는 [TDSP(Team Data Science Process)](overview.md)를 표준화하는 공동 작업 팀 환경을 구축하는 것입니다. TDSP는 Microsoft에서 개발하여 클라우드 기반 예측 분석 솔루션을 효율적으로 실행하는 일련의 구조화된 작업을 제공하는 프레임워크입니다. 이 프로세스를 표준화하는 데이터 과학 팀에서 처리하는 인력 역할 및 관련 작업에 대한 개요는 [Team Data Science Process 역할 및 작업](roles-tasks.md)을 참조하세요.
 
@@ -27,7 +27,8 @@ ms.locfileid: "52442900"
 
 이 항목에서는 현재 프로젝트 리더에 대한 1, 2 및 6 워크플로 작업을 설명합니다.
 
->[AZURE.NOTE] 다음 지침에서 Azure DevOps를 사용하여 프로젝트를 위한 TDSP 팀 환경을 설정하는 데 필요한 단계를 설명합니다. Microsoft에서 TDSP를 구현하는 방법이기 때문에 Azure DevOps를 사용하여 이러한 작업을 수행하는 방법을 지정합니다. 그룹에 다른 코드 호스팅 플랫폼이 사용되는 경우 팀 리더가 수행해야 하는 작업은 일반적으로 변경되지 않습니다. 그러나 이러한 작업을 완료하는 방법은 다를 수 있습니다.
+> [!NOTE]
+> 다음 지침에서 Azure DevOps를 사용하여 프로젝트를 위한 TDSP 팀 환경을 설정하는 데 필요한 단계를 설명합니다. Microsoft에서 TDSP를 구현하는 방법이기 때문에 Azure DevOps를 사용하여 이러한 작업을 수행하는 방법을 지정합니다. 그룹에 다른 코드 호스팅 플랫폼이 사용되는 경우 팀 리더가 수행해야 하는 작업은 일반적으로 변경되지 않습니다. 그러나 이러한 작업을 완료하는 방법은 다를 수 있습니다.
 
 
 ## <a name="repositories-and-directories"></a>리포지토리 및 디렉터리
@@ -83,15 +84,15 @@ ms.locfileid: "52442900"
 
 ## <a name="2-seed-the-dsproject1-project-repository"></a>2. DSProject1 프로젝트 리포지토리 시드
 
-여기서는 프로젝트 템플릿 리포지토리(R3)의 **DSProject1** 프로젝트 리포지토리(R5)를 시드하는 작업을 수행합니다. 시드 절차에서는 로컬 DSVM의 D3 및 D5 디렉터리를 중간 스테이징 사이트로 사용합니다. 요약하면, 시드 경로가 R3 -> D3 -> D5 -> R5입니다.
+여기서는 프로젝트 템플릿 리포지토리(R3)의 **DSProject1** 프로젝트 리포지토리(R5)를 시드하는 작업을 수행합니다. 시드 절차에서는 로컬 DSVM의 D3 및 D5 디렉터리를 중간 스테이징 사이트로 사용합니다. 요약하면, 시드 경로는 다음과 같습니다. R3 -> D3 -> D5 -> R5
 
 특정 프로젝트의 요구 사항에 맞게 **DSProject1** 프로젝트 리포지토리를 사용자 지정해야 하는 경우, 다음 절차의 마지막 두 번째 단계에서 이 사용자 지정 작업을 수행합니다. 다음은 **DSProject1** 프로젝트 리포지토리의 콘텐츠를 시드하는 데 사용되는 단계를 요약하고 있습니다. 개별 단계는 시드 절차의 하위 섹션에 해당합니다.
 
 - 프로젝트 템플릿 리포지토리를 로컬 디렉터리에 복제합니다(로컬 D3에 팀 R3 복제).
 - DSProject1 리포지토리를 로컬 디렉터리에 복제합니다(로컬 D5에 팀 R5 복제).
-- 복제된 프로젝트 템플릿 콘텐츠를 DSProject1 리포지토리의 로컬 복제본에 복사합니다(D5에 D3 콘텐츠 복사).
+- 복제된 프로젝트 템플릿 콘텐츠를 DSProject1 리포지토리의 로컬 복제본에 복사합니다.  D5에 D3 콘텐츠 복사
 - (선택 사항) 로컬 D5를 사용자 지정합니다.
-- 로컬 DSProject1 콘텐츠를 팀 리포지토리에 푸시합니다(팀 R5에 D5 콘텐츠 추가).
+- 로컬 DSProject1 콘텐츠를 팀 리포지토리에 푸시합니다. 팀 R5에 D5 콘텐츠 추가
 
 
 ### <a name="clone-your-project-template-repository-r3-to-a-directory-d3-on-your-local-machine"></a>로컬 컴퓨터의 디렉터리(D3)에 팀 프로젝트 템플릿 리포지토리(R3)를 복제합니다.
@@ -195,7 +196,8 @@ Azure DevOps를 코드 호스팅 플랫폼으로 사용하는 경우 일반적�
     
 - 변경 및 푸시를 커밋합니다. 
 
->[AZURE.NOTE] Git 리포지토리에 처음 커밋하는 경우 `git commit` 명령을 실행하기 전에 *user.name* 및 *user.email* 전역 매개 변수를 구성해야 합니다. 다음 두 명령을 실행합니다.
+> [!NOTE]
+> Git 리포지토리에 처음 커밋하는 경우 `git commit` 명령을 실행하기 전에 *user.name* 및 *user.email* 전역 매개 변수를 구성해야 합니다. 다음 두 명령을 실행합니다.
         
     git config --global user.name <your name>
     git config --global user.email <your email address>

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 6a34bbb5eefac117775c9876f3e4a25d3dade736
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 7f75950a0f61c646d6cf36ea0903ebdefbd336ee
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266274"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138482"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL에서 서버를 백업 및 복원하는 방법
 
@@ -40,7 +40,7 @@ Azure Portal을 통해 서버를 만드는 중에 **가격 책정 계층** 창�
 만드는 중에 이러한 값을 설정하는 방법에 대한 자세한 내용은 [Azure Database for MySQL 서버 빠른 시작](quickstart-create-mysql-server-database-using-azure-portal.md)을 참조하세요.
 
 백업 보존 기간은 서버에서 다음 단계를 통해 변경할 수 있습니다.
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure Database for MySQL 서버를 선택합니다. 이 작업은 **개요** 페이지를 엽니다.
 3. **설정** 아래의 메뉴에서 **가격 책정 계층**을 선택합니다. 슬라이더를 사용하여 **백업 보존 기간**을 7일에서 35일까지 원하는 대로 변경할 수 있습니다.
 아래 스크린샷에서는 34일로 늘렸습니다.
@@ -65,10 +65,10 @@ Azure Database for MySQL을 사용하면 특정 시점의 서버를 서버의 �
 3. 필요한 정보로 복원 양식을 채웁니다.
 
    ![Azure Database for MySQL - 복원 정보 ](./media/howto-restore-server-portal/3-restore.png)
-  - **복원 지점**: 복원하려는 특정 시점을 선택합니다.
-  - **대상 서버**: 새 서버에 대한 이름을 제공합니다.
-  - **위치**: 하위 지역을 선택할 수 없습니다. 기본적으로 원본 서버와 동일합니다.
-  - **가격 책정 계층**: 특정 시점 복원을 수행할 때 이러한 매개 변수는 변경할 수 없습니다. 원본 서버와 동일합니다. 
+   - **복원 지점**: 복원하려는 특정 시점을 선택합니다.
+   - **대상 서버**: 새 서버에 대한 이름을 제공합니다.
+   - **위치**: 지역을 선택할 수 없습니다. 기본적으로 원본 서버와 동일합니다.
+   - **가격 책정 계층**: 특정 시점 복원을 수행할 때 이러한 매개 변수는 변경할 수 없습니다. 원본 서버와 동일합니다. 
 
 4. **확인**을 클릭하여 특정 시점으로 복원할 서버를 복원합니다. 
 

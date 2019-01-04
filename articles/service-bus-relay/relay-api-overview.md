@@ -41,7 +41,7 @@ ms.locfileid: "43700375"
 
 .NET 에코시스템에는 여러 개의 런타임이 있으므로 Relay용 .NET 라이브러리도 여러 개 있습니다. .NET Framework 라이브러리는 .NET Framework 환경에서만 실행될 수 있지만 .NET Standard 라이브러리는 .NET Core 또는 .NET Framework를 사용하여 실행할 수 있습니다. .NET Framework에 대한 자세한 내용은 [프레임워크 버전](/dotnet/articles/standard/frameworks#framework-versions)을 참조하세요.
 
-.NET Framework 라이브러리는 WCF 프로그래밍 모델만 지원하고 WCF `net.tcp` 전송을 기반으로 하는 소유 이진 프로토콜을 사용합니다. 이 프로토콜 및 라이브러리는 기존 응용 프로그램과의 하위 호환성을 위해 유지 관리됩니다.
+.NET Framework 라이브러리는 WCF 프로그래밍 모델만 지원하고 WCF `net.tcp` 전송을 기반으로 하는 소유 이진 프로토콜을 사용합니다. 이 프로토콜 및 라이브러리는 기존 애플리케이션과의 하위 호환성을 위해 유지 관리됩니다.
 
 .NET Standard 라이브러리는 HTTP 및 Websocket을 빌드하는 하이브리드 연결 릴레이에 대한 개방형 프로토콜 정의를 기반으로 합니다. 라이브러리는 HTTP 요청 응답을 위해 Websocket에서의 스트림 추상화 및 간단한 요청-응답 API 제스처를 지원합니다. [웹 API](https://github.com/Azure/azure-relay-dotnet) 샘플에서는 웹 서비스를 위해 하이브리드 연결을 ASP.NET Core와 통합하는 방법을 보여 줍니다.
 

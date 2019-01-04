@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 06/21/2018
 ms.locfileid: "36310170"
 ---
-응용 프로그램별(즉, 계측 키별) 메트릭 및 이벤트의 수에 몇 가지 제한이 있습니다. 선택하는 [가격 책정 계층](https://azure.microsoft.com/pricing/details/application-insights/)에 따라 제한됩니다.
+애플리케이션별(즉, 계측 키별) 메트릭 및 이벤트의 수에 몇 가지 제한이 있습니다. 선택하는 [가격 책정 계층](https://azure.microsoft.com/pricing/details/application-insights/)에 따라 제한됩니다.
 
 | 리소스 | 기본 제한 | 참고
 | --- | --- | --- |

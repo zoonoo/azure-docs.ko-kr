@@ -31,7 +31,7 @@ ACS와 AKS는 마이그레이션에 영향을 주는 일부 주요 영역에서 
 * AKS는 현재 하나의 에이전트 풀만 지원합니다.
 * Windows Server 기반 노드는 현재 [비공개 미리 보기](https://azure.microsoft.com/blog/kubernetes-on-azure/)로 있습니다.
 * AKS [지원 지역](https://docs.microsoft.com/azure/aks/container-service-quotas) 목록을 확인합니다.
-* AKS는 호스팅된 Kubernetes 제어 평면을 사용하는 관리되는 서비스입니다. 이전에 ACS 마스터의 구성을 수정한 경우 응용 프로그램을 수정해야 할 수도 있습니다
+* AKS는 호스팅된 Kubernetes 제어 평면을 사용하는 관리되는 서비스입니다. 이전에 ACS 마스터의 구성을 수정한 경우 애플리케이션을 수정해야 할 수도 있습니다
 
 ### <a name="differences-between-kubernetes-versions"></a>Kubernetes 버전 간의 차이점
 
@@ -51,27 +51,27 @@ AKS에서 Kubernetes 제어 평면을 관리하는 동안에도 새 클러스터
 | 이름 | 개수 | VM 크기 | 운영 체제 |
 | --- | --- | --- | --- |
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
-| agentpool1 | 1 | Standard_D2_v2 | Windows |
+| agentpool1 | 1 | Standard_D2_v2 |  Windows |
 
 마이그레이션 중에 추가 가상 머신이 구독에 배포되므로 할당량과 한도가 이러한 리소스에 충분한지 확인해야 합니다. [Azure 구독 및 서비스 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits)을 검토하여 자세히 알아볼 수 있습니다. 현재 할당량을 확인하려면 Azure Portal에서 [구독 블레이드](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)로 이동하고, 구독을 선택한 다음, `Usage + quotas`를 선택합니다.
 
 ### <a name="networking"></a>네트워킹
 
-복잡한 응용 프로그램의 경우 일반적으로 한 번에 마이그레이션되는 것이 아니라 시간이 지남에 따라 마이그레이션됩니다. 즉 이전 환경과 새 환경이 네트워크를 통해 통신해야 할 수도 있습니다. 이전에 `ClusterIP` 서비스를 사용하여 통신할 수 있었던 응용 프로그램은 `LoadBalancer` 유형으로 공개하고 적절하게 보호해야 합니다.
+복잡한 애플리케이션의 경우 일반적으로 한 번에 마이그레이션되는 것이 아니라 시간이 지남에 따라 마이그레이션됩니다. 즉 이전 환경과 새 환경이 네트워크를 통해 통신해야 할 수도 있습니다. 이전에 `ClusterIP` 서비스를 사용하여 통신할 수 있었던 애플리케이션은 `LoadBalancer` 유형으로 공개하고 적절하게 보호해야 합니다.
 
 마이그레이션을 완료하려면 클라이언트가 AKS에서 실행되는 새 서비스를 가리키도록 합니다. 트래픽을 리디렉션하는 경우 AKS 클러스터 앞에 있는 Load Balancer를 가리키도록 DNS를 업데이트하는 것이 좋습니다.
 
-### <a name="stateless-applications"></a>상태 비저장 응용 프로그램
+### <a name="stateless-applications"></a>상태 비저장 애플리케이션
 
-상태 비저장 응용 프로그램 마이그레이션은 가장 간단한 경우입니다. YAML 정의를 새 클러스터에 적용하고, 모든 항목이 예상대로 작동하는지 확인한 다음, 트래픽을 리디렉션하여 새 클러스터를 활성화합니다.
+상태 비저장 애플리케이션 마이그레이션은 가장 간단한 경우입니다. YAML 정의를 새 클러스터에 적용하고, 모든 항목이 예상대로 작동하는지 확인한 다음, 트래픽을 리디렉션하여 새 클러스터를 활성화합니다.
 
-### <a name="stateful-applications"></a>상태 저장 응용 프로그램
+### <a name="stateful-applications"></a>상태 저장 애플리케이션
 
-상태 저장 응용 프로그램을 마이그레이션하려면 데이터 손실이나 예기치 않은 가동 중지 시간을 방지하기 위해 신중하게 계획해야 합니다.
+상태 저장 애플리케이션을 마이그레이션하려면 데이터 손실이나 예기치 않은 가동 중지 시간을 방지하기 위해 신중하게 계획해야 합니다.
 
-#### <a name="highly-available-applications"></a>고가용성 응용 프로그램
+#### <a name="highly-available-applications"></a>고가용성 애플리케이션
 
-일부 상태 저장 응용 프로그램은 고가용성 구성으로 배포할 수 있으며, 복제본 간에 데이터를 복사할 수 있습니다. 이 시나리오가 현재 배포를 설명하는 경우 새 AKS 클러스터에 새 멤버를 만들고, 다운스트림 호출자에게 미치는 영향을 최소화하면서 마이그레이션할 수 있습니다. 이 시나리오의 마이그레이션 단계는 일반적으로 다음과 같습니다.
+일부 상태 저장 애플리케이션은 고가용성 구성으로 배포할 수 있으며, 복제본 간에 데이터를 복사할 수 있습니다. 이 시나리오가 현재 배포를 설명하는 경우 새 AKS 클러스터에 새 멤버를 만들고, 다운스트림 호출자에게 미치는 영향을 최소화하면서 마이그레이션할 수 있습니다. 이 시나리오의 마이그레이션 단계는 일반적으로 다음과 같습니다.
 
 1. AKS에 새 보조 복제본을 만들기
 2. 데이터가 복제될 때까지 대기
@@ -82,12 +82,12 @@ AKS에서 Kubernetes 제어 평면을 관리하는 동안에도 새 클러스터
 
 기존 영구적 볼륨을 AKS로 마이그레이션하는 경우 고려해야 할 몇 가지 요인이 있습니다. 일반적으로 관련 단계는 다음과 같습니다.
 
-1. (선택 사항) 응용 프로그램에 쓰기 정지(가동 중지 시간 필요)
+1. (선택 사항) 애플리케이션에 쓰기 정지(가동 중지 시간 필요)
 2. 디스크 스냅숏
 3. 스냅숏에서 새 Managed Disks 만들기
 4. AKS에서 영구적 볼륨 만들기
 5. PersistentVolumeClaims(정적 프로비전) 대신 [기존 볼륨을 사용](https://docs.microsoft.com/azure/aks/azure-disk-volume)하도록 Pod 사양 업데이트
-6. AKS에 응용 프로그램 배포
+6. AKS에 애플리케이션 배포
 7. 유효성 검사
 8. AKS 클러스터를 가리키도록 트래픽 지정
 
@@ -102,13 +102,13 @@ Managed Disks를 만들고 Kubernetes 클러스터 간에 볼륨을 마이그레
 
 디스크와 달리 Azure Files는 여러 호스트에 동시에 탑재할 수 있습니다. Azure와 Kubernetes는 모두 ACS 클러스터에서 계속 사용하는 AKS 클러스터에 Pod를 만들 수 없습니다. 데이터 손실과 예기치 않은 동작을 방지하려면 두 클러스터 모두에서 동일한 파일에 동시에 쓰지 않도록 해야 합니다.
 
-응용 프로그램에서 동일한 파일 공유를 가리키는 여러 복제본을 호스팅할 수 있는 경우, 상태 비저장 마이그레이션 단계를 수행하고 YAML 정의를 새 클러스터에 배포할 수 있습니다.
+애플리케이션에서 동일한 파일 공유를 가리키는 여러 복제본을 호스팅할 수 있는 경우, 상태 비저장 마이그레이션 단계를 수행하고 YAML 정의를 새 클러스터에 배포할 수 있습니다.
 
 그렇지 않은 경우 한 가지 가능한 마이그레이션 방법에 다음 단계가 포함됩니다.
 
-1. 복제본 수가 0인 AKS에 응용 프로그램 배포
-2. ACS에서 응용 프로그램 크기를 0으로 조정(가동 중지 시간 필요)
-3. AKS에서 응용 프로그램 크기를 최대 1까지 조정
+1. 복제본 수가 0인 AKS에 애플리케이션 배포
+2. ACS에서 애플리케이션 크기를 0으로 조정(가동 중지 시간 필요)
+3. AKS에서 애플리케이션 크기를 최대 1까지 조정
 4. 유효성 검사
 5. AKS 클러스터를 가리키도록 트래픽 지정
 
@@ -138,7 +138,7 @@ kubectl get deployment -o=yaml --export > deployments.yaml
 
 > GitHub의 [Azure/AKS](https://github.com/Azure/AKS/tree/master/examples/vnet) 리포지토리에서 AKS용 Azure Resource Manager 템플릿 샘플을 찾을 수 있습니다
 
-### <a name="2-modify-applications"></a>2. 응용 프로그램 수정
+### <a name="2-modify-applications"></a>2. 애플리케이션 수정
 
 필요에 따라 YAML 정의를 수정합니다. 예: `Deployments`에 대해 `apps/v1beta1`을 `apps/v1`로 바꾸기
 
@@ -146,13 +146,13 @@ kubectl get deployment -o=yaml --export > deployments.yaml
 
 ACS 클러스터에서 AKS 클러스터로 볼륨을 마이그레이션합니다. 자세한 내용은 [영구적 볼륨 마이그레이션](#Migrating-Persistent-Volumes) 섹션에 나와 있습니다.
 
-### <a name="4-deploy-applications"></a>4. 응용 프로그램 배포
+### <a name="4-deploy-applications"></a>4. 애플리케이션 배포
 
-CI/CD 시스템을 사용하여 AKS에 응용 프로그램을 배포하거나, kubectl을 사용하여 YAML 정의를 적용합니다.
+CI/CD 시스템을 사용하여 AKS에 애플리케이션을 배포하거나, kubectl을 사용하여 YAML 정의를 적용합니다.
 
 ### <a name="5-validate"></a>5. 유효성 검사
 
-응용 프로그램이 예상대로 작동하고 마이그레이션된 데이터가 복사되었는지 확인합니다.
+애플리케이션이 예상대로 작동하고 마이그레이션된 데이터가 복사되었는지 확인합니다.
 
 ### <a name="6-redirect-traffic"></a>6. 트래픽 리디렉션
 

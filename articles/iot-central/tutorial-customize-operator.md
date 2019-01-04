@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Central에서 연산자의 뷰 사용자 지정 | Microsoft Docs
-description: 작성기로서 Azure IoT Central 응용 프로그램에서 연산자의 뷰를 사용자 지정합니다.
+description: 작성기로서 Azure IoT Central 애플리케이션에서 연산자의 뷰를 사용자 지정합니다.
 author: sandeeppujar
 ms.author: sandeepu
 ms.date: 10/12/2018
@@ -17,7 +17,7 @@ ms.locfileid: "50154984"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>자습서: Azure IoT Central 연산자의 뷰 사용자 지정
 
-이 자습서에서는 작성기로서 응용 프로그램의 연산자의 뷰를 사용자 지정하는 방법을 설명합니다. 작성기로서 응용 프로그램을 변경하는 경우 Microsoft Azure IoT Central 응용 프로그램에서 연산자의 뷰를 미리 볼 수 있습니다.
+이 자습서에서는 작성기로서 애플리케이션의 연산자의 뷰를 사용자 지정하는 방법을 설명합니다. 작성기로서 애플리케이션을 변경하는 경우 Microsoft Azure IoT Central 애플리케이션에서 연산자의 뷰를 미리 볼 수 있습니다.
 
 이 자습서에서는 연결된 공조 디바이스에 대한 관련 정보를 연산자에 표시하려면 응용 프로그램을 사용자 지정합니다. 사용자 지정을 사용하면 연산자가 응용 프로그램에 연결된 공조 디바이스를 관리하게 할 수 있습니다.
 
@@ -135,24 +135,24 @@ ms.locfileid: "50154984"
 
 ## <a name="configure-the-default-home-page"></a>기본 홈 페이지 구성
 
-작성기 또는 연산자가 Azure IoT Central 응용 프로그램에 로그인하면 홈 페이지가 표시됩니다. 작성기로서 연산자에 대한 가장 유용하고 관련이 큰 콘텐츠를 포함하려면 이 홈 페이지의 콘텐츠를 구성할 수 있습니다.
+작성기 또는 연산자가 Azure IoT Central 애플리케이션에 로그인하면 홈 페이지가 표시됩니다. 작성기로서 연산자에 대한 가장 유용하고 관련이 큰 콘텐츠를 포함하려면 이 홈 페이지의 콘텐츠를 구성할 수 있습니다.
 
 1. 기본 홈 페이지를 사용자 지정하려면 **홈** 페이지로 이동하여 페이지의 오른쪽 상단에서 **편집**을 선택합니다. **편집**을 선택하면 패널은 홈 페이지에 추가할 수 있는 개체의 목록을 사용하여 오른쪽에서 슬라이드 아웃됩니다.
 
-    ![응용 프로그램 개발자 페이지](media/tutorial-customize-operator/builderhome.png)
+    ![애플리케이션 개발자 페이지](media/tutorial-customize-operator/builderhome.png)
 
 2. 홈 페이지를 사용자 지정하려면 **라이브러리**에서 타일을 추가합니다. **링크**를 선택하고 조직의 웹 사이트의 세부 정보를 추가합니다. 그런 다음, **저장**을 선택합니다.
 
     ![홈페이지에 링크 추가](media/tutorial-customize-operator/addlink.png)
 
     > [!NOTE]
-    > Azure IoT Central 응용 프로그램 내에서 페이지에 링크를 추가할 수 있습니다. 예를 들어 디바이스 대시보드 또는 설정 페이지에 링크를 추가할 수 있습니다.
+    > Azure IoT Central 애플리케이션 내에서 페이지에 링크를 추가할 수 있습니다. 예를 들어 디바이스 대시보드 또는 설정 페이지에 링크를 추가할 수 있습니다.
 
 3. 필요에 따라 **이미지**를 선택하고 홈 페이지에 표시할 이미지를 업로드합니다. 이미지에는 클릭하면 이동할 URL이 포함될 수 있습니다.
 
     ![홈 페이지에 이미지 추가](media/tutorial-customize-operator/addimage.png)
 
-    자세한 내용은 [Azure IoT Central 응용 프로그램에 이미지를 업로드하고 준비하는 방법](howto-prepare-images.md)을 참조합니다.
+    자세한 내용은 [Azure IoT Central 애플리케이션에 이미지를 업로드하고 준비하는 방법](howto-prepare-images.md)을 참조합니다.
 
 ## <a name="preview-the-default-home-page-as-an-operator"></a>연산자로서 기본 홈 페이지 미리 보기
 
@@ -164,7 +164,7 @@ ms.locfileid: "50154984"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 응용 프로그램의 연산자의 뷰를 사용자 지정하는 방법을 알아보았습니다.
+이 자습서에서는 애플리케이션의 연산자의 뷰를 사용자 지정하는 방법을 알아보았습니다.
 
 <!-- Repeat task list from intro -->
 > [!div class="nextstepaction"]
@@ -175,7 +175,7 @@ ms.locfileid: "50154984"
 > * 기본 홈 페이지 구성
 > * 연산자로서 기본 홈 페이지 미리 보기
 
-응용 프로그램의 연산자의 뷰를 사용자 지정하는 방법을 알아보았으므로 제안된 다음 단계는 다음과 같습니다.
+애플리케이션의 연산자의 뷰를 사용자 지정하는 방법을 알아보았으므로 제안된 다음 단계는 다음과 같습니다.
 
 * [장치 모니터링(연산자로서)](tutorial-monitor-devices.md)
 * [응용 프로그램에 새 장치 추가(연산자 및 장치 개발자로서)](tutorial-add-device.md)

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7979bbafda6373c7f25c6e9c7d5cd997fbf5c3eb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86f4e99401278d13a17f40c4c021060e8bd15f8a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098103"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754546"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 업데이트
 
@@ -43,7 +43,7 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 - **모든 Azure Stack 환경에는 이제 utc (협정 세계시) 시간 영역 형식을 사용합니다.**  모든 로그 데이터 및 관련된 정보를 지금 UTC 형식으로 표시 됩니다. UTC를 사용 하 여 설치 되지 않은 이전 버전에서 업데이트 하는 경우 환경의 UTC를 사용 하도록 업데이트 됩니다. 
 
 <!-- 2437250  | IS  ASDK --> 
-- **Managed Disks는 지원 합니다.** 이제 Azure Stack virtual machines 및 가상 머신 확장 집합에서 Managed Disks를 사용할 수 있습니다. 자세한 내용은 [Azure Stack의 Managed Disks: 차이점 및 고려 사항](/azure/azure-stack/user/azure-stack-managed-disk-considerations)합니다.
+- **Managed Disks는 지원 합니다.** 이제 Azure Stack virtual machines 및 가상 머신 확장 집합에서 Managed Disks를 사용할 수 있습니다. 자세한 내용은 참조 하세요. [Azure Stack의 Managed Disks: 차이점 및 고려 사항](/azure/azure-stack/user/azure-stack-managed-disk-considerations)합니다.
 
 <!-- 2563799  | IS  ASDK --> 
 - **Azure Monitor** Azure에서 Azure Monitor와 같은 Azure Stack에서 Azure Monitor 대부분의 서비스에 대 한 기본 수준의 인프라 메트릭과 로그 제공합니다. 자세한 내용은 [Azure Stack에서 Azure Monitor](/azure/azure-stack/user/azure-stack-metrics-azure-data)합니다.
@@ -226,16 +226,16 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 - 에 대 한 경고를 표시 될 수 있습니다 합니다 **상태 컨트롤러** 다음 세부 정보는 구성 요소:  
 
    경고 # 1:
-   - 비정상 인프라 역할 이름:
-   - 심각도: 경고
-   - 구성 요소: 상태 컨트롤러
-   - 설명: 상태 컨트롤러 하트 비트 검색 프로그램 사용할 수 없는 경우 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.  
+   - 이름:  인프라 역할 비정상
+   - 심각도: Warning
+   - 구성 요소입니다. 상태 컨트롤러
+   - 설명: 상태 컨트롤러 하트 비트 검색 프로그램을 사용할 수 없는 경우 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.  
 
   # 2를 경고 합니다.
-   - 비정상 인프라 역할 이름:
-   - 심각도: 경고
-   - 구성 요소: 상태 컨트롤러
-   - 설명: 상태 컨트롤러 오류 스캐너를 사용할 수 없습니다. 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.
+   - 이름:  인프라 역할 비정상
+   - 심각도: Warning
+   - 구성 요소입니다. 상태 컨트롤러
+   - 설명: 상태 컨트롤러 오류 스캐너 제공 되지 않습니다. 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.
 
   모두 경고를 안전 하 게 무시할 수 있습니다 하 고 시간이 지남에 따라 자동으로 닫을 수 있습니다.  
 
@@ -244,15 +244,14 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 - 에 대 한 경고가 표시 될 수 있습니다 **저장소** 다음 세부 정보를 포함 하는 구성 요소:
 
    - 이름: 저장소 서비스의 내부 통신 오류  
-   - 심각도: 위험  
-   - 구성 요소: 저장소  
-   - 설명: 다음 노드에 요청을 보낼 때 저장소 서비스의 내부 통신 오류가 발생 했습니다.  
+   - 심각도: 중요  
+   - 구성 요소입니다. Storage  
+   - 설명: 다음 노드에 요청을 전송 하는 저장소 서비스의 내부 통신 오류가 발생 했습니다.  
 
     경고를 안전 하 게 무시할 수 있지만 경고를 수동으로 종결 해야 합니다.
 
 <!-- 2368581 - IS. ASDK --> 
 - 메모리 부족 경고를 받게 테 넌 트 가상 머신을 사용 하 여 배포 하는 데 실패 한 경우 Azure Stack 운영자를 **패브릭 VM 만들기 오류**, 사용 가능한 메모리가 부족 합니다. Azure Stack 스탬프는 불가능 합니다. 사용 된 [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) 워크 로드에 대 한 사용 가능한 용량을 가장 잘 알아야 합니다.
-
 
 ### <a name="compute"></a>컴퓨팅
 
@@ -283,17 +282,17 @@ Azure Stack 사용량 Api에서에서 생성 된 사용 현황 보고서 올바�
    - 0으로 할당량 값을 업데이트 하는 경우 기본값인 2048 GiB 같습니다. 대 안으로 할당량 값을 1로 설정 합니다.
 
 <!-- 2869209 – IS, ASDK --> 
-- 사용 하는 경우는 [ **추가 AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0)를 사용 해야 합니다는 **-OsUri** storage 계정과 디스크 업로드 되는 URI 매개 변수입니다. 다음 오류로 인해 cmdlet이 실패 하면 디스크의 로컬 경로 사용 하는 경우: *장기 실행 작업 상태 '실패'를 사용 하 여 실패 한*합니다. 
+- 사용 하는 경우는 [ **추가 AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0)를 사용 해야 합니다는 **-OsUri** storage 계정과 디스크 업로드 되는 URI 매개 변수입니다. 디스크의 로컬 경로 사용 하는 경우 cmdlet은 다음 오류로 인해 실패 합니다. *장기 실행 작업 상태 '실패'를 사용 하 여 실패 한*합니다. 
 
 <!--  2966665 – IS, ASDK --> 
-- 디스크 virtual machines (DS, DSv2, Fs, Fs_V2) 실패 오류가 발생 하 여 관리 되는 프리미엄 크기에 SSD 데이터 디스크를 연결: *가상 머신 'vmname' 오류에 대 한 디스크를 업데이트 하지 못했습니다: 요청한 저장소 계정 유형 때문에 작업을 수행할 수 없습니다 ' VM 크기에 대 한 Premium_LRS'를 사용할 수 없습니다 ' Standard_DS/Ds_V2/FS/Fs_v2)*
+- 데이터 디스크를 프리미엄 크기 디스크 virtual machines (DS, DSv2, Fs, Fs_V2) 실패 오류가 발생 하 여 관리 되는 SSD에 연결:  *가상 머신 'vmname' 오류에 대 한 디스크를 업데이트 하지 못했습니다. 요청한 VM 크기에 대 한 저장소 계정 유형 'Premium_LRS' 지원 되지 않으므로 작업을 수행할 수 없습니다 ' Standard_DS/Ds_V2/FS/Fs_v2)*
 
    이 문제를 해결 하려면 사용 하 여 *Standard_LRS* 대신 데이터 디스크 *Premium_LRS 디스크*합니다. 이용 *Standard_LRS* 데이터 디스크 IOPs 또는 비용을 변경 하지 않습니다. 
 
 <!--  2795678 – IS, ASDK --> 
 - 가상 머신 (VM)를 만들려면 포털 (DS, Ds_v2, FS, FSv2) 프리미엄 VM 크기에서를 사용 하면 표준 저장소 계정에 VM이 생성 됩니다. 표준 저장소 계정 만드는 영향을 주지 않습니다 기능적으로 IOPs 또는 대금 청구 합니다. 
 
-   라는 경고를 무시 해도: *에 프리미엄 디스크를 지 원하는 크기로 표준 디스크를 사용 하기로 선택 하셨습니다. 이 운영 체제 성능에 영향을 줄 수 있으며 권장 되지 않습니다. Premium storage (SSD)를 대신 사용 하는 것이 좋습니다.*
+   안전 하 게 되었다는 경고를 무시할 수 있습니다. *에서는 표준 디스크를 프리미엄 디스크를 지 원하는 크기를 사용 하기로 했습니다. 이 운영 체제 성능에 영향을 줄 수 있으며 권장 되지 않습니다. Premium storage (SSD)를 대신 사용 하는 것이 좋습니다.*
 
 <!-- 2967447 - IS, ASDK --> 
 - 가상 머신 확장 집합 (VMSS) 환경을 만드는 7.2 CentOS 기반 배포에 대 한 옵션으로 제공 합니다. 해당 이미지를 Azure Stack에서 사용할 수 없는 때문에 배포에 대 한 다른 OS를 선택 하거나 연산자가 marketplace에서 배포 하기 전에 다운로드 된 다른 CentOS 이미지를 지정 하는 Azure Resource Manager 템플릿을 사용 합니다.  
@@ -315,7 +314,7 @@ Azure Stack 사용량 Api에서에서 생성 된 사용 현황 보고서 올바�
 
    VM에 대 한 CPU 백분율 차트를 찾으려면에서로 이동 합니다 **메트릭을** 블레이드에서 살펴보고, 지원 되는 모든 Windows VM 게스트 메트릭을 합니다.
 
-
+- 사용 하도록 설정 하는 SSH 인증을 사용 하 여 만든 Ubuntu 18.04 VM은 SSH 키를 사용 하 여 로그인 할 수 없습니다. 대 안으로 Linux 확장에 대 한 VM 액세스를 사용 하 여 프로 비전 한 후 SSH 키를 구현 하거나 암호 기반 인증을 사용 하세요.
 
 ### <a name="networking"></a>네트워킹  
 
@@ -361,8 +360,10 @@ Azure Stack 사용량 Api에서에서 생성 된 사용 현황 보고서 올바�
 
 
 ## <a name="download-the-update"></a>업데이트 다운로드
-Azure Stack 1808 업데이트 패키지를 다운로드할 수 있습니다 [여기](https://aka.ms/azurestackupdatedownload)합니다.
-  
+
+Azure Stack 1808 업데이트 패키지를 다운로드할 수 있습니다 [여기](https://aka.ms/azurestackupdatedownload)합니다. 
+
+연결 된 시나리오 에서만 Azure Stack 배포 주기적으로 보안된 끝점을 확인 하 고 자동으로 클라우드를 위한 사용 가능한 업데이트가 있는 경우을 알립니다. 자세한 내용은 [Azure Stack에 대 한 업데이트 관리](azure-stack-updates.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - Azure Stack 통합 시스템 및 지원 되는 상태 시스템을 유지 하기 위해 해야 할 새로운 서비스의 정책을 참조 하세요 [Azure Stack 서비스 정책](azure-stack-servicing-policy.md)합니다.  

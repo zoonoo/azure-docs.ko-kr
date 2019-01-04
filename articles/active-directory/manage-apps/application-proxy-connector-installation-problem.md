@@ -1,6 +1,6 @@
 ---
-title: 응용 프로그램 프록시 에이전트 커넥터를 설치할 때 문제 발생 | Microsoft 문서
-description: 응용 프로그램 프록시 에이전트 커넥터를 설치할 때 발생하는 문제를 해결하는 방법
+title: 애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생 | Microsoft Docs
+description: 애플리케이션 프록시 에이전트 커넥터를 설치할 때 발생하는 문제를 해결하는 방법
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -22,21 +22,21 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/06/2018
 ms.locfileid: "51036940"
 ---
-# <a name="problem-installing-the-application-proxy-agent-connector"></a>응용 프로그램 프록시 에이전트 커넥터를 설치할 때 문제 발생
+# <a name="problem-installing-the-application-proxy-agent-connector"></a>애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생
 
-Microsoft AAD 응용 프로그램 프록시 커넥터는 아웃바운드 연결을 사용하여 클라우드 사용 가능 엔드포인트에서 내부 도메인으로의 연결을 설정하는 내부 도메인 구성 요소입니다.
+Microsoft AAD 애플리케이션 프록시 커넥터는 아웃바운드 연결을 사용하여 클라우드 사용 가능 엔드포인트에서 내부 도메인으로의 연결을 설정하는 내부 도메인 구성 요소입니다.
 
 ## <a name="general-problem-areas-with-connector-installation"></a>커넥터 설치에 대한 일반적인 문제 영역
 
 커넥터 설치가 실패한 경우 근본 원인은 대개 다음 영역 중 하나입니다.
 
-1.  **연결** – 성공적인 설치를 완료하려면 새 커넥터를 등록하고 향후 트러스트 속성을 설정해야 합니다. 이 작업은 AAD 응용 프로그램 프록시 클라우드 서비스에 연결하여 수행됩니다.
+1.  **연결** – 성공적인 설치를 완료하려면 새 커넥터를 등록하고 향후 트러스트 속성을 설정해야 합니다. 이 작업은 AAD 애플리케이션 프록시 클라우드 서비스에 연결하여 수행됩니다.
 
 2.  **트러스트 설정** – 새 커넥터는 자체 서명된 인증서를 만들고 클라우드 서비스에 등록합니다.
 
 3.  **관리자 인증** – 설치 중 사용자가 커넥터 설치를 완료하려면 관리자 자격 증명을 제공해야 합니다.
 
-## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>클라우드 응용 프로그램 프록시 서비스 및 Microsoft 로그인 페이지에 대한 연결 확인
+## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>클라우드 애플리케이션 프록시 서비스 및 Microsoft 로그인 페이지에 대한 연결 확인
 
 **목표:** 커넥터 컴퓨터가 Microsoft 로그인 페이지뿐만 아니라 AAD 응용 프로그램 프록시 등록 엔드포인트에도 연결할 수 있는지 확인합니다.
 
@@ -46,7 +46,7 @@ Microsoft AAD 응용 프로그램 프록시 커넥터는 아웃바운드 연결�
 
 3.  브라우저(별도 탭)를 열고 <https://login.microsoftonline.com>을 방문하여 해당 페이지에 로그인할 수 있는지 확인합니다.
 
-## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>컴퓨터 및 백 엔드 구성 요소가 응용 프로그램 프록시 트러스트 인증서를 지원하는지 확인
+## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>머신 및 백 엔드 구성 요소가 애플리케이션 프록시 트러스트 인증서를 지원하는지 확인
 
 **목표:** 커넥터 컴퓨터, 백 엔드 프록시 및 방화벽이 향후 트러스트를 위해 커넥터가 만든 인증서를 지원할 수 있는지 확인합니다.
 

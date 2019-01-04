@@ -1,5 +1,6 @@
 ---
-title: SSL을 사용하여 Azure Machine Learning 웹 서비스 보호
+title: SSL로 웹 서비스 보호
+titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning 서비스를 통해 배포되는 웹 서비스를 보호하는 방법을 알아봅니다. SSL(Secure Socket Layer) 및 키 기반 인증을 사용하여 클라이언트가 제출하는 데이터를 보호하고 웹 서비스 액세스를 제한할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +10,15 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
-ms.openlocfilehash: ec7b956f080837b297bac56e6237ac0672601ce7
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.custom: seodec18
+ms.openlocfilehash: 14350a04326ba22dcc5c8608b6ac6b9180666832
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344487"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101206"
 ---
-# <a name="secure-azure-machine-learning-web-services-with-ssl"></a>SSL을 사용하여 Azure Machine Learning 웹 서비스 보호
+# <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>SSL을 사용하여 Azure Machine Learning 서비스로 웹 서비스 보호
 
 이 문서에서는 Azure Machine Learning 서비스를 통해 배포되는 웹 서비스를 보호하는 방법을 알아봅니다. SSL(Secure Socket Layer) 및 키 기반 인증을 사용하여 클라이언트가 제출하는 데이터를 보호하고 웹 서비스 액세스를 제한할 수 있습니다.
 
@@ -118,7 +120,7 @@ SSL를 사용하도록 설정하여 서비스를 배포하거나 다시 배포�
 
   아래 그림과 같이 AKS 클러스터 "공용 IP 주소"의 "구성" 탭에서 DNS를 업데이트합니다. 공용 IP 주소는 AKS 에이전트 노드 및 기타 네트워킹 리소스를 포함하는 리소스 그룹 아래에 생성된 리소스 종류 중 하나로 표시됩니다.
 
-  ![Azure Machine Learning 서비스: SSL을 사용하여 웹 서비스 보호](./media/how-to-secure-web-service/aks-public-ip-address.png)self-
+  ![Azure Machine Learning 서비스: SSL로 웹 서비스 보호](./media/how-to-secure-web-service/aks-public-ip-address.png)
 
 ## <a name="next-steps"></a>다음 단계
 

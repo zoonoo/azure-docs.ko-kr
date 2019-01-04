@@ -37,7 +37,7 @@ ms.locfileid: "47032087"
 
 또한 다음에 대해서도 잘 알고 있다고 가정합니다.
 * SAP HANA, SAP NetWeaver 및 온-프레미스에 설치하는 방법
-* Azure에서 SAP HANA 및 SAP 응용 프로그램 인스턴스 설치 및 조작
+* Azure에서 SAP HANA 및 SAP 애플리케이션 인스턴스 설치 및 조작
 * 다음 개념 및 절차:
    * Azure에서의 SAP 배포 계획(Azure Virtual Network 계획 및 Azure Storage 사용 포함) - [Azure VMs(Virtual Machines)에서 SAP NetWeaver - 계획 및 구현 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) 참조
    * Azure에 VM을 배포하는 배포 원칙 및 방법 - [SAP용 Azure Virtual Machines 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide) 참조
@@ -87,7 +87,7 @@ Azure에서 SAP를 모니터링하는 방법에 대한 내용은 다음을 참�
 ### <a name="azure-vm-types"></a>Azure VM 유형
 SAP HANA와 함께 사용되는 Azure VM 유형 및 SAP 지원 워크로드 시나리오는 [SAP 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html)(영문)에서 설명하고 있습니다. 
 
-SAP NetWeaver 또는 S/4HANA 응용 프로그램 계층에 대해 SAP에서 인증한 Azure VM 유형은 [SAP Note 1928533 - SAP Applications on Azure: 지원 제품 및 Azure VM 유형](https://launchpad.support.sap.com/#/notes/1928533/E)(영문)에서 설명하고 있습니다.
+SAP NetWeaver 또는 S/4HANA 애플리케이션 계층에 대해 SAP에서 인증한 Azure VM 유형은 [SAP Note 1928533 - SAP Applications on Azure: 지원 제품 및 Azure VM 유형](https://launchpad.support.sap.com/#/notes/1928533/E)(영문)에서 설명하고 있습니다.
 
 >[!Note]
 >SAP-Linux-Azure 통합은 Azure Resource Manager에서만 지원하며, 클래식 배포 모델에서는 지원하지 않습니다. 
@@ -103,7 +103,7 @@ SAP NetWeaver 또는 S/4HANA 응용 프로그램 계층에 대해 SAP에서 인�
 * "데이터베이스 인스턴스 설치" 단계에서 분산형 NetWeaver 설치의 일부로 SWPM(SAP Software Provisioning Manager) 사용
 * SAP HANA 데이터베이스 수명 주기 관리자 도구인 HDBLCM 사용 후 NetWeaver 설치
 
-또한 이 [SAP HANA 블로그 알림](https://blogs.saphana.com/2013/12/31/announcement-sap-hana-and-sap-netweaver-as-abap-deployed-on-one-server-is-generally-available/)에서 설명한 대로 SWPM을 사용하여 단일 VM에 모든 구성 요소(SAP HANA, SAP 응용 프로그램 서버 및 ASCS 인스턴스)를 설치할 수도 있습니다. 이 빠른 시작 가이드에서는 이 옵션을 설명하지 않지만 고려해야 하는 문제는 동일합니다.
+또한 이 [SAP HANA 블로그 알림](https://blogs.saphana.com/2013/12/31/announcement-sap-hana-and-sap-netweaver-as-abap-deployed-on-one-server-is-generally-available/)에서 설명한 대로 SWPM을 사용하여 단일 VM에 모든 구성 요소(SAP HANA, SAP 애플리케이션 서버 및 ASCS 인스턴스)를 설치할 수도 있습니다. 이 빠른 시작 가이드에서는 이 옵션을 설명하지 않지만 고려해야 하는 문제는 동일합니다.
 
 설치를 시작하기 전에 이 안내서 뒷부분에 있는 "SAP HANA 수동 설치를 위한 Azure VM 준비" 섹션을 참조하는 것이 좋습니다. 이렇게 하면 기본 Azure VM 구성만 사용할 때 발생할 수 있는 몇 가지 기본적인 실수를 방지할 수 있습니다.
 
@@ -112,7 +112,7 @@ SAP NetWeaver 또는 S/4HANA 응용 프로그램 계층에 대해 SAP에서 인�
 
 1. 2개 테스트 VM이 포함된 Azure 가상 네트워크를 만듭니다.
 2. Azure Resource Manager 모델에 따라 운영 체제(이 예제에서는 SLES(SUSE Linux Enterprise Server) 및 SLES for SAP Applications 12 SP1)가 포함된 2개의 Azure VM을 배포합니다.
-3. 응용 프로그램 서버 VM에 2개의 Azure 표준 또는 프리미엄 저장소 디스크(예: 75GB 및 500GB 디스크)를 연결합니다.
+3. 애플리케이션 서버 VM에 2개의 Azure 표준 또는 프리미엄 스토리지 디스크(예: 75GB 및 500GB 디스크)를 연결합니다.
 4. HANA DB 서버 VM에 프리미엄 저장소 디스크를 연결합니다. 자세한 내용은 이 설명서의 뒷부분에 나오는 "디스크 설정" 섹션을 참조하세요.
 5. 크기 또는 처리량 요구 사항에 따라 여러 디스크를 연결한 다음 VM 내부의 OS 수준에서 논리 볼륨 관리 또는 MDADM(다중 장치 관리 도구)을 사용하여 스트라이프 볼륨을 만듭니다.
 6. 연결된 디스크 또는 논리 볼륨에 XFS 파일 시스템을 만듭니다.
@@ -124,9 +124,9 @@ SAP NetWeaver 또는 S/4HANA 응용 프로그램 계층에 대해 SAP에서 인�
 12. 선택적으로 테스트 VM에 그래픽 데스크톱 설치, 그렇지 않은 경우 원격 SAPinst 설치 사용
 13. SAP Service Marketplace에서 SAP 소프트웨어를 다운로드합니다.
 14. 앱 서버 VM에 SAP ASCS 인스턴스 설치
-15. NFS를 사용하여 테스트 VM 간에 /sapmnt 디렉터리 공유 - 응용 프로그램 서버 VM은 NFS 서버입니다.
+15. NFS를 사용하여 테스트 VM 간에 /sapmnt 디렉터리 공유 - 애플리케이션 서버 VM은 NFS 서버입니다.
 16. DB 서버 VM에서 SWPM을 사용하여 HANA를 포함한 데이터베이스 인스턴스 설치
-17. 응용 프로그램 서버 VM에 PAS(기본 응용 프로그램 서버)를 설치합니다.
+17. 애플리케이션 서버 VM에 PAS(기본 애플리케이션 서버)를 설치합니다.
 18. SAP MC(SAP 관리 콘솔)를 시작합니다. 예를 들어 SAP GUI 또는 HANA Studio와 연결합니다.
 
 ## <a name="key-steps-for-sap-hana-installation-when-you-use-hdblcm"></a>HDBLCM 사용 시 SAP HANA 설치를 위한 주요 단계
@@ -148,9 +148,9 @@ SAP NetWeaver 또는 S/4HANA 응용 프로그램 계층에 대해 SAP에서 인�
 14. HANA DB 서버 VM에 그룹 ID가 1001인 sapsys 그룹을 만듭니다.
 15. HDBLCM(HANA 데이터베이스 수명 주기 관리자)을 사용하여 DB 서버 VM에 SAP HANA를 설치합니다.
 16. 앱 서버 VM에 SAP ASCS 인스턴스 설치
-17. NFS를 사용하여 테스트 VM 간에 /sapmnt 디렉터리 공유 - 응용 프로그램 서버 VM은 NFS 서버입니다.
+17. NFS를 사용하여 테스트 VM 간에 /sapmnt 디렉터리 공유 - 애플리케이션 서버 VM은 NFS 서버입니다.
 18. HANA DB 서버 VM에 SWPM을 통해 HANA를 포함한 데이터베이스 인스턴스 설치
-19. 응용 프로그램 서버 VM에 PAS(기본 응용 프로그램 서버)를 설치합니다.
+19. 애플리케이션 서버 VM에 PAS(기본 애플리케이션 서버)를 설치합니다.
 20. SAP MC를 시작합니다. SAP GUI 또는 HANA Studio를 통해 연결합니다.
 
 ## <a name="preparing-azure-vms-for-a-manual-installation-of-sap-hana"></a>SAP HANA 수동 설치를 위한 Azure VM 준비
@@ -170,7 +170,7 @@ SAP NetWeaver 또는 S/4HANA 응용 프로그램 계층에 대해 SAP에서 인�
 * SUSE Linux Enterprise Server for SAP Applications
 * Red Hat Enterprise Linux for SAP Applications 또는 Red Hat Enterprise Linux for SAP HANA 
 
-아직 등록하지 않은 경우 Linux 공급업체의 Linux 구독으로 OS 배포를 등록합니다. SUSE에는 이미 서비스를 포함하고 있고 자동으로 등록되는 SAP 응용 프로그램용 OS 이미지가 있습니다.
+아직 등록하지 않은 경우 Linux 공급업체의 Linux 구독으로 OS 배포를 등록합니다. SUSE에는 이미 서비스를 포함하고 있고 자동으로 등록되는 SAP 애플리케이션용 OS 이미지가 있습니다.
 
 다음은 **zypper** 명령을 사용하여 SUSE Linux에 사용할 수 있는 패치를 확인하는 예제입니다.
 
@@ -187,7 +187,7 @@ SAP NetWeaver 또는 S/4HANA 응용 프로그램 계층에 대해 SAP에서 인�
 
 
 ### <a name="disk-setup"></a>디스크 설정
-Azure에서 Linux VM의 루트 파일 시스템의 크기는 제한됩니다. 따라서 SAP를 실행하기 위한 추가 디스크 공간을 Azure VM에 연결해야 합니다. SAP 응용 프로그램 서버 Azure VM의 경우 Azure 표준 저장소 디스크로도 충분할 수 있습니다. 그러나 SAP HANA DBMS Azure VM의 경우 프로덕션 및 비 프로덕션 구현에 대해 Azure Premium Storage 디스크를 반드시 사용해야 합니다.
+Azure에서 Linux VM의 루트 파일 시스템의 크기는 제한됩니다. 따라서 SAP를 실행하기 위한 추가 디스크 공간을 Azure VM에 연결해야 합니다. SAP 애플리케이션 서버 Azure VM의 경우 Azure 표준 스토리지 디스크로도 충분할 수 있습니다. 그러나 SAP HANA DBMS Azure VM의 경우 프로덕션 및 비 프로덕션 구현에 대해 Azure Premium Storage 디스크를 반드시 사용해야 합니다.
 
 [SAP HANA TDI 저장소 요구 사항](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)(영문)에 따라 다음과 같은 Azure Premium Storage 저장소 구성이 제안됩니다. 
 
@@ -278,12 +278,12 @@ fstab 파일에 **nofail** 매개 변수를 추가하는 것이 좋습니다. �
 ## <a name="graphical-gnome-desktop-on-sles-12sles-for-sap-applications-12"></a>SLES 12/SLES for SAP Applications 12의 그래픽 GNOME 데스크톱
 이 섹션에서는 다음 항목을 다룹니다.
 
-* SLES 12/SLES-for-SAP 응용 프로그램 12에 GNOME 데스크톱 및 xrdp 설치
+* SLES 12/SLES-for-SAP 애플리케이션 12에 GNOME 데스크톱 및 xrdp 설치
 * SLES 12/SLES for SAP Applications 12에서 Firefox를 사용하여 Java 기반 SAP MC 실행
 
 Xterminal 또는 VNC와 같은 대안을 사용할 수도 있습니다(여기서는 설명하지 않음).
 
-### <a name="installing-the-gnome-desktop-and-xrdp-on-sles-12sles-for-sap-applications-12"></a>SLES 12/SLES-for-SAP 응용 프로그램 12에 GNOME 데스크톱 및 xrdp 설치
+### <a name="installing-the-gnome-desktop-and-xrdp-on-sles-12sles-for-sap-applications-12"></a>SLES 12/SLES-for-SAP 애플리케이션 12에 GNOME 데스크톱 및 xrdp 설치
 Windows 백그라운드에 있으면 SAP Linux VM 내에서 그래픽 데스크톱을 직접 사용하여, Firefox, SAPinst, SAP GUI, SAP MC 또는 HANA Studio를 실행하고, Windows 컴퓨터에서 RDP(원격 데스크톱 프로토콜)를 통해 VM에 연결할 수 있습니다 . 프로덕션 및 비프로덕션 Linux 기반 시스템에 그래픽 사용자 인터페이스를 추가하는 것과 관련된 회사 정책에 따라 서버에 GNOME을 설치하는 것이 좋습니다. Azure SLES 12/SLES for SAP Applications 12 VM에 GNOME 데스크톱을 설치하려면 다음을 수행합니다.
 
 1. 다음 명령을 입력하여 GNOME 데스크톱을 설치합니다(예: PuTTY 창에서).
@@ -338,9 +338,9 @@ openSUSE에서 openjdk와 비슷한 문제에 대한 내용은 [SAPGui 7.4 Java 
 ## <a name="manual-installation-of-sap-hana-swpm"></a>SAP HANA 수동 설치: SWPM
 이 섹션에서 보여 주는 일련의 스크린샷은 SWPM(SAPinst)을 사용할 때 SAP NetWeaver 7.5 및 SAP HANA SP12를 설치하기 위한 주요 단계를 보여 줍니다. NetWeaver 7.5 설치의 일부로 SWPM은 HANA 데이터베이스를 단일 인스턴스로 설치할 수도 있습니다.
 
-샘플 테스트 환경에서는 ABAP(Advanced Business Application Programming) 앱 서버 하나만 설치했습니다. 다음 스크린샷에서는 **분산 시스템** 옵션을 사용하여 하나의 Azure VM에는 ASCS 및 기본 응용 프로그램 서버 인스턴스를, 다른 하나의 Azure VM에는 데이터베이스 시스템으로 SAP HANA를 설치했습니다.
+샘플 테스트 환경에서는 ABAP(Advanced Business Application Programming) 앱 서버 하나만 설치했습니다. 다음 스크린샷에서는 **분산 시스템** 옵션을 사용하여 하나의 Azure VM에는 ASCS 및 기본 애플리케이션 서버 인스턴스를, 다른 하나의 Azure VM에는 데이터베이스 시스템으로 SAP HANA를 설치했습니다.
 
-![[분산 시스템] 옵션으로 설치된 ASCS 및 기본 응용 프로그램 서버 인스턴스](./media/hana-get-started/image012.jpg)
+![[분산 시스템] 옵션으로 설치된 ASCS 및 기본 애플리케이션 서버 인스턴스](./media/hana-get-started/image012.jpg)
 
 ASCS 인스턴스를 앱 서버 VM에 설치하고 SAP 관리 콘솔에서 "녹색"으로 설정한 후에는 SAP 프로필 디렉터리를 포함한 /sapmnt 디렉터리를 SAP HANA DB 서버 VM과 공유해야 합니다. DB 설치 단계에서 이 정보에 액세스해야 합니다. 액세스를 제공하는 가장 좋은 방법은 YaST를 사용하여 구성할 수 있는 NFS를 사용하는 것입니다.
 
@@ -386,11 +386,11 @@ SAPABAP1 스키마 암호에 대한 질문을 입력합니다.
 
 ![/usr/sap 디렉터리 파일 구조](./media/hana-get-started/image026.jpg)
 
-분산형 ABAP 설치의 마지막 단계는 기본 응용 프로그램 서버 인스턴스를 설치하는 것입니다.
+분산형 ABAP 설치의 마지막 단계는 기본 애플리케이션 서버 인스턴스를 설치하는 것입니다.
 
-![마지막 단계로 기본 응용 프로그램 서버 인스턴스를 보여 주는 ABAP 설치](./media/hana-get-started/image027b.jpg)
+![마지막 단계로 기본 애플리케이션 서버 인스턴스를 보여 주는 ABAP 설치](./media/hana-get-started/image027b.jpg)
 
-기본 응용 프로그램 서버 인스턴스 및 SAP GUI를 설치한 후에는 **DBA Cockpit** 트랜잭션을 사용하여 SAP HANA 설치가 올바르게 완료되었는지 확인합니다.
+기본 애플리케이션 서버 인스턴스 및 SAP GUI를 설치한 후에는 **DBA Cockpit** 트랜잭션을 사용하여 SAP HANA 설치가 올바르게 완료되었는지 확인합니다.
 
 ![성공적인 설치를 확인하는 DBA Cockpit 창](./media/hana-get-started/image028b.jpg)
 

@@ -16,13 +16,13 @@ ms.locfileid: "53254125"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>자습서: Azure SignalR Service 인증
 
-이 자습서는 빠른 시작에서 소개한 대화방 응용 프로그램에서 진행됩니다. [SignalR Service로 대화방 만들기](signalr-quickstart-dotnet-core.md)를 아직 완료하지 않았으면 해당 연습을 먼저 완료합니다.
+이 자습서는 빠른 시작에서 소개한 대화방 애플리케이션에서 진행됩니다. [SignalR Service로 대화방 만들기](signalr-quickstart-dotnet-core.md)를 아직 완료하지 않았으면 해당 연습을 먼저 완료합니다.
 
 이 자습서에서는 사용자 고유의 인증을 구현하고 Microsoft Azure SignalR Service에 통합하는 방법을 설명합니다.
 
-처음에 빠른 시작의 대화방 응용 프로그램에서 사용된 인증은 실제 시나리오에 비해 너무 간단합니다. 이 응용 프로그램에서 각 클라이언트는 자신이 누구인지 클레임할 수 있으며, 서버는 간단히 수락합니다. 이 방법은 Rogue 사용자가 다른 사람을 가장하여 중요한 데이터에 액세스하는 실제 응용 프로그램에서는 별로 유용하지 않습니다.
+처음에 빠른 시작의 대화방 애플리케이션에서 사용된 인증은 실제 시나리오에 비해 너무 간단합니다. 이 애플리케이션에서 각 클라이언트는 자신이 누구인지 클레임할 수 있으며, 서버는 간단히 수락합니다. 이 방법은 Rogue 사용자가 다른 사람을 가장하여 중요한 데이터에 액세스하는 실제 애플리케이션에서는 별로 유용하지 않습니다.
 
-[GitHub](https://github.com/)는 [OAuth](https://oauth.net/)라는 인기 있는 업계 표준 프로토콜에 따른 인증 API를 제공합니다. 이러한 API는 타사 응용 프로그램에서 GitHub 계정을 인증할 수 있도록 합니다. 이 자습서에서는 클라이언트가 대화방 응용 프로그램에 로그인하도록 허용하기 전에 이러한 API를 사용하여 GitHub 계정을 통한 인증을 구현합니다. GitHub 계정을 인증한 후 계정 정보는 웹 클라이언트가 인증받는 데 사용하는 쿠키로 추가됩니다.
+[GitHub](https://github.com/)는 [OAuth](https://oauth.net/)라는 인기 있는 업계 표준 프로토콜에 따른 인증 API를 제공합니다. 이러한 API는 타사 애플리케이션에서 GitHub 계정을 인증할 수 있도록 합니다. 이 자습서에서는 클라이언트가 대화방 애플리케이션에 로그인하도록 허용하기 전에 이러한 API를 사용하여 GitHub 계정을 통한 인증을 구현합니다. GitHub 계정을 인증한 후 계정 정보는 웹 클라이언트가 인증받는 데 사용하는 쿠키로 추가됩니다.
 
 GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [인증 기본 사항](https://developer.github.com/v3/guides/basics-of-authentication/)을 참조하세요.
 
@@ -55,16 +55,16 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 1. 웹 브라우저를 열고 `https://github.com`으로 이동한 후 계정에 로그인합니다.
 
-2. 사용자 계정의 경우, **설정** > **개발자 설정**으로 이동한 후 **새 응용 프로그램 등록** 또는 *OAuth 앱* 아래의 **새 OAuth 앱**을 클릭합니다.
+2. 사용자 계정의 경우, **설정** > **개발자 설정**으로 이동한 후 **새 애플리케이션 등록** 또는 *OAuth 앱* 아래의 **새 OAuth 앱**을 클릭합니다.
 
-3. 새 OAuth 앱에 대해 다음 설정을 사용한 후 **응용 프로그램 등록**을 클릭합니다.
+3. 새 OAuth 앱에 대해 다음 설정을 사용한 후 **애플리케이션 등록**을 클릭합니다.
 
     | 설정 이름 | 제안 값 | 설명 |
     | ------------ | --------------- | ----------- |
-    | 응용 프로그램 이름 | *Azure SignalR Chat* | GitHub 사용자는 인증하는 앱을 인식하고 신뢰할 수 있어야 합니다.   |
+    | 애플리케이션 이름 | *Azure SignalR Chat* | GitHub 사용자는 인증하는 앱을 인식하고 신뢰할 수 있어야 합니다.   |
     | 홈페이지 URL | *http://localhost:5000/home* | |
-    | 응용 프로그램 설명 | *GitHub 인증에서 Azure SignalR Service를 사용하는 대화방 샘플* | 응용 프로그램 사용자가 사용 중인 인증 컨텍스트를 이해하는 데 도움이 되는 응용 프로그램에 대한 유용한 설명입니다. |
-    | 권한 부여 호출 URL | *http://localhost:5000/signin-github* | 이 설정은 OAuth 응용 프로그램에 대한 가장 중요한 설정입니다. GitHub가 성공적인 인증 후에 사용자를 반환하는 콜백 URL입니다. 이 자습서에서는 *AspNet.Security.OAuth.GitHub* 패키지에 대한 기본 콜백 URL인 */signin-github*를 사용해야 합니다.  |
+    | 애플리케이션 설명 | *GitHub 인증에서 Azure SignalR Service를 사용하는 대화방 샘플* | 애플리케이션 사용자가 사용 중인 인증 컨텍스트를 이해하는 데 도움이 되는 애플리케이션에 대한 유용한 설명입니다. |
+    | 권한 부여 호출 URL | *http://localhost:5000/signin-github* | 이 설정은 OAuth 애플리케이션에 대한 가장 중요한 설정입니다. GitHub가 성공적인 인증 후에 사용자를 반환하는 콜백 URL입니다. 이 자습서에서는 *AspNet.Security.OAuth.GitHub* 패키지에 대한 기본 콜백 URL인 */signin-github*를 사용해야 합니다.  |
 
 4. 새 OAuth 앱 등록이 완료되면 다음 명령을 사용하여 *클라이언트 ID* 및 *클라이언트 암호*를 보안 관리자에 추가합니다. *Your_GitHub_Client_Id* 및 *Your_GitHub_Client_Secret*을 OAuth 앱에 대한 값으로 바꿉니다.
 
@@ -368,7 +368,7 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
     ![OAuth 앱 권한 부여](media/signalr-authenticate-oauth/signalr-authorize-oauth-app.png)
 
-    채팅 응용 프로그램으로 다시 리디렉션된 후, GitHub 계정 이름으로 로그인됩니다. 웹 응용 프로그램은 추가한 새 인증으로 사용자를 인증하여 계정 이름을 확인했습니다.
+    채팅 애플리케이션으로 다시 리디렉션된 후, GitHub 계정 이름으로 로그인됩니다. 웹 애플리케이션은 추가한 새 인증으로 사용자를 인증하여 계정 이름을 확인했습니다.
 
     ![계정이 식별됨](media/signalr-authenticate-oauth/signalr-oauth-account-identified.png)
 
@@ -378,7 +378,7 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 ## <a name="deploy-the-app-to-azure"></a>Azure에 앱 배포
 
-이 섹션에서는 Azure Cloud Shell의 Azure CLI(명령줄 인터페이스)를 사용하여 Azure에서 ASP.NET 응용 프로그램을 호스트할 새 [Azure 웹앱](https://docs.microsoft.com/azure/app-service/)을 만듭니다. 이 웹앱은 로컬 Git 배포를 사용하도록 구성됩니다. 또한 SignalR 연결 문자열, GitHub OAuth 앱 암호 및 배포 사용자로도 구성됩니다.
+이 섹션에서는 Azure Cloud Shell의 Azure CLI(명령줄 인터페이스)를 사용하여 Azure에서 ASP.NET 애플리케이션을 호스트할 새 [Azure 웹앱](https://docs.microsoft.com/azure/app-service/)을 만듭니다. 이 웹앱은 로컬 Git 배포를 사용하도록 구성됩니다. 또한 SignalR 연결 문자열, GitHub OAuth 앱 암호 및 배포 사용자로도 구성됩니다.
 
 이 섹션의 단계에서는 Azure CLI에 대해 *signalr* 확장을 사용합니다. 다음 명령을 실행하여 Azure CLI용 *signalr* 확장을 설치합니다.
 
@@ -556,7 +556,7 @@ az webapp deployment source config-local-git --name $WebAppName \
     | 홈페이지 URL | https://signalrtestwebapp22665120.azurewebsites.net/home |
     | 권한 부여 호출 URL | https://signalrtestwebapp22665120.azurewebsites.net/signin-github |
 
-3. 웹앱 URL로 이동한 다음, 응용 프로그램을 테스트합니다.
+3. 웹앱 URL로 이동한 다음, 애플리케이션을 테스트합니다.
 
     ![Azure에서 호스트되는 OAuth 완료](media/signalr-authenticate-oauth/signalr-oauth-complete-azure.png)
 
@@ -564,7 +564,7 @@ az webapp deployment source config-local-git --name $WebAppName \
 
 다음 자습서를 계속 진행하려는 경우 이 빠른 시작에서 만든 리소스를 그대로 두었다가 다음 자습서에서 다시 사용할 수 있습니다.
 
-그렇지 않고, 빠른 시작 샘플 응용 프로그램 사용이 끝나면 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다.
+그렇지 않고, 빠른 시작 샘플 애플리케이션 사용이 끝나면 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다.
 
 > [!IMPORTANT]
 > 리소스 그룹 삭제는 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내에 이 샘플을 호스트하기 위한 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 해당 블레이드에서 각 리소스를 개별적으로 삭제할 수 있습니다.

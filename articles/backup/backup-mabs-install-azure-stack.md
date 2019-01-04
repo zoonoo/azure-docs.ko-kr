@@ -3,23 +3,22 @@ title: Azure Stack에 Azure Backup Server 설치 | Microsoft Docs
 description: Azure Backup Server를 사용하여 Azure Stack에 워크로드를 백업하거나 보호합니다.
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 keywords: Azure Backup Server; 워크로드 보호; 워크로드 백업
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
-ms.author: markgal
-ms.openlocfilehash: 5092a677bcbeac179e26fa0591b6a1cfbc3263d4
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.author: raynew
+ms.openlocfilehash: 1e8c8efa590b6cce4543255dd33afbfd79aecef6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576700"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877170"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack에 Azure Backup Server 설치
 

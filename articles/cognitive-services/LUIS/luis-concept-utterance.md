@@ -1,21 +1,22 @@
 ---
-title: LUIS 앱의 발언
-titleSuffix: Azure Cognitive Services
+title: 발언 모범 예제
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 발언은 앱이 해석해야 하는 사용자의 입력입니다. 사용자가 입력할 것으로 생각되는 구를 수집합니다. 같은 내용을 의미하지만, 단어 길이 및 단어 배치가 다르게 구성된 발언을 포함합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/03/2018
 ms.author: diberry
-ms.openlocfilehash: 2b21102a5416c1fd7e2abb35be677c48ffc63263
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 4f6bb367e706771707b65445c91619d439257207
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638078"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014840"
 ---
 # <a name="utterances-in-luis"></a>LUIS의 발언
 
@@ -44,7 +45,7 @@ LUIS 모델에 [예제 발언을 추가](luis-how-to-add-example-utterances.md)�
 |I want to get a computer, how do I go about it?|
 |When can I have a computer?| 
 
-여기서 핵심 용어인 "computer"는 변형되지 않습니다. 이 용어는 데스크톱 컴퓨터, 랩톱, 워크스테이션 또는 단순히 머신을 의미할 수 있습니다. LUIS는 컨텍스트에서 동의어를 지능적으로 유추하지만 학습을 위해 발언을 만들 때는 변형하는 것이 더 좋습니다.
+여기서 핵심 용어인 “computer”는 변형되지 않습니다. 이 용어는 데스크톱 컴퓨터, 랩톱, 워크스테이션 또는 단순한 머신을 의미할 수 있습니다. LUIS는 컨텍스트에서 동의어를 지능적으로 유추하지만 학습을 위해 발언을 만들 때는 변형하는 것이 더 좋습니다.
 
 ## <a name="example-utterances-in-each-intent"></a>각 의도의 예제 발언
 각 의도에는 10~15개 정도의 예제 발언이 필요합니다. 예제 발언이 없는 의도로는 LUIS를 학습시킬 수 없습니다. 의도에 하나 또는 소수의 예제 발언만 있으면 LUIS는 의도를 정확히 예측하지 못합니다. 
@@ -55,6 +56,10 @@ LUIS 모델에 [예제 발언을 추가](luis-how-to-add-example-utterances.md)�
 LUIS는 신중하게 선택된 발언으로 효과적인 모델을 만듭니다. 너무 많은 발언을 추가하면 혼동을 가져오므로 유용하지 않습니다.  
 
 처음에는 소수의 발언으로 시작한 후 정확한 의도 예측 및 엔터티 추출을 위해 [엔드포인트 발언을 검토](luis-how-to-review-endoint-utt.md)합니다.
+
+## <a name="punctuation-marks"></a>문장 부호
+
+일부 클라이언트 애플리케이션은 이러한 표시에 대해 의미를 부여할 수도 있으므로 LUIS는 문장 부호를 무시하지 않습니다. 문장 부호를 사용하는 예제 발언과 문장 부호를 사용하지 않은 예제 발언이 모두 동일한 관련 점수를 반환하는지 확인해야 합니다. 사용자의 클라이언트 애플리케이션에서 문장 부호에 특별한 의미를 두지 않는다면 패턴을 사용하여 [문장 부호를 무시](#ignoring-words-and-punctuation)하는 것을 고려하세요. 
 
 ## <a name="ignoring-words-and-punctuation"></a>단어 및 문장 부호 무시
 예제 발언의 특정 단어 또는 문장 부호를 무시하려는 경우 _ignore_ 구문과 함께 [패턴](luis-concept-patterns.md#pattern-syntax)을 사용합니다. 

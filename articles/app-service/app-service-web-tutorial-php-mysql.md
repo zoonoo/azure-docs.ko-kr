@@ -87,7 +87,7 @@ quit
 <a name="step2"></a>
 
 ## <a name="create-a-php-app-locally"></a>로컬에서 PHP 앱 만들기
-이 단계에서는 Laravel 샘플 응용 프로그램 가져오고, 해당 데이터베이스를 구성한 후 로컬로 실행합니다. 
+이 단계에서는 Laravel 샘플 애플리케이션 가져오고, 해당 데이터베이스를 구성한 후 로컬로 실행합니다. 
 
 ### <a name="clone-the-sample"></a>샘플 복제
 
@@ -133,13 +133,13 @@ Laravel에서 _.env_ 파일을 사용하는 방법에 대한 자세한 내용은
 php artisan migrate
 ```
 
-새 Laravel 응용 프로그램 키를 생성합니다.
+새 Laravel 애플리케이션 키를 생성합니다.
 
 ```bash
 php artisan key:generate
 ```
 
-응용 프로그램을 실행합니다.
+애플리케이션을 실행합니다.
 
 ```bash
 php artisan serve
@@ -155,7 +155,7 @@ PHP 서버를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
 ## <a name="create-mysql-in-azure"></a>Azure에서 MySQL 만들기
 
-이 단계에서는 [Azure Database for MySQL](/azure/mysql)에서 MySQL 데이터베이스를 만듭니다. 나중에 이 데이터베이스에 연결할 PHP 응용 프로그램을 구성합니다.
+이 단계에서는 [Azure Database for MySQL](/azure/mysql)에서 MySQL 데이터베이스를 만듭니다. 나중에 이 데이터베이스에 연결할 PHP 애플리케이션을 구성합니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -248,7 +248,7 @@ quit
 
 ## <a name="connect-app-to-azure-mysql"></a>Azure MySQL에 앱 연결
 
-이 단계에서는 Azure Database for MySQL에서 만든 MySQL 데이터베이스에 PHP 응용 프로그램을 연결합니다.
+이 단계에서는 Azure Database for MySQL에서 만든 MySQL 데이터베이스에 PHP 애플리케이션을 연결합니다.
 
 <a name="devconfig"></a>
 
@@ -293,7 +293,7 @@ MYSQL_SSL=true
 
 이 자습서에서는 편의를 위해 리포지토리에 `BaltimoreCyberTrustRoot.crt.pem` 인증서가 제공됩니다. 
 
-### <a name="test-the-application-locally"></a>로컬에서 응용 프로그램 테스트
+### <a name="test-the-application-locally"></a>로컬에서 애플리케이션 테스트
 
 _.env.production_을 환경 파일로 사용해서 Laravel 데이터베이스 마이그레이션을 실행하고 Azure Database for MySQL에서 MySQL 데이터베이스에 테이블을 만듭니다. _.env.production_에는 Azure의 MySQL 데이터베이스에 대한 연결 정보가 있습니다.
 
@@ -313,7 +313,7 @@ _.env.production_을 환경 파일로 사용해서 샘플 응용 프로그램을
 php artisan serve --env=production
 ```
 
-`http://localhost:8000`로 이동합니다. 오류 없이 페이지가 로드되면 PHP 응용 프로그램이 Azure의 MySQL 데이터베이스에 연결됩니다.
+`http://localhost:8000`로 이동합니다. 오류 없이 페이지가 로드되면 PHP 애플리케이션이 Azure의 MySQL 데이터베이스에 연결됩니다.
 
 해당 페이지에서 몇 가지 작업을 추가합니다.
 
@@ -334,7 +334,7 @@ git commit -m "database.php updates"
 
 ## <a name="deploy-to-azure"></a>Deploy to Azure
 
-이 단계에서는 MySQL에 연결된 PHP 응용 프로그램을 Azure App Service에 배포합니다.
+이 단계에서는 MySQL에 연결된 PHP 애플리케이션을 Azure App Service에 배포합니다.
 
 ### <a name="configure-a-deployment-user"></a>배포 사용자 구성
 
@@ -376,33 +376,33 @@ PHP [getenv](http://www.php.net/manual/function.getenv.php) 메서드를 사용�
 
 ### <a name="configure-laravel-environment-variables"></a>Laravel 환경 변수 구성
 
-Laravel에는 App Service의 응용 프로그램 키가 필요합니다. 앱 설정을 사용하여 키를 구성할 수 있습니다.
+Laravel에는 App Service의 애플리케이션 키가 필요합니다. 앱 설정을 사용하여 키를 구성할 수 있습니다.
 
-로컬 터미널 창에서 `php artisan`을 사용하여 _.env_로 저장하지 않으면서 새 응용 프로그램 키를 생성합니다.
+로컬 터미널 창에서 `php artisan`을 사용하여 _.env_로 저장하지 않으면서 새 애플리케이션 키를 생성합니다.
 
 ```bash
 php artisan key:generate --show
 ```
 
-Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용하여 App Service 웹앱에서 응용 프로그램 키를 설정합니다. 자리 표시자 _&lt;appname>_ 및 _&lt;outputofphpartisankey:generate>_ 를 바꿉니다.
+Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용하여 App Service 웹앱에서 애플리케이션 키를 설정합니다. 자리 표시자 _&lt;appname>_ 및 _&lt;outputofphpartisankey:generate>_ 를 바꿉니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
-`APP_DEBUG="true"`는 배포된 웹앱에서 오류가 발생하면 디버깅 정보를 반환하도록 Laravel에 지시합니다. 프로덕션 응용 프로그램을 실행할 때 더 안전한 `false`로 설정합니다.
+`APP_DEBUG="true"`는 배포된 웹앱에서 오류가 발생하면 디버깅 정보를 반환하도록 Laravel에 지시합니다. 프로덕션 애플리케이션을 실행할 때 더 안전한 `false`로 설정합니다.
 
-### <a name="set-the-virtual-application-path"></a>가상 응용 프로그램 경로 설정
+### <a name="set-the-virtual-application-path"></a>가상 애플리케이션 경로 설정
 
-웹앱에 대한 가상 응용 프로그램 경로를 설정합니다. [Laravel 응용 프로그램 수명 주기](https://laravel.com/docs/5.4/lifecycle)(영문)가 응용 프로그램의 루트 디렉터리 대신 _public_ 디렉터리에서 시작되므로 이 단계가 필요합니다. 해당 수명 주기가 루트 디렉터리에서 시작하는 다른 PHP 프레임워크는 가상 애플리케이션 경로를 수동으로 구성하지 않아도 작동될 수 있습니다.
+웹앱에 대한 가상 애플리케이션 경로를 설정합니다. [Laravel 응용 프로그램 수명 주기](https://laravel.com/docs/5.4/lifecycle)(영문)가 응용 프로그램의 루트 디렉터리 대신 _public_ 디렉터리에서 시작되므로 이 단계가 필요합니다. 해당 수명 주기가 루트 디렉터리에서 시작하는 다른 PHP 프레임워크는 가상 애플리케이션 경로를 수동으로 구성하지 않아도 작동될 수 있습니다.
 
-Cloud Shell에서 [`az resource update`](/cli/azure/resource#az-resource-update) 명령을 사용하여 가상 응용 프로그램 경로를 설정합니다. _&lt;appname>_ 자리 표시자를 바꿉니다.
+Cloud Shell에서 [`az resource update`](/cli/azure/resource#az-resource-update) 명령을 사용하여 가상 애플리케이션 경로를 설정합니다. _&lt;appname>_ 자리 표시자를 바꿉니다.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
 ```
 
-기본적으로 Azure App Service에서는 루트 가상 응용 프로그램 경로(_/_)가 배포된 응용 프로그램 파일의 루트 디렉터리(_sites\wwwroot_)를 가리킵니다.
+기본적으로 Azure App Service에서는 루트 가상 애플리케이션 경로(_/_)가 배포된 애플리케이션 파일의 루트 디렉터리(_sites\wwwroot_)를 가리킵니다.
 
 ### <a name="push-to-azure-from-git"></a>Git에서 Azure에 푸시
 
@@ -445,7 +445,7 @@ remote: Running deployment command...
 
 이 단계에서는 `task` 데이터 모델과 웹앱을 간단히 변경한 다음 업데이트를 Azure에 게시합니다.
 
-작업 시나리오의 경우 작업을 완료한 것으로 표시할 수 있도록 응용 프로그램을 수정합니다.
+작업 시나리오의 경우 작업을 완료한 것으로 표시할 수 있도록 애플리케이션을 수정합니다.
 
 ### <a name="add-a-column"></a>열 추가
 
@@ -493,7 +493,7 @@ php artisan migrate
 
 ### <a name="update-application-logic"></a>애플리케이션 논리 업데이트
 
-*routes/web.php* 파일을 엽니다. 응용 프로그램에서 해당 경로 및 비즈니스 논리를 여기에 정의합니다.
+*routes/web.php* 파일을 엽니다. 애플리케이션에서 해당 경로 및 비즈니스 논리를 여기에 정의합니다.
 
 파일의 끝에 다음 코드를 포함하는 경로를 추가합니다.
 
@@ -585,7 +585,7 @@ git push azure master
 
 ## <a name="stream-diagnostic-logs"></a>진단 로그 스트림
 
-PHP 응용 프로그램이 Azure App Service에서 실행되는 동안 콘솔 로그를 터미널에 파이프할 수 있습니다. 이 방법으로 응용 프로그램 오류를 디버깅하는 데 도움이 되는 진단 메시지를 동일하게 받을 수 있습니다.
+PHP 애플리케이션이 Azure App Service에서 실행되는 동안 콘솔 로그를 터미널에 파이프할 수 있습니다. 이 방법으로 애플리케이션 오류를 디버깅하는 데 도움이 되는 진단 메시지를 동일하게 받을 수 있습니다.
 
 로그 스트리밍을 시작하려면 Cloud Shell에서 [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) 명령을 사용합니다.
 
@@ -598,7 +598,7 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 언제든지 로그 스트리밍을 중지하려면 `Ctrl`+`C`를 입력합니다.
 
 > [!TIP]
-> PHP 응용 프로그램은 표준 [error_log()](https://php.net/manual/function.error-log.php)를 사용하여 콘솔에 출력할 수 있습니다. 샘플 응용 프로그램에서 _app/Http/routes.php_에서 이 접근 방식을 사용합니다.
+> PHP 애플리케이션은 표준 [error_log()](https://php.net/manual/function.error-log.php)를 사용하여 콘솔에 출력할 수 있습니다. 샘플 애플리케이션은 _app/Http/routes.php_에서 이 접근 방식을 사용합니다.
 >
 > 웹 프레임워크로서 [Laravel은 Monolog](https://laravel.com/docs/5.4/errors) 로깅 공급자로 사용합니다. Monolog가 메시지를 콘솔로 출력하게 하는 방법은 [PHP: monolog를 사용하여 콘솔에 기록하는 방법(php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out)을 참조하세요.
 >

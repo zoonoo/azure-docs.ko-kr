@@ -31,7 +31,7 @@ ms.locfileid: "46297427"
 ## <a name="authentication-and-identity-management"></a>인증 및 ID 관리
 인증은 사용자가 Data Lake Storage Gen1 또는 Data Lake Storage Gen1에 연결하는 서비스와 상호 작용할 때 사용자의 ID를 확인하는 프로세스입니다. ID 관리 및 인증을 위해 Data Lake Storage Gen1은 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)와 사용자 및 그룹의 관리를 간소화하는 포괄적인 ID 및 액세스 관리 클라우드 솔루션을 사용합니다.
 
-각 Azure 구독은 Azure Active Directory의 인스턴스와 연결될 수 있습니다. 사용자 및 Azure Active Directory 서비스에서 정의된 서비스 ID는 Azure Portal, 명령줄 도구를 사용하거나 Data Lake Storage Gen1 SDK를 사용하여 조직이 빌드하는 클라이언트 응용 프로그램을 통해 Data Lake Storage Gen1 계정에 액세스할 수 있습니다. 중앙 집중식 액세스 제어 메커니즘으로 Azure Active Directory를 사용하는 주요 이점은 다음과 같습니다.
+각 Azure 구독은 Azure Active Directory의 인스턴스와 연결될 수 있습니다. 사용자 및 Azure Active Directory 서비스에서 정의된 서비스 ID는 Azure Portal, 명령줄 도구를 사용하거나 Data Lake Storage Gen1 SDK를 사용하여 조직이 빌드하는 클라이언트 애플리케이션을 통해 Data Lake Storage Gen1 계정에 액세스할 수 있습니다. 중앙 집중식 액세스 제어 메커니즘으로 Azure Active Directory를 사용하는 주요 이점은 다음과 같습니다.
 
 * 단순화된 ID 수명 주기 관리. 디렉터리에서 계정을 삭제하거나 비활성화하여 사용자 또는 서비스(서비스 주체 ID)를 신속하게 만들고 해지할 수 있습니다.
 * 다단계 인증. [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) 은 사용자 로그인 및 트랜잭션에 대해 추가 보안 계층을 제공합니다.

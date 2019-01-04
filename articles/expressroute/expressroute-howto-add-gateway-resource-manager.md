@@ -1,26 +1,19 @@
 ---
-title: 'ExpressRoute용 VNet에 가상 네트워크 게이트웨이 추가: PowerShell: Azure | Microsoft Docs'
-description: 이 문서에서는 ExpressRoute에 대해 이미 만들어진 Resource Manager VNet에 VNet 게이트웨이를 추가하는 과정을 안내합니다.
-documentationcenter: na
+title: 'ExpressRoute에 대한 VNet에 가상 네트워크 게이트웨이 추가: PowerShell: Azure | Microsoft Docs'
+description: 이 문서에서는 ExpressRoute에 대해 이미 만들어진 Resource Manager VNet에 VNet 게이트웨이를 추가합니다.
 services: expressroute
 author: charwen
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 63e0bd60-abad-4963-8e27-3aa973e0d968
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 04/17/2017
 ms.author: charwen
-ms.openlocfilehash: 32e49a11b02afedf69e5aa61ca2f626ffe5a125e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 8f8d021adae1cb25198c53e486fdb50e42ac211b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239579"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097916"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>PowerShell을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]
@@ -31,7 +24,7 @@ ms.locfileid: "51239579"
 > 
 > 
 
-이 문서에서는 기존 VNet에 대한 가상 네트워크(VNet) 게이트웨이를 추가, 제거하고 크기를 조정하는 단계를 안내합니다. 이 구성에서 수행하는 단계는 Resource Manager 배포 모델을 사용하여 만든 VNet(ExpressRoute 구성에서 사용됨)에만 해당합니다. 가상 네트워크 게이트웨이 및 ExpressRoute의 게이트웨이 구성 설정에 대한 자세한 내용은 [ExpressRoute에 대한 가상 네트워크 게이트웨이 정보](expressroute-about-virtual-network-gateways.md)를 참조하세요. 
+이 문서에서는 기존 VNet에 대한 VNet(가상 네트워크) 게이트웨이를 추가, 크기 조정 및 제거합니다. 이 구성에서 수행하는 단계는 Resource Manager 배포 모델을 사용하여 만든 VNet(ExpressRoute 구성에서 사용됨)에만 해당합니다. 가상 네트워크 게이트웨이 및 ExpressRoute의 게이트웨이 구성 설정에 대한 자세한 내용은 [ExpressRoute에 대한 가상 네트워크 게이트웨이 정보](expressroute-about-virtual-network-gateways.md)를 참조하세요. 
 
 
 ## <a name="before-beginning"></a>시작하기 전에

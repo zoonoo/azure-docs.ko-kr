@@ -17,7 +17,7 @@ ms.locfileid: "51572436"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Azure 가상 머신 워크로드용 표준 SSD Managed Disks
 
-Azure 표준 SSD(Solid State Drives) Managed Disks는 더 낮은 IOPS 수준에서 일관된 성능을 필요로 하는 워크로드에 최적화되고, 비용 효율적인 저장소 옵션입니다. 특히 표준 SSD는 온-프레미스 HDD 솔루션에서 실행 중인 다양한 워크로드에 문제가 발생해서 클라우드로 전환하고자 하는 경우에 적합한 입문용 환경을 제공합니다. 표준 SSD는 HDD 디스크보다 가용성, 일관성, 안정성, 대기 시간 면에서 더 나으며, 웹 서버, IOPS가 낮은 응용 프로그램 서버, 사용량이 적은 엔터프라이즈 응용 프로그램, 개발/테스트 워크로드에 적합합니다.
+Azure 표준 SSD(Solid State Drives) Managed Disks는 더 낮은 IOPS 수준에서 일관된 성능을 필요로 하는 워크로드에 최적화되고, 비용 효율적인 저장소 옵션입니다. 특히 표준 SSD는 온-프레미스 HDD 솔루션에서 실행 중인 다양한 워크로드에 문제가 발생해서 클라우드로 전환하고자 하는 경우에 적합한 입문용 환경을 제공합니다. 표준 SSD는 HDD 디스크보다 가용성, 일관성, 안정성, 대기 시간 면에서 더 나으며, 웹 서버, IOPS가 낮은 애플리케이션 서버, 사용량이 적은 엔터프라이즈 애플리케이션, 개발/테스트 워크로드에 적합합니다.
 
 ## <a name="standard-ssd-features"></a>표준 SSD 기능
 

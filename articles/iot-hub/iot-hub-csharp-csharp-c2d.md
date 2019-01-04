@@ -81,7 +81,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
    
     `CompleteAsync()`에 대한 호출은 메시지가 정상적으로 처리되었음을 IoT Hub에 알립니다. 디바이스 큐에서 메시지를 안전하게 제거할 수 있습니다. 디바이스 앱의 메시지 처리를 완료하지 못하게 하는 문제가 발생하는 경우 IoT Hub에서 메시지를 다시 전달합니다. 디바이스 앱의 메시지 처리 논리는 *멱등성(idempotent)* 이므로 같은 메시지를 여러 번 수신하면 동일한 결과가 생성됩니다. 
     
-    응용 프로그램이 메시지를 일시적으로 중단할 수도 있으며 이 경우 IoT hub는 나중에 사용하기 위해 큐에 메시지를 보관합니다. 또는 응용 프로그램이 메시지를 거부할 수 있습니다. 이 경우 큐에서 메시지가 영구적으로 제거됩니다. 클라우드-장치 메시지 수명 주기에 대한 자세한 내용은 [IoT Hub를 통한 D2C 및 C2D](iot-hub-devguide-messaging.md)를 참조하세요.
+    애플리케이션이 메시지를 일시적으로 중단할 수도 있으며 이 경우 IoT hub는 나중에 사용하기 위해 큐에 메시지를 보관합니다. 또는 애플리케이션이 메시지를 거부할 수 있습니다. 이 경우 큐에서 메시지가 영구적으로 제거됩니다. 클라우드-장치 메시지 수명 주기에 대한 자세한 내용은 [IoT Hub를 통한 D2C 및 C2D](iot-hub-devguide-messaging.md)를 참조하세요.
    
    > [!NOTE]
    > MQTT 또는 AMQP 대신 HTTPS를 전송으로 사용하는 경우 `ReceiveAsync` 메서드가 즉시 반환됩니다. HTTPS에서 클라우드-디바이스 메시지에 대해 지원되는 패턴은 메시지를 가끔씩(25분에 한 번씩보다 적게) 확인하는 디바이스에 간헐적으로 연결됩니다. HTTPS 수신을 더 많이 실행하면 IoT Hub가 요청을 제한할 수 있습니다. MQTT, AMQP 및 HTTPS 지원과 IoT Hub 제한 간의 차이점에 대한 자세한 내용은 [IoT Hub를 통한 D2C 및 C2D](iot-hub-devguide-messaging.md)를 참조하세요.
@@ -96,7 +96,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 ## <a name="send-a-cloud-to-device-message"></a>클라우드-장치 메시지 보내기
 이 섹션에서는 클라우드-디바이스 메시지를 디바이스 앱으로 보내는 .NET 콘솔 앱을 작성합니다.
 
-1. 최신 Visual Studio 솔루션에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 앱 프로젝트를 만듭니다. 프로젝트 **SendCloudToDevice**의 이름을 지정합니다.
+1. 최신 Visual Studio 솔루션에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 앱 프로젝트를 만듭니다. 프로젝트 **SendCloudToDevice**의 이름을 지정합니다.
    
    ![Visual Studio의 새 프로젝트](./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png)
 
@@ -148,7 +148,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 8. Visual Studio 내에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정...** 을 선택합니다. 여러 시작 프로젝트를 선택한 다음 **ReadDeviceToCloudMessages**, **SimulatedDevice** 및 **SendCloudToDevice**에 대한 **시작** 작업을 선택합니다.
 
-9. **F5**키를 누릅니다. 세 응용 프로그램이 모두 시작됩니다. **SendCloudToDevice** 창을 선택하고 **Enter** 키를 누릅니다. 디바이스 앱에서 수신하고 있는 메시지가 표시됩니다.
+9. **F5**키를 누릅니다. 세 애플리케이션이 모두 시작됩니다. **SendCloudToDevice** 창을 선택하고 **Enter** 키를 누릅니다. 디바이스 앱에서 수신하고 있는 메시지가 표시됩니다.
    
    ![앱 메시지 수신](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 
@@ -195,7 +195,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
    commandMessage.Ack = DeliveryAcknowledgement.Full;
    ```
 
-4. **F5** 키를 눌러 앱을 실행합니다. 세 응용 프로그램이 모두 시작됩니다. **SendCloudToDevice** 창을 선택하고 **Enter** 키를 누릅니다. 디바이스 앱에서 메시지를 수신하는 것이 확인됩니다. 몇 초 후에 **SendCloudToDevice** 응용 프로그램에서 피드백 메시지를 수신하는지 확인해야 합니다.
+4. **F5** 키를 눌러 앱을 실행합니다. 세 애플리케이션이 모두 시작됩니다. **SendCloudToDevice** 창을 선택하고 **Enter** 키를 누릅니다. 디바이스 앱에서 메시지를 수신하는 것이 확인됩니다. 몇 초 후에 **SendCloudToDevice** 응용 프로그램에서 피드백 메시지를 수신하는지 확인해야 합니다.
    
    ![앱 메시지 수신](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 

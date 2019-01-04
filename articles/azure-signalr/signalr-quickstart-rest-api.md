@@ -1,25 +1,18 @@
 ---
-title: 빠른 시작 - Azure SignalR Service REST API | Microsoft Docs
+title: 빠른 시작 - Azure SignalR Service REST API
 description: Azure SignalR Service REST API를 사용하기 위한 빠른 시작입니다.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.tgt_pltfrm: ASP.NET
-ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 36fb87d3255149c041c4288d13c54eaff8425e06
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: fdbdbe77c6541d62acef0d23d599d9687f5301b1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024356"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251864"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>빠른 시작: 콘솔 앱에서 실시간 메시지 브로드캐스트
 
@@ -30,21 +23,19 @@ Azure SignalR Service는 브로드캐스트와 같은 서버-클라이언트 통
 ## <a name="prerequisites"></a>필수 조건
 
 이 빠른 시작은 macOS, Windows 또는 Linux에서 실행할 수 있습니다.
+
 * [.NET Core SDK](https://www.microsoft.com/net/download/core)
 * 선택한 텍스트 편집기 또는 코드 편집기
 
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
 Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 로그인합니다.
 
-
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
 서비스가 배포되는 동안 코드 준비로 전환하겠습니다. [GitHub의 샘플 앱](https://github.com/aspnet/AzureSignalR-samples.git)을 복제하고, SignalR Service 연결 문자열을 설정하고, 응용 프로그램을 로컬로 실행합니다.
 
@@ -68,6 +59,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 ### <a name="build-the-executable-file"></a>실행 파일 빌드
 
 macOS osx.10.13-x64를 예제로 사용합니다. 다른 플랫폼에서 빌드하는 방법에 대한 [참조](https://docs.microsoft.com/dotnet/core/rid-catalog)를 확인할 수 있습니다.
+
 ```bash
 cd AzureSignalR-samples/samples/Serverless/
 
@@ -108,7 +100,7 @@ dotnet run -- client <ClientName> -c "<ConnectionString>" -h <HubName>
 
 ## <a name="usage"></a>사용 현황
 
-서버가 시작된 후에 명령을 사용하여 메시지 보내기
+서버가 시작된 후에 명령을 사용하여 메시지를 보냅니다.
 
 ```
 send user <User Id>
@@ -121,8 +113,11 @@ broadcast
 각기 다른 클라이언트 이름으로 여러 클라이언트를 시작할 수 있습니다.
 
 ## <a name="usage"> </a> 타사 서비스와의 통합
+
 Azure SignalR 서비스를 통해 타사 서비스를 시스템과 통합할 수 있습니다.
-### <a name="usage"> </a> 기술 사양 정의
+
+### <a name="definition-of-technical-specifications"></a>기술 사양 정의
+
 다음 표에서는 현재 지원되는 모든 REST API 버전을 보여 줍니다. 각 특정 버전에 대한 정의 파일도 찾을 수 있습니다.
 
 버전 | API 상태 | 문 | 특정
@@ -144,6 +139,7 @@ API | `1.0-preview` | `1.0`
 
 <a name="broadcast"> </a>
 ### <a name="broadcast-to-everyone"></a>모두에게 브로드캐스트
+
 버전 | API HTTP 메서드 | 요청 URL | 요청 본문
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>` | `{"target": "<method-name>", "arguments": [...]}`
@@ -151,6 +147,7 @@ API | `1.0-preview` | `1.0`
 
 <a name="broadcast-group"> </a>
 ### <a name="broadcast-to-a-group"></a>그룹에 브로드캐스트
+
 버전 | API HTTP 메서드 | 요청 URL | 요청 본문
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/group/<group-name>` | `{"target": "<method-name>", "arguments": [...]}`
@@ -158,6 +155,7 @@ API | `1.0-preview` | `1.0`
 
 <a name="send-user"> </a>
 ### <a name="sending-to-specific-users"></a>특정 사용자에게 보내기
+
 버전 | API HTTP 메서드 | 요청 URL | 요청 본문
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/user/<user-id>` | `{"target": "<method-name>", "arguments": [...]}`
@@ -165,12 +163,14 @@ API | `1.0-preview` | `1.0`
 
 <a name="add-user-to-group"> </a>
 ### <a name="adding-a-user-to-a-group"></a>그룹에 사용자 추가
+
 버전 | API HTTP 메서드 | 요청 URL
 --- | --- | ---
 `1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
 
 <a name="remove-user-from-group"> </a>
 ### <a name="removing-a-user-from-a-group"></a>그룹에서 사용자 제거
+
 버전 | API HTTP 메서드 | 요청 URL
 --- | --- | ---
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`

@@ -1,6 +1,6 @@
 ---
 title: Azure Backup용 VM 스냅숏 Linux 확장 | Microsoft Docs
-description: VM 스냅숏 확장을 사용하여 Azure Backup에서 가상 머신의 응용 프로그램 일치 백업을 수행합니다.
+description: VM 스냅숏 확장을 사용하여 Azure Backup에서 가상 머신의 애플리케이션 일치 백업을 수행합니다.
 services: backup, virtual-machines-linux
 documentationcenter: ''
 author: trinadhk
@@ -25,7 +25,7 @@ ms.locfileid: "33944795"
 
 ## <a name="overview"></a>개요
 
-Azure Backup은 워크로드를 온-프레미스에서 클라우드에 백업하고, 클라우드 리소스를 Recovery Services 자격 증명 모음에 백업하도록 지원합니다. Azure Backup은 VM 스냅숏 확장을 사용하여 VM을 종료하지 않고도 Azure 가상 머신의 응용 프로그램 일치 백업을 수행합니다. Microsoft는 Azure Backup 서비스의 일부로 VM 스냅숏 Linux 확장을 게시하고 지원합니다. Azure Backup은 백업을 활성화한 후 트리거되는 첫 번째 예약된 백업의 일부로 확장을 설치합니다. 이 문서에서는 VM 스냅숏 확장에 지원되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명합니다.
+Azure Backup은 워크로드를 온-프레미스에서 클라우드에 백업하고, 클라우드 리소스를 Recovery Services 자격 증명 모음에 백업하도록 지원합니다. Azure Backup은 VM 스냅숏 확장을 사용하여 VM을 종료하지 않고도 Azure 가상 머신의 애플리케이션 일치 백업을 수행합니다. Microsoft는 Azure Backup 서비스의 일부로 VM 스냅숏 Linux 확장을 게시하고 지원합니다. Azure Backup은 백업을 활성화한 후 트리거되는 첫 번째 예약된 백업의 일부로 확장을 설치합니다. 이 문서에서는 VM 스냅숏 확장에 지원되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

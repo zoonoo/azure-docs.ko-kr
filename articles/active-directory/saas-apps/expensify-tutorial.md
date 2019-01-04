@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2018
 ms.author: jeedes
-ms.openlocfilehash: c9ee0af3cbf2c1aa7b24d2f4cf5fba9d664bc087
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 5d61ac27eb5a6e4f546d8c6db66b84f2c204b507
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248043"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840472"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expensify"></a>자습서: Expensify와 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ Expensify와 Azure AD의 통합을 구성하려면 다음 항목이 필요합니
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Expensify 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -65,15 +65,15 @@ Expensify와 Azure AD의 통합을 구성하려면 갤러리의 Expensify를 관
 
     ![이미지](./media/expensify-tutorial/selectazuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![이미지](./media/expensify-tutorial/a_select_app.png)
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![이미지](./media/expensify-tutorial/a_new_app.png)
 
-4. 검색 상자에서 **Expensify**를 입력하고, 결과 패널에서 **Expensify**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에서 **Expensify**를 입력하고, 결과 패널에서 **Expensify**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
      ![이미지](./media/expensify-tutorial/a_add_app.png)
 
@@ -132,7 +132,7 @@ Expensify에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![이미지](./media/expensify-tutorial/certificatebase64.png)
 
-7. Expensify에서 SSO를 사용하도록 설정하려면 먼저 응용 프로그램에서 **도메인 컨트롤**을 사용하도록 설정해야 합니다. [여기에](http://help.expensify.com/domain-control) 나열된 단계를 수행하여 응용 프로그램에서 도메인 컨트롤을 사용하도록 설정할 수 있습니다. 추가 지원은 [Expensify 클라이언트 지원 팀](mailto:help@expensify.com)에 문의하세요. 도메인 컨트롤을 사용하도록 설정한 후에는 다음 단계를 따릅니다.
+7. Expensify에서 SSO를 사용하도록 설정하려면 먼저 응용 프로그램에서 **도메인 컨트롤**을 사용하도록 설정해야 합니다. [여기에](https://help.expensify.com/domain-control) 나열된 단계를 수행하여 응용 프로그램에서 도메인 컨트롤을 사용하도록 설정할 수 있습니다. 추가 지원은 [Expensify 클라이언트 지원 팀](mailto:help@expensify.com)에 문의하세요. 도메인 컨트롤을 사용하도록 설정한 후에는 다음 단계를 따릅니다.
    
     ![Configure Single Sign-On](./media/expensify-tutorial/tutorial_expensify_51.png)
     
@@ -165,7 +165,7 @@ Expensify에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음 암호 상자에 표시된 값을 적어 둡니다.
+    다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어 둡니다.
 
     d. **만들기**를 선택합니다.
  
@@ -177,11 +177,11 @@ Expensify에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Expensify에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음, **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 
     ![이미지](./media/expensify-tutorial/d_all_applications.png)
 
-2. 응용 프로그램 목록에서 **Expensify**를 선택합니다.
+2. 애플리케이션 목록에서 **Expensify**를 선택합니다.
 
     ![이미지](./media/expensify-tutorial/d_all_proapplications.png)
 

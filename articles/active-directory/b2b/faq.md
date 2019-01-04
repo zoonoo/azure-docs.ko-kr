@@ -43,7 +43,7 @@ Azure Active Directory(Azure AD) 기업 간(B2B) 공동 작업에 대한 이러�
 이 기능은 향후 릴리스에 추가될 예정이며, 사용자(초대하는 조직)의 Multi-Factor Authentication에서 제외할 특정 파트너를 선택할 수 있게 됩니다.
 
 ### <a name="how-can-i-use-delayed-invitations"></a>지연된 초대는 어떻게 사용할 수 있나요?
-어떤 조직에서는 B2B 공동 작업 사용자를 추가하고 필요한 경우 응용 프로그램에 프로비전한 다음 초대를 보내려고 합니다. B2B 공동 작업 초대 API를 사용하여 온보딩 워크플로를 사용자 지정할 수 있습니다.
+어떤 조직에서는 B2B 공동 작업 사용자를 추가하고 필요한 경우 애플리케이션에 프로비전한 다음, 초대를 보내려고 합니다. B2B 공동 작업 초대 API를 사용하여 온보딩 워크플로를 사용자 지정할 수 있습니다.
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>게스트 사용자를 Exchange 전역 주소 목록에 표시할 수 있나요?
 예. 기본적으로 게스트 개체는 조직의 글로벌 주소 목록에 표시되지 않지만 볼 수 있도록 Azure Active Directory PowerShell을 사용할 수 있습니다. [Office 365 그룹의 게스트 액세스](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ)에서 **게스트 개체를 글로벌 주소 목록에 표시할 수 있나요?** 를 참조하세요.
@@ -88,8 +88,8 @@ Azure AD에는 모든 Azure AD 클라우드 사용자 계정에 동등하게 적
 
 페더레이션 계정의 경우 암호 정책은 온-프레미스 테넌트 및 사용자의 Microsoft 계정 설정에서 적용되는 정책에 따라 다릅니다.
 
-### <a name="an-organization-might-want-to-have-different-experiences-in-their-applications-for-tenant-users-and-guest-users-is-there-standard-guidance-for-this-is-the-presence-of-the-identity-provider-claim-the-correct-model-to-use"></a>조직에서는 해당 응용 프로그램에서 테넌트 사용자와 게스트 사용자에게 다른 환경을 제공할 수 있습니다. 이에 대한 표준 지침이 있습니까? ID 공급자 클레임의 현재 상태가 사용할 모델이 맞나요?
-게스트 사용자는 인증하는 데 ID 공급자를 사용할 수 있습니다. 자세한 내용은 [B2B 공동 작업 사용자의 속성](user-properties.md)을 참조하세요. **UserType** 속성을 사용하여 사용자 환경을 결정합니다. **UserType** 클레임은 현재 토큰에 포함되지 않습니다. 응용 프로그램은 Graph API를 사용하여 사용자에게 디렉터리를 쿼리하고 UserType을 가져와야 합니다.
+### <a name="an-organization-might-want-to-have-different-experiences-in-their-applications-for-tenant-users-and-guest-users-is-there-standard-guidance-for-this-is-the-presence-of-the-identity-provider-claim-the-correct-model-to-use"></a>조직에서는 해당 애플리케이션에서 테넌트 사용자와 게스트 사용자에게 다른 환경을 제공할 수 있습니다. 이에 대한 표준 지침이 있습니까? ID 공급자 클레임의 현재 상태가 사용할 모델이 맞나요?
+게스트 사용자는 인증하는 데 ID 공급자를 사용할 수 있습니다. 자세한 내용은 [B2B 공동 작업 사용자의 속성](user-properties.md)을 참조하세요. **UserType** 속성을 사용하여 사용자 환경을 결정합니다. **UserType** 클레임은 현재 토큰에 포함되지 않습니다. 애플리케이션은 Graph API를 사용하여 사용자에게 디렉터리를 쿼리하고 UserType을 가져와야 합니다.
 
 ### <a name="where-can-i-find-a-b2b-collaboration-community-to-share-solutions-and-to-submit-ideas"></a>솔루션을 공유하고 아이디어를 제출하는 B2B 공동 작업 커뮤니티를 어디에서 찾을 수 있나요?
 B2B 공동 작업을 개선하기 위해 사용자의 의견을 지속적으로 수렴하고 있습니다. Azure AD B2B 공동 작업에 대한 사용자 시나리오, 모범 사례 및 원하는 기능을 공유해 주세요. [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b)에서 토론에 참여합니다.
@@ -105,7 +105,7 @@ UI, PowerShell 스크립트 또는 API를 사용하여 파트너 조직의 다�
 ### <a name="i-thought-azure-ad-b2b-didnt-accept-gmailcom-and-outlookcom-email-addresses-and-that-b2c-was-used-for-those-kinds-of-accounts"></a>B2C에서는 이러한 종류의 계정을 사용했는데 Azure AD B2B에서는 gmail.com 및 outlook.com 전자 메일 주소를 허용하지 않나요?
 지원되는 ID라는 측면에서 B2B 및 B2C(business-to-consumer) 공동 작업 간의 차이점을 제거하고 있습니다. 사용되는 ID로 B2B를 사용할지 아니면 B2C를 사용할지 결정하는 것은 좋은 기준이 아닙니다. 공동 작업 옵션을 선택하는 방법에 대한 정보는 [Azure Active Directory에서 B2B 공동 작업과 B2C 비교](compare-with-b2c.md)를 참조하세요.
 
-### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>어떤 응용 프로그램 및 서비스에서 Azure B2B 게스트 사용자를 지원하나요?
+### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>어떤 애플리케이션 및 서비스에서 Azure B2B 게스트 사용자를 지원하나요?
 모든 Azure AD 통합 애플리케이션은 Azure B2B 게스트 사용자를 지원할 수 있지만 게스트 사용자를 인증하기 위해 테넌트 엔드포인트를 사용해야 합니다. 게스트 사용자가 앱을 인증할 때 발행되는 SAML 토큰에서 [클레임을 사용자 지정](claims-mapping.md)해야 할 수도 있습니다. 
 
 ### <a name="can-we-force-multi-factor-authentication-for-b2b-guest-users-if-our-partners-dont-have-multi-factor-authentication"></a>파트너가 Multi-Factor Authentication을 설치하지 않은 경우 B2B 게스트 사용자에 대해 Multi-Factor Authentication을 강제할 수 있나요?

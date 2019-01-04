@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 04708806b9e1ba224e7b438f11c68dca82d6320e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 60beecc0895fbfb5d3af7817e8b76e0819c89a99
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448821"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835389"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>자습서: ScaleX Enterprise와 Azure Active Directory 통합
 
@@ -49,7 +49,7 @@ ScaleX Enterprise와 Azure AD 통합을 구성하려면 다음 항목이 필요�
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 ScaleX Enterprise 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -63,13 +63,13 @@ ScaleX Enterprise가 Azure AD에 통합되도록 구성하려면 갤러리에서
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
     
 1. 대화 상자 위쪽에 있는 **추가** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
 1. 검색 상자에 **ScaleX Enterprise**를 입력합니다.
 
@@ -114,7 +114,7 @@ ScaleX Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     a. **식별자** 텍스트 상자에 `https://platform.rescale.com/saml2/<company id>/` 패턴으로 값을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://platform.rescale.com/saml2/<company id>/acs/`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://platform.rescale.com/saml2/<company id>/acs/`
 
 1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 선택하세요.
 
@@ -123,7 +123,7 @@ ScaleX Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하려�
     **로그온 URL** 텍스트 상자에 다음 패턴으로 값을 입력합니다. `https://platform.rescale.com/saml2/<company id>/sso/` 
      
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 또는 로그온 URL을 사용하여 값을 업데이트합니다. 이러한 값을 얻으려면 [ScaleX Enterprise 클라이언트 지원 팀](http://info.rescale.com/contact_sales)에 문의하세요. 
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 또는 로그온 URL을 사용하여 값을 업데이트합니다. 이러한 값을 얻으려면 [ScaleX Enterprise 클라이언트 지원 팀](https://info.rescale.com/contact_sales)에 문의하세요. 
 
 1. ScaleX 응용 프로그램에는 특정 형식의 SAML 어설션이 필요하기 때문에 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 수정해야 합니다. 사용자 지정 특성 설정을 열려면 **기타 모든 사용자 특성 보기 및 편집** 확인란을 클릭합니다.
 
@@ -133,7 +133,7 @@ ScaleX Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![Configure Single Sign-On](./media/scalexenterprise-tutorial/delete_attribute_name.png)
 
-    나. **emailaddress** 특성을 클릭하여 특성 편집 창을 엽니다. **user.mail**에서 **user.userprincipalname**으로 값을 변경하고 확인을 클릭합니다.
+    b. **emailaddress** 특성을 클릭하여 특성 편집 창을 엽니다. **user.mail**에서 **user.userprincipalname**으로 값을 변경하고 확인을 클릭합니다.
 
     ![Configure Single Sign-On](./media/scalexenterprise-tutorial/edit_email_attribute.png) 
     
@@ -168,22 +168,22 @@ ScaleX Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하려�
     
     a. **“Create any user who can authenticate with SSO.”(SSO로 인증할 수 있는 사용자 만들기)** 를 선택합니다.
 
-    나. **Service Provider saml(서비스 공급자 saml)**: ***urn:oasis:names:tc:SAML:2.0:nameid-format:persistent*** 값을 붙여 넣습니다.
+    b. **서비스 공급 기업 saml**: ***urn:oasis:names:tc:SAML:2.0:nameid-format:persistent*** 값을 붙여넣습니다.
 
-    다. **Name of Identity Provider email field in ACS response(ACS 응답의 ID 공급자 전자 메일 필드 이름)**: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` 값을 붙여 넣습니다.
+    다. **ACS 응답의 ID 공급 기업 이메일 필드 이름**: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` 값을 붙여넣습니다.
 
-    d. **Identity Provider EntityDescriptor Entity ID(ID 공급자 EntityDescriptor 엔터티 ID):** Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 붙여 넣습니다.
+    d. **ID 공급 기업 EntityDescriptor 엔터티 ID:** Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 붙여넣습니다.
 
-    e. **Identity Provider SingleSignOnService URL(ID 공급자 Single Sign-On URL):** Azure Portal의 **SAML Single Sign-On 서비스 URL**을 붙여 넣습니다.
+    e. **ID 공급 기업 SingleSignOnService URL:** Azure Portal의 **SAML Single Sign-On 서비스 URL**을 붙여넣습니다.
 
-    f. **Identity Provider public X509 certificate(ID 공급자 공용 X509 인증서):** Azure에서 다운로드 한 X509 인증서를 메모장에서 열어서 이 상자에 내용을 붙여 넣습니다. 인증서 내용 중간에 줄 바꿈이 없어야 합니다.
+    f. **ID 공급 기업 공용 X509 인증서:** Azure에서 다운로드한 X509 인증서를 메모장에서 열어서 이 상자에 내용을 붙여넣습니다. 인증서 내용 중간에 줄 바꿈이 없어야 합니다.
     
-    g. 다음 확인란을 선택합니다: **Enabled(사용), Encrypt NameID(NameID 암호화) 및 Sign AuthnRequests(AuthnRequests 서명)**
+    g. 다음 항목을 확인하세요. **NameID 암호화 및 AuthnRequests 서명을 사용하도록 설정합니다.**
 
     h. **Update SSO Settings(SSO 설정 업데이트)** 를 클릭하여 설정을 저장합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -211,7 +211,7 @@ ScaleX Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -229,7 +229,7 @@ Azure AD 사용자가 ScaleX Enterprise에 로그인할 수 있도록 하려면 
 
 **ScaleX Enterprise에 Britta Simon을 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 

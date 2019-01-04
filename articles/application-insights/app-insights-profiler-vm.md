@@ -28,7 +28,7 @@ ms.locfileid: "52725678"
 ## <a name="deploy-profiler-on-a-virtual-machine-or-scale-set"></a>가상 머신 또는 확장 집합에서 Profiler 배포
 이 페이지에서는 Azure VM 또는 Azure 가상 머신 확장 집합에서 실행되는 Application Insights Profiler를 가져오는 데 필요한 단계를 안내합니다. Application Insights Profiler는 VM용 Windows Azure 진단 확장과 함께 설치됩니다. 확장은 프로파일러를 실행하도록 구성되어야 하며 App Insights SDK는 애플리케이션에 빌드해야 합니다.
 
-1. Application Insights SDK를 [ASP.Net 응용 프로그램](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) 또는 일반 [.NET 응용 프로그램](https://docs.microsoft.com/azure/application-insights/app-insights-windows-services?toc=/azure/azure-monitor/toc.json)에 추가합니다. 요청에 대한 프로필을 보려면 Application Insights에 요청 원격 분석을 전송해야 합니다.
+1. Application Insights SDK를 [ASP.Net 애플리케이션](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) 또는 일반 [.NET 애플리케이션](https://docs.microsoft.com/azure/application-insights/app-insights-windows-services?toc=/azure/azure-monitor/toc.json)에 추가합니다. 요청에 대한 프로필을 보려면 Application Insights에 요청 원격 분석을 전송해야 합니다.
 1. VM에 Windows Azure 진단 확장을 설치합니다. 전체 Resource Manager 템플릿 예제를 보려면 다음을 참조하세요.  
     * [가상 머신](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
     * [가상 머신 확장 집합](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
@@ -77,13 +77,13 @@ ms.locfileid: "52725678"
     az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
     ```
 
-1. 응용 프로그램을 배포합니다.
+1. 애플리케이션을 배포합니다.
 
 ## <a name="can-profiler-run-on-on-premises-servers"></a>온-프레미스 서버에서 프로파일러를 실행할 수 있나요?
 온-프레미스 서버에 대한 Application Insights Profiler를 지원하는 계획이 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 응용 프로그램에 대한 트래픽을 생성합니다(예: [가용성 테스트](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability) 시작). 그런 다음 추적을 10~15분 동안 기다려서 Application Insights 인스턴스로 보내기 시작합니다.
+- 애플리케이션에 대한 트래픽을 생성합니다(예: [가용성 테스트](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability) 시작). 그런 다음, 추적을 10~15분 동안 기다려서 Application Insights 인스턴스로 보내기 시작합니다.
 - Azure Portal에서 [Profiler 추적](https://docs.microsoft.com/azure/application-insights/app-insights-profiler-overview?toc=/azure/azure-monitor/toc.json)을 참조하세요.
 - [Profiler 문제 해결](app-insights-profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json)에서 Profiler 문제 해결에 대한 도움을 받으세요.

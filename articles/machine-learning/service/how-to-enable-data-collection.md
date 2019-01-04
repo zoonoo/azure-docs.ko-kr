@@ -1,5 +1,6 @@
 ---
-title: 프로덕션 환경에서 모델에 대해 데이터 컬렉션 사용 - Azure Machine Learning
+title: 프로덕션 모델에서 데이터 수집
+titleSuffix: Azure Machine Learning service
 description: Azure Blob Storage에서 Azure Machine Learning 입력 모델 데이터를 수집하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 11/08/2018
-ms.openlocfilehash: f4340d1ef30bb4317e658c9a9a936f009054e784
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec18
+ms.openlocfilehash: 2a4f0f1100064010405c3d0bc599e7add1041074
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710633"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271575"
 ---
 # <a name="collect-data-for-models-in-production"></a>프로덕션 환경에서 모델용 데이터 수집
 
@@ -45,18 +47,16 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 /modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
->[!NOTE]
-> 이 문서의 코드는 Azure Machine Learning SDK 버전 0.1.74에서 테스트됨
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure 구독. 구독이 없으면 시작하기 전에 [계정](https://aka.ms/AMLfree)을 만드세요.
+- Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 바로 [Azure Machine Learning Service의 체험 또는 유료 버전](http://aka.ms/AMLFree)을 사용해 보세요.
 
 - Azure Machine Learning 서비스 작업 영역, 스크립트가 포함된 로컬 디렉터리 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. [개발 환경 구성 방법](how-to-configure-environment.md) 문서를 사용하여 이러한 필수 구성 요소를 충족하는 방법을 알아보세요.
 
 - AKS(Azure Kubernetes Service)에 배포할 학습된 Machine Learning 모델. 이러한 모델이 없으면 [이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 자습서를 참조하세요.
 
-- [AKS 클러스터](how-to-deploy-to-aks.md)
+- Azure Kubernetes Service 클러스터입니다. 클러스터를 만들고 배포하는 방법에 대한 자세한 내용은 [배포 방법 및 위치](how-to-deploy-and-where.md) 문서를 참조하세요.
 
 - [환경을 설정](how-to-configure-environment.md)하고 [모니터링 SDK](https://aka.ms/aml-monitoring-sdk)를 설치합니다.
 
@@ -81,7 +81,7 @@ Azure Machine Learning 서비스 또는 기타 도구를 통해 모듈을 배포
     prediction_dc = ModelDataCollector("best_model", identifier="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
-    *CorrelationId*는 선택적 매개 변수이므로 모델에 필요하지 않으면 설정하지 않아도 됩니다. correlationId가 있으면 다른 데이터와의 매핑을 더 쉽게 수행할 수 있습니다. LoanNumber, CustomerId 등을 예로 들 수 있습니다.
+    *CorrelationId*는 선택적 매개 변수이므로 모델에 필요하지 않으면 설정하지 않아도 됩니다. correlationId가 있으면 다른 데이터와의 매핑을 더 쉽게 수행할 수 있습니다. (예를 들면 다음과 같습니다: LoanNumber, CustomerId 등입니다.)
     
     *Identifier*는 나중에 Blob에서 폴더 구조를 작성하는 데 사용되며 “raw” 데이터와 “processed” 데이터를 분리하는 데 사용할 수 있습니다.
 
@@ -104,7 +104,7 @@ Azure Machine Learning 서비스 또는 기타 도구를 통해 모듈을 배포
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True, enable_app_insights=True)
     ``` 
 
-5. [새 이미지를 만들고 서비스를 배포합니다.](how-to-deploy-to-aks.md) 
+5. 새 이미지를 만들고 서비스를 배포하려면 [배포 방법 및 위치](how-to-deploy-and-where.md) 문서를 참조하세요.
 
 
 **환경 파일** 및 **점수 매기기 파일**의 종속성이 설치된 서비스가 이미 있으면 다음 단계를 수행하여 데이터 수집을 사용하도록 설정합니다.
@@ -136,7 +136,7 @@ Azure Machine Learning 서비스 또는 기타 도구를 통해 모듈을 배포
 
   1. **배포** -> **서비스 선택** -> **편집**으로 이동합니다.
 
-    [![서비스 편집](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
+    [![편집 옵션](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
   1. **고급 설정**에서 **모델 데이터 컬렉션 사용** 선택을 취소합니다. 
 
@@ -172,7 +172,7 @@ Blob의 데이터에 빠르게 액세스하려면 다음을 수행합니다.
 
 ### <a name="analyzing-model-data-through-power-bi"></a>Power BI를 통해 모델 데이터 분석
 
-1. [PowerBi Desktop](http://www.powerbi.com)을 다운로드하여 엽니다.
+1. [PowerBi Desktop](https://www.powerbi.com)을 다운로드하여 엽니다.
 
 1. **데이터 가져오기**를 선택하고 [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources)를 클릭합니다.
 
@@ -231,8 +231,6 @@ Blob의 데이터에 빠르게 액세스하려면 다음을 수행합니다.
 
 ## <a name="example-notebook"></a>예제 Notebook
 
-[00.Getting Started/12.enable-data-collection-for-models-in-aks.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/12.enable-data-collection-for-models-in-aks) Notebook에서는 이 문서의 개념을 설명합니다.  
+[how-to-use-azureml/deployment/enable-data-collection-for-models-in-aks/enable-data-collection-for-models-in-aks.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-data-collection-for-models-in-aks/enable-data-collection-for-models-in-aks.ipynb) Notebook은 이 문서의 개념을 보여 줍니다.  
 
-이 Notebook을 다운로드하려면 다음 단계를 수행합니다.
- 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

@@ -1,21 +1,22 @@
 ---
-title: '자습서 2: 미리 빌드된 의도 및 엔터티 - 미리 빌드된 일반적인 발화 사용 - LUIS에서 일반적인 데이터 추출'
+title: 미리 작성된 의도 및 엔터티
 titleSuffix: Azure Cognitive Services
 description: 미리 빌드된 의도 및 엔터티를 인사 관리 자습서 앱에 추가하여 의도 예측 및 데이터 추출을 빠르게 수행합니다. 미리 빌드된 엔터티를 사용하여 발화에 레이블을 지정할 필요가 없습니다. 엔터티는 자동으로 검색됩니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 3bad68d1a388a5bc8780df633313206afaadcef9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b6fb603b84cdcf3cb0f75d0020fa2047a0a838d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422425"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074080"
 ---
 # <a name="tutorial-2-identify-common-intents-and-entities"></a>자습서 2: 일반적인 의도 및 엔터티 식별
 이 자습서에서는 인사 관리 앱을 수정합니다. 미리 빌드된 의도 및 엔터티를 인사 관리 자습서 앱에 추가하여 의도 예측 및 데이터 추출을 빠르게 수행합니다. 엔터티를 자동으로 검색하기 때문에 미리 빌드된 엔터티를 사용하여 발화의 레이블을 지정할 필요가 없습니다.
@@ -90,7 +91,7 @@ LUIS는 일반적인 데이터 추출을 위해 여러 가지 미리 빌드된 �
 
 2. 브라우저 주소 표시줄에서 URL의 끝으로 이동하여 `I want to cancel on March 3`을 입력합니다. 마지막 쿼리 문자열 매개 변수는 `q`로 발화 **쿼리**입니다. 
 
-    ```JSON
+    ```json
     {
       "query": "I want to cancel on March 3",
       "topScoringIntent": {
@@ -167,7 +168,7 @@ LUIS는 일반적인 데이터 추출을 위해 여러 가지 미리 빌드된 �
 
     결과에서는 Utilities.Cancel 의도를 예측하고 March 3 날짜와 숫자 3을 추출했습니다. 
 
-    3월 3일이 과거 또는 미래에 있을 때 발언이 언급되지 않았기 때문에 3월 3일에는 두 가지 값이 있습니다. 필요할 경우 가정하거나 설명을 요청하는 것은 클라이언트 응용 프로그램의 책임입니다. 
+    3월 3일이 과거 또는 미래에 있을 때 발언이 언급되지 않았기 때문에 3월 3일에는 두 가지 값이 있습니다. 필요할 경우 가정하거나 설명을 요청하는 것은 클라이언트 애플리케이션의 책임입니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -175,7 +176,7 @@ LUIS는 일반적인 데이터 추출을 위해 여러 가지 미리 빌드된 �
 
 ## <a name="next-steps"></a>다음 단계
 
-미리 빌드된 의도 및 엔터티를 추가하여 클라이언트 응용 프로그램은 일반적인 사용자 의도를 결정하고 일반적인 데이터 형식을 추출할 수 있습니다. 
+미리 빌드된 의도 및 엔터티를 추가하여 클라이언트 애플리케이션은 일반적인 사용자 의도를 결정하고 일반적인 데이터 형식을 추출할 수 있습니다. 
 
 > [!div class="nextstepaction"]
 > [앱에 정규식 엔터티 추가](luis-quickstart-intents-regex-entity.md)

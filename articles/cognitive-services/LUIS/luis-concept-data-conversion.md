@@ -1,23 +1,24 @@
 ---
-title: LUIS의 데이터 변환 개념 - Language Understanding
-titleSuffix: Azure Cognitive Services
+title: 데이터 변환
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS(Language Understanding)에서 예측 전에 발언이 변경될 수 있는 방법을 알아봅니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 9324f7b4f7bed844f16d17b8960878892be4b165
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: dc9040661eee4cafc655deb2436130f1abcfcfd5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638395"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094800"
 ---
-# <a name="data-conversion-concepts-in-luis"></a>LUIS의 데이터 변환 개념
+# <a name="convert-data-format-of-utterances"></a>발언의 데이터 형식 변환
 LUIS는 Cognitive Services Speech 서비스를 사용하여 예측 전에 음성 발언을 텍스트로 변환하는 방법을 제공합니다. 
 
 ## <a name="speech-to-intent-conversion-concepts"></a>음성 의도 변환 개념

@@ -1,6 +1,6 @@
 ---
 title: Node에서 Azure Relay 하이브리드 연결 HTTP 요청 시작 | Microsoft Docs
-description: Node에서 Azure Relay 하이브리드 연결 HTTP 요청에 대한 Node.js 콘솔 응용 프로그램을 작성합니다.
+description: Node에서 Azure Relay 하이브리드 연결 HTTP 요청에 대한 Node.js 콘솔 애플리케이션을 작성합니다.
 services: service-bus-relay
 documentationcenter: node
 author: clemensv
@@ -31,8 +31,8 @@ ms.locfileid: "51616183"
 
 1. Azure Portal을 사용하여 Relay 네임스페이스를 만듭니다.
 2. Azure Portal을 사용하여 해당 네임스페이스에 하이브리드 연결을 만듭니다.
-3. 메시지를 수신하는 서버(수신기) 콘솔 응용 프로그램을 작성합니다.
-4. 메시지를 보내는 클라이언트(발신자) 콘솔 응용 프로그램을 작성합니다.
+3. 메시지를 수신하는 서버(수신기) 콘솔 애플리케이션을 작성합니다.
+4. 메시지를 보내는 클라이언트(발신자) 콘솔 애플리케이션을 작성합니다.
 5. 애플리케이션을 실행합니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -45,24 +45,24 @@ ms.locfileid: "51616183"
 ## <a name="create-a-hybrid-connection-using-the-azure-portal"></a>Azure Portal을 사용하여 하이브리드 연결 만들기
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
-## <a name="create-a-server-application-listener"></a>서버 응용 프로그램(수신기) 만들기
-릴레이에서 메시지를 수신 대기하고 받으려면 Node.js 콘솔 응용 프로그램을 작성합니다.
+## <a name="create-a-server-application-listener"></a>서버 애플리케이션(수신기) 만들기
+릴레이에서 메시지를 수신 대기하고 받으려면 Node.js 콘솔 애플리케이션을 작성합니다.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-http-requests-node-get-started-server.md)]
 
-## <a name="create-a-client-application-sender"></a>클라이언트 응용 프로그램(보낸 사람) 만들기
+## <a name="create-a-client-application-sender"></a>클라이언트 애플리케이션(보낸 사람) 만들기
 
-Relay에 메시지를 보내려면 HTTP 클라이언트를 사용하거나 Node.js 콘솔 응용 프로그램을 작성합니다.
+Relay에 메시지를 보내려면 HTTP 클라이언트를 사용하거나 Node.js 콘솔 애플리케이션을 작성합니다.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-client](../../includes/relay-hybrid-connections-http-requests-node-get-started-client.md)]
 
-## <a name="run-the-applications"></a>응용 프로그램 실행
+## <a name="run-the-applications"></a>애플리케이션 실행
 
-1. Node.js 명령 프롬프트 형식 `node listener.js`의 서버 응용 프로그램을 실행합니다.
-2. Node.js 명령 프롬프트 형식 `node sender.js`의 클라이언트 응용 프로그램을 실행하고 일부 텍스트를 입력합니다.
-3. 서버 응용 프로그램 콘솔이 클라이언트 응용 프로그램에 입력된 텍스트를 출력하는지 확인합니다.
+1. Node.js 명령 프롬프트 형식 `node listener.js`의 서버 애플리케이션을 실행합니다.
+2. Node.js 명령 프롬프트 형식 `node sender.js`의 클라이언트 애플리케이션을 실행하고 일부 텍스트를 입력합니다.
+3. 서버 애플리케이션 콘솔이 클라이언트 애플리케이션에 입력된 텍스트를 출력하는지 확인합니다.
 
-축하합니다. Node.js를 사용하여 종단 간 하이브리드 연결 응용 프로그램을 만들었습니다.
+축하합니다. Node.js를 사용하여 종단 간 하이브리드 연결 애플리케이션을 만들었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 빠른 시작에서는 메시지를 보내고 받는 데 HTTP를 사용한 Node.js 클라이언트 및 서버 애플리케이션을 만들었습니다. Azure Relay의 하이브리드 연결 기능은 또한 WebSockets를 사용하여 메시지를 보내고 받을 수 있도록 지원합니다. Azure Relay 하이브리드 연결에 WebSockets를 사용하는 방법에 대한 자세한 내용은 [WebSockets 빠른 시작](relay-hybrid-connections-node-get-started.md)을 참조하세요.

@@ -95,7 +95,7 @@ Azure Key Vault는 JSON 형식 요청과 응답을 지원합니다. Azure Key Va
 ## <a name="authentication"></a>인증  
  Azure Key Vault에 대한 모든 요청은 인증되어야 합니다. Azure Key Vault는 OAuth2를 사용하여 가져올 수 있는 Azure Active Directory 액세스 토큰을 지원합니다[[RFC6749](http://tools.ietf.org/html/rfc6749)]. 
  
- 응용 프로그램 등록 및 Azure Key Vault 사용을 위한 인증에 대한 자세한 내용은 [Azure AD로 클라이언트 등록](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad)을 참조하세요.
+ 애플리케이션 등록 및 Azure Key Vault 사용을 위한 인증에 대한 자세한 내용은 [Azure AD로 클라이언트 애플리케이션 등록](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad)을 참조하세요.
  
  액세스 토큰은 HTTP 권한 부여 헤더를 사용하여 서비스에 전송해야 합니다.  
 

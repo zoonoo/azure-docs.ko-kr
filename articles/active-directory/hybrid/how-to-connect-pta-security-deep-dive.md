@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c0729fd4c6d5e387b38c310a708505c3395ea41f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7f4750dd527aa53624fa977115a120911511b7d5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284883"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185072"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 통과 인증 보안 심층 분석
 
@@ -41,7 +41,7 @@ ms.locfileid: "52284883"
 - 인증 에이전트에서 Azure AD로의 아웃바운드 통신에는 표준 포트(80 및 443)만 사용됩니다. 방화벽에서 인바운드 포트를 열지 않아도 됩니다. 
   - 인증된 모든 아웃바운드 통신에는 포트 443이 사용됩니다.
   - 포트 80은 통과 인증에서 해지된 인증서가 사용되지 않도록 CRL(인증서 해지 목록)을 다운로드하는 데만 사용됩니다.
-  - 자세한 네트워크 요구 사항은 [Azure Active Directory 통과 인증: 빠른 시작](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites)을 참조하세요.
+  - 네트워크 요구 사항의 전체 목록은 [Azure Active Directory 통과 인증: 빠른 시작](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites)을 참조하세요.
 - 사용자가 로그인 시 입력하는 암호는 먼저 클라우드에서 암호화된 뒤에 Active Directory에 대한 유효성 검사를 위해 온-프레미스 인증 에이전트에서 수신됩니다.
 - Azure AD 및 온-프레미스 인증 에이전트 간의 HTTPS 채널은 상호 인증으로 보호됩니다.
 - MFA(Multi-Factor Authentication)를 포함하는 [Azure AD 조건부 액세스 정책](../active-directory-conditional-access-azure-portal.md)을 사용하여 원활하게 작동하고, [레거시 인증을 차단](../conditional-access/conditions.md)하고, [무차별 암호 대입 공격을 필터링](../authentication/howto-password-smart-lockout.md)하여 사용자 계정을 보호합니다.
@@ -50,8 +50,8 @@ ms.locfileid: "52284883"
 
 Azure AD의 운영, 서비스 및 데이터 보안에 대한 일반적인 정보는 [보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요. 사용자 로그인에 통과 인증이 사용된 경우 다음과 같은 구성 요소가 사용됩니다.
 - **Azure AD STS**: 로그인 요청을 처리하고 필요에 따라 사용자의 브라우저, 클라이언트 또는 서비스에 보안 토큰을 발행하는 상태 비저장 STS(보안 토큰 서비스)입니다.
-- **Azure Service Bus**: 온-프레미스 솔루션을 클라우드에 연결할 수 있는 릴레이된 통신과 엔터프라이즈 메시지를 사용하여 클라우드 사용 통신을 제공합니다.
-- **Azure AD Connect 인증 에이전트**: 암호 유효성 검사 요청을 수신 대기하고 응답하는 온-프레미스 구성 요소입니다.
+- **Azure Service Bus**: 엔터프라이즈 메시지를 사용하여 클라우드 지원 통신을 제공하고 온-프레미스 솔루션을 클라우드와 연결할 수 있는 통신을 릴레이합니다.
+- **Azure AD Connect 인증 에이전트**: 암호 유효성 검사 요청을 수신하고 이에 응답하는 온-프레미스 구성 요소입니다.
 - **Azure SQL Database**: 테넌트의 인증 에이전트에 대한 정보(메타데이터 및 암호화 키 포함)가 저장됩니다.
 - **Active Directory**: 사용자 계정 및 암호가 저장되는 온-프레미스 Active Directory입니다.
 
@@ -97,8 +97,8 @@ Azure AD의 운영, 서비스 및 데이터 보안에 대한 일반적인 정보
 5. Azure AD가 디지털 ID 인증서에 서명하고 서명된 인증서를 인증 에이전트로 돌려줍니다.
     - 인증서 서명에는 Azure AD의 루트 CA가 사용됩니다. 
 
-     >[!NOTE]
-     > 이 CA는 Windows의 신뢰할 수 있는 루트 인증 기관 저장소에 _있지 않습니다_.
+      > [!NOTE]
+      > 이 CA는 Windows의 신뢰할 수 있는 루트 인증 기관 저장소에 _있지 않습니다_.
     - 이 CA는 통과 인증 기능에만 사용됩니다. 이 CA는 인증 에이전트 등록 시 CSR에 서명하는 데만 사용됩니다.
     -  다른 Azure AD 서비스는 이 CA를 사용하지 않습니다.
     - 인증서의 제목(고유 이름 또는 DN)은 테넌트 ID로 설정됩니다. DN은 테넌트를 고유하게 식별하는 GUID입니다. DN은 인증서가 해당 테넌트에만 사용되도록 범위를 지정합니다.
@@ -208,10 +208,10 @@ Azure AD는 새로운 소프트웨어 버전을 서명된 **Windows Installer �
 
 ## <a name="next-steps"></a>다음 단계
 - [현재 제한 사항](how-to-connect-pta-current-limitations.md): 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
-- [빠른 시작](how-to-connect-pta-quick-start.md): Azure AD 통과 인증을 구성하고 실행합니다.
+- [빠른 시작](how-to-connect-pta-quick-start.md): Azure AD 통과 인증을 준비하고 실행합니다.
 - [AD FS에서 통과 인증으로 마이그레이션](https://aka.ms/adfstoptadpdownload) - AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 방법에 대한 자세한 가이드입니다.
 - [스마트 잠금](../authentication/howto-password-smart-lockout.md): 테넌트에서 스마트 잠금 기능을 구성하여 사용자 계정을 보호합니다.
-- [작동 방법](how-to-connect-pta-how-it-works.md):- Azure AD 통과 인증이 작동하는 기본적인 방식을 알아봅니다.
-- [질문과 대답](how-to-connect-pta-faq.md): 자주 하는 질문과 대답을 살펴봅니다.
+- [작동 방법](how-to-connect-pta-how-it-works.md): Azure AD 통과 인증이 작동하는 기본적인 방식을 알아봅니다.
+- [질문과 대답](how-to-connect-pta-faq.md): 자주 묻는 질문에 대한 대답을 찾습니다.
 - [문제 해결](tshoot-connect-pass-through-authentication.md): 통과 인증 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.
-- [Azure AD Seamless SSO](how-to-connect-sso.md): 보완적인 Azure AD Seamless SSO 기능에 대해 알아봅니다.
+- [Azure AD Seamless SSO](how-to-connect-sso.md): 이 보완 기능을 자세히 알아봅니다.

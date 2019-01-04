@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 98eee29dc6810d35ee1792c601e6d2f147602cae
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ee62e81b8c75200f26dfb5f7303083190f83eb8e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262185"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016847"
 ---
 # <a name="securing-paas-deployments"></a>PaaS 배포 보안
 
@@ -85,7 +85,7 @@ PaaS 배포와 기존 온-프레미스 배포 간의 또 다른 중요한 차이
 ID 경계 관리를 위한 모범 사례는 다음과 같습니다.
 
 **모범 사례**: 키와 자격 증명을 안전하게 보관하여 PaaS 배포를 보호합니다.   
-**세부 정보**: 키와 자격 증명 분실은 흔히 발생하는 문제입니다. 이러한 문제를 방지하기 위해 하드웨어 보안 모듈에 키와 비밀을 저장할 수 있는 중앙 집중식 솔루션을 사용할 수 있습니다. Azure에서는 [Azure Key Vault](../key-vault/key-vault-whatis.md)를 사용하여 HSM을 클라우드에 제공하고 있습니다.
+**세부 정보**: 키와 자격 증명을 잃어 버리는 것은 일반적인 문제입니다. 이러한 문제를 방지하기 위해 하드웨어 보안 모듈에 키와 비밀을 저장할 수 있는 중앙 집중식 솔루션을 사용할 수 있습니다. Azure에서는 [Azure Key Vault](../key-vault/key-vault-whatis.md)를 사용하여 HSM을 클라우드에 제공하고 있습니다.
 
 **모범 사례**: 소스 코드 또는 GitHub에 자격 증명 및 기타 비밀을 포함하지 않습니다.   
 **세부 정보**: 키 및 자격 증명을 분실하는 것보다 더 위험한 상황은 권한이 없는 사람이 해당 정보에 액세스하는 것뿐입니다. 공격자는 봇 기술을 이용하여 GitHub와 같은 코드 리포지토리에 저장된 키와 비밀을 찾을 수 있습니다. 따라서 공용 코드 리포지토리에 키와 비밀 정보를 보관해서는 안 됩니다.
@@ -104,8 +104,8 @@ ID 경계 관리를 위한 모범 사례는 다음과 같습니다.
 
 OAuth2 및 Kerberos와 같은 표준 인증 프로토콜을 사용합니다. 이러한 프로토콜은 광범위하게 검토되었으며 인증 및 권한 부여를 위한 플랫폼 라이브러리의 일부로 구현될 수 있습니다.
 
-## <a name="use-threat-modeling-during-application-design"></a>응용 프로그램 디자인 과정에서 위협 모델링 사용
-Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/sdl)에서는 디자인 단계에서 팀이 위협 모델링 프로세스를 진행해야 하도록 지정하고 있습니다. Microsoft는 이 프로세스를 원활하게 진행할 수 있도록 [SDL Threat Modeling Tool](../security/azure-security-threat-modeling-tool.md)을 제작했습니다. 응용 프로그램 디자인을 모델링하고 모든 보안 경계에 걸쳐 [STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) 위협을 열거하면 디자인 오류를 초기에 파악할 수 있습니다.
+## <a name="use-threat-modeling-during-application-design"></a>애플리케이션 디자인 과정에서 위협 모델링 사용
+Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/sdl)에서는 디자인 단계에서 팀이 위협 모델링 프로세스를 진행해야 하도록 지정하고 있습니다. Microsoft는 이 프로세스를 원활하게 진행할 수 있도록 [SDL Threat Modeling Tool](../security/azure-security-threat-modeling-tool.md)을 제작했습니다. 애플리케이션 디자인을 모델링하고 모든 보안 경계에 걸쳐 [STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) 위협을 열거하면 디자인 오류를 초기에 파악할 수 있습니다.
 
 아래 표에는 STRIDE 위협 및 Azure 기능을 사용하는 몇 가지 완화 방식의 예가 나와 있습니다. 이러한 완화 방식을 모든 상황에서 사용할 수 있는 것은 아닙니다.
 
@@ -119,51 +119,51 @@ Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/sdl)�
 | 권한 상승 | 권한 부여 | [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md)를 사용합니다. |
 
 ## <a name="develop-on-azure-app-service"></a>Azure App Service에서 개발 진행
-[Azure App Service](../app-service/app-service-web-overview.md)는 플랫폼이나 장치를 위한 웹 및 모바일 앱을 만들고 어디서나 클라우드 또는 온-프레미스에 있는 데이터에 연결할 수 있는 PaaS 서비스 제품군입니다. 앱 서비스는 이전에 개별적으로 Azure 웹 사이트 및 Azure Mobile Services로 전달한 웹 및 모바일 기능을 포함합니다. 또한 비즈니스 프로세스를 자동화하고 클라우드 API를 호스팅하는 새 기능을 포함합니다. App Service는 단일 통합 서비스로서 웹, 모바일 및 통합 시나리오에 풍부한 기능 집합을 제공합니다.
+[Azure App Service](../app-service/app-service-web-overview.md)는 플랫폼이나 디바이스를 위한 웹 및 모바일 앱을 만들고 어디서나 클라우드 또는 온-프레미스에 있는 데이터에 연결할 수 있는 PaaS 서비스 제품군입니다. 앱 서비스는 이전에 개별적으로 Azure 웹 사이트 및 Azure Mobile Services로 전달한 웹 및 모바일 기능을 포함합니다. 또한 비즈니스 프로세스를 자동화하고 클라우드 API를 호스팅하는 새 기능을 포함합니다. App Service는 단일 통합 서비스로서 웹, 모바일 및 통합 시나리오에 풍부한 기능 집합을 제공합니다.
 
 App Service 사용 시의 모범 사례는 다음과 같습니다.
 
-**모범 사례**: [Azure Active Directory를 통해 인증합니다](../app-service/app-service-authentication-overview.md).   
-**세부 정보**: App Service는 ID 공급자를 위한 OAuth 2.0 서비스를 제공합니다. OAuth 2.0은 클라이언트 개발자가 개발을 손쉽게 수행할 수 있도록 하는 기능을 중점적으로 제공하는 동시에, 웹 응용 프로그램/데스크톱 응용 프로그램/휴대폰용 특정 권한 부여 흐름을 제공합니다. Azure AD는 OAuth 2.0을 사용하여 모바일 및 웹 응용 프로그램에 대한 액세스 권한을 부여합니다.
+**모범 사례**: [Azure Active Directory를 통해 인증](../app-service/app-service-authentication-overview.md)합니다.   
+**세부 정보**: App Service는 ID 공급자를 위한 OAuth 2.0 서비스를 제공합니다. OAuth 2.0은 클라이언트 개발자가 개발을 손쉽게 수행할 수 있도록 하는 기능을 중점적으로 제공하는 동시에, 웹 애플리케이션/데스크톱 애플리케이션/휴대폰용 특정 권한 부여 흐름을 제공합니다. Azure AD는 OAuth 2.0을 사용하여 모바일 및 웹 애플리케이션에 대한 액세스 권한을 부여합니다.
 
-**모범 사례**: 꼭 알아야 할 필요가 있는 경우에 한하여, 그리고 최소 권한 보안 원칙에 따라 액세스를 제한합니다.   
-**세부 정보**: 데이터 액세스를 위한 보안 정책을 시행하려는 조직에서는 액세스를 반드시 제한해야 합니다. RBAC를 사용하여 특정 범위에서 사용자, 그룹 및 응용 프로그램에 권한을 할당할 수 있습니다. 사용자에게 응용 프로그램 액세스 권한을 부여하는 방법에 대해 자세히 알아보려면 [액세스 관리 시작](../role-based-access-control/overview.md)을 참조하세요.
+**모범 사례**: 알아야 할 필요성과 최소 권한 보안 원칙에 따라 액세스를 제한합니다.   
+**세부 정보**: 데이터 액세스를 위한 보안 정책을 시행하려는 조직에서는 액세스를 반드시 제한해야 합니다. RBAC를 사용하여 특정 범위에서 사용자, 그룹 및 애플리케이션에 권한을 할당할 수 있습니다. 사용자에게 애플리케이션 액세스 권한을 부여하는 방법에 대해 자세히 알아보려면 [액세스 관리 시작](../role-based-access-control/overview.md)을 참조하세요.
 
 **모범 사례**: 키를 보호합니다.   
-**세부 정보**: Azure Key Vault를 사용하면 클라우드 응용 프로그램과 서비스에서 사용하는 암호화 키 및 비밀을 보호할 수 있습니다. Key Vault를 사용하면 HSM(하드웨어 보안 모듈)을 통해 보호되는 키를 통해 키와 비밀(예: 인증 키, 저장소 계정 키, 데이터 암호화 키, .PFX 파일 및 암호)를 암호화할 수 있습니다. 추가된 보증을 위해, HSM에서 키를 생성하거나 가져올 수 있습니다. 자세한 내용은 [Azure Key Vault](../key-vault/key-vault-whatis.md)를 참조하세요. 또한 Key Vault를 사용하여 자동 갱신으로 TLS 인증서를 관리할 수도 있습니다.
+**세부 정보**: Azure Key Vault를 사용하면 클라우드 애플리케이션과 서비스에 사용되는 암호화 키 및 비밀을 보호할 수 있습니다. Key Vault를 사용하면 HSM(하드웨어 보안 모듈)을 통해 보호되는 키를 통해 키와 비밀(예: 인증 키, 저장소 계정 키, 데이터 암호화 키, .PFX 파일 및 암호)를 암호화할 수 있습니다. 추가된 보증을 위해, HSM에서 키를 생성하거나 가져올 수 있습니다. 자세한 내용은 [Azure Key Vault](../key-vault/key-vault-whatis.md)를 참조하세요. 또한 Key Vault를 사용하여 자동 갱신으로 TLS 인증서를 관리할 수도 있습니다.
 
 **모범 사례**: 들어오는 원본 IP 주소를 제한합니다.   
-**세부 정보**: [App Service Environment](../app-service/environment/intro.md)에는 네트워크 보안 그룹을 통해 들어오는 원본 IP 주소를 제한할 수 있는 가상 네트워크 통합 기능이 있습니다. 가상 네트워크에서는 액세스를 제어할 수 있는 인터넷이 아닌 라우팅 가능 네트워크에 Azure 리소스를 배치할 수 있습니다. 자세히 알아보려면 [Azure Virtual Network에 앱 통합](../app-service/web-sites-integrate-with-vnet.md)을 참조하세요.
+**세부 정보**: [App Service Environment](../app-service/environment/intro.md)에는 네트워크 보안 그룹을 통해 들어오는 원본 IP 주소를 제한하는 데 도움이 되는 가상 네트워크 통합 기능이 있습니다. 가상 네트워크에서는 액세스를 제어할 수 있는 인터넷이 아닌 라우팅 가능 네트워크에 Azure 리소스를 배치할 수 있습니다. 자세히 알아보려면 [Azure Virtual Network에 앱 통합](../app-service/web-sites-integrate-with-vnet.md)을 참조하세요.
 
-**모범 사례**: App Service Environment의 보안 상태를 모니터링합니다.   
-**세부 정보**: Azure Security Center를 사용하여 App Service Environment를 모니터링합니다. Security Center는 잠재적 보안 취약성이 확인되면 필요한 컨트롤을 구성하는 과정을 안내하는 [권장 사항](../security-center/security-center-virtual-machine-recommendations.md)을 만듭니다.
+**모범 사례**: App Service 환경의 보안 상태를 모니터링합니다.   
+**세부 정보**: Azure Security Center를 사용하여 App Service 환경을 모니터링합니다. Security Center는 잠재적 보안 취약성이 확인되면 필요한 컨트롤을 구성하는 과정을 안내하는 [권장 사항](../security-center/security-center-virtual-machine-recommendations.md)을 만듭니다.
 
 > [!NOTE]
 > Monitoring App Service는 미리 보기로 제공되며 Security Center의 [표준 계층](../security-center/security-center-pricing.md)에서만 사용할 수 있습니다.
 >
 >
 
-## <a name="install-a-web-application-firewall"></a>웹 응용 프로그램 방화벽 설치
+## <a name="install-a-web-application-firewall"></a>웹 애플리케이션 방화벽 설치
 웹 응용 프로그램의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 공격으로는 SQL 삽입 공격, 사이트 간 스크립팅 공격 등이 있습니다. 응용 프로그램 코드로 이러한 공격을 방어하기란 매우 어려울 수 있으며 응용 프로그램 토폴로지의 다양한 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 중앙 집중식 웹 응용 프로그램 방화벽을 통해 보안 관리가 훨씬 간단해지고 응용 프로그램 관리자에게 위협 또는 침입으로부터 효과적인 보호를 제공합니다. 또한 WAF 솔루션은 각각의 웹 응용 프로그램을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 Application Gateway는 웹 응용 프로그램 방화벽을 사용한 Application Gateway로 쉽게 변환될 수 있습니다.
 
 [WAF(웹 응용 프로그램 방화벽)](../application-gateway/waf-overview.md)는 일반적인 악용 및 취약점으로부터 웹 응용 프로그램에 대해 중앙 집중화된 보호를 제공하는 Application Gateway의 기능입니다. WAF는 [OWASP(Open Web Application Security Project) 핵심 규칙 집합](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 또는 2.2.9의 규칙에 기반합니다.
 
-## <a name="monitor-the-performance-of-your-applications"></a>응용 프로그램 성능 모니터링
-모니터링은 응용 프로그램의 성능, 상태 및 가용성을 확인하기 위해 데이터를 수집 및 분석하는 작업입니다. 효과적인 모니터링 전략은 응용 프로그램 구성 요소의 세부 작업을 이해하는 데 도움이 됩니다. 또한 중요한 문제의 알림이 제공되므로 문제가 커지기 전에 해결하여 작동 시간을 늘릴 수 있습니다. 그리고 보안과 관련이 있을 수 있는 변칙적인 상황도 검색할 수 있습니다.
+## <a name="monitor-the-performance-of-your-applications"></a>애플리케이션 성능 모니터링
+모니터링은 애플리케이션의 성능, 상태 및 가용성을 확인하기 위해 데이터를 수집 및 분석하는 작업입니다. 효과적인 모니터링 전략은 응용 프로그램 구성 요소의 세부 작업을 이해하는 데 도움이 됩니다. 또한 중요한 문제의 알림이 제공되므로 문제가 커지기 전에 해결하여 작동 시간을 늘릴 수 있습니다. 그리고 보안과 관련이 있을 수 있는 변칙적인 상황도 검색할 수 있습니다.
 
-[Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights)를 사용하여 클라우드 또는 온-프레미스에서 호스트되는 응용 프로그램의 가용성, 성능 및 사용량을 모니터링합니다. Application Insights를 사용하면 사용자가 보고할 때까지 기다리지 않고 응용 프로그램의 오류를 빠르게 식별하고 진단할 수 있습니다. 수집한 정보를 사용하여, 응용 프로그램의 유지 관리 및 개선에 대해 현명한 결정을 내릴 수 있습니다.
+[Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights)를 사용하여 클라우드 또는 온-프레미스에서 호스트되는 응용 프로그램의 가용성, 성능 및 사용량을 모니터링합니다. Application Insights를 사용하면 사용자가 보고할 때까지 기다리지 않고 애플리케이션의 오류를 빠르게 식별하고 진단할 수 있습니다. 수집한 정보를 사용하여, 응용 프로그램의 유지 관리 및 개선에 대해 현명한 결정을 내릴 수 있습니다.
 
 Application Insight에는 수집하는 데이터와 상호 작용할 수 있는 광범위한 도구가 있습니다. Application Insights는 공용 저장소에 데이터를 저장합니다. Log Analytics 쿼리 언어를 사용하여 경고, 대시보드 및 심층 분석과 같은 공유된 기능을 활용할 수 있습니다.
 
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure PaaS 배포의 보안 이점과 클라우드 응용 프로그램의 보안 모범 사례에 대해 중점적으로 설명했습니다. 다음 단계에서는 특정 Azure 서비스를 사용하여 PaaS 웹 및 모바일 솔루션을 보호하는 권장 사례에 대해 알아보겠습니다. 먼저 Azure App Service, Azure SQL Database and Azure SQL Data Warehouse 및 Azure Storage를 살펴보겠습니다. 다른 Azure 서비스에 권장되는 사례에 대한 문서를 사용할 수 있으며, 해당 링크는 다음 목록에서 제공합니다.
+이 문서에서는 Azure PaaS 배포의 보안 이점과 클라우드 애플리케이션의 보안 모범 사례에 대해 중점적으로 설명했습니다. 다음 단계에서는 특정 Azure 서비스를 사용하여 PaaS 웹 및 모바일 솔루션을 보호하는 권장 사례에 대해 알아보겠습니다. 먼저 Azure App Service, Azure SQL Database and Azure SQL Data Warehouse 및 Azure Storage를 살펴보겠습니다. 다른 Azure 서비스에 권장되는 사례에 대한 문서를 사용할 수 있으며, 해당 링크는 다음 목록에서 제공합니다.
 
 - [Azure App Service](security-paas-applications-using-app-services.md)
 - [Azure SQL Database 및 Azure SQL Data Warehouse](security-paas-applications-using-sql.md)
 - [Azure Storage](security-paas-applications-using-storage.md)
-- Azure REDIS Cache
+- Azure Cache for Redis
 - Azure Service Bus
 - 웹 응용 프로그램 방화벽
 

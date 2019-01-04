@@ -215,11 +215,11 @@ Azure Security Center는 전 세계의 보안 연구 및 데이터 과학 팀과
 
 ### <a name="virtual-machines-microsoft-antimalware"></a>가상 머신: Microsoft 맬웨어 방지 프로그램
 
-Azure용 [Microsoft 맬웨어 방지 프로그램](https://docs.microsoft.com/azure/security/azure-security-antimalware)은 응용 프로그램 및 테넌트 환경에 대한 단일 에이전트 솔루션이며 사용자의 개입 없이 백그라운드에서 실행되도록 설계되었습니다. 맬웨어 방지 프로그램 모니터링을 포함하여 기본 보안 또는 고급 사용자 지정 구성을 사용하여 응용 프로그램 워크로드의 필요에 따라 보호를 배포할 수 있습니다. Azure 맬웨어 방지 프로그램은 Azure Virtual Machines의 보안 옵션이며, 모든 Azure PaaS 가상 머신에 자동으로 설치됩니다.
+Azure용 [Microsoft 맬웨어 방지 프로그램](https://docs.microsoft.com/azure/security/azure-security-antimalware)은 응용 프로그램 및 테넌트 환경에 대한 단일 에이전트 솔루션이며 사용자의 개입 없이 백그라운드에서 실행되도록 설계되었습니다. 맬웨어 방지 프로그램 모니터링을 포함하여 기본 보안 또는 고급 사용자 지정 구성을 사용하여 애플리케이션 워크로드의 필요에 따라 보호를 배포할 수 있습니다. Azure 맬웨어 방지 프로그램은 Azure Virtual Machines의 보안 옵션이며, 모든 Azure PaaS 가상 머신에 자동으로 설치됩니다.
 
 #### <a name="microsoft-antimalware-core-features"></a>Microsoft 맬웨어 방지 프로그램 핵심 기능
 
-다음은 응용 프로그램용 Microsoft 맬웨어 방지 프로그램을 배포하고 활성화하는 Azure의 기능입니다.
+다음은 애플리케이션용 Microsoft 맬웨어 방지 프로그램을 배포하고 활성화하는 Azure의 기능입니다.
 
 -   **실시간 보호**: 클라우드 서비스 및 가상 머신에서 작업을 모니터링하여 맬웨어 실행을 검색하고 차단합니다.
 
@@ -265,11 +265,11 @@ SQL Database 위협 감지기는 다음 검색 방법 중 하나를 사용합니
 
 -   **동작 검색**: 최근 30일 동안 표시되지 않은 데이터베이스의 비정상적인 동작인 비정상 활동을 검색합니다. SQL 클라이언트 비정상 활동의 예로 실패한 로그인/쿼리의 급증, 대량의 데이터 추출, 비정상적인 정식 쿼리 또는 데이터베이스 액세스에 사용된 알 수 없는 IP 주소가 있을 수 있습니다.
 
-### <a name="application-gateway-web-application-firewall"></a>Application Gateway 웹 응용 프로그램 방화벽
+### <a name="application-gateway-web-application-firewall"></a>Application Gateway 웹 애플리케이션 방화벽
 
-[WAF(웹 응용 프로그램 방화벽)](../app-service/environment/app-service-app-service-environment-web-application-firewall.md)는 표준 [application delivery control](https://kemptechnologies.com/in/application-delivery-controllers)(응용 프로그램 전송 제어) 기능에 응용 프로그램 게이트웨이를 사용하는 웹 응용 프로그램에 보호를 제공하는 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview)의 기능입니다. 웹 응용 프로그램 방화벽은 대부분의 [Open Web Application Security Project (OWASP) top 10 common web vulnerabilities](https://www.owasp.org/index.php/Top_10_2010-Main)(OWASP(Open Web Application Security Project) 상위 10개 일반 웹 취약성)로부터 보호함으로써 이 기능을 수행합니다.
+[WAF(웹 응용 프로그램 방화벽)](../app-service/environment/app-service-app-service-environment-web-application-firewall.md)는 표준 [application delivery control](https://kemptechnologies.com/in/application-delivery-controllers)(응용 프로그램 전송 제어) 기능에 응용 프로그램 게이트웨이를 사용하는 웹 응용 프로그램에 보호를 제공하는 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview)의 기능입니다. 웹 애플리케이션 방화벽은 대부분의 [Open Web Application Security Project (OWASP) top 10 common web vulnerabilities](https://www.owasp.org/index.php/Top_10_2010-Main)(OWASP(Open Web Application Security Project) 상위 10개 일반 웹 취약성)로부터 보호함으로써 이 기능을 수행합니다.
 
-![Application Gateway 웹 응용 프로그램 방화벽 다이어그램](./media/azure-threat-detection/azure-threat-detection-fig13.png)
+![Application Gateway 웹 애플리케이션 방화벽 다이어그램](./media/azure-threat-detection/azure-threat-detection-fig13.png)
 
 보호에는 다음이 포함됩니다.
 
@@ -285,15 +285,15 @@ SQL Database 위협 감지기는 다음 검색 방법 중 하나를 사용합니
 
 -   봇, 크롤러 및 스캐너로부터 보호
 
--   일반적인 응용 프로그램 구성 오류(즉 Apache, IIS 등)의 검색
+-   일반적인 애플리케이션 구성 오류(즉 Apache, IIS 등)의 검색
 
-응용 프로그램 게이트웨이에서 WAF를 구성하면 다음과 같은 이점이 있습니다.
+애플리케이션 게이트웨이에서 WAF를 구성하면 다음과 같은 이점이 있습니다.
 
--   백 엔드 코드를 수정하지 않고도 웹 취약점 및 공격으로부터 웹 응용 프로그램을 보호합니다.
+-   백 엔드 코드를 수정하지 않고도 웹 취약점 및 공격으로부터 웹 애플리케이션을 보호합니다.
 
--   응용 프로그램 게이트웨이 뒤에서 여러 웹 응용 프로그램을 동시에 보호합니다. 응용 프로그램 게이트웨이는 최대 20개의 웹 사이트 호스팅을 지원합니다.
+-   애플리케이션 게이트웨이 뒤에서 여러 웹 애플리케이션을 동시에 보호합니다. 애플리케이션 게이트웨이는 최대 20개의 웹 사이트 호스팅을 지원합니다.
 
--   응용 프로그램 게이트웨이 WAF 로그에서 생성하는 실시간 보고서를 사용하여 공격을 받는 웹 응용 프로그램을 모니터링합니다.
+-   애플리케이션 게이트웨이 WAF 로그에서 생성하는 실시간 보고서를 사용하여 공격을 받는 웹 애플리케이션을 모니터링합니다.
 
 -   규정 준수 요구 사항을 충족할 수 있습니다. 특정 규정 준수 컨트롤은 모든 인터넷 연결 엔드포인트가 WAF 솔루션으로 보호되도록 합니다.
 
@@ -335,7 +335,7 @@ Anomaly Detection API는 시계열 데이터에서 다양한 비정상 패턴을
 
 ### <a name="cloud-app-security"></a>Cloud App Security
 
-[Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security)는 Microsoft Cloud Security 스택의 중요한 구성 요소입니다. Cloud App Security는 조직이 클라우드 응용 프로그램의 가능성을 최대한 활용할 시 도움이 되는 포괄적인 솔루션입니다. 또한 활동에 대한 향상된 가시성을 통해 제어를 유지합니다. 또한 클라우드 응용 프로그램에서 중요한 데이터의 보호를 강화하는 데 도움이 됩니다.
+[Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security)는 Microsoft Cloud Security 스택의 중요한 구성 요소입니다. Cloud App Security는 조직이 클라우드 애플리케이션의 가능성을 최대한 활용할 시 도움이 되는 포괄적인 솔루션입니다. 또한 활동에 대한 향상된 가시성을 통해 제어를 유지합니다. 또한 클라우드 애플리케이션에서 중요한 데이터의 보호를 강화하는 데 도움이 됩니다.
 
 섀도 IT를 발견하고, 위험을 평가하며, 정책을 적용하고, 활동을 조사하며, 위협을 중지할 수 있는 도구를 사용하면 조직에서 중요한 데이터에 대한 제어를 유지하면서 보다 안전하게 클라우드로 이동할 수 있습니다.
 
@@ -344,7 +344,7 @@ Anomaly Detection API는 시계열 데이터에서 다양한 비정상 패턴을
 | 검색 | Cloud App Security로 섀도 IT를 발견합니다. 클라우드 환경에서 앱, 활동, 사용자, 데이터 및 파일을 검색하여 가시성을 확보합니다. 클라우드에 연결된 타사 앱을 발견합니다.|
 |조사 | 클라우드 법정 분석 도구로 클라우드 앱을 조사하여 네트워크에서 위험한 앱, 특정 사용자 및 파일을 심층 분석합니다. 클라우드에서 수집한 데이터의 패턴을 찾습니다. 클라우드를 모니터링하는 보고서를 생성합니다. |
 | 제어 | 네트워크 클라우드 트래픽을 최대한 제어할 수 있도록 정책 및 경고를 설정하여 위험을 완화합니다. Cloud App Security를 사용하여 사용자를 안전하고 승인된 클라우드 앱 대체 기능으로 마이그레이션합니다. |
-| 보호 | Cloud App Security를 사용하여 응용 프로그램을 승인하거나 금지하고, 데이터 손실 방지를 강화하며, 권한 및 공유를 제어하고, 사용자 지정 보고서 및 알림을 생성합니다. |
+| 보호 | Cloud App Security를 사용하여 애플리케이션을 승인하거나 금지하고, 데이터 손실 방지를 강화하며, 권한 및 공유를 제어하고, 사용자 지정 보고서 및 알림을 생성합니다. |
 | 제어 | 네트워크 클라우드 트래픽을 최대한 제어할 수 있도록 정책 및 경고를 설정하여 위험을 완화합니다. Cloud App Security를 사용하여 사용자를 안전하고 승인된 클라우드 앱 대체 기능으로 마이그레이션합니다. |
 | | |
 
@@ -365,21 +365,21 @@ Cloud App Security는 다음과 같은 방법으로 클라우드와 가시성을
 
 ## <a name="third-party-advanced-threat-detection-capabilities-through-the-azure-marketplace"></a>Azure Marketplace를 통한 타사 지능형 위협 탐지 기능
 
-### <a name="web-application-firewall"></a>웹 응용 프로그램 방화벽
+### <a name="web-application-firewall"></a>웹 애플리케이션 방화벽
 
-웹 응용 프로그램 방화벽은 인바운드 웹 트래픽을 검사하고 SQL 삽입 공격, 교차 사이트 스크립팅, 맬웨어 업로드, 응용 프로그램 DDoS 공격 및 웹 응용 프로그램을 대상으로 하는 기타 공격을 차단합니다. 또한, 백 엔드 웹 서버의 응답에서 DLP(데이터 손실 방지) 기능이 적용되는지 검사합니다. 관리자는 통합된 액세스 제어 엔진을 통해 AAA(인증, 권한 부여 및 계정)에 대한 세분화된 액세스 제어 정책을 만들 수 있으므로 조직에 강력한 인증 및 사용자 정의 컨트롤 기능을 제공합니다.
+웹 애플리케이션 방화벽은 인바운드 웹 트래픽을 검사하고 SQL 삽입 공격, 교차 사이트 스크립팅, 맬웨어 업로드, 애플리케이션 DDoS 공격 및 웹 애플리케이션을 대상으로 하는 기타 공격을 차단합니다. 또한, 백 엔드 웹 서버의 응답에서 DLP(데이터 손실 방지) 기능이 적용되는지 검사합니다. 관리자는 통합된 액세스 제어 엔진을 통해 AAA(인증, 권한 부여 및 계정)에 대한 세분화된 액세스 제어 정책을 만들 수 있으므로 조직에 강력한 인증 및 사용자 정의 컨트롤 기능을 제공합니다.
 
-웹 응용 프로그램 방화벽은 다음과 같은 이점을 제공합니다.
+웹 애플리케이션 방화벽은 다음과 같은 이점을 제공합니다.
 
--   SQL 삽입 공격, 사이트 간 스크립팅, 맬웨어 업로드, 응용 프로그램 DDoS 또는 응용 프로그램에 대한 기타 모든 공격을 검색하고 차단합니다.
+-   SQL 삽입 공격, 사이트 간 스크립팅, 맬웨어 업로드, 애플리케이션 DDoS 또는 애플리케이션에 대한 기타 모든 공격을 검색하고 차단합니다.
 
 -   인증 및 액세스 제어
 
 -   아웃바운드 트래픽을 검색하여 중요한 데이터를 검색하고, 정보를 감추거나 유출로부터 차단할 수 있습니다.
 
--   캐싱, 압축 및 기타 트래픽 최적화와 같은 기능을 사용하여 웹 응용 프로그램 콘텐츠의 전달을 향상시킵니다.
+-   캐싱, 압축 및 기타 트래픽 최적화와 같은 기능을 사용하여 웹 애플리케이션 콘텐츠의 전달을 향상시킵니다.
 
-Azure Marketplace에서 사용할 수 있는 웹 응용 프로그램 방화벽의 예는 [Barracuda WAF, Brocade virtual web application firewall (vWAF), Imperva SecureSphere, and the ThreatSTOP IP firewall](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf)(Barracuda WAF, Brocade vWAF(가상 웹 응용 프로그램 방화벽), Imperva SecureSphere 및 ThreatSTOP IP 방화벽)을 참조하세요.
+Azure Marketplace에서 사용할 수 있는 웹 애플리케이션 방화벽의 예는 [Barracuda WAF, Brocade virtual web application firewall (vWAF), Imperva SecureSphere, and the ThreatSTOP IP firewall](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf)(Barracuda WAF, Brocade vWAF(가상 웹 애플리케이션 방화벽), Imperva SecureSphere 및 ThreatSTOP IP 방화벽)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

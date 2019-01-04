@@ -1,6 +1,7 @@
 ---
-title: Bing 썸네일 크기 조정 및 자르기 - Bing Image Search API
-description: Bing Image Search API의 응답에 포함된 썸네일의 크기를 조정하고 자르는 방법을 알아봅니다.
+title: 썸네일 이미지 크기 조정 및 자르기 - Bing Image Search API
+titleSuffix: Azure Cognitive Services
+description: Bing Image Search API의 응답에 포함된 썸네일 이미지의 크기를 조정하고 자릅니다.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: de82cc5554af91294dda3826dfb394cc94dbf3d0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: seodec2018
+ms.openlocfilehash: 3bb360cd95dcbfb95464b2b259dcebfce7065256
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296230"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256393"
 ---
-# <a name="resizing-and-cropping-thumbnail-images"></a>썸네일의 크기 조정 및 자르기
+# <a name="resize-and-crop-thumbnail-images"></a>썸네일 이미지 크기 조정 및 자르기
 
 검색 쿼리가 처리되는 즉시, Bing은 [응답](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format)의 모든 이미지에 대한 썸네일 정보를 생성합니다. 이 정보는 반환되는 썸네일을 모두 또는 하위 집합을 표시하는 데 사용할 수 있습니다. 하위 집합을 표시하는 경우 나머지 이미지를 볼 수 있는 옵션도 제공해야 합니다.
 

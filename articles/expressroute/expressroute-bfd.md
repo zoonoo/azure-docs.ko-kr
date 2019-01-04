@@ -1,25 +1,19 @@
 ---
-title: ExpressRoute를 통해 BFD 구성 | Microsoft Docs
-description: 이 문서는 ExpressRoute 회로의 비공개 피어링을 통해 BFD를 구성하는 방법에 대한 지침을 제공합니다.
-documentationcenter: na
+title: ExpressRoute를 통해 BFD 구성 - Azure | Microsoft Docs
+description: 이 문서는 ExpressRoute 회로의 비공개 피어링을 통해 BFD(Bidirectional Forwarding Detection)를 구성하는 방법에 대한 지침을 제공합니다.
 services: expressroute
 author: rambk
-manager: tracsman
-editor: ''
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 8/17/2018
 ms.author: rambala
-ms.openlocfilehash: 6d941bf810a45e8808f83c4df701a856f664c7ef
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.custom: seodec18
+ms.openlocfilehash: 14f65851e50ed25024524f6d988ba2b2f2b3aeba
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51631662"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083787"
 ---
 # <a name="configure-bfd-over-expressroute"></a>ExpressRoute를 통해 BFD 구성
 
@@ -27,7 +21,7 @@ ExpressRoute는 비공개 피어링을 통해 BFD(양방향 전달 검색)를 �
 
 ## <a name="need-for-bfd"></a>BFD의 필요성
 
-다음 다이어그램에서는 ExpressRoute 회로를 통해 BFD를 활성화할 경우의 장점을 보여줍니다. [ ![1]][1]
+다음 다이어그램에서는 ExpressRoute 회로를 통해 BFD를 활성화할 경우의 장점을 보여줍니다. [![1]][1]
 
 Layer 2 연결 또는 관리형 Layer 3 연결을 사용하여 ExpressRoute 회로를 활성화할 수 있습니다. 두 경우 모두, ExpressRoute 연결 경로에 하나 이상의 Layer-2 디바이스가 있는 경우 경로의 연결 오류를 감지하는 역할은 상위 BGP에서 수행합니다.
 

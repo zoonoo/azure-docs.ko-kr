@@ -2,7 +2,7 @@
 title: Azure Active Directory Identity Protection에서 로그인 위험 정책을 구성하는 방법 | Microsoft Docs
 description: Azure AD ID 보호 로그인 위험 정책을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
-keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
+keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 애플리케이션 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -87,7 +87,7 @@ MFA를 요구하는 로그인 위험 보안 정책을 구성할 수 있습니다
 
 - 최신 인증을 사용하여 모든 브라우저 트래픽 및 로그인에 적용합니다.
 
-- ADFS 등 페더레이션된 IDP에서 WS-Trust 엔드포인트를 사용하지 않도록 설정하여 이전 보안 프로토콜을 사용하는 응용 프로그램에 적용하지 않습니다.
+- ADFS 등 페더레이션된 IDP에서 WS-Trust 엔드포인트를 사용하지 않도록 설정하여 이전 보안 프로토콜을 사용하는 애플리케이션에 적용하지 않습니다.
 
 
 관련 사용자 환경에 대한 개요는 다음을 참조하세요.

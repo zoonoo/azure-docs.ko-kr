@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Bing Visual Search SDK, Node'
 titleSuffix: Azure Cognitive Services
-description: Visual Search SDK Node 콘솔 응용 프로그램을 설치합니다.
+description: Visual Search SDK Node 콘솔 애플리케이션을 설치합니다.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -38,7 +38,7 @@ Azure Portal에서 구독을 시작하려면
 5. `S9` 가격 책정 계층을 선택합니다.
 6. `Enable`을 클릭하여 구독을 시작합니다.
 
-## <a name="application-dependencies"></a>응용 프로그램 종속성
+## <a name="application-dependencies"></a>애플리케이션 종속성
 
 Bing Visual Search SDK를 사용하여 콘솔 애플리케이션을 설치하려면:
 * `npm install ms-rest-azure` 실행
@@ -107,9 +107,9 @@ else {
 
 ```
 <a name="complete"></a>
-## <a name="complete-console-application"></a>전체 콘솔 응용 프로그램
+## <a name="complete-console-application"></a>전체 콘솔 애플리케이션
 
-다음 콘솔 응용 프로그램은 이전 코드와 다른 시나리오를 실행하고 결과를 구문 분석합니다.
+다음 콘솔 애플리케이션은 이전 코드와 다른 시나리오를 실행하고 결과를 구문 분석합니다.
 ```
 /*
  * Copyright (c) Microsoft Corporation. All rights reserved.

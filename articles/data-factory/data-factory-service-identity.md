@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 892fa32f73cec86e5d10a0d67da3d80bedd539aa
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 67fc3d733062867086cb4c208f2997d3490452bb
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619864"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681928"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory 서비스 ID
 
@@ -45,7 +45,7 @@ ms.locfileid: "52619864"
 
 - [PowerShell을 사용하여 서비스 ID 생성](#generate-service-identity-using-powershell)
 - [REST API를 사용하여 서비스 ID 생성](#generate-service-identity-using-rest-api)
-- [Azure Resource Manager 템플릿을 사용하여 서비스 ID 생성](#generate-service-identity-using-resource-management-template)
+- [Azure Resource Manager 템플릿을 사용하여 서비스 ID 생성](#generate-service-identity-using-azure-resource-manager-template)
 - [SDK를 사용하여 서비스 ID 생성](#generate-service-identity-using-sdk)
 
 >[!NOTE]
@@ -77,7 +77,7 @@ ProvisioningState : Succeeded
 PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2017-09-01-preview
 ```
 
-**요청 본문**: "identity": { "type": "SystemAssigned" }를 추가합니다.
+**요청 본문**: add "identity": { "type": "SystemAssigned" }.
 
 ```json
 {
@@ -115,7 +115,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 
 ### <a name="generate-service-identity-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 서비스 ID 생성
 
-**템플릿**: "identity": { "type": "SystemAssigned" }를 추가합니다.
+**템플릿**: add "identity": { "type": "SystemAssigned" }.
 
 ```json
 {

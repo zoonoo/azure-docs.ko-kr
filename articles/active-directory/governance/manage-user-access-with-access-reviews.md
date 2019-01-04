@@ -1,6 +1,6 @@
 ---
 title: Azure AD 액세스 검토를 사용하여 사용자 액세스 관리 | Microsoft Docs
-description: Azure Active Directory 액세스 검토를 사용하여 응용 프로그램에 대한 그룹 또는 할당의 멤버 자격으로 사용자 액세스를 관리하는 방법을 알아봅니다.
+description: Azure Active Directory 액세스 검토를 사용하여 애플리케이션에 대한 그룹 또는 할당의 멤버 자격으로 사용자 액세스를 관리하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -40,7 +40,7 @@ Azure AD(Azure Active Directory)를 사용하면 사용자에게 적절한 액�
 
 액세스 검토 중인 검토자로 한 명 이상의 사용자를 포함할 수 있습니다.  
 
-1. Azure AD에서 하나 이상의 멤버가 있는 그룹을 선택합니다. 또는 Azure AD에 연결되어 하나 이상의 사용자가 할당된 응용 프로그램을 선택합니다. 
+1. Azure AD에서 하나 이상의 멤버가 있는 그룹을 선택합니다. 또는 Azure AD에 연결되어 하나 이상의 사용자가 할당된 애플리케이션을 선택합니다. 
 
 2. 각 사용자가 자신의 액세스를 검토하도록 할지 또는 하나 이상의 사용자가 모든 사용자의 액세스를 검토하도록 할지를 결정합니다.
 

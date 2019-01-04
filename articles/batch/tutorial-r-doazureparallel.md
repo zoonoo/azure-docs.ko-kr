@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: fb616dc95cc7dd7dbb25f2deb832b517d0747ae4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 305ea27e787196f648fcb4c536f33b12c924c015
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30315453"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164698"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>자습서: Azure Batch를 사용하여 병렬 R 시뮬레이션 실행 
 
@@ -45,7 +45,7 @@ R 세션에서 Azure Batch를 직접 사용할 수 있는 간단한 R 패키지�
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 ## <a name="install-doazureparallel"></a>doAzureParallel 설치
 
-RStudio 콘솔에서 [doAzureParallel Github 패키지](http://www.github.com/Azure/doAzureParallel)를 설치합니다. 다음 명령은 현재 R 세션에서 패키지 및 해당 종속성을 다운로드하고 설치합니다. 
+RStudio 콘솔에서 [doAzureParallel GitHub 패키지](http://www.github.com/Azure/doAzureParallel)를 설치합니다. 다음 명령은 현재 R 세션에서 패키지 및 해당 종속성을 다운로드하고 설치합니다. 
 
 ```R
 # Install the devtools package  

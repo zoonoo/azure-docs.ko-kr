@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: bb04f1965764413c474c2e0d057d77d5d30edd07
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: b8c69ebec2258581954e26dc6181d5f4b57f461c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623114"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137704"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>응용 프로그램 프록시에서 클레임 인식 앱으로 작업
 [클레임 인식 앱](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx)은 STS(보안 토큰 서비스)에 대한 리디렉션을 수행합니다. STS는 토큰의 교환으로 사용자의 자격 증명을 요청한 다음 응용 프로그램에 사용자를 리디렉션합니다. 응용 프로그램 프록시를 이러한 리디렉션과 함께 작동하도록 하는 몇 가지 방법이 있습니다. 이 문서를 사용하여 클레임 인식 앱에 대한 배포를 구성합니다. 
@@ -27,9 +27,9 @@ ms.locfileid: "51623114"
 ## <a name="prerequisites"></a>필수 조건
 클레임 인식 앱이 리디렉션되는 STS가 온-프레미스 네트워크 외부에서 사용 가능한지 확인합니다. 프록시를 통해 노출하거나 외부 연결을 허용하여 STS를 사용할 수 있도록 할 수 있습니다. 
 
-## <a name="publish-your-application"></a>응용 프로그램 게시
+## <a name="publish-your-application"></a>애플리케이션 게시
 
-1. [응용 프로그램 프록시로 응용 프로그램 게시](application-proxy-publish-azure-portal.md)에 설명된 지침에 따라 응용 프로그램을 게시합니다.
+1. [응용 프로그램 프록시로 응용 프로그램 게시](application-proxy-add-on-premises-application.md)에 설명된 지침에 따라 응용 프로그램을 게시합니다.
 2. 포털에서 응용 프로그램 페이지로 이동하고 **Single Sign-On**을 선택합니다.
 3. **Azure Active Directory**를 **사전 인증 방법**으로 선택했다면 **Azure AD Single Sign-On 비활성화**를 **내부 인증 방법**으로 선택합니다. **사전 인증 방법**으로 **통과**를 선택하면 아무 것도 변경할 필요가 없습니다.
 

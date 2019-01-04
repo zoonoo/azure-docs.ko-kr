@@ -1,12 +1,11 @@
 ---
-title: Azure AI 갤러리 콘테스트 | Microsoft Docs
-description: Azure AI 갤러리에서 대회를 검색합니다.
+title: 갤러리 대회 - Azure Machine Learning Studio | Microsoft Docs
+description: Azure AI 갤러리에서 대회를 검색합니다. 복잡한 문제를 해결하기 위해 데이터 과학자 커뮤니티와 경쟁할 수 있는 멋진 기회를 제공합니다.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: ef74f411-bce4-4b02-aa34-902fc8d7b519
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: a209b53893da8f0c7e86102a703334091f982c78
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 5d38205ca614fef2ea9c10e9ad2fb94bdf3481cc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52260668"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277797"
 ---
 # <a name="discover-competitions-in-the-azure-ai-gallery"></a>Azure AI 갤러리에서 대회 검색
 
@@ -53,5 +52,5 @@ Microsoft Cortana Intelligence 대회와 관련하여 자주 묻는 질문에 �
 
 **[갤러리로 이동 >>](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

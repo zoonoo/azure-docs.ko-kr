@@ -14,12 +14,12 @@ ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: adb53bb5722bff2374097626e8a3f1679ca00788
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0c14055209c6094585e0d1df892fea24a3f3ea55
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633532"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721071"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -324,9 +324,9 @@ device.objectid -ne null
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-사용자 지정 확장 속성은 온-프레미스 Windows Server AD 또는 연결된 SaaS 응용 프로그램에서 동기화되며 `user.extension_[GUID]__[Attribute]` 형식입니다.
+사용자 지정 확장 속성은 온-프레미스 Windows Server AD 또는 연결된 SaaS 애플리케이션에서 동기화되며 `user.extension_[GUID]__[Attribute]` 형식입니다.
 
-* [GUID]는 Azure AD에서 속성을 만든 응용 프로그램에 대한 Azure AD의 고유 식별자입니다.
+* [GUID]는 Azure AD에서 속성을 만든 애플리케이션에 대한 Azure AD의 고유 식별자입니다.
 * [Attribute]는 Azure AD에서 만든 속성의 이름입니다.
 
 사용자 지정 확장 속성을 사용하는 규칙의 예제는 다음과 같습니다.
@@ -352,7 +352,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
  deviceCategory | 유효한 디바이스 범주 이름 | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | 임의의 문자열 값입니다. | (device.deviceManufacturer -eq "Samsung")
  deviceModel | 임의의 문자열 값입니다. | (device.deviceModel -eq "iPad Air")
- deviceOwnership | 개인, 회사, 알 수 없음 | (device.deviceOwnership -eq "Corporate")
+ deviceOwnership | 개인, 회사, 알 수 없음 | (device.deviceOwnership -eq "Company")
  domainName | 임의의 문자열 값입니다. | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Apple 디바이스 등록 프로필 또는 Windows Autopilot 프로필 이름 | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
@@ -360,6 +360,9 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
  deviceId | 유효한 Azure AD 디바이스 ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | 유효한 Azure AD 개체 ID |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
  systemLabels | 최신 작업 공간 디바이스의 태그를 지정하는 Intune 디바이스 속성과 일치하는 문자열 | (device.systemLabels -contains “M365Managed”)
+
+> [!Note]  
+> 디바이스용 동적 그룹을 만들 때 deviceOwnership의 경우 값을 “Company”로 설정해야 합니다. Intune에서 디바이스 소유권이 Corporate로 대신 표시됩니다. 자세한 내용은 [OwnerTypes](https://docs.microsoft.com/en-us/intune/reports-ref-devices#ownertypes)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

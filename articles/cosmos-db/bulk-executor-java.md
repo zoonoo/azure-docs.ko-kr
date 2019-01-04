@@ -1,20 +1,19 @@
 ---
-title: Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB에서 대량 가져오기 및 업데이트 작업 수행 | Microsoft Docs
+title: Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB에서 대량 가져오기 및 업데이트 작업 수행
 description: Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB 문서를 대량으로 가져오고 업데이트합니다.
 services: cosmos-db
 author: tknandu
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: 44477f77547c9373bd4a3394c80e217d419bc8e0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e91984281350e9ea0a5f3411c39d29dfd6420529
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420050"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080914"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB 데이터에서 대량 작업 수행
 
@@ -33,7 +32,7 @@ ms.locfileid: "50420050"
 
   - JAVA_HOME 환경 변수가 반드시 JDK가 설치된 폴더를 지정하도록 설정합니다.
 
-* [Maven](http://maven.apache.org/) 이진 아카이브 [다운로드](http://maven.apache.org/download.cgi) 및 [설치](http://maven.apache.org/install.html)  
+* [Maven](https://maven.apache.org/) 이진 아카이브 [다운로드](https://maven.apache.org/download.cgi) 및 [설치](https://maven.apache.org/install.html)  
   
   - Ubuntu에서 `apt-get install maven`을 실행하여 Maven을 실행할 수 있습니다.
 
@@ -47,7 +46,7 @@ ms.locfileid: "50420050"
  git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started.git 
 ```
 
-복제한 리포지토리에는 “\azure-cosmosdb-bulkexecutor-java-getting-started\samples\bulkexecutor-sample\src\main\java\com\microsoft\azure\cosmosdb\bulkexecutor” 폴더에 대한 두 개의 샘플 “bulkimport” 및 “bulkupdate”가 포함됩니다. “bulkimport” 응용 프로그램은 임의의 문서를 생성하고 Azure Cosmos DB에 가져옵니다. “bulkupdate” 응용 프로그램은 Azure Cosmos DB에서 일부 문서를 업데이트합니다. 다음 섹션에서는 이러한 각 샘플 앱에서 코드를 검토하겠습니다. 
+복제한 리포지토리에는 “\azure-cosmosdb-bulkexecutor-java-getting-started\samples\bulkexecutor-sample\src\main\java\com\microsoft\azure\cosmosdb\bulkexecutor” 폴더에 대한 두 개의 샘플 “bulkimport” 및 “bulkupdate”가 포함됩니다. “bulkimport” 애플리케이션은 임의의 문서를 생성하고 Azure Cosmos DB에 가져옵니다. “bulkupdate” 애플리케이션은 Azure Cosmos DB에서 일부 문서를 업데이트합니다. 다음 섹션에서는 이러한 각 샘플 앱에서 코드를 검토하겠습니다. 
 
 ## <a name="bulk-import-data-to-azure-cosmos-db"></a>Azure Cosmos DB로 데이터 대량 가져오기
 
@@ -121,7 +120,7 @@ ms.locfileid: "50420050"
    |List<Exception> getErrors() |  대량 가져오기 API 호출에 적용된 일괄 처리 중에서 일부 문서가 삽입에 실패한 경우 오류의 목록을 가져옵니다.       |
    |List<Object> getBadInputDocuments()  |    대량 가져오기 API 호출에 성공적으로 가져오지 못한 잘못된 형식의 문서 목록입니다. 사용자는 반환된 문서를 수정하고 가져오기를 다시 시도해야 합니다. 잘못된 형식의 문서에는 ID 값이 문자열이 아닌 문서가 포함됩니다(null 또는 다른 데이터 형식이 잘못된 것으로 간주됨).     |
 
-5. 대량 가져오기 응용 프로그램을 준비한 후, ‘mvn clean package’ 명령을 사용하여 원본의 명령줄 도구를 빌드합니다. 이 명령은 대상 폴더에서 jar 파일을 생성합니다.  
+5. 대량 가져오기 애플리케이션을 준비한 후, ‘mvn clean package’ 명령을 사용하여 원본의 명령줄 도구를 빌드합니다. 이 명령은 대상 폴더에서 jar 파일을 생성합니다.  
 
    ```java
    mvn clean package
@@ -184,7 +183,7 @@ BulkUpdateAsync API를 사용하여 기존 문서를 업데이트할 수 있습�
    |Duration getTotalTimeTaken()  |   실행을 완료하기까지 대량 업데이트 API 호출에서 사용하는 총 시간입니다.      |
    |List<Exception> getErrors()   |     대량 업데이트 API 호출에 적용된 일괄 처리 중에서 일부 문서가 삽입에 실패한 경우 오류의 목록을 가져옵니다.      |
 
-3. 대량 업데이트 응용 프로그램을 준비한 후, ‘mvn clean package’ 명령을 사용하여 원본의 명령줄 도구를 빌드합니다. 이 명령은 대상 폴더에서 jar 파일을 생성합니다.  
+3. 대량 업데이트 애플리케이션을 준비한 후, ‘mvn clean package’ 명령을 사용하여 원본의 명령줄 도구를 빌드합니다. 이 명령은 대상 폴더에서 jar 파일을 생성합니다.  
 
    ```
    mvn clean package

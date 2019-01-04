@@ -9,7 +9,7 @@ documentType: LandingData
 title: Azure의 Ansible 설명서
 metadata:
   title: Azure의 Ansible 설명서 - 자습서, 샘플, 참조 및 리소스
-  description: Ansible을 사용하여 클라우드 프로비전, 구성 관리 및 응용 프로그램 배포를 자동화하는 방법을 알아봅니다.
+  description: Ansible을 사용하여 클라우드 프로비전, 구성 관리 및 애플리케이션 배포를 자동화하는 방법을 알아봅니다.
   ms.service: ansible
   keywords: ansible, azure, devops, 자습서, 샘플, 참조
   author: tomarcher

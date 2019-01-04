@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: e053f2387df5d9a2855ce3242d4d7121452a73d8
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: f232ee89993998eb25ecce73e9c2ac8e08f3198b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275941"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094114"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>대시보드를 사용하여 주요 비용 메트릭 보기
 
@@ -43,7 +43,7 @@ Cloudyn의 대시보드에서는 개요 수준의 보고서를 확인할 수 있
 사용자 지정 대시보드를 만들려면 다음을 수행합니다.
 
 1. 홈페이지에서 **새로 추가 +** 를 클릭합니다. 내 대시보드 페이지가 표시됩니다.  
-    ![내 대시보드](./media/dashboards/my-dashboard.png)
+    ![새 보고서를 추가한 내 대시보드 페이지](./media/dashboards/my-dashboard.png)
 2. **새 보고서 추가**를 클릭합니다. [보고서 추가] 상자가 표시됩니다.
 3. 대시보드 위젯에 추가할 보고서를 선택합니다. 위젯이 대시보드에 추가됩니다.
 4. 대시보드가 완료될 때까지 이전 단계를 반복합니다.
@@ -63,7 +63,7 @@ Cloudyn의 대시보드에서는 개요 수준의 보고서를 확인할 수 있
 사용자 지정 대시보드를 Public(공용)에 공유하려면 다음을 수행합니다.
 
 1. 대시보드에서 **대시보드 설정**을 클릭합니다. [대시보드 설정] 상자가 표시됩니다.  
-    ![대시보드 옵션](./media/dashboards/dashboard-options.png)
+    ![사용자 지정 대시보드에 대한 대시보드 설정](./media/dashboards/dashboard-options.png)
 2. [대시보드 설정] 상자에서 화살표 기호를 클릭한 다음, **Public**(공용)을 클릭합니다. [Public Dashboard]\(공용 대시보드) 확인 대화 상자가 표시됩니다.
 3. **예**를 클릭합니다. 이제 대시보드를 다른 사람이 볼 수 있습니다.
 
@@ -116,13 +116,13 @@ Cloudyn의 대시보드에서는 개요 수준의 보고서를 확인할 수 있
 -또는-
 
 1. **대시보드 설정**을 클릭하여 사용 가능한 대시보드 목록을 표시하고 기본으로 설정할 대시보드를 선택합니다.  
-    ![대시보드 옵션](./media/dashboards/dashboard-options.png)
+    ![기본 대시보드에 대한 대시보드 옵션](./media/dashboards/dashboard-options.png)
 2. 대시보드의 행에서 **기본값**을 클릭합니다. [기본 대시보드] 확인 상자가 표시됩니다.
 3. **예**를 클릭합니다. 대시보드가 기본값으로 설정됩니다.
 
 ## <a name="management-dashboard"></a>관리 대시보드
 Management 대시보드(MSP 사용자용 MSP 대시보드)에서는 주요 보고서 유형의 하이라이트를 확인할 수 있습니다.  
-![관리 대시보드](./media/dashboards/management-dash.png)
+![다양한 보고서를 표시하는 관리 대시보드](./media/dashboards/management-dash.png)
 
 ### <a name="cost-entity-summary-enterprise-only"></a>비용 엔터티 요약(엔터프라이즈 전용)
 이 위젯은 엔터티와 계정의 수를 포함하여 관리되는 비용 엔터티를 요약합니다.
@@ -158,7 +158,7 @@ Management 대시보드(MSP 사용자용 MSP 대시보드)에서는 주요 보�
 
 ## <a name="cost-controller-dashboard"></a>비용 컨트롤러 대시보드
 비용 컨트롤러 대시보드에서는 사전 설정된 비용 할당을 보여 줍니다.  
-![비용 컨트롤러 대시보드](./media/dashboards/cost-controller-dashboard.png)
+![다양한 보고서를 표시하는 비용 컨트롤러 대시보드](./media/dashboards/cost-controller-dashboard.png)
 
 ### <a name="cost-over-time"></a>시간에 따른 비용
 이 위젯은 비용 추세를 파악하는 데 유용합니다. 지난 30일의 추세를 기반으로 마지막 날의 비용을 보여 줍니다.
@@ -198,7 +198,7 @@ Management 대시보드(MSP 사용자용 MSP 대시보드)에서는 주요 보�
 ## <a name="asset-controller-dashboard"></a>자산 컨트롤러 대시보드
 
 이 대시보드에서는 실행 중인 인스턴스 수, 사용 가능한 디스크와 사용 중인 디스크, 인스턴스 유형 분포, 저장소 정보 등을 보여 줍니다.  
-![자산 컨트롤러 대시보드](./media/dashboards/asset-controller-dashboard.png)
+![다양한 보고서를 표시하는 자산 컨트롤러 대시보드](./media/dashboards/asset-controller-dashboard.png)
 
 ### <a name="compute-instances"></a>계산 인스턴스
 이 위젯은 지난 30일의 사용량 추세를 기반으로 실행 중인 인스턴스 수를 보여 줍니다.
@@ -227,7 +227,7 @@ Management 대시보드(MSP 사용자용 MSP 대시보드)에서는 주요 보�
 
 ## <a name="optimizer-dashboard"></a>Optimizer(최적화 프로그램) 대시보드
 이 대시보드에서는 다운사이징 권장 사항, 사용되지 않는 리소스, 절약 가능 금액을 보여 줍니다.  
-![Optimizer(최적화 프로그램) 대시보드](./media/dashboards/optimizer-dashboard.png)
+![다양한 보고서를 표시하는 최적화 대시보드](./media/dashboards/optimizer-dashboard.png)
 
 ### <a name="ri-calculator"></a>RI 계산기
 이 위젯은 RI 구매 권장 사항을 제시하고 연간 절약 가능 금액을 보여 줍니다.
@@ -257,7 +257,7 @@ Management 대시보드(MSP 사용자용 MSP 대시보드)에서는 주요 보�
 
 ## <a name="s3-tracker-dashboard"></a>S3 Tracker 대시보드
 S3 Tracker 대시보드를 사용하면 현재 저장소 사용량 및 추세를 찾고 분석하고 표시할 수 있습니다.  
-![S3 Tracker 대시보드](./media/dashboards/s3-tracker-dashboard.png)
+![다양한 보고서를 표시하는 S3 Tracker 대시보드](./media/dashboards/s3-tracker-dashboard.png)
 
 ### <a name="all-buckets"></a>모든 버킷
 이 위젯은 모든 버킷의 전체 크기(GB 단위)와 버킷에 있는 총 개체 수를 보여 줍니다.
@@ -281,7 +281,7 @@ S3 Tracker 대시보드를 사용하면 현재 저장소 사용량 및 추세를
 
 ## <a name="cloud-comparison-dashboard"></a>클라우드 비교 대시보드
 클라우드 비교 대시보드를 사용하면 가격, CPU 종류 및 RAM 크기를 기준으로 여러 클라우드 공급자의 비용을 비교할 수 있습니다.  
-![클라우드 비교 대시보드](./media/dashboards/cloud-comparison-dashboard.png)
+![다양한 보고서를 표시하는 클라우드 비교 대시보드](./media/dashboards/cloud-comparison-dashboard.png)
 
 ### <a name="ec2-cost-in-azure-by-instance-type"></a>인스턴스 유형별 Azure의 EC2 비용
 이 위젯은 지난 30일의 주문형 요금 사용 추세를 보여 줍니다. 현재 Amazon EC2 비용과 Azure의 잠재 비용을 비교합니다.

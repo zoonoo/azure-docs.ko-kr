@@ -23,7 +23,7 @@ Azure에서는 가상 머신에 대한 호스트 인프라의 안정성, 성능 
 
 이 페이지에서는 Microsoft Azure에서 모든 종류의 유지 관리를 수행하는 방법을 설명합니다. 계획되지 않은 이벤트(중단)에 대한 자세한 내용은 [Windows](../articles/virtual-machines/windows/manage-availability.md) 또는 [Linux](../articles/virtual-machines/linux/manage-availability.md)용 가상 머신의 가용성 관리를 참조하세요.
 
-가상 머신에서 실행 중인 응용 프로그램은 [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) 또는 [Linux](../articles/virtual-machines/linux/instance-metadata-service.md)용 Azure 메타데이터 서비스를 사용하여 예정된 업데이트에 대한 정보를 수집할 수 있습니다.
+가상 머신에서 실행 중인 애플리케이션은 [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) 또는 [Linux](../articles/virtual-machines/linux/instance-metadata-service.md)용 Azure 메타데이터 서비스를 사용하여 예정된 업데이트에 대한 정보를 수집할 수 있습니다.
 
 계획된 유지 보수의 관리에 대한 "방법" 정보는 [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) 또는 [Windows](../articles/virtual-machines/windows/maintenance-notifications.md)용 "계획된 유지 관리 알림 처리"를 참조하세요.
 
@@ -33,7 +33,7 @@ Azure에서는 가상 머신에 대한 호스트 인프라의 안정성, 성능 
 
 이러한 재부팅 불가능 유지 관리 작업은 장애 도메인에 의해 적용된 장애 도메인이고 경고 상태 신호를 받는 경우 진행률이 중지됩니다.
 
-일부 응용 프로그램은 이러한 종류의 업데이트에 영향을 받을 수 있습니다. 미디어 스트리밍이나 코드 변환과 같은 실시간 이벤트 처리 또는 처리량이 높은 네트워킹 시나리오를 수행하는 응용 프로그램은 30초 일시 중지를 허용할 수 있도록 설계되지 않았을 수 있습니다. <!-- sooooo, what should they do? --> VM을 다른 호스트로 이동하는 경우 일부 중요한 워크로드는 Virtual Machine에 일시 중지를 발생시켜서 몇 분 동안 성능이 약간 저하될 수 있습니다. 
+일부 애플리케이션은 이러한 종류의 업데이트에 영향을 받을 수 있습니다. 미디어 스트리밍이나 코드 변환과 같은 실시간 이벤트 처리 또는 처리량이 높은 네트워킹 시나리오를 수행하는 애플리케이션은 30초 일시 중지를 허용할 수 있도록 설계되지 않았을 수 있습니다. <!-- sooooo, what should they do? --> VM을 다른 호스트로 이동하는 경우 일부 중요한 워크로드는 Virtual Machine에 일시 중지를 발생시켜서 몇 분 동안 성능이 약간 저하될 수 있습니다. 
 
 
 ## <a name="maintenance-requiring-a-reboot"></a>다시 부팅이 필요한 유지 관리
@@ -60,7 +60,7 @@ Azure에서는 가상 머신에 대한 호스트 인프라의 안정성, 성능 
 
 #### <a name="availability-sets-and-scale-sets"></a>가용성 집합 및 확장 집합
 
-Azure VM에서 워크로드를 배포할 때 응용 프로그램에 고가용성을 제공하기 위해 가용성 집합 내에 VM을 만들 수 있습니다. 이를 통해 가동 중단 또는 재부팅 가능한 유지 관리 이벤트 중에도 하나 이상의 가상 머신을 사용할 수 있습니다.
+Azure VM에서 워크로드를 배포할 때 애플리케이션에 고가용성을 제공하기 위해 가용성 세트 내에 VM을 만들 수 있습니다. 이를 통해 가동 중단 또는 재부팅 가능한 유지 관리 이벤트 중에도 하나 이상의 가상 머신을 사용할 수 있습니다.
 
 가용성 집합 내에서 개별 VM은 최대 20개의 UD(업데이트 도메인)에 걸쳐 분산됩니다. 예약된 유지 관리 동안에는 단일 업데이트 도메인만 지정된 시간에 영향을 받습니다. 영향을 받는 업데이트 도메인의 순서가 반드시 순차적으로 나열되지는 않습니다. 
 

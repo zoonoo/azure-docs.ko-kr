@@ -32,27 +32,27 @@ Azure AD와 Confluence SAML SSO by Microsoft를 통합하면 다음과 같은 �
 - 사용자가 자신의 Azure AD 계정으로 Confluence SAML SSO by Microsoft에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="description"></a>설명:
 
-Atlassian Confluence 서버와 함께 Microsoft Azure Active Directory 계정을 사용하여 Single Sign-On을 사용하도록 설정합니다. 이러한 방식으로 모든 조직 사용자는 Azure AD 자격 증명을 사용하여 Confluence 응용 프로그램에 로그인할 수 있습니다. 이 플러그 인은 페더레이션에 대해 SAML 2.0을 사용합니다.
+Atlassian Confluence 서버와 함께 Microsoft Azure Active Directory 계정을 사용하여 Single Sign-On을 사용하도록 설정합니다. 이러한 방식으로 모든 조직 사용자는 Azure AD 자격 증명을 사용하여 Confluence 애플리케이션에 로그인할 수 있습니다. 이 플러그 인은 페더레이션에 대해 SAML 2.0을 사용합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 Confluence SAML SSO by Microsoft와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 - Azure AD 구독
-- Confluence 서버 응용 프로그램이 Windows 64비트 서버(온-프레미스 또는 클라우드 IaaS 인프라)에 설치되어 있어야 합니다.
+- Confluence 서버 애플리케이션이 Windows 64비트 서버(온-프레미스 또는 클라우드 IaaS 인프라)에 설치되어 있어야 합니다.
 - Confluence 서버에서 HTTPS를 사용해야 합니다.
 - 지원되는 Confluence 플러그 인 버전은 아래 섹션에 설명되어 있습니다.
 - Confluence 서버가 인터넷에 연결되어 있고 인증을 위해 특히 Azure AD 로그인 페이지에 접속되고 Azure AD에서 토큰을 받을 수 있어야 합니다.
 - Confluence에 관리자 자격 증명이 설정되어 있어야 합니다.
 - Confluence에서 WebSudo를 사용하지 않아야 합니다.
-- Confluence 서버 응용 프로그램에서 생성된 테스트 사용자
+- Confluence 서버 애플리케이션에서 생성된 테스트 사용자
 
 > [!NOTE]
-> 이 자습서의 단계를 테스트하기 위해 Confluence의 프로덕션 환경을 사용하는 것은 권장되지 않습니다. 응용 프로그램 개발 또는 스테이징 환경에서 통합을 먼저 테스트 한 다음 프로덕션 환경을 사용하세요.
+> 이 자습서의 단계를 테스트하기 위해 Confluence의 프로덕션 환경을 사용하는 것은 권장되지 않습니다. 애플리케이션 개발 또는 스테이징 환경에서 통합을 먼저 테스트 한 다음 프로덕션 환경을 사용하세요.
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
@@ -95,15 +95,15 @@ Confluence SAML SSO by Microsoft가 Azure AD에 통합되도록 구성하려면 
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
 
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
-4. 검색 상자에서 **Confluence SAML SSO by Microsoft**를 입력하고, 결과 패널에서 **Confluence SAML SSO by Microsoft**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에서 **Confluence SAML SSO by Microsoft**를 입력하고, 결과 패널에서 **Confluence SAML SSO by Microsoft**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Confluence SAML SSO by Microsoft](./media/confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_addfromgallery.png)
 
@@ -123,11 +123,11 @@ Confluence SAML SSO by Microsoft에서 Azure AD Single Sign-On을 구성하고 �
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Confluence SAML SSO by Microsoft 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Confluence SAML SSO by Microsoft 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Confluence SAML SSO by Microsoft에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Confluence SAML SSO by Microsoft** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Confluence SAML SSO by Microsoft** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -258,11 +258,11 @@ Azure AD 사용자가 Confluence 온-프레미스 서버에 로그인할 수 있
 
 이 섹션에서는 Britta Simon이 Azure Single Sign-On을 사용할 수 있도록 Confluence SAML SSO by Microsoft에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음, **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 
     ![사용자 할당][201]
 
-2. 응용 프로그램 목록에서 **Confluence SAML SSO by Microsoft**를 선택합니다.
+2. 애플리케이션 목록에서 **Confluence SAML SSO by Microsoft**를 선택합니다.
 
     ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_app.png)
 
@@ -282,7 +282,7 @@ Azure AD 사용자가 Confluence 온-프레미스 서버에 로그인할 수 있
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Confluence SAML SSO by Microsoft 타일을 클릭하면 Confluence SAML SSO by Microsoft 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Confluence SAML SSO by Microsoft 타일을 클릭하면 Confluence SAML SSO by Microsoft 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스

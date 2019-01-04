@@ -1,6 +1,6 @@
 ---
-title: 새 Azure IoT Edge 디바이스 등록(CLI) | Microsoft Docs
-description: Azure CLI용 IoT 확장을 사용하여 새 IoT Edge 디바이스 등록
+title: 명령줄에서 새 디바이스 등록 - Azure IoT Edge | Microsoft Docs
+description: Azure CLI용 IoT 확장을 사용하여 새 IoT Edge 디바이스를 등록하고 연결 문자열 검색
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 737a2dfe5c3b3382db00785b3465147143b17e9e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 28f20157de603cf20cb33e9db569064f87922bf8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569253"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081836"
 ---
 # <a name="register-a-new-azure-iot-edge-device-with-azure-cli"></a>Azure CLI를 사용하여 새 Azure IoT Edge 디바이스 등록
 
@@ -41,9 +42,9 @@ Azure IoT Edge에서 IoT 디바이스를 사용하려면 먼저 IoT Hub에 등�
 이 명령에는 세 개의 매개 변수가 포함됩니다.
 * **device-id**: IoT Hub에 고유한 설명 이름을 제공합니다.
 * **hub-name**: IoT Hub의 이름을 제공합니다.
-* **edge-enabled**: 이 매개 변수는 장치를 IoT Edge에서 사용한다고 선언합니다.
+* **edge-enabled**: 이 매개 변수는 디바이스를 IoT Edge에서 사용한다고 선언합니다.
 
-   ![IoT Edge 디바이스 만들기](./media/how-to-register-device-cli/Create-edge-device.png)
+   ![az iot hub device-identity create output](./media/how-to-register-device-cli/Create-edge-device.png)
 
 ## <a name="view-all-devices"></a>모든 디바이스 보기
 
@@ -67,4 +68,4 @@ IoT Edge 디바이스로 등록된 모든 디바이스에서는 **capabilities.i
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure CLI를 사용하여 장치에 모듈을 배포](how-to-deploy-modules-cli.md)하는 방법을 알아봅니다.
+[Azure CLI를 사용하여 디바이스에 모듈을 배포](how-to-deploy-modules-cli.md)하는 방법을 알아봅니다.

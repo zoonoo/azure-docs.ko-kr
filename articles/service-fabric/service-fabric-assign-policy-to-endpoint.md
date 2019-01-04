@@ -32,7 +32,7 @@ ms.locfileid: "51567607"
 </Policies>
 ```
 
-HTTPS 엔드포인트의 경우, 클라이언트에 반환할 인증서의 이름도 표시합니다. 인증서는 **EndpointBindingPolicy**를 사용하여 참조합니다.  인증서는 응용 프로그램 매니페스트의 **인증서** 섹션에 정의되어 있습니다.
+HTTPS 엔드포인트의 경우, 클라이언트에 반환할 인증서의 이름도 표시합니다. 인증서는 **EndpointBindingPolicy**를 사용하여 참조합니다.  인증서는 애플리케이션 매니페스트의 **인증서** 섹션에 정의되어 있습니다.
 
 ```xml
 <Policies>
@@ -45,7 +45,7 @@ HTTPS 엔드포인트의 경우, 클라이언트에 반환할 인증서의 이�
 ```
 
 > [!WARNING] 
-> HTTPS를 사용하는 경우 동일한 노드에 배포된 다른 서비스 인스턴스(응용 프로그램과 독립적)에 동일한 포트 및 인증서를 사용하지 않습니다. 다른 응용 프로그램 인스턴스에서 동일한 포트를 사용하는 두 가지 다른 서비스를 업그레이드하면 업그레이드 오류가 발생합니다. 자세한 내용은 [HTTPS 엔드포인트로 여러 응용 프로그램 업그레이드](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints)를 참조하세요.
+> HTTPS를 사용하는 경우 동일한 노드에 배포된 다른 서비스 인스턴스(애플리케이션과 독립적)에 동일한 포트 및 인증서를 사용하지 않습니다. 다른 애플리케이션 인스턴스에서 동일한 포트를 사용하는 두 가지 다른 서비스를 업그레이드하면 업그레이드 오류가 발생합니다. 자세한 내용은 [HTTPS 엔드포인트로 여러 애플리케이션 업그레이드](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints)를 참조하세요.
 > 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged--> 다음 단계는 아래 문서를 참조하세요.

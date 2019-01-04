@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Golang 및 Azure Portal에서 MongoDB API 콘솔 앱 빌드'
+title: Azure Cosmos DB는 Golang 및 Azure Portal을 사용하여 MongoDB API 콘솔 앱 빌드
 description: Azure Cosmos DB에 연결 및 쿼리하는 데 사용할 수 있는 Golang 코드 샘플을 제시합니다.
 services: cosmos-db
 author: slyons
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sclyon
 ms.custom: mvc
-ms.openlocfilehash: 04149e12e2926888bab82495a0924df94d6e3450
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a05ca8602ad3b5ea3135ad2ce915bdc38359bfd7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836171"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089562"
 ---
-# <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: Golang 및 Azure Portal에서 MongoDB API 콘솔 앱 빌드
+# <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB는 Golang 및 Azure Portal을 사용하여 MongoDB API 콘솔 앱 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -31,7 +31,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이 빠른 시작에서는 [Golang](https://golang.org/)으로 작성된 기존 MongoDB 앱을 사용하고, [MongoDB API](mongodb-introduction.md)를 통해 MongoDB 클라이언트 연결을 지원하는 Azure Cosmos DB 데이터베이스에 연결하는 방법을 보여 줍니다.
 
-즉, Golang 응용 프로그램은 MongoDB API를 사용하여 데이터베이스에 연결됩니다. Azure Cosmos DB에 데이터가 저장되는 응용 프로그램에 대해 투명합니다.
+즉, Golang 애플리케이션은 MongoDB API를 사용하여 데이터베이스에 연결됩니다. Azure Cosmos DB에 데이터가 저장되는 애플리케이션에 대해 투명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -47,9 +47,9 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
-응용 프로그램 예제를 복제하고 필요한 패키지를 설치합니다.
+애플리케이션 예제를 복제하고 필요한 패키지를 설치합니다.
 
 1. GOROOT\src 폴더 안에 CosmosDBSample이라는 폴더를 만듭니다(기본적으로 C:\Go\).
 2. git bash와 같은 git 터미널 창을 사용하여 CosmosDBSample 폴더에 샘플 리포지토리를 복제하는 다음 명령을 실행합니다. 
@@ -63,7 +63,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     go get gopkg.in/mgo.v2
     ```
 
-[mgo](http://labix.org/mgo) 드라이버는 표준 Go 코드를 따르는 매우 단순한 API하에서 풍부하고 충분한 테스트를 거쳐 엄선된 기능을 구현하는 [Go 언어](http://golang.org/)용 [MongoDB](http://www.mongodb.org/) 드라이버입니다.
+[mgo](https://labix.org/mgo) 드라이버는 표준 Go 코드를 따르는 매우 단순한 API하에서 풍부하고 충분한 테스트를 거쳐 엄선된 기능을 구현하는 [Go 언어](https://golang.org/)용 [MongoDB](https://www.mongodb.com/) 드라이버입니다.
 
 <a id="connection-string"></a>
 
@@ -71,7 +71,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다.
 
-1. 왼쪽 탐색 메뉴에서 **빠른 시작**을 클릭한 후 **기타**를 클릭하여 Go 응용 프로그램에 필요한 연결 문자열 정보를 봅니다.
+1. 왼쪽 탐색 메뉴에서 **빠른 시작**을 클릭한 후 **기타**를 클릭하여 Go 애플리케이션에 필요한 연결 문자열 정보를 봅니다.
 
 2. Goglang에서 GOROOT\CosmosDBSample 디렉터리의 main.go 파일을 열고 다음 스크린샷에 표시된 것처럼 Azure Portal의 연결 문자열 정보를 사용하여 코드의 다음 줄을 업데이트합니다. 
 
@@ -95,7 +95,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ### <a name="connecting-the-go-app-to-azure-cosmos-db"></a>Go 앱을 Azure Cosmos DB에 연결
 
-Azure Cosmos DB는 SSL 사용이 가능한 MongoDB를 지원합니다. SSL 사용이 가능한 MongoDB에 연결하려면 [mgo.DialInfo](http://gopkg.in/mgo.v2#DialInfo)에서 **DialServer** 함수를 정의하고 [tls.*Dial*](http://golang.org/pkg/crypto/tls#Dial) 함수를 사용하여 연결을 수행해야 합니다.
+Azure Cosmos DB는 SSL 사용이 가능한 MongoDB를 지원합니다. SSL 사용이 가능한 MongoDB에 연결하려면 [mgo.DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo)에서 **DialServer** 함수를 정의하고 [tls.*Dial*](https://golang.org/pkg/crypto/tls#Dial) 함수를 사용하여 연결을 수행해야 합니다.
 
 다음 Golang 코드 조각은 Azure Cosmos DB MongoDB API와 Go 앱을 연결합니다. *DialInfo* 클래스는 MongoDB 클러스터와의 세션을 설정하는 옵션을 포함합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure API Management 정책 샘플 - 백 엔드 서비스에 기능 추가 | Microsoft Docs
-description: Azure API Management 정책 샘플 - 백 엔드 서비스에 기능을 추가하는 방법을 보여 줍니다. 예를 들어 일기 예보 API에서 위도 및 경도 대신 장소 이름을 허용합니다.
+description: Azure API Management 정책 샘플 - 백 엔드 서비스에 기능을 추가하는 방법을 보여줍니다. 예를 들어 일기 예보 API에서 위도 및 경도 대신 장소 이름을 허용합니다.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: a019eb4556dc7cde34d51af6858f576e8ea9abcf
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 7c9edbf4b2d231453cd336521a04ba6b7714b696
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284534"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873834"
 ---
 # <a name="add-capabilities-to-a-backend-service"></a>백 엔드 서비스에 기능 추가
 

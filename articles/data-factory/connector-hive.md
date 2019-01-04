@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 379cc5412d317680afa9b03f0eea60c7f1a3b60d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9402be4045b9b3113623cfe3e441c944f62296cc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051091"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079385"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Hive에서 데이터 복사 
 
@@ -42,24 +42,24 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성은 **Hive**로 설정해야 합니다. | 예 |
-| host | Hive 서버의 IP 주소 또는 호스트 이름으로, 호스트가 여러 개인 경우 ‘,’로 구분합니다(serviceDiscoveryMode가 사용되는 경우에만 해당).  | 예 |
-| 포트 | Hive 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. Azure HDInsights에 연결하는 경우 포트를 443으로 지정합니다. | 예 |
-| serverType | Hive 서버의 유형입니다. <br/>허용되는 값은 **HiveServer1**, **HiveServer2**, **HiveThriftServer**입니다. | 아니오 |
-| thriftTransportProtocol | Thrift 계층에서 사용할 전송 프로토콜입니다. <br/>허용되는 값은 **Binary**, **SASL**, **HTTP**입니다. | 아니오 |
-| authenticationType | Hive 서버에 액세스하는 데 사용되는 인증 방법입니다. <br/>허용되는 값은 **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService**입니다. | 예 |
-| serviceDiscoveryMode | true이면 ZooKeeper 서비스 사용을 나타내고, false이면 그렇지 않습니다.  | 아니오 |
-| zooKeeperNameSpace | ZooKeeper에서 Hive 서버 2 노드가 추가되는 네임스페이스입니다.  | 아니오 |
-| useNativeQuery | 드라이버가 기본 HiveQL 쿼리를 사용하는지, 이 쿼리를 동일한 HiveQL의 형식으로 변환하는지를 지정합니다.  | 아니오 |
-| 사용자 이름 | Hive 서버에 액세스하는 데 사용하는 사용자 이름입니다.  | 아니오 |
-| 암호 | 사용자에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니오 |
-| httpPath | Hive 서버에 해당하는 부분 URL입니다.  | 아니오 |
-| enableSsl | 서버에 대한 연결이 SSL을 사용하여 암호화되는지 여부를 지정합니다. 기본값은 False입니다.  | 아니오 |
-| trustedCertPath | SSL을 통해 연결할 때 서버를 확인하기 위한 신뢰할 수 있는 CA 인증서를 포함하는 .pem 파일의 전체 경로입니다. 이 속성은 자체 호스팅 IR에서 SSL을 사용하는 경우에만 설정할 수 있습니다. 기본값은 IR과 함께 설치된 cacerts.pem 파일입니다.  | 아니오 |
-| useSystemTrustStore | 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 기본값은 False입니다.  | 아니오 |
-| allowHostNameCNMismatch | SSL을 통해 연결할 때 CA 발급 인증서 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 False입니다.  | 아니오 |
-| allowSelfSignedServerCert | 서버의 자체 서명된 인증서를 허용할지 여부를 지정합니다. 기본값은 False입니다.  | 아니오 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니오 |
+| 형식 | type 속성을 다음으로 설정해야 합니다. **Hive** | yes |
+| host | Hive 서버의 IP 주소 또는 호스트 이름으로, 호스트가 여러 개인 경우 ‘,’로 구분합니다(serviceDiscoveryMode가 사용되는 경우에만 해당).  | yes |
+| 포트 | Hive 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. Azure HDInsights에 연결하는 경우 포트를 443으로 지정합니다. | yes |
+| serverType | Hive 서버의 유형입니다. <br/>허용되는 값은 다음과 같습니다. **HiveServer1**, **HiveServer2**, **HiveThriftServer** | 아니요 |
+| thriftTransportProtocol | Thrift 계층에서 사용할 전송 프로토콜입니다. <br/>허용되는 값은 다음과 같습니다. **Binary**, **SASL**, **HTTP** | 아니요 |
+| authenticationType | Hive 서버에 액세스하는 데 사용되는 인증 방법입니다. <br/>허용되는 값은 다음과 같습니다. **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | yes |
+| serviceDiscoveryMode | true이면 ZooKeeper 서비스 사용을 나타내고, false이면 그렇지 않습니다.  | 아니요 |
+| zooKeeperNameSpace | ZooKeeper에서 Hive 서버 2 노드가 추가되는 네임스페이스입니다.  | 아니요 |
+| useNativeQuery | 드라이버가 기본 HiveQL 쿼리를 사용하는지, 이 쿼리를 동일한 HiveQL의 형식으로 변환하는지를 지정합니다.  | 아니요 |
+| 사용자 이름 | Hive 서버에 액세스하는 데 사용하는 사용자 이름입니다.  | 아니요 |
+| 암호 | 사용자에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
+| httpPath | Hive 서버에 해당하는 부분 URL입니다.  | 아니요 |
+| enableSsl | 서버에 대한 연결이 SSL을 사용하여 암호화되는지 여부를 지정합니다. 기본값은 False입니다.  | 아니요 |
+| trustedCertPath | SSL을 통해 연결할 때 서버를 확인하기 위한 신뢰할 수 있는 CA 인증서를 포함하는 .pem 파일의 전체 경로입니다. 이 속성은 자체 호스팅 IR에서 SSL을 사용하는 경우에만 설정할 수 있습니다. 기본값은 IR과 함께 설치된 cacerts.pem 파일입니다.  | 아니요 |
+| useSystemTrustStore | 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 기본값은 False입니다.  | 아니요 |
+| allowHostNameCNMismatch | SSL을 통해 연결할 때 CA 발급 인증서 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 False입니다.  | 아니요 |
+| allowSelfSignedServerCert | 서버의 자체 서명된 인증서를 허용할지 여부를 지정합니다. 기본값은 False입니다.  | 아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제:**
 
@@ -86,7 +86,12 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Hive 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Hive에서 데이터를 복사하려면 데이터 세트의 type 속성을 **HiveObject**로 설정합니다. 이 형식의 데이터 세트에는 추가적인 형식별 속성이 없습니다.
+Hive에서 데이터를 복사하려면 데이터 세트의 type 속성을 **HiveObject**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+
+| 속성 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| 형식 | 데이터 세트의 type 속성을 **HiveObject**로 설정해야 합니다. | yes |
+| tableName | 테이블의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
 
@@ -98,7 +103,8 @@ Hive에서 데이터를 복사하려면 데이터 세트의 type 속성을 **Hiv
         "linkedServiceName": {
             "referenceName": "<Hive linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -113,8 +119,8 @@ Hive에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Hive
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성은 **HiveSource**로 설정해야 합니다. | 예 |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 예 |
+| 형식 | 복사 작업 원본의 type 속성을 **HiveSource**로 설정해야 합니다. | yes |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 

@@ -32,7 +32,7 @@ Atlassian Cloud를 Azure AD와 통합하면 다음과 같은 이점이 제공됩
 - 사용자가 Azure AD 계정으로 Atlassian Cloud에 자동으로 로그온(Single Sign-On)할 수 있도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
+Azure AD와의 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -65,11 +65,11 @@ Atlassian Cloud와 Azure AD를 통합하도록 구성하려면 다음을 수행�
 
 2. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**을 선택합니다.
 
-    ![Enterprise 응용 프로그램 창][2]
+    ![엔터프라이즈 애플리케이션 창][2]
     
-3. 응용 프로그램을 추가하려면 **새 응용 프로그램**을 선택합니다.
+3. 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
 
-    !["새 응용 프로그램" 단추][3]
+    !["새 애플리케이션" 단추][3]
 
 4. 검색 상자에 **Atlassian Cloud**를 입력하고 결과 목록에서 **Atlassian Cloud**를 선택한 후 **추가**를 선택합니다.
 
@@ -87,11 +87,11 @@ Atlassian Cloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Atlassian Cloud 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Atlassian Cloud 애플리케이션에서 Single Sign-On을 구성합니다.
 
 Atlassian Cloud에서 Azure AD Single Sign-on을 구성하려면 다음을 수행합니다.
 
-1. Azure Portal의 **Atlassian Cloud** 응용 프로그램 통합 창에서 **Single Sign-On**을 선택합니다.
+1. Azure Portal의 **Atlassian Cloud** 애플리케이션 통합 창에서 **Single Sign-On**을 선택합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -114,7 +114,7 @@ Atlassian Cloud에서 Azure AD Single Sign-on을 구성하려면 다음을 수�
     > [!NOTE]
     > 위의 값은 실제가 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값은 이 자습서의 뒷부분에 설명된 Atlassian Cloud SAML 구성 화면에서 얻습니다.
 
-4. SP 시작 모드로 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 선택한 후 **로그온 URL** 상자에 `https://<instancename>.atlassian.net` 패턴을 사용하여 URL을 입력합니다.
+4. SP 시작 모드로 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 선택한 후 **로그온 URL** 상자에 `https://<instancename>.atlassian.net` 패턴을 사용하여 URL을 입력합니다.
 
     ![Atlassian Cloud 도메인 및 URL Single Sign-On 정보](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url1.png)
 
@@ -125,7 +125,7 @@ Atlassian Cloud에서 Azure AD Single Sign-on을 구성하려면 다음을 수�
 
     ![인증서 다운로드 링크](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_certificate.png)
 
-6. Atlassian Cloud 응용 프로그램은 특정 형식의 SAML 어설션을 찾아야 하며, 이를 위해 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 
+6. Atlassian Cloud 애플리케이션은 특정 형식의 SAML 어설션을 찾아야 하며, 이를 위해 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 
 
     기본적으로 **사용자 ID** 값은 user.userprincipalname에 매핑됩니다. 이 값을 user.mail에 매핑되도록 변경합니다. 조직의 설정에 따라 적절한 다른 값을 선택할 수도 있지만, 대부분의 경우 메일을 사용하면 됩니다.
 
@@ -141,7 +141,7 @@ Atlassian Cloud에서 Azure AD Single Sign-on을 구성하려면 다음을 수�
 
     ![Atlassian Cloud 구성](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_configure.png)
 
-10. 응용 프로그램에 SSO를 구성하려면 관리자 자격 증명을 사용하여 Atlassian Portal에 로그인합니다.
+10. 애플리케이션에 SSO를 구성하려면 관리자 자격 증명을 사용하여 Atlassian Portal에 로그인합니다.
 
 11. Single Sign-On을 구성하기 전에 도메인을 확인해야 합니다. 자세한 내용은 [Atlassian 도메인 확인](https://confluence.atlassian.com/cloud/domain-verification-873871234.html) 문서를 참조하세요.
 
@@ -233,13 +233,13 @@ Azure AD 사용자가 Atlassian Cloud에 로그인하도록 하려면 Atlassian 
 
 ![사용자 역할 할당][200]
 
-1. Azure Portal에서 **응용 프로그램** 보기를 열고 디렉터리 보기로 이동한 후 **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 **애플리케이션** 보기를 열고 디렉터리 보기로 이동한 후 **엔터프라이즈 애플리케이션** > **모든 애플리케이션**을 선택합니다.
 
     ![사용자 할당][201]
 
 2. **응용 프로그램** 목록에서 **Atlassian Cloud**를 선택합니다.
 
-    ![응용 프로그램 목록의 Atlassian Cloud 링크](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_app.png)
+    ![애플리케이션 목록의 Atlassian Cloud 링크](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_app.png)
 
 3. 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
 
@@ -259,7 +259,7 @@ Azure AD 사용자가 Atlassian Cloud에 로그인하도록 하려면 Atlassian 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-[액세스 패널]에서 **Atlassian Cloud** 타일을 선택하면 Atlassian Cloud 응용 프로그램에 자동으로 로그인됩니다.
+[액세스 패널]에서 **Atlassian Cloud** 타일을 선택하면 Atlassian Cloud 애플리케이션에 자동으로 로그인됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스

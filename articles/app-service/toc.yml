@@ -151,7 +151,7 @@ items:
       href: overview-managed-identity.md
     - name: Key Vault에서 비밀 참조
       href: app-service-key-vault-references.md
-    - name: 응용 프로그램 코드에서 SSL 인증서 사용
+    - name: 애플리케이션 코드에서 SSL 인증서 사용
       href: app-service-web-ssl-cert-load.md
     - name: TLS 상호 인증 구성
       href: app-service-web-configure-tls-mutual-auth.md
@@ -241,7 +241,7 @@ items:
       href: troubleshoot-domain-ssl-certificates.md
     - name: FAQ
       items:
-      - name: 가용성, 성능 및 응용 프로그램 FAQ
+      - name: 가용성, 성능 및 애플리케이션 FAQ
         href: faq-availability-performance-application-issues.md
       - name: 배포 FAQ
         href: faq-deployment.md

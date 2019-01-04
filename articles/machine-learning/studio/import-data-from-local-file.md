@@ -1,13 +1,12 @@
 ---
-title: Azure Machine Learning Studio로 파일 데이터 가져오기 | Microsoft Docs
+title: 파일에서 데이터 가져오기 - Azure Machine Learning Studio | Microsoft Docs
 description: 하드 드라이브에서 Azure Machine Learning Studio로 학습 데이터 파일을 업로드 하는 방법에 대해 알아봅니다. 이렇게 하면 작업 영역에 데이터 세트 모듈이 만들어집니다.
 keywords: 데이터 가져오기, 데이터 형식, 데이터 유형, 데이터 원본, 학습 데이터
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: c0dd9e90-23c4-4f64-8b8f-489ad79f047b
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 057142911d8179fac0ad3e47563a4f49a9ae8d60
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 096d2d4a8c1ee1727b124a5416ec77e8281c97d7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263862"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254863"
 ---
-# <a name="import-training-data-from-a-file-on-your-hard-drive-into-machine-learning-studio"></a>하드 드라이브의 파일에서 Machine Learning Studio로 학습 데이터 가져오기
+# <a name="import-training-data-from-a-file-on-your-hard-drive-into-azure-machine-learning-studio"></a>하드 드라이브의 파일에서 Azure Machine Learning Studio로 학습 데이터 가져오기
 
 Azure Machine Learning Studio에서 학습 데이터로 사용할 하드 드라이브의 데이터 파일을 업로드하는 방법에 대해 알아봅니다. 데이터 파일을 가져오면 작업 영역에서 사용할 수 있도록 데이터 세트 모듈을 준비할 수 있습니다.
 
@@ -32,10 +31,10 @@ Azure Machine Learning Studio에서 학습 데이터로 사용할 하드 드라�
 로컬 하드 드라이브에서 데이터를 가져오려면 다음을 수행합니다.
 
 1. Machine Learning Studio 창 하단에 있는 **+새로 만들기** 를 클릭합니다.
-2. **데이터 집합** 및 **로컬 파일에서**를 선택합니다.
-3. **새 데이터 집합 업로드** 대화 상자에서 업로드할 파일을 찾아봅니다.
+2. **데이터 세트** 및 **로컬 파일에서**를 선택합니다.
+3. **새 데이터 세트 업로드** 대화 상자에서 업로드할 파일을 찾아봅니다.
 4. 이름을 입력하고, 데이터 형식을 식별하며, 선택적으로 설명을 입력합니다. 설명을 사용하면 나중에 데이터를 사용할 때 기억하려는 데이터에 대한 특성을 기록할 수 있으므로 좋습니다.
-5. **기존 데이터 집합의 새로운 버전** 확인란을 사용하면 새 데이터로 기존 데이터 집합을 업데이트할 수 있습니다. 이 확인란을 클릭한 다음, 기존 데이터 세트의 이름을 입력합니다.
+5. **기존 데이터 세트의 새로운 버전** 확인란을 사용하면 새 데이터로 기존 데이터 세트를 업데이트할 수 있습니다. 이 확인란을 클릭한 다음, 기존 데이터 세트의 이름을 입력합니다.
 
 ![새 데이터 세트 업로드](./media/import-data-from-local-file/upload-dataset.png)
 

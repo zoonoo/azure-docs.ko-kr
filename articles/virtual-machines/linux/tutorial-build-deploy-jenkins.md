@@ -55,7 +55,7 @@ Linux VM(가상 머신)을 포함하는 [배포 그룹](https://docs.microsoft.c
 ## <a name="get-the-sample-app"></a>샘플 앱 가져오기
 
 Git 리포지토리에 저장된 앱을 배포해야 합니다.
-이 자습서에서는 [GitHub에서 제공되는 이 샘플 앱](https://github.com/azooinmyluggage/fabrikam-node)을 사용하는 것이 좋습니다. 이 자습서에는 Node.js와 응용 프로그램을 설치하는 데 사용되는 샘플 스크립트가 포함되어 있습니다. 자신의 리포지토리로 작업하려면 유사한 샘플을 구성해야 합니다.
+이 자습서에서는 [GitHub에서 제공되는 이 샘플 앱](https://github.com/azooinmyluggage/fabrikam-node)을 사용하는 것이 좋습니다. 이 자습서에는 Node.js와 애플리케이션을 설치하는 데 사용되는 샘플 스크립트가 포함되어 있습니다. 자신의 리포지토리로 작업하려면 유사한 샘플을 구성해야 합니다.
 
 이 앱의 포크를 만든 다음, 이 자습서의 이후 단계에서 사용할 수 있도록 해당 위치(URL)를 적어 둡니다. 자세한 내용은 [리포지토리 포크](https://help.github.com/articles/fork-a-repo/)를 참조하세요.    
 

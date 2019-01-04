@@ -1,20 +1,22 @@
 ---
-title: Windows 및 Linux IaaS VM용 Azure Disk Encryption | Microsoft Docs
+title: 부록 - IaaS VM용 Azure Disk Encryption | Microsoft Docs
 description: 이 문서에서는 Windows 및 Linux IaaS VM용 Microsoft Azure Disk Encryption에 대한 부록입니다.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 11/12/2018
-ms.openlocfilehash: e5c7d51428c66bf9e6c245f28fb13b8d4a316d18
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.date: 12/12/2018
+ms.custom: seodec18
+ms.openlocfilehash: f10a3c02e98db5777b5231aec04951a7ed1ad9ad
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614677"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310676"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Azure Disk Encryption에 대한 부록 
+
 이 문서는 [IaaS VM용 Azure Disk Encryption](azure-security-disk-encryption-overview.md)에 대한 부록입니다. 컨텍스트를 이해하려면 먼저 IaaS VM용 Azure Disk Encryption 문서를 읽어야 합니다. 이 문서에서는 미리 암호화된 VHD 및 기타 작업을 준비하는 방법을 설명합니다.
 
 ## <a name="connect-to-your-subscription"></a>구독에 연결
@@ -57,7 +59,7 @@ ms.locfileid: "51614677"
 
 ### <a name="bkmk_ConnectCLI"></a> Azure CLI를 통해 구독에 연결
 
-1. [az login](/cli/azure/authenticate-azure-cli#interactive-log-in)을 사용하여 Azure에 로그인합니다. 
+1. [az login](/cli/azure/authenticate-azure-cli#sign-in-interactively)을 사용하여 Azure에 로그인합니다. 
      
      ```azurecli
      az login
@@ -112,8 +114,8 @@ Azure Disk Encryption에 대한 필수 구성 요소에 이미 익숙한 경우 
 |$keyVaultName|암호화 키가 배치된 KeyVault의 이름입니다. 이 이름을 가진 새 자격 증명 모음이 없는 경우 생성됩니다.| True|
 |$location|KeyVault의 위치입니다. 암호화할 KeyVault 및 VM이 동일한 위치에 있는지 확인합니다. `Get-AzureRMLocation`을 사용하여 위치 목록을 가져옵니다.|True|
 |$subscriptionId|사용할 Azure 구독의 식별자입니다.  구독 ID는 `Get-AzureRMSubscription`을 사용하여 가져올 수 있습니다.|True|
-|$aadAppName|KeyVault에 비밀을 쓰는 데 사용할 Azure AD 응용 프로그램의 이름입니다. 이 이름을 가진 새 응용 프로그램이 없는 경우 생성됩니다. 이 앱이 이미 있는 경우 스크립트에 aadClientSecret 매개 변수를 전달합니다.|False|
-|$aadClientSecret|이전에 만든 Azure AD 응용 프로그램의 클라이언트 비밀입니다.|False|
+|$aadAppName|KeyVault에 비밀을 쓰는 데 사용할 Azure AD 애플리케이션의 이름입니다. 이 이름을 가진 새 응용 프로그램이 없는 경우 생성됩니다. 이 앱이 이미 있는 경우 스크립트에 aadClientSecret 매개 변수를 전달합니다.|False|
+|$aadClientSecret|이전에 만든 Azure AD 애플리케이션의 클라이언트 비밀입니다.|False|
 |$keyEncryptionKeyName|KeyVault의 선택적 키 암호화 키의 이름입니다. 이 이름을 가진 새 키가 없는 경우 생성됩니다.|False|
 
 
@@ -129,6 +131,20 @@ Azure Disk Encryption에 대한 필수 구성 요소에 이미 익숙한 경우 
 - [기존 또는 실행 중인 IaaS Linux VM에서 디스크 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
  -  [실행 중인 Linux VM에서 디스크 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - 암호화 사용 안 함은 Linux VM용 데이터 볼륨에서만 허용됩니다.  
+
+### <a name="encrypt-or-decrypt-vm-scale-sets"></a>VM 확장 집합 암호화 또는 암호 해독
+
+- [실행 중인 Linux 가상 머신 확장 집합에서 디스크 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
+
+- [실행 중인 Windows 가상 머신 확장 집합에서 디스크 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
+
+ - [jumpbox를 통해 Linux VM의 VM 확장 집합 배포 및 Linux VMSS에서 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+
+ - [jumpbox를 통해 Windows VM의 VM 확장 집합 배포 및 Windows VMSS에서 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+
+- [실행 중인 Linux 가상 머신 확장 집합에서 디스크 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+
+- [실행 중인 Windows 가상 머신 확장 집합에서 디스크 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
 ### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Azure AD 앱으로 VM을 암호화 또는 암호 해독(이전 릴리스) 
  
@@ -160,17 +176,7 @@ Azure Disk Encryption에 대한 필수 구성 요소에 이미 익숙한 경우 
 
 - [Azure AD 클라이언트 인증서 지문을 사용하여 실행 중인 Windows VM에서 디스크 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-aad-client-cert)
     
-- [실행 중인 Linux 가상 머신 확장 집합에서 디스크 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
 
-- [실행 중인 Windows 가상 머신 확장 집합에서 디스크 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
-
- - [jumpbox를 통해 Linux VM의 VM 확장 집합 배포 및 Linux VMSS에서 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
-
- - [jumpbox를 통해 Windows VM의 VM 확장 집합 배포 및 Windows VMSS에서 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
-
-- [실행 중인 Linux 가상 머신 확장 집합에서 디스크 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
-
-- [실행 중인 Windows 가상 머신 확장 집합에서 디스크 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
 ## <a name="bkmk_preWin"></a> 미리 암호화된 Windows VHD 준비
 Azure IaaS에서 암호화된 VHD로 배포용으로 사전에 암호화된 Windows VHD를 준비하려면 이어지는 섹션이 필요합니다. 이 정보를 사용하여 Azure Site Recovery 또는 Azure에서 최신 Windows VM(VHD)을 준비 및 부팅합니다. VHD를 준비하고 업로드하는 방법에 대한 자세한 내용은 [일반화된 VHD를 업로드하고 사용하여 Azure에서 새 VM 만들기](../virtual-machines/windows/upload-generalized-managed.md)를 참조하세요.
@@ -189,7 +195,7 @@ Windows Server 2008 R2에서는 다음 명령을 사용합니다.
 
     ServerManagerCmd -install BitLockers
 ### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>`bdehdcfg`를 사용하여 BitLocker에 대한 OS 볼륨 준비
-OS 파티션을 압축하고 BitLocker용 머신을 준비하려면 필요한 경우 [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment#using-bitlocker-to-encrypt-volumescommand)를 실행합니다.
+OS 파티션을 압축하고 BitLocker용 머신을 준비하려면 필요한 경우 [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment)를 실행합니다.
 
     bdehdcfg -target c: shrink -quiet 
 
@@ -295,23 +301,23 @@ OS 암호화 진행 상태를 모니터링하는 방법은 세 가지가 있습�
 
 1. 디스크를 분할할 때 **암호화된 볼륨 구성**을 선택합니다.
 
- ![Ubuntu 16.04 설치](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
+ ![Ubuntu 16.04 설치 - 암호화된 볼륨 구성](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
 
 2. 암호화되지 않아야 하는 별도의 부트 드라이브를 만듭니다. 루트 드라이브를 암호화합니다.
 
- ![Ubuntu 16.04 설치](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
+ ![Ubuntu 16.04 설치 - 암호화할 디바이스 선택](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
 
 3. 암호를 제공합니다. 키 자격 증명 모음에 업로드한 암호입니다.
 
- ![Ubuntu 16.04 설치](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
+ ![Ubuntu 16.04 설치 - 암호 제공](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
 
 4. 분할을 완료합니다.
 
- ![Ubuntu 16.04 설치](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
+ ![Ubuntu 16.04 설치 - 분할 완료](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
 
 5. VM을 부팅하고 암호를 묻는 메시지가 표시되면 3단계에서 제공한 암호를 사용합니다.
 
- ![Ubuntu 16.04 설치](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
+ ![Ubuntu 16.04 설치 - 부팅 시 암호 제공](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
 6. [이 지침](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/)을 사용하여 Azure에 업로드하기 위한 VM을 준비합니다. 마지막 단계(VM 프로비전 해제)를 아직 실행하지 마세요.
 
@@ -377,7 +383,7 @@ OS 암호화 진행 상태를 모니터링하는 방법은 세 가지가 있습�
 
 7. 이제 VM을 프로비전 해제할 수 있습니다.
 
- ![Ubuntu 16.04 설치](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
+ ![Ubuntu 16.04 설치 - update-initramfs](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
 
 8. 다음 단계를 계속하여 Azure에 VHD를 업로드합니다.
 
@@ -385,11 +391,11 @@ OS 암호화 진행 상태를 모니터링하는 방법은 세 가지가 있습�
 배포 설치 중에 암호화를 구성하려면 다음 단계를 수행합니다.
 1. 디스크를 파티션하는 경우 **볼륨 그룹 암호화**를 선택하고 암호를 입력합니다. 키 자격 증명 모음에 업로드할 암호입니다.
 
- ![openSUSE 13.2 설치](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
+ ![openSUSE 13.2 설치 - 볼륨 그룹 암호화](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
 
 2. 암호를 사용하여 VM을 부팅합니다.
 
- ![openSUSE 13.2 설치](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
+ ![openSUSE 13.2 설치 - 부팅 시 암호 제공](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
 3. [Azure용 SLES 또는 openSUSE 가상 머신 준비](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131)의 지침에 따라 Azure에 업로드할 VM을 준비합니다. 마지막 단계(VM 프로비전 해제)를 아직 실행하지 마세요.
 
@@ -453,19 +459,19 @@ to:
 배포 설치 중에 암호화를 구성하려면 다음 단계를 수행합니다.
 1. 디스크를 분할할 때 **내 데이터 암호화**를 선택합니다.
 
- ![CentOS 7 설치](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
+ ![CentOS 7 설치 - 설치 대상](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
 
 2. 루트 파티션에 대해 **암호화**가 선택되어 있는지 확인합니다.
 
- ![CentOS 7 설치](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
+ ![CentOS 7 설치 - 루트 파티션에 대한 암호화 선택](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
 
 3. 암호를 제공합니다. 키 자격 증명 모음에 업로드할 암호입니다.
 
- ![CentOS 7 설치](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
+ ![CentOS 7 설치 - 암호 제공](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
 
 4. VM을 부팅하고 암호를 묻는 메시지가 표시되면 3단계에서 제공한 암호를 사용합니다.
 
- ![CentOS 7 설치](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
+ ![CentOS 7 설치 - 부팅 시 암호 입력](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
 5. [Azure용 CentOS 기반 가상 머신 준비](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70)의 "CentOS 7.0+" 지침에 따라 Azure에 업로드할 VM을 준비합니다. 마지막 단계(VM 프로비전 해제)를 아직 실행하지 마세요.
 
@@ -526,7 +532,7 @@ to
     ```    
 5. "/usr/sbin/dracut -f -v"를 실행하여 initrd를 업데이트합니다.
 
-![CentOS 7 설치](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)
+![CentOS 7 설치 - /usr/sbin/dracut -f -v 실행](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)
 
 ## <a name="bkmk_UploadVHD"></a> Azure Storage 계정에 암호화된 VHD 업로드
 BitLocker 암호화 또는 DM-Crypt 암호화를 사용하도록 설정한 후에는 로컬 암호화된 VHD를 저장소 계정에 업로드해야 합니다.

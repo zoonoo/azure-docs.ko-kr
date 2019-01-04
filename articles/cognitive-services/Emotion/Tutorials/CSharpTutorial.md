@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 01/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: f3a84a68718fba29e2a4b2fae057e68976119c95
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: da605ec4013fb11606f99f3d9a2dcfcfcab00d3b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237027"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163330"
 ---
 # <a name="tutorial-recognize-emotions-on-a-face-in-an-image"></a>자습서: 이미지에 있는 얼굴에서 감정을 인식합니다.
 
 > [!IMPORTANT]
 > Emotion API는 2019년 2월 15일부터 더 이상 사용되지 않습니다. 이제 감정 인식 기능은 [Face API](https://docs.microsoft.com/azure/cognitive-services/face/)의 일부로 일반 공급됩니다. 
 
-이미지의 얼굴에 의해 표현된 감정을 인식하려면 Emotion API를 사용하는 기본 Windows 응용 프로그램을 탐색합니다. 아래 예제에서는 이미지 URL 또는 로컬로 저장된 파일을 제출할 수 있습니다. .NET Framework의 일부인 WPF(Windows Presentation Foundation) 및 Emotion API를 사용하여 고유한 Windows용 앱을 빌드하기 위한 템플릿으로 이 오픈 소스 예제를 사용할 수 있습니다.
+이미지의 얼굴에 의해 표현된 감정을 인식하려면 Emotion API를 사용하는 기본 Windows 애플리케이션을 탐색합니다. 아래 예제에서는 이미지 URL 또는 로컬로 저장된 파일을 제출할 수 있습니다. .NET Framework의 일부인 WPF(Windows Presentation Foundation) 및 Emotion API를 사용하여 고유한 Windows용 앱을 빌드하기 위한 템플릿으로 이 오픈 소스 예제를 사용할 수 있습니다.
 
 ## <a name="Prerequisites">필수 구성 요소</a>
 #### <a name="platform-requirements"></a>플랫폼 요구 사항  
@@ -33,7 +33,7 @@ ms.locfileid: "48237027"
 예제를 만들기 전에 Microsoft Cognitive Services의 일부인 Emotion API를 구독해야 합니다. [구독](https://azure.microsoft.com/try/cognitive-services/)을 참조하세요. 이 자습서에서는 기본 키와 및 보조 키를 둘 다 사용할 수 있습니다. API 키 비밀 및 보안 유지를 위해 모범 사례를 수행해야 합니다.  
 
 #### <a name="get-the-client-library-and-example"></a>클라이언트 라이브러리 및 예제 가져오기  
-[SDK](https://www.github.com/microsoft/cognitive-emotion-windows)를 통해 Emotion API 클라이언트 라이브러리를 다운로드할 수 있습니다. 다운로드한 zip 파일은 사용자가 선택한 폴더에 추출돼야 하며, 많은 사용자가 Visual Studio 2015 폴더를 선택합니다.
+[SDK](https://www.github.com/microsoft/cognitive-emotion-windows)를 통해 Emotion API 클라이언트 라이브러리를 다운로드할 수 있습니다. 다운로드한 zip 파일은 사용자가 선택한 폴더에 추출되어야 하며, 많은 사용자가 Visual Studio 2015 폴더를 선택합니다.
 ## <a name="Step1">1단계: 예제 열기</a>
 1.  Microsoft Visual Studio 2015를 시작하여 **파일**을 클릭하고 **열기**를 선택한 다음, **프로젝트/솔루션**을 선택합니다.
 2.  다운로드한 Emotion API 파일을 저장한 폴더를 찾습니다. **Emotion**, **Windows**, **샘플- WPF** 폴더를 차례로 클릭합니다.
@@ -57,10 +57,10 @@ ms.locfileid: "48237027"
   ![Emotion 기능 인터페이스](../Images/EmotionKey.png)
 
 3.  "**시나리오 선택**" 아래에서 "**스트림을 사용하여 감정 감지**" 또는 "**URL을 사용하여 감정 감지**"의 두 가지 시나리오 중 하나를 사용하려면 클릭한 다음, 화면의 지침을 따릅니다. Microsoft는 업로드되는 이미지를 수신하며, 해당 이미지를 사용하여 Emotion API 및 관련 서비스를 개선할 수 있습니다. 이미지를 제출하면 [개발자 준수 사항](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)을 따랐음을 확인하는 것입니다.
-4.  이 예제 응용 프로그램에서 사용할 예제 이미지가 있습니다. **데이터 폴더** 아래 [Face API Github 리포지토리](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data)에서 이러한 이미지를 찾을 수 있습니다. 이러한 이미지의 사용은 이 예제를 테스트하기 위해 사용하는 것은 문제 없지만 다시 게시하는 것은 안 된다는 공정한 사용 계약에 따라 라이선스됐습니다.
+4.  이 예제 애플리케이션에서 사용할 예제 이미지가 있습니다. **데이터 폴더** 아래 [Face API GitHub 리포지토리](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data)에서 이러한 이미지를 찾을 수 있습니다. 이러한 이미지의 사용은 이 예제를 테스트하기 위해 사용하는 것은 문제 없지만 다시 게시하는 것은 안 된다는 공정한 사용 계약에 따라 라이선스됐습니다.
 
 ## <a name="Review">검토 및 학습</a>
-이제 실행 중인 응용 프로그램이 있으므로 이 예제 앱이 Microsoft Cognitive Services와 어떻게 통합되는지를 살펴보겠습니다. 이렇게 하면 계속해서 이 앱에 빌드하거나 Microsoft Emotion API를 사용하여 고유한 앱을 개발하는 작업이 더 쉬워집니다.
+이제 실행 중인 애플리케이션이 있으므로 이 예제 앱이 Microsoft Cognitive Services와 어떻게 통합되는지를 살펴보겠습니다. 이렇게 하면 계속해서 이 앱에 빌드하거나 Microsoft Emotion API를 사용하여 고유한 앱을 개발하는 작업이 더 쉬워집니다.
 
 이 예제 앱은 Microsoft Emotion API용 씬 C# 클라이언트 래퍼인 Emotion API 클라이언트 라이브러리를 사용합니다. 위에서 설명한 대로 예제 앱을 빌드한 경우 NuGet 패키지에서 클라이언트 라이브러리를 가져왔습니다. **Emotion**, **Windows**, **클라이언트 라이브러리** 아래의 “[클라이언트 라이브러리](https://github.com/Microsoft/Cognitive-Emotion-Windows/tree/master/ClientLibrary)” 폴더에서, 위의 [필수 조건](#Prerequisites)에 언급된 다운로드된 파일 리포지토리의 일부인 클라이언트 라이브러리 소스 코드를 검토할 수 있습니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure 가상 머신 확장 집합에 응용 프로그램 배포 | Microsoft Docs
-description: Linux 및 Windows 가상 머신 인스턴스의 확장 집합에 응용 프로그램을 배포하는 방법을 알아봅니다.
+title: Azure 가상 머신 확장 집합에 애플리케이션 배포 | Microsoft Docs
+description: Linux 및 Windows 가상 머신 인스턴스의 확장 집합에 애플리케이션을 배포하는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: zr-msft
@@ -22,14 +22,14 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/19/2018
 ms.locfileid: "49471206"
 ---
-# <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 응용 프로그램 배포
-확장 집합의 VM(가상 머신) 인스턴스에서 응용 프로그램을 실행하려면 먼저 응용 프로그램 구성 요소 및 필요한 파일을 설치해야 합니다. 이 문서에서는 확장 집합의 인스턴스에 대한 사용자 지정 VM 이미지를 빌드하거나 기존 VM 인스턴스에 설치 스크립트를 자동으로 실행하는 방법을 소개합니다. 또한 확장 집합 전체에서 응용 프로그램 또는 OS 업데이트를 관리하는 방법도 알아봅니다.
+# <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>가상 머신 확장 세트에 애플리케이션 배포
+확장 집합의 VM(가상 머신) 인스턴스에서 애플리케이션을 실행하려면 먼저 애플리케이션 구성 요소 및 필요한 파일을 설치해야 합니다. 이 문서에서는 확장 집합의 인스턴스에 대한 사용자 지정 VM 이미지를 빌드하거나 기존 VM 인스턴스에 설치 스크립트를 자동으로 실행하는 방법을 소개합니다. 또한 확장 집합 전체에서 애플리케이션 또는 OS 업데이트를 관리하는 방법도 알아봅니다.
 
 
 ## <a name="build-a-custom-vm-image"></a>사용자 지정 VM 이미지 빌드
 Azure 플랫폼 이미지 중 하나를 사용하여 확장 집합에서 인스턴스를 만드는 경우 소프트웨어가 추가로 설치되거나 구성되지 않습니다. 그러나 이러한 구성 요소의 설치를 자동화할 수는 있지만 VM 인스턴스를 확장 집합에 프로비전하는 데 걸리는 시간이 늘어납니다. VM 인스턴스에 구성 변경을 많이 적용하는 경우 이러한 구성 스크립트 및 작업에는 관리 오버헤드가 있습니다.
 
-구성 관리 및 VM 프로비전 시간을 줄이기 위해 인스턴스가 확장 집합에 프로비전되는 즉시 응용 프로그램을 실행할 준비가 된 사용자 지정 VM 이미지를 만들 수 있습니다. 확장 집합에서 사용자 지정 VM 이미지를 만들고 사용하는 방법에 대한 자세한 내용은 다음 자습서를 참조하세요.
+구성 관리 및 VM 프로비전 시간을 줄이기 위해 인스턴스가 확장 집합에 프로비전되는 즉시 애플리케이션을 실행할 준비가 된 사용자 지정 VM 이미지를 만들 수 있습니다. 확장 집합에서 사용자 지정 VM 이미지를 만들고 사용하는 방법에 대한 자세한 내용은 다음 자습서를 참조하세요.
 
 - [Azure CLI](tutorial-use-custom-image-cli.md)
 - [Azure PowerShell](tutorial-use-custom-image-powershell.md)
@@ -87,7 +87,7 @@ Update-AzureRmVmss `
     -VirtualMachineScaleSet $vmss
 ```
 
-확장 집합에 대한 업그레이드 정책이 *수동*이면 [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance)를 사용하여 VM 인스턴스를 업데이트합니다. 이 cmdlet은 업데이트된 확장 집합 구성을 VM 인스턴스에 적용하고 응용 프로그램을 설치합니다.
+확장 집합에 대한 업그레이드 정책이 *수동*이면 [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance)를 사용하여 VM 인스턴스를 업데이트합니다. 이 cmdlet은 업데이트된 확장 집합 구성을 VM 인스턴스에 적용하고 애플리케이션을 설치합니다.
 
 
 ## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>cloud-init를 사용하여 Linux VM에 앱 설치
@@ -111,11 +111,11 @@ az vmss create \
 ```
 
 
-### <a name="install-applications-with-os-updates"></a>OS 업데이트를 사용하여 응용 프로그램 설치
-새 OS 릴리스를 사용할 수 있는 경우 새 사용자 지정 이미지를 사용하거나 빌드하고 확장 집합에 [OS 업그레이드를 배포](virtual-machine-scale-sets-upgrade-scale-set.md)할 수 있습니다. 각 VM 인스턴스는 지정한 최신 이미지로 업그레이드됩니다. 미리 설치된 응용 프로그램이 있는 사용자 지정 이미지, 사용자 지정 스크립트 확장 또는 PowerShell DSC를 사용하여 업그레이드를 수행할 때 응용 프로그램을 자동으로 사용할 수 있습니다. 버전 호환성 문제가 없는지 확인하기 위해 이 프로세스를 수행할 때 응용 프로그램 유지 관리를 계획해야 합니다.
+### <a name="install-applications-with-os-updates"></a>OS 업데이트를 사용하여 애플리케이션 설치
+새 OS 릴리스를 사용할 수 있는 경우 새 사용자 지정 이미지를 사용하거나 빌드하고 확장 집합에 [OS 업그레이드를 배포](virtual-machine-scale-sets-upgrade-scale-set.md)할 수 있습니다. 각 VM 인스턴스는 지정한 최신 이미지로 업그레이드됩니다. 미리 설치된 애플리케이션이 있는 사용자 지정 이미지, 사용자 지정 스크립트 확장 또는 PowerShell DSC를 사용하여 업그레이드를 수행할 때 애플리케이션을 자동으로 사용할 수 있습니다. 버전 호환성 문제가 없는지 확인하기 위해 이 프로세스를 수행할 때 애플리케이션 유지 관리를 계획해야 합니다.
 
-미리 설치된 응용 프로그램이 있는 사용자 지정 VM 이미지를 사용하는 경우, 응용 프로그램 업데이트를 배포 파이프라인과 통합하여 새 이미지를 빌드하고 확장 집합 전체에 OS 업그레이드를 배포할 수 있습니다. 이 방법을 사용하면 파이프라인에서 최신 응용 프로그램 빌드를 선택하고, VM 이미지를 만들고 유효성을 검사한 다음, 확장 집합의 VM 인스턴스를 업그레이드할 수 있습니다. 사용자 지정 VM 이미지에서 응용 프로그램 업데이트를 빌드하고 배포하는 배포 파이프라인을 실행하려면 [Packer 이미지를 만들어 Azure DevOps Services를 사용하여 배포하거나](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset), [Spinnaker](https://www.spinnaker.io/) 또는 [Jenkins](https://jenkins.io/)와 같은 다른 플랫폼을 사용할 수 있습니다.
+미리 설치된 애플리케이션이 있는 사용자 지정 VM 이미지를 사용하는 경우, 애플리케이션 업데이트를 배포 파이프라인과 통합하여 새 이미지를 빌드하고 확장 집합 전체에 OS 업그레이드를 배포할 수 있습니다. 이 방법을 사용하면 파이프라인에서 최신 애플리케이션 빌드를 선택하고, VM 이미지를 만들고 유효성을 검사한 다음, 확장 집합의 VM 인스턴스를 업그레이드할 수 있습니다. 사용자 지정 VM 이미지에서 애플리케이션 업데이트를 빌드하고 배포하는 배포 파이프라인을 실행하려면 [Packer 이미지를 만들어 Azure DevOps Services를 사용하여 배포하거나](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset), [Spinnaker](https://www.spinnaker.io/) 또는 [Jenkins](https://jenkins.io/)와 같은 다른 플랫폼을 사용할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-확장 집합에 응용 프로그램을 빌드하고 배포할 때 [확장 집합 디자인 개요](virtual-machine-scale-sets-design-overview.md)를 검토할 수 있습니다. 확장 집합을 관리하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 확장 집합 관리](virtual-machine-scale-sets-windows-manage.md)를 참조하세요.
+확장 집합에 애플리케이션을 빌드하고 배포할 때 [확장 집합 디자인 개요](virtual-machine-scale-sets-design-overview.md)를 검토할 수 있습니다. 확장 집합을 관리하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 확장 집합 관리](virtual-machine-scale-sets-windows-manage.md)를 참조하세요.

@@ -1,5 +1,5 @@
 ---
-title: 게시된 응용 프로그램 설치 - Datameer - Azure HDInsight
+title: 게시된 애플리케이션 설치 - Datameer - Azure HDInsight
 description: Datameer 타사 Apache Hadoop 애플리케이션을 설치하고 사용합니다.
 services: hdinsight
 author: ashishthaps
@@ -16,13 +16,13 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/28/2018
 ms.locfileid: "52498778"
 ---
-# <a name="install-published-application---datameer"></a>게시된 응용 프로그램 설치 - Datameer
+# <a name="install-published-application---datameer"></a>게시된 애플리케이션 설치 - Datameer
 
 이 문서에서는 Azure HDInsight에 [Datameer](https://www.datameer.com/)에서 게시된 [Apache Hadoop](https://hadoop.apache.org/) 애플리케이션을 설치하고 실행하는 방법에 대해 설명합니다. HDInsight 애플리케이션 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor)에서 게시된 애플리케이션 목록은 [타사 Apache Hadoop 애플리케이션 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 애플리케이션을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 애플리케이션 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
 
 ## <a name="about-datameer"></a>Datameer 정보
 
-Datameer는 Hadoop 플랫폼을 위한 네이티브 응용 프로그램으로, 기존 Azure HDInsight 기능을 확장하고 구조화 및 비구조화 데이터의 빠른 통합, 준비 및 분석을 제공합니다. Datameer는 70개 이상의 원본 및 형식(구조화, 반구조화 및 비구조화)에 액세스할 수 있습니다. 데이터를 직접 업로드하거나 고유한 데이터 링크를 사용하여 필요에 따라 데이터를 가져올 수 있습니다. Datameer의 셀프 서비스 기능과 친숙한 스프레드시트 인터페이스는 빅 데이터 기술의 복잡성을 줄이고 통찰력에 대한 시간을 가속화합니다. 스프레드시트 인터페이스는 선언된 수식을 입력하고 이를 최적화된 Hadoop 작업으로 변환하는 간단한 메커니즘을 제공합니다. Datameer와 BI(비즈니스 인텔리전스) 및 Excel 기술을 사용하면 클라우드에서 Hadoop을 빠르게 사용할 수 있습니다. 자세한 내용은 [Datameer 설명서](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft)를 참조하세요.
+Datameer는 Hadoop 플랫폼을 위한 네이티브 애플리케이션으로, 기존 Azure HDInsight 기능을 확장하고 구조화 및 비구조화 데이터의 빠른 통합, 준비 및 분석을 제공합니다. Datameer는 70개 이상의 원본 및 형식(구조화, 반구조화 및 비구조화)에 액세스할 수 있습니다. 데이터를 직접 업로드하거나 고유한 데이터 링크를 사용하여 필요에 따라 데이터를 가져올 수 있습니다. Datameer의 셀프 서비스 기능과 친숙한 스프레드시트 인터페이스는 빅 데이터 기술의 복잡성을 줄이고 통찰력에 대한 시간을 가속화합니다. 스프레드시트 인터페이스는 선언된 수식을 입력하고 이를 최적화된 Hadoop 작업으로 변환하는 간단한 메커니즘을 제공합니다. Datameer와 BI(비즈니스 인텔리전스) 및 Excel 기술을 사용하면 클라우드에서 Hadoop을 빠르게 사용할 수 있습니다. 자세한 내용은 [Datameer 설명서](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -32,13 +32,13 @@ Datameer는 Hadoop 플랫폼을 위한 네이티브 응용 프로그램으로, �
 * 클러스터 유형: Hadoop
 * 클러스터 버전: 3.4
 
-## <a name="install-the-datameer-published-application"></a>게시된 Datameer 응용 프로그램 설치
+## <a name="install-the-datameer-published-application"></a>게시된 Datameer 애플리케이션 설치
 
 이 애플리케이션 및 사용 가능한 다른 ISV 애플리케이션을 설치하는 단계별 지침은 [타사 Apache Hadoop 애플리케이션 설치](hdinsight-apps-install-applications.md)를 참조하세요.
 
 ## <a name="launch-datameer"></a>Datameer 시작
 
-1. 설치가 완료되면 **설정** 창으로 이동한 다음, **일반** 범주 아래에서 **응용 프로그램**을 클릭하여 Azure Portal의 클러스터에서 Datameer를 시작할 수 있습니다. [설치된 앱] 창에 설치된 응용 프로그램이 나열됩니다.
+1. 설치가 완료되면 **설정** 창으로 이동한 다음, **일반** 범주 아래에서 **애플리케이션**을 클릭하여 Azure Portal의 클러스터에서 Datameer를 시작할 수 있습니다. [설치된 앱] 창에 설치된 애플리케이션이 나열됩니다.
 
     ![설치된 Datameer 앱](./media/hdinsight-apps-install-datameer/datameer-app.png)
 

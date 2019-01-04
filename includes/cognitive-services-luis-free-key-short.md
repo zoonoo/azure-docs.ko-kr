@@ -17,4 +17,4 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/07/2018
 ms.locfileid: "44163789"
 ---
-이 문서에서는 LUIS 응용 프로그램을 작성하기 위해 체험 [LUIS](~/articles/cognitive-services/luis/luis-reference-regions.md#publishing-regions) 계정을 사용할 수 있습니다.
+이 문서에서는 LUIS 애플리케이션을 작성하기 위해 체험 [LUIS](~/articles/cognitive-services/luis/luis-reference-regions.md#publishing-regions) 계정을 사용할 수 있습니다.

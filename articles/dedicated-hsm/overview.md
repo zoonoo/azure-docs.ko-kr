@@ -1,6 +1,6 @@
 ---
-title: Dedicated HSM이란? | Microsoft Docs
-description: Azure Dedicated HSM은 FIPS 140-2 레벨 3 인증을 충족하는 Azure 내에서 키 스토리지 기능을 제공함
+title: Dedicated HSM이란? - Azure 전용 HSM | Microsoft Docs
+description: Azure 전용 HSM 개요에서는 Azure 내에서 FIPS 140-2 수준 3 인증을 충족하는 키 스토리지 기능을 제공합니다.
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
@@ -10,19 +10,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.custom: mvc
-ms.date: 11/26/2018
+ms.custom: mvc, seodec18
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 92d77ec886a0f37c28f5e3031a7e14f63299c8aa
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 1eeafa33c8c1cdbcd7d0e55e3860dda1b8d451fe
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427117"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080081"
 ---
-# <a name="what-is-dedicated-hsm"></a>Dedicated HSM이란?
+# <a name="what-is-azure-dedicated-hsm"></a>Azure 전용 HSM이란?
 
-Azure Dedicated HSM은 Azure에 가장 엄격한 보안 요구 사항을 충족하는 암호화 키 스토리지를 제공합니다. Dedicated HSM은 FIPS 140-2 수준 3 인증을 충족한 디바이스와 HSM 어플라이언스에 대한 완벽하고 독점적인 컨트롤이 필요한 고객에게 이상적인 솔루션입니다. HSM 디바이스는 여러 Azure 지역 간에 전역적으로 배포되며, 디바이스 쌍으로 손쉽게 프로비전할 수 있고, 고가용성을 지원하도록 구성됩니다. 또한 HSM을 지역 간에 프로비전하여 지역 수준의 장애 조치(failover)를 보장할 수 있습니다. Microsoft는 Gemalto의 [SafeNet Luna Network HSM 7(모델 A790)](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/) 어플라이언스를 사용하여 Dedicated HSM 서비스를 제공해 왔습니다. 이 디바이스는 최고 수준의 성능과 암호화 통합 옵션을 제공합니다. 프로비전이 완료되면 HSM이 고객의 가상 네트워크에 직접 연결되고, 지점과 사이트 간 또는 사이트 간 VPN 연결을 구성하여 온-프레미스 애플리케이션 및 관리 도구로 액세스될 수도 있습니다. 고객은 Gemalto의 지원 포털에서 소프트웨어 및 설명서를 받고 HSM 디바이스를 구성하고 관리하게 됩니다.
+Azure 전용 HSM은 Azure에 암호화 키 스토리지를 제공하는 Azure 서비스입니다. 전용 HSM은 가장 엄격한 보안 요구 사항을 충족합니다. 이는 FIPS 140-2 수준 3 인증을 충족한 디바이스와 HSM 어플라이언스에 대한 완벽하고 독점적인 컨트롤이 필요한 고객에게 이상적인 솔루션입니다. HSM 디바이스는 여러 Azure 지역 간에 전역적으로 배포되며, 디바이스 쌍으로 손쉽게 프로비전할 수 있고, 고가용성을 지원하도록 구성됩니다. 또한 HSM을 지역 간에 프로비전하여 지역 수준의 장애 조치(failover)를 보장할 수 있습니다. Microsoft는 Gemalto의 [SafeNet Luna Network HSM 7(모델 A790)](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/) 어플라이언스를 사용하여 Dedicated HSM 서비스를 제공해 왔습니다. 이 디바이스는 최고 수준의 성능과 암호화 통합 옵션을 제공합니다. 프로비전이 완료되면 HSM이 고객의 가상 네트워크에 직접 연결되고, 지점과 사이트 간 또는 사이트 간 VPN 연결을 구성하여 온-프레미스 애플리케이션 및 관리 도구로 액세스될 수도 있습니다. 고객은 Gemalto의 지원 포털에서 소프트웨어 및 설명서를 받고 HSM 디바이스를 구성하고 관리하게 됩니다.
 
 ## <a name="why-use-azure-dedicated-hsm"></a>Azure Dedicated HSM을 사용하는 이유
 

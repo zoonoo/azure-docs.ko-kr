@@ -1,13 +1,12 @@
 ---
 title: 다른 사용자의 데이터 과학 예제 복사 - Azure Machine Learning Studio | Microsoft Docs
-description: '데이터 과학의 비밀: 다른 사람들이 사용자의 작업을 수행하도록 유도 Azure AI 갤러리에서 Machine Learning 예제를 가져옵니다.'
+description: '데이터 과학의 기업 비밀: 작업을 수행하기 위해 다른 것을 가져옵니다. Azure AI 갤러리에서 Machine Learning 예제를 가져옵니다.'
 keywords: 데이터 과학 예제,Machine Learning 예제,클러스터링 알고리즘,클러스터링 알고리즘 예제
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cjgronlund
 ms.assetid: ec2be823-c325-4ad8-b8b2-3e664f1a44b4
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
-ms.openlocfilehash: e573a0394fa47cd6325fe582366242644232cf3d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: acd0899396ac5a47dade5fac16e451b2029ec0c2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313778"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260381"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>데이터 과학을 수행하기 위해 다른 사람의 작품 복사
 ## <a name="video-5-data-science-for-beginners-series"></a>비디오 5: 초급자를 위한 데이터 과학 시리즈
@@ -48,7 +47,7 @@ ms.locfileid: "52313778"
 * 비디오 4: [단순 모델을 사용하여 답변 예측](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7분 42초)*
 * 비디오 5: 데이터 과학을 수행하기 위해 다른 사람의 작품 복사
 
-## <a name="transcript-copy-other-peoples-work-to-do-data-science"></a>비디오 내용: 데이터 과학을 수행하기 위해 다른 사람의 작품 복사
+## <a name="transcript-copy-other-peoples-work-to-do-data-science"></a>대본: 데이터 과학을 수행하기 위해 다른 사람의 작품 복사
 "초보자를 위한 데이터 과학" 시리즈의 다섯 번째 비디오를 시작합니다.
 
 여기서는 자신의 작품을 만들 때 시작점으로 차용할 수 있는 예제를 찾을 위치를 검색합니다. 이 시리즈의 이전 비디오를 먼저 시청하면 이 비디오를 최대한 활용할 수 있습니다.

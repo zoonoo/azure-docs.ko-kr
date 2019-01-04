@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 08/01/2018
 ms.author: danlep
-ms.openlocfilehash: 98497812e75d07fc153e0e351331c05484164fdd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 37f1bf5dc20d097f7f5f560e3bf1fdd25dc38045
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052702"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408054"
 ---
 # <a name="what-is-azure-batch-ai"></a>Azure Batch AI란?
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Azure Batch AI는 데이터 과학자 및 AI 연구원이 복잡한 인프라를 관리할 필요 없이 Azure에서 대규모로 가상 머신 및 AI 모델을 학습하고 테스트하도록 돕는 관리 서비스입니다. Batch AI는 계산 리소스, 실행하려는 작업, 모델 입력 및 출력을 저장할 위치를 기술하고, 나머지 작업을 관리합니다.
 
@@ -49,13 +52,13 @@ Batch AI는 여러 가지 방법을 사용하여 대규모로 모델을 학습�
 
 ## <a name="how-it-works"></a>작동 방법
 
-Batch AI SDK, 명령줄 스크립트 또는 Azure Portal을 사용하여 계산 리소스를 관리하고 AI 학습 및 테스트를 위한 작업을 예약합니다. 
+Batch AI SDK, 명령줄 스크립트 또는 Azure Portal을 사용하여 계산 리소스를 관리하고 AI 학습 및 테스트를 위한 작업을 예약합니다. 
 
 * **VM 클러스터 프로비전 및 크기 조정** - 노드(VM)의 수를 선택하고, 학습 요구를 충족하는 GPU 지원 또는 기타 VM 크기를 선택합니다. 필요할 때만 리소스를 사용하도록 노드 수를 자동 또는 수동으로 확장하거나 축소합니다. 
 
 * **종속성 및 컨테이너 관리** - 기본적으로 Batch AI 클러스터 GPU 또는 CPU에서 컨테이너 기반 학습 프레임워크를 실행하기 위해 종속성이 미리 설치된 Linux VM 이미지를 실행합니다. 추가 구성을 위해 사용자 지정 이미지를 불러오거나 시작 스크립트를 실행합니다.
 
-* **데이터 분산** - 입력 데이터 및 스크립트와 작업 출력을 관리하기 위한 하나 이상의 저장소 옵션(Azure Files, Azure Blob 저장소 또는 관리되는 NFS 서버) 중에서 선택합니다. 또한 Batch AI는 고성능 병렬 파일 시스템을 비롯한 사용자 지정 저장소 솔루션도 지원합니다. 간단한 구성 파일을 사용하여 저장소 파일 시스템을 클러스터 노드 및 작업 컨테이너에 탑재합니다.
+* **데이터 분산** - 입력 데이터 및 스크립트와 작업 출력을 관리하기 위한 스토리지 옵션을 Azure Files, Azure Blob Storage 또는 관리되는 NFS 서버 중에서 하나 이상 선택합니다. 또한 Batch AI는 고성능 병렬 파일 시스템을 비롯한 사용자 지정 저장소 솔루션도 지원합니다. 간단한 구성 파일을 사용하여 저장소 파일 시스템을 클러스터 노드 및 작업 컨테이너에 탑재합니다.
 
 * **작업 예약** - 클러스터를 공유하고 우선 순위가 낮은 VM 및 예약된 인스턴스를 활용하는 우선 순위 기반 작업 큐로 작업을 제출합니다.
 

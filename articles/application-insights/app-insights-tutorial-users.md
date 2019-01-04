@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights에서 고객 이해 | Microsoft Docs
-description: Azure Application Insights를 사용하여 고객이 응용 프로그램을 사용하는 방법을 이해하는 자습서입니다.
+description: Azure Application Insights를 사용하여 고객이 애플리케이션을 사용하는 방법을 이해하는 자습서입니다.
 keywords: ''
 services: application-insights
 author: mrbullwinkle
@@ -17,18 +17,18 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52970793"
 ---
-# <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Azure Application Insights를 사용하여 고객이 응용 프로그램을 사용하는 방법 이해
+# <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Azure Application Insights를 사용하여 고객이 애플리케이션을 사용하는 방법 이해
 
-Azure Application Insights는 사용량 정보를 수집하여 사용자자 응용 프로그램과 상호 작용하는 방법을 이해할 수 있도록 돕습니다.  이 자습서에서는 이 정보를 분석하는 데 사용할 수 있는 다양한 리소스를 안내합니다.  다음 방법을 알게 됩니다.
+Azure Application Insights는 사용량 정보를 수집하여 사용자자 애플리케이션과 상호 작용하는 방법을 이해할 수 있도록 돕습니다.  이 자습서에서는 이 정보를 분석하는 데 사용할 수 있는 다양한 리소스를 안내합니다.  다음 방법을 알게 됩니다.
 
 > [!div class="checklist"]
-> * 응용 프로그램에 액세스하는 사용자에 대한 세부 정보 분석
-> * 세션 정보를 사용하여 고객이 응용 프로그램을 사용하는 방법 분석
+> * 애플리케이션에 액세스하는 사용자에 대한 세부 정보 분석
+> * 세션 정보를 사용하여 고객이 애플리케이션을 사용하는 방법 분석
 > * 원하는 사용자 작업을 실제 작업과 비교할 수 있도록 하는 깔때기 정의 
 > * 통합 문서를 만들어 시각화 및 쿼리를 단일 문서로 통합
 > * 유사한 사용자를 그룹화하여 함께 분석
-> * 응용 프로그램으로 돌아오는 사용자 알아보기
-> * 사용자가 응용 프로그램을 통해 탐색하는 방법 검사
+> * 애플리케이션으로 돌아오는 사용자 알아보기
+> * 사용자가 애플리케이션을 통해 탐색하는 방법 검사
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -39,7 +39,7 @@ Azure Application Insights는 사용량 정보를 수집하여 사용자자 응�
     - ASP.NET 및 웹 개발
     - Azure 개발
 - [Visual Studio 스냅숏 디버거](https://aka.ms/snapshotdebugger)를 다운로드 및 설치합니다.
-- Azure에 .NET 응용 프로그램을 배포하고 [Application Insights SDK를 사용하도록 설정](app-insights-asp-net.md)합니다. 
+- Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](app-insights-asp-net.md)합니다. 
 - 사용자 지정 이벤트/페이지 보기 추가에 대한 [응용 프로그램에서 원격 분석 전송](app-insights-usage-overview.md#send-telemetry-from-your-app)
 - [사용자 컨텍스트](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context)를 전송하여 시간에 따라 사용자 작업을 추적하고 사용량 기능을 최대한 활용합니다.
 
@@ -47,11 +47,11 @@ Azure Application Insights는 사용량 정보를 수집하여 사용자자 응�
 Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인합니다.
 
 ## <a name="get-information-about-your-users"></a>사용자에 대한 정보 가져오기
-**사용자** 패널을 통해 여러 가지 방법으로 사용자에 대한 중요한 세부 정보를 이해할 수 있습니다. 이 패널을 사용하여 사용자가 연결하는 위치, 해당 클라이언트의 세부 정보 및 액세스하는 응용 프로그램의 영역과 같은 정보를 이해합니다. 
+**사용자** 패널을 통해 여러 가지 방법으로 사용자에 대한 중요한 세부 정보를 이해할 수 있습니다. 이 패널을 사용하여 사용자가 연결하는 위치, 해당 클라이언트의 세부 정보 및 액세스하는 애플리케이션의 영역과 같은 정보를 이해합니다. 
 
 1. **Application Insights**를 선택한 다음 구독을 선택합니다.
 2. 메뉴에서 **사용자**를 선택합니다.
-3. 기본 보기는 지난 24시간 동안 응용 프로그램에 연결한 고유 사용자 수를 표시합니다.  시간 창을 변경할 수 있으며 다양한 조건을 설정하여 이 정보를 필터링할 수 있습니다.
+3. 기본 보기는 지난 24시간 동안 애플리케이션에 연결한 고유 사용자 수를 표시합니다.  시간 창을 변경할 수 있으며 다양한 조건을 설정하여 이 정보를 필터링할 수 있습니다.
 
     ![쿼리 작성기](media/app-insights-tutorial-users/QueryBuilder.png)
 
@@ -70,7 +70,7 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 
 
 ## <a name="analyze-user-sessions"></a>사용자 세션 분석
-**세션** 패널은 **사용자** 패널과 유사합니다.  여기서 **사용자**는 응용 프로그램에 액세스하는 사용자에 대한 세부 정보를 이해하도록 돕고, **세션**은 해당 사용자가 응용 프로그램을 사용한 방법을 이해하도록 돕습니다.  
+**세션** 패널은 **사용자** 패널과 유사합니다.  여기서 **사용자**는 애플리케이션에 액세스하는 사용자에 대한 세부 정보를 이해하도록 돕고, **세션**은 해당 사용자가 애플리케이션을 사용한 방법을 이해하도록 돕습니다.  
 
 1. 메뉴에서 **세션**을 선택합니다.
 2. 그래프를 확인하고 필터링하는 동일한 옵션이 있는지 확인하고 **사용자** 패널에서와 같이 데이터를 분석합니다.
@@ -101,7 +101,7 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 
 
 ## <a name="compare-desired-activity-to-reality"></a>원하는 작업과 실제 비교
-이전 패널이 응용 프로그램의 사용자가 수행한 작업에 집중한 반면 **깔때기**는 사용자가 수행하길 원하는 작업에 집중합니다.  깔때기는 응용 프로그램에서 단계의 집합 및 단계 간을 이동하는 사용자의 백분율을 나타냅니다.  예를 들어, 응용 프로그램에 연결하고 제품을 검색하는 사용자의 백분율을 측정하는 깔때기를 만들 수 있습니다.  그런 다음 해당 제품을 쇼핑 카트에 추가한 사용자의 백분율 및 구매를 완료하는 사용자의 백분율을 볼 수 있습니다.
+이전 패널이 애플리케이션의 사용자가 수행한 작업에 집중한 반면 **깔때기**는 사용자가 수행하길 원하는 작업에 집중합니다.  깔때기는 애플리케이션에서 단계의 집합 및 단계 간을 이동하는 사용자의 백분율을 나타냅니다.  예를 들어, 애플리케이션에 연결하고 제품을 검색하는 사용자의 백분율을 측정하는 깔때기를 만들 수 있습니다.  그런 다음 해당 제품을 쇼핑 카트에 추가한 사용자의 백분율 및 구매를 완료하는 사용자의 백분율을 볼 수 있습니다.
 
 1. 메뉴에서 **깔때기**를 선택한 다음 **새로 만들기**를 클릭합니다. 
 
@@ -130,7 +130,7 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
     ![](media/app-insights-tutorial-users/retentiongraph.png)
 
 ## <a name="analyze-user-navigation"></a>사용자 탐색 분석
-**사용자 흐름**은 페이지와 응용 프로그램의 기능 간에 사용자가 탐색하는 방법을 시각화합니다.  이 기능을 사용하면 사용자가 일반적으로 특정 페이지에서 이동하는 위치, 일반적으로 응용 프로그램을 종료하는 방법 및 정기적으로 반복되는 작업이 있는지와 같은 질문에 답할 수 있습니다.
+**사용자 흐름**은 페이지와 응용 프로그램의 기능 간에 사용자가 탐색하는 방법을 시각화합니다.  이 기능을 사용하면 사용자가 일반적으로 특정 페이지에서 이동하는 위치, 일반적으로 애플리케이션을 종료하는 방법 및 정기적으로 반복되는 작업이 있는지와 같은 질문에 답할 수 있습니다.
 
 1.  메뉴에서 **사용자 흐름**을 선택합니다.
 2.  **새로 만들기**를 클릭하여 새 사용자 흐름을 만든 다음 **편집**을 클릭하여 해당 세부 정보를 편집합니다.
@@ -147,7 +147,7 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
     ![](media/app-insights-tutorial-users/flowsexclude.png)
 
 ## <a name="consolidate-usage-data"></a>사용량 데이터 통합
-**통합 문서**는 데이터 시각화, Analytics 쿼리 및 텍스트를 대화형 문서로 결합합니다.  통합 문서를 사용하여 일반적인 사용량 정보를 함께 그룹화하고, 특정 오류로부터 정보를 통합하거나 응용 프로그램의 사용량에 대해 팀에게 다시 보고할 수 있습니다.
+**통합 문서**는 데이터 시각화, Analytics 쿼리 및 텍스트를 대화형 문서로 결합합니다.  통합 문서를 사용하여 일반적인 사용량 정보를 함께 그룹화하고, 특정 오류로부터 정보를 통합하거나 애플리케이션의 사용량에 대해 팀에게 다시 보고할 수 있습니다.
 
 1.  메뉴에서 **통합 문서**를 선택합니다.
 2.  **새로 만들기**를 클릭하여 새 통합 문서를 만듭니다.
@@ -164,7 +164,7 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 
 
 ## <a name="next-steps"></a>다음 단계
-이제 사용자를 분석하는 방법을 배웠으므로 이 정보를 응용 프로그램에 대한 다른 유용한 데이터와 결합하는 사용자 지정 대시보드를 만드는 방법을 알아보는 다음 자습서로 진행합니다.
+이제 사용자를 분석하는 방법을 배웠으므로 이 정보를 애플리케이션에 대한 다른 유용한 데이터와 결합하는 사용자 지정 대시보드를 만드는 방법을 알아보는 다음 자습서로 진행합니다.
 
 > [!div class="nextstepaction"]
 > [사용자 지정 대시보드 만들기](app-insights-tutorial-dashboards.md)

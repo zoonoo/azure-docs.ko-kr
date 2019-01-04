@@ -23,7 +23,7 @@ ms.locfileid: "49405976"
 ---
 # <a name="azure-network-security"></a>Azure 네트워크 보안
 
-보안은 클라우드의 작업이며 Azure 보안에 대한 정확하고 시기 적절한 정보를 찾는 것이 얼마나 중요한지 알고 있습니다. Azure를 응용 프로그램과 서비스에 사용하는 가장 좋은 이유 중 하나는 광범위한 보안 도구와 기능을 활용한다는 점입니다. 이러한 도구 및 기능을 통해 Azure 플랫폼에서 안전한 솔루션을 만들 수 있습니다.
+보안은 클라우드의 작업이며 Azure 보안에 대한 정확하고 시기 적절한 정보를 찾는 것이 얼마나 중요한지 알고 있습니다. Azure를 애플리케이션과 서비스에 사용하는 가장 좋은 이유 중 하나는 광범위한 보안 도구와 기능을 활용한다는 점입니다. 이러한 도구 및 기능을 통해 Azure 플랫폼에서 안전한 솔루션을 만들 수 있습니다.
 
 Microsoft Azure는 고객 데이터의 기밀성, 무결성 및 가용성을 제공하는 한편 투명한 책임도 가능하게 합니다. 고객 관점에서 Microsoft Azure 내에 구현된 네트워크 보안 제어 모음을 더 잘 이해할 수 있도록 Microsoft Azure에서 제공되는 네트워크 보안 제어를 포괄적으로 살펴볼 수 있는 "Azure 네트워크 보안" 문서가 작성되었습니다.
 
@@ -33,9 +33,9 @@ Microsoft Azure는 고객 데이터의 기밀성, 무결성 및 가용성을 제
 
 Azure는 다양한 운영 체제, 프로그래밍 언어, 프레임워크, 도구, 데이터베이스 및 디바이스를 지원하는 공용 클라우드 서비스 플랫폼입니다.  Docker 통합으로 Linux 컨테이너를 실행할 수 있습니다. JavaScript, Python, .NET, PHP, Java 및 Node.js를 사용하여 앱을 빌드할 수 있습니다. iOS, Android 및 Windows 디바이스용 백 엔드를 빌드할 수 있습니다. Azure 클라우드 서비스는 수백만의 개발자 및 IT 전문가가 이미 믿고 사용하고 있는 동일한 수준의 기술을 지원합니다.
 
-IT 자산을 만들거나 공용 클라우드 서비스 공급자로 마이그레이션하는 경우 조직에서 제공하는 서비스와 제어를 통해 응용 프로그램과 데이터를 보호할 수 있는 해당 조직의 능력에 의존하여 클라우드 기반 자산의 보안을 관리합니다.
+IT 자산을 만들거나 공용 클라우드 서비스 공급자로 마이그레이션하는 경우 조직에서 제공하는 서비스와 제어를 통해 애플리케이션과 데이터를 보호할 수 있는 해당 조직의 능력에 의존하여 클라우드 기반 자산의 보안을 관리합니다.
 
-Azure의 인프라는 수백만 고객을 동시에 호스팅하는 응용 프로그램에 맞게 시설로부터 설계되었으며, 비즈니스에서 보안 요구 사항을 충족할 수 있는 신뢰할 수 있는 기반을 제공합니다. 또한 Azure는 구성 가능한 포괄적인 보안 옵션 모음과 이를 제어하는 기능을 제공하므로 보안을 사용자 지정하여 조직의 고유한 배포 요구 사항을 충족할 수 있습니다.
+Azure의 인프라는 수백만 고객을 동시에 호스팅하는 애플리케이션에 맞게 시설로부터 설계되었으며, 비즈니스에서 보안 요구 사항을 충족할 수 있는 신뢰할 수 있는 기반을 제공합니다. 또한 Azure는 구성 가능한 포괄적인 보안 옵션 모음과 이를 제어하는 기능을 제공하므로 보안을 사용자 지정하여 조직의 고유한 배포 요구 사항을 충족할 수 있습니다.
 
 ## <a name="abstract"></a>요약
 
@@ -50,19 +50,19 @@ Azure의 네트워크 서비스는 기본적으로 유연성, 가용성, 탄력�
 -   Azure 공용 클라우드의 네트워크 보안과 관련해서 논의 중인 Azure 네트워킹 기술 및 서비스에 대한 고급 정보를 원하는 SME 또는 비즈니스 프로세스 실무 담당자
 
 ## <a name="azure-networking-big-picture"></a>Azure 네트워킹의 전반적 이해
-Microsoft Azure에는 사용자의 응용 프로그램과 서비스 연결 요구 사항을 지원하기 위한 강력한 네트워킹 인프라가 포함되어 있습니다. 네트워크 연결은 Azure에 위치한 리소스 간, 온-프레미스와 Azure 호스팅 리소스 간, 그리고 인터넷과 Azure 간에 가능합니다.
+Microsoft Azure에는 사용자의 애플리케이션과 서비스 연결 요구 사항을 지원하기 위한 강력한 네트워킹 인프라가 포함되어 있습니다. 네트워크 연결은 Azure에 위치한 리소스 간, 온-프레미스와 Azure 호스팅 리소스 간, 그리고 인터넷과 Azure 간에 가능합니다.
 
 ![Azure 네트워킹의 전반적 이해](media/azure-network-security/azure-network-security-fig-1.png)
 
 [Azure 네트워크 인프라](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-networking-guidelines)를 사용하면 Azure 리소스와 VNet(가상 네트워크)을 서로 안전하게 연결할 수 있습니다. VNet은 클라우드에 있는 사용자의 네트워크를 나타내며, 구독 전용 Azure 클라우드 네트워크를 논리적으로 격리한 것이 VNet입니다. 또한 온-프레미스 네트워크에 VNet을 연결할 수 있습니다.
 
-Azure는 온-프레미스 네트워크에 대한 전용 WAN 링크 연결과 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 통한 Azure Virtual Network를 지원합니다. Azure와 사이트 간의 링크는 공용 인터넷을 사용하지 않는 전용 연결을 사용합니다. Azure 응용 프로그램이 여러 데이터 센터에서 실행되는 경우 [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)를 사용하여 사용자 요청을 적절하게 여러 응용 프로그램 인스턴스에 라우팅할 수 있습니다. 또한 인터넷에서 액세스할 수 있는 경우 Azure에서 실행되지 않는 서비스로 트래픽을 라우팅할 수 있습니다.
+Azure는 온-프레미스 네트워크에 대한 전용 WAN 링크 연결과 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 통한 Azure Virtual Network를 지원합니다. Azure와 사이트 간의 링크는 공용 인터넷을 사용하지 않는 전용 연결을 사용합니다. Azure 애플리케이션이 여러 데이터 센터에서 실행되는 경우 [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)를 사용하여 사용자 요청을 적절하게 여러 애플리케이션 인스턴스에 라우팅할 수 있습니다. 또한 인터넷에서 액세스할 수 있는 경우 Azure에서 실행되지 않는 서비스로 트래픽을 라우팅할 수 있습니다.
 
 ## <a name="enterprise-view-of-azure-networking-components"></a>Azure 네트워킹 구성 요소의 엔터프라이즈 보기
 Azure는 네트워크 보안 논의가 이루어지는 많은 네트워킹 구성 요소를 포함합니다. 여기서는 이러한 네트워킹 구성 요소에 대해 설명하고 관련 보안 문제를 집중적으로 살펴봅니다.
 
 > [!Note]
-> Azure 네트워킹의 모든 측면을 설명하지는 못하며, Azure에서 배포하는 서비스 및 응용 프로그램과 관련된 보안 네트워크 인프라의 계획 및 디자인에 중요한 측면만 다룹니다.
+> Azure 네트워킹의 모든 측면을 설명하지는 못하며, Azure에서 배포하는 서비스 및 애플리케이션과 관련된 보안 네트워크 인프라의 계획 및 디자인에 중요한 측면만 다룹니다.
 
 이 문서에서는 다음 Azure 네트워킹 엔터프라이즈 기능을 소개합니다.
 
@@ -202,7 +202,7 @@ Azure는 VNet의 모든 서브넷에 연결된 리소스가 서로 통신할 수
 
 이름에서 알 수 있듯이 인터넷 연결은 가상 네트워크 내에 존재하는 작업에 다른 공용 엔드포인트를 노출하도록 하여 인터넷에서 작업에 액세스할 수 있도록 해줍니다. 이러한 작업은 [인터넷 연결 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)를 사용하거나 단순히 VM에 공용 IP 주소를 할당하여 노출할 수 있습니다. 이러한 방식으로 인터넷의 모든 항목은 호스트 방화벽, [NSG(네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 및 [사용자 정의 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)가 허용할 경우 해당 가상 컴퓨터에 연결될 수 있습니다.
 
-이 시나리오에서는 인터넷에 공개되어야 하고, 작업의 구성에 따라 어디에서든지 또는 특정 위치에서만 액세스할 수 있어야 하는 응용 프로그램을 노출할 수 있습니다.
+이 시나리오에서는 인터넷에 공개되어야 하고, 작업의 구성에 따라 어디에서든지 또는 특정 위치에서만 액세스할 수 있어야 하는 애플리케이션을 노출할 수 있습니다.
 
 #### <a name="point-to-site-vpn-or-site-to-site-vpn"></a>지점 및 사이트 간 VPN 또는 사이트 간 VPN
 이러한 두 가지 방식은 같은 범주에 속합니다. 두 방식 모두 VNet에 VPN Gateway가 필요하며, [지점-사이트 간 구성](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)의 일부로 워크스테이션에 대한 VPN 클라이언트를 사용하여 연결하거나 사이트 간 VPN을 종료할 수 있게 온-프레미스 [VPN 디바이스](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)를 구성할 수 있습니다. 이러한 방식으로 온-프레미스 디바이스는 VNet 내에서 리소스에 연결할 수 있습니다.
@@ -256,7 +256,7 @@ Azure Virtual Network는 다른 가상 네트워크와 분리되고 온-프레�
 
 -   Application Gateway
 
--   Azure 웹 응용 프로그램 방화벽
+-   Azure 웹 애플리케이션 방화벽
 
 -   네트워크 가용성 컨트롤
 
@@ -268,7 +268,7 @@ Azure VNet(Virtual Network)은 Azure 네트워킹 모델의 토대이며 격리 
 
 사용자는 크로스 프레미스 연결을 통한 고객 네트워크 상의 시스템이나 직접 인터넷 통신을 통해서 고객 네트워크 시스템으로부터 Virtual Network 내 워크로드 간 통신을 허용하거나 거부하여 액세스를 제어할 수 있습니다.
 
-이 다이어그램에서 Azure의 전체 보안 스택에 있는 특정 계층에 VNet 및 NSG가 둘 다 상주합니다. 여기서는 NSG, UDR 및 네트워크 가상 어플라이언스를 사용하여 보안 경계를 만들어 보호되는 네트워크에서의 응용 프로그램 배포를 보호할 수 있습니다.
+이 다이어그램에서 Azure의 전체 보안 스택에 있는 특정 계층에 VNet 및 NSG가 둘 다 상주합니다. 여기서는 NSG, UDR 및 네트워크 가상 어플라이언스를 사용하여 보안 경계를 만들어 보호되는 네트워크에서의 애플리케이션 배포를 보호할 수 있습니다.
 
 NSG는 5튜플을 사용하여 트래픽을 평가하며, NSG에 대해 구성하는 규칙에 사용됩니다.
 
@@ -350,7 +350,7 @@ Azure 네트워크 보안 어플라이언스는 VNet 보안 및 네트워크 기
 
 -   침입 탐지
 
--   WAF(웹 응용 프로그램 방화벽)
+-   WAF(웹 애플리케이션 방화벽)
 
 -   WAN 최적화
 
@@ -366,7 +366,7 @@ Azure 네트워크 보안 어플라이언스는 VNet 보안 및 네트워크 기
 
 -   Multi-Factor Authentication
 
-#### <a name="application-gateway"></a>응용 프로그램 게이트웨이
+#### <a name="application-gateway"></a>애플리케이션 게이트웨이
 
 [Microsoft Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)는 ADC(응용 프로그램 배달 컨트롤러)를 서비스로 제공하는 전용 가상 어플라이언스입니다.
 
@@ -383,27 +383,27 @@ Application Gateway를 통해 Application Gateway에 CPU 집약적인 SSL 종료
 -   단일 Application Gateway 뒤에 여러 웹 사이트를 호스트하는 기능
 
 
-[WAF(웹 응용 프로그램 방화벽)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) 또한 Application Gateway의 일부로 제공됩니다. 이 기능은 일반적인 웹 취약점 및 악용으로부터 웹 응용 프로그램을 보호합니다. Application Gateway는 인터넷 연결 게이트웨이, 내부 전용 게이트웨이 또는 둘의 조합으로 구성할 수 있습니다.
+[WAF(웹 응용 프로그램 방화벽)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) 또한 Application Gateway의 일부로 제공됩니다. 이 기능은 일반적인 웹 취약점 및 악용으로부터 웹 애플리케이션을 보호합니다. Application Gateway는 인터넷 연결 게이트웨이, 내부 전용 게이트웨이 또는 둘의 조합으로 구성할 수 있습니다.
 
 Application Gateway WAF는 탐지 또는 방지 모드에서 실행할 수 있습니다. 일반적인 사용 사례는 관리자가 트래픽에서 악의적인 패턴을 관찰하기 위해 탐지 모드에서 실행하는 경우입니다. 악용 가능성이 감지되면 방지 모드로 전환되어 의심스러운 수신 트래픽을 차단합니다.
 
  ![Application Gateway](./media/azure-network-security/azure-network-security-fig-12.png)
 
-또한 Application Gateway WAF는 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) 및 [Azure Security Center](https://azure.microsoft.com/services/security-center/)에 통합된 실시간 WAF 로그를 사용하여 WAF 경고를 추적하고 추세를 쉽게 모니터링하여 웹 응용 프로그램을 공격으로부터 보호할 수 있도록 합니다.
+또한 Application Gateway WAF는 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) 및 [Azure Security Center](https://azure.microsoft.com/services/security-center/)에 통합된 실시간 WAF 로그를 사용하여 WAF 경고를 추적하고 추세를 쉽게 모니터링하여 웹 애플리케이션을 공격으로부터 보호할 수 있도록 합니다.
 
 JSON 형식 로그는 고객의 저장소 계정으로 직접 이동됩니다. 이러한 로그를 완전히 제어하고 자체 보존 정책을 적용할 수 있습니다.
 
 [Azure 로그 통합](https://aka.ms/AzLog)을 사용하여 이러한 로그를 분석 시스템으로 수집할 수도 있습니다. 또한 WAF 로그는 [Log Analytics](../log-analytics/log-analytics-overview.md)와 통합되므로 Log Analytics를 사용하여 정교하고 세분화된 쿼리를 실행할 수 있습니다.
 
-#### <a name="azure-web-application-firewall-waf"></a>Azure WAF(웹 응용 프로그램 방화벽)
+#### <a name="azure-web-application-firewall-waf"></a>Azure WAF(웹 애플리케이션 방화벽)
 
-웹 응용 프로그램은 점점 더 많이 SQL 주입, 사이트 간 스크립팅 공격 및 [OWASP 상위 10개 공격](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)에 나타나는 기타 공격 등의 알려진 일반적인 취약점을 악용하는 악의적인 공격의 목표가 되고 있습니다. 응용 프로그램에서 이러한 악용을 방지하려면 응용 프로그램 토폴로지의 여러 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다.
+웹 애플리케이션은 점점 더 많이 SQL 주입, 사이트 간 스크립팅 공격 및 [OWASP 상위 10개 공격](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)에 나타나는 기타 공격 등의 알려진 일반적인 취약점을 악용하는 악의적인 공격의 목표가 되고 있습니다. 애플리케이션에서 이러한 악용을 방지하려면 애플리케이션 토폴로지의 여러 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다.
 
- ![Azure WAF(웹 응용 프로그램 방화벽)](./media/azure-network-security/azure-network-security-fig-13.png)
+ ![Azure WAF(웹 애플리케이션 방화벽)](./media/azure-network-security/azure-network-security-fig-13.png)
 
-중앙 집중식 [WAF(웹 응용 프로그램 방화벽)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview)는 응용 프로그램을 변경할 필요 없이 웹 공격으로부터 보호하고 보안 관리를 간소화합니다.
+중앙 집중식 [WAF(웹 애플리케이션 방화벽)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview)는 애플리케이션을 변경할 필요 없이 웹 공격으로부터 보호하고 보안 관리를 간소화합니다.
 
-또한 WAF 솔루션은 각각의 웹 응용 프로그램을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 Application Gateway는 웹 응용 프로그램 방화벽을 사용한 Application Gateway로 쉽게 변환될 수 있습니다.
+또한 WAF 솔루션은 각각의 웹 애플리케이션을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 Application Gateway는 웹 애플리케이션 방화벽을 사용한 Application Gateway로 쉽게 변환될 수 있습니다.
 
 #### <a name="network-availability-controls"></a>네트워크 가용성 컨트롤
 
@@ -419,7 +419,7 @@ Microsoft Azure를 사용하여 네트워크 트래픽을 분산하는 다양한
 
 **Azure Load Balancer**
 
-응용 프로그램에 고가용성 및 네트워크 성능을 제공합니다. 이 장치는 부하 분산 장치 집합에 정의된 서비스의 정상 인스턴스 간에 들어오는 트래픽을 분산하는 계층 4(TCP, UDP) 부하 분산 장치입니다.
+애플리케이션에 고가용성 및 네트워크 성능을 제공합니다. 이 장치는 부하 분산 장치 집합에 정의된 서비스의 정상 인스턴스 간에 들어오는 트래픽을 분산하는 계층 4(TCP, UDP) 부하 분산 장치입니다.
 
  ![Azure Load Balancer](media/azure-network-security/azure-network-security-fig-14.png)
 
@@ -436,15 +436,15 @@ Azure Load Balancer를 다음과 같이 구성할 수 있습니다.
 
  **Application Gateway**
 
- Application Gateway는 응용 프로그램 계층(OSI 네트워크 참조 스택의 계층 7)에서 작동합니다. 이 게이트웨이는 역방향 프록시 서비스 역할을 하며 클라이언트 연결을 종료하고 백 엔드 엔드포인트로 요청을 전달합니다.
+ Application Gateway는 애플리케이션 계층(OSI 네트워크 참조 스택의 계층 7)에서 작동합니다. 이 게이트웨이는 역방향 프록시 서비스 역할을 하며 클라이언트 연결을 종료하고 백 엔드 엔드포인트로 요청을 전달합니다.
 
  **Traffic Manager**
 
 Microsoft Azure Traffic Manager를 사용하면 다양한 데이터 센터에서 서비스 엔드포인트에 대한 사용자 트래픽의 배포를 제어할 수 있습니다. Traffic Manager에서 지원되는 서비스 엔드포인트는 Azure VM, Web Apps 및 클라우드 서비스를 포함합니다. 또한 외부, Azure가 아닌 엔드포인트로 Traffic Manager를 사용할 수 있습니다.
 
-Traffic Manager는 DNS(Domain Name System)를 사용하여 클라이언트 요청을 [트래픽 라우팅 메서드](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) 및 엔드포인트의 상태를 기반으로 가장 적절한 엔드포인트로 리디렉션합니다. Traffic Manager는 다양한 응용 프로그램 요구 사항, 엔드포인트 상태 [모니터링](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) 및 자동 장애 조치에 잘 맞는 트래픽 라우팅 메서드를 제공합니다. Traffic Manager는 전체 Azure 지역의 오류를 포함한, 오류에 대해 복원력을 갖습니다.
+Traffic Manager는 DNS(Domain Name System)를 사용하여 클라이언트 요청을 [트래픽 라우팅 메서드](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) 및 엔드포인트의 상태를 기반으로 가장 적절한 엔드포인트로 리디렉션합니다. Traffic Manager는 다양한 애플리케이션 요구 사항, 엔드포인트 상태 [모니터링](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) 및 자동 장애 조치에 잘 맞는 트래픽 라우팅 메서드를 제공합니다. Traffic Manager는 전체 Azure 지역의 오류를 포함한, 오류에 대해 복원력을 갖습니다.
 
-Azure Traffic Manager를 사용하면 응용 프로그램 엔드포인트에 트래픽 분산을 제어할 수 있습니다. 엔드포인트는 Azure의 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스입니다.
+Azure Traffic Manager를 사용하면 애플리케이션 엔드포인트에 트래픽 분산을 제어할 수 있습니다. 엔드포인트는 Azure의 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스입니다.
 
 Traffic Manager는 다음과 같은 두 가지 주요 이점을 제공합니다.
 
@@ -458,7 +458,7 @@ Traffic Manager는 다음과 같은 두 가지 주요 이점을 제공합니다.
 
 Azure 네트워크 유효성 검사는 Azure 네트워크가 구성된 대로 작동하는지 확인하며 이러한 유효성 검사는 네트워크 모니터링에 사용할 수 있는 서비스 및 기능을 사용하여 수행할 수 있습니다. Azure Network Watcher를 사용하여 다양한 로깅 및 진단 기능에 액세스함으로써 네트워크 성능과 상태를 보다 깊이 있기 이해할 수 있습니다. 이러한 기능은 포털, Powershell, CLI, Rest API 및 SDK를 통해 액세스할 수 있습니다.
 
-Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, 응용 프로그램 및 기타 자산을 보호할 수 있는 서비스, 제어 및 기능을 나타냅니다. Azure 운영 보안은 Microsoft SDL(Security Development Lifecycle), Microsoft 보안 대응 센터 프로그램 및 사이버 보안 위협 상황에 대한 심층 인식을 포함하여 Microsoft 고유의 다양한 기능을 통해 얻은 지식을 통합한 프레임워크를 기반으로 합니다.
+Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, 애플리케이션 및 기타 자산을 보호할 수 있는 서비스, 제어 및 기능을 나타냅니다. Azure 운영 보안은 Microsoft SDL(Security Development Lifecycle), Microsoft 보안 대응 센터 프로그램 및 사이버 보안 위협 상황에 대한 심층 인식을 포함하여 Microsoft 고유의 다양한 기능을 통해 얻은 지식을 통합한 프레임워크를 기반으로 합니다.
 
 -   [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
@@ -474,7 +474,7 @@ Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, �
 
 Microsoft Azure를 운영하는 사용자와 프로세스가 이 플랫폼에서 가장 중요한 보안 역할을 할 것입니다. 이 섹션에서는 보안, 연속성 및 개인 정보 보호를 강화하고 유지하는 데 도움이 되는 Microsoft의 글로벌 데이터 센터 인프라의 기능에 대해 설명합니다.
 
-응용 프로그램에 대한 인프라는 일반적으로 가상 머신, 저장소 계정 및 가상 네트워크 또는 웹앱, 데이터베이스, 데이터베이스 서버 및 타사 서비스 등의 많은 구성 요소를 만듭니다. 이러한 구성 요소를 별도 엔터티로 표시하지 않으면, 대신 관련된 단일 엔터티의 상호 종속적으로 부분으로 표시됩니다. 그룹으로 배포, 관리 및 모니터링하려고 합니다. Azure 리소스 관리자를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다.
+애플리케이션에 대한 인프라는 일반적으로 가상 머신, 스토리지 계정 및 가상 네트워크 또는 웹앱, 데이터베이스, 데이터베이스 서버 및 타사 서비스 등의 많은 구성 요소를 만듭니다. 이러한 구성 요소를 별도 엔터티로 표시하지 않으면, 대신 관련된 단일 엔터티의 상호 종속적으로 부분으로 표시됩니다. 그룹으로 배포, 관리 및 모니터링하려고 합니다. Azure 리소스 관리자를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다.
 
 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 리소스 관리자는 보안, 감사 및 태그 기능을 제공하여 배포 후에 리소스를 관리할 수 있습니다.
 
@@ -590,7 +590,7 @@ Network Watcher는 [진단 로그](https://docs.microsoft.com/azure/network-watc
 
 #### <a name="metrics"></a>메트릭
 
-메트릭은 일정 기간 동안 수집된 성능 측정 및 카운터입니다. 메트릭은 현재 Application Gateway에서 사용할 수 있습니다. 메트릭을 사용하여 임계값에 기반한 경고를 트리거할 수 있습니다. Azure Application Gateway는 기본적으로 백 엔드 풀의 모든 리소스 상태를 모니터링하고 풀에서 비정상으로 간주한 모든 리소스를 자동으로 제거합니다. Application Gateway는 비정상 인스턴스를 계속 모니터링하며 사용할 수 있게 되고 상태 프로브에 응답하게 되면 정상 백 엔드 풀에 다시 추가합니다. 응용 프로그램 게이트웨이에서 상태 프로브를 백 엔드 HTTP 설정에 정의된 동일한 포트와 함께 보냅니다. 이 구성으로 프로브에서 사용자가 백 엔드에 연결하는 데 사용하는 것과 동일한 포트를 테스트합니다.
+메트릭은 일정 기간 동안 수집된 성능 측정 및 카운터입니다. 메트릭은 현재 Application Gateway에서 사용할 수 있습니다. 메트릭을 사용하여 임계값에 기반한 경고를 트리거할 수 있습니다. Azure Application Gateway는 기본적으로 백 엔드 풀의 모든 리소스 상태를 모니터링하고 풀에서 비정상으로 간주한 모든 리소스를 자동으로 제거합니다. Application Gateway는 비정상 인스턴스를 계속 모니터링하며 사용할 수 있게 되고 상태 프로브에 응답하게 되면 정상 백 엔드 풀에 다시 추가합니다. 애플리케이션 게이트웨이에서 상태 프로브를 백 엔드 HTTP 설정에 정의된 동일한 포트와 함께 보냅니다. 이 구성으로 프로브에서 사용자가 백 엔드에 연결하는 데 사용하는 것과 동일한 포트를 테스트합니다.
 
 > [!Note]
 > 메트릭을 사용하여 경고를 만드는 방법을 알아보려면 [Application Gateway 진단](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview)을 참조하세요.

@@ -1,6 +1,6 @@
 ---
-title: Azure Search의 인덱스를 쿼리하기 위한 검색 탐색기 | Microsoft Docs
-description: 검색 탐색기를 사용하여 Azure Search의 인덱스를 쿼리하는 방법을 알아봅니다.
+title: 인덱스를 쿼리하기 위한 Azure Portal의 검색 탐색기 - Azure Search
+description: 검색 탐색기와 같은 Azure Portal 도구를 사용하여 Azure Search에서 인덱스를 쿼리합니다. 검색 용어 또는 고급 구문을 포함하는 정규화된 검색 문자열을 입력합니다.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 520d9e7b1899c54d922ff6fb77e0901f9609b029
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.custom: seodec2018
+ms.openlocfilehash: 11f102fcb2a24f9062313f9a3234c29e70a3dfe0
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004136"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315670"
 ---
 # <a name="how-to-use-search-explorer-to-query-indexes-in-azure-search"></a>검색 탐색기를 사용하여 Azure Search의 인덱스를 쿼리하는 방법 
 

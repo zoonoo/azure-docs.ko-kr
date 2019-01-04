@@ -10,20 +10,20 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 12/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 15ec028046b7c2b21f1892c460d53c73499680fe
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c589d1a11903f761fa791f36014fe235c1973514
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312540"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386913"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
 이 문서에서는 리소스를 새 구독 또는 동일한 구독의 새 리소스 그룹으로 이동하는 방법을 보여 줍니다. 포털, PowerShell, Azure CLI 또는 REST API를 사용하여 리소스를 이동할 수 있습니다. 이 문서의 이동 작업은 Azure 지원의 도움 없이 사용할 수 있습니다.
 
-리소스를 이동할 때 원본 그룹과 대상 그룹은 모두 작업 중에 잠겨 있습니다. 쓰기 및 삭제 작업은 이동이 완료될 때까지 리소스 그룹에서 차단됩니다. 이 잠금은 리소스 그룹에서 리소스를 추가, 업데이트, 삭제할 수 없음을 의미하지만 리소스가 고정되었음을 의미하지는 않습니다. 예를 들어, SQL Server와 해당 데이터베이스를 새 리소스 그룹으로 이동하는 경우 해당 데이터베이스를 사용하는 응용 프로그램에는 가동 중지 시간이 발생하지 않습니다. 데이터베이스에 계속해서 읽고 쓸 수 있습니다.
+리소스를 이동할 때 원본 그룹과 대상 그룹은 모두 작업 중에 잠겨 있습니다. 쓰기 및 삭제 작업은 이동이 완료될 때까지 리소스 그룹에서 차단됩니다. 이 잠금은 리소스 그룹에서 리소스를 추가, 업데이트, 삭제할 수 없음을 의미하지만 리소스가 고정되었음을 의미하지는 않습니다. 예를 들어, SQL Server와 해당 데이터베이스를 새 리소스 그룹으로 이동하는 경우 해당 데이터베이스를 사용하는 애플리케이션에는 가동 중지 시간이 발생하지 않습니다. 데이터베이스에 계속해서 읽고 쓸 수 있습니다.
 
 리소스의 위치는 변경할 수 없습니다. 리소스를 이동할 때는 새 리소스 그룹으로만 이동됩니다. 새 리소스 그룹은 다른 위치를 가질 수 있지만 리소스의 위치는 변경되지 않습니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "52312540"
   * [Azure 구독의 소유권을 다른 계정으로 이전](../billing/billing-subscription-transfer.md)
   * [Azure Active Directory에 Azure 구독을 연결하거나 추가하는 방법](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-1. 이동되는 리소스의 리소스 공급자가 대상 구독에 등록되어야 합니다. 그러지 않으면 **구독이 리소스 형식에 대해 등록되지 않았음**을 알리는 오류 메시지가 표시됩니다. 해당 리소스 종류와 함께 사용된 적이 없는 새 구독으로 리소스를 이동할 때 이 문제가 발생할 수 있습니다.
+1. 이동되는 리소스의 리소스 공급자가 대상 구독에 등록되어야 합니다. 그러지 않으면 **구독이 리소스 형식에 대해 등록되지 않았음**을 알리는 오류 메시지가 표시됩니다. 해당 리소스 종류와 함께 사용된 적이 없는 새 구독으로 리소스를 이동할 때 이 오류가 표시될 수 있습니다.
 
   PowerShell의 경우 다음 명령을 사용하여 등록 상태를 가져옵니다.
 
@@ -93,7 +93,7 @@ ms.locfileid: "52312540"
 
 1. 리소스를 이동하기 전에 리소스를 이동하려는 구독에 대한 구독 할당량을 확인합니다. 리소스 이동 시 구독이 해당 한계를 초과하는 경우 할당량 증가를 요청할 수 있는지 여부를 검토해야 합니다. 제한의 목록 및 증가 요청 방법은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
 
-1. 가능한 경우 대용량 이동을 개별 이동 작업으로 나눕니다. 단일 작업에서 800개가 넘는 리소스를 이동하려고 하면 Resource Manager가 즉시 실패합니다. 그러나 800개 미만의 리소스 이동도 시간 초과로 인해 실패할 수 있습니다.
+1. 가능한 경우 대용량 이동을 개별 이동 작업으로 나눕니다. 단일 작업에 800개가 넘는 리소스가 포함되면 Resource Manager가 즉시 오류를 반환합니다. 그러나 800개 미만의 리소스 이동도 시간 초과로 인해 실패할 수 있습니다.
 
 1. 서비스는 리소스 이동 기능을 사용하도록 설정해야 합니다. 이동이 성공할지 여부를 확인하려면 [이동 요청 유효성 검사](#validate-move)를 수행합니다. 이 문서에서 [리소스 이동이 가능한 서비스](#services-that-can-be-moved)와 [리소스 이동이 가능하지 않은 서비스](#services-that-cannot-be-moved)에 대한 아래 섹션을 참조하세요.
 
@@ -130,7 +130,7 @@ Content-type: application/json
 
 ```json
 {
- "resources": ['<resource-id-1>', '<resource-id-2>'],
+ "resources": ["<resource-id-1>", "<resource-id-2>"],
  "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
 }
 ```
@@ -169,7 +169,7 @@ Authorization: Bearer <access-token>
 * Analysis Services
 * API Management
 * App Service 앱(웹앱) - [App Service 제한](#app-service-limitations)
-* App Service Certificates
+* App Service Certificate - [App Service Certificate 제한 사항](#app-service-certificate-limitations)을 참조하세요.
 * Application Insights
 * Automation
 * Azure Active Directory B2C
@@ -215,7 +215,8 @@ Authorization: Bearer <access-token>
 * 포털 대시보드
 * Power BI - Power BI Embedded 및 Power BI Workspace Collection 모두
 * 공용 IP - [공용 IP 제한 사항](#pip-limitations) 참조
-* Redis Cache - 가상 네트워크를 사용하여 Redis Cache 인스턴스를 구성하는 경우 다른 구독으로 인스턴스를 이동할 수 없습니다. [가상 네트워크 제한 사항](#virtual-networks-limitations)을 참조하십시오.
+* Recovery Services 자격 증명 모음 - 비공개 미리 보기에 등록해야 합니다. [Recovery Services 제한 사항](#recovery-services-limitations)을 참조하세요.
+* Azure Cache for Redis - 가상 네트워크를 사용하여 Azure Cache for Redis 인스턴스를 구성하는 경우 다른 구독으로 인스턴스를 이동할 수 없습니다. [가상 네트워크 제한 사항](#virtual-networks-limitations)을 참조하십시오.
 * Scheduler
 * 검색
 * Service Bus
@@ -244,7 +245,6 @@ Authorization: Bearer <access-token>
 * Azure Database Migration
 * Azure Databricks
 * Azure Migrate
-* Batch AI
 * 인증서 - App Service Certificate를 이동할 수 있지만 업로드된 인증서에는 [제한](#app-service-limitations)이 있습니다.
 * Container Instances
 * 컨테이너 서비스
@@ -259,7 +259,6 @@ Authorization: Bearer <access-token>
 * Microsoft Genomics
 * NetApp
 * 공용 IP - [공용 IP 제한 사항](#pip-limitations) 참조
-* Recovery Services 자격 증명 모음 - Recovery Services 자격 증명 모음과 연결된 Compute, Network 및 Storage 리소스도 이동하지 않습니다. [Recovery Services 제한 사항](#recovery-services-limitations)을 참조하세요.
 * Azure의 SAP HANA
 * 보안
 * Site Recovery
@@ -312,15 +311,7 @@ Managed Disks는 2018년 9월 24일부터 이동 가능합니다.
 아직 지원되지 않는 제약 조건은 다음과 같습니다.
 
 * Key Vault에 저장된 인증서가 있는 Virtual Machines는 동일한 구독에서 새 리소스 그룹으로 이동할 수 있지만 구독 간에는 이동할 수 없습니다.
-* Azure Backup을 사용하여 구성된 가상 머신. 이러한 가상 머신을 이동하려면 아래 해결 방법을 사용하세요.
-  * 가상 머신 위치를 찾습니다.
-  * 명명 패턴이 `AzureBackupRG_<location of your VM>_1`인 리소스 그룹을 찾습니다(예: AzureBackupRG_westus2_1).
-  * Azure Portal에서 작업하는 경우 “숨겨진 형식 표시”를 선택합니다.
-  * PowerShell에서 작업하는 경우에는 `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet을 사용합니다.
-  * CLI에서 작업하는 경우에는 `az resource list -g AzureBackupRG_<location of your VM>_1`을 사용합니다.
-  * 이제 종류가 `Microsoft.Compute/restorePointCollections`이고 명명 패턴이 `AzureBackup_<name of your VM that you're trying to move>_###########`인 리소스를 찾습니다.
-  * 이 리소스를 삭제합니다.
-  * 삭제가 완료되면 가상 머신을 이동할 수 있습니다.
+* 가상 머신이 백업용으로 구성된 경우 [Recovery Services 제한 사항](#recovery-services-limitations)을 참조하세요.
 * 표준 SKU 부하 분산 장치 또는 표준 SKU 공용 IP를 사용하는 Virtual Machine Scale Sets는 이동할 수 없습니다.
 * 연결된 계획이 있는 Marketplace 리소스에서 만든 가상 머신은 리소스 그룹 또는 구독 간에 이동할 수 없습니다. 현재 구독의 가상 머신을 프로비전 해제하고 새 구독에 다시 배포합니다.
 
@@ -330,23 +321,21 @@ Managed Disks는 2018년 9월 24일부터 이동 가능합니다.
 
 피어링된 가상 네트워크를 이동하려면 먼저 가상 네트워크 피어링을 사용하지 않도록 설정해야 합니다. 사용하지 않도록 설정되면 가상 네트워크를 이동할 수 있습니다. 이동 후에는 가상 네트워크 피어링을 사용하도록 다시 설정합니다.
 
-리소스 탐색 링크가 있는 서브넷이 가상 네트워크에 있는 경우 가상 네트워크를 다른 구독으로 이동할 수 없습니다. 예를 들어 Redis Cache 리소스가 서브넷에 배포된 경우 해당 서브넷에는 리소스 탐색 링크가 있습니다.
+리소스 탐색 링크가 있는 서브넷이 가상 네트워크에 있는 경우 가상 네트워크를 다른 구독으로 이동할 수 없습니다. 예를 들어 Azure Cache for Redis 리소스가 서브넷에 배포된 경우 해당 서브넷에는 리소스 탐색 링크가 있습니다.
 
 ## <a name="app-service-limitations"></a>App Service 제한
 
-리소스를 구독 내에서 이동할지 또는 새 구독으로 이동할지에 따라 App Service 리소스 이동에 대한 제한 사항이 다릅니다.
-
-이 섹션에서 설명한 제한 사항은 App Service Certificates가 아닌 업로드된 인증서에 적용됩니다. 아무런 제한 없이 App Service Certificate를 새 리소스 그룹 또는 구독으로 이동시킬 수 있습니다. 동일한 App Service Certificate를 사용하는 여러 웹앱이 있는 경우 먼저 모든 웹앱을 이동한 다음, 인증서를 이동합니다.
+리소스를 구독 내에서 이동할지 또는 새 구독으로 이동할지에 따라 App Service 리소스 이동에 대한 제한 사항이 다릅니다. 웹앱이 App Service Certificate를 사용하는 경우 [App Service Certificate 제한 사항](#app-service-certificate-limitations)을 참조하세요.
 
 ### <a name="moving-within-the-same-subscription"></a>동일한 구독 내에서 이동
 
-_동일한 구독 내에서_ 웹앱을 이동할 때 업로드된 SSL 인증서는 이동할 수 없습니다. 그러나 업로드된 SSL 인증서를 이동하지 않고 Web App을 새 리소스 그룹으로 이동할 수 있으며 앱의 SSL 기능도 계속 작동합니다.
+‘동일한 구독 내’에서 웹앱을 이동할 경우 타사 SSL 인증서는 이동할 수 없습니다. 그러나 타사 인증서를 이동하지 않고 웹앱을 새 리소스 그룹으로 이동할 수 있으며 앱의 SSL 기능도 계속 작동합니다.
 
 Web App을 사용하여 SSL 인증서를 이동하려면 다음 단계를 수행합니다.
 
-1. Web App에서 업로드된 인증서를 삭제합니다.
+1. 웹앱에서 타사 인증서를 삭제하지만 인증서 복사본 유지
 2. Web App을 이동합니다.
-3. 이동된 Web App에 인증서를 업로드합니다.
+3. 이동된 웹앱에 타사 인증서를 업로드합니다.
 
 ### <a name="moving-across-subscriptions"></a>구독 간 이동
 
@@ -359,6 +348,10 @@ _구독 간에_ Web App을 이동할 때 적용되는 제한 사항은 다음과
     - App Service Environment
 - 리소스 그룹의 모든 App Service 리소스는 함께 이동해야 합니다.
 - App Service 리소스는 처음 만들었던 리소스 그룹에서만 이동할 수 있습니다. App Service 리소스가 원래의 리소스 그룹에 더 이상 없으면 먼저 원래의 리소스 그룹으로 다시 이동해야 합니다. 그런 다음 구독 간에 App Service 리소스를 이동하면 됩니다.
+
+## <a name="app-service-certificate-limitations"></a>App Service Certificate 제한 사항
+
+App Service Certificate를 새 리소스 그룹 또는 구독으로 이동할 수 있습니다. App Service Certificate가 웹앱에 바인딩되어 있으면 리소스를 새 구독으로 이동하기 전에 몇 가지 단계를 수행해야 합니다. 리소스를 이동하기 전에 웹앱에서 SSL 바인딩 및 개인 인증서를 삭제합니다. App Service Certificate를 삭제할 필요가 없고 웹앱의 개인 인증서만 삭제하면 됩니다.
 
 ## <a name="classic-deployment-limitations"></a>클래식 배포 제한 사항
 
@@ -446,15 +439,23 @@ _구독 간에_ Web App을 이동할 때 적용되는 제한 사항은 다음과
 
 ## <a name="recovery-services-limitations"></a>Recovery Services 제한 사항
 
-Azure Site Recovery로 재해 복구를 설정하는 데 사용된 Storage, Network 또는 Compute 리소스에 대해서는 이동이 사용되지 않습니다.
+Recovery Services 자격 증명 모음을 이동하려면 비공개 미리 보기에 등록해야 합니다. 체험해 보려면 AskAzureBackupTeam@microsoft.com에 메일을 보내세요.
 
-예를 들어, 온-프레미스 컴퓨터에서 저장소 계정(Storage1)으로 복제를 설정했고 Azure에 장애 조치(failover) 후 가상 네트워크(Network1)에 연결된 가상 머신(VM1)로 보호되는 컴퓨터를 실행하려고 한다고 가정합니다. 같은 구독 내에 있거나 여러 구독에 있는 리소스 그룹에 대해 이러한 Azure 리소스(Storage1, VM1, Network1) 작업 중 어떠한 것도 이동할 수 없습니다.
+현재 지역별로 한 번에 하나의 Recovery Services 자격 증명 모음을 이동할 수 있습니다. Azure Files, Azure 파일 동기화 또는 IaaS 가상 머신의 SQL을 백업하는 자격 증명 모음은 이동할 수 없습니다. 
 
-리소스 그룹 간에 **Azure Backup**에 등록된 VM을 이동하려면 다음을 수행합니다.
- 1. 일시적으로 백업을 중지하고 백업 데이터를 보존합니다.
- 2. VM을 대상 리소스 그룹으로 이동합니다.
- 3. 사용자가 이동 작업 이전에 만든 사용 가능한 복원 지점에서 복원할 수 있는 VM을 동일하거나 새로운 자격 증명 모음으로 다시 보호합니다.
-사용자가 백업된 VM을 구독 간에 이동하는 경우 1단계와 2단계는 동일합니다. 3단계에서, 대상 구독에 있는/만들어진 새 자격 증명 모음에서 VM을 보호해야 합니다. Recovery Services 자격 증명 모음은 구독 간 백업을 지원하지 않습니다.
+가상 머신을 자격 증명 모음과 함께 이동하지 않으면 현재 가상 머신 복구 지점은 만료될 때까지 자격 증명 모음에 남아 있습니다. 가상 머신을 자격 증명 모음과 함께 이동했는지 여부에 관계없이 자격 증명 모음의 백업 기록에서 가상 머신을 복원할 수 있습니다.
+
+Recovery Services 자격 증명 모음은 구독 간 백업을 지원하지 않습니다. 구독 간에 자격 증명 모음을 가상 머신 백업 데이터와 함께 이동하는 경우에는 가상 머신을 동일한 구독으로 이동하고 동일한 대상 리소스 그룹을 사용하여 백업을 계속해야 합니다.
+
+자격 증명 모음에 대해 정의된 백업 정책은 자격 증명 모음이 이동한 후에도 유지됩니다. 이동 후에는 자격 증명 모음에 대한 보고 및 모니터링을 다시 설정해야 합니다.
+
+Recovery Services 자격 증명 모음을 이동하지 않고 가상 머신을 새 구독으로 이동하려면:
+
+ 1. 일시적으로 백업 중지
+ 2. 가상 머신을 새 구독으로 이동
+ 3. 해당 구독의 새 자격 증명 모음으로 다시 보호
+
+Azure Site Recovery로 재해 복구를 설정하는 데 사용된 Storage, Network 또는 Compute 리소스에 대해서는 이동이 사용되지 않습니다. 예를 들어, 온-프레미스 컴퓨터에서 저장소 계정(Storage1)으로 복제를 설정했고 Azure에 장애 조치(failover) 후 가상 네트워크(Network1)에 연결된 가상 머신(VM1)로 보호되는 컴퓨터를 실행하려고 한다고 가정합니다. 같은 구독 내에 있거나 여러 구독에 있는 리소스 그룹에 대해 이러한 Azure 리소스(Storage1, VM1, Network1) 작업 중 어떠한 것도 이동할 수 없습니다.
 
 ## <a name="hdinsight-limitations"></a>HDInsight 제한 사항
 
@@ -464,7 +465,7 @@ HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스
 
 ## <a name="search-limitations"></a>검색 제한 사항
 
-여러 Search 리소스를 이동하여 한 번에 모두 다른 지역에 배치할 수 없습니다.
+서로 다른 지역의 여러 Search 리소스를 한 번에 모두 이동할 수는 없습니다.
 이러한 경우에는 개별적으로 이동해야 합니다.
 
 ## <a name="lb-limitations"></a> 부하 분산 장치 제한 사항

@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2018
+ms.date: 12/04/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: e40c18edadebae1f92cf811ea054503b9cd6b1ae
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: c35c16e1414b1287fa891d1ce1f65ca8eff3d2c5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277973"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434956"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>자습서: 페더레이션된 도메인용 하이브리드 Azure Active Directory 조인 구성
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>자습서: 페더레이션 도메인용 하이브리드 Azure Active Directory 조인 구성
 
 사용자와 비슷한 방식으로 디바이스는 보호하려는 다른 ID가 되고, 언제 어디서나 리소스를 보호하는 데도 사용됩니다. 다음 방법 중 하나를 사용하여 디바이스의 ID를 Azure AD로 가져와서 이 목표를 달성할 수 있습니다.
 
@@ -50,12 +50,15 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 -  [하이브리드 Azure Active Directory 조인 구현을 계획하는 방법](hybrid-azuread-join-plan.md)
 
--  [장치의 하이브리드 Azure AD 조인을 제어하는 방법](hybrid-azuread-join-control.md)
+-  [디바이스의 하이브리드 Azure AD 조인을 제어하는 방법](hybrid-azuread-join-control.md)
+
 
 
 이 자습서의 시나리오를 구성하려면 다음이 필요합니다.
 
 - Windows Server 2012 R2 AD FS
+
+- 스키마 레벨이 85 이상인 온-프레미스 AD(Active Directory). 자세한 내용은 [Active Directory 스키마 업그레이드](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema)를 참조하세요.
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) 버전 1.1.819.0 이상 
  
@@ -150,16 +153,16 @@ Azure AD Connect를 사용하여 하이브리드 Azure AD 조인을 구성하려
 
 ## <a name="enable-windows-down-level-devices"></a>Windows 하위 수준 디바이스 설정
 
-도메인에 가입된 디바이스 중 일부가 Windows 하위 수준 디바이스인 경우 다음을 수행해야 합니다.
+도메인에 가입된 장치 중 일부가 Windows 하위 수준 장치인 경우 다음을 수행해야 합니다.
 
-- 디바이스 설정 업데이트
+- 장치 설정 업데이트
  
 - 디바이스 등록에 대한 로컬 인트라넷 설정 구성
 
 - Windows 하위 수준 디바이스 제어 
 
 
-### <a name="update-device-settings"></a>디바이스 설정 업데이트 
+### <a name="update-device-settings"></a>장치 설정 업데이트 
 
 Windows 하위 수준 디바이스를 등록하려면 사용자가 Azure AD에서 디바이스를 등록할 수 있도록 허용하는 디바이스 설정을 선택해야 합니다. Azure Portal의 다음 위치에서 이러한 값을 확인할 수 있습니다.
 
@@ -167,12 +170,12 @@ Windows 하위 수준 디바이스를 등록하려면 사용자가 Azure AD에�
 
 
     
-**사용자가 장치를 Azure AD에 등록할 수 있습니다.** 정책이 **모두**로 설정되어야 합니다.
+다음 정책을 **모두**: **사용자가 디바이스를 Azure AD에 등록할 수 있습니다.** 로 설정해야 합니다.
 
 ![디바이스 등록](./media/hybrid-azuread-join-federated-domains/23.png)
 
 
-### <a name="configure-the-local-intranet-settings-for-device-registration"></a>디바이스 등록에 대한 로컬 인트라넷 설정 구성
+### <a name="configure-the-local-intranet-settings-for-device-registration"></a>장치 등록에 대한 로컬 인트라넷 설정 구성
 
 Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인을 성공적으로 완료하고 디바이스가 Azure AD를 인증할 때 인증서 프롬프트를 표시하지 않으려면 도메인에 가입된 디바이스에 정책을 푸시하여 Internet Explorer의 로컬 인트라넷 영역에 다음 URL을 추가할 수 있습니다.
 
@@ -188,7 +191,7 @@ Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인을 성공�
 
 ### <a name="control-windows-down-level-devices"></a>Windows 하위 수준 디바이스 제어 
 
-Windows 하위 수준 디바이스를 등록하려면 다운로드 센터에서 Windows Installer 패키지(.msi)를 다운로드하여 설치해야 합니다. 자세한 내용을 보려면 [여기](hybrid-azuread-join-control.md#control-windows-down-level-devices)를 클릭하세요. 
+Windows 하위 수준 장치를 등록하려면 다운로드 센터에서 Windows Installer 패키지(.msi)를 다운로드하여 설치해야 합니다. 자세한 내용은 [여기](hybrid-azuread-join-control.md#control-windows-down-level-devices)를 클릭하세요. 
 
 ## <a name="verify-the-registration"></a>등록 확인
 
@@ -197,8 +200,8 @@ Azure 테넌트에서 디바이스 등록 상태를 확인하려면 **[Azure Act
 **Get-MSolDevice** cmdlet을 사용하여 서비스 세부 정보를 확인하려는 경우 다음이 적용됩니다.
 
 - Windows 클라이언트의 ID와 일치하는 **디바이스 ID**를 갖는 개체가 있어야 합니다.
-- **DeviceTrustType** 값은 **도메인 가입됨**이어야 합니다. 이 값은 Azure AD 포털에서 디바이스 페이지의 **하이브리드 Azure AD 가입**과 같습니다.
-- 조건부 액세스에 사용되는 디바이스의 경우 **Enabled** 값이 **True**이고 **DeviceTrustLevel**이 **Managed**여야 합니다. 
+- **DeviceTrustType** 값은 **도메인 가입됨**이어야 합니다. 이 값은 Azure AD 포털에서 장치 페이지의 **하이브리드 Azure AD 가입**과 같습니다.
+- 조건부 액세스에 사용되는 장치의 경우 **Enabled** 값이 **True**이고 **DeviceTrustLevel**이 **Managed**여야 합니다. 
 
 
 **서비스 세부 정보를 확인하려면**

@@ -1,20 +1,19 @@
 ---
-title: Azure Cosmos DB 변경 피드를 사용하여 실시간 데이터 분석 시각화 | Microsoft Docs
+title: Azure Cosmos DB 변경 피드를 사용하여 실시간 데이터 분석 시각화
 description: 이 문서에서는 소매 회사에서 변경 피드를 사용하여 사용자 패턴을 파악하고 실시간 데이터 분석 및 시각화를 수행하는 방법에 대해 설명합니다.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 03fb56125bcc4133dd87a1dc76d4d6811ebb8f40
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e663a7b8f68c43ebf4c562dd67630db5d113e979
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685500"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090757"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Azure Cosmos DB 변경 피드를 사용하여 실시간 데이터 분석 시각화
 
@@ -45,15 +44,15 @@ Azure Cosmos DB 변경 피드는 레코드가 만들어지거나 수정될 때 A
 
 2. **Cosmos DB:** 생성된 데이터는 Azure Cosmos DB 컬렉션에 저장됩니다.  
 
-3. **변경 피드:** Azure Cosmos DB 컬렉션의 변경 내용을 수신 대기합니다. 새 문서가 컬렉션에 추가될 때마다, 즉 사용자가 항목을 조회하거나 자신의 카트에 항목을 추가하거나 항목을 구입하는 것과 같은 이벤트가 발생하면 변경 피드에서 [Azure Function](../azure-functions/functions-overview.md)을 트리거합니다.  
+3. **변경 피드:** 변경 피드는 Azure Cosmos DB 컬렉션의 변경 내용을 수신 대기합니다. 새 문서가 컬렉션에 추가될 때마다, 즉 사용자가 항목을 조회하거나 자신의 카트에 항목을 추가하거나 항목을 구입하는 것과 같은 이벤트가 발생하면 변경 피드에서 [Azure Function](../azure-functions/functions-overview.md)을 트리거합니다.  
 
-4. **Azure Function:** 새 데이터를 처리하여 [Azure Event Hub](../event-hubs/event-hubs-about.md)로 보냅니다.  
+4. **Azure Function:** Azure Function은 새 데이터를 처리하여 [Azure Event Hub](../event-hubs/event-hubs-about.md)로 보냅니다.  
 
-5. **Event Hub:** 이러한 이벤트를 저장하고 추가 분석을 수행하기 위해 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)로 보냅니다.  
+5. **Event Hub:** Azure Event Hub는 이러한 이벤트를 저장하고 추가 분석을 수행하기 위해 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)로 보냅니다.  
 
-6. **Azure Stream Analytics:** 이벤트를 처리하고 실시간 데이터 분석을 수행하기 위한 쿼리를 정의합니다. 그런 다음, 이 데이터는 [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop)로 보내집니다.  
+6. **Azure Stream Analytics:** Azure Stream Analytics는 이벤트를 처리하고 실시간 데이터 분석을 수행하기 위한 쿼리를 정의합니다. 그런 다음, 이 데이터는 [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop)로 보내집니다.  
 
-7. **Power BI:** Azure Stream Analytics에서 보낸 데이터를 시각화하는 데 사용됩니다. 메트릭이 실시간으로 변하는 상황을 확인할 수 있는 대시보드를 작성할 수 있습니다.  
+7. **Power BI:** Power BI는 Azure Stream Analytics에서 보낸 데이터를 시각화하는 데 사용됩니다. 메트릭이 실시간으로 변하는 상황을 확인할 수 있는 대시보드를 작성할 수 있습니다.  
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -95,13 +94,12 @@ Azure Cosmos DB 변경 피드는 레코드가 만들어지거나 수정될 때 A
 
 이제 전자 상거래 사이트 이벤트를 저장할 컬렉션을 만들어 보겠습니다. 사용자가 항목을 조회하거나 자신의 카트에 항목을 추가하거나 항목을 구입하면, 컬렉션에서 작업("viewed(조회)", "added(추가)" 또는 "purchased(구입)"), 관련 항목의 이름, 관련 항목의 가격 및 관련 사용자 카트의 ID 번호가 포함된 레코드를 받습니다.
 
-1. [Azure Portal](http://portal.azure.com/)로 이동하고, 템플릿 배포를 통해 만들어진 **Azure Cosmos DB 계정**을 찾습니다.  
+1. [Azure Portal](https://portal.azure.com/)로 이동하고, 템플릿 배포를 통해 만들어진 **Azure Cosmos DB 계정**을 찾습니다.  
 
 2. **데이터 탐색기** 창에서 **새 컬렉션**을 선택하고 다음 세부 정보로 양식을 채웁니다.  
 
    * **데이터베이스 ID** 필드에 대해 **새로 만들기**를 선택한 다음, **changefeedlabdatabase**를 입력합니다. **데이터베이스 처리량 프로비전** 상자는 선택하지 않은 상태로 둡니다.  
    * **컬렉션 ID** 필드에 대해 **changefeedlabcollection**을 입력합니다.  
-   * **저장소 용량**에 대해 **무제한**을 선택합니다.  
    * **파티션 키** 필드에 대해 **/Item**을 입력합니다. 대/소문자를 구분하므로 정확하게 입력해야 합니다.  
    * **처리량** 필드에 대해 **10000**을 입력합니다.  
    * **확인** 단추를 선택합니다.  
@@ -120,7 +118,7 @@ Azure Cosmos DB 변경 피드는 레코드가 만들어지거나 수정될 때 A
 
 ### <a name="get-the-azure-cosmos-db-connection-string"></a>Azure Cosmos DB 연결 문자열 가져오기
 
-1. [Azure Portal](http://portal.azure.com/)로 이동하고, 템플릿 배포를 통해 만들어진 **Azure Cosmos DB 계정**을 찾습니다.  
+1. [Azure Portal](https://portal.azure.com/)로 이동하고, 템플릿 배포를 통해 만들어진 **Azure Cosmos DB 계정**을 찾습니다.  
 
 2. **키** 창으로 이동하고, [기본 연결 문자열]을 복사하여 랩 전체에서 액세스할 수 있는 메모장이나 다른 문서에 붙여넣습니다. **Cosmos DB 연결 문자열**이라는 레이블을 지정해야 합니다. 문자열은 나중에 코드에 복사해야 하므로 메모를 작성하여 저장한 위치를 적어 둡니다.
 
@@ -180,7 +178,7 @@ Cosmos DB 컬렉션에서 새 문서가 만들어지거나 현재 문서가 수�
  
 6. 프로그램이 실행될 때까지 기다립니다. 별은 데이터가 들어오고 있다는 것을 의미합니다! 프로그램을 계속 실행합니다. 많은 양의 데이터가 수집되는 것이 중요합니다.  
 
-7. [Azure Portal](http://portal.azure.com/), 리소스 그룹 내의 Cosmos DB 계정, **데이터 탐색기**로 차례로 이동하면 **changefeedlabcollection**에 가져온 임의 데이터가 표시됩니다.
+7. [Azure Portal](https://portal.azure.com/), 리소스 그룹 내의 Cosmos DB 계정, **데이터 탐색기**로 차례로 이동하면 **changefeedlabcollection**에 가져온 임의 데이터가 표시됩니다.
  
    ![포털에서 생성된 데이터](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 
@@ -188,7 +186,7 @@ Cosmos DB 컬렉션에서 새 문서가 만들어지거나 현재 문서가 수�
 
 Azure Stream Analytics는 스트리밍 데이터를 실시간으로 처리할 수 있도록 완벽하게 관리되는 클라우드 서비스입니다. 이 랩에서는 스트림 분석을 사용하여 Event Hub에서 새 이벤트(예: 항목을 조회하거나 카트에 추가하거나 구입하는 경우)를 처리하고, 해당 이벤트를 실시간 데이터 분석에 통합하고, 시각화를 위해 Power BI로 보냅니다.
 
-1. [Azure Portal](http://portal.azure.com/)에서 리소스 그룹, **streamjob1**(이전 실습에서 만든 스트림 분석 작업)로 차례로 이동합니다.  
+1. [Azure Portal](https://portal.azure.com/)에서 리소스 그룹, **streamjob1**(이전 실습에서 만든 스트림 분석 작업)로 차례로 이동합니다.  
 
 2. 아래와 같이 **입력**을 선택합니다.  
 
@@ -217,7 +215,7 @@ Azure Stream Analytics는 스트리밍 데이터를 실시간으로 처리할 �
 
    * **출력 별칭** 필드에서 **averagePriceOutput**을 입력합니다.  
    * **그룹 작업 영역** 필드를 **작업 영역을 로드하도록 연결에 권한 부여**로 설정된 채로 둡니다.  
-   * **데이터 집합 이름** 필드에서 **averagePrice**를 입력합니다.  
+   * **데이터 세트 이름** 필드에서 **averagePrice**를 입력합니다.  
    * **테이블 이름** 필드에서 **averagePrice**를 입력합니다.  
    * **권한 부여** 단추를 선택한 다음, 지침에 따라 Power BI에 대한 연결 권한을 부여합니다.  
    * **저장** 단추를 선택합니다.  
@@ -251,15 +249,15 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
 
 4. **사용자 지정 스트리밍 데이터**를 선택한 다음, **다음** 단추를 선택합니다.  
  
-5. **데이터 집합**에서 **averagePrice**를 선택한 다음, **다음**을 선택합니다.  
+5. **데이터 세트**에서 **averagePrice**를 선택한 다음, **다음**을 선택합니다.  
 
 6. **시각화 형식** 필드의 드롭다운 메뉴에서 **묶은 가로 막대형 차트**를 선택합니다. **축** 아래에서 작업을 추가합니다. **범례**는 아무 것도 추가하지 않고 건너뜁니다. 그런 다음, **값**이라는 다음 섹션 아래에서 **avg**를 추가합니다. **다음**을 선택하고, 차트 제목을 지정한 다음, **적용**을 선택합니다. 대시보드에 새 차트가 표시됩니다!  
 
 7. 이제 더 많은 메트릭을 시각화하려면 **streamjob1**로 돌아가서 다음 필드를 통해 세 개의 출력을 추가로 만들 수 있습니다.
 
-   a. **출력 별칭:** incomingRevenueOutput, 데이터 집합 이름: incomingRevenue, 테이블 이름: incomingRevenue  
-   b. **출력 별칭:** top5Output, 데이터 집합 이름: top5, 테이블 이름: top5  
-   다. **출력 별칭:** uniqueVisitorCountOutput, 데이터 집합 이름: uniqueVisitorCount, 테이블 이름: uniqueVisitorCount
+   a. **출력 별칭:** incomingRevenueOutput, 데이터 세트 이름: incomingRevenue, 테이블 이름: incomingRevenue  
+   b. **출력 별칭:** top5Output, 데이터 세트 이름: top5, 테이블 이름: top5  
+   다. **출력 별칭:** uniqueVisitorCountOutput, 데이터 세트 이름: uniqueVisitorCount, 테이블 이름: uniqueVisitorCount
 
    그런 다음, **쿼리 편집**을 선택하고 이미 작성한 쿼리 **위에** 다음 쿼리를 붙여넣습니다.
 
@@ -323,11 +321,11 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
 
 이제 새 데이터 분석 도구를 사용하여 실제 전자 상거래 사이트에 연결하는 방법을 살펴보겠습니다. 전자 상거래 사이트를 구축하려면 Azure Cosmos DB 데이터베이스를 사용하여 제품 범주(여성, 남성, 남녀 공용) 목록, 제품 카탈로그 및 가장 인기 있는 항목 목록을 저장합니다.
 
-1. [Azure Portal](http://portal.azure.com/), **Cosmos DB 계정**, **데이터 탐색기**로 차례로 다시 이동합니다.  
+1. [Azure Portal](https://portal.azure.com/), **Cosmos DB 계정**, **데이터 탐색기**로 차례로 다시 이동합니다.  
 
    **changefeedlabdatabase** - **products** 및 **categories** 아래에 [고정] 저장소 용량이 있는 두 개의 컬렉션을 추가합니다.
 
-   **changefeedlabdatabase** 아래에 **무제한** 저장소 용량이 있는 또 다른 **topItems** 컬렉션을 추가합니다. **/Item**을 파티션 키로 작성합니다.
+   **changefeedlabdatabase** 아래에 파티션 키로 **topItems** 및 **/Item**이라는 다른 컬렉션을 추가합니다.
 
 2. **topItems** 컬렉션을 선택하고 **배율 및 설정** 아래에서 topItems가 매 30초마다 업데이트되도록 **TTL(Time to live)** 을 **30초**로 설정합니다.
 
@@ -393,7 +391,7 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
 
 ## <a name="delete-the-resources"></a>리소스 삭제
 
-이 랩에서 만든 리소스를 삭제하려면 [Azure Portal](http://portal.azure.com/)에서 리소스 그룹으로 이동한 다음, 페이지 위쪽의 메뉴에서 **리소스 그룹** 삭제를 선택하고, 제시되는 지침을 따릅니다.
+이 랩에서 만든 리소스를 삭제하려면 [Azure Portal](https://portal.azure.com/)에서 리소스 그룹으로 이동한 다음, 페이지 위쪽의 메뉴에서 **리소스 그룹** 삭제를 선택하고, 제시되는 지침을 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계 
   

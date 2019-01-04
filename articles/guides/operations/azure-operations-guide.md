@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 07faf5efd1c7eec3e209a5d971185655cc949bb9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4ced3aa9b7d37543b4942bbfa9a5605058a614d8
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250784"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014738"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 운영자를 위한 시작하기
 
@@ -65,13 +65,13 @@ Azure에는 가상 머신, 가상 머신 확장 집합 및 관련 네트워킹 �
 
 가상 머신 확장 집합은 Azure Virtual Machines 위에 빌드되어 동일한 VM의 클러스터를 손쉽게 배포할 수 있습니다. 또한 가상 머신 확장 집합은 자동 확장을 지원하므로 필요할 때 새 VM을 자동으로 배포할 수 있습니다. 따라서 가상 머신 확장 집합은 Azure Service Fabric 및 Azure Container Service와 같은 상위 수준의 마이크로 서비스 계산 클러스터를 호스트하는 이상적인 플랫폼입니다.
 
-#### <a name="paas-platform-as-a-service"></a>PaaS: Platform as a service
+#### <a name="paas-platform-as-a-service"></a>PaaS: 서비스 제공 플랫폼
 
-PaaS를 사용하면 클라우드 서비스 공급업체가 제공하는 환경에 응용 프로그램을 배포할 수 있습니다. 모든 인프라 관리는 공급업체에서 수행하므로 응용 프로그램 개발 및 데이터 관리에 집중할 수 있습니다.
+PaaS를 사용하면 클라우드 서비스 공급업체가 제공하는 환경에 응용 프로그램을 배포할 수 있습니다. 모든 인프라 관리는 공급업체에서 수행하므로 애플리케이션 개발 및 데이터 관리에 집중할 수 있습니다.
 
 Azure는 Azure App Service 및 Azure Cloud Services(웹 및 작업자 역할)의 Web Apps 기능을 포함한 여러 가지 PaaS 계산 제공 사항을 제공합니다. 두 경우 모두 개발자는 지원에 대한 세부적인 지식이 없어도 여러 가지 방법으로 응용 프로그램을 배포할 수 있습니다. 개발자는 VM(가상 머신)을 만들거나 RDP(원격 데스크톱 프로토콜)를 사용하여 각 응용 프로그램에 로그인하거나 응용 프로그램을 설치할 필요가 없습니다. 단추 하나만 누르면(또는 가까이 가면) Microsoft에서 제공하는 도구가 VM을 프로비저닝한 다음 VM에 응용 프로그램을 배포 및 설치합니다.
 
-#### <a name="saas-software-as-a-service"></a>SaaS: Software as a service
+#### <a name="saas-software-as-a-service"></a>SaaS: 서비스 제공 소프트웨어
 
 SaaS는 중앙에서 호스트되고 관리되는 소프트웨어입니다. 일반적으로 다중 테넌트 아키텍처를 기반으로 하고 단일 버전의 응용 프로그램이 모든 고객에게 사용됩니다. 모든 위치에서 최상의 성능을 보장하기 위해 여러 인스턴스로 확장할 수 있습니다. SaaS 소프트웨어는 일반적으로 월간 또는 연간 구독을 통해 사용이 허가됩니다. SaaS 소프트웨어는 일반적으로 월간 또는 연간 구독을 통해 사용이 허가됩니다. SaaS 소프트웨어 공급업체가 소프트웨어 스택의 모든 구성 요소를 담당하므로 사용자는 제공되는 서비스만 관리하면 됩니다.
 
@@ -107,7 +107,7 @@ Azure는 클라우드 컴퓨팅 플랫폼에서 많은 서비스를 제공합니
 
 - Microsoft Azure StorSimple
 
-- Azure Redis 캐시(영문)
+- Azure Cache for Redis
 
 ### <a name="application-services"></a>응용 프로그램 서비스
 
@@ -191,17 +191,17 @@ Azure는 Azure Portal UI를 지원하는 REST API 집합을 기반으로 합니�
 
 Azure 서비스를 사용하려면 먼저 구독이 있어야 합니다. 여러 구독 형식을 사용할 수 있습니다.
 
-**무료 계정**: [Azure 웹 사이트](https://azure.microsoft.com/)에 무료 계정을 등록할 수 있는 링크가 있습니다. 무료 계정을 등록하면 Azure의 리소스 조합을 사용해 볼 수 있는 30일 과정에 대한 크레딧이 부여됩니다. 크레딧 금액을 초과하면 계정이 일시 중지됩니다. 평가판이 끝나면 서비스가 해제되고 더 이상 사용할 수 없습니다. 언제든지 종량제 구독으로 업그레이드할 수 있습니다.
+**체험 계정**: [Azure 웹 사이트](https://azure.microsoft.com/)에 체험 계정을 등록할 수 있는 링크가 있습니다. 무료 계정을 등록하면 Azure의 리소스 조합을 사용해 볼 수 있는 30일 과정에 대한 크레딧이 부여됩니다. 크레딧 금액을 초과하면 계정이 일시 중지됩니다. 평가판이 끝나면 서비스가 해제되고 더 이상 사용할 수 없습니다. 언제든지 종량제 구독으로 업그레이드할 수 있습니다.
 
-**MSDN 구독**: MSDN 구독이 있는 경우 매달 Azure 크레딧으로 일정 금액을 받습니다. 예를 들어 Microsoft Visual Studio Enterprise with MSDN 구독이 있는 경우 Azure 크레딧으로 매달 \$150를 받게 됩니다.
+**MSDN 구독**: MSDN 구독이 있는 경우 매달 Azure 크레딧으로 일정 금액이 제공됩니다. 예를 들어 Microsoft Visual Studio Enterprise with MSDN 구독이 있는 경우 Azure 크레딧으로 매달 \$150를 받게 됩니다.
 
 크레딧 금액을 초과하면 다음 달이 시작될 때까지 서비스를 사용할 수 없습니다. 지출 한도를 해제하고 추가 비용으로 사용할 신용 카드를 추가할 수 있습니다. MSDN 계정에 대해서는 이러한 비용 중 일부가 할인됩니다. 예를 들어 Windows Server를 실행하는 VM에 대한 Linux 요금을 지불하면 Microsoft SQL Server와 같은 Microsoft 서버에 대한 추가 요금이 부과되지 않습니다. 따라서 MSDN 계정은 개발 및 테스트 시나리오에 적합합니다.
 
-**BizSpark 계정**: Microsoft BizSpark 프로그램은 신생 기업에게 많은 이점을 제공합니다. 이러한 이점 중 하나는 최대 5개 MSDN 계정의 개발 및 테스트 환경을 위해 모든 Microsoft 소프트웨어에 액세스할 수 있다는 것입니다. 5개의 각 MSDN 계정에 대해 Azure 크레딧으로 $150를 받고, Virtual Machines와 같은 여러 Azure 서비스를 할인된 요금으로 이용할 수 있습니다.
+**BizSpark 계정**: Microsoft BizSpark 프로그램은 스타트업에 많은 이점을 제공합니다. 이러한 이점 중 하나는 최대 5개 MSDN 계정의 개발 및 테스트 환경을 위해 모든 Microsoft 소프트웨어에 액세스할 수 있다는 것입니다. 5개의 각 MSDN 계정에 대해 Azure 크레딧으로 $150를 받고, Virtual Machines와 같은 여러 Azure 서비스를 할인된 요금으로 이용할 수 있습니다.
 
-**종량제**: 이 구독을 사용하면 신용 카드 또는 직불 카드를 계정에 연결하여 요금을 지불하게 됩니다. 조직인 경우 송장 승인을 받을 수도 있습니다.
+**종량제**: 이 구독을 사용하면 신용 카드 또는 직불 카드를 계정에 연결하여 사용한 만큼 지불하게 됩니다. 조직인 경우 송장 승인을 받을 수도 있습니다.
 
-**기업계약**: 기업계약을 체결하면 내년에 Azure에서 특정 수의 서비스를 사용하겠다는 약정을 하고, 그 금액을 미리 지불합니다. 이 약정은 1년 동안 사용됩니다. 약정 금액을 초과하면 초과 비용을 후불로 지불할 수 있습니다. 약정 금액에 따라 Azure에서 서비스에 대한 할인을 받을 수 있습니다.
+**기업계약**: 기업계약을 체결하면 다음 해에 Azure에서 특정 수의 서비스를 사용한다는 약정을 하고, 해당 금액을 미리 지불합니다. 이 약정은 1년 동안 사용됩니다. 약정 금액을 초과하면 초과 비용을 후불로 지불할 수 있습니다. 약정 금액에 따라 Azure에서 서비스에 대한 할인을 받을 수 있습니다.
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Azure 구독에 대한 관리 액세스 권한 부여
 
@@ -275,9 +275,9 @@ Resource Manager 템플릿은 4개의 섹션으로 구성됩니다.
 
 - **매개 변수**: 배포에 대한 입력입니다. 매개 변수 값은 사람 또는 자동화된 프로세스에 의해 제공될 수 있습니다. 매개 변수의 예로는 Windows VM에 대한 관리자의 사용자 이름과 암호를 들 수 있습니다. 매개 변수 값이 지정되면 배포 전체에서 사용됩니다.
 
-- **변수**: 이 값은 배포 전체에서 사용되는 값을 저장하는 데 사용됩니다. 매개 변수와 달리 변수 값은 배포 시 제공되지 않습니다. 대신 하드 코딩되거나 동적으로 생성됩니다.
+- **변수**: 이 값은 배포 전체에서 사용되는 값을 포함하는 데 사용됩니다. 매개 변수와 달리 변수 값은 배포 시 제공되지 않습니다. 대신 하드 코딩되거나 동적으로 생성됩니다.
 
-- **리소스**: 이 템플릿 섹션에서는 가상 머신, 저장소 계정 및 가상 네트워크 등 배포할 리소스를 정의합니다.
+- **리소스:** 이 템플릿 섹션에서는 가상 머신, 스토리지 계정 및 가상 네트워크 등의 배포할 리소스를 정의합니다.
 
 - **출력**: 배포가 완료되면 Resource Manager에서 동적으로 생성된 연결 문자열과 같은 데이터를 반환할 수 있습니다.
 
@@ -285,7 +285,7 @@ Resource Manager 템플릿은 4개의 섹션으로 구성됩니다.
 
 - **함수**: Resource Manager 템플릿에서 여러 함수를 사용할 수 있습니다. 여기에는 문자열을 소문자로 변환, 정의된 리소스의 여러 인스턴스 배포 및 대상 리소스 그룹의 동적 반환 등의 작업이 포함됩니다. Resource Manager 함수를 사용하여 동적 배포를 빌드할 수 있습니다.
 
-- **리소스 종속성**: 여러 리소스를 배포할 때 일부 리소스는 다른 리소스에 대한 종속성을 갖습니다. 배포를 용이하게 하기 위해 종속성 선언을 사용하여 종속 리소스가 다른 리소스보다 먼저 배포되도록 할 수 있습니다.
+- **리소스 종속성**: 여러 리소스를 배포할 때 일부 리소스는 다른 리소스에 대한 종속성이 있습니다. 배포를 용이하게 하기 위해 종속성 선언을 사용하여 종속 리소스가 다른 리소스보다 먼저 배포되도록 할 수 있습니다.
 
 - **템플릿 연결**: 하나의 Resource Manager 템플릿 내에서 다른 템플릿으로 연결할 수 있습니다. 이를 통해 대상으로 지정된 용도별 템플릿 집합으로 배포를 분해할 수 있습니다.
 
@@ -301,17 +301,17 @@ Resource Manager 템플릿은 4개의 섹션으로 구성됩니다.
 
 아래에는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)의 몇 가지 예가 나와 있습니다.
 
-- **소유자**: 이 역할을 가진 사용자는 액세스를 포함하여 모든 사항을 관리할 수 있습니다.
+- **소유자**: 이 역할의 사용자는 액세스를 비롯한 모든 사항을 관리할 수 있습니다.
 
-- **읽기**: 이 역할을 가진 사용자는 모든 유형의 리소스(암호 제외)를 읽을 수 있지만 변경할 수는 없습니다.
+- **읽기 권한자**: 이 역할의 사용자는 모든 유형의 리소스(비밀 제외)를 읽을 수는 있지만 변경할 수 없습니다.
 
-- **가상 머신 참가자**: 이 역할에 속한 사용자는 가상 머신을 관리할 수는 있지만 가상 머신이 연결된 가상 네트워크나 VHD 파일이 있는 저장소 계정은 관리할 수 없습니다.
+- **가상 머신 기여자**: 이 역할의 사용자는 가상 머신을 관리할 수 있지만 가상 머신이 연결된 가상 네트워크나 VHD 파일이 있는 스토리지 계정은 관리할 수 없습니다.
 
-- **SQL DB 참가자**: 이 역할에 속한 사용자는 SQL Database를 관리할 수 있지만 보안 관련 정책은 관리할 수 없습니다.
+- **SQL DB 기여자**: 이 역할의 사용자는 SQL Database를 관리할 수 있지만 보안 관련 정책은 관리할 수 없습니다.
 
-- **SQL 보안 관리자**: 이 역할에 속한 사용자는 SQL Server 및 Database의 보안 관련 정책을 관리할 수 있습니다.
+- **SQL 보안 관리자**: 이 역할의 사용자는 SQL Server 및 Database의 보안 관련 정책을 관리할 수 있습니다.
 
-- **Storage 계정 참가자**: 이 역할에 속한 사용자는 Storage 계정을 관리할 수 있지만 Storage 계정에 대한 액세스는 관리할 수 없습니다.
+- **스토리지 계정 기여자**: 이 역할의 사용자는 스토리지 계정을 관리할 수 있지만 스토리지 계정에 대한 액세스는 관리할 수 없습니다.
 
 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
@@ -359,7 +359,7 @@ NSG(네트워크 보안 그룹) 리소스를 사용하여 공용 IP 주소를 �
 
 ## <a name="azure-storage"></a>Azure Storage
 
-Azure Storage는 내구성이 뛰어나고 확장 가능하며 중복 저장소를 제공하는 Microsoft 관리 서비스입니다. 리소스 배포 방법을 사용하여 Azure storage 계정을 리소스 그룹에 리소스로 추가할 수 있습니다. Azure에는 Blob Storage, File Storage, Table Storage 및 Queue Storage의 네 가지 저장소 유형이 있습니다. 저장소 계정을 배포할 때 범용 및 Blob Storage라는 두 가지 계정 유형을 사용할 수 있습니다. 범용 저장소 계정을 사용하면 네 가지 저장소 유형 모두에 액세스할 수 있습니다. Blob Storage 계정은 범용 계정과 유사하지만 핫 액세스 계층 및 콜드 액세스 계층을 포함하는 특수한 Blob을 포함합니다. Blob Storage에 대한 자세한 내용은 [Azure Blob Storage](../../storage/blobs/storage-blob-storage-tiers.md)를 참조하세요.
+Azure Storage는 내구성이 뛰어나고 확장 가능하며 중복 저장소를 제공하는 Microsoft 관리 서비스입니다. 리소스 배포 방법을 사용하여 Azure storage 계정을 리소스 그룹에 리소스로 추가할 수 있습니다. Azure의 네 가지 스토리지 유형은: Blob Storage, File Storage, Table Storage 및 Queue Storage입니다. 저장소 계정을 배포할 때 범용 및 Blob Storage라는 두 가지 계정 유형을 사용할 수 있습니다. 범용 저장소 계정을 사용하면 네 가지 저장소 유형 모두에 액세스할 수 있습니다. Blob Storage 계정은 범용 계정과 유사하지만 핫 액세스 계층 및 콜드 액세스 계층을 포함하는 특수한 Blob을 포함합니다. Blob Storage에 대한 자세한 내용은 [Azure Blob Storage](../../storage/blobs/storage-blob-storage-tiers.md)를 참조하세요.
 
 Azure storage 계정은 여러 수준의 중복성으로 구성할 수 있습니다.
 
@@ -399,7 +399,7 @@ File Storage 공유는 표준 SMB 파일 공유이므로, Azure에서 실행되�
 
 Azure Table Storage는 클라우드에 구조화된 NoSQL 데이터를 저장하는 서비스입니다. Table Storage는 스키마 없이 디자인된 키/특성 저장소입니다. Table Storage는 스키마가 없기 때문에 응용 프로그램의 요구 사항이 변화함에 따라 데이터를 쉽게 적응시킬 수 있습니다. 모든 종류의 응용 프로그램에서 빠르고 비용 효율적으로 데이터에 액세스할 수 있습니다. 비슷한 양의 데이터일 때 Table Storage는 일반적으로 전통적인 SQL에 비해 비용이 매우 낮습니다.
 
-테이블 저장소를 사용하여 웹 응용 프로그램의 사용자 데이터, 주소록, 장치 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 세트를 저장할 수 있습니다. 엔터티를 원하는 수만큼 테이블에 저장할 수 있습니다. 저장소 계정은 저장소 계정의 최대 용량 한도 내에서 원하는 수의 테이블을 포함할 수 있습니다.
+Table Storage를 사용하여 웹 응용 프로그램의 사용자 데이터, 주소록, 디바이스 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 집합을 저장할 수 있습니다. 엔터티를 원하는 수만큼 테이블에 저장할 수 있습니다. 저장소 계정은 저장소 계정의 최대 용량 한도 내에서 원하는 수의 테이블을 포함할 수 있습니다.
 
 자세한 내용은 [Azure Table Storage 시작](../../cosmos-db/table-storage-how-to-use-dotnet.md)을 참조하세요.
 
@@ -463,7 +463,7 @@ Azure storage 계정은 Visual Studio 클라우드 탐색기와 같은 다양한
 
 Azure Virtual network는 기본적으로 Azure에 저장된 리소스에만 액세스할 수 있습니다. 동일한 가상 네트워크에 연결된 리소스는 서로 통신할 수 있습니다. 가상 머신 네트워크 인터페이스 및 부하 분산 장치를 공용 IP 주소와 연결하여 인터넷을 통해 가상 머신에 액세스할 수 있습니다. 네트워크 보안 그룹을 사용하여 공개적으로 노출된 리소스에 대한 액세스를 보호할 수 있습니다.
 
-![2계층 웹 응용 프로그램에 대한 Azure Virtual Network](https://docs.microsoft.com/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
+![2계층 웹 애플리케이션에 대한 Azure Virtual Network](https://docs.microsoft.com/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
 
 ### <a name="hybrid-virtual-networks"></a>하이브리드 가상 네트워크
 
@@ -481,7 +481,7 @@ Azure virtual network가 온-프레미스 네트워크에 연결되어 있으므
 
 - Azure 리소스 관리자 템플릿
 
->**사용하는 경우**: Azure에서 VM을 사용할 때마다 가상 네트워크를 사용하게 됩니다. 이를 통해 VM을 온-프레미스 데이터 센터와 비슷한 공용 및 사설 서브넷으로 분할할 수 있습니다.
+>**사용하는 경우**: Azure에서 VM을 사용할 때면 언제든 가상 네트워크를 사용하게 됩니다. 이를 통해 VM을 온-프레미스 데이터 센터와 비슷한 공용 및 사설 서브넷으로 분할할 수 있습니다.
 
 >**시작**: Azure Portal을 사용하여 Azure virtual network를 배포하려는 경우 활성 Azure 구독 및 웹 브라우저에 대한 액세스만 필요합니다. 새 가상 네트워크를 새 리소스 그룹 또는 기존 리소스 그룹에 배포할 수 있습니다. 포털에서 새 가상 시스템을 만들 때 기존 가상 네트워크를 선택하거나 새 가상 네트워크를 만들 수 있습니다. 시작 및 [Azure Portal을 사용하여 가상 네트워크 만들기](../../virtual-network/quick-create-portal.md)를 참조하세요.
 

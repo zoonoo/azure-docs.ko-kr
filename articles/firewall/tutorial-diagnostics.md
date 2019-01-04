@@ -26,7 +26,7 @@ ms.locfileid: "52426170"
 > * Azure Portal을 통한 로깅 사용
 > * PowerShell을 통해 로깅을 사용하도록 설정
 > * 활동 로그 보기 및 분석
-> * 네트워크 및 응용 프로그램 규칙 로그 보기 및 분석
+> * 네트워크 및 애플리케이션 규칙 로그 보기 및 분석
 > * 메트릭 보기
 
 ## <a name="prerequisites"></a>필수 조건
@@ -92,7 +92,7 @@ ms.locfileid: "52426170"
 * **Azure 도구** - Azure PowerShell, Azure CLI, Azure REST API 또는 Azure Portal을 통해 활동 로그에서 정보를 검색합니다. 각 방법에 대한 단계별 지침은 [Resource Manager의 활동 작업](../azure-resource-manager/resource-group-audit.md) 문서에 자세히 나와 있습니다.
 * **Power BI** - [Power BI](https://powerbi.microsoft.com/pricing) 계정이 아직 없는 경우 무료로 사용해볼 수 있습니다. [Power BI용 Azure Activity Logs 콘텐츠 팩](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 미리 구성된 대시보드를 그대로 사용하거나 사용자 지정하여 데이터를 분석할 수 있습니다.
 
-## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>네트워크 및 응용 프로그램 규칙 로그 보기 및 분석
+## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>네트워크 및 애플리케이션 규칙 로그 보기 및 분석
 
 Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)는 카운터 및 이벤트 로그 파일을 수집합니다. 여기에는 로그를 분석하는 시각화 및 강력한 검색 기능이 포함되어 있습니다.
 

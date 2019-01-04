@@ -79,7 +79,7 @@ Content Moderator는 워크플로를 관리하는 도구 및 API를 포함합니
 
 ### <a name="key-learning"></a>주요 학습
 
-Content Moderator에서 워크플로는 구성하기 쉽고 유연합니다. 기본 제공 디자이너가 요구 사항을 충족하지 않는 경우 **JSON** 형식으로 워크플로 정의를 작성합니다. 그런 다음, [워크플로 API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)로 JSON 정의를 사용하여 응용 프로그램에서 워크플로를 만들고 관리합니다.
+Content Moderator에서 워크플로는 구성하기 쉽고 유연합니다. 기본 제공 디자이너가 요구 사항을 충족하지 않는 경우 **JSON** 형식으로 워크플로 정의를 작성합니다. 그런 다음, [워크플로 API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)로 JSON 정의를 사용하여 애플리케이션에서 워크플로를 만들고 관리합니다.
 
 ## <a name="define-a-custom-workflow"></a>사용자 지정 워크플로 정의
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 24f834c907fee6f2ddae766ae7494f73a31447c5
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: d6180156e1a8f3fa053c7fbb247e38831f86e76a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33202809"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998397"
 ---
-# <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 게이트웨이 만들기
+# <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 애플리케이션 게이트웨이 만들기
 
 Azure Application Gateway는 계층 7 부하 분산 장치입니다. 클라우드 또는 온-프레미스에 상관없이 서로 다른 서버 간에 장애 조치(failover) 및 성능 라우팅 HTTP 요청을 제공합니다. Application Gateway는 HTTP 부하 분산, 쿠키 기반 세션 선호도, SSL(Secure Sockets Layer) 오프로드, 사용자 지정 상태 프로브, 다중 사이트 지원 및 기타를 포함하여 다양한 ADC(Application Delivery Controller) 기능을 제공합니다. 지원되는 기능의 전체 목록을 찾으려면 [Application Gateway 개요](overview.md)를 참조하세요.
 
@@ -77,7 +77,7 @@ GitHub에서 가상 네트워크 및 두 개의 서브넷을 만들기 위한 �
 
     ```json
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "addressPrefix": {
@@ -114,7 +114,7 @@ GitHub에서 가상 네트워크 및 두 개의 서브넷을 만들기 위한 �
     }
     ```
 
-1. 파일을 저장합니다. [JSlint.com](http://www.jslint.com/)같은 JSON 유효성 검사 도구를 사용하여 JSON 템플릿과 매개 변수 템플릿을 테스트할 수 있습니다.
+1. 파일을 저장합니다. [JSlint.com](https://www.jslint.com/)같은 JSON 유효성 검사 도구를 사용하여 JSON 템플릿과 매개 변수 템플릿을 테스트할 수 있습니다.
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>PowerShell을 사용하여 Azure 리소스 관리자 템플릿 배포
 
@@ -203,7 +203,7 @@ cert=$( base64 <certificate path and name>.pfx )
 echo $cert
 ```
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```
@@ -226,12 +226,12 @@ az group delete --name appgatewayRG
 
 ## <a name="next-steps"></a>다음 단계
 
-SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대한 응용 프로그램 게이트웨이 구성](tutorial-ssl-cli.md)을 참조하세요.
+SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대한 애플리케이션 게이트웨이 구성](tutorial-ssl-cli.md)을 방문해보세요.
 
-내부 부하 분산 장치에서 사용하도록 응용 프로그램 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 응용 프로그램 게이트웨이 만들기](redirect-internal-site-cli.md)를 참조하세요.
+내부 부하 분산 장치에 사용되도록 애플리케이션 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 애플리케이션 게이트웨이 만들기](redirect-internal-site-cli.md)를 참조하세요.
 
 부하 분산 옵션에 대한 자세한 정보는 다음을 방문하세요.
 
-* [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
+* [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 

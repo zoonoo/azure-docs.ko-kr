@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 6c9e980e4f448f705743b2e6dce268c671ffe9b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f85d01b20466fd72b802b4daaf001a7928717c4
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950718"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410281"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
 
@@ -65,7 +65,7 @@ Azure 클래식 CLI를 사용할 수도 있습니다.
 ```
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-또 다른 옵션은 PowerShell입니다. 자세한 내용은 [Azure PowerShell을 사용하여 HDInsight에서 Hadoop 클러스터 관리](hdinsight-administer-use-powershell.md)를 참조하세요.
+또 다른 옵션은 PowerShell입니다. 자세한 내용은 [Azure PowerShell을 사용하여 HDInsight에서 Apache Hadoop 클러스터 관리](hdinsight-administer-use-powershell.md)를 참조하세요.
 
 ## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>2단계: HDInsight 클러스터 환경 유효성 검사
 
@@ -107,7 +107,7 @@ HDInsight는 여러 Azure 서비스를 사용합니다. Azure HDInsight에서 �
 
 HDInsight 클러스터는 가상 머신 인스턴스에서 실행되는 여러 가지 유형의 노드로 구성됩니다. 각 노드를 모니터링하여 리소스 부족, 네트워크 연결 문제 및 클러스터 성능을 저하할 수 있는 기타 문제를 확인할 수 있습니다. 각 클러스터는 두 개의 헤드 노드를 포함하고 있으며, 대부분의 클러스터는 작업자 노드와 에지 노드의 조합으로 구성됩니다. 
 
-각 클러스터 유형이 사용하는 다양한 노드에 대한 설명을 보려면 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
+각 클러스터 유형이 사용하는 다양한 노드에 대한 설명을 보려면 [Apache Hadoop, Apache Spark, Apache Kafka 등을 사용하여 HDInsight에서 클러스터 설정](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 
 다음 섹션에서는 각 노드 및 전체 클러스터의 상태를 확인하는 방법을 설명합니다.
 
@@ -117,7 +117,7 @@ HDInsight 클러스터는 가상 머신 인스턴스에서 실행되는 여러 �
 
 ### <a name="check-your-webhcat-service"></a>WebHCat 서비스 확인
 
-Hive, Pig 또는 Sqoop 작업이 실패하는 일반적인 시나리오 중 하나는 [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)(또는 *Templeton*) 서비스 오류입니다. WebHCat은 Hive, Pig, Scoop, MapReduce 같은 원격 작업 실행을 위한 REST 인터페이스입니다. WebHCat은 작업 제출 요청을 YARN 응용 프로그램으로 변환하고, YARN 응용 프로그램 상태에서 파생된 상태를 반환합니다.  다음 섹션에서는 일반적인 WebHCat HTTP 상태 코드를 설명합니다.
+Apache Hive, Apache Pig 또는 Apache Sqoop 작업이 실패하는 일반적인 시나리오 중 하나는 [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)(또는 *Templeton*) 서비스 오류입니다. WebHCat은 Hive, Pig, Scoop, MapReduce 같은 원격 작업 실행을 위한 REST 인터페이스입니다. WebHCat은 작업 제출 요청을 Apache Hadoop YARN 애플리케이션으로 변환하고, YARN 애플리케이션 상태에서 파생된 상태를 반환합니다.  다음 섹션에서는 일반적인 WebHCat HTTP 상태 코드를 설명합니다.
 
 #### <a name="badgateway-502-status-code"></a>잘못된 게이트웨이(502 상태 코드)
 
@@ -143,7 +143,7 @@ HDInsight 게이트웨이는 응답 시간이 2분을 초과하면 시간 초과
 * **webhcat-console.log** - 서버가 시작될 때 서버의 stdout
 * **webhcat-console-error.log** - 서버 프로세스의 stderr
 
-> [!NOTE]
+> [!NOTE]  
 > 각 `webhcat.log`가 매일 롤오버되어 `webhcat.log.YYYY-MM-DD`라는 파일을 생성합니다. 조사하려는 시간 범위에 적합한 파일을 선택합니다.
 
 다음 섹션에서는 WebHCat 시간 제한의 몇 가지 원인을 설명합니다.
@@ -244,13 +244,13 @@ HDInsight 클러스터는 Azure 테이블 및 Azure Blob Storage에 기록된 �
 
 ### <a name="review-heap-dumps"></a>힙 덤프 검토
 
-힙 덤프는 응용 프로그램의 메모리 스냅숏과 해당 시점의 변수 값을 포함하고 있으며, 이 정보는 런타임에 발생하는 문제를 진단하는 데 유용합니다. 자세한 내용은 [Linux 기반 HDInsight에서 Hadoop 서비스에 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)을 참조하세요.
+힙 덤프는 응용 프로그램의 메모리 스냅숏과 해당 시점의 변수 값을 포함하고 있으며, 이 정보는 런타임에 발생하는 문제를 진단하는 데 유용합니다. 자세한 내용은 [Linux 기반 HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)을 참조하세요.
 
 ## <a name="step-6-check-configuration-settings"></a>6단계: 구성 설정 확인
 
 HDInsight 클러스터는 기본 설정을 사용하여 Hadoop, Hive, HBase 등의 관련 서비스에 대해 미리 구성됩니다. 클러스터 종류, 하드웨어 구성, 노드 수, 실행 중인 작업 유형, 작업하는 데이터(및 해당 데이터가 처리되는 방식)에 따라 구성 최적화가 필요할 수 있습니다.
 
-대부분의 시나리오에 대해 성능 구성을 최적화하는 방법에 대한 자세한 내용은 [Ambari를 사용하여 클러스터 구성 최적화](hdinsight-changing-configs-via-ambari.md)를 참조하세요. Spark를 사용할 때 [성능을 위해 Spark 작업 최적화](spark/apache-spark-perf.md)를 참조하세요. 
+대부분의 시나리오에 대해 성능 구성을 최적화하는 방법에 대한 자세한 내용은 [Apache Ambari를 사용하여 클러스터 구성 최적화](hdinsight-changing-configs-via-ambari.md)를 참조하세요. Spark를 사용할 때 [성능을 위해 Apache Spark 작업 최적화](spark/apache-spark-perf.md)를 참조하세요. 
 
 ## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>7단계: 다른 클러스터에서 오류 재현
 
@@ -265,8 +265,8 @@ HDInsight 클러스터는 기본 설정을 사용하여 Hadoop, Hive, HBase 등�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
+* [Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
 * [HDInsight 로그 분석](hdinsight-debug-jobs.md)
-* [Linux 기반 HDInsight에서 YARN 응용 프로그램 로그에 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Linux 기반 HDInsight에서 Hadoop 서비스에 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Linux 기반 HDInsight에서 Apache Hadoop YARN 애플리케이션 로그에 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Linux 기반 HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [HDInsight의 Apache Spark 클러스터에 대한 알려진 문제](hdinsight-apache-spark-known-issues.md)

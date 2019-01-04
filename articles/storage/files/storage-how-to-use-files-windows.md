@@ -80,7 +80,7 @@ Windows에서 Azure 파일 공유를 사용하려면 Azure 파일 공유를 탑�
 
 Windows Server, Linux Samba 서버 또는 NAS 디바이스에 호스트되는 공유처럼 여러분이 기존에 상호 작용하던 다른 SMB 공유와는 달리, Azure 파일 공유는 현재 AD(Active Directory) 또는 AAD(Azure Active Directory)에 Kerberos 인증을 지원하지 않습니다. 현재 이 기능을 [개발 중](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles)입니다. 그 대신, Azure 파일 공유를 포함하는 저장소 계정의 저장소 계정 키를 사용하여 Azure 파일 공유에 액세스해야 합니다. 저장소 계정 키는 사용자가 액세스하는 파일 공유 내 모든 파일 및 폴더와 저장소 계정에 포함된 모든 파일 공유 및 다른 저장소 리소스(BLOB, 큐, 테이블 등)에 대한 관리자 권한을 포함하여 저장소 계정의 관리자 키입니다. 이 정도로는 워크로드에 충분하지 않은 경우 [Azure 파일 동기화](storage-files-planning.md#data-access-method)는 AAD 기반 Kerberos 인증 및 ACL 지원이 공개적으로 제공될 때까지 부족한 Kerberos 인증 및 ACL 지원을 해결합니다.
 
-SMB 파일 공유를 기대하는 LOB 응용 프로그램을 Azure로 전환하는 일반적인 패턴은 Azure VM에서 전용 Windows 파일 서버를 실행하는 대신 Azure 파일 공유를 사용하는 것입니다. Azure 파일 공유를 사용하도록 기간 업무 앱을 마이그레이션할 때 고려해야 하는 중요한 사항 중 하나로, 많은 기간 업무 앱은 VM 관리 계정이 아니라 시스템 권한이 제한된 전용 서비스 계정 하에서 실행됩니다. 따라서 관리 계정이 아닌 서비스 계정의 Azure 파일 공유에 대한 자격 증명을 탑재/저장해야 합니다.
+SMB 파일 공유를 기대하는 LOB 애플리케이션을 Azure로 전환하는 일반적인 패턴은 Azure VM에서 전용 Windows 파일 서버를 실행하는 대신 Azure 파일 공유를 사용하는 것입니다. Azure 파일 공유를 사용하도록 기간 업무 앱을 마이그레이션할 때 고려해야 하는 중요한 사항 중 하나로, 많은 기간 업무 앱은 VM 관리 계정이 아니라 시스템 권한이 제한된 전용 서비스 계정 하에서 실행됩니다. 따라서 관리 계정이 아닌 서비스 계정의 Azure 파일 공유에 대한 자격 증명을 탑재/저장해야 합니다.
 
 ### <a name="persisting-azure-file-share-credentials-in-windows"></a>Windows에서 Azure 파일 공유 자격 증명 유지  
 [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) 유틸리티를 사용하면 저장소 계정 자격 증명을 Windows 내에 저장할 수 있습니다. 즉, UNC 경로를 통해 Azure 파일 공유에 액세스하려고 시도하거나 Azure 파일 공유를 탑재하려고 시도할 때 자격 증명을 지정할 필요가 없습니다. 저장소 계정의 자격 증명을 저장하려면 다음 PowerShell 명령을 실행하고, `<your-storage-account-name>` 및 `<your-resoure-group-name>`을(를) 적절하게 바꿉니다.

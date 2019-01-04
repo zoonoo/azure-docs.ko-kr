@@ -1,6 +1,6 @@
 ---
 title: Azure 또는 독립 실행형 클러스터의 .NET Service Fabric 앱에서 로그 이벤트 생성
-description: Azure 클러스터 또는 독립 실행형 클러스터에 호스트된 .NET Service Fabric 응용 프로그램에 로깅을 추가하는 방법을 알아봅니다.
+description: Azure 클러스터 또는 독립 실행형 클러스터에 호스트된 .NET Service Fabric 애플리케이션에 로깅을 추가하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -21,19 +21,19 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/13/2018
 ms.locfileid: "39001381"
 ---
-# <a name="add-logging-to-your-service-fabric-application"></a>Service Fabric 응용 프로그램에 로깅 추가
+# <a name="add-logging-to-your-service-fabric-application"></a>Service Fabric 애플리케이션에 로깅 추가
 
-응용 프로그램은 문제가 발생할 경우, 디버그하기에 충분한 정보를 제공해야 합니다. 로깅은 Service Fabric 응용 프로그램에 추가할 수 있는 가장 중요한 사항 중 하나입니다. 오류가 발생할 경우, 좋은 로깅이 오류를 조사하는 방법을 제공할 수 있습니다. 로그 패턴을 분석하여 응용 프로그램의 성능 또는 디자인을 개선하는 방법을 찾을 수 있습니다. 이 문서에서는 몇 가지 로깅 옵션을 보여 줍니다.
+애플리케이션은 문제가 발생할 경우, 디버그하기에 충분한 정보를 제공해야 합니다. 로깅은 Service Fabric 애플리케이션에 추가할 수 있는 가장 중요한 사항 중 하나입니다. 오류가 발생할 경우, 좋은 로깅이 오류를 조사하는 방법을 제공할 수 있습니다. 로그 패턴을 분석하여 애플리케이션의 성능 또는 디자인을 개선하는 방법을 찾을 수 있습니다. 이 문서에서는 몇 가지 로깅 옵션을 보여 줍니다.
 
 ## <a name="eventflow"></a>EventFlow
 
-[EventFlow 라이브러리](https://github.com/Azure/diagnostics-eventflow) 제품군을 사용하면 응용 프로그램이 수집할 진단 데이터 및 데이터 출력 위치를 정의할 수 있습니다. 진단 데이터는 성능 카운터에서 응용 프로그램 추적까지 모든 항목이 될 수 있습니다. 응용 프로그램과 동일한 프로세스에서 실행되므로 통신 오버헤드가 최소화됩니다. EventFlow 및 Service Fabric에 대한 자세한 내용은 [Azure Service Fabric 이벤트 집계 및 EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)를 참조하세요.
+[EventFlow 라이브러리](https://github.com/Azure/diagnostics-eventflow) 제품군을 사용하면 응용 프로그램이 수집할 진단 데이터 및 데이터 출력 위치를 정의할 수 있습니다. 진단 데이터는 성능 카운터에서 애플리케이션 추적까지 모든 항목이 될 수 있습니다. 애플리케이션과 동일한 프로세스에서 실행되므로 통신 오버헤드가 최소화됩니다. EventFlow 및 Service Fabric에 대한 자세한 내용은 [Azure Service Fabric 이벤트 집계 및 EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)를 참조하세요.
 
 ### <a name="using-structured-eventsource-events"></a>구조적 EventSource 이벤트 사용
 
 사용 사례로 메시지 이벤트를 정의하면 이벤트 컨텍스트에 이벤트 데이터를 패키징할 수 있습니다. 지정한 이벤트 속성의 이름 또는 값을 기준으로 더 간단하게 검색하고 필터링할 수 있습니다. 계측 출력을 구조화하면 더 쉽게 읽을 수 있지만 각 사용 사례에 대한 이벤트를 정의하는 데 더 많은 생각과 시간이 필요합니다. 
 
-일부 이벤트 정의는 전체 응용 프로그램에서 공유할 수 있습니다. 예를 들어 메서드 시작 또는 중지 이벤트는 응용 프로그램 내의 많은 서비스에서 다시 사용됩니다. 주문 시스템과 같은 도메인 관련 서비스에는 자체의 고유 이벤트를 포함하는 **CreateOrder** 이벤트가 있을 수 있습니다. 이 방법은 많은 이벤트를 생성하고 잠재적으로 프로젝트 팀 전체에서 식별자를 조정할 필요가 있습니다. 
+일부 이벤트 정의는 전체 애플리케이션에서 공유할 수 있습니다. 예를 들어 메서드 시작 또는 중지 이벤트는 애플리케이션 내의 많은 서비스에서 다시 사용됩니다. 주문 시스템과 같은 도메인 관련 서비스에는 자체의 고유 이벤트를 포함하는 **CreateOrder** 이벤트가 있을 수 있습니다. 이 방법은 많은 이벤트를 생성하고 잠재적으로 프로젝트 팀 전체에서 식별자를 조정할 필요가 있습니다. 
 
 ```csharp
 [EventSource(Name = "MyCompany-VotingState-VotingStateService")]
@@ -103,7 +103,7 @@ internal sealed class ServiceEventSource : EventSource
 
 ## <a name="microsoftextensionslogging"></a>Microsoft.Extensions.Logging
 
-ASP.NET Core 로깅([ Microsoft.Extensions.Logging NuGet 패키지](https://www.nuget.org/packages/Microsoft.Extensions.Logging))은 응용 프로그램에 대한 표준 로깅 API를 제공하는 로깅 프레임워크입니다. 다른 로깅 백 엔드에 대한 지원을 ASP.NET Core 로깅에 연결할 수 있습니다. 이렇게 하면 많은 코드를 변경할 필요 없이 응용 프로그램의 로깅에 대한 다양한 지원이 처리됩니다.
+ASP.NET Core 로깅([ Microsoft.Extensions.Logging NuGet 패키지](https://www.nuget.org/packages/Microsoft.Extensions.Logging))은 애플리케이션에 대한 표준 로깅 API를 제공하는 로깅 프레임워크입니다. 다른 로깅 백 엔드에 대한 지원을 ASP.NET Core 로깅에 연결할 수 있습니다. 이렇게 하면 많은 코드를 변경할 필요 없이 애플리케이션의 로깅에 대한 다양한 지원이 처리됩니다.
 
 1. 계측하려는 프로젝트에 **Microsoft.Extensions.Logging** NuGet 패키지를 추가합니다. 또한 공급자 패키지를 추가합니다. 자세한 내용은 [ASP.NET Core 로그인](https://docs.microsoft.com/aspnet/core/fundamentals/logging)(영문)을 참조하세요.
 2. **Microsoft.Extensions.Logging**에 대한 **using** 지시문을 서비스 파일에 추가합니다.

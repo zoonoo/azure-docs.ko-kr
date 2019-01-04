@@ -1,6 +1,6 @@
 ---
-title: 응용 프로그램 업그레이드 문제 해결 | Microsoft Docs
-description: 이 문서에서는 서비스 패브릭 응용 프로그램 업그레이드에 관한 일반적인 문제와 이를 해결하는 방법을 설명합니다.
+title: 애플리케이션 업그레이드 문제 해결 | Microsoft Docs
+description: 이 문서에서는 서비스 패브릭 애플리케이션 업그레이드에 관한 일반적인 문제와 이를 해결하는 방법을 설명합니다.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -21,10 +21,10 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
 ms.locfileid: "34212741"
 ---
-# <a name="troubleshoot-application-upgrades"></a>응용 프로그램 업그레이드 문제 해결
-이 문서에서는 Azure 서비스 패브릭 응용 프로그램 업그레이드에 관한 일반적인 문제와 이를 해결하는 방법을 설명합니다.
+# <a name="troubleshoot-application-upgrades"></a>애플리케이션 업그레이드 문제 해결
+이 문서에서는 Azure 서비스 패브릭 애플리케이션 업그레이드에 관한 일반적인 문제와 이를 해결하는 방법을 설명합니다.
 
-## <a name="troubleshoot-a-failed-application-upgrade"></a>응용 프로그램 업그레이드 실패 문제 해결
+## <a name="troubleshoot-a-failed-application-upgrade"></a>애플리케이션 업그레이드 실패 문제 해결
 업그레이드에 실패하는 경우, **Get-ServiceFabricApplicationUpgrade** 명령의 출력에 오류 디버깅에 관한 추가 정보가 포함됩니다.  다음 목록은 추가 정보는 사용하는 방버을 지정합니다.
 
 1. 오류 형식을 식별합니다.

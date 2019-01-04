@@ -3,21 +3,21 @@ title: 분할-병합 보안 구성 | Microsoft Docs
 description: 탄력적 크기 조정을 위해 분할/병합 서비스를 통해 암호화에 대해 409 인증서를 설정합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: VanMSFT
+ms.author: vanto
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 6967805044bb11e9aed3fe66d580df059f7a461a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/04/2018
+ms.openlocfilehash: 06e9b443c5b0dc1c23b325c7127511f8542a1a11
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231400"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964835"
 ---
 # <a name="split-merge-security-configuration"></a>분할-병합 보안 구성
 분할/병합 서비스를 사용하려면 보안을 올바르게 구성해야 합니다. 서비스는 Microsoft Azure SQL Database의 탄력적인 확장 기능에 속합니다. 자세한 내용은 [탄력적인 확장 분할 및 병합 서비스 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요.
@@ -178,7 +178,7 @@ ms.locfileid: "51231400"
       -n "CN=myservice.cloudapp.net" ^
       -e MM/DD/YYYY ^
       -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -sv MySSL.pvk MySSL.cer
 
 사용자 지정하려면:
@@ -221,7 +221,7 @@ SSL 키 쌍이 포함된 기존 또는 생성된 .PFX 파일을 업로드합니�
 * 신뢰할 수 있는 루트 인증 기관 저장소로 인증서를 가져옵니다.
 
 ## <a name="turn-off-client-certificate-based-authentication"></a>클라이언트 인증서 기반 인증 해제
-클라이언트 인증서 기반 인증만 지원되며, 이를 사용하지 않으면 다른 메커니즘(예: Microsoft Azure Virtual Network)이 없는 한 서비스 엔드포인트에 대한 공용 액세스가 허용됩니다.
+클라이언트 인증서 기반 인증만 지원되며, 이를 사용하지 않도록 설정하면 다른 메커니즘(예: Microsoft Azure Virtual Network)이 없는 한 서비스 엔드포인트에 대한 공용 액세스가 허용됩니다.
 
 서비스 구성 파일에서 이러한 설정을 false로 변경하여 기능을 해제합니다.
 
@@ -239,7 +239,7 @@ SSL 키 쌍이 포함된 기존 또는 생성된 .PFX 파일을 업로드합니�
     -n "CN=MyCA" ^
     -e MM/DD/YYYY ^
      -r -cy authority -h 1 ^
-     -a sha1 -len 2048 ^
+     -a sha256 -len 2048 ^
       -sr localmachine -ss my ^
       MyCA.cer
 
@@ -280,7 +280,7 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
 
 ## <a name="issue-client-certificates"></a>클라이언트 인증서 발급
-서비스에 액세스할 수 있는 권한이 부여된 각 개인은 단독 사용을 위해 클라이언트 인증서를 발급해야 하며 해당 개인 키를 보호 하기 위한 강력한 암호를 선택해야 합니다. 
+서비스에 액세스할 수 있는 권한이 부여된 각 개인은 단독 사용을 위해 발급된 클라이언트 인증서가 있어야 하며 자신의 개인 키를 보호하기 위해 강력한 암호를 선택해야 합니다. 
 
 다음 단계는 자체 서명된 CA 인증서를 생성하고 저장한 동일한 컴퓨터에서 실행해야 합니다.
 
@@ -288,7 +288,7 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
       -n "CN=My ID" ^
       -e MM/DD/YYYY ^
       -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -in "MyCA" -ir localmachine -is my ^
       -sv MyID.pvk MyID.cer
 
@@ -316,14 +316,14 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 * 이 인증서를 발급하는 개인이 내보내기 암호를 선택해야 합니다.
 
 ## <a name="import-client-certificate"></a>클라이언트 인증서 가져오기
-클라이언트 인증서를 발급받은 개별 사용자는 서비스와 통신하는 데 사용할 컴퓨터의 키 쌍을 가져와야 합니다.
+클라이언트 인증서가 발급된 개별 사용자는 서비스와 통신하는 데 사용할 머신에서 키 쌍을 가져와야 합니다.
 
 * Windows 탐색기에서 .PFX 파일을 두 번 클릭합니다.
 * 적어도 다음 옵션을 사용하여 개인 저장소에 인증서를 가져옵니다.
   * 확장된 속성 모두 포함 옵션 선택
 
 ## <a name="copy-client-certificate-thumbprints"></a>클라이언트 인증서 지문 복사
-클라이언트 인증서를 발급한 각 개인이 서비스 구성 파일에 추가할 인증서의 지문을 가져오려면 다음 단계를 따라야 합니다.
+클라이언트 인증서가 발급된 각 개인이 서비스 구성 파일에 추가될 인증서의 지문을 가져오려면 다음 단계를 따라야 합니다.
 
 * Certmgr.exe 실행
 * 개인 탭 선택

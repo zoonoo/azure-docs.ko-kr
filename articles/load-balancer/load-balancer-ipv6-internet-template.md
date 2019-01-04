@@ -1,5 +1,6 @@
 ---
-title: IPv6를 사용하여 인터넷 연결 부하 분산 장치 배포 - Azure 템플릿 | Microsoft Docs
+title: IPv6을 사용하여 인터넷 연결 부하 분산 장치 배포 - Azure 템플릿
+titlesuffix: Azure Load Balancer
 description: Azure Load Balancer 및 부하 분산된 VM에 대한 IPv6 지원을 배포하는 방법.
 services: load-balancer
 documentationcenter: na
@@ -8,16 +9,17 @@ keywords: ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모�
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 14a28fb341692c309ff4f965628b38a767c56633
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 2374df3a457e0f4730dcaa6d69ea3f2e0fa6e9cc
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740751"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163211"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>템플릿을 사용하여 IPv6로 인터넷 연결 부하 분산 장치 솔루션을 배포합니다.
 

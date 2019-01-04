@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: a2330cee3d5ea48f9f679ac02f6889ccce6c1d7c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 18900c4a1dbc25526a3f60c7410ad87e7dd9a9fa
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242758"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967847"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>문제 해결: Azure 사이트 간 VPN 연결에서 연결할 수 없고 작동이 중지됨
 
@@ -39,11 +39,11 @@ Azure VPN 게이트웨이 유형을 확인합니다.
 
 2. VPN 게이트웨이에 대한 **개요** 페이지에서 유형 정보를 확인합니다.
     
-    ![게이트웨이 개요](media\vpn-gateway-troubleshoot-site-to-site-cannot-connect\gatewayoverview.png)
+    ![게이트웨이 개요](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/gatewayoverview.png)
 
 ### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>1단계. 온-프레미스 VPN 디바이스가 확인되었는지 확인
 
-1. [확인된 VPN 장치 및 운영 체제 버전](vpn-gateway-about-vpn-devices.md#devicetable)을 사용 중인지 확인합니다. 확인된 VPN 디바이스가 아닌 경우 디바이스 제조업체에 호환성 문제가 있는지 문의해야 할 수 있습니다.
+1. [확인된 VPN 디바이스 및 운영 체제 버전](vpn-gateway-about-vpn-devices.md#devicetable)을 사용 중인지 확인합니다. 확인된 VPN 디바이스가 아닌 경우 디바이스 제조업체에 호환성 문제가 있는지 문의해야 할 수 있습니다.
 
 2. VPN 디바이스가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [디바이스 구성 예제 편집](vpn-gateway-about-vpn-devices.md#editing)을 참조하세요.
 

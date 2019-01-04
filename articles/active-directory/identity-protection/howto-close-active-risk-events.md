@@ -2,7 +2,7 @@
 title: Azure Active Directory Identity Protection에서 활성 위험 이벤트를 닫는 방법 | Microsoft Docs
 description: 활성 위험 이벤트를 닫는 옵션에 대해 알아봅니다.
 services: active-directory
-keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
+keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 애플리케이션 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman

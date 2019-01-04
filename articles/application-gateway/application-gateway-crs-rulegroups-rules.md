@@ -1,6 +1,6 @@
 ---
-title: Azure Application Gateway의 웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙
-description: 이 페이지는 웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙에 대한 정보를 제공합니다.
+title: Azure Application Gateway의 웹 애플리케이션 방화벽 CRS 규칙 그룹 및 규칙
+description: 이 페이지는 웹 애플리케이션 방화벽 CRS 규칙 그룹 및 규칙에 대한 정보를 제공합니다.
 documentationcenter: na
 services: application-gateway
 author: vhorne
@@ -19,11 +19,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/15/2018
 ms.locfileid: "49320104"
 ---
-# <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>제공되는 웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙 목록
+# <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>제공되는 웹 애플리케이션 방화벽 CRS 규칙 그룹 및 규칙 목록
 
-Application Gateway WAF(웹 응용 프로그램 방화벽)는 일반적인 취약점 및 악용 사례로부터 웹 응용 프로그램을 보호합니다. 이러한 보호는 OWASP 핵심 규칙 집합 2.2.9 또는 3.0을 기반으로 정의된 규칙을 통해 수행됩니다. 이러한 규칙은 규칙별로 해제할 수 있습니다. 이 문서에는 현재 제공되는 규칙 및 규칙 집합이 포함되어 있습니다.
+Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약점 및 악용 사례로부터 웹 애플리케이션을 보호합니다. 이러한 보호는 OWASP 핵심 규칙 집합 2.2.9 또는 3.0을 기반으로 정의된 규칙을 통해 수행됩니다. 이러한 규칙은 규칙별로 해제할 수 있습니다. 이 문서에는 현재 제공되는 규칙 및 규칙 집합이 포함되어 있습니다.
 
-다음 테이블은 Application Gateway를 웹 응용 프로그램 방화벽과 사용할 때 제공되는 규칙 그룹 및 규칙입니다.  각 테이블은 특정 CRS 버전의 규칙 그룹에서 찾을 수 있는 규칙을 나타냅니다.
+다음 테이블은 Application Gateway를 웹 애플리케이션 방화벽과 사용할 때 제공되는 규칙 그룹 및 규칙입니다.  각 테이블은 특정 CRS 버전의 규칙 그룹에서 찾을 수 있는 규칙을 나타냅니다.
 
 ## <a name="owasp30"></a> OWASP_3.0
 

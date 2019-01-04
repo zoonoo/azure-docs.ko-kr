@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Speech Service SDK를 사용하여 브라우저에서 JavaScript로 음성 인식'
+title: '빠른 시작: 음성 인식, Javascript(브라우저) - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Speech Service SDK를 사용하여 브라우저에서 JavaScript로 음성을 인식하는 방법 알아보기
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: 1e844f83c715dd8ac78a3340628988625e95a4ba
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: f8b6f4d39ce4dc65d691ec6a0e3d0734abb19734
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218443"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087918"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>빠른 시작: Speech Service SDK를 사용하여 브라우저에서 JavaScript로 음성 인식
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 이 문서에서는 음성을 텍스트로 변환하는 Cognitive Services Speech SDK의 JavaScript 바인딩을 사용하여 웹 사이트를 만드는 방법을 설명합니다.
-이 응용 프로그램은 Cognitive Services Speech SDK([다운로드 버전 1.1.0](https://aka.ms/csspeech/jsbrowserpackage))를 기반으로 합니다.
+이 애플리케이션은 Cognitive Services Speech SDK([다운로드 버전 1.1.0](https://aka.ms/csspeech/jsbrowserpackage))를 기반으로 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -80,7 +80,7 @@ Speech SDK를 [.zip 패키지](https://aka.ms/csspeech/jsbrowserpackage)로 다�
 
 ## <a name="create-the-token-source-optional"></a>토큰 소스 만들기(선택 사항)
 
-웹 서버에 웹 페이지를 호스트하려는 경우 필요에 따라 데모 응용 프로그램의 토큰 소스를 제공하면 됩니다.
+웹 서버에 웹 페이지를 호스트하려는 경우 필요에 따라 데모 애플리케이션의 토큰 소스를 제공하면 됩니다.
 이 방식을 사용하면 사용자가 권한 부여 코드를 직접 입력하지 않고 음성 기능을 사용할 수 있으면서도 구독 키가 절대 서버를 벗어나지 않습니다.
 
 1. 이름이 `token.php`인 새 파일을 만듭니다. 이 예제에서는 웹 서버에서 PHP 스크립팅 언어를 지원한다고 가정하겠습니다. 다음 코드를 입력합니다.

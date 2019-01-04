@@ -3,22 +3,21 @@ title: Azure Advisor 백업 소개 | Microsoft Docs
 description: Azure Advisor를 사용하여 Azure 배포를 최적화합니다.
 services: advisor
 documentationcenter: NA
-author: manbeenkohli
+author: kasparks
 manager: ''
 ms.assetid: ''
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: makohli
-ms.openlocfilehash: e1d7edef304dc91829066f19b6974f0bcf0be0a5
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.author: kasparks
+ms.openlocfilehash: 747ce8dc4a4e4c8ac1e26e5b051a431176096d71
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42143674"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015979"
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure Advisor 소개
 
@@ -36,9 +35,9 @@ Advisor를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
 Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 표시됩니다.  필터를 적용하여 특정 구독 및 리소스 유형에 대한 권장 사항을 표시할 수 있습니다.  권장 사항은 다음 네 가지 범주로 나뉩니다. 
 
-* **고가용성**: 업무상 중요한 응용 프로그램의 연속성을 보장하고 향상시키는 데 도움이 됩니다. 자세한 내용은 [Advisor 고가용성 권장 사항](advisor-high-availability-recommendations.md)을 참조하세요.
+* **고가용성**: 중요 비즈니스용 애플리케이션의 연속성을 보장하고 향상시킵니다. 자세한 내용은 [Advisor 고가용성 권장 사항](advisor-high-availability-recommendations.md)을 참조하세요.
 * **보안**: 보안 위반으로 이어질 수 있는 위협 및 취약점을 검색합니다. 자세한 내용은 [Advisor 보안 권장 사항](advisor-security-recommendations.md)을 참조하세요.
-* **성능**: 응용 프로그램의 속도를 향상시킵니다. 자세한 내용은 [Advisor 성능 권장 사항](advisor-performance-recommendations.md)을 참조하세요.
+* **성능**: 애플리케이션의 속도를 향상시킵니다. 자세한 내용은 [Advisor 성능 권장 사항](advisor-performance-recommendations.md)을 참조하세요.
 * **비용**: 전체 Azure 사용을 최적화하고 사용량을 줄입니다. 자세한 내용은 [Advisor 비용 권장 사항](advisor-cost-recommendations.md)을 참조하세요.
 
   ![Advisor 권장 사항 유형](./media/advisor-overview/advisor-dashboard.png)
@@ -64,7 +63,7 @@ Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 �
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Advisor는 어떤 리소스에 대해 권장 사항을 제공하나요?
 
-Advisor는 가상 머신, 가용성 집합, Application Gateway, App Services, SQL Server 및 Redis Cache에 대한 권장 사항을 제공합니다.
+Advisor는 가상 머신, 가용성 집합, 애플리케이션 게이트웨이, App Services, SQL 서버 및 Azure Cache for Redis에 대한 권장 사항을 제공합니다.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>권장 사항을 연기하거나 해제할 수 있나요?
 

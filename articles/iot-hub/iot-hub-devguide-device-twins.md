@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 558bf0eb6ab4abb4ad16910ebe36fdb7c1e19374
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 7f66c87322aadafaa7167dff4190de6d08e5d18d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310932"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338416"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>IoT Hub의 디바이스 쌍 이해 및 사용
 
-*장치 쌍*은 메타데이터, 상태 및 조건을 포함하는 장치의 상태 정보를 저장하는 JSON 문서입니다. Azure IoT Hub는 IoT Hub에 연결하는 각 디바이스에 대해 하나의 디바이스 쌍을 유지합니다. 
+*디바이스 쌍*은 메타데이터, 상태 및 조건을 포함하는 디바이스의 상태 정보를 저장하는 JSON 문서입니다. Azure IoT Hub는 IoT Hub에 연결하는 각 디바이스에 대해 하나의 디바이스 쌍을 유지합니다. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -57,7 +57,7 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지를 사용�
 
 * **reported 속성**. desired 속성과 함께 디바이스 구성 또는 상황을 동기화하는 데 사용됩니다. 디바이스 앱은 reported 속성을 설정할 수 있으며 솔루션 백 엔드는 이를 읽고 쿼리할 수 있습니다.
 
-* **장치 ID 속성**. 디바이스 쌍 JSON 문서의 루트에는 [ID 레지스트리](iot-hub-devguide-identity-registry.md)에 포함된 해당 디바이스 ID의 읽기 전용 속성이 포함됩니다.
+* **디바이스 ID 속성**. 디바이스 쌍 JSON 문서의 루트에는 [ID 레지스트리](iot-hub-devguide-identity-registry.md)에 포함된 해당 디바이스 ID의 읽기 전용 속성이 포함됩니다.
 
 ![디바이스 쌍 속성의 스크린샷](./media/iot-hub-devguide-device-twins/twin.png)
 
@@ -107,7 +107,7 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지를 사용�
 }
 ```
 
-루트 개체에는 디바이스 ID 속성과 `tags`, `reported` 및 `desired` 속성의 컨테이너 개체가 있습니다. `properties` 컨테이너에는 [장치 쌍 메타데이터](iot-hub-devguide-device-twins.md#device-twin-metadata) 및 [낙관적 동시성](iot-hub-devguide-device-twins.md#optimistic-concurrency) 섹션에서 설명한 몇 가지 읽기 전용 요소(`$metadata`, `$etag` 및 `$version`)가 포함됩니다.
+루트 개체에는 디바이스 ID 속성과 `tags`, `reported` 및 `desired` 속성의 컨테이너 개체가 있습니다. `properties` 컨테이너에는 [디바이스 쌍 메타데이터](iot-hub-devguide-device-twins.md#device-twin-metadata) 및 [낙관적 동시성](iot-hub-devguide-device-twins.md#optimistic-concurrency) 섹션에서 설명한 몇 가지 읽기 전용 요소(`$metadata`, `$etag` 및 `$version`)가 포함됩니다.
 
 ### <a name="reported-property-example"></a>reported 속성 예
 
@@ -155,9 +155,9 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지를 사용�
 
 솔루션 백 엔드는 HTTPS를 통해 공개되는 다음과 같은 원자성 작업을 사용하여 디바이스 쌍에서 작동합니다.
 
-* **ID로 장치 쌍 검색** 이 작업은 태그, desired 및 reported 시스템 속성을 포함하여 디바이스 쌍 문서를 반환합니다.
+* **ID로 디바이스 쌍 검색** 이 작업은 태그, desired 및 reported 시스템 속성을 포함하여 디바이스 쌍 문서를 반환합니다.
 
-* **장치 쌍 부분 업데이트**. 이 작업은 솔루션 백 엔드에서 디바이스 쌍의 태그 또는 desired 속성을 부분적으로 업데이트할 수 있도록 합니다. 부분 업데이트는 속성을 추가하거나 업데이트하는 JSON 문서로 표현됩니다. `null`로 설정된 속성은 제거됩니다. 다음 예제에서는 값이 `{"newProperty": "newValue"}`인 desired 속성을 새로 생성하고, `existingProperty`의 기존 값을 `"otherNewValue"`로 덮어쓰고, `otherOldProperty`를 제거합니다. 기존 desired 속성이나 태그에는 변화가 발생하지 않습니다.
+* **디바이스 쌍 부분 업데이트**. 이 작업은 솔루션 백 엔드에서 디바이스 쌍의 태그 또는 desired 속성을 부분적으로 업데이트할 수 있도록 합니다. 부분 업데이트는 속성을 추가하거나 업데이트하는 JSON 문서로 표현됩니다. `null`로 설정된 속성은 제거됩니다. 다음 예제에서는 값이 `{"newProperty": "newValue"}`인 desired 속성을 새로 생성하고, `existingProperty`의 기존 값을 `"otherNewValue"`로 덮어쓰고, `otherOldProperty`를 제거합니다. 기존 desired 속성이나 태그에는 변화가 발생하지 않습니다.
 
    ```json
    {
@@ -224,13 +224,13 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지를 사용�
 
 * SQL 스타일 [IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)를 사용하여 디바이스 쌍을 쿼리합니다.
 
-* [작업](iot-hub-devguide-jobs.md)을 사용하여 장치 쌍의 큰 집합에서 작업을 수행합니다.
+* [작업](iot-hub-devguide-jobs.md)을 사용하여 디바이스 쌍의 큰 집합에서 작업을 수행합니다.
 
 ## <a name="device-operations"></a>디바이스 작업
 
 디바이스 앱은 다음과 같은 원자성 작업을 사용하여 디바이스 쌍에서 작동합니다.
 
-* **장치 쌍 검색** 이 작업은 현재 연결된 디바이스의 태그, desired 및 reported 시스템 속성을 포함하는 디바이스 쌍 문서를 반환합니다.
+* **디바이스 쌍 검색** 이 작업은 현재 연결된 디바이스의 태그, desired 및 reported 시스템 속성을 포함하는 디바이스 쌍 문서를 반환합니다.
 
 * **reported 속성 부분 업데이트**. 현재 연결된 디바이스의 reported 속성을 부분적으로 업데이트할 수 있는 작업입니다. 이 작업은 desired 속성의 부분 업데이트를 사용하는 솔루션 백 엔드와 동일한 JSON 업데이트 형식을 사용합니다.
 
@@ -238,7 +238,7 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지를 사용�
 
 이전의 모든 작업에는 [IoT Hub에 대한 액세스 제어](iot-hub-devguide-security.md)에서 정의한 대로 **DeviceConnect** 사용 권한이 필요합니다.
 
-[Azure IoT 장치 SDK](iot-hub-devguide-sdks.md)를 사용하면 이전 작업을 다양한 언어와 플랫폼에서 손쉽게 사용할 수 있습니다. desired 속성 동기화를 위한 IoT Hub 기본 형식에 대한 자세한 내용은 [디바이스 다시 연결 흐름](iot-hub-devguide-device-twins.md#device-reconnection-flow)을 참조하세요.
+[Azure IoT 디바이스 SDK](iot-hub-devguide-sdks.md)를 사용하면 이전 작업을 다양한 언어와 플랫폼에서 손쉽게 사용할 수 있습니다. desired 속성 동기화를 위한 IoT Hub 기본 형식에 대한 자세한 내용은 [디바이스 다시 연결 흐름](iot-hub-devguide-device-twins.md#device-reconnection-flow)을 참조하세요.
 
 ## <a name="tags-and-properties-format"></a>태그 및 속성 형식
 
@@ -340,7 +340,7 @@ IoT Hub는 디바이스 쌍 desired 또는 reported 속성의 각 JSON 개체에
 
 디바이스 쌍 desired 및 reported 속성에는 ETag가 없지만 증분될 수 있는 `$version` 값이 있습니다. ETag와 마찬가지로 버전은 업데이트의 일관성을 유지하는 파티를 업데이트하여 사용할 수 있습니다. 예를 들어 reported 속성에 대한 디바이스 앱이나 desired 속성에 대한 솔루션 백 엔드입니다.
 
-버전은 관찰 에이전트(예: desired 속성을 관찰하는 디바이스 앱)가 업데이트 알림과 검색 작업의 결과 간에 속도를 중재해야 하는 경우에도 유용합니다. [장치 다시 연결 흐름 섹션](iot-hub-devguide-device-twins.md#device-reconnection-flow)에는 자세한 정보가 있습니다.
+버전은 관찰 에이전트(예: desired 속성을 관찰하는 디바이스 앱)가 업데이트 알림과 검색 작업의 결과 간에 속도를 중재해야 하는 경우에도 유용합니다. [디바이스 다시 연결 흐름 섹션](iot-hub-devguide-device-twins.md#device-reconnection-flow)에는 자세한 정보가 있습니다.
 
 ## <a name="device-reconnection-flow"></a>디바이스 다시 연결 흐름
 
@@ -364,9 +364,9 @@ IoT Hub는 연결되지 않은 디바이스에 대한 desired 속성 업데이�
 
 * [제한 및 할당량](iot-hub-devguide-quotas-throttling.md) 문서에서는 IoT Hub 서비스에 적용되는 할당량 및 서비스를 사용할 때 예상되는 제한 동작에 대해 설명합니다.
 
-* [Azure IoT 장치 및 서비스 SDK](iot-hub-devguide-sdks.md) 문서에서는 IoT Hub와 상호 작용하는 장치 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
+* [Azure IoT 디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md) 문서에서는 IoT Hub와 상호 작용하는 디바이스 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
 
-* [장치 쌍, 작업 및 메시지 라우팅을 위한 IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md) 문서에서는 IoT Hub에서 장치 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 IoT Hub 쿼리 언어에 대해 설명합니다.
+* [디바이스 쌍, 작업 및 메시지 라우팅을 위한 IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md) 문서에서는 IoT Hub에서 디바이스 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 IoT Hub 쿼리 언어에 대해 설명합니다.
 
 * [IoT Hub MQTT 지원](iot-hub-mqtt-support.md) 문서에서는 MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
 
@@ -375,11 +375,11 @@ IoT Hub는 연결되지 않은 디바이스에 대한 desired 속성 업데이�
 디바이스 쌍에 대해 알아봤으니 다음 IoT Hub 개발자 가이드 항목에 대해서 살펴보세요.
 
 * [IoT Hub에서 모듈 쌍 이해 및 사용](iot-hub-devguide-module-twins.md)
-* [장치에서 직접 메서드 호출](iot-hub-devguide-direct-methods.md)
-* [여러 장치에서 작업 예약](iot-hub-devguide-jobs.md)
+* [디바이스에서 직접 메서드 호출](iot-hub-devguide-direct-methods.md)
+* [여러 디바이스에서 작업 예약](iot-hub-devguide-jobs.md)
 
 이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 참조하세요.
 
-* [장치 쌍을 사용하는 방법](iot-hub-node-node-twin-getstarted.md)
-* [장치 쌍 속성을 사용하는 방법](tutorial-device-twins.md)
-* [VS Code용 Azure IoT Toolkit을 사용하여 장치 관리](iot-hub-device-management-iot-toolkit.md)
+* [디바이스 쌍을 사용하는 방법](iot-hub-node-node-twin-getstarted.md)
+* [디바이스 쌍 속성을 사용하는 방법](tutorial-device-twins.md)
+* [VS Code용 Azure IoT Hub Toolkit을 사용하여 디바이스 관리](iot-hub-device-management-iot-toolkit.md)

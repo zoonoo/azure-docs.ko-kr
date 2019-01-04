@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: f5049d6092bfc6b3f70ebafdc501e02ad9fe7936
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: c6d827629850de88940f41febeeca61b812d692e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49433214"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958528"
 ---
 # <a name="notification-settings-in-azure-ad-domain-services"></a>Azure AD Domain Services의 알림 설정
 
@@ -41,7 +41,7 @@ ms.locfileid: "49433214"
 
 다음 그림은 이메일 알림 예제입니다.
 
-![예제 이메일 알림](.\media\active-directory-domain-services-alerts\email-alert.png)
+![예제 이메일 알림](./media/active-directory-domain-services-alerts/email-alert.png)
 
 이메일은 감지 시간과 Azure Portal의 Azure AD Domain Services 상태 페이지 링크를 제공할 뿐만 아니라 경고가 발생한 관리되는 도메인을 지정합니다.
 

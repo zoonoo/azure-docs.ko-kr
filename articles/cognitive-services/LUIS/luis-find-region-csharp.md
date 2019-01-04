@@ -1,27 +1,28 @@
 ---
-title: LUIS에서 C#을 사용하여 엔드포인트 지역 찾기
-titleSuffix: Azure Cognitive Services
-description: LUIS에 대한 끝점 키 및 응용 프로그램 ID를 사용하여 프로그래밍 방식으로 게시 지역을 찾습니다.
+title: 엔드포인트 지역, C#
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: C#을 사용하면 LUIS에 대한 엔드포인트 키 및 애플리케이션 ID를 사용하여 프로그래밍 방식으로 게시 지역을 찾습니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 53c3d1abb24ae0d5b33a2a100dda07fd20ae92d1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5d4c564ac797f40d7f6e9b169a6c864d3ef8147b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039635"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165166"
 ---
 # <a name="find-endpoint-region-with-c"></a>C#을 사용하여 엔드포인트 지역 찾기 
 LUIS 앱 ID와 LUIS 구독 ID가 있는 경우 엔드포인트 쿼리에 사용할 지역을 찾을 수 있습니다.
 
 > [!NOTE] 
-> 전체 C# 솔루션은 [**LUIS-Samples** Github 리포지토리](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/)에서 사용할 수 있습니다.
+> 전체 C# 솔루션은 [**LUIS-Samples** GitHub 리포지토리](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/)에서 사용할 수 있습니다.
 
 ## <a name="luis-endpoint-query-strategy"></a>LUIS 엔드포인트 쿼리 전략
 각 LUIS 엔드포인트 쿼리에는 다음이 필요합니다.

@@ -22,9 +22,9 @@ ms.locfileid: "46963631"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure CLI
 
-Azure Application Gateway를 통해 수신기를 포트에 할당하고, 규칙을 만들고, 백 엔드 풀에 리소스를 추가하여 응용 프로그램 웹 트래픽을 특정 리소스로 보낼 수 있습니다.
+Azure Application Gateway를 통해 수신기를 포트에 할당하고, 규칙을 만들고, 백 엔드 풀에 리소스를 추가하여 애플리케이션 웹 트래픽을 특정 리소스로 보낼 수 있습니다.
 
-이 빠른 시작에서는 Azure CLI를 사용하여 백 엔드 풀에 가상 머신 두 개가 있는 응용 프로그램 게이트웨이를 신속하게 만드는 방법을 보여줍니다. 그런 다음, 올바르게 작동하는지 테스트합니다.
+이 빠른 시작에서는 Azure CLI를 사용하여 백 엔드 풀에 가상 머신 두 개가 있는 애플리케이션 게이트웨이를 신속하게 만드는 방법을 보여줍니다. 그런 다음, 올바르게 작동하는지 테스트합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -44,7 +44,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기 
 
-응용 프로그램 게이트웨이가 다른 리소스와 통신할 수 있도록 가상 네트워크를 만들어야 합니다. 응용 프로그램 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 응용 프로그램 게이트웨이용이고, 다른 하나는 가상 머신용입니다. 
+애플리케이션 게이트웨이가 다른 리소스와 통신할 수 있도록 가상 네트워크를 만들어야 합니다. 애플리케이션 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 가상 머신용입니다. 
 
 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용하여 가상 네트워크 및 서브넷을 만듭니다. [az network public-ip create](/cli/azure/network/public-ip#az-public-ip-create)를 사용하여 공용 IP 주소를 만듭니다.
 
@@ -68,11 +68,11 @@ az network public-ip create \
 
 ## <a name="create-backend-servers"></a>백 엔드 서버 만들기
 
-이 예제에서는 응용 프로그램 게이트웨이에 대한 백 엔드 서버로 사용할 두 개의 가상 머신을 만듭니다. 
+이 예제에서는 애플리케이션 게이트웨이에 대한 백 엔드 서버로 사용할 두 개의 가상 머신을 만듭니다. 
 
 ### <a name="create-two-virtual-machines"></a>두 개의 가상 머신 만들기
 
-또한 응용 프로그램 게이트웨이가 성공적으로 만들어 졌는지 확인하기 위해 가상 머신에 NGINX를 설치합니다. cloud-init 구성 파일을 사용하여 NGINX를 설치하고 Linux 가상 머신에서 'Hello World' Node.js 앱을 실행할 수 있습니다. 
+또한 애플리케이션 게이트웨이가 성공적으로 만들어 졌는지 확인하기 위해 가상 머신에 NGINX를 설치합니다. cloud-init 구성 파일을 사용하여 NGINX를 설치하고 Linux 가상 머신에서 'Hello World' Node.js 앱을 실행할 수 있습니다. 
 
 현재 셸에서 cloud-init.txt라는 파일을 만들고 다음 구성을 복사하여 셸에 붙여넣습니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사해야 합니다.
 
@@ -140,7 +140,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
-[az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create)를 사용하여 응용 프로그램 게이트웨이를 만듭니다. Azure CLI를 사용하여 응용 프로그램 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 네트워크 인터페이스의 개인 IP 주소는 응용 프로그램 게이트웨이의 백 엔드 풀에 서버로 추가됩니다.
+[az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create)를 사용하여 응용 프로그램 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 네트워크 인터페이스의 개인 IP 주소는 애플리케이션 게이트웨이의 백 엔드 풀에 서버로 추가됩니다.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
@@ -158,7 +158,7 @@ az network application-gateway create \
   --servers "$address1" "$address2"
 ```
 
-응용 프로그램 게이트웨이가 생성될 때까지 최대 30분이 걸릴 수 있습니다. 응용 프로그램 게이트웨이가 생성되면 다음과 같은 기능을 볼 수 있습니다.
+애플리케이션 게이트웨이가 생성될 때까지 최대 30분이 걸릴 수 있습니다. 애플리케이션 게이트웨이가 생성되면 다음과 같은 기능을 볼 수 있습니다.
 
 - *appGatewayBackendPool* - 응용 프로그램 게이트웨이에 백 엔드 주소 풀이 하나 이상 있어야 합니다.
 - *appGatewayBackendHttpSettings* - 포트 80 및 HTTP 프로토콜을 통신에 사용하도록 지정합니다.
@@ -166,9 +166,9 @@ az network application-gateway create \
 - *appGatewayFrontendIP* - *myAGPublicIPAddress*를 *appGatewayHttpListener*에 할당합니다.
 - *rule1* - *appGatewayHttpListener*에 연결되는 기본 라우팅 규칙입니다.
 
-## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
+## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-응용 프로그램 게이트웨이를 만들기 위해 반드시 NGINX를 설치해야 하는 것은 아니지만, 이 빠른 시작에서는 응용 프로그램 게이트웨이가 성공적으로 생성되었는지 확인하기 위해 설치했습니다. 응용 프로그램 게이트웨이의 공용 IP 주소를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show)를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다.
+애플리케이션 게이트웨이를 만들기 위해 반드시 NGINX를 설치해야 하는 것은 아니지만, 이 빠른 시작에서는 애플리케이션 게이트웨이가 성공적으로 생성되었는지 확인하기 위해 설치했습니다. 애플리케이션 게이트웨이의 공용 IP 주소를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show)를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -178,13 +178,13 @@ az network public-ip show \
   --output tsv
 ``` 
 
-![응용 프로그램 게이트웨이 테스트](./media/quick-create-cli/application-gateway-nginxtest.png)
+![애플리케이션 게이트웨이 테스트](./media/quick-create-cli/application-gateway-nginxtest.png)
 
 브라우저를 새로 고치면 다른 VM의 이름이 표시되어야 합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-먼저 응용 프로그램 게이트웨이로 만든 리소스를 탐색한 다음, 더 이상 필요 없으면 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹, 응용 프로그램 게이트웨이 및 모든 관련 리소스를 제거할 수 있습니다.
+먼저 애플리케이션 게이트웨이로 만든 리소스를 탐색한 다음, 더 이상 필요 없으면 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹, 애플리케이션 게이트웨이 및 모든 관련 리소스를 제거할 수 있습니다.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupAG

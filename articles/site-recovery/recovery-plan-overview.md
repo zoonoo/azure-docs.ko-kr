@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 463a7fc51cac6160fbb97fc53077d0b5eda80533
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: cb68b71eece998fa72fccc00de45f81e6d2d778c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215194"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848394"
 ---
 # <a name="about-recovery-plans"></a>복구 계획 정보
 
@@ -64,7 +64,7 @@ ms.locfileid: "50215194"
     * Azure VM에서 공용 IP 주소를 만듭니다.
     * Azure VM의 네트워크 어댑터에 네트워크 보안 그룹을 할당합니다.
     * 가용성 집합에 부하 분산 장치를 추가합니다.
-* **장애 조치(failover) 후 VM 내 작업**: 이러한 작업은 일반적으로 새로운 환경에서 앱이 올바르게 작동하도록 컴퓨터에서 실행되는 앱을 재구성합니다. 예: 
+* **장애 조치(failover) 후 VM 내 작업**: 이러한 작업은 일반적으로 새로운 환경에서 앱이 올바르게 작동하도록 머신에서 실행되는 앱을 재구성합니다. 예: 
     * 컴퓨터 내에서 데이터베이스 연결 문자열을 수정합니다.
     * 웹 서버 구성 또는 규칙을 변경합니다.
 

@@ -27,7 +27,7 @@ ms.locfileid: "43189130"
 액세스 검토 기간이 끝나거나 모든 사용자가 자체 검토를 완료하면 이 문서의 단계에 따라 검토를 관리하고 결과를 표시합니다.
 
 ## <a name="manage-access-reviews"></a>액세스 검토 관리
-1. [Azure 포털](https://portal.azure.com/)로 이동합니다. 그런 다음, 대시보드에서 **Azure 리소스** 응용 프로그램을 선택합니다.
+1. [Azure 포털](https://portal.azure.com/)로 이동합니다. 그런 다음, 대시보드에서 **Azure 리소스** 애플리케이션을 선택합니다.
 
 2. 리소스를 선택합니다.
 

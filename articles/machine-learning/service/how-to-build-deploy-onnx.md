@@ -1,5 +1,6 @@
 ---
-title: ONNX 및 Azure Machine Learning | 모델 만들기 및 배포
+title: 상호 운용 가능한 ONNX 모델 만들기 및 배포
+titleSuffix: Azure Machine Learning service
 description: ONNX의 정의와 Azure Machine Learning을 사용하여 ONNX 모델을 만들고 배포하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e5c0e479d5564a48048b9fa9c67ad8870122601
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: seodec18
+ms.openlocfilehash: 15aa80c5291854c937bdc128a597ed5bebd608a2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706061"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437435"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX 및 Azure Machine Learning: 상호 운용 가능한 AI 모델 만들기 및 배포
 
@@ -32,7 +34,7 @@ PyTorch, Chainer, Microsoft Cognitive Toolkit(CNTK), MXNet, ML.Net, TensorFlow, 
 
 ONNX 모델을 시각화하고 더 빠르게 작성하기 위한 도구 에코시스템도 갖춰져 있습니다. 일반 시나리오용으로 미리 학습된 여러 ONNX 모델도 제공됩니다.
 
-Azure Machine Learning 및 ONNX Runtime을 사용하면 클라우드로 [ONNX 모델을 배포](#deploy)할 수 있습니다. [Windows ML](https://docs.microsoft.com/windows/ai/)을 사용해 Windows 10 장치로 ONNX 모델을 배포할 수도 있습니다. ONNX 커뮤니티에서 제공되는 변환기를 사용하면 다른 플랫폼으로도 배포가 가능합니다. 
+Azure Machine Learning 및 ONNX Runtime을 사용하면 클라우드로 [ONNX 모델을 배포](#deploy)할 수 있습니다. [Windows ML](https://docs.microsoft.com/windows/ai/)을 사용해 Windows 10 디바이스로 ONNX 모델을 배포할 수도 있습니다. ONNX 커뮤니티에서 제공되는 변환기를 사용하면 다른 플랫폼으로도 배포가 가능합니다. 
 
 [ ![학습, 변환기 및 배포를 보여 주는 ONNX 흐름 다이어그램](media/concept-onnx/onnx.png) ](./media/concept-onnx/onnx.png#lightbox)
 
@@ -65,16 +67,16 @@ Azure Machine Learning 및 ONNX Runtime을 사용하면 클라우드로 [ONNX �
 
 Azure Machine Learning 서비스를 사용하면 ONNX 모델을 배포, 관리 및 모니터링할 수 있습니다. 표준 [배포 워크플로](concept-model-management-and-deployment.md)와 ONNX Runtime을 사용하면 클라우드에서 호스트되는 REST 엔드포인트를 만들 수 있습니다. 이 문서 끝부분에 나와 있는 전체 예제 Jupyter Notebook을 참조하여 엔드포인트를 직접 만들어 보세요. 
 
-### <a name="install-and-configure-the-onnx-runtime"></a>ONNX Runtime 설치 및 구성
+### <a name="install-and-configure-onnx-runtime"></a>ONNX Runtime 설치 및 구성
 
-ONNX 모델용 고성능 유추 엔진인 ONNX Runtime은 Python API를 포함하며 CPU와 GPU에서 모두 하드웨어 가속을 제공합니다. 현재 ONNX Runtime은 ONNX 1.2 모델을 지원하며 Ubuntu 16.04 Linux에서 실행됩니다. [CPU](https://pypi.org/project/onnxruntime) 및 [GPU](https://pypi.org/project/onnxruntime-gpu) 패키지 둘 다 [PyPi.org](https://pypi.org)에서 사용할 수 있습니다.
+ONNX Runtime은 ONNX 모델용 오픈 소스 고성능 유추 엔진입니다. 이 엔진은 Python, C# 및 C에 사용할 수 있는 API를 사용하여 CPU와 GPU 모두에 하드웨어 가속을 제공합니다. ONNX Runtime은 ONNX 1.2+ 모델을 지원하며 Linux, Windows 및 Mac에서 실행됩니다. Python 패키지는 [PyPi.org](https://pypi.org)([ CPU](https://pypi.org/project/onnxruntime) , [GPU](https://pypi.org/project/onnxruntime-gpu))에서 사용할 수 있고, [C# 패키지](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/)는 [Nuget.org](https://www.nuget.org)에서 사용할 수 있습니다. [GitHub](https://github.com/Microsoft/onnxruntime)에서 이 프로젝트에 대해 자세히 알아보세요. 
 
-ONNX Runtime을 설치하려면 다음 코드를 사용합니다.
+Python용 ONNX 런타임을 설치하려면 다음을 사용합니다.
 ```python
 pip install onnxruntime
 ```
 
-Python 스크립트에서 ONNX Runtime을 호출하려면 다음 코드를 사용합니다.
+Python 스크립트에서 ONNX Runtime을 호출하려면 다음을 사용합니다.
 ```python
 import onnxruntime
 
@@ -94,7 +96,7 @@ results = session.run(["output1", "output2"], {"input1": indata1, "input2": inda
 results = session.run([], {"input1": indata1, "input2": indata2})
 ```
 
-전체 API 참조는 [ONNX 런타임 참조 문서](https://aka.ms/onnxruntime-python)를 참조하세요.
+전체 Python API 참조는 [ONNX 런타임 참조 문서](https://aka.ms/onnxruntime-python)를 참조하세요.
 
 ### <a name="example-deployment-steps"></a>예제 배포 단계
 
@@ -183,24 +185,12 @@ results = session.run([], {"input1": indata1, "input2": indata2})
     f.write(myenv.serialize_to_string())
    ```
 
-4. Azure Machine Learning을 사용하여 ONNX 모델을 배포합니다.
-   + ACI(Azure Container Instances: [방법 배우기...](how-to-deploy-to-aci.md)
-
-   + AKS(Azure Kubernetes Service): [방법 배우기...](how-to-deploy-to-aks.md)
+4. 모델을 배포하려면 [배포 방법 및 위치](how-to-deploy-and-where.md) 문서를 참조하세요.
 
 
 ## <a name="examples"></a>예
  
-다음 Notebook은 Azure Machine Learning을 사용하여 ONNX 모델을 만들고 배포하는 방법을 설명합니다. 
-+ [onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb)
-+ [onnx/onnx-convert-aml-deploy-tinyyolo.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb)
-+ [onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb)
-
-다음 Notebook은 Azure Machine Learning을 사용하여 ONNX 모델을 배포하는 방법을 설명합니다. 
-+ [onnx/onnx-inference-mnist-deploy.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-mnist-deploy.ipynb) 
-+ [onnx/onnx-inference-facial-expression-recognition-deploy.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-facial-expression-recognition-deploy.ipynb)
- 
-다음 Notebook을 다운로드합니다.
+ONNX 모델을 만들고 배포하는 예제 노트는 [how-to-use-azureml/deployment/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx)를 참조하세요.
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
@@ -210,3 +200,8 @@ ONNX에 대해 자세히 알아보거나 프로젝트에 참가합니다.
 + [ONNX 프로젝트 웹 사이트](https://onnx.ai)
 
 + [GitHub의 ONNX 코드](https://github.com/onnx/onnx)
+
+ONNX Runtime에 대해 자세히 알아보거나 프로젝트에 참가합니다.
++ [ONNX Runtime GitHub Repo](https://github.com/Microsoft/onnxruntime)
+
+

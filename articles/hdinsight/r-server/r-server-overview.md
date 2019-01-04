@@ -1,6 +1,6 @@
 ---
 title: Azure HDInsight의 ML 서비스 소개
-description: HDInsight의 ML Services를 사용하여 빅 데이터 분석용 응용 프로그램을 만드는 방법에 대해 알아봅니다.
+description: HDInsight의 ML Services를 사용하여 빅 데이터 분석용 애플리케이션을 만드는 방법에 대해 알아봅니다.
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -25,7 +25,7 @@ Microsoft Machine Learning Server를 사용하면 Azure에서 HDInsight 클러�
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
-HDInsight의 ML Services는 Azure Blob 또는 Data Lake Store에 로드된 거의 모든 크기의 데이터 세트에서 R 기반 분석을 위한 최신 기능을 제공합니다. ML Services 클러스터는 오픈 소스 R을 기반으로 하기 때문에 빌드한 R 기반 응용 프로그램은 8000개 이상의 오픈 소스 R 패키지를 활용할 수 있습니다. Microsoft의 빅 데이터 분석 패키지인 ScaleR의 루틴도 사용 가능합니다.
+HDInsight의 ML Services는 Azure Blob 또는 Data Lake Store에 로드된 거의 모든 크기의 데이터 세트에서 R 기반 분석을 위한 최신 기능을 제공합니다. ML Services 클러스터는 오픈 소스 R을 기반으로 하기 때문에 빌드한 R 기반 애플리케이션은 8000개 이상의 오픈 소스 R 패키지를 활용할 수 있습니다. Microsoft의 빅 데이터 분석 패키지인 ScaleR의 루틴도 사용 가능합니다.
 
 클러스터의 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하는 데 편리한 위치를 제공합니다. 에지 노드를 사용하는 경우 에지 노드 서버의 코어에서 ScaleR의 병렬화된 분산 함수를 실행하는 옵션이 제공됩니다. 또한 ScaleR의 Hadoop Map Reduce 또는 Apache Spark 컴퓨팅 컨텍스트를 사용하여 클러스터의 노드 전반에 함수를 실행할 수도 있습니다.
 
@@ -49,7 +49,7 @@ HDInsight의 ML Services는 다음과 같은 이점을 제공합니다.
 
   기존 운용 패러다임 및 환경에 의존하는 기업은 이 영역으로 전환하기 위해 많은 시간과 노력을 투자해야 합니다. 이로 인해 모델의 변환 시간, 유효한 최신 상태로 유지하기 위한 반복 작업, 정기적인 승인, 운용 전반의 사용 권한 관리 등에 따른 비용 증가와 지연 문제가 발생합니다
 
-  ML Services는 최고 수준의 [운용화](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)를 제공하여, 기계 학습 모델이 완료되면 클릭 몇 번으로 웹 서비스 API를 생성할 수 있습니다. 이러한 [웹 서비스](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services)는 클라우드의 서버 그리드에서 호스트되며, LOB(기간 업무) 응용 프로그램에 통합될 수 있습니다. 탄력적 그리드에 배포할 수 있으므로 일괄 처리 및 실시간 채점에 대한 비즈니스 요구에 맞춰 원활하게 확장 가능합니다. 지침을 보려면 [HDInsight에서 ML Services 운용](r-server-operationalize.md)을 참조하세요.
+  ML Services는 최고 수준의 [운용화](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)를 제공하여, 기계 학습 모델이 완료되면 클릭 몇 번으로 웹 서비스 API를 생성할 수 있습니다. 이러한 [웹 서비스](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services)는 클라우드의 서버 그리드에서 호스트되며, LOB(기간 업무) 애플리케이션에 통합될 수 있습니다. 탄력적 그리드에 배포할 수 있으므로 일괄 처리 및 실시간 채점에 대한 비즈니스 요구에 맞춰 원활하게 확장 가능합니다. 지침을 보려면 [HDInsight에서 ML Services 운용](r-server-operationalize.md)을 참조하세요.
 
 <!---
 * **Deep ecosystem engagements to deliver customer success with optimal total cost of ownership**

@@ -1,5 +1,5 @@
 ---
-title: 동적 관리 뷰를 사용하여 Azure SQL Database 모니터링 | Microsoft Docs
+title: DMV를 사용하여 Azure SQL Database 성능 모니터링 | Microsoft Docs
 description: 동적 관리 뷰를 사용하여 Microsoft Azure SQL Database를 모니터링하여 일반적인 성능 문제를 감지 및 진단하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -12,14 +12,14 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: c690e9b864d4b2b378814b478ea4918a9f75fbba
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 88e0ad847d8d779bd769ed73d4f0393ddfb65588
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288530"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876316"
 ---
-# <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>동적 관리 뷰를 사용하여 Azure SQL Database 모니터링
+# <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>동적 관리 뷰를 사용하여 Azure SQL Database 성능모니터링
 
 Microsoft Azure SQL Database를 사용하여 차단되거나 오래 실행된 쿼리, 리소스 병목 현상, 잘못된 쿼리 계획 등에 의해 야기될 수 있는 동적 관리 뷰의 하위 집합에서 성능 문제를 진단할 수 있습니다. 이 항목에서는 동적 관리 뷰를 사용하여 일반적인 성능 문제를 감지하는 방법을 설명합니다.
 
@@ -131,7 +131,7 @@ ORDER BY end_time DESC;
 
 IO 제한에 도달하는 경우 두 가지 옵션이 있습니다.
 
-- 옵션 1: 계산 크기 또는 서비스 계층 업그레이드
+- 옵션 1: 컴퓨팅 크기 또는 서비스 계층 업그레이드
 - 옵션 2: 대부분의 IO를 사용하는 쿼리를 식별하여 튜닝
 
 #### <a name="view-buffer-related-io-using-the-query-store"></a>쿼리 저장소를 사용하여 버퍼 관련 IO 확인
@@ -240,7 +240,7 @@ GO
 
 IO 성능 문제를 식별할 때 `tempdb` 문제와 관련된 상위 대기 유형은 `PAGELATCH_*`입니다(`PAGEIOLATCH_*` 아님). 그러나 `PAGELATCH_*` 대기는 항상 `tempdb` 경합이 있다는 의미가 아닙니다.  이 대기는 동일한 데이터 페이지를 대상으로 하는 동시 요청으로 인해 사용자 개체 데이터 페이지 경합이 있다는 의미일 수도 있습니다. `tempdb` 경합을 추가로 확인하려면 [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)를 사용하여 `2:x:y`로 시작하는 wait_resource 값을 확인합니다. 여기서 2는 `tempdb` 데이터베이스 ID, `x`는 파일 ID, `y`는 페이지 ID입니다.  
 
-tempdb 경합의 경우 `tempdb`를 사용하는 응용 프로그램 코드를 줄이거나 다시 작성하는 것이 일반적인 방법입니다.  일반적인 `tempdb` 사용량 영역에는 다음이 포함됩니다.
+tempdb 경합의 경우 `tempdb`를 사용하는 애플리케이션 코드를 줄이거나 다시 작성하는 것이 일반적인 방법입니다.  일반적인 `tempdb` 사용량 영역에는 다음이 포함됩니다.
 
 - 임시 테이블
 - 테이블 변수
@@ -542,9 +542,9 @@ FROM sys.dm_db_resource_stats;
 
 ![SQL Database 리소스 사용](./media/sql-database-performance-guidance/sql_db_resource_utilization.png)
 
-이 데이터베이스의 현재 최고 CPU 부하는 P2 계산 크기에 비해 약 50% 더 많습니다(화요일 낮). CPU가 응용 프로그램의 리소스 프로필에서 가장 지배적인 요인인 경우 P2가 항상 워크로드를 충족하는 데 적합한 계산 크기임을 확인할 수 있습니다. 응용 프로그램이 시간이 지남에 따라 성장할 것으로 예상되는 경우 응용 프로그램이 성능 수준 한도에 도달하지 않도록 추가 리소스 버퍼를 두는 것이 좋습니다. 계산 크기를 늘리면 특히 대기 시간이 중요한 환경에서 데이터베이스가 요청을 효과적으로 처리하므로 충분한 능력을 갖고 있지 않은 경우 발생할 수 있는 고객에게 보이는 오류를 방지하는 데 도움이 될 수 있습니다. 예를 들어 데이터베이스 호출의 결과를 기반으로 웹 페이지를 표시하는 응용 프로그램을 지원하는 데이터베이스가 있습니다.
+이 데이터베이스의 현재 최고 CPU 부하는 P2 계산 크기에 비해 약 50% 더 많습니다(화요일 낮). CPU가 애플리케이션의 리소스 프로필에서 가장 지배적인 요인인 경우 P2가 항상 워크로드를 충족하는 데 적합한 계산 크기임을 확인할 수 있습니다. 응용 프로그램이 시간이 지남에 따라 성장할 것으로 예상되는 경우 응용 프로그램이 성능 수준 한도에 도달하지 않도록 추가 리소스 버퍼를 두는 것이 좋습니다. 계산 크기를 늘리면 특히 대기 시간이 중요한 환경에서 데이터베이스가 요청을 효과적으로 처리하므로 충분한 능력을 갖고 있지 않은 경우 발생할 수 있는 고객에게 보이는 오류를 방지하는 데 도움이 될 수 있습니다. 예를 들어 데이터베이스 호출의 결과를 기반으로 웹 페이지를 표시하는 응용 프로그램을 지원하는 데이터베이스가 있습니다.
 
-다른 응용 프로그램 유형은 동일한 그래프를 다르게 해석할 수 있습니다. 예를 들어 응용 프로그램에서 매일 급여 데이터를 처리하고 동일한 차트를 사용하는 경우와 같은 "일괄 처리 작업" 모델은 P1 계산 크기로 충분할 수 있습니다. P1 계산 크기는 DTU 100개를 제공하고 P2 계산 크기는 DTU 200개를 제공합니다. P1 계산 크기는 P2 계산 크기의 절반 성능을 제공합니다. 따라서 P2에서 CPU 사용의 50%는 P1에서 100% CPU 사용과 같습니다. 응용 프로그램에 시간 제한이 없는 경우 작업이 오늘 완료되기만 한다면 2시간이 소요되든 또는 2.5시간이 소요되든 중요하지 않을 수 있습니다. 이 범주의 응용 프로그램은 P1 계산 크기를 사용할 수도 있습니다. 하루 중 리소스 사용량이 낮은 시간대가 있다는 사실을 활용할 수 있습니다. 즉, "최고" 시간대의 작업을 하루 중 사용량이 낮은 시간대 중 하나로 나눌 수 있습니다. 작업을 매일 정시에 완료할 수 있는 경우 이러한 종류의 응용 프로그램에는 P1 계산 크기가 적합하며 비용도 절감할 수 있습니다.
+다른 응용 프로그램 유형은 동일한 그래프를 다르게 해석할 수 있습니다. 예를 들어 애플리케이션에서 매일 급여 데이터를 처리하고 동일한 차트를 사용하는 경우와 같은 "일괄 처리 작업" 모델은 P1 계산 크기로 충분할 수 있습니다. P1 계산 크기는 DTU 100개를 제공하고 P2 계산 크기는 DTU 200개를 제공합니다. P1 계산 크기는 P2 계산 크기의 절반 성능을 제공합니다. 따라서 P2에서 CPU 사용의 50%는 P1에서 100% CPU 사용과 같습니다. 응용 프로그램에 시간 제한이 없는 경우 작업이 오늘 완료되기만 한다면 2시간이 소요되든 또는 2.5시간이 소요되든 중요하지 않을 수 있습니다. 이 범주의 애플리케이션은 P1 계산 크기를 사용할 수도 있습니다. 하루 중 리소스 사용량이 낮은 시간대가 있다는 사실을 활용할 수 있습니다. 즉, "최고" 시간대의 작업을 하루 중 사용량이 낮은 시간대 중 하나로 나눌 수 있습니다. 작업을 매일 정시에 완료할 수 있는 경우 이러한 종류의 애플리케이션에는 P1 계산 크기가 적합하며 비용도 절감할 수 있습니다.
 
 Azure SQL Database는 각 서버에 있는 **마스터** 데이터베이스의 **sys.resource_stats** 뷰로 각 활성 데이터베이스에 사용된 리소스 정보를 표시합니다. 표의 데이터는 5분 간격으로 집계되어 있습니다. Basic, Standard, Premium 서비스 계층에서 데이터가 테이블에 표시될 때까지 5분 이상이 소요될 수 있어 이 데이터는 거의 실시간에 가까운 분석보다 기록 분석에 더 적합합니다. **sys.resource_stats** 뷰에 대한 쿼리는 데이터베이스의 최근 기록을 보여주며 선택한 예약이 필요 시 원하는 성능을 제공했는지 여부를 검증합니다.
 
@@ -574,7 +574,7 @@ ORDER BY start_time DESC
     ORDER BY start_time DESC;
     ```
 
-2. 워크로드가 계산 크기에 얼마나 적합한지 평가하려면 리소스 메트릭의 각 측면(CPU, 읽기, 쓰기, 작업자 수, 세션 수)까지 집중 분석해야 합니다. 다음은 이러한 리소스 메트릭의 평균값 및 최대값에 대해 보고하기 위해 **sys.resource_stats**를 사용하여 수정한 쿼리입니다.
+2. 워크로드가 컴퓨팅 크기에 얼마나 적합한지 평가하려면 리소스 메트릭의 각 측면을 집중 분석해야 합니다. (예: CPU, 읽기, 쓰기, 작업자 수, 세션 수) 다음은 이러한 리소스 메트릭의 평균값 및 최대값에 대해 보고하기 위해 **sys.resource_stats**를 사용하여 수정한 쿼리입니다.
 
     ```sql
     SELECT
@@ -626,7 +626,7 @@ ORDER BY start_time DESC
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-    이 쿼리가 세 가지 리소스 크기에 대해 전부 99.9% 미만의 값을 반환하는 경우 다음 상위 계산 크기로 이동하거나 응용 프로그램 튜닝 기술을 사용하여 SQL 데이터베이스의 부하를 줄이는 방안을 고려해야 합니다.
+    이 쿼리가 세 가지 리소스 크기에 대해 전부 99.9% 미만의 값을 반환하는 경우 다음 상위 계산 크기로 이동하거나 애플리케이션 튜닝 기술을 사용하여 SQL 데이터베이스의 부하를 줄이는 방안을 고려해야 합니다.
 
 4. 이 연습에서는 향후 예상되는 워크로드 증가도 고려합니다.
 
@@ -707,7 +707,7 @@ SQL Database 분석의 경우 [sys.resource_stats](https://msdn.microsoft.com/li
 
 ### <a name="monitoring-blocked-queries"></a>차단된 쿼리 모니터링
 
-느린 속도로 또는 장시간 실행하는 쿼리는 과도한 리소스 소비에 기여하고 차단된 쿼리에 따른 결과일 수 있습니다. 차단의 원인으로 부실한 응용 프로그램 디자인, 잘못된 쿼리 계획, 유용한 인덱스 부족 등이 있습니다. sys.dm_tran_locks 뷰를 사용하여 Azure SQL Database의 현재 잠금 작업에 관한 정보를 가져올 수 있습니다. 예제 코드는 SQL Server 온라인 설명서의 [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx)를 참조하세요.
+느린 속도로 또는 장시간 실행하는 쿼리는 과도한 리소스 소비에 기여하고 차단된 쿼리에 따른 결과일 수 있습니다. 차단의 원인으로 부실한 애플리케이션 디자인, 잘못된 쿼리 계획, 유용한 인덱스 부족 등이 있습니다. sys.dm_tran_locks 뷰를 사용하여 Azure SQL Database의 현재 잠금 작업에 관한 정보를 가져올 수 있습니다. 예제 코드는 SQL Server 온라인 설명서의 [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx)를 참조하세요.
 
 ### <a name="monitoring-query-plans"></a>쿼리 계획 모니터링
 

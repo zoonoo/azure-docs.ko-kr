@@ -13,16 +13,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: juliako
-ms.openlocfilehash: 5de7496d73ebe1c89ce27ef27df73b197f34e7c7
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 8df43a9b2c518e77d14dd5cb392b042b0b4846e2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52636988"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407969"
 ---
 # <a name="using-a-cloud-dvr"></a>클라우드 DVR 사용
 
-[LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs)을 통해 기록되는 스트림 양(예: 클라우드 DVR의 용량), 시청자가 라이브 스트림을 보기 시작할 수 있는지 여부 등, 보내는 라이브 스트림의 속성을 제어할 수 있습니다. **LiveEvent**와 **LiveOutput** 간 관계는 채널(**LiveEvent**)이 일정한 비디오 스트림을 나타내고 기록(**LiveOutput**)이 특정 시간 구간으로 한정(예: 오후 6시 30분부터 7시까지 저녁 뉴스)된다는 점에서 기존 TV 방송과 유사합니다. 디지털 비디오 레코더(DVR)를 사용하여 TV를 기록할 수 있으며, LiveEvent에서는 이와 동등한 기능이 ArchiveWindowLength 속성을 통해 관리됩니다. 이 속성은 DVR의 용량을 지정하는 ISO-8601 타임스팬 기간(예: PTHH:MM:SS)이며, 최소 3분에서 최대 25시간까지 설정할 수 있습니다.
+[LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs)을 통해 기록되는 스트림 양(예: 클라우드 DVR의 용량), 시청자가 라이브 스트림을 보기 시작할 수 있는지 여부 등, 보내는 라이브 스트림의 속성을 제어할 수 있습니다. **LiveEvent**와 **LiveOutput** 간 관계는 채널(**LiveEvent**)이 일정한 비디오 스트리밍을 나타내고 기록(**LiveOutput**)이 특정 시간 구간으로 한정(예: 오후 6시 30분부터 7시까지 저녁 뉴스)된다는 점에서 기존 TV 방송과 유사합니다. 디지털 비디오 레코더(DVR)를 사용하여 TV를 기록할 수 있으며, LiveEvent에서는 이와 동등한 기능이 ArchiveWindowLength 속성을 통해 관리됩니다. 이 속성은 DVR의 용량을 지정하는 ISO-8601 타임스팬 기간(예: PTHH:MM:SS)이며, 최소 3분에서 최대 25시간까지 설정할 수 있습니다.
 
 ## <a name="liveoutput"></a>LiveOutput
 

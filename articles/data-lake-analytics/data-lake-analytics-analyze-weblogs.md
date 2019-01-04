@@ -47,10 +47,10 @@ ms.locfileid: "51246466"
 1. Visual Studio에서 **CTRL+ALT+S**를 눌러 **서버 탐색기**를 엽니다.
 2. **서버 탐색기**에서 **Azure**를 확장한 후 **Data Lake Analytics**을 확장합니다. 계정이 있을 경우 해당 데이터 레이크 분석 계정 목록이 표시됩니다. Studio에서 데이터 레이크 분석 계정을 만들 수 없습니다. 계정을 만들려면 [Azure Portal을 사용하여 Azure Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md) 또는 [Azure PowerShell을 사용하여 Azure Data Lake Analytics 시작](data-lake-analytics-get-started-powershell.md)을 참조하세요.
 
-## <a name="develop-u-sql-application"></a>U-SQL 응용 프로그램 개발
-U-SQL 응용 프로그램은 대부분 U-SQL 스크립트입니다. U-SQL에 대한 자세한 내용은 [U-SQL 시작](data-lake-analytics-u-sql-get-started.md)을 참조하십시오.
+## <a name="develop-u-sql-application"></a>U-SQL 애플리케이션 개발
+U-SQL 애플리케이션은 대부분 U-SQL 스크립트입니다. U-SQL에 대한 자세한 내용은 [U-SQL 시작](data-lake-analytics-u-sql-get-started.md)을 참조하십시오.
 
-해당 응용 프로그램에 더하기 사용자 정의 연산자를 추가할 수 있습니다.  자세한 내용은 [데이터 레이크 분석 작업을 위한 U-SQL 사용자 정의 연산자 개발](data-lake-analytics-u-sql-develop-user-defined-operators.md)을 참조하십시오.
+해당 애플리케이션에 더하기 사용자 정의 연산자를 추가할 수 있습니다.  자세한 내용은 [데이터 레이크 분석 작업을 위한 U-SQL 사용자 정의 연산자 개발](data-lake-analytics-u-sql-develop-user-defined-operators.md)을 참조하십시오.
 
 **데이터 레이크 분석 작업 만들기 및 제출하기**
 

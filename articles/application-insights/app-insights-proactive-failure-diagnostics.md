@@ -1,5 +1,5 @@
 ---
-title: Application Insights의 스마트 감지 - 실패 | Microsoft Docs
+title: Application Insights의 스마트 검색 - 실패 | Microsoft Docs
 description: 웹앱에 요청 실패율의 비정상적인 변경 내용에 대해 경고하고 진단 분석을 제공합니다. 구성이 필요하지 않습니다.
 services: application-insights
 documentationcenter: ''
@@ -9,17 +9,16 @@ ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/09/2017
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: 8394584b2b4f8cbc47a6fdaadd754e8649c3f794
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0895d31475de5d78c82f3bfedc0765e5a9549339
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960925"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877601"
 ---
 # <a name="smart-detection---failure-anomalies"></a>스마트 감지 - 실패
 [Application Insights](app-insights-overview.md)는 웹앱에서 실패한 요청이 비정상적으로 증가하는 경우 거의 실시간으로 자동으로 알립니다. 실패했다고 보고된 HTTP 요청 또는 종속성 호출의 비율이 비정상적으로 증가하는 것을 감지합니다. 요청의 경우 실패한 요청은 일반적으로 응답 코드 400 이상입니다. 문제를 심사하고 진단할 수 있도록 실패 및 관련된 원격 분석의 특성에 대한 분석이 알림 영역에서 제공됩니다. 또한 추가 진단을 위해 Application Insights 포털에 링크가 제공됩니다. 기능이 Machine Learning 알고리즘을 사용하여 일반 실패율을 예측하려면 설정 또는 구성이 필요하지 않습니다.
@@ -53,7 +52,7 @@ ms.locfileid: "50960925"
 
 앱의 성능에는 일반적인 동작의 패턴이 있습니다. 일부 요청 또는 종속성 호출은 다른 요청보다 오류 발생 가능성이 높으며 로드가 증가함에 따라 전체 실패율이 상승할 수 있습니다. 스마트 감지는 이러한 이상을 발견하는 데 기계 학습을 사용합니다.
 
-웹 앱에서 Application Insights로 원격 분석을 가져오면 스마트 감지에서 현재 동작을 과거 며칠 동안 확인된 패턴과 비교합니다. 이전 성능과 비교하여 실패율에 비정상적인 증가가 관찰되면 분석이 트리거됩니다.
+웹앱에서 Application Insights로 원격 분석을 가져오면 스마트 검색에서 현재 동작을 과거 며칠 동안 확인된 패턴과 비교합니다. 이전 성능과 비교하여 실패율에 비정상적인 증가가 관찰되면 분석이 트리거됩니다.
 
 분석이 트리거되는 경우 서비스는 실패의 특성을 만드는 값의 패턴을 확인하기 위해 실패한 요청에 대한 클러스터 분석을 수행합니다. 위의 예에서 분석은 대부분의 오류가 특정 결과 코드, 요청 이름, 서버 URL 호스트 및 역할 인스턴스에 대한 것임을 발견했습니다. 반면 분석은 클라이언트 운영 체제 속성이 여러 값을 통해 배포되고 있으므로 나열되지 않음을 발견했습니다.
 
@@ -90,9 +89,9 @@ ms.locfileid: "50960925"
 
 몇 가지 다른 단서가 있습니다. 예를 들어 이 예에서 종속성 실패율이 예외 속도(89.3%)와 같습니다. 예외가 종속성 오류에서 직접 발생하므로 코드의 어디 부분부터 살펴보아야 하는지 확실히 알 수 있습니다.
 
-더 자세히 조사해야 하는 경우 각 섹션의 링크는 관련 요청, 예외, 종속성 또는 추적을 필터링하는 [검색 페이지](app-insights-diagnostic-search.md) 로 바로 이동합니다. 또는 [Azure 포털](https://portal.azure.com)을 열고 앱에 대한 Application Insights 리소스에 이동하며 오류 블레이드를 열 수 있습니다.
+더 자세히 조사해야 하는 경우 각 섹션의 링크는 관련 요청, 예외, 종속성 또는 추적을 필터링하는 [검색 페이지](app-insights-diagnostic-search.md) 로 바로 이동합니다. 또는 [Azure Portal](https://portal.azure.com)을 열고 앱에 대한 Application Insights 리소스에 이동하며 오류 블레이드를 열 수 있습니다.
 
-이 예제에서 '종속성 오류 세부 정보 보기' 링크를 클릭하면 Application Insights 검색 블레이드가 열립니다. 다음과 같은 근본 원인의 예가 있는 SQL 문이 표시됩니다. 필수 필드에 Null이 제공되었으며 저장 작업 동안 유효성 검사를 통과하지 못했습니다.
+이 예제에서 '종속성 오류 세부 정보 보기' 링크를 클릭하면 Application Insights 검색 블레이드가 열립니다. 근본 원인의 예제가 있는 SQL 명령문이 표시됩니다. 필수 필드에 NULL이 제공되었으며 저장 작업 중 유효성 검사를 통과하지 못했습니다.
 
 ![진단 검색](./media/app-insights-proactive-failure-diagnostics/051.png)
 
@@ -104,7 +103,7 @@ ms.locfileid: "50960925"
 
 
 ## <a name="whats-the-difference-"></a>차이점은 무엇입니까...
-실패에 대한 스마트 감지는 Application Insights의 다른 유사하지만 고유한 기능을 보완합니다.
+실패에 대한 스마트 검색은 Application Insights의 다른 유사하지만 고유한 기능을 보완합니다.
 
 * [메트릭 경고](app-insights-alerts.md) 는 사용자에 의해 설정되며 CPU 점유율, 요청 속도, 페이지 로드 시간 등과 같은 광범위한 메트릭을 모니터링할 수 있습니다. 예를 들어 더 많은 리소스를 추가해야 하는 경우 경고하는 데 사용할 수 있습니다. 반면, 실패에 대한 스마트 감지는 중요한 메트릭의 작은 범위를 다루며(현재 실패한 요청 속도만 해당) 웹앱의 실패한 요청 속도가 웹앱의 일반적인 동작에 비해 크게 증가하면 거의 실시간으로 알리도록 디자인되었습니다.
 
@@ -124,11 +123,11 @@ ms.locfileid: "50960925"
 
 *그렇다면, 내 데이터를 확인하고 있습니까?*
 
-* 아니요. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [비공개](app-insights-data-retention-privacy.md)입니다.
+*  아니요. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [비공개](app-insights-data-retention-privacy.md)입니다.
 
 *이 경고를 구독해야 하나요?*
 
-* 아니요. 요청 원격 분석을 보내는 모든 응용 프로그램에 스마트 감지 경고 규칙이 있습니다.
+*  아니요. 요청 원격 분석을 보내는 모든 애플리케이션에 스마트 검색 경고 규칙이 있습니다.
 
 *구독을 취소하거나 동료에게 대신 보낸 알림을 가져올 수 있습니까?*
 
@@ -147,7 +146,7 @@ ms.locfileid: "50960925"
 
 * [메트릭 탐색기](app-insights-metrics-explorer.md)
 * [검색 탐색기](app-insights-diagnostic-search.md)
-* [분석 - 강력한 쿼리 언어](../log-analytics/query-language/get-started-analytics-portal.md)
+* [분석 - 강력한 쿼리 언어](../azure-monitor/log-query/get-started-portal.md)
 
 스마트 감지는 완전히 자동으로 수행됩니다. 하지만 보다 많은 경고를 설정하고 싶을 수 있습니다.
 

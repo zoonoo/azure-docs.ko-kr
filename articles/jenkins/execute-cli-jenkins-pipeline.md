@@ -56,7 +56,7 @@ Azure CLI를 실행하려면 Azure 자격 증명이 필요합니다.
 
 ## <a name="create-an-azure-app-service-for-deploying-the-java-web-app"></a>Java 웹앱을 배포하기 위한 Azure App Service 만들기
 
-[az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) CLI 명령을 사용하여 **무료** 가격 책정 계층과 함께 Azure App Service 계획을 만듭니다. App Service 계획은 앱을 호스트하는 데 사용되는 실제 리소스를 정의합니다. App Service 계획에 할당된 모든 응용 프로그램은 이들 리소스를 공유하므로 여러 앱을 호스팅할 때 비용을 절감할 수 있습니다. 
+[az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) CLI 명령을 사용하여 **무료** 가격 책정 계층과 함께 Azure App Service 계획을 만듭니다. App Service 계획은 앱을 호스트하는 데 사용되는 실제 리소스를 정의합니다. App Service 계획에 할당된 모든 애플리케이션은 이들 리소스를 공유하므로 여러 앱을 호스팅할 때 비용을 절감할 수 있습니다. 
 
 ```azurecli-interactive
 az appservice plan create \
@@ -85,7 +85,7 @@ az appservice plan create \
 
 ### <a name="create-an-azure-web-app"></a>Azure Web App 만들기
 
- [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) CLI 명령을 사용하여 `myAppServicePlan` App Service 계획에서 웹앱 정의를 만듭니다. 웹앱 정의는 응용 프로그램에 액세스하는 URL을 제공하고 Azure에 코드를 배포하는 몇 가지 옵션을 구성합니다. 
+ [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) CLI 명령을 사용하여 `myAppServicePlan` App Service 계획에서 웹앱 정의를 만듭니다. 웹앱 정의는 애플리케이션에 액세스하는 URL을 제공하고 Azure에 코드를 배포하는 몇 가지 옵션을 구성합니다. 
 
 ```azurecli-interactive
 az webapp create \

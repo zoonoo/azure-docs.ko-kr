@@ -58,7 +58,7 @@ Microsoft 및 LinkedIn 계정을 연결하면 LinkedIn에서 Microsoft에 다음
 
 * 프로필 데이터 - LinkedIn ID, 연락처 정보 및 [LinkedIn 프로필](https://www.linkedin.com/help/linkedin/answer/15493)에서 다른 사용자와 공유하는 정보가 포함됩니다.
 * 관심 데이터 - 팔로우한 사람 및 항목, 과정 그룹 및 좋아요 및 공유를 표시한 콘텐츠 등 LinkedIn에 대한 관심 사항이 포함됩니다.
-* 구독 데이터 - 연결된 데이터와 함께 LinkedIn 응용 프로그램 및 서비스에 대한 구독이 포함됩니다. 
+* 구독 데이터 - 연결된 데이터와 함께 LinkedIn 애플리케이션 및 서비스에 대한 구독이 포함됩니다. 
 * 연결 데이터 - 첫 번째 연결의 프로필 및 연락처 정보를 비롯한 [LinkedIn 네트워크](https://www.linkedin.com/help/linkedin/answer/110)가 포함됩니다.
 
 LinkedIn에서 액세스되는 데이터는 Microsoft 서비스에 영구적으로 저장되지 않습니다. Microsoft에서 사용하는 개인 데이터에 대한 자세한 내용은 [Microsoft 개인정보처리방침](https://privacy.microsoft.com/privacystatement/)을 참조하세요.

@@ -18,8 +18,8 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/23/2018
 ms.locfileid: "42747091"
 ---
-# <a name="test-azure-portal-interface-for-your-managed-application"></a>관리되는 응용 프로그램에 대해 Azure Portal 인터페이스 테스트
-Azure Managed Application에 대해 [createUiDefinition.json 파일을 만든 후](create-uidefinition-overview.md) 사용자 환경을 테스트해야 합니다. 간단한 테스트를 위해 파일을 포털에 로드하는 스크립트를 사용합니다. 실제로 관리되는 응용 프로그램을 배포할 필요는 없습니다.
+# <a name="test-azure-portal-interface-for-your-managed-application"></a>관리되는 애플리케이션에 대해 Azure Portal 인터페이스 테스트
+Azure Managed Application에 대해 [createUiDefinition.json 파일을 만든 후](create-uidefinition-overview.md) 사용자 환경을 테스트해야 합니다. 간단한 테스트를 위해 파일을 포털에 로드하는 스크립트를 사용합니다. 실제로 관리되는 애플리케이션을 배포할 필요는 없습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -72,7 +72,7 @@ Azure CLI의 경우
 
 ## <a name="test-your-interface"></a>인터페이스 테스트
 
-이 스크립트는 브라우저에서 새 탭을 엽니다. 관리되는 응용 프로그램을 만들기 위한 인터페이스가 있는 포털을 표시합니다.
+이 스크립트는 브라우저에서 새 탭을 엽니다. 관리되는 애플리케이션을 만들기 위한 인터페이스가 있는 포털을 표시합니다.
 
 ![포털 보기](./media/test-createuidefinition/view-portal.png)
 

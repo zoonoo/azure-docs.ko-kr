@@ -1,22 +1,24 @@
 ---
-title: Azure Portal을 사용하여 영역별 공용 IP 주소 프런트 엔드가 있는 Load Balancer Standard 만들기 | Microsoft Docs
+title: 영역별 프런트 엔드 IP 주소가 있는 표준 Load Balancer 만들기 - Azure Portal
+titlesuffix: Azure Load Balancer
 description: Azure Portal을 사용하여 영역별 공용 IP 주소 프런트 엔드가 있는 Load Balancer Standard를 만드는 방법 알아보기
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: cc3d1e9f2d87da1ed7014674877212ea0be81bca
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e109504fe8657436d73870cc022ed4bc81c559f5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416769"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095339"
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zonal-public-ip-address-frontend-using-azure-portal"></a>Azure Portal을 사용하여 영역별 공용 IP 주소 프런트 엔드가 있는 Load Balancer Standard 만들기
 

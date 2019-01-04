@@ -1,5 +1,6 @@
 ---
-title: '빠른 시작: 표준 Load Balancer 만들기 - Azure PowerShell | Microsoft Docs'
+title: '빠른 시작: 표준 Load Balancer 만들기 - Azure PowerShell'
+titlesuffix: Azure Load Balancer
 description: 이 빠른 시작에서는 PowerShell을 사용하여 표준 Load Balancer를 만드는 방법을 보여 줍니다.
 services: load-balancer
 documentationcenter: na
@@ -13,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/22/2018
 ms.author: kumud
-ms:custom: mvc
-ms.openlocfilehash: e4e66d18f9dcb7f020cdb881226f6e47118e5186
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms:custom: seodec18
+ms.openlocfilehash: 0db575ee6c04c0fb4639ea2e9e095200da781fe8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578555"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256318"
 ---
 # <a name="get-started"></a>빠른 시작: Azure PowerShell을 사용하여 표준 Load Balancer 만들기
 이 빠른 시작에서는 Azure PowerShell을 사용하여 표준 Load Balancer를 만드는 방법을 보여 줍니다. 부하 분산 장치를 테스트하려면 Windows 서버를 실행하는 두 VM(가상 머신)을 배포하고 두 VM 사이에 있는 웹앱의 부하를 분산합니다. 표준 Load Balancer에 대한 자세한 내용은 [표준 Load Balancer란?](load-balancer-standard-overview.md)을 참조하세요.

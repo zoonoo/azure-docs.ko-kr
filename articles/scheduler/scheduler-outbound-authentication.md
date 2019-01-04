@@ -288,7 +288,7 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 | **type** | yes | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. |
 | **테넌트** | yes | Azure AD 테넌트의 테넌트 식별자입니다. Azure AD 테넌트의 테넌트 식별자를 찾으려면 Azure PowerShell에서 `Get-AzureAccount` 명령을 실행하세요. |
 | **대상** | yes | 이 값은 `https://management.core.windows.net/`으로 설정됩니다. | 
-| **clientId** | yes | Azure AD 응용 프로그램의 클라이언트 ID | 
+| **clientId** | yes | Azure AD 애플리케이션의 클라이언트 ID | 
 | **암호** | yes | 토큰을 요청하는 클라이언트의 비밀 | 
 |||| 
 
@@ -302,7 +302,7 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 | **type** | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 
 | **테넌트** | Azure AD 테넌트의 테넌트 식별자 |
 | **대상** | 이 값은 `https://management.core.windows.net/`으로 설정됩니다. |
-| **clientId** | Azure AD 응용 프로그램의 클라이언트 ID |
+| **clientId** | Azure AD 애플리케이션의 클라이언트 ID |
 ||| 
 
 ### <a name="sample-rest-request---active-directory-oauth"></a>샘플 REST 요청 - Active Directory OAuth

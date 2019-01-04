@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: 6f93a72acdcc249720abeec3fe871b7108e2bb29
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e319c803b610005bc130e9c5d314d23c48c1e9a3
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963745"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717194"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>사용량에 대 한 테 넌 트를 추가 하 고 Azure Stack에 대 한 청구
 
@@ -53,7 +53,7 @@ Csp는 종종 여러 최종 고객 (테 넌 트)에 게 Azure Stack 배포 서�
  
 ## <a name="update-the-registration-with-the-end-customer-subscription"></a>최종 고객 구독을 사용 하 여 등록을 업데이트 합니다.
 
-새 고객 구독을 사용 하 여 등록을 업데이트 합니다. Azure는 파트너 중앙에서 고객의 id를 사용 하 여 고객의 사용량을 보고 합니다. 이렇게 하면 각 고객의 사용은 해당 고객의 개별 CSP 구독에서 보고 됩니다. 이 사용자 사용 현황 추적 및 청구 훨씬 쉬워집니다.
+새 고객 구독을 사용 하 여 등록을 업데이트 합니다. Azure는 고객의 id를 사용 하 여 파트너 센터에서 고객의 사용량을 보고 합니다. 이렇게 하면 각 고객의 사용은 해당 고객의 개별 CSP 구독에서 보고 됩니다. 이 사용자 사용 현황 추적 및 청구 훨씬 쉬워집니다.
 
 > [!Note]  
 > 이 단계를 수행 하려면 있어야 [Azure Stack 등록](azure-stack-register.md)합니다.

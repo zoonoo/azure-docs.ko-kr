@@ -7,13 +7,14 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2018
-ms.openlocfilehash: 869941781643d3486506b5a3caed4006019fb3b7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 555a2bdfe3997114c1aaa202a89d650287f27c0e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310046"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091631"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력 이해
 이 문서에서는 Azure Stream Analytics 작업에 사용할 수 있는 다양한 유형의 출력을 설명합니다. 출력을 사용하여 Stream Analytics 작업의 결과를 저장할 수 있습니다. 출력 데이터를 사용하여 추가 비즈니스 분석 및 데이터의 데이터 웨어하우징을 수행할 수 있습니다. 
@@ -34,20 +35,20 @@ Stream Analytics의 Azure Data Lake Store 출력은 현재 Azure 중국(21Vianet
 
 1. Azure Portal에서 출력으로 Data Lake 저장소를 선택하는 경우 기존 Data Lake Store에 대한 연결 권한을 부여하라는 메시지가 나타납니다.  
 
-   ![Data Lake Store 권한 부여](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
+   ![Data Lake Store에 대한 연결 권한 부여](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
 2. Data Lake Store에 대한 액세스 권한이 이미 있는 경우 **지금 권한 부여**를 선택하고 **권한 부여로 리디렉션**을 나타내는 페이지가 나타납니다. 권한 부여에 성공하면 Data Lake Store 출력을 구성할 수 있는 페이지가 표시됩니다.
 
 3. Data Lake 저장소 계정을 인증하면 사용자가 Data Lake 저장소 출력에 대한 속성을 구성할 수 있습니다. 다음 테이블은 속성 이름 및 해당 설명의 목록으로 Data Lake 저장소 출력을 구성합니다.
 
-   ![Data Lake Store 권한 부여](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
+   ![Stream Analytics 출력으로 Data Lake Store 정의](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
 | 속성 이름 | 설명 | 
 | --- | --- |
 | 출력 별칭 | 쿼리 출력을 Data Lake Store로 보내기 위해 쿼리에 사용되는 식별 이름입니다. | 
 | 계정 이름 | 출력을 보내는 Data Lake Storage 계정의 이름 구독에서 사용할 수 있는 Data Lake Store 계정 드롭다운 목록이 표시됩니다. |
 | 경로 접두사 패턴 | 지정된 Data Lake 저장소 계정 내에서 파일을 작성하는 데 사용되는 파일 경로입니다. {date} 및 {time} 변수 인스턴스를 하나 이상 지정할 수 있습니다.</br><ul><li>예제 1: folder1/logs/{date}/{time}</li><li>예제 2: folder1/logs/{date}</li></ul><br>생성된 폴더 구조의 타임스탬프는 현지 시간이 아닌 UTC를 따릅니다.</br><br>파일 경로 패턴에 후행 "/"가 포함되어 있지 않으면 파일 경로의 마지막 패턴이 파일 이름 접두사로 처리됩니다. </br></br>이 경우 새 파일이 만들어집니다.<ul><li>출력 스키마의 변경</li><li>작업의 외부 또는 내부 다시 시작</li></ul> |
-| 날짜 형식 | 선택 사항입니다. 접두사 경로에 날짜 토큰을 사용하는 경우 파일을 구성하는 날짜 형식을 선택할 수 있습니다. 예: YYYY/MM/DD |
+| 날짜 형식 | 선택 사항입니다. 접두사 경로에 날짜 토큰을 사용하는 경우 파일을 구성하는 날짜 형식을 선택할 수 있습니다. 예제: YYYY/MM/DD |
 |시간 형식 | 선택 사항입니다. 접두사 경로에 시간 토큰을 사용하는 경우 파일을 구성하는 시간 형식을 지정합니다. 현재 지원되는 유일한 값은 HH입니다. |
 | 이벤트 직렬화 형식 | 출력 데이터에 대한 직렬화 형식입니다. JSON, CSV 및 Avro를 지원합니다.| 
 | Encoding | CSV 또는 JSON 형식을 사용하는 경우 인코딩을 지정해야 합니다. 지금은 지원되는 인코딩 형식이 UTF-8뿐입니다.|
@@ -59,7 +60,7 @@ Stream Analytics의 Azure Data Lake Store 출력은 현재 Azure 중국(21Vianet
 
 권한 부여를 갱신하기 위해 작업을 **중지**하고 Data Lake Store 출력으로 이동하여 **권한 갱신** 링크를 클릭하면 **권한 부여 리디렉션 중...** 을 나타내는 페이지가 잠깐 나타납니다. 페이지가 자동으로 닫히고 성공하면 **권한 부여를 성공적으로 갱신했습니다**가 표시됩니다. 페이지의 맨 아래에서 **저장**을 클릭해야 하고 데이터 손실을 방지하도록 **마지막으로 중지된 시간**에서 작업을 다시 시작하여 진행할 수 있습니다.
 
-![Data Lake Store 권한 부여](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
+![출력에서 Data Lake Store 권한 부여 갱신](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>SQL Database
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 를 사용할 수 있습니다. Azure SQL Database의 기존 테이블에 Stream Analytics 작업을 기록합니다.  테이블 스키마는 작업에서 출력되는 필드 및 해당 형식과 정확히 일치해야 합니다. SQL Database 출력 옵션을 통해 [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)를 출력으로 지정할 수도 있습니다. 쓰기 처리량을 개선하는 방법에 대한 자세한 내용은 [출력으로 Azure SQL DB를 사용한 Stream Analytics](stream-analytics-sql-output-perf.md) 문서를 참조하세요. 다음 테이블은 SQL Database 출력을 만들기 위한 속성 이름 및 해당 설명을 나열합니다.
@@ -89,7 +90,7 @@ Stream Analytics의 Azure Data Lake Store 출력은 현재 Azure 중국(21Vianet
 | Storage 계정 키 | 저장소 계정과 연결된 비밀 키입니다.                              |
 | 저장소 컨테이너   | 컨테이너는 Microsoft Azure Blob service에 저장된 Blob에 대한 논리적 그룹화를 제공합니다. Blob service에 Blob을 업로드하는 경우 해당 Blob에 대한 컨테이너를 지정해야 합니다. |
 | 경로 패턴 | 선택 사항입니다. 지정된 컨테이너 내에서 Blob를 작성하는 데 사용되는 파일 경로 패턴입니다. <br /><br /> 경로 패턴에서 Blob가 작성된 빈도를 지정하기 위해 날짜 시간 변수 인스턴스 중 하나 이상을 사용하도록 선택할 수도 있습니다. <br /> {date}, {time} <br /><br />이 [Azure Portal 링크](https://portal.azure.com/?microsoft_azure_streamanalytics_bloboutputpathpartitioning=true&Microsoft_Azure_StreamAnalytics_bloboutputcontainerpartitioning=true)를 사용하여 사용자 지정 Blob 분할 미리 보기에 액세스하는 경우 이벤트 데이터에서 파티션 Blob으로 사용자 지정 {필드} 이름을 지정해야 할 수도 있습니다. 필드 이름은 영숫자이며 공백, 하이픈 및 밑줄을 포함할 수 있습니다. 사용자 지정 필드에 대한 제한은 다음을 포함합니다. <ul><li>대/소문자 구문 없음(열 "ID"와 열 "id"를 구분할 수 없음)</li><li>중첩된 필드는 허용되지 않음(대신 "평면화" 필드에 대한 작업 쿼리에서 별칭 사용)</li><li>식은 필드 이름으로 사용할 수 없음</li></ul> <br /><br /> 이 미리 보기에서 경로에 사용자 지정 날짜/시간 형식 지정자 구성을 사용할 수도 있습니다. 사용자 지정 날짜 및 시간 형식은 {datetime:\<specifier>} 키워드로 묶어 한 번에 하나씩만 지정해야 합니다. 허용되는 입력 \<specifier>는 yyyy, MM, M, dd, d, HH, H, mm, m, ss 또는 s입니다. {datetime:\<specifier>} 키워드를 경로에 여러 번 사용하여 사용자 지정 날짜/시간 구성을 구성할 수 있습니다. <br /><br />예제: <ul><li>예제 1: cluster1/logs/{date}/{time}</li><li>예제 2: cluster1/logs/{date}</li><li>예제 3(미리 보기): cluster1/{client_id}/{date}/{time}</li><li>예제 4(미리 보기): cluster1/{datetime:ss}/{myField} 여기서 쿼리는 SELECT data.myField AS myField FROM 입력</li><li>예제 5(미리 보기): cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br /><br />생성된 폴더 구조의 타임스탬프는 현지 시간이 아닌 UTC를 따릅니다.<br /><br/>파일 명명은 다음 규칙을 따릅니다. <br /><br />{경로 접두사 패턴}/schemaHashcode_Guid_Number.extension<br /><br />예제 출력 파일:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br /><br /> 이 미리 보기에 대한 자세한 내용은 [Azure Stream Analytics Blob 스토리지 출력(미리 보기)에 대한 사용자 지정 날짜/시간 경로 패턴](stream-analytics-custom-path-patterns-blob-storage-output.md)을 참조하세요. |
-| 날짜 형식 | 선택 사항입니다. 접두사 경로에 날짜 토큰을 사용하는 경우 파일을 구성하는 날짜 형식을 선택할 수 있습니다. 예: YYYY/MM/DD |
+| 날짜 형식 | 선택 사항입니다. 접두사 경로에 날짜 토큰을 사용하는 경우 파일을 구성하는 날짜 형식을 선택할 수 있습니다. 예제: YYYY/MM/DD |
 | 시간 형식 | 선택 사항입니다. 접두사 경로에 시간 토큰을 사용하는 경우 파일을 구성하는 시간 형식을 지정합니다. 현재 지원되는 유일한 값은 HH입니다. |
 | 이벤트 직렬화 형식 | 출력 데이터에 대한 직렬화 형식입니다.  JSON, CSV 및 Avro를 지원합니다. |
 | Encoding    | CSV 또는 JSON 형식을 사용하는 경우 인코딩을 지정해야 합니다. 지금은 지원되는 인코딩 형식이 UTF-8뿐입니다. |
@@ -133,11 +134,11 @@ Stream Analytics의 Power BI 출력은 현재 Azure 중국(21Vianet) 및 Azure �
 ### <a name="authorize-a-power-bi-account"></a>Power BI 계정 권한 부여
 1. Azure Portal에서 Power BI를 출력으로 선택하는 경우 기존 Power BI 사용자를 인증하거나 새로운 Power BI 계정을 생성하라는 메시지가 나타납니다.  
    
-   ![Power BI 사용자 권한 부여](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
+   ![출력을 구성하도록 Power BI 사용자 권한 부여](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 
 2. 아직 없다면 새 계정을 만들고 지금 권한 부여를 클릭합니다.  다음과 같은 페이지가 표시됩니다.
    
-   ![Azure 계정 Power BI](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
+   ![Azure 계정에서 Power BI에 인증](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
 
 3. 이 단계에서 Power BI 출력에 대한 권한을 부여할 회사 또는 학교 계정을 제공합니다. 아직 Power BI에 등록하지 않은 경우 지금 등록을 선택합니다. Power BI에 사용하는 회사 또는 학교 계정은 현재 로그인되어 있는 Azure 구독 계정과 다를 수 있습니다.
 
@@ -190,11 +191,11 @@ DateTime | 문자열 | 문자열 |  DateTime | 문자열
 ### <a name="renew-power-bi-authorization"></a>Power BI 권한 부여 갱신
 Stream Analytics 작업을 만들거나 마지막으로 인증한 후 Power BI 계정 암호가 변경되면 Stream Analytics를 다시 인증해야 합니다. MFA(Multi-Factor Authentication)가 AAD(Azure Active Directory) 테넌트에 구성된 경우 2주마다 Power BI 권한 부여도 갱신해야 합니다. 이 문제의 증상은 작업 출력이 없으며 작업 로그에 "사용자 인증 오류"가 표시됩니다.
 
-  ![Power BI 새로 고침 토큰 오류](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
+  ![Power BI 인증 사용자 오류](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
 
 이 문제를 해결하려면 실행 중인 작업을 중지하고 Power BI 출력으로 이동합니다.  **권한 부여 갱신** 링크를 선택하고, **마지막 중지 시간**부터 작업을 다시 시작하여 데이터 손실을 방지합니다.
 
-  ![Power BI 갱신 권한 부여](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
+  ![출력에 대한 Power BI 권한 부여 갱신](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
 ## <a name="table-storage"></a>Table Storage
 [Azure Table Storage](../storage/common/storage-introduction.md)는 가용성이 높고 확장성이 큰 저장소를 제공하므로, 응용 프로그램이 사용자 요구에 맞게 자동으로 확장할 수 있습니다. 테이블 저장소는 스키마에 대한 제약 조건이 적은 구조화된 데이터에 활용할 수 있는 Microsoft의 NoSQL 키/특성 저장소입니다. Azure 테이블 저장소는 지속적이고 효율적인 검색을 위해 데이터를 저장하는 데 사용할 수 있습니다.

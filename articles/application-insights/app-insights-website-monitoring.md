@@ -19,7 +19,7 @@ ms.locfileid: "50420373"
 ---
 # <a name="start-monitoring-your-website"></a>웹 사이트 모니터링 시작
 
-Azure Monitor Application Insights를 사용하면 웹 응용 프로그램의 가용성, 성능 및 사용량을 쉽게 모니터링할 수 있습니다. 또한 사용자가 보고할 때까지 기다리지 않고 응용 프로그램의 오류를 빠르게 식별하고 진단할 수 있습니다. Application Insights는 서버 쪽 모니터링뿐 아니라 클라이언트/브라우저 쪽 기능도 제공합니다.
+Azure Monitor Application Insights를 사용하면 웹 애플리케이션의 가용성, 성능 및 사용량을 쉽게 모니터링할 수 있습니다. 또한 사용자가 보고할 때까지 기다리지 않고 애플리케이션의 오류를 빠르게 식별하고 진단할 수 있습니다. Application Insights는 서버 쪽 모니터링뿐 아니라 클라이언트/브라우저 쪽 기능도 제공합니다.
 
 이 빠른 시작에서는 [오픈 소스 Application Insight JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)를 추가하는 방법을 안내하며, 이를 통해 웹 사이트 방문자가 사용하는 클라이언트/브라우저 쪽 경험을 이해할 수 있습니다.
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="enable-application-insights"></a>Application Insights 사용
 
-Application Insights는 온-프레미스 또는 클라우드에서 실행되고 인터넷에 연결된 모든 응용 프로그램에서 원격 분석 데이터를 수집할 수 있습니다. 이 데이터를 보기 시작하려면 다음 단계를 사용합니다.
+Application Insights는 온-프레미스 또는 클라우드에서 실행되고 인터넷에 연결된 모든 애플리케이션에서 원격 분석 데이터를 수집할 수 있습니다. 이 데이터를 보기 시작하려면 다음 단계를 사용합니다.
 
 1. **리소스 만들기** > **관리 도구** > **Application Insights**를 선택합니다.
 
@@ -46,7 +46,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
     | 설정        | 값           | 설명  |
    | ------------- |:-------------|:-----|
    | **Name**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
-   | **응용 프로그램 유형** | 일반 응용 프로그램 | 모니터링하는 응용 프로그램의 유형입니다. |
+   | **응용 프로그램 유형** | 일반 애플리케이션 | 모니터링하는 응용 프로그램의 유형입니다. |
    | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. |
    | **위치**: | 미국 동부 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 
@@ -96,7 +96,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Azure Portal에서 모니터링 시작
 
-1. 이제 계측 키를 검색한 Azure Portal에서 Application Insights **개요** 페이지를 다시 열어 현재 실행 중인 응용 프로그램에 대한 세부 정보를 볼 수 있습니다. 개요 페이지의 기본 차트 4개는 그 범위가 서버 쪽 응용 프로그램 데이터로 지정됩니다. 우리가 계측하려는 것은 JavaScript SDK와의 클라이언트/브라우저 쪽 상호 작용이므로 서버 쪽 SDK가 설치되지 않은 이상, 이 보기가 적용되지 않습니다.
+1. 이제 계측 키를 검색한 Azure Portal에서 Application Insights **개요** 페이지를 다시 열어 현재 실행 중인 애플리케이션에 대한 세부 정보를 볼 수 있습니다. 개요 페이지의 기본 차트 4개는 그 범위가 서버 쪽 애플리케이션 데이터로 지정됩니다. 우리가 계측하려는 것은 JavaScript SDK와의 클라이언트/브라우저 쪽 상호 작용이므로 서버 쪽 SDK가 설치되지 않은 이상, 이 보기가 적용되지 않습니다.
 
 2. ![응용 프로그램 맵 아이콘](media/app-insights-website-monitoring/006.png) **분석**을 클릭합니다.  그러면 Application Insights에서 수집한 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Analytics**가 열립니다. 클라이언트 쪽 브라우저 요청과 관련된 데이터를 보려면 다음 쿼리를 실행합니다.
 

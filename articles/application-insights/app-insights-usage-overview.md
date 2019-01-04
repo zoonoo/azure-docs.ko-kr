@@ -8,18 +8,17 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 968c5fb093f3ebdb6ce7eb239f79573f19b89e0f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 2ccb4d2ff7beeeac53bafe726122c3b47682db03
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278636"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955432"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights를 사용하여 사용량 분석
 
@@ -33,13 +32,13 @@ ms.locfileid: "51278636"
 
     * *서버 코드를 설치하지 않으려면 [Azure Application Insights 리소스를 만들기만](app-insights-create-new-resource.md) 하면 됩니다.*
 
-2. **웹 페이지 코드:** [Azure Portal](https://portal.azure.com)을 열고 앱에 대한 Application Insights 리소스를 연 다음 **시작하기 > Monitor and Diagnose Client-Side(클라이언트 쪽 모니터링 및 진단)** 을 엽니다. 
+2. **웹 페이지 코드:** [Azure Portal](https://portal.azure.com)을 열고, 앱에 대한 Application Insights 리소스를 연 다음, **시작하기 > 클라이언트 쪽 모니터링 및 진단**을 엽니다. 
 
     ![마스터 웹 페이지의 머리글에 스크립트를 복사합니다.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
 3. **모바일 앱 코드:** App Center SDK를 사용하여 앱에서 이벤트를 수집한 다음, 분석을 위해 [이 가이드에 따라](app-insights-mobile-center-quickstart.md) 이러한 이벤트의 복사본을 Application Insights로 보냅니다.
 
-4. **원격 분석 가져오기:** 몇 분 동안 디버그 모드에서 프로젝트를 실행한 다음 Application Insights의 개요 블레이드에서 결과를 찾습니다.
+4. **원격 분석 가져오기:** 몇 분 동안 디버그 모드에서 프로젝트를 실행한 다음, Application Insights의 개요 블레이드에서 결과를 찾습니다.
 
     앱을 게시하여 앱의 성능을 모니터링하고 사용자가 앱으로 수행하는 작업을 확인합니다.
 
@@ -61,26 +60,6 @@ ms.locfileid: "51278636"
 * **세션** 보고서는 사이트에 액세스하는 사용자 세션의 수를 계산합니다. 세션은 30분 이상의 비활동 기간마다 종료되는 사용자의 활동 기간입니다.
 
 [사용자, 세션 및 이벤트 도구에 대한 추가 정보](app-insights-usage-segmentation.md)  
-
-## <a name="page-views"></a>페이지 보기
-
-사용 현황 블레이드에서 페이지 보기 타일을 클릭하여 가장 인기 있는 페이지에 대한 분석 결과를 확인합니다.
-
-![개요 블레이드에서 페이지 보기 차트 클릭](./media/app-insights-usage-overview/05-games.png)
-
-위의 예제는 게임 웹 사이트에서 가져온 것입니다. 차트에서 바로 다음을 확인할 수 있습니다.
-
-* 사용량은 지난 주보다 개선되지 않았습니다. 검색 엔진 최적화에 대해 생각해볼 수 있을까요?
-* 테니스가 가장 인기 있는 게임 페이지입니다. 이 페이지의 향상된 기능을 집중적으로 살펴보겠습니다.
-* 평균적으로 사용자는 주당 약 세 번 테니스 페이지를 방문합니다. 사용자보다 세션이 약 3배 더 많습니다.
-* 대부분의 사용자는 미국 근무 주간 및 근무 시간에 사이트를 방문합니다. 웹 페이지에 “빠른 숨기기” 단추를 제공해야 할 것 같습니다.
-* 차트의 [주석](app-insights-annotations.md)은 웹 사이트의 새 버전이 배포된 경우에 표시됩니다. 최근 배포는 사용 현황에 크게 영향을 미치지 않습니다.
-
-페이지 보기 원격 분석에서 사이트가 보내는 사용자 지정 속성별로 분할하는 것과 같이, 사이트에 대한 트래픽을 좀 더 자세히 조사하고 싶으면 어떻게 할까요?
-
-1. Application Insights 리소스 메뉴에서 **이벤트** 도구를 엽니다. 이 도구를 사용하면 다양한 필터링, 코호트 및 분할 옵션에 따라 앱에서 전송된 페이지 보기 및 사용자 지정 이벤트 수를 분석할 수 있습니다.
-2. "사용한 사람" 드롭다운에서 "페이지 보기"를 선택합니다.
-3. "분할 기준" 드롭다운에서 페이지 보기 원격 분석을 분할할 기준 속성을 선택합니다.
 
 ## <a name="retention---how-many-users-come-back"></a>재방문 주기 - 다시 찾아온 사용자는 몇 명이나 되나요?
 
@@ -138,7 +117,7 @@ ms.locfileid: "51278636"
 ## <a name="a--b-testing"></a>A | B 테스트
 기능의 어느 변형이 보다 성공적인지 알 수 없는 경우, 다른 사용자가 각각 접근할 수 있도록 하여 둘 다 릴리스합니다. 각각의 성공 여부를 측정한 다음 통합 버전으로 이동합니다.
 
-이 기술의 경우 사용자 앱의 각 버전이 전송한 모든 원격 분석에 고유 속성 값을 연결합니다. 활성화된 TelemetryContext에서 속성을 정의하여 수행할 수 있습니다. 이러한 기본 속성은 사용자 지정 메시지뿐 아니라 표준 원격 분석도 응용 프로그램이 전송하는 모든 원격 분석 메시지에 추가됩니다.
+이 기술의 경우 사용자 앱의 각 버전이 전송한 모든 원격 분석에 고유 속성 값을 연결합니다. 활성화된 TelemetryContext에서 속성을 정의하여 수행할 수 있습니다. 이러한 기본 속성은 사용자 지정 메시지뿐 아니라 표준 원격 분석도 애플리케이션이 전송하는 모든 원격 분석 메시지에 추가됩니다.
 
 Application Insights 포털에서 속성 값에 대해 데이터를 필터링하고 분할하여 다른 버전과 비교할 수 있습니다.
 

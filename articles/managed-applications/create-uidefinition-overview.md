@@ -20,8 +20,8 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/18/2018
 ms.locfileid: "34305228"
 ---
-# <a name="create-azure-portal-user-interface-for-your-managed-application"></a>관리되는 응용 프로그램에 대한 Azure Portal 사용자 인터페이스 만들기
-이 문서에서는 createUiDefinition.json 파일의 핵심 개념을 소개합니다. Azure Portal에서 이 파일을 사용하여 관리되는 응용 프로그램을 만들기 위한 사용자 인터페이스를 생성합니다.
+# <a name="create-azure-portal-user-interface-for-your-managed-application"></a>관리되는 애플리케이션에 대한 Azure Portal 사용자 인터페이스 만들기
+이 문서에서는 createUiDefinition.json 파일의 핵심 개념을 소개합니다. Azure Portal에서 이 파일을 사용하여 관리되는 애플리케이션을 만들기 위한 사용자 인터페이스를 생성합니다.
 
 ```json
 {
@@ -59,7 +59,7 @@ steps 속성에는 하나 이상의 요소가 포함된 각 basics 뒤에 표시
 ## <a name="outputs"></a>outputs
 Azure Portal에서는 `outputs` 속성을 사용하여 `basics` 및 `steps`의 요소를 Azure Resource Manager 배포 템플릿의 매개 변수에 매핑합니다. 이 사전의 키는 템플릿 매개 변수의 이름이며, 값은 참조되는 요소에 있는 출력 개체의 속성입니다.
 
-관리되는 응용 프로그램 리소스 이름을 설정하려면 출력 속성에 `applicationResourceName`이라는 값을 포함해야 합니다. 이 값을 설정하지 않으면 응용 프로그램은 이름에 대해 GUID를 할당합니다. 사용자 이름을 요청하는 사용자 인터페이스에 텍스트 상자를 포함할 수 있습니다.
+관리되는 애플리케이션 리소스 이름을 설정하려면 출력 속성에 `applicationResourceName`이라는 값을 포함해야 합니다. 이 값을 설정하지 않으면 애플리케이션은 이름에 대해 GUID를 할당합니다. 사용자 이름을 요청하는 사용자 인터페이스에 텍스트 상자를 포함할 수 있습니다.
 
 ```json
 "outputs": {

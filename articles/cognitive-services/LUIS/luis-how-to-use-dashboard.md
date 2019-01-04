@@ -1,23 +1,24 @@
 ---
-title: Language Understanding 앱용 응용 프로그램 대시보드
-titleSuffix: Azure Cognitive Services
+title: 앱 대시보드
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 한눈에 앱을 모니터링할 수 있는 시각화된 보고 도구인 응용 프로그램 대시보드에 대해 알아봅니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 0daf25b3c7edc69ada57fb3ce2b8dbb7e50e5aed
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 6f6de278e802b83623413b0bf70e556d083818c8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335013"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140611"
 ---
-# <a name="application-dashboard"></a>응용 프로그램 대시보드
+# <a name="model-and-usage-statistics-in-the-dashboard"></a>대시보드에서 모델 및 사용 현황 통계
 앱 대시보드를 사용하면 한눈에 앱을 모니터링할 수 있습니다. **내 앱** 페이지에서 응용 프로그램 이름을 클릭하여 앱을 열고 맨 위 패널에서 **대시보드**를 선택하면 **대시보드**가 표시됩니다. 
 
 > [!CAUTION]
@@ -70,7 +71,7 @@ ms.locfileid: "52335013"
 
 분석이 레이블이 지정된 발화 수 또는 엔드포인트 적중 횟수를 기준으로 하는지 제어하려면:
 
-1. 다음 이미지와 같이 **추가 설정** ![추가 설정 단추](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png)을 클릭하여 목록에 액세스합니다.
+1. 다음 이미지와 같이 목록에 액세스하려면 **추가 설정** ![추가 설정 단추를 클릭하여 목록에 액세스합니다](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png).
 
     ![의도 분석 목록](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
 2. 목록에서 값을 선택한 후 뒤로 화살표 ![뒤로 화살표](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) 를 클릭하여 차트를 표시합니다.
@@ -82,7 +83,7 @@ ms.locfileid: "52335013"
 
 분석이 레이블이 지정된 발화 수 또는 엔드포인트 적중 횟수를 기준으로 하는지 제어하려면:
 
-1. 다음 이미지와 같이 **추가 설정** ![추가 설정 단추](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png)을 클릭하여 목록에 액세스합니다.
+1. 다음 이미지와 같이 목록에 액세스하려면 **추가 설정** ![추가 설정 단추를 클릭하여 목록을 가져옵니다](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png).
 
     ![엔터티 분석 목록](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
 2. 목록에서 값을 선택한 후 뒤로 화살표 ![뒤로 화살표](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) 를 클릭하여 이에 따라 차트를 표시합니다.

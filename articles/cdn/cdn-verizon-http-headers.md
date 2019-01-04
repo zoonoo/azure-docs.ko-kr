@@ -57,7 +57,7 @@ X-EC-_&lt;name&gt;_ | *X-EC*로 시작하는 요청 헤더(예: X-EC-Tag, [X-EC-
     -----|---------
     ECAcc | HTTP Large
     ECS   | HTTP Small
-    ECD   | ADN(응용 프로그램 전달 네트워크)
+    ECD   | ADN(애플리케이션 전달 네트워크)
 
 - POP: 요청을 처리한 [POP](cdn-pop-abbreviations.md)를 나타냅니다. 
 

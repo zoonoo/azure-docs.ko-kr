@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs를 사용하여 Kindle 앱에 알림 푸시 | Microsoft Docs
-description: 이 자습서에서 Azure Notification Hubs를 사용하여 Kindle 응용 프로그램에 푸시 알림을 보내는 방법을 알아봅니다.
+description: 이 자습서에서 Azure Notification Hubs를 사용하여 Kindle 애플리케이션에 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: ''
 author: dimazaid
@@ -25,7 +25,7 @@ ms.locfileid: "51230371"
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Kindle 앱에 대한 Notification Hubs 시작
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-이 자습서에서는 Azure Notification Hubs를 사용하여 Kindle 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. ADM(Amazon Device Messaging)을 사용하여 푸시 알림을 받는 빈 Kindle 앱을 만듭니다.
+이 자습서에서는 Azure Notification Hubs를 사용하여 Kindle 애플리케이션에 푸시 알림을 보내는 방법을 보여 줍니다. ADM(Amazon Device Messaging)을 사용하여 푸시 알림을 받는 빈 Kindle 앱을 만듭니다.
 
 이 자습서에서는 다음 작업을 수행하는 코드를 생성/업데이트합니다. 
 
@@ -33,7 +33,7 @@ ms.locfileid: "51230371"
 > * 개발자 포털에 새 앱 추가
 > * API 키 만들기
 > * 허브에 자격 증명 추가
-> * 응용 프로그램 설정
+> * 애플리케이션 설정
 > * ADM 메시지 처리기 만들기
 > * 앱에 API 키 추가
 > * 앱 실행
@@ -76,9 +76,9 @@ ms.locfileid: "51230371"
 ## <a name="add-credentials-to-the-hub"></a>허브에 자격 증명 추가
 포털에서 알림 허브의 **구성** 탭에 클라이언트 암호와 클라이언트 ID를 추가합니다.
 
-## <a name="set-up-your-application"></a>응용 프로그램 설정
+## <a name="set-up-your-application"></a>애플리케이션 설정
 > [!NOTE]
-> 응용 프로그램을 만들 때 API Level 17 이상을 사용합니다.
+> 애플리케이션을 만들 때 API Level 17 이상을 사용합니다.
 
 Eclipse 프로젝트에 ADM 라이브러리를 추가합니다.
 
@@ -113,7 +113,7 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
         <!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
         <uses-permission android:name="android.permission.WAKE_LOCK" />
     ```
-2. 응용 프로그램 요소의 첫 번째 자식으로 다음 요소를 삽입합니다. **[YOUR SERVICE NAME]** 을 다음 섹션에서 만드는 ADM 메시지 처리기의 이름(패키지 포함)으로 바꾸고, **[YOUR PACKAGE NAME]** 을 앱을 만들 때 사용한 패키지 이름으로 바꿉니다.
+2. 애플리케이션 요소의 첫 번째 자식으로 다음 요소를 삽입합니다. **[YOUR SERVICE NAME]** 을 다음 섹션에서 만드는 ADM 메시지 처리기의 이름(패키지 포함)으로 바꾸고, **[YOUR PACKAGE NAME]** 을 앱을 만들 때 사용한 패키지 이름으로 바꿉니다.
    
     ```xml
         <amazon:enable-feature

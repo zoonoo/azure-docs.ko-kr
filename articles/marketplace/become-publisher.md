@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 35feb1b2aa593d403b3b54781ddbba41964d15e5
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: bc6e77643783e1e9f124bc98ea1eb910304a5f32
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394836"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846473"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>클라우드 Marketplace 게시자 되기
 
@@ -78,9 +78,9 @@ Microsoft 계정(예: *@outlook.com 또는 @live.com*)은 많은 Microsoft 디�
 Marketplace 온보딩 팀은 3단계에서 제공된 Marketplace 등록 세부 정보가 유효한지 검사합니다. 승인되면 계정 자격 증명 및 [Cloud 파트너 포털](https://cloudpartner.azure.com)에 로그인에 대한 지침이 포함된 환영 이메일을 받습니다.
 
 [Cloud 파트너 포털](https://cloudpartner.azure.com)을 사용하여 마켓플레이스 제품을 만들고, 게시 및 관리합니다. 승인 환영 이메일을 받으면 즉시 Microsoft 계정으로 [Cloud 파트너 포털](https://cloudpartner.azure.com)에 로그인하여 마켓플레이스에 게시 및 제품 만들기에 대한 추가 기술 정보에 액세스할 수 있습니다. 
-*   Cloud 파트너 포털 사용에 대한 자세한 내용은 [학습 섹션에서 시작 문서를 방문](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal)하세요. 이러한 세부 정보에 액세스하려면 Cloud 파트너 포털에 로그인해야 합니다.
+*   Cloud 파트너 포털 사용에 대한 자세한 내용은 [학습 섹션에서 시작 문서를 방문](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal)하세요. 이러한 세부 정보에 액세스하려면 Cloud 파트너 포털에 로그인해야 합니다.
 *   의문 사항이 있거나 온보딩 개요 호출을 예약하려는 경우 이 게시자 가이드의 다른 문서를 검토하거나 Cloud 파트너 포털 내의 문제 형식 > Marketplace 온보딩 아래에서 지원 요청을 엽니다.
-*   환영 이메일을 받지 않은 경우 스팸 폴더에서 “Microsoft Marketplace에 오신 것을 환영합니다!”라는 제목 줄이 있는 이메일을 확인하세요. 스팸 폴더에 이메일이 없는 경우 [Microsoft 지원에 문의](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820)하세요. 지원 페이지에서 문제 유형 > Marketplace 온보딩을 선택하세요.  Marketplace 게시자 온보딩 팀에서 문의에 대한 도움을 드리겠습니다. 
+*   환영 이메일을 받지 않은 경우 스팸 폴더에서 “Microsoft Marketplace에 오신 것을 환영합니다!”라는 제목 줄이 있는 이메일을 확인하세요. 스팸 폴더에 이메일이 없는 경우 [Microsoft 지원에 문의](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820)하세요. 지원 페이지에서 다음을 선택하세요. 문제 유형 > Marketplace 온보딩  Marketplace 게시자 온보딩 팀에서 문의에 대한 도움을 드리겠습니다. 
 
 
 ## <a name="5-register-in-dev-center-for-transact-publishing-option-only"></a>5. 개발자 센터에 등록(거래 게시 옵션만 해당) 
@@ -104,7 +104,7 @@ Marketplace 온보딩 팀은 3단계에서 제공된 Marketplace 등록 세부 �
 
 
 ## <a name="next-steps"></a>다음 단계
-* 마켓플레이스 상점에 대해 알아보기: [AppSource와 Azure Marketplace 비교](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
+* Marketplace 상점에 대해 알아봅니다. [AppSource와 Azure Marketplace 비교](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
 *   [솔루션에 대한 열거 유형 결정](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
 
  

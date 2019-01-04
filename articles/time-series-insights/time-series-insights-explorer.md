@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights 탐색기로 데이터 탐색 | Microsoft Docs
+title: Azure Time Series Insights 탐색기 데이터 탐색 - Azure Time Series Insights 탐색기를 사용하여 데이터 탐색 | Microsoft Docs
 description: 이 문서에서는 웹 브라우저에서 Azure Time Series Insights 탐색기를 사용하여 빅 데이터의 글로벌 보기를 한눈에 확인하고 IoT 환경을 검증하는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: f4a9d09aa701d490e8391d68435e672ff49c771c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: 7508db8bd4b7f21308f2e7b0e92c44570dfc7b18
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364236"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273139"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights 탐색기
 이 문서에서는 Time Series Insights 탐색기 웹앱의 다양한 기능과 옵션을 살펴봅니다. 웹 브라우저에서 Time Series Insights 탐색기를 사용하여 데이터를 시각화할 수 있습니다.
@@ -55,7 +56,7 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
 
 5. 선택한 시간 범위에 포함된 모든 이벤트의 개수가 표시된 차트를 보게 됩니다.  여기서 몇 가지 옵션을 사용할 수 있습니다.
 
-    **Terms Editor Panel**(기간 편집기 패널): 기간 패널에서는 환경을 쿼리할 수 있습니다.  화면 왼쪽에 표시되며, 다음과 같은 기능이 제공됩니다. 
+    **기간 편집기 패널**:  기간 공간에서 환경을 쿼리할 수 있습니다.  화면 왼쪽에 표시되며, 다음과 같은 기능이 제공됩니다. 
       - **측정값**:  이 드롭다운에는 숫자 열(double) 열이 표시됩니다.
       - **분할 기준**: 이 드롭다운에는 범주(문자열) 열이 표시됩니다.
       - 측정값 옆에 있는 제어판에서 단계 보간을 사용하도록 설정하고, 최대값과 최소값을 표시하고, Y축을 조정할 수 있습니다.  데이터를 개수, 평균, 데이터의 합계 중 무엇으로 표시할지 조정할 수도 있습니다.
@@ -63,7 +64,7 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
      
         ![기간 편집기 패널](media/time-series-insights-explorer/explorer2.png)
 
-      - **조건자**: 조건자 옵션을 사용하면 아래와 같은 연산자를 사용하여 이벤트를 빠르게 필터링할 수 있습니다. 선택/클릭하여 검색을 수행하면 검색을 바탕으로 조건자가 자동으로 업데이트됩니다.      지원되는 연산자는 다음과 같습니다.
+      - **조건자**:  조건자 옵션을 사용하면 아래와 같은 연산자를 사용하여 이벤트를 빠르게 필터링할 수 있습니다. 선택/클릭하여 검색을 수행하면 검색을 바탕으로 조건자가 자동으로 업데이트됩니다.      지원되는 연산자는 다음과 같습니다.
 
          |작업(Operation)  |지원되는 형식  |메모  |
          |---------|---------|---------|
@@ -102,7 +103,7 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
 
    ![열 지도](media/time-series-insights-explorer/explorer6.png)
 
-12. **이벤트**: 선택하거나 마우스 오른쪽 단추를 클릭할 때 이벤트 탐색을 선택하면 이벤트 패널이 표시됩니다.  여기에서 원시 이벤트를 보고 이벤트를 JSON 또는 CSV 파일로 내보낼 수 있습니다. Time Series Insights에는 원시 데이터가 모두 저장됩니다.
+12. **이벤트**:  선택하거나 마우스 오른쪽 단추를 클릭할 때 이벤트 탐색을 선택하면 이벤트 패널이 표시됩니다.  여기에서 원시 이벤트를 보고 이벤트를 JSON 또는 CSV 파일로 내보낼 수 있습니다. Time Series Insights에는 원시 데이터가 모두 저장됩니다.
 
    ![이벤트](media/time-series-insights-explorer/explorer7.png)
 
@@ -110,7 +111,7 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
 
    - **패턴**: 선택한 데이터 영역에서 통계적으로 가장 유의미한 패턴을 보여줍니다. 이 기능은 사용자가 수천 개의 이벤트를 보고 어떤 패턴에 시간과 에너지를 투입할지 파악해야 하는 수고를 덜어줍니다. 통계적으로 유의미한 패턴으로 곧바로 이동하여 계속해서 분석을 수행할 수도 있습니다. 이 기능은 과거 데이터에 대한 사후 평가 분석을 실시할 때도 유용합니다. 
 
-   - **열 통계**: 열 통계는 선택한 시간 범위를 기준으로 선택한 데이터 계열의 각 열 데이터를 차트와 테이블로 표시합니다.  
+   - **열 통계**:  열 통계는 선택한 기간 동안 선택한 데이터 계열의 각 열에서 데이터를 분류하는 차트 및 테이블을 제공합니다.  
  
       ![통계](media/time-series-insights-explorer/explorer8.png) 
 

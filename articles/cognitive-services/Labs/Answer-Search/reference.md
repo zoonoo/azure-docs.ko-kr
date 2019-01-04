@@ -21,7 +21,7 @@ ms.locfileid: "49471223"
 
 Bing Answer SearchAPI는 쿼리 매개 변수를 사용하며 `answerType`이 `facts` 또는 `entities`인 `searchResponse`를 반환합니다. 
 
-Answer Search API를 사용하는 응용 프로그램은 쿼리 매개 변수에 미리 보기할 URL을 사용하여 요청을 엔드포인트로 보냅니다.  요청에는 `q=searchTerm` 매개 변수와 *Ocp-Apim-Subscription-Key* 헤더가 포함되어야 합니다.   
+Answer Search API를 사용하는 애플리케이션은 쿼리 매개 변수에 미리 보기할 URL을 사용하여 요청을 엔드포인트로 보냅니다.  요청에는 `q=searchTerm` 매개 변수와 *Ocp-Apim-Subscription-Key* 헤더가 포함되어야 합니다.   
 
 검색 개체에 대한 세부 정보를 포함하는 팩트 및 엔터티에 대해 JSON 응답을 구문 분석할 수 있습니다.
 

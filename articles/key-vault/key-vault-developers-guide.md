@@ -18,12 +18,12 @@ ms.locfileid: "51237539"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
-Key Vault를 사용하면 응용 프로그램 내에서 중요한 정보를 안전하게 액세스할 수 있습니다.
+Key Vault를 사용하면 애플리케이션 내에서 중요한 정보를 안전하게 액세스할 수 있습니다.
 
-- 키와 암호는 코드 작성 없이 보호되며 응용 프로그램에서 쉽게 사용할 수 있습니다.
-- 고객들에게 고유한 키를 부여하여 관리하게 하므로 핵심 소프트웨어 기능을 제공하는 데 집중할 수 있습니다 이러한 이유로 응용 프로그램에는 고객의 테넌트 키와 암호에 대한 책임 또는 잠재적인 법적 책임이 없습니다.
-- 응용 프로그램은 서명 및 암호화를 위해 키를 사용할 수 있지만, 응용 프로그램 외부에서 키 관리를 유지할 수 있으므로 지리적으로 분산된 앱에 적합한 솔루션을 구현할 수 있습니다.
-- Key Vault의 2016년 9월 릴리스를 통해 응용 프로그램에서 Key Vault 인증서를 관리할 수 있게 되었습니다. 자세한 내용은 [키, 암호 및 인증서 정보](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)를 참조하세요.
+- 키와 암호는 코드 작성 없이 보호되며 애플리케이션에서 쉽게 사용할 수 있습니다.
+- 고객들에게 고유한 키를 부여하여 관리하게 하므로 핵심 소프트웨어 기능을 제공하는 데 집중할 수 있습니다 이러한 이유로 애플리케이션에는 고객의 테넌트 키와 암호에 대한 책임 또는 잠재적인 법적 책임이 없습니다.
+- 애플리케이션은 서명 및 암호화를 위해 키를 사용할 수 있지만, 애플리케이션 외부에서 키 관리를 유지할 수 있으므로 지리적으로 분산된 앱에 적합한 솔루션을 구현할 수 있습니다.
+- Key Vault의 2016년 9월 릴리스를 통해 애플리케이션에서 Key Vault 인증서를 관리할 수 있게 되었습니다. 자세한 내용은 [키, 암호 및 인증서 정보](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)를 참조하세요.
 
 Azure Key Vault에 대한 일반적인 내용은 [키 자격 증명 모음이란?](key-vault-whatis.md)을 참조하세요.
 
@@ -42,7 +42,7 @@ Azure Key Vault에 대한 일반적인 내용은 [키 자격 증명 모음이란
 
 ## <a name="videos"></a>동영상
 
-이 비디오에서는 사용자 고유의 키 자격 증명 모음을 만드는 방법과 'Hello Key Vault' 샘플 응용 프로그램에서 이를 사용하는 방법을 보여 줍니다.
+이 비디오에서는 사용자 고유의 키 자격 증명 모음을 만드는 방법과 'Hello Key Vault' 샘플 애플리케이션에서 이를 사용하는 방법을 보여 줍니다.
 
 - [Key Vault 개발자 - 빠른 시작 가이드](https://channel9.msdn.com/Blogs/Azure/Azure-Key-Vault-Developer-Quick-Start/player)
 
@@ -55,7 +55,7 @@ Azure Key Vault에 대한 일반적인 내용은 [키 자격 증명 모음이란
 
 Azure Key Vault를 사용하면 자격 증명과 기타 키 및 비밀을 안전하게 저장할 수 있습니다. 하지만 이러한 자격 증명/키/비밀을 검색하려면 코드가 Key Vault에 인증해야 합니다. Azure 리소스에 대한 관리 ID를 사용하면 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공하여 이 문제를 더 간편하게 해결할 수 있습니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다. 
 
-Azure 리소스의 관리 ID에 대한 자세한 내용은 [관리 ID 개요](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요. AAD 사용에 대한 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요.
+Azure 리소스의 관리 ID에 대한 자세한 내용은 [관리 ID 개요](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요. AAD 사용에 대한 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요.
 
 Key Vault에서 키, 암호 또는 인증서를 사용하기 전에 다음 문서에 설명된 대로 CLI, PowerShell, Resource Manager 템플릿 또는 REST를 통해 Key Vault를 만들고 관리합니다.
 
@@ -112,7 +112,7 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 
 ### <a name="code-examples"></a>코드 예제
 
-응용 프로그램에서 Key Vault를 사용하는 전체 예제는 다음을 참조하세요.
+애플리케이션에서 Key Vault를 사용하는 전체 예제는 다음을 참조하세요.
 
 - [Azure Key Vault 코드 샘플](https://azure.microsoft.com/resources/samples/?service=key-vault) - Azure Key Vault에 대한 코드 샘플입니다. 
 - [웹 응용 프로그램에서 Azure Key Vault 사용](quick-create-net.md) - Azure의 웹 응용 프로그램에서 Azure Key Vault를 사용하는 방법을 제공하는 자습서입니다. 

@@ -157,7 +157,7 @@ Visual Studio 2015는 연결된 서비스를 추가할 때 변경 및 제거된 
 
 ## <a name="changes-on-azure"></a>Azure 변경 내용
 
-- 연결된 서비스를 추가할 때 선택한 도메인에 Azure AD 응용 프로그램이 생성됩니다.
+- 연결된 서비스를 추가할 때 선택한 도메인에 Azure AD 애플리케이션이 생성됩니다.
 - 해당 옵션이 선택된 경우 **디렉터리 데이터 읽기** 권한을 포함하도록 앱을 업데이트했습니다.
 
 [Azure Active Directory에 대해 자세히 알아보세요](https://azure.microsoft.com/services/active-directory/).

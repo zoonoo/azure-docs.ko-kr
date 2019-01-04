@@ -11,7 +11,7 @@ items:
     items:
     - name: 개발 환경 설정
       href: quickstart-create-new-tenant.md
-    - name: 응용 프로그램 구성
+    - name: 애플리케이션 구성
       items:
       - name: 앱 등록
         href: quickstart-v1-add-azure-ad-app.md
@@ -67,11 +67,11 @@ items:
     href: sample-v1-code.md
   - name: 개념
     items:
-    - name: 응용 프로그램 형식
+    - name: 애플리케이션 형식
       items:
-      - name: 응용 프로그램 유형
+      - name: 애플리케이션 유형
         href: app-types.md
-      - name: 단일 페이지 응용 프로그램
+      - name: 단일 페이지 애플리케이션
         href: single-page-application.md
       - name: 웹앱
         href: web-app.md
@@ -79,7 +79,7 @@ items:
         href: web-api.md
       - name: 모바일 및 데스크톱 앱
         href: native-app.md
-      - name: 디먼 또는 서버 응용 프로그램
+      - name: 디먼 또는 서버 애플리케이션
         href: service-to-service.md
     - name: 인증
       items:
@@ -119,9 +119,9 @@ items:
         href: active-directory-certificate-credentials.md
       - name: SAML 토큰
         href: reference-saml-tokens.md
-    - name: 응용 프로그램 구성
+    - name: 애플리케이션 구성
       items:
-      - name: 응용 프로그램 및 서비스 주체
+      - name: 애플리케이션 및 서비스 주체
         href: app-objects-and-service-principals.md
       - name: 앱을 Azure AD에 추가하는 방법 및 이유
         href: active-directory-how-applications-are-added.md
@@ -134,7 +134,7 @@ items:
         href: v1-permissions-and-consent.md
       - name: 동의 프레임워크
         href: consent-framework.md
-      - name: 응용 프로그램 동의 경험
+      - name: 애플리케이션 동의 경험
         href: application-consent-experience.md
     - name: 조건부 액세스
       href: conditional-access-dev-guide.md
@@ -167,7 +167,7 @@ items:
           href: active-directory-configurable-token-lifetimes.md
       - name: ADAL 오류 처리 모범 사례
         href: active-directory-devhowto-adal-error-handling.md
-    - name: 응용 프로그램 구성
+    - name: 애플리케이션 구성
       items:
       - name: 단일 테넌트 앱을 다중 테넌트 앱으로 변환
         href: howto-convert-app-to-be-multi-tenant.md
@@ -179,7 +179,7 @@ items:
           href: howto-create-service-principal-portal.md
       - name: 사용자 집합으로 앱 제한
         href: howto-restrict-your-app-to-a-set-of-users.md
-      - name: 응용 프로그램에 앱 역할 추가
+      - name: 애플리케이션에 앱 역할 추가
         href: howto-add-app-roles-in-azure-ad-apps.md
       - name: 브랜딩 지침
         href: howto-add-branding-in-azure-ad-apps.md
@@ -225,7 +225,7 @@ items:
       href: active-directory-authentication-libraries.md
     - name: Azure AD Graph API
       href: active-directory-graph-api.md
-    - name: 응용 프로그램 매니페스트.
+    - name: 애플리케이션 매니페스트
       href: reference-app-manifest.md
     - name: 인증 및 권한 부여 오류 코드
       href: reference-aadsts-error-codes.md
@@ -240,7 +240,7 @@ items:
     items:
     - name: 개발 환경 설정
       href: quickstart-create-new-tenant.md
-    - name: 응용 프로그램 구성
+    - name: 애플리케이션 구성
       items:
       - name: 앱 등록
         href: quickstart-v2-register-an-app.md
@@ -318,7 +318,7 @@ items:
     items:
     - name: v1.0 및 v2.0 중에서 결정
       href: azure-ad-endpoint-comparison.md
-    - name: 응용 프로그램 형식
+    - name: 애플리케이션 형식
       href: v2-app-types.md
     - name: 인증
       items:
@@ -347,9 +347,9 @@ items:
         href: access-tokens.md
       - name: 인증서 자격 증명
         href: active-directory-certificate-credentials.md
-    - name: 응용 프로그램 구성
+    - name: 애플리케이션 구성
       items:
-      - name: 응용 프로그램 및 서비스 주체
+      - name: 애플리케이션 및 서비스 주체
         href: app-objects-and-service-principals.md
       - name: 단일 테넌트 및 다중 테넌트 앱
         href: single-and-multi-tenant-apps.md
@@ -360,7 +360,7 @@ items:
         href: v2-permissions-and-consent.md
       - name: 동의 프레임워크
         href: consent-framework.md
-      - name: 응용 프로그램 동의 경험
+      - name: 애플리케이션 동의 경험
         href: application-consent-experience.md
     - name: 국가별 클라우드
       href: authentication-national-cloud.md
@@ -378,7 +378,7 @@ items:
         href: active-directory-optional-claims.md
       - name: 토큰 수명 구성(미리 보기)
         href: active-directory-configurable-token-lifetimes.md
-    - name: 응용 프로그램 구성
+    - name: 애플리케이션 구성
       items:
       - name: 단일 테넌트 앱을 다중 테넌트 앱으로 변환
         href: howto-convert-app-to-be-multi-tenant.md
@@ -390,7 +390,7 @@ items:
           href: howto-create-service-principal-portal.md
       - name: 사용자 집합으로 앱 제한
         href: howto-restrict-your-app-to-a-set-of-users.md
-      - name: 응용 프로그램에 앱 역할 추가
+      - name: 애플리케이션에 앱 역할 추가
         href: howto-add-app-roles-in-azure-ad-apps.md
       - name: 브랜딩 지침
         href: howto-add-branding-in-azure-ad-apps.md
@@ -417,7 +417,7 @@ items:
       href: reference-v2-libraries.md
     - name: Microsoft Graph의 Azure AD API
       href: https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview
-    - name: 응용 프로그램 매니페스트.
+    - name: 애플리케이션 매니페스트
       href: reference-app-manifest.md
     - name: 인증 및 권한 부여 오류 코드
       href: reference-aadsts-error-codes.md

@@ -66,7 +66,7 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
 
 2. **파일 > 새 프로젝트 만들기**를 선택합니다.  
 
-3. 왼쪽의 템플릿 목록에서 **Stream Analytics**를 선택한 다음 **Azure Stream Analytics 응용 프로그램**을 선택합니다.  
+3. 왼쪽의 템플릿 목록에서 **Stream Analytics**를 선택한 다음, **Azure Stream Analytics 애플리케이션**을 선택합니다.  
 
 4. 프로젝트 **이름**, **위치** 및 **솔루션 이름**을 입력하고, **확인**을 선택합니다.
 

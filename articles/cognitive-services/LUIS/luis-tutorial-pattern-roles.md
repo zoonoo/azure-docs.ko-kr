@@ -1,7 +1,8 @@
 ---
-title: '자습서 4: 컨텍스트 관련 데이터에 대한 패턴 역할'
+title: 패턴 역할
 titleSuffix: Azure Cognitive Services
 description: 적절한 형식의 템플릿 발언에서 데이터를 추출하는 패턴을 사용합니다. 템플릿 발언은 간단한 엔터티와 역할을 사용하여 원본 위치 및 대상 위치 같은 관련 데이터를 추출합니다.
+ms.custom: seodec18
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,12 +11,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d13d77fdb741f7f7cf16e3d25c755f4363e56f93
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b6d800705509edc31b410d1e9cd30f8b53702010
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427491"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094409"
 ---
 # <a name="tutorial-4-extract-contextually-related-patterns"></a>자습서 4: 컨텍스트 관련 패턴 추출
 
@@ -28,7 +29,7 @@ ms.locfileid: "52427491"
 
 새 직원과 가족은 도시에서 가상의 회사가 있는 도시로 이사해야 합니다. 새 직원는 어떤 도시에서도 올 수 있으므로 위치를 검색해야 합니다. 목록의 도시만 추출될 수 있으므로 목록 엔터티 같은 설정된 목록은 작동하지 않습니다.
 
-출발지 및 목적지 도시와 연결된 역할 이름은 모든 엔터티에서 고유해야 합니다. 역할을 고유하게 유지하는 쉬운 방법은 명명 전략을 통해 포함하는 엔터티와 연결하는 것입니다. **NewEmployeeRelocation** 엔터티는 두 가지 역할, **NewEmployeeReloOrigin** 및 **NewEmployeeReloDestination**을 갖는 단순 엔터티입니다. Relo는 relocation의 약어입니다.
+출발지 및 목적지 도시와 연결된 역할 이름은 모든 엔터티에서 고유해야 합니다. 역할을 고유하게 유지하는 쉬운 방법은 명명 전략을 통해 포함하는 엔터티와 연결하는 것입니다. **NewEmployeeRelocation** 엔터티는 다음 두 역할이 포함된 단순 엔터티입니다. **NewEmployeeReloOrigin** 및 **NewEmployeeReloDestination**. Relo는 relocation의 약어입니다.
 
 예제 발언 `Move new employee Robert Williams from Sacramento and San Francisco`에는 기계 학습된 엔터티만 있으므로 엔터티가 검색되기 위해 의도에 충분한 예제 발언을 제공하는 것이 중요합니다.  
 
@@ -128,7 +129,7 @@ ms.locfileid: "52427491"
 
 2. 주소의 URL 끝으로 이동하고 `Move Wayne Berry from Miami to Mount Vernon`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Newark to Columbus",
       "topScoringIntent": {
@@ -212,7 +213,7 @@ ms.locfileid: "52427491"
     }  
     ```
 
-의도 예측 점수는 약 50%입니다. 클라이언트 응용 프로그램이 더 높은 점수를 원할 경우 수정해야 합니다. 두 경우 모두 엔터티는 예측되지 않았습니다.
+의도 예측 점수는 약 50%입니다. 클라이언트 애플리케이션이 더 높은 점수를 원할 경우 수정해야 합니다. 두 경우 모두 엔터티는 예측되지 않았습니다.
 
 위치 중 하나가 추출되었지만 다른 위치는 추출되지 않았습니다. 
 
@@ -258,7 +259,7 @@ ms.locfileid: "52427491"
 
 2. 주소의 URL 끝으로 이동하고 `Move wayne berry from miami to mount vernon`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Miami to Mount Vernon",
       "topScoringIntent": {

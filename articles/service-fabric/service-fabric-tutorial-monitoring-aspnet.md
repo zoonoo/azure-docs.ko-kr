@@ -1,6 +1,6 @@
 ---
 title: Azure의 Service Fabric에서 ASP.NET Core 서비스 모니터링 및 진단 | Microsoft Docs
-description: 이 자습서에서는 Azure Service Fabric ASP.NET 응용 프로그램에 대한 모니터링 및 진단을 설정하는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure Service Fabric ASP.NET 애플리케이션에 대한 모니터링 및 진단을 설정하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -22,13 +22,13 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/28/2018
 ms.locfileid: "52444787"
 ---
-# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>자습서: Application Insights를 사용하여 Service Fabric에서 ASP.NET Core 응용 프로그램 모니터링 및 진단
+# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>자습서: Application Insights를 사용하여 Service Fabric에서 ASP.NET Core 애플리케이션 모니터링 및 진단
 
-이 자습서는 시리즈의 5부입니다. Application Insights를 사용하여 Service Fabric 클러스터에서 실행되는 ASP.NET Core 응용 프로그램에 대한 모니터링 및 진단을 설정하는 단계를 안내합니다. 자습서의 1부, [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)에서 개발한 응용 프로그램에서 원격 분석 데이터를 수집합니다.
+이 자습서는 시리즈의 5부입니다. Application Insights를 사용하여 Service Fabric 클러스터에서 실행되는 ASP.NET Core 애플리케이션에 대한 모니터링 및 진단을 설정하는 단계를 안내합니다. 자습서의 1부, [.NET Service Fabric 애플리케이션 빌드](service-fabric-tutorial-create-dotnet-app.md)에서 개발한 애플리케이션에서 원격 분석 데이터를 수집합니다.
 
 자습서 시리즈의 4부에서는 다음 방법을 알아봅니다.
 > [!div class="checklist"]
-> * 응용 프로그램에 대한 Application Insights 구성
+> * 애플리케이션에 대한 Application Insights 구성
 > * 응답 원격 분석 데이터를 수집하여 서비스 간 HTTP 기반 통신 추적
 > * Application Insights에서 앱 지도 기능 사용
 > * Application Insights API를 사용하여 사용자 지정 이벤트 추가
@@ -39,7 +39,7 @@ ms.locfileid: "52444787"
 > * [응용 프로그램을 원격 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [ASP.NET Core 프런트 엔드 서비스에 HTTPS 엔드포인트 추가](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * [Azure Pipelines를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-> * 응용 프로그램에 대한 모니터링 및 진단 설정
+> * 애플리케이션에 대한 모니터링 및 진단 설정
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -49,7 +49,7 @@ ms.locfileid: "52444787"
 * [Visual Studio 2017을 설치](https://www.visualstudio.com/)하고 **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드를 설치합니다.
 * [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 
-## <a name="download-the-voting-sample-application"></a>투표 응용 프로그램 예제 다운로드
+## <a name="download-the-voting-sample-application"></a>투표 애플리케이션 예제 다운로드
 
 [이 자습서 시리즈의 1부](service-fabric-tutorial-create-dotnet-app.md)에서 투표 예제 응용 프로그램을 빌드하지 않은 경우 다운로드할 수 있습니다. 명령 창 또는 터미널에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
 
@@ -59,7 +59,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="set-up-an-application-insights-resource"></a>Application Insights 리소스 설정
 
-Application Insights는 Azure의 응용 프로그램 성능 관리 플랫폼이자, 응용 프로그램 모니터링 및 진단에 권장되는 Service Fabric 플랫폼입니다. Application Insights 리소스를 만들려면 [Azure Portal](https://portal.azure.com)로 이동합니다. 왼쪽 탐색 메뉴에서 **리소스 만들기**를 클릭하여 Azure Marketplace를 엽니다. **모니터링 + 관리**, **Application Insights**를 차례로 클릭합니다.
+Application Insights는 Azure의 애플리케이션 성능 관리 플랫폼이자, 애플리케이션 모니터링 및 진단에 권장되는 Service Fabric 플랫폼입니다. Application Insights 리소스를 만들려면 [Azure Portal](https://portal.azure.com)로 이동합니다. 왼쪽 탐색 메뉴에서 **리소스 만들기**를 클릭하여 Azure Marketplace를 엽니다. **모니터링 + 관리**, **Application Insights**를 차례로 클릭합니다.
 
 ![새 AI 리소스 만들기](./media/service-fabric-tutorial-monitoring-aspnet/new-ai-resource.png)
 
@@ -70,7 +70,7 @@ Application Insights는 Azure의 응용 프로그램 성능 관리 플랫폼이�
 필수 정보를 입력한 후 **만들기**를 클릭하여 리소스를 프로비전합니다. 이 작업은 약 1분 정도 걸립니다.
 <!-- When completed, navigate to the newly deployed resource, and find the "Instrumentation Key" (visible in the "Essentials" drop down section). Copy it to clipboard, since we will need it in the next step. -->
 
-## <a name="add-application-insights-to-the-applications-services"></a>응용 프로그램의 서비스에 Application Insights 추가
+## <a name="add-application-insights-to-the-applications-services"></a>애플리케이션의 서비스에 Application Insights 추가
 
 상승된 권한으로 Visual Studio 2017을 시작합니다. 시작 메뉴에서 Visual Studio 아이콘을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택하면 이 작업을 수행할 수 있습니다. **파일** > **열기** > **프로젝트/솔루션**을 클릭하고 자습서의 1부에서 만들었거나 git clone한 Voting 응용 프로그램으로 이동합니다. *Voting.sln*을 열고, 응용 프로그램의 NuGet 패키지를 복원하라는 메시지가 표시되면 **예**를 클릭합니다.
 
@@ -89,7 +89,7 @@ VotingWeb 및 VotingData 서비스 둘 다에 대해 Application Insights를 구
 
 4. 팝업되는 대화 상자가 작업을 완료하면 **마침**을 클릭합니다.
 
-응용 프로그램에서 서비스 **둘 다**에 대해 위의 단계를 수행하여 응용 프로그램에 대한 Application Insights 구성을 마쳐야 합니다. 들어오고 나가는 요청 및 서비스 간의 통신을 확인하기 위해 서비스 둘 다에 동일한 Application Insights 리소스가 사용됩니다.
+애플리케이션에서 서비스 **둘 다**에 대해 위의 단계를 수행하여 애플리케이션에 대한 Application Insights 구성을 마쳐야 합니다. 들어오고 나가는 요청 및 서비스 간의 통신을 확인하기 위해 서비스 둘 다에 동일한 Application Insights 리소스가 사용됩니다.
 
 ## <a name="add-the-microsoftapplicationinsightsservicefabricnative-nuget-to-the-services"></a>서비스에 Microsoft.ApplicationInsights.ServiceFabric.Native NuGet 추가
 
@@ -104,7 +104,7 @@ NuGet을 설정하는 단계는 다음과 같습니다.
 >[!NOTE]
 >Application Insights 패키지를 설치하기 전에 사전 설치되지 않은 경우 유사한 방식으로 Microsoft.ServiceFabric.Diagnostics.Internal 패키지를 설치해야 할 수도 있습니다.
 
-4. 오른쪽에서 응용 프로그램의 두 서비스, **VotingWeb** 및 **VotingData** 옆에 있는 두 확인란을 클릭하고 **설치**를 클릭합니다.
+4. 오른쪽에서 애플리케이션의 두 서비스, **VotingWeb** 및 **VotingData** 옆에 있는 두 확인란을 클릭하고 **설치**를 클릭합니다.
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
 5. 팝업되는 *변경 내용 검토* 대화 상자에서 **확인**을 클릭하고 *라이선스 승인*을 적용합니다. 서비스에 NuGet 추가가 완료됩니다.
 6. 이제 두 서비스에서 원격 분석 이니셜라이저를 설정해야 합니다. 이렇게 하려면 *VotingWeb.cs* 및 *VotingData.cs*를 엽니다. 둘 다에 대해 다음 두 단계를 수행합니다.
@@ -166,9 +166,9 @@ ConfigureServices(services => services
 )
 ```
 
-이제 응용 프로그램을 배포할 준비가 되었습니다. 맨 위에서 **시작**(또는 **F5**)을 클릭하면 Visual Studio가 응용 프로그램을 빌드 및 패키지하고 로컬 클러스터를 설정한 다음 응용 프로그램을 배포합니다.
+이제 애플리케이션을 배포할 준비가 되었습니다. 맨 위에서 **시작**(또는 **F5**)을 클릭하면 Visual Studio가 애플리케이션을 빌드 및 패키지하고 로컬 클러스터를 설정한 다음, 애플리케이션을 배포합니다.
 
-응용 프로그램 배포가 완료되면 Voting Sample 단일 페이지 응용 프로그램을 볼 수 있는 [localhost:8080](localhost:8080)으로 이동합니다. 다른 몇 가지 선택 항목에 응답하여 일부 샘플 데이터와 원격 분석을 만듭니다.
+애플리케이션 배포가 완료되면 Voting Sample 단일 페이지 애플리케이션을 볼 수 있는 [localhost:8080](localhost:8080)으로 이동합니다. 다른 몇 가지 선택 항목에 응답하여 일부 샘플 데이터와 원격 분석을 만듭니다.
 
 ![AI 샘플 응답](./media/service-fabric-tutorial-monitoring-aspnet/vote-sample.png)
 
@@ -181,21 +181,21 @@ Azure Portal에서 Application Insights 리소스로 이동합니다.
 **개요**를 클릭하여 리소스의 방문 페이지로 돌아갑니다. 그런 다음 맨 위의 **검색**을 클릭하여 추적이 들어오는 것을 확인합니다. 추적이 Application Insights에 나타나는 데 몇 분 정도 걸립니다. 아무것도 표시되지 않는 경우 잠시 기다렸다가 맨 위의 **새로 고침** 단추를 누릅니다.
 ![AI see traces](./media/service-fabric-tutorial-monitoring-aspnet/ai-search.png)
 
-*검색* 창에서 아래로 스크롤하면 Application Insights에서 기본적으로 제공되는 들어오는 모든 원격 분석이 표시됩니다. Voting 응용 프로그램에서 수행한 각 작업에 대해 *VotingWeb*에서 나가는 PUT 요청(PUT Votes/Put [name]), *VotingData*에서 들어오는 PUT 요청(PUT VoteData/Put [name]), 표시되는 데이터 새로 고침에 대한 GET 요청 쌍이 있어야 합니다. HTTP 요청이므로 localhost에 대한 HTTP 종속성 추적도 있습니다. 응답이 어떻게 추가되었는지에 대해 표시되는 내용의 예는 다음과 같습니다. ![AI 샘플 요청 추적](./media/service-fabric-tutorial-monitoring-aspnet/sample-request.png)
+*검색* 창에서 아래로 스크롤하면 Application Insights에서 기본적으로 제공되는 들어오는 모든 원격 분석이 표시됩니다. Voting 애플리케이션에서 수행한 각 작업에 대해 *VotingWeb*에서 나가는 PUT 요청(PUT Votes/Put [name]), *VotingData*에서 들어오는 PUT 요청(PUT VoteData/Put [name]), 표시되는 데이터 새로 고침에 대한 GET 요청 쌍이 있어야 합니다. HTTP 요청이므로 localhost에 대한 HTTP 종속성 추적도 있습니다. 응답이 어떻게 추가되었는지에 대해 표시되는 내용의 예는 다음과 같습니다. ![AI 샘플 요청 추적](./media/service-fabric-tutorial-monitoring-aspnet/sample-request.png)
 
-추적 중 하나를 클릭하여 추적에 대한 자세한 정보를 볼 수 있습니다. *응답 시간* 및 *요청 URL*을 포함하여 Application Insights에서 제공하는 요청에 대한 유용한 정보가 있습니다. 또한 Service Fabric 특정 NuGet를 추가했으므로 아래 *사용자 지정 데이터* 섹션의 Service Fabric 클러스터 컨텍스트에서 응용 프로그램에 대한 데이터가 제공됩니다. 여기에는 서비스 컨텍스트가 포함되므로 요청 원본의 *PartitionID* 및 *ReplicaId*를 확인하고, 응용 프로그램의 오류를 진단할 때 문제를 더 효율적으로 지역화할 수 있습니다.
+추적 중 하나를 클릭하여 추적에 대한 자세한 정보를 볼 수 있습니다. *응답 시간* 및 *요청 URL*을 포함하여 Application Insights에서 제공하는 요청에 대한 유용한 정보가 있습니다. 또한 Service Fabric 특정 NuGet를 추가했으므로 아래 *사용자 지정 데이터* 섹션의 Service Fabric 클러스터 컨텍스트에서 애플리케이션에 대한 데이터가 제공됩니다. 여기에는 서비스 컨텍스트가 포함되므로 요청 원본의 *PartitionID* 및 *ReplicaId*를 확인하고, 애플리케이션의 오류를 진단할 때 문제를 더 효율적으로 지역화할 수 있습니다.
 
 ![AI 추적 세부 정보](./media/service-fabric-tutorial-monitoring-aspnet/trace-details.png)
 
-또한 개요 페이지의 왼쪽 메뉴에서 *응용 프로그램 맵*을 클릭하거나 **앱 맵** 아이콘을 클릭하여 연결된 두 서비스가 보이는 앱 맵으로 이동할 수 있습니다.
+또한 개요 페이지의 왼쪽 메뉴에서 *애플리케이션 맵*을 클릭하거나 **앱 맵** 아이콘을 클릭하여 연결된 두 서비스가 보이는 앱 맵으로 이동할 수 있습니다.
 
 ![AI 추적 세부 정보](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
-앱 지도는 특히 함께 작동하는 여러 서비스를 추가할 때 응용 프로그램 토폴로지를 더 잘 이해하는 데 유용할 수 있습니다. 또한 요청 성공률에 대한 기본 데이터를 제공하며, 오류가 발생할 수 있는 위치를 파악하기 위해 실패한 요청을 진단하는 데 유용할 수 있습니다. 앱 지도를 사용하는 방법에 대한 자세한 내용은 [Application Insights의 응용 프로그램 맵](../application-insights/app-insights-app-map.md)을 참조하세요.
+앱 지도는 특히 함께 작동하는 여러 서비스를 추가할 때 애플리케이션 토폴로지를 더 잘 이해하는 데 유용할 수 있습니다. 또한 요청 성공률에 대한 기본 데이터를 제공하며, 오류가 발생할 수 있는 위치를 파악하기 위해 실패한 요청을 진단하는 데 유용할 수 있습니다. 앱 지도를 사용하는 방법에 대한 자세한 내용은 [Application Insights의 애플리케이션 맵](../application-insights/app-insights-app-map.md)을 참조하세요.
 
-## <a name="add-custom-instrumentation-to-your-application"></a>응용 프로그램에 사용자 지정 계측 추가
+## <a name="add-custom-instrumentation-to-your-application"></a>애플리케이션에 사용자 지정 계측 추가
 
-Application Insights는 기본적으로 많은 원격 분석 데이터를 제공하지만 사용자 지정 계측을 추가하는 것이 좋습니다. 비즈니스 요구를 기반으로 하거나, 응용 프로그램에서 오류가 발생할 때 진단을 개선하기 위한 것일 수 있습니다. Application Insights에는 사용자 지정 이벤트 및 메트릭을 수집하는 API가 있으며, [여기](../application-insights/app-insights-api-custom-events-metrics.md)서 자세한 내용을 확인할 수 있습니다.
+Application Insights는 기본적으로 많은 원격 분석 데이터를 제공하지만 사용자 지정 계측을 추가하는 것이 좋습니다. 비즈니스 요구를 기반으로 하거나, 애플리케이션에서 오류가 발생할 때 진단을 개선하기 위한 것일 수 있습니다. Application Insights에는 사용자 지정 이벤트 및 메트릭을 수집하는 API가 있으며, [여기](../application-insights/app-insights-api-custom-events-metrics.md)서 자세한 내용을 확인할 수 있습니다.
 
 *VoteDataController.cs*(*VotingData* > *Controllers* 아래)에 몇 가지 사용자 지정 이벤트를 추가하여 기본 *votesDictionary*에서 응답이 추가 및 삭제되는 시기를 추적해 보겠습니다.
 
@@ -249,7 +249,7 @@ public async Task<IActionResult> Delete(string name)
 }
 ```
 
-이러한 변경 수행을 완료한 후 응용 프로그램을 **시작**하여 최신 버전이 빌드 및 배포되도록 합니다. 응용 프로그램 배포가 완료되면 [localhost:8080](localhost:8080)으로 이동한 다음 몇 가지 응답 옵션을 추가 및 삭제합니다. 그런 다음 Application Insights 리소스로 돌아가서 최신 실행에 대한 추적을 확인합니다(이전처럼 추적이 Application Insights에 표시되는 데 1~2분 정도 걸릴 수 있음). 이제 추가 및 삭제한 모든 응답에 대해 “사용자 지정 이벤트”와 모든 응답 원격 분석 데이터가 표시되어야 합니다.
+이러한 변경 수행을 완료한 후 애플리케이션을 **시작**하여 최신 버전이 빌드 및 배포되도록 합니다. 애플리케이션 배포가 완료되면 [localhost:8080](localhost:8080)으로 이동한 다음, 몇 가지 응답 옵션을 추가 및 삭제합니다. 그런 다음, Application Insights 리소스로 돌아가서 최신 실행에 대한 추적을 확인합니다(이전처럼 추적이 Application Insights에 표시되는 데 1~2분 정도 걸릴 수 있음). 이제 추가 및 삭제한 모든 응답에 대해 “사용자 지정 이벤트”와 모든 응답 원격 분석 데이터가 표시되어야 합니다.
 
 ![사용자 지정 이벤트](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 
@@ -257,12 +257,12 @@ public async Task<IActionResult> Delete(string name)
 
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 > [!div class="checklist"]
-> * 응용 프로그램에 대한 Application Insights 구성
+> * 애플리케이션에 대한 Application Insights 구성
 > * 응답 원격 분석 데이터를 수집하여 서비스 간 HTTP 기반 통신 추적
 > * Application Insights에서 앱 지도 기능 사용
 > * Application Insights API를 사용하여 사용자 지정 이벤트 추가
 
-이제 ASP.NET 응용 프로그램에 대한 모니터링 및 진단 설정을 완료했으므로 다음을 시도합니다.
+이제 ASP.NET 애플리케이션에 대한 모니터링 및 진단 설정을 완료했으므로 다음을 시도합니다.
 
 * [Service Fabric에서 모니터링 및 진단 추가 탐색](service-fabric-diagnostics-overview.md)
 * [Application Insights를 사용한 Service Fabric 이벤트 분석](service-fabric-diagnostics-event-analysis-appinsights.md)

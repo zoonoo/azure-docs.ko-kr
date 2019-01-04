@@ -4,17 +4,17 @@ description: Stream Analytics 관리 .NET SDK를 시작합니다. 분석 작업�
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/06/2017
-ms.openlocfilehash: d435199401f8ad52edfbfe820ba2c330242e0186
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 53d9345784c16412c643f3b50506bf6abbab93ec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984794"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094905"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>관리 .NET SDK: .NET용 Azure Stream Analytics API를 사용하여 분석 작업 설정 및 실행
 관리 .NET SDK에서 .NET용 Azure Stream Analytics API를 사용하여 분석 작업을 설정 및 실행하는 방법을 알아봅니다. 프로젝트를 설정하고, 입출력 소스를 만들고, 변환하고, 작업을 시작 및 중지합니다. 분석 작업에 대해 Blob 저장소 또는 이벤트 허브에서 데이터를 스트리밍할 수 있습니다.
@@ -33,18 +33,19 @@ Azure Stream Analytics은 완전히 관리되는 서비스로, 클라우드의 �
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/)를 다운로드하여 설치합니다.
 * 구독에서 Azure 리소스 그룹을 만듭니다. 다음은 샘플 Azure PowerShell 스크립트입니다. Azure PowerShell 정보는 [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.  
 
-        # Log in to your Azure account
-        Add-AzureAccount
-
-        # Select the Azure subscription you want to use to create the resource group
-        Select-AzureSubscription -SubscriptionName <subscription name>
-
-            # If Stream Analytics has not been registered to the subscription, remove the remark symbol (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
-            #Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
-
-        # Create an Azure resource group
-        New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
-
+   ```powershell
+   # Log in to your Azure account
+   Add-AzureAccount
+   
+   # Select the Azure subscription you want to use to create the resource group
+   Select-AzureSubscription -SubscriptionName <subscription name>
+   
+   # If Stream Analytics has not been registered to the subscription, remove the remark    symbol (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
+   #Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
+   
+   # Create an Azure resource group
+   New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
+   ```
 
 * 작업이 연결될 입력 원본 및 출력 대상을 설정합니다.
 
@@ -53,41 +54,53 @@ Azure Stream Analytics은 완전히 관리되는 서비스로, 클라우드의 �
 
 1. Visual Studio C# .NET 콘솔 응용 프로그램을 만듭니다.
 2. 패키지 관리자 콘솔에서 NuGet 패키지를 설치하려면 다음 명령을 실행합니다. 첫 번째는 Azure Stream Analytics 관리.NET SDK입니다. 두 번째는 Azure 클라이언트 인증에 대한 것입니다.
-   
-        Install-Package Microsoft.Azure.Management.StreamAnalytics -Version 2.0.0
-        Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Version 2.3.1
+
+   ```powershell   
+   Install-Package Microsoft.Azure.Management.StreamAnalytics -Version 2.0.0
+   Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Version 2.3.1
+   ```
+
 3. 다음 **appSettings** 섹션을 App.config 파일에 추가합니다.
    
-        <appSettings>
-          <add key="ClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
-          <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
-          <add key="SubscriptionId" value="YOUR SUBSCRIPTION ID" />
-          <add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
-        </appSettings>
+   ```powershell
+   <appSettings>
+       <add key="ClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
+       <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
+       <add key="SubscriptionId" value="YOUR SUBSCRIPTION ID" />
+       <add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
+   </appSettings>
+   ```
 
     **SubscriptionId**와 **ActiveDirectoryTenantId**의 값을 Azure 구독 및 테넌트 ID로 바꿉니다. 다음 Azure PowerShell cmdlet을 실행하여 이러한 값을 얻을 수 있습니다.
 
-        Get-AzureAccount
+   ```powershell
+      Get-AzureAccount
+   ```
 
 4. .csproj 파일에서 다음 참조를 추가합니다.
 
-        <Reference Include="System.Configuration" />
+   ```csharp
+   <Reference Include="System.Configuration" />
+   ```
 
 5. 다음 **using** 문을 프로젝트의 원본 파일(Program.cs)에 추가합니다.
    
-        using System;
-        using System.Collections.Generic;
-        using System.Configuration;
-        using System.Threading;
-        using System.Threading.Tasks;
-        
-        using Microsoft.Azure.Management.StreamAnalytics;
-        using Microsoft.Azure.Management.StreamAnalytics.Models;
-        using Microsoft.Rest.Azure.Authentication;
-        using Microsoft.Rest;
+   ```csharp
+   using System;
+   using System.Collections.Generic;
+   using System.Configuration;
+   using System.Threading;
+   using System.Threading.Tasks;
+   
+   using Microsoft.Azure.Management.StreamAnalytics;
+   using Microsoft.Azure.Management.StreamAnalytics.Models;
+   using Microsoft.Rest.Azure.Authentication;
+   using Microsoft.Rest;
+   ```
+
 6. 인증 도우미 메서드를 추가합니다.
 
-   ```
+   ```csharp
    private static async Task<ServiceClientCredentials> GetCredentials()
    {
        var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(ConfigurationManager.AppSettings["ClientId"], new Uri("urn:ietf:wg:oauth:2.0:oob"));
@@ -102,7 +115,7 @@ Azure Stream Analytics은 완전히 관리되는 서비스로, 클라우드의 �
 
 **Main** 메서드의 시작에 다음 코드를 추가합니다.
 
-   ```
+   ```csharp
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
     string streamingJobName = "<YOUR STREAMING JOB NAME>";
     string inputName = "<YOUR JOB INPUT NAME>";
@@ -130,7 +143,7 @@ Azure Stream Analytics은 완전히 관리되는 서비스로, 클라우드의 �
 ## <a name="create-a-stream-analytics-job"></a>Stream Analytics 작업 만들기
 다음 코드는 사용자가 정의한 리소스 그룹 아래 Stream Analytics 작업을 만듭니다. 나중에 입력, 출력 및 변환을 작업에 추가합니다.
 
-   ```
+   ```csharp
    // Create a streaming job
    StreamingJob streamingJob = new StreamingJob()
    {
@@ -157,7 +170,7 @@ Azure Stream Analytics은 완전히 관리되는 서비스로, 클라우드의 �
 ## <a name="create-a-stream-analytics-input-source"></a>Stream Analytics 입력 소스 만들기
 다음 코드는 blob 입력 소스 형식 및 CSV serialization으로 Stream Analytics 입력 소스를 만듭니다. 이벤트 허브 입력 소스를 만들려면 **BlobStreamInputDataSource** 대신 **EventHubStreamInputDataSource**를 사용합니다. 마찬가지로, 입력 소스의 serialization 형식을 사용자 지정할 수 있습니다.
 
-   ```
+   ```csharp
    // Create an input
    StorageAccount storageAccount = new StorageAccount()
    {
@@ -192,7 +205,7 @@ Blob 저장소 또는 이벤트 허브의 입력 소스는 특정 작업에 연�
 ## <a name="test-a-stream-analytics-input-source"></a>Stream Analytics 입력 소스 테스트
 **TestConnection** 메서드는 Stream Analytics 작업이 입력 소스 및 입력 소스 유형에 특정한 다른 측면에도 연결할 수 있는지 여부를 테스트합니다. 예를 들어 이전 단계에서 만든 blob 입력 소스에서 메서드는 Storage 계정 이름 및 키 쌍을 사용하여 Storage 계정에 연결할 수 있는지를 확인하고 지정된 컨테이너가 존재하는지 점검합니다.
 
-   ```
+   ```csharp
    // Test the connection to the input
    ResourceTestStatus testInputResult = streamAnalyticsManagementClient.Inputs.Test(resourceGroupName, streamingJobName, inputName);
    ```
@@ -202,7 +215,7 @@ Blob 저장소 또는 이벤트 허브의 입력 소스는 특정 작업에 연�
 
 다음 코드는 출력 대상(Azure SQL 데이터베이스)를 만듭니다. 출력 대상의 데이터 형식 및/또는 serialization 형식을 사용자 지정할 수 있습니다.
 
-   ```
+   ```csharp
    // Create an output
    Output output = new Output()
    {
@@ -221,7 +234,7 @@ Blob 저장소 또는 이벤트 허브의 입력 소스는 특정 작업에 연�
 ## <a name="test-a-stream-analytics-output-target"></a>Stream Analytics 출력 대상 테스트
 Stream Analytics 출력 대상에는 연결 테스트를 위한 **TestConnection** 메서드가 있습니다.
 
-   ```
+   ```csharp
    // Test the connection to the output
    ResourceTestStatus testOutputResult = streamAnalyticsManagementClient.Outputs.Test(resourceGroupName, streamingJobName, outputName);
    ```
@@ -229,7 +242,7 @@ Stream Analytics 출력 대상에는 연결 테스트를 위한 **TestConnection
 ## <a name="create-a-stream-analytics-transformation"></a>Stream Analytics 변환 만들기
 다음 코드는 쿼리 "입력에서 *선택"를 사용하여 Stream Analytics 변환을 만들고 Stream Analytics 작업에 대한 하나의 스트리밍 단위를 할당하도록 지정합니다. 스트리밍 단위 조정에 대한 자세한 내용은 [Azure Stream Analytics 작업 크기 조정](stream-analytics-scale-jobs.md)을 참조하세요.
 
-   ```
+   ```csharp
    // Create a transformation
    Transformation transformation = new Transformation()
    {
@@ -246,7 +259,7 @@ Stream Analytics 작업 및 해당 입력, 출력 및 변환을 만든 후, **St
 
 다음 샘플 코드는 2012년 12월 12일, 12:12:12 UTC로 시작 시간이 설정된 사용자 지정 출력이 있는 Stream Analytics 작업을 시작합니다.
 
-   ```
+   ```csharp
    // Start a streaming job
    StartStreamingJobParameters startStreamingJobParameters = new StartStreamingJobParameters()
    {
@@ -259,7 +272,7 @@ Stream Analytics 작업 및 해당 입력, 출력 및 변환을 만든 후, **St
 ## <a name="stop-a-stream-analytics-job"></a>Stream Analytics 작업 중지
 **Stop** 메서드를 호출하여 실행 중인 Stream Analytics 작업을 중지할 수 있습니다.
 
-   ```
+   ```csharp
    // Stop a streaming job
    streamAnalyticsManagementClient.StreamingJobs.Stop(resourceGroupName, streamingJobName);
    ```
@@ -267,7 +280,7 @@ Stream Analytics 작업 및 해당 입력, 출력 및 변환을 만든 후, **St
 ## <a name="delete-a-stream-analytics-job"></a>Stream Analytics 작업 삭제
 **Delete** 메서드는 입력, 출력 및 변환 작업을 포함한 기본 하위 리소스 및 작업을 삭제합니다.
 
-   ```
+   ```csharp
    // Delete a streaming job
    streamAnalyticsManagementClient.StreamingJobs.Delete(resourceGroupName, streamingJobName);
    ```

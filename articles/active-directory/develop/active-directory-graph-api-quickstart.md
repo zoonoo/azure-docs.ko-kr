@@ -18,12 +18,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: sureshja
 ms.custom: aaddev
-ms.openlocfilehash: b8dba999ac6523aad29aae40b528fd010fec0550
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 7a3c3e39792119d296c849c012d4798ec85a0e03
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687353"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845495"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>방법: Azure AD Graph API 사용
 
@@ -82,7 +82,7 @@ Azure AD Graph Explorer의 다음 기능 및 제한 사항을 확인합니다.
 
 ## <a name="using-fiddler-to-write-to-the-directory"></a>Fiddler를 사용하여 디렉터리에 쓰기
 
-이 빠른 시작 가이드에서는 Azure AD 디렉터리에 '쓰기' 작업을 연습하기 위해 Fiddler Web Debugger를 사용할 수 있습니다. 예를 들어 사용자의 프로필 사진을 가져와서 업로드할 수 있습니다(Azure AD Graph Explorer에서는 불가능). 자세한 내용을 보고 Fiddler를 설치하려면 [http://www.telerik.com/fiddler](http://www.telerik.com/fiddler)를 참조하세요.
+이 빠른 시작 가이드에서는 Azure AD 디렉터리에 '쓰기' 작업을 연습하기 위해 Fiddler Web Debugger를 사용할 수 있습니다. 예를 들어 사용자의 프로필 사진을 가져와서 업로드할 수 있습니다(Azure AD Graph Explorer에서는 불가능). 자세한 내용을 보고 Fiddler를 설치하려면 [https://www.telerik.com/fiddler](https://www.telerik.com/fiddler)를 참조하세요.
 
 아래 예제에서는 Fiddler Web Debugger를 사용하여 Azure AD 디렉터리에 새 보안 그룹 'MyTestGroup'을 만듭니다.
 
@@ -125,5 +125,5 @@ Graph에 의해 노출되는 Azure AD 엔터티 및 형식에 대한 자세한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
-* [Azure AD Graph API 사용 권한 범위](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
+*  [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
+*  [Azure AD Graph API 사용 권한 범위](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)

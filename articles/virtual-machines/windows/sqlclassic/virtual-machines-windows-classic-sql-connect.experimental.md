@@ -80,7 +80,7 @@ ms.locfileid: "29398321"
     "Server=mysqlvm;Integrated Security=true"
 
 ## <a name="steps-for-configuring-sql-server-connectivity-in-an-azure-vm"></a>Azure VM에서 SQL Server 연결을 구성하기 위한 단계
-다음 단계는 SQL Server Management Studio (SSMS)를 사용하여 인터넷을 통해 SQL Server 인스턴스에 연결하는 방법을 보여줍니다. 그러나 동일한 단계는 온-프레미스 및 Azure에서 실행중인 응용 프로그램에 대해 SQL Server 가상 머신을 액세스할 수 있게 만들도록 적용합니다.
+다음 단계는 SQL Server Management Studio (SSMS)를 사용하여 인터넷을 통해 SQL Server 인스턴스에 연결하는 방법을 보여줍니다. 그러나 동일한 단계는 온-프레미스 및 Azure에서 실행중인 애플리케이션에 대해 SQL Server 가상 머신을 액세스할 수 있게 만들도록 적용합니다.
 
 인터넷 또는 다른 VM에서 SQL Server의 인스턴스에 연결하기 전에 먼저 다음 작업을 완료해야 합니다.
 

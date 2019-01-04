@@ -16,9 +16,9 @@ ms.locfileid: "50419013"
 ---
 # <a name="fqdn-tags-overview"></a>FQDN 태그 개요
 
-FQDN 태그는 잘 알려진 Microsoft 서비스와 연결된 FQDN(정규화된 도메인 이름) 그룹을 나타냅니다. 응용 프로그램 규칙에서 FQDN 태그를 사용하여 방화벽을 통해 필요한 아웃바운드 네트워크 트래픽을 허용할 수 있습니다.
+FQDN 태그는 잘 알려진 Microsoft 서비스와 연결된 FQDN(정규화된 도메인 이름) 그룹을 나타냅니다. 애플리케이션 규칙에서 FQDN 태그를 사용하여 방화벽을 통해 필요한 아웃바운드 네트워크 트래픽을 허용할 수 있습니다.
 
-예를 들어 방화벽을 통해 Windows 업데이트 네트워크 트래픽을 수동으로 허용하려면 Microsoft 문서에 따라 여러 응용 프로그램 규칙을 만들어야 합니다. FQDN 태그를 사용하여 응용 프로그램 규칙을 만들고 **Windows 업데이트** 태그를 포함할 수 있으며, 이제 Microsoft Windows 업데이트 끝점에 대한 네트워크 트래픽을 방화벽을 통해 전달할 수 있습니다.
+예를 들어 방화벽을 통해 Windows 업데이트 네트워크 트래픽을 수동으로 허용하려면 Microsoft 문서에 따라 여러 애플리케이션 규칙을 만들어야 합니다. FQDN 태그를 사용하여 애플리케이션 규칙을 만들고 **Windows 업데이트** 태그를 포함할 수 있으며, 이제 Microsoft Windows 업데이트 끝점에 대한 네트워크 트래픽을 방화벽을 통해 전달할 수 있습니다.
 
 고유 FQDN 태그를 만들 수 없으며 태그 내에 포함할 FQDN을 지정할 수도 없습니다. Microsoft는 FQDN 태그에 포함된 FQDN을 관리하고 태그를 FQDN 변경으로 업데이트합니다. 
 
@@ -35,7 +35,7 @@ FQDN 태그는 잘 알려진 Microsoft 서비스와 연결된 FQDN(정규화된 
 |Azure Backup|Azure Backup 서비스에 대한 아웃바운드 액세스를 허용합니다.
 
 > [!NOTE]
-> 응용 프로그램 규칙에서 FQDN 태그를 선택하는 경우 protocol:port 필드는 **https**로 설정되어야 합니다.
+> 애플리케이션 규칙에서 FQDN 태그를 선택하는 경우 protocol:port 필드는 **https**로 설정되어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

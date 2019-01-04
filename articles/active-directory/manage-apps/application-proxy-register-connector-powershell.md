@@ -1,6 +1,6 @@
 ---
 title: Azure AD 앱 프록시 커넥터 자동 설치 | Microsoft Docs
-description: Azure AD 응용 프로그램 프록시 커넥터를 무인으로 설치하여 온-프레미스 앱에 대한 보안된 원격 액세스를 제공하는 방법에 대해 설명합니다.
+description: Azure AD 애플리케이션 프록시 커넥터를 무인으로 설치하여 온-프레미스 앱에 대한 보안된 원격 액세스를 제공하는 방법에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -22,9 +22,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/31/2018
 ms.locfileid: "39362940"
 ---
-# <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Azure AD 응용 프로그램 프록시 커넥터에 대한 무인 설치 스크립트 만들기
+# <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Azure AD 애플리케이션 프록시 커넥터에 대한 무인 설치 스크립트 만들기
 
-이 토픽은 Azure AD 응용 프로그램 프록시 커넥터에 대한 무인 설치 및 등록을 수행할 수 있도록 Windows PowerShell 스크립트를 만드는 데 도움이 됩니다.
+이 토픽은 Azure AD 애플리케이션 프록시 커넥터에 대한 무인 설치 및 등록을 수행할 수 있도록 Windows PowerShell 스크립트를 만드는 데 도움이 됩니다.
 
 이 기능은 다음을 수행하는 데 유용 합니다.
 

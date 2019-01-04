@@ -1,6 +1,6 @@
 ---
-title: Azure Search .NET SDK 버전 3으로 업그레이드 | Microsoft Docs
-description: Azure Search .NET SDK 버전 3으로 업그레이드
+title: Azure Search .NET SDK 버전 3으로 업그레이드 - Azure Search
+description: 이전 버전에서 Azure Search .NET SDK 버전 3으로 코드를 마이그레이션합니다. 새로운 기능과 필요한 코드 변경 내용을 알아봅니다.
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,17 +9,18 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
-ms.openlocfilehash: 161d22e0ff4ec4ab28107919a80ecc48cd027967
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 4acf609ca1f81e69babfa1a319b43e20e84a8395
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793480"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317256"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Azure Search .NET SDK 버전 3으로 업그레이드
-버전 2.0-preview 또는 이전 버전의 [Azure Search .NET SDK](https://aka.ms/search-sdk)를 사용하는 경우 이 문서를 통해 버전 3으로 응용 프로그램을 업그레이드할 수 있습니다.
+버전 2.0-preview 또는 이전 버전의 [Azure Search .NET SDK](https://aka.ms/search-sdk)를 사용하는 경우 이 문서를 통해 버전 3으로 애플리케이션을 업그레이드할 수 있습니다.
 
-예제를 비롯하여 SDK에 대한 보다 일반적인 연습은 [.NET 응용 프로그램에서 Azure Search를 사용하는 방법](search-howto-dotnet-sdk.md)을 참조하세요.
+예제를 비롯하여 SDK에 대한 보다 일반적인 연습은 [.NET 애플리케이션에서 Azure Search를 사용하는 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
 Azure Search .NET SDK 버전 3에는 이전 버전에서 변경된 사항이 일부 포함되어 있습니다. 대부분 소소한 변경이므로 코드를 변경하는 데 최소한의 작업만 필요합니다. 새 SDK 버전을 사용하는 코드를 변경하는 방법에 대한 지침은 [업그레이드 단계](#UpgradeSteps) 를 참조하세요.
 
@@ -31,11 +32,11 @@ Azure Search .NET SDK 버전 3에는 이전 버전에서 변경된 사항이 일
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-3"></a>버전 3의 새로운 기능
-Azure Search .NET SDK 버전 3은 Azure Search REST API의 최신 일반 공급 버전, 특히 2016-09-01을 대상으로 합니다. 이 버전이 있으면 다음을 비롯한 많은 Azure Search의 새 기능을 .NET 응용 프로그램에서 사용할 수 있습니다.
+Azure Search .NET SDK 버전 3은 Azure Search REST API의 최신 일반 공급 버전, 특히 2016-09-01을 대상으로 합니다. 이 버전이 있으면 다음을 비롯한 많은 Azure Search의 새 기능을 .NET 애플리케이션에서 사용할 수 있습니다.
 
 * [사용자 지정 분석기](https://aka.ms/customanalyzers)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) 및 [Azure Table Storage](search-howto-indexing-azure-tables.md) 인덱서 지원
-* [필드 매핑](search-indexer-field-mappings.md)
+*  [필드 매핑](search-indexer-field-mappings.md)
 * 인덱스 정의, 인덱서 및 데이터 원본의 안전한 동시 업데이트를 가능하게 하는 Etag 지원
 * 모델 클래스를 데코레이트하고 새 `FieldBuilder` 클래스를 사용하여 인덱스 필드 정의를 선언적으로 지원
 * .NET Core와 .NET 이식 가능 프로필 111에 대한 지원
@@ -53,14 +54,14 @@ NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝
 
 다음은 이러한 빌드 오류를 수정하는 단계입니다. 오류의 원인 및 해결 방법에 대한 자세한 내용은 [버전 3의 주요 변경 내용](#ListOfChanges)을 참조하세요.
 
-사용되지 않은 메서드 또는 속성과 관련된 추가 빌드 경고가 표시될 수 있습니다. 경고에는 사용되지 않는 기능 대신 사용해야 하는 항목에 대한 지침이 포함됩니다. 예를 들어 응용 프로그램이 `IndexingParameters.Base64EncodeKeys` 속성을 사용하는 경우 `"This property is obsolete. Please create a field mapping using 'FieldMapping.Base64Encode' instead."`와 같은 경고가 표시됩니다.
+사용되지 않은 메서드 또는 속성과 관련된 추가 빌드 경고가 표시될 수 있습니다. 경고에는 사용되지 않는 기능 대신 사용해야 하는 항목에 대한 지침이 포함됩니다. 예를 들어 애플리케이션이 `IndexingParameters.Base64EncodeKeys` 속성을 사용하는 경우 `"This property is obsolete. Please create a field mapping using 'FieldMapping.Base64Encode' instead."`와 같은 경고가 표시됩니다.
 
-모든 빌드 오류를 수정했다면 원하는 새 기능을 활용하도록 응용 프로그램을 변경할 수 있습니다. SDK의 새로운 기능에 대한 자세한 내용은 [버전 3의 새로운 기능](#WhatsNew)에 나와 있습니다.
+모든 빌드 오류를 수정했다면 원하는 새 기능을 활용하도록 애플리케이션을 변경할 수 있습니다. SDK의 새로운 기능에 대한 자세한 내용은 [버전 3의 새로운 기능](#WhatsNew)에 나와 있습니다.
 
 <a name="ListOfChanges"></a>
 
 ## <a name="breaking-changes-in-version-3"></a>버전 3의 주요 변경 내용
-응용 프로그램을 다시 빌드하는 것 외에도, 버전 3에는 코드 변경이 필요할 수 있는 몇 가지 주요 변경 내용이 있습니다.
+애플리케이션을 다시 빌드하는 것 외에도, 버전 3에는 코드 변경이 필요할 수 있는 몇 가지 주요 변경 내용이 있습니다.
 
 ### <a name="indexesgetclient-return-type"></a>Indexes.GetClient 반환 형식
 `Indexes.GetClient` 메서드에는 새 반환 형식이 있습니다. 이전에는 `SearchIndexClient`를 반환했으나 버전 2.0-preview에서는 `ISearchIndexClient`로 변경되었으며 이 변경 내용이 버전 3에도 제공됩니다. 따라서 `ISearchIndexClient`의 모의 구현을 반환하여 단위 테스트를 위한 `GetClient` 메서드를 모의할 수 있습니다.
@@ -134,7 +135,7 @@ index.Analyzers = new Analyzer[]
 - `ParseJsonArrays`
 - `ParseDelimitedTextFiles`
 
-응용 프로그램이 이러한 기능에 강력하게 종속될 경우 Azure Search .NET SDK 버전 3으로 업그레이드하지 못할 수 있습니다. 버전 2.0-preview는 계속 사용할 수 있습니다. 하지만 **프로덕션 응용 프로그램에서는 미리 보기 SDK를 사용하지 않는 것이 좋습니다**. 미리 보기 기능은 평가용일 뿐이며 변경될 수 있습니다.
+애플리케이션이 이러한 기능에 강력하게 종속될 경우 Azure Search .NET SDK 버전 3으로 업그레이드하지 못할 수 있습니다. 버전 2.0-preview는 계속 사용할 수 있습니다. 하지만 **프로덕션 애플리케이션에서는 미리 보기 SDK를 사용하지 않는 것이 좋습니다**. 미리 보기 기능은 평가용일 뿐이며 변경될 수 있습니다.
 
 ## <a name="conclusion"></a>결론
 Azure Search .NET SDK 사용에 대한 자세한 내용은 [.NET 방법](search-howto-dotnet-sdk.md)을 참조하세요.

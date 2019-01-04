@@ -1,5 +1,5 @@
 ---
-title: Azure Search의 API 버전 | Microsoft Docs
+title: .NET SDK 및 REST API에 대한 API 버전 관리 - Azure Search
 description: Azure Search REST API의 버전 정책 및 .NET SDK의 클라이언트 라이브러리.
 author: brjohnstmsft
 manager: jlembicz
@@ -9,12 +9,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: brjohnst
-ms.openlocfilehash: 8d1e30b0bca3c63fe4528c06e5389d8cbe27a7e6
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.custom: seodec2018
+ms.openlocfilehash: 0cf5cac341cb36029c09ee2da5477323fac79cf5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113608"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311646"
 ---
 # <a name="api-versions-in-azure-search"></a>Azure Search의 API 버전
 Azure Search는 정기적으로 기능 업데이트를 공개합니다. 항상 그렇지는 않지만 경우에 따라 이러한 업데이트에는 이전 버전과 호환성을 유지하기 위해 API의 새 버전이 필요하기도 합니다. 새 버전을 게시하면 코드에서 검색 서비스 업데이트를 통합 하는 시기와 방법을 제어할 수 있습니다.
@@ -56,6 +57,6 @@ Azure Search는 항상 REST API를 통해 실험 기능을 미리 공개한 다�
 
 이러한 이유로 미리 보기 버전에 종속된 프로덕션 코드를 작성하지 않는 것이 좋습니다. 이전 미리 보기 버전을 사용하는 경우 일반 공급(GA) 버전으로 마이그레이션하는 것이 좋습니다.
 
-.NET SDK의 코드 마이그레이션에 대한 지침은 [.NET SDK 업그레이드](search-dotnet-sdk-migration.md)에서 찾을 수 있습니다.
+.NET SDK: 코드 마이그레이션 지침은 [.NET SDK 업그레이드](search-dotnet-sdk-migration.md)에서 확인할 수 있습니다.
 
 일반 공급은 Azure Search가 현재 SLA(서비스 수준 계약) 하에 있다는 의미입니다. SLA는 [Azure Search 서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/search/v1_0/)에서 찾을 수 있습니다.

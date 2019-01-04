@@ -1,5 +1,5 @@
 ---
-title: 포털에서 Azure Search 인덱스 만들기 | Microsoft Docs
+title: Azure Portal에서 Azure Search 인덱스 만들기 - Azure Search
 description: 기본 제공 포털 인덱스 디자이너를 사용하여 Azure Search에 대한 인덱스를 만드는 방법에 대해 알아봅니다.
 manager: cgronlun
 author: heidisteen
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: bb1ba5e860dab237b3f6e16205b5e4cbad45e6e3
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: 4bba8b41418dadad1b241d60ab0b7aeee4c046d7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990849"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316712"
 ---
 # <a name="how-to-create-an-azure-search-index-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Search 인덱스를 만드는 방법
 
@@ -32,7 +33,7 @@ Azure Search는 프로토타입이나 Azure Search 서비스에서 호스트되�
 
 2.  페이지 맨 위에 있는 명령 모음에서 **인덱스 추가** 단추를 클릭합니다.
 
-3. Azure Search 인덱스를 명명합니다. 인덱스 이름은 인덱싱 및 쿼리 작업에서 참조됩니다. 인덱스 이름은 인덱스로의 연결 및 Azure Search REST API에서 HTTP 요청을 보내는 데 사용된 끝점 URL의 일부가 됩니다.
+3. Azure Search 인덱스를 명명합니다. 인덱스 이름은 인덱싱 및 쿼리 작업에서 참조됩니다. 인덱스 이름은 인덱스로의 연결 및 Azure Search REST API에서 HTTP 요청을 보내는 데 사용된 엔드포인트 URL의 일부가 됩니다.
 
    * 문자로 시작합니다.
    * 소문자, 숫자 또는 대시(“-”)만 사용합니다.
@@ -81,7 +82,7 @@ Azure Search는 프로토타입이나 Azure Search 서비스에서 호스트되�
 |**정렬 가능**|기본적으로 시스템은 점수에 따라 결과를 정렬하지만 문서에 있는 필드를 기반으로 정렬하도록 구성할 수 있습니다. 형식이 `Collection(Edm.String)`인 필드는 **정렬 가능**으로 설정할 수 없습니다. |  
 |**패싯 가능**|일반적으로 카테고리별 적중 횟수가 포함된 검색 결과를 표시하는 데 사용됩니다(예: 특정 도시의 호텔). 형식이 `Edm.GeographyPoint`인 필드에는 이 옵션을 사용할 수 없습니다. **필터링 가능**, **정렬 가능** 또는 **패싯 가능**이고 형식이 `Edm.String`인 필드는 최대 32KB일 수 있습니다. 자세한 내용은 [인덱스 만들기(REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.|  
 |**key**|인덱스 내의 문서에 대한 고유 식별자입니다. 정확히 하나의 필드를 키 필드로 선택해야 하며 해당 필드의 형식은 `Edm.String`이어야 합니다.|  
-|**조회 가능**|검색 결과에서 필드를 반환할 수 있는지 여부를 결정합니다. *이익률* 등의 필드를 필터, 정렬 또는 점수 매기기 메커니즘으로 사용하며 최종 사용자에게는 필드를 표시하지 않으려는 경우 이 기능을 사용하면 유용합니다. `true` for `key` 로 설정해야 합니다.|  
+|**조회 가능**|검색 결과에서 필드를 반환할 수 있는지 여부를 결정합니다. *이익률* 등의 필드를 필터, 정렬 또는 점수 매기기 메커니즘으로 사용하며 최종 사용자에게는 필드를 표시하지 않으려는 경우 이 기능을 사용하면 유용합니다.  `true` for `key` 로 설정해야 합니다.|  
 
 ## <a name="create-the-hotels-index-used-in-example-api-sections"></a>예제 API 섹션에 사용된 호텔 인덱스 만들기
 

@@ -29,7 +29,7 @@
 ### [부하 분산 집합을 사용하여 MySQL 클러스터화](mysql-cluster.md)
 ### [MySQL 성능 최적화](optimize-mysql.md)
 
-## 응용 프로그램 실행
+## 애플리케이션 실행
 ### [Ruby on Rails 웹 응용 프로그램](ruby-rails-web-app.md)
 ### [Cassandra 및 Node.js 클라이언트](cassandra-nodejs.md)
 ### [Tomcat](setup-tomcat.md)

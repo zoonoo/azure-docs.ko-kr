@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: f9a77c1f3fbce295a40db366619d7485d44efc4f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 4cd88490118343a9a00dbd919d7820f0334df92e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162719"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016149"
 ---
 # <a name="manage-your-security-info-preview"></a>보안 정보 관리(미리 보기)
 
@@ -65,9 +65,9 @@ ms.locfileid: "44162719"
 
 2. myapps.microsoft.com으로 이동하고 페이지 오른쪽 위 모서리에서 이름을 선택한 다음, **프로필**을 선택합니다.
 
-3. **계정 관리** 영역에서 **Forget MFA on remembered devices**(기억된 장치에서 MFA 제거)를 선택합니다.
+3. **계정 관리** 영역에서 **Forget MFA on remembered devices**(기억된 디바이스에서 MFA 제거)를 선택합니다.
     
-    이 옵션을 선택하면 로그인한 후 Multi-Factor Authentication 프로세스를 다시 거쳐야 합니다.
+    이 옵션을 선택하면 로그인한 후 MFA(Multi-Factor Authentication) 프로세스를 다시 거쳐야 합니다.
 
     ![Forget(제거) 링크가 강조 표시된 프로필 화면](media/security-info/security-info-forget.png)
 
@@ -77,8 +77,8 @@ ms.locfileid: "44162719"
 
 |문제|해결 방법|
 |-------|--------|
-|전화기가 없는 경우|휴대폰을 항상 가지고 다니지 않을 수도 있지만 회사 또는 학교 계정에 여전히 로그인이 필요합니다. 이 문제를 해결하려면 휴대폰이 필요 없는 다른 인증 메서드(예: 이메일이나 회사 전화 번호)을 사용하여 로그인할 수 있습니다. 보안 정보에 메서드를 더 추가하려면 [정보 변경](#change-your-info) 섹션의 단계를 수행합니다.|
-|전화를 분실했거나 도난당한 경우|불행히도 휴대폰을 분실하거나 도난 당하는 일이 발생할 수 있습니다. 이런 경우 IT 담당자가 앱 암호를 재설정하고 신뢰할 수 있는 디바이스 목록에서 기억된 모든 디바이스를 지울 수 있도록 조직에 알리는 것이 좋습니다. [분실되거나 손상되었을 수 있는 장치에 대한 보안 정보 관리](#manage-your-security-info-for-a-lost-or-potentially-compromised-device) 섹션의 단계를 수행하여 신뢰할 수 있는 장치를 잊도록 할 수도 있습니다.|
+|전화기가 없는 경우|휴대폰을 항상 가지고 다니지 않을 수도 있지만 회사 또는 학교 계정에 여전히 로그인이 필요합니다. 이 문제를 해결하려면 휴대폰이 필요 없는 다른 인증 메서드(예: 회사 전화 번호)을 사용하여 로그인할 수 있습니다. 보안 정보에 메서드를 더 추가하려면 [정보 변경](#change-your-info) 섹션의 단계를 수행합니다.|
+|전화를 분실했거나 도난당한 경우|불행히도 휴대폰을 분실하거나 도난 당하는 일이 발생할 수 있습니다. 이런 경우 IT 담당자가 앱 암호를 재설정하고 신뢰할 수 있는 디바이스 목록에서 기억된 모든 디바이스를 지울 수 있도록 조직에 알리는 것이 좋습니다. [분실되거나 손상되었을 수 있는 디바이스에 대한 보안 정보 관리](#manage-your-security-info-for-a-lost-or-potentially-compromised-device) 섹션의 단계를 수행하여 신뢰할 수 있는 디바이스를 잊도록 할 수도 있습니다.|
 |새 전화 번호를 받은 경우|이 문제를 해결하는 방법은 두 가지입니다. 이메일과 같이 휴대폰 번호가 필요하지 않은 다른 인증 메서드를 사용하여 로그인하거나 이것이 불가능하면 조직의 IT 담당자에게 문의하여 설정을 지우도록 요청할 수 있습니다. 보안 정보에 메서드를 더 추가하려면 [정보 변경](#change-your-info) 섹션의 단계를 수행합니다.|
 |기본 메서드가 틀린 경우|보안 옵션에서 기본 메서드를 업데이트할 수 있습니다. 구체적인 정보를 보려면 [정보 변경](#change-your-info) 섹션으로 이동하세요.|
 |모바일 디바이스에서 문자나 전화를 받지 못하는 경우|이전에 모바일 디바이스에서 문자나 전화를 성공적으로 수신한 경우에는, 계정이 아니라 전화 공급자 관련 문제일 가능성이 높습니다. 휴대폰 신호가 양호한지 문자 메시지와 전화를 받을 수 있는지 확인하십시오. 테스트 삼아 친구에게 전화를 걸거나 문자를 보내달라고 요청할 수 있습니다.<br><br>문자 및 전화 메시지를 성공적으로 수신할 수 있지만 알림은 여전히 받지 못하는 경우에는 다른 메서드를 사용해 볼 수 있습니다. [정보 변경](#change-your-info) 섹션의 단계를 수행하여 보안 정보에 메서드를 더 추가할 수 있습니다. 추가할 다른 메서드가 없으면 회사 지원팀에 문의하여 설정을 지우도록 요청하고 다음에 로그인할 때 메서드를 설정할 수 있습니다.<br><br>휴대폰 신호 수신 불량으로 인해 문제가 자주 발생하는 경우 모바일 디바이스에서 Microsoft Authenticator 앱을 사용하는 것이 좋습니다. 앱은 로그인하는 데 사용할 수 있는 임의의 보안 코드를 생성할 수 있고 이러한 코드는 셀 신호 또는 인터넷 연결이 필요하지 않습니다. Microsoft Authenticator 앱에 대한 자세한 내용은 [Microsoft Authenticator 앱 시작](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to) 문서를 참조하세요.|

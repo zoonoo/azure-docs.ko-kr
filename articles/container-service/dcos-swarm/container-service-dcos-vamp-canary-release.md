@@ -1,5 +1,5 @@
 ---
-title: Azure DC/OS 클러스터에서 IMAGE WORKS를 사용하여 카나리아 릴리스
+title: (사용되지 않음) Azure DC/OS 클러스터에서 Vamp를 사용하여 카나리아 릴리스
 description: Vamp를 사용하여 Azure Container Service DC/OS 클러스터에서 서비스를 카나리아 릴리스하고 스마트 트래픽 필터링을 적용하는 방법
 services: container-service
 author: gggina
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 116f8ad1760f8e61c70b34d614a0265d11e3ae65
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 7ab63b869d9cd8a5b1f2b60429c5b54d0da5761f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975859"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002066"
 ---
-# <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Azure Container Service DC/OS 클러스터에서 Vamp를 사용하여 마이크로 서비스 카나리아 릴리스
+# <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(사용되지 않음) Azure Container Service DC/OS 클러스터에서 Vamp를 사용하여 마이크로서비스 카나리아 릴리스
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 이 연습에서는 DC/OS 클러스터를 사용하여 Azure Container Service에 Vamp를 설정합니다. Vamp 데모 서비스인 "sava"를 카나리아 릴리스한 후 스마트 트래픽 필터링을 적용하여 서비스와 Firefox의 호환성 문제를 해결합니다. 
 
@@ -198,7 +200,7 @@ Azure Portal을 사용하여 이러한 작업을 완료하는 자세한 단계�
 
 1. Vamp UI에서 **청사진**을 클릭합니다.
 
-2. **추가**를 클릭하고 다음 청사진 YAML에 붙여 넣습니다. 이 청사진은 기존 클러스터(sava_cluster) 내에 배포할 새 서비스 변형(sava: 1.1.0)에 대해 설명합니다.
+2. **추가**를 클릭하여 다음 청사진 YAML에 붙여넣습니다. 이 청사진은 기존 클러스터(sava_cluster) 내에 배포할 새 서비스 변형(sava: 1.1.0)에 대해 설명합니다.
 
   ```YAML
   name: sava:1.1.0      # blueprint name

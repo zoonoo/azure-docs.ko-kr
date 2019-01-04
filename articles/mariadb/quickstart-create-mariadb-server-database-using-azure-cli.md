@@ -76,7 +76,7 @@ az mariadb server create --resource-group myresourcegroup --name mydemoserver  -
 
 ## <a name="configure-a-firewall-rule"></a>방화벽 규칙 구성
 
-[az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create) 명령을 사용하여 Azure Database for MariaDB 서버 수준 방화벽 규칙을 만듭니다. 서버 수준 방화벽 규칙을 사용하면 mysql 명령줄 도구 또는 MySQL Workbench 같은 외부 응용 프로그램에서 Azure Database for MariaDB 서비스 방화벽을 통해 서버에 연결할 수 있습니다. 
+[az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create) 명령을 사용하여 Azure Database for MariaDB 서버 수준 방화벽 규칙을 만듭니다. 서버 수준 방화벽 규칙을 사용하면 mysql 명령줄 도구 또는 MySQL Workbench 같은 외부 애플리케이션에서 Azure Database for MariaDB 서비스 방화벽을 통해 서버에 연결할 수 있습니다. 
 
 다음 예제는 특정 IP 주소 192.168.0.1에서 연결하는 것을 허용하는 `AllowMyIP` 방화벽 규칙을 만듭니다. 연결하는 위치에 해당하는 IP 주소 또는 IP 주소 범위로 바꾸세요. 
 
@@ -90,7 +90,7 @@ az mariadb server firewall-rule create --resource-group myresourcegroup --server
 
 ## <a name="configure-ssl-settings"></a>SSL 설정 구성
 
-기본적으로 서버와 클라이언트 응용 프로그램 간에 SSL 연결이 적용됩니다. 이 기본 설정은 인터넷을 통해 데이터 스트림을 암호화하여 "이동 중"인 데이터를 보호합니다. 이 빠른 시작에서는 서버에 SSL 연결을 사용하지 않겠습니다. SSL 비활성화는 프로덕션 서버에는 권장되지 않습니다. 자세한 내용은 [Azure Database for MariaDB에 안전하게 연결하기 위한 사용자 응용 프로그램의 SSL 연결 구성](./howto-configure-ssl.md)을 참조하세요.
+기본적으로 서버와 클라이언트 애플리케이션 간에 SSL 연결이 적용됩니다. 이 기본 설정은 인터넷을 통해 데이터 스트림을 암호화하여 "이동 중"인 데이터를 보호합니다. 이 빠른 시작에서는 서버에 SSL 연결을 사용하지 않겠습니다. SSL 비활성화는 프로덕션 서버에는 권장되지 않습니다. 자세한 내용은 [Azure Database for MariaDB에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성](./howto-configure-ssl.md)을 참조하세요.
 
 다음 예제에서는 Azure Database for MariaDB 서버에 적용되는 SSL을 사용하지 않습니다.
  
@@ -203,7 +203,7 @@ mysql 명령줄 도구를 사용하여 서버에 연결하려면:
 
 ## <a name="connect-to-the-server-by-using-mysql-workbench"></a>MySQL Workbench를 사용하여 서버에 연결
 
-1.  클라이언트 컴퓨터에서 MySQL Workbench를 엽니다. 설치되어 있지 않은 경우 응용 프로그램을 [다운로드](https://dev.mysql.com/downloads/workbench/)하여 설치합니다.
+1.  클라이언트 컴퓨터에서 MySQL Workbench를 엽니다. 설치되어 있지 않은 경우 애플리케이션을 [다운로드](https://dev.mysql.com/downloads/workbench/)하여 설치합니다.
 
 2.  **새 연결 설정** 대화 상자의 **매개 변수** 탭에서 다음 정보를 입력합니다.
 

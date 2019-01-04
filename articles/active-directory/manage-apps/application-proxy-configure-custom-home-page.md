@@ -15,14 +15,14 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d098d38c39788dee7f4a3852d07a762b36fd9a4f
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 9ee7f0b975dd2990281833726b4013c9726a2935
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333754"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134321"
 ---
-# <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 게시된 앱에 대해 사용자 지정 홈 페이지 설정
+# <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 게시된 앱에 대해 사용자 지정 홈 페이지 설정
 
 이 문서에서는 사용자를 사용자 지정 홈 페이지에 연결하도록 앱을 구성하는 방법을 설명합니다. 응용 프로그램 프록시를 사용하여 응용 프로그램을 게시할 때 내부 URL을 설정하지만 사용자가 처음 보게 되는 페이지는 설정하지 않는 경우가 있습니다. 사용자가 앱에 액세스할 때 올바른 페이지로 이동하도록 사용자 지정 홈 페이지를 설정합니다. Azure Active Directory 액세스 패널 또는 Office 365 앱 시작 관리자에서 앱에 액세스할 때 여기서 설정한 사용자 지정 홈 페이지로 이동하게 됩니다.
 
@@ -114,7 +114,7 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
 
  이제 앱을 확인했으므로 다음과 같이 홈 페이지를 업데이트할 준비가 되었습니다.
 
-2. 변경 내용을 저장하기 위해 비어 있는 응용 프로그램 개체를 만듭니다. 이 변수는 업데이트하려는 값을 보유합니다. 이 단계에서는 아무 것도 만들어지지 않습니다.
+2. 변경 내용을 저장하기 위해 비어 있는 애플리케이션 개체를 만듭니다. 이 변수는 업데이트하려는 값을 보유합니다. 이 단계에서는 아무 것도 만들어지지 않습니다.
 
     ```
     $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
@@ -125,7 +125,7 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
     ```
     $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
     ```
-4. "1단계: 앱의 ObjectID 찾기"에서 복사한 GUID(ObjectID)를 사용하여 업데이트합니다.
+4. “1단계: 앱의 ObjectID 찾기”에서 복사한 GUID(ObjectID)를 사용하여 업데이트합니다.
 
     ```
     Set-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 -Homepage $homepage
@@ -142,4 +142,4 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure AD 응용 프로그램 프록시를 사용하여 SharePoint에 원격 액세스 사용하도록 설정](application-proxy-integrate-with-sharepoint-server.md)
-- [Azure Portal에서 응용 프로그램 프록시 사용](application-proxy-enable.md)
+- [Azure Portal에서 응용 프로그램 프록시 사용](application-proxy-add-on-premises-application.md)

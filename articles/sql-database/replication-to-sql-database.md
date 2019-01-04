@@ -70,7 +70,7 @@ SQL Server 복제는 Azure SQL Database에서 [논리 서버](sql-database-logic
 ### <a name="data-migration-scenario"></a>데이터 마이그레이션 시나리오  
 
 1. 트랜잭션 복제를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure SQL Database로 데이터를 복제합니다.  
-2. 클라이언트 또는 중간 계층 응용 프로그램을 리디렉션하여 Azure SQL 데이터베이스 복사본을 업데이트합니다.  
+2. 클라이언트 또는 중간 계층 애플리케이션을 리디렉션하여 Azure SQL 데이터베이스 복사본을 업데이트합니다.  
 3. 테이블의 SQL Server 버전 업데이트를 중지하고 게시를 제거합니다.  
 
 ## <a name="limitations"></a>제한 사항

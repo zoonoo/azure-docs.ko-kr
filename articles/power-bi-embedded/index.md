@@ -18,7 +18,7 @@ ms.locfileid: "52678239"
 ---
 # <a name="power-bi-embedded-documentation"></a>Power BI Embedded 설명서
 
-Power BI embedded를 사용하여 응용 프로그램에 데이터 시각화 및 대화형 보고서를 추가하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 Power BI 보고서 및 대시보드를 앱에 원활하게 포함하는 방법을 보여 줍니다.
+Power BI Embedded를 사용하여 애플리케이션에 데이터 시각화 및 대화형 보고서를 추가하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 Power BI 보고서 및 대시보드를 앱에 원활하게 포함하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -86,7 +86,7 @@ Power BI embedded를 사용하여 응용 프로그램에 데이터 시각화 및
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>응용 프로그램 예제에서 포함된 보고서를 시작합니다.</h3>
+                        <h3>애플리케이션 예제에서 포함된 보고서를 시작합니다.</h3>
                     </div>
                 </div>
             </div>

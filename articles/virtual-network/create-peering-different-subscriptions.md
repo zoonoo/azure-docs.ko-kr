@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: cb8644ea4d949e81e4fb68bf572956bfe3444c0c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 04ed8e0e99f0aba4ca067700f8a651b6d6c52423
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997899"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727480"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>가상 네트워크 피어링 만들기 - 리소스 관리자, 서로 다른 구독
 
@@ -53,12 +53,12 @@ ms.locfileid: "46997899"
     - **주소 공간**: *10.0.0.0/16*
     - **서브넷 이름**: *기본값*
     - **서브넷 주소 범위**: *10.0.0.0/24*
-    - **구독**: 구독 A를 선택합니다.
-    - **리소스 그룹**: **새로 만들기**를 선택하고 *myResourceGroupA*를 입력합니다.
+    - **구독**: 구독 A 선택
+    - **리소스 그룹**: **새로 만들기**를 선택하고 *myResourceGroupA* 입력
     - **위치**: *미국 동부*
 4. 포털 위쪽에 있는 **리소스 검색** 상자에 *myVnetA*를 입력합니다. **myVnetA**가 검색 결과에 표시되면 선택합니다. 
 5. 왼쪽에 있는 옵션의 세로 목록에서 **액세스 제어(IAM)** 를 선택합니다.
-6. **myVnetA - 액세스 제어(IAM)** 에서 **+ 추가**를 선택합니다.
+6. **myVnetA - 액세스 제어(IAM)** 에서 **+ 역할 할당 추가**를 선택합니다.
 7. **역할** 상자에서 **네트워크 참가자**를 선택합니다.
 8. **선택** 상자에서 *UserB*를 선택하거나 UserB의 이메일 주소를 입력하여 검색합니다.
 9. **저장**을 선택합니다.
@@ -70,8 +70,8 @@ ms.locfileid: "46997899"
     - **주소 공간**: *10.1.0.0/16*
     - **서브넷 이름**: *기본값*
     - **서브넷 주소 범위**: *10.1.0.0/24*
-    - **구독**: 구독 B를 선택합니다.
-    - **리소스 그룹**: **새로 만들기**를 선택하고 *myResourceGroupB*를 입력합니다.
+    - **구독**: 구독 B 선택
+    - **리소스 그룹**: **새로 만들기**를 선택하고 *myResourceGroupB* 입력
     - **위치**: *미국 동부*
 
 13. 포털 위쪽에 있는 **리소스 검색** 상자에 *myVnetB*를 입력합니다. **myVnetB**가 검색 결과에 표시되면 선택합니다.
@@ -84,10 +84,10 @@ ms.locfileid: "46997899"
 20. **myVnetA - 피어링**에서 **+ 추가**를 선택합니다.
 21. **피어링 추가**에서 다음 옵션을 입력하거나 선택한 다음, **확인**을 선택합니다.
      - **이름**: *myVnetAToMyVnetB*
-     - **가상 네트워크 배포 모델**: **Resource Manager**를 선택합니다.
+     - **가상 네트워크 배포 모델**:  **리소스 관리자**를 선택합니다.
      - **리소스 ID를 알고 있음**: 이 확인란을 선택합니다.
-     - **리소스 ID**: 14단계에서 구한 리소스 ID를 입력합니다.
-     - **가상 네트워크 액세스 허용:** **사용**이 선택되어 있는지 확인합니다.
+     - **리소스 ID**: 14단계에서 얻은 리소스 ID를 입력합니다.
+     - **가상 네트워크 액세스 허용**: **사용**이 선택되어 있어야 합니다.
     이 자습서에서 다른 설정은 사용되지 않습니다. 모든 피어링 설정에 대해 알아보려면 [가상 네트워크 피어링 관리](virtual-network-manage-peering.md#create-a-peering)를 읽어보세요.
 22. 이전 단계에서 **확인**을 선택한 후에 잠깐 기다리면 만든 피어링이 표시됩니다. 만든 **myVnetAToMyVnetB** 피어링에 대해 **PEERING STATUS** 열에 **Initiated**가 열거됩니다. myVnetA에서 myVnetB를 피어링했으며 이제 myVnetB에서 myVnetA를 피어링해야 합니다. 피어링은 양방향으로 만들어져야 가상 네트워크의 리소스가 서로 통신할 수 있습니다.
 23. 사용자 A를 포털에서 로그아웃한 다음 사용자 B로 로그인합니다.
@@ -96,7 +96,7 @@ ms.locfileid: "46997899"
 26. 사용자 B를 포털에서 로그아웃한 다음 사용자 A로 로그인합니다.
 27. 17~19단계를 다시 완료합니다. 이제 **myVnetAToVNetB** 피어링의 **PEERING STATUS**도 **Connected**입니다. 피어링의 두 가상 네트워크에 대한 **피어링 상태** 열에 둘 다 **연결됨**이 표시되고 나면 피어링이 성공적으로 설정된 것입니다. 어느 쪽 가상 네트워크에서든 만든 모든 Azure 리소스는 이제 해당 IP 주소를 통해 서로 통신할 수 있습니다. 가상 네트워크에 대해 기본 Azure 이름 확인을 사용 중인 경우 가상 네트워크의 리소스가 가상 네트워크에서 이름을 확인할 수 없습니다. 피어링의 가상 네트워크에서 이름을 확인하려면 자체 DNS 서버를 만들어야 합니다. [자체 DNS 서버를 이용한 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 설정 방법을 알아보세요.
 28. **선택 사항**: 이 자습서에서 가상 머신을 만드는 내용은 다루지 않지만, 각 가상 네트워크에서 가상 머신을 만들고 한 가상 머신에서 다른 가상 머신으로 연결하여 연결의 유효성을 검사할 수 있습니다.
-29. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete-portal) 섹션에서 설명하는 단계를 완료합니다.
+29. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete-portal) 섹션에 설명된 단계를 완료합니다.
 
 ## <a name="cli"></a>피어링 만들기 - Azure CLI
 
@@ -174,7 +174,7 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
     > 두 가상 네트워크 모두에 대해 피어링 상태가 **Connected**가 될 때까지는 피어링이 설정되지 않습니다.
 
 11. **선택 사항**: 이 자습서에서 가상 머신을 만드는 내용은 다루지 않지만, 각 가상 네트워크에서 가상 머신을 만들고 한 가상 머신에서 다른 가상 머신으로 연결하여 연결의 유효성을 검사할 수 있습니다.
-12. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete-cli)에서 설명하는 단계를 완료합니다.
+12. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete-cli)에 설명된 단계를 완료합니다.
 
 어느 쪽 가상 네트워크에서든 만든 모든 Azure 리소스는 이제 해당 IP 주소를 통해 서로 통신할 수 있습니다. 가상 네트워크에 대해 기본 Azure 이름 확인을 사용 중인 경우 가상 네트워크의 리소스가 가상 네트워크에서 이름을 확인할 수 없습니다. 피어링의 가상 네트워크에서 이름을 확인하려면 자체 DNS 서버를 만들어야 합니다. [자체 DNS 서버를 이용한 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 설정 방법을 알아보세요.
  
@@ -244,7 +244,7 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
     어느 쪽 가상 네트워크에서든 만든 모든 Azure 리소스는 이제 해당 IP 주소를 통해 서로 통신할 수 있습니다. 가상 네트워크에 대해 기본 Azure 이름 확인을 사용 중인 경우 가상 네트워크의 리소스가 가상 네트워크에서 이름을 확인할 수 없습니다. 피어링의 가상 네트워크에서 이름을 확인하려면 자체 DNS 서버를 만들어야 합니다. [자체 DNS 서버를 이용한 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 설정 방법을 알아보세요.
 
 13. **선택 사항**: 이 자습서에서 가상 머신을 만드는 내용은 다루지 않지만, 각 가상 네트워크에서 가상 머신을 만들고 한 가상 머신에서 다른 가상 머신으로 연결하여 연결의 유효성을 검사할 수 있습니다.
-14. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete-powershell)에서 설명하는 단계를 완료합니다.
+14. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete-powershell)에 설명된 단계를 완료합니다.
 
 ## <a name="template"></a>피어링 만들기 - Resource Manager 템플릿
 
@@ -285,11 +285,11 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
 
 3. UserA로 Azure에 로그인하고 [포털](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-a-template-from-your-local-machine) 또는 [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template)를 사용하여 템플릿을 배포합니다. 2단계에서 예제 json 텍스트를 저장했던 파일 이름을 지정합니다.
 4. 2단계의 예제 json 파일을 컴퓨터에 복사하고 다음으로 시작하는 줄을 변경합니다.
-    - **name**: *myVnetA/myVnetAToMyVnetB*를 *myVnetB/myVnetBToMyVnetA*로 변경합니다.
-    - **id**: `<subscription ID>`를 사용자 B의 구독 ID로 바꾸고 *myVnetB*를 *myVnetA*로 변경합니다.
+    - **이름**: *myVnetA/myVnetAToMyVnetB*를 *myVnetB/myVnetBToMyVnetA*로 변경합니다.
+    - **ID**: `<subscription ID>`를 사용자 B의 구독 ID로 바꾸고 *myVnetB*를 *myVnetA*로 변경합니다.
 5. 3단계를 다시 완료하고 UserB로 Azure에 로그인합니다.
 6. **선택 사항**: 이 자습서에서 가상 머신을 만드는 내용은 다루지 않지만, 각 가상 네트워크에서 가상 머신을 만들고 한 가상 머신에서 다른 가상 머신으로 연결하여 연결의 유효성을 검사할 수 있습니다.
-7. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 Azure Portal, PowerShell 또는 Azure CLI를 사용하여 이 문서의 [리소스 삭제](#delete) 섹션에서 설명하는 단계를 완료합니다.
+7. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 Azure Portal, PowerShell 또는 Azure CLI를 사용하여 이 문서의 [리소스 삭제](#delete) 섹션에 설명된 단계를 완료합니다.
 
 ## <a name="delete"></a>리소스 삭제
 이 자습서를 마친 경우 사용 요금이 발생하지 않도록 자습서에서 만든 리소스를 삭제하려고 할 것입니다. 리소스 그룹을 삭제하면 리소스 그룹에 있는 리소스도 모두 삭제됩니다.

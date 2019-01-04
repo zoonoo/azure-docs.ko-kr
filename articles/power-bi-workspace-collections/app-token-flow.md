@@ -19,10 +19,10 @@ ms.locfileid: "51236933"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션으로 인증 및 권한 부여
 
-Power BI 작업 영역 컬렉션 서비스는 명시적인 최종 사용자 인증 대신 인증 및 권한 부여에 대한 **키**와 **앱 토큰**을 사용합니다. 이 모델에서 응용 프로그램이 최종 사용자에 대한 인증 및 권한 부여를 관리합니다. 필요한 경우 앱이 서비스에 요청된 보고서를 렌더링하라고 지시하는 앱 토큰을 만들어 보냅니다. 이 디자인에서는 앱이 사용자 인증 및 권한 부여에 Azure Active Directory를 사용할 수는 있지만 그럴 필요가 없습니다.
+Power BI 작업 영역 컬렉션 서비스는 명시적인 최종 사용자 인증 대신 인증 및 권한 부여에 대한 **키**와 **앱 토큰**을 사용합니다. 이 모델에서 애플리케이션이 최종 사용자에 대한 인증 및 권한 부여를 관리합니다. 필요한 경우 앱이 서비스에 요청된 보고서를 렌더링하라고 지시하는 앱 토큰을 만들어 보냅니다. 이 디자인에서는 앱이 사용자 인증 및 권한 부여에 Azure Active Directory를 사용할 수는 있지만 그럴 필요가 없습니다.
 
 > [!IMPORTANT]
-> Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 응용 프로그램에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.
+> Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 애플리케이션에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.
 
 ## <a name="two-ways-to-authenticate"></a>인증에 대한 두 가지 방법
 
@@ -42,7 +42,7 @@ REST 호출에서 키를 사용하려면 다음 권한 부여 헤더를 추가�
 | --- | --- |
 | **ver** |앱 토큰의 버전으로 현재 버전은 0.2.0입니다. |
 | **aud** |토큰의 의도한 수신자입니다. Power BI 작업 영역 컬렉션의 경우 *https:\//analysis.windows.net/powerbi/api*를 사용합니다. |
-| **iss** |토큰을 발급한 응용 프로그램을 나타내는 문자열입니다. |
+| **iss** |토큰을 발급한 애플리케이션을 나타내는 문자열입니다. |
 | **type** |생성되는 앱 토큰의 유형입니다. 현재 지원되는 유일한 유형은 **embed**입니다. |
 | **wcn** |토큰이 발급되는 대상 작업 영역 컬렉션 이름입니다. |
 | **wid** |토큰이 발급되는 대상 작업 영역 ID입니다. |
@@ -151,7 +151,7 @@ Body
 |보고서(다른 이름으로 저장)의 복사본을 저장합니다.|보고서|* Report.Read<br>* Workspace.Report.Copy|
 
 ## <a name="heres-how-the-flow-works"></a>다음은 흐름 방식입니다.
-1. 응용 프로그램에 API 키 복사 **Azure Portal**에서 키를 가져올 수 있습니다.
+1. 애플리케이션에 API 키 복사 **Azure Portal**에서 키를 가져올 수 있습니다.
    
     ![Azure Portal에서 API 키를 찾을 수 있는 곳](media/get-started-sample/azure-portal.png)
 1. 토큰이 클레임을 어설션하며 만료 시간이 있습니다.
@@ -172,7 +172,7 @@ Body
 
 **Power BI 작업 영역 컬렉션**에서 사용자에게 보고서를 보낸 후 사용자는 사용자 지정 앱에서 보고서를 볼 수 있습니다. 예를 들어 [판매 데이터 PBIX 분석 샘플](https://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix)을 가져온 경우 샘플 웹앱이 다음과 같이 보입니다.
 
-![응용 프로그램에 포함된 보고서 샘플](media/get-started-sample/sample-web-app.png)
+![애플리케이션에 포함된 보고서 샘플](media/get-started-sample/sample-web-app.png)
 
 ## <a name="see-also"></a>참고 항목
 

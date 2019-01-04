@@ -7,17 +7,17 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/07/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5f95b71497b59eafff09d4add2b4bb1c20656592
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 9dbe88e1e179df4560d5094cf3f58ca770541323
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339361"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842275"
 ---
-# <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: iOS 응용 프로그램을 사용하여 로그인
+# <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: iOS 애플리케이션을 사용하여 로그인
 
 Microsoft ID 플랫폼은 OAuth2 및 OpenID Connect와 같은 개방형 표준을 사용합니다. 개방형 표준 프로토콜을 사용하면 서비스와 통합할 라이브러리를 선택할 때 더 많은 개발자 선택 옵션이 제공됩니다. 개발자가 Microsoft ID 플랫폼에 연결되는 응용 프로그램을 원활히 작성할 수 있도록 이 연습 및 다른 유사한 항목을 제공합니다. [RFC6749 OAuth2 사양](https://tools.ietf.org/html/rfc6749)을 구현하는 대부분의 라이브러리는 Microsoft ID 플랫폼에 연결할 수 있습니다.
 
@@ -38,16 +38,16 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 * 앱에 할당된 **응용 프로그램 ID**를 복사합니다. 이 가이드는 나중에 필요합니다.
 * 사용자 지정 스키마를 사용하는 **리디렉션 URI**(예: com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect)를 설정합니다. 이 URI는 나중에 필요합니다.
 
-## <a name="create-your-policies"></a>정책 만들기
-Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 앱은 결합된 로그인 및 등록의 하나의 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#create-a-sign-up-policy)에서 설명한 대로 이 정책을 만들어야 합니다. 정책을 만들 때 다음을 확인합니다.
+## <a name="create-your-user-flows"></a>사용자 흐름 만들기
+Azure AD B2C에서 모든 사용자 환경은 [사용자 흐름](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 앱은 결합된 로그인 및 등록의 하나의 ID 환경을 포함합니다. [사용자 흐름 참조 문서](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow)에서 설명한 대로 이 사용자 흐름을 만듭니다. 사용자 흐름을 만들 때 다음을 확인합니다.
 
 * **등록 특성** 아래에서 **표시 이름** 특성을 선택합니다.  다른 특성도 선택할 수 있습니다.
 * **응용 프로그램 클레임** 아래에서 **표시 이름** 및 **사용자의 개체 ID** 클레임을 선택합니다. 다른 클레임도 선택할 수 있습니다.
-* 각 정책을 만든 후에 **이름**을 복사합니다. 정책을 저장하면 `b2c_1_`이 정책 이름의 접두사로 지정됩니다.  정책 이름은 나중에 필요합니다.
+* 각 사용자 흐름을 만든 후에 **이름**을 복사합니다. 사용자 흐름을 저장하면 `b2c_1_`이 사용자 흐름 이름의 접두사로 지정됩니다.  사용자 흐름 이름이 나중에 필요합니다.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-정책을 만들었다면 앱을 빌드할 준비가 되었습니다.
+사용자 흐름을 만들었다면 앱을 빌드할 준비가 되었습니다.
 
 ## <a name="download-the-sample-code"></a>샘플 코드 다운로드
 [GitHub에서](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c) Azure AD B2C와 함께 AppAuth를 사용하는 작업 샘플이 제공됩니다. 코드를 다운로드하고 실행할 수 있습니다. 자신만의 Azure AD B2C 테넌트를 사용하려면 [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) 지침에 따르세요.
@@ -64,7 +64,7 @@ Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-refe
 
 권한 부여 엔드포인트와 토큰 엔드포인트 URI를 모두 지정하여 Azure AD B2C와의 통신을 구성할 수 있습니다.  이러한 URI를 생성하려면 다음 정보가 필요합니다.
 * 테넌트 ID(예: contoso.onmicrosoft.com)
-* 정책 이름(예: B2C\_1\_SignUpIn)
+* 사용자 흐름 이름(예: B2C\_1\_SignUpIn)
 
 토큰 엔드포인트 URI는 다음 URL에서 테넌트\_ID 및 정책\_이름을 바꿔서 만들 수 있습니다.
 

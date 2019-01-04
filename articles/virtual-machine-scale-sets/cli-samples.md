@@ -32,7 +32,7 @@ ms.locfileid: "49471274"
 |**확장 집합 만들기 및 관리**||
 | [가상 머신 확장 집합 만들기](scripts/cli-sample-create-simple-scale-set.md?toc=%2fcli%2fazure%2ftoc.json) | 최소한의 구성으로 가상 머신 확장 집합을 만듭니다. |
 | [사용자 지정 VM 이미지에서 확장 집합 만들기](scripts/cli-sample-create-scale-set-from-custom-image.md?toc=%2fcli%2fmodule%2ftoc.json) | 사용자 지정 VM 이미지를 사용하는 가상 머신 확장 집합을 만듭니다. |
-| [확장 집합에 응용 프로그램 설치](scripts/cli-sample-install-apps.md?toc=%2fcli%2fmodule%2ftoc.json) | Azure 사용자 지정 스크립트 확장을 사용하여 기본 웹 응용 프로그램을 확장 집합에 설치합니다. |
+| [확장 집합에 응용 프로그램 설치](scripts/cli-sample-install-apps.md?toc=%2fcli%2fmodule%2ftoc.json) | Azure 사용자 지정 스크립트 확장을 사용하여 기본 웹 애플리케이션을 확장 집합에 설치합니다. |
 |**저장소 관리**||
 | [확장 집합에 디스크 만들기 및 연결](scripts/cli-sample-attach-disks.md?toc=%2fcli%2fmodule%2ftoc.json) | 연결된 데이터 디스크가 있는 가상 머신 확장 집합을 만듭니다. |
 |**크기 조정 및 중복 관리**||

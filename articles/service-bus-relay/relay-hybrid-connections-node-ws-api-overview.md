@@ -109,7 +109,7 @@ var uri = appendRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 
 `hycows.RelayedServer` 클래스는 로컬 네트워크에서 수신 대기하지 않는 `ws.Server` 클래스에 대한 대안이지만 Azure Relay 서비스에 대한 수신 대기를 위임합니다.
 
-두 클래스는 대체로 계약과 호환되므로, `ws.Server` 클래스를 사용하는 기존 응용 프로그램이 릴레이된 버전을 사용하도록 쉽게 변경할 수 있습니다. 주요 차이점은 생성자와 사용 가능한 옵션입니다.
+두 클래스는 대체로 계약과 호환되므로, `ws.Server` 클래스를 사용하는 기존 애플리케이션이 릴레이된 버전을 사용하도록 쉽게 변경할 수 있습니다. 주요 차이점은 생성자와 사용 가능한 옵션입니다.
 
 #### <a name="constructor"></a>생성자  
 

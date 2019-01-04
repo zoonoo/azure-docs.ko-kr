@@ -201,9 +201,9 @@ Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $con
 Get-AzureBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-AzureBatchComputeNode -BatchContext $context
 ```
 
-## <a name="application-package-management"></a>응용 프로그램 패키지 관리
+## <a name="application-package-management"></a>애플리케이션 패키지 관리
 
-응용 프로그램 패키지는 풀에서 계산 노드에 응용 프로그램을 배포하는 간단한 방법을 제공합니다. Batch PowerShell cmdlet으로 Batch 계정에 응용 프로그램 패키지를 업로드하여 관리하고 노드를 계산하는 패키지 버전을 배포할 수 있습니다.
+애플리케이션 패키지는 풀에서 계산 노드에 애플리케이션을 배포하는 간단한 방법을 제공합니다. Batch PowerShell cmdlet으로 Batch 계정에 애플리케이션 패키지를 업로드하여 관리하고 노드를 계산하는 패키지 버전을 배포할 수 있습니다.
 
 **만듭니다** .
 
@@ -217,7 +217,7 @@ New-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_
 New-AzureRmBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0" -Format zip -FilePath package001.zip
 ```
 
-응용 프로그램의 **기본 버전** 설정:
+애플리케이션의 **기본 버전** 설정:
 
 ```PowerShell
 Set-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -DefaultVersion "1.0"
@@ -244,14 +244,14 @@ Remove-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <r
 ```
 
 > [!NOTE]
-> 응용 프로그램을 삭제하기 전에 모든 응용 프로그램의 패키지 버전을 삭제해야 합니다. 현재 응용 프로그램 패키지를 보유하는 응용 프로그램을 삭제하려고 하면 '충돌' 오류 메시지를 받게 됩니다.
+> 애플리케이션을 삭제하기 전에 모든 애플리케이션의 애플리케이션 패키지 버전을 삭제해야 합니다. 현재 애플리케이션 패키지를 보유하는 애플리케이션을 삭제하려고 하면 '충돌' 오류 메시지를 받게 됩니다.
 > 
 
-### <a name="deploy-an-application-package"></a>응용 프로그램 패키지 배포
+### <a name="deploy-an-application-package"></a>애플리케이션 패키지 배포
 
-새 풀을 만들 때 배포에 하나 이상의 응용 프로그램 패키지를 지정할 수 있습니다. 풀을 만들 때 패키지를 지정하는 경우 노드가 풀에 조인하면 각 노드에 배포됩니다. 패키지는 노드를 다시 부팅하거나 이미지로 다시 설치하는 경우에 배포됩니다.
+새 풀을 만들 때 배포에 하나 이상의 애플리케이션 패키지를 지정할 수 있습니다. 풀을 만들 때 패키지를 지정하는 경우 노드가 풀에 조인하면 각 노드에 배포됩니다. 패키지는 노드를 다시 부팅하거나 이미지로 다시 설치하는 경우에 배포됩니다.
 
-풀에 참가하면서 풀의 노드에 응용 프로그램 패키지를 배포하도록 풀을 만들 때 `-ApplicationPackageReference` 옵션을 지정합니다. 먼저 **PSApplicationPackageReference** 개체를 만들고 이 개체를 풀의 계산 노드에 배포하려는 응용 프로그램 ID 및 패키지 버전으로 구성:
+풀에 참가하면서 풀의 노드에 애플리케이션 패키지를 배포하도록 풀을 만들 때 `-ApplicationPackageReference` 옵션을 지정합니다. 먼저 **PSApplicationPackageReference** 개체를 만들고 이 개체를 풀의 계산 노드에 배포하려는 애플리케이션 ID 및 패키지 버전으로 구성:
 
 ```PowerShell
 $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
@@ -270,13 +270,13 @@ New-AzureBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudSe
 [Batch 응용 프로그램 패키지를 사용하여 계산 노드에 응용 프로그램 배포](batch-application-packages.md)에서 응용 프로그램 패키지에 대한 자세한 정보를 찾을 수 있습니다.
 
 > [!IMPORTANT]
-> 응용 프로그램 패키지를 사용하려면 [Azure Storage 계정](#linked-storage-account-autostorage) 을 Batch 계정에 연결해야 합니다.
+> 애플리케이션 패키지를 사용하려면 [Azure Storage 계정](#linked-storage-account-autostorage)을 Batch 계정에 연결해야 합니다.
 > 
 > 
 
-### <a name="update-a-pools-application-packages"></a>풀의 응용 프로그램 패키지 업데이트
+### <a name="update-a-pools-application-packages"></a>풀의 애플리케이션 패키지 업데이트
 
-기존 풀에 할당된 응용 프로그램을 업데이트하려면 먼저 원하는 속성(응용 프로그램 ID 및 패키지 버전)의 PSApplicationPackageReference 개체를 만듭니다.
+기존 풀에 할당된 애플리케이션을 업데이트하려면 먼저 원하는 속성(애플리케이션 ID 및 패키지 버전)의 PSApplicationPackageReference 개체를 만듭니다.
 
 ```PowerShell
 $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
@@ -299,20 +299,20 @@ $pool.ApplicationPackageReferences.Add($appPackageReference)
 Set-AzureBatchPool -BatchContext $context -Pool $pool
 ```
 
-이제 Batch 서비스에서 풀의 속성을 업데이트했습니다. 실제로 풀의 계산 노드에 새로운 응용 프로그램 패키지를 배포하려면, 해당 노드를 다시 시작하거나 이미지로 다시 설치해야 합니다. 이 명령을 사용하여 풀의 모든 노드를 다시 시작할 수 있습니다.
+이제 Batch 서비스에서 풀의 속성을 업데이트했습니다. 실제로 풀의 계산 노드에 새로운 애플리케이션 패키지를 배포하려면, 해당 노드를 다시 시작하거나 이미지로 다시 설치해야 합니다. 이 명령을 사용하여 풀의 모든 노드를 다시 시작할 수 있습니다.
 
 ```PowerShell
 Get-AzureBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Restart-AzureBatchComputeNode -BatchContext $context
 ```
 
 > [!TIP]
-> 여러 응용 프로그램 패키지를 풀의 계산 노드에 배포할 수 있습니다. 현재 배포된 패키지를 교체하는 대신 응용 프로그램 패키지를 *추가*하고자 하는 경우 위의 `$pool.ApplicationPackageReferences.Clear()` 줄을 생략합니다.
+> 여러 애플리케이션 패키지를 풀의 계산 노드에 배포할 수 있습니다. 현재 배포된 패키지를 교체하는 대신 애플리케이션 패키지를 *추가*하고자 하는 경우 위의 `$pool.ApplicationPackageReferences.Clear()` 줄을 생략합니다.
 > 
 > 
 
 ## <a name="next-steps"></a>다음 단계
 
 * 자세한 cmdlet 구문 및 예제는 [Azure Batch cmdlet 참조](/powershell/module/azurerm.batch/#batch)를 참조하세요.
-* Batch의 응용 프로그램과 응용 프로그램 패키지에 대한 자세한 내용은 [Batch 응용 프로그램 패키지를 사용하여 계산 노드에 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
+* Batch의 애플리케이션과 애플리케이션 패키지에 대한 자세한 내용은 [Batch 애플리케이션 패키지를 사용하여 계산 노드에 애플리케이션 배포](batch-application-packages.md)를 참조하세요.
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/

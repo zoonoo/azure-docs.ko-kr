@@ -1,23 +1,22 @@
 ---
-title: Azure Cosmos DB NoSQL 마이그레이션 및 응용 프로그램 개발 파트너 | Microsoft Docs
+title: Azure Cosmos DB NoSQL 마이그레이션 및 애플리케이션 개발 파트너
 description: Azure Cosmos DB를 지원하는 마이그레이션 솔루션이 있는 Microsoft 파트너를 나열합니다.
 services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
-manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
-ms.openlocfilehash: 1e52c6eb96b98db76628a3a77ce1ef95bd58f837
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: c241232de33d4371456a374f8bc511211b3e9449
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48872282"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082413"
 ---
-# <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL 마이그레이션 및 응용 프로그램 개발 파트너
+# <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL 마이그레이션 및 애플리케이션 개발 파트너
 
-NoSQL 마이그레이션에서 응용 프로그램 개발에 이르기까지 다양한 숙련된 시스템 통합자 파트너 및 도구에서 선택하여 Azure Cosmos DB 솔루션을 지원할 수 있습니다. 
+NoSQL 마이그레이션에서 애플리케이션 개발에 이르기까지 다양한 숙련된 시스템 통합자 파트너 및 도구에서 선택하여 Azure Cosmos DB 솔루션을 지원할 수 있습니다. 
 
 ## <a name="migration-tools"></a>마이그레이션 도구
 
@@ -30,18 +29,34 @@ NoSQL 마이그레이션에서 응용 프로그램 개발에 이르기까지 다
 
 |**파트너**  |**기능 및 경험**  |**지원되는 국가**  |**연락처**  |
 |---------|---------|---------|---------|
-|![Altoros][3]    |  NoSQL 마이그레이션, <br/> 앱 혁신(기존 앱), <br/> 새로운 앱 개발 |     미국, EU    |  [웹 사이트](http://www.altoros.com/)       |
-|![Attunix][4]     |   NoSQL 마이그레이션, <br/> 앱 혁신(기존 앱), <br/> 새로운 앱 개발      |    미국     |  [웹 사이트](http://www.attunix.com/)       |
-|![Bluemetal][5]     |  NoSQL 마이그레이션, <br/> 앱 혁신(기존 앱), <br/> 새로운 앱 개발       |    북아메리카, 아시아 태평양     |  [웹 사이트](http://www.bluemetal.com/)       |
-|![Capax Global][6]     |  NoSQL 마이그레이션, <br/> 앱 혁신(기존 앱), <br/> 새로운 앱 개발       |    미국     |  [웹 사이트](http://www.capaxglobal.com/)       |
+| ![10thMagnitude][13] | NoSQL 마이그레이션, 새로운 앱 개발 | 미국 | [웹 사이트](https://www.10thmagnitude.com/)|
+|![Altoros Development LLC][3]    |  NoSQL 마이그레이션, <br/> 앱 혁신(기존 앱), <br/> 새로운 앱 개발 |   미국, 노르웨이, 핀란드, 벨로루시, 아르헨티나 |  [웹 사이트](http://www.altoros.com/)     |
+|![Attunix Redapt][4]     |   NoSQL 마이그레이션, <br/> 앱 혁신(기존 앱), <br/> 새로운 앱 개발      |    미국     |  [웹 사이트](http://www.attunix.com/)       |
+| ![Avanade][26] | 새로운 앱 개발, <br/> 앱 혁신(기존 앱) | 오스트리아, 독일, 스위스, 이탈리아, 노르웨이, 스페인, 영국 | [웹 사이트](https://www.avanade.com/)
+|![BlueMetal Architects][5]     |  NoSQL 마이그레이션, <br/> 앱 혁신(기존 앱), <br/> 새로운 앱 개발       |    북아메리카, 아시아 태평양     |  [웹 사이트](http://www.bluemetal.com/)       |
+|![Capax Global LLC][6]     |  NoSQL 마이그레이션, <br/> 앱 혁신(기존 앱), <br/> 새로운 앱 개발       |    미국     |  [웹 사이트](http://www.capaxglobal.com/)       |
+| ![Capgemini][14] | NoSQL 마이그레이션, 앱 혁신(기존 앱), 새로운 앱 개발 | 영국, 프랑스, 영국, 네덜란드, 핀란드  | [웹 사이트](https://www.capgemini.com/) | 
 |![Coeo][7]     |   앱 혁신(기존 앱), <br/> 새로운 앱 개발 |    영국     |  [웹 사이트](http://www.coeo.com/)       |
+| ![Cognizant][15] | NoSQL 마이그레이션 |미국, 캐나다, 영국, 덴마크, 네덜란드, 스위스, 호주, 일본 | [웹 사이트](https://www.cognizant.com/)|
 |![Infosys][8]     |  NoSQL 마이그레이션       |    전역     |  [웹 사이트](http://www.infosys.com/)       |
+| ![Lagash][16] | NoSQL 마이그레이션, <br/> 새로운 앱 개발 | 아르헨티나, 칠레, 콜롬비아, 멕시코| [웹 사이트](https://lagash.com/)|
+| ![Lambda3 Informatics][17] | NoSQL 마이그레이션, <br/> 새로운 앱 개발 | 브라질| [웹 사이트](https://www.lambda3.com.br/)|
 |![Neal Analytics][9]     |     앱 개발(새 앱)    |    미국     |  [웹 사이트](http://www.nealanalytics.com/)       |
-|![Pragmatic Works][10]    |   NoSQL 마이그레이션      |   미국      |  [웹 사이트](http://www.pragmaticworks.com/)       |
+|![Pragmatic Works Software Inc][10]    |   NoSQL 마이그레이션      |   미국      |  [웹 사이트](http://www.pragmaticworks.com/)       |
+| ![Ricoh Global][18] | NoSQL 마이그레이션, <br/> 앱 혁신(기존 앱)| 영국  | [웹 사이트](https://www.ricoh.com/)|
+| ![SNP Technologies][19] | NoSQL 마이그레이션| US | [웹 사이트](https://www.snp.com/)|
+| ![Solidsoft Reply][20] | NoSQL 마이그레이션 | 크로아티아, 스웨덴, 덴마크, 아일랜드, 불가리아, 슬로베니아, 키프로스, 몰타, 리투아니아, 체코 공화국, 아이슬란드, 스위스 및 리히텐슈타인| [웹 사이트](https://www.reply.com/solidsoft-reply/)|
+| ![Spanish Point Technologies][21] | NoSQL 마이그레이션| 아일랜드| [웹 사이트](https://www.spanishpoint.ie/)|
+| ![Syone][22] | NoSQL 마이그레이션| 포르투갈| [웹 사이트](https://www.syone.com/)|
 |![Tallan][11]    |  NoSQL 마이그레이션, <br/> 앱 혁신(기존 앱), <br/> 새로운 앱 개발       |    미국     |  [웹 사이트](http://www.tallan.com/)       |
+| ![TCS][23] | 앱 혁신(기존 앱), <br/> 새로운 앱 개발 | 미국, 영국, 프랑스, 말레이시아, 덴마크, 노르웨이, 스웨덴| [웹 사이트](https://www.tcs.com/)|
 |![VTeamLabs][12]    | NoSQL 마이그레이션       |  미국      | [웹 사이트](http://www.vteamlabs.com/)       |
+| ![White Duck][24] |NoSQL 마이그레이션, <br/> 새로운 앱 개발 | 독일 | [웹 사이트](https://whiteducksoftware.com/)|
+| ![Xpand IT][25] | 새로운 앱 개발 | 포르투갈, 영국| [웹 사이트](https://www.xpand-it.com/)|
+
 
 ## <a name="next-steps"></a>다음 단계
+
 Microsoft의 다른 파트너에 대해 자세히 알려면 [Microsoft 파트너 사이트](https://partner.microsoft.com/en-US/)를 참조합니다.
 
 <!--Image references-->
@@ -57,3 +72,17 @@ Microsoft의 다른 파트너에 대해 자세히 알려면 [Microsoft 파트너
 [10]: ./media/partners-migration-cosmosdb/pragmaticworks_logo.png
 [11]: ./media/partners-migration-cosmosdb/tallan_logo.png
 [12]: ./media/partners-migration-cosmosdb/vteamlabs_logo.png
+[13]: ./media/partners-migration-cosmosdb/10thmagnitude_logo.png
+[14]: ./media/partners-migration-cosmosdb/capgemini_logo.png
+[15]: ./media/partners-migration-cosmosdb/cognizant_logo.png
+[16]: ./media/partners-migration-cosmosdb/laglash_logo.png
+[17]: ./media/partners-migration-cosmosdb/lambda3_logo.png
+[18]: ./media/partners-migration-cosmosdb/ricoh_logo.png
+[19]: ./media/partners-migration-cosmosdb/snp_technologies_logo.png
+[20]: ./media/partners-migration-cosmosdb/solidsoft_reply_logo.png
+[21]: ./media/partners-migration-cosmosdb/spanish_point_logo.png
+[22]: ./media/partners-migration-cosmosdb/syone_logo.png
+[23]: ./media/partners-migration-cosmosdb/tcs_logo.png
+[24]: ./media/partners-migration-cosmosdb/whiteduck_logo.png
+[25]: ./media/partners-migration-cosmosdb/xpandit_logo.png
+[26]: ./media/partners-migration-cosmosdb/avanade_logo.png

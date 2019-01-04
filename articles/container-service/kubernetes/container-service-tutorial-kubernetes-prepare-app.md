@@ -23,14 +23,14 @@ ms.locfileid: "52992370"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-7개 중 1단계인 이 자습서에서는 Kubernetes에서 사용할 수 있도록 다중 컨테이너 응용 프로그램을 준비하는 과정입니다. 완료되는 단계는 다음과 같습니다.  
+7개 중 1단계인 이 자습서에서는 Kubernetes에서 사용할 수 있도록 다중 컨테이너 애플리케이션을 준비하는 과정입니다. 완료되는 단계는 다음과 같습니다.  
 
 > [!div class="checklist"]
-> * GitHub에서 응용 프로그램 소스 복제  
-> * 응용 프로그램 원본에서 컨테이너 이미지 만들기
-> * 로컬 Docker 환경에서 응용 프로그램 테스트
+> * GitHub에서 애플리케이션 소스 복제  
+> * 애플리케이션 원본에서 컨테이너 이미지 만들기
+> * 로컬 Docker 환경에서 애플리케이션 테스트
 
-완료되면 다음 응용 프로그램을 로컬 개발 환경에서 액세스할 수 있습니다.
+완료되면 다음 애플리케이션을 로컬 개발 환경에서 액세스할 수 있습니다.
 
 ![Azure의 Kubernetes 클러스터 이미지](media/container-service-kubernetes-tutorials/azure-vote.png)
 
@@ -44,11 +44,11 @@ ms.locfileid: "52992370"
 
 Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필요한 Docker 구성 요소가 포함되어 있지 않습니다. 따라서 전체 Docker 개발 환경을 사용하는 것이 좋습니다.
 
-## <a name="get-application-code"></a>응용 프로그램 코드 가져오기
+## <a name="get-application-code"></a>애플리케이션 코드 가져오기
 
-이 자습서에서 사용되는 응용 프로그램 예제는 기본 투표 앱입니다. 응용 프로그램은 프런트 엔드 웹 구성 요소 및 백 엔드 Redis 인스턴스로 구성됩니다. 웹 구성 요소는 사용자 지정 컨테이너 이미지에 패키지됩니다. Redis 인스턴스는 Docker 허브에서 수정되지 않은 이미지를 사용합니다.  
+이 자습서에서 사용되는 애플리케이션 예제는 기본 투표 앱입니다. 애플리케이션은 프런트 엔드 웹 구성 요소 및 백 엔드 Redis 인스턴스로 구성됩니다. 웹 구성 요소는 사용자 지정 컨테이너 이미지에 패키지됩니다. Redis 인스턴스는 Docker 허브에서 수정되지 않은 이미지를 사용합니다.  
 
-Git을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드합니다.
+Git을 사용하여 개발 환경에 애플리케이션 복사본을 다운로드합니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
@@ -60,7 +60,7 @@ git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 cd azure-voting-app-redis
 ```
 
-해당 디렉터리에는 응용 프로그램 소스 코드, 미리 만든 Docker Compose 파일 및 Kubernetes 매니페스트 파일이 있습니다. 이러한 파일은 자습서 집합 전체에서 사용됩니다. 
+해당 디렉터리에는 애플리케이션 소스 코드, 미리 만든 Docker Compose 파일 및 Kubernetes 매니페스트 파일이 있습니다. 이러한 파일은 자습서 집합 전체에서 사용됩니다. 
 
 ## <a name="create-container-images"></a>컨테이너 이미지 만들기
 
@@ -101,7 +101,7 @@ CONTAINER ID        IMAGE             COMMAND                  CREATED          
 b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago      Up 30 seconds       0.0.0.0:6379->6379/tcp          azure-vote-back
 ```
 
-## <a name="test-application-locally"></a>로컬에서 응용 프로그램 테스트
+## <a name="test-application-locally"></a>로컬에서 애플리케이션 테스트
 
 http://localhost:8080 으로 이동하여 실행 중인 응용 프로그램을 확인합니다.
 
@@ -109,7 +109,7 @@ http://localhost:8080 으로 이동하여 실행 중인 응용 프로그램을 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-응용 프로그램 기능의 유효성을 검사했으므로 실행 중인 컨테이너를 중지하고 제거할 수 있습니다. 컨테이너 이미지를 삭제하지 마세요. 다음 자습서에서 `azure-vote-front` 이미지를 Azure Container Registry 인스턴스에 업로드합니다.
+애플리케이션 기능의 유효성을 검사했으므로 실행 중인 컨테이너를 중지하고 제거할 수 있습니다. 컨테이너 이미지를 삭제하지 마세요. 다음 자습서에서 `azure-vote-front` 이미지를 Azure Container Registry 인스턴스에 업로드합니다.
 
 다음을 실행하여 실행 중인 컨테이너를 중지합니다.
 
@@ -123,16 +123,16 @@ docker-compose stop
 docker-compose down
 ```
 
-완료되면 Azure Vote 응용 프로그램을 구성하는 컨테이너 이미지가 있는 상태가 됩니다.
+완료되면 Azure Vote 애플리케이션을 구성하는 컨테이너 이미지가 있는 상태가 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 응용 프로그램을 테스트하고 응용 프로그램에 대한 컨테이너 이미지를 만들었습니다. 다음 단계가 완료되었습니다.
+이 자습서에서는 애플리케이션을 테스트하고 애플리케이션에 대한 컨테이너 이미지를 만들었습니다. 다음 단계가 완료되었습니다.
 
 > [!div class="checklist"]
-> * GitHub에서 응용 프로그램 소스 복제  
-> * 응용 프로그램 원본에서 컨테이너 이미지 만들기
-> * 로컬 Docker 환경에서 응용 프로그램 테스트
+> * GitHub에서 애플리케이션 소스 복제  
+> * 애플리케이션 원본에서 컨테이너 이미지 만들기
+> * 로컬 Docker 환경에서 애플리케이션 테스트
 
 다음 자습서로 이동하여 Azure Container Registry에 컨테이너 이미지 저장에 대해 알아봅니다.
 

@@ -1,22 +1,23 @@
 ---
-title: Enterprise Security Package가 포함된 Azure HDInsight 클러스터의 Apache Hadoop Oozie 워크플로
-description: Linux 기반 HDInsight Enterprise Security Package에서 Hadoop Oozie를 사용합니다. 또한 Oozie 워크플로를 정의하고 Oozie 작업을 제출하는 방법에 대해서도 살펴봅니다.
+title: Enterprise Security Package를 사용하여 Apache Oozie 워크플로 보안 유지 - Azure HDInsight
+description: Azure HDInsight Enterprise Security Package를 사용하여 Apache Oozie 워크플로 보안을 유지합니다. 또한 Oozie 워크플로를 정의하고 Oozie 작업을 제출하는 방법에 대해서도 살펴봅니다.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.reviewer: mamccrea
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 298277b720045c06d78f1c4964de2246dac22f08
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0ab225d3579ed6a56c753f0c581709408c65f358
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633668"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436282"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Enterprise Security Package가 포함된 HDInsight Hadoop 클러스터에서 Apache Oozie 실행
+
 Apache Oozie는 Apache Hadoop 작업을 관리하는 워크플로 및 코디네이션 시스템입니다. Oozie는 Hadoop 스택과 통합되며 다음 작업을 지원합니다.
 - Apache MapReduce
 - Apache Pig
@@ -26,10 +27,11 @@ Apache Oozie는 Apache Hadoop 작업을 관리하는 워크플로 및 코디네�
 Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스템에 특정한 작업을 예약할 수도 있습니다.
 
 ## <a name="prerequisite"></a>필수 요소
+
 - ESP(Enterprise Security Package)가 포함된 Azure HDInsight Hadoop 클러스터입니다. [ESP가 포함된 HDInsight 클러스터 구성](./apache-domain-joined-configure-using-azure-adds.md)을 참조하세요.
 
-    > [!NOTE]
-    > ESP가 아닌 클러스터에서 Oozie 사용에 관한 자세한 지침은 [Linux 기반 Azure HDInsight에서 Hadoop Oozie 워크플로 사용](../hdinsight-use-oozie-linux-mac.md)을 참조하세요.
+    > [!NOTE]  
+    > ESP가 아닌 클러스터에서 Oozie 사용에 관한 자세한 지침은 [Linux 기반 Azure HDInsight에서 Apache Oozie 워크플로 사용](../hdinsight-use-oozie-linux-mac.md)을 참조하세요.
 
 ## <a name="connect-to-an-esp-cluster"></a>ESP 클러스터에 연결
 
@@ -50,7 +52,7 @@ ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
     **200 정상** 상태 응답 코드는 성공적인 등록을 나타냅니다. 인증되지 않은 응답이 수신되면(예: 401) 사용자 이름과 암호를 확인하세요.
 
 ## <a name="define-the-workflow"></a>워크플로 정의
-Oozie 워크플로 정의는 hPDL(Hadoop 프로세스 정의 언어)로 작성되었습니다. hPDL은 XML 프로세스 정의 언어입니다. 다음 단계를 사용하여 워크플로를 정의합니다.
+Oozie 워크플로 정의는 hPDL(Apache Hadoop 프로세스 정의 언어)로 작성되었습니다. hPDL은 XML 프로세스 정의 언어입니다. 다음 단계를 사용하여 워크플로를 정의합니다.
 
 1.  도메인 사용자의 작업 영역을 설정합니다.
  ```bash
@@ -224,8 +226,11 @@ nano workflow.xml
    이 속성 파일은 Oozie 작업을 실행할 때 로컬에 존재해야 합니다.
 
 ## <a name="create-custom-hive-scripts-for-oozie-jobs"></a>Oozie 작업에 대한 사용자 지정 Hive 스크립트 만들기
+
 다음 섹션에 나와 있는 것처럼 Hive 서버 1 및 Hive 서버 2에 대해 두 개의 Hive 스크립트를 만들 수 있습니다.
+
 ### <a name="hive-server-1-file"></a>Hive 서버 1 파일
+
 1.  Hive 서버 1 작업에 대한 파일을 만들고 편집합니다.
     ```bash
     nano countrowshive1.hql
@@ -238,12 +243,13 @@ nano workflow.xml
     select devicemake from hivesampletable limit 2;
     ```
 
-3.  파일을 HDFS(Hadoop 분산 파일 시스템)에 저장합니다.
+3.  파일을 HDFS(Apache Hadoop 분산 파일 시스템)에 저장합니다.
     ```bash
     hdfs dfs -put countrowshive1.hql countrowshive1.hql
     ```
 
 ### <a name="hive-server-2-file"></a>Hive 서버 2 파일
+
 1.  Hive 서버 2 작업에 대한 파일을 만들고 편집합니다.
     ```bash
     nano countrowshive2.hql
@@ -262,12 +268,14 @@ nano workflow.xml
     ```
 
 ## <a name="submit-oozie-jobs"></a>Oozie 작업 제출
+
 ESP 클러스터에 대한 Oozie 작업을 제출하는 것은 ESP가 아닌 클러스터에서 Oozie 작업을 제출하는 것과 유사합니다.
 
-자세한 내용은 [Hadoop과 함께 Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로 정의 및 실행](../hdinsight-use-oozie-linux-mac.md)을 참조하세요.
+자세한 내용은 [Apache Hadoop과 함께 Apache Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로 정의 및 실행](../hdinsight-use-oozie-linux-mac.md)을 참조하세요.
 
 ## <a name="results-from-an-oozie-job-submission"></a>Oozie 작업 제출 결과
-Oozie 작업은 사용자에 대해 실행됩니다. 따라서 Apache YARN 및 Apache Ranger 감사 로그는 모두 가장된 사용자로 실행 중인 작업을 표시합니다. Oozie 작업의 명령줄 인터페이스 출력은 다음 코드와 유사합니다.
+Oozie 작업은 사용자에 대해 실행됩니다. 따라서 Apache Hadoop YARN 및 Apache Ranger 감사 로그는 모두 가장된 사용자로 실행 중인 작업을 표시합니다. Oozie 작업의 명령줄 인터페이스 출력은 다음 코드와 유사합니다.
+
 
 
 ```bash
@@ -304,13 +312,15 @@ Oozie 작업은 사용자에 대해 실행됩니다. 따라서 Apache YARN 및 A
 Hive 서버 2 작업에 대한 Ranger 감사 로그는 Oozie가 사용자에 대한 작업을 실행 중임을 보여 줍니다. Ranger 및 YARN 보기는 클러스터 관리자에게만 표시됩니다.
 
 ## <a name="configure-user-authorization-in-oozie"></a>Oozie에서 사용자 권한 부여 구성
+
 Oozie는 자체적으로 사용자 권한 부여 구성을 포함하여, 사용자가 다른 사용자의 작업을 중지하거나 종료하지 못하도록 할 수 있습니다. 이 구성을 사용하도록 설정하려면 `oozie.service.AuthorizationService.security.enabled`를 `true`로 설정합니다. 
 
-자세한 내용은 [Oozie 설치 및 구성](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html)을 참조하세요.
+자세한 내용은 [Apache Oozie 설치 및 구성](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html)을 참조하세요.
 
 Hive 서버 1과 같은 구성 요소(여기서 Ranger 플러그 인은 사용 불가/지원되지 않음)의 경우 세분화되지 않은 HDFS 권한 부여만 가능합니다. 세분화된 권한 부여는 Ranger 플러그 인을 통해서만 사용할 수 있습니다.
 
 ## <a name="get-the-oozie-web-ui"></a>Oozie 웹 UI 가져오기
+
 Oozie 웹 UI는 클러스터의 Oozie 작업 상태에 대한 웹 기반 보기를 제공합니다. 웹 UI를 가져오려면 ESP 클러스터에서 다음 단계를 수행합니다.
 
 1. [에지 노드](../hdinsight-apps-use-edge-node.md)를 추가하고 [SSH Kerberos 인증](../hdinsight-hadoop-linux-use-ssh-unix.md)을 사용하도록 설정합니다.
@@ -318,6 +328,6 @@ Oozie 웹 UI는 클러스터의 Oozie 작업 상태에 대한 웹 기반 보기�
 2. [Oozie 웹 UI](../hdinsight-use-oozie-linux-mac.md) 단계에 따라 에지 노드로의 SSH 터널링을 사용하고 웹 UI에 액세스합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Hadoop과 함께 Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로를 정의 및 실행합니다](../hdinsight-use-oozie-linux-mac.md).
-* [시간 기준의 Oozie 코디네이터를 사용합니다](../hdinsight-use-oozie-coordinator-time.md).
-* [SSH를 사용하여 HDInsight(Hadoop)에 연결합니다](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* [Apache Hadoop과 함께 Apache Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로를 정의 및 실행합니다](../hdinsight-use-oozie-linux-mac.md).
+* [시간 기준의 Apache Oozie 코디네이터를 사용합니다](../hdinsight-use-oozie-coordinator-time.md).
+* [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결합니다](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

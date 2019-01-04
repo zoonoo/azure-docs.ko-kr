@@ -1,6 +1,6 @@
 ---
 title: Node.js용 Azure CDN SDK 시작하기 | Microsoft Docs
-description: Node.js 응용 프로그램을 작성하여 Azure CDN을 관리하는 방법에 대해 알아봅니다.
+description: Node.js 애플리케이션을 작성하여 Azure CDN을 관리하는 방법에 대해 알아봅니다.
 services: cdn
 documentationcenter: nodejs
 author: zhangmanling
@@ -28,9 +28,9 @@ ms.locfileid: "38301568"
 > 
 > 
 
-[Node.js용 Azure CDN SDK](https://www.npmjs.com/package/azure-arm-cdn) 를 사용하여 CDN 프로필과 끝점의 생성 및 관리를 자동화할 수 있습니다.  이 자습서에서는 여러 가지 사용 가능한 작업을 보여주는 간단한 Node.js 콘솔 응용 프로그램을 살펴봅니다.  이 자습서는 Node.js용 Azure CDN SDK의 모든 측면을 상세하게 설명하지 않습니다.
+[Node.js용 Azure CDN SDK](https://www.npmjs.com/package/azure-arm-cdn) 를 사용하여 CDN 프로필과 끝점의 생성 및 관리를 자동화할 수 있습니다.  이 자습서에서는 여러 가지 사용 가능한 작업을 보여주는 간단한 Node.js 콘솔 애플리케이션을 살펴봅니다.  이 자습서는 Node.js용 Azure CDN SDK의 모든 측면을 상세하게 설명하지 않습니다.
 
-이 자습서를 완료하려면 [Node.js](http://www.nodejs.org) **4.x.x** 이상을 설치하고 구성해야 합니다.  원하는 텍스트 편집기를 사용하여 Node.js 응용 프로그램을 만들 수 있습니다.  이 자습서를 작성하려면 [Visual Studio 코드](https://code.visualstudio.com)를 사용합니다.  
+이 자습서를 완료하려면 [Node.js](http://www.nodejs.org) **4.x.x** 이상을 설치하고 구성해야 합니다.  원하는 텍스트 편집기를 사용하여 Node.js 애플리케이션을 만들 수 있습니다.  이 자습서를 작성하려면 [Visual Studio 코드](https://code.visualstudio.com)를 사용합니다.  
 
 > [!TIP]
 > [이 자습서에서 완성된 프로젝트](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) 는 MSDN에서 다운로드할 수 있습니다.
@@ -42,7 +42,7 @@ ms.locfileid: "38301568"
 ## <a name="create-your-project-and-add-npm-dependencies"></a>프로젝트 만들기 및 NPM 종속성 추가
 CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필과 끝점을 관리하기 위한 Azure AD 응용 프로그램 권한을 부여했으므로, 응용 프로그램을 만들 수 있습니다.
 
-응용 프로그램을 저장할 폴더를 만듭니다.  현재 경로에 있는 Node.js 도구를 포함한 콘솔에서 새 폴더에 현재 위치를 설정하고 다음을 실행하여 프로젝트를 초기화합니다.
+애플리케이션을 저장할 폴더를 만듭니다.  현재 경로에 있는 Node.js 도구를 포함한 콘솔에서 새 폴더에 현재 위치를 설정하고 다음을 실행하여 프로젝트를 초기화합니다.
 
     npm init
 
@@ -120,7 +120,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
     ```
    
     올바른 정보로 **&lt;꺾쇠 괄호&gt;** 의 항목을 교체해야 합니다.  `<redirect URI>`의 경우 Azure AD에서 응용 프로그램을 등록할 때 입력한 리디렉션 URI를 사용합니다.
-4. Node.js 콘솔 응용 프로그램에서는 몇 가지 명령줄 매개 변수를 사용하려고 합니다.  적어도 하나의 매개 변수가 전달되었는지 유효성을 검사해 보겠습니다.
+4. Node.js 콘솔 애플리케이션에서는 몇 가지 명령줄 매개 변수를 사용하려고 합니다.  적어도 하나의 매개 변수가 전달되었는지 유효성을 검사해 보겠습니다.
    
    ```javascript
    //Collect command-line parameters

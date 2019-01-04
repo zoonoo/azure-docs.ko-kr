@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: e2dabc66a906d35525f51bf9a1c09b62430ded55
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a1e9647e64556a7c7f2444fa2711a2eb61d230a3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434010"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874586"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 로깅 및 감사
 
@@ -124,7 +124,7 @@ Azure AD(Azure Active Directory)에는 사용자의 디렉터리에 대한 보�
 | 보안 보고서 | 작업 보고서 | 감사 보고서 |
 | :--------------- | :--------------- | :------------ |
 |알 수 없는 원본에서 로그인| 응용 프로그램 사용: 요약| 디렉터리 감사 보고서|
-|여러 번의 실패 후 로그인|  응용 프로그램 사용: 세부||
+|여러 번의 실패 후 로그인|  애플리케이션 사용: 세부||
 |여러 지역에서의 로그인|    응용 프로그램 대시보드||
 |의심스러운 작업이 있는 IP 주소에서 로그인|   계정 프로비전 오류||
 |비정상적인 로그인 작업|    개별 사용자 디바이스||
@@ -147,7 +147,7 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다.
 
 ![Azure 진단을 사용하는 가상 머신 로그](./media/azure-log-audit/azure-log-audit-fig3.png)
 
-### <a name="azure-virtual-machineshttpsazuremicrosoftcomdocumentationlearning-pathsvirtual-machines-that-are-running-microsoft-windows-and-service-fabrichttpsdocsmicrosoftcomazureservice-fabricservice-fabric-overview"></a>Microsoft Windows와 [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)을 실행하는 [Azure 가상 머신](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
+### <a name="azure-virtual-machineslearnpathsdeploy-a-website-with-azure-virtual-machines-that-are-running-microsoft-windows-and-service-fabrichttpsdocsmicrosoftcomazureservice-fabricservice-fabric-overview"></a>Microsoft Windows와 [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)을 실행하는 [Azure 가상 머신](/learn/paths/deploy-a-website-with-azure-virtual-machines/)
 
 다음 중 하나를 수행하여 가상 머신에서 Azure 진단을 사용하도록 설정할 수 있습니다.
 
@@ -219,11 +219,11 @@ Network Watcher는 진단 로그 보기를 제공합니다. 이 보기에는 진
 
 
 앞에서 언급한 로깅 기능 외에도 Network Watcher에는 현재 다음과 같은 기능이 있습니다.
-- [토폴로지](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview): 리소스 그룹의 네트워크 리소스 간 다양한 연결 및 상호 연결을 보여 주는 네트워크 수준 보기를 제공합니다.
+- [토폴로지](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview): 리소스 그룹의 네트워크 리소스 간 다양한 연결 및 상호 연결을 보여주는 네트워크 수준 보기를 제공합니다.
 
 - [변수 패킷 캡처](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): 가상 머신의 내부 및 외부 패킷 데이터를 캡처합니다. 고급 필터링 옵션과 미세 조정 컨트롤(예: 시간 제한 및 크기 제한 설정)은 다양성을 제공합니다. 패킷 데이터는 Blob 저장소 또는 로컬 디스크에 *.cap* 파일 형식으로 저장할 수 있습니다.
 
-* [IP 흐름 확인](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): 흐름 정보의 5개 튜플 패킷 매개 변수(즉 대상 IP, 원본 IP, 대상 포트, 원본 포트 및 프로토콜)에 따라 패킷이 허용되거나 거부되는지 여부를 확인합니다. 보안 그룹에서 패킷을 거부하면 해당 패킷을 거부한 규칙과 그룹이 반환됩니다.
+* [IP 흐름 확인](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): 흐름 정보의 5가지 튜플 패킷 매개 변수(즉 대상 IP, 원본 IP, 대상 포트, 원본 포트 및 프로토콜)에 따라 패킷이 허용되거나 거부되는지 여부를 확인합니다. 보안 그룹에서 패킷을 거부하면 해당 패킷을 거부한 규칙과 그룹이 반환됩니다.
 
 * [다음 홉](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Azure 네트워크 패브릭에서 라우팅되는 패킷의 다음 홉을 결정하여 잘못 구성된 사용자 정의 경로를 진단할 수 있도록 합니다.
 
@@ -231,7 +231,7 @@ Network Watcher는 진단 로그 보기를 제공합니다. 이 보기에는 진
 
 * [Virtual Network 게이트웨이 및 연결 문제 해결](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): 가상 네트워크 게이트웨이 및 연결 문제를 해결하는 데 도움이 됩니다.
 
-* [네트워크 구독 제한](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): 제한과 대조한 네트워크 리소스 사용량을 볼 수 있습니다.
+* [네트워크 구독 제한](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): 제한 대비 네트워크 리소스 사용량을 볼 수 있습니다.
 
 ### <a name="application-insights"></a>Application Insights
 
@@ -243,11 +243,11 @@ Application Insights는 성능 및 유용성을 지속적으로 향상시킬 수
 
 ![Application Insights 다이어그램](./media/azure-log-audit/azure-log-audit-fig6.png)
 
-Application Insights는 응용 프로그램 팀에서 앱의 작동 방식과 사용 방식을 이해하는 데 도움을 주기 위해 고안되었습니다. 다음 사항을 모니터링합니다.
+Application Insights는 애플리케이션 팀에서 앱의 작동 방식과 사용 방식을 이해하는 데 도움을 주기 위해 고안되었습니다. 다음 사항을 모니터링합니다.
 
 * **요청 속도, 응답 시간 및 실패율**: 하루 중 어떤 시간에, 어떤 사용자 위치에서, 어떤 페이지가 가장 인기 있는지 확인합니다. 어떤 페이지가 가장 성능이 우수한지 확인합니다. 더 많은 요청이 있을 때 응답 시간과 실패율이 높으면 리소스 문제가 있을 수 있습니다.
 
-* **종속성 횟수, 응답 시간 및 실패율**: 외부 서비스로 인해 속도가 느려지는지 확인합니다.
+* **종속성 비율, 응답 시간 및 실패율**: 외부 서비스로 인해 속도가 느려지는지 확인합니다.
 
 * **예외**: 집계된 통계를 분석하거나 특정 인스턴스를 선택하여 스택 추적 및 관련 요청을 자세히 분석합니다. 서버 및 브라우저 예외가 전부 보고됩니다.
 
@@ -257,11 +257,11 @@ Application Insights는 응용 프로그램 팀에서 앱의 작동 방식과 �
 
 * **사용자 및 세션 수**.
 
-* **성능 카운터**: Windows 또는 Linux 서버 컴퓨터에서 CPU, 메모리 및 네트워크 사용량과 같은 데이터를 가져옵니다.
+* **성능 카운터**: Windows 또는 Linux 서버 머신에서 CPU, 메모리 및 네트워크 사용량과 같은 데이터를 가져옵니다.
 
 * **호스트 진단**: Docker 또는 Azure에서 데이터를 가져옵니다.
 
-* **진단 추적 로그**: 추적 이벤트와 요청의 상관 관계를 지정할 수 있도록 응용 프로그램에서 데이터를 가져옵니다.
+* **진단 추적 로그**: 추적 이벤트와 요청의 상관 관계를 지정할 수 있도록 앱에서 데이터를 가져옵니다.
 
 * **사용자 지정 이벤트 및 메트릭**: 판매된 품목 또는 게임 승리와 같은 비즈니스 이벤트를 추적하기 위해 클라이언트 또는 서버 코드에 직접 작성하는 데이터를 가져옵니다.
 
@@ -288,11 +288,11 @@ Azure Security Center 위협 탐지는 Azure 리소스, 네트워크 및 연결�
 
 보안 센터는 서명 기반 방식을 뛰어 넘는 고급 보안 분석을 사용합니다. 큰 데이터 및 [기계 학습](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) 기술의 혁신을 적용하여 전체 클라우드 패브릭에서 이벤트를 평가합니다. 이러한 방식으로 수동 방법을 사용하고 공격의 진화를 예측하여 식별할 수 없는 위협을 탐지합니다. 이러한 보안 분석은 다음과 같습니다.
 
-* **통합된 위협 인텔리전스**: Microsoft 제품과 서비스, Microsoft DCU(Digital Crimes Unit), MSRC(Microsoft 보안 대응 센터) 및 외부 피드에서 글로벌 위협 인텔리전스를 적용하여 알려진 악성 프로그램을 찾습니다.
+* **통합된 위협 인텔리전스**: Microsoft 제품과 서비스, Microsoft DCU(Digital Crimes Unit), MSRC(Microsoft 보안 대응 센터) 및 외부 피드에서 글로벌 위협 인텔리전스를 적용하여 알려진 악성 행위자를 찾습니다.
 
 * **동작 분석**: 알려진 패턴을 적용하여 악의적인 동작을 검색합니다.
 
-* **변칙 검색**: 통계적 프로파일링을 사용하여 기록 초기 계획을 작성합니다. 잠재적 공격 벡터를 준수하는 설정된 기준에서 편차에 대해 경고합니다.
+* **변칙 탐지**: 통계적 프로파일링을 사용하여 기록 초기 계획을 작성합니다. 잠재적 공격 벡터를 준수하는 설정된 기준에서 편차에 대해 경고합니다.
 
 많은 보안 운영 및 사고 대응 팀에서는 보안 경고를 심사하고 조사하기 위한 시작 지점으로서 SIEM 솔루션을 사용합니다. Azure Log Integration을 사용하면 Azure 진단 및 감사 로그에서 수집된 Security Center 경고와 가상 머신 보안 이벤트를 Log Analytics 또는 SIEM 솔루션과 거의 실시간으로 동기화할 수 있습니다.
 
@@ -367,13 +367,13 @@ Log Integration은 현재 Windows 가상 머신의 Azure 활동 로그 및 Windo
 |진단 로그(리소스 로그)|  yes|
 |VM 로그|   예(JSON이 아니라 전달된 이벤트를 통해)|
 
-[Azure Log Integration 시작](https://docs.microsoft.com/azure/security/security-azure-log-integration-get-started): 이 자습서에서는 Azure Log Integration을 설치하고, Azure 저장소, Azure 활동 로그, Azure Security Center 경고 및 Azure AD 감사 로그의 로그를 통합하는 방법을 안내합니다.
+[Azure Log Integration 시작](https://docs.microsoft.com/azure/security/security-azure-log-integration-get-started): 이 자습서에서는 Azure Log Integration을 설치하고, Azure 스토리지, Azure 활동 로그, Azure Security Center 경고의 로그 및 Azure AD 감사 로그를 통합하는 방법을 안내합니다.
 
 SIEM에 대한 통합 시나리오는 다음과 같습니다.
 
-* [파트너 구성 단계](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/): 이 블로그 게시물에서는 Splunk, HP ArcSight, IBM QRadar 등의 파트너 솔루션과 함께 작동하도록 Azure 로그 통합을 구성하는 방법을 보여줍니다.
+* [파트너 구성 단계](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/): 이 블로그 게시물에서는 Splunk, HP ArcSight, IBM QRadar 등의 파트너 솔루션과 함께 작동하도록 Azure Log Integration을 구성하는 방법을 보여 줍니다.
 
-* [Azure 로그 통합 FAQ](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq): 이 문서는 Azure 로그 통합에 대한 질문에 답변합니다.
+* [Azure Log Integration FAQ](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq): 이 문서는 Azure 로그 통합에 대한 질문에 답변합니다.
 
 * [Security Center 경고와 Azure Log Integration의 통합](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration): 이 문서에서는 Security Center 경고, Azure 진단 로그에서 수집한 가상 머신 보안 이벤트 및 Azure 감사 로그를 Log Analytics 또는 SIEM 솔루션과 동기화하는 방법에 대해 설명합니다.
 

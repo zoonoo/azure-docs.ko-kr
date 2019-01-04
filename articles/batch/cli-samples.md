@@ -33,7 +33,7 @@ ms.locfileid: "30316082"
 | [Batch 서비스 모드에서 Batch 계정 만들기](./scripts/batch-cli-sample-create-account.md) | 기본 모드에서 Batch 계정을 만들고 저장소 계정과 연결합니다. |
 | [사용자 구독 모드에서 Batch 계정 만들기](./scripts/batch-cli-sample-create-user-subscription-account.md) | 사용자 구독 모드에서 Batch 계정을 만듭니다. |
 |**응용 프로그램 추가**||
-| [Batch 계정에 응용 프로그램 추가](./scripts/batch-cli-sample-add-application.md) | 응용 프로그램을 추가하고 패키지된 이진 파일을 업로드합니다.|
+| [Batch 계정에 응용 프로그램 추가](./scripts/batch-cli-sample-add-application.md) | 애플리케이션을 추가하고 패키지된 이진 파일을 업로드합니다.|
 |**계산 노드 풀 만들기 및 관리**||
 | [Linux 풀 만들기 및 관리](./scripts/batch-cli-sample-manage-linux-pool.md) | Linux 풀을 만들고, 크기를 조정하고, 관리하는 방법을 보여줍니다. |
 | [Windows 풀 만들기 및 관리](./scripts/batch-cli-sample-manage-windows-pool.md) | Windows 풀을 만들고, 크기를 조정하고, 관리하는 방법을 보여줍니다. |

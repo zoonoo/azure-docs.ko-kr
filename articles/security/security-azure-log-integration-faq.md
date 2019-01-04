@@ -29,13 +29,13 @@ ms.locfileid: "35236266"
 >[!IMPORTANT]
 > Azure Log Integration 기능은 2019년 6월 1일에 사용 중지될 예정입니다. AzLog 다운로드는 2018년 6월 27일에 비활성화됩니다. 향후 작업 진행 방향에 대한 지침은 게시물 [Azure Monitor를 사용하여 SIEM 도구와 통합](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)을 검토하세요. 
 
-Azure 로그 통합은 Azure 리소스의 원시 로그를 온-프레미스 SIEM(보안 정보 및 이벤트 관리) 시스템에 통합하는 데 사용할 수 있는 Windows 운영 체제 서비스입니다. 이 통합은 모든 자산, 온-프레미스 또는 클라우드에 대한 통합 대시보드를 제공합니다. 그런 다음 응용 프로그램과 관련된 보안 이벤트를 집계, 상관 관계 설정, 분석 및 경고할 수 있습니다.
+Azure 로그 통합은 Azure 리소스의 원시 로그를 온-프레미스 SIEM(보안 정보 및 이벤트 관리) 시스템에 통합하는 데 사용할 수 있는 Windows 운영 체제 서비스입니다. 이 통합은 모든 자산, 온-프레미스 또는 클라우드에 대한 통합 대시보드를 제공합니다. 그런 다음, 애플리케이션과 관련된 보안 이벤트를 집계, 상관 관계 설정, 분석 및 경고할 수 있습니다.
 
 Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure Monitor 커넥터를 사용하고 다음 [지침](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)을 따르는 것입니다. 하지만, SIEM 공급업체에서 Azure Monitor에 대한 커넥터를 제공하지 않은 경우에는 해당 커넥터를 사용할 수 있을 때까지 임시 해결책으로 Azure Log Integration을 사용할 수 있습니다(Azure Log Integration에서 해당 SIEM이 지원되는 경우).
 
 ## <a name="is-the-azure-log-integration-software-free"></a>Azure 로그 통합 소프트웨어는 무료입니까?
 
-예. Azure 로그 통합 소프트웨어는 무료입니다.
+ 예. Azure 로그 통합 소프트웨어는 무료입니다.
 
 ## <a name="where-is-azure-log-integration-available"></a>Azure 로그 통합은 어디에서 사용할 수 있나요?
 

@@ -1,21 +1,22 @@
 ---
-title: '자습서 5: 부모/자식 관계 - 컨텍스트에 따라 학습된 데이터에 대한 LUIS 계층 구조 엔터티'
+title: 계층적 엔터티
 titleSuffix: Azure Cognitive Services
 description: 컨텍스트를 기반으로 관련 데이터 조각을 찾습니다. 예를 들어 한 건물과 사무실에서 다른 건물과 사무실로 이사할 경우 출발지 및 목적지 위치는 서로 관련이 있습니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: d3b8d0597f0732a4a3cfab79125a885b2d141c9f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a79c0091220e2980101471abaaa0aaf4c0a898ca
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424708"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104410"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>자습서 5: 컨텍스트 관련 데이터 추출
 이 자습서에서는 컨텍스트를 기반으로 관련 데이터 조각을 찾습니다. 예를 들어 한 건물과 사무실에서 다른 건물과 사무실로 이사할 경우 출발지 및 목적지 위치는 서로 관련이 있습니다. 작업 순서를 생성하려면 두 데이터 조각이 모두 필요하며, 서로 관련이 있습니다.  
@@ -32,7 +33,6 @@ ms.locfileid: "52424708"
 
 **이 자습서에서는 다음 방법에 대해 알아봅니다.**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * 기존 자습서 앱 사용
 > * 의도 추가 
@@ -55,7 +55,7 @@ ms.locfileid: "52424708"
 3. **관리** 섹션의 **버전** 탭에서 버전을 복제하고 `hier`라는 이름을 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 버전 이름이 URL 경로의 일부로 사용되므로 이름에는 URL에 유효하지 않은 문자가 포함될 수 없습니다. 
 
 ## <a name="remove-prebuilt-number-entity-from-app"></a>앱에서 미리 작성된 숫자 엔터티를 제거합니다.
-전체 발언을 살펴보고 계층적 자식을 표시하려면 미리 작성된 숫자 엔터티를 일시적으로 제거해야 합니다.
+전체 발화를 살펴보고 계층적 자식을 표시하려면 [미리 작성된 숫자 엔터티를 일시적으로 제거](luis-prebuilt-entities.md#marking-entities-containing-a-prebuilt-entity-token)해야 합니다. 
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
@@ -90,32 +90,32 @@ LUIS는 발언의 원래 위치와 대상 위치에 레이블을 지정하여 �
 
 다음 발화를 살펴보겠습니다.
 
-```JSON
+```json
 mv Jill Jones from a-2349 to b-1298
 ```
 
-발언에는 두 위치 `a-2349` 및 `b-1298`이 있습니다. 문자는 건물 이름과 일치하고 숫자는 건물 내 사무실을 나타낸다고 가정합니다. 둘 다 계층적 엔터티의 자식인 `Locations`로 그룹화할 수 있습니다. 두 데이터 모두 발언에서 추출하여 클라이언트 응용 프로그램의 요청을 완료해야 하고 서로 관련되어 있기 때문입니다. 
+발언에는 두 위치 `a-2349` 및 `b-1298`이 있습니다. 문자는 건물 이름과 일치하고 숫자는 건물 내 사무실을 나타낸다고 가정합니다. 둘 다 계층적 엔터티의 자식인 `Locations`로 그룹화할 수 있습니다. 두 데이터 모두 발언에서 추출하여 클라이언트 애플리케이션의 요청을 완료해야 하고 서로 관련되어 있기 때문입니다. 
  
 계층적 엔터티의 자식(원본 또는 대상)이 하나만 있는 경우에도 추출됩니다. 하나 또는 일부를 추출하기 위해 모든 자식을 검색할 필요가 없습니다. 
 
 1. `Displace 425-555-0000 away from g-2323 toward hh-2345` 발화에서 `g-2323`이라는 단어를 선택합니다. 텍스트 상자가 맨 위에 있는 드롭다운 메뉴가 표시됩니다. 텍스트 상자에서 `Locations`이라는 엔터티 이름을 입력한 다음, 드롭다운 메뉴에서 **새 엔터티 만들기**를 선택합니다. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "의도 페이지에서 새 엔터티 만들기의 스크린샷")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
+    [![의도 페이지에서 새 엔터티 만들기의 스크린샷](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "의도 페이지에서 새 엔터티 만들기의 스크린샷")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
 
 2. 팝업 창에서 자식 엔터티로 `Origin` 및 `Destination`이 있는 **계층적** 엔터티 형식을 선택합니다. **완료**를 선택합니다.
 
-    ![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "새 위치 엔터티에 대한 엔터티 만들기 팝업 대화 상자의 스크린샷")
+    ![새 위치 엔터티에 대한 엔터티 만들기 팝업 대화 상자의 스크린샷](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "새 위치 엔터티에 대한 엔터티 만들기 팝업 대화 상자의 스크린샷")
 
 3. LUIS에서 용어가 원본, 대상 또는 둘 다인지 인식하지 못하므로 `g-2323`에 대한 레이블은 `Locations`으로 표시됩니다. `g-2323`을 선택하고, **위치**를 선택하고, 오른쪽 메뉴를 따라 `Origin`을 선택합니다.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "위치 엔터티 자식을 변경하는 엔터티 레이블 지정 팝업 대화 상자의 스크린샷")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
+    [![위치 엔터티 자식을 변경하는 엔터티 레이블 지정 팝업 대화 상자의 스크린샷](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "위치 엔터티 자식을 변경하는 엔터티 레이블 지정 팝업 대화 상자의 스크린샷")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
 
 5. 발언에서 건물 및 사무실을 선택하고, 위치를 선택하고, 오른쪽 메뉴를 따라 `Origin` 또는 `Destination`을 선택하여 다른 모든 발언의 다른 위치에 레이블을 지정합니다. 모든 위치에 레이블이 지정되면 **토큰 보기**의 발언이 패턴처럼 보이기 시작합니다. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "발언에서 레이블이 지정된 위치 엔터티의 스크린샷")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
+    [![발화에서 레이블이 지정된 위치 엔터티의 스크린샷](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "발화에서 레이블이 지정된 위치 엔터티의 스크린샷")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
 
 ## <a name="add-prebuilt-number-entity-to-app"></a>미리 작성된 숫자 엔터티를 앱에 추가
-미리 작성된 숫자 엔터티를 다시 응용 프로그램에 추가합니다.
+미리 작성된 숫자 엔터티를 다시 애플리케이션에 추가합니다.
 
 1. 왼쪽 탐색 메뉴에서 **엔터티**를 선택합니다.
 
@@ -140,7 +140,7 @@ mv Jill Jones from a-2349 to b-1298
 
 2. 주소 표시줄의 URL 끝으로 이동하여 `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 이 발화는 레이블이 있는 발화와 같지 않으므로 좋은 테스트이므로 추출된 계층적 엔터티와 함께 `MoveEmployee` 의도를 반환해야 합니다.
 
-    ```JSON
+    ```json
     {
       "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
       "topScoringIntent": {

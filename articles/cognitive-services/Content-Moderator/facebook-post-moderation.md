@@ -10,14 +10,14 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: ead8c1d445bf32ecaaf236b4e73c2a583c755049
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 048f2f40714fd7675c073337825d75443e58039b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223941"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255434"
 ---
-# <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>자습서: Content Moderator를 사용한 Facebook 콘텐츠 조정
+# <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>자습서: Content Moderator를 사용하여 Facebook 콘텐츠 조정
 
 이 자습서에서는 기계 학습 기반 Content Moderator를 사용하여 Facebook 게시물 및 의견을 조정하는 방법을 알아봅니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "47223941"
 1. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) 페이지에 표시된 대로 Azure 함수 앱을 만듭니다.
 2. 새로 만든 함수 앱을 엽니다.
 3. 앱 내에서 **플랫폼 기능 -> 응용 프로그램 설정**으로 이동합니다.
-4. 다음 [응용 프로그램 설정](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings)을 정의합니다.
+4. 다음 [애플리케이션 설정](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings)을 정의합니다.
 
 > [!NOTE]
 > **cm: Region**은 지역의 이름이어야 합니다(공백 없이).
@@ -160,7 +160,7 @@ Microsoft Cognitive Services SDK 및 샘플은 모두 MIT 라이선스를 통해
 ## <a name="next-steps"></a>다음 단계
 
 1. Microsoft Build 2017에서 이 솔루션의 [데모(비디오)를 봅니다](https://channel9.msdn.com/Events/Build/2017/T6033).
-1. [Github의 Facebook 샘플](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
+1. [GitHub의 Facebook 샘플](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
 1. https://docs.microsoft.com/azure/azure-functions/functions-create-github-webhook-triggered-function
 2. http://ukimiawz.github.io/facebook/2015/08/12/webhook-facebook-subscriptions/
 3. http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token

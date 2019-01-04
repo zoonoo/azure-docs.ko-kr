@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric CLI(sfctl) 스크립트 제거 샘플
-description: Azure Service Fabric CLI를 사용하여 Azure Service Fabric 클러스터에 응용 프로그램 제거
+description: Azure Service Fabric CLI를 사용하여 Azure Service Fabric 클러스터에 애플리케이션 제거
 services: service-fabric
 documentationcenter: ''
 author: TylerMSFT
@@ -22,9 +22,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/17/2018
 ms.locfileid: "39069314"
 ---
-# <a name="remove-an-application-from-a-service-fabric-cluster"></a>Service Fabric 클러스터에서 응용 프로그램 제거
+# <a name="remove-an-application-from-a-service-fabric-cluster"></a>Service Fabric 클러스터에서 애플리케이션 제거
 
-이 샘플 스크립트는 실행 중인 Service Fabric 응용 프로그램 인스턴스를 삭제한 다음, 클러스터에서 응용 프로그램 유형 및 버전의 등록을 취소합니다.  응용 프로그램 인스턴스를 삭제하면 해당 응용 프로그램과 연결된 실행 중인 모든 서비스 인스턴스도 삭제됩니다. 다음으로 응용 프로그램 파일을 이미지 저장소에서 삭제합니다. 
+이 샘플 스크립트는 실행 중인 Service Fabric 애플리케이션 인스턴스를 삭제한 다음, 클러스터에서 애플리케이션 유형 및 버전의 등록을 취소합니다.  애플리케이션 인스턴스를 삭제하면 해당 애플리케이션과 연결된 실행 중인 모든 서비스 인스턴스도 삭제됩니다. 다음으로 애플리케이션 파일을 이미지 저장소에서 삭제합니다. 
 
 필요한 경우 [Service Fabric CLI](../service-fabric-cli.md)를 설치합니다.
 

@@ -2,7 +2,7 @@
 title: Azure Active Directory ID 보호 활성화 | Microsoft Docs
 description: Azure Active Directory ID 보호를 활성화하는 방법에 대해 알아봅니다.
 services: active-directory
-keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
+keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 애플리케이션 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -43,7 +43,7 @@ Azure Active Directory ID 보호는 Azure AD(Azure Active Directory)의 기능�
    
     ![만들기](./media/enable/01.png "만들기")
 
-3. 응용 프로그램 목록에서 **ID**를 클릭합니다.
+3. 애플리케이션 목록에서 **ID**를 클릭합니다.
    
     ![만들기](./media/enable/05.png "만들기")
 

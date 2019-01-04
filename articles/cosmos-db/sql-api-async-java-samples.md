@@ -28,7 +28,7 @@ ms.locfileid: "52880066"
 > 
 > 
 
-Azure Cosmos DB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수행하는 최신 응용 프로그램 예제는 [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java) GitHub 리포지토리에 포함되어 있습니다. 이 문서는 다음을 제공합니다.
+Azure Cosmos DB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수행하는 최신 애플리케이션 예제는 [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java) GitHub 리포지토리에 포함되어 있습니다. 이 문서는 다음을 제공합니다.
 
 * 각 예제 비동기 Java 프로젝트 파일에서 작업에 연결합니다. 
 * 관련된 API 참조 콘텐츠에 대한 링크입니다.
@@ -41,7 +41,7 @@ Azure Cosmos DB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업�
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-이 응용 프로그램 예제를 실행하려면 다음이 필요합니다.
+이 애플리케이션 예제를 실행하려면 다음이 필요합니다.
 
 * Java Development Kit 8
 * Microsoft Azure Cosmos DB Java SDK

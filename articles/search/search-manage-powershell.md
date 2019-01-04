@@ -1,5 +1,5 @@
 ---
-title: Powershell 스크립트를 사용하여 Azure Search 관리 | Microsoft Docs
+title: Powershell 스크립트를 사용하여 Azure Search 서비스 관리 - Azure Search
 description: PowerShell 스크립트를 사용하여 Azure Search 서비스를 관리합니다. Azure Search 서비스 만들기 또는 업데이트 및 Azure Search 관리자 키 관리
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/15/2016
 ms.author: heidist
-ms.openlocfilehash: bae9e2dcb4320c1da4f1d8e3c6ad50ce90195544
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.custom: seodec2018
+ms.openlocfilehash: c05a2ceb7cc515691af91652c968b73c72029db4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958570"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313465"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>PowerShell을 사용한 Azure Search 서비스 관리
 > [!div class="op_single_selector"]
@@ -126,7 +127,7 @@ Microsoft Azure 로그인 대화 상자에서 Azure 계정의 메일 주소 및 
     $resource | Remove-AzureRmResource
 
 ## <a name="next-steps"></a>다음 단계
-이제 서비스를 만들었으므로 다음 단계를 수행할 수 있습니다. [인덱스](search-what-is-an-index.md)를 빌드하고 [인덱스를 쿼리](search-query-overview.md)하며 마지막으로 Azure Search를 사용하는 고유의 검색 응용 프로그램을 만들고 관리합니다.
+이제 서비스를 만들었으므로 다음 단계를 수행할 수 있습니다. [인덱스](search-what-is-an-index.md)를 빌드하고 [인덱스를 쿼리](search-query-overview.md)하며 마지막으로 Azure Search를 사용하는 고유의 검색 애플리케이션을 만들고 관리합니다.
 
 * [Azure Portal에서 Azure Search 인덱스 만들기](search-create-index-portal.md)
 * [Azure Portal에서 검색 탐색기를 사용하여 Azure Search 인덱스 쿼리](search-explorer.md)

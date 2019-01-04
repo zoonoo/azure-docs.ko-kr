@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 다중 계층 응용 프로그램용 네트워크 만들기 | Microsoft Docs
+title: Azure PowerShell 스크립트 샘플 - 다중 계층 애플리케이션용 네트워크 만들기 | Microsoft Docs
 description: Azure PowerShell 스크립트 샘플 - 다중 계층 애플리케이션을 위한 가상 네트워크를 만듭니다.
 services: virtual-network
 documentationcenter: virtual-network

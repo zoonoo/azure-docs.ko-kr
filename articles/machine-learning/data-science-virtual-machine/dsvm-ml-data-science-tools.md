@@ -1,11 +1,12 @@
 ---
 title: 기계 학습 및 데이터 과학 도구 ‑ Azure 기계 | Microsoft Docs
-description: 기계 학습 및 데이터 과학 도구
+description: 기계 학습 도구 및 Data Science Virtual Machine에 사전 설치된 프레임워크에 대해 알아봅니다.
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 9308c51c0ff5fc7278eab632f9d23f23cf016a2a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: d8c607b5f1d338ca3a2bd3844b26ef51d801c720
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901671"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086073"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>기계 학습 및 데이터 과학 도구
 Azure Data Science Virtual Machines에는 Python, R, Julia와 같이 인기 있는 언어에서 사용할 수 있는 ML(기계 학습)을 위한 다양한 도구 및 라이브러리 집합이 있습니다. 
@@ -31,7 +32,7 @@ Azure Data Science Virtual Machines에는 Python, R, Julia와 같이 인기 있�
 |    |           |
 | ------------- | ------------- |
 | 무엇인가요?   |   Azure Machine Learning은 ML 모델을 개발하고 배포하는 데 사용할 수 있는 클라우드 서비스입니다. Python SDK를 사용하여 모델을 빌드, 학습, 확장 및 관리하는 대로 추적할 수 있습니다. 모델을 컨테이너로 배포하고 클라우드, 온-프레미스 또는 Azure IoT Edge에서 실행합니다.   |
-| 지원되는 버전     | Windows(Conda 환경: AzureML), Linux(Conda 환경: py36)    |
+| 지원되는 버전     | Windows(conda 환경: AzureML), Linux(conda 환경: py36)    |
 | 일반적인 사용 용도      | 일반 ML 플랫폼      |
 | 구성/설치 방법      |  GPU 지원과 함께 설치됨   |
 | 사용/실행 방법      | Python SDK 및 Azure CLI의 경우. Windows 버전에서 conda 환경 `AzureML`로 ‘또는’ Linux 버전에서 `py36`으로 활성화합니다.      |

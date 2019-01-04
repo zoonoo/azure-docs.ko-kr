@@ -7,16 +7,16 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 77615705ade42a2afcc8e3a9f662b0551a2411fd
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: daf4a6142c0e30fa7b8534e5598cec39c69079c0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582455"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184052"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Azure IoT Hub의 디바이스 연결 이벤트 정렬
 
-Azure Event Grid를 사용하면 이벤트 기반 응용 프로그램을 빌드하고 비즈니스 솔루션에서 IoT 이벤트를 쉽게 통합할 수 있습니다. 이 문서에서는 Cosmos DB에 최신 디바이스 연결 상태를 저장하고 추적하는 데 사용할 수 있는 설정을 설명합니다. 디바이스 연결됨 및 디바이스 연결 끊김 이벤트에 사용할 수 있는 시퀀스 번호를 사용하고 Cosmos DB에 최신 상태를 저장합니다. Cosmos DB의 컬렉션에 대해 실행되는 응용 프로그램 논리인 저장 프로시저를 사용하려고 합니다.
+Azure Event Grid를 사용하면 이벤트 기반 애플리케이션을 빌드하고 비즈니스 솔루션에서 IoT 이벤트를 쉽게 통합할 수 있습니다. 이 문서에서는 Cosmos DB에 최신 디바이스 연결 상태를 저장하고 추적하는 데 사용할 수 있는 설정을 설명합니다. 디바이스 연결됨 및 디바이스 연결 끊김 이벤트에 사용할 수 있는 시퀀스 번호를 사용하고 Cosmos DB에 최신 상태를 저장합니다. Cosmos DB의 컬렉션에 대해 실행되는 애플리케이션 논리인 저장 프로시저를 사용하려고 합니다.
 
 시퀀스 번호는 16진수 숫자에 대한 문자열 표현입니다. 문자열 비교를 사용하여 더 큰 숫자를 식별할 수 있습니다. 문자열을 16진수로 변환하면 숫자는 256비트 숫자가 됩니다. 시퀀스 번호는 절대적으로 증가하며 최신 이벤트는 다른 이벤트보다 번호가 높습니다. Azure Event Grid에서는 이벤트 정렬이 지원되지 않기 때문에 시퀀스 번호는 디바이스를 자주 연결하고 연결을 끊는 경우, 다운 스트림 작업을 트리거하는 데 최신 이벤트만 사용되도록 하려는 경우에 유용합니다.
 
@@ -200,11 +200,11 @@ Azure Event Grid를 사용하면 이벤트 기반 응용 프로그램을 빌드�
 
 2. 디바이스 연결됨 및 디바이스 연결 끊김 이벤트에 대해서만 실행하도록 아래에 표시된 대로 조건을 채웁니다.
 
-  * 값 **eventType**을 선택합니다.
-  * "다음과 같음"을 **다음으로 끝남**으로 변경합니다.
-  * 값 **중첩됨**을 선택합니다.
+   * 값 **eventType**을 선택합니다.
+   * "다음과 같음"을 **다음으로 끝남**으로 변경합니다.
+   * 값 **중첩됨**을 선택합니다.
 
-   ![조건 채우기](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
+     ![조건 채우기](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
 3. 조건이 true이면 **작업 추가**를 클릭합니다.
   
@@ -248,13 +248,13 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
 4. 다음 값을 가진 이벤트 구독을 만듭니다. 
 
-   * **이벤트 유형**: 모든 이벤트 유형에 대한 구독의 선택을 취소하고, 메뉴에서 **장치 연결됨**과 **장치 연결 끊김**을 선택합니다.
+   * **이벤트 유형**: 모든 이벤트 유형에 대한 가입의 선택을 취소하고, 메뉴에서 **디바이스 연결됨**과 **디바이스 연결 끊김**을 선택합니다.
 
-   * **엔드포인트 정보**: [엔드포인트 유형]을 **webhook**로 선택하고, [엔드포인트 선택]을 클릭하고, 논리 앱에서 복사한 URL을 붙여넣고, 선택한 항목을 확인합니다.
+   * **엔드포인트 정보**: 엔드포인트 유형으로 **웹후크**로 선택하고, 엔드포인트 선택을 클릭한 후, 논리 앱에서 복사한 URL을 붙여넣고, 선택한 항목을 확인합니다.
 
        ![엔드포인트 URL 선택](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
 
-   * **이벤트 구독 정보**: 설명이 포함된 이름을 제공하고 **Event Grid 스키마**를 선택합니다.
+   * **이벤트 구독 정보**: 설명이 포함된 이름을 제공하고, **Event Grid 스키마**를 선택합니다.
    양식은 다음 예제와 유사합니다. 
 
        ![샘플 이벤트 구독 양식](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
@@ -271,7 +271,7 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
 2. **추가**를 선택합니다.
 
-3. **장치 ID**에 대해 `Demo-Device-1`를 입력합니다.
+3. **디바이스 ID**로 `Demo-Device-1`를 입력합니다.
 
 4. **저장**을 선택합니다. 
 
@@ -289,7 +289,7 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
 [Raspberry Pi 시뮬레이터 시작](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
 
-### <a name="run-a-sample-application-on-the-raspberry-pi-web-simulator"></a>Raspberry Pi 웹 시뮬레이터에서 샘플 응용 프로그램 실행
+### <a name="run-a-sample-application-on-the-raspberry-pi-web-simulator"></a>Raspberry Pi 웹 시뮬레이터에서 샘플 애플리케이션 실행
 
 그러면 디바이스 연결됨 이벤트가 트리거됩니다.
 
@@ -303,9 +303,9 @@ IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 �
 
    ![결과를 내는 방법](./media/iot-hub-how-to-order-connection-state-events/raspmsg.png)
 
-   **중지**를 클릭하여 시뮬레이터를 중지하고 **장치 연결 끊김** 이벤트를 트리거합니다.
+   **중지**를 클릭하여 시뮬레이터를 중지하고 **디바이스 연결 끊김** 이벤트를 트리거합니다.
 
-샘플 응용 프로그램을 실행하고 센서 데이터를 수집하여 IoT Hub로 전송했습니다. 
+샘플 애플리케이션을 실행하고 센서 데이터를 수집하여 IoT Hub로 전송했습니다. 
 
 ### <a name="observe-events-in-cosmos-db"></a>Cosmos DB에서 이벤트 관찰
 

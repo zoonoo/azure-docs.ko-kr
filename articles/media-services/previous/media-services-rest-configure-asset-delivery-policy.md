@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: d6f18363cceaf279d92ada77f52d39b7f1d12f65
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dea12d7188b716b4a832a33bb173201e68dbe20f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785972"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189747"
 ---
 # <a name="configuring-asset-delivery-policies"></a>자산 배달 정책 구성
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -28,10 +28,10 @@ ms.locfileid: "33785972"
 
 이 항목에서는 자산 배달 정책을 만들고 구성하는 이유와 방법을 설명합니다.
 
->[!NOTE]
->AMS 계정이 만들어질 때 **기본** 스트리밍 끝점은 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점은 **실행** 상태에 있어야 합니다. 
+> [!NOTE]
+> AMS 계정이 만들어질 때 **기본** 스트리밍 엔드포인트는 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트는 **실행** 상태에 있어야 합니다. 
 >
->또한 동적 패키징 및 동적 암호화를 사용하려면 자산이 적응 비트 전송률 MP4 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합을 포함해야 합니다.
+> 또한 동적 패키징 및 동적 암호화를 사용하려면 자산이 적응 비트 전송률 MP4 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합을 포함해야 합니다.
 
 동일한 자산에 다른 정책을 적용할 수 있습니다. 예를 들어, 부드러운 스트리밍에 PlayReady 암호화, MPEG DASH 및 HLS에 AES 봉투(envelope) 암호화를 적용할 수 있습니다. 배달 정책에 정의되지 않은 모든 프로토콜(예: HLS만 프로토콜로 지정하는 단일 정책)은 스트리밍에서 차단됩니다. 정의한 자산 배달 정책이 없는 경우는 예외입니다. 이렇게 하면 모든 프로토콜이 허용됩니다.
 
@@ -62,9 +62,9 @@ MPEG DASH
 * 단일 자산과 여러 자산 배달 정책을 연결하여 사용할 수 있지만 지정된 AssetDeliveryProtocol을 처리하는 방법은 하나만 지정할 수 있습니다.  즉, AssetDeliveryProtocol.SmoothStreaming 프로토콜을 지정하는 두 가지 배달 정책을 연결하려는 경우 클라이언트가 부드러운 스트리밍을 요청할 때 시스템이 어떤 정책을 적용할지 모르기 때문에 오류가 발생합니다.
 * 기존 스트리밍 로케이터를 사용하는 자산이 있는 경우 해당 자산에 새 정책을 연결, 자산에서 기존 정책의 연결 해제 또는 자산과 연결된 배달 정책을 업데이트할 수 없습니다.  먼저 스트리밍 로케이터를 제거하고, 정책을 조정한 다음, 스트리밍 로케이터를 다시 만들어야 합니다.  스트리밍 로케이터를 다시 만들 때 동일한 locatorId를 사용할 수 있지만 원본 또는 다운스트림 CDN이 콘텐츠를 캐시할 수 있으므로 클라이언트에 문제가 발생하지 않는지 확인해야 합니다.
 
->[!NOTE]
-
->Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
+> [!NOTE]
+> 
+> Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
 
 ## <a name="connect-to-media-services"></a>Media Services에 연결
 
@@ -72,7 +72,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
 
 ## <a name="clear-asset-delivery-policy"></a>자산 배달 정책 지우기
 ### <a id="create_asset_delivery_policy"></a>자산 배달 정책 만들기
-다음 HTTP 요청은 동적 암호화를 적용하지 않고 MPEG DASH, HLS 및 부드러운 스트리밍 프로토콜 중 하나에서 스트림을 배달하도록 지정하는 자산 배달 정책을 만듭니다. 
+다음 HTTP 요청은 동적 암호화를 적용하지 않고  MPEG DASH, HLS 및 부드러운 스트리밍 프로토콜 중 하나에서 스트림을 배달하도록 지정하는 자산 배달 정책을 만듭니다. 
 
 AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세한 정보는 [AssetDeliveryPolicy를 정의할 때 사용되는 형식](#types) 섹션을 참조하세요.   
 
@@ -145,7 +145,7 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
 
 ## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>DynamicEnvelopeEncryption 자산 배달 정책
 ### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>EnvelopeEncryption 형식의 콘텐츠 키를 만들고 자산에 연결
-DynamicEnvelopeEncryption 배달 정책을 지정할 때 EnvelopeEncryption 형식의 콘텐츠 키에 자산을 연결해야 합니다. 자세한 내용은 [콘텐츠 키 만들기](media-services-rest-create-contentkey.md)를 참조하세요.
+DynamicEnvelopeEncryption 배달 정책을 지정할 때 EnvelopeEncryption 형식의 콘텐츠 키에 자산을 연결해야 합니다. 자세한 내용은 다음을 참조하세요. [콘텐츠 키 만들기](media-services-rest-create-contentkey.md)).
 
 ### <a id="get_delivery_url"></a>배달 URL 가져오기
 이전 단계에서 만든 콘텐츠 키의 지정된 배달 방법에 대한 배달 URL을 가져옵니다. 클라이언트는 보호된 콘텐츠를 재생하기 위해 AES 키 또는 PlayReady 라이선스를 요청하여 반환된 URL을 사용합니다.
@@ -227,11 +227,11 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
 
 
 ### <a name="link-asset-with-asset-delivery-policy"></a>자산을 자산 배달 정책과 연결
-[자산을 자산 배달 정책과 연결](#link_asset_with_asset_delivery_policy)
+ [자산을 자산 배달 정책과 연결](#link_asset_with_asset_delivery_policy)
 
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption 자산 배달 정책
 ### <a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a>CommonEncryption 형식의 콘텐츠 키를 만들고 자산에 연결
-DynamicCommonEncryption 배달 정책을 지정할 때 CommonEncryption 형식의 콘텐츠 키에 자산을 연결해야 합니다. 자세한 내용은 [콘텐츠 키 만들기](media-services-rest-create-contentkey.md)를 참조하세요.
+DynamicCommonEncryption 배달 정책을 지정할 때 CommonEncryption 형식의 콘텐츠 키에 자산을 연결해야 합니다. 자세한 내용은 다음을 참조하세요. [콘텐츠 키 만들기](media-services-rest-create-contentkey.md)).
 
 ### <a name="get-delivery-url"></a>배달 URL 가져오기
 이전 단계에서 만든 콘텐츠 키의 PlayReady 배달 방법에 대한 배달 URL을 가져옵니다. 클라이언트는 보호된 콘텐츠를 재생하기 위해 PlayReady 라이선스를 요청하여 반환된 URL을 사용합니다. 자세한 내용은 [배달 URL 가져오기](#get_delivery_url)를 참조하세요.
@@ -270,7 +270,7 @@ Widevine DRM을 사용하여 콘텐츠를 보호하려는 경우 값 7인 Widevi
 > 
 
 ### <a name="link-asset-with-asset-delivery-policy"></a>자산을 자산 배달 정책과 연결
-[자산을 자산 배달 정책과 연결](#link_asset_with_asset_delivery_policy)
+ [자산을 자산 배달 정책과 연결](#link_asset_with_asset_delivery_policy)
 
 ## <a id="types"></a>AssetDeliveryPolicy를 정의할 때 사용되는 형식
 

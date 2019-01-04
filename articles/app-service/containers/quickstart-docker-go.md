@@ -1,6 +1,6 @@
 ---
-title: Azure Web App for Containers에 Docker/Go 앱 배포
-description: Web Apps for Containers에 Go 응용 프로그램을 실행하는 Docker 이미지를 배포하는 방법입니다.
+title: Linux에서 Docker/Go 앱 만들기 - Azure App Service
+description: Web Apps for Containers에 Go 애플리케이션을 실행하는 Docker 이미지를 배포하는 방법입니다.
 keywords: Azure App Service, 웹앱, Go, Docker, 컨테이너
 services: app-service
 author: msangapu
@@ -11,17 +11,17 @@ ms.devlang: go
 ms.topic: quickstart
 ms.date: 01/17/2018
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: f1d58adcc017367a3de8ee6130a3333f86fb501c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: 36a6b73a6e358104f22d64b00f436a219f29bbd4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423248"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251881"
 ---
 # <a name="deploy-a-dockergo-web-app-in-web-app-for-containers"></a>Web App for Containers에 Docker/Go 웹앱 배포
 
-[App Service Linux](app-service-linux-intro.md)는 .NET, PHP, Node.js 등과 같은 언어에 대한 지원을 통해 Linux에 미리 정의된 응용 프로그램 스택을 제공합니다. 또한 사용자 지정 Docker 이미지를 사용하여 Azure에 아직 정의되지 않은 응용 프로그램 스택에 웹앱을 실행할 수도 있습니다. 이 빠른 시작에서는 웹앱을 만들고 Docker 허브에서 Go 이미지를 배포하는 방법을 설명합니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만듭니다.
+[App Service Linux](app-service-linux-intro.md)는 .NET, PHP, Node.js 등과 같은 언어에 대한 지원을 통해 Linux에 미리 정의된 응용 프로그램 스택을 제공합니다. 또한 사용자 지정 Docker 이미지를 사용하여 Azure에 아직 정의되지 않은 애플리케이션 스택에 웹앱을 실행할 수도 있습니다. 이 빠른 시작에서는 웹앱을 만들고 Docker 허브에서 Go 이미지를 배포하는 방법을 설명합니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만듭니다.
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-docker-go/hello-world-in-browser.png)
 
@@ -70,7 +70,7 @@ http://<app_name>.azurewebsites.net/hello
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-docker-go/hello-world-in-browser.png)
 
-**축하합니다.** Go 응용 프로그램을 실행하는 사용자 지정 Docker 이미지가 Web Apps for Containers에 배포되었습니다.
+**축하합니다.** Go 애플리케이션을 실행하는 사용자 지정 Docker 이미지가 Web Apps for Containers에 배포되었습니다.
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 

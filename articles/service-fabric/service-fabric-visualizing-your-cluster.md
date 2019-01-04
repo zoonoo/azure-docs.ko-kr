@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric Explorer를 사용하여 클러스터 시각화 | Microsoft Docs
-description: Service Fabric Explorer는 Microsoft Azure Service Fabric 클러스터에서 클라우드 응용 프로그램 및 노드를 검사 및 관리하기 위한 응용 프로그램입니다.
+description: Service Fabric Explorer는 Microsoft Azure Service Fabric 클러스터에서 클라우드 애플리케이션 및 노드를 검사 및 관리하기 위한 애플리케이션입니다.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -23,11 +23,11 @@ ms.locfileid: "38972335"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>서비스 패브릭 탐색기로 클러스터 시각화
 
-SFX(Service Fabric Explorer)는 Azure Service Fabric 클러스터를 검사하고 관리하기 위한 오픈 소스 도구입니다. Service Fabric Explorer는 Windows, macOS 및 Linux용 데스크톱 응용 프로그램입니다.
+SFX(Service Fabric Explorer)는 Azure Service Fabric 클러스터를 검사하고 관리하기 위한 오픈 소스 도구입니다. Service Fabric Explorer는 Windows, macOS 및 Linux용 데스크톱 애플리케이션입니다.
 
 ## <a name="service-fabric-explorer-download"></a>Service Fabric Explorer 다운로드
 
-Service Fabric Explorer를 데스크톱 응용 프로그램으로 다운로드하려면 다음 링크를 사용합니다.
+Service Fabric Explorer를 데스크톱 애플리케이션으로 다운로드하려면 다음 링크를 사용합니다.
 
 -  Windows
   - https://aka.ms/sfx-windows
@@ -82,9 +82,9 @@ Service Fabric Explorer를 사용하는 방법을 알아보려면 다음 Microso
 ### <a name="view-applications-and-services"></a>응용 프로그램 및 서비스 보기
 클러스터에는 두 개의 하위 트리가 포함되어 있습니다. 하나는 응용 프로그램용이고 다른 하나는 노드용입니다.
 
-응용 프로그램 보기를 사용하여 서비스 패브릭의 논리 계층 구조인 응용 프로그램, 서비스, 파티션 및 복제를 탐색할 수 있습니다.
+애플리케이션 보기를 사용하여 서비스 패브릭의 논리 계층 구조인 애플리케이션, 서비스, 파티션 및 복제를 탐색할 수 있습니다.
 
-아래 예제에서 응용 프로그램 **MyApp**은 두 개의 서비스, **MyStatefulService**와 **WebService**로 구성되어 있습니다. **MyStatefulService** 는 상태 저장이므로 한 개의 주 복제본과 두 개의 보조 복제본이 있는 파티션을 포함합니다. 이와 반대로 WebSvcService는 상태 비저장이며 단일 인스턴스가 들어 있습니다.
+아래 예제에서 애플리케이션 **MyApp**은 두 개의 서비스, **MyStatefulService**와 **WebService**로 구성되어 있습니다. **MyStatefulService** 는 상태 저장이므로 한 개의 주 복제본과 두 개의 보조 복제본이 있는 파티션을 포함합니다. 이와 반대로 WebSvcService는 상태 비저장이며 단일 인스턴스가 들어 있습니다.
 
 ![서비스 패브릭 탐색기 응용 프로그램 보기][sfx-application-tree]
 
@@ -96,9 +96,9 @@ Service Fabric Explorer를 사용하는 방법을 알아보려면 다음 Microso
 노드 보기는 클러스터의 물리적 레이아웃을 보여 줍니다. 지정된 노드의 경우 해당 노드에 배포된 코드를 가진 애플리케이션을 검사할 수 있습니다. 특히 현재 실행되고 있는 복제본을 확인할 수 있습니다.
 
 ## <a name="actions"></a>작업
-Service Fabric Explorer는 클러스터 내에서 노드, 응용 프로그램 및 서비스에 대한 작업을 호출하는 빠른 방법을 제공합니다.
+Service Fabric Explorer는 클러스터 내에서 노드, 애플리케이션 및 서비스에 대한 작업을 호출하는 빠른 방법을 제공합니다.
 
-예를 들어 응용 프로그램 인스턴스를 삭제하려면 왼쪽 트리에서 응용 프로그램을 선택한 다음 **작업** > **응용 프로그램 삭제**로 이동하여 로컬 클러스터에서 Service Fabric 탐색기를 시작할 수 있습니다.
+예를 들어 애플리케이션 인스턴스를 삭제하려면 왼쪽 트리에서 애플리케이션을 선택한 다음 **작업** > **애플리케이션 삭제**로 이동하여 로컬 클러스터에서 Service Fabric 탐색기를 시작할 수 있습니다.
 
 ![서비스 패브릭 탐색기에서 응용 프로그램 삭제][sfx-delete-application]
 
@@ -109,12 +109,12 @@ Service Fabric Explorer는 클러스터 내에서 노드, 응용 프로그램 �
 >
 >
 
-또한 Service Fabric Explorer를 사용하여 지정된 응용 프로그램 형식 및 버전에 대한 응용 프로그램 인스턴스를 만들 수도 있습니다. 트리 보기에서 응용 프로그램 형식을 선택하고 오른쪽 창에서 원하는 버전 옆의 **앱 인스턴스 만들기** 링크를 클릭합니다.
+또한 Service Fabric Explorer를 사용하여 지정된 응용 프로그램 형식 및 버전에 대한 응용 프로그램 인스턴스를 만들 수도 있습니다. 트리 보기에서 애플리케이션 형식을 선택하고 오른쪽 창에서 원하는 버전 옆의 **앱 인스턴스 만들기** 링크를 클릭합니다.
 
 ![Service Fabric Explorer에서 응용 프로그램 인스턴스 만들기][sfx-create-app-instance]
 
 > [!NOTE]
-> Service Fabric Explorer는 응용 프로그램 인스턴스를 만들 때 매개 변수를 지원하지 않습니다. 응용 프로그램 인스턴스는 기본 매개 변수 값을 사용합니다.
+> Service Fabric Explorer는 애플리케이션 인스턴스를 만들 때 매개 변수를 지원하지 않습니다. 애플리케이션 인스턴스는 기본 매개 변수 값을 사용합니다.
 >
 >
 

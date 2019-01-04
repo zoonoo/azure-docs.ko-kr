@@ -1,6 +1,6 @@
 ---
 title: Azure HDInsight의 Spark 구조적 스트리밍
-description: HDInsight Spark 클러스터에서 Spark 구조적 스트리밍 응용 프로그램을 사용하는 방법입니다.
+description: HDInsight Spark 클러스터에서 Spark 구조적 스트리밍 애플리케이션을 사용하는 방법입니다.
 services: hdinsight
 author: maxluk
 ms.reviewer: jasonh
@@ -59,7 +59,7 @@ Spark 구조적 스트리밍은 데이터 스트림을 자세히 제한되지 �
 
 전체 모드를 사용하는 모든 쿼리에서 테이블이 무제한으로 커지도록 하지는 않습니다.  앞의 예에서는 시간 범위별로 온도 평균을 계산하지 않고 디바이스 ID별로 온도 평균을 계산한 것입니다. 결과 테이블에는 해당 디바이스로부터 받은 모든 데이터 요소에 대한 평균 온도가 포함된 고정된 수의 행(디바이스당 하나씩)이 있습니다. 새 온도를 받는 대로 테이블의 평균이 항상 최신이 되도록 결과 테이블이 업데이트됩니다. 
 
-## <a name="components-of-a-spark-structured-streaming-application"></a>Spark 구조적 스트리밍 응용 프로그램의 구성 요소
+## <a name="components-of-a-spark-structured-streaming-application"></a>Spark 구조적 스트리밍 애플리케이션의 구성 요소
 
 간단한 예제 쿼리에서는 장기 시간 범위를 기준으로 온도 판독값을 요약할 수 있습니다. 이 경우 데이터는 Azure Storage의 JSON 파일에 저장됩니다(HDInsight 클러스터의 기본 저장소로 연결됨).
 
@@ -130,13 +130,13 @@ Spark 구조적 스트리밍은 데이터 스트림을 자세히 제한되지 �
 
 복원력 및 내결함성을 제공하기 위해 구조적 스트리밍은 *검사점*을 사용하여 노드 오류가 있는 경우에도 중단 없이 스트림 처리를 계속할 수 있도록 합니다. HDInsight에서 Spark는 영구 저장소(Azure Storage 또는 Data Lake Store 중 하나)에 대한 검사점을 만듭니다. 이러한 검사점은 스트리밍 쿼리에 대한 진행 정보를 저장합니다. 또한 구조적 스트리밍은 *WAL(미리 쓰기 로그)* 을 사용합니다. WAL은 받았지만 아직 쿼리에서 처리하지 않은 수집된 데이터를 캡처합니다. 오류가 발생하고 WAL에서 처리가 다시 시작되면 원본에서 받은 모든 이벤트가 손실되지 않습니다.
 
-## <a name="deploying-spark-streaming-applications"></a>Spark 스트리밍 응용 프로그램 배포
+## <a name="deploying-spark-streaming-applications"></a>Spark 스트리밍 애플리케이션 배포
 
-일반적으로 Spark Streaming 응용 프로그램을 JAR 파일에 로컬로 빌드한 다음, JAR 파일을 HDInsight 클러스터에 연결된 기본 저장소로 복사하여 HDInsight의 Spark에 배포합니다. POST 작업을 사용하여 클러스터에서 사용할 수 있는 [Apache Livy](https://livy.incubator.apache.org/) REST API를 통해 애플리케이션을 시작할 수 있습니다. POST의 본문에는 JAR에 대한 경로, main 메서드에서 스트리밍 응용 프로그램을 정의하고 실행하는 클래스의 이름, 그리고 필요에 따라 작업의 리소스 요구 사항(예: 실행기, 메모리 및 코어의 수)과 응용 프로그램 코드에 필요한 모든 구성 설정을 제공하는 JSON 문서가 포함되어 있습니다.
+일반적으로 Spark 스트리밍 애플리케이션을 JAR 파일에 로컬로 빌드한 다음, JAR 파일을 HDInsight 클러스터에 연결된 기본 스토리지로 복사하여 HDInsight의 Spark에 배포합니다. POST 작업을 사용하여 클러스터에서 사용할 수 있는 [Apache Livy](https://livy.incubator.apache.org/) REST API를 통해 애플리케이션을 시작할 수 있습니다. POST의 본문에는 JAR에 대한 경로, main 메서드에서 스트리밍 애플리케이션을 정의하고 실행하는 클래스의 이름, 그리고 필요에 따라 작업의 리소스 요구 사항(예: 실행기, 메모리 및 코어의 수)과 애플리케이션 코드에 필요한 모든 구성 설정을 제공하는 JSON 문서가 포함되어 있습니다.
 
-![Spark Streaming 응용 프로그램 배포](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
+![Spark Streaming 애플리케이션 배포](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-또한 LIVY 엔드포인트에 대한 GET 요청으로 모든 응용 프로그램의 상태를 확인할 수 있습니다. 마지막으로 LIVY 엔드포인트에 대한 DELETE 요청을 실행하여 실행 중인 응용 프로그램을 종료할 수 있습니다. LIVY API에 대한 자세한 내용은 [Apache LIVY를 사용하는 원격 작업](apache-spark-livy-rest-interface.md)을 참조하세요.
+또한 LIVY 엔드포인트에 대한 GET 요청으로 모든 애플리케이션의 상태를 확인할 수 있습니다. 마지막으로 LIVY 엔드포인트에 대한 DELETE 요청을 실행하여 실행 중인 애플리케이션을 종료할 수 있습니다. LIVY API에 대한 자세한 내용은 [Apache LIVY를 사용하는 원격 작업](apache-spark-livy-rest-interface.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

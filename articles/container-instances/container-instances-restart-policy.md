@@ -1,18 +1,18 @@
 ---
-title: 다시 시작 정책을 사용하여 Azure Container Instances에서 컨테이너 작업 실행
+title: Azure Container Instances의 컨테이너화된 작업에서 다시 시작 정책 사용
 description: Azure Container Instances를 사용하여 빌드, 테스트 또는 이미지 렌더링 작업에서처럼 완료될 때까지 실행되는 작업을 실행하는 방법에 대해 알아봅니다.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 12/10/2018
 ms.author: danlep
-ms.openlocfilehash: c9e3fadd5164ca0d770f36ba95c30db933efcd39
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b254adb050aa9826170c0849c3811380db6d9b38
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853895"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321036"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>다시 시작 정책으로 컨테이너 작업 실행
 
@@ -24,7 +24,7 @@ Azure Container Instances에서는 컨테이너를 배포하는 것이 쉽고 �
 
 ## <a name="container-restart-policy"></a>컨테이너 다시 시작 정책
 
-Azure Container Instances에서 컨테이너를 만들 때 세 가지 다시 시작 정책 설정 중 하나를 지정할 수 있습니다.
+Azure Container Instances에서 [컨테이너 그룹](container-instances-container-groups.md)을 만들 때 세 가지 다시 시작 정책 설정 중 하나를 지정할 수 있습니다.
 
 | 다시 시작 정책   | 설명 |
 | ---------------- | :---------- |
@@ -93,6 +93,24 @@ az container logs --resource-group myResourceGroup --name mycontainer
 
 이 예제는 스크립트가 STDOUT으로 보낸 출력을 보여 줍니다. 그러나 컨테이너 작업은 나중에 검색하기 위해 출력을 영구적 저장소에 쓸 수도 있습니다. 예를 들어 [Azure 파일 공유](container-instances-mounting-azure-files-volume.md)에 쓸 수 있습니다.
 
+## <a name="manually-stop-and-start-a-container-group"></a>수동으로 컨테이너 그룹 중지 및 시작
+
+[컨테이너 그룹](container-instances-container-groups.md)에 구성된 다시 시작 정책에 관계없이 컨테이너 그룹을 수동으로 중지하거나 시작할 수 있습니다.
+
+* **중지** - 예를 들어 [az container stop][az-container-stop] 명령을 사용하여 언제든지 실행 중인 컨테이너 그룹을 수동으로 중지할 수 있습니다. 특정 컨테이너 워크로드의 경우 정의된 기간 후에 컨테이너 그룹을 중지하여 비용을 절감할 수 있습니다. 
+
+  컨테이너 그룹을 중지하면 그룹의 컨테이너가 종료 및 재순환되고 컨테이너 상태가 보존되지 않습니다. 
+
+* **시작** - 컨테이너 그룹이 자체적으로 종료되거나 사용자가 수동으로 그룹을 중지했기 때문에 컨테이너 그룹이 중지되면 [컨테이너 시작 API](/rest/api/container-instances/containergroups/start) 또는 Azure Portal을 사용하여 그룹의 컨테이너를 수동으로 시작할 수 있습니다. 컨테이너의 컨테이너 이미지가 업데이트되면 새 이미지가 풀됩니다. 
+
+  컨테이너 그룹을 시작하면 동일한 컨테이너 구성을 가진 새 배포가 시작됩니다. 이 작업은 예상대로 작동하는 알려진 컨테이너 그룹 구성을 빠르게 다시 사용하는 데 도움이 될 수 있습니다. 동일한 워크로드를 실행하기 위해 새 컨테이너 그룹을 만들 필요가 없습니다.
+
+* **다시 시작** - 예를 들어 [az container restart][az-container-restart] 명령을 사용하여 실행되는 동안 컨테이너 그룹을 다시 시작할 수 있습니다. 이 작업은 컨테이너 그룹의 모든 컨테이너를 다시 시작합니다. 컨테이너의 컨테이너 이미지가 업데이트되면 새 이미지가 풀됩니다. 
+
+  컨테이너 그룹을 다시 시작하면 배포 문제를 해결하려는 경우 도움이 됩니다. 예를 들어 임시 리소스 제한 사항으로 인해 컨테이너가 성공적으로 실행되지 않는 경우 그룹을 다시 시작하면 문제가 해결될 수 있습니다.
+
+컨테이너 그룹을 수동으로 시작 또는 다시 시작한 후에 컨테이너 그룹은 구성된 다시 시작 정책에 따라 실행됩니다.
+
 ## <a name="configure-containers-at-runtime"></a>런타임 시 컨테이너 구성
 
 컨테이너 인스턴스를 만드는 경우 컨테이너가 시작될 때 실행할 사용자 지정 **명령줄**을 지정하고 **환경 변수**를 설정할 수 있습니다. 배치 작업에서 이 설정을 사용하여 작업별 구성으로 각 컨테이너를 준비할 수 있습니다.
@@ -131,6 +149,8 @@ az container logs --resource-group myResourceGroup --name mycontainer2
  ('ROSENCRANTZ', 69),
  ('GUILDENSTERN', 54)]
 ```
+
+
 
 ## <a name="command-line-override"></a>명령줄 재정의
 
@@ -174,5 +194,7 @@ az container logs --resource-group myResourceGroup --name mycontainer3
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
+[az-container-restart]: /cli/azure/container?view=azure-cli-latest#az-container-restart
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
+[az-container-stop]: /cli/azure/container?view=azure-cli-latest#az-container-stop
 [azure-cli-install]: /cli/azure/install-azure-cli

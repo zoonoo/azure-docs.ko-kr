@@ -84,7 +84,7 @@ Azure 가상 머신은 다양한 워크로드 요구 사항을 충족하기 위�
 
 
 ### <a name="connect-to-the-vm"></a>VM에 연결
-SQL Server VM을 만든 후에는 SSMS(SQL Server Management Studio)와 같은 도구나 응용 프로그램에서 연결합니다. 지침은 [Azure에서 SQL Server 가상 머신 연결](virtual-machines-windows-sql-connect.md)을 참조하세요.
+SQL Server VM을 만든 후에는 SSMS(SQL Server Management Studio)와 같은 도구나 애플리케이션에서 연결합니다. 지침은 [Azure에서 SQL Server 가상 머신 연결](virtual-machines-windows-sql-connect.md)을 참조하세요.
 
 ### <a name="migrate-your-data"></a>데이터 마이그레이션
 기존 데이터베이스가 있는 경우 새로 프로비전된 SQL VM으로 이동할 수 있습니다. 마이그레이션 옵션 목록 및 지침은 [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](virtual-machines-windows-migrate-sql.md)을 참조하세요.

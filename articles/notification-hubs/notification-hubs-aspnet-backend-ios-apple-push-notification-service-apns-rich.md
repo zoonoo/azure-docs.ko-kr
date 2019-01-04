@@ -23,7 +23,7 @@ ms.locfileid: "51244290"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs 다양한 푸시
 ## <a name="overview"></a>개요
-사용자에게 즉각적인 풍부한 콘텐츠를 제공하기 위해 응용 프로그램은 일반 텍스트 이상을 푸시할 수 있습니다. 이러한 알림은 사용자 조작을 촉진하고 URL, 소리, 이미지/쿠폰 등의 콘텐츠를 제공합니다. 이 자습서는 [사용자에게 알림](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) 항목을 기반으로 하며 페이로드(예: 이미지)를 통합하는 푸시 알림을 보내는 방법을 보여줍니다.
+사용자에게 즉각적인 풍부한 콘텐츠를 제공하기 위해 애플리케이션은 일반 텍스트 이상을 푸시할 수 있습니다. 이러한 알림은 사용자 조작을 촉진하고 URL, 소리, 이미지/쿠폰 등의 콘텐츠를 제공합니다. 이 자습서는 [사용자에게 알림](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) 항목을 기반으로 하며 페이로드(예: 이미지)를 통합하는 푸시 알림을 보내는 방법을 보여줍니다.
 
 이 자습서는 iOS 7 및 8과 호환됩니다.
 
@@ -346,7 +346,7 @@ ms.locfileid: "51244290"
            completionHandler();
        }
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 1. XCode에서는 실제 iOS 디바이스에서 앱을 실행합니다(푸시 알림은 시뮬레이터에서 작동하지 않음).
 2. iOS 앱 UI에서 인증에 대해 동일한 값의 사용자 이름과 암호를 입력하고 **로그인**을 클릭합니다.
 3. **푸시 보내기** 를 클릭하면 앱 내 경고가 표시됩니다. **더 보기**를 클릭하면 앱 백 엔드에 포함되도록 선택한 이미지가 표시됩니다.

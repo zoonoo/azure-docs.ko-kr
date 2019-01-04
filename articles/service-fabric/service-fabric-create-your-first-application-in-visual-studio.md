@@ -1,6 +1,6 @@
 ---
 title: C#에서 Azure Service Fabric Reliable Service 만들기
-description: Visual Studio를 사용하여 Azure Service Fabric을 기반으로 하는 Reliable Services 응용 프로그램을 만들고, 배포하고, 디버그합니다.
+description: Visual Studio를 사용하여 Azure Service Fabric을 기반으로 하는 Reliable Services 애플리케이션을 만들고, 배포하고, 디버그합니다.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -21,15 +21,15 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 06/01/2018
 ms.locfileid: "34642226"
 ---
-# <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>첫 번째 C# Service Fabric 상태 저장 Reliable Services 응용 프로그램 만들기
+# <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>첫 번째 C# Service Fabric 상태 저장 Reliable Services 애플리케이션 만들기
 
-Windows에서 첫 번째 .NET용 Azure Service Fabric 응용 프로그램을 몇 분 만에 배포하는 방법에 대해 알아봅니다. 배포가 완료되면 Reliable Services 응용 프로그램으로 실행되는 로컬 클러스터가 제공됩니다.
+Windows에서 첫 번째 .NET용 Azure Service Fabric 애플리케이션을 몇 분 만에 배포하는 방법에 대해 알아봅니다. 배포가 완료되면 Reliable Services 애플리케이션으로 실행되는 로컬 클러스터가 제공됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 [개발 환경이 설정](service-fabric-get-started.md)되었는지 확인합니다. 이 프로세스에는 Service Fabric SDK 및 Visual Studio 2017 또는 2015 설치가 포함됩니다.
 
-## <a name="create-the-application"></a>응용 프로그램 만들기
+## <a name="create-the-application"></a>애플리케이션 만들기
 
 1. 관리자 권한으로 Visual Studio를 시작합니다.
 
@@ -37,50 +37,50 @@ Windows에서 첫 번째 .NET용 Azure Service Fabric 응용 프로그램을 몇
 
 3. **새 프로젝트** 대화 상자에서 **클라우드** > **Service Fabric 응용 프로그램**을 차례로 선택합니다.
 
-4. 응용 프로그램의 이름을 **MyApplication**으로 지정합니다. 그런 다음 **확인**을 선택합니다.
+4. 애플리케이션의 이름을 **MyApplication**으로 지정합니다. 그런 다음 **확인**을 선택합니다.
 
    ![Visual Studio의 새 프로젝트 대화 상자][1]
 
-5. 다음 대화 상자에서 모든 유형의 Service Fabric 응용 프로그램을 만들 수 있습니다. 이 빠른 시작에서는 **.Net Core 2.0** > **상태 저장 서비스**를 선택합니다.
+5. 다음 대화 상자에서 모든 유형의 Service Fabric 애플리케이션을 만들 수 있습니다. 이 빠른 시작에서는 **.Net Core 2.0** > **상태 저장 서비스**를 선택합니다.
 
 6. 서비스의 이름을 **MyStatefulService**로 지정합니다. 그런 다음 **확인**을 선택합니다.
 
     ![Visual Studio의 새 서비스 대화 상자][2]
 
-    Visual Studio에서 응용 프로그램 프로젝트 및 상태 저장 서비스 프로젝트를 만듭니다. 그러면 [솔루션 탐색기]에 표시됩니다.
+    Visual Studio에서 애플리케이션 프로젝트 및 상태 저장 서비스 프로젝트를 만듭니다. 그러면 [솔루션 탐색기]에 표시됩니다.
 
-    ![상태 저장 서비스와 함께 응용 프로그램을 만든 솔루션 탐색기][3]
+    ![상태 저장 서비스와 함께 애플리케이션을 만든 솔루션 탐색기][3]
 
-    응용 프로그램 프로젝트(**MyApplication**)에는 코드가 없습니다. 대신 서비스 프로젝트의 집합을 참조합니다. 또한 세 가지 다른 형식의 콘텐츠도 있습니다.
+    애플리케이션 프로젝트(**MyApplication**)에는 코드가 없습니다. 대신 서비스 프로젝트의 집합을 참조합니다. 또한 세 가지 다른 형식의 콘텐츠도 있습니다.
 
     * **게시 프로필**  
     다양한 환경에 배포하기 위한 프로필
 
     * **스크립트**  
-    응용 프로그램을 배포하거나 업그레이드하기 위한 PowerShell 스크립트입니다.
+    애플리케이션을 배포하거나 업그레이드하기 위한 PowerShell 스크립트입니다.
 
     * **응용 프로그램 정의**  
-*ApplicationPackageRoot* 아래에 응용 프로그램의 구성을 설명하는 ApplicationManifest.xml 파일을 포함합니다. 연결된 응용 프로그램 매개 변수 파일은 *ApplicationParameters* 아래에 있으며 환경 관련 매개 변수를 지정하는 데 사용할 수 있습니다. Visual Studio에서 연결된 게시 프로필에 지정된 응용 프로그램 매개 변수 파일을 선택합니다.
+*ApplicationPackageRoot* 아래에 응용 프로그램의 구성을 설명하는 ApplicationManifest.xml 파일을 포함합니다. 연결된 애플리케이션 매개 변수 파일은 *ApplicationParameters* 아래에 있으며 환경 관련 매개 변수를 지정하는 데 사용할 수 있습니다. Visual Studio에서 연결된 게시 프로필에 지정된 애플리케이션 매개 변수 파일을 선택합니다.
     
 서비스 프로젝트의 내용에 대한 개요는 [Reliable Services 시작](service-fabric-reliable-services-quick-start.md)을 참조하세요.
 
-## <a name="deploy-and-debug-the-application"></a>응용 프로그램 배포 및 디버깅
+## <a name="deploy-and-debug-the-application"></a>애플리케이션 배포 및 디버깅
 
-이제 다음 단계에 따라 응용 프로그램을 만들고, 실행하고, 배포하고, 디버그할 수 있습니다.
+이제 다음 단계에 따라 애플리케이션을 만들고, 실행하고, 배포하고, 디버그할 수 있습니다.
 
-1. Visual Studio에서 **F5**를 선택하여 디버그할 응용 프로그램을 배포합니다.  'ServiceFabricAllowedUsers' 그룹 읽기 및 실행 권한을 Visual Studio 프로젝트 디렉터리에 부여할지 묻는 메시지 상자가 표시되는 경우 **예**를 클릭합니다.
+1. Visual Studio에서 **F5**를 선택하여 디버그할 애플리케이션을 배포합니다.  'ServiceFabricAllowedUsers' 그룹 읽기 및 실행 권한을 Visual Studio 프로젝트 디렉터리에 부여할지 묻는 메시지 상자가 표시되는 경우 **예**를 클릭합니다.
 
     >[!NOTE]
-    >로컬에서 처음으로 응용 프로그램을 실행하고 배포할 때 Visual Studio는 디버깅을 위해 로컬 클러스터를 만듭니다. 이 작업에는 시간이 약간 걸릴 수 있습니다. Visual Studio 출력 창에 클러스터 생성 상태가 표시됩니다.
+    >로컬에서 처음으로 애플리케이션을 실행하고 배포할 때 Visual Studio는 디버깅을 위해 로컬 클러스터를 만듭니다. 이 작업에는 시간이 약간 걸릴 수 있습니다. Visual Studio 출력 창에 클러스터 생성 상태가 표시됩니다.
     
-     클러스터가 준비되면 SDK에 포함된 로컬 클러스터 시스템 트레이 관리자 응용 프로그램에서 알림을 받습니다.
+     클러스터가 준비되면 SDK에 포함된 로컬 클러스터 시스템 트레이 관리자 애플리케이션에서 알림을 받습니다.
      
     >[!NOTE]
-    >이 연습에는 5노드(및 1노드) 클러스터가 필요합니다. 다음과 같이 이를 확인할 수 있습니다. **Service Fabric 로컬 클러스터 관리자** 시스템 트레이 응용 프로그램을 마우스 오른쪽 단추로 클릭한 다음, **클러스터 모드 전환**을 선택하여 Service Fabric Explorer 도구를 시작합니다. 현재 1노드가 선택된 경우 **5노드**를 클릭합니다.
+    >이 연습에는 5노드(및 1노드) 클러스터가 필요합니다. 다음과 같이 이를 확인할 수 있습니다. **Service Fabric 로컬 클러스터 관리자** 시스템 트레이 애플리케이션을 마우스 오른쪽 단추로 클릭한 다음, **클러스터 모드 전환**을 선택하여 Service Fabric Explorer 도구를 시작합니다. 현재 1노드가 선택된 경우 **5노드**를 클릭합니다.
     
     ![로컬 클러스터 시스템 트레이 알림][4]
 
-    응용 프로그램이 시작되면 Visual Studio에서 자동으로 진단 이벤트 뷰어를 표시하여 서비스의 추적 출력을 확인할 수 있습니다.
+    애플리케이션이 시작되면 Visual Studio에서 자동으로 진단 이벤트 뷰어를 표시하여 서비스의 추적 출력을 확인할 수 있습니다.
     
     ![진단 이벤트 뷰어][5]
 
@@ -114,7 +114,7 @@ Windows에서 첫 번째 .NET용 Azure Service Fabric 응용 프로그램을 몇
 
     ![로컬 클러스터 관리자에서 Service Fabric Explorer 시작][systray-launch-sfx]
 
-    [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 클러스터에 대한 시각적 표현을 제공합니다. 여기에는 배포된 응용 프로그램 집합 및 이를 구성하는 실제 노드 집합이 포함되어 있습니다.
+    [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 클러스터에 대한 시각적 표현을 제공합니다. 여기에는 배포된 애플리케이션 집합 및 이를 구성하는 실제 노드 집합이 포함되어 있습니다.
 
 8. 왼쪽 창에서 **클러스터** > **노드**를 차례로 펼치고, 코드가 실행될 노드를 찾습니다. 그런 다음, 시스템 다시 시작을 시뮬레이션하기 위해 **작업** > **비활성화(다시 시작)** 를 차례로 선택합니다.
 
@@ -128,9 +128,9 @@ Windows에서 첫 번째 .NET용 Azure Service Fabric 응용 프로그램을 몇
 
 ## <a name="clean-up-the-local-cluster-optional"></a>로컬 클러스터 정리(선택 사항)
 
-이 로컬 클러스터는 실제입니다. 디버거를 중지하면 응용 프로그램 인스턴스를 제거하고 응용 프로그램 형식의 등록을 취소합니다. 하지만 클러스터는 백그라운드에서 계속 실행됩니다. 로컬 클러스터를 중지할 준비가 되면 몇 가지 옵션이 표시됩니다.
+이 로컬 클러스터는 실제입니다. 디버거를 중지하면 애플리케이션 인스턴스를 제거하고 애플리케이션 형식의 등록을 취소합니다. 하지만 클러스터는 백그라운드에서 계속 실행됩니다. 로컬 클러스터를 중지할 준비가 되면 몇 가지 옵션이 표시됩니다.
 
-### <a name="keep-application-and-trace-data"></a>응용 프로그램 및 추적 데이터 유지
+### <a name="keep-application-and-trace-data"></a>애플리케이션 및 추적 데이터 유지
 
 **로컬 클러스터 관리자** 시스템 트레이 응용 프로그램을 마우스 오른쪽 단추로 클릭한 다음, **로컬 클러스터 중지**를 선택하여 클러스터를 종료합니다.
 
@@ -138,7 +138,7 @@ Windows에서 첫 번째 .NET용 Azure Service Fabric 응용 프로그램을 몇
 
 **로컬 클러스터 관리자** 시스템 트레이 응용 프로그램을 마우스 오른쪽 단추로 클릭하여 클러스터를 제거합니다. 그런 다음, **로컬 클러스터 제거**를 선택합니다. 
 
-이 옵션을 선택하면 Visual Studio에서 다음에 응용 프로그램을 실행할 때 해당 클러스터를 다시 배포합니다. 잠시 동안 로컬 클러스터를 사용하지 않으려거나 리소스를 회수해야 하는 경우 이 옵션을 선택합니다.
+이 옵션을 선택하면 Visual Studio에서 다음에 애플리케이션을 실행할 때 해당 클러스터를 다시 배포합니다. 잠시 동안 로컬 클러스터를 사용하지 않으려거나 리소스를 회수해야 하는 경우 이 옵션을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Reliable Services](service-fabric-reliable-services-introduction.md)에 대해 자세히 알아봅니다.

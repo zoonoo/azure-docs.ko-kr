@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: c40cb3192d514d990ea2a5d66e1484ff204e9b10
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: d04d27ee6136edec8d9af16f9133cf9a7cc0720c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223560"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311561"
 ---
 # <a name="quickstart-self-service-password-reset"></a>빠른 시작: 셀프 서비스 암호 재설정
 
@@ -48,7 +48,7 @@ ms.locfileid: "39223560"
     ![인증][Authentication]
 
 4. **등록** 페이지에서 다음을 선택합니다.
-   * 로그인 시 사용자가 등록하도록 요구: **예**
+   * 사용자가 로그인 시 등록하도록 요구: **예**
    * 사용자가 인증 정보를 다시 확인하도록 요청받을 때까지의 기간(일) 설정: **365**
 
 ## <a name="test-self-service-password-reset"></a>셀프 서비스 암호 재설정 테스트
@@ -64,7 +64,7 @@ ms.locfileid: "39223560"
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-셀프 서비스 암호 재설정을 사용하지 않게 설정하는 방법은 간단합니다. Azure AD 테넌트를 열고 **암호 재설정** > **속성**으로 이동한 다음 **셀프 서비스 암호 재설정이 사용하도록 설정됨** 아래에서 **없음**을 선택합니다.
+셀프 서비스 암호 재설정을 사용하지 않게 설정하는 방법은 간단합니다. Azure AD 테넌트를 열고 **속성** > **암호 재설정**으로 이동한 다음, **셀프 서비스 암호 재설정이 사용하도록 설정됨** 아래에서 **없음**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

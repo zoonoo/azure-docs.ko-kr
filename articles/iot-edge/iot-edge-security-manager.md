@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge 보안 관리자 | Microsoft Docs
+title: 보안 관리자가 디바이스, 소프트웨어를 보호하는 방법 알아보기 - Azure IoT Edge | Microsoft Docs
 description: IoT Edge 디바이스 보안 태세와 보안 서비스의 무결성을 관리합니다.
 services: iot-edge
 keywords: 보안, 보안 요소, enclave, TEE, IoT Edge
@@ -9,12 +9,13 @@ ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6231f50134f7dcfd29e8754841847beb69570204
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: eda572c0f4abedd59c912dcf1de2cf3c6e226b5c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567692"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091927"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge 보안 관리자
 
@@ -33,7 +34,7 @@ IoT Edge 보안 관리자의 책임에는 다음 사항이 포함됩니다(이�
 * 공증 서비스를 통한 신뢰할 수 있는 디바이스 하드웨어 루트에 대한 게이트키퍼.
 * 런타임 시 IoT Edge 작업의 무결성 모니터링.
 
-IoT Edge 보안 관리자는 세 가지 주요 구성 요소로 이루어져 있습니다.
+IoT Edge 보안 관리자는 세 가지 구성 요소를 포함합니다.
 
 * IoT Edge 보안 디먼.
 * 하드웨어 보안 모듈 플랫폼 추상화 계층(HSM PAL).
@@ -109,7 +110,7 @@ IoT Edge 런타임은 IoT Edge 보안 디먼의 버전을 추적 및 보고합�
 
 ### <a name="hardware-security-module-platform-abstraction-layer-hsm-pal"></a>하드웨어 보안 모듈 플랫폼 추상화 계층(HSM PAL)
 
-HSM PAL은 트러스트 하드웨어의 모든 루트를 추상화하여 IoT Edge의 개발자나 사용자를 복잡한 문제로부터 떼어놓습니다.  API(응용 프로그래밍 인터페이스) 및 트랜스 도메인 통신 프로시저(예: 표준 실행 환경과 보안 enclave 사이 통신)의 조합으로 구성됩니다.  HSM PAL의 실제 구현은 사용 중인 특정 보안 하드웨어에 따라 달라집니다.  보안 하드웨어가 있으면 IoT 에코시스템 전반에 걸쳐 거의 모든 보안 실리콘 하드웨어를 사용할 수 있습니다.
+HSM PAL은 트러스트 하드웨어의 모든 루트를 추상화하여 IoT Edge의 개발자나 사용자를 복잡한 문제로부터 떼어놓습니다.  API(애플리케이션 프로그래밍 인터페이스) 및 트랜스 도메인 통신 프로시저(예: 표준 실행 환경과 보안 enclave 사이 통신)의 조합으로 구성됩니다.  HSM PAL의 실제 구현은 사용 중인 특정 보안 하드웨어에 따라 달라집니다.  보안 하드웨어가 있으면 IoT 에코시스템 전반에 걸쳐 거의 모든 보안 실리콘 하드웨어를 사용할 수 있습니다.
 
 ## <a name="secure-silicon-root-of-trust-hardware"></a>트러스트 하드웨어의 보안 실리콘 루트
 
@@ -123,9 +124,9 @@ IoT Edge 보안 관리자의 주요 목표 중 하나는 사용자 지정 강화
 
 [인텔리전트 에지 보안](https://azure.microsoft.com/blog/securing-the-intelligent-edge/) 블로그를 참조하세요.
 
-[Linux 가상 머신에서 가상 TPM](how-to-auto-provision-simulated-device-linux.md)을 사용하여 Edge 장치 만들기 및 프로비전
+[Linux 가상 머신에서 가상 TPM](how-to-auto-provision-simulated-device-linux.md)을 사용하여 Edge 디바이스 만들기 및 프로비전
 
-[Windows에서 시뮬레이션된 TPM Edge 장치](how-to-auto-provision-simulated-device-windows.md) 만들기 및 프로비전
+[Windows에서 시뮬레이션된 TPM Edge 디바이스](how-to-auto-provision-simulated-device-windows.md) 만들기 및 프로비전
 
 <!-- Links -->
 [lnk-edge-blog]: https://azure.microsoft.com/blog/securing-the-intelligent-edge/

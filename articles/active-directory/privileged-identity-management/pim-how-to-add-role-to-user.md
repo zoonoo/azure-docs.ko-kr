@@ -12,12 +12,12 @@ ms.workload: identity
 ms.component: pim
 ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 5f0b5d1695603a7cd2a3c7ac1dbc484e44257d88
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 2b099e1377536b46229b75f25d04ab2c1beb5c11
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249614"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724947"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>PIM에서 Azure AD 디렉터리 역할 할당
 
@@ -125,13 +125,15 @@ Azure AD PIM(Privileged Identity Management) 서비스를 사용하여 권한 �
 
 1. 구독을 선택합니다.
 
-1. **액세스 제어(IAM)** 를 선택하면 구독 범위의 현재 역할 할당 목록을 볼 수 있습니다.
+1. **액세스 제어(IAM)** 를 선택합니다.
+
+1. **역할 할당**을 선택하면 구독 범위의 현재 역할 할당 목록을 볼 수 있습니다.
 
    ![구독의 액세스 제어(IAM) 블레이드](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
 
 1. **MS-PIM** 서비스 주체가 **사용자 액세스 관리자** 역할로 할당되었는지 여부를 확인합니다.
 
-1. 그렇지 않은 경우 **추가**를 선택하여 **권한 추가** 창을 엽니다.
+1. 할당되지 않은 경우 **역할 할당 추가**를 선택하여 **역할 할당 추가** 창을 엽니다.
 
 1. **역할** 드롭다운 목록에서 **사용자 액세스 관리자** 역할을 선택합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights를 사용한 웹 응용 프로그램의 사용자 재방문 주기 분석 | Microsoft Docs
+title: Azure Application Insights를 사용한 웹 애플리케이션의 사용자 재방문 주기 분석 | Microsoft Docs
 description: 앱으로 돌아온 사용자는 몇 명이나 되나요?
 services: application-insights
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/01/2018
 ms.locfileid: "52721989"
 ---
-# <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Application Insights를 사용한 웹 응용 프로그램의 사용자 재방문 주기 분석
+# <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Application Insights를 사용한 웹 애플리케이션의 사용자 재방문 주기 분석
 
 [Azure Application Insights](app-insights-overview.md)의 재방문 주기 기능은 앱으로 돌아온 사용자 수와 특정 작업을 수행하거나 목표를 달성하는 빈도를 분석하는 데 도움을 줍니다. 예를 들어 게임 사이트를 실행하는 경우 게임에서 진 후에 사이트로 돌아오는 사용자 수와 이긴 후에 돌아온 사용자 수를 비교할 수 있습니다. 이러한 지식이 있으면 사용자 환경 및 비즈니스 전략을 둘 다 향상시킬 수 있습니다.
 

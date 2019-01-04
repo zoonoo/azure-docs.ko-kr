@@ -10,17 +10,15 @@ ms.assetid: 5718d620-b96e-4d33-8616-e127ee9379c4
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: cdf3fda4228eadc2921c8fbc1bc72702461d04e4
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 61118520e84b53a7669e482694f48d60fd8e67ad
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637738"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193878"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Log Analytics의 뷰 디자이너 시각화 요소에 대한 참조 가이드
 Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Log Analytics 작업 영역의 다양한 데이터 시각화를 나타내는 사용자 지정 보기를 만들 수 있습니다. 이 문서는 사용자 지정 보기에서 사용할 수 있는 시각화 요소 설정에 대한 참조 가이드입니다.
@@ -182,7 +180,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 | 범례 |첫 번째 계열의 설명선 밑에 표시되는 텍스트입니다. |
 | 색 |계열의 열에 사용할 색입니다. |
 | 쿼리 |첫 번째 계열에 대해 실행할 쿼리입니다. 각 시간 간격의 레코드 수는 차트 열로 표시됩니다. |
-| 작업(Operation) |값 속성에서 수행하여 설명선의 단일 값으로 요약할 연산 작업입니다.<ul><li>합계: 모든 레코드 값의 합계입니다.</li><li>평균: 모든 레코드 값의 평균입니다.</li><li>최종 샘플: 차트에 포함된 마지막 간격의 값입니다.</li><li>최초 샘플: 차트에 포함된 첫 번째 간격의 값입니다.</li><li>개수: 쿼리에서 반환된 모든 레코드 수입니다.</li></ul> |
+| 작업(Operation) |값 속성에서 수행하여 설명선의 단일 값으로 요약할 연산 작업입니다.<ul><li>합계: 모든 레코드 값의 합계입니다.</li><li>평균: 모든 레코드 값의 평균입니다.</li><li>최종 샘플: 차트에 포함된 마지막 간격의 값입니다.</li><li>첫 번째 샘플: 차트에 포함된 첫 번째 간격의 값입니다.</li><li>개수: 쿼리에서 반환된 모든 레코드 수입니다.</li></ul> |
 | **목록** | |
 | 쿼리 |목록에 대해 실행할 쿼리입니다. 쿼리에서 반환된 레코드 수가 표시됩니다. |
 | 그래프 숨기기 |숫자 열 오른쪽에 있는 그래픽을 사용하지 않도록 설정하려면 이 링크를 선택합니다. |
@@ -324,7 +322,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 예를 들어 *Redmond-Building 41* 및 *Bellevue-Building 12*와 같은 값을 포함하는 *위치*라는 속성이 있습니다. 이름과 값 구분 기호에 파선(-)을 사용하여 *City-Building*을 이름에 지정할 수 있습니다. 이렇게 하면 각 값이 *City*와 *Building*이라는 두 가지 속성으로 구문 분석됩니다.
 
 ### <a name="click-through-navigation"></a>클릭 탐색
-클릭 탐색은 보기에서 머리글 또는 목록 항목을 클릭할 때 수행될 작업을 정의합니다.  [로그 검색 포털](../../log-analytics/log-analytics-log-search-portals.md)에서 쿼리를 열거나 다른 보기를 시작합니다.
+클릭 탐색은 보기에서 머리글 또는 목록 항목을 클릭할 때 수행될 작업을 정의합니다.  [로그 검색 포털](../../azure-monitor/log-query/portals.md)에서 쿼리를 열거나 다른 보기를 시작합니다.
 
 다음 표에서는 클릭 탐색에 대한 설정을 설명합니다.
 
@@ -344,7 +342,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 | 설정 | 설명 |
 |:--- |:--- |
 | 스파크라인 사용 |가로 막대 대신 스파크라인을 표시하려면 이 링크를 선택합니다. |
-| 작업(Operation) |스파크라인을 사용하는 경우 목록의 각 속성에서 수행하여 스파크라인 값을 계산하는 연산 작업입니다.<ul><li>최종 샘플: 시간 간격별 계열의 마지막 값입니다.</li><li>최대: 시간 간격별 계열의 최댓값입니다.</li><li>최소: 시간 간격별 계열의 최솟값입니다.</li><li>합계: 시간 간격별 계열 값의 합계입니다.</li><li>요약: 머리글의 쿼리와 동일한 `measure` 명령을 사용합니다.</li></ul> |
+| 작업(Operation) |스파크라인을 사용하는 경우 목록의 각 속성에서 수행하여 스파크라인 값을 계산하는 연산 작업입니다.<ul><li>최종 샘플: 시간 간격별 최종 계열 값입니다.</li><li>최대: 시간 간격별 최대 계열 값입니다.</li><li>최소: 시간 간격별 최소 계열 값입니다.</li><li>합계: 시간 간격별 계열 값의 합계입니다.</li><li>요약: 머리글의 쿼리와 동일한 `measure` 명령을 사용합니다.</li></ul> |
 
 ### <a name="thresholds"></a>임계값
 임계값을 사용하면 목록의 각 항목 옆에 색이 지정된 아이콘을 표시할 수 있습니다. 임계값은 특정 값을 초과하거나 특정 범위에 속하는 항목에 대해 신속한 시각적 표시기를 제공합니다. 예를 들어 허용되는 값이 있는 항목은 녹색 아이콘으로 표시하고, 값이 경고를 나타내는 범위 내에 속하는 경우 노란색으로 표시하고, 오류 값을 초과하는 경우 빨간색으로 표시할 수 있습니다.
@@ -363,4 +361,4 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 | 색 |임계값을 나타내는 색입니다. |
 
 ## <a name="next-steps"></a>다음 단계
-* 시각화 요소에서 쿼리를 지원하는 [로그 검색](../../log-analytics/log-analytics-queries.md)에 대한 자세한 정보
+* 시각화 요소에서 쿼리를 지원하는 [로그 검색](../../azure-monitor/log-query/log-query-overview.md)에 대한 자세한 정보

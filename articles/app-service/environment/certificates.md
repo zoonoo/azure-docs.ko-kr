@@ -1,5 +1,5 @@
 ---
-title: 인증서 및 Azure App Service Environment
+title: 인증서 및 App Service Environment - Azure
 description: ASE의 인증서와 관련된 다양한 항목에 대해 설명합니다.
 services: app-service
 documentationcenter: na
@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 3d417d560d8a88100f31def27c7db5f9b2493062
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.custom: seodec18
+ms.openlocfilehash: bcb0c806d916b9dff4461cad829a1d75e8df7cf6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167796"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271898"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>인증서 및 App Service Environment 
 
-ASE(App Service Environment)는 Azure VNet(Virtual Network) 내에서 실행되는 Azure App Service의 배포입니다. 인터넷 액세스 가능 응용 프로그램 엔드포인트 또는 VNet에 있는 응용 프로그램 엔드포인트를 사용하여 배포할 수 있습니다. 인터넷 액세스 가능 엔드포인트를 사용하여 ASE를 배포하는 경우 해당 배포를 외부 ASE라고 합니다. VNet에 엔드포인트가 있는 ASE를 배포하면 해당 배포를 ILB ASE라고 합니다. [ILB ASE 만들기 및 사용](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase) 문서에서 ILB ASE에 대해 자세히 알아볼 수 있습니다.
+ASE(App Service Environment)는 Azure VNet(Virtual Network) 내에서 실행되는 Azure App Service의 배포입니다. 인터넷 액세스 가능 애플리케이션 엔드포인트 또는 VNet에 있는 애플리케이션 엔드포인트를 사용하여 배포할 수 있습니다. 인터넷 액세스 가능 엔드포인트를 사용하여 ASE를 배포하는 경우 해당 배포를 외부 ASE라고 합니다. VNet에 엔드포인트가 있는 ASE를 배포하면 해당 배포를 ILB ASE라고 합니다. [ILB ASE 만들기 및 사용](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase) 문서에서 ILB ASE에 대해 자세히 알아볼 수 있습니다.
 
 ASE는 단일 테넌트 시스템입니다. 단일 테넌트이므로 다중 테넌트 App Service에서 사용할 수 없는 ASE에서만 사용할 수 있는 일부 기능이 있습니다. 
 
@@ -56,7 +57,7 @@ ASE를 만들고 포털 또는 하나의 템플릿에서 인증서를 하나의 
     Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
 
 
-## <a name="application-certificates"></a>응용 프로그램 인증서 
+## <a name="application-certificates"></a>애플리케이션 인증서 
 
 ASE에서 호스팅되는 앱은 다중 테넌트 App Service에서 사용할 수 있는 앱 중심 인증서 기능을 사용할 수 있습니다. 이러한 기능은 다음과 같습니다.  
 
@@ -80,7 +81,7 @@ ASE에서 인증서를 앱에 업로드하려면 다음을 수행합니다.
 2. Azure Portal에서 인증서가 필요한 앱으로 이동합니다.
 3. 앱에서 SSL 설정으로 이동합니다. [인증서 업로드]를 클릭합니다. [공용]을 선택합니다. [로컬 머신]을 선택합니다. 이름을 입력합니다. *.cer* 파일을 찾아서 선택합니다. 업로드를 선택합니다. 
 4. 지문을 복사합니다.
-5. [응용 프로그램 설정]으로 이동합니다. 지문을 값으로 사용하여 WEBSITE_LOAD_ROOT_CERTIFICATES 앱 설정을 만듭니다. 인증서가 여러 개 있으면 동일한 설정에 공백 없이 쉼표로 구분하여 배치할 수 있습니다. 예를 들어 다음과 같습니다. 
+5. [애플리케이션 설정]으로 이동합니다. 지문을 값으로 사용하여 WEBSITE_LOAD_ROOT_CERTIFICATES 앱 설정을 만듭니다. 인증서가 여러 개 있으면 동일한 설정에 공백 없이 쉼표로 구분하여 배치할 수 있습니다. 예를 들어 다음과 같습니다. 
 
     84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 

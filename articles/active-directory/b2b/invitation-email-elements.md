@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: cbb81f62bcea43c3c30abff6b5f76e3a89347813
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 8b6edcb70bca480ebe0d53c061c6461745f189e8
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985399"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321292"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Azure Active Directory B2B 공동 작업 초대 전자 메일의 요소
 
@@ -27,7 +27,7 @@ ms.locfileid: "45985399"
 전자 메일의 몇 가지 요소를 확인하여 이러한 기능을 최대한 활용하는 방법에 대해 살펴보겠습니다.
 
 ### <a name="subject"></a>제목
-전자 메일의 제목은 다음 패턴을 따릅니다. &lt;tenantname&gt; 조직에 초대되었습니다.
+이메일의 제목은 다음 패턴을 따릅니다. &lt;tenantname&gt; 조직에 초대되었습니다.
 
 ### <a name="from-address"></a>보낸 사람 주소
 보낸 사람 주소에 대해서는 LinkedIn 유사 패턴을 사용합니다.  초대자가 누구인지와 어떤 회사에 소속되어 있는지를 명확히 하고 전자 메일이 Microsoft 전자 메일 주소에서 전송된 것인지를 명확히 해야 합니다. 형식: &lt;tenantname&gt;(Microsoft를 통해)<invites@microsoft.com>의 &lt;초대자 표시 이름&gt;
@@ -40,7 +40,7 @@ ms.locfileid: "45985399"
 
 ### <a name="call-to-action"></a>활용 방안
 활용 방안은 받는 사람이 메일을 받은 이유에 대한 설명과 받는 사람이 요청 받은 작업의 두 부분으로 구성됩니다.
-- "이유" 섹션은 다음 패턴을 사용하여 처리될 수 있습니다. &lt;tenantname&gt; 조직에서 응용 프로그램에 액세스하도록 초대되었습니다.
+- "이유" 섹션은 다음 패턴으로 처리할 수 있습니다. &lt;tenantname&gt; 조직에 있는 애플리케이션에 액세스하도록 초대됨
 
 - 또한 "요청되는 작업" 섹션은 **시작** 단추의 존재 여부에 따라 결정됩니다. 초대 받을 필요가 없는 받는 사람이 추가되면 이 단추가 표시되지 않습니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "45985399"
   ![초대자의 이니셜 표시](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>본문
-본문에는 초대자가 작성했거나 초대 API를 통해 전달된 메시지가 포함됩니다. 이것은 텍스트 영역에 불과하며, 보안상의 이유로 HTML 태그를 처리하지 않습니다.
+본문에는 초대자가 [게스트 사용자를 디렉터리, 그룹 또는 애플리케이션에 초대](add-users-administrator.md)할 때 또는 [초대 API를 사용하여](customize-invitation-api.md) 작성하는 메시지가 포함됩니다. 이것은 텍스트 영역에 불과하며, 보안상의 이유로 HTML 태그를 처리하지 않습니다.
 
 ### <a name="footer-section"></a>바닥글 섹션
 바닥글에는 Microsoft 회사 브랜드가 포함되며, 받는 사람은 이를 통해 전자 메일이 모니터링되지 않은 별칭에서 전송되었는지 여부를 알 수 있습니다. 특수 사례:

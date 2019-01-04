@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: cb9058d4f68b2dc202edeeaa6cafb2eefa82470b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c32612c411f275220f549eea79276fa5a7232fd0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284730"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52954615"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>NSG에서 사용하도록 설정하지 않은 RDP 포트로 인해 Azure VM에 연결할 수 없음
 
@@ -26,7 +26,7 @@ ms.locfileid: "52284730"
 
 
 > [!NOTE] 
-> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다. 새 배포에 대해 클래식 배포 모델 대신 Resource Manager 배포 모델을 사용하는 것이 좋습니다. 
+> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [Resource Manager 및 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이 있습니다. 새 배포에 대해 클래식 배포 모델 대신 Resource Manager 배포 모델을 사용하는 것이 좋습니다. 
 
 ## <a name="symptom"></a>증상
 
@@ -44,9 +44,9 @@ NSG에서 RDP 포트를 사용하도록 설정하려면 다음 단계를 수행�
 
     **우선 순위**: 300 </br>
     **포트**: 3389 </br>
-    **이름**: Port_3389 </br>
+    **Name**: Port_3389 </br>
     **포트**: 3389 </br>
-    **프로토콜**: - TCP </br>
+    **프로토콜**: TCP </br>
     **원본**: 모두 </br>
     **대상**: 모두 </br>
     **작업**: 허용 </br>

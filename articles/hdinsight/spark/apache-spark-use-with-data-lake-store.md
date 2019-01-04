@@ -128,7 +128,7 @@ Data Lake Store를 추가 저장소로, Azure Storage Blob을 기본 저장소�
 
      ![쿼리 결과 영역 그래프](./media/apache-spark-use-with-data-lake-store/jupyter-area-output.png "쿼리 결과 영역 그래프")
 
-8. 응용 프로그램 실행을 완료한 후 리소스를 해제하도록 Notebook을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 클릭합니다. 그러면 Notebook이 종료되고 닫힙니다.
+8. 애플리케이션 실행을 완료한 후 리소스를 해제하도록 Notebook을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 클릭합니다. 그러면 Notebook이 종료되고 닫힙니다.
 
 
 ## <a name="next-steps"></a>다음 단계

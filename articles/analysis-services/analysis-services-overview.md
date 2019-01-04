@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3cdc4a8a670b5af43e72b38d7a3b6d9aafdac348
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 15dbdc0bb2a3b7ee5af544adb2672a97f839f694
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429442"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970198"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -29,7 +29,7 @@ Azure Analysis Services는 클라우드에서 엔터프라이즈급 데이터 �
 
 Azure Portal에서는 수분 내에 [서버를 만들 수 있습니다](analysis-services-create-server.md). 그리고 Azure Resource Manager [템플릿](../azure-resource-manager/resource-manager-create-first-template.md) 및 PowerShell을 사용하면 선언적 템플릿을 통해 서버를 만들 수 있습니다. 단일 템플릿을 사용하면 저장소 계정 및 Azure Functions와 같은 다른 Azure 구성 요소와 함께 서버 리소스를 배포할 수 있습니다. 
 
-**비디오:** Azure Automation을 사용하여 서버 생성을 신속하게 할 수 있는 방법에 대한 자세한 내용을 알아보려면 [배포 자동화](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation)를 확인합니다.
+**비디오:** Azure Automation을 사용하여 서버 생성을 신속하게 하는 방법에 대한 자세한 내용을 알아보려면 [배포 자동화](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation)를 확인합니다.
 
 Azure Analysis Services는 다양한 Azure Services와 통합되어 정교한 분석 솔루션을 빌드할 수 있습니다. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)와 통합되어 중요한 데이터에 안전한 역할 기반 액세스를 제공합니다. 모델에 데이터를 로드하는 활동을 포함하여 [Azure Data Factory](../data-factory/introduction.md) 파이프라인에 통합합니다. [Azure Automation](../automation/automation-intro.md) 및 [Azure Functions](../azure-functions/functions-overview.md)는 사용자 지정 코드를 사용하여 모델의 간단한 오케스트레이션을 수행하는 데 사용할 수 있습니다. 
 
@@ -57,7 +57,7 @@ Azure Analysis Services는 **개발자**, **기본** 및 **표준** 계층에서
 
 ### <a name="standard-tier"></a>표준 계층
 
-이 계층은 탄력적 사용자 동시성이 필요하고 빠르게 성장하는 데이터 모델이 있는 중요 업무용 프로덕션 응용 프로그램에 적합합니다. 근실시간 데이터 모델 업데이트에 고급 데이터 새로 고침을 지원하고, 모든 테이블 형식 모델링 기능을 지원합니다.
+이 계층은 탄력적 사용자 동시성이 필요하고 빠르게 성장하는 데이터 모델이 있는 중요 업무용 프로덕션 애플리케이션에 적합합니다. 근실시간 데이터 모델 업데이트에 고급 데이터 새로 고침을 지원하고, 모든 테이블 형식 모델링 기능을 지원합니다.
 
 |계획  |QPU  |메모리(GB)  |
 |---------|---------|---------|
@@ -178,11 +178,11 @@ Analysis Services에서는 서버 및 데이터베이스 작업 모델, 개체 �
 
 ### <a name="automation-through-service-principles"></a>서비스 원칙을 통한 자동화
 
-서비스 사용자는 무인 리소스 및 서비스 수준 작업을 수행하도록 테넌트 내에서 만드는 Azure Active Directory 응용 프로그램 리소스입니다. 서비스 사용자는 새로 고침, 확장/축소 및 일시 정지/다시 시작과 같은 일반적인 작업을 자동화하는 Azure Automation, PowerShell 무인 모드, 사용자 지정 클라이언트 응용 프로그램 및 웹앱에 사용됩니다. 사용 권한은 역할 멤버 자격을 통해 서비스 사용자에게 할당됩니다. 자세한 내용은 [서비스 사용자를 사용한 자동화](analysis-services-service-principal.md)를 참조하세요.
+서비스 사용자는 무인 리소스 및 서비스 수준 작업을 수행하도록 테넌트 내에서 만드는 Azure Active Directory 애플리케이션 리소스입니다. 서비스 사용자는 새로 고침, 확장/축소 및 일시 정지/다시 시작과 같은 일반적인 작업을 자동화하는 Azure Automation, PowerShell 무인 모드, 사용자 지정 클라이언트 애플리케이션 및 웹앱에 사용됩니다. 사용 권한은 역할 멤버 자격을 통해 서비스 사용자에게 할당됩니다. 자세한 내용은 [서비스 사용자를 사용한 자동화](analysis-services-service-principal.md)를 참조하세요.
 
 ### <a name="azure-governance"></a>Azure 거버넌스
 
-Azure Analysis Services는 [Microsoft Online Services 약관](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) 및 [Microsoft 개인정보처리방침](https://privacy.microsoft.com/privacystatement)에 따라 사용할 수 있습니다.
+Azure Analysis Services는 [Microsoft Online Services 약관](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) 및 [Microsoft 개인정보처리방침](https://privacy.microsoft.com/privacystatement)에 따라 사용할 수 있습니다.
 Azure 보안에 대한 자세한 내용은 [Microsoft 보안 센터](https://www.microsoft.com/trustcenter)를 참조하세요.
 
 ## <a name="use-the-tools-you-already-know"></a>이미 알고 있는 도구 사용

@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: a1a31ec7ee0d1daea9f178e51dc860279d3787ec
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e16d27314a159b124e35560ffb8cd9685fc5c7a0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615350"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438016"
 ---
 # <a name="routing-events-and-messages"></a>이벤트 라우팅 및 메시지
 
@@ -25,7 +25,7 @@ Azure Digital Twins는 IoT 이벤트를 다른 Azure 서비스 또는 비즈니�
 
 * **Azure Digital Twins 이벤트 라우팅**: 변경된 공간 그래프의 개체, 수신된 원격 분석 데이터, 미리 정의된 조건에 따라 알림을 만드는 사용자 정의 함수는 Azure Digital Twins 이벤트를 트리거할 수 있습니다. 사용자는 이러한 이벤트를 추가로 처리하기 위해 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Service Bus 토픽](https://azure.microsoft.com/services/service-bus/) 또는 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)로 보낼 수 있습니다.
 
-* **장치 원격 분석 라우팅**: 라우팅 이벤트 외에도 Azure Digital Twins는 추가 인사이트 및 분석을 위해 원시 장치 원격 분석 메시지를 Event Hubs로 라우팅할 수도 있습니다. 이러한 유형의 메시지는 Azure Digital Twins에서 처리되지 않습니다. 이벤트 허브로 전달되기만 합니다.
+* **디바이스 원격 분석 라우팅**: 라우팅 이벤트 외에도 Azure Digital Twins는 추가 인사이트 및 분석을 위해 원시 디바이스 원격 분석 메시지를 Event Hubs로 라우팅할 수도 있습니다. 이러한 유형의 메시지는 Azure Digital Twins에서 처리되지 않습니다. 이벤트 허브로 전달되기만 합니다.
 
 사용자는 이벤트를 보내거나 메시지를 전달하도록 하나 이상의 송신 엔드포인트를 지정할 수 있습니다. 이벤트 및 메시지는 이러한 미리 정의된 라우팅 기본 설정에 따라 엔드포이트로 전송됩니다. 즉, 사용자는 그래프 작업 이벤트를 수신하는 하나의 특정 엔드포인트, 디바이스 원격 분석 이벤트를 수신하는 또 하나의 특정 엔드포인트 등을 지정할 수 있습니다.
 

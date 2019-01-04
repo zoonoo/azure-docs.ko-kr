@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 50868d32b35e77495965b9ee9d0023d23b43fd5a
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b813a276c2047a41038408744637b3dd50aff863
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426386"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163517"
 ---
-# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>자습서: 클라우드에 단일 AD 포리스트 환경 페더레이션
+# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>자습서: 단일 AD 포리스트 환경을 클라우드로 페더레이션
 
 ![생성](media/tutorial-federation/diagram.png)
 
@@ -39,7 +39,7 @@ ms.locfileid: "52426386"
 >
 >사용된 스크립트는 Azure AD Connect를 설치하기 전에 일반 Active Directory 환경을 만듭니다.  모든 자습서와 관련이 있습니다.
 >
-> 이 자습서에 사용된 PowerShell 스크립트의 복사본은 Github [여기](https://github.com/billmath/tutorial-phs)에서 사용할 수 있습니다.
+> 이 자습서에 사용된 PowerShell 스크립트의 복사본은 GitHub [여기](https://github.com/billmath/tutorial-phs)에서 사용할 수 있습니다.
 
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 하이브리드 ID 환경을 시작하고 실행하기 위해 첫 번째로 수행해야 하는 것은 온-프레미스 Active Directory 서버로 사용할 가상 머신을 만드는 것입니다.  
@@ -87,7 +87,7 @@ Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive
 5. **지금 설치**를 클릭합니다.
 6. 라이선스 키를 입력하고 **다음**을 클릭합니다.
 7. **사용 약관에 동의에 확인 표시를 한 후 **다음**을 클릭합니다.
-8. **사용자 지정: Windows만 설치(고급)** 를 선택합니다.
+8. **사용자 지정:  Windows만 설치(고급)** 선택
 9. **다음**을 누릅니다
 10. 설치가 완료되고 나면 가상 머신을 다시 시작하고, 로그인한 후, Windows 업데이트를 실행하여 VM이 최신 버전이 되도록 합니다.  최신 업데이트를 설치합니다.
 
@@ -261,7 +261,7 @@ Azure AD 테넌트가 준비되었으면 글로벌 관리자 계정을 만들겠
 1. AD FS 서버 화면에서 **찾아보기**를 클릭하고 검색 상자에 DC1을 입력한 후에 DC1이 검색되면 선택합니다.  **Ok**를 클릭합니다.  **다음**을 클릭합니다.
 ![페더레이션](media/tutorial-federation/fed3.png)
 
-1. 웹 응용 프로그램 프록시 서버 화면에서 **다음**을 클릭합니다.
+1. 웹 애플리케이션 프록시 서버 화면에서 **다음**을 클릭합니다.
 2. AD FS 서비스 계정 화면에서 contoso/Administrator 사용자 이름과 암호를 입력하고 **다음**을 클릭합니다.
 3. Azure AD 도메인 화면의 드롭다운 목록에서 확인된 사용자 지정 도메인을 선택하고 **다음**을 클릭합니다.
 4. 구성 준비 화면에서 **설치**를 클릭합니다.

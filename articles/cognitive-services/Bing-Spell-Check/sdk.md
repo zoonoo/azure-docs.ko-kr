@@ -1,7 +1,7 @@
 ---
 title: '예제: Bing Spell Check SDK'
 titleSuffix: Azure Cognitive Services
-description: 상황에 맞는 문법 및 맞춤법 검사를 수행하는 응용 프로그램에 대한 Bing Spell Check SDK 샘플입니다.
+description: 상황에 맞는 문법 및 맞춤법 검사를 수행하는 애플리케이션에 대한 Bing Spell Check SDK 샘플입니다.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun

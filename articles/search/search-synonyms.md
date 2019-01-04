@@ -1,20 +1,21 @@
 ---
-pageTitle: Synonyms in Azure Search | Microsoft Docs
-description: 동의어를 사용하여 검색 쿼리의 범위를 확장합니다.
-author: mhko
+Title: Synonyms for query expansion over a search index  - Azure Search
+description: Azure Search 인덱스에 대한 검색 쿼리 범위를 확장하기 위한 동의어 맵을 만듭니다. 범위는 목록으로 제공하는 동급 용어를 포함하도록 확장됩니다.
+author: brjohnstmsft
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 manager: jlembicz
-ms.author: nateko
-ms.openlocfilehash: fcb4314583036c2abfffdf7e5d0b5d90478dbe6b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: brjohnst
+ms.custom: seodec2018
+ms.openlocfilehash: ce9eb8ed099a232128ba924da1466917df542fbb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468554"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315667"
 ---
 # <a name="synonyms-in-azure-search"></a>Azure Search의 동의어
 
@@ -73,7 +74,7 @@ Azure Search에서 동의어 지원은 사용자가 정의하고 서비스에 �
 
 ##### <a name="apache-solr-synonym-format"></a>Apache Solr 동의어 형식
 
-Solr 형식은 동등하고 명시적인 동의어 매핑을 지원합니다. 매핑 규칙은 이 문서([SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter))에 설명된 Apache Solr의 공개 소스 동의어 필터 사양을 준수합니다. 다음은 동등한 동의어에 대한 샘플 규칙입니다.
+Solr 형식은 동등하고 명시적인 동의어 매핑을 지원합니다. 매핑 규칙은 이 문서 ([SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter))에 설명된 Apache Solr의 공개 소스 동의어 필터 사양을 준수합니다. 다음은 동등한 동의어에 대한 샘플 규칙입니다.
 ```
 USA, United States, United States of America
 ```

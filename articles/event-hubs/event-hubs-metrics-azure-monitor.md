@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor의 Azure Event Hubs 메트릭(미리 보기) | Microsoft Docs
-description: Azure Monitor를 사용하여 Event Hubs 모니터링
+title: Azure Monitor의 메트릭(미리 보기) - Azure Event Hubs | Microsoft Docs
+description: 이 문서에서는 Azure Monitoring을 사용하여 Azure Event Hubs를 모니터링하는 방법을 설명합니다.
 services: event-hubs
 documentationcenter: .NET
 author: ShubhaVijayasarathy
@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c59cb8277bee13a83d0bf17c26deef1b8fc8d3e6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 27a9f2619801346660dfedbda3eefe57b41ad6ac
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822846"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094324"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Azure Monitor의 Azure Event Hubs 메트릭(미리 보기)
 
@@ -37,13 +38,13 @@ Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합�
 
 [Azure Portal](https://portal.azure.com)에서 시간 경과에 따른 메트릭을 모니터링할 수 있습니다. 다음 예제에서는 성공한 요청 및 계정 수준에서 들어오는 요청을 확인하는 방법을 보여 줍니다.
 
-![][1]
+![성공 메트릭 보기][1]
 
 네임스페이스를 통해 메트릭에 직접 액세스할 수도 있습니다. 이렇게 하려면 네임스페이스를 선택한 다음 **메트릭(미리 보기)** 을 클릭합니다. Event Hub의 범위에 대해 필터링된 메트릭을 표시하려면 Event Hub를 선택한 다음 **메트릭(미리 보기)** 을 클릭합니다.
 
 다음 예제와 같이 차원을 지원하는 메트릭의 경우 원하는 차원 값을 사용하여 필터링해야 합니다.
 
-![][2]
+![차원 값으로 필터링][2]
 
 ## <a name="billing"></a>결제
 
@@ -62,34 +63,34 @@ Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 현재 �
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-| 들어오는 요청(미리 보기) | 지정된 기간 동안 Azure Event Hubs 서비스에 대한 요청 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName |
-| 성공한 요청(미리 보기)   | 지정된 기간 동안 Azure Event Hubs 서비스에 대한 성공한 요청 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName |
-| 서버 오류(미리 보기) | 지정된 기간 동안 Azure Event Hubs 서비스에서 오류로 인해 처리되지 않은 요청 수입니다. <br/><br/>단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName |
-|사용자 오류(미리 보기)|지정된 기간 동안 사용자 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|할당량 초과 오류(미리 보기)|사용 가능한 할당량을 초과하는 요청 수입니다. Event Hubs 할당량에 대한 자세한 내용은 [이 문서](event-hubs-quotas.md)를 참조하세요.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+| 들어오는 요청(미리 보기) | 지정된 기간 동안 Azure Event Hubs 서비스에 대한 요청 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName |
+| 성공한 요청(미리 보기)   | 지정된 기간 동안 Azure Event Hubs 서비스에 대한 성공한 요청 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName |
+| 서버 오류(미리 보기) | 지정된 기간 동안 Azure Event Hubs 서비스에서 오류로 인해 처리되지 않은 요청 수입니다. <br/><br/>단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName |
+|사용자 오류(미리 보기)|지정된 기간 동안 사용자 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|할당량 초과 오류(미리 보기)|사용 가능한 할당량을 초과하는 요청 수입니다. Event Hubs 할당량에 대한 자세한 내용은 [이 문서](event-hubs-quotas.md)를 참조하세요.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
 
 ## <a name="throughput-metrics"></a>처리량 메트릭
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-|제한된 요청(미리 보기)|처리량 단위 사용량이 초과되었기 때문에 제한된 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|제한된 요청(미리 보기)|처리량 단위 사용량이 초과되었기 때문에 제한된 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
 
 ## <a name="message-metrics"></a>메시지 메트릭
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-|들어오는 메시지 (미리 보기)|지정된 기간 동안 Event Hubs에 전송된 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|보내는 메시지(미리 보기)|지정된 기간 동안 Event Hubs에서 검색된 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|들어오는 바이트(미리 보기)|지정된 기간 동안 Azure Event Hubs 서비스에 전송된 바이트 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|나가는 바이트(미리 보기)|지정된 기간 동안 Azure Event Hubs 서비스에서 검색된 바이트 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|들어오는 메시지 (미리 보기)|지정된 기간 동안 Event Hubs에 전송된 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|보내는 메시지(미리 보기)|지정된 기간 동안 Event Hubs에서 검색된 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|들어오는 바이트(미리 보기)|지정된 기간 동안 Azure Event Hubs 서비스에 전송된 바이트 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|나가는 바이트(미리 보기)|지정된 기간 동안 Azure Event Hubs 서비스에서 검색된 바이트 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
 
 ## <a name="connection-metrics"></a>연결 메트릭
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-|ActiveConnections(미리 보기)|네임스페이스와 엔터티의 활성 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|열린 연결(미리 보기)|열린 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|닫힌 연결(미리 보기)|닫힌 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|ActiveConnections(미리 보기)|네임스페이스와 엔터티의 활성 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|열린 연결(미리 보기)|열린 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|닫힌 연결(미리 보기)|닫힌 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
 
 ## <a name="event-hubs-capture-metrics"></a>Event Hubs 캡처 메트릭
 
@@ -97,9 +98,9 @@ Event Hubs에 캡처 기능을 사용하도록 설정하면 Event Hubs 캡처 �
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-|캡처 백로그(미리 보기)|선택한 대상에 캡처될 수 있는 바이트 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|캡처된 메시지(미리 보기)|지정된 기간 동안 선택한 대상에 캡처된 메시지 또는 이벤트의 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|캡처된 바이트(미리 보기)|지정된 기간 동안 선택한 대상에 캡처된 바이트의 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|캡처 백로그(미리 보기)|선택한 대상에 캡처될 수 있는 바이트 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|캡처된 메시지(미리 보기)|지정된 기간 동안 선택한 대상에 캡처된 메시지 또는 이벤트의 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|캡처된 바이트(미리 보기)|지정된 기간 동안 선택한 대상에 캡처된 바이트의 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
 
 ## <a name="metrics-dimensions"></a>메트릭 차원
 

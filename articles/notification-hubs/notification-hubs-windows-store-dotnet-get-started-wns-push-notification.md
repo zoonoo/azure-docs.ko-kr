@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기 | Microsoft Docs
-description: 이 자습서에서는 Azure Notification Hubs를 사용하여 Windows 유니버설 플랫폼 응용 프로그램으로 알림을 푸시하는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure Notification Hubs를 사용하여 Windows 유니버설 플랫폼 애플리케이션으로 알림을 푸시하는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: windows
 author: dimazaid
@@ -57,13 +57,13 @@ UWP 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결�
 1. 앱의 이름을 입력한 다음, **제품 이름 예약**을 선택합니다. 이렇게 하면 앱을 새로 Windows 스토어에 등록하게 됩니다.
 
     ![앱 이름 저장](./media/notification-hubs-windows-store-dotnet-get-started/store-app-name.png)
-1. **앱 관리**를 확장하고, **WNS/MPNS**, **WNS/MPNS**를 차례로 선택한 다음, **Live 서비스 사이트**를 선택합니다. Microsoft 계정으로 로그인 새 탭에서 **응용 프로그램 등록 포털**이 열립니다. 또는 [응용 프로그램 등록 포털](https://apps.dev.microsoft.com)로 직접 이동하고, 이 페이지로 이동하도록 응용 프로그램 이름을 선택할 수 있습니다.
+1. **앱 관리**를 확장하고, **WNS/MPNS**, **WNS/MPNS**를 차례로 선택한 다음, **Live 서비스 사이트**를 선택합니다. Microsoft 계정으로 로그인 새 탭에서 **애플리케이션 등록 포털**이 열립니다. 또는 [애플리케이션 등록 포털](https://apps.dev.microsoft.com)로 직접 이동하고, 이 페이지로 이동하도록 애플리케이션 이름을 선택할 수 있습니다.
 
     ![WNS MPNS 페이지](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
 1.   **응용 프로그램 비밀** 암호 및 **패키지 SID(보안 식별자)** 를 메모해 둡니다.
 
         >[!WARNING]
-        >응용 프로그램 암호와 패키지 SID는 중요한 보안 자격 증명입니다. 다른 사람과 공유하지 말고 앱과 함께 분산하지 마세요.
+        >애플리케이션 암호와 패키지 SID는 중요한 보안 자격 증명입니다. 다른 사람과 공유하지 말고 앱과 함께 분산하지 마세요.
 
 ## <a name="create-a-notification-hub"></a>알림 허브 만들기
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
@@ -93,7 +93,7 @@ UWP 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결�
 1. **대상** 및 **최소** 플랫폼 버전에 대한 기본값을 그대로 적용하고, **확인**을 선택합니다. 
 2. 솔루션 탐색기에서 Windows 스토어 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **스토어**를 선택한 후 **응용 프로그램을 스토어에 연결...** 을 선택합니다. **응용 프로그램을 Windows 스토어에 연결** 마법사가 나타납니다.
 3. 마법사에서 Microsoft 계정으로 로그인합니다.
-4. 2단계에서 등록한 앱을 선택하고 **다음**을 선택한 후 **연결**을 선택합니다. 이렇게 하면 필요한 Windows 스토어 등록 정보가 응용 프로그램 매니페스트에 추가됩니다.
+4. 2단계에서 등록한 앱을 선택하고 **다음**을 선택한 후 **연결**을 선택합니다. 이렇게 하면 필요한 Windows 스토어 등록 정보가 애플리케이션 매니페스트에 추가됩니다.
 5. Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 선택합니다. **NuGet 패키지 관리** 창이 열립니다.
 6. 검색 상자에 **WindowsAzure.Messaging.Managed**를 입력하고 **설치**를 선택한 다음, 사용 약관에 동의합니다.
    
@@ -137,7 +137,7 @@ UWP 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결�
    
         InitNotificationsAsync();
    
-    이 작업은 응용 프로그램이 시작될 때마다 채널 URI가 알림 허브에 등록되도록 보장합니다.
+    이 작업은 애플리케이션이 시작될 때마다 채널 URI가 알림 허브에 등록되도록 보장합니다.
 
 6. 앱을 실행하려면 **F5** 키를 선택합니다. 등록 키가 포함된 대화 상자가 표시됩니다. 대화 상자를 닫으려면 **확인**을 선택합니다. 
 

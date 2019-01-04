@@ -5,15 +5,15 @@ services: container-instances
 author: seanmck
 ms.service: container-instances
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 11/30/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: c17bdb5a81640a7162ae735a4633a31cdfffbb1d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 08bc344a20ade3d8bb0f7dd23a854fd03ddac006
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803514"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845810"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances 및 컨테이너 오케스트레이터
 
@@ -25,14 +25,14 @@ Azure Container Instances는 오케스트레이션 플랫폼의 기본 일정 �
 
 오케스트레이션의 표준 정의에는 다음 작업이 포함됩니다.
 
-- **예약**: 컨테이너 이미지 및 리소스 요청을 지정하여 컨테이너를 실행할 적절한 컴퓨터를 찾습니다.
-- **선호도/반선호도**: 서로 가깝거나(성능 목적) 충분히 멀리 떨어져 있는(가용성 목적) 컨테이너 집합이 실행되도록 지정합니다.
+- **예약**: 컨테이너 이미지 및 리소스 요청을 지정하여 컨테이너를 실행할 적절한 머신을 찾습니다.
+- **선호도/반선호도**: 서로 가깝거나(성능 목적) 충분히 멀리 떨어져 있는(가용성 목적) 컨테이너 세트가 실행되도록 지정합니다.
 - **상태 모니터링**: 컨테이너 오류를 관찰하여 자동으로 일정을 다시 조정합니다.
-- **장애 조치**: 각 컴퓨터에서 실행되는 작업을 추적하고 실패한 컴퓨터의 컨테이너를 정상 노드로 다시 예약합니다.
-- **크기 조정**: 수동 또는 자동으로 요청에 맞게 Container Instance를 추가하거나 제거합니다.
-- **네트워킹**: 여러 호스트 컴퓨터 간에 통신하도록 컨테이너를 조정하는 오버레이 네트워크를 제공합니다.
-- **서비스 검색**: 컨테이너가 호스트 컴퓨터 간에 이동하면서 IP 주소를 변경하는 경우에도 자동으로 서로 찾을 수 있게 합니다.
-- **조정된 응용 프로그램 업그레이드**: 응용 프로그램 작동 중단 시간을 방지하고 문제가 발생한 경우 롤백할 수 있도록 컨테이너 업그레이드를 관리합니다.
+- **장애 조치**: 각 머신에서 실행되는 작업을 추적하고 실패한 머신의 컨테이너를 정상 노드로 다시 예약합니다.
+- **크기 조정**: 수동 또는 자동으로 요청에 맞게 컨테이너 인스턴스를 추가하거나 제거합니다.
+- **네트워킹**: 여러 호스트 머신 간에 통신하도록 컨테이너를 조정하는 오버레이 네트워크를 제공합니다.
+- **서비스 검색**: 컨테이너가 호스트 머신 간에 이동하면서 IP 주소를 변경하는 경우에도 자동으로 서로 찾을 수 있게 합니다.
+- **조정된 애플리케이션 업그레이드**: 애플리케이션 작동 중단 시간을 방지하고 문제가 발생한 경우 롤백할 수 있도록 컨테이너 업그레이드를 관리합니다.
 
 ## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Azure Container Instances와 오케스트레이션: 계층화된 접근 방식
 
@@ -40,7 +40,7 @@ Azure Container Instances를 사용하여 계층화된 접근 방식을 오케�
 
 Container Instances에 대한 기본 인프라가 Azure에서 관리되기 때문에 오케스트레이터 플랫폼은 단일 컨테이너를 실행하는 적절한 호스트 컴퓨터를 찾는 작업을 처리할 필요가 없습니다. 클라우드의 탄력성을 항상 사용할 수 있도록 합니다. 대신, 오케스트레이터는 크기 조정 및 조정된 업그레이드를 비롯한 다중 컨테이너 아키텍처의 개발을 간소화하는 작업에 집중할 수 있습니다.
 
-## <a name="potential-scenarios"></a>잠재적 시나리오
+## <a name="scenarios"></a>시나리오
 
 Azure Container Instances를 포함한 오케스트레이터 통합이 여전히 초기 상태인 동안 몇 가지 다양한 환경이 제공됩니다.
 
@@ -54,13 +54,15 @@ Azure Container Instances를 포함한 오케스트레이터 통합이 여전히
 
 클러스터에서 가상 머신의 수를 확장한 다음, 해당 컴퓨터에 추가 컨테이너를 배포하는 대신 오케스트레이터는 단순하게 Azure Container Instances에서 추가 컨테이너를 예약하고 더 이상 필요하지 않은 경우 삭제할 수 있습니다.
 
-## <a name="sample-implementation-virtual-kubelet-for-kubernetes"></a>샘플 구현: Kubernetes용 Virtual Kubelet
+## <a name="sample-implementation-virtual-nodes-for-azure-kubernetes-service-aks"></a>샘플 구현: AKS(Azure Kubernetes Service)에 대한 가상 노드
 
-[Virtual Kubelet][aci-connector-k8s] 프로젝트에서는 컨테이너 오케스트레이션 플랫폼을 Azure Container Instances와 통합하는 방법을 보여 줍니다.
+[Azure Kubernetes Service](../aks/intro-kubernetes.md)(AKS) 클러스터에서 애플리케이션 워크로드를 신속하게 확장하기 위해 Azure Container Instances에서 동적으로 생성한 *가상 노드*를 사용할 수 있습니다. 현재 미리 보기에서 가상 노드는 ACI에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 
 
-Virtual Kubelet는 용량이 무제한인 노드로 등록한 다음 Azure Container Instances의 컨테이너 그룹인 [pods][pod-doc] 생성 작업을 디스패치하는 방식으로 Kubernetes [kubelet][kubelet-doc]의 작동 방식을 모방합니다.
+가상 노드는 현재 Linux 컨테이너 인스턴스를 지원합니다. [Azure CLI](https://go.microsoft.com/fwlink/?linkid=2047538) 또는 [Azure Portal](https://go.microsoft.com/fwlink/?linkid=2047545)을 사용하여 가상 노드를 시작합니다.
 
-다른 오케스트레이터의 커넥터는 Azure Container Instances에서 컨테이너를 관리하는 신속성 및 간소성을 통해 오케스트레이터 API의 기능을 결합하기 위해 플랫폼 기본 형식과 마찬가지로 통합되어 빌드될 수 있습니다.
+가상 노드는 무제한 용량의 노드로 등록하여 Kubernetes [kubelet][kubelet-doc]을 모방하도록 오픈 소스 [Virtual Kubelet][aci-connector-k8s]을 사용합니다. Virtual Kubelet은 Azure Container Instances의 컨테이너 그룹으로 [Pod][pod-doc]의 생성을 디스패치합니다.
+
+Kubernetes API를 서버리스 컨테이너 플랫폼으로 확장하는 추가 예제는 [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) 프로젝트를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

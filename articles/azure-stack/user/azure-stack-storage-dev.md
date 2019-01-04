@@ -4,17 +4,17 @@ description: Azure Stack 저장소 개발 도구를 사용 하 여 시작 하기
 services: azure-stack
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 11/05/2018
+ms.date: 12/03/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a218cf9b3d89236128c83d8b879691940e432a55
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 56814cc44874fe0c169e5fb51dc6cbff5a225231
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341561"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727856"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure Stack 저장소 개발 도구를 사용 하 여 시작
 
@@ -29,9 +29,9 @@ Azure Stack 저장소 개발 도구를 사용 하 여 시작 하려면이 문서
 
 ## <a name="azure-client-libraries"></a>Azure 클라이언트 라이브러리
 
-Azure Stack 저장소에 대 한 지원 되는 REST API 버전 2017-04-17, 2016-05-31, 2015 년 12 월 11, 2015-07-08, 2015-04-05 1802 업데이트 또는 최신 버전 및 이전 버전 2015-04-05 됩니다. Azure Stack 끝점에 최신 버전의 Azure storage REST API를 사용 하 여 완벽 한 패리티를 사용할 필요가 없습니다. 저장소 클라이언트 라이브러리에 대 한 REST API와 호환 되는 버전에 주의 해야 합니다.
+저장소 클라이언트 라이브러리에 대 한 REST API와 호환 되는 버전을 알고 있어야 합니다. 코드에서 Azure Stack 끝점을 지정 해야 합니다.
 
-### <a name="1802-update-or-newer-versions"></a>1802 업데이트 또는 최신 버전
+### <a name="1811-update-or-newer-versions"></a>1811 업데이트 또는 최신 버전
 
 | 클라이언트 라이브러리 | Azure Stack 지원 되는 버전 | 링크 | 끝점 지정 |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
@@ -45,22 +45,22 @@ Azure Stack 저장소에 대 한 지원 되는 REST API 버전 2017-04-17, 2016-
 
 #### <a name="install-php-client-via-composer---current"></a>현재 작성기-를 통해 PHP 클라이언트를 설치 합니다.
 
-작성기를 통해 설치 합니다. (예로 take blob).
+작성기를 통해 설치 합니다. (예를 들어 blob 소요).
 
 1. 이라는 파일을 만듭니다 **composer.json** 다음 코드를 사용 하 여 프로젝트의 루트에:
 
-  ```php
+    ```json
     {
       "require": {
-      "Microsoft/azure-storage-blob":"1.0.0"
+      "Microsoft/azure-storage-blob":"1.2.0"
       }
     }
-  ```
+    ```
 
 2. 다운로드 [composer.phar](http://getcomposer.org/composer.phar) 프로젝트 루트에 있습니다.
 3. `php composer.phar install`을 실행합니다.
 
-### <a name="previous-versions"></a>이전 버전
+### <a name="previous-versions-1802-to-1809-update"></a>이전 버전 (1802에 1809 업데이트)
 
 |클라이언트 라이브러리|Azure Stack 지원 되는 버전|링크|끝점 지정|
 |---------|---------|---------|---------|
@@ -74,15 +74,15 @@ Azure Stack 저장소에 대 한 지원 되는 REST API 버전 2017-04-17, 2016-
 
 #### <a name="install-php-client-via-composer---previous"></a>이전-작성기를 통해 PHP 클라이언트를 설치 합니다.
 
-작성기를 통해 설치:
+작성기를 통해 설치 합니다. (예로 take blob).
 
 1. 이라는 파일을 만듭니다 **composer.json** 다음 코드를 사용 하 여 프로젝트의 루트에:
 
-  ```php
+  ```json
     {
-          "require":{
-          "Microsoft/azure-storage":"0.15.0"
-          }
+      "require": {
+      "Microsoft/azure-storage-blob":"1.0.0"
+      }
     }
   ```
 
@@ -101,7 +101,7 @@ Azure Stack 저장소에 대 한 지원 되는 REST API 버전 2017-04-17, 2016-
 
 Azure Stack에 대 한 끝점 접미사는 app.config 파일에 지정 됩니다.
 
-```
+```xml
 <add key="StorageConnectionString"
 value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;
 EndpointSuffix=local.azurestack.external;" />
@@ -111,7 +111,7 @@ EndpointSuffix=local.azurestack.external;" />
 
 Azure Stack에 대 한 끝점 접미사는 연결 문자열의 설정에 지정 됩니다.
 
-```
+```java
 public static final String storageConnectionString =
     "DefaultEndpointsProtocol=http;" +
     "AccountName=your_storage_account;" +
@@ -123,7 +123,7 @@ public static final String storageConnectionString =
 
 Azure Stack에 대 한 끝점 접미사는 인스턴스를 선언에 지정 됩니다.
 
-```
+```nodejs
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
 'myaccount.blob.local.azurestack.external');
 ```
@@ -132,7 +132,7 @@ var blobSvc = azure.createBlobService('myaccount', 'mykey',
 
 Azure Stack에 대 한 끝점 접미사는 연결 문자열의 설정에 지정 됩니다.
 
-```
+```cpp
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;
 AccountName=your_storage_account;
 AccountKey=your_storage_account_key;
@@ -143,7 +143,7 @@ EndpointSuffix=local.azurestack.external"));
 
 Azure Stack에 대 한 끝점 접미사는 연결 문자열의 설정에 지정 됩니다.
 
-```
+```php
 $connectionString = 'BlobEndpoint=http://<storage account name>.blob.local.azurestack.external/;
 QueueEndpoint=http:// <storage account name>.queue.local.azurestack.external/;
 TableEndpoint=http:// <storage account name>.table.local.azurestack.external/;
@@ -154,7 +154,7 @@ AccountName=<storage account name>;AccountKey=<storage account key>'
 
 Azure Stack에 대 한 끝점 접미사는 인스턴스를 선언에 지정 됩니다.
 
-```
+```python
 block_blob_service = BlockBlobService(account_name='myaccount',
 account_key='mykey',
 endpoint_suffix='local.azurestack.external')
@@ -164,7 +164,7 @@ endpoint_suffix='local.azurestack.external')
 
 Azure Stack에 대 한 끝점 접미사는 연결 문자열의 설정에 지정 됩니다.
 
-```
+```ruby
 set
 AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;
 AccountName=myaccount;

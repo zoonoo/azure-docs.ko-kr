@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: e671c75b1ceee0e42b3af9ddc149edf2f3b0040c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.custom: seodec18
+ms.openlocfilehash: 4614a1417213ed8b4d57c3b7ab21ac7424d75949
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822367"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087936"
 ---
-# <a name="tutorial-create-and-manage-exported-data"></a>자습서: 내보낸 데이터를 만들고 관리
+# <a name="tutorial-create-and-manage-exported-data"></a>자습서: 내보낸 데이터 만들기 및 관리
 
 비용 분석 자습서를 읽으셨다면 Cost Management 데이터를 수동으로 다운로드하는 방법에 익숙하실 것입니다. 그러나 매일, 매주 또는 매월 자동으로 Azure 저장소에 Cost Management 데이터를 내보내는 되풀이 작업을 만들 수 있습니다. 내보낸 데이터는 CSV 형식이며 Cost Management에서 수집한 모든 정보를 포함하고 있습니다. Azure 저장소로 내보낸 데이터를 외부 시스템에 사용하고 사용자 고유의 사용자 지정 데이터와 결합할 수 있습니다. 그리고 내보낸 데이터를 대시보드나 기타 재무 시스템 같은 외부 시스템에서 사용할 수 있습니다.
 
@@ -50,11 +50,11 @@ Cost Management + 청구 &gt; Cost Management &gt; 구독 &gt; 내보내기 &gt;
 
 내보내기의 이름을 입력하고 "월간 누계 비용 매일 내보내기" 옵션을 선택합니다. **다음**을 클릭합니다.
 
-![새 내보내기: 내보내기 형식](./media/tutorial-export-acm-data/basics_exports.png)
+![내보내기 형식을 표시하는 새 내보내기 예제](./media/tutorial-export-acm-data/basics_exports.png)
 
 Azure 저장소 계정에 대한 구독을 지정하고 저장소 계정을 선택합니다.  내보내기 파일을 보낼 저장소 컨테이너 및 디렉터리 경로를 지정합니다.  **다음**을 클릭합니다.
 
-![새 내보내기: 저장소](./media/tutorial-export-acm-data/storage_exports.png)
+![스토리지 계정 세부 정보를 표시하는 새 내보내기 예제](./media/tutorial-export-acm-data/storage_exports.png)
 
 내보내기 세부 정보를 검토하고 **만들기**를 클릭합니다.
 
@@ -68,19 +68,19 @@ Azure Storage 탐색기를 사용하여 간단하게 Cost Management 데이터�
 
 내보내기 목록에서 저장소 계정 이름을 클릭합니다. 저장소 계정 페이지의 탐색기에서 [열기]를 클릭합니다. 확인 상자가 나타나면 **예**를 클릭하여 Azure Storage 탐색기에서 파일을 엽니다.
 
-![저장소 계정 페이지](./media/tutorial-export-acm-data/storage-account-page.png)
+![예제 정보 및 탐색기에서 열기 링크를 표시하는 스토리지 계정 페이지](./media/tutorial-export-acm-data/storage-account-page.png)
 
 Storage 탐색기에서 열고 싶은 컨테이너로 이동한 후 현재 월에 해당하는 폴더를 선택합니다. CSV 파일 목록이 표시됩니다. 파일 하나를 선택하고 **열기**를 클릭합니다.
 
-![Storage 탐색기](./media/tutorial-export-acm-data/storage-explorer.png)
+![Storage 탐색기에 표시되는 예제 정보](./media/tutorial-export-acm-data/storage-explorer.png)
 
-CSV 파일 확장명을 열도록 설정된 프로그램 또는 응용 프로그램에서 파일이 열립니다. 다음은 Excel 예제입니다.
+CSV 파일 확장명을 열도록 설정된 프로그램 또는 애플리케이션에서 파일이 열립니다. 다음은 Excel 예제입니다.
 
-![데이터 내보내기 예제](./media/tutorial-export-acm-data/example-export-data.png)
+![Excel에 표시되는 내보낸 CSV 데이터 예제](./media/tutorial-export-acm-data/example-export-data.png)
 
 ## <a name="access-exported-data-from-other-systems"></a>다른 시스템에서 내보낸 데이터에 액세스
 
-Cost Management 데이터를 내보내는 목적 중 하나는 외부 시스템에서 데이터에 액세스하는 것입니다. 대시보드 시스템 또는 기타 재무 시스템을 사용할 수 있습니다. 이러한 시스템의 종류는 매우 다양하기 때문에 예제를 보여드리는 것이 별 의미가 없습니다.  하지만 [Azure Storage 소개](../storage/common/storage-introduction.md) 문서를 참조하여 응용 프로그램에서 데이터에 액세스하는 방법을 알아볼 수 있습니다.
+Cost Management 데이터를 내보내는 목적 중 하나는 외부 시스템에서 데이터에 액세스하는 것입니다. 대시보드 시스템 또는 기타 재무 시스템을 사용할 수 있습니다. 이러한 시스템의 종류는 매우 다양하기 때문에 예제를 보여드리는 것이 별 의미가 없습니다.  하지만 [Azure Storage 소개](../storage/common/storage-introduction.md) 문서를 참조하여 애플리케이션에서 데이터에 액세스하는 방법을 알아볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

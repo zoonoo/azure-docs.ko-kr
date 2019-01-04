@@ -40,7 +40,7 @@ ms.locfileid: "44347446"
 
 ## <a name="assigning-users-to-linkedin-sales-navigator"></a>LinkedIn Sales Navigator에 사용자 할당
 
-Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 "할당된" 사용자 및 그룹만 동기화됩니다. 
+Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 "할당된" 사용자 및 그룹만 동기화됩니다. 
 
 프로비전 서비스를 구성하고 사용하도록 설정하기 전에 LinkedIn Sales Navigator에 대한 액세스가 필요한 사용자를 대표하는 Azure AD의 사용자 및/또는 그룹을 결정해야 합니다. 결정했으면 다음 지시에 따라 이러한 사용자를 LinkedIn Sales Navigator에 할당할 수 있습니다.
 
@@ -81,7 +81,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 ![LinkedIn Sales Navigator 프로비저닝](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_1.PNG)
 
-> 자동 라이선스 할당을 사용하는 경우 응용 프로그램 인스턴스 및 라이선스 유형을 메모해 두어야 합니다. 라이선스는 모든 라이선스가 취득될 때까지 선착순으로 할당됩니다.
+> 자동 라이선스 할당을 사용하는 경우 애플리케이션 인스턴스 및 라이선스 유형을 메모해 두어야 합니다. 라이선스는 모든 라이선스가 취득될 때까지 선착순으로 할당됩니다.
 
 ![LinkedIn Sales Navigator 프로비저닝](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_2.PNG)
 
@@ -91,7 +91,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 7) 다음으로, [Azure Portal](https://portal.azure.com)에 로그인하고 **Azure Active Directory > 엔터프라이즈 앱 > 모든 응용 프로그램** 섹션으로 이동합니다.
 
-8) Single Sign-On에 대한 LinkedIn Sales Navigator를 이미 구성한 경우 검색 필드를 사용하여 LinkedIn Sales Navigator의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **LinkedIn Sales Navigator**를 검색합니다. 검색 결과에서 LinkedIn Sales Navigator를 선택하고 응용 프로그램의 목록에 추가합니다.
+8) Single Sign-On에 대한 LinkedIn Sales Navigator를 이미 구성한 경우 검색 필드를 사용하여 LinkedIn Sales Navigator의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **LinkedIn Sales Navigator**를 검색합니다. 검색 결과에서 LinkedIn Sales Navigator를 선택하고 애플리케이션의 목록에 추가합니다.
 
 9)  LinkedIn Sales Navigator의 인스턴스를 선택한 다음, **프로비전** 탭을 선택합니다.
 

@@ -19,7 +19,7 @@ ms.locfileid: "51242407"
 ---
 # <a name="knowledge-exploration-service"></a>지식 탐색 서비스
 
-Microsoft Knowledge Exploration Service를 시작합니다.  KES(Knowledge Exploration Service)는 응용 프로그램에 대화형 검색 및 구체화를 추가하는 빠르고 효과적인 방법을 제공합니다.  KES를 사용하면 구조화된 데이터로 압축된 인덱스를 만들고, 자연어 쿼리를 해석하는 문법을 작성하고, 자동 완성 제안을 제공하는 대화형 쿼리 수식을 제공할 수 있습니다.
+Microsoft Knowledge Exploration Service를 시작합니다.  KES(Knowledge Exploration Service)는 애플리케이션에 대화형 검색 및 구체화를 추가하는 빠르고 효과적인 방법을 제공합니다.  KES를 사용하면 구조화된 데이터로 압축된 인덱스를 만들고, 자연어 쿼리를 해석하는 문법을 작성하고, 자동 완성 제안을 제공하는 대화형 쿼리 수식을 제공할 수 있습니다.
 
 KES를 사용하여 학술 서적 도메인에 대한 대화형 검색 인터페이스를 만드는 방법에 대한 샘플 연습은 [시작](GettingStarted.md)을 참조하세요.
 

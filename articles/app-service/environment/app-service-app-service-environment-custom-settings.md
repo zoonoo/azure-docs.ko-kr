@@ -1,5 +1,5 @@
 ---
-title: App Service Environment에 대한 사용자 지정 설정
+title: App Service Environment에 대한 사용자 지정 설정 - Azure
 description: App Service Environment에 대한 사용자 지정 구성 설정
 services: app-service
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/22/2016
 ms.author: stefsch
-ms.custom: mvc
-ms.openlocfilehash: d60cdca78c143996fa5935726db0631321c9e2fe
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.custom: seodec18
+ms.openlocfilehash: de68c59987a7ec1198c344cc22978ebed09c75e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26129518"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271361"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>App Service Environment에 대한 사용자 지정 구성 설정
 ## <a name="overview"></a>개요
@@ -92,7 +92,7 @@ App Service Environment가 없는 경우 [App Service Environment를 만드는 �
 > 
 > 
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 Azure 빠른 시작 Resource Manager 템플릿 사이트에는 [App Service Environment 만들기](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/)에 대한 기본 정의에 템플릿이 포함되어 있습니다.
 
 <!-- LINKS -->

@@ -25,7 +25,7 @@ ms.locfileid: "30245740"
 
 이 자습서에서는 Windows Server 2012 R2를 실행하는 호스트에서 MPIO(다중 경로 I/O) 기능을 설치 및 사용하고 StorSimple 실제 디바이스에 연결하기 위해 수행해야 할 단계에 대해 설명합니다. 이 문서의 지침은 StorSimple 8000 시리즈 물리적 디바이스에만 적용됩니다. MPIO는 현재 StorSimple Cloud Appliance에서 지원되지 않습니다.
 
-Microsoft는 고가용성, 내결함성 iSCSI 네트워크 구성을 구축하는 데 도움을 주기 위해 Windows Server에서 MPIO(다중 경로 I/O) 기능에 대한 지원을 구축했습니다. MPIO는 중복 실제 경로 구성 요소(어댑터, 케이블 및 스위치)를 사용하여 서버 및 저장소 디바이스 간의 논리 경로를 만듭니다. 논리 경로에 오류를 일으키는 구성 요소 오류가 발생할 경우 응용 프로그램이 데이터에 계속 액세스할 수 있도록 다중 경로 논리가 I/O에 대한 대체 경로를 사용합니다. 또한 구성에 따라 MPIO가 이러한 모든 경로에서 부하를 다시 분산하여 성능을 향상할 수도 있습니다. 자세한 내용은 [MPIO 개요](https://technet.microsoft.com/library/cc725907.aspx "MPIO 개요 and features")을 참조하세요.
+Microsoft는 고가용성, 내결함성 iSCSI 네트워크 구성을 구축하는 데 도움을 주기 위해 Windows Server에서 MPIO(다중 경로 I/O) 기능에 대한 지원을 구축했습니다. MPIO는 중복 실제 경로 구성 요소(어댑터, 케이블 및 스위치)를 사용하여 서버 및 저장소 디바이스 간의 논리 경로를 만듭니다. 논리 경로에 오류를 일으키는 구성 요소 오류가 발생할 경우 애플리케이션이 데이터에 계속 액세스할 수 있도록 다중 경로 논리가 I/O에 대한 대체 경로를 사용합니다. 또한 구성에 따라 MPIO가 이러한 모든 경로에서 부하를 다시 분산하여 성능을 향상할 수도 있습니다. 자세한 내용은 [MPIO 개요](https://technet.microsoft.com/library/cc725907.aspx "MPIO 개요 and features")을 참조하세요.
 
 StorSimple 솔루션의 고가용성을 위해 MPIO는 StorSimple 디바이스에서 구성되어야 합니다. MPIO가 Windows Server 2012 R2를 실행하는 호스트 서버에 설치되면 서버가 링크, 네트워크 또는 인터페이스를 허용할 수 있습니다.
 

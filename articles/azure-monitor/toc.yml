@@ -9,19 +9,19 @@ items:
     href: azure-monitor-rebrand.md
 - name: 빠른 시작
   items:
-  - name: 응용 프로그램
+  - name: 애플리케이션
     items:
-    - name: .NET 응용 프로그램
+    - name: .NET 애플리케이션
       href: ../application-insights/quick-monitor-portal.md?toc=/azure/azure-monitor/toc.json
-    - name: .NET Core 응용 프로그램
+    - name: .NET Core 애플리케이션
       href: ../application-insights/app-insights-dotnetcore-quick-start.md?toc=/azure/azure-monitor/toc.json
-    - name: Node.js 응용 프로그램
+    - name: Node.js 애플리케이션
       href: ../application-insights/app-insights-nodejs-quick-start.md?toc=/azure/azure-monitor/toc.json
-    - name: Java 응용 프로그램
+    - name: Java 애플리케이션
       href: ../application-insights/app-insights-java-quick-start.md?toc=/azure/azure-monitor/toc.json
-    - name: 모바일 응용 프로그램
+    - name: 모바일 애플리케이션
       href: ../application-insights/app-insights-mobile-center-quickstart.md?toc=/azure/azure-monitor/toc.json
-    - name: 웹 응용 프로그램
+    - name: 웹 애플리케이션
       href: ../application-insights/app-insights-website-monitoring.md?toc=/azure/azure-monitor/toc.json
   - name: 가상 머신
     items:
@@ -44,13 +44,13 @@ items:
     href: learn/tutorial-response.md
   - name: 성능 및 일정에 대한 자동 크기 조정
     href: learn/tutorial-autoscale-performance-schedule.md
-  - name: 응용 프로그램 런타임 예외 찾기
+  - name: 애플리케이션 런타임 예외 찾기
     href: ../application-insights/app-insights-tutorial-runtime-exceptions.md?toc=/azure/azure-monitor/toc.json
-  - name: 응용 프로그램 성능 문제 찾기
+  - name: 애플리케이션 성능 문제 찾기
     href: ../application-insights/app-insights-tutorial-performance.md?toc=/azure/azure-monitor/toc.json
-  - name: 응용 프로그램 상태에 대한 경고
+  - name: 애플리케이션 상태에 대한 경고
     href: ../application-insights/app-insights-tutorial-alert.md?toc=/azure/azure-monitor/toc.json
-  - name: 응용 프로그램 사용자 이해
+  - name: 애플리케이션 사용자 이해
     href: ../application-insights/app-insights-tutorial-users.md?toc=/azure/azure-monitor/toc.json
   - name: 사용자 지정 대시보드 만들기
     href: ../application-insights/app-insights-tutorial-dashboards.md?toc=/azure/azure-monitor/toc.json
@@ -86,7 +86,7 @@ items:
         href: platform/data-security.md
       - name: 개인 로그 데이터 처리
         href: platform/personal-data-mgmt.md
-      - name: 응용 프로그램 데이터 수집, 보존 및 저장
+      - name: 애플리케이션 데이터 수집, 보존 및 저장
         href: ../application-insights/app-insights-data-retention-privacy.md?toc=/azure/azure-monitor/toc.json
   - name: 자세한 정보
     items:
@@ -154,15 +154,15 @@ items:
         href: platform/roles-permissions-security.md
       - name: 작업 영역
         href: platform/manage-access.md
-      - name: 응용 프로그램
+      - name: 애플리케이션
         href: ../application-insights/app-insights-resources-roles-access-control.md?toc=/azure/azure-monitor/toc.json
       - name: IP 주소
         href: ../application-insights/app-insights-ip-addresses.md?toc=/azure/azure-monitor/toc.json
-    - name: 응용 프로그램 모니터링
+    - name: 애플리케이션 모니터링
       items:
       - name: 웹앱 및 서비스 심층 진단
         href: ../application-insights/app-insights-devops.md?toc=/azure/azure-monitor/toc.json
-      - name: 웹 응용 프로그램의 성능 모니터링
+      - name: 웹 애플리케이션의 성능 모니터링
         href: ../application-insights/app-insights-web-monitor-performance.md?toc=/azure/azure-monitor/toc.json
       - name: 개발, 테스트 및 프로덕션 구분
         href: ../application-insights/app-insights-separate-resources.md?toc=/azure/azure-monitor/toc.json
@@ -250,7 +250,7 @@ items:
         href: platform/data-sources-syslog.md
       - name: 성능 카운터
         href: platform/data-sources-performance-counters.md
-      - name: Linux 응용 프로그램 성능
+      - name: Linux 애플리케이션 성능
         href: platform/data-sources-linux-applications.md
       - name: IIS 로그
         href: platform/data-sources-iis-logs.md
@@ -258,7 +258,7 @@ items:
         href: platform/data-sources-custom-logs.md
       - name: 사용자 지정 필드
         href: platform/custom-fields.md
-    - name: 응용 프로그램 구성
+    - name: 애플리케이션 구성
       items:
       - name: Azure 앱
         items:
@@ -276,7 +276,7 @@ items:
             href: ../application-insights/app-insights-profiler.md?toc=/azure/azure-monitor/toc.json
           - name: Cloud Service에 대해 Profiler 사용하도록 설정
             href: ../application-insights/app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json
-          - name: Service Fabric 응용 프로그램에 대해 Profiler 사용하도록 설정
+          - name: Service Fabric 애플리케이션에 대해 Profiler 사용하도록 설정
             href: ../application-insights/app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json
           - name: Azure VM에 대해 Profiler 사용하도록 설정
             href: ../application-insights/app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json
@@ -432,7 +432,7 @@ items:
       items:
       - name: 구성 관리자
         href: platform/collect-sccm.md
-      - name: SCOM을 사용하여 응용 프로그램 성능 모니터링
+      - name: SCOM을 사용하여 애플리케이션 성능 모니터링
         href: ../application-insights/app-insights-scom.md?toc=/azure/azure-monitor/toc.json
     - name: 데이터 라우팅
       items:
@@ -448,9 +448,9 @@ items:
         href: platform/stream-monitoring-data-event-hubs.md
       - name: 진단 로그를 이벤트 허브로 라우팅
         href: platform/diagnostic-logs-stream-event-hubs.md
-      - name: 응용 프로그램 데이터를 Log Analytics로 라우팅
+      - name: 애플리케이션 데이터를 Log Analytics로 라우팅
         href: platform/app-insights-connector.md
-      - name: 응용 프로그램 데이터 내보내기
+      - name: 애플리케이션 데이터 내보내기
         items:
         - name: 연속 내보내기
           href: ../application-insights/app-insights-export-telemetry.md?toc=/azure/azure-monitor/toc.json
@@ -465,7 +465,7 @@ items:
           href: ../application-insights/app-insights-export-data-model.md?toc=/azure/azure-monitor/toc.json
   - name: 인사이트 얻기
     items:
-    - name: 응용 프로그램 모니터링
+    - name: 애플리케이션 모니터링
       items:
       - name: Application Insights 포털
         items:
@@ -475,7 +475,7 @@ items:
           href: ../application-insights/app-insights-metrics-explorer.md?toc=/azure/azure-monitor/toc.json
         - name: 라이브 스트림
           href: ../application-insights/app-insights-live-stream.md?toc=/azure/azure-monitor/toc.json
-        - name: 응용 프로그램 맵
+        - name: 애플리케이션 맵
           href: app/app-map.md
         - name: 트랜잭션 진단
           href: ../application-insights/app-insights-transaction-diagnostics.md?toc=/azure/azure-monitor/toc.json
@@ -531,7 +531,7 @@ items:
           href: insights/container-insights-troubleshoot.md
       - name: Docker 및 Windows 컨테이너 모니터링
         href: insights/containers.md
-      - name: Docker 응용 프로그램 모니터링
+      - name: Docker 애플리케이션 모니터링
         href: ../application-insights/app-insights-docker.md?toc=/azure/azure-monitor/toc.json
     - name: 리소스 그룹 모니터링
       href: insights/resource-group-insights.md
@@ -638,13 +638,13 @@ items:
       items:
       - name: 로그
         href: platform/dashboards.md
-      - name: 응용 프로그램
+      - name: 애플리케이션
         href: app/app-insights-dashboards.md
     - name: Power BI
       items:
       - name: 로그 데이터 내보내기
         href: platform/powerbi.md
-      - name: 응용 프로그램 데이터 내보내기
+      - name: 애플리케이션 데이터 내보내기
         href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
     - name: 데이터를 Grafana에 보내기
       href: platform/grafana-plugin.md
@@ -710,7 +710,7 @@ items:
           href: log-query/workspace-expression.md
       - name: 로그 데이터
         items:
-        - name: 응용 프로그램 데이터
+        - name: 애플리케이션 데이터
           href: app/analytics.md
         - name: 표준 속성
         - name: 텍스트 데이터 구문 분석
@@ -759,7 +759,7 @@ items:
           href: platform/migrate-management-alerts.md
         - name: 서비스 알림에 대한 경고 구성
           href: platform/alerts-activity-log-service-notifications.md
-      - name: 응용 프로그램 경고 사용
+      - name: 애플리케이션 경고 사용
         items:
         - name: 가용성
           href: ../application-insights/app-insights-monitor-web-app-availability.md?toc=/azure/azure-monitor/toc.json
@@ -829,9 +829,9 @@ items:
     items:
     - name: 사용량 및 예상 비용
       href: platform/usage-estimated-costs.md
-    - name: 응용 프로그램 데이터 볼륨 및 보존
+    - name: 애플리케이션 데이터 볼륨 및 보존
       href: ../application-insights/app-insights-pricing.md?toc=/azure/azure-monitor/toc.json
-    - name: 응용 프로그램 엔터프라이즈 계획 세부 정보
+    - name: 애플리케이션 엔터프라이즈 계획 세부 정보
       href: ../application-insights/app-insights-pricing-enterprise-details.md?toc=/azure/azure-monitor/toc.json
     - name: 로그 데이터 볼륨 및 보존
       href: platform/manage-cost-storage.md
@@ -845,7 +845,7 @@ items:
         href: platform/powershell-quickstart-samples.md
       - name: PowerShell cmdlet
         href: platform/powershell-workspace-configuration.md
-      - name: 응용 프로그램
+      - name: 애플리케이션
         items:
         - name: Application Insights 리소스 만들기
           href: ../application-insights/app-insights-powershell.md?toc=/azure/azure-monitor/toc.json
@@ -865,7 +865,7 @@ items:
         href: platform/rest-api-walkthrough.md
       - name: 알림 API
         href: platform/api-alerts.md
-    - name: 응용 프로그램
+    - name: 애플리케이션
       items:
       - name: Microsoft Flow 자동화
         href: ../application-insights/app-insights-automate-with-flow.md?toc=/azure/azure-monitor/toc.json
@@ -875,7 +875,7 @@ items:
         href: ../application-insights/automate-custom-reports.md?toc=/azure/azure-monitor/toc.json
   - name: Extend
     items:
-    - name: 응용 프로그램
+    - name: 애플리케이션
       items:
       - name: 사용자 지정 이벤트 및 메트릭용 API
         href: app/api-custom-events-metrics.md

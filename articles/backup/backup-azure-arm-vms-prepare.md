@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 1092f5e21eab1e037c360408f17548b544a9e922
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d24b2773aa056b33a4067d5d84677d186d25b195
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422799"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255077"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Azure VM 백업 준비
 
@@ -39,7 +39,7 @@ Resource Manager 배포 가상 머신을 보호하거나 백업하기 전에 다
     > [!NOTE]
     > 가상 머신에서 VM 에이전트를 사용할 수 있고 Python에 대한 지원이 있는 한 다른 Bring-Your-Own-Linux 배포가 작동할 수 있습니다. 그러나 이러한 배포는 지원되지 않습니다.
     >
- * **Windows Server**, **Windows 클라이언트**: Windows Server 2008 R2 또는 Windows 7 이전 버전은 지원되지 않습니다.
+ * **Windows Server**, **Windows 클라이언트**:  Windows Server 2008 R2 또는 Windows 7보다 이전 버전은 지원되지 않습니다.
 
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>VM 백업 및 복원 시의 제한 사항
@@ -190,7 +190,7 @@ Azure VM을 백업하는 데 문제가 있는 경우 다음 표를 사용하여 
 ### <a name="backup-extension"></a>Backup 확장
 가상 머신에 VM 에이전트를 설치하면 Azure Backup 서비스는 VM 에이전트에 대한 백업 확장을 설치합니다. 백업 서비스가 백업 확장을 원활하게 업그레이드하고 패치합니다.
 
-백업 서비스는 VM의 실행 여부와 상관 없이 백업 확장을 설치합니다. 실행 중인 VM은 응용 프로그램 일치 복구 지점을 확보할 수 있는 큰 기회를 제공합니다. 그러나 백업 서비스는 VM이 꺼져 확장을 설치할 수 없더라도 VM을 계속 백업합니다. *오프라인 VM*이라고 합니다. 이 경우 복구 지점은 *충돌 일치*가 됩니다.
+백업 서비스는 VM의 실행 여부와 상관 없이 백업 확장을 설치합니다. 실행 중인 VM은 애플리케이션 일치 복구 지점을 확보할 수 있는 큰 기회를 제공합니다. 그러나 백업 서비스는 VM이 꺼져 확장을 설치할 수 없더라도 VM을 계속 백업합니다. *오프라인 VM*이라고 합니다. 이 경우 복구 지점은 *충돌 일치*가 됩니다.
 
 ## <a name="establish-network-connectivity"></a>네트워크 연결 설정
 VM 스냅숏을 관리하려면 백업 확장에 Azure 공용 IP 주소에 대한 연결이 필요합니다. 올바른 인터넷 연결이 없으면, 가상 머신의 HTTP 요청 시간이 초과되고 백업 작업이 실패합니다. 배포에 액세스 제한이 있다면(예: NSG(네트워크 보안 그룹)를 통해), 백업 트래픽에 대해 명확한 경로를 제공하기 위해 다음 옵션 중 하나를 선택합니다.

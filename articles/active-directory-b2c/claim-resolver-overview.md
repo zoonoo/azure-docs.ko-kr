@@ -88,7 +88,7 @@ Azure AD(Azure Active Directory) B2C [사용자 지정 정책](active-directory-
 
 ### <a name="non-protocol-parameters"></a>비 프로토콜 매개 변수
 
-OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 사용자 경험에서 클레임에 매핑될 수 있습니다. 예를 들어, 응용 프로그램의 요청에는 이름이 `app_session`, `loyalty_number` 또는 사용자 지정 쿼리 문자열인 쿼리 문자열 매개 변수가 포함될 수 있습니다.
+OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 사용자 경험에서 클레임에 매핑될 수 있습니다. 예를 들어, 애플리케이션의 요청에는 이름이 `app_session`, `loyalty_number` 또는 사용자 지정 쿼리 문자열인 쿼리 문자열 매개 변수가 포함될 수 있습니다.
 
 | 클레임 | 설명 | 예 |
 | ----- | ----------------------- | --------|
@@ -131,7 +131,7 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 
 ### <a name="dynamic-ui-customization"></a>동적 UI 사용자 지정
 
-Azure AD B2C를 사용하면 페이지 콘텐츠를 동적으로 렌더링할 수 있도록 HTML 콘텐츠 정의 엔드포인트에 쿼리 문자열 매개 변수를 전달할 수 있습니다. 예를 들어, 웹 또는 모바일 응용 프로그램에서 전달한 사용자 지정 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다. 자세한 내용은 [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom-dynamic.md)(Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 동적으로 UI 구성)를 참조하세요. 언어 매개 변수를 기반으로 HTML 페이지를 지역화하거나 클라이언트 ID를 기반으로 콘텐츠를 변경할 수도 있습니다.
+Azure AD B2C를 사용하면 페이지 콘텐츠를 동적으로 렌더링할 수 있도록 HTML 콘텐츠 정의 엔드포인트에 쿼리 문자열 매개 변수를 전달할 수 있습니다. 예를 들어, 웹 또는 모바일 애플리케이션에서 전달한 사용자 지정 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다. 자세한 내용은 [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom-dynamic.md)(Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 동적으로 UI 구성)를 참조하세요. 언어 매개 변수를 기반으로 HTML 페이지를 지역화하거나 클라이언트 ID를 기반으로 콘텐츠를 변경할 수도 있습니다.
 
 다음 예제는 쿼리 문자열에 이름이 **campaignId**이고 `hawaii` 값, `en-US` **언어** 코드 및 클라이언트 ID를 나타내는 **app**이 포함된 매개 변수를 전달합니다.
 

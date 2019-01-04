@@ -1,6 +1,7 @@
 ---
-title: Azure Machine Learning을 사용하여 FPGA에 웹 서비스로 모델 배포
-description: Azure Machine Learning을 사용하여 FPGA에서 실행되는 모델로 웹 서비스를 배포하는 방법을 알아봅니다.
+title: FPGA에 모델 배포
+titleSuffix: Azure Machine Learning service
+description: 대기 시간이 매우 짧은 추론을 위해 Azure Machine Learning 서비스를 사용하여 FPGA에서 실행되는 모델로 웹 서비스를 배포하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,21 +9,22 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 10/29/2018
-ms.openlocfilehash: c6bf3c50958085f45c52ec2fa3cbdfba8adbe35f
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 3148d4d63ad1464dbd45c361237ac9cd4ffd485a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711721"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268243"
 ---
-# <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 FPGA에 웹 서비스로 모델 배포
+# <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용하여 FPGA에 웹 서비스로 모델 배포
 
 [FPGA(Field-Programmable Gate Array)](concept-accelerate-with-fpgas.md)에서 웹 서비스로 모델을 배포할 수 있습니다.  FPGA를 사용하면 단일 배치 크기로도 대기 시간이 엄청나게 짧은 추론이 가능합니다.   
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure 구독. 구독이 없으면 시작하기 전에 [계정](https://aka.ms/AMLfree)을 만드세요.
+- Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](http://aka.ms/AMLFree)을 지금 사용해 보세요.
 
 - Azure Machine Learning 서비스 작업 영역 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. [개발 환경 구성 방법](how-to-configure-environment.md) 문서를 사용하여 이러한 필수 구성 요소를 충족하는 방법을 알아보세요.
  
@@ -165,14 +167,6 @@ registered_model.delete()
 
 FPGA에서 실행되는 Azure Machine Learning 모델은 SSL 지원과 키 기반 인증을 제공합니다. 따라서 서비스에 대한 액세스를 제한할 수 있고 클라이언트가 제출한 데이터를 보호할 수 있습니다. [웹 서비스를 보호하는 방법을 자세히 알아보세요](how-to-secure-web-service.md).
 
-
-## <a name="sample-notebook"></a>샘플 노트북
-
-이 문서의 개념은 [project-brainwave/project-brainwave-quickstart.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/project-brainwave/project-brainwave-quickstart.ipynb) 노트북에서 설명합니다.
-
-이 Notebook을 다운로드하려면 다음 단계를 수행합니다.
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

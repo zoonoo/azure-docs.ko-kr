@@ -51,7 +51,7 @@ ms.locfileid: "42143914"
 4. Visual Studio Code를 시작하고, DevKit를 컴퓨터에 연결한 후 복제한 코드가 포함된 폴더를 엽니다.
 
 5. **DevKitDPS.ino**를 엽니다. `[Global Device Endpoint]` 및 `[ID Scope]`를 찾아 방금 적어둔 값으로 바꿉니다.
-  ![Device Provisioning Service 엔드포인트](./media/how-to-connect-mxchip-iot-devkit/endpoint.png) **registrationId**는 비워 두어도 됩니다. 응용 프로그램에서 MAC 주소와 펌웨어 버전에 따라 하나를 생성합니다. 등록 ID를 사용자 지정하려면 최대 128자의 영숫자, 소문자 및 하이픈 조합만 사용해야 합니다. 자세한 내용은 [Azure Portal을 사용하여 디바이스 등록 관리](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments)를 참조하세요.
+  ![Device Provisioning Service 엔드포인트](./media/how-to-connect-mxchip-iot-devkit/endpoint.png) **registrationId**는 비워 두어도 됩니다. 애플리케이션에서 MAC 주소와 펌웨어 버전에 따라 하나를 생성합니다. 등록 ID를 사용자 지정하려면 최대 128자의 영숫자, 소문자 및 하이픈 조합만 사용해야 합니다. 자세한 내용은 [Azure Portal을 사용하여 디바이스 등록 관리](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments)를 참조하세요.
 
 6. VS Code(Windows: `Ctrl+P`, macOS: `Cmd+P`)에서 Quick Open을 사용하고, *task device-upload*를 입력하여 코드를 DevKit에 빌드하고 업로드합니다.
 

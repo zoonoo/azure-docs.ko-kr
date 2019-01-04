@@ -22,7 +22,7 @@ ms.locfileid: "53192977"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Log Analytics에서 리소스 간 로그 검색 수행  
 
-이전에는 Azure Log Analytics로 현재 작업 영역 내의 데이터만 분석할 수 있었기 때문에 구독에 정의된 여러 작업 영역을 쿼리할 수 없었습니다.  또한 Application Insights에서 직접 또는 Visual Studio에서, Application Insights를 사용하여 웹 기반 응용 프로그램에서 수집된 원격 분석 항목만 검색할 수 있습니다.  이로 인해 운영 및 응용 프로그램 데이터를 고유하게 분석하는 데 어려움이 나타납니다.   
+이전에는 Azure Log Analytics로 현재 작업 영역 내의 데이터만 분석할 수 있었기 때문에 구독에 정의된 여러 작업 영역을 쿼리할 수 없었습니다.  또한 Application Insights에서 직접 또는 Visual Studio에서, Application Insights를 사용하여 웹 기반 애플리케이션에서 수집된 원격 분석 항목만 검색할 수 있습니다.  이로 인해 운영 및 애플리케이션 데이터를 고유하게 분석하는 데 어려움이 나타납니다.   
 
 이제 여러 Log Analytics 작업 영역뿐만 아니라 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 Application Insights 앱의 데이터도 쿼리가 가능합니다. 이를 통해 시스템 차원의 데이터 보기가 가능합니다.  [로그 분석](portals.md#log-analytics-page)에서 이러한 유형의 쿼리만 수행할 수 있습니다. 단일 쿼리에 포함할 수 있는 리소스 (Log Analytics 작업 영역 및 Application Insights 앱)의 수는 100개로 제한됩니다. 
 
@@ -39,7 +39,7 @@ ms.locfileid: "53192977"
     `workspace("contosoretail-it").Update | count`
  
     >[!NOTE]
-    >작업 영역을 이름으로 식별하면 액세스 가능한 모든 구독에서 고유한 것으로 가정합니다. 지정된 이름의 응용 프로그램이 여러 개 있으면 모호성으로 인해 쿼리가 실패합니다. 이런 경우 다른 식별자 중 하나를 사용해야 합니다.
+    >작업 영역을 이름으로 식별하면 액세스 가능한 모든 구독에서 고유한 것으로 가정합니다. 지정된 이름의 애플리케이션이 여러 개 있으면 모호성으로 인해 쿼리가 실패합니다. 이런 경우 다른 식별자 중 하나를 사용해야 합니다.
 
 * 정규화된 이름 - 구독 이름, 리소스 그룹 및 구성 요소 이름이 *subscriptionName/resourceGroup/componentName* 형식으로 구성된 작업 영역의 "전체 이름"입니다. 
 
@@ -60,10 +60,10 @@ ms.locfileid: "53192977"
     workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
 
-### <a name="identifying-an-application"></a>응용 프로그램 식별
+### <a name="identifying-an-application"></a>애플리케이션 식별
 다음 예제에서는 Application Insights에서 *fabrikamapp*이라는 앱에 대해 요청된 요청의 요약된 수를 반환합니다. 
 
-Application Insights에서 응용 프로그램 식별은 *app(Identifier)* 식으로 수행될 수 있습니다.  *Identifier* 인수는 다음을 사용하여 앱을 지정합니다.
+Application Insights에서 애플리케이션 식별은 *app(Identifier)* 식으로 수행될 수 있습니다.  *Identifier* 인수는 다음을 사용하여 앱을 지정합니다.
 
 * 리소스 이름 - 사람이 읽을 수 있는 앱의 이름이며 *구성 요소 이름*이라고도 합니다.  
 
@@ -77,7 +77,7 @@ Application Insights에서 응용 프로그램 식별은 *app(Identifier)* 식�
     >Azure 구독 이름은 고유하지 않기 때문에 이 식별자는 모호할 수 있습니다. 
     >
 
-* ID - 응용프로그램의 앱 GUID입니다.
+* ID - 애플리케이션의 앱 GUID입니다.
 
     `app("b459b4f6-912x-46d5-9cb1-b43069212ab4").requests | count`
 

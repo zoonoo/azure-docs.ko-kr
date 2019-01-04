@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: df1fbcb09310985b7ca9d9fd2e7a987fc6e2b2dc
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 1958d694ab87d635624884b43486761269e37c37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457090"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082649"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -55,7 +55,7 @@ Integration Runtime을 각각의 원본 및 싱크 데이터 저장소와 연결
 
 복사 작업을 사용하여 두 파일 기반 데이터 저장소 간에 **있는 그대로 파일을 복사**할 수 있습니다. 이 때 데이터는 직렬화/역직렬화 없이 효율적으로 복사됩니다.
 
-복사 작업은 지정된 형식의 파일에서의 읽고 쓰기도 지원됩니다. **텍스트, JSON, Avro, ORC 및 Parquet**, 압축 코덱 **GZip, Deflate, BZip2 및 ZipDeflate**가 지원됩니다. 자세한 내용은 [지원되는 파일 및 압축 형식](supported-file-formats-and-compression-codecs.md)을 참조하세요.
+복사 작업은 또한 지정된 형식으로 파일에서 읽기 및 파일에 쓰기를 지원합니다. **텍스트, JSON, Avro, ORC 및 Parquet**, 압축 코덱 **GZip, Deflate, BZip2 및 ZipDeflate**가 지원됩니다. 자세한 내용은 [지원되는 파일 및 압축 형식](supported-file-formats-and-compression-codecs.md)을 참조하세요.
 
 예를 들어 다음 복사 작업을 수행할 수 있습니다.
 
@@ -73,7 +73,7 @@ Integration Runtime을 각각의 원본 및 싱크 데이터 저장소와 연결
 Azure Data Factory에서 복사 작업을 사용하려면 다음이 필요합니다.
 
 1. **원본 및 싱크 데이터 저장소에 대한 연결된 서비스를 만듭니다.** 구성 방법과 지원되는 속성은 커넥터 문서의 "연결된 서비스 속성" 섹션을 참조하세요. 지원되는 커넥터 목록은 [지원되는 데이터 저장소 및 형식](#supported-data-stores-and-formats) 섹션에 있습니다.
-2. **원본 및 싱크에 대 한 데이터 집합을 만듭니다**. 구성 방법과 지원되는 속성은 원본 및 싱크 커넥터 문서의 "데이터 세트 속성" 섹션을 참조하세요.
+2. **원본 및 싱크에 대 한 데이터 세트를 만듭니다**. 구성 방법과 지원되는 속성은 원본 및 싱크 커넥터 문서의 "데이터 세트 속성" 섹션을 참조하세요.
 3. **복사 작업을 포함하는 파이프라인을 만듭니다.** 다음 섹션에서 예제를 제공합니다.  
 
 ### <a name="syntax"></a>구문
@@ -130,7 +130,7 @@ Azure Data Factory에서 복사 작업을 사용하려면 다음이 필요합니
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업의 type 속성은 **Copy**로 설정해야 합니다. | yes |
+| 형식 | 복사 작업의 type 속성은 다음으로 설정해야 합니다. **Copy** | yes |
 | inputs | 원본 데이터를 가리키는 만든 데이터 세트를 지정합니다. 복사 작업에서는 하나의 입력만 지원합니다. | yes |
 | outputs | 싱크 데이터를 가리키는 만든 데이터 세트를 지정합니다. 복사 작업에서는 하나의 출력만 지원합니다. | yes |
 | typeProperties | 복사 작업을 구성하는 속성의 그룹입니다. | yes |
@@ -173,6 +173,7 @@ Azure Data Factory "작성자/모니터" UI에서 또는 프로그래밍 방식�
 | DataRead | 원본에서 읽은 데이터 크기 | Int64 값(**바이트**) |
 | DataWritten | 싱크에 쓴 데이터 크기 | Int64 값(**바이트**) |
 | filesRead | 파일 저장소에서 데이터를 복사할 경우 복사되는 파일 수입니다. | Int64 값(단위 없음) |
+| fileScanned | 원본 파일 스토리지에서 검색 중인 파일 수입니다. | Int64 값(단위 없음) |
 | filesWritten | 파일 저장소로 데이터를 복사할 경우 복사되는 파일 수입니다. | Int64 값(단위 없음) |
 | rowsCopied | 복사된 행 수(이진 복사에 적용되지 않음) | Int64 값(단위 없음) |
 | rowsSkipped | 생략되는 비호환 행 수. "enableSkipIncompatibleRow"를 true로 설정하여 이 기능을 실행할 수 있습니다. | Int64 값(단위 없음) |

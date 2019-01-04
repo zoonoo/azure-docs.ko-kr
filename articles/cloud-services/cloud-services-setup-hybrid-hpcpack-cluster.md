@@ -27,7 +27,7 @@ Microsoft HPC Pack 2012 R2 및 Azure를 사용하여 소규모 하이브리드 H
 
 ![하이브리드 HPC 클러스터][Overview] 
 
-이 자습서에서는 Azure의 확장성 있는 주문형 리소스를 사용하여 계산이 많이 사용되는 응용 프로그램을 실행하는 방법을 보여 줍니다. 이 방법을 클러스터 “클라우드로 버스트”라고도 합니다.
+이 자습서에서는 Azure의 확장성 있는 주문형 리소스를 사용하여 계산이 많이 사용되는 애플리케이션을 실행하는 방법을 보여줍니다. 이 방법을 클러스터 "클라우드로 버스트"라고도 합니다.
 
 이 자습서는 이전에 계산 클러스터나 HPC 팩을 사용한 경험이 없다고 가정합니다. 데모를 위해 하이브리드 계산 클러스터를 신속하게 배포하도록 도와주는 역할만 합니다. 하이브리드 HPC Pack 클러스터를 프로덕션 환경에 대규모로 배포하거나 HPC Pack 2016을 사용하는 단계 및 고려 사항은 [자세한 지침](https://go.microsoft.com/fwlink/p/?LinkID=200493)을 참조하세요. Azure Virtual Machine의 자동화된 클러스터 배포를 포함한 HPC Pack을 사용한 다른 시나리오의 경우 [Azure에서 Microsoft HPC Pack을 사용하는 HPC 클러스터 옵션](../virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
@@ -128,19 +128,19 @@ HPC Cluster Manager를 사용하여 Azure 노드를 배포하고 작업을 제�
    
 4. 마법사의 나머지 페이지에서 **Next** 를 클릭하여 기본값을 적용합니다. **Review** 탭에서 **Configure**를 클릭하여 네트워크 구성을 완료합니다.
 
-5. **Deployment To-do List**에서 **Provide installation credentials**을 참조하십시오.
+5.  **Deployment To-do List**에서 **Provide installation credentials**을 참조하십시오.
 
 6. **Installation Credentials** 대화 상자에서 HPC 팩을 설치하는 데 사용한 도메인 계정의 자격 증명을 입력합니다. 그런 후 **OK**를 클릭합니다. 
    
     ![Installation Credentials][config_hpc6]
    
-7. **Deployment To-do List**에서 **Configure the naming of new nodes**을 참조하십시오.
+7.  **Deployment To-do List**에서 **Configure the naming of new nodes**을 참조하십시오.
 
 8. **Specify Node Naming Series** 대화 상자에서 기본 이름 지정 시리즈를 적용하고 **OK**를 클릭합니다. 이 자습서에서 추가한 Azure 노드가 자동으로 이름이 지정되었더라도 이 단계를 완료합니다.
    
     ![노드 이름 지정][config_hpc8]
    
-9. **Deployment To-do List**에서 **Create a node template**을 참조하십시오. 자습서의 뒷부분에서는 노드 템플릿을 사용하여 클러스터에 Azure 노드를 추가합니다.
+9.  **Deployment To-do List**에서 **Create a node template**을 참조하십시오. 자습서의 뒷부분에서는 노드 템플릿을 사용하여 클러스터에 Azure 노드를 추가합니다.
 
 10. Create Node Template Wizard에서 다음을 수행합니다.
     
@@ -216,7 +216,7 @@ Azure에서 클러스터 리소스를 사용하려면 HPC Cluster Manager를 통
     HPC Cluster Manager에서 노드가 **Online** 상태로 표시됩니다.
 
 ## <a name="run-a-command-across-the-cluster"></a>클러스터에서 명령 실행
-설치를 확인하려면 HPC Pack **clusrun** 명령을 사용하여 하나 이상의 클러스터 노드에서 명령이나 응용 프로그램을 실행합니다. 간단한 예로 **clusrun** 을 사용하여 Azure 노드의 IP 구성을 가져옵니다.
+설치를 확인하려면 HPC Pack **clusrun** 명령을 사용하여 하나 이상의 클러스터 노드에서 명령이나 애플리케이션을 실행합니다. 간단한 예로 **clusrun** 을 사용하여 Azure 노드의 IP 구성을 가져옵니다.
 
 1. 헤드 노드에서 관리자 권한으로 명령 프롬프트를 엽니다.
 

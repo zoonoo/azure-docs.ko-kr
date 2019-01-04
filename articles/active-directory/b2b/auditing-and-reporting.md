@@ -5,20 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 04/12/2017
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 80ae3d2603cbb1c52c5bbe5e72ef7880cf0da6eb
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: fbe1cfdcfb1b5ec295748c3c77030df45323ee54
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984605"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434327"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>B2B 공동 작업 사용자 감사 및 보고
-게스트 사용자를 사용하여 구성원 사용자와 유사한 감사 기능을 얻을 수 있습니다. 다음은 초대한 Sam Oogle의 초대 및 상환 기록에 대한 예제입니다.
+게스트 사용자를 사용하여 구성원 사용자와 유사한 감사 기능을 얻을 수 있습니다. 
+
+## <a name="access-reviews"></a>액세스 검토
+액세스 검토를 사용하여 게스트 사용자가 사용자의 리소스에 계속 액세스해야 하는지 여부를 주기적으로 확인할 수 있습니다. **액세스 검토** 기능은 **Azure Active Directory**의 **관리** > **조직 관계**에서 사용할 수 있습니다. Azure Portal의 **모든 서비스**에서 "액세스 검토"를 검색할 수도 있습니다. 액세스 검토를 사용하는 방법은 [Azure AD 액세스 검토를 사용하여 게스트 액세스 관리](../governance/manage-guest-access-with-access-reviews.md)를 참조하세요.
+
+## <a name="audit-logs"></a>감사 로그
+
+Azure AD 감사 로그는 게스트 사용자가 시작한 작업을 비롯하여 시스템 및 사용자 작업에 대한 기록을 제공합니다. 감사 로그에 액세스하려면 **Azure Active Directory**의 **모니터링** 아래에서 **감사 로그**를 선택합니다. 다음은 초대한 Sam Oogle의 초대 및 상환 기록에 대한 예제입니다.
 
 ![감사 로그](./media/auditing-and-reporting/audit-log.png)
 

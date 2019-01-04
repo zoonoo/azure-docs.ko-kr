@@ -278,11 +278,11 @@ getDebugInfo를 **Always**로 설정했으므로 Blob 컨테이너의 pyFiles �
 
 1. `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`로 이동합니다.
 
-    ![YARN UI 응용 프로그램](media/data-factory-spark/yarnui-application.png)
+    ![YARN UI 애플리케이션](media/data-factory-spark/yarnui-application.png)
 
 1. 실행 시도 중 하나에 대한 **로그**를 선택합니다.
 
-    ![응용 프로그램 페이지](media/data-factory-spark/yarn-applications.png)
+    ![애플리케이션 페이지](media/data-factory-spark/yarn-applications.png)
 
 1. 로그 페이지에 다음과 같은 추가 오류 정보가 표시됩니다.
 
@@ -335,7 +335,7 @@ getDebugInfo를 **Always**로 설정했으므로 Blob 컨테이너의 pyFiles �
 | linkedServiceName | Spark 프로그램이 실행되는 HDInsight 연결된 서비스의 이름입니다. | yes |
 | rootPath | Spark 파일이 포함된 Blob 컨테이너 및 폴더입니다. 파일 이름은 대/소문자를 구분합니다. | yes |
 | entryFilePath | Spark 코드/패키지의 루트 폴더에 대한 상대 경로입니다. | yes |
-| className | 응용 프로그램의 Java/Spark main 클래스입니다. | 아니요 |
+| className | 애플리케이션의 Java/Spark main 클래스입니다. | 아니요 |
 | arguments | Spark 프로그램에 대한 명령줄 인수 목록입니다. | 아니요 |
 | proxyUser | Spark 프로그램을 실행하기 위해 가장하는 사용자 계정입니다. | 아니요 |
 | sparkConfig | [Spark 구성: 응용 프로그램 속성](https://spark.apache.org/docs/latest/configuration.html#available-properties)에 나열된 Spark 구성 속성에 대한 값을 지정합니다. | 아니요 |

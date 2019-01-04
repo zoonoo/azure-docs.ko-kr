@@ -79,7 +79,7 @@ Azure ML Workbench는 **conda_dependencies.yml**이 그대로 유지되는 한 �
 >실행이 _로컬_ 계산 컨텍스트를 대상으로 하는 경우 **conda_dependencies.yml** 파일이 사용되지 **않습니다**. 로컬 Azure ML Workbench Python 환경에 대한 패키지 종속성은 수동으로 설치해야 합니다.
 
 ## <a name="sparkdependenciesyml"></a>spark_dependencies.yml
-이 파일은 설치해야 하는 PySpark 스크립트 및 Spark 패키지를 제출할 때 Spark 응용 프로그램 이름을 지정합니다. 또한 Maven 리포지토리에서 찾을 수 있는 공용 Maven 리포지토리 및 Spark 패키지를 지정할 수도 있습니다.
+이 파일은 설치해야 하는 PySpark 스크립트 및 Spark 패키지를 제출할 때 Spark 애플리케이션 이름을 지정합니다. 또한 Maven 리포지토리에서 찾을 수 있는 공용 Maven 리포지토리 및 Spark 패키지를 지정할 수도 있습니다.
 
 다음은 예제입니다.
 
@@ -158,7 +158,7 @@ _\<compute target name>.compute_ 파일은 계산 대상에 대한 연결 및 �
 **pythonLocation**: 컴퓨터 대상에서 사용자의 프로그램을 실행하는 데 사용할 Python 런타임의 위치를 지정합니다. 
 
 ### <a name="run-configuration-namerunconfig"></a>\<run configuration name>.runconfig
-_\<run configuration name>.runconfig_는 Azure ML 실험 실행 동작을 지정합니다. 실행 기록 추적 또는 많은 다른 대상과 함께 사용할 계산 대상 등과 같은 실행 동작을 구성할 수 있습니다. 실행 구성 파일의 이름은 Azure ML Workbench 데스크톱 응용 프로그램에서 실행 컨텍스트 드롭다운을 채우는 데 사용됩니다.
+_\<run configuration name>.runconfig_는 Azure ML 실험 실행 동작을 지정합니다. 실행 기록 추적 또는 많은 다른 대상과 함께 사용할 계산 대상 등과 같은 실행 동작을 구성할 수 있습니다. 실행 구성 파일의 이름은 Azure ML Workbench 데스크톱 애플리케이션에서 실행 컨텍스트 드롭다운을 채우는 데 사용됩니다.
 
 **ArgumentVector**: 이 섹션은 이 실행의 일부로 실행할 스크립트 및 해당 스크립트에 대한 매개 변수를 지정합니다. 예를 들어 "<run configuration name>.runconfig" 파일에 다음과 같은 코드 조각이 있는 경우 
 

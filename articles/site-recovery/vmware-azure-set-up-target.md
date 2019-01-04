@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: a6f983b08415659b9a989ebed824cddd210396e1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cbf9c1a49481de49fb8d9c6599acec7bc3600df3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233432"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837514"
 ---
 # <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Azure로 VMware VM 또는 물리적 서버를 재해 복구하기 위한 대상 환경 준비
 
@@ -27,12 +27,12 @@ ms.locfileid: "50233432"
 
 ## <a name="prepare-target"></a>대상 준비
 
-**1단계: 보호 목표 선택** 및 **2단계: 원본 준비**를 완료하고 나면 **3단계: 대상**이 시작됩니다.
+**1단계: 보호 목표 선택** 및 **2단계: 원본 준비**를 완료한 후, **3단계: 대상**을 수행합니다.
 
 ![대상 준비](./media/vmware-azure-set-up-target/prepare-target-vmware-to-azure.png)
 
 1. **구독:** 드롭다운 메뉴에서 가상 머신이나 실제 서버를 복제할 대상 구독을 선택합니다.
-2. **배포 모델:** 배포 모델(클래식 또는 리소스 관리자)을 선택합니다.
+2. **배포 모델:** 배포 모델(클래식 또는 Resource Manager)을 선택합니다.
 
 선택한 배포 모델에 따라 유효성 검사가 실행되어 가상 머신이나 실제 서버를 복제하고 장애 조치(failover)를 수행할 대상 구독에 하나 이상의 호환되는 저장소 계정 및 가상 네트워크가 있는지를 확인합니다.
 

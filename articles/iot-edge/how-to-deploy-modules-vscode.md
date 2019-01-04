@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge 모듈 배포(VS Code) | Microsoft Docs
+title: Visual Studio Code에서 모듈 배포 - Azure IoT Edge | Microsoft Docs
 description: Visual Studio Code를 사용하여 IoT Edge 디바이스에 모듈 배포
 author: kgremban
 manager: philmea
@@ -9,18 +9,19 @@ ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a7f0fc0c3169aadac78609830dda55ae1ec7ea46
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 212f103a356dc3663795a5e5453869c99da3fff9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567846"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100823"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Visual Studio Code에서 Azure IoT Edge 모듈 배포
 
 비즈니스 논리를 사용하여 IoT Edge 모듈을 만들면 디바이스에 배포하여 에지에서 작동시킵니다. 데이터를 수집하고 처리하기 위해 다중 모듈을 사용한 경우 한 번에 모두 배포하고 여기에 연결된 회람 규칙을 선언할 수 있습니다. 
 
-이 문서에서는 JSON 배포 매니페스트를 만든 다음, 해당 파일을 사용하여 IoT Edge 디바이스에 배포를 푸시하는 방법을 보여 줍니다. 해당 공유 태그에 따라 다중 디바이스를 대상으로 지정하는 배포를 만드는 방법에 대한 정보는 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)을 참조하세요.
+이 아티클에서는 JSON 배포 매니페스트를 만든 다음, 해당 파일을 사용하여 IoT Edge 디바이스에 배포를 푸시하는 방법을 보여줍니다. 해당 공유 태그에 따라 다중 디바이스를 대상으로 지정하는 배포를 만드는 방법에 대한 정보는 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -109,9 +110,9 @@ Visual Studio Code용 Azure IoT 확장을 사용하여 IoT Hub에 대한 작업�
 
 2. Explorer의 맨 아래에서 **Azure IoT Hub 디바이스** 섹션을 확장합니다. 
 
-   ![Azure IoT Hub 디바이스 확장](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
+   ![Azure IoT Hub 디바이스 확장 섹션](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
-3. **Azure IoT Hub 장치** 섹션 헤더에서 **...** 를 클릭합니다. 줄임표가 표시되지 않으면 헤더를 마우스로 가리킵니다. 
+3. **Azure IoT Hub 디바이스** 섹션 헤더에서 **...** 를 클릭합니다. 줄임표가 표시되지 않으면 헤더를 마우스로 가리킵니다. 
 
 4. **IoT Hub 선택**을 선택합니다.
 
@@ -130,7 +131,7 @@ Visual Studio Code용 Azure IoT 확장을 사용하여 IoT Hub에 대한 작업�
 
 2. 배포 매니페스트로 구성하려는 디바이스를 마우스 오른쪽 단추로 클릭합니다. 
 
-3. **단일 장치용 배포 만들기**를 선택합니다. 
+3. **단일 디바이스용 배포 만들기**를 선택합니다. 
 
 4. 사용하려는 배포 매니페스트 JSON 파일로 이동하고 **에지 배포 매니페스트 선택**을 클릭합니다. 
 

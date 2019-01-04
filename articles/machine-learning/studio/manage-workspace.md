@@ -1,12 +1,11 @@
 ---
-title: Machine Learning 작업 영역 관리 - Azure Machine Learning Studio | Microsoft Docs
+title: Machine Learning Studio 작업 영역 관리 | Microsoft Docs
 description: Azure Machine Learning 작업 영역에 대한 액세스를 관리하고, ML API 웹 서비스를 배포 및 관리합니다.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: daf3d413-7a77-4beb-9a7a-6b4bdf717719
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
-ms.openlocfilehash: c470d10b933b31d4cfe151fb541c2182562a2805
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8c5dfd82a7bf0d1985869c8de4e3b313ef885947
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314107"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270776"
 ---
-# <a name="manage-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역 관리
+# <a name="manage-an-azure-machine-learning-studio-workspace"></a>Azure Machine Learning Studio 작업 영역 관리
 
 > [!NOTE]
 > Machine Learning 웹 서비스 포털의 웹 서비스 관리에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](manage-new-webservice.md)를 참조하세요.
@@ -32,7 +31,7 @@ ms.locfileid: "52314107"
 
 Azure Portal에서 Machine Learning 작업 영역을 관리할 수 있습니다.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="use-the-azure-portal"></a>Azure Portal 사용
 

@@ -17,7 +17,7 @@ ms.locfileid: "51616642"
 ---
 ## <a name="access-the-media-services-api"></a>Media Services API 액세스
 
-Azure Media Services API에 연결하려면 Azure AD 서비스 주체 인증을 사용합니다. 다음 명령은 Azure AD 응용 프로그램을 만들고 계정에 서비스 주체를 연결합니다. 반환된 값을 사용하여 응용 프로그램을 구성해야 합니다.
+Azure Media Services API에 연결하려면 Azure AD 서비스 주체 인증을 사용합니다. 다음 명령은 Azure AD 애플리케이션을 만들고 계정에 서비스 주체를 연결합니다. 반환된 값을 사용하여 애플리케이션을 구성해야 합니다.
 
 스크립트를 실행하기 전에 `amsaccount` 및 `amsResourceGroup`을 이러한 리소스로 만들 때 선택한 이름으로 바꿀 수 있습니다. `amsaccount`는 서비스 주체를 연결하는 Azure Media Services 계정의 이름입니다.
 

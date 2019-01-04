@@ -1,23 +1,24 @@
 ---
-title: Azure ExpressRoute로 회로를 구성하기 위한 워크플로 | Microsoft Docs
-description: 이 페이지는 ExpressRoute 회로 및 피어링을 구성하기 위한 워크플로를 안내합니다.
+title: '회로 구성 워크플로 - ExpressRoute: Azure | Microsoft Docs'
+description: 이 페이지는 ExpressRoute 회로 및 피어링을 구성하기 위한 워크플로를 보여줍니다.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 12/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 765050c9c21c7ba752535fc391cc9bb7d8ac4083
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.custom: seodec18
+ms.openlocfilehash: 3ffcc5ac2193e607573ceb93717258f5349d1f15
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301041"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101690"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>회로 프로비전 및 회로 상태에 대한 ExpressRoute 워크플로
 이 페이지에서는 높은 수준에서 구성 워크플로 프로비전 및 라우팅 서비스를 안내합니다.
 
-![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
+![회로 워크플로](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
 다음 그림 및 해당 단계는 종단 간 프로비전된 ExpressRoute 회로를 보유하기 위해 수행해야 하는 작업을 표시합니다. 
 
@@ -35,7 +36,7 @@ ms.locfileid: "43301041"
      > 
      > 
      
-     ![](./media/expressroute-workflows/routing-workflow.png)
+     ![라우팅 워크플로](./media/expressroute-workflows/routing-workflow.png)
 5. 가상 네트워크를 ExpressRoute 회로에 연결 - 가상 네트워크를 ExpressRoute 회로에 연결할 수 있습니다. 지침을 수행하여 회로에 [VNet을 연결](expressroute-howto-linkvnet-arm.md) 합니다. 이러한 VNet은 ExpressRoute 회로로써 동일한 Azure 구독에 있거나 다른 구독에 있을 수 있습니다.
 
 ## <a name="expressroute-circuit-provisioning-states"></a>ExpressRoute 회로 상태 프로비전

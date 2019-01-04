@@ -1,19 +1,19 @@
 ---
-title: 'Azure Site Recovery: 질문과 대답(FAQ) | Microsoft Docs'
+title: 'Azure Site Recovery: 질문과 대답 | Microsoft 문서'
 description: 이 문서에서는 Azure Site Recovery에 대한 일반적인 질문에 대답합니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: ff560715f9c6aff8f50d3b20db1f3e79f3527113
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ef914318174ee3ce738769fcae910c82b35b21b4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257302"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998543"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: FAQ(질문과 대답)
 이 문서는 Azure Site Recovery에 대한 질문과 대답을 제공합니다. 이 문서를 읽은 후 질문이 있다면 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)에 게시해 주세요.
@@ -24,9 +24,9 @@ Site Recovery는 온-프레미스 가상 머신 및 물리적 서버에서 Azure
 
 ### <a name="what-can-site-recovery-protect"></a>Site Recovery로 무엇을 보호할 수 있습니까?
 * **Azure VM**: Site Recovery는 지원되는 Azure VM에서 실행 중인 모든 워크로드를 복제할 수 있습니다.
-* **VMware 가상 머신**: Site Recovery는 Hyper-V VM에서 실행 중인 모든 워크로드를 보호할 수 있습니다.
-* **물리적 서버**: Site Recovery는 Windows 또는 Linux를 실행하는 물리적 서버를 보호할 수 있습니다.
-* **VMware 가상 머신**: Site Recovery는 VMware VM에서 실행 중인 모든 워크로드를 보호할 수 있습니다.
+* **Hyper-V 가상 머신**: Site Recovery는 Hyper-V VM에서 실행되는 모든 워크로드를 보호할 수 있습니다.
+* **실제 서버**: Site Recovery는 Windows 또는 Linux를 실행하는 실제 서버를 보호할 수 있습니다.
+* **VMware 가상 머신**: Site Recovery는 VMware VM에서 실행되는 모든 워크로드를 보호할 수 있습니다.
 
 
 
@@ -91,7 +91,7 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 
 Azure Site Recovery는 공용 엔드포인트를 통해 Azure 저장소 계정에 데이터를 복제합니다. 사이트 간 VPN을 통해 복제되지 않습니다. Azure 가상 네트워크를 사용하여 사이트 간 VPN을 만들 수 있습니다. Site Recovery 복제를 방해하지 않습니다.
 
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>ExpressRoute를 사용하여 가상 머신을 Azure로 복제할 수 있습니까?
-예, [ExpressRoute를 사용](concepts-expressroute-with-site-recovery.md)하여 온-프레미스 가상 머신을 Azure로 복제할 수 있습니다. Azure Site Recovery는 공용 엔드포인트를 통해 Azure Storage 계정에 데이터를 복제합니다. Site Recovery 복제에 ExpressRoute를 사용하려면 [공용 피어링](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) 또는 [Microsoft 피어링](../expressroute/expressroute-circuit-peerings.md#microsoft-peering)을 설정해야 합니다. Microsoft 피어링은 복제에 권장되는 라우팅 도메인입니다. 가상 머신이 Azure Virtual Network에 장애 조치 된 후 Azure Virtual Network로 [개인 피어링](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) 설정을 사용하여 액세스할 수 있습니다. 개인 피어링에는 복제가 지원되지 않습니다.
+예, [ExpressRoute를 사용](concepts-expressroute-with-site-recovery.md)하여 온-프레미스 가상 머신을 Azure로 복제할 수 있습니다. Azure Site Recovery는 공용 엔드포인트를 통해 Azure Storage 계정에 데이터를 복제합니다. Site Recovery 복제에 ExpressRoute를 사용하려면 [공용 피어링](../expressroute/expressroute-circuit-peerings.md#publicpeering) 또는 [Microsoft 피어링](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)을 설정해야 합니다. Microsoft 피어링은 복제에 권장되는 라우팅 도메인입니다. 가상 머신이 Azure Virtual Network에 장애 조치 된 후 Azure Virtual Network로 [개인 피어링](../expressroute/expressroute-circuit-peerings.md#privatepeering) 설정을 사용하여 액세스할 수 있습니다. 개인 피어링에는 복제가 지원되지 않습니다.
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Azure에 가상 머신을 복제하기 위한 필수 조건은 무엇입니까?
 Azure로 복제하려는 [VMware VM](vmware-physical-azure-support-matrix.md#replicated-machines) 및 [Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms)이 Azure 요구 사항을 충족해야 합니다.
@@ -116,7 +116,7 @@ LRS 또는 GRS 저장소 계정이 필요합니다. 지역 정전이 발생하�
 
 ### <a name="how-often-can-i-replicate-data"></a>데이터를 얼마나 자주 복제할 수 있나요?
 * **Hyper-V:** Hyper-V VM은 30초(프리미엄 저장소 제외), 5분 또는 15분마다 복제할 수 있습니다. SAN 복제를 설정하면 복제가 동기화됩니다.
-* **VMware 및 물리적 서버:** 복제 빈도는 이와 관련이 없습니다. 복제가 계속 됩니다.
+* **Azure VMs, VMware 및 실제 서버:** 복제 빈도는 이와 관련이 없습니다. 복제가 계속 됩니다.
 
 ### <a name="can-i-extend-replication-from-existing-recovery-site-to-another-tertiary-site"></a>기존 복구 사이트에서 3차 사이트로 복제를 확장할 수 있습니까?
 확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication)을 통해 이 기능에 대한 의견을 보내 주세요.
@@ -172,7 +172,7 @@ Azure는 복원을 위해 디자인되었습니다. Site Recovery는 이미 Azur
 예, Site Recovery는 전용 및 공유 인프라 모델 모두에 대해 작동합니다.
 
 ### <a name="for-a-service-provider-is-the-identity-of-my-tenant-shared-with-the-site-recovery-service"></a>서비스 공급자의 경우 내 테넌트의 ID가 Site Recovery 서비스와 공유됩니까?
-아니요. 테넌트 ID는 익명으로 유지됩니다. 사용자의 테넌트는 Site Recovery 포털에 액세스할 필요가 없습니다. 서비스 공급자 관리자만 포털과 상호 작용합니다.
+ 아니요. 테넌트 ID는 익명으로 유지됩니다. 사용자의 테넌트는 Site Recovery 포털에 액세스할 필요가 없습니다. 서비스 공급자 관리자만 포털과 상호 작용합니다.
 
 ### <a name="will-tenant-application-data-ever-go-to-azure"></a>테넌트 응용 프로그램 데이터가 Azure로 이동됩니까?
 서비스 공급자가 소유하고 있는 사이트 간에 복제할 경우 응용 프로그램 데이터가 Azure로 이동되지 않습니다. 데이터는 전송 중에 암호화되어 서비스 공급자 사이트 간에 직접 복제됩니다.
@@ -180,7 +180,7 @@ Azure는 복원을 위해 디자인되었습니다. Site Recovery는 이미 Azur
 Azure로 복제하는 경우 응용 프로그램 데이터가 Azure 저장소로 전송되지만 Site Recovery 서비스로는 전송되지 않습니다. 데이터는 전송 중에 암호화되어 Azure에 암호화된 상태로 남아 있습니다.
 
 ### <a name="will-my-tenants-receive-a-bill-for-any-azure-services"></a>내 테넌트로 Azure 서비스에 대한 청구서가 발급됩니까?
-아니요. Azure의 청구 관계는 서비스 공급자와 직접 유지됩니다. 서비스 공급자는 해당 테넌트에 대한 특정 청구서를 생성하는 일을 담당합니다.
+ 아니요. Azure의 청구 관계는 서비스 공급자와 직접 유지됩니다. 서비스 공급자는 해당 테넌트에 대한 특정 청구서를 생성하는 일을 담당합니다.
 
 ### <a name="if-im-replicating-to-azure-do-we-need-to-run-virtual-machines-in-azure-at-all-times"></a>Azure로 복제할 때 항상 Azure에서 가상 머신을 실행해야 합니까?
 아니요, 데이터는 구독의 Azure 저장소 계정에 복제됩니다. 테스트 장애 조치(failover)(DR 드릴) 또는 실제 장애 조치(failover)를 수행하면 Site Recovery가 구독에서 자동으로 가상 머신을 만듭니다.
@@ -195,5 +195,5 @@ Azure Pack, 클라우드 플랫폼 시스템 및 시스템 센터 기반(2012 �
 예, Hyper-V 가상 머신을 Azure에 복제하거나 서비스 공급자 사이트 간에 복제할 수 있습니다.  서비스 공급자 사이트 간에 복제할 경우 Azure Runbook 통합을 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Site Recovery 개요](site-recovery-overview.md)
+*  [Site Recovery 개요](site-recovery-overview.md)
 * 알아봅니다 [Site Recovery 아키텍처](site-recovery-components.md)  

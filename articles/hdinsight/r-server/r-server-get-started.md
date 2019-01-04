@@ -52,7 +52,7 @@ Azure HDInsight를 사용하면 ML 서비스 클러스터를 만들 수 있습�
 
     * **버전**: ML Server 9.3(HDI 3.6) ML Server 9.3에 대한 릴리스 정보는 [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-machine-learning-server)에서 지원됩니다.
 
-    * **ML Server용 R Studio 커뮤니티 버전**: 기본적으로 에지 노드에 설치되는 브라우저 기반 IDE입니다. 설치하지 않으려면 확인란의 선택을 취소합니다. 설치를 선택하면 만들어진 클러스터의 포털 응용 프로그램 블레이드에서 RStudio Server 로그인에 액세스하기 위한 URL을 사용할 수 있습니다.
+    * **ML Server용 R Studio 커뮤니티 버전**: 기본적으로 에지 노드에 설치되는 브라우저 기반 IDE입니다. 설치하지 않으려면 확인란의 선택을 취소합니다. 설치를 선택하면 만들어진 클러스터의 포털 애플리케이션 블레이드에서 RStudio Server 로그인에 액세스하기 위한 URL을 사용할 수 있습니다.
 
         ![클러스터 기본 세부 정보](./media/r-server-get-started/clustertypeconfig.png)
 

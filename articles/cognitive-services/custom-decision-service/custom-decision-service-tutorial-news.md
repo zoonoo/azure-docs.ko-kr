@@ -21,12 +21,12 @@ ms.locfileid: "46366338"
 
 이 자습서에서는 웹 사이트의 앞 페이지에 표시되는 기사 선택을 개인 설정하는 방법에 집중합니다. 예를 들어 Custom Decision Service는 앞 페이지의 *여러* 아티클에 영향을 줍니다. 아마도 페이지는 정치 및 스포츠를 다루는 뉴스 웹 사이트입니다. 정치, 스포츠 및 최신 등 아티클의 세 가지 순위 목록을 보여줍니다.
 
-## <a name="applications-and-action-sets"></a>응용 프로그램 및 작업 집합
+## <a name="applications-and-action-sets"></a>애플리케이션 및 작업 집합
 
-시나리오를 프레임워크에 맞추는 방법은 다음과 같습니다. app-politics, app-sports 및 app-recent 등 최적화된 각 목록에 하나씩 세 개의 응용 프로그램이 있다고 가정합니다. 각 응용 프로그램에 대한 후보 아티클을 지정하기 위해 정치 및 스포츠에 하나씩 두 개의 작업 집합이 있습니다. app-recent에 설정된 작업은 다른 두 집합의 합집합으로 자동으로 제공됩니다.
+시나리오를 프레임워크에 맞추는 방법은 다음과 같습니다. app-politics, app-sports 및 app-recent 등 최적화된 각 목록에 하나씩 세 개의 애플리케이션이 있다고 가정합니다. 각 애플리케이션에 대한 후보 아티클을 지정하기 위해 정치 및 스포츠에 하나씩 두 개의 작업 집합이 있습니다. app-recent에 설정된 작업은 다른 두 집합의 합집합으로 자동으로 제공됩니다.
 
 > [!TIP]
-> 작업 집합은 Custom Decision Service에서 응용 프로그램 간에 공유할 수 있습니다.
+> 작업 집합은 Custom Decision Service에서 애플리케이션 간에 공유할 수 있습니다.
 
 ## <a name="prepare-action-set-feeds"></a>작업 집합 피드 준비
 
@@ -52,15 +52,15 @@ Custom Decision Service는 고객이 제공한 RSS 또는 Atom 피드를 통해 
 
 1. [Microsoft 계정](https://account.microsoft.com/account)으로 로그인합니다. 리본에서 **내 포털**을 클릭합니다.
 
-2. 새 응용 프로그램을 등록하려면 **새 앱** 단추를 클릭합니다.
+2. 새 애플리케이션을 등록하려면 **새 앱** 단추를 클릭합니다.
 
     ![Custom Decision Service 포털](./media/custom-decision-service-tutorial/portal.png)
 
-3. **앱 ID** 텍스트 상자에서 응용 프로그램에 고유한 이름을 입력합니다. 다른 고객이 이 이름을 이미 사용하는 경우 시스템은 다른 앱 ID를 선택하도록 요청합니다. **고급** 확인란을 선택하고, Azure 저장소 계정에 대한 [연결 문자열](../../storage/common/storage-configure-connection-string.md)을 입력합니다. 일반적으로 모든 응용 프로그램에 동일한 저장소 계정을 사용합니다.
+3. **앱 ID** 텍스트 상자에서 응용 프로그램에 고유한 이름을 입력합니다. 다른 고객이 이 이름을 이미 사용하는 경우 시스템은 다른 앱 ID를 선택하도록 요청합니다. **고급** 확인란을 선택하고, Azure 저장소 계정에 대한 [연결 문자열](../../storage/common/storage-configure-connection-string.md)을 입력합니다. 일반적으로 모든 애플리케이션에 동일한 저장소 계정을 사용합니다.
 
     ![새 앱 대화 상자](./media/custom-decision-service-tutorial/new-app-dialog.png)
 
-    위의 시나리오에서 세 개의 응용 프로그램을 모두 등록하면 다음과 같이 나열됩니다.
+    위의 시나리오에서 세 개의 애플리케이션을 모두 등록하면 다음과 같이 나열됩니다.
 
     ![앱 목록](./media/custom-decision-service-tutorial/apps.png)
 
@@ -101,7 +101,7 @@ callback({
    "actionSets":[{"id":"feed-politics","lastRefresh":"date"}] });
 ```
 
-그런 다음, 브라우저는 이 문자열을 `callback()` 함수에 대한 호출로 실행합니다. `callback()` 함수의 `data` 인수에는 앱 ID 및 렌더링되어야 하는 URL의 순위가 포함되어 있습니다. 특히 `callback()`은 `data.appId`를 사용하여 세 가지 응용 프로그램을 구별해야 합니다. `eventId`는 Custom Decision Service에서 내부적으로 사용되며 해당하는 항목을 클릭하여 제공된 순위와 일치시킵니다.
+그런 다음, 브라우저는 이 문자열을 `callback()` 함수에 대한 호출로 실행합니다. `callback()` 함수의 `data` 인수에는 앱 ID 및 렌더링되어야 하는 URL의 순위가 포함되어 있습니다. 특히 `callback()`은 `data.appId`를 사용하여 세 가지 애플리케이션을 구별해야 합니다. `eventId`는 Custom Decision Service에서 내부적으로 사용되며 해당하는 항목을 클릭하여 제공된 순위와 일치시킵니다.
 
 > [!TIP]
 > `callback()`은 `lastRefresh` 필드를 사용하여 새로 고칠 각 작업 피드를 확인할 수 있습니다. 지정된 피드가 충분하지 않으면 `callback()`은 제공된 순위를 무시하고,이 피드를 직접 호출하고, 피드에서 제공하는 기본 순위를 사용할 수 있습니다.
@@ -135,7 +135,7 @@ function callback(data) {
 }}
 ```
 
-이 예제에서는 `render()` 함수를 구현하여 지정된 응용 프로그램에 지정된 아티클을 렌더링합니다. 이 함수는 순위 API의 형식으로 앱 ID 및 아티클을 입력합니다. `onClick` 매개 변수는 한 번의 클릭을 처리하기 위해 `render()`에서 호출되어야 하는 함수입니다. 클릭이 맨 위 슬롯에 적용되는지 확인합니다. 그런 다음, 적절한 앱 ID 및 이벤트 ID를 사용하여 보상 API를 호출합니다.
+이 예제에서는 `render()` 함수를 구현하여 지정된 애플리케이션에 지정된 아티클을 렌더링합니다. 이 함수는 순위 API의 형식으로 앱 ID 및 아티클을 입력합니다. `onClick` 매개 변수는 한 번의 클릭을 처리하기 위해 `render()`에서 호출되어야 하는 함수입니다. 클릭이 맨 위 슬롯에 적용되는지 확인합니다. 그런 다음, 적절한 앱 ID 및 이벤트 ID를 사용하여 보상 API를 호출합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

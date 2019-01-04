@@ -1,6 +1,6 @@
 ---
-title: Azure Marketplace SaaS 응용 프로그램 기술 게시 가이드
-description: Azure Marketplace에 SaaS 응용 프로그램을 게시하는 단계별 가이드 및 게시 검사 목록
+title: Azure Marketplace SaaS 애플리케이션 기술 게시 가이드
+description: Azure Marketplace에 SaaS 애플리케이션을 게시하는 단계별 가이드 및 게시 검사 목록
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 documentationcenter: ''
 author: keithcharlie
@@ -21,13 +21,13 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43123485"
 ---
-# <a name="saas-applications-offer-publishing-guide"></a>SaaS 응용 프로그램 제품 게시 가이드
+# <a name="saas-applications-offer-publishing-guide"></a>SaaS 애플리케이션 제품 게시 가이드
 
-SaaS 응용 프로그램은. "연락처", "지금 사용해 보기" 및 "지금 가져오기" 작업에 대한 세 개의 다른 호출을 사용하여 마켓플레이스에 게시할 수 있습니다 이 가이드에서는 각각에 대한 요구 사항을 비롯한 세 가지 옵션을 설명합니다. 
+SaaS 애플리케이션은. "연락처", "지금 사용해 보기" 및 "지금 가져오기" 작업에 대한 세 개의 다른 호출을 사용하여 마켓플레이스에 게시할 수 있습니다 이 가이드에서는 각각에 대한 요구 사항을 비롯한 세 가지 옵션을 설명합니다. 
 
 ## <a name="offer-overview"></a>제품 개요  
 
-SaaS 응용 프로그램은 모두 Azure 상점에서 사용할 수 있습니다. 다음 표에서는 현재 사용할 수 있는 옵션을 설명합니다.
+SaaS 애플리케이션은 모두 Azure 상점에서 사용할 수 있습니다. 다음 표에서는 현재 사용할 수 있는 옵션을 설명합니다.
 
 | 상점 옵션 | 나열 | 평가판/거래 |  
 | --- | --- | --- |  
@@ -47,7 +47,7 @@ SaaS 응용 프로그램은 모두 Azure 상점에서 사용할 수 있습니다
 
 평가판이 없고 청구 기능이 없는 SaaS 목록의 작업에 대한 호출은 "연락처"입니다. 
 
-SaaS 응용 프로그램을 나열하도록 Azure Active Directory를 구성할 필요가 없습니다. 
+SaaS 애플리케이션을 나열하도록 Azure Active Directory를 구성할 필요가 없습니다. 
 
 |요구 사항  |세부 정보  |
 |---------|---------|
@@ -67,9 +67,9 @@ SaaS 응용 프로그램을 나열하도록 Azure Active Directory를 구성할 
 
 ## <a name="saas-trial-technical-requirements"></a>SaaS 평가판 기술 요구 사항
 
-SaaS 응용 프로그램에 대한 기술 요구 사항은 간단합니다. 게시할 Azure AD(Azure Active Directory)와 게시자가 통합되기만 하면 됩니다. Azure AD와 응용 프로그램의 통합은 문서화가 잘 되어있으며 이를 위해 Microsoft는 다수의 SDK와 리소스가 제공됩니다.  
+SaaS 애플리케이션에 대한 기술 요구 사항은 간단합니다. 게시할 Azure AD(Azure Active Directory)와 게시자가 통합되기만 하면 됩니다. Azure AD와 애플리케이션의 통합은 문서화가 잘 되어있으며 이를 위해 Microsoft는 다수의 SDK와 리소스가 제공됩니다.  
 
-시작하려면 다른 이니셔티브와 작업을 격리할 수 있도록 Azure Marketplace 게시 전용 구독을 마련하는 것이 좋습니다. 이 작업이 완료되면 이 구독에서 SaaS 응용 프로그램을 배포하기 시작하여 개발 작업을 시작할 수 있습니다.  
+시작하려면 다른 이니셔티브와 작업을 격리할 수 있도록 Azure Marketplace 게시 전용 구독을 마련하는 것이 좋습니다. 이 작업이 완료되면 이 구독에서 SaaS 애플리케이션을 배포하기 시작하여 개발 작업을 시작할 수 있습니다.  
 
 최상의 Azure Active Directory 설명서, 샘플 및 지침은 다음 사이트에 위치합니다. 
 
@@ -111,16 +111,16 @@ Azure AD를 사용하면 다음과 같이 앱 또는 평가판에 대한 원클�
 
 ## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Marketplace에 대한 Azure AD 통합 인증  
 
-응용 프로그램이 단일 테넌트인지 아니면 다중 테넌트인지, Azure AD 페더레이션된 SSO(Single Sign-On)을 처음 사용하는지 아니면 이미 지원하는지에 따라 몇 가지 다른 방법으로 Azure AD 통합을 인증할 수 있습니다.  
+애플리케이션이 단일 테넌트인지 아니면 다중 테넌트인지, Azure AD 페더레이션된 SSO(Single Sign-On)을 처음 사용하는지 아니면 이미 지원하는지에 따라 몇 가지 다른 방법으로 Azure AD 통합을 인증할 수 있습니다.  
 
 **다중 테넌트 응용 프로그램의 경우:**  
 
 이미 Azure AD를 지원하는 경우 다음을 수행합니다.
-1.  Azure Portal에서 응용 프로그램을 등록합니다.
+1.  Azure Portal에서 애플리케이션을 등록합니다.
 2.  Azure AD의 다중 테넌트 지원 기능으로 원클릭 평가판 환경을 사용할 수 있습니다. [여기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)에서 자세한 내용을 찾을 수 있습니다.  
 
 Azure AD 페더레이션 SSO를 처음 사용하는 경우 다음을 수행합니다. 
-1.  Azure Portal에서 응용 프로그램을 등록합니다.
+1.  Azure Portal에서 애플리케이션을 등록합니다.
 2.  [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) 또는 [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)을 사용하여 Azure AD에서 SSO를 개발합니다.
 3.  AAD의 다중 테넌트 지원 기능으로 '원클릭'만으로 평가판 환경을 사용할 수 있습니다. [여기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified)에서 자세한 내용을 찾을 수 있습니다.  
 

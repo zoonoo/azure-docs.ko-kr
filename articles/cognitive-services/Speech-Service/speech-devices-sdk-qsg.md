@@ -1,5 +1,5 @@
 ---
-title: Speech Devices SDK 시작
+title: Speech Devices SDK 시작 - Speech Services
 titleSuffix: Azure Cognitive Services
 description: Speech Devices SDK를 시작하기 위한 필수 구성 요소 및 지침입니다.
 services: cognitive-services
@@ -8,18 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/18/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: e035e1bdedefc8e327b0179006b45f3bad4c41ee
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 46f7762a815a7fa4aa4663d9ac6e7c6001ea345c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470203"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097185"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Speech Devices SDK 시작
 
-이 문서에서는 Speech Devices SDK를 사용하여 음성 지원 디바이스를 개발하기 위해 개발 PC와 Speech 디바이스 개발 키트를 구성하는 방법에 대해 설명합니다. 그런 다음, 샘플 애플리케이션을 빌드하여 디바이스에 배포합니다. 
+이 문서에서는 Speech Devices SDK를 사용하여 음성 지원 디바이스를 개발하기 위해 개발 PC와 Speech 디바이스 개발 키트를 구성하는 방법에 대해 설명합니다. 그런 다음, 샘플 애플리케이션을 빌드하여 디바이스에 배포합니다.
 
 샘플 애플리케이션의 소스 코드는 Speech Devices SDK에 포함되어 있으며, [GitHub에서도 사용할 수 있습니다](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -40,7 +41,7 @@ Speech Devices SDK를 사용하여 개발을 시작하기 전에 필요한 정�
 
 * [Speech Service 구독 키](get-started.md)를 가져옵니다. 30일 평가판을 가져오거나 Azure 대시보드에서 키를 가져올 수 있습니다.
 
-* Speech Service의 의도 인식 기능을 사용하려면 [LUIS(Language Understanding 서비스)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)를 구독하고 [구독 키](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription)를 가져옵니다. 
+* Speech Service의 의도 인식 기능을 사용하려면 [LUIS(Language Understanding 서비스)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)를 구독하고 [구독 키](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription)를 가져옵니다.
 
     [간단한 LUIS 모델을 만들거나](https://docs.microsoft.com/azure/cognitive-services/luis/) LUIS-example.json LUIS 모델 샘플을 사용할 수 있습니다. LUIS 모델 샘플은 [Speech Devices SDK 다운로드 사이트](https://shares.datatransfer.microsoft.com/)에서 사용할 수 있습니다. 모델의 JSON 파일을 [LUIS 포털](https://www.luis.ai/home)에 업로드하려면 **새 앱 가져오기**를 선택한 다음, JSON 파일을 선택합니다.
 
@@ -64,9 +65,9 @@ Speech Devices SDK를 사용하여 개발을 시작하기 전에 필요한 정�
 1. 인증서 및 절전 모드 해제 단어(키워드) 표 파일을 설치하고 사운드 디바이스의 사용 권한을 설정합니다. [명령 프롬프트] 창에서 다음 명령을 입력합니다.
 
    ```
-   adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/ 
+   adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/
    adb shell
-   cd /data/ 
+   cd /data/
    chmod 777 roobo_setup.sh
    ./roobo_setup.sh
    exit
@@ -77,49 +78,49 @@ Speech Devices SDK를 사용하여 개발을 시작하기 전에 필요한 정�
 
     > [!TIP]
     > PC의 마이크와 스피커를 음소거하여 개발 키트의 마이크를 사용하고 있는지 확인하세요. 이렇게 하면 디바이스를 PC에서 오디오로 실수로 트리거하지 않습니다.
-    
+
 1.  컴퓨터에서 Vysor를 시작합니다.
 
     ![Vysor](media/speech-devices-sdk/qsg-3.png)
 
-1.  디바이스가 **디바이스 선택** 아래에 나열되어야 합니다. 디바이스 옆에 있는 **보기** 단추를 선택합니다. 
- 
+1.  디바이스가 **디바이스 선택** 아래에 나열되어야 합니다. 디바이스 옆에 있는 **보기** 단추를 선택합니다.
+
 1.  폴더 아이콘을 선택하여 무선 네트워크에 연결한 다음, **설정** > **WLAN**을 차례로 선택합니다.
 
     ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
- 
+
     > [!NOTE]
-    > 회사에 디바이스를 Wi-Fi 시스템에 연결하는 정책이 있는 경우 MAC 주소를 가져오고 회사의 Wi-Fi에 연결하는 방법에 대해 IT 부서에 문의해야 합니다. 
+    > 회사에 디바이스를 Wi-Fi 시스템에 연결하는 정책이 있는 경우 MAC 주소를 가져오고 회사의 Wi-Fi에 연결하는 방법에 대해 IT 부서에 문의해야 합니다.
     >
     > 개발 키트의 MAC 주소를 찾으려면 개발 키트의 바탕 화면에서 파일 폴더 아이콘을 선택합니다.
     >
     >  ![Vysor 파일 폴더](media/speech-devices-sdk/qsg-10.png)
     >
-    > **설정**을 선택합니다. "mac 주소"를 검색한 다음, **Mac 주소** > **고급 WLAN**을 차례로 선택합니다. 대화 상자의 아래쪽 근처에 표시되는 MAC 주소를 적어 둡니다. 
+    > **설정**을 선택합니다. "mac 주소"를 검색한 다음, **Mac 주소** > **고급 WLAN**을 차례로 선택합니다. 대화 상자의 아래쪽 근처에 표시되는 MAC 주소를 적어 둡니다.
     >
     > ![Vysor MAC 주소](media/speech-devices-sdk/qsg-11.png)
     >
     > 일부 회사는 디바이스를 Wi-Fi 시스템에 연결할 수 있는 시간을 제한할 수 있습니다. 개발 키트의 Wi-Fi 시스템에 대한 등록을 특정 기간(일) 후로 연장해야 할 수도 있습니다.
-    > 
+    >
     > 스피커를 개발 키트에 연결하려면 오디오 라인 출력에 연결할 수 있습니다. 고품질 3.5mm 스피커를 선택해야 합니다.
     >
     > ![Vysor 오디오](media/speech-devices-sdk/qsg-14.png)
- 
+
 ## <a name="run-a-sample-application"></a>샘플 응용 프로그램 실행
 
-ROOBO 테스트를 실행하고 개발 키트 설정의 유효성을 검사하려면 샘플 응용 프로그램을 빌드하고 설치합니다.
+ROOBO 테스트를 실행하고 개발 키트 설정의 유효성을 검사하려면 샘플 애플리케이션을 빌드하고 설치합니다.
 
 1.  Android Studio를 시작합니다.
 
 1.  **기존 Android Studio 프로젝트 열기**를 선택합니다.
 
     ![Android Studio - 기존 프로젝트 열기](media/speech-devices-sdk/qsg-5.png)
- 
-1.  C:\SDSDK\Android-Sample-Release\example로 이동합니다. **확인**을 선택하여 예제 프로젝트를 엽니다.
- 
-1.  소스 코드에 음성 구독 키를 추가합니다. 의도 인식을 사용해 보려면 [Language Understanding 서비스](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) 구독 키 및 응용 프로그램 ID를 추가합니다. 
 
-    키 및 응용 프로그램 정보는 MainActivity.java 원본 파일의 다음 줄에 표시됩니다.
+1.  C:\SDSDK\Android-Sample-Release\example로 이동합니다. **확인**을 선택하여 예제 프로젝트를 엽니다.
+
+1.  소스 코드에 음성 구독 키를 추가합니다. 의도 인식을 사용해 보려면 [Language Understanding 서비스](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) 구독 키 및 애플리케이션 ID를 추가합니다.
+
+    키 및 애플리케이션 정보는 MainActivity.java 원본 파일의 다음 줄에 표시됩니다.
 
     ```java
     // Subscription
@@ -135,7 +136,7 @@ ROOBO 테스트를 실행하고 개발 키트 설정의 유효성을 검사하�
     [사용자 지정 절전 모드 해제 단어를 만들](speech-devices-sdk-create-kws.md) 수도 있습니다.
 
     사용하려는 절전 모드 해제 단어를 설치하려면 다음을 수행합니다.
- 
+
     * [명령 프롬프트] 창에서 다음 명령을 실행하여 디바이스의 data 폴더에 keyword 폴더를 만듭니다.
 
         ```
@@ -152,9 +153,9 @@ ROOBO 테스트를 실행하고 개발 키트 설정의 유효성을 검사하�
         adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\kws_k.fst /data/keyword
         adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\words_kw.txt /data/keyword
         ```
-    
+
     * 샘플 응용 프로그램에서 이러한 파일을 참조합니다. MainActivity.java에서 다음 줄을 찾습니다. 지정한 키워드가 사용 중인 키워드이고 해당 경로가 디바이스에 푸시한 `kws.table` 파일을 가리키는지 확인합니다.
-        
+
         ```java
         private static final String Keyword = "Computer";
         private static final String KeywordModel = "/data/keyword/kws.table";
@@ -175,7 +176,7 @@ ROOBO 테스트를 실행하고 개발 키트 설정의 유효성을 검사하�
     private static final String SelectedGeometry = "Circular6+1";
     ```
     다음 표에서는 사용 가능한 값을 설명하고 있습니다.
-    
+
     |변수|의미|사용 가능한 값|
     |--------|-------|----------------|
     |`DeviceGeometry`|실제 마이크 구성|원형 개발 키트의 경우: `Circular6+1` |
@@ -186,12 +187,12 @@ ROOBO 테스트를 실행하고 개발 키트 설정의 유효성을 검사하�
     |||두 개의 마이크를 사용하는 선형 개발 키트의 경우: `Linear2`|
 
 
-1.  응용 프로그램을 빌드하려면 **실행** 메뉴에서 **'앱' 실행**을 선택합니다. **배포 대상 선택** 대화 상자가 나타납니다. 
+1.  애플리케이션을 빌드하려면 **실행** 메뉴에서 **'앱' 실행**을 선택합니다. **배포 대상 선택** 대화 상자가 나타납니다.
 
 1. 디바이스를 선택한 다음, **확인**을 선택하여 애플리케이션을 디바이스에 배포합니다.
 
     ![배포 대상 선택 대화 상자](media/speech-devices-sdk/qsg-7.png)
- 
+
 1.  Speech Devices SDK 예제 애플리케이션이 시작되고 다음 옵션이 표시됩니다.
 
     ![샘플 Speech Devices SDK 예제 애플리케이션 및 옵션](media/speech-devices-sdk/qsg-8.png)
@@ -208,12 +209,12 @@ Speech Service를 사용할 때 인증서 오류가 발생하면 디바이스의
 
     ![[설정] 아래에서 [날짜 및 시간] 선택](media/speech-devices-sdk/qsg-12.png)
 
-1. **자동 날짜 및 시간** 옵션을 선택한 채로 둡니다. **표준 시간대 선택** 아래에서 현재 표준 시간대를 선택합니다. 
+1. **자동 날짜 및 시간** 옵션을 선택한 채로 둡니다. **표준 시간대 선택** 아래에서 현재 표준 시간대를 선택합니다.
 
     ![날짜 및 표준 시간대 선택](media/speech-devices-sdk/qsg-13.png)
 
-    개발 키트의 시간이 PC의 시간과 일치하면 개발 키트가 인터넷에 연결됩니다. 
-    
+    개발 키트의 시간이 PC의 시간과 일치하면 개발 키트가 인터넷에 연결됩니다.
+
     자세한 개발 정보는 [ROOBO 개발 가이드](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf)를 참조하세요.
 
 ### <a name="audio"></a>오디오

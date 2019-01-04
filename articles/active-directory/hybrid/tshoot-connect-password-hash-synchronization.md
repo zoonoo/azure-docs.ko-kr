@@ -79,7 +79,7 @@ ms.locfileid: "46310022"
 
    * 암호 해시 동기화 기능이 사용되는지 확인합니다.
    
-   * Windows 응용 프로그램 이벤트 로그에서 암호 해시 동기화 하트비트 이벤트를 검색합니다.
+   * Windows 애플리케이션 이벤트 로그에서 암호 해시 동기화 하트비트 이벤트를 검색합니다.
 
    * 온-프레미스 Active Directory 커넥터 아래의 각 Active Directory 도메인에 대해 다음을 수행합니다.
 
@@ -104,7 +104,7 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
 ![Azure AD Connect 서버가 준비 모드에 있음](./media/tshoot-connect-password-hash-synchronization/phsglobalstaging.png)
 
 #### <a name="no-password-hash-synchronization-heartbeat-events"></a>암호 해시 동기화 하트비트 이벤트 없음
-각각의 온-프레미스 Active Directory 커넥터에 자체 암호 해시 동기화 채널이 있습니다. 암호 해시 동기화 채널이 설정되었으며 동기화할 암호 변경 내용이 없는 경우, Windows 응용 프로그램 이벤트 로그 아래에 하트비트 이벤트(EventId 654)가 30분마다 생성됩니다. 각각의 온-프레미스 Active Directory 커넥터에 대해 cmdlet은 지난 3시간 동안의 해당 하트비트 이벤트를 검색합니다. 하트비트 이벤트가 발견되면 다음 오류가 반환됩니다.
+각각의 온-프레미스 Active Directory 커넥터에 자체 암호 해시 동기화 채널이 있습니다. 암호 해시 동기화 채널이 설정되었으며 동기화할 암호 변경 내용이 없는 경우, Windows 애플리케이션 이벤트 로그 아래에 하트비트 이벤트(EventId 654)가 30분마다 생성됩니다. 각각의 온-프레미스 Active Directory 커넥터에 대해 cmdlet은 지난 3시간 동안의 해당 하트비트 이벤트를 검색합니다. 하트비트 이벤트가 발견되면 다음 오류가 반환됩니다.
 
 ![암호 해시 동기화 하트비트 이벤트 없음](./media/tshoot-connect-password-hash-synchronization/phsglobalnoheartbeat.png)
 

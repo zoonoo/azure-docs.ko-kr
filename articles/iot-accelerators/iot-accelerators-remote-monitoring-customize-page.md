@@ -89,7 +89,7 @@ git clone https://github.com/Azure/pcs-remote-monitoring-webui.git
     },
     ```
 
-1. 최상위 응용 프로그램 페이지를 정의하는 **src/components/app.js** 파일을 엽니다. 가져오기 목록에 새 페이지를 추가합니다.
+1. 최상위 애플리케이션 페이지를 정의하는 **src/components/app.js** 파일을 엽니다. 가져오기 목록에 새 페이지를 추가합니다.
 
     ```javascript
     // Page Components

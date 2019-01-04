@@ -47,9 +47,9 @@ ms.locfileid: "51853634"
 
 ## <a name="prepare-your-app"></a>앱 준비
 
-이 문서에서는 하나 이상의 Pod에서 호스트되는 웹 인터페이스와 임시 데이터 저장소를 위한 Redis를 호스트하는 두 번째 Pod를 포함하는 Azure 투표 응용 프로그램 예제를 사용합니다. 자동화된 배포를 위해 Jenkins 및 AKS를 통합하기 전에 먼저 수동으로 Azure 투표 응용 프로그램을 준비하고 AKS 클러스터에 배포합니다. 이 수동 배포는 응용 프로그램의 버전 1이고 이를 통해 작동 중인 응용 프로그램을 볼 수 있습니다.
+이 문서에서는 하나 이상의 Pod에서 호스트되는 웹 인터페이스와 임시 데이터 저장소를 위한 Redis를 호스트하는 두 번째 Pod를 포함하는 Azure 투표 애플리케이션 예제를 사용합니다. 자동화된 배포를 위해 Jenkins 및 AKS를 통합하기 전에 먼저 수동으로 Azure 투표 애플리케이션을 준비하고 AKS 클러스터에 배포합니다. 이 수동 배포는 애플리케이션의 버전 1이고 이를 통해 작동 중인 애플리케이션을 볼 수 있습니다.
 
-응용 프로그램 예제([https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis))의 다음 GitHub 리포지토리를 포크합니다. 사용자 고유의 GitHub 계정에 리포지토리를 분기하려면 오른쪽 위 모서리에 있는 **분기** 단추를 선택합니다.
+애플리케이션 예제([https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis))의 다음 GitHub 리포지토리를 포크합니다. 사용자 고유의 GitHub 계정에 리포지토리를 분기하려면 오른쪽 위 모서리에 있는 **분기** 단추를 선택합니다.
 
 포크를 개발 시스템에 복제합니다. 이 리포지토리를 복제할 때 포크 URL을 사용해야 합니다.
 
@@ -63,13 +63,13 @@ git clone https://github.com/<your-github-account>/azure-voting-app-redis.git
 cd azure-voting-app-redis
 ```
 
-응용 프로그램 예제에 필요한 컨테이너 이미지를 만들려면 `docker-compose`와 함께 *docker-compose.yaml* 파일을 사용합니다.
+애플리케이션 예제에 필요한 컨테이너 이미지를 만들려면 `docker-compose`와 함께 *docker-compose.yaml* 파일을 사용합니다.
 
 ```console
 docker-compose up -d
 ```
 
-필요한 기본 이미지가 풀되고 응용 프로그램 컨테이너가 빌드됩니다. 그러면 [docker images][docker-images] 명령을 사용하여 만든 이미지를 확인할 수 있습니다. 3개 이미지가 다운로드되거나 생성되었는지 확인합니다. `azure-vote-front` 이미지는 응용 프로그램을 포함하며 `nginx-flask` 이미지를 기준으로 사용합니다. `redis` 이미지는 Redis 인스턴스를 시작하는 데 사용됩니다.
+필요한 기본 이미지가 풀되고 애플리케이션 컨테이너가 빌드됩니다. 그러면 [docker images][docker-images] 명령을 사용하여 만든 이미지를 확인할 수 있습니다. 3개 이미지가 다운로드되거나 생성되었는지 확인합니다. `azure-vote-front` 이미지는 응용 프로그램을 포함하며 `nginx-flask` 이미지를 기준으로 사용합니다. `redis` 이미지는 Redis 인스턴스를 시작하는 데 사용됩니다.
 
 ```
 $ docker images
@@ -98,9 +98,9 @@ docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 docker push <acrLoginServer>/azure-vote-front:v1
 ```
 
-## <a name="deploy-the-sample-application-to-aks"></a>AKS에 응용 프로그램 예제 배포
+## <a name="deploy-the-sample-application-to-aks"></a>AKS에 애플리케이션 예제 배포
 
-응용 프로그램 예제를 AKS 클러스터에 배포하려면 Azure 투표 리포지토리의 루트에 있는 Kubernetes 매니페스트 파일을 사용하면 됩니다. `vi` 같은 편집기로 *azure-vote-all-in-one-redis.yaml* 매니페스트 파일을 엽니다. `microsoft`를 ACR 로그인 서버 이름으로 바꿉니다. 이 값은 매니페스트 파일의 줄 **47**에 있습니다.
+애플리케이션 예제를 AKS 클러스터에 배포하려면 Azure 투표 리포지토리의 루트에 있는 Kubernetes 매니페스트 파일을 사용하면 됩니다. `vi` 같은 편집기로 *azure-vote-all-in-one-redis.yaml* 매니페스트 파일을 엽니다. `microsoft`를 ACR 로그인 서버 이름으로 바꿉니다. 이 값은 매니페스트 파일의 줄 **47**에 있습니다.
 
 ```yaml
 containers:
@@ -108,13 +108,13 @@ containers:
   image: microsoft/azure-vote-front:v1
 ```
 
-다음으로 [kubectl apply][kubectl-apply] 명령을 사용하여 응용 프로그램을 AKS 클러스터에 배포합니다.
+다음으로 [kubectl apply][kubectl-apply] 명령을 사용하여 애플리케이션을 AKS 클러스터에 배포합니다.
 
 ```console
 kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
-Kubernetes 부하 분산 장치 서비스는 응용 프로그램을 인터넷에 노출하기 위해 만들어집니다. 이 프로세스는 몇 분 정도 걸릴 수 있습니다. 부하 분산 장치 배포의 진행 상황을 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다. *EXTERNAL-IP* 주소가 *보류 중*에서 *IP 주소*로 변경되면 `Control + C`를 사용하여 kubectl 조사식 프로세스를 중지합니다.
+Kubernetes 부하 분산 장치 서비스는 애플리케이션을 인터넷에 노출하기 위해 만들어집니다. 이 프로세스는 몇 분 정도 걸릴 수 있습니다. 부하 분산 장치 배포의 진행 상황을 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다. *EXTERNAL-IP* 주소가 *보류 중*에서 *IP 주소*로 변경되면 `Control + C`를 사용하여 kubectl 조사식 프로세스를 중지합니다.
 
 ```console
 $ kubectl get service azure-vote-front --watch
@@ -124,9 +124,9 @@ azure-vote-front   LoadBalancer   10.0.215.27   <pending>     80:30747/TCP   22s
 azure-vote-front   LoadBalancer   10.0.215.27   40.117.57.239   80:30747/TCP   2m
 ```
 
-응용 프로그램이 실제로 작동하는 모습을 보려면 웹 브라우저를 서비스의 외부 IP 주소로 엽니다. 다음 예제와 같이 Azure 투표 응용 프로그램이 표시됩니다.
+애플리케이션이 실제로 작동하는 모습을 보려면 웹 브라우저를 서비스의 외부 IP 주소로 엽니다. 다음 예제와 같이 Azure 투표 애플리케이션이 표시됩니다.
 
-![AKS에서 실행 중인 Azure 투표 응용 프로그램 예제](media/aks-jenkins/azure-vote.png)
+![AKS에서 실행 중인 Azure 투표 애플리케이션 예제](media/aks-jenkins/azure-vote.png)
 
 ## <a name="deploy-jenkins-to-an-azure-vm"></a>Azure VM에 Jenkins 배포
 
@@ -172,7 +172,7 @@ Jenkins 환경 변수는 ACR 로그인 서버 이름을 저장하는 데 사용�
 
 ## <a name="create-a-jenkins-credential-for-acr"></a>ACR의 Jenkins 자격 증명 만들기
 
-Jenkins가 업데이트된 컨테이너 이미지를 빌드한 후 ACR에 푸시할 수 있게 하려면 ACR의 자격 증명을 지정해야 합니다. 이 인증에는 Azure Active Directory 서비스 주체를 사용할 수 있습니다. 필수 구성 요소로 ACR 레지스트리에 대한 ‘읽기 권한자’ 권한이 있는 AKS 클러스터의 서비스 주체를 구성했습니다. 이러한 권한을 사용하면 AKS 클러스터가 ACR 레지스트리에서 이미지를 ‘풀’할 수 있습니다. CI/CD 프로세스 중에 Jenkins는 응용 프로그램 업데이트를 기반으로 새 컨테이너 이미지를 빌드하고 이후 해당 이미지를 ACR 레지스트리로 ‘푸시’해야 합니다. 역할 및 권한을 구분하기 위해 이제 ACR 레지스트리에 대한 *Contributor* 권한이 있는 Jenkins의 서비스 주체를 구성합니다.
+Jenkins가 업데이트된 컨테이너 이미지를 빌드한 후 ACR에 푸시할 수 있게 하려면 ACR의 자격 증명을 지정해야 합니다. 이 인증에는 Azure Active Directory 서비스 주체를 사용할 수 있습니다. 필수 구성 요소로 ACR 레지스트리에 대한 ‘읽기 권한자’ 권한이 있는 AKS 클러스터의 서비스 주체를 구성했습니다. 이러한 권한을 사용하면 AKS 클러스터가 ACR 레지스트리에서 이미지를 ‘풀’할 수 있습니다. CI/CD 프로세스 중에 Jenkins는 애플리케이션 업데이트를 기반으로 새 컨테이너 이미지를 빌드하고 이후 해당 이미지를 ACR 레지스트리로 ‘푸시’해야 합니다. 역할 및 권한을 구분하기 위해 이제 ACR 레지스트리에 대한 *Contributor* 권한이 있는 Jenkins의 서비스 주체를 구성합니다.
 
 ### <a name="create-a-service-principal-for-jenkins-to-use-acr"></a>ACR를 사용할 Jenkins의 서비스 주체 만들기
 
@@ -252,7 +252,7 @@ Jenkins 포털 홈페이지의 왼쪽에 있는 **새 항목**을 선택합니�
     docker push $WEB_IMAGE_NAME
     ```
 
-1. **셸 실행** 형식의 다른 **빌드 단계**를 추가하고 다음 텍스트를 사용합니다. 이 스크립트는 ACR의 새 컨테이너 이미지로 AKS의 응용 프로그램 배포를 업데이트합니다.
+1. **셸 실행** 형식의 다른 **빌드 단계**를 추가하고 다음 텍스트를 사용합니다. 이 스크립트는 ACR의 새 컨테이너 이미지로 AKS의 애플리케이션 배포를 업데이트합니다.
 
     ```bash
     # Update kubernetes deployment with new image.
@@ -272,7 +272,7 @@ GitHub 커밋을 기반으로 작업을 자동화하기 전에 먼저 수동으�
 
 첫 번째 빌드는 Docker 이미지 레이어가 Jenkins 서버로 풀다운됨에 따라 1~2분 정도 걸립니다. 후속 빌드는 캐시된 이미지 레이어를 사용하여 빌드 시간을 개선할 수 있습니다.
 
-빌드 프로세스 중에는 GitHub 리포지토리가 Jenkins 빌드 서버에 복제됩니다. 새 컨테이너 이미지가 빌드되어 ACR 레지스트리로 푸시됩니다. 마지막으로, AKS 클러스터에서 실행 중인 Azure 투표 응용 프로그램이 새 이미지를 사용하도록 업데이트됩니다. 응용 프로그램 코드에는 변경된 내용이 없으므로 웹 브라우저에서 앱 예제를 보는 경우 응용 프로그램은 변경되지 않습니다.
+빌드 프로세스 중에는 GitHub 리포지토리가 Jenkins 빌드 서버에 복제됩니다. 새 컨테이너 이미지가 빌드되어 ACR 레지스트리로 푸시됩니다. 마지막으로, AKS 클러스터에서 실행 중인 Azure 투표 애플리케이션이 새 이미지를 사용하도록 업데이트됩니다. 애플리케이션 코드에는 변경된 내용이 없으므로 웹 브라우저에서 앱 예제를 보는 경우 애플리케이션은 변경되지 않습니다.
 
 빌드 작업이 완료되면 빌드 기록에서 **빌드 #1**을 클릭합니다. **콘솔 출력**을 선택하고 빌드 프로세스의 출력을 확인합니다. 마지막 줄에 빌드가 성공했다는 내용이 표시되어야 합니다.
 
@@ -295,9 +295,9 @@ GitHub 커밋을 기반으로 작업을 자동화하기 전에 먼저 수동으�
 1. Jenkins는 빌드 작업을 시작하고 GitHub의 최신 코드 커밋을 풀합니다.
 1. Docker 빌드는 업데이트된 코드를 사용하여 시작되고 새 컨테이너 이미지에는 최신 빌드 번호가 태그로 지정됩니다.
 1. 이 새 컨테이너 이미지는 Azure Container Registry에 푸시됩니다.
-1. Azure Kubernetes Service 업데이트에 배포된 응용 프로그램이 Azure Container Registry 레지스트리의 최신 컨테이너 이미지를 사용하여 업데이트됩니다.
+1. Azure Kubernetes Service 업데이트에 배포된 애플리케이션이 Azure Container Registry 레지스트리의 최신 컨테이너 이미지를 사용하여 업데이트됩니다.
 
-개발 컴퓨터에서 코드 편집기를 사용하여 복제된 응용 프로그램을 엽니다. */azure-vote/azure-vote* 디렉터리 아래에서 **config_file.cfg** 파일을 엽니다. 다음 예제와 같이 이 파일의 투표 값을 의미 있는 값으로 업데이트합니다.
+개발 컴퓨터에서 코드 편집기를 사용하여 복제된 애플리케이션을 엽니다. */azure-vote/azure-vote* 디렉터리 아래에서 **config_file.cfg** 파일을 엽니다. 다음 예제와 같이 이 파일의 투표 값을 의미 있는 값으로 업데이트합니다.
 
 ```
 # UI Configurations
@@ -307,9 +307,9 @@ VOTE2VALUE = 'Purple'
 SHOWHOST = 'false'
 ```
 
-업데이트되면 파일을 저장하고, 변경 내용을 커밋하고, 이를 GitHub 리포지토리의 포크에 푸시합니다. GitHub 웹후크는 Jenkins에서 새 빌드 작업을 트리거합니다. Jenkins 웹 대시보드에서 빌드 프로세스를 모니터링합니다. 최신 코드를 풀하고, 업데이트된 이미지를 만들어 푸시하고, 업데이트된 응용 프로그램을 AKS에 배포하는 데 몇 초 정도 걸립니다.
+업데이트되면 파일을 저장하고, 변경 내용을 커밋하고, 이를 GitHub 리포지토리의 포크에 푸시합니다. GitHub 웹후크는 Jenkins에서 새 빌드 작업을 트리거합니다. Jenkins 웹 대시보드에서 빌드 프로세스를 모니터링합니다. 최신 코드를 풀하고, 업데이트된 이미지를 만들어 푸시하고, 업데이트된 애플리케이션을 AKS에 배포하는 데 몇 초 정도 걸립니다.
 
-빌드가 완료되면 Azure 투표 응용 프로그램 예제의 웹 브라우저를 새로 고칩니다. 변경 내용이 다음 예제와 같이 표시됩니다.
+빌드가 완료되면 Azure 투표 애플리케이션 예제의 웹 브라우저를 새로 고칩니다. 변경 내용이 다음 예제와 같이 표시됩니다.
 
 ![Jenkins 빌드 작업으로 업데이트된 샘플 AKS 투표](media/aks-jenkins/azure-vote-updated.png)
 

@@ -81,7 +81,7 @@ items:
     - name: 스크립트 작업 개발
       href: ../hdinsight-hadoop-script-actions-linux.md
       maintainContext: true
-    - name: HDInsight 응용 프로그램 빌드
+    - name: HDInsight 애플리케이션 빌드
       items:
       - name: 사용자 지정 앱 설치
         href: ../hdinsight-apps-install-custom-applications.md
@@ -91,7 +91,7 @@ items:
       - name: Azure Marketplace에 HDInsight 앱 게시
         href: ../hdinsight-apps-publish-applications.md
         maintainContext: true
-      - name: 게시된 앱 설치 - Cask 데이터 응용 프로그램 플랫폼(CDAP)
+      - name: 게시된 앱 설치 - Cask 데이터 애플리케이션 플랫폼(CDAP)
         href: ../hdinsight-apps-install-cask.md
         maintainContext: true
       - name: 게시된 앱 설치 - Dataiku

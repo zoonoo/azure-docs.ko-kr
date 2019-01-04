@@ -1,23 +1,24 @@
 ---
-title: LUIS(Language Understanding)의 반복적인 앱 디자인
-titleSuffix: Azure Cognitive Services
-description: LUIS는 모델 변경, 발화 예제, 게시 및 엔드포인트 쿼리에서 데이터 수집의 반복 주기에서 가장 좋은 사례를 학습합니다.  최고의 데이터 추출을 얻으려면 LUIS를 학습시키기 위한 디자인 반복이 LUIS 앱에 필요합니다.
+title: 반복적인 앱 디자인
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: LUIS는 모델 변경, 발화 예제, 게시 및 엔드포인트 쿼리에서 데이터 수집의 반복 주기에서 가장 좋은 사례를 학습합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 2bd30aad995e9d1f334988652477f8b017c187b9
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: c86805527d6ac79fa31496fe06695d448a8b835b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638293"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134085"
 ---
-# <a name="authoring-cycle"></a>제작 주기
+# <a name="authoring-cycle-for-your-luis-app"></a>LUIS 앱에 대한 주기 작성
 LUIS는 모델 변경, 발화 예제, 게시 및 엔드포인트 쿼리에서 데이터 수집의 반복 주기에서 가장 좋은 사례를 학습합니다. 
 
 ![제작 주기](./media/luis-concept-app-iteration/iteration.png)

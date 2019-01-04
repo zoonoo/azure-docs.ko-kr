@@ -18,7 +18,7 @@ ms.locfileid: "52499271"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark 클러스터를 사용하여 Azure SQL Database에서 데이터 읽기 및 쓰기
 
-Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 다음 SQL Database에서 데이터를 읽고 쓰고 스트리밍하는 방법을 알아봅니다. 이 문서의 지침은 [Jupyter Notebook](https://jupyter.org/)을 사용하여 Scala 코드 조각을 실행합니다. 그러나 Scala 또는 Python에 독립 실행형 응용 프로그램을 만들고 동일한 작업을 수행할 수 있습니다. 
+Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 다음 SQL Database에서 데이터를 읽고 쓰고 스트리밍하는 방법을 알아봅니다. 이 문서의 지침은 [Jupyter Notebook](https://jupyter.org/)을 사용하여 Scala 코드 조각을 실행합니다. 그러나 Scala 또는 Python에 독립 실행형 애플리케이션을 만들고 동일한 작업을 수행할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -48,7 +48,7 @@ Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 
    > 
    > 
 
-1. Jupyter 노트의 오른쪽 위 모서리에서 **새로 만들기**를 클릭하고 **Spark**를 클릭하여 Scala 노트를만 듭니다. HDInsight Spark 클러스터의 Jupyter 노트는 Python2 응용 프로그램에 대한 **PySpark** 커널과 Python3 응용 프로그램에 대한 **PySpark3** 커널도 제공합니다. 이 문서에서는 Scala 노트를 만듭니다.
+1. Jupyter 노트의 오른쪽 위 모서리에서 **새로 만들기**를 클릭하고 **Spark**를 클릭하여 Scala 노트를만 듭니다. HDInsight Spark 클러스터의 Jupyter 노트는 Python2 애플리케이션에 대한 **PySpark** 커널과 Python3 애플리케이션에 대한 **PySpark3** 커널도 제공합니다. 이 문서에서는 Scala 노트를 만듭니다.
    
     ![Spark의 Jupyter 노트북에 대한 커널](./media/apache-spark-connect-to-sql-database/kernel-jupyter-notebook-on-spark.png "Spark의 Jupyter 노트북에 대한 커널")
 
@@ -62,7 +62,7 @@ Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 
 
     ![노트북 이름 제공](./media/apache-spark-connect-to-sql-database/hdinsight-spark-jupyter-notebook-name.png "노트북 이름 제공")
 
-이제 응용 프로그램 만들기를 시작할 수 있습니다.
+이제 애플리케이션 만들기를 시작할 수 있습니다.
     
 ## <a name="read-data-from-azure-sql-database"></a>Azure SQL Database에서 데이터 읽기
 

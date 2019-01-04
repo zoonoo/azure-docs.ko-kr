@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 11/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 4c35820daa9cc25f40dfa0034d9ce632ece235a7
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 6ca39d13fa54d772de17d519be5977e1a437c033
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633408"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337566"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Linux용 Log Analytics 가상 머신 확장
 
@@ -39,13 +39,13 @@ Log Analytics 에이전트 확장은 다음 Linux 배포판에 대해 실행할 
 
 | 배포 | 버전 |
 |---|---|
-| CentOS Linux | 6 및 7(x86/x64) |
-| Amazon Linux | 2017.09 | 
+| CentOS Linux | 6(x86/x64) 및 7(x64) |
+| Amazon Linux | 2017.09(x64) | 
 | Oracle Linux | 6 및 7(x86/x64) |
-| Red Hat Enterprise Linux Server | 6 및 7(x86/x64) |
+| Red Hat Enterprise Linux Server | 6(x86/x64) 및 7(x64) |
 | Debian GNU/Linux | 8 및 9(x86/x64) |
-| Ubuntu | 14.04 LTS, 16.04 LTS 및 18.04 LTS(x86/x64) |
-| SUSE Linux Enterprise Server | 12(x86/x64) |
+| Ubuntu | 14.04 LTS(x86/x64), 16.04 LTS(x86/x64) 및 18.04 LTS(x64) |
+| SUSE Linux Enterprise Server | 12(x64) |
 
 >[!NOTE]
 >버전 1.x보다 낮은 OpenSSL은 어떤 플랫폼에서도 지원되지 않으며 버전 1.10은 x86_64 플랫폼(64비트)에서만 지원됩니다.  
@@ -56,6 +56,8 @@ Log Analytics 에이전트 확장은 다음 Linux 배포판에 대해 실행할 
 
 | Log Analytics Linux VM 확장 버전 | Log Analytics 에이전트 번들 버전 | 
 |--------------------------------|--------------------------|
+| 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
+| 1.8.0 | [1.8.0-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/1.8.0-256)| 
 | 1.7.9 | [1.6.1-3](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.1.3)| 
 | 1.6.42.0 | [1.6.0-42](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
 | 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
@@ -79,7 +81,7 @@ Linux용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터넷�
 
 ## <a name="extension-schema"></a>확장 스키마
 
-다음 JSON은 Log Analytics 에이전트 확장에 대한 스키마를 보여줍니다. 이 확장은 대상 Log Analytics 작업 영역에서 작업 영역 ID와 작업 영역 키가 필요하며, 이러한 값은 Azure Portal의 [Log Analytics 작업 영역에서 확인할 수 있습니다.](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) 작업 영역 키는 중요한 데이터로 처리되므로 보호되는 설정에 저장됩니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다. **workspaceId** 및 **workspaceKey**는 대/소문자를 구분합니다.
+다음 JSON은 Log Analytics 에이전트 확장에 대한 스키마를 보여줍니다. 이 확장은 대상 Log Analytics 작업 영역에서 작업 영역 ID와 작업 영역 키가 필요하며, 이러한 값은 Azure Portal의 [Log Analytics 작업 영역에서 확인할 수 있습니다.](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key) 작업 영역 키는 중요한 데이터로 처리되므로 보호되는 설정에 저장됩니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다. **workspaceId** 및 **workspaceKey**는 대/소문자를 구분합니다.
 
 ```json
 {
@@ -94,6 +96,7 @@ Linux용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터넷�
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
     "typeHandlerVersion": "1.7",
+    "autoUpgradeMinorVersion": true,
     "settings": {
       "workspaceId": "myWorkspaceId"
     },

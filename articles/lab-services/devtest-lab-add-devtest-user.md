@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 558df3fa70989aaf9ba182df3a918994c7dc9db6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1f1797cf3022285f81991eb15818b68df195de4b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243712"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834131"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Azure DevTest Labs에 소유자 및 사용자 추가
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -69,15 +69,11 @@ Azure Portal을 통해 랩 수준에서 소유자 및 사용자를 추가할 수
 3. 랩 목록에서 원하는 랩을 탭합니다.
 4. 랩의 블레이드에서 **구성 및 정책**을 선택합니다. 
 5. **구성 및 정책** 페이지의 왼쪽 메뉴에서 **액세스 제어(IAM)** 를 선택합니다. 
-6. 도구 모음의 **추가**를 선택하여 역할에 사용자를 추가합니다.
-
-    ![사용자 추가](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
+6. 도구 모음의 **역할 할당 추가**를 선택하여 역할에 사용자를 추가합니다.
 1. **권한 추가** 창에서 다음 작업을 수행합니다. 
-    1. 역할을 선택합니다(예: DevTest Labs 사용자). [각 역할에서 수행할 수 있는 작업](#actions-that-can-be-performed-in-each-role) 섹션에서 소유자, DevTest 사용자 및 참여자 역할의 사용자가 수행할 수 있는 다양한 작업을 나열합니다.
+    1. 역할을 선택합니다(예: DevTest Lab 사용자). [각 역할에서 수행할 수 있는 작업](#actions-that-can-be-performed-in-each-role) 섹션에서 소유자, DevTest 사용자 및 참여자 역할의 사용자가 수행할 수 있는 다양한 작업을 나열합니다.
     2. 역할에 추가할 사용자를 선택합니다. 
     3. **저장**을 선택합니다. 
-
-        ![역할에 사용자 추가](./media/devtest-lab-add-devtest-user/add-user.png) 
 11. **사용자** 블레이드로 돌아가면 사용자가 추가되어 있습니다.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>PowerShell을 사용하여 랩에 외부 사용자 추가

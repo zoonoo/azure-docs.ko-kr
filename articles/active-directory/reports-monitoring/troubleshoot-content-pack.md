@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a76486eaf2f9df8eb47b8bb73f1577324152a80f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 65747da92a3cad770cd9d474d27645782f7306b9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623301"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998723"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Azure Active Directory 활동 로그 콘텐츠 팩 오류 문제 해결 
 
@@ -34,12 +34,13 @@ Azure Active Directory(Azure AD)용 Power BI 콘텐츠 팩으로 작업할 때 �
 
 - [새로 고침 실패](troubleshoot-content-pack.md#refresh-failed) 
 - [데이터 원본 자격 증명을 업데이트하지 못했습니다.](troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
-- [데이터 가져오기가 너무 느립니다](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long)  
+- [데이터를 가져오는 데 너무 오래 걸립니다.](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long) 
+
 이 문서에서는 가능한 원인 및 이러한 오류를 해결하는 방법에 대한 정보를 제공합니다.
  
 ## <a name="refresh-failed"></a>새로 고침 실패 
  
-**이 오류가 표시되는 방법**: Power BI 또는 새로 고침 기록 실패 상태로 인해 전자 메일을 받습니다. 
+**이 오류가 표시되는 방법**: Power BI 또는 새로 고침 기록 실패 상태로 인해 이메일을 받습니다. 
 
 
 | 원인 | 해결 방법 |
@@ -61,7 +62,7 @@ Azure Active Directory(Azure AD)용 Power BI 콘텐츠 팩으로 작업할 때 �
 
 ## <a name="data-import-is-too-slow"></a>데이터 가져오기가 너무 느립니다. 
  
-**이 오류가 표시되는 방법**: Power BI에서 콘텐츠 팩을 연결하면 데이터 가져오기 프로세스가 Azure AD 활동 로그를 위해 대시보드를 준비하기 시작합니다. 더 이상 진행되지 않고 **데이터를 가져오는 중...** 이라는 메시지가 표시됩니다.  
+**이 오류가 표시되는 방법**: Power BI에서 콘텐츠 팩을 연결하면 데이터 가져오기 프로세스가 Azure AD 활동 로그를 위해 대시보드를 준비하기 시작합니다. 메시지가 표시됩니다. 더 이상 진행되지 않고 **데이터를 가져오는 중...** 이라는 메시지가 표시됩니다.  
 
 | 원인 | 해결 방법 |
 | ---   | ---        |

@@ -28,7 +28,7 @@ ms.locfileid: "51711485"
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 ## <a name="setting-up-storage-account-cors-rules"></a>저장소 계정 CORS 규칙 설정 
-웹 응용 프로그램이 클라이언트에서 Blob 저장소에 액세스하려면 [원본 간 리소스 공유](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) 또는 CORS를 사용하도록 계정을 구성해야 합니다. 
+웹 애플리케이션이 클라이언트에서 BLOB 스토리지에 액세스하려면 [원본 간 리소스 공유](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) 또는 CORS를 사용하도록 계정을 구성해야 합니다. 
 
 Azure Portal로 돌아가서 저장소 계정을 선택합니다. 새 CORS 규칙을 정의하려면 **설정** 섹션으로 돌아가서 **CORS** 링크를 클릭합니다. 그런 다음, **추가** 단추를 클릭하여 **CORS 규칙 추가** 창을 엽니다. 이 빠른 시작의 경우 공개 CORS 규칙을 만듭니다.
 
@@ -91,13 +91,13 @@ SAS가 생성되었으니 콘솔에 반환된 값을 텍스트 편집기에 복�
 
 ## <a name="implement-the-html-page"></a>HTML 페이지 구현
 
-### <a name="set-up-the-web-application"></a>웹 응용 프로그램 설정
+### <a name="set-up-the-web-application"></a>웹 애플리케이션 설정
 Azure Storage JavaScript 클라이언트 라이브러리는 파일 시스템에서 직접 작동하지 않으므로 웹 서버에서 제공해야 합니다. 따라서 다음 단계에서는 Node.js로 간단한 로컬 웹 서버를 사용하는 방법에 대해 자세히 설명합니다.
 
 > [!NOTE]
 > 이 섹션에서는 Node.js가 컴퓨터에 설치되어 있어야 하는 로컬 웹 서버를 만드는 방법을 보여줍니다. Node.js를 설치하지 않으려면 로컬 웹 서버를 실행하는 다른 방법을 사용할 수 있습니다.
 
-먼저 프로젝트에 사용할 새 폴더를 만들고 이름을 *azure-blobs-javascript*라고 지정합니다. 그런 다음, *azure-blobs-javascript* 폴더에서 명령 프롬프트를 열고 다음 명령을 입력하여 응용 프로그램이 웹 서버 모듈을 설치하도록 준비합니다.
+먼저 프로젝트에 사용할 새 폴더를 만들고 이름을 *azure-blobs-javascript*라고 지정합니다. 그런 다음, *azure-blobs-javascript* 폴더에서 명령 프롬프트를 열고 다음 명령을 입력하여 애플리케이션이 웹 서버 모듈을 설치하도록 준비합니다.
 
 ```bash
 npm init -y

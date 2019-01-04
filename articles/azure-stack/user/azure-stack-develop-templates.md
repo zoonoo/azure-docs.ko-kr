@@ -26,7 +26,7 @@ ms.locfileid: "51244052"
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-응용 프로그램을 개발할 때 Azure 및 Azure Stack 간에 템플릿 이식성을 보장하는 것이 중요합니다. 이 문서에서는 Azure Resource Manager를 개발 하기 위한 고려 사항 [템플릿](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)이므로 Azure Stack 환경에 액세스 하지 않고도 Azure에서 응용 프로그램 및 테스트 배포 프로토타입 수 있습니다.
+애플리케이션을 개발할 때 Azure 및 Azure Stack 간에 템플릿 이식성을 보장하는 것이 중요합니다. 이 문서에서는 Azure Resource Manager를 개발 하기 위한 고려 사항 [템플릿](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)이므로 Azure Stack 환경에 액세스 하지 않고도 Azure에서 응용 프로그램 및 테스트 배포 프로토타입 수 있습니다.
 
 ## <a name="resource-provider-availability"></a>리소스 공급자 가용성
 

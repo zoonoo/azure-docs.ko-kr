@@ -1,28 +1,21 @@
 ---
-title: 'Azure ExpressRoute Microsoft 피어링에 대한 경로 필터 구성: Portal | Microsoft Docs'
+title: 'Microsoft 피어링에 대한 경로 필터 구성: Azure ExpressRoute - 포털 | Microsoft Docs'
 description: 이 문서에서는 Azure Portal을 사용하여 Microsoft 피어링에 대한 경로 필터를 구성하는 방법을 설명합니다.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 09/26/2018
 ms.author: ganesr
-ms.openlocfilehash: ab0cd45334581f6f5c6dd6e86939e018df5de074
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: seodec18
+ms.openlocfilehash: 0515b5e85c3bcf56f1f238620d6036d1be0bec7e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29387730"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104208"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Microsoft 피어링에 대한 경로 필터 구성: Azure Portal
+# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Microsoft 피어링에 대한 경로 필터 구성: Azure portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
@@ -95,33 +88,33 @@ Microsoft 피어링을 통해 액세스할 수 있는 서비스와 관련된 BGP
 ### <a name="1-create-a-route-filter"></a>1. 경로 필터 만들기
 새 리소스를 만드는 옵션을 선택하여 경로 필터를 만들 수 있습니다. 아래 이미지에 표시된 대로, **리소스 만들기** > **네트워킹** > **RouteFilter**를 클릭합니다.
 
-![경로 필터 만들기](.\media\how-to-routefilter-portal\CreateRouteFilter1.png)
+![경로 필터 만들기](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
 
 경로 필터를 리소스 그룹에 배치해야 합니다. 
 
-![경로 필터 만들기](.\media\how-to-routefilter-portal\CreateRouteFilter.png)
+![경로 필터 만들기](./media/how-to-routefilter-portal/CreateRouteFilter.png)
 
 ### <a name="2-create-a-filter-rule"></a>2. 필터 규칙 만들기
 
 경로 필터에 대한 관리 규칙 탭을 선택하여 규칙을 추가하고 업데이트할 수 있습니다.
 
-![경로 필터 만들기](.\media\how-to-routefilter-portal\ManageRouteFilter.png)
+![경로 필터 만들기](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
 
 드롭다운 목록에서 연결할 서비스를 선택하고 완료한 후에 규칙을 저장합니다.
 
-![경로 필터 만들기](.\media\how-to-routefilter-portal\AddRouteFilterRule.png)
+![경로 필터 만들기](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
 
 
-## <a name="attach"></a>3단계: 경로 필터를 ExpressRoute 회로에 연결
+## <a name="attach"></a>3단계: 경로 필터를 ExpressRoute 회로에 연결합니다.
 
 “회로 추가” 단추를 선택하고 드롭다운 목록에서 ExpressRoute 회로를 선택하여 경로 필터를 회로에 연결할 수 있습니다.
 
-![경로 필터 만들기](.\media\how-to-routefilter-portal\AddCktToRouteFilter.png)
+![경로 필터 만들기](./media/how-to-routefilter-portal/AddCktToRouteFilter.png)
 
 연결 공급자가 ExpressRoute 회로에 대해 피어링을 구성하는 경우 "회로 추가" 단추를 선택하기 전에 ExpressRoute 회로 블레이드에서 회로를 새로 고칩니다.
 
-![경로 필터 만들기](.\media\how-to-routefilter-portal\RefreshExpressRouteCircuit.png)
+![경로 필터 만들기](./media/how-to-routefilter-portal/RefreshExpressRouteCircuit.png)
 
 ## <a name="tasks"></a>일반 작업
 
@@ -129,7 +122,7 @@ Microsoft 피어링을 통해 액세스할 수 있는 서비스와 관련된 BGP
 
 포털에서 리소스를 열 때 경로 필터의 속성을 볼 수 있습니다.
 
-![경로 필터 만들기](.\media\how-to-routefilter-portal\ViewRouteFilter.png)
+![경로 필터 만들기](./media/how-to-routefilter-portal/ViewRouteFilter.png)
 
 
 ### <a name="updateproperties"></a>경로 필터의 속성을 업데이트하려면
@@ -137,23 +130,23 @@ Microsoft 피어링을 통해 액세스할 수 있는 서비스와 관련된 BGP
 “관리 규칙” 단추를 선택하여 회로에 연결된 BGP 커뮤니티 값 목록을 업데이트할 수 있습니다.
 
 
-![경로 필터 만들기](.\media\how-to-routefilter-portal\ManageRouteFilter.png)
+![경로 필터 만들기](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
-![경로 필터 만들기](.\media\how-to-routefilter-portal\AddRouteFilterRule.png) 
+![경로 필터 만들기](./media/how-to-routefilter-portal/AddRouteFilterRule.png) 
 
 
 ### <a name="detach"></a>ExpressRoute 회로에서 경로 필터를 분리하려면
 
 경로 필터에서 회로를 분리하려면 회로를 마우스 오른쪽 단추로 클릭하고 "연결 해제"를 클릭합니다.
 
-![경로 필터 만들기](.\media\how-to-routefilter-portal\DetachRouteFilter.png) 
+![경로 필터 만들기](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
 
 
 ### <a name="delete"></a>경로 필터를 삭제하려면
 
 삭제 단추를 선택하여 경로 필터를 삭제할 수 있습니다. 
 
-![경로 필터 만들기](.\media\how-to-routefilter-portal\DeleteRouteFilter.png) 
+![경로 필터 만들기](./media/how-to-routefilter-portal/DeleteRouteFilter.png) 
 
 ## <a name="next-steps"></a>다음 단계
 

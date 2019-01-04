@@ -10,25 +10,23 @@ ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: bbf38d17f2f411fde240a67f6666953b275fb788
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ec56e21a989fb0e8db7b8bafb1357c6ed64eae75
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637248"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192262"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Log Analytics에서 뷰 디자이너를 사용하여 사용자 지정 보기 만들기
-[Azure Log Analytics](../../log-analytics/log-analytics-queries.md)에서 뷰 디자이너를 사용하면 Azure Portal에서 Log Analytics 작업 영역의 데이터를 시각화하는 데 도움이 되는 다양한 사용자 지정 보기를 만들 수 있습니다. 이 문서에는 뷰 디자이너 개요 및 사용자 지정 보기를 만들고 편집하는 절차가 제공됩니다.
+[Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md)에서 뷰 디자이너를 사용하면 Azure Portal에서 Log Analytics 작업 영역의 데이터를 시각화하는 데 도움이 되는 다양한 사용자 지정 보기를 만들 수 있습니다. 이 문서에는 뷰 디자이너 개요 및 사용자 지정 보기를 만들고 편집하는 절차가 제공됩니다.
 
 뷰 디자이너에 대한 자세한 내용은 다음을 참조하세요.
 
 * [타일 참조](view-designer-tiles.md): 사용자 지정 보기에서 사용 가능한 각 타일의 설정에 대한 참조 가이드를 제공합니다.
-* [시각화 요소 참조](view-designer-parts.md): 사용자 지정 보기에서 사용 가능한 시각화 요소의 설정에 대한 참조 가이드를 제공합니다.
+* [시각화 요소 참조](view-designer-parts.md): 이 문서에서는 사용자 지정 보기에서 제공하는 시각화 요소의 설정에 대한 참조 가이드를 제공합니다.
 
 
 ## <a name="concepts"></a>개념
@@ -42,7 +40,7 @@ ms.locfileid: "52637248"
 |:--- |:--- |
 | 타일 | Log Analytics 작업 영역 **개요** 페이지에 표시됩니다. 각 타일에는 해당 타일이 나타내는 사용자 지정 보기의 시각적 요약이 표시됩니다. 각 타일 유형은 레코드의 다른 시각화를 제공합니다. 사용자 지정 보기를 표시하려면 타일을 선택합니다. |
 | 사용자 지정 보기 | 타일을 선택하면 표시됩니다. 각 보기는 시각화 요소를 하나 이상 포함합니다. |
-| 시각화 요소 | 하나 이상의 [로그 검색](../../log-analytics/log-analytics-queries.md)을 기반으로 Log Analytics 작업 영역에 데이터의 시각화를 나타냅니다. 대부분의 요소는 대략적인 시각화를 제공하는 헤더와 상위 결과를 표시하는 목록을 포함합니다. 각 요소 유형은 Log Analytics 작업 영역에 레코드의 다른 시각화를 제공합니다. 요소의 항목을 선택하면 자세한 레코드를 제공하는 로그 검색이 수행됩니다. |
+| 시각화 요소 | 하나 이상의 [로그 검색](../../azure-monitor/log-query/log-query-overview.md)을 기반으로 Log Analytics 작업 영역에 데이터의 시각화를 나타냅니다. 대부분의 요소는 대략적인 시각화를 제공하는 헤더와 상위 결과를 표시하는 목록을 포함합니다. 각 요소 유형은 Log Analytics 작업 영역에 레코드의 다른 시각화를 제공합니다. 요소의 항목을 선택하면 자세한 레코드를 제공하는 로그 검색이 수행됩니다. |
 
 
 ## <a name="work-with-an-existing-view"></a>기존 보기로 작업
@@ -55,7 +53,7 @@ ms.locfileid: "52637248"
 | 옵션 | 설명 |
 |:--|:--|
 | 새로 고침   | 최신 데이터로 보기를 새로 고칩니다. | 
-| 분석 | [Advanced Analytics 포털](../../log-analytics/log-analytics-log-search-portals.md)을 열어서 로그 쿼리를 통해 데이터를 분석합니다. |
+| 분석 | [Advanced Analytics 포털](../../azure-monitor/log-query/portals.md)을 열어서 로그 쿼리를 통해 데이터를 분석합니다. |
 | 편집       | 뷰 디자이너에서 보기를 열어서 내용과 구성을 편집합니다.  |
 | 복제      | 새 보기를 만든 후 뷰 디자이너에서 엽니다. 새 보기의 이름은 원래 이름과 동일하지만 복사본이 추가됩니다. |
 | 날짜 범위 | 보기에 포함된 데이터의 날짜와 시간 범위 필터를 설정합니다. 이 날짜 범위는 보기의 쿼리에서 데이터 범위가 설정되기 전에 적용됩니다.  |

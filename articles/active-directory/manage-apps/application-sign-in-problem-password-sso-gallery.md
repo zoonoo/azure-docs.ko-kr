@@ -1,6 +1,6 @@
 ---
-title: 암호 Single Sign-On에 대해 구성된 Azure AD 갤러리 응용 프로그램에 로그인하는 문제 | Microsoft Docs
-description: 암호 Single Sign-On에 대해 구성된 Azure AD 갤러리 응용 프로그램 문제를 해결하는 방법
+title: 암호 Single Sign-On에 대해 구성된 Azure AD 갤러리 애플리케이션에 로그인하는 문제 | Microsoft Docs
+description: 암호 Single Sign-On에 대해 구성된 Azure AD 갤러리 애플리케이션 문제를 해결하는 방법
 documentationcenter: ''
 author: barbkess
 manager: mtillman
@@ -21,15 +21,15 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/11/2018
 ms.locfileid: "44356026"
 ---
-# <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>암호 Single Sign-On에 대해 구성된 Azure AD 갤러리 응용 프로그램에 로그인하는 문제
+# <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>암호 Single Sign-On에 대해 구성된 Azure AD 갤러리 애플리케이션에 로그인하는 문제
 
-액세스 패널은 웹 기반 포털로 Azure AD(Azure Active Directory)에 회사 또는 학교 계정이 있는 사용자가 Azure AD 관리자를 통해 액세스 권한을 부여받은 클라우드 기반 응용 프로그램을 보고 시작할 수 있도록 합니다. 또한 Azure AD 버전의 사용자는 액세스 패널을 통해 셀프 서비스 그룹 및 앱 관리 기능을 사용할 수도 있습니다. 액세스 패널은 Azure Portal과 별개이며, 사용자에게 Azure 구독을 요구하지 않습니다.
+액세스 패널은 웹 기반 포털로 Azure AD(Azure Active Directory)에 회사 또는 학교 계정이 있는 사용자가 Azure AD 관리자를 통해 액세스 권한을 부여받은 클라우드 기반 애플리케이션을 보고 시작할 수 있도록 합니다. 또한 Azure AD 버전의 사용자는 액세스 패널을 통해 셀프 서비스 그룹 및 앱 관리 기능을 사용할 수도 있습니다. 액세스 패널은 Azure Portal과 별개이며, 사용자에게 Azure 구독을 요구하지 않습니다.
 
-액세스 패널에서 암호 기반 SSO(Single Sign-On)를 사용하려면 사용자의 브라우저에 액세스 패널 확장이 설치되어 있어야 합니다. 사용자가 암호 기반 SSO에 구성된 응용 프로그램을 선택할 때 이 확장이 자동으로 다운로드됩니다.
+액세스 패널에서 암호 기반 SSO(Single Sign-On)를 사용하려면 사용자의 브라우저에 액세스 패널 확장이 설치되어 있어야 합니다. 사용자가 암호 기반 SSO에 구성된 애플리케이션을 선택할 때 이 확장이 자동으로 다운로드됩니다.
 
 ## <a name="meeting-browser-requirements-for-the-access-panel"></a>액세스 패널에 대한 브라우저 요구 사항 충족
 
-액세스 패널에는 JavaScript를 지원하고 CSS를 사용하도록 설정한 브라우저가 필요합니다. 액세스 패널에서 암호 기반 SSO(Single Sign-On)를 사용하려면 사용자의 브라우저에 액세스 패널 확장이 설치되어 있어야 합니다. 사용자가 암호 기반 SSO에 구성된 응용 프로그램을 선택할 때 이 확장이 자동으로 다운로드됩니다.
+액세스 패널에는 JavaScript를 지원하고 CSS를 사용하도록 설정한 브라우저가 필요합니다. 액세스 패널에서 암호 기반 SSO(Single Sign-On)를 사용하려면 사용자의 브라우저에 액세스 패널 확장이 설치되어 있어야 합니다. 사용자가 암호 기반 SSO에 구성된 애플리케이션을 선택할 때 이 확장이 자동으로 다운로드됩니다.
 
 암호 기반 SSO의 경우 최종 사용자 브라우저는 다음 중 하나일 수 있습니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "44356026"
 
 1.  지원되는 브라우저 중 하나에서 [액세스 패널](https://myapps.microsoft.com)을 열고 Azure AD에서 **사용자**로 로그인합니다.
 
-2.  액세스 패널에서 **암호-SSO 응용 프로그램**을 클릭합니다.
+2.  액세스 패널에서 **암호-SSO 애플리케이션**을 클릭합니다.
 
 3.  소프트웨어를 설치하라는 프롬프트에서 **지금 설치**를 선택합니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "44356026"
 
 6.  설치되면 브라우저 세션을 **다시 시작**합니다.
 
-7.  액세스 패널에 로그인하고 암호 SSO 응용 프로그램을 **시작**할 수 있는지 확인합니다.
+7.  액세스 패널에 로그인하고 암호 SSO 애플리케이션을 **시작**할 수 있는지 확인합니다.
 
 아래와 같은 직접 링크에서 Chrome 및 Firefox에 대한 확장을 다운로드할 수 있습니다.
 
@@ -84,7 +84,7 @@ ms.locfileid: "44356026"
 
 진단 도구 및 IE용 확장을 구성하는 방법에 대한 단계별 지침에 액세스하려면 [Internet Explorer의 액세스 패널 확장 문제 해결](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) 가이드를 따릅니다.
 
-## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 응용 프로그램에 대해 암호 Single Sign-On을 구성하는 방법
+## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성하는 방법
 
 Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행해야 합니다.
 
@@ -94,9 +94,9 @@ Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행�
 
 -   [응용 프로그램에 사용자 할당](#assign-users-to-the-application)
 
-### <a name="add-an-application-from-the-azure-ad-gallery"></a>Azure AD 갤러리에서 응용 프로그램 추가
+### <a name="add-an-application-from-the-azure-ad-gallery"></a>Azure AD 갤러리에서 애플리케이션 추가
 
-Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를 수행합니다.
+Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 수행합니다.
 
 1.  [Azure Portal](https://portal.azure.com)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
@@ -104,23 +104,23 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
+4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
 5.  **엔터프라이즈 응용 프로그램** 창의 오른쪽 위 모서리에서 **추가** 단추를 클릭합니다.
 
 6.  **갤러리에서 추가** 섹션의 **이름 입력** 텍스트 상자에 응용 프로그램 이름을 입력합니다.
 
-7.  Single Sign-On을 구성하려는 응용 프로그램을 선택합니다.
+7.  Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
 
-8.  응용 프로그램을 추가하기 전에 **이름** 텍스트 상자에서 이름을 변경할 수 있습니다.
+8.  애플리케이션을 추가하기 전에 **이름** 텍스트 상자에서 이름을 변경할 수 있습니다.
 
 9.  **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
-짧은 시간 후에 응용 프로그램의 구성 창을 볼 수 있습니다.
+짧은 시간 후에 애플리케이션의 구성 창을 볼 수 있습니다.
 
-### <a name="configure-the-application-for-password-single-sign-on"></a>암호 Single Sign-On에 대한 응용 프로그램 구성
+### <a name="configure-the-application-for-password-single-sign-on"></a>암호 Single Sign-On에 대한 애플리케이션 구성
 
-응용 프로그램에 Single Sign-On을 구성하려면 아래 단계를 수행합니다.
+애플리케이션에 Single Sign-On을 구성하려면 아래 단계를 수행합니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
@@ -128,15 +128,15 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
+4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
 5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
 
-   * 여기에 표시하려는 응용 프로그램이 표시되지 않으면 **모든 응용 프로그램 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 응용 프로그램**으로 설정합니다.
+   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
-6.  Single Sign-On을 구성하려는 응용 프로그램을 선택합니다.
+6.  Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
 
-7.  응용 프로그램이 로드되면 응용 프로그램의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
+7.  애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 
 8.  **암호 기반 로그온** 모드를 선택합니다.
 
@@ -144,9 +144,9 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 10. 또한 사용자의 행을 선택하고 **자격 증명 업데이트**를 클릭하고 사용자를 대신하여 사용자 이름 및 암호를 입력하여 사용자를 대신하여 자격 증명을 제공할 수도 있습니다. 그렇지 않으면 사용자는 시작할 때 자격 증명을 입력하라는 메시지를 받게 됩니다.
 
-### <a name="assign-users-to-the-application"></a>응용 프로그램에 사용자 할당
+### <a name="assign-users-to-the-application"></a>애플리케이션에 사용자 할당
 
-응용 프로그램에 하나 이상의 사용자를 직접 할당하려면 다음 단계를 수행합니다.
+애플리케이션에 하나 이상의 사용자를 직접 할당하려면 다음 단계를 수행합니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
@@ -154,15 +154,15 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
+4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
 5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
 
-   * 여기에 표시하려는 응용 프로그램이 표시되지 않으면 **모든 응용 프로그램 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 응용 프로그램**으로 설정합니다.
+   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
-6.  목록에서 사용자를 할당하려는 응용 프로그램을 선택합니다.
+6.  목록에서 사용자를 할당하려는 애플리케이션을 선택합니다.
 
-7.  응용 프로그램이 로드되면 응용 프로그램의 왼쪽 탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+7.  애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
 8.  **사용자 및 그룹** 목록의 맨 위에서 **추가** 단추를 클릭하여 **할당 추가** 창을 엽니다.
 
@@ -174,13 +174,13 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 12. **선택 사항:** **둘 이상의 사용자를 추가**하려는 경우 **이름 또는 전자 메일 주소로 검색** 검색 상자에 다른 **전체 이름** 또는 **전자 메일 주소**를 입력하고 확인란을 클릭하여 이 사용자를 **선택됨** 목록에 추가합니다.
 
-13. 사용자 선택이 완료되면 **선택** 단추를 클릭하여 응용 프로그램에 할당되도록 사용자 및 그룹의 목록에 추가합니다.
+13. 사용자 선택이 완료되면 **선택** 단추를 클릭하여 애플리케이션에 할당되도록 사용자 및 그룹의 목록에 추가합니다.
 
 14. **선택 사항:** **할당 추가** 창에서 **역할 선택** 선택기를 클릭하여 선택한 사용자에게 할당할 역할을 선택합니다.
 
 15. **할당** 단추를 클릭하여 선택한 사용자에게 응용 프로그램을 할당합니다.
 
-짧은 시간 후에 선택한 사용자는 액세스 패널에서 이러한 응용 프로그램을 시작할 수 있습니다.
+짧은 시간 후에 선택한 사용자는 액세스 패널에서 이러한 애플리케이션을 시작할 수 있습니다.
 
 ## <a name="if-these-troubleshoot-steps-dont-resolve-the-issue"></a>이러한 문제 해결 단계로 문제가 해결되지 않는 경우 
 사용할 수 있는 경우 다음 정보로 지원 티켓을 엽니다.

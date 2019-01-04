@@ -1,7 +1,7 @@
 ---
 title: '자습서: 단일 페이지 Bing Video Search 앱 빌드'
 titlesuffix: Azure Cognitive Services
-description: 단일 페이지 웹 응용 프로그램에서 Bing Video Search API를 사용하는 방법을 설명합니다.
+description: 단일 페이지 웹 애플리케이션에서 Bing Video Search API를 사용하는 방법을 설명합니다.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -18,7 +18,7 @@ ms.lasthandoff: 09/26/2018
 ms.locfileid: "47226605"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>자습서: 단일 페이지 Video Search 앱
-Bing Video Search API를 사용하여 웹을 검색하고 검색 쿼리와 관련된 비디오 결과를 가져올 수 있습니다. 이 자습서에서는 Bing Search API를 사용하여 페이지에 검색 결과를 표시하는 단일 페이지 웹 응용 프로그램을 빌드합니다. 응용 프로그램에는 HTML, CSS 및 JavaScript 구성 요소가 포함됩니다.
+Bing Video Search API를 사용하여 웹을 검색하고 검색 쿼리와 관련된 비디오 결과를 가져올 수 있습니다. 이 자습서에서는 Bing Search API를 사용하여 페이지에 검색 결과를 표시하는 단일 페이지 웹 애플리케이션을 빌드합니다. 애플리케이션에는 HTML, CSS 및 JavaScript 구성 요소가 포함됩니다.
 
 <!-- Remove until it can be replaced with a sanitized version.
 ![Single-page Bing Video Search app](./media/video-search-singlepage.png)
@@ -44,7 +44,7 @@ Bing Video Search API를 사용하여 웹을 검색하고 검색 쿼리와 관�
 이 자습서에서는 소스 코드의 선택된 부분에 대해 설명합니다. 전체 [소스 코드](tutorial-bing-video-search-single-page-app-source.md)를 확인할 수 있습니다. 예제를 실행하려면 소스 코드를 복사한 후 텍스트 편집기에 붙여넣고 `bing.html`로 저장합니다.
 
 ## <a name="app-components"></a>앱 구성 요소
-단일 페이지 웹앱과 마찬가지로, 이 자습서 응용 프로그램은 다음 세 부분으로 구성되어 있습니다.
+단일 페이지 웹앱과 마찬가지로, 이 자습서 애플리케이션은 다음 세 부분으로 구성되어 있습니다.
 
 > [!div class="checklist"]
 > * HTML - 페이지의 구조와 콘텐츠를 정의합니다.
@@ -87,7 +87,7 @@ function getSubscriptionKey() {
     return key;
 }
 ```
-HTML `<form>` 태그 `onsubmit`는 `bingWebSearch` 함수를 호출하여 검색 결과를 반환합니다. `bingWebSearch`는 `getSubscriptionKey()`를 사용하여 각 쿼리를 인증합니다. 이전 정의에 표시된 것처럼 키를 입력하지 않은 경우 `getSubscriptionKey`는 사용자에게 키를 확인하는 메시지를 표시합니다. 그런 다음, 응용 프로그램에서 계속 사용할 수 있도록 키가 저장됩니다.
+HTML `<form>` 태그 `onsubmit`는 `bingWebSearch` 함수를 호출하여 검색 결과를 반환합니다. `bingWebSearch`는 `getSubscriptionKey()`를 사용하여 각 쿼리를 인증합니다. 이전 정의에 표시된 것처럼 키를 입력하지 않은 경우 `getSubscriptionKey`는 사용자에게 키를 확인하는 메시지를 표시합니다. 그런 다음, 애플리케이션에서 계속 사용할 수 있도록 키가 저장됩니다.
 
 ```html
 <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
@@ -387,7 +387,7 @@ Bing Search API의 응답에는 후속 요청과 함께 API로 다시 전송되�
 브라우저 보안 정책(CORS) 때문에 JavaScript에서 `X-MSEdge-ClientID` 헤더를 사용하지 못할 수 있습니다. 이러한 제한은 검색 응답의 원본이 해당 응답을 요청한 페이지와 다른 경우에 발생합니다. 프로덕션 환경에서는 웹 페이지와 동일한 도메인에 대해 API 호출을 수행하는 서버 쪽 스크립트를 호스트하여 이 정책 문제를 해결해야 합니다. 스크립트의 원본은 웹 페이지와 동일하므로 JavaScript에서 `X-MSEdge-ClientID` 헤더를 사용할 수 있습니다.
 
 > [!NOTE]
-> 프로덕션 웹 응용 프로그램의 경우 서버 쪽에서 요청을 수행해야 합니다. 그렇지 않은 경우 Bing Search API 키를 웹 페이지에 포함해야만 원본을 보는 누구나 사용할 수 있게 됩니다. 권한 없는 사람이 수행한 요청을 포함하여 API 구독 키를 통한 모든 사용량에 요금이 청구되므로, 키를 노출하지 않는 것이 중요합니다.
+> 프로덕션 웹 애플리케이션의 경우 서버 쪽에서 요청을 수행해야 합니다. 그렇지 않은 경우 Bing Search API 키를 웹 페이지에 포함해야만 원본을 보는 누구나 사용할 수 있게 됩니다. 권한 없는 사람이 수행한 요청을 포함하여 API 구독 키를 통한 모든 사용량에 요금이 청구되므로, 키를 노출하지 않는 것이 중요합니다.
 
 개발 목적으로 CORS 프록시를 통해 Bing Web Search API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 허용 목록에 추가하고 JavaScript에서 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
 

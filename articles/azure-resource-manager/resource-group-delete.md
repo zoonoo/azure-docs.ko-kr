@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager 리소스 그룹 삭제
-description: 리소스 그룹을 삭제할 때 Azure Resource Manager가 리소스 삭제를 명령하는 방법을 설명합니다.
+title: 리소스 그룹 및 리소스 삭제 - Azure Resource Manager
+description: 리소스 그룹을 삭제할 때 Azure Resource Manager가 리소스 삭제를 명령하는 방법을 설명합니다. 응답 코드 및 Resource Manager가 응답 코드를 처리하여 삭제 성공 여부를 확인하는 방법을 설명합니다.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8b0711cab07584aa84ab437a2a4efb5aab92f3d1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: b8c4fdc942af291e912a4c1e74d1292279cf9f8c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318912"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132332"
 ---
 # <a name="azure-resource-manager-resource-group-deletion"></a>Azure Resource Manager 리소스 그룹 삭제
 
@@ -68,4 +69,4 @@ GET 작업에서 오류가 반환되는 경우 Resource Manager는 다음 오류
 ## <a name="next-steps"></a>다음 단계
 
 * Resource Manager의 개념을 이해하려면 [Azure Resource Manager 개요](resource-group-overview.md)를 참조하세요.
-* 리소스 공급자에 대한 작업을 보려면 [Azure REST API](/rest/api/)를 참조하세요.
+* 삭제 명령은 [PowerShell](/powershell/module/azurerm.resources/Remove-AzureRmResourceGroup), [Azure CLI](/cli/azure/group?view=azure-cli-latest#az-group-delete) 및 [REST API](/rest/api/resources/resourcegroups/delete)를 참조하세요.

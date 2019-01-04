@@ -6,23 +6,21 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/17/2018
-ms.openlocfilehash: 8103c06e3fec51316e367de903ed84d0023568bc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/11/2018
+ms.openlocfilehash: f47c9ee85348cc96915a0fa637b06b0a73059351
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308157"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322297"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Azure HDInsight에서 Grafana에 액세스
 
 
 [Grafana](https://grafana.com/)는 널리 사용되는 오픈 소스 그래프 및 대시보드 작성기입니다. Grafana는 다양한 기능을 수행합니다. 사용자가 사용자 지정 가능하고 공유 가능한 대시보드를 만들 뿐만 아니라 템플릿/스크립팅 대시보드, LDAP 통합, 여러 데이터 원본 등도 제공합니다.
 
-현재 Grafana는 Azure HDInsight의 대화형 쿼리 클러스터 형식에 의해서만 지원됩니다.
-
+현재, Azure HDInsight에서 Grafana는 Hbase 및 대화형 쿼리 클러스터 형식으로 지원됩니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -65,7 +63,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    
     ![HDInsight Linux 시작 - 리소스 그룹](./media/hdinsight-grafana/hdinsight-linux-get-started-resource-group.png "Azure HDInsight 클러스터 리소스 그룹")
     
-5. 또한 타일은 클러스터와 연결된 기본 저장소를 나열합니다. 각 클러스터에는 [Azure Storage 계정](../hdinsight-hadoop-use-blob-storage.md) 또는 [Azure Data Lake 계정](../hdinsight-hadoop-use-data-lake-store.md) 종속성이 있습니다. 이 저장소 계정을 기본 저장소 계정이라고 합니다. HDInsight 클러스터와 해당 기본 저장소 계정은 같은 Azure 지역에 있어야 합니다. 클러스터를 삭제해도 저장소 계정은 삭제되지 않습니다.
+5. 또한 타일은 클러스터와 연결된 기본 저장소를 나열합니다. 각 클러스터에는 [Azure Storage 계정](../hdinsight-hadoop-use-blob-storage.md) 또는 [Azure Data Lake 계정](../hdinsight-hadoop-use-data-lake-store.md) 종속성이 있습니다. 이 저장소 계정을 기본 저장소 계정이라고 합니다. HDInsight 클러스터와 해당 기본 스토리지 계정은 같은 Azure 지역에 있어야 합니다. 클러스터를 삭제해도 저장소 계정은 삭제되지 않습니다.
     
 
 > [!NOTE]
@@ -76,16 +74,22 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="access-the-grafana-dashboard"></a>Grafana 대시보드에 액세스
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+
 2. **HDInsight 클러스터**를 선택한 다음, 마지막 섹션에서 만든 클러스터 이름을 선택합니다.
+
 3. **빠른 링크**에서 **클러스터 대시보드**를 클릭합니다.
 
     ![HDInsight 클러스터 대시보드 포털](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "포털의 HDInsight 클러스터 대시보드")
 
-4. 대시보드에서 **Grafana** 타일을 클릭합니다.
+4. 대시보드에서 **Grafana** 타일을 클릭합니다. 또는 클러스터 URL의 `/grafana/` 경로로 이동합니다. 예: `https://<clustername>.azurehdinsight.net/grafana/`
+
 5. Hadoop 클러스터 사용자 자격 증명을 입력합니다.
-6. Grafana 대시보드는 다음과 유사하게 표시됩니다.
+
+6. 다음 예제와 같은 Grafana 대시보드가 표시됩니다.
 
     ![HDInsight Grafana 대시보드](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana 대시보드")
+
+   
 
 ## <a name="clean-up-resources"></a>리소스 정리
 이 문서를 완료한 후에 클러스터를 삭제할 수 있습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. 
@@ -137,5 +141,3 @@ HDInsight 클러스터를 만들거나 관리하는 방법에 대해 자세히 �
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-
-

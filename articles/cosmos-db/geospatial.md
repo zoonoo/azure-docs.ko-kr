@@ -1,20 +1,18 @@
 ---
-title: Azure Cosmos DB SQL API 계정에서 지리 공간 데이터 작업 | Microsoft Docs
+title: Azure Cosmos DB SQL API 계정에서 지리 공간적 데이터 작업
 description: Azure Cosmos DB 및 SQL API를 사용하여 공간 개체를 만들고 인덱싱 및 쿼리하는 방법을 이해합니다.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 1de97ef34ab2db79ef7eaeca66cb8d0598ae9262
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 29bb495bbbd56ab39964b34db35fb4d222a60179
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284492"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074698"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB SQL API 계정에서 지리 공간 및 GeoJSON 위치 데이터 사용
 
@@ -27,7 +25,7 @@ ms.locfileid: "52284492"
 이 문서에는 SQL API를 통해 공간 데이터를 사용하는 방법을 보여 줍니다. 코드 샘플은 이 [GitHub 프로젝트](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)를 참조하세요.
 
 ## <a name="introduction-to-spatial-data"></a>공간 데이터 소개
-공간 데이터는 공간에서 개체의 위치와 모양을 설명합니다. 대부분의 응용 프로그램에서 이러한 데이터는 지구의 개체 및 지리 공간 데이터에 해당합니다. 공간 데이터를 사용하여 사람, 관심 있는 장소 또는 도시나 호수 경계의 위치를 나타낼 수 있습니다. 일반적인 사용 사례에는 종종 근접 쿼리(예: “내 현재 위치 근처의 모든 커피숍 찾기”)가 포함됩니다. 
+공간 데이터는 공간에서 개체의 위치와 모양을 설명합니다. 대부분의 애플리케이션에서 이러한 데이터는 지구의 개체 및 지리 공간 데이터에 해당합니다. 공간 데이터를 사용하여 사람, 관심 있는 장소 또는 도시나 호수 경계의 위치를 나타낼 수 있습니다. 일반적인 사용 사례에는 종종 근접 쿼리(예: “내 현재 위치 근처의 모든 커피숍 찾기”)가 포함됩니다. 
 
 ### <a name="geojson"></a>GeoJSON
 Azure Cosmos DB는 인덱싱 및 지리 공간 지점 데이터의 쿼리를 지원하고 [GeoJSON 사양](https://tools.ietf.org/html/rfc7946)을 사용하여 나타납니다. GeoJSON 데이터 구조는 항상 유효한 JSON 개체이므로 특수 도구나 라이브러리 없이 Azure Cosmos DB를 사용하여 저장 및 쿼리할 수 있습니다. Azure Cosmos DB SDK는 쉽게 공간 데이터로 작업할 수 있게 해주는 도우미 클래스와 메서드를 제공합니다. 
@@ -118,7 +116,7 @@ client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfile
 });
 ```
 
-SQL API로 작업하는 경우 `Microsoft.Azure.Documents.Spatial` 네임스페이스 내에서 `Point` 및 `Polygon` 클래스를 사용하여 위치 정보를 응용 프로그램 개체 내에 포함할 수 있습니다. 이러한 클래스는 GeoJSON으로 공간 데이터 직렬화 및 역직렬화를 간소화하는 데 도움이 됩니다.
+SQL API로 작업하는 경우 `Microsoft.Azure.Documents.Spatial` 네임스페이스 내에서 `Point` 및 `Polygon` 클래스를 사용하여 위치 정보를 애플리케이션 개체 내에 포함할 수 있습니다. 이러한 클래스는 GeoJSON으로 공간 데이터 직렬화 및 역직렬화를 간소화하는 데 도움이 됩니다.
 
 **.NET에서 지리 공간 데이터를 포함하는 문서 만들기**
 
@@ -307,7 +305,7 @@ LINQ를 사용하여 Azure Cosmos DB 컬렉션에서 “위치” 값이 지정�
 LINQ 및 SQL을 사용하여 문서를 쿼리하는 방법을 살펴보았으며, 이제 공간 인덱싱을 위해 Azure Cosmos DB를 구성하는 방법을 살펴보겠습니다.
 
 ## <a name="indexing"></a>인덱싱
-[Azure Cosmos DB를 사용한 스키마 제약 없는 인덱싱](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) 에서 설명했듯이 Azure Cosmos DB의 데이터베이스 엔진은 스키마 제약 없이 JSON을 최고 수준으로 지원하도록 설계되었습니다. Azure Cosmos DB의 쓰기 최적화된 데이터베이스 엔진은 GeoJSON 표준으로 표시된 공간 데이터(점, 다각형 및 선)를 기본적으로 이해합니다.
+[Azure Cosmos DB를 사용한 스키마 제약 없는 인덱싱](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) 에서 설명했듯이 Azure Cosmos DB의 데이터베이스 엔진은 스키마 제약 없이 JSON을 최고 수준으로 지원하도록 설계되었습니다. Azure Cosmos DB의 쓰기 최적화된 데이터베이스 엔진은 GeoJSON 표준으로 표시된 공간 데이터(점, 다각형 및 선)를 기본적으로 이해합니다.
 
 간단히 말해, 기하 도형이 측지 좌표에서 2D 평면으로 프로젝션된 다음 **quadtree**를 사용하여 셀에 점진적으로 나뉩니다. 이러한 셀은 점의 위치를 유지하는 **힐버트 공간 채움 곡선** 내의 셀 위치에 따라 1D에 매핑됩니다. 또한 위치 데이터는 인덱싱될 때 **공간 분할**이라는 프로세스를 거칩니다. 즉, 위치와 교차하는 모든 셀이 식별되고 Azure Cosmos DB 인덱스에 키로 저장됩니다. 쿼리 시 점 및 다각형과 같은 인수도 관련 셀 ID 범위를 추출하기 위해 공간 분할된 다음 인덱스에서 데이터를 검색하는 데 사용됩니다.
 
@@ -391,7 +389,7 @@ LINQ 및 SQL을 사용하여 문서를 쿼리하는 방법을 살펴보았으며
 Azure Cosmos DB에서 지리 공간 지원을 시작하는 방법을 배웠으므로 이제 다음 작업을 수행할 수 있습니다.
 
 * [GitHub의 지리 공간 .NET 코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)을 사용하여 코딩 시작
-* [Azure Cosmos DB 쿼리 실습](http://www.documentdb.com/sql/demo#geospatial)에서 지리 공간 쿼리 실습
+* [Azure Cosmos DB 쿼리 실습](https://www.documentdb.com/sql/demo#geospatial)에서 지리 공간 쿼리 실습
 * [Azure Cosmos DB 쿼리](how-to-sql-query.md)에 대해 알아보기
 * [Azure Cosmos DB 인덱싱 정책에 대해 알아보기](index-policy.md)
 

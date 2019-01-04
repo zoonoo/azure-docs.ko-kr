@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: d5cda8830b480e9ef9dff18cb3d7b99e1db55590
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0339889228c80cc3675fd7fde52e75cb84521ab6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442798"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840183"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>자습서: Reward Gateway와 Azure Active Directory 통합
 
@@ -49,7 +49,7 @@ Reward Gateway와 Azure AD의 통합을 구성하려면 다음 항목이 필요�
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Reward Gateway 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -63,13 +63,13 @@ Reward Gateway의 Azure AD 통합을 구성하려면 갤러리의 Reward Gateway
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
 1. 검색 상자에 **Reward Gateway**를 입력합니다.
 
@@ -120,7 +120,7 @@ Reward Gateway에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
     | `https://<companyname>.rewardgateway.co.nz/` |
     | `https://<companyname>.rewardgateway.com.au/` |
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
     | |
     |--|
     |  `https://<companyname>.rewardgateway.com/Authentication/EndLogin?idp=<Unique Id>` |
@@ -129,7 +129,7 @@ Reward Gateway에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>` |
 
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 가져오려면 보상 관리자 포털에서 통합 설정을 시작합니다. 자세한 내용은 http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration에서 찾을 수 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 가져오려면 보상 관리자 포털에서 통합 설정을 시작합니다. 자세한 내용은 https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration에서 찾을 수 있습니다.
  
 1. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
@@ -139,10 +139,10 @@ Reward Gateway에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
     ![Configure Single Sign-On](./media/reward-gateway-tutorial/tutorial_general_400.png)
 
-1. **보상 게이트웨이** 쪽에서 Single Sign-On을 구성하려면 보상 관리자 포털에서 통합 설정을 시작합니다. 다운로드한 메타데이터를 사용하여 서명 인증서를 가져오고 구성하는 동안 업로드합니다. 자세한 내용은 http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration에서 찾을 수 있습니다.
+1. **보상 게이트웨이** 쪽에서 Single Sign-On을 구성하려면 보상 관리자 포털에서 통합 설정을 시작합니다. 다운로드한 메타데이터를 사용하여 서명 인증서를 가져오고 구성하는 동안 업로드합니다. 자세한 내용은 https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration에서 찾을 수 있습니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -170,7 +170,7 @@ Reward Gateway에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -188,11 +188,11 @@ Reward Gateway에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 **Britta Simon을 Reward Gateway에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Reward Gateway**를 선택합니다.
+1. 애플리케이션 목록에서 **Reward Gateway**를 선택합니다.
 
     ![Configure Single Sign-On](./media/reward-gateway-tutorial/tutorial_rewardgateway_app.png) 
 

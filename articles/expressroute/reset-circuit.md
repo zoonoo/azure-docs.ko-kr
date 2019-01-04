@@ -1,26 +1,19 @@
 ---
-title: '실패한 Azure ExpressRoute 회로 다시 설정: PowerShell | Microsoft Docs'
+title: '실패한 회로 다시 설정 - ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: 이 문서는 실패한 상태의 ExpressRoute 회로를 다시 설정하는 데 도움이 됩니다.
-documentationcenter: na
 services: expressroute
 author: anzaman
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2017
-ms.author: anzaman;cherylmc
-ms.openlocfilehash: 423bc1d6409e5b7fe02339a05d0775f4ff42de49
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 11/28/2018
+ms.author: anzaman
+ms.custom: seodec18
+ms.openlocfilehash: 7b88ba6e00cbec05263fe5bc8e795cda95beee04
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31590686"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093678"
 ---
 # <a name="reset-a-failed-expressroute-circuit"></a>실패한 Azure ExpressRoute 회로 다시 설정
 
@@ -32,22 +25,22 @@ ExpressRoute 회로의 작업이 성공적으로 완료되지 않으면 회로�
 
 2. 상승된 권한으로 PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Connect-AzureRmAccount
   ```
 3. Azure 구독이 여러 개인 경우 계정의 구독을 확인합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmSubscription
   ```
 4. 사용할 구독을 지정합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
   ```
 5. 다음 명령을 실행하여 실패한 상태의 회로를 다시 설정합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt

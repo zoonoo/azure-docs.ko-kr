@@ -242,7 +242,7 @@ Contoso 관리자는 이제 DMA를 사용하여 SmartHotel360 데이터베이스
 ## <a name="step-4-set-up-azure-devops"></a>4단계: Azure DevOps 설정
 
 
-Contoso는 응용 프로그램에 대한 DevOps 인프라 및 파이프라인을 빌드해야 합니다.  이를 위해 Contoso 관리자는 새 DevOps 프로젝트를 만들고 코드를 가져온 다음 빌드 및 릴리스 파이프라인을 설정합니다.
+Contoso는 애플리케이션에 대한 DevOps 인프라 및 파이프라인을 빌드해야 합니다.  이를 위해 Contoso 관리자는 새 DevOps 프로젝트를 만들고 코드를 가져온 다음 빌드 및 릴리스 파이프라인을 설정합니다.
 
 1.   Contoso Azure DevOps 계정에서 새 프로젝트(**ContosoSmartHotelRefactor**)를 만들고 버전 제어용 **Git**을 선택합니다.
 

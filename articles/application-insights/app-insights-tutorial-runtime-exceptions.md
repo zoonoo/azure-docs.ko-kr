@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights를 사용하여 런타임 예외 진단 | Microsoft Docs
-description: Azure Application Insights를 사용하여 응용 프로그램에서 런타임 예외를 찾고 진단하는 자습서입니다.
+description: Azure Application Insights를 사용하여 애플리케이션에서 런타임 예외를 찾고 진단하는 자습서입니다.
 services: application-insights
 keywords: ''
 author: mrbullwinkle
@@ -19,11 +19,11 @@ ms.locfileid: "53084015"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Azure Application Insights를 사용하여 런타임 예외 찾기 및 진단
 
-Azure Application Insights는 응용 프로그램에서 원격 분석을 수집하여 런타임 예외를 식별하고 진단하도록 돕습니다.  이 자습서에서는 응용 프로그램을 사용하여 이 프로세스를 안내합니다.  다음 방법에 대해 알아봅니다.
+Azure Application Insights는 애플리케이션에서 원격 분석을 수집하여 런타임 예외를 식별하고 진단하도록 돕습니다.  이 자습서에서는 애플리케이션을 사용하여 이 프로세스를 안내합니다.  다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 예외 추적을 활성화하도록 프로젝트를 수정
-> * 응용 프로그램의 다양한 구성 요소에 대한 예외 식별
+> * 애플리케이션의 다양한 구성 요소에 대한 예외 식별
 > * 예외 세부 정보 보기
 > * 디버깅을 위해 Visual Studio에 예외에 대한 스냅숏 다운로드
 > * 쿼리 언어를 사용하여 실패한 요청의 세부 정보 분석
@@ -39,15 +39,15 @@ Azure Application Insights는 응용 프로그램에서 원격 분석을 수집�
     - Azure 개발
 - [Visual Studio 스냅숏 디버거](https://aka.ms/snapshotdebugger)를 다운로드 및 설치합니다.
 - [Visual Studio 스냅숏 디버거](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) 사용
-- Azure에 .NET 응용 프로그램을 배포하고 [Application Insights SDK를 사용하도록 설정](app-insights-asp-net.md)합니다. 
-- 자습서는 응용 프로그램에서 예외의 ID를 추적하여 개발 또는 테스트 환경에서 코드를 수정하여 예외를 생성합니다. 
+- Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](app-insights-asp-net.md)합니다. 
+- 자습서는 애플리케이션에서 예외의 ID를 추적하여 개발 또는 테스트 환경에서 코드를 수정하여 예외를 생성합니다. 
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인합니다.
 
 
 ## <a name="analyze-failures"></a>실패 분석
-Application Insights는 응용 프로그램에서 모든 오류를 수집하고 여러 작업 간에 빈도를 볼 수 있도록 하여 가장 높은 영향으로 해당 내용에 집중할 수 있도록 돕습니다.  그런 다음 이러한 실패의 세부 정보를 드릴다운하여 근본 원인을 식별할 수 있습니다.   
+Application Insights는 애플리케이션에서 모든 오류를 수집하고 여러 작업 간에 빈도를 볼 수 있도록 하여 가장 높은 영향으로 해당 내용에 집중할 수 있도록 돕습니다.  그런 다음 이러한 실패의 세부 정보를 드릴다운하여 근본 원인을 식별할 수 있습니다.   
 
 1. **Application Insights**를 선택한 다음 구독을 선택합니다.  
 2. **실패** 패널을 열려면 **조사** 메뉴 아래의 **실패**를 선택하거나 **실패한 요청** 그래프를 클릭합니다.
@@ -66,7 +66,7 @@ Application Insights는 응용 프로그램에서 모든 오류를 수집하고 
 
     ![실패한 요청 샘플](media/app-insights-tutorial-runtime-exceptions/failed-requests-search.png)
 
-6. 실패한 요청에 대한 세부 정보는 Gantt 차트를 보여 줍니다. 이 차트에서는 전체 트랜잭션 기간의 50% 이상을 차지함으로써 발생한 두 개의 종속성 오류가 이 트랜잭션에 있음을 보여 줍니다. 이 환경은 이 작업 ID와 관련된 분산 응용 프로그램의 구성 요소 간에 모든 원격 분석을 제공합니다. [새 환경에 대해 자세히 알아보세요](app-insights-transaction-diagnostics.md). 항목 중 하나를 선택하여 세부 정보를 볼 수 있습니다. 
+6. 실패한 요청에 대한 세부 정보는 Gantt 차트를 보여 줍니다. 이 차트에서는 전체 트랜잭션 기간의 50% 이상을 차지함으로써 발생한 두 개의 종속성 오류가 이 트랜잭션에 있음을 보여 줍니다. 이 환경은 이 작업 ID와 관련된 분산 애플리케이션의 구성 요소 간에 모든 원격 분석을 제공합니다. [새 환경에 대해 자세히 알아보세요](app-insights-transaction-diagnostics.md). 항목 중 하나를 선택하여 세부 정보를 볼 수 있습니다. 
 
     ![실패한 요청 세부 정보](media/app-insights-tutorial-runtime-exceptions/failed-request-details.png)
 
@@ -75,7 +75,7 @@ Application Insights는 응용 프로그램에서 모든 오류를 수집하고 
     ![예외 세부 정보](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>실패 코드 식별
-스냅숏 디버거는 응용 프로그램에서 가장 빈번한 예외의 스냅숏을 수집하여 프로덕션에서 해당 근본 원인을 진단하는 데 도움을 줍니다.  포털에서 디버그 스냅숏을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 그 후 스냅숏을 다운로드하여 Visual Studio 2017 Enterprise에서 열고 소스 코드를 디버그할 수 있습니다.
+스냅숏 디버거는 애플리케이션에서 가장 빈번한 예외의 스냅숏을 수집하여 프로덕션에서 해당 근본 원인을 진단하는 데 도움을 줍니다.  포털에서 디버그 스냅숏을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 그 후 스냅숏을 다운로드하여 Visual Studio 2017 Enterprise에서 열고 소스 코드를 디버그할 수 있습니다.
 
 1. 예외 속성에서 **디버그 스냅숏 열기**를 클릭합니다.
 2. **디버그 스냅숏** 패널이 요청에 대한 호출 스택과 함께 열립니다.  메서드를 클릭하여 요청 시 모든 지역 변수의 값을 봅니다.  이 예제에서는 맨 위 메서드에서부터 시작하여 값이 없는 지역 변수를 볼 수 있습니다.

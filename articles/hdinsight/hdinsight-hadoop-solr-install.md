@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6a3f9928fa685c36a0495ba5d423c3be7bff2bea
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3f382aab5a00030b922fb890e82110454e7f3839
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009170"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384499"
 ---
-# <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Windows 기반 HDInsight 클러스터에서 Solr 설치 및 사용
+# <a name="install-and-use-apache-solr-on-windows-based-hdinsight-clusters"></a>Windows 기반 HDInsight 클러스터에서 Apache Solr 설치 및 사용
 
-스크립트 작업을 사용하여 Solr로 Windows 기반 HDInsight 클러스터를 사용자 지정하는 방법 및 데이터를 검색하기 위해 Solr를 사용하는 방법을 알아봅니다.
+스크립트 작업을 사용하여 Apache Solr로 Windows 기반 HDInsight 클러스터를 사용자 지정하는 방법 및 데이터를 검색하기 위해 Solr를 사용하는 방법을 알아봅니다.
 
-> [!IMPORTANT]
-> 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요. Linux 기반 클러스터와 함께 Solr을 사용한 작업에 대한 자세한 내용은 [HDInsight Hadoop 클러스터에 Solr 설치 및 사용(Linux)](hdinsight-hadoop-solr-install-linux.md)을 참조하세요.
+> [!IMPORTANT]  
+> 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요. Linux 기반 클러스터와 함께 Solr을 사용한 작업에 대한 자세한 내용은 [HDInsight Hadoop 클러스터에서 Apache Solr 설치 및 사용(Linux)](hdinsight-hadoop-solr-install-linux.md)을 참조하세요.
 
 
 *스크립트 작업*을 사용하여 Azure HDInsight에서 모든 형식의 클러스터(Hadoop, Storm, HBase, Spark)에 Solr을 설치할 수 있습니다. HDInsight 클러스터에 Solr을 설치하기 위한 샘플 스크립트는 [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1)의 읽기 전용 Azure 저장소 Blob에서 다운로드할 수 있습니다.
@@ -32,7 +32,7 @@ ms.locfileid: "51009170"
 
 **관련된 문서**
 
-* [HDInsight Hadoop 클러스터에서 Solr 설치 및 사용(Linux)](hdinsight-hadoop-solr-install-linux.md)
+* [HDinsight Hadoop 클러스터에서 Apache Solr 설치 및 사용(Linux)](hdinsight-hadoop-solr-install-linux.md)
 * [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md): HDInsight 클러스터를 만드는 방법에 대한 일반 정보입니다.
 * [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]: 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
 * [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions.md)
@@ -41,7 +41,7 @@ ms.locfileid: "51009170"
 <a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a>은 데이터에 대한 강력한 전체 텍스트 검색을 가능하게 해주는 엔터프라이즈 검색 플랫폼입니다. Hadoop는 막대한 양의 데이터를 저장 및 관리할 수 있도록 해주고 Apache Solr은 이 데이터를 신속하게 검색할 수 있는 검색 기능을 제공합니다.
 
 ## <a name="install-solr-using-portal"></a>포털을 사용하여 Solr 설치
-1. **HDInsight에서 Hadoop 클러스터 만들기**에서 설명한 대로 [사용자 지정 만들기](hdinsight-provision-clusters.md) 옵션을 사용하여 클러스터를 만들기 시작합니다.
+1. **HDInsight에서 Apache Hadoop 클러스터 만들기**에서 설명한 대로 [사용자 지정 만들기](hdinsight-provision-clusters.md) 옵션을 사용하여 클러스터를 만들기 시작합니다.
 2. 아래와 같이 마법사의 **스크립트 동작** 페이지에서 **스크립트 동작 추가**를 클릭하여 스크립트 동작에 대한 세부 정보를 제공합니다.
 
     ![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "스크립트 작업을 사용하여 클러스터 사용자 지정")
@@ -137,7 +137,7 @@ ms.locfileid: "51009170"
                  }
                ]
              }
-4. **권장: Solr에서 인덱싱된 데이터를 HDInsight 클러스터와 연결된 Azure Blob 저장소에 백업합니다**. Solr 클러스터 노드에서 인덱싱된 데이터를 Azure Blob 저장소에 백업하는 것이 좋습니다. 이렇게 하려면 다음 단계를 수행합니다.
+4. **권장: Solr에서 인덱싱된 데이터를 HDInsight 클러스터와 연결된 Azure Blob Storage에 백업합니다**. Solr 클러스터 노드에서 인덱싱된 데이터를 Azure Blob 저장소에 백업하는 것이 좋습니다. 이렇게 하려면 다음 단계를 수행합니다.
 
    1. RDP 세션에서 Internet Explorer를 열고 다음 URL을 가리킵니다.
 
@@ -156,7 +156,7 @@ ms.locfileid: "51009170"
           </response>
       ```
       
-   2. 원격 세션에서 {SOLR_HOME}\{Collection}\data로 이동합니다. 샘플 스크립트를 통해 생성된 클러스터의 경우, `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`여야 합니다. 이 위치에서 **snapshot.* timestamp***와 비슷한 이름으로 만든 스냅숏 폴더가 표시됩니다.
+   2. 원격 세션에서 {SOLR_HOME}\{Collection}\data로 이동합니다. 샘플 스크립트를 통해 생성된 클러스터의 경우, `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`여야 합니다. 이 위치에서 **snapshot.\*timestamp**\*와 비슷한 이름으로 만든 스냅숏 폴더가 표시됩니다.
    
    3. 스냅숏 폴더를 압축하고 Azure Blob 저장소에 업로드합니다. Hadoop 명령줄에서 다음 명령을 사용하여 스냅숏 폴더의 위치로 이동합니다.
 
@@ -167,18 +167,18 @@ ms.locfileid: "51009170"
    이 명령은 스냅숏을 클러스터와 연결된 기본 Storage 계정 내의 컨테이너 아래에 있는 /example/data/에 복사합니다.
 
 ## <a name="install-solr-using-aure-powershell"></a>Aure PowerShell을 사용하여 Solr 설치
-[스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)을 참조하세요.  샘플은 Azure PowerShell을 사용하여 Spark를 설치하는 방법을 보여줍니다. [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1)을 사용하도록 스크립트를 사용자 지정해야 합니다.
+[스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)을 참조하세요.  샘플은 Azure PowerShell을 사용하여 Apache Spark를 설치하는 방법을 보여 줍니다. [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1)을 사용하도록 스크립트를 사용자 지정해야 합니다.
 
 ## <a name="install-solr-using-net-sdk"></a>.NET SDK를 사용하여 Solr 설치
-[스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)을 참조하세요. 샘플은 .NET SDK를 사용하여 Spark를 설치하는 방법을 보여줍니다. [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1)을 사용하도록 스크립트를 사용자 지정해야 합니다.
+[스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)을 참조하세요. 샘플은 .NET SDK를 사용하여 Apache Spark를 설치하는 방법을 보여 줍니다. [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1)을 사용하도록 스크립트를 사용자 지정해야 합니다.
 
 ## <a name="see-also"></a>참고 항목
-* [HDInsight Hadoop 클러스터에서 Solr 설치 및 사용(Linux)](hdinsight-hadoop-solr-install-linux.md)
-* [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md): HDInsight 클러스터를 만드는 방법에 대한 일반 정보입니다.
+* [HDinsight Hadoop 클러스터에서 Apache Solr 설치 및 사용(Linux)](hdinsight-hadoop-solr-install-linux.md)
+* [HDInsight에서 Apache Hadoop 클러스터 만들기](hdinsight-provision-clusters.md): HDInsight 클러스터를 만드는 방법에 대한 일반 정보입니다.
 * [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]: 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
 * [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions.md)
-* [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]: Spark 설치에 대한 스크립트 작업 샘플입니다.
-* [HDInsight 클러스터에서 Giraph 설치](hdinsight-hadoop-giraph-install.md): Giraph 설치에 대한 스크립트 작업 샘플입니다.
+* [HDInsight 클러스터에서 Apache Spark 설치 및 사용][hdinsight-install-spark]: Spark 설치에 대한 스크립트 작업 샘플입니다.
+* [HDInsight 클러스터에서 Apache Giraph 설치](hdinsight-hadoop-giraph-install.md): Giraph 설치에 대한 스크립트 작업 샘플입니다.
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md

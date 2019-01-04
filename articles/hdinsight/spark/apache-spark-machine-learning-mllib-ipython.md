@@ -51,7 +51,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
 
 1. PySpark 커널을 사용하여 Jupyter 노트북을 만듭니다. 자세한 지침은 [Jupyter 노트북 만들기](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook)를 참조하세요.
 
-2. 이 응용 프로그램에 필요한 형식을 가져옵니다. 빈 셀에 다음 코드를 복사하여 붙여넣은 다음, **SHIRT + ENTER** 키를 누릅니다.
+2. 이 애플리케이션에 필요한 형식을 가져옵니다. 빈 셀에 다음 코드를 복사하여 붙여넣은 다음, **SHIRT + ENTER** 키를 누릅니다.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -379,7 +379,7 @@ model = pipeline.fit(labeledData)
     이 차트에서 "긍정" 결과는 불합격한 음식 검사를 참조하는 반면, 부정 결과는 합격한 검사를 참조합니다.
 
 ## <a name="shut-down-the-notebook"></a>Notebook 종료
-응용 프로그램 실행을 완료한 후 리소스를 해제하도록 Notebook을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 클릭합니다. 그러면 Notebook을 종료하고 닫습니다.
+애플리케이션 실행을 완료한 후 리소스를 해제하도록 Notebook을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 클릭합니다. 그러면 Notebook을 종료하고 닫습니다.
 
 ## <a name="seealso"></a>참고 항목
 * [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
@@ -389,7 +389,7 @@ model = pipeline.fit(labeledData)
 * [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 
-### <a name="create-and-run-applications"></a>응용 프로그램 만들기 및 실행
+### <a name="create-and-run-applications"></a>애플리케이션 만들기 및 실행
 * [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](apache-spark-create-standalone-application.md)
 * [Apache Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
 

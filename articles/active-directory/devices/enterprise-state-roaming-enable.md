@@ -26,7 +26,7 @@ ms.locfileid: "50128988"
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화
 Azure AD Premium 또는 EMS(Enterprise Mobility + Security) 라이선스를 사용하는 모든 조직에서 Enterprise State Roaming을 사용할 수 있습니다. Azure AD 구독 방법에 대한 자세한 내용은 [Azure AD 제품 페이지](https://azure.microsoft.com/services/active-directory)를 참조하세요.
 
-Enterprise State Roaming을 사용하도록 설정하면 Azure Information Protection에서 Azure Rights Management 보호에 대해 제한된 체험용 라이선스가 조직에 자동으로 부여됩니다. 이 체험용 구독은 엔터프라이즈 설정 암호화 및 Enterprise State Roaming에서 동기화한 응용 프로그램 데이터를 암호화하고 암호를 해독하도록 제한됩니다. [유료 구독](https://azure.microsoft.com/pricing/details/information-protection/)이 있어야 Azure Rights Management 서비스의 전체 기능을 사용할 수 있습니다.
+Enterprise State Roaming을 사용하도록 설정하면 Azure Information Protection에서 Azure Rights Management 보호에 대해 제한된 체험용 라이선스가 조직에 자동으로 부여됩니다. 이 체험용 구독은 엔터프라이즈 설정 암호화 및 Enterprise State Roaming에서 동기화한 애플리케이션 데이터를 암호화하고 암호를 해독하도록 제한됩니다. [유료 구독](https://azure.microsoft.com/pricing/details/information-protection/)이 있어야 Azure Rights Management 서비스의 전체 기능을 사용할 수 있습니다.
 
 ## <a name="to-enable-enterprise-state-roaming"></a>Enterprise State Roaming을 사용하려면
 

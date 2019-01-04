@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub에 원격 분석 전송 빠른 시작(Node.js) | Microsoft Docs
-description: 이 빠른 시작에서는 두 가지 샘플 Node.js 응용 프로그램을 실행하여 시뮬레이션된 원격 분석을 IoT Hub로 보내고, 클라우드에서 처리할 원격 분석을 IoT Hub에서 읽습니다.
+description: 이 빠른 시작에서는 두 가지 샘플 Node.js 애플리케이션을 실행하여 시뮬레이션된 원격 분석을 IoT Hub로 보내고, 클라우드에서 처리할 원격 분석을 IoT Hub에서 읽습니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -23,7 +23,7 @@ ms.locfileid: "51514930"
 
 IoT Hub는 저장 또는 처리를 위해 IoT 디바이스에서 클라우드로 다량의 원격 분석 데이터를 수집할 수 있게 해주는 Azure 서비스입니다. 이 빠른 시작에서는 시뮬레이션된 디바이스 응용 프로그램에서 IoT Hub를 통해 백 엔드 응용 프로그램으로 원격 분석을 처리를 위해 보냅니다.
 
-빠른 시작은 두 개의 미리 작성된 Node.js 응용 프로그램을 사용합니다. 하나는 원격 분석을 보내고 다른 하나는 허브에서 원격 분석을 읽기 위한 것입니다. 이 두 응용 프로그램을 실행하기 전에 IoT 허브를 만들고 허브에 디바이스를 등록합니다.
+빠른 시작은 두 개의 미리 작성된 Node.js 애플리케이션을 사용합니다. 하나는 원격 분석을 보내고 다른 하나는 허브에서 원격 분석을 읽기 위한 것입니다. 이 두 응용 프로그램을 실행하기 전에 IoT 허브를 만들고 허브에 디바이스를 등록합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -31,7 +31,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작에서 실행하는 두 개의 샘플 응용 프로그램은 Node.js를 사용하여 작성되었습니다. 개발 컴퓨터에 Node.js v4.x.x 이상이 필요합니다.
+이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 Node.js를 사용하여 작성되었습니다. 개발 컴퓨터에 Node.js v4.x.x 이상이 필요합니다.
 
 [nodejs.org](https://nodejs.org)에서 여러 플랫폼에 대한 Node.js를 다운로드할 수 있습니다.
 
@@ -77,7 +77,7 @@ https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip에서
 
     이 값은 빠른 시작의 뒷부분에서 사용합니다.
 
-1. 또한 백 엔드 응용 프로그램을 IoT 허브에 연결하여 메시지를 검색할 수 있게 하려면 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
+1. 또한 백 엔드 애플리케이션을 IoT 허브에 연결하여 메시지를 검색할 수 있게 하려면 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
    
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
@@ -115,7 +115,7 @@ https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip에서
 
 ## <a name="read-the-telemetry-from-your-hub"></a>허브에서 원격 분석 읽기
 
-백 엔드 응용 프로그램은 IoT Hub의 서비스 측 **이벤트** 엔드포인트에 연결합니다. 응용 프로그램은 시뮬레이션된 디바이스에서 전송하는 디바이스-클라우드 메시지를 받습니다. IoT Hub 백 엔드 응용 프로그램은 일반적으로 클라우드에서 실행되며 디바이스-클라우드 메시지를 수신하고 처리합니다.
+백 엔드 애플리케이션은 IoT Hub의 서비스 측 **이벤트** 엔드포인트에 연결합니다. 응용 프로그램은 시뮬레이션된 디바이스에서 전송하는 디바이스-클라우드 메시지를 받습니다. IoT Hub 백 엔드 응용 프로그램은 일반적으로 클라우드에서 실행되며 디바이스-클라우드 메시지를 수신하고 처리합니다.
 
 1. 또 다른 로컬 터미널 창을 열고 샘플 Node.js 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\read-d2c-messages** 폴더로 이동합니다.
 
@@ -123,7 +123,7 @@ https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip에서
 
     `connectionString` 변수의 값을 이전에 적어둔 서비스 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **ReadDeviceToCloudMessages.js** 파일에 저장합니다.
 
-1. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 백 엔드 응용 프로그램을 실행합니다.
+1. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 백 엔드 애플리케이션을 실행합니다.
 
     ```cmd/sh
     npm install
@@ -132,7 +132,7 @@ https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip에서
 
     다음 스크린샷에서는 시뮬레이션된 디바이스에서 허브에 보낸 원격 분석을 백 엔드 응용 프로그램에서 받을 때의 출력을 보여줍니다.
 
-    ![백 엔드 응용 프로그램 실행](media/quickstart-send-telemetry-node/ReadDeviceToCloud.png)
+    ![백 엔드 애플리케이션 실행](media/quickstart-send-telemetry-node/ReadDeviceToCloud.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

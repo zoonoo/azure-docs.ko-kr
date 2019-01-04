@@ -43,7 +43,7 @@ Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험�
    * 출력 클레임을 다시 보냅니다.
 
 ## <a name="restful-walkthrough"></a>RESTful 연습
-이 연습에서는 사용자 입력의 유효성을 검사하고 사용자 전용 번호를 제공하는 .NET Framework Web API를 개발합니다. 예를 들어 응용 프로그램은 전용 번호에 따라 *플래티넘 혜택*에 대한 액세스 권한을 부여할 수 있습니다.
+이 연습에서는 사용자 입력의 유효성을 검사하고 사용자 전용 번호를 제공하는 .NET Framework Web API를 개발합니다. 예를 들어 애플리케이션은 전용 번호에 따라 *플래티넘 혜택*에 대한 액세스 권한을 부여할 수 있습니다.
 
 개요:
 * RESTful 서비스(.NET Framework Web API) 개발
@@ -297,7 +297,7 @@ Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨
 </ClaimsProvider>
 ```
 
-## <a name="step-6-add-the-loyaltynumber-claim-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>6단계: `loyaltyNumber` 클레임을 신뢰 당사자 정책 파일에 추가하여 응용 프로그램에 해당 클레임을 보냄
+## <a name="step-6-add-the-loyaltynumber-claim-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>6단계: `loyaltyNumber` 클레임을 신뢰 당사자 정책 파일에 추가하여 애플리케이션에 해당 클레임을 보냄
 *SignUpOrSignIn.xml* RP(신뢰 당사자) 파일을 편집하고 TechnicalProfile Id="PolicyProfile" 요소를 수정하여 `<OutputClaim ClaimTypeReferenceId="loyaltyNumber" />`를 추가합니다.
 
 새 클레임을 추가한 후에 신뢰 당사자 코드는 다음과 같습니다.
@@ -343,7 +343,7 @@ Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨
 1. **Azure AD B2C 설정**을 선택한 다음 **ID 경험 프레임워크**로 이동합니다.
 
     > [!NOTE]
-    > **지금 실행**을 사용하려면 하나 이상의 응용 프로그램이 테넌트에 미리 등록되어 있어야 합니다. 응용 프로그램을 등록하는 방법은 Azure AD B2C [시작](active-directory-b2c-get-started.md) 문서 또는 [응용 프로그램 등록](active-directory-b2c-app-registration.md) 문서를 참조하세요.
+    > **지금 실행**을 사용하려면 하나 이상의 응용 프로그램이 테넌트에 미리 등록되어 있어야 합니다. 애플리케이션을 등록하는 방법은 Azure AD B2C [시작](active-directory-b2c-get-started.md) 문서 또는 [애플리케이션 등록](active-directory-b2c-app-registration.md) 문서를 참조하세요.
 
 2. 업로드한 RP(신뢰 당사자) 사용자 지정 정책인 **B2C_1A_signup_signin**을 연 다음 **지금 실행**을 선택합니다.
 
@@ -355,7 +355,7 @@ Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨
     ![정책 테스트](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
 4.  **지정된 이름** 상자에서 ("Test" 이외의) 이름을 입력합니다.  
-    Azure AD B2C는 사용자를 등록한 후 전용 번호를 응용 프로그램에 보냅니다. 이 JWT의 번호를 적어둡니다.
+    Azure AD B2C는 사용자를 등록한 후 전용 번호를 애플리케이션에 보냅니다. 이 JWT의 번호를 적어둡니다.
 
 ```
 {

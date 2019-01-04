@@ -1,6 +1,6 @@
 ---
 title: Service Fabric Mesh 앱을 빌드하기 위한 Windows 개발 환경 설정 | Microsoft Docs
-description: Service Fabric Mesh 응용 프로그램을 만들고 Azure Service Fabric Mesh에 배포할 수 있도록 Windows 개발 환경을 설정합니다.
+description: Service Fabric Mesh 애플리케이션을 만들고 Azure Service Fabric Mesh에 배포할 수 있도록 Windows 개발 환경을 설정합니다.
 services: service-fabric-mesh
 keywords: ''
 author: tylermsft
@@ -37,7 +37,7 @@ Windows 개발 머신에서 Azure Service Fabric Mesh 애플리케이션을 빌�
 
 ## <a name="visual-studio"></a>Visual Studio
 
-Visual Studio 2017은 Service Fabric Mesh 응용 프로그램을 배포하는 데 필요합니다. [설치 버전 15.6.0][download-visual-studio] 이상은 다음 워크로드를 사용하도록 설정합니다.
+Visual Studio 2017은 Service Fabric Mesh 애플리케이션을 배포하는 데 필요합니다. [설치 버전 15.6.0][download-visual-studio] 이상은 다음 워크로드를 사용하도록 설정합니다.
 
 * ASP.NET 및 웹 개발
 * Azure 개발
@@ -111,7 +111,7 @@ Visual Studio를 사용하는 경우 계정이 없으면 Visual Studio가 자동
 
 ![그림 1 - 로컬 클러스터 시작](./media/service-fabric-mesh-howto-setup-developer-environment-sdk/start-local-cluster.png)
 
-이제 Service Fabric Mesh 응용 프로그램을 만들 준비가 되었습니다!
+이제 Service Fabric Mesh 애플리케이션을 만들 준비가 되었습니다!
 
 ## <a name="next-steps"></a>다음 단계
 

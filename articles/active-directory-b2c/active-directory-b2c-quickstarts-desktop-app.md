@@ -1,6 +1,6 @@
 ---
 title: 빠른 시작 - Azure Active Directory B2C를 사용하여 데스크톱 앱에 대한 로그인 설정 | Microsoft Docs
-description: Azure Active Directory B2C를 사용하여 계정 로그인을 제공하는 샘플 ASP.NET 데스크톱 응용 프로그램을 실행합니다.
+description: Azure Active Directory B2C를 사용하여 계정 로그인을 제공하는 샘플 ASP.NET 데스크톱 애플리케이션을 실행합니다.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b018872eb1bd8575004fc50124c8ab8b77564b15
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 2e60ede7ca6a1030f689f97ad9fe38a4705126a8
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247575"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725958"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>빠른 시작 - Azure Active Directory B2C를 사용하여 데스크톱 앱에 대한 로그인 설정 
 
-Azure AD(Azure Active Directory) B2C는 응용 프로그램, 비즈니스 및 고객을 보호하기 위한 클라우드 ID 관리 기능을 제공합니다. Azure AD B2C를 사용하면 응용 프로그램에서 개방형 표준 프로토콜을 사용하여 소셜 계정 및 엔터프라이즈 계정을 인증할 수 있습니다. 이 빠른 시작에서는 WPF(Windows Presentation Foundation) 데스크톱 응용 프로그램에서 소셜 ID 공급자를 사용하여 로그인하고 Azure AD B2C 보호 웹 API를 호출합니다.
+Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고객을 보호하기 위한 클라우드 ID 관리 기능을 제공합니다. Azure AD B2C를 사용하면 애플리케이션에서 개방형 표준 프로토콜을 사용하여 소셜 계정 및 엔터프라이즈 계정을 인증할 수 있습니다. 이 빠른 시작에서는 WPF(Windows Presentation Foundation) 데스크톱 애플리케이션에서 소셜 ID 공급자를 사용하여 로그인하고 Azure AD B2C 보호 웹 API를 호출합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -34,16 +34,16 @@ Azure AD(Azure Active Directory) B2C는 응용 프로그램, 비즈니스 및 �
     git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
     ```
 
-## <a name="run-the-application-in-visual-studio"></a>Visual Studio에서 응용 프로그램 실행
+## <a name="run-the-application-in-visual-studio"></a>Visual Studio에서 애플리케이션 실행
 
-1. 샘플 응용 프로그램 프로젝트 폴더에서 Visual Studio를 통해 **active-directory-b2c-wpf.sln** 솔루션을 엽니다.
+1. 샘플 애플리케이션 프로젝트 폴더에서 Visual Studio를 통해 **active-directory-b2c-wpf.sln** 솔루션을 엽니다.
 2. **F5** 키를 눌러 응용 프로그램을 디버그합니다.
 
 ## <a name="sign-in-using-your-account"></a>계정을 사용하여 로그인
 
 1. **로그인**을 클릭하여 **등록 또는 로그인** 워크플로를 시작합니다.
 
-    ![샘플 응용 프로그램](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
+    ![샘플 애플리케이션](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
 
     이 샘플에서는 소셜 ID 공급자를 사용하거나 이메일 주소를 사용하여 로컬 계정을 만드는 등의 여러 가지 등록 옵션을 지원합니다. 이 빠른 시작에서는 Facebook, Google, Microsoft 또는 Twitter의 소셜 ID 공급자 계정을 사용합니다. 
 
@@ -52,7 +52,7 @@ Azure AD(Azure Active Directory) B2C는 응용 프로그램, 비즈니스 및 �
 
     ![로그인 또는 등록 공급자](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
 
-    소셜 계정 자격 증명을 사용하여 인증(로그인)하고 응용 프로그램이 사용자의 소셜 계정에서 정보를 읽도록 권한을 부여합니다. 액세스를 부여하면 응용 프로그램은 이름 및 구/군/시와 같은 소셜 계정의 프로필 정보를 검색할 수 있습니다. 
+    소셜 계정 자격 증명을 사용하여 인증(로그인)하고 애플리케이션이 사용자의 소셜 계정에서 정보를 읽도록 권한을 부여합니다. 액세스를 부여하면 애플리케이션은 이름 및 구/군/시와 같은 소셜 계정의 프로필 정보를 검색할 수 있습니다. 
 
 2. ID 공급자에 대한 로그인 프로세스를 완료합니다.
 
@@ -60,9 +60,9 @@ Azure AD(Azure Active Directory) B2C는 응용 프로그램, 비즈니스 및 �
 
 ## <a name="edit-your-profile"></a>프로필 편집
 
-Azure AD B2C에는 사용자가 프로필을 업데이트할 수 있는 기능이 있습니다. 샘플 웹앱은 워크플로에 Azure AD B2C 프로필 편집 정책을 사용합니다. 
+Azure AD B2C에는 사용자가 프로필을 업데이트할 수 있는 기능이 있습니다. 웹앱 샘플은 워크플로에 Azure AD B2C 프로필 편집 사용자 흐름을 사용합니다. 
 
-1. 응용 프로그램 메뉴 모음에서 **프로필 편집**을 클릭하여 앞에서 만든 프로필을 편집합니다.
+1. 애플리케이션 메뉴 모음에서 **프로필 편집**을 클릭하여 앞에서 만든 프로필을 편집합니다.
 
     ![프로필 편집](media/active-directory-b2c-quickstarts-desktop-app/edit-profile-wpf.png)
 
@@ -88,7 +88,7 @@ Azure AD B2C 사용자 계정을 사용하여 Azure AD B2C 보안 웹 API에 대
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 샘플 데스크톱 응용 프로그램을 사용하여 사용자 지정 로그인 페이지에 로그인하고, 소셜 ID 공급자에 로그인하고, Azure AD B2C 계정을 만들고, Azure AD B2C로 보호되는 웹 API를 호출했습니다. 
+이 빠른 시작에서는 샘플 데스크톱 애플리케이션을 사용하여 사용자 지정 로그인 페이지에 로그인하고, 소셜 ID 공급자에 로그인하고, Azure AD B2C 계정을 만들고, Azure AD B2C로 보호되는 웹 API를 호출했습니다. 
 
 사용자 고유의 Azure AD B2C 테넌트 만들기를 시작하세요. 
 

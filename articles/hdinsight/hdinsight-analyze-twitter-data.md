@@ -66,9 +66,9 @@ ms.locfileid: "53017460"
 
 트윗 데이터는 복잡한 중첩 구조를 포함하는 JSON(JavaScript Object Notation) 형식으로 저장됩니다. 기존의 프로그래밍 언어를 사용하여 여러 줄의 코드를 작성하는 대신, 이 중첩 구조를 Hive 테이블로 변환하여 HiveQL이라는 SQL(구조적 쿼리 언어)과 유사한 언어로 쿼리할 수 있습니다.
 
-Twitter는 OAuth를 사용하여 API에 대한 권한 있는 액세스를 제공합니다. OAuth는 사용자가 암호를 공유하지 않아도 사용자를 대신하여 응용 프로그램 작동을 승인할 수 있게 하는 인증 프로토콜입니다. 자세한 내용은 [oauth.net](http://oauth.net/)(영문) 또는 Hueniverse가 제공하는 유용한 [OAuth 초보자 가이드](http://hueniverse.com/oauth/)(영문)를 참조하세요.
+Twitter는 OAuth를 사용하여 API에 대한 권한 있는 액세스를 제공합니다. OAuth는 사용자가 암호를 공유하지 않아도 사용자를 대신하여 애플리케이션 작동을 승인할 수 있게 하는 인증 프로토콜입니다. 자세한 내용은 [oauth.net](http://oauth.net/)(영문) 또는 Hueniverse가 제공하는 유용한 [OAuth 초보자 가이드](http://hueniverse.com/oauth/)(영문)를 참조하세요.
 
-OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용 프로그램을 만드는 것입니다.
+OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 애플리케이션을 만드는 것입니다.
 
 **Twitter 응용 프로그램을 만들려면**
 
@@ -228,11 +228,11 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 
     변수|설명
     ---|---
-    $clusterName|응용 프로그램을 실행하려는 HDInsight 클러스터의 이름입니다.
-    $oauth_consumer_key|앞에서 Twitter 응용 프로그램을 만들 때 적어 둔 Twitter 응용 프로그램 **consumer key** 입니다.
-    $oauth_consumer_secret|앞에서 기록해 둔 Twitter 응용 프로그램 **consumer secret** 입니다.
-    $oauth_token|앞에서 기록해 둔 Twitter 응용 프로그램 **access token** 입니다.
-    $oauth_token_secret|앞에서 기록해 둔 Twitter 응용 프로그램 **access token secret** 입니다.
+    $clusterName|애플리케이션을 실행하려는 HDInsight 클러스터의 이름입니다.
+    $oauth_consumer_key|앞에서 Twitter 애플리케이션을 만들 때 적어 둔 Twitter 애플리케이션 **consumer key**입니다.
+    $oauth_consumer_secret|앞에서 기록해 둔 Twitter 애플리케이션 **consumer secret** 입니다.
+    $oauth_token|앞에서 기록해 둔 Twitter 애플리케이션 **access token** 입니다.
+    $oauth_token_secret|앞에서 기록해 둔 Twitter 애플리케이션 **access token secret** 입니다.
     $destBlobName|출력 Blob 이름입니다. 기본값은 **tutorials/twitter/data/tweets.txt**입니다. 기본값을 변경하는 경우 이에 따라 Windows PowerShell 스크립트를 업데이트해야 합니다.
     $trackString|웹 서비스가 이 키워드와 관련된 트윗을 반환합니다. 기본값은 **Azure, Cloud, HDInsight**입니다. 기본값을 변경하는 경우 이에 따라 Windows PowerShell 스크립트를 업데이트합니다.
     $lineMax|이 값은 스크립트가 읽는 트윗의 수를 결정합니다. 트윗 100개를 읽는 데 약 3분이 걸립니다. 더 큰 수를 설정할 수 있지만 그러면 다운로드하는 데 더 많은 시간이 걸립니다.
@@ -437,7 +437,7 @@ HiveQL 스크립트는 다음을 수행합니다.
 
    | 변수 | 설명 |
    | --- | --- |
-   |  $clusterName |응용 프로그램을 실행하려는 HDInsight 클러스터 이름을 입력합니다. |
+   |  $clusterName |애플리케이션을 실행하려는 HDInsight 클러스터 이름을 입력합니다. |
    |  $subscriptionID |Azure 구독 ID를 입력합니다. |
    |  $sourceDataPath |Hive 쿼리가 데이터를 읽는 Azure Blob 저장소 위치입니다. 이 변수를 변경할 필요가 없습니다. |
    |  $outputPath |Hive 쿼리가 결과를 출력하는 Azure Blob 저장소 위치입니다. 이 변수를 변경할 필요가 없습니다. |
@@ -532,7 +532,7 @@ Write-Host "==================================" -ForegroundColor Green
 > [!NOTE]
 > Hive 테이블은 필드 구분 기호로 \001을 사용합니다. 구분 기호는 출력에서 보이지 않습니다.
 
-분석 결과가 Azure Blob 저장소에 배치된 후에는 데이터를 Azure SQL 데이터베이스/SQL Server로 내보내거나, 파워 쿼리를 사용하여 데이터를 Excel로 내보내거나, Hive ODBC 드라이버를 사용하여 응용 프로그램을 데이터에 연결할 수 있습니다. 자세한 내용은 [HDInsight에서 Apache Sqoop 사용][hdinsight-use-sqoop], [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-delay-data], [파워 쿼리로 HDInsight에 Excel 연결][hdinsight-power-query] 및 [Microsoft Hive ODBC Driver로 Excel을 HDInsight에 연][hdinsight-hive-odbc]을 참조하세요.
+분석 결과가 Azure Blob 스토리지에 배치된 후에는 데이터를 Azure SQL 데이터베이스/SQL Server로 내보내거나, 파워 쿼리를 사용하여 데이터를 Excel로 내보내거나, Hive ODBC 드라이버를 사용하여 애플리케이션을 데이터에 연결할 수 있습니다. 자세한 내용은 [HDInsight에서 Apache Sqoop 사용][hdinsight-use-sqoop], [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-delay-data], [파워 쿼리로 HDInsight에 Excel 연결][hdinsight-power-query] 및 [Microsoft Hive ODBC Driver로 Excel을 HDInsight에 연][hdinsight-hive-odbc]을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 비정형 JSON 데이터 세트를 구조적 Apache Hive 테이블로 변환하여 Azure의 HDInsight를 사용하여 Twitter 데이터를 쿼리하고 탐색하고 분석하는 방법을 살펴보았습니다. 자세한 내용은 다음을 참조하세요.

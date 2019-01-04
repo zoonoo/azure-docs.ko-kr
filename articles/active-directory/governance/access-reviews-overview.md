@@ -15,12 +15,12 @@ ms.component: compliance
 ms.date: 11/19/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: fe51419106f1164f9a9b5993261c61bad63333b5
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: ecaceea42d64ab15676a9cb5a42ee8659e40d517
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262961"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847289"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Azure AD 액세스 검토란?
 
@@ -41,13 +41,13 @@ Azure AD를 사용하면 조직 내에서 내부적으로, 또한 파트너와 �
 
 ## <a name="when-to-use-access-reviews"></a>언제 액세스 검토를 사용하나요?
 
-- **권한 있는 역할에 사용자를 너무 많을 때:** 관리 액세스 권한이 있는 사용자 수, 글로벌 관리자의 수, 관리 작업을 수행하도록 할당된 후 제거되지 않은 초대된 게스트 또는 파트너가 있는지 여부를 확인하는 것이 좋습니다. [Azure AD PIM(Privileged Identity Management)](../privileged-identity-management/pim-configure.md) 환경에서 글로벌 관리자와 같은 [Azure AD 디렉터리 역할](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) 또는 사용자 액세스 관리자와 같은 [Azure 리소스 역할](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)의 역할 할당 사용자를 다시 인증할 수 있습니다.
-- **자동화를 사용할 수 없는 경우:** 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 만들 수 있습니다. 하지만, HR 데이터가 Azure AD에 없거나 사용자가 그룹을 떠난 뒤에도 대체자를 교육시키기 위해 액세스 권한이 필요한 경우에는? 해당 그룹에서 검토를 만들어서 계속 액세스 권한이 필요한 사용자가 계속 액세스할 수 있도록 합니다.
-- **새로운 목적을 위해 그룹이 사용되는 경우:** Azure AD에 동기화될 그룹이 있거나 판매 팀 그룹의 모든 사용자에 대해 애플리케이션 Salesforce를 사용하도록 설정하려는 경우 그룹이 다른 위험 콘텐츠에서 사용되기 전에 그룹 소유자에게 다른 그룹 멤버 자격을 검토하도록 요청하는 것이 유용합니다.
+- **권한 있는 역할에 사용자가 너무 많은 경우:** 관리 액세스 권한이 있는 사용자 수, 글로벌 관리자의 수, 관리 작업을 수행하도록 할당된 후 제거되지 않은 초대된 게스트 또는 파트너가 있는지 여부를 확인하는 것이 좋습니다. [Azure AD PIM(Privileged Identity Management)](../privileged-identity-management/pim-configure.md) 환경에서 글로벌 관리자와 같은 [Azure AD 디렉터리 역할](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) 또는 사용자 액세스 관리자와 같은 [Azure 리소스 역할](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)의 역할 할당 사용자를 다시 인증할 수 있습니다.
+- **자동화를 사용할 수 없는 경우:** 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 만들 수 있습니다. 하지만, HR 데이터가 Azure AD에 없거나 사용자가 그룹을 떠난 뒤에도 대체자를 교육시키기 위해 액세스 권한이 필요한 경우 어찌하나요? 해당 그룹에서 검토를 만들어서 계속 액세스 권한이 필요한 사용자가 계속 액세스할 수 있도록 합니다.
+- **새로운 목적을 위해 그룹이 사용되는 경우:** Azure AD에 동기화될 그룹이 있거나 판매 팀 그룹의 모든 사용자에 대해 애플리케이션 Salesforce를 사용하도록 설정하려는 경우 그룹이 다른 위험 콘텐츠에 사용되기 전에 그룹 소유자에게 다른 그룹 멤버 자격을 검토하도록 요청하는 것이 유용합니다.
 - **비즈니스 중요 데이터 액세스:** 특정 리소스의 경우 IT 외부 사용자에게 정기적으로 로그오프하도록 요청하고 감사 목적을 위해 액세스가 필요한 이유에 대한 근거를 제공해야 할 수 있습니다.
-- **정책의 예외 목록을 유지하려면:** 이상적인 환경에서 모든 사용자는 조직의 리소스에 대한 액세스를 보호하는 액세스 정책을 따릅니다. 그러나 경우에 따라 예외가 있는 비즈니스 사례가 있습니다. IT 관리자로서, 이 작업을 관리하고, 정책 예외 감시를 방지하며, 이러한 예외를 정기적으로 검토했음에 대한 증명을 감사자에게 제공할 수 있습니다.
-- **그룹 소유자에게 해당 그룹에 게스트가 계속 필요한지 확인하도록 요청:** 직원 액세스는 일부 온-프레미스 IAM을 사용하여 자동화될 수도 있으나 초대된 게스트는 해당되지 않습니다. 그룹이 게스트에게 비즈니스상 중요한 콘텐츠에 대한 액세스 권한을 부여한 경우 게스트에게 액세스에 대한 합법적인 비즈니스 요구가 여전히 있는지를 확인할 책임은 그룹 소유자에게 있습니다.
-- **검토를 주기적으로 반복되도록 함:** 주간, 월별, 분기별 또는 연간과 같이 설정된 주기로 사용자의 액세스 검토 반복을 설정할 수 있으며, 검토자는 각 검토 시작 시 알림을 받게 됩니다. 검토자는 친숙한 인터페이스를 사용하거나 스마트 권장 사항을 활용하여 액세스를 승인하거나 거부할 수 있습니다.
+- **정책의 예외 목록을 유지 관리하려면:** 이상적인 환경에서 모든 사용자는 조직의 리소스에 대한 액세스를 보호하는 액세스 정책을 따릅니다. 그러나 경우에 따라 예외가 있는 비즈니스 사례가 있습니다. IT 관리자로서, 이 작업을 관리하고, 정책 예외 감시를 방지하며, 이러한 예외를 정기적으로 검토했음에 대한 증명을 감사자에게 제공할 수 있습니다.
+- **그룹 소유자에게 해당 그룹에 게스트가 여전히 필요한지 확인하도록 요청합니다:** 초대된 게스트가 아닌 일부 온-프레미스 IAM을 사용하여 직원 액세스를 자동화할 수 있습니다. 그룹이 게스트에게 비즈니스상 중요한 콘텐츠에 대한 액세스 권한을 부여한 경우 게스트에게 액세스에 대한 합법적인 비즈니스 요구가 여전히 있는지를 확인할 책임은 그룹 소유자에게 있습니다.
+- **검토를 주기적으로 반복되도록 함:** 주간, 월별, 분기별 또는 연간과 같이 설정된 빈도에 따라 사용자의 액세스 검토 반복을 설정할 수 있으며, 검토자는 각 검토 시작 시 알림을 받게 됩니다. 검토자는 친숙한 인터페이스를 사용하거나 스마트 권장 사항을 활용하여 액세스를 승인하거나 거부할 수 있습니다.
 
 ## <a name="where-do-you-create-reviews"></a>검토는 어디에서 만드나요?
 
@@ -67,7 +67,7 @@ Azure AD를 사용하면 조직 내에서 내부적으로, 또한 파트너와 �
 - Azure AD Premium P2
 - EMS(Enterprise Mobility + Security) E5 라이선스
 
-자세한 내용은 [방법: Azure Active Directory Premium에 가입](../fundamentals/active-directory-get-started-premium.md) 또는 [Enterprise Mobility + Security E5 평가판](http://aka.ms/emse5trial)을 참조하세요.
+자세한 내용은 [방법: Azure Active Directory Premium에 가입](../fundamentals/active-directory-get-started-premium.md) 또는 [Enterprise Mobility + Security E5 평가판](https://aka.ms/emse5trial)을 참조하세요.
 
 ## <a name="get-started-with-access-reviews"></a>액세스 검토로 시작
 

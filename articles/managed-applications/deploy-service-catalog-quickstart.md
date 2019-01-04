@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 사용하여 서비스 카탈로그 앱 배포 | Microsoft Docs
-description: 관리되는 응용 프로그램의 소비자에게 Azure Portal을 통해 서비스 카탈로그 앱을 배포하는 방법을 보여 줍니다.
+description: 관리되는 애플리케이션의 소비자에게 Azure Portal을 통해 서비스 카탈로그 앱을 배포하는 방법을 보여 줍니다.
 services: managed-applications
 author: tfitzmac
 ms.service: managed-applications
@@ -30,13 +30,13 @@ Azure Portal에서 다음 단계를 사용하세요.
 
 1. **서비스 카탈로그 관리되는 응용 프로그램**을 검색하고 사용 가능한 옵션 중에서 선택합니다.
 
-   ![서비스 카탈로그 응용 프로그램 검색](./media/deploy-service-catalog-quickstart/select-service-catalog.png)
+   ![서비스 카탈로그 애플리케이션 검색](./media/deploy-service-catalog-quickstart/select-service-catalog.png)
 
-1. 관리되는 응용 프로그램 서비스에 대한 설명을 확인합니다. **만들기**를 선택합니다.
+1. 관리되는 애플리케이션 서비스에 대한 설명을 확인합니다. **만들기**를 선택합니다.
 
    ![만들기 선택](./media/deploy-service-catalog-quickstart/create-service-catalog.png)
 
-1. 포털에 사용자가 액세스할 수 있는 관리되는 응용 프로그램 정의가 표시됩니다. 사용 가능한 정의에서 배포하려는 정의를 선택합니다. 이 빠른 시작에서는 이전 빠른 시작에서 만든 **관리되는 저장소 계정**을 사용합니다. **만들기**를 선택합니다.
+1. 포털에 사용자가 액세스할 수 있는 관리되는 애플리케이션 정의가 표시됩니다. 사용 가능한 정의에서 배포하려는 정의를 선택합니다. 이 빠른 시작에서는 이전 빠른 시작에서 만든 **관리되는 저장소 계정**을 사용합니다. **만들기**를 선택합니다.
 
    ![배포할 정의 선택](./media/deploy-service-catalog-quickstart/select-definition.png)
 
@@ -58,7 +58,7 @@ Azure Portal에서 다음 단계를 사용하세요.
 
 1. **applicationGroup** 리소스 그룹에서 서비스 카탈로그 앱을 확인합니다.
 
-   ![응용 프로그램 보기](./media/deploy-service-catalog-quickstart/view-managed-application.png)
+   ![애플리케이션 보기](./media/deploy-service-catalog-quickstart/view-managed-application.png)
 
 1. **applicationGroup{hash-characters}** 리소스 그룹에서 서비스 카탈로그 앱의 리소스를 확인합니다.
 
@@ -66,6 +66,6 @@ Azure Portal에서 다음 단계를 사용하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 관리되는 응용 프로그램의 정의 파일을 만드는 방법을 알아보려면 [관리되는 응용 프로그램 정의 만들기 및 게시](publish-service-catalog-app.md)를 참조하세요.
+* 관리되는 애플리케이션의 정의 파일을 만드는 방법을 알아보려면 [관리되는 애플리케이션 정의 만들기 및 게시](publish-service-catalog-app.md)를 참조하세요.
 * Azure CLI의 경우 [Azure CLI를 사용하여 서비스 카탈로그 앱 배포](./scripts/managed-application-cli-sample-create-application.md)를 참조하세요.
 * PowerShell의 경우 [PowerShell을 사용하여 서비스 카탈로그 앱 배포](./scripts/managed-application-poweshell-sample-create-application.md)를 참조하세요.

@@ -1,6 +1,6 @@
 ---
-title: OMS Log Analytics에서 Syslog 메시지 수집 및 분석 | Microsoft Docs
-description: Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. 이 문서에서는 Log Analytics의 Syslog 메시지 수집을 구성하는 방법을 설명하고, OMS 리포지토리에 생성되는 레코드에 대한 자세한 정보를 제공합니다.
+title: Azure Monitor에서 Syslog 메시지 수집 및 분석 | Microsoft Docs
+description: Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. 이 문서에서는 Azure Monitor의 Syslog 메시지 수집을 구성하는 방법을 설명하고, 생성되는 레코드에 대한 자세한 정보를 제공합니다.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -8,35 +8,33 @@ manager: carmonm
 editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 11/28/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: f2347601a775c0069c36d8ca453f677f6d0e1568
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 263f9dcd038bd9ec20036983e273f56191e9a300
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336658"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436724"
 ---
-# <a name="syslog-data-sources-in-log-analytics"></a>Log Analytics의 Syslog 데이터 원본
-Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다.  응용 프로그램은 로컬 컴퓨터에 저장되거나 Syslog 수집기에 배달될 수 있는 메시지를 전송합니다.  Linux용 OMS 에이전트를 설치하면 에이전트에 메시지를 전달하도록 로컬 Syslog 디먼이 구성됩니다.  그러면 에이전트는 Log Analytics에 해당 메시지를 보내며 OMS 리포지토리에 해당 레코드가 만들어집니다.  
+# <a name="syslog-data-sources-in-azure-monitor"></a>Azure Monitor의 Syslog 데이터 원본
+Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다.  응용 프로그램은 로컬 컴퓨터에 저장되거나 Syslog 수집기에 배달될 수 있는 메시지를 전송합니다.  Linux용 Log Analytics 에이전트를 설치하면 에이전트에 메시지를 전달하도록 로컬 Syslog 디먼이 구성됩니다.  그러면 에이전트는 레코드가 만들어진 Azure Monitor로 해당 메시지를 보냅니다.  
 
 > [!NOTE]
-> Log Analytics는 rsyslog 또는 syslog-ng에서 보낸 메시지의 컬렉션을 지원합니다. 여기서 rsyslog는 기본 디먼입니다. Red Hat Enterprise Linux 버전 5, CentOS 및 Oracle Linux 버전(sysklog)에서는 syslog 이벤트 수집을 위한 기본 syslog 디먼이 지원되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 [rsyslog 디먼](http://rsyslog.com)을 설치하고 sysklog를 대체하도록 구성해야 합니다.
+> Azure Monitor는 rsyslog 또는 syslog-ng에서 보낸 메시지의 컬렉션을 지원합니다. 여기서 rsyslog는 기본 디먼입니다. Red Hat Enterprise Linux 버전 5, CentOS 및 Oracle Linux 버전(sysklog)에서는 syslog 이벤트 수집을 위한 기본 syslog 디먼이 지원되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 [rsyslog 디먼](http://rsyslog.com)을 설치하고 sysklog를 대체하도록 구성해야 합니다.
 >
 >
 
 ![Syslog 수집](media/data-sources-syslog/overview.png)
 
 ## <a name="configuring-syslog"></a>Syslog 구성
-Linux용 OMS 에이전트는 해당 구성에 지정된 기능 및 심각도에 따라서만 이벤트를 수집합니다.  Azure Portal을 통해 또는 Linux 에이전트의 구성 파일을 관리하여 Syslog를 구성할 수 있습니다.
+Linux용 Log Analytics 에이전트는 해당 구성에 지정된 기능 및 심각도에 따라서만 이벤트를 수집합니다.  Azure Portal을 통해 또는 Linux 에이전트의 구성 파일을 관리하여 Syslog를 구성할 수 있습니다.
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Azure Portal에서 Syslog 구성
-[Log Analytics 고급 설정의 데이터 메뉴](agent-data-sources.md#configuring-data-sources)에서 Syslog를 구성합니다.  이 구성은 각 Linux 에이전트의 구성 파일에 전달됩니다.
+[고급 설정의 데이터 메뉴](agent-data-sources.md#configuring-data-sources)에서 Syslog를 구성합니다.  이 구성은 각 Linux 에이전트의 구성 파일에 전달됩니다.
 
 해당 이름을 입력하고 **+** 에서 Syslog를 구성합니다.  각 기능에 대해, 선택한 심각도의 메시지만 수집됩니다.  수집하려는 특정 기능의 심각도를 확인합니다.  이벤트를 필터링하는 추가 조건을 제공할 수는 없습니다.
 
@@ -45,7 +43,7 @@ Linux용 OMS 에이전트는 해당 구성에 지정된 기능 및 심각도에 
 기본적으로, 모든 구성 변경은 모든 에이전트로 자동 푸시됩니다.  각 Linux 에이전트에서 Syslog를 수동으로 구성하려면 *내 Linux 컴퓨터에 아래 구성 적용*확인란을 선택 취소합니다.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Linux 에이전트에서 Syslog 구성
-[OMS 에이전트가 Linux 클라이언트에 설치](../../log-analytics/log-analytics-quick-collect-linux-computer.md)되어 있으면 OMS 에이전트는 수집되는 메시지의 기능 및 심각도를 정의하는 기본 syslog 구성 파일을 설치합니다.  이 파일을 수정하여 구성을 변경할 수 있습니다.  구성 파일은 클라이언트가 설치한 Syslog 디먼에 따라 다릅니다.
+[Log Analytics 에이전트가 Linux 클라이언트에 설치](../../azure-monitor/learn/quick-collect-linux-computer.md)되어 있으면 OMS 에이전트는 수집되는 메시지의 기능 및 심각도를 정의하는 기본 syslog 구성 파일을 설치합니다.  이 파일을 수정하여 구성을 변경할 수 있습니다.  구성 파일은 클라이언트가 설치한 Syslog 디먼에 따라 다릅니다.
 
 > [!NOTE]
 > Syslog 구성을 편집하는 경우, 변경 내용을 적용하려면 syslog 디먼을 다시 시작해야 합니다.
@@ -138,7 +136,7 @@ syslog-ng의 구성 파일은 **/etc/syslog-ng/syslog-ng.conf**에 있습니다.
 
 
 ### <a name="collecting-data-from-additional-syslog-ports"></a>추가 Syslog 포트에서 데이터 수집
-OMS 에이전트는 포트 25224에서 로컬 클라이언트의 Syslog 메시지를 수신합니다.  에이전트가 설치될 때 기본 syslog 구성이 적용되며 다음 위치에서 찾을 수 있습니다.
+Log Analytics 에이전트는 포트 25224에서 로컬 클라이언트의 Syslog 메시지를 수신합니다.  에이전트가 설치될 때 기본 syslog 구성이 적용되며 다음 위치에서 찾을 수 있습니다.
 
 * Rsyslog: `/etc/rsyslog.d/95-omsagent.conf`
 * Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
@@ -180,7 +178,7 @@ OMS 에이전트는 포트 25224에서 로컬 클라이언트의 Syslog 메시�
         destination d_custom_dest { udp("127.0.0.1" port(%SYSLOG_PORT%)); };
         log { source(s_src); filter(f_custom_filter); destination(d_custom_dest); };
 
-변경을 완료한 후, Syslog와 OMS 에이전트 서비스를 다시 시작하여 구성 변경 내용이 적용되도록 해야 합니다.   
+변경을 완료한 후, Syslog와 Log Analytics 에이전트 서비스를 다시 시작하여 구성 변경 내용이 적용되도록 해야 합니다.   
 
 ## <a name="syslog-record-properties"></a>Syslog 레코드 속성
 Syslog 레코드는 **Syslog** 형식이며, 다음 표의 속성이 있습니다.
@@ -207,6 +205,6 @@ Syslog 레코드는 **Syslog** 형식이며, 다음 표의 속성이 있습니�
 | Syslog &#124; summarize AggregatedValue = count() by Facility |기능별 Syslog 레코드 수입니다. |
 
 ## <a name="next-steps"></a>다음 단계
-* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](../../log-analytics/log-analytics-queries.md)에 대해 알아봅니다.
-* [사용자 지정 필드](../../log-analytics/log-analytics-custom-fields.md)를 사용하여 syslog 레코드의 데이터를 개별 필드로 구문 분석합니다.
-* [Linux 에이전트를 구성](../../log-analytics/log-analytics-quick-collect-linux-computer.md)합니다.
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../../azure-monitor/log-query/log-query-overview.md)에 대해 알아봅니다.
+* [사용자 지정 필드](../../azure-monitor/platform/custom-fields.md)를 사용하여 syslog 레코드의 데이터를 개별 필드로 구문 분석합니다.
+* [Linux 에이전트를 구성](../../azure-monitor/learn/quick-collect-linux-computer.md)합니다.

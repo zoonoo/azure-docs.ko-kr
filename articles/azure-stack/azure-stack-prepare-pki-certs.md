@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 공개 키 인프라 인증서를 Azure Stack 통합 시스템 배포 준비 | Microsoft Docs
+title: Azure Stack 공개 키 인프라 인증서 암호 회전 또는 Azure Stack 통합 시스템 배포 준비 | Microsoft Docs
 description: Azure Stack 통합 시스템에 대 한 Azure Stack PKI 인증서를 준비 하는 방법에 설명 합니다.
 services: azure-stack
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: c26dcbc2fab7cff3134846234cafaa481fd5ba1a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7a4c0d62fd1ea675c6569840c26ed1fb8e388850
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972035"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631484"
 ---
-# <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Azure Stack PKI 인증서 배포 준비
+# <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Azure Stack PKI 인증서를 배포 또는 회전 사용 준비
 인증서 파일 [선택한 CA에서 얻은](azure-stack-get-pki-certs.md) 가져오고 Azure Stack 인증서 요구 사항 일치 하는 속성을 사용 하 여 내보낸 해야 합니다.
 
 
 ## <a name="prepare-certificates-for-deployment"></a>배포에 대 한 인증서를 준비 합니다.
-다음이 단계를 사용 하 여 준비 하 고 Azure Stack PKI 인증서의 유효성 검사. 
+준비 및 새 Azure Stack 환경을 배포 또는 기존 Azure Stack 환경에서 암호를 회전 하기 위한 사용 되는 Azure Stack PKI 인증서의 유효성을 검사 하려면 다음이 단계를 사용 합니다. 
 
 ### <a name="import-the-certificate"></a>인증서 가져오기
 

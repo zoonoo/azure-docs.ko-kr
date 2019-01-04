@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: dd07ed66b630f541ed3e2001dffdebed150bb71a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 120b97f69c8fad2daf3090441e8d0326e80115c3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443035"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338586"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -42,7 +42,7 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
 - **NSG(네트워크 보안 그룹)**: Azure Virtual Network에 연결된 리소스에 대한 네트워크 트래픽을 허용하거나 거부하는 보안 규칙 목록이 포함되어 있습니다. NSG는 서브넷, 개별 VM(클래식) 또는 VM(Resource Manager)에 연결된 개별 NIC(네트워크 인터페이스)와 연결될 수 있습니다. 자세한 내용은 [네트워크 보안 그룹 개요](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
 - **NSG(네트워크 보안 그룹) 흐름 로그**: 네트워크 보안 그룹을 통한 송/수신 IP 트래픽에 대한 정보를 볼 수 있습니다. NSG 흐름 로그는 json 형식으로 작성되고 트래픽이 허용되거나 거부된 경우 각 규칙을 기준으로 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC, 흐름에 대한 5개의 튜플 정보(원본/대상 IP 주소, 원본/대상 포트, 프로토콜)를 보여줍니다. NSG 흐름 로그에 대한 자세한 내용은 [NSG 흐름 로그](network-watcher-nsg-flow-logging-overview.md)를 참조하세요.
 - **Log Analytics**: 모니터링 데이터를 수집하고 중앙 리포지토리에 데이터를 저장하는 Azure 서비스입니다. 이 데이터에는 이벤트, 성능 데이터 또는 Azure API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다. 네트워크 성능 모니터 및 트래픽 분석 같은 모니터링 응용 프로그램은 Log Analytics를 기반으로 사용하여 작성됩니다. 자세한 내용은 [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
-- **로그 분석 작업 영역**: Azure 계정과 관련된 데이터가 저장되는 로그 분석 인스턴스입니다. 로그 분석 작업 영역에 대한 자세한 내용은 [Log Analytics 작업 영역 만들기](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
+- **Log Analytics 작업 영역**: Azure 계정과 관련된 데이터가 저장되는 로그 분석 인스턴스입니다. 로그 분석 작업 영역에 대한 자세한 내용은 [Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
 - **Network Watcher**: Azure에서 네트워크 시나리오 수준으로 상태를 모니터링하고 진단할 수 있는 지역 서비스입니다. Network Watcher에서 NSG 흐름 로그를 켜고 끌 수 있습니다. 자세한 내용은 [Network Watcher](network-watcher-monitoring-overview.md)를 참조하세요.
 
 ## <a name="how-traffic-analytics-works"></a>트래픽 분석의 작동 원리
@@ -291,15 +291,18 @@ AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherCo
     ![가상 네트워크 분포를 표시하는 대시보드](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - 가상 네트워크 토폴로지는 가상 네트워크(상호 가상 네트워크 연결/활성/비활성), 외부 연결, 활성 흐름, 가상 네트워크의 악의적 흐름 등과 같은 매개 변수를 선택할 수 있는 상단 리본을 표시합니다.
+- 구독, 작업 영역, 리소스 그룹 및 시간 간격에 따라 가상 네트워크 토폴로지를 필터링할 수 있습니다. 흐름을 이해하는 데 도움이 되는 추가 필터는 흐름 유형(InterVNet, IntraVNET 등), 흐름 방향(인바운드, 아웃바운드), 흐름 상태(허용됨, 차단됨) VNET(대상으로 지정됨 및 연결됨), 연결 형식(피어링 또는 게이트웨이 - P2S 및 S2S) 및 NSG입니다. 이러한 필터를 사용하여 자세히 살펴볼 VNet에 초점을 맞춥니다.
 - 가상 네트워크 토폴로지는 흐름(허용된/차단된/인바운드/아웃바운드/무해/악성), 응용 프로그램 프로토콜, 네트워크 보안 그룹과 관련하여 가상 네트워크의 트래픽 분포를 보여주며, 다음은 그 예입니다.
 
     ![트래픽 분포 및 흐름 세부 정보를 표시하는 가상 네트워크 토폴로지](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
+    
+    ![최상위 필터와 추가 필터를 보여 주는 가상 네트워크 토폴로지](./media/traffic-analytics/virtual-network-filters.png)
 
     ![로그 검색의 가상 네트워크 트래픽 분포에 대한 흐름 세부 정보](./media/traffic-analytics/flow-details-for-virtual-network-traffic-distribution-in-log-search.png)
 
 **검색**
 
-- 서브넷, 토폴로지, 서브넷으로 가는 상위 트래픽 소스, 서브넷과 대화하는 상위 불량 네트워크, 대화하는 상위 응용 프로그램 프로토콜별 트래픽 분포.
+- 서브넷, 토폴로지, 서브넷으로 가는 상위 트래픽 소스, 서브넷과 대화하는 상위 불량 네트워크, 대화하는 상위 애플리케이션 프로토콜별 트래픽 분포.
     - 어떤 서브넷이 어떤 서브넷과 대화하는지 파악. 예기치 않은 대화가 발견되면 구성을 수정할 수 있습니다.
     - 불량 네트워크가 서브넷과 대화하는 경우 불량 네트워크를 차단하도록 NSG 규칙을 구성하여 수정할 수 있습니다.
 - 서브넷 토폴로지는 활성/비활성 서브넷, 외부 연결, 활성 흐름, 서브넷의 악의적인 흐름 등과 같은 매개 변수를 선택할 수 있는 상단 리본을 보여줍니다.
@@ -312,7 +315,7 @@ AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherCo
 응용 프로그램 게이트웨이 및 Load Balancer, 토폴로지, 상위 트래픽 소스, 응용 프로그램 게이트웨이 및 Load Balancer와 대화하는 상위 불량 네트워크, 대화하는 상위 응용 프로그램 프로토콜별 트래픽 분포. 
     
  - 응용 프로그램 게이트웨이 또는 Load Balancer와 대화하는 서브넷을 알고 있음. 예기치 않은 대화가 발견되면 구성을 수정할 수 있습니다.
- - 불량 네트워크가 응용 프로그램 게이트웨이 또는 Load Balancer와 대화하는 경우 불량 네트워크를 차단하도록 NSG 규칙을 구성하여 수정할 수 있습니다. 
+ - 불량 네트워크가 애플리케이션 게이트웨이 또는 Load Balancer와 대화하는 경우 불량 네트워크를 차단하도록 NSG 규칙을 구성하여 수정할 수 있습니다. 
 
     ![subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 

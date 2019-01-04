@@ -1,6 +1,6 @@
 ---
-title: Azure의 Kubernetes 자습서 - 응용 프로그램 업데이트
-description: 이 AKS(Azure Kubernetes Service) 자습서에서는 새 버전의 응용 프로그램 코드를 사용하여 기존 응용 프로그램 배포를 AKS로 업데이트하는 방법을 알아봅니다.
+title: Azure의 Kubernetes 자습서 - 애플리케이션 업데이트
+description: 이 AKS(Azure Kubernetes Service) 자습서에서는 새 버전의 애플리케이션 코드를 사용하여 기존 애플리케이션 배포를 AKS로 업데이트하는 방법을 알아봅니다.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -16,29 +16,29 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/15/2018
 ms.locfileid: "41919178"
 ---
-# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 응용 프로그램 업데이트
+# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 업데이트
 
-Kubernetes에서 응용 프로그램을 배포한 후 새 컨테이너 이미지 또는 이미지 버전을 지정하여 해당 응용 프로그램을 업데이트할 수 있습니다. 응용 프로그램을 업데이트할 때는 배포의 일부분만 동시에 업데이트되도록 업데이트가 스테이징됩니다. 이처럼 스테이징 업데이트가 수행되므로 업데이트 중에도 응용 프로그램을 계속 실행할 수 있습니다. 또한 배포 오류가 발생하는 경우에는 롤백 메커니즘도 제공됩니다.
+Kubernetes에서 응용 프로그램을 배포한 후 새 컨테이너 이미지 또는 이미지 버전을 지정하여 해당 응용 프로그램을 업데이트할 수 있습니다. 응용 프로그램을 업데이트할 때는 배포의 일부분만 동시에 업데이트되도록 업데이트가 스테이징됩니다. 이처럼 스테이징 업데이트가 수행되므로 업데이트 중에도 애플리케이션을 계속 실행할 수 있습니다. 또한 배포 오류가 발생하는 경우에는 롤백 메커니즘도 제공됩니다.
 
 이 자습서(전체 7부 중 6부)에서는 샘플 Azure 투표 앱을 업데이트합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 프런트 엔드 응용 프로그램 코드 업데이트
+> * 프런트 엔드 애플리케이션 코드 업데이트
 > * 업데이트된 컨테이너 이미지 만들기
 > * Azure Container Registry에 컨테이너 이미지 푸시
 > * 업데이트된 컨테이너 이미지 배포
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이전 자습서에서는 응용 프로그램을 컨테이너 이미지에 패키지하고, ACR(Azure Container Registry)에 이러한 이미지를 업로드하고, Kubernetes 클러스터를 만들었습니다. 그런 다음 Kubernetes 클러스터에서 응용 프로그램을 실행했습니다.
+이전 자습서에서는 애플리케이션을 컨테이너 이미지에 패키지하고, ACR(Azure Container Registry)에 이러한 이미지를 업로드하고, Kubernetes 클러스터를 만들었습니다. 그런 다음, Kubernetes 클러스터에서 애플리케이션을 실행했습니다.
 
-이 자습서에서 사용한 미리 작성된 Docker Compose 파일과 응용 프로그램 소스 코드를 포함하는 응용 프로그램 리포지토리도 복제했습니다. 리포지토리 복제본을 만들었으며 디렉터리를 복제된 디렉터리로 변경했는지 확인하세요. 이러한 단계를 완료하지 않은 경우 수행하려면 [자습서 1 - 컨테이너 이미지 만들기][aks-tutorial-prepare-app]로 돌아갑니다.
+이 자습서에서 사용한 미리 작성된 Docker Compose 파일과 애플리케이션 소스 코드를 포함하는 애플리케이션 리포지토리도 복제했습니다. 리포지토리 복제본을 만들었으며 디렉터리를 복제된 디렉터리로 변경했는지 확인하세요. 이러한 단계를 완료하지 않은 경우 수행하려면 [자습서 1 - 컨테이너 이미지 만들기][aks-tutorial-prepare-app]로 돌아갑니다.
 
 이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.44 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
-## <a name="update-an-application"></a>응용 프로그램 업데이트
+## <a name="update-an-application"></a>애플리케이션 업데이트
 
-샘플 응용 프로그램을 변경한 다음, AKS 클러스터에 배포된 버전을 업데이트하겠습니다. *azure-vote* 디렉터리 내에서 응용 프로그램 예제 소스 코드를 찾을 수 있습니다. `vi` 같은 편집기를 사용하여 *config_file.cfg* 파일을 엽니다.
+샘플 애플리케이션을 변경한 다음, AKS 클러스터에 배포된 버전을 업데이트하겠습니다. *azure-vote* 디렉터리 내에서 응용 프로그램 예제 소스 코드를 찾을 수 있습니다. `vi` 같은 편집기를 사용하여 *config_file.cfg* 파일을 엽니다.
 
 ```console
 vi azure-vote/azure-vote/config_file.cfg
@@ -58,13 +58,13 @@ SHOWHOST = 'false'
 
 ## <a name="update-the-container-image"></a>컨테이너 이미지 업데이트
 
-프런트 엔드 이미지를 다시 만들고 업데이트된 응용 프로그램을 테스트하려면 [docker-compose][docker-compose] 명령을 사용합니다. `--build` 인수를 사용하여 응용 프로그램 이미지를 다시 만들도록 Docker Compose에 명령합니다.
+프런트 엔드 이미지를 다시 만들고 업데이트된 애플리케이션을 테스트하려면 [docker-compose][docker-compose] 명령을 사용합니다. `--build` 인수를 사용하여 응용 프로그램 이미지를 다시 만들도록 Docker Compose에 명령합니다.
 
 ```console
 docker-compose up --build -d
 ```
 
-## <a name="test-the-application-locally"></a>로컬에서 응용 프로그램 테스트
+## <a name="test-the-application-locally"></a>로컬에서 애플리케이션 테스트
 
 업데이트된 컨테이너 이미지에 변경 내용이 적용되었는지 확인하고, 로컬 웹 브라우저를 http://localhost:8080으로 엽니다.
 
@@ -92,9 +92,9 @@ docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 docker push <acrLoginServer>/azure-vote-front:v2
 ```
 
-## <a name="deploy-the-updated-application"></a>업데이트된 응용 프로그램 배포
+## <a name="deploy-the-updated-application"></a>업데이트된 애플리케이션 배포
 
-최대 작동 시간을 보장하려면 응용 프로그램 Pod의 여러 인스턴스가 실행되고 있어야 합니다. [kubectl get pods][kubectl-get] 명령을 사용하여 실행 중인 프런트 엔드 인스턴스 수를 확인합니다.
+최대 작동 시간을 보장하려면 애플리케이션 Pod의 여러 인스턴스가 실행되고 있어야 합니다. [kubectl get pods][kubectl-get] 명령을 사용하여 실행 중인 프런트 엔드 인스턴스 수를 확인합니다.
 
 ```
 $ kubectl get pods
@@ -112,13 +112,13 @@ azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-응용 프로그램을 업데이트하려면 [kubectl set][kubectl-set] 명령을 사용합니다. `<acrLoginServer>`를 컨테이너 레지스트리의 로그인 서버 또는 호스트 이름으로 업데이트하고, *v2* 응용 프로그램 버전을 지정합니다.
+애플리케이션을 업데이트하려면 [kubectl set][kubectl-set] 명령을 사용합니다. `<acrLoginServer>`를 컨테이너 레지스트리의 로그인 서버 또는 호스트 이름으로 업데이트하고, *v2* 응용 프로그램 버전을 지정합니다.
 
 ```console
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2
 ```
 
-배포를 모니터링하려면 [kubectl get pod][kubectl-get] 명령을 사용합니다. 업데이트된 응용 프로그램이 배포되면 Pod가 종료되고 새 컨테이너 이미지로 다시 만들어집니다.
+배포를 모니터링하려면 [kubectl get pod][kubectl-get] 명령을 사용합니다. 업데이트된 애플리케이션이 배포되면 Pod가 종료되고 새 컨테이너 이미지로 다시 만들어집니다.
 
 ```console
 kubectl get pods
@@ -136,9 +136,9 @@ azure-vote-front-1297194256-tptnx  1/1       Running       0          5m
 azure-vote-front-1297194256-zktw9  1/1       Terminating   0          1m
 ```
 
-## <a name="test-the-updated-application"></a>업데이트된 응용 프로그램 테스트
+## <a name="test-the-updated-application"></a>업데이트된 애플리케이션 테스트
 
-업데이트된 응용 프로그램을 보려면 먼저 `azure-vote-front` 서비스의 외부 IP 주소를 가져옵니다.
+업데이트된 애플리케이션을 보려면 먼저 `azure-vote-front` 서비스의 외부 IP 주소를 가져옵니다.
 
 ```console
 kubectl get service azure-vote-front
@@ -150,10 +150,10 @@ kubectl get service azure-vote-front
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 응용 프로그램을 업데이트하고 이 업데이트를 Kubernetes 클러스터에 배포했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 애플리케이션을 업데이트하고 이 업데이트를 Kubernetes 클러스터에 배포했습니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * 프런트 엔드 응용 프로그램 코드 업데이트
+> * 프런트 엔드 애플리케이션 코드 업데이트
 > * 업데이트된 컨테이너 이미지 만들기
 > * Azure Container Registry에 컨테이너 이미지 푸시
 > * 업데이트된 컨테이너 이미지 배포

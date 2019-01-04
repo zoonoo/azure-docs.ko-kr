@@ -33,14 +33,14 @@ ms.locfileid: "51255424"
 누락된 DLL 또는 어셈블리의 증상은 다음과 같을 수 있습니다.
 
 * 역할 인스턴스가 **초기화 중**, **사용 중** 및 **중지** 상태를 반복하고 있습니다.
-* 역할 인스턴스가 **준비** 로 이동했지만 웹 응용 프로그램을 탐색하면 페이지가 나타나지 않습니다.
+* 역할 인스턴스가 **준비** 로 이동했지만 웹 애플리케이션을 탐색하면 페이지가 나타나지 않습니다.
 
 이러한 문제를 조사하기 위해 권장되는 여러 가지 방법이 있습니다.
 
 ## <a name="diagnose-missing-dll-issues-in-a-web-role"></a>웹 역할에서 누락된 DLL 문제 진단
 웹 역할에 배포된 웹 사이트로 이동하고 브라우저가 다음과 유사한 서버 오류를 표시하는 경우 DLL이 없음을 나타낼 수 있습니다.
 
-!['/' 응용 프로그램의 서버 오류.](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
+!['/' 애플리케이션의 서버 오류.](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
 
 ## <a name="diagnose-issues-by-turning-off-custom-errors"></a>사용자 지정 오류를 해제하여 문제 진단
 웹 역할에 대해 web.config가 사용자 지정 오류 모드를 꺼짐으로 설정하고 서비스를 다시 배포하도록 구성하여 오류 정보를 더 자세하게 볼 수 있습니다.
@@ -70,17 +70,17 @@ ms.locfileid: "51255424"
 7. `IPconfig`를 입력합니다.
 8. IPV4 주소 값을 적습니다.
 9. Internet Explorer를 엽니다.
-10. 웹 응용 프로그램의 주소 및 이름을 입력합니다. 예: `http://<IPV4 Address>/default.aspx`.
+10. 웹 애플리케이션의 주소 및 이름을 입력합니다. 예: `http://<IPV4 Address>/default.aspx`.
 
 웹 사이트를 탐색하면 이제 더 구체적인 오류 메시지가 반환됩니다.
 
-* '/' 응용 프로그램의 서버 오류.
+* '/' 애플리케이션의 서버 오류.
 * 설명: 현재 웹 요청을 실행하는 동안 처리되지 않은 예외가 발생했습니다. 오류에 대한 자세한 내용 및 코드에서 어디에 기반하는지는 스택 추적을 검토합니다.
 * 예외 세부 정보: System.IO.FIleNotFoundException: 파일이나 어셈블리를 로드할 수 없습니다 'Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35’ 또는 해당 종속성 중 하나입니다. 시스템은 지정된 파일을 찾을 수 없습니다.
 
 예: 
 
-!['/' 응용 프로그램의 명시적 서버 오류](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
+!['/' 애플리케이션의 명시적 서버 오류](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
 ## <a name="diagnose-issues-by-using-the-compute-emulator"></a>계산 에뮬레이터를 사용하여 문제 진단
 Microsoft Azure 계산 에뮬레이터를 사용하여 누락된 종속성 및 web.config 오류 문제를 진단하고 해결할 수 있습니다.

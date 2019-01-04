@@ -1,21 +1,22 @@
 ---
-title: 영역 및 엔드포인트 게시 - LUIS
+title: 게시 지역 및 엔드포인트
 titleSuffix: Azure Cognitive Services
-description: LUIS 앱을 게시하는 지역은 Azure Portal에서 Azure LUIS 엔드포인트 키를 만들 때 Azure Portal에서 지정한 지역 또는 위치에 해당합니다. 앱을 게시하면 LUIS가 키와 연결된 지역의 엔드포인트 URL을 자동으로 생성합니다. LUIS 앱을 둘 이상의 지역에 게시하려면 지역당 하나 이상의 키가 필요합니다.
+description: LUIS 앱을 게시하는 지역은 Azure Portal에서 Azure LUIS 엔드포인트 키를 만들 때 Azure Portal에서 지정한 지역 또는 위치에 해당합니다. 앱을 게시하면 LUIS가 키와 연결된 지역의 엔드포인트 URL을 자동으로 생성합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 205a17a985986aab8039afe824e7e872a9885169
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5d8d3d4d55d4d03eb6d6a62898823158812d7c1f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039414"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135834"
 ---
 # <a name="regions-and-keys"></a>지역 및 키
 
@@ -80,7 +81,7 @@ LUIS에는 현재 2개의 엔드포인트가 있음: 하나는 작성용이고 �
 |--|--|
 |region|Azure 지역 - 작성 및 게시에 서로 다른 지역 포함|
 |appID|URL 경로에 사용되며 앱 대시보드에서 발견된 LUIS 앱 ID|
-|q|채팅 봇과 같은 클라이언트 응용 프로그램에서 보낸 발언 텍스트|
+|q|채팅 봇과 같은 클라이언트 애플리케이션에서 보낸 발언 텍스트|
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -40,7 +40,7 @@ Visual Studio에서 `Ctrl`+`Shift`+`N`를 사용하여 프로젝트를 만듭니
 
 **새 프로젝트** 대화 상자에서 **Visual C# > Windows 클래식 바탕 화면 > 콘솔 앱(.NET Framework)** 을 클릭합니다.
 
-응용 프로그램 이름을 **MyConsoleSearchApp**으로 지정한 다음, **확인**을 클릭합니다.
+애플리케이션 이름을 **MyConsoleSearchApp**으로 지정한 다음, **확인**을 클릭합니다.
 
 ## <a name="add-the-jsonnet-nuget-package-to-the-project"></a>JSON.net Nuget 패키지를 프로젝트에 추가
 
@@ -307,9 +307,9 @@ static void DisplayItem(Newtonsoft.Json.Linq.JToken item, string title, string[]
 
 이러한 메서드는 콘솔에 검색 결과를 출력하려면 함께 작동합니다.
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
-응용 프로그램을 실행합니다. 출력은 다음과 비슷해야 합니다.
+애플리케이션을 실행합니다. 출력은 다음과 비슷해야 합니다.
 
 ```
 Enter Bing query: sailing lessons seattle

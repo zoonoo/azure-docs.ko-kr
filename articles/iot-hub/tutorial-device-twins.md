@@ -44,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작에서 실행하는 두 개의 샘플 응용 프로그램은 Node.js를 사용하여 작성되었습니다. 개발 컴퓨터에 Node.js v4.x.x 이상이 필요합니다.
+이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 Node.js를 사용하여 작성되었습니다. 개발 컴퓨터에 Node.js v4.x.x 이상이 필요합니다.
 
 [nodejs.org](https://nodejs.org)에서 여러 플랫폼에 대한 Node.js를 다운로드할 수 있습니다.
 
@@ -99,7 +99,7 @@ az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub
 desired 속성을 사용하여 백 엔드 응용 프로그램에서 디바이스로 상태 정보를 보냅니다. 이 섹션에서 수행하는 방법은 다음과 같습니다.
 
 * 디바이스에서 desired 속성을 받고 처리합니다.
-* 백 엔드 응용 프로그램에서 desired 속성을 보냅니다.
+* 백 엔드 애플리케이션에서 desired 속성을 보냅니다.
 
 desired 속성을 받는 시뮬레이션된 디바이스 샘플 코드를 보려면, 다운로드한 Node.js 프로젝트 샘플의 **iot-hub/Tutorials/DeviceTwins** 폴더로 이동합니다. 그런 다음, 텍스트 편집기에서 SimulatedDevice.js 파일을 엽니다.
 
@@ -117,7 +117,7 @@ desired 속성을 받는 시뮬레이션된 디바이스 샘플 코드를 보려
 
 ### <a name="sample-desired-properties"></a>desired 속성 샘플
 
-응용 프로그램에 편리한 방식으로 desired 속성을 구조화할 수 있습니다. 다음 예제에서는 **fanOn**이라는 최상위 속성 하나를 사용하고, 나머지 속성은 별도의 **components**에 그룹화합니다. 다음 JSON 코드 조각에서는 이 자습서에서 사용하는 desired 속성의 구조를 보여 줍니다.
+애플리케이션에 편리한 방식으로 desired 속성을 구조화할 수 있습니다. 다음 예제에서는 **fanOn**이라는 최상위 속성 하나를 사용하고, 나머지 속성은 별도의 **components**에 그룹화합니다. 다음 JSON 코드 조각에서는 이 자습서에서 사용하는 desired 속성의 구조를 보여 줍니다.
 
 [!code[Sample desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/desired.json "Sample desired properties")]
 
@@ -167,7 +167,7 @@ desired 속성을 받는 시뮬레이션된 디바이스 샘플 코드를 보려
 
 [!code-javascript[Send desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=senddesiredproperties&highlight=2 "Send desired properties")]
 
-### <a name="run-the-applications"></a>응용 프로그램 실행
+### <a name="run-the-applications"></a>애플리케이션 실행
 
 이 섹션에서는 두 개의 샘플 응용 프로그램을 실행하여 백 엔드 응용 프로그램에서 desired 속성 업데이트를 시뮬레이션된 디바이스 응용 프로그램으로 보내는 것을 관찰합니다.
 
@@ -180,7 +180,7 @@ npm install
 node SimulatedDevice.js "{your device connection string}"
 ```
 
-백 엔드 응용 프로그램을 실행하려면 다른 셸 또는 명령 프롬프트 창을 엽니다. 그런 다음, 다운로드한 Node.js 프로젝트의 **iot-hub/Tutorials/DeviceTwins** 폴더로 이동합니다. 그런 다음, 다음 명령을 실행합니다.
+백 엔드 애플리케이션을 실행하려면 다른 셸 또는 명령 프롬프트 창을 엽니다. 그런 다음, 다운로드한 Node.js 프로젝트의 **iot-hub/Tutorials/DeviceTwins** 폴더로 이동합니다. 그런 다음, 다음 명령을 실행합니다.
 
 ```cmd/sh
 npm install
@@ -191,9 +191,9 @@ node ServiceClient.js "{your service connection string}"
 
 ![시뮬레이션된 디바이스](./media/tutorial-device-twins/SimulatedDevice1.png)
 
-다음 스크린샷에서는 백 엔드 응용 프로그램의 출력을 보여 주고, **maxTemperature** desired 속성에 대한 업데이트를 보내는 방법을 강조 표시하고 있습니다.
+다음 스크린샷에서는 백 엔드 애플리케이션의 출력을 보여 주고, **maxTemperature** desired 속성에 대한 업데이트를 보내는 방법을 강조 표시하고 있습니다.
 
-![백 엔드 응용 프로그램](./media/tutorial-device-twins/BackEnd1.png)
+![백 엔드 애플리케이션](./media/tutorial-device-twins/BackEnd1.png)
 
 ## <a name="receive-state-information"></a>상태 정보 받기
 
@@ -215,7 +215,7 @@ reported 속성 값에 대한 업데이트를 패치로 보낼 수 있습니다.
 
 [!code-javascript[Display reported properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=displayreportedproperties&highlight=2 "Display reported properties")]
 
-### <a name="run-the-applications"></a>응용 프로그램 실행
+### <a name="run-the-applications"></a>애플리케이션 실행
 
 이 섹션에서는 두 개의 샘플 응용 프로그램을 실행하여 시뮬레이션된 디바이스에서 reported 속성 업데이트를 백 엔드 응용 프로그램 응용 프로그램으로 보내는 것을 관찰합니다.
 
@@ -230,7 +230,7 @@ npm install
 node SimulatedDevice.js "{your device connection string}"
 ```
 
-백 엔드 응용 프로그램을 실행하려면 다른 셸 또는 명령 프롬프트 창을 엽니다. 그런 다음, 다운로드한 Node.js 프로젝트의 **iot-hub/Tutorials/DeviceTwins** 폴더로 이동합니다. 그런 다음, 다음 명령을 실행합니다.
+백 엔드 애플리케이션을 실행하려면 다른 셸 또는 명령 프롬프트 창을 엽니다. 그런 다음, 다운로드한 Node.js 프로젝트의 **iot-hub/Tutorials/DeviceTwins** 폴더로 이동합니다. 그런 다음, 다음 명령을 실행합니다.
 
 ```cmd/sh
 npm install
@@ -243,7 +243,7 @@ node ServiceClient.js "{your service connection string}"
 
 다음 스크린샷에서는 백 엔드 응용 프로그램의 출력을 보여 주고, 디바이스에서 reported 속성 업데이트를 받고 처리하는 방법을 강조 표시하고 있습니다.
 
-![백 엔드 응용 프로그램](./media/tutorial-device-twins/BackEnd2.png)
+![백 엔드 애플리케이션](./media/tutorial-device-twins/BackEnd2.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

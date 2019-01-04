@@ -1,11 +1,13 @@
 ---
-title: Azure에서 Linux(Ubuntu) 데이터 과학 Virtual Machine 프로비전 | Microsoft Docs
+title: Ubuntu Linux Data Science Virtual Machine 만들기
+titleSuffix: Azure
 description: 분석 및 기계 학습을 수행하기 위해 Azure에서 Linux(Ubuntu)용 데이터 과학 Virtual Machine을 구성하고 만듭니다.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 ms.author: gokuma
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -14,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: cf5a15a55cf3f0d33edeec9440e745c9dce996c1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e3f17dd3717a57d184be7c9b8c73855c3fd2a768
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244868"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106773"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Azure에서 Linux(Ubuntu)용 데이터 과학 Virtual Machine 프로비전
 
@@ -27,7 +29,7 @@ Linux용 데이터 과학 Virtual Machine은 Azure에서 딥 러닝을 포함한
 
   * [Caffe](http://caffe.berkeleyvision.org/): 속도, 표현도 및 모듈화를 위해 구축된 심층 학습 프레임워크
   * [Caffe2](https://github.com/caffe2/caffe2): Caffe의 플랫폼 간 버전
-  * [Microsoft Cognitive Toolki](https://github.com/Microsoft/CNTK): Microsoft Research의 심화 학습 소프트웨어 도구 키트
+  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): Microsoft Research의 심화 학습 소프트웨어 도구 키트
   * [H2O](https://www.h2o.ai/): 오픈 소스 빅 데이터 플랫폼 및 그래픽 사용자 인터페이스
   * [Keras](https://keras.io/): Python의 Theano 및 TensorFlow용 고급 신경망 네트워크 API
   * [MXNet](http://mxnet.io/): 많은 언어 바인딩을 사용하는 유연하고 효율적인 심층 학습 라이브러리
@@ -54,7 +56,7 @@ Linux용 데이터 과학 Virtual Machine에는 다음을 포함하여 데이터
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): 온라인, 해시, allreduce, 축소, learning2search, 활성 및 대화형 학습 등의 기술을 지원하는 속성 기계 학습 시스템
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): 기능이 향상된 빠르고 정확한 트리 구현을 제공하는 도구
   * [Rattle](https://togaware.com/rattle/): R에서 데이터 분석 및 기계 학습을 쉽게 시작할 수 있도록 하는 그래픽 도구
-  * [LightGBM](https://github.com/Microsoft/LightGBM): 빠른 분산형 고성능 그라데이션 향상 프레임워크
+  * [LightGBM](https://github.com/Microsoft/LightGBM): 빠른 분산형 고성능 그래디언트 부스팅 프레임워크
 * Java, Python, node.js, Ruby, PHP의 Azure SDK
 * Azure Machine Learning 및 기타 Azure 서비스에서 사용하기 위한 R 및 Python의 라이브러리
 * 개발 도구 및 편집자(RStudio, PyCharm, IntelliJ, Emacs, vim)
@@ -64,11 +66,11 @@ Linux용 데이터 과학 Virtual Machine에는 다음을 포함하여 데이터
 
 1. 데이터 찾기, 로드 및 전처리
 1. 모델 빌드 및 테스트
-1. 지능형 응용 프로그램에서 사용하기 위해 모델 배포
+1. 지능형 애플리케이션에서 사용하기 위해 모델 배포
 
 데이터 과학자는 다양한 도구를 사용하여 이러한 태스크를 완료합니다. 소프트웨어의 적합한 버전을 찾은 다음 다운로드하여 컴파일하고 설치하는 데 시간이 상당히 걸릴 수 있습니다.
 
-Linux용 데이터 과학 Virtual Machine을 사용하면 이러한 부담을 상당히 줄일 수 있습니다. Linux 데이터 과학 가상 컴퓨터를 사용하여 분석 프로젝트를 바로 시작합니다. R, Python, SQL, Java 및 C++ 등의 다양한 언어로 작업을 수행할 수 있습니다. VM에 포함된 Azure SDK를 통해 Linux의 다양한 서비스를 사용하여 Microsoft 클라우드 플랫폼용으로 응용 프로그램을 빌드할 수 있습니다. 또한 Ruby, Perl, PHP 및 node.js와 같이 미리 설치된 다른 언어에 액세스해야 합니다.
+Linux용 데이터 과학 Virtual Machine을 사용하면 이러한 부담을 상당히 줄일 수 있습니다. Linux 데이터 과학 가상 컴퓨터를 사용하여 분석 프로젝트를 바로 시작합니다. R, Python, SQL, Java 및 C++ 등의 다양한 언어로 작업을 수행할 수 있습니다. VM에 포함된 Azure SDK를 통해 Linux의 다양한 서비스를 사용하여 Microsoft 클라우드 플랫폼용으로 애플리케이션을 빌드할 수 있습니다. 또한 Ruby, Perl, PHP 및 node.js와 같이 미리 설치된 다른 언어에 액세스해야 합니다.
 
 이 데이터 과학 VM 이미지에 대한 소프트웨어 요금은 부과되지 않습니다. 프로비전하는 가상 머신의 크기를 기반으로 평가되는 Azure 하드웨어 사용 요금만 지불합니다. 계산 요금에 대한 자세한 내용은 [Azure Marketplace의 VM 목록 페이지](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/)를 참조하세요.
 
@@ -89,9 +91,9 @@ Linux용 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는
    
    * **이름**: 만들려는 데이터 과학 서버 이름
    * **VM 디스크 유형**: SSD(반도체 드라이브)를 선호하는 경우 **프리미엄 SSD**를 선택합니다. 그렇지 않은 경우에는 **표준 HDD**를 선택합니다. 
-   * **사용자 이름**: 첫 번째 계정 로그인 ID입니다.
+   * **사용자 이름**: 첫 번째 계정의 로그인 ID입니다.
    * **암호**: 첫 번째 계정 암호입니다. 암호 대신 SSH 공개 키를 사용할 수 있습니다.
-   * **구독**: 둘 이상의 구독을 보유한 경우, 컴퓨터를 만들고 요금을 청구할 구독 하나를 선택합니다. 이 구독에 대한 리소스 만들기 권한이 있어야 합니다.
+   * **구독**: 둘 이상의 구독이 있는 경우 머신을 만들고 요금을 청구할 구독을 선택합니다. 이 구독에 대한 리소스 만들기 권한이 있어야 합니다.
    * **리소스 그룹**: 새 그룹을 만들거나 기존 그룹을 사용할 수 있습니다.
    * **위치**: 가장 적합한 데이터 센터를 선택합니다. 이 위치는 대개 대부분의 데이터가 저장되어 있는 위치이거나 사용자의 실제 위치에 가장 가까운 위치(이 경우 네트워크에 가장 빠르게 액세스할 수 있음)입니다.
    
@@ -131,14 +133,14 @@ Linux VM은 이미 X2Go 서버에 프로비전되어 있어 클라이언트 연�
 1. 사용 중인 클라이언트 플랫폼용 X2Go 클라이언트를 [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient)에서 다운로드하여 설치합니다.    
 1. X2Go 클라이언트를 실행하고 **새 세션**을 선택합니다. 여러 탭이 있는 구성 창이 열립니다. 다음 구성 매개 변수를 입력합니다.
    * **세션 탭**:
-     * **호스트**: Linux 데이터 과학 VM의 호스트 이름 또는 프로그램 IP 주소입니다.
+     * **호스트**: Linux Data Science VM의 호스트 이름 또는 IP 주소입니다.
      * **로그인**: Linux VM의 사용자 이름입니다.
      * **SSH 포트**: 기본값 22를 그대로 사용합니다.
      * **세션 유형**: 값을 XFCE로 변경합니다. 현재 Linux VM은 XFCE 데스크톱만 지원합니다.
    * **미디어 탭**: 사운드 지원 및 클라이언트 인쇄를 사용하지 않으려면 해제할 수 있습니다.
    * **공유 폴더**: 클라이언트 컴퓨터의 디렉터리를 Linux VM에 탑재하려면 이 탭에서 VM과 공유하려는 클라이언트 컴퓨터 디렉터리를 추가합니다.
 
-X2Go 클라이언트를 통해 XFCE 그래픽 데스크톱 또는 SSH 클라이언트를 사용하여 VM에 로그인하고 나면 VM에 설치 및 구성된 도구를 사용할 수 있습니다. XFCE에는 다양한 도구에 대한 응용 프로그램 메뉴 바로 가기와 바탕 화면 아이콘이 표시됩니다.
+X2Go 클라이언트를 통해 XFCE 그래픽 데스크톱 또는 SSH 클라이언트를 사용하여 VM에 로그인하고 나면 VM에 설치 및 구성된 도구를 사용할 수 있습니다. XFCE에는 다양한 도구에 대한 애플리케이션 메뉴 바로 가기와 바탕 화면 아이콘이 표시됩니다.
 
 ### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub 및 JupyterLab
 
@@ -253,7 +255,7 @@ Jupyter Notebook 서버는 Python 2, Python 3 및 R 커널을 사용하여 미�
 Python과 R로 각각 작성된 샘플 노트북이 패키지로 제공됩니다. 로컬 Linux 사용자 이름 및 암호를 사용하여 Jupyter Notebook에 인증하고 나면 노트북 홈페이지에서 샘플 링크를 확인할 수 있습니다. **새로 만들기**를 선택하고 적절한 언어 커널을 선택하여 새 Notebook을 만들 수 있습니다. **새로 만들기** 단추가 표시되지 않으면 왼쪽 위에서 **Jupyter** 아이콘을 클릭하여 Notebook 서버의 홈페이지로 이동합니다.
 
 ### <a name="apache-spark-standalone"></a>Apache Spark 독립 실행형 
-Apache Spark의 독립 실행형 인스턴스는 Linux DSVM에 미리 설치되어 대형 클러스터에서 테스트 및 배포하기 전에 먼저 Spark 응용 프로그램을 로컬로 개발하는 데 도움을 줍니다. Jupyter 커널을 통해 PySpark 프로그램을 실행할 수 있습니다. Jupyter를 열고 **New** 단추를 클릭하면 사용할 수 있는 커널의 목록이 표시됩니다. "Spark - Python"은 Python 언어를 사용하여 Spark 응용 프로그램을 빌드할 수 있도록 하는 PySpark 커널입니다. 또한 PyCharm 또는 Spyder와 같은 Python IDE를 사용하여 Spark 프로그램을 빌드할 수도 있습니다. 이는 독립 실행형 인스턴스이므로 Spark 스택은 호출 클라이언트 프로그램 내에서 실행합니다. 이렇게 하면 Spark 클러스터에서 개발에 비해 문제를 더 빠르고 쉽게 해결할 수 있습니다. 
+Apache Spark의 독립 실행형 인스턴스는 Linux DSVM에 미리 설치되어 대형 클러스터에서 테스트 및 배포하기 전에 먼저 Spark 애플리케이션을 로컬로 개발하는 데 도움을 줍니다. Jupyter 커널을 통해 PySpark 프로그램을 실행할 수 있습니다. Jupyter를 열고 **New** 단추를 클릭하면 사용할 수 있는 커널의 목록이 표시됩니다. "Spark - Python"은 Python 언어를 사용하여 Spark 애플리케이션을 빌드할 수 있도록 하는 PySpark 커널입니다. 또한 PyCharm 또는 Spyder와 같은 Python IDE를 사용하여 Spark 프로그램을 빌드할 수도 있습니다. 이는 독립 실행형 인스턴스이므로 Spark 스택은 호출 클라이언트 프로그램 내에서 실행합니다. 이렇게 하면 Spark 클러스터에서 개발에 비해 문제를 더 빠르고 쉽게 해결할 수 있습니다. 
 
 샘플 PySpark Notebook은 Jupyter($HOME/notebooks/SparkML/pySpark)의 홈 디렉터리에 있는 "SparkML" 디렉터리에서 찾을 수 있는 Jupyter에서 제공됩니다. 
 
@@ -272,7 +274,7 @@ Microsoft R Server에서 Spark 컨텍스트를 실행하기 전에 로컬 단일
 필요하지 않을 때 ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn````을 실행하여 서비스와 관련된 Hadoop을 중지할 수 있습니다. 원격 Spark 컨텍스트(DSVM의 독립 실행형 Spark 인스턴스)에서 MRS를 개발 및 테스트하는 방법을 보여주는 샘플은 `/dsvm/samples/MRS` 디렉터리에서 제공되고 사용할 수 있습니다. 
 
 ### <a name="ides-and-editors"></a>IDE 및 편집기
-여러 코드 편집기 중에서 선택할 수 있습니다. vi/VIM, Emacs, PyCharm, RStudio 및 IntelliJ를 포함합니다. IntelliJ, RStudio 및 PyCharm은 그래픽 편집기이며 그래픽 데스크톱에 로그인해야 사용할 수 있습니다. 이러한 편집기는 데스크톱 및 응용 프로그램 바로 가기 메뉴를 사용하여 시작할 수 있습니다.
+여러 코드 편집기 중에서 선택할 수 있습니다. vi/VIM, Emacs, PyCharm, RStudio 및 IntelliJ를 포함합니다. IntelliJ, RStudio 및 PyCharm은 그래픽 편집기이며 그래픽 데스크톱에 로그인해야 사용할 수 있습니다. 이러한 편집기는 데스크톱 및 애플리케이션 바로 가기 메뉴를 사용하여 시작할 수 있습니다.
 
 **VIM** 및 **Emacs**는 텍스트 기반 편집기입니다. Emacs의 경우 Emacs 편집기 내에서 R 작업을 쉽게 수행할 수 있도록 해주는 ESS(Emacs Speaks Statistics)라는 추가 기능 패키지가 설치되어 있습니다. 자세한 내용은 [ESS](http://ess.r-project.org/)를 참조하세요.
 
@@ -318,7 +320,7 @@ R 및 Python에는 데이터베이스에 액세스하는 데 사용할 수 있�
 
 * **Azure 명령줄 인터페이스**: Azure CLI를 사용하여 셸 명령을 통해 Azure 리소스를 만들고 관리할 수 있습니다. Azure 도구를 호출하려는 경우 **azure help**만 입력하면 됩니다. 자세한 내용은 [Azure CLI 설명서 페이지](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 참조하세요.
 * **Microsoft Azure Storage 탐색기**: Microsoft Azure Storage 탐색기는 Azure Storage 계정에 저장한 개체를 찾아보고 Azure Blob에서 데이터를 업로드 및 다운로드하는 데 사용되는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. **StorageExplorer**를 입력하면 셸 프롬프트에서 Storage Explorer를 호출할 수 있습니다. 이렇게 하려면 X2Go 클라이언트에서 로그인하거나 X11 전달을 설정해야 합니다.
-* **Azure 라이브러리**: 아래에는 미리 설치된 라이브러리 중 몇 가지가 나와 있습니다.
+* **Azure 라이브러리**: 아래에는 사전 설치된 라이브러리 중 몇 가지가 나와 있습니다.
   
   * **Python**: Python으로 작성된 Azure 관련 라이브러리 **azure**, **azureml**, **pydocumentdb** 및 **pyodbc**가 설치되어 있습니다. 처음 세 개의 라이브러리를 사용하면 Azure Storage 서비스, Azure Machine Learning 및 Azure Cosmos DB(Azure의 NoSQL 데이터베이스)에 액세스할 수 있습니다. 네 번째 라이브러리인 pyodbc를 SQL Serve용 Microsoft ODBC 드라이버와 함께 사용하면 ODBC 인터페이스를 사용하여 Python에서 SQL Server, Azure SQL Database 및 Azure SQL Data Warehouse에 액세스할 수 있습니다. **pip list** 를 입력하면 나열된 라이브러리를 모두 확인할 수 있습니다. Python 2.7 및 3.5 환경 모두에서 이 명령을 실행해야 합니다.
   * **R**: R로 작성된 Azure 관련 라이브러리 **AzureML** 및 **RODBC**가 설치되어 있습니다.
@@ -347,8 +349,8 @@ VM에는 로컬에서 미리 컴파일되어 미리 설치된 몇 가지 기계 
 * **xgboost**: 최적화되고 향상된 트리 알고리즘을 제공하는 도구입니다.
 * **Rattle**: 쉬운 데이터 탐색 및 모델링을 위한 R 기반 그래픽 도구입니다.
 * **Python**: Anaconda Python에서는 Scikit-learn 등의 라이브러리가 포함된 기계 학습 알고리즘이 번들로 제공됩니다. `pip install` 하여 다른 라이브러리를 설치할 수 있습니다.
-* **LightGBM**: 의사 결정 트리 알고리즘을 기준으로 하는 빠른 분산형 고성능 그라데이션 향상 프레임워크입니다.
-* **R**: R에서는 다양한 기계 학습 기능이 포함된 라이브러리를 사용할 수 있습니다. 미리 설치된 라이브러리에는 lm, glm, randomForest, rpart 등이 있습니다. 다음 명령을 실행하면 다른 라이브러리를 설치할 수 있습니다.
+* **LightGBM**: 의사 결정 트리 알고리즘을 기준으로 하는 빠른 분산형 고성능 그래디언트 부스팅 프레임워크입니다.
+* **R**: R에서는 다양한 기계 학습 기능이 포함된 라이브러리를 사용할 수 있습니다. 사전 설치된 라이브러리에는 lm, glm, randomForest, rpart 등이 있습니다. 다음 명령을 실행하면 다른 라이브러리를 설치할 수 있습니다.
   
         install.packages(<lib name>)
 

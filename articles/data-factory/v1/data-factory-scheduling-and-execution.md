@@ -1,6 +1,6 @@
 ---
 title: Data Factory에서 예약 및 실행 | Microsoft Docs
-description: Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 알아봅니다.
+description: Azure Data Factory 애플리케이션 모델의 예약 및 실행에 대한 내용을 알아봅니다.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101

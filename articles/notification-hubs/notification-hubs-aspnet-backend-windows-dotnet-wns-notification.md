@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs를 사용하여 특정 사용자에게 알림 보내기 | Microsoft Docs
-description: UWP(유니버설 Windows 플랫폼) 응용 프로그램을 사용하여 특정 사용자에게 알림을 보내는 방법을 알아봅니다.
+description: UWP(유니버설 Windows 플랫폼) 애플리케이션을 사용하여 특정 사용자에게 알림을 보내는 방법을 알아봅니다.
 documentationcenter: windows
 author: dimazaid
 manager: kpiteira
@@ -26,7 +26,7 @@ ms.locfileid: "51251545"
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 ## <a name="overview"></a>개요
-이 자습서에서는 Azure Notification Hubs를 사용하여 특정 디바이스에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. ASP.NET WebAPI 백 엔드는 클라이언트를 인증하는 데 사용 됩니다. 백 엔드가 클라이언트 응용 프로그램 사용자를 인증하는 경우 알림 등록에 자동으로 태그를 추가합니다. 백 엔드는 이 태그를 사용하여 특정 사용자에게 알림을 보냅니다. 
+이 자습서에서는 Azure Notification Hubs를 사용하여 특정 디바이스에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. ASP.NET WebAPI 백 엔드는 클라이언트를 인증하는 데 사용 됩니다. 백 엔드가 클라이언트 애플리케이션 사용자를 인증하는 경우 알림 등록에 자동으로 태그를 추가합니다. 백 엔드는 이 태그를 사용하여 특정 사용자에게 알림을 보냅니다. 
 
 > [!NOTE]
 > 이 자습서에 대해 완료된 코드는 [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers)에서 찾을 수 있습니다. 
@@ -40,7 +40,7 @@ ms.locfileid: "51251545"
 > * WebAPI 백 엔드에서 알림 보내기
 > * 새 WebAPI 백 엔드 게시
 > * 클라이언트 프로젝트에 대한 코드 업데이트
-> * 응용 프로그램 테스트
+> * 애플리케이션 테스트
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -323,8 +323,8 @@ ms.locfileid: "51251545"
     ```
 4. 변경 내용을 모두 저장합니다.
 
-## <a name="test-the-application"></a>응용 프로그램 테스트
-1. 두 Windows에서 응용 프로그램을 시작합니다.
+## <a name="test-the-application"></a>애플리케이션 테스트
+1. 두 Windows에서 애플리케이션을 시작합니다.
 2. 아래 화면에 표시된 것처럼 **사용자 이름** 및 **암호**를 입력합니다. Windows Phone에서 입력하는 사용자 이름 및 암호와 달라야 합니다.
 3. **Log in and register(로그인 및 등록)** 를 클릭하고 대화 상자에 로그인되었다고 표시되는지 확인합니다. 이 코드는 **푸시 전송** 단추도 활성화합니다.
    

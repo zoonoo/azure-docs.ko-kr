@@ -1,23 +1,24 @@
 ---
-title: C#을 사용하는 LUIS 봇 - 자습서 - 웹앱 봇 - Bot Framework SDK 4.0
-titleSuffix: Azure Cognitive Services
+title: 봇 - C# - v4
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합니다. 이 챗봇은 인적 자원 앱을 사용하여 봇 솔루션을 빠르게 구현합니다. 봇은 Bot Framework 버전 4.x 및 Azure 웹앱 봇을 사용하여 빌드되었습니다.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/25/2018
 ms.author: diberry
-ms.openlocfilehash: 3ccec4fbd0fd69539e29e2f15f71115444bf0a48
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 113e5769ee6a58785a46182064684bea5825c12c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389295"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138937"
 ---
-# <a name="tutorial-luis-bot-in-c"></a>자습서: C#의 LUIS 봇
+# <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>자습서: Bot Framework 4.x 및 Azure 웹앱 봇을 사용하는 C#의 LUIS 봇
 C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드할 수 있습니다. 이 봇은 HomeAutomation 앱을 사용하여 봇 솔루션을 구현합니다. 봇은 [Bot Framework 버전](https://github.com/Microsoft/botbuilder-js) v4 및 Azure [웹앱 봇](https://docs.microsoft.com/azure/bot-service/)을 사용하여 빌드되었습니다.
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
@@ -99,7 +100,7 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드할
 ## <a name="download-the-web-app-bot"></a>웹앱 봇 다운로드 
 웹앱 봇 코드를 개발하기 위해 코드를 다운로드하여 로컬 컴퓨터에서 사용합니다. 
 
-1. 여전히 Azure Portal의 웹앱 봇 리소스에서 **응용 프로그램 설정**을 선택하고 **botFilePath** 및 **botFileSecret**의 값을 복사합니다. 이러한 값은 나중에 환경 파일에 추가해야 합니다. 
+1. 여전히 Azure Portal의 웹앱 봇 리소스에서 **애플리케이션 설정**을 선택하고 **botFilePath** 및 **botFileSecret**의 값을 복사합니다. 이러한 값은 나중에 환경 파일에 추가해야 합니다. 
 
 2. Azure Portal의 **봇 관리** 섹션에서 **빌드**를 선택합니다. 
 
@@ -194,7 +195,7 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드할
     }
     ```
 
-    변수 값을 **[웹앱 봇 다운로드](#download-the-web-app-bot)** 섹션 1 단계의 Azure 봇 서비스 [응용 프로그램 설정]에서 복사한 값으로 설정합니다.
+    변수 값을 **[웹앱 봇 다운로드](#download-the-web-app-bot)** 섹션 1 단계의 Azure 봇 서비스 [애플리케이션 설정]에서 복사한 값으로 설정합니다.
 
 3. Visual Studio에서 봇을 시작합니다. `http://localhost:3978/`에 있는 웹앱 봇의 웹 사이트를 통해 브라우저 창이 열립니다.
 

@@ -1,20 +1,20 @@
 ---
-title: Visual Studio 2017에서 Azure IoT Edge용 C# 모듈 개발 및 디버그 | Microsoft Docs
+title: Visual Studio에서 C# 모듈 개발 및 디버그 - Azure IoT Edge | Microsoft Docs
 description: Visual Studio 2017을 사용하여 Azure IoT Edge용 C# 모듈 개발 및 디버그
 services: iot-edge
-keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
 ms.date: 09/24/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 86f0867389ce6ee1c83190e03ba17362db29d6f7
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: seodec18
+ms.openlocfilehash: 547989152320678ec195c4e8a93965cfbbd0f341
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975876"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097848"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Visual Studio 2017을 사용하여 Azure IoT Edge용 C# 모듈 개발 및 디버그(미리 보기)
 
@@ -83,7 +83,7 @@ Visual Studio의 Azure IoT Edge 프로젝트 템플릿은 Azure IoT Hub의 Azure
 
 이제 솔루션에 **AzureIoTEdgeApp1** 프로젝트와 **IoTEdgeModule1** 프로젝트가 준비되었습니다. **AzureIoTEdgeApp1** 프로젝트에는 **deployment.template.json** 파일이 있습니다. 이 파일은 IoT Edge 솔루션에 대해 빌드하고 배포할 모듈을 정의하고 모듈 간의 경로를 정의합니다. 기본 솔루션에는 **tempSensor** 모듈과 **IoTEdgeModule1** 모듈이 있습니다. **tempSensor** 모듈은 **IoTEdgeModule1** 모듈에 시뮬레이션 데이터를 생성하는 반면 **IoTEdgeModule1** 모듈의 기본 코드는 파이프 메시지 모듈이며, 수신 메시지를 IoT Hub로 직접 파이프합니다.
 
-**IoTEdgeModule1** 프로젝트는 .Net Core 2.1 콘솔 응용 프로그램입니다. 여기에는 Windows 컨테이너 또는 Linux 컨테이너에서 실행 중인 IoT Edge 디바이스에 필요한 필수 **Dockerfiles**가 포함되어 있습니다. **module.json** 파일은 모듈의 메타데이터를 설명합니다. **program.cs**는 실제 모듈 코드이며, Azure IoT 장치 SDK를 종속성으로 사용합니다.
+**IoTEdgeModule1** 프로젝트는 .Net Core 2.1 콘솔 응용 프로그램입니다. 여기에는 Windows 컨테이너 또는 Linux 컨테이너에서 실행 중인 IoT Edge 디바이스에 필요한 필수 **Dockerfiles**가 포함되어 있습니다. **module.json** 파일은 모듈의 메타데이터를 설명합니다. **program.cs**는 실제 모듈 코드이며, Azure IoT 디바이스 SDK를 종속성으로 사용합니다.
 
 ## <a name="develop-your-module"></a>모듈 개발
 
@@ -97,7 +97,7 @@ Visual Studio의 Azure IoT Edge 프로젝트 템플릿은 Azure IoT Hub의 Azure
 
    ![Edge 디바이스 연결 문자열 복사](./media/how-to-visual-studio-develop-csharp-module/copy-edge-conn-string.png)
 
-2. **AzureIoTEdgeApp1** 프로젝트를 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴를 연 다음, **Edge 장치 연결 문자열 설정**을 클릭하여 Azure IoT Edge 설정 창을 표시합니다.
+2. **AzureIoTEdgeApp1** 프로젝트를 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴를 연 다음, **Edge 디바이스 연결 문자열 설정**을 클릭하여 Azure IoT Edge 설정 창을 표시합니다.
 
    ![Edge 장치 연결 문자열 설정 창 열기](./media/how-to-visual-studio-develop-csharp-module/set-edge-conn-string.png)
 
@@ -203,7 +203,7 @@ IoT Edge 디바이스를 설정할 때 사용한 빠른 시작 문서에서는 A
 
 1. **보기** > **클라우드 탐색기**를 클릭하여 **클라우드 탐색기**를 엽니다. 자신의 계정으로 Visual Studio 2017에 로그인되어 있어야 합니다.
 
-2. **클라우드 탐색기**에서 구독을 펼쳐서 배포하려는 Azure IoT Hub 및 Azure IoT Edge 장치를 찾습니다.
+2. **클라우드 탐색기**에서 구독을 펼쳐서 배포하려는 Azure IoT Hub 및 Azure IoT Edge 디바이스를 찾습니다.
 
 3. IoT Edge 디바이스를 마우스 오른쪽 단추로 클릭하여 배포를 작성합니다. `$AzureIoTEdgeAppSolutionDir\config\deployment.(amd64|amd64.debug|windows-amd64).json` 아래에서 배포 매니페스트 파일을 선택해야 합니다.
 

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 41376448095a5dd760fae594fdfe2d2b57e4440a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9370cdfc75995f36101804d2a9f7dc9cf275243c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231654"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186313"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 Azure Media Services에 대한 이 릴리스 정보에는 이전 릴리스 이후의 변경 내용과 알려진 문제가 요약되어 있습니다.
@@ -194,10 +194,10 @@ Azure SDK 팀은 Media Services에 대한 업데이트 및 새 기능을 포함�
 Media Services에서 제공하는 Widevine 라이선스 배달 서비스는 미리 보기로 제공됩니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)를 참조하세요.
 
 ## <a id="oct_changes_15"></a>2015년 10월 릴리스
-Media Services는 이제 브라질 남부, 인도 서부, 인도 남부 및 인도 중부 데이터 센터에서도 사용 가능합니다. 이제 Azure Portal을 사용하여 [Media Service 계정을 만들고](media-services-portal-create-account.md) [Media Services 설명서 웹 페이지](https://azure.microsoft.com/documentation/services/media-services/)에서 설명한 다양한 작업을 수행할 수 있습니다. Live Encoding은 이러한 데이터 센터에서 활성화되지 않습니다. 또한 일부 유형의 인코딩 예약 단위를 이러한 데이터 센터에서 사용할 수 없습니다.
+Media Services는 이제 다음과 같은 데이터 센터에서 사용할 수 있습니다. 브라질 남부, 인도 서부, 인도 남부 및 인도 중부. 이제 Azure Portal을 사용하여 [Media Service 계정을 만들고](media-services-portal-create-account.md) [Media Services 설명서 웹 페이지](https://azure.microsoft.com/documentation/services/media-services/)에서 설명한 다양한 작업을 수행할 수 있습니다. Live Encoding은 이러한 데이터 센터에서 활성화되지 않습니다. 또한 일부 유형의 인코딩 예약 단위를 이러한 데이터 센터에서 사용할 수 없습니다.
 
-* 브라질 남부: 표준 및 기본 인코딩 예약 단위만 사용 가능합니다.
-* 인도 서부, 인도 남부 및 인도 중부: 기본 인코딩 예약 단위만 사용 가능합니다.
+* 브라질 남부:                                          표준 및 기본 인코딩 예약 단위만 사용 가능합니다.
+* 인도 서부, 인도 남부 및 인도 중부:             기본 인코딩 예약 단위만 사용 가능합니다.
 
 ## <a id="september_changes_15"></a>2015년 9월 릴리스
 이제 Media Services에서는 Widevine 모듈식 DRM 기술을 사용하여 주문형 비디오와 라이브 스트림 둘 다를 보호하는 기능을 제공합니다. 다음과 같은 배달 서비스 파트너를 사용하여 Widevine 라이선스를 배달할 수 있습니다.
@@ -270,7 +270,7 @@ OpenID Connect 검색 문서를 노출하는 ID 공급자(Azure AD, Google 및 S
 ### <a name="media-services-net-sdk-updates"></a>Media Services .NET SDK 업데이트
 Media Services .NET SDK의 현재 버전은 3.2.0.0입니다. 다음이 업데이트되었습니다.
 
-* 주요 변경 내용: TokenRestrictionTemplate.Issuer 및 TokenRestrictionTemplate.Audience가 문자열 형식으로 변경되었습니다.
+* 호환성이 손상되는 변경 내용: TokenRestrictionTemplate.Issuer 및 TokenRestrictionTemplate.Audience가 문자열 형식으로 변경되었습니다.
 * 사용자 지정 다시 시도 정책 만들기 관련 업데이트가 수행되었습니다.
 * 파일 업로드 및 다운로드 관련 버그가 수정되었습니다.
 * 이제 MediaServicesCredentials 클래스에서는 기본 및 보조 액세스 제어 엔드포인트에 대한 인증을 허용합니다.
@@ -374,8 +374,8 @@ Media Services REST 메타데이터의 현재 버전은 2.7입니다. 최신 RES
 ## <a id="july_changes_14"></a>2014년 7월 릴리스
 Azure Media Services 패키지 작성 도구 및 암호기에 대한 다음 버그가 수정되었습니다.
 
-* 라이브 보관 자산을 HLS로 전송할 때 오디오만 다시 재생됩니다. 이 문제가 수정되어 이제 오디오와 비디오를 둘 다 재생할 수 있습니다.
-* HLS 및 AES 128비트 봉투 암호화에 자산을 패키지한 경우 Android 디바이스에서 패키지 스트림이 다시 재생되지 않습니다. 이 버그가 수정되어 HLS를 지원하는 Android 디바이스에서 패키지 스트림을 재생할 수 있습니다.
+* 라이브 보관 자산을 HLS로 전송할 때 오디오만 다시 재생합니다. 이 문제가 수정되어 현재 오디오와 비디오를 모두 재생할 수 있습니다.
+* 자산을 HLS 및 AES 128비트 봉투 암호화로 패키지하는 경우 Android 디바이스에서 패키지된 스트림이 다시 재생되지 않습니다. 이 버그가 수정되어 HLS를 지원하는 Android 디바이스에서 패키지된 스트림이 다시 재생됩니다.
 
 ## <a id="may_changes_14"></a>2014년 5월 릴리스
 ### <a id="may_14_changes"></a>일반 Media Services 업데이트
@@ -476,7 +476,7 @@ Media Services SDK 버전 3.0.0.0부터 [Azure AD Access Control Service](https:
     * StorageAccount 속성
     * StorageAccountName 속성
   
-    자세한 내용은 [여러 Storage 계정에서 Media Services 자산 관리](https://msdn.microsoft.com/library/azure/dn271889.aspx)를 참조하세요.
+      자세한 내용은 [여러 Storage 계정에서 Media Services 자산 관리](https://msdn.microsoft.com/library/azure/dn271889.aspx)를 참조하세요.
 * 알림 관련 API입니다. 버전 2.2.0.0부터는 Azure Queue Storage 알림을 수신 대기할 수 있습니다. 자세한 내용은 [Media Services 작업 알림 처리](https://msdn.microsoft.com/library/azure/dn261241.aspx)를 참조하세요.
   
     * Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions 속성
@@ -494,16 +494,16 @@ Media Services SDK 버전 3.0.0.0부터 [Azure AD Access Control Service](https:
 
 2012년 11월 SDK에서 확인되어 수정된 문제:
 
-* IAsset.Locators.Count: 이제 모든 로케이터가 삭제된 후 이 수가 새로운 IAsset 인터페이스에서 올바르게 보고됩니다.
-* IAssetFile.ContentFileSize: 이제 IAssetFile.Upload(filepath)에서 업로드한 후 이 값이 올바르게 설정됩니다.
-* IAssetFile.ContentFileSize: 이제 자산 파일을 만들 때 이 속성을 설정할 수 있습니다. 이전에는 읽기 전용이었습니다.
+* IAsset.Locators.Count: 이제 이 수는 모든 로케이터가 삭제된 후 새로운 IAsset 인터페이스에서 올바르게 보고됩니다.
+* IAssetFile.ContentFileSize: 이제 이 값은 IAssetFile.Upload(filepath)에서 업로드한 후 올바르게 설정됩니다.
+* IAssetFile.ContentFileSize: 이제 이 속성은 자산 파일을 만들 때 설정할 수 있습니다. 이전에는 읽기 전용이었습니다.
 * IAssetFile.Upload(filepath): 자산에 여러 파일을 업로드할 때 이 동기식 업로드 메서드가 "서버가 요청을 인증하지 못했습니다. 서명을 비롯한 권한 부여 헤더 값이 올바르게 구성되어 있는지 확인하세요." 오류를 Throw하는 문제를 해결합니다.
-* IAssetFile.UploadAsync: 5개의 파일로 파일의 동시 업로드를 제한하는 문제가 수정되었습니다.
-* IAssetFile.UploadProgressChanged: 이제 SDK에서 이 이벤트가 제공됩니다.
+* IAssetFile.UploadAsync: 파일의 동시 업로드를 5개의 파일로 제한하는 문제가 수정되었습니다.
+* IAssetFile.UploadProgressChanged: 이 이벤트는 이제 SDK에서 제공됩니다.
 * IAssetFile.DownloadAsync(string, BlobTransferClient, ILocator, CancellationToken): 이제 이 메서드 오버로드가 제공됩니다.
-* IAssetFile.DownloadAsync: 5개의 파일로 파일의 동시 다운로드를 제한하는 문제가 수정되었습니다.
+* IAssetFile.DownloadAsync: 파일의 동시 다운로드를 5개의 파일로 제한하는 문제가 수정되었습니다.
 * IAssetFile.Delete(): IAssetFile로 업로드된 파일이 없는 경우 delete를 호출하면 예외가 throw되는 문제가 수정되었습니다.
-* Jobs: 작업 템플릿을 사용하여 "MP4를 부드러운 스트림으로 변환 작업"과 "PlayReady Protection 작업"을 연결해도 작업이 전혀 만들어지지 않는 문제가 수정되었습니다.
+* 작업: 작업 템플릿을 사용하여 “MP4를 부드러운 스트림으로 변환 작업”과 “PlayReady Protection 작업”을 연결해도 작업이 전혀 만들어지지 않는 문제가 수정되었습니다.
 * EncryptionUtils.GetCertificateFromStore(): 이 메서드는 인증서 구성 문제로 인해 인증서를 찾지 못하여 발생하는 Null 참조 예외를 더 이상 Throw하지 않습니다.
 
 ## <a id="november_changes_12"></a>2012년 11월 릴리스
@@ -522,7 +522,7 @@ Media Services SDK 버전 3.0.0.0부터 [Azure AD Access Control Service](https:
     * IAssetFile은 FileInfo를 대체하며 동작이 다릅니다. 이를 사용하려면 IAssetFiles 개체를 인스턴스화한 후 Media Services SDK 또는 Storage SDK를 사용하여 파일을 업로드합니다. 사용할 수 있는 IAssetFile.Upload 오버로드는 다음과 같습니다.
   
         * IAssetFile.Upload(filePath): 스레드를 차단하는 동기 메서드로, 단일 파일을 업로드할 때만 권장됩니다.
-        * IAssetFile.UploadAsync(filePath, blobTransferClient, locator, cancellationToken): 비동기 메서드로 기본 설정된 업로드 메커니즘입니다. 
+        * IAssetFile.UploadAsync(filePath, blobTransferClient, locator, cancellationToken): 이 비동기 메서드는 기본 설정된 업로드 메커니즘입니다. 
     
             알려진 버그: 취소 토큰을 사용하는 경우 업로드가 취소됩니다. 작업에 취소 상태가 여러 번 발생할 수 있습니다. 예외를 올바르게 파악하여 처리해야 합니다.
 * 로케이터

@@ -31,7 +31,7 @@ ADP Globalview를 Azure AD와 통합하면 다음과 같은 이점이 제공됩�
 - 사용자가 해당 Azure AD 계정으로 ADP Globalview에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -63,11 +63,11 @@ ADP Globalview의 Azure AD 통합을 구성하려면 갤러리의 ADP Globalview
 
     ![Active Directory][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![애플리케이션][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![애플리케이션][3]
 
@@ -75,7 +75,7 @@ ADP Globalview의 Azure AD 통합을 구성하려면 갤러리의 ADP Globalview
 
     ![Azure AD 테스트 사용자 만들기](./media/adglobalview-tutorial/tutorial_adpglobalview_search.png)
 
-5. 결과 패널에서 **ADP Globalview**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+5. 결과 패널에서 **ADP Globalview**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/adglobalview-tutorial/tutorial_adpglobalview_addfromgallery.png)
 
@@ -96,11 +96,11 @@ ADP Globalview에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 ADP Globalview 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 ADP Globalview 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **ADP Globalview에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **ADP Globalview** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **ADP Globalview** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -121,9 +121,9 @@ ADP Globalview에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
     ![Configure Single Sign-On](./media/adglobalview-tutorial/tutorial_adpglobalview_certificate.png) 
 
-5. ADP GlobalView 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 
+5. ADP GlobalView 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 
 
-6. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. 클레임 이름은 항상 **"PersonImmutableID"** 및 사용자의 EmployeeID를 포함하는 ExtensionAttribute2에 매핑한 값입니다. 여기에서 Azure AD에서 ADP GlobalView에 매핑하는 사용자는 EmployeeID에서 수행되지만 응용 프로그램 설정에 따라 다른 값에 이를 매핑할 수 있습니다. 사용자의 올바른 식별자를 사용하고 해당 값을 **"PersonImmutableID"** 클레임과 매핑하기 위해 ADP GlobalView 팀과 먼저 작업할 수 있습니다. 그림에 나와 있는 것처럼 전자 메일과 UserID 클레임을 매핑할 수도 있습니다.
+6. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. 클레임 이름은 항상 **"PersonImmutableID"** 및 사용자의 EmployeeID를 포함하는 ExtensionAttribute2에 매핑한 값입니다. 여기에서 Azure AD에서 ADP GlobalView에 매핑하는 사용자는 EmployeeID에서 수행되지만 애플리케이션 설정에 따라 다른 값에 이를 매핑할 수 있습니다. 사용자의 올바른 식별자를 사용하고 해당 값을 **"PersonImmutableID"** 클레임과 매핑하기 위해 ADP GlobalView 팀과 먼저 작업할 수 있습니다. 그림에 나와 있는 것처럼 전자 메일과 UserID 클레임을 매핑할 수도 있습니다.
 
     ![Configure Single Sign-On](./media/adglobalview-tutorial/tutorial_adpglobalview_attribute.png)
 
@@ -148,7 +148,7 @@ ADP Globalview에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
     d. **Ok**를 클릭합니다.
 
     > [!NOTE] 
-    > SAML 어설션을 구성하기 전에 [ADP Globalview 지원](https://www.adp.com/contact-us/overview.aspx)에 문의하고 테넌트에 대한 고유 식별자 특성 값을 요청합니다. 응용 프로그램에 대한 사용자 지정 클레임을 구성하려면 이 값이 필요합니다. 
+    > SAML 어설션을 구성하기 전에 [ADP Globalview 지원](https://www.adp.com/contact-us/overview.aspx)에 문의하고 테넌트에 대한 고유 식별자 특성 값을 요청합니다. 애플리케이션에 대한 사용자 지정 클레임을 구성하려면 이 값이 필요합니다. 
 
 8. **ADP Globalview 구성** 섹션에서 **ADP Globalview 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
 
@@ -206,11 +206,11 @@ ADP Globalview에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 **Britta Simon을 ADP Globalview에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **ADP Globalview**를 선택합니다.
+2. 애플리케이션 목록에서 **ADP Globalview**를 선택합니다.
 
     ![Configure Single Sign-On](./media/adglobalview-tutorial/tutorial_adpglobalview_app.png) 
 
@@ -232,7 +232,7 @@ ADP Globalview에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 이 섹션은 액세스 패널을 사용하여 Azure AD SSO 구성을 테스트하기 위한 것입니다.  
 
-액세스 패널에서 ADP GlobalView 타일을 클릭하면 ADP GlobalView 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 ADP GlobalView 타일을 클릭하면 ADP GlobalView 애플리케이션에 자동으로 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

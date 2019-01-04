@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 62c89861d784931b2a13297abac578010e0fea5f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 61ec9d0639f4bee950be69ee951492974ac95c64
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250843"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867480"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Azure DevTest Labs의 구현 오케스트레이션
 이 문서에서는 Azure DevTest Labs의 빠른 배포와 구현을 위한 권장 방식을 제공합니다. 아래 그림에는 다양한 업계 요구 사항과 시나리오 지원을 위한 유연성을 확인하면서 진행할 수 있는 전체 프로세스가 규범 지침 형식으로 강조 표시되어 있습니다.
@@ -27,9 +27,9 @@ ms.locfileid: "48250843"
 ## <a name="assumptions"></a>가정
 이 문서에서는 DevTest Labs 파일럿을 구현하기 전에 다음 항목을 준비했다고 가정합니다.
 
-- **Azure 구독**: 파일럿 팀에게 Azure 구독에 리소스를 배포할 액세스 권한이 있어야 합니다. 개발 및 테스트 워크로드만 구현에 포함되는 경우에는 Windows 가상 머신의 요금이 더 저렴하며 사용 가능한 이미지는 추가로 제공되는 Enterprise DevTest 제품을 선택하는 것이 좋습니다.
+- **Azure 구독**: 파일럿 팀에는 Azure 구독에 리소스를 배포할 액세스 권한이 있어야 합니다. 개발 및 테스트 워크로드만 구현에 포함되는 경우에는 Windows 가상 머신의 요금이 더 저렴하며 사용 가능한 이미지는 추가로 제공되는 Enterprise DevTest 제품을 선택하는 것이 좋습니다.
 - **온-프레미스 액세스**: 필요한 경우 온-프레미스 액세스를 이미 구성한 상태여야 합니다. 사이트 간 VPN 연결 또는 Express 경로를 통해 온-프레미스에 액세스할 수 있습니다. Express 경로를 통한 연결은 대개 설정하는 데 몇 주가 걸릴 수 있으므로 프로젝트를 시작하기 전에 Express 경로를 준비해 두는 것이 좋습니다.
-- **파일럿 팀**: DevTest Labs를 사용하는 초기 개발 프로젝트 팀과 해당하는 개발 또는 테스트 활동을 확인했으며, 이러한 팀의 요구 사항/목표/목적을 결정해야 합니다.
+- **파일럿 팀**: DevTest Labs를 사용하는 초기 개발 프로젝트 팀과 함께 해당 개발 또는 테스트 활동을 확인했으며, 이러한 팀의 요구 사항/목표/목적을 설정해야 합니다.
 
 ## <a name="milestone-1-establish-initial-network-topology-and-design"></a>중요 시점 1: 초기 네트워크 토폴로지 및 디자인 설정
 Azure DevTest Labs 솔루션 배포 시 처음으로 확인해야 하는 주요 분야는 가상 머신에 대해 계획된 연결을 설정하는 것입니다. 아래 단계에서는 필요한 절차를 대략적으로 설명합니다.
@@ -46,7 +46,7 @@ Azure DevTest Labs 솔루션 배포 시 처음으로 확인해야 하는 주요 
 2. 랩에서 사용할 허용 가능한 VM 이미지와 크기를 결정합니다. DevTest Labs에 사용할 사용자 지정 이미지를 Azure에 업로드할 수 있는지 여부를 결정합니다.
 3. 랩용 초기 RBAC(역할 기반 액세스 제어)를 작성하여 랩 액세스를 보호합니다(랩 소유자 및 랩 사용자). DevTest Labs의 ID로는 Azure Active Directory와 동기화되는 Active Directory 계정을 사용하것는 이 좋습니다.
 4. 일정, 비용 관리, 클레임할 수 있는 VM, 사용자 지정 이미지 또는 수식과 같은 정책을 사용하도록 DevTest Labs를 구성합니다.
-5. VSTS/Git 등의 온라인 리포지토리를 설정합니다.
+5. Azure Repos/Git 등의 온라인 리포지토리를 설정합니다.
 6. 사용할 리포지토리(공용 리포지토리, 개인 리포지토리 또는 두 리포지토리의 조합)를 결정합니다. 배포 및 장기 유지용으로 JSON 템플릿을 구성합니다.
 7. 필요한 경우 사용자 지정 아티팩트를 만듭니다. 이 단계는 선택 사항입니다. 
 
@@ -60,4 +60,4 @@ Azure DevTest Labs 솔루션 배포 시 처음으로 확인해야 하는 주요 
 5. 적절한 규정 준수 및 보안 검토가 완료되었는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 시리즈의 다음 문서인 [Azure DevTest Labs 인프라 거버넌스](devtest-lab-guidance-governance-resources.md)를 확인합니다.
+이 시리즈의 다음 문서를 참조하세요. [Azure DevTest Labs 인프라의 거버넌스](devtest-lab-guidance-governance-resources.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure HDInsight Hive 테이블에서 데이터 샘플링 | Microsoft Docs
-description: Azure HDInsight(Hadopop) Hive 테이블에서 데이터 다운 샘플링
+title: Azure HDInsight Hive 테이블에서 데이터 샘플링 - Team Data Science Process
+description: Hive 쿼리를 사용하여 Azure HDInsight Hive 테이블에 저장된 데이터를 다운 샘플링하여 분석을 위해 보다 관리하기 쉬운 크기로 데이터를 줄입니다.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 793431e6e81712bae5033eff1eecddbf448ce120
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 6d833dc41677ddb027964ff535b27324e2b0c3da
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446928"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133080"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Azure HDInsight Hive 테이블에서 데이터 샘플링
 이 문서에서는 Hive 쿼리를 사용하여 Azure HDInsight Hive 테이블에 저장된 데이터를 다운 샘플링함으로써 분석을 위해 보다 관리하기 쉬운 크기로 줄이는 방법에 대해 설명합니다. 일반적으로 다음 세 가지 샘플링 방법이 사용됩니다.
@@ -28,7 +28,7 @@ ms.locfileid: "52446928"
 **데이터를 샘플링하는 이유**
 분석할 데이터 세트가 큰 경우 일반적으로 데이터를 다운 샘플링하여 작지만 전형적이고 관리하기 쉬운 크기로 줄이는 것이 좋습니다. 다운 샘플링을 수행하면 데이터 이해, 탐색 및 기능 엔지니어링이 용이해집니다. 팀 데이터 과학 프로세스에서는 데이터 처리 기능 및 기계 학습 모델의 빠른 프로토타입 제작을 지원하는 역할을 합니다.
 
-이 샘플 작업은 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 단계입니다.
+이 샘플 작업은 [TDSP(팀 데이터 과학 프로세스)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)의 단계입니다.
 
 ## <a name="how-to-submit-hive-queries"></a>Hive 쿼리를 제출하는 방법
 Hadoop 클러스터 헤드 노드의 Hadoop 명령줄 콘솔에서 Hive 쿼리를 제출할 수 있습니다. 이렇게 하려면 Hadoop 클러스터의 헤드 노드에 로그인하여 Hadoop 명령줄 콘솔을 열고 여기에서 Hive 쿼리를 제출합니다. Hadoop 명령줄 콘솔에서 Hive 쿼리를 제출하는 방법에 대한 지침은 [Hive 쿼리를 제출하는 방법](move-hive-tables.md#submit)을 참조하세요.
@@ -81,7 +81,7 @@ Hadoop 클러스터 헤드 노드의 Hadoop 명령줄 콘솔에서 Hive 쿼리�
     on b.catfield=c.catfield
 
 ## <a name="stratified"></a>계층화된 샘플링
-무작위 샘플링은 가져온 샘플에 상위 모집단과 동일한 비율로 존재하는 범주 값이 있는 경우 범주 변수에 대해 계층화됩니다. 위와 동일한 예제에서 NJ에 100개의 관찰, NY에 60개의 관찰, WA에 300개의 관찰 등, 데이터에 state별로 다른 관찰이 있다고 가정해 보겠습니다. 계층화된 샘플링 비율을 0.5로 지정하면 가져온 샘플에 대략적으로 각각 50개, 30개 및 150개의 NJ, NY 및 WA 관찰이 있게 됩니다.
+무작위 샘플링은 가져온 샘플에 상위 모집단과 동일한 비율로 존재하는 범주 값이 있는 경우 범주 변수에 대해 계층화됩니다. 위와 동일한 예제를 사용하여 데이터에 상태별 다음 관찰이 있다고 가정합니다. NJ에 100개의 관찰, NY에 60개의 관찰, WA에 300개의 관찰이 있습니다. 계층화된 샘플링 비율을 0.5로 지정하면 가져온 샘플에 대략적으로 각각 50개, 30개 및 150개의 NJ, NY 및 WA 관찰이 있게 됩니다.
 
 다음은 예제 쿼리입니다.
 

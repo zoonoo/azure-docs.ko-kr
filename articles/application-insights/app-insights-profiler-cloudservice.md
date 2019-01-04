@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 445e607b6b0a21f840ab633b3a5a3779f49fdd98
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 5bb70bf56efac28029401b69ee4f87c2738c52e3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142915"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721853"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Application Insights로 라이브 Azure Cloud Services 프로파일링
 
@@ -70,7 +69,7 @@ Application Insights Profiler는 WAD(Windows Azure 진단) 확장과 함께 설�
     >  * `ApplicationInsightsProfiler` 싱크에 사용되는 키입니다.  
     >
     > *ServiceConfiguration.\*.cscfg* 파일의 `ApplicationInsights` 싱크에 사용되는 실제 계측 키 값을 찾을 수 있습니다.  
-    > Visual Studio 15.5 Azure SDK 릴리스 후에는 응용 프로그램과 `ApplicationInsightsProfiler` 싱크에서 사용하는 계측 키만 서로 일치해야 합니다.
+    > Visual Studio 15.5 Azure SDK 릴리스 후에는 애플리케이션과 `ApplicationInsightsProfiler` 싱크에서 사용하는 계측 키만 서로 일치해야 합니다.
 1. 새 진단 구성을 사용하여 서비스를 배포하면 서비스에서 실행되도록 Application Insights Profiler가 구성됩니다.
  
 ## <a name="next-steps"></a>다음 단계

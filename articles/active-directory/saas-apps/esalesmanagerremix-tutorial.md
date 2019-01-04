@@ -32,7 +32,7 @@ Azure AD를 E Sales Manager Remix와 통합하면 다음과 같은 혜택이 있
 - 사용자가 해당 Azure AD 계정으로 E Sales Manager Remix에 자동으로 로그인(Single Sign-On 또는 SSO)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -52,7 +52,7 @@ E Sales Manager Remix와 Azure AD 통합을 구성하려면 다음 항목이 필
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 
 
-이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+ 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 * 갤러리에서 E Sales Manager Remix추가
 * Azure AD Single Sign-on 구성 및 테스트
@@ -66,11 +66,11 @@ E Sales Manager Remix와의 Azure AD 통합을 구성하려면 다음을 수행�
 
 1. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**을 선택합니다.
 
-    !["엔터프라이즈 응용 프로그램" 창][2]
+    !["엔터프라이즈 애플리케이션" 창][2]
     
 1. 새 응용 프로그램을 추가하려면 창 위쪽에 있는 **새 응용 프로그램**을 선택합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
 1. 검색 상자에 **E Sales Manager Remix**를 입력하고 결과 목록에서 **E Sales Manager Remix**를 선택한 후 **추가**를 선택합니다.
 
@@ -207,7 +207,7 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
  
 ### <a name="create-an-e-sales-manager-remix-test-user"></a>E Sales Manager Remix 테스트 사용자 만들기
 
-1. E Sales Manager Remix 응용 프로그램에 관리자로 로그온합니다.
+1. E Sales Manager Remix 애플리케이션에 관리자로 로그온합니다.
 
 1. 오른쪽 상단 메뉴에서 **관리자 메뉴**를 선택합니다.
 
@@ -239,9 +239,9 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
 
 ![사용자 역할 할당][200] 
 
-1. Azure Portal에서 **응용 프로그램** 보기를 열고 **디렉터리** 보기로 이동한 후 **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 **애플리케이션** 보기를 열고 **디렉터리** 보기로 이동한 후 **엔터프라이즈 애플리케이션** > **모든 애플리케이션**을 선택합니다.
 
-    !["엔터프라이즈 응용 프로그램" 및 "모든 응용 프로그램" 링크][201] 
+    !["엔터프라이즈 애플리케이션" 및 "모든 애플리케이션" 링크][201] 
 
 1. **응용 프로그램** 목록에서 **E Sales Manager Remix**를 선택합니다.
 

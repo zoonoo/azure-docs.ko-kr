@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 11/26/2018
+ms.date: 12/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 58bec272733d0ad83665f4e06f37ae528eb2f8b9
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d6696d9bdd69b085b9c9ac0804da68cd91612f35
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499652"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386964"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 리소스에 대한 기본 제공 역할
 [RBAC(역할 기반 액세스 제어)](overview.md)에는 사용자, 그룹 및 서비스 주체를 할당할 수 있는 여러 기본 제공 역할 정의가 있습니다. 역할 할당은 Azure의 리소스에 대한 액세스를 제어하는 방법입니다. 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [사용자 지정 역할](custom-roles.md)을 만들면 됩니다.
@@ -92,19 +92,19 @@ ms.locfileid: "52499652"
 | [관리 ID 운영자](#managed-identity-operator) | 사용자 할당 ID를 읽고 할당합니다. |
 | [관리 그룹 참가자](#management-group-contributor) | 관리 그룹 참가자 역할 |
 | [관리 그룹 읽기 권한자](#management-group-reader) | 관리 그룹 읽기 권한자 역할 |
-| [Monitoring Contributor](#monitoring-contributor) | 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있음 [Azure Monitor에서의 역할, 권한 및 보안 시작](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
+| [Monitoring Contributor](#monitoring-contributor) | 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있음 [Azure Monitor에서의 역할, 권한 및 보안 시작](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
 | [모니터링 메트릭 게시자](#monitoring-metrics-publisher) | Azure 리소스에 대한 게시 메트릭 사용 |
-| [Monitoring Reader](#monitoring-reader) | 모든 모니터링 데이터를 읽을 수 있음(메트릭, 로그 등) [Azure Monitor에서의 역할, 권한 및 보안 시작](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
+| [Monitoring Reader](#monitoring-reader) | 모든 모니터링 데이터를 읽을 수 있음(메트릭, 로그 등) [Azure Monitor에서의 역할, 권한 및 보안 시작](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
 | [네트워크 기여자](#network-contributor) | 네트워크를 관리할 수 있지만 액세스할 수는 없습니다. |
 | [NewRelic APM 계정 기여자](#new-relic-apm-account-contributor) | New Relic Application Performance Management 계정을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [읽기 권한자 및 데이터 액세스](#reader-and-data-access) | 모든 것을 볼 수 있지만, 저장소 계정 또는 포함된 리소스를 삭제하거나 만들 수는 없습니다. 또한 저장소 계정 키에 액세스하여 저장소 계정에 포함된 모든 데이터를 읽고 쓸 수 있습니다. |
-| [Redis Cache 참가자](#redis-cache-contributor) | Redis Cache를 관리할 수 있지만 액세스할 수는 없습니다. |
+| [Azure Cache for Redis Contributor](#redis-cache-contributor) | Azure Cache for Redis를 관리할 수 있지만 액세스할 수는 없습니다. |
 | [리소스 정책 참가자(미리 보기)](#resource-policy-contributor-preview) | (미리 보기) 리소스 정책을 생성/수정하고, 지원 티켓을 만들고, 리소스/계층 구조를 읽을 수 있는 권한을 가진 EA의 백필된 사용자입니다. |
 | [Scheduler 작업 컬렉션 참가자](#scheduler-job-collections-contributor) | Scheduler 작업 컬렉션을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [Search 서비스 기여자](#search-service-contributor) | Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. |
-| [보안 관리자](#security-admin) | Security Center에서만 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제를 수행합니다. |
+| [보안 관리자](#security-admin) | Security Center에서만: 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제를 수행합니다. |
 | [보안 관리자(레거시)](#security-manager-legacy) | 레거시 역할입니다. 보안 관리자를 대신 사용하세요. |
-| [보안 판독기](#security-reader) | Security Center에서만: 권장 사항 및 경고 보기, 보안 정책 보기, 보안 상태 보기 가능, 변경 불가 |
+| [보안 판독기](#security-reader) | Security Center에서만: 권장 사항 및 경고를 보고, 보안 정책을 보고, 보안 상태를 볼 수 있지만 변경할 수는 없습니다. |
 | [Site Recovery 기여자](#site-recovery-contributor) | 자격 증명 모음 만들기 및 역할 할당을 제외한 Site Recovery 서비스를 관리할 수 있습니다. |
 | [Site Recovery 운영자](#site-recovery-operator) | 장애 조치(failover) 및 장애 복구(failback)를 수행할 수 있지만 다른 Site Recovery 관리 작업은 수행할 수 없습니다. |
 | [Site Recovery 구독자](#site-recovery-reader) | Site Recovery 상태를 볼 수 있지만 다른 관리 작업은 수행할 수 없습니다. |
@@ -113,7 +113,8 @@ ms.locfileid: "52499652"
 | [SQL Server 기여자](#sql-server-contributor) | SQL Server 및 데이터베이스를 관리할 수 있지만 여기에 액세스할 수는 없으며, 해당하는 보안과 관련된 정책에도 액세스할 수 없습니다. |
 | [Storage 계정 기여자](#storage-account-contributor) | Storage 계정을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
 | [저장소 계정 키 운영자 서비스 역할](#storage-account-key-operator-service-role) | 저장소 계정 키 운영자가 저장소 계정에서 키를 나열하고 다시 생성할 수 있습니다. |
-| [Storage Blob 데이터 참가자(미리 보기)](#storage-blob-data-contributor-preview) | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기, 쓰기 및 삭제 액세스 허용 |
+| [Storage Blob 데이터 참가자(미리 보기)](#storage-blob-data-contributor-preview) | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기, 쓰기 및 삭제 액세스를 허용합니다. |
+| [Storage Blob 데이터 소유자(미리 보기)](#storage-blob-data-owner-preview) | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기, 쓰기, 삭제 및 POSIX 슈퍼 사용자 액세스 권한을 사용할 수 있습니다. |
 | [Storage Blob 데이터 판독기(미리 보기)](#storage-blob-data-reader-preview) | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기 액세스 허용 |
 | [Storage 큐 데이터 기여자(미리 보기)](#storage-queue-data-contributor-preview) | Azure Storage 큐 및 큐 메시지에 대한 읽기, 쓰기 및 삭제 액세스 허용 |
 | [Storage 큐 데이터 판독기(미리 보기)](#storage-queue-data-reader-preview) | Azure Storage 큐 및 큐 메시지에 대한 읽기 액세스를 허용합니다. |
@@ -1123,7 +1124,7 @@ ms.locfileid: "52499652"
 > | **Id** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | **Actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
-> | Microsoft.Solutions/applications/read | 응용 프로그램 목록을 검색합니다. |
+> | Microsoft.Solutions/applications/read | 애플리케이션 목록을 검색합니다. |
 
 ## <a name="managed-applications-reader"></a>Managed Applications 읽기 권한자
 > [!div class="mx-tableFixed"]
@@ -1193,7 +1194,7 @@ ms.locfileid: "52499652"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. [Azure Monitor에서의 역할, 권한 및 보안 시작](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
+> | **설명** | 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. [Azure Monitor에서의 역할, 권한 및 보안 시작](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
 > | **Id** | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | **Actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
@@ -1237,7 +1238,7 @@ ms.locfileid: "52499652"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 모든 모니터링 데이터(메트릭, 로그 등)를 읽을 수 있습니다. [Azure Monitor에서의 역할, 권한 및 보안 시작](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
+> | **설명** | 모든 모니터링 데이터(메트릭, 로그 등)를 읽을 수 있습니다. [Azure Monitor에서의 역할, 권한 및 보안 시작](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
 > | **Id** | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | **Actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
@@ -1284,15 +1285,15 @@ ms.locfileid: "52499652"
 > | Microsoft.Storage/storageAccounts/listKeys/action | 지정된 저장소 계정에 대한 액세스 키를 반환합니다. |
 > | Microsoft.Storage/storageAccounts/read | 저장소 계정의 목록을 반환하거나 지정된 저장소 계정의 속성을 가져옵니다. |
 
-## <a name="redis-cache-contributor"></a>Redis Cache 참가자
+## <a name="azure-cache-for-redis-contributor"></a>Azure Cache for Redis Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Redis Cache를 관리할 수 있지만 액세스할 수는 없습니다. |
+> | **설명** | Azure Cache for Redis를 관리할 수 있지만 액세스할 수는 없습니다. |
 > | **Id** | e0f68234-74aa-48ed-b826-c38b57376e17 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
-> | Microsoft.Cache/redis/* | Redis 캐시 만들기 및 관리 |
+> | Microsoft.Cache/redis/* | Azure Cache for Redis 만들기 및 관리 |
 > | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
@@ -1347,7 +1348,7 @@ ms.locfileid: "52499652"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Security Center에서만 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제를 수행합니다. |
+> | **설명** | Security Center에서만: 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제를 수행합니다. |
 > | **Id** | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
@@ -1393,7 +1394,7 @@ ms.locfileid: "52499652"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Security Center에서만 권장 사항 및 경고 보기, 보안 정책 보기, 보안 상태 보기가 가능하며 변경할 수는 없습니다. |
+> | **설명** | Security Center에서만: 권장 사항 및 경고를 보고, 보안 정책을 보고, 보안 상태를 볼 수 있지만 변경할 수는 없습니다. |
 > | **Id** | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
@@ -1687,6 +1688,21 @@ ms.locfileid: "52499652"
 > | --- | --- |
 > | **설명** | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기, 쓰기 및 삭제 액세스를 허용합니다. |
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
+> | **Actions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 컨테이너 삭제 결과를 반환합니다. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너 또는 컨테이너 목록을 반환합니다. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Blob 컨테이너 넣기 또는 임대 결과를 반환합니다. |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Blob 삭제 결과 반환 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Blob 또는 Blob 목록 반환 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Blob 쓰기 결과 반환 |
+
+## <a name="storage-blob-data-owner-preview"></a>Storage Blob 데이터 소유자(미리 보기)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기, 쓰기, 삭제 및 POSIX 슈퍼 사용자 액세스 권한을 사용할 수 있습니다. |
+> | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 컨테이너 삭제 결과를 반환합니다. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너 또는 컨테이너 목록을 반환합니다. |

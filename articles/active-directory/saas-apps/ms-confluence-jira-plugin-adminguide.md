@@ -28,11 +28,11 @@ Azure AD(Azure Active Directory) SSO(Single Sign-On) 플러그 인을 통해 Mic
 
 ## <a name="how-it-works"></a>작동 방법
 
-사용자가 Atlassian Jira 또는 Confluence 응용 프로그램에 로그인하려는 경우 로그인 페이지에 **Azure AD로 로그인** 단추가 보입니다. 해당 단추를 선택하면 Azure AD 조직 로그인 페이지(즉, 회사 또는 학교 계정)를 사용하여 로그인해야 합니다.
+사용자가 Atlassian Jira 또는 Confluence 애플리케이션에 로그인하려는 경우 로그인 페이지에 **Azure AD로 로그인** 단추가 보입니다. 해당 단추를 선택하면 Azure AD 조직 로그인 페이지(즉, 회사 또는 학교 계정)를 사용하여 로그인해야 합니다.
 
-사용자가 인증되면 응용 프로그램에 로그인할 수 있습니다. 회사 또는 학교 계정의 ID 및 암호를 사용하여 이미 인증된 경우 응용 프로그램에 직접 로그인합니다. 
+사용자가 인증되면 애플리케이션에 로그인할 수 있습니다. 회사 또는 학교 계정의 ID 및 암호를 사용하여 이미 인증된 경우 애플리케이션에 직접 로그인합니다. 
 
-로그인은 Jira 및 Confluence에서도 작동합니다. 사용자가 Jira 응용 프로그램에 로그인되어 있고 Confluence가 동일한 브라우저 창에 열려 있는 경우, 다른 앱에서 자격 증명을 제공할 필요가 없습니다. 
+로그인은 Jira 및 Confluence에서도 작동합니다. 사용자가 Jira 애플리케이션에 로그인되어 있고 Confluence가 동일한 브라우저 창에 열려 있는 경우, 다른 앱에서 자격 증명을 제공할 필요가 없습니다. 
 
 사용자는 회사 또는 학교 계정으로 My Apps를 통해 Atlassian 제품을 얻을 수도 있습니다. 자격 증명을 입력하지 않고 로그인되어야 합니다.
 
@@ -231,7 +231,7 @@ SAML 2.0과 함께 작동합니다.
 
 ### <a name="does-the-plug-in-do-user-provisioning"></a>플러그 인은 사용자 프로비저닝을 수행하나요?
 
- 아니요. 플러그 인은 SAML 2.0 기반 SSO만 제공합니다. SSO 로그인 전에 응용 프로그램에서 사용자를 프로비전해야 합니다.
+ 아니요. 플러그 인은 SAML 2.0 기반 SSO만 제공합니다. SSO 로그인 전에 애플리케이션에서 사용자를 프로비전해야 합니다.
 
 ### <a name="does-the-plug-in-support-cluster-versions-of-jira-and-confluence"></a>플러그 인에서 지원하는 Jira 및 Confluence 버전은 무엇인가요?
 

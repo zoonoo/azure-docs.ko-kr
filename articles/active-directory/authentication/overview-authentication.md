@@ -21,7 +21,7 @@ ms.locfileid: "39162974"
 
 암호가 도난되고 ID가 유출되었다는 뉴스를 종종 접하게 됩니다. 암호 외에도 두 번째 요소를 요구하면 조직의 보안이 즉시 향상됩니다. Microsoft Azure AD(Azure Active Directory)에는 관리자가 추가 인증 방법을 통해 조직과 사용자를 보호할 수 있는 Azure MFA(Azure Multi-Factor Authentication) 및 Azure AD SSPR(셀프 서비스 암호 재설정) 같은 기능이 포함되어 있습니다.
 
-사용자가 중요한 응용 프로그램에 액세스하고, 암호를 재설정하거나 Windows Hello를 사용하도록 설정해야 하는 경우 사용자의 신분을 확인하기 위해 추가 확인을 요구할 수 있습니다.
+사용자가 중요한 애플리케이션에 액세스하고, 암호를 재설정하거나 Windows Hello를 사용하도록 설정해야 하는 경우 사용자의 신분을 확인하기 위해 추가 확인을 요구할 수 있습니다.
 
 추가 확인은 다음과 같은 인증 방법의 형태로 진행될 수 있습니다.
 
@@ -48,7 +48,7 @@ Azure MFA 및 Azure AD 셀프 서비스 암호 재설정을 사용하면 관리�
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Azure Multi-factor Authentication(MFA)은 Microsoft의 2단계 인증 솔루션입니다. 관리자가 승인한 인증 방법을 사용하는 Azure MFA는 간단한 로그인 프로세스에 대한 요구를 충족하는 동시에 데이터와 응용 프로그램에 대한 액세스를 보호합니다.
+Azure Multi-factor Authentication(MFA)은 Microsoft의 2단계 인증 솔루션입니다. 관리자가 승인한 인증 방법을 사용하는 Azure MFA는 간단한 로그인 프로세스에 대한 요구를 충족하는 동시에 데이터와 애플리케이션에 대한 액세스를 보호합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

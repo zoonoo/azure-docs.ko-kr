@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: ce74d12e4ea91d8c230218081461bc375e250ce4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7f87f93ebc739d75c796859c7091d4cf62a820a0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260587"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714987"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 업데이트
 
@@ -162,9 +162,8 @@ Azure Stack 호스트 키 인프라를 Windows Server 2016의 Server Core 설치
 
 ### <a name="prerequisites"></a>필수 조건
 
-- Azure Stack을 설치 [1805 업데이트](azure-stack-update-1805.md) Azure Stack 1807 업데이트를 적용 하기 전에 합니다.  1806 업데이트가 있었습니다.  
-
-- 사용 가능한 최신 설치 [업데이트 또는 핫픽스 1805 버전용](azure-stack-update-1805.md#post-update-steps)합니다.  
+- Azure Stack을 설치 [1805 업데이트](azure-stack-update-1805.md) Azure Stack 1807 업데이트를 적용 하기 전에 합니다. 1806 업데이트가 있었습니다.  
+ 
   > [!TIP]  
   > 다음을 구독할 *RRS* 또는 *Atom* Azure Stack 핫픽스를 피드 합니다.
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss ... 
@@ -244,16 +243,16 @@ Azure Stack 호스트 키 인프라를 Windows Server 2016의 Server Core 설치
 - 에 대 한 경고를 표시 될 수 있습니다 합니다 **상태 컨트롤러** 다음 세부 정보는 구성 요소:  
 
    경고 # 1:
-   - 비정상 인프라 역할 이름:
-   - 심각도: 경고
-   - 구성 요소: 상태 컨트롤러
-   - 설명: 상태 컨트롤러 하트 비트 검색 프로그램 사용할 수 없는 경우 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.  
+   - 이름:  인프라 역할 비정상
+   - 심각도: Warning
+   - 구성 요소입니다. 상태 컨트롤러
+   - 설명: 상태 컨트롤러 하트 비트 검색 프로그램을 사용할 수 없는 경우 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.  
 
   # 2를 경고 합니다.
-   - 비정상 인프라 역할 이름:
-   - 심각도: 경고
-   - 구성 요소: 상태 컨트롤러
-   - 설명: 상태 컨트롤러 오류 스캐너를 사용할 수 없습니다. 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.
+   - 이름:  인프라 역할 비정상
+   - 심각도: Warning
+   - 구성 요소입니다. 상태 컨트롤러
+   - 설명: 상태 컨트롤러 오류 스캐너 제공 되지 않습니다. 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.
 
   모두 경고를 안전 하 게 무시할 수 있습니다 하 고 시간이 지남에 따라 자동으로 닫을 수 있습니다.  
 
@@ -262,9 +261,9 @@ Azure Stack 호스트 키 인프라를 Windows Server 2016의 Server Core 설치
 - 에 대 한 경고가 표시 될 수 있습니다 **저장소** 다음 세부 정보는 구성 요소:
 
    - 이름: 저장소 서비스의 내부 통신 오류  
-   - 심각도: 위험  
-   - 구성 요소: 저장소  
-   - 설명: 다음 노드에 요청을 보낼 때 저장소 서비스의 내부 통신 오류가 발생 했습니다.  
+   - 심각도: 중요  
+   - 구성 요소입니다. Storage  
+   - 설명: 다음 노드에 요청을 전송 하는 저장소 서비스의 내부 통신 오류가 발생 했습니다.  
 
     경고를 안전 하 게 무시할 수 있지만 경고를 수동으로 종결 해야 합니다.
 
@@ -278,10 +277,10 @@ Azure Stack 호스트 키 인프라를 Windows Server 2016의 Server Core 설치
 - PowerShell cmdlet을 사용 하는 경우 **시작 AzsScaleUnitNode** 하거나 **중지 AzsScaleunitNode** 배율 단위를 관리 하려면 시작 또는 중지 확장 단위를 첫 번째 시도가 실패할 수 있습니다. 첫 번째 실행에 실패 하면 cmdlet은 cmdlet을 두 번 실행 합니다. 작업을 완료 하 고 두 번째 실행 성공 해야 합니다. 
 
 <!-- 2494144 - IS, ASDK --> 
-- 일부 F 시리즈 VM 크기는 가상 머신 배포에 대 한 가상 머신 크기를 선택할 때 표시 되지 일부로 VM을 만들 때 크기 선택기입니다. 다음 VM 크기 선택기에 표시 되지 않습니다: *F8s_v2*, *F16s_v2*, *F32s_v2*, 및 *F64s_v2*합니다.  
+- 일부 F 시리즈 VM 크기는 가상 머신 배포에 대 한 가상 머신 크기를 선택할 때 표시 되지 일부로 VM을 만들 때 크기 선택기입니다. VM 크기 선택기에 표시 되지 않습니다. *F8s_v2*, *F16s_v2*합니다 *F32s_v2*, 및 *F64s_v2*합니다.  
   해결 방법으로 VM을 배포 하려면 다음 방법 중 하나를 사용 합니다. 각 메서드를 사용 하려면 VM 크기를 지정 해야 합니다.
 
-  - **Azure Resource Manager 템플릿:** 템플릿을 사용 하는 경우 설정 된 *vmSize* 사용 하려는 VM 크기와 같아야 하는 템플릿에 합니다. 다음 항목을 사용 하는 VM을 배포 하는 예를 들어 합니다 *F32s_v2* 크기:  
+  - **Azure Resource Manager 템플릿:** 템플릿을 사용 하는 경우 설정 합니다 *vmSize* 에서 템플릿을 사용 하려면 VM 크기와 같아야 합니다. 다음 항목을 사용 하는 VM을 배포 하는 예를 들어 합니다 *F32s_v2* 크기:  
 
     ```
         "properties": {
@@ -291,7 +290,7 @@ Azure Stack 호스트 키 인프라를 Windows Server 2016의 Server Core 설치
     ```  
   - **Azure CLI:** 사용할 수는 [az vm 만들기](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) 명령 및 유사한 매개 변수로 VM 크기를 지정할 `--size "Standard_F32s_v2"`합니다.
 
-  - **PowerShell:** Powershell을 사용할 수 있습니다 [New-azurermvmconfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) 비슷합니다 VM 크기를 지정 하는 매개 변수를 사용 하 여 `-VMSize "Standard_F32s_v2"`입니다.
+  - **PowerShell:** PowerShell을 사용 하 여 사용할 수 있습니다 [New-azurermvmconfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) 비슷합니다는 VM 크기를 지정 하는 매개 변수를 사용 하 여 `-VMSize "Standard_F32s_v2"`입니다.
 
 
 <!-- TBD - IS ASDK --> 

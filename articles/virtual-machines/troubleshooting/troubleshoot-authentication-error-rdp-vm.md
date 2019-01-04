@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 5f9d933f0f294855719c8d187e759708ef8c9931
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 47d3b827099d3a4a7520ac66765d2928795b6e49
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669610"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967983"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>RDP를 사용한 Azure VM 연결 시의 인증 오류 문제 해결
 
@@ -75,7 +75,7 @@ VM에서 FIPS(Federal Information Processing Standard) 호환 알고리즘 연�
 
 ### <a name="create-a-backup-snapshot"></a>백업 스냅숏 만들기
 
-백업 스냅숏을 만들려면 [디스크 스냅숏](..\windows\snapshot-copy-managed-disk.md)의 단계를 수행합니다.
+백업 스냅숏을 만들려면 [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)의 단계를 수행합니다.
 
 ### <a name="connect-to-the-vm-remotely"></a>원격으로 VM에 연결
 
@@ -210,7 +210,7 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel /t REG_DWORD /d 2 /f
     ```
 
-* 2(클라이언트에서 지시한 대로 가장 높은 암호화 가능): 다음 명령을 실행하여 암호화를 최솟값(**1**)으로 설정할 수 있습니다.
+* 2(클라이언트가 지정한 대로 가장 강력한 암호화 가능): 다음 명령을 실행하여 암호화를 최솟값(**1**)으로 설정할 수 있습니다.
 
     ```cmd
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel /t REG_DWORD /d 1 /f

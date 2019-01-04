@@ -23,14 +23,14 @@ ms.lasthandoff: 10/26/2018
 ms.locfileid: "50158785"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>관리되는 도메인에서 KCD(Kerberos 제한 위임) 구성
-대부분의 응용 프로그램은 사용자의 컨텍스트에서 리소스에 액세스해야 합니다. Active Directory는 이 사용 사례가 가능한 Kerberos 위임이라고 하는 메커니즘을 지원합니다. 또한 사용자의 컨텍스트에서 특정 리소스에만 액세스할 수 있도록 위임을 제한할 수 있습니다. Azure AD Domain Services 관리되는 도메인은 더 안전하게 잠겨 있으므로 기존의 Active Directory 도메인과는 다릅니다.
+대부분의 애플리케이션은 사용자의 컨텍스트에서 리소스에 액세스해야 합니다. Active Directory는 이 사용 사례가 가능한 Kerberos 위임이라고 하는 메커니즘을 지원합니다. 또한 사용자의 컨텍스트에서 특정 리소스에만 액세스할 수 있도록 위임을 제한할 수 있습니다. Azure AD Domain Services 관리되는 도메인은 더 안전하게 잠겨 있으므로 기존의 Active Directory 도메인과는 다릅니다.
 
 이 문서는 Azure AD Domain Services 관리되는 도메인에서 Kerberos 제한 위임을 구성하는 방법을 보여 줍니다.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="kerberos-constrained-delegation-kcd"></a>Kerberos 제한 위임(KCD)
-Kerberos 위임을 사용하면 리소스에 액세스하도록 계정을 다른 보안 주체(예: 사용자)로 가장할 수 있습니다. 웹 응용 프로그램을 사용자의 컨텍스트에서 백 엔드 웹 API에 액세스하는 것으로 간주합니다. 이 예제에서는 웹 응용 프로그램(서비스 계정 또는 컴퓨터/컴퓨터 계정의 컨텍스트에서 실행)이 리소스(백 엔드 웹 API)에 액세스할 때 사용자를 가장합니다. Kerberos 위임은 사용자의 컨텍스트에서 가장한 계정이 액세스할 수 있는 리소스를 제한하지 않으므로 안전하지 않습니다.
+Kerberos 위임을 사용하면 리소스에 액세스하도록 계정을 다른 보안 주체(예: 사용자)로 가장할 수 있습니다. 웹 애플리케이션을 사용자의 컨텍스트에서 백 엔드 웹 API에 액세스하는 것으로 간주합니다. 이 예제에서는 웹 애플리케이션(서비스 계정 또는 컴퓨터/컴퓨터 계정의 컨텍스트에서 실행)이 리소스(백 엔드 웹 API)에 액세스할 때 사용자를 가장합니다. Kerberos 위임은 사용자의 컨텍스트에서 가장한 계정이 액세스할 수 있는 리소스를 제한하지 않으므로 안전하지 않습니다.
 
 Kerberos 제한 위임(KCD)은 특정 서버가 사용자를 대신하여 작동할 수 있는 서비스/리소스를 제한합니다. 기존의 KCD는 서비스에 대한 도메인 계정을 구성하기 위해 도메인 관리자 권한이 필요하고 계정을 단일 도메인으로 제한합니다.
 

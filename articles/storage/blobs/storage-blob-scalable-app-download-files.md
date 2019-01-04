@@ -24,8 +24,8 @@ ms.locfileid: "51704718"
 시리즈 3부에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 응용 프로그램 업데이트
-> * 응용 프로그램 실행
+> * 애플리케이션 업데이트
+> * 애플리케이션 실행
 > * 연결 수의 유효성 검사
 
 ## <a name="prerequisites"></a>필수 조건
@@ -40,7 +40,7 @@ ms.locfileid: "51704718"
 mstsc /v:<publicIpAddress>
 ```
 
-## <a name="update-the-application"></a>응용 프로그램 업데이트
+## <a name="update-the-application"></a>애플리케이션 업데이트
 
 이전 자습서에서는 저장소 계정에 파일만 업로드했습니다. 텍스트 편집기에서 `D:\git\storage-dotnet-perf-scale-app\Program.cs` 파일을 엽니다. `Main` 메서드를 다음 샘플로 바꿉니다. 이 예제에서는 업로드 작업을 주석 처리하고, 완료 시 다운로드 작업 및 저장소 계정의 콘텐츠를 삭제하는 작업의 주석을 제거합니다.
 
@@ -82,15 +82,15 @@ public static void Main(string[] args)
 }
 ```
 
-응용 프로그램이 업데이트된 후 응용 프로그램을 다시 빌드해야 합니다. `Command Prompt`를 열고 `D:\git\storage-dotnet-perf-scale-app`으로 이동합니다. 다음 예제에 표시된 대로 `dotnet build`를 실행하여 응용 프로그램을 다시 빌드합니다.
+애플리케이션이 업데이트된 후 애플리케이션을 다시 빌드해야 합니다. `Command Prompt`를 열고 `D:\git\storage-dotnet-perf-scale-app`으로 이동합니다. 다음 예제에 표시된 대로 `dotnet build`를 실행하여 애플리케이션을 다시 빌드합니다.
 
 ```
 dotnet build
 ```
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
-이제 응용 프로그램이 다시 빌드되었으므로 업데이트된 코드로 응용 프로그램을 실행할 차례입니다. 아직 열지 않은 경우 `Command Prompt`를 열고 `D:\git\storage-dotnet-perf-scale-app`으로 이동합니다.
+이제 애플리케이션이 다시 빌드되었으므로 업데이트된 코드로 애플리케이션을 실행할 차례입니다. 아직 열지 않은 경우 `Command Prompt`를 열고 `D:\git\storage-dotnet-perf-scale-app`으로 이동합니다.
 
 `dotnet run`를 입력하여 응용 프로그램을 실행합니다.
 
@@ -98,7 +98,7 @@ dotnet build
 dotnet run
 ```
 
-응용 프로그램은 **storageconnectionstring**에 지정된 저장소 계정에 있는 컨테이너를 읽습니다. 컨테이너에 있는 [ListBlobsSegmented](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 메서드를 사용하여 한 번에 Blob을 10개 반복하고 [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 메서드를 사용하여 로컬 컴퓨터로 다운로드합니다.
+애플리케이션은 **storageconnectionstring**에 지정된 스토리지 계정에 있는 컨테이너를 읽습니다. 컨테이너에 있는 [ListBlobsSegmented](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 메서드를 사용하여 한 번에 Blob을 10개 반복하고 [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 메서드를 사용하여 로컬 컴퓨터로 다운로드합니다.
 다음 표에서는 다운로드된 각 Blob에 대해 정의된 [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet)를 보여 줍니다.
 
 |자산|값|설명|
@@ -206,7 +206,7 @@ C:\>
 시리즈 3부에서는 다음 방법을 통해 저장소 계정에서 대량의 임의 데이터를 다운로드하는 방법에 대해 배웠습니다.
 
 > [!div class="checklist"]
-> * 응용 프로그램 실행
+> * 애플리케이션 실행
 > * 연결 수의 유효성 검사
 
 포털에서 처리량 및 대기 시간 메트릭을 확인하려면 시리즈의 4부로 이동하세요.

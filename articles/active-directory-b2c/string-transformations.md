@@ -37,7 +37,7 @@ ms.locfileid: "47433449"
 
 ![AssertStringClaimsAreEqual 실행](./media/string-transformations/assert-execution.png)
 
-이 클레임 변환을 사용하면 두 ClaimType의 값이 같은지를 확인할 수 있습니다. 두 값이 같지 않으면 오류 메시지가 throw됩니다. 다음 예제에서는 **strongAuthenticationEmailAddress** ClaimType이 **** ClaimType과 같은지를 확인합니다. 두 ClaimType이 같지 않으면 오류 메시지가 throw됩니다. 
+이 클레임 변환을 사용하면 두 ClaimType의 값이 같은지를 확인할 수 있습니다. 두 값이 같지 않으면 오류 메시지가 throw됩니다. 다음 예제에서는 **strongAuthenticationEmailAddress** ClaimType이 **이메일** ClaimType과 동일한 지 확인합니다. 두 ClaimType이 같지 않으면 오류 메시지가 throw됩니다. 
 
 ```XML
 <ClaimsTransformation Id="AssertEmailAndStrongAuthenticationEmailAddressAreEqual" TransformationMethod="AssertStringClaimsAreEqual">
@@ -415,7 +415,7 @@ ms.locfileid: "47433449"
 | InputParameter | errorOnFailedLookup | 부울 | 조회에서 일치하는 항목이 없으면 오류가 반환되는지 여부를 제어합니다. |
 | OutputClaim | inputParameterId | string | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. 일치하는 ID의 값입니다. |
 
-다음 예제에서는 inpuParameters 컬렉션 중 하나에서 도메인 이름을 조회합니다. 클레임 변환은 식별자에서 도메인 이름을 조회한 다음 해당 값(응용 프로그램 ID)을 반환합니다.
+다음 예제에서는 inpuParameters 컬렉션 중 하나에서 도메인 이름을 조회합니다. 클레임 변환은 식별자에서 도메인 이름을 조회한 다음, 해당 값(애플리케이션 ID)을 반환합니다.
 
 ```XML
  <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">

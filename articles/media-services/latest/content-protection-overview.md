@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services를 사용한 콘텐츠 보호 | Microsoft Docs
+title: Media Services를 사용한 콘텐츠 보호 - Azure | Microsoft Docs
 description: 이 기사는 Media Services 콘텐츠 보호에 대한 개요를 제공합니다.
 services: media-services
 documentationcenter: ''
@@ -11,18 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 1c7454aead07c728d55ff2c309cca83a792aac88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: cb7e867ea4304cf8b8741eac183e60d325c752c7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238352"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141852"
 ---
 # <a name="content-protection-overview"></a>콘텐츠 보호 개요
 
-Azure Media Services를 사용하여 컴퓨터를 떠날 때부터 저장, 처리 및 배달에 이르는 과정 내내 미디어를 보호할 수 있습니다. Microsoft Azure Media Services를 사용하면 Advanced Encryption Standard (AES-128) 또는 Microsoft PlayReady, Google Widevine 및 Apple FairPlay 등 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나로 동적 암호화된 라이브 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다. 
+Azure Media Services를 사용하여 컴퓨터를 떠날 때부터 저장, 처리 및 배달에 이르는 과정 내내 미디어를 보호할 수 있습니다. Media Services를 사용하면 Advanced Encryption Standard(AES-128) 또는 Microsoft PlayReady, Google Widevine 및 Apple FairPlay 등 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나로 동적 암호화된 라이브 콘텐츠 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다. 
 
 다음 이미지는 Media Services 콘텐츠 보호 워크플로를 보여 줍니다. 
 
@@ -52,14 +53,14 @@ Azure Media Services를 사용하여 컴퓨터를 떠날 때부터 저장, 처�
 
 2. AES 또는 DRM 클라이언트를 사용한 플레이어. 플레이어 SDK(기본 또는 브라우저 기반)에 따라 비디오 플레이어 앱은 다음 요구 사항을 충족해야 합니다.
   * 플레이어 SDK는 필요한 DRM 클라이언트 지원
-  * 플레이어 SDK는 부드러운, DASH 및/또는 HLS 등의 필요한 스트리밍 프로토콜 지원
+  * 플레이어 SDK는 필요한 스트리밍 프로토콜 즉, Smooth, DASH 및/또는 HLS를 지원합니다.
   * 플레이어 SDK는 라이선스 취득 요청에서 JWT 토큰 전달을 처리할 수 있어야 함
   
     [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/)를 사용하여 플레이어를 만들 수 있습니다. [Azure Media Player의 ProtectionInfo API](http://amp.azure.net/libs/amp/latest/docs/)를 통해 다양한 DRM 플랫폼에 사용할 DRM 기술을 지정할 수 있습니다.
 
     AES 또는 CENC(Widevine 및/또는 PlayReady) 암호화된 콘텐츠를 테스트하려면 [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html)를 사용할 수 있습니다. “고급 옵션”을 클릭하고 암호화 옵션을 확인합니다.
 
-    FairPlay 암호화된 콘텐츠를 테스트하려는 경우 [이 테스트 플레이어](https://aka.ms/amtest)를 사용합니다. 플레이어는 Widevine, PlayReady, FairPlay DRMs 및 AES-128 암호화되지 않은 키 암호화를 지원합니다. Chrome/Opera/Firefox for Widevine, MS Edge/IE11 for PlayReady, Safari on macOS for FairPlay 등의 다양한 DRM을 테스트하려면 올바른 브라우저를 선택해야 합니다.
+    FairPlay 암호화된 콘텐츠를 테스트하려는 경우 [이 테스트 플레이어](https://aka.ms/amtest)를 사용합니다. 플레이어는 Widevine, PlayReady, FairPlay DRMs 및 AES-128 암호화되지 않은 키 암호화를 지원합니다. 다양한 DRM을 테스트하기 위해 적절한 브라우저 즉, Widevine의 경우 Chrome/Opera/Firefox, PlayReady의 경우 MS Edge/IE11, FairPlay의 경우 macOS의 Safari를 선택해야 합니다.
 
 3. 백 엔드 리소스 액세스에 대한 액세스 토큰으로 JWT(JSON Web Token)를 발급하는 STS(보안 토큰 서비스). AMS 라이선스 배달 서비스를 백 엔드 리소스로 사용할 수 있습니다. STS는 다음을 정의해야 합니다.
 

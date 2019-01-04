@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: c370808d06f31f9d79c99ca0f20f613d9e335d60
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0c058cb6547d67469d3138dc331b6181c07e6e65
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339054"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087527"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Mac OS X VPN 클라이언트에서 지점 및 사이트 간 VPN 연결 문제 해결
 
@@ -36,13 +36,13 @@ ms.locfileid: "49339054"
 ## <a name="VPNClient"></a> 인증서 기반 인증 문제 해결
 1. VPN 클라이언트 설정을 확인합니다. Command+Shift를 눌러 **네트워크 설정**으로 이동한 다음, “VPN”을 입력하여 VPN 클라이언트 설정을 확인합니다. 목록에서 조사해야 하는 VPN 항목을 클릭합니다.
 
-  ![IKEv2 인증서 기반 인증](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2cert1.jpg)
+   ![IKEv2 인증서 기반 인증](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2cert1.jpg)
 2. **서버 주소**가 완전한 FQDN이고 cloudapp.net을 포함하는지 확인합니다.
 3. **원격 ID**는 서버 주소(게이트웨이 FQDN)와 동일해야 합니다.
 4. **로컬 ID**는 클라이언트 인증서의 **주체**와 동일해야 합니다.
 5. **인증 설정**을 클릭하여 인증 설정 페이지를 엽니다.
 
-  ![인증 설정](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
+   ![인증 설정](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
 6. 드롭다운에서 **인증서**가 선택되었는지 확인합니다.
 7. **선택** 단추를 클릭하고 올바른 인증서가 선택되었는지 확인합니다. **확인**을 클릭하여 변경 내용을 저장합니다.
 
@@ -50,13 +50,13 @@ ms.locfileid: "49339054"
 
 1. VPN 클라이언트 설정을 확인합니다. Command+Shift를 눌러 **네트워크 설정**으로 이동한 다음, “VPN”을 입력하여 VPN 클라이언트 설정을 확인합니다. 목록에서 조사해야 하는 VPN 항목을 클릭합니다.
 
-  ![IKEv2 사용자 이름 암호](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2user3.jpg)
+   ![IKEv2 사용자 이름 암호](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2user3.jpg)
 2. **서버 주소**가 완전한 FQDN이고 cloudapp.net을 포함하는지 확인합니다.
 3. **원격 ID**는 서버 주소(게이트웨이 FQDN)와 동일해야 합니다.
 4. **로컬 ID**는 공백일 수 있습니다.
 5. **인증 설정** 단추를 클릭하고 드롭다운에서 “사용자 이름”이 선택되었는지 확인합니다.
 
-  ![인증 설정](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.jpg)
+   ![인증 설정](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.jpg)
 6. 올바른 자격 증명 정보가 입력되었는지 확인합니다.
 
 ## <a name="additional"></a>추가 단계
@@ -66,7 +66,7 @@ ms.locfileid: "49339054"
 1. *isakmp*를 필터링하고 **IKE_SA** 패킷을 확인합니다. **페이로드: 보안 연결** 아래에서 SA 제안 세부 정보를 확인할 수 있습니다. 
 2. 클라이언트와 서버에 공통 집합이 있는지 확인합니다.
 
-  ![패킷](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
+   ![패킷](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
   
 3. 네트워크 추적에 서버 응답이 없는 경우 Azure Portal 웹 사이트의 Azure 게이트웨이 구성 페이지에서 IKEv2 프로토콜을 사용하도록 설정했는지 확인합니다.
 

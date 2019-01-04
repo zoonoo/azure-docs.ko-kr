@@ -3,7 +3,7 @@ title: Azure SQL Database vCore 기반 리소스 제한 - 탄력적 풀 | Micros
 description: 이 페이지에서는 Azure SQL Database의 탄력적 풀에 대한 몇 가지 일반적인 vCore 기반 리소스 제한을 설명합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pool
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6673fa9d377400d7e80fc95dc7d0ce12f4b2e60e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: f41974c6e2b2b0565f0a2703cfd638777a6bb9eb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354175"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878026"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>탄력적 풀에 대한 Azure SQL Database vCore 기반 구매 모델 제한
 
@@ -33,7 +33,7 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 > [!NOTE]
 > 탄력적 풀의 개별 데이터베이스에 대한 리소스 제한은 일반적으로 계산 크기가 동일한 풀 외부의 단일 데이터베이스에 대한 리소스 제한과 동일합니다. 예를 들어 GP_Gen4_1 데이터베이스에 대한 최대 동시 작업자 수는 200명입니다. 따라서 GP_Gen4_1 풀의 데이터베이스에 대한 최대 동시 작업자 수도 200명입니다. GP_Gen4_1 풀에 대한 총 동시 작업자 수는 210명입니다.
 
-## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>범용 서비스 계층: 저장소 크기 및 크기 계산
+## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>범용 서비스 계층: 스토리지 크기 및 컴퓨팅 크기
 
 ### <a name="generation-4-compute-platform"></a>4세대 계산 플랫폼
 
@@ -85,7 +85,7 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 |||
 
-## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>중요 비즈니스용 서비스 계층: 저장소 크기 및 크기 계산
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>중요 비즈니스 서비스 계층: 스토리지 크기 및 컴퓨팅 크기
 
 ### <a name="generation-4-compute-platform"></a>4세대 계산 플랫폼
 
@@ -153,5 +153,5 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 ## <a name="next-steps"></a>다음 단계
 
 - 자주 묻는 질문에 대한 답변은 [SQL Database FAQ](sql-database-faq.md)를 참조하세요.
-- 서버 및 구독 수준의 한도에 관한 정보는 [논리 서버에 대한 리소스 한도 개요](sql-database-resource-limits-logical-server.md)를 참조하세요.
+- 서버 및 구독 수준의 한도에 관한 정보는 [논리 서버의 리소스 한도 개요](sql-database-resource-limits-logical-server.md)를 참조하세요.
 - 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.

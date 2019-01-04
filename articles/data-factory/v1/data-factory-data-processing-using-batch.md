@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0865c8b88788387eff173443d190658cc6488946
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: a20ba54226e5cdcec242e29344110840615a0c95
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976862"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317528"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리
 > [!NOTE]
@@ -34,14 +34,14 @@ ms.locfileid: "51976862"
 ## <a name="why-azure-batch"></a>Azure Batch를 사용해야 하는 이유
  클라우드에서 Batch를 사용하여 대규모 병렬 및 HPC(고성능 컴퓨팅) 응용 프로그램을 효율적으로 실행할 수 있습니다. Batch는 계산 집약적 작업이 관리되는 VM(가상 머신) 컬렉션에서 실행되도록 예약하는 플랫폼 서비스입니다. 작업의 요구 사항을 충족하기 위해 계산 리소스의 크기를 조정할 수 있습니다.
 
-Batch 서비스를 통해 응용 프로그램을 병렬로 규모에 따라 실행하도록 Azure 계산 리소스를 정의합니다. 주문형 또는 예약된 작업을 실행할 수 있습니다. HPC 클러스터, 개별 VM, 가상 네트워크 또는 복잡한 작업 및 태스크 예약 인프라를 수동으로 만들거나 구성하거나 관리할 필요가 없습니다.
+Batch 서비스를 통해 애플리케이션을 병렬로 규모에 따라 실행하도록 Azure 계산 리소스를 정의합니다. 주문형 또는 예약된 작업을 실행할 수 있습니다. HPC 클러스터, 개별 VM, 가상 네트워크 또는 복잡한 작업 및 태스크 예약 인프라를 수동으로 만들거나 구성하거나 관리할 필요가 없습니다.
 
  Batch에 대해 잘 모르는 경우 다음 문서를 통해 이 문서에 설명된 솔루션의 아키텍처/구현을 이해할 수 있습니다.   
 
 * [Batch의 기본 사항](../../batch/batch-technical-overview.md)
 * [Batch 기능 개요](../../batch/batch-api-basics.md)
 
-필요에 따라 Batch에 대해 자세히 알아보려면 [Batch 설명서](https://docs.microsoft.com/en-us/azure/batch/)를 참조하세요.
+필요에 따라 Batch에 대해 자세히 알아보려면 [Batch 설명서](https://docs.microsoft.com/azure/batch/)를 참조하세요.
 
 ## <a name="why-azure-data-factory"></a>Azure Data Factory를 사용해야 하는 이유
 데이터 팩터리는 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 기반의 데이터 통합 서비스입니다. Data Factory를 사용하여 온-프레미스 및 클라우드 데이터 저장소에서 중앙 집중식 데이터 저장소로 데이터를 이동하는 관리되는 데이터 파이프라인을 만들 수 있습니다. 예제는 Azure Blob Storage입니다. Azure HDInsight 및 Azure Machine Learning과 같은 서비스를 사용하여 데이터를 처리/변환하는 데 Data Factory를 사용할 수 있습니다. 데이터 파이프라인을 예약된 방식(예: 매시간, 매일 및 매주)으로 실행되도록 예약할 수도 있습니다. 한 번에 파이프라인을 모니터링하고 관리하여 문제를 식별하고 조치를 취할 수 있습니다.
@@ -51,7 +51,7 @@ Batch 서비스를 통해 응용 프로그램을 병렬로 규모에 따라 실�
 * [데이터 팩터리 소개](data-factory-introduction.md)
 * [첫 번째 데이터 파이프라인 작성](data-factory-build-your-first-pipeline.md)   
 
-필요에 따라 Data Factory에 대해 자세히 알아보려면 [Data Factory 설명서](https://docs.microsoft.com/en-us/rest/api/datafactory/v1/data-factory-data-factory)를 참조하세요.
+필요에 따라 Data Factory에 대해 자세히 알아보려면 [Data Factory 설명서](https://docs.microsoft.com/rest/api/datafactory/v1/data-factory-data-factory)를 참조하세요.
 
 ## <a name="data-factory-and-batch-together"></a>Data Factory 및 Batch
 Data Factory는 기본 제공 작업을 포함합니다. 예를 들어 복사 작업은 원본 데이터 저장소에서 대상 데이터 저장소로 데이터를 복사/이동하는 데 사용됩니다. Hive 작업은 Azure에서 Hadoop 클러스터(HDInsight)를 사용하여 데이터를 처리하는 데 사용됩니다. 지원되는 변환 작업 목록은 [데이터 변환 작업](data-factory-data-transformation-activities.md)을 참조하세요.
@@ -84,7 +84,7 @@ Data Factory는 기본 제공 작업을 포함합니다. 예를 들어 복사 �
 ## <a name="implementation-of-the-sample-solution"></a>샘플 솔루션의 구현
 샘플 솔루션은 의도적으로 간단합니다. Data Factory와 Batch를 사용하여 데이터 세트를 처리하는 방법을 알려주도록 디자인되었습니다. 솔루션은 시계열에 구성된 입력 파일에서 검색 단어 "Microsoft"의 발생 수를 계산합니다. 그러면 출력 파일에 개수를 출력합니다.
 
-**시간**: Azure, Data Factory 및 Batch의 기본 사항에 익숙하고 다음과 같은 필수 구성 요소를 완료했다면 이 솔루션이 완료되는 데 1~2시간이 소요됩니다.
+**시간:** Azure, Data Factory 및 Batch의 기본 사항에 익숙하고 다음과 같은 필수 구성 요소를 완료했다면 이 솔루션이 완료되는 데 1~2시간이 소요됩니다.
 
 ### <a name="prerequisites"></a>필수 조건
 #### <a name="azure-subscription"></a>Azure 구독
@@ -170,12 +170,12 @@ public IDictionary<string, string> Execute(
 * 이 메서드는 다음과 같은 네 개의 매개 변수를 사용합니다.
 
   * **linkedServices**. 이 매개 변수는 입/출력 데이터 원본(예: Blob Storage)을 데이터 팩터리에 연결하는 연결된 서비스의 열거형 목록입니다. 이 샘플에서는 입력 및 출력 모두에 사용되는 Azure Storage 형식의 연결된 서비스가 하나만 있습니다.
-  * **datasets**. 이 매개 변수는 데이터 세트의 열거형 목록입니다. 이 매개 변수를 사용하여 입력 및 출력 데이터 세트에 정의된 위치 및 스키마를 가져올 수 있습니다.
+  * **데이터 세트**. 이 매개 변수는 데이터 세트의 열거형 목록입니다. 이 매개 변수를 사용하여 입력 및 출력 데이터 세트에 정의된 위치 및 스키마를 가져올 수 있습니다.
   * **activity**. 이 매개 변수는 현재 계산 엔터티를 나타냅니다. 이 경우 Batch 서비스입니다.
   * **logger**. 로거를 사용하여 파이프라인에서 "사용자" 로그로 노출할 디버그 주석을 기록할 수 있습니다.
 * 이 메서드는 나중에 사용자 지정 작업을 함께 연결하는 데 사용할 수 있는 사전을 반환합니다. 이 기능은 아직 구현되지 않았기 때문에, 메서드로부터 빈 사전이 반환됩니다.
 
-#### <a name="procedure-create-the-custom-activity"></a>절차: 사용자 지정 작업 만들기
+#### <a name="procedure-create-the-custom-activity"></a>프로시저: 사용자 지정 작업 만들기
 1. Visual Studio에서 .NET 클래스 라이브러리 프로젝트를 만듭니다.
 
    a. Start Visual Studio 2012/2013/2015.
@@ -812,7 +812,7 @@ test custom activity Microsoft test custom activity Microsoft
 
    ![다이어그램](./media/data-factory-data-processing-using-batch/image10.png)
 
-1. **다이어그램** 뷰에서 **InputDataset** 입력 데이터 집합을 두 번 클릭합니다.
+1. **다이어그램** 뷰에서 **InputDataset** 입력 데이터 세트를 두 번 클릭합니다.
 
    ![InputDataset](./media/data-factory-data-processing-using-batch/image11.png)
 
@@ -932,9 +932,9 @@ Data Factory 및 Batch 기능에 대한 자세한 내용을 보려면 이 샘플
 
 1. 다음 하위 폴더를 `inputfolder`에 추가합니다. 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08 및 2015-11-16-09. 해당 폴더에 입력 파일을 배치합니다. `2015-11-16T05:00:00Z`에서 `2015-11-16T10:00:00Z`(으)로 파이프라인에 대한 종료 시간을 변경합니다. **다이어그램** 보기에서 **InputDataset**을 두 번 클릭하고 입력 조각이 준비되었는지 확인합니다. **OutputDataset**을 두 번 클릭하여 출력 조각의 상태를 봅니다. **준비** 상태에 있는 경우 출력 파일에 대한 출력 폴더를 확인합니다.
 
-1. 솔루션, 특히 Batch에서 발생하는 처리의 성능에 미치는 영향을 이해하려면 **동시성** 설정을 증가 또는 감소시킵니다. **동시성** 설정에 대한 자세한 내용은 "4단계: 사용자 지정 작업을 사용하여 파이프라인 만들기 및 실행"을 참조하세요.
+1. 솔루션, 특히 Batch에서 발생하는 처리의 성능에 미치는 영향을 이해하려면 **동시성** 설정을 증가 또는 감소시킵니다. **동시성** 설정에 대한 자세한 내용은 “4단계: 사용자 지정 작업을 사용하여 파이프라인 만들기 및 실행”을 참조하세요.
 
-1. 상위/하위 **VM당 최대 작업**을 가진 풀을 만듭니다. 만든 새 풀을 사용하려면 Data Factory 솔루션에서 Batch 연결된 서비스를 업데이트합니다. **VM당 최대 작업** 설정에 대한 자세한 내용은 "4단계: 사용자 지정 작업을 사용하여 파이프라인 만들기 및 실행"을 참조하세요.
+1. 상위/하위 **VM당 최대 작업**을 가진 풀을 만듭니다. 만든 새 풀을 사용하려면 Data Factory 솔루션에서 Batch 연결된 서비스를 업데이트합니다. **VM당 최대 작업** 설정에 대한 자세한 내용은 “4단계: 사용자 지정 작업을 사용하여 파이프라인 만들기 및 실행”을 참조하세요.
 
 1. **자동 크기 조정** 기능이 있는 Batch 풀을 만듭니다. Batch 풀에서 자동으로 계산 노드 크기를 조정하는 것은 응용 프로그램에서 사용하는 처리 능력을 동적으로 조정하는 것입니다. 
 
@@ -959,7 +959,7 @@ Data Factory 및 Batch 기능에 대한 자세한 내용을 보려면 이 샘플
 ### <a name="next-steps-consume-the-data"></a>다음 단계: 데이터 사용
 데이터를 처리한 후 Power BI와 같은 온라인 도구에서 사용할 수 있습니다. 다음은 Power BI 및 Azure에서 사용하는 방법을 이해하는 데 도움을 주는 링크입니다.
 
-* [Power BI에서 데이터 집합 탐색](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
+* [Power BI에서 데이터 세트 탐색](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
 * [Power BI Desktop 시작](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
 * [Power BI에서 데이터 새로 고침](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
 * [Azure 및 Power BI: 기본 개요](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)

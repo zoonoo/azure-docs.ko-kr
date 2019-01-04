@@ -1,21 +1,21 @@
 ---
-title: 자습서 - Azure Container Registry 작업을 사용하여 컨테이너 이미지 빌드 자동화
-description: 이 자습서에서는 소스 코드를 Git 리포지토리에 커밋할 때 클라우드에서 컨테이너 이미지 빌드를 자동으로 트리거하도록 작업을 구성하는 방법을 알아봅니다.
+title: 자습서 - 컨테이너 이미지 빌드 자동화 - Azure Container Registry 작업
+description: 이 자습서에서는 소스 코드를 Git 리포지토리에 커밋할 때 클라우드에서 컨테이너 이미지 빌드를 자동으로 트리거하도록 Azure Container Registry 작업을 구성하는 방법을 알아봅니다.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 27dbee3b292a9139ce53ef7b09a4cceba56082e4
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 3dc602589dc3a909ea2a2cf2925d37df0a97605b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857230"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436248"
 ---
-# <a name="tutorial-automate-container-image-builds-with-azure-container-registry-tasks"></a>자습서: Azure Container Registry 작업을 사용하여 컨테이너 이미지 빌드 자동화
+# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>자습서: 소스 코드를 커밋할 때 클라우드에서 컨테이너 이미지 빌드 자동화
 
 ACR 작업은 [빠른 빌드](container-registry-tutorial-quick-task.md) 외에도 *빌드 작업*을 사용하여 자동화된 Docker 컨테이너 이미지 빌드를 지원합니다. 이 자습서에서는 Azure CLI를 사용하여 소스 코드를 Git 리포지토리에 커밋할 때 클라우드에서 이미지 빌드를 자동으로 트리거하는 작업을 만듭니다.
 
@@ -41,7 +41,7 @@ Azure CLI를 로컬로 사용하려면 Azure CLI 버전 **2.0.46** 이상이 설
 
 ### <a name="container-registry"></a>컨테이너 레지스트리
 
-이 자습서를 완료하려면 Azure 구독에 Azure 컨테이너 레지스트리가 있어야 합니다. 레지스트리가 필요하면 [이전 자습서](container-registry-tutorial-quick-task.md) 또는 [빠른 시작: Azure CLI를 사용하여 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조하세요.
+이 자습서를 완료하려면 Azure 구독에 Azure 컨테이너 레지스트리가 있어야 합니다. 레지스트리가 필요한 경우 [이전 자습서](container-registry-tutorial-quick-task.md) 또는 [빠른 시작: Azure CLI를 사용하여 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조하세요.
 
 ## <a name="overview-of-acr-tasks"></a>ACR 작업 개요
 
@@ -155,7 +155,7 @@ $ az acr task create \
           "branch": "master",
           "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node",
           "sourceControlAuthProperties": null,
-          "sourceControlType": "Github"
+          "sourceControlType": "GitHub"
         },
         "sourceTriggerEvents": [
           "commit"

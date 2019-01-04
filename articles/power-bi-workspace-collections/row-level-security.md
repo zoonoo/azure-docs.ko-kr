@@ -23,7 +23,7 @@ ms.locfileid: "51258853"
 ![Power BI 작업 영역 컬렉션의 행 수준 보안 흐름](media/row-level-security/flow-1.png)
 
 > [!IMPORTANT]
-> Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 응용 프로그램에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.
+> Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 애플리케이션에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.
 
 RLS를 활용하기 위해서는 사용자, 역할 및 규칙이라는 세 가지 주요 개념을 이해하는 것이 중요합니다. 이러한 개념 각각에 대해 조금 더 자세히 살펴보겠습니다.
 
@@ -35,7 +35,7 @@ RLS를 활용하기 위해서는 사용자, 역할 및 규칙이라는 세 가�
 
 ### <a name="example"></a>예
 
-이 문서의 나머지 부분에서는 RLS를 작성하는 예를 제공한 후 포함된 응용 프로그램 내에서 이를 사용하는 것을 보여 줍니다. 이 예에서는 [소매 분석 샘플](https://go.microsoft.com/fwlink/?LinkID=780547) PBIX 파일을 사용합니다.
+이 문서의 나머지 부분에서는 RLS를 작성하는 예를 제공한 후 포함된 애플리케이션 내에서 이를 사용하는 것을 보여 줍니다. 이 예에서는 [소매 분석 샘플](https://go.microsoft.com/fwlink/?LinkID=780547) PBIX 파일을 사용합니다.
 
 ![예제 판매 보고서](media/row-level-security/scenario-2.png)
 
@@ -89,7 +89,7 @@ RLS는 Power BI Desktop으로 작성됩니다. 데이터 세트 및 보고서가
 
 양방향 교차 필터링에 대해 알아보려면 [SQL Server Analysis Services 2016 및 Power BI Desktop에서 양방향 교차 필터링](https://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx) 백서를 다운로드하세요.
 
-그러면 Power BI Desktop에서 수행해야 할 모든 작업이 마무리되지만 Power BI Embedded에서 작업을 정의한 RLS 규칙을 만들기 위해 몇 가지 작업을 수행해야 합니다. 응용 프로그램에서 사용자가 인증 및 권한 부여되고 특정 Power BI Embedded 보고서에 사용자 액세스를 부여하는 데 앱 토큰이 사용됩니다. Power BI Embedded는 사용자가 누구인지에 대한 어떠한 특정한 정보도 포함하지 않습니다. RLS가 작동하기 위해서는 앱 토큰의 일부로 추가 컨텍스트를 전달해야 합니다.
+그러면 Power BI Desktop에서 수행해야 할 모든 작업이 마무리되지만 Power BI Embedded에서 작업을 정의한 RLS 규칙을 만들기 위해 몇 가지 작업을 수행해야 합니다. 애플리케이션에서 사용자가 인증 및 권한 부여되고 특정 Power BI Embedded 보고서에 사용자 액세스를 부여하는 데 앱 토큰이 사용됩니다. Power BI Embedded는 사용자가 누구인지에 대한 어떠한 특정한 정보도 포함하지 않습니다. RLS가 작동하기 위해서는 앱 토큰의 일부로 추가 컨텍스트를 전달해야 합니다.
 
 * **username** (선택 사항) – RLS에 사용되며 RLS 규칙을 적용할 때 사용자를 식별하는 데 사용할 수 있는 문자열입니다. Power BI Embedded를 사용하는 행 수준 보안 사용을 참조하세요.
 * **역할** – 행 수준 보안 규칙을 적용할 때 선택할 역할이 들어 있는 문자열입니다. 둘 이상의 역할을 전달하는 경우 문자열 배열로 전달해야 합니다.
@@ -108,9 +108,9 @@ to
 
 ![JSON Web Token 예제](media/row-level-security/app-token-string-12.png)
 
-이제 종합해보면 누군가가 이 보고서를 보기 위해 응용 프로그램에 로그인하면 행 수준 보안에 정의된 대로 자신에게 보기가 허용된 데이터만 표시됩니다.
+이제 종합해보면 누군가가 이 보고서를 보기 위해 애플리케이션에 로그인하면 행 수준 보안에 정의된 대로 자신에게 보기가 허용된 데이터만 표시됩니다.
 
-![응용 프로그램에 표시된 보고서](media/row-level-security/dashboard-13.png)
+![애플리케이션에 표시된 보고서](media/row-level-security/dashboard-13.png)
 
 ## <a name="see-also"></a>참고 항목
 

@@ -151,7 +151,7 @@ pool.Resize(targetDedicatedComputeNodes: 0, targetLowPriorityComputeNodes: 25);
 -   작업의 JobManagerTask 속성은 새 속성 **AllowLowPriorityNode**를 갖습니다. 
     이 속성이 true이면 작업 관리자 태스크는 전용 또는 우선 순위가 낮은 노드에서 예약될 수 있습니다. 이 속성이 false이면 작업 관리자 태스크는 전용 노드에서만 예약됩니다.
 
--   태스크 응용 프로그램에서는 [환경 변수](batch-compute-node-environment-variables.md)를 사용하여 해당 응용 프로그램이 우선 순위가 낮은 노드에서 실행되는지 또는 전용 노드에서 실행되는지를 확인할 수 있습니다. 환경 변수는 AZ_BATCH_NODE_IS_DEDICATED입니다.
+-   태스크 애플리케이션에서는 [환경 변수](batch-compute-node-environment-variables.md)를 사용하여 해당 애플리케이션이 우선 순위가 낮은 노드에서 실행되는지 또는 전용 노드에서 실행되는지를 확인할 수 있습니다. 환경 변수는 AZ_BATCH_NODE_IS_DEDICATED입니다.
 
 ## <a name="handling-preemption"></a>선점 처리
 
@@ -181,5 +181,5 @@ Azure Portal에서 메트릭을 확인하려면 다음을 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 배치를 사용하려는 사용자를 위한 중요한 정보는 [개발자를 Batch 기능 개요](batch-api-basics.md)를 참고합니다. 문서에는 Batch 응용 프로그램을 빌드하는 동안 사용할 수 있는 풀, 노드, 작업 및 태스크와 같은 Batch 서비스 리소스 및 여러 API 기능에 대한 자세한 내용이 포함됩니다.
+* 배치를 사용하려는 사용자를 위한 중요한 정보는 [개발자를 Batch 기능 개요](batch-api-basics.md)를 참고합니다. 문서에는 Batch 애플리케이션을 빌드하는 동안 사용할 수 있는 풀, 노드, 작업 및 태스크와 같은 Batch 서비스 리소스 및 여러 API 기능에 대한 자세한 내용이 포함됩니다.
 * Batch 솔루션을 빌드하는 데 사용할 수 있는 [Batch API 및 도구](batch-apis-tools.md)에 대해 알아봅니다.

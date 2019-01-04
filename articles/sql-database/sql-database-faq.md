@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: c9b343bba59776ca735fa5c2cbddf03ec5c92b47
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/10/2018
+ms.openlocfilehash: d7e5553ec48cfda858f2a463a2df0cc60f0e5c65
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242826"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270402"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>SQL Database FAQ(질문과 대답)
 
@@ -31,7 +31,7 @@ SQL Database의 현재 버전은 V12입니다. 버전 V11은 만료되었습니�
 
 ## <a name="can-i-control-when-patching-downtime-occurs"></a>패치 가동 중지 시간이 발생하는 경우를 제어할 수 있나요?
 
-아니요. 일반적으로 패치 적용에 따른 영향은 앱에서 [다시 시도 논리를 사용](sql-database-develop-overview.md#resiliency)하면 두드러지지 않습니다.
+ 아니요. 일반적으로 패치 적용에 따른 영향은 앱에서 [다시 시도 논리를 사용](sql-database-develop-overview.md#resiliency)하면 두드러지지 않습니다.
 
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Azure SQL Database에 대한 새 vCore 기반 구매 모델이란?
 
@@ -45,13 +45,13 @@ SQL Database의 현재 버전은 V12입니다. 버전 V11은 만료되었습니�
 
 아니요, 탄력적 풀 및 단일 데이터베이스 배포 옵션에 vCore 기반 모델을 도입한 것은 고객의 선택과 유연성에 대한 약속을 반영합니다. 고객이 DTU 기반 모델을 계속 사용하려면 이 알림과 관련하여 어떤 조치도 취할 필요가 없으며, 해당 환경과 요금 청구는 변경되지 않은 채 유지됩니다.
 
-대부분의 경우 응용 프로그램은 미리 구성된 리소스 번들을 간단하게 활용할 수 있습니다. 따라서 고객에게 이러한 DTU 기반 선택을 지속적으로 제공하고 지원합니다. 이러한 모델을 사용하고 있고 비즈니스 요구 사항이 충족되는 경우 계속 사용해야 합니다.
+대부분의 경우 애플리케이션은 미리 구성된 리소스 번들을 간단하게 활용할 수 있습니다. 따라서 고객에게 이러한 DTU 기반 선택을 지속적으로 제공하고 지원합니다. 이러한 모델을 사용하고 있고 비즈니스 요구 사항이 충족되는 경우 계속 사용해야 합니다.
 
 DTU 및 vCore 기반 모델은 계속해서 함께 존재할 것입니다. vCore 기반 모델은 데이터베이스 리소스에 대한 투명성 강화와 해당 계산 및 저장소 리소스의 크기를 개별적으로 조정하는 기능에 대한 고객의 요청에 부응하여 출시되었습니다. 또한 vCore 기반 모델을 사용하면 활성 Software Assurance를 보유한 고객이 SQL Server에 대한 Azure 하이브리드 혜택을 통해 비용을 추가로 절약할 수도 있습니다.
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>DTU 기반 구매 모델과 vCore 기반 구매 모델 중 어느 것을 선택해야 할까요?
 
-DTU(데이터베이스 트랜잭션 단위)는 CPU, 메모리, 읽기 및 쓰기의 혼합 측정값을 기반으로 합니다. DTU 기반 계산 크기는 다양한 수준의 응용 프로그램 성능을 구동하도록 미리 구성된 리소스 번들을 나타냅니다. 기본 리소스에 대해 걱정할 필요 없이 매월 고정 금액을 지불하면서 미리 구성된 번들을 단순히 사용하려는 고객은 DTU 기반 모델이 자신의 요구에 더 적합하다는 것을 알 수 있습니다. 그러나 최적의 성능을 달성하기 위해 기본 리소스에 대한 추가 정보가 필요하거나 크기를 독립적으로 조정해야 하는 고객에게는 vCore 기반 모델이 가장 적합합니다.  또한 고객에게 SQL Server에 대한 활성 SA(Software Assurance)가 있는 경우, [SQL Server에 대한 Azure 하이브리드 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 통해 기존 투자를 활용하고 비용을 최대 30%까지 절약할 수 있습니다.  각 구매 모델의 옵션은 자동 백업, 소프트웨어 업데이트 및 패치와 같이 완전히 관리되는 서비스의 이점을 제공합니다.
+DTU(데이터베이스 트랜잭션 단위)는 CPU, 메모리, 읽기 및 쓰기의 혼합 측정값을 기반으로 합니다. DTU 기반 계산 크기는 다양한 수준의 애플리케이션 성능을 구동하도록 미리 구성된 리소스 번들을 나타냅니다. 기본 리소스에 대해 걱정할 필요 없이 매월 고정 금액을 지불하면서 미리 구성된 번들을 단순히 사용하려는 고객은 DTU 기반 모델이 자신의 요구에 더 적합하다는 것을 알 수 있습니다. 그러나 최적의 성능을 달성하기 위해 기본 리소스에 대한 추가 정보가 필요하거나 크기를 독립적으로 조정해야 하는 고객에게는 vCore 기반 모델이 가장 적합합니다.  또한 고객에게 SQL Server에 대한 활성 SA(Software Assurance)가 있는 경우, [SQL Server에 대한 Azure 하이브리드 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 통해 기존 투자를 활용하고 비용을 최대 30%까지 절약할 수 있습니다.  각 구매 모델의 옵션은 자동 백업, 소프트웨어 업데이트 및 패치와 같이 완전히 관리되는 서비스의 이점을 제공합니다.
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>SQL Server에 대한 Azure 하이브리드 혜택이란?
 
@@ -117,7 +117,7 @@ PITR에 대한 백업 보존 기간은 7-35일로 구성할 수 있습니다. �
 
 응용 프로그램의 요구 사항과 거의 일치하는 성능 구성을 선택할 수 있도록 최대한의 유연성을 제공할 필요가 있기 때문입니다. 4세대 하드웨어는 실질적으로 vCore당 더 많은 메모리를 제공합니다. 그러나 5세대 하드웨어를 사용하면 계산 리소스를 훨씬 더 강화할 수 있습니다. 자세한 내용은 [vCore 구매 모델](sql-database-service-tiers-vcore.md) 참조
 
-## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>DTU 기반 데이터베이스에서 vCore 기반 서비스 계층으로 변환하려면 응용 프로그램을 오프라인으로 전환해야 하나요?
+## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>DTU 기반 데이터베이스에서 vCore 기반 서비스 계층으로 변환하려면 애플리케이션을 오프라인으로 전환해야 하나요?
 
 새 서비스 계층에서는 데이터베이스를 표준 서비스 계층에서 프리미엄 서비스 계층으로 업그레이드하거나 그 반대로 업그레이드하는 기존 프로세스와 비슷한 간단한 온라인 변환 방법을 제공합니다. 이 변환은 Azure Portal, PowerShell, Azure CLI, T-SQL 또는 REST API를 사용하여 시작할 수 있습니다. [단일 데이터베이스 관리](sql-database-single-database-scale.md) 및 [탄력적 풀 관리](sql-database-elastic-pool.md)를 참조하세요.
 
@@ -196,9 +196,9 @@ vCore 기반 모델에서 서비스 요금은 서비스 계층, 프로비전된 
 > [!NOTE]
 > 제한된 기간 동안 백업 요금 및 IO 요금은 무료입니다.
 
-## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>탄력적 풀의 활성 지역 복제의 사용량이 청구서에 어떻게 표시되나요?
+## <a name="how-does-the-use-of-active-geo-replication-or-auto-failover-groups-in-an-elastic-pool-show-up-on-my-bill"></a>탄력적 풀의 활성 지역 복제 또는 자동 장애 조치(failover) 그룹의 사용량이 청구서에 어떻게 표시되나요?
 
-단일 데이터베이스와 달리, 탄력적 데이터베이스의 [활성 지역 복제](sql-database-geo-replication-overview.md)를 사용해도 청구서에 직접적인 영향은 없습니다.  각 풀(주 풀 및 보조 풀)에 프로비전된 리소스에 대해서만 요금이 청구됩니다.
+단일 데이터베이스와 달리, 탄력적 데이터베이스의 [활성 지역 복제](sql-database-active-geo-replication.md)나 [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md)을 사용해도 청구서에 직접적인 영향은 없습니다. 각 풀(주 풀 및 보조 풀)에 프로비전된 리소스에 대해서만 요금이 청구됩니다.
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>감사 기능을 사용하면 청구서에 어떤 영향을 주나요?
 

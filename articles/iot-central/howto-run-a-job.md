@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Central 응용 프로그램에서 작업 만들기 및 실행 | Microsoft Docs
+title: Azure IoT Central 애플리케이션에서 작업 만들기 및 실행 | Microsoft Docs
 description: Azure IoT Central 작업에서는 디바이스 속성/설정 업데이트, 명령 실행 등의 대량 디바이스 관리 기능을 사용할 수 있습니다.
 ms.service: iot-central
 services: iot-central
@@ -8,16 +8,16 @@ ms.author: sahubbar
 ms.date: 09/15/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 35db7bf87c7b72fc31d820c9058b1df8415bd553
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ac5accc72369d811c0d36c4ef64cd8d523a061f3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031308"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724505"
 ---
-# <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에서 작업 만들기 및 실행
+# <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 작업 만들기 및 실행
 
-Microsoft Azure IoT Central에서는 작업을 사용하여 연결된 디바이스를 대규모로 관리할 수 있습니다. 이 작업 기능을 통해 디바이스 속성, 설정 및 명령의 대량 업데이트를 수행할 수 있습니다. 이 문서에서는 응용 프로그램에서 작업 사용을 시작하는 과정을 안내합니다.
+Microsoft Azure IoT Central에서는 작업을 사용하여 연결된 디바이스를 대규모로 관리할 수 있습니다. 이 작업 기능을 통해 디바이스 속성, 설정 및 명령의 대량 업데이트를 수행할 수 있습니다. 이 문서에서는 애플리케이션에서 작업 사용을 시작하는 과정을 안내합니다.
 
 ## <a name="create-and-run-a-job"></a>작업 만들기 및 실행
 
@@ -31,7 +31,7 @@ Microsoft Azure IoT Central에서는 작업을 사용하여 연결된 디바이�
 
 1. 작성 중인 작업을 쉽게 확인할 수 있도록 이름 및 설명을 입력합니다.
 
-1. 작업을 적용할 디바이스 집합을 선택합니다. 장치 집합을 선택하면 선택한 장치 집합 내의 장치가 화면 오른쪽에 채워집니다. 손상된 디바이스 집합을 선택하면 디바이스가 표시되지 않으며 디바이스 집합이 손상되었다는 메시지가 표시됩니다.
+1. 작업을 적용할 디바이스 집합을 선택합니다. 디바이스 집합을 선택하면 선택한 디바이스 집합 내의 디바이스가 화면 오른쪽에 채워집니다. 손상된 디바이스 집합을 선택하면 디바이스가 표시되지 않으며 디바이스 집합이 손상되었다는 메시지가 표시됩니다.
 
 1. 다음으로 정의할 작업 유형(설정, 속성 또는 명령)을 선택합니다. 선택한 작업 유형 옆의 **+** 를 클릭하고 원하는 작업을 추가합니다.
 
@@ -56,8 +56,13 @@ Microsoft Azure IoT Central에서는 작업을 사용하여 연결된 디바이�
 
 현재 실행 중인 작업을 중지하려면 중지할 실행 중인 작업의 이름을 클릭합니다. 패널에서 **중지** 단추를 선택합니다. 작업이 중지되었음을 반영하여 작업 상태가 변경됩니다.
 
-> [!NOTE]
-> 중지된 작업은 다시 시작할 수 없습니다. 원하는 작업과 디바이스를 사용하여 다른 작업을 만들어야 합니다.
+   ![작업 중지](./media/howto-run-a-job/stopjob.png)
+
+### <a name="run-a-stopped-job"></a>중지된 작업 실행
+
+현재 중지된 작업을 실행하려면 실행하려는 중지된 작업의 이름을 클릭합니다. 패널에서 **실행** 단추를 선택합니다. 현재 작업이 실행되고 있음을 반영하도록 작업 상태가 변경됐습니다.
+
+   ![다시 시작된 작업](./media/howto-run-a-job/resumejob.png)
 
 ## <a name="view-the-job-status"></a>작업 상태 확인
 
@@ -93,8 +98,8 @@ Microsoft Azure IoT Central에서는 작업을 사용하여 연결된 디바이�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT Central 응용 프로그램에서 작업을 만드는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
+Azure IoT Central 애플리케이션에서 작업을 만드는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
 
-- [장치 설정 사용](howto-use-device-sets.md)
-- [장치 관리](howto-manage-devices.md)
+- [디바이스 설정 사용](howto-use-device-sets.md)
+- [디바이스 관리](howto-manage-devices.md)
 - [장치 템플릿 버전 관리](howto-version-devicetemplate.md)

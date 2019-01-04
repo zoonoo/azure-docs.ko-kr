@@ -1,26 +1,18 @@
 ---
-title: 'Azure ExpressRoute 회로 만들기 및 수정: CLI | Microsoft Docs'
-description: 이 문서에서는 CLI를 사용하여 ExpressRoute 회로를 만들고, 프로비전하고, 확인하고, 업데이트하고, 삭제하고, 프로비전을 해제하는 방법을 설명합니다.
-documentationcenter: na
+title: 'ExpressRoute 회로 만들기 및 수정: Azure CLI | Microsoft Docs'
+description: 이 문서에서는 CLI를 사용하여 ExpressRoute 회로를 만들고, 프로비전하고, 확인하고, 업데이트하고, 삭제하고, 프로비전을 해제하는 방법을 보여줍니다.
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/19/2017
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: anzaman;cherylmc
-ms.openlocfilehash: a53fe43365100c6d71fcc2b9e0944a221adf188d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2013b3b96fddd32f01245655c1feb600bc426e2a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249237"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084144"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>CLI를 사용하여 ExpressRoute 회로 만들기 및 수정
 
@@ -44,7 +36,7 @@ ms.locfileid: "51249237"
 
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Azure 계정에 로그인하고 구독을 선택합니다.
 
-구성을 시작하려면, Azure 계정에 로그인합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
+구성을 시작하려면, Azure 계정에 로그인합니다. CloudShell "Try It"을 사용하는 경우 자동으로 로그인됩니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
 
 ```azurecli
 az login
@@ -52,13 +44,13 @@ az login
 
 계정에 대한 구독을 확인합니다.
 
-```azurecli
+```azurecli-interactive
 az account list
 ```
 
 ExpressRoute 회로를 만들려는 구독을 선택합니다.
 
-```azurecli
+```azurecli-interactive
 az account set --subscription "<subscription ID>"
 ```
 
@@ -66,7 +58,7 @@ az account set --subscription "<subscription ID>"
 
 ExpressRoute 회로를 만들기 전에 지원되는 연결 공급자, 위치 및 대역폭 옵션 목록이 필요합니다. CLI 명령 'az network express-route list-service-providers'는 이 정보를 반환하고 이를 이후 단계에서 사용합니다.
 
-```azurecli
+```azurecli-interactive
 az network express-route list-service-providers
 ```
 
@@ -140,7 +132,7 @@ az network express-route list-service-providers
 
 아직 리소스 그룹이 없는 경우 ExpressRoute 회로를 만들기 전에 먼저 리소스 그룹을 만들어야 합니다. 다음 명령을 실행하여 리소스 그룹을 만들 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az group create -n ExpressRouteResourceGroup -l "West US"
 ```
 
@@ -154,7 +146,7 @@ az group create -n ExpressRouteResourceGroup -l "West US"
 
 ExpressRoute 회로는 서비스 키가 발급된 순간부터 비용이 청구됩니다. 다음 예제는 새 서비스 키에 대한 요청입니다.
 
-```azurecli
+```azurecli-interactive
 az network express-route create --bandwidth 200 -n MyCircuit --peering-location "Silicon Valley" -g ExpressRouteResourceGroup --provider "Equinix" -l "West US" --sku-family MeteredData --sku-tier Standard
 ```
 
@@ -164,7 +156,7 @@ az network express-route create --bandwidth 200 -n MyCircuit --peering-location 
 
 만든 모든 ExpressRoute 회로 목록을 가져오려면 'az network express-route list' 명령을 실행합니다. 이 명령을 사용하여 이 정보를 언제든지 검색할 수 있습니다. 모든 회로를 나열하려면 매개 변수 없이 호출합니다.
 
-```azurecli
+```azurecli-interactive
 az network express-route list
 ```
 
@@ -201,7 +193,7 @@ az network express-route list
 
 '-h' 매개 변수를 사용하는 명령을 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az network express-route list -h
 ```
 
@@ -211,21 +203,21 @@ az network express-route list -h
 
 새 ExpressRoute 회로를 만들면 회로는 다음 상태가 됩니다.
 
-```azurecli
+```azurecli-interactive
 "serviceProviderProvisioningState": "NotProvisioned"
 "circuitProvisioningState": "Enabled"
 ```
 
 연결 공급자가 사용자에 대해 활성화를 처리 중이면 회로가 다음 상태로 변경됩니다.
 
-```azurecli
+```azurecli-interactive
 "serviceProviderProvisioningState": "Provisioning"
 "circuitProvisioningState": "Enabled"
 ```
 
 ExpressRoute 회로를 사용하려면 다음 상태여야 합니다.
 
-```azurecli
+```azurecli-interactive
 "serviceProviderProvisioningState": "Provisioned"
 "circuitProvisioningState": "Enabled
 ```
@@ -234,7 +226,7 @@ ExpressRoute 회로를 사용하려면 다음 상태여야 합니다.
 
 회로 키의 상태를 확인하면 공급자가 회로를 사용하도록 설정한 시점을 알 수 있습니다. 회로가 구성된 후에는 'ServiceProviderProvisioningState'가 아래 예에서처럼 '프로비전됨'으로 표시됩니다.
 
-```azurecli
+```azurecli-interactive
 az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
 ```
 
@@ -297,7 +289,7 @@ az network express-route show --resource-group ExpressRouteResourceGroup --name 
 
 다음 명령을 사용하여 기존 회로에 ExpressRoute Premium 추가 기능을 사용하도록 설정할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-tier Premium
 ```
 
@@ -318,7 +310,7 @@ ExpressRoute Premium 추가 기능을 해제하기 전에 다음 조건을 이�
 
 다음 예제를 사용하여 기존 회로에 대해 ExpressRoute Premium 추가 기능을 사용하지 않도록 설정할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-tier Standard
 ```
 
@@ -334,7 +326,7 @@ az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-
 
 필요한 크기를 선택한 후에 다음 명령을 사용하여 회로 크기를 조정합니다.
 
-```azurecli
+```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --bandwidth 1000
 ```
 
@@ -344,7 +336,7 @@ az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --band
 
 다음 예제를 사용하여 ExpressRoute 회로의 SKU를 변경할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-family UnlimitedData
 ```
 
@@ -362,7 +354,7 @@ ExpressRoute 회로의 프로비전을 해제하고 삭제하려면 다음 조�
 
 다음 명령을 실행하여 ExpressRoute 회로를 삭제할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az network express-route delete  -n MyCircuit -g ExpressRouteResourceGroup
 ```
 

@@ -1,6 +1,6 @@
 ---
-title: 인덱서를 사용하여 Azure Search에 Azure SQL Database 연결 | Microsoft Docs
-description: 인덱서를 사용하여 Azure SQL Database에서 Azure Search 인덱스로 데이터를 가져오는 방법에 대해 알아봅니다.
+title: 인덱서를 사용하여 Azure SQL Database 콘텐츠 연결 및 인덱싱 - Azure Search
+description: Azure Search에서 전체 텍스트 검색을 위해 인덱서를 사용하여 Azure SQL Database의 데이터를 크롤링하는 방법을 알아봅니다. 이 문서에서는 연결, 인덱서 구성 및 데이터 수집에 대해 설명합니다.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,14 +9,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: ba2ce12fcfad14b0910144b1a95efd44be54811f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 28b72f63360b4ce323c1cd82b11c2798b1fbc2ff
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245650"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313397"
 ---
-# <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>인덱서를 사용하여 Azure Search에 Azure SQL Database 연결
+# <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Azure Search 인덱서를 사용하여 Azure SQL Database 콘텐츠에 연결 및 인덱싱
 
 [Azure Search 인덱스](search-what-is-an-index.md)를 쿼리하기 전에 데이터를 채워야 합니다. 데이터가 Azure SQL 데이터베이스에 있는 경우 **Azure SQL Database용 Azure Search 인덱서**(또는 줄여서 **Azure SQL 인덱서**)를 사용하여 인덱싱 프로세스를 자동화할 수 있으므로 작성할 코드의 양과 신경 써야 할 인프라가 줄어듭니다.
 
@@ -314,31 +315,31 @@ SQL 인덱서는 여러 구성 설정을 노출합니다.
 
 ## <a name="faq"></a>FAQ
 
-**Q:** Azure의 IaaS VM에서 실행되는 SQL 데이터베이스에서 Azure SQL 인덱서를 사용할 수 있습니까?
+**Q: Azure의 IaaS VM에서 실행되는 SQL Database에서 Azure SQL 인덱서를 사용할 수 있나요?**
 
 예. 그러나 검색 서비스에서 데이터베이스에 연결할 수 있도록 허용해야 합니다. 자세한 내용은 [Azure VM에서 Azure Search 인덱서로부터 SQL Server로의 연결 구성](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md) 문서를 참조하세요.
 
-**Q:** 온-프레미스에서 실행되는 SQL 데이터베이스에서 Azure SQL 인덱서를 사용할 수 있습니까?
+**Q: 온-프레미스에서 실행되는 SQL Database에서 Azure SQL 인덱서를 사용할 수 있나요?**
 
 직접 끌 수는 없습니다. 직접 연결은 권장되거나 지원되지 않습니다. 이렇게 하려면 데이터베이스를 인터넷 트래픽에 개방해야 하기 때문입니다. 고객은 Azure Data Factory와 같은 브리지 기술을 사용하여 이 시나리오를 성공적으로 수행했습니다. 자세한 내용은 [Azure Data Factory를 사용하여 Azure Search 인덱스에 데이터 푸시](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector)를 참조하세요.
 
-**Q:** Azure의 IaaS에서 실행되는 SQL Server가 아닌 데이터베이스에서 Azure SQL 인덱서를 사용할 수 있습니까?
+**Q: Azure의 IaaS에서 실행되는 SQL Server가 아닌 데이터베이스에서 Azure SQL 인덱서를 사용할 수 있나요?**
 
-아니요. SQL Server가 아닌 데이터베이스에서는 인덱서를 테스트하지 않았기 때문에 이 시나리오는 지원되지 않습니다.  
+ 아니요. SQL Server가 아닌 데이터베이스에서는 인덱서를 테스트하지 않았기 때문에 이 시나리오는 지원되지 않습니다.  
 
-**Q:** 일정에 따라 실행되는 여러 인덱서를 만들 수 있습니까?
+**Q: 일정에 따라 실행되는 여러 인덱서를 만들 수 있나요?**
 
 예. 그러나 한 번에 하나의 인덱서만 실행할 수 있습니다. 여러 인덱서를 동시에 실행하려면 둘 이상의 검색 단위로 검색 서비스를 확장하는 것이 좋습니다.
 
-**Q:** 인덱서를 실행하면 쿼리 작업이 영향을 받습니까?
+**Q: 인덱서를 실행하면 쿼리 작업이 영향을 받나요?**
 
 예. 인덱서는 검색 서비스의 노드 중 하나에서 실행되므로 해당 노드의 리소스가 인덱싱 및 쿼리 지원 트래픽과 다른 API 요청 간에 공유됩니다. 많은 인덱싱 및 쿼리 작업을 실행하는 경우 503 오류가 자주 발생하거나 응답 시간이 증가하면 [검색 서비스를 확장](search-capacity-planning.md)하는 것이 좋습니다.
 
-**Q: [장애 조치(failover) 클러스터](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)에서 데이터 원본으로 보조 복제본을 사용할 수 있습니까?**
+**Q: [장애 조치(failover) 클러스터](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)에서 데이터 원본으로 보조 복제본을 사용할 수 있나요?**
 
 경우에 따라 다릅니다. 테이블 또는 뷰의 전체 인덱싱에 대해 보조 복제본을 사용할 수 있습니다. 
 
-증분 인덱싱의 경우 Azure Search는 SQL 통합 변경 내용 추적 및 상위 워터 마크라는 두 가지 변경 검색 정책을 지원합니다.
+증분 인덱싱의 경우 Azure Search는 SQL 통합 변경 내용 추적 및 상위 워터마크의 두 가지 변경 검색 정책을 지원합니다.
 
 읽기 전용 복제본에서 SQL 데이터베이스는 통합된 변경 내용 추적을 지원하지 않습니다. 따라서 상위 워터 마크 정책을 사용해야 합니다. 
 
@@ -348,7 +349,7 @@ SQL 인덱서는 여러 구성 설정을 노출합니다.
 
     "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
 
-**Q: 상위 워터 마크 변경 내용 추적에 대체의 rowversion이 아닌 열을 사용할 수 있습니까?**
+**Q: 상위 워터마크 변경 내용 추적에 대해 rowversion이 아닌 대체 열을 사용할 수 있나요?**
 
 권장되지 않습니다. 신뢰할 수 있는 데이터 동기화를 위해서는 **rowversion**만 허용됩니다. 그러나 응용 프로그램 논리에 따라 다음과 같은 경우 안전할 수 있습니다.
 

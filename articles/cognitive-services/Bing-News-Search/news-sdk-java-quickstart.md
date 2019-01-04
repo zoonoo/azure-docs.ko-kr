@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: Bing News Search SDK, Java'
+title: '빠른 시작: 뉴스 검색 수행 - Java용 Bing News Search SDK'
 titleSuffix: Azure Cognitive Services
-description: Bing News Search SDK 콘솔 응용 프로그램을 설치하는 방법을 알아봅니다.
+description: 이 빠른 시작을 사용하여 Java용 Bing News Search SDK를 통해 뉴스를 검색하고 응답을 처리합니다.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: f01f31c5cfc30ac31ea41db2a8504454e1f05799
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 056d75a1039e805786b14aa19c896bda78d04150
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316874"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251592"
 ---
 # <a name="quickstart-bing-news-search-sdk-with-java"></a>빠른 시작: Java를 통해 Bing News Search SDK 설정
 
@@ -23,7 +24,7 @@ Bing News Search SDK는 뉴스 쿼리 및 구문 분석 결과에 대한 REST AP
 
 [Java Bing News Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch)은 Git Hub에서 얻을 수 있습니다.
 
-## <a name="application-dependencies"></a>응용 프로그램 종속성
+## <a name="application-dependencies"></a>애플리케이션 종속성
 **검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다. Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing News Search SDK 종속성을 설치합니다. Maven POM 파일에는 다음 선언이 필요합니다.
 ```
   <dependencies>

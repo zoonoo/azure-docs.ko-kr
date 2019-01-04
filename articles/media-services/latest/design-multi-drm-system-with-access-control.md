@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services를 사용하여 액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계 | Microsoft Docs
-description: Microsoft 부드러운 스트리밍 클라이언트 이식 키트 라이선스를 얻는 방법에 대해 알아보세요.
+title: 액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계 - Azure Media Services | Microsoft Docs
+description: Microsoft 부드러운 스트리밍 클라이언트 포팅 키트의 사용을 허가하는 방법을 알아봅니다.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: willzhan
-ms.openlocfilehash: d65007ed2a0ce5a827eadca31dd9df8704e2c905
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.custom: seodec18
+ms.openlocfilehash: ec354cc91b22905c399d7bb19107db1b94e9925f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958196"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136276"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계 
 
@@ -28,7 +29,7 @@ OTT(Over-the-Top) 또는 온라인 스트리밍 솔루션을 위한 DRM(디지�
 
 이 문서는 OTT 또는 온라인 스트리밍/멀티 스크린 솔루션의 DRM 하위 시스템에서 작업 중인 엔지니어 또는 DRM 하위 시스템에 관심이 있는 모든 독자를 대상으로 합니다. 독자는 PlayReady, Widevine, FairPlay 또는 Adobe Access 등 한 가지 이상의 DRM 기술에 대해 잘 알고 있다고 가정합니다.
 
-이 설명에서 다중 DRM으로 Azure Media Services에서 지원하는 3가지 DRM을 포함합니다. PlayReady 및 Widevine에 대한 CENC(Common Encryption), FairPlay 및 AES-128 암호화되지 않은 키 암호화 온라인 스트리밍 및 OTT 업계의 주요 추세는 다양한 클라이언트 플랫폼에서 기본 DRM을 사용하는 것입니다. 이러한 추세는 다양한 클라이언트 플랫폼에서 단일 DRM과 해당 클라이언트 SDK를 사용하는 이전 추세로부터 변화된 것입니다. 다중 기본 DRM의 CENC를 사용할 때 PlayReady와 Widevine 모두 [일반적인 암호화(ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) 사양에 따라 암호화됩니다.
+이 토론에서는 다중 DRM을 통해 Azure Media Services가 지원하는 3개의 DRM(PlayReady 및 Widevine용 CENC(Common Encryption), FairPlay, AES-128 암호화되지 않은 키 암호화)을 포함합니다. 온라인 스트리밍 및 OTT 업계의 주요 추세는 다양한 클라이언트 플랫폼에서 기본 DRM을 사용하는 것입니다. 이러한 추세는 다양한 클라이언트 플랫폼에서 단일 DRM과 해당 클라이언트 SDK를 사용하는 이전 추세로부터 변화된 것입니다. 다중 기본 DRM의 CENC를 사용할 때 PlayReady와 Widevine 모두 [일반적인 암호화(ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) 사양에 따라 암호화됩니다.
 
 콘텐츠 보호에 대해 기본 다중 DRM을 사용하는 이점은 다음과 같습니다.
 
@@ -51,7 +52,7 @@ OTT(Over-the-Top) 또는 온라인 스트리밍 솔루션을 위한 DRM(디지�
 | --- | --- | --- | --- |
 | **스마트 TV, STB** | PlayReady, Widevine 및/또는 기타 | 포함된 브라우저/PlayReady용 EME 및/또는 Widevine|
 | **Windows 10** | PlayReady | MS Edge/PlayReady용 IE11|
-| **Android 장치(전화, 태블릿, TV)** |Widevine |Widevine용 Chrome |
+| **Android 디바이스(전화, 태블릿, TV)** |Widevine |Widevine용 Chrome |
 | **iOS** | FairPlay | FairPlay용 Safari(iOS 11.2 이후) |
 | **macOS** | FairPlay | FairPlay용 Safari(Safari 9 이후+Mac OS X 10.11에서+El Capitan)|
 | **tvOS** | FairPlay | |
@@ -142,7 +143,7 @@ DRM 하위 시스템은 다음 구성 요소를 포함할 수 있습니다.
 | **DRM 라이선스 배달** |* Media Services 라이선스 배달(PlayReady, Widevine, FairPlay) <br/>* Axinom License Server <br/>* 사용자 지정 PlayReady 라이선스 서버 |
 | **원본** |Azure Media Services 스트리밍 엔드포인트 |
 | **키 관리** |참조 구현에는 필요하지 않음 |
-| **콘텐츠 관리** |C# 콘솔 응용 프로그램 |
+| **콘텐츠 관리** |C# 콘솔 애플리케이션 |
 
 즉, IDP와 STS 둘 다 Azure AD에서 제공됩니다. 플레이어로는 [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/)가 사용됩니다. Azure Media Services 및 Azure Media Player 둘 다 DASH를 통한 CENC, HLS를 통한 FairPlay, 부드러운 스트리밍을 통한 PlayReady 및 DASH, HLS 및 부드러운 스트리밍을 통한 AES-128 암호화를 제공합니다.
 
@@ -242,11 +243,11 @@ Azure AD에 대한 내용:
 
         <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
 
-    GUID는 Azure AD 테넌트 ID입니다. Azure Porta의 **엔드포인트** 팝업 창에서 GUID를 찾을 수 있습니다.
+    GUID는 Azure AD 테넌트 ID입니다. Azure Porta의 **끝점** 팝업 창에서 GUID를 찾을 수 있습니다.
 
 * 그룹 멤버 자격 클레임 권한을 부여합니다. Azure AD 응용 프로그램 매니페스트 파일에서 다음이 있는지 확인합니다. 
 
-    "groupMembershipClaims": "All", (기본값은 null)
+    “groupMembershipClaims”: “All”(기본값은 null임)
 
 * 제한 사항 요구 사항을 만들 때 적절한 TokenType을 설정합니다.
 
@@ -306,8 +307,8 @@ Azure AD가 JWT를 생성한 후, 플레이어가 확인을 위해 JWT를 Media 
 웹앱에서 [OAuth 2.0 클라이언트 자격 증명 권한을 사용한 응용 프로그램 ID](../../active-directory/develop/web-api.md)로 API 앱을 호출하는 방식을 살펴보면 인증 흐름은 다음과 같습니다.
 
 * 사용자가 웹 응용 프로그램에서 Azure AD에 로그인합니다. 자세한 내용은 [웹 브라우저-웹 응용 프로그램](../../active-directory/develop/web-app.md)을 참조하세요.
-* Azure AD 권한 부여 엔드포인트는 사용자 에이전트를 인증 코드와 함께 클라이언트 응용 프로그램으로 리디렉션합니다. 사용자 에이전트는 인증 코드를 클라이언트 응용 프로그램의 리디렉션 URI로 반환합니다.
-* 웹 응용 프로그램이 웹 API에 인증하고 원하는 리소스를 검색할 수 있도록 액세스 토큰을 획득해야 합니다. Azure AD의 토큰 엔드포인트에 요청하여 자격 증명, 클라이언트 ID, 웹 API의 응용 프로그램 ID URI를 제공합니다. 사용자가 동의했음을 증명하는 인증 코드를 표시합니다.
+* Azure AD 권한 부여 엔드포인트는 사용자 에이전트를 인증 코드와 함께 클라이언트 애플리케이션으로 리디렉션합니다. 사용자 에이전트는 인증 코드를 클라이언트 응용 프로그램의 리디렉션 URI로 반환합니다.
+* 웹 애플리케이션이 웹 API에 인증하고 원하는 리소스를 검색할 수 있도록 액세스 토큰을 획득해야 합니다. Azure AD의 토큰 끝점에 요청하여 자격 증명, 클라이언트 ID, 웹 API의 응용 프로그램 ID URI를 제공합니다. 사용자가 동의했음을 증명하는 인증 코드를 표시합니다.
 * Azure AD가 응용 프로그램을 인증하고 웹 API를 호출하는 데 사용되는 JWT 액세스 토큰을 반환합니다.
 * HTTPS를 통해 웹 응용 프로그램이 반환된 JWT 액세스 토큰을 사용해서 웹 API에 대한 요청의 “권한 부여” 헤더에 “전달자”를 지정한 JWT 문자열을 추가합니다. 그런 후 웹 API에는 JWT의 유효성을 검사합니다. 유효성 검사가 성공하면 원하는 리소스를 반환합니다.
 
@@ -326,7 +327,7 @@ Azure AD에서 포인터 앱을 등록 및 구성하려면 다음 단계를 따�
 
 2. 리소스 앱에 대한 새 키를 추가합니다.
 
-3. groupMembershipClaims 속성이 "groupMembershipClaims": "All"을 포함하도록 앱 매니페스트 파일을 업데이트합니다.
+3. groupMembershipClaims 속성이 “groupMembershipClaims”: “All”을 포함하도록 앱 매니페스트 파일을 업데이트합니다.
 
 4. 플레이어 웹앱을 가리키는 Azure AD 앱의 **다른 응용 프로그램에 대한 권한** 섹션에서 1단계에서 추가한 리소스 앱을 추가합니다. **위임된 권한**에서 **[resource_name] 액세스**를 선택합니다. 이 옵션은 리소스 앱에 액세스하는 액세스 토큰을 만드는 웹앱 권한을 제공합니다. Visual Studio 및 Azure Web App으로 개발 중이라면 웹앱의 로컬 및 배포된 버전 모두에 대해 이 작업을 수행합니다.
 
@@ -365,7 +366,7 @@ Azure AD에서 발급한 JWT가 포인터 리소스에 액세스하는 데 사�
 > [!NOTE]
 > 개발 플랫폼으로 .NET Framework/C#을 사용하는 경우 비공개 보안 키에 사용된 X509 인증서에는 키 길이가 2048 이상이어야 합니다. 이는 .NET Framework에서 System.IdentityModel.Tokens.X509AsymmetricSecurityKey 클래스의 요구 사항입니다. 그렇지 않으면 다음 예외가 throw됩니다.
 
-> IDX10630: 서명을 위한 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey'는 '2048'비트 이상이어야 합니다.
+> IDX10630: 서명을 위한 ‘System.IdentityModel.Tokens.X509AsymmetricSecurityKey’는 ‘2048’비트 이상이어야 합니다.
 
 ## <a name="the-completed-system-and-test"></a>완료된 시스템 및 테스트
 이 섹션에서는 사용자가 로그인 계정을 얻기 전 동작에 대한 기본적인 그림을 그려볼 수 있도록, 완료된 종단 간 시스템에 대한 몇 가지 시나리오를 살펴볼 것입니다.
@@ -401,15 +402,15 @@ Azure AD는 Microsoft 계정 도메인을 신뢰하므로 다음 도메인에서
 
 **사용자 지정 Azure AD 테넌트 도메인 계정**: Azure AD 테넌트 도메인의 사용자 지정된 로그인 페이지
 
-![사용자 지정 Azure AD 테넌트 도메인 계정](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
+![사용자 지정 Azure AD 테넌트 도메인 계정 1](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
 
 **스마트 카드를 사용한 Microsoft 도메인 계정**: Microsoft 회사 IT에서 2단계 인증으로 사용자 지정한 로그인 페이지
 
-![사용자 지정 Azure AD 테넌트 도메인 계정](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
+![사용자 지정 Azure AD 테넌트 도메인 계정 2](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
 
 **Microsoft 계정**: 소비자를 위한 Microsoft 계정의 로그인 페이지
 
-![사용자 지정 Azure AD 테넌트 도메인 계정](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
+![사용자 지정 Azure AD 테넌트 도메인 계정 3](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
 
 ### <a name="use-encrypted-media-extensions-for-playready"></a>PlayReady에 암호화된 미디어 확장 사용
 Windows 8.1 이상의 Internet Explorer 11, Windows 10의 Microsoft Edge 브라우저와 같이 PlayReady 지원에 대한 EME(암호화된 미디어 확장)를 지원하는 최신 브라우저에서 PlayReady는 EME를 위한 기본 DRM입니다.

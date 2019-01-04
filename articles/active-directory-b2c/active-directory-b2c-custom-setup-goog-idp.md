@@ -28,9 +28,9 @@ ms.locfileid: "48887277"
 - [Active Directory B2C에서 사용자 지정 정책을 사용하여 시작하기](active-directory-b2c-get-started-custom.md)에 있는 단계를 완료합니다.
 - Google 계정이 아직 없으면 [Google 계정 만들기](https://accounts.google.com/SignUp)에서 하나 만듭니다.
 
-## <a name="register-the-application"></a>응용 프로그램 등록
+## <a name="register-the-application"></a>애플리케이션 등록
 
-사용자가 Google 계정에서 로그인하도록 설정하려면 Google 응용 프로그램 프로젝트를 만들어야 합니다. 
+사용자가 Google 계정에서 로그인하도록 설정하려면 Google 애플리케이션 프로젝트를 만들어야 합니다. 
 
 1. 계정 자격 증명을 사용하여 [Google 개발자 콘솔](https://console.developers.google.com/)에 로그인합니다.
 2. **프로젝트 이름**을 입력하고 **만들기**를 클릭한 다음 새 프로젝트를 사용 중인지 확인합니다.
@@ -38,7 +38,7 @@ ms.locfileid: "48887277"
 4. **동의 화면 구성**을 선택합니다.
 5. 선택하거나 유효한 **이메일 주소**를 제공는 **제품 이름** 입력 사용자에 게 표시 `b2clogin.com` 에서 **도메인 권한이**를 클릭 하 고  **저장**합니다.
 6. **응용 프로그램 형식**에서 **웹 응용 프로그램**을 선택합니다.
-7. 응용 프로그램의 **이름**을 입력합니다.
+7. 애플리케이션의 **이름**을 입력합니다.
 8. **권한이 부여된 JavaScript 원본**에 `https://your-tenant-name.b2clogin.com`을 입력하고 **권한이 부여된 리디렉션 URI**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. your-tenant-name을 테넌트 이름으로 바꿉니다. Azure AD B2C에서 테넌트가 대문자로 정의되어 있더라도 테넌트 이름을 입력할 때는 소문자만 사용해야 합니다.
 8. **만들기**를 클릭합니다.
 9. **클라이언트 ID** 및 **클라이언트 비밀** 값을 복사합니다. 테넌트에서 Google을 ID 공급자로 구성하려면 둘 모두가 필요합니다. 클라이언트 암호는 중요한 보안 자격 증명입니다.
@@ -157,9 +157,9 @@ ms.locfileid: "48887277"
 
 3. *TrustFrameworkExtensions.xml* 파일을 저장하고 확인을 위해 다시 업로드하세요.
 
-## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 응용 프로그램 만들기
+## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 애플리케이션 만들기
 
-Azure AD B2C와의 통신은 테넌트에서 만드는 응용 프로그램을 통해 수행됩니다. 이 섹션에서는 테스트 응용 프로그램을 아직 만들지 않은 경우 이를 만들기 위해 완료할 수 있는 선택적 단계를 설명합니다.
+Azure AD B2C와의 통신은 테넌트에서 만드는 애플리케이션을 통해 수행됩니다. 이 섹션에서는 테스트 애플리케이션을 아직 만들지 않은 경우 이를 만들기 위해 완료할 수 있는 선택적 단계를 설명합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.

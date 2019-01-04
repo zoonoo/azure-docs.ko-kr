@@ -9,12 +9,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: e1d8f41c55ffd453507804b005d10620665b512c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f1588cac61d0cef821dc15019683f67c2962f049
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222033"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255383"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Azure Databricks에서 Azure Cosmos DB Cassandra API 데이터 액세스
 
@@ -54,7 +54,7 @@ ms.locfileid: "47222033"
 
 ## <a name="sample-notebooks"></a>샘플 Notebook
 
-Azure Databricks [샘플 Notebook](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/notebooks/scala) 목록은 Github 리포지토리에서 다운로드할 수 있습니다. 이러한 샘플에는 Spark에서 Azure Cosmos DB Cassandra API에 연결하여 데이터에 대해 다양한 CRUD 작업을 수행하는 방법이 포함되어 있습니다. Databricks 클러스터 작업 영역으로 [모든 Notebook을 가져와서](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/dbc) 실행할 수도 있습니다. 
+Azure Databricks [샘플 Notebook](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/notebooks/scala) 목록은 GitHub 리포지토리에서 다운로드할 수 있습니다. 이러한 샘플에는 Spark에서 Azure Cosmos DB Cassandra API에 연결하여 데이터에 대해 다양한 CRUD 작업을 수행하는 방법이 포함되어 있습니다. Databricks 클러스터 작업 영역으로 [모든 Notebook을 가져와서](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/dbc) 실행할 수도 있습니다. 
 
 ## <a name="accessing-azure-cosmos-db-cassandra-api-from-spark-scala-programs"></a>Spark Scala 프로그램에서 Azure Cosmos DB Cassandra API 액세스
 
@@ -67,4 +67,4 @@ Azure Databricks에서 자동화된 프로세스로 실행할 Spark 프로그램
 
 ## <a name="next-steps"></a>다음 단계
 
-Java 응용 프로그램을 사용하여 [Cassandra API 계정, 데이터베이스 및 테이블 만들기](create-cassandra-api-account-java.md)를 시작합니다.
+Java 애플리케이션을 사용하여 [Cassandra API 계정, 데이터베이스 및 테이블 만들기](create-cassandra-api-account-java.md)를 시작합니다.

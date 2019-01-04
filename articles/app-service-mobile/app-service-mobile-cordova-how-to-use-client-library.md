@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 6fb8be96c9793e96f1f7d2ad8e212d056d7e9ba5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 358e8cd92fe250741adbbb9208b5e149a5f60216
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467889"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959736"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps용 Apache Cordova 클라이언트 라이브러리를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -79,7 +79,7 @@ Apache Cordova 앱에 인증을 사용할 때는 다음 Cordova 플러그 인을
 * [cordova-plugin-device]
 * [cordova-plugin-inappbrowser]
 
-두 가지의 인증 흐름, 즉 서버 흐름과 클라이언트 흐름이 지원됩니다.  서버 흐름의 경우 공급자의 웹 인증 인터페이스를 사용하므로 인증 경험이 가장 단순합니다. 클라이언트 흐름의 경우 공급자 특정 디바이스별 SDK를 사용하므로 Single Sign-On과 같은 디바이스 특정 기능을 통해 심도 깊은 통합이 가능합니다.
+두 가지의 인증 흐름, 즉 서버 흐름과 클라이언트 흐름이 지원됩니다.  서버 흐름의 경우 공급자의 웹 인증 인터페이스를 사용하므로 인증 경험이 가장 단순합니다. 클라이언트 흐름의 경우 공급자 특정 디바이스별 SDK를 사용하므로 Single Sign-On과 같은 디바이스 특정 기능을 통해 깊이 있는 통합이 가능합니다.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
@@ -167,7 +167,7 @@ Notification Hubs SDK를 사용하여 서버에서 푸시 알림을 보냅니다
 
 ## <a name="more-information"></a>자세한 정보
 
-우리의 [API 설명서](http://azure.github.io/azure-mobile-apps-js-client/)에서 자세한 API 세부 정보를 찾을 수 있습니다.
+우리의 [API 설명서](https://azure.github.io/azure-mobile-apps-js-client/)에서 자세한 API 세부 정보를 찾을 수 있습니다.
 
 <!-- URLs. -->
 [Azure Portal]: https://portal.azure.com
@@ -176,7 +176,7 @@ Notification Hubs SDK를 사용하여 서버에서 푸시 알림을 보냅니다
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [Azure Mobile Apps용 Apache Cordova 플러그 인]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
-[첫 번째 Apache Cordova 앱]: http://cordova.apache.org/#getstarted
+[첫 번째 Apache Cordova 앱]: https://cordova.apache.org/#getstarted
 [phonegap-facebook-plugin]: https://github.com/wizcorp/phonegap-facebook-plugin
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device

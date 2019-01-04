@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 그룹 소유자를 추가하거나 제거하는 방법 | Microsoft Docs
-description: Azure Active Directory를 사용하여 그룹 소유자를 추가하거나 제거하는 방법을 알아봅니다.
+title: 그룹 소유자 추가 또는 제거 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory를 사용하여 그룹 소유자를 추가하거나 제거하는 방법에 대한 지침입니다.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
-ms.custom: it-pro
-ms.openlocfilehash: fae68bccbeaa54ca1bab9d77510fe6baecd11fcc
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 8c70378993e0155cbe730a5a351848ca1a1daa0a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139723"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087153"
 ---
-# <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>방법: Azure Active Directory를 사용하여 그룹 소유자 추가 또는 제거
+# <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Azure Active Directory를 사용하여 그룹 소유자 추가 또는 제거
 Azure AD(Azure Active Directory) 그룹은 그룹 소유자가 소유하고 관리합니다. 그룹 소유자는 그룹 및 해당 멤버를 관리하기 위해 리소스 소유자(관리자)에게 할당됩니다. 그룹 소유자는 그룹의 멤버일 필요가 없습니다. 그룹 소유자가 할당된 후에는 리소스 소유자만 소유자를 추가하거나 제거할 수 있습니다.
 
 일부 경우에 관리자 권한으로 그룹 소유자를 할당하지 않도록 결정할 수도 있습니다. 이 경우 해당 관리자는 그룹 소유자가 됩니다. 또한 그룹 설정에서 이를 제한하지 않는 한, 소유자는 다른 소유자를 해당 그룹에 할당할 수 있습니다.

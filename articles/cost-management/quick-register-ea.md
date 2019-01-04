@@ -1,21 +1,21 @@
 ---
 title: Cloudyn에 Azure 기업계약 등록 | Microsoft Docs
-description: 기업계약을 통해 Cloudyn에 등록하는 방법을 설명합니다.
+description: 이 빠른 시작 정보에서는 Cloudyn 평가판 구독을 만들고 Cloudyn 포털에 로그인하는 데 필요한 등록 프로세스를 상세히 설명합니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
-ms.custom: ''
+ms.custom: seodec18
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: 36f53203a7d75fc06f872e9cc9ef9379944df108
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 7a3ed93814407df8f3adfe7d16ba50258fcb323e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273570"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082337"
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Azure Enterprise Agreement 등록 및 비용 데이터 보기
 
@@ -25,22 +25,22 @@ Azure Cost Management는 Cloudyn과 비슷한 기능을 제공합니다. Azure C
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-- http://portal.azure.com에서 Azure Portal에 로그인합니다.
+- https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="register-with-cloudyn"></a>Cloudyn에 등록
 
 1. Azure Portal의 서비스 목록에서 **Cost Management + 청구**를 클릭합니다.
 2. **개요**에서 **Cloudyn**을 클릭합니다.  
-    ![Cloudyn 페이지](./media/quick-register-ea/cost-mgt-billing-service.png)
+    ![Azure Portal에 표시된 Cloudyn 페이지](./media/quick-register-ea/cost-mgt-billing-service.png)
 3. **Cloudyn** 페이지에서 **으로 이동**하여 새 창에 Cloudyn 등록 페이지를 엽니다.
 4. Cloudyn 포털 평가판 등록 페이지에서 회사 이름을 입력하고 **Azure Enterprise 등록 관리자**를 선택합니다.  
-    ![평가판 등록](./media/quick-register-ea/trial-reg.png)
-5. 엔터프라이즈 포털 등록 API 키를 입력합니다. 키가 없는 경우 [Enterprise Portal](https://ea.azure.com) 링크를 클릭하고 다음 단계를 수행합니다.
+5. 엔터프라이즈 포털 등록 API 키를 입력합니다. 키가 없는 경우 [Enterprise Portal](https://ea.azure.com) 링크를 클릭하고 다음 단계를 수행합니다.  
+    ![요금 청구 탭에 API 키 붙여넣기](./media/quick-register-ea/trial-reg.png)
   1. Azure Enterprise 웹 사이트에 로그인하고 **보고서**, **API 액세스 키**를 차례로 클릭한 다음 기본 키를 복사합니다.  
-    ![EA API 키](./media/quick-register-ea/ea-key.png)
+    ![EA 포털에 있는 EA API 키의 예](./media/quick-register-ea/ea-key.png)
   3. 등록 페이지로 돌아가 API 키에 붙여 넣습니다.
 6. 사용 약관에 동의한 다음 키의 유효성을 검사합니다. **다음**을 클릭하여 Cloudyn이 Azure 리소스 데이터를 수집할 권한을 부여합니다. 수집되는 데이터에는 구독의 사용량, 성능, 청구 및 태그 데이터가 포함됩니다.  
-    ![키 유효성 검사](./media/quick-register-ea/ea-key-validated.png)
+    ![성공한 EA API 키 유효성 검사의 예](./media/quick-register-ea/ea-key-validated.png)
 7. **기타 관련자 초대**에서 이메일 주소를 입력하여 사용자를 추가할 수 있습니다. 완료되면 **다음**을 클릭합니다. Azure 등록의 규모에 따라 모든 청구 데이터가 Cloudyn에 추가되는 데 최대 24 시간이 걸릴 수 있습니다.
 8. **Cloudyn으로 이동**을 클릭하여 Cloudyn 포털을 연 다음 **클라우드 계정 관리** 페이지에서 등록된 EA 계정 정보를 확인할 수 있습니다.
 

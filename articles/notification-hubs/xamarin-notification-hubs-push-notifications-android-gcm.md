@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs를 사용하여 Xamarin.Android 앱에 알림 푸시 | Microsoft Docs
-description: 이 자습서에서 Azure Notification Hubs를 사용하여 Xamarin.Android 응용 프로그램에 푸시 알림을 보내는 방법을 알아봅니다.
+description: 이 자습서에서 Azure Notification Hubs를 사용하여 Xamarin.Android 애플리케이션에 푸시 알림을 보내는 방법을 알아봅니다.
 author: dimazaid
 manager: kpiteira
 editor: spelluru
@@ -26,7 +26,7 @@ ms.locfileid: "41918511"
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>개요
-이 자습서에서는 Azure Notification Hubs를 사용하여 Xamarin.Android 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. FCM(Firebase Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Xamarin.Android 앱을 만듭니다. 알림 허브를 사용하여 앱을 실행하는 모든 디바이스로 푸시 알림을 브로드캐스트합니다. 완성된 코드는 [NotificationHubs 앱][GitHub] 샘플에서 사용할 수 있습니다.
+이 자습서에서는 Azure Notification Hubs를 사용하여 Xamarin.Android 애플리케이션에 푸시 알림을 보내는 방법을 보여 줍니다. FCM(Firebase Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Xamarin.Android 앱을 만듭니다. 알림 허브를 사용하여 앱을 실행하는 모든 디바이스로 푸시 알림을 브로드캐스트합니다. 완성된 코드는 [NotificationHubs 앱][GitHub] 샘플에서 사용할 수 있습니다.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 

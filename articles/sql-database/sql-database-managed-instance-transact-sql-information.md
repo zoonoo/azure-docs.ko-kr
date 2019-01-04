@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 10/24/2018
-ms.openlocfilehash: 31b09818f901ecf957364ae77fd8c6e636b04342
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/03/2018
+ms.openlocfilehash: 489eccf1b73e7f5df76a3ce681b4479893a9e0ac
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712146"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843209"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance 및 SQL Server 간의 T-SQL 차이점
 
@@ -68,7 +68,7 @@ Managed Instance에는 자동 백업이 있으며, 사용자가 전체 데이터
 
 - Managed Instance에서는 Azure Blob Storage 계정에만 데이터베이스를 백업할 수 있습니다.
   - `BACKUP TO URL`만 지원됩니다.
-  - `FILE`, `TAPE` 및 백업 장치는 지원되지 않습니다.  
+  - `FILE`, `TAPE` 및 백업 디바이스는 지원되지 않습니다.  
 - 대부분의 일반 `WITH` 옵션이 지원됩니다.
   - `COPY_ONLY`는 필수입니다.
   - `FILE_SNAPSHOT`은 지원되지 않습니다.
@@ -145,7 +145,7 @@ Managed Instance는 파일에 액세스할 수 없으므로 암호화 공급자�
 
 ### <a name="collation"></a>Collation
 
-서버 데이터 정렬은 `SQL_Latin1_General_CP1_CI_AS`이며 변경할 수 없습니다. [데이터 정렬](https://docs.microsoft.com/sql/t-sql/statements/collations)을 참조하세요.
+기본 인스턴스 데이터 정렬은 `SQL_Latin1_General_CP1_CI_AS`이며 생성 매개 변수로 지정할 수 있습니다. [데이터 정렬](https://docs.microsoft.com/sql/t-sql/statements/collations)을 참조하세요.
 
 ### <a name="database-options"></a>데이터베이스 옵션
 
@@ -264,7 +264,7 @@ XEvent에 대한 일부 Windows 관련 대상은 지원되지 않습니다.
 
 Managed Instance의 연결된 서버는 제한된 수의 대상을 지원합니다.
 
-- 지원 대상: SQL Server 및 SQL Database
+- 지원되는 대상: SQL Server 및 SQL Database
 - 지원되지 않는 대상: 파일, Analysis Services 및 기타 RDBMS
 
 작업
@@ -277,7 +277,8 @@ Managed Instance의 연결된 서버는 제한된 수의 대상을 지원합니�
 ### <a name="logins--users"></a>로그인/사용자
 
 - `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY` 및 `FROM SID`에서 만든 SQL 로그인이 지원됩니다. [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql)을 참조하세요.
-- `CREATE LOGIN ... FROM WINDOWS` 구문으로 만든 Windows 로그인은 지원되지 않습니다.
+- [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) 구문 또는 [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) 구문을 사용하여 만든 AAD(Azure Active Directory) 로그인이 지원됩니다(**공개 미리 보기**).
+- `CREATE LOGIN ... FROM WINDOWS` 구문으로 만든 Windows 로그인은 지원되지 않습니다. Azure Active Directory 로그인 및 사용자를 사용합니다.
 - 인스턴스를 만든 Azure AD(Azure Active Directory) 사용자에게는 [무제한 관리자 권한](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts)이 있습니다.
 - 관리자가 아닌 Azure AD(Azure Active Directory) 데이터베이스 수준 사용자는 `CREATE USER ... FROM EXTERNAL PROVIDER` 구문을 사용하여 만들 수 있습니다. [CREATE USER ... FROM EXTERNAL PROVIDER](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)를 참조하세요.
 
@@ -302,7 +303,7 @@ HDFS 또는 Azure Blob 저장소의 파일을 참조하는 외부 테이블은 �
   - `RESTORE REWINDONLY ONLY`
 - 원본  
   - `FROM URL`(Azure Blob 저장소)만 지원되는 옵션입니다.
-  - `FROM DISK`/`TAPE`/백업 장치는 지원되지 않습니다.
+  - `FROM DISK`/`TAPE`/백업 디바이스는 지원되지 않습니다.
   - 백업 세트는 지원되지 않습니다.
 - `WITH` 옵션은 지원되지 않습니다(`DIFFERENTIAL`, `STATS` 등이 없음)
 - `ASYNC RESTORE` - 클라이언트 연결이 중단되더라도 복원이 계속됩니다. 연결이 삭제된 경우 `sys.dm_operation_status` 보기에서 복원 작업의 상태를 확인할 수 있습니다(CREATE 및 DROP 데이터베이스의 경우도 동일함). 자세한 내용은 [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)를 참조하세요.  
@@ -333,7 +334,7 @@ HDFS 또는 Azure Blob 저장소의 파일을 참조하는 외부 테이블은 �
 인스턴스 간 서비스 broker는 지원되지 않습니다.
 
 - `sys.routes` - 필수 조건: sys.routes에서 주소를 선택합니다. 주소는 모든 경로에서 LOCAL이어야 합니다. [sys.routes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-routes-transact-sql)를 참조하세요.
-- `CREATE ROUTE` - `LOCAL` 이외의 `ADDRESS`가 포함된 `CREATE ROUTE`는 수행할 수 없습니다. [CREATE ROUTE](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql)를 참조하세요.
+- `CREATE ROUTE` - `LOCAL` 이외의 `ADDRESS`가 포함된 `CREATE ROUTE`는 사용할 수 없습니다. [CREATE ROUTE](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql)를 참조하세요.
 - `ALTER ROUTE`는 `LOCAL` 이외의 `ADDRESS`가 포함된 `ALTER ROUTE`는 수행할 수 없습니다. [ALTER ROUTE](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql)를 참조하세요.  
 
 ### <a name="service-key-and-service-master-key"></a>서비스 키 및 서비스 마스터 키
@@ -429,10 +430,10 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 
 예를 들어 Managed Instance에는 크기가 1.2TB인 하나의 파일이 4TB 디스크에 있을 수 있고, 크기가 1GB인 파일 248개가 별도의 128GB 디스크에 있을 수 있습니다. 이 예제에서:
 
-- 전체 디스크 저장소 크기는 1x4TB + 248x128GB = 35TB입니다.
-- 인스턴스에서 데이터베이스에 대해 예약된 총 공간은 1 x 1.2TB + 248 x 1GB = 1.4TB입니다.
+- 전체 할당된 디스크 스토리지 크기는 1x4TB + 248x128GB = 35TB입니다.
+- 인스턴스에서 데이터베이스에 대해 예약된 총 공간은 1x1.2TB + 248x1GB = 1.4TB입니다.
 
-여기서는 특정 상황에서 매우 구체적인 파일의 배포로 인해 Managed Instance는 예상치 못한 연결된 Azure Premium Disk에 대해 예약된 35TB 용량에 도달할 수 있음을 보여줍니다.
+여기서는 특정 상황에서 구체적인 파일의 배포로 인해 Managed Instance는 예상치 못한 연결된 Azure Premium Disk에 대해 예약된 35TB 용량에 도달할 수 있음을 보여줍니다.
 
 이 예제에서 기존 데이터베이스는 계속 작동하며, 새 파일이 추가되지 않으면 문제 없이 커질 수 있습니다. 그러나 모든 데이터베이스의 총 크기가 인스턴스 크기 제한에 도달하지 않더라도 새 디스크 드라이브에 대한 충분한 공간이 없기 때문에 새 데이터베이스를 만들거나 복원할 수 없습니다. 이 경우 반환되는 오류가 명확하지 않습니다.
 
@@ -443,7 +444,10 @@ Azure Portal을 사용하여 생성된 SAS 키에서 선행 `?`를 제거했는�
 
 ### <a name="tooling"></a>도구
 
-Managed Instance에 액세스하는 동안 SQL Server Management Studio 및 SQL Server Data Tools에 몇 가지 문제가 발생할 수 있습니다. 모든 도구 문제는 일반 공급 이전에 해결될 예정입니다.
+Managed Instance에 액세스하는 동안 SSMS(SQL Server Management Studio) 및 SSDT(SQL Server Data Tools)에 몇 가지 문제가 발생할 수 있습니다.
+
+- 현재 SSDT에서는 Azure AD 로그인 및 사용자(**공개 미리 보기**)를 사용할 수 없습니다.
+- Azure AD 로그인 및 사용자에 대한 스크립트(**공개 미리 보기**)는 SSMS에서 지원되지 않습니다.
 
 ### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>일부 뷰, 로그 및 메시지에 잘못된 데이터베이스 이름이 있음
 
@@ -451,7 +455,7 @@ Managed Instance에 액세스하는 동안 SQL Server Management Studio 및 SQL 
 
 ### <a name="database-mail-profile"></a>데이터베이스 메일 프로필
 
-데이터베이스 메일 프로필은 하나만 있을 수 있으며, `AzureManagedInstance_dbmail_profile`이라고 해야 합니다. 이는 곧 제거될 임시 제한 사항입니다.
+데이터베이스 메일 프로필은 하나만 있을 수 있으며, `AzureManagedInstance_dbmail_profile`이라고 해야 합니다.
 
 ### <a name="error-logs-are-not-persisted"></a>오류 로그가 유지되지 않음
 
@@ -496,7 +500,7 @@ using (var scope = new TransactionScope())
 
 ### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>CLR 모듈 및 연결된 서버에서 로컬 IP 주소를 참조할 수 없는 경우가 있음
 
-현재 인스턴스를 참조하는 Managed Instance 및 연결된 서버/분산 쿼리에 배치된 CLR 모듈에서 로컬 인스턴스의 IP를 확인할 수 없는 경우가 있습니다. 이는 일시적인 오류입니다.
+현재 인스턴스를 참조하는 Managed Instance 및 연결된 서버/분산 쿼리에 배치된 CLR 모듈에서 로컬 인스턴스의 IP를 확인할 수 없는 경우가 있습니다. 이 오류는 일시적인 문제입니다.
 
 **해결 방법**: 가능한 경우 CLR 모듈에서 컨텍스트 연결을 사용합니다.
 

@@ -90,7 +90,7 @@ items:
     items:
     - name: Azure Backup Server 설치
       href: backup-mabs-install-azure-stack.md
-    - name: 파일 및 응용 프로그램 보호
+    - name: 파일 및 애플리케이션 보호
       href: backup-mabs-files-applications-azure-stack.md
     - name: SharePoint 팜 보호
       href: backup-mabs-sharepoint-azure-stack.md
@@ -108,7 +108,7 @@ items:
       items:
       - name: 리소스 관리자 배포 VM 준비
         href: backup-azure-arm-vms-prepare.md
-      - name: Linux VM의 응용 프로그램 일치 백업
+      - name: Linux VM의 애플리케이션 일치 백업
         href: backup-azure-linux-app-consistent.md
     - name: 환경 계획
       items:

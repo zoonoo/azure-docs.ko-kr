@@ -28,7 +28,7 @@ ms.locfileid: "51712911"
 * [PHP용 Azure Storage SDK](https://github.com/Azure/azure-storage-php)
 
 ## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
-이 빠른 시작에서 사용되는 [샘플 응용 프로그램](https://github.com/Azure-Samples/storage-blobs-php-quickstart.git)은 기본 PHP 응용 프로그램입니다.  
+이 빠른 시작에서 사용되는 [샘플 애플리케이션](https://github.com/Azure-Samples/storage-blobs-php-quickstart.git)은 기본 PHP 애플리케이션입니다.  
 
 [git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드합니다. 
 
@@ -36,12 +36,12 @@ ms.locfileid: "51712911"
 git clone https://github.com/Azure-Samples/storage-blobs-php-quickstart.git
 ```
 
-이 명령은 로컬 git 폴더에 해당 리포지토리를 복제합니다. PHP 샘플 응용 프로그램을 열려면 storage-blobs-php-quickstart 폴더를 찾아 phpqs.php 파일을 엽니다.  
+이 명령은 로컬 git 폴더에 해당 리포지토리를 복제합니다. PHP 샘플 애플리케이션을 열려면 storage-blobs-php-quickstart 폴더를 찾아 phpqs.php 파일을 엽니다.  
 
 [!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
-응용 프로그램에서 응용 프로그램에 대한 **BlobRestProxy** 인스턴스를 만들려면 저장소 계정 이름과 계정 키를 제공해야 합니다. 이러한 식별자는 응용 프로그램을 실행하는 로컬 컴퓨터의 환경 변수 내에 저장하는 것이 좋습니다. 운영 체제에 따라 다음 예제 중 하나를 사용하여 환경 변수를 만듭니다. **youraccountname** 및 **youraccountkey** 값을 계정 이름과 키로 바꿉니다.
+애플리케이션에서 애플리케이션에 대한 **BlobRestProxy** 인스턴스를 만들려면 스토리지 계정 이름과 계정 키를 제공해야 합니다. 이러한 식별자는 애플리케이션을 실행하는 로컬 컴퓨터의 환경 변수 내에 저장하는 것이 좋습니다. 운영 체제에 따라 다음 예제 중 하나를 사용하여 환경 변수를 만듭니다. **youraccountname** 및 **youraccountkey** 값을 계정 이름과 키로 바꿉니다.
 
 # <a name="linux-tablinux"></a>[Linux] (#tab/linux)
 
@@ -64,7 +64,7 @@ setx ACCOUNT_KEY=<youraccountkey>
 ## <a name="run-the-sample"></a>샘플 실행
 이 샘플에서는 '.' 폴더에 테스트 파일을 만듭니다. 샘플 프로그램은 Blob 저장소에 테스트 파일을 업로드하고, 컨테이너에 Blob를 나열하며, 새 이름으로 파일을 다운로드합니다. 
 
-샘플을 실행합니다. 다음 출력은 응용 프로그램 실행 시 반환되는 출력의 예제입니다.
+샘플을 실행합니다. 다음 출력은 애플리케이션 실행 시 반환되는 출력의 예제입니다.
   
 ```
 Uploading BlockBlob: HelloWorld.txt
@@ -196,7 +196,7 @@ Blob에 파일을 업로드하려면 로컬 드라이브에서 디렉터리 이�
     unlink($fileToUpload);   
 ```
 
-## <a name="resources-for-developing-php-applications-with-blobs"></a>Blob을 사용하여 PHP 응용 프로그램을 개발하기 위한 리소스
+## <a name="resources-for-developing-php-applications-with-blobs"></a>BLOB을 사용하여 PHP 애플리케이션을 개발하기 위한 리소스
 
 Blob 저장소를 사용하여 PHP 응용 프로그램을 개발하기 위한 추가 리소스는 다음과 같습니다.
 

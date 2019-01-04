@@ -30,12 +30,12 @@ ms.locfileid: "48807565"
 2.  기존 제품에 새 SKU 추가
 3.  제품/SKU 마켓플레이스 메타데이터 업데이트
 
-Cloud 파트너 포털에서 제품을 업데이트하고 다시 게시해야 합니다. 이 문서에서는 Azure 응용 프로그램 제품을 업데이트하는 다양한 측면을 안내합니다.
+Cloud 파트너 포털에서 제품을 업데이트하고 다시 게시해야 합니다. 이 문서에서는 Azure 애플리케이션 제품을 업데이트하는 다양한 측면을 안내합니다.
 
-<a name="unpermitted-changes-to-azure-application-offersku"></a>Azure 응용 프로그램 제품/SKU에 대한 허용되지 않는 변경 내용 
+<a name="unpermitted-changes-to-azure-application-offersku"></a>Azure 애플리케이션 제품/SKU에 대한 허용되지 않는 변경 내용 
 --------------------------------------------------
 
-제품이 Azure Marketplace에서 라이브로 전환된 후에는 수정할 수 없는 Azure 응용 프로그램 제품/SKU의 특성이 있습니다.
+제품이 Azure Marketplace에서 라이브로 전환된 후에는 수정할 수 없는 Azure 애플리케이션 제품/SKU의 특성이 있습니다.
 
 1.  해당 제품의 제품 ID 및 게시자 ID
 2.  기존 SKU의 SKU ID

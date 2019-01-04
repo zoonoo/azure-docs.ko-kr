@@ -1,21 +1,22 @@
 ---
-title: '자습서 7: LUIS에서 구 목록을 사용한 간단한 엔터티'
+title: 단순 엔터티, 구 목록
 titleSuffix: Azure Cognitive Services
-description: 발화에서 기계 학습 데이터 추출
+description: 이 자습서에서는 단순 엔터티를 사용하여 발화에서 배포 작업 이름의 기계 학습 데이터를 추출합니다. 추출 정확도를 높이려면 간단한 엔터티에 특정된 용어의 구 목록을 추가합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: f3e931344d2d2294c03756d630c688df1e5da9a8
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e8a1575527f906fab130e08cda715f6c8e904275
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425259"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166271"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>자습서 7: 간단한 엔터티 및 구 목록을 사용하여 이름 추출
 
@@ -92,7 +93,7 @@ ms.locfileid: "52425259"
 
 3. `I want to apply for the new accounting job` 발화에서 `accounting`을 선택하고, 팝업 메뉴의 위쪽 필드에서 `Job`을 입력한 다음, 팝업 메뉴에서 **새 엔터티 만들기**를 선택합니다. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "엔터티 만들기 단계가 강조 표시된 LUIS의 'ApplyForJob' 의도 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
+    [![엔터티 만들기 단계가 강조 표시된 LUIS의 ‘ApplyForJob’ 의도 스크린샷](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "엔터티 만들기 단계가 강조 표시된 LUIS의 ‘ApplyForJob’ 의도 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
 4. 팝업 창에서 엔터티 이름과 형식을 확인하고 **완료**를 선택합니다.
 
@@ -100,7 +101,7 @@ ms.locfileid: "52425259"
 
 5. `Submit resume for engineering position` 발화에서 `engineering`이라는 단어를 직무 엔터티의 레이블로 지정합니다. `engineering`이라는 단어를 선택한 다음, 팝업 메뉴에서 **직무**를 선택합니다. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "강조 표시된 LUIS 직무 엔터티 레이블 지정의 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
+    [![강조 표시된 LUIS 직무 엔터티 레이블 지정의 스크린샷](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "강조 표시된 LUIS 직무 엔터티 레이블 지정의 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
     모든 발화에는 레이블이 지정되지만, 5개의 발화는 LUIS에서 직무 관련 단어와 구를 학습하는 데 충분하지 않습니다. 숫자 값을 사용하는 직무는 정규식 엔터티를 사용하므로 이러한 직무에는 예제가 많이 필요하지 않습니다. 그러나 단어 또는 구를 사용하는 직무에는 15개 이상의 예제가 필요합니다. 
 
@@ -157,7 +158,7 @@ ms.locfileid: "52425259"
 
 2. 주소의 URL 끝으로 이동하고 `Here is my c.v. for the programmer job`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발화 **쿼리**를 나타내는 `q`입니다. 이 발화는 레이블이 지정된 발화와 같지 않으므로 유용한 테스트이며, `ApplyForJob` 발화가 반환되어야 합니다.
 
-    ```JSON
+    ```json
     {
       "query": "Here is my c.v. for the programmer job",
       "topScoringIntent": {
@@ -226,7 +227,7 @@ LUIS 앱은 높은 신뢰도를 통해 올바른 의도를 찾고 직무 이름�
 
 다음 JSON에서 LUIS는 올바른 `ApplyForJob` 의도를 사용하여 응답하지만 `lead welder` 직무 이름을 추출하지 못했습니다. 
 
-```JSON
+```json
 {
   "query": "This is the lead welder paperwork.",
   "topScoringIntent": {
@@ -283,7 +284,7 @@ LUIS 앱은 높은 신뢰도를 통해 올바른 의도를 찾고 직무 이름�
 
 ## <a name="to-boost-signal-add-phrase-list"></a>신호를 강화하려면 구 목록을 추가합니다.
 
-LUIS-Samples Github 리포지토리에서 [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv)를 엽니다. 이 목록에는 1,000개가 넘는 직무 단어와 구가 있습니다. 이 목록에서 의미 있는 직무 단어를 찾습니다. 단어 또는 구가 목록에 없으면 직접 추가합니다.
+LUIS-Samples GitHub 리포지토리에서 [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv)를 엽니다. 이 목록에는 1,000개가 넘는 직무 단어와 구가 있습니다. 이 목록에서 의미 있는 직무 단어를 찾습니다. 단어 또는 구가 목록에 없으면 직접 추가합니다.
 
 1. LUIS 앱의 **빌드** 섹션에서 **앱 성능 향상** 메뉴 아래에 있는 **구 목록**을 선택합니다.
 
@@ -291,13 +292,13 @@ LUIS-Samples Github 리포지토리에서 [jobs-phrase-list.csv](https://github.
 
 3. 새 구 목록의 이름을 `Job`로 지정하고, **값** 텍스트 상자에 jobs-phrase-list.csv의 목록을 복사합니다. Enter 키를 선택합니다. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "새 구 목록 대화 상자 팝업의 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
+    [![새 구 목록 만들기 대화 상자 팝업의 스크린샷](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "새 구 목록 만들기 대화 상자 팝업의 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
     구 목록에 더 많은 단어를 추가하려면 **관련 값**을 검토하고 관련된 내용을 추가합니다. 
 
 4. **저장**을 선택하여 구 목록을 활성화합니다.
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "구 목록 값 상자에 단어가 포함된 새 구 목록 대화 상자 팝업의 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
+    [![구 목록 값 상자에 단어가 포함된 새 구 목록 만들기 대화 상자 팝업의 스크린샷](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "구 목록 값 상자에 단어가 포함된 새 구 목록 만들기 대화 상자 팝업의 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
 5. 구 목록을 사용할 수 있도록 앱을 다시 [학습](#train) 및 [게시](#publish)합니다.
 
@@ -305,7 +306,7 @@ LUIS-Samples Github 리포지토리에서 [jobs-phrase-list.csv](https://github.
 
     추출된 엔터티가 JSON 응답에 포함됩니다.
 
-    ```JSON
+    ```json
     {
         "query": "This is the lead welder paperwork.",
         "topScoringIntent": {

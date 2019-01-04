@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs 샘플 | Microsoft Docs
-description: Azure Event Hubs 샘플
+title: 샘플 - Azure Event Hubs | Microsoft Docs
+description: 이 문서에서는 GitHub에 있는 Azure Event Hubs에 대한 샘플 목록을 제공합니다.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -8,20 +8,21 @@ manager: timlt
 editor: ''
 ms.assetid: ''
 ms.service: event-hubs
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/17/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3db77a31dfe92e16d2ec145cc0be595082d0d927
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 7231b6a33c94dfe029f41f034c7674b386090d7a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279384"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104053"
 ---
-# <a name="event-hubs-samples"></a>Event Hubs 샘플 
+# <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Azure Event Hubs에 대한 샘플이 있는 Git 리포지토리 
 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)에 대한 Event Hubs 샘플을 찾을 수 있습니다. 이러한 샘플은 [Azure Event Hubs](/azure/event-hubs/)의 주요 기능을 보여줍니다. 이 문서는 사용할 수 있는 샘플 각각을 링크를 사용하여 범주화하고 설명합니다.
 
 ## <a name="net-samples"></a>.NET 샘플

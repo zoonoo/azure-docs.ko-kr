@@ -1,22 +1,20 @@
 ---
-title: Azure Cosmos DB 계정에 대한 MongoDB 연결 문자열 | Microsoft Docs
+title: Azure Cosmos DB 계정에 대한 MongoDB 연결 문자열
 description: MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure Cosmos DB 계정에 연결하는 방법에 대해 알아봅니다.
 keywords: MongoDB 연결 문자열
 services: cosmos-db
 author: slyons
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/19/2017
 ms.author: sclyon
-ms.openlocfilehash: ad8d6fe36c289c4c9e37689e1c7d755dc3bf9048
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: a78a77e16e9a810c0be03656aa48b02cc8e6e5e6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038667"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849261"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Azure Cosmos DB에 MongoDB 응용 프로그램 연결
 MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure Cosmos DB 계정에 연결하는 방법에 대해 알아봅니다. 그런 다음 Azure Cosmos DB 데이터베이스를 MongoDB 앱의 데이터 저장소로 사용할 수 있습니다. 
@@ -54,17 +52,17 @@ MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure Cosmos DB 계정�
 >
 >
 
-Azure Cosmos DB는 두 가지 특정 요구 사항을 포함한 표준 MongoDB 연결 문자열 URI 형식을 지원합니다. Azure Cosmos DB 계정에는 인증 및 SSL을 통한 보안 통신이 필요합니다. 따라서 연결 문자열 형식은 다음과 같습니다.
+Azure Cosmos DB는 몇 가지 특정 요구 사항과 함께 표준 MongoDB 연결 문자열 URI 형식을 지원합니다. Azure Cosmos DB 계정에는 SSL을 통한 인증 및 보안 통신이 필요합니다. 따라서 연결 문자열 형식은 다음과 같습니다.
 
     mongodb://username:password@host:port/[database]?ssl=true
 
 이 문자열의 값은 위에 표시된 **연결 문자열** 블레이드에서 사용할 수 있습니다.
 
-* Username(필수): Azure Cosmos DB 계정 이름
-* Password(필수): Azure Cosmos DB 계정 암호
-* Host(필수): Azure Cosmos DB 계정의 FQDN
-* Port(필수): 10255
-* Database(선택): 연결에서 사용하는 데이터베이스. 제공된 데이터베이스가 없는 경우 기본 데이터베이스는 "test"입니다.
+* 사용자 이름(필수): Azure Cosmos DB 계정 이름
+* 암호(필수): Azure Cosmos DB 계정 암호
+* 호스트(필수): Azure Cosmos DB 계정의 FQDN
+* 포트(필수): 10255
+* 데이터베이스(선택 사항): 연결에서 사용하는 데이터베이스 제공된 데이터베이스가 없는 경우 기본 데이터베이스는 "test"입니다.
 * ssl=true(필수)
 
 예를 들어 **연결 문자열** 블레이드에 표시된 계정을 사용하는 것이 좋습니다. 유효한 연결 문자열은 다음과 같습니다.

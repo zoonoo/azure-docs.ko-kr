@@ -32,7 +32,7 @@ BambooHR을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정에서 SSO(Single Sign-On)를 사용하여 BambooHR에 자동으로 로그인하도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -66,11 +66,11 @@ Azure AD에 BambooHR을 통합하도록 구성하려면 다음을 수행하여 �
 
 1. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**을 선택합니다.
 
-    ![Enterprise 응용 프로그램 창][2]
+    ![엔터프라이즈 애플리케이션 창][2]
     
-1. 응용 프로그램을 추가하려면 **새 응용 프로그램**을 선택합니다.
+1. 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
 
-    !["새 응용 프로그램" 단추][3]
+    !["새 애플리케이션" 단추][3]
 
 1. 검색 상자에 **BambooHR**을 입력합니다. 결과 목록에서 **BambooHR**을 선택한 다음, **추가**를 선택합니다.
 
@@ -88,9 +88,9 @@ BambooHR에서 Azure AD SSO를 구성하고 테스트하려면 다음 5개 섹�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD SSO를 사용하도록 설정하고 다음을 수행하여 BambooHR 응용 프로그램에서 SSO를 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD SSO를 사용하도록 설정하고 다음을 수행하여 BambooHR 애플리케이션에서 SSO를 구성합니다.
 
-1. Azure Portal의 **BambooHR** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. Azure Portal의 **BambooHR** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -208,13 +208,13 @@ Azure SSO를 사용할 수 있도록 사용자인 Britta Simon에게 BambooHR에
 
 Britta Simon을 BambooHR에 할당하려면 다음을 수행합니다.
 
-1. Azure Portal에서 응용 프로그램 보기를 열고 디렉터리 보기로 이동한 후 **Enterprise 응용 프로그램** > **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 애플리케이션 보기를 열고, 디렉터리 보기로 이동한 다음, **Enterprise 애플리케이션** > **모든 애플리케이션**을 선택합니다.
 
     ![사용자 할당][201] 
 
 1. **엔터프라이즈 응용 프로그램** 목록에서 **BambooHR**을 선택합니다.
 
-    ![엔터프라이즈 응용 프로그램 목록의 BambooHR 링크](./media/bamboo-hr-tutorial/tutorial_bamboohr_app.png)  
+    ![엔터프라이즈 애플리케이션 목록의 BambooHR 링크](./media/bamboo-hr-tutorial/tutorial_bamboohr_app.png)  
 
 1. 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
 
@@ -234,7 +234,7 @@ Britta Simon을 BambooHR에 할당하려면 다음을 수행합니다.
 
 액세스 패널을 사용하여 Azure AD SSO 구성을 테스트합니다.
 
-액세스 패널에서 **BambooHR** 타일을 선택하면 BambooHR 응용 프로그램에 자동으로 로그인됩니다.
+액세스 패널에서 **BambooHR** 타일을 선택하면 BambooHR 애플리케이션에 자동으로 로그인됩니다.
 
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 

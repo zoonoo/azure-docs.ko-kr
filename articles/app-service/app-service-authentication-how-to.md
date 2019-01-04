@@ -1,5 +1,5 @@
 ---
-title: Azure App Service의 고급 인증 및 권한 부여 사용 | Microsoft Docs
+title: 고급 인증 및 권한 부여 사용 - Azure App Service | Microsoft Docs
 description: App Service의 인증 및 권한 부여를 사용자 지정하고, 사용자 클레임 및 서로 다른 토큰을 가져오는 방법을 보여 줍니다.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
-ms.openlocfilehash: e1109ec8cc98c7e5fc72d7f56ade19968b0056cc
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 931c1bc68c4e357432081dbfa2df685fcf9fc96d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685330"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409754"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 고급 인증 및 권한 부여 사용
 
@@ -26,13 +27,13 @@ ms.locfileid: "51685330"
 
 지금 바로 시작하려면 다음 자습서 중 하나를 참조하세요.
 
-* [자습서: Azure App Service에서 종단 간 사용자 인증 및 권한 부여(Windows)](app-service-web-tutorial-auth-aad.md)
-* [자습서: Azure App Service에서 Linux용 종단 간 사용자 인증 및 권한 부여](containers/tutorial-auth-aad.md)
-* [Azure Active Directory 로그인을 사용하도록 앱을 구성하는 방법](app-service-mobile-how-to-configure-active-directory-authentication.md)
-* [Facebook 로그인을 사용하도록 앱을 구성하는 방법](app-service-mobile-how-to-configure-facebook-authentication.md)
-* [Google 로그인을 사용하도록 앱을 구성하는 방법](app-service-mobile-how-to-configure-google-authentication.md)
-* [Microsoft 계정 로그인을 사용하도록 앱을 구성하는 방법](app-service-mobile-how-to-configure-microsoft-authentication.md)
-* [Twitter 로그인을 사용하도록 앱을 구성하는 방법](app-service-mobile-how-to-configure-twitter-authentication.md)
+* [자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여(Windows)](app-service-web-tutorial-auth-aad.md)
+* [자습서: Azure App Service에서 Linux용 엔드투엔드 사용자 인증 및 권한 부여](containers/tutorial-auth-aad.md)
+* [Azure Active Directory 로그인을 사용하도록 앱을 구성하는 방법](configure-authentication-provider-aad.md)
+* [Facebook 로그인을 사용하도록 앱을 구성하는 방법](configure-authentication-provider-facebook.md)
+* [Google 로그인을 사용하도록 앱을 구성하는 방법](configure-authentication-provider-google.md)
+* [Microsoft 계정 로그인을 사용하도록 앱을 구성하는 방법](configure-authentication-provider-microsoft.md)
+* [Twitter 로그인을 사용하도록 앱을 구성하는 방법](configure-authentication-provider-twitter.md)
 
 ## <a name="use-multiple-sign-in-providers"></a>다중 로그인 공급자 사용
 
@@ -148,14 +149,14 @@ az webapp config appsettings set --name <app_name> --resource-group <group_name>
 
 ## <a name="access-user-claims"></a>사용자 클레임 액세스
 
-App Service는 특수 헤더를 사용하여 사용자 클레임을 응용 프로그램에 전달합니다. 외부 요청은 이러한 헤더를 설정하도록 허용되지 않았으므로 App Service에서 설정한 경우에만 표시됩니다. 다음은 이러한 헤더의 예입니다.
+App Service는 특수 헤더를 사용하여 사용자 클레임을 애플리케이션에 전달합니다. 외부 요청은 이러한 헤더를 설정하도록 허용되지 않았으므로 App Service에서 설정한 경우에만 표시됩니다. 다음은 이러한 헤더의 예입니다.
 
 * X-MS-CLIENT-PRINCIPAL-NAME
 * X-MS-CLIENT-PRINCIPAL-ID
 
 모든 언어로 작성된 코드 또는 프레임워크는 이러한 헤더에서 필요한 정보를 가져올 수 있습니다. ASP.NET 4.6 앱의 경우 **ClaimsPrincipal** 이 적절한 값으로 자동 설정됩니다.
 
-또한 응용 프로그램에서 `/.auth/me`를 호출하여 인증된 사용자에 대한 추가 세부 사항을 가져올 수 있습니다. Mobile Apps 서버 SDK는 이 데이터를 사용하기 위한 도우미 메서드를 제공합니다. 자세한 내용은 [Azure Mobile Apps Node.js SDK를 사용하는 방법](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity) 및 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info)을 참조하세요.
+또한 애플리케이션에서 `/.auth/me`를 호출하여 인증된 사용자에 대한 추가 세부 사항을 가져올 수 있습니다. Mobile Apps 서버 SDK는 이 데이터를 사용하기 위한 도우미 메서드를 제공합니다. 자세한 내용은 [Azure Mobile Apps Node.js SDK를 사용하는 방법](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity) 및 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info)을 참조하세요.
 
 ## <a name="retrieve-tokens-in-app-code"></a>앱 코드에서 토큰 검색
 
@@ -177,12 +178,12 @@ App Service는 특수 헤더를 사용하여 사용자 클레임을 응용 프�
 
 ## <a name="refresh-access-tokens"></a>액세스 토큰 새로 고침
 
-공급자의 액세스 토큰이 만료되면 사용자를 다시 인증해야 합니다. 응용 프로그램의 `/.auth/refresh` 엔드포인트에 대한 `GET` 호출을 수행하면 토큰 만료를 방지할 수 있습니다. 호출되면 App Service에서는 인증된 사용자에 대한 토큰 저장소의 액세스 토큰을 자동으로 새로 고칩니다. 이후에 앱 코드에서 토큰을 요청하면 새로 고쳐진 토큰을 가져옵니다. 단, 토큰 새로 고침을 실행하기 위해서는 토큰 저장소에 사용자 공급자에 대한 [토큰 새로 고침](https://auth0.com/learn/refresh-tokens/)이 포함되어야 합니다. 새로 고침 토큰을 얻는 방법은 각 공급자에서 제공하는 문서에 나와 있으며, 다음 목록은 간단한 요약입니다.
+공급자의 액세스 토큰이 만료되면 사용자를 다시 인증해야 합니다. 애플리케이션의 `/.auth/refresh` 엔드포인트에 대한 `GET` 호출을 수행하면 토큰 만료를 방지할 수 있습니다. 호출되면 App Service에서는 인증된 사용자에 대한 토큰 저장소의 액세스 토큰을 자동으로 새로 고칩니다. 이후에 앱 코드에서 토큰을 요청하면 새로 고쳐진 토큰을 가져옵니다. 단, 토큰 새로 고침을 실행하기 위해서는 토큰 저장소에 사용자 공급자에 대한 [토큰 새로 고침](https://auth0.com/learn/refresh-tokens/)이 포함되어야 합니다. 새로 고침 토큰을 얻는 방법은 각 공급자에서 제공하는 문서에 나와 있으며, 다음 목록은 간단한 요약입니다.
 
 - **Google**: `access_type=offline` 쿼리 문자열 매개 변수를 `/.auth/login/google` API 호출에 추가합니다. Mobile Apps SDK를 사용하는 경우 `LogicAsync` 오버로드 중 하나에 매개 변수를 추가할 수 있습니다([Google 새로 고침 토큰](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) 참조).
 - **Facebook**: 새로 고침 토큰을 제공하지 않습니다. 수명이 긴 토큰은 60일 후에 만료됩니다([액세스 토큰의 Facebook 만료 및 확장](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) 참조).
-- **Twitter**: 액세스 토큰이 만료되지 않습니다([Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq) 참조).
-- **Microsoft 계정**: [Microsoft 계정 인증 설정을 구성](app-service-mobile-how-to-configure-microsoft-authentication.md)할 때 `wl.offline_access` 범위를 선택합니다.
+- **Twitter**: 액세스 토큰이 만료되지 않습니다([Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/FAQ) 참조).
+- **Microsoft 계정**: [Microsoft 계정 인증 설정을 구성](configure-authentication-provider-microsoft.md)할 때 `wl.offline_access` 범위를 선택합니다.
 - **Azure Active Directory**: [https://resources.azure.com](https://resources.azure.com)에서 다음 단계를 수행합니다.
     1. 페이지의 위쪽에서 **읽기/쓰기**를 선택합니다.
     1. 왼쪽 브라우저에서 **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **사이트** > _**\<app\_name>**_ > **config** > **authsettings**로 이동합니다. 
@@ -210,7 +211,7 @@ function refreshTokens() {
 }
 ```
 
-사용자가 사용자 앱에 부여된 사용 권한을 취소하는 경우 `/.auth/me`에 대한 호출이 `403 Forbidden` 응답과 함께 실패할 수도 있습니다. 오류를 진단하려면 세부 정보에 대한 응용 프로그램 로그를 확인합니다.
+사용자가 사용자 앱에 부여된 사용 권한을 취소하는 경우 `/.auth/me`에 대한 호출이 `403 Forbidden` 응답과 함께 실패할 수도 있습니다. 오류를 진단하려면 세부 정보에 대한 애플리케이션 로그를 확인합니다.
 
 ## <a name="extend-session-expiration-grace-period"></a>세션 만료 유예 기간 연장
 
@@ -242,5 +243,5 @@ Microsoft 계정과 Azure Active Directory는 모두 여러 도메인에서 로�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: 종단 간 사용자 인증 및 권한 부여(Windows)](app-service-web-tutorial-auth-aad.md)
-> [자습서: 종단 간 사용자 인증 및 권한 부여(Linux)](containers/tutorial-auth-aad.md)
+> [자습서: 엔드투엔드 사용자 인증 및 권한 부여(Windows)](app-service-web-tutorial-auth-aad.md)
+> [자습서: 엔드투엔드 사용자 인증 및 권한 부여(Linux)](containers/tutorial-auth-aad.md)

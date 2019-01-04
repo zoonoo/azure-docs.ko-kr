@@ -23,7 +23,7 @@ ms.locfileid: "45606873"
 ---
 # <a name="review-your-access"></a>액세스 검토
 
-Azure AD(Azure Active Directory)는 액세스 검토라는 기능을 사용하여 회사에서 Azure AD 및 기타 Microsoft Online Services에 속한 응용 프로그램에 대한 액세스 및 그룹 구성원을 관리하는 방법을 간소화합니다. Microsoft로부터 그룹 구성원 또는 응용 프로그램에 대한 액세스 권한이 있는 사용자의 액세스를 검토하도록 요청하는 전자 메일을 받았을 것입니다. 
+Azure AD(Azure Active Directory)는 액세스 검토라는 기능을 사용하여 회사에서 Azure AD 및 기타 Microsoft Online Services에 속한 애플리케이션에 대한 액세스 및 그룹 구성원을 관리하는 방법을 간소화합니다. Microsoft로부터 그룹 구성원 또는 애플리케이션에 대한 액세스 권한이 있는 사용자의 액세스를 검토하도록 요청하는 전자 메일을 받았을 것입니다. 
 
 ## <a name="open-an-access-review"></a>액세스 검토 열기
 

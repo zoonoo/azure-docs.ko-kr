@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: d7f33bf0657ca2a6888387b7651706f9de537bb4
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: ce10e2c24e89140357df3fa6b724a1f89f389a50
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494359"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275485"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 독립 실행형 Service Fabric 클러스터를 관리합니다.
@@ -63,18 +63,18 @@ Service Fabric 독립 실행형 클러스터의 구성 업그레이드를 시작
 
 |인수|설명|
 | --- | --- |
-| --cluster-config            [필수] | 클러스터에 적용될 클러스터 구성입니다. |
+| --cluster-config            [필수] | 클러스터 구성입니다. |
 | --application-health-policies | 오류를 발생시키기 전의 비정상 응용 프로그램 형식 이름 및 최대 비율 쌍의 JSON 인코딩된 사전. |
 | --delta-unhealthy-nodes | 업그레이드 중 허용되는 델타 상태 저하의 최대 비율입니다. 허용되는 값은 0~100의 정수 값입니다. |
-| --health-check-retry | 응용 프로그램 또는 클러스터가 정상이 아닌지 상태 확인을 수행하는 시도 사이의 시간입니다.  기본값\: PT0H0M0S. |
-| --health-check-stable | 응용 프로그램 또는 클러스터에서 정상을 유지해야 하는 시간입니다.  기본값\: PT0H0M0S. |
+| --health-check-retry | 애플리케이션 또는 클러스터가 정상이 아닌지 상태 확인을 수행하는 시도의 시간 간격입니다.  기본값\: PT0H0M0S. |
+| --health-check-stable | 업그레이드가 다음 업그레이드 도메인으로 진행되기 전에 응용 프로그램 또는 클러스터가 정상 상태로 유지되어야 하는 시간입니다.  기본값\: PT0H0M0S. <br><br> 먼저 ISO 8601 기간을 나타내는 문자열로 해석됩니다. 실패하는 경우 총 시간(밀리초)을 나타내는 숫자로 해석됩니다. |
 | --health-check-wait | 업그레이드 도메인을 완료한 후 상태 확인 프로세스를 시작하기 전에 대기하는 시간입니다.  기본값\: PT0H0M0S. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 | --unhealthy-applications | 업그레이드 중 허용되는 비정상 응용 프로그램의 최대 백분율입니다. 허용되는 값은 0~100의 정수 값입니다. |
 | --unhealthy-nodes | 업그레이드 중 허용되는 비정상 노드의 최대 백분율입니다. 허용되는 값은 0~100의 정수 값입니다. |
 | --upgrade-domain-delta-unhealthy-nodes | 업그레이드 중 허용되는 업그레이드 도메인 델타 상태 저하의 최대 비율입니다. 허용되는 값은 0~100의 정수 값입니다. |
-| --upgrade-domain-timeout | 업그레이드 도메인에 대한 시간 제한입니다.  기본값\: PT0H0M0S. |
-| --upgrade-timeout | 업그레이드 시간 제한입니다.  기본값\: PT0H0M0S. |
+| --upgrade-domain-timeout | FailureAction이 실행되기 전에 각 업그레이드 도메인이 완료해야 하는 시간입니다.  기본값\: PT0H0M0S. <br><br> 먼저 ISO 8601 기간을 나타내는 문자열로 해석됩니다. 실패하는 경우 총 시간(밀리초)을 나타내는 숫자로 해석됩니다. |
+| --upgrade-timeout | FailureAction이 실행되기 전에 전체 업그레이드를 완료해야 하는 시간입니다.  기본값\: PT0H0M0S. <br><br> 먼저 ISO 8601 기간을 나타내는 문자열로 해석됩니다. 실패하는 경우 총 시간(밀리초)을 나타내는 숫자로 해석됩니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -88,7 +88,12 @@ Service Fabric 독립 실행형 클러스터의 구성 업그레이드를 시작
 
 ### <a name="examples"></a>예
 
-클러스터 구성 업데이트 시작 sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
+클러스터 구성 업데이트 시작
+
+```
+sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-
+policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
+```
 
 ## <a name="sfctl-sa-cluster-upgrade-status"></a>sfctl sa-cluster upgrade-status
 Service Fabric 독립 실행형 클러스터의 클러스터 구성 업그레이드 상태를 가져옵니다.

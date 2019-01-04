@@ -41,7 +41,7 @@ ms.locfileid: "48829837"
 
 [!INCLUDE [iot-accelerators-connecting-code](../../includes/iot-accelerators-connecting-code.md)]
 
-## <a name="build-and-run-the-application"></a>응용 프로그램 빌드 및 실행
+## <a name="build-and-run-the-application"></a>애플리케이션 빌드 및 실행
 
 다음 단계에서는 *CMake* 를 사용하여 클라이언트 응용 프로그램을 빌드하는 방법을 설명합니다. 원격 모니터링 클라이언트 응용 프로그램은 SDK 빌드 프로세스의 일부분으로 빌드됩니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "48829837"
     make
     ```
 
-1. 클라이언트 응용 프로그램을 실행하고 IoT Hub에 원격 분석을 전송합니다.
+1. 클라이언트 애플리케이션을 실행하고 IoT Hub에 원격 분석을 전송합니다.
 
     ```sh
     ./samples/solutions/remote_monitoring_client/remote_monitoring_client
@@ -64,7 +64,7 @@ ms.locfileid: "48829837"
 
     다음과 같은 경우 콘솔에 메시지가 표시됩니다.
 
-    - 응용 프로그램이 샘플 원격 분석 데이터를 솔루션 가속기에 보낼 때.
+    - 애플리케이션이 샘플 원격 분석 데이터를 솔루션 가속기에 보낼 때.
     - 솔루션 대시보드에서 호출된 메서드에 응답할 때.
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]

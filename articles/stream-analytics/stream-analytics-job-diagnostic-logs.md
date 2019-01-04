@@ -4,17 +4,17 @@ description: 이 문서에서는 Azure Stream Analytics에서 진단 로그를 �
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/20/2017
-ms.openlocfilehash: 9001a2962806ee3e691fa448dde162d12c6ecdd2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: db3c9874676e3240f6896c1e1ff8f873360c20d5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30905865"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090825"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>진단 로그를 사용하여 Azure Stream Analytics 문제 해결
 
@@ -36,15 +36,15 @@ Stream Analytics에서는 다음과 같은 두 가지 형식의 로그를 제공
 
 1.  Azure Portal에 로그인하고 스트리밍 작업 블레이드로 이동합니다. **모니터링** 아래에서 **진단 로그**를 선택합니다.
 
-    ![진단 로그에 대한 블레이드 탐색](./media/stream-analytics-job-diagnostic-logs/image1.png)  
+    ![진단 로그에 대한 블레이드 탐색](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
 2.  **진단 켜기**를 선택합니다.
 
-    ![진단 로그 켜기](./media/stream-analytics-job-diagnostic-logs/image2.png)
+    ![Stream Analytics 진단 로그 켜기](./media/stream-analytics-job-diagnostic-logs/turn-on-diagnostic-logs.png)
 
 3.  **진단 설정** 페이지의 **상태**에서 **켜기**를 선택합니다.
 
-    ![진단 로그에 대한 상태 변경](./media/stream-analytics-job-diagnostic-logs/image3.png)
+    ![진단 로그에 대한 상태 변경](./media/stream-analytics-job-diagnostic-logs/save-diagnostic-log-settings.png)
 
 4.  원하는 보관 대상(저장소 계정, 이벤트 허브, Log Analytics)을 설정합니다. 그런 다음, 수집할 로그의 범주를 선택합니다(실행, 작성). 
 
@@ -52,7 +52,7 @@ Stream Analytics에서는 다음과 같은 두 가지 형식의 로그를 제공
 
 진단 구성이 적용되는 데 약 10분이 소요됩니다. 그 후 구성된 보관 대상에 로그가 나타나기 시작합니다(**진단 로그** 페이지에서 볼 수 있음).
 
-![진단 로그에 대한 블레이드 탐색 - 보관 대상](./media/stream-analytics-job-diagnostic-logs/image4.png)
+![진단 로그에 대한 블레이드 탐색 - 보관 대상](./media/stream-analytics-job-diagnostic-logs/view-diagnostic-logs-page.png)
 
 진단을 구성하는 방법에 대한 자세한 내용은 [Azure 리소스의 진단 데이터 수집 및 사용](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)을 참조하세요.
 
@@ -72,7 +72,7 @@ Stream Analytics에서는 다음과 같은 두 가지 형식의 로그를 제공
 
 모든 로그는 JSON 형식으로 저장됩니다. 각 항목에는 다음과 같은 일반적인 문자열 필드가 있습니다.
 
-Name | 설명
+이름 | 설명
 ------- | -------
 실시간 | 로그의 타임스탬프(UTC)입니다.
 ResourceId | 작업이 수행되는 리소스의 ID(대문자)입니다. 여기에는 구독 ID, 리소스 그룹 및 작업 이름이 포함됩니다. 예: **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
@@ -90,28 +90,28 @@ properties | 로그 항목별 세부 정보로, JSON 문자열로 직렬화됩�
 
 작업이 데이터를 처리하는 동안 발생한 오류는 이 로그 범주에 속합니다. 이러한 로그는 데이터 읽기, serialization 및 쓰기 작업 도중에 가장 자주 생성됩니다. 이러한 로그는 연결 오류를 포함하지 않습니다. 연결 오류는 일반 이벤트로 처리됩니다.
 
-Name | 설명
+이름 | 설명
 ------- | -------
 원본 | 오류가 발생한 작업 입력 또는 출력의 이름입니다.
 Message | 오류와 연결된 메시지
-유형 | 오류의 형식입니다. 예: **DataConversionError**, **CsvParserError** 또는 **ServiceBusPropertyColumnMissingError**.
+type | 오류의 형식입니다. 예: **DataConversionError**, **CsvParserError** 또는 **ServiceBusPropertyColumnMissingError**.
 Data | 오류 출처를 정확히 찾는 데 도움이 되는 데이터를 포함합니다. 크기에 따라 잘릴 수 있습니다.
 
 **operationName** 값에 따라 데이터 오류의 스키마는 다음과 같습니다.
 * **직렬화 이벤트**입니다. 직렬화 이벤트는 이벤트 읽기 작업 중에 발생합니다. 이는 데이터 입력 시 쿼리 스키마를 충족하지 않을 때 다음과 같은 이유 중 하나로 발생합니다.
-    * *이벤트 (역)직렬화 도중 형식 불일치*: 오류를 발생시키는 필드를 식별합니다.
-    * *이벤트를 읽을 수 없음, 잘못된 serialization*: 입력 데이터에서 오류가 발생하는 위치에 대한 정보를 나열합니다. Blob 입력에 대한 Blob 이름, 오프셋 및 데이터 샘플이 포함됩니다.
+    * *이벤트 (역)직렬화 도중 형식 불일치*: 오류의 원인이 되는 필드를 식별합니다.
+    * *이벤트를 읽을 수 없음, 잘못된 serialization*: 오류가 발생한 입력 데이터의 위치 정보를 나열합니다. Blob 입력에 대한 Blob 이름, 오프셋 및 데이터 샘플이 포함됩니다.
 * **전송 이벤트**. 전송 이벤트는 쓰기 작업 중에 발생합니다. 오류를 발생시키는 스트리밍 이벤트를 식별합니다.
 
 ### <a name="generic-events"></a>일반 이벤트
 
 일반 이벤트는 다른 모든 항목을 처리합니다.
 
-Name | 설명
+이름 | 설명
 -------- | --------
 오류 | (선택 사항) 오류 정보입니다. 일반적으로 사용 가능한 경우 예외 정보입니다.
 Message| 로그 메시지
-유형 | 메시지 형식입니다. 내부 오류 분류에 매핑합니다. 예: **JobValidationError** 또는 **BlobOutputAdapterInitializationFailure**.
+type | 메시지 형식입니다. 내부 오류 분류에 매핑합니다. 예: **JobValidationError** 또는 **BlobOutputAdapterInitializationFailure**.
 상관관계 ID | 작업 실행을 고유하게 식별하는 [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). 작업 시작 시간부터 작업이 중지될 때까지 모든 실행 로그 항목에는 동일한 **상관 관계 ID** 값이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

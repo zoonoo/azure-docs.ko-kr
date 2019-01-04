@@ -15,14 +15,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: cec57f2dafaddfa2ebc492f0cb92755b1f65607f
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 140994de4b1be61f16593e450d156b81727a9f52
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251025"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437846"
 ---
-# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs로 푸시 알림: 질문과 대답
+# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs를 사용하는 푸시 알림: 질문과 대답
 ## <a name="general"></a>일반
 ### <a name="what-is-the-resource-structure-of-notification-hubs"></a>Notification Hubs의 리소스 구조는 무엇입니까?
 
@@ -39,11 +39,11 @@ Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리
 
 표준 계층 기능:
 * **다양한 원격 분석**: 메시지 원격 분석 단위로 Notification Hubs를 사용하여 푸시 요청을 추적하고 디버깅을 위해 플랫폼 알림 시스템 피드백을 사용할 수 있습니다.
-* **다중 테넌트**: 네임스페이스 수준에서 플랫폼 알림 시스템 자격 증명 작업을 수행할 수 있습니다. 이 옵션을 사용하면 동일한 네임스페이스 내에서 허브로 테넌트를 쉽게 분할할 수 있습니다.
+* **다중 테넌시**: 네임스페이스 수준에서 플랫폼 알림 시스템 자격 증명 작업을 수행할 수 있습니다. 이 옵션을 사용하면 동일한 네임스페이스 내에서 허브로 테넌트를 쉽게 분할할 수 있습니다.
 * **예약된 푸시**: 알림이 언제든지 전송되도록 예약할 수 있습니다.
 
 ### <a name="what-is-the-notification-hubs-sla"></a>Notification Hubs SLA란?
-기본 및 표준 Notification Hubs 계층의 경우에 올바르게 구성된 응용 프로그램은 99.9% 이상의 성공률로 푸시 알림을 보내거나 등록 관리 작업을 수행할 수 있습니다. SLA에 대해 자세히 알아보려면 [Notification Hubs SLA](https://azure.microsoft.com/support/legal/sla/notification-hubs/) 페이지로 이동하세요.
+기본 및 표준 Notification Hubs 계층의 경우에 올바르게 구성된 애플리케이션은 99.9% 이상의 성공률로 푸시 알림을 보내거나 등록 관리 작업을 수행할 수 있습니다. SLA에 대해 자세히 알아보려면 [Notification Hubs SLA](https://azure.microsoft.com/support/legal/sla/notification-hubs/) 페이지로 이동하세요.
 
 > [!NOTE]
 > 푸시 알림은 타사 플랫폼 알림 시스템(예: Apple APNS 및 Google FCM)에 의존하므로 이러한 메시지 배달에 대한 SLA 보장이 없습니다. Notification Hubs에서 플랫폼 알림 시스템(SLA 보장)에 대한 전송을 일괄 처리하면 푸시를 제공하는 것(SLA 보장 안 함)은 플랫폼 알림 시스템의 책임입니다.
@@ -51,7 +51,7 @@ Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리
 ### <a name="which-customers-are-using-notification-hubs"></a>어떤 고객이 Notification Hubs를 사용하나요?
 많은 고객이 Notification Hubs를 사용합니다. 주목할 만한 고객은 여기에 나열되어 있습니다.
 
-* 2014년 소치 동계 올림픽: 수 백 개의 관심 그룹에서 300만 대 이상의 디바이스를 사용하여 1억 5천만 개 이상의 알림을 2주 동안 디스패치했습니다. [사례 연구: 소치]
+* 2014년 소치 동계 올림픽: 수 백 개의 관심 그룹에서 300만 대 이상의 디바이스를 사용하여 1억 5천만 개 이상의 알림을 2주 동안 디스패치했습니다. [사례 연구: Sochi]
 * Skanska: [사례 연구: Skanska]
 * Seattle Times: [사례 연구: Seattle Times]
 * Mural.ly: [사례 연구: Mural.ly]
@@ -103,7 +103,7 @@ Notification Hubs는 기본적으로 모바일 앱에 알림을 보내도록 디
 PNS는 알림 배달에 대한 SLA를 보장하지 않습니다. 그러나 대부분의 푸시 알림은 Notification Hubs로 전송된 시점에서 몇 분 이내에(일반적으로 10분 이내) 대상 디바이스로 배달됩니다. 몇 가지 알림에 더 많은 시간이 소요될 수 있습니다.
 
 > [!NOTE]
-> Azure Notification Hubs에서는 30분 이내에 PNS로 배달되지 않는 푸시 알림은 삭제하는 내부 정책을 사용합니다. 이러한 지연은 여러 가지 원인으로 인해 나타날 수 있지만, 그 중 가장 일반적인 이유는 PNS에서 응용 프로그램을 제한하는 경우입니다.
+> Azure Notification Hubs에서는 30분 이내에 PNS로 배달되지 않는 푸시 알림은 삭제하는 내부 정책을 사용합니다. 이러한 지연은 여러 가지 원인으로 인해 나타날 수 있지만, 그 중 가장 일반적인 이유는 PNS에서 애플리케이션을 제한하는 경우입니다.
 > 
 > 
 
@@ -131,7 +131,7 @@ Apple, Google 등의 플랫폼 개발자 포털에 모바일 앱을 등록하면
 #### <a name="geo-distribution"></a>지역 배포
 지역 배포가 푸시 알림 시나리오에서 반드시 중요한 것은 아닙니다. 디바이스에 푸시 알림을 배달하는 다양한 PNS(예: APNS 또는 GCM)가 고르게 분산되지 않습니다.
 
-응용 프로그램이 전역적으로 사용되는 경우에는 전 세계 여러 Azure 지역에서 Notification Hubs 서비스를 사용하여 다른 네임스페이스에 허브를 만들 수 있습니다.
+애플리케이션이 전역적으로 사용되는 경우에는 전 세계 여러 Azure 지역에서 Notification Hubs 서비스를 사용하여 다른 네임스페이스에 허브를 만들 수 있습니다.
 
 > [!NOTE]
 > 관리 비용(특히, 등록에)이 늘어날 수 있으므로 이러한 배열은 권장하지 않습니다. 명시적인 수요가 있는 경우에만 수행해야 합니다.
@@ -199,7 +199,7 @@ Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 �
 [Azure Portal]: https://portal.azure.com
 [Notification Hubs 가격 책정]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
-[사례 연구: 소치]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
+[사례 연구: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
 [사례 연구: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
 [사례 연구: Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
 [사례 연구: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
@@ -213,7 +213,7 @@ Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 �
 [Notification Hubs 보안 모델]: https://msdn.microsoft.com/library/azure/dn495373.aspx
 [Notification Hubs 보안 푸시 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Notification Hubs 문제 해결]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
-[Notification Hubs 메트릭]: ../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Notification Hubs 메트릭]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Notification Hubs 메트릭 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [등록 내보내기/가져오기]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure Portal]: https://portal.azure.com

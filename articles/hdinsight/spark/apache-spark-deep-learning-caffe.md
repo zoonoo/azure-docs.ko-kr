@@ -24,7 +24,7 @@ ms.locfileid: "52498171"
 
 [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), [Apache MXNet](https://mxnet.apache.org/), Theano 등 [널리 사용되는 수많은 프레임워크](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software)가 있습니다. [Caffe](http://caffe.berkeleyvision.org/)는 가장 많이 사용되는 비기호(명령적) 신경망 프레임워크 중 하나로, Computer Vision을 비롯한 많은 영역에서 널리 사용 됩니다. 또한 [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep)는 Caffe를 Apache Spark와 결합하여 기존 Hadoop 클러스터에서 심층 학습을 쉽게 사용하도록 할 수 있습니다. Spark ETL 파이프라인과 함께 심층 학습을 사용하여 시스템 복잡성을 줄이고 완전한 솔루션 학습에 따른 대기 시간을 줄일 수 있습니다.
 
-[HDInsight](https://azure.microsoft.com/services/hdinsight/)는 Apache Spark, Apache Hive, Apache Hadoop, Apache HBase, Apache Storm, Apache Kafka 및 ML Services에 최적화된 오픈 소스 분석 클러스터를 제공하는 클라우드 Apache Hadoop 솔루션입니다. HDInsight는 99.9% SLA를 보장합니다. 이러한 각 빅 데이터 기술과 ISV 응용 프로그램은 엔터프라이즈용 보안과 모니터링으로 관리 클러스터 형태로 쉽게 배포 가능합니다.
+[HDInsight](https://azure.microsoft.com/services/hdinsight/)는 Apache Spark, Apache Hive, Apache Hadoop, Apache HBase, Apache Storm, Apache Kafka 및 ML Services에 최적화된 오픈 소스 분석 클러스터를 제공하는 클라우드 Apache Hadoop 솔루션입니다. HDInsight는 99.9% SLA를 보장합니다. 이러한 각 빅 데이터 기술과 ISV 애플리케이션은 엔터프라이즈용 보안과 모니터링으로 관리 클러스터 형태로 쉽게 배포 가능합니다.
 
 이 문서에서는 HDInsight 클러스터에 대해 [Spark의 Caffe](https://github.com/yahoo/CaffeOnSpark)를 설치하는 방법을 보여줍니다. 또한 이 문서는 기본 제공 MNIST 데모를 사용하여 CPU에서 HDInsight Spark를 통해 분산 심층 학습을 사용하는 방법을 보여줍니다.
 
@@ -207,11 +207,11 @@ YARN 클러스터 모드를 사용 중이고 이 경우 임의 컨테이너(및 
    
 ![YARN UI](./media/apache-spark-deep-learning-caffe/YARN-UI-1.png)
 
-이 특정 응용 프로그램에 대해 얼마나 많은 리소스가 할당되는지를 살펴볼 수 있습니다. "Scheduler" 링크를 클릭하면 이 응용 프로그램에 대해 9개의 컨테이너가 실행 중인 것을 볼 수 있습니다. YARN에 8개의 실행기를 제공하도록 요청하고 다른 컨테이너는 드라이버 프로세스용입니다. 
+이 특정 애플리케이션에 대해 얼마나 많은 리소스가 할당되는지를 살펴볼 수 있습니다. "Scheduler" 링크를 클릭하면 이 애플리케이션에 대해 9개의 컨테이너가 실행 중인 것을 볼 수 있습니다. YARN에 8개의 실행기를 제공하도록 요청하고 다른 컨테이너는 드라이버 프로세스용입니다. 
 
 ![YARN Scheduler](./media/apache-spark-deep-learning-caffe/YARN-Scheduler.png)
 
-오류가 있는 경우 드라이버 로그 또는 컨테이너 로그를 확인하려 할 수 있습니다. 드라이버 로그의 경우 YARN UI에서 응용 프로그램 ID를 클릭한 후 [로그] 단추를 클릭하면 됩니다. 드라이버 로그는 stderr에 기록됩니다.
+오류가 있는 경우 드라이버 로그 또는 컨테이너 로그를 확인하려 할 수 있습니다. 드라이버 로그의 경우 YARN UI에서 애플리케이션 ID를 클릭한 후 [로그] 단추를 클릭하면 됩니다. 드라이버 로그는 stderr에 기록됩니다.
 
 ![YARN UI 2](./media/apache-spark-deep-learning-caffe/YARN-UI-2.png)
 

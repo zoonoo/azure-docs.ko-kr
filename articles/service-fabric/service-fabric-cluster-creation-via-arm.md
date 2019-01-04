@@ -287,7 +287,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이 시점에 Azure에서 실행되는 보안 클러스터가 생깁니다. 다음으로, [클러스터에 연결](service-fabric-connect-to-secure-cluster.md)하고 [응용 프로그램 암호를 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.
+이 시점에 Azure에서 실행되는 보안 클러스터가 생깁니다. 다음으로, [클러스터에 연결](service-fabric-connect-to-secure-cluster.md)하고 [애플리케이션 암호를 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.
 
 <!-- Links -->
 [azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps

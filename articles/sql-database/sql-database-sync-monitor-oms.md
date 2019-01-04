@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 0a130613d6d2086fda55ca015b1c0ca77c909e3d
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: d6a1f2829352e8589c8d132a195a425edcbe62c3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684616"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872946"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>Log Analytics를 사용하여 SQL 데이터 동기화 모니터링 
 
@@ -97,7 +97,7 @@ Runbook을 만드는 방법에 대한 자세한 내용은 [내 첫 번째 PowerS
 
     2.  동기화 그룹 정보
 
-    3.  Log Analytics 정보 이 정보는 Azure Portal | 설정 | 연결된 원본에서 찾습니다. Log Analytics에 데이터를 보내는 방법에 대한 자세한 내용은 [HTTP 데이터 수집기 API로 Log Analytics에 데이터 전송(미리 보기)](../log-analytics/log-analytics-data-collector-api.md)을 참조하세요.
+    3.  Log Analytics 정보 이 정보는 Azure Portal | 설정 | 연결된 원본에서 찾습니다. Log Analytics에 데이터를 보내는 방법에 대한 자세한 내용은 [HTTP 데이터 수집기 API로 Log Analytics에 데이터 전송(미리 보기)](../azure-monitor/platform/data-collector-api.md)을 참조하세요.
 
 11. [테스트] 창에서 Runbook을 실행합니다. 성공적으로 실행되었는지 확인합니다.
 
@@ -202,7 +202,7 @@ SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
     - PowerShell 사용
         -  [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)
--   데이터 동기화 에이전트 - [Azure SQL 데이타 동기화용 데이터 동기화 에이전트](sql-database-data-sync-agent.md)
+-   데이터 동기화 에이전트 - [Azure SQL 데이터 동기화용 데이터 동기화 에이전트](sql-database-data-sync-agent.md)
 -   모범 사례 - [Azure SQL 데이터 동기화에 대한 모범 사례](sql-database-best-practices-data-sync.md)
 -   문제 해결 - [Azure SQL 데이터 동기화 문제 해결](sql-database-troubleshoot-data-sync.md)
 -   동기화 스키마 업데이트

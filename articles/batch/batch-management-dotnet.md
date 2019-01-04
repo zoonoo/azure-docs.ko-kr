@@ -16,12 +16,12 @@ ms.workload: big-compute
 ms.date: 04/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 65f8eb0752a181eda312515e557bb733c091e2e5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: fd511a8a9d17bf79f1237bbfe2dc2ddbc5ec1b2e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505391"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867429"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>.NET용 Batch 관리 클라이언트 라이브러리를 사용하여 Batch 계정 및 할당량 관리
 
@@ -64,7 +64,7 @@ await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name)
 ```
 
 > [!NOTE]
-> 배치 관리 .NET 라이브러리 및 해당 BatchManagementClient 클래스를 사용하는 응용 프로그램에는 관리할 배치 계정을 소유하고 있는 구독에 대한 **서비스 관리자** 또는 **공동 관리자** 액세스 권한이 필요합니다. 자세한 내용은 [Azure Active Directory](#azure-active-directory) 섹션과 [AccountManagement][acct_mgmt_sample] 코드 샘플을 참조하세요.
+> 배치 관리 .NET 라이브러리 및 해당 BatchManagementClient 클래스를 사용하는 애플리케이션에는 관리할 배치 계정을 소유하고 있는 구독에 대한 **서비스 관리자** 또는 **공동 관리자** 액세스 권한이 필요합니다. 자세한 내용은 [Azure Active Directory](#azure-active-directory) 섹션과 [AccountManagement][acct_mgmt_sample] 코드 샘플을 참조하세요.
 > 
 > 
 
@@ -91,12 +91,12 @@ BatchAccountRegenerateKeyResponse newKeys =
 ```
 
 > [!TIP]
-> 관리 응용 프로그램에 대한 간소화된 연결 워크플로를 만들 수 있습니다. 먼저 [ListKeysAsync][net_list_keys]를 사용하여 관리하려는 Batch 계정에 대한 계정 키를 가져옵니다. 그런 다음 [BatchClient][net_batch_client]를 초기화할 때 사용되는 배치 .NET 라이브러리의 [BatchSharedKeyCredentials][net_sharedkeycred] 클래스를 초기화할 때 이 키를 사용합니다.
+> 관리 애플리케이션에 대한 간소화된 연결 워크플로를 만들 수 있습니다. 먼저 [ListKeysAsync][net_list_keys]를 사용하여 관리하려는 Batch 계정에 대한 계정 키를 가져옵니다. 그런 다음 [BatchClient][net_batch_client]를 초기화할 때 사용되는 배치 .NET 라이브러리의 [BatchSharedKeyCredentials][net_sharedkeycred] 클래스를 초기화할 때 이 키를 사용합니다.
 > 
 > 
 
 ## <a name="check-azure-subscription-and-batch-account-quotas"></a>Azure 구독 및 Batch 계정 할당량 확인
-Azure 구독 및 Batch와 같은 개별 Azure 서비스는 모두 포함되는 특정 엔터티 수를 제한하는 기본 할당량이 있습니다. Azure 구독에 대한 기본 할당량의 경우 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요. Batch 서비스의 기본 할당량의 경우 [Azure Batch 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요. Batch 관리 .NET 라이브러리를 사용하여 응용 프로그램에서 이러한 할당량을 확인할 수 있습니다. 계정 또는 풀과 같은 계산 리소스 및 계산 노드를 추가하기 전에 할당 결정을 내릴 수 있습니다.
+Azure 구독 및 Batch와 같은 개별 Azure 서비스는 모두 포함되는 특정 엔터티 수를 제한하는 기본 할당량이 있습니다. Azure 구독에 대한 기본 할당량의 경우 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요. Batch 서비스의 기본 할당량의 경우 [Azure Batch 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요. Batch 관리 .NET 라이브러리를 사용하여 애플리케이션에서 이러한 할당량을 확인할 수 있습니다. 계정 또는 풀과 같은 계산 리소스 및 계산 노드를 추가하기 전에 할당 결정을 내릴 수 있습니다.
 
 ### <a name="check-an-azure-subscription-for-batch-account-quotas"></a>Azure 구독에서 Batch 계정 할당량 확인
 지역에 Batch 계정을 만들기 전에 Azure 구독에서 해당 지역에 계정을 추가할 수 있는지 여부를 확인할 수 있습니다.
@@ -128,7 +128,7 @@ Console.WriteLine("You can create {0} accounts in the {1} region.", quotaRespons
 위의 코드 조각에서 `creds`는 [TokenCloudCredentials][azure_tokencreds]의 인스턴스입니다. 이 개체를 만드는 예제를 보려면 GitHub에서 [AccountManagement][acct_mgmt_sample] 코드 샘플을 참조하세요.
 
 ### <a name="check-a-batch-account-for-compute-resource-quotas"></a>Batch 계정에서 계산 리소스 할당량 확인
-Batch 솔루션에서 계산 리소스를 늘리기 전에 할당할 리소스가 해당 계정의 할당량을 초과하지 않는지 확인할 수 있습니다. 아래 코드 조각에서는 `mybatchaccount`라는 Batch 계정에 대한 할당량 정보를 간단히 출력합니다. 하지만 응용 프로그램에서 이러한 정보를 사용하여 만들려는 추가 리소스를 계정에서 처리할 수 있는지 여부를 확인할 수 있습니다.
+Batch 솔루션에서 계산 리소스를 늘리기 전에 할당할 리소스가 해당 계정의 할당량을 초과하지 않는지 확인할 수 있습니다. 아래 코드 조각에서는 `mybatchaccount`라는 Batch 계정에 대한 할당량 정보를 간단히 출력합니다. 하지만 애플리케이션에서 이러한 정보를 사용하여 만들려는 추가 리소스를 계정에서 처리할 수 있는지 여부를 확인할 수 있습니다.
 
 ```csharp
 // First obtain the Batch account
@@ -153,7 +153,7 @@ Batch Management .NET 라이브러리는 Azure 리소스 공급자 클라이언�
 
 ## <a name="sample-project-on-github"></a>GitHub에서 샘플 프로젝트
 
-실제로 사용 중인 Batch 관리 .NET을 확인하려면 GitHub의 [AccountManagment][acct_mgmt_sample] 샘플 프로젝트를 참조하세요. AccountManagment 샘플 응용 프로그램은 다음 작업을 보여줍니다.
+실제로 사용 중인 Batch 관리 .NET을 확인하려면 GitHub의 [AccountManagement][acct_mgmt_sample] 샘플 프로젝트를 참조하세요. AccountManagement 샘플 애플리케이션은 다음 작업을 보여줍니다.
 
 1. [ADAL][aad_adal]을 사용하여 Azure AD에서 보안 토큰을 획득합니다. 사용자가 아직 로그인하지 않은 경우 Azure 자격 증명을 요구하는 메시지가 표시됩니다.
 2. Azure AD에서 획득한 보안 토큰을 사용하여 [SubscriptionClient][resman_subclient]를 만들고 Azure에서 해당 계정과 연결된 구독 목록을 쿼리합니다. 목록에 둘 이상의 구독이 포함되어 있는 경우 사용자가 구독을 선택할 수 있습니다.

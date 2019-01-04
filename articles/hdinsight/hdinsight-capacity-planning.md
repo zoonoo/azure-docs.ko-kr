@@ -2,19 +2,19 @@
 title: Azure HDInsight의 클러스터 용량 계획
 description: 용량 및 성능을 위해 HDInsight 클러스터를 지정하는 방법입니다.
 services: hdinsight
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/22/2017
-ms.author: maxluk
-ms.openlocfilehash: 853bf9cfce458e6f112101b1382dd5bfd5df202d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 12/04/2018
+ms.author: hrasheed
+ms.openlocfilehash: c8ca936220bf1f4d7f38858c0e09e332cd474077
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499106"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193861"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 클러스터의 용량 계획
 
@@ -32,7 +32,7 @@ HDInsight 클러스터를 배포하기 전에 필요한 성능 및 크기를 확
 
 Azure 지역은 클러스터가 물리적으로 프로비전되는 위치를 결정합니다. 읽기 및 쓰기 대기 시간을 최소화하려면 클러스터가 데이터 근처에 있어야 합니다.
 
-HDInsight는 여러 Azure 지역에서 사용할 수 있습니다. 가장 가까운 지역을 찾으려면 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/regions/services/)의 *데이터 + 분석*에서 *HDInsight Linux* 항목을 참조하세요.
+HDInsight는 여러 Azure 지역에서 사용할 수 있습니다. 가장 가까운 지역을 찾으려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/)의 *분석*에서 *HDInsight* 항목을 참조하세요.
 
 ## <a name="choose-storage-location-and-size"></a>저장소 위치 및 크기 선택
 
@@ -57,7 +57,7 @@ Azure Storage에는 일부 [용량 제한](../azure-subscription-service-limits.
 * 데이터를 만들려고 하는 데 이미 클러스터에서 사용할 수 있는 Blob 컨테이너를 업로드한 경우
 * 보안상의 이유나 관리 간소화를 위해 저장소의 다른 부분을 격리하려고 하는 경우
 
-48 노드 클러스터의 경우 4~8개 저장소 계정이 권장됩니다. 총 저장소가 이미 충분할 수 있지만 각 저장소 계정이 계산 노드에 대해 추가 네트워킹 대역폭을 제공합니다. 저장소 계정이 여러 개 있는 경우 각 저장소 계정에 대해 접두사 없는 임의 이름을 사용합니다. 임의 이름을 지정하는 목적은 모든 계정에서 저장소 병목 상태(제한) 또는 일반 모드 오류가 발생할 가능성을 줄이려는 것입니다. 성능 향상을 위해서는 저장소 계정당 하나의 컨테이너만 사용합니다.
+48 노드 클러스터의 경우 4~8개 스토리지 계정이 권장됩니다. 총 저장소가 이미 충분할 수 있지만 각 저장소 계정이 계산 노드에 대해 추가 네트워킹 대역폭을 제공합니다. 저장소 계정이 여러 개 있는 경우 각 저장소 계정에 대해 접두사 없는 임의 이름을 사용합니다. 임의 이름을 지정하는 목적은 모든 계정에서 저장소 병목 상태(제한) 또는 일반 모드 오류가 발생할 가능성을 줄이려는 것입니다. 성능 향상을 위해서는 저장소 계정당 하나의 컨테이너만 사용합니다.
 
 ## <a name="choose-a-cluster-type"></a>클러스터 유형 선택
 
@@ -67,7 +67,7 @@ Azure Storage에는 일부 [용량 제한](../azure-subscription-service-limits.
 
 클러스터 유형마다 노드 유형 집합이 있으며 각 노드 유형은 VM 크기 및 유형에 대한 특정 옵션을 제공합니다.
 
-사용하는 응용 프로그램에 대해 최적의 클러스터 크기를 결정하려면 클러스터 용량을 벤치마킹하고 지정된 대로 크기를 늘릴 수 있습니다. 예를 들어 시뮬레이트한 워크로드 또는 *카나리아 쿼리*를 사용할 수 있습니다. 시뮬레이트한 워크로드를 사용할 경우 크기가 다른 클러스터에서 예상되는 워크로드를 실행하면서 원하는 성능이 도달할 때까지 크기를 서서히 늘려봅니다. 카나리아 쿼리는 다른 프로덕션 쿼리 간에 주기적으로 삽입하여 클러스터에 충분한 리소스가 있는지 여부를 표시할 수 있습니다.
+사용하는 애플리케이션에 대해 최적의 클러스터 크기를 결정하려면 클러스터 용량을 벤치마킹하고 지정된 대로 크기를 늘릴 수 있습니다. 예를 들어 시뮬레이트한 워크로드 또는 *카나리아 쿼리*를 사용할 수 있습니다. 시뮬레이트한 워크로드를 사용할 경우 크기가 다른 클러스터에서 예상되는 워크로드를 실행하면서 원하는 성능이 도달할 때까지 크기를 서서히 늘려봅니다. 카나리아 쿼리는 다른 프로덕션 쿼리 간에 주기적으로 삽입하여 클러스터에 충분한 리소스가 있는지 여부를 표시할 수 있습니다.
 
 VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시간에 따라 결정됩니다.
 
@@ -75,7 +75,7 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 
 * RAM: VM 크기는 VM에서 사용할 수 있는 RAM의 양을 나타내기도 합니다. 데이터를 디스크에서 읽지 않고, 처리를 위해 데이터를 메모리에 저장하는 워크로드의 경우, 작업자 노드에 데이터에 맞는 충분한 메모리가 있는지 확인합니다.
 
-* 네트워크: 대부분의 클러스터 유형에서, 클러스터에 의해 처리된 데이터는 로컬 디스크에 저장되지 않고 Data Lake Store 또는 Azure Storage와 같은 외부 저장소 서비스에 저장됩니다. 노드 VM 및 저장소 서비스 간의 네트워크 대역폭과 처리량을 고려합니다. VM에 사용할 수 있는 네트워크 대역폭은 일반적으로 더 크게 늘어납니다. 자세한 내용은 [VM 크기 개요](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)를 참조하세요.
+* 네트워크: 대부분의 클러스터 유형에서 클러스터에 의해 처리된 데이터는 로컬 디스크에 저장되지 않고 Data Lake Store 또는 Azure Storage와 같은 외부 스토리지 서비스에 저장됩니다. 노드 VM 및 저장소 서비스 간의 네트워크 대역폭과 처리량을 고려합니다. VM에 사용할 수 있는 네트워크 대역폭은 일반적으로 더 크게 늘어납니다. 자세한 내용은 [VM 크기 개요](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)를 참조하세요.
 
 ## <a name="choose-the-cluster-scale"></a>클러스터 확장 선택
 
@@ -97,17 +97,37 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 
 경우에 따라 오류가 여러 맵의 병렬 실행으로 인해 발생하고, 다중 노드 클러스터의 구성 요소를 줄일 수 있습니다. 문제를 격리하는 데 도움이 되도록 단일 노드 클러스터에서 여러 동시 작업을 실행하여 분산 테스트를 시도한 다음, 이 방식을 확장하여 둘 이상의 노드를 포함하는 클러스터에서 여러 작업을 동시에 실행해봅니다. Azure에서 단일 노드 HDInsight 클러스터를 만들려면 *고급* 옵션을 사용합니다.
 
-로컬 컴퓨터에서 단일 노드 개발 환경을 설치하고 해당 환경에서 솔루션을 테스트할 수도 있습니다. Hortonworks는 초기 개발, 개념 증거 및 테스트에 유용한 Hadoop 기반 솔루션을 위한 단일 노드 로컬 개발 환경을 제공합니다. 자세한 내용은 [Hortonworks 샌드박스](http://hortonworks.com/products/hortonworks-sandbox/)를 참조하세요.
+로컬 컴퓨터에서 단일 노드 개발 환경을 설치하고 해당 환경에서 솔루션을 테스트할 수도 있습니다. Hortonworks는 초기 개발, 개념 증거 및 테스트에 유용한 Hadoop 기반 솔루션을 위한 단일 노드 로컬 개발 환경을 제공합니다. 자세한 내용은 [Hortonworks 샌드박스](https://hortonworks.com/products/hortonworks-sandbox/)를 참조하세요.
 
-로컬 단일 노드 클러스터의 문제를 식별하려면 실패한 작업을 다시 실행하고 입력 데이터를 조정하거나 더 작은 데이터 세트를 사용할 수 있습니다. 이러한 작업을 실행하는 방법은 플랫폼 및 응용 프로그램 유형에 따라 달라집니다.
+로컬 단일 노드 클러스터의 문제를 식별하려면 실패한 작업을 다시 실행하고 입력 데이터를 조정하거나 더 작은 데이터 세트를 사용할 수 있습니다. 이러한 작업을 실행하는 방법은 플랫폼 및 애플리케이션 유형에 따라 달라집니다.
 
 ## <a name="quotas"></a>할당량
 
-대상 클러스터 VM 크기, 확장 및 유형을 결정했으면 구독의 현재 할당량 용량 제한을 확인합니다. 할당량 제한에 도달하면 새 클러스터를 배포하거나, 작업자 노드를 더 추가하여 기존 클러스터를 확장하지 못할 수 있습니다. 제한에 도달되는 가장 일반적인 할당량은 구독, 지역 및 VM 시리즈 수준에 존재하는 CPU 코어 할당량입니다. 예를 들어 사용자 구독의 코어 제한은 총 200개이고, 지역의 코어 제한은 30개이고, VM 인스턴스의 코어 제한은 30개일 수 있습니다. [지원 서비스에 문의하여 할당량 증가를 요청](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)할 수 있습니다.
+대상 클러스터 VM 크기, 확장 및 유형을 결정했으면 구독의 현재 할당량 용량 제한을 확인합니다. 할당량 제한에 도달하면 새 클러스터를 배포하거나, 작업자 노드를 더 추가하여 기존 클러스터를 확장하지 못할 수 있습니다. 유일한 할당량 제한은 각 구독에 대한 지역 수준에서 존재하는 CPU 코어 할당량입니다. 예를 들어 구독에는 미국 동부 지역에서 30 코어 제한이 있을 수 있습니다. 할당량 증가를 요청해야 하는 경우 다음 단계를 수행합니다.
+
+1. Azure Portal로 이동
+1. 페이지 맨 아래 왼쪽에서 **도움말 및 지원**을 클릭합니다.
+1. **새 지원 요청**을 클릭합니다.
+1. **새 지원 요청** 페이지의 **기본 사항** 탭에서 다음 옵션을 선택합니다.
+    - **문제 유형**: **서비스 및 구독 제한(할당량)**
+    - **구독**: 수정하려는 구독
+    - **할당량 유형**: **HDInsight**
+    
+    ![HDInsight 코어 할당량을 늘리는 지원 요청 만들기](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
+
+1. **다음**을 클릭합니다.
+1. **세부 정보** 페이지에서 문제에 대한 설명을 입력하고, 해당 문제의 심각도를 선택하고, 기본 연락 방법을 선택합니다.
+1. **다음: 리뷰 + 만들기**를 클릭합니다.
+1. **리뷰 + 만들기** 탭에서 **만들기**를 클릭합니다.
+
+> [!Note]
+> 개인 영역에서 HDInsight 코어 할당량을 늘려야 하는 경우 [허용 목록에 추가 요청을 제출합니다](https://aka.ms/canaryintwhitelist).
+
+[지원 서비스에 문의하여 할당량 증가를 요청](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)할 수 있습니다.
 
 그러나 몇 가지 고정된 할당량 제한이 있습니다. 예를 들어 단일 Azure 구독에는 코어가 10,000개까지 있을 수 있습니다. 이러한 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Apache Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터 설정](hdinsight-hadoop-provision-linux-clusters.md): Apache Hadoop, Spark, Kafka, Interactive Hive, HBase, ML Services 또는 Storm을 사용하여 HDInsight에서 클러스터를 설정 및 구성하는 방법을 알아봅니다.
+* [Apache Hadoop, Spark, Kafka 등을 사용하여 HDInsight에서 클러스터 설정](hdinsight-hadoop-provision-linux-clusters.md): Apache Hadoop, Spark, Kafka, Interactive Hive, HBase, ML Services 또는 Storm을 사용하여 HDInsight에서 클러스터를 설정 및 구성하는 방법을 알아봅니다.
 * [클러스터 성능 모니터링](hdinsight-key-scenarios-to-monitor.md): 클러스터의 용량에 영향을 줄 수 있는 HDInsight 클러스터를 모니터링하는 주요 시나리오에 대해 알아봅니다.

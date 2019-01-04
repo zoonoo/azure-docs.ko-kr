@@ -19,7 +19,7 @@ ms.locfileid: "29178199"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Azure Application Insights를 사용하여 사용자 지정 KPI 대시보드 만들기
 
-각각이 다른 리소스 그룹 및 구독에서 여러 Azure 리소스의 데이터를 시각화하는 타일을 포함하는 여러 대시보드를 Azure Portal에서 만들 수 있습니다.  Azure Application Insights에서 서로 다른 차트 및 보기를 고정하여 응용 프로그램의 상태 및 성능의 전체 그림을 제공하는 사용자 지정 대시보드를 만들 수 있습니다.  이 자습서에서는 Azure Application Insights에서 여러 유형의 데이터 및 시각화를 포함하는 사용자 지정 대시보드를 만드는 과정을 안내합니다.  다음 방법에 대해 알아봅니다.
+각각이 다른 리소스 그룹 및 구독에서 여러 Azure 리소스의 데이터를 시각화하는 타일을 포함하는 여러 대시보드를 Azure Portal에서 만들 수 있습니다.  Azure Application Insights에서 서로 다른 차트 및 보기를 고정하여 애플리케이션의 상태 및 성능의 전체 그림을 제공하는 사용자 지정 대시보드를 만들 수 있습니다.  이 자습서에서는 Azure Application Insights에서 여러 유형의 데이터 및 시각화를 포함하는 사용자 지정 대시보드를 만드는 과정을 안내합니다.  다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure에서 사용자 지정 대시보드 만들기
@@ -34,13 +34,13 @@ ms.locfileid: "29178199"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- Azure에 .NET 응용 프로그램을 배포하고 [Application Insights SDK를 사용하도록 설정](app-insights-asp-net.md)합니다. 
+- Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](app-insights-asp-net.md)합니다. 
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-new-dashboard"></a>새 대시보드 만들기
-단일 대시보드는 여러 응용 프로그램, 리소스 그룹 및 구독에서 리소스를 포함할 수 있습니다.  응용 프로그램에 대한 새 대시보드를 만들어서 자습서를 시작합니다.  
+단일 대시보드는 여러 애플리케이션, 리소스 그룹 및 구독에서 리소스를 포함할 수 있습니다.  애플리케이션에 대한 새 대시보드를 만들어서 자습서를 시작합니다.  
 
 2.  포털의 주 화면에서 **새 대시보드**를 선택합니다.
 
@@ -59,10 +59,10 @@ ms.locfileid: "29178199"
 
 
 ## <a name="add-health-overview"></a>상태 추가 개요
-정적 텍스트만이 있는 대시보드는 그다지 흥미롭지 않으므로 이제 Application Insights에서 타일을 추가하여 응용 프로그램에 대한 정보를 표시합니다.  타일 갤러리에서 Application Insights 타일을 추가하거나 Application Insights 화면에서 직접 고정할 수 있습니다.  이를 통해 익숙한 차트 및 보기를 대시보드에 고정하기 전에 해당 내용을 구성할 수 있습니다.  응용 프로그램에 대한 표준 상태 개요를 추가하여 시작합니다.  구성이 필요하지 않으며 대시보드에 최소한의 사용자 지정을 허용합니다.
+정적 텍스트만이 있는 대시보드는 그다지 흥미롭지 않으므로 이제 Application Insights에서 타일을 추가하여 애플리케이션에 대한 정보를 표시합니다.  타일 갤러리에서 Application Insights 타일을 추가하거나 Application Insights 화면에서 직접 고정할 수 있습니다.  이를 통해 익숙한 차트 및 보기를 대시보드에 고정하기 전에 해당 내용을 구성할 수 있습니다.  애플리케이션에 대한 표준 상태 개요를 추가하여 시작합니다.  구성이 필요하지 않으며 대시보드에 최소한의 사용자 지정을 허용합니다.
 
 
-1. Azure 메뉴에서 **Application Insights**를 선택한 다음 응용 프로그램을 선택합니다.
+1. Azure 메뉴에서 **Application Insights**를 선택한 다음 애플리케이션을 선택합니다.
 2. **개요 타임라인**에서 상황에 맞는 메뉴를 선택하고 **대시보드에 고정**을 클릭합니다.  보고 있던 마지막 대시보드에 타일을 추가합니다.  
 
     ![개요 타임라인 고정](media/app-insights-tutorial-dashboards/pin-overview-timeline.png)
@@ -77,7 +77,7 @@ ms.locfileid: "29178199"
 ## <a name="add-custom-metric-chart"></a>사용자 지정 메트릭 차트 추가
 **메트릭** 패널을 통해 선택적 필터 및 그룹화를 사용하여 시간에 따라 Application Insights에서 수집한 메트릭을 그래프화할 수 있습니다.  Application Insights의 다른 요소와 마찬가지로 이 차트를 대시보드에 추가할 수 있습니다.  먼저 약간의 사용자 지정 작업을 수행해야 합니다.
 
-1. Azure 메뉴에서 **Application Insights**를 선택한 다음 응용 프로그램을 선택합니다.
+1. Azure 메뉴에서 **Application Insights**를 선택한 다음 애플리케이션을 선택합니다.
 1. **메트릭**을 선택합니다.  
 2. 빈 차트가 이미 생성되었으며 메트릭을 추가하라는 메시지가 표시됩니다.  차트에 메트릭을 추가하고 필요에 따라 필터 및 그룹을 추가합니다.  아래 예제에서는 성공적으로 그룹화된 서버 요청 수를 보여 줍니다.  성공 및 실패한 요청의 실행 중인 보기를 제공합니다.
 
@@ -97,7 +97,7 @@ ms.locfileid: "29178199"
 ## <a name="metrics-explorer"></a>메트릭 탐색기
 **메트릭 탐색기**는 메트릭과 비슷하지만 대시보드에 추가되는 경우 훨씬 더 많은 사용자 지정이 가능합니다.  메트릭을 그래프화하는 데 사용할 수 있는 것은 특정 기본 설정 및 요구 사항에 따라 달라집니다.
 
-1. Azure 메뉴에서 **Application Insights**를 선택한 다음 응용 프로그램을 선택합니다.
+1. Azure 메뉴에서 **Application Insights**를 선택한 다음 애플리케이션을 선택합니다.
 1. **메트릭 탐색기**를 선택합니다. 
 2. 클릭하여 차트를 편집하고 하나 이상의 메트릭 및 필요에 따라 자세한 구성을 선택합니다.  예제는 평균 페이지 응답 시간을 추적하는 꺾은선형 차트를 표시합니다.
 3. 오른쪽 위의 핀 아이콘을 클릭하여 대시보드에 차트를 추가한 다음 위치로 끌어옵니다.
@@ -122,7 +122,7 @@ Azure Applications Insights Analytics는 별도 서비스이므로 Analytics 쿼
     ![대시보드 게시](media/app-insights-tutorial-dashboards/publish-dashboard.png)
 
 2. **대시보드 이름**을 동일하게 유지하고 **구독 이름**을 선택하여 대시보드를 공유합니다.  **게시**를 클릭합니다.  이제 대시보드를 다른 서비스 및 구독에서 사용할 수 있습니다.  필요에 따라 대시보드에 대한 액세스를 가져야 하는 특정 사용자를 정의할 수 있습니다.
-1. Azure 메뉴에서 **Application Insights**를 선택한 다음 응용 프로그램을 선택합니다.
+1. Azure 메뉴에서 **Application Insights**를 선택한 다음 애플리케이션을 선택합니다.
 2. 화면 위쪽에서 **Analytics**를 클릭하여 Analytics 포털을 엽니다.
 
     ![Analytics 시작](media/app-insights-tutorial-dashboards/start-analytics.png)

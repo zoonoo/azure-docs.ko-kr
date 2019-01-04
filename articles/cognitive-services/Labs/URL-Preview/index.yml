@@ -9,7 +9,7 @@ documentType: LandingData
 title: Project URL Preview 설명서
 metadata:
   title: Project URL Preview 설명서
-  description: Project URL Preview API를 사용하는 응용 프로그램을 빌드하는 방법입니다.
+  description: Project URL Preview API를 사용하는 애플리케이션을 빌드하는 방법입니다.
   services: cognitive-services
   author: mikedodaro
   manager: rosh

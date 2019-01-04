@@ -23,7 +23,7 @@ Microsoft Azure Storage 데이터 이동 라이브러리는 Azure Storage Blob �
 
 이 라이브러리는 .NET Core를 사용하기 때문에 Windows, Linux 및 macOS용 .NET 앱을 빌드할 때 사용할 수 있습니다. .NET Core에 대한 자세한 내용은 [.NET Core 설명서](https://dotnet.github.io/)를 참조하세요. 또한 이 라이브러리는 전통적인 Windows용 .NET Framework 앱에서도 작동합니다. 
 
-이 문서에서는 Windows, Linux 및 macOS에서 실행되는 .NET Core 콘솔 응용 프로그램을 만들고 다음 시나리오를 수행하는 방법을 보여 줍니다.
+이 문서에서는 Windows, Linux 및 macOS에서 실행되는 .NET Core 콘솔 애플리케이션을 만들고 다음 시나리오를 수행하는 방법을 보여 줍니다.
 
 - Blob Storage에 파일과 디렉터리를 업로드합니다.
 - 데이터를 전송할 때 수행할 병렬 작업 수를 정의합니다.
@@ -50,7 +50,7 @@ Microsoft Azure Storage 데이터 이동 라이브러리는 Azure Storage Blob �
 4. Visual Studio Code Marketplace에서 [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)을 설치합니다. Visual Studio Code를 다시 시작합니다. 
 5. 이 시점에서 두 가지 프롬프트가 표시됩니다. 하나는 "빌드 및 디버그에 필요한 자산"을 추가하는 것입니다. "예"를 클릭합니다. 또 다른 프롬프트는 해결되지 않은 종속성을 복원하는 것입니다. "복원"을 클릭합니다.
 6. `.vscode` 아래에서 `launch.json`을 수정하여 외부 터미널을 콘솔로 사용합니다. 이 설정은 ` "console": "externalTerminal"`로 읽어야 합니다.
-7. Visual Studio Code를 사용하면 .NET Core 응용 프로그램을 디버그할 수 있습니다. `F5` 키를 눌러 응용 프로그램을 실행하고 설정이 작동하는지 확인합니다. 콘솔에 "Hello World!" 가 표시됩니다. 
+7. Visual Studio Code를 사용하면 .NET Core 애플리케이션을 디버그할 수 있습니다. `F5` 키를 눌러 응용 프로그램을 실행하고 설정이 작동하는지 확인합니다. 콘솔에 "Hello World!" 가 표시됩니다. 
 
 ## <a name="add-data-movement-library-to-your-project"></a>프로젝트에 데이터 이동 라이브러리 추가
 
@@ -70,8 +70,8 @@ Microsoft Azure Storage 데이터 이동 라이브러리는 Azure Storage Blob �
             </ItemGroup>
         </Project>
 
-## <a name="set-up-the-skeleton-of-your-application"></a>응용 프로그램의 기본 구조 설정
-가장 먼저 수행할 작업은 응용 프로그램의 "기본 구조" 코드를 설정하는 것입니다. 이 코드는 Storage 계정 이름과 계정 키를 묻는 메시지를 표시하고 해당 자격 증명을 사용하여 `CloudStorageAccount` 개체를 만듭니다. 이 개체는 모든 전송 시나리오에서 Storage 계정과 상호 작용하는 데 사용됩니다. 또한 이 코드는 실행하고자 하는 전송 작업의 유형도 선택하도록 요청합니다. 
+## <a name="set-up-the-skeleton-of-your-application"></a>애플리케이션의 기본 구조 설정
+가장 먼저 수행할 작업은 애플리케이션의 "기본 구조" 코드를 설정하는 것입니다. 이 코드는 Storage 계정 이름과 계정 키를 묻는 메시지를 표시하고 해당 자격 증명을 사용하여 `CloudStorageAccount` 개체를 만듭니다. 이 개체는 모든 전송 시나리오에서 Storage 계정과 상호 작용하는 데 사용됩니다. 또한 이 코드는 실행하고자 하는 전송 작업의 유형도 선택하도록 요청합니다. 
 
 다음과 같이 `Program.cs`를 수정합니다.
 
@@ -559,10 +559,10 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
 이 예제에서는 `TransferManager.CopyAsync`의 부울 매개 변수를 `false`로 설정하여 동기 복사를 수행하려고 한다는 것을 나타냅니다. 즉 리소스를 로컬 시스템에 먼저 다운로드한 다음 Azure Blob으로 업로드합니다. 동기 복사 옵션은 복사 작업을 일관된 속도로 수행하도록 보장하는 좋은 방법입니다. 반면에 비동기 서버 쪽 복사 속도는 서버에서 사용할 수 있는 네트워크 대역폭에 따라 다르며 변동될 수 있습니다. 그러나 동기 복사는 비동기 복사에 비해 추가적인 송신 비용이 발생할 수 있습니다. 원본 저장소 계정과 동일한 지역에 있는 Azure VM에서 동기 복사를 사용하여 송신 비용이 발생하지 않도록 하는 것이 좋습니다.
 
 ## <a name="conclusion"></a>결론
-이제 데이터 이동 응용 프로그램이 완료되었습니다. [전체 코드 샘플은 GitHub에서 사용할 수 있습니다](https://github.com/azure-samples/storage-dotnet-data-movement-library-app). 
+이제 데이터 이동 애플리케이션이 완료되었습니다. [전체 코드 샘플은 GitHub에서 사용할 수 있습니다](https://github.com/azure-samples/storage-dotnet-data-movement-library-app). 
 
 ## <a name="next-steps"></a>다음 단계
-이 시작 자습서에서 Azure Storage와 상호 작용하고 Windows, Linux 및 macOS에서 실행되는 응용 프로그램을 만들었습니다. 이 입문서에서는 Blob Storage에 초점을 맞추었지만, 이 동일한 정보를 File Storage에도 적용할 수 있습니다. 자세한 내용은 [Azure Storage 데이터 이동 라이브러리 참조 설명서](https://azure.github.io/azure-storage-net-data-movement)를 참조하세요.
+이 시작 자습서에서 Azure Storage와 상호 작용하고 Windows, Linux 및 macOS에서 실행되는 애플리케이션을 만들었습니다. 이 입문서에서는 Blob Storage에 초점을 맞추었지만, 이 동일한 정보를 File Storage에도 적용할 수 있습니다. 자세한 내용은 [Azure Storage 데이터 이동 라이브러리 참조 설명서](https://azure.github.io/azure-storage-net-data-movement)를 참조하세요.
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
 

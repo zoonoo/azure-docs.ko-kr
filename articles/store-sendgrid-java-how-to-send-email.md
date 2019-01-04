@@ -32,7 +32,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 * 차단된 전자 메일, 고객 응답 같은 항목의 실시간 메트릭 수집
 * 경향을 식별하는 데 도움이 되도록 보고서 생성
 * 고객 문의 전달
-* 응용 프로그램의 전자 메일 알림
+* 애플리케이션의 전자 메일 알림
 
 자세한 내용은 <https://sendgrid.com>을 참조하세요.
 
@@ -174,7 +174,7 @@ SendGrid는 *필터*사용을 통해 추가 전자 메일 기능을 제공합니
     InternetAddress("john@contoso.com"));
 
 ## <a name="how-to-use-additional-sendgrid-services"></a>방법: 추가 SendGrid 서비스 사용
-SendGrid는 Azure 응용 프로그램에서 추가 SendGrid 기능을 활용하는 데 사용할 수 있는 웹 기반 API를 제공합니다. 자세한 내용은 [SendGrid API 설명서][SendGrid API documentation](영문)를 참조하십시오.
+SendGrid는 Azure 애플리케이션에서 추가 SendGrid 기능을 활용하는 데 사용할 수 있는 웹 기반 API를 제공합니다. 자세한 내용은 [SendGrid API 설명서][SendGrid API documentation](영문)를 참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 SendGrid 메일 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내용을 보려면 다음 링크를 따라가세요.

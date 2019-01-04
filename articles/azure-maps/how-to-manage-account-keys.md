@@ -1,19 +1,19 @@
 ---
 title: Azure Maps 계정과 키를 관리하는 방법 | Microsoft Docs
 description: Azure Portal을 사용하여 Azure Maps 계정을 관리하고 액세스 키를 관리할 수 있습니다.
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/11/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 29fd63139d31d146cfc67153f35bd57650b08cfa
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 351bc26d6c5b3dcfa9479138f2bd523f64a2912a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541622"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335815"
 ---
 # <a name="how-to-manage-your-azure-maps-account-and-keys"></a>Azure Maps 계정과 키를 관리하는 방법
 
@@ -23,7 +23,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-new-account"></a>새 계정 만들기
 
-1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](http://portal.azure.com)에 로그인합니다.
 
 2. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 
@@ -53,5 +53,10 @@ Azure Portal에서 계정을 삭제할 수 있습니다. 계정 개요 페이지
 
 ## <a name="next-steps"></a>다음 단계
 
-* [주소 검색](./how-to-search-for-address.md)에 Azure Maps 검색 API를 사용하는 방법을 알아봅니다.
-* Azure Maps [JavaScript 맵 컨트롤](./how-to-use-map-control.md) 사용 방법을 알아봅니다.
+Azure Maps 계정의 가격 책정 계층을 관리하는 방법을 알아봅니다.
+> [!div class="nextstepaction"]
+> [가격 책정 계층 관리](./how-to-manage-pricing-tier.md)
+
+Azure Maps 계정에 대한 API 사용량 메트릭을 확인하는 방법을 알아봅니다.
+> [!div class="nextstepaction"]
+> [사용 메트릭 보기](./how-to-view-api-usage.md)

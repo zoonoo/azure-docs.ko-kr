@@ -1,21 +1,22 @@
 ---
-title: LUIS 쿼리에 Bing Spell Check API v7 추가 | Microsoft Docs
+title: 맞춤법이 틀린 단어 수정
 titleSuffix: Azure
 description: LUIS 엔드포인트 쿼리에 Bing Spell Check API V7을 추가하여 발화에서 맞춤법이 틀린 단어를 수정합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 6d197b014d6936b12b34a6d8783d1ebd29dfa28a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 478970c6b5f4035949c8b6579f1021dfa161fd39
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443332"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096794"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Bing Spell Check로 맞춤법이 틀린 단어 수정
 
@@ -75,7 +76,7 @@ LUIS에는 키를 사용할 두 개의 위치가 있습니다. 첫 번째는 [�
 
 4. LUIS는 `How far is the mountain?`에 대한 JSON 결과로 응답합니다. Bing Spell Check API v7에서 잘못된 맞춤법을 발견하면 LUIS 앱의 JSON 응답에 있는 `query` 필드에는 원래 쿼리가 포함되고 `alteredQuery` 필드에는 LUIS에 보내는 수정된 쿼리가 포함됩니다.
 
-```
+```json
 {
   "query": "How far is the mountainn?",
   "alteredQuery": "How far is the mountain?",

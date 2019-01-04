@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 클러스터에서 응용 프로그램 제거 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - Service Fabric 클러스터에서 응용 프로그램 제거
+title: Azure PowerShell 스크립트 샘플 - 클러스터에서 애플리케이션 제거 | Microsoft Docs
+description: Azure PowerShell 스크립트 샘플 - Service Fabric 클러스터에서 애플리케이션 제거
 services: service-fabric
 documentationcenter: ''
 author: rwike77
@@ -22,9 +22,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 01/19/2018
 ms.locfileid: "27927865"
 ---
-# <a name="remove-an-application-from-a-service-fabric-cluster"></a>Service Fabric 클러스터에서 응용 프로그램 제거
+# <a name="remove-an-application-from-a-service-fabric-cluster"></a>Service Fabric 클러스터에서 애플리케이션 제거
 
-이 샘플 스크립트는 실행 중인 Service Fabric 응용 프로그램 인스턴스를 삭제하고, 클러스터에서 응용 프로그램 유형 및 버전의 등록을 취소합니다.  응용 프로그램 인스턴스를 삭제하면 해당 응용 프로그램과 연결된 실행 중인 모든 서비스 인스턴스도 삭제됩니다. 필요에 따라 매개 변수를 사용자 지정합니다. 
+이 샘플 스크립트는 실행 중인 Service Fabric 애플리케이션 인스턴스를 삭제하고, 클러스터에서 애플리케이션 유형 및 버전의 등록을 취소합니다.  애플리케이션 인스턴스를 삭제하면 해당 애플리케이션과 연결된 실행 중인 모든 서비스 인스턴스도 삭제됩니다. 필요에 따라 매개 변수를 사용자 지정합니다. 
 
 필요한 경우 [Service Fabric SDK](../service-fabric-get-started.md)를 사용하여 Service Fabric PowerShell 모듈을 설치합니다. 
 
@@ -38,8 +38,8 @@ ms.locfileid: "27927865"
 
 | 명령 | 메모 |
 |---|---|
-| [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps) | 클러스터에서 실행 중인 Service Fabric 응용 프로그램 인스턴스를 제거합니다.  |
-| [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) | 클러스터에서 Service Fabric 응용 프로그램 유형 및 버전을 등록 취소합니다. |
+| [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps) | 클러스터에서 실행 중인 Service Fabric 애플리케이션 인스턴스를 제거합니다.  |
+| [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) | 클러스터에서 Service Fabric 애플리케이션 유형 및 버전을 등록 취소합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -21,7 +21,7 @@ ms.locfileid: "39529830"
 
 ## <a name="prerequisites"></a>필수 조건 
 
-응용 프로그램이 저장소 계정에 대한 BLOB 저장소의 컨테이너를 나열합니다. 이 문서의 코드를 사용해 보려면 다음 항목이 필요합니다. 
+애플리케이션이 스토리지 계정에 대한 BLOB 스토리지의 컨테이너를 나열합니다. 이 문서의 코드를 사용해 보려면 다음 항목이 필요합니다. 
 
 * 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)을 설치합니다.
     - Azure 개발
@@ -34,7 +34,7 @@ ms.locfileid: "39529830"
 
 ## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
 
-응용 프로그램 예제는 C#으로 작성된 콘솔 응용 프로그램입니다.
+애플리케이션 예제는 C#으로 작성된 콘솔 애플리케이션입니다.
 
 [git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드합니다. 
 
@@ -48,13 +48,13 @@ git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 
 REST는 *Representational State Transfer*를 말합니다. 구체적인 정의는 [Wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer)를 확인하세요.
 
-기본적으로 REST는 API를 호출하거나 호출 가능하게 만들 때 사용할 수 있는 아키텍처입니다. 어느 쪽에서 어떤 일이 발생하든, REST 호출을 보내거나 받을 때 어떤 소프트웨어가 사용되든 아무 관계 없습니다. Mac, Windows, Linux, Android 휴대폰 또는 태블릿, iPhone, iPod, 웹 사이트에서 실행되는 응용 프로그램을 작성할 수 있으며 이 모든 플랫폼에 동일한 REST API를 사용할 수 있습니다. REST API가 호출될 때 데이터를 받거나 내보낼 수 있습니다. REST API는 어떤 플랫폼에서 호출되는지는 중요하지 않고 요청에서 전달되는 정보와 응답에 제공되는 데이터만이 중요합니다.
+기본적으로 REST는 API를 호출하거나 호출 가능하게 만들 때 사용할 수 있는 아키텍처입니다. 어느 쪽에서 어떤 일이 발생하든, REST 호출을 보내거나 받을 때 어떤 소프트웨어가 사용되든 아무 관계 없습니다. Mac, Windows, Linux, Android 휴대폰 또는 태블릿, iPhone, iPod, 웹 사이트에서 실행되는 애플리케이션을 작성할 수 있으며 이 모든 플랫폼에 동일한 REST API를 사용할 수 있습니다. REST API가 호출될 때 데이터를 받거나 내보낼 수 있습니다. REST API는 어떤 플랫폼에서 호출되는지는 중요하지 않고 요청에서 전달되는 정보와 응답에 제공되는 데이터만이 중요합니다.
 
 REST는 사용 방법을 알아두면 유용한 기술입니다. Azure 제품 팀에서 수시로 새 기능을 출시하고 있습니다. 새 기능은 대부분 REST 인터페이스를 통해 액세스할 수 있지만, 아직 **모든** 저장소 클라이언트 라이브러리 또는 UI(예: Azure Portal)를 통해 표시된 적은 없습니다. 항상 가장 멋진 최신 기능을 사용하고 싶다면 반드시 REST에 대해 배워야 합니다. Azure Storage와 상호 작용하는 나만의 라이브러리를 작성하고 싶거나 SDK 또는 저장소 클라이언트 라이브러리가 없는 프로그래밍 언어를 사용하여 Azure Storage에 액세스하려는 경우에도 REST API를 사용하면 됩니다.
 
-## <a name="about-the-sample-application"></a>샘플 응용 프로그램 정보
+## <a name="about-the-sample-application"></a>샘플 애플리케이션 정보
 
-샘플 응용 프로그램은 저장소 계정의 컨테이너를 나열합니다. REST API 설명서의 정보와 실제 코드의 상관 관계를 이해하고 나면 다른 REST 호출은 더 쉽게 이해할 수 있습니다. 
+샘플 애플리케이션은 저장소 계정의 컨테이너를 나열합니다. REST API 설명서의 정보와 실제 코드의 상관 관계를 이해하고 나면 다른 REST 호출은 더 쉽게 이해할 수 있습니다. 
 
 [BLOB 서비스 REST API](/rest/api/storageservices/Blob-Service-REST-API)를 보시면, BLOB 저장소에서 수행할 수 있는 모든 작업이 있습니다. 저장소 클라이언트 라이브러리는 REST API를 감싸고 이는 래퍼로, REST API를 직접 사용하지 않고도 간단하게 저장소에 액세스할 수 있게 해줍니다. 하지만 위에서 언급했듯이, 가끔 저장소 클라이언트 라이브러리 대신 REST API를 사용하는 경우가 있습니다.
 
@@ -88,7 +88,7 @@ REST는 사용 방법을 알아두면 유용한 기술입니다. Azure 제품 �
 
 ## <a name="creating-the-rest-request"></a>REST 요청 만들기
 
-시작하기 전에 주의할 사항이 있습니다. 프로덕션 환경에서 실행하는 경우 보안을 위해 항상 HTTP 대신 HTTPS를 사용해야 합니다. 이 연습에서는 목적을 달성하기 위해 HTTP를 사용할 것이므로 요청 및 응답 데이터를 볼 수 있습니다. 실제 REST 호출에서 요청 및 응답 정보를 보려면 [Fiddler](http://www.telerik.com/fiddler) 또는 유사한 응용 프로그램을 다운로드합니다. Visual Studio 솔루션에서 저장소 계정 이름과 키는 클래스에 하드 코딩되고, ListContainersAsyncREST 메서드는 저장소 계정 이름과 저장소 계정 키를 다양한 REST 요청 구성 요소를 만드는 데 사용되는 메서드에 전달합니다. 실제 응용 프로그램에서 저장소 계정 이름과 키는 구성 파일이나 환경 변수에 상주하거나 Azure Key Vault에서 검색할 수 있습니다.
+시작하기 전에 주의할 사항이 있습니다. 프로덕션 환경에서 실행하는 경우 보안을 위해 항상 HTTP 대신 HTTPS를 사용해야 합니다. 이 연습에서는 목적을 달성하기 위해 HTTP를 사용할 것이므로 요청 및 응답 데이터를 볼 수 있습니다. 실제 REST 호출에서 요청 및 응답 정보를 보려면 [Fiddler](http://www.telerik.com/fiddler) 또는 유사한 애플리케이션을 다운로드합니다. Visual Studio 솔루션에서 저장소 계정 이름과 키는 클래스에 하드 코딩되고, ListContainersAsyncREST 메서드는 저장소 계정 이름과 저장소 계정 키를 다양한 REST 요청 구성 요소를 만드는 데 사용되는 메서드에 전달합니다. 실제 애플리케이션에서 스토리지 계정 이름과 키는 구성 파일이나 환경 변수에 상주하거나 Azure Key Vault에서 검색할 수 있습니다.
 
 우리가 사용하는 샘플 프로젝트의 경우 개발자가 클래스 전체를 가져와서 솔루션에 "있는 그대로" 추가할 수 있다는 생각으로 인증 헤더를 만드는 코드가 별도의 클래스에 있습니다. 인증 헤더 코드는 Azure Storage에 대한 대부분의 REST API 호출에 사용할 수 있습니다.
 

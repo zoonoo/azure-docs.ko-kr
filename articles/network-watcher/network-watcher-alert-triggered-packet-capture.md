@@ -155,7 +155,7 @@ PowerShell cmdlet을 사용하려면 인증해야 합니다. 함수 앱에서 �
 
 #### <a name="encrypted-credentials"></a>암호화된 자격 증명
 
-다음 PowerShell 스크립트는 **PassEncryptKey.key**라는 키 파일을 만듭니다. 또한 제공된 암호의 암호화된 버전을 제공합니다. 이 암호는 인증에 사용되는 Azure Active Directory 응용 프로그램에 대해 정의된 것과 동일한 암호입니다.
+다음 PowerShell 스크립트는 **PassEncryptKey.key**라는 키 파일을 만듭니다. 또한 제공된 암호의 암호화된 버전을 제공합니다. 이 암호는 인증에 사용되는 Azure Active Directory 애플리케이션에 대해 정의된 것과 동일한 암호입니다.
 
 ```powershell
 #Variables
@@ -191,9 +191,9 @@ $Encryptedpassword
 
 #### <a name="azureclientid"></a>AzureClientID
 
-클라이언트 ID는 Azure Active Directory에 있는 응용 프로그램의 응용 프로그램 ID입니다.
+클라이언트 ID는 Azure Active Directory에 있는 애플리케이션의 애플리케이션 ID입니다.
 
-1. 사용할 응용 프로그램이 아직 없으면 다음 예제를 실행하여 응용 프로그램을 만듭니다.
+1. 사용할 애플리케이션이 아직 없으면 다음 예제를 실행하여 애플리케이션을 만듭니다.
 
     ```powershell
     $app = New-AzureRmADApplication -DisplayName "ExampleAutomationAccount_MF" -HomePage "https://exampleapp.com" -IdentifierUris "https://exampleapp1.com/ExampleFunctionsAccount" -Password "<same password as defined earlier>"
@@ -203,15 +203,15 @@ $Encryptedpassword
     ```
 
    > [!NOTE]
-   > 응용 프로그램을 만들 때 사용되는 암호는 이전에 키 파일을 저장할 때 만든 암호와 동일해야 합니다.
+   > 애플리케이션을 만들 때 사용되는 암호는 이전에 키 파일을 저장할 때 만든 암호와 동일해야 합니다.
 
 1. Azure Portal에서 **구독**을 선택합니다. 사용할 구독을 선택하고 **액세스 제어(IAM)** 를 선택합니다.
 
     ![함수 IAM][functions9]
 
-1. 사용할 계정을 선택하고 **속성**을 클릭합니다. 응용 프로그램 ID를 복사합니다.
+1. 사용할 계정을 선택하고 **속성**을 클릭합니다. 애플리케이션 ID를 복사합니다.
 
-    ![함수 응용 프로그램 ID][functions10]
+    ![함수 애플리케이션 ID][functions10]
 
 #### <a name="azuretenant"></a>AzureTenant
 

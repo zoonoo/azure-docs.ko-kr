@@ -30,7 +30,7 @@ Write Accelerator는 [Azure 관리 디스크](https://azure.microsoft.com/servic
 > [!IMPORTANT]
 > VM의 운영 체제 디스크에 Write Accelerator를 사용하도록 설정하면 해당 VM이 다시 부팅됩니다.
 >
-> Windows 디스크 또는 볼륨 관리자, Windows Storage Spaces, Windows SOFS(스케일 아웃 파일 서버), Linux LVM 또는 MDADM이 있는 여러 디스크로 구성된 볼륨에 속하지 않은 기존 Azure 디스크에 Write Accelerator를 사용하도록 설정하려면 Azure 디스크에 액세스하는 작업을 종료해야 합니다. 반드시 Azure 디스크를 사용하는 데이터베이스 응용 프로그램을 종료해야 합니다.
+> Windows 디스크 또는 볼륨 관리자, Windows Storage Spaces, Windows SOFS(스케일 아웃 파일 서버), Linux LVM 또는 MDADM이 있는 여러 디스크로 구성된 볼륨에 속하지 않은 기존 Azure 디스크에 Write Accelerator를 사용하도록 설정하려면 Azure 디스크에 액세스하는 작업을 종료해야 합니다. 반드시 Azure 디스크를 사용하는 데이터베이스 애플리케이션을 종료해야 합니다.
 >
 > 여러 Azure Premium Storage 디스크로 구성되고 Windows 디스크 또는 볼륨 관리자, Windows Storage Spaces, Windows SOFS(스케일 아웃 파일 서버), Linux LVM 또는 MDADM을 사용하여 스트라이프된 기존 볼륨에 Write Accelerator를 사용하거나 사용하지 않도록 설정하려면, 볼륨을 구성하는 모든 디스크는 별도의 단계에서 Write Accelerator에 사용하거나 사용하지 않도록 설정해야 합니다. **먼저 Azure VM을 종료한 후에 이러한 구성에서 Write Accelerator를 사용하거나 사용하지 않도록 설정하세요**.
 
@@ -41,7 +41,7 @@ SAP 관련 VM 구성에는 OS 디스크에 Write Accelerator를 사용하도록 
 Azure 디스크/VHD에 Write Accelerator를 사용하는 경우 적용되는 제한 사항은 다음과 같습니다.
 
 - 프리미엄 디스크 캐싱을 '없음' 또는 '읽기 전용'으로 설정해야 합니다. 다른 모든 캐싱 모드는 지원되지 않습니다.
-- Write Accelerator를 사용하도록 설정된 디스크의 스냅숏은 아직 지원되지 않습니다. 이 제한 사항은 가상 머신의 모든 디스크에 대해 응용 프로그램 일치 스냅숏을 수행하는 Azure Backup 서비스 기능을 차단합니다.
+- Write Accelerator를 사용하도록 설정된 디스크의 스냅숏은 아직 지원되지 않습니다. 이 제한 사항은 가상 머신의 모든 디스크에 대해 애플리케이션 일치 스냅숏을 수행하는 Azure Backup 서비스 기능을 차단합니다.
 - 더 작은 I/O 크기(32KiB 이하)에서만 가속화된 경로를 사용합니다. 데이터가 대량으로 로드되거나 여러 DBMS의 트랜잭션 로그 버퍼가 저장소에 유지되기 전에 더 많이 채워지는 워크로드 상황에서 디스크에 기록된 I/O는 가속화된 경로를 사용하지 않을 수 있습니다.
 
 Write Accelerator에서 지원할 수 있는 VM당 Azure Premium Storage VHD 수는 제한됩니다. 이 제한은 현재 다음과 같습니다.

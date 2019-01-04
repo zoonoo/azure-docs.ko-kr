@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 86830d8a13e4d83ff48bcf7e2f2dfac41d764718
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 0355b8cf19209509dca2f3cac93c7abb92a63990
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106732"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323323"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하여 액세스 토큰을 획득하는 방법 
 
@@ -44,13 +44,14 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 ## <a name="overview"></a>개요
 
-클라이언트 응용 프로그램은 지정된 리소스에 액세스하기 위해 Azure 리소스에 대한 관리 ID [앱 전용 액세스 토큰](../develop/developer-glossary.md#access-token)을 요청할 수 있습니다. 이 토큰은 [Azure 리소스 서비스 주체에 대한 관리 ID를 기준으로](overview.md#how-does-it-work) 합니다. 따라서 고유한 서비스 주체 하에서 액세스 토큰을 가져오기 위해 클라이언트를 등록하지 않아도 됩니다. 토큰은 [서비스 간 호출 요청 클라이언트 자격 증명](../develop/v1-oauth2-client-creds-grant-flow.md)에서 전달자 토큰으로 사용하기에 적합합니다.
+클라이언트 애플리케이션은 지정된 리소스에 액세스하기 위해 Azure 리소스에 대한 관리 ID [앱 전용 액세스 토큰](../develop/developer-glossary.md#access-token)을 요청할 수 있습니다. 이 토큰은 [Azure 리소스 서비스 주체에 대한 관리 ID를 기준으로](overview.md#how-does-it-work) 합니다. 따라서 고유한 서비스 주체 하에서 액세스 토큰을 가져오기 위해 클라이언트를 등록하지 않아도 됩니다. 토큰은 [서비스 간 호출 요청 클라이언트 자격 증명](../develop/v1-oauth2-client-creds-grant-flow.md)에서 전달자 토큰으로 사용하기에 적합합니다.
 
 |  |  |
 | -------------- | -------------------- |
 | [HTTP를 사용하여 토큰 가져오기](#get-a-token-using-http) | Azure 리소스에 대한 관리 ID 토큰 엔드포인트에 대한 프로토콜 세부 정보 |
 | [.NET용 Microsoft.Azure.Services.AppAuthentication 라이브러리를 사용하여 토큰 가져오기](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | .NET 클라이언트에서 Microsoft.Azure.Services.AppAuthentication 라이브러리를 사용하는 예
 | [C#을 사용하여 토큰 가져오기](#get-a-token-using-c) | C# 클라이언트에서 Azure 리소스에 대한 관리 ID REST 엔드포인트를 사용하는 예제 |
+| [Java를 사용하여 토큰 가져오기](#get-a-token-using-java) | Java 클라이언트에서 Azure 리소스에 대한 관리 ID REST 엔드포인트를 사용하는 예제 |
 | [Go를 사용하여 토큰 가져오기](#get-a-token-using-go) | Go 클라이언트에서 Azure 리소스에 대한 관리 ID REST 엔드포인트를 사용하는 예제 |
 | [Azure PowerShell을 사용하여 토큰 가져오기](#get-a-token-using-azure-powershell) | PowerShell 클라이언트에서 Azure 리소스에 대한 관리 ID REST 엔드포인트를 사용하는 예제 |
 | [CURL을 사용하여 토큰 가져오기](#get-a-token-using-curl) | Bash/CURL 클라이언트에서 Azure 리소스에 대한 관리 ID REST 엔드포인트를 사용하는 예제 |
@@ -60,7 +61,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 ## <a name="get-a-token-using-http"></a>HTTP를 사용하여 토큰 가져오기 
 
-액세스 토큰을 획득할 기본 인터페이스는 REST 기반으로 하며 HTTP REST를 호출할 수 있는 VM에서 실행되는 모든 클라이언트 응용 프로그램에 액세스할 수 있도록 합니다. 클라이언트가 가상 머신(및 Azure AD 끝점)에서 엔드포인트를 사용하는 점을 제외하고 Azure AD 프로그래밍 모델과 유사합니다.
+액세스 토큰을 획득할 기본 인터페이스는 REST 기반으로 하며 HTTP REST를 호출할 수 있는 VM에서 실행되는 모든 클라이언트 애플리케이션에 액세스할 수 있도록 합니다. 클라이언트가 가상 머신(및 Azure AD 끝점)에서 엔드포인트를 사용하는 점을 제외하고 Azure AD 프로그래밍 모델과 유사합니다.
 
 IMDS(Instance Metadata Service) 엔드포인트를 사용하는 요청 샘플 *(권장됨)*:
 
@@ -123,11 +124,11 @@ Content-Type: application/json
 
 ## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>.NET용 Microsoft.Azure.Services.AppAuthentication 라이브러리를 사용하여 토큰 가져오기
 
-.NET 응용 프로그램 및 함수의 경우 Azure 리소스에 대한 관리 ID를 사용하는 가장 간단한 방법은 Microsoft.Azure.Services.AppAuthentication 패키지입니다. 또한 이 라이브러리는 개발 머신에서 Visual Studio, [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) 또는 Active Directory 통합 인증의 사용자 계정을 사용하여 로컬로 코드를 테스트할 수 있습니다. 이 라이브러를 통한 로컬 개발 옵션에 대한 자세한 내용은 [Microsoft.Azure.Services.AppAuthentication 참조]를 참조하세요. 이 섹션에서는 코드에서 이 라이브러리를 시작하는 방법을 보여 줍니다.
+.NET 애플리케이션 및 함수의 경우 Azure 리소스에 대한 관리 ID를 사용하는 가장 간단한 방법은 Microsoft.Azure.Services.AppAuthentication 패키지입니다. 또한 이 라이브러리는 개발 머신에서 Visual Studio, [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) 또는 Active Directory 통합 인증의 사용자 계정을 사용하여 로컬로 코드를 테스트할 수 있습니다. 이 라이브러를 통한 로컬 개발 옵션에 대한 자세한 내용은 [Microsoft.Azure.Services.AppAuthentication 참조]를 참조하세요. 이 섹션에서는 코드에서 이 라이브러리를 시작하는 방법을 보여 줍니다.
 
-1. 응용 프로그램에 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 및 [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet 패키지의 참조를 추가합니다.
+1. 애플리케이션에 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 및 [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet 패키지의 참조를 추가합니다.
 
-2.  응용 프로그램에 다음 코드를 추가합니다.
+2.  애플리케이션에 다음 코드를 추가합니다.
 
     ```csharp
     using Microsoft.Azure.Services.AppAuthentication;
@@ -172,6 +173,50 @@ catch (Exception e)
     string errorText = String.Format("{0} \n\n{1}", e.Message, e.InnerException != null ? e.InnerException.Message : "Acquire token failed");
 }
 
+```
+
+## <a name="get-a-token-using-java"></a>Java를 사용하여 토큰 가져오기
+
+이 [JSON 라이브러리](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.9.4)를 사용하여 Java를 통해 토큰을 검색합니다.
+
+```Java
+import java.io.*;
+import java.net.*;
+import com.fasterxml.jackson.core.*;
+ 
+class GetMSIToken {
+    public static void main(String[] args) throws Exception {
+ 
+        URL msiEndpoint = new URL("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/");
+        HttpURLConnection con = (HttpURLConnection) msiEndpoint.openConnection();
+        con.setRequestMethod("GET");
+        con.setRequestProperty("Metadata", "true");
+ 
+        if (con.getResponseCode()!=200) {
+            throw new Exception("Error calling managed identity token endpoint.");
+        }
+ 
+        InputStream responseStream = con.getInputStream();
+ 
+        JsonFactory factory = new JsonFactory();
+        JsonParser parser = factory.createParser(responseStream);
+ 
+        while(!parser.isClosed()){
+            JsonToken jsonToken = parser.nextToken();
+ 
+            if(JsonToken.FIELD_NAME.equals(jsonToken)){
+                String fieldName = parser.getCurrentName();
+                jsonToken = parser.nextToken();
+ 
+                if("access_token".equals(fieldName)){
+                    String accesstoken = parser.getValueAsString();
+                    System.out.println("Access Token: " + accesstoken.substring(0,5)+ "..." + accesstoken.substring(accesstoken.length()-5));
+                    return;
+                }
+            }
+        }
+    }
+}
 ```
 
 ## <a name="get-a-token-using-go"></a>Go를 사용하여 토큰 가져오기
@@ -266,14 +311,14 @@ Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?ap
 응답에서 액세스 토큰을 구문 분석하는 방법에 대한 예제:
 ```azurepowershell
 # Get an access token for managed identities for Azure resources
-$response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F `
+$response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' `
                               -Headers @{Metadata="true"}
 $content =$response.Content | ConvertFrom-Json
 $access_token = $content.access_token
 echo "The managed identities for Azure resources access token is $access_token"
 
 # Use the access token to get resource information for the VM
-$vmInfoRest = (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Compute/virtualMachines/<VM-NAME>?api-version=2017-12-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $access_token"}).content
+$vmInfoRest = (Invoke-WebRequest -Uri 'https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Compute/virtualMachines/<VM-NAME>?api-version=2017-12-01' -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $access_token"}).content
 echo "JSON returned from call to get VM info:"
 echo $vmInfoRest
 
@@ -327,7 +372,7 @@ Azure 리소스에 대한 관리 ID 엔드포인트는 HTTP 응답 메시지 헤
 
 | 상태 코드 | 오류 | 오류 설명 | 해결 방법 |
 | ----------- | ----- | ----------------- | -------- |
-| 400 잘못된 요청 | invalid_resource | AADSTS50001: *\<URI\>* 라는 응용 프로그램을 *\<TENANT-ID\>* 라는 테넌트에서 찾을 수 없습니다. 이 오류는 테넌트의 관리자가 응용 프로그램을 설치하지 않았거나 테넌트의 사용자가 동의하지 않은 경우에 발생할 수 있습니다. 잘못된 테넌트에 인증 요청을 보냈을 수도 있습니다. | (Linux만 해당) |
+| 400 잘못된 요청 | invalid_resource | AADSTS50001: *\<URI\>* 라는 애플리케이션을 *\<TENANT-ID\>* 라는 테넌트에서 찾을 수 없습니다. 이 오류는 테넌트의 관리자가 애플리케이션을 설치하지 않았거나 테넌트의 사용자가 동의하지 않은 경우에 발생할 수 있습니다. 잘못된 테넌트에 인증 요청을 보냈을 수도 있습니다. | (Linux만 해당) |
 | 400 잘못된 요청 | bad_request_102 | 필수 메타데이터 헤더가 지정되지 않았습니다. | `Metadata` 요청 헤더 필드가 요청에서 누락되거나 형식이 잘못되었습니다. 값은 모두 소문자이며 `true`으로 지정해야 합니다. 예제는 [이전 REST 섹션](#rest)에서 "샘플 요청"을 참조하세요.|
 | 401 권한 없음 | unknown_source | 알 수 없는 원본 *\<URI\>* | HTTP GET 요청 URI의 형식이 올바른지 확인합니다. `scheme:host/resource-path` 부분은 `http://localhost:50342/oauth2/token`으로 지정해야 합니다. 예제는 [이전 REST 섹션](#rest)에서 "샘플 요청"을 참조하세요.|
 |           | invalid_request | 요청이 필수 매개 변수를 누락하거나, 잘못된 매개 변수 값이 포함되거나, 매개 변수를 두 번 이상 포함되거나 형식이 잘못되었습니다. |  |

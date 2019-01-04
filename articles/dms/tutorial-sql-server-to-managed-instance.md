@@ -216,4 +216,4 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
 - T-SQL RESTORE 명령을 사용하여 Managed Instance로 데이터베이스를 마이그레이션하는 방법을 보여 주는 자습서는 [복원 명령을 사용하여 백업을 Managed Instance에 복원](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md)을 참조하세요.
 - Managed Instance에 대한 자세한 내용은 [Managed Instance란?](../sql-database/sql-database-managed-instance.md)을 참조하세요.
-- Managed Instance에 앱을 연결하는 내용은 [응용 프로그램 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요.
+- Managed Instance에 앱을 연결하는 내용은 [애플리케이션 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요.

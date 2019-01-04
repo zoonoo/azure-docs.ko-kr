@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/10/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3e3b608d3928536d654a594c42cbcc955d620d98
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 3a16977f2d3bc7321de2d2a1538276f182e7fa10
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321736"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190995"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory에서 암호 정책 및 제한
 
@@ -27,7 +27,7 @@ ms.locfileid: "49321736"
 
 2게이트 정책을 사용할 경우 **관리자는 보안 질문을 사용할 수 없습니다**.
 
-두 게이트 정책은 전자 메일 주소 *및* 전화 번호 등, 두 가지 인증 데이터를 요구합니다. 다음과 같은 경우에 두 게이트 정책이 적용됩니다.
+두 게이트 정책은 **이메일 주소**, **인증자 앱** 또는 **전화 번호**와 같은 두 가지 인증 데이터를 요구합니다. 다음과 같은 경우에 두 게이트 정책이 적용됩니다.
 
 * 다음과 같은 모든 Azure 관리자 역할이 영향을 받습니다.
   * 기술 지원팀 관리자
@@ -46,7 +46,7 @@ ms.locfileid: "49321736"
   * 보안 관리자
   * 권한 있는 역할 관리자
   * Microsoft Intune 서비스 관리자
-  * 응용 프로그램 프록시 서비스 관리자
+  * 애플리케이션 프록시 서비스 관리자
   * CRM 서비스 관리자
   * Power BI 서비스 관리자
 
@@ -81,8 +81,8 @@ Azure AD에 로그인해야 하는 모든 사용자 계정에는 해당 계정�
 | 허용되는 문자 |<ul><li>A-Z</li><li>a-z</li><li>0-9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
 | 허용되지 않는 문자 |<ul><li>유니코드 문자</li><li>공백</li><li> 강력한 암호만 가능</li></ul> |
 | 암호 제한 |<ul><li>최소 8자, 최대 16자</li><li>강력한 암호만: 다음 4개 중 3개가 필요합니다.<ul><li>소문자</li><li>대문자</li><li>숫자(0-9)</li><li>기호(이전 암호 제한 참조)</li></ul></li></ul> |
-| 암호 만료 기간 |<ul><li>기본값: **90**일</li><li>값은 Windows PowerShell용 Azure Active Directory 모듈에서 `Set-MsolPasswordPolicy` cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |
-| 암호 만료 알림 |<ul><li>기본값: **14**일(암호 만료 이전)</li><li>값은 `Set-MsolPasswordPolicy` cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |
+| 암호 만료 기간 |<ul><li>기본값: **90**일.</li><li>값은 Windows PowerShell용 Azure Active Directory 모듈에서 `Set-MsolPasswordPolicy` cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |
+| 암호 만료 알림 |<ul><li>기본값: **14**일(암호 만료 이전).</li><li>값은 `Set-MsolPasswordPolicy` cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |
 | 암호 만료 |<ul><li>기본값: **false**일(사용 가능한 암호 만료임을 나타냄)</li><li>`Set-MsolUser` cmdlet을 사용하여 개별 사용자 계정에 대한 값을 구성할 수 있습니다.</li></ul> |
 | 암호 변경 기록 |사용자 암호를 변경할 때 마지막 암호를 다시 사용할 수 *없습니다*. |
 | 암호 재설정 기록 | 사용자가 잊어버린 암호를 재설정할 때 마지막 암호를 다시 사용할 수 *있습니다*. |

@@ -1,15 +1,15 @@
 ---
 author: manish-shukla01
-ms.author: manshuk
+ms.author: cwatson
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 08-03-2018
-ms.openlocfilehash: 41216fe12e10f72f76043f1a8bc361b538259ac1
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.date: 11-20-2018
+ms.openlocfilehash: 044f735560eb7d57a90a16c1e3ce1255a9fe0d54
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39721124"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742384"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Reserved VM Instances에서 가상 머신 크기 유연성
 
@@ -20,7 +20,7 @@ ms.locfileid: "39721124"
 - Standard_DS3_v2
 - Standard_DS4_v2
 
-하지만 해당 예약 할인이 DSv2 시리즈 상위 메모리 표의 내용과 같은 다른 테이블에 나열된 VM 크기에 적용되지 않습니다(예: Standard_DS11_v2, Standard_DS12_v2 등).
+하지만 DSv2 시리즈 상위 메모리 테이블(예: Standard_DS11_v2, Standard_DS12_v2 등)의 VM 크기와 같이, 다른 테이블에 나열된 VM 크기에는 해당 예약 할인이 적용되지 않습니다.
 
 크기 계열 그룹 내에서 예약 할인을 적용하는 VM 수는 예약을 구입하는 경우 선택한 VM 크기에 따라 달라집니다. 또한 실행하는 VM의 크기에 따라서도 달라집니다. 다음 표에 나열된 비율 열은 해당 그룹의 각 VM 크기에 대한 상대 공간을 비교합니다. 예약 할인을 실행하고 있는 VM에 적용하는 방법을 계산하기 위해 비율 값을 사용합니다.
 
@@ -117,9 +117,16 @@ ms.locfileid: "39721124"
 | 크기 | 비율|
 |---|---|
 |Standard_DS11_v2|1|
+|Standard_DS11-1_v2|1|
 |Standard_DS12_v2|2|
+|Standard_DS12-1_v2|2|
+|Standard_DS12-2_v2|2|
 |Standard_DS13_v2|4|
+|Standard_DS13-2_v2|4|
+|Standard_DS13-4_v2|4|
 |Standard_DS14_v2|8|
+|Standard_DS14-4_v2|8|
+|Standard_DS14-8_v2|8|
 |Standard_DS15_v2|10|
 
 자세한 내용은 [메모리 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-memory.md#dsv2-series-11-15)를 참조하세요.
@@ -178,12 +185,21 @@ ms.locfileid: "39721124"
 
 | 크기 | 비율|
 |---|---|
-| Standard_E2s_v3|1|
+|Standard_E2s_v3|1|
 |Standard_E4s_v3|2|
+|Standard_E4-2s_v3|2|
 |Standard_E8s_v3|4|
+|Standard_E8-2s_v3|4|
+|Standard_E8-4s_v3|4|
 |Standard_E16s_v3|8|
+|Standard_E16-4s_v3|8|
+|Standard_E16-8s_v3|8|
 |Standard_E32s_v3|16|
+|Standard_E32-8s_v3|16|
+|Standard_E32-16s_v3|16|
 |Standard_E64s_v3|32|
+|Standard_E64-16s_v3|32|
+|Standard_E64-32s_v3|32|
 
 자세한 내용은 [메모리 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-memory.md#esv3-series)를 참조하세요.
 
@@ -289,9 +305,15 @@ Standard_F16|16|
 
 | 크기 | 비율|
 |---|---|
-| Standard_M8ms|1|
+|Standard_M8ms|1|
+|Standard_M8-2ms|1|
+|Standard_M8-4ms|1|
 |Standard_M16ms|2|
+|Standard_M16-4ms|2|
+|Standard_M16-8ms|2|
 |Standard_M32ms|4|
+|Standard_M32-8ms|4|
+|Standard_M32-16ms|4|
 
 자세한 내용은 [메모리 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-memory.md#m-series)를 참조하세요.
 
@@ -309,7 +331,11 @@ Standard_F16|16|
 | 크기 | 비율|
 |---|---|
 | Standard_M64ms|1|
+|Standard_M64-16ms|1|
+|Standard_M64-32ms|1|
 |Standard_M128ms|2|
+|Standard_M128-32ms|2|
+|Standard_M128-64ms|2|
 
 자세한 내용은 [메모리 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-memory.md#m-series)를 참조하세요.
 

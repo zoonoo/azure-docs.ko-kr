@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 3caa4f2dbe36f86c9b15a83303e90b16d06c56fd
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 14b108a836424e92a251f50b42ed93963038a333
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419404"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192059"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>오프라인 모드에서 Azure 가상 머신 에이전트 설치 
 
@@ -76,7 +76,7 @@ Azure VM 에이전트(가상 머신 에이전트)는 로컬 관리자 암호 재
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
 
-        ![레지스트리 하위 키 내보내기](./media/install-vm-agent-offline/backup-reg.png)
+          ![레지스트리 하위 키 내보내기](./media/install-vm-agent-offline/backup-reg.png)
 
     2. 레지스트리 파일을 편집합니다. 각 파일에서 항목 값 **SYSTEM**을 **BROKENSYSTEM**으로 변경하고(다음 이미지처럼) 파일을 저장합니다. 현재 VM 에이전트의 **ImagePath**를 기억하세요. 연결된 OS 디스크에 해당 폴더를 복사해야 합니다. 
 

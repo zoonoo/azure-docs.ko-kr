@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 2ae0450be420edeb4ef18d0c9e5ca6e1dacaf50d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 878d9e635d82e52d8a47d47a135ba865f140c9e9
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497022"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321889"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight에서 사용할 수 있는 Apache Hadoop 구성 요소 및 버전은?
 
@@ -28,7 +28,7 @@ Azure HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버
 
 HDInsight 클러스터 버전과 연결된 구성 요소 버전은 다음 표에 나열되어 있습니다. 
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight 서비스의 기본 버전은 예고 없이 변경될 수 있습니다. 버전 종속성이 있는 경우 Azure PowerShell 및 Azure 클래식 CLI를 사용하여 .NET SDK에서 클러스터를 만들 때 HDInsight 버전을 지정합니다.
 
 | 구성 요소 | HDInsight 4.0(미리 보기) | HDInsight 3.6(기본값) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
@@ -60,9 +60,7 @@ HDInsight 클러스터 버전과 연결된 구성 요소 버전은 다음 표에
 
 HDInsight 클러스터 버전과 연결된 Hadoop 에코시스템 구성 요소 버전은 HDInsight에 대한 업데이트로 변경될 수 있습니다. Hadoop 구성 요소를 확인하고 클러스터에 대해 사용 중인 버전을 확인하려면 Ambari REST API를 사용합니다. **GetComponentInformation** 명령은 서비스 구성 요소에 대한 정보를 검색합니다. 자세한 내용은 [Apache Ambari 설명서][ambari-docs]를 참조하세요.
 
-Windows 클러스터의 경우 구성 요소 버전을 확인하는 다른 방법은 원격 데스크톱을 사용하여 클러스터에 로그인하고 C:\apps\dist\ 디렉터리의 콘텐츠를 검사하는 것입니다.
-
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight에서 Windows 사용 중지](#hdinsight-windows-retirement)를 참조하세요.
 
 ### <a name="release-notes"></a>릴리스 정보
@@ -84,7 +82,7 @@ Windows 클러스터의 경우 구성 요소 버전을 확인하는 다른 방�
 
 *&ast;Spark 클러스터 형식에 대해서만 HDInsight 3.5 지원이 확장되었습니다.*
 
-> [!NOTE]
+> [!NOTE]  
 > 버전에 대한 지원이 만료되면 Microsoft Azure Portal을 통해 사용하지 못할 수도 있습니다. 그러나 클러스터 버전은 버전 사용 중지 날짜까지 Windows PowerShell [New-AzureRmHDInsightCluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) 명령의 `Version` 매개 변수 및 .NET SDK를 사용하여 계속 사용할 수 있습니다.
 >
 
@@ -104,7 +102,7 @@ Windows 클러스터의 경우 구성 요소 버전을 확인하는 다른 방�
 | HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |2013년 10월 28일 |2014년 5월 12일 |2015년 5월 31일 |yes |아니요 |
 | HDInsight 1.6 |HDP 1.1 | |2013년 10월 28일 |2014년 4월 26일 |2015년 5월 31일 |아니요 |아니요 |
 
-> [!NOTE]
+> [!NOTE]  
 > 헤드 노드가 2개 있는 고가용성 클러스터는 기본적으로 HDInsight 버전 2.1 이상에 배포됩니다. HDInsight 버전 1.6 클러스터에서는 사용할 수 없습니다.
 
 ## <a name="enterprise-security-package-for-hdinsight"></a>HDInsight용 엔터프라이즈 보안 패키지
@@ -188,7 +186,7 @@ HDInsight Windows 클러스터가 그대로 실행되지만 새로운 HDInsight 
 * Hadoop 및 기타 빅 데이터 기술에 대한 오픈 소스 커뮤니티의 활발한 개발 기능
 
 ### <a name="does-hdinsight-on-linux-provide-additional-functionality-beyond-what-is-available-in-hdinsight-on-windows"></a>Linux HDInsight는 Windows HDInsight에서 사용할 수 있는 기능 이외의 추가 기능을 제공하나요?
-HDInsight 버전 3.4부터 Microsoft는 Linux OS에서만 HDInsight를 릴리스했습니다. 결과적으로 HDInsight 내의 구성 요소 중 일부가 Linux에서만 제공됩니다. 기본 파일 시스템으로 Apache Ranger, Kafka, 대화형 쿼리, Spark, HDInsight 응용 프로그램 및 Azure Data Lake Store가 포함됩니다. 
+HDInsight 버전 3.4부터 Microsoft는 Linux OS에서만 HDInsight를 릴리스했습니다. 결과적으로 HDInsight 내의 구성 요소 중 일부가 Linux에서만 제공됩니다. 기본 파일 시스템으로 Apache Ranger, Kafka, 대화형 쿼리, Spark, HDInsight 애플리케이션 및 Azure Data Lake Store가 포함됩니다. 
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>HDInsight 클러스터 버전의 서비스 수준 약정
 SLA(서비스 수준 약정)는 _지원 기간_ 면에서 정의됩니다. 지원 기간은 Microsoft 고객 지원에서 HDInsight 클러스터 버전을 지원하는 기간을 나타냅니다. 버전의 _지원 만료 날짜_가 날짜를 지난 경우 HDInsight 클러스터는 지원 기간이 종료된 것입니다. 지원되는 버전에 대한 자세한 내용은 [지원되는 HDInsight 클러스터 버전](hdinsight-migrate-from-windows-to-linux.md) 목록을 참조하세요. 새로운 X+1 버전이 사용 가능해진 후에 지정된 HDInsight 버전의 지원 만료 날짜는 다음 수식 중 후자로 계산됩니다.  
@@ -198,7 +196,7 @@ SLA(서비스 수준 약정)는 _지원 기간_ 면에서 정의됩니다. 지�
 
 _사용 중지 날짜_는 HDInsight에서 해당 클러스터 버전을 만들 수 없게 되는 날짜입니다. 2017년 7월 31일부터 사용 중지 날짜 이후에는 HDInsight 클러스터의 크기를 조정할 수 없습니다. 
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight Windows 클러스터(버전 2.1, 3.0, 3.1, 3.2 및 3.3 포함)는 Azure 게스트 OS 제품군 버전 4에서 실행되고 64비트 버전의 Windows Server 2012 R2를 사용합니다. Azure 게스트 OS 제품군 버전 4는 .NET Framework 버전 4.0, 4.5, 4.5.1 및 4.5.2를 지원합니다.
 
 ## <a name="hortonworks-release-notes-associated-with-hdinsight-versions"></a>HDInsight 버전과 관련된 Hortonworks 릴리스 정보
@@ -214,7 +212,7 @@ _사용 중지 날짜_는 HDInsight에서 해당 클러스터 버전을 만들 �
   * [Apache Hive 릴리스 정보](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843)는 Apache 웹 사이트에서 사용할 수 있습니다.
 * HDInsight 클러스터 버전 3.2에서는 [Hortonworks Data Platform 2.2][hdp-2-2]를 기반으로 하는 Hadoop 배포를 사용합니다.
 
-  * 특정 Apache 구성 요소에 대한 릴리스 정보는 다음과 같이 사용할 수 있습니다. [Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112), [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
+  * 특정 Apache 구성 요소의 릴리스 정보는 다음과 같습니다. [Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112) 및 [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
 * HDInsight 클러스터 버전 3.1에서는 [Hortonworks Data Platform 2.1.7][hdp-2-1-7]를 기반으로 하는 Hadoop 배포를 사용합니다. 2014년 11월 7일 이전에 만들어진 HDInsight 3.1 클러스터는 [Hortonworks Data Platform 2.1.1][hdp-2-1-1]을 기반으로 합니다.
 * HDInsight 클러스터 버전 3.0에서는 [Hortonworks Data Platform 2.0][hdp-2-0-8]을 기반으로 하는 Hadoop 배포를 사용합니다.
 * HDInsight 클러스터 버전 2.1에서는 [Hortonworks Data Platform 1.3][hdp-1-3-0]을 기반으로 하는 Hadoop 배포를 사용합니다.
@@ -222,41 +220,36 @@ _사용 중지 날짜_는 HDInsight에서 해당 클러스터 버전을 만들 �
 
 
 
-
-
-
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>클러스터에 대한 기본 노드 구성 및 가상 머신 크기
-다음 표에는 HDInsight 클러스터에 대한 기본 VM(가상 머신) 크기가 나와 있습니다.
+다음 표에는 HDInsight 클러스터에 대한 기본 VM(가상 머신) 크기가 나와 있습니다.  이 차트는 PowerShell 또는 Azure CLI 스크립트를 만들어 HDInsight 클러스터를 배포할 때 사용할 VM 크기를 파악하는 데 필요합니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 클러스터에 필요한 작업자 노드 수가 32개를 초과하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다.
-> 
-> 
 
 * 브라질 남부 및 일본 서부를 제외하고 지원되는 모든 지역:
 
-  | 클러스터 유형 | Hadoop은 | HBase | 대화형 쿼리 | Storm | Spark | ML Server |
+  | 클러스터 유형 | Hadoop은 | HBase | 대화형 쿼리 | Storm | Spark  | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |
-  | 헤드: 기본 VM 크기 |D3 v2 |D3 v2 | D13, D14 |A4 v2 |D12 v2 |D12 v2 |
-  | 헤드: 권장되는 VM 크기 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A4 v2, A8 v2, A2m v2 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
-  | 작업자: 기본 VM 크기 |D3 v2 |D3 v2  | D13, D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
-  | 작업자: 권장되는 VM 크기 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | 헤드: 기본 VM 크기 |D3 v2 |D3 v2 | D13,<br/> D14 |A4 v2 |D12 v2 |D12 v2 |
+  | 헤드: 권장되는 VM 크기 |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2  | D13,<br/> D14 |A4 v2,<br/> A8 v2,<br/> A2m v2 |D12 v2,<br/> D13 v2,<br/> D14 v2 |D12 v2,<br/> D13 v2,<br/> D14 v2 |
+  | 작업자: 기본 VM 크기 |D3 v2 |D3 v2  | D13,<br/> D14 |D3 v2 |D4 v2 | D4 v2 |
+  | 작업자: 권장되는 VM 크기 |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2  | D13,<br/> D14 |D3 v2,<br/> D4 v2,<br/> D12 v2 |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |
   | Zookeeper: 기본 VM 크기 | |A4 v2 | |A2 v2 | | |
-  | Zookeeper: 권장되는 VM 크기 | |A4 v2, A8 v2, A2m v2 | | A2 v2, A4 v2, A8 v2 | | |
-  | Edge: 기본 VM 크기 | | | | | |Windows: D12 v2; Linux: D4 v2 |
-  | Edge: 권장되는 VM 크기 | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | Zookeeper: 권장되는 VM 크기 | |A4 v2,<br/> A8 v2,<br/> A2m v2 | | A2 v2,<br/> A4 v2,<br/> A8 v2 | | |
+  | Edge: 기본 VM 크기 | | | | | |D4 v2 |
+  | Edge: 권장되는 VM 크기 | | | | | |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |
 * 브라질 남부 및 일본 서부만 해당(v2 크기 제외):
 
   | 클러스터 유형 | Hadoop은 | HBase | 대화형 쿼리 |Storm | Spark | ML 서비스 |
   | --- | --- | --- | --- | --- | --- | --- |
-  | 헤드: 기본 VM 크기 |D3 |D3  | D13, D14 |A3 |D12 |D12 |
-  | 헤드: 권장되는 VM 크기 |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
-  | 작업자: 기본 VM 크기 |D3 |D3  | D13, D14 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | 작업자: 권장되는 VM 크기 |D3, D4, D12 |D3, D4, D12  | D13, D14 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | 헤드: 기본 VM 크기 |D3 |D3  | D13,<br/> D14 |A3 |D12 |D12 |
+  | 헤드: 권장되는 VM 크기 |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3,<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |
+  | 작업자: 기본 VM 크기 |D3 |D3  | D13,<br/> D14 |D3 |D4 |D4 |
+  | 작업자: 권장되는 VM 크기 |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 | D4,<br/> D12,<br/> D13,<br/> D14 |
   | Zookeeper: 기본 VM 크기 | |A2 | | A2 | | |
-  | Zookeeper: 권장되는 VM 크기 | |A2, A3, A4 | |A2, A3, A4 | | |
-  | Edge: 기본 VM 크기 | | | | | |Windows: D12; Linux: D4 |
-  | Edge: 권장되는 VM 크기 | | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | Zookeeper: 권장되는 VM 크기 | |A2,<br/> A3,<br/> A4 | |A2,<br/> A3,<br/> A4 | | |
+  | Edge: 기본 VM 크기 | | | | | |D4 |
+  | Edge: 권장되는 VM 크기 | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
 
 > [!NOTE]
 > - 헤드는 Storm 클러스터 유형에 대한 *Nimbus*로 알려져 있습니다.
@@ -271,7 +264,7 @@ _사용 중지 날짜_는 HDInsight에서 해당 클러스터 버전을 만들 �
 
 [image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 
-[wa-forums]: http://azure.microsoft.com/support/forums/
+[wa-forums]: https://azure.microsoft.com/support/forums/
 
 [connect-excel-with-hive-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 

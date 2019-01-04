@@ -1,6 +1,6 @@
 ---
 title: AD FS에서 Azure AD로 앱 이동 | Microsoft Docs
-description: 이 문서는 조직에서 페더레이션된 SaaS 응용 프로그램에 중점을 두고 응용 프로그램을 Azure AD로 이동하는 방법을 이해할 수 있도록 돕기 위한 것입니다.
+description: 이 문서는 조직에서 페더레이션된 SaaS 애플리케이션에 중점을 두고 애플리케이션을 Azure AD로 이동하는 방법을 이해할 수 있도록 돕기 위한 것입니다.
 services: active-directory
 author: barbkess
 manager: mtillman
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: b799a3947770b44752b599dbb2c47cbf1cfbcda2
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7657ac2e2d5a169607c73b8934328ce41ecea78e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959063"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141937"
 ---
-# <a name="move-applications-from-ad-fs-to-azure-ad"></a>AD FS에서 Azure AD로 응용 프로그램 이동 
+# <a name="move-applications-from-ad-fs-to-azure-ad"></a>AD FS에서 Azure AD로 애플리케이션 이동 
 
-이 문서는 응용 프로그램을 AD FS에서 Azure AD(Azure Active Directory)로 이동하는 방법을 이해하는 데 도움이 됩니다. 페더레이션된 SaaS 응용 프로그램에 중점을 두고 있습니다. 
+이 문서는 애플리케이션을 AD FS에서 Azure AD(Azure Active Directory)로 이동하는 방법을 이해하는 데 도움이 됩니다. 페더레이션된 SaaS 응용 프로그램에 중점을 두고 있습니다. 
 
 이 문서에서는 단계별 지침을 제공하지 않습니다. 대신 온-프레미스 구성이 Azure AD로 변환되는 방식을 이해함으로써 마이그레이션을 수행하는 데 도움이 되는 개념적 지침을 제공합니다. 또한 일반적인 시나리오에 대해서도 설명합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "49959063"
 
 그리고 대부분의 조직과 마찬가지로 클라우드 응용 프로그램 및 ID를 도입하는 과정에 있을 가능성도 있습니다. 아마도 Office 365 및 Azure AD Connect를 사용하여 실행하고 있을 것입니다. 일부 주요 작업을 위해 클라우드 기반 SaaS 응용 프로그램을 설정했을 수도 있지만 전부는 아닙니다.  
 
-많은 조직에서는 Office 365 및 Azure AD 기반 응용 프로그램과 함께 SaaS 또는 사용자 지정 LOB(기간 업무) 응용 프로그램이 온-프레미스 로그온 서비스(예: AD FS(Active Directory Federation Services))에 직접 페더레이션되어 있습니다. 이 가이드에서는 응용 프로그램을 Azure AD로 이동하는 이유 및 방법을 설명합니다.
+많은 조직에서는 Office 365 및 Azure AD 기반 응용 프로그램과 함께 SaaS 또는 사용자 지정 LOB(기간 업무) 응용 프로그램이 온-프레미스 로그온 서비스(예: AD FS(Active Directory Federation Services))에 직접 페더레이션되어 있습니다. 이 가이드에서는 애플리케이션을 Azure AD로 이동하는 이유 및 방법을 설명합니다.
 
 >[!NOTE]
 >이 가이드는 사용자 지정 LOB 응용 프로그램에 대한 고급 정보와 함께 SaaS 응용 프로그램 구성 및 마이그레이션에 대한 자세한 정보를 제공합니다. 사용자 지정 LOB 응용 프로그램에 대한 자세한 지침은 나중에 제공할 예정입니다.
@@ -82,7 +82,7 @@ ms.locfileid: "49959063"
 
 ### <a name="non-federated-apps"></a>페더레이션되지 않은 앱
 Azure AD 응용 프로그램 프록시 및 관련 기능을 사용하여 페더레이션되지 않은 앱을 Azure AD와 통합할 수 있습니다. 페더레이션되지 않은 앱은 다음과 같습니다.
-- Active Directory에 Windows 통합 인증을 직접 사용하는 앱입니다. 이러한 앱은 [Azure AD 응용 프로그램 프록시](application-proxy-publish-azure-portal.md)를 통해 Azure AD와 통합할 수 있습니다.
+- Active Directory에 Windows 통합 인증을 직접 사용하는 앱입니다. 이러한 앱은 [Azure AD 응용 프로그램 프록시](application-proxy-add-on-premises-application.md)를 통해 Azure AD와 통합할 수 있습니다.
 - 에이전트를 통해 Single Sign-On 공급자와 통합하고 권한 부여에 대한 헤더를 사용하는 앱입니다. 로그온 및 헤더 기반 권한 부여를 위해 설치된 에이전트를 사용하는 온-프레미스 앱은 [Azure AD에 대한 PingAccess](https://blogs.technet.microsoft.com/enterprisemobility/2017/06/15/ping-access-for-azure-ad-is-now-generally-available-ga/)가 있는 Azure AD 응용 프로그램 프록시를 통해 Azure AD 기반 로그온에 대해 구성할 수 있습니다.
 
 ## <a name="translating-on-premises-federated-apps-to-azure-ad"></a>페더레이션된 온-프레미스 앱을 Azure AD로 변환 
@@ -93,7 +93,7 @@ AD FS와 Azure AD는 비슷하게 작동하므로 신뢰, 로그온 및 로그�
 ### <a name="representing-the-app-in-azure-ad-or-ad-fs"></a>Azure AD 또는 AD FS의 앱 표현
 마이그레이션은 온-프레미스에서 응용 프로그램을 구성하는 방법을 평가하고 해당 구성을 Azure AD에 매핑하는 것으로 시작됩니다. 다음 표는 AD FS 신뢰 당사자 구성 요소와 이에 해당하는 Azure AD 요소를 매핑한 것입니다.  
 - AD FS 용어: 신뢰 당사자 또는 신뢰 당사자 트러스트
-- Azure AD 용어: 엔터프라이즈 응용 프로그램 또는 앱 등록(앱 유형에 따라 다름)
+- Azure AD 용어: 엔터프라이즈 애플리케이션 또는 앱 등록(앱 유형에 따라 다름)
 
 |앱 구성 요소|설명|AD FS 구성의 위치|Azure AD 구성의 해당 위치|SAML 토큰 요소|
 |-----|-----|-----|-----|-----|
@@ -203,7 +203,7 @@ Azure AD 포털에서 사용자를 할당하려면 SaaS 앱의 페이지로 이�
 
 !["할당 추가" 창](media/migrate-adfs-apps-to-azure/migrate7.png)
 
-액세스를 확인하려면 사용자가 로그인할 때 [액세스 패널](../user-help/active-directory-saas-access-panel-introduction.md)에 SaaS 앱이 표시되어야 합니다. 액세스 패널은 http://myapps.microsoft.com에 있습니다. 이 예에서는 Salesforce 및 ServiceNow 모두에 대한 액세스 권한이 사용자에게 성공적으로 할당되었습니다.
+액세스를 확인하려면 사용자가 로그인할 때 [액세스 패널](../user-help/active-directory-saas-access-panel-introduction.md)에 SaaS 앱이 표시되어야 합니다. 액세스 패널은 https://myapps.microsoft.com에 있습니다. 이 예에서는 Salesforce 및 ServiceNow 모두에 대한 액세스 권한이 사용자에게 성공적으로 할당되었습니다.
 
 ![Salesforce 및 ServiceNow 앱이 있는 액세스 패널의 예](media/migrate-adfs-apps-to-azure/migrate8.png)
 
@@ -222,7 +222,7 @@ Azure AD 포털에서 사용자를 할당하려면 SaaS 앱의 페이지로 이�
 
    앱에서 여러 IdP를 지원하고 로그인에 대한 인증을 동시에 처리하기 위해 여러 IdP를 선택하는 경우, 사용자는 로그인 페이지에서 인증할 IdP를 선택할 수 있습니다.
 
-#### <a name="example-support-for-multiple-idps"></a>예: 여러 IdP 지원
+#### <a name="example-support-for-multiple-idps"></a>예제: 여러 IdP 지원
 예를 들어 Salesforce에서 IDP 구성은 **설정** > **회사 설정** > **내 도메인** > **인증 구성** 아래에 있습니다.
 
 ![Salesforce 앱의 "인증 구성" 섹션](media/migrate-adfs-apps-to-azure/migrate9.png)

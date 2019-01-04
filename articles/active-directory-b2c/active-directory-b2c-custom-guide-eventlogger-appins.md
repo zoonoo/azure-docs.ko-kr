@@ -115,7 +115,7 @@ Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 
 | AzureInsights-Common | 모든 Azure Insights 기술 프로필에 포함할 공통 매개 변수 집합을 만듭니다. | 
 | AzureInsights-SignInRequest | 로그인 요청이 수신되었을 때 클레임 집합을 사용하여 SignIn 이벤트를 만듭니다. | 
 | AzureInsights-UserSignup | 사용자가 등록/로그인 경험에서 등록 옵션을 트리거할 때 UserSignup 이벤트를 만듭니다. | 
-| AzureInsights-SignInComplete | 토큰이 신뢰 당사자 응용 프로그램에 전송되었을 때 인증이 성공적으로 완료되었다고 기록합니다. | 
+| AzureInsights-SignInComplete | 토큰이 신뢰 당사자 애플리케이션에 전송되었을 때 인증이 성공적으로 완료되었다고 기록합니다. | 
 
 프로필을 스타터 팩의 *TrustFrameworkExtensions.xml* 파일에 추가합니다. 이러한 요소를 **ClaimsProviders** 요소에 추가합니다.
 
@@ -221,7 +221,7 @@ Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 
 
 ## <a name="upload-your-file-run-the-policy-and-view-events"></a>파일을 업로드, 정책 실행 및 이벤트 보기
 
-*TrustFrameworkExtensions.xml* 파일을 저장하고 업로드합니다. 그런 다음, 응용 프로그램에서 신뢰 당사자 정책을 호출하거나 Azure Portal에서 **지금 실행**을 사용합니다. 몇 초 내에 사용자 이벤트를 Application Insights에서 사용할 수 있습니다.
+*TrustFrameworkExtensions.xml* 파일을 저장하고 업로드합니다. 그런 다음, 애플리케이션에서 신뢰 당사자 정책을 호출하거나 Azure Portal에서 **지금 실행**을 사용합니다. 몇 초 내에 사용자 이벤트를 Application Insights에서 사용할 수 있습니다.
 
 1. Azure Active Directory 테넌트에서 **Application Insights** 리소스를 엽니다.
 2. **사용량** > **이벤트**를 선택합니다.

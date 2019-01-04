@@ -188,10 +188,10 @@ ClusterManifest.xml
 환경이 올바르게 구성되면 업그레이드 중에도 모든 제약 조건이 완전히 준수됩니다. 클러스터 리소스 관리자에서 제약 조건을 감시하고 있다는 것이 중요합니다. 위반을 검색하는 즉시 문제를 보고하고 해결하려고 시도합니다.
 
 ## <a name="the-preferred-location-constraint"></a>기본 설정 위치 제약 조건
-PreferredLocation 제약 조건은 두 가지 용도로 사용되므로 약간 다릅니다. 이 제약 조건의 한 가지 용도는 응용 프로그램 업그레이드 중에 있습니다. 클러스터 리소스 관리자는 업그레이드하는 동안 이 제약 조건을 자동으로 관리합니다. 업그레이드가 완료되면 해당 복제본이 초기 위치로 반환되는지 확인하는 데 사용됩니다. PreferredLocation 제약 조건의 다른 용도는 [ `PreferredPrimaryDomain`배치 정책](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)에 대한 것입니다. 이러한 두 가지 용도가 모두 최적화이므로 PreferredLocation 제약 조건은 기본적으로 "Optimization(최적화)"으로 설정되는 유일한 제약 조건입니다.
+PreferredLocation 제약 조건은 두 가지 용도로 사용되므로 약간 다릅니다. 이 제약 조건의 한 가지 용도는 애플리케이션 업그레이드 중에 있습니다. 클러스터 리소스 관리자는 업그레이드하는 동안 이 제약 조건을 자동으로 관리합니다. 업그레이드가 완료되면 해당 복제본이 초기 위치로 반환되는지 확인하는 데 사용됩니다. PreferredLocation 제약 조건의 다른 용도는 [ `PreferredPrimaryDomain`배치 정책](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)에 대한 것입니다. 이러한 두 가지 용도가 모두 최적화이므로 PreferredLocation 제약 조건은 기본적으로 "Optimization(최적화)"으로 설정되는 유일한 제약 조건입니다.
 
 ## <a name="upgrades"></a>업그레이드
-응용 프로그램 및 클러스터를 업그레이드하는 동안 Cluster Resource Manager가 유용합니다. 이 때 다음과 같은 두 개의 작업이 있습니다.
+애플리케이션 및 클러스터를 업그레이드하는 동안 Cluster Resource Manager가 유용합니다. 이 때 다음과 같은 두 개의 작업이 있습니다.
 
 * 클러스터 규칙이 손상되지 않았는지 확인하는 작업
 * 원활한 업그레이드를 돕는 작업

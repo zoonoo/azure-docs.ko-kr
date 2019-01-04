@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 6e75ceb388b3111ea9ec31ba6bffded4077a019b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: ab8a6d5b6d4bb52863e77b844a4008bb80d840be
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248679"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993948"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-python"></a>빠른 시작: Python을 사용하여 Translator Text API로 대체 번역 가져오기
+# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python을 통해 대체 번역 가져오기
 
 이 빠른 시작에서는 Python 및 Translator Text REST API를 사용하여 지정된 텍스트에 대한 대체 번역 및 사용 예제를 찾는 방법을 알아봅니다.
 
@@ -167,7 +167,7 @@ python dictionary-lookup.py
 
 ## <a name="see-also"></a>참고 항목
 
-텍스트 음차뿐만 아니라 다음과 같은 Translator Text API 사용 방법을 알아봅니다.
+Translator Text API를 사용하여 다음을 수행하는 방법을 알아봅니다.
 
 * [텍스트 번역](quickstart-python-translate.md)
 * [텍스트 음역](quickstart-python-transliterate.md)

@@ -19,17 +19,17 @@ ms.locfileid: "37445537"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>보고 API를 통해 Azure AD B2C에서 사용량 보고서에 액세스
 
-Azure AD B2C(Azure Active Directory B2C)는 사용자 로그인 및 Azure Multi-Factor Authentication 기반 인증을 제공합니다. 인증은 ID 공급자를 통해 응용 프로그램 제품군의 최종 사용자에게 제공됩니다. 테넌트에 등록된 사용자의 수, 등록하는 데 사용된 공급자 및 유형별 인증 수를 알고 있으면 다음과 같은 질문에 답할 수 있습니다.
+Azure AD B2C(Azure Active Directory B2C)는 사용자 로그인 및 Azure Multi-Factor Authentication 기반 인증을 제공합니다. 인증은 ID 공급자를 통해 애플리케이션 제품군의 최종 사용자에게 제공됩니다. 테넌트에 등록된 사용자의 수, 등록하는 데 사용된 공급자 및 유형별 인증 수를 알고 있으면 다음과 같은 질문에 답할 수 있습니다.
 * 각 유형의 ID 공급자(예: Microsoft 또는 LinkedIn 계정)에서 지난 10일 동안 등록한 사용자는 몇 명인가요?
 * 지난 달에 Multi-Factor Authentication을 통해 성공적으로 완료된 인증은 몇 번인가요?
-* 이번 달에 완료된 로그인 기반 인증은 몇 번인가요? 일일? 응용 프로그램 당?
+* 이번 달에 완료된 로그인 기반 인증은 몇 번인가요? 일일? 애플리케이션당?
 * 내 Azure AD B2C 테넌트 활동에 대한 월별 예상 비용은 어떻게 추정해야 하나요?
 
 이 문서에서는 사용자 수, 청구 가능한 로그인 기반 인증 수 및 다단계 인증 수에 기반한 청구 활동에 연결된 보고서에 중점을 둡니다.
 
 
 ## <a name="prerequisites"></a>필수 조건
-시작하기 전에 [Azure AD Reporting API에 액세스하기 위한 필수 구성 요소](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)의 단계를 완료해야 합니다. 응용 프로그램을 만들고, 그 암호를 가져오고, Azure AD B2C 테넌트의 보고서에 대한 액세스 권한을 부여합니다. *Bash 스크립트* 및 *Python 스크립트* 예제도 여기에 제공됩니다. 
+시작하기 전에 [Azure AD Reporting API에 액세스하기 위한 필수 구성 요소](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)의 단계를 완료해야 합니다. 애플리케이션을 만들고, 그 암호를 가져오고, Azure AD B2C 테넌트의 보고서에 대한 액세스 권한을 부여합니다. *Bash 스크립트* 및 *Python 스크립트* 예제도 여기에 제공됩니다. 
 
 ## <a name="powershell-script"></a>PowerShell 스크립트
 이 스크립트에서는 `TimeStamp` 매개 변수 및 `ApplicationId` 필터를 사용하여 4개의 사용량 보고서를 만드는 방법을 보여 줍니다.
@@ -113,8 +113,8 @@ if ($oauth.access_token -ne $null) {
 
 ## <a name="limitations"></a>제한 사항
 사용자 수 데이터는 24-48시간마다 새로 고쳐집니다. 인증은 하루에도 여러 번 업데이트됩니다. `ApplicationId` 필터를 사용하는 경우 다음 조건 중 하나로 인해 보고서 응답이 비어 있을 수 있습니다.
-  * 응용 프로그램 ID가 테넌트에 존재하지 않습니다. 정확한지 확인하세요.
-  * 응용 프로그램 ID가 있지만 보고 기간에 존재하는 데이터가 없습니다. 날짜/시간 매개 변수를 검토하세요.
+  * 애플리케이션 ID가 테넌트에 존재하지 않습니다. 정확한지 확인하세요.
+  * 애플리케이션 ID가 있지만 보고 기간에 존재하는 데이터가 없습니다. 날짜/시간 매개 변수를 검토하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

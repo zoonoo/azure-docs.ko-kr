@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 9eba9eef315f1ec6eb25ea21c1d4747ab002d078
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 82b5e175f0340aae7e35b177d9faa4831982984c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958919"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999054"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Avere vFXT 클러스터 관리
 
@@ -81,9 +81,9 @@ vfxt.py 스크립트를 사용할 수 있는 클러스터 관리 작업은 다�
 
 Avere 제어판과 마찬가지로, vfxt.py 작업은 클러스터 또는 노드를 종료하거나 삭제하기 전에 변경된 데이터가 백 엔드 저장소에 영구적으로 저장되도록 합니다. 이는 Avere 포털보다 안전한 옵션입니다.
 
-vfxt.py는 클러스터 컨트롤러 VM에 사전 설치됩니다. <!-- (If you want to install it on another system, refer to http://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
+vfxt.py는 클러스터 컨트롤러 VM에 사전 설치됩니다. <!-- (If you want to install it on another system, refer to https://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
-전체 vfxt.py 사용 가이드는 GitHub: [vfxt.py를 사용한 클라우드 클러스터 관리](https://github.com/azure/averesdk/blob/master/docs/README.md)에서 제공됩니다.
+전체 vfxt.py 사용 가이드는 GitHub: [vfxt.py를 사용한 클라우드 클러스터 관리](https://github.com/azure/averesdk/blob/master/docs/README.md)에서 사용할 수 있습니다.
 
 ### <a name="add-cluster-nodes-with-vfxtpy"></a>vfxt.py를 사용하여 클러스터 노드 추가
 

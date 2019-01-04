@@ -5,16 +5,15 @@ services: site-recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/30/2018
+ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 22ea3d955fe2910dc99ab4015165008da899d48e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9a32ac1ae71cb7bd89c4252157c3a5cd395b2694
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312853"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842342"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Azure 간 VM 지속적인 복제 문제 해결
 
@@ -29,7 +28,7 @@ ms.locfileid: "52312853"
 Azure Site Recovery는 원본 지역에서 재해 복구 지역으로 데이터를 일관되게 복제하고 5분마다 크래시 일관성 지점을 만듭니다. 60분 동안 복구 지점을 만드는 데 Site Recovery를 사용할 수 없는 경우 사용자에게 경고합니다. 다음은 이 오류를 발생시킬 수 있는 원인입니다.
 
 **원인 1: [원본 가상 머신의 높은 데이터 변경률](#high-data-change-rate-on-the-source-virtal-machine)**    
-**원인 2: [네트워크 연결 문제 ](#Network-connectivity-issue)**
+**원인 2: [네트워크 연결 문제](#Network-connectivity-issue)**
 
 ## <a name="causes-and-solutions"></a>원인 및 해결 방법
 
@@ -69,7 +68,7 @@ Azure Site Recovery에 디스크의 유형에 따른 데이터 변경률 제한�
 
 위와 같은 경우에 데이터 버스트가 간헐적으로 발생하고 데이터 변경률이 일정 시간 동안 10MBps(프리미엄) 및 2MBps(표준)를 초과했다가 낮아지는 경우에는 복제가 처리됩니다. 그러나 변동이 대부분의 시간 동안 지원되는 제한을 초과하는 경우 가능하면 아래 옵션 중 하나를 고려해야 합니다.
 
-**옵션 1:** 높은 데이터 변경률을 유발하는 디스크를 제외합니다. </br>
+**옵션 1:** 높은 데이터 변경률을 일으키는 디스크를 제외합니다. </br>
 현재 [Site Recovery Powershell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine)을 사용하여 디스크를 제외할 수 있습니다.
 
 **옵션 2:** 재해 복구 스토리지 디스크 계층을 변경합니다. </br>

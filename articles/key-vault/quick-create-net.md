@@ -18,22 +18,22 @@ ms.locfileid: "51686673"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>빠른 시작: .NET 웹앱을 사용하여 Azure Key Vault에서 비밀 설정 및 검색
 
-이 빠른 시작에서는 Azure 리소스의 관리 ID를 사용하여 Azure Key Vault에서 정보를 읽는 Azure 웹 응용 프로그램을 가져오는 데 필요한 단계를 수행합니다. 다음 방법에 대해 알아봅니다.
+이 빠른 시작에서는 Azure 리소스의 관리 ID를 사용하여 Azure Key Vault에서 정보를 읽는 Azure 웹 애플리케이션을 가져오는 데 필요한 단계를 수행합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 키 자격 증명 모음을 만듭니다.
 > * 키 자격 증명 모음에 비밀을 저장합니다.
 > * 키 자격 증명 모음에서 비밀을 검색합니다.
-> * Azure 웹 응용 프로그램을 만듭니다.
+> * Azure 웹 애플리케이션을 만듭니다.
 > * 웹앱의 [관리 서비스 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하도록 설정합니다.
-> * 웹 응용 프로그램이 키 자격 증명 모음에서 데이터를 읽는 데 필요한 권한을 부여합니다.
+> * 웹 애플리케이션이 키 자격 증명 모음에서 데이터를 읽는 데 필요한 권한을 부여합니다.
 
 본론으로 들어가기 전에 [기본 개념](key-vault-whatis.md#basic-concepts)을 읽어보세요.
 
 >[!NOTE]
->Key Vault는 프로그래밍 방식으로 비밀을 저장하는 중앙 리포지토리입니다. 하지만 이렇게 하려면 응용 프로그램과 사용자가 먼저 Key Vault에 인증해야 합니다. 즉, 비밀을 제공해야 합니다. 보안 모범 사례에 따라 이 첫 번째 비밀을 정기적으로 회전시켜야 합니다. 
+>Key Vault는 프로그래밍 방식으로 비밀을 저장하는 중앙 리포지토리입니다. 하지만 이렇게 하려면 애플리케이션과 사용자가 먼저 Key Vault에 인증해야 합니다. 즉, 비밀을 제공해야 합니다. 보안 모범 사례에 따라 이 첫 번째 비밀을 정기적으로 회전시켜야 합니다. 
 >
->[Azure 리소스의 관리 서비스 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하면 Azure에서 실행되는 응용 프로그램에 Azure에서 자동으로 관리하는 ID가 부여됩니다. 이렇게 하면 *비밀 소개 문제*를 해결할 수 있으므로 사용자와 응용 프로그램에서 모범 사례를 따를 수 있고 첫 번째 비밀을 회전시켜야 하는 것에 대해 걱정할 필요가 없습니다.
+>[Azure 리소스의 관리 서비스 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하면 Azure에서 실행되는 응용 프로그램에 Azure에서 자동으로 관리하는 ID가 부여됩니다. 이렇게 하면 *비밀 소개 문제*를 해결할 수 있으므로 사용자와 애플리케이션에서 모범 사례를 따를 수 있고 첫 번째 비밀을 회전시켜야 하는 것에 대해 걱정할 필요가 없습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -89,7 +89,7 @@ az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGr
 
 ## <a name="add-a-secret-to-the-key-vault"></a>키 자격 증명 모음에 비밀 추가
 
-이 작업을 설명하기 위한 비밀을 추가하고 있습니다. 안전하게 유지하면서 응용 프로그램에서 사용할 수 있도록 하는 데 필요한 SQL 연결 문자열 또는 기타 정보를 저장할 수 있습니다.
+이 작업을 설명하기 위한 비밀을 추가하고 있습니다. 안전하게 유지하면서 애플리케이션에서 사용할 수 있도록 하는 데 필요한 SQL 연결 문자열 또는 기타 정보를 저장할 수 있습니다.
 
 다음 명령을 입력하여 키 자격 증명 모음에 **AppSecret**라고 하는 비밀을 만듭니다. 이 비밀에는 **MySecret** 값이 저장됩니다.
 
@@ -127,7 +127,7 @@ git clone https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart.git
 
 Visual Studio 2017의 주 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 차례로 선택합니다. 브라우저가 표시되면 **정보** 페이지로 이동합니다. **AppSecret**에 대한 값이 표시됩니다.
 
-## <a name="publish-the-web-application-to-azure"></a>Azure에 웹 응용 프로그램 게시
+## <a name="publish-the-web-application-to-azure"></a>Azure에 웹 애플리케이션 게시
 
 이 앱을 Azure에 게시하여 웹앱으로 라이브로 표시하고 비밀 값을 가져올 수 있는지 확인합니다.
 
@@ -144,18 +144,18 @@ Visual Studio 2017의 주 메뉴에서 **디버그** > **디버깅하지 않고 
 Azure Key Vault를 사용하면 자격 증명과 기타 키 및 비밀을 안전하게 저장할 수 있습니다. 하지만 이러한 자격 증명/키/비밀을 검색하려면 코드가 Key Vault에 인증해야 합니다. [Azure 리소스에 대한 관리 ID 개요](../active-directory/managed-identities-azure-resources/overview.md)를 통해 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공함으로써 이 문제를 보다 간편하게 해결할 수 있습니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
 
 1. Azure CLI로 돌아갑니다.
-2. 이 응용 프로그램에 대한 ID를 만들려면 assign-identity 명령을 실행합니다.
+2. 이 애플리케이션에 대한 ID를 만들려면 assign-identity 명령을 실행합니다.
 
    ```azurecli
    az webapp identity assign --name "keyvaultdotnetcorequickstart" --resource-group "<YourResourceGroupName>"
    ```
 
 >[!NOTE]
->이 절차의 명령은 포털로 이동하여 웹 응용 프로그램 속성에서 **ID/시스템 할당됨** 설정을 **켜기**로 전환하는 것과 동일합니다.
+>이 절차의 명령은 포털로 이동하여 웹 애플리케이션 속성에서 **ID/시스템 할당됨** 설정을 **켜기**로 전환하는 것과 동일합니다.
 
-## <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>응용 프로그램에 Key Vault에서 비밀을 읽을 수 있는 권한 할당
+## <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>애플리케이션에 Key Vault에서 비밀을 읽을 수 있는 권한 할당
 
-Azure에 응용 프로그램을 게시할 때 출력을 적어 둡니다. 형식은 다음과 같아야 합니다.
+Azure에 애플리케이션을 게시할 때 출력을 적어 둡니다. 형식은 다음과 같아야 합니다.
         
         {
           "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -171,7 +171,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 ```
 
-이제 응용 프로그램이 실행되면 검색된 비밀 값이 표시됩니다. 위 명령에서는 Key Vault에서 **가져오기** 및 **나열** 작업을 수행할 App Service 권한의 ID(MSI)를 제공합니다.
+이제 애플리케이션이 실행되면 검색된 비밀 값이 표시됩니다. 위 명령에서는 Key Vault에서 **가져오기** 및 **나열** 작업을 수행할 App Service 권한의 ID(MSI)를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

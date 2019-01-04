@@ -34,7 +34,7 @@ ms.locfileid: "53259072"
 > [!div class="checklist"]
 > * 관리 ID 사용
 > * 관리 ID에 SQL Database 액세스 권한 부여
-> * Azure Active Directory 인증을 사용하여 SQL Database로 인증하도록 응용 프로그램 코드 구성
+> * Azure Active Directory 인증을 사용하여 SQL Database로 인증하도록 애플리케이션 코드 구성
 > * SQL Database에서 관리 ID에 최소한의 권한 부여
 
 > [!NOTE]
@@ -205,7 +205,7 @@ GO
 > [!div class="checklist"]
 > * 관리 ID 사용
 > * 관리 ID에 SQL Database 액세스 권한 부여
-> * Azure Active Directory 인증을 사용하여 SQL Database로 인증하도록 응용 프로그램 코드 구성
+> * Azure Active Directory 인증을 사용하여 SQL Database로 인증하도록 애플리케이션 코드 구성
 > * SQL Database에서 관리 ID에 최소한의 권한 부여
 
 다음 자습서로 이동하여 사용자 지정 DNS 이름을 웹앱에 매핑하는 방법을 알아봅니다.

@@ -1,12 +1,11 @@
 ---
-title: Azure Machine Learning Studio에서 모델 디버그 | Microsoft Docs
+title: 모델 디버그 - Azure Machine Learning Studio | Microsoft Docs
 description: Azure Machine Learning Studio에서 모델 학습 및 모델 점수 매기기 모듈에 의해 생성된 오류를 디버그하는 방법을 설명합니다.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 629dc45e-ac1e-4b7d-b120-08813dc448be
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.openlocfilehash: bb1a3e778dcbcfacbc9e605ebf2d855786d71510
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0464dec9e747e57e4b95a691aeb5a0992cf8d9cc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312598"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268889"
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 모델 디버그
 
@@ -30,7 +29,7 @@ ms.locfileid: "52312598"
 * [모델 학습] [train-model] 모듈에서 오류 발생 
 * [모델 점수 매기기][score-model] 모듈에서 잘못된 결과 생성 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="train-model-module-produces-an-error"></a>모델 학습 모듈에서 오류 발생
 
@@ -70,7 +69,7 @@ ms.locfileid: "52312598"
 
 4. 점수 매기기 데이터 세트의 행에 해당 기능 중 하나에 대한 무한대 값 또는 누락된 값이 있는 경우 [모델 점수 매기기][score-model]에서 해당 행에 대한 출력이 생성되지 않습니다.
 
-5. [모델 점수 매기기][score-model]에서는 점수 매기기 데이터 집합의 모든 행에 대해 동일한 출력을 생성할 수 있습니다. 예를 들어 선택한 리프 노드당 최소 샘플 수가 사용 가능한 학습 예제 수보다 많은 경우 의사 결정 포리스트를 사용하여 분류할 때 이러한 상황이 발생할 수 있습니다.
+5. [모델 점수 매기기][score-model]에서는 점수 매기기 데이터 세트의 모든 행에 대해 동일한 출력을 생성할 수 있습니다. 예를 들어 선택한 리프 노드당 최소 샘플 수가 사용 가능한 학습 예제 수보다 많은 경우 의사 결정 포리스트를 사용하여 분류할 때 이러한 상황이 발생할 수 있습니다.
 
 <!-- Module References -->
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/

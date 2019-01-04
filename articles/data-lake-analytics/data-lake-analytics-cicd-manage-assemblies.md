@@ -31,12 +31,12 @@ C# 어셈블리 소스 코드 및 어셈블리 등록 DDL U-SQL 스크립트를 
 * **클래스 라이브러리(U-SQL 응용 프로그램용)** 를 사용하여 사용자 정의 연산자, 함수 및 집계(UDO/UDF/UDAG)에 대한 C# 소스 코드 및 종속성을 관리합니다.
 * U-SQL 데이터베이스 프로젝트를 사용하여 클래스 라이브러리 프로젝트를 참조합니다. 
 
-U-SQL 데이터베이스 프로젝트는 클래스 라이브러리(U-SQL 응용 프로그램용) 프로젝트를 참조할 수 있습니다. U-SQL 데이터베이스에 등록된 어셈블리는 이 클래스 라이브러리(U-SQL 응용 프로그램용) 프로젝트에서 참조된 C# 소스 코드를 사용하여 만들 수 있습니다.
+U-SQL 데이터베이스 프로젝트는 클래스 라이브러리(U-SQL 애플리케이션용) 프로젝트를 참조할 수 있습니다. U-SQL 데이터베이스에 등록된 어셈블리는 이 클래스 라이브러리(U-SQL 애플리케이션용) 프로젝트에서 참조된 C# 소스 코드를 사용하여 만들 수 있습니다.
 
 프로젝트를 만들고 참조를 추가하는 단계는 다음과 같습니다.
 1. **파일 > 새로 만들기 > 프로젝트**를 통해 클래스 라이브러리(U-SQL 응용 프로그램용) 프로젝트를 만듭니다. 프로젝트는 **Azure Data Lake > U-SQL** 노드 아래에 있습니다.
    ![Data Lake Tools for Visual Studio - C# 클래스 라이브러리 프로젝트 만들기](./media/data-lake-analytics-cicd-manage-assemblies/create-c-sharp-class-library-project.png)
-2. 클래스 라이브러리(U-SQL 응용 프로그램용) 프로젝트에 사용자 정의 C# 코드를 추가합니다. 
+2. 클래스 라이브러리(U-SQL 애플리케이션용) 프로젝트에 사용자 정의 C# 코드를 추가합니다. 
 3. **파일 > 새로 만들기 > 프로젝트**를 통해 U-SQL 프로젝트를 만듭니다. 프로젝트는 **Azure Data Lake > U-SQL** 노드 아래에 있습니다.
    ![Data Lake Tools for Visual Studio--U-SQL 데이터베이스 프로젝트 만들기](media/data-lake-analytics-cicd-manage-assemblies/create-u-sql-database-project.png)
 4. U-SQL 데이터베이스 프로젝트용 C# 클래스 라이브러리 프로젝트에 참조를 추가합니다.

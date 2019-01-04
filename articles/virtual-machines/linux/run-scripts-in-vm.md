@@ -38,7 +38,7 @@ ms.locfileid: "35267002"
 * 신속하게 스크립트 및 출력 보기를 실행하고 Azure Portal에서 필요에 따라 반복합니다.
 * 스크립트는 직접 입력하거나 기본 제공 스크립트 중 하나를 실행할 수 있습니다.
 * Windows 컴퓨터에서 PowerShell 스크립트 및 Linux 컴퓨터에서 Bash 스크립트를 실행합니다.
-* 가상 머신 및 응용 프로그램 관리 및 연결할 수 없는 가상 머신에서 스크립트 실행에 유용합니다.
+* 가상 머신 및 애플리케이션 관리 및 연결할 수 없는 가상 머신에서 스크립트 실행에 유용합니다.
 
 ## <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker
 

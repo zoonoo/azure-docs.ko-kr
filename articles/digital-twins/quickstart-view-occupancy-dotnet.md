@@ -1,6 +1,6 @@
 ---
 title: Azure Digital Twins로 사용 가능한 방 찾기(C#) | Microsoft Docs
-description: 이 빠른 시작에서는 시뮬레이션된 동작 및 이산화탄소 원격 분석 데이터를 Azure Digital Twins의 공간으로 보내는 두 개의 .NET Core 샘플 응용 프로그램을 실행합니다. 클라우드에서 계산 처리 후 관리 API에서 공기가 깨끗한 사용 가능한 회의실을 찾는 것이 목적입니다.
+description: 이 빠른 시작에서는 시뮬레이션된 동작 및 이산화탄소 원격 분석 데이터를 Azure Digital Twins의 공간으로 보내는 두 개의 .NET Core 샘플 애플리케이션을 실행합니다. 클라우드에서 계산 처리 후 관리 API에서 공기가 깨끗한 사용 가능한 회의실을 찾는 것이 목적입니다.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: e11ae90655e1d4ce7a2475f0eacefb25491416da
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: ab1e879a7c145699779f6af3a97cef0ee6b5d219
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582397"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105515"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>빠른 시작: Azure Digital Twins로 사용 가능한 회의실 찾기
 
@@ -49,7 +49,7 @@ Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이�
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
 
-## <a name="build-application"></a>응용 프로그램 빌드
+## <a name="build-application"></a>애플리케이션 빌드
 
 다음 단계에 따라 점유 애플리케이션을 빌드합니다.
 
@@ -71,7 +71,7 @@ Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이�
 - 사용자 지정 함수 
 - 역할 할당 1개
  
-공간 그래프는 [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) 파일을 사용하여 프로비전됩니다.
+공간 그래프는 [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) 파일을 사용하여 프로비전됩니다. 
 
 1. `dotnet run ProvisionSample`을 실행합니다.
     >[!NOTE]
@@ -88,6 +88,9 @@ Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이�
 1. 실행이 끝나면 디바이스 시뮬레이터 샘플에 사용할 수 있도록 디바이스의 `ConnectionString`을 복사합니다. 이 이미지에 설명된 문자열만 복사하세요.
 
     ![샘플 프로비전][1]
+
+    >[!TIP]
+    > [Azure Digital Twins 그래프 뷰어](https://github.com/Azure/azure-digital-twins-graph-viewer)를 사용하여 공간 그래프를 보고 수정할 수 있습니다.
 
 ## <a name="send-sensor-data"></a>센서 데이터 보내기
 
@@ -160,7 +163,7 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 이 빠른 시작에서는 간단한 시나리오를 사용하여 작업 조건이 양호한 회의실을 찾을 방법을 보여주었습니다. 이 시나리오에 대한 자세한 분석 내용은 다음 자습서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [자습서: Azure Digital Twins를 배포하고 공간 그래프 구성](tutorial-facilities-setup.md)
+> [자습서: Azure Digital Twins 배포 및 공간 그래프 구성](tutorial-facilities-setup.md)
 
 <!-- Images -->
 [1]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png

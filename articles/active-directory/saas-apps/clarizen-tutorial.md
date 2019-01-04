@@ -34,7 +34,7 @@ ms.locfileid: "44158674"
 1. 갤러리에서 Clarizen을 추가합니다.
 1. Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-Azure AD와의 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
+Azure AD와의 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 Clarizen과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
@@ -54,9 +54,9 @@ Clarizen의 Azure AD 통합을 구성하려면 갤러리의 Clarizen을 관리�
 
     ![Azure Active Directory 아이콘][1]
 
-1. **엔터프라이즈 응용 프로그램**을 클릭합니다. 그런 후 **모든 응용 프로그램**을 클릭합니다.
+1. **엔터프라이즈 응용 프로그램**을 클릭합니다. 그런 후 **모든 애플리케이션**을 클릭합니다.
 
-    ![“엔터프라이즈 응용 프로그램” 및 “모든 응용 프로그램” 클릭][2]
+    ![“엔터프라이즈 애플리케이션” 및 “모든 애플리케이션” 클릭][2]
 
 1. 대화 상자 위쪽에 있는 **추가** 단추를 클릭합니다.
 
@@ -66,7 +66,7 @@ Clarizen의 Azure AD 통합을 구성하려면 갤러리의 Clarizen을 관리�
 
     ![검색 상자에 “Clarizen” 입력](./media/clarizen-tutorial/tutorial_clarizen_000.png)
 
-1. 결과 창에서 **Clarizen**을 선택하고 **추가**를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **Clarizen**을 선택하고 **추가**를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 창에서 Clarizen 선택](./media/clarizen-tutorial/tutorial_clarizen_0001.png)
 
@@ -84,9 +84,9 @@ Clarizen에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 1. **[Single Sign-on 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
-Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Clarizen 응용 프로그램에서 Single Sign-On을 구성합니다.
+Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Clarizen 애플리케이션에서 Single Sign-On을 구성합니다.
 
-1. Azure Portal의 **Clarizen** 응용 프로그램 통합 페이지에서 **Single sign-on**을 클릭합니다.
+1. Azure Portal의 **Clarizen** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     !["Single sign-on" 클릭][4]
 
@@ -220,11 +220,11 @@ Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Clarizen에 �
 
 ![할당된 테스트 사용자][200]
 
-1. Azure Portal에서 응용 프로그램 보기를 열고 디렉터리 보기로 이동한 후 **엔터프라이즈 응용 프로그램**을 클릭하고 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 열고 디렉터리 보기로 이동한 후 **엔터프라이즈 애플리케이션**을 클릭하고 **모든 애플리케이션**을 클릭합니다.
 
-    ![“엔터프라이즈 응용 프로그램” 및 “모든 응용 프로그램” 클릭][201]
+    ![“엔터프라이즈 애플리케이션” 및 “모든 애플리케이션” 클릭][201]
 
-1. 응용 프로그램 목록에서 **Clarizen**을 선택합니다.
+1. 애플리케이션 목록에서 **Clarizen**을 선택합니다.
 
     ![목록에서 Clarizen 선택](./media/clarizen-tutorial/tutorial_clarizen_50.png)
 
@@ -245,7 +245,7 @@ Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Clarizen에 �
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Clarizen 타일을 클릭하면 Clarizen 응용 프로그램에 자동으로 로그인됩니다.
+액세스 패널에서 Clarizen 타일을 클릭하면 Clarizen 애플리케이션에 자동으로 로그인됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -1,5 +1,5 @@
 ---
-title: Azure App Service Web Apps에서 PHP 구성
+title: PHP 런타임 구성 - Azure App Service
 description: Azure App Service의 Web Apps에서 기본 PHP 설치를 구성하거나 사용자 지정 PHP 설치를 추가하는 방법에 대해 알아봅니다.
 services: app-service
 documentationcenter: php
@@ -13,12 +13,13 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 1e5f7ed2fb4c77e0a738cbe6ee6c84b46bc59bb8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: d5ad7b392029ae33ee7666b80edfe5b4b7555b41
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230838"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273200"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Azure App Service Web Apps에서 PHP 구성
 
@@ -39,10 +40,10 @@ PHP 7.0 및 PHP 7.2 버전도 사용할 수 있지만 기본적으로는 사용�
 1. [Azure Portal](https://portal.azure.com)에서 웹앱을 찾아 **설정** 단추를 클릭합니다.
 
     ![저장][settings-button]
-1. **설정** 블레이드에서 **응용 프로그램 설정**을 선택하고 새 PHP 버전을 선택합니다.
+2. **설정** 블레이드에서 **응용 프로그램 설정**을 선택하고 새 PHP 버전을 선택합니다.
 
     ![응용 프로그램 설정][application-settings]
-1. **웹앱 설정** 블레이드의 위쪽에서 **저장** 단추를 클릭합니다.
+3. **웹앱 설정** 블레이드의 위쪽에서 **저장** 단추를 클릭합니다.
 
     ![구성 설정 저장][save-button]
 
@@ -148,7 +149,7 @@ Azure 명령줄 인터페이스를 사용하려면 컴퓨터에 [Azure CLI를 �
 
 App Service Web Apps는 기본 PHP 런타임 대신, 사용자가 PHP 스크립트를 실행하도록 제공한 PHP 런타임을 사용할 수 있습니다. 이러한 런타임은 사용자가 제공한 `php.ini` 파일로 구성될 수 있습니다. Web Apps에 사용자 지정 PHP 런타임을 사용하려면 다음 단계를 따르세요.
 
-1. 스레드로부터 안전하지 않은 VC9 또는 VC11과 호환되는 버전의 Windows용 PHP를 받아야 합니다. 최신 Windows용 PHP 릴리스는 [http://windows.php.net/download/]에서 확인할 수 있습니다. 이전 릴리스는 [http://windows.php.net/downloads/releases/archives/]의 보관 위치에서 찾을 수 있습니다.
+1. 스레드로부터 안전하지 않은 VC9 또는 VC11과 호환되는 버전의 Windows용 PHP를 받아야 합니다. 최신 Windows용 PHP 릴리스는 [https://windows.php.net/download/]에서 확인할 수 있습니다. 이전 릴리스는 [https://windows.php.net/downloads/releases/archives/]의 보관 위치에서 찾을 수 있습니다.
 1. 런타임에 맞게 `php.ini` 파일을 수정합니다. 시스템 수준 전용 지시문인 구성 설정은 Web Apps에서 무시됩니다. 시스템 수준 전용 지시문에 대한 자세한 내용은 [php.ini 지시문 목록](영문)을 참조하세요.
 1. 경우에 따라 확장을 PHP 런타임에 추가하고 `php.ini` 파일에서 확장을 사용하도록 설정합니다.
 1. 루트 디렉터리에 `bin` 디렉터리를 추가하고 PHP 런타임이 포함된 디렉터리(예: `bin\php`)를 배치합니다.
@@ -156,7 +157,7 @@ App Service Web Apps는 기본 PHP 런타임 대신, 사용자가 PHP 스크립�
 1. Azure Portal에서 웹앱을 찾아 **설정** 단추를 클릭합니다.
 
     ![저장][settings-button]
-1. **설정** 블레이드에서 **응용 프로그램 설정**을 선택하고 **처리기 매핑** 섹션으로 스크롤합니다. `*.php`를 확장 필드에 추가하고 경로를 `php-cgi.exe` 실행 파일에 추가합니다. PHP 런타임을 응용 프로그램의 루트에 있는 `bin` 디렉터리에 배치하면 경로는 `D:\home\site\wwwroot\bin\php\php-cgi.exe`가 됩니다.
+1. **설정** 블레이드에서 **응용 프로그램 설정**을 선택하고 **처리기 매핑** 섹션으로 스크롤합니다. `*.php`를 확장 필드에 추가하고 경로를 `php-cgi.exe` 실행 파일에 추가합니다. PHP 런타임을 애플리케이션의 루트에 있는 `bin` 디렉터리에 배치하면 경로는 `D:\home\site\wwwroot\bin\php\php-cgi.exe`가 됩니다.
 
     ![처리기 매핑에 처리기 지정][handler-mappings]
 1. **웹앱 설정** 블레이드의 위쪽에서 **저장** 단추를 클릭합니다.
@@ -196,7 +197,7 @@ App Service가 PHP 프로젝트에 있는 경우 기본적으로 composer.json�
 >
 
 [무료 평가판]: https://www.windowsazure.com/pricing/free-trial/
-[phpinfo()]: http://php.net/manual/en/function.phpinfo.php
+[phpinfo()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
 [php.ini 지시문 목록]: http://www.php.net/manual/en/ini.list.php
 [.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
@@ -206,8 +207,8 @@ App Service가 PHP 프로젝트에 있는 경우 기본적으로 composer.json�
 [save-button]: ./media/web-sites-php-configure/save-button.png
 [php-extensions]: ./media/web-sites-php-configure/php-extensions.png
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
-[http://windows.php.net/download/]: http://windows.php.net/download/
-[http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
+[https://windows.php.net/download/]: https://windows.php.net/download/
+[https://windows.php.net/downloads/releases/archives/]: https://windows.php.net/downloads/releases/archives/
 [SETPHPVERCLI]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
 [GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png

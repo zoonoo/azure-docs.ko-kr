@@ -1,23 +1,24 @@
 ---
-title: v1에서 v2로의 API 마이그레이션 가이드
+title: v1에서 v2 API 마이그레이션
 titleSuffix: Azure Cognitive Services
-description: 최신 API 집합으로 마이그레이션하는 방법을 알아봅니다.
+description: 버전 1 엔드포인트 및 작성 API는 더 이상 사용되지 않습니다. 이 가이드를 사용하여 버전 2 엔드포인트 및 작성 API로 마이그레이션하는 방법을 이해합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 57742d72c8be0dcd999bc8b73f6d598263429c12
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 980470c0f1d24bde52f29c4cd3579e2337898f88
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646578"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138826"
 ---
-# <a name="api-v2-migration-guide"></a>API v2 마이그레이션 가이드
+# <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>LUIS 앱에 대한 API v1에서 v2로 마이그레이션 가이드
 버전 1 [엔드포인트](https://aka.ms/v1-endpoint-api-docs) 및 [작성](https://aka.ms/v1-authoring-api-docs) API는 더 이상 사용되지 않습니다. 이 가이드를 사용하여 버전 2 [엔드포인트](https://aka.ms/luis-endpoint-apis) 및 [작성](https://aka.ms/luis-authoring-apis) API로 마이그레이션하는 방법을 이해합니다. 
 
 ## <a name="new-azure-regions"></a>새 Azure 지역
@@ -43,7 +44,7 @@ LUIS에는 LUIS API에 제공된 새로운 [지역](https://aka.ms/LUIS-regions)
 
 
 v1 엔드포인트 성공 응답:
-```JSON
+```json
 {
   "odata.metadata":"https://dialogice.cloudapp.net/odata/$metadata#domain","value":[
     {
@@ -54,7 +55,7 @@ v1 엔드포인트 성공 응답:
 ```
 
 v2 엔드포인트 성공 응답:
-```JSON
+```json
 {
   "query": "forward to frank 30 dollars through HSBC",
   "topScoringIntent": {

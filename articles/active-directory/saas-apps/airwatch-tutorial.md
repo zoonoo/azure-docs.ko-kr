@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: f3bbcbb70759e7a995797cf89ad75a2a39314927
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bf95b949d6fee4057f67d1e44ded36f363aa5e2b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048483"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848921"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>자습서: AirWatch와 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ AirWatch와 Azure AD를 통합하도록 구성하려면 다음 항목이 필요�
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 AirWatch 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -64,13 +64,13 @@ AirWatch의 Azure AD 통합을 구성하려면 갤러리의 AirWatch를 관리�
 
     ![Active Directory][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
 4. 검색 상자에 **AirWatch**를 입력합니다.
 
@@ -115,10 +115,10 @@ AirWatch에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
 
-    나. **식별자** 텍스트 상자에 해당 값으로 `AirWatch`을 입력합니다.
+    b. **식별자** 텍스트 상자에 해당 값으로 `AirWatch`을 입력합니다.
 
     > [!NOTE] 
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [AirWatch Client 지원 팀](http://www.air-watch.com/company/contact-us/)에 문의하세요. 
+    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [AirWatch Client 지원 팀](https://www.air-watch.com/company/contact-us/)에 문의하세요. 
  
 4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 XML 파일을 저장합니다.
 
@@ -156,7 +156,7 @@ AirWatch에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     
     a. **디렉터리 유형**으로 **없음**을 선택합니다.
 
-    나. **인증에 SAML 사용**을 선택합니다.
+    b. **인증에 SAML 사용**을 선택합니다.
 
     다. 다운로드한 인증서를 업로드하려면 **업로드**를 클릭합니다.
 
@@ -166,7 +166,7 @@ AirWatch에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **요청 바인딩 형식**으로 **POST**를 선택합니다.
 
-    나. Azure Portal의 **Airwatch에서 Single Sign-on 구성** 대화 상자 페이지에서 **SAML Single Sign-On 서비스 URL** 값을 복사한 다음 **ID 공급자 Single Sign-On URL** 텍스트 상자에 붙여 넣습니다.
+    b. Azure Portal의 **Airwatch에서 Single Sign-on 구성** 대화 상자 페이지에서 **SAML Single Sign-On 서비스 URL** 값을 복사한 다음 **ID 공급자 Single Sign-On URL** 텍스트 상자에 붙여 넣습니다.
 
     다. **NameID 형식**으로 **전자 메일 주소**를 선택합니다.
 
@@ -182,7 +182,7 @@ AirWatch에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **개체 식별자** 텍스트 상자에 **http://schemas.microsoft.com/identity/claims/objectidentifier**를 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**를 입력합니다.
 
     다. **표시 이름** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**을 입력합니다.
 
@@ -221,7 +221,7 @@ AirWatch에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 Britta Simon의 **메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 Britta Simon의 **메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -260,7 +260,7 @@ Azure AD 사용자가 AirWatch에 로그인할 수 있도록 하려면 AirWatch�
 
 **Britta Simon을 AirWatch에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 

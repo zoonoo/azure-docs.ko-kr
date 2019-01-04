@@ -24,7 +24,7 @@ HDInsight에서 [Apache Spark](https://spark.apache.org/)를 사용하여 Applic
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 응용 프로그램에서 Application Insights를 사용하도록 구성합니다.
+* 애플리케이션에서 Application Insights를 사용하도록 구성합니다.
 
 * Linux 기반 HDInsight 클러스터를 만드는 데 익숙해야 합니다. 자세한 내용은 [HDInsight에서 Apache Spark 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
@@ -369,7 +369,7 @@ Azure의 데이터와 서비스 작업에 Apache Spark를 사용하는 더 많�
 * [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 
-Spark 응용 프로그램을 만들고 실행하는 자세한 내용은 다음 문서를 참조하세요.
+Spark 애플리케이션을 만들고 실행하는 자세한 내용은 다음 문서를 참조하세요.
 
 * [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](apache-spark-create-standalone-application.md)
 * [Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)

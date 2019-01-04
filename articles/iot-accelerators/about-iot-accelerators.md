@@ -20,13 +20,13 @@ ms.locfileid: "51824543"
 
 일반적으로 클라우드 기반 IoT 솔루션은 사용자 지정 코드 및 클라우드 서비스를 사용하여 디바이스 연결, 데이터 처리와 분석 및 표시를 관리합니다.
 
-IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전하고 배포 준비가 완료된 IoT 솔루션입니다. 이러한 시나리오에는 원격 모니터링, 연결된 팩터리, 예측 유지 관리 및 디바이스 시뮬레이션이 포함됩니다. 솔루션 가속기를 배포할 때 배포에는 필수 응용 프로그램 코드와 함께 모든 필수 클라우드 기반 서비스가 포함됩니다.
+IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전하고 배포 준비가 완료된 IoT 솔루션입니다. 이러한 시나리오에는 원격 모니터링, 연결된 팩터리, 예측 유지 관리 및 디바이스 시뮬레이션이 포함됩니다. 솔루션 가속기를 배포할 때 배포에는 필수 애플리케이션 코드와 함께 모든 필수 클라우드 기반 서비스가 포함됩니다.
 
 솔루션 가속기는 고유한 IoT 솔루션에 대한 시작점입니다. 모든 솔루션 가속기의 소스 코드는 오픈 소스이며 GitHub에서 사용할 수 있습니다. 요구 사항에 맞게 솔루션 가속기를 다운로드하고 사용자 지정하는 것이 좋습니다.
 
 또한 처음부터 사용자 지정 IoT 솔루션을 빌드하기 전에 솔루션 가속기를 학습 도구로 사용할 수 있습니다. 솔루션 가속기는 수행할 클라우드 기반 IoT 솔루션에 대해 검증된 사례를 구현합니다.
 
-각 솔루션 가속기의 응용 프로그램 코드에는 솔루션 가속기를 관리할 수 있는 웹앱이 포함되어 있습니다.
+각 솔루션 가속기의 애플리케이션 코드에는 솔루션 가속기를 관리할 수 있는 웹앱이 포함되어 있습니다.
 
 ## <a name="supported-iot-scenarios"></a>지원되는 IoT 시나리오
 
@@ -85,7 +85,7 @@ IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전�
 | 연결된 팩터리      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | 디바이스 시뮬레이션      | 마이크로 서비스 | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-마이크로 서비스 아키텍처에 대한 자세한 내용은 [.NET 응용 프로그램 아키텍처](https://www.microsoft.com/net/learn/architecture) 및 [마이크로 서비스: 클라우드에서 제공하는 응용 프로그램 혁명](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)을 참조하세요.
+마이크로 서비스 아키텍처에 대한 자세한 내용은 [.NET 애플리케이션 아키텍처](https://www.microsoft.com/net/learn/architecture) 및 [마이크로 서비스: 클라우드에서 제공하는 애플리케이션 혁명](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)을 참조하세요.
 
 ## <a name="deployment-options"></a>배포 옵션
 

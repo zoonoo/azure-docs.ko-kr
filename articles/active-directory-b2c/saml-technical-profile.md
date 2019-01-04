@@ -84,7 +84,7 @@ SAML 응답 어설션을 암호화하려면 다음 단계를 수행합니다.
 
 ## <a name="identity-provider-initiated-flow"></a>ID 공급자가 시작하는 흐름
 
-IDP가 시작한 Single Sign-On 세션(원치 않는 요청)에서는 원치 않는 SAML 응답이 서비스 공급자(여기서는 Azure AD B2C 기술 프로필)로 전송됩니다. 이 흐름에서는 사용자가 웹 응용 프로그램을 먼저 거치지 않고 ID 공급자로 이동됩니다. 요청이 전송되면 ID 공급자가 사용자에게 인증 페이지를 제공합니다. 사용자가 로그인을 완료하면 어설션이 포함된 SAML 응답과 함께 요청이 Azure AD B2C로 리디렉션됩니다. Azure AD B2C는 어설션을 읽고 새 SAML 토큰을 발급한 다음 사용자를 신뢰 당사자 응용 프로그램으로 다시 리디렉션합니다. **AssertionConsumerService** 요소의 **Location** 속성이 리디렉션을 수행합니다.
+IDP가 시작한 Single Sign-On 세션(원치 않는 요청)에서는 원치 않는 SAML 응답이 서비스 공급자(여기서는 Azure AD B2C 기술 프로필)로 전송됩니다. 이 흐름에서는 사용자가 웹 애플리케이션을 먼저 거치지 않고 ID 공급자로 이동됩니다. 요청이 전송되면 ID 공급자가 사용자에게 인증 페이지를 제공합니다. 사용자가 로그인을 완료하면 어설션이 포함된 SAML 응답과 함께 요청이 Azure AD B2C로 리디렉션됩니다. Azure AD B2C는 어설션을 읽고 새 SAML 토큰을 발급한 다음, 사용자를 신뢰 당사자 애플리케이션으로 다시 리디렉션합니다. **AssertionConsumerService** 요소의 **Location** 속성이 리디렉션을 수행합니다.
 
 
 ![SAML IDP 시작](media/saml-technical-profile/technical-profile-idp-saml-idp-initiated.png) 
@@ -111,7 +111,7 @@ Protocol 요소의 **Name** 특성은 `SAML2`로 설정해야 합니다.
 | WantsSignedAssertions | 아니요 | 기술 프로필에서 모든 수신 어설션에 서명을 해야 하는지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`입니다. 기본값은 `true`입니다. 값을 `true`로 설정하는 경우 ID 공급자가 Azure AD B2C로 전송하는 모든 어설션 섹션 `saml:Assertion`에 서명을 해야 합니다. 값을 `false`로 설정하는 경우에는 ID 공급자가 어설션에 서명을 하지 않아야 하며, 서명을 하더라도 Azure AD B2C가 서명의 유효성을 검사하지 않습니다. 이 메타데이터는 메타데이터 플래그 **WantsAssertionsSigned**도 제어합니다. 해당 플래그는 ID 공급자와 공유되는 Azure AD B2C 기술 프로필의 메타데이터 출력입니다. 어설션 유효성 검사를 사용하지 않도록 설정하는 경우에는 응답 서명 유효성 검사도 사용하지 않도록 설정하는 것이 좋습니다. 자세한 내용은 **ResponsesSigned**를 참조하세요. |
 | ResponsesSigned | 아니요 | 가능한 값은 `true` 또는 `false`입니다. 기본값은 `true`입니다. 값을 `false`로 설정하는 경우에는 ID 공급자가 SAML 응답에 서명을 하지 않아야 하며, 서명을 하더라도 Azure AD B2C가 서명의 유효성을 검사하지 않습니다. 값을 `true`로 설정하는 경우에는 ID 공급자가 Azure AD B2C로 전송하는 SAML 응답에 서명이 되며 해당 서명의 유효성을 검사해야 합니다. SAML 응답 유효성 검사를 사용하지 않도록 설정하는 경우에는 어설션 서명 유효성 검사도 사용하지 않도록 설정하는 것이 좋습니다. 자세한 내용은 **WantsSignedAssertions**를 참조하세요. |
 | WantsEncryptedAssertions | 아니요 | 기술 프로필에서 모든 수신 어설션을 암호화해야 하는지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`입니다. 기본값은 `false`입니다. 값을 `true`로 설정하는 경우에는 ID 공급자가 Azure AD B2C로 전송하는 어설션에 서명을 해야 하며 **SamlAssertionDecryption** 암호화 키를 지정해야 합니다. 값을 `true`로 설정하는 경우에는 Azure AD B2C 기술 프로필의 메타데이터에 **encryption** 섹션이 포함됩니다. ID 공급자는 메타데이터를 읽고 Azure AD B2C 기술 프로필의 메타데이터에서 제공되는 공개 키를 사용하여 SAML 응답 어설션을 암호화합니다. 어설션 암호화를 사용하도록 설정하는 경우에는 응답 서명 유효성 검사도 사용하지 않도록 설정해야 할 수 있습니다. 자세한 내용은 **ResponsesSigned**를 참조하세요. | 
-| IdpInitiatedProfileEnabled | 아니요 |SAML ID 공급자 프로필에 의해 시작된 Single Sing-On 세션 프로필이 사용되는지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`입니다. 기본값은 `false`입니다. ID 공급자가 시작한 플로우에서는 사용자가 외부에서 인증되며 원치 않는 응답이 Azure AD B2C로 전송됩니다. 그러면 Azure AD B2C는 토큰을 사용하고 오케스트레이션 단계를 실행한 다음 신뢰 당사자 응용 프로그램에 응답을 보냅니다. |
+| IdpInitiatedProfileEnabled | 아니요 |SAML ID 공급자 프로필에 의해 시작된 Single Sing-On 세션 프로필이 사용되는지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`입니다. 기본값은 `false`입니다. ID 공급자가 시작한 플로우에서는 사용자가 외부에서 인증되며 원치 않는 응답이 Azure AD B2C로 전송됩니다. 그러면 Azure AD B2C는 토큰을 사용하고 오케스트레이션 단계를 실행한 다음, 신뢰 당사자 애플리케이션에 응답을 보냅니다. |
 
 ## <a name="cryptographic-keys"></a>암호화 키
 

@@ -50,7 +50,7 @@ ms.locfileid: "49955589"
 * [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 **필수 구성 요소** 단계를 완료합니다.
 * 컴퓨터에 [Curl](https://curl.haxx.se/dlwiz/) 을 설치합니다. REST 명령과 함께 CURL 도구를 사용하여 데이터 팩터리를 만듭니다.
 * [이 문서](../../active-directory/develop/howto-create-service-principal-portal.md) 의 지침에 따라 다음 작업을 수행합니다.
-  1. Azure Active Directory에서 **ADFGetStartedApp** 이라는 웹 응용 프로그램을 만듭니다.
+  1. Azure Active Directory에서 **ADFGetStartedApp** 이라는 웹 애플리케이션을 만듭니다.
   2. **클라이언트 ID** 및 **암호 키**를 가져옵니다.
   3. **테넌트 ID**를 가져옵니다.
   4. **ADFGetStartedApp** 응용 프로그램을 **데이터 팩터리 참가자** 역할에 할당합니다.
@@ -493,5 +493,5 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 | [데이터 팩터리 REST API 참조](/rest/api/datafactory/) |데이터 팩터리 cmdlet에서 포괄적인 설명서를 참조하세요. |
 | [파이프라인](data-factory-create-pipelines.md) |이 문서는 Azure Data Factory의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 종단 간 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다. |
 | [데이터 집합](data-factory-create-datasets.md) |이 문서는 Azure Data Factory의 데이터 세트를 이해하는 데 도움이 됩니다. |
-| [예약 및 실행](data-factory-scheduling-and-execution.md) |이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. |
+| [예약 및 실행](data-factory-scheduling-and-execution.md) |이 문서에서는 Azure Data Factory 애플리케이션 모델의 예약 및 실행에 대한 내용을 설명합니다. |
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) |이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. |

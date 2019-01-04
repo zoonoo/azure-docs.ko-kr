@@ -31,7 +31,7 @@ ServiceChannel을 Azure AD와 통합하면 다음과 같은 이점이 제공됩�
 - 사용자가 해당 Azure AD 계정으로 ServiceChannel(Single Sign-On)에 자동으로 로그인하도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure 관리 포털에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -63,7 +63,7 @@ ServiceChannel의 Azure AD 통합을 구성하려면 갤러리의 ServiceChannel
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![애플리케이션][2]
     
@@ -75,7 +75,7 @@ ServiceChannel의 Azure AD 통합을 구성하려면 갤러리의 ServiceChannel
 
     ![Azure AD 테스트 사용자 만들기](./media/servicechannel-tutorial/tutorial-servicechannel_000.png)
 
-1. 결과 창에서 **ServiceChannel**을 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **ServiceChannel**을 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/servicechannel-tutorial/tutorial-servicechannel_2.png)
 
@@ -96,11 +96,11 @@ ServiceChannel에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure 관리 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 ServiceChannel 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure 관리 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 ServiceChannel 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **ServiceChannel에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure 관리 포털의 **ServiceChannel** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure 관리 포털의 **ServiceChannel** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -119,7 +119,7 @@ ServiceChannel에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트해야 합니다. 식별자에는 고유한 문자열 값을 사용하는 것이 좋습니다. 이러한 값을 얻으려면 [ServiceChannel 지원 팀](https://servicechannel.zendesk.com/hc/en-us)에 문의하세요.
 
-1. ServiceChannel 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. **NameIdentifier(사용자 식별자)** 는 유일한 필수 클레임이며 기본값은 **user.userprincipalname**이지만 ServiceChannel에서는 **user.mail**과 매핑되도록 예상합니다. JIT(Just-In-Time) 사용자 프로비전을 활성화하려는 경우 아래와 같이 다음 클레임을 추가해야 합니다. **역할** 클레임은 사용자의 역할을 포함하는 **user.assignedroles**에 매핑되어야 합니다.  
+1. ServiceChannel 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. **NameIdentifier(사용자 식별자)** 는 유일한 필수 클레임이며 기본값은 **user.userprincipalname**이지만 ServiceChannel에서는 **user.mail**과 매핑되도록 예상합니다. JIT(Just-In-Time) 사용자 프로비전을 활성화하려는 경우 아래와 같이 다음 클레임을 추가해야 합니다. **역할** 클레임은 사용자의 역할을 포함하는 **user.assignedroles**에 매핑되어야 합니다.  
 
     클레임에 대한 자세한 지침은 [여기](https://servicechannel.zendesk.com/hc/en-us/articles/217514326-Azure-AD-Configuration-Example)에서 ServiceChannel 가이드를 참조할 수 있습니다.
     
@@ -191,7 +191,7 @@ ServiceChannel에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 ### <a name="creating-a-servicechannel-test-user"></a>ServiceChannel 테스트 사용자 만들기
 
-응용 프로그램이 JIT(Just-in-time) 사용자 프로비저닝을 지원하며 인증 후에 응용 프로그램에서 사용자가 자동으로 만들어집니다. 전체 사용자 프로비전은 [ServiceChannel 지원 팀](https://servicechannel.zendesk.com/hc/en-us)에 문의하세요.
+애플리케이션이 JIT(Just-in-time) 사용자 프로비저닝을 지원하며 인증 후에 애플리케이션에서 사용자가 자동으로 만들어집니다. 전체 사용자 프로비전은 [ServiceChannel 지원 팀](https://servicechannel.zendesk.com/hc/en-us)에 문의하세요.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -201,11 +201,11 @@ ServiceChannel에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 **Britta Simon을 ServiceChannel에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 관리 포털에서 응용 프로그램 보기를 열고 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure 관리 포털에서 애플리케이션 보기를 열고 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **ServiceChannel**을 선택합니다.
+1. 애플리케이션 목록에서 **ServiceChannel**을 선택합니다.
 
     ![Configure Single Sign-On](./media/servicechannel-tutorial/tutorial-servicechannel_app01.png) 
 
@@ -227,7 +227,7 @@ ServiceChannel에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 ServiceChannel 타일을 클릭하면 ServiceChannel 응용 프로그램에 자동으로 로그인됩니다.
+액세스 패널에서 ServiceChannel 타일을 클릭하면 ServiceChannel 애플리케이션에 자동으로 로그인됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

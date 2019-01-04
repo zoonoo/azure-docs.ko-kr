@@ -1,6 +1,6 @@
 ---
 title: SaaS - Azure를 통한 판매 | Microsoft Docs
-description: SaaS 응용 프로그램의 구독 청구 모델 및 구현 방법을 설명합니다.
+description: SaaS 애플리케이션의 구독 청구 모델 및 구현 방법을 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: v-miclar
@@ -24,7 +24,7 @@ ms.locfileid: "48808095"
 <a name="saas---sell-through-azure"></a>SaaS - Azure를 통한 판매
 =========================
 
-이 문서에서는 SaaS 응용 프로그램의 구독 청구 모델과 Cloud 파트너 포털에서 구현하는 방법을 설명합니다.
+이 문서에서는 SaaS 애플리케이션의 구독 청구 모델과 Cloud 파트너 포털에서 구현하는 방법을 설명합니다.
 
 
 <a name="overview"></a>개요

@@ -159,7 +159,7 @@ DevOps Projects는 Azure DevOps 조직에서 Azure 구독에 배포하는 데 �
 
 ## <a name="configure-azure-application-insights-monitoring"></a>Azure Application Insights 모니터링 구성
 
-Azure Application Insights를 사용하면 응용 프로그램의 성능 및 사용량을 쉽게 모니터링할 수 있습니다. DevOps Projects는 자동으로 애플리케이션에 대한 Application Insights 리소스를 구성합니다. 필요에 따라 다양한 경고 및 모니터링 기능을 추가로 구성할 수 있습니다.
+Azure Application Insights를 사용하면 애플리케이션의 성능 및 사용량을 쉽게 모니터링할 수 있습니다. DevOps Projects는 자동으로 애플리케이션에 대한 Application Insights 리소스를 구성합니다. 필요에 따라 다양한 경고 및 모니터링 기능을 추가로 구성할 수 있습니다.
 
 1. Azure Portal에서 DevOps Projects 대시보드로 이동합니다. 
 
@@ -191,7 +191,7 @@ Azure Application Insights를 사용하면 응용 프로그램의 성능 및 사
 1. **가용성**을 선택한 다음, **테스트 추가**를 선택합니다. 
 
 1. 테스트 이름을 입력하고 **만들기**를 선택합니다.  
-    응용 프로그램의 가용성을 확인하려면 간단한 ping 테스트를 생성합니다. 몇 분 후 테스트 결과를 사용할 수 있고, Application Insights 대시보드에 가용성 상태가 표시됩니다.
+    애플리케이션의 가용성을 확인하려면 간단한 ping 테스트를 생성합니다. 몇 분 후 테스트 결과를 사용할 수 있고, Application Insights 대시보드에 가용성 상태가 표시됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

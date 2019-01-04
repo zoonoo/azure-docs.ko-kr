@@ -206,7 +206,7 @@ ms.locfileid: "34656733"
 
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 공유 디스크를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성
 
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 
 2016년 9월 Microsoft는 [Azure 내부 부하 분산 장치][load-balancer-multivip-overview]를 사용하여 여러 가상 IP 주소를 관리할 수 있는 기능을 출시했습니다. 이 기능은 Azure 외부 부하 분산 장치에 이미 있습니다. 
@@ -235,7 +235,7 @@ SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 �
 > 설치 프로그램은 다음 조건을 충족해야 합니다.
 > * SAP ASCS/SCS 인스턴스는 동일한 WSFC 클러스터를 공유해야 합니다.
 > * 각 DBMS(데이터베이스 관리 시스템) SID에는 해당하는 고유한 전용 WSFC 클러스터가 있어야 합니다.
-> * 하나의 SAP 시스템 SID에 속하는 SAP 응용 프로그램 서버에는 고유한 전용 VM이 있어야 합니다.
+> * 하나의 SAP 시스템 SID에 속하는 SAP 애플리케이션 서버에는 고유한 전용 VM이 있어야 합니다.
 
 ## <a name="sap-ascsscs-multi-sid-architecture-with-shared-disk"></a>공유 디스크를 사용하는 SAP ASCS/SCS 다중 SID 아키텍처
 
@@ -391,11 +391,11 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 ![새 SAP ASCS/SCS 공유 디스크에 대한 DataKeeper 동기 미러링][sap-ha-guide-figure-6006]
 
-### <a name="deploy-vms-for-sap-application-servers-and-the-dbms-cluster"></a>SAP 응용 프로그램 서버 및 DBMS 클러스터에 대한 VM 배포
+### <a name="deploy-vms-for-sap-application-servers-and-the-dbms-cluster"></a>SAP 애플리케이션 서버 및 DBMS 클러스터에 대한 VM 배포
 
 두 번째 SAP 시스템에 대한 인프라 준비를 완료하려면 다음을 수행합니다.
 
-1. SAP 응용 프로그램 서버에 대한 전용 VM을 배포하고 각각을 고유한 전용 가용성 그룹에 배치합니다.
+1. SAP 애플리케이션 서버에 대한 전용 VM을 배포하고 각각을 고유한 전용 가용성 그룹에 배치합니다.
 2. DBMS 클러스터에 대한 전용 VM을 배포하고 각각을 고유한 전용 가용성 그룹에 배치합니다.
 
 ## <a name="install-an-sap-netweaver-multi-sid-system"></a>SAP NetWeaver 다중 SID 시스템 설치
@@ -427,9 +427,9 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 7. [SAP ERS(입고 기준 자동 정산) Windows 서비스 인스턴스의 시작 유형 변경][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type].
 
-8. SAP 설치 가이드의 설명에 따라 새로운 전용 VM에 SAP 기본 응용 프로그램 서버를 설치합니다.  
+8. SAP 설치 가이드의 설명에 따라 새로운 전용 VM에 SAP 기본 애플리케이션 서버를 설치합니다.  
 
-9. SAP 설치 가이드의 설명에 따라 새로운 전용 VM에 SAP 추가 응용 프로그램 서버를 설치합니다.
+9. SAP 설치 가이드의 설명에 따라 새로운 전용 VM에 SAP 추가 애플리케이션 서버를 설치합니다.
 
 10. [SAP ASCS/SCS 인스턴스 장애 조치 및 SIOS 복제 테스트][sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl].
 

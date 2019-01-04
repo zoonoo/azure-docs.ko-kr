@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Java(Windows 또는 Linux)에서 음성 인식'
+title: '빠른 시작: 음성 인식, Java - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Java(Windows 또는 Linux)에서 음성을 인식하는 방법 알아보기
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: 2b39084443690b99391268acb6352763657e2a3c
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 7d1f26a43866025c3b542fc10a3f316ad0d1dc37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218579"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103122"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>빠른 시작: Speech Service SDK를 사용하여 Windows 또는 Linux 기반 Java에서 음성 인식
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-이 문서에서는 [Speech Service SDK](speech-sdk.md)를 사용하여 Java 콘솔 응용 프로그램을 만듭니다. PC에서 마이크를 사용하여 실시간으로 음성을 텍스트로 변환합니다. 응용 프로그램은 Speech SDK Maven 패키지와 64비트 Windows 또는 Ubuntu Linux 16.04 기반의 Eclipse Java IDE(v4.8)를 사용하여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
+이 문서에서는 [Speech Service SDK](speech-sdk.md)를 사용하여 Java 콘솔 애플리케이션을 만듭니다. PC에서 마이크를 사용하여 실시간으로 음성을 텍스트로 변환합니다. 애플리케이션은 Speech SDK Maven 패키지와 64비트 Windows 또는 Ubuntu Linux 16.04 기반의 Eclipse Java IDE(v4.8)를 사용하여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
 
 > [!NOTE]
 > Speech Devices SDK 및 Roobo 디바이스에 대한 내용은 [Speech Devices SDK](speech-devices-sdk.md)를 참조하세요.

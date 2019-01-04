@@ -1,24 +1,23 @@
 ---
-title: 'Azure Cosmos DB: Python 및 Azure Cosmos DB MongoDB API로 Flask 웹앱 빌드 | Microsoft Docs'
+title: Azure Cosmos DB는 Python 및 Azure Cosmos DB MongoDB API로 Flask 웹앱 빌드
 description: Azure Cosmos DB MongoDB API에 연결하고 및 쿼리하는 데 사용할 수 있는 Python Flask 코드 샘플을 제시합니다.
 services: cosmos-db
 author: slyons
-manager: kfile
+ms.author: sclyon
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, seodec18
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/02/2017
-ms.author: sclyon
-ms.openlocfilehash: 4416af7c1afede89063c1d4289ad2603f7b2c5d0
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 09c19f57a2993c0faad3dca708f67526f99d13df
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248526"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165115"
 ---
-# <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: MongoDB API로 Flask 앱 빌드
+# <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB는 MongoDB API로 Flask 앱 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -45,9 +44,9 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
     이 문서의 예제에서는 널리 사용되고 완벽한 Don Jayamanne의 [Python 확장](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python)을 사용합니다.
 
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
-이제 GitHub에서 Flask MongoDB API 앱을 복제하고 연결 문자열을 설정한 다음 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다.
+이제 GitHub에서 Flask MongoDB API 앱을 복제하고 연결 문자열을 설정한 다음, 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다.
 
 1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
@@ -121,7 +120,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 라이브 Azure Cosmos DB 계정에 대해 코드를 테스트하려면 Azure Portal로 이동하여 계정을 만들고 연결 문자열 정보를 가져옵니다. 그런 다음 앱에 복사합니다.
 
-1. [Azure Portal](http://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **연결 문자열**을 클릭한 다음 **읽기-쓰기 키**를 클릭합니다. 다음 단계에서 화면의 오른쪽에 있는 복사 단추를 사용하여 사용자, 암호 및 호스트를 Dal.cs 파일에 복사합니다.
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **연결 문자열**을 클릭한 다음 **읽기-쓰기 키**를 클릭합니다. 다음 단계에서 화면의 오른쪽에 있는 복사 단추를 사용하여 사용자, 암호 및 호스트를 Dal.cs 파일에 복사합니다.
 
 2. 루트 디렉터리에 있는 **app.py** 파일을 엽니다.
 
@@ -137,7 +136,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이 앱을 배포하려면 Azure에서 새 웹앱을 만들고 이 GitHub 리포지토리의 포크로 지속적인 배포를 사용하도록 설정할 수 있습니다. 이 [자습서](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment)에 따라 Azure에서 GitHub를 사용하여 지속적인 배포를 설정합니다.
 
-Azure에 배포할 때 응용 프로그램 키를 제거하고 아래 섹션이 주석 처리되어 있지 않은지 확인해야 합니다.
+Azure에 배포할 때 애플리케이션 키를 제거하고 아래 섹션이 주석 처리되어 있지 않은지 확인해야 합니다.
 
 ```python
     client = MongoClient(os.getenv("MONGOURL"))
@@ -145,16 +144,16 @@ Azure에 배포할 때 응용 프로그램 키를 제거하고 아래 섹션이 
     db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
-그런 다음 MONGOURL, MONGO_PASSWORD 및 MONGO_USERNAME을 응용 프로그램 설정에 추가해야 합니다. Azure Web Apps의 응용 프로그램 설정에 대한 자세한 내용은 이 [자습서](https://docs.microsoft.com/azure/app-service-web/web-sites-configure#application-settings)를 참조하세요.
+그런 다음, MONGOURL, MONGO_PASSWORD 및 MONGO_USERNAME을 애플리케이션 설정에 추가해야 합니다. Azure Web Apps의 애플리케이션 설정에 대한 자세한 내용은 이 [자습서](https://docs.microsoft.com/azure/app-service-web/web-sites-configure#application-settings)를 참조하세요.
 
-이 리포지토리의 포크를 만들지 않으려면 아래의 [Azure에 배포] 단추를 클릭할 수도 있습니다. 그런 다음 Azure로 이동하고 Cosmos DB 계정 정보를 사용하여 응용 프로그램 설정을 지정해야 합니다.
+이 리포지토리의 포크를 만들지 않으려면 아래의 [Azure에 배포] 단추를 클릭할 수도 있습니다. 그런 다음, Azure로 이동하고 Cosmos DB 계정 정보를 사용하여 애플리케이션 설정을 지정해야 합니다.
 
 <a href="https://deploy.azure.com/?repository=https://github.com/heatherbshapiro/To-Do-List---Flask-MongoDB-Example" target="_blank">
-<img src="http://azuredeploy.net/deploybutton.png"/>
+<img src="https://azuredeploy.net/deploybutton.png" alt="Click to Deploy to Azure">
 </a>
 
 > [!NOTE]
-> GitHub 또는 다른 원본 제어 옵션에 코드를 저장하려면 코드에서 연결 문자열을 제거합니다. 대신 웹앱에 대한 응용 프로그램 설정을 사용하여 지정할 수 있습니다.
+> GitHub 또는 다른 원본 제어 옵션에 코드를 저장하려면 코드에서 연결 문자열을 제거합니다. 대신 웹앱에 대한 애플리케이션 설정을 사용하여 지정할 수 있습니다.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 

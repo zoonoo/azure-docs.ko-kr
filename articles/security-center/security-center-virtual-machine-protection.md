@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center에서 머신 및 응용 프로그램 보호 | Microsoft Docs
+title: Azure Security Center에서 머신 및 애플리케이션 보호 | Microsoft Docs
 description: 이 문서에서는 가상 머신, 컴퓨터, 웹 앱 및 App Service 환경을 보호하는 데 도움이 되는 Security Center의 권장 사항을 설명합니다.
 services: security-center
 documentationcenter: na
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d1e7046ed1fc87a85a08b21a48accaaf3b5087b9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 454478fa02b8f4e71bc4efb61e1b8c194b927bc6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316653"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340830"
 ---
-# <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Azure Security Center에서 머신 및 응용 프로그램 보호
-Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니다. 보안 센터가 잠재적인 보안 취약점을 식별하는 경우 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다. 이러한 권장 사항은 VM(가상 머신)과 컴퓨터, 응용 프로그램, 네트워킹, SQL과 ID 및 액세스 등의 Azure 리소스 유형에 적용됩니다.
+# <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Azure Security Center에서 머신 및 애플리케이션 보호
+Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니다. 보안 센터가 잠재적인 보안 취약점을 식별하는 경우 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다. 이러한 권장 사항은 VM(가상 머신)과 컴퓨터, 애플리케이션, 네트워킹, SQL과 ID 및 액세스 등의 Azure 리소스 유형에 적용됩니다.
 
-이 문서에서는 머신과 응용 프로그램에 적용되는 권장 사항에 대해 설명합니다.
+이 문서에서는 머신과 애플리케이션에 적용되는 권장 사항에 대해 설명합니다.
 
 ## <a name="monitoring-security-health"></a>보안 상태 모니터링
 **Security Center - 개요** 대시보드에서 리소스의 보안 상태를 모니터링할 수 있습니다. **리소스** 섹션에는 파악된 문제 수와 각 리소스 유형의 보안 상태가 제공됩니다.
@@ -59,7 +59,7 @@ Compute 및 App Services 권장 사항의 전체 목록은 [권장 사항](secur
 ### 모니터링되지 않는 VM 및 컴퓨터 <a name="unmonitored-vms-and-computers"></a>
 머신에서 Microsoft Monitoring Agent 확장을 실행하지 않으면 Security Center에서 VM 또는 컴퓨터를 모니터링하지 않습니다. 머신에는 OMS 직접 에이전트 또는 SCOM 에이전트와 같은 로컬 에이전트가 이미 설치되어 있을 수 있습니다. 이러한 에이전트가 설치된 머신은 Security Center에서 완전히 지원되지 않으므로 모니터링되지 않는 것으로 식별됩니다. Security Center의 모든 기능을 최대한 활용하려면 Microsoft Monitoring Agent 확장이 필요합니다.
 
-확장은 이미 설치된 로컬 에이전트 외에도 모니터링되지 않는 VM이나 컴퓨터에 설치할 수 있습니다. 두 에이전트를 동일하게 구성하여 동일한 작업 영역에 연결합니다. 이렇게 하면 Security Center에서 Microsoft Monitoring Agent Extension과 상호 작용하고 데이터를 수집할 수 있습니다. Microsoft Monitoring Agent 확장을 설치하는 방법에 대한 지침은 [VM 확장 사용](../log-analytics/log-analytics-quick-collect-azurevm.md)을 참조하세요.
+확장은 이미 설치된 로컬 에이전트 외에도 모니터링되지 않는 VM이나 컴퓨터에 설치할 수 있습니다. 두 에이전트를 동일하게 구성하여 동일한 작업 영역에 연결합니다. 이렇게 하면 Security Center에서 Microsoft Monitoring Agent Extension과 상호 작용하고 데이터를 수집할 수 있습니다. Microsoft Monitoring Agent 확장을 설치하는 방법에 대한 지침은 [VM 확장 사용](../azure-monitor/learn/quick-collect-azurevm.md)을 참조하세요.
 
 Security Center에서 자동 프로비전을 위해 초기화된 VM 및 컴퓨터를 성공적으로 모니터링할 수 없는 이유에 대한 자세한 내용은 [에이전트 상태 문제 모니터링](security-center-troubleshooting-guide.md#mon-agent)을 참조하세요.
 
@@ -75,17 +75,17 @@ Security Center에서 자동 프로비전을 위해 초기화된 VM 및 컴퓨�
 **시스템 업데이트 적용**에는 그래프 형식으로 Windows 및 Linux에 대한 중요 업데이트에 대한 요약이 있습니다. 두 번째 부분에는 다음 정보가 포함된 테이블이 있습니다.
 
 - **이름**: 누락된 업데이트의 이름입니다.
--  **VM 및 컴퓨터 수**: 이 업데이트를 누락한 VM 및 컴퓨터의 총 수입니다.
+-  **VM 및 컴퓨터 수**: 이 업데이트가 누락된 VM 및 컴퓨터의 총 수입니다.
 - **업데이트 심각도**: 특정 권장 사항의 심각도를 설명합니다.
 
-    - **심각**: 중요한 리소스(응용 프로그램, 가상 머신 또는 네트워크 보안 그룹)에 취약성이 있으며 주의가 필요합니다.
-    - **중요**: 프로세스를 완료하거나 취약성을 제거하려면 심각하지 않은 단계나 추가적인 단계를 수행해야 합니다.
+    - **높음**: 중요한 리소스(애플리케이션, 가상 머신 또는 네트워크 보안 그룹)에 취약성이 있으며 주의가 필요합니다.
+    - **중요**: 중요하지 않은 단계나 추가적인 단계를 수행하면 프로세스를 완료하거나 취약성을 제거할 수 있습니다.
     - **보통**: 취약성을 해결해야 하지만 즉각적인 주의가 필요하지는 않습니다. (기본적으로 낮은 권장 사항은 표시되지 않지만 보려는 경우 낮은 권장 사항으로 필터링할 수 있습니다.)
 
 
 - **상태**: 권장 사항의 현재 상태입니다.
 
-    - **열기**: 아직 해결되지 않은 권장 사항이 있습니다.
+    - **미해결**: 권장 사항이 아직 해결되지 않았습니다.
     - **진행 중**: 현재 권장 사항이 해당 리소스에 적용되고 있으며 아무런 작업도 수행할 필요가 없습니다.
     - **해결됨**: 권장 사항이 이미 완료되었습니다. 문제가 해결되었으면 해당 항목이 회색으로 표시됩니다.
 
@@ -151,11 +151,11 @@ VM 또는 컴퓨터에 대한 보안 세부 정보는 다음과 같습니다. �
 
 ![App Services 환경][18] App Services 환경입니다.
 
-![웹 응용 프로그램][19] 웹 응용 프로그램입니다.
+![웹 애플리케이션][19] 웹 애플리케이션입니다.
 
-![함수 응용 프로그램][24] 함수 응용 프로그램입니다.
+![함수 애플리케이션][24] 함수 애플리케이션입니다.
 
-1. 웹 응용 프로그램을 선택합니다. 요약 보기는 다음과 같은 세 개의 탭으로 열립니다.
+1. 웹 애플리케이션을 선택합니다. 요약 보기는 다음과 같은 세 개의 탭으로 열립니다.
 
   - **권장 사항**: 실패한 Security Center에서 수행된 평가를 기반으로 합니다.
   - **통과된 평가**: 전달된 Security Center에서 수행된 평가의 목록입니다.
@@ -249,7 +249,7 @@ VM 또는 컴퓨터에 대한 보안 세부 정보는 다음과 같습니다. �
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure Security Center에서 보안 정책 설정](security-center-azure-policy.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 

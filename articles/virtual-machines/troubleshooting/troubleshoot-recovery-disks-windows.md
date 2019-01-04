@@ -21,7 +21,7 @@ ms.lasthandoff: 11/16/2018
 ms.locfileid: "51820055"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Azure PowerShell을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결
-Azure에서 Windows 가상 머신(VM)에 부팅 또는 디스크 오류가 발생하는 경우 디스크 자체에서 문제 해결 단계를 수행해야 할 수 있습니다. 일반적인 예로는 응용 프로그램 업데이트가 실패하여 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에서는 디스크를 다른 Windows VM에 연결하여 모든 오류를 수정한 다음, 원래 VM을 복구하기 위해 Azure PowerShell을 사용하는 방법을 자세히 설명합니다. 
+Azure에서 Windows 가상 머신(VM)에 부팅 또는 디스크 오류가 발생하는 경우 디스크 자체에서 문제 해결 단계를 수행해야 할 수 있습니다. 일반적인 예로는 애플리케이션 업데이트가 실패하여 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에서는 디스크를 다른 Windows VM에 연결하여 모든 오류를 수정한 다음, 원래 VM을 복구하기 위해 Azure PowerShell을 사용하는 방법을 자세히 설명합니다. 
 
 > [!Important]
 > 이 문서의 스크립트는 [관리 디스크](../windows/managed-disks-overview.md)를 사용하는 VM에만 적용됩니다. 
@@ -144,7 +144,7 @@ New-AzureRmDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskNam
 
 ## <a name="attach-the-disk-to-another-windows-vm-for-troubleshooting"></a>디스크를 다른 Windows VM에 연결하여 문제 해결
 
-이제 원본 OS 디스크의 복사본을 데이터 디스크로 VM에 연결합니다. 이 프로세스를 사용하면 구성 오류를 수정하거나 추가 응용 프로그램 또는 디스크의 시스템 로그 파일을 검토할 수 있습니다. 다음 예제에서는 `RecoveryVM`이라는 VM에 `newOSDisk`라는 디스크를 연결합니다.
+이제 원본 OS 디스크의 복사본을 데이터 디스크로 VM에 연결합니다. 이 프로세스를 사용하면 구성 오류를 수정하거나 추가 애플리케이션 또는 디스크의 시스템 로그 파일을 검토할 수 있습니다. 다음 예제에서는 `RecoveryVM`이라는 VM에 `newOSDisk`라는 디스크를 연결합니다.
 
 > [!NOTE]
 > 디스크를 연결하려면 원본 OS 디스크의 복사본 및 복구 VM이 동일한 위치에 있어야 합니다.
@@ -256,6 +256,6 @@ Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
 
 ## <a name="next-steps"></a>다음 단계
-VM에 연결하는 데 문제가 있는 경우 [Azure VM에 RDP 연결 문제 해결](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. VM에서 실행 중인 응용 프로그램에 액세스하는 데 문제가 있는 경우 [Windows VM에서 응용 프로그램 연결 문제 해결](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
+VM에 연결하는 데 문제가 있는 경우 [Azure VM에 RDP 연결 문제 해결](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. VM에서 실행 중인 애플리케이션에 액세스하는 데 문제가 있는 경우 [Windows VM에서 애플리케이션 연결 문제 해결](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
 Resource Manager를 사용하는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.

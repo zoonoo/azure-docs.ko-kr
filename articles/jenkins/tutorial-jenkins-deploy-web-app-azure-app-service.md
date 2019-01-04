@@ -8,14 +8,14 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 274de7ac63df0afc1a59e197deebeb7929cf1ef8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: b65972b79fd16b912abfbd2e35642ef5d9f5adc4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51855014"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438475"
 ---
-# <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>자습서: Jenkins 지속적인 통합 및 배포를 사용하여 GitHub에서 Azure App Service로 배포
+# <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>자습서: Jenkins 연속 통합 및 배포를 사용하여 GitHub에서 Azure App Service로 배포
 
 이 자습서에는 Jenkins에서 CI(지속적인 통합) 및 CD(연속 배포)를 설정하여 GitHub의 샘플 Java 웹앱을 [Linux의 Azure App Service](/azure/app-service/containers/app-service-linux-intro)로 배포합니다. GitHub로 커밋을 푸시하여 앱을 업데이트하면 Jenkins는 앱을 자동으로 빌드한 후 Azure App Service에 다시 게시합니다. 이 자습서의 샘플 앱은 [Spring Boot](http://projects.spring.io/spring-boot/) 프레임워크를 사용하여 개발했습니다. 
 
@@ -43,7 +43,7 @@ ms.locfileid: "51855014"
 
 * JDX(Java 개발 키트) 및 Maven 도구를 포함하는 [Jenkins](https://jenkins.io/) 서버가 Azure Linux VM에 설치되어야 합니다.
 
-  Jenkins 서버에 없는 경우 Azure Portal에서 [Azure Linux VM에서 Jenkins 서버 만들기](/azure/jenkins/install-jenkins-solution-template) 단계를 완료합니다.
+  Jenkins 서버가 없는 경우 Azure Portal에서 다음 단계를 완료합니다. [Azure Linux VM에 Jenkins 서버 만들기](/azure/jenkins/install-jenkins-solution-template)
 
 * 샘플 Java 웹앱에 대해 작업 복사본을 얻기 위한([포크](#fork)) [GitHub](https://github.com) 계정 
 
@@ -92,7 +92,7 @@ Jenkins가 GitHub를 모니터링하고, GitHub 포크의 웹앱으로 새 커�
 > 
 > 이러한 단계는 GitHub 사용자 이름 및 암호를 사용하여 Jenkins가 GitHub에서 작동하기 위한 개인 액세스 토큰 자격 증명을 만듭니다. 
 > 그러나 GitHub 계정이 다단계 인증을 사용하는 경우 GitHub에서 토큰을 만들고, 해당 토큰을 대신 사용하도록 Jenkins를 설정합니다. 
-> 자세한 내용은 [Jenkins GitHub 플러그 인](https://wiki.jenkins.io/display/JENKINS/Github+Plugin) 설명서를 참조하세요.
+> 자세한 내용은 [Jenkins GitHub 플러그 인](https://wiki.jenkins.io/display/JENKINS/GitHub+Plugin) 설명서를 참조하세요.
 
 1. **Jenkins 관리** 페이지에서 **시스템 구성**을 선택합니다. 
 

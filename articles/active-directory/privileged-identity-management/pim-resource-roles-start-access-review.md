@@ -24,7 +24,7 @@ ms.locfileid: "43189177"
 # <a name="start-an-access-review-for-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할에 대한 액세스 검토 시작
 사용자가 더 이상 필요 없는 권한 있는 액세스를 가진 경우 "오래된" 역할 할당이 됩니다. 오래된 역할 할당과 관련된 위험을 줄이기 위해 권한 있는 역할 관리자는 주기적으로 역할을 검토해야 합니다. 이 문서에서는 Azure 리소스에 대한 PIM(Privileged Identity Management)의 액세스 검토를 시작하는 방법을 다룹니다.
 
-PIM 응용 프로그램 기본 페이지에서 다음 위치로 이동합니다.
+PIM 애플리케이션 기본 페이지에서 다음 위치로 이동합니다.
 
 * **액세스 검토** > **추가**
 

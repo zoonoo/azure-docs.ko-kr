@@ -20,7 +20,7 @@ ms.locfileid: "49339936"
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
-Custom Speech Service의 주요 기능을 탐색하고 응용 프로그램 요구 사항에 대한 어쿠스틱 및 언어 모델을 빌드, 배포 및 사용하는 방법을 알아봅니다. Custom Speech Service 포털에 등록하면 더 광범위한 설명서 및 단계별 지침을 이용할 수 있습니다.
+Custom Speech Service의 주요 기능을 탐색하고 애플리케이션 요구 사항에 대한 어쿠스틱 및 언어 모델을 빌드, 배포 및 사용하는 방법을 알아봅니다. Custom Speech Service 포털에 등록하면 더 광범위한 설명서 및 단계별 지침을 이용할 수 있습니다.
 
 ## <a name="samples"></a>샘플  
 [여기](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)에 사용자가 수행할 수 있는 좋은 샘플이 있습니다.
@@ -42,7 +42,7 @@ Custom Speech Service의 주요 기능을 탐색하고 응용 프로그램 요�
 [여기](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model.md) 사용자 지정 어쿠스틱 모델을 만드는 방법에서 자세한 설명을 확인할 수 있습니다.
 
 ## <a name="creating-a-custom-language-model"></a>사용자 지정 언어 모델 만들기
-사용자 지정 언어 모델을 만드는 절차는 오디오 데이터가 없고 텍스트만 있다는 점 외에는 어쿠스틱 모델을 만드는 것과 비슷합니다. 텍스트는 사용자가 말할 것으로 예상되는 여러 가지 질문이나 발언으로 구성되거나, 응용 프로그램에 사용자의 말(또는 타이핑)을 기록해야 합니다.
+사용자 지정 언어 모델을 만드는 절차는 오디오 데이터가 없고 텍스트만 있다는 점 외에는 어쿠스틱 모델을 만드는 것과 비슷합니다. 텍스트는 사용자가 말할 것으로 예상되는 여러 가지 질문이나 발언으로 구성되거나, 애플리케이션에 사용자의 말(또는 타이핑)을 기록해야 합니다.
 
 [여기](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-language-model.md)에서 사용자 지정 언어 모델을 만드는 방법에 관한 자세한 설명을 확인할 수 있습니다.
 

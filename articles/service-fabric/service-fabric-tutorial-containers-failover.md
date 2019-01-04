@@ -1,6 +1,6 @@
 ---
 title: Azure의 Service Fabric에서 컨테이너 앱 장애 조치(failover) 및 크기 조정 | Microsoft Docs
-description: 아 자습서에서는 장애 조치(failover)가 Azure Service Fabric 컨테이너 응용 프로그램에서 처리되는 방법을 알아봅니다.  또한 클러스터에서 실행되는 컨테이너 및 서비스의 크기를 조정하는 방법을 알아봅니다.
+description: 아 자습서에서는 장애 조치(failover)가 Azure Service Fabric 컨테이너 애플리케이션에서 처리되는 방법을 알아봅니다.  또한 클러스터에서 실행되는 컨테이너 및 서비스의 크기를 조정하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: ''
 author: suhuruli
@@ -25,11 +25,11 @@ ms.locfileid: "37112272"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>자습서: Service Fabric을 통한 컨테이너 서비스의 장애 조치(failover) 및 크기 조정 시연
 
-이 자습서는 시리즈의 3부입니다. 이 자습서에서는 장애 조치(failover)가 Service Fabric 컨테이너 응용 프로그램에서 처리되는 방법을 알아봅니다. 또한 컨테이너의 크기를 조정하는 방법을 배웁니다. 이 자습서에서는 다음을 수행했습니다.
+이 자습서는 시리즈의 3부입니다. 이 자습서에서는 장애 조치(failover)가 Service Fabric 컨테이너 애플리케이션에서 처리되는 방법을 알아봅니다. 또한 컨테이너의 크기를 조정하는 방법을 배웁니다. 이 자습서에서는 다음을 수행했습니다.
 
 > [!div class="checklist"]
 > * Service Fabric 클러스터에서 컨테이너 장애 조치(failover)에 대해 알아보기
-> * 응용 프로그램에서 웹 프런트 엔드 컨테이너 크기 조정
+> * 애플리케이션에서 웹 프런트 엔드 컨테이너 크기 조정
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -48,7 +48,7 @@ Service Fabric은 컨테이너 인스턴스가 오류가 발생해야 하는 클
 
 ![noderestart][noderestart]
 
-프런트 엔드 컨테이너가 실행되는 위치를 표시하는 노드 이름이 클러스터의 다른 노드로 어떻게 변경되는지 확인합니다. 몇 분 후 응용 프로그램으로 다시 이동하고 다른 노드에서 실행 중인 응용 프로그램을 볼 수 있어야 합니다.
+프런트 엔드 컨테이너가 실행되는 위치를 표시하는 노드 이름이 클러스터의 다른 노드로 어떻게 변경되는지 확인합니다. 몇 분 후 애플리케이션으로 다시 이동하고 다른 노드에서 실행 중인 애플리케이션을 볼 수 있어야 합니다.
 
 ## <a name="scale-containers-and-services-in-a-cluster"></a>클러스터에서 컨테이너 및 서비스 크기 조정
 
@@ -74,18 +74,18 @@ Service Fabric 컨테이너는 해당 서비스에 대한 로드를 수용하도
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 응용 프로그램의 크기 조정 뿐만 아니라 컨테이너 장애 조치(failover)를 설명했습니다. 다음 단계가 완료되었습니다.
+이 자습서에서는 애플리케이션의 크기 조정 뿐만 아니라 컨테이너 장애 조치(failover)를 설명했습니다. 다음 단계가 완료되었습니다.
 
 > [!div class="checklist"]
 > * Service Fabric 클러스터에서 컨테이너 장애 조치(failover)에 대해 알아보기
-> * 응용 프로그램에서 웹 프런트 엔드 컨테이너 크기 조정
+> * 애플리케이션에서 웹 프런트 엔드 컨테이너 크기 조정
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아보았습니다.
 > [!div class="checklist"]
 > * 컨테이너 이미지 만들기
 > * Azure Container Registry에 컨테이너 이미지 푸시
 > * Yeoman을 사용하여 Service Fabric에 대한 컨테이너 패키지
-> * 컨테이너를 사용하여 Service Fabric 응용 프로그램 빌드 및 실행
+> * 컨테이너를 사용하여 Service Fabric 애플리케이션 빌드 및 실행
 > * Service Fabric에서 장애 조치(failover) 및 크기 조정이 처리되는 방법
 
 [noderestart]: ./media/service-fabric-tutorial-containers-failover/containersfailovertutorialnoderestart.png

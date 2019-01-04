@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning 서비스의 작동 원리
+title: '클라우드의 ML: 용어 및 아키텍처'
+titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning 서비스를 구성하는 아키텍처, 용어 및 개념을 알아봅니다. 또한 서비스 사용의 일반적인 워크플로 및 Azure Machine Learning 서비스에서 사용되는 Azure 서비스를 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -8,17 +9,18 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-ms.date: 10/24/2018
-ms.openlocfilehash: 0acf41cc0a2673ba665d1815b493df928fa4507d
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 3966d4b27f0e3d42f47d84fb5c9f5c8519a27b6c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706809"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184732"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스의 작동 원리: 아키텍처 및 개념
 
-이 문서에서는 Azure Machine Learning 서비스에 대한 아키텍처 및 개념을 설명합니다. 다음 다이어그램은 서비스의 주요 구성 요소를 보여 주고, 서비스 사용 시 일반적인 일반 워크플로를 보여 줍니다. 
+이 문서에서는 Azure Machine Learning 서비스에 대한 아키텍처 및 개념을 설명합니다. 아래의 다이어그램에서 서비스의 주요 구성 요소와 서비스를 사용할 때의 일반적인 워크플로를 확인할 수 있습니다. 
 
 [![Azure Machine Learning Service 아키텍처 및 워크플로](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
@@ -26,7 +28,7 @@ ms.locfileid: "51706809"
 
 1. __Python__에서 기계 학습의 학습 스크립트를 개발합니다.
 1. __‘계산 대상’__ 을 만들고 구성합니다.
-1. 해당 환경에서 실행할 구성된 계산 대상에 __‘스크립트를 제출’__ 합니다. 학습 중에 계산 대상이 실행 기록을 __‘데이터 저장소’__ 에 저장합니다. 레코드는 __‘실험’__ 에 저장됩니다.
+1. 해당 환경에서 실행하도록 구성된 계산 대상에 __‘스크립트를 제출’__ 합니다. 학습 중에 계산 대상이 실행 기록을 __‘데이터 저장소’__ 에 저장합니다. 레코드는 __‘실험’__ 에 저장됩니다.
 1. __‘실험을 쿼리’__ 하여 현재 및 과거 실행에서 기록된 메트릭을 확인합니다. 메트릭이 원하는 결과를 표시하지 않으면 1단계로 돌아가 스크립트를 반복합니다.
 1. 만족스러운 실행이 발견되면 __‘모델 레지스트리’__ 에 지속되는 모델을 등록합니다.
 1. 점수 매기기 스크립트를 개발합니다.
@@ -34,14 +36,12 @@ ms.locfileid: "51706809"
 1. Azure에서 __‘웹 서비스’__ 로 __‘이미지를 배포’__ 합니다.
 
 
-[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
-
 > [!NOTE]
-> 이 문서는 Azure Machine Learning에서 사용되는 용어와 개념을 정의하지만 Azure 플랫폼에 대한 용어와 개념을 정의하지는 않습니다. Azure 플랫폼 용어에 대한 자세한 내용은 [Microsoft Azure 용어집](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology)을 참조하세요.
+> 본 문서에서는 Azure Machine Learning에서 사용되는 용어와 개념만을 다루며 Azure 플랫폼에 대한 용어와 개념은 다루지 않습니다. Azure 플랫폼 용어에 대한 자세한 내용은 [Microsoft Azure 용어집](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology)을 참조하세요.
 
 ## <a name="workspace"></a>작업 영역
 
-작업 영역은 Azure Machine Learning 서비스에 대한 최상위 리소스입니다. 작업 영역은 Azure Machine Learning Service를 사용하는 동안 만드는 모든 아티팩트를 작업할 수 있는 중앙 위치를 제공합니다.
+작업 영역은 Azure Machine Learning 서비스의 최상위 리소스입니다. 작업 영역은 Azure Machine Learning Service를 사용하는 동안 만드는 모든 아티팩트를 작업할 수 있는 중앙 위치를 제공합니다.
 
 작업 영역은 모델을 학습시키는 데 사용할 수 있는 계산 대상 목록을 유지합니다. 또한 스크립트의 로그, 메트릭, 출력 및 스냅숏을 포함하는 학습 실행 기록을 유지합니다. 이 정보는 최고의 모델을 생성하는 학습 실행을 판별하는 데 사용됩니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "51706809"
 
 새 작업 영역을 만들면 작업 영역에서 사용되는 여러 Azure 리소스가 자동으로 생성됩니다.
 
-* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) - 학습 중에 사용되고 모델을 배포하는 동안 사용되는 docker 컨테이너를 등록합니다.
+* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) - 학습 과정 또는 모델을 배포하는 동안 사용되는 Docker 컨테이너를 등록합니다.
 * [Azure Storage](https://azure.microsoft.com/services/storage/) - 작업 영역에 대한 기본 데이터 저장소로 사용됩니다.
 * [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) - 모델에 대한 모니터링 정보를 저장합니다.
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) - 계산 대상에서 사용되는 비밀 및 작업 영역에 필요한 기타 중요한 정보를 저장합니다.
@@ -63,19 +63,19 @@ ms.locfileid: "51706809"
 > [!NOTE]
 > 새 버전을 만들지 않고 기존 Azure 서비스를 사용할 수도 있습니다. 
 
-다음 다이어그램은 작업 영역의 분류입니다.
+다음은 작업 영역의 분류 체계를 보여주는 다이어그램입니다.
 
-[![작업 영역 분류](./media/concept-azure-machine-learning-architecture/taxonomy.png)](./media/concept-azure-machine-learning-architecture/taxonomy.png#lightbox)
+[![작업 영역 분류](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="model"></a>모델
 
-가장 간단하게, 모델은 입력을 사용하고 출력을 생성하는 코드 조각입니다. 기계 학습 모델을 만드는 동안 알고리즘을 선택하고, 데이터를 제공하고, 하이퍼 매개 변수를 조정합니다. 학습은 학습 프로세스 중에 모델이 학습한 내용을 캡슐화하는 학습된 모델을 생성하는 반복 프로세스입니다.
+간단하게 설명하면, 하나의 모델은 입력을 받아들이고 출력을 생성하는 코드의 한 조각을 말합니다. 기계 학습 모델을 만드는 동안 알고리즘을 선택하고, 데이터를 제공하고, 하이퍼 매개 변수를 조정합니다. 학습은 학습된 모델을 생성하는 반복 프로세스이며, 학습된 모듈에는 모델이 학습 프로세스 중에 습득한 내용이 캡슐화되어 있습니다.
 
 모델은 Azure Machine Learning에서 실행을 통해 생성됩니다. Azure Machine Learning 외부에서 학습된 모델을 사용할 수도 있습니다. 모델은 Azure Machine Learning Service 작업 영역 아래에 등록할 수 있습니다.
 
 Azure Machine Learning Service는 프레임워크에 관계없이 사용할 수 있습니다. 모델을 만드는 경우 scikit-learn, xgboost, PyTorch, TensorFlow, Chainer 및 CNTK와 같은 인기 있는 기계 학습 프레임워크를 사용할 수 있습니다.
 
-모델 학습의 예제를 보려면 [빠른 시작: Machine Learning Service 작업 영역 만들기](quickstart-get-started.md) 문서를 참조하세요.
+모델 학습 예제는 [빠른 시작: 기계 학습 서비스 작업 영역 만들기](quickstart-get-started.md) 문서를 참조하세요.
 
 ### <a name="model-registry"></a>모델 레지스트리
 
@@ -83,7 +83,7 @@ Azure Machine Learning Service는 프레임워크에 관계없이 사용할 수 
 
 모델은 이름 및 버전으로 식별됩니다. 기존 이름과 동일한 이름을 사용하여 모델을 등록할 때마다 레지스트리는 모델을 새 버전으로 간주합니다. 버전 번호가 증가하고 새 모델이 해당 이름으로 등록됩니다.
 
-모델을 등록할 때 추가 메타데이터 태그를 제공한 다음, 모델을 검색할 때 이러한 태그를 사용할 수 있습니다.
+모델을 등록할 때 추가 메타데이터 태그를 제공하면 모델을 검색할 때 해당 태그를 사용할 수 있습니다.
 
 이미지에서 사용 중인 모델은 삭제할 수 없습니다.
 
@@ -94,13 +94,13 @@ Azure Machine Learning Service는 프레임워크에 관계없이 사용할 수 
 이미지는 모델을 사용하는 데 필요한 모든 구성 요소와 함께 모델을 안정적으로 배포하는 방법을 제공합니다. 이미지에는 다음 항목이 포함됩니다.
 
 * 모델.
-* 점수 매기기 스크립트 또는 응용 프로그램. 이 스크립트는 입력을 모델에 전달하고 모델의 출력을 반환하는 데 사용됩니다.
+* 점수 매기기 스크립트 또는 애플리케이션. 이 스크립트는 입력을 모델에 전달하고 모델의 출력을 반환하는 데 사용됩니다.
 * 모델 또는 점수 매기기 스크립트/응용 프로그램에 필요한 종속성.  예를 들어 Python 패키지 종속성을 나열하는 Conda 환경 파일을 포함할 수 있습니다.
 
 Azure Machine Learning에서 만들 수 있는 두 가지 유형의 이미지는 다음과 같습니다.
 
 * FPGA 이미지: Azure 클라우드에서 FPGA(Field-Programmable Gate Array)에 배포할 때 사용됩니다.
-* Docker 이미지: FPGA 이외의 계산 대상에 배포할 때 사용됩니다. 예를 들어 Azure Container Instances 및 Azure Kubernetes Service가 있습니다.
+* Docker 이미지: FPGA 이외의 컴퓨팅 대상에 배포할 때 사용됩니다. 예를 들어 Azure Container Instances 및 Azure Kubernetes Service가 있습니다.
 
 이미지를 만드는 예제를 보려면 [Azure Container Instance에 이미지 분류 모델 배포](tutorial-deploy-models-with-aml.md) 문서를 참조하세요.
 
@@ -110,7 +110,7 @@ Azure Machine Learning에서 만들 수 있는 두 가지 유형의 이미지는
 
 ## <a name="deployment"></a>배포
 
-배포는 통합형 클라우드에서 호스트될 수 있는 웹 서비스 또는 디바이스 배포를 위한 IoT 모듈로 이미지를 인스턴스화하는 것입니다. 
+배포는 통합형 클라우드에서 호스트될 수 있는 웹 서비스 또는 장치 배포를 위한 IoT 모듈로 이미지를 인스턴스화하는 것입니다. 
 
 ### <a name="web-service"></a>웹 서비스
 
@@ -125,7 +125,7 @@ Azure에서는 이 기능을 사용하도록 선택한 경우 Application Insigh
 
 ### <a name="iot-module"></a>IoT 모듈
 
-배포된 IoT 모듈은 모델 및 연결된 스크립트나 응용 프로그램과 모든 추가 종속성을 포함하는 Docker 컨테이너입니다. 이러한 모듈은 에지 디바이스에서 Azure IoT Edge를 사용하여 배포됩니다. 
+배포된 IoT 모듈은 모델 및 연결된 스크립트나 애플리케이션과 모든 추가 종속성을 포함하는 Docker 컨테이너입니다. 이러한 모듈은 에지 디바이스에서 Azure IoT Edge를 사용하여 배포됩니다. 
 
 모니터링을 사용하도록 설정한 경우 Azure는 Azure IoT Edge 모듈 내의 모델에서 원격 분석 데이터를 수집합니다. 원격 분석 데이터는 관련 사용자에게만 제공되고 저장소 계정 인스턴스에 저장됩니다.
 
@@ -142,19 +142,19 @@ Python SDK API 또는 Azure Machine Learning CLI를 사용하여 데이터 저�
 실행은 다음 정보를 포함하는 레코드입니다.
 
 * 실행에 대한 메타데이터(타임스탬프, 기간 등)
-* 스크립트에 의해 기록되는 메트릭
+* 스크립트를 통해 기록한 메트릭
 * 실험을 통해 자동 수집되거나 사용자가 명시적으로 업로드한 출력 파일.
 * 실행 전의 스크립트를 포함하는 디렉터리의 스냅숏
 
 실행은 모델을 학습시키기 위해 스크립트를 제출할 때 생성됩니다. 실행에는 0개 이상의 자식 실행이 포함될 수 있습니다. 최상위 실행에는 두 개의 자식 실행이 포함될 수 있고, 각 자식 실행에는 자체 자식 실행이 포함될 수 있습니다.
 
-모델 학습을 통해 생성된 실행을 보는 예제를 확인하려면 [빠른 시작: Azure Machine Learning 서비스 시작](quickstart-get-started.md) 문서를 참조하세요.
+모델 학습으로 생성된 실행 보기 예제는 [빠른 시작: Azure Machine Learning Service 시작](quickstart-get-started.md) 문서를 참조하세요.
 
 ## <a name="experiment"></a>실험
 
 실험은 지정된 스크립트의 많은 실행을 그룹화한 것입니다. 실험은 항상 작업 영역에 속합니다. 실행을 제출할 때 실험 이름을 제공합니다. 실행에 대한 정보는 해당 실험 아래에 저장됩니다. 실행을 제출하고 존재하지 않는 실험 이름을 지정하면 해당 이름을 가진 새 실험이 자동으로 생성됩니다.
 
-실험을 사용하는 예제를 보려면 [빠른 시작: Azure Machine Learning 서비스 시작](quickstart-get-started.md) 문서를 참조하세요.
+실험을 사용하는 예제는 [빠른 시작: Azure Machine Learning Service 시작](quickstart-get-started.md) 문서를 참조하세요.
 
 ## <a name="pipeline"></a>파이프라인
 
@@ -169,19 +169,23 @@ Python SDK API 또는 Azure Machine Learning CLI를 사용하여 데이터 저�
 | 계산 대상 | 교육 | 배포 |
 | ---- |:----:|:----:|
 | 로컬 컴퓨터 | ✓ | &nbsp; |
+| Azure Machine Learning 컴퓨팅 | ✓ | &nbsp; |
 | Azure의 Linux VM</br>(예: Data Science Virtual Machine) | ✓ | &nbsp; |
-| Azure Batch AI 클러스터 | ✓ | &nbsp; |
 | Azure Databricks | ✓ | &nbsp; | &nbsp; |
 | Azure 데이터 레이크 분석 | ✓ | &nbsp; |
 | HDInsight용 Apache Spark | ✓ | &nbsp; |
-| Azure Container Instance | ✓ | ✓ |
+| Azure Container Instance | &nbsp; | ✓ |
 | Azure Kubernetes Service | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
 | Project Brainwave</br>(Field-programmable Gate Array) | &nbsp; | ✓ |
 
 계산 대상은 작업 영역에 연결됩니다. 작업 영역의 사용자가 로컬 컴퓨터 이외의 계산 대상을 공유합니다.
 
-대부분 계산 대상은 Azure Portal, Azure Machine Learning SDK 또는 Azure CLI를 사용하여 작업 영역을 통해 직접 만들 수 있습니다. 또 다른 프로세스에서 생성된 계산 대상(예: Azure Portal 또는 Azure CLI)이 있는 경우 계산 대상을 작업 영역에 추가(연결)할 수 있습니다. 일부 계산 대상은 작업 영역 외부에서 만든 다음, 연결해야 합니다.
+### <a name="managed-and-unmanaged-compute-targets"></a>관리형 및 비관리형 컴퓨팅 대상
+
+**관리형** 컴퓨팅 대상은 Azure Machine Learning Service에서 만들고 관리합니다. 이러한 컴퓨팅 대상은 ML 워크로드에 최적화되어 있습니다. __Azure Machine Learning 컴퓨팅__은 2018년 12월 4일 현재 유일한 관리형 컴퓨팅 대상입니다. 추가 관리형 컴퓨팅 대상은 나중에 추가될 수 있습니다. ML 컴퓨팅 인스턴스는 Azure Portal, Azure Machine Learning SDK 또는 Azure CLI를 사용하여 작업 영역을 통해 직접 만들 수 있습니다. 기타 모든 컴퓨팅 대상은 작업 영역 외부에서 만든 다음, 해당 작업 영역에 연결해야 합니다.
+
+**비관리형** 컴퓨팅 대상은 Azure Machine Learning Service에서 관리되지 않습니다. Azure Machine Learning 외부에서 해당 컴퓨팅 대상을 만든 다음, 사용하기 전에 작업 영역에 연결해야 합니다. 이러한 컴퓨팅 대상에는 ML 워크로드 성능을 유지하거나 향상시키는 추가 단계가 필요할 수 있습니다.
 
 학습에 대한 계산 대상을 선택하는 방법에 대한 자세한 내용은 [모델 학습을 위한 계산 대상 선택 및 사용](how-to-set-up-training-targets.md) 문서를 참조하세요.
 

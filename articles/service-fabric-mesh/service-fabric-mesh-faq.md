@@ -5,18 +5,19 @@ services: service-fabric-mesh
 keywords: ''
 author: chackdan
 ms.author: chackdan
-ms.date: 06/25/2018
+ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: f80f61cbfc1f7b719e73d7d29c6948bebe84aa6c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+manager: jeanpaul.connock
+ms.openlocfilehash: 7103557d19b367be0b9f0aa6f4a4642800c14558
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278313"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314839"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Service Fabric Mesh에 대한 일반적인 질문
+
 Azure Service Fabric Mesh는 개발자가 가상 머신, 저장소 또는 네트워킹을 관리하지 않고 마이크로 서비스 응용 프로그램을 배포할 수 있는 완전히 관리되는 서비스입니다. 이 문서에는 일반적인 질문에 대한 답변이 있습니다.
 
 ## <a name="how-do-i-report-an-issue-or-ask-a-question"></a>문제를 보고하거나 질문을 하려면 어떻게 하나요?
@@ -25,31 +26,33 @@ Azure Service Fabric Mesh는 개발자가 가상 머신, 저장소 또는 네트
 
 ## <a name="quota-and-cost"></a>할당량 및 비용
 
-**미리 보기에 참여하는 비용은 얼마인가요?**
+### <a name="what-is-the-cost-of-participating-in-the-preview"></a>미리 보기에 참여하는 비용은 얼마인가요?
 
 현재 Mesh 미리 보기에 애플리케이션 또는 컨테이너를 배포하기 위한 요금은 없습니다. 하지만 테스트를 적극적으로 진행하지 않는 경우 배포된 리소스를 삭제하고 더 이상 실행하지 않는 것이 좋습니다.
 
-**코어 수와 RAM의 할당량 제한이 있나요?**
+### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>코어 수와 RAM의 할당량 제한이 있나요?
 
-예, 각 구독의 할당량은 다음과 같이 설정됩니다.
+예. 각 구독에 대한 할당량은 다음과 같습니다.
 
-- 애플리케이션 수 - 5 
-- 애플리케이션당 코어 수 - 12 
-- 응용 프로그램당 총 RAM - 48GB 
-- 네트워크 및 수신 엔드포인트 수 - 5  
-- 연결할 수 있는 Azure 볼륨 - 10 
-- 서비스 복제본 수 - 3 
+- 애플리케이션 수: 5
+- 애플리케이션당 코어 수: 12
+- 애플리케이션당 총 RAM: 48GB
+- 네트워크 및 수신 엔드포인트 수: 5
+- 연결할 수 있는 Azure 볼륨 수: 10
+- 서비스 복제본 수: 3
 - 배포할 수 있는 최대 컨테이너는 4코어, 16GB RAM으로 제한됩니다.
-- 최대 6개 코어까지 코어 0.5개 증분으로 부분 코어를 컨테이너에 할당할 수 있습니다.
+- 최대 6코어까지 0.5코어 증분으로 부분 코어를 컨테이너에 할당할 수 있습니다.
 
-**애플리케이션을 배포한 후 얼마나 오래 두어도 되나요?**
+### <a name="how-long-can-i-leave-my-application-deployed"></a>애플리케이션을 배포한 후 얼마나 오래 두어도 되나요?
 
-현재 애플리케이션 수명은 2일로 제한되어 있습니다. 미리 보기에 할당된 체험용 코어의 사용률을 최대화하기 위한 조치입니다. 결과적으로, 주어진 배포를 연속 48시간 동안 실행할 수 있으며, 이 시간이 지나면 시스템에서 배포를 종료합니다. 이 경우 Azure CLI에서 `az mesh app show` 명령을 실행하고 `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 메시지가 반환되는지 확인하여 시스템에서 배포를 종료한 것인지 확인할 수 있습니다. 
+현재 애플리케이션 수명은 2일로 제한되어 있습니다. 미리 보기에 할당된 체험용 코어의 사용률을 최대화하기 위한 조치입니다. 결과적으로, 주어진 배포를 연속 48시간 동안 실행할 수 있으며, 이 시간이 지나면 배포가 종료됩니다.
+
+이 경우 Azure CLI에서 `az mesh app show` 명령을 실행하여 시스템에서 배포를 종료한 것인지 확인할 수 있습니다. `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."`가 반환되는지 확인합니다. 
 
 예:  
 
 ```cli
-chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
 {
   "debugParams": null,
   "description": "Service Fabric Mesh HelloWorld Application!",
@@ -72,28 +75,73 @@ chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name hello
 }
 ```
 
-동일한 애플리케이션을 메시에 계속 배포하려면 애플리케이션에 연결된 리소스 그룹을 삭제하거나, 애플리케이션 및 모든 관련 메시 리소스(네트워크 포함)를 개별적으로 제거해야 합니다. 
-
-리소스 그룹을 삭제하려면 `az group delete <nameOfResourceGroup>` 명령을 사용합니다. 
+리소스 그룹을 삭제하려면 `az group delete <nameOfResourceGroup>` 명령을 사용합니다.
 
 ## <a name="supported-container-os-images"></a>지원되는 컨테이너 OS 이미지
-서비스를 배포할 때 다음 컨테이너 OS 이미지를 사용할 수 있습니다.
+
+Windows Fall Creators 업데이트(버전 1709) 머신에서 개발하는 경우 Windows 버전 1709의 Docker 이미지만 사용할 수 있습니다.
+
+Windows 10 2018년 4월 업데이트(버전 1803) 머신에서 개발하는 경우 Windows 버전 1709 또는 Windows 버전 1803의 Docker 이미지를 사용합니다.
+
+다음 컨테이너 OS 이미지를 사용하여 서비스를 배포할 수 있습니다.
 
 - Windows - windowsservercore 및 nanoserver
-    - Windows Server 2016
     - Windows Server 버전 1709
+    - Windows Server 버전 1803
 - Linux
     - 알려진 제한 사항 없음
 
-## <a name="features-gaps-and-known-issues"></a>기능 간격 및 알려진 문제
+## <a name="developer-experience-issues"></a>개발자 환경 문제
 
-**내 응용 프로그램을 배포한 후 응용 프로그램과 관련된 네트워크 리소스가 IP 주소를 받지 못하는 것 같음**
+### <a name="dns-resolution-from-an-outbound-container-doesnt-work"></a>아웃바운드 컨테이너의 DNS 확인이 작동하지 않음
 
-현재, IP 주소가 지연 후에 표시되는 알려진 문제가 있습니다. 관련 IP 주소를 보려면 몇 분 후에 네트워크 리소스의 상태를 확인하세요.
+특정 상황에서는 서비스 간 통신이 실패할 수 있습니다. 이 문제는 조사 중입니다. 문제를 완화하려면 다음을 수행합니다.
 
-**내 응용 프로그램이 올바른 네트워크/볼륨 리소스에 액세스하지 못함**
+- 기본 컨테이너 이미지로 Windows Fall Creators 업데이트(버전 1709) 이상을 사용합니다.
+- 서비스 이름만으로 작동하지 않는 경우 정규화된 이름인 ServiceName.ApplicationName을 사용합니다.
+- 서비스의 Docker 파일에 `EXPOSE <port>`를 추가합니다. 여기서 port는 서비스를 노출하는 포트입니다. 예: 
 
-응용 프로그램 모델에서 관련 리소스에 액세스할 수 있으려면 네트워크 및 볼륨의 전체 리소스 ID를 사용해야 합니다. 빠른 시작 샘플에서 이 ID는 다음과 같이 표시됩니다.
+```
+EXPOSE 80
+```
+
+### <a name="dns-does-not-work-the-same-as-it-does-for-service-fabric-development-clusters-and-in-mesh"></a>DNS가 Service Fabric 개발 클러스터 및 Mesh에서와 동일한 방식으로 작동하지 않음
+
+로컬 개발 클러스터와 Azure Mesh에서 서비스를 다르게 참조해야 할 수도 있습니다.
+
+로컬 개발 클러스터에서는 `{serviceName}.{applicationName}`을 사용합니다. Azure Service Fabric Mesh에서는 `{servicename}`을 사용합니다. 
+
+Azure Mesh는 현재 애플리케이션 간의 DNS 확인을 지원하지 않습니다.
+
+Windows 10에서 Service Fabric 개발 클러스터를 실행하는 경우와 관련해서 다른 알려진 DNS 문제가 있는 경우, [Windows 컨테이너 디버그](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) 및 [알려진 DNS 문제](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues)를 참조하세요.
+
+### <a name="networking"></a>네트워킹
+
+로컬 머신에서 앱을 실행하는 동안 ServiceFabric 네트워크 NAT가 사라질 수 있습니다. 이 오류가 발생했는지 여부를 진단하려면 명령 프롬프트에서
+
+`docker network ls`를 실행하고 `servicefabric_nat`가 나열되는지 여부를 확인합니다.  나열되지 않는 경우 `docker network create -d=nat --subnet 10.128.0.0/24 --gateway 10.128.0.1 servicefabric_nat` 명령을 실행합니다.
+
+이렇게 하면 앱이 로컬에 이미 배포되었으며 비정상 상태인 경우에도 문제가 해결됩니다.
+
+### <a name="issues-running-multiple-apps"></a>여러 앱을 실행하는 문제
+
+CPU 가용성 및 한도가 모든 애플리케이션에서 고정될 수 있습니다. 문제를 완화하려면 다음을 수행합니다.
+- 5노드 클러스터를 만듭니다.
+- 배포된 앱에서 서비스의 CPU 사용량을 줄입니다. 예를 들어 서비스의 service.yaml 파일에서 `cpu: 1.0`을 `cpu: 0.5`로 변경합니다.
+
+단일 노드 클러스터에 여러 애플리케이션을 배포할 수 없습니다. 문제를 완화하려면 다음을 수행합니다.
+- 로컬 클러스터에 여러 앱을 배포하는 경우 5노드 클러스터를 사용합니다.
+- 현재 테스트하지 않는 앱을 제거합니다.
+
+## <a name="feature-gaps-and-other-known-issues"></a>기능 차이 및 기타 알려진 문제
+
+### <a name="after-deploying-my-application-the-network-resource-associated-with-it-does-not-have-an-ip-address"></a>내 애플리케이션을 배포한 후 애플리케이션과 관련된 네트워크 리소스에 IP 주소가 없음
+
+IP 주소를 즉시 사용할 수 없는 알려진 문제가 있습니다. 관련 IP 주소를 보려면 몇 분 후에 네트워크 리소스의 상태를 확인하세요.
+
+### <a name="my-application-fails-to-access-the-right-networkvolume-resource"></a>내 애플리케이션이 올바른 네트워크/볼륨 리소스에 액세스하지 못함
+
+애플리케이션 모델에서 네트워크 및 볼륨이 관련 리소스에 액세스할 수 있으려면 전체 리소스 ID를 사용합니다. 다음은 빠른 시작 샘플의 예입니다.
 
 ```json
 "networkRefs": [
@@ -103,49 +151,9 @@ chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name hello
 ]
 ```
 
-**현재 응용 프로그램 모델에서 내 비밀을 암호화하는 방법을 지원하지 않는 것 같음**
+### <a name="when-i-scale-out-all-of-my-containers-are-affected-including-running-ones"></a>스케일 아웃할 때 실행 중인 컨테이너를 포함하여 내 컨테이너가 모두 영향을 받음
 
-예, 비밀 암호화는 현재 비공개 미리 보기에서 지원되지 않습니다. 
-
-**DNS가 Service Fabric 개발 클러스터와 Mesh에서 동일한 방식으로 작동하지 않음**
-
-로컬 개발 클러스터와 Azure Mesh에서 서비스를 다르게 참조해야 하는 알려진 문제가 있습니다. 로컬 개발 클러스터에서는 {serviceName}.{applicationName}을 사용합니다. Azure Service Fabric Mesh에서는 {servicename}을 사용합니다. Azure Mesh는 현재 응용 프로그램 간의 DNS 확인을 지원하지 않습니다.
-
-Windows 10에서 Service Fabric 개발 클러스터를 실행하는 경우와 관련해서 다른 알려진 DNS 문제가 있는 경우, [Windows 컨테이너 디버그](/azure/service-fabric/service-fabric-how-to-debug-windows-containers)를 참조하세요.
-
-**CLI 모듈을 사용할 때 다음 오류가 표시됩니다. ImportError: cannot import name ‘sdk_no_wait’(ImportError: ‘sdk_no_wait’ 이름을 가져올 수 없습니다)**
-
-2.0.30 이전의 CLI 버전을 사용하는 경우, 이 오류가 표시될 수 있습니다.
-
-```
-cannot import name 'sdk_no_wait'
-Traceback (most recent call last):
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\knack\cli.py", line 193, in invoke cmd_result = self.invocation.execute(args)
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core\commands_init_.py", line 241, in execute self.commands_loader.load_arguments(command)
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core_init_.py", line 201, in load_arguments self.command_table[command].load_arguments() # this loads the arguments via reflection
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core\commands_init_.py", line 142, in load_arguments super(AzCliCommand, self).load_arguments()
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\knack\commands.py", line 76, in load_arguments cmd_args = self.arguments_loader()
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core_init_.py", line 332, in default_arguments_loader op = handler or self.get_op_handler(operation)
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core_init_.py", line 375, in get_op_handler op = import_module(mod_to_import)
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\importlib_init_.py", line 126, in import_module return _bootstrap._gcd_import(name[level:], package, level)
-File "", line 978, in _gcd_import
-File "", line 961, in _find_and_load
-File "", line 950, in _find_and_load_unlocked
-File "", line 655, in _load_unlocked
-File "", line 678, in exec_module
-File "", line 205, in _call_with_frames_removed
-File "C:\Users\annayak.azure\cliextensions\azure-cli-sbz\azext_sbz\custom.py", line 18, in 
-from azure.cli.core.util import get_file_json, shell_safe_json_parse, sdk_no_wait
-ImportError: cannot import name 'sdk_no_wait'.
-```
-
-**CLI 확장 패키지를 설치할 때 배포 이름 불일치 오류가 표시됨**
-
-확장이 설치되지 않았음을 의미하는 것은 아닙니다. 문제 없이 CLI 명령을 계속 사용할 수 있습니다.
-
-**규모를 확장할 때 실행 중인 컨테이너를 포함하여 내 컨테이너가 모두 영향을 받음**
-
-이는 버그이며, 다음 런타임 새로 고침에서 수정됩니다.
+버그이며 수정 프로그램을 구현 중입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

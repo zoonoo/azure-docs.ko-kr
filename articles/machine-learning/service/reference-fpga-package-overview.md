@@ -1,6 +1,7 @@
 ---
-title: Azure Machine Learning의 하드웨어 가속을 위한 FPGA 패키지
-description: Azure Machine Learning 사용자가 사용할 수 있는 Python 패키지에 대해 알아봅니다.
+title: 하드웨어 가속을 위한 FPGA 패키지
+titleSuffix: Azure Machine Learning service
+description: 이 문서는 이제 사용되지 않습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,13 +10,14 @@ ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
+ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 83c5a788f85fcc47c221f5c8f9e6944c4448fbf9
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 44c0818d7ddb418e34e6e124ddc0b27460bb24a0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712129"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262081"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Azure Machine Learning 하드웨어 가속 패키지
 
@@ -32,7 +34,8 @@ Azure Machine Learning 하드웨어 가속 패키지는 Azure Machine Learning�
 
 ## <a name="prerequisites"></a>필수 조건
 
-1. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://aka.ms/AMLfree)을 만듭니다.
+>[!Note]
+>Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 바로 [Azure Machine Learning 서비스의 평가판 또는 유료 버전](http://aka.ms/AMLFree)을 사용해 보세요.
 
 1. Azure Machine Learning 모델 관리 계정. 계정 만들기에 대한 자세한 내용은 [Azure Machine Learning 빠른 시작 및 Workbench 설치](../desktop-workbench/quickstart-installation.md) 문서를 참조하세요. 
 

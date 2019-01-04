@@ -1,21 +1,22 @@
 ---
-title: '자습서 3: 정규식 일치 데이터 - 적절한 형식의 데이터 추출'
+title: 정규식 엔터티
 titleSuffix: Azure Cognitive Services
 description: 정규식 엔터티를 사용하여 발언에서 일관적인 형식의 데이터를 추출합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5e8345deb629d293d9673819893181e652d5dbb9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d4deeec2c5af5047fa16a2d80f0992409d517910
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423420"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135579"
 ---
 # <a name="tutorial-3-extract-well-formatted-data"></a>자습서 3: 적절한 형식의 데이터 추출
 이 자습서에서는 **정규식** 엔터티를 사용하여 발언에서 일관적인 형식의 데이터를 추출하도록 인사 관리 앱을 수정합니다.
@@ -24,14 +25,13 @@ ms.locfileid: "52423420"
 
 **다음은 발언 예제입니다.**
 
-```
-Where is HRF-123456?
-Who authored HRF-123234?
-HRF-456098 is published in French?
-HRF-456098
-HRF-456098 date?
-HRF-456098 title?
-```
+|예제 발화|
+|--|
+|Where is HRF-123456?|
+|Who authored HRF-123234?|
+|HRF-456098 is published in French?|
+|HRF-456098|
+|HRF-456098 date?|
  
 다음과 같은 경우 정규식은 이러한 종류의 데이터에 적합한 선택입니다.
 
@@ -88,7 +88,7 @@ HRF-456098 title?
 
     [ ![새 발화가 강조 표시된 의도 페이지의 스크린샷](./media/luis-quickstart-intents-regex-entity/findform-intent.png) ](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
 
-    응용 프로그램에는 이전 자습서에서 추가된 미리 작성된 번호 엔터티가 있으므로 각 양식 번호에 태그가 지정됩니다. 이는 클라이언트 응용 프로그램에 대해 충분하지만 번호에 숫자 형식의 레이블이 지정되지 않습니다. 적절한 이름으로 새 엔터티를 만들면 LUIS에서 반환할 때 클라이언트 응용 프로그램에서 해당 엔터티를 적절히 처리할 수 있습니다.
+    애플리케이션에는 이전 자습서에서 추가된 미리 작성된 번호 엔터티가 있으므로 각 양식 번호에 태그가 지정됩니다. 이는 클라이언트 애플리케이션에 대해 충분하지만 번호에 숫자 형식의 레이블이 지정되지 않습니다. 적절한 이름으로 새 엔터티를 만들면 LUIS에서 반환할 때 클라이언트 애플리케이션에서 해당 엔터티를 적절히 처리할 수 있습니다.
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
@@ -129,7 +129,7 @@ HRF는 `human resources form`을 의미합니다.
 
 2. 주소의 URL 끝으로 이동하고 `When were HRF-123456 and hrf-234567 published in the last year?`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발화 **쿼리**를 나타내는 `q`입니다. 이 발화는 레이블이 지정된 발화와 같지 않으므로 유용한 테스트이며, 두 양식 번호(`HRF-123456` 및 `hrf-234567`)가 있는 `FindForm` 의도가 반환되어야 합니다.
 
-    ```JSON
+    ```json
     {
       "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {
@@ -225,7 +225,7 @@ HRF는 `human resources form`을 의미합니다.
     }
     ```
 
-    발화의 숫자는 두 번, 즉 한 번은 새로운 `hrf-number` 엔터티로, 그리고 한 번은 미리 작성된 `number` 엔터티로 반환됩니다. 발화에는 이 예제와 같이 둘 이상의 엔터티 및 둘 이상의 동일한 형식의 엔터티가 있을 수 있습니다. LUIS는 정규식 엔터티를 사용하여 명명된 데이터를 추출합니다. 이 데이터는 프로그래밍 방식으로 JSON 응답을 받는 클라이언트 응용 프로그램에 더 유용합니다.
+    발화의 숫자는 두 번, 즉 한 번은 새로운 `hrf-number` 엔터티로, 그리고 한 번은 미리 작성된 `number` 엔터티로 반환됩니다. 발화에는 이 예제와 같이 둘 이상의 엔터티 및 둘 이상의 동일한 형식의 엔터티가 있을 수 있습니다. LUIS는 정규식 엔터티를 사용하여 명명된 데이터를 추출합니다. 이 데이터는 프로그래밍 방식으로 JSON 응답을 받는 클라이언트 애플리케이션에 더 유용합니다.
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

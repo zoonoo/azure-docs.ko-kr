@@ -136,11 +136,11 @@ Azure Data Factory **복사 마법사**를 사용하면 지원되는 원본 데�
     
     ![복사 도구 - 성능 설정](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
-## <a name="launch-monitor-and-manage-application"></a>응용 프로그램 모니터링 및 관리 시작
+## <a name="launch-monitor-and-manage-application"></a>애플리케이션 모니터링 및 관리 시작
 1. **배포** 페이지에서 `Click here to monitor copy pipeline` 링크를 클릭합니다.
    
    ![복사 도구 - 배포 성공 페이지](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
-2. 모니터링 응용 프로그램이 웹 브라우저의 별도 탭에서 시작됩니다.   
+2. 모니터링 애플리케이션이 웹 브라우저의 별도 탭에서 시작됩니다.   
    
    ![모니터링 앱](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)   
 3. 매시간 조각의 최신 상태를 보려면 아래쪽의 **활동 창** 목록에서 **새로 고침** 단추를 클릭합니다. 파이프라인의 시작 시간과 종료 시간 사이의 5일 동안 5개의 활동 창이 표시됩니다. 목록을 자동으로 새로 고치지 않으므로 [준비] 상태의 모든 활동 창을 표시하려면 [새로 고침] 단추를 몇 번 클릭해야 할 수도 있습니다. 
@@ -150,7 +150,7 @@ Azure Data Factory **복사 마법사**를 사용하면 지원되는 원본 데�
 
     11, 12, 13, 14 및 15에 해당하는 날짜가 녹색으로 표시되어 있습니다. 즉 이러한 날짜에 대해 이미 출력 조각이 매일 생성되었음을 의미합니다. 또한 다이어그램 보기에서도 파이프라인과 출력 데이터 세트에 대한 이러한 색 구분이 표시됩니다. 이전 단계에서 색 구분을 기반으로 하여 두 조각이 이미 생성되었고, 하나의 조각이 현재 처리 중이며, 다른 두 조각이 처리 대기 중임을 알 수 있습니다. 
 
-    이 응용 프로그램을 사용하는 방법에 대한 자세한 내용은 [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 문서를 참조하세요.
+    이 애플리케이션을 사용하는 방법에 대한 자세한 내용은 [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 Azure Blob 저장소를 원본 데이터 저장소로 사용하고 Azure SQL 데이터베이스를 복사 작업의 대상 데이터 저장소로 사용했습니다. 다음 표에서는 복사 활동에서 원본 및 싱크로 지원되는 데이터 저장소의 목록을 제공합니다. 

@@ -1,28 +1,28 @@
 ---
-title: Azure Active Directory B2C에서 기본 제공 정책을 사용하여 Azure Active Directory 계정으로 로그인 설정 | Microsoft Docs
-description: Azure Active Directory B2C의 기본 제공 정책을 사용하여 Azure Active Directory 계정의 로그인을 설정합니다.
+title: Azure Active Directory B2C에서 Azure Active Directory 조직에 대한 로그인 설정 | Microsoft Docs
+description: Azure Active Directory B2C에서 특정 Azure Active Directory 조직에 대한 로그인을 설정합니다.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 86e5381096633e58d7a1a28ac94728136273c685
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c48e4696d572b87a4e1553f9d4a2dc9921361388
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312785"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52719915"
 ---
-# <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 기본 제공 정책을 사용하여 Azure Active Directory 계정의 로그인을 설정합니다.
+# <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 특정 Azure Active Directory 조직에 대한 로그인 설정
 
 >[!NOTE]
 > 이 기능은 공개 미리 보기 상태입니다. 프로덕션 환경에서는 이 기능을 사용하지 마세요.
 
-이 문서에서는 Azure Active Directory(Azure AD) B2C의 기본 제공 정책을 사용하여 특정 Azure Active Directory(Azure AD) 조직에서 사용자에 대해 로그인을 사용하도록 설정하는 방법을 보여 줍니다.
+이 문서에서는 Azure AD(Azure Active Directory) B2C의 사용자 흐름을 사용하여 특정 Azure AD(Azure Active Directory) 조직의 사용자에 대해 로그인을 사용하도록 설정하는 방법을 보여줍니다.
 
 ## <a name="create-an-azure-ad-app"></a>Azure AD 앱 만들기
 
@@ -42,8 +42,8 @@ ms.locfileid: "52312785"
 
     이제 모든 URL은 [b2clogin.com](b2clogin.md)을 사용해야 합니다.
 
-8. **만들기**를 클릭합니다. 나중에 사용할 **응용 프로그램 ID**를 복사합니다.
-9. 응용 프로그램을 선택하고 **설정**을 선택합니다.
+8. **만들기**를 클릭합니다. 나중에 사용할 **애플리케이션 ID**를 복사합니다.
+9. 애플리케이션을 선택하고 **설정**을 선택합니다.
 10. **키**를 선택하고 키 설명을 입력하고 기간을 선택한 다음, **저장**을 클릭합니다. 표시되는 키의 값을 나중에 사용하기 위해 복사합니다.
 
 ## <a name="configure-azure-ad-as-an-identity-provider"></a>테넌트에서 Azure AD를 ID 공급자로 구성

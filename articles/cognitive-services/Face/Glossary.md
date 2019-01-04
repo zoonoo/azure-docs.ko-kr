@@ -280,7 +280,7 @@ PersonGroup ID는 [PersonGroup](#PersonGroup)의 ID로 사용되는 사용자 �
 
 #### <a name="recognition"></a>인식
 
-인식은 [유사 얼굴 찾기](#Find-Similar), [그룹화](#Grouping), [식별](#Identification), [두 얼굴이 같은지 여부 확인](#Verification)과 같이 얼굴 기술에서 인기 있는 응용 분야입니다.
+인식은 [유사 얼굴 찾기](#Find-Similar), [그룹화](#Grouping), [식별](#Identification), [두 얼굴이 같은지 여부 확인](#Verification)과 같이 얼굴 기술에서 인기 있는 애플리케이션 분야입니다.
 
 자세한 내용은 [얼굴 - 유사 얼굴 찾기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [얼굴 - 그룹](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [얼굴 - 식별](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [얼굴 - 확인](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) 가이드를 참조하세요.
 

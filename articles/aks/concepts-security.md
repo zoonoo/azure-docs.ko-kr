@@ -14,11 +14,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/17/2018
 ms.locfileid: "49380698"
 ---
-# <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 응용 프로그램 및 클러스터에 대한 보안 개념
+# <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념
 
-AKS(Azure Kubernetes Service)에서 응용 프로그램 워크로드를 실행하는 경우 고객 데이터를 보호하려면 클러스터의 보안이 주요한 고려 사항입니다. Kubernetes에는 *네트워크 정책* 및 *비밀*과 같은 보안 구성 요소가 포함됩니다. Azure는 네트워크 보안 그룹 및 오케스트레이션된 클러스터 업그레이드와 같은 구성 요소를 추가합니다. 이러한 보안 구성 요소를 결합하여 AKS 클러스터에 최신 OS 보안 업데이트 및 Kubernetes 릴리스가 실행되고 안전한 Pod 트래픽 및 중요한 자격 증명에 액세스할 수 있도록 합니다.
+AKS(Azure Kubernetes Service)에서 애플리케이션 워크로드를 실행하는 경우 고객 데이터를 보호하려면 클러스터의 보안이 주요한 고려 사항입니다. Kubernetes에는 *네트워크 정책* 및 *비밀*과 같은 보안 구성 요소가 포함됩니다. Azure는 네트워크 보안 그룹 및 오케스트레이션된 클러스터 업그레이드와 같은 구성 요소를 추가합니다. 이러한 보안 구성 요소를 결합하여 AKS 클러스터에 최신 OS 보안 업데이트 및 Kubernetes 릴리스가 실행되고 안전한 Pod 트래픽 및 중요한 자격 증명에 액세스할 수 있도록 합니다.
 
-이 문서에서는 AKS에서 응용 프로그램을 보호하는 핵심 개념을 소개합니다.
+이 문서에서는 AKS에서 애플리케이션을 보호하는 핵심 개념을 소개합니다.
 
 - [마스터 구성 요소 보안](#master-security)
 - [노드 보안](#node-security)

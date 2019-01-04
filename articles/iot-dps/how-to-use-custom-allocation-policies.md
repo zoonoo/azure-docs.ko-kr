@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: f2c9194b07774443a70eef8e879d895efeb338e9
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 0229b83a1b19e422954879ea9660373a34b18002
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458194"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340058"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>사용자 지정 할당 정책을 사용하는 방법
 
@@ -98,11 +98,11 @@ ms.locfileid: "49458194"
 
     **그룹 이름**: **contoso-custom-allocated-devices**를 입력합니다.
 
-    **증명 형식**: **대칭 키**를 선택합니다.
+    **증명 유형**: **대칭 키**를 선택합니다.
 
     **키 자동 생성**: 이 확인란은 이미 선택되어 있습니다.
 
-    **허브에 장치를 할당할 방법 선택**: **사용자 지정(Azure 함수 사용)** 을 선택합니다.
+    **허브에 디바이스를 할당할 방법 선택**: **사용자 지정(Azure 함수 사용)** 을 선택합니다.
 
     ![대칭 키 증명에 대한 사용자 지정 할당 등록 그룹 추가](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
@@ -111,9 +111,9 @@ ms.locfileid: "49458194"
 
     두 부서 IoT Hub 모두에 대해 이 단계를 실행해야 합니다.
 
-    **구독**: 여러 구독이 있는 경우 부서 IoT Hub를 만든 구독을 선택합니다.
+    **구독**: 여러 구독이 있는 경우 부서 IoT 허브를 만든 구독을 선택합니다.
 
-    **IoT Hub**: 직접 만든 부서 허브 중 하나를 선택합니다.
+    **IoT 허브**: 직접 만든 부서 허브 중 하나를 선택합니다.
 
     **액세스 정책**: **iothubowner**를 선택합니다.
 
@@ -390,7 +390,7 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
 4. 개발 클라이언트 플랫폼에 관련된 SDK 버전을 빌드하는 다음 명령을 실행합니다. 또한 시뮬레이션된 디바이스에 대한 Visual Studio 솔루션이 `cmake` 디렉터리에서 생성됩니다. 
 
     ```cmd
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
     `cmake`에서 C++ 컴파일러를 찾지 못하면 위의 명령을 실행하는 동안 빌드 오류가 발생할 수 있습니다. 이 경우에는 [Visual Studio 명령 프롬프트](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)에서 이 명령을 실행합니다. 
@@ -398,7 +398,7 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
     빌드가 성공되면 마지막 몇몇 출력 줄은 다음 출력과 유사하게 표시됩니다.
 
     ```cmd/sh
-    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -449,20 +449,24 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
 
 6. **prov\_dev\_client\_sample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다. 
 
+
 #### <a name="simulate-the-contoso-toaster-device"></a>Contoso 토스터 디바이스 시뮬레이트
 
-1. Visual Studio의 *솔루션 탐색기* 창에서 **hsm\_security\_client** 프로젝트로 이동하고 프로젝트를 확장합니다. **원본 파일**을 확장하고 **hsm\_client\_key.c**를 엽니다. 
-
-    `REGISTRATION_NAME` 및 `SYMMETRIC_KEY_VALUE` 상수의 선언을 찾습니다. 파일을 다음과 같이 변경한 후 저장합니다.
-
-    토스터 디바이스 **breakroom499-contoso-tstrsd-007**의 등록 ID를 사용하여 `REGISTRATION_NAME` 상수의 값을 업데이트합니다.
-    
-    토스터 디바이스에 생성한 디바이스 키를 사용하여 `SYMMETRIC_KEY_VALUE` 상수를 값을 업데이트합니다. **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** 값은 예제로만 제공됩니다.
+1. 토스터 디바이스를 시뮬레이션하려면 **prov\_dev\_client\_sample.c**에서 주석으로 처리된 `prov_dev_set_symmetric_key_info()` 호출을 찾습니다.
 
     ```c
-    static const char* const REGISTRATION_NAME = "breakroom499-contoso-tstrsd-007";
-    static const char* const SYMMETRIC_KEY_VALUE = "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
+
+    함수 호출의 주석 처리를 제거하고 자리 표시자 값(꺾쇠 괄호 포함)을 이전에 생성한 토스터 등록 ID 및 파생된 디바이스 키로 바꿉니다. 아래 표시된 키 값 **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** 은 예제로만 제공됩니다.
+
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("breakroom499-contoso-tstrsd-007", "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=");
+    ```
+   
+    파일을 저장합니다.
 
 2. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예**를 클릭하여 실행하기 전에 프로젝트를 다시 빌드합니다.
 
@@ -485,20 +489,16 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
 
 #### <a name="simulate-the-contoso-heat-pump-device"></a>Contoso 열 펌프 디바이스 시뮬레이트
 
-1. Visual Studio의 *솔루션 탐색기* 창으로 돌아가 **hsm\_security\_client** 프로젝트로 이동하고 프로젝트를 확장합니다. **원본 파일**을 확장하고 **hsm\_client\_key.c**를 엽니다. 
-
-    `REGISTRATION_NAME` 및 `SYMMETRIC_KEY_VALUE` 상수의 선언을 찾습니다. 파일을 다음과 같이 변경한 후 저장합니다.
-
-    열 펌프 디바이스 **mainbuilding167-contoso-hpsd-088**의 등록 ID를 사용하여 `REGISTRATION_NAME` 상수의 값을 업데이트합니다.
-    
-    토스터 디바이스에 생성한 디바이스 키를 사용하여 `SYMMETRIC_KEY_VALUE` 상수를 값을 업데이트합니다. **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=** 값은 예제로만 제공됩니다.
+1. 열 펌프 디바이스를 시뮬레이션하려면 다시 **prov\_dev\_client\_sample.c**의 `prov_dev_set_symmetric_key_info()` 호출을 이전에 생성한 열 펌프 등록 ID 및 파생된 디바이스 키로 업데이트합니다. 아래 표시된 키 값 **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg**도 예제로만 제공됩니다.
 
     ```c
-    static const char* const REGISTRATION_NAME = "mainbuilding167-contoso-hpsd-088";
-    static const char* const SYMMETRIC_KEY_VALUE = "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=";
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("mainbuilding167-contoso-hpsd-088", "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=");
     ```
+   
+    파일을 저장합니다.
 
-7. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예**를 클릭하여 실행하기 전에 프로젝트를 다시 빌드합니다.
+2. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예**를 클릭하여 실행하기 전에 프로젝트를 다시 빌드합니다.
 
     다음 출력은 시뮬레이트된 열 펌프 디바이스를 성공적으로 부팅하고, 사용자 지정 정책을 통해 Contoso 열 펌프 IoT Hub에 할당할 Provisioning Service 인스턴스에 연결하는 예제입니다.
 
@@ -517,8 +517,6 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
     ```
 
 
-
-
 ## <a name="troubleshooting-custom-allocation-policies"></a>사용자 지정 할당 정책 문제 해결
 
 다음 표는 예상 시나리오와 발생할 수 있는 결과 오류 코드를 보여 줍니다. 이 표를 사용하여 Azure Functions와 관련된 사용자 지정 할당 정책 오류를 해결할 수 있습니다.
@@ -530,7 +528,7 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
 | 웹후크가 ‘iotHubHostName’이 응답에 있고 빈 문자열이나 Null로 설정된 200 OK을 반환함 | 결과 상태: 실패<br><br> 오류 코드: CustomAllocationIotHubNotSpecified(400208) | SDK가 PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED를 반환함 |
 | 웹후크가 401 권한 없음을 반환함 | 결과 상태: 실패<br><br>오류 코드: CustomAllocationUnauthorizedAccess(400209) | SDK가 PROV_DEVICE_RESULT_UNAUTHORIZED를 반환함 |
 | 디바이스를 사용하지 않도록 설정하기 위한 개별 등록이 생성됨 | 결과 상태: 사용 안 함 | SDK가 PROV_DEVICE_RESULT_DISABLED를 반환함 |
-| 웹후크가 오류 코드 >= 429를 반환함 | DPS의 오케스트레이션이 여러 번 재시도함 현재 재시도 정책:<br><br>&nbsp;&nbsp;- 재시도 횟수: 10<br>&nbsp;&nbsp;- 초기 간격: 1초<br>&nbsp;&nbsp;- 증분: 9초 | SDK가 오류를 무시하고 지정된 시간에 다른 상태 가져오기 메시지를 제출함 |
+| 웹후크가 오류 코드 >= 429를 반환함 | DPS의 오케스트레이션이 여러 번 재시도함 현재 재시도 정책:<br><br>&nbsp;&nbsp;- 다시 시도 횟수: 10<br>&nbsp;&nbsp;- 초기 간격: 1초<br>&nbsp;&nbsp;- 증분: 9초 | SDK가 오류를 무시하고 지정된 시간에 다른 상태 가져오기 메시지를 제출함 |
 | 웹후크가 다른 모든 상태 코드를 반환함 | 결과 상태: 실패<br><br>오류 코드: CustomAllocationFailed(400207) | SDK가 PROV_DEVICE_RESULT_DEV_AUTH_ERROR를 반환함 |
 
 

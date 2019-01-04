@@ -73,7 +73,7 @@ az vmss create \
 ```
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Application Gateway를 참조하는 확장 집합 만들기
-응용 프로그램 게이트웨이를 사용하는 확장 집합을 만들려면 이 ARM 템플릿 구성과 같이 설정된 확장의 ipConfigurations 섹션에서 응용 프로그램 게이트웨이의 백 엔드 주소 풀을 참조합니다.
+애플리케이션 게이트웨이를 사용하는 확장 집합을 만들려면 이 ARM 템플릿 구성과 같이 설정된 확장의 ipConfigurations 섹션에서 애플리케이션 게이트웨이의 백 엔드 주소 풀을 참조합니다.
 ```json
 "ipConfigurations": [{
   "name": "{config-name}",
@@ -88,7 +88,7 @@ az vmss create \
 ```
 
 >[!NOTE]
-> 응용 프로그램 게이트웨이는 확장 집합과 동일한 가상 네트워크에 있어야 하지만 확장 집합과 다른 서브넷에 있어야 합니다.
+> 애플리케이션 게이트웨이는 확장 집합과 동일한 가상 네트워크에 있어야 하지만 확장 집합과 다른 서브넷에 있어야 합니다.
 
 
 ## <a name="configurable-dns-settings"></a>구성 가능한 DNS 설정
@@ -321,7 +321,7 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
 
 네트워크 보안 그룹은 확장 집합 가상 머신 속성의 네트워크 인터페이스 구성 섹션에 참조를 추가하여 확장 집합에 직접 적용할 수 있습니다.
 
-응용 프로그램 보안 그룹도 확장 집합 가상 머신 속성의 네트워크 인터페이스 구성 섹션에 참조를 추가하여 확장 집합에 직접 지정할 수 있습니다.
+애플리케이션 보안 그룹도 확장 집합 가상 머신 속성의 네트워크 인터페이스 구성 섹션에 참조를 추가하여 확장 집합에 직접 지정할 수 있습니다.
 
 예:  
 ```json
@@ -381,7 +381,7 @@ az vmss show \
 ]
 ```
 
-응용 프로그램 보안 그룹이 확장 집합과 연결되었는지 확인하려면 `az vmss show` 명령을 사용합니다. 아래 예제에서는 `--query`를 사용하여 결과를 필터링하고 출력의 관련 섹션만 표시합니다.
+애플리케이션 보안 그룹이 확장 집합과 연결되었는지 확인하려면 `az vmss show` 명령을 사용합니다. 아래 예제에서는 `--query`를 사용하여 결과를 필터링하고 출력의 관련 섹션만 표시합니다.
 
 ```bash
 az vmss show \

@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: d3340131c1f174201cc9fd1dcb31bd4a4b8cd07a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: a4a6dac4ca42f98bd03da022aaed79db094a9ed6
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854087"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413288"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>빠른 시작: Vision SDK 및 C#을 사용하여 썸네일 생성
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>빠른 시작: Computer Vision SDK 및 C#을 사용하여 썸네일 생성
 
 이 빠른 시작에서는 Computer Vision Windows 클라이언트 라이브러리를 사용하여 이미지의 썸네일을 생성합니다.
 
@@ -30,9 +30,9 @@ ms.locfileid: "51854087"
 ## <a name="generatethumbnailasync-method"></a>GenerateThumbnailAsync 메서드
 
 > [!TIP]
-> [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)에서 최신 코드를 Visual Studio 솔루션으로 가져옵니다.
+> [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)에서 최신 코드를 Visual Studio 솔루션으로 가져옵니다.
 
-`GenerateThumbnailAsync` 및 `GenerateThumbnailInStreamAsync` 메서드는 원격 및 로컬 이미지 각각에 대해 [썸네일 API 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb)를 래핑합니다.  이러한 메서드를 사용하여 이미지의 썸네일을 생성할 수 있습니다. 입력 이미지의 가로 세로 비율과 다를 수 있는 높이와 너비를 지정합니다. Computer Vision은 스마트 자르기를 사용하여 관심 영역을 지능적으로 식별하고 해당 영역을 기반으로 자르기 좌표를 생성합니다.
+`GenerateThumbnailAsync` 및 `GenerateThumbnailInStreamAsync` 메서드는 원격 및 로컬 이미지 각각에 대해 [썸네일 API 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb)를 래핑합니다.  이러한 메서드를 사용하여 이미지의 썸네일을 생성할 수 있습니다. 높이와 너비를 지정합니다. 입력 이미지의 가로 세로 비율과 다를 수 있습니다. Computer Vision은 스마트 자르기를 사용하여 관심 영역을 지능적으로 식별하고 해당 영역을 기반으로 자르기 좌표를 생성합니다.
 
 샘플을 실행하려면 다음 단계를 수행합니다.
 

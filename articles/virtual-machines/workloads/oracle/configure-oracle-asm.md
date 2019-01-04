@@ -402,7 +402,7 @@ Oracle Grid Infrastructure 소프트웨어를 다운로드 및 준비하려면 �
 ## <a name="prepare-your-local-client-and-vm-to-run-x11"></a>로컬 클라이언트와 VM에서 X11 실행 준비
 Oracle ASM를 구성하려면 설치 및 구성을 완료할 그래픽 인터페이스가 필요합니다. X11 프로토콜을 사용하여 이 설치를 용이하게 합니다. X11 기능을 사용하도록 설정하고 구성한 클라이언트 시스템(Mac 또는 Linux)을 사용하는 경우 Windows 컴퓨터에만 독점적인 이 구성 및 설정을 건너뛰어도 됩니다. 
 
-1. Windows 컴퓨터에 [PuTTY를 다운로드](http://www.putty.org/)하고 [Xming](https://xming.en.softonic.com/)을 다운로드합니다. 계속하기 전에 기본 값으로 이러한 응용 프로그램의 설치를 완료해야 합니다.
+1. Windows 컴퓨터에 [PuTTY를 다운로드](http://www.putty.org/)하고 [Xming](https://xming.en.softonic.com/)을 다운로드합니다. 계속하기 전에 기본 값으로 이러한 애플리케이션의 설치를 완료해야 합니다.
 
 2. PuTTY를 설치한 후에 명령 프롬프트를 열고, PuTTY 폴더(예: C:\Program Files\PuTTY)로 변경하고 키를 생성하기 위해 `puttygen.exe`를 실행합니다.
 

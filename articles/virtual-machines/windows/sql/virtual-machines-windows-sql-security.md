@@ -34,7 +34,7 @@ Azure는 가상 머신에서 실행되는 SQL Server로 호환되는 솔루션�
 
 SQL Server 가상 컴퓨터를 만들 때는 컴퓨터 및 SQL Server에 대한 액세스 권한을 갖는 사용자를 신중하게 제어하는 방법을 고려합니다. 일반적으로 다음과 같이 해야 합니다.
 
-- SQL Server에 대한 액세스 권한을 이러한 권한이 필요한 응용 프로그램 및 클라이언트로만 제한합니다.
+- SQL Server에 대한 액세스 권한을 이러한 권한이 필요한 애플리케이션 및 클라이언트로만 제한합니다.
 - 사용자 계정 및 암호를 관리하는 모범 사례를 따릅니다.
 
 다음 섹션에서는 이러한 내용을 충분히 생각해 보도록 제안 사항을 제공합니다.
@@ -45,7 +45,7 @@ SQL Server 가상 컴퓨터를 만들 때는 컴퓨터 및 SQL Server에 대한 
 
 ![SQL Server 연결](./media/virtual-machines-windows-sql-security/sql-vm-connectivity-option.png)
 
-최상의 보안을 위해 해당 시나리오에 대해 가장 제한적인 옵션을 선택합니다. 예를 들어 같은 VM에 있는 SQL Server에 액세스하는 응용 프로그램을 실행 중인 경우 **로컬**이 가장 안전한 선택 사항입니다. SQL Server에 액세스해야 하는 Azure 응용 프로그램을 실행 중인 경우 **개인**은 지정된 [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md) 내에 있는 SQL Server로의 통신만 보호합니다. SQL Server VM에 대한 **공용**(인터넷) 액세스가 필요한 경우 이 항목의 모범 사례를 따라 공격 노출 영역을 줄이도록 합니다.
+최상의 보안을 위해 해당 시나리오에 대해 가장 제한적인 옵션을 선택합니다. 예를 들어 같은 VM에 있는 SQL Server에 액세스하는 애플리케이션을 실행 중인 경우 **로컬**이 가장 안전한 선택 사항입니다. SQL Server에 액세스해야 하는 Azure 애플리케이션을 실행 중인 경우 **개인**은 지정된 [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md) 내에 있는 SQL Server로의 통신만 보호합니다. SQL Server VM에 대한 **공용**(인터넷) 액세스가 필요한 경우 이 항목의 모범 사례를 따라 공격 노출 영역을 줄이도록 합니다.
 
 포털에서 선택한 옵션은 VM NSG([네트워크 보안 그룹 ](../../../virtual-network/security-overview.md))에 대해 인바운드 보안 규칙을 사용하여 가상 머신에 대한 네트워크 트래픽을 허용하거나 거부합니다. SQL Server 포트(기본값 1433)에 대한 트래픽을 허용하도록 인바운드 NSG 규칙을 수정하거나 새 인바운드 NSG 규칙을 만들 수 있습니다. 이 포트를 통해 통신할 수 있는 특정 IP 주소를 지정할 수도 있습니다.
 

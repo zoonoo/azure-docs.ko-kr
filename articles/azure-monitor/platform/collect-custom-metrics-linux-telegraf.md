@@ -17,7 +17,7 @@ ms.locfileid: "53325453"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집
 
-Azure Monitor를 사용하면 응용 프로그램 원격 분석, Azure 리소스에서 실행되는 에이전트 또는 외부 모니터링 시스템을 통해서도 사용자 지정 메트릭을 수집할 수 있습니다. 그런 다음, Azure Monitor로 바로 전송할 수 있습니다. 이 문서에서는 Azure의 Linux VM에 [InfluxData](https://www.influxdata.com/) Telegraf 에이전트를 배포하고 메트릭을 Azure Monitor에 게시하도록 에이전트를 구성하는 방법에 대한 지침을 제공합니다. 
+Azure Monitor를 사용하면 애플리케이션 원격 분석, Azure 리소스에서 실행되는 에이전트 또는 외부 모니터링 시스템을 통해서도 사용자 지정 메트릭을 수집할 수 있습니다. 그런 다음, Azure Monitor로 바로 전송할 수 있습니다. 이 문서에서는 Azure의 Linux VM에 [InfluxData](https://www.influxdata.com/) Telegraf 에이전트를 배포하고 메트릭을 Azure Monitor에 게시하도록 에이전트를 구성하는 방법에 대한 지침을 제공합니다. 
 
 ## <a name="influxdata-telegraf-agent"></a>InfluxData Telegraf 에이전트 
 

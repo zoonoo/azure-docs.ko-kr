@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2a9646ad2daed5ebc224d6d0b97f1f42c7da101e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 14453a1603eb414441008ef1381800009f4268e4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49425855"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994403"
 ---
 # <a name="connect-with-excel"></a>Excel로 연결
 
@@ -33,7 +33,7 @@ Excel 2016에서 Get Data를 사용하여 Excel에서 서버에 연결합니다.
 2. 데이터 연결 마법사에서 **서버 이름**에 프로토콜 및 URI를 포함하여 서버 이름을 입력합니다. 예를 들어 asazure://westcentralus.asazure.windows.net/advworks 같이 입력합니다. 그런 다음 **로그온 자격 증명**에서 **다음 사용자 이름 및 암호 사용**을 선택하고 조직 사용자 이름(예: nancy@adventureworks.com 및 암호)을 입력합니다.
 
     > [!IMPORTANT]
-    > Microsoft 계정, Live ID, Yahoo, Gmail 등을 사용하여 로그인하거나 다단계 인증을 사용하여 로그인해야 하는 경우 암호 필드를 비워 둡니다. 다음을 클릭하면 암호를 묻는 메시지가 표시됩니다. 
+    > Microsoft 계정, Live ID, Yahoo, Gmail 등을 사용하여 로그인하려고 하거나 다단계 인증을 사용하여 로그인해야 하는 경우 암호 필드를 비워 둡니다. 다음을 클릭하면 암호를 묻는 메시지가 표시됩니다. 
 
     ![Excel 로그온에서 연결](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 

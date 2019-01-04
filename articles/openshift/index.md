@@ -22,7 +22,7 @@ ms.locfileid: "52995467"
     <h1>Azure의 OpenShift</h1>
     <div class="introHolder" style="justify-content: space-between;">
         <div class="intro" style="min-width: 200px">
-OpenShift Origin은 Kubernetes을 기반으로 한 오픈 소스 컨테이너 플랫폼으로, 다중 테넌트 응용 프로그램의 배포, 확장 및 운영 프로세스를 간소화합니다.  Microsoft와 OpenShift의 빠른 시작 및 자습서를 사용하여 OpenShift 솔루션을 배포하고 구성하는 방법을 알아보세요. 
+OpenShift Origin은 Kubernetes을 기반으로 한 오픈 소스 컨테이너 플랫폼으로, 다중 테넌트 애플리케이션의 배포, 확장 및 운영 프로세스를 간소화합니다.  Microsoft와 OpenShift의 빠른 시작 및 자습서를 사용하여 OpenShift 솔루션을 배포하고 구성하는 방법을 알아보세요. 
         </div>
     </div>
 <h2>5분 빠른 시작</h2>

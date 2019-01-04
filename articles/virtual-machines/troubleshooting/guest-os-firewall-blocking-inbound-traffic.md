@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 3ddd2f122de832654be295c5978a88bec702558c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 19ba7013b461917c4aea8ae96f689d7e39859652
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319022"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134440"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Azure VM 게스트 OS 방화벽이 인바운드 트래픽 차단
 
@@ -31,17 +31,17 @@ RDP 연결을 사용하여 Azure VM(가상 머신)에 연결할 수 없습니다
 
 ## <a name="cause"></a>원인
 
-### <a name="cause-1"></a>원인 1 
+### <a name="cause-1"></a>원인 1
 
 RDP 트래픽을 허용하도록 RDP 규칙이 설정되지 않았습니다.
 
-### <a name="cause-2"></a>원인 2 
+### <a name="cause-2"></a>원인 2
 
 RDP 트래픽을 포함한 모든 인바운드 연결을 차단하도록 게스트 시스템 방화벽 프로필이 설정되었습니다.
 
 ![방화벽 설정](./media/guest-os-firewall-blocking-inbound-traffic/firewall-advanced-setting.png)
 
-## <a name="solution"></a>해결 방법 
+## <a name="solution"></a>해결 방법
 
 다음 단계를 따르기 전에 영향을 받는 VM의 시스템 디스크 스냅숏을 백업으로 만듭니다. 자세한 내용은  [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 
@@ -49,7 +49,7 @@ RDP 트래픽을 포함한 모든 인바운드 연결을 차단하도록 게스�
 
 ### <a name="online-troubleshooting"></a>온라인 문제 해결
 
-[직렬 콘솔에 연결한 다음, PowerShell 인스턴스를 엽니다](serial-console-windows.md#open-cmd-or-powershell-in-serial-console). VM에서 직렬 콘솔이 비활성화된 경우 [오프라인으로 VM 복구](troubleshoot-rdp-internal-error.md#repair-the-vm-offline)로 이동합니다.
+[직렬 콘솔에 연결한 다음, PowerShell 인스턴스를 엽니다](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). VM에서 직렬 콘솔이 비활성화된 경우 [오프라인으로 VM 복구](troubleshoot-rdp-internal-error.md#repair-the-vm-offline)로 이동합니다.
 
 #### <a name="mitigation-1"></a>해결 방법 1
 
@@ -80,7 +80,7 @@ RDP 트래픽을 포함한 모든 인바운드 연결을 차단하도록 게스�
     ```cmd
     netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
     ```
-    
+
     그렇지 않고 특정 원격 데스크톱(TCP-In) 규칙을 열려면 다음 명령을 실행합니다.
 
     ```cmd
@@ -94,7 +94,7 @@ RDP 트래픽을 포함한 모든 인바운드 연결을 차단하도록 게스�
     ```
 
     문제를 해결하고 방화벽을 올바르게 설정한 후에는 방화벽을 다시 사용하도록 설정합니다.
-    
+
     > [!Note]
     > 이러한 변경 내용을 적용하기 위해 VM을 다시 시작할 필요는 없습니다.
 
@@ -128,11 +128,11 @@ RDP 트래픽을 포함한 모든 인바운드 연결을 차단하도록 게스�
     ```
 
     > [!Note]
-    > 변경 내용을 적용하기 위해 VM을 다시 시작할 필요는 없습니다. 
+    > 변경 내용을 적용하기 위해 VM을 다시 시작할 필요는 없습니다.
 
 4.  RDP를 통해 VM에 다시 액세스합니다.
 
-### <a name="offline-mitigations"></a>오프라인 해결 방법 
+### <a name="offline-mitigations"></a>오프라인 해결 방법
 
 1.  [복구 VM에 시스템 디스크 연결](troubleshoot-recovery-disks-portal-windows.md).
 
@@ -159,7 +159,7 @@ RDP 트래픽을 포함한 모든 인바운드 연결을 차단하도록 게스�
     robocopy f:\windows\system32\config f:\windows\system32\config.BACK /MT
 
     REM Mount the hive
-    reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM 
+    reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM
 
     REM Delete the keys to block all inbound connection scenario
     REG DELETE "HKLM\BROKENSYSTEM\ControlSet001\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile" /v DoNotAllowExceptions

@@ -37,7 +37,7 @@ ms.locfileid: "53388454"
 | durationMS | 옵션 | 밀리초 단위의 작업 기간입니다. |
 | callerIpAddress | 옵션 | 작업이 공개적으로 사용 가능한 IP 주소가 있는 엔터티에서 시작된 API 호출에 해당하는 경우, 호출자 IP 주소입니다. |
 | CorrelationId | 옵션 | 관련 이벤트 집합을 그룹화하는 데 사용되는 GUID입니다. 일반적으로, 두 이벤트의 operationName이 같고 상태가 다른(예: “시작됨” 및 “성공”) 경우, 동일한 상관 관계 ID를 공유합니다. 이벤트 간의 다른 관계를 나타낼 수도 있습니다. |
-| ID | 옵션 | 작업을 수행한 사용자 또는 응용 프로그램의 ID를 설명하는 JSON Blob입니다. 일반적으로 활성 디렉터리의 클레임/JWT 토큰 및 권한 부여가 포함됩니다. |
+| ID | 옵션 | 작업을 수행한 사용자 또는 애플리케이션의 ID를 설명하는 JSON Blob입니다. 일반적으로 활성 디렉터리의 클레임/JWT 토큰 및 권한 부여가 포함됩니다. |
 | Level | 옵션 | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
 | location | 옵션 | 이벤트를 내보내는 리소스의 지역입니다(예: “미국 동부” 또는 “프랑스 남부”). |
 | properties | 옵션 | 이 특정 범주의 이벤트와 관련된 확장 속성입니다. 모든 사용자 지정/고유 속성은 스키마의 “파트 B”에 넣어야 합니다. |
@@ -152,9 +152,9 @@ ms.locfileid: "53388454"
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway 액세스 로그|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway 성능 로그|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway 방화벽 로그|
-|Microsoft.Network/securegateways|AzureFirewallApplicationRule|Azure Firewall 응용 프로그램 규칙|
+|Microsoft.Network/securegateways|AzureFirewallApplicationRule|Azure Firewall 애플리케이션 규칙|
 |Microsoft.Network/securegateways|AzureFirewallNetworkRule|Azure Firewall 네트워크 규칙|
-|Microsoft.Network/azurefirewalls|AzureFirewallApplicationRule|Azure Firewall 응용 프로그램 규칙|
+|Microsoft.Network/azurefirewalls|AzureFirewallApplicationRule|Azure Firewall 애플리케이션 규칙|
 |Microsoft.Network/azurefirewalls|AzureFirewallNetworkRule|Azure Firewall 네트워크 규칙|
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|게이트웨이 진단 로그|
 |Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|터널 진단 로그|

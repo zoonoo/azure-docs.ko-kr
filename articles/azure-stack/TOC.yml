@@ -9,14 +9,14 @@ items:
     items:
     - name: 최근 업데이트
       href: azure-stack-servicing-policy.md#update-package-release-cadence
+    - name: 1811 업데이트
+      href: azure-stack-update-1811.md
     - name: 1809 업데이트
       href: azure-stack-update-1809.md
     - name: 1808 업데이트
       href: azure-stack-update-1808.md
     - name: 1807 업데이트
       href: azure-stack-update-1807.md
-    - name: 1805 업데이트
-      href: azure-stack-update-1805.md
 - name: 빠른 시작
   items:
   - name: Azure Stack 평가
@@ -46,6 +46,7 @@ items:
     - name: Azure Stack Capacity Planner
       href: capacity-planning-spreadsheet.md
   - name: 데이터 센터 통합
+    href: azure-stack-customer-journey.md
     items:
     - name: 일반 Azure Stack 통합 고려 사항
       href: azure-stack-datacenter-integration.md
@@ -208,6 +209,8 @@ items:
         href: Azure-stack-create-service-principals.md
       - name: 다중 테넌트 사용
         href: azure-stack-enable-multitenancy.md
+    - name: 암호화 미사용 데이터
+      href: azure-stack-security-bitlocker.md
     - name: 암호를 회전 합니다.
       href: azure-stack-rotate-secrets.md
     - name: 바이러스 백신 업데이트
@@ -356,7 +359,7 @@ items:
       href: azure-stack-backup-enable-backup-powershell.md
     - name: Azure Stack 백업
       href: azure-stack-backup-back-up-azure-stack.md
-    - name: Azure Stack의 파일 및 응용 프로그램 백업
+    - name: Azure Stack의 파일 및 애플리케이션 백업
       href: ../backup/backup-mabs-files-applications-azure-stack.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
     - name: Azure에 Azure Stack VM 복제
       href: ../site-recovery/azure-stack-site-recovery.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
@@ -398,9 +401,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: 교육 및 인증
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 032235db8278fca319fe43e100570d0ff165294b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3d24dc847d6ca1e842cd86ff9192d43f9006d53d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079571"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723266"

@@ -100,7 +100,7 @@ Traffic Manager 엔드포인트에는 세 가지 종류가 있습니다.
 
 1. **Azure 엔드포인트** 는 Azure에서 호스팅되는 서비스입니다.
 2. **외부 엔드포인트**는 Azure 외부에서 호스트되는 서비스입니다.
-3. **중첩 엔드포인트**는 Traffic Manager 프로필의 중첩된 계층을 구성하는 데 사용됩니다. 중첩 엔드포인트는 복잡한 응용 프로그램에 대한 고급 트래픽 라우팅 구성을 사용하도록 설정합니다.
+3. **중첩 엔드포인트**는 Traffic Manager 프로필의 중첩된 계층을 구성하는 데 사용됩니다. 중첩 엔드포인트는 복잡한 애플리케이션에 대한 고급 트래픽 라우팅 구성을 사용하도록 설정합니다.
 
 세 가지 경우 모두, 엔드포인트는 두 가지 방법으로 추가될 수 있습니다.
 
@@ -173,7 +173,7 @@ New-AzureRmTrafficManagerEndpoint -Name eu-endpoint -ProfileName MyProfile -Reso
 
 ## <a name="adding-nested-endpoints"></a>'중첩' 엔드포인트 추가
 
-각 Traffic Manager 프로필은 단일 트래픽 라우팅 방법을 지정합니다. 그러나 단일 Traffic Manager 프로필에서 제공하는 것보다 더 정교한 트래픽 라우팅을 요구하는 시나리오가 있습니다. 둘 이상의 트래픽 라우팅 메서드의 장점을 결합하기 위해 Traffic Manager 프로필을 중첩할 수 있습니다. 중첩된 프로필을 사용하여 더 크고 복잡한 응용 프로그램 배포를 지원하기 위해 기본 Traffic Manager 동작을 재정의할 수 있습니다. 자세한 예시는 [중첩 Traffic Manager 프로필](traffic-manager-nested-profiles.md)을 참조하세요.
+각 Traffic Manager 프로필은 단일 트래픽 라우팅 방법을 지정합니다. 그러나 단일 Traffic Manager 프로필에서 제공하는 것보다 더 정교한 트래픽 라우팅을 요구하는 시나리오가 있습니다. 둘 이상의 트래픽 라우팅 메서드의 장점을 결합하기 위해 Traffic Manager 프로필을 중첩할 수 있습니다. 중첩된 프로필을 사용하여 더 크고 복잡한 애플리케이션 배포를 지원하기 위해 기본 Traffic Manager 동작을 재정의할 수 있습니다. 자세한 예시는 [중첩 Traffic Manager 프로필](traffic-manager-nested-profiles.md)을 참조하세요.
 
 중첩 엔드포인트는 특정 엔드포인트 유형인 'NestedEndpoints'를 사용하여 부모 프로필에서 구성됩니다. 중첩된 외부 엔드포인트를 지정하는 경우: 지정하는 경우:
 

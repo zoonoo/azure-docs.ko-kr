@@ -9,7 +9,7 @@ documentType: LandingData
 title: Azure IoT Central 설명서
 metadata:
   title: Azure IoT Central 설명서 - 자습서, API 참조 | Microsoft Docs
-  description: Azure IoT Central은 대규모 IoT 자산의 연결, 모니터링 및 관리를 도와주는, 완전히 관리되는 SaaS(Software-as-a-Service) 솔루션입니다. Azure IoT Central은 IoT 솔루션의 초기 설정을 단순화하고 일반적인 IoT 프로젝트의 관리 부담, 운영 비용 및 오버헤드를 줄입니다. 빠른 시작 및 자습서를 사용하여 Azure IoT Central 응용 프로그램을 생성, 사용자 정의, 관리 및 사용하는 방법에 대해 알아보세요.
+  description: Azure IoT Central은 대규모 IoT 자산의 연결, 모니터링 및 관리를 도와주는, 완전히 관리되는 SaaS(Software-as-a-Service) 솔루션입니다. Azure IoT Central은 IoT 솔루션의 초기 설정을 단순화하고 일반적인 IoT 프로젝트의 관리 부담, 운영 비용 및 오버헤드를 줄입니다. 빠른 시작 및 자습서를 사용하여 Azure IoT Central 애플리케이션을 생성, 사용자 정의, 관리 및 사용하는 방법에 대해 알아보세요.
   author: dominicbetts
   ms.topic: landing-page
   ms.date: 11/08/2017
@@ -18,12 +18,12 @@ metadata:
   services: iot-central
   manager: timlt
 abstract:
-  description: Azure IoT Central은 대규모 IoT 자산의 연결, 모니터링 및 관리를 도와주는, 완전히 관리되는 SaaS(Software-as-a-Service) 솔루션입니다. Azure IoT Central은 IoT 솔루션의 초기 설정을 단순화하고 일반적인 IoT 프로젝트의 관리 부담, 운영 비용 및 오버헤드를 줄입니다. 빠른 시작 및 자습서를 사용하여 Azure IoT Central 응용 프로그램을 생성, 사용자 정의, 관리 및 사용하는 방법에 대해 알아보세요.
+  description: Azure IoT Central은 대규모 IoT 자산의 연결, 모니터링 및 관리를 도와주는, 완전히 관리되는 SaaS(Software-as-a-Service) 솔루션입니다. Azure IoT Central은 IoT 솔루션의 초기 설정을 단순화하고 일반적인 IoT 프로젝트의 관리 부담, 운영 비용 및 오버헤드를 줄입니다. 빠른 시작 및 자습서를 사용하여 Azure IoT Central 애플리케이션을 생성, 사용자 정의, 관리 및 사용하는 방법에 대해 알아보세요.
 sections:
 - title: 기능 경고
   items:
   - type: paragraph
-    text: Azure IoT Central은 모든 디바이스 연결에 대해 Azure IoT Hub DPS(Device Provisioning 서비스)를 사용하도록 전환되었습니다. DPS SDK를 사용하여 Azure IoT Central 애플리케이션에 디바이스를 등록하고 연결해야 합니다. <a href="https://docs.microsoft.com/azure/iot-central/concepts-connectivity">Azure IoT Central의 장치 연결에 대해 알아봅니다.</a> 연속 데이터 내보내기 기능 및/또는 Power BI 솔루션 템플릿을 사용하는 모든 응용 프로그램은 대상 저장소 컨테이너를 변경하고 새 솔루션 템플릿을 만들어야 합니다.
+    text: Azure IoT Central은 모든 디바이스 연결에 대해 Azure IoT Hub DPS(Device Provisioning 서비스)를 사용하도록 전환되었습니다. DPS SDK를 사용하여 Azure IoT Central 애플리케이션에 디바이스를 등록하고 연결해야 합니다. <a href="https://docs.microsoft.com/azure/iot-central/concepts-connectivity">Azure IoT Central의 장치 연결에 대해 알아봅니다.</a> 연속 데이터 내보내기 기능 및/또는 Power BI 솔루션 템플릿을 사용하는 모든 애플리케이션은 대상 저장소 컨테이너를 변경하고 새 솔루션 템플릿을 만들어야 합니다.
 - title: 5분 빠른 시작
   items:
   - type: paragraph
@@ -31,7 +31,7 @@ sections:
 - title: 단계별 자습서
   items:
   - type: paragraph
-    text: Azure IoT Central 응용 프로그램을 사용자 지정하여 사용하는 방법에 대해 알아보세요.
+    text: Azure IoT Central 애플리케이션을 사용자 지정하여 사용하는 방법에 대해 알아보세요.
   - type: list
     style: ordered
     items:

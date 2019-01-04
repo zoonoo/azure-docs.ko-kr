@@ -21,7 +21,7 @@ ms.locfileid: "53271048"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>SQL Database에 대한 성능 권장 사항
 
-Azure SQL Database는 응용 프로그램과 함께 학습하고 조정됩니다. 또한 SQL 데이터베이스의 성능을 최대화할 수 있는 사용자 지정 권장 사항을 제공합니다. SQL Database는 SQL 데이터베이스의 사용 기록을 지속적으로 평가하고 분석합니다. 제공되는 권장 사항은 데이터베이스 고유 워크로드 패턴을 기반으로 하며 성능 향상에 도움이 됩니다.
+Azure SQL Database는 애플리케이션과 함께 학습하고 조정됩니다. 또한 SQL 데이터베이스의 성능을 최대화할 수 있는 사용자 지정 권장 사항을 제공합니다. SQL Database는 SQL 데이터베이스의 사용 기록을 지속적으로 평가하고 분석합니다. 제공되는 권장 사항은 데이터베이스 고유 워크로드 패턴을 기반으로 하며 성능 향상에 도움이 됩니다.
 
 > [!TIP]
 > [자동 조정](sql-database-automatic-tuning.md)은 권장되는 성능 조정 방법입니다. [Intelligent Insights](sql-database-intelligent-insights.md)는 권장되는 성능 모니터링 방법입니다. 

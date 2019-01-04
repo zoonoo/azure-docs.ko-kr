@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 12/28/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 58dfb3f02b338d62fcfb10e4d8c1bc492cdacbda
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b036f0b1c38222b6bb3ebee1a3fab0d1613260f7
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890554"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811021"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
@@ -300,15 +300,15 @@ Get-AzsActivationKey에서 만든 정품 인증 키에서 파일 또는 텍스�
 
 ## <a name="verify-azure-stack-registration"></a>Azure Stack 등록 확인
 
-이러한 단계를 사용 하 여 Azure를 사용 하 여 Azure Stack이 성공적으로 등록 되었는지 확인 합니다.
+사용할 수는 **지역 관리** 타일 Azure Stack 등록에 성공 했음을 확인 합니다. 이 타일은 관리자 포털에서 기본 대시보드에서 사용할 수 있습니다. 상태는 등록 또는 등록 되지 않은 수 있습니다. 등록 하는 경우 또한 보여줍니다 Azure 구독 ID를 하는 데 등록 리소스 그룹 및 이름과 함께 Azure Stack에 등록.
 
-1. Azure Stack에 로그인 [관리 포털](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;지역 >. &lt;fqdn >* 합니다.
-2. 선택 **모든 서비스**를 선택한 다음는 **관리** 범주를 선택한 **Marketplace 관리** > **Azure에서추가**.
+1. 에 로그인 합니다 [Azure Stack 관리 포털](https://adminportal.local.azurestack.external)합니다.
 
-(예: WordPress)는 Azure에서 사용할 수 있는 항목의 목록을 표시를 활성화가 했습니다. 그러나 연결이 끊어진된 환경에서 표시 되지 않습니다 Azure Stack marketplace에서 Azure marketplace 항목.
+2. 대시보드에서 선택 **하위 지역 관리**합니다.
 
-> [!Note]  
-> 등록이 완료 되 면 등록 하지 활성 경고가 더 이상 표시 됩니다.
+    [ ![지역 관리 타일](media/azure-stack-registration/admin1sm.png "지역 관리 타일") ](media/azure-stack-registration/admin1.png#lightbox)
+
+3. **속성**을 선택합니다. 이 블레이드는 상태 및 사용자 환경의 세부 정보를 보여 줍니다. 상태 수 있습니다 **Registered** 또는 **등록 되지 않은**합니다. 등록 하는 경우 또한 보여줍니다 Azure 구독 ID를 사용 하 여 Azure Stack에 등록 리소스 그룹 및 이름과 함께 등록를.
 
 ## <a name="renew-or-change-registration"></a>갱신 또는 등록 변경
 
@@ -427,16 +427,16 @@ Cmdlet을 실행 하려면 다음을 수행 해야 합니다.
     <String>] [<CommonParameters>]
    ```
 
-| 매개 변수 | type | 설명 |
+| 매개 변수 | 형식 | 설명 |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | 에 사용 된 자격 증명 [끝점에 권한 있는 액세스](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)합니다. 형식의 사용자 이름이 **AzureStackDomain\CloudAdmin**합니다. |
 | PrivilegedEndpoint | 문자열 | 미리 구성 된 원격 PowerShell 콘솔을 제공 하는 로그 수집 및 기타 post와 같은 기능을 사용 하 여 배포 작업입니다. 자세한 내용은 참조는 [권한 있는 끝점을 사용 하 여](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) 문서. |
 | AzureContext | PSObject |  |
 | ResourceGroupName | 문자열 |  |
 | ResourceGroupLocation | 문자열 |  |
-| BillingModel | 문자열 | 구독을 사용 하는 청구 모델입니다. 허용 되는이 매개 변수 값은: 용량과 PayAsYouUse를 개발 합니다. |
+| BillingModel | 문자열 | 구독을 사용 하는 청구 모델입니다. 이 매개 변수에 대해 허용 된 값은: 용량, PayAsYouUse, 및 개발 합니다. |
 | MarketplaceSyndicationEnabled | True/False | Marketplace 관리 기능은 포털에서 사용할 수 있는지 여부를 결정 합니다. 인터넷 연결을 사용 하 여 등록 하는 경우 true로 설정 합니다. 연결이 끊어진 환경에 등록 하는 경우 false로 설정 합니다. 연결이 끊긴 등록 합니다 [오프 라인 배포 도구](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) marketplace 항목 다운로드에 사용할 수 있습니다. |
-| UsageReportingEnabled | True/False | Azure Stack 기본적으로 사용 메트릭을 보고합니다. 연산자를 사용 하 여 용량 또는 연결이 끊어진된 환경 지원 사용 보고를 해제 해야 합니다. 허용 되는이 매개 변수 값은: True, False입니다. |
+| UsageReportingEnabled | True/False | Azure Stack 기본적으로 사용 메트릭을 보고합니다. 연산자를 사용 하 여 용량 또는 연결이 끊어진된 환경 지원 사용 보고를 해제 해야 합니다. 이 매개 변수에 대해 허용 된 값은: True, False |
 | AgreementNumber | 문자열 |  |
 | registrationName | 문자열 | Id입니다. 동일한 Azure 구독을 사용 하 여 Azure Stack의 둘 이상의 인스턴스에서 등록 스크립트를 실행 하는 경우 등록에 대 한 고유 이름 설정 매개 변수 중에서 기본값이 **AzureStackRegistration**합니다. 그러나 Azure Stack의 둘 이상의 인스턴스에서 같은 이름을 사용할 경우 스크립트가 실패 합니다. |
 
@@ -449,16 +449,16 @@ Get-AzsRegistrationToken 입력된 매개 변수에서 등록 토큰을 생성 �
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| 매개 변수 | type | 설명 |
+| 매개 변수 | 형식 | 설명 |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | 에 사용 된 자격 증명 [끝점에 권한 있는 액세스](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)합니다. 형식의 사용자 이름이 **AzureStackDomain\CloudAdmin**합니다. |
 | PrivilegedEndpoint | 문자열 |  미리 구성 된 원격 PowerShell 콘솔을 제공 하는 로그 수집 및 기타 post와 같은 기능을 사용 하 여 배포 작업입니다. 자세한 내용은 참조는 [권한 있는 끝점을 사용 하 여](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) 문서. |
 | AzureContext | PSObject |  |
 | ResourceGroupName | 문자열 |  |
 | ResourceGroupLocation | 문자열 |  |
-| BillingModel | 문자열 | 구독을 사용 하는 청구 모델입니다. 허용 되는이 매개 변수 값은: 용량과 PayAsYouUse를 개발 합니다. |
+| BillingModel | 문자열 | 구독을 사용 하는 청구 모델입니다. 이 매개 변수에 대해 허용 된 값은: 용량, PayAsYouUse, 및 개발 합니다. |
 | MarketplaceSyndicationEnabled | True/False |  |
-| UsageReportingEnabled | True/False | Azure Stack 기본적으로 사용 메트릭을 보고합니다. 연산자를 사용 하 여 용량 또는 연결이 끊어진된 환경 지원 사용 보고를 해제 해야 합니다. 허용 되는이 매개 변수 값은: True, False입니다. |
+| UsageReportingEnabled | True/False | Azure Stack 기본적으로 사용 메트릭을 보고합니다. 연산자를 사용 하 여 용량 또는 연결이 끊어진된 환경 지원 사용 보고를 해제 해야 합니다. 이 매개 변수에 대해 허용 된 값은: True, False |
 | AgreementNumber | 문자열 |  |
 
 

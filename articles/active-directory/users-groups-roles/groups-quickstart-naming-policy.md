@@ -14,12 +14,12 @@ ms.date: 08/08/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 8ebdb22ba5ca04a5c811b3b368055f5f4371c75f
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 8c5d980f25e196add6885d250665eae7127456f1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "40208942"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273122"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>빠른 시작: Azure Active Directory의 그룹에 대한 명명 정책
 
@@ -78,9 +78,9 @@ PowerShell 명령을 실행하기 전에 Windows PowerShell용 그래프 모듈�
   $Setting.Values
   ````
   
-### <a name="step-3-set-the-naming-policy-and-any-custom-blocked-words"></a>3단계: 명명 정책 및 사용자 정의 차단 단어 설정
+### <a name="step-3-set-the-naming-policy-and-any-custom-blocked-words"></a>3단계: 명명 정책 및 사용자 지정 차단 단어 설정
 
-1. Azure AD PowerShell에서 그룹 이름 접두사 및 접미사를 설정합니다.
+1. Azure AD PowerShell에서 그룹 이름 접두사 및 접미사를 설정합니다. 기능이 제대로 작동하려면 [GroupName]이 설정에 포함되어야 합니다.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
@@ -102,19 +102,19 @@ PowerShell 명령을 실행하기 전에 Windows PowerShell용 그래프 모듈�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-1. Azure AD PowerShell에서 그룹 이름 접두사 및 접미사를 설정합니다.
+1. Azure AD PowerShell에서 그룹 이름 접두사 및 접미사를 비웁니다.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =""
   ````
   
-2. 제한하려는 사용자 정의 차단 단어를 설정합니다. 다음 예제는 고유한 사용자 정의 단어를 추가하는 방법을 보여줍니다.
+2. 사용자 지정 차단 단어를 비웁니다.
   
   ````
   $Setting["CustomBlockedWordsList"]=""
   ````
   
-3. 다음 예제와 같이 새 정책을 적용하기 위한 설정을 저장합니다.
+3. 설정을 저장합니다.
   
   ````
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting

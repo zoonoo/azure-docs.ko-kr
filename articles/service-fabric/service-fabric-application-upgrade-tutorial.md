@@ -1,6 +1,6 @@
 ---
 title: Service Fabric 앱 업그레이드 자습서 | Microsoft Docs
-description: 이 문서는 Visual Studio를 사용하여 서비스 패브릭 응용 프로그램의 배포, 코드 변경, 업그레이드 롤아웃 환경을 안내합니다.
+description: 이 문서는 Visual Studio를 사용하여 서비스 패브릭 애플리케이션의 배포, 코드 변경, 업그레이드 롤아웃 환경을 안내합니다.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
 ms.locfileid: "34205198"
 ---
-# <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 업그레이드 자습서
+# <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Visual Studio를 사용하여 서비스 패브릭 애플리케이션 업그레이드 자습서
 > [!div class="op_single_selector"]
 > * [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
 > * [Visual Studio](service-fabric-application-upgrade-tutorial.md)
@@ -35,13 +35,13 @@ Azure 서비스 패브릭을 사용하면 변경된 서비스만 업그레이드
 ## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>1단계: 시각적 개체 샘플 빌드 및 게시
 먼저 GitHub에서 [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) 애플리케이션을 다운로드합니다. 그런 다음, 애플리케이션 프로젝트 **VisualObjects**를 마우스 오른쪽 단추로 클릭하고 서비스 패브릭 메뉴 항목에서 **게시** 명령을 선택하여 애플리케이션을 빌드 및 게시합니다.
 
-![서비스 패브릭 응용 프로그램의 상황에 맞는 메뉴][image1]
+![서비스 패브릭 애플리케이션의 상황에 맞는 메뉴][image1]
 
 **게시**를 선택하면 팝업이 표시되며 **대상 프로필**을 **PublishProfiles\Local.xml**로 설정할 수 있습니다. **게시**를 클릭하기 전의 창 모양은 다음과 같습니다.
 
 ![서비스 패브릭 애플리케이션 게시][image2]
 
-이제 대화 상자에서 **게시** 를 클릭할 수 있습니다. [클러스터 및 응용 프로그램을 보는 서비스 패브릭 탐색기](service-fabric-visualizing-your-cluster.md)를 사용할 수 있습니다. Visual Objects 응용 프로그램에는 브라우저의 주소 표시줄에 [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/)를 입력해서 이동할 수 있는 웹 서비스가 있습니다.  화면에서 10개의 부동 시각적 개체가 움직이는 것을 볼 수 있을 것입니다.
+이제 대화 상자에서 **게시** 를 클릭할 수 있습니다. [클러스터 및 응용 프로그램을 보는 서비스 패브릭 탐색기](service-fabric-visualizing-your-cluster.md)를 사용할 수 있습니다. Visual Objects 애플리케이션에는 브라우저의 주소 표시줄에 [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/)를 입력해서 이동할 수 있는 웹 서비스가 있습니다.  화면에서 10개의 부동 시각적 개체가 움직이는 것을 볼 수 있을 것입니다.
 
 **참고:** `Cloud.xml` 프로필(Azure 서비스 패브릭)에 배포하는 경우 **http://{ServiceFabricName}.{Region}.cloudapp.azure.com:8081/visualobjects/** 에서 응용 프로그램을 사용할 수 있어야 합니다. 부하 분산 장치에 `8081/TCP`가 구성되었는지 확인합니다(Serivce Fabric 인스턴스와 동일한 리소스 그룹에 부하 분산 장치 찾기).
 
@@ -50,7 +50,7 @@ Azure 서비스 패브릭을 사용하면 변경된 서비스만 업그레이드
 
 VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택하고 **VisualObjectActor.cs** 파일을 엽니다. 해당 파일 내에서 `MoveObject` 메서드로 이동하고 `visualObject.Move(false)`를 주석 처리하고 `visualObject.Move(true)`의 주석 처리를 제거합니다. 이렇게 코드를 변경하면 서비스가 업그레이드된 후 개체가 회전됩니다.  **이제 수정된 프로젝트를 빌드할 수 있는 솔루션**을 빌드(다시 빌드 아님)할 수 있습니다. *모두 다시 빌드*를 선택하는 경우 모든 프로젝트의 버전을 업데이트해야 합니다.
 
-또한 응용 프로그램의 버전을 관리해야 합니다. **VisualObjects** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 버전을 변경하려면 Visual Studio **매니페스트 파일 편집** 옵션을 사용할 수 있습니다. 이 옵션을 선택하면 다음과 같이 버전에 대한 대화 상자가 나타납니다.
+또한 애플리케이션의 버전을 관리해야 합니다. **VisualObjects** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 버전을 변경하려면 Visual Studio **매니페스트 파일 편집** 옵션을 사용할 수 있습니다. 이 옵션을 선택하면 다음과 같이 버전에 대한 대화 상자가 나타납니다.
 
 ![버전 관리 대화 상자][image3]
 

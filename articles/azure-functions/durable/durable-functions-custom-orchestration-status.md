@@ -8,27 +8,26 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b8017288adb75c990113b0f2ff5ba29a1f1e0a18
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 8487eb9009529e023e06bf6a717fcb142f50305f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637508"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342802"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>지속성 함수의 사용자 지정 오케스트레이션 상태(Azure Functions)
 
 사용자 지정 오케스트레이션 상태를 사용하면 오케스트레이터 함수의 사용자 지정 상태 값을 설정할 수 있습니다. 이 상태는 HTTP GetStatus API 또는 `DurableOrchestrationClient.GetStatusAsync` API를 통해 제공됩니다.
 
-> [!NOTE]
-> JavaScript에 대한 사용자 지정 오케스트레이션 상태는 향후 릴리스에서 사용할 수 있습니다.
-
-## <a name="sample-use-cases"></a>샘플 사용 사례 
+## <a name="sample-use-cases"></a>샘플 사용 사례
 
 ### <a name="visualize-progress"></a>진행률 시각화
 
 클라이언트는 상태 엔드포인트를 폴링하고 현재 실행 단계를 시각화하는 진행률 UI를 표시할 수 있습니다. 다음 샘플은 진행률 공유를 보여줍니다.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -55,7 +54,35 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
+#### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    const outputs = [];
+
+    outputs.push(yield context.df.callActivity("E1_SayHello", "Tokyo"));
+    context.df.setCustomStatus("Tokyo");
+    outputs.push(yield context.df.callActivity("E1_SayHello", "Seattle"));
+    context.df.setCustomStatus("Seattle");
+    outputs.push(yield context.df.callActivity("E1_SayHello", "London"));
+    context.df.setCustomStatus("London");
+
+    // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
+    return outputs;
+});
+```
+
+```javascript
+module.exports = async function(context, name) {
+    return `Hello ${name}!`;
+};
+```
+
 그리고 이 클라이언트는 `CustomStatus` 필드가 "런던"으로 설정된 경우에만 오케스트레이션 출력을 수신합니다.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -88,9 +115,46 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-### <a name="output-customization"></a>출력 사용자 지정 
+#### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function(context, req) {
+    const client = df.getClient(context);
+
+    // Function input comes from the request content.
+    const eventData = req.body;
+    const instanceId = await client.startNew(req.params.functionName, undefined, eventData);
+
+    context.log(`Started orchestration with ID = '${instanceId}'.`);
+
+    let durableOrchestrationStatus = await client.getStatus(instanceId);
+    while (status.customStatus.toString() !== "London") {
+        await new Promise((resolve) => setTimeout(resolve, 200));
+        durableOrchestrationStatus = await client.getStatus(instanceId);
+    }
+
+    const httpResponseMessage = {
+        status: 200,
+        body: JSON.stringify(durableOrchestrationStatus),
+    };
+
+    return httpResponseMessage;
+};
+```
+
+> [!NOTE]
+> JavaScript에서 `customStatus` 필드는 다음 `yield` 또는 `return` 작업이 예약될 때 설정됩니다.
+
+> [!WARNING]
+> JavaScript에서 로컬로 개발하는 경우 환경 변수 `WEBSITE_HOSTNAME`을 `localhost:<port>`로 설정해야 합니다. 예를 들어 `DurableOrchestrationClient`에서 메서드를 사용하려면 `localhost:7071`을 설정합니다. 이 요구 사항에 대한 자세한 내용은 [GitHub 문제](https://github.com/Azure/azure-functions-durable-js/issues/28)를 참조하세요.
+
+### <a name="output-customization"></a>출력 사용자 지정
 
 또 다른 흥미로운 시나리오는 고유한 특성 또는 상호 작용에 따라 사용자 지정된 출력을 반환하여 사용자를 분할하는 것입니다. 사용자 지정 오케스트레이션 상태 덕분에 클라이언트 측 코드는 일반 상태를 유지합니다. 다음 샘플과 같이 모든 주요 수정 작업은 서버 쪽에서 발생합니다.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("CityRecommender")]
@@ -111,26 +175,61 @@ public static void Run(
     case 2:
       context.SetCustomStatus(new
       {
-        recommendedCity = new[] {"Seattle, London"},
+        recommendedCities = new[] {"Seattle, London"},
         recommendedSeasons = new[] {"Summer"}
       });
         break;
       case 3:
       context.SetCustomStatus(new
       {
-        recommendedCity = new[] {"Tokyo, London"},
+        recommendedCities = new[] {"Tokyo, London"},
         recommendedSeasons = new[] {"Spring", "Summer"}
       });
         break;
   }
 
   // Wait for user selection and refine the recommendation
-} 
+}
 ```
 
-### <a name="instruction-specification"></a>지침 사양 
+#### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const userChoice = context.df.getInput();
+
+    switch (userChoice) {
+        case 1:
+            context.df.setCustomStatus({
+                recommendedCities: [ "Tokyo", "Seattle" ],
+                recommendedSeasons: [ "Spring", "Summer" ],
+            });
+            break;
+        case 2:
+            context.df.setCustomStatus({
+                recommendedCities: [ "Seattle", "London" ],
+                recommendedSeasons: [ "Summer" ],
+            });
+            break;
+        case 3:
+            context.df.setCustomStatus({
+                recommendedCity: [ "Tokyo", "London" ],
+                recommendedSeasons: [ "Spring", "Summer" ],
+            });
+            break;
+    }
+
+    // Wait for user selection and refine the recommendation
+});
+```
+
+### <a name="instruction-specification"></a>지침 사양
 
 오케스트레이터는 사용자 지정 상태를 통해 클라이언트에 고유한 지침을 제공할 수 있습니다. 사용자 지정 상태 지침은 오케스트레이션 코드의 단계에 매핑됩니다.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("ReserveTicket")]
@@ -158,21 +257,66 @@ public static async Task<bool> Run(
 }
 ```
 
+#### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const userId = context.df.getInput();
+
+    const discount = yield context.df.callActivity("CalculateDiscount", userId);
+
+    context.df.setCustomStatus({
+        discount,
+        discountTimeout = 60,
+        bookingUrl = "https://www.myawesomebookingweb.com",
+    });
+
+    const isBookingConfirmed = yield context.df.waitForExternalEvent("bookingConfirmed");
+
+    context.df.setCustomStatus(isBookingConfirmed
+        ? { message: "Thank you for confirming your booking." }
+        : { message: "The booking was not confirmed on time. Please try again." }
+    );
+
+    return isBookingConfirmed;
+});
+```
+
 ## <a name="sample"></a>샘플
 
 다음 샘플에서는 사용자 지정 상태가 가장 먼저 설정됩니다.
 
+### <a name="c"></a>C#
+
 ```csharp
-public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext ctx)
+public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext context)
 {
     // ...do work...
 
     // update the status of the orchestration with some arbitrary data
     var customStatus = new { nextActions = new [] {"A", "B", "C"}, foo = 2, };
-    ctx.SetCustomStatus(customStatus);
+    context.SetCustomStatus(customStatus);
 
     // ...do more work...
 }
+```
+
+### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    // ...do work...
+
+    // update the status of the orchestration with some arbitrary data
+    const customStatus = { nextActions: [ "A", "B", "C" ], foo: 2, };
+    context.df.setCustomStatus(customStatus);
+
+    // ...do more work...
+});
 ```
 
 오케스트레이션이 실행되는 동안 외부 클라이언트가 이 사용자 지정 상태를 가져올 수 있습니다.
@@ -182,7 +326,7 @@ GET /admin/extensions/DurableTaskExtension/instances/instance123
 
 ```
 
-클라이언트는 다음과 같은 응답을 받습니다. 
+클라이언트는 다음과 같은 응답을 받습니다.
 
 ```http
 {
@@ -196,12 +340,9 @@ GET /admin/extensions/DurableTaskExtension/instances/instance123
 ```
 
 > [!WARNING]
->  사용자 지정 상태 페이로드는 Azure Table Storage 열에 맞아야 하므로 16KB의 UTF-16 JSON 텍스트로 제한됩니다. 개발자는 더 큰 페이로드가 필요한 경우 외부 저장소를 사용하면 됩니다.
-
+> 사용자 지정 상태 페이로드는 Azure Table Storage 열에 맞아야 하므로 16KB의 UTF-16 JSON 텍스트로 제한됩니다. 개발자는 더 큰 페이로드가 필요한 경우 외부 저장소를 사용하면 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [지속성 함수의 HTTP API 알아보기](durable-functions-http-api.md)
-
-

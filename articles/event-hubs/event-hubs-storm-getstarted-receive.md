@@ -1,6 +1,6 @@
 ---
-title: Apache Storm을 사용하여 Azure Event Hubs에서 이벤트 수신 | Microsoft Docs
-description: Apache Storm을 사용하여 Event Hubs에서 수신 시작
+title: Apache Storm을 사용하여 이벤트 수신 - Azure Event Hubs | Microsoft Docs
+description: 이 문서에서는 Apache Storm을 사용하여 Azure Event Hubs에서 이벤트를 수신하는 방법에 대한 정보를 제공합니다.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c70096796bb038c27d18bb3467d7c425dafd5c5b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 3c50916f648a2bce634f7aeb109147a873de1de6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42146832"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094613"
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Apache Storm을 사용하여 Event Hubs에서 이벤트 수신
 
@@ -40,7 +41,7 @@ Event Hubs 수신기 패턴에 대한 자세한 내용은 [Event Hubs 개요][Ev
     ```
 4. Eclipse에서 새 Maven 프로젝트를 만듭니다(**파일**, **새로 만들기**, **프로젝트**를 차례로 클릭).
    
-    ![][12]
+    ![파일 > 새로 만들기 > 프로젝트][12]
 5. **Use default Workspace location**(기본 작업 영역 위치 사용)을 선택하고 **다음**을 클릭합니다.
 6. **maven-archetype-quickstart** 원형을 선택하고 **다음**을 클릭합니다.
 7. **GroupId** 및 **ArtifactId**를 삽입하고 **마침**을 클릭합니다.

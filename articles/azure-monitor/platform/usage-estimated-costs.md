@@ -61,8 +61,8 @@ Azure Portal의 모니터 허브에서 **사용량 및 예상 비용** 페이지
 
 - Insight and Analytics\Overage per Node
 - Insight and Analytics\Included per Node
-- Application Insights\Basic Overage Data
-- Application Insights\Included Data
+- Application Insights\기본 초과 데이터
+- Application Insights\I포함된 데이터
 
 새 가격 책정 모델에는 노드 기반 포함 데이터 할당이 없습니다. 따라서 이러한 데이터 수집 미터가 **Shared Services\Data Ingestion**이라는 새로운 공통 데이터 수집 미터로 결합됩니다. 
 

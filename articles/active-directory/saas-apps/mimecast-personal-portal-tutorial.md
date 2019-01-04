@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 71ecffebe095fd325837aeb1d6e741a2f3321aea
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 88952d09672fb4dd2d31878d56a59cb425f53de2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421841"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850451"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>자습서: Mimecast Personal Portal과 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ Mimecast Personal Portal과 Azure AD 통합을 구성하려면 다음 항목이 
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Mimecast Personal Portal 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -64,15 +64,15 @@ Mimecast Personal Portal이 Azure AD에 통합되도록 구성하려면 갤러�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
 
-1. 검색 상자에서 **Mimecast Personal Portal**을 입력하고, 결과 패널에서 **Mimecast Personal Portal**을 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에서 **Mimecast Personal Portal**을 입력하고, 결과 패널에서 **Mimecast Personal Portal**을 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/tutorial_mimecastpersonalportal_addfromgallery.png)
 
@@ -92,11 +92,11 @@ Mimecast Personal Portal에서 Azure AD Single Sign-On을 구성하고 테스트
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Mimecast Personal Portal 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Mimecast Personal Portal 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Mimecast Personal Portal에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Mimecast Personal Portal** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Mimecast Personal Portal** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -118,7 +118,7 @@ Mimecast Personal Portal에서 Azure AD Single Sign-On을 구성하고 테스트
     | 오스트레일리아       | `https://au-api.mimecast.com/login/saml`|
     | 역외        | `https://jer-api.mimecast.com/login/saml`|
 
-    나. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
 
     | 지역  |  값 | 
     | --------------- | --------------- |
@@ -139,7 +139,7 @@ Mimecast Personal Portal에서 Azure AD Single Sign-On을 구성하고 테스트
     | 역외        | `https://jer-api.mimecast.com/login/saml`|
     
     > [!NOTE] 
-    > 식별자 값은 실제 값이 아닙니다. 실제 식별자로 값을 업데이트하세요. 이러한 값을 얻으려면 [Mimecast Personal Portal 클라이언트 지원 팀](http://www.mimecast.com/customer-success/technical-support/)에 문의하세요. 
+    > 식별자 값은 실제 값이 아닙니다. 실제 식별자로 값을 업데이트하세요. 이러한 값을 얻으려면 [Mimecast Personal Portal 클라이언트 지원 팀](https://www.mimecast.com/customer-success/technical-support/)에 문의하세요. 
 
 1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -173,7 +173,7 @@ Mimecast Personal Portal에서 Azure AD Single Sign-On을 구성하고 테스트
    
     a. **설명** 텍스트 상자에 구성 이름을 입력합니다.
    
-    나. **Mimecast Personal Portal에 대한 SAML 인증 적용**을 선택합니다.
+    b. **Mimecast Personal Portal에 대한 SAML 인증 적용**을 선택합니다.
    
     다. **공급자**로 **Azure Active Directory**를 선택합니다.
    
@@ -249,11 +249,11 @@ Azure AD 사용자가 Mimecast Personal Portal에 로그인하게 하려면 Mime
    
     a. **이메일 주소** 텍스트 상자에 사용자의 **이메일 주소**를 **BrittaSimon@contoso.com**으로 입력합니다.
     
-    나. **Global Name**(전역 이름) 텍스트 상자에 **사용자 이름**을 **BrittaSimon**으로 입력합니다.
+    b. **Global Name**(전역 이름) 텍스트 상자에 **사용자 이름**을 **BrittaSimon**으로 입력합니다.
 
     다. **암호** 및 **암호 확인** 텍스트 상자에 사용자의 **암호**를 입력합니다.
    
-    나. **저장**을 클릭합니다.
+    b. **저장**을 클릭합니다.
 
 >[!NOTE]
 >Mimecast Personal Portal 사용자 계정 생성 도구 또는 Mimecast Personal Portal에서 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비전합니다.
@@ -266,13 +266,13 @@ Azure AD 사용자가 Mimecast Personal Portal에 로그인하게 하려면 Mime
 
 **Mimecast Personal Portal에 Britta Simon을 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Mimecast Personal Portal**을 선택합니다.
+1. 애플리케이션 목록에서 **Mimecast Personal Portal**을 선택합니다.
 
-    ![응용 프로그램 목록의 Mimecast Personal Portal 링크](./media/mimecast-personal-portal-tutorial/tutorial_mimecastpersonalportal_app.png)  
+    ![애플리케이션 목록의 Mimecast Personal Portal 링크](./media/mimecast-personal-portal-tutorial/tutorial_mimecastpersonalportal_app.png)  
 
 1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -292,7 +292,7 @@ Azure AD 사용자가 Mimecast Personal Portal에 로그인하게 하려면 Mime
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Mimecast Personal Portal 타일을 클릭하면 Mimecast Personal Portal 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Mimecast Personal Portal 타일을 클릭하면 Mimecast Personal Portal 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스

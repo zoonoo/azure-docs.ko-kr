@@ -1,6 +1,6 @@
 ---
 title: Linux에서 Apache Tomcat 서버용 Azure Service Fabric 컨테이너 만들기 | Microsoft Docs
-description: Azure Service Fabric의 Apache Tomcat 서버에서 실행되는 응용 프로그램을 노출하는 Linux 컨테이너를 만듭니다. 응용 프로그램과 Apache Tomcat 서버를 사용하여 Docker 이미지를 빌드하고, 이 이미지를 컨테이너 레지스트리로 푸시하고, Service Fabric 컨테이너 응용 프로그램을 빌드하고 배포합니다.
+description: Azure Service Fabric의 Apache Tomcat 서버에서 실행되는 애플리케이션을 노출하는 Linux 컨테이너를 만듭니다. 애플리케이션과 Apache Tomcat 서버를 사용하여 Docker 이미지를 빌드하고, 이 이미지를 컨테이너 레지스트리로 푸시하고, Service Fabric 컨테이너 애플리케이션을 빌드하고 배포합니다.
 services: service-fabric
 documentationcenter: .net
 author: JimacoMS2
@@ -22,7 +22,7 @@ ms.lasthandoff: 08/06/2018
 ms.locfileid: "39580653"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Linux에서 Apache Tomcat 서버를 실행하는 Service Fabric 컨테이너 만들기
-Apache Tomcat은 Java 서블릿 및 Java 서버 기술의 인기 있는 오픈 소스 구현입니다. 이 문서에서는 Apache Tomcat 및 간단한 웹 응용 프로그램이 포함된 컨테이너를 빌드하고, Linux를 실행하는 Service Fabric 클러스터에 이 컨테이너를 배포한 다음, 웹 응용 프로그램에 연결하는 방법에 대해 설명합니다.  
+Apache Tomcat은 Java 서블릿 및 Java 서버 기술의 인기 있는 오픈 소스 구현입니다. 이 문서에서는 Apache Tomcat 및 간단한 웹 애플리케이션이 포함된 컨테이너를 빌드하고, Linux를 실행하는 Service Fabric 클러스터에 이 컨테이너를 배포한 다음, 웹 애플리케이션에 연결하는 방법에 대해 설명합니다.  
 
 Apache Tomcat에 대한 자세한 내용은 [Apache Tomcat 홈페이지](http://tomcat.apache.org/)를 참조하세요. 
 
@@ -68,7 +68,7 @@ Apache Tomcat에 대한 자세한 내용은 [Apache Tomcat 홈페이지](http://
    docker build . -t tomcattest
    ```
 
-   이 명령은 Dockerfile의 지침을 사용하여 새 이미지를 빌드하고, `tomcattest` 이미지의 이름을 지정합니다(-t 태그 지정). 컨테이너 이미지를 빌드하기 위해 먼저 기본 이미지가 Docker 허브에서 다운로드되고 응용 프로그램이 추가됩니다. 
+   이 명령은 Dockerfile의 지침을 사용하여 새 이미지를 빌드하고, `tomcattest` 이미지의 이름을 지정합니다(-t 태그 지정). 컨테이너 이미지를 빌드하기 위해 먼저 기본 이미지가 Docker 허브에서 다운로드되고 애플리케이션이 추가됩니다. 
 
    빌드 명령이 완료되면 `docker images` 명령을 실행하여 새 이미지에 대한 정보를 확인합니다.
 
@@ -79,7 +79,7 @@ Apache Tomcat에 대한 자세한 내용은 [Apache Tomcat 홈페이지](http://
    tomcattest                    latest              86838648aab6        2 minutes ago       194 MB
    ```
 
-5. 컨테이너 레지스트리를 푸시하기 전에 컨테이너화된 응용 프로그램이 로컬로 실행되는지 확인합니다.
+5. 컨테이너 레지스트리를 푸시하기 전에 컨테이너화된 애플리케이션이 로컬로 실행되는지 확인합니다.
  
    ```bash
    docker run -itd --name tomcat-site -p 8080:8080 tomcattest.
@@ -131,25 +131,25 @@ Tomcat 이미지가 개발 컴퓨터의 컨테이너에서 실행되는지 확�
    docker push myregistry.azurecr.io/samples/tomcattest
    ```
 
-## <a name="build-and-deploy-the-service-fabric-container-application"></a>Service Fabric 컨테이너 응용 프로그램 빌드 및 배포
-Tomcat 이미지를 컨테이너 레지스트리로 푸시했으므로 이제 레지스트리에서 Tomcat 이미지를 가져와서 클러스터의 컨테이너 서비스로 실행하는 Service Fabric 컨테이너 응용 프로그램을 빌드하고 배포할 수 있습니다. 
+## <a name="build-and-deploy-the-service-fabric-container-application"></a>Service Fabric 컨테이너 애플리케이션 빌드 및 배포
+Tomcat 이미지를 컨테이너 레지스트리로 푸시했으므로 이제 레지스트리에서 Tomcat 이미지를 가져와서 클러스터의 컨테이너 서비스로 실행하는 Service Fabric 컨테이너 애플리케이션을 빌드하고 배포할 수 있습니다. 
 
-1. 로컬 복제본의 외부(*service-fabric-java-getting-started* 디렉터리 트리의 외부)에 새 디렉터리를 만듭니다. 이 디렉터리로 전환하고 Yeoman을 사용하여 컨테이너 응용 프로그램에 대한 스캐폴드를 만듭니다. 
+1. 로컬 복제본의 외부(*service-fabric-java-getting-started* 디렉터리 트리의 외부)에 새 디렉터리를 만듭니다. 이 디렉터리로 전환하고 Yeoman을 사용하여 컨테이너 애플리케이션에 대한 스캐폴드를 만듭니다. 
 
    ```bash
    yo azuresfcontainer 
    ```
    메시지가 표시되면 다음 값을 입력합니다.
 
-   * 응용 프로그램 이름 지정: ServiceFabricTomcat
-   * 응용 프로그램 서비스 이름: TomcatService
+   * 애플리케이션 이름 지정: ServiceFabricTomcat
+   * 애플리케이션 서비스 이름: TomcatService
    * 이미지 이름 입력: 컨테이너 레지스트리의 컨테이너 이미지에 대한 URL을 제공합니다(예: myregistry.azurecr.io/samples/tomcattest).
    * 명령: 이 명령은 비워둡니다. 이 이미지가 워크로드 진입점을 정의하지 않으므로 입력 명령을 명시적으로 지정하지 않아도 됩니다(컨테이너 내에서 명령을 실행하면 시작된 후에 컨테이너가 실행되도록 유지함).
-   * 게스트 컨테이너 응용 프로그램의 인스턴스 수: 1
+   * 게스트 컨테이너 애플리케이션의 인스턴스 수: 1
 
    ![컨테이너용 Service Fabric Yeoman 생성기](./media/service-fabric-get-started-tomcat/yo-generator.png)
 
-10. 서비스 매니페스트(*ServiceFabricTomcat/ServiceFabricTomcat/TomcatServicePkg/ServiceManifest.xml*)에서 루트 **ServiceManfest** 태그 아래에 다음 XML을 추가하여 응용 프로그램에서 요청을 수신 대기하는 포트를 엽니다. **엔드포인트** 태그는 엔드포인트에 대한 프로토콜과 포트를 선언합니다. 이 문서에서는 컨테이너화된 서비스가 8080 포트에서 수신 대기합니다. 
+10. 서비스 매니페스트(*ServiceFabricTomcat/ServiceFabricTomcat/TomcatServicePkg/ServiceManifest.xml*)에서 루트 **ServiceManfest** 태그 아래에 다음 XML을 추가하여 애플리케이션에서 요청을 수신 대기하는 포트를 엽니다. **엔드포인트** 태그는 엔드포인트에 대한 프로토콜과 포트를 선언합니다. 이 문서에서는 컨테이너화된 서비스가 8080 포트에서 수신 대기합니다. 
 
     ```xml
     <Resources>
@@ -162,7 +162,7 @@ Tomcat 이미지를 컨테이너 레지스트리로 푸시했으므로 이제 �
     </Resources>
     ```
 
-11. 응용 프로그램 매니페스트(*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*)의 **ServiceManifestImport** 태그 아래에 다음 XML을 추가합니다. **RepositoryCredentials** 태그의 **AccountName** 및 **Password**를 로그인하는 데 필요한 컨테이너 레지스트리의 이름과 암호로 바꿉니다.
+11. 애플리케이션 매니페스트(*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*)의 **ServiceManifestImport** 태그 아래에 다음 XML을 추가합니다. **RepositoryCredentials** 태그의 **AccountName** 및 **Password**를 로그인하는 데 필요한 컨테이너 레지스트리의 이름과 암호로 바꿉니다.
 
     ```xml
     <Policies>
@@ -203,7 +203,7 @@ Tomcat 이미지를 컨테이너 레지스트리로 푸시했으므로 이제 �
        .pfx 파일이 암호로 보호되어 있지 않으면 마지막 매개 변수에 `-passin pass:`를 사용합니다.
 
 
-13. 템플릿에 제공된 설치 스크립트를 실행하여 클러스터에 응용 프로그램을 배포합니다. 스크립트는 응용 프로그램 패키지를 클러스터의 이미지 저장소에 복사하고, 응용 프로그램 유형을 등록하며, 응용 프로그램의 인스턴스를 만듭니다.
+13. 템플릿에 제공된 설치 스크립트를 실행하여 클러스터에 애플리케이션을 배포합니다. 스크립트는 애플리케이션 패키지를 클러스터의 이미지 저장소에 복사하고, 애플리케이션 유형을 등록하며, 애플리케이션의 인스턴스를 만듭니다.
 
        ```bash
        ./install.sh
@@ -214,19 +214,19 @@ Tomcat 이미지를 컨테이너 레지스트리로 푸시했으므로 이제 �
     * 로컬 클러스터에서 http://localhost:19080/Explorer를 사용합니다(Mac OS X에서 Vagrant를 사용하는 경우 *localhost*를 VM의 사설 IP로 바꿉니다).
     * 보안 Azure 클러스터에서 https://PublicIPorFQDN:19080/Explorer를 사용합니다. 
     
-    **응용 프로그램** 노드를 펼칩니다. 그러면 **ServiceFabricTomcatType** 응용 프로그램 유형에 대한 항목 및 해당 유형의 첫 번째 인스턴스에 대한 다른 항목이 있습니다. 응용 프로그램이 완전히 배포될 때까지 몇 분이 걸릴 수 있으므로 기다려주세요.
+    **응용 프로그램** 노드를 펼칩니다. 그러면 **ServiceFabricTomcatType** 응용 프로그램 유형에 대한 항목 및 해당 유형의 첫 번째 인스턴스에 대한 다른 항목이 있습니다. 애플리케이션이 완전히 배포될 때까지 몇 분이 걸릴 수 있으므로 기다려주세요.
 
     ![Service Fabric Explorer](./media/service-fabric-get-started-tomcat/service-fabric-explorer.png)
 
 
-1. Tomcat 서버에서 응용 프로그램에 액세스하려면 브라우저 창을 열고 다음 URL 중 하나를 입력합니다. 로컬 클러스터에 배포한 경우 *PublicIPorFQDN*에 *localhost*를 사용합니다. "Hello World!" 변형이 표시됩니다. 각 URL에 대한 시작 화면
+1. Tomcat 서버에서 애플리케이션에 액세스하려면 브라우저 창을 열고 다음 URL 중 하나를 입력합니다. 로컬 클러스터에 배포한 경우 *PublicIPorFQDN*에 *localhost*를 사용합니다. "Hello World!" 변형이 표시됩니다. 각 URL에 대한 시작 화면
 
    * http://PublicIPorFQDN:8080/hello  
    * http://PublicIPorFQDN:8080/hello/sayhello
    * http://PublicIPorFQDN:8080/hello/sayhi
 
 ## <a name="clean-up"></a>정리
-템플릿에 제공된 제거 스크립트를 사용하여 클러스터에서 응용 프로그램 인스턴스를 삭제하고 응용 프로그램 유형을 등록 취소합니다.
+템플릿에 제공된 제거 스크립트를 사용하여 클러스터에서 애플리케이션 인스턴스를 삭제하고 애플리케이션 유형을 등록 취소합니다.
 
 ```bash
 ./uninstall.sh
@@ -240,7 +240,7 @@ docker rmi myregistry.azurecr.io/samples/tomcattest
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* 추가 Linux 컨테이너 기능에 대한 빠른 단계는 [Linux에서 첫 번째 Service Fabric 컨테이너 응용 프로그램 만들기](service-fabric-get-started-containers-linux.md)를 참조하세요.
+* 추가 Linux 컨테이너 기능에 대한 빠른 단계는 [Linux에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기](service-fabric-get-started-containers-linux.md)를 참조하세요.
 * Linux 컨테이너에 대한 자세한 단계는 [Linux 컨테이너 앱 자습서 만들기](service-fabric-tutorial-create-container-images.md) 자습서를 참조하세요.
 * [Service Fabric의 컨테이너](service-fabric-containers-overview.md)를 실행하는 방법에 대해 자세히 알아봅니다.
 

@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: 8c30af5023cb83ee1f9ca0f41db5b7f977cc4bc7
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 12/14/2018
+ms.openlocfilehash: a315e8b42ab8e0df659a3388a50fedf5dd3a54d2
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883910"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413067"
 ---
 # <a name="monitor-migration-activity"></a>마이그레이션 작업 모니터링
 이 문서에서는 데이터베이스 수준 및 테이블 수준 모두에서 마이그레이션의 진행률을 모니터링하는 방법을 알아봅니다.
@@ -24,7 +24,7 @@ ms.locfileid: "48883910"
 ## <a name="monitor-at-the-database-level"></a>데이터베이스 수준에서 모니터링
 데이터베이스 수준에서 작업을 모니터링하려면 데이터베이스 수준 블레이드를 표시합니다.
 
-![데이터베이스 수준 블레이드](media\how-to-monitor-migration-activity\dms-database-level-blade.png)
+![데이터베이스 수준 블레이드](media/how-to-monitor-migration-activity/dms-database-level-blade.png)
 
 > [!NOTE]
 > 데이터베이스 하이퍼링크를 선택하면 테이블 및 해당 마이그레이션 진행률 목록이 표시됩니다.
@@ -104,7 +104,7 @@ ms.locfileid: "48883910"
 
 블레이드 하단에는 테이블이 나열되고 마이그레이션 진행률에 대한 빠른 요약이 표시됩니다.
 
-![테이블 수준 블레이드 - 빠른 요약](media\how-to-monitor-migration-activity\dms-table-level-blade-summary.png)
+![테이블 수준 블레이드 - 빠른 요약](media/how-to-monitor-migration-activity/dms-table-level-blade-summary.png)
 
 다음 테이블에서는 테이블 수준 세부 사항에 표시된 필드를 설명합니다.
 
@@ -123,9 +123,9 @@ ms.locfileid: "48883910"
 ## <a name="monitor-at-table-level--detailed-summary"></a>테이블 수준에서 모니터링 - 자세한 요약
 전체 로드 및 증분 데이터 동기화의 마이그레이션 진행률을 보여주는 두 개의 탭이 있습니다.
     
-![전체 로드 탭](media\how-to-monitor-migration-activity\dms-full-load-tab.png)
+![전체 로드 탭](media/how-to-monitor-migration-activity/dms-full-load-tab.png)
 
-![증분 데이터 동기화 탭](media\how-to-monitor-migration-activity\dms-incremental-data-sync-tab.png)
+![증분 데이터 동기화 탭](media/how-to-monitor-migration-activity/dms-incremental-data-sync-tab.png)
 
 다음 테이블은 테이블 수준 마이그레이션 진행률에 표시된 필드를 설명합니다.
 
@@ -136,7 +136,7 @@ ms.locfileid: "48883910"
 | **업데이트** | 대상에 적용된 행의 CDC 업데이트 수입니다.      |
 | **삭제**      | 대상에 적용된 행의 CDC 삭제 수입니다. |
 | **적용된 합계**      | 대상에 적용된 행의 전체 CDC 업데이트, 삽입 및 삭제 수입니다. |
-| **데이터 오류** | 이 테이블에서 발생한 데이터 오류의 수입니다. 오류의 예에는 *511: 최대 허용 행 크기 %d보다 큰 %d 크기의 행을 만들 수 없음, 8114: %ls에서 %ls로의 데이터 형식 변환 오류*가 있습니다.  고객은 오류 세부 정보를 보려면 Azure 대상의 attms_apply_exceptions 테이블에서 쿼리해야 합니다.    |
+| **데이터 오류** | 이 테이블에서 발생한 데이터 오류의 수입니다. 몇 가지 오류 예제는 다음과 같습니다. *511: 행 크기 %d은(는) 허용되는 최대 행 크기 %d보다 크므로 만들 수 없습니다. 8114: 데이터 형식 %ls을(를) %ls(으)로 변환하는 동안 오류가 발생했습니다.*  고객은 오류 세부 정보를 보려면 Azure 대상의 dms_apply_exceptions 테이블에서 쿼리해야 합니다.    |
 
 > [!NOTE]
 > 적용된 삽입, 업데이트 및 삭제의 CDC 값 및 합계는 데이터베이스가 중단되거나 마이그레이션이 다시 시작되는 경우 감소할 수 있습니다.

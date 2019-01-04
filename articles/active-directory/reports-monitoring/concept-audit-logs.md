@@ -114,7 +114,7 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 - 그룹
 - 디렉터리
 - 사용자
-- 응용 프로그램
+- 애플리케이션
 - 정책
 - 디바이스
 - 기타
@@ -134,7 +134,7 @@ Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?
 **Azure Active Directory** 외에도 Azure Portal에서는 감사 데이터에 대한 다음 두 개의 추가 진입점을 제공합니다.
 
 - 개요
-- Enterprise 응용 프로그램
+- Enterprise 애플리케이션
 
 ### <a name="users-and-groups-audit-logs"></a>사용자 및 그룹 감사 로그
 
@@ -160,15 +160,15 @@ Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?
 
 ![감사 로그](./media/concept-audit-logs/93.png "감사 로그")
 
-### <a name="enterprise-applications-audit-logs"></a>Enterprise 응용 프로그램 감사 로그
+### <a name="enterprise-applications-audit-logs"></a>Enterprise 애플리케이션 감사 로그
 
-응용 프로그램 기반 감사 보고서를 사용하여 다음과 같은 질문에 대한 답을 얻을 수 있습니다.
+애플리케이션 기반 감사 보고서를 사용하여 다음과 같은 질문에 대한 답을 얻을 수 있습니다.
 
 * 추가되거나 업데이트된 애플리케이션은 무엇인가요?
 * 제거된 애플리케이션은 무엇인가요?
 * 애플리케이션에 대한 서비스 주체가 변경되었나요?
-* 응용 프로그램의 이름이 변경되었나요?
-* 누가 응용 프로그램에 동의했나요?
+* 애플리케이션의 이름이 변경되었나요?
+* 누가 애플리케이션에 동의했나요?
 
 애플리케이션과 관련된 감사 데이터를 검토하려면 **Enterprise 애플리케이션** 블레이드의 **활동** 섹션에 있는 **감사 로그**에서 필터링된 보기를 찾을 수 있습니다. 이 진입점에는 **활동 리소스 종류**로 미리 선택된 **엔터프라이즈 애플리케이션**이 있습니다.
 

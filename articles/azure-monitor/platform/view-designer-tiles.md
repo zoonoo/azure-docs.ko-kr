@@ -10,17 +10,15 @@ ms.assetid: 41787c8f-6c13-4520-b0d3-5d3d84fcf142
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 17d1419501b4833d0abc3b5670827d57dfd7a286
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 034c82c2f52f0a4dbc19b49308d1ba4308716d45
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638498"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186806"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Log Analytics의 뷰 디자이너 타일에 대한 참조 가이드
 Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Log Analytics 작업 영역에 다양한 데이터 시각화를 나타내는 사용자 지정 보기를 만들 수 있습니다. 이 문서는 사용자 지정 보기에서 사용할 수 있는 타일 설정에 대한 참조 가이드입니다.
@@ -28,7 +26,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 뷰 디자이너에 대한 자세한 내용은 다음을 참조하세요.
 
 * [뷰 디자이너](view-designer.md): 뷰 디자이너 개요 및 사용자 지정 보기를 만들고 편집하는 절차를 제공합니다.
-* [시각화 요소 참조](view-designer-parts.md): 사용자 지정 보기에서 사용 가능한 시각화 요소의 설정에 대한 참조 가이드를 제공합니다.
+* [시각화 요소 참조](view-designer-parts.md): 이 문서에서는 사용자 지정 보기에서 제공하는 시각화 요소의 설정에 대한 참조 가이드를 제공합니다.
 
 
 사용 가능한 뷰 디자이너 타일은 다음 표에 설명되어 있습니다.  
@@ -179,5 +177,5 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 
 
 ## <a name="next-steps"></a>다음 단계
-* 타일에서 쿼리를 지원하는 [로그 검색](../../log-analytics/log-analytics-queries.md)에 대한 자세한 정보
+* 타일에서 쿼리를 지원하는 [로그 검색](../../azure-monitor/log-query/log-query-overview.md)에 대한 자세한 정보
 * 사용자 지정 보기에 [시각화 요소](view-designer-parts.md) 추가

@@ -24,7 +24,7 @@ ms.lasthandoff: 09/24/2018
 ms.locfileid: "46949536"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP Business One
-이 문서에서는 Azure Virtual Machines에 SAP Business One을 배포하는 지침을 제공합니다. 이 문서는 SAP용 Business One 설치 문서를 대체하지 않습니다. 이 문서에서는 Business One 응용 프로그램을 실행할 Azure 인프라에 대한 기본 계획 및 배포 지침을 다루어야 합니다.
+이 문서에서는 Azure Virtual Machines에 SAP Business One을 배포하는 지침을 제공합니다. 이 문서는 SAP용 Business One 설치 문서를 대체하지 않습니다. 이 문서에서는 Business One 애플리케이션을 실행할 Azure 인프라에 대한 기본 계획 및 배포 지침을 다루어야 합니다.
 
 Business One은 다음 두 가지 데이터베이스를 지원합니다.
 - SQL Server - [SAP Note #928839 - Release Planning for Microsoft SQL Server](https://launchpad.support.sap.com/#/notes/928839)(SAP 노트 #928839 - Microsoft SQL Server에 대한 릴리스 계획)을 참조하세요.
@@ -46,7 +46,7 @@ Business One에만 관심이 있는 경우에도 [SAP NetWeaver에 대한 Azure 
 SAP Business One을 배포하는 인스턴스는 다음 조건을 충족한다고 가정합니다.
 
 - VM 등의 지정된 인프라에 SAP HANA를 설치하는 데 익숙함
-- Azure VM 등의 인프라에 SAP Business One 응용 프로그램을 설치하는 데 익숙함
+- Azure VM 등의 인프라에 SAP Business One 애플리케이션을 설치하는 데 익숙함
 - SAP Business One 및 선택한 DBMS 시스템 운영에 익숙함
 - Azure에 인프라를 배포하는 데 익숙함
 
@@ -63,7 +63,7 @@ Azure 문서 외에도 Business One을 참조하거나 Business One에 대한 SA
 
 
 ## <a name="business-one-architecture"></a>Business One 아키텍처
-Business One은 다음 두 개의 계층이 있는 응용 프로그램입니다.
+Business One은 다음 두 개의 계층이 있는 애플리케이션입니다.
 
 - ‘fat’ 클라이언트가 있는 클라이언트 계층
 - 테넌트에 대한 데이터베이스 스키마가 포함된 데이터베이스 계층

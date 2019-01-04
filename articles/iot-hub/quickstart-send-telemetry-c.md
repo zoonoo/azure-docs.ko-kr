@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub에 원격 분석 전송 빠른 시작(C) | Microsoft Docs
-description: 이 빠른 시작에서는 두 가지 C 응용 프로그램 예제를 실행하여 시뮬레이트된 원격 분석을 IoT Hub로 보내고, 클라우드에서 처리할 원격 분석을 IoT Hub에서 읽습니다.
+description: 이 빠른 시작에서는 두 가지 C 애플리케이션 예제를 실행하여 시뮬레이트된 원격 분석을 IoT Hub로 보내고, 클라우드에서 처리할 원격 분석을 IoT Hub에서 읽습니다.
 author: wesmc7777
 manager: timlt
 ms.service: iot-hub

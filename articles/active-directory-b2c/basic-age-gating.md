@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory B2C에서 나이 제한 사용 | Microsoft Docs
-description: 응용 프로그램을 사용하여 미성년자를 식별하는 방법을 알아봅니다.
+description: 애플리케이션을 사용하여 미성년자를 식별하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman

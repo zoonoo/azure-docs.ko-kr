@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: bdae72f5ed4ebed87842ade05ec7a6bc21d349dc
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 7e84e8e99000e9d8bd7a21d343588b1df777b56d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086644"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994529"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 개발자 참조
 
@@ -81,7 +81,7 @@ public static class SimpleExample
 트리거 특성에 사용되는 매개 변수 이외의 매개 변수가 메서드 서명에 포함될 수 있습니다. 다음은 포함할 수 있는 추가 매개 변수 중 일부입니다.
 
 * 특성으로 데코레이팅하여 표시된 [입력 및 출력 바인딩](functions-triggers-bindings.md).  
-* [로깅](#logging)에 대한 `ILogger` 또는 `TraceWriter` 매개 변수.
+* [로깅](#logging)에 대한 `ILogger` 또는 `TraceWriter`([버전 1.x 전용](functions-versions.md#creating-1x-apps)) 매개 변수.
 * [정상 종료](#cancellation-tokens)를 위한 `CancellationToken` 매개 변수.
 * 트리거 메타데이터를 가져오는 [바인딩 식](functions-triggers-bindings.md#binding-expressions-and-patterns) 매개 변수.
 
@@ -154,7 +154,7 @@ public static class BindingExpressionsExample
 
 ## <a name="microsoftnetsdkfunctions"></a>Microsoft.NET.Sdk.Functions
 
-*function.json* 파일 생성은 [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions) NuGet 패키지에서 수행됩니다. 
+*function.json* 파일 생성은 [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions) NuGet 패키지에서 수행됩니다. 
 
 버전 1.x 및 2.x의 Functions 런타임 둘 다에 동일한 패키지가 사용됩니다. 대상 프레임워크가 1.x 프로젝트와 2.x 프로젝트에서 구분되는 측면입니다. 다음은 *.csproj* 파일의 관련 부분으로, 다른 대상 프레임워크와 동일한 `Sdk` 패키지를 보여 줍니다.
 
@@ -183,7 +183,7 @@ public static class BindingExpressionsExample
 
 `Sdk` 패키지 종속성에는 트리거 및 바인딩이 있습니다. .NET Framework를 대상으로 하므로 1.x 프로젝트는 1.x 트리거 및 바인딩을 참조하지만, 2.x 트리거 및 바인딩을 .NET Core를 대상으로 합니다.
 
-`Sdk` 패키지는 [Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json)에도 종속되며, [WindowsAzure.Storage](http://www.nuget.org/packages/WindowsAzure.Storage)에는 간접적으로 종속됩니다. 이러한 종속성 때문에 프로젝트는 대상이 되는 Functions 런타임 버전에서 작동하는 패키지 버전을 사용하게 됩니다. 예를 들어, `Newtonsoft.Json`에는 .NET Framework 4.6.1용 버전 11이 있지만, .NET Framework 4.6.1을 대상으로 하는 Functions 런타임은 `Newtonsoft.Json` 9.0.1과만 호환됩니다. 따라서 해당 프로젝트의 함수 코드도 `Newtonsoft.Json` 9.0.1을 사용해야 합니다.
+`Sdk` 패키지는 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json)에도 종속되며, [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage)에는 간접적으로 종속됩니다. 이러한 종속성 때문에 프로젝트는 대상이 되는 Functions 런타임 버전에서 작동하는 패키지 버전을 사용하게 됩니다. 예를 들어, `Newtonsoft.Json`에는 .NET Framework 4.6.1용 버전 11이 있지만, .NET Framework 4.6.1을 대상으로 하는 Functions 런타임은 `Newtonsoft.Json` 9.0.1과만 호환됩니다. 따라서 해당 프로젝트의 함수 코드도 `Newtonsoft.Json` 9.0.1을 사용해야 합니다.
 
 `Microsoft.NET.Sdk.Functions`의 소스 코드는 [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk) GitHub 리포지토리에서 사용할 수 있습니다.
 
@@ -233,7 +233,7 @@ public static class ICollectorExample
 
 ## <a name="logging"></a>로깅
 
-C#의 스트리밍 로그에 대한 출력을 기록하려면 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 형식의 인수를 포함합니다. 이름을 `log`로 하는 것이 좋습니다. Azure Functions에서 `Console.Write`를 사용하지 마세요.
+C#의 스트리밍 로그에 대한 출력을 기록하려면 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 형식의 인수를 포함합니다. 다음 예제와 같이 `log`로 이름을 지정하는 것이 좋습니다.  
 
 ```csharp
 public static class SimpleExample
@@ -248,8 +248,7 @@ public static class SimpleExample
 } 
 ```
 
-> [!NOTE]
-> `TraceWriter` 대신 사용할 수 있는 최신 로깅 프레임워크에 대한 내용은 **Azure Functions 모니터링** 문서에서 [C# 함수로 로그 작성](functions-monitoring.md#write-logs-in-c-functions)을 참조하세요.
+Azure Functions에서 `Console.Write`를 사용하지 마세요. 자세한 내용은 **Azure Functions 모니터링** 문서에서 [C# 함수로 로그 작성](functions-monitoring.md#write-logs-in-c-functions)을 참조하세요.
 
 ## <a name="async"></a>Async
 

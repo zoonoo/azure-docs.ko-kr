@@ -1,6 +1,6 @@
 ---
 title: 제품 설정 양식을 작성하는 방법 | Microsoft Docs
-description: 새 Dynamics 365 Business Central 응용 프로그램의 제품 설정 양식에서 값을 입력해야 하는 여러 필드에 대해 설명합니다.
+description: 새 Dynamics 365 Business Central 애플리케이션의 제품 설정 양식에서 값을 입력해야 하는 여러 필드에 대해 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: v-miclar

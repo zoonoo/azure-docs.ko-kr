@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 1069b7f9bdc0301f840e796f49fdb4031d297cf2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6040300b4cb569d0e78503d7e5a36507e79de67c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436243"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017443"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>자습서: Predictix Assortment Planning과 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ Predictix Assortment Planning과 Azure AD 통합을 구성하려면 다음 항�
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Predictix Assortment Planning 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -64,11 +64,11 @@ Azure AD로 Predictix Assortment Planning 통합을 구성하려면 갤러리의
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
 
@@ -111,19 +111,21 @@ Predictix Assortment Planning에서 Azure AD Single Sign-On을 구성하고 테�
     ![Predictix Assortment Planning 도메인 및 URL Single Sign-On 정보](./media/predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_url.png)
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다.
+
     | |
     |--|--|
     | `https://<sub-domain>.ap.predictix.com/sso/request`|
     | `https://<sub-domain>.dev.ap.predictix.com/`|
 
-    나. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
+    
     | |
     |--|--|
     | `https://<sub-domain>.ap.predictix.com`|
     | `https://<sub-domain>.dev.ap.predictix.com`|
     
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Predictix Assortment Planning 클라이언트 지원 팀](http://www.infor.com/support)에 문의하세요. 
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Predictix Assortment Planning 클라이언트 지원 팀](https://www.infor.com/support)에 문의하세요. 
  
 
 
@@ -139,10 +141,10 @@ Predictix Assortment Planning에서 Azure AD Single Sign-On을 구성하고 테�
 
     ![Predictix Assortment Planning 구성](./media/predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_configure.png) 
 
-1. **Predictix Assortment Planning** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)**, **SAML 엔터티 ID**, **SAML Single Sign-On 서비스 URL** 및 **로그아웃 URL**을 [Predictix Assortment Planning 지원 팀](http://www.infor.com/support)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+1. **Predictix Assortment Planning** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)**, **SAML 엔터티 ID**, **SAML Single Sign-On 서비스 URL** 및 **로그아웃 URL**을 [Predictix Assortment Planning 지원 팀](https://www.infor.com/support)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -179,7 +181,7 @@ Predictix Assortment Planning에서 Azure AD Single Sign-On을 구성하고 테�
  
 ### <a name="create-a-predictix-assortment-planning-test-user"></a>Predictix Assortment Planning 테스트 사용자 만들기
 
-이 섹션에서는 Predictix Assortment Planning에서 Britta Simon이라는 사용자를 만듭니다. Predictix Assortment Planning 플랫폼에 사용자를 추가하려면 [Predictix Assortment Planning 지원 팀](http://www.infor.com/contact/)에 문의하세요.
+이 섹션에서는 Predictix Assortment Planning에서 Britta Simon이라는 사용자를 만듭니다. Predictix Assortment Planning 플랫폼에 사용자를 추가하려면 [Predictix Assortment Planning 지원 팀](https://www.infor.com/contact/)에 문의하세요.
  > [!NOTE]
  > Azure Active Directory 계정 보유자는 활성화되기 전에 메일을 받고 링크를 따라 계정을 확인합니다.
 
@@ -191,11 +193,11 @@ Predictix Assortment Planning에서 Azure AD Single Sign-On을 구성하고 테�
 
 **Britta Simon을 Predictix Assortment Planning에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Predictix Assortment Planning**을 선택합니다.
+1. 애플리케이션 목록에서 **Predictix Assortment Planning**을 선택합니다.
 
     ![응용 프로그램 목록에서 Predictix Assortment Planning 링크](./media/predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_app.png)  
 

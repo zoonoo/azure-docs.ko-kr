@@ -62,7 +62,7 @@ DFSR은 RDC(원격 차등 압축)라는 압축 알고리즘을 사용합니다. 
 
 
 ### <a name="site-recovery-support"></a>Site Recovery 지원
-Site Recovery 복제는 응용 프로그램을 제한하지 않으므로 권장 사항은 다음 시나리오에서도 유지됩니다.
+Site Recovery 복제는 애플리케이션을 제한하지 않으므로 권장 사항은 다음 시나리오에서도 유지됩니다.
 | 원본    |보조 사이트 대상    |Azure 대상
 |---------|---------|---------|
 |Azure| -|yes|

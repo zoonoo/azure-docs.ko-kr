@@ -1,5 +1,5 @@
 ---
-title: Linux의 Azure App Service에서 Ruby 및 Postgres 웹앱 빌드 | Microsoft Docs
+title: Linux에서 Postgres를 사용하여 Ruby 웹앱 빌드 - Azure App Service | Microsoft Docs
 description: Azure에서 PostgreSQL 데이터베이스에 연결하여 Ruby 앱이 작동하도록 하는 방법에 대해 알아봅니다.
 services: app-service\web
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 925537b3dff852921aad1e74d009e09fc90c394a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: 247c4f24869901f0f50b081d8f57b7e3841a8e8a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445079"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271031"
 ---
 # <a name="build-a-ruby-and-postgres-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Ruby 및 Postgres 웹앱 빌드
 
-[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 사용하여 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 Ruby 웹앱을 만들고 PostgreSQL 데이터베이스에 연결하는 방법을 보여줍니다. 완료되면 [Ruby on Rails](http://rubyonrails.org/) 앱이 Linux의 App Service에서 실행됩니다.
+[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 Ruby 웹앱을 만들고 PostgreSQL 데이터베이스에 연결하는 방법을 보여줍니다. 완료되면 [Ruby on Rails](https://rubyonrails.org/) 앱이 Linux의 App Service에서 실행됩니다.
 
 ![Azure App Service에서 실행 중인 Ruby on Rails 앱](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
@@ -43,7 +43,7 @@ ms.locfileid: "39445079"
 
 * [Git 설치](https://git-scm.com/)
 * [Ruby 2.3 설치](https://www.ruby-lang.org/en/documentation/installation/)
-* [Ruby on Rails 5.1 설치](http://guides.rubyonrails.org/v5.1/getting_started.html)
+* [Ruby on Rails 5.1 설치](https://guides.rubyonrails.org/v5.1/getting_started.html)
 * [PostgreSQL 설치 및 실행](https://www.postgresql.org/download/)
 
 ## <a name="prepare-local-postgres"></a>로컬 Postgres 준비
@@ -71,7 +71,7 @@ sudo -u postgres createuser -d <signed_in_user>
 <a name="step2"></a>
 
 ## <a name="create-a-ruby-on-rails-app-locally"></a>로컬로 Ruby on Rails 앱 만들기
-이 단계에서는 Ruby on Rails 샘플 응용 프로그램 가져오고, 해당 데이터베이스를 구성한 후 로컬로 실행합니다. 
+이 단계에서는 Ruby on Rails 샘플 애플리케이션을 가져오고, 해당 데이터베이스를 구성한 후 로컬로 실행합니다. 
 
 ### <a name="clone-the-sample"></a>샘플 복제
 
@@ -92,14 +92,14 @@ bundle install --path vendor/bundle
 
 ### <a name="run-the-sample-locally"></a>로컬에서 샘플 실행
 
-[Rails 마이그레이션](http://guides.rubyonrails.org/active_record_migrations.html#running-migrations)을 실행하여 응용 프로그램에 필요한 테이블을 만듭니다. 마이그레이션에서 만들어진 테이블을 보려면 Git 리포지토리의 _db/migrate_ 디렉터리를 살펴봅니다.
+[Rails 마이그레이션](https://guides.rubyonrails.org/active_record_migrations.html#running-migrations)을 실행하여 응용 프로그램에 필요한 테이블을 만듭니다. 마이그레이션에서 만들어진 테이블을 보려면 Git 리포지토리의 _db/migrate_ 디렉터리를 살펴봅니다.
 
 ```bash
 rake db:create
 rake db:migrate
 ```
 
-응용 프로그램을 실행합니다.
+애플리케이션을 실행합니다.
 
 ```bash
 rails server
@@ -115,7 +115,7 @@ Rails 서버를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
 ## <a name="create-postgres-in-azure"></a>Azure에서 Postgres 만들기
 
-이 단계에서는 [Azure Database for PostgreSQL](/azure/postgresql/)에서 Postgres 데이터베이스를 만듭니다. 나중에 이 데이터베이스에 연결할 Ruby on Rails 응용 프로그램을 구성합니다.
+이 단계에서는 [Azure Database for PostgreSQL](/azure/postgresql/)에서 Postgres 데이터베이스를 만듭니다. 나중에 이 데이터베이스에 연결할 Ruby on Rails 애플리케이션을 구성합니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -196,7 +196,7 @@ GRANT ALL PRIVILEGES ON DATABASE sampledb TO railsappuser;
 
 ## <a name="connect-app-to-azure-postgres"></a>Azure Postgres에 앱 연결
 
-이 단계에서는 Azure Database for PostgreSQL에서 만든 Postgres 데이터베이스에 Ruby on Rails 응용 프로그램을 연결합니다.
+이 단계에서는 Azure Database for PostgreSQL에서 만든 Postgres 데이터베이스에 Ruby on Rails 애플리케이션을 연결합니다.
 
 <a name="devconfig"></a>
 
@@ -215,7 +215,7 @@ production:
 
 변경 내용을 저장합니다.
 
-### <a name="test-the-application-locally"></a>로컬에서 응용 프로그램 테스트
+### <a name="test-the-application-locally"></a>로컬에서 애플리케이션 테스트
 
 로컬 터미널에서 다음과 같은 환경 변수를 설정합니다.
 
@@ -232,7 +232,7 @@ export DB_PASSWORD=MyPostgresAzure2017
 rake db:migrate RAILS_ENV=production
 ```
 
-프로덕션 환경에서 실행하는 경우 Rails 응용 프로그램에는 미리 컴파일된 자산이 필요합니다. 다음 명령을 사용하여 필요한 자산을 생성합니다.
+프로덕션 환경에서 실행하는 경우 Rails 애플리케이션에는 미리 컴파일된 자산이 필요합니다. 다음 명령을 사용하여 필요한 자산을 생성합니다.
 
 ```bash
 rake assets:precompile
@@ -257,13 +257,13 @@ Rails 프로덕션 환경에서 JavaScript 및 CSS 파일을 제공하도록 합
 export RAILS_SERVE_STATIC_FILES=true
 ```
 
-프로덕션 환경에서 예제 응용 프로그램을 실행합니다.
+프로덕션 환경에서 예제 애플리케이션을 실행합니다.
 
 ```bash
 rails server -e production
 ```
 
-`http://localhost:3000`로 이동합니다. 오류 없이 페이지가 로드되면 Ruby on Rails 응용 프로그램이 Azure의 Postgres 데이터베이스에 연결됩니다.
+`http://localhost:3000`로 이동합니다. 오류 없이 페이지가 로드되면 Ruby on Rails 애플리케이션이 Azure의 Postgres 데이터베이스에 연결됩니다.
 
 해당 페이지에서 몇 가지 작업을 추가합니다.
 
@@ -284,7 +284,7 @@ git commit -m "database.yml updates"
 
 ## <a name="deploy-to-azure"></a>Deploy to Azure
 
-이 단계에서는 Postgres에 연결된 Rails 응용 프로그램을 Azure App Service에 배포합니다.
+이 단계에서는 Postgres에 연결된 Rails 애플리케이션을 Azure App Service에 배포합니다.
 
 ### <a name="configure-a-deployment-user"></a>배포 사용자 구성
 
@@ -334,7 +334,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 git remote add azure <paste_copied_url_here>
 ```
 
-Azure 원격 위치에 푸시하여 Ruby on Rails 응용 프로그램을 배포합니다. 배포 사용자를 만드는 작업의 일부로 이전에 제공한 암호를 묻는 메시지가 표시됩니다.
+Azure 원격 위치에 푸시하여 Ruby on Rails 애플리케이션을 배포합니다. 배포 사용자를 만드는 작업의 일부로 이전에 제공한 암호를 묻는 메시지가 표시됩니다.
 
 ```bash
 git push azure master
@@ -369,7 +369,7 @@ remote: Running deployment command...
 
 이 단계에서는 `task` 데이터 모델과 웹앱을 간단히 변경한 다음 업데이트를 Azure에 게시합니다.
 
-작업 시나리오의 경우 작업을 완료한 것으로 표시할 수 있도록 응용 프로그램을 수정합니다.
+작업 시나리오의 경우 작업을 완료한 것으로 표시할 수 있도록 애플리케이션을 수정합니다.
 
 ### <a name="add-a-column"></a>열 추가
 

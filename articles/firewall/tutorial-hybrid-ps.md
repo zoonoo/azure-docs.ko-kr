@@ -5,14 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/27/2018
+ms.date: 12/14/2018
 ms.author: victorh
-ms.openlocfilehash: d69bd055c95592961216f5da1efaedc4a642fd63
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
+ms.openlocfilehash: abbbec05dfb6d81a65941619a36b7f3afcdc1fba
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316399"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435568"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
 
@@ -24,7 +25,7 @@ Azure Firewall을 사용하여 허용 및 거부된 네트워크 트래픽을 �
 
 - **VNet-Hub** - 방화벽이 이 가상 네트워크에 있습니다.
 - **VNet-Spoke** - 스포크 가상 네트워크는 Azure에 있는 워크로드를 나타냅니다.
-- **VNet-Onprem** - 온-프레미스 가상 네트워크는 온-프레미스 네트워크를 나타냅니다. 실제 배포에서 VPN 또는 Express Route 연결을 통해 연결할 수 있습니다. 간단히 하기 위해 이 자습서에서는 VPN 게이트웨이 연결을 사용하며 Azure에 있는 가상 네트워크를 사용하여 온-프레미스 네트워크를 나타냅니다.
+- **VNet-Onprem** - 온-프레미스 가상 네트워크는 온-프레미스 네트워크를 나타냅니다. 실제 배포에서 VPN 또는 Route 연결을 통해 연결할 수 있습니다. 간단히 하기 위해 이 자습서에서는 VPN 게이트웨이 연결을 사용하며 Azure에 있는 가상 네트워크를 사용하여 온-프레미스 네트워크를 나타냅니다.
 
 ![하이브리드 네트워크의 방화벽](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -54,6 +55,12 @@ Azure Firewall을 사용하여 허용 및 거부된 네트워크 트래픽을 �
 - VNet-Hub와 VNet-Spoke를 피어링할 때는 **AllowGatewayTransit**, VNet-Spoke와 VNet-Hub를 피어링할 때는 **UseRemoteGateways**를 설정합니다.
 
 이 경로를 만드는 방법은 이 자습서의 [경로 만들기](#create-routes) 섹션을 참조하세요.
+
+>[!NOTE]
+>Azure Firewall에 직접 인터넷 연결이 있어야 합니다. ExpressRoute 또는 Application Gateway를 통해 온-프레미스로 강제 터널링을 설정한 경우에는 **NextHopType** 값을 **인터넷**으로 설정해 UDR 0.0.0.0/0을 구성한 후 **AzureFirewallSubnet**에 할당해야 합니다.
+
+>[!NOTE]
+>직접 피어링된 VNet 사이의 트래픽은 UDE가 기본 게이트웨이로 Azure Firewall을 가리키는 경우에도 직접 라우팅됩니다. 이 시나리오에서 서브넷 트래픽에 대한 서브넷을 방화벽으로 보내려면 두 가지 서브넷에 명시적으로 지정된 대상 서브넷 네트워크 접두사가 포함되어 있어야 합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

@@ -1,24 +1,26 @@
 ---
-title: '빠른 시작: Azure Portal에서 기계 학습 서비스 작업 영역 만들기 - Azure Machine Learning'
-description: Azure Portal을 사용하여 Azure Machine Learning 작업 영역을 만듭니다. 이 작업 영역은 Azure Machine Learning을 사용하여 기계 학습 모델을 실험하고, 교육하고, 배포하는 데 사용되는 클라우드의 기본 블록입니다.
+title: Azure Portal을 통한 빠른 시작
+titleSuffix: Azure Machine Learning service
+description: Azure Machine Learning Service를 시작합니다. Azure Portal을 사용하여 기계 학습 모델을 실험하고, 학습시키며, 배포하는 데 사용되는 클라우드의 기본 블록인 작업 영역을 만들 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: quickstart
 ms.reviewer: sgilley
-author: rastala
-ms.author: roastala
-ms.date: 09/24/2018
-ms.openlocfilehash: 7ed45b5e8a8c3cab26c0998260055ffd7a0f0c5d
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+author: hning86
+ms.author: haining
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: c215a3947069e572f73692ea54010c77d78ae4fd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710259"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273564"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>빠른 시작: Azure Portal을 사용하여 Azure Machine Learning 시작
 
-이 빠른 시작에서는 Azure Portal을 사용하여 Azure Machine Learning 작업 영역을 만듭니다. 이 작업 영역은 Machine Learning을 사용하여 기계 학습 모델을 실험하고, 교육하고, 배포하는 데 사용되는 클라우드의 기본 블록입니다. 이 빠른 시작에서는 클라우드 리소스를 사용하며 설치 과정이 필요 없습니다. 자체 Jupyter 노트북 서버를 대신 구성하려면 [빠른 시작: Python을 사용하여 Azure Machine Learning 시작](quickstart-create-workspace-with-python.md)을 참조하세요.
+이 빠른 시작에서는 Azure Portal을 사용하여 Azure Machine Learning 작업 영역을 만듭니다. 이 작업 영역은 Machine Learning을 사용하여 기계 학습 모델을 실험하고, 교육하고, 배포하는 데 사용되는 클라우드의 기본 블록입니다. 이 빠른 시작에서는 클라우드 리소스를 사용하며 설치 과정이 필요 없습니다. 사용자 고유의 Jupyter Notebook 서버를 대신 구성하려면 [빠른 시작: Python을 사용하여 Azure Machine Learning 시작](quickstart-create-workspace-with-python.md)을 참조하세요.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
@@ -35,9 +37,9 @@ ms.locfileid: "51710259"
   - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
   - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
-사용자가 만든 리소스는 다른 Machine Learning 서비스 자습서 및 방법 문서의 필수 구성 요소로 사용할 수 있습니다. 다른 Azure 서비스와 마찬가지로 Machine Learning과 관련하여 특정 리소스에 대한 제한이 있습니다. Azure Batch AI 클러스터 크기를 예로 들 수 있습니다. 기본 제한 및 할당량을 늘리는 방법은 [이 문서](how-to-manage-quotas.md)를 참조하세요.
+사용자가 만든 리소스는 다른 Machine Learning 서비스 자습서 및 방법 문서의 필수 구성 요소로 사용할 수 있습니다. 다른 Azure 서비스와 마찬가지로 컴퓨팅 클러스터 크기와 같이 Machine Learning과 연결된 특정 리소스에 대한 제한이 있습니다. [기본 제한 및 할당량 늘리는 방법](how-to-manage-quotas.md)에 대해 자세히 알아봅니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://aka.ms/AMLfree) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 바로 [Azure Machine Learning Service의 무료 또는 유료 버전](http://aka.ms/AMLFree)을 사용해 보세요.
 
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기 
@@ -69,7 +71,7 @@ Azure Notebooks는 Jupyter Notebooks를 위한 무료 클라우드 플랫폼을 
 
 로그인하려면 [관리자 동의](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent)가 필요하도록 조직에서 요구할 수 있습니다.
 
-로그인하면 새 탭이 열리고 `Clone Library` 프롬프트가 표시됩니다. `Clone`을(를) 선택합니다.
+로그인하면 새 탭이 열리고 `Clone Library` 프롬프트가 표시됩니다. `Clone`를 선택합니다.
 
 
 ### <a name="run-the-notebook"></a>노트북 실행
@@ -117,4 +119,4 @@ Pi를 추정하는 코드가 임의의 값을 사용하므로 플롯이 여러 �
 워크플로 환경을 자세히 살펴보려면 모델을 교육하고 배포하는 방법과 관련된 Machine Learning 자습서를 진행하세요.  
 
 > [!div class="nextstepaction"]
-> [자습서: 이미지 분류 모델 학습](tutorial-train-models-with-aml.md)
+> [자습서: 이미지 분류 모델 학습시키기](tutorial-train-models-with-aml.md)

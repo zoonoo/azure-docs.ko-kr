@@ -9,26 +9,26 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4927c76c1bb6be6c27d2e559e6d1292008b3643b
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 8bd754533758d2c736e3951e5c7a10f63bb72bd8
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162353"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410179"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>PowerShell을 사용하여 Apache Hive 쿼리 실행
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
 이 문서는 Azure 리소스 그룹 모드에서 Azure PowerShell을 사용하여 HDInsight 클러스터의 Apache Hadoop에서 Hive 쿼리를 실행하는 예제를 제공합니다.
 
-> [!NOTE]
-> 이 문서에는 예제에 사용된 HiveQL 문이 수행하는 작업에 대해 자세한 설명을 제공하지 않습니다. 이 예제에서 사용된 HiveQL에 대한 자세한 내용은 [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)을 참조하세요.
+> [!NOTE]  
+> 이 문서에는 예제에 사용된 HiveQL 문이 수행하는 작업에 대해 자세한 설명을 제공하지 않습니다. 이 예제에서 사용된 HiveQL에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop과 Apache Hive 사용](hdinsight-use-hive.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
 * HDInsight 클러스터 버전 3.4 이상의 Linux 기반 Apache Hadoop
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 * Azure PowerShell이 설치된 클라이언트
@@ -42,11 +42,11 @@ Azure PowerShell은 HDInsight에서 Hive 쿼리를 원격으로 실행할 수 �
 다음 cmdlet은 원격 HDInsight 클러스터에서 Hive 쿼리를 실행할 때 사용됩니다.
 
 * `Connect-AzureRmAccount`: Azure 구독에 대해 Azure PowerShell을 인증합니다.
-* `New-AzureRmHDInsightHiveJobDefinition`: 지정한 HiveQL 문을 사용하여 *작업 정의*를 만듭니다.
+* `New-AzureRmHDInsightHiveJobDefinition`: 지정한 HiveQL 문을 사용하여 ‘작업 정의’를 만듭니다.
 * `Start-AzureRmHDInsightJob`: HDInsight에 작업 정의를 보내고 작업을 시작합니다. *작업* 개체가 반환됩니다.
 * `Wait-AzureRmHDInsightJob`: 작업 개체를 사용하여 작업 상태를 확인합니다. 작업이 완료되거나 대기 시간이 초과될 때까지 기다립니다.
-* `Get-AzureRmHDInsightJobOutput`: 작업의 출력을 검색하는 데 사용했습니다.
-* `Invoke-AzureRmHDInsightHiveJob`: HiveQL 문을 실행하는 데 사용했습니다. 이 cmdlet은 쿼리 완료를 차단한 후 결과를 반환합니다.
+* `Get-AzureRmHDInsightJobOutput`: 작업의 출력을 검색하는 데 사용합니다.
+* `Invoke-AzureRmHDInsightHiveJob`: HiveQL 문을 실행하는 데 사용합니다. 이 cmdlet은 쿼리 완료를 차단한 후 결과를 반환합니다.
 * `Use-AzureRmHDInsightCluster`: `Invoke-AzureRmHDInsightHiveJob` 명령에 사용할 현재 클러스터를 설정합니다.
 
 다음 단계는 HDInsight 클러스터에서 작업을 실행하기 위해 이러한 cmdlet을 사용하는 방법에 대해 설명합니다.
@@ -78,7 +78,7 @@ Azure PowerShell은 HDInsight에서 Hive 쿼리를 원격으로 실행할 수 �
         2012-02-03    18:55:54    SampleClass1    [ERROR]    incorrect    id
         2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
 
-   > [!NOTE]
+   > [!NOTE]  
    > 더 긴 HiveQL 쿼리에는 Azure PowerShell **Here-Strings** cmdlet 또는 HiveQL 스크립트 파일을 사용할 수 있습니다. 다음 코드 조각은 `Invoke-Hive` cmdlet을 사용하여 HiveQL 스크립트 파일을 실행하는 방법을 보여 줍니다. HiveQL 스크립트 파일은 wasb://에 업로드해야 합니다.
    >
    > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
@@ -108,9 +108,9 @@ Get-AzureRmHDInsightJobOutput `
 
 HDInsight의 Hive에 대한 일반적인 정보:
 
-* [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Hive 사용](hdinsight-use-hive.md)
 
 HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
-* [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
-* [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Apache Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)

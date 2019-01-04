@@ -34,7 +34,7 @@ Azure Functions 런타임을 시작할 수 없으면 이 문제가 발생합니�
 이 문서에서는 가장 흔히 발생하는 4가지 오류 사례, 해당 오류를 확인하는 방법 및 각 사례를 해결하는 방법을 안내합니다.
 
 1. 저장소 계정이 삭제됨
-1. 저장소 계정 응용 프로그램 설정이 삭제됨
+1. 저장소 계정 애플리케이션 설정이 삭제됨
 1. 저장소 계정 자격 증명이 잘못됨
 1. 저장소 계정에 액세스할 수 없음
 
@@ -44,15 +44,15 @@ Azure Functions 런타임을 시작할 수 없으면 이 문제가 발생합니�
 
 ### <a name="how-to-find-your-storage-account"></a>저장소 계정을 찾는 방법
 
-먼저 응용 프로그램 설정에서 저장소 계정 이름을 조회합니다. `AzureWebJobsStorage` 또는 `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 중 하나에 저장소 계정 이름이 연결 문자열에 래핑된 상태로 포함되어 있습니다. 자세한 내용은 [이 문서의 응용 프로그램 설정 참조](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)에서 확인하세요.
+먼저 애플리케이션 설정에서 저장소 계정 이름을 조회합니다. `AzureWebJobsStorage` 또는 `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 중 하나에 저장소 계정 이름이 연결 문자열에 래핑된 상태로 포함되어 있습니다. 자세한 내용은 [이 문서의 애플리케이션 설정 참조](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)에서 확인하세요.
 
 Azure Portal에서 저장소 계정을 검색하여 계정이 아직 있는지 확인합니다. 계정이 삭제된 경우에는 저장소 계정을 다시 만들고 저장소 연결 문자열을 바꿔야 합니다. 그러면 함수 코드가 손실되므로 다시 배포해야 합니다.
 
-## <a name="storage-account-application-settings-deleted"></a>저장소 계정 응용 프로그램 설정이 삭제됨
+## <a name="storage-account-application-settings-deleted"></a>저장소 계정 애플리케이션 설정이 삭제됨
 
-이전 단계에서 저장소 계정 연결 문자열을 찾지 못했다면 설정을 삭제했거나 덮어썼을 가능성이 높습니다. 일반적으로는 배포 슬롯 또는 Azure Resource Manager 스크립트를 사용하여 응용 프로그램 설정을 지정할 때 앱 설정을 삭제합니다.
+이전 단계에서 저장소 계정 연결 문자열을 찾지 못했다면 설정을 삭제했거나 덮어썼을 가능성이 높습니다. 일반적으로는 배포 슬롯 또는 Azure Resource Manager 스크립트를 사용하여 애플리케이션 설정을 지정할 때 앱 설정을 삭제합니다.
 
-### <a name="required-application-settings"></a>필수 응용 프로그램 설정
+### <a name="required-application-settings"></a>필수 애플리케이션 설정
 
 * 필수
     * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
@@ -85,11 +85,11 @@ Azure Portal에서 저장소 계정을 검색하여 계정이 아직 있는지 �
 이제 함수 앱이 다시 작동하므로 빠른 시작과 개발자 참조를 확인하여 작업을 다시 진행하세요.
 
 * [첫 번째 Azure Function 만들기](functions-create-first-azure-function.md)  
-  Azure Functions 빠른 시작을 사용하여 바로 첫 번째 함수를 만듭니다. 
+   Azure Functions 빠른 시작을 사용하여 바로 첫 번째 함수를 만듭니다. 
 * [Azure Functions 개발자 참조](functions-reference.md)  
-  Azure Functions 런타임, 함수 코딩, 트리거 및 바인딩 정의에 대한 참조에 대해 더욱 기술적인 정보를 제공합니다.
+   Azure Functions 런타임, 함수 코딩, 트리거 및 바인딩 정의에 대한 참조에 대해 더욱 기술적인 정보를 제공합니다.
 * [Azure Functions 테스트](functions-test-a-function.md)  
-  함수를 테스트하는 다양한 도구와 기법을 설명합니다.
+   함수를 테스트하는 다양한 도구와 기법을 설명합니다.
 * [Azure Functions 크기 조정 방법](functions-scale.md)  
   소비 호스팅 요금제, 올바른 요금제 선택 방법을 포함하여 Azure Functions에서 사용 가능한 서비스 요금제에 대해 설명합니다. 
 * [Azure App Service에 대해 자세히 알아보기](../app-service/app-service-web-overview.md)  

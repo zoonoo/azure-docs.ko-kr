@@ -1,7 +1,7 @@
 ---
 title: Bing Speech에서 Speech Service로 마이그레이션
 titleSuffix: Azure Cognitive Services
-description: 개발자 관점에서 Bing Speech와 Speech Service 간의 차이점을 알아보고 Speech Service를 사용하도록 응용 프로그램을 마이그레이션합니다.
+description: 개발자 관점에서 Bing Speech와 Speech Service 간의 차이점을 알아보고 Speech Service를 사용하도록 애플리케이션을 마이그레이션합니다.
 services: cognitive-services
 author: wsturman
 manager: cgronlun
@@ -19,9 +19,9 @@ ms.locfileid: "50416283"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Bing Speech에서 Speech Service로 마이그레이션
 
-이 문서를 사용하여 Bing Speech API에서 Speech Service로 응용 프로그램을 마이그레이션합니다.
+이 문서를 사용하여 Bing Speech API에서 Speech Service로 애플리케이션을 마이그레이션합니다.
 
-이 문서에서는 Bing Speech API와 Speech Service 간의 차이점을 간략하게 설명하고 응용 프로그램을 마이그레이션하기 위한 전략을 제안합니다. Bing Speech API 구독 키는 Speech Service에서 수락되지 않으므로 새 Speech Service 구독이 필요합니다.
+이 문서에서는 Bing Speech API와 Speech Service 간의 차이점을 간략하게 설명하고 애플리케이션을 마이그레이션하기 위한 전략을 제안합니다. Bing Speech API 구독 키는 Speech Service에서 수락되지 않으므로 새 Speech Service 구독이 필요합니다.
 
 단일 Speech Service 구독 키는 다음 기능에 대한 액세스 권한을 부여합니다. 각 기능은 별도로 측정되므로 사용하는 기능에 대해서만 요금이 청구됩니다.
 
@@ -61,25 +61,25 @@ Speech Service는 트랜잭션 기반 모델 대신 시간 기반 가격 책정 
 
 ## <a name="migration-strategies"></a>마이그레이션 전략
 
-사용자 또는 조직의 개발 또는 프로덕션 환경에 Bing Speech API를 사용하는 응용 프로그램이 있는 경우 최대한 빨리 Speech Service를 사용하도록 업데이트해야 합니다. 사용 가능한 SDK, 코드 샘플 및 자습서에 대해서는 [Speech Service](index.yml) 설명서를 참조하세요.
+사용자 또는 조직의 개발 또는 프로덕션 환경에 Bing Speech API를 사용하는 애플리케이션이 있는 경우 최대한 빨리 Speech Service를 사용하도록 업데이트해야 합니다. 사용 가능한 SDK, 코드 샘플 및 자습서에 대해서는 [Speech Service](index.yml) 설명서를 참조하세요.
 
 Speech Service [REST API](rest-apis.md)는 Bing Speech API와 호환됩니다. 현재 Bing Speech REST API를 사용 중인 경우 REST 엔드포인트만 변경하고 Speech Service 구독 키로 전환해야 합니다.
 
 또한 Speech Service WebSocket 프로토콜도 Bing Speech에서 사용되는 프로토콜과 호환됩니다. 새로 개발할 때에는 Websocket보다 Speech Service SDK를 사용하는 것이 좋습니다. 기존 코드를 SDK로 마이그레이션하는 것도 좋은 생각입니다. 그러나 REST API와 마찬가지로, WebSocket을 통해 Bing Speech를 사용하는 기존 코드에서는 엔드포인트와 업데이트된 키만 변경하면 됩니다.
 
-특정 프로그래밍 언어에 대해 Bing Speech 클라이언트 라이브러리를 사용하는 경우 API가 다르기 때문에 [Speech SDK](speech-sdk.md)에서 사용 중인 응용 프로그램으로 변경해야 합니다. Speech SDK는 새 기능에 액세스하면서 코드를 좀 더 간단히 만들어줄 수 있습니다.
+특정 프로그래밍 언어에 대해 Bing Speech 클라이언트 라이브러리를 사용하는 경우 API가 다르기 때문에 [Speech SDK](speech-sdk.md)에서 사용 중인 애플리케이션으로 변경해야 합니다. Speech SDK는 새 기능에 액세스하면서 코드를 좀 더 간단히 만들어줄 수 있습니다.
 
 현재, Speech SDK는 C#(Windows 10, UWP, .NET 표준), Java(Android 및 사용자 지정 디바이스), Objective C(iOS), C++(Windows 및 Linux), JavaScript를 지원합니다. 모든 플랫폼의 API는 비슷하며, 다중 플랫폼 개발을 용이하게 수행할 수 있습니다.
 
-Speech Service는 현재 전역 엔드포인트를 제공하지 않습니다. 응용 프로그램이 모든 해당 트래픽에 대해 단일 지역별 엔드포인트를 사용할 때 효율적으로 작동하는지를 확인합니다. 그렇지 않을 경우 지리적 위치를 사용하여 가장 효율적인 엔드포인트를 확인합니다. 사용하는 각 지역에 별도의 Speech Service 구독이 필요합니다.
+Speech Service는 현재 전역 엔드포인트를 제공하지 않습니다. 애플리케이션이 모든 해당 트래픽에 대해 단일 지역별 엔드포인트를 사용할 때 효율적으로 작동하는지를 확인합니다. 그렇지 않을 경우 지리적 위치를 사용하여 가장 효율적인 엔드포인트를 확인합니다. 사용하는 각 지역에 별도의 Speech Service 구독이 필요합니다.
 
-응용 프로그램에서 수명이 긴 연결을 사용하고 제공되는 SDK를 사용할 수 없는 경우 WebSocket 연결을 사용하면 됩니다. 적절한 시간에 다시 연결하여 10분 시간 제한을 관리합니다.
+애플리케이션에서 수명이 긴 연결을 사용하고 제공되는 SDK를 사용할 수 없는 경우 WebSocket 연결을 사용하면 됩니다. 적절한 시간에 다시 연결하여 10분 시간 제한을 관리합니다.
 
 Speech Devices SDK를 시작하려면
 
 1. [Speech SDK](speech-sdk.md)를 다운로드합니다.
 1. Speech Service [빠른 시작 가이드](quickstart-csharp-dotnet-windows.md) 및 [자습서](how-to-recognize-intents-from-speech-csharp.md)를 수행합니다. 또한 [코드 샘플](samples.md)을 살펴보고 새 API를 경험합니다.
-1. Speech Service 및 API를 사용하도록 응용 프로그램을 업데이트합니다.
+1. Speech Service 및 API를 사용하도록 애플리케이션을 업데이트합니다.
 
 ## <a name="support"></a>지원
 

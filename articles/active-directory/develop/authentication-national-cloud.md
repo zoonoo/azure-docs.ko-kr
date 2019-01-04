@@ -35,7 +35,7 @@ ms.locfileid: "46982004"
 
 ## <a name="app-registration-endpoints"></a>앱 등록 엔드포인트
 
-다음 표에는 각 국가별 클라우드에 대한 응용 프로그램을 등록하는 데 사용되는 Azure AD(Azure Active Directory) 엔드포인트에 대한 기본 URL이 나열되어 있습니다.
+다음 표에는 각 국가별 클라우드에 대한 애플리케이션을 등록하는 데 사용되는 Azure AD(Azure Active Directory) 엔드포인트에 대한 기본 URL이 나열되어 있습니다.
 
 | 국가별 클라우드 | Azure AD 포털 엔드포인트
 | --- | --- |
@@ -60,7 +60,7 @@ Azure AD 권한 부여 또는 토큰 엔드포인트에 대한 요청은 적절�
 - 권한 부여 공통 엔드포인트는 `https://login.microsoftonline.de/common/oauth2/authorize`입니다.
 - 토큰 공통 엔드포인트는 `https://login.microsoftonline.de/common/oauth2/token`입니다. 
 
-단일 테넌트 응용 프로그램의 경우 위의 URL에서 공통을 테넌트 ID 또는 이름(예: `https://login.microsoftonline.de/contoso.com`)으로 바꿉니다.
+단일 테넌트 애플리케이션의 경우 위의 URL에서 공통을 테넌트 ID 또는 이름(예: `https://login.microsoftonline.de/contoso.com`)으로 바꿉니다.
 
 >[!NOTE]
 > [Azure AD v2.0 권한 부여]( https://docs.microsoft.com/azure/active-directory/develop/active-directory-appmodel-v2-overview) 및 토큰 엔드포인트는 글로벌 서비스에만 사용할 수 있습니다. 아직 국가별 클라우드 배포에는 지원되지 않습니다.

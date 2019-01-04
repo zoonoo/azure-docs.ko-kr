@@ -25,7 +25,7 @@ RUM(실제 사용자 측정) 키를 가져오고 웹 페이지에 생성된 코�
 
 ## <a name="obtain-a-real-user-measurements-key"></a>실제 사용자 측정 키 가져오기
 
-클라이언트 응용 프로그램에서 Traffic Manager로 보낸 측정값은 **RUM(실제 사용자 측정) 키**라고 하는 고유한 문자열을 사용하여 서비스에 의해 식별됩니다. Azure Portal, REST API를 사용하거나 PowerShell 또는 Azure CLI를 사용하여 RUM 키를 가져올 수 있습니다.
+클라이언트 애플리케이션에서 Traffic Manager로 보낸 측정값은 **RUM(실제 사용자 측정) 키**라고 하는 고유한 문자열을 사용하여 서비스에 의해 식별됩니다. Azure Portal, REST API를 사용하거나 PowerShell 또는 Azure CLI를 사용하여 RUM 키를 가져올 수 있습니다.
 
 Azure Portal을 사용하여 RUM 키를 가져오려면:
 1. 브라우저에서 Azure Portal에 로그인합니다. 아직 계정이 없는 경우 1개월 평가판에 등록할 수 있습니다.

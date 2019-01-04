@@ -23,7 +23,7 @@ ms.locfileid: "52633098"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Service Fabric을 사용하여 일반적인 시나리오 진단
 
-이 문서에서는 Service Fabric을 사용하여 모니터링 및 진단 영역에서 사용자에게 발생한 일반적인 시나리오에 대해 설명합니다. 여기서 제시되는 시나리오에서는 응용 프로그램, 클러스터 및 인프라의 Service Fabric 3개 계층을 모두 다룹니다. 각 솔루션에서 Application Insights, Log Analytics 및 Azure 모니터링 도구를 사용하여 각각의 시나리오를 완료합니다. 각 솔루션의 단계를 통해 Service Fabric의 컨텍스트에서 Application Insights 및 Log Analytics를 사용하는 방법을 사용자에게 소개할 수 있습니다.
+이 문서에서는 Service Fabric을 사용하여 모니터링 및 진단 영역에서 사용자에게 발생한 일반적인 시나리오에 대해 설명합니다. 여기서 제시되는 시나리오에서는 애플리케이션, 클러스터 및 인프라의 Service Fabric 3개 계층을 모두 다룹니다. 각 솔루션에서 Application Insights, Log Analytics 및 Azure 모니터링 도구를 사용하여 각각의 시나리오를 완료합니다. 각 솔루션의 단계를 통해 Service Fabric의 컨텍스트에서 Application Insights 및 Log Analytics를 사용하는 방법을 사용자에게 소개할 수 있습니다.
 
 ## <a name="prerequisites-and-recommendations"></a>필수 조건 및 권장 사항
 
@@ -34,9 +34,9 @@ ms.locfileid: "52633098"
 * [Log Analytics 작업 영역 설정](service-fabric-diagnostics-oms-setup.md)
 * [성능 카운터를 추적하는 Log Analytics 에이전트](service-fabric-diagnostics-oms-agent.md)
 
-## <a name="how-can-i-see-unhandled-exceptions-in-my-application"></a>내 응용 프로그램에서 처리되지 않은 예외를 확인하려면 어떻게 해야 할까요?
+## <a name="how-can-i-see-unhandled-exceptions-in-my-application"></a>내 애플리케이션에서 처리되지 않은 예외를 확인하려면 어떻게 해야 할까요?
 
-1. 응용 프로그램이 구성된 Application Insight 리소스로 이동합니다.
+1. 애플리케이션이 구성된 Application Insight 리소스로 이동합니다.
 2. 왼쪽 위에 있는 *검색*을 클릭합니다. 그러면 다음 패널에서 필터를 클릭합니다.
 
     ![AI 개요](media/service-fabric-diagnostics-common-scenarios/ai-search-filter.png)
@@ -52,11 +52,11 @@ ms.locfileid: "52633098"
 ## <a name="how-do-i-view-which-http-calls-are-used-in-my-services"></a>내 서비스에서 사용되는 HTTP 호출을 확인하려면 어떻게 할까요?
 
 1. 동일한 Application Insight 리소스에서 예외 대신 "요청"을 필터링하여 모든 요청을 볼 수 있습니다
-2. Service Fabric Application Insights SDK를 사용하는 경우 서로 연결된 서비스의 시각적 표현과 성공하거나 실패한 요청 수를 볼 수 있습니다. 왼쪽에서 "응용 프로그램 맵"을 클릭합니다.
+2. Service Fabric Application Insights SDK를 사용하는 경우 서로 연결된 서비스의 시각적 표현과 성공하거나 실패한 요청 수를 볼 수 있습니다. 왼쪽에서 "애플리케이션 맵"을 클릭합니다.
 
     ![AI 응용 프로그램 맵 블레이드](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![AI 응용 프로그램 맵](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
-    응용 프로그램 맵에 대한 자세한 내용은 [응용 프로그램 맵 설명서](../application-insights/app-insights-app-map.md)를 참조하세요.
+    애플리케이션 맵에 대한 자세한 내용은 [애플리케이션 맵 설명서](../application-insights/app-insights-app-map.md)를 참조하세요.
 
 ## <a name="how-do-i-create-an-alert-when-a-node-goes-down"></a>노드가 중단될 때 경고를 만들려면 어떻게 할까요?
 
@@ -77,9 +77,9 @@ ms.locfileid: "52633098"
 
     ![Log Analytics 새 경고](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
 
-## <a name="how-can-i-be-alerted-of-application-upgrade-rollbacks"></a>응용 프로그램 업그레이드 롤백에 대한 경고를 받으려면 어떻게 해야 할까요?
+## <a name="how-can-i-be-alerted-of-application-upgrade-rollbacks"></a>애플리케이션 업그레이드 롤백에 대한 경고를 받으려면 어떻게 해야 할까요?
 
-1. 앞서와 동일한 [로그 검색] 창에서 업그레이드 롤백에 대한 다음 쿼리를 입력합니다. 이러한 이벤트 ID는 [응용 프로그램 이벤트 참조](service-fabric-diagnostics-event-generation-operational.md#application-events)에 있습니다.
+1. 앞서와 동일한 [로그 검색] 창에서 업그레이드 롤백에 대한 다음 쿼리를 입력합니다. 이러한 이벤트 ID는 [애플리케이션 이벤트 참조](service-fabric-diagnostics-event-generation-operational.md#application-events)에 있습니다.
 
     ```kusto
     ServiceFabricOperationalEvent
@@ -128,7 +128,7 @@ ms.locfileid: "52633098"
 
 ## <a name="how-do-i-track-performance-of-my-reliable-services-and-actors"></a>내 Reliable Services 및 Actors의 성능을 추적하려면 어떻게 할까요?
 
-응용 프로그램에서 Reliable Services 또는 Actors의 성능을 추적하려면 Service Fabric 행위자, 행위자 메서드, 서비스 및 서비스 메서드 카운터도 추가해야 합니다. 위의 시나리오와 비슷한 방식으로 이러한 카운터를 추가할 수 있습니다. Log Analytics에 추가할 신뢰할 수 있는 서비스 및 행위자 성능 카운터에 대한 예제는 다음과 같습니다.
+애플리케이션에서 Reliable Services 또는 Actors의 성능을 추적하려면 Service Fabric 행위자, 행위자 메서드, 서비스 및 서비스 메서드 카운터도 추가해야 합니다. 위의 시나리오와 비슷한 방식으로 이러한 카운터를 추가할 수 있습니다. Log Analytics에 추가할 신뢰할 수 있는 서비스 및 행위자 성능 카운터에 대한 예제는 다음과 같습니다.
 
 * `Service Fabric Service(*)\\Average milliseconds per request`
 * `Service Fabric Service Method(*)\\Invocations/Sec`

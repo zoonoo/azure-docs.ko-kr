@@ -5,14 +5,15 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 667cbbbcc0a74550b389d7a75e17cecd00b88d06
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.topic: conceptual
+ms.openlocfilehash: af610aaec238e1b2ae8ec2387e5a8f71225cab8c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976622"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848173"
 ---
 # <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>VMware VM과 Azure 간 복제에서 디스크 제외
 
@@ -56,7 +57,7 @@ ms.locfileid: "51976622"
 > * 복제를 사용하도록 설정한 후 복제에 대해 디스크를 추가 또는 제거할 수 없습니다. 디스크를 추가하거나 제외하려는 경우 컴퓨터에 대한 보호를 해제한 다음 다시 사용하도록 설정해야 합니다.
 > * 응용 프로그램 작동에 필요한 디스크를 제외하면 Azure로 장애 조치(failover) 후 복제된 응용 프로그램이 실행할 수 있도록 디스크를 Azure에서 수동으로 만들어야 합니다. 또는 Azure Automation을 복구 계획에 통합하여 컴퓨터의 장애 조치(failover) 동안 디스크를 만들 수 있습니다.
 > * Window 가상 머신: Azure에서 수동으로 만드는 디스크는 장애 복구되지 않습니다. 예를 들어 디스크 세 개를 장애 조치하고 Azure Virtual Machines에서 디스크 두 개를 직접 만들면 장애 조치된 디스크 세 개만 장애 복구됩니다. 온-프레미스에서 Azure로 장애 복구 또는 다시 보호에서 수동으로 만든 디스크는 포함할 수 없습니다.
-> * Linux 가상 머신: Azure에서 수동으로 만드는 디스크는 장애 복구됩니다. 예를 들어 디스크 세 개를 장애 조치(failover)하고 Azure Virtual Machines에서 디스크 두 개를 직접 만들면 다섯 개 모두 장애 복구됩니다. 장애 복구에서 수동으로 만든 디스크는 제외할 수 없습니다.
+> * Linux 가상 머신: Azure에서 수동으로 만드는 디스크는 장애 복구되지 않습니다. 예를 들어 디스크 세 개를 장애 조치(failover)하고 Azure Virtual Machines에서 디스크 두 개를 직접 만들면 다섯 개 모두 장애 복구됩니다. 장애 복구에서 수동으로 만든 디스크는 제외할 수 없습니다.
 >
 
 
@@ -167,7 +168,7 @@ DISK0 | C:\ | 운영 체제 디스크
 Disk1 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
 Disk2 | G:\ | 사용자 데이터베이스 2
 
-## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>예제 2: 페이징 파일(pagefile.sys) 디스크 제외
+## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>예 2: 페이징 파일(pagefile.sys) 디스크 제외
 
 제외할 수 있는 페이징 파일 디스크가 있는 가상 머신을 살펴보겠습니다.
 다음 두 가지 경우가 있습니다.

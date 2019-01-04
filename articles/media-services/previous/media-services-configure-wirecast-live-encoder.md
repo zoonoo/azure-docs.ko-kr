@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 6cc4c0b01511309766e48c3d671ee897e5d6f326
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e0e41714f6979a9cd699df70498b9c89a44d5ee1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669116"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138959"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>단일 비트 전송률 라이브 스트림을 보낼 Wirecast 인코더 사용
 > [!div class="op_single_selector"]
@@ -69,22 +69,22 @@ ms.locfileid: "43669116"
 >
 >
 
-## <a name="a-idconfigurewirecastrtmp-aconfigure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" /a>Telestream Wirecast 인코더 구성
+## <a name="a-idconfigurewirecastrtmp-configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Telestream Wirecast 인코더 구성
 이 자습서에서는 다음 출력 설정이 사용됩니다. 이 섹션의 나머지 부분에서 구성 단계를 더 자세히 설명합니다.
 
 **비디오**:
 
 * 코덱: H.264
-* 프로필: 높음(수준 4.0)
-* 비트 전송률: 5,000kbps
+* 프로필 높음(수준 4.0)
+* Bitrate: 5000kbps
 * 키 프레임: 2초(60초)
 * 프레임 속도: 30
 
 **오디오**:
 
 * 코덱: AAC(LC)
-* 비트 전송률: 192kbps
-* 샘플 속도: 44.1khz
+* Bitrate: 192kbps
+* 샘플링 속도: 44.1kHz
 
 ### <a name="configuration-steps"></a>구성 단계
 1. 사용 중인 컴퓨터에서 Telestream Wirecast 응용 프로그램을 열고 RTMP 스트리밍을 사용하도록 설정합니다.
@@ -105,14 +105,14 @@ ms.locfileid: "43669116"
 
    * 인코더: MainConcept H.264
    * 초당 프레임 수: 30
-   * 평균 비트 전송률: 5000kbps(네트워크 제한 사항에 따라 조정 가능)
-   * 프로필: 기본
+   * 평균 비트 전송률: 5000kbits/sec(네트워크 제한 사항에 따라 조정 가능)
+   * 프로필 기본
    * 키 프레임 간격: 60프레임
 
     **오디오**
 
-   * 대상 비트 전송률: 192kbps
-   * 샘플 속도: 44.100kHz
+   * 대상 비트 전송률: 192kbits/sec
+   * 샘플링 속도: 44.100kHz
 
      ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
 6. **저장**을 누릅니다.

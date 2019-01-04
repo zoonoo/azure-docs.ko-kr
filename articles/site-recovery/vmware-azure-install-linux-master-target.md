@@ -4,14 +4,14 @@ description: Azure Site Recovery를 사용한 VMware VM과 Azure 간 재해 복�
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 415b50b94052e7d428ddfa55d5288c8954a3ff1a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e35a8cf720fffa3a3b4c7d9f1b83c2323041b1c4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212372"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833315"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치
 Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 머신을 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
@@ -41,7 +41,7 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 - **RAM**: 6GB 이상
 - **OS 디스크 크기**: 100GB 이상(OS 설치에 필요)
 - **보존 드라이브에 대한 추가 디스크 크기**: 1TB
-- **CPU 코어**: 코어 4개 이상
+- **CPU 코어**: 4 코어 이상
 
 다음 지원되는 Ubuntu 커널을 사용할 수 있습니다.
 
@@ -132,9 +132,9 @@ DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스
     ![GRUB 부팅 설치 관리자](./media/vmware-azure-install-linux-master-target/image20.png)
 
 
-1. 부팅 로더를 설치할 적절한 장치(가급적 **/dev/sda**)를 선택하고 **Enter** 키를 선택합니다.
+1. 부팅 로더를 설치할 적절한 디바이스(가급적 **/dev/sda**)를 선택하고 **Enter** 키를 선택합니다.
      
-    ![해당 장치 선택](./media/vmware-azure-install-linux-master-target/image21.png)
+    ![해당 디바이스 선택](./media/vmware-azure-install-linux-master-target/image21.png)
 
 1. **계속**을 선택한 다음, **Enter** 키를 선택하여 설치를 완료합니다.
 

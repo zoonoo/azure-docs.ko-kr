@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: barclayn
-ms.openlocfilehash: a28bf1dc23d678c710d7bd6b13f067427e76ef41
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bb4ef826ed29187209b28c349445ca0eb5ffe9bb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238402"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864905"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Azure Key Vault 시작
 이 문서는 PowerShell을 사용하여 Azure Key Vault를 시작할 수 있도록 하고 다음 활동을 따르는 과정을 안내합니다.
@@ -193,7 +193,7 @@ $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPasswor
 ```powershell
 $secret.Id
 ```
-비밀을 보려면 `Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'`를 입력하거나 또는 포털에서 비밀을 볼 수 있습니다.
+비밀을 보려면 다음을 입력합니다. `Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'`를 입력하거나 또는 포털에서 비밀을 볼 수 있습니다.
 
 ![secret](./media/key-vault-get-started/secret-value.png)
 
@@ -201,35 +201,35 @@ $secret.Id
 ```powershell
 (get-azurekeyvaultsecret -vaultName "Contosokeyvault" -name "SQLPassword").SecretValueText
 ```
-이제, 사용자 키 자격 증명 모음 또는 비밀은 응용 프로그램에서 사용할 준비가 되었습니다. 이제 응용 프로그램에 사용 권한을 부여합니다.  
+이제, 사용자 키 자격 증명 모음 또는 비밀은 애플리케이션에서 사용할 준비가 되었습니다. 이제 애플리케이션에 사용 권한을 부여합니다.  
 
 ## <a id="register"></a>Azure Active Directory에 응용 프로그램 등록
-이 단계는 일반적으로 별도의 컴퓨터에서 개발자가 수행할 수 있습니다. Azure Key Vault에 국한되지 않습니다. Azure Active Directory를 사용하여 응용 프로그램을 등록하는 자세한 단계를 알아보려면 [Azure Active Directory와 응용 프로그램 통합](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) 또는 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md) 문서를 검토하세요.
+이 단계는 일반적으로 별도의 컴퓨터에서 개발자가 수행할 수 있습니다. Azure Key Vault에 국한되지 않습니다. Azure Active Directory를 사용하여 애플리케이션을 등록하는 자세한 단계를 알아보려면 [Azure Active Directory와 애플리케이션 통합](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) 또는 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md) 문서를 검토하세요.
 
 > [!IMPORTANT]
 > 이 단계에서 등록된 자습서, 계정, 해당 자격 증명 모음 및 응용 프로그램을 완료하려면, 모두 동일한 Azure 디렉터리에 있어야 합니다.
 
 
-자격 증명 모음 키를 사용하는 응용 프로그램은 Azure Active Directory에서 토큰을 사용하여 인증해야 합니다. 응용 프로그램의 소유자가 Azure Active Directory에 먼저 응용 프로그램을 등록해야 합니다. 등록 끝에 응용 프로그램 소유자는 다음 값을 가져옵니다.
+자격 증명 모음 키를 사용하는 응용 프로그램은 Azure Active Directory에서 토큰을 사용하여 인증해야 합니다. 애플리케이션의 소유자가 Azure Active Directory에 먼저 애플리케이션을 등록해야 합니다. 등록 끝에 응용 프로그램 소유자는 다음 값을 가져옵니다.
 
 - **응용 프로그램 ID** 
 - **인증 키**(또한 공유 암호라고도 함) 
 
-응용 프로그램은 토큰을 가져올 Azure Active Directory에 이 두 값 모두가 있어야 합니다. 응용 프로그램 구성은 응용 프로그램에 따라 달라집니다. [Key Vault 샘플 응용 프로그램](https://www.microsoft.com/download/details.aspx?id=45343)의 경우, 응용 프로그램 소유자는 app.config 파일에서 이러한 값을 설정합니다.
+응용 프로그램은 토큰을 가져올 Azure Active Directory에 이 두 값 모두가 있어야 합니다. 애플리케이션 구성은 애플리케이션에 따라 달라집니다. [Key Vault 샘플 응용 프로그램](https://www.microsoft.com/download/details.aspx?id=45343)의 경우, 응용 프로그램 소유자는 app.config 파일에서 이러한 값을 설정합니다.
 
 
 Azure Active Directory에 응용 프로그램을 등록하려면:
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽에서 **앱 등록**을 클릭합니다. 앱 등록이 보이지 않으면 **추가 서비스**를 클릭합니다.  
->[!NOTE]
-주요 자격 증명 모음을 만든 Azure 구독을 포함하는 동일한 디렉터리를 선택해야 합니다. 
+    > [!NOTE]
+    > 주요 자격 증명 모음을 만든 Azure 구독을 포함하는 동일한 디렉터리를 선택해야 합니다. 
 3. **새 응용 프로그램 등록**을 클릭합니다.
 4. **만들기** 블레이드에 응용 프로그램의 이름을 제공한 다음 **웹 응용 프로그램 및/또는 Web API**(기본값)를 선택하고 웹 응용 프로그램에 대한 **로그온 URL**을 지정합니다. 현재 이 정보가 없다면 이 단계에 대해 만들 수 있습니다(예를 들어 http://test1.contoso.com을 지정할 수 있습니다). 이러한 사이트가 존재하는 경우 중요하지 않습니다. 
 
-    ![새 응용 프로그램 등록](./media/key-vault-get-started/new-application-registration.png)
-    >[!WARNING]
-    **웹 응용 프로그램 및/또는 웹 API**를 선택했는지 확인합니다. 선택하지 않았다면 설정 아래에 **키** 옵션이 표시되지 않습니다.
+    ![새 애플리케이션 등록](./media/key-vault-get-started/new-application-registration.png)
+    > [!WARNING]
+    > **웹 응용 프로그램 및/또는 웹 API**를 선택했는지 확인합니다. 선택하지 않았다면 설정 아래에 **키** 옵션이 표시되지 않습니다.
 
 5. **만들기** 단추를 클릭합니다.
 6. 앱 등록을 완료하면 등록된 앱 목록이 표시됩니다. 직접 등록한 앱을 찾아서 클릭합니다.
@@ -240,12 +240,12 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 10. 자격 증명 모음에 사용 권한을 설정하려면 다음 단계에서 **응용 프로그램 ID** 및 **키** 정보를 사용합니다.
 
 ## <a id="authorize"></a>키 또는 비밀을 사용하여 응용 프로그램 권한 부여
-자격 증명 모음에서 키 또는 비밀에 액세스하도록 응용 프로그램을 인증하는 방법은 두 가지입니다.
+자격 증명 모음에서 키 또는 비밀에 액세스하도록 애플리케이션을 인증하는 방법은 두 가지입니다.
 
 ### <a name="using-powershell"></a>PowerShell 사용
 PowerShell을 사용하려면 [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet을 사용합니다.
 
-예를 들어 자격 증명 모음 이름이 **ContosoKeyVault** 이고 권한을 부여하려는 응용 프로그램의 클라이언트 ID가 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed이며 자격 증명 모음에 있는 키로 서명하고 암호 해독을 수행하도록 응용 프로그램에 권한을 부여하려면 다음 cmdlet을 실행합니다.
+예를 들어 자격 증명 모음 이름이 **ContosoKeyVault** 이고 권한을 부여하려는 애플리케이션의 클라이언트 ID가 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed이며 자격 증명 모음에 있는 키로 서명하고 암호 해독을 수행하도록 애플리케이션에 권한을 부여하려면 다음 cmdlet을 실행합니다.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
@@ -257,7 +257,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalNa
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 ```
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
-키 또는 암호를 사용하도록 응용 프로그램의 권한을 변경하려면:
+키 또는 암호를 사용하도록 애플리케이션의 권한을 변경하려면:
 1. 키 자격 증명 모음 리소스 블레이드에서 **액세스 정책**을 선택합니다.
 2. 블레이드 맨 위에서 [+ 새로 추가] 단추를 클릭합니다.
 3. **주체 선택**을 클릭하여 앞에서 만든 응용 프로그램을 선택합니다.
@@ -313,15 +313,15 @@ Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 Azure Key Vault를 관리하는 데 유용한 기타 명령은 다음과 같습니다.
 
 - `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`: 이 명령은 모든 키와 선택한 속성을 테이블 형식으로 가져옵니다.
-- `$Keys[0]`:이 명령은 지정된 키에 대한 속성의 전체 목록을 표시합니다.
+- `$Keys[0]`: 이 명령은 지정된 키에 대한 속성의 전체 목록을 표시합니다.
 - `Get-AzureKeyVaultSecret`: 이 명령은 모든 비밀 이름과 선택한 속성을 테이블 형식으로 표시합니다.
-- `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`: 특정 키를 제거하는 방법 예
-- `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'`: 특정 비밀을 제거하는 방법 예
+- `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`: 특정 키를 제거하는 방법 예제
+- `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'`: 특정 비밀을 제거하는 방법 예제
 
 ## <a name="next-steps"></a>다음 단계
 
 - Azure Key Vault에 대한 개요는 [Azure Key Vault란?](key-vault-whatis.md)
 - 주요 자격 증명 모음이 사용되는 방식을 보려면 [Azure Key Vault 로깅](key-vault-logging.md)을 참조하세요.
-- 웹 응용 프로그램에서 Azure Key Vault를 사용하는 후속 자습서는 [웹 응용 프로그램에서 Azure Key Vault 사용](key-vault-use-from-web-application.md)을 참조하세요.
+- 웹 애플리케이션에서 Azure Key Vault를 사용하는 후속 자습서는 [웹 애플리케이션에서 Azure Key Vault 사용](key-vault-use-from-web-application.md)을 참조하세요.
 - 프로그래밍 참조는 [Azure Key Vault 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
 - Azure Key Vault에 대한 최신 Azure PowerShell cmdlet의 목록은 [Azure Key Vault Cmdlet](/powershell/module/azurerm.keyvault/#key_vault)을 참조하세요.

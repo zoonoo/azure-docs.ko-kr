@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: a5f6f09ee6c8504b64cad7ef5313501a65907a90
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 02821abd8769a89fc1c7ad9d0dd5cf4e5a245e5f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632597"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435313"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>HDInsight의 Apache Hadoop에서 MapReduce 스트리밍으로 C# 사용
 
@@ -29,7 +29,7 @@ Apache Hadoop 스트리밍은 스크립트 또는 실행 파일을 사용하여 
 
 __Linux 기반 HDInsight__ 클러스터는 [Mono(https://mono-project.com)](https://mono-project.com)를 사용하여 .NET 응용 프로그램을 실행합니다. Mono 버전 4.2.1은 HDInsight 버전 3.6에 포함되어 있습니다. HDInsight와 함께 제공되는 Mono 버전에 대한 자세한 내용은 [HDInsight 구성 요소 버전](../hdinsight-component-versioning.md)을 참조하세요. 특정 버전의 Mono를 사용하려면 [Mono 설치 또는 업데이트](../hdinsight-hadoop-install-mono.md) 문서를 참조하세요.
 
-.NET 프레임워크 버전과 Mono의 호환성에 대한 자세한 내용은 [Mono 호환성](http://www.mono-project.com/docs/about-mono/compatibility/)을 참조하세요.
+.NET 프레임워크 버전과 Mono의 호환성에 대한 자세한 내용은 [Mono 호환성](https://www.mono-project.com/docs/about-mono/compatibility/)을 참조하세요.
 
 ## <a name="how-hadoop-streaming-works"></a>Hadoop 스트리밍 작동 방식
 
@@ -55,7 +55,7 @@ __Linux 기반 HDInsight__ 클러스터는 [Mono(https://mono-project.com)](http
 
 ## <a name="create-the-mapper"></a>매퍼 만들기
 
-Visual Studio에서 __mapper__라는 새 __콘솔 응용 프로그램__을 만듭니다. 응용 프로그램에 대해 다음 코드를 사용합니다.
+Visual Studio에서 __mapper__라는 새 __콘솔 애플리케이션__을 만듭니다. 애플리케이션에 대해 다음 코드를 사용합니다.
 
 ```csharp
 using System;
@@ -88,11 +88,11 @@ namespace mapper
 }
 ```
 
-응용 프로그램을 생성한 다음 빌드하여 프로젝트 디렉터리에 `/bin/Debug/mapper.exe` 파일을 만듭니다.
+애플리케이션을 만든 후 빌드하여 프로젝트 디렉터리에 `/bin/Debug/mapper.exe` 파일을 생성합니다.
 
 ## <a name="create-the-reducer"></a>리듀서 만들기
 
-Visual Studio에서 __reducer__라는 새 __콘솔 응용 프로그램__을 만듭니다. 응용 프로그램에 대해 다음 코드를 사용합니다.
+Visual Studio에서 __reducer__라는 새 __콘솔 애플리케이션__을 만듭니다. 애플리케이션에 대해 다음 코드를 사용합니다.
 
 ```csharp
 using System;
@@ -141,7 +141,7 @@ namespace reducer
 }
 ```
 
-응용 프로그램을 생성한 다음 빌드하여 프로젝트 디렉터리에 `/bin/Debug/reducer.exe` 파일을 만듭니다.
+애플리케이션을 만든 후 빌드하여 프로젝트 디렉터리에 `/bin/Debug/reducer.exe` 파일을 생성합니다.
 
 ## <a name="upload-to-storage"></a>저장소에 업로드
 
@@ -151,13 +151,13 @@ namespace reducer
 
 3. 메시지가 표시되면 Azure 구독 자격 증명을 입력한 다음 **로그인**을 클릭합니다.
 
-4. 이 응용 프로그램을 배포하려는 HDInsight 클러스터를 확장합니다. 텍스트가 포함된 항목 __(기본 Storage 계정)__ 이 목록에 표시됩니다.
+4. 이 애플리케이션을 배포하려는 HDInsight 클러스터를 확장합니다. 텍스트가 포함된 항목 __(기본 Storage 계정)__ 이 목록에 표시됩니다.
 
     ![클러스터에 대한 저장소 계정을 보여주는 서버 탐색기](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/storage.png)
 
     * 이 항목을 확장할 수 있는 경우 클러스터의 기본 저장소로 __Azure Storage 계정__을 사용하고 있음을 의미합니다. 클러스터의 기본 저장소에서 파일을 보려면 항목을 확장한 다음 __(기본 컨테이너)__ 를 두 번 클릭합니다.
 
-    * 이 항목을 확장할 수 없는 경우 클러스터의 기본 저장소로 __Azure Data Lake Store__를 사용하고 있음을 의미합니다. 클러스터의 기본 저장소에 있는 파일을 보려면 항목을 확장한 다음 __(기본 Storage 계정)__ 을 두 번 클릭합니다.
+    * 이 항목을 확장할 수 없는 경우 클러스터의 기본 스토리지로 __Azure Data Lake Storage__를 사용하고 있음을 의미합니다. 클러스터의 기본 저장소에 있는 파일을 보려면 항목을 확장한 다음 __(기본 Storage 계정)__ 을 두 번 클릭합니다.
 
 5. .exe 파일을 업로드하려면 다음 방법 중 하나를 사용합니다.
 
@@ -165,7 +165,7 @@ namespace reducer
 
         ![업로드 아이콘](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
     
-    * __Azure Data Lake Store__를 사용하는 경우 마우스 오른쪽 버튼으로 파일 목록의 빈 영역을 클릭한 다음 __업로드__를 클릭합니다. 마지막으로 **mapper.exe** 파일을 선택한 다음 **열기**를 클릭합니다.
+    * __Azure Data Lake Storage__를 사용하는 경우 마우스 오른쪽 버튼으로 파일 목록의 빈 영역을 클릭한 다음, __업로드__를 선택합니다. 마지막으로 **mapper.exe** 파일을 선택한 다음 **열기**를 클릭합니다.
 
     __mapper.exe__ 업로드가 완료되면 __reducer.exe__ 파일의 업로드 프로세스를 반복합니다.
 
@@ -175,7 +175,7 @@ namespace reducer
 
 2. 다음 명령 중 하나를 사용하여 MapReduce 작업을 시작합니다.
 
-    * 기본 저장소로 __Data Lake Store__를 사용하는 경우
+    * 기본 스토리지로 __Data Lake Storage__를 사용하는 경우
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
@@ -189,12 +189,12 @@ namespace reducer
 
     다음 목록은 각 매개 변수가 하는 기능에 대한 설명입니다.
 
-    * `hadoop-streaming.jar`: 스트리밍 MapReduce 기능이 포함된 jar 파일
-    * `-files`: 이 작업에 `mapper.exe` 및 `reducer.exe` 파일을 추가합니다.  각 파일 앞의 `adl:///` 및 `wasb:///`는 클러스터의 기본 저장소의 루트에 대한 경로입니다.
+    * `hadoop-streaming.jar`: 스트리밍 MapReduce 기능이 포함된 jar 파일입니다.
+    * `-files`: 이 작업에 `mapper.exe` 및 `reducer.exe` 파일을 추가합니다. 각 파일 앞의 `adl:///` 및 `wasb:///`는 클러스터의 기본 저장소의 루트에 대한 경로입니다.
     * `-mapper`: mapper를 구현하는 파일을 지정합니다.
     * `-reducer`: reducer를 구현하는 파일을 지정합니다.
-    * `-input`: 입력 데이터
-    * `-output`: 출력 디렉터리
+    * `-input`: 입력 데이터입니다.
+    * `-output`: 출력 디렉터리입니다.
 
 3. MapReduce 작업이 완료되면 다음을 사용하여 결과를 확인합니다.
 
@@ -236,6 +236,6 @@ namespace reducer
 
 HDInsight에서 MapReduce 사용에 대한 자세한 내용은 [HDInsight에서 MapReduce 사용](hdinsight-use-mapreduce.md)을 참조하세요.
 
-Hive 및 Pig에서 C#을 사용하는 방법에 대한 자세한 내용은 [Hive 및 Pig에서 C# 사용자 정의 기능 사용](apache-hadoop-hive-pig-udf-dotnet-csharp.md)을 참조하세요.
+Hive 및 Pig에서 C#을 사용하는 방법에 대한 자세한 내용은 [Apache Hive 및 Apache Pig에서 C# 사용자 정의 함수 사용](apache-hadoop-hive-pig-udf-dotnet-csharp.md)을 참조하세요.
 
-HDInsight의 Storm에서 C# 사용에 대한 자세한 내용은 [HDInsight에서 Storm에 대한 C# 토폴로지 개발](../storm/apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
+HDInsight의 Storm에서 C# 사용에 대한 자세한 내용은 [HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](../storm/apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.

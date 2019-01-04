@@ -1,21 +1,22 @@
 ---
 title: 컨테이너 설치 및 실행
-titleSuffix: Text Analytics - Cognitive Services - Azure
+titleSuffix: Text Analytics -  Azure Cognitive Services
 description: 이 단계별 자습서에서 Text Analytics용 컨테이너를 다운로드, 설치 및 실행하는 방법입니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 99bdb42d9a0d86d0d2acc4a6272e0c802042e6b5
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 11798c3bfd4032ad10c738032a816a2a0488ce67
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635093"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090536"
 ---
 # <a name="install-and-run-containers"></a>컨테이너 설치 및 실행
 
@@ -27,7 +28,7 @@ Text Analytics는 다음과 같은 Docker 컨테이너 세트를 제공하며, �
 |----------|-------------|
 |핵심 문구 추출 | 핵심 구를 추출하여 주요 요소를 식별합니다. 예를 들어 "The food was delicious and there were wonderful staff"라는 입력 텍스트에 대해 이 API는 "food" 및 "wonderful staff"이라는 핵심 발화 지점을 반환합니다. |
 |언어 검색 | 최대 120개 언어 중에서 입력 텍스트가 작성된 언어를 감지하고 보고합니다. 컨테이너는 요청에 포함된 모든 문서에 대해 단일 언어 코드를 보고합니다. 언어 코드가 점수와 쌍을 이루어 점수의 강도를 나타냅니다. |
-|감정 분석 | 긍정 또는 부정적인 감정에 대한 단서를 위해 원시 텍스트를 분석합니다. 이 API는 각 문서에 대해 0과 1 사이의 감점 점수를 반환합니다. 여기서 1이 가장 긍정적인 것입니다. 분석 모델은 Microsoft의 포괄적인 텍스트 본문 및 자연어 기술을 사용하여 미리 학습됩니다. 이 API는 [선택된 언어](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages.md)에 대해 사용자가 제공하는 원시 텍스트를 분석하고 점수를 매겨 호출 응용 프로그램에 직접 결과를 반환할 수 있습니다. |
+|감정 분석 | 원시 텍스트를 분석하여 긍정 또는 부정적인 감정에 대한 단서를 찾습니다. 이 API는 각 문서에 대해 0과 1 사이의 감점 점수를 반환합니다. 여기서 1이 가장 긍정적인 것입니다. 분석 모델은 Microsoft의 포괄적인 텍스트 본문 및 자연어 기술을 사용하여 미리 학습됩니다. 이 API는 [선택된 언어](../language-support.md)에 대해 사용자가 제공하는 원시 텍스트를 분석하고 점수를 매겨 호출 애플리케이션에 직접 결과를 반환할 수 있습니다. |
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -35,15 +36,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Text Analytics 컨테이너를 사용하려면 다음 필수 조건을 충족해야 합니다.
 
-**Docker 엔진** : Docker 엔진이 로컬로 설치되어 있어야 합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 및 [Windows](https://docs.docker.com/docker-for-windows/)에 Docker 환경을 구성하는 패키지를 제공합니다. Windows에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다. Docker 컨테이너는 [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/) 또는 [Azure Stack](/azure/azure-stack/)에 배포된 [Kubernetes](https://kubernetes.io/) 클러스터에 직접 배포할 수도 있습니다. Kubernets를 Azure Stack에 배포하는 방법에 대한 자세한 내용은 [Azure Stack에 Kubernet 배포](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)를 참조하세요.
+**Docker 엔진**: Docker 엔진이 로컬로 설치되어 있어야 합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 및 [Windows](https://docs.docker.com/docker-for-windows/)에 Docker 환경을 구성하는 패키지를 제공합니다. Windows에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다. Docker 컨테이너는 [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/) 또는 [Azure Stack](/azure/azure-stack/)에 배포된 [Kubernetes](https://kubernetes.io/) 클러스터에 직접 배포할 수도 있습니다. Kubernets를 Azure Stack에 배포하는 방법에 대한 자세한 내용은 [Azure Stack에 Kubernet 배포](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)를 참조하세요.
 
 Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다.
 
-**Microsoft Container Registry 및 Docker에 대한 숙지**: 기본적으로 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지는 물론 기본 `docker` 명령에 대한 지식과 같이 Microsoft Container Registry와 Docker 모두에 대한 개념을 이해해야 합니다.  
+**Microsoft Container Registry 및 Docker 숙지**: 기본적으로 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지는 물론 기본 `docker` 명령에 대한 지식과 같이 Microsoft Container Registry와 Docker 모두에 대한 개념을 이해해야 합니다.  
 
 Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.
 
-### <a name="server-requirements-and-recommendations"></a>서버 요구 사항 및 권장 사항
+### <a name="container-requirements-and-recommendations"></a>컨테이너 요구 사항 및 추천
 
 다음 표에서는 각 Text Analytics 컨테이너에 할당할 CPU 코어(2.6GHz 이상) 수 및 메모리(GB) 양에 대한 최소 및 권장 크기에 대해 설명합니다.
 
@@ -51,7 +52,7 @@ Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.
 |-----------|---------|-------------|
 |핵심 문구 추출 | 1개 코어, 2GB 메모리 | 1개 코어, 4GB 메모리 |
 |언어 검색 | 1개 코어, 2GB 메모리 | 1개 코어, 4GB 메모리 |
-|감정 분석 | 1개 코어, 8GB 메모리 | 1개 코어, 8GB 메모리 |
+|감정 분석 | 1개 코어, 2GB 메모리 | 1개 코어, 4GB 메모리 |
 
 ## <a name="download-container-images-from-microsoft-container-registry"></a>Microsoft Container Registry에서 컨테이너 이미지 다운로드
 
@@ -149,11 +150,13 @@ Text Analytics 컨테이너는 Azure 계정의 해당 Text Analytics 리소스�
 이 문서에서는 Text Analytics 컨테이너를 다운로드, 설치 및 실행하기 위한 개념과 워크플로를 알아보았습니다. 요약하면 다음과 같습니다.
 
 * Text Analytics는 세 개의 Docker용 Linux 컨테이너를 제공하여 핵심 구 추출, 언어 감지 및 감성 분석을 캡슐화합니다.
-* 컨테이너 이미지는 Azure의 개인 컨테이너 레지스트리에서 다운로드됩니다.
+* 컨테이너 이미지는 Azure의 MCR(Microsoft Container Registry)에서 다운로드됩니다.
 * 컨테이너 이미지는 Docker에서 실행됩니다.
 * REST API 또는 SDK를 사용하여 컨테이너의 호스트 URI를 지정함으로써 Text Analytics 컨테이너에서 작업을 호출할 수 있습니다.
 * 컨테이너를 인스턴스화할 때 청구 정보를 지정해야 합니다.
-* ** Cognitive Services 컨테이너에는 계량을 위해 Azure에 연결하지 않고 실행할 수 있는 라이선스가 없습니다. 고객은 컨테이너에서 항상 계량 서비스와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터(예: 분석 중인 이미지 또는 텍스트)를 Microsoft에 보내지 않습니다.  
+
+> [!IMPORTANT]
+> Cognitive Services 컨테이너는 측광을 위해 Azure에 연결되지 않은 상태에서 실행할 수 있는 권한이 없습니다. 고객은 컨테이너에서 항상 계량 서비스와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터(예: 분석 중인 이미지 또는 텍스트)를 Microsoft에 보내지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

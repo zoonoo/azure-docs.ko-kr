@@ -19,7 +19,7 @@ ms.lasthandoff: 10/09/2018
 ms.locfileid: "48885050"
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - 알려진 문제 및 문제 해결 가이드 
-이 문서는 Azure Machine Learning Workbench 응용 프로그램 사용의 일부로 발생하는 오류 또는 실패를 찾고 수정하는 데 도움을 줍니다. 
+이 문서는 Azure Machine Learning Workbench 애플리케이션 사용의 일부로 발생하는 오류 또는 실패를 찾고 수정하는 데 도움을 줍니다. 
 
 ## <a name="find-the-workbench-build-number"></a>Workbench 빌드 번호 찾기
 지원 팀과 논의할 때는 Workbench 앱의 빌드 번호가 있어야 합니다. **도움말** 메뉴를 클릭하여 Windows에서 빌드 번호를 확인하고 **Azure ML Workbench 정보**를 선택할 수 있습니다. MacOS 등에서 **Azure ML Workbench** 메뉴를 클릭하고 **Azure ML Workbench**를 선택할 수 있습니다.
@@ -67,7 +67,7 @@ $ az ml experiment diagnostics -r <run_id> -t <target_name>
 
 ## <a name="send-us-a-frown-or-a-smile"></a>찡그린(또는 웃는) 얼굴 보내기
 
-Azure ML Workbench에서 작업할 경우, 응용 프로그램 셸의 왼쪽 하단 모서리에 있는 웃는 얼굴 아이콘을 클릭하여 찡그린(또는 웃는) 얼굴을 보낼 수도 있습니다. 필요에 따라 이메일 주소(사용자에게 연결 가능하도록) 및/또는 현재 상태의 스크린샷을 포함하도록 선택할 수 있습니다. 
+Azure ML Workbench에서 작업할 경우, 애플리케이션 셸의 왼쪽 하단 모서리에 있는 웃는 얼굴 아이콘을 클릭하여 찡그린(또는 웃는) 얼굴을 보낼 수도 있습니다. 필요에 따라 이메일 주소(사용자에게 연결 가능하도록) 및/또는 현재 상태의 스크린샷을 포함하도록 선택할 수 있습니다. 
 
 ## <a name="known-service-limits"></a>알려진 서비스 제한
 - 최대 허용 프로젝트 폴더 크기: 25MB
@@ -234,7 +234,7 @@ Windows의 로컬 Docker 컨테이너에서 실행하는 경우 `aml_config` 아
 대개 이 작업은 수행할 필요가 없습니다. 하지만 설치를 완전히 초기화해야 하는 경우, 다음 단계를 따르십시오.
 
 - Windows에서:
-  - 먼저 _제어판_에서 _프로그램 추가/제거_ 애플릿을 사용하여 _Azure Machine Learning Workbench_ 응용 프로그램 항목을 제거해야 합니다.  
+  - 먼저 _제어판_에서 _프로그램 추가/제거_ 애플릿을 사용하여 _Azure Machine Learning Workbench_ 애플리케이션 항목을 제거해야 합니다.  
   - 그런 다음, 다음 스크립트 중 하나를 다운로드하여 실행합니다.
     - [Windows 명령줄 스크립트](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.cmd).
     - [Windows PowerShell 스크립트](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (스크립트를 실행하기 전에 상승된 권한(관리자)으로 PowerShell 창에서 `Set-ExecutionPolicy Unrestricted`를 실행해야 할 수도 있습니다.)

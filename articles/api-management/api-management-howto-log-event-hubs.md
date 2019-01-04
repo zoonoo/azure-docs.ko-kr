@@ -44,7 +44,7 @@ API Management 로거는 [API Management REST API](https://aka.ms/smapi)를 사�
 
 요청에 다음 헤더를 추가합니다.
 
-* 콘텐츠 형식 : 응용 프로그램/json
+* 콘텐츠 형식 : 애플리케이션/json
 * 권한 부여 : SharedAccessSignature 58...
   * `SharedAccessSignature` 생성에 대한 지침은 [Azure API Management REST API 인증](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication)을 참조하세요.
 

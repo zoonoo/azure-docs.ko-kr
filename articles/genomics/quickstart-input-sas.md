@@ -21,7 +21,7 @@ ms.locfileid: "45733500"
 이 빠른 시작은 저장소 계정 키 대신 [SAS(공유 액세스 서명)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)를 포함하는 config.txt 파일을 사용하여 Microsoft Genomics 서비스에 워크플로를 제출하는 방법을 보여 줍니다. 이 기능은 config.txt 파일에 표시되는 저장소 계정 키를 포함하는 것에 대한 보안 문제가 있는 경우에 유용할 수 있습니다. 이 문서에서는 `msgen` 클라이언트를 이미 설치하여 실행하고 있으며 Azure Storage를 사용하는 방법을 잘 알고 있다고 가정합니다. 제공된 샘플 데이터를 사용하여 워크플로를 성공적으로 제출한 경우 이 빠른 시작을 진행할 준비가 된 것입니다. 
 
 ## <a name="what-is-a-sas"></a>SAS는 무엇인가요?
-[SAS(공유 액세스 서명)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)는 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다. SAS로 계정 키를 공유하지 않고 저장소 계정의 리소스에 대한 액세스를 승인할 수 있습니다. 이는 응용 프로그램에서 공유 액세스 서명을 사용하는 중요한 점입니다. SAS는 선택키를 손상시키지 않고 저장 리소스를 공유할 수 있는 보안 방법입니다.
+[SAS(공유 액세스 서명)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)는 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다. SAS로 계정 키를 공유하지 않고 저장소 계정의 리소스에 대한 액세스를 승인할 수 있습니다. 이는 애플리케이션에서 공유 액세스 서명을 사용하는 중요한 점입니다. SAS는 계정 키를 손상시키지 않고 스토리지 리소스를 공유할 수 있는 보안 방법입니다.
 
 Microsoft Genomics에 제출된 SAS는 입력 및 출력 파일이 저장되는 Blob 또는 컨테이너에만 액세스를 위임하는 [서비스 SAS](https://docs.microsoft.com/rest/api/storageservices/Constructing-a-Service-SAS)이어야 합니다. 
 

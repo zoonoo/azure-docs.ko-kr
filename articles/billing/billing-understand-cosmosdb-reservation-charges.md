@@ -101,7 +101,7 @@ Azure Cosmos DB 예약된 용량을 구입하고 나면 예약의 특성 및 수
 
 Azure 청구 시스템에서는 처리되고 예약 구성과 일치하는 첫 번째 인스턴스에 예약 청구 혜택이 할당됩니다. 예를 들어, 이 경우에는 오스트레일리아 중부 2입니다.
 
-청구 사용량 보고서에서 Azure 예약의 응용 프로그램을 이해하고 보려면 [Azure 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage-ea.md)를 참조하세요.
+청구 사용량 보고서에서 Azure 예약의 애플리케이션을 이해하고 보려면 [Azure 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage-ea.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

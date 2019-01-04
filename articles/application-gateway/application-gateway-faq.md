@@ -21,11 +21,11 @@ ms.locfileid: "52425730"
 
 ### <a name="what-is-application-gateway"></a>Application Gateway란?
 
-Azure Application Gateway는 서비스 형태의 ADC(응용 프로그램 전달 컨트롤러)이며 응용 프로그램에 대한 다양한 계층 7 부하 분산 기능을 제공합니다. Azure에서 완전히 관리되는 고가용성의 확장성 있는 서비스를 제공합니다.
+Azure Application Gateway는 서비스 형태의 ADC(애플리케이션 전달 컨트롤러)이며 애플리케이션에 대한 다양한 계층 7 부하 분산 기능을 제공합니다. Azure에서 완전히 관리되는 고가용성의 확장성 있는 서비스를 제공합니다.
 
 ### <a name="what-features-does-application-gateway-support"></a>Application Gateway에서 지원하는 기능은 어떤 것이 있나요?
 
-Application Gateway에서는 자동 크기 조정, SSL 오프로딩 및 종단 간 SSL, 웹 응용 프로그램 방화벽, 쿠키 기반 세션 선호도, URL 경로 기반 라우팅, 다중 사이트 호스팅 등을 지원합니다. 지원되는 기능의 전체 목록은 [Application Gateway 소개](application-gateway-introduction.md)를 참조하세요.
+Application Gateway에서는 자동 크기 조정, SSL 오프로딩 및 종단 간 SSL, 웹 애플리케이션 방화벽, 쿠키 기반 세션 선호도, URL 경로 기반 라우팅, 다중 사이트 호스팅 등을 지원합니다. 지원되는 기능의 전체 목록은 [Application Gateway 소개](application-gateway-introduction.md)를 참조하세요.
 
 ### <a name="what-is-the-difference-between-application-gateway-and-azure-load-balancer"></a>Application Gateway와 Azure Load Balancer 간의 차이는 무엇인가요?
 
@@ -90,7 +90,7 @@ Application Gateway는 인스턴스당 하나의 개인 IP 주소를 사용하�
 
 ### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>Q. 둘 이상의 Application Gateway 리소스를 단일 서브넷에 배포할 수 있나요?**
 
-예. 지정된 Application Gateway 배포의 여러 인스턴스를 보유하는 것 외에도, 다른 응용 프로그램 게이트웨이 리소스를 포함하는 기존 서브넷에 다른 고유한 Application Gateway 리소스를 프로비전할 수 있습니다.
+예. 지정된 Application Gateway 배포의 여러 인스턴스를 보유하는 것 외에도, 다른 애플리케이션 게이트웨이 리소스를 포함하는 기존 서브넷에 다른 고유한 Application Gateway 리소스를 프로비전할 수 있습니다.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Application Gateway에서 x-forwarded-for 헤더를 지원하나요?
 
@@ -116,7 +116,7 @@ Application Gateway는 IP 연결이 있는 경우 가상 네트워크 외부 인
 
 ### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>Application Gateway 서브넷에서 다른 항목을 배포할 수 있나요?
 
-아니요, 그러나 서브넷에 다른 응용 프로그램 게이트웨이를 배포할 수 있습니다.
+아니요, 그러나 서브넷에 다른 애플리케이션 게이트웨이를 배포할 수 있습니다.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Application Gateway 서브넷에서 네트워크 보안 그룹이 지원되나요?
 
@@ -128,11 +128,11 @@ NSG(네트워크 보안 그룹)는 Application Gateway 서브넷에서 지원되
 
 * AzureLoadBalancer 태그의 트래픽을 허용해야 합니다.
 
-### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>응용 프로그램 게이트웨이 서브넷에서 사용자 정의 경로가 지원되나요?
+### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>애플리케이션 게이트웨이 서브넷에서 사용자 정의 경로가 지원되나요?
 
-UDR(사용자 정의 경로)은 종단 간 요청/응답 통신을 변경하지 않는 한 응용 프로그램 게이트웨이에서 지원됩니다.
+UDR(사용자 정의 경로)은 종단 간 요청/응답 통신을 변경하지 않는 한 애플리케이션 게이트웨이에서 지원됩니다.
 
-예를 들어 패킷 검사를 위한 방화벽 장비를 가리키도록 응용 프로그램 게이트웨이 서브넷에서 UDR을 설정할 수 있지만 패킷이 원하는 대상 사후 검사에 도달할 수 있는지 확인해야 합니다. 이렇게 하지 않으면 잘못된 상태 프로브 또는 트래픽 라우팅 동작을 초래할 수 있습니다. 여기에는 가상 네트워크에서 ExpressRoute 또는 VPN 게이트웨이를 통해 전파된 학습한 경로 또는 기본 0.0.0.0/0 경로가 포함됩니다.
+예를 들어 패킷 검사를 위한 방화벽 장비를 가리키도록 애플리케이션 게이트웨이 서브넷에서 UDR을 설정할 수 있지만 패킷이 원하는 대상 사후 검사에 도달할 수 있는지 확인해야 합니다. 이렇게 하지 않으면 잘못된 상태 프로브 또는 트래픽 라우팅 동작을 초래할 수 있습니다. 여기에는 가상 네트워크에서 ExpressRoute 또는 VPN 게이트웨이를 통해 전파된 학습한 경로 또는 기본 0.0.0.0/0 경로가 포함됩니다.
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Application Gateway에서 한도는 어떻게 되나요? 이러한 한도를 늘릴 수 있나요?
 
@@ -150,7 +150,7 @@ UDR(사용자 정의 경로)은 종단 간 요청/응답 통신을 변경하지 
 
 예, 트래픽이 허용되기만 한다면 가능합니다.
 
-### <a name="can-i-have-one-backend-pool-serving-many-applications-on-different-ports"></a>한 개의 백 엔드 풀에서 서로 다른 포트로 많은 응용 프로그램을 제공할 수 있나요?
+### <a name="can-i-have-one-backend-pool-serving-many-applications-on-different-ports"></a>한 개의 백 엔드 풀에서 서로 다른 포트로 많은 애플리케이션을 제공할 수 있나요?
 
 마이크로 서비스 아키텍처가 지원됩니다. 서로 다른 포트의 프로브에 대해 여러 http 설정이 구성되어야 합니다.
 
@@ -206,7 +206,7 @@ v2 SKU의 경우에는 여러 장애 도메인과 업데이트 도메인에 새 
 
 ### <a name="does-application-gateway-support-connection-draining"></a>Application Gateway는 연결 드레이닝을 지원하나요?
 
-예. 중지 없이 백 엔드 풀 내에서 멤버를 변경하도록 연결 드레이닝을 구성할 수 있습니다. 이렇게 하면 해당 연결이 닫히거나 구성 가능한 제한 시간이 만료될 때까지 기존 연결을 이전 목적지로 계속 보낼 수 있습니다. 연결 드레이닝은 현재 처리 중인 연결이 완료될 때까지만 대기합니다. Application Gateway는 응용 프로그램 세션 상태를 인식하지 못합니다.
+예. 중지 없이 백 엔드 풀 내에서 멤버를 변경하도록 연결 드레이닝을 구성할 수 있습니다. 이렇게 하면 해당 연결이 닫히거나 구성 가능한 제한 시간이 만료될 때까지 기존 연결을 이전 목적지로 계속 보낼 수 있습니다. 연결 드레이닝은 현재 처리 중인 연결이 완료될 때까지만 대기합니다. Application Gateway는 애플리케이션 세션 상태를 인식하지 못합니다.
 
 ### <a name="what-are-application-gateway-sizes"></a>Application Gateway 크기란?
 
@@ -214,7 +214,7 @@ Application Gateway는 현재 **소형**, **중형** 및 **대형**의 3가지 �
 
 Application Gateway의 전체 목록은 [Application Gateway 서비스 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)을 참조하세요.
 
-다음 표에서는 활성화된 SSL 오프로드로 각 응용 프로그램 게이트웨이 인스턴스의 평균 성능 처리량을 보여 줍니다.
+다음 표에서는 활성화된 SSL 오프로드로 각 애플리케이션 게이트웨이 인스턴스의 평균 성능 처리량을 보여 줍니다.
 
 | 평균 백 엔드 페이지 응답 크기 | 작음 | 중간 | 큰 |
 | --- | --- | --- | --- |
@@ -222,7 +222,7 @@ Application Gateway의 전체 목록은 [Application Gateway 서비스 제한](.
 | 100KB |35Mbps |100Mbps |200Mbps |
 
 > [!NOTE]
-> 이러한 값은 응용 프로그램 게이트웨이 처리량에 대한 대략적인 값입니다. 실제 처리량은 평균 페이지 크기, 백 엔드 인스턴스의 위치 및 페이지 처리 시간 등 다양한 환경 세부 사항에 따라 달라집니다. 정확한 성능 수치를 얻으려면 자체 테스트를 실행해야 합니다. 이러한 값은 용량 계획 지침에 대해서만 제공됩니다.
+> 이러한 값은 애플리케이션 게이트웨이 처리량에 대한 대략적인 값입니다. 실제 처리량은 평균 페이지 크기, 백 엔드 인스턴스의 위치 및 페이지 처리 시간 등 다양한 환경 세부 사항에 따라 달라집니다. 정확한 성능 수치를 얻으려면 자체 테스트를 실행해야 합니다. 이러한 값은 용량 계획 지침에 대해서만 제공됩니다.
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>중단 없이 인스턴스 크기를 중간에서 큼으로 변경할 수 있나요?
 
@@ -298,7 +298,7 @@ Application Gateway에서 현재 지원되는 현재 암호 그룹은 다음과 
 
 아니요, Azure Key Vault와 통합되지 않습니다.
 
-## <a name="web-application-firewall-waf-configuration"></a>WAF(웹 응용 프로그램 방화벽) 구성
+## <a name="web-application-firewall-waf-configuration"></a>WAF(웹 애플리케이션 방화벽) 구성
 
 ### <a name="does-the-waf-sku-offer-all-the-features-available-with-the-standard-sku"></a>WAF SKU는 표준 SKU에서 사용 가능한 모든 기능을 제공하나요?
 
@@ -336,7 +336,7 @@ WAF 규칙은 사용자 지정할 수 있습니다. 사용자 지정 방법에 �
 
 * 보트, 크롤러 및 스캐너 방지
 
-* 일반적인 응용 프로그램 구성 오류(즉 Apache, IIS 등) 검색
+* 일반적인 애플리케이션 구성 오류(즉 Apache, IIS 등) 검색
 
 ### <a name="does-waf-also-support-ddos-prevention"></a>WAF에서 DDoS 방지도 지원하나요?
 

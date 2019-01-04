@@ -12,18 +12,29 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/18/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: 0bbe2ee7436cc03a3780da096a498769d66eb505
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1865b4fa03f774fb4cbe69a5c8b17b096981ebc8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277939"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632792"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 서비스 정책
+
 이 문서에서는 Azure Stack 통합 시스템 및 지원 되는 상태 시스템을 유지 하기 위해 해야 할 항목에 대 한 서비스 정책을 설명 합니다. 
+
+## <a name="download-update-packages-for-integrated-systems"></a>통합된 시스템에 대 한 업데이트 패키지 다운로드
+
+Microsoft는 전체 월간 업데이트 패키지 뿐만 아니라 특정 문제를 해결 하려면 핫픽스 패키지 모두 해제 합니다. 
+
+월간 업데이트 패키지는 보안 Azure 끝점에서 호스트 됩니다. 사용 하 여 수동으로 다운로드할 수 있습니다 합니다 [Azure Stack 업데이트 다운로더 도구](http://aka.ms/azurestackupdatedownload)합니다. 업데이트 관리자 포털에 자동으로 표시 하는 배율 단위에 연결 되어 있으면 **사용할 수 있는 업데이트**합니다. Full, 월간 업데이트 패키지 문서화 되어 각 릴리스마다 합니다. 각 릴리스에 대 한 자세한 정보에 대 한 모든 릴리스를 클릭할 수는 [업데이트 패키지에 대 한 릴리스 작업 리듬](#update-package-release-cadence) 이 문서의 섹션입니다.
+
+핫픽스 업데이트 패키지는 동일한 보안 Azure 끝점에서 호스트 됩니다. 각각의 개별 핫픽스 KB 문서; 포함 된 링크를 사용 하 여 수동으로 다운로드할 수 있습니다. 예를 들어 [Azure Stack 핫픽스 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114)합니다. 전체, 월간 업데이트 패키지와 마찬가지로, Azure Stack 운영자.xml,.bin 및.exe 파일을 다운로드 하의 절차를 사용 하 여 가져올 [Azure Stack의 업데이트 적용](azure-stack-apply-updates.md)합니다. 연결 된 배율 단위를 사용 하 여 azure Stack 운영자는 메시지를 사용 하 여 관리자 포털에 자동으로 표시 하는 핫픽스 나타납니다 **사용할 수 있는 업데이트**합니다.
+
+배율 단위에 연결 되어 있지 않습니다. 각 핫픽스 릴리스 하는 방법에 대 한 알림을 받을 것인지를 구독 하는 [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … ) 또는 [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …) 피드 각 릴리스에서 언급 합니다.  
 
 ## <a name="update-package-types"></a>업데이트 패키지 형식
 
@@ -51,7 +62,7 @@ Microsoft는 매월 주기로 소프트웨어 업데이트 패키지를 해제 �
 
 
 ## <a name="keep-your-system-under-support"></a>지원 시스템을 유지 합니다.
-지원을 받으려면 계속 하려면 두어야 Azure Stack 배포 현재 합니다. 업데이트 지연 정책: Azure Stack에 배포 하에서 계속 지원에 대 한 가장 최근에 출시 된 업데이트 버전을 실행 하거나 두 이전 업데이트 버전 중 하나를 실행 해야 합니다. 핫픽스는 주요 업데이트 버전을 고려 하지 않습니다. 경우 Azure Stack 클라우드에 뒤 *두 개 이상의 업데이트*, 준수 것으로 간주 되 고으로 업데이트 해야 적어도 최소 지원된 버전 지원을 받을 수 있습니다. 
+지원을 받으려면 계속 하려면 두어야 Azure Stack 배포 현재 합니다. 업데이트 지연 정책을 다음과 같습니다. Azure Stack에 배포 하에서 계속 지원에 대 한 가장 최근에 출시 된 업데이트 버전을 실행 하거나 두 이전 업데이트 버전 중 하나를 실행 해야 합니다. 핫픽스는 주요 업데이트 버전을 고려 하지 않습니다. 경우 Azure Stack 클라우드에 뒤 *두 개 이상의 업데이트*, 준수 것으로 간주 되 고으로 업데이트 해야 적어도 최소 지원된 버전 지원을 받을 수 있습니다. 
 
 예를 들어 최신 업데이트 버전이 1805를 이전 두 업데이트 패키지 된 버전 1804 및 1803을 1803와 1804 유지 지원 합니다. 그러나 1802 지원 되지 않습니다. 정책 두 개 또는 한 달에 대 한 릴리스 없음 경우에 마찬가지입니다. 예를 들어, 현재 릴리스는 1805 했는데 1804 릴리스 없음, 1803 및 1802 이전 두 업데이트 패키지 유지 지원 합니다.
 

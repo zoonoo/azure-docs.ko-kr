@@ -39,7 +39,7 @@ OAuth 2.0 OBO(On-Behalf-Of) 흐름을 사용하면 사용자 인증을 다른 �
 
 이러한 단계는 On-Behalf-Of 흐름인 ![OAuth 2.0 On-Behalf-Of Flow](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)를 구성합니다.
 
-1. 클라이언트 응용 프로그램은 토큰 A와 함께 API A에 요청합니다.
+1. 클라이언트 애플리케이션은 토큰 A와 함께 API A에 요청합니다.
 1. API A는 Azure AD 토큰 발급 엔드포인트를 인증하고 API B에 액세스하기 위해 토큰을 요청합니다.
 1. Azure AD 토큰 발급 엔드포인트는 토큰 A와 함께 API A의 자격 증명의 유효성을 검사하고 API B(토큰 B)에 대한 액세스 토큰을 발급합니다.
 1. API B에 대한 요청에는 권한 부여 헤더의 토큰 B가 포함됩니다.
@@ -48,7 +48,7 @@ OAuth 2.0 OBO(On-Behalf-Of) 흐름을 사용하면 사용자 인증을 다른 �
 >[!NOTE]
 >다운스트림 서비스에 대한 토큰을 요청하는 데 사용된 액세스 토큰의 대상 클레임은 OBO 요청을 만드는 서비스의 ID여야 합니다. 토큰은 Azure Active Directory 글로벌 서명 키로 서명해야 합니다(이 키는 포털에서 **앱 등록**을 통해 등록된 애플리케이션의 기본값입니다).
 
-## <a name="register-the-application-and-service-in-azure-ad"></a>Azure AD에서 응용 프로그램 및 서비스 등록
+## <a name="register-the-application-and-service-in-azure-ad"></a>Azure AD에서 애플리케이션 및 서비스 등록
 
 중간 계층 서비스 및 클라이언트 애플리케이션을 모두 Azure AD에 등록합니다.
 
@@ -69,7 +69,7 @@ OAuth 2.0 OBO(On-Behalf-Of) 흐름을 사용하면 사용자 인증을 다른 �
     > [!IMPORTANT]
     > 구현에서 애플리케이션 설정을 구성하려면 키가 필요합니다. 이 키 값은 다시 표시되지 않으며 어떤 방법으로도 검색할 수 없습니다. Azure Portal에 표시되자마자 이 키 값을 기록합니다.
 
-### <a name="register-the-client-application"></a>클라이언트 응용 프로그램 등록
+### <a name="register-the-client-application"></a>클라이언트 애플리케이션 등록
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 위쪽 표시줄에서 계정을 선택하고 **디렉터리** 목록에서 검색하여 애플리케이션용 Active Directory 테넌트를 선택합니다.
@@ -83,7 +83,7 @@ OAuth 2.0 OBO(On-Behalf-Of) 흐름을 사용하면 사용자 인증을 다른 �
    1. 텍스트 필드에 중간 계층 서비스의 이름을 입력합니다.
    1. **권한 선택** 및 **액세스 서비스 이름**을 차례로 선택합니다.
 
-### <a name="configure-known-client-applications"></a>알려진 클라이언트 응용 프로그램 구성
+### <a name="configure-known-client-applications"></a>알려진 클라이언트 애플리케이션 구성
 
 이 시나리오에서는 사용자 상호 작용 없이 다운스트림 API에 액세스하려면 중간 계층 서비스에서 사용자 동의를 얻어야 합니다. 다운스트림 API에 대한 액세스 권한을 부여하기 위한 옵션은 인증 과정에서 동의 단계의 일부로 미리 제공되어야 합니다.
 
@@ -211,7 +211,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 ### <a name="error-response-example"></a>오류 응답 예제
 
-Azure AD 토큰 엔드포인트는 조건부 액세스 정책(예: 다단계 인증)을 통해 설정되는 다운스트림 API에 대한 액세스 토큰을 획득하려는 경우 오류 응답을 반환합니다. 중간 계층 서비스는 이 오류를 클라이언트 응용 프로그램에 전달하여 클라이언트 응용 프로그램이 조건부 액세스 정책을 충족시키기 위해 사용자 상호 작용을 제공할 수 있도록 해야 합니다.
+Azure AD 토큰 엔드포인트는 조건부 액세스 정책(예: 다단계 인증)을 통해 설정되는 다운스트림 API에 대한 액세스 토큰을 획득하려는 경우 오류 응답을 반환합니다. 중간 계층 서비스는 이 오류를 클라이언트 애플리케이션에 전달하여 클라이언트 애플리케이션이 조건부 액세스 정책을 충족시키기 위해 사용자 상호 작용을 제공할 수 있도록 해야 합니다.
 
 ```
 {

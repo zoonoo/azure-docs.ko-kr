@@ -29,7 +29,7 @@ ms.locfileid: "53010997"
 
 Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSON(JavaScript Notation) 문서로서 검색할 수 있습니다. [OAuth](http://oauth.net) 는 API에 대한 인증을 필요로 합니다.
 
-### <a name="create-a-twitter-application"></a>Twitter 응용 프로그램 만들기
+### <a name="create-a-twitter-application"></a>Twitter 애플리케이션 만들기
 
 1. 웹 브라우저에서 [https://apps.twitter.com/](https://apps.twitter.com/)에 로그인합니다. Twitter 계정이 없는 경우 **지금 로그인** 링크를 클릭합니다.
 
@@ -146,7 +146,7 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
    ```
 
     > [!IMPORTANT]
-    > 다음 항목에 대한 자리 표시자 텍스트를 Twitter 응용 프로그램의 정보로 대체합니다.
+    > 다음 항목에 대한 자리 표시자 텍스트를 Twitter 애플리케이션의 정보로 대체합니다.
     >
     > * `consumer_secret`
     > * `consumer_key`

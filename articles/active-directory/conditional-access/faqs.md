@@ -24,9 +24,9 @@ ms.locfileid: "39629296"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Azure Active Directory 조건부 액세스 FAQ
 
-## <a name="which-applications-work-with-conditional-access-policies"></a>조건부 액세스 정책이 적용되는 응용 프로그램은 무엇입니까?
+## <a name="which-applications-work-with-conditional-access-policies"></a>조건부 액세스 정책이 적용되는 애플리케이션은 무엇입니까?
 
-조건부 액세스 정책과 함께 작동하는 응용 프로그램에 대한 자세한 내용은 [Azure Active Directory에서 조건부 액세스 규칙을 사용하는 응용 프로그램 및 브라우저](technical-reference.md)를 참조하세요.
+조건부 액세스 정책과 함께 작동하는 애플리케이션에 대한 자세한 내용은 [Azure Active Directory에서 조건부 액세스 규칙을 사용하는 애플리케이션 및 브라우저](technical-reference.md)를 참조하세요.
 
 ## <a name="are-conditional-access-policies-enforced-for-b2b-collaboration-and-guest-users"></a>B2B 공동 작업과 게스트 사용자에게 조건부 액세스 정책이 적용됩니까?
 
@@ -41,7 +41,7 @@ B2B(Business-to-Business) 공동 작업 사용자에 대한 정책이 적용됩�
 
 ## <a name="why-cant-i-set-a-policy-on-client-apps-like-word-or-outlook"></a>Word나 Outlook 등의 클라이언트 앱에 정책을 설정할 수 없는 이유는 무엇입니까?
 
-조건부 액세스 정책은 서비스 액세스 요구 사항을 설정하고, 해당 서비스에 인증하는 경우에 적용됩니다. 클라이언트 응용 프로그램에서 직접 정책이 설정되는 것이 아니라 클라이언트가 서비스를 호출할 때 적용됩니다. 예를 들어 SharePoint에서 설정된 정책은 SharePoint를 호출하는 클라이언트에 적용됩니다. Exchange에서 설정된 정책은 Outlook에 적용됩니다.
+조건부 액세스 정책은 서비스 액세스 요구 사항을 설정하고, 해당 서비스에 인증하는 경우에 적용됩니다. 클라이언트 애플리케이션에서 직접 정책이 설정되는 것이 아니라 클라이언트가 서비스를 호출할 때 적용됩니다. 예를 들어 SharePoint에서 설정된 정책은 SharePoint를 호출하는 클라이언트에 적용됩니다. Exchange에서 설정된 정책은 Outlook에 적용됩니다.
 
 ## <a name="does-a-conditional-access-policy-apply-to-service-accounts"></a>조건부 액세스 정책은 서비스 계정을 적용됩니까?
 
@@ -62,4 +62,4 @@ Microsoft Teams는 모임, 일정, 파일 공유 등의 핵심 생산성 시나�
 
 Microsoft Teams는 Azure Active Directory 조건부 액세스 정책에서 별도의 클라우드 앱으로도 지원됩니다. 클라우드 앱에 대해 설정된 조건부 액세스 정책은 사용자가 로그인할 때 Microsoft Teams에 적용됩니다. 그러나 Exchange Online 및 SharePoint Online 등의 다른 앱에 대한 정확한 정책이 없으면 사용자가 해당 리소스에 계속하여 직접 액세스할 수 있습니다.
 
-Windows 및 Mac용 Microsoft Teams 데스크톱 클라이언트는 최신 인증을 지원합니다. 최신 인증은 ADAL(Azure Active Directory Authentication Library) 기반의 로그인을 플랫폼 전체의 Microsoft Office 클라이언트 응용 프로그램에 제공합니다.
+Windows 및 Mac용 Microsoft Teams 데스크톱 클라이언트는 최신 인증을 지원합니다. 최신 인증은 ADAL(Azure Active Directory Authentication Library) 기반의 로그인을 플랫폼 전체의 Microsoft Office 클라이언트 애플리케이션에 제공합니다.

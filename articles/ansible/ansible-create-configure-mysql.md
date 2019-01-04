@@ -90,7 +90,7 @@ ansible-playbook mysql_create.yml
 ```
 
 ## <a name="configure-a-firewall-rule"></a>방화벽 규칙 구성
-서버 수준 방화벽 규칙을 사용하면 외부 응용 프로그램에서 Azure MySQL 서비스 방화벽을 통해 서버에 연결할 수 있습니다. 외부 응용 프로그램에는 **mysql** 명령줄 도구 또는 MySQL Workbench 등이 있습니다.
+서버 수준 방화벽 규칙을 사용하면 외부 애플리케이션에서 Azure MySQL 서비스 방화벽을 통해 서버에 연결할 수 있습니다. 외부 애플리케이션에는 **mysql** 명령줄 도구 또는 MySQL Workbench 등이 있습니다.
 다음 예제는 외부 IP 주소에서 연결할 수 있는 **extenalaccess**라는 방화벽 규칙을 만듭니다. 
 
 **startIpAddress** 및 **endIpAddress**에 대한 값을 직접 입력합니다. 연결할 위치에 해당하는 IP 주소 범위를 사용합니다. 

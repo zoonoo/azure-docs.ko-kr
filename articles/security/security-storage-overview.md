@@ -23,10 +23,10 @@ ms.locfileid: "51259142"
 ---
 # <a name="azure-storage-security-overview"></a>Azure Storage 보안 개요
 
-Azure Storage는 내구성, 가용성, 확장성을 활용하여 고객의 요구 사항을 충족하는 최신 응용 프로그램을 위한 클라우드 저장소 솔루션입니다. Azure Storage는 포괄적인 보안 기능 집합을 제공합니다. 다음을 수행할 수 있습니다.
+Azure Storage는 내구성, 가용성, 확장성을 활용하여 고객의 요구 사항을 충족하는 최신 애플리케이션을 위한 클라우드 스토리지 솔루션입니다. Azure Storage는 포괄적인 보안 기능 집합을 제공합니다. 다음을 수행할 수 있습니다.
 
 * RBAC(역할 기반 액세스 제어) 및 Azure Active Directory를 사용하여 저장소 계정의 보안을 유지할 수 있습니다.
-* 클라이언트 쪽 암호화, HTTP 또는 SMB 3.0을 사용하여 응용 프로그램과 Azure 간에 전송 중인 데이터의 보안을 유지할 수 있습니다.
+* 클라이언트 쪽 암호화, HTTP 또는 SMB 3.0을 사용하여 애플리케이션과 Azure 간에 전송 중인 데이터의 보안을 유지할 수 있습니다.
 * Storage 서비스 암호화를 사용하여 데이터가 Azure Storage에 기록될 때 자동으로 암호화되도록 설정할 수 있습니다.
 * VM(가상 머신)에서 사용되는 OS 및 데이터 디스크가 Azure Disk Encryption을 통해 암호화되도록 설정할 수 있습니다.
 * SAS(공유 액세스 서명)를 사용하여 Azure Storage의 데이터 개체에 대한 위임된 액세스 권한을 부여할 수 있습니다.
@@ -39,7 +39,7 @@ Azure Storage의 보안에 대해 보다 자세히 알아보려면 [Azure Storag
 
 ## <a name="role-based-access-control"></a>역할 기반 Access Control
 
-RBAC(역할 기반 액세스 제어)를 사용하여 저장소 계정의 보안을 유지할 수 있습니다. [알아야 할 사항](https://en.wikipedia.org/wiki/Need_to_know) 및 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙을 기반으로 액세스를 제한하는 것은 데이터 액세스에 보안 정책을 적용하고자 하는 조직의 경우 필수입니다. 특정 범위에서 그룹 및 응용 프로그램에 적절한 RBAC 역할을 할당하여 이러한 액세스 권한을 부여합니다. Storage 계정 참여자와 같은 [기본 제공 RBAC 역할](../role-based-access-control/built-in-roles.md)을 사용하여 사용자에게 권한을 할당할 수 있습니다.
+RBAC(역할 기반 액세스 제어)를 사용하여 저장소 계정의 보안을 유지할 수 있습니다. [알아야 할 사항](https://en.wikipedia.org/wiki/Need_to_know) 및 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙을 기반으로 액세스를 제한하는 것은 데이터 액세스에 보안 정책을 적용하고자 하는 조직의 경우 필수입니다. 특정 범위에서 그룹 및 애플리케이션에 적절한 RBAC 역할을 할당하여 이러한 액세스 권한을 부여합니다. Storage 계정 참여자와 같은 [기본 제공 RBAC 역할](../role-based-access-control/built-in-roles.md)을 사용하여 사용자에게 권한을 할당할 수 있습니다.
 
 자세한 정보:
 

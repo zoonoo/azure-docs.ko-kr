@@ -1,6 +1,6 @@
 ---
-title: Azure 보안 및 규정 준수 청사진 - FedRAMP 준수 IaaS 웹 응용 프로그램
-description: Azure 보안 및 규정 준수 청사진 - FedRAMP 준수 IaaS 웹 응용 프로그램
+title: Azure 보안 및 규정 준수 청사진 - FedRAMP 준수 IaaS 웹 애플리케이션
+description: Azure 보안 및 규정 준수 청사진 - FedRAMP 준수 IaaS 웹 애플리케이션
 services: security
 documentationcenter: na
 author: jomolesk
@@ -21,17 +21,17 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/18/2018
 ms.locfileid: "49405381"
 ---
-# <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Azure 보안 및 규정 준수 청사진: FedRAMP 준수 IaaS 웹 응용 프로그램
+# <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Azure 보안 및 규정 준수 청사진: FedRAMP 준수 IaaS 웹 애플리케이션
 
 ## <a name="overview"></a>개요
 
-[FedRAMP(Federal Risk and Authorization Management Program)](https://www.fedramp.gov)는 미국 정부 차원 프로그램으로 클라우드 제품 및 서비스에 대한 보안 평가, 권한 부여 및 연속 모니터링에 대한 표준화된 접근 방법을 제공합니다. 이 Azure Security 및 Compliance Blueprint Automation에서는 간단한 인터넷 연결 웹 응용 프로그램에 적합한 FedRAMP 규격 IaaS(Infrastructure as a Service) 환경의 배포를 위한 지침을 제공합니다. 이 솔루션은 공통 참조 아키텍처를 위한 Azure 리소스 배포 및 구성을 자동화하여 고객이 특정 보안 및 규정 준수 요구 사항에 부합할 수 있는 방법을 보여 주며 고객이 Azure에서 자체 솔루션을 구축 및 구성하기 위한 기초 역할을 합니다. 이 솔루션은 NIST SP 800-53을 기준으로 FedRAMP 높음 기준에서 제어의 하위 집합을 구현합니다. FedRAMP 요구 사항이 이 솔루션에 대한 자세한 내용은 [규정 준수 설명서](#compliance-documentation)를 참조하세요.
+[FedRAMP(Federal Risk and Authorization Management Program)](https://www.fedramp.gov)는 미국 정부 차원 프로그램으로 클라우드 제품 및 서비스에 대한 보안 평가, 권한 부여 및 연속 모니터링에 대한 표준화된 접근 방법을 제공합니다. 이 Azure Security 및 Compliance Blueprint Automation에서는 간단한 인터넷 연결 웹 애플리케이션에 적합한 FedRAMP 규격 IaaS(Infrastructure as a Service) 환경의 배포를 위한 지침을 제공합니다. 이 솔루션은 공통 참조 아키텍처를 위한 Azure 리소스 배포 및 구성을 자동화하여 고객이 특정 보안 및 규정 준수 요구 사항에 부합할 수 있는 방법을 보여 주며 고객이 Azure에서 자체 솔루션을 구축 및 구성하기 위한 기초 역할을 합니다. 이 솔루션은 NIST SP 800-53을 기준으로 FedRAMP 높음 기준에서 제어의 하위 집합을 구현합니다. FedRAMP 요구 사항이 이 솔루션에 대한 자세한 내용은 [규정 준수 설명서](#compliance-documentation)를 참조하세요.
 > [!NOTE]
 > 이 솔루션은 Azure Government에 배포됩니다.
 
-이 Azure Security 및 Compliance Blueprint Automation은 미리 구성된 보안 제어가 있는 IaaS 웹 응용 프로그램 참조 아키텍처를 자동으로 배포하여 고객이 FedRAMP 요구 사항을 준수할 수 있게 합니다. 이 솔루션은 리소스 배포 및 구성을 안내하는 Azure Resource Manager 템플릿과 PowerShell 스크립트로 구성되었습니다.
+이 Azure Security 및 Compliance Blueprint Automation은 미리 구성된 보안 제어가 있는 IaaS 웹 애플리케이션 참조 아키텍처를 자동으로 배포하여 고객이 FedRAMP 요구 사항을 준수할 수 있게 합니다. 이 솔루션은 리소스 배포 및 구성을 안내하는 Azure Resource Manager 템플릿과 PowerShell 스크립트로 구성되었습니다.
 
-이 아키텍처는 고객이 특정 요구 사항에 맞게 조정할 수 있는 기반이며 있는 프로덕션 환경에 그대로 사용해서는 안됩니다. 응용 프로그램을 수정 없이 이러한 환경에 배포하는 것은 FedRAMP 높음 기준의 요구 사항을 온전히 충족하기에는 부족합니다. 다음 사항에 유의하세요.
+이 아키텍처는 고객이 특정 요구 사항에 맞게 조정할 수 있는 기반이며 있는 프로덕션 환경에 그대로 사용해서는 안됩니다. 애플리케이션을 수정 없이 이러한 환경에 배포하는 것은 FedRAMP 높음 기준의 요구 사항을 온전히 충족하기에는 부족합니다. 다음 사항에 유의하세요.
 - 이 아키텍처는 고객이 FedRAMP 규격에 맞게 Azure를 사용하기 위한 기준을 제공합니다.
 - 요구 사항은 각 고객의 구현에서 특정 상황에 따라 달라질 수 있으므로 이 아키텍처를 사용하여 구축된 솔루션의 적합한 보안 및 준수 평가의 수행은 고객의 책임입니다. 
 
@@ -40,7 +40,7 @@ ms.locfileid: "49405381"
 배포 지침을 보려면 [여기](https://aka.ms/fedrampblueprintrepo)를 클릭하세요.
 
 ## <a name="architecture-diagram-and-components"></a>아키텍처 다이어그램 및 구성 요소
-이 솔루션은 SQL Server 백 엔드가 있는 IaaS 웹 응용 프로그램에 대한 참조 아키텍처를 배포합니다. 이 아키텍처는 웹 계층, 데이터 계층, Active Directory 인프라, Application Gateway 및 Load Balancer를 포함합니다. 웹 및 데이터 계층에 배포된 가상 머신은 가용성 집합에서 구성되며 SQL Server 인스턴스는 고가용성을 위해 AlwaysOn 가용성 그룹에 구성됩니다. Virtual Machines는 도메인에 조인되며 Active Directory 그룹 정책을 사용하여 운영 체제 수준에서 보안 및 규정 준수 구성을 적용합니다.  요새 호스트는 관리자가 배포된 리소스에 액세스할 수 있는 보안 연결을 제공합니다. **Azure에서는 관리 및 참조 아키텍처 서브넷에 데이터 가져오기를 위해 VPN 또는 Azure ExpressRoute 연결을 구성하는 것이 좋습니다.**
+이 솔루션은 SQL Server 백 엔드가 있는 IaaS 웹 애플리케이션에 대한 참조 아키텍처를 배포합니다. 이 아키텍처는 웹 계층, 데이터 계층, Active Directory 인프라, Application Gateway 및 Load Balancer를 포함합니다. 웹 및 데이터 계층에 배포된 가상 머신은 가용성 집합에서 구성되며 SQL Server 인스턴스는 고가용성을 위해 AlwaysOn 가용성 그룹에 구성됩니다. Virtual Machines는 도메인에 조인되며 Active Directory 그룹 정책을 사용하여 운영 체제 수준에서 보안 및 규정 준수 구성을 적용합니다.  요새 호스트는 관리자가 배포된 리소스에 액세스할 수 있는 보안 연결을 제공합니다. **Azure에서는 관리 및 참조 아키텍처 서브넷에 데이터 가져오기를 위해 VPN 또는 Azure ExpressRoute 연결을 구성하는 것이 좋습니다.**
 
 ![FedRAMP용 IaaS 웹 응용 프로그램 참조 아키텍처 다이어그램](images/fedramp-iaaswa-architecture.png?raw=true "FedRAMP용 IaaS 웹 응용 프로그램 참조 아키텍처 다이어그램")
 
@@ -61,7 +61,7 @@ ms.locfileid: "49405381"
     - DNS 설정이 모든 도메인 컨트롤러에 설정됨
 - Azure Load Balancer
 - Azure Application Gateway
-    - (1) WAF 응용 프로그램 게이트웨이 사용
+    - (1) WAF 애플리케이션 게이트웨이 사용
         - 방화벽 모드: 방지
         - 규칙 집합: OWASP 3.0
         - 수신기: 443 포트
@@ -110,7 +110,7 @@ ms.locfileid: "49405381"
 -   [SQL 데이터베이스 감사](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started)는 데이터베이스 이벤트를 추적하고 Azure 저장소 계정의 감사 로그에 기록합니다.
 -   [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)은 적절한 권한이 부여될 때까지 데이터베이스 서버에 대한 모든 액세스를 차단합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다.
 -   [SQL 위협 요소 탐지](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started)를 사용하면 의심스러운 데이터베이스 활동, 잠재적 취약성, SQL 삽입 공격 및 비정상 데이터베이스 액세스 패턴에 대한 보안 경고를 제공하여 발생할 수 있는 잠재적 위협을 탐지하고 대응할 수 있습니다.
--   [Always Encrypted 열](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)은 중요한 데이터가 데이터베이스 시스템 내에서 일반 텍스트로 나타나지 않게 합니다. 데이터 암호화를 사용하도록 설정하면 키에 액세스할 수 있는 클라이언트 응용 프로그램 또는 응용 프로그램 서버만 일반 텍스트 데이터에 액세스할 수 있습니다.
+-   [Always Encrypted 열](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)은 중요한 데이터가 데이터베이스 시스템 내에서 일반 텍스트로 나타나지 않게 합니다. 데이터 암호화를 사용하도록 설정하면 키에 액세스할 수 있는 클라이언트 애플리케이션 또는 애플리케이션 서버만 일반 텍스트 데이터에 액세스할 수 있습니다.
 -   [SQL Database 동적 데이터 마스킹](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)은 참조 아키텍처 배포 후에 수행할 수 있습니다. 고객은 데이터베이스 스키마를 준수하도록 동적 데이터 마스킹 설정을 조정해야 합니다.
 
 **Azure Disk Encryption**: Azure Disk Encryption은 암호화된 Windows IaaS 가상 머신 디스크에 사용됩니다. [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)은 Windows의 BitLocker 기능을 활용하여 OS 및 데이터 디스크에 대한 볼륨 암호화를 제공합니다.  이 솔루션은 Azure Key Vault와 통합되어 디스크 암호화 키를 제어 및 관리할 수 있도록 합니다.
@@ -119,12 +119,12 @@ ms.locfileid: "49405381"
 
 다음 기술은 Azure 환경에서 ID 관리 기능을 제공합니다.
 - [Azure AD(Azure Active Directory)](https://azure.microsoft.com/services/active-directory/)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다.
-- 고객 배포 웹 응용 프로그램에 대한 인증은 Azure AD를 사용하여 수행할 수 있습니다. 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요.  
+- 고객 배포 웹 애플리케이션에 대한 인증은 Azure AD를 사용하여 수행할 수 있습니다. 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요.  
 - [Azure RBAC(Role-based Access Control)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)은 Azure에 대해 세밀하게 초점을 맞춘 액세스 관리를 구현합니다. 구독 액세스는 구독 관리자로 제한되며 리소스 액세스는 사용자 역할에 따라 제한될 수 있습니다.
 - 배포된 IaaS Active Directory 인스턴스는 배포된 IaaS 가상 머신에 대한 OS 수준의 ID 관리를 제공합니다.
 
 ### <a name="security"></a>보안
-**비밀 관리**: 이 솔루션은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용하여 키와 비밀을 관리합니다. Azure Key Vault는 클라우드 응용 프로그램 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. Azure Key Vault는 이 참조 아키텍처에 대한 IaaS 가상 머신 디스크 암호화 키와 비밀을 관리하는 데 유용합니다.
+**비밀 관리**: 이 솔루션은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용하여 키와 비밀을 관리합니다. Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. Azure Key Vault는 이 참조 아키텍처에 대한 IaaS 가상 머신 디스크 암호화 키와 비밀을 관리하는 데 유용합니다.
 
 **패치 관리**: 이 Azure Security 및 Compliance Blueprint Automation에서 배포한 Windows 가상 머신은 기본적으로 Windows 업데이트 서비스에서 자동 업데이트를 받도록 구성됩니다. 이 솔루션은 필요할 때 Windows 서버에 패치를 배포하기 위해 배포 업데이트를 만들 수 있는 Azure Automation 솔루션도 배포합니다.
 
@@ -177,7 +177,7 @@ Log Analytics는 시스템 및 사용자 활동과 시스템 상태에 대한 �
 
 [Azure 보안 및 규정 준수 청사진 - FedRAMP High 고객 책임 매트릭스](https://aka.ms/blueprinthighcrm)에는 FedRAMP High 기준에서 요구하는 모든 보안 컨트롤이 나열되어 있습니다. 매트릭스는 각 컨트롤 구현이 Microsoft의 책임인지, 고객의 책임인지 아니면 둘의 공동 책임인지 자세히 설명합니다.
 
-[Azure Security 및 Compliance Blueprint - FedRAMP IaaS 웹 응용 프로그램 High 컨트롤 구현 매트릭스](https://aka.ms/blueprintwacim)에는 FedRAMP High 기준에서 요구하는 모든 보안 컨트롤이 나열되어 있습니다. 매트릭스는 IaaS 웹 응용 프로그램 아키텍처가 어떤 컨트롤을 담당하는지에 대한 정보를 제공하며, 여기에는 구현을 통해 담당 컨트롤의 요구 사항을 충족시키는 방법에 대한 자세한 설명이 포함됩니다.
+[Azure Security 및 Compliance Blueprint - FedRAMP IaaS 웹 응용 프로그램 High 컨트롤 구현 매트릭스](https://aka.ms/blueprintwacim)에는 FedRAMP High 기준에서 요구하는 모든 보안 컨트롤이 나열되어 있습니다. 매트릭스는 IaaS 웹 애플리케이션 아키텍처가 어떤 컨트롤을 담당하는지에 대한 정보를 제공하며, 여기에는 구현을 통해 담당 컨트롤의 요구 사항을 충족시키는 방법에 대한 자세한 설명이 포함됩니다.
 
 ## <a name="deploy-the-solution"></a>솔루션 배포
 
@@ -196,7 +196,7 @@ Log Analytics는 시스템 및 사용자 활동과 시스템 상태에 대한 �
 
 ## <a name="guidance-and-recommendations"></a>지침 및 권장 사항
 ### <a name="vpn-and-expressroute"></a>VPN 및 ExpressRoute
-이 IaaS 웹 응용 프로그램 참조 아키텍처의 일부로 배포된 리소스에 대한 연결을 안전하게 설정하도록 보안 VPN 터널 또는 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 구성해야 합니다. VPN 또는 ExpressRoute를 적절히 설정하면 고객이 전송 중인 데이터에 대한 보호 계층을 추가할 수 있습니다.
+이 IaaS 웹 애플리케이션 참조 아키텍처의 일부로 배포된 리소스에 대한 연결을 안전하게 설정하도록 보안 VPN 터널 또는 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 구성해야 합니다. VPN 또는 ExpressRoute를 적절히 설정하면 고객이 전송 중인 데이터에 대한 보호 계층을 추가할 수 있습니다.
 
 Azure를 통해 보안 VPN 터널을 구현하면 온-프레미스 네트워크와 Azure Virtual Network 간의 가상 사설 연결을 만들 수 있습니다. 이 연결은 인터넷을 통해 이루어지며, 고객이 고객의 네트워크와 Azure 간에 암호화된 링크 내에서 정보를 안전하게 "터널링"할 수 있습니다. 사이트 간 VPN은 수십 년 동안 모든 규모의 기업에서 배포한 안전하고 완성도가 높은 기술입니다. [IPsec 터널 모드](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10))는 이 옵션에서 암호화 메커니즘으로 사용됩니다.
 

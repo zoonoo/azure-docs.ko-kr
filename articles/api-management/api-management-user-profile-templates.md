@@ -112,7 +112,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 |addresserEmail|string|현재 사용의 전자 메일 주소입니다.|  
 |developersUsageStatisticsLinkk|string|현재 사용자에 대한 분석을 볼 상대적 URL입니다.|  
 |구독|[구독](api-management-template-data-model-reference.md#Subscription) 엔터티의 컬렉션입니다.|현재 사용자에 대한 구독입니다.|  
-|응용 프로그램|[응용 프로그램](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자의 응용 프로그램입니다.|  
+|애플리케이션|[응용 프로그램](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자의 애플리케이션입니다.|  
 |changePasswordUrl|string|현재 사용자의 암호를 변경할 상대적 URL입니다.|  
 |changeNameOrEmailUrl|string|현재 사용자에 대한 이름 및 전자 메일을 변경할 상대적 URL입니다.|  
 |canChangePassword|부울|현재 사용자가 암호를 변경할 수 있는지 여부입니다.|  
@@ -333,7 +333,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 |addresserEmail|string|현재 사용의 전자 메일 주소입니다.|  
 |developersUsageStatisticsLinkk|string|현재 사용자에 대한 분석을 볼 상대적 URL입니다.|  
 |구독|[구독](api-management-template-data-model-reference.md#Subscription) 엔터티의 컬렉션입니다.|현재 사용자에 대한 구독입니다.|  
-|응용 프로그램|[응용 프로그램](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자의 응용 프로그램입니다.|  
+|애플리케이션|[응용 프로그램](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자의 애플리케이션입니다.|  
 |changePasswordUrl|string|현재 사용자의 암호를 변경할 상대적 URL입니다.|  
 |changeNameOrEmailUrl|string|현재 사용자에 대한 이름 및 전자 메일을 변경할 상대적 URL입니다.|  
 |canChangePassword|부울|현재 사용자가 암호를 변경할 수 있는지 여부입니다.|  
@@ -496,7 +496,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 |addresserEmail|string|현재 사용의 전자 메일 주소입니다.|  
 |developersUsageStatisticsLinkk|string|현재 사용자에 대한 분석을 볼 상대적 URL입니다.|  
 |구독|[구독](api-management-template-data-model-reference.md#Subscription) 엔터티의 컬렉션입니다.|현재 사용자에 대한 구독입니다.|  
-|응용 프로그램|[응용 프로그램](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자의 응용 프로그램입니다.|  
+|애플리케이션|[응용 프로그램](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자의 애플리케이션입니다.|  
 |changePasswordUrl|string|현재 사용자의 암호를 변경할 상대적 URL입니다.|  
 |changeNameOrEmailUrl|string|현재 사용자에 대한 이름 및 전자 메일을 변경할 상대적 URL입니다.|  
 |canChangePassword|부울|현재 사용자가 암호를 변경할 수 있는지 여부입니다.|  

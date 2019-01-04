@@ -21,7 +21,7 @@ ms.locfileid: "47106662"
 
 Android 디바이스는 연결할 때 자신의 디바이스에서 클라이언트 인증서를 사용하여 Azure Active Directory에서 인증하는 데 CBA(인증서 기반 인증)을 사용할 수 있습니다.
 
-* Microsoft Outlook 및 Microsoft Word와 같은 Office 모바일 응용 프로그램
+* Microsoft Outlook 및 Microsoft Word와 같은 Office 모바일 애플리케이션
 * EAS(Exchange ActiveSync) 클라이언트
 
 이 기능을 구성하면 모바일 디바이스의 특정 메일 및 Microsoft Office 응용 프로그램에 사용자 이름 및 암호 조합을 입력해야 합니다.
@@ -30,7 +30,7 @@ Android 디바이스는 연결할 때 자신의 디바이스에서 클라이언�
 
 이 기능은 Office 365 미국 국방부 및 연방 정부 계획에서 미리 보기 상태로 제공됩니다.
 
-## <a name="microsoft-mobile-applications-support"></a>Microsoft 모바일 응용 프로그램 지원
+## <a name="microsoft-mobile-applications-support"></a>Microsoft 모바일 애플리케이션 지원
 
 | 앱 | 지원 |
 | --- | --- |
@@ -72,7 +72,7 @@ Azure Active Directory는 이러한 클레임이 ADFS 토큰(또는 다른 SAML 
 
 ## <a name="exchange-activesync-clients-support"></a>Exchange ActiveSync 클라이언트 지원
 
-Android 5.0(Lollipop) 이상의 특정 Exchange ActiveSync 응용 프로그램은 지원됩니다. 이메일 응용 프로그램에서 이 기능을 지원하는지 확인하려면 응용 프로그램 개발자에게 문의하세요.
+Android 5.0(Lollipop) 이상의 특정 Exchange ActiveSync 애플리케이션은 지원됩니다. 이메일 애플리케이션에서 이 기능을 지원하는지 확인하려면 애플리케이션 개발자에게 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

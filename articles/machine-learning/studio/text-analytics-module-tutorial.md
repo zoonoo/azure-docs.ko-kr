@@ -1,12 +1,11 @@
 ---
-title: Azure Machine Learning 스튜디오에서 텍스트 분석 모델 만들기 | Microsoft Docs
+title: 텍스트 분석 모델 만들기 - Azure Machine Learning Studio | Microsoft Docs
 description: 텍스트 전처리, N-Gram 또는 특성 해시를 위한 모듈을 사용하여 Azure Machine Learning Studio에서 텍스트 분석 모델을 만드는 방법
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=roastala, author=rastala)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: cgronlun
 editor: ''
 ms.assetid: 08cd6723-3ae6-4e99-a924-e650942e461b
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.openlocfilehash: 10b4f8a494a9effc04db731f05eeb010f4fb0b6a
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 11f4ad4ff1e8e2eab688596d393e63009f7e5624
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262485"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255485"
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 텍스트 분석 모델 만들기
 Azure Machine Learning을 사용하여 텍스트 분석 모델을 빌드하고 작동할 수 있습니다. 예를 들어 이러한 모델은 문서 분류 또는 정서 분석 문제를 해결하는 데 유용할 수 있습니다.
@@ -34,7 +33,7 @@ Azure Machine Learning을 사용하여 텍스트 분석 모델을 빌드하고 �
 4. 모델 점수 매기기 및 유효성 검사
 5. 모델을 프로덕션에 배포
 
-이 자습서에서는 Amazon 도서 리뷰 데이터 세트를 사용하여 정서 분석을 진행하면서 이러한 단계를 배우게 됩니다(연구 논문 “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification”(저자: John Blitzer, Mark Dredze 및 Fernando Pereira), Association of Computational Linguistics(ACL), 2007 참조). 이 데이터 세트는 리뷰 점수(1-2 또는 4-5) 및 자유 형식 텍스트로 구성됩니다. 그 목표는 리뷰 점수: 낮음(1-2) 또는 높음(4-5)를 예측하는 것입니다.
+이 자습서에서는 Amazon Book Reviews 데이터 세트를 사용하여 감정 분석 모델을 진행하면서 이러한 단계를 알아봅니다(John Blitzer, Mark Dredze 및 Fernando Pereira(Association of Computational Linguistics (ACL), 2007)의 연구 논문, "Biographies, Bollywood, boom-boxes and Blenders: Domain Adaptation for Sentiment Classification" 참조). 이 데이터 세트는 리뷰 점수(1-2 또는 4-5) 및 자유 형식 텍스트로 구성됩니다. 그 목표는 리뷰 점수: 낮음(1-2) 또는 높음(4-5)를 예측하는 것입니다.
 
 Azure AI 갤러리에서 이 자습서에 나오는 실험을 찾을 수 있습니다.
 

@@ -9,16 +9,15 @@ ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 60195f135b8b0e102a36c3573a341432f2e0c784
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 815388db673673a3802f8e5e515b7e16cb180a29
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959310"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323357"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: 질문과 대답
 
@@ -27,7 +26,7 @@ ms.locfileid: "50959310"
 
 * [.NET 앱](app-insights-asp-net-troubleshoot-no-data.md)
 * [이미 실행 중인 앱 모니터링](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
-* [Azure 진단](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Azure 진단](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Java 웹앱](app-insights-java-troubleshoot.md)
 
 *내 서버에서 데이터를 가져오지 않습니다.*
@@ -51,7 +50,7 @@ ms.locfileid: "50959310"
 
 ## <a name="is-it-free"></a>무료입니까?
 
-예, 실험용입니다. 기본 가격 책정 계획에서, 사용자 응용 프로그램은 매월 무료로 특정 데이터 할당량을 보낼 수 있습니다. 무료 할당량은 적은 수의 사용자에 대한 앱 개발 및 게시에 충분합니다. 지정된 데이터 크기보다 더 많이 처리하지 않도록 한도를 설정할 수 있습니다.
+예, 실험용입니다. 기본 가격 책정 계획에서, 사용자 애플리케이션은 매월 무료로 특정 데이터 할당량을 보낼 수 있습니다. 무료 할당량은 적은 수의 사용자에 대한 앱 개발 및 게시에 충분합니다. 지정된 데이터 크기보다 더 많이 처리하지 않도록 한도를 설정할 수 있습니다.
 
 더 큰 볼륨의 원격 분석은 GB 단위로 청구됩니다. [요금 제한](app-insights-pricing.md) 방법에 대한 몇 가지 팁을 제공합니다.
 
@@ -65,7 +64,7 @@ ms.locfileid: "50959310"
 * [Azure 청구 블레이드](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview)를 열어 모든 리소스에 대한 청구서를 확인합니다.
 
 ## <a name="q14"></a>Application Insights에서 내 프로젝트를 어떻게 수정하나요?
-세부 정보는 프로젝트의 유형에 따라 달라집니다. 웹 응용 프로그램의 경우:
+세부 정보는 프로젝트의 유형에 따라 달라집니다. 웹 애플리케이션의 경우:
 
 * 프로젝트에 다음 파일이 추가됩니다.
 
@@ -87,10 +86,10 @@ ms.locfileid: "50959310"
 * (새 프로젝트에만 해당 - [기존 프로젝트에 Application Insights를 추가한 경우][start] 이를 수동으로 수행해야 합니다.) 클라이언트 및 서버 코드에 코드 조각을 삽입하여 Application Insights 리소스 ID로 해당 코드를 초기화합니다. 예를 들어 MVC 앱에서 코드를 마스터 페이지 Views/Shared/_Layout.cshtml에 삽입합니다.
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>이전 SDK 버전에서 업그레이드하려면 어떻게 해야 합니까?
-사용자의 응용 프로그램 유형에 적합한 SDK는 [릴리스 정보](app-insights-release-notes.md) 를 참조하세요.
+사용자의 애플리케이션 유형에 적합한 SDK는 [릴리스 정보](app-insights-release-notes.md)를 참조하세요.
 
 ## <a name="update"></a>내 프로젝트에서 데이터를 보내는 Azure 리소스를 변경하려면 어떻게 해야 하나요?
-솔루션 탐색기에서 `ApplicationInsights.config` 를 마우스 오른쪽 단추로 클릭하고 **Application Insights 업데이트**를 선택합니다. Azure에서 기존 또는 새 리소스로 데이터를 보낼 수 있습니다. 업데이트 마법사는 서버 SDK에서 데이터를 전송하는 위치를 결정하는 ApplicationInsights.config의 계측 키를 변경합니다. "모두 업데이트"를 선택 취소하지 않은 한, 웹 페이지에 표시되는 키도 변경됩니다.
+솔루션 탐색기에서 `ApplicationInsights.config`를 마우스 오른쪽 단추로 클릭하고 **Application Insights 업데이트**를 선택합니다. Azure에서 기존 또는 새 리소스로 데이터를 보낼 수 있습니다. 업데이트 마법사는 서버 SDK에서 데이터를 전송하는 위치를 결정하는 ApplicationInsights.config의 계측 키를 변경합니다. "모두 업데이트"를 선택 취소하지 않은 한, 웹 페이지에 표시되는 키도 변경됩니다.
 
 ## <a name="what-is-status-monitor"></a>상태 모니터란?
 
@@ -119,7 +118,7 @@ ms.locfileid: "50959310"
 
 다른 원본(구성한 경우):
 
-* [Azure 진단](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Azure 진단](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Docker 컨테이너](app-insights-docker.md)
 * [분석으로 테이블 가져오기](app-insights-analytics-import.md)
 * [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
@@ -141,7 +140,7 @@ ms.locfileid: "50959310"
 * 브라우저 원격 분석: 보낸 사람의 IP 주소를 수집합니다.
 * 서버 원격 분석: Application Insights 모듈에서 클라이언트 IP 주소를 수집합니다. `X-Forwarded-For`가 설정된 경우에는 수집되지 않습니다.
 
-`ClientIpHeaderTelemetryInitializer`를 구성하여 다른 헤더에서 IP 주소를 가져올 수 있습니다. 예를 들어 일부 시스템에서는 프록시, 부하 분산 장치 또는 CDN에 의해 `X-Originating-IP`로 이동됩니다. [자세히 알아보기](http://apmtips.com/blog/2016/07/05/client-ip-address/).
+`ClientIpHeaderTelemetryInitializer`를 구성하여 다른 헤더에서 IP 주소를 가져올 수 있습니다. 예를 들어 일부 시스템에서는 프록시, 부하 분산 장치 또는 CDN에 의해 `X-Originating-IP`로 이동됩니다. [자세히 알아보기](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
 [Power BI를 사용](app-insights-export-power-bi.md)하여 요청 원격 분석을 지도에 표시할 수 있습니다.
 
@@ -172,7 +171,7 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 
 ## <a name="should-i-use-single-or-multiple-application-insights-resources"></a>단일 또는 여러 Application Insights 리소스를 사용해야 하나요?
 
-단일 비즈니스 시스템의 모든 구성 요소 또는 역할에 대해 단일 리소스를 사용합니다. 개발, 테스트 및 릴리스 버전과 독립 응용 프로그램에 대해 별도의 리소스를 사용합니다.
+단일 비즈니스 시스템의 모든 구성 요소 또는 역할에 대해 단일 리소스를 사용합니다. 개발, 테스트 및 릴리스 버전과 독립 애플리케이션에 대해 별도의 리소스를 사용합니다.
 
 * [여기에서 토론 참조](app-insights-separate-resources.md)
 * [예 - 작업자 및 웹 역할이 포함된 클라우드 서비스](app-insights-cloudservices.md)
@@ -185,7 +184,7 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 ## <a name="what-are-the-user-and-session-counts"></a>사용자 및 세션 수란?
 
 * JavaScript SDK는 웹 클라이언트에서 사용자 쿠키를 설정하여 다시 방문하는 사용자와 그룹 작업에 대한 세션 쿠키를 식별합니다.
-* 클라이언트 쪽 스크립트가 없으면 [서버에서 쿠키를 설정](http://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/)할 수 있습니다.
+* 클라이언트 쪽 스크립트가 없으면 [서버에서 쿠키를 설정](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/)할 수 있습니다.
 * 한 명의 실제 사용자가 특정 사이트를 다른 브라우저에서 사용하거나, in-private/incognito 검색을 통해 사용하거나, 다른 컴퓨터에서 사용하는 경우 두 번 이상 계산됩니다.
 * 여러 컴퓨터 및 브라우저에서 로그인한 사용자를 식별하려면 [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users)에 대한 호출을 추가합니다.
 

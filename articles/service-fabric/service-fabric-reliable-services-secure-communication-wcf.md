@@ -22,7 +22,7 @@ ms.lasthandoff: 05/16/2018
 ms.locfileid: "34205742"
 ---
 # <a name="secure-wcf-based-communications-for-a-service"></a>서비스에 대한 WCF 기반 통신 보호
-통신의 가장 중요한 측면 중 하나는 보안입니다. Reliable Services 응용 프로그램 프레임워크는 보안을 향상시키는 데 사용할 수 있는 미리 빌드된 통신 스택 및 도구 몇 가지를 제공합니다. 이 아티클에서는 원격 서비스를 사용하는 경우 보안을 향상시키는 방법에 대해 설명합니다.
+통신의 가장 중요한 측면 중 하나는 보안입니다. Reliable Services 애플리케이션 프레임워크는 보안을 향상시키는 데 사용할 수 있는 미리 빌드된 통신 스택 및 도구 몇 가지를 제공합니다. 이 아티클에서는 원격 서비스를 사용하는 경우 보안을 향상시키는 방법에 대해 설명합니다.
 
 Reliable Services에 대한 WCF 기반 통신 스택을 설정하는 방법을 설명하는 기존 [예제](service-fabric-reliable-services-communication-wcf.md)를 사용합니다. WCF 기반 통신 스택을 사용하는 경우 서비스를 보호하려면 다음 단계를 수행하세요.
 

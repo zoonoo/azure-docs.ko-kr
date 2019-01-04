@@ -28,7 +28,7 @@ ms.locfileid: "30842016"
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
 * **NAMD**(Nanoscale Molecular Dynamics 프로그램용)는 수백 만 원자를 포함하는 규모가 큰 생체 분자 시스템의 고성능 시뮬레이션을 위해 설계된 병렬 분자 동적 패키지입니다. 이러한 시스템의 예로는 바이러스, 세포 구조, 거대한 단백질 등이 있습니다. NAMD는 일반적인 시뮬레이션의 경우 수백 개의 코어로 확장되며 가장 큰 규모의 시뮬레이션의 경우 500,000 코어 이상까지 확장됩니다.
-* **Microsoft HPC 팩**은 온-프레미스 컴퓨터 또는 Azure Virtual Machines의 클러스터에서 대규모 HPC 및 병렬 응용 프로그램을 실행할 수 있는 기능을 제공합니다. 원래 Windows HPC 워크로드용 솔루션으로 개발된 HPC 팩은 이제 HPC 팩 클러스터에 배포된 Linux 계산 노드 VM에서 Linux HPC 응용 프로그램의 실행도 지원합니다. 소개는 [Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작](hpcpack-cluster.md) 을 참조하세요.
+* **Microsoft HPC 팩**은 온-프레미스 컴퓨터 또는 Azure Virtual Machines의 클러스터에서 대규모 HPC 및 병렬 응용 프로그램을 실행할 수 있는 기능을 제공합니다. 원래 Windows HPC 워크로드용 솔루션으로 개발된 HPC 팩은 이제 HPC 팩 클러스터에 배포된 Linux 계산 노드 VM에서 Linux HPC 애플리케이션의 실행도 지원합니다. 소개는 [Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작](hpcpack-cluster.md) 을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 * **Linux 계산 노드가 포함된 HPC 팩 클러스터** - [Azure Resource Manager 템플릿](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) 또는 [Azure PowerShell 스크립트](hpcpack-cluster-powershell-script.md)를 사용하여 Azure에서 Linux 계산 노드가 포함된 HPC 팩 클러스터를 배포합니다. 각 옵션 사용 시의 필수 구성 요소 및 단계는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](hpcpack-cluster.md) 을 참조하세요. PowerShell 스크립트 배포 옵션을 선택하는 경우 이 문서 끝에 나오는 샘플 파일의 샘플 구성 파일을 참조하세요. 이 파일은 Windows Server 2012 R2 헤드 노드 및 4개 크기의 대형 CentOS 6.6 계산 노드로 구성된 Azure 기반 HPC 팩 클러스터를 구성합니다. 이 파일을 환경에 맞게 사용자 지정합니다.

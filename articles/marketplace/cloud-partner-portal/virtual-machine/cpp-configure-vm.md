@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c1db8c99b1bd3f9bbb768572ca1f5f7a4e1e0de4
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 5ccfef8a6ad367e8fac100217713cd323341a535
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639394"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183474"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Azure 호스팅 VM 구성
 
@@ -28,7 +28,7 @@ ms.locfileid: "49639394"
 
 ## <a name="sizing-the-vhds"></a>VHD 크기 조정
 
-<!--TD: Check if the following assertion is true. I didn't understand the original content. --> 운영 체제(및 선택적으로 추가 서비스)로 미리 구성된 VM 중 하나를 선택한 경우 [가상 머신 SKU 탭](./cpp-skus-tab.md)에서 설명한 대로 표준 Azure VM 크기를 선택했습니다.  이 방법을 사용하는 것이 좋습니다.  그러나 OS를 설치하는 경우 VM 이미지의 기본 VHD 크기를 조정해야 합니다.
+<!--TD: Check if the following assertion is true. I didn't understand the original content. --> 운영 체제(및 선택적으로 추가 서비스)로 미리 구성된 VM 중 하나를 선택한 경우 [가상 머신 SKU 탭](./cpp-skus-tab.md)에서 설명한 대로 표준 Azure VM 크기를 선택했습니다.  사전 구성된 OS로 솔루션을 시작하는 것이 좋습니다.  그러나 OS를 설치하는 경우 VM 이미지의 기본 VHD 크기를 조정해야 합니다.
 
 - Windows의 경우 운영 체제 VHD는 127-128GB의 고정 형식 VHD로 만들어야 합니다. 
 - Linux의 경우 이 VHD는 30-50GB의 고정 형식 VHD로 만들어야 합니다.
@@ -49,7 +49,7 @@ Linux 배포판의 경우 일반적으로 명령줄 도구 또는 그래픽 유�
 
 ## <a name="perform-additional-security-checks"></a>추가 보안 검사 수행
 
-Azure Marketplace에서 솔루션 이미지에 대한 높은 수준의 보안을 유지해야 합니다.  [Azure Marketplace 이미지에 대한 보안 권장 사항](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images) 문서에서는 이 목표를 달성하는 데 도움이 되는 보안 구성 및 절차에 대한 검사 목록을 제공합니다.  이러한 권장 사항 중 일부는 Linux 기반 이미지에만 적용되지만, 대부분은 모든 VM 이미지에 적용됩니다. 
+Azure Marketplace에서 솔루션 이미지에 대한 높은 수준의 보안을 유지해야 합니다.  다음 문서에서는 이 목표를 달성하는 데 도움이 되는 보안 구성 및 절차에 대한 검사 목록을 제공합니다. [Azure Marketplace 이미지에 대한 보안 권장 사항](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images).  이러한 권장 사항 중 일부는 Linux 기반 이미지에만 적용되지만, 대부분은 모든 VM 이미지에 적용됩니다. 
 
 
 ## <a name="perform-custom-configuration-and-scheduled-tasks"></a>사용자 지정 구성 및 예약된 작업 수행
@@ -65,7 +65,7 @@ Linux 사용자 지정에 대한 자세한 내용은 [Linux용 가상 머신 확
 
 Azure Marketplace의 모든 이미지는 일반적으로 다시 사용할 수 있어야 합니다. 이 재사용을 달성하려면 운영 체제 VHD가 *일반화*되어야 합니다. 이 작업은 VM에서 인스턴스 관련 식별자와 소프트웨어 드라이버를 모두 제거합니다.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 Windows OS 디스크는 [sysprep 도구](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)를 사용하여 일반화됩니다. 나중에 OS를 업데이트하거나 재구성하면 sysprep을 다시 실행해야 합니다. 
 

@@ -25,19 +25,19 @@ ms.locfileid: "51256224"
 ## <a name="introduction"></a>소개
 
 ### <a name="overview"></a>개요
-보안은 클라우드의 작업이며 Azure 보안에 대한 정확하고 시기 적절한 정보를 찾는 것이 얼마나 중요한지 알고 있습니다. 응용 프로그램 및 서비스에 Azure를 사용하는 가장 좋은 이유 중 하나는 제공하는 광범위한 보안 도구 및 기능을 활용한다는 점입니다. 이러한 도구 및 기능을 통해 안전한 Azure 플랫폼에서 안전한 솔루션을 만들 수 있습니다. Microsoft Azure는 고객 데이터의 기밀성, 무결성 및 가용성을 제공해야 하는 한편 투명한 책임도 가능하게 해야 합니다.
+보안은 클라우드의 작업이며 Azure 보안에 대한 정확하고 시기 적절한 정보를 찾는 것이 얼마나 중요한지 알고 있습니다. 애플리케이션 및 서비스에 Azure를 사용하는 가장 좋은 이유 중 하나는 제공하는 광범위한 보안 도구 및 기능을 활용한다는 점입니다. 이러한 도구 및 기능을 통해 안전한 Azure 플랫폼에서 안전한 솔루션을 만들 수 있습니다. Microsoft Azure는 고객 데이터의 기밀성, 무결성 및 가용성을 제공해야 하는 한편 투명한 책임도 가능하게 해야 합니다.
 
 고객 관점과 Microsoft 운영 관점 모두에서 Microsoft Azure에서 구현된 일련의 보안 제어를 보다 잘 이해할 수 있도록 Microsoft Azure에서 제공되는 운영 보안을 포괄적으로 살펴볼 수 있는 "Azure 운영 보안" 백서가 작성되었습니다.
 
 ### <a name="azure-platform"></a>Azure 플랫폼
 Azure는 다양한 운영 체제, 프로그래밍 언어, 프레임워크, 도구, 데이터베이스 및 디바이스를 지원하는 공용 클라우드 서비스 플랫폼입니다. Docker 통합으로 Linux 컨테이너를 실행할 수 있습니다. JavaScript, Python, .NET, PHP, Java 및 Node.js를 사용하여 앱을 빌드할 수 있습니다. iOS, Android 및 Windows 디바이스용 백 엔드를 빌드할 수 있습니다. Azure 클라우드 서비스는 수백만의 개발자와 IT 전문가가 이미 믿고 사용하고 있는 동일한 수준의 기술을 지원합니다.
 
-IT 자산을 만들거나 공용 클라우드 서비스 공급자로 마이그레이션하는 경우 조직에서 제공하는 서비스와 제어를 통해 응용 프로그램과 데이터를 보호할 수 있는 해당 조직의 능력에 의존하여 클라우드 기반 자산의 보안을 관리합니다.
+IT 자산을 만들거나 공용 클라우드 서비스 공급자로 마이그레이션하는 경우 조직에서 제공하는 서비스와 제어를 통해 애플리케이션과 데이터를 보호할 수 있는 해당 조직의 능력에 의존하여 클라우드 기반 자산의 보안을 관리합니다.
 
 Azure의 인프라는 수백만 고객을 동시에 호스팅하는 응용 프로그램에 맞게 시설로부터 설계되었으며, 비즈니스에서 보안 요구 사항을 충족할 수 있는 신뢰할 수 있는 기반을 제공합니다. 또한 Azure는 다양하게 구성할 수 있는 보안 옵션과 이를 제어하는 기능을 제공하므로 보안을 사용자 지정하여 조직의 고유한 배포 요구 사항을 충족할 수 있습니다. 이 문서는 Azure 보안 기능이 이러한 요구 사항을 충족하는 방법을 이해하는 데 도움이 됩니다.
 
 ### <a name="abstract"></a>요약
-Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, 응용 프로그램 및 기타 자산을 보호할 수 있는 서비스, 제어 및 기능을 나타냅니다. Azure 운영 보안은 Microsoft SDL(Security Development Lifecycle), Microsoft 보안 대응 센터 프로그램 및 사이버 보안 위협 상황에 대한 심층 인식을 포함하여 Microsoft 고유의 다양한 기능을 통해 얻은 지식을 통합한 프레임워크를 기반으로 합니다.
+Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, 애플리케이션 및 기타 자산을 보호할 수 있는 서비스, 제어 및 기능을 나타냅니다. Azure 운영 보안은 Microsoft SDL(Security Development Lifecycle), Microsoft 보안 대응 센터 프로그램 및 사이버 보안 위협 상황에 대한 심층 인식을 포함하여 Microsoft 고유의 다양한 기능을 통해 얻은 지식을 통합한 프레임워크를 기반으로 합니다.
 
 이 백서는 Microsoft Azure 클라우드 플랫폼 내에서 Azure 운영 보안에 대한 Microsoft 접근 방식을 간략히 설명하고 다음 서비스를 다룹니다.
 1.  [Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
@@ -59,7 +59,7 @@ Microsoft Azure Log Analytics는 하이브리드 클라우드를 위한 IT 관�
 
 ![Log Analytics](./media/azure-operational-security/azure-operational-security-fig1.png)
 
-Log Analytics를 사용하면 경쟁 솔루션보다 저렴한 비용으로 온-프레미스, Azure, AWS, Windows Server, Linux, VMware 및 OpenStack을 포함한 모든 클라우드의 모든 인스턴스를 관리할 수 있습니다. 클라우드 우선 세계를 위해 구축된 Log Analytics는 새로운 비즈니스 과제를 충족하고 새로운 워크로드, 응용 프로그램 및 클라우드 환경을 수용할 수 있는 가장 빠르고 비용 효율적인 방법으로 기업을 관리하기 위한 새로운 방법을 제공합니다.
+Log Analytics를 사용하면 경쟁 솔루션보다 저렴한 비용으로 온-프레미스, Azure, AWS, Windows Server, Linux, VMware 및 OpenStack을 포함한 모든 클라우드의 모든 인스턴스를 관리할 수 있습니다. 클라우드 우선 세계를 위해 구축된 Log Analytics는 새로운 비즈니스 과제를 충족하고 새로운 워크로드, 애플리케이션 및 클라우드 환경을 수용할 수 있는 가장 빠르고 비용 효율적인 방법으로 기업을 관리하기 위한 새로운 방법을 제공합니다.
 
 ### <a name="log-analytics-services"></a>Log Analytics 서비스
 
@@ -93,7 +93,7 @@ Log Analytics 서비스는 다음 방법을 사용하여 클라우드 기반 데
 ### <a name="azure-backup"></a>Azure Backup
 
 [Azure Backup](https://azure.microsoft.com/documentation/services/backup)은 데이터 백업 및 복원 서비스를 제공하며 Log Analytics 제품 및 서비스 계열의 일부입니다.
-자본 투자 없이 최소한의 운영 비용으로 응용 프로그램 데이터를 보호하고 수년 간 보관합니다. SQL Server, SharePoint와 같은 응용 프로그램 워크로드 외에도 물리적 및 가상 Windows 서버의 데이터를 백업할 수 있습니다. 또한 중복 및 장기 저장을 위해 [System Center DPM(Data Protection Manager)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager)에서 보호된 데이터를 Azure로 복제하는 데 사용할 수 있습니다.
+자본 투자 없이 최소한의 운영 비용으로 애플리케이션 데이터를 보호하고 수년 간 보관합니다. SQL Server, SharePoint와 같은 애플리케이션 워크로드 외에도 물리적 및 가상 Windows 서버의 데이터를 백업할 수 있습니다. 또한 중복 및 장기 저장을 위해 [System Center DPM(Data Protection Manager)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager)에서 보호된 데이터를 Azure로 복제하는 데 사용할 수 있습니다.
 
 
 Azure Backup의 보호 데이터는 특정 지리적 지역에 있는 백업 저장소에 저장됩니다. 데이터는 동일 지역 내에서 복제되며, 보관 유형에 따라 복원력을 높이기 위해 다른 지역에 복제될 수 있습니다.
@@ -119,7 +119,7 @@ Azure Security Center는 Azure 리소스를 보호하는 데 도움이 됩니다
 
 보안 정책은 지정된 구독 또는 리소스 그룹 내에서 리소스에 대해 권장되는 제어 집합을 정의합니다.
 
-보안 센터에서 회사의 보안 요구 사항 및 응용 프로그램 유형 또는 데이터 민감도에 따라 정책을 정의합니다.
+Security Center에서 회사의 보안 요구 사항 및 애플리케이션 유형 또는 데이터 민감도에 따라 정책을 정의합니다.
 
 ![보안 정책 및 권장 사항](./media/azure-operational-security/azure-operational-security-fig5.png)
 
@@ -175,9 +175,9 @@ Azure Monitor는 특정 유형의 리소스 정보에 대한 포인터를 제공
 ![Azure Monitor](./media/azure-operational-security/azure-operational-security-fig6.png)
 
 
-클라우드 응용 프로그램은 이동하는 부분이 많아 복잡합니다. 모니터링은 응용 프로그램을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다.
+클라우드 애플리케이션은 이동하는 부분이 많아 복잡합니다. 모니터링은 응용 프로그램을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다.
 
-또한 응용 프로그램에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 통해 응용 프로그램 성능이나 유지 관리를 개선하거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화하는 데 도움이 될 수 있습니다.
+또한 애플리케이션에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 통해 애플리케이션 성능이나 유지 관리를 개선하거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화하는 데 도움이 될 수 있습니다.
 
 ### <a name="azure-activity-log"></a>Azure 동작 로그
 
@@ -237,7 +237,7 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 
 ## <a name="azure-storage-analytics"></a>Azure Storage 분석
 
-[저장소 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 Storage 서비스 요청과 관련하여 집계된 트랜잭션 통계 및 용량 데이터를 포함하는 메트릭을 저장할 수 있습니다. 트랜잭션은 API 작업 수준과 저장소 서비스 수준에서 모두 보고되며 용량은 저장소 서비스 수준에서 보고됩니다. 메트릭 데이터를 사용하면 저장소 서비스 사용량을 분석하고 저장소 서비스에 대한 요청의 문제를 진단하며 서비스를 사용하는 응용 프로그램의 성능을 개선할 수 있습니다.
+[저장소 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 Storage 서비스 요청과 관련하여 집계된 트랜잭션 통계 및 용량 데이터를 포함하는 메트릭을 저장할 수 있습니다. 트랜잭션은 API 작업 수준과 저장소 서비스 수준에서 모두 보고되며 용량은 저장소 서비스 수준에서 보고됩니다. 메트릭 데이터를 사용하면 저장소 서비스 사용량을 분석하고 저장소 서비스에 대한 요청의 문제를 진단하며 서비스를 사용하는 애플리케이션의 성능을 개선할 수 있습니다.
 
 [Azure Storage 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 로깅을 수행하며 Storage 계정에 대한 메트릭 데이터를 제공합니다. 이 데이터를 사용하여 요청을 추적하고 사용량 추세를 분석하며 저장소 계정에 대한 문제를 진단할 수 있습니다. Storage 분석 로깅은 [Blob, 큐 및 Table service](https://docs.microsoft.com/azure/storage/storage-introduction)에서 사용할 수 있습니다. 저장소 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다.
 
@@ -277,7 +277,7 @@ Azure AD에는 다단계 인증, 디바이스 등록, 셀프 서비스 암호 �
 
 -   Azure AD 다단계 인증 및 조건부 액세스를 사용하여 애플리케이션 보안을 개선합니다.
 
--   응용 프로그램 사용을 모니터링하고 보안 보고 및 모니터링을 통해 비즈니스를 고급 위협으로부터 보호합니다.
+-   애플리케이션 사용을 모니터링하고 보안 보고 및 모니터링을 통해 비즈니스를 고급 위협으로부터 보호합니다.
 
 Azure AD(Azure Active Directory)에는 디렉터리에 대한 보안, 활동 및 감사 보고서가 포함되어 있습니다. [Azure Active Directory 감사 보고서](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide)를 사용하면 고객이 자신의 Azure Active Directory에서 발생한 권한 있는 작업을 식별할 수 있습니다. 권한 있는 작업에는 권한 상승 변경(예: 역할 만들기 또는 암호 재설정), 정책 구성 변경(예: 암호 정책) 또는 디렉터리 구성 변경(예: 도메인 페더레이션 설정 변경)이 포함됩니다.
 
@@ -286,7 +286,7 @@ Azure AD(Azure Active Directory)에는 디렉터리에 대한 보안, 활동 및
 | 보안 보고서  | 작업 보고서| 감사 보고서 |
 | :------------- | :-------------| :-------------|
 |알 수 없는 원본에서 로그인 | 애플리케이션 사용: 요약 | 디렉터리 감사 보고서 |
-|여러 번의 실패 후 로그인 | 응용 프로그램 사용: 세부 |   |
+|여러 번의 실패 후 로그인 | 애플리케이션 사용: 세부 |   |
 |여러 지역에서의 로그인 | 애플리케이션 대시보드 |  |
 |의심스러운 작업이 있는 IP 주소에서 로그인 |계정 프로비전 오류 |  |
 |비정상적인 로그인 작업 |개별 사용자 장치 |  |
@@ -297,7 +297,7 @@ Azure AD(Azure Active Directory)에는 디렉터리에 대한 보안, 활동 및
 
 
 
-이러한 보고서의 데이터는 SIEM 시스템, 감사 및 비즈니스 인텔리전스 도구와 같은 응용 프로그램에 유용할 수 있습니다. Azure AD 보고 [API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started)는 일단의 REST 기반 API를 통해 데이터에 프로그래밍 방식으로 액세스합니다. 이러한 API는 다양한 프로그래밍 언어와 도구에서 호출할 수 있습니다.
+이러한 보고서의 데이터는 SIEM 시스템, 감사 및 비즈니스 인텔리전스 도구와 같은 애플리케이션에 유용할 수 있습니다. Azure AD 보고 [API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started)는 일단의 REST 기반 API를 통해 데이터에 프로그래밍 방식으로 액세스합니다. 이러한 API는 다양한 프로그래밍 언어와 도구에서 호출할 수 있습니다.
 
 Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다.
 

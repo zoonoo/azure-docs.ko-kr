@@ -1,33 +1,34 @@
 ---
-title: LUIS 미리 빌드된 엔터티 datetimeV2 참조 - Azure | Microsoft Docs
+title: 미리 빌드된 DatetimeV2 엔터티
 titleSuffix: Azure
 description: 이 아티클에는 LUIS(Language Understanding)의 datetimeV2 미리 작성된 엔터티가 포함됩니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: bd28981ae0c5b4d6ccff3168f92f0f99be768b10
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 0e2353107d6554a8ecbbd2e4d9850f8d8b5fda5c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335779"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165183"
 ---
-# <a name="datetimev2-entity"></a>datetimeV2 엔터티
+# <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 미리 빌드된 DatetimeV2 엔터티
 
 **datetimeV2** 미리 작성된 엔터티는 날짜 및 시간 값을 추출합니다. 이러한 값은 사용할 클라이언트 프로그램에 대해 표준화된 형식으로 결정됩니다. 발언에 완전하지 않은 날짜 또는 시간이 포함되는 경우 LUIS에는 엔드포인트 응답의 _이전 및 이후 값이 모두_ 포함됩니다. 이 엔터티를 이미 학습했기 때문에 datetimeV2를 응용 프로그램 의도에 포함하는 예제 발언을 추가할 필요가 없습니다. 
 
 ## <a name="types-of-datetimev2"></a>datetimeV2 형식
-datetimeV2는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) Github 리포지토리에서 관리됩니다.
+DatetimeV2는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) GitHub 리포지토리에서 관리됩니다.
 
 ## <a name="example-json"></a>예제 JSON 
 다음 예제 JSON 응답에는 `datetime`이라는 하위 형식이 있는 `datetimeV2` 엔터티가 포함됩니다. 다른 종류의 datetimeV2 엔터티의 예제는 [datetimeV2 하위 형식](#subtypes-of-datetimev2)</a>을 참조하세요.
 
-```JSON
+```json
 "entities": [
   {
     "entity": "8am on may 2nd 2017",
@@ -103,7 +104,7 @@ datetimeV2는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
 다음 예제에서는 "5월 2일" 엔터티의 해결 방법을 보여줍니다. 이 해결 방법에서는 오늘 날짜가 2017년 5월 2일부터 2018년 5월 1일 사이의 날짜라고 가정합니다.
 `timex` 필드의 `X`가 있는 필드는 발언에서 명시적으로 지정되지 않은 날짜의 일부입니다.
 
-```JSON
+```json
   "entities": [
     {
       "entity": "may 2nd",
@@ -132,7 +133,7 @@ datetimeV2는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
 
 `datetimeV2` 엔터티는 날짜 및 시간 범위를 추출합니다. `start` 및 `end` 필드는 범위의 시작과 끝을 지정합니다. "5월 2년부터 5월 5일" 발언의 경우 LUIS에서는 올해 및 내년 모두에 **날짜 범위** 값을 제공합니다. `timex` 필드에서 `XXXX` 값은 연도의 모호성을 나타냅니다. `P3D`는 기간이 3일임을 나타냅니다.
 
-```JSON
+```json
 "entities": [
     {
       "entity": "may 2nd to may 5th",
@@ -163,7 +164,7 @@ datetimeV2는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
 
 다음 예제에서는 LUIS가 **datetimeV2**를 사용하여 "화요일부터 목요일" 발언을 확인하는 방법을 보여줍니다. 이 예제에서 현재 날짜는 6월 19일입니다. LUIS에는 현재 날짜의 전후인 모든 날짜 범위에 대한 **daterange** 값이 포함됩니다.
 
-```JSON
+```json
   "entities": [
     {
       "entity": "tuesday to thursday",
@@ -196,7 +197,7 @@ datetimeV2는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
 
 다음 예제에서는 LUIS가 **datetimeV2**를 사용하여 시간 범위가 있는 발언을 확인하는 방법을 보여줍니다.
 
-```
+```json
   "entities": [
     {
       "entity": "6pm to 7pm",

@@ -1,5 +1,5 @@
 ---
-title: 게시 포털에서 응용 프로그램 설정 | Microsoft Docs
+title: 게시 포털에서 애플리케이션 설정 | Microsoft Docs
 description: 클라우드 게시 포털에서 응용 프로그램을 설정하는 방법에 대한 지침입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -21,9 +21,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/05/2018
 ms.locfileid: "48807325"
 ---
-# <a name="setup-your-application-in-the-publishing-portal"></a>게시 포털에서 응용 프로그램 설정
+# <a name="setup-your-application-in-the-publishing-portal"></a>게시 포털에서 애플리케이션 설정
 
-이제 게시 포털에서 응용 프로그램을 설정할 준비가 되었습니다.
+이제 게시 포털에서 애플리케이션을 설정할 준비가 되었습니다.
 
 ## <a name="login-and-create-a-new-offer"></a>로그인 및 새 제품 만들기
 
@@ -72,9 +72,9 @@ Dynamics 365 for Customer Engagement 제품을 작성하기 위한 4개의 기�
 
 ![기술 정보 화면](./media/CRMScreenShot16.png)
 
-### <a name="application-info"></a>응용 프로그램 정보
+### <a name="application-info"></a>애플리케이션 정보
 
-대부분의 게시자는 위의 스크린샷에 따라 이러한 필드를 기본값, 사용자, 아니요, 아니요 및 빈 응용 프로그램 구성 URL로 남겨 둡니다.
+대부분의 게시자는 위의 스크린샷에 따라 이러한 필드를 기본값, 사용자, 아니요, 아니요 및 빈 애플리케이션 구성 URL로 남겨 둡니다.
 
 ### <a name="crm-package"></a>CRM 패키지
 
@@ -140,9 +140,9 @@ Dynamics 365 for Customer Engagement 제품을 작성하기 위한 4개의 기�
 
 ### <a name="search-keywords-max-3"></a>검색 키워드(최대 3개)
 
-AppSource를 사용하면 고객이 키워드를 기반으로 검색을 수행할 수 있습니다. 고객에게 응용 프로그램을 표시할 키워드 집합을 입력할 수 있습니다.
+AppSource를 사용하면 고객이 키워드를 기반으로 검색을 수행할 수 있습니다. 고객에게 애플리케이션을 표시할 키워드 집합을 입력할 수 있습니다.
 
-예를 들어, 응용 프로그램이 “내 메일 서비스”인 경우 메일, 메일링, 메일 서비스가 일부 키워드일 수 있습니다. 사용자가 AppSource 검색 상자에서 앱을 검색하는 데 사용할 수 있는 단어를 선택합니다.
+예를 들어, 애플리케이션이 “내 메일 서비스”인 경우 메일, 메일링, 메일 서비스가 일부 키워드일 수 있습니다. 사용자가 AppSource 검색 상자에서 앱을 검색하는 데 사용할 수 있는 단어를 선택합니다.
 
 ### <a name="hide-key"></a>숨기기 키
 

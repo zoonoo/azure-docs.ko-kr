@@ -41,7 +41,7 @@ Microsoft에서 자동 패브릭 업그레이드를 릴리스하면 클러스터
  
 
 ## <a name="add-capacity-metrics"></a>용량 메트릭 추가
-각 노드 유형의 경우 부하를 보고하도록 사용하려는 사용자 용량 메트릭을 응용 프로그램에 추가할 수 있습니다. 부하를 보고하는 용량 메트릭 사용에 대한 자세한 내용은 서비스 패브릭 클러스터 리소스 관리자 설명서에서 [클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md) 및 [메트릭 및 부하](service-fabric-cluster-resource-manager-metrics.md)를 참조하세요.
+각 노드 유형의 경우 부하를 보고하도록 사용하려는 사용자 용량 메트릭을 애플리케이션에 추가할 수 있습니다. 부하를 보고하는 용량 메트릭 사용에 대한 자세한 내용은 서비스 패브릭 클러스터 리소스 관리자 설명서에서 [클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md) 및 [메트릭 및 부하](service-fabric-cluster-resource-manager-metrics.md)를 참조하세요.
 
 ## <a name="patch-the-os-in-the-cluster-nodes"></a>클러스터 노드에서 OS 패치
 POA(패치 오케스트레이션 애플리케이션)는 Service Fabric 클러스터에서 가동 중지 시간 없이 운영 체제 패치를 자동화하는 Service Fabric 애플리케이션입니다. [Windows용 패치 오케스트레이션 애플리케이션](service-fabric-patch-orchestration-application.md)을 오케스트레이션된 방식으로 패치를 설치하도록 클러스터에 배포할 수 있으므로 서비스를 항상 사용할 수 있도록 유지합니다. 

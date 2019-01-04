@@ -1,6 +1,6 @@
 ---
-title: Linux의 Azure App Service에서 PHP 및 MySQL 웹앱 작성 | Microsoft Docs
-description: MySQL 데이터베이스에 연결하여 Azure에서 PHP 앱이 작동하도록 하는 방법에 대해 알아봅니다.
+title: Linux에서 MySQL을 사용하여 PHP 웹앱 빌드 - Azure App Service | Microsoft Docs
+description: Azure의 MySQL 데이터베이스에 연결하여 Linux의 Azure App Service에서 PHP 앱이 작동하도록 하는 방법을 알아봅니다.
 services: app-service\web
 author: cephalin
 manager: erikre
@@ -10,13 +10,13 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 91beef3076005fc7b95b1ffd208be238e23a7b8b
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.custom: seodec18
+ms.openlocfilehash: 5d9843eecfed56f09c3a6d659976ca1ce5f42d80
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291490"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342362"
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 PHP 및 MySQL 웹앱 작성
 
@@ -45,9 +45,9 @@ ms.locfileid: "52291490"
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * [Git 설치](https://git-scm.com/)
-* [PHP 5.6.4 이상 설치](http://php.net/downloads.php)
+* [PHP 5.6.4 이상 설치](https://php.net/downloads.php)
 * [작성기 설치](https://getcomposer.org/doc/00-intro.md)
-* PHP 확장 Laravel에 필요한 OpenSSL, Pdo-mysql, Mbstring, Tokenizer, XML 사용
+* Laravel에 필요한 OpenSSL, PDO-MySQL, Mbstring, 토크나이저, XML 등의 PHP 확장 사용
 * [MySQL 설치 및 시작](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>로컬 MySQL 준비
@@ -62,7 +62,7 @@ ms.locfileid: "52291490"
 mysql -u root -p
 ```
 
-암호를 묻는 메시지가 표시되면 `root` 계정에 대한 암호를 입력합니다. 루트 계정 암호를 기억하지 못하는 경우 [MySQL: 루트 암호를 재설정하는 방법](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html)을 참조하세요.
+암호를 묻는 메시지가 표시되면 `root` 계정에 대한 암호를 입력합니다. 루트 계정 암호가 기억나지 않는 경우 [MySQL: 루트 암호를 재설정하는 방법](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html)을 참조하세요.
 
 명령이 성공적으로 실행되면 MySQL 서버가 실행되고 있습니다. 그렇지 않은 경우 [MySQL 설치 후 단계](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html)에 따라 로컬 MySQL 서버가 시작되었는지 확인합니다.
 
@@ -83,7 +83,7 @@ quit
 <a name="step2"></a>
 
 ## <a name="create-a-php-app-locally"></a>로컬에서 PHP 앱 만들기
-이 단계에서는 Laravel 샘플 응용 프로그램 가져오고, 해당 데이터베이스를 구성한 후 로컬로 실행합니다. 
+이 단계에서는 Laravel 샘플 애플리케이션 가져오고, 해당 데이터베이스를 구성한 후 로컬로 실행합니다. 
 
 ### <a name="clone-the-sample"></a>샘플 복제
 
@@ -129,13 +129,13 @@ Laravel에서 _.env_ 파일을 사용하는 방법에 대한 자세한 내용은
 php artisan migrate
 ```
 
-새 Laravel 응용 프로그램 키를 생성합니다.
+새 Laravel 애플리케이션 키를 생성합니다.
 
 ```bash
 php artisan key:generate
 ```
 
-응용 프로그램을 실행합니다.
+애플리케이션을 실행합니다.
 
 ```bash
 php artisan serve
@@ -151,7 +151,7 @@ PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
 ## <a name="create-mysql-in-azure"></a>Azure에서 MySQL 만들기
 
-이 단계에서는 [Azure Database for MySQL](/azure/mysql)에서 MySQL 데이터베이스를 만듭니다. 나중에 이 데이터베이스에 연결할 PHP 응용 프로그램을 구성합니다.
+이 단계에서는 [Azure Database for MySQL](/azure/mysql)에서 MySQL 데이터베이스를 만듭니다. 나중에 이 데이터베이스에 연결할 PHP 애플리케이션을 구성합니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -194,7 +194,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 > [앱이 사용하는 아웃바운드 IP 주소만 사용](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips)으로 방화벽 규칙을 훨씬 더 엄격하게 제한할 수 있습니다.
 >
 
-Cloud Shell에서 *\<you_ip_address>* 를 [로컬 IPv4 IP 주소](http://www.whatsmyip.org/)로 바꾸어 로컬 컴퓨터에서 데이터베이스에 액세스할 수 있도록 명령을 다시 실행합니다.
+Cloud Shell에서 *\<you_ip_address>* 를 [로컬 IPv4 IP 주소](https://www.whatsmyip.org/)로 바꾸어 로컬 컴퓨터에서 데이터베이스에 액세스할 수 있도록 명령을 다시 실행합니다.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address>
@@ -233,7 +233,7 @@ quit
 
 ## <a name="connect-app-to-azure-mysql"></a>Azure MySQL에 앱 연결
 
-이 단계에서는 Azure Database for MySQL에서 만든 MySQL 데이터베이스에 PHP 응용 프로그램을 연결합니다.
+이 단계에서는 Azure Database for MySQL에서 만든 MySQL 데이터베이스에 PHP 애플리케이션을 연결합니다.
 
 <a name="devconfig"></a>
 
@@ -278,7 +278,7 @@ MYSQL_SSL=true
 
 이 자습서에서는 편의를 위해 리포지토리에 `BaltimoreCyberTrustRoot.crt.pem` 인증서가 제공됩니다. 
 
-### <a name="test-the-application-locally"></a>로컬에서 응용 프로그램 테스트
+### <a name="test-the-application-locally"></a>로컬에서 애플리케이션 테스트
 
 _.env.production_을 환경 파일로 사용해서 Laravel 데이터베이스 마이그레이션을 실행하고 Azure Database for MySQL에서 MySQL 데이터베이스에 테이블을 만듭니다. _.env.production_에는 Azure의 MySQL 데이터베이스에 대한 연결 정보가 있습니다.
 
@@ -298,7 +298,7 @@ _.env.production_을 환경 파일로 사용해서 샘플 응용 프로그램을
 php artisan serve --env=production
 ```
 
-`http://localhost:8000`로 이동합니다. 오류 없이 페이지가 로드되면 PHP 응용 프로그램이 Azure의 MySQL 데이터베이스에 연결됩니다.
+`http://localhost:8000`로 이동합니다. 오류 없이 페이지가 로드되면 PHP 애플리케이션이 Azure의 MySQL 데이터베이스에 연결됩니다.
 
 해당 페이지에서 몇 가지 작업을 추가합니다.
 
@@ -319,9 +319,9 @@ git commit -m "database.php updates"
 
 ## <a name="deploy-to-azure"></a>Deploy to Azure
 
-이 단계에서는 MySQL에 연결된 PHP 응용 프로그램을 Azure App Service에 배포합니다.
+이 단계에서는 MySQL에 연결된 PHP 애플리케이션을 Azure App Service에 배포합니다.
 
-Laravel 응용 프로그램은 _/public_ 디렉터리에서 시작됩니다. App Service용 기본 PHP Docker 이미지는 Apache를 사용하며 Laravel에 맞게 `DocumentRoot`를 사용자 지정하는 것을 허용하지 않습니다. 하지만 `.htaccess`를 사용하여 루트 디렉터리 대신 _/public_을 가리키도록 모든 요청을 다시 쓸 수 있습니다. 리포지토리 루트에는 이 목적을 위해 `.htaccess`가 이미 추가되었습니다. 이를 통해 Laravel 응용 프로그램을 배포할 수 있습니다.
+Laravel 애플리케이션은 _/public_ 디렉터리에서 시작됩니다. App Service용 기본 PHP Docker 이미지는 Apache를 사용하며 Laravel에 맞게 `DocumentRoot`를 사용자 지정하는 것을 허용하지 않습니다. 하지만 `.htaccess`를 사용하여 루트 디렉터리 대신 _/public_을 가리키도록 모든 요청을 다시 쓸 수 있습니다. 리포지토리 루트에는 이 목적을 위해 `.htaccess`가 이미 추가되었습니다. 이를 통해 Laravel 애플리케이션을 배포할 수 있습니다.
 
 > [!NOTE] 
 > _.htaccess_ 다시 쓰기를 사용하지 않으려면 [사용자 지정 Docker 이미지](quickstart-docker-go.md)를 대신 사용하여 Laravel 응용 프로그램을 배포할 수 있습니다.
@@ -350,7 +350,7 @@ App Service에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
-PHP [getenv](http://php.net/manual/en/function.getenv.php) 메서드를 사용하여 설정에 액세스할 수 있습니다. Laravel 코드에서는 `getenv` PHP에 대해 [env()](https://laravel.com/docs/5.4/helpers#method-env) 래퍼를 사용합니다. 예를 들어 _config/database.php_의 MySQL 구성은 다음 코드와 같습니다.
+PHP [getenv](https://php.net/manual/en/function.getenv.php) 메서드를 사용하여 설정에 액세스할 수 있습니다. Laravel 코드에서는 `getenv` PHP에 대해 [env()](https://laravel.com/docs/5.4/helpers#method-env) 래퍼를 사용합니다. 예를 들어 _config/database.php_의 MySQL 구성은 다음 코드와 같습니다.
 
 ```php
 'mysql' => [
@@ -365,7 +365,7 @@ PHP [getenv](http://php.net/manual/en/function.getenv.php) 메서드를 사용�
 
 ### <a name="configure-laravel-environment-variables"></a>Laravel 환경 변수 구성
 
-Laravel에는 App Service의 응용 프로그램 키가 필요합니다. 앱 설정을 사용하여 키를 구성할 수 있습니다.
+Laravel에는 App Service의 애플리케이션 키가 필요합니다. 앱 설정을 사용하여 키를 구성할 수 있습니다.
 
 `php artisan`을 사용하면 _.env_로 저장하지 않고도 새 응용 프로그램 키를 생성할 수 있습니다.
 
@@ -379,7 +379,7 @@ php artisan key:generate --show
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
-`APP_DEBUG="true"`는 배포된 웹앱에서 오류가 발생하면 디버깅 정보를 반환하도록 Laravel에 지시합니다. 프로덕션 응용 프로그램을 실행할 때 더 안전한 `false`로 설정합니다.
+`APP_DEBUG="true"`는 배포된 웹앱에서 오류가 발생하면 디버깅 정보를 반환하도록 Laravel에 지시합니다. 프로덕션 애플리케이션을 실행할 때 더 안전한 `false`로 설정합니다.
 
 ### <a name="push-to-azure-from-git"></a>Git에서 Azure에 푸시
 
@@ -389,7 +389,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 git remote add azure <paste_copied_url_here>
 ```
 
-Azure 원격 위치에 푸시하여 PHP 응용 프로그램을 배포합니다. 배포 사용자를 만드는 작업의 일부로 이전에 제공한 암호를 묻는 메시지가 표시됩니다.
+Azure 원격 위치에 푸시하여 PHP 애플리케이션을 배포합니다. 배포 사용자를 만드는 작업의 일부로 이전에 제공한 암호를 묻는 메시지가 표시됩니다.
 
 ```bash
 git push azure master
@@ -434,7 +434,7 @@ remote: Running deployment command...
 
 이 단계에서는 `task` 데이터 모델과 웹앱을 간단히 변경한 다음 업데이트를 Azure에 게시합니다.
 
-작업 시나리오의 경우 작업을 완료한 것으로 표시할 수 있도록 응용 프로그램을 수정합니다.
+작업 시나리오의 경우 작업을 완료한 것으로 표시할 수 있도록 애플리케이션을 수정합니다.
 
 ### <a name="add-a-column"></a>열 추가
 
@@ -482,7 +482,7 @@ php artisan migrate
 
 ### <a name="update-application-logic"></a>응용 프로그램 논리 업데이트
 
-*routes/web.php* 파일을 엽니다. 응용 프로그램에서 해당 경로 및 비즈니스 논리를 여기에 정의합니다.
+*routes/web.php* 파일을 엽니다. 애플리케이션에서 해당 경로 및 비즈니스 논리를 여기에 정의합니다.
 
 파일의 끝에 다음 코드를 포함하는 경로를 추가합니다.
 

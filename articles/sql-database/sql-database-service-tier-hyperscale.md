@@ -12,21 +12,26 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/17/2018
-ms.openlocfilehash: 526b6ac9c510b13461181d76c0032602d8f3f435
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 80e807a8fcbd6c087ad0995a4481180fa28ef42f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377985"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872894"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>최대 100TB의 하이퍼스케일 서비스 계층(미리 보기)
+
+Azure SQL Database는 인프라 오류의 경우에도 99.99%의 가용성을 보장하기 위해 클라우드 환경에 대해 조정되는 SQL Server 데이터베이스 엔진 아키텍처를 기반으로 합니다. Azure SQL Database에 사용되는 세 가지 아키텍처 모델이 있습니다.
+- 범용/표준 
+- 중요 비즈니스용/프리미엄
+- 하이퍼스케일
 
 Azure SQL Database의 하이퍼스케일 서비스 계층은 vCore 기반 구매 모델의 최신 서비스 계층입니다. 이 서비스 계층은 Azure 아키텍처를 활용하여 범용 및 중요 비즈니스용 서비스 계층에 사용할 수 있는 제한을 초과하여 Azure SQL Database용 저장소 및 계산 리소스를 스케일 아웃하는 확장성이 뛰어난 저장소 및 계산 성능 계층입니다.
 
 > [!IMPORTANT]
 > 하이퍼스케일 서비스 계층은 현재 미리 보기 상태이며 제한된 Azure 지역에 제공됩니다. 전체 지역 목록은 [하이퍼스케일 서비스 계층 사용 가능 지역](#available-regions)을 참조하세요. 하이퍼스케일 데이터베이스에서는 프로덕션 워크로드를 아직 실행하지 않는 것이 좋습니다. 하이퍼스케일 데이터베이스는 다른 서비스 계층으로 업데이트할 수 없습니다. 테스트 목적으로 현재 데이터베이스의 복사본을 만들고 하이퍼스케일 서비스 계층에 복사본을 업데이트하는 것이 좋습니다.
 > [!NOTE]
-> vCore 기반 구매 모델의 범용 및 중요 비즈니스용 서비스 계층에 대한 자세한 내용은 [범용 및 중요 비즈니스용 서비스 계층](sql-database-service-tiers-general-purpose-business-critical.md)을 참조하세요. vCore 기반 구매 모델과 DTU 기반 구매 모델의 비교는 [Azure SQL Database 구매 모델 및 리소스](sql-database-service-tiers.md)를 참조하세요.
+> vCore 기반 구매 모델의 범용 및 중요 비즈니스용 서비스 계층에 대한 자세한 내용은 [범용](sql-database-service-tier-general-purpose.md) 및 [중요 비즈니스용](sql-database-service-tier-business-critical.md) 서비스 계층을 참조하세요. vCore 기반 구매 모델과 DTU 기반 구매 모델의 비교는 [Azure SQL Database 구매 모델 및 리소스](sql-database-service-tiers.md)를 참조하세요.
 > [!IMPORTANT]
 > 하이퍼스케일 서비스 계층은 현재 공개 미리 보기로 제공됩니다. 하이퍼스케일 데이터베이스에서는 프로덕션 워크로드를 아직 실행하지 않는 것이 좋습니다. 하이퍼스케일 데이터베이스는 다른 서비스 계층으로 업데이트할 수 없습니다. 테스트 목적으로 현재 데이터베이스의 복사본을 만들고 하이퍼스케일 서비스 계층에 복사본을 업데이트하는 것이 좋습니다.
 
@@ -49,7 +54,7 @@ Azure SQL Database의 하이퍼스케일 서비스 계층은 다음과 같은 �
 
 ## <a name="who-should-consider-the-hyperscale-service-tier"></a>하이퍼스케일 서비스 계층을 고려하면 좋은 대상
 
-하이퍼스케일 서비스 계층은 주로 온-프레미스에 대규모 데이터베이스를 보유하며 클라우드로 전환하여 응용 프로그램을 최신 상태로 유지하려는 고객 또는 클라우드에 이미 있으며 최대 데이터베이스 크기 제한(1-4TB)에 따라 제한되는 고객을 대상으로 합니다. 또한 저장소 및 계산을 위해 고성능 및 높은 확장성을 원하는 고객을 대상으로 합니다.
+하이퍼스케일 서비스 계층은 주로 온-프레미스에 대규모 데이터베이스를 보유하며 클라우드로 전환하여 애플리케이션을 최신 상태로 유지하려는 고객 또는 클라우드에 이미 있으며 최대 데이터베이스 크기 제한(1-4TB)에 따라 제한되는 고객을 대상으로 합니다. 또한 저장소 및 계산을 위해 고성능 및 높은 확장성을 원하는 고객을 대상으로 합니다.
 
 하이퍼스케일 서비스 계층은 모든 SQL Server 워크로드를 지원하지만 주로 OLTP에 맞게 최적화되어 있습니다. 또한 하이퍼스케일 서비스 계층은 하이브리드 및 분석(데이터 마트) 워크로드도 지원합니다.
 
@@ -142,7 +147,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 ## <a name="available-regions"></a>사용 가능한 지역
 
-하이퍼스케일 서비스 계층은 현재 미리 보기 상태이며 EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral Azure 지역에 제공됩니다.
+하이퍼스케일 서비스 계층은 현재 미리 보기 상태이며 다음 Azure 지역에서 사용할 수 있습니다. EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
 
 ## <a name="known-limitations"></a>알려진 제한 사항
 
@@ -159,6 +164,6 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 - 하이퍼스케일에 대한 FAQ는 [하이퍼스케일에 대한 질문과 대답](sql-database-service-tier-hyperscale-faq.md)을 참조하세요.
 - 서비스 계층에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
-- 서버 및 구독 수준의 제한에 관한 정보는 [논리 서버에 대한 리소스 한도 개요](sql-database-resource-limits-logical-server.md)를 참조하세요.
+- 서버 및 구독 수준의 한도에 관한 정보는 [논리 서버의 리소스 한도 개요](sql-database-resource-limits-logical-server.md)를 참조하세요.
 - 단일 데이터베이스에 대한 구매 모델 제한은 [단일 데이터베이스에 대한 Azure SQL Database vCore 기반 구매 모델 제한](sql-database-vcore-resource-limits-single-databases.md)을 참조하세요.
 - 기능 및 비교 목록은 [SQL 일반 기능](sql-database-features.md)을 참조하세요.

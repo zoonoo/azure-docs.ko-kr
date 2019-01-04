@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge 모듈 배포(포털) | Microsoft Docs
+title: Azure Portal에서 모듈 배포 - Azure IoT Edge | Microsoft Docs
 description: Azure Portal을 사용하여 IoT Edge 디바이스에 모듈 배포
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b135832c1f0cb8af23a513d4914d7e32b398be7e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: fab85b74fb53bec07843abf31aac1a8495d0fcfb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564938"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093984"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Azure Portal에서 Azure IoT Edge 모듈 배포
 
@@ -38,7 +39,7 @@ ms.locfileid: "51564938"
 
 배포 매니페스트는 배포할 모듈, 모듈 간의 데이터 흐름 및 모듈 쌍의 desired 속성을 설명하는 JSON 문서입니다. 배포 매니페스트의 작동 방식 및 생성 방법에 대한 자세한 내용은 [IoT Edge 모듈을 사용, 구성 및 다시 사용하는 방법에 대한 이해](module-composition.md)를 참조하세요.
 
-Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니페스트를 만드는 방법을 설명하는 마법사가 포함됩니다. **모듈 추가**, **경로 지정** 및 **배포 검토** 등 세 가지 단계가 있습니다. 
+Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니페스트를 만드는 방법을 설명하는 마법사가 포함됩니다. 여기에는 **모듈 추가**, **경로 지정** 및 **배포 검토**의 세 가지 단계가 있습니다. 
 
 ### <a name="add-modules"></a>모듈 추가
 

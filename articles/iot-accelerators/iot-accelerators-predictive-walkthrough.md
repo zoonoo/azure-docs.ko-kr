@@ -8,16 +8,18 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 61a4e3700e88efba1ea9cea876b19e2f7ed4168b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: b76bea6207cd6ac5d2ed570cf54dde7c52d5ff97
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50137073"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309623"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>예측 유지 관리 솔루션 가속기 개요
 
 예측 유지 관리 솔루션 가속기는 오류가 발생할 가능성이 있는 경우 지점을 예측하는 비즈니스 시나리오에 대한 종단 간 솔루션입니다. 유지 관리를 최적화하는 등의 작업에 솔루션 가속기를 사전에 사용할 수 있습니다. 솔루션은 IoT Hub 및 [Azure Machine Learning][lnk-machine-learning] 작업 영역과 같은 주요 Azure IoT 솔루션 가속기 서비스를 결합합니다. 이 작업 영역에는 공용 샘플 데이터 집합에 따라 항공기 엔진의 RUL(잔여 수명)을 예측하는 모델이 포함되어 있습니다. 솔루션은 IoT 비즈니스 시나리오를 시작점으로 구현하여 고유한 특정 비즈니스 요구 사항을 충족하는 솔루션을 계획하고 구현합니다.
+
+예측 유지 관리 솔루션 가속기 [코드는 GitHub에서 확인할 수 있습니다](https://github.com/Azure/azure-iot-predictive-maintenance).
 
 ## <a name="logical-architecture"></a>논리 아키텍처
 
@@ -60,7 +62,7 @@ IoT Hub는 디바이스 명령 승인을 제공합니다.
 
 ## <a name="azure-stream-analytics-job"></a>Azure Stream Analytics 작업
 
-**작업: 원격 분석**은 두 가지 문을 사용하여 들어오는 장치 원격 분석 스트림에서 작동합니다.
+**작업: 원격 분석**은 두 가지 문을 사용하여 들어오는 디바이스 원격 분석 스트림에서 작동합니다.
 
 * 첫 번째 문은 디바이스에서 모든 원격 분석을 선택하고 Blob Storage에 이 데이터를 보냅니다. 여기에서 데이터가 웹앱에 시각화됩니다.
 * 두 번째 문은 2분 슬라이딩 창을 통해 평균 센서 값을 계산하고 이벤트 허브를 통해 **이벤트 프로세서**로 이 데이터를 보냅니다.

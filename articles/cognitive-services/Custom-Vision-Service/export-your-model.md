@@ -1,7 +1,7 @@
 ---
 title: 모바일로 모델 내보내기 - Custom Vision Service
 titlesuffix: Azure Cognitive Services
-description: 모바일 응용 프로그램을 만드는 데 사용할 모델을 내보내는 방법을 알아봅니다.
+description: 모바일 애플리케이션을 만드는 데 사용할 모델을 내보내는 방법을 알아봅니다.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
@@ -69,10 +69,10 @@ Custom Vision Service는 다음과 같은 내보내기를 지원합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-내보낸 모델을 응용 프로그램에 통합합니다. 여러 응용 프로그램 예제를 사용할 수 있습니다.
+내보낸 모델을 애플리케이션에 통합합니다. 여러 애플리케이션 예제를 사용할 수 있습니다.
 
-* Swift를 사용한 실시간 이미지 분류에 대한 [내보낸 CoreML 모델을 iOS 응용 프로그램에서 사용](https://go.microsoft.com/fwlink/?linkid=857726) 샘플
-* 실시간 이미지 분류에 대한 [내보낸 CoreML 모델을 Xamarin에 사용](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) 샘플 iOS 응용 프로그램 
-* 실시간 이미지 분류에 대한 [내보낸 Tensorflow 모델을 Android 응용 프로그램에서 사용](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) 샘플 
+* Swift를 사용한 실시간 이미지 분류에 대한 [내보낸 CoreML 모델을 iOS 애플리케이션에서 사용](https://go.microsoft.com/fwlink/?linkid=857726) 샘플
+* 실시간 이미지 분류에 대한 [내보낸 CoreML 모델을 Xamarin에 사용](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) 샘플 iOS 애플리케이션 
+* 실시간 이미지 분류에 대한 [내보낸 Tensorflow 모델을 Android 애플리케이션에서 사용](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) 샘플 
 * [Tensorflow 모델을 Windows에 사용](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-model-python)
 * [내보낸 ONNX 모델을 Windows Machine Learning에 사용](https://azure.microsoft.com/resources/samples/cognitive-services-onnx-customvision-sample/) 샘플

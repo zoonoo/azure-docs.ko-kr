@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs 캡처 개요 | Microsoft Docs
-description: Event Hubs 캡처로 원격 분석 데이터 캡처
+title: 스트리밍 이벤트 캡처 - Azure Event Hubs | Microsoft Docs
+description: 이 문서에서는 Azure Event Hubs를 통해 스트리밍 이벤트를 캡처할 수 있도록 캡처 기능 개요를 제공합니다.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -9,21 +9,21 @@ editor: ''
 ms.assetid: e53cdeea-8a6a-474e-9f96-59d43c0e8562
 ms.service: event-hubs
 ms.workload: na
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 91263d7f6e8c0c2774df560a45eeff9efc672343
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 8e44db9c992a2c4905a392323994c67befea9a9a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408427"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096726"
 ---
-# <a name="azure-event-hubs-capture"></a>Azure Event Hubs 캡처
-
-Azure Event Hubs 캡처를 사용하면 시간 또는 크기 간격을 유연하게 지정하여 Event Hubs의 스트리밍 데이터를 선택한 [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) 또는 [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) 계정에 자동으로 전달할 수 있습니다. 캡처는 빠르게 설정할 수 있으며 실행을 위한 관리 비용이 없고 Event Hubs [처리량 단위](event-hubs-features.md#capacity)에 따라 크기가 자동으로 조정됩니다. Event Hubs 캡처는 스트리밍 데이터를 Azure에 로드하는 가장 쉬운 방법이며 데이터 캡처보다 데이터 처리에 집중할 수 있게 해줍니다.
+# <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Azure Blob Storage 또는 Azure Data Lake Storage에서 Azure Event Hubs를 통해 이벤트 캡처
+Azure Event Hubs를 사용하면 시간 또는 크기 간격을 유연하게 지정하여 Event Hubs의 스트리밍 데이터를 선택한 [Azure Blob 스토리지](https://azure.microsoft.com/services/storage/blobs/) 또는 [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) 계정에 자동으로 캡처할 수 있습니다. 캡처는 빠르게 설정할 수 있으며 실행을 위한 관리 비용이 없고 Event Hubs [처리량 단위](event-hubs-features.md#capacity)에 따라 크기가 자동으로 조정됩니다. Event Hubs 캡처는 스트리밍 데이터를 Azure에 로드하는 가장 쉬운 방법이며 데이터 캡처보다 데이터 처리에 집중할 수 있게 해줍니다.
 
 Event Hubs 캡처를 사용하면 동일한 스트림에서 실시간 및 일괄 처리 기반 파이프라인을 처리할 수 있습니다. 즉, 시간이 지나면서 요구에 따라 확장되는 솔루션을 빌드할 수 있습니다. 향후 실시간 처리를 염두에 두고 현재 일괄 처리 기반 시스템을 빌드 중이든, 기존의 실시간 솔루션에 효율적인 콜드 경로를 추가하려는 경우든 간에 Event Hubs 캡처를 통해 스트리밍 데이터 작업이 더 쉬워집니다.
 
@@ -68,7 +68,7 @@ Event Hubs 캡처는 구성된 기간에 지정된 대로 Avro 형식의 파일�
 
 Event Hubs 캡처에서 생성된 파일에는 다음과 같은 Avro 스키마가 있습니다.
 
-![][3]
+![Acro 스키마][3]
 
 Avro 파일을 쉽게 탐색하는 방법은 Apache에서 [Avro 도구][Avro Tools] jar을 사용하는 것입니다. 이 jar을 다운로드한 후 다음 명령을 실행하여 특정 Avro 파일의 스키마를 확인할 수 있습니다.
 
@@ -106,7 +106,7 @@ Apache Avro에는 [Java][Java] 및 [Python][Python]에 대한 전체 시작 가�
 Event Hubs 캡처는 처리량 단위와 유사하게 시간당 요금으로 측정됩니다. 요금은 네임스페이스에 대해 구입한 처리량 단위 수에 정비례합니다. 처리량 단위가 증가 및 감소함에 따라 성능이 일치하도록 Event Hubs 캡처도 증가 및 감소합니다. 측정은 동시에 발생합니다. 가격 정보는 [Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요. 
 
 ## <a name="integration-with-event-grid"></a>Event Grid와 통합 
-원본으로 Event Hubs 네임스페이스를 사용하여 Azure Event Grid 구독을 만들 수 있습니다. 다음 자습서에서는 원본으로 이벤트 허브를, 싱크로 Azure Functions 앱을 사용하여 Event Grid 구독을 만드는 방법을 보여줍니다. [Event Grid 및 Azure Functions를사용하여 SQL Data Warehouse에 캡처된 Event Hubs 데이터 처리 및 마이그레이션](store-captured-data-data-warehouse.md)
+원본으로 Event Hubs 네임스페이스를 사용하여 Azure Event Grid 구독을 만들 수 있습니다. 다음 자습서는 원본으로 이벤트 허브 및 싱크로 Azure Functions 앱을 사용하여 Event Grid 구독을 만드는 방법을 보여줍니다. [Event Grid 및 Azure Functions를 사용하여 캡처된 Event Hubs 데이터를 처리하고 SQL Data Warehouse로 마이그레이션](store-captured-data-data-warehouse.md)
 
 
 ## <a name="next-steps"></a>다음 단계

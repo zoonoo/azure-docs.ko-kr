@@ -140,9 +140,9 @@ ms.locfileid: "51514739"
     > IoT Hub Python SDK는 현재 **.txt** 파일과 같은 문자 기반 파일의 업로드만 지원합니다.
 
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
-이제 응용 프로그램을 실행할 준비가 되었습니다.
+이제 애플리케이션을 실행할 준비가 되었습니다.
 
 1. 작업 폴더의 명령 프롬프트에서 다음 명령을 실행합니다.
 

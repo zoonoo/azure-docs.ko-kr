@@ -19,8 +19,8 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/01/2018
 ms.locfileid: "52724080"
 ---
-# <a name="application-performance-monitoring-using-application-insights-for-scom"></a>SCOM에 대해 Application Insights를 사용하여 응용 프로그램 성능 모니터링
-서버를 관리하는 데 SCOM(System Center Operations Manager)을 사용하는 경우 [Azure Application Insights](app-insights-asp-net.md)를 활용해 성능을 모니터링하고 성능 문제를 진단할 수 있습니다. Application Insights는 사용자 웹 응용 프로그램에 들어오는 요청과 나가는 REST 및 SQL 호출, 예외 및 로그 추적을 모니터링합니다. 메트릭 차트 및 스마트 경고뿐만 아니라 이 원격 분석을 통한 강력한 진단 검색 및 분석 쿼리가 포함된 대시보드를 제공합니다. 
+# <a name="application-performance-monitoring-using-application-insights-for-scom"></a>SCOM에 대해 Application Insights를 사용하여 애플리케이션 성능 모니터링
+서버를 관리하는 데 SCOM(System Center Operations Manager)을 사용하는 경우 [Azure Application Insights](app-insights-asp-net.md)를 활용해 성능을 모니터링하고 성능 문제를 진단할 수 있습니다. Application Insights는 사용자 웹 애플리케이션에 들어오는 요청과 나가는 REST 및 SQL 호출, 예외 및 로그 추적을 모니터링합니다. 메트릭 차트 및 스마트 경고뿐만 아니라 이 원격 분석을 통한 강력한 진단 검색 및 분석 쿼리가 포함된 대시보드를 제공합니다. 
 
 SCOM 관리 팩을 사용하여 Application Insights 모니터링으로 전환할 수 있습니다.
 
@@ -31,7 +31,7 @@ SCOM 관리 팩을 사용하여 Application Insights 모니터링으로 전환�
 다음을 가정합니다.
 
 * SCOM에 대해 잘 알고 있으며 SCOM 2012 R2 또는 2016을 사용하여 IIS 웹 서버를 관리합니다.
-* 서버에 Application Insights로 모니터링하려는 웹 응용 프로그램을 이미 설치했습니다.
+* 서버에 Application Insights로 모니터링하려는 웹 애플리케이션을 이미 설치했습니다.
 * 앱 프레임워크 버전은 .NET 4.5 이상입니다.
 * [Microsoft Azure](https://azure.com)에서 구독에 액세스하여 [Azure Portal](https://portal.azure.com)에 로그인할 수 있습니다. 조직에 구독이 있으면 해당 구독에 Microsoft 계정을 추가할 수 있습니다.
 
@@ -55,7 +55,7 @@ Operations Manager를 실행하는 컴퓨터에서 다음을 수행합니다.
     ![](./media/app-insights-scom/030.png)
 3. 동일한 마법사 페이지에서 새 관리 팩을 만들거나 Application Insights에 대해 이전에 만든 팩을 선택합니다.
    
-     (Application Insights [관리 팩](https://technet.microsoft.com/library/cc974491.aspx) 은 인스턴스를 만들 수 있는 템플릿입니다. 동일한 인스턴스를 나중에 재사용할 수 있습니다.)
+     (Application Insights [관리 팩](https://technet.microsoft.com/library/cc974491.aspx)은 인스턴스를 만들 수 있는 템플릿입니다. 동일한 인스턴스를 나중에 재사용할 수 있습니다.)
 
     ![일반 속성 탭에서 앱의 이름을 입력합니다. 새로 만들기를 클릭하고 관리 팩의 이름을 입력합니다. 확인을 클릭한 후 다음을 클릭합니다.](./media/app-insights-scom/040.png)
 
@@ -68,7 +68,7 @@ Operations Manager를 실행하는 컴퓨터에서 다음을 수행합니다.
    
     이 페이지에서 원격 분석 데이터를 분석하고 표시할 Application Insights 리소스를 선택합니다. 
    
-   * 개발 중에 Application Insights에 대해 응용 프로그램이 구성된 경우 기존 리소스를 선택합니다.
+   * 개발 중에 Application Insights에 대해 애플리케이션이 구성된 경우 기존 리소스를 선택합니다.
    * 그렇지 않은 경우 해당 앱에 대해 명명된 새 리소스를 만듭니다. 동일한 시스템의 구성 요소인 다른 앱이 있는 경우 이를 동일한 리소스 그룹에 배치하면 원격 분석에 보다 쉽게 액세스하여 관리할 수 있습니다.
      
      나중에 이러한 설정을 변경할 수 있습니다.

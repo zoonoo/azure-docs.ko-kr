@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2018
+ms.date: 12/06/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 6251a0c7fd43a12dbe02a0013f1530557d142d25
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dacc28c1cfe2ee896597aeaf92a22c7f6e13c306
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969960"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726615"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack에서 Azure CLI를 사용 하 여 API 버전 프로필 사용
 
@@ -128,7 +128,6 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
         --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
-
    b. 등록 하는 *사용자* 환경에서 사용 하 여:
 
       ```azurecli
@@ -151,9 +150,22 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
         --endpoint-active-directory-resource-id=<URI of the ActiveDirectoryServiceEndpointResourceID> \
         --profile 2018-03-01-hybrid
       ```
+    d. 사용자는 AD FS 환경에 등록 하려면 다음을 사용 합니다.
 
+      ```azurecli
+      az cloud register \
+        -n AzureStack  \
+        --endpoint-resource-manager "https://management.local.azurestack.external" \
+        --suffix-storage-endpoint "local.azurestack.external" \
+        --suffix-keyvault-dns ".vault.local.azurestack.external"\
+        --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" \
+        --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/"\
+        --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/"\
+        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases> \
+        --profile "2018-03-01-hybrid"
+      ```
 1. 다음 명령을 사용 하 여 활성 환경을 설정 합니다.
-
+   
    a. 에 대 한 합니다 *클라우드 관리* 환경에서 사용 하 여:
 
       ```azurecli
@@ -180,8 +192,8 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
 
 1. 사용 하 여 Azure Stack 환경에 로그인 합니다 `az login` 명령입니다. 로그인 할 수 있습니다 Azure Stack 환경에 사용자 또는으로 [서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects)합니다. 
 
-    * AAD 환경
-      * 으로 로그인을 *사용자*: username 및 password 내에서 직접 지정할 수 있습니다는 `az login` 명령을 선택 하거나 브라우저를 사용 하 여 인증 합니다. 사용자 계정에 multi-factor authentication 사용 하는 경우에 후자를 수행 해야 합니다.
+    * Azure AD 환경
+      * 으로 로그인을 *사용자*: Username 및 password 내에서 직접 지정할 수 있습니다는 `az login` 명령을 선택 하거나 브라우저를 사용 하 여 인증 합니다. 사용자 계정에 multi-factor authentication 사용 하는 경우에 후자를 수행 해야 합니다.
 
       ```azurecli
       az login \
@@ -192,9 +204,9 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
       > [!NOTE]
       > 사용자 계정에 multi-factor authentication 사용 하는 경우 사용할 수 있습니다 합니다 `az login command` 제공 하지 않고는 `-u` 매개 변수입니다. URL 및 인증을 사용 해야 하는 코드를 제공 명령을 실행 합니다.
    
-      * 으로 로그인을 *서비스 주체*: 로그인 하기 전에 [Azure portal 통해 서비스 주체 만들기](azure-stack-create-service-principals.md) 또는 CLI 역할을 할당 합니다. 이제 다음 명령을 사용 하 여 로그인 합니다.
+      * 으로 로그인을 *서비스 주체*: 로그인 하기 전에 [Azure portal 통해 서비스 주체를 만들려면](azure-stack-create-service-principals.md) 또는 CLI 역할을 할당 합니다. 이제 다음 명령을 사용 하 여 로그인 합니다.
 
-      ```azurecli
+      ```azurecli  
       az login \
         --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
         --service-principal \
@@ -203,20 +215,33 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
       ```
     * AD FS 환경
 
-        * 으로 로그인을 *서비스 주체*: 
-          1.    서비스 보안 주체 로그인에 사용 되는.pem 파일을 준비 합니다.
-                * 보안 주체가 생성 된 위치를 클라이언트 컴퓨터에서 서비스 주체 인증서를 pfx로 개인 키를 사용 하 여 내보내기 (cert: \CurrentUser\My;에 있는 인증서 이름을 주 서버는 같은 이름을 가진).
+        * 웹 브라우저를 사용 하 여 사용자로 로그인 합니다.  
+              ```azurecli  
+              az login
+              ```
+        * 장치 코드를 사용 하 여 웹 브라우저를 사용 하 여 사용자로 로그인 합니다.  
+              ```azurecli  
+              az login --use-device-code
+              ```
+        > [!Note]  
+        >URL 및 인증을 사용 해야 하는 코드를 제공 명령을 실행 합니다.
 
-                *   Pfx에서 pem (사용 하 여 OpenSSL 유틸리티)으로 변환 합니다.
+        * 서비스 주체로 로그인 합니다.
+        
+          1. 서비스 보안 주체 로그인에 사용 되는.pem 파일을 준비 합니다.
 
-          1.    CLI에 로그인합니다. :
-                ```azurecli
-                az login --service-principal \
-                 -u <Client ID from the Service Principal details> \
-                 -p <Certificate's fully qualified name. Eg. C:\certs\spn.pem>
-                 --tenant <Tenant ID> \
-                 --debug 
-                ```
+            * 보안 주체가 생성 된 위치를 클라이언트 컴퓨터에서 서비스 주체 인증서를 pfx로 개인 키를 사용 하 여 내보내기 (위치한 `cert:\CurrentUser\My;` 인증서 이름을 주 서버는 같은 이름을 가진).
+        
+            * Pfx에서 pem (사용 하 여 OpenSSL 유틸리티)으로 변환 합니다.
+
+          2.  CLI에 로그인 합니다.
+            ```azurecli  
+            az login --service-principal \
+              -u <Client ID from the Service Principal details> \
+              -p <Certificate's fully qualified name, such as, C:\certs\spn.pem>
+              --tenant <Tenant ID> \
+              --debug 
+            ```
 
 ## <a name="test-the-connectivity"></a>연결 테스트
 

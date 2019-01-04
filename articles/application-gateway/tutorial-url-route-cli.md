@@ -17,7 +17,7 @@ ms.locfileid: "50413454"
 ---
 # <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 URL을 기반으로 웹 트래픽 라우팅
 
-웹 트래픽을 관리하는 IT 관리자는 고객 또는 사용자가 필요한 정보를 최대한 신속하게 얻을 수 있기를 원합니다. 이들의 경험을 최적화하는 방법 중 하나는 여러 종류의 웹 트래픽을 서로 다른 서버 리소스에 라우팅하는 것입니다. 이 자습서에서는 Azure CLI를 사용하여 응용 프로그램의 여러 트래픽 종류에 대한 Application Gateway 라우팅을 설정 및 구성하는 방법을 보여줍니다. 그런 다음, 라우팅을 통해 URL 기반의 여러 서버 풀에 트래픽을 전달합니다.
+웹 트래픽을 관리하는 IT 관리자는 고객 또는 사용자가 필요한 정보를 최대한 신속하게 얻을 수 있기를 원합니다. 이들의 경험을 최적화하는 방법 중 하나는 여러 종류의 웹 트래픽을 서로 다른 서버 리소스에 라우팅하는 것입니다. 이 자습서에서는 Azure CLI를 사용하여 애플리케이션의 여러 트래픽 종류에 대한 Application Gateway 라우팅을 설정 및 구성하는 방법을 보여줍니다. 그런 다음, 라우팅을 통해 URL 기반의 여러 서버 풀에 트래픽을 전달합니다.
 
 ![URL 라우팅 예제](./media/tutorial-url-route-cli/scenario.png)
 
@@ -26,7 +26,7 @@ ms.locfileid: "50413454"
 > [!div class="checklist"]
 > * 필요한 네트워크 리소스에 대한 리소스 그룹 만들기
 > * 네트워크 리소스 만들기
-> * 응용 프로그램에서 들어오는 트래픽에 대한 응용 프로그램 게이트웨이 만들기
+> * 애플리케이션에서 들어오는 트래픽에 대한 애플리케이션 게이트웨이 만들기
 > * 여러 종류의 트래픽에 대한 서버 풀 및 회람 규칙 지정
 > * 풀 크기를 자동으로 조정할 수 있도록 각 풀의 확장 집합 만들기
 > * 여러 종류의 트래픽이 올바른 풀로 이동하는지 확인하기 위한 테스트 실행
@@ -75,7 +75,7 @@ az network public-ip create \
 
 ## <a name="create-the-app-gateway-with-a-url-map"></a>URL 맵을 사용하여 응용 프로그램 게이트웨이 만들기
 
-`az network application-gateway create`를 사용하여 *myAppGateway*라는 응용 프로그램 게이트웨이를 만듭니다. Azure CLI를 사용하여 응용 프로그램 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 응용 프로그램 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myAGPublicIPAddress*에 할당됩니다.
+`az network application-gateway create`를 사용하여 *myAppGateway*라는 응용 프로그램 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myAGPublicIPAddress*에 할당됩니다.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -93,12 +93,12 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress
 ```
 
- 응용 프로그램 게이트웨이를 만들 때까지 몇 분 정도 걸릴 수 있습니다. 응용 프로그램 게이트웨이가 생성되면 다음과 같은 새 기능을 볼 수 있습니다.
+ 애플리케이션 게이트웨이를 만들 때까지 몇 분 정도 걸릴 수 있습니다. 애플리케이션 게이트웨이가 생성되면 다음과 같은 새 기능을 볼 수 있습니다.
 
 
 |기능  |설명  |
 |---------|---------|
-|appGatewayBackendPool     |응용 프로그램 게이트웨이에 백 엔드 주소 풀이 하나 이상 있어야 합니다.|
+|appGatewayBackendPool     |애플리케이션 게이트웨이에 백 엔드 주소 풀이 하나 이상 있어야 합니다.|
 |appGatewayBackendHttpSettings     |포트 80 및 HTTP 프로토콜을 통신에 사용하도록 지정합니다.|
 |appGatewayHttpListener     |appGatewayBackendPool에 연결되는 기본 수신기입니다.|
 |appGatewayFrontendIP     |myAGPublicIPAddress를 appGatewayHttpListener에 할당합니다.|
@@ -232,9 +232,9 @@ for i in `seq 1 3`; do
 done
 ```
 
-## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
+## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-응용 프로그램 게이트웨이의 공용 IP 주소를 가져오려면 az network public-ip show를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* 또는 *http://40.121.222.19:8080/video/test.htm*.
+애플리케이션 게이트웨이의 공용 IP 주소를 가져오려면 az network public-ip show를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* 또는 *http://40.121.222.19:8080/video/test.htm*.
 
 ```azurecli-interactive
 az network public-ip show \
@@ -244,19 +244,19 @@ az network public-ip show \
   --output tsv
 ```
 
-![응용 프로그램 게이트웨이의 기준 URL 테스트](./media/tutorial-url-route-cli/application-gateway-nginx.png)
+![애플리케이션 게이트웨이의 기준 URL 테스트](./media/tutorial-url-route-cli/application-gateway-nginx.png)
 
 URL을 http://&lt;ip-address&gt;:8080/images/test.html로 변경하고 &lt;ip-address&gt;를 사용자의 IP 주소로 대체하면 다음 예제와 같은 내용이 표시됩니다.
 
-![응용 프로그램 게이트웨이의 이미지 URL 테스트](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
+![애플리케이션 게이트웨이의 이미지 URL 테스트](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
 
 URL을 http://&lt;ip-address&gt;:8080/video/test.html로 변경하고 &lt;ip-address&gt;를 사용자의 IP 주소로 대체하면 다음 예제와 같은 내용이 표시됩니다.
 
-![응용 프로그램 게이트웨이의 비디오 URL 테스트](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
+![애플리케이션 게이트웨이의 비디오 URL 테스트](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요 없는 리소스 그룹, 응용 프로그램 게이트웨이 및 모든 관련 리소스를 제거합니다.
+더 이상 필요 없는 리소스 그룹, 애플리케이션 게이트웨이 및 모든 관련 리소스를 제거합니다.
 
 ```azurecli-interactive
 az group delete --name myResourceGroupAG --location eastus

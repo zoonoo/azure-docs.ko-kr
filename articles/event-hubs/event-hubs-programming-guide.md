@@ -1,22 +1,22 @@
 ---
-title: Azure Event Hubs에 대한 프로그래밍 가이드 | Microsoft Docs
-description: Azure.NET SDK를 사용하여 Azure Event Hubs에 대한 코드를 작성합니다.
+title: 프로그래밍 가이드 - Azure Event Hubs | Microsoft Docs
+description: 이 문서에서는 Azure .NET SDK를 사용하여 Azure Event Hubs에 대한 코드를 작성하는 방법에 대한 정보를 제공합니다.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
 ms.service: event-hubs
+ms.custom: seodec18
 ms.topic: article
-ms.date: 08/12/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: bfb2db8a4a0091e26cc2b893e615ba831da30ac7
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3aa5a1c640cc46d677a66f5179f9f07a81e62b15
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746327"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138078"
 ---
-# <a name="event-hubs-programming-guide"></a>Event Hubs 프로그래밍 가이드
-
+# <a name="programming-guide-for-azure-event-hubs"></a>Azure Event Hubs에 대한 프로그래밍 가이드
 이 문서에서는 Azure Event Hubs를 사용하여 코드를 작성하는 몇 가지 일반적인 시나리오를 설명합니다. Event Hubs에 대한 예비 이해가 있다고 가정합니다. Event Hubs의 개요에 대한 개념은 [Event Hubs 개요](event-hubs-what-is-event-hubs.md)를 참조하세요.
 
 ## <a name="event-publishers"></a>이벤트 게시자
@@ -55,7 +55,7 @@ eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuild
 
 ## <a name="send-events-to-an-event-hub"></a>이벤트 허브로 이벤트 보내기
 
-[EventHubClient][] 인스턴스를 만들고 [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) 메서드를 통해 비동기적으로 보내서 이벤트를 이벤트 허브로 보냅니다. 이 메서드는 단일 [EventData][] 인스턴스 매개 변수를 가져오는 동시에 이벤트 허브로 보냅니다.
+[EventHubClient][] 인스턴스를 만들고 [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) 메서드를 통해 비동기적으로 보내서 이벤트를 이벤트 허브로 보냅니다. 이 메서드는 단일 [EventData][] 인스턴스 매개 변수를 가져오고 비동기적으로 이벤트 허브로 보냅니다.
 
 ## <a name="event-serialization"></a>이벤트 직렬화
 
@@ -76,7 +76,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 
 ### <a name="availability-considerations"></a>가용성 고려 사항
 
-파티션 키 사용은 선택 사항이며 사용 여부를 신중하게 고려해야 합니다. 대부분의 경우에서 이벤트 순서 지정이 중요한 경우 파티션 키를 사용 하는 것이 좋습니다. 파티션 키를 사용할 경우 이러한 파티션은 단일 노드에서 가용성이 필요하며 시간이 지나면 중단이 발생할 수 있습니다(예: 연산 노드를 재부팅하고 패치할 경우). 따라서 파티션 ID를 설정하고 해당 파티션을 어떠한 이유로 사용할 수 없게 되면 해당 파티션의 데이터에 액세스하지 못하게 됩니다. 고가용성이 가장 중요한 경우에는 파티션 키를 지정하지 마십시오. 이러한 경우 이벤트는 이전에 설명한 라운드 로빈 모델을 사용하는 파티션으로 보내집니다. 이 시나리오에서는 가용성(파티션 ID 없음)과 일관성(파티션 ID에 이벤트 고정) 간에 명시적인 선택을 합니다.
+파티션 키 사용은 선택 사항이며 사용 여부를 신중하게 고려해야 합니다. 이벤트를 게시할 때 파티션 키를 지정하지 않으면 라운드 로빈 할당이 사용됩니다. 대부분의 경우에서 이벤트 순서 지정이 중요한 경우 파티션 키를 사용 하는 것이 좋습니다. 파티션 키를 사용할 경우 이러한 파티션은 단일 노드에서 가용성이 필요하며 시간이 지나면 중단이 발생할 수 있습니다(예: 연산 노드를 재부팅하고 패치할 경우). 따라서 파티션 ID를 설정하고 해당 파티션을 어떠한 이유로 사용할 수 없게 되면 해당 파티션의 데이터에 액세스하지 못하게 됩니다. 고가용성이 가장 중요한 경우에는 파티션 키를 지정하지 마십시오. 이러한 경우 이벤트는 이전에 설명한 라운드 로빈 모델을 사용하는 파티션으로 보내집니다. 이 시나리오에서는 가용성(파티션 ID 없음)과 일관성(파티션 ID에 이벤트 고정) 간에 명시적인 선택을 합니다.
 
 이벤트 처리에서 지연을 처리하는 것도 고려해야 할 사항입니다. 경우에 따라, 잠재적으로 추가 다운스트림 처리 지연을 일으킬 수 있으므로 처리를 계속 진행하도록 하는 것보다 데이터를 삭제한 다음 다시 시도하는 것 나을 수 있습니다. 예를 들어 주식 시세 표시기 사용 시 완벽한 최신 데이터를 기다리는 것이 좋지만, 실시간 채팅 또는 VOIP 시나리오에서는 완벽하지는 않아도 데이터를 빨리 보유하는 것이 낫습니다.
 

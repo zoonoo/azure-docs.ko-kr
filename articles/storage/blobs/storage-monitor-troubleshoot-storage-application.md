@@ -1,6 +1,6 @@
 ---
-title: Azure에서 클라우드 저장소 응용 프로그램 모니터링 및 문제 해결 | Microsoft Docs
-description: 진단 도구, 메트릭 및 경고를 사용하여 클라우드 응용 프로그램 문제를 해결하고 모니터링합니다.
+title: Azure에서 클라우드 저장소 애플리케이션 모니터링 및 문제 해결 | Microsoft Docs
+description: 진단 도구, 메트릭 및 경고를 사용하여 클라우드 애플리케이션 문제를 해결하고 모니터링합니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -15,9 +15,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51259992"
 ---
-# <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>클라우드 저장소 응용 프로그램 모니터링 및 문제 해결
+# <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>클라우드 저장소 애플리케이션 모니터링 및 문제 해결
 
-이 자습서는 4부로, 시리즈의 마지막 부분입니다. 여기서는 클라우드 저장소 응용 프로그램을 모니터링하고 문제를 해결하는 방법을 알아봅니다.
+이 자습서는 4부로, 시리즈의 마지막 부분입니다. 여기서는 클라우드 저장소 애플리케이션을 모니터링하고 문제를 해결하는 방법을 알아봅니다.
 
 시리즈 4부에서는 다음 방법에 대해 알아봅니다.
 
@@ -89,7 +89,7 @@ curl https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<CONTAINER_NAME>/<INCO
 
 [Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226)를 다운로드하고 설치합니다.
 
-이 응용 프로그램을 시작하고 **파일** > **열기** > **기타 파일 원본**을 선택합니다.
+이 애플리케이션을 시작하고 **파일** > **열기** > **기타 파일 원본**을 선택합니다.
 
 **파일 선택기** 대화 상자에서 **+Azure 연결 추가**를 선택합니다. **저장소 계정 이름** 및 **계정 키**를 입력하고 **확인**을 클릭합니다.
 

@@ -1,28 +1,26 @@
 ---
-title: Azure Cosmos DB에서 날짜 사용 | Microsoft Docs
+title: Azure Cosmos DB에서 날짜 사용
 description: Azure Cosmos DB에서 날짜를 사용하는 방법에 대해 알아봅니다.
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
+author: SnehaGunda
+ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: sngun
-ms.openlocfilehash: d85cada87a6934921bf2775f12c016a88d9fbe9e
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 48879eb3ae4fc3a54d50a4e896b4a1eb94acabf9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164024"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073808"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Azure Cosmos DB에서 날짜 사용
-Azure Cosmos DB는 네이티브 [JSON](http://www.json.org) 데이터 모델을 통해 스키마 유연성과 풍부한 인덱싱을 제공합니다. 데이터베이스, 컨테이너, 문서 및 저장 프로시저를 포함한 모든 Azure Cosmos DB 리소스는 모델링되어 JSON 문서로 저장됩니다. 이식 가능성을 위한 요구 사항인 JSON(및 Azure Cosmos DB)은 String, Number, Boolean, Array, Object 및 Null과 같은 기본 형식만 지원합니다. 그러나 JSON은 유연하므로 개발자와 프레임워크는 이러한 기본형을 사용하여 개체 또는 배열로 구성하여 보다 복잡한 형식을 나타낼 수 있습니다. 
+Azure Cosmos DB는 네이티브 [JSON](https://www.json.org) 데이터 모델을 통해 스키마 유연성과 풍부한 인덱싱을 제공합니다. 데이터베이스, 컨테이너, 문서 및 저장 프로시저를 포함한 모든 Azure Cosmos DB 리소스는 모델링되어 JSON 문서로 저장됩니다. 이식 가능성을 위한 요구 사항인 JSON(및 Azure Cosmos DB)은 다음과 같은 기본 형식만 지원합니다. String, Number, Boolean, Array, Object 및 Null 그러나 JSON은 유연하므로 개발자와 프레임워크는 이러한 기본형을 사용하여 개체 또는 배열로 구성하여 보다 복잡한 형식을 나타낼 수 있습니다. 
 
 기본형 외에도 많은 응용 프로그램에는 날짜 및 타임스탬프를 나타내기 위해 [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) 형식이 필요합니다. 이 문서에서는 개발자가 .NET SDK를 사용하여 Azure Cosmos DB에서 날짜를 저장, 검색 및 쿼리하는 방법에 대해 설명합니다.
 
 ## <a name="storing-datetimes"></a>날짜/시간 저장
-기본적으로 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)는 DateTime 값을 [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) 문자열로 직렬화합니다. 대부분의 응용 프로그램에서는 다음과 같은 이유로 DateTime의 기본 문자열 표현을 사용할 수 있습니다.
+기본적으로 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)는 DateTime 값을 [ISO 8601](https://www.iso.org/iso/catalogue_detail?csnumber=40874) 문자열로 직렬화합니다. 대부분의 응용 프로그램에서는 다음과 같은 이유로 DateTime의 기본 문자열 표현을 사용할 수 있습니다.
 
 * 문자열을 비교할 수 있으며, 문자열로 변환할 때 DateTime 값의 상대적인 순서는 유지됩니다. 
 * 이 접근 방식에는 JSON 변환에 대해 사용자 지정 코드 또는 속성이 필요하지 않습니다.

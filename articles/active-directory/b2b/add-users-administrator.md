@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: bda01b5c9fbd43feed8c407e85b90b31bef0ffa1
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 3da427974c4a270a7a743bb81d2376cf61b77390
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335064"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436911"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Azure Active Directory B2B 공동 작업 사용자를 Azure Portal에 추가
 
@@ -24,7 +24,7 @@ ms.locfileid: "52335064"
 게스트 사용자를 디렉터리에 추가한 후에 게스트 사용자에게 공유 앱에 대한 직접 링크를 보낼 수 있습니다. 또는 게스트 사용자는 초대 이메일에서 상환 URL을 클릭할 수 있습니다. 상환 프로세스에 대한 자세한 내용은 [B2B 공동 작업 초대 상환](redemption-experience.md)을 참조하세요.
 
 > [!IMPORTANT]
-> [방법: Azure Active Directory에서 조직의 개인 정보를 추가](https://aka.ms/adprivacystatement)의 단계를 수행하여 조직 개인정보취급방침의 URL을 추가해야 합니다. 첫 번째 초대 상환 프로세스의 일환으로 초대된 사용자는 계속하여 개인정보취급방침 사용 약관에 동의해야 합니다. 
+> [방법: Azure Active Directory에서 조직의 개인 정보를 추가](https://aka.ms/adprivacystatement)의 단계를 수행하여 조직 개인정보처리방침의 URL을 추가해야 합니다. 첫 번째 초대 상환 프로세스의 일환으로 초대된 사용자는 계속하여 개인정보취급방침 사용 약관에 동의해야 합니다. 
 
 ## <a name="add-guest-users-to-the-directory"></a>디렉터리에 게스트 사용자 추가
 
@@ -37,6 +37,9 @@ B2B 공동 작업 사용자를 디렉터리에 추가하려면 다음 단계를 
 
    ![새 게스트 사용자의 UI 내 위치 표시](./media/add-users-administrator/NewGuestUser-Directory.png) 
  
+   > [!NOTE]
+   > **조직 관계** 페이지에서 **새 게스트 사용자** 옵션을 사용할 수도 있습니다. **Azure Active Directory**의 **관리** 아래에서 **조직 관계**를 선택합니다.
+
 5. **사용자 이름**에서 외부 사용자의 이메일 주소를 입력합니다. 필요에 따라 환영 메시지가 포함됩니다. 예: 
 
    ![새 게스트 사용자의 UI 내 위치 표시](./media/add-users-administrator/InviteGuest.png) 

@@ -1,6 +1,6 @@
 ---
-title: Azure Search .NET Management SDK 버전 2로 업그레이드 | Microsoft Docs
-description: Azure Search .NET Management SDK 버전 2로 업그레이드
+title: Azure Search .NET Management SDK 버전 2로 업그레이드 - Azure Search
+description: 이전 버전에서 Azure Search .NET Management SDK 버전 2로 업그레이드합니다. 새로운 기능과 필요한 코드 변경 내용을 알아봅니다.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -9,12 +9,13 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 01/15/2018
-ms.openlocfilehash: a6b6c01f0cc811abca90139e4c26c27b7bd7119f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 369e5283d7350729e0d8cc44f94f1f2e71b133c3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790368"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316875"
 ---
 # <a name="upgrading-to-the-azure-search-net-management-sdk-version-2"></a>Azure Search .NET Management SDK 버전 2로 업그레이드
 버전 1.0.2 또는 이전 버전의 [Azure Search .NET Management SDK](https://aka.ms/search-mgmt-sdk)를 사용하는 경우 이 문서를 통해 버전 2로 응용 프로그램을 업그레이드할 수 있습니다.
@@ -39,7 +40,7 @@ NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝
 
 빌드가 실패하는 경우 변경된 일부 SDK 인터페이스를 구현했기 때문일 수 있습니다(예: 단위 테스트를 위해). 이 문제를 해결하려면 `BeginCreateOrUpdateWithHttpMessagesAsync`와 같은 새로운 메서드를 구현해야 합니다.
 
-모든 빌드 오류를 수정했다면 원하는 새 기능을 활용하도록 응용 프로그램을 변경할 수 있습니다. SDK의 새로운 기능에 대한 자세한 내용은 [버전 2의 새로운 기능](#WhatsNew)에 나와 있습니다.
+모든 빌드 오류를 수정했다면 원하는 새 기능을 활용하도록 애플리케이션을 변경할 수 있습니다. SDK의 새로운 기능에 대한 자세한 내용은 [버전 2의 새로운 기능](#WhatsNew)에 나와 있습니다.
 
 ## <a name="conclusion"></a>결론
 SDK에 대한 귀하의 피드백을 환영합니다! 문제가 발생하면 [Azure Search MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch)을 통해 자유롭게 도움을 요청하세요. 버그를 발견하는 경우 [Azure .NET SDK GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/issues)에 문제를 제출할 수 있습니다. 문제 제목에 "[Azure Search]"라는 접두사를 지정해야 합니다.

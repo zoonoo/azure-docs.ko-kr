@@ -104,4 +104,4 @@ Content Moderator 대시보드에서 **검토** > **이미지**를 선택합니�
 
 ## <a name="next-steps"></a>다음 단계
 
-코드에서 REST API를 사용하거나 [Jobs .NET 빠른 시작](moderation-jobs-quickstart-dotnet.md)을 시작하여 응용 프로그램을 통합합니다.
+코드에서 REST API를 사용하거나 [Jobs .NET 빠른 시작](moderation-jobs-quickstart-dotnet.md)을 시작하여 애플리케이션을 통합합니다.

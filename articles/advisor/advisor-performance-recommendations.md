@@ -3,27 +3,26 @@ title: Azure Advisor 성능 권장 사항 | Microsoft Docs
 description: Advisor를 사용하여 Azure 배포 성능을 최적화합니다.
 services: advisor
 documentationcenter: NA
-author: manbeenkohli
+author: kasparks
 manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: makohli
-ms.openlocfilehash: 9516534216c4a2c0f61e33ea3cbf1bbcb2ab58c7
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: kasparks
+ms.openlocfilehash: 349632c751c3116244bc8ef7708708f3aa45754c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301313"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013239"
 ---
 # <a name="advisor-performance-recommendations"></a>Advisor 성능 권장 사항
 
-Azure Advisor 성능 권장 사항은 업무에 중요한 응용 프로그램의 속도 및 응답성을 향상시키는 데 도움이 됩니다. Advisor 대시보드의 **성능** 탭에서 Advisor를 사용하여 성능 권장 사항을 볼 수 있습니다.
+Azure Advisor 성능 권장 사항은 업무에 중요한 애플리케이션의 속도 및 응답성을 향상시키는 데 도움이 됩니다. Advisor 대시보드의 **성능** 탭에서 Advisor를 사용하여 성능 권장 사항을 볼 수 있습니다.
 
 ## <a name="reduce-dns-time-to-live-on-your-traffic-manager-profile-to-fail-over-to-healthy-endpoints-faster"></a>정상 엔드포인트로 더 빠르게 장애 조치(failover)할 수 있게 Traffic Manager의 DNS TTL(Time To Live) 단축
 
@@ -33,16 +32,16 @@ Azure Advisor는 긴 TTL이 구성된 Traffic Manager 프로필을 식별하여 
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>SQL DB Advisor로 데이터베이스 성능 개선
 
-Advisor는 모든 Azure 리소스에 대한 권장 사항을 일관되고 통합된 보기로 표시합니다. SQL Database Azure와 통합되므로 SQL Azure Database의 성능을 향상시키기 위한 권장 사항이 표시됩니다. SQL Database Advisor는 사용 기록을 분석하여 SQL Azure Database의 성능을 평가합니다. 그런 후 데이터베이스의 일반적인 워크로드를 실행하는 데 가장 적합한 권장 사항을 제공합니다. 
+Advisor는 모든 Azure 리소스에 대한 권장 사항을 일관되고 통합된 보기로 표시합니다. SQL Database Azure와 통합되므로 SQL Azure Database의 성능을 향상시키기 위한 권장 사항이 표시됩니다. SQL Database Advisor는 사용 기록을 분석하여 SQL Azure Database의 성능을 평가합니다. 그런 후 데이터베이스의 일반적인 워크로드를 실행하는 데 가장 적합한 권장 사항을 제공합니다. 
 
 > [!NOTE]
 > 권장 사항을 가져오려면 데이터베이스에 일주일의 사용 기간이 필요하고, 그 기간 내에 일관된 활동이 필요합니다. SQL Database Advisor는 일관성 있는 쿼리 패턴을 임의 활동 버스트보다 더욱 쉽게 최적화할 수 있습니다.
 
 SQL Database Advisor에 대한 자세한 내용은 [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)를 참조하세요.
 
-## <a name="improve-redis-cache-performance-and-reliability"></a>Redis Cache 성능 및 안정성 향상
+## <a name="improve-azure-cache-for-redis-performance-and-reliability"></a>Azure Cache for Redis 성능 및 안정성 향상
 
-Advisor는 높은 메모리 사용량, 서버 부하, 네트워크 대역폭 또는 많은 수의 클라이언트 연결이 성능이 부정적인 영향을 미칠 수 있는 Redis Cache 인스턴스를 식별합니다. 또한 Advisor는 잠재적인 문제를 방지하는 데 도움이 되는 모범 사례 권장 사항도 제공합니다. Redis Cache 권장 사항에 대한 자세한 내용은 [r](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)를 참조하세요.
+Advisor는 높은 메모리 사용량, 서버 부하, 네트워크 대역폭 또는 많은 수의 클라이언트 연결이 성능이 부정적인 영향을 미칠 수 있는 Azure Cache for Redis 인스턴스를 식별합니다. 또한 Advisor는 잠재적인 문제를 방지하는 데 도움이 되는 모범 사례 권장 사항도 제공합니다. Azure Cache for Redis 권장 사항에 대한 자세한 내용은 [Azure Cache for Redis Advisor](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)를 참조하세요.
 
 
 ## <a name="improve-app-service-performance-and-reliability"></a>App Service 성능 및 안정성 향상

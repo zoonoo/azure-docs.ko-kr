@@ -1,22 +1,18 @@
 ---
-title: 키 값 저장소로서의 Azure Cosmos DB – 비용 개요 | Microsoft Docs
-description: Azure Cosmos DB를 키 값 저장소로 사용할 경우의 비용 절감 효과에 대해 알아봅니다.
-keywords: 키 값 저장소
-services: cosmos-db
+title: 키 값 저장소로 Azure Cosmos DB에 대한 요청 단위 요금
+description: 키/값 저장소로 사용될 경우 간단한 쓰기 및 읽기 작업의 Azure Cosmos DB의 요청 단위 요금에 대해 설명합니다.
 author: SnehaGunda
-manager: kfile
-tags: ''
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/15/2017
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 09abc89c8e4cc8b0ee79200739722fc62d1ece4b
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 3ab066cc3d2b06dc12c2399d718aeec6aac03b25
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163203"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134185"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>키 값 저장소로서의 Azure Cosmos DB – 비용 개요
 
@@ -41,7 +37,7 @@ Azure Cosmos DB 성능은 파티션에 대해 프로비전된 RU([요청 단위]
 
 초당 1,000RU를 프로비전하는 시간당 3.6m RU에 해당하며 시간당 $0.08가 됩니다(미국 및 유럽). 1KB 크기 문서에서는 프로비전된 처리량을 사용해서 3.6m 읽기 또는 0.72m 쓰기(초당 3.6m RU/5)를 사용할 수 있음을 의미합니다. 1백만 읽기 및 쓰기로 정규화할 경우 비용은 m 읽기당 $0.022($0.08/3.6) 및 m 쓰기당 $0.111($0.08/0.72)에 해당합니다. 백만당 비용은 아래 표에 나와 있는 것처럼 최소화됩니다.
 
-|항목 크기|1-m 읽기|1-m 쓰기|
+|항목 크기|1-m 읽기|1m 쓰기|
 |-------------|-------|--------|
 |1KB|$0.022|$0.111|
 |100KB|$0.222|$1.111|

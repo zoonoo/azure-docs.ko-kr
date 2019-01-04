@@ -2,7 +2,7 @@
 layout: HubPage
 hide_bc: true
 title: Microsoft Azure 설명서
-description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다.
+description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 애플리케이션을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다.
 ms.openlocfilehash: c8ba57b9173fbbfa4e00472972921073f32cb2f7
 ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
@@ -1196,7 +1196,7 @@ ms.locfileid: "53017790"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cloud Services</h3>
-                                                    <p>가용성과 확장성이 뛰어난 클라우드 응용 프로그램 및 API 만들기</p>
+                                                    <p>가용성과 확장성이 뛰어난 클라우드 애플리케이션 및 API 만들기</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1257,7 +1257,7 @@ ms.locfileid: "53017790"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Load Balancer</h3>
-                                                    <p>응용 프로그램에 고가용성 및 네트워크 성능 제공</p>
+                                                    <p>애플리케이션에 고가용성 및 네트워크 성능 제공</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1885,7 +1885,7 @@ ms.locfileid: "53017790"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Cache for Redis</h3>
-                                                    <p>높은 처리량과 대기 시간이 짧은 데이터 액세스로 빠르고 확장 가능한 응용 프로그램 빌드</p>
+                                                    <p>높은 처리량과 대기 시간이 짧은 데이터 액세스로 빠르고 확장 가능한 애플리케이션 빌드</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2218,7 +2218,7 @@ ms.locfileid: "53017790"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Power BI Embedded</h3>
-                                                    <p>응용 프로그램에 완벽하고 뛰어난 대화형 데이터 시각화를 포함</p>
+                                                    <p>애플리케이션에 완벽하고 뛰어난 대화형 데이터 시각화를 포함</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3046,7 +3046,7 @@ ms.locfileid: "53017790"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure Germany</h3>
-                                                    <p>데이터 트러스티의 추가 제어와 함께 주요 국제 표준 및 독일 규정에 따라 응용 프로그램 빌드 및 호스팅</p>
+                                                    <p>데이터 트러스티의 추가 제어와 함께 주요 국제 표준 및 독일 규정에 따라 애플리케이션 빌드 및 호스팅</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3502,7 +3502,7 @@ ms.locfileid: "53017790"
                         <ul id="architecture1" class="cardsC">
                             <li>
                                 <div class="container intro">
-                                    <p>클라우드 응용 프로그램에 대한 권장되는 아키텍처의 집합입니다. 각 아키텍처는 권장되는 사례, 조치 단계 및 권장 사항을 구현하는 실행 가능한 구성 요소를 포함합니다.</p>
+                                    <p>클라우드 애플리케이션에 대한 권장되는 아키텍처의 집합입니다. 각 아키텍처는 권장되는 사례, 조치 단계 및 권장 사항을 구현하는 실행 가능한 구성 요소를 포함합니다.</p>
                                 </div>
                             </li>
                             <li>
@@ -3573,7 +3573,7 @@ ms.locfileid: "53017790"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>클라우드 응용 프로그램에 대한 모범 사례</h3>
+                                                    <h3>클라우드 애플리케이션에 대한 모범 사례</h3>
                                                     <p>자동 크기 조정, 캐싱, 데이터 분할, API 디자인 및 모니터링과 같은 측면을 다루는 클라우드 애플리케이션에 대한 모범 사례 집합입니다.</p>
                                                 </div>
                                             </div>

@@ -1,18 +1,19 @@
 ---
-title: Azure Disk Encryption 문제 해결| Microsoft Docs
+title: 문제 해결 - IaaS VM용 Azure Disk Encryption | Microsoft Docs
 description: 이 문서에서는 Windows 및 Linux IaaS VM용 Microsoft Azure Disk Encryption에 대한 문제 해결 팁을 제공합니다.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
-ms.openlocfilehash: 3d52e031d6c3266ba9d15a2283adcdbce7a6b929
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: a6cf415112f245421b3225c2e2ccb07a7bbf9332
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347684"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098302"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk Encryption 문제 해결 가이드
 
@@ -24,7 +25,7 @@ Linux OS(운영 체제) 디스크 암호화에서는 전체 디스크 암호화 
 
 이 오류는 지원되는 재고 갤러리 이미지에서 변경된 대상 VM 환경에서 OS 디스크 암호화를 시도할 때 발생할 수 있습니다. OS 드라이브를 분리하는 확장의 기능을 방해할 수 있는 지원되는 이미지로부터의 편차. 편차 예는 다음 항목을 포함할 수 있습니다.
 - 지원되는 파일 시스템 또는 파티션 구성표와 더 이상 일치하지 않는 사용자 지정 이미지
-- SAP, MongoDB, Apache Cassandra 및 Docker와 같은 대규모 응용 프로그램은 암호화하기 전에 OS에 설치되고 실행되는 경우 지원되지 않습니다. Azure Disk Encryption은 디스크 암호화에서 OS 드라이브를 준비할 때 필요한 대로 이러한 프로세스를 안전하게 종료할 수 없습니다. OS 드라이브에 대한 오픈 파일 핸들을 보유하는 활성 프로세스가 있는 경우 OS 드라이브는 탑재될 수 없습니다. 따라서 OS 드라이브를 암호화하는 데 실패합니다. 
+- SAP, MongoDB, Apache Cassandra 및 Docker와 같은 대규모 애플리케이션은 암호화하기 전에 OS에 설치되고 실행되는 경우 지원되지 않습니다. Azure Disk Encryption은 디스크 암호화에서 OS 드라이브를 준비할 때 필요한 대로 이러한 프로세스를 안전하게 종료할 수 없습니다. OS 드라이브에 대한 오픈 파일 핸들을 보유하는 활성 프로세스가 있는 경우 OS 드라이브는 탑재될 수 없습니다. 따라서 OS 드라이브를 암호화하는 데 실패합니다. 
 - 암호화가 활성화된 시간에 근접하여 실행하는 사용자 지정 스크립트 또는 암호화 프로세스 중에 다른 변경 작업이 VM에서 수행되고 있는 경우 이 충돌은 Azure Resource Manager 템플릿에서 동시에 실행하도록 여러 확장을 정의하거나 사용자 지정 스크립트 확장 또는 다른 작업을 디스크 암호화와 동시에 실행할 때 발생할 수 있습니다. 이러한 단계를 직렬화하고 격리하면 문제가 해결될 수 있습니다.
 - 암호화를 활성화하기 전에 SELinux(Security Enhanced Linux)가 비활성화되지 않았으므로 분리 단계가 실패합니다. 암호화가 완료되면 SELinux를 다시 활성화할 수 있습니다.
 - OS 디스크는 LVM(논리 볼륨 관리자) 구성표를 사용합니다. 제한된 LVM 데이터 디스크 지원은 사용할 수 있지만, LVM OS 디스크는 사용할 수 없습니다.

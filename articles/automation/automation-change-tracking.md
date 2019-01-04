@@ -10,12 +10,12 @@ ms.date: 10/12/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2678b9a1b80b1c9de6f1b554ce43bcd4f2dd5d50
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 27bacb12c66ac57a0bf1aea88a447d395b6dde8c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167004"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408921"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적
 
@@ -63,7 +63,7 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 
 ## <a name="configuring-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 구성
 
-솔루션에 컴퓨터를 등록하는 방법을 알아보려면 [Automation 솔루션 온보드](automation-onboard-solutions-from-automation-account.md)를 방문하세요. 변경 내용 추적과 인벤토리 솔루션을 컴퓨터에 탑재한 후 추적할 항목을 구성할 수 있습니다. 새 파일 또는 레지스트리 키를 추적하도록 설정하면 변경 내용 추적 및 인벤토리가 모두 활성화됩니다.
+솔루션에 컴퓨터를 등록하는 방법을 알아보려면 [Automation 솔루션 온보딩](automation-onboard-solutions-from-automation-account.md)을 방문하세요. 변경 내용 추적과 인벤토리 솔루션을 컴퓨터에 탑재한 후 추적할 항목을 구성할 수 있습니다. 새 파일 또는 레지스트리 키를 추적하도록 설정하면 변경 내용 추적 및 인벤토리가 모두 활성화됩니다.
 
 Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일의 MD5 해시를 사용합니다. 그런 다음, 이 해시를 사용하여 마지막 인벤토리 이후 변경이 있는지 검색합니다.
 
@@ -85,7 +85,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 |재귀     | 추적할 항목을 찾을 때 재귀가 사용되는지 결정합니다.        |
 |sudo 사용     | 항목을 확인할 때 sudo가 사용되는지 여부를 결정합니다.         |
 |링크     | 디렉터리를 트래버스할 때 기호화된 링크에서 처리하는 방법을 결정합니다.<br> **Ignore** - 기호화된 링크가 무시되고 참조된 파일/디렉터리를 포함하지 않습니다.<br>**Follow** - 재귀 중에 기호화된 링크를 따르고 참조된 파일/디렉터리도 포함합니다.<br>**관리** - 기호화된 링크를 따르고 반환된 콘텐츠를 변경할 수 있도록 허용합니다.     |
-|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션: **True** 또는 **False**입니다.|
+|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션은 **True** 또는 **False**입니다.|
 
 > [!NOTE]
 > "Manage" 링크 옵션은 권장되지 않습니다. 파일 콘텐츠 검색은 지원되지 않습니다.
@@ -105,7 +105,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 |그룹     | 논리적으로 파일을 그룹화하는 그룹 이름입니다.        |
 |경로 입력     | 파일을 확인할 경로입니다(예: "c:\temp\\\*.txt").<br>"%winDir%\System32\\\*.*"와 같은 환경 변수도 사용할 수 있습니다.       |
 |재귀     | 추적할 항목을 찾을 때 재귀가 사용되는지 결정합니다.        |
-|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션: **True** 또는 **False**입니다.|
+|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션은 **True** 또는 **False**입니다.|
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>와일드 카드, 재귀 및 환경 설정
 
@@ -135,7 +135,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 |사용     | 설정이 적용되는지 여부를 결정합니다.        |
 |Item Name     | 추적할 파일의 이름입니다.        |
 |그룹     | 논리적으로 파일을 그룹화하는 그룹 이름입니다.        |
-|Windows 레지스트리 키   | 파일을 확인할 경로입니다. 예: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Windows 레지스트리 키   | 파일을 확인할 경로입니다. 예:  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>제한 사항
 
@@ -167,10 +167,21 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 | Windows 레지스트리 | 50분 |
 | Windows 파일 | 30분 |
 | Linux 파일 | 15분 |
-| Windows 서비스 | 10초에서 30분</br> 기본값: 30분 |
+| Windows 서비스 | 10초에서 30분</br> Default: 30분 |
 | Linux 데몬 | 5분 |
 | Windows 소프트웨어 | 30분 |
 | Linux 소프트웨어 | 5분 |
+
+다음 표는 변경 내용 추적에 대한 머신당 추적된 항목 한도를 보여 줍니다.
+
+| **리소스** | **제한**| **참고 사항** |
+|---|---|---|
+|파일|500||
+|레지스트리|250||
+|Windows 소프트웨어|250|소프트웨어 업데이트를 포함하지 않음|
+|Linux 패키지|1250||
+|Services|250||
+|디먼|250||
 
 ### <a name="windows-service-tracking"></a>Windows 서비스 추적
 

@@ -1,5 +1,5 @@
 ---
-title: 팀 데이터 과학 프로세스 수명 주기의 배포 단계 - Azure | Microsoft Docs
+title: Team Data Science Process 수명 주기의 배포 단계
 description: 데이터 과학 프로젝트의 배포 단계에 대한 목표, 작업 및 결과물입니다.
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 30d54b1475188fa886a811b22460d88e53aa564e
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: d05f831aa1ae1f9b0912dce66bf7f5e15c109d49
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446588"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138571"
 ---
-# <a name="deployment"></a>배포
+# <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 수명 주기의 배포 단계
 
 이 문서에서는 TDSP(팀 데이터 과학 프로세스)의 배포 단계와 관련된 목표, 작업 및 결과물을 설명합니다. 이 프로세스는 데이터 과학 프로젝트를 구조화하는 데 사용할 수 있는 권장 수명 주기를 제공합니다. 수명 주기는 일반적으로 프로젝트에서 반복적으로 자주 실행하는 주요 단계를 설명합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "52446588"
 ## <a name="how-to-do-it"></a>수행 방법
 이 단계에서 처리되는 주요 작업은 다음과 같습니다.
 
-**모델 운영**: 모델 및 파이프라인을 프로덕션 또는 이와 유사한 환경에 응용 프로그램을 사용하도록 배포합니다.
+**모델 운영**: 모델 및 파이프라인을 프로덕션 또는 이와 유사한 환경에 애플리케이션을 사용하도록 배포합니다.
 
 ### <a name="operationalize-a-model"></a>모델 운영
 성능이 우수한 일단의 모델을 확보했으면 다른 응용 프로그램에서 사용하도록 운영할 수 있습니다. 비즈니스 요구 사항에 따라 예측을 실시간 또는 배치 방식으로 수행합니다. 모델을 배포하려면 열린 API 인터페이스를 사용하여 공개합니다. 이 인터페이스를 사용하면 다음과 같은 다양한 응용 프로그램에서 모델을 쉽게 사용할 수 있습니다.

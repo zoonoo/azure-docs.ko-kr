@@ -105,7 +105,7 @@ items:
   href: unexpected-reboots-attached-vhds.md
 - name: Windows 정품 인증 문제
   href: troubleshoot-activation-problems.md
-- name: 응용 프로그램 액세스 문제
+- name: 애플리케이션 액세스 문제
   href: troubleshoot-app-connection.md
 - name: 새 VM 배포
   items:

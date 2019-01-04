@@ -19,4 +19,4 @@ ms.locfileid: "53318300"
 
 |  |  |
 |---------|---------|
-| [허용되는 가상 네트워크 게이트웨이 SKU](../articles/governance/policy/samples/allowed-app-gateway-sku.md) | 응용 프로그램 게이트웨이에서 승인된 SKU를 사용해야 합니다. 승인된 SKU 배열을 지정합니다. |
+| [허용되는 가상 네트워크 게이트웨이 SKU](../articles/governance/policy/samples/allowed-app-gateway-sku.md) | 애플리케이션 게이트웨이에서 승인된 SKU를 사용해야 합니다. 승인된 SKU 배열을 지정합니다. |

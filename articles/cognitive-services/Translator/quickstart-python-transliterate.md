@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 24887e39b98c41cbafbe962cb81391571d8b86b9
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 4f6418602fcf1de6ea98c45635029f71aa6fdf06
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247881"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999279"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python 사용 텍스트 음역
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python을 통해 텍스트 음역
 
 이 빠른 시작에서는 Python 및 Translator Text REST API를 사용하여 텍스트를 한 스크립트에서 다른 스크립트로 음역(변환)하는 방법을 알아봅니다. 제공된 샘플에서는 라틴어 알파벳을 사용하도록 일본어를 음역합니다.
 
@@ -151,7 +151,7 @@ python transliterate-text.py
 
 ## <a name="see-also"></a>참고 항목
 
-텍스트 음차뿐만 아니라 다음과 같은 Translator Text API 사용 방법을 알아봅니다.
+Translator Text API를 사용하여 다음을 수행하는 방법을 알아봅니다.
 
 * [텍스트 번역](quickstart-python-translate.md)
 * [입력으로 언어 식별](quickstart-python-detect.md)

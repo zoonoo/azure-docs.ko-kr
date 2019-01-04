@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 32692cbe7959650d5181c9e9dfcd7dd5ee55a46e
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 8bb95ae776c329e67e9f9936213a9f4c2a0c8f62
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024596"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842597"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Azure AD B2C 사용자 지정 정책 및 Identity Experience Framework 문제 해결
 
@@ -57,10 +57,10 @@ XML 규칙 검토가 도움이 될 수도 있습니다. Azure AD B2C는 검색�
 
 * `Run Now` 및 `https://jwt.io`를 사용하여 웹 또는 모바일 응용 프로그램과 별도로 정책을 테스트합니다. 이 웹 사이트는 신뢰 당사자 응용 프로그램처럼 작동합니다. Azure AD B2C 정책에 의해 생성된 JWT(JSON Web Token)의 내용을 표시합니다. Identity Experience Framework에서 테스트 응용 프로그램을 만들려면 다음 값을 사용합니다.
     * 이름: TestApp
-    * 웹앱/Web API: 아니요
+    * 웹앱/웹 API: 아니요
     * 네이티브 클라이언트: 아니요
 
-* 클라이언트 브라우저와 Azure AD B2C 간의 메시지 교환을 추적하려면 [Fiddler](http://www.telerik.com/fiddler)를 사용합니다. 오케스트레이션 단계에서 사용자 환경이 실패한 위치를 확인하는 데 도움이 될 수 있습니다.
+* 클라이언트 브라우저와 Azure AD B2C 간의 메시지 교환을 추적하려면 [Fiddler](https://www.telerik.com/fiddler)를 사용합니다. 오케스트레이션 단계에서 사용자 환경이 실패한 위치를 확인하는 데 도움이 될 수 있습니다.
 
 * **개발 모드**에서 **Application Insights**를 사용하여 Identity Experience Framework 사용자 환경의 활동을 추적합니다. **개발 모드**에서는 Identity Experience Framework와 기술 프로필에서 정의된 다양한 클레임 공급자(예: ID 공급자, API 기반 서비스, Azure AD B2C 사용자 디렉터리 및 Azure Multi-Factor-Authentication과 같은 기타 서비스) 간의 클레임 교환을 확인할 수 있습니다.  
 

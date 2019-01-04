@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 95083ec1d909333596fd36ad998022778a4f9ec9
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 831e5bff412f80f2140f6fd1b935a57bd412ccba
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582747"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188132"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 통과 인증: 빠른 시작
 
 ## <a name="deploy-azure-ad-pass-through-authentication"></a>Azure AD 통과 인증 배포
 
-Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-프레미스와 클라우드 기반 응용 프로그램 둘 다에서 동일한 암호로 로그인할 수 있습니다. 통과 인증은 사용자의 암호를 온-프레미스 Active Directory와 직접 비교하여 유효성을 검사하고 사용자를 로그인합니다.
+Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-프레미스와 클라우드 기반 애플리케이션 둘 다에서 동일한 암호로 로그인할 수 있습니다. 통과 인증은 사용자의 암호를 온-프레미스 Active Directory와 직접 비교하여 유효성을 검사하고 사용자를 로그인합니다.
 
 >[!IMPORTANT]
 >AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 경우 [여기](https://aka.ms/adfstoPTADPDownload)에 게시된 자세한 배포 가이드를 따르는 것이 좋습니다.
@@ -58,18 +58,18 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 4. 서버와 Azure AD 사이에 방화벽이 있는 경우 다음 항목을 구성합니다.
    - 인증 에이전트가 다음 포트를 통해 Azure AD에 대한 *아웃바운드* 요청을 만들 수 있는지 확인합니다.
 
-    | 포트 번호 | 사용 방법 |
-    | --- | --- |
-    | **80** | SSL 인증서의 유효성을 검사하는 동안 CRL(인증서 해지 목록) 다운로드 |
-    | **443** | 서비스와의 모든 아웃바운드 통신 처리 |
-    | **8080**(선택 사항) | 인증 에이전트는 포트 443을 사용할 수 없는 경우 포트 8080을 통해 10분마다 해당 상태를 보고합니다. 이 상태는 Azure AD 포털에 표시됩니다. 포트 8080은 사용자 로그인에 사용되지 _않습니다_. |
-
-    방화벽이 원래 사용자에 따라 규칙에 적용되는 경우 네트워크 서비스로 실행하는 Windows 서비스의 트래픽에 대해 이러한 포트를 엽니다.
+     | 포트 번호 | 사용 방법 |
+     | --- | --- |
+     | **80** | SSL 인증서의 유효성을 검사하는 동안 CRL(인증서 해지 목록) 다운로드 |
+     | **443** | 서비스와의 모든 아웃바운드 통신 처리 |
+     | **8080**(선택 사항) | 인증 에이전트는 포트 443을 사용할 수 없는 경우 포트 8080을 통해 10분마다 해당 상태를 보고합니다. 이 상태는 Azure AD 포털에 표시됩니다. 포트 8080은 사용자 로그인에 사용되지 _않습니다_. |
+     
+     방화벽이 원래 사용자에 따라 규칙에 적용되는 경우 네트워크 서비스로 실행하는 Windows 서비스의 트래픽에 대해 이러한 포트를 엽니다.
    - 방화벽이나 프록시에서 DNS 허용 목록을 허용하면 **\*.msappproxy.net** 및 **\*.servicebus.windows.net**에 대한 연결을 허용 목록에 추가합니다. 그렇지 않으면 매주 업데이트되는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 액세스하도록 허용합니다.
    - 인증 에이전트는 초기 등록을 위해 **login.windows.net** 및 **login.microsoftonline.com**에 액세스해야 합니다. 이러한 URL에 대한 방화벽도 엽니다.
    - 인증서 유효성 검사를 위해 **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** 및 **www.microsoft.com:80** URL을 차단 해제합니다. 이러한 URL은 다른 Microsoft 제품과의 인증서 유효성 검사에 사용되므로 이러한 URL을 이미 차단 해제했을 수 있습니다.
 
-## <a name="step-2-enable-the-feature"></a>2단계: 기능 활성화
+## <a name="step-2-enable-the-feature"></a>2단계: 기능 사용
 
 [Azure AD Connect](whatis-hybrid-identity.md)를 통해 통과 인증을 사용하도록 설정합니다.
 
@@ -99,7 +99,7 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 
 ![Azure Active Directory 관리 센터: Azure AD Connect 창](./media/how-to-connect-pta-quick-start/pta7.png)
 
-![Azure Active Directory 관리 센터 - 통과 인증 창](./media/how-to-connect-pta-quick-start/pta8.png)
+![Azure Active Directory 관리 센터: 통과 인증 창](./media/how-to-connect-pta-quick-start/pta8.png)
 
 이 단계에서는 테넌트에 있는 모든 관리되는 도메인의 사용자가 통과 인증을 사용하여 로그인할 수 있습니다. 하지만 페더레이션된 도메인의 사용자는 AD FS 또는 이전에 구성한 다른 페더레이션 공급자를 사용하여 계속 로그인합니다. 도메인을 페더레이션된 도메인에서 관리되는 도메인으로 전환하면 해당 도메인의 모든 사용자가 자동으로 통과 인증을 사용하여 로그인하기 시작합니다. 통과 인증 기능은 클라우드 전용 사용자에게 영향을 주지 않습니다.
 
@@ -117,9 +117,9 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 3. **Azure AD Connect**, **통과 인증**, **에이전트 다운로드**를 차례로 선택합니다.
 4. **약관 동의 및 다운로드** 단추를 선택합니다.
 
-![Azure Active Directory 관리 센터 - 인증 에이전트 다운로드 버튼](./media/how-to-connect-pta-quick-start/pta9.png)
+![Azure Active Directory 관리 센터: 인증 에이전트 다운로드 단추](./media/how-to-connect-pta-quick-start/pta9.png)
 
-![Azure Active Directory 관리 센터 - 에이전트 다운로드 창](./media/how-to-connect-pta-quick-start/pta10.png)
+![Azure Active Directory 관리 센터: 에이전트 다운로드 창](./media/how-to-connect-pta-quick-start/pta10.png)
 
 >[!NOTE]
 >[인증 에이전트 소프트웨어를 직접 다운로드](https://aka.ms/getauthagent)할 수도 있습니다. 설치하기 _전에_ 인증 에이전트의 [서비스 약관](https://aka.ms/authagenteula)을 검토하고 동의합니다.
@@ -146,8 +146,8 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 - [스마트 잠금](../authentication/howto-password-smart-lockout.md): 테넌트에서 스마트 잠금 기능을 구성하여 사용자 계정을 보호하는 방법을 알아봅니다.
 - [현재 제한 사항](how-to-connect-pta-current-limitations.md): 현재 통과 인증이 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
 - [기술 심층 분석](how-to-connect-pta-how-it-works.md): 통과 인증 기능이 작동하는 원리를 이해합니다.
-- [질문과 대답](how-to-connect-pta-faq.md): 자주 하는 질문과 대답을 살펴봅니다.
+- [질문과 대답](how-to-connect-pta-faq.md): 자주 묻는 질문에 대한 대답을 찾습니다.
 - [문제 해결](tshoot-connect-pass-through-authentication.md): 통과 인증 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.
 - [보안 심층 분석](how-to-connect-pta-security-deep-dive.md): 통과 인증 기능에 대한 기술 정보를 가져옵니다.
-- [Azure AD Seamless SSO](how-to-connect-sso.md): 보완적인 Azure AD Seamless SSO 기능을 알아봅니다.
+- [Azure AD Seamless SSO](how-to-connect-sso.md): 이 보완 기능을 자세히 알아봅니다.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Azure Active Directory 포럼을 사용하여 새 기능 요청을 제출합니다.

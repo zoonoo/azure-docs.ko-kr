@@ -24,13 +24,13 @@ ms.locfileid: "50085442"
 ---
 # <a name="openshift-in-azure"></a>Azure의 OpenShift
 
-OpenShift는 엔터프라이즈에 Docker 및 Kubernetes를 제공하는 확장 가능한 개방형 컨테이너 응용 프로그램 플랫폼입니다.  
+OpenShift는 엔터프라이즈에 Docker 및 Kubernetes를 제공하는 확장 가능한 개방형 컨테이너 애플리케이션 플랫폼입니다.  
 
 OpenShift는 컨테이너 오케스트레이션 및 관리를 위한 Kubernetes를 포함합니다. 추가로 다음을 지원하는 개발자 중심 및 작업 중심 도구를 제공합니다.
 
-- RAD(신속한 응용 프로그램 개발)
+- RAD(신속한 애플리케이션 개발)
 - 간편한 배포 및 확장
-- 팀 및 응용 프로그램에 대한 장기 수명 유지 관리
+- 팀 및 애플리케이션에 대한 장기 수명 유지 관리
 
 OpenShift의 여러 버전을 사용할 수 있습니다.
 
@@ -58,7 +58,7 @@ OKD는 커뮤니티가 지원하는 OpenShift의 [오픈 소스](https://www.okd
 
 ## <a name="openshift-dedicated"></a>OpenShift Dedicated
 
-Dedicated는 OpenShift Container Platform을 사용하는 Red Hat이 관리하는 *단일 테넌트* OpenShift입니다. Red Hat이 모든 기본 인프라(VM, OpenShift 클러스터, 네트워킹, 저장소 등)를 관리합니다. 클러스터는 한 고객 전용이며 공용 클라우드(예: AWS 또는 Google)에서 실행됩니다. 시작 클러스터에는 4개의 응용 프로그램 노드가 포함되며 모든 비용은 연 단위로 선불로 지불됩니다.
+Dedicated는 OpenShift Container Platform을 사용하는 Red Hat이 관리하는 *단일 테넌트* OpenShift입니다. Red Hat이 모든 기본 인프라(VM, OpenShift 클러스터, 네트워킹, 저장소 등)를 관리합니다. 클러스터는 한 고객 전용이며 공용 클라우드(예: AWS 또는 Google)에서 실행됩니다. 시작 클러스터에는 4개의 애플리케이션 노드가 포함되며 모든 비용은 연 단위로 선불로 지불됩니다.
 
 ## <a name="openshift-online"></a>OpenShift Online
 

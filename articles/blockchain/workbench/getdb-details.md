@@ -23,7 +23,7 @@ ms.locfileid: "48242035"
 
 ## <a name="overview"></a>개요
 
-응용 프로그램, 워크플로 및 스마트 계약 실행에 대한 정보는 Blockchain Workbench SQL DB의 데이터베이스 보기를 사용하여 제공됩니다. 개발자는 Microsoft Excel, PowerBI, Visual Studio 및 SQL Server Management Studio 같은 도구를 사용할 때 이 정보를 사용할 수 있습니다.
+애플리케이션, 워크플로 및 스마트 계약 실행에 대한 정보는 Blockchain Workbench SQL DB의 데이터베이스 보기를 사용하여 제공됩니다. 개발자는 Microsoft Excel, PowerBI, Visual Studio 및 SQL Server Management Studio 같은 도구를 사용할 때 이 정보를 사용할 수 있습니다.
 
 개발자는 데이터베이스에 연결하려면 다음이 필요합니다.
 

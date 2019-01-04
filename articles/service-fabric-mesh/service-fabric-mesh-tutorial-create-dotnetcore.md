@@ -1,6 +1,6 @@
 ---
-title: 자습서 - Service Fabric Mesh에 대한 다중 서비스 응용 프로그램 만들기, 디버그, 배포 및 모니터링 | Microsoft Docs
-description: 이 자습서에서는 백 엔드 웹 서비스와 통신하고, 로컬로 디버그하고, Azure에 게시하는 ASP.NET Core 웹 사이트로 구성된 다중 서비스 Azure Service Fabric Mesh 응용 프로그램을 만듭니다.
+title: 자습서 - Service Fabric Mesh에 대한 다중 서비스 애플리케이션 만들기, 디버그, 배포 및 모니터링 | Microsoft Docs
+description: 이 자습서에서는 백 엔드 웹 서비스와 통신하고, 로컬로 디버그하고, Azure에 게시하는 ASP.NET Core 웹 사이트로 구성된 다중 서비스 Azure Service Fabric Mesh 애플리케이션을 만듭니다.
 services: service-fabric-mesh
 documentationcenter: .net
 author: TylerMSFT
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 09112aafdbabf0cda2b3ae13af73a9223533a6e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eb68c7aacb4c62237fc4cd75ec430997b0145454
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979197"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888752"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>자습서: 다중 서비스 Service Fabric Mesh 앱 만들기, 디버그, 배포 및 업그레이드
 
@@ -28,7 +28,7 @@ ms.locfileid: "46979197"
 
 작업이 완료되면 앱 수명 주기 관리의 대부분 단계를 수행하고 Service Fabric Mesh 앱에서 서비스 간 호출을 보여 주는 앱을 빌드하게 됩니다.
 
-할 일 응용 프로그램을 수동으로 만들지 않으려면 완성된 응용 프로그램에 대한 [소스 코드를 다운로드](https://github.com/azure-samples/service-fabric-mesh)하고 [로컬로 응용 프로그램을 디버그](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)하도록 건너뛸 수 있습니다.
+할 일 애플리케이션을 수동으로 만들지 않으려면 완성된 애플리케이션에 대한 [소스 코드를 다운로드](https://github.com/azure-samples/service-fabric-mesh)하고 [로컬로 애플리케이션을 디버그](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)하도록 건너뛸 수 있습니다.
 
 시리즈 1부에서는 다음 방법에 대해 알아봅니다.
 
@@ -80,17 +80,17 @@ Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트...** 
 
 ![Visual Studio의 새 Service Fabric Mesh 프로젝트 대화 상자](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-service-fabric-service.png)
 
-그러면, **새 ASP.NET Core 웹 응용 프로그램** 대화 상자가 표시됩니다. **새 ASP.NET Core 웹 응용 프로그램** 대화 상자에서 **웹 응용 프로그램**을 선택한 다음, **확인**을 클릭합니다.
+그러면, 새 ASP.NET Core 웹 애플리케이션 대화 상자가 표시됩니다. **웹 응용 프로그램**을 선택하고 **확인**을 클릭합니다.
 
-![Visual Studio의 새 ASP.NET Core 응용 프로그램](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
+![Visual Studio의 새 ASP.NET Core 애플리케이션](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
-이제 Service Fabric Mesh 응용 프로그램이 만들어졌습니다. 다음으로, 할 일 정보에 대한 모델을 만들겠습니다.
+이제 Service Fabric Mesh 애플리케이션이 만들어졌습니다. 다음으로, 할 일 정보에 대한 모델을 만들겠습니다.
 
 ## <a name="create-the-to-do-items-model"></a>할 일 항목 모델 만들기
 
-간단히 하기 위해 할 일 항목은 메모리의 목록에 저장됩니다. 할 일 항목에 대한 클래스 라이브러리와 이러한 항목을 보관할 목록을 만듭니다. 현재 **todolistapp**이 로드되어 있는 Visual Studio에서 **파일** > **추가** > **새 프로젝트**를 차례로 선택합니다.
+간단히 하기 위해 할 일 항목은 메모리의 목록에 저장됩니다. 할 일 항목에 대한 클래스 라이브러리와 이러한 항목을 보관할 목록을 만듭니다. 현재 **todolistapp** 솔루션이 로드되어 있는 Visual Studio에서 **파일** > **추가** > **새 프로젝트**를 차례로 선택합니다.
 
-**새 프로젝트** 대화 상자 위쪽의 **검색** 상자에서 `C# .net core class`를 입력합니다. **클래스 라이브러리(.NET Core)** 템플릿을 선택합니다.
+**새 프로젝트 추가** 대화 상자 위쪽의 **검색** 상자에서 `C# .net core class`를 입력합니다. **클래스 라이브러리(.NET Core)** 템플릿을 선택합니다.
 
 **이름** 상자에서 `Model`을 입력합니다. **확인**을 클릭하여 클래스 라이브러리를 만듭니다.
 
@@ -124,7 +124,7 @@ public class ToDoItem
 }
 ```
 
-이 클래스는 개별 할 일 항목을 나타냅니다.
+이 클래스는 할 일 항목을 나타냅니다.
 
 Visual Studio에서 **모델** 클래스 라이브러리를 마우스 오른쪽 단추로 클릭하고, 할 일 항목을 보관할 목록을 만들기 위해 **추가** > **클래스...** 를 차례로 선택합니다. **새 항목 추가** 대화 상자가 표시됩니다. **이름**을 `ToDoList.cs`로 설정하고 **추가**를 클릭합니다.
 
@@ -186,11 +186,11 @@ public class ToDoList
 
 Visual Studio **솔루션 탐색기** 창에서 **todolistapp**을 마우스 오른쪽 단추로 클릭하고, **추가** > **새 Service Fabric 서비스...** 를 차례로 클릭합니다.
 
-**새 Service Fabric 서비스** 대화 상자가 표시됩니다. **ASP.NET Core** 프로젝트 형식을 선택하고, **컨테이너 OS**가 **Windows**로 설정되어 있는지 확인합니다.
+**새 Service Fabric 서비스** 대화 상자가 표시됩니다. **ASP.NET Core** 프로젝트 형식을 선택하고, **컨테이너 OS**가 **Windows**로 설정되어 있는지 확인합니다. **서비스 이름**을 **ToDoService**로 설정합니다. **확인**을 클릭하여 ASP.NET Core 서비스를 만듭니다.
 
-**서비스 이름**을 **ToDoService**로 설정합니다. **확인**을 클릭하여 ASP.NET Core 서비스를 만듭니다. 그러면 **새 ASP.NET Core 웹 응용 프로그램** 대화 상자가 표시됩니다. 이 대화 상자에서 **API**, **확인**을 차례로 선택하면 서비스 프로젝트가 솔루션에 추가됩니다.
+그러면 **새 ASP.NET Core 웹 애플리케이션** 대화 상자가 표시됩니다. 이 대화 상자에서 **API**, **확인**을 차례로 선택하면 서비스 프로젝트가 솔루션에 추가됩니다.
 
-![Visual Studio의 새 ASP.NET Core 응용 프로그램](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-webapi.png)
+![Visual Studio의 새 ASP.NET Core 애플리케이션](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-webapi.png)
 
 백 엔드 서비스는 UI를 제공하지 않으므로 서비스가 시작되면 브라우저 시작을 해제합니다. **솔루션 탐색기**에서 **ToDoService**를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 표시되는 속성 창에서 왼쪽에 있는 **디버그** 탭을 선택하고 **브라우저 시작**의 선택을 취소합니다. **Ctrl+S** 를 눌러 변경 내용을 저장합니다.
 
@@ -203,7 +203,7 @@ Visual Studio **솔루션 탐색기** 창에서 **todolistapp**을 마우스 오
 다음으로, 데이터 모델의 데이터 처리를 조정하는 데이터 컨텍스트를 만듭니다.
 
 데이터 컨텍스트 클래스를 추가하려면 [솔루션 탐색기]에서 **ToDoService**를 마우스 오른쪽 단추로 클릭한 다음, **추가** > **클래스**를 차례로 클릭합니다.
-표시되는 **새 항목 추가** 대화 상자에서 **클래스**가 선택되어 있는지 확인하고, **이름**을 `DataContext`로 설정하고, **추가**를 클릭합니다.
+표시되는 **새 항목 추가** 대화 상자에서 **클래스**가 선택되어 있는지 확인하고, **이름**을 `DataContext.cs`로 설정하고, **추가**를 클릭합니다.
 
 **DataContext.cs**에서 비어 있는 `class DataContext`의 내용을 다음으로 바꿉니다.
 
@@ -313,7 +313,8 @@ public class ToDoController : Controller
 </div>
 ```
 
-**솔루션 탐색기**에서 **Index.cshtml**을 연 다음, **Index.cshtml.cs**를 열어 인덱스 페이지의 코드를 엽니다.
+**솔루션 탐색기**에 있는 **Index.cshtml** 파일의 드롭다운 아이콘을 클릭한 다음, **Index.cshtml.cs**를 엽니다.
+
 **Index.cshtml.cs**의 맨 위쪽에 `using System.Net.Http;`를 추가합니다.
 
 `public class IndexModel`의 내용을 다음으로 바꿉니다.
@@ -352,28 +353,43 @@ private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.G
 
 URL은 서비스 이름과 포트로 구성됩니다. 이 모든 정보는 **ToDoService** 프로젝트의 service.yaml 파일에 있습니다.
 
+> [!IMPORTANT]
+> 다음 단계에서는 YAML 파일을 수정합니다.
+> service.yaml 파일에서 탭이 아닌 공백은 변수 들여쓰기에 사용해야 합니다. 그렇지 않으면 컴파일되지 않습니다. 환경 변수를 만들 때 Visual Studio에서 탭을 삽입할 수 있습니다. 모든 탭을 공백으로 바꾸세요. **빌드** 디버그 출력에 오류가 표시되더라도 앱은 계속 실행되지만 탭을 공백으로 변환하고 다시 빌드할 때까지는 실행되지 않습니다. service.yaml 파일에 탭이 없는지 확인하려면 Visual Studio 편집기에서 **편집**  > **고급**  > **공백 보기**를 차례로 사용하여 공백이 표시되도록 할 수 있습니다.
+> service.yaml 파일은 영어 로캘을 사용하여 처리됩니다. 소수 구분 기호를 사용해야 하는 경우 예를 들어, 쉼표가 아닌 마침표를 사용합니다.
+
 **솔루션 탐색기**에서 **ToDoService** 프로젝트로 이동하고 **서비스 리소스** > **service.yaml**을 차례로 엽니다.
 
 ![그림 1 - ToDoService service.yaml 파일](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-port.png)
 
-* `ToDoService` 서비스 이름은 `services:` 아래의 `name:` 뒤에 있습니다(위 그림 (1) 참조).
-* `20008` 포트는 `endpoints:` 아래의 `port:` 뒤에 있습니다(위 그림 (2) 참조). 프로젝트의 포트 번호가 다를 수 있습니다.
+* `ToDoService` 서비스 이름은 `services:` 아래에 있습니다. 위 그림 (1)을 참조하세요.
+* `80` 포트는 `endpoints:` 아래에 있습니다. 위 그림 (2)를 참조하세요. 프로젝트의 포트 번호가 다를 수 있습니다.
 
-다음으로, 서비스 이름과 포트 번호를 나타내는 환경 변수가 백 엔드 서비스를 호출할 수 있도록 WebFrontEnd 프로젝트에 정의됩니다.
+다음으로, 서비스 이름과 포트 번호를 나타내는 환경 변수가 백 엔드 서비스를 호출할 수 있도록 WebFrontEnd 프로젝트에 정의해야 합니다.
 
 **솔루션 탐색기**에서 **WebFrontEnd** > **서비스 리소스** > **service.yaml**로 차례로 이동하여 백 엔드 서비스 주소를 지정하는 변수를 정의합니다.
 
-service.yaml 파일에서 `environmentVariables` 아래에 다음 변수를 추가합니다. 간격이 중요하므로 추가하는 변수를 `environmentVariables:` 아래의 다른 변수와 맞춥니다.
+service.yaml 파일에서 `environmentVariables:` 아래에 다음 변수를 추가합니다(`environmentVariables:`의 주석을 제거하려면 먼저 `#`을 제거해야 함). 간격이 중요하므로 추가한 변수를 `environmentVariables:` 아래의 다른 변수와 정렬합니다. ApiHostPort 값이 ToDoService의 service.yaml 파일에서 이전에 보았던 ToDoServiceListener의 포트 값과 일치하는 것이 매우 중요합니다.
 
-> [!IMPORTANT]
-> service.yaml 파일에서 탭이 아닌 공백은 변수 들여쓰기에 사용해야 합니다. 그렇지 않으면 컴파일되지 않습니다. 환경 변수를 만들 때 Visual Studio에서 탭을 삽입할 수 있습니다. 모든 탭을 공백으로 바꾸세요. **빌드** 디버그 출력에 오류가 표시되지만 앱은 계속 실행됩니다. 그러나 탭을 공백으로 변환할 때까지는 작동하지 않습니다. service.yaml 파일에 탭이 없는지 확인하려면 Visual Studio 편집기에서 **편집**  > **고급**  > **공백 보기**를 차례로 사용하여 공백이 표시되도록 할 수 있습니다.
-> service.yaml 파일은 영어 로캘을 사용하여 처리됩니다.  예를 들어 소수 구분 기호를 사용해야 하는 경우 쉼표가 아닌 마침표를 사용합니다.
+```yaml
+- name: ApiHostPort
+  value: 
+- name: ToDoServiceName
+  value: ToDoService
+```
+
+> [!Tip]
+> `ToDoServiceName`에 대한 값을 지정하는 방법은 두 가지입니다. 
+> - Azure Service Fabric Mesh에 서비스를 배포할 때뿐만 아니라 Windows 10의 디버깅 시나리오에서 확인할 서비스 이름으로 지정합니다.
+> - servicename.appname으로 정규화하여 지정합니다. 이것은 Windows 10에서 디버깅하는 경우에만 작동합니다.
+> 서비스 확인을 위해 서비스 이름만 사용하는 것이 좋습니다.
 
 `ApiHostPort` 값이 다를 수도 있지만 **WebFrontEnd** 프로젝트의 **service.yaml** 파일은 다음과 같을 수 있습니다.
 
 ![WebFrontEnd 프로젝트의 Service.yaml](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-envvars.png)
 
-이제 백 엔드 웹 서비스와 함께 Service Fabric Mesh 응용 프로그램의 이미지를 로컬 클러스터에 빌드하고 배포할 준비가 되었습니다.
+
+이제 백 엔드 웹 서비스와 함께 Service Fabric Mesh 애플리케이션의 이미지를 로컬 클러스터에 빌드하고 배포할 준비가 되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

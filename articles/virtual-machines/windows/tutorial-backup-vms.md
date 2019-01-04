@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6ae014597a89c75e4426715227bbb19f1e98a438
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7c6f5e199041af7d0ecd829ace2b56f5789f4955
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32189292"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890452"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>자습서: Azure의 Windows 가상 머신을 위한 파일 백업 및 복원
 
@@ -34,7 +34,7 @@ ms.locfileid: "32189292"
 
 ## <a name="backup-overview"></a>Backup 개요
 
-Azure Backup 서비스에서 백업 작업을 시작하면 백업 확장을 트리거하여 특정 시점 스냅숏을 만듭니다. Azure Backup 서비스는 _VMSnapshot_ 확장을 사용합니다. VM을 실행하는 경우 확장은 첫 번째 VM 백업 중에 설치됩니다. VM이 실행되고 있지 않을 경우 Backup 서비스가 기본 저장소의 스냅숏을 생성합니다(VM이 중지되었을 때는 응용 프로그램 쓰기가 수행되지 않음).
+Azure Backup 서비스에서 백업 작업을 시작하면 백업 확장을 트리거하여 특정 시점 스냅숏을 만듭니다. Azure Backup 서비스는 _VMSnapshot_ 확장을 사용합니다. VM을 실행하는 경우 확장은 첫 번째 VM 백업 중에 설치됩니다. VM이 실행되고 있지 않을 경우 Backup 서비스가 기본 스토리지의 스냅숏을 생성합니다(VM이 중지되었을 때는 애플리케이션 쓰기가 수행되지 않음).
 
 Windows VM의 스냅숏을 생성할 때 Backup 서비스는 가상 머신의 디스크에 대한 일관된 스냅숏을 가져오도록 VSS(볼륨 섀도 복사본 서비스)와 조정됩니다. Azure Backup 서비스가 스냅숏을 생성하면 데이터가 자격 증명 모음으로 전송됩니다. 효율성을 극대화하기 위해 이 서비스는 이전 백업 이후에 변경된 데이터 블록만 식별하여 전송합니다.
 
@@ -44,10 +44,10 @@ Windows VM의 스냅숏을 생성할 때 Backup 서비스는 가상 머신의 �
 ## <a name="create-a-backup"></a>백업 만들기
 간단한 예약된 매일 백업을 Recovery Services 자격 증명 모음에 만듭니다. 
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **가상 머신**를 선택합니다. 
 3. 목록에서 백업할 VM을 선택합니다.
-4. VM 블레이드의 **설정** 섹션에서 **Backup**을 클릭합니다. **백업 사용** 블레이드가 열립니다.
+4. VM 블레이드의 **작업** 섹션에서 **백업**을 클릭합니다. **백업 사용** 블레이드가 열립니다.
 5. **Recovery Services 자격 증명 모음**에서 **새로 만들기**를 클릭하고 새 자격 증명 모음의 이름을 제공합니다. 새 자격 증명 모음이 가상 머신과 동일한 리소스 그룹과 위치에 만들어집니다.
 6. **Backup 정책**을 클릭합니다. 이 예제에서는 기본값을 그대로 유지하고 **확인**을 클릭합니다.
 7. **Backup 사용** 블레이드에서 **Backup 사용**을 클릭합니다. 이렇게 하면 기본 일정에 따라 매일 백업이 만들어집니다.

@@ -5,9 +5,8 @@ metakeywords: ''
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: d7ff9e157f776ebf683846652fe4788fc35e19af
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c449e86e1ba33425212313103715b8fe48278496
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311061"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276682"
 ---
 # <a name="using-linear-regression-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 선형 회귀 사용
 > *Kate Baroni*와 *Ben Boatman*은 Microsoft Data Insights Center of Excellence의 엔터프라이즈 솔루션 설계자입니다. 이 문서에서는 이 두 사람이 Azure Machine Learning을 사용하여 기존 선형 분석 모음을 클라우드 기반 솔루션으로 마이그레이션한 경험을 설명합니다. 
@@ -31,7 +30,7 @@ ms.locfileid: "52311061"
 
 &nbsp; 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="goal"></a>목표
 다음 두 가지 목표를 염두에 두고 프로젝트를 시작했습니다. 
@@ -56,7 +55,7 @@ Excel 회귀에서는 Excel 분석 도구에 있는 표준 선형 회귀 모델�
 
 1. 데이터 세트를 csv 파일(매우 작은 파일)로 Machine Learning Studio에 업로드했습니다.
 2. 새 실험을 만들고 [데이터 세트의 열 선택][select-columns] 모듈을 사용하여 Excel에서 사용되는 동일한 데이터 기능을 선택했습니다. 
-3. [데이터 분할][split] 모듈(*상대 식* 모드)을 사용하여 데이터를 Excel에서 수행한 것과 동일한 학습 데이터 집합으로 나누었습니다. 
+3. [데이터 분할][split] 모듈(*상대 식* 모드)을 사용하여 데이터를 Excel에서 수행한 것과 동일한 학습 데이터 세트로 나누었습니다. 
 4. [Linear Regression][linear-regression] 모듈(기본 옵션만)로 실험하고 기록하여 결과를 Excel 회귀 모델과 비교했습니다.
 
 ### <a name="review-initial-results"></a>초기 결과 검토
@@ -73,7 +72,7 @@ Excel 모델의 성능이 Machine Learning Studio 모델보다 분명히 뛰어�
 프로세스를 실행한 결과 Machine Learning 팀의 개발자 및 데이터 과학자는 몇 가지 유용한 팁을 신속하게 제공했습니다. 
 
 * Machine Learning Studio에서 [선형 회귀][linear-regression] 모듈을 사용할 경우 두 가지 방법이 제공됩니다.
-  * 온라인 기울기 하강: 보다 큰 규모의 문제에 적합할 수 있습니다.
+  * 온라인 그라데이션 하강: 보다 큰 규모의 문제에 적합할 수 있습니다.
   * 최소 자승법: 대부분의 사람들이 선형 회귀에 대해 떠올리는 방법입니다. 데이터 세트가 작은 경우 최소 자승법이 보다 적합할 수 있습니다.
 * L2 정규화 가중치 매개 변수를 조정하여 성능을 개선하는 것이 좋습니다. 기본적으로 0.001로 설정되지만 작은 데이터 집합에서는 성능 향상을 위해 0.005로 설정했습니다. 
 
@@ -145,7 +144,7 @@ Machine Learning에서 Excel로 예측 분석을 체계적으로 전송하는 �
 
 * Excel의 회귀 Excel에서 회귀를 시도해보지 않은 경우 다음 자습서를 통해 쉽게 수행해 보세요. [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
 * 회귀와 예측 Tyler Chessman이 Excel에서 시계열 예측을 수행하는 방법을 설명하는 블로그 문서를 작성했습니다. 여기에는 초보자를 위해 선형 회귀가 자세히 설명되어 있습니다. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* 최소 자승법 선형 회귀: 결함, 문제점 및 단점 회귀에 대한 소개 및 설명은 다음을 참조하세요. [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* 최소 자승법 선형 회귀: 결함, 문제 및 위험 요인 회귀에 대한 소개 및 설명은 다음을 참조하세요. [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
 [2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png

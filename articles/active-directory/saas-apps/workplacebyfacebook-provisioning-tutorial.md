@@ -69,7 +69,7 @@ Azure AD는 할당된 사용자의 계정 세부 정보를 Workplace by Facebook
 
 1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** > **엔터프라이즈 앱** > **모든 응용 프로그램** 섹션으로 이동합니다.
 
-2. 이미 Workplace by Facebook에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 Workplace by Facebook의 인스턴스를 검색합니다. 그러지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **Workplace by Facebook**을 검색합니다. 검색 결과에서 Workplace by Facebook을 선택하고 응용 프로그램 목록에 추가합니다.
+2. 이미 Workplace by Facebook에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 Workplace by Facebook의 인스턴스를 검색합니다. 그러지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **Workplace by Facebook**을 검색합니다. 검색 결과에서 Workplace by Facebook을 선택하고 애플리케이션 목록에 추가합니다.
 
 3. Workplace by Facebook의 인스턴스를 선택한 다음 **프로비전** 탭을 선택합니다.
 

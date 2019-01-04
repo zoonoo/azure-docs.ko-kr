@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory에서 엔터프라이즈 앱에 대한 사용자 로그인 비활성화 | Microsoft Docs
-description: Azure Active Directory에서 사용자가 로그인하지 않도록 엔터프라이즈 응용 프로그램을 비활성화하는 방법
+description: Azure Active Directory에서 사용자가 로그인하지 않도록 엔터프라이즈 애플리케이션을 비활성화하는 방법
 services: active-directory
 documentationcenter: ''
 author: barbkess

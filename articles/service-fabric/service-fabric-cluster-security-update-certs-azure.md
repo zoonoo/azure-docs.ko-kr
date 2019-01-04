@@ -259,7 +259,7 @@ Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
 Get-ServiceFabricClusterHealth 
 ```
 
-## <a name="deploying-application-certificates-to-the-cluster"></a>클러스터에 응용 프로그램 인증서를 배포합니다.
+## <a name="deploying-application-certificates-to-the-cluster"></a>클러스터에 애플리케이션 인증서를 배포합니다.
 
 앞의 5단계에서 설명한 것과 같은 단계를 사용하여 Key Vault에서 인증서를 노드에 배포할 수 있습니다. 다른 매개 변수를 정의하여 사용하면 됩니다.
 

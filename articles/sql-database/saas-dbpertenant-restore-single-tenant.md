@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 228f5135165cbf8806516e5e932f210586013402
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 12/04/2018
+ms.openlocfilehash: 4059b0f979e7e6856905f1759129167d62d7b5f5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056746"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274431"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>테넌트별 데이터베이스 SaaS 응용 프로그램에서 단일 테넌트 복원
 
@@ -26,10 +26,8 @@ ms.locfileid: "47056746"
 이 자습서에서는 다음 두 가지 데이터 복구 패턴에 대해 알아봅니다.
 
 > [!div class="checklist"]
-
 > * 병렬 데이터베이스에 데이터베이스 복원(병렬)
 > * 원래 위치에 데이터베이스를 복원하여 기존 데이터베이스 대체
-
 
 |||
 |:--|:--|
@@ -44,13 +42,13 @@ ms.locfileid: "47056746"
 
 ## <a name="introduction-to-the-saas-tenant-restore-patterns"></a>SaaS 테넌트 복원 패턴 소개
 
-개별 테넌트의 데이터를 복구하는 패턴에는 두 가지가 있습니다. 테넌트 데이터베이스가 서로 격리되어 있기 때문에 하나의 테넌트를 복원해도 다른 테넌트의 데이터에는 영향을 주지 않습니다. 두 가지 패턴에서 모두 Azure SQL Database PITR(특정 시점 복원) 기능이 사용됩니다. PITR은 항상 새 데이터베이스를 만듭니다.   
+개별 테넌트의 데이터를 복구하는 패턴에는 두 가지가 있습니다. 테넌트 데이터베이스가 서로 격리되어 있기 때문에 하나의 테넌트를 복원해도 다른 테넌트의 데이터에는 영향을 주지 않습니다. 두 가지 패턴에서 모두 Azure SQL Database PITR(특정 시점 복원) 기능이 사용됩니다. PITR은 항상 새 데이터베이스를 만듭니다.
 
-* **병렬 데이터베이스로 복원**: 첫 번째 패턴에서는 테넌트의 현재 데이터베이스 옆에 새 병렬 데이터베이스가 생성됩니다. 테넌트는 복원된 데이터베이스에 대해 읽기 전용 액세스 권한을 갖습니다. 복원된 데이터를 사용하여 현재 데이터 값을 검토하고 덮어쓸 수 있습니다. 테넌트가 복원된 데이터베이스에 액세스하는 방식과 복구에 사용할 옵션은 앱 디자이너가 결정합니다. 경우에 따라 테넌트에 이전 시점의 데이터를 검토하는 권한만 허용해도 충분할 수 있습니다. 
+* **병렬 데이터베이스로 복원**: 첫 번째 패턴에서는 테넌트의 현재 데이터베이스 옆에 새 병렬 데이터베이스가 생성됩니다. 테넌트는 복원된 데이터베이스에 대해 읽기 전용 액세스 권한을 갖습니다. 복원된 데이터를 사용하여 현재 데이터 값을 검토하고 덮어쓸 수 있습니다. 테넌트가 복원된 데이터베이스에 액세스하는 방식과 복구에 사용할 옵션은 앱 디자이너가 결정합니다. 경우에 따라 테넌트에 이전 시점의 데이터를 검토하는 권한만 허용해도 충분할 수 있습니다.
 
 * **원래 위치에 복원**: 두 번째 패턴은 데이터가 유실되었거나 손상되어 테넌트를 이전 시점으로 되돌리려는 경우에 유용합니다. 데이터베이스가 복원되는 동안 테넌트는 오프라인 상태가 됩니다. 원래 데이터베이스가 삭제되고 복원된 데이터베이스의 이름이 바뀝니다. 원래 데이터베이스가 삭제된 후에도 해당 백업 체인에는 계속 액세스할 수 있으므로 필요한 경우, 데이터베이스를 이전의 특정 시점으로 복원할 수 있습니다.
 
-데이터베이스가 [지역에서 복제](sql-database-geo-replication-overview.md)와 병렬 데이터베이스로 복원을 사용하는 경우 필요한 데이터를 복원된 사본에서 원래 데이터베이스로 복사하는 것이 좋습니다. 원본 데이터베이스를 복원된 데이터베이스로 바꾸는 경우 활성 지역 복제를 다시 구성하고 다시 동기화해야 합니다.
+데이터베이스가 [활성 지역 복제](sql-database-active-geo-replication.md)와 병렬 데이터베이스로 복원을 사용하는 경우 필요한 데이터를 복원된 사본에서 원래 데이터베이스로 복사하는 것이 좋습니다. 원본 데이터베이스를 복원된 데이터베이스로 바꾸는 경우 활성 지역 복제를 다시 구성하고 다시 동기화해야 합니다.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS 테넌트별 데이터베이스 응용 프로그램 스크립트 가져오기
 
@@ -74,7 +72,6 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용
 
    ![마지막 이벤트가 표시됨](media/saas-dbpertenant-restore-single-tenant/last-event.png)
 
-
 ### <a name="accidentally-delete-the-last-event"></a>마지막 이벤트를 “실수로” 삭제하기
 
 1. PowerShell ISE에서 ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\*Demo-RestoreTenant.ps1*을 열고 다음 값을 설정합니다.
@@ -88,15 +85,13 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용
    ```
 
 3. Contoso 이벤트 페이지가 열립니다. 아래로 스크롤하여 해당 이벤트가 삭제되었는지 확인합니다. 해당 이벤트가 여전히 목록에 있으면 **새로 고침**을 선택하고 삭제되었는지 확인합니다.
-
    ![마지막 이벤트 제거됨](media/saas-dbpertenant-restore-single-tenant/last-event-deleted.png)
-
 
 ## <a name="restore-a-tenant-database-in-parallel-with-the-production-database"></a>프로덕션 데이터베이스와 병렬로 테넌트 데이터베이스 복원
 
 이 연습에서는 이벤트를 삭제하기 전 특정 시점의 Contoso Concert Hall 데이터베이스를 복원합니다. 이 시나리오에서는 병렬 데이터베이스에서 삭제된 데이터를 검토하려는 경우를 가정합니다.
 
- *Restore-TenantInParallel.ps1* 스크립트가 *ContosoConcertHall\_old*라는 이름의 병렬 테넌트 데이터베이스와 병렬 카탈로그 항목을 생성합니다. 이 복원 패턴은 사소한 데이터 손실로부터 복구하는 데 가장 적합합니다. 준수 또는 감사 목적으로 데이터를 검토해야 하는 경우에도 이 패턴을 사용할 수 있습니다. [지역에서 복제](sql-database-geo-replication-overview.md)를 사용할 때 권장되는 방법입니다.
+ *Restore-TenantInParallel.ps1* 스크립트가 *ContosoConcertHall\_old*라는 이름의 병렬 테넌트 데이터베이스와 병렬 카탈로그 항목을 생성합니다. 이 복원 패턴은 사소한 데이터 손실로부터 복구하는 데 가장 적합합니다. 준수 또는 감사 목적으로 데이터를 검토해야 하는 경우에도 이 패턴을 사용할 수 있습니다. [활성 지역 복제](sql-database-active-geo-replication.md)를 사용할 때 권장되는 방법입니다.
 
 1. [실수로 데이터를 삭제하는 테넌트 시뮬레이션](#simulate-a-tenant-accidentally-deleting-data) 섹션의 단계를 수행합니다.
 2. PowerShell ISE에서 ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\_Demo-RestoreTenant.ps1_을 엽니다.
@@ -115,7 +110,6 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용
 2. 스크립트를 실행하려면 F5 키를 누릅니다.
 3. 이제 카탈로그에서 *ContosoConcertHall\_old* 항목이 삭제됩니다. 브라우저에서 이 테넌트의 이벤트 페이지를 닫습니다.
 
-
 ## <a name="restore-a-tenant-in-place-replacing-the-existing-tenant-database"></a>원래 위치에 테넌트 복원 및 기존 테넌트 데이터베이스 대체
 
 이 예제에서는 Contoso Concert Hall 테넌트를 이벤트를 삭제하기 전 시점으로 복원합니다. *Restore-TenantInPlace* 스크립트가 테넌트 데이터베이스를 새 데이터베이스로 복원하고 기존 데이터베이스를 삭제합니다. 이 복원 패턴은 심각한 데이터 손상을 복구하는 데 적합하며, 테넌트에서 상당한 데이터 손실이 있을 수 있습니다.
@@ -128,14 +122,13 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용
 
 이벤트를 삭제하기 전 특정 시점의 데이터베이스를 성공적으로 복원했습니다. **Events** 페이지가 열리면 마지막 이벤트가 복원되었는지 확인합니다.
 
-데이터베이스를 복원하면 다시 복원할 수 있는 첫 번째 전체 백업이 수행될 때까지 10~15분 정도가 추가로 걸립니다. 
+데이터베이스를 복원하면 다시 복원할 수 있는 첫 번째 전체 백업이 수행될 때까지 10~15분 정도가 추가로 걸립니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-
 > * 병렬 데이터베이스에 데이터베이스 복원(병렬)
 > * 원래 위치에 데이터베이스 복원
 

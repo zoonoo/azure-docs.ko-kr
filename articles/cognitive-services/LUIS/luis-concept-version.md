@@ -35,7 +35,7 @@ ms.locfileid: "53015571"
 [ ![활성 버전 변경](./media/luis-concept-version/version-in-nav-bar-inline.png) ](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
 
 ## <a name="versions-and-publishing-slots"></a>버전 및 게시 슬롯
-스테이지 및 제품 슬롯에 게시합니다. 각 슬롯에는 다른 버전 또는 동일한 버전이 있을 수 있습니다. 이는 엔드포인트를 통해 모델 버전 간의 변경 내용을 확인하는 데 유용하며, 봇 또는 기타 LUIS 호출 응용 프로그램에 사용할 수 있습니다. 
+스테이지 및 제품 슬롯에 게시합니다. 각 슬롯에는 다른 버전 또는 동일한 버전이 있을 수 있습니다. 이는 엔드포인트를 통해 모델 버전 간의 변경 내용을 확인하는 데 유용하며, 봇 또는 기타 LUIS 호출 애플리케이션에 사용할 수 있습니다. 
 
 ## <a name="clone-a-version"></a>버전 복제
 버전을 복제하여 기존 버전의 복사본을 만들고 새 버전으로 저장합니다. 버전을 복제하여 기존 버전의 동일한 콘텐츠를 새 버전의 시작점으로 사용합니다. 버전을 복제하면 새 버전이 **활성** 버전이 됩니다. 

@@ -1,5 +1,5 @@
 ---
-title: Linux의 App Service 소개 | Microsoft Docs
+title: Linux의 App Service 소개 - Azure | Microsoft Docs
 description: Linux의 Azure App Service에 대해 알아봅니다.
 keywords: azure app service, linux, oss
 services: app-service
@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: wesmc
-ms.custom: mvc
-ms.openlocfilehash: 3910e13900ec1774e5a1fe449b4f510a661f1f53
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: ac8d5ddb843227e5c5d8e7508c3ea46946f4850e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165325"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257882"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux의 Azure App Service 소개
 
-[Web App](../app-service-web-overview.md)은 웹 사이트와 웹 응용 프로그램 호스팅을 위해 최적화된 완전히 관리되는 계산 플랫폼입니다. 고객은 지원되는 응용 프로그램 스택에 대해 Linux의 App Service를 사용하여 Linux에서 웹앱을 호스트할 수 있습니다. 다음 섹션에는 현재 지원되는 응용 프로그램 스택이 나와 있습니다.
+[Web App](../app-service-web-overview.md)은 웹 사이트와 웹 응용 프로그램 호스팅을 위해 최적화된 완전히 관리되는 계산 플랫폼입니다. 고객은 지원되는 애플리케이션 스택에 대해 Linux의 App Service를 사용하여 Linux에서 웹앱을 호스트할 수 있습니다. 다음 섹션에는 현재 지원되는 애플리케이션 스택이 나와 있습니다.
 
 ## <a name="languages"></a>언어
 
-Linux의 App Service는 개발자의 생산성을 향상시키기 위해 수많은 기본 제공 이미지를 지원합니다. 응용 프로그램에 필요한 런타임이 기본 제공 이미지에 지원되지 않는 경우 [자체 Docker 이미지를 빌드](tutorial-custom-docker-image.md)하여 Web App for Containers에 배포하는 방법에 대한 지침이 있습니다.
+Linux의 App Service는 개발자의 생산성을 향상시키기 위해 수많은 기본 제공 이미지를 지원합니다. 애플리케이션에 필요한 런타임이 기본 제공 이미지에 지원되지 않는 경우 [자체 Docker 이미지를 빌드](tutorial-custom-docker-image.md)하여 Web App for Containers에 배포하는 방법에 대한 지침이 있습니다.
 
 | 언어 | 지원되는 버전 |
 |---|---|
@@ -79,7 +79,7 @@ Linux의 App Service는 [기본, 표준 및 프리미엄](https://azure.microsof
 
 ## <a name="troubleshooting"></a>문제 해결
 
-응용 프로그램이 시작되지 못하거나 앱에서 로깅을 확인하려는 경우 LogFiles 디렉터리에서 Docker 로그를 확인합니다. SCM 사이트 또는 FTP를 통해 이 디렉터리에 액세스할 수 있습니다.
+애플리케이션이 시작되지 못하거나 앱에서 로깅을 확인하려는 경우 LogFiles 디렉터리에서 Docker 로그를 확인합니다. SCM 사이트 또는 FTP를 통해 이 디렉터리에 액세스할 수 있습니다.
 컨테이너에서 `stdout` 및 `stderr`을 로그하려면 **진단 로그** 아래에서 **Docker 컨테이너 로깅**을 활성화해야 합니다.
 
 ![로깅 사용][2]

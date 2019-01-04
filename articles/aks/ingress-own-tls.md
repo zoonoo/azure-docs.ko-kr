@@ -18,7 +18,7 @@ ms.locfileid: "50129164"
 
 수신 컨트롤러는 역방향 프록시, 구성 가능한 트래픽 라우팅, Kubernetes 서비스에 대한 TLS 종료를 제공하는 소프트웨어입니다. Kubernetes 수신 리소스는 개별 Kubernetes 서비스에 대한 수신 규칙 및 라우팅을 구성하는 데 사용됩니다. 수신 컨트롤러 및 수신 규칙을 사용하면 단일 IP 주소를 사용하여 Kubernetes 클러스터의 여러 서비스에 트래픽을 라우팅할 수 있습니다.
 
-이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에 [NGINX 수신 컨트롤러][nginx-ingress]를 배포하는 방법을 보여 줍니다. 사용자 고유의 인증서를 생성하고 수신 경로에 사용하기 위해 Kubernetes 비밀을 만듭니다. 마지막으로, 두 응용 프로그램이 AKS 클러스터에서 실행되며 단일 IP 주소를 통해 각 응용 프로그램에 액세스할 수 있습니다.
+이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에 [NGINX 수신 컨트롤러][nginx-ingress]를 배포하는 방법을 보여 줍니다. 사용자 고유의 인증서를 생성하고 수신 경로에 사용하기 위해 Kubernetes 비밀을 만듭니다. 마지막으로, 두 애플리케이션이 AKS 클러스터에서 실행되며 단일 IP 주소를 통해 각 애플리케이션에 액세스할 수 있습니다.
 
 또한 다음을 수행할 수 있습니다.
 
@@ -87,9 +87,9 @@ kubectl create secret tls aks-ingress-tls \
     --cert aks-ingress-tls.crt
 ```
 
-## <a name="run-demo-applications"></a>데모 응용 프로그램 실행
+## <a name="run-demo-applications"></a>데모 애플리케이션 실행
 
-인증서를 사용하여 수신 컨트롤러 및 비밀을 구성했습니다. 이제 AKS 클러스터에서 두 개의 데모 응용 프로그램을 실행하겠습니다. 이 예제에서는 Helm을 사용하여 간단한 ‘Hello world’ 응용 프로그램의 두 인스턴스를 배포합니다.
+인증서를 사용하여 수신 컨트롤러 및 비밀을 구성했습니다. 이제 AKS 클러스터에서 두 개의 데모 애플리케이션을 실행하겠습니다. 이 예제에서는 Helm을 사용하여 간단한 ‘Hello world’ 애플리케이션의 두 인스턴스를 배포합니다.
 
 샘플 Helm 차트를 설치하려면, 먼저 다음과 같이 Azure 샘플 리포지토리를 Helm 환경에 추가합니다.
 
@@ -97,13 +97,13 @@ kubectl create secret tls aks-ingress-tls \
 helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 ```
 
-다음 명령을 사용하여 Helm 차트에서 첫 번째 데모 응용 프로그램을 만듭니다.
+다음 명령을 사용하여 Helm 차트에서 첫 번째 데모 애플리케이션을 만듭니다.
 
 ```console
 helm install azure-samples/aks-helloworld
 ```
 
-이제 데모 응용 프로그램의 두 번째 인스턴스를 설치합니다. 두 번째 인스턴스에서, 두 응용 프로그램을 시각적으로 구분할 수 있도록 새 제목을 지정합니다. 고유한 서비스 이름도 지정합니다.
+이제 데모 애플리케이션의 두 번째 인스턴스를 설치합니다. 두 번째 인스턴스에서, 두 애플리케이션을 시각적으로 구분할 수 있도록 새 제목을 지정합니다. 고유한 서비스 이름도 지정합니다.
 
 ```console
 helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set serviceName="ingress-demo"
@@ -111,7 +111,7 @@ helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set s
 
 ## <a name="create-an-ingress-route"></a>수신 경로 만들기
 
-이제 두 응용 프로그램이 모두 Kubernetes 클러스터에서 실행되고 있지만, `ClusterIP` 유형의 서비스로 구성되었습니다. 따라서 인터넷에서 응용 프로그램에 액세스할 수 없습니다. 응용 프로그램을 공개적으로 사용할 수 있도록 Kubernetes 수신 리소스를 만듭니다. 수신 리소스는 두 응용 프로그램 중 하나로 트래픽을 라우팅하는 규칙을 구성합니다.
+이제 두 애플리케이션이 모두 Kubernetes 클러스터에서 실행되고 있지만, `ClusterIP` 유형의 서비스로 구성되었습니다. 따라서 인터넷에서 애플리케이션에 액세스할 수 없습니다. 응용 프로그램을 공개적으로 사용할 수 있도록 Kubernetes 수신 리소스를 만듭니다. 수신 리소스는 두 애플리케이션 중 하나로 트래픽을 라우팅하는 규칙을 구성합니다.
 
 다음 예제에서 주소 `https://demo.azure.com/`으로 향하는 트래픽은 `aks-helloworld`라는 서비스로 라우트됩니다. 주소 `https://demo.azure.com/hello-world-two`로 향하는 트래픽은 `ingress-demo` 서비스로 라우팅됩니다. 이 문서에서는 해당 데모 호스트 이름을 바꿀 필요가 없습니다. 프로덕션 사용의 경우 지정된 이름을 인증서 요청 및 생성 프로세스의 일부로 제공합니다.
 
@@ -165,7 +165,7 @@ ingress.extensions/hello-world-ingress created
 curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
 ```
 
-주소와 함께 추가 경로가 제공되지 않았으므로 수신 컨트롤러는 기본값인 */* 경로로 설정됩니다. 첫 번째 데모 응용 프로그램은 다음 축소된 예제 출력에 표시된 대로 반환됩니다.
+주소와 함께 추가 경로가 제공되지 않았으므로 수신 컨트롤러는 기본값인 */* 경로로 설정됩니다. 첫 번째 데모 애플리케이션은 다음 축소된 예제 출력에 표시된 대로 반환됩니다.
 
 ```
 $ curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
@@ -192,7 +192,7 @@ $ curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
 [...]
 ```
 
-이제 *https://demo.azure.com/hello-world-two*와 같은 주소에 */hello-world-two* 경로를 추가합니다. 사용자 지정 제목이 있는 두 번째 데모 응용 프로그램은 다음 축소된 예제 출력에 표시된 대로 반환됩니다.
+이제 *https://demo.azure.com/hello-world-two*와 같은 주소에 */hello-world-two* 경로를 추가합니다. 사용자 지정 제목이 있는 두 번째 데모 애플리케이션은 다음 축소된 예제 출력에 표시된 대로 반환됩니다.
 
 ```
 $ curl -v -k --resolve demo.azure.com:443:137.117.36.18 https://demo.azure.com/hello-world-two

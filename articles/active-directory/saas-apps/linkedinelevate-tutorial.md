@@ -31,7 +31,7 @@ LinkedIn Elevate를 Azure AD와 통합하면 다음과 같은 이점이 제공�
 - 사용자의 Azure AD 계정으로 LinkedIn Elevate에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure 관리 포털에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -64,7 +64,7 @@ LinkedIn Elevate가 Azure AD로 통합되도록 구성하려면 LinkedIn Elevate
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![애플리케이션][2]
 
@@ -198,7 +198,7 @@ LinkedIn Elevate에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 ### <a name="creating-a-linkedin-elevate-test-user"></a>LinkedIn Elevate 테스트 사용자 만들기
 
-LinkedIn Elevate 응용 프로그램은 이 JIT(Just-in-time) 사용자 프로비저닝을 지원하며, 인증 후에 응용 프로그램에서 사용자가 자동으로 만들어집니다. LinkedIn Elevate 포털의 관리 설정 페이지에서 **자동으로 라이선스 할당** 스위치를 전환하여 JIT 프로비전을 활성화합니다. 이렇게 하면 라이선스도 사용자에게 할당됩니다. 또한 LinkedIn Elevate는 자동 사용자 프로비저닝을 지원합니다. 자동 사용자 프로비저닝을 구성하는 방법에 대한 자세한 내용은 [여기서](linkedinelevate-provisioning-tutorial.md) 확인할 수 있습니다.
+LinkedIn Elevate 애플리케이션은 이 JIT(Just-in-time) 사용자 프로비저닝을 지원하며, 인증 후에 애플리케이션에서 사용자가 자동으로 만들어집니다. LinkedIn Elevate 포털의 관리 설정 페이지에서 **자동으로 라이선스 할당** 스위치를 전환하여 JIT 프로비전을 활성화합니다. 이렇게 하면 라이선스도 사용자에게 할당됩니다. 또한 LinkedIn Elevate는 자동 사용자 프로비저닝을 지원합니다. 자동 사용자 프로비저닝을 구성하는 방법에 대한 자세한 내용은 [여기서](linkedinelevate-provisioning-tutorial.md) 확인할 수 있습니다.
 
    ![Azure AD 테스트 사용자 만들기](./media/linkedinelevate-tutorial/LinkedinUserprovswitch.png)
 
@@ -210,7 +210,7 @@ LinkedIn Elevate 응용 프로그램은 이 JIT(Just-in-time) 사용자 프로�
 
 **Britta Simon을 LinkedIn Elevate에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 관리 포털에서 응용 프로그램 보기를 열고 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure 관리 포털에서 애플리케이션 보기를 열고 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201]
 

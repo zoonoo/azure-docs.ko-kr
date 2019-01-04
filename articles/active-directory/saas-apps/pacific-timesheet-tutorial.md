@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 051e39d0e7a58c79eb00bc3dfb73eaf5389617c8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8b821da194ce41fc419e769336eeeb5927306684
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448366"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843651"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pacific-timesheet"></a>자습서: Pacific Timesheet와 Azure Active Directory 통합
 
@@ -49,7 +49,7 @@ Pacific Timesheet와 Azure AD 통합을 구성하려면 다음 항목이 필요�
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Pacific Timesheet 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -63,13 +63,13 @@ Pacific Timesheet의 Azure AD 통합을 구성하려면 갤러리의 Pacific Tim
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
 1. 검색 상자에 입력 **Pacific Timesheet**를 입력합니다.
 
@@ -114,10 +114,10 @@ Pacific Timesheet에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     a. **식별자** 텍스트 상자에서 `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do` 패턴을 사용하여 URL을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
 
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Pacific Timesheet 지원 팀](http://www.pacifictimesheet.com/support)에 문의하세요.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Pacific Timesheet 지원 팀](https://www.pacifictimesheet.com/support)에 문의하세요.
  
 1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -131,10 +131,10 @@ Pacific Timesheet에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![Configure Single Sign-On](./media/pacific-timesheet-tutorial/tutorial_pacifictimesheet_configure.png) 
 
-1. **Pacific Timesheet** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)**, **SAML Single Sign-On 서비스 URL** 및 **SAML 엔터티 ID**를 [Pacific Timesheet 지원 팀](http://www.pacifictimesheet.com/support)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+1. **Pacific Timesheet** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)**, **SAML Single Sign-On 서비스 URL** 및 **SAML 엔터티 ID**를 [Pacific Timesheet 지원 팀](https://www.pacifictimesheet.com/support)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -162,7 +162,7 @@ Pacific Timesheet에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -170,7 +170,7 @@ Pacific Timesheet에서 Azure AD Single Sign-On을 구성하고 테스트하려�
  
 ### <a name="creating-a-pacific-timesheet-test-user"></a>Pacific Timesheet 테스트 사용자 만들기
 
-이 섹션에서는 Pacific Timesheet에서 Britta Simon이라는 사용자를 만듭니다. 응용 프로그램에서 사용자를 만들려면 [Pacific Timesheet 지원 팀](http://www.pacifictimesheet.com/support)에 문의하세요.
+이 섹션에서는 Pacific Timesheet에서 Britta Simon이라는 사용자를 만듭니다. 응용 프로그램에서 사용자를 만들려면 [Pacific Timesheet 지원 팀](https://www.pacifictimesheet.com/support)에 문의하세요.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -180,11 +180,11 @@ Pacific Timesheet에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 **Britta Simon을 Pacific Timesheet에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Pacific Timesheet**를 선택합니다.
+1. 애플리케이션 목록에서 **Pacific Timesheet**를 선택합니다.
 
     ![Configure Single Sign-On](./media/pacific-timesheet-tutorial/tutorial_pacifictimesheet_app.png) 
 

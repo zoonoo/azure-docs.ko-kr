@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e4489fd9119bce0e38e14f536f41940b74205e95
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8ec180b40e52c5702495a0124bf8ae33d2dc24a1
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425006"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727786"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>자습서: Azure Deployment Manager에서 Resource Manager 템플릿 사용(비공개 미리 보기)
 
@@ -71,7 +71,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ![Azure Deployment Manager 자습서 시나리오 다이어그램](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-scenario-diagram.png)
 
-미국 서부 및 동부 지역에 할당된 두 가지 서비스가 있습니다.  각 서비스에는 웹 응용 프로그램 프런트 엔드와 저장소 계정 백 엔드의 두 가지 서비스 단위가 있습니다. 서비스 단위 정의에는 웹 응용 프로그램 및 저장소 계정을 만들기 위한 템플릿 및 매개 변수 파일에 대한 링크가 포함됩니다.
+미국 서부 및 동부 지역에 할당된 두 가지 서비스가 있습니다.  각 서비스에는 웹 애플리케이션 프런트 엔드와 저장소 계정 백 엔드의 두 가지 서비스 단위가 있습니다. 서비스 단위 정의에는 웹 애플리케이션 및 저장소 계정을 만들기 위한 템플릿 및 매개 변수 파일에 대한 링크가 포함됩니다.
 
 ## <a name="download-the-tutorial-files"></a>자습서 파일 다운로드
 
@@ -95,20 +95,20 @@ ArtifactStore 다운로드 폴더에는 다음 두 개의 폴더가 있습니다
 
 ![Azure Deployment Manager 자습서 아티팩트 소스 다이어그램](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-artifact-source-diagram.png)
 
-- **templates** 폴더: 템플릿 아티팩트가 포함되어 있습니다. **1.0.0.0** 및 **1.0.0.1**은 이진 아티팩트의 두 버전을 나타냅니다. 각 버전 내에는 각 서비스(Service East U.S. 및 Service West U.S.)에 대한 폴더가 있습니다. 각 서비스에는 저장소 계정을 만들기 위한 템플릿과 매개 변수 파일의 쌍과 웹 응용 프로그램을 만들기 위한 또 다른 쌍이 있습니다. 웹 응용 프로그램 템플릿은 웹 응용 프로그램 파일이 포함된 압축 패키지를 호출합니다. 압축된 파일은 binaries 폴더에 저장된 이진 아티팩트입니다.
-- **binaries** 폴더: 이진 아티팩트가 포함되어 있습니다. **1.0.0.0** 및 **1.0.0.1**은 이진 아티팩트의 두 버전을 나타냅니다. 각 버전에는 미국 서부 지역과 동부 지역에 웹 응용 프로그램을 만들기 위한 하나의 Zip 파일이 각각 있습니다.
+- **templates** 폴더: 템플릿 아티팩트가 포함되어 있습니다. **1.0.0.0** 및 **1.0.0.1**은 이진 아티팩트의 두 버전을 나타냅니다. 각 버전 내에는 각 서비스(Service East U.S. 및 Service West U.S.)에 대한 폴더가 있습니다. 각 서비스에는 저장소 계정을 만들기 위한 템플릿과 매개 변수 파일의 쌍과 웹 애플리케이션을 만들기 위한 또 다른 쌍이 있습니다. 웹 애플리케이션 템플릿은 웹 애플리케이션 파일이 포함된 압축 패키지를 호출합니다. 압축된 파일은 binaries 폴더에 저장된 이진 아티팩트입니다.
+- **binaries** 폴더: 이진 아티팩트가 포함되어 있습니다. **1.0.0.0** 및 **1.0.0.1**은 이진 아티팩트의 두 버전을 나타냅니다. 각 버전에는 미국 서부 지역과 동부 지역에 웹 애플리케이션을 만들기 위한 하나의 Zip 파일이 각각 있습니다.
 
 두 버전(1.0.0.0 및 1.0.0.1)은 [수정 버전 배포](#deploy-the-revision)에 해당하는 것입니다. 템플릿 아티팩트와 이진 아티팩트에 모두 두 버전이 있지만, 두 버전 간에는 이진 아티팩트만 다릅니다. 실제로 이진 아티팩트는 템플릿 아티팩트에 비해 더 자주 업데이트됩니다.
 
 1. 텍스트 편집기에서 **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json**을 엽니다. 저장소 계정을 만들기 위한 기본 템플릿입니다.  
 2. **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json**을 엽니다. 
 
-    ![Azure Deployment Manager 자습서에서는 웹 응용 프로그램 템플릿을 만듭니다.](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-packageuri.png)
+    ![Azure Deployment Manager 자습서에서는 웹 애플리케이션 템플릿을 만듭니다.](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-packageuri.png)
 
-    템플릿에서 웹 응용 프로그램의 파일이 포함된 배포 패키지를 호출합니다. 이 자습서에서 압축된 패키지에는 index.html 파일만 포함되어 있습니다.
+    템플릿에서 웹 애플리케이션의 파일이 포함된 배포 패키지를 호출합니다. 이 자습서에서 압축된 패키지에는 index.html 파일만 포함되어 있습니다.
 3. **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**을 엽니다. 
 
-    ![Azure Deployment Manager 자습서에서는 웹 응용 프로그램 템플릿 매개 변수인 containerRoot를 만듭니다.](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-parameters-deploypackageuri.png)
+    ![Azure Deployment Manager 자습서에서는 웹 애플리케이션 템플릿 매개 변수인 containerRoot를 만듭니다.](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-parameters-deploypackageuri.png)
 
     deployPackageUri의 값은 배포 패키지의 경로입니다. 매개 변수에는 **$containerRoot** 변수가 포함되어 있습니다. $containerRoot의 값은 아티팩트 소스 SAS 위치, 아티팩트 루트 및 deployPackageUri를 연결하여 [롤아웃 템플릿](#create-the-rollout-template)에 제공됩니다.
 4. **\ArtifactStore\binaries\1.0.0.0\helloWorldWebAppWUS.zip\index.html**을 엽니다.  
@@ -142,7 +142,7 @@ ArtifactStore 다운로드 폴더에는 다음 두 개의 폴더가 있습니다
 
 ## <a name="create-the-user-assigned-managed-identity"></a>사용자가 할당한 관리 ID 만들기
 
-이 자습서의 뒷부분에서 롤아웃을 배포합니다. 사용자가 할당한 관리 ID는 배포 작업(예: 웹 응용 프로그램 및 저장소 계정 배포)을 수행하는 데 필요합니다. 이 ID에는 서비스를 배포할 Azure 구독에 대한 액세스 권한이 부여되어야 하며 아티팩트 배포를 수행할 수 있는 충분한 권한이 있어야 합니다.
+이 자습서의 뒷부분에서 롤아웃을 배포합니다. 사용자가 할당한 관리 ID는 배포 작업(예: 웹 애플리케이션 및 저장소 계정 배포)을 수행하는 데 필요합니다. 이 ID에는 서비스를 배포할 Azure 구독에 대한 액세스 권한이 부여되어야 하며 아티팩트 배포를 수행할 수 있는 충분한 권한이 있어야 합니다.
 
 사용자가 할당한 관리 ID를 만들고 구독에 대한 액세스 제어를 구성해야 합니다.
 
@@ -152,7 +152,7 @@ ArtifactStore 다운로드 폴더에는 다음 두 개의 폴더가 있습니다
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. [사용자가 할당한 관리 ID](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)를 만듭니다.
 3. 포털의 왼쪽 메뉴에서 **구독**을 선택한 다음, 구독을 선택합니다.
-4. **액세스 제어(IAM)** 를 선택한 다음, **추가**를 선택합니다.
+4. **액세스 제어(IAM)**, **역할 할당 추가**를 차례로 선택합니다.
 5. 다음 값을 입력하거나 선택합니다.
 
     ![Azure Deployment Manager 자습서 - 사용자가 할당한 관리 ID 액세스 제어](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-access-control.png)
@@ -361,12 +361,12 @@ Azure PowerShell을 사용하여 템플릿을 배포할 수 있습니다.
 ## <a name="verify-the-deployment"></a>배포 확인
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
-2. 롤아웃 배포에서 만든 새 리소스 그룹 아래에 새로 만들어진 웹 응용 프로그램으로 이동합니다.
-3. 웹 브라우저에서 웹 응용 프로그램을 엽니다. index.html 파일에서 위치와 버전을 확인합니다.
+2. 롤아웃 배포에서 만든 새 리소스 그룹 아래에 새로 만들어진 웹 애플리케이션으로 이동합니다.
+3. 웹 브라우저에서 웹 애플리케이션을 엽니다. index.html 파일에서 위치와 버전을 확인합니다.
 
 ## <a name="deploy-the-revision"></a>수정 버전 배포
 
-웹 응용 프로그램에 대한 새 버전(1.0.0.1)이 있는 경우입니다. 다음 절차를 사용하여 웹 응용 프로그램을 다시 배포할 수 있습니다.
+웹 애플리케이션에 대한 새 버전(1.0.0.1)이 있는 경우입니다. 다음 절차를 사용하여 웹 애플리케이션을 다시 배포할 수 있습니다.
 
 1. CreateADMRollout.Parameters.json을 엽니다.
 2. **binaryArtifactRoot**를 **binaries/1.0.0.1**로 업데이트합니다.

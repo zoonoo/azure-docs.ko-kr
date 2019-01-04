@@ -11,19 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: deadbc8186d80b050fdb40879ecf29fd229c8709
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 12/05/2018
+ms.openlocfilehash: 16737ed525147968c97ca20a9f4e674a0dee34fc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465452"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955057"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>읽기 전용 복제본을 사용하여 읽기 전용 쿼리 작업의 부하 분산(미리 보기)
 
 **읽기 확장**을 사용하면 읽기 전용 복제본 하나의 용량을 사용하여 Azure SQL Database 읽기 전용 작업의 부하를 분산할 수 있습니다.
-
-## <a name="overview-of-read-scale-out"></a>읽기 확장 개요
 
 프리미엄 계층([DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)) 또는 중요 비즈니스용 계층([vCore 기반 구매 모델](sql-database-service-tiers-vcore.md))의 각 데이터베이스는 가용성 SLA를 지원하기 위해 여러 개의 AlwaysON 복제본에 자동으로 프로비전됩니다.
 
@@ -33,7 +31,7 @@ ms.locfileid: "49465452"
 
 특정 데이터베이스에서 읽기 확장 기능을 사용하려면, 데이터베이스를 만들 때 또는 나중에 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) 또는 [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet을 호출하는 PowerShell을 사용하거나 [데이터베이스 - 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) 방법을 사용하는 Azure Resource Manager REST API를 통해 해당 구성을 변경하여 명시적으로 사용하도록 설정해야 합니다.
 
-데이터베이스에 대해 읽기 확장을 사용하도록 설정하면, 응용 프로그램의 연결 문자열에 구성된 `ApplicationIntent` 속성에 따라 해당 데이터베이스에 연결하는 응용 프로그램이 해당 데이터베이스의 읽기/쓰기 복제본 또는 읽기 전용 복제본으로 전달됩니다. `ApplicationIntent` 속성에 대한 자세한 내용은 [응용 프로그램 의도 지정](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)을 참조하세요.
+데이터베이스에 대해 읽기 확장을 사용하도록 설정하면, 애플리케이션의 연결 문자열에 구성된 `ApplicationIntent` 속성에 따라 해당 데이터베이스에 연결하는 애플리케이션이 해당 데이터베이스의 읽기-쓰기 복제본 또는 읽기 전용 복제본으로 전달됩니다. `ApplicationIntent` 속성에 대한 자세한 내용은 [응용 프로그램 의도 지정](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)을 참조하세요.
 
 읽기 스케일 아웃을 사용할 수 없거나 지원되지 않는 서비스 계층에서 ReadScale 속성을 설정한 경우 모든 연결은 `ApplicationIntent` 속성과 독립적으로 읽기/쓰기 복제본으로 이동됩니다.
 
@@ -47,7 +45,7 @@ ms.locfileid: "49465452"
 > [!NOTE]
 > 지역 내의 복제 대기 시간은 낮으며 이 상황은 드물게 발생합니다.
 
-## <a name="connecting-to-a-read-only-replica"></a>읽기 전용 복제본에 연결
+## <a name="connect-to-a-read-only-replica"></a>읽기 전용 복제본에 연결
 
 데이터베이스에 대한 읽기 확장을 사용하도록 설정하면 클라이언트에서 제공하는 연결 문자열의 `ApplicationIntent` 옵션은 연결이 쓰기 복제본 또는 읽기 전용 복제본으로 라우팅되는지 여부를 나타냅니다. 특히 `ApplicationIntent` 값이 `ReadWrite`(기본값)이면 연결이 데이터베이스의 읽기/쓰기 복제본으로 전달됩니다. 이는 기존 동작과 동일합니다. `ApplicationIntent` 값이 `ReadOnly`이면 연결이 읽기 전용 복제본으로 라우팅됩니다.
 
@@ -65,6 +63,8 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
+## <a name="verify-that-a-connection-is-to-a-read-only-replica"></a>읽기 전용 복제본에 대한 연결인지 확인
+
 다음 쿼리를 실행하여 읽기 전용 복제본에 연결되어 있는지 여부를 확인할 수 있습니다. 읽기 전용 복제본에 연결된 경우 READ_ONLY가 반환됩니다.
 
 ```SQL
@@ -76,9 +76,9 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 ## <a name="enable-and-disable-read-scale-out"></a>읽기 확장 사용 및 사용 안 함
 
-읽기 확장은 [Managed Instance](sql-database-managed-instance.md) 중요 비즈니스용 계층(미리 보기)에 기본적으로 사용됩니다. 프리미엄 및 중요 비즈니스용 계층의 [논리적 서버에 배치된 데이터베이스](sql-database-logical-servers.md)에 명시적으로 사용하도록 설정됩니다. 읽기 확장을 사용 및 사용하지 않도록 설정하는 방법은 여기에 설명되어 있습니다.
+읽기 스케일 아웃은 [Managed Instance](sql-database-managed-instance.md) 중요 비즈니스용 계층에 기본적으로 사용됩니다. 프리미엄 및 중요 비즈니스용 계층의 [논리적 서버에 배치된 데이터베이스](sql-database-logical-servers.md)에 명시적으로 사용하도록 설정됩니다. 읽기 확장을 사용 및 사용하지 않도록 설정하는 방법은 여기에 설명되어 있습니다.
 
-### <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Azure PowerShell을 사용하여 읽기 확장을 사용하거나 사용하지 않도록 설정
+### <a name="powershell-enable-and-disable-read-scale-out"></a>PowerShell: 읽기 확장 사용 및 사용 안 함
 
 Azure PowerShell에서 읽기 확장을 관리하려면 2016년 12월 Azure PowerShell 릴리스 이상이 필요합니다. 최신 PowerShell 버전은 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)을 참조하세요.
 
@@ -102,7 +102,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserve
 New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
-### <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>Azure SQL Database REST API를 사용하여 읽기 확장을 사용하거나 사용하지 않도록 설정
+### <a name="rest-api-enable-and-disable-read-scale-out"></a>REST API: 읽기 확장 사용 및 사용 안 함
 
 읽기 확장을 사용하도록 설정된 데이터베이스를 만들거나 기존 데이터베이스에 대해 읽기 확장을 사용하거나 사용하지 않도록 설정하려면, 아래 샘플 요청과 같이 `readScale` 속성이 `Enabled` 또는 `Disabled`로 설정된 해당 데이터베이스 엔터티를 만들거나 업데이트합니다.
 

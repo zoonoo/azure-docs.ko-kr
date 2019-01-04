@@ -180,7 +180,7 @@ Azure Multi-factor Authentication 서버를 사용하는 경우 타사 OATH(공�
 
 예, 그렇지만 Windows Server 2012 R2 이상을 사용하는 경우 RD 게이트웨이(원격 데스크톱 게이트웨이)를 사용해서만 터미널 서비스의 보안을 유지할 수 있습니다.
 
-Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-Factor Authentication 서버가 Windows Server 2012 및 이전 버전에서 LSA(로컬 보안 기관) 보안 패키지에 연결하는 방식이 변경되었습니다. Windows 2012 이전의 터미널 서비스 버전의 경우 [Windows 인증으로 응용 프로그램 보호](howto-mfaserver-windows.md#to-secure-an-application-with-windows-authentication-use-the-following-procedure)를 수행할 수 있습니다. Windows Server 2012 R2를 사용하는 경우 RD 게이트웨이가 필요합니다.
+Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-Factor Authentication 서버가 Windows Server 2012 및 이전 버전에서 LSA(로컬 보안 기관) 보안 패키지에 연결하는 방식이 변경되었습니다. Windows 2012 이전의 터미널 서비스 버전의 경우 [Windows 인증으로 애플리케이션 보호](howto-mfaserver-windows.md#to-secure-an-application-with-windows-authentication-use-the-following-procedure)를 수행할 수 있습니다. Windows Server 2012 R2를 사용하는 경우 RD 게이트웨이가 필요합니다.
 
 **Q: MFA 서버에서 발신자 ID를 구성했지만 익명 발신자로부터 Multi-Factor Authentication을 받는 사용자가 여전히 있습니다.**
 
@@ -191,7 +191,7 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-Factor Authenticat
 
 - Azure AD의 관리자가 MFA를 사용할 수 있도록 사용자를 설정했지만 사용자의 계정에 대한 보안 정보가 아직 등록되어 있지 않습니다.
 - 사용자가 Azure AD에서 셀프 서비스 암호 재설정을 사용하도록 설정되었습니다. 보안 정보를 통해 향후 암호를 재설정(분실한 경우)할 수 있습니다.
-- 사용자가 MFA를 요구하는 조건부 액세스 정책이 있는 응용 프로그램에 액세스했고 MFA에 이전에 등록되지 않았습니다.
+- 사용자가 MFA를 요구하는 조건부 액세스 정책이 있는 애플리케이션에 액세스했고 MFA에 이전에 등록되지 않았습니다.
 - 사용자는 Azure AD(Azure AD 조인 포함)로 디바이스를 등록하고 있으며 조직에는 디바이스 등록을 위해 MFA가 필요하지만 사용자는 이전에 MFA에 등록하지 않았습니다.
 - 사용자는 Windows 10에서 비즈니스용 Windows Hello를 생성하고 있으며(MFA 필요) MFA에 이전에 등록되지 않았습니다.
 - 조직에서 사용자에게 적용된 MFA 등록 정책을 만들고 사용하도록 설정했습니다.
@@ -210,7 +210,7 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-Factor Authenticat
 
 **Q: 비 브라우저 응용 프로그램에 로그인할 때 0x800434D4L 오류 메시지가 표시되면 사용자는 어떻게 해야 하나요?**
 
-2단계 인증이 필요한 계정에서 작동하지 않는 로컬 컴퓨터에 설치된 비브라우저 응용 프로그램에 로그인을 시도할 때 0x800434D4L 오류가 발생합니다.
+2단계 인증이 필요한 계정에서 작동하지 않는 로컬 컴퓨터에 설치된 비브라우저 애플리케이션에 로그인을 시도할 때 0x800434D4L 오류가 발생합니다.
 
 이 오류를 해결하려면 관리 관련 작업용 사용자 계정과 비관리 관련 작업용 사용자 계정을 따로 두어야 합니다. 나중에 관리 계정과 비관리 계정 간의 사서함을 연결하면 비관리 계정을 사용하여 Outlook에 로그인할 수 있습니다. 이 해결책에 대한 자세한 내용은 [관리자에게 사용자의 사서함 내용을 열고 보는 기능을 제공하는](https://help.outlook.com/141/gg709759.aspx?sl=1) 방법을 참조하세요.
 

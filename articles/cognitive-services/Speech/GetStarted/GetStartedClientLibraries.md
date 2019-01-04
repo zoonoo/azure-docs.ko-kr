@@ -1,7 +1,7 @@
 ---
 title: 클라이언트 라이브러리를 사용하여 Bing Speech Recognition API 시작 | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Microsoft Cognitive Services의 Bing Speech 클라이언트 라이브러리를 사용하여 음성 오디오를 텍스트로 변환하는 응용 프로그램을 개발합니다.
+description: Microsoft Cognitive Services의 Bing Speech 클라이언트 라이브러리를 사용하여 음성 오디오를 텍스트로 변환하는 애플리케이션을 개발합니다.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma

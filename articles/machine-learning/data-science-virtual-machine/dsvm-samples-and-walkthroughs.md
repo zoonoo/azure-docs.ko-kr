@@ -1,11 +1,12 @@
 ---
 title: Data Science Virtual Machines에 대한 샘플 및 연습 - Azure | Microsoft Docs
-description: Data Science Virtual Machines에 대한 샘플 및 연습
+description: Data Science Virtual Machine을 사용하여 일반 작업 및 시나리오를 수행하는 방법을 가르쳐 주는 샘플 및 연습에 대해 알아봅니다.
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: 74d5893a377fb67dbec7b185525e74ac248deede
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 64be6af340aa02c6c0b094013d2cbd286286aca7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902759"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101996"
 ---
 # <a name="samples-on-data-science-virtual-machines"></a>Data Science Virtual Machines의 샘플
 
@@ -47,7 +48,7 @@ Azure Data Science Virtual Machines에는 포괄적인 샘플 코드 집합이 �
 
 ## <a name="access-jupyter"></a>액세스 Jupyter 
 
-Jupyter에 액세스하려면 데스크톱 또는 응용 프로그램 메뉴에서 `Jupyter` 아이콘을 선택하세요. 또한 Data Science Virtual Machines의 Linux 에디션에서 Jupyter에 액세스할 수 있습니다. Ubuntu에서 `https://<Full Domain Name or IP Address of the DSVM>:8000`을 방문하여 웹 브라우저에서 원격으로 액세스할 수 있습니다.
+Jupyter에 액세스하려면 데스크톱 또는 애플리케이션 메뉴에서 `Jupyter` 아이콘을 선택하세요. 또한 Data Science Virtual Machines의 Linux 에디션에서 Jupyter에 액세스할 수 있습니다. Ubuntu에서 `https://<Full Domain Name or IP Address of the DSVM>:8000`을 방문하여 웹 브라우저에서 원격으로 액세스할 수 있습니다.
 
 예외를 추가하고 브라우저에서 Jupyter 액세스를 사용 가능하게 하려면 다음 스크린샷을 참조하세요.
 

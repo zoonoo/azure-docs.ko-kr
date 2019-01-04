@@ -1,21 +1,22 @@
 ---
-title: PowerShell과 Azure Event Grid에 대한 사용자 지정 이벤트 | Microsoft Docs
-description: Azure Event Grid 및 PowerShell을 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다.
+title: 웹 엔드포인트에 사용자 지정 이벤트 보내기 - Event Grid, PowerShell
+description: Azure Event Grid 및 PowerShell을 사용하여 사용자 지정 토픽을 게시하고 해당 토픽에 대한 이벤트를 구독합니다. 이벤트는 웹 애플리케이션에서 처리합니다.
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 08/23/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 13620fbd6393c747285574cf16b519b9b6a1f324
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.custom: seodec18
+ms.openlocfilehash: 46278d0663cd748f88fcfa13d0688ec89a17bd89
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745187"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096674"
 ---
-# <a name="create-and-route-custom-events-with-azure-powershell-and-event-grid"></a>Azure PowerShell 및 Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>빠른 시작: PowerShell 및 Event Grid를 사용하여 사용자 지정 이벤트를 웹 엔드포인트로 라우팅
 
 Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure PowerShell을 사용하여 사용자 지정 토픽을 만들고 해당 토픽을 구독하며 이벤트를 트리거하여 결과를 확인합니다. 일반적으로 이벤트 데이터를 처리하고 작업을 수행하는 엔드포인트에 이벤트를 보냅니다. 그러나 이 문서를 간소화하기 위해 메시지를 수집하고 표시하는 웹앱에 이벤트를 보냅니다.
 
@@ -43,7 +44,7 @@ New-AzureRmResourceGroup -Name gridResourceGroup -Location westus2
 
 ## <a name="create-a-custom-topic"></a>사용자 지정 토픽 만들기
 
-Event Grid 항목은 이벤트를 게시하는 사용자 정의 엔드포인트를 제공합니다. 다음 예제에서는 리소스 그룹에 사용자 지정 토픽을 만듭니다. `<your-topic-name>`을 토픽의 고유한 이름으로 바꿉니다. 토픽 이름은 DNS 항목의 일부이므로 고유해야 합니다.
+Event Grid 항목은 이벤트를 게시하는 사용자 정의 엔드포인트를 제공합니다. 다음 예제에서는 리소스 그룹에 사용자 지정 토픽을 만듭니다. `<your-topic-name>`을 토픽의 고유한 이름으로 바꿉니다. 토픽 이름은 DNS 항목의 일부이므로 고유해야 합니다. 또한 3~50자 사이로 a-z, A-Z, 0-9 및 “-” 값만 포함해야 합니다.
 
 ```powershell-interactive
 $topicname="<your-topic-name>"
@@ -100,7 +101,7 @@ $endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Nam
 $keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicname
 ```
 
-이 문서를 간소화하기 위해 사용자 지정 토픽에 보낼 샘플 이벤트 데이터를 설정해 보겠습니다. 일반적으로 응용 프로그램 또는 Azure 서비스는 이벤트 데이터를 보냅니다. 다음 예제에서는 해시 테이블을 사용하여 이벤트의 `htbody` 데이터를 생성한 다음, 올바른 형식의 `$body` JSON 페이로드 개체로 변환합니다.
+이 문서를 간소화하기 위해 사용자 지정 토픽에 보낼 샘플 이벤트 데이터를 설정해 보겠습니다. 일반적으로 애플리케이션 또는 Azure 서비스는 이벤트 데이터를 보냅니다. 다음 예제에서는 해시 테이블을 사용하여 이벤트의 `htbody` 데이터를 생성한 다음, 올바른 형식의 `$body` JSON 페이로드 개체로 변환합니다.
 
 ```powershell-interactive
 $eventID = Get-Random 99999

@@ -1,6 +1,6 @@
 ---
-title: Web App for Containers로 Docker 컨테이너 레지스트리에서 연속 배포 - Azure | Microsoft Docs
-description: Web App for Containers의 Docker 컨테이너 레지스트리에서 연속 배포를 설정하는 방법입니다.
+title: Web App for Containers를 사용한 지속적인 배포 - Azure App Service | Microsoft Docs
+description: Web App for Containers에서 지속적인 배포를 설정하는 방법
 keywords: Azure App Service, Linux, OSS
 services: app-service
 documentationcenter: ''
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2018
-ms.author: msangapu;yili
-ms.openlocfilehash: b26366edddc223b842cc5d38473bda42422f1840
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.author: yili
+ms.custom: seodec18
+ms.openlocfilehash: 4acadc4c08ef50e7d52303689c38c43f81187669
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298541"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315536"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Web App for Containers를 사용한 연속 배포
 

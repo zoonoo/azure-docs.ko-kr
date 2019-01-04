@@ -23,7 +23,7 @@ ms.locfileid: "51249424"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 지원 옵션
 
-응용 프로그램 워크로드가 실행되는 Service Fabric 클러스터에 대한 적절한 지원을 제공하기 위해 다양한 옵션을 설정했습니다. 필요한 지원 수준 및 문제의 심각도에 따라, 올바른 옵션을 선택해야 합니다. 
+애플리케이션 워크로드가 실행되는 Service Fabric 클러스터에 대한 적절한 지원을 제공하기 위해 다양한 옵션을 설정했습니다. 필요한 지원 수준 및 문제의 심각도에 따라, 올바른 옵션을 선택해야 합니다. 
 
 ## <a name="report-production-issues-or-request-paid-support-for-azure"></a>프로덕션 문제 보고 또는 Azure에 대한 유료 지원 요청
 

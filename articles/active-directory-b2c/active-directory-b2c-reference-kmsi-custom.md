@@ -7,21 +7,21 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 12/03/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6d58a62ef70cb5bacb44a3a9832516a30fc91ffa
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: fcc81c8eb3a34b0bda5d91a1a67dd2e04e052967
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248062"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967762"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 KMSI(로그인 유지) 사용
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD(Azure Active Directory) B2C에서 웹 및 네이티브 응용 프로그램에 대한 KMSI(로그인 유지) 기능을 사용하도록 설정할 수 있습니다. 이 기능은 사용자 이름과 암호를 다시 입력하라는 메시지를 표시하지 않고 응용 프로그램에 반환되는 사용자에게 액세스 권한을 부여합니다. 사용자가 로그아웃하면 이 액세스 권한이 철회됩니다. 
+Azure AD(Azure Active Directory) B2C에서 웹 및 네이티브 애플리케이션에 대한 KMSI(로그인 유지) 기능을 사용하도록 설정할 수 있습니다. 이 기능은 사용자 이름과 암호를 다시 입력하라는 메시지를 표시하지 않고 애플리케이션에 반환되는 사용자에게 액세스 권한을 부여합니다. 사용자가 로그아웃하면 이 액세스 권한이 철회됩니다. 
 
 사용자는 공용 컴퓨터에서 이 옵션을 사용하면 안됩니다. 
 
@@ -29,7 +29,7 @@ Azure AD(Azure Active Directory) B2C에서 웹 및 네이티브 응용 프로그
 
 ## <a name="prerequisites"></a>필수 조건
 
-로컬 계정 등록 및 로그인을 허용하도록 구성된 Azure AD B2C 테넌트가 있어야 합니다. 테넌트가 없으면 [자습서: Azure Active Directory B2C 테넌트 만들기](tutorial-create-tenant.md)의 단계를 사용하여 테넌트를 만들 수 있습니다.
+로컬 계정 등록 및 로그인을 허용하도록 구성된 Azure AD B2C 테넌트가 있어야 합니다. 테넌트가 없는 경우 [자습서: Azure Active Directory B2C 테넌트 만들기](tutorial-create-tenant.md)의 단계를 사용하여 만들 수 있습니다.
 
 ## <a name="add-a-content-definition-element"></a>콘텐츠 정의 요소 추가 
 
@@ -81,7 +81,7 @@ Azure AD(Azure Active Directory) B2C에서 웹 및 네이티브 응용 프로그
     </ClaimsProviders>
     ```
 
-### <a name="add-the-application-identifiers-to-your-custom-policy"></a>사용자 지정 정책에 응용 프로그램 식별자 추가
+### <a name="add-the-application-identifiers-to-your-custom-policy"></a>사용자 지정 정책에 애플리케이션 식별자 추가
 
 *TrustFrameworkExtensions.xml* 파일에 응용 프로그램 식별자를 추가합니다.
 
@@ -102,7 +102,7 @@ Azure AD(Azure Active Directory) B2C에서 웹 및 네이티브 응용 프로그
 2. **UserJourneys** 요소를 찾고, `SignUpOrSignIn` 식별자를 사용하는 **UserJourney** 요소의 전체 내용을 복사합니다.
 3. 확장 파일을 엽니다(예: *TrustFrameworkExtensions.xml*). 그리고 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
 4. **UserJourney** 요소 전체를 **UserJourneys** 요소의 자식으로 붙여넣습니다.
-5. 새 사용자 경험에 대한 식별자 값을 변경합니다(예: `SignUpOrSignInWithKmsi`).
+5. 새 사용자 경험에 대한 식별자 값을 변경합니다(예: 예: `SignUpOrSignInWithKmsi`
 6. 마지막으로, 첫 번째 오케스트레이션 단계에서 **ContentDefinitionReferenceId** 값을 `api.signuporsigninwithkmsi`로 변경합니다. 이 값을 설정하면 사용자 경험에서 확인란이 활성화됩니다. 
 7. 확장 파일을 저장 및 업로드하고, 모든 유효성 검사가 성공했는지 확인합니다.
 
@@ -147,12 +147,14 @@ Azure AD(Azure Active Directory) B2C에서 웹 및 네이티브 응용 프로그
 만든 사용자 경험을 시작하는 RP(신뢰 당사자) 파일을 업데이트합니다.
 
 1. 작업 디렉터리에 *SignUpOrSignIn.xml* 파일의 복사본을 만든 다음, 이름을 바꿉니다(예: *SignUpOrSignInWithKmsi.xml*).
-2. 새 파일을 열고, **TrustFrameworkPolicy**의 **PolicyId** 특성을 고유 값으로 업데이트합니다. 이 특성은 정책의 이름입니다(예: `SignUpOrSignInWithKmsi`).
-3. 만든 새 사용자 경험의 식별자와 일치하도록 **DefaultUserJourney** 요소의 **ReferenceId** 특성을 변경합니다(예: `SignUpOrSignInWithKmsi`).
+2. 새 파일을 열고, **TrustFrameworkPolicy**의 **PolicyId** 특성을 고유 값으로 업데이트합니다. 이 특성은 정책의 이름입니다(예: 예: `SignUpOrSignInWithKmsi`
+3. 만든 새 사용자 경험의 식별자와 일치하도록 **DefaultUserJourney** 요소의 **ReferenceId** 특성을 변경합니다(예: 예: `SignUpOrSignInWithKmsi`
 
     KMSI는 **UserJourneyBehaviors** 요소를 사용하여 구성됩니다. **KeepAliveInDays** 특성은 사용자가 로그인 상태로 유지되는 기간을 제어합니다. 다음 예제에서 KMSI 세션은 사용자가 자동 인증을 수행하는 빈도에 관계없이 `7`일 후에 자동으로 만료됩니다. **KeepAliveInDays** 값을 `0`으로 설정하면 KMSI 기능이 해제됩니다. 이 값은 기본적으로 `0`입니다. **SessionExpiryType** 값이 `Rolling`이면 사용자가 자동 인증을 수행할 때마다 KMSI 세션이 `7`일 연장됩니다.  `Rolling`을 선택하면 일 수를 최소로 유지해야 합니다. 
 
-    **SessionExpiryInSeconds** 값은 SSO 세션의 만료 시간을 나타냅니다. 이 값은 Azure AD B2C에서 KMSI 세션이 만료되었는지 여부를 확인하기 위해 내부적으로 사용됩니다. **KeepAliveInDays** 값은 웹 브라우저에서 SSO 쿠키의 만료/최대 기간 값을 결정합니다. **SessionExpiryInSeconds**와 달리 **KeepAliveInDays**는 브라우저가 닫힐 때 쿠키를 지우지 않도록 방지하는 데 사용됩니다. 사용자는 **KeepAliveInDays**로 제어되지만 **SessionExpiryInSeconds**로 만료되지 않도록 제어되는 SSO 세션 쿠키가 있는 경우에만 자동으로 로그인할 수 있습니다. 다음 예제와 같이 **SessionExpiryInSeconds** 값을 해당 **KeepAliveInDays** 시간(초 단위)으로 설정하는 것이 좋습니다.
+    **SessionExpiryInSeconds** 값은 SSO 세션의 만료 시간을 나타냅니다. 이 값은 Azure AD B2C에서 KMSI 세션이 만료되었는지 여부를 확인하기 위해 내부적으로 사용됩니다. **KeepAliveInDays** 값은 웹 브라우저에서 SSO 쿠키의 만료/최대 기간 값을 결정합니다. **SessionExpiryInSeconds**와 달리 **KeepAliveInDays**는 브라우저가 닫힐 때 쿠키를 지우지 않도록 방지하는 데 사용됩니다. 사용자는 **KeepAliveInDays**로 제어되지만 **SessionExpiryInSeconds**로 만료되지 않도록 제어되는 SSO 세션 쿠키가 있는 경우에만 자동으로 로그인할 수 있습니다. 
+    
+    사용자가 가입 및 로그인 페이지에서 **로그인 유지**를 활성화하지 않는 경우 세션은 **SessionExpiryInSeconds**에서 표시된 시간이 경과하거나 브라우저를 닫은 후에 만료됩니다. 사용자가 **로그인 유지**를 활성화하는 경우 **KeepAliveInDays**의 값은 **SessionExpiryInSeconds**의 값을 재정의하고 세션 만료 시간을 결정합니다. 사용자가 브라우저를 닫고 다시 열더라도 **KeepAliveInDays**의 시간 내에 있는 한 여전히 자동으로 로그인할 수 있습니다. **KeepAliveInDays**의 값을 아래 예제에 표시된 것과 같이 비교적 오랜 기간(7일)으로 설정할 수 있는 반면 **SessionExpiryInSeconds**의 값을 짧은 기간(1200초)으로 설정하는 것이 좋습니다.
 
     ```XML
     <RelyingParty>
@@ -160,7 +162,7 @@ Azure AD(Azure Active Directory) B2C에서 웹 및 네이티브 응용 프로그
       <UserJourneyBehaviors>
         <SingleSignOn Scope="Tenant" KeepAliveInDays="7" />
         <SessionExpiryType>Absolute</SessionExpiryType>
-        <SessionExpiryInSeconds>604800</SessionExpiryInSeconds>
+        <SessionExpiryInSeconds>1200</SessionExpiryInSeconds>
       </UserJourneyBehaviors>
       <TechnicalProfile Id="PolicyProfile">
         <DisplayName>PolicyProfile</DisplayName>

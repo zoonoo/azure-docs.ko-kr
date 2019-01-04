@@ -3,23 +3,22 @@ title: Azure Stack에 대 한 서비스 주체 만들기 | Microsoft Docs
 description: 리소스에 대 한 액세스를 관리 하려면 Azure Resource Manager에서 역할 기반 액세스 제어를 사용 하 여 사용할 수 있는 서비스 주체를 만드는 방법을 설명 합니다.
 services: azure-resource-manager
 documentationcenter: na
-author: sethmanheim
+author: mattbriggs
 manager: femila
-ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
-ms.author: sethm
+ms.date: 12/12/2018
+ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: a32327109bc71a41f871682936c5f27ed490975c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4c205055239b7bf16bbb73448c21818de419e623
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958317"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715834"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>응용 프로그램 리소스 액세스 권한을 부여 Azure Stack에서 서비스 주체 만들기
 
@@ -52,7 +51,7 @@ Azure Stack에 대 한 Active Directory를 구성 하는 방법은 서비스 주
 
 단계에 할당 하기 위한 서비스 사용자 역할을 동일한 azure AD 및 AD FS 합니다. 서비스 주체를 만들 수 있습니다 [권한을 위임할](azure-stack-create-service-principals.md#assign-role-to-service-principal) 역할에 할당 하 여 합니다.
 
-## <a name="create-a-service-principal-for-azure-ad"></a>Azure AD에 대 한 서비스 주체 만들기
+## <a name="create-service-principal-for-azure-ad"></a>Azure AD에 대 한 서비스 주체 만들기
 
 Azure Stack에 Azure AD를 사용 하 여 id 저장소로, 하는 경우 서비스를 Azure portal을 사용 하 여 Azure에서와 같이 동일한 단계를 사용 하 여 주 만들 수 있습니다.
 
@@ -65,13 +64,13 @@ Azure Stack에 Azure AD를 사용 하 여 id 저장소로, 하는 경우 서비�
 
 1. [Azure Portal](https://portal.azure.com)을 통해 Azure 계정에 로그인합니다.
 2. 선택 **Azure Active Directory** > **앱 등록** > **추가**합니다.
-3. 응용 프로그램에 대한 이름 및 URL을 제공합니다. 만들려는 응용 프로그램 유형으로 **웹앱/API** 또는 **네이티브**를 선택합니다. 값을 설정한 후 **만들기**를 선택합니다.
+3. 애플리케이션에 대한 이름 및 URL을 제공합니다. 만들려는 애플리케이션 유형으로 **웹앱/API** 또는 **네이티브**를 선택합니다. 값을 설정한 후 **만들기**를 선택합니다.
 
 ### <a name="get-credentials"></a>자격 증명 가져오기
 
 프로그래밍 방식으로 로그인 할 때 응용 프로그램 및 인증 키에 대 한 ID를 사용 합니다. 이러한 값을 가져오려면 다음을 수행합니다.
 
-1. Active Directory의 **앱 등록**에서 응용 프로그램을 선택합니다.
+1. Active Directory의 **앱 등록**에서 애플리케이션을 선택합니다.
 
 2. **응용 프로그램 ID**를 복사하고 응용 프로그램 코드에 저장합니다. 응용 프로그램에는 [샘플 응용 프로그램](#sample-applications) 사용 하 여 **클라이언트 id** 참조할 때 합니다 **응용 프로그램 ID**합니다.
 
@@ -81,7 +80,7 @@ Azure Stack에 Azure AD를 사용 하 여 id 저장소로, 하는 경우 서비�
 4. 키에 대한 설명 및 키의 기간을 제공합니다. 완료되면 **저장**을 선택합니다.
 
 >[!IMPORTANT]
-키, 키를 저장 한 후 **값** 표시 됩니다. 나중에 키를 검색할 수 없습니다 때문에이 값을 적어둡니다. 응용 프로그램에서 검색할 수 있는 위치에 키 값을 저장합니다.
+키, 키를 저장 한 후 **값** 표시 됩니다. 나중에 키를 검색할 수 없습니다 때문에이 값을 적어둡니다. 애플리케이션에서 검색할 수 있는 위치에 키 값을 저장합니다.
 
 ![저장 된 키에 대 한 경고를 키 값입니다.](./media/azure-stack-create-service-principal/image15.png)
 
@@ -95,11 +94,11 @@ AD FS를 사용 하 여 id 저장소로 Azure Stack을 배포한 경우에 다�
 * 역할에 서비스 주체를 할당 합니다.
 * 서비스 주체의 id를 사용 하 여 로그인 합니다.
 
-서비스 주체를 만드는 방법에 대 한 세부 정보를 참조 하세요 [AD FS에 대 한 서비스 주체 만들기](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs)합니다.
+서비스 주체를 만드는 방법에 대 한 세부 정보를 참조 하세요 [AD FS에 대 한 서비스 주체 만들기](../azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs)합니다.
 
 ## <a name="assign-the-service-principal-to-a-role"></a>서비스 주체를 역할 할당
 
-구독의 리소스에 액세스하려면 역할에 응용 프로그램을 할당해야 합니다. 응용 프로그램에 적합한 사용 권한을 나타내는 역할을 결정합니다. 사용 가능한 역할에 대해 알아보려면 [RBAC: 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
+구독의 리소스에 액세스하려면 역할에 애플리케이션을 할당해야 합니다. 애플리케이션에 적합한 사용 권한을 나타내는 역할을 결정합니다. 사용 가능한 역할에 대해 알아보려면 [RBAC: 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
 >[!NOTE]
 구독, 리소스 그룹 또는 리소스 수준에서 역할의 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어, 리소스 그룹에 대 한 읽기 권한자 역할을 사용 하 여 앱을 앱의 리소스 그룹에 리소스를 읽을 수 있습니다 의미 합니다.
@@ -114,13 +113,11 @@ AD FS를 사용 하 여 id 저장소로 Azure Stack을 배포한 경우에 다�
 
 3. 선택 **액세스 제어 (IAM)** 구독에 대 한 합니다.
 
-     ![액세스 제어를 선택 합니다.](./media/azure-stack-create-service-principal/image17.png)
+4. **역할 할당 추가**를 선택합니다.
 
-4. **추가**를 선택합니다.
+5. 애플리케이션에 할당할 역할을 선택합니다.
 
-5. 응용 프로그램에 할당할 역할을 선택합니다.
-
-6. 응용 프로그램을 검색하고 선택합니다.
+6. 애플리케이션을 검색하고 선택합니다.
 
 7. **확인**을 선택하여 역할 할당을 완료합니다. 해당 범위에 대 한 역할에 할당 된 사용자 목록에서 응용 프로그램을 볼 수 있습니다.
 

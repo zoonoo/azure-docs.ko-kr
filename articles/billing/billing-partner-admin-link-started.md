@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 1e2492d978073f63c1c9494d652ec35a7d6565b7
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a0dad228f23b055d68009eb737e0347ade49e94b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274182"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968051"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
@@ -30,9 +30,9 @@ ms.locfileid: "52274182"
 
 - **게스트 사용자:** 고객은 사용자를 게스트 사용자로 추가하고 RBAC 역할을 할당할 수 있습니다. 자세한 내용은 [다른 디렉터리에서 게스트 사용자 추가](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)를 참조하세요.
 
-- **디렉터리 계정:** 고객이 해당 디렉터리에서 조직의 새 사용자를 만들고 RBAC 역할을 할당할 수 있습니다.
+- **디렉터리 계정:**  고객은 자신의 디렉터리에 사용자 계정을 만들고 RBAC 역할을 할당할 수 있습니다.
 
-- **서비스 주체:** 고객이 해당 디렉터리에서 조직의 앱 또는 스크립트를 추가하고 RBAC 역할을 할당할 수 있습니다. 앱 또는 스크립트의 ID는 서비스 주체라고 알려집니다.
+- **서비스 주체:**  고객은 해당 디렉터리에서 조직의 앱 또는 스크립트를 추가하고 RBAC 역할을 할당할 수 있습니다. 앱 또는 스크립트의 ID는 서비스 주체라고 알려집니다.
 
 ## <a name="link-partner-id"></a>파트너 ID 연결
 

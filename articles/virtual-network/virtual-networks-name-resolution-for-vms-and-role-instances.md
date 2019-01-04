@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: subsarma
-ms.openlocfilehash: 53e3a298dd8a3eebca1943d9bade51187f14d722
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 17bcc7ada244484c2c2df5bd81c82f695a8b5342
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038491"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969910"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 리소스에 대한 이름 확인
 
@@ -125,7 +125,7 @@ options timeout:1 attempts:5
 resolv.conf 파일은 일반적으로 자동으로 생성되며 편집할 수 없습니다. *options* 줄을 추가하는 구체적인 단계는 배포마다 다릅니다.
 
 * **Ubuntu** (resolvconf 사용):
-  1. *options* 줄을 **/etc/resolveconf/resolv.conf.d/head**에 추가합니다.
+  1. *options* 줄을 **/etc/resolvconf/resolv.conf.d/tail**에 추가합니다.
   2. `resolvconf -u`를 실행하여 업데이트합니다.
 * **SUSE** (netconf 사용):
   1. *timeout:1 attempts:5*를 **/etc/sysconfig/network/config**의 **NETCONFIG_DNS_RESOLVER_OPTIONS=""** 매개 변수에 추가합니다. 

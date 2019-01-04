@@ -2,16 +2,16 @@
 title: RBAC(역할 기반 액세스 제어)를 사용하여 Azure Site Recovery 액세스 관리 | Microsoft Docs
 description: 이 문서에서는 RBAC(역할 기반 액세스 제어)를 적용하여 Azure Site Recovery 액세스를 관리하는 방법을 설명합니다.
 ms.service: site-recovery
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 19d41d8c9b1a54cefc09190531b064d640048385
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 815eb1f94d80c36824dc34f3f9410458b9837003
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212049"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849533"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)를 사용하여 Site Recovery 액세스 관리
 
@@ -69,9 +69,9 @@ Azure Site Recovery를 사용하여 새 Virtual Machine을 Azure에 복제할 �
 Resource Manager 및 클래식 배포 모델에 대해 각각 'Virtual Machine 참여자' 및 '클래식 Virtual Machine 참여자' [기본 제공 역할](../role-based-access-control/built-in-roles.md)을 사용하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md): Azure Portal에서 RBAC를 통해 시작합니다.
+* [역할 기반 액세스 제어](../role-based-access-control/role-assignments-portal.md): Azure Portal에서 RBAC를 시작합니다.
 * 다음을 사용하여 액세스를 관리하는 방법에 대해 알아봅니다.
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
   * [REST API](../role-based-access-control/role-assignments-rest.md)
-* [역할 기반 Access Control 문제 해결](../role-based-access-control/troubleshooting.md): 일반적인 문제를 수정하기 위한 제안 사항을 봅니다.
+* [역할 기반 액세스 제어 문제 해결](../role-based-access-control/troubleshooting.md): 일반적인 문제 해결에 대한 제안을 구합니다.

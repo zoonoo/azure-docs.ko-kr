@@ -87,7 +87,7 @@ Azure Container Instances에 대한 자세한 내용은 [Azure Container Instanc
 
 8. **저장 및 끝내기**를 선택한 다음, **Jenkins를 사용하여 시작**을 선택하여 구성을 완료합니다.
 
-이제 Jenkins는 코드를 빌드하고 배포할 준비가 완료되었습니다. 이 예에서는 간단한 Java 응용 프로그램을 사용하여 Azure Container Instances에서 Jenkins 빌드를 시연합니다.
+이제 Jenkins는 코드를 빌드하고 배포할 준비가 완료되었습니다. 이 예에서는 간단한 Java 애플리케이션을 사용하여 Azure Container Instances에서 Jenkins 빌드를 시연합니다.
 
 ## <a name="create-a-build-job"></a>빌드 작업 만들기
 

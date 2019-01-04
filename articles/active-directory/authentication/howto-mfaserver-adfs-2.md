@@ -36,7 +36,7 @@ ms.locfileid: "39158417"
 4. 사용자 이름, 암호 및 도메인 변수를 자동으로 검색하려면 양식 기반 웹 사이트 자동 구성 대화 상자 내에서 로그인 URL(예: https://sso.contoso.com/adfs/ls)을 입력하고 **확인**을 클릭합니다.
 5. 모든 사용자를 서버로 가져왔거나 가져올 예정이고 2단계 확인을 적용하는 경우 **Azure Multi-Factor Authentication 사용자 일치 필요** 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 2단계 확인에서 제외할 예정이면 이 확인란을 선택 취소합니다.
 6. 페이지 변수를 자동으로 검색할 수 없는 경우 **수동으로 지정...** 을 클릭합니다. 양식 기반 웹 사이트 자동 구성 대화 상자의 단추.
-7. Add Form-Based Website(양식 기반 웹 사이트 추가) 대화 상자에서 URL 제출 필드(예: https://sso.contoso.com/adfs/ls)에 AD FS 로그인 페이지의 URL을 입력하고 응용 프로그램 이름을 입력합니다(선택 사항). 응용 프로그램 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
+7. Add Form-Based Website(양식 기반 웹 사이트 추가) 대화 상자에서 URL 제출 필드(예: https://sso.contoso.com/adfs/ls)에 AD FS 로그인 페이지의 URL을 입력하고 애플리케이션 이름을 입력합니다(선택 사항). 애플리케이션 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
 8. 요청 형식을 **POST 또는 GET**으로 설정합니다.
 9. Username 변수(ctl00$ContentPlaceHolder1$UsernameTextBox) 및 Password 변수(ctl00$ContentPlaceHolder1$PasswordTextBox)를 입력합니다. 양식 기반 로그인 페이지에 도메인 텍스트 상자가 표시되면 Domain 변수도 입력합니다. 로그인 페이지에서 입력 상자의 이름을 찾으려면 웹 브라우저에서 로그인 페이지로 이동하고 해당 페이지를 마우스 오른쪽 단추로 클릭하여 **소스 보기**를 선택합니다.
 10. 모든 사용자를 서버로 가져왔거나 가져올 예정이고 2단계 확인을 적용하는 경우 **Azure Multi-Factor Authentication 사용자 일치 필요** 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 2단계 확인에서 제외할 예정이면 이 확인란을 선택 취소합니다.
@@ -88,7 +88,7 @@ AD FS 프록시를 사용하지 않는 경우 AD FS의 보안을 유지할 수 �
 1. Azure Multi-Factor Authentication 서버의 왼쪽 메뉴에서 **IIS 인증** 아이콘을 클릭합니다.
 2. **HTTP** 탭을 클릭합니다.
 3. **추가**를 클릭합니다.
-4. 기준 URL 추가 대화 상자에서 기준 URL 필드에 HTTP 인증이 수행되는 AD FS 웹 사이트의 URL(예: https://sso.domain.com/adfs/ls/auth/integrated)을 입력합니다. 그런 다음 응용 프로그램 이름을 입력합니다(선택 사항). 응용 프로그램 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
+4. 기준 URL 추가 대화 상자에서 기준 URL 필드에 HTTP 인증이 수행되는 AD FS 웹 사이트의 URL(예: https://sso.domain.com/adfs/ls/auth/integrated)을 입력합니다. 그런 다음 애플리케이션 이름을 입력합니다(선택 사항). 애플리케이션 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
 5. 원하는 경우 유휴 시간 제한 및 최대 세션 시간을 조정합니다.
 6. 모든 사용자를 서버로 가져왔거나 가져올 예정이고 2단계 확인을 적용하는 경우 **Azure Multi-Factor Authentication 사용자 일치 필요** 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 2단계 확인에서 제외할 예정이면 이 확인란을 선택 취소합니다.
 7. 원하는 경우 쿠키 캐시 상자를 선택합니다.
@@ -108,7 +108,7 @@ Active Directory에서 서버로 사용자를 가져왔는지 확인합니다. �
 
 ### <a name="to-configure-trusted-ips"></a>신뢰할 수 있는 IP를 구성하려면
 1. IIS 인증 섹션에서 **신뢰할 수 있는 IP** 탭을 클릭합니다.
-2. **추가...** 를 클릭합니다. 단추를 선택합니다.
+2. **추가...** 를 클릭합니다.  단추를 선택합니다.
 3. 신뢰할 수 있는 IP 추가 대화 상자가 나타나면 **단일 IP**, **IP 범위** 또는 **서브넷** 라디오 단추를 선택합니다.
 4. IP 주소, IP 주소 범위 또는 허용 목록에 추가할 서브넷을 입력합니다. 서브넷을 입력하는 경우 해당 네트워크 마스크를 선택하고 **확인** 단추를 클릭합니다. 이제 신뢰할 수 있는 IP가 추가되었습니다.
 

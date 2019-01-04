@@ -1,28 +1,31 @@
 ---
-title: 빠른 시작 - Linux용 Azure Kubernetes 클러스터
+title: (사용되지 않음) 빠른 시작 - Linux용 Azure Kubernetes 클러스터
 description: Azure Container Service에서 Azure CLI를 사용하여 Linux 컨테이너용 Kubernetes 클러스터를 빠르게 만드는 방법에 대해 알아봅니다.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 2186bd8c28851552bdbd80a74ba7cefd9f7a82d7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5c5320a541e189043fc27f5c4bcd29afd5d7c70f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950355"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994155"
 ---
-# <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Linux 컨테이너용 Kubernetes 클러스터 배포
+# <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>(사용되지 않음) Linux 컨테이너용 Kubernetes 클러스터 배포
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Azure Kubernetes Service를 사용하는 이 빠른 시작의 업데이트된 버전은 [빠른 시작: AKS(Azure Kubernetes Service) 클러스터 배포](../../aks/kubernetes-walkthrough.md)를 참조하세요.
 
-이 빠른 시작에서는 Azure CLI를 사용하여 Kubernetes 클러스터가 배포됩니다. 웹 프런트 엔드 및 Redis 인스턴스로 구성된 다중 컨테이너 응용 프로그램이 클러스터에 배포되어 실행됩니다. 완료되면 인터넷을 통해 응용 프로그램에 액세스할 수 있습니다. 
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-이 문서에서 사용된 응용 프로그램은 Python으로 작성되었습니다. 여기에 상세하게 설명된 개념 및 단계는 Kubernetes 클러스터에 컨테이너 이미지를 배포하는 데 사용할 수 있습니다. 이 프로젝트와 관련된 코드, Dockerfile 및 사전 생성된 Kubernetes 매니페스트 파일은 [GitHub](https://github.com/Azure-Samples/azure-voting-app-redis.git)에 있습니다.
+이 빠른 시작에서는 Azure CLI를 사용하여 Kubernetes 클러스터가 배포됩니다. 웹 프런트 엔드 및 Redis 인스턴스로 구성된 다중 컨테이너 애플리케이션이 클러스터에 배포되어 실행됩니다. 완료되면 인터넷을 통해 애플리케이션에 액세스할 수 있습니다. 
+
+이 문서에서 사용된 애플리케이션은 Python으로 작성되었습니다. 여기에 상세하게 설명된 개념 및 단계는 Kubernetes 클러스터에 컨테이너 이미지를 배포하는 데 사용할 수 있습니다. 이 프로젝트와 관련된 코드, Dockerfile 및 사전 생성된 Kubernetes 매니페스트 파일은 [GitHub](https://github.com/Azure-Samples/azure-voting-app-redis.git)에 있습니다.
 
 ![Azure Vote로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
@@ -99,9 +102,9 @@ k8s-agent-14ad53a1-2    Ready                      10m       v1.6.6
 k8s-master-14ad53a1-0   Ready,SchedulingDisabled   10m       v1.6.6
 ```
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
-Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 예제에서는 Azure Vote 응용 프로그램을 실행하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용합니다. 
+Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 예제에서는 Azure Vote 애플리케이션을 실행하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용합니다. 
 
 `azure-vote.yml`이라는 파일을 만들고 다음 YAML에 복사합니다. Azure Cloud Shell에서 작업하고 있는 경우 이 파일은 가상 또는 실제 시스템에서 작업하고 있는 것처럼 vi 또는 Nano를 사용하여 만들 수 있습니다.
 
@@ -181,9 +184,9 @@ deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## <a name="test-the-application"></a>응용 프로그램 테스트
+## <a name="test-the-application"></a>애플리케이션 테스트
 
-응용 프로그램을 실행하면 응용 프로그램 프런트 엔드를 인터넷에 공개하는 [Kubernetes 서비스](https://kubernetes.io/docs/concepts/services-networking/service/)가 만들어집니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다. 
+애플리케이션을 실행하면 애플리케이션 프런트 엔드를 인터넷에 공개하는 [Kubernetes 서비스](https://kubernetes.io/docs/concepts/services-networking/service/)가 만들어집니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다. 
 
 진행 상태를 모니터링하려면 `--watch` 인수와 함께 [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) 명령을 사용합니다.
 
@@ -211,13 +214,13 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="get-the-code"></a>코드 가져오기
 
-이 빠른 시작에서는 Kubernetes 배포를 만드는 데 미리 생성된 컨테이너 이미지를 사용했습니다. 관련된 응용 프로그램 코드, Dockerfile 및 Kubernetes 매니페스트 파일을 GitHub에서 사용할 수 있습니다.
+이 빠른 시작에서는 Kubernetes 배포를 만드는 데 미리 생성된 컨테이너 이미지를 사용했습니다. 관련된 애플리케이션 코드, Dockerfile 및 Kubernetes 매니페스트 파일을 GitHub에서 사용할 수 있습니다.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Kubernetes 클러스터를 배포하고, 이 클러스터에 다중 컨테이너 응용 프로그램을 배포했습니다. 
+이 빠른 시작에서는 Kubernetes 클러스터를 배포하고, 이 클러스터에 다중 컨테이너 애플리케이션을 배포했습니다. 
 
 Azure Container Service에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 연습해 보려면Kubernetes 클러스터 자습서를 계속 진행합니다.
 

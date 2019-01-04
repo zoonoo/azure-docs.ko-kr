@@ -30,7 +30,7 @@ ms.locfileid: "51713285"
 
 ## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
 
-이 빠른 시작 가이드에서 사용되는 [샘플 응용 프로그램](https://github.com/Azure-Samples/storage-blobs-java-v10-quickstart)은 기본적인 콘솔 응용 프로그램입니다. 
+이 빠른 시작 가이드에서 사용되는 [샘플 애플리케이션](https://github.com/Azure-Samples/storage-blobs-java-v10-quickstart)은 기본적인 콘솔 애플리케이션입니다. 
 
 [git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드합니다.
 
@@ -71,7 +71,7 @@ setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 
 명령줄에서 Maven을 사용하여 샘플을 실행하려면 셸을 열고 복제한 디렉터리의 **storage-blobs-java-v10-quickstart**로 이동합니다. 그런 후 `mvn compile exec:java`를 입력합니다.
 
-이 예제는 Windows에서 응용 프로그램을 실행할 때의 출력을 보여줍니다.
+이 예제는 Windows에서 애플리케이션을 실행할 때의 출력을 보여줍니다.
 
 ```
 Created quickstart container

@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: c65cc24f9b0083e9c873465008490bf00ea83852
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 70242de62e976b05e2708dfd4991915c854d4bb4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232379"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995635"
 ---
 # <a name="monitor-logic-apps-with-azure-log-analytics"></a>Azure Log Analytics를 사용하여 논리 앱 모니터링
 
@@ -23,11 +23,11 @@ ms.locfileid: "50232379"
 기존 논리 앱에 대한 Azure Log Analytics를 켜려면 다음 단계에 따라 [진단 로깅을 켜서 논리 앱 런타임 데이터를 Log Analytics에 보냅니다](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 > [!NOTE]
-> 이 페이지에서는 [2019년 1월에 사용 중지](../log-analytics/log-analytics-oms-portal-transition.md)되고 대신 Azure Log Analytics로 해당 단계를 대체하는 Microsoft OMS(Operations Management Suite)를 사용하여 이러한 작업을 수행하는 방법에 대한 단계를 설명했습니다. 
+> 이 페이지에서는 [2019년 1월에 사용 중지](../azure-monitor/platform/oms-portal-transition.md)되고 대신 Azure Log Analytics로 해당 단계를 대체하는 Microsoft OMS(Operations Management Suite)를 사용하여 이러한 작업을 수행하는 방법에 대한 단계를 설명했습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
-시작하기 전에 Log Analytics 작업 영역이 필요합니다. [Log Analytics 작업 영역을 만드는 방법](../log-analytics/log-analytics-quick-create-workspace.md)을 알아봅니다. 
+시작하기 전에 Log Analytics 작업 영역이 필요합니다. [Log Analytics 작업 영역을 만드는 방법](../azure-monitor/learn/quick-create-workspace.md)을 알아봅니다. 
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>논리 앱을 만들 때 진단 로깅 켜기
 
@@ -76,7 +76,7 @@ ms.locfileid: "50232379"
 
    솔루션을 찾을 수 없는 경우 목록의 맨 아래에서 솔루션이 나타날 때까지 **추가 로드**를 선택합니다.
 
-1. **만들기**를 선택하고 솔루션을 설치하려는 Log Analytics 작업 영역을 확인한 다음, **만들기**를 다시 선택합니다.   
+1. **만들기**를 선택하고 솔루션을 설치하려는 Log Analytics 작업 영역을 확인한 후 **만들기**를 다시 선택합니다.   
 
    ![“Logic Apps 관리”에 대한 “만들기” 선택](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
 

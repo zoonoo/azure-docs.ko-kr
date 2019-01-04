@@ -66,7 +66,7 @@ Media Services PlayReady 라이선스 템플릿을 구성하는 데 사용되는
 [MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) 클래스는 Media Services 라이선스 템플릿 XML에 대해 serialize 및 deserialize하는 데 사용됩니다.
 
 ### <a name="playreadylicenseresponsetemplate"></a>PlayReadyLicenseResponseTemplate
-[PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx) - 이 클래스는 다시 사용자에게 보내는 응답에 대한 템플릿을 나타냅니다. 이 클래스는 라이선스 서버와 응용 프로그램 간의 사용자 지정 데이터 문자열에 대한 필드(사용자 지정 앱 논리에 유용할 수 있음)를 포함합니다. 또한 하나 이상의 라이선스 템플릿 목록도 포함합니다.
+[PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx) - 이 클래스는 다시 사용자에게 보내는 응답에 대한 템플릿을 나타냅니다. 이 클래스는 라이선스 서버와 애플리케이션 간의 사용자 지정 데이터 문자열에 대한 필드(사용자 지정 앱 논리에 유용할 수 있음)를 포함합니다. 또한 하나 이상의 라이선스 템플릿 목록도 포함합니다.
 
 템플릿 계층 구조에서 "최상위" 클래스인 이 응답 템플릿은 라이선스 템플릿 목록을 포함합니다. 라이선스 템플릿에는 직렬화할 템플릿 데이터를 구성하는 다른 모든 클래스가 포함됩니다(직접 또는 간접적으로).
 

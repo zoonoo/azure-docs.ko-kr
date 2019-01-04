@@ -41,7 +41,7 @@ Batch 태스크 종속성을 통해 하나 이상의 상위 태스크를 완료�
 이 문서에서는 [Batch .NET][net_msdn] 라이브러리를 사용하여 태스크 종속성을 구성하는 방법을 설명합니다. 먼저는 작업에서 [태스크 종속성을 사용](#enable-task-dependencies)하는 방법을 보여 주고 [종속성을 사용하여 태스크를 구성](#create-dependent-tasks)하는 방법을 설명합니다. 또한 상위 태스크가 실패하는 경우 종속 태스크를 실행하는 종속성 작동을 지정하는 방법을 설명합니다. 마지막으로 Batch에서 지원되는 [종속성 시나리오](#dependency-scenarios)를 설명합니다.
 
 ## <a name="enable-task-dependencies"></a>태스크 종속성 사용
-Batch 응용 프로그램에서 태스크 종속성을 사용하려면 먼저 작업이 태스크 종속성을 사용하도록 구성해야 합니다. Batch .NET에서 해당 [UsesTaskDependencies][net_usestaskdependencies] 속성을 `true`으로 설정하여 [CloudJob][net_cloudjob]에서 이를 사용합니다.
+Batch 애플리케이션에서 태스크 종속성을 사용하려면 먼저 작업이 태스크 종속성을 사용하도록 구성해야 합니다. Batch .NET에서 해당 [UsesTaskDependencies][net_usestaskdependencies] 속성을 `true`으로 설정하여 [CloudJob][net_cloudjob]에서 이를 사용합니다.
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -211,11 +211,11 @@ new CloudTask("B", "cmd.exe /c echo B")
 - 계산 노드의 풀에서 해당 태스크를 실행하는 방법
 
 ## <a name="next-steps"></a>다음 단계
-### <a name="application-deployment"></a>응용 프로그램 배포
-Batch의 [응용 프로그램 패키지](batch-application-packages.md) 기능은 계산 노드에서 태스크를 실행하는 응용 프로그램을 배포하고 버전을 관리하는 쉬운 방법을 제공합니다.
+### <a name="application-deployment"></a>애플리케이션 배포
+Batch의 [애플리케이션 패키지](batch-application-packages.md) 기능은 계산 노드에서 태스크를 실행하는 애플리케이션을 배포하고 버전을 관리하는 쉬운 방법을 제공합니다.
 
-### <a name="installing-applications-and-staging-data"></a>응용 프로그램 설치 및 데이터 준비
-태스크를 실행하기 위해 노드를 준비하는 방법의 개요는 Azure 배치 포럼에서 [Batch 계산 노드에서 응용 프로그램 설치 및 데이터 스테이징][forum_post]을 참조하세요. Azure Batch 팀 구성원 중 한 사람이 작성한 이 게시물은 계산 노드에 응용 프로그램, 태스크 입력 데이터 및 다른 파일을 복사하는 다른 방법에 대한 좋은 기초입니다.
+### <a name="installing-applications-and-staging-data"></a>애플리케이션 설치 및 데이터 준비
+태스크를 실행하기 위해 노드를 준비하는 방법의 개요는 Azure 배치 포럼에서 [Batch 계산 노드에서 애플리케이션 설치 및 데이터 스테이징][forum_post]을 참조하세요. Azure Batch 팀 구성원 중 한 사람이 작성한 이 게시물은 계산 노드에 애플리케이션, 태스크 입력 데이터 및 다른 파일을 복사하는 다른 방법에 대한 좋은 기초입니다.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies

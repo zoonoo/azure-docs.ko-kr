@@ -1,6 +1,6 @@
 ---
-title: Azure의 SQL Server Virtual Machine에서 데이터 탐색 | Microsoft Docs
-description: Azure에서 SQL Server VM에 저장된 데이터를 탐색하는 방법입니다.
+title: SQL Server 가상 머신에서 데이터 탐색 - Team Data Science Process
+description: SQL 또는 Python과 같은 프로그래밍 언어를 사용하여 Azure에서 SQL Server VM에 저장된 데이터를 탐색하는 방법입니다.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: da01a1a386e1ffc590f4cbbb85d9d50a180d4973
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 45b842f7ff136f2d53b7724c11141f6b9104ebd7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442933"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140118"
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Azure의 SQL Server Virtual Machine에서 데이터 탐색
 

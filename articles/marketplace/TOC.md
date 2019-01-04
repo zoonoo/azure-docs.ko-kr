@@ -16,8 +16,8 @@
 
 ### [제품 형식별 게시 가이드](./publisher-guide-by-offer-type.md)
 #### [Virtual Machines](./marketplace-virtual-machines.md)
-#### [Azure 응용 프로그램: 솔루션 템플릿](./marketplace-solution-templates.md)
-#### [Azure 응용 프로그램: 관리되는 응용 프로그램](./marketplace-managed-apps.md)
+#### [Azure 애플리케이션: 솔루션 템플릿](./marketplace-solution-templates.md)
+#### [Azure 애플리케이션: 관리되는 애플리케이션](./marketplace-managed-apps.md)
 #### [SaaS 앱](./marketplace-saas-applications-technical-publishing-guide.md) 
 #### [컨테이너](./marketplace-containers.md)
 #### [IoT Edge 모듈](./iot-edge-module.md) 
@@ -83,7 +83,7 @@
 ### [VM 제품 게시](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
 ### [기존 제품 업데이트](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md)
 
-## [Azure 응용 프로그램 제품](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
+## [Azure 애플리케이션 제품](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
 ### [필수 구성 요소](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
 ### [Azure 애플리케이션 제품 만들기](./cloud-partner-portal/azure-applications/cpp-create-offer.md)
 #### [제품 설정 탭](./cloud-partner-portal/azure-applications/cpp-offer-settings-tab.md)
@@ -108,7 +108,7 @@
 -->
 
 <!-- new for SaaS 12/05/2018 -->
-## [SaaS 응용 프로그램 제품](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
+## [SaaS 애플리케이션 제품](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
 ### [필수 구성 요소](./cloud-partner-portal/saas-app/cpp-prerequisites.md)
 ### [SaaS 애플리케이션 제품 만들기](./cloud-partner-portal/saas-app/cpp-create-offer.md)
 #### [제품 설정 탭](./cloud-partner-portal/saas-app/cpp-offer-settings-tab.md)
@@ -195,10 +195,6 @@
 #### [제품 설정 탭](./cloud-partner-portal/consulting-services/cpp-consulting-service-define-offer-settings.md)
 #### [상점 세부 정보 탭](./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md)
 ### [컨설팅 서비스 솔루션 게시](./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md) 
-
-## [게시자 프로필 관리](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
-## [사용자 관리](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
-## [GDPR 규정 준수](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
 
 ## 시험 사용
 ### [시험 사용이란?](./cloud-partner-portal-orig/what-is-test-drive.md)

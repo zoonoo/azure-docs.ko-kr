@@ -8,14 +8,14 @@ author: dharmeshkakadia
 ms.author: dharmeshkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 832fab6c4f183ddad512c5e6e4309d70938a316b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 150f920fb1371eb64181ff69fdad054f989c0845
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600026"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407023"
 ---
-# <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Azure HDInsight를 사용한 Hive 문제 해결
+# <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Hive 문제 해결
 
 Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 사항 및 해결 방법을 알아봅니다.
 
@@ -104,7 +104,7 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
 - [Hive configuration properties](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)(Hive 구성 속성)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>클러스터 중요 경로에서 Tez DAG 데이터를 분석하려면 어떻게 하나요?
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>클러스터 중요 경로에서 Apache Tez DAG 데이터를 분석하려면 어떻게 하나요?
 
 
 ### <a name="resolution-steps"></a>해결 단계:
@@ -134,9 +134,9 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
     - **SlowNodeAnalyzer**: DAG에 노드 정보를 출력합니다.
     - **SlowTaskIdentifier**: DAG에 느린 작업 정보를 출력합니다.
     - **SlowestVertexAnalyzer**: DAG에 가장 느린 꼭지점 정보를 출력합니다.
-    - **SlowNodeAnalyzer**: DAG에 분산 정보를 출력합니다.
+    - **SpillAnalyzer**: DAG에 분산 정보를 출력합니다.
     - **TaskConcurrencyAnalyzer**: DAG에 작업 동시성 정보를 출력합니다.
-    - **VertexLevelCriticalPathAnalyzer**: DAG에서 꼭짓점 수준의 중요 경로를 찾습니다.
+    - **VertexLevelCriticalPathAnalyzer**: DAG의 꼭짓점 수준에서 중요 경로를 찾습니다.
 
 
 ### <a name="additional-reading"></a>추가 참조 자료

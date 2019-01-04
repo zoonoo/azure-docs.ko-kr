@@ -1,20 +1,18 @@
 ---
-title: 서버를 사용하지 않는 데이터베이스 컴퓨팅 - Azure Functions 및 Azure Cosmos DB | Microsoft Docs
+title: 서버리스 데이터베이스 컴퓨팅 - Azure Functions 및 Azure Cosmos DB
 description: Azure Cosmos DB 및 Azure Functions를 함께 사용하여 서버를 사용하지 않는 이벤트 구동 컴퓨팅 앱을 만들 수 있는 방법을 알아봅니다.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 5787f72f2bc93c5dff05c6764639a4c46efe1a4f
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f0f0308233334e2662704e818c765c625a80019d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582788"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878334"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용하는 서버리스 데이터베이스 컴퓨팅
 
@@ -90,7 +88,7 @@ IoT 구현에서는 검사 엔진 라이트가 커넥티드 자동차에 표시�
 1. Azure Cosmos DB [그래프 데이터베이스](graph-introduction.md)를 사용하여 모든 사용자를 저장하면 Azure Cosmos DB 트리거로 새 함수를 만들 수 있습니다. 
 2. 새 사용자를 삽입할 때마다 함수가 호출된 다음 **출력 바인딩**을 사용하여 결과가 저장됩니다.
 3. 함수는 그래프 데이터베이스를 쿼리하여 새 사용자와 직접 관련된 모든 사용자를 검색하고 해당 데이터 세트를 함수에 반환합니다.
-4. 이 데이터는 Azure Cosmos DB에 저장되며, 새 사용자에게 연결된 친구를 보여 주는 프런트 엔드 응용 프로그램에서 쉽게 검색할 수 있습니다.
+4. 이 데이터는 Azure Cosmos DB에 저장되며, 새 사용자에게 연결된 친구를 보여 주는 프런트 엔드 애플리케이션에서 쉽게 검색할 수 있습니다.
 
 ### <a name="retail-use-case---multiple-functions"></a>소매 사용 사례 - 여러 함수
 

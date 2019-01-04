@@ -149,7 +149,7 @@ items:
       href: azure-ddos-best-practices.md
     - name: 경계 보안
       href: ../best-practices-network-security.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
-- name: 응용 프로그램
+- name: 애플리케이션
   items:
   - name: PaaS
     href: security-paas-deployments.md
@@ -216,9 +216,9 @@ items:
   - name: AU 보호됨
     displayName: blueprint, privacy, certifications
     items:
-    - name: IaaS 웹 응용 프로그램
+    - name: IaaS 웹 애플리케이션
       href: ./blueprints/au-protected-iaaswa-overview.md
-    - name: PaaS 웹 응용 프로그램
+    - name: PaaS 웹 애플리케이션
       href: ./blueprints/au-protected-paaswa-overview.md
   - name: FedRAMP
     displayName: blueprint, privacy, certifications
@@ -227,9 +227,9 @@ items:
       href: ./blueprints/fedramp-analytics-overview.md
     - name: 데이터 웨어하우스
       href: ./blueprints/fedramp-datawarehouse-overview.md
-    - name: IaaS 웹 응용 프로그램
+    - name: IaaS 웹 애플리케이션
       href: ./blueprints/fedramp-iaaswa-overview.md
-    - name: PaaS 웹 응용 프로그램
+    - name: PaaS 웹 애플리케이션
       href: ./blueprints/fedramp-paaswa-overview.md
   - name: FFIEC
     displayName: blueprint, privacy, certifications
@@ -238,9 +238,9 @@ items:
       href: ./blueprints/ffiec-analytics-overview.md
     - name: 데이터 웨어하우스
       href: ./blueprints/ffiec-dw-overview.md
-    - name: IaaS 웹 응용 프로그램
+    - name: IaaS 웹 애플리케이션
       href: ./blueprints/ffiec-iaaswa-overview.md
-    - name: PaaS 웹 응용 프로그램
+    - name: PaaS 웹 애플리케이션
       href: ./blueprints/ffiec-paaswa-overview.md
   - name: GDPR
     displayName: blueprint, privacy, certifications
@@ -249,9 +249,9 @@ items:
       href: ./blueprints/gdpr-analytics-overview.md
     - name: 데이터 웨어하우스
       href: ./blueprints/gdpr-datawarehouse-overview.md
-    - name: IaaS 웹 응용 프로그램
+    - name: IaaS 웹 애플리케이션
       href: ./blueprints/gdpr-iaaswa-overview.md
-    - name: PaaS 웹 응용 프로그램
+    - name: PaaS 웹 애플리케이션
       href: ./blueprints/gdpr-paaswa-overview.md
   - name: HIPAA/HITRUST
     displayName: blueprint, privacy, certifications
@@ -265,9 +265,9 @@ items:
       href: ./blueprints/nist171-analytics-overview.md
     - name: 데이터 웨어하우스
       href: ./blueprints/nist171-datawarehouse-overview.md
-    - name: IaaS 웹 응용 프로그램
+    - name: IaaS 웹 애플리케이션
       href: ./blueprints/nist171-iaaswa-overview.md
-    - name: PaaS 웹 응용 프로그램
+    - name: PaaS 웹 애플리케이션
       href: ./blueprints/nist171-paaswa-overview.md
   - name: PCI DSS
     displayName: blueprint, privacy, certifications
@@ -276,9 +276,9 @@ items:
       href: ./blueprints/pcidss-analytics-overview.md
     - name: 데이터 웨어하우스
       href: ./blueprints/pcidss-dw-overview.md
-    - name: IaaS 웹 응용 프로그램
+    - name: IaaS 웹 애플리케이션
       href: ./blueprints/pcidss-iaaswa-overview.md
-    - name: PaaS 웹 응용 프로그램
+    - name: PaaS 웹 애플리케이션
       href: ./blueprints/pcidss-paaswa-overview.md
   - name: TIC
     displayName: blueprint, privacy, certifications
@@ -292,16 +292,16 @@ items:
       href: ./blueprints/uknhs-analytics-overview.md
     - name: 데이터 웨어하우스
       href: ./blueprints/uknhs-datawarehouse-overview.md
-    - name: IaaS 웹 응용 프로그램
+    - name: IaaS 웹 애플리케이션
       href: ./blueprints/uknhs-iaaswa-overview.md
-    - name: PaaS 웹 응용 프로그램
+    - name: PaaS 웹 애플리케이션
       href: ./blueprints/uknhs-paaswa-overview.md
   - name: 영국 공식
     displayName: blueprint, privacy, certifications
     items:
-    - name: IaaS 웹 응용 프로그램
+    - name: IaaS 웹 애플리케이션
       href: ./blueprints/ukofficial-iaaswa-overview.md
-    - name: PaaS 웹 응용 프로그램
+    - name: PaaS 웹 애플리케이션
       href: ./blueprints/ukofficial-paaswa-overview.md
 - name: 백서
   href: security-white-papers.md

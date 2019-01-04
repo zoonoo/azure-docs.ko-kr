@@ -34,21 +34,21 @@ ms.locfileid: "52635070"
 
 다음은 단계에 대한 간략한 개요입니다.
 
-1. API를 나타내기 위해 Azure AD에 응용 프로그램(backend-app) 등록합니다.
-2. API를 호출해야 하는 클라이언트 응용 프로그램을 나타내기 위해 Azure AD에 다른 응용 프로그램(client-app)을 등록합니다.
+1. API를 나타내기 위해 Azure AD에 애플리케이션(backend-app) 등록합니다.
+2. API를 호출해야 하는 클라이언트 애플리케이션을 나타내기 위해 Azure AD에 다른 애플리케이션(client-app)을 등록합니다.
 3. Azure AD에서 client-app에 backend-app을 호출할 수 있도록 권한을 부여합니다.
 4. OAuth 2.0 사용자 권한 부여를 사용하도록 개발자 콘솔 구성합니다.
 5. **validate-jwt** 정책을 추가하여 들어오는 요청마다 OAuth 토큰의 유효성을 검사합니다.
 
-## <a name="register-an-application-in-azure-ad-to-represent-the-api"></a>API를 나타내기 위해 Azure AD에 응용 프로그램 등록
+## <a name="register-an-application-in-azure-ad-to-represent-the-api"></a>API를 나타내기 위해 Azure AD에 애플리케이션 등록
 
-Azure AD에서 API를 보호하려는 경우 첫 번째 단계는 API를 나타내는 응용 프로그램을 Azure AD에서 등록하는 것입니다. 
+Azure AD에서 API를 보호하려는 경우 첫 번째 단계는 API를 나타내는 애플리케이션을 Azure AD에서 등록하는 것입니다. 
 
 1. Azure AD 테넌트로 이동한 다음, **앱 등록**으로 이동합니다.
 
 2. **새 응용 프로그램 등록**을 선택합니다. 
 
-3. 응용 프로그램 이름을 지정합니다. (이 예제에서는 이름이 `backend-app`입니다.)  
+3. 애플리케이션 이름을 지정합니다. (이 예제에서는 이름이 `backend-app`입니다.)  
 
 4. **응용 프로그램 유형**으로 **웹앱/API**를 선택합니다. 
 
@@ -56,15 +56,15 @@ Azure AD에서 API를 보호하려는 경우 첫 번째 단계는 API를 나타�
 
 6. **만들기**를 선택합니다.
 
-응용 프로그램이 만들어지면 이후 단계에서 사용할 수 있도록 **응용 프로그램 ID**를 적어둡니다. 
+애플리케이션이 만들어지면 이후 단계에서 사용할 수 있도록 **애플리케이션 ID**를 적어둡니다. 
 
-## <a name="register-another-application-in-azure-ad-to-represent-a-client-application"></a>클라이언트 응용 프로그램을 나타내기 위해 Azure AD에 다른 응용 프로그램 등록
+## <a name="register-another-application-in-azure-ad-to-represent-a-client-application"></a>클라이언트 애플리케이션을 나타내기 위해 Azure AD에 다른 애플리케이션 등록
 
-API를 호출하는 모든 클라이언트 응용 프로그램을 Azure AD에서도 응용 프로그램으로 등록해야 합니다. 이 예제에서 샘플 클라이언트 응용 프로그램은 API Management 개발자 포털의 개발자 콘솔입니다. 다음은 개발자 콘솔을 나타내기 위해 Azure AD에 다른 응용 프로그램을 등록하는 방법입니다.
+API를 호출하는 모든 클라이언트 애플리케이션을 Azure AD에서도 애플리케이션으로 등록해야 합니다. 이 예제에서 샘플 클라이언트 애플리케이션은 API Management 개발자 포털의 개발자 콘솔입니다. 다음은 개발자 콘솔을 나타내기 위해 Azure AD에 다른 애플리케이션을 등록하는 방법입니다.
 
 1. **새 응용 프로그램 등록**을 선택합니다. 
 
-2. 응용 프로그램 이름을 지정합니다. (이 예제에서는 이름이 `client-app`입니다.)
+2. 애플리케이션 이름을 지정합니다. (이 예제에서는 이름이 `client-app`입니다.)
 
 3. **응용 프로그램 유형**으로 **웹앱/API**를 선택합니다.  
 
@@ -72,9 +72,9 @@ API를 호출하는 모든 클라이언트 응용 프로그램을 Azure AD에서
 
 5. **만들기**를 선택합니다.
 
-응용 프로그램이 만들어지면 이후 단계에서 사용할 수 있도록 **응용 프로그램 ID**를 적어둡니다. 
+애플리케이션이 만들어지면 이후 단계에서 사용할 수 있도록 **애플리케이션 ID**를 적어둡니다. 
 
-이제 후속 단계에서 사용하기 위해 이 응용 프로그램에 대한 클라이언트 암호를 만듭니다.
+이제 후속 단계에서 사용하기 위해 이 애플리케이션에 대한 클라이언트 암호를 만듭니다.
 
 1. **설정**을 다시 선택하고 **키**로 이동합니다.
 
@@ -84,7 +84,7 @@ API를 호출하는 모든 클라이언트 응용 프로그램을 Azure AD에서
 
 ## <a name="grant-permissions-in-azure-ad"></a>Azure AD에서 권한 부여
 
-API 및 개발자 콘솔을 나타내는 두 개의 응용 프로그램을 등록했으니 client-app가 backend-app를 호출할 수 있도록 권한을 부여해야 합니다.  
+API 및 개발자 콘솔을 나타내는 두 개의 애플리케이션을 등록했으니 client-app가 backend-app를 호출할 수 있도록 권한을 부여해야 합니다.  
 
 1. **응용 프로그램 등록**으로 이동합니다. 
 
@@ -103,7 +103,7 @@ API 및 개발자 콘솔을 나타내는 두 개의 응용 프로그램을 등�
 
 ## <a name="enable-oauth-20-user-authorization-in-the-developer-console"></a>개발자 포털에서 OAuth 2.0 사용자 권한 부여를 사용하도록 설정
 
-이제 Azure AD에서 응용 프로그램을 만들었으며 client-app에서 backend-app을 호출하도록 허용하는 적절한 권한을 부여했습니다. 
+이제 Azure AD에서 애플리케이션을 만들었으며 client-app에서 backend-app을 호출하도록 허용하는 적절한 권한을 부여했습니다. 
 
 이 예제에서는 개발자 콘솔이 client-app입니다. 아래 단계에서는 개발자 콘솔에서 OAuth 2.0 사용자 권한 부여를 사용하도록 설정하는 방법을 설명합니다. 
 
@@ -124,7 +124,7 @@ API 및 개발자 콘솔을 나타내는 두 개의 응용 프로그램을 등�
 
 7. **OAuth 2.0 권한 부여 엔드포인트**를 복사하여 **권한 부여 엔드포인트 URL** 텍스트 상자에 붙여 넣습니다.
 
-8. **OAuth 2.0 토큰 엔드포인트**를 복사하여 **토큰 엔드포인트 URL** 텍스트 상자에 붙여 넣습니다. 토큰 엔드포인트에 붙여넣는 것 외에도 **resource**라는 본문 매개 변수를 추가합니다. 이 매개 변수의 값에는 백 엔드 앱의 **응용 프로그램 ID**를 사용합니다.
+8. **OAuth 2.0 토큰 엔드포인트**를 복사하여 **토큰 엔드포인트 URL** 텍스트 상자에 붙여 넣습니다. 토큰 엔드포인트에 붙여넣는 것 외에도 **resource**라는 본문 매개 변수를 추가합니다. 이 매개 변수의 값에는 백 엔드 앱의 **애플리케이션 ID**를 사용합니다.
 
 9. 다음으로 클라이언트 자격 증명을 지정합니다. 이러한 자격 증명은 client-app에 대한 자격 증명입니다.
 
@@ -195,9 +195,9 @@ API Management에서 [Validate JWT](api-management-access-restriction-policies.m
 </validate-jwt>
 ```
 
-## <a name="build-an-application-to-call-the-api"></a>API를 호출하는 응용 프로그램 빌드
+## <a name="build-an-application-to-call-the-api"></a>API를 호출하는 애플리케이션 빌드
 
-이 가이드에서는 OAuth 2.0으로 보호되는 `Echo API`를 호출하기 위해 API Management에서 개발자 콘솔을 샘플 클라이언트 응용 프로그램으로 사용했습니다. OAuth 2.0을 구현하고 응용 프로그램을 빌드하는 방법을 자세히 알려보려면 [Azure Active Directory 코드 샘플](../active-directory/develop/sample-v1-code.md)을 참조하세요.
+이 가이드에서는 OAuth 2.0으로 보호되는 `Echo API`를 호출하기 위해 API Management에서 개발자 콘솔을 샘플 클라이언트 애플리케이션으로 사용했습니다. OAuth 2.0을 구현하고 애플리케이션을 빌드하는 방법을 자세히 알려보려면 [Azure Active Directory 코드 샘플](../active-directory/develop/sample-v1-code.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Active Directory 및 OAuth2.0](../active-directory/develop/authentication-scenarios.md)에 대해 자세히 알아봅니다.

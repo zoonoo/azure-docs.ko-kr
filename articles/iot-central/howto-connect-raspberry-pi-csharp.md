@@ -1,5 +1,5 @@
 ---
-title: Raspberry Pi를 Azure IoT Central 응용 프로그램에 연결(C#) | Microsoft Docs
+title: Raspberry Pi를 Azure IoT Central 애플리케이션에 연결(C#) | Microsoft Docs
 description: 디바이스 개발자로서 C#을 사용하여 Raspberry Pi를 Azure IoT Central 응용 프로그램에 연결하는 방법을 알아봅니다.
 author: viv-liu
 ms.author: viviali
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/02/2018
 ms.locfileid: "50956726"
 ---
-# <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Azure IoT Central 응용 프로그램에 Raspberry Pi 연결(C#)
+# <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Azure IoT Central 애플리케이션에 Raspberry Pi 연결(C#)
 
 [!INCLUDE [howto-raspberrypi-selector](../../includes/iot-central-howto-raspberrypi-selector.md)]
 
@@ -57,7 +57,7 @@ ms.locfileid: "50956726"
 
 Azure IoT Central 응용 프로그램에서 **Raspberry Pi** 디바이스 템플릿으로 실제 디바이스를 추가하고 디바이스 연결 문자열을 기록해 둡니다. 자세한 내용은 [Azure IoT Central 애플리케이션에 실제 디바이스 추가](tutorial-add-device.md)를 참조하세요.
 
-### <a name="create-your-net-application"></a>.NET 응용 프로그램 만들기
+### <a name="create-your-net-application"></a>.NET 애플리케이션 만들기
 
 데스크톱 컴퓨터에서 디바이스 응용 프로그램을 만들고 테스트합니다.
 
@@ -270,7 +270,7 @@ Visual Studio Code를 사용하여 다음 단계를 완료할 수 있습니다. 
     > [!NOTE]
     > 그 다음 단계에서 `{your device connection string}` 자리 표시자를 업데이트합니다.
 
-## <a name="run-your-net-application"></a>.NET 응용 프로그램 실행
+## <a name="run-your-net-application"></a>.NET 애플리케이션 실행
 
 디바이스가 Azure IoT Central에 인증할 디바이스 관련 연결 문자열을 코드에 추가합니다. Azure IoT Central 응용 프로그램에 실제 디바이스를 추가할 때 이 연결 문자열을 기록해 두었습니다.
 
@@ -311,7 +311,7 @@ Visual Studio Code를 사용하여 다음 단계를 완료할 수 있습니다. 
 
     ![프로그램 시작](./media/howto-connect-raspberry-pi-csharp/device_begin.png)
 
-1. Azure IoT Central 응용 프로그램에서, Raspberry Pi에서 실행되는 코드가 응용 프로그램과 상호 작용하는 방식을 살펴볼 수 있습니다.
+1. Azure IoT Central 애플리케이션에서, Raspberry Pi에서 실행되는 코드가 애플리케이션과 상호 작용하는 방식을 살펴볼 수 있습니다.
 
     * 실제 디바이스의 **측정값** 페이지에서 원격 분석 데이터를 볼 수 있습니다.
     * **속성** 페이지에서, 보고된 **다이 번호** 속성 값을 볼 수 있습니다.
@@ -368,6 +368,6 @@ Visual Studio Code를 사용하여 다음 단계를 완료할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-Raspberry Pi를 Azure IoT Central 응용 프로그램에 연결하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
+Raspberry Pi를 Azure IoT Central 애플리케이션에 연결하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
 
 * [Azure IoT Central에 일반 Node.js 클라이언트 응용 프로그램 연결](howto-connect-nodejs.md)

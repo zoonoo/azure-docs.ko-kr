@@ -12,7 +12,7 @@
 ### <a name="migrate-offerscloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portalmd"></a>[제품 마이그레이션](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
 ### <a name="automate-offer-publishingcloud-partner-portal-automate-offer-publishingmd"></a>[제품 게시 자동화](./cloud-partner-portal-automate-offer-publishing.md)
 
-## <a name="azure-applications"></a>Azure 응용 프로그램
+## <a name="azure-applications"></a>Azure 애플리케이션
 ### <a name="dev-center-account-registrationcloud-partner-portal-dev-center-accounts-registrationmd"></a>[개발자 센터 계정 등록](./cloud-partner-portal-dev-center-accounts-registration.md)
 ### <a name="author-managed-applicationcloud-partner-portal-managed-app-publishmd"></a>[관리되는 응용 프로그램 작성](./cloud-partner-portal-managed-app-publish.md)
 ### <a name="author-solution-templatecloud-partner-portal-solution-template-offer-publishmd"></a>[솔루션 템플릿 작성](./cloud-partner-portal-solution-template-offer-publish.md)
@@ -23,7 +23,7 @@
 ### <a name="delete-offercloud-partner-portal-managed-app-offer-deletemd"></a>[제품 삭제](./cloud-partner-portal-managed-app-offer-delete.md)
 ### <a name="migrate-offerscloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portalmd"></a>[제품 마이그레이션](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
 
-## <a name="saas-applications"></a>SaaS 응용 프로그램
+## <a name="saas-applications"></a>SaaS 애플리케이션
 ### <a name="saas-apps-technical-publishing-guidecloud-partner-portal-saas-offers-tech-publishing-guidemd"></a>[SaaS 앱 게시 가이드](./cloud-partner-portal-saas-offers-tech-publishing-guide.md)
 ### <a name="saas-sell-through-azurecloud-partner-portal-saas-offer-subscriptionsmd"></a>[Azure 통한 SaaS 판매](./cloud-partner-portal-saas-offer-subscriptions.md)
 ### <a name="saas-apiscloud-partner-portal-saas-subscription-apismd"></a>[SaaS API](./cloud-partner-portal-saas-subscription-apis.md)

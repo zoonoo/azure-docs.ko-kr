@@ -81,7 +81,7 @@ HDInsight에서 ML 서비스 클러스터를 사용하여 데이터 모델링을
 
 ### <a name="long-delays-when-consuming-web-service-on-apache-spark"></a>Apache Spark에서 웹 서비스를 사용할 때 긴 지연 발생
 
-Apache Spark 컴퓨팅 컨텍스트에서 mrsdeploy 함수로 생성된 웹 서비스를 이용하려고 할 때 긴 지연이 발생하면 누락된 폴더를 추가해야 할 수도 있습니다. Spark 응용 프로그램은 mrsdeploy 함수를 사용하여 웹 서비스에서 호출될 때마다 '*rserve2*'라는 사용자에게 속합니다. 이 문제를 해결하려면
+Apache Spark 컴퓨팅 컨텍스트에서 mrsdeploy 함수로 생성된 웹 서비스를 이용하려고 할 때 긴 지연이 발생하면 누락된 폴더를 추가해야 할 수도 있습니다. Spark 애플리케이션은 mrsdeploy 함수를 사용하여 웹 서비스에서 호출될 때마다 '*rserve2*'라는 사용자에게 속합니다. 이 문제를 해결하려면
 
     # Create these required folders for user 'rserve2' in local and hdfs:
 

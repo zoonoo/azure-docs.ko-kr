@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs 캡처 연습 | Microsoft Docs
+title: Python 앱에서 캡처한 데이터 읽기 - Azure Event Hubs | Microsoft Docs
 description: Azure Python SDK를 통해 Event Hubs 캡처 기능을 사용하는 방법을 보여 주는 샘플입니다.
 services: event-hubs
 documentationcenter: ''
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 76102e1238346cbbb8f5159d2ffcd94c788c16d6
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 72efe156920bb78631ea71a0f47f7f5fe19c7e23
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140562"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133658"
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>Event Hubs 캡처 연습: Python
 
@@ -38,10 +39,9 @@ ms.locfileid: "42140562"
 ## <a name="prerequisites"></a>필수 조건
 
 - Python 2.7.x
-- Azure 구독
-- 활성 [Event Hubs 네임스페이스 및 Event Hub](event-hubs-create.md)
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
+- Azure 구독. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
+- 활성 [Event Hubs 네임스페이스 및 이벤트 허브](event-hubs-create.md) 
+- 다음의 지침을 따라 이벤트 허브에 대해 **캡처** 기능을 활성화합니다. [Azure Portal을 사용하여 Event Hubs 캡처를 사용하도록 설정](event-hubs-capture-enable-through-portal.md)
 
 ## <a name="create-an-azure-blob-storage-account"></a>Azure Blob 저장소 계정 만들기
 1. [Azure Portal][Azure portal]에 로그인합니다.

@@ -31,16 +31,16 @@ ms.locfileid: "50248730"
 Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 기업에서는 주요 토픽에 대한 트윗 볼륨 및 감정에 대한 실시간 분석이 필요합니다. 즉, 이 소셜 미디어 피드를 기반으로 하는 감정 분석 엔진이 필요합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-이 자습서에서는 Twitter에 연결하고 특정 해시태그(설정 가능)가 있는 트윗을 찾는 클라이언트 응용 프로그램을 사용합니다. 응용 프로그램을 실행하고 Azure Streaming Analytics를 사용하여 트윗을 분석하려면 다음이 필요합니다.
+이 자습서에서는 Twitter에 연결하고 특정 해시태그(설정 가능)가 있는 트윗을 찾는 클라이언트 애플리케이션을 사용합니다. 애플리케이션을 실행하고 Azure Streaming Analytics를 사용하여 트윗을 분석하려면 다음이 필요합니다.
 
 * Azure 구독
 * Twitter 계정 
-* Twitter 응용 프로그램 및 해당 응용 프로그램에 대한 [OAuth 액세스 토큰](https://dev.twitter.com/oauth/overview/application-owner-access-tokens). 나중에 Twitter 응용 프로그램을 만드는 방법에 대한 대략적인 지침을 제공합니다.
-* Twitter 피드를 읽어 오는 TwitterWPFClient 응용 프로그램. 이 응용 프로그램을 가져오려면 GitHub에서 [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) 파일을 다운로드한 후 컴퓨터의 폴더로 패키지의 압축을 풉니다. 소스 코드를 확인하고 디버거에서 응용 프로그램을 실행하려면 [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator)에서 소스 코드를 가져올 수 있습니다. 
+* Twitter 애플리케이션 및 해당 애플리케이션에 대한 [OAuth 액세스 토큰](https://dev.twitter.com/oauth/overview/application-owner-access-tokens). 나중에 Twitter 애플리케이션을 만드는 방법에 대한 대략적인 지침을 제공합니다.
+* Twitter 피드를 읽어 오는 TwitterWPFClient 애플리케이션. 이 애플리케이션을 가져오려면 GitHub에서 [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) 파일을 다운로드한 후 컴퓨터의 폴더로 패키지의 압축을 풉니다. 소스 코드를 확인하고 디버거에서 애플리케이션을 실행하려면 [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator)에서 소스 코드를 가져올 수 있습니다. 
 
 ## <a name="create-an-event-hub-for-streaming-analytics-input"></a>Streaming Analytics 입력을 위한 이벤트 허브 만들기
 
-응용 프로그램 예제에서 이벤트를 생성하여 Azure Event Hub에 푸시합니다. Azure Event Hubs는 Stream Analytics을 위해 이벤트를 수집하는 기본 방법입니다. 자세한 내용은 [Azure Event Hubs 설명서](../event-hubs/event-hubs-what-is-event-hubs.md)를 참조하세요.
+애플리케이션 예제에서 이벤트를 생성하여 Azure Event Hub에 푸시합니다. Azure Event Hubs는 Stream Analytics을 위해 이벤트를 수집하는 기본 방법입니다. 자세한 내용은 [Azure Event Hubs 설명서](../event-hubs/event-hubs-what-is-event-hubs.md)를 참조하세요.
 
 
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>이벤트 허브 네임스페이스 및 이벤트 허브 만들기
@@ -106,38 +106,38 @@ Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 
         Endpoint=sb://YOURNAME-socialtwitter-eh-ns.servicebus.windows.net/;SharedAccessKeyName=socialtwitter-access;SharedAccessKey=Gw2NFZw6r...FxKbXaC2op6a0ZsPkI=
 
 
-## <a name="configure-and-start-the-twitter-client-application"></a>Twitter 클라이언트 응용 프로그램 구성 및 시작
-클라이언트 응용 프로그램이 Twitter에서 트윗 이벤트를 직접 가져옵니다. 이렇게 하려면 Twitter Streaming API를 호출할 수 있는 권한이 필요합니다. 해당 사용 권한을 구성하려면 고유한 자격 증명(예: OAuth 토큰)을 생성하는 응용 프로그램을 Twitter에서 만듭니다. 그런 다음 API를 호출할 때 이러한 자격 증명을 사용하도록 클라이언트 응용 프로그램을 구성할 수 있습니다. 
+## <a name="configure-and-start-the-twitter-client-application"></a>Twitter 클라이언트 애플리케이션 구성 및 시작
+클라이언트 애플리케이션이 Twitter에서 트윗 이벤트를 직접 가져옵니다. 이렇게 하려면 Twitter Streaming API를 호출할 수 있는 권한이 필요합니다. 해당 사용 권한을 구성하려면 고유한 자격 증명(예: OAuth 토큰)을 생성하는 애플리케이션을 Twitter에서 만듭니다. 그런 다음 API를 호출할 때 이러한 자격 증명을 사용하도록 클라이언트 애플리케이션을 구성할 수 있습니다. 
 
-### <a name="create-a-twitter-application"></a>Twitter 응용 프로그램 만들기
-이 자습서에 사용할 수 있는 Twitter 응용 프로그램이 아직 없는 경우 만들 수 있습니다. Twitter 계정이 이미 있어야 합니다.
+### <a name="create-a-twitter-application"></a>Twitter 애플리케이션 만들기
+이 자습서에 사용할 수 있는 Twitter 애플리케이션이 아직 없는 경우 만들 수 있습니다. Twitter 계정이 이미 있어야 합니다.
 
 > [!NOTE]
-> Twitter에서 응용 프로그램을 만들고 키, 비밀 및 토큰을 가져오는 정확한 프로세스는 변경될 수 있습니다. 이러한 지침이 Twitter 사이트에 표시되는 내용과 일치하지 않으면 Twitter 개발자 설명서를 참조하세요.
+> Twitter에서 애플리케이션을 만들고 키, 비밀 및 토큰을 가져오는 정확한 프로세스는 변경될 수 있습니다. 이러한 지침이 Twitter 사이트에 표시되는 내용과 일치하지 않으면 Twitter 개발자 설명서를 참조하세요.
 
 1. [Twitter 응용 프로그램 관리 페이지](https://apps.twitter.com/)로 이동합니다. 
 
-2. 새 응용 프로그램을 만듭니다. 
+2. 새 애플리케이션을 만듭니다. 
 
     * 웹 사이트 URL에 대한 유효한 URL을 지정합니다. 라이브 사이트일 필요는 없습니다. (`localhost`만 지정할 수는 없음)
-    * 콜백 필드는 비워 둡니다. 이 자습서에 사용할 클라이언트 응용 프로그램에는 콜백이 필요하지 않습니다.
+    * 콜백 필드는 비워 둡니다. 이 자습서에 사용할 클라이언트 애플리케이션에는 콜백이 필요하지 않습니다.
 
-    ![Twitter에서 응용 프로그램 만들기](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
+    ![Twitter에서 애플리케이션 만들기](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
 
-3. 필요에 따라 응용 프로그램 권한을 읽기 전용으로 변경합니다.
+3. 필요에 따라 애플리케이션 권한을 읽기 전용으로 변경합니다.
 
-4. 응용 프로그램이 만들어지면 **키 및 액세스 토큰** 페이지로 이동합니다.
+4. 애플리케이션이 만들어지면 **키 및 액세스 토큰** 페이지로 이동합니다.
 
 5. 액세스 토큰 및 액세스 토큰 암호를 생성하는 단추를 클릭합니다.
 
 다음 절차에 필요하기 때문에 이 정보를 보관해 두세요.
 
 >[!NOTE]
->Twitter 응용 프로그램에 대한 키 및 비밀은 Twitter 계정에 대한 액세스를 제공합니다. 이 정보는 Twitter 암호처럼 중요하게 취급합니다. 예를 들어 이 정보를 다른 사람에게 제공하는 응용 프로그램에 포함하지 마세요. 
+>Twitter 애플리케이션에 대한 키 및 비밀은 Twitter 계정에 대한 액세스를 제공합니다. 이 정보는 Twitter 암호처럼 중요하게 취급합니다. 예를 들어 이 정보를 다른 사람에게 제공하는 애플리케이션에 포함하지 마세요. 
 
 
-### <a name="configure-the-client-application"></a>클라이언트 응용 프로그램 구성
-Microsoft에서는 특정 항목 집합에 대한 트윗 이벤트를 수집하기 위해 [Twitter의 스트리밍 API](https://dev.twitter.com/streaming/overview)를 사용하여 Twitter 데이터에 연결하는 클라이언트 응용 프로그램을 만들었습니다. 응용 프로그램에서는 각 트윗에 다음 감정을 할당하는 [Sentiment140](http://help.sentiment140.com/) 오픈 소스 도구를 사용합니다.
+### <a name="configure-the-client-application"></a>클라이언트 애플리케이션 구성
+Microsoft에서는 특정 항목 집합에 대한 트윗 이벤트를 수집하기 위해 [Twitter의 스트리밍 API](https://dev.twitter.com/streaming/overview)를 사용하여 Twitter 데이터에 연결하는 클라이언트 애플리케이션을 만들었습니다. 애플리케이션에서는 각 트윗에 다음 감정을 할당하는 [Sentiment140](http://help.sentiment140.com/) 오픈 소스 도구를 사용합니다.
 
 * 0 = 부정적
 * 2 = 중립
@@ -145,16 +145,16 @@ Microsoft에서는 특정 항목 집합에 대한 트윗 이벤트를 수집하�
 
 트윗 이벤트에 감정 값이 할당된 후에는 이전에 만든 이벤트 허브에 푸시됩니다.
 
-응용 프로그램이 실행되기 전에 Twitter 키 및 이벤트 허브 연결 문자열과 같은 사용자의 특정 정보가 필요합니다. 다음과 같은 방법으로 구성 정보를 제공할 수 있습니다.
+애플리케이션이 실행되기 전에 Twitter 키 및 이벤트 허브 연결 문자열과 같은 사용자의 특정 정보가 필요합니다. 다음과 같은 방법으로 구성 정보를 제공할 수 있습니다.
 
-* 응용 프로그램을 실행한 다음 응용 프로그램의 UI를 사용하여 키, 비밀 및 연결 문자열을 입력합니다. 이 작업을 수행하는 경우 현재 세션에 대한 구성 정보가 사용되지만 저장되지는 않습니다.
-* 응용 프로그램의 .config 파일을 편집하고 여기서 값을 설정합니다. 이 방법은 구성 정보를 유지하지만 잠재적으로 중요한 정보는 컴퓨터에 일반 텍스트에 저장됨을 의미합니다.
+* 애플리케이션을 실행한 다음 애플리케이션의 UI를 사용하여 키, 비밀 및 연결 문자열을 입력합니다. 이 작업을 수행하는 경우 현재 세션에 대한 구성 정보가 사용되지만 저장되지는 않습니다.
+* 애플리케이션의 .config 파일을 편집하고 여기서 값을 설정합니다. 이 방법은 구성 정보를 유지하지만 잠재적으로 중요한 정보는 컴퓨터에 일반 텍스트에 저장됨을 의미합니다.
 
 다음 절차에서는 두 가지 방법을 모두 설명합니다. 
 
-1. 필수 조건에 나와 있는 것처럼 [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) 응용 프로그램을 다운로드하여 압축을 해제해야 합니다.
+1. 필수 조건에 나와 있는 것처럼 [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) 애플리케이션을 다운로드하여 압축을 해제해야 합니다.
 
-2. 실행시간(현재 세션에 대해서만)에 값을 설정하려면 `TwitterWPFClient.exe` 응용 프로그램을 실행합니다. 응용 프로그램에 메시지가 표시되면 다음 값을 입력합니다.
+2. 실행시간(현재 세션에 대해서만)에 값을 설정하려면 `TwitterWPFClient.exe` 애플리케이션을 실행합니다. 애플리케이션에 메시지가 표시되면 다음 값을 입력합니다.
 
     * Twitter 사용자 키(API 키)
     * Twitter 사용자 암호(API 암호)
@@ -163,7 +163,7 @@ Microsoft에서는 특정 항목 집합에 대한 트윗 이벤트를 수집하�
     * 이전에 저장한 연결 문자열 정보. `EntityPath` 키-값 쌍을 제거한 연결 문자열을 사용해야 합니다.
     * 감정을 확인하려는 Twitter 키워드입니다.
 
-   ![TwitterWpfClient 응용 프로그램 실행 중, 가려진 설정 표시](./media/stream-analytics-twitter-sentiment-analysis-trends/wpfclientlines.png)
+   ![TwitterWpfClient 애플리케이션 실행 중, 가려진 설정 표시](./media/stream-analytics-twitter-sentiment-analysis-trends/wpfclientlines.png)
 
 3. 값을 영구적으로 설정하려면 텍스트 편집기를 사용하여 TwitterWpfClient.exe.config 파일을 엽니다. 그런 다음 `<appSettings>` 요소에서 다음을 수행합니다.
 
@@ -179,13 +179,13 @@ Microsoft에서는 특정 항목 집합에 대한 트윗 이벤트를 수집하�
 
     `<appSettings>` 섹션은 다음 예제와 유사합니다. (이해를 돕고 보안을 위해 일부 줄을 래핑하고 일부 문자는 제거했습니다.)
 
-    ![텍스트 편집기에서 TwitterWpfClient 응용 프로그램 구성 파일, Twitter 키 및 비밀, 이벤트 허브 연결 문자열 정보 표시](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
+    ![텍스트 편집기에서 TwitterWpfClient 애플리케이션 구성 파일, Twitter 키 및 비밀, 이벤트 허브 연결 문자열 정보 표시](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
  
-4. 응용 프로그램을 아직 시작하지 않은 경우 지금 TwitterWpfClient.exe를 실행합니다. 
+4. 애플리케이션을 아직 시작하지 않은 경우 지금 TwitterWpfClient.exe를 실행합니다. 
 
 5. 녹색 시작 단추를 선택하여 소셜 정서를 수집합니다. **CreatedAt**, **Topic** 및 **SentimentScore** 값이 이벤트 허브로 전송 중인 트윗 이벤트가 표시됩니다.
 
-    ![TwitterWpfClient 응용 프로그램 실행 중, 트윗 목록 표시](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-app-listing.png)
+    ![TwitterWpfClient 애플리케이션 실행 중, 트윗 목록 표시](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-app-listing.png)
 
     >[!NOTE]
     >오류가 표시되고 창 하단에 트윗 스트림이 표시되지 않으면 키 및 비밀을 두 번 클릭합니다. 또한 연결 문자열을 확인합니다(`EntityPath` 키 및 값이 포함되지 않는지 확인).
@@ -237,7 +237,7 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 
 2. **개요** 블레이드에서 쿼리 상자의 오른쪽 위에 있는 **쿼리 편집**을 클릭합니다. Azure에서는 작업에 대해 구성된 입력 및 출력을 나열하고 데이터가 출력으로 전송됨에 따라 사용자가 입력 스트림을 변환하는 쿼리를 작성할 수 있도록 합니다.
 
-3. TwitterWpfClient 응용 프로그램이 실행되고 있는지 확인합니다. 
+3. TwitterWpfClient 애플리케이션이 실행되고 있는지 확인합니다. 
 
 3. **쿼리** 블레이드에서 `TwitterStream` 입력 옆에 있는 점을 클릭한 후 **입력의 샘플 데이터**를 선택합니다.
 
@@ -263,7 +263,7 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 
     입력에 대한 별칭으로 `TwitterStream`을 사용하지 않은 경우 쿼리에서 `TwitterStream`에 대한 별칭을 대체합니다.  
 
-    이 쿼리에서는 **TIMESTAMP BY** 키워드를 사용하여 임시 계산에서 사용할 페이로드에 타임스탬프 필드를 지정합니다. 이 필드를 지정하지 않으면 각 이벤트가 이벤트 허브에 도착한 시간을 사용하여 창 작업이 수행됩니다. 자세한 내용은 [Stream Analytics 쿼리 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)에서 “도착 시간과 응용 프로그램 시간” 섹션을 참조하세요.
+    이 쿼리에서는 **TIMESTAMP BY** 키워드를 사용하여 임시 계산에서 사용할 페이로드에 타임스탬프 필드를 지정합니다. 이 필드를 지정하지 않으면 각 이벤트가 이벤트 허브에 도착한 시간을 사용하여 창 작업이 수행됩니다. 자세한 내용은 [Stream Analytics 쿼리 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)에서 “도착 시간과 애플리케이션 시간” 섹션을 참조하세요.
 
     또한 이 쿼리는 **System.Timestamp** 속성을 사용하여 각 창 끝부분의 타임스탬프에도 액세스합니다.
 
@@ -289,7 +289,7 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 
 이제 이벤트 스트림, 이벤트를 수집할 이벤트 허브 입력 및 스트림 변환을 수행할 쿼리를 정의했습니다. 마지막 단계는 작업에 대한 출력 싱크를 정의하는 것입니다.  
 
-이 자습서에서는 작업 쿼리에서 집계된 트윗 이벤트를 Azure Blob Storage에 기록합니다.  또한 특정 응용 프로그램 요구 사항에 따라 Azure SQL Database, Azure Table Storage, Event Hubs 또는 Power BI에 결과를 푸시할 수도 있습니다.
+이 자습서에서는 작업 쿼리에서 집계된 트윗 이벤트를 Azure Blob Storage에 기록합니다.  또한 특정 애플리케이션 요구 사항에 따라 Azure SQL Database, Azure Table Storage, Event Hubs 또는 Power BI에 결과를 푸시할 수도 있습니다.
 
 ## <a name="specify-the-job-output"></a>작업 출력 지정
 
@@ -320,7 +320,7 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 
 작업 입력, 쿼리 및 출력이 지정됩니다. Stream Analytics 작업을 시작할 준비가 되었습니다.
 
-1. TwitterWpfClient 응용 프로그램이 실행되고 있는지 확인합니다. 
+1. TwitterWpfClient 애플리케이션이 실행되고 있는지 확인합니다. 
 
 2. 작업 블레이드에서 **시작**을 클릭합니다.
 
@@ -338,7 +338,7 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 
 작업이 실시간 Twitter 스트림을 실행 및 처리하면 감정 분석에 대한 출력을 볼 수 있습니다.
 
-[Azure Storage 탐색기](https://storageexplorer.com/) 또는 [Azure 탐색기](http://www.cerebrata.com/products/azure-explorer/introduction)와 같은 도구를 사용하여 작업 출력을 실시간으로 볼 수 있습니다. 여기에서 [Power BI](https://powerbi.com/)를 사용하여 다음 스크린샷과 같은 사용자 지정된 대시보드를 포함하도록 응용 프로그램을 확장할 수 있습니다.
+[Azure Storage 탐색기](https://storageexplorer.com/) 또는 [Azure 탐색기](http://www.cerebrata.com/products/azure-explorer/introduction)와 같은 도구를 사용하여 작업 출력을 실시간으로 볼 수 있습니다. 여기에서 [Power BI](https://powerbi.com/)를 사용하여 다음 스크린샷과 같은 사용자 지정된 대시보드를 포함하도록 애플리케이션을 확장할 수 있습니다.
 
 ![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 
@@ -364,7 +364,7 @@ Twitter 감정을 이해하는 데 사용할 수 있는 다른 쿼리는 [슬라
 
 4. **저장**을 클릭합니다.
 
-5. TwitterWpfClient 응용 프로그램이 실행되고 있는지 확인합니다. 
+5. TwitterWpfClient 애플리케이션이 실행되고 있는지 확인합니다. 
 
 6. **시작**을 클릭하여 새 쿼리로 작업을 다시 시작합니다.
 

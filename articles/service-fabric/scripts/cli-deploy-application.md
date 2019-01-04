@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric CLI(sfctl) 스크립트 배포 샘플
-description: Azure Service Fabric CLI를 사용하여 Azure Service Fabric 클러스터에 응용 프로그램 배포
+description: Azure Service Fabric CLI를 사용하여 Azure Service Fabric 클러스터에 애플리케이션 배포
 services: service-fabric
 documentationcenter: ''
 author: TylerMSFT
@@ -22,9 +22,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/17/2018
 ms.locfileid: "39069508"
 ---
-# <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 응용 프로그램 배포
+# <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 애플리케이션 배포
 
-이 샘플 스크립트는 클러스터 이미지 저장소에 응용 프로그램 패키지를 복사하고, 응용 프로그램 유형을 클러스터에 등록하고, 해당 응용 프로그램 유형에서 응용 프로그램 인스턴스를 만듭니다. 이때 기본 서비스도 만들어집니다.
+이 샘플 스크립트는 클러스터 이미지 저장소에 애플리케이션 패키지를 복사하고, 애플리케이션 유형을 클러스터에 등록하고, 해당 애플리케이션 유형에서 애플리케이션 인스턴스를 만듭니다. 이때 기본 서비스도 만들어집니다.
 
 필요한 경우 [Service Fabric CLI](../service-fabric-cli.md)를 설치합니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "39069508"
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
-완료했으면 [제거](cli-remove-application.md) 스크립트를 사용하여 응용 프로그램을 제거할 수 있습니다. 제거 스크립트는 응용 프로그램 인스턴스를 삭제하고 응용 프로그램 형식을 등록 취소하며 이미지 저장소에서 응용 프로그램 패키지를 삭제합니다.
+완료했으면 [제거](cli-remove-application.md) 스크립트를 사용하여 애플리케이션을 제거할 수 있습니다. 제거 스크립트는 애플리케이션 인스턴스를 삭제하고 애플리케이션 형식을 등록 취소하며 이미지 저장소에서 애플리케이션 패키지를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,0 +1,107 @@
+---
+title: Media Encoder Standard 형식 및 코덱 - Azure
+description: 이 항목에서는 미디어 인코더 표준 형식 및 코덱에 대한 개요를 제공합니다.
+services: media-services
+documentationcenter: ''
+author: juliako
+manager: femila
+editor: ''
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/12/2018
+ms.author: juliako;anilmur
+ms.openlocfilehash: 22603de40e2ebafb1354377898f5a0432e4f6129
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53388341"
+---
+# <a name="media-encoder-standard-formats-and-codecs"></a>미디어 인코더 표준 형식 및 코덱
+
+이 문서에는 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)에서 사용할 수 있는 가장 일반적인 가져오기 및 내보내기 파일 형식 목록이 포함되어 있습니다. **StandardEncoderPreset**을 사용하여 사용자 지정 미리 설정을 만드는 방법에 대한 자세한 내용은 [사용자 지정 미리 설정을 사용하여 변환 만들기](customize-encoder-presets-how-to.md)를 참조하세요.
+
+## <a name="input-containerfile-formats"></a>입력 컨테이너/파일 형식
+
+| 파일 형식(파일 확장명) | 지원됨 |
+| --- | --- | --- | --- |
+| FLV(H.264 및 AAC 코덱 포함)(.flv) |yes |
+| MXF(.mxf) |yes |
+| GXF(.gxf) |yes |
+| MPEG2-PS, MPEG2-TS, 3GP(.ts, .ps, .3gp, .3gpp, .mpg) |yes |
+| WMV(Windows Media Video)/ASF(.wmv, .asf) |yes |
+| AVI(압축되지 않은 8비트/10비트)(.avi) |yes |
+| MP4(.mp4, .m4a, .m4v)/ISMV(.isma, .ismv) |yes |
+| [DVR-MS(Microsoft Digital Video Recording)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |yes |
+| Matroska/WebM(.mkv) |yes |
+| WAVE/WAV(.wav) |yes |
+| QuickTime(.mov) |yes |
+
+> [!NOTE]
+> 위 내용은 일반적으로 나오는 파일 확장명 목록입니다. 미디어 인코더 표준은 여러 다른 확장명도 지원합니다(예: .m2ts, .mpeg2video, .qt). 파일을 인코딩하려는 동안 지원되지 않는 형식에 대한 오류 메시지가 표시되면 [여기](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/)에서 피드백을 제공하세요.
+> 
+> 
+
+### <a name="audio-formats-in-input-containers"></a>입력 컨테이너의 오디오 형식
+미디어 인코더 표준은 입력 컨테이너에서 다음과 같은 오디오 형식의 전달을 지원합니다.
+
+* 인터리브 스테레오 오디오 또는 5.1 샘플을 포함하는 오디오 트랙이 있는 MXF, GXF 및 QuickTime 파일
+
+또는
+
+* 별도의 PCM 트랙으로 오디오가 전달되지만 파일 메타데이터에서 스테레오 또는 5.1에 대한 채널 매핑을 추론할 수 MXF, GXF 및 QuickTime 파일
+
+## <a name="input-video-codecs"></a>입력 비디오 코덱
+| 입력 비디오 코덱 | 지원됨 |
+| --- | --- | --- | --- |
+| AVC 8비트/10비트, 최대 4:2:2, AVCIntra 포함 |8비트 4:2:0 및 4:2:2 |
+| Avid DNxHD(MXF) |yes |
+| DVCPro/DVCProHD(MXF) |yes |
+| DV(디지털 비디오)(AVI 파일) |yes |
+| JPEG 2000 |yes |
+| MPEG-2(최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs® 및 D10과 같은 변형 포함) |최대 422 프로필 |
+| MPEG-1 |yes |
+| VC-1/WMV9 |yes |
+| Canopus HQ/HQX |아니요 |
+| Mpeg-4 2부 |yes |
+| [Theora](https://en.wikipedia.org/wiki/Theora) |yes |
+| 압축되지 않은 YUV420 또는 mezzanine |yes |
+| Apple ProRes 422 |yes |
+| Apple ProRes 422 LT |yes |
+| Apple ProRes 422 HQ |yes |
+| Apple ProRes Proxy |yes |
+| Apple ProRes 4444 |yes |
+| Apple ProRes 4444 XQ |yes |
+| HEVC/H.265| 기본 프로필|
+
+## <a name="input-audio-codecs"></a>입력 오디오 코덱
+| 입력 오디오 코덱 | 지원됨 |
+| --- | --- | --- | --- |
+| AAC(AAC-LC, AAC-HE 및 AAC-HEv2, 최대 5.1) |yes |
+| MPEG Layer 2 |yes |
+| MP3(MPEG-1 Audio Layer 3) |yes |
+| Windows Media 오디오 |yes |
+| WAV/PCM |yes |
+| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |yes |
+| [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |yes |
+| [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |yes |
+| AMR(Adaptive Multi-Rate) |yes |
+| AES(SMPTE 331M 및 302M, AES3-2003) |아니요 |
+| Dolby® E |아니요 |
+| Dolby® Digital(AC3) |아니요 |
+| Dolby® Digital Plus(E-AC3) |아니요 |
+
+## <a name="output-formats-and-codecs"></a>출력 형식 및 코덱
+다음 표에는 내보내기에 지원되는 코덱 및 파일 형식이 나열되어 있습니다.
+
+| 파일 형식 | 비디오 코덱 | 오디오 코덱 |
+| --- | --- | --- |
+| MP4 <br/><br/>(다중 비트 전송률 MP4 컨테이너 포함) |H.264(High, Main 및 Baseline Profiles) |AAC-LC, HE-AAC v1, HE-AAC v2 |
+| MPEG2-TS |H.264(High, Main 및 Baseline Profiles) |AAC-LC, HE-AAC v1, HE-AAC v2 |
+
+## <a name="next-steps"></a>다음 단계
+
+[사용자 지정 미리 설정을 사용하여 변환 만들기](customize-encoder-presets-how-to.md)

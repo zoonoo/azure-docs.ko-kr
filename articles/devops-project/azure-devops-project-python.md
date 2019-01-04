@@ -42,9 +42,9 @@ Azure 구독이 없으면 [Visual Studio Dev Essentials](https://visualstudio.mi
 
     ![지속적인 업데이트 구성 시작](_img/azure-devops-project-python/fullbrowser.png)
 
-## <a name="select-a-sample-application-and-azure-service"></a>샘플 응용 프로그램 및 Azure 서비스 선택
+## <a name="select-a-sample-application-and-azure-service"></a>샘플 애플리케이션 및 Azure 서비스 선택
 
-1. Python 샘플 애플리케이션을 선택합니다. Python 샘플에는 여러 응용 프로그램 프레임워크 선택이 포함됩니다.
+1. Python 샘플 애플리케이션을 선택합니다. Python 샘플에는 여러 애플리케이션 프레임워크 선택이 포함됩니다.
 
 1. 기본 샘플 프레임워크는 Django입니다. 기본 설정에서 나간 후 **다음**을 선택합니다.    
 컨테이너용 웹앱은 기본 배포 대상입니다. 이전에 선택한 애플리케이션 프레임워크는 여기에서 사용 가능한 Azure 서비스 배포 대상의 유형을 나타냅니다. 

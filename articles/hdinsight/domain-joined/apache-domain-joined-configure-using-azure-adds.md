@@ -1,5 +1,5 @@
 ---
-title: Azure AD-DS를 사용하여 Enterprise Security Package로 HDInsight 클러스터 구성
+title: Azure Active Directory Domain Services를 사용하는 엔터프라이즈 보안 패키지 구성 - Azure HDInsight
 description: Azure Active Directory Domain Services를 사용하여 HDInsight Enterprise Security Package 클러스터를 설정 및 구성하는 방법을 알아봅니다.
 services: hdinsight
 ms.service: hdinsight
@@ -7,13 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
-ms.date: 10/9/2018
-ms.openlocfilehash: 8b92191b60f8eb7e3c63f465926b434e205ef1b4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 10/09/2018
+ms.custom: seodec18
+ms.openlocfilehash: ced7964fc96138ad7b18ab72d6c479e8db7eab8a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684752"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436231"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services를 사용하여 Enterprise Security Package로 HDInsight 클러스터 구성
 
@@ -21,13 +22,13 @@ ESP(Enterprise Security Package) 클러스터는 Azure HDInsight 클러스터에
 
 이 문서에서는 Azure AD DS(Azure Active Directory Domain Services)를 사용하여 ESP로 HDInsight 클러스터를 구성하는 방법을 알아봅니다.
 
->[!NOTE]
->ESP는 Spark, Interactive 및 Apache Hadoop용 HDI 3.6의 GA입니다. HBase 및 Kafka 클러스터 유형에 대한 ESP는 미리 보기입니다.
+>[!NOTE]  
+>ESP는 Apache Spark, Interactive 및 Apache Hadoop용 HDI 3.6의 GA입니다. Apache HBase 및 Apache Kafka 클러스터 유형에 대한 ESP는 미리 보기입니다.
 
 ## <a name="enable-azure-ad-ds"></a>Azure AD-DS 사용
 
-> [!NOTE]
-> 테넌트 관리자만 Azure AD-DS를 사용하도록 설정할 수 있는 권한이 있습니다. 클러스터 스토리지가 ADLS(Azure Data Lake Store) Gen1 또는 Gen2인 경우 클러스터에 액세스하는 사용자만 MFA(Multi-Factor Authentication)를 해제하세요. 클러스터 저장소가 Azure Blob Storage(WASB)인 경우 MFA를 해제하지 마세요.
+> [!NOTE]  
+> 테넌트 관리자만 Azure AD-DS를 사용하도록 설정할 수 있는 권한이 있습니다. 클러스터 스토리지가 ADLS(Azure Data Lake Storage) Gen1 또는 Gen2인 경우 클러스터에 액세스하는 사용자만 MFA(Multi-Factor Authentication)를 해제하세요. 클러스터 저장소가 Azure Blob Storage(WASB)인 경우 MFA를 해제하지 마세요.
 
 ESP로 HDInsight 클러스터를 만들려면 먼저 Azure AD-DS를 사용하도록 설정해야 합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](../../active-directory-domain-services/active-directory-ds-getting-started.md)를 참조하세요. 
 
@@ -65,7 +66,7 @@ ESP 클러스터를 설정하려면 사용자 할당 관리 ID를 만들어야 �
 
 ## <a name="networking-considerations"></a>네트워킹 고려 사항
 
-> [!NOTE]
+> [!NOTE]  
 > Azure AD-DS는 ARM(Azure Resource Manager) 기반 vNET에 배포되어야 합니다. Azure AD-DS에서는 클래식 가상 네트워크가 지원되지 않습니다. 자세한 내용은 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-network)를 참조하세요.
 
 Azure AD-DS를 사용하도록 설정하면 로컬 DNS(도메인 이름 서비스) 서버가 AD VM(Virtual Machine)에서 실행됩니다. 이러한 사용자 지정 DNS 서버를 사용하도록 Azure AD-DS VNET(가상 네트워크)을 구성합니다. 올바른 IP 주소를 찾으려면 **관리** 범주 아래에서 **속성**을 선택하고, **가상 네트워크의 IP 주소** 아래에 나열된 IP 주소를 살펴봅니다.
@@ -113,5 +114,5 @@ ESP로 HDInsight 클러스터를 만드는 경우 다음 매개 변수를 제공
 
 
 ## <a name="next-steps"></a>다음 단계
-* Hive 정책 구성 및 Hive 쿼리 실행에 대한 내용은 [ESP가 포함된 HDInsight 클러스터에 대한 Hive 정책 구성](apache-domain-joined-run-hive.md)을 참조하세요.
-* SSH를 사용하여 ESP로 HDInsight 클러스터에 연결하는 방법은 [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)을 참조하세요.
+* Hive 정책 구성 및 Hive 쿼리 실행에 대한 내용은 [ESP가 포함된 HDInsight 클러스터에 대한 Apache Hive 정책 구성](apache-domain-joined-run-hive.md)을 참조하세요.
+* SSH를 사용하여 ESP로 HDInsight 클러스터에 연결하는 방법은 [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Apache Hadoop과 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)을 참조하세요.

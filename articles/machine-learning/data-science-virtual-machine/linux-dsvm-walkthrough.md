@@ -1,11 +1,13 @@
 ---
-title: Azure에서 Linux 데이터 과학 Virtual Machine을 사용하여 데이터 과학 | Microsoft Docs
+title: Linux Data Science Virtual Machine을 사용하는 방법 알아보기
+titleSuffix: Azure
 description: Linux 데이터 과학 VM을 사용하여 몇 가지 일반적인 데이터 과학 작업을 수행하는 방법입니다.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
 editor: cgronlun
+ms.custom: seodec18
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 49956234c00129508254b96d7d63a4b30af3ad55
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: fafa680f877060f1e7d96c60f52e3033eeb38553
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037586"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190648"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Azure에서 Linux 데이터 과학 Virtual Machine을 사용하여 데이터 과학
 이 연습에서는 Linux 데이터 과학 VM을 사용하여 몇 가지 일반 데이터 과학 작업을 수행하는 방법을 보여 줍니다. Linux DSVM(데이터 과학 Virtual Machine)은 데이터 분석 및 기계 학습에 흔히 사용되는 도구 모음과 함께 미리 설치된, Azure에서 사용 가능한 가상 머신 이미지입니다. 주요 소프트웨어 구성 요소는 [Linux 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md) 항목에 항목별로 나와 있습니다. VM 이미지를 사용하면 각 도구를 개별적으로 설치하고 구성할 필요 없이 몇 분 내에 데이터 과학 작업을 쉽게 시작할 수 있습니다. 필요한 경우 VM을 쉽게 확장하고 사용하지 않을 때 중지할 수 있습니다. 따라서 이 리소스는 탄력적이고 비용 효율적입니다.
@@ -39,7 +41,7 @@ Linux 데이터 과학 Virtual Machine을 사용하려면 먼저 다음이 있�
 * **AzureML 계정**. 아직 없을 경우 [AzureML 홈 페이지](https://studio.azureml.net/)에서 새 계정을 등록합니다. 시작할 수 있도록 무료 사용 계층을 제공합니다.
 
 ## <a name="download-the-spambase-dataset"></a>spambase 데이터 세트 다운로드
-[spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 데이터 집합은 4601개의 예제만 포함하는 비교적 작은 데이터 집합입니다. 이 데이터 집합은 리소스 요구 사항을 적절하게 유지하도록 하므로 데이터 과학 VM의 몇 가지 주요 기능을 보여 줄 때 사용하기 적합한 크기입니다.
+[spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 데이터 세트는 4601개의 예제만 포함하는 비교적 작은 데이터 세트입니다. 이 데이터 집합은 리소스 요구 사항을 적절하게 유지하도록 하므로 데이터 과학 VM의 몇 가지 주요 기능을 보여 줄 때 사용하기 적합한 크기입니다.
 
 > [!NOTE]
 > 이 연습은 D2 v2 크기의 Linux Data Science Virtual Machine(CentOS Edition)에서 만들었습니다. 이 크기의 DSVM은 이 연습의 절차를 처리할 수 있습니다.
@@ -316,19 +318,19 @@ DSVM에서 Anaconda 배포에는 Jupyter 노트북, Python R을 공유하는 플
 
 > [!NOTE]
 > 현재 커널의 Jupyter Notebook에서 (`pip` 명령을 통해) Python 패키지 관리자를 사용하려면 다음과 같이 코드 셀에 다음 명령을 사용합니다.
-```python
+  ```python
    import sys
    ! {sys.executable} -m pip install numpy -y
-```
+  ```
 >
 >
 
 > [!NOTE]
 > 현재 커널의 Jupyter Notebook에서 (`conda` 명령을 통해) Conda 설치 관리자를 사용하려면 다음과 같이 코드 셀에 다음 명령을 사용합니다.
-```python
+  ```python
    import sys
    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
-```
+  ```
 >
 >
 
@@ -344,7 +346,7 @@ DSVM에서 Anaconda 배포에는 Jupyter 노트북, Python R을 공유하는 플
 >
 
 ## <a name="rattle"></a>Rattle
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (R Analytical Tool To Learn Easily)은 데이터 마이닝을 위한 그래픽 R 도구입니다. 손쉽게 데이터를 로드, 탐색 및 변환하고 모델을 빌드 및 평가할 수 있는 직관적인 인터페이스가 있습니다.  문서 [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) (Rattle: R에 대한 데이터 마이닝 GUI)은 해당 기능을 보여 주는 연습을 제공합니다.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (R Analytical Tool To Learn Easily)은 데이터 마이닝을 위한 그래픽 R 도구입니다. 손쉽게 데이터를 로드, 탐색 및 변환하고 모델을 빌드 및 평가할 수 있는 직관적인 인터페이스가 있습니다.  문서 [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf)(Rattle: R용 데이터 마이닝 GUI)은 해당 기능을 보여 주는 연습을 제공합니다.
 
 다음 명령을 사용하여 Rattle을 설치하고 시작합니다.
 
@@ -357,7 +359,7 @@ DSVM에서 Anaconda 배포에는 Jupyter 노트북, Python R을 공유하는 플
 >
 >
 
-Rattle은 탭 기반 인터페이스를 사용합니다. 대부분의 탭은 데이터를 로드하거나 탐색하는 등 [데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/data-science-process/)의 단계에 해당합니다. 데이터 과학 프로세스는 탭을 통해 왼쪽에서 오른쪽으로 진행됩니다. 하지만 마지막 탭에는 Rattle에서 실행하는 R 명령의 로그가 있습니다.
+Rattle은 탭 기반 인터페이스를 사용합니다. 대부분의 탭은 데이터를 로드하거나 탐색하는 등 [데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)의 단계에 해당합니다. 데이터 과학 프로세스는 탭을 통해 왼쪽에서 오른쪽으로 진행됩니다. 하지만 마지막 탭에는 Rattle에서 실행하는 R 명령의 로그가 있습니다.
 
 데이터 세트를 로드하고 구성하려면
 

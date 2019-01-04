@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 5001704f47af0c7b07744f1dceb7aa58bdb6448c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7fdbbee27f83a4583390158e456270324967b28a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32158871"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961606"
 ---
 # <a name="article-top"></a>기존 Azure Mobile Services를 Azure App Service로 마이그레이션
 [Azure App Service의 일반적인 가용성]을 사용하여 Azure Mobile Services 사이트를 쉽게 원래 위치로 마이그레이션하여 Azure App Service의 모든 기능을 활용할 수 있습니다.  이 문서에서는 Azure Mobile Services에서 Azure App Service에 사이트를 마이그레이션하는 경우의 결과를 설명합니다.
@@ -69,7 +69,7 @@ Azure App Service의 이점에 대한 자세한 내용은 [Mobile Services 및 A
 ### <a name="update-app-service-tier"></a>적절한 App Service 가격 책정 계층 선택
 Azure App Service를 마이그레이션한 후에 가격 책정에 유연성이 증가합니다.
 
-1. [Azure Portal] 에 로그인합니다.
+1. [Azure Portal]에 로그인합니다.
 2. **모든 리소스** 또는 **App Services**를 선택한 후 마이그레이션된 Mobile Services의 이름을 클릭합니다.
 3. 설정 블레이드가 기본적으로 열립니다.
 4. 설정 메뉴에서 **App Service 계획**을 클릭합니다.
@@ -84,7 +84,7 @@ Azure App Service를 마이그레이션한 후에 가격 책정에 유연성이 
 | Basic |B1 기본 |
 | Standard |S1 표준 |
 
-응용 프로그램에 대한 올바른 가격 책정 계층을 선택하는 데 유연성을 고려합니다.  새 App Service의 가격 책정에 대한 자세한 내용은 [App Service 가격 책정] 을 참조합니다.
+응용 프로그램에 대한 올바른 가격 책정 계층을 선택하는 데 유연성을 고려합니다.  새 App Service의 가격 책정에 대한 자세한 내용은 [App Service pricing] 을 참조합니다.
 
 > [!TIP]
 > App Service 표준 계층은 [스테이징 슬롯], 자동 백업, 자동 크기 조정을 비롯한 사용하려는 다양한 기능에 대한 액세스를 포함합니다.  이 때 새로운 기능을 확인해 보십시오.
@@ -95,7 +95,7 @@ Azure App Service를 마이그레이션한 후에 가격 책정에 유연성이 
 Scheduler 작업은 마이그레이션 후에 약 30분까지 표시되지 않습니다.  예약된 작업은 백그라운드에서 계속 실행됩니다.
 다시 표시된 예약된 작업을 보려면
 
-1. [Azure Portal] 에 로그인합니다.
+1. [Azure Portal]에 로그인합니다.
 2. **찾아보기>** 를 선택하고 *필터* 상자에 **일정**을 입력한 다음 **Scheduler 컬렉션**을 선택합니다.
 
 마이그레이션 후에 사용 가능한 무료 스케줄러 작업의 수가 제한됩니다.  사용량 및 [Azure Scheduler 계획]을 검토합니다.
@@ -105,7 +105,7 @@ Scheduler 작업은 마이그레이션 후에 약 30분까지 표시되지 않�
 
 마이그레이션된 CORS 설정은 **MS_CrossDomainWhitelist** 앱 설정으로 사용할 수 있습니다.  App Service의 CORS 기능에 사이트를 마이그레이션하려면:
 
-1. [Azure Portal] 에 로그인합니다.
+1. [Azure Portal]에 로그인합니다.
 2. **모든 리소스** 또는 **App Services**를 선택한 후 마이그레이션된 Mobile Services의 이름을 클릭합니다.
 3. 설정 블레이드가 기본적으로 열립니다.
 4. API 메뉴에서 **CORS**를 클릭합니다.
@@ -120,7 +120,7 @@ Scheduler 작업은 마이그레이션 후에 약 30분까지 표시되지 않�
 ### <a name="download-publish-profile"></a>새 게시 프로필 다운로드
 Azure App Service로 마이그레이션할 때 사이트의 게시 프로필이 변경됩니다.  Visual Studio 내에서 사이트를 게시하려면 새 게시 프로필이 필요합니다.  새 게시 프로필을 다운로드하려면
 
-1. [Azure Portal] 에 로그인합니다.
+1. [Azure Portal]에 로그인합니다.
 2. **모든 리소스** 또는 **App Services**를 선택한 후 마이그레이션된 Mobile Services의 이름을 클릭합니다.
 3. **게시 프로필 가져오기**를 클릭합니다.
 
@@ -129,7 +129,7 @@ PublishSettings 파일이 컴퓨터에 다운로드됩니다.  일반적으로 �
 1. Visual Studio 및 Azure 모바일 서비스 프로젝트를 엽니다.
 2. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택합니다.
 3. **가져오기**를 클릭합니다.
-4. **찾아보기**를 클릭하고 다운로드한 게시 설정 파일을 선택합니다.   **확인**
+4. **찾아보기**를 클릭하고 다운로드한 게시 설정 파일을 선택합니다.  **확인**
 5. **연결 유효성 검사**를 클릭하여 게시 설정이 작동하는지 확인합니다.
 6. **게시**를 클릭하여 사이트를 게시합니다.
 
@@ -139,7 +139,7 @@ PublishSettings 파일이 컴퓨터에 다운로드됩니다.  일반적으로 �
 ### <a name="publishing-your-site"></a>마이그레이션된 사이트 다운로드 및 게시
 사이트는 git 또는 ftp를 통해 사용될 수 있고 WebDeploy, TFS, Mercurial, GitHub, FTP 등 다양한 메커니즘을 사용하여 다시 게시될 수 있습니다.  배포 자격 증명은 사이트의 나머지 부분을 통해 마이그레이션됩니다.  배포 자격 증명을 설정하지 않거나 기억하지 못하는 경우 다시 설정할 수 있습니다.
 
-1. [Azure Portal] 에 로그인합니다.
+1. [Azure Portal]에 로그인합니다.
 2. **모든 리소스** 또는 **App Services**를 선택한 후 마이그레이션된 Mobile Services의 이름을 클릭합니다.
 3. 설정 블레이드가 기본적으로 열립니다.
 4. 게시 메뉴에서 **배포 자격 증명**을 클릭합니다.
@@ -188,7 +188,7 @@ PublishSettings 파일이 컴퓨터에 다운로드됩니다.  일반적으로 �
 ### <a name="easytables"></a>데이터
 Mobile Services에서 *데이터* 탭은 Azure Portal 내에서 *쉬운 테이블*로 대체되었습니다.  쉬운 테이블에 액세스하려면:
 
-1. [Azure Portal] 에 로그인합니다.
+1. [Azure Portal]에 로그인합니다.
 2. **모든 리소스** 또는 **App Services**를 선택한 후 마이그레이션된 Mobile Services의 이름을 클릭합니다.
 3. 설정 블레이드가 기본적으로 열립니다.
 4. 모바일 메뉴에서 **쉬운 테이블**을 클릭합니다.
@@ -205,7 +205,7 @@ Mobile Services에서 *데이터* 탭은 Azure Portal 내에서 *쉬운 테이�
 ### <a name="easyapis"></a>API
 Mobile Services에서 *API* 탭은 Azure Portal 내에서 *쉬운 API*로 대체되었습니다.  쉬운 API에 액세스하려면:
 
-1. [Azure Portal] 에 로그인합니다.
+1. [Azure Portal]에 로그인합니다.
 2. **모든 리소스** 또는 **App Services**를 선택한 후 마이그레이션된 Mobile Services의 이름을 클릭합니다.
 3. 설정 블레이드가 기본적으로 열립니다.
 4. 모바일 메뉴에서 **쉬운 API**를 클릭합니다.
@@ -216,7 +216,7 @@ Mobile Services에서 *API* 탭은 Azure Portal 내에서 *쉬운 API*로 대체
 ### <a name="on-demand-jobs"></a>Scheduler 작업
 모든 Scheduler 작업은 Scheduler 작업 컬렉션 섹션을 통해 사용할 수 있습니다.  스케줄러 작업에 액세스하려면
 
-1. [Azure Portal] 에 로그인합니다.
+1. [Azure Portal]에 로그인합니다.
 2. **찾아보기>** 를 선택하고 *필터* 상자에 **일정**을 입력한 다음 **Scheduler 컬렉션**을 선택합니다.
 3. 사이트에 대한 작업 컬렉션을 선택합니다.  *sitename*-Jobs로 이름이 지정됩니다.
 4. **설정**을 클릭합니다.
@@ -243,7 +243,7 @@ Mobile Services는 푸시 알림에 Notification Hubs를 사용합니다.  마�
 
 Notification Hubs는 [Azure Portal]을 통해 관리됩니다.  알림 허브 이름을 적어둡니다.(앱 설정을 사용하여 찾을 수 있습니다)
 
-1. [Azure Portal] 에 로그인합니다.
+1. [Azure Portal]에 로그인합니다.
 2. **찾아보기**>를 선택한 다음 **Notification Hubs**를 선택합니다.
 3. 모바일 서비스와 연결된 Notification Hubs 이름을 클릭합니다.
 
@@ -306,17 +306,17 @@ ftp 또는 git를 통해 파일을 편집하고 사이트를 게시합니다.
 ### <a name="diagnostics"></a>진단 및 로깅
 Azure App Service에서 정상적으로 진단 로깅을 사용합니다.  진단 로깅을 사용하려면:
 
-1. [Azure Portal] 에 로그인합니다.
+1. [Azure Portal]에 로그인합니다.
 2. **모든 리소스** 또는 **App Services**를 선택한 후 마이그레이션된 Mobile Services의 이름을 클릭합니다.
 3. 설정 블레이드가 기본적으로 열립니다.
 4. 기능 메뉴에서 **진단 로그** 를 선택합니다.
-5. 다음 로그에서 **켜기**를 클릭합니다. **응용 프로그램 로깅(파일 시스템)**, **자세한 오류 메시지** 및 **실패한 요청 추적**
+5. 다음 로그에서 **켜기**를 클릭합니다. **애플리케이션 로깅(파일 시스템)**, **자세한 오류 메시지** 및 **실패한 요청 추적**
 6. 웹 서버 로깅에서 **파일 시스템** 을 클릭합니다.
 7. 페이지 맨 아래에 있는 **저장**
 
 로그를 보려면:
 
-1. [Azure Portal] 에 로그인합니다.
+1. [Azure Portal]에 로그인합니다.
 2. **모든 리소스** 또는 **App Services**를 선택한 후 마이그레이션된 Mobile Services의 이름을 클릭합니다.
 3. **도구** 단추를 클릭합니다.
 4. 관찰 메뉴에서 **로그 스트림** 을 선택합니다.
@@ -327,7 +327,7 @@ Azure App Service에서 정상적으로 진단 로깅을 사용합니다.  진�
 ### <a name="deleting-a-migrated-mobile-app-clone-causes-a-site-outage"></a>마이그레이션된 모바일 앱 복제를 삭제하면 사이트 중단이 발생함
 Azure PowerShell을 사용하여 마이그레이션된 모바일 서비스를 복제하고 복제본을 삭제하면 프로덕션 서비스에 대한 DNS 항목이 제거됩니다.  사이트는 인터넷에서 더 이상 액세스할 수 없습니다.  
 
-해결 방법: 사이트를 복제하려는 경우 포털을 통해 수행하세요.
+해결 방법: 사이트를 복제하려는 경우 포털을 통해 수행합니다.
 
 ### <a name="changing-webconfig-does-not-work"></a>Web.config를 변경할 수 없습니다.
 ASP.NET 사이트가 있는 경우 `Web.config` 파일 변경 내용이 적용되지 않습니다.  Azure App Service는 시작하는 동안 적절한 `Web.config` 파일을 빌드하여 Mobile Services 런타임을 지원합니다.  XML 변환 파일을 사용하여 특정 설정(예: 사용자 지정 헤더)를 재정의할 수 있습니다.  호출된 `applicationHost.xdt`에 파일을 만듭니다. 이 파일은 Azure 서비스의 `D:\home\site` 디렉터리에서 종료되어야 합니다.  사용자 지정 배포 스크립트를 통하거나 Kudu를 사용하여 `applicationHost.xdt` 파일을 업로드합니다.  다음은 예제 문서입니다.
@@ -352,7 +352,7 @@ ASP.NET 사이트가 있는 경우 `Web.config` 파일 변경 내용이 적용�
 자세한 내용은 GitHub에 대한 [XDT 변환 샘플] 설명서를 참조하세요.
 
 ### <a name="migrated-mobile-services-cannot-be-added-to-traffic-manager"></a>마이그레이션된 Mobile Services를 Traffic Manager에 추가할 수 없습니다.
-Traffic Manager 프로필을 만들면 프로필에 마이그레이션된 모바일 서비스를 직접 선택할 수 없습니다.  "외부 끝점"을 사용합니다.  PowerShell을 통해서만 외부 끝점을 추가할 수 있습니다.  자세한 내용은 [Traffic Manager 자습서](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/)를 참조합니다.
+Traffic Manager 프로필을 만들면 프로필에 마이그레이션된 모바일 서비스를 직접 선택할 수 없습니다.  "외부 엔드포인트"를 사용합니다.  PowerShell을 통해서만 외부 엔드포인트를 추가할 수 있습니다.  자세한 내용은 [Traffic Manager 자습서](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/)를 참조합니다.
 
 ## <a name="next-steps"></a>다음 단계
 응용 프로그램이 App Service에 마이그레이션하지 않지만 더 많은 기능을 활용할 수 있습니다.
@@ -373,7 +373,7 @@ Traffic Manager 프로필을 만들면 프로필에 마이그레이션된 모바
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[App Service 가격 책정]: https://azure.microsoft.com/pricing/details/app-service/
+[App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [자동 크기 조정]: ../app-service/web-sites-scale.md
 [Azure App Service]: ../app-service/app-service-web-overview.md
@@ -383,9 +383,9 @@ Traffic Manager 프로필을 만들면 프로필에 마이그레이션된 모바
 [Azure Scheduler 계획]: ../scheduler/scheduler-plans-billing.md
 [지속적으로 배포]: ../app-service/app-service-continuous-deployment.md
 [혼합 네임스페이스를 변환]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
-[curl]: http://curl.haxx.se/
+[curl]: https://curl.haxx.se/
 [사용자 지정 도메인 이름]: ../app-service/app-service-web-tutorial-custom-domain.md
-[Fiddler]: http://www.telerik.com/fiddler
+[Fiddler]: https://www.telerik.com/fiddler
 [Azure App Service의 일반적인 가용성]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
 [로깅]: ../app-service/web-sites-enable-diagnostic-log.md
@@ -393,7 +393,7 @@ Traffic Manager 프로필을 만들면 프로필에 마이그레이션된 모바
 [Mobile Services 및 App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [Notification Hubs]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [성능 모니터링]: ../app-service/web-sites-monitor.md
-[Postman]: http://www.getpostman.com/
+[Postman]: https://www.getpostman.com/
 [스테이징 슬롯]: ../app-service/web-sites-staged-publishing.md
 [VNet]: ../app-service/web-sites-integrate-with-vnet.md
 [XDT 변환 샘플]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples

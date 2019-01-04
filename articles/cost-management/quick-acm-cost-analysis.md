@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/09/2018
+ms.date: 12/11/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: f8f7d43d4b42f5236c6c8d25c88314043053b0cc
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 9085bea06553bcb2b8cf871153ddd1fb767c04f4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445716"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277746"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>빠른 시작: 비용 분석을 사용하여 비용 탐색 및 분석
 
@@ -43,7 +43,7 @@ Azure 비용을 적절히 제어하고 최적화하려면 먼저 조직 내의 �
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-- http://portal.azure.com에서 Azure Portal에 로그인합니다.
+- https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="review-costs-in-cost-analysis"></a>비용 분석에서 비용 검토
 
@@ -63,7 +63,7 @@ Azure 비용을 적절히 제어하고 최적화하려면 먼저 조직 내의 �
 
 **피벗(도넛형) 차트** – 공통 표준 속성 집합을 기준으로 총 비용이 구분되는 동적 피벗을 제공합니다. 이러한 차트에는 현재 월에 누적된 비용이 최대값부터 차례로 표시됩니다. 언제든지 다른 피벗을 선택하여 피벗 차트를 변경할 수 있습니다. 기본적으로 비용은 서비스(요금 범주), 위치(지역) 및 하위 범위로 분류됩니다. 예를 들어 등록 계정은 청구 계정의 하위 범위로, 리소스 그룹은 구독의 하위 범위로, 리소스는 리소스 그룹의 하위 범위로 분류됩니다.
 
-![비용 분석의 초기 보기](./media/quick-acm-cost-analysis/cost-analysis-01.png)
+![Azure Portal에서 비용 분석의 초기 보기](./media/quick-acm-cost-analysis/cost-analysis-01.png)
 
 ## <a name="customize-cost-views"></a>비용 보기 사용자 지정
 
@@ -76,21 +76,23 @@ Azure 비용을 적절히 제어하고 최적화하려면 먼저 조직 내의 �
 
 기본적으로 비용 분석은 현재 월에 대한 데이터를 표시합니다. 날짜 선택기를 사용하여 지난달, 이번 달, 이번 분기, 이번 연도 또는 원하는 사용자 지정 날짜 범위로 빠르게 전환할 수 있습니다. 최신 Azure 청구서를 분석하고 요금을 쉽게 조정하는 가장 빠른 방법은 지난 달을 선택하는 것입니다. 현재 분기 및 연도 옵션은 장기적인 예산에 대한 비용을 추적하는 데 도움이 됩니다. 다른 날짜 범위를 선택할 수도 있습니다. 예를 들어 1일, 지난 7일 또는 현재 월의 1년 전을 선택할 수 있습니다.
 
-![날짜 선택기](./media/quick-acm-cost-analysis/date-selector.png)
+![이번 달의 선택 예제를 보여 주는 날짜 선택기](./media/quick-acm-cost-analysis/date-selector.png)
 
 비용 분석에는 기본적으로 **누적** 비용이 표시됩니다. 누적 비용에는 매일 발생하는 비용과 과거의 비용이 모두 포함되므로 계속 증가하는 일별 누적 비용의 보기가 제공됩니다. 이 보기는 선택한 시간 범위의 예산을 기준으로 한 비용 추세가 표시되도록 최적화됩니다.
 
 매일 발생하는 비용이 표시되는 **일별** 보기도 있습니다. 일별 보기에는 비용 증가 추세가 표시되지 않습니다. 이 보기는 일별 비용 급증 또는 급감과 같은 불규칙한 비용 추세를 표시하기 위한 것입니다. 예산을 선택한 경우 일별 보기에는 일별 예산의 추정치도 표시됩니다. 일별 비용이 예상 일별 예산보다 계속 높으면 월별 예산을 초과할 것으로 예상할 수 있습니다. 예상 일별 예산은 좀 더 낮은 수준에서 예산을 시각화하는 데 도움이 되는 방법일 뿐입니다. 일별 비용이 계속 바뀌는 경우에는 월별 예산에 일일 예산 추정치를 비교한 결과의 정확도가 떨어집니다.
 
-![일별 보기](./media/quick-acm-cost-analysis/daily-view.png)
+일반적으로 8시간 이내에 사용된 리소스에 대한 데이터 또는 알림을 볼 수 있습니다.
+
+![이번 달의 일별 비용 예제를 보여 주는 일별 보기](./media/quick-acm-cost-analysis/daily-view.png)
 
 **그룹 기준**에서 그룹 범주를 선택하여 위쪽의 합계 영역 그래프에 표시되는 데이터를 변경할 수 있습니다. 그룹화를 사용하면 리소스 그룹 또는 리소스 태그와 같은 일반적인 리소스 및 사용 속성으로 지출을 분류하는 방식을 빠르게 확인할 수 있습니다. 태그로 그룹화하려면 그룹화 기준으로 사용할 태그 키를 선택합니다. 그러면 해당 태그의 각 값별로 분석된 비용과 태그가 적용되지 않는 리소스에 대한 추가 세그먼트가 표시됩니다. Cost Management는 태그가 리소스에 직접 적용된 날짜의 리소스 태그만 지원합니다. 리소스 그룹 태그는 현재 지원되지 않습니다. 다음은 지난달의 비용을 보여 주는 Azure 서비스 비용 보기입니다.
 
-![그룹화된 일별 누적 보기](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
+![지난달의 Azure 서비스 비용 예제를 보여 주는 그룹화된 일별 누적 보기](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
 기본 차트 아래의 피벗 차트는 선택된 기간 및 필터의 전체 비용에 대한 더 큰 그림을 보여주는 여러 그룹화를 표시합니다.s. 특정 속성이나 태그를 선택하여 차원별로 집계된 비용을 볼 수 있습니다. **데이터** 드로어를 확장하거나 화면 상단에서 **내보내기 > CSV 다운로드**를 선택하면 화면 하단에서 합계 보기의 전체 데이터 세트를 볼 수 있습니다. 리소스 그룹의 데이터 드로어에 대한 예는 다음과 같습니다.
 
-![현재 보기의 전체 데이터](./media/quick-acm-cost-analysis/full-data-set.png)
+![리소스 그룹 이름을 보여 주는 현재 보기의 전체 데이터](./media/quick-acm-cost-analysis/full-data-set.png)
 
 위의 그림에는 리소스 그룹 이름이 표시되어 있습니다. 태그로 그룹화하여 태그당 총 비용을 볼 수는 있지만 어느 비용 분석 보기에서도 리소스 또는 리소스 그룹별로 모든 태그를 볼 수는 없습니다.
 

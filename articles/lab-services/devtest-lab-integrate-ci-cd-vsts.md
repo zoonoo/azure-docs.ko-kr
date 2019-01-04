@@ -1,6 +1,6 @@
 ---
-title: VSTS 지속적인 통합 및 배달 파이프라인에 Azure DevTest Labs 통합 | Microsoft Docs
-description: VSTS 지속적인 통합 및 배달 파이프라인에 Azure DevTest Labs를 통합하는 방법을 알아봅니다.
+title: Azure Pipelines 지속적인 통합 및 배달 파이프라인에 Azure DevTest Labs 통합 | Microsoft Docs
+description: Azure Pipelines 지속적인 통합 및 배달 파이프라인에 Azure DevTest Labs를 통합하는 방법을 알아봅니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: b7ce07547eccd52a8b10d4cffecaf1456778da4a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 459b06df954d9cc913b6d1503c9f876f93b494e9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301211"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082954"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Azure DevOps 지속적인 통합 및 배달 파이프라인에 Azure DevTest Labs 통합
 Azure DevOps에 설치된 *Azure DevTest Labs 작업* 확장을 사용하여 CI/CD 빌드 및 릴리스 파이프라인을 Azure DevTest Labs와 손쉽게 통합할 수 있습니다. 확장은 다음과 같은 세 가지 작업을 설치합니다. 
@@ -138,7 +138,7 @@ CI/CD 파이프라인을 Azure DevTest Labs와 통합하기 전에 Visual Studio
 1. 릴리스 파이프라인에서 **작업 추가**를 선택한 후 **배포** 탭에서 *Azure PowerShell* 작업을 추가합니다. 아래와 같이 작업을 구성합니다.
 
    > [!NOTE]
-   > DevTest Labs VM의 세부 정보를 수집하려면 [배포: Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell)을 참조하여 스크립트를 실행합니다.
+   > DevTest Labs VM의 세부 정보를 수집하려면 [배포: Azure PowerShell](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzurePowerShellV3)을 참조하고 스크립트를 실행합니다.
 
    a. **Azure 연결 형식**의 경우 **Azure Resource Manager**를 선택합니다.
 

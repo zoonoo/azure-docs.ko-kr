@@ -102,4 +102,4 @@ Content Moderator OCR 기능을 사용하여 이미지의 텍스트를 검색할
 
 ## <a name="next-steps"></a>다음 단계
 
-코드에서 REST API를 사용하거나 [이미지 조정 .NET 빠른 시작](image-moderation-quickstart-dotnet.md)을 시작하여 응용 프로그램을 통합합니다.
+코드에서 REST API를 사용하거나 [이미지 조정 .NET 빠른 시작](image-moderation-quickstart-dotnet.md)을 시작하여 애플리케이션을 통합합니다.

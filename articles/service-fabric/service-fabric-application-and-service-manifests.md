@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric 앱 및 서비스 설명 | Microsoft Docs
-description: Service Fabric 응용 프로그램 및 서비스를 설명하는 데 매니페스트를 사용하는 방법에 대해 설명합니다.
+description: Service Fabric 애플리케이션 및 서비스를 설명하는 데 매니페스트를 사용하는 방법에 대해 설명합니다.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -21,11 +21,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50230287"
 ---
-# <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 응용 프로그램 및 서비스 매니페스트
-이 문서에서는 Service Fabric 응용 프로그램 및 서비스가 ApplicationManifest.xml 및 ServiceManifest.xml 파일을 사용하여 정의되고 버전화되는 방법에 대해 설명합니다.  자세한 예제는 [응용 프로그램 및 서비스 매니페스트 예제](service-fabric-manifest-examples.md)를 참조하세요.  이러한 매니페스트 파일의 XML 스키마는 [ServiceFabricServiceModel.xsd 스키마 설명서](service-fabric-service-model-schema.md)에 설명되어 있습니다.
+# <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 애플리케이션 및 서비스 매니페스트
+이 문서에서는 Service Fabric 애플리케이션 및 서비스가 ApplicationManifest.xml 및 ServiceManifest.xml 파일을 사용하여 정의되고 버전화되는 방법에 대해 설명합니다.  자세한 예제는 [애플리케이션 및 서비스 매니페스트 예제](service-fabric-manifest-examples.md)를 참조하세요.  이러한 매니페스트 파일의 XML 스키마는 [ServiceFabricServiceModel.xsd 스키마 설명서](service-fabric-service-model-schema.md)에 설명되어 있습니다.
 
 ## <a name="describe-a-service-in-servicemanifestxml"></a>ServiceManifest.xml의 서비스 설명
-서비스 매니페스트는 서비스 유형 및 버전을 선언적으로 정의합니다. 서비스 유형, 상태 속성, 부하 분산 메트릭, 서비스 바이너리, 구성 파일 등의 서비스 메타데이터를 지정합니다.  다시 말해서 하나 이상의 서비스 유형을 지원하는 서비스 패키지를 구성하는 코드, 구성 및 데이터 패키지를 설명합니다. 서비스 매니페스트에는 독립적으로 버전화할 수 있는 여러 코드, 구성 및 데이터 패키지가 포함될 수 있습니다. 다음은 [투표 응용 프로그램 예제](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart)의 ASP.NET Core 웹 프런트 엔드 서비스에 대한 서비스 매니페스트입니다(여기에 몇 가지 [자세한 예제](service-fabric-manifest-examples.md)도 나와 있음).
+서비스 매니페스트는 서비스 유형 및 버전을 선언적으로 정의합니다. 서비스 유형, 상태 속성, 부하 분산 메트릭, 서비스 바이너리, 구성 파일 등의 서비스 메타데이터를 지정합니다.  다시 말해서 하나 이상의 서비스 유형을 지원하는 서비스 패키지를 구성하는 코드, 구성 및 데이터 패키지를 설명합니다. 서비스 매니페스트에는 독립적으로 버전화할 수 있는 여러 코드, 구성 및 데이터 패키지가 포함될 수 있습니다. 다음은 [투표 애플리케이션 예제](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart)의 ASP.NET Core 웹 프런트 엔드 서비스에 대한 서비스 매니페스트입니다(여기에 몇 가지 [자세한 예제](service-fabric-manifest-examples.md)도 나와 있음).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -73,7 +73,7 @@ ms.locfileid: "50230287"
 
 **SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행하는 경우 또는 높은 권한을 사용하여 작업을 수행하는 경우입니다. 예: 
 
-* 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 서비스 패브릭 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지는 않습니다. 예를 들어 npm.exe 파일에는 node.js 응용 프로그램 배포를 위해 구성되는 환경 변수가 필요합니다.
+* 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 서비스 패브릭 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지는 않습니다. 예를 들어 npm.exe 파일에는 node.js 애플리케이션 배포를 위해 구성되는 환경 변수가 필요합니다.
 * 보안 인증서를 설치하여 액세스 제어를 설정합니다.
 
 SetupEntryPoint를 구성하는 방법에 대한 자세한 내용은 [서비스 설치 진입점에 대한 정책 구성](service-fabric-application-runas-security.md)을 참조하세요.
@@ -93,7 +93,7 @@ SetupEntryPoint를 구성하는 방법에 대한 자세한 내용은 [서비스 
 </Settings>
 ```
 
-서비스에서 컴파일된 코드를 변경하지 않고도 선언/변경하는 데 사용하는 엔드포인트와 같은 **리소스**입니다.  서비스 매니페스트에 지정된 리소스에 대한 액세스는 응용 프로그램 매니페스트의 **SecurityGroup**을 통해 제어할 수 있습니다.  서비스 매니페스트에 **엔드포인트** 리소스가 정의되면 Service Fabric에서는 포트가 명시적으로 지정되지 않을 경우 예약된 응용 프로그램 포트 범위에 포함되는 포트를 할당합니다.  [엔드포인트 리소스 지정 또는 재정의](service-fabric-service-manifest-resources.md)에 대해 자세히 알아보세요.
+서비스에서 컴파일된 코드를 변경하지 않고도 선언/변경하는 데 사용하는 엔드포인트와 같은 **리소스**입니다.  서비스 매니페스트에 지정된 리소스에 대한 액세스는 애플리케이션 매니페스트의 **SecurityGroup**을 통해 제어할 수 있습니다.  서비스 매니페스트에 **엔드포인트** 리소스가 정의되면 Service Fabric에서는 포트가 명시적으로 지정되지 않을 경우 예약된 애플리케이션 포트 범위에 포함되는 포트를 할당합니다.  [엔드포인트 리소스 지정 또는 재정의](service-fabric-service-manifest-resources.md)에 대해 자세히 알아보세요.
 
 
 <!--
@@ -105,10 +105,10 @@ For more information about other features supported by service manifests, refer 
 *TODO: Configuration overrides
 -->
 
-## <a name="describe-an-application-in-applicationmanifestxml"></a>ApplicationManifest.xml의 응용 프로그램 설명
-응용 프로그램 매니페스트는 응용 프로그램 유형 및 버전을 선언적으로 설명합니다. 안정적인 이름, 파티션 구성표, 인스턴스 수/복제 요소, 보안/격리 정책, 배치 제약 조건, 구성 재정의, 구성 서비스 유형 등의 서비스 구성 메타데이터를 지정합니다. 또한 응용 프로그램이 배치되는 부하 분산 도메인을 설명합니다.
+## <a name="describe-an-application-in-applicationmanifestxml"></a>ApplicationManifest.xml의 애플리케이션 설명
+애플리케이션 매니페스트는 애플리케이션 유형 및 버전을 선언적으로 설명합니다. 안정적인 이름, 파티션 구성표, 인스턴스 수/복제 요소, 보안/격리 정책, 배치 제약 조건, 구성 재정의, 구성 서비스 유형 등의 서비스 구성 메타데이터를 지정합니다. 또한 애플리케이션이 배치되는 부하 분산 도메인을 설명합니다.
 
-따라서 응용 프로그램 매니페스트는 응용 프로그램 수준에서 요소를 설명하고 응용 프로그램 유형을 구성하는 하나 이상의 서비스 매니페스트를 참조합니다. 다음은 [투표 응용 프로그램 예제](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart)에 대한 응용 프로그램 매니페스트입니다(여기에 몇 가지 [자세한 예제](service-fabric-manifest-examples.md)도 나와 있음).
+따라서 애플리케이션 매니페스트는 애플리케이션 수준에서 요소를 설명하고 애플리케이션 유형을 구성하는 하나 이상의 서비스 매니페스트를 참조합니다. 다음은 [투표 애플리케이션 예제](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart)에 대한 애플리케이션 매니페스트입니다(여기에 몇 가지 [자세한 예제](service-fabric-manifest-examples.md)도 나와 있음).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -152,11 +152,11 @@ For more information about other features supported by service manifests, refer 
 
 서비스 매니페스트와 마찬가지로 **Version** 특성은 구조화되지 않은 문자열이며 시스템에서 구문을 분석하지 않습니다. 또한 업그레이드에 대한 각 구성 요소의 버전을 지정하는 데 사용됩니다.
 
-**매개 변수**는 응용 프로그램 매니페스트에서 사용되는 매개 변수를 정의합니다. 응용 프로그램이 인스턴스화되고 응용 프로그램 또는 서비스 구성 설정을 재정의할 수 있을 때 이러한 매개 변수의 값을 제공할 수 있습니다.  응용 프로그램 인스턴스화 중에 값이 변경되지 않은 경우 기본 매개 변수 값이 사용됩니다. 개별 환경에 대해 서로 다른 응용 프로그램 및 서비스 매개 변수를 유지 관리하는 방법을 알아보려면 [여러 환경에 대한 응용 프로그램 매개 변수 관리](service-fabric-manage-multiple-environment-app-configuration.md)를 참조하세요.
+**매개 변수**는 응용 프로그램 매니페스트에서 사용되는 매개 변수를 정의합니다. 애플리케이션이 인스턴스화되고 애플리케이션 또는 서비스 구성 설정을 재정의할 수 있을 때 이러한 매개 변수의 값을 제공할 수 있습니다.  애플리케이션 인스턴스화 중에 값이 변경되지 않은 경우 기본 매개 변수 값이 사용됩니다. 개별 환경에 대해 서로 다른 애플리케이션 및 서비스 매개 변수를 유지 관리하는 방법을 알아보려면 [여러 환경에 대한 애플리케이션 매개 변수 관리](service-fabric-manage-multiple-environment-app-configuration.md)를 참조하세요.
 
-**ServiceManifestImport** 는 이 응용 프로그램 유형을 구성하는 서비스 매니페스트에 대한 참조를 포함합니다. 응용 프로그램 매니페스트에는 여러 개의 서비스 매니페스트 가져오기가 포함될 수 있으며, 각 항목은 독립적으로 버전화될 수 있습니다. 가져온 서비스 매니페스트는 이 응용 프로그램 유형 내에서 유효한 있는 서비스 유형을 결정합니다. ServiceManifestImport 내에서 Settings.xml의 구성 값과 ServiceManifest.xml 파일의 환경 변수를 재정의할 수 있습니다. 끝점 바인딩, 보안 및 액세스, 패키지 공유에 대한 **정책**(이전 예제에서 설정되지 않음)은 가져온 서비스 매니페스트에 설정할 수 있습니다.  자세한 내용은 [응용 프로그램에 대한 보안 정책 구성](service-fabric-application-runas-security.md)을 참조하세요.
+**ServiceManifestImport** 는 이 응용 프로그램 유형을 구성하는 서비스 매니페스트에 대한 참조를 포함합니다. 애플리케이션 매니페스트에는 여러 개의 서비스 매니페스트 가져오기가 포함될 수 있으며, 각 항목은 독립적으로 버전화될 수 있습니다. 가져온 서비스 매니페스트는 이 애플리케이션 유형 내에서 유효한 있는 서비스 유형을 결정합니다. ServiceManifestImport 내에서 Settings.xml의 구성 값과 ServiceManifest.xml 파일의 환경 변수를 재정의할 수 있습니다. 끝점 바인딩, 보안 및 액세스, 패키지 공유에 대한 **정책**(이전 예제에서 설정되지 않음)은 가져온 서비스 매니페스트에 설정할 수 있습니다.  자세한 내용은 [애플리케이션에 대한 보안 정책 구성](service-fabric-application-runas-security.md)을 참조하세요.
 
-**DefaultServices** 는 이 응용 프로그램 유형에 대해 응용 프로그램이 인스턴스화할 때마다 자동으로 생성되는 서비스 인스턴스를 선언합니다. 기본 서비스는 편리하기는 하지만 생성된 후 모든 면에서 일반 서비스처럼 동작합니다. 응용 프로그램 인스턴스의 다른 서비스와 함께 업그레이드되며 제거할 수도 있습니다. 응용 프로그램 매니페스트에는 여러 기본 서비스가 포함될 수 있습니다.
+**DefaultServices** 는 이 응용 프로그램 유형에 대해 응용 프로그램이 인스턴스화할 때마다 자동으로 생성되는 서비스 인스턴스를 선언합니다. 기본 서비스는 편리하기는 하지만 생성된 후 모든 면에서 일반 서비스처럼 동작합니다. 애플리케이션 인스턴스의 다른 서비스와 함께 업그레이드되며 제거할 수도 있습니다. 애플리케이션 매니페스트에는 여러 기본 서비스가 포함될 수 있습니다.
 
 **인증서**(이전 예제에서 설정되지 않음)는 [HTTPS 엔드포인트 설정](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) 또는 [응용 프로그램 매니페스트의 비밀 암호화](service-fabric-application-secret-management.md)에 사용되는 인증서를 선언합니다.
 

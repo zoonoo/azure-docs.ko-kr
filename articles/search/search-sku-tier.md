@@ -1,5 +1,5 @@
 ---
-title: Azure Search 서비스에 대한 SKU 또는 가격 책정 계층 선택 | Microsoft Docs
+title: Azure Search 서비스에 대한 SKU 또는 가격 책정 계층 선택 - Azure Search
 description: Azure Search는 무료, 기본 및 표준 SKU로 프로비전할 수 있습니다. 여기서 표준은 다양한 리소스 구성 및 용량 수준으로 사용 가능합니다.
 services: search
 author: HeidiSteen
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: 0e1a0d299fb794c3aa937cb62dba9a6ce12c0570
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.custom: seodec2018
+ms.openlocfilehash: 3c5e4d568e7118d50ce8779402526fca77ccdda7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785310"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315556"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure Search에 대한 가격 책정 계층 선택
 
@@ -43,7 +44,7 @@ Azure Search에서 이해할 가장 중요한 청구 개념은 SU(*검색 단위
 
 SU는 서비스에서 사용하는 *복제본* 및 *파티션*을 곱한 것입니다(**`(R X P = SU)`**).
 
-모든 서비스는 최소값으로 1SU(복제본 1개 x 파티션 1개)에서 시작합니다. 서비스의 최대값은 여러 가지 방법, 즉 파티션 6개 x 복제본 6개 또는 파티션 3개 x 복제본 12개 등을 통해 생성되는 36SU입니다. 
+모든 서비스는 최소값으로 1SU(복제본 1개 x 파티션 1개)에서 시작합니다. 모든 서비스의 최댓값은 36SU이며 6개 파티션 x 6개 복제본, 3개 파티션 x 12개 복제본 등 여러 가지 방법으로 구현할 수 있습니다. 
 
 총 용량보다 덜 사용하는 것이 일반적입니다. 예를 들어, 복제본 3개 , 파티션 3개 서비스에는 9SU가 청구됩니다. 
 

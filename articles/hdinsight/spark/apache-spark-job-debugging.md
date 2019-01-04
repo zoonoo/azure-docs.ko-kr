@@ -7,33 +7,33 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 12/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6afb54caca572988c566ab7c6325d511e77fbd3e
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 5e00c52c17eac92edc3273e2d765d6c5fd76f59b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582091"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970685"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Azure HDInsight에서 실행 중인 Apache Spark 작업 디버그
 
-이 문서에서는 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI, Spark UI 및 Spark 기록 서버를 사용하여 HDInsight 클러스터에서 실행 중인 [Apache Spark](https://spark.apache.org/) 작업을 추적하고 디버깅하는 방법을 알아봅니다. Spark 클러스터에서 사용할 수 있는 Notebook을 통해 Spark 작업(**Machine Learning: MLLib를 사용하여 음식 검사 데이터에 대한 예측 분석**)을 시작합니다. 다음 단계를 사용하여 **spark-submit** 등의 다른 방법으로 제출한 응용 프로그램을 추적할 수 있습니다.
+이 문서에서는 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI, Spark UI 및 Spark 기록 서버를 사용하여 HDInsight 클러스터에서 실행 중인 [Apache Spark](https://spark.apache.org/) 작업을 추적하고 디버깅하는 방법을 알아봅니다. Spark 클러스터에서 사용할 수 있는 Notebook을 통해 Spark 작업, **Machine Learning: MLLib를 사용하여 식품 검사 데이터에 대한 예측 분석**을 시작합니다. 다음 단계를 사용하여 **spark-submit** 등의 다른 방법으로 제출한 애플리케이션을 추적할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 다음이 있어야 합니다.
 
 * Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
-* Notebook, 즉 **[기계 학습: MLLib를 사용하여 음식 검사 데이터에 대한 예측 분석](apache-spark-machine-learning-mllib-ipython.md)** 을 실행하기 시작했어야 합니다. 이 Notebook을 실행하는 방법은 링크를 따라갑니다.  
+* Notebook, 즉 **[Machine Learning: MLLib를 사용하여 식품 검사 데이터에 대한 예측 분석](apache-spark-machine-learning-mllib-ipython.md)** 을 실행하기 시작했어야 합니다. 이 Notebook을 실행하는 방법은 링크를 따라갑니다.  
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>YARN UI에서 응용 프로그램 추적
-1. YARN UI를 시작합니다. **클러스터 대시보드**를 클릭한 다음, **YARN**을 클릭합니다.
+1. YARN UI를 시작합니다. **클러스터 대시보드**에서 **Yarn**을 클릭합니다.
    
     ![YARN UI 시작](./media/apache-spark-job-debugging/launch-yarn-ui.png)
    
    > [!TIP]
-   > 또는 Ambari UI에서 YARN UI를 시작할 수도 있습니다. Ambari UI를 시작하려면 **클러스터 대시보드**, **HDInsight 클러스터 대시보드**를 차례로 클릭합니다. Ambari UI에서 **YARN**, **빠른 링크**, 활성 Resource Manager, **Resource Manager UI**를 차례로 클릭합니다.    
+   > 또는 Ambari UI에서 YARN UI를 시작할 수도 있습니다. Ambari UI를 시작하려면 **클러스터 대시보드**에서 **Ambari 홈**을 클릭합니다. Ambari UI에서 **YARN**, **빠른 링크**, 활성 Resource Manager, **Resource Manager UI**를 차례로 클릭합니다.    
    > 
    > 
 2. Jupyter Notebook을 사용하여 Spark 작업을 시작했기 때문에 응용 프로그램은 **remotesparkmagics** 이라는 이름을 갖게 됩니다(Notebook에서 시작된 모든 응용 프로그램에 대한 이름임). 응용 프로그램 이름에 대한 응용 프로그램 ID를 클릭하여 작업에 대한 자세한 정보를 봅니다. 그러면 응용 프로그램 보기를 시작합니다.
@@ -88,15 +88,15 @@ Spark UI에서 이전에 시작한 응용 프로그램에 의해 생성된 Spark
 ## <a name="find-information-about-completed-jobs-using-the-spark-history-server"></a>Spark 기록 서버를 사용하여 완료된 작업에 대한 정보 찾기
 작업이 완료되면 작업에 대한 정보는 Spark 기록 서버에 유지됩니다.
 
-1. Spark 기록 서버를 시작하려면 클러스터 블레이드에서 **클러스터 대시보드**, **Spark 기록 서버**를 차례로 클릭합니다.
+1. Spark 기록 서버를 시작하려면 개요 블레이드의 **클러스터 대시보드**에서 **Spark 기록 서버**를 클릭합니다.
    
     ![Spark 기록 서버 시작](./media/apache-spark-job-debugging/launch-spark-history-server.png)
    
    > [!TIP]
-   > 또는 Ambari UI에서 Spark 기록 서버를 시작할 수도 있습니다. Ambari UI를 시작하려면 클러스터 블레이드에서 **클러스터 대시보드**, **HDInsight 클러스터 대시보드의**를 차례로 클릭합니다. Ambari UI에서 **Spark**, **빠른 링크**, **Spark 기록 서버 UI**를 차례로 클릭합니다.
+   > 또는 Ambari UI에서 Spark 기록 서버를 시작할 수도 있습니다. Ambari UI를 시작하려면 개요 블레이드의 **클러스터 대시보드**에서 **Ambari 홈**을 클릭합니다. Ambari UI에서 **Spark**, **빠른 링크**, **Spark 기록 서버 UI**를 차례로 클릭합니다.
    > 
    > 
-2. 완료된 응용 프로그램이 모두 표시됩니다. 자세한 내용은 응용 프로그램 ID를 클릭하여 응용 프로그램에 대해 더 자세히 살펴봅니다.
+2. 완료된 애플리케이션이 모두 표시됩니다. 자세한 내용은 응용 프로그램 ID를 클릭하여 응용 프로그램에 대해 더 자세히 살펴봅니다.
    
     ![Spark 기록 서버 시작](./media/apache-spark-job-debugging/view-completed-applications.png)
 
@@ -106,7 +106,7 @@ Spark UI에서 이전에 시작한 응용 프로그램에 의해 생성된 Spark
 
 ### <a name="for-data-analysts"></a>데이터 분석가
 
-* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 HVAC 데이터로 건물 온도 분석](apache-spark-ipython-notebook-machine-learning.md)
 * [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 * [HDInsight의 Apache Spark를 사용한 Application Insight 원격 분석 데이터 분석](apache-spark-analyze-application-insight-logs.md)
@@ -122,5 +122,3 @@ Spark UI에서 이전에 시작한 응용 프로그램에 의해 생성된 Spark
 * [HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter 노트북에서 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](apache-spark-jupyter-notebook-install-locally.md)
-
-

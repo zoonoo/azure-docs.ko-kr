@@ -16,7 +16,7 @@ ms.locfileid: "53262781"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Azure SignalR Service 인스턴스 만들기
 
-응용 프로그램이 Azure의 SignalR Service 인스턴스에 연결됩니다.
+애플리케이션이 Azure의 SignalR Service 인스턴스에 연결됩니다.
 
 1. Azure Portal의 왼쪽 위에 있는 새로 만들기 단추를 선택합니다. 새 화면의 검색 상자에서 *SignalR Service*를 입력한 후 Enter 키를 누릅니다.
 

@@ -23,7 +23,7 @@ ms.locfileid: "44391745"
 Apache Sqoop를 사용하여 Azure SQL Database와 Azure Data Lake Storage Gen1 간에 데이터를 가져오고 내보내는 방법을 알아봅니다.
 
 ## <a name="what-is-sqoop"></a>Sqoop 정의
-빅 데이터 응용 프로그램은 로그 및 파일과 같은 비구조적 및 반구조적 데이터를 처리하기 위한 자연스러운 선택입니다. 그러나 관계형 데이터베이스에 저장된 구조적 데이터를 처리해야 할 수도 있습니다.
+빅 데이터 애플리케이션은 로그 및 파일과 같은 비구조적 및 반구조적 데이터를 처리하기 위한 자연스러운 선택입니다. 그러나 관계형 데이터베이스에 저장된 구조적 데이터를 처리해야 할 수도 있습니다.
 
 [Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html)는 Data Lake Storage Gen1과 같은 빅 데이터 리포지토리와 관계형 데이터베이스 간에 데이터를 전송하도록 설계된 도구입니다. 이 도구를 사용하여 Azure SQL Database와 같은 RDBMS(관계형 데이터베이스 관리 시스템)에서 Data Lake Storage Gen1로 데이터를 가져올 수 있습니다. 그런 다음 빅 데이터 워크로드를 사용하여 데이터를 변환 및 분석한 후 RDBMS로 다시 내보낼 수 있습니다. 이 자습서에서는 Azure SQL Database를 관계형 데이터베이스로 사용하여 데이터를 가져오고 내보낼 수 있습니다.
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: 9fb25f21e9ff54baf0e297fad1601018af45e476
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: aba3d9f33d179c09708464975fa2a929a8bb68d0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497236"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876522"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -63,7 +63,7 @@ Functions도 [Application Insights를 사용하지 않는 기본 모니터링](#
 
    ![Application Insights 계측 키 복사](media/functions-monitoring/copy-ai-key.png)
 
-1. 함수 앱의 **응용 프로그램 설정** 페이지에서 [새 설정 추가](functions-how-to-use-azure-function-app-settings.md#settings)를 클릭하여 **새 설정을 추가**합니다. 새 설정의 이름을 APPINSIGHTS_INSTRUMENTATIONKEY로 지정하고 복사한 계측 키를 붙여넣습니다.
+1. 함수 앱의 **애플리케이션 설정** 페이지에서 [새 설정 추가](functions-how-to-use-azure-function-app-settings.md#settings)를 클릭하여 **새 설정을 추가**합니다. 새 설정의 이름을 APPINSIGHTS_INSTRUMENTATIONKEY로 지정하고 복사한 계측 키를 붙여넣습니다.
 
    ![앱 설정에 계측 키 추가](media/functions-monitoring/add-ai-key.png)
 
@@ -73,7 +73,7 @@ Functions도 [Application Insights를 사용하지 않는 기본 모니터링](#
 
 Application Insight를 사용하도록 설정하면 [Azure Storage를 사용하는 기본 제공 로깅](#logging-to-storage)을 사용하지 않도록 설정하십시오. 기본 제공 로깅은 가벼운 워크로드를 테스트하기에 유용하지만 부하가 높은 프로덕션 용도로는 적합하지 않습니다. 프로덕션 모니터링에는 Application Insights를 사용하는 것이 좋습니다. 프로덕션에 기본 제공 로깅이 사용되면 Azure Storage의 제한으로 인해 로깅 레코드가 불완전할 수 있습니다.
 
-기본 제공 로깅을 사용하지 않도록 설정하려면 `AzureWebJobsDashboard` 앱 설정을 삭제합니다. Azure Portal에서 앱 설정을 삭제하는 방법에 대한 자세한 내용은 [함수 앱을 관리하는 방법](functions-how-to-use-azure-function-app-settings.md#settings)의 **응용 프로그램 설정** 섹션을 참조하세요. 앱 설정을 삭제하기 전에 동일한 함수 앱에 Azure Storage 트리거 또는 바인딩을 위해 해당 설정을 사용하는 기존 함수가 없는지 확인합니다.
+기본 제공 로깅을 사용하지 않도록 설정하려면 `AzureWebJobsDashboard` 앱 설정을 삭제합니다. Azure Portal에서 앱 설정을 삭제하는 방법에 대한 자세한 내용은 [함수 앱을 관리하는 방법](functions-how-to-use-azure-function-app-settings.md#settings)의 **애플리케이션 설정** 섹션을 참조하세요. 앱 설정을 삭제하기 전에 동일한 함수 앱에 Azure Storage 트리거 또는 바인딩을 위해 해당 설정을 사용하는 기존 함수가 없는지 확인합니다.
 
 ## <a name="view-telemetry-in-monitor-tab"></a>모니터 탭에서 원격 분석 보기
 
@@ -158,7 +158,7 @@ requests
 * **requests** - 각 함수 호출에 대한 요청입니다.
 * **exceptions** - 런타임에 의해 throw되는 예외입니다.
 * **customMetrics** - 성공 및 실패 호출의 수, 성공률 및 기간입니다.
-* **customEvents** - 함수를 트리거하는 HTTP 요청처럼 런타임에서 추적하는 이벤트입니다.
+* **customEvents** - 런타임에서 추적된 이벤트, 예를 들어 다음과 같습니다.  함수를 트리거하는 HTTP 요청
 * **performanceCounters** - 함수가 실행되고 있는 서버의 성능에 대한 정보입니다.
 
 나머지 테이블은 가용성 테스트 및 클라이언트/브라우저 원격 분석용입니다. 사용자 지정 원격 분석을 구현하여 테이블에 데이터를 추가할 수 있습니다.
@@ -330,6 +330,21 @@ v2.x 런타임은 [.NET Core 로깅 필터 계층 구조](https://docs.microsoft
 ## <a name="configure-sampling"></a>샘플링 구성
 
 Application Insights에는 최대 부하 시 원격 분석 데이터를 너무 많이 생성하지 않도록 보호하는 [샘플링](../application-insights/app-insights-sampling.md) 기능이 포함되어 있습니다. 들어오는 원격 분석 비율이 지정된 임계값을 초과하면 Application Insights는 들어오는 항목 중 일부를 임의로 무시하기 시작합니다. 초당 항목의 최대 수에 대한 기본 설정은 5입니다. [host.json](functions-host-json.md)에서 샘플링을 구성할 수 있습니다.  예를 들면 다음과 같습니다.
+
+### <a name="version-2x"></a>버전 2.x 
+
+```json
+{
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "maxTelemetryItemsPerSecond" : 5
+      }
+    }
+  }
+}
+```
 
 ### <a name="version-1x"></a>버전 1.x 
 

@@ -49,11 +49,11 @@ Service Bus에서 SAS 인증은 연결된 액세스 권한 및 기본 및 보조
 
 'Manage' 권한은 'Send' 및 'Receive' 권한을 포함합니다.
 
-네임스페이스 또는 엔터티 정책은 각각 기본 권한 및 Send 및 Listen의 조합을 다루는 세 개의 규칙 집합을 제공하여 최대 12개의 공유 액세스 권한 부여 규칙을 포함할 수 있습니다. 이 제한은 SAS 정책 저장소가 사용자 또는 서비스 계정 저장소에 적합하지 않다는 것을 강조합니다. 응용 프로그램에서 사용자 또는 서비스 ID에 따라 Service Bus에 대한 액세스 권한을 부여해야 하는 경우 인증 및 액세스 검사 후 SAS 토큰을 발급하는 보안 토큰 서비스를 구현해야 합니다.
+네임스페이스 또는 엔터티 정책은 각각 기본 권한 및 Send 및 Listen의 조합을 다루는 세 개의 규칙 집합을 제공하여 최대 12개의 공유 액세스 권한 부여 규칙을 포함할 수 있습니다. 이 제한은 SAS 정책 저장소가 사용자 또는 서비스 계정 저장소에 적합하지 않다는 것을 강조합니다. 애플리케이션에서 사용자 또는 서비스 ID에 따라 Service Bus에 대한 액세스 권한을 부여해야 하는 경우 인증 및 액세스 검사 후 SAS 토큰을 발급하는 보안 토큰 서비스를 구현해야 합니다.
 
 권한 부여 규칙은 *기본 키*와 *보조 키*에 할당됩니다. 이들은 강력한 암호화 키입니다. 잃어 버리거나 누출되지 않도록 하세요. 항상 [Azure Portal][Azure portal]에서 사용할 수 있습니다. 생성된 키 중 하나를 사용할 수 있으며 언제든지 다시 생성할 수 있습니다. 정책에서 키를 다시 생성하거나 변경하는 경우 해당 키에 기반한 이전에 발급된 모든 토큰은 즉시 무효화됩니다. 그러나 이러한 토큰에 따라 생성된 진행 중인 연결은 토큰이 만료될 때까지 작업을 계속합니다.
 
-Service Bus 네임스페이스를 만들 때 **RootManageSharedAccessKey**라는 정책 규칙이 네임스페이스에 대해 자동으로 만들어집니다. 이 정책은 전체 네임스페이스에 대한 Manage 사용 권한을 갖습니다. 이 규칙을 관리 **루트** 계정과 같이 처리하고 응용 프로그램에서 사용하지 않는 것이 좋습니다. Powershell 또는 Azure CLI를 통해 포털의 해당 네임스페이스에 대한 **구성** 탭에서 추가 정책 규칙을 만들 수 있습니다.
+Service Bus 네임스페이스를 만들 때 **RootManageSharedAccessKey**라는 정책 규칙이 네임스페이스에 대해 자동으로 만들어집니다. 이 정책은 전체 네임스페이스에 대한 Manage 사용 권한을 갖습니다. 이 규칙을 관리 **루트** 계정과 같이 처리하고 애플리케이션에서 사용하지 않는 것이 좋습니다. Powershell 또는 Azure CLI를 통해 포털의 해당 네임스페이스에 대한 **구성** 탭에서 추가 정책 규칙을 만들 수 있습니다.
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>공유 액세스 서명 인증을 위한 구성
 
@@ -94,7 +94,7 @@ SAS 토큰은 `signature-string`에서 사용된 `<resourceURI>`를 접두사로
 
 ## <a name="regenerating-keys"></a>키 다시 생성
 
-[SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 개체에서 정기적으로 사용되는 키를 다시 생성하는 것이 좋습니다. 기본 및 보조 키 슬롯은 키를 점진적으로 회전할 수 있도록 존재합니다. 응용 프로그램에서 일반적으로 기본 키를 사용하는 경우 기본 키를 보조 키 슬롯에 복사한 다음, 기본 키를 다시 생성할 수 있습니다. 그런 다음, 보조 슬롯의 이전 기본 키를 사용하여 계속해서 액세스하는 클라이언트 응용 프로그램으로 새 기본 키 값을 구성할 수 있습니다. 모든 클라이언트를 업데이트한 후에 보조 키를 다시 생성하여 마지막으로 이전 기본 키를 사용 중지할 수 있습니다.
+[SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 개체에서 정기적으로 사용되는 키를 다시 생성하는 것이 좋습니다. 기본 및 보조 키 슬롯은 키를 점진적으로 회전할 수 있도록 존재합니다. 애플리케이션에서 일반적으로 기본 키를 사용하는 경우 기본 키를 보조 키 슬롯에 복사한 다음, 기본 키를 다시 생성할 수 있습니다. 그런 다음, 보조 슬롯의 이전 기본 키를 사용하여 계속해서 액세스하는 클라이언트 애플리케이션으로 새 기본 키 값을 구성할 수 있습니다. 모든 클라이언트를 업데이트한 후에 보조 키를 다시 생성하여 마지막으로 이전 기본 키를 사용 중지할 수 있습니다.
 
 키가 손상되었고 키를 해제해야 한다는 것을 알거나 의심이 가는 경우 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)의 [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) 및 [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) 모두를 새 키로 바꿔 다시 생성할 수 있습니다. 이 절차는 이전 키로 서명된 모든 토큰을 무효화합니다.
 
@@ -245,7 +245,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
 
 그런 다음 게시자는 SAS 토큰을 보내고 서비스로부터 회신(토큰 유효성 검사 결과)을 받기 위한 2개의 AMQP 링크를 만듭니다.
 
-AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니다. SAS 토큰은 해당 생성자를 사용하여 메시지의 본문으로 배치됩니다. **"ReplyTo"** 속성은 수신기 링크에 대한 유효성 검사 결과를 받기 위한 노드 이름으로 설정됩니다(원하는 대로 이름을 변경할 수 있으며 서비스에서 동적으로 생성함). 마지막 세 응용 프로그램/사용자 지정 속성은 서비스에서 실행하는 작업의 종류를 나타내는 데 사용합니다. CBS 초안 사양에서 설명한 것처럼 이들은 **토큰의 형식**(이 경우 `servicebus.windows.net:sastoken`)인 **작업 이름**("put-token")이 되고 토큰이 적용되는 **청중의 "이름"** 이어야 합니다(전체 엔터티).
+AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니다. SAS 토큰은 해당 생성자를 사용하여 메시지의 본문으로 배치됩니다. **"ReplyTo"** 속성은 수신기 링크에 대한 유효성 검사 결과를 받기 위한 노드 이름으로 설정됩니다(원하는 대로 이름을 변경할 수 있으며 서비스에서 동적으로 생성함). 마지막 세 애플리케이션/사용자 지정 속성은 서비스에서 실행하는 작업의 종류를 나타내는 데 사용합니다. CBS 초안 사양에서 설명한 것처럼 이들은 **토큰의 형식**(이 경우 `servicebus.windows.net:sastoken`)인 **작업 이름**("put-token")이 되고 토큰이 적용되는 **청중의 "이름"** 이어야 합니다(전체 엔터티).
 
 보낸 사람 링크에서 SAS 토큰을 보낸 후 게시자는 수신자 링크에서 회신을 읽어야 합니다. 회신은 HTTP 상태 코드와 동일한 값을 포함할 수 있는 **"status-code"** 라는 이름의 애플리케이션 속성을 가진 간단한 AMQP 메시지입니다.
 

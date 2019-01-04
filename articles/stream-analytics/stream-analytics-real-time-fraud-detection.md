@@ -108,7 +108,7 @@ Streaming Analytics 작업 결과를 확인하려면 Azure Blob Storage 컨테�
 
     연결 문자열에는 세미콜론으로 구분된 여러 키-값 쌍이 포함되어 있습니다(`Endpoint`, `SharedAccessKeyName`, `SharedAccessKey` 및 `EntityPath`).  
 
-## <a name="configure-and-start-the-event-generator-application"></a>이벤트 생성기 응용 프로그램 구성 및 시작
+## <a name="configure-and-start-the-event-generator-application"></a>이벤트 생성기 애플리케이션 구성 및 시작
 
 TelcoGenerator 앱을 시작하기 전에 호출 레코드를 만든 이벤트 허브에 전송할 수 있도록 구성해야 합니다.
 
@@ -143,7 +143,7 @@ TelcoGenerator 앱을 시작하기 전에 호출 레코드를 만든 이벤트 �
 
     몇 초 후 앱에서 이벤트 허브로 데이터를 전송함에 따라 화면에 전화 통화 레코드가 표시되기 시작합니다.
 
-이 실시간 사기 감지 응용 프로그램에서 사용할 수 있는 일부 키 필드는 다음과 같습니다.
+이 실시간 사기 감지 애플리케이션에서 사용할 수 있는 일부 키 필드는 다음과 같습니다.
 
 |**레코드**|**정의**|
 |----------|--------------|

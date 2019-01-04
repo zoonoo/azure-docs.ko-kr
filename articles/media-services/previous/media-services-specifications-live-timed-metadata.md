@@ -3,7 +3,7 @@ title: Azure Media Services - 라이브 스트리밍의 신호 타이밍 메타�
 description: 이 사양은 라이브 스트리밍 내의 신호 타이밍 메타데이터에 대해 Media Services에서 지원하는 두 가지 모드를 설명합니다. 여기에는 제네릭 타이밍 메타데이터 신호 및 광고 스플라이스 삽입을 위한 SCTE-35 신호에 대한 지원이 포함됩니다.
 services: media-services
 documentationcenter: ''
-author: cenkdin
+author: johndeu
 manager: cfowler
 editor: johndeu
 ms.assetid: 265b94b1-0fb8-493a-90ec-a4244f51ce85
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2018
+ms.date: 12/13/2018
 ms.author: johndeu;
-ms.openlocfilehash: 827153300b9cab4ea805689b1e103bea1b334ec9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b4dec5430d93cd2634fc541ae688a6bc425f5491
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249577"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384686"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>라이브 스트리밍의 신호 타이밍 메타데이터
 
@@ -81,7 +81,7 @@ RTMP 단순 모드의 경우 Media Services는 다음 형식의 "onAdCue"라는 
 | 필드 이름 | 필드 형식 | Required? | 설명                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
 | cue        | 문자열     | 필수 | 이벤트 메시지입니다.  [SCTE-35] 메시지의 경우, [SCTE-67]에 따라 메시지를 HLS, Smooth, Dash 클라이언트로 보내려면 이 메시지는 base64(IETF RFC 4648) 이진 인코딩된 splice_info_section()이어야 합니다.                                              |
-| 형식       | 문자열     | 필수 | 메시지 구성표를 식별하는 URN 또는 URL입니다(예: "urn:example:signaling:1.0").  [SCTE-35] 메시지의 경우, [SCTE-67]에 따라 메시지를 HLS, Smooth, Dash 클라이언트로 보내려면 이 메시지는 "urn:scte:scte35:2013a:bin"이어야 합니다.  |
+| 형식       | 문자열     | 필수 | 메시지 구성표를 식별하는 URN 또는 URL입니다. [SCTE-35] 메시지의 경우, [SCTE-67]에 따라 메시지를 HLS, Smooth, Dash 클라이언트로 보내려면 이 메시지는 "urn:scte:scte35:2013a:bin"이어야 합니다.  |
 | id         | 문자열     | 필수 | 스플라이스 또는 세그먼트를 설명하는 고유 식별자입니다. 메시지의 이 인스턴스를 식별합니다.  동일한 의미 체계를 갖는 메시지의 값은 동일해야 합니다.|
 | duration   | Number     | 필수 | 알려진 경우 이벤트 또는 광고 스플라이스 세그먼트의 재생 시간입니다. 알 수 없는 경우 값은 0이어야 합니다.                                                                 |
 | elapsed    | Number     | 옵션 | 선국(tune in)하기 위해 [SCTE-35] 광고 신호가 반복되는 경우. 이 필드는 스플라이스가 시작된 이후 경과한 프레젠테이션 시간의 양이어야 합니다. 단위는 소수 자릿수 초입니다. [SCTE-35] 모드에서 이 값은 스플라이스 또는 세그먼트의 지정된 원래 재생 시간을 초과할 수 있습니다.                                                  |
@@ -105,7 +105,7 @@ RTMP 단순 모드의 경우 Media Services는 다음 형식의 "onAdCue"라는 
 | parentTrackName    | 문자열         | 필수      | 스파스 트랙 타임 코드가 날짜 표시줄에 맞춰진 부모 트랙의 이름이어야 합니다. 부모 트랙은 스파스 트랙이 될 수 없습니다.                                                                                                                    |
 | manifestOutput     | BOOLEAN        | 필수      | 스파스 트랙이 Smooth 클라이언트 매니페스트에 포함된다는 것을 나타내려면 "true"여야 합니다.                                                                                                                                                               |
 | Subtype            | 문자열         | 필수      | 네 문자 코드인 "DATA"여야 합니다.                                                                                                                                                                                                                         |
-| 구성표             | 문자열         | 필수      | 메시지 구성표를 식별하는 URN 또는 URL이어야 합니다(예: "urn:example:signaling:1.0"). [SCTE-35] 메시지의 경우, [SCTE-67]에 따라 메시지를 HLS, Smooth, Dash 클라이언트로 보내려면 이 메시지는 "urn:scte:scte35:2013a:bin"이어야 합니다. |
+| 구성표             | 문자열         | 필수      | 메시지 구성표를 식별하는 URN 또는 URL이어야 합니다. [SCTE-35] 메시지의 경우, [SCTE-67]에 따라 메시지를 HLS, Smooth, Dash 클라이언트로 보내려면 이 메시지는 "urn:scte:scte35:2013a:bin"이어야 합니다. |
 | trackName          | 문자열         | 필수      | 스파스 트랙의 이름이어야 합니다. trackName은 동일한 구성표를 사용하여 여러 이벤트 스트림을 구별하는 데 사용할 수 있습니다. 각각의 고유 이벤트 스트림에는 고유한 트랙 이름이 있어야 합니다.                                                                           |
 | timescale          | Number         | 옵션      | 부모 트랙의 날짜 표시줄이어야 합니다.                                                                                                                                                                                                                      |
 
@@ -226,7 +226,7 @@ Apple HLS(HTTP 라이브 스트리밍)에 대한 타이밍 메타데이터는 �
 | **특성 이름** | **형식**                      | **필수 여부**                             | **설명**                                                                                                                                                                                                                                                                      |
 |--------------------|-------------------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | CUE                | 따옴표가 붙은 문자열                 | 필수                                  | [IETF RFC 4648](http://tools.ietf.org/html/rfc4648)에서 설명한 대로 base64 문자열로 인코딩된 메시지입니다. [SCTE-35] 메시지의 경우 base64로 인코딩된 splice_info_section()입니다.                                                                                                |
-| 형식               | 따옴표가 붙은 문자열                 | 필수                                  | 메시지 구성표를 식별하는 URN 또는 URL입니다(예: "urn:example:signaling:1.0"). [SCTE-35] 메시지의 경우 이 특성은 특수 값인 "scte35"를 사용합니다.                                                                                                                                |
+| 형식               | 따옴표가 붙은 문자열                 | 필수                                  | 메시지 구성표를 식별하는 URN 또는 URL입니다. [SCTE-35] 메시지의 경우 이 특성은 특수 값인 "scte35"를 사용합니다.                                                                                                                                |
 | ID                 | 따옴표가 붙은 문자열                 | 필수                                  | 이벤트에 대한 고유 식별자입니다. 메시지가 수집될 때 ID를 지정하지 않으면 Azure Media Services에서 고유 ID를 생성합니다.                                                                                                                                          |
 | DURATION           | 10진수 부동 소수점 숫자 | 필수                                  | 이벤트의 재생 시간입니다. 알 수 없는 경우 값은 0이어야 합니다. 단위는 소수 자릿수 초입니다.                                                                                                                                                                                           |
 | ELAPSED            | 10진수 부동 소수점 숫자 | 선택 사항이지만, 슬라이딩 시간 범위에 필수임 | 슬라이딩 프레젠테이션 시간 범위를 지원하기 위해 신호가 반복되는 경우. 이 필드는 이벤트가 시작된 이후 경과한 프레젠테이션 시간의 양이어야 합니다. 단위는 소수 자릿수 초입니다. 이 값은 스플라이스 또는 세그먼트의 지정된 원래 재생 시간을 초과할 수 있습니다. |
@@ -240,30 +240,17 @@ HLS 플레이어 응용 프로그램 계층에서는 TYPE을 사용하여 메시
 #EXTM3U
 #EXT-X-VERSION:4
 #EXT-X-ALLOW-CACHE:NO
-#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-MEDIA-SEQUENCE:346
 #EXT-X-TARGETDURATION:6
-#EXT-X-PROGRAM-DATE-TIME:1970-01-01T00:00:00.000+00:00
+#EXT-X-I-FRAMES-ONLY
+#EXT-X-PROGRAM-DATE-TIME:2018-12-13T15:54:19.462Z
+#EXTINF:4.000000,no-desc
+KeyFrames(video_track=15447164594627600,format=m3u8-aapl)
 #EXTINF:6.000000,no-desc
-Fragments(video=0,format=m3u8-aapl)
+KeyFrames(video_track=15447164634627600,format=m3u8-aapl)
+#EXT-X-CUE:ID="1026",TYPE="scte35",DURATION=30.000000,TIME=1544716520.022760,CUE="/DAlAAAAAAAAAP/wFAUAAAQCf+//KRjAfP4AKTLgAAAAAAAAVYsh2w=="
 #EXTINF:6.000000,no-desc
-Fragments(video=60000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-#EXT-X-CUE: ID=”metadata-12.000000”,TYPE=”urn:example:signaling:1.0”,TIME=”12.000000”, DURATION=”18.000000”,CUE=”HrwOi8vYmWVkaWEvhhaWFRlRDa=”
-Fragments(video=120000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=180000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=240000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=300000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=360000000,format=m3u8-aapl)
-#EXT-X-CUE: ID=”metadata-42.000000”,TYPE=”urn:example:signaling:1.0”,TIME=”42.000000”, DURATION=”60.000000”,CUE=”PD94bWwgdm0iMS4wIiBlbmNvpD4=”
-#EXTINF:6.000000,no-desc
-Fragments(video=420000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=480000000,format=m3u8-aapl)
-…
+KeyFrames(video_track=15447165474627600,format=m3u8-aapl)
 ~~~
 
 #### <a name="hls-message-handling"></a>HLS 메시지 처리
@@ -293,7 +280,7 @@ EventStream 요소에 포함되는 특성은 다음과 같습니다.
 
 | **특성 이름** | **형식**                | **필수 여부** | **설명**                                                                                                                                                                                                                                                                                   |
 |--------------------|-------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| scheme_id_uri      | string                  | 필수      | 메시지의 구성표를 식별합니다. 이 구성표는 라이브 서버 매니페스트 상자에 있는 Scheme 특성의 값으로 설정됩니다. 이 값은 메시지 구성표를 식별하는 URN 또는 URL이어야 합니다(예: "urn:example:signaling:1.0").                                                                |
+| scheme_id_uri      | string                  | 필수      | 메시지의 구성표를 식별합니다. 이 구성표는 라이브 서버 매니페스트 상자에 있는 Scheme 특성의 값으로 설정됩니다. 이 값은 메시지 구성표를 식별하는 URN 또는 URL이어야 합니다(예: “urn:scte:scte35:2013a:bin”).                                                                |
 | 값              | string                  | 옵션      | 메시지의 의미 체계를 사용자 지정하기 위해 구성표 소유자가 추가로 사용하는 문자열 값입니다. 동일한 구성표를 사용하여 여러 이벤트 스트림을 구별하기 위해 값을 이벤트 스트림의 이름(부드러운 수집의 경우 trackName 또는 RTMP 수집의 경우 AMF 메시지 이름)으로 설정해야 합니다. |
 | 시간 간격          | 부호 없는 32비트 정수 | 필수      | 'emsg' 상자 내의 시간 및 재생 시간 필드의 날짜 표시줄(초당 틱 수 단위)입니다.                                                                                                                                                                                                       |
 
@@ -335,11 +322,14 @@ EventStream 요소에 포함되는 특성은 다음과 같습니다.
 
 
 <!-- Example Section in MPD -->
-
-<EventStream schemeIdUri=”urn:example:signaling:1.0” timescale=”1000” value=”player-statistics”>
-  <Event presentationTime=”0” duration=”10000” id=”0”> PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48QWNxdWlyZWRTaWduYWwgeG1sbnM9InVybjpjYWJsZWxhYnM6bWQ6eHNkOnNpZ25hbGluZzozLjAiIGFjcXVpc2l0aW9uUG9pbnRJZGVudGl0eT0iRVNQTl9FYXN0X0FjcXVpc2l0aW9uX1BvaW50XzEiIGFjcXVpc2l0aW9uU2lnbmFsSUQ9IjRBNkE5NEVFLTYyRkExMUUxQjFDQTg4MkY0ODI0MDE5QiIgYWNxdWlzaXRpb25UaW1lPSIyMDEyLTA5LTE4VDEwOjE0OjI2WiI+PFVUQ1BvaW50IHV0Y1BvaW50PSIyMDEyLTA5LTE4VDEwOjE0OjM0WiIvPjxTQ1RFMzVQb2ludERlc2NyaXB0b3Igc3BsaWNlQ29tbWFuZFR5cGU9IjUiPjxTcGxpY2VJbnNlcnQgc3BsaWNlRXZlbnRJRD0iMzQ0NTY4NjkxIiBvdXRPZk5ldHdvcmtJbmRpY2F0b3I9InRydWUiIHVuaXF1ZVByb2dyYW1JRD0iNTUzNTUiIGR1cmF0aW9uPSJQVDFNMFMiIGF2YWlsTnVtPSIxIiBhdmFpbHNFeHBlY3RlZD0iMTAiLz48L1NDVEUzNVBvaW50RGVzY3JpcHRvcj48U3RyZWFtVGltZXM+PFN0cmVhbVRpbWUgdGltZVR5cGU9IkhTUyIgdGltZVZhbHVlPSI1MTUwMDAwMDAwMDAiLz48L1N0cmVhbVRpbWVzPjwvQWNxdWlyZWRTaWduYWw+</Event>
-  <Event presentationTime=”20000” duration=”10000” id=”1”> PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48QWNxdWlyZWRTaWduYWwgeG1sbnM9InVybjpjYWJsZWxhYnM6bWQ6eHNkOnNpZ25hbGluZzozLjAiIGFjcXVpc2l0aW9uUG9pbnRJZGVudGl0eT0iRVNQTl9FYXN0X0FjcXVpc2l0aW9uX1BvaW50XzEiIGFjcXVpc2l0aW9uU2lnbmFsSUQ9IjRBNkE5NEVFLTYyRkExMUUxQjFDQTg4MkY0ODI0MDE5QiIgYWNxdWlzaXRpb25UaW1lPSIyMDEyLTA5LTE4VDEwOjE0OjI2WiI+PFVUQ1BvaW50IHV0Y1BvaW50PSIyMDEyLTA5LTE4VDEwOjE0OjM0WiIvPjxTQ1RFMzVQb2ludERlc2NyaXB0b3Igc3BsaWNlQ29tbWFuZFR5cGU9IjUiPjxTcGxpY2VJbnNlcnQgc3BsaWNlRXZlbnRJRD0iMzQ0NTY4NjkxIiBvdXRPZk5ldHdvcmtJbmRpY2F0b3I9InRydWUiIHVuaXF1ZVByb2dyYW1JRD0iNTUzNTUiIGR1cmF0aW9uPSJQVDFNMFMiIGF2YWlsTnVtPSIxIiBhdmFpbHNFeHBlY3RlZD0iMTAiLz48L1NDVEUzNVBvaW50RGVzY3JpcHRvcj48U3RyZWFtVGltZXM+PFN0cmVhbVRpbWUgdGltZVR5cGU9IkhTUyIgdGltZVZhbHVlPSI1MTYyMDAwMDAwMDAiLz48L1N0cmVhbVRpbWVzPjwvQWNxdWlyZWRTaWduYWw+</Event>
-</EventStream>
+  <EventStream schemeIdUri="urn:scte:scte35:2013a:bin" value="scte35_track_001_000" timescale="10000000">
+        <Event presentationTime="15447165200227600" duration="300000000" id="1026">/DAlAAAAAAAAAP/wFAUAAAQCf+//KRjAfP4AKTLgAAAAAAAAVYsh2w==</Event>
+        <Event presentationTime="15447166250227600" duration="300000000" id="1027">/DAlAAAAAAAAAP/wFAUAAAQDf+//KaeGwP4AKTLgAAAAAAAAn75a3g==</Event>
+        <Event presentationTime="15447167300227600" duration="600000000" id="1028">/DAlAAAAAAAAAP/wFAUAAAQEf+//KjkknP4AUmXAAAAAAAAAWcEldA==</Event>
+        <Event presentationTime="15447168350227600" duration="600000000" id="1029">/DAlAAAAAAAAAP/wFAUAAAQFf+//KslyqP4AUmXAAAAAAAAAvKNt0w==</Event>
+        <Event presentationTime="15447169400227600" duration="300000000" id="1030">/DAlAAAAAAAAAP/wFAUAAAQGf+//K1mIvP4AKTLgAAAAAAAAt2zEbw==</Event>
+        <Event presentationTime="15447170450227600" duration="600000000" id="1031">/DAlAAAAAAAAAP/wFAUAAAQHf+//K+hc/v4AUmXAAAAAAAAANNRzVw==</Event>
+    </EventStream>
 ~~~
 
 >[!NOTE]
@@ -375,7 +365,7 @@ DASHEventMessageBox의 필드는 아래와 같이 정의됩니다.
 
 | **필드 이름**          | **필드 형식**          | **필수 여부** | **설명**                                                                                                                                                                                                                                                                                                                                                    |
 |-------------------------|-------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| scheme_id_uri           | string                  | 필수      | 메시지의 구성표를 식별합니다. 이 구성표는 라이브 서버 매니페스트 상자에 있는 Scheme 특성의 값으로 설정됩니다. 이 값은 메시지 구성표를 식별하는 URN 또는 URL이어야 합니다(예: "urn:example:signaling:1.0"). [SCTE-35] 메시지의 경우, "urn:scte:scte35:2013a:bin"이라는 특수 값이 필요하지만, [SCTE-67]에서는 다른 값을 권장하고 있습니다. |
+| scheme_id_uri           | string                  | 필수      | 메시지의 구성표를 식별합니다. 이 구성표는 라이브 서버 매니페스트 상자에 있는 Scheme 특성의 값으로 설정됩니다. 이 값은 메시지 구성표를 식별하는 URN 또는 URL이어야 합니다. [SCTE-35] 메시지의 경우, "urn:scte:scte35:2013a:bin"이라는 특수 값이 필요하지만, [SCTE-67]에서는 다른 값을 권장하고 있습니다. |
 | 값                   | string                  | 필수      | 메시지의 의미 체계를 사용자 지정하기 위해 구성표 소유자가 추가로 사용하는 문자열 값입니다. 동일한 구성표를 사용하여 여러 이벤트 스트림을 구별하기 위해 값을 이벤트 스트림의 이름(부드러운 수집의 경우 trackName 또는 RTMP 수집의 경우 AMF 메시지 이름)으로 설정합니다.                                                                  |
 | 시간 간격               | 부호 없는 32비트 정수 | 필수      | 'emsg' 상자 내의 시간 및 재생 시간 필드의 날짜 표시줄(초당 틱 수 단위)입니다.                                                                                                                                                                                                                                                                        |
 | Presentation_time_delta | 부호 없는 32비트 정수 | 필수      | 이벤트의 프레젠테이션 시간에 대한 미디어 프레젠테이션 시간 델타 및 이 세그먼트에서 가장 빠른 프레젠테이션 시간입니다. 프레젠테이션 시간과 재생 시간은 [ISO-14496-12] 부록 I에서 정의한 대로 유형 1 또는 유형 2의 SAP(스트림 액세스 포인트)와 일치해야 합니다.                                                                                            |
@@ -398,9 +388,9 @@ DASHEventMessageBox의 필드는 아래와 같이 정의됩니다.
 
 **[SCTE-35]** ANSI/SCTE 35 2013a - 케이블용 디지털 프로그램 삽입 큐 메시지, 2013a
 
-**[SCTE-67]** ANSI/SCTE 67 2014 - SCTE 35: 케이블용 디지털 프로그램 삽입 큐 메시지에 대한 권장 사례
+**[SCTE-67]** ANSI/SCTE 67 2014 –Recommended Practice for SCTE 35: Digital Program Insertion Cueing Message for Cable
 
-**[DASH]** ISO/IEC 23009-1 2014 - 정보 기술 - DASH(HTTP를 통한 동적 적응 스트리밍) - 1부: 미디어 프레젠테이션 설명 및 세그먼트 형식, 제2판
+**[DASH]** ISO/IEC 23009-1 2014 – Information technology – Dynamic adaptive streaming over HTTP (DASH) – Part 1: Media Presentation description and segment formats, 2nd edition
 
 **[HLS]** ["HTTP 라이브 스트리밍", draft-pantos-http-live-streaming-14, 2014년 10월 14일](http://tools.ietf.org/html/draft-pantos-http-live-streaming-14)
 
@@ -410,7 +400,7 @@ DASHEventMessageBox의 필드는 아래와 같이 정의됩니다.
 
 **[LIVE-FMP4]** [Azure Media Services 조각난 MP4 라이브 수집 사양](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)
 
-**[ISO-14496-12]** ISO/IEC 14496-12: 12부 ISO 기본 미디어 파일 형식, 제4판, 2012년 7월 15일
+**[ISO-14496-12]** ISO/IEC 14496-12: Part 12 ISO base media file format, Fourth Edition 2012-07-15.
 
 **[RTMP]** ["Adobe 실시간 메시징 프로토콜", 2012년 12월 21일](https://www.adobe.com/devnet/rtmp.html) 
 

@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: c6ecb7d4c1e5b648373fcaa3f44c6294329d33c2
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 565c0ed877cf4500131f7ad3099f3c7d3f1a1220
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801168"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955040"
 ---
 # <a name="news-search-api-upgrade-guide"></a>News Search API 업그레이드 가이드
 
@@ -25,7 +25,7 @@ ms.locfileid: "48801168"
 
 ### <a name="endpoints"></a>엔드포인트
 
-- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. 예를 들어 https://api.cognitive.microsoft.com/bing/\*\*v7.0**/news/search입니다.
+- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. 예를 들어 https://api.cognitive.microsoft.com/bing/**v7.0**/news/search입니다.
 
 ### <a name="error-response-objects-and-error-codes"></a>오류 응답 개체 및 오류 코드
 
@@ -34,7 +34,6 @@ ms.locfileid: "48801168"
 - 다음 필드가 `Error` 개체에 추가되었습니다.  
   - `subCode`&mdash;가능한 경우 불연속 버킷으로 오류 코드 분할
   - `moreDetails`&mdash;`message` 필드에 설명된 오류에 대한 추가 정보
-   
 
 - v5 오류 코드가 다음과 같이 가능한 `code` 및 `subCode` 값으로 바뀌었습니다.
 
@@ -77,18 +76,18 @@ Blocked|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>쿼리 매개 변수
 
-- [범주](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) 쿼리 매개 변수를 설정할 수 있는 가능한 값으로 제품이 추가되었습니다. [지역/국가별 범주](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#categories-by-market)를 참조하세요.  
-    
-- 가장 최근에 첫 번째로 날짜별 정렬된 추세 항목을 반환하는 [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortby) 쿼리 매개 변수가 추가되었습니다.  
-  
+- [범주](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) 쿼리 매개 변수를 설정할 수 있는 가능한 값으로 제품이 추가되었습니다. [지역/국가별 범주](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#categories-by-market)를 참조하세요.
+
+- 가장 최근에 첫 번째로 날짜별 정렬된 추세 항목을 반환하는 [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortby) 쿼리 매개 변수가 추가되었습니다.
+
 - 지정된 Unix Epoch 타임스탬프에서 Bing으로 검색된 추세 항목을 반환하는 [Since](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#since) 쿼리 매개 변수가 추가되었습니다.
 
 ### <a name="object-changes"></a>개체 변경 사항
 
-- `mentions` 필드가 [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) 개체에 추가되었습니다. `mentions` 필드는 아티클에서 찾은 엔터티(사용자 또는 위치)의 목록을 포함합니다.  
-  
-- `video` 필드가 [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) 개체에 추가되었습니다. `video` 필드는 뉴스 아티클과 관련된 비디오를 포함합니다. 비디오는 사용자가 포함할 수 있는 \<iframe\> 또는 동작 썸네일 중 하나입니다.   
-  
-- `sort` 필드가 [News](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) 개체에 추가되었습니다. `sort` 필드는 아티클의 정렬 순서를 보여 줍니다. 예를 들어 아티클이 관련성(기본값) 또는 날짜별로 정렬됩니다.  
-  
+- `mentions` 필드가 [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) 개체에 추가되었습니다. `mentions` 필드는 아티클에서 찾은 엔터티(사용자 또는 위치)의 목록을 포함합니다.
+
+- `video` 필드가 [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) 개체에 추가되었습니다. `video` 필드는 뉴스 아티클과 관련된 비디오를 포함합니다. 비디오는 사용자가 포함할 수 있는 \<iframe\> 또는 동작 썸네일 중 하나입니다.
+
+- `sort` 필드가 [News](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) 개체에 추가되었습니다. `sort` 필드는 아티클의 정렬 순서를 보여 줍니다. 예를 들어 아티클이 관련성(기본값) 또는 날짜별로 정렬됩니다.
+
 - 정렬 순서를 정의하는 [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortvalue) 개체가 추가되었습니다. `isSelected` 필드는 응답이 정렬 순서를 사용했는지 여부를 나타냅니다. **true**이면 응답이 정렬 순서를 사용한 것입니다. `isSelected`가 **false**이면 `url` 필드에서 URL을 사용하여 다른 정렬 순서를 요청할 수 있습니다.

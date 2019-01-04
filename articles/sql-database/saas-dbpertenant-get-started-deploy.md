@@ -1,6 +1,6 @@
 ---
 title: 테넌트당 데이터베이스 SaaS 자습서 - Azure SQL Database | Microsoft Docs
-description: Azure SQL Database를 사용하는 테넌트 패턴당 데이터베이스 및 기타 SaaS 패턴을 보여주는 Wingtip Tickets SaaS 다중 테넌트 응용 프로그램을 배포하고 탐색합니다.
+description: Azure SQL Database를 사용하는 테넌트 패턴당 데이터베이스 및 기타 SaaS 패턴을 보여주는 Wingtip Tickets SaaS 다중 테넌트 애플리케이션을 배포하고 탐색합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -21,21 +21,21 @@ ms.locfileid: "50232905"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>SQL Database로 테넌트별 데이터베이스 패턴을 사용하는 다중 테넌트 SaaS 앱 배포 및 탐색
 
-이 자습서에서는 테넌트의 Wingtip Tickets SaaS 테넌트당 데이터베이스 응용 프로그램(Wingtip)을 배포하고 탐색합니다. 이 앱은 테넌트당 데이터베이스 패턴을 사용하여 여러 테넌트의 데이터를 저장합니다. 이 앱은 SaaS 시나리오를 활성화하는 방법을 간소화하는 Azure SQL Database의 기능을 보여주도록 설계되었습니다.
+이 자습서에서는 테넌트의 Wingtip Tickets SaaS 테넌트당 데이터베이스 애플리케이션(Wingtip)을 배포하고 탐색합니다. 이 앱은 테넌트당 데이터베이스 패턴을 사용하여 여러 테넌트의 데이터를 저장합니다. 이 앱은 SaaS 시나리오를 활성화하는 방법을 간소화하는 Azure SQL Database의 기능을 보여주도록 설계되었습니다.
 
-**Azure에 배포**를 선택하고 5분 후에 다중 테넌트 SaaS 응용 프로그램이 설치됩니다. 앱은 클라우드에서 실행되는 SQL 데이터베이스를 포함합니다. 앱은 각각 고유한 데이터베이스를 사용하여 3개의 샘플 테넌트에서 배포됩니다. 모든 데이터베이스는 SQL 탄력적 풀에 배포됩니다. 앱은 Azure 구독에 배포됩니다. 앱의 개별 구성 요소를 탐색하고 작업할 수 있는 전체 액세스 권한이 있습니다. 응용 프로그램 C# 소스 코드 및 관리 스크립트는 [WingtipTicketsSaaS-DbPerTenant GitHub 리포지토리][github-wingtip-dpt]에서 사용할 수 있습니다.
+**Azure에 배포**를 선택하고 5분 후에 다중 테넌트 SaaS 응용 프로그램이 설치됩니다. 앱은 클라우드에서 실행되는 SQL 데이터베이스를 포함합니다. 앱은 각각 고유한 데이터베이스를 사용하여 3개의 샘플 테넌트에서 배포됩니다. 모든 데이터베이스는 SQL 탄력적 풀에 배포됩니다. 앱은 Azure 구독에 배포됩니다. 앱의 개별 구성 요소를 탐색하고 작업할 수 있는 전체 액세스 권한이 있습니다. 애플리케이션 C# 소스 코드 및 관리 스크립트는 [WingtipTicketsSaaS-DbPerTenant GitHub 리포지토리][github-wingtip-dpt]에서 사용할 수 있습니다.
 
 이 자습서에서는 다음에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> - Wingtip SaaS 응용 프로그램을 배포하는 방법.
-> - 응용 프로그램 소스 코드 및 관리 스크립트를 가져올 위치.
+> - Wingtip SaaS 애플리케이션을 배포하는 방법.
+> - 애플리케이션 소스 코드 및 관리 스크립트를 가져올 위치.
 > - 서버, 풀 및 앱을 구성하는 데이터베이스 정보.
 > - *카탈로그*를 통해 테넌트가 데이터에 매핑되는 방법.
 > - 새 테넌트를 프로비전하는 방법.
 > - 앱에서 테넌트 활동을 모니터링하는 방법.
 
-[관련된 일련의 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)에서는 다양한 SaaS 디자인 및 관리 패턴을 탐색합니다. 이 자습서는 이 초기 배포 이후에도 빌드됩니다. 자습서를 사용하는 경우 제공된 스크립트를 검토하여 다양한 SaaS 패턴을 구현하는 방법을 확인할 수 있습니다. 스크립트는 SaaS 응용 프로그램 개발을 간소화하는 SQL Database의 기능을 보여줍니다.
+[관련된 일련의 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)에서는 다양한 SaaS 디자인 및 관리 패턴을 탐색합니다. 이 자습서는 이 초기 배포 이후에도 빌드됩니다. 자습서를 사용하는 경우 제공된 스크립트를 검토하여 다양한 SaaS 패턴을 구현하는 방법을 확인할 수 있습니다. 스크립트는 SaaS 애플리케이션 개발을 간소화하는 SQL Database의 기능을 보여줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -61,7 +61,7 @@ ms.locfileid: "50232905"
 1. 템플릿에 필수 매개 변수의 값을 입력합니다.
 
     > [!IMPORTANT]
-    > 일부 인증 및 서버 방화벽은 데모 목적으로 의도적으로 보호되지 않습니다. 새 리소스 그룹을 만드는 것이 좋습니다. 기존 리소스 그룹, 서버 또는 풀을 사용하지 마세요. 이 응용 프로그램, 스크립트 또는 배포된 리소스를 프로덕션에 사용하지 마세요. 관련된 결제를 중지하려면 응용 프로그램을 완료할 때 이 리소스 그룹을 삭제합니다.
+    > 일부 인증 및 서버 방화벽은 데모 목적으로 의도적으로 보호되지 않습니다. 새 리소스 그룹을 만드는 것이 좋습니다. 기존 리소스 그룹, 서버 또는 풀을 사용하지 마세요. 이 애플리케이션, 스크립트 또는 배포된 리소스를 프로덕션에 사용하지 마세요. 관련된 결제를 중지하려면 애플리케이션을 완료할 때 이 리소스 그룹을 삭제합니다.
 
     - **리소스 그룹**: **새로 만들기**를 선택하고 리소스 그룹에서 이전에 선택한 고유 이름을 입력합니다.
     - **위치**: 드롭다운 목록에서 위치를 선택합니다.
@@ -79,7 +79,7 @@ ms.locfileid: "50232905"
 
 ## <a name="download-and-unblock-the-wingtip-tickets-management-scripts"></a>Wingtip Tickets 관리 스크립트 다운로드 및 차단 해제
 
-응용 프로그램이 배포되는 동안 소스 코드 및 관리 스크립트를 다운로드합니다.
+애플리케이션이 배포되는 동안 소스 코드 및 관리 스크립트를 다운로드합니다.
 
 > [!IMPORTANT]
 > zip 파일이 외부 원본에서 다운로드되고 추출될 때 Windows에서 실행 가능한 콘텐츠(스크립트 및 DLL)를 차단할 수 있습니다. 스크립트의 압축을 풀기 전에 .zip 파일을 차단 해제하는 단계를 따릅니다. 차단을 해제하면 스크립트를 실행할 수 있습니다.
@@ -103,7 +103,7 @@ ms.locfileid: "50232905"
 
 이러한 값은 거의 모든 스크립트에서 참조됩니다.
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
 앱은 이벤트를 호스트하는 장소를 표시합니다. 장소 유형에는 콘서트 홀, 재즈 클럽 및 스포츠 클럽 등이 포함됩니다. Wingtip Tickets에서 장소는 테넌트로 등록됩니다. 테넌트가 되면 장소에 이벤트를 나열하고 고객에게 티켓을 판매하는 편리한 방법을 제공할 수 있습니다. 각 장소는 해당 이벤트를 나열하고 티켓을 판매하는 개인 설정된 웹 사이트를 얻게 됩니다.
 
@@ -121,7 +121,7 @@ ms.locfileid: "50232905"
 
 ### <a name="azure-traffic-manager"></a>Azure Traffic Manager
 
-Wingtip 응용 프로그램에서는  [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md)를 사용하여 들어오는 요청의 분산을 제어합니다. 특정 테넌트의 이벤트 페이지에 액세스하는 URL은 다음 형식을 사용합니다.
+Wingtip 애플리케이션에서는  [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md)를 사용하여 들어오는 요청의 분산을 제어합니다. 특정 테넌트의 이벤트 페이지에 액세스하는 URL은 다음 형식을 사용합니다.
 
 - http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
 
@@ -196,7 +196,7 @@ Wingtip 응용 프로그램에서는  [*Azure Traffic Manager*](../traffic-mana
 
 ## <a name="provision-a-new-tenant"></a>새 테넌트 프로비전
 
-초기 배포는 세 가지 샘플 테넌트를 만듭니다. 이제 또 다른 테넌트를 만들어 배포된 응용 프로그램에 어떻게 영향을 미치는지 확인합니다. Wingtip 앱에서 새 테넌트를 프로비전하는 워크플로는 [프로비전 및 카탈로그 자습서](saas-dbpertenant-provision-and-catalog.md)에 설명됩니다. 이 단계에서는 새 테넌트를 만드는 데 1분이 걸리지 않습니다.
+초기 배포는 세 가지 샘플 테넌트를 만듭니다. 이제 또 다른 테넌트를 만들어 배포된 애플리케이션에 어떻게 영향을 미치는지 확인합니다. Wingtip 앱에서 새 테넌트를 프로비전하는 워크플로는 [프로비전 및 카탈로그 자습서](saas-dbpertenant-provision-and-catalog.md)에 설명됩니다. 이 단계에서는 새 테넌트를 만드는 데 1분이 걸리지 않습니다.
 
 1. 새 PowerShell ISE를 엽니다.
 2. ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1*을 엽니다.
@@ -248,21 +248,21 @@ Events Hub를 새로 고치면 목록에 새 테넌트가 나타납니다.
 - **리소스 사용률**이라는 레이블의 첫 번째 차트는 풀 eDTU 사용량을 보여줍니다.
 - 두 번째 차트는 풀에서 가장 활동적인 데이터베이스 5개의 eDTU 사용률을 보여줍니다.
 
-두 차트는 탄력적 풀 및 SQL Database가 예기치 않은 SaaS 응용 프로그램 워크로드에 얼마나 적합한지 설명합니다. 차트에서는 4개의 데이터베이스가 40개의 eDTU로 버스트되는 것을 보여줍니다. 하지만 모든 데이터베이스는 안전하게 50-eDTU 풀에서 지원됩니다. 50-eDTU 풀은 더 많은 워크로드를 지원할 수 있습니다. 데이터베이스가 단일 데이터베이스로 프로비전되는 경우 각 데이터베이스는 버스트를 지원하는 S2(50 DTU)여야 합니다. 독립 실행형 S2 데이터베이스 4개의 비용은 풀의 가격의 거의 3배입니다. 실제 상황에서 SQL Database 고객은 200 eDTU 풀에서 데이터베이스를 최대 500개까지 실행합니다. 자세한 내용은 [성능 모니터링 자습서](saas-dbpertenant-performance-monitoring.md)를 참조하세요.
+두 차트는 탄력적 풀 및 SQL Database가 예기치 않은 SaaS 애플리케이션 워크로드에 얼마나 적합한지 설명합니다. 차트에서는 4개의 데이터베이스가 40개의 eDTU로 버스트되는 것을 보여줍니다. 하지만 모든 데이터베이스는 안전하게 50-eDTU 풀에서 지원됩니다. 50-eDTU 풀은 더 많은 워크로드를 지원할 수 있습니다. 데이터베이스가 단일 데이터베이스로 프로비전되는 경우 각 데이터베이스는 버스트를 지원하는 S2(50 DTU)여야 합니다. 독립 실행형 S2 데이터베이스 4개의 비용은 풀의 가격의 거의 3배입니다. 실제 상황에서 SQL Database 고객은 200 eDTU 풀에서 데이터베이스를 최대 500개까지 실행합니다. 자세한 내용은 [성능 모니터링 자습서](saas-dbpertenant-performance-monitoring.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- 자세한 내용은 [Wingtip Tickets SaaS 테넌트당 데이터베이스 응용 프로그램을 기반으로 빌드되는 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)를 참조하세요.
+- 자세한 내용은 [Wingtip Tickets SaaS 테넌트당 데이터베이스 애플리케이션을 기반으로 빌드되는 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)를 참조하세요.
 - 탄력적 풀에 대한 자세한 내용은  [Azure SQL 탄력적 풀이란?](sql-database-elastic-pool.md)을 참조하세요.
 - 탄력적 작업에 대한 자세한 내용은  [스케일 아웃된 클라우드 데이터베이스 관리](sql-database-elastic-jobs-overview.md)를 참조하세요.
-- 다중 테넌트 SaaS 응용 프로그램에 대한 자세한 내용은  [다중 테넌트 SaaS 응용 프로그램에 대한 디자인 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
+- 다중 테넌트 SaaS 애플리케이션에 대한 자세한 내용은  [다중 테넌트 SaaS 애플리케이션에 대한 디자인 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> - Wingtip Tickets SaaS 응용 프로그램을 배포하는 방법.
+> - Wingtip Tickets SaaS 애플리케이션을 배포하는 방법.
 > - 서버, 풀 및 앱을 구성하는 데이터베이스 정보.
 > - *카탈로그*를 통해 테넌트가 데이터에 매핑되는 방법.
 > - 새 테넌트를 프로비전하는 방법

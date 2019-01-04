@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 9da213525a5921295d6271adfd473b7a05a049a4
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 14513e23aafd05796767e1ae08d4d4c14cecdfbc
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497914"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728313"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
@@ -37,16 +37,16 @@ ms.locfileid: "52497914"
 | --- | --- | --- | --- |
 |ApplicationCertificateValidationPolicy|string, 기본값: "None"|공용| 서버 인증서의 유효성을 검사하지 않습니다. 요청이 성공합니다. 역방향 프록시에서 신뢰할 수 있는 원격 인증서의 쉼표로 구분된 지문 목록에 대한 ServiceCertificateThumbprints 구성을 참조합니다. 역방향 프록시에서 신뢰할 수 있는 원격 인증서의 주체 이름 및 발급자 지문에 대한 ServiceCommonNameAndIssuer 구성을 참조합니다. 자세한 정보는 [역방향 프록시 보안 연결](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services)을 참조하세요. |
 |BodyChunkSize |uint, 기본값: 16384 |동적| 본문을 읽는 데 사용되는 청크의 크기(바이트)를 지정합니다. |
-|CrlCheckingFlag|uint, 기본값: 0x40000000 |동적| 응용 프로그램/서비스 인증서 체인 유효성 검사에 대한 플래그입니다. 예: CRL 확인 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 0으로 설정하면 CRL 확인이 해제됩니다. 지원되는 전체 값 목록은 CertGetCertificateChain의 dwFlags에서 문서화되어 있습니다(http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx).  |
+|CrlCheckingFlag|uint, 기본값: 0x40000000 |동적| 애플리케이션/서비스 인증서 체인 유효성 검사에 대한 플래그입니다. 예: CRL 확인 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 0으로 설정하면 CRL 확인이 해제됩니다. 지원되는 전체 값 목록은 CertGetCertificateChain의 dwFlags에서 문서화되어 있습니다(http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx).  |
 |DefaultHttpRequestTimeout |시간(초). 기본값은 120입니다. |동적|시간 간격은 초 단위로 지정합니다.  http 앱 게이트웨이에서 처리 중인 http 요청에 대한 기본 요청 시간 제한을 지정합니다. |
 |ForwardClientCertificate|bool, 기본값: FALSE|동적|false로 설정된 경우 역방향 프록시는 클라이언트 인증서에 대해 요청하지 않습니다. true로 설정된 경우 역방향 프록시는 SSL 핸드셰이크 중 클라이언트 인증서에 대해 요청하며 X-Client-Certificate라는 헤더의 서비스에 base64로 인코딩된 PEM 형식의 문자열을 전달합니다. 서비스는 인증서 데이터를 검사한 후 적절한 상태 코드로 요청에 실패할 수 있습니다. true이고 클라이언트가 인증서를 제시하지 않으면 역방향 프록시는 빈 헤더를 전달하고 서비스에서 처리하도록 합니다. 역방향 프록시는 투명한 계층처럼 작동합니다. 자세한 정보는 [클라이언트 인증서 인증 설정](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy)을 참조하세요. |
 |GatewayAuthCredentialType |string, 기본값: "None" |공용| http 앱 게이트웨이 엔드포인트에서 사용할 보안 자격 증명의 유형을 나타냅니다. 유효한 값: "None/X509" |
-|GatewayX509CertificateFindType |string, 기본값: "FindByThumbprint" |동적| GatewayX509CertificateStoreName에 지정한 저장소에서 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: FindByThumbprint, FindBySubjectName |
+|GatewayX509CertificateFindType |string, 기본값: "FindByThumbprint" |동적| GatewayX509CertificateStoreName에 지정한 스토어에서 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | string, 기본값: "" |동적| http 앱 게이트웨이 인증서를 찾는 데 사용되는 검색 필터 값. 이 인증서는 https 엔드포인트에서 구성되며, 서비스에서 필요한 경우 앱 ID를 확인하는 데 사용할 수도 있습니다. FindValue를 먼저 조회하고, 이 FindValue가 없으면 FindValueSecondary를 조회합니다. |
 |GatewayX509CertificateFindValueSecondary | string, 기본값: "" |동적|http 앱 게이트웨이 인증서를 찾는 데 사용되는 검색 필터 값. 이 인증서는 https 엔드포인트에서 구성되며, 서비스에서 필요한 경우 앱 ID를 확인하는 데 사용할 수도 있습니다. FindValue를 먼저 조회하고, 이 FindValue가 없으면 FindValueSecondary를 조회합니다.|
 |GatewayX509CertificateStoreName |string, 기본값: "My" |동적| http 앱 게이트웨이에 대한 서버 인증서가 있는 X.509 인증서 저장소의 이름 |
 |HttpRequestConnectTimeout|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(5)|동적|시간 간격은 초 단위로 지정합니다.  http 응용 프로그램 게이트웨이에서 보내는 http 요청에 대한 연결 시간 제한을 제공합니다.  |
-|IgnoreCrlOfflineError|bool, 기본값: TRUE|동적|응용 프로그램/서비스 인증서 확인에 대한 CRL 오프라인 오류를 무시할지 여부 |
+|IgnoreCrlOfflineError|bool, 기본값: TRUE|동적|애플리케이션/서비스 인증서 확인에 대한 CRL 오프라인 오류를 무시할지 여부 |
 |IsEnabled |bool, 기본값: false |공용| HttpApplicationGateway를 사용하거나 사용하지 않도록 설정합니다. HttpApplicationGateway는 기본적으로 사용하지 않도록 설정되며, 이 구성을 활성화하려면 사용하도록 설정해야 합니다. |
 |NumberOfParallelOperations | Uint, 기본값: 5000 |공용|http 서버 큐에 게시할 읽기 수. HttpGateway에서 충족할 수 있는 동시 요청 수를 제어합니다. |
 |RemoveServiceResponseHeaders|string, 기본값: "Date; Server"|공용|클라이언트에 전달하기 전에 서비스 응답에서 제거될 세미콜론/쉼표로 구분된 응답 헤더 목록입니다. 이 값을 빈 문자열로 설정하면 현재 서비스에서 반환된 모든 헤더를 있는 그대로 전달합니다. 예: Date와 Server를 덮어쓰지 않음 |
@@ -139,6 +139,13 @@ ms.locfileid: "52497914"
 |PartitionPrefix|string, 기본값은 "--"입니다.|공용|분할된 서비스에 대한 DNS 쿼리의 파티션 접두사 문자열 값을 제어합니다. 값: <ul><li>DNS 쿼리의 일부이므로 RFC를 준수해야 합니다.</li><li>점은 DNS 접미사 동작을 방해하므로 점('.')을 포함하지 않아야 합니다.</li><li>5자를 초과할 수 없습니다.</li><li>빈 문자열일 수 없습니다.</li><li>PartitionPrefix 설정이 재정의된 경우 PartitionSuffix를 재정의하고 그 반대로 해야 합니다.</li></ul>자세한 내용은 [Service Fabric DNS 서비스](service-fabric-dnsservice.md)를 참조하세요.|
 |PartitionSuffix|string, 기본값: ""|공용|분할된 서비스에 대한 DNS 쿼리의 파티션 접미사 문자열 값을 제어합니다. 값: <ul><li>DNS 쿼리의 일부이므로 RFC를 준수해야 합니다.</li><li>점은 DNS 접미사 동작을 방해하므로 점('.')을 포함하지 않아야 합니다.</li><li>5자를 초과할 수 없습니다.</li><li>PartitionPrefix 설정이 재정의된 경우 PartitionSuffix를 재정의하고 그 반대로 해야 합니다.</li></ul>자세한 내용은 [Service Fabric DNS 서비스](service-fabric-dnsservice.md)를 참조하세요. |
 
+## <a name="eventstore"></a>EventStore
+| **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
+| --- | --- | --- | --- |
+|MinReplicaSetSize|int, 기본값: 0|공용|EventStore 서비스의 MinReplicaSetSize입니다. |
+|PlacementConstraints|string, 기본값: ""|공용|  EventStore 서비스의 PlacementConstraints입니다. |
+|TargetReplicaSetSize|int, 기본값: 0|공용| EventStore 서비스의 TargetReplicaSetSize입니다. |
+
 ## <a name="fabricclient"></a>FabricClient
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
@@ -168,22 +175,22 @@ ms.locfileid: "52497914"
 ## <a name="fabricnode"></a>FabricNode
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-|ClientAuthX509FindType |string, 기본값: "FindByThumbprint" |동적|ClientAuthX509StoreName에 지정한 저장소에서 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: FindByThumbprint, FindBySubjectName |
+|ClientAuthX509FindType |string, 기본값: "FindByThumbprint" |동적|ClientAuthX509StoreName에 지정한 스토어에서 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: FindByThumbprint; FindBySubjectName. |
 |ClientAuthX509FindValue |string, 기본값: "" | 동적|FabricClient 기본 관리자 역할에 대한 인증서를 찾는 데 사용되는 검색 필터 값 |
 |ClientAuthX509FindValueSecondary |string, 기본값: "" |동적|FabricClient 기본 관리자 역할에 대한 인증서를 찾는 데 사용되는 검색 필터 값 |
 |ClientAuthX509StoreName |string, 기본값: "My" |동적|FabricClient 기본 관리자 역할에 대한 인증서가 있는 X.509 인증서 저장소의 이름 |
-|ClusterX509FindType |string, 기본값: "FindByThumbprint" |동적|ClusterX509StoreName으로 지정한 저장소에서 클러스터 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: "FindByThumbprint", "FindBySubjectName" With "FindBySubjectName". 여러 항목이 일치하는 경우 맨 끝에 있는 만료를 사용하는 항목이 적용됩니다. |
+|ClusterX509FindType |string, 기본값: "FindByThumbprint" |동적|ClusterX509StoreName에 지정한 스토어에서 클러스터 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: "FindByThumbprint"; "FindBySubjectName" With "FindBySubjectName". 여러 항목이 일치하는 경우; 만료가 가장 먼 항목이 사용됩니다. |
 |ClusterX509FindValue |string, 기본값: "" |동적|클러스터 인증서를 찾는 데 사용되는 검색 필터 값 |
 |ClusterX509FindValueSecondary |string, 기본값: "" |동적|클러스터 인증서를 찾는 데 사용되는 검색 필터 값 |
 |ClusterX509StoreName |string, 기본값: "My" |동적|클러스터 내 통신을 보호하기 위한 클러스터 인증서가 있는 X.509 인증서 저장소의 이름 |
 |EndApplicationPortRange |int, 기본값: 0 |공용|호스팅 하위 시스템에서 관리하는 응용 프로그램 포트의 끝(inclusive 없음). Hosting(호스팅)에서 EndpointFilteringEnabled가 true인 경우 필수입니다. |
-|ServerAuthX509FindType |string, 기본값: "FindByThumbprint" |동적|ServerAuthX509StoreName에 지정한 저장소에서 서버 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: FindByThumbprint, FindBySubjectName |
+|ServerAuthX509FindType |string, 기본값: "FindByThumbprint" |동적|ServerAuthX509StoreName에 지정한 스토어에서 서버 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: FindByThumbprint; FindBySubjectName. |
 |ServerAuthX509FindValue |string, 기본값: "" |동적|클러스터 인증서를 찾는 데 사용되는 검색 필터 값 |
 |ServerAuthX509FindValueSecondary |string, 기본값: "" |동적|클러스터 인증서를 찾는 데 사용되는 검색 필터 값 |
 |ServerAuthX509StoreName |string, 기본값: "My" |동적|주 서비스에 대한 서버 인증서가 있는 X.509 인증서 저장소의 이름 |
 |StartApplicationPortRange |int, 기본값: 0 |공용|호스트 하위 시스템에서 관리하는 응용 프로그램 포트의 시작. Hosting(호스팅)에서 EndpointFilteringEnabled가 true인 경우 필수입니다. |
 |StateTraceInterval |시간(초), 기본값: 300 |공용|시간 간격은 초 단위로 지정합니다. 각 노드에서 노드 상태를 추적하고 FM/FMM에서 노드를 추적하는 간격입니다. |
-|UserRoleClientX509FindType |string, 기본값: "FindByThumbprint" |동적|UserRoleClientX509StoreName에 지정한 저장소에서 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: FindByThumbprint, FindBySubjectName |
+|UserRoleClientX509FindType |string, 기본값: "FindByThumbprint" |동적|UserRoleClientX509StoreName에 지정한 스토어에서 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: FindByThumbprint; FindBySubjectName. |
 |UserRoleClientX509FindValue |string, 기본값: "" |동적|FabricClient 기본 사용자 역할에 대한 인증서를 찾는 데 사용되는 검색 필터 값 |
 |UserRoleClientX509FindValueSecondary |string, 기본값: "" |동적|FabricClient 기본 사용자 역할에 대한 인증서를 찾는 데 사용되는 검색 필터 값 |
 |UserRoleClientX509StoreName |string, 기본값: "My" |동적|FabricClient 기본 사용자 역할에 대한 인증서가 있는 X.509 인증서 저장소의 이름 |
@@ -197,7 +204,7 @@ ms.locfileid: "52497914"
 |ExpectedClusterSize|int, 기본값: 1|동적|클러스터가 처음 시작될 때 이름 지정 서비스와 같은 시스템 서비스를 포함하여 다른 서비스를 배치하기 전에 FM은 이 많은 노드가 보고될 때까지 기다립니다. 이 값을 늘리면 클러스터를 시작하는 데 더 많은 시간이 걸리지만, 초기 노드의 오버로드를 방지하고 더 많은 노드가 온라인 상태가 될 때 필요한 추가 이동도 방지합니다. 이 값은 일반적으로 초기 클러스터 크기의 일부로 설정해야 합니다. |
 |ExpectedNodeDeactivationDuration|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(60.0 * 30)|동적|시간 간격은 초 단위로 지정합니다. 노드에서 비활성화를 완료하는 데 예상되는 기간입니다. |
 |ExpectedNodeFabricUpgradeDuration|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(60.0 * 30)|동적|시간 간격은 초 단위로 지정합니다. Windows Fabric 업그레이드 중에 노드를 업그레이드하는 데 예상되는 기간입니다. |
-|ExpectedReplicaUpgradeDuration|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(60.0 * 30)|동적|시간 간격은 초 단위로 지정합니다. 응용 프로그램 업그레이드 중 노드에서 모든 복제본을 업그레이드하는 데 예상되는 기간입니다. |
+|ExpectedReplicaUpgradeDuration|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(60.0 * 30)|동적|시간 간격은 초 단위로 지정합니다. 애플리케이션 업그레이드 중 노드에서 모든 복제본을 업그레이드하는 데 예상되는 기간입니다. |
 |IsSingletonReplicaMoveAllowedDuringUpgrade|bool, 기본값: TRUE|동적|true로 설정하면 대상 복제본 세트 크기가 1인 복제본이 업그레이드 중에 이동할 수 있습니다. |
 |MinReplicaSetSize|int, 기본값: 3|허용되지 않음|FM의 최소 복제본 세트 크기입니다. 활성 FM 복제본 수가 이 값 아래로 떨어지면 적어도 최소 복제본 수로 복구될 때까지 FM에서 클러스터에 대한 변경을 거부합니다 |
 |PlacementConstraints|string, 기본값: ""|허용되지 않음|장애 조치 관리자 복제본에 대한 모든 배치 제약 조건 |
@@ -293,9 +300,9 @@ ms.locfileid: "52497914"
 |ActivationMaxFailureCount |정수, 기본값: 10 |동적|시스템이 포기하기 전에 실패한 활성화를 다시 시도하는 횟수 |
 |ActivationMaxRetryInterval |시간(초), 기본값: 300 |동적|모든 연속 활성화 실패 시 시스템은 ActivationMaxFailureCount까지 활성화를 다시 시도합니다. ActivationMaxRetryInterval은 모든 활성화 실패 후 다시 시도하기 전에 대기 시간 간격을 지정합니다. |
 |ActivationRetryBackoffInterval |시간(초), 기본값: 5 |동적|모든 활성화 오류의 백오프 간격. 모든 연속 활성화 실패 시 시스템은 MaxActivationFailureCount까지 활성화를 다시 시도합니다. 모든 시도에서 다시 시도 간격은 연속 활성화 실패와 활성화 백오프 간격을 곱한 값입니다. |
-|ActivationTimeout| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(180)|동적| 시간 간격은 초 단위로 지정합니다. 응용 프로그램 활성화, 비활성화 및 업그레이드에 대한 시간 제한입니다. |
+|ActivationTimeout| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(180)|동적| 시간 간격은 초 단위로 지정합니다. 애플리케이션 활성화, 비활성화 및 업그레이드에 대한 시간 제한입니다. |
 |ApplicationHostCloseTimeout| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(120)|동적| 시간 간격은 초 단위로 지정합니다. 자체 활성화된 프로세스에서 Fabric 종료가 감지되면 FabricRuntime에서 사용자의 호스트(applicationhost) 프로세스에서 모든 복제본을 닫습니다. 닫기 작업에 대한 시간 제한입니다. |
-|ApplicationUpgradeTimeout| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(360)|동적| 시간 간격은 초 단위로 지정합니다. 응용 프로그램 업그레이드에 대한 시간 제한입니다. 시간 제한이 "ActivationTimeout"보다 작으면 배포자가 실패합니다. |
+|ApplicationUpgradeTimeout| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(360)|동적| 시간 간격은 초 단위로 지정합니다. 애플리케이션 업그레이드에 대한 시간 제한입니다. 시간 제한이 "ActivationTimeout"보다 작으면 배포자가 실패합니다. |
 |ContainerServiceArguments|string, 기본값: "-H localhost:2375 -H npipe://"|공용|SF(서비스 패브릭)는 docker 디먼을 관리합니다(Win10 같은 Windows 클라이언트 컴퓨터는 제외). 이 구성을 통해 사용자는 시작할 때 docker 디먼에 전달되어야 하는 사용자 지정 인수를 지정할 수 있습니다. 사용자 지정 인수가 지정되면 Service Fabric은 Docker 엔진에 '--pidfile' 인수를 제외한 다른 인수를 전달하지 않습니다. 따라서 사용자는 '-pidfile' 인수를 자신의 고객 인수의 일부로 지정할 수 없습니다. 또한 사용자 지정 인수는 Service Fabric이 디먼과 통신할 수 있도록 docker 디먼이 Windows의 기본 이름 파이프(또는 Linux의 UNIX 도메인 소켓)를 수신 대기하도록 해야 합니다.|
 |ContainerServiceLogFileMaxSizeInKb|int, 기본값은 32768입니다.|공용|Docker 컨테이너에서 생성된 로그 파일의 최대 파일 크기입니다.  Windows만 해당됩니다.|
 |ContainerImagesToSkip|string. 세로줄 문자로 구분된 이미지 이름입니다. 기본값은 ""입니다.|공용|삭제하면 안 되는 컨테이너 이미지 하나 이상의 이름입니다.  PruneContainerImages 매개 변수와 함께 사용합니다.|
@@ -304,15 +311,15 @@ ms.locfileid: "52497914"
 |CreateFabricRuntimeTimeout|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(120)|동적| 시간 간격은 초 단위로 지정합니다. 동기화 FabricCreateRuntime 호출에 대한 시간 제한 값입니다. |
 |DefaultContainerRepositoryAccountName|string, 기본값: ""|공용|ApplicationManifest.xml에 지정된 자격 증명 대신 사용하는 기본 자격 증명 |
 |DefaultContainerRepositoryPassword|string, 기본값: ""|공용|ApplicationManifest.xml에 지정된 자격 증명 대신 사용하는 기본 암호 자격 증명|
-|DeploymentMaxFailureCount|int, 기본값: 20| 동적|노드에서 응용 프로그램의 배포가 실패하기 전에 DeploymentMaxFailureCount 시간 동안 해당 응용 프로그램의 배포가 다시 시도됩니다.| 
+|DeploymentMaxFailureCount|int, 기본값: 20| 동적|노드에서 애플리케이션의 배포가 실패하기 전에 DeploymentMaxFailureCount 시간 동안 해당 애플리케이션의 배포가 다시 시도됩니다.| 
 |DeploymentMaxRetryInterval| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(3600)|동적| 시간 간격은 초 단위로 지정합니다. 배포에 대한 최대 다시 시도 간격입니다. 모든 연속 실패에서 다시 시도 간격은 Min(DeploymentMaxRetryInterval, 연속 실패 횟수 * DeploymentRetryBackoffInterval)으로 계산됩니다. |
 |DeploymentRetryBackoffInterval| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(10)|동적|시간 간격은 초 단위로 지정합니다. 배포 실패에 대한 백오프 간격입니다. 모든 연속 배포 실패에서 시스템은 최대 MaxDeploymentFailureCount회까지 배포를 다시 시도합니다. 다시 시도 간격은 연속 배포 실패와 배포 백오프 간격의 곱입니다. |
 |DisableDockerRequestRetry|bool, 기본값: FALSE |동적| 기본적으로 SF는 전송되는 각 http 요청에 대해 시간 제한 'DockerRequestTimeout' 동안 DD(docker 디먼)와 통신합니다. 이 기간 내에 DD가 응답하지 않으면 SF는 최상위 작업 시간이 아직 남아 있는 경우 요청을 다시 전송합니다.  hyperv 컨테이너 사용 시에는 DD가 컨테이너를 불러오거나 비활성화하는 데 시간이 훨씬 더 많이 걸릴 수도 있습니다. 이러한 경우 SF 측면에서 DD 요청의 시간이 초과되며, SF는 작업을 다시 시도합니다. 이로 인해 DD의 부담이 가중될 수도 있습니다. 이 구성을 사용하면 작업을 다시 시도하지 않도록 설정하고 DD가 응답할 때까지 기다릴 수 있습니다. |
 |EnableActivateNoWindow| bool, 기본값: FALSE|동적| 활성화된 프로세스가 콘솔 없이 백그라운드에서 만들어집니다. |
 |EnableContainerServiceDebugMode|bool, 기본값: TRUE|공용|Docker 컨테이너에 대한 로깅을 사용/사용하지 않도록 설정합니다.  Windows만 해당됩니다.|
 |EnableDockerHealthCheckIntegration|bool, 기본값: TRUE|공용|Docker HealthCheck 이벤트를 Service Fabric 시스템 상태 보고서와 통합할 수 있도록 합니다. |
-|EnableProcessDebugging|bool, 기본값: FALSE|동적| 디버거에서 응용 프로그램 호스트를 시작할 수 있습니다. |
-|EndpointProviderEnabled| bool, 기본값: FALSE|공용| 엔드포인트 리소스를 Fabric별로 관리할 수 있습니다. FabricNode에서 응용 프로그램 포트의 시작 및 끝 범위를 지정해야 합니다. |
+|EnableProcessDebugging|bool, 기본값: FALSE|동적| 디버거에서 애플리케이션 호스트를 시작할 수 있습니다. |
+|EndpointProviderEnabled| bool, 기본값: FALSE|공용| 엔드포인트 리소스를 Fabric별로 관리할 수 있습니다. FabricNode에서 애플리케이션 포트의 시작 및 끝 범위를 지정해야 합니다. |
 |FabricContainerAppsEnabled| bool, 기본값: FALSE|공용| |
 |FirewallPolicyEnabled|bool, 기본값: FALSE|공용| ServiceManifest에 지정된 명시적 포트가 있는 엔드포인트 리소스에 대한 방화벽 포트를 열 수 있습니다. |
 |GetCodePackageActivationContextTimeout|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(120)|동적|시간 간격은 초 단위로 지정합니다. CodePackageActivationContext 호출에 대한 시간 제한 값입니다. 임시 서비스에는 적용되지 않습니다. |
@@ -323,9 +330,9 @@ ms.locfileid: "52497914"
 |NTLMAuthenticationPasswordSecret|SecureString, 기본값: Common::SecureString("")|공용|NTLM 사용자의 암호를 생성하는 데 사용되는 암호화된 비밀입니다. NTLMAuthenticationEnabled가 true이면 설정해야 합니다. 배포자에서 유효성을 검사합니다. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|TimeSpan, 기본값: Common::TimeSpan::FromMinutes(3)|동적|시간 간격은 초 단위로 지정합니다. 환경 관련 설정이며, FileStoreService NTLM 구성에 사용할 새 인증서를 Hosting에서 검색하는 주기적인 간격입니다. |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|TimeSpan, 기본값: Common::TimeSpan::FromMinutes(4)|동적| 시간 간격은 초 단위로 지정합니다. 인증서 일반 이름을 사용하여 NTLM 사용자를 구성하는 데 걸리는 시간 제한입니다. NTLM 사용자는 FileStoreService 공유에 필요합니다. |
-|PruneContainerImages|bool, 기본값: FALSE|동적| 노드에서 사용되지 않는 응용 프로그램 컨테이너 이미지를 제거합니다. Service Fabric 컨테이너에서 ApplicationType 등록을 취소하면 이 응용 프로그램에서 사용했던 컨테이너 이미지가 Service Fabric에 의해 다운로드되었던 노드에서 제거됩니다. 정리는 1시간마다 실행되므로 클러스터에서 이미지가 제거될 때까지 최대 1시간 + 이미지 정리에 소요되는 시간이 걸릴 수 있습니다.<br>Service Fabric은 응용 프로그램과 관련이 없는 이미지를 다운로드하거나 제거하지 않습니다.  수동으로 또는 기타 방식을 통해 다운로드한 관련이 없는 이미지는 명시적으로 제거해야 합니다.<br>삭제하지 않아야 하는 이미지는 ContainerImagesToSkip 매개 변수에서 지정할 수 있습니다.| 
-|RegisterCodePackageHostTimeout|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(120)|동적| 시간 간격은 초 단위로 지정합니다. FabricRegisterCodePackageHost 동기화 호출에 대한 시간 제한 값입니다. FWP와 같은 다중 코드 패키지 응용 프로그램 호스트에만 적용됩니다. |
-|RequestTimeout|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(30)|동적| 시간 간격은 초 단위로 지정합니다. 다양한 호스팅 관련 작업(예: 팩터리 등록, 런타임 등록)을 위한 사용자의 응용 프로그램 호스트와 Fabric 프로세스 간 통신에 대한 시간 제한을 나타냅니다. |
+|PruneContainerImages|bool, 기본값: FALSE|동적| 노드에서 사용되지 않는 애플리케이션 컨테이너 이미지를 제거합니다. Service Fabric 컨테이너에서 ApplicationType 등록을 취소하면 이 애플리케이션에서 사용했던 컨테이너 이미지가 Service Fabric에 의해 다운로드되었던 노드에서 제거됩니다. 정리는 1시간마다 실행되므로 클러스터에서 이미지가 제거될 때까지 최대 1시간 + 이미지 정리에 소요되는 시간이 걸릴 수 있습니다.<br>Service Fabric은 애플리케이션과 관련이 없는 이미지를 다운로드하거나 제거하지 않습니다.  수동으로 또는 기타 방식을 통해 다운로드한 관련이 없는 이미지는 명시적으로 제거해야 합니다.<br>삭제하지 않아야 하는 이미지는 ContainerImagesToSkip 매개 변수에서 지정할 수 있습니다.| 
+|RegisterCodePackageHostTimeout|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(120)|동적| 시간 간격은 초 단위로 지정합니다. FabricRegisterCodePackageHost 동기화 호출에 대한 시간 제한 값입니다. FWP와 같은 다중 코드 패키지 애플리케이션 호스트에만 적용됩니다. |
+|RequestTimeout|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(30)|동적| 시간 간격은 초 단위로 지정합니다. 다양한 호스팅 관련 작업(예: 팩터리 등록, 런타임 등록)을 위한 사용자의 애플리케이션 호스트와 Fabric 프로세스 간 통신에 대한 시간 제한을 나타냅니다. |
 |RunAsPolicyEnabled| bool, 기본값: FALSE|공용| 패브릭 프로세스가 실행되는 사용자 이외의 로컬 사용자로 코드 패키지를 실행할 수 있습니다. 이 정책을 사용하려면 Fabric이 SYSTEM 또는 SeAssignPrimaryTokenPrivilege가 있는 사용자로 실행되어야 합니다. |
 |ServiceFactoryRegistrationTimeout| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(120)|동적|시간 간격은 초 단위로 지정합니다. 동기화 Register(Stateless/Stateful)ServiceFactory 호출에 대한 시간 제한 값입니다. |
 |ServiceTypeDisableFailureThreshold |정수, 기본값: 1 |동적|해당 노드에서 서비스 유형을 사용하지 않도록 설정하고 다른 노드에 배치를 시도하도록 FM(FailoverManager)에 알리기까지 허용되는 실패 횟수에 대한 임계값입니다. |
@@ -381,7 +388,7 @@ ms.locfileid: "52497914"
 |AzureStorageOperationTimeout | time(초), 기본값: 6000 |동적|시간 간격은 초 단위로 지정합니다. xstore 작업을 완료하는 걸리는 시간 제한입니다. |
 |CleanupApplicationPackageOnProvisionSuccess|bool, 기본값: FALSE |동적|이 구성은 성공적인 프로비전에서 응용 프로그램 패키지의 자동 정리를 사용하거나 사용하지 않도록 설정합니다. |
 |DisableChecksumValidation | bool, 기본값: false |공용| 이 구성을 사용하면 응용 프로그램 프로비전 중에 체크섬 유효성 검사를 사용하거나 사용하지 않도록 설정할 수 있습니다. |
-|DisableServerSideCopy | bool, 기본값: false |공용|응용 프로그램 프로비전 중에 ImageStore에서 응용 프로그램 패키지의 서버 쪽 복사본을 사용하거나 사용하지 않도록 설정하는 구성입니다. |
+|DisableServerSideCopy | bool, 기본값: false |공용|애플리케이션 프로비전 중에 ImageStore에서 애플리케이션 패키지의 서버 쪽 복사본을 사용하거나 사용하지 않도록 설정하는 구성입니다. |
 |ImageCachingEnabled | bool, 기본값: true |공용|이 구성을 사용하면 캐싱을 사용하거나 사용하지 않도록 설정할 수 있습니다. |
 |ImageStoreConnectionString |SecureString |공용|ImageStore의 루트에 대한 연결 문자열 |
 |ImageStoreMinimumTransferBPS | int, 기본값: 1024 |동적|클러스터와 ImageStore 간의 최소 전송 속도. 외부 ImageStore에 액세스할 때 시간 제한을 결정하는 데 사용됩니다. 클러스터와 ImageStore 간에 대기 시간이 높은 경우에만 이 값을 변경하여 클러스터가 외부 ImageStore에서 다운로드하는 데 더 많은 시간을 허용합니다. |
@@ -456,12 +463,12 @@ ms.locfileid: "52497914"
 ## <a name="placementandloadbalancing"></a>PlacementAndLoadBalancing
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-|AffinityConstraintPriority | int, 기본값: 0 | 동적|선호도 제약 조건의 우선 순위를 결정합니다(0: 하드, 1: 소프트, 음수: 무시) |
-|ApplicationCapacityConstraintPriority | int, 기본값: 0 | 동적|용량 제약 조건의 우선 순위를 결정합니다(0: 하드, 1: 소프트, 음수: 무시) |
+|AffinityConstraintPriority | int, 기본값: 0 | 동적|선호도 제약 조건의 우선 순위를 결정합니다. 0: 하드; 1: 소프트; 음수: 무시. |
+|ApplicationCapacityConstraintPriority | int, 기본값: 0 | 동적|용량 제약 조건의 우선 순위를 결정합니다. 0: 하드; 1: 소프트; 음수: 무시. |
 |AutoDetectAvailableResources|bool, 기본값: TRUE|공용|이 구성은 노드(CPU 및 메모리)에서 사용 가능한 리소스에 대한 자동 검색을 트리거합니다. 이 구성을 true로 설정하면 사용자가 잘못된 노드 용량을 지정하거나 전혀 정의하지 않은 경우 실제 용량을 읽고 수정합니다. false로 설정하면 사용자가 잘못된 노드 용량을 지정했다는 경고를 추적하지만 수정하지는 않습니다. 즉 사용자가 노드의 실제 용량보다 큰 용량을 지정하거나, 용량이 정의되지 않은 경우 무제한 용량을 가정하게 됩니다. |
 |BalancingDelayAfterNewNode | time(초), 기본값: 120 |동적|시간 간격은 초 단위로 지정합니다. 새 노드를 추가한 이후 이 기간 내에 작업 분산을 시작하면 안됩니다. |
 |BalancingDelayAfterNodeDown | time(초), 기본값: 120 |동적|시간 간격은 초 단위로 지정합니다. 노드 작동 중단 이벤트 이후 이 기간 내에 작업 분산을 시작하면 안됩니다. |
-|CapacityConstraintPriority | int, 기본값: 0 | 동적|용량 제약 조건의 우선 순위를 결정합니다(0: 하드, 1: 소프트, 음수: 무시) |
+|CapacityConstraintPriority | int, 기본값: 0 | 동적|용량 제약 조건의 우선 순위를 결정합니다. 0: 하드; 1: 소프트; 음수: 무시. |
 |ConsecutiveDroppedMovementsHealthReportLimit | int, 기본값: 20 | 동적|진단을 수행하고 상태 경고를 내보내기 전에 ResourceBalancer에서 발급한 Movements(이동)가 삭제되는 연속 횟수를 정의합니다. 음수: 이 조건에서는 경고를 내보내지 않습니다. |
 |ConstraintFixPartialDelayAfterNewNode | time(초), 기본값: 120 |동적| 시간 간격은 초 단위로 지정합니다. 새 노드를 추가한 이후 이 기간 내에 FaultDomain 및 UpgradeDomain 제약 조건 위반을 수정하면 안됩니다. |
 |ConstraintFixPartialDelayAfterNodeDown | time(초), 기본값: 120 |동적| 시간 간격은 초 단위로 지정합니다. 노드 작동 중단 이후 이 기간 내에 FaultDomain 및 UpgradeDomain 제한 조건 위반을 수정하면 안됩니다. |
@@ -471,7 +478,7 @@ ms.locfileid: "52497914"
 |DetailedNodeListLimit | int, 기본값: 15 |동적| 배치되지 않은 복제본 보고서에서 자르기 전에 포함할 제약 조건당 노드 수를 정의합니다. |
 |DetailedPartitionListLimit | int, 기본값: 15 |동적| 진단에서 자르기 전에 포함할 제약 조건의 진단 항목당 파티션 수를 정의합니다. |
 |DetailedVerboseHealthReportLimit | int, 기본값: 200 | 동적|자세한 상태 보고서를 내보내기 전에 배치되지 않은 복제본이 영구적으로 배치되지 않아야 하는 횟수를 정의합니다. |
-|FaultDomainConstraintPriority | int, 기본값: 0 |동적| 장애 도메인 제약 조건의 우선 순위를 결정합니다(0: 하드, 1: 소프트, 음수: 무시) |
+|FaultDomainConstraintPriority | int, 기본값: 0 |동적| 장애 도메인 제약 조건의 우선 순위를 결정합니다. 0: 하드; 1: 소프트; 음수: 무시. |
 |GlobalMovementThrottleCountingInterval | time(초), 기본값: 600 |공용| 시간 간격은 초 단위로 지정합니다. GlobalMovementThrottleThreshold와 함께 사용되는 도메인 복제본 이동별로 추적할 이전 간격의 길이를 나타냅니다. 전역 제한을 모두 무시하려면 0으로 설정할 수 있습니다. |
 |GlobalMovementThrottleThreshold | uint, 기본값: 1000 |동적| GlobalMovementThrottleCountingInterval에서 지시한 이전 간격에서 분산 단계에 허용되는 최대 이동 횟수 |
 |GlobalMovementThrottleThresholdForBalancing | uint, 기본값: 0 | 동적|GlobalMovementThrottleCountingInterval에서 지시한 이전 간격에서 분산 단계에 허용되는 최대 이동 횟수. 0은 제한하지 않음을 나타냅니다. |
@@ -491,18 +498,18 @@ ms.locfileid: "52497914"
 |MoveParentToFixAffinityViolation | bool, 기본값: false |동적| 선호도 제약 조건을 수정하기 위해 부모 복제본을 이동할 수 있는지 여부를 결정하는 설정|
 |PartiallyPlaceServices | bool, 기본값: true |동적| 제한된 적합한 노드가 지정되면 클러스터에 있는 모든 서비스 복제본을 "모두 배치하거나 전혀 배치하지 않을지"를 결정합니다.|
 |PlaceChildWithoutParent | bool, 기본값: true | 동적|부모 복제본이 없는 경우 자식 서비스 복제본을 배치할 수 있는지 여부를 결정하는 설정 |
-|PlacementConstraintPriority | int, 기본값: 0 | 동적|배치 제약 조건의 우선 순위를 결정합니다(0: 하드, 1: 소프트, 음수: 무시) |
+|PlacementConstraintPriority | int, 기본값: 0 | 동적|배치 제약 조건의 우선 순위를 결정합니다. 0: 하드; 1: 소프트; 음수: 무시. |
 |PlacementConstraintValidationCacheSize | int, 기본값: 10000 |동적| 배치 제약 조건 식의 빠른 유효성 검사와 캐싱에 사용되는 테이블의 크기를 제한합니다. |
 |PlacementSearchTimeout | time(초), 기본값: 0.5 |동적| 시간 간격은 초 단위로 지정합니다. 서비스를 배치할 때 결과를 반환하기 전까지 이 기간에서 최대한 오랫동안 검색합니다. |
 |PLBRefreshGap | time(초), 기본값: 1 |동적| 시간 간격은 초 단위로 지정합니다. PLB에서 상태를 다시 새로 고치기 전에 경과해야 하는 최소 시간을 정의합니다. |
-|PreferredLocationConstraintPriority | int, 기본값: 2| 동적|권장되는 위치 제약 조건의 우선 순위를 결정합니다(0: 하드, 1: 소프트, 2: 최적화, 음수: 무시). |
+|PreferredLocationConstraintPriority | int, 기본값: 2| 동적|위치 제약 조건의 우선 순위를 결정합니다. 0: 하드; 1: 소프트; 2: 최적화; 음수: 무시 |
 |PreventTransientOvercommit | bool, 기본값: false | 동적|PLB에서 시작된 이동으로 인해 확보될 리소스를 즉시 계산해야 하는지 결정합니다. 기본적으로 PLB는 일시적인 초과 커밋을 만들 수 있는 동일한 노드에서 인출과 인입을 시작할 수 있습니다. 이 매개 변수를 true로 설정하면 이러한 종류의 초과 커밋을 방지하고 주문형 조각 모음, 즉 placementWithMove를 사용할 수 없게 됩니다. |
-|ScaleoutCountConstraintPriority | int, 기본값: 0 |동적| 확장 수 제약 조건의 우선 순위를 결정합니다(0: 하드, 1: 소프트, 음수: 무시) |
+|ScaleoutCountConstraintPriority | int, 기본값: 0 |동적| 확장 수 제약 조건의 우선 순위를 결정합니다. 0: 하드; 1: 소프트; 음수: 무시. |
 |SwapPrimaryThrottlingAssociatedMetric | string, 기본값: ""|공용| 이 제한의 관련 메트릭 이름 |
 |SwapPrimaryThrottlingEnabled | bool, 기본값: false|동적| 스왑-주(swap-primary) 제한을 사용할 수 있는지 결정합니다. |
 |SwapPrimaryThrottlingGlobalMaxValue | int, 기본값: 0 |동적| 전역으로 허용되는 스왑-주 복제본의 최대 수 |
 |TraceCRMReasons |bool, 기본값: true |동적|CRM에서 작업 이벤트 채널로의 이동을 발급한 이유를 추적할지 여부를 지정합니다. |
-|UpgradeDomainConstraintPriority | int, 기본값: 1| 동적|업그레이드 도메인 제약 조건의 우선 순위를 결정합니다(0: 하드, 1: 소프트, 음수: 무시) |
+|UpgradeDomainConstraintPriority | int, 기본값: 1| 동적|업그레이드 도메인 제약 조건의 우선 순위를 결정합니다. 0: 하드; 1: 소프트; 음수: 무시. |
 |UseMoveCostReports | bool, 기본값: false | 동적|점수 매기기 함수의 비용 요소를 무시하도록 LB에 지시합니다. 보다 효율적인 분산 배치를 위해 잠재적으로 많은 수의 이동이 발생합니다. |
 |UseSeparateSecondaryLoad | bool, 기본값: true | 동적|다른 보조 로드를 사용할지 여부를 결정하는 설정 |
 |ValidatePlacementConstraint | bool, 기본값: true |동적| 서비스의 ServiceDescription을 업데이트할 때 서비스에 대한 PlacementConstraint 식의 유효성을 검사할지 여부를 지정합니다. |
@@ -511,7 +518,7 @@ ms.locfileid: "52497914"
 ## <a name="reconfigurationagent"></a>ReconfigurationAgent
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-|ApplicationUpgradeMaxReplicaCloseDuration | time(초), 기본값: 900 |동적|시간 간격은 초 단위로 지정합니다. 응용 프로그램 업그레이드 중에 닫힌 복제본이 있는 서비스 호스트를 종료하기 전에 시스템에서 기다리는 기간입니다.|
+|ApplicationUpgradeMaxReplicaCloseDuration | time(초), 기본값: 900 |동적|시간 간격은 초 단위로 지정합니다. 애플리케이션 업그레이드 중에 닫힌 복제본이 있는 서비스 호스트를 종료하기 전에 시스템에서 기다리는 기간입니다.|
 |FabricUpgradeMaxReplicaCloseDuration | time(초), 기본값: 900 |동적| 시간 간격은 초 단위로 지정합니다. 패브릭 업그레이드 중에 닫힌 복제본이 있는 서비스 호스트를 종료하기 전에 시스템에서 기다리는 기간입니다. |
 |GracefulReplicaShutdownMaxDuration|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(120)|동적|시간 간격은 초 단위로 지정합니다. 긴밀하게 붙어 있는 복제본을 갖춘 서비스 호스트를 종료하기 전에 시스템에서 대기하는 기간입니다. 이 값을 0으로 설정하는 경우 복제본을 닫도록 지시되지 않습니다.|
 |NodeDeactivationMaxReplicaCloseDuration | time(초), 기본값: 900 |동적|시간 간격은 초 단위로 지정합니다. 노드 비활성화 중에 닫힌 복제본이 있는 서비스 호스트를 종료하기 전에 시스템에서 기다리는 기간입니다. |
@@ -575,8 +582,8 @@ ms.locfileid: "52497914"
 | **매개 변수** | **허용되는 값** |**업그레이드 정책**| **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
 |AADCertEndpointFormat|string, 기본값: ""|공용|Azure Government "https://login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" 등 기본값이 아닌 환경용으로 지정되는 AAD 인증서 엔드포인트 형식입니다(기본값: Azure Commercial). |
-|AADClientApplication|string, 기본값: ""|공용|Fabric 클라이언트를 나타내는 Native Client 응용 프로그램 이름 또는 ID |
-|AADClusterApplication|string, 기본값: ""|공용|클러스터를 나타내는 Web API 응용 프로그램 이름 또는 ID |
+|AADClientApplication|string, 기본값: ""|공용|Fabric 클라이언트를 나타내는 Native Client 애플리케이션 이름 또는 ID |
+|AADClusterApplication|string, 기본값: ""|공용|클러스터를 나타내는 Web API 애플리케이션 이름 또는 ID |
 |AADLoginEndpoint|string, 기본값: ""|공용|Azure Government "https://login.microsoftonline.us" 등 기본값이 아닌 환경용으로 지정되는 AAD 로그인 엔드포인트입니다(기본값: Azure Commercial). |
 |AADTenantId|string, 기본값: ""|공용|테넌트 ID(GUID) |
 |AdminClientCertThumbprints|string, 기본값: ""|동적|관리자 역할의 클라이언트에서 사용하는 인증서의 지문입니다. 쉼표로 구분된 이름 목록입니다. |
@@ -587,7 +594,7 @@ ms.locfileid: "52497914"
 |CertificateHealthReportingInterval|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(3600 * 8)|공용|시간 간격은 초 단위로 지정합니다. 인증서 상태 보고 간격을 지정하며, 기본값은 8시간입니다. 0으로 설정하면 인증서 상태 보고가 사용되지 않습니다. |
 |ClientCertThumbprints|string, 기본값: ""|동적|클러스터에서 클라이언트와 통신하는 데 사용하는 서버 인증서의 지문이며, 클러스터에서 이 지문을 사용하여 들어오는 연결에 대한 권한을 부여합니다. 쉼표로 구분된 이름 목록입니다. |
 |ClientClaimAuthEnabled|bool, 기본값: FALSE|공용|클라이언트에서 클레임 기반 인증이 사용되는지 여부를 나타냅니다. true로 설정하면 ClientRoleEnabled가 암시 적으로 설정됩니다. |
-|ClientClaims|string, 기본값: ""|동적|게이트웨이에 연결하기 위해 클라이언트에서 예상되는 모든 가능한 클레임입니다. ClaimsEntry로 구성된 'OR' 목록입니다. \|\| ClaimsEntry \|\| ClaimsEntry ... 각 ClaimsEntry는 ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue ... 등으로 구성된 "AND" 목록입니다. |
+|ClientClaims|string, 기본값: ""|동적|게이트웨이에 연결하기 위해 클라이언트에서 예상되는 모든 가능한 클레임입니다. 'OR' 목록입니다. ClaimsEntry \|\| ClaimsEntry \|\| ClaimsEntry ... 각 ClaimsEntry는 "AND" 목록입니다. ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue ... |
 |ClientIdentities|string, 기본값: ""|동적|FabricClient의 Windows ID이며, 이름 지정 게이트웨이에서 이를 사용하여 들어오는 연결에 대한 권한을 부여합니다. 쉼표로 구분된 목록이며, 각 항목은 도메인 계정 이름 또는 그룹 이름입니다. 편의상 fabric.exe를 실행하는 계정이 자동으로 허용됩니다. ServiceFabricAllowedUsers 및 ServiceFabricAdministrators 그룹도 마찬가지입니다. |
 |ClientRoleEnabled|bool, 기본값: FALSE|공용|클라이언트 역할이 사용되는지 여부를 나타냅니다. true로 설정하면 클라이언트에 해당 클라이언트 ID 기반의 역할이 할당됩니다. V2에 대해 이 매개 변수를 사용하면 AdminClientCommonNames/AdminClientIdentities에 없는 클라이언트에서 읽기 전용 작업만 실행할 수 있습니다. |
 |ClusterCertThumbprints|string, 기본값: ""|동적|클러스터에 조인하도록 허용되는 인증서의 지문이며, 쉼표로 구분된 이름 목록입니다. |
@@ -755,7 +762,7 @@ ms.locfileid: "52497914"
 ## <a name="tokenvalidationservice"></a>TokenValidationService
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-|공급자 |string, 기본값: "DSTS" |공용|사용하도록 설정할 쉼표로 구분된 토큰 유효성 검사 공급자 목록(유효한 공급자: DSTS, AAD). 현재 단일 공급자만 언제든지 사용할 수 있습니다. |
+|공급자 |string, 기본값: "DSTS" |공용|사용하도록 설정할 쉼표로 구분된 토큰 유효성 검사 공급자 목록(유효한 공급자: DSTS; AAD). 현재 단일 공급자만 언제든지 사용할 수 있습니다. |
 
 ## <a name="traceetw"></a>추적/ETW
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |

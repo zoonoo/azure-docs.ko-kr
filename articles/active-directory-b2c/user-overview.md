@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2354bf02b47c9fbc74dbc0dab07e30ca321279cf
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: f517754a8076fc18ed29f7db49f6ff9bfc6c7b3d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43670083"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725763"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 계정 개요
 
@@ -25,17 +25,17 @@ Azure AD(Azure Active Directory) B2C에서는 여러 유형의 계정을 사용�
 
 - **회사 계정** - 회사 계정은 테넌트의 리소스에 액세스할 수 있으며, 관리자 역할이 있는 경우 테넌트를 관리할 수 있습니다.
 - **게스트 계정** - 게스트 계정은 Microsoft 계정 또는 Azure Active Directory 사용자만 될 수 있으며, 응용 프로그램에 액세스하거나 테넌트를 관리하는 데 사용될 수 있습니다. 
-- **소비자 계정** - 소비자 계정은 Azure AD B2C 응용 프로그램에서 등록 정책을 진행하거나 Azure AD Graph API를 사용하여 생성되며, Azure AD B2C에 등록된 응용 프로그램의 사용자가 사용합니다. 
+- **소비자 계정** - 소비자 계정은 Azure AD B2C 애플리케이션에서 가입 사용자 흐름을 진행하거나 Azure AD Graph API를 사용하여 생성되며, Azure AD B2C에 등록된 애플리케이션의 사용자에 의해 사용됩니다. 
 
 ## <a name="work-account"></a>회사 계정
 
-회사 계정은 Azure AD를 기준으로 하는 모든 테넌트에 대해 동일한 방식으로 생성됩니다. 회사 계정을 만들려면의 [빠른 시작: Azure Active Directory에 새 사용자 추가](../active-directory/fundamentals/add-users-azure-active-directory.md)의 정보를 사용할 수 있습니다. 회사 계정은 Azure Portal에서 **새 사용자** 옵션을 사용하여 생성됩니다.
+회사 계정은 Azure AD를 기준으로 하는 모든 테넌트에 대해 동일한 방식으로 생성됩니다. 회사 계정을 만들려면 [빠른 시작: Azure Active Directory에 새 사용자 추가](../active-directory/fundamentals/add-users-azure-active-directory.md)의 정보를 사용할 수 있습니다. 회사 계정은 Azure Portal에서 **새 사용자** 옵션을 사용하여 생성됩니다.
 
 새 회사 계정을 추가할 때는 다음 구성 설정을 고려해야 합니다.
 
 - **이름** 및 **사용자 이름** - **이름** 속성에는 사용자의 이름과 성이 포함됩니다. **사용자 이름**은 사용자가 로그인할 때 입력하는 식별자입니다. 사용자 이름에는 전체 도메인이 포함됩니다. 사용자 이름의 도메인 이름 부분은 초기 기본 도메인 이름 *your-domain.onmicrosoft.com* 또는 *contoso.com*과 같은 확인된 페더레이션되지 않은 [사용자 지정 도메인](../active-directory/fundamentals/add-custom-domain.md)이어야 합니다.
 - **프로필** - 계정이 사용자 데이터 프로필로 설정됩니다. 이름, 성, 직위 및 부서 이름을 입력할 수 있습니다. 계정이 생성된 후 프로필을 편집할 수 있습니다.
-- **그룹** - 그룹을 사용하여 한 번에 많은 사용자 또는 장치에 라이선스 또는 사용 권한을 할당하는 등 관리 작업을 수행합니다. 테넌트의 기존 [그룹](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)에 새 계정을 삽입할 수 있습니다. 
+- **그룹** - 그룹을 사용하여 한 번에 많은 사용자 또는 디바이스에 라이선스 또는 사용 권한을 할당하는 등 관리 작업을 수행합니다. 테넌트의 기존 [그룹](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)에 새 계정을 삽입할 수 있습니다. 
 - **디렉터리 역할** - 사용자 계정이 테넌트의 리소스에 대해 가지는 액세스 수준을 지정해야 합니다. 다음 권한 수준을 사용할 수 있습니다.
 
     - **사용자** - 사용자는 할당된 리소스에 액세스할 수 있지만, 대부분의 테넌트 리소스를 관리할 수는 없습니다.
@@ -73,7 +73,7 @@ Azure AD(Azure Active Directory) B2C에서는 여러 유형의 계정을 사용�
 
 ## <a name="consumer-user"></a>소비자 사용자
 
-소비자 사용자는 Azure AD B2C에서 보호하는 응용 프로그램에 로그인할 수 있지만 Azure Portal과 같은 Azure 리소스에 액세스할 수 없습니다.  소비자 사용자는 로컬 계정이나 Facebook 또는 Twitter와 같은 페더레이션된 계정을 사용할 수 있습니다. 소비자 계정은 [등록 또는 로그인 정책](../active-directory-b2c/active-directory-b2c-reference-policies.md)을 사용하여 생성됩니다.
+소비자 사용자는 Azure AD B2C에서 보호하는 애플리케이션에 로그인할 수 있지만 Azure Portal과 같은 Azure 리소스에 액세스할 수 없습니다.  소비자 사용자는 로컬 계정이나 Facebook 또는 Twitter와 같은 페더레이션된 계정을 사용할 수 있습니다. 소비자 계정은 [가입 또는 로그인 사용자 흐름](../active-directory-b2c/active-directory-b2c-reference-policies.md)을 사용하여 생성됩니다.
 
 사용자 지정 특성을 사용하여 소비자 사용자 계정이 생성될 때 수집되는 데이터를 지정할 수 있습니다. 자세한 내용은 [Azure Active Directory B2C에서 사용자 지정 특성 정의](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md)를 참조하세요.
 

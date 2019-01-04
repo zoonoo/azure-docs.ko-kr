@@ -4,9 +4,8 @@ description: Machine Learning Studio에 포함된 샘플 모델에서 사용되�
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
@@ -16,25 +15,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 57d9e1c7b501b67a441dc3490356261fa29ebb7d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2fde43417ffc907a93b4e568b90ebbda228c4cfe
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308837"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270487"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 샘플 데이터 세트 사용
 [top]: #machine-learning-sample-datasets
 
 Azure Machine Learning에서 새 작업 영역을 만들 때 다양한 샘플 데이터 세트 및 실험이 기본적으로 포함됩니다. 이 샘플 데이터 세트 중 다수는 [Azure AI 갤러리](http://gallery.cortanaintelligence.com/)의 샘플 모델에서 사용됩니다. 나머지는 Machine Learning에서 일반적으로 사용되는 다양한 유형의 데이터 예로 포함됩니다.
 
-일부 데이터 세트는 Azure Blob Storage에서 사용할 수 있습니다. 이러한 데이터 세트의 경우 다음 표에서 직접 링크가 제공됩니다. [데이터 가져오기][import-data] 모듈을 사용하여 이 데이터 집합을 실험에 사용할 수 있습니다.
+일부 데이터 세트는 Azure Blob Storage에서 사용할 수 있습니다. 이러한 데이터 세트의 경우 다음 표에서 직접 링크가 제공됩니다. [데이터 가져오기][import-data] 모듈을 사용하여 이 데이터 세트를 실험에 사용할 수 있습니다.
 
 이러한 샘플 데이터 세트의 나머지는 작업 영역의 **저장된 데이터 세트** 아래에서 확인할 수 있습니다. Machine Learning Studio의 실험 캔버스 왼쪽에 있는 모듈 팔레트에서 찾을 수 있습니다.
 실험 캔버스로 끌어와 이러한 데이터 세트를 실험에서 사용할 수 있습니다.
 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 <table>
 
@@ -50,7 +49,7 @@ Azure Machine Learning에서 새 작업 영역을 만들 때 다양한 샘플 �
 <p></p>
 <b>사용:</b> 인구 통계를 기반으로 사람을 분류하여 개인의 소득이 연간 50,000을 초과할지 예측합니다.
 <p></p>
-<b>관련 조사:</b> Kohavi, R., Becker, B., (1996). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+<b>관련 조사:</b> Kohavi, R., Becker, B.,(1996). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -71,7 +70,7 @@ Azure Machine Learning에서 새 작업 영역을 만들 때 다양한 샘플 �
 <p></p>
 <b>사용:</b> 회귀 및 다변수 분류를 사용하여 기능별 위험 점수를 예측합니다. 
 <p></p>
-<b>관련 조사:</b> Schlimmer, J.C. (1987). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+<b>관련 조사:</b> Schlimmer, J.C. (1987). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -100,9 +99,9 @@ CSV 데이터로 변환된 공개 사용 가능한 이미지 파일.
 <p></p>
 현혈자 데이터에는 마지막 헌혈 이후 지난 개월 수, 빈도 또는 총 헌혈 횟수, 마지막 헌혈 이후 시간, 헌혈량이 포함됩니다.
 <p></p>
-<b>사용:</b> 목표는 헌혈자가 2007년 3월 헌혈을 했는지를 분류를 통해 예측하는 것입니다. 여기서 1은 목표 기간 중 헌혈자를 나타내고 0은 비헌혈자를 나타냅니다. 
+<b>사용:</b> 목표는 분류를 통해 헌혈자가 2007년 3월 헌혈을 했는지 예측하는 것입니다. 여기서 1은 목표 기간 중 헌혈자를 나타내고 0은 비헌혈자를 나타냅니다. 
 <p></p>
-<b>관련 조사:</b> Yeh, I.C., (2008). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science 
+<b>관련 조사:</b> Yeh, I.C.,(2008). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
 Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
@@ -113,9 +112,9 @@ Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM m
   <td>
 기계 학습 문헌에서 자주 나타나는 Oncology Institute에서 제공하는 세 가지 암 관련 데이터 세트의 하나입니다. 진단 정보를 300여 개 조직 샘플에 대한 실험실 분석의 기능과 결합합니다.
 <p></p>
-<b>사용:</b> 특성 9개에 따라 암 유형을 분류합니다. 이들 중 몇몇은 선형이고 몇몇은 범주입니다. 
+<b>사용:</b> 9개 특성에 따라 암 유형을 분류합니다. 이들 중 몇몇은 선형이고 몇몇은 범주입니다. 
 <p></p>
-<b>관련 조사:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+<b>관련 조사:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -168,7 +167,7 @@ KDD Cup 2009 고객 관계 예측 챌린지의 레이블(<a href="http://www.sig
 <p></p>
 <b>사용:</b> 회귀 또는 분류를 사용하여 두 가지 실제 값 응답의 하나를 기반으로 에너지 효율 등급을 예측합니다. 다중 클래스 분류에 대해서는 가장 가까운 정수로 응답 변수를 반올림합니다. 
 <p></p>
-<b>관련 조사:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+<b>관련 조사:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -193,7 +192,7 @@ KDD Cup 2009 고객 관계 예측 챌린지의 레이블(<a href="http://www.sig
 <p></p>
 <b>사용:</b> 비행 지연을 예측합니다. 
 <p></p>
-<b>관련된 연구:</b> 미국 교통 부서에서 <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
+<b>관련 조사:</b> 미국 교통부에서 <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
   </td>
 </tr>
 
@@ -204,7 +203,7 @@ KDD Cup 2009 고객 관계 예측 챌린지의 레이블(<a href="http://www.sig
 <p></p>
 <b>사용:</b> 이 작업은 산불 피해지를 예측하기 위한 어려운 회귀 작업입니다. 
 <p></p>
-<b>관련 조사:</b> Cortez, P., & Morais, A. (2008). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science 
+<b>관련 조사:</b> Cortez, P., & Morais, A. (2008). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
 [Cortez and Morais, 2007] P. Cortez and A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. In J. Neves, M. F. Santos 및 J. Machado Eds., 인공 지능의 새로운 추세, 13회 EPIA 2007 - 인공 지능에 관한 포르투갈 컨퍼런스, 12월, 포르투갈 기마랑이스, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. 사용 가능: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
@@ -222,7 +221,7 @@ german.data 파일을 사용한 UCI Statlog(독일 신용 카드) 데이터 세�
 <tr>
   <td>IMDB 영화 제목</td>
   <td>
-이 데이터 세트에는 Twitter 트윗에서 평가된 영화에 대한 정보가 포함됩니다(IMDB 영화 ID, 영화 제목, 장르, 제작 연도). 이 데이터 세트에는 170,000 개의 영화가 있습니다. 데이터 세트는 논문 "S. Dooms, T. De Pessemier 및 L. Martens. MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013"에서 소개되었습니다.
+이 데이터 세트에는 Twitter 트윗에서 평가된 영화에 대한 정보가 포함됩니다. (IMDB 영화 ID, 영화 제목, 장르 및 제작 연도) 이 데이터 세트에는 170,000 개의 영화가 있습니다. 데이터 세트는 논문 "S. Dooms, T. De Pessemier 및 L. Martens. MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013"에서 소개되었습니다.
   </td>
 </tr>
 
@@ -233,7 +232,7 @@ german.data 파일을 사용한 UCI Statlog(독일 신용 카드) 데이터 세�
 <p></p>
 <b>사용:</b> 측정값에서 붓꽃 종류를 예측합니다.  
 <p></p>
-<b>관련 조사:</b> Fisher, R.A. (1988). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+<b>관련 조사:</b> Fisher, R.A. (1988). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -252,7 +251,7 @@ german.data 파일을 사용한 UCI Statlog(독일 신용 카드) 데이터 세�
 <p></p>
 <b>사용:</b> 다중 값 개별 특성 3개와 연속 특성 5개를 기반으로 연비를 예측합니다. 
 <p></p>
-<b>관련 조사:</b> StatLib, Carnegie Mellon University, (1993). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+<b>관련 조사:</b> StatLib, 카네기멜론대학교, (1993). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -262,7 +261,7 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
 <p></p>
 <b>사용:</b> 대상에게 당뇨병이 있는지를 예측합니다(이진 분류). 
 <p></p>
-<b>관련 조사:</b> Sigillito, V. (1990). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml"</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+<b>관련 조사:</b> Sigillito, V. (1990). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml"</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -270,9 +269,9 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
   <td>
 인구 통계 및 선호도를 비롯한 고객에 대한 메타데이터 집합입니다.
 <p></p>
-<b>사용:</b> 이 데이터 집합을 다른 두 가지 음식점 데이터 집합과 함께 사용하여 추천 시스템을 학습 및 테스트합니다. 
+<b>사용:</b> 이 데이터 세트를 다른 두 가지 음식점 데이터 세트와 함께 사용하여 추천 시스템을 학습 및 테스트합니다. 
 <p></p>
-<b>관련 조사:</b> Bache, K. and Lichman, M. (2013). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+<b>관련 조사:</b> Bache, K. 및 Lichman, M. (2013). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -281,9 +280,9 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
   <td>
 음식점 및 음식 종료, 식사 스타일, 위치 같은 기능에 대한 메타데이터 집합입니다.
 <p></p>
-<b>사용:</b> 이 데이터 집합을 다른 두 가지 음식점 데이터 집합과 함께 사용하여 추천 시스템을 학습 및 테스트합니다. 
+<b>사용:</b> 이 데이터 세트를 다른 두 가지 음식점 데이터 세트와 함께 사용하여 추천 시스템을 학습 및 테스트합니다. 
 <p></p>
-<b>관련 조사:</b> Bache, K. and Lichman, M. (2013). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+<b>관련 조사:</b> Bache, K. 및 Lichman, M. (2013). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -292,9 +291,9 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
   <td>
 0-2점 사이에 사용자가 제공한 음식점 등급을 포함합니다.
 <p></p>
-<b>사용:</b> 이 데이터 집합을 다른 두 가지 음식점 데이터 집합과 함께 사용하여 추천 시스템을 학습 및 테스트합니다. 
+<b>사용:</b> 이 데이터 세트를 다른 두 가지 음식점 데이터 세트와 함께 사용하여 추천 시스템을 학습 및 테스트합니다. 
 <p></p>
-<b>관련 조사:</b> Bache, K. and Lichman, M. (2013). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+<b>관련 조사:</b> Bache, K. 및 Lichman, M. (2013). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -303,11 +302,11 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
   <td>
 이 데이터 세트는 강철 가열 냉각 시도에서 얻은 일련의 레코드를 포함합니다. 여기에는 결과 강철 유형의 물리적 특성(너비, 두께, 유형(코일, 시트 등))이 포함됩니다.
 <p></p>
-<b>사용:</b> 두 가지 숫자 클래스 특성인 경도 또는 강도의 하나를 예측합니다. 특성 간의 상관 관계를 분석할 수도 있습니다.
+<b>사용:</b> 두 가지 숫자 클래스 특성인 경도 또는 강도 중 하나를 예측합니다. 특성 간의 상관 관계를 분석할 수도 있습니다.
 <p></p>
 강철 등급은 SAE 및 기타 조직에서 정의된 집합 표준을 따릅니다. 특정 '등급'(클래스 변수)을 찾고 있고 필요한 값을 파악하려고 합니다. 
 <p></p>
-<b>관련 조사:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science 
+<b>관련 조사:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
 여기에서 강철 등급에 대한 유용한 지침을 확인할 수 있습니다. <a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
@@ -324,7 +323,7 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
 <p></p>
 <b>사용:</b> 샤워 이미지가 신호 또는 배경 소음을 나타내는지를 예측합니다.
 <p></p>
-<b>참고:</b> 배경 이벤트를 신호로 분류하는 것은 신호 이벤트를 배경으로 분류하는 것보다 비효율적이므로 단순 분류 정확도는 이 데이터에 대해 의미가 없습니다. 다양한 분류자를 비교하려면 ROC Graph를 사용해야 합니다. 배경 이벤트를 신호로 수락할 가능성은 임계값 0.01, 0.02, 0.05, 0.1 또는 0.2 중 하나보다 낮아야 합니다.
+<b>참고:</b> 배경 이벤트를 신호로 분류하는 것은 신호 이벤트를 배경으로 분류하는 것보다 비효율적이므로 단순 분류 정확도는 이 데이터에 대해 의미가 없습니다. 다양한 분류자를 비교하려면 ROC Graph를 사용해야 합니다. 배경 이벤트를 신호로 수락할 가능성은 다음 임계값 중 하나보다 낮아야 합니다. 0.01, 0.02, 0.05, 0.1 또는 0.2.
 <p></p>
 또한 배경 이벤트 수(하드론 샤워의 경우 h)는 과소 예측되지만 실제 측정값에서 h 또는 소음 클래스가 대부분의 이벤트를 나타냅니다. 
 <p></p>

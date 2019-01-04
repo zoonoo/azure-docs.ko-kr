@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 562320b49f92d9ebb0c74c06e27fab63681955be
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 6e31062e3965c9ed5a0b24e822f0ec14234cec1c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634076"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435075"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>HDInsight에서 Apache Hive와 함께 Java UDF 사용
 
@@ -29,9 +29,9 @@ Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만�
 
     이 문서의 단계는 대부분 Windows 및 Linux 기반 클러스터 둘 다에서 작동합니다. 그러나 클러스터에 컴파일된 UDF를 업로드하고 실행하는 데 사용하는 단계는 Linux 기반 클러스터와 관련이 있습니다. Windows 기반 클러스터와 함께 사용할 수 있는 정보에 대한 링크가 제공됩니다.
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 이상(또는 OpenJDK와 같은 이와 동등한 프로그램)
+* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/) 8 이상(또는 OpenJDK와 같은 이와 동등한 프로그램)
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * 텍스트 편집기 또는 Java IDE
 
@@ -213,7 +213,7 @@ Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만�
     ```
 
     > [!NOTE]
-    > 이 예제에서는 Azure Storage가 클러스터에 대한 기본 저장소라고 가정합니다. 클러스터가 Data Lake Store를 대신 사용하는 경우 `wasb:///` 값을 `adl:///`로 변경합니다.
+    > 이 예제에서는 Azure Storage가 클러스터에 대한 기본 저장소라고 가정합니다. 클러스터가 Data Lake Storage를 대신 사용하는 경우 `wasb:///` 값을 `adl:///`로 변경합니다.
 
 3. UDF를 사용하여 검색한 값을 테이블에서 소문자 문자열로 변환합니다.
 
@@ -240,6 +240,6 @@ Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만�
 
 ## <a name="next-steps"></a>다음 단계
 
-Hive로 작업하는 다른 방법은 [HDInsight와 함께 Hive 사용](hdinsight-use-hive.md)을 참조하세요.
+Hive로 작업하는 다른 방법은 [HDInsight에서 Apache Hive 사용](hdinsight-use-hive.md)을 참조하세요.
 
-Hive 사용자 정의 함수에 대한 자세한 내용은 apache.org의 Hive wiki에서 [Hive 연산자 및 사용자 정의 함수](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) 섹션을 참조하세요.
+Hive 사용자 정의 함수에 대한 자세한 내용은 apache.org의 Hive wiki에서 [Apache Hive 연산자 및 사용자 정의 함수](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) 섹션을 참조하세요.

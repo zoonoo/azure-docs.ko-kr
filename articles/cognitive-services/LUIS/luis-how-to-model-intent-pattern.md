@@ -1,21 +1,22 @@
 ---
-title: LUIS 앱에서 더 많은 발화 대신 패턴 템플릿 추가
-titleSuffix: Azure Cognitive Services
+title: 패턴 및 정확도
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS(Language Understanding) 응용 프로그램에서 패턴 템플릿을 추가하여 예측 정확도를 향상시키는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6c15fc256a330c7de154c551c1ef4c78913f470a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ae0fdb17680f415a1dacce1738fa53fcda943788
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885889"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135001"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>패턴을 추가하여 예측 정확도를 개선하는 방법
 LUIS 앱이 엔드포인트 발화를 수신한 후 패턴의 [개념](luis-concept-patterns.md)을 사용하여 단어 순서 및 단어 선택에 패턴을 노출하는 발화에 대한 예측 정확도를 개선합니다. 패턴은 [엔터티](luis-concept-entity-types.md) 및 해당 역할을 사용하여 특정 패턴 구문을 통해 데이터를 추출합니다. 
@@ -95,7 +96,7 @@ LUIS 앱이 엔드포인트 발화를 수신한 후 패턴의 [개념](luis-conc
 
 2. **패턴 삭제** 확인 대화 상자가 표시됩니다. **확인**을 선택하여 삭제를 완료합니다.
 
-    ![여러 패턴 삭제 스크린샷](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
+    ![여러 패턴 삭제 확인 대화 상자의 스크린샷](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
 
 ## <a name="filter-pattern-list-by-entity"></a>엔터티별 패턴 목록 필터링
 
@@ -116,7 +117,7 @@ LUIS 앱이 엔드포인트 발화를 수신한 후 패턴의 [개념](luis-conc
 ## <a name="remove-entity-or-intent-filter"></a>엔터티 또는 의도 필터 제거
 패턴 목록이 필터링되면 엔터티 또는 의도 이름이 도구 모음 아래에 표시됩니다. 필터를 제거하려면 이름을 선택합니다.
 
-![엔터티별로 필터링된 패턴 스크린샷](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
+![필터에서 엔터티를 제거하는 스크린샷](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
 
 필터가 제거되고 모든 패턴이 표시됩니다. 
 
@@ -125,7 +126,7 @@ LUIS 앱이 엔드포인트 발화를 수신한 후 패턴의 [개념](luis-conc
 
 1. 선택한 발언 행에서 발언 오른쪽에 있는 줄임표(***...***) 단추를 선택하고 **패턴으로 추가**를 선택합니다.
 
-    [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "옵션 메뉴에서 패턴 추가가 강조 표시된 발화 테이블의 스크린샷")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
+    [![옵션 메뉴에서 강조 표시된 추가 패턴을 사용하는 발언 테이블의 스크린샷](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "옵션 메뉴에서 강조 표시된 추가 패턴을 사용하는 발언 테이블의 스크린샷")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 
 2. [구문 규칙](luis-concept-patterns.md#pattern-syntax)에 따라 패턴을 수정합니다. 선택한 발화에 엔터티로 레이블이 지정되면 해당 엔터티는 이미 올바른 구문이 있는 패턴에 포함된 것입니다.
 

@@ -35,7 +35,7 @@ Azure Front Door Service를 사용하면 주요 메트릭을 모니터링하여 
 | BackendRequestCount | 백 엔드 요청 수 | 개수 | HttpStatus</br>HttpStatusGroup</br>백 엔드 | Front Door에서 백 엔드로 전송된 요청 수 |
 | BackendRequestLatency | 백 엔드 요청 대기 시간 | 밀리초 | 백 엔드 | Front Door에서 백 엔드의 마지막 응답 바이트를 받을 때까지 Front Door에서 백 엔드로 요청이 전송될 때 계산된 시간 |
 | BackendHealthPercentage | 백 엔드 상태 비율 | 백분율 | 백 엔드</br>BackendPool | Front Door에서 백 엔드로 성공한 상태 프로브의 비율 |
-| WebApplicationFirewallRequestCount | 웹 응용 프로그램 방화벽 요청 수 | 개수 | PolicyName</br>RuleName</br>조치 | Front Door의 응용 프로그램 계층 보안에 의해 처리된 클라이언트 요청 수 |
+| WebApplicationFirewallRequestCount | 웹 애플리케이션 방화벽 요청 수 | 개수 | PolicyName</br>RuleName</br>조치 | Front Door의 애플리케이션 계층 보안에 의해 처리된 클라이언트 요청 수 |
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,6 +1,6 @@
 ---
-title: Azure Search의 일반적인 인덱서 문제 해결 | Microsoft Docs
-description: Azure Search에서 인덱서 관련 일반적인 문제 해결
+title: 일반적인 검색 인덱서 문제 해결 - Azure Search
+description: 데이터 원본 연결, 방화벽 및 누락된 문서를 포함하여 Azure Search의 인덱서에서 발생하는 오류 및 일반적인 문제를 해결합니다.
 author: mgottein
 manager: cgronlun
 services: search
@@ -9,12 +9,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: magottei
-ms.openlocfilehash: 6c64cf066651c403136bba97c8d1e1230162dbb4
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.custom: seodec2018
+ms.openlocfilehash: 7696f1628edd3b81568382fd7892a877c6f54ef7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619527"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312394"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Azure Search의 일반적인 인덱서 문제 해결
 

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7819ed3e18092e8b7bdf52225e7025b4b6d8146a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f580c78fa2114905a0ef28f51feee50361717a27
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981885"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435330"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 공동 작업 초대 상환
 
@@ -26,7 +26,7 @@ Azure AD(Azure Active Directory) B2B 공동 작업을 통해 파트너 조직의
 
 ## <a name="redemption-through-a-direct-link"></a>직접 링크를 통해 상환
 
-게스트 초대자는 공유 앱에 대한 직접 링크를 전송하여 게스트 사용자를 초대할 수 있습니다. 게스트 사용자의 경우 상환 환경은 공유 앱에 로그인하는 것만큼 쉽습니다. 앱에 대한 링크를 클릭하고, 개인 정보 보호 조건을 검토하고 동의한 다음, 원활하게 앱에 액세스할 수 있습니다. 대부분의 경우에 게스트 사용자는 더 이상 초대 이메일에서 상환 URL을 클릭할 필요가 없습니다.
+게스트 초대자는 [공유 앱에 대한 직접 링크](../manage-apps/end-user-experiences.md#direct-sign-on-links)를 전송하여 게스트 사용자를 초대할 수 있습니다. 게스트 사용자의 경우 상환 환경은 공유 앱에 로그인하는 것만큼 쉽습니다. 앱에 대한 링크를 클릭하고, 개인 정보 보호 조건을 검토하고 동의한 다음, 원활하게 앱에 액세스할 수 있습니다. 대부분의 경우에 게스트 사용자는 더 이상 초대 이메일에서 상환 URL을 클릭할 필요가 없습니다.
 
 사용자 인터페이스를 통해 게스트 사용자를 초대했거나 PowerShell 초대 환경의 일부로 초대 이메일을 보낸 경우 초대된 사용자는 여전히 초대 이메일을 받게 됩니다. 이 이메일은 다음과 같은 특별한 경우에 유용합니다.
 
@@ -52,6 +52,12 @@ Azure AD(Azure Active Directory) B2B 공동 작업을 통해 파트너 조직의
 ![액세스 패널에서 사용자 설정을 보여주는 스크린샷](media/redemption-experience/ConsentScreen.png) 
 
 테넌트 관리자 권한을 가진 사용자가 조직의 개인정보처리방침에 연결할 수 있는 방법에 대한 정보는 [방법: Azure Active Directory에 조직의 개인 정보 추가](https://aka.ms/adprivacystatement)를 참조하세요.
+
+## <a name="terms-of-use"></a>사용 약관
+
+Azure AD 사용 약관 기능을 사용하여 초기 상환 프로세스 동안 게스트 사용자에게 사용 약관을 제공할 수 있습니다. Azure Active Directory의 **관리** > **조직 관계** > **사용 약관** 또는 **보안** > **조건부 액세스** > **사용 약관**에서 이 기능에 액세스할 수 있습니다. 자세한 내용은 [Azure AD 사용 약관 기능](../governance/active-directory-tou.md)을 참조하세요.
+
+![새 사용 약관을 보여 주는 스크린샷](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 
 ## <a name="next-steps"></a>다음 단계
 

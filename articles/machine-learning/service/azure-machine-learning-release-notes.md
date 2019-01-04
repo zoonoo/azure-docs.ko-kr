@@ -1,6 +1,7 @@
 ---
-title: Azure Machine Learning의 새로운 기능
-description: 이 문서에서는 Azure Machine Learning에 대한 업데이트를 자세히 설명합니다.
+title: 릴리스의 새로운 기능이란?
+titleSuffix: Azure Machine Learning service
+description: Azure Machine Learning Service에 대한 최신 업데이트에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,17 +9,85 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 10/24/2018
-ms.openlocfilehash: 6007a7e32e168ada529feb6aa24b8d572671d835
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 34d084bc4115d0abf8f57c576c16330611f3a21b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291343"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409873"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 서비스의 릴리스에 대해 알아봅니다. 
+
+## <a name="2018-12-04-general-availability"></a>2018-12-04: 일반 공급
+
+이제 Azure Machine Learning Service가 일반 공급됩니다.
+
+### <a name="azure-machine-learning-compute"></a>Azure Machine Learning 컴퓨팅
+이번 릴리스에서는 [Azure Machine Learning 컴퓨팅](how-to-set-up-training-targets.md#amlcompute)을 통해 새로운 관리형 컴퓨팅 환경을 발표합니다. 이 컴퓨팅은 학습 및 Batch 유추에 사용될 수 있고, 단일 노드에서 다중 노드에 이르는 컴퓨팅이며, 사용자에 대한 클러스터 관리 및 작업 예약을 수행합니다. 기본적으로 자동 크기 조정되고, CPU 및 GPU 리소스에 대한 지원을 포함하고, 비용 절감을 위해 낮은 우선 순위 VM을 사용할 수 있습니다. Azure Machine Learning에 대한 Batch AI 컴퓨팅을 대체합니다.
+  
+Azure Machine Learning 컴퓨팅은 Azure Portal 또는 CLI를 사용하여 Python에서 만들 수 있습니다. 작업 영역의 지역에서 만들어야 하고 다른 작업 영역에 연결할 수 없습니다. 이 컴퓨팅은 실행에 Docker 컨테이너를 사용하고, 종속성을 패키지하여 모든 노드에서 동일한 환경을 복제합니다.
+
+> [!Warning]
+> Azure Machine Learning 컴퓨팅을 사용하려면 새 작업 영역을 만드는 것이 좋습니다. 기존 작업 영역에서 Azure Machine Learning 컴퓨팅을 만들려고 하는 사용자에게 오류가 표시될 수 있습니다. 작업 영역의 기존 컴퓨팅은 영향을 받지 않고 계속 작동해야 합니다.
+
+### <a name="azure-machine-learning-sdk-for-python-v102"></a>Python용 Azure Machine Learning SDK v1.0.2
++ **주요 변경 내용**
+  + 이 릴리스에서는 Azure Machine Learning에서 VM을 만들기 위한 지원을 제거합니다. 기존 클라우드 VM 또는 원격 온-프레미스 서버를 계속 연결할 수 있습니다. 
+  + 또한 Batch AI에 대한 지원을 제거하며, 모든 기능은 이제 Azure Machine Learning 컴퓨팅을 통해 지원됩니다.
+
++ **New**
+  + 기계 학습 파이프라인:
+    + [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimator_step.estimatorstep?view=azure-ml-py)
+    + [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyper_drive_step.hyperdrivestep?view=azure-ml-py)
+    + [MpiStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.mpi_step.mpistep?view=azure-ml-py)
+
+
++ **업데이트됨**
+  + 기계 학습 파이프라인:
+    + [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)이 이제 runconfig를 허용함
+    + [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py)이 이제 SQL 데이터 원본 간에 복사됨
+    + 게시된 파이프라인을 실행하기 위한 일정을 만들고 업데이트하는 SDK의 일정 기능
+
+<!--+ **Bugs fixed**-->
+
+### <a name="azure-machine-learning-data-prep-sdk-v052"></a>Azure Machine Learning Data Prep SDK v0.5.2
++ **주요 변경 내용** 
+  * `SummaryFunction.N`의 이름이 `SummaryFunction.Count`로 바뀌었습니다.
+  
++ **버그 수정**
+  * 원격 실행 시 데이터 저장소에 읽고 쓸 때 최신 AML 실행 토큰을 사용합니다. 이전에는 AML 실행 토큰이 Python에서 업데이트되는 경우 Data Prep 런타임이 업데이트된 AML 실행 토큰으로 업데이트되지 않습니다.
+  * 추가적인 더 분명한 오류 메시지
+  * Spark가 Kryo serialization을 사용할 때 to_spark_dataframe()이 더 이상 충돌하지 않음
+  * Value Count Inspector가 1000개 이상의 고유 값을 표시할 수 있음
+  * 원래 데이터 흐름에 이름이 없는 경우 임의 분할이 더 이상 실패하지 않음  
+
++ **자세한 정보**
+  * [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)
+
+### <a name="docs-and-notebooks"></a>문서 및 Notebook
++ ML 파이프라인
+  + 파이프라인, 일괄 처리 범위 및 스타일 전송 예제로 시작하기 위한 신규 및 업데이트된 Notebook: https://aka.ms/aml-pipeline-notebooks
+  + [첫 번째 파이프라인을 만드는](how-to-create-your-first-pipeline.md) 방법 알아보기
+  + [파이프라인을 사용하여 일괄 처리 예측을 실행](how-to-run-batch-predictions.md)하는 방법 알아보기
++ Azure Machine Learning 컴퓨팅
+  + [샘플 Notebooks](https://aka.ms/aml-notebooks))가 이 새 관리형 컴퓨팅을 사용하도록 업데이트되었습니다.
+  + [이 컴퓨팅에 대해 알아보기](how-to-set-up-training-targets.md#amlcompute)
+
+### <a name="azure-portal-new-features"></a>Azure Portal: 새로운 기능
++ 포털에서 [Azure Machine Learning 컴퓨팅](how-to-set-up-training-targets.md#amlcompute) 형식을 만들고 관리합니다.
++ Azure Machine Learning 컴퓨팅에 대한 할당량 사용 및 [요청 할당량](how-to-manage-quotas.md)을 모니터링합니다.
++ Azure Machine Learning 계산 클러스터 상태를 실시간으로 확인합니다.
++ Azure Machine Learning 컴퓨팅 및 Azure Kubernetes Service 만들기에 대한 가상 네트워크 지원이 추가되었습니다.
++ 기존 매개 변수를 사용하여 게시된 파이프라인을 다시 실행합니다.
++ 분류 모델(리프트, 게인, 보정, 모델 확장성 포함 기능 중요성 차트) 및 회귀 모델(오차 및 모델 확장성 포함 기능 중요성 차트)에 대한 새로운 [자동화된 기계 학습 차트](how-to-track-experiments.md#auto). 
++ Azure Portal에서 파이프라인을 볼 수 있음
+
+
+
 
 ## <a name="2018-11-20"></a>2018-11-20
 
@@ -167,9 +236,9 @@ Azure Machine Learning 서비스에 대한 Azure Portal은 다음과 같이 업�
 
 ## <a name="2018-09-public-preview-refresh"></a>2018-09(공개 미리 보기 새로 고침)
 
-완전히 새로 고친 Azure Machine Learning 릴리즈 - 자세한 정보: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
+완전히 새로 고친 Azure Machine Learning 릴리스: 이 릴리스에 대한 자세한 내용: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
-## <a name="older-notes-sept-2017---jun-2018"></a>이전 릴리스 정보: 2017년 9월 - 2018년 6월
+## <a name="older-notes-sept-2017---jun-2018"></a>이전 릴리스 정보: 2017년 9월~2018년 6월
 ### <a name="2018-05-sprint-5"></a>2018-05(스프린트 5)
 
 이 릴리스의 Azure Machine Learning에서 수행할 수 있는 작업은 다음과 같습니다.
@@ -181,7 +250,7 @@ Azure Machine Learning 서비스에 대한 Azure Portal은 다음과 같이 업�
   + [Forecasting](../desktop-workbench/how-to-build-deploy-forecast-models.md)
 
 ### <a name="2018-03-sprint-4"></a>2018-03(스프린트 4)
-**버전 번호**: 0.1.1801.24353&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 확인](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**버전 번호**: 0.1.1801.24353 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 찾기](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 
 다음 업데이트 중 많은 부분이 여러분이 보내 주신 피드백에 따른 직접적인 결과입니다. 앞으로도 이러한 결과를 얻을 수 있도록 여러분의 피드백을 계속 보내주십시오!
@@ -235,7 +304,7 @@ Azure Machine Learning 서비스에 대한 Azure Portal은 다음과 같이 업�
 
 
 ### <a name="2018-01-sprint-3"></a>2018-01(스프린트 3) 
-**버전 번호**: 0.1.1712.18263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 확인](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**버전 번호**: 0.1.1712.18263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 찾기](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 다음은 이번 스프린트의 업데이트 및 개선 사항입니다. 아래 업데이트 중 많은 부분은 사용자가 보내 주신 피드백에 따른 직접적인 결과입니다. 
 
@@ -270,7 +339,7 @@ Azure Machine Learning 서비스에 대한 Azure Portal은 다음과 같이 업�
   - 무료 구독을 위한 로컬 환경 설정을 사용하도록 설정됨 
 
 ### <a name="2017-12-sprint-2-qfe"></a>2017-12(스프린트 2 QFE) 
-**버전 번호**: 0.1.1711.15323 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 확인](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**버전 번호**: 0.1.1711.15323  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 찾기](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 QFE(Quick Fix Engineering) 릴리스로, 사소한 릴리스입니다. 여러 원격 분석 문제를 해결하고 제품 팀이 제품 사용 방법을 보다 잘 이해할 수 있도록 도와줍니다. 제품 환경을 개선하기 위한 향후 노력에 대한 내용이 포함될 수 있습니다. 
 
@@ -280,14 +349,14 @@ QFE(Quick Fix Engineering) 릴리스로, 사소한 릴리스입니다. 여러 �
 - 명령줄 도구에서 더 이상 Azure 구독 소유자가 아니어도 Machine Learning Compute ACS 클러스터를 프로비전할 수 있습니다. 
 
 ### <a name="2017-12-sprint-2"></a>2017-12(스프린트 2)
-**버전 번호**: 0.1.1711.15263 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 확인](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**버전 번호**: 0.1.1711.15263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 찾기](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 세 번째 Azure Machine Learning 업데이트를 시작합니다. 이 업데이트는 Workbench 앱, CLI(명령줄 인터페이스) 및 백 엔드 서비스의 향상된 기능을 포함합니다. 웃는 얼굴과 찡그린 얼굴을 보내 주시어 대단히 감사합니다. 다음 업데이트 중 많은 부분이 여러분이 보내 주신 피드백에 따른 직접적인 결과입니다. 
 
 **주목할 만한 새로운 기능**
 - [데이터 원본으로서 SQL Server 및 Azure SQL DB 지원](../desktop-workbench/data-prep-appendix2-supported-data-sources.md#types) 
 - [MMLSpark를 사용하여 GPU 지원이 포함된 Spark에 대한 딥 러닝](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
-- [배포 시 모든 AML 컨테이너는 Azure IoT Edge 장치와 호환됨(추가 단계 필요 없음)](https://aka.ms/aml-iot-edge-blog)
+- [배포 시 모든 AML 컨테이너는 Azure IoT Edge 디바이스와 호환됨(추가 단계 필요 없음)](https://aka.ms/aml-iot-edge-blog)
 - Azure Portal에서 사용 가능한 등록된 모델 목록 및 세부 정보 보기
 - 사용자 이름/암호 기반 액세스 이외에 SSH 키 기반 인증을 사용하여 계산 대상 액세스 
 - 데이터 준비 환경의 새 패턴 빈도 검사기 
@@ -352,7 +421,7 @@ QFE(Quick Fix Engineering) 릴리스로, 사소한 릴리스입니다. 여러 �
 - 추가된 `az ml datasource create` 명령을 사용하면 명령줄에서 데이터 원본 파일을 만들 수 있습니다.
 
 #### <a name="model-management-and-operationalization"></a>모델 관리 및 운영화
-- [운영화 시 모든 AML 컨테이너는 Azure IoT Edge 장치와 호환됨(추가 단계 필요 없음)](https://aka.ms/aml-iot-edge-blog) 
+- [운영화 시 모든 AML 컨테이너는 Azure IoT Edge 디바이스와 호환됨(추가 단계 필요 없음)](https://aka.ms/aml-iot-edge-blog) 
 - o16n CLI의 오류 메시지 개선 사항
 - 모델 관리 포털 UX에서 버그 수정  
 - 세부 정보 페이지에서 모델 관리 특성에 대한 일관된 대/소문자 구분
@@ -379,12 +448,12 @@ QFE(Quick Fix Engineering) 릴리스로, 사소한 릴리스입니다. 여러 �
     - `az ml computetarget attach --type cluster`는 이제 `az ml computetarget attach cluster`입니다.
 
 ### <a name="2017-11-sprint-1"></a>2017-11(스프린트 1) 
-**버전 번호**: 0.1.1710.31013 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 확인](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**버전 번호**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 찾기](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 이 릴리스에서는 워크벤치 앱, CLI 및 백 엔드 서비스 계층에서 보안, 안정성 및 유지 관리 기능이 향상되었습니다. 웃는 얼굴과 찡그린 얼굴을 보내 주시어 대단히 감사합니다. 아래 업데이트 중 많은 부분이 여러분이 보내 주신 피드백에 따른 직접적인 결과입니다. 앞으로도 이러한 결과를 얻을 수 있도록 여러분의 피드백을 계속 보내주십시오!
 
 #### <a name="notable-new-features"></a>주목할 만한 새로운 기능
-- Azure ML은 이제 새로운 두 Azure 지역, **유럽 서부** 및 **동남 아시아**에서 사용할 수 있습니다. 이에 따라 이전의 **미국 동부 2**, **미국 중서부**, 및 **오스트레일리아 동부** 지역과 함께 총 5개 지역에 배포됩니다.
+- 이제 새로운 Azure 지역 두 곳에서 Azure ML을 사용할 수 있습니다. **유럽 서부** 및 **동남 아시아**. 이에 따라 이전의 **미국 동부 2**, **미국 중서부**, 및 **오스트레일리아 동부** 지역과 함께 총 5개 지역에 배포됩니다.
 - Python 소스 코드를 쉽게 읽고 편집할 수 있도록 Workbench 응용 프로그램에서 Python 코드 구문을 강조 표시할 수 있습니다. 
 - 이제 전체 프로젝트 대신 파일에서 직접 즐겨찾는 IDE를 시작할 수 있습니다.  Workbench에서 파일을 열고 "편집"을 클릭하면 IDE(현재 VS Code 및 PyCharm이 지원됨)가 현재 파일 및 프로젝트로 시작됩니다.  [편집] 단추 옆에 있는 화살표를 클릭하여 Workbench 텍스트 편집기에서 파일을 편집할 수도 있습니다.  [편집]을 클릭할 때까지 파일을 읽기 전용으로 유지하여 실수로 변경하지 않도록 방지합니다.
 - 널리 사용되는 `matplotlib` 그리기 라이브러리 버전 2.1.0이 이제 Workbench 응용 프로그램과 함께 제공됩니다.
@@ -474,7 +543,7 @@ QFE(Quick Fix Engineering) 릴리스로, 사소한 릴리스입니다. 여러 �
 - 사용자가 앱에서 로그아웃할 때 Jupyter 서버가 제대로 종료됩니다.
 
 ##### <a name="azure-portal"></a>Azure portal
-- 유럽 서부와 동남 아시아의 새로운 두 Azure 지역에서 실험 계정과 모델 관리 계정을 만들 수 있습니다.
+- 다음 새로운 두 Azure 지역에서 실험 계정과 모델 관리 계정을 만들 수 있습니다. 유럽 서부 및 동남 아시아.
 - 모델 관리 계정 DevTest 계획은 구독에서 처음 만드는 경우에만 사용할 수 있습니다. 
 - Azure Portal의 [도움말] 링크에서 올바른 설명서 페이지를 가리키도록 업데이트되었습니다.
 - [설명] 필드는 적용할 수 없으므로 Docker 이미지 세부 정보 페이지에서 제거되었습니다.
@@ -501,7 +570,7 @@ QFE(Quick Fix Engineering) 릴리스로, 사소한 릴리스입니다. 여러 �
 
 
 ### <a name="2017-10-sprint-0"></a>2017-10(스프린트 0) 
-**버전 번호**: 0.1.1710.31013 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 확인](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**버전 번호**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 찾기](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Microsoft Ignite 2017 컨퍼런스에서 최초 공용 미리 보기를 선보인 후에 출시된 Azure Machine Learning Workbench 최초 업데이트입니다. 이 릴리스에서는 주로 안정성이 개선되고 안정화 문제가 수정되었습니다.  해결된 중요한 문제 일부는 다음과 같습니다.
 

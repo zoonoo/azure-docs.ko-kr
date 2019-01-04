@@ -128,7 +128,7 @@ Blob 감사 로그를 볼 수 있는 여러 가지 방법이 있습니다.
 
     4. 병합된 파일이 SSMS에서 열립니다. 여기에서 파일을 보고 분석할 수 있을 뿐만 아니라 XEL 또는 CSV 파일이나 테이블로 내보낼 수 있습니다.
 
-* Microsoft에서 만든 [동기화 응용 프로그램](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)을 사용합니다. 이 응용 프로그램은 Azure에서 실행되며 Log Analytics 공용 API를 활용하여 SQL 감사 로그를 Log Analytics에 푸시합니다. 동기화 응용 프로그램은 Log Analytics 대시보드를 통해 사용할 수 있도록 Log Analytics에 SQL 감사 로그를 푸시합니다.
+* Microsoft에서 만든 [동기화 애플리케이션](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)을 사용합니다. 이 응용 프로그램은 Azure에서 실행되며 Log Analytics 공용 API를 활용하여 SQL 감사 로그를 Log Analytics에 푸시합니다. 동기화 애플리케이션은 Log Analytics 대시보드를 통해 사용할 수 있도록 Log Analytics에 SQL 감사 로그를 푸시합니다.
 
 * Power BI를 사용합니다. Power BI에서 감사 로그 데이터를 보고 분석할 수 있습니다. 자세한 내용은 [Power BI 및 다운로드 가능한 템플릿 액세스](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/)를 참조하세요.
 

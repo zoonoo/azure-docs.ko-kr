@@ -3,17 +3,17 @@ title: Azure HDInsight를 사용한 HBase 문제 해결
 description: HBase 및 Azure HDInsight 작업에 대한 일반적인 질문에 답합니다.
 services: hdinsight
 ms.service: hdinsight
-author: nitinver
-ms.author: nitinver
-ms.custom: hdinsightactive
+author: hrasheed-msft
+ms.author: hrasheed
+ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
-ms.date: 7/7/2017
-ms.openlocfilehash: 771f01f18c5cb54a0458d624a65ec1a69345cadd
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/06/2018
+ms.openlocfilehash: b39c01e76ba3ec21f0cd2d16b86da5664e1d5002
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317231"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014677"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache HBase 문제 해결
 
@@ -288,7 +288,7 @@ xxx 영역에 대한 서버 주소가 *hbase: meta*에 나열되지 않습니다
 
 ### <a name="detailed-description"></a>자세한 설명
 
-Linux 클러스터에 *hbase:meta* 테이블이 온라인 상태가 아님을 나타내는 메시지가 표시될 수 있습니다. `hbck`를 실행하면 "모든 영역에서 replicaId 0 hbase: meta 테이블을 찾을 없습니다."라고 보고할 수 있습니다. HBase를 다시 시작한 후에 HMaster를 초기화하지 못하여 이 문제가 발생할 수 있습니다. HMaster 로그에서 "hbase: backup \<영역 이름\>에 대한 서버 주소가 나열되지 않습니다."라는 메시지가 표시될 수 있습니다.  
+Linux 클러스터에 *hbase:meta* 테이블이 온라인 상태가 아님을 나타내는 메시지가 표시될 수 있습니다. `hbck`를 실행하면 "모든 영역에서 replicaId 0 hbase: meta 테이블을 찾을 없습니다."라고 보고할 수 있습니다. HBase를 다시 시작한 후에 HMaster를 초기화하지 못하여 이 문제가 발생할 수 있습니다. HMaster 로그에 다음 메시지가 표시될 수 있습니다. "hbase: backup \<영역 이름\>에 대해 hbase: meta에 나열된 서버 주소가 없습니다."  
 
 ### <a name="resolution-steps"></a>해결 단계:
 
@@ -319,7 +319,7 @@ Linux 클러스터에 *hbase:meta* 테이블이 온라인 상태가 아님을 �
 
 ### <a name="error"></a>오류
 
-"java.io.IOException: 네임스페이스 테이블이 할당될 때까지 기다리는 시간(300000ms)을 초과했습니다."와 같은 심각한 예외로 인해 HMaster에서 시간을 초과했습니다.
+다음과 유사한 심각한 예외로 인해 HMaster 시간이 초과되었습니다. "java.io.IOException: 네임스페이스 테이블이 할당되기를 기다리다가 시간이 300000ms 초과되었습니다."
 
 ### <a name="detailed-description"></a>자세한 설명
 

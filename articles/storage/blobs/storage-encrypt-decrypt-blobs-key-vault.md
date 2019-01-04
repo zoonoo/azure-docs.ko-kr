@@ -17,7 +17,7 @@ ms.locfileid: "51233102"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>자습서: Microsoft Azure Storage에서 Azure Key Vault를 사용하여 Blob 암호화 및 해독
 ## <a name="introduction"></a>소개
-이 자습서에서는 Azure Key Vault와 함께 클라이언트 쪽 저장소 암호화를 사용하는 방법을 설명합니다. 이러한 기술을 사용하여 콘솔 응용 프로그램에서 Blob를 암호화하고 해독하는 방법을 단계별로 안내 합니다.
+이 자습서에서는 Azure Key Vault와 함께 클라이언트 쪽 저장소 암호화를 사용하는 방법을 설명합니다. 이러한 기술을 사용하여 콘솔 애플리케이션에서 Blob를 암호화하고 해독하는 방법을 단계별로 안내 합니다.
 
 **예상 완료 시간:** 20분
 
@@ -47,15 +47,15 @@ Azure Storage에 대한 클라이언트 쪽 암호화의 개요는 [Microsoft St
 
 * 키 자격 증명 모음을 만듭니다.
 * 키 또는 암호를 키 자격 증명 모음에 추가합니다.
-* Azure Active Directory에 응용 프로그램을 등록합니다.
-* 키 또는 암호를 사용하여 응용 프로그램에 권한을 부여합니다.
+* Azure Active Directory에 애플리케이션을 등록합니다.
+* 키 또는 암호를 사용하여 애플리케이션에 권한을 부여합니다.
 
-Azure Active directory를 사용하여 응용 프로그램을 등록하는 경우 생성된 ClientID 및 ClientSecret를 메모합니다.
+Azure Active directory를 사용하여 애플리케이션을 등록하는 경우 생성된 ClientID 및 ClientSecret를 메모합니다.
 
 키 자격 증명 모음에 두 키를 모두 만듭니다. 자습서의 나머지 부분에서는 이름 ContosoKeyVault 및 TestRSAKey1을 사용했다고 가정합니다.
 
-## <a name="create-a-console-application-with-packages-and-appsettings"></a>패키지 및 AppSettings를 사용하여 콘솔 응용 프로그램 만들기
-Visual Studio에서 새 콘솔 응용 프로그램을 만듭니다.
+## <a name="create-a-console-application-with-packages-and-appsettings"></a>패키지 및 AppSettings를 사용하여 콘솔 애플리케이션 만들기
+Visual Studio에서 새 콘솔 애플리케이션을 만듭니다.
 
 패키지 관리자 콘솔에서 필요한 Nuget 패키지를 추가합니다.
 
@@ -92,7 +92,7 @@ using System.Threading;
 using System.IO;
 ```
 
-## <a name="add-a-method-to-get-a-token-to-your-console-application"></a>콘솔 응용 프로그램에 토큰을 가져오는 메서드 추가
+## <a name="add-a-method-to-get-a-token-to-your-console-application"></a>콘솔 애플리케이션에 토큰을 가져오는 메서드 추가
 다음 메서드는 사용자 키 자격 증명 모음에 대한 액세스를 인증해야 하는 키 자격 증명 모음 클래스에 의해 사용됩니다.
 
 ```csharp
@@ -193,7 +193,7 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 
 * SymmetricKey 키의 키는 고정 길이 128, 192, 256, 384 또는 512비트여야 합니다.
 * SymmetricKey의 키는 Base64 인코딩이 되어 있어야 합니다.
-* SymmetricKey로 사용할 키 자격 증명 모음 암호는 키 자격 증명 모음에 "응용 프로그램/옥텟 스트림" 콘텐츠 형식을 가지고 있어야 합니다.
+* SymmetricKey로 사용할 키 자격 증명 모음 암호는 키 자격 증명 모음에 "애플리케이션/옥텟 스트림" 콘텐츠 형식을 가지고 있어야 합니다.
 
 다음은 SymmetricKey로 사용할 수 있는 키 자격 증명 모음의 암호를 만드는 Powershell의 예제입니다.
 $key는 하드 코드된 값이며 데모 전용입니다. 사용자 고유의 코드에서 이 키를 생성할 수 있습니다.
@@ -211,7 +211,7 @@ $secretvalue = ConvertTo-SecureString $enc -AsPlainText -Force
 $secret = Set-AzureKeyVaultSecret -VaultName 'ContoseKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
 ```
 
-사용자의 콘솔 응용 프로그램에서는 전과 동일한 호출을 사용하여 이 암호를 검색할 수 있습니다.
+사용자의 콘솔 애플리케이션에서는 이전과 동일한 호출을 사용하여 SymmetricKey로 이 비밀을 검색할 수 있습니다.
 
 ```csharp
 SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(

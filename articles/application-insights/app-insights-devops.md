@@ -9,16 +9,15 @@ ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 521bf044f280b91f668d42d760ba2a726b555f12
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: bf096032d0ab429a5c6c06d5ada568c4bfb56d9f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822673"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994436"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Application Insights로 웹앱 및 서비스 심층 진단
 ## <a name="why-do-i-need-application-insights"></a>Application Insights가 필요한 이유는 무엇일까요?
@@ -26,7 +25,7 @@ Application Insights는 실행 중인 웹앱을 모니터링합니다. 오류와
 
 ![Web Apps을 제공하는 방법의 복잡성 측면](./media/app-insights-devops/010.png)
 
-최신 응용 프로그램은 실행하는 동안 모니터링이 필요합니다. 특히, 대부분의 고객보다 빠르게 오류를 탐지해야 합니다. 또한 치명적이진 않지만 속도를 저해하거나 사용자에게 불편을 초래할 수도 있는 성능 문제들을 검색하고 수정하려고 합니다. 시스템이 만족스럽게 작동될 때 사용자가 어떤 작업을 하는지 알고 싶을 것입니다. 잘 사용하고 있는지 궁금할 것입니다.
+최신 응용 프로그램은 실행하는 동안 모니터링이 필요합니다. 특히, 대부분의 고객보다 빠르게 오류를 탐지해야 합니다. 또한 치명적이진 않지만 속도를 저해하거나 사용자에게 불편을 초래할 수도 있는 성능 문제들을 검색하고 수정하려고 합니다. 시스템이 만족스럽게 작동될 때 사용자가 어떤 작업을 하는지 알고 싶을 것입니다. 최신 기능을 사용하고 있나요? 잘 사용하고 있는지 궁금할 것입니다.
 
 최신 웹 응용 프로그램은 지속적인 업데이트 주기에 맞추어 개발됩니다. 즉, 새로운 기능 및 개선 사항을 릴리스하고, 사용자의 입장에서 잘 작동하는지 관찰하고, 이러한 수집된 정보를 바탕으로 다음 점진적 개발을 계획합니다. 이 주기의 핵심 부분은 관찰 단계입니다. Application Insights는 웹 응용 프로그램의 성능과 사용을 모니터링하는 도구를 제공합니다.
 
@@ -80,9 +79,9 @@ Application Insights는 실행 중인 웹앱을 모니터링합니다. 오류와
 * 디버깅에 사용하는 로그 추적.
 
 ## <a name="case-study-real-madrid-fc"></a>사례 연구: Real Madrid F.C.
-[Real Madrid Football Club](http://www.realmadrid.com/) 의 웹 서비스는 전 세계 4억 5,000만 명의 팬에게 서비스를 제공합니다. 팬들은 웹 브라우저와 클럽 모바일 앱을 통해 액세스합니다. 팬은 입장권을 예매할 수 있을 뿐만 아니라 경기 결과, 선수, 예정 경기에 대한 정보와 비디오 클립에도 액세스할 수 있습니다. 골인 수 등의 필터로 검색도 가능합니다. 또한, 소셜 미디어에도 링크되어 있습니다. 사용자 경험은 매우 개인화되어 있으며, 팬의 참여를 유도하기 위해 양방향 통신으로 설계되었습니다.
+[Real Madrid Football Club](https://www.realmadrid.com/) 의 웹 서비스는 전 세계 4억 5,000만 명의 팬에게 서비스를 제공합니다. 팬들은 웹 브라우저와 클럽 모바일 앱을 통해 액세스합니다. 팬은 입장권을 예매할 수 있을 뿐만 아니라 경기 결과, 선수, 예정 경기에 대한 정보와 비디오 클립에도 액세스할 수 있습니다. 골인 수 등의 필터로 검색도 가능합니다. 또한, 소셜 미디어에도 링크되어 있습니다. 사용자 경험은 매우 개인화되어 있으며, 팬의 참여를 유도하기 위해 양방향 통신으로 설계되었습니다.
 
-솔루션은 [Microsoft Azure의 서비스 및 응용 프로그램 시스템](https://www.microsoft.com/inculture/sports/real-madrid/)입니다. 확장성은 핵심 요구 사항입니다. 트래픽은 변동이 심하고 경기 무렵이나 도중에 매우 높아질 수 있습니다.
+솔루션은 [Microsoft Azure의 서비스 및 애플리케이션 시스템](https://www.microsoft.com/inculture/sports/real-madrid/)입니다. 확장성은 핵심 요구 사항입니다. 트래픽은 변동이 심하고 경기 무렵이나 도중에 매우 높아질 수 있습니다.
 
 Real Madrid에게는 시스템 성능을 모니터링하는 것이 매우 중요합니다. Azure Application Insights는 시스템 전체에 대한 종합적인 개관을 제공하여 안정적이고 높은 수준의 서비스를 보장합니다. 
 

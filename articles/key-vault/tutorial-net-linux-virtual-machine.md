@@ -1,6 +1,6 @@
 ---
 title: 자습서 - .NET에서 Azure Linux Virtual Machine에 Azure Key Vault를 사용하는 방법 | Microsoft Docs
-description: 자습서 Key Vault에서 비밀을 읽도록 ASP.NET Core 응용 프로그램 구성
+description: 자습서 Key Vault에서 비밀을 읽도록 ASP.NET Core 애플리케이션 구성
 services: key-vault
 documentationcenter: ''
 author: prashanthyv
@@ -21,7 +21,7 @@ ms.locfileid: "51712333"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>자습서: .NET에서 Azure Linux Virtual Machine에 Azure Key Vault를 사용하는 방법
 
-Azure Key Vault를 통해 응용 프로그램, 서비스 및 IT 리소스에 액세스하는 데 필요한 API 키, 데이터베이스 연결 문자열과 같은 비밀을 보호할 수 있습니다.
+Azure Key Vault를 통해 애플리케이션, 서비스 및 IT 리소스에 액세스하는 데 필요한 API 키, 데이터베이스 연결 문자열과 같은 비밀을 보호할 수 있습니다.
 
 이 자습서에서는 Azure 리소스의 관리 ID를 사용하여 Console 애플리케이션이 Azure Key Vault에서 정보를 읽는 데 필요한 단계를 수행합니다. 이 자습서는 [Azure Web Apps](../app-service/app-service-web-overview.md)를 기반으로 합니다. 다음에서 사용 방법을 알아봅니다.
 
@@ -91,7 +91,7 @@ az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGr
 
 ## <a name="add-a-secret-to-the-key-vault"></a>키 자격 증명 모음에 비밀 추가
 
-이 작업을 설명하기 위한 비밀을 추가하고 있습니다. 안전하게 유지하면서 응용 프로그램에서 사용할 수 있도록 하는 데 필요한 SQL 연결 문자열 또는 기타 정보를 저장할 수 있습니다.
+이 작업을 설명하기 위한 비밀을 추가하고 있습니다. 안전하게 유지하면서 애플리케이션에서 사용할 수 있도록 하는 데 필요한 SQL 연결 문자열 또는 기타 정보를 저장할 수 있습니다.
 
 다음 명령을 입력하여 키 자격 증명 모음에 **AppSecret**라고 하는 비밀을 만듭니다. 이 비밀에는 **MySecret** 값이 저장됩니다.
 

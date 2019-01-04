@@ -484,11 +484,11 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 ## <a name="optional-send-notifications-from-a-net-console-app"></a>(선택 사항) .NET 콘솔 응용 프로그램에서 알림 보내기
 이 섹션에서는 .NET 콘솔 앱을 사용하여 알림을 전송하는 방법을 보여줍니다.
 
-1. 새 Visual C# 콘솔 응용 프로그램을 만듭니다.
+1. 새 Visual C# 콘솔 애플리케이션을 만듭니다.
    
     ![](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
 
-2. 패키지 관리자 콘솔 창에서 **기본 프로젝트**를 새 콘솔 응용 프로그램 프로젝트로 설정한 후 콘솔 창에서 다음 명령을 실행합니다.
+2. 패키지 관리자 콘솔 창에서 **기본 프로젝트**를 새 콘솔 애플리케이션 프로젝트로 설정한 후 콘솔 창에서 다음 명령을 실행합니다.
    
         Install-Package Microsoft.Azure.NotificationHubs
    
@@ -528,7 +528,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 
 앱이 Baidu 푸시 알림 서비스에서 `userId` 및 `channelId`를 검색하고 알림 허브에 등록합니다.
 
-테스트 알림을 보내려면 [Azure Portal]의 디버그 탭을 사용할 수 있습니다. Visual Studio에 대해 .NET 콘솔 응용 프로그램을 빌드한 경우 Visual Studio에서 F5 키를 눌러 응용 프로그램을 실행합니다. 응용 프로그램은 디바이스 또는 에뮬레이터의 상위 알림 영역에 표시되는 알림을 전송합니다.
+테스트 알림을 보내려면 [Azure Portal]의 디버그 탭을 사용할 수 있습니다. Visual Studio에 대해 .NET 콘솔 애플리케이션을 빌드한 경우 Visual Studio에서 F5 키를 눌러 애플리케이션을 실행합니다. 응용 프로그램은 디바이스 또는 에뮬레이터의 상위 알림 영역에 표시되는 알림을 전송합니다.
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409

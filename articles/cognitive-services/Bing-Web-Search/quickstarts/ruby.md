@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: Ruby를 사용하여 검색 수행 - Bing Web Search API'
+title: '빠른 시작: Ruby를 사용하여 웹 검색 수행 - Bing Web Search API'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Ruby를 사용하여 Bing Web Search API를 처음 호출하고 JSON 응답을 받는 방법을 알아봅니다.
+description: 이 빠른 시작을 사용하여 Ruby를 통해 Bing Web Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: 41ca3c0c4b80cb3d53a0910afaadd00166d8b9f7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 911d90229473d6972f07ed0a75af487a27008fa5
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315769"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249671"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>빠른 시작: Ruby를 사용하여 Bing Web Search API 호출  
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory B2C를 사용하여 Weibo 계정으로 등록 설정 및 로그인 | Microsoft Docs
-description: 고객에게 Azure Active Directory B2C를 사용하여 응용 프로그램에서 Weibo 계정으로 등록 및 로그인을 제공합니다.
+description: 고객에게 Azure Active Directory B2C를 사용하여 애플리케이션에서 Weibo 계정으로 등록 및 로그인을 제공합니다.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -23,9 +23,9 @@ ms.locfileid: "52842444"
 > 이 기능은 미리 보기 상태입니다.
 > 
 
-## <a name="create-a-weibo-application"></a>Weibo 응용 프로그램 만들기
+## <a name="create-a-weibo-application"></a>Weibo 애플리케이션 만들기
 
-Azure AD(Azure Active Directory) B2C에서 Weibo 계정을 ID 공급자로 사용하려면 테넌트에 해당 계정을 나타내는 응용 프로그램을 만들어야 합니다. Weibo 계정이 없는 경우 [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us)에서 얻을 수 있습니다.
+Azure AD(Azure Active Directory) B2C에서 Weibo 계정을 ID 공급자로 사용하려면 테넌트에 해당 계정을 나타내는 애플리케이션을 만들어야 합니다. Weibo 계정이 없는 경우 [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us)에서 얻을 수 있습니다.
 
 1. Weibo 계정 자격 증명을 사용하여 [Weibo 개발자 포털](https://open.weibo.com/)에 로그인합니다.
 2. 로그인한 후 오른쪽 위 모서리의 표시 이름을 선택합니다.
@@ -35,10 +35,10 @@ Azure AD(Azure Active Directory) B2C에서 Weibo 계정을 ID 공급자로 사�
 6. [ID 확인 페이지](https://open.weibo.com/developers/identity/edit)로 이동합니다.
 7. 필요한 정보를 입력하고 **提交**(제출)을 선택합니다.
 
-### <a name="register-a-weibo-application"></a>Weibo 응용 프로그램 등록
+### <a name="register-a-weibo-application"></a>Weibo 애플리케이션 등록
 
 1. [새 Weibo 앱 등록 페이지](https://open.weibo.com/apps/new)로 이동합니다.
-2. 필요한 응용 프로그램 정보를 입력합니다.
+2. 필요한 애플리케이션 정보를 입력합니다.
 3. **创 建**(만들기)를 선택합니다.
 4. **앱 키** 및 **앱 암호**의 값을 복사합니다. 테넌트에 ID 공급자를 추가하려면 두 값이 모두 필요합니다.
 5. 필요한 사진을 업로드하고 필요한 정보를 입력합니다.

@@ -44,7 +44,7 @@ ms.locfileid: "46123915"
    | 자산 | 값 |
    | --- | --- |
    | Category |Templates/Visual C#/Windows |
-   | Template |콘솔 응용 프로그램 |
+   | Template |콘솔 애플리케이션 |
    | 이름 |CreateADLApplication |
 4. **확인**을 클릭하여 프로젝트를 만듭니다.
 5. NuGet 패키지를 프로젝트에 추가합니다.
@@ -101,8 +101,8 @@ ms.locfileid: "46123915"
 
 ## <a name="authentication"></a>인증
 
-* 응용 프로그램에 대한 최종 사용자 인증의 경우 [.NET SDK를 사용한 Data Lake Storage Gen1의 최종 사용자 인증](data-lake-store-end-user-authenticate-net-sdk.md)을 참조하세요.
-* 응용 프로그램에 대한 서비스 간 인증의 경우 [.NET SDK를 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-net-sdk.md)을 참조하세요.
+* 애플리케이션에 대한 최종 사용자 인증의 경우 [.NET SDK를 사용한 Data Lake Storage Gen1의 최종 사용자 인증](data-lake-store-end-user-authenticate-net-sdk.md)을 참조하세요.
+* 애플리케이션에 대한 서비스 간 인증의 경우 [.NET SDK를 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-net-sdk.md)을 참조하세요.
 
 ## <a name="create-client-object"></a>클라이언트 개체 만들기
 다음 코드 조각은 계정 만들기, 계정 삭제 등과 같은 서비스에 계정 관리 요청을 발급하는 데 사용되는 Data Lake Storage Gen1 계정 클라이언트 개체를 만듭니다.

@@ -27,7 +27,7 @@ ms.locfileid: "51616268"
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>개요
-이 자습서에서는 Azure Notification Hubs를 사용하여 Android 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다.
+이 자습서에서는 Azure Notification Hubs를 사용하여 Android 애플리케이션에 푸시 알림을 보내는 방법을 보여 줍니다.
 GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 앱을 만듭니다.
 
 > [!IMPORTANT]
@@ -106,7 +106,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
         </intent-filter>
     </service>
     ```
-2. 응용 프로그램이 인스턴스 ID API에서 GCM 등록 토큰을 수신하면 토큰을 사용하여 [Azure Notification Hub에 등록](notification-hubs-push-notification-registration-management.md)합니다. 등록은 `RegistrationIntentService`라는 `IntentService`를 사용하여 백그라운드에서 수행됩니다. 이 서비스는 [GCM 등록 토큰을 새로 고칩니다](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
+2. 애플리케이션이 인스턴스 ID API에서 GCM 등록 토큰을 수신하면 토큰을 사용하여 [Azure Notification Hub에 등록](notification-hubs-push-notification-registration-management.md)합니다. 등록은 `RegistrationIntentService`라는 `IntentService`를 사용하여 백그라운드에서 수행됩니다. 이 서비스는 [GCM 등록 토큰을 새로 고칩니다](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
    
     AndroidManifest.xml 파일의 `<application>` 태그 내부에 다음 서비스 정의를 추가합니다. `<your package>` 자리 표시자를 `AndroidManifest.xml` 파일의 맨 위에 표시된 실제 패키지 이름으로 바꿉니다. 
    
@@ -434,7 +434,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 12. Android Studio의 메뉴 모음에서 **빌드** > **프로젝트 다시 빌드**를 클릭하여 코드에 오류가 없는지 확인합니다.
 
 ## <a name="testing-your-app"></a>앱 테스트
-### <a name="run-the-mobile-application"></a>모바일 응용 프로그램 실행
+### <a name="run-the-mobile-application"></a>모바일 애플리케이션 실행
 1. 앱을 실행하고 등록에 성공한 경우 등록 ID가 보고되는지 확인합니다.
    
       ![Android에서 테스트 - 채널 등록][18]
@@ -465,7 +465,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 
 
 ## <a name="optional-send-push-notifications-directly-from-the-app"></a>(선택 사항) 앱에서 바로 푸시 알림 보내기
-일반적으로, 백 엔드 서버를 사용하여 알림을 보냅니다. 경우에 따라, 클라이언트 응용 프로그램에서 직접 푸시 알림을 보낼 수 있기를 원하기도 합니다. 이 섹션은 [Azure 알림 허브 REST API](https://msdn.microsoft.com/library/azure/dn223264.aspx)를 사용하여 클라이언트에서 알림을 보내는 방법을 설명합니다.
+일반적으로, 백 엔드 서버를 사용하여 알림을 보냅니다. 경우에 따라, 클라이언트 애플리케이션에서 직접 푸시 알림을 보낼 수 있기를 원하기도 합니다. 이 섹션은 [Azure 알림 허브 REST API](https://msdn.microsoft.com/library/azure/dn223264.aspx)를 사용하여 클라이언트에서 알림을 보내는 방법을 설명합니다.
 
 1. Android Studio 프로젝트 뷰에서 **앱** > **src** > **기본** > **자원** > **레이아웃**을 확장합니다. `activity_main.xml` 레이아웃 파일을 열고 **텍스트** 탭을 클릭하여 파일의 텍스트 내용을 업데이트합니다. 아래 코드로 업데이트하여 알림 허브에 푸시 알림 메시지를 보내는 새 `Button` 및 `EditText` 컨트롤을 추가합니다. 이 코드를 맨 아래의 `</RelativeLayout>`바로 앞에 추가합니다.
    

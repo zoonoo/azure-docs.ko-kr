@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning CLI 확장 사용 방법
+title: Machine Learning CLI 확장
+titleSuffix: Azure Machine Learning service
 description: Azure CLI용 Azure Machine Learning CLI 확장에 대해 알아봅니다. Azure CLI는 Azure 클라우드의 리소스로 작업할 수 있도록 해주는 플랫폼 간 명령줄 유틸리티입니다. Machine Learning 확장을 사용하면 Azure Machine Learning 서비스로 작업할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
@@ -8,15 +9,16 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 09/24/2018
-ms.openlocfilehash: 13d09471191deed670db97a9f18e15bc9577dd1a
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: e16506773e38f1732a55161cdd58ffb7523602d4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713421"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277287"
 ---
-# <a name="use-the-azure-machine-learning-cli-extension"></a>Azure Machine Learning CLI 확장 사용
+# <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스용 CLI 확장 사용
 
 Azure Machine Learning CLI는 Azure 플랫폼용 플랫폼 간 명령줄 인터페이스인 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)에 대한 확장입니다. 이 확장은 명령줄에서 Azure Machine Learning 서비스로 작업하는 데 필요한 명령을 제공합니다. 이 확장을 사용하면 기계 학습 워크플로를 자동화하는 스크립트를 만들 수 있습니다. 예를 들어, 다음 작업을 수행하는 스크립트를 만들 수 있습니다.
 
@@ -40,17 +42,17 @@ CLI는 Azure Machine Learning SDK를 대체하는 것이 아닙니다. 다음과
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
-> [!NOTE]
-> CLI를 사용하려면 Azure 구독이 있어야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://aka.ms/AMLfree) 을 만듭니다.
+* CLI를 사용하려면 Azure 구독이 있어야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](http://aka.ms/AMLFree)을 지금 사용해 보세요.
+
+* [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
 ## <a name="install-the-extension"></a>확장 설치
 
 Machine Learning CLI 확장을 설치하려면 다음 명령을 사용합니다.
 
 ```azurecli-interactive
-az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-0.1.68-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
+az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-1.0.2-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
 ```
 
 메시지가 표시되면 `y`를 선택하여 확장을 설치합니다.
@@ -79,22 +81,33 @@ az extension remove -n azure-cli-ml
 
 + Azure Machine Learning 서비스 작업 영역을 만듭니다.
 
-   ```azurecli-interactive
-   az ml workspace create -n myworkspace -g myresourcegroup
-   ```
+    ```azurecli-interactive
+    az ml workspace create -n myworkspace -g myresourcegroup
+    ```
 
 + 기본 작업 영역을 설정합니다.
 
-   ```azurecli-interactive
-   az configure --defaults aml_workspace=myworkspace group=myresourcegroup
-   ```
+    ```azurecli-interactive
+    az configure --defaults aml_workspace=myworkspace group=myresourcegroup
+    ```
 
-+ DSVM(Data Science VM)을 만듭니다. 분산 학습용 BatchAI 클러스터 또는 배포용 AKS 클러스터를 만들 수도 있습니다.
++ 분산 교육을 위한 관리되는 컴퓨팅 대상을 만듭니다.
 
+    ```azurecli-interactive
+    az ml computetarget create amlcompute -n mycompute --max_nodes 4 --size Standard_NC6
+    ```
 
-  ```azurecli-interactive
-  az ml computetarget setup dsvm -n mydsvm
-  ```
+* 관리되는 컴퓨팅 대상을 업데이트합니다.
+
+    ```azurecli-interactive
+    az ml computetarget update --name mycompute --workspace –-group --max_nodes 4 --min_nodes 2 --idle_time 300
+    ```
+
+* 학습 또는 배포를 위해 관리되지 않는 컴퓨팅 대상을 연결합니다.
+
+    ```azurecli-interactive
+    az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
+    ```
 
 ## <a name="experiments"></a>실험
 

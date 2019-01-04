@@ -83,8 +83,8 @@ Linux 파일 공유를 사용하려면 Linux 서버에 [Samba](https://www.samba
 ### <a name="sample-linked-service-and-dataset-definitions"></a>연결된 서비스 및 데이터 세트 정의 샘플
 | 시나리오 | 연결된 서비스 정의의 호스트 | 데이터 세트 정의의 folderPath |
 | --- | --- | --- |
-| 데이터 관리 게이트웨이 컴퓨터의 로컬 폴더:  <br/><br/>예: D:\\\* 또는 D:\folder\subfolder\\* |D:\\\\(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/> localhost(데이터 관리 게이트웨이 버전 2.0 미만) |.\\\\ 또는 folder\\\\subfolder(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/>D:\\\\ 또는 D:\\\\folder\\\\subfolder(게이트웨이 버전 2.0 미만) |
-| 원격 공유 폴더:  <br/><br/>예: \\\\myserver\\share\\\* 또는 \\\\myserver\\share\\folder\\subfolder\\* |\\\\\\\\myserver\\\\share |.\\\\ 또는 folder\\\\subfolder |
+| 데이터 관리 게이트웨이 컴퓨터의 로컬 폴더:  <br/><br/>예: D:\\\* 또는 D:\folder\subfolder\\\* |D:\\\\(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/> localhost(데이터 관리 게이트웨이 버전 2.0 미만) |.\\\\ 또는 folder\\\\subfolder(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/>D:\\\\ 또는 D:\\\\folder\\\\subfolder(게이트웨이 버전 2.0 미만) |
+| 원격 공유 폴더:  <br/><br/>예: \\\\myserver\\share\\\* 또는 \\\\myserver\\share\\folder\\subfolder\\\* |\\\\\\\\myserver\\\\share |.\\\\ 또는 folder\\\\subfolder |
 
 >[!NOTE]
 >UI를 통해 작성하는 경우 JSON을 사용할 때처럼 이스케이프하기 위해 이중 백슬래시(`\\`)를 입력할 필요가 없으며 단일 백슬래시를 지정합니다.

@@ -310,7 +310,7 @@ Azure App Service on Azure Stack에 대 한 SQL Server 인스턴스를 모든 Ap
 > 기존 가상 네트워크에 App Service를 배포 하려는 경우 SQL Server는 App Service 및 파일 서버에서 별도 서브넷에 배포 되어야 합니다.
 >
 
-## <a name="create-an-azure-active-directory-application"></a>Azure Active Directory 응용 프로그램 만들기
+## <a name="create-an-azure-active-directory-application"></a>Azure Active Directory 애플리케이션 만들기
 
 다음 작업을 지 원하는 Azure AD 서비스 주체를 구성 합니다.
 

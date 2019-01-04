@@ -21,7 +21,7 @@ metadata:
   ms.date: 07-21-2017
   ms.author: carolz
 abstract:
-  description: AKS(Azure Kubernetes Service)는 호스팅된 Kubernetes 환경을 관리하므로 컨테이너 오케스트레이션에 대한 전문 지식 없이 컨테이너화된 응용 프로그램을 빠르고 쉽게 배포하고 관리할 수 있습니다. 또한 응용 프로그램을 오프라인으로 변경하지 않고 주문형 리소스를 프로비전하고, 업그레이드하고, 크기 조정하여 진행 중인 작업 및 유지 관리 부담을 제거합니다.
+  description: AKS(Azure Kubernetes Service)는 호스팅된 Kubernetes 환경을 관리하므로 컨테이너 오케스트레이션에 대한 전문 지식 없이 컨테이너화된 애플리케이션을 빠르고 쉽게 배포하고 관리할 수 있습니다. 또한 애플리케이션을 오프라인으로 변경하지 않고 주문형 리소스를 프로비전하고, 업그레이드하고, 크기 조정하여 진행 중인 작업 및 유지 관리 부담을 제거합니다.
 sections:
 - title: 5분 빠른 시작
   items:
@@ -39,7 +39,7 @@ sections:
       text: Azure Portal
       href: /azure/aks/kubernetes-walkthrough-portal
   - type: paragraph
-    text: AKS를 사용하여 응용 프로그램을 개발하고 디버그하는 방법을 알아봅니다.
+    text: AKS를 사용하여 애플리케이션을 개발하고 디버그하는 방법을 알아봅니다.
   - type: list
     style: icon48
     items:
@@ -62,7 +62,7 @@ sections:
 - title: 단계별 자습서
   items:
   - type: paragraph
-    text: AKS 클러스터에서 응용 프로그램을 배포하고 관리하며 업데이트하는 방법을 알아봅니다.
+    text: AKS 클러스터에서 애플리케이션을 배포하고 관리하며 업데이트하는 방법을 알아봅니다.
   - type: list
     style: ordered
     items:

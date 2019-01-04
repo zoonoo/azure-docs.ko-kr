@@ -1,6 +1,6 @@
 ---
-title: 다중 인스턴스 작업을 사용하여 MPI 응용 프로그램 실행 - Azure Batch | Microsoft Docs
-description: Azure Batch에서 다중 인스턴스 작업 유형을 사용하여 MPI(메시지 전달 인터페이스) 응용 프로그램을 실행하는 방법에 대해 알아봅니다.
+title: 다중 인스턴스 작업을 사용하여 MPI 애플리케이션 실행 - Azure Batch | Microsoft Docs
+description: Azure Batch에서 다중 인스턴스 작업 유형을 사용하여 MPI(메시지 전달 인터페이스) 애플리케이션을 실행하는 방법에 대해 알아봅니다.
 services: batch
 documentationcenter: ''
 author: dlepow
@@ -21,9 +21,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/20/2018
 ms.locfileid: "39174304"
 ---
-# <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>다중 인스턴스 작업을 사용하여 Batch에서 MPI(메시지 전달 인터페이스) 응용 프로그램 실행
+# <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>다중 인스턴스 작업을 사용하여 Batch에서 MPI(메시지 전달 인터페이스) 애플리케이션 실행
 
-다중 인스턴스 작업을 통해 여러 계산 노드에서 동시에 Azure Batch 작업을 실행할 수 있습니다. 이러한 작업을 통해 MPI(메시지 전달 인터페이스) 응용 프로그램과 같은 고성능 컴퓨팅 시나리오를 Batch로 수행할 수 있습니다. 이 문서에서 [Batch .NET][api_net] 라이브러리를 사용하여 다중 인스턴스 작업을 실행하는 방법을 알아봅니다.
+다중 인스턴스 작업을 통해 여러 계산 노드에서 동시에 Azure Batch 작업을 실행할 수 있습니다. 이러한 작업을 통해 MPI(메시지 전달 인터페이스) 애플리케이션과 같은 고성능 컴퓨팅 시나리오를 Batch로 수행할 수 있습니다. 이 문서에서 [Batch .NET][api_net] 라이브러리를 사용하여 다중 인스턴스 작업을 실행하는 방법을 알아봅니다.
 
 > [!NOTE]
 > 이 문서의 예제에서는 Batch .NET, MS-MPI 및 Windows 계산 노드에 집중하는 반면 여기에서 설명한 다중 인스턴스 작업 개념은 다른 플랫폼 및 기술(예를 들어 Linux 노드의 Python 및 Intel MPI)에 적용됩니다.
@@ -41,7 +41,7 @@ Batch에서 각 태스크는 일반적으로 단일 계산 노드에서 실행�
 2. 배치는 계산 노드 중 하나를 **마스터**로 지정하고 주 작업이 마스터에서 실행되도록 예약합니다. 하위 작업이 다중 인스턴스 작업, 노드당 하나의 하위 작업에 할당된 계산 노드의 나머지 부분에서 실행되도록 예약합니다.
 3. 주 및 하위 작업은 다중 인스턴스 설정에서 지정하는 모든 **공용 리소스 파일**을 다운로드합니다.
 4. 공용 리소스 파일을 다운로드한 후 주 및 하위 작업에서 다중 인스턴스 설정에 지정하는 **조정 명령**을 실행합니다. 조정 명령은 작업을 실행하기 위한 노드를 준비하는 데 일반적으로 사용됩니다. 이는 백그라운드 서비스 시작(예: [Microsoft MPI][msmpi_msdn]의 `smpd.exe`) 및 노드가 노드 간 메시지를 처리할 준비가 되었음을 확인하는 것을 포함할 수 있습니다.
-5. 주 및 모든 하위 작업에서 조정 명령이 성공적으로 완료된 *후* 주 작업은 마스터 노드에서 **응용 프로그램 명령**을 실행합니다. 응용 프로그램 명령은 다중 인스턴스 작업 자체의 명령줄이며 주 작업에서만 실행됩니다. [MS-MPI][msmpi_msdn] 기반 솔루션에서 `mpiexec.exe`를 사용하여 MPI 사용 응용 프로그램을 실행하는 위치입니다.
+5. 주 및 모든 하위 작업에서 조정 명령이 성공적으로 완료된 *후* 주 작업은 마스터 노드에서 **애플리케이션 명령**을 실행합니다. 애플리케이션 명령은 다중 인스턴스 작업 자체의 명령줄이며 주 작업에서만 실행됩니다. [MS-MPI][msmpi_msdn] 기반 솔루션에서 `mpiexec.exe`를 사용하여 MPI 사용 응용 프로그램을 실행하는 위치입니다.
 
 > [!NOTE]
 > 기능적으로 고유하지만 "다중 인스턴스 작업"은 [StartTask][net_starttask] 또는 [JobPreparationTask][net_jobprep]와 같은 고유 작업 유형이 아닙니다. 다중 인스턴스 작업은 단순히 다중 인스턴스 설정이 구성된 표준 Batch 작업(Batch .NET에서 [CloudTask][net_task])입니다. 이 문서에서는 이를 **다중 인스턴스 작업**이라고 합니다.
@@ -76,7 +76,7 @@ myCloudPool.MaxTasksPerComputeNode = 1;
 
 
 ### <a name="use-a-starttask-to-install-mpi"></a>StartTask를 사용하여 MPI 설치
-다중 인스턴스 작업으로 MPI 응용 프로그램을 실행하려면 먼저 풀의 계산 노드에 MPI 구현(예: MS-MPI 또는 Intel MPI)을 설치해야 합니다. 노드가 풀에 연결되거나 다시 시작될 때마다 실행하는 [StartTask][net_starttask]를 사용하는 것이 좋습니다. 이 코드 조각은 MS-MPI 설치 패키지를 [리소스 파일][net_resourcefile]로 지정하는 StartTask를 만듭니다. 리소스 파일이 노드로 다운로드된 후에 시작 태스크의 명령줄이 실행됩니다. 이 경우 명령줄은 MS-MPI의 무인 설치를 수행합니다.
+다중 인스턴스 작업으로 MPI 애플리케이션을 실행하려면 먼저 풀의 계산 노드에 MPI 구현(예: MS-MPI 또는 Intel MPI)을 설치해야 합니다. 노드가 풀에 연결되거나 다시 시작될 때마다 실행하는 [StartTask][net_starttask]를 사용하는 것이 좋습니다. 이 코드 조각은 MS-MPI 설치 패키지를 [리소스 파일][net_resourcefile]로 지정하는 StartTask를 만듭니다. 리소스 파일이 노드로 다운로드된 후에 시작 태스크의 명령줄이 실행됩니다. 이 경우 명령줄은 MS-MPI의 무인 설치를 수행합니다.
 
 ```csharp
 // Create a StartTask for the pool which we use for installing MS-MPI on
@@ -96,7 +96,7 @@ await myCloudPool.CommitAsync();
 ```
 
 ### <a name="remote-direct-memory-access-rdma"></a>RDMA(원격 직접 메모리 액세스)
-Batch 풀에서 계산 노드에 대해 A9 등, [RDMA 지원 크기](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 사용하는 경우 MPI 응용 프로그램은 Azure의 고성능, 지연율이 낮은 RDMA(원격 직접 메모리 액세스) 네트워크를 활용할 수 있습니다.
+Batch 풀에서 계산 노드에 대해 A9 등, [RDMA 지원 크기](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 사용하는 경우 MPI 애플리케이션은 Azure의 고성능, 지연율이 낮은 RDMA(원격 직접 메모리 액세스) 네트워크를 활용할 수 있습니다.
 
 다음 문서에서 "RDMA 지원"으로 지정된 크기를 찾습니다.
 
@@ -154,7 +154,7 @@ myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numberOfNo
 ## <a name="coordination-command"></a>조정 명령
 **조정 명령**은 주 및 하위 작업에서 실행됩니다.
 
-조정 명령의 호출을 차단합니다. Batch는 조정 명령이 모든 하위 작업에 대해 성공적으로 반환될 때까지 응용 프로그램 명령을 실행하지 않습니다. 따라서 조정 명령은 모든 필요한 백그라운드 서비스를 시작하고 사용할 준비가 되었는지 확인한 다음 종료해야 합니다. 예를 들어 MS-MPI 버전 7을 사용하는 솔루션에 대한 이 조정 명령은 노드에서 SMPD 서비스를 시작한 다음 종료합니다.
+조정 명령의 호출을 차단합니다. Batch는 조정 명령이 모든 하위 작업에 대해 성공적으로 반환될 때까지 애플리케이션 명령을 실행하지 않습니다. 따라서 조정 명령은 모든 필요한 백그라운드 서비스를 시작하고 사용할 준비가 되었는지 확인한 다음 종료해야 합니다. 예를 들어 MS-MPI 버전 7을 사용하는 솔루션에 대한 이 조정 명령은 노드에서 SMPD 서비스를 시작한 다음 종료합니다.
 
 ```
 cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
@@ -162,22 +162,22 @@ cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
 
 이 조정 명령에서 `start`를 사용합니다. `smpd.exe` 응용 프로그램은 실행 후 즉시 반환하지 않으므로 필요합니다. [start][cmd_start] 명령을 사용하지 않고 이 조정 명령에서 반환하지 않으므로 응용 프로그램 명령의 실행이 차단됩니다.
 
-## <a name="application-command"></a>응용 프로그램 명령
-주 작업 및 모든 하위 작업이 조정 명령 실행을 마치면 다중 인스턴스 작업의 명령줄이 주 작업에서*만* 실행됩니다. 조정 명령과 구분하도록 **응용 프로그램 명령**이라고 합니다.
+## <a name="application-command"></a>애플리케이션 명령
+주 작업 및 모든 하위 작업이 조정 명령 실행을 마치면 다중 인스턴스 작업의 명령줄이 주 작업에서*만* 실행됩니다. 조정 명령과 구분하도록 **애플리케이션 명령**이라고 합니다.
 
-MS-MPI 응용 프로그램의 경우 `mpiexec.exe`로 MPI 사용 응용 프로그램을 실행하는 데 응용 프로그램 명령을 사용합니다. 예를 들어 MS-MPI 버전 7을 사용하는 솔루션에 대한 응용 프로그램 명령은 다음과 같습니다.
+MS-MPI 애플리케이션의 경우 `mpiexec.exe`로 MPI 사용 애플리케이션을 실행하는 데 애플리케이션 명령을 사용합니다. 예를 들어 MS-MPI 버전 7을 사용하는 솔루션에 대한 애플리케이션 명령은 다음과 같습니다.
 
 ```
 cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe
 ```
 
 > [!NOTE]
-> 기본적으로 MS-MPI의 `mpiexec.exe`는 `CCP_NODES` 변수를 사용하므로([환경 변수](#environment-variables) 참조) 위의 응용 프로그램 명령줄 예에서는 이를 제외합니다.
+> 기본적으로 MS-MPI의 `mpiexec.exe`는 `CCP_NODES` 변수를 사용하므로([환경 변수](#environment-variables) 참조) 위의 애플리케이션 명령줄 예에서는 이를 제외합니다.
 >
 >
 
 ## <a name="environment-variables"></a>환경 변수
-배치는 다중 인스턴스 작업에 할당된 계산 노드의 다중 인스턴스 작업에 관련된 여러 [환경 변수][msdn_env_var]를 만듭니다. 조정 및 응용 프로그램 명령줄은 실행하는 스크립트 및 프로그램을 참조할 수 있는 것처럼 이러한 환경 변수를 참조할 수 있습니다.
+배치는 다중 인스턴스 작업에 할당된 계산 노드의 다중 인스턴스 작업에 관련된 여러 [환경 변수][msdn_env_var]를 만듭니다. 조정 및 애플리케이션 명령줄은 실행하는 스크립트 및 프로그램을 참조할 수 있는 것처럼 이러한 환경 변수를 참조할 수 있습니다.
 
 다음 환경 변수는 다중 인스턴스 작업에서 사용하기 위해 Batch 서비스에 의해 생성됩니다.
 
@@ -266,16 +266,16 @@ await subtasks.ForEachAsync(async (subtask) =>
 ```
 
 ## <a name="code-sample"></a>코드 샘플
-GitHub의 [MultiInstanceTasks][github_mpi] 코드 샘플에서는 다중 인스턴스 태스크를 사용하여 Batch 계산 노드에서 [MS-MPI][msmpi_msdn] 응용 프로그램을 실행하는 방법을 보여 줍니다. [준비](#preparation) 및 [실행](#execution)의 단계에 따라 샘플을 실행합니다.
+GitHub의 [MultiInstanceTasks][github_mpi] 코드 샘플에서는 다중 인스턴스 태스크를 사용하여 Batch 계산 노드에서 [MS-MPI][msmpi_msdn] 애플리케이션을 실행하는 방법을 보여 줍니다. [준비](#preparation) 및 [실행](#execution)의 단계에 따라 샘플을 실행합니다.
 
 ### <a name="preparation"></a>준비
 1. [How to compile and run a simple MS-MPI program][msmpi_howto](간단한 MS-MPI 프로그램을 컴파일하고 실행하는 방법)의 처음 두 단계를 수행합니다. 이렇게 하면 다음 단계의 필수 조건이 충족됩니다.
 2. [MPIHelloWorld][helloworld_proj] 샘플 MPI 프로그램의 *릴리스* 버전을 빌드합니다. 이는 다중 인스턴스 태스크를 통해 계산 노드에서 실행할 프로그램입니다.
-3. `MPIHelloWorld.exe`(2단계에서 빌드) 및 `MSMpiSetup.exe`(1단계에서 다운로드)를 포함하는 Zip 파일을 만듭니다. 다음 단계의 응용 프로그램 패키지로 이 Zip 파일을 업로드합니다.
-4. [Azure Portal][portal]을 사용하여 "MPIHelloWorld"라는 Batch [응용 프로그램](batch-application-packages.md)을 만들고, 이전 단계에서 만든 Zip 파일을 버전 "1.0"의 응용 프로그램 패키지로 지정합니다. 자세한 내용은 [응용 프로그램 업로드 및 관리](batch-application-packages.md#upload-and-manage-applications)를 참조하세요.
+3. `MPIHelloWorld.exe`(2단계에서 빌드) 및 `MSMpiSetup.exe`(1단계에서 다운로드)를 포함하는 Zip 파일을 만듭니다. 다음 단계의 애플리케이션 패키지로 이 Zip 파일을 업로드합니다.
+4. [Azure Portal][portal]을 사용하여 "MPIHelloWorld"라는 Batch [응용 프로그램](batch-application-packages.md)을 만들고, 이전 단계에서 만든 Zip 파일을 버전 "1.0"의 응용 프로그램 패키지로 지정합니다. 자세한 내용은 [애플리케이션 업로드 및 관리](batch-application-packages.md#upload-and-manage-applications)를 참조하세요.
 
 > [!TIP]
-> 응용 프로그램 패키지에 추가 종속성(예: `msvcp140d.dll` 또는 `vcruntime140d.dll`)을 포함할 필요가 없도록 *릴리스* 버전의 `MPIHelloWorld.exe`을 빌드합니다.
+> 애플리케이션 패키지에 추가 종속성(예: `msvcp140d.dll` 또는 `vcruntime140d.dll`)을 포함할 필요가 없도록 *릴리스* 버전의 `MPIHelloWorld.exe`을 빌드합니다.
 >
 >
 

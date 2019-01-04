@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a5e3bd655e0780861f4bf70c247df72e6acedd09
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 577147ad91c6a35a45fd40ca9e6424863ea196d6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637088"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340784"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>지속성 함수의 HTTP API(Azure Functions)
 
@@ -24,7 +24,6 @@ ms.locfileid: "52637088"
 * 오케스트레이션 인스턴스의 상태를 가져옵니다.
 * 대기 중인 오케스트레이션 인스턴스에 이벤트를 보냅니다.
 * 실행 중인 오케스트레이션 인스턴스를 종료합니다.
-
 
 이러한 HTTP API 각각은 지속성 작업 확장에서 직접 처리하는 웹후크 작업입니다. 웹후크 작업은 함수 앱의 모든 함수에 특정되지 않습니다.
 
@@ -35,9 +34,15 @@ ms.locfileid: "52637088"
 
 [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) 클래스는 지원되는 모든 작업에 대한 링크가 포함된 HTTP 응답 페이로드를 생성하는 데 사용할 수 있는 [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_) API를 공개합니다. 다음은 이 API를 사용하는 방법을 보여 주는 예제 HTTP 트리거 함수입니다.
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
 
-이 예제 함수에서는 다음 JSON 응답 데이터를 생성합니다. 모든 필드의 데이터 형식은 `string`입니다.
+### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
+
+이러한 예제 함수는 다음 JSON 응답 데이터를 생성합니다. 모든 필드의 데이터 형식은 `string`입니다.
 
 | 필드             |설명                           |
 |-------------------|--------------------------------------|
@@ -63,8 +68,9 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
     "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
+
 > [!NOTE]
-> 웹후크 URL의 형식은 실행 중인 Azure Functions 호스트의 버전에 따라 달라질 수 있습니다. 위의 예제는 Azure Functions 2.0 호스트에 대한 것입니다.
+> 웹후크 URL의 형식은 실행 중인 Azure Functions 호스트의 버전에 따라 달라질 수 있습니다. 위의 예제는 Azure Functions 2.x 호스트에 대한 것입니다.
 
 ## <a name="async-operation-tracking"></a>비동기 작업 추적
 
@@ -91,8 +97,8 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
 | connection | 쿼리 문자열    | 저장소 계정에 대한 연결 문자열의 **이름**입니다. 지정하지 않으면 함수 앱에 대한 기본 연결 문자열이 사용됩니다. |
 | systemKey  | 쿼리 문자열    | API를 호출하는 데 필요한 권한 부여 키입니다. |
 | showInput  | 쿼리 문자열    | 선택적 매개 변수. `false`로 설정하면 실행 입력이 응답 페이로드에 포함되지 않습니다.|
-| showHistory| 쿼리 문자열    | 선택적 매개 변수. `true`로 설정하면 오케스트레이션 실행 기록이 응답 페이로드에 포함됩니다.| 
-| showHistoryOutput| 쿼리 문자열    | 선택적 매개 변수. `true`로 설정하면 작업 출력이 오케스트레이션 실행 기록에 포함됩니다.| 
+| showHistory| 쿼리 문자열    | 선택적 매개 변수. `true`로 설정하면 오케스트레이션 실행 기록이 응답 페이로드에 포함됩니다.|
+| showHistoryOutput| 쿼리 문자열    | 선택적 매개 변수. `true`로 설정하면 작업 출력이 오케스트레이션 실행 기록에 포함됩니다.|
 | createdTimeFrom  | 쿼리 문자열    | 선택적 매개 변수. 지정하면 지정 ISO8601 타임스탬프 시 또는 이후에 생성된 반환된 인스턴스 목록을 필터링합니다.|
 | createdTimeTo    | 쿼리 문자열    | 선택적 매개 변수. 지정하면 지정 ISO8601 타임스탬프 시 또는 이전에 생성된 반환된 인스턴스 목록을 필터링합니다.|
 | runtimeStatus    | 쿼리 문자열    | 선택적 매개 변수. 지정하면 런타임 상태를 기반으로 반환된 인스턴스 목록을 필터링합니다. 가능한 런타임 상태 값의 목록을 보려면 [인스턴스 쿼리](durable-functions-instance-management.md) 항목을 참조하세요. |
@@ -140,7 +146,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}?taskHub={taskHub}&conne
 | output          | JSON      | 인스턴스의 JSON 출력입니다. 인스턴스가 완료된 상태가 아닌 경우 이 필드는 `null`입니다. |
 | createdTime     | string    | 인스턴스를 만든 시간입니다. ISO 8601 확장 표기법을 사용합니다. |
 | lastUpdatedTime | string    | 인스턴스가 마지막으로 유지된 시간입니다. ISO 8601 확장 표기법을 사용합니다. |
-| historyEvents   | JSON      | 오케스트레이션 실행 기록이 포함된 JSON 배열입니다. `showHistory` 쿼리 문자열 매개 변수가 `true`로 설정되지 않으면 이 필드는 `null`입니다.  | 
+| historyEvents   | JSON      | 오케스트레이션 실행 기록이 포함된 JSON 배열입니다. `showHistory` 쿼리 문자열 매개 변수가 `true`로 설정되지 않으면 이 필드는 `null`입니다.  |
 
 다음은 오케스트레이션 실행 기록 및 작업 출력을 포함하는 응답 페이로드 예제입니다(읽기 쉽게 형식이 지정됨).
 
@@ -199,10 +205,9 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}?taskHub={taskHub}&conne
 
 **HTTP 202** 응답에는 앞에서 언급한 `statusQueryGetUri` 필드와 동일한 URL을 참조하는 **위치** 응답 헤더도 포함됩니다.
 
-
 ### <a name="get-all-instances-status"></a>모든 인스턴스 상태 가져오기
 
-모든 인스턴스 상태를 쿼리할 수 있습니다. '인스턴스 상태 가져오기' 요청에서 `instanceId`를 제거합니다. 매개 변수는 '인스턴스 상태 가져오기'와 동일합니다. 
+모든 인스턴스 상태를 쿼리할 수 있습니다. '인스턴스 상태 가져오기' 요청에서 `instanceId`를 제거합니다. 매개 변수는 '인스턴스 상태 가져오기'와 동일합니다.
 
 기억해야 할 한 가지는 `connection` 및 `code`가 선택 사항이라는 점입니다. 함수에 익명 인증이 있는 경우 코드는 필요하지 않습니다.
 AzureWebJobsStorage 앱 설정에 정의된 것과 다른 Blob Storage 연결 문자열을 사용하지 않으려면 연결 쿼리 문자열 매개 변수를 무시해도 됩니다.
@@ -215,7 +220,7 @@ Functions 1.0의 경우 요청 형식은 다음과 같습니다.
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
-Functions 2.0 형식에는 모두 동일한 매개 변수가 있지만 약간 다른 URL 접두사가 있습니다. 
+Functions 2.0 형식에는 모두 동일한 매개 변수가 있지만 약간 다른 URL 접두사가 있습니다.
 
 ```http
 GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
@@ -231,7 +236,7 @@ Functions 1.0의 경우 요청 형식은 다음과 같습니다.
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}&showInput={showInput}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
-Functions 2.0 형식에는 모두 동일한 매개 변수가 있지만 약간 다른 URL 접두사가 있습니다. 
+Functions 2.0 형식에는 모두 동일한 매개 변수가 있지만 약간 다른 URL 접두사가 있습니다.
 
 ```http
 GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}&showInput={showInput}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
@@ -291,8 +296,8 @@ GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={conne
 ```
 
 > [!NOTE]
-> 이 작업은 인스턴스 테이블에 많은 행이 있는 경우 Azure Storage I/O의 측면에서 매우 비쌀 수 있습니다. 인스턴스 테이블에 대한 자세한 내용은 [지속성 함수의 성능 및 크기 조정(Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table) 설명서에서 확인할 수 있습니다.
-> 
+> 이 작업은 인스턴스 테이블에 많은 행이 있는 경우 Azure Storage I/O의 측면에서 매우 비쌀 수 있습니다. 인스턴스 테이블에 대한 자세한 내용은 [지속성 함수의 성능 및 크기 조정(Azure Functions)](durable-functions-perf-and-scale.md#instances-table) 설명서에서 확인할 수 있습니다.
+>
 
 #### <a name="request-with-paging"></a>페이징 요청
 
@@ -304,7 +309,7 @@ Functions 1.0의 경우 요청 형식은 다음과 같습니다.
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
 ```
 
-Functions 2.0 형식에는 모두 동일한 매개 변수가 있지만 약간 다른 URL 접두사가 있습니다. 
+Functions 2.0 형식에는 모두 동일한 매개 변수가 있지만 약간 다른 URL 접두사가 있습니다.
 
 ```http
 GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
@@ -313,7 +318,6 @@ GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={conne
 다음 페이지가 있는 경우 연속 토큰이 응답 헤더에 반환됩니다.  헤더의 이름은 `x-ms-continuation-token`입니다.
 
 다음 요청 헤더에 연속 토큰 값을 설정할 경우, 다음 페이지를 가져올 수 있습니다.  요청 헤더에서 이 키는 `x-ms-continuation-token`입니다.
-
 
 ### <a name="raise-event"></a>이벤트 발생
 
@@ -347,7 +351,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}
 * **HTTP 202(수락됨)**: 발생된 이벤트를 처리하도록 수락되었습니다.
 * **HTTP 400(잘못된 요청)**: 요청 콘텐츠가 `application/json` 형식이 아니거나 유효한 JSON이 아니었습니다.
 * **HTTP 404(찾을 수 없음)**: 지정된 인스턴스를 찾을 수 없습니다.
-* **HTTP 410(없음)**: 지정된 인스턴스가 완료되었거나 실패했으며 발생된 이벤트를 처리할 수 없습니다.
+* **HTTP 410(없음)**: 지정된 인스턴스가 완료되었거나 실패했으며 발생한 이벤트를 처리할 수 없습니다.
 
 다음은 **operation**이라는 이벤트를 기다리는 인스턴스에 `"incr"` JSON 문자열을 보내는 요청 예제입니다.
 
@@ -405,7 +409,7 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 
 가장 최근에 실패한 작업을 재생하여 실패한 오케스트레이션 인스턴스를 실행 중 상태로 복원합니다.
 
-#### <a name="request"></a>요청
+### <a name="request"></a>요청
 
 Functions 1.0의 경우 요청 형식은 다음과 같습니다.
 
@@ -425,7 +429,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind?reason={reason}
 |-------------|-----------------|-----------|-------------|
 | reason      | 쿼리 문자열    | string    | 선택 사항입니다. 오케스트레이션 인스턴스를 되감는 이유입니다. |
 
-#### <a name="response"></a>response
+### <a name="response"></a>response
 
 몇 가지 가능한 상태 코드 값을 반환할 수 있습니다.
 

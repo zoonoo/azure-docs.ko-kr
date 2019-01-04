@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory를 사용하여 그룹 멤버를 추가하거나 제거하는 방법 | Microsoft Docs
-description: Azure Active Directory를 사용하여 그룹에서 사용자 및 디바이스를 추가하거나 제거하는 방법을 알아봅니다.
+title: 그룹 멤버 추가 또는 제거 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory를 사용하여 그룹에서 멤버를 추가하거나 제거하는 방법을 알아봅니다.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,16 +10,16 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 7c1a83d83dcbf247550c66602a6f53d4ef0d7930
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 42b80b53ca7c860143f1de1005a609b3e921e650
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733367"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076158"
 ---
-# <a name="how-to-add-or-remove-group-members-using-azure-active-directory"></a>방법: Azure Active Directory를 사용하여 그룹 멤버 추가 또는 제거
+# <a name="add-or-remove-group-members-using-azure-active-directory"></a>Azure Active Directory를 사용하여 그룹 멤버 추가 또는 제거
 Azure Active Directory를 사용하여 그룹 멤버를 계속 추가하거나 제거할 수 있습니다.
 
 ## <a name="to-add-group-members"></a>그룹 멤버를 추가하려면

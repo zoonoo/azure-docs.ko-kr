@@ -31,7 +31,7 @@ LinkedIn Learning을 Azure AD와 통합하면 다음과 같은 이점이 제공�
 - 사용자의 Azure AD 계정으로 LinkedIn Learning에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -63,7 +63,7 @@ LinkedIn Learning이 Azure AD에 통합되도록 구성하려면 LinkedIn Learni
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![애플리케이션][2]
     
@@ -71,7 +71,7 @@ LinkedIn Learning이 Azure AD에 통합되도록 구성하려면 LinkedIn Learni
 
     ![애플리케이션][3]
 
-1. 검색 상자에서 **LinkedIn Learning**을 입력합니다. 결과 패널에서 **LinkedIn Learning**을 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에서 **LinkedIn Learning**을 입력합니다. 결과 패널에서 **LinkedIn Learning**을 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/linkedinlearning-tutorial/tutorial-linkedinlearning_000.png)
 
@@ -92,11 +92,11 @@ LinkedIn Learning에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 LinkedIn Learning 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 LinkedIn Learning 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **LinkedIn Learning에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **LinkedIn Learning** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **LinkedIn Learning** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -128,7 +128,7 @@ LinkedIn Learning에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_signon_02.png)   
     
-1. LinkedIn Learning 응용 프로그램은 특정 형식의 SAML 어설션이 필요하기 때문에 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. **사용자 ID**의 기본값은 **user.userprincipalname**이지만 LinkedIn Learning에는 이것이 사용자의 전자 메일 주소와 매핑되어야 합니다. 목록에서 **user.mail** 특성을 사용하거나 조직 구성을 기반으로 적절한 특성 값을 사용할 수 있기 위해서입니다. 
+1. LinkedIn Learning 애플리케이션에는 특정 형식의 SAML 어설션이 필요하기 때문에 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. **사용자 ID**의 기본값은 **user.userprincipalname**이지만 LinkedIn Learning에는 이것이 사용자의 전자 메일 주소와 매핑되어야 합니다. 목록에서 **user.mail** 특성을 사용하거나 조직 구성을 기반으로 적절한 특성 값을 사용할 수 있기 위해서입니다. 
 
     ![Configure Single Sign-On](./media/linkedinlearning-tutorial/updateusermail.png)
     
@@ -214,7 +214,7 @@ LinkedIn Learning에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 ### <a name="creating-a-linkedin-learning-test-user"></a>LinkedIn Learning 테스트 사용자 만들기
 
-LinkedIn Learning 응용 프로그램은 JIT(Just-in-time) 사용자 프로비저닝을 지원하며 인증 후에 응용 프로그램에서 사용자가 자동으로 만들어집니다. LinkedIn Learning 포털의 관리 설정 페이지에서 **Automatically Assign licenses**(라이선스 자동 할당) 스위치를 전환하여 JIT(Just-in-time) 프로비저닝을 사용하도록 활성화하면 사용자에게 라이선스가 할당됩니다.
+LinkedIn Learning 애플리케이션은 JIT(Just-in-time) 사용자 프로비저닝을 지원하며 인증 후에 애플리케이션에서 사용자가 자동으로 만들어집니다. LinkedIn Learning 포털의 관리 설정 페이지에서 **Automatically Assign licenses**(라이선스 자동 할당) 스위치를 전환하여 JIT(Just-in-time) 프로비저닝을 사용하도록 활성화하면 사용자에게 라이선스가 할당됩니다.
 
    ![Azure AD 테스트 사용자 만들기](./media/linkedinlearning-tutorial/LinkedinUserprovswitch.png)
 
@@ -226,11 +226,11 @@ LinkedIn Learning 응용 프로그램은 JIT(Just-in-time) 사용자 프로비�
 
 **Britta Simon을 LinkedIn Learning에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201]
 
-1. 응용 프로그램 목록에서 **LinkedIn Learning**을 선택합니다.
+1. 애플리케이션 목록에서 **LinkedIn Learning**을 선택합니다.
 
     ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial-linkedinlearning_0001.png)
 
@@ -252,7 +252,7 @@ LinkedIn Learning 응용 프로그램은 JIT(Just-in-time) 사용자 프로비�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 LinkedIn Learning 타일을 클릭하면 Azure 로그온 페이지가 표시되고 로그온이 완료되면 LinkedIn Learning 응용 프로그램에 로그온됩니다.
+액세스 패널에서 LinkedIn Learning 타일을 클릭하면 Azure 로그온 페이지가 표시되고 로그온이 완료되면 LinkedIn Learning 애플리케이션에 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

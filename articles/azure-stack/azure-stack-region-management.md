@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 11/27/2018
 ms.author: sethm
 ms.reviewer: efemmano
-ms.openlocfilehash: 9a10d4fc90b916b3cb1eda7b9bac99c5d5f9deba
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 80a8414d98eba984f2427f5f746cd0e1061248a4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160786"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726921"
 ---
 # <a name="region-management-in-azure-stack"></a>Azure Stack의 지역 관리
 
@@ -34,11 +34,11 @@ ms.locfileid: "52160786"
 
 Azure Stack에서 사용할 수 있는 지역 관리 기능 집합이 합니다 **하위 지역 관리** 바둑판식으로 배열 합니다. 이 타일은 관리자 포털에서 기본 대시보드에서 Azure Stack 운영자에 게 사용할 수 있습니다. 이 타일을 통해 모니터링 하 고 Azure Stack 지역 및 지역에 한정 되는 해당 구성 요소를 업데이트할 수 있습니다.
 
-![지역 관리 타일](media/azure-stack-manage-region/image1.png)
+![지역 관리 타일](media/azure-stack-region-management/image1.png)
 
 영역을 클릭 하는 경우는 **지역 관리** 타일을 다음 정보에 액세스할 수 있습니다.
 
-![지역 관리 블레이드의 창 설명](media/azure-stack-manage-region/image2.png)
+[ ![지역 관리 블레이드의 창 설명](media/azure-stack-region-management/regionssm.png "지역 관리 블레이드") ](media/azure-stack-region-management/regions.png#lightbox)
 
 1. **리소스 메뉴**합니다. 특정 인프라 관리 영역에 액세스 하 고 보려면 저장소 계정 및 가상 네트워크와 같은 사용자 리소스를 관리 합니다.
 
@@ -49,6 +49,8 @@ Azure Stack에서 사용할 수 있는 지역 관리 기능 집합이 합니다 
 4. **리소스 공급자**. Azure Stack을 실행 하는 데 필요한 구성 요소에서 제공 하는 사용자 기능을 관리 합니다. 각 리소스 공급자 관리 환경이 제공 됩니다. 이 환경에는 특정 공급자에 대한 경고, 메트릭 및 리소스 공급자에 한정된 기타 관리 기능이 포함될 수 있습니다.
 
 5. **인프라 역할**. Azure Stack을 실행 하는 데 필요한 구성 요소 경고를 보고 하는 인프라 역할만 나열 됩니다. 역할을 선택 하면 역할 및이 역할이 실행 되 고 있는 역할 인스턴스를 사용 하 여 관련 된 경고를 볼 수 있습니다.
+
+6. **Properties**. 등록 상태 및 지역 관리 블레이드에서 환경의 세부 정보입니다. 상태 수 있습니다 **Registered** 또는 **등록 되지 않은**합니다. 등록 하는 경우 또한 보여줍니다 Azure 구독 ID를 사용 하 여 Azure Stack에 등록 리소스 그룹 및 이름과 함께 등록를.
 
 ## <a name="next-steps"></a>다음 단계
 

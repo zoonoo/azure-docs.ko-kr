@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: aa6702ccf00faa3d63d5458cfbd77ac15fbfbeaa
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0d9ad11ab9a53cf5de51dd3f262dc16054be5d85
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633051"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438611"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Apache Kafka 정책 구성(미리 보기)
 
@@ -39,7 +39,7 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 
 1. 브라우저에서 `https://<ClusterName>.azurehdinsight.net/Ranger/` URL을 사용하여 Range 관리 사용자 인터페이스에 연결합니다. `<ClusterName>`은 Kafka 클러스터 이름으로 변경해야 합니다.
 
-    > [!NOTE] 
+    > [!NOTE]  
     > Ranger 자격 증명은 Hadoop 클러스터 자격 증명과는 다릅니다. 브라우저가 캐시된 Hadoop 자격 증명을 사용하지 않도록 하려면 새 InPrivate 브라우저 창을 사용하여 Ranger 관리 UI에 연결합니다.
 
 2. Azure AD(Active Directory) 관리자 자격 증명을 사용하여 로그인합니다. Azure AD 관리자 자격 증명은 HDInsight 클러스터 자격 증명 또는 Linux HDInsight 노드 SSH 자격 증명과는 다릅니다.
@@ -74,7 +74,7 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 
    ![Apache Ranger 관리 UI 정책 만들기](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)   
 
-   >[!NOTE] 
+   >[!NOTE]   
    >**사용자 선택**에 도메인 사용자가 자동으로 입력되지 않으면 Ranger가 Azure AD와 동기화될 때까지 잠시 기다립니다.
 
 4. **추가** 를 클릭하여 정책을 저장합니다.
@@ -113,17 +113,17 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
    read -p 'Enter your Kafka cluster name:' CLUSTERNAME
    ```
 
-3. 다음 명령을 사용하여 Kafka broker 호스트와 Zookeeper 호스트를 가져옵니다. 메시지가 표시되면 클러스터 관리 계정의 암호를 입력합니다.
+3. 다음 명령을 사용하여 Kafka broker 호스트와 Apache Zookeeper 호스트를 가져옵니다. 메시지가 표시되면 클러스터 관리 계정의 암호를 입력합니다.
 
    ```bash
    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
    ```
-> [!Note]
+> [!Note]  
 > 아직 개발 환경을 설정하지 않은 경우 계속 진행하려면 개발 환경을 설정해야 합니다. Java JDK, Apache Maven, scp가 포함된 SSH 클라이언트 등의 구성 요소가 필요합니다. 자세한 내용은 [설치 지침](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer)을 참조하세요.
 1. [Apache Kafka 도메인 조인 생산자 소비자 예제](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer)를 다운로드합니다.
 
-1. [자습서: Apache Kafka 생산자 및 소비자 API 사용](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example)의 **빌드 및 배포 예제**에서 2단계 및 3단계를 따릅니다.
+1. **예제 빌드 및 배포** 아래의 2단계와 3단계를 수행합니다([자습서: Apache Kafka 생산자 및 소비자 API 사용](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example)).
 
 1. 다음 명령을 실행합니다.
 
@@ -132,7 +132,7 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
    java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create marketingspend $KAFKABROKERS
    ```
 
-   >[!NOTE] 
+   >[!NOTE]   
    >Kafka 서비스의 프로세스 소유자(예: 루트)만이 Zookeeper znode `/config/topics`에 쓸 수 있습니다. 권한이 없는 사용자가 항목을 만들 때는 Ranger 정책이 적용되지 않습니다. `kafka-topics.sh` 스크립트는 Zookeeper와 직접 통신하여 항목을 만들기 때문입니다. 엔트리는 Zookeeper 노드에 추가되며 broker 쪽 Watcher가 항목을 적절하게 모니터링하고 생성합니다. Ranger 플러그 인을 통해 권한을 부여할 수는 없습니다. 위의 명령은 Kafka broker를 통해 `sudo`를 사용하여 실행됩니다.
 
 
@@ -210,5 +210,5 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Kafka로의 Bring Your Own Key](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
-* [Enterprise Security Package를 사용하는 Hadoop 보안 소개](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
+* [Apache Kafka로의 Bring Your Own Key](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
+* [Enterprise Security Package를 사용하여 Apache Hadoop 보안 소개](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)

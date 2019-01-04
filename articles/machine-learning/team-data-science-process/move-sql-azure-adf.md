@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 온-프레미스 SQL Server에서 SQL Azure로 데이터 이동 | Microsoft Docs
+title: Azure Data Factory를 사용하여 SQL Server 데이터를 SQL Azure로 이동 - 팀 데이터 과학 프로세스
 description: 온-프레미스와 클라우드의 데이터베이스 간에 데이터를 매일 이동하는 두 데이터 마이그레이션 활동으로 구성된 ADF 파이프라인을 설정합니다.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: bddb54d9a00c5ec88fcebe498d7f959c0f8e3dbf
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a1bb841c1218be0a418583af8ca95b2dff2f67d9
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447039"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309504"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure Data Factory를 사용하여 온-프레미스 SQL Server에서 SQL Azure로 데이터 이동
 
@@ -43,7 +43,7 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 * Azure Blob Storage 계정에서 Azure SQL Database로 데이터 복사
 
 > [!NOTE]
-> 여기에 나오는 단계는 ADF 팀이 제공한 더 자세한 자습서 [데이터 관리 게이트웨이 클라우드를 사용하여 온-프레미스 원본과 클라우드 간에 데이터 이동](../../data-factory/tutorial-hybrid-copy-portal.md)을 인용하고 새롭게 구성하였으며 해당하는 경우 해당 항목의 관련 섹션에 대한 참조를 제공합니다.
+> 여기에 표시된 단계는 ADF 팀이 제공하는 자세한 자습서 [온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터 복사](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/)에서 조정되었습니다. 필요한 경우 해당 항목의 관련 섹션에 대한 참조가 제공됩니다.
 >
 >
 
@@ -61,22 +61,17 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 >
 
 ## <a name="upload-data"></a> 온-프레미스 SQL Server에 데이터 업로드
-[NYC Taxi 데이터 집합](http://chriswhong.com/open-data/foil_nyc_taxi/)을 사용하여 마이그레이션 프로세스를 시연합니다. 해당 게시물에서 설명한 것처럼 NYC Taxi 데이터 세트는 Azure Blob Storage [NYC Taxi 데이터](http://www.andresmh.com/nyctaxitrips/)에서 제공됩니다. 데이터에는 두 개 파일이 있습니다. trip_data.csv 파일에는 여정 세부 정보가 들어 있고 trip_far.csv 파일에는 각 여정에 대한 요금 세부 정보가 들어 있습니다. 이러한 파일의 샘플 및 설명은 [NYC Taxi Trips 데이터 세트 설명](sql-walkthrough.md#dataset)에 제공됩니다.
+[NYC Taxi 데이터 세트](http://chriswhong.com/open-data/foil_nyc_taxi/)를 사용하여 마이그레이션 프로세스를 시연합니다. 해당 게시물에서 설명한 것처럼 NYC Taxi 데이터 세트는 Azure Blob Storage [NYC Taxi 데이터](http://www.andresmh.com/nyctaxitrips/)에서 제공됩니다. 데이터에는 두 개 파일이 있습니다. trip_data.csv 파일에는 여정 세부 정보가 들어 있고 trip_far.csv 파일에는 각 여정에 대한 요금 세부 정보가 들어 있습니다. 이러한 파일의 샘플 및 설명은 [NYC Taxi Trips 데이터 세트 설명](sql-walkthrough.md#dataset)에 제공됩니다.
 
 자신의 데이터 세트에 여기에 제공된 절차를 도입하거나 NYC Taxi 데이터 세트를 사용하여 설명된 대로 단계를 따릅니다. NYC Taxi 데이터 세트를 온-프레미스 SQL Server 데이터베이스에 업로드하려면 [SQL Server Database로 대량 데이터 가져오기](sql-walkthrough.md#dbload)에 설명된 절차를 따릅니다. 이러한 지침은 Azure Virtual Machine의 SQL Server에 대한 내용이지만 온-프레미스 SQL Server로 업로드하는 절차는 동일합니다.
 
 ## <a name="create-adf"></a> Azure 데이터 팩터리 만들기
 [Azure Portal](https://portal.azure.com/)에서 새 Azure Data Factory 및 리소스 그룹을 만들기 위한 지침은 [Azure Data Factory 만들기](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory)에서 제공됩니다. 새 ADF 인스턴스의 이름은 *adfdsp*이고 생성된 리소스 그룹은 *adfdsprg*입니다.
 
-## <a name="install-and-configure-up-the-data-management-gateway"></a>데이터 관리 게이트웨이 설치 및 구성
-온-프레미스 SQL Server와 작업하도록 Azure Data Factory의 파이프라인을 활성화하려면 데이터 팩터리에 대해 연결된 서비스로 추가해야 합니다. 온-프레미스 SQL Server에 대한 연결된 서비스를 만들려면 다음을 수행해야 합니다.
+## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Azure Data Factory 통합 런타임 설치 및 구성 
+통합 런타임은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 고객 관리형 데이터 통합 인프라입니다. 이전에는 이 런타임을 “데이터 관리 게이트웨이”라고 했습니다. 
 
-* 온-프레미스 컴퓨터에 Microsoft 데이터 관리 게이트웨이를 다운로드한 후 설치합니다.
-* 온-프레미스 데이터 원본에 대한 연결된 서비스를 게이트웨이를 사용하도록 구성합니다.
-
-데이터 관리 게이트웨이는 호스팅되는 컴퓨터에서 원본 및 싱크 데이터를 직렬화 및 역직렬화합니다.
-
-데이터 관리 게이트웨이에 대한 설치 지침 및 세부 정보에 대한 내용은 [데이터 관리 게이트웨이 클라우드를 사용하여 온-프레미스 원본과 클라우드 간에 데이터 이동](../../data-factory/tutorial-hybrid-copy-portal.md)
+설정하려면 [파이프라인 생성 지침을 따르세요](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline).
 
 ## <a name="adflinkedservices"></a>데이터 리소스에 연결할 연결된 서비스 만들기
 연결된 서비스는 Azure 데이터 팩터리가 데이터 리소스에 연결하기 위해 필요한 정보를 정의합니다. 이 시나리오에는 연결된 서비스가 필요한 3개의 리소스가 있습니다.
@@ -88,7 +83,7 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 연결된 서비스를 만들기 위한 단계별 절차가 [연결된 서비스 만들기](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline)에 제공됩니다.
 
 
-## <a name="adf-tables"></a>데이터 집합에 액세스하는 방법을 지정하는 테이블 정의 및 만들기
+## <a name="adf-tables"></a>데이터 세트에 액세스하는 방법을 지정하는 테이블 정의 및 만들기
 다음 스크립트 기반 프로시저로 데이터 세트의 구조, 위치 및 가용성을 지정하는 테이블을 만듭니다. 테이블을 정의하는 데 JSON 파일이 사용됩니다. 이러한 파일의 구조에 대한 자세한 내용은 [데이터 세트](../../data-factory/concepts-datasets-linked-services.md)를 참조하세요.
 
 > [!NOTE]

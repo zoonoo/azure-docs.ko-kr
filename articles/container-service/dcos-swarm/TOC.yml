@@ -16,7 +16,7 @@ items:
   items:
   - name: 1 - 클러스터 만들기/관리
     href: container-service-dcos-manage-tutorial.md
-  - name: 2 - 부하 분산 응용 프로그램
+  - name: 2 - 부하 분산 애플리케이션
     href: container-service-load-balancing.md
   - name: 3 - 데이터 볼륨 관리
     href: container-service-dcos-fileshare.md

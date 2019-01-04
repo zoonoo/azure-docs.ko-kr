@@ -1,6 +1,6 @@
 ---
 title: Azure AD v2.0 ASP.NET 웹 서버 시작 | Microsoft Docs
-description: OpenID Connect 표준을 사용하여 기존 웹 브라우저 기반 응용 프로그램을 사용하는 ASP.NET 솔루션에서 Microsoft 로그인 구현
+description: OpenID Connect 표준을 사용하여 기존 웹 브라우저 기반 애플리케이션을 사용하는 ASP.NET 솔루션에서 Microsoft 로그인 구현
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms

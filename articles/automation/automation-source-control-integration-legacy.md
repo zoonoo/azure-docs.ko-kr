@@ -46,11 +46,11 @@ ms.locfileid: "48784813"
    | 권한 부여 |**권한 부여** 단추를 클릭하여 GitHub 리포지토리에 Azure Automation 액세스 권한을 부여합니다. 이미 다른 창에서 GitHub 계정에 로그인했다면 해당 계정의 자격 증명이 사용됩니다. 권한이 성공적으로 부여되면 페이지의 **권한 부여 속성** 아래에서 GitHub 사용자 이름이 표시됩니다. |
    | 리포지토리 선택 |사용 가능한 리포지토리 목록에서 GitHub 리포지토리를 선택합니다. |
    | 분기 선택 |사용 가능한 분기 목록에서 분기를 선택합니다. 분기를 만들지 않은 경우에는 **마스터** 분기만 표시됩니다. |
-   | Runbook 폴더 경로 |Runbook 폴더 경로는 코드를 푸시하거나 끌어오려는 GitHub 리포지토리에 경로를 지정합니다. **/foldername/subfoldername**형식으로 입력되어야 합니다. Runbook 폴더 경로의 Runbook만 Automation 계정에 동기화됩니다. Runbook 폴더 경로의 하위 폴더에 있는 Runbook은 동기화되지 **않습니다** . **/** 를 사용하여 리포지토리 아래의 모든 Runbook을 동기화합니다. |
+   | Runbook 폴더 경로 |Runbook 폴더 경로는 코드를 푸시하거나 끌어오려는 GitHub 리포지토리에 경로를 지정합니다. **/foldername/subfoldername**형식으로 입력되어야 합니다. Runbook 폴더 경로의 Runbook만 Automation 계정에 동기화됩니다. Runbook 폴더 경로의 하위 폴더에 있는 Runbook은 동기화되지 **않습니다** .  **/** 를 사용하여 리포지토리 아래의 모든 Runbook을 동기화합니다. |
 3. 예를 들어 **RootFolder**라는 폴더를 포함하는 **PowerShellScripts**라는 리포지토리가 있는 경우 이는 **SubFolder**라는 폴더를 포함합니다. 다음 문자열을 사용하여 각 폴더 수준을 동기화할 수 있습니다.
    
-   1. **리포지토리**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */*
-   2. **RootFolder**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */RootFolder*
+   1.  **리포지토리**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */*
+   2.  **RootFolder**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */RootFolder*
    3. **SubFolder**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */RootFolder/SubFolder*입니다.
 4. 매개 변수를 구성하면 **원본 제어 설정**페이지에서 매개 변수가 표시됩니다.  
    
@@ -79,9 +79,9 @@ ms.locfileid: "48784813"
 
     ![variables](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 
-    * **Automation 원본 제어**는 GitHub 계정에 권한이 부여된 응용 프로그램으로 추가됩니다. 응용 프로그램을 보려면 GitHub 홈페이지에서 **프로필** > **설정** > **응용 프로그램**으로 이동합니다. 이 응용 프로그램을 사용하면 Azure Automation이 Automation 계정에 GitHub 리포지토리를 동기화할 수 있습니다.  
+    * **Automation 원본 제어**는 GitHub 계정에 권한이 부여된 응용 프로그램으로 추가됩니다. 애플리케이션을 보려면 GitHub 홈페이지에서 **프로필** > **설정** > **애플리케이션**으로 이동합니다. 이 애플리케이션을 사용하면 Azure Automation이 Automation 계정에 GitHub 리포지토리를 동기화할 수 있습니다.  
 
-    ![Git 응용 프로그램](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
+    ![Git 애플리케이션](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
 
 
 ## <a name="using-source-control-in-automation"></a>자동화에서 원본 제어 사용

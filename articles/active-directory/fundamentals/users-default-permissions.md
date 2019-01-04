@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory의 기본 사용자 권한이란? | Microsoft Docs
+title: 기본 사용자 권한 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory에서 사용할 수 있는 다른 사용자 권한에 대해 알아봅니다.
 services: active-directory
 author: eross-msft
@@ -11,16 +11,15 @@ ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
-custom: it-pro
-ms.openlocfilehash: 9a9bd33dce4b2be9e15df2745dd25338cdb42702
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 496f751c263d17d3c5d8e10321bef8330c2f1a24
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730482"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096603"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory의 기본 사용자 권한이란?
-
 Azure AD(Azure Active Directory)의 모든 사용자에게는 기본 권한 집합이 부여됩니다. 사용자 액세스는 사용자 형식, [역할 멤버 자격](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) 및 개별 개체의 소유권으로 구성됩니다. 이 문서에서는 이 기본 권한을 설명하며 멤버와 게스트 사용자 기본값을 비교합니다.
 
 ## <a name="member-and-guest-users"></a>멤버 및 게스트 사용자
@@ -36,7 +35,7 @@ Azure AD(Azure Active Directory)의 모든 사용자에게는 기본 권한 집�
 ------------ | --------- | ----------
 사용자 및 연락처 | 사용자 및 연락처의 모든 공용 속성 읽기<br>게스트 초대<br>자신의 암호 변경<br>휴대전화 번호 관리<br>자신의 사진 관리<br>자신의 새로 고침 토큰 무효화 | 자신의 속성 읽기<br>표시 이름, 이메일, 로그인 이름, 사진, 사용자 계정 이름 및 다른 사용자 및 연락처의 사용자 형식 속성 읽기<br>자신의 암호 변경
 그룹 | 보안 그룹 만들기<br>Office 365 그룹 만들기<br>모든 그룹 속성 읽기<br>숨겨지지 않은 그룹 멤버 자격 읽기<br>조인된 그룹의 숨겨진 Office 365의 그룹 멤버 자격 읽기<br>소유 그룹의 속성, 소유권 및 멤버 자격 관리<br>게스트를 소유 그룹에 추가<br>동적 멤버 자격 설정 관리<br>소유 그룹 삭제<br>소유한 Office 365 그룹 복원 | 모든 그룹 속성 읽기<br>숨겨지지 않은 그룹 멤버 자격 읽기<br>조인된 그룹의 숨겨진 Office 365 그룹 멤버 자격 읽기<br>소유 그룹 관리<br>게스트를 소유 그룹에 추가(허용된 경우)<br>소유 그룹 삭제<br>소유한 Office 365 그룹 복원 
-응용 프로그램 | 새 응용 프로그램 등록(만들기)<br>등록 및 엔터프라이즈 응용 프로그램의 속성 읽기<br>소유 응용 프로그램의 응용 프로그램 속성, 할당 및 자격 증명 관리<br>사용자에 대한 응용 프로그램 암호 만들기 또는 삭제<br>소유 응용 프로그램 삭제<br>소유 응용 프로그램 복원 | 등록 및 엔터프라이즈 응용 프로그램의 속성 읽기<br>소유 응용 프로그램의 응용 프로그램 속성, 할당 및 자격 증명 관리<br>소유 응용 프로그램 삭제<br>소유 응용 프로그램 복원
+애플리케이션 | 새 응용 프로그램 등록(만들기)<br>등록 및 엔터프라이즈 응용 프로그램의 속성 읽기<br>소유 응용 프로그램의 응용 프로그램 속성, 할당 및 자격 증명 관리<br>사용자에 대한 응용 프로그램 암호 만들기 또는 삭제<br>소유 응용 프로그램 삭제<br>소유 응용 프로그램 복원 | 등록 및 엔터프라이즈 응용 프로그램의 속성 읽기<br>소유 응용 프로그램의 응용 프로그램 속성, 할당 및 자격 증명 관리<br>소유 응용 프로그램 삭제<br>소유 응용 프로그램 복원
 디바이스 | 모든 디바이스 속성 읽기<br>소유한 디바이스의 모든 속성 읽기<br> | 사용 권한 없음<br>소유 디바이스 삭제<br>
 디렉터리 | 모든 회사 정보 읽기<br>모든 도메인 읽기<br>모든 파트너 계약 읽기 | 표시 이름 및 확인된 도메인 읽기
 역할 및 범위 | 모든 관리 역할 및 멤버 자격 읽기<br>관리 단위의 모든 속성 및 멤버 자격 읽기 | 사용 권한 없음 

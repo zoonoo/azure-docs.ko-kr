@@ -269,7 +269,7 @@ Azure Blob 저장소 간에 데이터를 빠르게 복사하는 방법을 살펴
 ### <a name="monitor-the-pipeline-copy-task"></a>파이프라인(복사 활동) 모니터링
 
 1. **배포** 페이지에서 `Click here to monitor copy pipeline` 링크를 클릭합니다. 
-2. 별도의 탭에서 **응용 프로그램 모니터링 및 관리**를 보아야 합니다.  ![앱 모니터링 및 관리](media/data-factory-azure-blob-connector/monitor-manage-app.png)
+2. 별도의 탭에서 **애플리케이션 모니터링 및 관리**를 보아야 합니다.  ![앱 모니터링 및 관리](media/data-factory-azure-blob-connector/monitor-manage-app.png)
 3. 상단의 **시작** 시간을 `04/19/2017` 및 **종료** 시간을 `04/27/2017`로 변경한 다음 **적용**을 클릭합니다. 
 4. **활동 창** 목록에 5개의 활동 창이 표시됩니다. **WindowStart** 시간은 파이프라인 시작부터 파이프라인 종료 시간까지의 모든 날을 포함해야 합니다. 
 5. 모든 활동 창의 상태가 준비로 설정될 때까지 **활동 창** 목록에 대한 **새로 고침** 단추를 몇 번 클릭합니다. 

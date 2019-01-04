@@ -50,7 +50,7 @@ Cognitive Services의 Entity Linking은 NuGet.org 패키지로 릴리스되며 �
 
 다음으로, Newtonsoft.Json을 검색하고 설치합니다. 변경 내용을 검토하라는 메시지가 표시되면 **확인**을 클릭합니다. EntityLinking 사용 조건이 표시되면 **동의**를 클릭합니다.
 
-이제 Entity Linking이 응용 프로그램의 일부로 설치되었습니다. 솔루션 탐색기에서 프로젝트의 일부로 **Microsoft.ProjectOxford.EntityLinking** 참조가 있으면 확인할 수 있습니다.
+이제 Entity Linking이 애플리케이션의 일부로 설치되었습니다. 솔루션 탐색기에서 프로젝트의 일부로 **Microsoft.ProjectOxford.EntityLinking** 참조가 있으면 확인할 수 있습니다.
 
  ![프로젝트에 포함된 nuget 라이브러리](./Images/NugetLibraryInProject.png)
  
@@ -103,5 +103,5 @@ Cognitive Services의 Entity Linking은 NuGet.org 패키지로 릴리스되며 �
  
 ### <a name="summary">요약</a>
  
-이 자습서에서는 C# 및 XAML 코드의 몇 줄만으로 Entity Linking Intelligence Service 클라이언트 라이브러리를 활용하는 응용 프로그램을 만드는 방법을 배웠습니다. 
+이 자습서에서는 C# 및 XAML 코드의 몇 줄만으로 Entity Linking Intelligence Service 클라이언트 라이브러리를 활용하는 애플리케이션을 만드는 방법을 배웠습니다. 
 

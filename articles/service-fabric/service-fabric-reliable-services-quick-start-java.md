@@ -1,6 +1,6 @@
 ---
 title: Java에서 Azure Service Fabric Reliable Services 처음 만들기 | Microsoft Docs
-description: 상태 비저장 및 상태 저장 서비스를 사용하여 Microsoft Azure 서비스 패브릭 응용 프로그램 만들기 소개
+description: 상태 비저장 및 상태 저장 서비스를 사용하여 Microsoft Azure Service Fabric 애플리케이션 만들기 소개
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -28,7 +28,7 @@ ms.locfileid: "44049697"
 >
 >
 
-이 문서는 Azure Service Fabric Reliable Services의 기본 개념을 설명하고 Java로 작성된 Reliable Services 응용 프로그램을 생성 및 배포하는 과정을 안내합니다. 이 Microsoft Virtual Academy 비디오는 상태 비저장 신뢰할 수 있는 서비스를 만드는 방법을 보여줍니다.<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
+이 문서는 Azure Service Fabric Reliable Services의 기본 개념을 설명하고 Java로 작성된 Reliable Services 애플리케이션을 생성 및 배포하는 과정을 안내합니다. 이 Microsoft Virtual Academy 비디오는 상태 비저장 신뢰할 수 있는 서비스를 만드는 방법을 보여줍니다.<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
 <img src="./media/service-fabric-reliable-services-quick-start-java/ReliableServicesJavaVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
@@ -45,13 +45,13 @@ Reliable Services를 시작하려면 몇 가지 기본 개념만 이해하면 �
 * **서비스 등록**: 등록은 모든 항목을 함께 모읍니다. Service Fabric에서 실행할 인스턴스를 만들 수 있도록 서비스 호스트의 Service Fabric 런타임에 서비스 유형을 등록해야 합니다.  
 
 ## <a name="create-a-stateless-service"></a>상태 비저장 서비스 만들기
-Service Fabric 응용 프로그램을 만드는 것으로 시작합니다. Linux용 Service Fabric SDK는 Service Fabric 응용 프로그램용 스캐폴딩에 상태 비저장 서비스를 제공하기 위해 Yeoman 생성기를 포함합니다. 다음 Yeoman 명령을 실행하여 시작합니다.
+Service Fabric 애플리케이션을 만드는 것으로 시작합니다. Linux용 Service Fabric SDK는 Service Fabric 애플리케이션용 스캐폴딩에 상태 비저장 서비스를 제공하기 위해 Yeoman 생성기를 포함합니다. 다음 Yeoman 명령을 실행하여 시작합니다.
 
 ```bash
 $ yo azuresfjava
 ```
 
-지침에 따라 **신뢰할 수 있는 상태 비저장 서비스**를 만듭니다. 이 자습서에서는 응용 프로그램을 "HelloWorldApplication", 행위자를 "HelloWorld"라고 이름을 지정합니다. 결과에는 `HelloWorldApplication` 및 `HelloWorld`에 대한 디렉터리가 포함됩니다.
+지침에 따라 **신뢰할 수 있는 상태 비저장 서비스**를 만듭니다. 이 자습서에서는 애플리케이션을 "HelloWorldApplication", 행위자를 "HelloWorld"라고 이름을 지정합니다. 결과에는 `HelloWorldApplication` 및 `HelloWorld`에 대한 디렉터리가 포함됩니다.
 
 ```bash
 HelloWorldApplication/
@@ -123,7 +123,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 * 시스템은 리소스 분산을 위해 서비스 인스턴스를 이동시킵니다.
 * 오류는 코드에서 발생합니다.
-* 응용 프로그램 또는 시스템 업그레이드됩니다.
+* 애플리케이션 또는 시스템 업그레이드됩니다.
 * 기본 하드웨어가 중단됩니다.
 
 이러한 오케스트레이션은 서비스의 가용성을 높게 유지하고 제대로 균형을 유지하기 위해 Service Fabric에 의해 관리됩니다.
@@ -162,9 +162,9 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 
 서비스가 이동하거나 다시 시작하는 경우에도 카운터 값을 상태 비저장에서 항상 사용 가능하고 지속되게 만들려면 상태 저장 서비스가 필요합니다.
 
-HelloWorld 응용 프로그램과 같은 디렉터리에서 `yo azuresfjava:AddService` 명령을 실행하여 새 서비스를 추가할 수 있습니다. 프레임워크에서 "신뢰할 수 있는 상태 저장 서비스"를 선택하고 서비스 이름을 "HelloWorldStateful"로 지정합니다. 
+HelloWorld 애플리케이션과 같은 디렉터리에서 `yo azuresfjava:AddService` 명령을 실행하여 새 서비스를 추가할 수 있습니다. 프레임워크에서 "신뢰할 수 있는 상태 저장 서비스"를 선택하고 서비스 이름을 "HelloWorldStateful"로 지정합니다. 
 
-응용 프로그램에 이제 상태 비저장 서비스 HelloWorld 및 상태 저장 서비스 HelloWorldStateful이라는 두 서비스가 있어야 합니다.
+애플리케이션에 이제 상태 비저장 서비스 HelloWorld 및 상태 저장 서비스 HelloWorldStateful이라는 두 서비스가 있어야 합니다.
 
 상태 저장 서비스에는 상태 비저장 서비스와 동일한 진입점이 있습니다. 주요 차이점은 상태를 안정적으로 저장할 수 있는 상태 제공자의 가용성입니다. Service Fabric은 신뢰할 수 있는 상태 관리자를 통해 복제된 데이터 구조를 만들 수 있는 신뢰할 수 있는 컬렉션이라는 상태 제공자 구현과 함께 제공됩니다. 상태 저장 Reliable Service는 기본적으로 이 상태 제공자를 사용합니다.
 
@@ -236,19 +236,19 @@ return map.computeAsync(tx, "counter", (k, v) -> {
 신뢰할 수 있는 해시 맵 작업은 *트랜잭션*이므로 여러 신뢰할 수 있는 해시 맵 및 작업에서 상태를 일관성 있게 유지할 수 있습니다. 예를 들어 신뢰할 수 있는 사전에서 작업 항목을 가져오고, 여기서 작업을 수행하고, 다른 신뢰할 수 있는 해시 맵의 결과를 모두 단일 트랜잭션 내에 저장할 수 있습니다. 이는 원자성 작업으로 처리되며, 전체 작업이 성공하거나 롤백되도록 보장합니다. 항목을 큐에서 제거한 다음이지만 결과를 저장하기 전에 오류가 발생하면 전체 트랜잭션이 롤백되고 항목이 처리를 위해 큐에 남아 있습니다.
 
 
-## <a name="build-the-application"></a>응용 프로그램 빌드
+## <a name="build-the-application"></a>애플리케이션 빌드
 
-Yeoman 스캐폴딩은 응용 프로그램을 빌드하는 Gradle 스크립트와 응용 프로그램을 배포하고 제거하는 Bash 스크립트를 포함합니다. 응용 프로그램을 실행하려면 먼저 다음과 같은 Gradle을 통해 응용 프로그램을 빌드합니다.
+Yeoman 스캐폴딩은 애플리케이션을 빌드하는 Gradle 스크립트와 애플리케이션을 배포하고 제거하는 Bash 스크립트를 포함합니다. 애플리케이션을 실행하려면 먼저 다음과 같은 Gradle을 통해 애플리케이션을 빌드합니다.
 
 ```bash
 $ gradle
 ```
 
-그러면 Service Fabric CLI를 사용하여 배포할 수 있는 Service Fabric 응용 프로그램 패키지를 생성합니다.
+그러면 Service Fabric CLI를 사용하여 배포할 수 있는 Service Fabric 애플리케이션 패키지를 생성합니다.
 
-## <a name="deploy-the-application"></a>응용 프로그램 배포
+## <a name="deploy-the-application"></a>애플리케이션 배포
 
-응용 프로그램이 빌드되면 로컬 클러스터에 배포할 수 있습니다.
+애플리케이션이 빌드되면 로컬 클러스터에 배포할 수 있습니다.
 
 1. 로컬 Service Fabric 클러스터에 연결합니다.
 
@@ -256,20 +256,20 @@ $ gradle
     sfctl cluster select --endpoint http://localhost:19080
     ```
 
-2. 템플릿에 제공된 설치 스크립트를 실행하여 클러스터의 이미지 저장소에 응용 프로그램 패키지를 복사하고 응용 프로그램 유형을 등록하며 응용 프로그램의 인스턴스를 만듭니다.
+2. 템플릿에 제공된 설치 스크립트를 실행하여 클러스터의 이미지 저장소에 애플리케이션 패키지를 복사하고 애플리케이션 유형을 등록하며 애플리케이션의 인스턴스를 만듭니다.
 
     ```bash
     ./install.sh
     ```
 
-빌드된 응용 프로그램을 배포하는 방법은 다른 Service Fabric 응용 프로그램과 같습니다. 자세한 지침은 [Service Fabric CLI에서 Service Fabric 응용 프로그램 관리](service-fabric-application-lifecycle-sfctl.md)에 대한 설명서를 참조하세요.
+빌드된 애플리케이션을 배포하는 방법은 다른 Service Fabric 애플리케이션과 같습니다. 자세한 지침은 [Service Fabric CLI에서 Service Fabric 애플리케이션 관리](service-fabric-application-lifecycle-sfctl.md)에 대한 설명서를 참조하세요.
 
-응용 프로그램 패키지 내에 생성된 매니페스트에서 이러한 명령의 매개 변수를 찾을 수 있습니다.
+애플리케이션 패키지 내에 생성된 매니페스트에서 이러한 명령의 매개 변수를 찾을 수 있습니다.
 
-응용 프로그램이 배포되면 브라우저를 열고 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)에 있는 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)로 이동합니다. 그런 다음 **응용 프로그램** 노드를 확장하면 응용 프로그램 형식에 대한 항목 및 해당 형식의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
+애플리케이션이 배포되면 브라우저를 열고 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)에 있는 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)로 이동합니다. 그런 다음 **애플리케이션** 노드를 확장하면 애플리케이션 형식에 대한 항목 및 해당 형식의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
 
 > [!IMPORTANT]
-> 응용 프로그램을 Azure의 보안 Linux 클러스터에 배포하려면 Service Fabric 런타임으로 응용 프로그램의 유효성을 검사하는 인증서를 구성해야 합니다. 이렇게 하면 Reliable Services 서비스에서 기본 Service Fabric 런타임 API와 통신할 수 있습니다. 자세히 알아보려면 [Linux 클러스터에서 실행하도록 Reliable Services 앱 구성](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)을 참조하세요.  
+> 애플리케이션을 Azure의 보안 Linux 클러스터에 배포하려면 Service Fabric 런타임으로 애플리케이션의 유효성을 검사하는 인증서를 구성해야 합니다. 이렇게 하면 Reliable Services 서비스에서 기본 Service Fabric 런타임 API와 통신할 수 있습니다. 자세히 알아보려면 [Linux 클러스터에서 실행하도록 Reliable Services 앱 구성](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)을 참조하세요.  
 >
 
 ## <a name="next-steps"></a>다음 단계

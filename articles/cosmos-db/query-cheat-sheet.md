@@ -1,21 +1,19 @@
 ---
-title: Azure Cosmos DB PDF 쿼리 참고 자료 | Microsoft Docs
+title: Azure Cosmos DB PDF 쿼리 참고 자료
 description: Azure Cosmos DB의 SQL, MongoDB, Graph 및 Table API를 사용하여 데이터를 쿼리하는 방법을 알려주는 인쇄 가능한 PDF 참고 자료입니다.
 keywords: sql 참고 자료, sql 참고 자료 pdf, sql 쿼리 참고 자료
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: c79a1c0e6449e1ae87c2ed09acdc1ecd380cfaaf
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 21b2ee99fa8f9b22b4dfccadfaadf1d4a10980cf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160973"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138146"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB 쿼리 참고 자료
 
@@ -36,7 +34,7 @@ Letter 크기 용지(8.5" x 11")에 인쇄하려면 [Azure Cosmos DB Letter 크�
 
 ## <a name="next-steps"></a>다음 단계
 쿼리 작성에 대한 추가 도움말은 다음 문서를 참조하세요.
-* SQL API 쿼리에 대한 내용은 [SQL API를 사용한 쿼리](tutorial-query-sql-api.md), [Azure Cosmos DB에 대한 SQL 쿼리](how-to-sql-query.md) 및 [SQL 구문 참조](sql-api-sql-query-reference.md)를 참조하세요.
+* SQL API 쿼리에 대한 내용은 [SQL API를 사용한 쿼리](tutorial-query-sql-api.md), [Azure Cosmos DB에 대한 SQL 쿼리](how-to-sql-query.md) 및 [SQL 구문 참조](sql-api-query-reference.md)를 참조하세요.
 * MongoDB 쿼리에 대한 내용은 [MongoDB API를 사용한 쿼리](tutorial-query-mongodb.md) 및 [MongoDB 기능 및 구문에 대한 MongoDB API 지원](mongodb-feature-support.md)을 참조하세요.
 * Gremlin API 쿼리에 대한 내용은 [Gremlin API를 사용한 쿼리](tutorial-query-graph.md) 및 [Azure Cosmos DB Gremlin 그래프 지원](gremlin-support.md)을 참조하세요.
 * Table API 쿼리에 대한 내용은 [Table API를 사용한 쿼리](tutorial-query-table.md)를 참조하세요.

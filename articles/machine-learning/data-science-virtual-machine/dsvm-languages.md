@@ -1,11 +1,13 @@
 ---
-title: Azure의 데이터 과학 Virtual Machine에 대한 언어 | Microsoft Docs
-description: Azure의 데이터 과학 Virtual Machine에 대한 언어
+title: Data Science Virtual Machine에 대해 지원되는 언어
+titleSuffix: Azure
+description: Data Science Virtual Machine에 미리 설치된 프로그램 언어 및 관련 도구에 대해 알아봅니다.
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 411729155f5135c7e45588b69995274c9cac1315
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8cc5d1a2d78179624ee1ba17482e9d1892625d6f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418318"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104291"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine에서 지원되는 언어 
 
@@ -191,7 +193,7 @@ R은 모든 사용자가 읽을 수 있는 전역 환경의 DSVM에 설치됩니
 | ------------- | ------------- |
 | 지원되는 언어 버전 | 0.6 |
 | 지원되는 DSVM 버전      | Linux, Windows     |
-| DSVM에 구성/설치 방법  | Windows: `C:\JuliaPro-VERSION`에 설치됩니다.<br /> Linux: `/opt/JuliaPro-VERSION`에 설치됩니다.    |
+| DSVM에 구성/설치 방법  | Windows: `C:\JuliaPro-VERSION`에 설치됨<br /> Linux: `/opt/JuliaPro-VERSION`에 설치됨    |
 | 샘플에 대한 링크      | Julia에 대한 샘플 Jupyter 노트북이 포함되어 있습니다.     |
 | DSVM의 관련 도구      | Python, R      |
 ### <a name="how-to-use--run-it"></a>사용/실행 방법    

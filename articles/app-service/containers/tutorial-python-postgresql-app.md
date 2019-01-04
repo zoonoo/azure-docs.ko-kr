@@ -234,7 +234,7 @@ GRANT ALL PRIVILEGES ON DATABASE pollsdb TO manager;
 `\q`를 입력하여 PostgreSQL 클라이언트를 종료합니다.
 
 > [!NOTE]
-> 관리 사용자를 사용하는 대신 특정 응용 프로그램에 대해 제한된 사용 권한으로 데이터베이스 사용자를 만드는 것이 좋습니다. 이 예제에서 `manager` 사용자에게는 `pollsdb` 데이터베이스에 대해서_만_ 모든 권한이 있습니다.
+> 관리 사용자를 사용하는 대신 특정 애플리케이션에 대해 제한된 사용 권한으로 데이터베이스 사용자를 만드는 것이 좋습니다. 이 예제에서 `manager` 사용자에게는 `pollsdb` 데이터베이스에 대해서_만_ 모든 권한이 있습니다.
 
 ### <a name="test-app-connectivity-to-production-database"></a>프로덕션 데이터베이스에 대한 앱 연결 테스트
 
@@ -277,7 +277,7 @@ python manage.py runserver
 
 ## <a name="deploy-to-azure"></a>Deploy to Azure
 
-이 단계에서는 Postgres에 연결된 Python 응용 프로그램을 Azure App Service에 배포합니다.
+이 단계에서는 Postgres에 연결된 Python 애플리케이션을 Azure App Service에 배포합니다.
 
 ### <a name="configure-repository"></a>리포지토리 구성
 

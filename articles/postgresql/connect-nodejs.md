@@ -19,7 +19,7 @@ ms.lasthandoff: 02/28/2018
 ms.locfileid: "29691946"
 ---
 # <a name="azure-database-for-postgresql-use-nodejs-to-connect-and-query-data"></a>PostgreSQL용 Azure Database: Node.js를 사용하여 데이터 연결 및 쿼리
-이 빠른 시작에서는 [Node.js](https://nodejs.org/) 응용 프로그램을 사용하여 Azure Database for PostgreSQL에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서의 단계에서는 개발자가 Node.js를 사용하여 개발하는 것에 익숙하고 Azure Database for PostgreSQL 작업에 익숙하지 않다고 가정합니다.
+이 빠른 시작에서는 [Node.js](https://nodejs.org/) 애플리케이션을 사용하여 Azure Database for PostgreSQL에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서의 단계에서는 개발자가 Node.js를 사용하여 개발하는 것에 익숙하고 Azure Database for PostgreSQL 작업에 익숙하지 않다고 가정합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작에서는 다음과 같은 가이드 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
@@ -27,7 +27,7 @@ ms.locfileid: "29691946"
 - [DB 만들기 - CLI](quickstart-create-server-database-azure-cli.md)
 
 다음과 같은 작업도 필요합니다.
-- [Node.js](https://nodejs.org)
+-  [Node.js](https://nodejs.org)
 
 ## <a name="install-pg-client"></a>Pg 클라이언트 설치
 Node.js용 PostgreSQL 클라이언트인 [pg](https://www.npmjs.com/package/pg)를 설치합니다.

@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: cbedb17bb7563620d0d9db81333d9a79301b4ee0
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: e435baf4a5e3382e3e77195e5315299e3963ff5c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42817511"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409261"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Mobile Apps Node.js SDK를 사용하는 방법
 
@@ -152,7 +152,7 @@ Visual Studio 2015는 IDE 내에서 Node.js 응용 프로그램 개발하도록 
 
 다음 절차에서는 Git 리포지토리를 사용하여 빠른 시작 프로젝트 코드를 다운로드합니다.
 
-1. 아직 수행하지 않았다면 Git을 설치합니다. Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제별 배포 및 설치 지침은 [Git 설치](http://git-scm.com/book/en/Getting-Started-Installing-Git)를 참조하세요.
+1. 아직 수행하지 않았다면 Git을 설치합니다. Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제별 배포 및 설치 지침은 [Git 설치](https://git-scm.com/book/en/Getting-Started-Installing-Git)를 참조하세요.
 1. [리포지토리 준비](../app-service/app-service-deploy-local-git.md#prepare-your-repository)를 참조하여 백 엔드 사이트에 Git 리포지토리를 사용할 수 있습니다. 배포 사용자 이름 및 암호를 기록해 둡니다.
 1. Mobile Apps 백 엔드에 대한 창에서 **Git 복제 URL** 설정을 적어 둡니다.
 1. Git 복제 URL을 사용하여 `git clone` 명령을 실행합니다. 다음 예제와 같이 필요한 경우 암호를 입력합니다.
@@ -192,7 +192,7 @@ var mobile = azureMobileApps({ homePage: true });
 
 azure-mobile-apps Node.js 서버 SDK는 Azure SQL Database에 저장된 데이터 테이블을 Web API로 노출하는 메커니즘을 제공합니다. 다섯 가지 작업을 제공합니다.
 
-| 작업 | 설명 |
+| 작업(Operation) | 설명 |
 | --- | --- |
 | GET /tables/*tablename* |테이블의 모든 레코드를 가져옵니다. |
 | GET /tables/*tablename*/:id |테이블의 특정 레코드를 가져옵니다. |
@@ -794,7 +794,7 @@ var api = {
 module.exports = api;
 ```
 
-각 매개 변수는 GET, POST, PATCH 또는 DELETE와 같은 RESTful 표준 동사의 하나입니다. 메서드는 필요한 출력을 전송하는 표준 [ExpressJS 미들웨어] 함수입니다.
+각 매개 변수는 표준 RESTful 동사인 GET, POST, PATCH 또는 DELETE 중 하나입니다. 메서드는 필요한 출력을 전송하는 표준 [ExpressJS 미들웨어] 함수입니다.
 
 ### <a name="howto-customapi-auth"></a>사용자 지정 API에 대한 액세스 인증 요구
 
@@ -918,7 +918,7 @@ App Service 편집기를 사용하여 테이블 작업을 편집할 수도 있�
 
 다음 명령을 테이블에 대한 명령 모음에서 사용할 수 있습니다.
 
-* **사용 권한 변경**: 작업 테이블에서 읽기, 삽입, 업데이트 및 삭제에 대한 권한을 변경합니다.
+* **권한 변경**: 작업 테이블에서 읽기, 삽입, 업데이트 및 삭제에 대한 권한을 변경합니다.
  옵션은 익명 액세스를 허용하거나 인증을 요구하거나 작업에 대한 모든 액세스를 사용할 수 없도록 합니다.
 * **스크립트 편집**: 테이블에 대한 스크립트 파일은 App Service 편집기에서 열립니다.
 * **스키마 관리**: 열을 추가 또는 삭제하거나 테이블 인덱스를 변경합니다.
@@ -963,11 +963,11 @@ Azure Portal을 사용하여 로컬 컴퓨터에 프로젝트를 다운로드하
 [Xamarin.Forms 클라이언트 빠른 시작]: app-service-mobile-xamarin-forms-get-started.md
 [Windows Store 클라이언트 빠른 시작]: app-service-mobile-windows-store-dotnet-get-started.md
 [오프라인 데이터 동기화]: app-service-mobile-offline-data-sync.md
-[Azure Active Directory 인증 구성]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Facebook 인증 구성]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
-[Google 인증 구성]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
-[Microsoft 인증 구성]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Twitter 인증 구성]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
+[Azure Active Directory 인증 구성]: ../app-service/configure-authentication-provider-aad.md
+[Facebook 인증 구성]: ../app-service/configure-authentication-provider-facebook.md
+[Google 인증 구성]: ../app-service/configure-authentication-provider-google.md
+[Microsoft 인증 구성]: ../app-service/configure-authentication-provider-microsoft.md
+[Twitter 인증 구성]: ../app-service/configure-authentication-provider-twitter.md
 [Azure App Service 배포 가이드]: ../app-service/app-service-deploy-local-git.md
 [Azure App Service 모니터링]: ../app-service/web-sites-monitor.md
 [Azure App Service에 진단 로그 사용]: ../app-service/web-sites-enable-diagnostic-log.md
@@ -976,11 +976,11 @@ Azure Portal을 사용하여 로컬 컴퓨터에 프로젝트를 다운로드하
 [노드 모듈 사용]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
-[Express]: http://expressjs.com/
-[Swagger]: http://swagger.io/
+[Express]: https://expressjs.com/
+[Swagger]: https://swagger.io/
 
 [Azure Portal]: https://portal.azure.com/
-[OData]: http://www.odata.org
+[OData]: https://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [GitHub의 기본 앱 샘플]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [GitHub의 할 일 샘플]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
@@ -989,6 +989,6 @@ Azure Portal을 사용하여 로컬 컴퓨터에 프로젝트를 다운로드하
 [QueryJS]: https://github.com/Azure/queryjs
 [Visual Studio용 Node.js Tools 1.1]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [mssql Node.js 패키지]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
-[ExpressJS 미들웨어]: http://expressjs.com/guide/using-middleware.html
+[Microsoft SQL Server 2014 Express]: https://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[ExpressJS 미들웨어]: https://expressjs.com/guide/using-middleware.html
 [윈스턴]: https://github.com/winstonjs/winston

@@ -1,24 +1,24 @@
 ---
-title: VS Code용 Azure IoT Toolkit를 사용하여 Azure IoT Hub 만들기 | Microsoft Docs
-description: VS Code용 Azure IoT Toolkit을 사용하여 IoT Hub를 만드는 방법입니다.
+title: VS Code용 Azure IoT Hub Toolkit를 사용하여 Azure IoT Hub 만들기 | Microsoft Docs
+description: VS Code용 Azure IoT Hub Toolkit을 사용하여 IoT 허브를 만드는 방법입니다.
 author: formulahendry
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: junhan
-ms.openlocfilehash: 5097d7e1f6a0b9e94919ccc8731702206c0a1568
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: cee71ddfbf1a20cc7417976d60b04bff6f0deac8
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047236"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339028"
 ---
-# <a name="create-an-iot-hub-using-the-azure-iot-toolkit-for-visual-studio-code"></a>Visual Studio Code용 Azure IoT Toolkit을 사용하여 IoT Hub 만들기
+# <a name="create-an-iot-hub-using-the-azure-iot-hub-toolkit-for-visual-studio-code"></a>Visual Studio Code용 Azure IoT Hub Toolkit을 사용하여 IoT 허브 만들기
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-이 문서에서는 [Visual Studio Code용 Azure IoT 도구 Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 Azure IoT Hub를 만드는 방법을 보여줍니다. 
+이 문서에서는 [Visual Studio Code용 Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)(이전 Azure IoT Toolkit)을 사용하여 Azure IoT Hub를 만드는 방법을 보여 줍니다. 
 
 이 문서를 완료하려면 다음이 필요합니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "43047236"
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 
-- [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
+- [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -36,7 +36,7 @@ ms.locfileid: "43047236"
 
    ![Azure IoT Hub 디바이스 확장](./media/iot-hub-create-use-iot-toolkit/azure-iot-hub-devices.png)
 
-3. **Azure IoT Hub 장치** 섹션 헤더에서 **...** 를 클릭합니다. 줄임표가 표시되지 않으면 헤더를 마우스로 가리킵니다. 
+3. **Azure IoT Hub 디바이스** 섹션 헤더에서 **...** 를 클릭합니다. 줄임표가 표시되지 않으면 헤더를 마우스로 가리킵니다. 
 
 4. **IoT Hub 만들기**를 선택택합니다.
 
@@ -56,10 +56,10 @@ ms.locfileid: "43047236"
 
 ## <a name="next-steps"></a>다음 단계
 
-Visual Studio Code용 Azure IoT Toolkit을 사용하여 IoT Hub를 개발했습니다. 더 자세히 알아보려면 다음 문서를 확인하세요.
+Visual Studio Code용 Azure IoT Hub Toolkit을 사용하여 IoT 허브를 배포했습니다. 더 자세히 알아보려면 다음 문서를 확인하세요.
 
-* [Visual Studio Code용 Azure IoT Toolkit 확장을 사용하여 장치와 IoT Hub 간에 메시지를 보내고 받습니다](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+* [Visual Studio Code용 Azure IoT Hub Toolkit 확장을 사용하여 디바이스와 IoT Hub 간에 메시지를 보내고 받습니다](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
-* [Visual Studio Code용 Azure IoT Toolkit 확장을 사용하여 Azure IoT Hub 장치 관리](iot-hub-device-management-iot-toolkit.md)
+* [Visual Studio Code용 Azure IoT Hub Toolkit 확장을 사용하여 Azure IoT Hub 디바이스 관리](iot-hub-device-management-iot-toolkit.md)
 
-* [Azure IoT Toolkit에 대한 Wiki 페이지 참조](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki).
+* [Azure IoT Hub Toolkit에 대한 Wiki 페이지 참조](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki).

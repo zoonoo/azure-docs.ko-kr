@@ -54,7 +54,7 @@ Azure Marketplace에 솔루션 템플릿을 나열하는 데 적용되는 기술
 
 **제안**
 
-Azure 응용 프로그램 제안은 게시자가 제공하는 제품의 유형에 해당합니다. Azure Marketplace에서 사용할 수 있는 새 유형의 솔루션/응용 프로그램이 있으면 새 제안이 가장 좋은 방법입니다. 제품은 SKU의 컬렉션입니다. 모든 제품은 Azure Marketplace에 고유 엔터티로 나타납니다.
+Azure 애플리케이션 제안은 게시자가 제공하는 제품의 유형에 해당합니다. Azure Marketplace에서 사용할 수 있는 새 유형의 솔루션/응용 프로그램이 있으면 새 제안이 가장 좋은 방법입니다. 제품은 SKU의 컬렉션입니다. 모든 제품은 Azure Marketplace에 고유 엔터티로 나타납니다.
 
 **SKU**
 
@@ -70,7 +70,7 @@ SKU는 Azure Marketplace의 부모 제안 아래에 표시되고 Azure Portal에
 
 1.  [클라우드 파트너 포털](http://cloudpartner.azure.com/)에 로그인합니다.
 
-2.  왼쪽 탐색 모음에서 **+ 새 제안**을 클릭한 다음, **Azure 응용 프로그램**을 선택합니다.
+2.  왼쪽 탐색 모음에서 **+ 새 제안**을 클릭한 다음, **Azure 애플리케이션**을 선택합니다.
 
     ![새 제안 만들기](./media/cloud-partner-portal-publish-managed-app/newOffer.png)
 
@@ -151,10 +151,10 @@ SKU 설정을 마친 후 다음 패키지 세부 정보를 제공합니다.
 - **현재 버전** - 업로드할 패키지의 버전입니다. 버전 태그는 X.Y.Z 형식이며, X, Y 및 Z는 정수여야 합니다.
 - **패키지 파일** - 이 패키지는 .zip 파일에 저장된 다음 파일을 포함합니다.
     -   MainTemplate.json - 솔루션/응용 프로그램을 배포하고 솔루션에 대해 정의된 리소스를 만드는 데 사용되는 배포 템플릿 파일입니다. 자세한 내용은 [배포 템플릿 파일을 작성하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)을 참조하세요.
-    -   createUIDefinition.json - 이 파일은 Azure Portal에서 이 솔루션/애플리케이션을 프로비전하기 위한 사용자 인터페이스를 생성하는 데 사용됩니다. 자세한 내용은 [관리되는 응용 프로그램에 대한 Azure Portal 사용자 인터페이스 만들기](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)를 참조하세요.
+    -   createUIDefinition.json - 이 파일은 Azure Portal에서 이 솔루션/애플리케이션을 프로비전하기 위한 사용자 인터페이스를 생성하는 데 사용됩니다. 자세한 내용은 [관리되는 애플리케이션에 대한 Azure Portal 사용자 인터페이스 만들기](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)를 참조하세요.
 
     >[!IMPORTANT]
-    >이 패키지는 이 응용 프로그램을 프로비전하는 데 필요한 기타 중첩된 템플릿 또는 스크립트를 포함해야 합니다. mainTemplate.json 및 createUiDefinition.json은 루트 폴더에 있어야 합니다.
+    >이 패키지는 이 애플리케이션을 프로비전하는 데 필요한 기타 중첩된 템플릿 또는 스크립트를 포함해야 합니다. mainTemplate.json 및 createUiDefinition.json은 루트 폴더에 있어야 합니다.
 
 ## <a name="to-configure-the-marketplace"></a>Marketplace를 구성하려면
 

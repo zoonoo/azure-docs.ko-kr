@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory를 사용하기 위해 응용 프로그램 등록 | Microsoft Docs
-description: IT 전문가를 위해 작성된 이 문서는 Active Directory와 Azure 응용 프로그램 통합에 대한 지침을 제공합니다.
+title: Azure Active Directory를 사용하기 위해 애플리케이션 등록 | Microsoft Docs
+description: IT 전문가를 위해 작성된 이 문서는 Active Directory와 Azure 애플리케이션 통합에 대한 지침을 제공합니다.
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -38,7 +38,7 @@ Azure Active Directory를 사용하기 위해 애플리케이션을 등록해야
 * 다음을 포함하여 앱에 대한 Azure AD 권한 부여 기능 적용
 
   * 역할 기반 Access Control(RBAC)
-  * OAuth 권한 부여 서버인 Azure Active Directory(응용 프로그램에서 노출된 API 보호)
+  * OAuth 권한 부여 서버인 Azure Active Directory(애플리케이션에서 노출된 API 보호)
 * 애플리케이션에 예상 대로 작동하는 데 필요한 다음을 포함하는 사용 권한을 선언합니다.
 
      - 앱 사용 권한(전역 관리자만 해당) 예: 다른 Azure AD 애플리케이션에서 역할 멤버 자격 또는 Azure 리소스, 리소스 그룹 또는 구독에 상대적인 역할 멤버 자격

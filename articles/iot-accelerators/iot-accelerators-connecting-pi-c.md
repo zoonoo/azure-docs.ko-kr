@@ -43,7 +43,7 @@ Raspberry Pi의 명령줄에 원격으로 액세스할 수 있도록 데스크�
 
 이 문서에서는 [Raspberry Pi에 Raspbian OS](https://www.raspberrypi.org/learning/software-guide/quickstart/)의 최신 버전을 설치했다고 가정합니다.
 
-다음 단계는 솔루션 가속기에 연결하는 C 응용 프로그램을 빌드하기 위해 Raspberry Pi를 준비하는 방법을 보여줍니다.
+다음 단계는 솔루션 가속기에 연결하는 C 애플리케이션을 빌드하기 위해 Raspberry Pi를 준비하는 방법을 보여줍니다.
 
 1. **ssh**를 사용하여 Raspberry Pi에 연결합니다. 자세한 내용은 [Raspberry Pi 웹 사이트](https://www.raspberrypi.org/)에서 [SSH(Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md)를 참조하세요.
 
@@ -69,9 +69,9 @@ Raspberry Pi의 명령줄에 원격으로 액세스할 수 있도록 데스크�
 
 [!INCLUDE [iot-accelerators-connecting-code](../../includes/iot-accelerators-connecting-code.md)]
 
-## <a name="build-and-run-the-application"></a>응용 프로그램 빌드 및 실행
+## <a name="build-and-run-the-application"></a>애플리케이션 빌드 및 실행
 
-다음 단계에서는 *CMake*를 사용하여 클라이언트 응용 프로그램을 빌드하는 방법을 설명합니다. 원격 모니터링 클라이언트 응용 프로그램은 SDK 빌드 프로세스의 일부로 빌드됩니다.
+다음 단계에서는 *CMake*를 사용하여 클라이언트 애플리케이션을 빌드하는 방법을 설명합니다. 원격 모니터링 클라이언트 애플리케이션은 SDK 빌드 프로세스의 일부로 빌드됩니다.
 
 1. **remote_monitoring.c** 파일을 편집하여 `<connectionstring>`을 이 방법 가이드 시작 부분에서 솔루션 가속기에 장치를 추가할 때 적어 둔 장치 연결 문자열로 바꿉니다.
 
@@ -84,7 +84,7 @@ Raspberry Pi의 명령줄에 원격으로 액세스할 수 있도록 데스크�
     make
     ```
 
-1. 클라이언트 응용 프로그램을 실행하고 IoT Hub에 원격 분석을 전송합니다.
+1. 클라이언트 애플리케이션을 실행하고 IoT Hub에 원격 분석을 전송합니다.
 
     ```sh
     ./samples/solutions/remote_monitoring_client/remote_monitoring_client
@@ -92,7 +92,7 @@ Raspberry Pi의 명령줄에 원격으로 액세스할 수 있도록 데스크�
 
     다음과 같은 경우 콘솔에 메시지가 표시됩니다.
 
-    - 응용 프로그램이 샘플 원격 분석 데이터를 솔루션 가속기에 보낼 때.
+    - 애플리케이션이 샘플 원격 분석 데이터를 솔루션 가속기에 보낼 때.
     - 솔루션 대시보드에서 호출된 메서드에 응답할 때.
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]

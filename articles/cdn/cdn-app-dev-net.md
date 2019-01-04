@@ -1,6 +1,6 @@
 ---
 title: .NET용 Azure CDN 라이브러리 시작하기 | Microsoft Docs
-description: Visual Studio로 Azure CDN을 관리하는 .NET 응용 프로그램을 만드는 방법에 대해 알아보기
+description: Visual Studio로 Azure CDN을 관리하는 .NET 애플리케이션을 작성하는 방법에 대해 알아봅니다.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
@@ -28,7 +28,7 @@ ms.locfileid: "38454467"
 > 
 > 
 
-[.NET용 Azure CDN 라이브러리](https://msdn.microsoft.com/library/mt657769.aspx) 를 사용하여 CDN 프로필과 끝점의 생성 및 관리를 자동화할 수 있습니다.  이 자습서에서는 여러 가지 사용 가능한 작업을 보여주는 간단한 .NET 콘솔 응용 프로그램을 살펴봅니다.  이 자습서는 .NET용 Azure CDN 라이브러리의 모든 측면을 상세하게 설명하지 않습니다.
+[.NET용 Azure CDN 라이브러리](https://msdn.microsoft.com/library/mt657769.aspx) 를 사용하여 CDN 프로필과 끝점의 생성 및 관리를 자동화할 수 있습니다.  이 자습서에서는 여러 가지 사용 가능한 작업을 보여주는 간단한 .NET 콘솔 애플리케이션을 살펴봅니다.  이 자습서는 .NET용 Azure CDN 라이브러리의 모든 측면을 상세하게 설명하지 않습니다.
 
 이 자습서를 완료하려면 Visual Studio 2015가 필요합니다.  [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) 는 무료로 다운로드할 수 있습니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "38454467"
 ## <a name="create-your-project-and-add-nuget-packages"></a>프로젝트 만들기 및 Nuget 패키지 추가하기
 CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필과 끝점을 관리하기 위한 Azure AD 응용 프로그램 권한을 부여했으므로, 응용 프로그램을 만들 수 있습니다.
 
-Visual Studio 2015를 열고 **파일**, **새로 만들기**, **프로젝트...** 를 클릭하여 새 프로젝트 대화 상자를 엽니다.  **Visual C#** 을 확장하고 왼쪽 창에서 **Windows**를 선택합니다.  가운데 창에서 **콘솔 응용 프로그램** 을 클릭합니다.  프로젝트 이름을 지정하고 **확인**을 클릭합니다.  
+Visual Studio 2015를 열고 **파일**, **새로 만들기**, **프로젝트...** 를 클릭하여 새 프로젝트 대화 상자를 엽니다.  **Visual C#** 을 확장하고 왼쪽 창에서 **Windows**를 선택합니다.  가운데 창에서 **콘솔 애플리케이션**을 클릭합니다.  프로젝트 이름을 지정하고 **확인**을 클릭합니다.  
 
 ![새 프로젝트](./media/cdn-app-dev-net/cdn-new-project.png)
 

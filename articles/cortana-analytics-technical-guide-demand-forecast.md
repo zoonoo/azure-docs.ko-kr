@@ -19,7 +19,7 @@ ms.locfileid: "52427066"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>에너지 수요 예측을 위한 Cortana Intelligence 솔루션 템플릿 기술 가이드
 ## <a name="overview"></a>**개요**
-솔루션 템플릿은 Cortana Intelligence Suite를 기반으로 E2E 데모 빌드 프로세스를 가속화하도록 디자인되었습니다. 배포된 템플릿은 필요한 Cortana Intelligence 구성 요소로 구독을 프로비전하고 이들 간의 관계를 빌드합니다. 또한 데이터 시뮬레이션 응용 프로그램에서 생성된 샘플 데이터로 데이터 파이프라인을 시드합니다. 제공된 링크에서 데이터 시뮬레이터를 다운로드하고 로컬 컴퓨터에 설치합니다. 시뮬레이터 사용에 대한 지침은 readme.txt 파일을 참조하세요. 시뮬레이터에서 생성된 데이터는 데이터 파이프라인을 하이드레이션하며 Power BI 대시보드에서 시각화할 수 있는 Machine Learning 예측을 생성하기 시작합니다.
+솔루션 템플릿은 Cortana Intelligence Suite를 기반으로 E2E 데모 빌드 프로세스를 가속화하도록 디자인되었습니다. 배포된 템플릿은 필요한 Cortana Intelligence 구성 요소로 구독을 프로비전하고 이들 간의 관계를 빌드합니다. 또한 데이터 시뮬레이션 애플리케이션에서 생성된 샘플 데이터로 데이터 파이프라인을 시드합니다. 제공된 링크에서 데이터 시뮬레이터를 다운로드하고 로컬 컴퓨터에 설치합니다. 시뮬레이터 사용에 대한 지침은 readme.txt 파일을 참조하세요. 시뮬레이터에서 생성된 데이터는 데이터 파이프라인을 하이드레이션하며 Power BI 대시보드에서 시각화할 수 있는 Machine Learning 예측을 생성하기 시작합니다.
 
 솔루션 템플릿은 [여기](https://gallery.cortanaintelligence.com/SolutionTemplate/Demand-Forecasting-for-Energy-1)
 
@@ -35,9 +35,9 @@ ms.locfileid: "52427066"
 
 ## <a name="data-source-and-ingestion"></a>**데이터 원본 및 수집**
 ### <a name="synthetic-data-source"></a>가상 데이터 원본
-이 템플릿의 경우 사용되는 데이터 원본은 성공적인 배포 후 로컬로 다운로드하여 실행하는 데스크톱 응용 프로그램에서 생성됩니다. 솔루션 템플릿 다이어그램에서 에너지 예측 데이터 시뮬레이터라는 첫 번째 노드를 선택하면 속성 모음에서 이 응용 프로그램 다운로드 및 설치에 대한 지침을 찾을 수 있습니다. 이 응용 프로그램은 솔루션 흐름의 나머지 부분에서 사용되는 데이터 요소 또는 이벤트로 [Azure Event Hub](#azure-event-hub)를 피드합니다.
+이 템플릿의 경우 사용되는 데이터 원본은 성공적인 배포 후 로컬로 다운로드하여 실행하는 데스크톱 애플리케이션에서 생성됩니다. 솔루션 템플릿 다이어그램에서 에너지 예측 데이터 시뮬레이터라는 첫 번째 노드를 선택하면 속성 모음에서 이 애플리케이션 다운로드 및 설치에 대한 지침을 찾을 수 있습니다. 이 애플리케이션은 솔루션 흐름의 나머지 부분에서 사용되는 데이터 요소 또는 이벤트로 [Azure Event Hub](#azure-event-hub)를 피드합니다.
 
-이벤트 생성 응용 프로그램은 컴퓨터에서 실행되는 동안 Azure Event Hub를 채웁니다.
+이벤트 생성 애플리케이션은 컴퓨터에서 실행되는 동안 Azure Event Hub를 채웁니다.
 
 ### <a name="azure-event-hub"></a>Azure Event Hub
 [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) 서비스는 설명된 가상 데이터 원본에서 제공되는 입력을 받는 대상입니다.
@@ -169,7 +169,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 2.  [Power BI 온라인](https://www.powerbi.com)
 
    * 내 작업 영역의 왼쪽 패널 데이터 세트 섹션에서 Power BI의 왼쪽 패널에 새 데이터 세트가 표시되는 것을 확인할 수 있습니다. 이전 단계에서 Azure Stream Analytics에서 푸시한 스트리밍 데이터입니다.
-   *  ***처리*** 창이 열려 있고 화면 오른쪽에 표시되는지 확인합니다.
+   * ***처리*** 창이 열려 있고 화면 오른쪽에 표시되는지 확인합니다.
 3. "Demand by Timestamp(타임스탬프별 수요)" 타일을 만듭니다.
 
    * 왼쪽 패널 데이터 세트 섹션에서 데이터 세트 **'EnergyStreamData'** 를 클릭합니다.

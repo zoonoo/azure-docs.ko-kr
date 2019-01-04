@@ -168,7 +168,7 @@ AttributeValueMustBeUnique 오류가 발생하는 가장 일반적인 원인은 
 ## <a name="data-validation-failures"></a>데이터 유효성 검사 실패
 ### <a name="identitydatavalidationfailed"></a>IdentityDataValidationFailed
 #### <a name="description"></a>설명
-Azure Active Directory는 데이터를 디렉터리에 쓰도록 허용하기 전에 데이터 자체에 다양한 제약을 적용합니다. 이러한 제한은 응용 프로그램을 사용하는 동안 최종 사용자에게 가능한 최적의 환경을 제공하기 위한 것으로, 이 데이터가 환경을 좌우합니다.
+Azure Active Directory는 데이터를 디렉터리에 쓰도록 허용하기 전에 데이터 자체에 다양한 제약을 적용합니다. 이러한 제한은 애플리케이션을 사용하는 동안 최종 사용자에게 가능한 최적의 환경을 제공하기 위한 것으로, 이 데이터가 환경을 좌우합니다.
 
 #### <a name="scenarios"></a>시나리오
 a. UserPrincipalName 특성 값에 잘못된/지원되지 않는 문자가 있습니다.

@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Bing Entity search SDK, Node'
 titleSuffix: Azure Cognitive Services
-description: Node를 사용하여 Entity Search SDK 콘솔 응용 프로그램을 설정합니다.
+description: Node를 사용하여 Entity Search SDK 콘솔 애플리케이션을 설정합니다.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -22,7 +22,7 @@ ms.locfileid: "52311384"
 Bing Entity Search SDK는 엔터티 쿼리 및 구문 분석 결과에 대한 REST API 기능을 포함하고 있습니다. 
 
 [C# Bing Entity Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js)은 Git Hub에서 얻을 수 있습니다.
-## <a name="application-dependencies"></a>응용 프로그램 종속성
+## <a name="application-dependencies"></a>애플리케이션 종속성
 **검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 Bing Entity Search SDK를 사용하여 콘솔 애플리케이션을 설치하려면:

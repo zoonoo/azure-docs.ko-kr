@@ -1,6 +1,6 @@
 ---
 title: System Center Operations Manager와 서비스 맵 통합 | Microsoft Docs
-description: 서비스 맵은 Windows 및 Linux 시스템의 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 서비스 맵을 사용하여 Operations Manager에 자동으로 분산 응용 프로그램 다이어그램을 만드는 방법을 설명합니다.
+description: 서비스 맵은 Windows 및 Linux 시스템의 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 서비스 맵을 사용하여 Operations Manager에 자동으로 분산 애플리케이션 다이어그램을 만드는 방법을 설명합니다.
 services: monitoring
 documentationcenter: ''
 author: daveirwin1
@@ -8,18 +8,17 @@ manager: jwhit
 editor: tysonn
 ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: b590a6ce6d92c78f2020d5ef7cffe6d7f277433c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: bf0e672ea6f1d62442233993bd778c82a8a16037
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51827498"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187214"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>System Center Operations Manager와 서비스 맵 통합
   > [!NOTE]
@@ -28,7 +27,7 @@ ms.locfileid: "51827498"
   
 서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 서비스 맵을 사용하면 생각하는 방식대로 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다. 자세한 내용은 [서비스 맵 설명서]( service-map.md)를 참조하세요.
 
-서비스 맵과 System Center Operations Manager 간의 이러한 통합을 통해 서비스 맵의 동적 종속성 맵을 기준으로 하는 분산 응용 프로그램 다이어그램을 Operations Manager에서 자동으로 만들 수 있습니다.
+서비스 맵과 System Center Operations Manager 간의 이러한 통합을 통해 서비스 맵의 동적 종속성 맵을 기준으로 하는 분산 애플리케이션 다이어그램을 Operations Manager에서 자동으로 만들 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * 일련의 서버를 관리하는 Operations Manager 관리 그룹(2012 R2 이상)
@@ -69,7 +68,7 @@ Operations Manager와 서비스 맵의 통합은 Microsoft.SystemCenter.ServiceM
     
 5. **서버 선택** 창에서 Operations Manager 및 서비스 맵 간에 동기화하려는 서버가 있는 서비스 맵 서버 그룹을 구성합니다. **서버 추가/제거**를 클릭합니다.   
     
-    통합 기능을 통해 서버에 대한 분산 응용 프로그램 다이어그램을 만들려면 서버가 다음 조건을 충족해야 합니다.
+    통합 기능을 통해 서버에 대한 분산 애플리케이션 다이어그램을 만들려면 서버가 다음 조건을 충족해야 합니다.
 
     * Operations Manager에서 관리됨
     * 서비스 맵에서 관리됨
@@ -98,13 +97,13 @@ Log Analytics 작업 영역이 연결되면 새 폴더인 Service Map이 Operati
 
     ![Operations Manager 서버 모니터링 창](media/service-map-scom/scom-monitoring-servers.png)
 
-* **컴퓨터 그룹 종속성 보기**: 서비스 맵에서 동기화되는 모든 컴퓨터 그룹을 나열합니다. 원하는 그룹을 클릭하여 해당 그룹의 배포 응용 프로그램 다이어그램을 볼 수 있습니다.
+* **머신 그룹 종속성 보기**: 서비스 맵에서 동기화되는 모든 머신 그룹을 나열합니다. 원하는 그룹을 클릭하여 해당 그룹의 배포 애플리케이션 다이어그램을 볼 수 있습니다.
 
-    ![Operations Manager 분산 응용 프로그램 다이어그램](media/service-map-scom/scom-group-dad.png)
+    ![Operations Manager 분산 애플리케이션 다이어그램](media/service-map-scom/scom-group-dad.png)
 
-* **서버 종속성 보기**: 서비스 맵에서 동기화되는 모든 서버를 나열합니다. 원하는 서버를 클릭하면 해당 서버의 분산 응용 프로그램 다이어그램을 볼 수 있습니다.
+* **서버 종속성 보기**: 서비스 맵에서 동기화되는 모든 서버를 나열합니다. 원하는 서버를 클릭하면 해당 서버의 분산 애플리케이션 다이어그램을 볼 수 있습니다.
 
-    ![Operations Manager 분산 응용 프로그램 다이어그램](media/service-map-scom/scom-dad.png)
+    ![Operations Manager 분산 애플리케이션 다이어그램](media/service-map-scom/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>작업 영역 편집 또는 삭제
 **서비스 맵 개요** 창(**관리** 창 --> Operations Management Suite**Operations Management Suite** > **서비스 맵**)을 통해 구성된 작업 영역을 편집하거나 삭제할 수 있습니다.
@@ -121,8 +120,8 @@ _Microsoft.SystemCenter.ServiceMapImport.Rule_ 규칙은 서비스 맵에서 주
 
 ![Operations Manager 재정의 속성 창](media/service-map-scom/scom-overrides.png)
 
-* **Enabled** – 자동 업데이트를 사용하거나 사용하지 않도록 설정합니다. 
-* **IntervalMinutes**: 업데이트 간 시간을 다시 설정합니다. 기본 간격은 1시간입니다. 서버 맵을 더 자주 동기화하려면 값을 변경할 수 있습니다.
+* **Enabled**: 자동 업데이트를 사용하거나 사용하지 않도록 설정합니다. 
+* **IntervalMinutes**: 업데이트 간격을 다시 설정합니다. 기본 간격은 1시간입니다. 서버 맵을 더 자주 동기화하려면 값을 변경할 수 있습니다.
 * **TimeoutSeconds**: 요청 시간이 초과되기 전의 시간을 다시 설정합니다. 
 * **TimeWindowMinutes**: 데이터를 쿼리하기 위한 기간을 다시 설정합니다. 기본값은 60분입니다. 서비스 맵에서 허용되는 최대값은 60분입니다.
 
@@ -131,7 +130,7 @@ _Microsoft.SystemCenter.ServiceMapImport.Rule_ 규칙은 서비스 맵에서 주
 현재 디자인은 다음과 같은 문제 및 제한 사항을 나타냅니다.
 * 하나의 Log Analytics 작업 영역에만 연결할 수 있습니다.
 * **제작** 창을 통해 서비스 맵 서버 그룹에 서버를 수동으로 추가할 수는 있지만, 이러한 서버에 대한 맵은 즉시 동기화되지 않으며  다음 동기화 주기 동안에 서비스 맵에서 동기화됩니다.
-* 관리 팩에서 만든 배포 응용 프로그램 다이어그램을 변경하는 경우 이러한 변경 내용은 다음 동기화에서 서비스 맵을 통해 덮어 쓰여집니다.
+* 관리 팩에서 만든 배포 애플리케이션 다이어그램을 변경하는 경우 이러한 변경 내용은 다음 동기화에서 서비스 맵을 통해 덮어 쓰여집니다.
 
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기
 서비스 주체 만들기에 대한 공식적인 Azure 설명서를 보려면 다음을 참조하세요.

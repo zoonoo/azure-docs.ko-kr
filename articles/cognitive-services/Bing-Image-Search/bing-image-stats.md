@@ -1,7 +1,7 @@
 ---
-title: Bing Image Search 분석 - Bing Image Search API
+title: Bing Image Search API에 대한 분석 추가
 titleSuffix: Azure Cognitive Services
-description: Bing Images API에 대한 분석을 가져오는 방법을 설명합니다.
+description: Bing Statistics는 Bing Image Search API에 대한 분석을 제공합니다. 분석에는 호출량, 주요 쿼리 문자열, 지리적 분포 등이 포함됩니다.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 7940330d1bc32a5d1fef158998a9292c86f21154
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 576505e1a3b05666b350c0256e0c8364280bcd95
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888172"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249654"
 ---
-# <a name="how-to-get-analytics-for-the-bing-image-search-api"></a>Bing Image Search API에 대한 분석을 가져오는 방법
+# <a name="add-analytics-to-the-bing-image-search-api"></a>Bing Image Search API에 대한 분석 추가
 
 [!INCLUDE [cognitive-services-bing-statistics](../../../includes/cognitive-services-bing-statistics.md)]

@@ -1,5 +1,5 @@
 ---
-title: 'VNet에 여러 VPN Gateway 사이트 간 연결 추가: Azure Portal: Resource Manager| Microsoft Docs'
+title: '여러 VPN 게이트웨이 사이트 간 연결을 VNet에 추가: Azure Portal: Resource Manager| Microsoft Docs'
 description: 기존 연결이 있는 VPN Gateway에 다중 사이트 S2S 연결 추가
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: a0074cf703c5d30dca3c8353f4821e71684a190c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: a814834be3225764c3b6f237bd515ca087f975a7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164563"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873124"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>기존 VPN 게이트웨이 연결이 있는 VNet에 사이트 간 연결 추가
 
@@ -48,7 +48,7 @@ ms.locfileid: "52164563"
 * 기존 연결로 Resource Manager 배포 모델을 사용하여 만든 가상 네트워크가 있습니다.
 * VNet용 가상 네트워크 게이트웨이는 RouteBased입니다. PolicyBased VPN 게이트웨이가 있다면 가상 네트워크 게이트웨이를 삭제하고 새 VPN 게이트웨이를 RouteBased로 만들어야 합니다.
 * 어떠한 주소 범위도 이 Vnet이 연결하고 있는 Vnet에 대해 겹치지 않습니다.
-* 호환되는 VPN 디바이스 및 그것을 구성할 수 있는 사람이 있습니다. [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요. VPN 디바이스를 구성하는 방법과 온-프레미스 네트워크 구성에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다.
+* 호환되는 VPN 디바이스 및 그것을 구성할 수 있는 사람이 있습니다. [VPN 디바이스 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요. VPN 디바이스를 구성하는 방법과 온-프레미스 네트워크 구성에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다.
 * VPN 디바이스에 대한 외부 연결 공용 IP 주소가 있습니다. 이 IP 주소는 NAT 뒤에 배치할 수 없습니다.
 
 ## <a name="part1"></a>1부 - 연결 구성
@@ -77,7 +77,7 @@ ms.locfileid: "52164563"
 3. **로컬 네트워크 게이트웨이 만들기** 페이지에서 다음 필드에 정보를 입력합니다.
    
    * **이름:** 로컬 네트워크 게이트웨이 리소스에 부여하고자 하는 이름입니다.
-   * **IP 주소:** 연결하려는 사이트에 있는 VPN 장치의 공용 IP 주소입니다.
+   * **IP 주소:** 연결하려는 사이트에 있는 VPN 디바이스의 공용 IP 주소입니다.
    * **주소 공간:** 새 로컬 네트워크 사이트로 라우팅하려는 주소 공간입니다.
 4. **로컬 네트워크 게이트웨이 만들기** 페이지에서 **확인**을 클릭하여 변경 내용을 저장합니다.
 
@@ -94,4 +94,4 @@ ms.locfileid: "52164563"
 
 ## <a name="next-steps"></a>다음 단계
 
-연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 가상 머신 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) 를 참조하세요.
+연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [가상 머신 학습 경로](/learn/paths/deploy-a-website-with-azure-virtual-machines/) 를 참조하세요.

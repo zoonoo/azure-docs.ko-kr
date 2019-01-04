@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: d228fbde230f89848d895bd1c004724b88de4431
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a8d91c0410d2a59e4b22866aa48d36c026f3ee8e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883825"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956298"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Azure SQL DB로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항
 
@@ -30,7 +30,7 @@ SQL Server에서 Azure SQL Database로의 온라인 마이그레이션과 관련
 
 { "resourceId":"/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType":"Database migration error", "errorEvents":"["Capture functionalities could not be set. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 Message: [Microsoft][SQL Server Native Client 11.0][SQL Server]The use of replication is not supported with system-versioned temporal table '[Application. Cities]' Line: 1 Column: -1 "]" }
  
- ![임시 테이블 오류 예제](media\known-issues-azure-sql-online\dms-temporal-tables-errors.png)
+ ![임시 테이블 오류 예제](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 
 **해결 방법**
 
@@ -52,7 +52,7 @@ SQL Server에서 Azure SQL Database로의 온라인 마이그레이션과 관련
 
 “전체 데이터 로드” 작업 도중 SQL 예외에서 “ntext가 hierarchyid와 호환되지 않음” 메시지가 표시될 수 있습니다.
      
-![hierarchyid 오류 예제](media\known-issues-azure-sql-online\dms-hierarchyid-errors.png)
+![hierarchyid 오류 예제](media/known-issues-azure-sql-online/dms-hierarchyid-errors.png)
 
 **해결 방법**
 
@@ -107,7 +107,7 @@ DMS는 원본 타임스탬프 값을 마이그레이션하지 않습니다. 대�
 
 데이터베이스 세부 정보 상태 보기에 마이그레이션 오류가 발생한 경우 위쪽 리본에서 **데이터 마이그레이션 오류** 링크를 선택하면 마이그레이션 오류 관련 추가 정보가 제공되지 않을 수도 있습니다.
 
-![세부 정보가 없는 데이터 마이그레이션 오류 예제](media\known-issues-azure-sql-online\dms-data-migration-errors-no-details.png)
+![세부 정보가 없는 데이터 마이그레이션 오류 예제](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 
 **해결 방법**
 
@@ -115,6 +115,6 @@ DMS는 원본 타임스탬프 값을 마이그레이션하지 않습니다. 대�
 
 1. 데이터베이스 세부 정보 상태 블레이드를 닫아 마이그레이션 작업 화면을 표시합니다.
 
-     ![마이그레이션 작업 화면](media\known-issues-azure-sql-online\dms-migration-activity-screen.png)
+     ![마이그레이션 작업 화면](media/known-issues-azure-sql-online/dms-migration-activity-screen.png)
 
 2. **오류 세부 정보 참조**를 선택하여 마이그레이션 오류를 해결하는 데 도움이 되는 특정 오류 메시지를 확인합니다.

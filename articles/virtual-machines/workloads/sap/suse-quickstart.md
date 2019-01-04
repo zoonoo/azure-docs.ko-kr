@@ -24,7 +24,7 @@ ms.lasthandoff: 09/24/2018
 ms.locfileid: "46950049"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Microsoft Azure SUSE Linux VM에서 SAP NetWeaver 실행
-이 문서에서는 Microsoft Azure SUSE Linux VM(가상 머신)에서 SAP NetWeaver를 실행할 때 고려해야 할 다양한 항목을 설명합니다. 2016년 5월 19일을 기준으로 SAP NetWeaver는 Azure의 SUSE Linux VM에서 공식적으로 지원됩니다. Linux 버전, SAP 커널 버전 및 기타 필수 조건과 관련된 모든 세부 정보는 SAP 정보 1928533, “Azure의 SAP 응용 프로그램: 지원 제품 및 Azure VM 유형”에서 찾을 수 있습니다.
+이 문서에서는 Microsoft Azure SUSE Linux VM(가상 머신)에서 SAP NetWeaver를 실행할 때 고려해야 할 다양한 항목을 설명합니다. 2016년 5월 19일을 기준으로 SAP NetWeaver는 Azure의 SUSE Linux VM에서 공식적으로 지원됩니다. Linux 버전, SAP 커널 버전 및 기타 필수 조건과 관련된 모든 세부 정보는 SAP 정보 1928533, "Azure의 SAP 애플리케이션: 지원 제품 및 Azure VM 유형"에서 찾을 수 있습니다.
 Linux VM의 SAP에 대한 자세한 내용은 [Linux VM(가상 머신)에서 SAP 사용](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 확인할 수 있습니다.
 
 다음 정보는 일부 잠재적인 문제를 예방하는 데 도움이 됩니다.

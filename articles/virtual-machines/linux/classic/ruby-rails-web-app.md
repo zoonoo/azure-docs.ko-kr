@@ -129,11 +129,11 @@ SSH를 통해 로그인한 경우.다음 명령을 실행합니다.
     ![기본 Rails 페이지][default-rails-cloud]
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 수동으로 대부분의 단계를 수행했습니다. 프로덕션 환경의 개발 컴퓨터에 앱을 작성하고 Azure VM에 배포합니다. 또한 대부분의 프로덕션 환경은 Rails 응용 프로그램을 다른 서버 프로세스(예: Apache 또는 NginX)와 함께 호스트하며 이러한 서버 프로세스는 Rails 응용 프로그램의 여러 인스턴스로 라우팅하여 정적 리소스를 제공하는 요청을 처리합니다. 자세한 내용은 http://guides.rubyonrails.org/routing.html을 참조하세요.
+이 자습서에서는 수동으로 대부분의 단계를 수행했습니다. 프로덕션 환경의 개발 컴퓨터에 앱을 작성하고 Azure VM에 배포합니다. 또한 대부분의 프로덕션 환경은 Rails 애플리케이션을 다른 서버 프로세스(예: Apache 또는 NginX)와 함께 호스트하며 이러한 서버 프로세스는 Rails 애플리케이션의 여러 인스턴스로 라우팅하여 정적 리소스를 제공하는 요청을 처리합니다. 자세한 내용은 http://guides.rubyonrails.org/routing.html을 참조하세요.
 
 Ruby on Rails에 대해 자세히 알아보려면 [Ruby on Rails 가이드][rails-guides](영문)를 방문하세요.
 
-Ruby 응용 프로그램에서 Azure 서비스를 사용하려면 다음을 참조하세요.
+Ruby 애플리케이션에서 Azure 서비스를 사용하려면 다음을 참조하세요.
 
 * [BLOB을 사용하여 구조화되지 않은 데이터 저장][blobs]
 * [테이블을 사용하여 키/값 쌍 저장][tables]

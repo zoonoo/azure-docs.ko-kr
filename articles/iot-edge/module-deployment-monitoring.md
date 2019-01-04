@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge 모듈 배포 | Microsoft Docs
-description: 모듈을 Edge 디바이스에 배포하는 방법을 알아봅니다.
+title: 디바이스 그룹에 대한 자동 배포 - Azure IoT Edge | Microsoft Docs
+description: Azure IoT Edge에서 자동 배포를 사용하여 공유 태그를 기준으로 디바이스 그룹 관리
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cd077c1a552a14582fce48bbe60f56ef08e5a4d7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 18cd27ae8bf0a395fa351cf283bc1d40f94dac53
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584845"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100109"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>단일 디바이스 또는 대규모 IoT Edge 자동 배포 이해
 
@@ -65,7 +66,7 @@ IoT Edge 디바이스만 배포를 사용하여 구성할 수 있습니다. 배�
 
 예를 들어 배포 A의 대상 조건이 tags.environment = 'prod'인 경우 다시 활성화됩니다. 배포를 시작할 때는 10개의 프로덕션 디바이스가 있습니다. 이 10개 디바이스에 모듈이 성공적으로 설치됩니다. IoT Edge 에이전트 상태는 총 10개 디바이스, 성공한 응답 10개, 실패한 응답 0개, 보류 중인 응답 0개로 표시됩니다. 이제 tags.environment = 'prod'인 디바이스 5개를 추가합니다. 새 디바이스 5개에 배포하려고 시도하면 서비스에서 변경을 감지하고 IoT Edge 에이전트 상태는 총 15개 디바이스, 성공한 응답 10개, 실패한 응답 0개. 보류 중인 응답 5개가 됩니다.
 
-디바이스 쌍 태그 또는 deviceId에 부울 조건을 사용하여 대상 디바이스를 선택합니다. 태그가 있는 조건을 사용하려면 속성과 동일한 수준의 디바이스 쌍에 "tags":{} 섹션을 추가해야 합니다. [장치 쌍의 태그에 대해 자세히 알아보기](../iot-hub/iot-hub-devguide-device-twins.md)
+디바이스 쌍 태그 또는 deviceId에 부울 조건을 사용하여 대상 디바이스를 선택합니다. 태그가 있는 조건을 사용하려면 속성과 동일한 수준의 디바이스 쌍에 "tags":{} 섹션을 추가해야 합니다. [디바이스 쌍의 태그에 대해 자세히 알아보기](../iot-hub/iot-hub-devguide-device-twins.md)
 
 대상 조건 예:
 
@@ -94,11 +95,11 @@ IoT Edge 디바이스만 배포를 사용하여 구성할 수 있습니다. 배�
 
 배포를 모니터링하여 모든 대상 IoT Edge 디바이스에 성공적으로 적용되었는지 여부를 확인할 수 있습니다.  대상 Edge 디바이스는 다음 상태 범주 중 하나 이상에 표시됩니다. 
 
-* **대상**: 배포 대상 조건과 일치하는 IoT Edge 장치가 표시됩니다.
-* **실제**: 더 높은 우선 순위의 다른 배포에서 대상으로 지정하지 않은 대상 IoT Edge 장치가 표시됩니다.
-* **정상**: 모듈이 성공적으로 배포되었다고 서비스에 다시 보고한 IoT Edge 장치가 표시됩니다. 
-* **비정상**: 하나 이상의 모듈이 성공적으로 배포되지 않았다고 서비스에 다시 보고한 IoT Edge 장치가 표시됩니다. 오류를 자세히 조사하려면 해당 디바이스에 원격으로 연결하고 로그 파일을 살펴봅니다.
-* **알 수 없음**: 이 배포와 관련된 모든 상태를 보고하지 않은 IoT Edge 장치가 표시됩니다. 자세히 조사하려면 서비스 정보 및 로그 파일을 살펴봅니다.
+* **대상**: 배포 대상 조건과 일치하는 IoT Edge 디바이스가 표시됩니다.
+* **실제**: 더 높은 우선 순위의 다른 배포에서 대상으로 지정하지 않은 대상 IoT Edge 디바이스가 표시됩니다.
+* **정상**: 모듈이 성공적으로 배포되었다고 서비스에 다시 보고한 IoT Edge 디바이스가 표시됩니다. 
+* **비정상**: 하나 이상의 모듈이 성공적으로 배포되지 않았다고 서비스에 다시 보고한 IoT Edge 디바이스가 표시됩니다. 오류를 자세히 조사하려면 해당 디바이스에 원격으로 연결하고 로그 파일을 살펴봅니다.
+* **알 수 없음**: 이 배포와 관련된 모든 상태를 보고하지 않은 IoT Edge 디바이스가 표시됩니다. 자세히 조사하려면 서비스 정보 및 로그 파일을 살펴봅니다.
 
 ## <a name="phased-rollout"></a>단계별 배포 
 

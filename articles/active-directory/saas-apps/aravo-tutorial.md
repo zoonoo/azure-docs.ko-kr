@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: f9ada220a82a2cf9347f02960eeef9c211f37c67
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6631df4764e16fd2399b231732df3fb1ee475869
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226156"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842648"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aravo"></a>자습서: Aravo와 Azure Active Directory 통합
 
@@ -49,7 +49,7 @@ Aravo와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Aravo 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -63,19 +63,19 @@ Aravo의 Azure AD 통합을 구성하려면 갤러리의 Aravo를 관리되는 S
 
     ![Active Directory][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
 4. 검색 상자에 **Aravo**를 입력합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/aravo-tutorial/tutorial_aravo_search.png)
 
-5. 결과 패널에서 **Aravo**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+5. 결과 패널에서 **Aravo**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/aravo-tutorial/tutorial_aravo_addfromgallery.png)
 
@@ -96,11 +96,11 @@ Aravo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Aravo 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Aravo 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Aravo에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Aravo** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Aravo** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -114,10 +114,10 @@ Aravo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. **식별자** 텍스트 상자에서 `https://<companyname>.aravo.com` 패턴을 사용하여 URL을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<companyname>.aravo.com/aems/login.do`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<companyname>.aravo.com/aems/login.do`
 
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Aravo 지원팀](http://www.aravo.com/about-us/contact/)에 문의하세요.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Aravo 지원팀](https://www.aravo.com/about-us/contact/)에 문의하세요.
  
 4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -131,11 +131,11 @@ Aravo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     ![Configure Single Sign-On](./media/aravo-tutorial/tutorial_aravo_configure.png) 
 
-7. **Aravo** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)**, **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 [Aravo 지원팀](http://www.aravo.com/about-us/contact/)으로 보내야 합니다. 
+7. **Aravo** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)**, **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 [Aravo 지원팀](https://www.aravo.com/about-us/contact/)으로 보내야 합니다. 
 
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
@@ -162,7 +162,7 @@ Aravo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -170,7 +170,7 @@ Aravo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
  
 ### <a name="creating-an-aravo-test-user"></a>Aravo 테스트 사용자 만들기
 
-이 섹션은 Aravo에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Aravo 계정에 사용자를 추가하려면 [Aravo 지원팀](http://www.aravo.com/about-us/contact/)에 문의하세요.
+이 섹션은 Aravo에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Aravo 계정에 사용자를 추가하려면 [Aravo 지원팀](https://www.aravo.com/about-us/contact/)에 문의하세요.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -180,11 +180,11 @@ Aravo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 **Britta Simon을 Aravo에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **Aravo**를 선택합니다.
+2. 애플리케이션 목록에서 **Aravo**를 선택합니다.
 
     ![Configure Single Sign-On](./media/aravo-tutorial/tutorial_aravo_app.png) 
 
@@ -206,7 +206,7 @@ Aravo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 이 섹션은 액세스 패널을 사용하여 Microsoft Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.
 
-액세스 패널에서 Aravo 타일을 클릭하면 Aravo 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Aravo 타일을 클릭하면 Aravo 애플리케이션에 자동으로 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -10,14 +10,14 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2018
+ms.date: 12/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 80246114ac839efa0025dfbc29b9bdbbe2b740be
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 5f27b34bda930d020461bd5f4f7986091ffd5549
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50084808"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413662"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>리소스 관리자 템플릿과 Azure CLI로 리소스 배포
 
@@ -153,7 +153,7 @@ arrayContent.json 형식은 다음과 같습니다.
 
 ### <a name="parameter-files"></a>매개 변수 파일
 
-매개 변수를 스크립트에 인라인 값으로 전달하는 것보다는, 매개 변수 값이 포함된 JSON 파일을 사용하는 것이 더 쉬울 수 있습니다. 매개 변수 파일은 로컬 파일이거나 액세스 가능한 URI가 있는 외부 파일일 수 있습니다.
+매개 변수를 스크립트에 인라인 값으로 전달하는 것보다는, 매개 변수 값이 포함된 JSON 파일을 사용하는 것이 더 쉬울 수 있습니다. 매개 변수 파일은 로컬 파일이어야 합니다. 외부 매개 변수 파일은 Azure CLI에서 사용할 수 없습니다.
 
 매개 변수 파일은 다음과 같은 형식이어야 합니다.
 
@@ -216,7 +216,7 @@ az group deployment validate \
       ...
 ```
 
-오류가 감지되면 명령은 오류 메시지를 반환합니다. 예를 들어 저장소 계정 SKU에 대해 잘못된 값을 전달하면 다음 오류가 반환됩니다.
+오류가 감지되면 명령은 오류 메시지를 반환합니다. 예를 들어, 저장소 계정 SKU에 대해 잘못된 값을 전달하면 다음 오류가 반환됩니다.
 
 ```azurecli
 {

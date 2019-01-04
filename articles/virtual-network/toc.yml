@@ -319,7 +319,7 @@ items:
         href: virtual-networks-dmz-nsg-fw-asm.md
       - name: 방화벽, UDR 및 NSG와 DMZ
         href: virtual-networks-dmz-nsg-fw-udr-asm.md
-      - name: 샘플 응용 프로그램
+      - name: 샘플 애플리케이션
         href: virtual-networks-sample-app.md
 - name: 참고 자료
   items:

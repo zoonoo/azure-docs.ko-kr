@@ -10,26 +10,26 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 880f5fc44978a6b46b3cbaefe41296903617b4e6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 371685ba8a65fe3ca9d8835f4afcacc8ff2e07ed
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011411"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383256"
 ---
-# <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>HDInsight에서 Hadoop의 인덱스 문제 해결 문서
+# <a name="index-of-apache-hadoop-in-hdinsight-troubleshooting-articles"></a>HDInsight에서 Apache Hadoop의 인덱스 문제 해결 문서
 문서는 오류의 유형별로 구성됩니다.
 
 ## <a name="out-of-memory-error"></a>메모리 부족 오류
-* [HDInsight에서 Hive 메모리 부족 오류 수정](hdinsight-hadoop-hive-out-of-memory-error-oom.md): Hive 쿼리에서 OOM(메모리 부족) 오류를 수정합니다. 고객 시나리오에 많은 대형 테이블 간 쿼리를 포함합니다.
+* [HDInsight에서 Apache Hive 메모리 부족 오류 수정](hdinsight-hadoop-hive-out-of-memory-error-oom.md): Hive 쿼리로 OOM(메모리 부족) 오류를 수정합니다. 고객 시나리오에 많은 대형 테이블 간 쿼리를 포함합니다.
 
-## <a name="hive-query-performance"></a>Hive 쿼리 성능
-* [HDInsight에서 Hadoop에 대한 Hive 쿼리 최적화](hdinsight-hadoop-optimize-hive-query.md):이 문서에서는 Hive 쿼리를 적용할 수 있는 몇 가지 가장 일반적인 Hive 성능 최적화 방법을 다룹니다.
-* [HDInsight Hadoop 클러스터에서 Hive 쿼리 성능 문제를 해결합니다](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/).
+## <a name="apache-hive-query-performance"></a>Apache Hive 쿼리 성능
+* [HDInsight에서 Apache Hadoop에 대한 Apache Hive 쿼리 최적화](hdinsight-hadoop-optimize-hive-query.md) 이 문서에서는 Hive 쿼리에 적용할 수 있는 가장 일반적인 Hive 성능 최적화 방법 중 몇 가지를 설명합니다.
+* [HDInsight Hadoop 클러스터에서 Apache Hive 쿼리 성능 문제를 해결합니다](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/).
 
 ## <a name="more-troubleshooting-articles"></a>추가 문제 해결 문서
 * [Linux에서 HDInsight 사용에 관한 정보](hdinsight-hadoop-linux-information.md)
-* [HDInsight의 Linux 기반 Hadoop에서 YARN 응용 프로그램 로그에 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Linux 기반 HDInsight에서 Hadoop 서비스에 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보](hdinsight-release-notes.md)
+* [HDInsight의 Linux 기반 Hadoop에서 Apache Hadoop YARN 애플리케이션 로그에 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Linux 기반 HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Azure HDInsight에서 Apache Hadoop 구성 요소에 대한 릴리스 정보](hdinsight-release-notes.md)
 

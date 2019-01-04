@@ -144,7 +144,7 @@ items:
     href: event-hubs-auto-inflate.md
   - name: Event Hubs를 사용하여 Azure 진단 데이터 스트림
     href: event-hubs-streaming-azure-diags-data.md
-  - name: 다른 프로토콜을 사용하여 응용 프로그램 간에 이벤트 교환
+  - name: 다른 프로토콜을 사용하여 애플리케이션 간에 이벤트 교환
     href: event-hubs-exchange-events-different-protocols.md
 - name: 참고 자료
   items:

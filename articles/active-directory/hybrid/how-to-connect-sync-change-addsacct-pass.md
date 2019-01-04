@@ -28,7 +28,7 @@ AD DS 계정은 Azure AD Connect가 온-프레미스 Active Directory와 통신�
 
 * Synchronization Service Manager에서 온-프레미스 AD를 사용하여 가져오기 또는 내보내기 작업을 수행하면 **no-start-credentials** 오류를 나타내며 실패합니다.
 
-* Windows 이벤트 뷰어에서 응용 프로그램 이벤트 로그에는 **이벤트 ID 6000** 오류 및 메시지 **'자격 증명이 잘못되었기 때문에 "contoso.com" 관리 에이전트를 실행하지 못했습니다.'** 가 포함됩니다.
+* Windows 이벤트 뷰어에서 애플리케이션 이벤트 로그에는 **이벤트 ID 6000** 오류 및 메시지 **'자격 증명이 잘못되었기 때문에 "contoso.com" 관리 에이전트를 실행하지 못했습니다.'** 가 포함됩니다.
 
 
 ## <a name="how-to-update-the-synchronization-service-with-new-password-for-ad-ds-account"></a>AD DS 계정에 대한 새 암호로 동기화 서비스를 업데이트하는 방법

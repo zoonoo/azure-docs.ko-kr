@@ -167,7 +167,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
    private const string EventHubName = "hubdatamigration";
    ```
 
-6. 솔루션을 빌드한 다음, WindTurbineGenerator.exe 응용 프로그램을 실행합니다. 
+6. 솔루션을 빌드한 다음, WindTurbineGenerator.exe 애플리케이션을 실행합니다. 
 
 ## <a name="verify-captured-data-in-data-warehouse"></a>데이터 웨어하우스에서 캡처된 데이터 확인
 몇 분 후에 SQL 데이터 웨어하우스의 테이블을 쿼리합니다. WindTurbineDataGenerator에서 생성된 데이터가 Event Hub로 스트림되고, Azure Storage 컨테이너에 캡처된 다음, Azure Function에서 SQL Data Warehouse 테이블로 마이그레이션되었음을 알 수 있습니다.  

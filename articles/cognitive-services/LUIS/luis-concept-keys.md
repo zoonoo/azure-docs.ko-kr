@@ -1,23 +1,24 @@
 ---
-title: LUIS 키에 대한 이해
-titleSuffix: Azure Cognitive Services
-description: LUIS는 작성 및 엔드포인트라는 두 가지 키를 사용합니다. 작성 키는 LUIS 계정을 만들 때 자동으로 생성됩니다. LUIS 앱을 게시할 준비가 되면 엔드포인트 키를 만들고, LUIS 앱에 할당하고, 엔드포인트 쿼리에서 사용해야 합니다.
+title: 구독 키
+titleSuffix: Language Understadning - Azure Cognitive Services
+description: LUIS는 사용자의 모델을 만드는 평가판 작성 키 및 사용자 발언으로 예측 엔드포인트를 쿼리하기 위한 계량된 엔드포인트 키와 같이 두 개의 키를 사용합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: f7c1753e71025d3ce39b1b6e3fb7362f2df212f5
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 6816fa3705348d07eced92c64e0c7020a08d01d5
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637834"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132384"
 ---
-# <a name="keys-in-luis"></a>LUIS의 키
+# <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>LUIS의 작성 및 쿼리 예측 엔드포인트 키
 LUIS는 두 가지 키인 [작성](#programmatic-key) 및 [엔드포인트](#endpoint-key)를 사용합니다. 작성 키는 LUIS 계정을 만들 때 자동으로 생성됩니다. LUIS 앱을 게시할 준비가 되면 [엔드포인트 키를 만들고](luis-how-to-azure-subscription.md#create-luis-endpoint-key), LUIS 앱에 [할당](luis-how-to-manage-keys.md#assign-endpoint-key)하고, [엔드포인트 쿼리에서 사용](#use-endpoint-key-in-query)해야 합니다. 
 
 |키|목적|

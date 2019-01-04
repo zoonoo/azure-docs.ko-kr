@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 6c16cd95fce7d3f367f0ded73c3635d8cefea7a0
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 0000e5d8bfa7da6ebe1b6702649e56262c9d9cab
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493990"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277372"
 ---
 # <a name="sfctl-replica"></a>sfctl 복제본
 서비스 파티션에 속한 복제본을 관리합니다.
@@ -70,7 +70,7 @@ Service Fabric 노드에 배포된 복제본에 대한 정보를 포함하는 �
 
 |인수|설명|
 | --- | --- |
-| --application-id [필수] | 응용 프로그램의 id입니다. 일반적으로 'fabric\:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 “fabric\:/myapp/app1”인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
+| --application-id [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 “fabric\:/myapp/app1”인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --node-name [필수] | 노드의 이름입니다. |
 | --partition-id | 파티션의 id입니다. |
 | --service-manifest-name | Service Fabric 클러스터에 응용 프로그램 유형의 일부로 등록된 서비스 매니페스트의 이름입니다. |
@@ -136,7 +136,7 @@ Service Fabric 파티션의 복제본에 대한 정보를 가져옵니다.
 ## <a name="sfctl-replica-list"></a>sfctl 복제본 목록
 Service Fabric 서비스 파티션 복제본에 대한 정보를 가져옵니다.
 
-GetReplicas 끝점은 지정된 파티션의 복제본에 관한 정보를 반환합니다. 응답에는 ID, 역할, 상태, 상태, 노드 이름, 작동 시간 및 기타 복제본에 관한 세부 정보가 들어 있습니다.
+GetReplicas 엔드포인트는 지정된 파티션의 복제본에 관한 정보를 반환합니다. 응답에는 ID, 역할, 상태, 상태, 노드 이름, 작동 시간 및 기타 복제본에 관한 세부 정보가 들어 있습니다.
 
 ### <a name="arguments"></a>인수
 
@@ -184,7 +184,7 @@ GetReplicas 끝점은 지정된 파티션의 복제본에 관한 정보를 반�
 ## <a name="sfctl-replica-report-health"></a>sfctl replica report-health
 Service Fabric 복제본에 대한 상태 보고서를 보냅니다.
 
-지정된 Service Fabric 복제본의 상태를 보고합니다. 보고서는 상태 보고서의 원본 및 보고되는 속성에 대한 정보를 포함해야 합니다. 보고서는 Health 스토어에 전달하는 Service Fabric 게이트웨이 복제본에 전송됩니다. 보고서는 게이트웨이에 의해 허용되지만 추가 유효성 검사 후 Health 스토어에 의해 거부될 수 있습니다. 예를 들어 Health 스토어는 부실 시퀀스 번호와 같은 잘못된 매개 변수로 인해 보고서를 거부할 수도 있습니다. 보고서가 Health 스토어에서 적용되었는지 여부를 확인하려면 해당 보고서가 이벤트 섹션에 표시되는지 확인합니다.
+지정된 Service Fabric 복제본의 상태를 보고합니다. 보고서는 상태 보고서의 원본 및 보고되는 속성에 대한 정보를 포함해야 합니다. 보고서는 Health 스토어에 전달하는 Service Fabric 게이트웨이 복제본에 전송됩니다. 보고서는 게이트웨이에 의해 허용되지만 추가 유효성 검사 후 Health 스토어에 의해 거부될 수 있습니다. 예를 들어 Health 스토어는 부실 시퀀스 번호와 같은 잘못된 매개 변수로 인해 보고서를 거부할 수도 있습니다. 보고서가 Health 스토어에서 적용되었는지 여부를 확인하려면 get replica health를 실행하고 해당 보고서가 HealthEvents 섹션에 표시되는지 확인합니다.
 
 ### <a name="arguments"></a>인수
 
@@ -201,7 +201,7 @@ Service Fabric 복제본에 대한 상태 보고서를 보냅니다.
 | --sequence-number | 숫자 문자열의 이 상태 보고서에 대한 일련 번호입니다. <br><br> 보고서 일련 번호는 Health 스토어에서 유효하지 않은 보고서를 검색하는 데 사용됩니다. 지정되지 않은 경우 일련 번호는 보고서가 추가될 때 상태 클라이언트에서 자동으로 생성됩니다. |
 | --service-kind | 상태가 보고되는 서비스 복제본의 종류입니다(상태 비저장 또는 상태 저장). 다음은 가능한 값\: '상태 비저장', '상태 저장'.  기본값\: 상태 저장 |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
-| --ttl | 이 상태 보고서가 유효한 기간입니다. 이 필드는 기간을 지정하기 위해 ISO8601 형식을 사용합니다. <br><br> 클라이언트가 주기적으로 보고하는 경우 TTL(Time to Live)보다 높은 빈도로 보고서를 보내야 합니다. 클라이언트가 전환 시 보고하는 경우 TTL(Time to live)을 무한으로 설정할 수 있습니다. TTL(Time to live)이 만료되면 상태 정보를 포함하는 상태 이벤트는 RemoveWhenExpired가 true인 경우 Health 스토어에서 제거되거나 RemoveWhenExpired가 false인 경우 오류로 평가됩니다. 지정되지 않은 경우 TTL(Time to live)은 무한 값으로 기본 설정됩니다. |
+| --ttl | 이 상태 보고서가 유효한 기간입니다. 이 필드는 기간을 지정하는 데 ISO8601 형식을 사용합니다. <br><br> 클라이언트가 주기적으로 보고하는 경우 TTL(Time to Live)보다 높은 빈도로 보고서를 보내야 합니다. 클라이언트가 전환 시 보고하는 경우 TTL(Time to live)을 무한으로 설정할 수 있습니다. TTL(Time to live)이 만료되면 상태 정보를 포함하는 상태 이벤트는 RemoveWhenExpired가 true인 경우 Health 스토어에서 제거되거나 RemoveWhenExpired가 false인 경우 오류로 평가됩니다. 지정되지 않은 경우 TTL(Time to live)은 무한 값으로 기본 설정됩니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 

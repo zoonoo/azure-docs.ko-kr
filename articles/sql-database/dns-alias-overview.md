@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database의 DNS 별칭 | Microsoft Docs
-description: 응용 프로그램은 Azure SQL Database 서버 이름의 별칭에 연결할 수 있습니다. 한편, 별칭이 가리키는 SQL Database를 언제든지 변경하여 테스트 등의 작업을 용이하게 수행할 수 있습니다.
+description: 애플리케이션은 Azure SQL Database 서버 이름의 별칭에 연결할 수 있습니다. 한편, 별칭이 가리키는 SQL Database를 언제든지 변경하여 테스트 등의 작업을 용이하게 수행할 수 있습니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -28,8 +28,8 @@ Azure SQL Database 서버 이름 대신 *DNS 별칭*을 사용할 수 있습니�
 DNS 별칭의 일반적인 용도에는 다음과 같은 경우가 포함됩니다.
 
 - Azure SQL Server에 대해 기억하기 쉬운 이름을 만듭니다.
-- 초기 개발 동안, 별칭은 테스트 SQL Database 서버를 참조할 수 있습니다. 응용 프로그램이 라이브되면 프로덕션 서버를 참조하도록 별칭을 수정할 수 있습니다. 테스트에서 프로덕션 환경으로 전환하기 위해 데이터베이스 서버에 연결되는 여러 클라이언트의 구성을 수정할 필요는 없습니다.
-- 응용 프로그램의 데이터베이스만 다른 SQL Database 서버로 이동된다고 가정합니다. 여기서 여러 클라이언트 구성을 수정하지 않고도 별칭을 수정할 수 있습니다.
+- 초기 개발 동안, 별칭은 테스트 SQL Database 서버를 참조할 수 있습니다. 애플리케이션이 라이브되면 프로덕션 서버를 참조하도록 별칭을 수정할 수 있습니다. 테스트에서 프로덕션 환경으로 전환하기 위해 데이터베이스 서버에 연결되는 여러 클라이언트의 구성을 수정할 필요는 없습니다.
+- 애플리케이션의 데이터베이스만 다른 SQL Database 서버로 이동된다고 가정합니다. 여기서 여러 클라이언트 구성을 수정하지 않고도 별칭을 수정할 수 있습니다.
 
 ## <a name="domain-name-system-dns-of-the-internet"></a>인터넷의 DNS(Domain Name System)
 

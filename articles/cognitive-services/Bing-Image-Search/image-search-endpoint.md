@@ -1,5 +1,5 @@
 ---
-title: 이미지 검색 엔드포인트 - Bing Image Search API
+title: Bing Image Search API에 대한 엔드포인트
 titleSuffix: Azure Cognitive Services
 description: Bing Image Search API에 대한 사용 가능한 엔드포인트의 목록입니다.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: v-gedod
-ms.openlocfilehash: ca38943908bf3eee04c40cf4decf81fd20b08a1f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cb6213bbb27fc1a7086ccecafa7ae7b12040ac0a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295923"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250623"
 ---
-# <a name="image-search-endpoints"></a>Image Search 엔드포인트
+# <a name="endpoints-for-the-bing-image-search-api"></a>Bing Image Search API에 대한 엔드포인트
 
 **Image Search API**는 세 개의 엔드포인트를 포함합니다.  엔드포인트 1은 쿼리를 기반으로 하는 웹에서 이미지를 반환합니다. 엔드포인트 2는 [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse)를 반환합니다.  엔드포인트 3은 최신 이미지를 반환합니다.
 ## <a name="endpoints"></a>엔드포인트
@@ -28,7 +28,7 @@ Bing API를 사용하여 이미지 결과를 가져오려면 다음 엔드포인
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search
 ```
 
-**엔드포인트 2:** `GET` 또는 `POST` 중 하나를 사용하여 이미지에 대한 정보를 반환합니다.
+**엔드포인트 2:** `GET` 또는 `POST` 중 하나를 사용하여 이미지에 대한 인사이트를 반환합니다.
 ```
  GET or POST https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
@@ -49,7 +49,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/trending
 이미지 검색 요청에 대한 응답에는 결과가 JSON 개체로 포함됩니다. 결과 구문 분석의 예제는 [자습서](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) 및 [소스 코드](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-**Bing** API는 해당 유형에 따라 결과를 반환하는 검색 작업을 지원합니다. 모든 검색 엔드포인트는 결과를 JSON 응답 개체로 반환합니다.  모든 엔드포인트는 경도, 위도 및 검색 반경으로 특정 언어 및/또는 위치를 반환하는 쿼리를 지원합니다.
+**Bing** API는 해당 유형에 따라 결과를 반환하는 검색 작업을 지원합니다. 모든 검색 엔드포인트는 결과를 JSON 응답 개체로 반환합니다.  모든 엔드포인트는 경도, 위도 및 검색 반경으로 특정 언어 및/또는 위치를 반환하는 쿼리를 지원합니다.
 
 각 엔드포인트에서 지원하는 매개 변수에 대한 자세한 내용은 각 유형에 대한 참조 페이지를 참조하세요.
 Image Search API를 사용하는 기본 요청의 예는 [Image Search 빠른 시작](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/search-the-web)을 참조하세요.

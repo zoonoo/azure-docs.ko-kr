@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
 ms.component: common
-ms.openlocfilehash: a1b183e5b0929a2149502aa340e2e69c725dba6d
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 2ab933506ea03ae72198113d70888460e5001a6d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49168235"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958425"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>AzCopy v10(미리 보기)을 사용하여 데이터 전송
 
@@ -49,7 +49,7 @@ AzCopy의 최신 미리 보기 버전을 다운로드합니다.
 
 ## <a name="post-installation-steps"></a>설치 후 단계
 
-AzCopy v10은 설치가 필요하지 않습니다. 선호하는 명령줄 응용 프로그램을 열고 `azcopy.exe` 실행 파일이 있는 폴더로 이동합니다. 원하는 경우 시스템 경로에 AzCopy 폴더 위치를 추가할 수 있습니다.
+AzCopy v10은 설치가 필요하지 않습니다. 선호하는 명령줄 애플리케이션을 열고 `azcopy.exe` 실행 파일이 있는 폴더로 이동합니다. 원하는 경우 시스템 경로에 AzCopy 폴더 위치를 추가할 수 있습니다.
 
 ## <a name="authentication-options"></a>인증 옵션
 
@@ -84,6 +84,16 @@ AzCopy v10은 간단한 자체 문서화 구문을 갖고 있습니다. 일반 �
 .\azcopy cp -h
 ```
 
+## <a name="create-a-file-system-azure-data-lake-storage-gen2-only"></a>파일 시스템(Azure Data Lake Storage Gen2 전용) 만들기
+
+Blob 스토리지 계정에서 계층 구조 네임스페이스를 사용하도록 설정한 경우 다운로드 파일을 업로드할 수 있도록 다음 명령을 사용하여 새 파일 시스템을 만들 수 있습니다.
+
+```azcopy
+.\azcopy make "https://account.dfs.core.windows.net/top-level-resource-name" --recursive=true
+```
+
+이 문자열의 ``account`` 부분은 스토리지 계정의 이름입니다. 이 문자열의 ``top-level-resource-name`` 부분은 만들려는 파일 시스템의 이름입니다.
+
 ## <a name="copy-data-to-azure-storage"></a>Azure Storage에 데이터 복사
 
 복사 명령을 사용하여 원본에서 대상으로 데이터를 전송합니다. 원본/대상으로 사용 가능한 항목은 다음과 같습니다.
@@ -107,10 +117,22 @@ AzCopy v10은 간단한 자체 문서화 구문을 갖고 있습니다. 일반 �
 .\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
 ```
 
+Blob 스토리지 계정에서 계층 구조 네임스페이스를 사용하도록 설정한 경우 다음 명령을 사용하여 파일 시스템에 파일을 업로드할 수 있습니다.
+
+```azcopy
+.\azcopy cp "C:\local\path" "https://myaccount.dfs.core.windows.net/myfolder<sastoken>" --recursive=true
+```
+
 다음 명령은 C:\local\path 폴더의 모든 파일을 "mycontainer1" 컨테이너에 업로드합니다(하위 디렉터리에 반복하지 않고).
 
 ```azcopy
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
+```
+
+Blob 스토리지 계정에서 계층 구조 네임스페이스를 사용하도록 설정한 경우 다음 명령을 사용할 수 있습니다.
+
+```azcopy
+.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/myfolder<sastoken>"
 ```
 
 예제를 더 가져오려면 다음 명령을 사용합니다.
@@ -127,6 +149,8 @@ AzCopy v10은 간단한 자체 문서화 구문을 갖고 있습니다. 일반 �
 ```azcopy
 .\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
+
+계층 구조 네임스페이스를 사용하도록 설정한 Blob 스토리지 계정을 사용하려면 이러한 예제에서 ``blob.core.windows.net`` 문자열을 ``dfs.core.windows.net``으로 바꿉니다.
 
 > [!NOTE]
 > 이 명령은 모든 Blob 컨테이너를 열거하고 대상 계정에 복사합니다. 현재 AzCopy v10은 두 저장소 계정 간의 블록 Blob 복사만 지원합니다. 그 외의 모든 저장소 계정 개체(추가 Blob, 페이지 Blob, 파일, 테이블 및 큐)를 건너뜁니다.
@@ -154,6 +178,8 @@ AzCopy v10은 기본적으로 블록 Blob에 데이터를 업로드합니다. �
 ```
 
 이 명령을 사용하면 마지막으로 수정된 타임스탬프에 따라 원본을 대상과 증분 방식으로 동기화할 수 있습니다. 원본에서 파일이 추가 또는 삭제되면 AzCopy v10이 대상에서 똑같은 작업을 수행합니다.
+
+[!NOTE] 계층 구조 네임스페이스를 사용하도록 설정한 Blob 스토리지 계정을 사용하려면 이러한 예제에서 ``blob.core.windows.net`` 문자열을 ``dfs.core.windows.net``으로 바꿉니다.
 
 ## <a name="advanced-configuration"></a>고급 구성
 

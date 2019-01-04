@@ -57,7 +57,7 @@ Visual Studio [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)�
 8. 작업을 저장합니다.  
     ![](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
 
-이 시점에서 맵의 설정이 완료됩니다. 실제 응용 프로그램에서는 SalesForce와 같은 LOB 응용 프로그램에 변환한 데이터를 저장할 수 있습니다. Salesforce에 변환의 출력을 보내는 작업을 쉽게 수행할 수 있습니다. 
+이 시점에서 맵의 설정이 완료됩니다. 실제 애플리케이션에서는 SalesForce와 같은 LOB 애플리케이션에 변환한 데이터를 저장할 수 있습니다. Salesforce에 변환의 출력을 보내는 작업을 쉽게 수행할 수 있습니다. 
 
 이제 HTTP 엔드포인트에 요청하여 변환을 테스트할 수 있습니다.  
 

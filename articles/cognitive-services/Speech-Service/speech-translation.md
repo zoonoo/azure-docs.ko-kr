@@ -1,27 +1,28 @@
 ---
-title: 음성 번역 정보
+title: Speech Translation 정보 - Speech Services
 titlesuffix: Azure Cognitive Services
-description: Speech Translation의 기능 개요
+description: Speech Service API를 사용하면 음성에 대한 실시간 엔드투엔드 다중 언어 번역을 애플리케이션, 도구 및 디바이스에 추가할 수 있습니다. 같은 API를 음성 대 음성 및 음성 대 텍스트 번역 모두에 사용될 수 있습니다.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: af363a45ab113d89c7aad7a38c6e10d335bc6035
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 9d94105377597ca8e79cc43ed0903371e185d510
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469146"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086711"
 ---
 # <a name="about-the-speech-translation-api"></a>Speech Translation API 정보
 
-Speech Service API를 사용하면 음성에 대한 실시간 종단 간 다중 언어 번역을 애플리케이션, 도구 및 디바이스에 추가할 수 있습니다. 같은 API를 음성 대 음성 및 음성 대 텍스트 번역 모두에 사용될 수 있습니다.
+Speech Service API를 사용하면 음성에 대한 실시간 엔드투엔드 다중 언어 번역을 애플리케이션, 도구 및 디바이스에 추가할 수 있습니다. 같은 API를 음성 대 음성 및 음성 대 텍스트 번역 모두에 사용될 수 있습니다.
 
-클라이언트 응용 프로그램에서 Translator Speech API를 통해 음성 오디오를 서비스로 스트림하고 결과 스트림을 다시 받습니다. 이러한 결과에는 원본 언어의 인식된 텍스트와 대상 언어의 해당 번역이 포함되어 있습니다. 발언이 완료될 때까지 중간 번역이 제공될 수 있으며, 발언이 완료되면 최종 번역이 제공됩니다.
+클라이언트 애플리케이션에서 Translator Speech API를 통해 음성 오디오를 서비스로 스트림하고 결과 스트림을 다시 받습니다. 이러한 결과에는 원본 언어의 인식된 텍스트와 대상 언어의 해당 번역이 포함되어 있습니다. 발언이 완료될 때까지 중간 번역이 제공될 수 있으며, 발언이 완료되면 최종 번역이 제공됩니다.
 
 필요에 따라 진정한 음성 대 음성 번역이 가능해지도록 최종 번역의 합성된 오디오 버전이 준비될 수 있습니다.
 

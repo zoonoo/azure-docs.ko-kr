@@ -1,23 +1,24 @@
 ---
-title: '자습서 2: 1000개 발언 집합을 사용하여 일괄 처리 테스트 '
+title: 테스트 일괄 처리
 titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 일괄 처리 테스트를 사용하여 앱의 발언 예측 문제를 찾아 수정하는 방법을 보여줍니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: e5155caa26669cd98b679eec611334ee5c048fca
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 06981972dbdb95b8597bab5028c2d86e0594caf3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162544"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106042"
 ---
-# <a name="tutorial-2-batch-test-data-sets"></a>자습서 2: 일괄 처리 테스트 데이터 집합
+# <a name="tutorial-2-batch-test-data-sets"></a>자습서 2: 일괄 처리 테스트 데이터 세트
 
 이 자습서에서는 일괄 처리 테스트를 사용하여 앱의 발언 예측 문제를 찾아 수정하는 방법을 보여줍니다.  
 
@@ -74,9 +75,9 @@ ms.locfileid: "47162544"
 
     [![일괄 테스트 패널이 강조 표시된 LUIS 앱의 스크린샷](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
 
-3. **데이터 집합 가져오기**를 선택합니다.
+3. **데이터 세트 가져오기**를 선택합니다.
 
-    [![데이터 집합 가져오기가 강조 표시된 LUIS 앱의 스크린샷](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
+    [![데이터 세트 가져오기가 강조 표시된 LUIS 앱의 스크린샷](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
 4. `HumanResources-jobs-batch.json` 파일의 파일 위치를 선택합니다.
 
@@ -190,7 +191,7 @@ ms.locfileid: "47162544"
 
 2. 오른쪽 패널에서 **Batch testing panel**(일괄 테스트 패널)을 선택합니다. 
 
-3. **데이터 집합 가져오기**를 선택합니다.
+3. **데이터 세트 가져오기**를 선택합니다.
 
 4. `HumanResources-entities-batch.json` 파일의 파일 시스템 위치를 선택합니다.
 

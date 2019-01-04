@@ -1,23 +1,21 @@
 ---
-title: Azure Cosmos DB 테이블 API 소개 | Microsoft Docs
+title: Azure Cosmos DB Table API 소개
 description: 인기 있는 OSS MongoDB API를 사용하여 대기 시간이 짧은 엄청난 양의 키-값 데이터를 저장하고 쿼리하는 데 Azure Cosmos DB를 사용하는 방법을 알아봅니다.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
-ms.devlang: na
 ms.topic: overview
 ms.date: 11/20/2017
 ms.author: sngun
-ms.openlocfilehash: 07c1edd53ff30cc3128443cb8984d1a5467c4395
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 2647065d251caea571e2bfcd5703bbb3bec08345
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240058"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074309"
 ---
-# <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB: 테이블 API 소개
+# <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 소개: 테이블 API
 
 [Azure Cosmos DB](introduction.md)는 Azure Table Storage용으로 작성되었으며 다음과 같은 프리미엄 기능이 필요한 응용 프로그램에 대한 테이블 API를 제공합니다.
 
@@ -25,9 +23,9 @@ ms.locfileid: "50240058"
 * 전 세계적인 [전용 처리량](partition-data.md)
 * 99번째 백분위수에서 1자리 밀리초 대기 시간
 * 보장된 고가용성
-* [자동 보조 인덱싱(영문)](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)
+* [자동 보조 인덱싱(영문)](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)
 
-Azure Table Storage에 대해 작성된 응용 프로그램은 코드를 변경하지 않고 테이블 API를 사용하여 Azure Cosmos DB로 마이그레이션할 수 있으며 프리미엄 기능을 활용할 수 있습니다. 테이블 API에는 .NET, Java, Python 및 Node.js에 사용할 수 있는 클라이언트 SDK가 있습니다.
+Azure Table Storage에 대해 작성된 애플리케이션은 코드를 변경하지 않고 테이블 API를 사용하여 Azure Cosmos DB로 마이그레이션할 수 있으며 프리미엄 기능을 활용할 수 있습니다. 테이블 API에는 .NET, Java, Python 및 Node.js에 사용할 수 있는 클라이언트 SDK가 있습니다.
 
 ## <a name="table-offerings"></a>Table 제품
 현재 Azure Table Storage를 사용하는 경우 Azure Cosmos DB 테이블 API로 이동하면 다음과 같은 이점이 있습니다.

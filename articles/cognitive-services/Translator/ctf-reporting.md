@@ -111,7 +111,7 @@ UserTranslationCount[]GetUserTranslationCounts(
 |:---|:---|:---|
 | ArgumentOutOfRangeException | ‘**maxDateUtc**’ 매개 변수는 ‘**minDateUtc**’보다 크거나 같아야 합니다.| **maxDateUtc** 매개 변수의 값은 **minDateUtc** 매개 변수의 값보다 작습니다.|
 | TranslateApiException | IP가 할당량을 초과했습니다.| <ul><li>분당 요청 수의 한도에 도달했습니다.</li><li>요청 크기는 계속해서 10000자로 제한됩니다.</li><li>시간별 및 일별 할당량은 Microsoft Translator API에서 허용하는 문자 수를 제한합니다.</li></ul>|
-| TranslateApiException | AppId가 할당량을 초과했습니다.| 응용 프로그램 ID가 시간별 또는 일별 할당량을 초과했습니다.|
+| TranslateApiException | AppId가 할당량을 초과했습니다.| 애플리케이션 ID가 시간별 또는 일별 할당량을 초과했습니다.|
 
 > [!NOTE]
 > 서비스의 모든 사용자에게 공정하도록 할당량이 조정됩니다.
@@ -184,7 +184,7 @@ UserTranslation[] GetUserTranslations (
 |:---|:---|:---|
 | ArgumentOutOfRangeException | ‘**maxDateUtc**’ 매개 변수는 ‘**minDateUtc**’보다 크거나 같아야 합니다.| **maxDateUtc** 매개 변수의 값은 **minDateUtc** 매개 변수의 값보다 작습니다.|
 | TranslateApiException | IP가 할당량을 초과했습니다.| <ul><li>분당 요청 수의 한도에 도달했습니다.</li><li>요청 크기는 계속해서 10000자로 제한됩니다.</li><li>시간별 및 일별 할당량은 Microsoft Translator API에서 허용하는 문자 수를 제한합니다.</li></ul>|
-| TranslateApiException | AppId가 할당량을 초과했습니다.| 응용 프로그램 ID가 시간별 또는 일별 할당량을 초과했습니다.|
+| TranslateApiException | AppId가 할당량을 초과했습니다.| 애플리케이션 ID가 시간별 또는 일별 할당량을 초과했습니다.|
 
 > [!NOTE]
 > 서비스의 모든 사용자에게 공정하도록 할당량이 조정됩니다.

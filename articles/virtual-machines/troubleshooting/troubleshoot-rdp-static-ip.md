@@ -13,21 +13,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/08/2018
 ms.author: genli
-ms.openlocfilehash: c219b2fb58d46d9280ef5c022140e0499e3ac54c
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 81a3064290e0aa720a4fe6b0fa0d8eb13cfe6903
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51347511"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141801"
 ---
 #  <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>정적 IP로 인해 Azure Virtual Machines에 대해 원격 데스크톱을 사용할 수 없음
 
 이 문서에서는 VM에 정적 IP가 구성된 후 Azure Windows VM(Virtual Machines)에 원격 데스크톱을 연결할 수 없는 문제에 대해 설명합니다.
 
-> [!NOTE] 
-> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용에 대해 설명합니다. 이 배포 모델은 클래식 배포 모델 대신 새 배포에 사용하는 것이 좋습니다. 
+> [!NOTE]
+> Azure에는 리소스를 만들고 작업하기 위한 [Resource Manager 및 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용에 대해 설명합니다. 이 배포 모델은 클래식 배포 모델 대신 새 배포에 사용하는 것이 좋습니다.
 
-## <a name="symptoms"></a>증상 
+## <a name="symptoms"></a>증상
 
 Azure의 VM에 RDP를 연결하는 경우 다음 오류 메시지를 받습니다.
 
@@ -47,7 +47,7 @@ Azure Portal의 [부팅 진단](../troubleshooting/boot-diagnostics.md)에서 �
 
 Windows 내 네트워크 인터페이스에 정의된 고정 IP 주소가 VM에 있습니다. 이 IP 주소는 Azure Portal에 정의된 주소와 다릅니다.
 
-## <a name="solution"></a>해결 방법 
+## <a name="solution"></a>해결 방법
 
 다음 단계를 수행하기 전에 영향을 받는 VM의 OS 디스크 스냅숏을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 
@@ -55,7 +55,7 @@ Windows 내 네트워크 인터페이스에 정의된 고정 IP 주소가 VM에 
 
 ### <a name="use-serial-control"></a>직렬 콘솔 사용
 
-1. [직렬 콘솔에 연결하고 CMD 인스턴스를 엽니다](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
+1. [직렬 콘솔에 연결하고 CMD 인스턴스를 엽니다](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). VM에서 직렬 콘솔을 사용할 수 없는 경우 [네트워크 인터페이스 다시 설정](reset-network-interface.md)을 참조하세요.
 2. 네트워크 인터페이스에서 DHCP를 사용할 수 없는지 확인합니다.
 
@@ -63,7 +63,7 @@ Windows 내 네트워크 인터페이스에 정의된 고정 IP 주소가 VM에 
 3. DHCP를 사용할 수 없는 경우 DHCP를 사용하도록 네트워크 인터페이스 구성을 되돌립니다.
 
         netsh interface ip set address name="<NIC Name>" source=dhc
-        
+
     예를 들어, 네트워크 인터페이스 이름이 “이더넷 2”인 경우 다음 명령을 실행합니다.
 
         netsh interface ip set address name="Ethernet 2" source=dhc

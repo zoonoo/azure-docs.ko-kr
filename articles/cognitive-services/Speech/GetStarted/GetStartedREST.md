@@ -21,7 +21,7 @@ ms.locfileid: "49345359"
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-클라우드 기반 Bing Speech Service를 사용하여 REST API를 통해 음성 오디오를 텍스트로 변환함으로써 응용 프로그램을 개발할 수 있습니다.
+클라우드 기반 Bing Speech Service를 사용하여 REST API를 통해 음성 오디오를 텍스트로 변환함으로써 애플리케이션을 개발할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -70,7 +70,7 @@ https://speech.platform.bing.com/speech/recognition/<RECOGNITION_MODE>/cognitive
 | `dictation` | fr-FR | 간단한 | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]
-> 서비스 URI는 응용 프로그램에서 REST API를 사용하여 음성 인식 서비스를 호출하는 경우에만 필요합니다. [클라이언트 라이브러리](GetStartedClientLibraries.md) 중 하나를 사용하는 경우 일반적으로 사용되는 URI에 대해 알고 있을 필요가 없습니다. 클라이언트 라이브러리에서 특정 클라이언트 라이브러리에만 적용할 수 있는 별도의 서비스 URI를 사용할 수 있습니다. 자세한 내용은 선택한 클라이언트 라이브러리를 참조하세요.
+> 서비스 URI는 애플리케이션에서 REST API를 사용하여 음성 인식 서비스를 호출하는 경우에만 필요합니다. [클라이언트 라이브러리](GetStartedClientLibraries.md) 중 하나를 사용하는 경우 일반적으로 사용되는 URI에 대해 알고 있을 필요가 없습니다. 클라이언트 라이브러리에서 특정 클라이언트 라이브러리에만 적용할 수 있는 별도의 서비스 URI를 사용할 수 있습니다. 자세한 내용은 선택한 클라이언트 라이브러리를 참조하세요.
 
 ### <a name="request-headers"></a>헤더 요청
 
@@ -251,7 +251,7 @@ REST API에는 몇 가지 제한 사항이 있습니다.
 
 ## <a name="whats-next"></a>다음 단계
 
-- C#, Java 등에서 REST API를 사용하는 방법을 알아보려면 이러한 [샘플 응용 프로그램](../samples.md)을 참조하세요.
+- C#, Java 등에서 REST API를 사용하는 방법을 알아보려면 이러한 [샘플 애플리케이션](../samples.md)을 참조하세요.
 - 오류를 찾고 수정하려면 [문제 해결](../troubleshooting.md)을 참조하세요.
 - 고급 기능을 사용하려면 Speech [클라이언트 라이브러리](GetStartedClientLibraries.md)를 사용하여 시작하는 방법을 참조하세요.
 

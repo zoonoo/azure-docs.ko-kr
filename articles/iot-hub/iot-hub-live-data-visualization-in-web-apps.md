@@ -23,14 +23,14 @@ ms.locfileid: "50158723"
 
 ## <a name="what-you-learn"></a>학습 내용
 
-이 자습서에서는 웹앱에서 호스팅되는 웹 응용 프로그램을 실행하여 IoT Hub에서 받는 실시간 센서 데이터를 시각화하는 방법에 대해 알아봅니다. Power BI를 사용하여 IoT Hub의 데이터를 시각화하려면 [Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화](iot-hub-live-data-visualization-in-power-bi.md)를 참조하세요.
+이 자습서에서는 웹앱에서 호스팅되는 웹 애플리케이션을 실행하여 IoT Hub에서 받는 실시간 센서 데이터를 시각화하는 방법에 대해 알아봅니다. Power BI를 사용하여 IoT Hub의 데이터를 시각화하려면 [Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화](iot-hub-live-data-visualization-in-power-bi.md)를 참조하세요.
 
 ## <a name="what-you-do"></a>수행할 작업
 
 * Azure Portal에서 웹앱 만들기
 * 소비자 그룹을 추가하여 IoT Hub에서 데이터 액세스 준비
 * IoT Hub에서 센서 데이터를 읽도록 웹앱 구성
-* 웹앱에서 호스팅할 웹 응용 프로그램 업로드
+* 웹앱에서 호스팅할 웹 애플리케이션 업로드
 * 웹앱을 열어 IoT Hub에서 실시간 온도 및 습도 데이터 확인
 
 ## <a name="what-you-need"></a>필요한 항목
@@ -39,7 +39,7 @@ ms.locfileid: "50158723"
 
   * 활성 Azure 구독
   * 구독 중인 IoT Hub
-  * 메시지를 IoT Hub로 보내는 클라이언트 응용 프로그램
+  * 메시지를 IoT Hub로 보내는 클라이언트 애플리케이션
 
 * [Git 다운로드](https://www.git-scm.com/downloads)
 
@@ -73,9 +73,9 @@ ms.locfileid: "50158723"
 
    ![웹 소켓 옵션 설정/해제](./media/iot-hub-live-data-visualization-in-web-apps/4_toggle_web_sockets.png)
 
-## <a name="upload-a-web-application-to-be-hosted-by-the-web-app"></a>웹앱에서 호스팅할 웹 응용 프로그램 업로드
+## <a name="upload-a-web-application-to-be-hosted-by-the-web-app"></a>웹앱에서 호스팅할 웹 애플리케이션 업로드
 
-GitHub에서 IoT Hub의 실시간 센서 데이터를 표시하는 웹 응용 프로그램을 사용할 수 있었습니다. Git 리포지토리에서 작동하도록 웹앱을 구성하고, GitHub에서 웹 응용 프로그램을 다운로드하고, Azure에 업로드하여 웹앱에서 호스트하기만 하면 됩니다.
+GitHub에서 IoT Hub의 실시간 센서 데이터를 표시하는 웹 애플리케이션을 사용할 수 있었습니다. Git 리포지토리에서 작동하도록 웹앱을 구성하고, GitHub에서 웹 애플리케이션을 다운로드하고, Azure에 업로드하여 웹앱에서 호스트하기만 하면 됩니다.
 
 1. 웹앱에서 **배포 옵션** > **원본 선택** > **로컬 Git 리포지토리**를 차례로 클릭한 다음 **확인**을 클릭합니다.
 

@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 7ab1c0f918b5e5b9135e8d1b91f0f97a6c95d05e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 9175ed0b4f362a40e1d29a20a8378854b5f4cc81
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685432"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310389"
 ---
 # <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>자습서: Azure SQL Database와 SQL Server 온-프레미스 간에 데이터를 동기화하도록 SQL 데이터 동기화 설정
 
@@ -199,7 +199,7 @@ SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제는 다음 �
 
 ### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>데이터 동기화에서 데이터를 동기화하는 빈도는 어떻게 되나요?
 
-최소 빈도는 5분마다입니다.
+동기화 트리거 사이의 최소 기간은 5분입니다.
 
 ### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>SQL 데이터 동기화가 테이블을 완벽하게 만들어 프로비전하나요?
 
@@ -266,7 +266,7 @@ SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
     - PowerShell 사용
         -  [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)
--   데이터 동기화 에이전트 - [Azure SQL 데이타 동기화용 데이터 동기화 에이전트](sql-database-data-sync-agent.md)
+-   데이터 동기화 에이전트 - [Azure SQL 데이터 동기화용 데이터 동기화 에이전트](sql-database-data-sync-agent.md)
 -   모범 사례 - [Azure SQL 데이터 동기화에 대한 모범 사례](sql-database-best-practices-data-sync.md)
 -   모니터 - [Log Analytics를 사용하여 SQL 데이터 동기화 모니터링](sql-database-sync-monitor-oms.md)
 -   문제 해결 - [Azure SQL 데이터 동기화 문제 해결](sql-database-troubleshoot-data-sync.md)

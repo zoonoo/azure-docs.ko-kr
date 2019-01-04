@@ -2,7 +2,7 @@
 layout: HubPage
 hide_bc: false
 title: Azure Active Directory B2C 설명서 - 자습서, API 참조 | Microsoft Docs
-description: Azure AD(Azure Active Directory)는 Microsoft의 다중 테넌트, 클라우드 기반 디렉터리 및 ID 관리 서비스로, 핵심 디렉터리 서비스, 응용 프로그램 액세스 관리 및 ID 보호를 단일 솔루션에 결합합니다.
+description: Azure AD(Azure Active Directory)는 Microsoft의 다중 테넌트, 클라우드 기반 디렉터리 및 ID 관리 서비스로, 핵심 디렉터리 서비스, 애플리케이션 액세스 관리 및 ID 보호를 단일 솔루션에 결합합니다.
 services: active-directory
 author: barbkess
 manager: mtillman

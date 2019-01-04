@@ -19,9 +19,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
 ms.locfileid: "47054849"
 ---
-# <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Azure SQL Database를 사용하여 SaaS 응용 프로그램에서 테넌트별 데이터베이스 패턴으로 스키마 관리
+# <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Azure SQL Database를 사용하여 SaaS 애플리케이션에서 테넌트별 데이터베이스 패턴으로 스키마 관리
  
-데이터베이스 응용 프로그램이 발전하면 데이터베이스 스키마나 참조 데이터를 변경해야 합니다.  데이터베이스 유지 관리 작업도 주기적으로 수행해야 합니다. 테넌트별 데이터베이스 패턴을 사용하는 응용 프로그램을 관리하기 위해서는 수많은 테넌트 데이터베이스를 대상으로 변경을 적용하거나 유지 관리 작업을 수행해야 합니다.
+데이터베이스 애플리케이션이 발전하면 데이터베이스 스키마나 참조 데이터를 변경해야 합니다.  데이터베이스 유지 관리 작업도 주기적으로 수행해야 합니다. 테넌트별 데이터베이스 패턴을 사용하는 애플리케이션을 관리하기 위해서는 수많은 테넌트 데이터베이스를 대상으로 변경을 적용하거나 유지 관리 작업을 수행해야 합니다.
 
 이 자습서에서는 1) 모든 테넌트에 대해 참조 데이터 업데이트 배포와 2) 참조 데이터를 포함하는 테이블에서 인덱스 다시 빌드의 두 가지 시나리오를 살펴봅니다. 이러한 작업을 모든 테넌트에서 실행할 때와 새 테넌트 데이터베이스를 생성할 때 사용하는 템플릿 데이터베이스에서 실행할 때 [탄력적 작업](sql-database-elastic-jobs-overview.md)이라는 기능이 사용됩니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "47054849"
 
 이 자습서를 수행하려면 다음 필수 조건이 충족되었는지 확인합니다.
 
-* Wingtip Tickets SaaS Database Per Tenant 앱이 배포됩니다. 5분 안에 배포를 마치려면 [테넌트 응용 프로그램별로 Wingtip Tickets SaaS 데이터베이스 배포 및 살펴보기](saas-dbpertenant-get-started-deploy.md)를 참조하세요.
+* Wingtip Tickets SaaS Database Per Tenant 앱이 배포됩니다. 5분 안에 배포를 마치려면 [테넌트 애플리케이션별로 Wingtip Tickets SaaS 데이터베이스 배포 및 살펴보기](saas-dbpertenant-get-started-deploy.md)를 참조하세요.
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 * 최신 버전의 SSMS(SQL Server Management Studio)가 설치되어 있습니다. [SSMS 다운로드 및 설치](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
@@ -46,7 +46,7 @@ ms.locfileid: "47054849"
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>SaaS 스키마 관리 패턴 소개
 
-테넌트별 데이터베이스 패턴은 테넌트 데이터를 효과적으로 격리하지만, 유지 관리해야 할 데이터베이스의 수가 늘어난다는 단점이 있습니다. [탄력적 작업](sql-database-elastic-jobs-overview.md)을 사용하면 SQL 데이터베이스를 손쉽게 관리할 수 있습니다. 작업을 사용하면 여러 개의 데이터베이스를 대상으로 안전하고 안정적으로 작업(T-SQL 스크립트)을 실행할 수 있습니다. 또한, 하나의 응용 프로그램에서 모든 테넌트 데이터베이스를 대상으로 스키마와 공통 참조 데이터 변경 사항을 배포할 수 있습니다. 새 테넌트를 만들 때 사용되는 *템플릿* 데이터베이스를 관리할 때도 탄력적 작업을 사용하면 템플릿 데이터베이스에 항상 최신 스키마와 참조 데이터가 유지됩니다.
+테넌트별 데이터베이스 패턴은 테넌트 데이터를 효과적으로 격리하지만, 유지 관리해야 할 데이터베이스의 수가 늘어난다는 단점이 있습니다. [탄력적 작업](sql-database-elastic-jobs-overview.md)을 사용하면 SQL 데이터베이스를 손쉽게 관리할 수 있습니다. 작업을 사용하면 여러 개의 데이터베이스를 대상으로 안전하고 안정적으로 작업(T-SQL 스크립트)을 실행할 수 있습니다. 또한, 하나의 애플리케이션에서 모든 테넌트 데이터베이스를 대상으로 스키마와 공통 참조 데이터 변경 사항을 배포할 수 있습니다. 새 테넌트를 만들 때 사용되는 *템플릿* 데이터베이스를 관리할 때도 탄력적 작업을 사용하면 템플릿 데이터베이스에 항상 최신 스키마와 참조 데이터가 유지됩니다.
 
 ![화면](media/saas-tenancy-schema-management/schema-management-dpt.png)
 
@@ -58,7 +58,7 @@ ms.locfileid: "47054849"
 > [!NOTE]
 > 이 자습서에서는 제한된 미리 보기(Elastic Database 작업)에 있는 SQL Database 서비스의 기능을 사용합니다. 이 자습서를 수행하려면 ‘Elastic 작업 미리 보기’라는 제목으로 SaaSFeedback@microsoft.com으로 구독 ID를 보내 주세요. 구독이 활성화되었다는 확인을 받은 후 [최신 시험판 작업 cmdlet을 다운로드하여 설치하세요](https://github.com/jaredmoo/azure-powershell/releases). 이 미리 보기는 제한적으로만 제공되므로 관련 질문이 있거나 지원이 필요한 경우 SaaSFeedback@microsoft.com에 문의해야 합니다.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>테넌트 응용 프로그램별 Wingtip Tickets SaaS 데이터베이스 스크립트 받기
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>테넌트 애플리케이션별 Wingtip Tickets SaaS 데이터베이스 스크립트 받기
 
 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 응용 프로그램 소스 코드와 관리 스크립트를 받을 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
 
@@ -73,7 +73,7 @@ ms.locfileid: "47054849"
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>모든 테넌트에 새 참조 데이터를 배포하는 작업 만들기
 
-Wingtip Tickets 앱에서 각 테넌트 데이터베이스에는 지원되는 장소 유형 집합이 포함되어 있습니다. 각 장소는 특정 장소 유형을 갖습니다. 작업 유형은 장소에서 진행할 수 있는 이벤트의 종류와 앱에서 사용되는 배경 이미지를 결정합니다. 응용 프로그램에서 새로운 이벤트 종류를 지원하려면 이 참조 데이터를 업데이트하고 새 장소 유형을 추가해야 합니다.  이 연습에서는 두 개의 추가 장소 유형인 *Motorcycle Racing* 및 *Swimming Club*을 추가하기 위해 모든 테넌트 데이터베이스에 업데이트를 배포합니다.
+Wingtip Tickets 앱에서 각 테넌트 데이터베이스에는 지원되는 장소 유형 집합이 포함되어 있습니다. 각 장소는 특정 장소 유형을 갖습니다. 작업 유형은 장소에서 진행할 수 있는 이벤트의 종류와 앱에서 사용되는 배경 이미지를 결정합니다. 애플리케이션에서 새로운 이벤트 종류를 지원하려면 이 참조 데이터를 업데이트하고 새 장소 유형을 추가해야 합니다.  이 연습에서는 두 개의 추가 장소 유형인 *Motorcycle Racing* 및 *Swimming Club*을 추가하기 위해 모든 테넌트 데이터베이스에 업데이트를 배포합니다.
 
 먼저 각 테넌트 데이터베이스에 포함된 각 장소 유형을 검토합니다. SQL Server Management Studio(SSMS)에서 테넌트 데이터베이스 중 하나에 접속하여 VenueTypes 테이블을 살펴봅니다.  데이터베이스 페이지에서 액세스할 수 있는 Azure Portal에서 쿼리 편집기를 사용하여 이 표를 쿼리하는 방법도 있습니다. 
 

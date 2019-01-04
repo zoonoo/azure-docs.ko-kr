@@ -43,7 +43,7 @@ ms.locfileid: "49341806"
 
 자세한 설명서는 [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/speech/home)를 참조하세요. Custom Speech Service 엔드포인트는 동일한 SDK를 지원합니다.
 
-데이터 인식 클라이언트는 파일 또는 다른 오디오 소스와 같은 데이터에서 음성을 인식하는 데 적합합니다. 마이크 인식 클라이언트는 마이크에서 음성을 인식하는 데 적합합니다. 두 클라이언트에서 인터넷을 사용하면 시나리오에 맞는 LUIS 응용 프로그램을 빌드한 경우 [LUIS(Language Understanding Intelligent Service)](https://www.luis.ai/)에서 구조화된 의도 결과를 반환할 수 있습니다.
+데이터 인식 클라이언트는 파일 또는 다른 오디오 소스와 같은 데이터에서 음성을 인식하는 데 적합합니다. 마이크 인식 클라이언트는 마이크에서 음성을 인식하는 데 적합합니다. 두 클라이언트에서 인터넷을 사용하면 시나리오에 맞는 LUIS 애플리케이션을 빌드한 경우 [LUIS(Language Understanding Intelligent Service)](https://www.luis.ai/)에서 구조화된 의도 결과를 반환할 수 있습니다.
 
 클라이언트의 네 가지 유형은 모두 두 가지 방법으로 인스턴스화할 수 있습니다. 첫 번째 방법은 표준 Cognitive Services Speech API를 사용합니다. 두 번째 방법을 사용하면 Custom Speech Service를 사용하여 만든 사용자 지정 엔드포인트에 해당하는 URL을 지정할 수 있습니다.
 

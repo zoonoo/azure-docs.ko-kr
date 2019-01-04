@@ -84,7 +84,7 @@ StorSimple 가상 배열을 배포하려면 다음 문서를 지정된 순서대
 시작하기 전에 다음 사항을 확인합니다.
 
 * 데이터 센터의 네트워크가 StorSimple 장치에 대한 네트워킹 요구 사항에 따라 구성되어 있습니다. 자세한 내용은 [StorSimple 가상 배열 시스템 요구 사항](storsimple-ova-system-requirements.md)을 참조하세요.
-* StorSimple 가상 배열에는 전용 5Mbps 인터넷 대역폭(또는 그 이상)을 항상 사용할 수 있습니다. 이 대역폭은 다른 응용 프로그램과 공유하면 안됩니다.
+* StorSimple 가상 배열에는 전용 5Mbps 인터넷 대역폭(또는 그 이상)을 항상 사용할 수 있습니다. 이 대역폭은 다른 애플리케이션과 공유하면 안됩니다.
 
 ## <a name="step-by-step-preparation"></a>단계별 준비
 

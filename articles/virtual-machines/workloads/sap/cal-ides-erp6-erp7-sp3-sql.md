@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: 93824c8f0e7667fcb58fd6b8292cddfa2b4a482a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: eb5d731fbef22c70aaf970bf64aa90361e47a542
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441463"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194201"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포
 이 문서에서는 SAP CAL(SAP 클라우드 어플라이언스 라이브러리) 3.0을 통해 Azure에서 SQL Server 및 Windows OS와 함께 실행되는 SAP IDES 시스템을 배포하는 방법을 설명합니다. 스크린샷은 단계별 프로세스를 보여 줍니다. 다른 솔루션을 배포하려면 동일한 단계를 수행합니다.
@@ -29,7 +29,7 @@ ms.locfileid: "39441463"
 SAP CAL을 시작하려면 [SAP 클라우드 어플라이언스 라이브러리](https://cal.sap.com/) 웹 사이트로 이동합니다. SAP에는 새로운 [SAP 클라우드 어플라이언스 라이브러리 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience)에 대한 블로그가 있습니다. 
 
 > [!NOTE]
-2017년 5월 29일 기준으로 SAP CAL을 배포하는 데 덜 선호되는 클래식 배포 모델 외에도 Azure Resource Manager 배포 모델을 사용할 수 있습니다. 새 리소스 관리자 배포 모델을 사용하고 클래식 배포 모델을 무시하는 것이 좋습니다.
+> 2017년 5월 29일 기준으로 SAP CAL을 배포하는 데 덜 선호되는 클래식 배포 모델 외에도 Azure Resource Manager 배포 모델을 사용할 수 있습니다. 새 리소스 관리자 배포 모델을 사용하고 클래식 배포 모델을 무시하는 것이 좋습니다.
 
 클래식 모델을 사용하는 SAP CAL 계정을 이미 만든 경우 *다른 SAP CAL 계정을 만들어야 합니다*. 이 계정은 리소스 관리자 모델을 사용하여 단독으로 Azure에 배포해야 합니다.
 
@@ -53,7 +53,7 @@ SAP CAL에 로그인한 후 첫 번째 페이지는 일반적으로 **솔루션*
 
     a. **Microsoft Azure(클래식)** 는 클래식 배포 모델이며 더 이상 선호하지 않습니다.
 
-    나. **Microsoft Azure**는 새 리소스 관리자 배포 모델입니다.
+    b. **Microsoft Azure**는 새 리소스 관리자 배포 모델입니다.
 
     ![SAP CAL 계정](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
 
@@ -100,7 +100,7 @@ Windows 및 SQL Server를 기반으로 SAP IDE 솔루션을 배포하려면 먼�
 
     a. 인스턴스 **이름**을 입력합니다.
 
-    나. Azure **지역**을 선택합니다. 제공된 여러 Azure 지역을 가져오려면 SAP CAL 구독이 필요할 수 있습니다.
+    b. Azure **지역**을 선택합니다. 제공된 여러 Azure 지역을 가져오려면 SAP CAL 구독이 필요할 수 있습니다.
 
     다.  표시된 것처럼 솔루션에 대한 마스터 **암호**를 입력합니다.
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 83fbebc07be3a61d7fd54953f842a320a537a7ac
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 7a1577e3c352c24983cc3a586c11ad43c416acc4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985015"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091046"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream Analytics에서 쿼리 병렬 처리 사용
 이 문서에서는 Azure Stream Analytics에서 병렬 처리 기능을 활용하는 방법을 보여 줍니다. 입력 파티션을 구성하고, 분석 쿼리 정의를 조정하여 Stream Analytics 작업의 크기를 조정하는 방법을 알아봅니다.
@@ -51,7 +51,7 @@ PowerBI, SQL 및 SQL Data-Warehouse 출력은 분할을 지원하지 않습니�
 파티션에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Event Hubs 기능 개요](../event-hubs/event-hubs-features.md#partitions)
-* [데이터 분할](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning#partitioning-azure-blob-storage)
+* [데이터 분할](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning)
 
 
 ## <a name="embarrassingly-parallel-jobs"></a>병렬 처리가 적합한 작업
@@ -80,22 +80,26 @@ PowerBI, SQL 및 SQL Data-Warehouse 출력은 분할을 지원하지 않습니�
 
 쿼리:
 
+```SQL
     SELECT TollBoothId
     FROM Input1 Partition By PartitionId
     WHERE TollBoothId > 100
+```
 
 이 쿼리는 간단한 필터입니다. 따라서 이벤트 허브로 전송되는 입력을 분할하는 것에 대해 걱정하지 않아도 됩니다. 쿼리가 **PARTITION BY PartitionId**를 포함하므로 앞에서 언급된 요구 사항 2번을 충족합니다. 출력의 경우 파티션 키가 **PartitionId**로 설정되도록 작업에서 이벤트 허브 출력을 구성해야 합니다. 마지막 한 가지 검사는 입력 파티션 수가 출력 파티션 수와 같은지 확인하는 것입니다.
 
 ### <a name="query-with-a-grouping-key"></a>그룹화 키가 있는 쿼리
 
 * 입력: 8개의 파티션이 있는 이벤트 허브
-* 출력: Blob Storage
+* 출력: Blob 저장소
 
 쿼리:
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 이 쿼리에 그룹화 키가 있습니다. 따라서 함께 그룹화된 이벤트를 동일한 이벤트 허브 파티션으로 전송해야 합니다. 이 예제에서는 TollBoothID를 기준으로 그룹화하므로 이벤트가 이벤트 허브로 전송될 때 TollBoothID를 파티션 키로 사용해야 합니다. 그런 후 ASA에서 **PARTITION BY PartitionId**를 사용하여 이 파티션 구성표에서 상속하고 전체 병렬 처리를 사용하도록 설정할 수 있습니다. 출력이 Blob Storage이므로 요구 사항 4번에 따라 파티션 키 값 구성에 대해 걱정할 필요가 없습니다.
 
@@ -121,6 +125,7 @@ PowerBI 출력은 현재 분할을 지원하지 않습니다. 따라서 이 시�
 
 쿼리:
 
+```SQL
     WITH Step1 AS (
     SELECT COUNT(*) AS Count, TollBoothId, PartitionId
     FROM Input1 Partition By PartitionId
@@ -130,6 +135,7 @@ PowerBI 출력은 현재 분할을 지원하지 않습니다. 따라서 이 시�
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1 Partition By TollBoothId
     GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
 
 보이는 것처럼 두 번째 단계에서는 **TollBoothId** 를 분할 키로 사용합니다. 이 단계는 첫 번째 단계와 동일하지 않으므로 순서를 섞어야 합니다. 
 
@@ -143,6 +149,7 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
 
 쿼리:
 
+```SQL
     WITH Step1 AS (
         SELECT COUNT(*) AS Count, TollBoothId
         FROM Input1 Partition By PartitionId
@@ -151,6 +158,7 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1
     GROUP BY TumblingWindow(minute,3), TollBoothId
+```
 
 이 쿼리에는 2개의 단계가 있습니다.
 
@@ -182,20 +190,25 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
 
 다음 쿼리는 3분의 기간 내에 세 곳의 요금 징수소가 있는 요금 스테이션을 통과하는 자동차 수를 계산합니다. 이 쿼리는 6개 SU까지 확장될 수 있습니다.
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 쿼리에 더 많은 SU를 사용하려면 입력 데이터 스트림 및 쿼리를 모두 분할해야 합니다. 데이터 스트림 파티션이 3으로 설정되므로 다음의 수정된 쿼리를 최대 18개 SU로 확장할 수 있습니다.
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 쿼리가 분할되면 입력 이벤트가 처리되고 별도의 파티션 그룹에 집계되며 각 그룹에 대해 출력 이벤트가 생성됩니다. 출력 이벤트도 각 그룹에 대해 생성됩니다. **GROUP BY** 필드가 입력 데이터 스트림의 파티션 키가 아닌 상태에서 분할을 수행하면 예기치 않은 결과가 발생할 수 있습니다. 예를 들어 이전 쿼리의 **TollBoothId** 필드는 **Input1**의 파티션 키가 아닙니다. 따라서 TollBooth #1의 데이터는 여러 파티션으로 분산될 수 있습니다.
 
 각각의 **Input1** 파티션은 Stream Analytics에 의해 별도로 처리됩니다. 결과적으로, 동일한 연속 창에 동일한 요금 징수소에 대한 자동차 수 레코드가 여러 개 생성됩니다. 입력 파티션 키를 변경할 수 없는 경우 다음 예제처럼 비분할 단계를 추가하여 파티션 간의 값을 집계함으로써 이 문제를 해결할 수 있습니다.
 
+```SQL
     WITH Step1 AS (
         SELECT COUNT(*) AS Count, TollBoothId
         FROM Input1 Partition By PartitionId
@@ -205,6 +218,7 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1
     GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
 
 이 쿼리는 24개 SU까지 확장될 수 있습니다.
 

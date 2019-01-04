@@ -1,20 +1,21 @@
 ---
-title: Java를 사용하여 Azure Event Hubs에서 이벤트 수신 | Microsoft Docs
-description: Java를 사용하여 Event Hubs에서 수신 시작
+title: Java를 사용하여 이벤트 수신 - Azure Event Hubs | Microsoft Docs
+description: 이 문서에서는 Azure Event Hubs에 이벤트를 받는 Java 애플리케이션을 만드는 연습을 할 수 있습니다.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 08/26/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: dce7c4067ba6d96bf14f4e3300d951b594afe930
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: e29cf43f490bf5e8bac5e5c36b16476f93d80bfa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240635"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081964"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Java를 사용하여 Azure Event Hubs에서 이벤트 수신
 
@@ -44,11 +45,11 @@ EventProcessorHost를 사용하려면 [Azure Storage 계정][Azure Storage accou
 1. [Azure Portal][Azure portal]에 로그온하고 화면 왼쪽에서 **+리소스 만들기**를 클릭합니다.
 2. **저장소**를 클릭한 다음, **저장소 계정**을 클릭합니다. **저장소 계정 만들기** 창에서 저장소 계정에 사용할 이름을 입력합니다. 필드의 나머지 부분을 입력하고 원하는 지역을 선택한 다음 **만들기**를 클릭합니다.
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+    ![저장소 계정 만들기](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
 3. 새로 만든 저장소 계정을 클릭한 다음, **액세스 키**를 클릭합니다.
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
+    ![액세스 키 가져오기](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
     Key1 값을 임시 위치로 복사합니다. 이 자습서의 뒷부분에서 사용합니다.
 
@@ -277,14 +278,14 @@ com.microsoft.azure.eventprocessorhost.ICheckpointManager 인터페이스를 구
 
 사용자 지정 검사점 관리자(com.microsoft.azure.eventprocessorhost.ICheckpointManager) 구현 사용
 
-구현 내에서, 기본 검사점 메커니즘을 재정의하여 사용자 고유의 데이터 저장소(SQL Server, CosmosDB, Redis Cache 등)에 따라 고유한 검사점을 구현 수 있습니다. 소비자 그룹의 이벤트를 처리하는 모든 EPH 인스턴스가 검사점 관리자 구현을 지원하는 데 사용된 저장소에 액세스할 수 있도록 하는 것이 좋습니다.
+구현 내에서, 기본 검사점 메커니즘을 재정의하여 사용자 고유의 데이터 저장소(SQL Server, CosmosDB, Azure Cache for Redis 등)에 따라 고유한 검사점을 구현할 수 있습니다. 소비자 그룹의 이벤트를 처리하는 모든 EPH 인스턴스가 검사점 관리자 구현을 지원하는 데 사용된 저장소에 액세스할 수 있도록 하는 것이 좋습니다.
 
 사용자 환경에 제공되는 모든 데이터 저장소를 사용할 수 있습니다.
 
 com.microsoft.azure.eventprocessorhost.EventProcessorHost 클래스는 EventProcessorHost의 검사점 관리자를 재정의할 수 있는 2가지 생성자를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 이벤트 허브에서 메시지를 받는 Java 응용 프로그램을 만들었습니다. Java를 사용하여 이벤트 허브에 이벤트를 보내는 방법을 알아보려면 [이벤트 허브에서 이벤트 보내기 - Java](event-hubs-java-get-started-send.md)를 참조하세요.
+이 빠른 시작에서는 이벤트 허브에서 메시지를 받는 Java 애플리케이션을 만들었습니다. Java를 사용하여 이벤트 허브에 이벤트를 보내는 방법을 알아보려면 [이벤트 허브에서 이벤트 보내기 - Java](event-hubs-java-get-started-send.md)를 참조하세요.
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

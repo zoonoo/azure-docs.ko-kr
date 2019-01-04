@@ -25,7 +25,7 @@ ms.locfileid: "51711313"
 > 이 문서에서 설명하는 기능에 대한 라이선스 요구 사항은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory)를 참조하세요.
 
 > [!NOTE]
-> Microsoft 응용 프로그램(예: Office 365 앱)의 경우 PowerShell을 사용하여 엔터프라이즈 앱에 사용자를 할당합니다.
+> Microsoft 애플리케이션(예: Office 365 앱)의 경우 PowerShell을 사용하여 엔터프라이즈 앱에 사용자를 할당합니다.
 
 
 ## <a name="assign-a-user-to-an-app---portal"></a>앱에 사용자 할당 - 포털
@@ -73,7 +73,7 @@ ms.locfileid: "51711313"
     > Azure AD 모듈을 설치해야 합니다(`Install-Module -Name AzureAD` 명령 사용). NuGet 모듈 또는 새로운 Azure Active Directory V2 PowerShell 모듈을 설치하라는 메시지가 표시되면 Y를 입력하고 Enter 키를 누릅니다.
 
 2. `Connect-AzureAD`를 실행하고 전역 관리자 사용자 계정으로 로그인합니다.
-3. 다음 스크립트를 사용하여 응용 프로그램에 사용자 및 역할을 할당합니다.
+3. 다음 스크립트를 사용하여 애플리케이션에 사용자 및 역할을 할당합니다.
 
     ```powershell
     # Assign the values to the variables
@@ -90,13 +90,13 @@ ms.locfileid: "51711313"
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```     
 
-응용 프로그램 역할에 사용자를 할당하는 방법에 대한 자세한 내용은 [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)에 대한 설명서를 참조하세요.
+애플리케이션 역할에 사용자를 할당하는 방법에 대한 자세한 내용은 [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)에 대한 설명서를 참조하세요.
 
 그룹을 엔터프라이즈 앱에 할당하려면 `Get-AzureADUser`를 `Get-AzureADGroup`으로 바꿔야 합니다.
 
 ### <a name="example"></a>예
 
-이 예제에서는 PowerShell을 사용하여 사용자 Britta Simon을 [Microsoft Workplace Analytics](https://products.office.com/business/workplace-analytics) 응용 프로그램에 할당합니다.
+이 예제에서는 PowerShell을 사용하여 사용자 Britta Simon을 [Microsoft Workplace Analytics](https://products.office.com/business/workplace-analytics) 애플리케이션에 할당합니다.
 
 1. PowerShell에서 변수 $username, app_name $ 및 $app_role_name에 해당 값을 할당합니다. 
 
@@ -106,7 +106,7 @@ ms.locfileid: "51711313"
     $app_name = "Workplace Analytics"
     ```
 
-2. 이 예제에서는 Britta Simon에 할당하려는 응용 프로그램 역할의 정확한 이름을 모릅니다. 다음 명령을 실행하여 사용자 UPN 및 서비스 주체 표시 이름으로 사용자($user) 및 서비스 주체($sp)를 가져옵니다.
+2. 이 예제에서는 Britta Simon에 할당하려는 애플리케이션 역할의 정확한 이름을 모릅니다. 다음 명령을 실행하여 사용자 UPN 및 서비스 주체 표시 이름으로 사용자($user) 및 서비스 주체($sp)를 가져옵니다.
 
     ```powershell
     # Get the user to assign, and the service principal for the app to assign to
@@ -114,7 +114,7 @@ ms.locfileid: "51711313"
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
     ```
         
-3. 명령 `$sp.AppRoles`를 실행하여 Workplace Analytics 응용 프로그램에 대해 사용할 수 있는 역할을 표시합니다. 이 예제에서는 Britta Simon을 Analyst(제한된 액세스) 역할에 할당하려고 합니다.
+3. 명령 `$sp.AppRoles`를 실행하여 Workplace Analytics 애플리케이션에 대해 사용할 수 있는 역할을 표시합니다. 이 예제에서는 Britta Simon을 Analyst(제한된 액세스) 역할에 할당하려고 합니다.
     
     ![Workplace Analytics 역할](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
 

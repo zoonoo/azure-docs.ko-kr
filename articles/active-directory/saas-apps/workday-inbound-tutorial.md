@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Workday 구성 | Microsoft Docs'
+title: '자습서: Azure Active Directory를 통해 자동 사용자 프로비전을 위한 Workday 구성 | Microsoft Docs'
 description: 사용자 계정을 Workday로 자동으로 프로비전 및 프로비전 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
 author: cmmdesai
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: chmutali
-ms.openlocfilehash: 30354ddb010c22dabe5cd69373ae59daaf4a8b46
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 754c3278cb01e010718fa4d3cb257acf6ffe99c9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346748"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849856"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성(미리 보기)
 
@@ -67,7 +67,7 @@ Azure AD 사용자 프로비전 서비스에서 지원되는 Workday 사용자 �
 
 이 섹션에서는 일반적인 하이브리드 환경을 위한 종단 간 사용자 프로비전 솔루션 아키텍처에 대해 설명합니다. 두 가지의 관련된 흐름이 있습니다.
 
-* **권한이 있는 HR 데이터 흐름 - Workday에서 온-프레미스 Active Directory로:** 이 흐름에서는 작업자 이벤트(예: 신규 고용, 전근, 종료)가 클라우드 Workday HR 테넌트에서 먼저 발생한 다음, 이벤트 데이터가 Azure AD 및 프로비전 에이전트를 통해 온-프레미스 Active Directory로 흐릅니다. 이벤트에 따라 AD에서 만들기/업데이트/사용/사용 안 함 작업이 이루어질 수 있습니다.
+* **권한이 있는 HR 데이터 흐름 – Workday에서 온-프레미스 Active Directory로:** 이 흐름에서는 작업자 이벤트(예: 신규 고용, 전근, 종료)가 클라우드 Workday HR 테넌트에서 먼저 발생한 다음, 이벤트 데이터가 Azure AD 및 프로비전 에이전트를 통해 온-프레미스 Active Directory로 흐릅니다. 이벤트에 따라 AD에서 만들기/업데이트/사용/사용 안 함 작업이 이루어질 수 있습니다.
 * **이메일 쓰기 저장 흐름 - 온-프레미스 Active Directory에서 Workday로:** Active Directory에서 계정 만들기가 완료되면 Azure AD Connect를 통해 Azure AD와 동기화되고 Active Directory에서 제공되는 이메일 특성을 Workday에 쓰기 저장할 수 있습니다.
 
 ![개요](./media/workday-inbound-tutorial/wd_overview.png)
@@ -154,16 +154,16 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 * **이 Active Directory 포리스트로 프로비전되어야 하는 Workday의 사용자**
 
-   * *예제: Workday "회사" 특성에 "Contoso" 값이 포함되고 "Worker_Type" 특성에 "기본"이 포함되는 사용자입니다.*
+   * *예제: Workday “Company” 특성에 “Contoso” 값이 포함되고 “Worker_Type” 특성에 “기본”이 포함되는 사용자입니다.*
 
 * **다른 OU(조직 단위)에 사용자를 라우팅하는 방법**
 
-   * *예제: Workday "Municipality" 및 "Country_Region_Reference" 특성에 정의된 대로 사무실 위치에 해당하는 OU로 사용자를 라우팅합니다.*
+   * *예제: Workday “Municipality” 및 “Country_Region_Reference” 특성에 정의된 대로 사무실 위치에 해당하는 OU로 사용자를 라우팅합니다.*
 
 * **Active Directory에서 다음과 같은 특성을 채우는 방법**
 
    * 일반 이름(cn)
-      * *예제: 인적 자원에서 설정한 대로 Workday User_ID 값을 사용합니다.*
+      * *예제: 인사과에서 설정한 대로 Workday User_ID 값을 사용합니다.*
       
    * 직원 ID(employeeId)
       * *예제: Workday Worker_ID 값을 사용합니다.*
@@ -176,7 +176,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 * **Workday와 Active Directory 간에 사용자를 일치시키는 방법**
 
-  * *예제: 특정 workday "Worker_ID" 값과 일치하는 사용자는 "employeeID"에 같은 값을 가지는 Active Directory 사용자와 일치합니다. Worker_ID 값이 Active Directory에 없는 경우 새로운 사용자를 만듭니다.*
+  * *예제: 특정 Workday “Worker_ID” 값과 일치하는 사용자는 “employeeID”에 같은 값을 가지는 Active Directory 사용자와 일치합니다. Worker_ID 값이 Active Directory에 없는 경우 새로운 사용자를 만듭니다.*
   
 * **일치하는 논리가 작동하기 위해 필요한 사용자 ID가 Active Directory 포리스트에 포함되었는지 여부**
 
@@ -236,8 +236,8 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 2. **도메인** 텍스트 상자에서 다음 도메인을 검색하고 필터에 하나씩 추가합니다.  
    * *외부 계정 프로비저닝*
    * *작업자 데이터: 공용 작업자 보고서*
-   * *개인 데이터: 작업 연락처 정보*
-   * *작업자 데이터: 모든 직위*
+   * *사용자 데이터: 회사 연락처 정보*
+   * *작업자 데이터: 모든 위치*
    * *작업자 데이터: 현재 직원 충원 정보*
    * *작업자 데이터: 작업자 프로필 직함*
  
@@ -264,9 +264,9 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
    | 작업(Operation) | 도메인 보안 정책 |
    | ---------- | ---------- | 
    | 가져오기 및 넣기 | 작업자 데이터: 공용 작업자 보고서 |
-   | 가져오기 및 넣기 | 개인 데이터: 작업 연락처 정보 |
+   | 가져오기 및 넣기 | 사용자 데이터: 회사 연락처 정보 |
    | 가져오기 | 작업자 데이터: 모든 위치 |
-   | 가져오기 | 작업자 데이터: 현재 인력 관리 정보 |
+   | 가져오기 | 작업자 데이터: 현재 직원 충원 정보 |
    | 가져오기 | 작업자 데이터: 작업자 프로필 직함 |
 
 ### <a name="configure-business-process-security-policy-permissions"></a>비즈니스 프로세스 보안 정책 권한 구성
@@ -363,7 +363,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7 이상 Frame
 4. 오류 및 경고를 확인합니다.
 
     
-### <a name="part-2-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>2부: 프로비전 커넥터 앱을 추가하고 Workday에 대한 연결 만들기
+### <a name="part-2-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>2부: 프로비전 커넥터 앱 추가 및 Workday에 대한 연결 만들기
 
 **Workday에서 Active Directory로의 프로비전을 구성하려면:**
 
@@ -392,7 +392,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7 이상 Frame
    * **Active Directory 포리스트 -** 에이전트에 등록된 Active Directory 도메인의 “이름”입니다. 일반적으로 *contoso.com* 형태의 문자열입니다.
 
    * **Active Directory 컨테이너 -** 에이전트가 기본적으로 사용자 계정을 만드는 컨테이너 DN을 입력합니다. 
-        예: *OU=Standard Users,OU=Users,DC=contoso,DC=test*
+        예제: *OU=Standard Users,OU=Users,DC=contoso,DC=test*
 > [!NOTE]
 > 이 설정은 *parentDistinguishedName* 특성이 특성 매핑에 구성되지 않은 경우에만 사용자 계정 생성에 사용됩니다. 이 설정은 사용자 검색 또는 업데이트 작업에는 사용되지 않습니다. 전체 도메인 하위 트리는 검색 작업의 범위에 속합니다.
    * **알림 이메일 –** 이메일 주소를 입력하고 "오류가 발생하면 이메일 보내기" 확인란을 선택합니다.
@@ -411,19 +411,19 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7 이상 Frame
 
 2.  **원본 개체 범위** 필드에서 특성 기반 필터 집합을 정의하여 AD 프로비전 범위에 포함할 Workday 사용자 집합을 선택할 수 있습니다. 기본 범위는 "Workday의 모든 사용자"입니다. 예제 필터:
 
-   * 예: 작업자 ID가 1000000-2000000 사이인 사용자를 범위에 포함
+   * 예제: 작업자 ID가 1000000-2000000 사이인 사용자를 범위에 포함
 
       * 특성: WorkerID
 
-      * 연산자: REGEX Match
+      * 연산자: REGEX 일치
 
       * 값: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
-   * 예: 정규직 직원만 포함하고 비정규직 직원은 포함하지 않음 
+   * 예제: 정규직 직원만 포함하고 비정규직 직원은 포함하지 않음 
 
       * 특성: EmployeeID
 
-      * 연산자: IS NOT NULL
+      * 연산자: NULL이 아님
 
 3.  **대상 개체 작업** 필드에서 어떤 작업을 Active Directory에서 수행할 수 있도록 허용할 것인지 전역적으로 필터링할 수 있습니다. **만들기** 및 **업데이트**가 가장 일반적입니다.
 
@@ -498,7 +498,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7 이상 Frame
   
 
 
-### <a name="part-4-start-the-service"></a>4부: 서비스 시작
+### <a name="part-4-start-the-service"></a>4부. 서비스 시작
 1-3부를 완료했으면 Azure Portal에서 프로비전 서비스를 다시 시작할 수 있습니다.
 
 1.  **프로비전** 탭에서 **프로비전 상태**를 **켜기**로 설정합니다.
@@ -532,7 +532,7 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 > [!IMPORTANT]
 > Azure AD에만 프로비전해야 하고 온-프레미스 Active Directory에는 프로비전하면 안 되는 클라우드 전용 사용자가 있는 경우 아래 절차만 수행합니다.
 
-### <a name="part-1-adding-the-azure-ad-provisioning-connector-app-and-creating-the-connection-to-workday"></a>1부: Azure AD 프로비전 커넥터 앱을 추가하고 Workday에 대한 연결 만들기
+### <a name="part-1-adding-the-azure-ad-provisioning-connector-app-and-creating-the-connection-to-workday"></a>1부: Azure AD 프로비전 커넥터 앱 추가 및 Workday에 대한 연결 만들기
 
 **클라우드 전용 사용자에 대한 Workday-Azure Active Directory 프로비전을 구성하려면:**
 
@@ -572,19 +572,19 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
 2. **원본 개체 범위** 필드에서 특성 기반 필터 집합을 정의하여 Azure AD 프로비전 범위에 포함할 Workday 사용자 집합을 선택할 수 있습니다. 기본 범위는 "Workday의 모든 사용자"입니다. 예제 필터:
 
-   * 예: 작업자 ID가 1000000-2000000 사이인 사용자를 범위에 포함
+   * 예제: 작업자 ID가 1000000-2000000 사이인 사용자를 범위에 포함
 
       * 특성: WorkerID
 
-      * 연산자: REGEX Match
+      * 연산자: REGEX 일치
 
       * 값: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
-   * 예: 비정규직 직원만 포함하고 정규직 직원은 포함하지 않음
+   * 예제: 비정규직 직원만 포함하고 정규직 직원은 포함하지 않음
 
       * 특성: ContingentID
 
-      * 연산자: IS NOT NULL
+      * 연산자: NULL이 아님
 
 3. **대상 개체 작업** 필드에서 어떤 작업을 Azure AD에서 수행할 수 있도록 허용할 것인지 전역적으로 필터링할 수 있습니다. **만들기** 및 **업데이트**가 가장 일반적입니다.
 
@@ -619,7 +619,7 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
 6. 매핑을 저장하려면 특성 매핑 섹션 맨 위에서 **저장**을 클릭합니다.
 
-### <a name="part-3-start-the-service"></a>3부: 서비스 시작
+### <a name="part-3-start-the-service"></a>3부. 서비스 시작
 1-2부를 완료했으면 프로비전 서비스를 시작할 수 있습니다.
 
 1. **프로비전** 탭에서 **프로비전 상태**를 **켜기**로 설정합니다.
@@ -635,7 +635,7 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 ## <a name="configuring-writeback-of-email-addresses-to-workday"></a>Workday로 이메일 주소 쓰기 저장 구성
 다음 지침에 따라 Azure Active Directory에서 Workday로 사용자 이메일 주소 쓰기 저장을 구성합니다.
 
-### <a name="part-1-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>1부: 프로비전 커넥터 앱을 추가하고 Workday에 대한 연결 만들기
+### <a name="part-1-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>1부: 프로비전 커넥터 앱 추가 및 Workday에 대한 연결 만들기
 
 **Workday 쓰기 저장 커넥터를 구성하려면**
 
@@ -677,7 +677,7 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
 4. 매핑을 저장하려면 특성 매핑 섹션 맨 위에서 **저장**을 클릭합니다.
 
-### <a name="part-3-start-the-service"></a>3부: 서비스 시작
+### <a name="part-3-start-the-service"></a>3부. 서비스 시작
 1-2부를 완료했으면 프로비전 서비스를 시작할 수 있습니다.
 
 1. **프로비전** 탭에서 **프로비전 상태**를 **켜기**로 설정합니다.
@@ -725,7 +725,7 @@ Azure AD 프로비저닝 서비스는 인사 API의[Get_Workers](https://communi
 
     ```
     <?xml version="1.0" encoding="UTF-8"?>
-    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
       <env:Body>
         <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
@@ -758,15 +758,15 @@ Azure AD 프로비저닝 서비스는 인사 API의[Get_Workers](https://communi
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio3.png)
 
-14. 파일 트리에서 **/env:Envelope > env:Body > wd:Get_Workers_Response > wd:Response_Data > wd:Worker**로 이동하여 사용자의 데이터를 찾습니다. 
+14. 파일 트리에서 **/env: Envelope > env: Body > wd:Get_Workers_Response > wd:Response_Data > wd: Worker**를 탐색하여 사용자의 데이터를 찾습니다. 
 
-15. **wd:Worker** 아래에서 추가하려는 특성을 찾은 후 선택합니다.
+15. **wd: Worker** 아래에서 추가하려는 특성을 찾은 후 선택합니다.
 
 16. **문서 경로** 필드에서 선택한 특성에 대한 XPath 식을 복사합니다.
 
 1. 복사한 식에서 **/env:Envelope/env:Body/wd:Get_Workers_Response/wd:Response_Data/** 접두사를 제거합니다.
 
-18. 복사한 식의 마지막 항목이 노드(예: “/wd:Birth_Date”)인 경우 식 끝에 **/text()** 를 붙입니다. 마지막 항목이 특성(예: “/@wd: type”)인 경우에는 이 작업이 필요하지 않습니다.
+18. 복사한 식의 마지막 항목이 노드인 경우(예: “/wd: Birth_Date”) **/text()** 를 식의 끝에 추가합니다. 마지막 항목이 특성(예: “/@wd: type”)인 경우에는 이 작업이 필요하지 않습니다.
 
 19. 결과는 `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`와 같아야 합니다. 이 내용을 Azure Portal에 복사해야 합니다.
 

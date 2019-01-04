@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 201bf1e5d3580902934f139b70ca5363e7cc5930
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 72e0937e91a7287d240bbdb25996865f934d432d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523018"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876505"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Azure Storage에서 보안 전송 필요
 
 "보안 전송 필요" 옵션으로 안전한 연결에서 계정으로만 요청을 허용하여 저장소 계정의 보안을 강화합니다. 예를 들어 저장소 계정에 액세스하는 데 REST API를 호출하는 경우 HTTPS를 사용하여 연결해야 합니다. "보안 전송 필요"는 HTTP를 사용하는 요청을 거부합니다.
 
-Azure 파일 서비스를 사용하는 경우 "보안 전송 필요"가 설정된 경우 암호화되지 않은 모든 연결이 실패합니다. 여기에는 암호화되지 않은 SMB 2.1, SMB 3.0을 사용하는 시나리오와 Linux SMB 클라이언트의 일부 버전이 포함됩니다. 
+Azure 파일 서비스를 사용하는 경우 "보안 전송 필요"가 설정된 경우 암호화되지 않은 모든 연결이 실패합니다. 여기에는 암호화되지 않은 SMB 2.1, SMB 3.0을 사용하는 시나리오와 Linux SMB 클라이언트의 일부 버전이 포함됩니다. 
 
-기본적으로 "보안 전송 필요" 옵션은 사용되지 않습니다.
+SDK로 스토리지 계정을 만들면 기본적으로 "보안 전송 필요" 옵션이 비활성화됩니다. Azure Portal에서 스토리지 계정을 만들면 기본적으로 활성화됩니다.
 
 > [!NOTE]
 > Azure Storage에서 사용자 지정 도메인 이름에 대해 HTTPS를 지원하지 않으므로 사용자 지정 도메인 이름을 사용할 때 이 옵션이 적용되지 않습니다. 또한 클래식 저장소 계정은 지원되지 않습니다.

@@ -159,7 +159,7 @@ New-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup `
 키 중 하나를 다시 생성한 다음 다시 검색하여 새 값을 확인합니다.
 
 > [!NOTE] 
-> 프러덕션 저장소 계정에 대해 키를 다시 생성하기 전에 신중한 계획이 필요합니다. 하나 이상의 키를 다시 생성하면 다시 생성되는 키를 사용하던 모든 응용 프로그램에 대한 액세스가 무효화됩니다. 자세한 내용은 [액세스 키](storage-account-manage.md#access-keys)를 참조하세요.
+> 프러덕션 저장소 계정에 대해 키를 다시 생성하기 전에 신중한 계획이 필요합니다. 하나 이상의 키를 다시 생성하면 다시 생성되는 키를 사용하던 모든 애플리케이션에 대한 액세스가 무효화됩니다. 자세한 내용은 [액세스 키](storage-account-manage.md#access-keys)를 참조하세요.
 
 
 ### <a name="delete-a-storage-account"></a>저장소 계정 삭제 
@@ -176,7 +176,7 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 
 ### <a name="protect-your-storage-account-using-vnets-and-firewalls"></a>Vnet 및 방화벽을 사용하여 저장소 계정 보호
 
-기본적으로 모든 저장소 계정은 인터넷에 액세스할 수 있는 네트워크를 통해 액세스 가능합니다. 그러나 특정 가상 네트워크의 응용 프로그램만 저장소 계정에 액세스하도록 허용하는 네트워크 규칙을 구성할 수 있습니다. 자세한 내용은 [Azure Storage 방화벽 및 Virtual Networks 구성](storage-network-security.md)을 참조하세요. 
+기본적으로 모든 저장소 계정은 인터넷에 액세스할 수 있는 네트워크를 통해 액세스 가능합니다. 그러나 특정 가상 네트워크의 애플리케이션만 스토리지 계정에 액세스하도록 허용하는 네트워크 규칙을 구성할 수 있습니다. 자세한 내용은 [Azure Storage 방화벽 및 Virtual Networks 구성](storage-network-security.md)을 참조하세요. 
 
 이 문서에서는 PowerShell cmdlet를 사용하여 이러한 설정을 관리하는 방법을 보여 줍니다.
 * [Add-AzureRmStorageAccountNetworkRule](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 776ad8445c1968928a631ae1a401db4c65a6bb6d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: afc2d52044a294af0ead373dfce283d0ec994d1e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421244"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840625"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>자습서: Insignia SAML SSO와 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ Insignia SAML SSO와 Azure AD 통합을 구성하려면 다음 항목이 필요�
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Insignia SAML SSO 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -64,11 +64,11 @@ Insignia SAML SSO가 Azure AD로 통합되도록 구성하려면 Insignia SAML S
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
 
@@ -117,10 +117,10 @@ Insignia SAML SSO에서 Azure AD Single Sign-On을 구성하고 테스트하려�
     | `https://<customername>.insigniails.com/` |
     | `https://<customername>.insigniailsusa.com/ ` |
 
-    나. **식별자** 텍스트 상자에서 `https://<customername>.insigniailsusa.com/<uniqueid>` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<customername>.insigniailsusa.com/<uniqueid>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Insignia SAML SSO 클라이언트 지원 팀](http://www.insigniasoftware.com/insignia/Techsupport.aspx)에 문의하세요. 
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Insignia SAML SSO 클라이언트 지원 팀](https://www.insigniasoftware.com/insignia/Techsupport.aspx)에 문의하세요. 
  
 
 1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
@@ -135,10 +135,10 @@ Insignia SAML SSO에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![Insignia SAML SSO 구성](./media/insigniasamlsso-tutorial/tutorial_insigniasamlsso_configure.png) 
 
-1. **Insignia SAML SSO** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)**, **로그아웃 URL 및 SAML Single Sign-On 서비스 URL**을 [Insignia SAML SSO 지원 팀](http://www.insigniasoftware.com/insignia/Techsupport.aspx)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+1. **Insignia SAML SSO** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)**, **로그아웃 URL 및 SAML Single Sign-On 서비스 URL**을 [Insignia SAML SSO 지원 팀](https://www.insigniasoftware.com/insignia/Techsupport.aspx)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -175,7 +175,7 @@ Insignia SAML SSO에서 Azure AD Single Sign-On을 구성하고 테스트하려�
  
 ### <a name="create-an-insignia-saml-sso-test-user"></a>Insignia SAML SSO 테스트 사용자 만들기
 
-이 섹션에서는 Insignia Library System에서 Britta Simon이라는 사용자를 만듭니다. Insignia Library System 플랫폼에서 사용자를 추가하려면 [Insignia Library System 지원 팀](http://www.insigniasoftware.com/insignia/Techsupport.aspx)에 문의하세요.
+이 섹션에서는 Insignia Library System에서 Britta Simon이라는 사용자를 만듭니다. Insignia Library System 플랫폼에서 사용자를 추가하려면 [Insignia Library System 지원 팀](https://www.insigniasoftware.com/insignia/Techsupport.aspx)에 문의하세요.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -185,7 +185,7 @@ Insignia SAML SSO에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 **Britta Simon을 Insignia SAML SSO에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 

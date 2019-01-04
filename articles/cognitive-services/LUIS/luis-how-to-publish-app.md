@@ -1,25 +1,26 @@
 ---
-title: 예측 엔드포인트에 LUIS 앱 게시
+title: 앱 게시
 titleSuffix: Azure Cognitive Services
-description: 활성 LUIS 빌드와 테스트를 마치면 엔드포인트에 게시하여 클라이언트 응용 프로그램에 적용하세요.
+description: 활성 LUIS 빌드와 테스트를 마치면 엔드포인트에 게시하여 클라이언트 애플리케이션에 적용하세요.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6eb48fd0f3290fbc3a249bc3880c809ace9f9ddb
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 73788b05cad3abac19b1ef509f1250542d10dba2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886494"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136650"
 ---
 # <a name="publish-your-trained-app"></a>학습된 앱 게시
 
-활성 LUIS 빌드와 테스트를 마치면 엔드포인트에 게시하여 클라이언트 응용 프로그램에 적용하세요. 
+활성 LUIS 빌드와 테스트를 마치면 엔드포인트에 게시하여 클라이언트 애플리케이션에 적용하세요. 
 
 <a name="publish-your-trained-app-to-an-http-endpoint"></a>
 
@@ -37,7 +38,7 @@ ms.locfileid: "48886494"
 
 앱이 성공적으로 게시되면 브라우저 위쪽에 녹색 성공 알림이 표시됩니다. 또한 녹색 알림 표시줄에는 엔드포인트에 대한 링크도 포함되어 있습니다. 
 
-![게시 팝업 창](./media/luis-how-to-publish-app/publish-success.png)
+![엔드포인트에 대한 링크가 있는 팝업 창 게시](./media/luis-how-to-publish-app/publish-success.png)
 
 엔드포인트 URL이 필요한 경우 링크를 선택하세요. 또한 맨 위 메뉴에서 **관리**를 선택하여 엔드포인트 URL로 이동한 다음, 왼쪽 메뉴에서 **키 및 엔드포인트**를 선택할 수도 있습니다. 
 

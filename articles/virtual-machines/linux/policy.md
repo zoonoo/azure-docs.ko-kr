@@ -28,7 +28,7 @@ ms.locfileid: "46975261"
 정책에 대한 소개는 [Azure Policy란?](../../azure-policy/azure-policy-introduction.md)을 참조하세요.
 
 ## <a name="permitted-virtual-machines"></a>허용되는 Virtual Machines
-조직에 대한 가상 머신이 응용 프로그램과 호환되는지 확인하기 위해 허용된 운영 체제를 제한할 수 있습니다. 다음 정책 예제에서는 Ubuntu 14.04.2-LTS Virtual Machines만 만들 수 있도록 허용합니다.
+조직에 대한 가상 머신이 애플리케이션과 호환되는지 확인하기 위해 허용된 운영 체제를 제한할 수 있습니다. 다음 정책 예제에서는 Ubuntu 14.04.2-LTS Virtual Machines만 만들 수 있도록 허용합니다.
 
 ```json
 {

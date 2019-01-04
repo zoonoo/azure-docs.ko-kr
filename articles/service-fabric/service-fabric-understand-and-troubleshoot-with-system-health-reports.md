@@ -1,6 +1,6 @@
 ---
 title: 시스템 상태 보고서 문제 해결 | Microsoft Docs
-description: Azure Service Fabric 구성 요소에서 보낸 상태 보고서와 클러스터 또는 응용 프로그램 문제 해결에 대한 사용을 설명합니다.
+description: Azure Service Fabric 구성 요소에서 보낸 상태 보고서와 클러스터 또는 애플리케이션 문제 해결에 대한 사용을 설명합니다.
 services: service-fabric
 documentationcenter: .net
 author: oanapl
@@ -29,7 +29,7 @@ Azure Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 �
 > 
 > 
 
-시스템 상태 보고서는 클러스터 및 응용 프로그램에 대한 가시성을 제공하고 문제를 플래그합니다. 응용 프로그램 및 서비스의 경우, 시스템 상태 보고서는 서비스 패브릭 관점에서 엔터티가 올바르게 구현되고 동작하는지 확인합니다. 보고서는 응답이 없는 프로세스의 감지 또는 서비스의 비즈니스 논리의 상태 모니터링은 제공하지 않습니다. 사용자 서비스는 논리에 고유한 정보로 건강 데이터를 보강할 수 있습니다.
+시스템 상태 보고서는 클러스터 및 애플리케이션에 대한 가시성을 제공하고 문제를 플래그합니다. 애플리케이션 및 서비스의 경우, 시스템 상태 보고서는 서비스 패브릭 관점에서 엔터티가 올바르게 구현되고 동작하는지 확인합니다. 보고서는 응답이 없는 프로세스의 감지 또는 서비스의 비즈니스 논리의 상태 모니터링은 제공하지 않습니다. 사용자 서비스는 논리에 고유한 정보로 건강 데이터를 보강할 수 있습니다.
 
 > [!NOTE]
 > 사용자 워치독이 보낸 상태 보고서는 시스템 구성 요소가 엔터티를 만든 *후*에만 표시됩니다. 엔터티가 삭제되면 Health 스토어가 모든 관련 상태 보고서를 자동으로 삭제합니다. 엔터티의 새 인스턴스가 만들어질 때도 마찬가지입니다. 예를 들어 새 상태 저장 유지 서비스 복제본 인스턴스가 만들어지는 경우가 있습니다. 이전 인스턴스와 연결된 모든 보고서는 삭제되고 저장소에서 정리됩니다.
@@ -41,7 +41,7 @@ Azure Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 �
 몇 가지 시스템 보고서를 검토하여 무엇이 해당 보고서를 트리거하는지 이해하고 보고서가 나타내는 가능한 문제의 해결 방법을 살펴봅니다.
 
 > [!NOTE]
-> Service Fabric은 관심 있는 조건에 대한 보고서를 계속 추가하여 클러스터 및 응용 프로그램에서 발생하는 상황에 대한 가시성을 향상시킵니다. 기존 보고서를 더 자세한 정보로 보강하여 문제를 더 빨리 해결할 수 있습니다.
+> Service Fabric은 관심 있는 조건에 대한 보고서를 계속 추가하여 클러스터 및 애플리케이션에서 발생하는 상황에 대한 가시성을 향상시킵니다. 기존 보고서를 더 자세한 정보로 보강하여 문제를 더 빨리 해결할 수 있습니다.
 > 
 > 
 
@@ -125,17 +125,17 @@ HealthEvents          :
 * **Property**: **ResourceGovernance**
 * **다음 단계**: 서비스 패키지 관리가 예상대로 적용되지 않고 [리소스 관리](service-fabric-resource-governance.md)가 올바르게 작동하지 않기 때문에 문제가 될 수 있습니다. 클러스터 매니페스트를 이러한 메트릭에 대한 올바른 노드 용량으로 업데이트하거나, 클러스터 매니페스트를 지정하지 않고 Service Fabric에서 사용 가능한 리소스를 자동으로 검색하도록 합니다.
 
-## <a name="application-system-health-reports"></a>응용 프로그램 시스템 상태 보고서
-클러스터 관리자 서비스를 나타내는 System.CM은 응용 프로그램에 대한 정보를 관리하는 기관입니다.
+## <a name="application-system-health-reports"></a>애플리케이션 시스템 상태 보고서
+클러스터 관리자 서비스를 나타내는 System.CM은 애플리케이션에 대한 정보를 관리하는 기관입니다.
 
 ### <a name="state"></a>시스템 상태
-응용 프로그램을 만들거나 업데이트할 때 System.CM은 확인을 보고합니다. 응용 프로그램을 삭제할 때 스토어에서 제거할 수 있도록 Health 스토어에 이를 알려줍니다.
+애플리케이션을 만들거나 업데이트할 때 System.CM은 확인을 보고합니다. 애플리케이션을 삭제할 때 스토어에서 제거할 수 있도록 Health 스토어에 이를 알려줍니다.
 
 * **SourceId**: System.CM
 * **Property**: State
-* **다음 단계**: 응용 프로그램이 만들어지거나 업데이트된 경우 클러스터 관리자 상태 보고서를 포함해야 합니다. 그렇지 않으면 쿼리를 실행하여 응용 프로그램의 상태를 확인합니다. 예를 들어 **Get-ServiceFabricApplication -ApplicationName** *applicationName* PowerShell cmdlet을 사용합니다.
+* **다음 단계**: 응용 프로그램이 만들어지거나 업데이트된 경우 클러스터 관리자 상태 보고서를 포함해야 합니다. 그렇지 않으면 쿼리를 실행하여 애플리케이션의 상태를 확인합니다. 예를 들어 **Get-ServiceFabricApplication -ApplicationName** *applicationName* PowerShell cmdlet을 사용합니다.
 
-다음 예제는 **fabric:/WordCount** 응용 프로그램에 대한 상태 이벤트를 보여 줍니다.
+다음 예제는 **fabric:/WordCount** 애플리케이션에 대한 상태 이벤트를 보여 줍니다.
 
 ```PowerShell
 PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
@@ -675,7 +675,7 @@ HealthEvents          :
 
 * **SourceId**: System.NamingService
 * **Property**: "**Duration_**" 접두사로 시작하고, 느린 작업 및 해당 작업이 적용되는 Service Fabric 이름을 식별합니다. 예를 들어 이름 **fabric:/MyApp/MyService**에서 서비스 만들기가 너무 오래 걸리는 경우 속성은 **Duration_AOCreateService.fabric:/MyApp/MyService**입니다. “AO”는 이 이름 및 작업에 대한 이름 지정 파티션의 역할을 가리킵니다.
-* **다음 단계**: 명명 작업이 실패하는 이유를 확인합니다. 각 작업에는 다른 원인이 있을 수 있습니다. 예를 들어 삭제 서비스가 멈춰 있을 수 있습니다. 서비스 코드의 사용자 버그로 인해 응용 프로그램 호스트가 노드에서 계속 충돌하기 때문에 서비스가 중단되었을 수 있습니다.
+* **다음 단계**: 명명 작업이 실패하는 이유를 확인합니다. 각 작업에는 다른 원인이 있을 수 있습니다. 예를 들어 삭제 서비스가 멈춰 있을 수 있습니다. 서비스 코드의 사용자 버그로 인해 애플리케이션 호스트가 노드에서 계속 충돌하기 때문에 서비스가 중단되었을 수 있습니다.
 
 다음 예제는 서비스 만들기 작업을 보여 줍니다. 작업이 구성된 기간보다 오래 걸렸습니다. “AO”는 다시 시도하고 “NO”로 작업을 보냅니다. “NO”에서 시간 제한이 있는 마지막 작업을 완료했습니다. 이 경우 동일한 복제본은 “AO” 및 “NO” 역할에 대해 주 복제본입니다.
 
@@ -728,7 +728,7 @@ HealthEvents          :
 **System.Hosting** 은 배포된 엔터티에 대한 권한입니다.
 
 ### <a name="activation"></a>활성화
-System.Hosting은 응용 프로그램이 노드에서 성공적으로 활성화되면 확인을 보고합니다. 그렇지 않으면 오류를 보고합니다.
+System.Hosting은 애플리케이션이 노드에서 성공적으로 활성화되면 확인을 보고합니다. 그렇지 않으면 오류를 보고합니다.
 
 * **SourceId**: System.Hosting
 * **Property**: **Activation**(롤아웃 버전 포함)
@@ -763,7 +763,7 @@ HealthEvents                       :
 ```
 
 ### <a name="download"></a>다운로드
-System.Hosting은 응용 프로그램 패키지 다운로드에 실패하면 오류를 보고합니다.
+System.Hosting은 애플리케이션 패키지 다운로드에 실패하면 오류를 보고합니다.
 
 * **SourceId**: System.Hosting
 * **Property**: **Download**(롤아웃 버전 포함)

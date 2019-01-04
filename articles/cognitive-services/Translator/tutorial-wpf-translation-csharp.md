@@ -1,7 +1,7 @@
 ---
-title: '자습서: C#에서 WPF 응용 프로그램 만들기 - Translator Text API'
+title: '자습서: C#에서 WPF 애플리케이션 만들기 - Translator Text API'
 titleSuffix: Azure Cognitive Services
-description: 이 자습서에서는 Translator Text API를 사용하여 C#을 통해 WPF 응용 프로그램을 빌드하여 텍스트를 번역하고, 지원되는 언어의 지역화된 목록을 가져오는 등의 방법을 알아봅니다.
+description: 이 자습서에서는 Translator Text API를 사용하여 C#을 통해 WPF 애플리케이션을 빌드하여 텍스트를 번역하고, 지원되는 언어의 지역화된 목록을 가져오는 등의 방법을 알아봅니다.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -25,7 +25,7 @@ ms.locfileid: "49647479"
 > * 서비스에서 지원되는 언어 목록 가져오기
 > * 사용자가 입력한 텍스트를 다른 언어로 번역 실행
 
-이 응용 프로그램은 두 가지 다른 Microsoft Cognitive Services와의 통합 기능도 제공합니다.
+이 애플리케이션은 두 가지 다른 Microsoft Cognitive Services와의 통합 기능도 제공합니다.
 
 |||
 |-|-|
@@ -53,7 +53,7 @@ Microsoft Translator Text API의 소스 코드입니다. 앱을 실행하려면 
 
 ### <a name="mainwindowxamlcs"></a>MainWindow.xaml.cs
 
-응용 프로그램의 기능을 제공하는 코드 숨김 파일입니다.
+애플리케이션의 기능을 제공하는 코드 숨김 파일입니다.
 
 ```csharp
 using System;
@@ -333,7 +333,7 @@ namespace MSTranslatorTextDemo
 
 ### <a name="mainwindowxaml"></a>MainWindow.xaml
 
-이 파일은 WPF 폼인 응용 프로그램의 사용자 인터페이스를 정의합니다. 고유 버전의 폼을 디자인하려는 경우 이 XAML이 필요하지 않습니다.
+이 파일은 WPF 폼인 애플리케이션의 사용자 인터페이스를 정의합니다. 고유 버전의 폼을 디자인하려는 경우 이 XAML이 필요하지 않습니다.
 
 ```xml
 <Window x:Class="MSTranslatorTextDemo.MainWindow"
@@ -380,7 +380,7 @@ Microsoft Translator 서비스에는 다양한 번역 기능을 제공하는 많
 
 ## <a name="the-translation-app"></a>번역 앱
 
-번역 응용 프로그램의 사용자 인터페이스는 WPF(Windows Presentation Foundation)를 사용하여 빌드되었습니다. 다음 단계에 따라 Visual Studio에서 새 WPF 프로젝트를 만듭니다.
+번역 애플리케이션의 사용자 인터페이스는 WPF(Windows Presentation Foundation)를 사용하여 빌드되었습니다. 다음 단계에 따라 Visual Studio에서 새 WPF 프로젝트를 만듭니다.
 
 * **파일** 메뉴에서 **새로 만들기 > 프로젝트**를 선택합니다.
 * 새 프로젝트 창에서 **설치됨 > 템플릿 > Visual C#** 을 엽니다. 사용 가능한 프로젝트 템플릿 목록이 대화 상자 가운데에 표시됩니다.
@@ -474,11 +474,11 @@ public partial class MainWindow : Window
 |`languageCodes`<br>문자열의 배열|언어 코드를 캐시합니다. Translator 서비스는 영어를 나타내는 `en`과 같은 짧은 코드를 사용하여 언어를 식별합니다.|
 |`languageCodesAndTitles`<br>SortedDictionary|사용자 인터페이스의 “친숙한” 이름을 API에 사용된 짧은 코드로 다시 매핑합니다. 대/소문자와 관계없이 사전순으로 정렬됩니다.|
 
-응용 프로그램에서 실행하는 첫 번째 코드는 `MainWindow` 생성자입니다. 먼저 `HandleExceptions` 메서드를 전역 오류 처리기로 설정합니다. 이렇게 하면 예외가 처리되지 않을 경우 최소한 오류 메시지가 표시됩니다.
+애플리케이션에서 실행하는 첫 번째 코드는 `MainWindow` 생성자입니다. 먼저 `HandleExceptions` 메서드를 전역 오류 처리기로 설정합니다. 이렇게 하면 예외가 처리되지 않을 경우 최소한 오류 메시지가 표시됩니다.
 
 다음에는 API 구독 키의 길이가 모두 정확히 32자인지 확인합니다. 32자가 아닌 경우 가장 가능성이 높은 이유는 *누군가*가 API 키를 붙여넣지 않은 것입니다. 이 경우 오류 메시지를 표시하고 구제합니다. 이 테스트를 통과해도 키가 유효하다는 것은 아닙니다.
 
-최소한 키 길이가 올바른 경우 `InitializeComponent()` 호출에서 주 응용 프로그램 창에 대한 XAML 설명을 찾아 로드하고 인스턴스화하여 사용자 인터페이스가 롤링되도록 합니다.
+최소한 키 길이가 올바른 경우 `InitializeComponent()` 호출에서 주 애플리케이션 창에 대한 XAML 설명을 찾아 로드하고 인스턴스화하여 사용자 인터페이스가 롤링되도록 합니다.
 
 마지막으로, 언어 드롭다운 메뉴를 설정합니다. 이 작업에는 다음 섹션에서 자세히 설명되어 있는 세 개의 별도 메서드 호출이 필요합니다.
 

@@ -43,10 +43,10 @@ ID 공급자를 Azure AD B2C로 마이그레이션하려는 경우 소셜 ID가 
     ]
     ```
 
-* ID 공급자에 따라 **소셜 사용자 ID**는 응용 프로그램 또는 개발 계정마다 주어진 사용자에 대한 고유한 값입니다. 소셜 공급자가 이전에 할당한 ID와 동일한 응용 프로그램 ID로 Azure AD B2C 정책을 구성합니다. 또는 동일한 개발 계정 내의 다른 응용 프로그램입니다.
+* ID 공급자에 따라 **소셜 사용자 ID**는 애플리케이션 또는 개발 계정마다 주어진 사용자에 대한 고유한 값입니다. 소셜 공급자가 이전에 할당한 ID와 동일한 애플리케이션 ID로 Azure AD B2C 정책을 구성합니다. 또는 동일한 개발 계정 내의 다른 애플리케이션입니다.
 
 ## <a name="use-graph-api-to-migrate-users"></a>Graph API를 사용하여 사용자 마이그레이션
-[Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet)를 통해 Azure AD B2C 사용자 계정을 만듭니다. Graph API와 통신하려면 먼저 관리자 권한이 있는 서비스 계정이 있어야 합니다. Azure AD에서 Azure AD에 응용 프로그램 및 인증을 등록합니다. 응용 프로그램 자격 증명은 응용 프로그램 ID 및 응용 프로그램 비밀입니다. 응용 프로그램은 사용자로서가 아닌 자체로서 Graph API를 호출합니다. [사용자 마이그레이션](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration#step-1-use-graph-api-to-migrate-users) 문서의 1단계를 수행합니다.
+[Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet)를 통해 Azure AD B2C 사용자 계정을 만듭니다. Graph API와 통신하려면 먼저 관리자 권한이 있는 서비스 계정이 있어야 합니다. Azure AD에서 Azure AD에 애플리케이션 및 인증을 등록합니다. 애플리케이션 자격 증명은 애플리케이션 ID 및 애플리케이션 비밀입니다. 애플리케이션은 사용자로서가 아닌 자체로서 Graph API를 호출합니다. [사용자 마이그레이션](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration#step-1-use-graph-api-to-migrate-users) 문서의 1단계를 수행합니다.
 
 ## <a name="required-properties"></a>필수 속성
 다음 목록은 사용자를 만들 때 필요한 속성을 보여줍니다.
@@ -148,7 +148,7 @@ ID 공급자를 Azure AD B2C로 마이그레이션하려는 경우 소셜 ID가 
 > B2C 테넌트에 대해 로컬인 B2C 테넌트 관리자 계정을 사용합니다. 계정 이름 구문은 admin@tenant-name.onmicrosoft.com입니다.
 
 ### <a name="is-it-possible-to-add-social-identity-to-an-existing-local-account"></a>기존 로컬 계정에 소셜 ID를 추가할 수 있나요?
-예. 로컬 계정을 만든 후에 소셜 ID를 추가할 수 있습니다. HTTPS PATCH 요청을 실행합니다. userObjectId를 업데이트할 사용자 ID로 바꿉니다. 
+ 예. 로컬 계정을 만든 후에 소셜 ID를 추가할 수 있습니다. HTTPS PATCH 요청을 실행합니다. userObjectId를 업데이트할 사용자 ID로 바꿉니다. 
 
 **PATCH** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 
@@ -166,7 +166,7 @@ ID 공급자를 Azure AD B2C로 마이그레이션하려는 경우 소셜 ID가 
 ```
 
 ### <a name="is-it-possible-to-add-multiple-social-identities"></a>여러 소셜 ID를 추가할 수 있나요?
-예. 단일 Azure AD B2C 계정에 대해 여러 소셜 ID를 추가할 수 있습니다. HTTPS PATCH 요청을 실행합니다. userObjectId를 사용자 ID로 바꿉니다. 
+ 예. 단일 Azure AD B2C 계정에 대해 여러 소셜 ID를 추가할 수 있습니다. HTTPS PATCH 요청을 실행합니다. userObjectId를 사용자 ID로 바꿉니다. 
 
 **PATCH** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 
@@ -187,7 +187,7 @@ ID 공급자를 Azure AD B2C로 마이그레이션하려는 경우 소셜 ID가 
 }
 ```
 
-## <a name="optional-user-migration-application-sample"></a>[선택 사항] 사용자 마이그레이션 응용 프로그램 샘플
+## <a name="optional-user-migration-application-sample"></a>[선택 사항] 사용자 마이그레이션 애플리케이션 샘플
 [샘플 앱 V2 다운로드 및 실행](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-user-migration). 샘플 앱 V2는 로컬 계정, 소셜 계정, 단일 계정의 로컬 및 소셜 ID을 비롯한 더미 사용자 데이터가 포함된 JSON 파일을 사용합니다.  JSON 파일을 편집하려면 `AADB2C.UserMigration.sln` Visual Studio 솔루션을 엽니다. `AADB2C.UserMigration` 프로젝트에서 `UsersData.json` 파일을 엽니다. 이 파일에는 사용자 엔터티 목록이 포함되어 있습니다. 각 사용자 엔터티에는 다음과 같은 속성이 있습니다.
 * **signInName** - 로컬 계정의 로그인 할 이메일 주소
 * **displayName** - 사용자의 표시 이름

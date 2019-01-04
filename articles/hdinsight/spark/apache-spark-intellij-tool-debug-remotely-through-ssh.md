@@ -1,6 +1,6 @@
 ---
-title: 'IntelliJ용 Azure 도구 키트: SSH를 통해 원격으로 Spark 응용 프로그램 디버그 '
-description: IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여 SSH를 통해 HDInsight 클러스터에서 응용 프로그램을 원격으로 디버그하는 방법에 대한 단계별 지침
+title: 'IntelliJ용 Azure 도구 키트: SSH를 통해 원격으로 Spark 애플리케이션 디버그 '
+description: Azure Toolkit for IntelliJ의 HDInsight 도구를 사용하여 SSH를 통해 HDInsight 클러스터에서 애플리케이션을 원격으로 디버그하는 방법에 대한 단계별 지침
 keywords: IntelliJ 원격으로 디버그, IntelliJ 원격 디버깅, SSH, IntelliJ, HDInsight, IntelliJ 디버그, 디버깅
 services: hdinsight
 ms.service: hdinsight
@@ -17,9 +17,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/29/2018
 ms.locfileid: "52582482"
 ---
-# <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>IntelliJ용 Azure 도구 키트를 사용하여 SSH를 통해 HDInsight 클러스터에서 로컬 또는 원격으로 Spark 응용 프로그램 디버그
+# <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Azure Toolkit for IntelliJ를 사용하여 SSH를 통해 HDInsight 클러스터에서 로컬 또는 원격으로 Spark 애플리케이션 디버그
 
-이 문서에서는 [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable)의 HDInsight 도구를 사용하여 HDInsight 클러스터에서 애플리케이션을 원격으로 디버그하는 방법에 대한 단계별 지침을 제공합니다. 프로젝트를 디버그하려는 경우 [IntelliJ용 Azure 도구 키트로 HDInsight Spark 응용 프로그램 디버그](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) 비디오를 시청할 수도 있습니다.
+이 문서에서는 [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable)의 HDInsight 도구를 사용하여 HDInsight 클러스터에서 애플리케이션을 원격으로 디버그하는 방법에 대한 단계별 지침을 제공합니다. 프로젝트를 디버그하려는 경우 [Azure Toolkit for IntelliJ로 HDInsight Spark 애플리케이션 디버그](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) 비디오를 시청할 수도 있습니다.
 
 **필수 구성 요소**
 * **IntelliJ용 Azure 도구 키트의 HDInsight 도구** 이 도구는 IntelliJ용 Azure 도구 키트의 일부입니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트 설치](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation)를 참조하세요. **IntelliJ용 Azure 도구 키트**. 이 도구 키트를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션을 만듭니다. 자세한 내용은 [Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin)의 지침을 따르세요.
@@ -27,7 +27,7 @@ ms.locfileid: "52582482"
 * **사용자 이름 및 암호 관리를 포함한 HDInsight SSH 서비스**. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) 및 [SSH 터널링을 사용하여 Ambari 웹 UI, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스](https://docs.microsoft.com/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel)를 참조하세요. 
  
 ## <a name="learn-how-to-perform-local-run-and-debugging"></a>로컬 실행 및 디버깅을 수행하는 방법에 대해 알아봅니다
-### <a name="scenario-1-create-a-spark-scala-application"></a>시나리오 1: Spark Scala 응용 프로그램 만들기 
+### <a name="scenario-1-create-a-spark-scala-application"></a>시나리오 1: Spark Scala 애플리케이션 만들기 
 
 1. IntelliJ IDEA를 시작하고 프로젝트를 만듭니다. **새 프로젝트** 대화 상자에서 다음을 수행합니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "52582482"
 1. **src** > **main** > **scala**를 선택하여 프로젝트에서 코드를 엽니다. 이 예제에서는 **SparkCore_wasbloTest** 스크립트를 사용합니다.
 
 ### <a name="prerequisite-for-windows"></a>Windows에 대한 필수 구성 요소
-Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행하는 동안 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356)에서 설명한 예외가 발생할 수 있습니다. 이 예외는 Windows에 WinUtils.exe가 없기 때문에 발생합니다. 
+Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 동안 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356)에서 설명한 예외가 발생할 수 있습니다. 이 예외는 Windows에 WinUtils.exe가 없기 때문에 발생합니다. 
 
 이 오류를 해결하려면 [실행 파일을 다운로드](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)하여 **C:\WinUtils\bin** 등의 위치에 저장합니다. 그런 다음 **HADOOP_HOME** 환경 변수를 추가하고 이 변수 값을 **C:\WinUtils**로 설정합니다.
 
@@ -166,7 +166,7 @@ Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행하는 �
 * [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-### <a name="create-and-run-applications"></a>응용 프로그램 만들기 및 실행
+### <a name="create-and-run-applications"></a>애플리케이션 만들기 및 실행
 * [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](../hdinsight-apache-spark-create-standalone-application.md)
 * [Apache Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
 

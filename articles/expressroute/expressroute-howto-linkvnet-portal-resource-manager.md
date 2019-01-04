@@ -1,26 +1,19 @@
 ---
-title: 'ExpressRoute 회로에 가상 네트워크 연결: Azure Portal | Microsoft Docs'
+title: '가상 네트워크를 회로에 연결 - ExpressRoute: Azure Portal | Microsoft Docs'
 description: Azure ExpressRoute 회로에 VNet을 연결합니다. 작업 단계
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: f5cb5441-2fba-46d9-99a5-d1d586e7bda4
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/08/2018
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 47c0db66889dae5d74e2fcf46a27ec1397930e53
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 16d85510efb055d7d564ffadb9fff2b200771bc6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256785"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438832"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>포털을 사용하여 ExpressRoute 회로에 가상 네트워크 연결
 > [!div class="op_single_selector"]
@@ -77,7 +70,7 @@ ms.locfileid: "51256785"
 
 - 큰 구름 안에 있는 각각의 작은 구름은 한 조직 내의 여러 부서에 속하는 구독을 나타내는 데 사용됩니다.
 - 조직 내의 각 부서는 자체 구독을 사용하여 서비스를 배포하되, 단일 ExpressRoute 회로를 공유하여 온-프레미스 네트워크로 다시 연결할 수 있습니다.
-- 단일 부서(이 예제에서는 IT)가 ExpressRoute 회로를 소유할 수 있습니다. 다른 Azure Active Directory 테넌트 및 기업계약 등록에 연결된 구독을 포함하여 조직 내 다른 구독에서 ExpressRoute 회로 및 해당 회로와 연결된 권한 부여를 사용할 수 있습니다.
+- 단일 부서(이 예제에서: IT)는 ExpressRoute 회로를 소유할 수 있습니다. 다른 Azure Active Directory 테넌트 및 기업계약 등록에 연결된 구독을 포함하여 조직 내 다른 구독에서 ExpressRoute 회로 및 해당 회로와 연결된 권한 부여를 사용할 수 있습니다.
 
   > [!NOTE]
   > 전용 회로에 대한 연결 및 대역폭 요금은 ExpressRoute 회로 소유자에게 적용됩니다. 모든 가상 네트워크는 동일한 대역폭을 공유합니다.
@@ -95,6 +88,10 @@ ms.locfileid: "51256785"
 **연결 권한 부여를 만들려면**
 
 회로 소유자가 권한 부여를 만듭니다. 그러면 회로 사용자가 ExpressRoute 회로에 가상 네트워크 게이트웨이를 연결하는 데 사용할 수 있는 권한 부여 키가 만들어집니다. 권한 부여는 하나의 연결에만 유효합니다.
+
+> [!NOTE]
+> 각 연결에는 별도의 권한이 필요합니다.
+>
 
 1. ExpressRoute 페이지에서 **권한 부여**를 클릭한 다음, 권한 부여에 대한 **이름**을 입력하고 **저장**을 클릭합니다.
 

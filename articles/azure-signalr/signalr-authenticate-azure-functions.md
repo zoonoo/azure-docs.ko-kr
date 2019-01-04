@@ -67,7 +67,7 @@ Azure Functions 앱을 로컬로 빌드하고 테스트합니다. 이 앱은 미
 
 ### <a name="create-a-new-azure-functions-project"></a>새 Azure Functions 프로젝트 만들기
 
-1. 새 VS Code 창의 메뉴에서 `File > Open Folder`를 사용하여 적절한 위치에 빈 폴더를 만들고 엽니다. 이는 빌드할 응용 프로그램에 대한 주 프로젝트 폴더입니다.
+1. 새 VS Code 창의 메뉴에서 `File > Open Folder`를 사용하여 적절한 위치에 빈 폴더를 만들고 엽니다. 이는 빌드할 애플리케이션에 대한 주 프로젝트 폴더입니다.
 
 1. VS Code에서 Azure Functions 확장을 사용하여 주 프로젝트 폴더에서 함수 앱을 초기화합니다.
     1. 메뉴에서 **보기 > 명령 팔레트**를 차례로 선택하여 VS Code에서 명령 팔레트를 엽니다(바로 가기: `Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
@@ -93,7 +93,7 @@ Azure Functions 앱을 로컬로 빌드하고 테스트합니다. 이 앱은 미
 
 ### <a name="configure-application-settings"></a>애플리케이션 설정 구성
 
-Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **local.settings.json**에서 응용 프로그램 설정을 읽습니다. 이 파일을 앞에서 만든 SignalR Service 인스턴스의 연결 문자열로 업데이트합니다.
+Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **local.settings.json**에서 애플리케이션 설정을 읽습니다. 이 파일을 앞에서 만든 SignalR Service 인스턴스의 연결 문자열로 업데이트합니다.
 
 1. VS Code의 [탐색기] 창에서 **local.settings.json**을 선택하여 엽니다.
 
@@ -268,7 +268,7 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 ## <a name="create-and-run-the-chat-client-web-user-interface"></a>채팅 클라이언트 웹 사용자 인터페이스 만들기 및 실행
 
-채팅 응용 프로그램의 UI는 Vue JavaScript 프레임워크를 사용하여 만든 간단한 SPA(단일 페이지 응용 프로그램)입니다. 함수 앱과 별도로 호스팅됩니다. 로컬에서는 Live Server VS Code 확장을 사용하여 웹 인터페이스를 실행합니다.
+채팅 애플리케이션의 UI는 Vue JavaScript 프레임워크를 사용하여 만든 간단한 SPA(단일 페이지 애플리케이션)입니다. 함수 앱과 별도로 호스팅됩니다. 로컬에서는 Live Server VS Code 확장을 사용하여 웹 인터페이스를 실행합니다.
 
 1. VS Code에서 주 프로젝트 폴더의 루트에 **content**라는 새 폴더를 만듭니다.
 
@@ -280,13 +280,13 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 1. **F5** 키를 눌러 함수 앱을 로컬로 실행하고 디버거를 연결합니다.
 
-1. **index.html**이 열린 상태에서 VS Code 명령 팔레트를 열고(`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`), **Live Server: Live Server로 열기**를 선택하여 Live Server를 시작합니다. Live Server는 브라우저에서 응용 프로그램을 엽니다.
+1. **index.html**이 열린 상태에서 VS Code 명령 팔레트를 열고(`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`), **Live Server: Live Server로 열기**를 선택하여 Live Server를 시작합니다. Live Server는 브라우저에서 애플리케이션을 엽니다.
 
-1. 응용 프로그램이 열립니다. 채팅 상자에서 메시지를 입력하고 Enter 키를 누릅니다. 새 메시지를 보려면 응용 프로그램을 새로 고칩니다. 인증이 구성되지 않았으므로 모든 메시지는 "익명"으로 보내집니다.
+1. 애플리케이션이 열립니다. 채팅 상자에서 메시지를 입력하고 Enter 키를 누릅니다. 새 메시지를 보려면 애플리케이션을 새로 고칩니다. 인증이 구성되지 않았으므로 모든 메시지는 "익명"으로 보내집니다.
 
 ## <a name="deploy-to-azure-and-enable-authentication"></a>Azure에 배포 및 인증을 사용하도록 설정
 
-함수 앱 및 채팅 응용 프로그램을 로컬로 실행했습니다. 이제 이러한 앱을 Azure에 배포하고 응용 프로그램에서 인증 및 개인 메시징을 사용하도록 설정합니다.
+함수 앱 및 채팅 애플리케이션을 로컬로 실행했습니다. 이제 이러한 앱을 Azure에 배포하고 애플리케이션에서 인증 및 개인 메시징을 사용하도록 설정합니다.
 
 ### <a name="log-into-azure-with-vs-code"></a>VS Code를 사용하여 Azure에 로그인
 
@@ -377,7 +377,7 @@ CORS 설정은 **local.settings.json**에 있지만 Azure의 함수 앱에 전�
     ![CORS 설정](media/signalr-authenticate-azure-functions/signalr-set-cors.png)
 
 > [!NOTE]
-> 실제 응용 프로그램에서는 모든 원본(`*`)에서 CORS를 허용하는 대신, 더 안전한 방법으로 CORS가 필요한 각 도메인에 대해 특정 CORS 항목을 입력하는 것입니다.
+> 실제 애플리케이션에서는 모든 원본(`*`)에서 CORS를 허용하는 대신, 더 안전한 방법으로 CORS가 필요한 각 도메인에 대해 특정 CORS 항목을 입력하는 것입니다.
 
 ### <a name="update-the-web-app"></a>웹앱 업데이트
 
@@ -389,13 +389,13 @@ CORS 설정은 **local.settings.json**에 있지만 Azure의 함수 앱에 전�
 
 1. VS Code에서 **index.html**을 열고 `apiBaseUrl`의 값을 함수 앱의 URL로 바꿉니다.
 
-1. 응용 프로그램은 Azure Active Directory, Facebook, Twitter, Microsoft 계정 또는 Google을 사용하여 인증을 통해 구성할 수 있습니다. `authProvider` 값을 설정하여 사용할 인증 공급자를 선택합니다.
+1. 애플리케이션은 Azure Active Directory, Facebook, Twitter, Microsoft 계정 또는 Google을 사용하여 인증을 통해 구성할 수 있습니다. `authProvider` 값을 설정하여 사용할 인증 공급자를 선택합니다.
 
 1. 파일을 저장합니다.
 
-### <a name="deploy-the-web-application-to-blob-storage"></a>Blob 저장소에 웹 응용 프로그램 배포
+### <a name="deploy-the-web-application-to-blob-storage"></a>Blob 저장소에 웹 애플리케이션 배포
 
-웹 응용 프로그램은 Azure Blob Storage의 정적 웹 사이트 기능을 사용하여 호스팅됩니다.
+웹 애플리케이션은 Azure Blob Storage의 정적 웹 사이트 기능을 사용하여 호스팅됩니다.
 
 1. 새 Azure 리소스를 만들려면 **새로 만들기**(**+**) 단추를 클릭합니다.
 
@@ -433,7 +433,7 @@ CORS 설정은 **local.settings.json**에 있지만 Azure의 함수 앱에 전�
 
 1. **업로드**를 클릭하고, **content** 폴더에 **index.html**을 업로드합니다.
 
-1. **정적 웹 사이트**로 돌아갑니다. **기본 엔드포인트**에 유의하세요. 이는 웹 응용 프로그램의 URL입니다.
+1. **정적 웹 사이트**로 돌아갑니다. **기본 엔드포인트**에 유의하세요. 이는 웹 애플리케이션의 URL입니다.
 
 ### <a name="enable-app-service-authentication"></a>App Service 인증을 사용하도록 설정
 
@@ -455,7 +455,7 @@ App Service 인증은 Azure Active Directory, Facebook, Twitter, Microsoft 계�
     - [Microsoft 계정](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft)
     - [Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google)
 
-### <a name="try-the-application"></a>응용 프로그램 사용해 보기
+### <a name="try-the-application"></a>애플리케이션 사용해 보기
 
 1. 브라우저에서 저장소 계정의 기본 웹 엔드포인트로 이동합니다.
 
@@ -475,7 +475,7 @@ App Service 인증은 Azure Active Directory, Facebook, Twitter, Microsoft 계�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure SignalR Service에서 Azure Functions를 사용하는 방법을 알아보았습니다. Azure Functions에 대한 SignalR Service 바인딩을 사용하여 실시간 서버리스 응용 프로그램을 빌드하는 방법에 대해 자세히 알아보세요.
+이 자습서에서는 Azure SignalR Service에서 Azure Functions를 사용하는 방법을 알아보았습니다. Azure Functions에 대한 SignalR Service 바인딩을 사용하여 실시간 서버리스 애플리케이션을 빌드하는 방법에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 > [Azure Functions를 사용하여 실시간 앱 빌드](signalr-overview-azure-functions.md)

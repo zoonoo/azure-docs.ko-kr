@@ -79,8 +79,8 @@ Windows 10의 2015년 11월 이후 릴리스에서 엔터프라이즈 상태 로
    **테넌트 ID GUID** 키에서 **AllowedRMSServerUrls**라는 새 다중 문자열 값(REG-MULTI-SZ)을 만듭니다. 해당 데이터에 대해 디바이스에서 액세스하는 다른 Azure 테넌트의 라이선스 배포 지점 URL을 지정합니다.
 3. AADRM 모듈에서 **Get-AadrmConfiguration** cmdlet을 실행하여 라이선싱 배포 지점 URL을 찾을 수 있습니다. **LicensingIntranetDistributionPointUrl** 및 **LicensingExtranetDistributionPointUrl**의 값이 다르면 두 값을 모두 지정합니다. 값이 같으면 값을 한 번만 지정합니다.
 
-## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>기존 Windows 데스크톱 응용 프로그램의 로밍 설정 옵션은 무엇인가요?
-로밍은 유니버설 Windows 앱에서만 작동합니다. 기존 Windows 데스크톱 응용 프로그램에서 로밍을 활성화할 수 있는 두 가지 옵션이 있습니다.
+## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>기존 Windows 데스크톱 애플리케이션의 로밍 설정 옵션은 무엇인가요?
+로밍은 유니버설 Windows 앱에서만 작동합니다. 기존 Windows 데스크톱 애플리케이션에서 로밍을 활성화할 수 있는 두 가지 옵션이 있습니다.
 
 * [데스크톱 브리지](https://aka.ms/desktopbridge) 를 사용하면 유니버설 Windows 플랫폼에 기존 Windows 데스크톱 앱을 쉽게 가져올 수 있습니다. 이때 Azure AD 앱 데이터 로밍을 활용하려면 최소한의 코드 변경 작업이 필요합니다. 데스크톱 브리지는 앱 ID를 사용하여 앱을 제공하며 이는 기존 데스크톱 앱에 앱 데이터 로밍을 사용하는 데 필요합니다.
 * [UE-V(사용자 경험 가상화)](https://technet.microsoft.com/library/dn458947.aspx) 를 사용하면 기존 Windows 데스크톱 앱에 대한 사용자 지정 설정 템플릿을 만들 수 있고 Win32 앱에 대해서만 로밍을 사용할 수 있습니다. 이 옵션은 앱의 코드를 변경하기 위해 앱 개발자가 필요하지 않습니다. UE-V는 Microsoft Desktop Optimization Pack을 구매한 고객에 대한 온-프레미스 Active Directory 로밍으로 제한됩니다.
@@ -89,7 +89,7 @@ Windows 10의 2015년 11월 이후 릴리스에서 엔터프라이즈 상태 로
 
 * Windows 설정 로밍 그룹 정책
 * Windows 앱 동기화 안 함 그룹 정책
-* 응용 프로그램 섹션의 Internet Explorer 로밍
+* 애플리케이션 섹션의 Internet Explorer 로밍
 
 앞으로 Microsoft는 UE-V를 Windows와 긴밀하게 통합하고 Azure AD 클라우드를 통해 설정을 로밍할 수 있도록 UE-V를 확장하는 방법을 연구할 것입니다.
 
@@ -102,13 +102,13 @@ Enterprise State Roaming은 Microsoft 클라우드에 동기화된 모든 데이
 Microsoft는 고객 데이터를 보호하기 위해 최선을 다하고 있습니다. 엔터프라이즈 사용자의 설정 데이터는 Windows 10 디바이스에서 나오기 전에 Azure Rights Management 서비스를 통해 자동으로 암호화되므로 다른 사용자가 이 데이터를 읽을 수 없습니다. 조직에서 Azure Rights Management 서비스에 대한 유료 구독을 보유한 경우 문서 추적 및 해제, 민감한 정보가 포함된 이메일 자동 보호, 사용자 고유 키(BYOK("Bring Your Own Key" 솔루션)라고도 함) 관리 등 다른 보호 기능을 사용할 수 있습니다. 이러한 기능 및 이 보호 서비스의 작동 방식에 대한 자세한 내용은 [Azure Rights Management란](/azure/information-protection/what-is-information-protection)을 참조하세요.
 
 ## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>특정 앱 또는 설정에 대한 동기화를 관리할 수 있나요?
-Windows 10에는 개별 응용 프로그램의 로밍을 비활성화하는 MDM 또는 그룹 정책 설정이 없습니다. 테넌트 관리자는 관리 디바이스의 모든 앱에 대해 앱 데이터 동기화를 비활성화할 수 있지만 앱당 또는 앱 내부 수준에서 더욱 정교하게 제어하는 방법은 없습니다.
+Windows 10에는 개별 애플리케이션의 로밍을 비활성화하는 MDM 또는 그룹 정책 설정이 없습니다. 테넌트 관리자는 관리 디바이스의 모든 앱에 대해 앱 데이터 동기화를 비활성화할 수 있지만 앱당 또는 앱 내부 수준에서 더욱 정교하게 제어하는 방법은 없습니다.
 
 ## <a name="how-can-i-enable-or-disable-roaming"></a>로밍을 활성화/비활성화하려면 어떻게 해야 하나요?
 **설정** 앱에서 **계정** > **설정 동기화**로 이동합니다. 이 페이지에서 설정 로밍에 사용되는 계정을 확인할 수 있으며, 개별 설정 그룹의 로밍을 활성화 또는 비활성화할 수 있습니다.
 
 ## <a name="what-is-microsofts-recommendation-for-enabling-roaming-in-windows-10"></a>Microsoft는 Windows 10 로밍 활성화에 대해 무엇을 권장합니까?
-Microsoft에서는 사용자 프로필 로밍, UE-V, 엔터프라이즈 상태 로밍을 포함하여 몇 가지 설정 로밍 솔루션을 제공하고 있습니다.  Microsoft에서는 이후 버전의 Windows에서도 엔터프라이즈 상태 로밍에 투자하기 위해 최선을 다하고 있습니다. 조직에서 데이터를 클라우드로 이동할 준비가 덜 되었거나 불편하게 생각하는 경우에는 기본 로밍 기술로 UE-V를 사용하시기를 권장합니다. 조직에서 기존 Windows 데스크톱 응용 프로그램에 대한 로밍 지원이 필요하지만 클라우드로 이동하고 싶은 경우 Microsoft에서는 엔터프라이즈 상태 로밍과 UE-V를 모두 사용하시기를 권장합니다. UE-V와 엔터프라이즈 상태 로밍이 매우 비슷한 기술이지만 상호 배타적인 관계는 아니며 현재는 조직이 사용자에게 필요한 로밍 서비스를 제공할 수 있도록 서로를 보완해 주는 관계에 있습니다.  
+Microsoft에서는 사용자 프로필 로밍, UE-V, 엔터프라이즈 상태 로밍을 포함하여 몇 가지 설정 로밍 솔루션을 제공하고 있습니다.  Microsoft에서는 이후 버전의 Windows에서도 엔터프라이즈 상태 로밍에 투자하기 위해 최선을 다하고 있습니다. 조직에서 데이터를 클라우드로 이동할 준비가 덜 되었거나 불편하게 생각하는 경우에는 기본 로밍 기술로 UE-V를 사용하시기를 권장합니다. 조직에서 기존 Windows 데스크톱 애플리케이션에 대한 로밍 지원이 필요하지만 클라우드로 이동하고 싶은 경우 Microsoft에서는 엔터프라이즈 상태 로밍과 UE-V를 모두 사용하시기를 권장합니다. UE-V와 엔터프라이즈 상태 로밍이 매우 비슷한 기술이지만 상호 배타적인 관계는 아니며 현재는 조직이 사용자에게 필요한 로밍 서비스를 제공할 수 있도록 서로를 보완해 주는 관계에 있습니다.  
 
 엔터프라이즈 상태 로밍과 UE-V를 모두 사용할 경우 다음 규칙이 적용됩니다.
 

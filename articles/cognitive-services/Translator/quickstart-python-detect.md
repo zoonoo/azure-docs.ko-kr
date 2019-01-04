@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 564a12de2a0823372ce267f9ff2759ab17199a80
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: cfc2565c0ee2b51eaff40647cfcd7505e0479e64
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086042"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993825"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python을 사용하는 텍스트 언어 감지
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python을 통해 텍스트 언어 감지
 
 이 빠른 시작에서는 Python 및 Translator Text REST API를 사용하여 제공된 텍스트의 언어를 감지하는 방법을 알아봅니다.
 
@@ -67,7 +67,7 @@ else:
 현재 Translator Text에는 하나의 엔드포인트가 사용 가능하고 `base_url`로 설정됩니다. `path`는 `detect` 루트를 설정하며 API의 버전 3을 실행하기 원한다는 것을 식별합니다.
 
 >[!NOTE]
-> 엔드포인트, 루트 및 요청 매개 변수에 대한 자세한 내용은 [Translator Text API 3.0: Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect)를 참조하세요.
+> 엔드포인트, 루트 및 요청 매개 변수에 대한 자세한 내용은 [Translator Text API 3.0: 검색](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect)을 참조하세요.
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -163,7 +163,7 @@ python detect.py
 
 ## <a name="see-also"></a>참고 항목
 
-언어 감지뿐만 아니라 다음과 같은 Translator Text API 사용 방법을 알아봅니다.
+Translator Text API를 사용하여 다음을 수행하는 방법을 알아봅니다.
 
 * [텍스트 번역](quickstart-python-translate.md)
 * [텍스트 음역](quickstart-python-transliterate.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: edfd2e9e03aefa4833c8472a43d4857f08b95780
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0956d9bdbf6390f2d64f15ca267545ca15289a46
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495485"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339402"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure의 Windows Virtual Machines에서 실행되는 SQL Server에 대한 질문과 대답
 
@@ -112,7 +112,7 @@ ms.locfileid: "52495485"
 
 1. **자체 배포된 SQL Server VM을 SQL VM 리소스 공급자에 등록할 수 있나요?**
 
-   예. SQL Server를 자체 매체에서 등록한 경우에는 SQL VM을 리소스 공급자에 등록하여 SQL IaaS 확장을 통해 제공되는 관리 효율성 혜택을 받을 수 있습니다. 단, 자체 배포된 SQL VM은 PAYG로 변환할 수 없습니다. 
+   예. SQL Server를 자체 매체에서 등록하고 SQL IaaS 확장을 설치한 경우에는 SQL Server VM을 리소스 공급자에 등록하여 SQL IaaS 확장에 제공되는 관리 효율성의 이점을 누릴 수 있습니다. 단, 자체 배포된 SQL VM은 종량제로 변환할 수 없습니다.  
 
 ## <a name="administration"></a>관리
 
@@ -122,7 +122,7 @@ ms.locfileid: "52495485"
 
 1. **SQL Server의 기본 인스턴스를 제거할 수 있나요?**
 
-   예, 그러나 몇 가지 고려 사항이 있습니다. 앞의 답변에서 설명한 것처럼, [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 사용하는 기능은 기본 인스턴스에 대해서만 작동합니다. 기본 인스턴스를 제거하면 확장에서 계속 기본 인스턴스를 찾아 이벤트 로그 오류가 발생할 수 있습니다. 이러한 오류는 두 원본 **Microsoft SQL Server 자격 증명 관리** 및 **Microsoft SQL Server IaaS 에이전트**에서 발생합니다. 오류 중 하나는 다음과 유사할 수 있습니다.
+   예, 그러나 몇 가지 고려 사항이 있습니다. 앞의 답변에서 설명한 것처럼, [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 사용하는 기능은 기본 인스턴스에 대해서만 작동합니다. 기본 인스턴스를 제거하면 확장에서 계속 기본 인스턴스를 찾아 이벤트 로그 오류가 발생할 수 있습니다. 이러한 오류는 두 원본 즉, **Microsoft SQL Server 자격 증명 관리** 및 **Microsoft SQL Server IaaS 에이전트**에서 발생합니다. 오류 중 하나는 다음과 유사할 수 있습니다.
 
       SQL Server에 연결을 설정하는 동안 네트워크 관련 또는 인스턴스 특정 오류가 발생했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다.
 

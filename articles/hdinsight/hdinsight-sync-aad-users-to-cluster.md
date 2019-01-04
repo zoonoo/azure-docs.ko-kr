@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b63f2566220d556f9695687dc743a7d47e27acf1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ebb1e3614309f92fc21442100a13c53291b3acbb
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984316"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407290"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Azure Active Directory 사용자를 HDInsight 클러스터와 동기화
 
@@ -40,11 +40,11 @@ ms.locfileid: "46984316"
 
 4. **만들기**를 선택합니다.
 
-## <a name="use-the-ambari-rest-api-to-synchronize-users"></a>Ambari REST API를 사용하여 사용자 동기화
+## <a name="use-the-apache-ambari-rest-api-to-synchronize-users"></a>Apache Ambari REST API를 사용하여 사용자 동기화
 
 클러스터 생성 프로세스 동안 지정된 사용자 그룹은 해당 시간에 동기화됩니다. 사용자 동기화는 1시간마다 자동으로 발생합니다. 사용자를 즉시 동기화하거나 클러스터를 만드는 동안 지정된 그룹 이외의 그룹을 동기화하려면 Ambari REST API를 사용합니다.
 
-다음 방법은 Ambari REST API에서 POST를 사용합니다. 자세한 내용은 [Ambari REST API를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari-rest-api.md)를 참조하세요.
+다음 방법은 Ambari REST API에서 POST를 사용합니다. 자세한 내용은 [Apache Ambari REST API를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari-rest-api.md)를 참조하세요.
 
 1. [SSH 사용하여 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)합니다. Azure Portal의 클러스터에 대한 개요 창에서 **SSH(보안 셸)** 단추를 선택합니다.
 
@@ -123,12 +123,12 @@ ms.locfileid: "46984316"
 
 5. 이 결과는 상태가 **완료**이고, 하나의 새 사용자가 생성되었으며 해당 사용자에게 구성원 자격이 할당되었음을 나타냅니다. 이 예제에서 해당 사용자는 Azure AD의 동일한 그룹에 추가되었으므로 "HiveUsers" 동기화 LDAP 그룹에 할당됩니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 이전 방법은 클러스터 생성 동안 도메인 설정의 **사용자 그룹 액세스** 속성에 지정된 Azure AD 그룹만 동기화됩니다. 자세한 내용은 [HDInsight 클러스터 만들기](domain-joined/apache-domain-joined-configure.md)를 참조하세요.
 
 ## <a name="verify-the-newly-added-azure-ad-user"></a>새로 추가된 Azure AD 사용자 확인
 
-[Ambari 웹 UI](hdinsight-hadoop-manage-ambari.md)를 열어 새 Azure AD 사용자가 추가되었는지 확인합니다. **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** 으로 이동하여 Ambari 웹 UI에 액세스합니다. 클러스터 관리자 사용자 이름 및 암호를 입력합니다.
+[Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)를 열어 새 Azure AD 사용자가 추가되었는지 확인합니다. **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** 으로 이동하여 Ambari 웹 UI에 액세스합니다. 클러스터 관리자 사용자 이름 및 암호를 입력합니다.
 
 1. Ambari 대시보드의 **관리자** 메뉴 아래에서 **Ambari 관리**를 선택합니다
 
@@ -148,6 +148,6 @@ ms.locfileid: "46984316"
 
 ## <a name="see-also"></a>참고 항목
 
-* [ESP가 포함된 HDInsight에서 Hive 정책 구성](hdinsight-domain-joined-run-hive.md)
+* [ESP가 포함된 HDInsight에서 Apache Hive 정책 구성](hdinsight-domain-joined-run-hive.md)
 * [ESP가 포함된 HDInsight 클러스터 관리](hdinsight-domain-joined-manage.md)
-* [사용자에게 Ambari 권한 부여](hdinsight-authorize-users-to-ambari.md)
+* [사용자에게 Apache Ambari 권한 부여](hdinsight-authorize-users-to-ambari.md)

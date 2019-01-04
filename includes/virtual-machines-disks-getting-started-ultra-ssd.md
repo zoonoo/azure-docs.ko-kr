@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b28830ac2634ad2238d834238de83c9184bcd6f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ec8fa6c06dff0091627a800c895d45fd3b0e778e
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47010394"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53381584"
 ---
 # <a name="enabling-azure-ultra-ssds"></a>Azure Ultra SSD를 사용하도록 설정
 
@@ -31,7 +31,7 @@ CLI: `az vm list-skus --resource-type disks --query “[?name==’UltraSSD_LRS�
 
 |ResourceType  |이름  |위치  |영역  |제한  |기능  |값  |
 |---------|---------|---------|---------|---------|---------|---------|
-|디스크     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
+|disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
 명령에서 응답이 없으면 기능에 등록이 계속 보류 중이거나 아직 승인되지 않았다는 의미입니다.
 
@@ -84,6 +84,6 @@ VM을 프로비전한 후 데이터 디스크를 분할 및 포맷하고 워크�
 - Ultra SSD는 가상 머신에서 디스크를 분리하지 않고 런타임 시 디스크 성능 특성(IOPS 및 처리량) 조정을 지원합니다. 디스크 성능 크기 조정 작업이 디스크에서 실행된 후 변경 내용이 실제로 적용되려면 최대 한 시간이 걸릴 수 있습니다.
 - 디스크 용량을 증가하려면 가상 머신이 할당 취소되어야 합니다.
 
-# <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 새 디스크 형식을 시도하려는데 아직 미리 보기에 등록하지 않은 경우 [이 설문 조사를 통해 액세스를 요청](https://aka.ms/UltraSSDPreviewSignUp)합니다.

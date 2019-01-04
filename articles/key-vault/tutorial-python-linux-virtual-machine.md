@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Python에서 Azure Linux Virtual Machine에 Azure Key Vault를 사용하는 방법 | Microsoft Docs
-description: 자습서 Key Vault에서 비밀을 읽도록 ASP.NET Core 응용 프로그램 구성
+description: 자습서 Key Vault에서 비밀을 읽도록 ASP.NET Core 애플리케이션 구성
 services: key-vault
 documentationcenter: ''
 author: prashanthyv
@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 5f56022be7968d3be65fd06fef791d859acf14c0
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: acc926151e5abd1d6f9d0992591575198d1fdf44
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585234"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890537"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-python"></a>자습서: Python에서 Azure Linux Virtual Machine에 Azure Key Vault를 사용하는 방법
 
-Azure Key Vault를 통해 응용 프로그램, 서비스 및 IT 리소스에 액세스하는 데 필요한 API 키, 데이터베이스 연결 문자열과 같은 비밀을 보호할 수 있습니다.
+Azure Key Vault를 통해 애플리케이션, 서비스 및 IT 리소스에 액세스하는 데 필요한 API 키, 데이터베이스 연결 문자열과 같은 비밀을 보호할 수 있습니다.
 
-이 자습서에서는 Azure 리소스의 관리 ID를 사용하여 Azure 웹 응용 프로그램이 Azure Key Vault에서 정보를 읽는 데 필요한 단계를 수행합니다. 이 자습서는 [Azure Web Apps](../app-service/app-service-web-overview.md)를 기반으로 합니다. 다음에서 사용 방법을 알아봅니다.
+이 자습서에서는 Azure 리소스의 관리 ID를 사용하여 Azure 웹 애플리케이션이 Azure Key Vault에서 정보를 읽는 데 필요한 단계를 수행합니다. 이 자습서는 [Azure Web Apps](../app-service/app-service-web-overview.md)를 기반으로 합니다. 다음에서 사용 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 키 자격 증명 모음을 만듭니다.
@@ -91,7 +91,7 @@ az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGr
 
 ## <a name="add-a-secret-to-the-key-vault"></a>키 자격 증명 모음에 비밀 추가
 
-이 작업을 설명하기 위한 비밀을 추가하고 있습니다. 안전하게 유지하면서 응용 프로그램에서 사용할 수 있도록 하는 데 필요한 SQL 연결 문자열 또는 기타 정보를 저장할 수 있습니다.
+이 작업을 설명하기 위한 비밀을 추가하고 있습니다. 안전하게 유지하면서 애플리케이션에서 사용할 수 있도록 하는 데 필요한 SQL 연결 문자열 또는 기타 정보를 저장할 수 있습니다.
 
 다음 명령을 입력하여 키 자격 증명 모음에 **AppSecret**라고 하는 비밀을 만듭니다. 이 비밀에는 **MySecret** 값이 저장됩니다.
 
@@ -189,7 +189,7 @@ Sample.py를 만든 후 파일 열기 및 아래 코드 복사
     print(kvSecret.json()["value"])
 ```
 
-실행하면 비밀 값이 표시됨 
+아래 명령을 실행하면 비밀 값이 표시됩니다. 
 
 ```
 python Sample.py

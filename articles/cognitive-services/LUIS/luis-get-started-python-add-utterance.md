@@ -1,21 +1,22 @@
 ---
-title: Python 빠른 시작 - 모델 변경 및 LUIS 앱 학습
-titleSuffix: Azure Cognitive Services
-description: Python 빠른 시작에서는 Home Automation 앱에 예제 발언을 추가하여 앱을 학습시킵니다. 예제 발언은 의도에 매핑된 대화형 사용자 텍스트입니다. 의도에 대한 예제 발언을 제공하여, 사용자가 제공한 텍스트의 종류가 어떤 의도에 속하는지 LUIS에 알려줍니다.
+title: 변경, 학습 앱, Python
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Python 빠른 시작에서는 Home Automation 앱에 예제 발언을 추가하여 앱을 학습시킵니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: ff076954d51605935bb41488ec6a757c2f7806a1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6d05859977a7cba385877298405b9ce77034da68
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040179"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166356"
 ---
 # <a name="quickstart-change-model-using-python"></a>빠른 시작: Python을 사용하여 모델 변경
 
@@ -27,7 +28,7 @@ ms.locfileid: "47040179"
 * [Python 3.6](https://www.python.org/downloads/) 이상
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in LUIS-Samples GitHub repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>예제 발언 JSON 파일
 
@@ -40,13 +41,13 @@ ms.locfileid: "47040179"
    [!code-python[Console app code that adds an utterance Python 3.6](~/samples-luis/documentation-samples/quickstarts/change-model/python/3.x/add-utterances-3-6.py)]
 
 ## <a name="run-code"></a>코드 실행
-Python 3.6을 사용하여 명령줄의 응용 프로그램을 실행합니다.
+Python 3.6을 사용하여 명령줄의 애플리케이션을 실행합니다.
 
 ### <a name="add-utterances-from-the-command-line"></a>명령줄에서 발언 추가
 
 인수 없이 add-utterance를 호출하면 발언을 학습하지 않고 앱에 추가합니다.
 
-```CMD
+```console
 > python add-utterances-3-6.py
 ```
 
@@ -83,7 +84,7 @@ Python 3.6을 사용하여 명령줄의 응용 프로그램을 실행합니다.
 }
 ```
 
-```JSON
+```json
 Requested training status.
 [
    {

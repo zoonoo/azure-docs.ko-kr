@@ -28,7 +28,7 @@ Microsoft Virtual Academy는 개발자, IT 및 데이터 전문가, 학생들이
 
 [클라우드에서 개발/테스트](https://mva.microsoft.com/en-us/training-courses/devtest-in-the-cloud-16274?l=9aAijd7LC_2005190311)
 
-더 빠르고 더 나은 응용 프로그램을 제공해야 하는 개발자인가요? 개발 및 테스트 환경을 클라우드로 이동하면 정확하게 목적을 달성할 수 있게 도울 수 있습니다! 작업을 수행하는 방법을 알아 보고 이동의 이점을 확인하세요. 또한, Microsoft Azure가 개발 및 테스팅 요구 사항을 지원할 수 있는 방법을 보여 주는 데모와 프레젠테이션도 놓치지 마세요. 보안 개발에 대한 강좌와 배포 실습이 포함되어 있습니다.
+더 빠르고 더 나은 애플리케이션을 제공해야 하는 개발자인가요? 개발 및 테스트 환경을 클라우드로 이동하면 정확하게 목적을 달성할 수 있게 도울 수 있습니다! 작업을 수행하는 방법을 알아 보고 이동의 이점을 확인하세요. 또한, Microsoft Azure가 개발 및 테스팅 요구 사항을 지원할 수 있는 방법을 보여 주는 데모와 프레젠테이션도 놓치지 마세요. 보안 개발에 대한 강좌와 배포 실습이 포함되어 있습니다.
 
 [Azure 기반 Linux의 일반 작업](https://mva.microsoft.com/en-us/training-courses/common-tasks-for-linux-on-azure-16191?l=J0Hvb7qJC_1204668937)
 
@@ -44,7 +44,7 @@ Microsoft 클라우드 데이터 플랫폼 솔루션의 기능과 특징에 알�
 
 [클라우드 및 모바일 환경에서 ID 관리 및 보호](https://mva.microsoft.com/en-us/training-courses/manage-and-secure-identities-in-a-cloud-and-mobile-world-14013?l=GIJ2GcvrB_405192797)
 
-이 세션에서는 Azure Active Directory 및 Microsoft Advanced Threat Analytics가 어떻게 사용자 ID를 보호 및 관리하며 손상을 유발하기 전에 보안 위반을 식별하고 사용자에게 모든 기업 리소스 액세스에 단일 ID를 제공하는지 알아봅니다. 섀도 ID를 검색하는 데 사용하는 기술을 탐색하고 응용 프로그램 액세스를 관리하며 고급 보안 보고, 사용자 행동 분석, 감사 및 경고를 통해 의심스러운 활동을 모니터링합니다.
+이 세션에서는 Azure Active Directory 및 Microsoft Advanced Threat Analytics가 어떻게 사용자 ID를 보호 및 관리하며 손상을 유발하기 전에 보안 위반을 식별하고 사용자에게 모든 기업 리소스 액세스에 단일 ID를 제공하는지 알아봅니다. 섀도 ID를 검색하는 데 사용하는 기술을 탐색하고 애플리케이션 액세스를 관리하며 고급 보안 보고, 사용자 행동 분석, 감사 및 경고를 통해 의심스러운 활동을 모니터링합니다.
 
 [클라우드 기반 환경의 보안](https://mva.microsoft.com/en-us/training-courses/security-in-a-cloudenabled-world-12725?l=CfLHobAcB_3904300474)
 
@@ -60,7 +60,7 @@ Microsoft Azure 인프라 기능을 사용하는 방법에 대해 알아봅니�
 
 [Azure Resource Manager 시나리오 및 패턴 심층 분석](https://mva.microsoft.com/en-us/training-courses/deep-dive-into-azure-resource-manager-scenarios-and-patterns-13793?l=i1m06ZJYB_7001937557)
 
-사용자 응용 프로그램 인프라의 요소를 쉽게 스핀업 또는 스핀다운할 수 있게 해주는 스크립트와 도구를 보여 주는 전문가 팀과 Azure Resource Manager을 살펴 봅니다. Azure Resource Manager로 보안을 구현하기 위해 RBAC(역할 기반 액세스 제어) 사용을 살펴 봅니다.
+사용자 애플리케이션 인프라의 요소를 쉽게 스핀업 또는 스핀다운할 수 있게 해주는 스크립트와 도구를 보여 주는 전문가 팀과 Azure Resource Manager를 살펴 봅니다. Azure Resource Manager로 보안을 구현하기 위해 RBAC(역할 기반 액세스 제어) 사용을 살펴 봅니다.
 
 [Azure Rights Management 서비스 핵심 기술](https://mva.microsoft.com/en-us/training-courses/azure-rights-management-services-core-skills-10500?l=QLoxMwuCB_1805094681)
 

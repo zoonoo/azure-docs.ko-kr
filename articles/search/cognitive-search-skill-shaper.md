@@ -1,5 +1,5 @@
 ---
-title: 쉐이퍼 인식 검색 기술(Azure Search) | Microsoft Docs
+title: 쉐이퍼 인식 검색 기술 - Azure Search
 description: 구조화되지 않은 데이터에서 메타데이터 및 구조화된 정보를 추출하고 Azure Search 보강 파이프라인에서 복합 형식으로 구성합니다.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 286e1f9d6f6ae09d98aa87b447df7a7524642a1f
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 627c53f7339dbc35d822a0bf6038ca0f1ea5e653
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729002"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313839"
 ---
 #   <a name="shaper-cognitive-skill"></a>쉐이퍼 인식 기술
 
@@ -26,9 +27,6 @@ ms.locfileid: "45729002"
 기본적으로 이 기술은 한 수준 깊이인 개체를 지원합니다. 더 복잡한 개체의 경우 여러 쉐이퍼 단계를 연결할 수 있습니다.
 
 응답에서 출력 이름은 항상 “output”입니다. 내부적으로, 파이프라인은 아래 예제의 “analyzedText”와 같은 다른 이름을 “output”에 매핑할 수 있지만 쉐이퍼 기술 자체는 응답에 “output”을 반환합니다. 이는 보강된 문서를 디버그하고 이름 불일치를 확인하거나 사용자 지정 기술을 작성하고 응답을 직접 구조화하는 경우에 중요합니다.
-
-> [!NOTE]
-> 인식 검색은 현재 공개 미리 보기로 제공됩니다. 기능 실행과 이미지 추출 및 정규화는 현재 무료로 제공됩니다. 이러한 기능의 가격은 추후에 발표될 예정입니다. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill

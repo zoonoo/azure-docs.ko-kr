@@ -11,13 +11,13 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 11/07/2018
-ms.openlocfilehash: 382ac23ea4c8e0ec54314bb754c00a8e6e43e9f6
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 11/30/2018
+ms.openlocfilehash: fc5398b4ffb0b9310b6ab13561830d8d3db7a611
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300968"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725746"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>빠른 시작: Azure SQL Database(미리 보기)에서 Machine Learning Services(R 포함) 사용
 
@@ -31,7 +31,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 SQL Database의 Machine Learning Services(R 포함) 공개 미리 보기는 기본적으로 사용되지 않습니다. [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com)에서 Microsoft에 이메일을 보내서 공개 미리 보기에 등록할 수 있습니다.
 
-프로그램 등록을 마치면 Microsoft에서 사용자를 공개 미리 보기에 온보딩하고 기존 데이터베이스를 마이그레이션하거나 R이 사용되는 서비스에 새 데이터베이스를 만듭니다.
+프로그램에 등록되면 Microsoft에서 사용자를 공개 미리 보기에 온보딩하고, 기존 데이터베이스를 마이그레이션하거나 새 데이터베이스를 R 사용 서비스에 만듭니다.
 
 SQL Database의 Machine Learning Services(R 포함)는 현재 단일 및 풀링된 데이터베이스를 위한 **범용** 및 **중요 비즈니스용** 서비스의 vCore 기반 구매 모델에서만 사용할 수 있습니다. 이 초기 공개 미리 보기에서는 **하이퍼스케일** 서비스 계층과 **Managed Instance**가 지원되지 않습니다. 공개 미리 보기 기간에는 Machine Learning Services(R 포함)를 프로덕션 워크로드에 사용하면 안 됩니다.
 
@@ -51,11 +51,10 @@ SQL Database에 연결하고 T-SQL 쿼리 또는 저장 프로시저를 실행�
 
 ## <a name="different-from-sql-server"></a>SQL Server와 다른 점
 
-Azure SQL Database의 Machine Learning Services(R 포함) 기능은 [SQL Server Machine Learning Services](https://review.docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)와 비슷합니다. 하지만 약간의 차이점이 있습니다.
+Azure SQL Database의 Machine Learning Services(R 포함) 기능은 [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)와 비슷합니다. 하지만 약간의 차이점이 있습니다.
 
 - R만 지원합니다. 현재는 Python을 지원하지 않습니다.
 - `sp_configure`를 통해 `external scripts enabled`를 구성할 필요가 없습니다.
-- 사용자에게 스크립트 실행 권한을 제공할 필요가 없습니다.
 - **sqlmlutils**를 통해 패키지를 설치해야 합니다.
 - 별도의 외부 리소스 거버넌스가 없습니다. R 리소스는 계층에 따라 SQL 리소스의 특정 비율입니다.
 
@@ -82,16 +81,26 @@ SQL 데이터베이스에 Machine Learning Services(R 포함)를 사용하도록
 
 1. 오류가 발생하면 SQL 데이터베이스에 Machine Learning Services(R 포함) 공개 미리 보기를 사용하도록 설정되지 않은 것입니다. 위에서 공개 미리 보기에 등록하는 방법을 살펴보세요.
 
+## <a name="grant-permissions"></a>권한 부여
+
+관리자는 외부 코드를 자동으로 실행할 수 있지만, 다른 사용자는 모두 권한을 부여받아야 합니다.
+
+명령을 실행하기 전에 `<username>`을 올바른 데이터베이스 사용자 로그인으로 바꿉니다.
+
+```sql
+GRANT EXECUTE ANY EXTERNAL SCRIPT TO <username>
+```
+
 ## <a name="basic-r-interaction"></a>기본 R 상호 작용
 
 두 가지 방법으로 SQL Database에서 R 코드를 실행할 수 있습니다.
 
-+ 시스템 저장 프로시저 [sp_execute_external_script](https://docs.microsoft.com/sql//relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md)의 인수로 R 스크립트를 추가합니다.
-+ [원격 R 클라이언트](https://review.docs.microsoft.com/sql/advanced-analytics/r/set-up-a-data-science-client)에서 SQL 데이터베이스에 연결하고 SQL Database를 계산 컨텍스트로 사용하여 코드를 실행합니다.
++ R 스크립트를 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) 시스템 저장 프로시저의 인수로 추가합니다.
++ [원격 R 클라이언트](https://docs.microsoft.com/sql/advanced-analytics/r/set-up-a-data-science-client)에서 SQL 데이터베이스에 연결하고 SQL Database를 계산 컨텍스트로 사용하여 코드를 실행합니다.
 
 다음 연습에서는 첫 번째 상호 작용 모델 저장 프로시저에 R 코드를 전달하는 방법을 집중적으로 다룹니다.
 
-1. 간단한 스크립트를 실행하여 SQL 데이터베이스에서 R 스크립트가 어떻게 실행되는지 살펴보세요.
+1. 간단한 스크립트를 실행하여 SQL 데이터베이스에서 R 스크립트가 실행되는 방법을 확인합니다.
 
     ```sql
     EXECUTE sp_execute_external_script
@@ -113,13 +122,13 @@ SQL 데이터베이스에 Machine Learning Services(R 포함)를 사용하도록
     0.5 2
     ```
 
-    코드를 테스트할 때 **stdout** 메시지를 가져오면 도움이 되지만, 응용 프로그램에서 사용할 수 있도록 또는 테이블에 쓸 수 있도록 결과를 테이블 형식으로 반환해야 하는 경우가 자주 있습니다. 자세한 내용은 아래의 입력 및 출력 섹션을 참조하세요.
+    코드를 테스트할 때 **stdout** 메시지를 가져오면 도움이 되지만, 애플리케이션에서 사용할 수 있도록 또는 테이블에 쓸 수 있도록 결과를 테이블 형식으로 반환해야 하는 경우가 자주 있습니다. 자세한 내용은 아래의 입력 및 출력 섹션을 참조하세요.
 
 `@script` 인수 내부의 모든 항목이 유효한 R 코드여야 합니다.
 
 ## <a name="inputs-and-outputs"></a>입력 및 출력
 
-기본적으로 [sp_execute_external_script](https://review.docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md)는 단일 입력 데이터 집합을 수락하며, 이 데이터 집합은 일반적으로 유효한 SQL 쿼리 형식으로 입력합니다. 다른 유형의 입력은 SQL 변수로 전달할 수 있습니다.
+기본적으로 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql)는 단일 입력 데이터 집합을 수락하며, 이 데이터 집합은 일반적으로 유효한 SQL 쿼리 형식으로 입력합니다. 다른 유형의 입력은 SQL 변수로 전달할 수 있습니다.
 
 저장 프로시저는 단일 R 데이터 프레임을 출력으로 반환하지만, 스칼라 및 모델을 변수로 출력할 수도 있습니다. 예를 들어 학습된 모델을 이진 변수로 출력하여 T-SQL INSERT 문에 전달하고, 해당 모델을 테이블에 쓸 수 있습니다. 플롯(이진 형식) 또는 스칼라(날짜 및 시간, 모델을 교육하는 데 걸린 시간 등의 개별 값)를 생성할 수도 있습니다.
 
@@ -284,7 +293,7 @@ R을 사용하여 모델을 교육하고 SQL 데이터베이스의 테이블에 
     - 모델을 교육하는 데 사용할 입력 데이터를 제공합니다.
 
     > [!TIP]
-    > 선형 모델에 리프레셔가 필요한 경우 rxLinMod를 사용하여 모델을 맞추는 프로세스를 설명하는 [선형 모델 맞춤](https://docs.microsoft.com/r-server/r/how-to-revoscaler-linear-model) 자습서를 권장합니다.
+    > 선형 모델에 리프레셔가 필요한 경우 rxLinMod를 사용하여 모델을 맞추는 프로세스를 설명하는 [선형 모델 맞춤](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model) 자습서를 권장합니다.
 
     모델을 빌드하려면 R 코드 내에서 수식을 정의하고, 데이터를 입력 매개 변수로 전달합니다.
 
@@ -337,7 +346,7 @@ R을 사용하여 모델을 교육하고 SQL 데이터베이스의 테이블에 
     WHERE model_name = 'default model'
     ```
 
-4. 일반적으로 저장 프로시저 [sp_execute_external_script](https://review.docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md)의 R 출력은 단일 데이터 프레임으로 제한됩니다.
+4. 일반적으로 저장 프로시저 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql)의 R 출력은 단일 데이터 프레임으로 제한됩니다.
 
     그러나 데이터 프레임 외에도 스칼라 같은 다른 유형의 출력을 반환할 수 있습니다.
 
@@ -381,7 +390,7 @@ R을 사용하여 모델을 교육하고 SQL 데이터베이스의 테이블에 
     VALUES (40), (50), (60), (70), (80), (90), (100)
     ```
 
-    이 예제의 모델은 **RevoScaleR** 패키지의 일부로 제공된 **rxLinMod** 알고리즘을 기반으로 하기 때문에 일반 R `predict` 함수가 아닌 [rxPredict](https://docs.microsoft.com/r-server/r-reference/revoscaler/rxpredict) 함수를 호출합니다.
+    이 예제의 모델은 **RevoScaleR** 패키지의 일부로 제공된 **rxLinMod** 알고리즘을 기반으로 하기 때문에 일반 R `predict` 함수가 아닌 [rxPredict](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxpredict) 함수를 호출합니다.
 
     ```sql
     DECLARE @speedmodel varbinary(max) = 
@@ -410,7 +419,7 @@ R을 사용하여 모델을 교육하고 SQL 데이터베이스의 테이블에 
     + 테이블에서 모델을 검색한 후 모델에서 `unserialize` 함수를 호출합니다.
 
         > [!TIP] 
-        > RevoScaleR에서 제공하는 새 [직렬화 함수](https://docs.microsoft.com/r-server/r-reference/revoscaler/rxserializemodel)도 확인합니다. 이 함수는 실시간 채점을 지원합니다.
+        > RevoScaleR에서 제공하는 새 [직렬화 함수](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel)도 확인합니다. 이 함수는 실시간 채점을 지원합니다.
     + 적절한 인수를 사용하여 `rxPredict` 함수를 모델에 적용하고, 새 입력 데이터를 제공합니다.
 
     + 예제에서 `str` 함수는 R에서 반환되는 데이터의 스키마를 확인하기 위해 테스트 단계에서 추가됩니다. 명령문을 나중에 제거할 수 있습니다.
@@ -439,7 +448,7 @@ SQL 데이터베이스에 설치되지 않은 패키지를 사용해야 하는 �
     R -e "install.packages('RODBCext', repos='https://cran.microsoft.com')"
     ```
 
-    **'R'이 내부 또는 외부 명령, 실행할 수 있는 프로그램 또는 배치 파일로 인식되지 않습니다**라는 내용의 오류가 발생하는 경우 R.exe 경로가 Windows의 **PATH** 환경 변수에 포함되지 않았다는 의미일 가능성이 높습니다. 환경 변수에 디렉터리를 추가하거나 명령 프롬프트에서 디렉터리로 이동할 수 있습니다(예: `cd C:\Program Files\R\R-3.5.1\bin`).
+    "'R'은 내부 또는 외부 명령, 실행할 수 있는 프로그램 또는 배치 파일이 아닙니다"라는 오류가 발생하면 R.exe 경로가 Windows의 **PATH** 환경 변수에 포함되지 않은 것일 수 있습니다. 명령을 실행하기 전에 환경 변수에 디렉터리를 추가하거나 명령 프롬프트에서 디렉터리로 이동할 수 있습니다(예: `cd C:\Program Files\R\R-3.5.1\bin`).
 
 1. **R CMD INSTALL** 명령을 사용하여 **sqlmlutils**를 설치합니다. Zip 파일을 다운로드한 디렉터리 경로 및 Zip 파일 이름을 지정합니다. 예: 
 
@@ -523,7 +532,7 @@ SQL 데이터베이스에 설치되지 않은 패키지를 사용해야 하는 �
 
 Machine Learning Services에 대한 자세한 내용은 SQL Server Machine Learning Services에 대한 아래 문서를 참조하세요. 이러한 문서는 SQL Server와 관련되어 있지만, 대부분의 정보가 Azure SQL Database의 Machine Learning Services(R 포함)에도 적용됩니다.
 
-- [SQL Server Machine Learning 서비스](https://review.docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [자습서: SQL Server에서 R을 사용하여 데이터베이스 내 분석 알아보기](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [R 및 SQL Server에 대한 종합적인 데이터 과학 연습](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [자습서: SQL Server 데이터에 RevoScaleR R 함수 사용](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [SQL Server Machine Learning 서비스](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
+- [자습서: SQL Server에서 R을 사용하여 데이터베이스 내 분석 알아보기](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
+- [R 및 SQL Server에 대한 종합적인 데이터 과학 연습](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
+- [자습서: SQL Server 데이터에 RevoScaleR R 함수 사용](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)

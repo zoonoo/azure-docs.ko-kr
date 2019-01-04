@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: article
-ms.date: 12/6/2017
+ms.date: 12/06/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 84068376f35bc4df6672cffcc0ac3438b12edbb5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2d912f559af98045aaef8fe6fcaa1d83ab5f96bd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979678"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269365"
 ---
 # <a name="model-management-setup"></a>모델 관리 설치
 
@@ -85,7 +85,7 @@ CLI를 사용하여 모델을 웹 서비스로 배포합니다. 웹 서비스는
 
 환경 설치를 완료한 경우:
 - Azure에 로그인하라는 메시지가 표시됩니다. 로그인하려면 웹 브라우저를 사용하여 https://aka.ms/devicelogin 페이지를 열고 제공된 코드를 입력하여 인증하세요.
-- 인증 프로세스 중에 인증하기 위한 계정을 입력하라는 메시지가 표시됩니다. 중요: 유효한 Azure 구독과 계정에 리소스를 만들 수 있는 충분한 권한이 있는 계정을 선택해야 합니다. 로그인이 완료되면 구독 정보가 표시되고 선택한 계정으로 계속할 것인지 물어보는 메시지가 나타납니다.
+- 인증 프로세스 중에 인증하기 위한 계정을 입력하라는 메시지가 표시됩니다. 중요: 유효한 Azure 구독 및 계정에 리소스를 만들 수 있는 충분한 권한이 있는 계정을 선택합니다. 로그인이 완료되면 구독 정보가 표시되고 선택한 계정으로 계속할 것인지 물어보는 메시지가 나타납니다.
 
 ### <a name="environment-setup"></a>환경 설정
 설치 프로세스를 시작하려면 다음 명령을 입력하여 몇 가지 환경 공급자를 등록해야 합니다.

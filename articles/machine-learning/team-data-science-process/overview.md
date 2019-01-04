@@ -1,6 +1,6 @@
 ---
-title: Team Data Science Process란 무엇인가요? | Microsoft Docs
-description: 예측 분석 솔루션 및 지능형 응용 프로그램을 제공하는 데이터 과학 방법론을 제공합니다.
+title: Team Data Science Process란 무엇인가요?
+description: 예측 분석 솔루션 및 지능형 애플리케이션을 제공하는 데이터 과학 방법론을 제공합니다.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,17 +10,17 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 44da452b0ec07eaa1b1446de5dab5bedaac3bc30
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 94728bbc74d1864c76aa801628fcbfb133b97abd
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446843"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435993"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Team Data Science Process란 무엇인가요?
 
-TDSP(Team Data Science Process)는 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적으로 제공하는 기민한 반복 데이터 과학 방법론입니다. TDSP는 팀 공동 작업 및 학습을 향상하도록 돕습니다. 데이터 과학 이니셔티브의 성공적인 구현을 용이하게 하는 산업의 Microsoft 및 기타 업계에서 모범 사례 및 구조의 추출을 포함합니다. 목표는 회사가 해당 분석 프로그램의 이점을 완전히 이해하도록 돕는 것입니다.
+TDSP(Team Data Science Process)는 예측 분석 솔루션 및 지능형 애플리케이션을 효율적으로 제공하는 기민한 반복 데이터 과학 방법론입니다. TDSP는 팀 공동 작업 및 학습을 향상하도록 돕습니다. 데이터 과학 이니셔티브의 성공적인 구현을 용이하게 하는 산업의 Microsoft 및 기타 업계에서 모범 사례 및 구조의 추출을 포함합니다. 목표는 회사가 해당 분석 프로그램의 이점을 완전히 이해하도록 돕는 것입니다.
 
 이 문서에서는 TDSP 및 주요 구성 요소의 개요를 제공합니다. 다양한 도구와 구현될 수 있는 프로세스의 일반적인 설명을 제공합니다. 프로젝트 작업 및 프로세스의 수명 주기와 관련된 역할의 더 자세한 설명은 추가 연결된 항목에서 제공됩니다. 팀에서 TDSP를 구현하는 데 사용하는 Microsoft 도구 및 인프라의 특정 집합을 사용하여 TDSP를 구현하는 방법에 대한 지침도 제공됩니다.
 
@@ -40,7 +40,7 @@ TDSP(Team Data Science Process)는 데이터 과학 프로젝트의 개발을 �
 
 다른 데이터 과학의 수명 주기(예: [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) 또는 조직의 사용자 지정 프로세스)를 사용하는 경우 개발 수명 주기의 맥락에서 작업 기반 TDSP를 계속 사용할 수 있습니다 . 상위 수준에서 이러한 다양한 방법에는 많은 공통점이 있습니다. 
 
-이 수명 주기는 지능형 응용 프로그램의 일부로 제공되는 데이터 과학 프로젝트를 위해 설계되었습니다. 이러한 응용 프로그램은 예측 분석을 위해 기계 학습 또는 인공 지능 모델을 배포합니다. 예비 데이터 과학 프로젝트 또는 임시 분석 프로젝트에서 이 프로세스를 사용하여 활용할 수도 있습니다. 하지만 이러한 경우 설명하는 단계 중 일부는 필요하지 않을 수도 있습니다.     
+이 수명 주기는 지능형 애플리케이션의 일부로 제공되는 데이터 과학 프로젝트를 위해 설계되었습니다. 이러한 애플리케이션은 예측 분석을 위해 기계 학습 또는 인공 지능 모델을 배포합니다. 예비 데이터 과학 프로젝트 또는 임시 분석 프로젝트에서 이 프로세스를 사용하여 활용할 수도 있습니다. 하지만 이러한 경우 설명하는 단계 중 일부는 필요하지 않을 수도 있습니다.     
 
 수명 주기는 일반적으로 프로젝트에서 반복적으로 자주 실행하는 주요 단계를 설명합니다.
 
@@ -79,7 +79,7 @@ TDSP에서는 폴더 구조와 표준 위치에 꼭 있어야 하는 파일들�
 
 [ ![TDSP 디렉터리](./media/overview/tdsp-dir-structure.png) ](./media/overview/tdsp-dir-structure.png#lightbox)
 
-디렉터리 구조는 [Github](https://github.com/Azure/Azure-TDSP-ProjectTemplate)에서 복제할 수 있습니다.
+디렉터리 구조는 [GitHub](https://github.com/Azure/Azure-TDSP-ProjectTemplate)에서 복제할 수 있습니다.
 
 ## <a name="infrastructure-and-resources-for-data-science-projects"></a>데이터 과학 프로젝트에 대한 인프라 및 리소스  
 
@@ -99,7 +99,7 @@ TDSP는 공유 분석 및 저장소 인프라를 관리하기 위해 다음의 �
 
 ## <a name="tools-and-utilities-for-project-execution"></a>프로젝트 실행을 위한 도구 및 유틸리티
 
-대부분의 조직에서 도입 과정은 만만하지 않습니다. 데이터 과학 프로세스와 수명 주기 구현을 위해 제공되는 도구가 채택으로 가는 장벽을 낮추고 채택의 일관성을 증가시키는데 도움이 됩니다. TDSP는 팀 내에서 TDSP의 도입을 신속하게 시작하도록 도구와 스크립트 기본 셋트를 제공합니다. 또한 데이터 과학 수명 주기에서 데이터 탐색이나 기준 모델링 같은 일반적인 작업 중 일부를 자동화하는 데도 도움이 됩니다. 구조가 잘 정의되어 있어서 개인이 공유 도구와 유틸리티를 팀의 공유 코드 리포지토리에 컨트리뷰트할 수 있게 해줍니다. 이런 리소스는 팀이나 조직 내의 다른 프로젝트에서 활용할 수 있습니다. 또한 TDSP는 툴과 유틸리티를 전체 커뮤니티에 컨트리뷰트할 수 있게 만들 계획도 가지고 있습니다. TDSP 유틸리티는 [Github](https://github.com/Azure/Azure-TDSP-Utilities)에서 복제할 수 있습니다.
+대부분의 조직에서 도입 과정은 만만하지 않습니다. 데이터 과학 프로세스와 수명 주기 구현을 위해 제공되는 도구가 채택으로 가는 장벽을 낮추고 채택의 일관성을 증가시키는데 도움이 됩니다. TDSP는 팀 내에서 TDSP의 도입을 신속하게 시작하도록 도구와 스크립트 기본 셋트를 제공합니다. 또한 데이터 과학 수명 주기에서 데이터 탐색이나 기준 모델링 같은 일반적인 작업 중 일부를 자동화하는 데도 도움이 됩니다. 구조가 잘 정의되어 있어서 개인이 공유 도구와 유틸리티를 팀의 공유 코드 리포지토리에 컨트리뷰트할 수 있게 해줍니다. 이런 리소스는 팀이나 조직 내의 다른 프로젝트에서 활용할 수 있습니다. 또한 TDSP는 툴과 유틸리티를 전체 커뮤니티에 컨트리뷰트할 수 있게 만들 계획도 가지고 있습니다. TDSP 유틸리티는 [GitHub](https://github.com/Azure/Azure-TDSP-Utilities)에서 복제할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

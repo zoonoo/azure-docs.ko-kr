@@ -23,7 +23,7 @@ ms.locfileid: "44345661"
 ---
 # <a name="how-to-monitor-sap-hana-large-instances-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스)를 모니터링하는 방법
 
-Azure의 SAP HANA(대규모 인스턴스)는 다른 IaaS 배포와 다르지 않습니다. OS 및 응용 프로그램이 수행하는 작업 및 응용 프로그램이 다음 리소스 사용하는 방법을 모니터링해야 합니다.
+Azure의 SAP HANA(대규모 인스턴스)는 다른 IaaS 배포와 다르지 않습니다. OS 및 애플리케이션이 수행하는 작업 및 애플리케이션이 다음 리소스 사용하는 방법을 모니터링해야 합니다.
 
 - CPU
 - 메모리

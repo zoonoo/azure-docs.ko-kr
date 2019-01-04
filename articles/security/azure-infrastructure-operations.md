@@ -22,7 +22,7 @@ ms.lasthandoff: 07/20/2018
 ms.locfileid: "39173162"
 ---
 # <a name="azure-production-operations-and-management"></a>Azure 프로덕션 운영 및 관리    
-Azure 프로덕션 네트워크의 관리 및 운영은 Azure 및 Azure SQL Database의 운영 팀 간에 조정된 노력입니다. 이러한 팀은 환경 내에서 여러 시스템 및 응용 프로그램 성능 모니터링 도구를 사용합니다. 또한 적절한 도구를 사용하여 네트워크 디바이스, 서버, 서비스 및 응용 프로그램 프로세스를 모니터링합니다.
+Azure 프로덕션 네트워크의 관리 및 운영은 Azure 및 Azure SQL Database의 운영 팀 간에 조정된 노력입니다. 이러한 팀은 환경 내에서 여러 시스템 및 애플리케이션 성능 모니터링 도구를 사용합니다. 또한 적절한 도구를 사용하여 네트워크 디바이스, 서버, 서비스 및 응용 프로그램 프로세스를 모니터링합니다.
 
 Azure 환경에서 실행되는 서비스의 안전한 실행을 보장하기 위해 운영 팀에서는 다음 작업을 포함하여 여러 수준의 모니터링, 로깅 및 보고 기능을 구현합니다.
 
@@ -41,9 +41,9 @@ Azure 환경에서 실행되는 서비스의 안전한 실행을 보장하기 �
 예외가 발생하면 Azure 인시던트 심사 팀에 이어 수행되는 인시던트 대응 프로세스가 활성화됩니다. 적절한 Azure 지원 담당자에게 인시던트에 응답하도록 알려줍니다. 문제 추적 및 해결은 중앙 집중식 발권 시스템에서 문서화되고 관리됩니다. 시스템 작동 시간 메트릭은 NDA(비밀 유지 계약) 및 요청에 따라 제공됩니다.
 
 ## <a name="corporate-network-and-multi-factor-access-to-production"></a>회사 네트워크 및 프로덕션에 대한 다단계 인증 액세스
-회사 네트워크 사용자 기반에는 Azure 지원 담당자가 포함됩니다. 회사 네트워크는 내부 회사 기능을 지원하며, Azure 고객 지원에 사용되는 내부 응용 프로그램에 대한 액세스를 포함합니다. 회사 네트워크는 Azure 프로덕션 네트워크와 논리적 및 물리적으로 분리되어 있습니다. Azure 담당자는 Azure 워크스테이션 및 랩톱을 사용하여 회사 네트워크에 액세스합니다. 회사 네트워크 리소스에 액세스하려면 모든 사용자에게 사용자 이름과 암호를 포함한 Azure AD(Azure Active Directory) 계정이 있어야 합니다. 회사 네트워크 액세스에는 모든 Microsoft 직원, 계약자, 공급업체에 발급되고 Microsoft Information Technology에서 관리하는 Azure AD 계정이 사용됩니다. 고유한 사용자 식별자는 Microsoft의 고용 상태에 따라 담당자를 구분합니다.
+회사 네트워크 사용자 기반에는 Azure 지원 담당자가 포함됩니다. 회사 네트워크는 내부 회사 기능을 지원하며, Azure 고객 지원에 사용되는 내부 애플리케이션에 대한 액세스를 포함합니다. 회사 네트워크는 Azure 프로덕션 네트워크와 논리적 및 물리적으로 분리되어 있습니다. Azure 담당자는 Azure 워크스테이션 및 랩톱을 사용하여 회사 네트워크에 액세스합니다. 회사 네트워크 리소스에 액세스하려면 모든 사용자에게 사용자 이름과 암호를 포함한 Azure AD(Azure Active Directory) 계정이 있어야 합니다. 회사 네트워크 액세스에는 모든 Microsoft 직원, 계약자, 공급업체에 발급되고 Microsoft Information Technology에서 관리하는 Azure AD 계정이 사용됩니다. 고유한 사용자 식별자는 Microsoft의 고용 상태에 따라 담당자를 구분합니다.
 
-내부 Azure 응용 프로그램에 대한 액세스는 AD FS(Active Directory Federation Service)를 사용한 인증을 통해 제어됩니다. AD FS는 Microsoft Information Technology에서 호스팅하는 서비스로, 보안 토큰과 사용자 클레임을 적용하여 회사 네트워크 사용자를 인증합니다. AD FS를 사용하면 내부 Azure 응용 프로그램에서 Microsoft 회사 active directory 도메인에 대해 사용자를 인증할 수 있습니다. 회사 네트워크 환경에서 프로덕션 네트워크에 액세스하려면 사용자는 다단계 인증을 사용하여 인증해야 합니다.
+내부 Azure 애플리케이션에 대한 액세스는 AD FS(Active Directory Federation Service)를 사용한 인증을 통해 제어됩니다. AD FS는 Microsoft Information Technology에서 호스팅하는 서비스로, 보안 토큰과 사용자 클레임을 적용하여 회사 네트워크 사용자를 인증합니다. AD FS를 사용하면 내부 Azure 애플리케이션에서 Microsoft 회사 active directory 도메인에 대해 사용자를 인증할 수 있습니다. 회사 네트워크 환경에서 프로덕션 네트워크에 액세스하려면 사용자는 다단계 인증을 사용하여 인증해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure 인프라를 보호하기 위해 Microsoft에서 수행하는 작업에 대해 자세히 알아보려면 다음을 참조하세요.

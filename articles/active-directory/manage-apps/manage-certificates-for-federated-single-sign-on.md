@@ -23,14 +23,14 @@ ms.lasthandoff: 11/06/2018
 ms.locfileid: "51035339"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리
-이 문서에서는 Azure AD(Azure Active Directory)에서 SaaS 응용 프로그램에 페더레이션된 SSO(Single Sign-On)를 설정하기 위해 만드는 인증서와 관련된 일반적인 질문과 정보를 다룹니다. Azure AD 앱 갤러리에서 또는 비갤러리 응용 프로그램 템플릿을 사용하여 응용 프로그램을 추가하고, 페더레이션된 SSO 옵션을 사용하여 응용 프로그램을 구성합니다.
+이 문서에서는 Azure AD(Azure Active Directory)에서 SaaS 애플리케이션에 페더레이션된 SSO(Single Sign-On)를 설정하기 위해 만드는 인증서와 관련된 일반적인 질문과 정보를 다룹니다. Azure AD 앱 갤러리에서 또는 비갤러리 애플리케이션 템플릿을 사용하여 애플리케이션을 추가합니다. 페더레이션된 SSO 옵션을 사용하여 애플리케이션을 구성합니다.
 
 이 문서는 아래 예와 같이 SAML 페더레이션을 통해 Azure AD SSO를 사용하도록 구성된 앱에만 관련되어 있습니다.
 
 ![Azure AD Single Sign-On](./media/manage-certificates-for-federated-single-sign-on/saml_sso.PNG)
 
-## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>갤러리 및 비갤러리 응용 프로그램에 대해 자동 생성된 인증서
-갤러리에서 새 응용 프로그램을 추가하고 SAML 기반 로그온을 구성하면 Azure AD에서 해당 응용 프로그램에 대해 3년 동안 유효한 인증서를 생성합니다. 이 인증서는 **SAML 서명 인증서** 섹션에서 다운로드할 수 있습니다. 갤러리 응용 프로그램의 경우 이 섹션에서는 응용 프로그램의 요구 사항에 따라 인증서 또는 메타데이터를 다운로드하는 옵션을 표시할 수 있습니다.
+## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>갤러리 및 비갤러리 애플리케이션에 대해 자동 생성된 인증서
+갤러리에서 새 애플리케이션을 추가하고 SAML 기반 로그온을 구성하면 Azure AD에서 해당 애플리케이션에 대해 3년 동안 유효한 인증서를 생성합니다. 이 인증서는 **SAML 서명 인증서** 섹션에서 다운로드할 수 있습니다. 갤러리 애플리케이션의 경우 이 섹션에서는 애플리케이션의 요구 사항에 따라 인증서 또는 메타데이터를 다운로드하는 옵션을 표시할 수 있습니다.
 
 ![Azure AD Single Sign-On](./media/manage-certificates-for-federated-single-sign-on/saml_certificate_download.png)
 
@@ -42,11 +42,11 @@ ms.locfileid: "51035339"
 
    ![SSO 구성 마법사 열기](./media/manage-certificates-for-federated-single-sign-on/enterprise_application_new_application.png)
 
-2. 갤러리 응용 프로그램을 검색한 다음 추가할 응용 프로그램을 선택합니다. 필요한 응용 프로그램을 찾을 수 없으면 **비갤러리 응용 프로그램** 옵션을 사용하여 응용 프로그램을 추가합니다. 이 기능은 Azure AD Premium(P1 및 P2) SKU에서만 사용할 수 있습니다.
+2. 갤러리 애플리케이션을 검색한 다음 추가할 애플리케이션을 선택합니다. 필요한 애플리케이션을 찾을 수 없으면 **비갤러리 애플리케이션** 옵션을 사용하여 애플리케이션을 추가합니다. 이 기능은 Azure AD Premium(P1 및 P2) SKU에서만 사용할 수 있습니다.
 
     ![Azure AD Single Sign-On](./media/manage-certificates-for-federated-single-sign-on/add_gallery_application.png)
 
-3. 왼쪽 창에서 **Single Sign-On** 링크를 클릭하고 **Single Sign-On 모드**를 **SAML 기반 로그인**으로 변경합니다. 이 단계에서는 응용 프로그램에 대해 3년 유효 인증서를 생성합니다.
+3. 왼쪽 창에서 **Single Sign-On** 링크를 클릭하고 **Single Sign-On 모드**를 **SAML 기반 로그인**으로 변경합니다. 이 단계에서는 애플리케이션에 대해 3년 유효 인증서를 생성합니다.
 
 4. 새 인증서를 만들려면 **SAML 서명 인증서** 섹션에서 **새 인증서 만들기** 링크를 클릭합니다.
 
@@ -58,14 +58,14 @@ ms.locfileid: "51035339"
 
 6. 이제 새 인증서를 다운로드할 수 있습니다. **인증서** 링크를 클릭하여 다운로드합니다. 이 시점에서 인증서는 활성 상태가 아닙니다. 이 인증서를 롤오버하려면 **Make new certificate active**(새 인증서 활성화) 확인란을 선택하고 **저장**을 클릭합니다. 이 시점부터 Azure AD에서 새 인증서를 사용하여 응답에 서명하기 시작합니다.
 
-7.  특정 SaaS 응용 프로그램에 인증서를 업로드하는 방법을 알아보려면 **응용 프로그램 구성 자습서 보기** 링크를 클릭합니다.
+7.  특정 SaaS 애플리케이션에 인증서를 업로드하는 방법을 알아보려면 **애플리케이션 구성 자습서 보기** 링크를 클릭합니다.
 
 ## <a name="certificate-expiration-notification-email"></a>인증서 만료 알림 이메일
 
 Azure AD에서는 SAML 인증서가 만료되기 60일, 30일 및 7일 전에 이메일 알림을 보냅니다. 알림을 보낼 위치에 대한 이메일 주소를 지정하려면 다음을 수행합니다.
 
-- Azure Active Directory 응용 프로그램의 Single Sign-On 페이지에서 [알림 이메일] 필드로 이동합니다.
-- 인증서 만료 알림 이메일을 받을 이메일 주소를 입력합니다. 기본적으로 이 필드는 응용 프로그램을 추가한 관리자의 이메일 주소를 사용합니다.
+- Azure Active Directory 애플리케이션의 Single Sign-On 페이지에서 [알림 이메일] 필드로 이동합니다.
+- 인증서 만료 알림 이메일을 받을 이메일 주소를 입력합니다. 기본적으로 이 필드는 애플리케이션을 추가한 관리자의 이메일 주소를 사용합니다.
 
 aadnotification@microsoft.com으로부터 알림 이메일을 받습니다. 이메일이 스팸 위치로 이동하지 않도록 방지하려면 이 이메일을 연락처에 추가해야 합니다. 
 

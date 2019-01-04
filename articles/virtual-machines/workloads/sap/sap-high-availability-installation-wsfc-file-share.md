@@ -228,7 +228,7 @@ Azure에서 다양한 DBMS 서비스가 이러한 종류의 클러스터형 SAP 
 >
 > 현재 파일 공유 구성을 사용하는 고가용성 설정은 SAP SWPM 설치 도구에서 지원되지 않습니다. 따라서 SAP 시스템을 설치하려면 몇 가지를 수동으로 적용해야 합니다(예: SAP ASCS/SCS 인스턴스를 설치 및 클러스터링, 별도의 SAP 전역 호스트 구성).  
 >
-> DBMS 인스턴스 및 SAP 응용 프로그램 서버를 설치(및 클러스터링)하는 다른 설치 단계는 바뀐 부분이 없습니다.
+> DBMS 인스턴스 및 SAP 애플리케이션 서버를 설치(및 클러스터링)하는 다른 설치 단계는 바뀐 부분이 없습니다.
 >
 
 ### <a name="install-an-ascsscs-instance-on-your-local-drive"></a>로컬 드라이브에 ASCS/SCS 인스턴스를 설치합니다.
@@ -572,12 +572,12 @@ ASCS/SCS 클러스터의 *두* 노드에 ERS(Enqueue Replication Server) 인스�
 
 **\<제품>** > **\<DBMS>** > **설치** > **추가 SAP 시스템 인스턴스** > **Enqueue Replication Server 인스턴스**
 
-## <a name="install-a-dbms-instance-and-sap-application-servers"></a>DBMS 인스턴스 및 SAP 응용 프로그램 서버 설치
+## <a name="install-a-dbms-instance-and-sap-application-servers"></a>DBMS 인스턴스 및 SAP 애플리케이션 서버 설치
 
 다음 항목을 설치하여 SAP 시스템 설치를 완료합니다.
 * DBMS 인스턴스.
-* 기본 SAP 응용 프로그램 서버.
-* 추가 SAP 응용 프로그램 서버.
+* 기본 SAP 애플리케이션 서버.
+* 추가 SAP 애플리케이션 서버.
 
 ## <a name="next-steps"></a>다음 단계
 

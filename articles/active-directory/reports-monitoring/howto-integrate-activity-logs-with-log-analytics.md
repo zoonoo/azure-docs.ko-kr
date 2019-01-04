@@ -29,7 +29,7 @@ Log Analytics를 사용하면 데이터를 쿼리하여 특정 이벤트를 찾�
 
  * Azure Security Center에서 게시한 보안 로그와 Azure AD 로그인 로그를 비교합니다.
 
- * Azure Application Insights의 응용 프로그램 성능 데이터를 서로 연결하여 응용 프로그램의 로그인 페이지에서 성능 병목 현상을 해결합니다.  
+ * Azure Application Insights의 애플리케이션 성능 데이터를 서로 연결하여 애플리케이션의 로그인 페이지에서 성능 병목 현상을 해결합니다.  
 
 Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure AD 로그를 위해 Log Analytics를 사용할 때의 이점을 보여 줍니다.
 

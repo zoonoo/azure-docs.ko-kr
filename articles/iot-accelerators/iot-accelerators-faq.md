@@ -53,7 +53,7 @@ DevKit 디바이스를 사용하는 경우 [IoT DevKit SDK](https://github.com/M
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>Azure Portal에서 리소스 그룹을 삭제하는 것과 azureiotsuite.com의 솔루션 가속기에서 삭제를 클릭하는 것의 차이는 무엇인가요?
 
 * [azureiotsuite.com](https://www.azureiotsolutions.com/)에서 솔루션 가속기를 삭제하면 솔루션 가속기를 만들 때 프로비전된 모든 리소스가 삭제됩니다. 리소스 그룹에 리소스를 추가하면 이들 역시 삭제됩니다.
-* [Azure Portal](https://portal.azure.com)에서 리소스 그룹을 삭제하는 경우 해당 리소스 그룹의 리소스만 삭제됩니다. 또한 솔루션 가속기와 연결된 Azure Active Directory 응용 프로그램을 삭제해야 합니다.
+* [Azure Portal](https://portal.azure.com)에서 리소스 그룹을 삭제하는 경우 해당 리소스 그룹의 리소스만 삭제됩니다. 또한 솔루션 가속기와 연결된 Azure Active Directory 애플리케이션을 삭제해야 합니다.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Azure IoT 솔루션 가속기에 대한 기존 투자를 계속 활용할 수 있나요?
 

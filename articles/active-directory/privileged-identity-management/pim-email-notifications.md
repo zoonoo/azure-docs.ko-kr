@@ -11,76 +11,93 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 09/07/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: de1d29d3ab1b370257c3a2d6b6ff9f677197fc2a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 00b096f59e70962b6883a8024744e8c91a5f9ae3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303067"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846898"
 ---
 # <a name="email-notifications-in-pim"></a>PIM에서 이메일 알림
 
-Azure AD PIM(Privileged Identity Management)에서 주요 이벤트가 발생할 때 메일 알림이 전송됩니다. 예를 들어 PIM은 다음과 같은 이벤트에 대한 이메일을 보냅니다.
+Azure AD PIM(Privileged Identity Management)을 사용하면 역할이 할당되거나 활성화될 때와 같이 중요한 이벤트가 발생하면 이를 알 수 있습니다. PIM은 사용자 및 다른 참가자에게 이메일 알림을 보내 계속해서 정보를 제공합니다. 이러한 이메일에는 역할 활성화 또는 갱신과 같은 관련 작업에 대한 링크도 포함될 수 있습니다. 이 문서에서는 이러한 이메일이 어떻게 구성되고 언제 전송되며 누가 이메일을 받는지에 대해 설명합니다.
 
-- 권한 있는 역할 활성화가 승인 보류 중인 경우
-- 권한 있는 역할 활성화 요청이 완료된 경우
-- 권한 있는 역할이 활성화된 경우
-- 권한 있는 역할이 할당된 경우
-- Azure AD PIM이 사용되도록 설정된 경우
+## <a name="sender-email-address-and-subject-line"></a>보낸 사람 이메일 주소 및 제목 줄
 
-메일 알림이 다음 관리자에게 전송됩니다.
-
-- 권한 있는 역할 관리자
-- 보안 관리자
-
-다음 이벤트에 대해 권한이 있는 역할을 가진 최종 사용자에게 메일 알림이 전송됩니다.
-
-- 권한 있는 역할 활성화 요청이 완료된 경우
-- 권한 있는 역할이 할당된 경우
-
-2018년 7월 말부터는 PIM을 통해 보낸 메일 알림에는 새로운 보낸 사람 메일 주소 및 새로운 시각적 디자인이 포함됩니다. 이 업데이트는 Azure AD용 PIM 및 Azure 리소스용 PIM 모두에 영향을 줍니다. 이전에 이메일 알림을 트리거한 모든 이벤트는 계속 이메일을 보냅니다. 일부 이메일에서는 대상으로 지정된 정보를 제공하는 콘텐츠를 업데이트했습니다.
-
-## <a name="sender-email-address"></a>보낸 사람 이메일 주소
-
-2018년 7월 말부터 이메일 알림에는 다음 주소가 포함됩니다.
+Azure AD 및 Azure 리소스 역할 모두에 대해 PIM에서 보낸 이메일은 다음과 같은 보낸 사람 이메일 주소를 포함합니다.
 
 - 이메일 주소: **azure-noreply@microsoft.com**
 - 표시 이름: Microsoft Azure
 
-이전에 이메일 알림에는 다음 주소가 있었습니다.
+이러한 이메일은 제목 줄에 **PIM** 접두사를 포함합니다. 예를 들면 다음과 같습니다.
 
-- 이메일 주소: **azureadnotifications@microsoft.com**
-- 표시 이름: Microsoft Azure AD 알림 서비스
-
-## <a name="email-subject-line"></a>이메일 제목 줄
-
-2018년 7월 말부터 Azure AD 및 Azure 리소스 역할 모두에 대한 이메일 알림의 제목 줄에는 **PIM** 접두사가 포함됩니다. 예를 들면 다음과 같습니다.
-
-- PIM: Alain Charon에게는 Backup 읽기 권한자 역할이 할당되었습니다.
+- PIM: Alain Charon에게는 Backup 읽기 권한자 역할이 영구적으로 할당되었습니다.
 
 ## <a name="pim-emails-for-azure-ad-roles"></a>Azure AD 역할에 대한 PIM 이메일
 
-2018년 7월 말부터 Azure AD 역할에 대한 PIM 이메일 알림에는 업데이트된 디자인이 포함됩니다. 다음에서는 사용자가 가상의 Contoso 조직에 대한 권한 있는 역할을 활성화할 때 전송되는 예제 이메일을 보여줍니다.
+Azure AD 역할에 대해 다음 이벤트가 발생하면 PIM이 이메일을 보냅니다.
+
+- 권한 있는 역할 활성화가 승인 보류 중인 경우
+- 권한 있는 역할 활성화 요청이 완료된 경우
+- 권한 있는 역할이 적격으로 할당된 경우
+- Azure AD PIM이 사용되도록 설정된 경우
+
+Azure AD 역할에 대한 이러한 이메일을 받는 사람은 역할, 이벤트 및 알림 설정에 따라 달라집니다.
+
+| 사용자 | 역할 활성화가 승인 보류 중임 | 역할 활성화 요청이 완료됨 | 역할이 적격으로 할당됨 | PIM이 사용하도록 설정됨 |
+| --- | --- | --- | --- | --- |
+| 권한 있는 역할 관리자</br>(활성화/적격) | yes</br>(명시적인 승인자가 지정되지 않은 경우만) | 예* | yes | yes |
+| 보안 관리자</br>(활성화/적격) | 아니요 | 예* | yes | yes |
+| 전역 관리자</br>(활성화/적격) | 아니요 | 예* | yes | yes |
+
+\* [**알림** 설정](pim-how-to-change-default-settings.md#notifications)이 **사용**으로 설정된 경우
+
+다음에서는 사용자가 가상의 Contoso 조직에 대한 Azure AD 역할을 활성화할 때 전송되는 예제 이메일을 보여줍니다.
 
 ![Azure AD 역할에 대한 새로운 PIM 이메일](./media/pim-email-notifications/email-directory-new.png)
 
-이전에 사용자가 권한 있는 역할을 활성화하면 다음과 같은 이메일이 표시되었습니다.
+### <a name="weekly-pim-digest-email-for-azure-ad-roles"></a>Azure AD 역할에 대한 주간 PIM 다이제스트 이메일
 
-![Azure AD 역할에 대한 이전 PIM 이메일](./media/pim-email-notifications/email-directory-old.png)
+Azure AD 역할에 대한 주간 PIM 요약 이메일은 PIM을 사용하도록 설정된 권한 있는 역할 관리자, 보안 관리자 및 글로벌 관리자에게 전송됩니다. 이 주간 이메일은 권한 있는 역할 할당뿐만 아니라 해당 주의 PIM 활동에 대한 스냅샷도 제공합니다. 공용 클라우드의 테넌트에만 제공됩니다. 예를 들면 다음과 같습니다.
+
+![Azure AD 역할에 대한 주간 PIM 다이제스트 이메일](./media/pim-email-notifications/email-directory-weekly.png)
+
+이메일에는 4개의 타일이 포함됩니다.
+
+| 타일 | 설명 |
+| --- | --- |
+| **Users activated(사용자가 활성화함)** | 사용자가 테넌트 내부에서 적격 역할을 활성화한 횟수입니다. |
+| **Users made permanent(사용자 영구 지정)** | 적격 할당이 있는 사용자가 영구 지정된 횟수입니다. |
+| **Role assignments in PIM(PIM 내부 역할 할당)** | PIM 내부에서 사용자에게 적격 역할이 할당된 횟수입니다. |
+| **Role assignments outside of PIM(PIM 외부 역할 할당)** | PIM 외부(Azure AD 내부)에서 사용자에게 영구 역할이 할당된 횟수입니다. |
+
+**상위 역할 개요** 섹션에는 각 역할에 대한 총 영구 및 적격 관리자 수를 기준으로 테넌트에 있는 상위 5개의 역할이 나열됩니다. **작업 수행** 링크를 클릭하면 [PIM 마법사](pim-security-wizard.md)가 열리며 여기서 영구 관리자를 적격 관리자로 일괄 변환할 수 있습니다.
 
 ## <a name="pim-emails-for-azure-resource-roles"></a>Azure 리소스 역할에 대한 PIM 이메일
 
-2018년 7월 말부터 Azure 리소스 역할에 대한 PIM 이메일 알림에는 업데이트된 디자인이 포함됩니다. 다음에서는 사용자가 가상의 Contoso 조직에 대한 권한 있는 역할을 할당받을 때 전송되는 예제 이메일을 보여줍니다.
+Azure 리소스 역할에 대해 다음 이벤트가 발생할 때 PIM은 소유자 및 사용자 액세스 관리자에게 이메일을 보냅니다.
+
+- 역할 할당을 승인 보류 중인 경우
+- 역할이 할당된 경우
+- 역할이 곧 만료되는 경우
+- 역할을 확장할 수 있는 경우
+- 최종 사용자가 역할을 갱신하는 경우
+- 역할 활성화 요청이 완료된 경우
+
+Azure 리소스 역할에 대해 다음 이벤트가 발생할 때 PIM은 최종 사용자에게 이메일을 보냅니다.
+
+- 사용자에게 역할이 할당된 경우
+- 사용자의 역할이 만료된 경우
+- 사용자의 역할이 확장된 경우
+- 사용자의 역할 활성화 요청이 완료된 경우
+
+다음에서는 사용자가 가상의 Contoso 조직에 대한 Azure 리소스 역할을 할당받을 때 전송되는 예제 이메일을 보여 줍니다.
 
 ![Azure 리소스 역할에 대한 새로운 PIM 이메일](./media/pim-email-notifications/email-resources-new.png)
-
-이전에 사용자가 권한 있는 역할을 할당받으면 다음과 같은 이메일이 표시되었습니다.
-
-![Azure 리소스 역할에 대한 이전 PIM 이메일](./media/pim-email-notifications/email-resources-old.png)
 
 ## <a name="next-steps"></a>다음 단계
 

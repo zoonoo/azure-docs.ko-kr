@@ -1,19 +1,20 @@
 ---
-title: 'Azure ExpressRoute Microsoft 피어링에 대한 경로 필터 구성: PowerShell | Microsoft Docs'
+title: 'Microsoft 피어링에 대한 경로 필터 구성 - ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: 이 문서에서는 PowerShell을 사용하여 Microsoft 피어링에 대한 경로 필터를 구성하는 방법을 설명합니다.
 documentationcenter: na
 services: expressroute
 author: ganesr
 ms.service: expressroute
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: ganesr
-ms.openlocfilehash: d4ef500185675ab84485c5dd6a9af4034c57b060
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: 30388185c415346b298dbada715b17e631c66769
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419268"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096299"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Microsoft 피어링에 대한 경로 필터 구성: PowerShell
 > [!div class="op_single_selector"]
@@ -141,7 +142,7 @@ $routefilter.Rules.Add($rule)
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="attach"></a>3단계: 경로 필터를 ExpressRoute 회로에 연결
+## <a name="attach"></a>3단계: 경로 필터를 ExpressRoute 회로에 연결합니다.
 
 Microsoft 피어링만 있다고 가정하고 다음 명령을 실행하여 경로 필터를 ExpressRoute 회로에 연결합니다.
 

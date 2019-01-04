@@ -100,7 +100,7 @@ NSG에는 인바운드 및 아웃바운드의 두 가지 규칙 집합이 포함
 
 모든 NSG에는 기본 규칙 집합이 포함됩니다. 기본 규칙은 삭제할 수 없지만, 가장 낮은 우선순위가 할당되기 때문에 직접 만든 규칙으로 재정의할 수 있습니다. 
 
-NSG를 NIC에 연결하는 경우 NSG의 네트워크 액세스 규칙은 NIC에만 적용됩니다. NSG를 다중 NIC VM의 단일 NIC에 적용하는 경우 다른 NIC에 대한 트래픽에는 영향을 미치지 않습니다. NIC(또는 배포 모델에 따라 VM) 및 NIC 또는 VM에서 바인딩하는 서브넷에 다른 NSG를 연결할 수 있습니다. 우선 순위는 트래픽 방향에 따라 부여됩니다.
+ NSG를 NIC에 연결하는 경우 NSG의 네트워크 액세스 규칙은 NIC에만 적용됩니다. NSG를 다중 NIC VM의 단일 NIC에 적용하는 경우 다른 NIC에 대한 트래픽에는 영향을 미치지 않습니다. NIC(또는 배포 모델에 따라 VM) 및 NIC 또는 VM에서 바인딩하는 서브넷에 다른 NSG를 연결할 수 있습니다. 우선 순위는 트래픽 방향에 따라 부여됩니다.
 
 VM 및 VNet을 계획할 때는 NSG를 [계획](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md)해야 합니다.
 
@@ -165,7 +165,7 @@ VM을 만들고 나중에 해당 VM을 VNet으로 마이그레이션하려는 �
 ## <a name="next-steps"></a>다음 단계
 VM용 Azure 가상 네트워크를 관리하는 방법에 대한 VM별 단계는 [Windows](../articles/virtual-machines/windows/tutorial-virtual-network.md) 또는 [Linux](../articles/virtual-machines/linux/tutorial-virtual-network.md) 자습서를 참조하세요.
 
-또한 VM 부하를 분산하고 항상 사용 가능한 [Windows](../articles/virtual-machines/windows/tutorial-load-balancer.md) 또는 [Linux](../articles/virtual-machines/linux/tutorial-load-balancer.md)용 응용 프로그램을 만드는 방법에 대한 자습서도 있습니다.
+또한 VM 부하를 분산하고 항상 사용 가능한 [Windows](../articles/virtual-machines/windows/tutorial-load-balancer.md) 또는 [Linux](../articles/virtual-machines/linux/tutorial-load-balancer.md)용 애플리케이션을 만드는 방법에 대한 자습서도 있습니다.
 
 - [사용자 정의 경로 및 IP 전달](../articles/virtual-network/virtual-networks-udr-overview.md)을 구성하는 방법에 대해 알아봅니다. 
 - [VNet 간 연결](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)을 구성하는 방법에 대해 알아봅니다.

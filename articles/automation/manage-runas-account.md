@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 569efa7fbbd111937f00ba3b1e28219c163e2221
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7bd84b42cfa61d199d70e02345f9229a45fd7704
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958162"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726171"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation 실행 계정 관리
 
@@ -42,15 +42,15 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 
 |Task|Cmdlet  |최소 권한  |
 |---|---------|---------|
-|Azure AD 응용 프로그램 만들기|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | 응용 프로그램 개발자 역할        |
-|응용 프로그램에 자격 증명을 추가합니다.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | 응용 프로그램 관리자 또는 글로벌 관리자         |
-|Azure AD 서비스 사용자 생성 및 가져오기|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | 응용 프로그램 관리자 또는 글로벌 관리자        |
+|Azure AD 애플리케이션 만들기|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | 애플리케이션 개발자 역할        |
+|애플리케이션에 자격 증명을 추가합니다.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | 애플리케이션 관리자 또는 글로벌 관리자         |
+|Azure AD 서비스 사용자 생성 및 가져오기|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | 애플리케이션 관리자 또는 글로벌 관리자        |
 |지정된 보안 주체의 RBAC 역할 할당 또는 가져오기|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | 사용자 액세스 관리자 또는 소유자        |
 |Automation 인증서 생성 또는 제거|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | 리소스 그룹의 기여자         |
 |Automation 연결 생성 또는 제거|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|리소스 그룹의 기여자 |
 
 * [Azure Automation에서 역할 기반 액세스 제어](automation-role-based-access-control.md#contributor) 문서에 설명된 대로 Microsoft.Automation 리소스에 대한 기여자 역할과 동일한 권한을 가진 AD 사용자 계정.  
-* Azure AD 테넌트의 **사용자 설정** 페이지에 있는 **사용자가 응용 프로그램을 등록할 수 있음** 옵션이 **예**로 설정된 경우, Azure AD 테넌트의 관리자가 아닌 사용자가 [AD 응용 프로그램을 등록](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions)할 수 있습니다. 앱 등록 설정이 **아니요**로 지정되어 있는 경우 이 작업을 수행하는 사용자는 Azure AD의 전역 관리자여야 합니다.
+* Azure AD 테넌트의 **사용자 설정** 페이지에 있는 **사용자가 애플리케이션을 등록할 수 있음** 옵션이 **예**로 설정된 경우, Azure AD 테넌트의 관리자가 아닌 사용자가 [AD 애플리케이션을 등록](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions)할 수 있습니다. 앱 등록 설정이 **아니요**로 지정되어 있는 경우 이 작업을 수행하는 사용자는 Azure AD의 전역 관리자여야 합니다.
 
 구독의 전역 관리자/공동 관리자 역할에 추가되기 전에 구독 Active Directory 인스턴스의 멤버가 아닌 경우 게스트로 추가됩니다. 이 경우에는 **Automation 계정 추가** 페이지에 `You do not have permissions to create…` 경고가 표시됩니다. 전역 관리자/공동 관리자 역할에 처음 추가된 사용자는 구독 Active Directory 인스턴스에서 제거한 다음 다시 추가하여 Active Directory의 완전한 사용자로 만들 수 있습니다. Azure Portal의 **Azure Active Directory** 창에서 이 상황을 확인하려면 **사용자 및 그룹**을 선택한 다음 **모든 사용자**를 선택하거나 특정 사용자를 선택한 후 **프로필**을 선택합니다. 사용자 프로필에서 **사용자 유형** 속성의 값은 **Guest**와 같지 않아야 합니다.
 
@@ -358,11 +358,11 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 
 Azure Automation의 리소스에 대한 자동화의 대상 지정을 제어하기 위해 실행 계정에는 기본적으로 구독에 대한 참가자 권한이 부여됩니다. RunAs 서비스 주체가 수행할 수 있는 작업을 제한해야 하는 경우, 해당 계정을 참가자 역할에서 구독으로 제거하고 지정하려는 리소스 그룹에 참가자로 추가할 수 있습니다.
 
-Azure Portal에서 **구독**을 선택하고 Automation Account의 구독을 선택합니다. **액세스 제어(IAM)** 를 선택하고 Azure Automation의 서비스 주체(예: \<AutomationAccountName\>_고유 식별자)를 검색합니다. 계정을 선택하고 **제거**를 클릭하여 구독에서 제거합니다.
+Azure Portal에서 **구독**을 선택하고 Automation Account의 구독을 선택합니다. **액세스 제어(IAM)**, **역할 할당** 탭을 차례로 선택합니다. Azure Automation의 서비스 주체(예: \<AutomationAccountName\>_고유 식별자)를 검색합니다. 계정을 선택하고 **제거**를 클릭하여 구독에서 제거합니다.
 
 ![구독 참가자](media/manage-runas-account/automation-account-remove-subscription.png)
 
-리소스 그룹에 서비스 주체를 추가하려면 Azure Portal에서 리소스 그룹을 선택하고 **액세스 제어(IAM)** 를 선택합니다. **추가**를 선택하면 **권한 추가** 페이지가 열립니다. **역할**에 **참가자**를 선택합니다. **선택** 텍스트 상자에 실행 계정에 대한 서비스 주체의 이름을 입력하고 목록에서 선택합니다. **저장**을 클릭하여 변경 내용을 저장합니다. Azure Automation 실행 서비스 주체 액세스 권한을 부여할 리소스 그룹에 대해 이 단계를 수행합니다.
+리소스 그룹에 서비스 주체를 추가하려면 Azure Portal에서 리소스 그룹을 선택하고 **액세스 제어(IAM)** 를 선택합니다. **역할 할당 추가**를 선택하면 **역할 할당 추가** 페이지가 열립니다. **역할**에 **참가자**를 선택합니다. **선택** 텍스트 상자에 실행 계정에 대한 서비스 주체의 이름을 입력하고 목록에서 선택합니다. **저장**을 클릭하여 변경 내용을 저장합니다. Azure Automation 실행 서비스 주체 액세스 권한을 부여할 리소스 그룹에 대해 이 단계를 수행합니다.
 
 ## <a name="misconfiguration"></a>잘못된 구성
 

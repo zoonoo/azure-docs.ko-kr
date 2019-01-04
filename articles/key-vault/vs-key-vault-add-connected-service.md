@@ -1,6 +1,6 @@
 ---
 title: Visual Studio를 사용하여 ASP.NET 프로젝트에 Key Vault 지원 추가 | Microsoft Docs
-description: 이 자습서를 통해 ASP.NET 또는 ASP.NET Core 웹 응용 프로그램에 Key Vault 지원을 추가하는 방법을 배울 수 있습니다.
+description: 이 자습서를 통해 ASP.NET 또는 ASP.NET Core 웹 애플리케이션에 Key Vault 지원을 추가하는 방법을 배울 수 있습니다.
 services: key-vault
 author: ghogen
 manager: douge
@@ -18,7 +18,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50230440"
 ---
-# <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Visual Studio 연결된 서비스를 사용하여 웹 응용 프로그램에 Key Vault 추가
+# <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Visual Studio 연결된 서비스를 사용하여 웹 애플리케이션에 Key Vault 추가
 
 이 자습서에서는 ASP.NET Core를 사용하든 아니면 모든 종류의 ASP.NET 프로젝트를 사용하든 Visual Studio에서 웹 프로젝트에 대한 사용자의 비밀을 관리하기 위해 Azure Key Vault를 사용하여 시작해야 하는 모든 항목을 쉽게 추가하는 방법에 대해 알아봅니다. Visual Studio 2017에서 연결된 서비스 기능을 사용하면 Azure의 Key Vault에 연결해야 하는 모든 NuGet 패키지 및 구성 설정을 Visual Studio에서 자동으로 추가하도록 할 수 있습니다. 
 
@@ -50,7 +50,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
    ![Key Vault의 이름 변경 및 리소스 그룹 선택](media/vs-key-vault-add-connected-service/KeyVaultConnectedService-Edit.PNG)
 
 1. 기존 리소스 그룹을 선택하거나 자동으로 생성된 고유한 이름으로 새 레코드를 만듭니다.  다른 이름으로 새 그룹을 만들려는 경우 [Azure Portal](https://portal.azure.com)을 사용한 다음, 페이지를 닫고 리소스 그룹의 목록을 다시 로드할 수 있습니다.
-1. Key Vault를 만들 지역을 선택합니다. 웹 응용 프로그램이 Azure에서 호스트되는 경우 최적의 성능을 위해 웹 응용 프로그램을 호스팅하는 지역을 선택합니다.
+1. Key Vault를 만들 지역을 선택합니다. 웹 애플리케이션이 Azure에서 호스트되는 경우 최적의 성능을 위해 웹 애플리케이션을 호스팅하는 지역을 선택합니다.
 1. 가격 책정 모델을 선택합니다. 자세한 내용은 [Key Vault 가격 책정](https://azure.microsoft.com/pricing/details/key-vault/)을 참조하세요.
 1. 확인을 선택하여 구성 선택을 수락합니다.
 1. **추가**를 선택하여 Key Vault를 만듭니다. 이미 사용되는 이름을 선택하면 만들기 프로세스에 실패할 수 있습니다.  이렇게 되면 **편집** 링크를 사용하여 Key Vault 이름을 바꾸고 다시 시도합니다.

@@ -23,13 +23,13 @@ ms.locfileid: "47006517"
 | 리소스당 백 엔드 풀 | 50 |
 | 백 엔드 풀당 백 엔드 | 100 |
 | 라우팅 규칙에 일치하는 경로 패턴 | 25 |
-| 정책당 사용자 지정 웹 응용 프로그램 방화벽 규칙 | 10 |
-| 리소스당 웹 응용 프로그램 방화벽 정책 | 100 |
+| 정책당 사용자 지정 웹 애플리케이션 방화벽 규칙 | 10 |
+| 리소스당 웹 애플리케이션 방화벽 정책 | 100 |
 
 ### <a name="timeout-values"></a>시간 제한 값
 #### <a name="client-to-front-door"></a>클라이언트-Front Door
 - Front Door에는 유휴 TCP 연결 시간 제한(61초)이 있습니다.
-#### <a name="front-door-to-application-backend"></a>Front Door-응용 프로그램 백 엔드
+#### <a name="front-door-to-application-backend"></a>Front Door-애플리케이션 백 엔드
 - 청크 분할 응답인 경우 첫 번째 청크가 수신될 경우/때 200이 반환됩니다.
 - HTTP 요청이 백 엔드로 전달되면 Front Door는 클라이언트에 503 오류를 반환하기 전에 백 엔드의 첫 번째 패킷을 30초 동안 기다립니다.
 - 백 엔드에서 첫 번째 패킷을 수신한 후 Front Door는 클라이언트에 503 오류를 반환하기 전에 30초(유휴 시간 제한) 동안 대기합니다.

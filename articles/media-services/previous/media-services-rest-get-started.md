@@ -1,6 +1,6 @@
 ---
 title: REST를 사용한 주문형 콘텐츠 제공 시작 | Microsoft Docs
-description: 이 자습서에서는 REST API를 사용한 Azure Media Services로 주문형 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다.
+description: 이 자습서에서는 REST API를 사용한 Azure Media Services로 주문형 콘텐츠 배달 애플리케이션을 구현하는 단계를 안내합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -24,11 +24,11 @@ ms.locfileid: "51237607"
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>REST를 사용한 주문형 콘텐츠 제공 시작
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
-이 자습서에서는 AMS(Azure Media Services) REST API를 사용하여 주문형 비디오(VoD) 콘텐츠 제공 응용 프로그램을 구현하는 단계를 안내합니다.
+이 자습서에서는 AMS(Azure Media Services) REST API를 사용하여 주문형 비디오(VoD) 콘텐츠 제공 애플리케이션을 구현하는 단계를 안내합니다.
 
 기본적인 Media Services 워크플로와 Media Services 개발에 필요한 가장 일반적인 프로그래밍 개체 및 작업을 소개합니다. 자습서를 마치면 업로드하고 인코딩하고 다운로드한 샘플 미디어 파일을 스트리밍하거나 점진적으로 다운로드할 수 있습니다.
 
-다음 이미지에서는 Media Services OData 모델에 대해 VoD 응용 프로그램을 개발할 때 가장 일반적으로 사용되는 개체 중 일부를 보여 줍니다.
+다음 이미지에서는 Media Services OData 모델에 대해 VoD 애플리케이션을 개발할 때 가장 일반적으로 사용되는 개체 중 일부를 보여 줍니다.
 
 전체 크기로 보려면 이미지를 클릭합니다.  
 
@@ -40,7 +40,7 @@ Media Services REST API를 사용하여 개발을 시작하려면 다음 필수 
 * Azure 계정. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * Media Services 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
 * Media Services REST API를 사용하여 개발하는 방법을 이해합니다. 자세한 내용은 [Media Services REST API 개요](media-services-rest-how-to-use.md)를 참조하세요
-* HTTP 요청 및 응답을 보낼 수 있도록 선택한 응용 프로그램입니다. 이 자습서에서는 [Fiddler](http://www.telerik.com/download/fiddler)를 사용합니다.
+* HTTP 요청 및 응답을 보낼 수 있도록 선택한 애플리케이션입니다. 이 자습서에서는 [Fiddler](http://www.telerik.com/download/fiddler)를 사용합니다.
 
 다음 작업은 본 퀵 스타트에 표시됩니다.
 

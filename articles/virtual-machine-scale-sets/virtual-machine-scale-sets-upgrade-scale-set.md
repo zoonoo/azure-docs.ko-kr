@@ -23,7 +23,7 @@ ms.lasthandoff: 11/03/2018
 ms.locfileid: "50979049"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 수정
-응용 프로그램의 수명 주기 전반에 걸쳐 가상 머신 확장 집합을 수정하거나 업데이트해야 할 수도 있습니다. 이러한 업데이트에는 확장 집합의 구성을 업데이트하거나 응용 프로그램 구성을 변경하는 방법이 포함될 수 있습니다. 이 문서에서는 REST API, Azure PowerShell 또는 Azure CLI를 사용하여 기존 확장 집합을 수정하는 방법에 대해 설명합니다.
+애플리케이션의 수명 주기 전반에 걸쳐 가상 머신 확장 집합을 수정하거나 업데이트해야 할 수도 있습니다. 이러한 업데이트에는 확장 집합의 구성을 업데이트하거나 애플리케이션 구성을 변경하는 방법이 포함될 수 있습니다. 이 문서에서는 REST API, Azure PowerShell 또는 Azure CLI를 사용하여 기존 확장 집합을 수정하는 방법에 대해 설명합니다.
 
 ## <a name="fundamental-concepts"></a>기본 개념
 
@@ -315,7 +315,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 - 언어별 [Azure SDK](https://azure.microsoft.com/downloads/)를 사용할 수도 있습니다.
 
 >[!NOTE]
-> Service Fabric 클러스터는 *자동* 모드만 사용할 수 있지만 업데이트는 다르게 처리됩니다. 자세한 내용은 [Service Fabric 응용 프로그램 업그레이드](../service-fabric/service-fabric-application-upgrade.md)를 참조하세요.
+> Service Fabric 클러스터는 *자동* 모드만 사용할 수 있지만 업데이트는 다르게 처리됩니다. 자세한 내용은 [Service Fabric 애플리케이션 업그레이드](../service-fabric/service-fabric-application-upgrade.md)를 참조하세요.
 
 업그레이드 정책을 따르지 않는 전역 확장 집합 속성에 대한 한 가지 유형의 수정 작업이 있습니다. 확장 집합 OS 프로필(예: 관리자 사용자 이름 및 암호)을 변경하면 API 버전 *2017-12-01* 이상에서만 변경됩니다. 이러한 변경은 확장 집합 모델이 변경된 후에 만들어지는 VM에만 적용됩니다. 기존 VM을 최신 상태로 유지하려면 각 VM을 “이미지로 다시 설치”해야 합니다. 다음을 통해 VM을 이미지로 다시 설치할 수 있습니다.
 
@@ -368,10 +368,10 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 
 ## <a name="scenarios"></a>시나리오
 
-### <a name="application-updates"></a>응용 프로그램 업데이트
-응용 프로그램이 확장을 통해 확장 집합에 배포되는 경우, 확장 구성을 업데이트하면 업그레이드 정책에 따라 응용 프로그램이 업데이트됩니다. 예를 들어, 새 버전의 스크립트를 사용자 지정 스크립트 확장에서 실행되도록 하려면 새 스크립트를 가리키도록 *fileUris* 속성을 업데이트할 수 있습니다. 경우에 따라, 확장 구성이 변경되지 않더라도 강제로 업데이트하려고 할 수 있습니다(예: 스크립트의 URI를 변경하지 않고 스크립트 업데이트). 이러한 경우 업데이트를 강제로 수행하도록 *forceUpdateTag*를 수정할 수 있습니다. Azure 플랫폼에서는 이 속성을 해석하지 않습니다. 값을 변경해도 확장이 실행되는 방식에 영향을 미치지 않습니다. 변경하면 확장이 강제로 다시 실행되기만 합니다. *forceUpdateTag*에 대한 자세한 내용은 [확장에 대한 REST API 설명서](/rest/api/compute/virtualmachineextensions/createorupdate)를 참조하세요. *forceUpdateTag*는 사용자 지정 스크립트 확장뿐만 아니라 모든 확장에서 사용할 수 있습니다.
+### <a name="application-updates"></a>애플리케이션 업데이트
+애플리케이션이 확장을 통해 확장 집합에 배포되는 경우, 확장 구성을 업데이트하면 업그레이드 정책에 따라 애플리케이션이 업데이트됩니다. 예를 들어, 새 버전의 스크립트를 사용자 지정 스크립트 확장에서 실행되도록 하려면 새 스크립트를 가리키도록 *fileUris* 속성을 업데이트할 수 있습니다. 경우에 따라, 확장 구성이 변경되지 않더라도 강제로 업데이트하려고 할 수 있습니다(예: 스크립트의 URI를 변경하지 않고 스크립트 업데이트). 이러한 경우 업데이트를 강제로 수행하도록 *forceUpdateTag*를 수정할 수 있습니다. Azure 플랫폼에서는 이 속성을 해석하지 않습니다. 값을 변경해도 확장이 실행되는 방식에 영향을 미치지 않습니다. 변경하면 확장이 강제로 다시 실행되기만 합니다. *forceUpdateTag*에 대한 자세한 내용은 [확장에 대한 REST API 설명서](/rest/api/compute/virtualmachineextensions/createorupdate)를 참조하세요. *forceUpdateTag*는 사용자 지정 스크립트 확장뿐만 아니라 모든 확장에서 사용할 수 있습니다.
 
-응용 프로그램을 사용자 지정 이미지를 통해 배포하는 것도 일반적입니다. 이 시나리오는 다음 섹션에서 설명됩니다.
+애플리케이션을 사용자 지정 이미지를 통해 배포하는 것도 일반적입니다. 이 시나리오는 다음 섹션에서 설명됩니다.
 
 ### <a name="os-updates"></a>OS 업데이트
 Azure 플랫폼 이미지를 사용하는 경우 *imageReference*를 수정하여 이미지를 업데이트할 수 있습니다(자세한 내용은 [REST API 설명서](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate) 참조).

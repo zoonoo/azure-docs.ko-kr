@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge 문제 해결 | Microsoft Docs
-description: 일반적인 문제를 해결하고, Azure IoT Edge에 대한 문제 해결 기술을 배웁니다.
+title: 문제 해결 - Azure IoT Edge | Microsoft Docs
+description: 이 문서에서는 구성 요소 상태 및 로그 검색과 같은 Azure IoT Edge의 표준 진단 기술을 알아보고 일반적인 문제를 해결하는 방법을 확인합니다.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a553798a3ac15340805984a0e87312875f82c46c
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: cd9ff1a1a7730ae870ef4e80fbca2d934aa5c8e2
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567658"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342666"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
 
@@ -146,7 +147,7 @@ Windows에서:
 
 파일을 저장하고 IoT Edge 보안 관리자를 다시 시작합니다.
 
-IoT Hub 및 IoT Edge 디바이스 간에 전송되는 메시지를 확인할 수도 있습니다. Visual Studio Code용 [Azure IoT 도구 키트](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) 확장을 사용하여 이러한 메시지를 확인합니다. 자세한 내용은 [Azure IoT로 개발할 때 사용할 수 있는 편리한 도구](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)를 참조하세요.
+IoT Hub 및 IoT Edge 디바이스 간에 전송되는 메시지를 확인할 수도 있습니다. Visual Studio Code용 [Azure IoT Hub 도구 키트](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) 확장(이전 이름 Azure IoT 도구 키트 확장)을 사용하여 이러한 메시지를 확인합니다. 자세한 내용은 [Azure IoT로 개발할 때 사용할 수 있는 편리한 도구](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)를 참조하세요.
 
 ### <a name="restart-containers"></a>컨테이너 다시 시작
 로그 및 메시지에서 정보를 검토한 후에는 컨테이너를 다시 시작할 수 있습니다.
@@ -243,7 +244,7 @@ IoT Edge 런타임은 64자 미만인 호스트 이름만을 지원할 수 있�
 1. Azure Portal에서 가상 머신의 개요 페이지로 이동합니다. 
 2. DNS 이름에서 **구성**을 선택합니다. 가상 머신에 DNS 이름이 이미 구성되어 있으면 새 이름을 구성할 필요가 없습니다. 
 
-   ![DNS 이름 구성](./media/troubleshoot/configure-dns.png)
+   ![가상 머신의 DNS 이름 구성](./media/troubleshoot/configure-dns.png)
 
 3. **DNS 이름 레이블**에 대한 값을 입력하고 **저장**을 선택합니다.
 4. 새 DNS 이름을 복사합니다.이 형식은 **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**이어야 합니다.
@@ -274,7 +275,7 @@ UI의 경우:
 
 포털의 *디바이스 세부 정보*->*모듈 설정*->*고급 Edge 런타임 설정 구성*에서 *에지 허브*에 대해 *false*로 설정된 *OptimizeForPerformance*라는 환경 변수를 만듭니다.
 
-![optimizeforperformance](./media/troubleshoot/OptimizeForPerformanceFalse.png)
+![OptimizeForPerformance를 false로 설정](./media/troubleshoot/optimizeforperformance-false.png)
 
 **또는**
 

@@ -25,7 +25,7 @@ ms.locfileid: "51250818"
 
 ## <a name="overview"></a>개요
 
-Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메시징을 제공합니다. 규모를 고려하여 응용 프로그램을 디자인할 때는 응용 프로그램 구성 요소를 개별적으로 확장할 수 있도록 각 구성 요소를 분리하는 경우가 많습니다. 큐 저장소는 클라우드, 데스크톱, 온-프레미스 서버 또는 모바일 디바이스에서 실행 중인지와 관계 없이 응용 프로그램 구성 요소 간에 통신을 위한 비동기 메시징을 제공합니다. 큐 저장소는 또한 비동기 작업 관리와 프로세스 워크플로 작성을 지원합니다.
+Azure Queue Storage는 애플리케이션 구성 요소 간에 클라우드 메시징을 제공합니다. 규모를 고려하여 애플리케이션을 디자인할 때는 애플리케이션 구성 요소를 개별적으로 확장할 수 있도록 각 구성 요소를 분리하는 경우가 많습니다. 큐 저장소는 클라우드, 데스크톱, 온-프레미스 서버 또는 모바일 디바이스에서 실행 중인지와 관계 없이 응용 프로그램 구성 요소 간에 통신을 위한 비동기 메시징을 제공합니다. 큐 저장소는 또한 비동기 작업 관리와 프로세스 워크플로 작성을 지원합니다.
 
 이 자습서에서는 Azure Queue Storage 항목을 사용하여 몇 가지 일반적인 시나리오에 대한 ASP.NET 코드를 작성하는 방법을 보여 줍니다. 이러한 시나리오는 Azure 큐 작성, 큐 메시지 추가, 수정, 읽기 및 제거와 같은 일반적인 작업을 포함합니다.
 
@@ -137,7 +137,7 @@ Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메
     <li>@Html.ActionLink("Create queue", "CreateQueue", "Queues")</li>
     ```
 
-1. 응용 프로그램을 실행하고 **큐 만들기**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
+1. 애플리케이션을 실행하고 **큐 만들기**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
   
     ![큐 만들기](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
@@ -226,7 +226,7 @@ Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메
     <li>@Html.ActionLink("Add message", "AddMessage", "Queues")</li>
     ```
 
-1. 응용 프로그램을 실행하고 **메시지 추가**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
+1. 애플리케이션을 실행하고 **메시지 추가**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
   
     ![메시지 추가](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
 
@@ -312,7 +312,7 @@ Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메
     <li>@Html.ActionLink("Peek message", "PeekMessage", "Queues")</li>
     ```
 
-1. 응용 프로그램을 실행하고 **메시지 보기**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
+1. 애플리케이션을 실행하고 **메시지 보기**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
   
     ![메시지 보기](./media/vs-storage-aspnet-getting-started-queues/peek-message-results.png)
 
@@ -403,7 +403,7 @@ Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메
     <li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
     ```
 
-1. 응용 프로그램을 실행하고 **메시지 읽기/삭제**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
+1. 애플리케이션을 실행하고 **메시지 읽기/삭제**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
   
     ![메시지 읽기 및 삭제](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
@@ -490,7 +490,7 @@ Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메
     <li>@Html.ActionLink("Get queue length", "GetQueueLength", "Queues")</li>
     ```
 
-1. 응용 프로그램을 실행하고 **큐 길이 가져오기**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
+1. 애플리케이션을 실행하고 **큐 길이 가져오기**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
   
     ![큐 길이 가져오기](./media/vs-storage-aspnet-getting-started-queues/get-queue-length-results.png)
 
@@ -570,7 +570,7 @@ Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메
     <li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
     ```
 
-1. 응용 프로그램을 실행하고 **큐 길이 가져오기**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
+1. 애플리케이션을 실행하고 **큐 길이 가져오기**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
   
     ![큐 삭제](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 

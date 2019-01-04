@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory에 액세스하고 새 테넌트를 만드는 빠른 시작 | Microsoft Docs
-description: Azure Active Directory를 찾고 조직의 테넌트를 새로 만드는 단계를 설명하는 빠른 시작입니다.
+title: 새 테넌트에 액세스하고 새 테넌트를 만드는 빠른 시작 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory를 찾고 조직의 테넌트를 새로 만드는 방법을 설명하는 지침입니다.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
-custom: it-pro
-ms.openlocfilehash: eacb2e7c52adae9de0b74c3dade59446cc8459ed
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: cd179d371ec75a2e6ca258a1efbc2361e50a5438
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023554"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083277"
 ---
-# <a name="quickstart-access-azure-active-directory-to-create-a-new-tenant"></a>빠른 시작: 새 테넌트를 만들기 위해 Azure Active Directory에 액세스
+# <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 새 테넌트 만들기
 Azure AD(Azure Active Directory) 포털을 사용하여 조직의 테넌트를 새로 만드는 작업을 비롯한 모든 관리 작업을 수행할 수 있습니다. 
 
 이 빠른 시작에서는 Azure Portal과 Azure Active Directory에 액세스하는 방법과 조직의 기본 테넌트를 만드는 방법을 배웁니다.
@@ -53,7 +53,7 @@ Azure Portal에 로그인한 후에 조직의 테넌트를 새로 만들 수 있
 도메인 contoso.onmicrosoft.com으로 새 테넌트가 생성되었습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
-이 응용 프로그램을 계속 사용하지 않으려면 다음 절차를 사용하여 테넌트를 삭제할 수 있습니다.
+이 애플리케이션을 계속 사용하지 않으려면 다음 절차를 사용하여 테넌트를 삭제할 수 있습니다.
 
 - **Azure Active Directory**를 선택한 다음, **Contoso - 개요** 페이지에서 **디렉터리 삭제**를 선택합니다.
 
@@ -68,6 +68,6 @@ Azure Portal에 로그인한 후에 조직의 테넌트를 새로 만들 수 있
 
 - 그룹 및 멤버 추가 - [기본 그룹 만들기 및 멤버 추가](active-directory-groups-create-azure-portal.md)를 참조하세요.
 
-- 조직의 응용 프로그램 및 리소스 액세스를 관리하는 데 도움이 되는 [PIM(Privileged Identity Management)을 사용한 역할 기반 액세스](../../role-based-access-control/pim-azure-resource.md) 및 [조건부 액세스](../../role-based-access-control/conditional-access-azure-management.md)에 대해 알아봅니다.
+- 조직의 애플리케이션 및 리소스 액세스를 관리하는 데 도움이 되는 [PIM(Privileged Identity Management)을 사용한 역할 기반 액세스](../../role-based-access-control/pim-azure-resource.md) 및 [조건부 액세스](../../role-based-access-control/conditional-access-azure-management.md)에 대해 알아봅니다.
 
 - [기본 라이선스 정보, 용어, 관련 기능](active-directory-whatis.md) 등, Azure AD에 대해 알아봅니다.

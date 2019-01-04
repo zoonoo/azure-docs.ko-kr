@@ -75,7 +75,7 @@ DNS 영역을 만들려면 먼저 "영역" 개체가 DNS 영역 매개 변수를
 실제로 Azure DNS에서 영역을 만들거나 업데이트하려면 영역 매개 변수를 포함하는 영역 개체를 `DnsManagementClient.Zones.CreateOrUpdateAsyc` 메서드에 전달해야 합니다.
 
 > [!NOTE]
-> DnsManagementClient는 동기('CreateOrUpdate'), 비동기('CreateOrUpdateAsync') 또는 HTTP 응답에 액세스 권한을 가진 비동기('CreateOrUpdateWithHttpMessagesAsync') 등 세 가지 작업 모드를 지원합니다.  응용 프로그램 요구 사항에 따라 이러한 모드 중 하나를 선택할 수 있습니다.
+> DnsManagementClient는 동기('CreateOrUpdate'), 비동기('CreateOrUpdateAsync') 또는 HTTP 응답에 액세스 권한을 가진 비동기('CreateOrUpdateWithHttpMessagesAsync') 등 세 가지 작업 모드를 지원합니다.  애플리케이션 요구 사항에 따라 이러한 모드 중 하나를 선택할 수 있습니다.
 
 Azure DNS는 [Etag](dns-getstarted-create-dnszone.md)라는 낙관적 동시성을 지원합니다. 이 예제에서 'If-None-Match' 헤더에 "*"를 지정하면 DNS 영역이 아직 없는 경우 Azure DNS에서 만들도록 지시합니다.  지정된 이름을 가진 영역이 지정된 리소스 그룹에 이미 있는 경우 호출은 실패합니다.
 

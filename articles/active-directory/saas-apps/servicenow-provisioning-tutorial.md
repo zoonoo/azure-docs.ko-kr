@@ -27,7 +27,7 @@ ms.locfileid: "44348109"
 이 자습서에서는 사용자 계정을 Azure AD에서 ServiceNow로 자동으로 프로비전 및 프로비전 해제하도록 ServiceNow 및 Azure AD에서 수행해야 하는 단계를 설명합니다.
 
 > [!NOTE]
-> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
+> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -68,7 +68,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory > 엔터프라이즈 앱 > 모든 응용 프로그램** 섹션으로 이동합니다.
 
-1. 이미 ServiceNow에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 ServiceNow의 인스턴스를 검색합니다. 그러지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **ServiceNow**를 검색합니다. 검색 결과에서 ServiceNow를 선택하고 응용 프로그램 목록에 추가합니다.
+1. 이미 ServiceNow에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 ServiceNow의 인스턴스를 검색합니다. 그렇지 않으면 **추가**를 선택하고 애플리케이션 갤러리에서 **ServiceNow**를 검색합니다. 검색 결과에서 ServiceNow를 선택하고 애플리케이션 목록에 추가합니다.
 
 1. ServiceNow의 인스턴스를 선택한 다음 **프로비전** 탭을 선택합니다.
 

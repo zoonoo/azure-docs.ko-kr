@@ -27,11 +27,11 @@ Azure AD(Azure Active Directory)에서는 B2B 공동 작업 사용자에 대해 
 
 SAML 토큰에 발급된 클레임을 편집해야 할만한 두 가지 이유는 다음과 같습니다.
 
-1. 응용 프로그램에 다른 클레임 URI 또는 클레임 값 집합이 필요합니다.
+1. 애플리케이션에 다른 클레임 URI 또는 클레임 값 집합이 필요합니다.
 
-2. 응용 프로그램에서 NameIdentifier 클레임은 Azure AD에 저장된 UPN(사용자 계정 이름) 이외의 것이어야 합니다.
+2. 애플리케이션에서 NameIdentifier 클레임은 Azure AD에 저장된 UPN(사용자 계정 이름) 이외의 것이어야 합니다.
 
-클레임을 추가하고 편집하는 방법에 대한 자세한 내용은 [Azure Active Directory의 엔터프라이즈 응용 프로그램용 SAML 토큰에 발급된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조하세요.
+클레임을 추가하고 편집하는 방법에 대한 자세한 내용은 [Azure Active Directory의 엔터프라이즈 애플리케이션용 SAML 토큰에 발급된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조하세요.
 
 B2B 공동 작업 사용자의 경우 보안상의 이유로 테넌트 간 NameID 및 UPN 매핑이 금지됩니다.
 

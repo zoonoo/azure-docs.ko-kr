@@ -31,7 +31,7 @@ HappyFox를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 HappyFox에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -63,11 +63,11 @@ HappyFox의 Azure AD 통합을 구성하려면 갤러리의 HappyFox를 관리�
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![애플리케이션][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![애플리케이션][3]
 
@@ -75,7 +75,7 @@ HappyFox의 Azure AD 통합을 구성하려면 갤러리의 HappyFox를 관리�
 
     ![Azure AD 테스트 사용자 만들기](./media/happyfox-tutorial/tutorial_happyfox_search.png)
 
-1. 결과 패널에서 **HappyFox**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **HappyFox**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/happyfox-tutorial/tutorial_happyfox_addfromgallery.png)
 
@@ -96,11 +96,11 @@ HappyFox에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 HappyFox 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 HappyFox 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **HappyFox에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **HappyFox** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **HappyFox** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -198,11 +198,11 @@ HappyFox에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 **Britta Simon을 HappyFox에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **HappyFox**를 선택합니다.
+1. 애플리케이션 목록에서 **HappyFox**를 선택합니다.
 
     ![Configure Single Sign-On](./media/happyfox-tutorial/tutorial_happyfox_app.png) 
 
@@ -224,7 +224,7 @@ HappyFox에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-1. 액세스 패널에서 HappyFox 타일을 클릭할 때 HappyFox 응용 프로그램의 로그인 페이지를 가져와야 합니다. 로그인 페이지에 **'SAML'** 단추가 표시됩니다.
+1. 액세스 패널에서 HappyFox 타일을 클릭할 때 HappyFox 애플리케이션의 로그인 페이지를 가져와야 합니다. 로그인 페이지에 **'SAML'** 단추가 표시됩니다.
 
     ![플러그 인](./media/happyfox-tutorial/saml.png) 
 

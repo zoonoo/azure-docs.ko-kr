@@ -53,7 +53,7 @@ ms.locfileid: "53407580"
 
 ## <a name="create-azure-cosmos-db-account"></a>Azure Cosmos DB 계정 만들기
 
-Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 이미 있는 경우 [Node.js 응용 프로그램 설치](#SetupNode)로 건너뛸 수 있습니다. Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설정하고 [Node.js 응용 프로그램 설정](#SetupNode)으로 건너뜁니다. 
+Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 이미 있는 경우 [Node.js 애플리케이션 설치](#SetupNode)로 건너뛸 수 있습니다. Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설정하고 [Node.js 애플리케이션 설정](#SetupNode)으로 건너뜁니다. 
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -62,7 +62,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 �
 애플리케이션을 빌드하는 코드를 작성하기 전에 앱에 대한 프레임워크를 빌드할 수 있습니다. 다음 단계를 실행하여 프레임워크 코드가 있는 Node.js 애플리케이션을 설치합니다.
 
 1. 자주 사용하는 터미널을 엽니다.
-2. Node.js 응용 프로그램을 저장하려는 폴더 또는 디렉터리를 찾습니다.
+2. Node.js 애플리케이션을 저장하려는 폴더 또는 디렉터리를 찾습니다.
 3. 다음 명령을 사용하여 두 개의 빈 JavaScript 파일을 만듭니다.
 
    * Windows:
@@ -331,7 +331,7 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 생겼으니, Azure Co
 > [!WARNING]
 컨테이너를 만드는 것은 가격 책정에 영향을 줍니다. 예상되는 결과를 확인하려면 [가격 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 방문하세요.
 
-컨테이너는 `createIfNotExists` 또는 **Containers** 클래스의 create 함수를 사용하여 만들 수 있습니다.  컨테이너는 항목(SQL API의 경우 JSON 문서) 및 관련 JavaScript 응용 프로그램 논리로 구성됩니다.
+컨테이너는 `createIfNotExists` 또는 **Containers** 클래스의 create 함수를 사용하여 만들 수 있습니다.  컨테이너는 항목(SQL API의 경우 JSON 문서) 및 관련 JavaScript 애플리케이션 논리로 구성됩니다.
 
 1. **createContainer** 및 **readContainer** 함수를 복사하여 app.js 파일의 **readDatabase** 함수 아래에 붙여넣습니다. **createContainer** 함수는 아직 ID가 없으면 ```config```에서 지정된 ```containerId```를 사용하여 새 컨테이너를 만듭니다. **readContainer** 함수는 컨테이너 정의를 읽어서 컨테이너가 있는지 확인합니다.
 

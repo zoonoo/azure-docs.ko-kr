@@ -310,7 +310,7 @@ ms.locfileid: "39075930"
 
 
 
-Microsoft Azure를 사용하면 Linux, UNIX, Windows(LUW)용 IBM DB2에서 실행 중인 기존 SAP 응용 프로그램을 Azure 가상 머신으로 마이그레이션할 수 있습니다. LUW용 IBM DB2에서 SAP를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
+Microsoft Azure를 사용하면 Linux, UNIX, Windows(LUW)용 IBM DB2에서 실행 중인 기존 SAP 애플리케이션을 Azure 가상 머신으로 마이그레이션할 수 있습니다. LUW용 IBM DB2에서 SAP를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
 LUW용 IBM DB2에서 SAP Business Suite를 실행하는 방법에 대한 일반적인 내용은 SCN(SAP Community Network)의 <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>에서 찾을 수 있습니다.
 
 Azure에서 LUW용 DB2의 SAP에 대한 추가 정보 및 업데이트는 SAP Note [2233094]를 참조하세요. 
@@ -321,13 +321,13 @@ Azure에서 LUW용 DB2의 SAP에 대한 추가 정보 및 업데이트는 SAP No
 
 | Note 번호 | 제목 |
 | --- | --- |
-| [1928533] |Azure의 SAP 응용 프로그램: 지원 제품 및 Azure VM 유형 |
+| [1928533] |Azure의 SAP 애플리케이션: 지원 제품 및 Azure VM 유형 |
 | [2015553] |Microsoft Azure의 SAP: 지원 필수 조건 |
 | [1999351] |SAP용 고급 Azure 모니터링 문제 해결 |
 | [2178632] |Microsoft Azure의 SAP용 주요 모니터링 메트릭 |
 | [1409604] |Windows에서의 가상화: 향상된 모니터링 |
 | [2191498] |Azure와 Linux의 SAP: 향상된 모니터링 |
-| [2233094] |DB6: Linux, UNIX 및 Windows용 IBM DB2를 사용하는 SAP 응용 프로그램 - 추가 정보 |
+| [2233094] |DB6: Linux, UNIX 및 Windows용 IBM DB2를 사용하는 SAP 애플리케이션 - 추가 정보 |
 | [2243692] |Microsoft Azure(IaaS) VM의 Linux: SAP 라이선스 문제 |
 | [1984787] |SUSE LINUX Enterprise Server 12: 설치 참고 |
 | [2002167] |Red Hat Enterprise Linux 7.x: 설치 및 업그레이드 |
@@ -379,7 +379,7 @@ LUW용 IBM DB2의 백업/복원 기능은 표준 Windows Server 운영 체제 �
 * 둘 이상의 대상 디렉터리를 사용하여 백업을 작성합니다.
 
 >[!NOTE]
->Windows의 DB2는 Windows VSS 기술을 지원하지 않습니다. 따라서 DB2 DBMS가 배포된 VM에는 Azure Backup 서비스의 응용 프로그램 일치 VM 백업을 사용할 수 없습니다.
+>Windows의 DB2는 Windows VSS 기술을 지원하지 않습니다. 따라서 DB2 DBMS가 배포된 VM에는 Azure Backup 서비스의 애플리케이션 일치 VM 백업을 사용할 수 없습니다.
 
 ### <a name="high-availability-and-disaster-recovery"></a>고가용성 및 재해 복구
 MSCS(Microsoft Cluster Server)는 지원되지 않습니다.

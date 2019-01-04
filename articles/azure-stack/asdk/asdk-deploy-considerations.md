@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/12/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 10ae943711fcd7516b0fdbe982fd5d9e09227bdc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 22032f9d2e60d3c51546c32df8b98f9633c95535
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864981"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726544"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 배포의 계획 고려 사항
 Azure Stack 개발 키트 (ASDK)를 배포 하기 전에 개발 키트 호스트 컴퓨터에는이 문서에 설명 된 요구 사항을 충족 해야 합니다.
@@ -29,12 +29,12 @@ Azure Stack 개발 키트 (ASDK)를 배포 하기 전에 개발 키트 호스트
 ## <a name="hardware"></a>하드웨어
 | 구성 요소 | 최소 | 권장 |
 | --- | --- | --- |
-| 디스크 드라이브: 운영 체제 |시스템 파티션에 사용할 수 있는 최소 200GB의 운영 체제 디스크 1개(SSD 또는 HDD) |시스템 파티션에 사용할 수 있는 최소 200GB의 운영 체제 디스크 1개(SSD 또는 HDD) |
-| 디스크 드라이브: 일반 개발 키트 데이터<sup>*</sup>  |4개의 디스크. 각 디스크는 최소 140GB의 용량을 제공합니다(SSD 또는 HDD). 사용 가능한 모든 디스크 사용 됩니다. |4개의 디스크. 각 디스크는 최소 250GB의 용량 (SSD 또는 HDD)를 제공합니다. 사용 가능한 모든 디스크 사용 됩니다. |
-| Compute: CPU |듀얼 소켓: 12 실제 코어 수 (합계) |듀얼 소켓: 16 실제 코어 수 (합계) |
-| Compute: 메모리 |96GB RAM |128GB RAM (PaaS 리소스 공급자를 지원 하기 위해 최소입니다.)|
-| Compute: BIOS |Hyper-V 사용(SLAT 지원) |Hyper-V 사용(SLAT 지원) |
-| 네트워크: NIC |NIC에 필요한 Windows Server 2012 R2 인증; 특수 기능 필요 없음 |NIC에 필요한 Windows Server 2012 R2 인증; 특수 기능 필요 없음 |
+| 디스크 드라이브: 운영 체제 |200GB 시스템 파티션 (SSD 또는 HDD)에 사용할 수 있는 최소 운영 체제 디스크 1 |시스템 파티션에 사용할 수 있는 최소 200GB의 운영 체제 디스크 1개(SSD 또는 HDD) |
+| 디스크 드라이브: 일반 개발 키트 데이터<sup>*</sup>  |4개의 디스크. 각 디스크 (SSD 또는 HDD) 용량의 240GB의 최소를 제공합니다. 사용 가능한 모든 디스크 사용 됩니다. |4개의 디스크. 각 디스크 (SSD 또는 HDD) 용량의 400GB의 최소를 제공합니다. 사용 가능한 모든 디스크 사용 됩니다. |
+| 계산: CPU |듀얼 소켓: 16 실제 코어 (합계) |듀얼 소켓: 20 개의 실제 코어 (합계) |
+| 계산: 메모리 |192 GB RAM |256GB RAM |
+| 계산: BIOS |Hyper-V 사용(SLAT 지원) |Hyper-V 사용(SLAT 지원) |
+| 네트워크: NIC |Windows Server 2012 R2 인증 합니다. 특수 기능 필요 없음 |Windows Server 2012 R2 인증 합니다. 특수 기능 필요 없음 |
 | HW 로고 인증 |[Windows Server 2012 R2에 대한 인증](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Windows Server 2016에 대 한 인증](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup> 다양 한 추가 하려는 경우이 권장 용량 보다 더 필요한 합니다 [마켓플레이스 항목](asdk-marketplace-item.md) Azure에서.
@@ -59,7 +59,7 @@ Azure Stack 개발 키트 (ASDK)를 배포 하기 전에 개발 키트 호스트
 
 <sup>*</sup> 통과 기능 없이 RAID 컨트롤러는 미디어 유형을 인식할 수 없습니다. 이러한 컨트롤러 않음으로 SSD와 HDD를 표시합니다. 이 경우 SSD는 캐싱 장치 대신 영구적 저장소로 사용 됩니다. 따라서 이러한 Ssd에 개발 키트를 배포할 수 있습니다.
 
-**예제 HBA**: LSI 9207 8i, LSI-9300-8i 또는 LSI-9265-8i 통과 모드
+**예제 Hba**: LSI 9207 8i, LSI-9300-8i, LSI-9265-8i 통과 모드로
 
 샘플 OEM 구성을 사용할 수 있습니다.
 

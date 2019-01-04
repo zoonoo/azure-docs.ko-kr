@@ -39,7 +39,7 @@ https://portal.azure.com에서 Azure에 로그인
     > [!NOTE]
     > Automation Account를 배포할 수 있는 위치의 업데이트된 목록을 보려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=automation&regions=all)을 참조하세요.
 
-1. 배포가 완료되면 ****모든 서비스**를 클릭하고, **Automation 계정**을 선택하고, 만든 Automation 계정을 선택합니다.
+1. 배포가 완료되면 ** **모든 서비스**를 클릭하고, **Automation 계정**을 선택하고, 만든 Automation 계정을 선택합니다.
 
     ![Automation 계정 개요](./media/automation-quickstart-create-account/automation-account-overview.png)
 

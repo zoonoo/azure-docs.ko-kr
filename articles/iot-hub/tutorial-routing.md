@@ -504,9 +504,9 @@ Power BI 보고서를 설정하려면 디바이스를 만들고 디바이스 시
 
 ## <a name="run-simulated-device-app"></a>시뮬레이션된 디바이스 앱 실행
 
-앞서 스크립트 설정 섹션에서 IoT 디바이스를 사용하여 시뮬레이션하도록 디바이스를 설정했습니다. 이 섹션에서는 IoT Hub로 디바이스-클라우드 메시지를 전송하는 디바이스를 시뮬레이션하는 .NET 콘솔 앱을 다운로드합니다. 이 응용 프로그램은 다양한 라우팅 메서드에 대해 메시지를 보냅니다. 
+앞서 스크립트 설정 섹션에서 IoT 디바이스를 사용하여 시뮬레이션하도록 디바이스를 설정했습니다. 이 섹션에서는 IoT Hub로 디바이스-클라우드 메시지를 전송하는 디바이스를 시뮬레이션하는 .NET 콘솔 앱을 다운로드합니다. 이 애플리케이션은 다양한 라우팅 메서드에 대해 메시지를 보냅니다. 
 
-[IoT 디바이스 시뮬레이션](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)에 대한 솔루션을 다운로드합니다. 그러면 여러 응용 프로그램을 사용한 리포지토리가 다운로드됩니다. 원하는 솔루션은 iot-hub/Tutorials/Routing/SimulatedDevice/에 있습니다.
+[IoT 디바이스 시뮬레이션](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)에 대한 솔루션을 다운로드합니다. 그러면 여러 애플리케이션을 사용한 리포지토리가 다운로드됩니다. 원하는 솔루션은 iot-hub/Tutorials/Routing/SimulatedDevice/에 있습니다.
 
 솔루션 파일(SimulatedDevice.sln)을 두 번 클릭하여 Visual Studio에서 코드를 연 다음, Program.cs를 엽니다. `{iot hub hostname}`을 IoT Hub 호스트 이름으로 대체합니다. IoT Hub 호스트 이름의 형식은 **{iot-hub-name}.azure-devices.net**입니다. 이 자습서의 경우 허브 호스트 이름은 **ContosoTestHub.azure-devices.net**입니다. 다음으로, `{device key}`를 이전에 시뮬레이션된 디바이스를 설정할 때 저장했던 디바이스 키로 대체합니다. 
 
@@ -520,7 +520,7 @@ Power BI 보고서를 설정하려면 디바이스를 만들고 디바이스 시
 
 ## <a name="run-and-test"></a>실행 및 테스트 
 
-콘솔 응용 프로그램을 실행합니다. 잠시 기다립니다. 응용 프로그램의 콘솔 화면에서 전송되는 메시지를 볼 수 있습니다.
+콘솔 애플리케이션을 실행합니다. 잠시 기다립니다. 애플리케이션의 콘솔 화면에서 전송되는 메시지를 볼 수 있습니다.
 
 앱은 1초마다 새로운 디바이스-클라우드 메시지를 IoT Hub에 보냅니다. 메시지에는 디바이스 ID, 온도, 습도 및 메시지 수준(기본값이 `normal`)과 함께 JSON 직렬화된 개체가 포함됩니다. `critical` 또는 `storage` 수준을 임의로 할당하므로 메시지는 저장소 계정 또는 Service Bus 큐로 라우팅됩니다(이메일을 보내도록 Logic App을 트리거). 기본값(`normal`) 판독값이 다음에 설정하는 BI 보고서에 표시됩니다.
 
@@ -544,7 +544,7 @@ Power BI 보고서를 설정하려면 디바이스를 만들고 디바이스 시
 
    * 저장소 계정에 대한 라우팅이 제대로 작동합니다.
 
-이제 응용 프로그램이 계속 실행 중인 상태에서 기본 라우팅을 통해 들어오는 메시지를 표시하도록 Power BI 시각화를 설정합니다. 
+이제 애플리케이션이 계속 실행 중인 상태에서 기본 라우팅을 통해 들어오는 메시지를 표시하도록 Power BI 시각화를 설정합니다. 
 
 ## <a name="set-up-the-power-bi-visualizations"></a>Power BI 시각화 설정
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: df69406bd0a6e09f66262ce66f8eeb7cada2422a
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: eb4057b4cfc6a68fb3489a7ab6fb1ee6b5f41d7d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393988"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338465"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Service Bus 배달 못 한 편지 큐의 개요
 
@@ -41,7 +41,7 @@ Service Bus의 여러 활동에 의해 메시징 엔진 자체 내에서 DLQ로 
 
 broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/dotnet/api/microsoft.azure.servicebus.queueclient.deadletterasync) 메서드 내부 버전을 호출하므로 해당 메시지에 두 속성 `DeadLetterReason` 및 `DeadLetterErrorDescription` 속성이 추가됩니다.
 
-응용 프로그램에서 `DeadLetterReason` 속성에 대한 고유의 코드를 정의할 수는 있지만, 시스템에서 다음 값을 설정합니다.
+애플리케이션에서 `DeadLetterReason` 속성에 대한 고유의 코드를 정의할 수는 있지만, 시스템에서 다음 값을 설정합니다.
 
 | 조건 | DeadLetterReason | DeadLetterErrorDescription |
 | --- | --- | --- |
@@ -76,7 +76,7 @@ broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/
 
 다음과 같은 상황에서는 배달하지 못한 편지 큐에 메시지가 전달됩니다.
 
-- 메시지는 [함께 체인으로 연결된](service-bus-auto-forwarding.md) 3개 이상의 큐 또는 항목을 통과합니다.
+- 메시지는 [함께 체인으로 연결된](service-bus-auto-forwarding.md) 4 이상의 큐 또는 토픽을 통과합니다.
 - 대상 큐 또는 항목은 사용되지 않도록 설정되거나 삭제됩니다.
 - 대상 큐 또는 항목이 최대 엔터티 크기를 초과합니다.
 

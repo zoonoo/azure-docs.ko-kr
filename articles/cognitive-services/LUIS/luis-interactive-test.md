@@ -1,23 +1,24 @@
 ---
-title: LUIS 포털 내에서 LUIS 앱 테스트
-titleSuffix: Azure Cognitive Services
+title: LUIS 포털에서 앱 테스트
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Language Understanding(LUIS)을 사용하여 응용 프로그램을 지속적으로 개선하고 해당 언어의 이해를 향상합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6bb03975e36e93c2496eb4c6013be21ebc891ed1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 836449dad621cf6a0efe6c8534edc9f3982869b3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039704"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141580"
 ---
-# <a name="test-your-luis-app"></a>LUIS 앱 테스트
+# <a name="test-your-luis-app-in-the-luis-portal"></a>LUIS 포털에서 LUIS 앱 테스트
 <a name="train-your-app"></a>
 앱 [테스트](luis-concept-test.md)는 반복적인 프로세스입니다. LUIS 앱을 학습시킨 후 샘플 발화로 앱을 테스트하여 의도 및 엔터티가 올바르게 인식되는지 확인합니다. 인식되지 않으면 LUIS 앱을 업데이트하고 학습시키고, 다시 테스트합니다. 
 

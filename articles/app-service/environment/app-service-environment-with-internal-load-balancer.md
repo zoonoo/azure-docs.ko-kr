@@ -1,5 +1,5 @@
 ---
-title: App Service Environment에서 내부 부하 분산 장치 생성 및 사용 | Microsoft Docs
+title: App Service 환경에서 내부 부하 분산 장치 만들기 및 사용 - Azure | Microsoft Docs
 description: ILB를 사용하여 ASE 만들기 및 사용
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: f7c94b790c6aa7c75c62fd05671f016b7185b2a2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: seodec18
+ms.openlocfilehash: 88f100bc780d8df0202cfcce9b390085a71fc905
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29388818"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310473"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>App Service Environment에서 내부 부하 분산 장치 사용
 
@@ -30,7 +31,7 @@ ms.locfileid: "29388818"
 ASE(App Service Environment) 기능은 다중 테넌트 증명(stamp)에서 사용할 수 없는 향상된 구성 기능을 제공하는 Azure App Service의 프리미엄 서비스 옵션입니다. ASE 기능은 기본적으로 Azure Virtual Network(VNet)에 Azure App Service를 배포합니다. App Service 환경에서 제공되는 기능에 대한 자세한 내용은 [App Service 환경 정의][WhatisASE] 설명서를 참조하세요. VNet에서 작업할 때의 이점을 잘 모르는 경우 [Azure Virtual Network FAQ][virtualnetwork]를 읽어보세요. 
 
 ## <a name="overview"></a>개요
-ASE는 VNet의 인터넷 액세스 가능 끝점 또는 IP 주소를 사용하여 배포할 수 있습니다. IP 주소를 VNet 주소로 설정하기 위해서는 ILB(내부 부하 분산 장치)를 사용하여 ASE를 배포해야 합니다. ASE가 ILB로 구성된 경우 다음을 제공합니다.
+ASE는 VNet의 인터넷 액세스 가능 엔드포인트 또는 IP 주소를 사용하여 배포할 수 있습니다. IP 주소를 VNet 주소로 설정하기 위해서는 ILB(내부 부하 분산 장치)를 사용하여 ASE를 배포해야 합니다. ASE가 ILB로 구성된 경우 다음을 제공합니다.
 
 * 고유한 도메인 또는 하위 도메인. 작업을 용이하게 하기 위해 이 문서에서는 하위 도메인을 가정하지만, 두 가지 모두 구성 가능합니다. 
 * HTTPS에 사용되는 인증서
@@ -53,7 +54,7 @@ ILB ASE를 사용하는 경우 수행할 수 없는 작업도 있습니다. 여�
 ILB ASE를 만드는 과정은 일반적으로 ASE를 만드는 과정과 크게 다르지 않습니다. ASE를 만드는 방법에 대한 자세한 내용은 [App Service 환경을 만드는 방법][HowtoCreateASE]을 참조하세요. ILB ASE를 만드는 프로세스를 ASE 생성 중에 VNet을 만드는 경우와 기존 VNet을 선택하는 경우에서 동일합니다. ILB ASE를 만들려면 
 
 1. Azure Portal에서 **리소스 만들기 -> 웹 + 모바일 -> App Service Environment**를 선택합니다.
-2. 사용 중인 구독을 선택합니다.
+2. 구독을 선택합니다.
 3. 리소스 그룹을 선택하거나 만듭니다.
 4. VNet을 선택하거나 만듭니다.
 5. VNet을 선택하는 경우 서브넷 만듭니다.
@@ -72,7 +73,7 @@ ILB ASE에서 앱을 만드는 과정은 일반적으로 ASE에서 앱을 만드
 
 1. Azure Portal에서 **리소스 만들기 -> 웹 + 모바일 -> 웹** 또는 **모바일** 또는 **API 앱**을 선택합니다.
 2. 앱의 이름을 입력합니다.
-3. 사용 중인 구독을 선택합니다.
+3. 구독을 선택합니다.
 4. 리소스 그룹을 선택하거나 만듭니다.
 5. App Service 계획(ASP)을 선택하거나 만듭니다. 새 ASE를 만드는 경우 위치로 ASE를 선택하고 ASP를 생성할 작업자 풀을 선택합니다. ASP를 만들 때 위치 및 작업자 풀로 ASE를 선택합니다. 앱의 이름을 지정하면 앱 이름 아래의 하위 도메인이 ASE에 대한 하위 도메인으로 바뀌는 것을 볼 수 있습니다. 
 6. **만들기**를 선택합니다. 앱을 대시보드에 표시하려면 **대시보드에 고정** 확인란을 선택해야 합니다. 
@@ -100,8 +101,8 @@ ASE를 만든 후에는 해당 하위 도메인이 사용자가 지정한 하위
 4. ASE를 만든 후에 ASE에서 웹앱을 만듭니다. 
 5. 해당 VNET에 없는 경우 VM을 만듭니다(ASE가 있는 동일한 서브넷이 아니거나 연결이 끊긴 경우).
 6. 하위 도메인에 대한 DNS를 설정합니다. DNS에 하위 도메인과 와일드카드를 사용할 수도 있고, 몇 가지 간단한 테스트를 수행하려는 경우 VM의 호스트 파일을 편집하여 웹앱 이름을 VIP IP 주소로 설정할 수 있습니다. ASE에 .ilbase.com이라는 하위 도메인이 있고 웹앱 mytestapp을 만들었으면 mytestapp.ilbase.com에서 주소가 지정되고 해당 사항이 호스트 파일에 설정됩니다. (Windows에서 호스트 파일은 C:\Windows\System32\drivers\etc에 있습니다\).)
-7. 해당 VM의 브라우저를 사용하여 http://mytestapp.ilbase.com (또는 하위 도메인이 포함된 웹앱 이름)으로 이동합니다.
-8. 해당 VM에서 브라우저를 사용하고 https://mytestapp.ilbase.com 으로 이동합니다. 자체 서명된 인증서를 사용하는 경우 보안 부족에 동의해야 합니다. 
+7. 해당 VM의 브라우저를 사용하여 https://mytestapp.ilbase.com(또는 하위 도메인이 포함된 웹앱 이름)으로 이동합니다.
+8. 해당 VM에서 브라우저를 사용하여 https://mytestapp.ilbase.com로 이동합니다. 자체 서명된 인증서를 사용하는 경우 보안 부족에 동의해야 합니다. 
 
 ILB에 대한 IP 주소는 속성에 가상 IP 주소로 표시됩니다.
 
@@ -147,8 +148,8 @@ App Service 환경을 시작하려면 [App Service 환경 소개][WhatisASE]를 
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [ControlInbound]: app-service-app-service-environment-control-inbound-traffic.md
 [virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
+[AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ExpressRoute]: app-service-app-service-environment-network-configuration-expressroute.md
-[vnetnsgs]: http://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[vnetnsgs]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [ASEConfig]: app-service-web-configure-an-app-service-environment.md

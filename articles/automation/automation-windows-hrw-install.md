@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 83820440a6304886785a175b27614b45fdb98b13
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a0e0000c4baa22ccc1c26c0e40ec62bb277104af
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252227"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993911"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker 배포
 
@@ -53,12 +53,12 @@ Runbook Worker를 성공적으로 배포한 후에는 [Hybrid Runbook Worker에�
 
    New-OnPremiseHybridWorker.ps1 스크립트에는 실행 중 다음 매개 변수가 필요합니다.
 
-   * *AutomationAccountName*(필수): Automation 계정의 이름
-   * *AAResourceGroupName*(필수): Automation 계정과 연결된 리소스 그룹의 이름
-   * *OMSResourceGroupName*(선택 사항): Log Analytics 작업 영역에 대한 리소스 그룹의 이름 이 리소스 그룹을 지정하지 않으면 *AAResourceGroupName*을 사용합니다. 
-   * *HybridGroupName*(필수): 이 시나리오를 지원하는 Runbook에 대한 대상으로 지정할 Hybrid Runbook Worker 그룹의 이름
-   * *SubscriptionID*(필수): Automation 계정이 있는 Azure 구독 ID
-   * *WorkspaceName*(선택 사항): Log Analytics 작업 영역 이름 Log Analytics 작업 영역이 없는 경우 스크립트에서 하나를 만들어 구성합니다.
+   * *AutomationAccountName*(필수): Automation 계정의 이름입니다.
+   * *AAResourceGroupName*(필수): Automation 계정과 연결된 리소스 그룹의 이름입니다.
+   * *OMSResourceGroupName*(선택 사항): Log Analytics 작업 영역에 대한 리소스 그룹의 이름입니다. 이 리소스 그룹을 지정하지 않으면 *AAResourceGroupName*을 사용합니다. 
+   * *HybridGroupName*(필수): 이 시나리오를 지원하는 Runbook에 대한 대상으로 지정할 Hybrid Runbook Worker 그룹의 이름입니다.
+   * *SubscriptionID*(필수): Automation 계정이 있는 Azure 구독 ID입니다.
+   * *WorkspaceName*(선택 사항): Log Analytics 작업 영역 이름입니다. Log Analytics 작업 영역이 없는 경우 스크립트에서 하나를 만들어 구성합니다.
 
      > [!NOTE]
      > 현재 Log Analytics와 통합되도록 지원되는 Automation 영역은 **오스트레일리아 남동부**, **미국 동부 2**, **동남 아시아** 및 **유럽 서부**뿐입니다. 이러한 영역 중 하나에 Automation 계정에 없는 경우 스크립트에서 Log Analytics 작업 영역을 만들지만 연결할 수 없다고 경고합니다.
@@ -85,7 +85,7 @@ Automation 환경에 대해 처음 두 단계를 한 번 수행한 후 각 Worke
 
 #### <a name="1-create-a-log-analytics-workspace"></a>1. Log Analytics 작업 영역 만들기
 
-Log Analytics 작업 영역이 아직 없는 경우 [작업 영역 관리](../log-analytics/log-analytics-manage-access.md)의 지침에 따라 작업 영역을 만듭니다. 이미 있는 경우에는 기존 작업 영역을 사용할 수 있습니다.
+Log Analytics 작업 영역이 아직 없는 경우 [작업 영역 관리](../azure-monitor/platform/manage-access.md)의 지침에 따라 작업 영역을 만듭니다. 이미 있는 경우에는 기존 작업 영역을 사용할 수 있습니다.
 
 #### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Log Analytics 작업 영역에 Automation 솔루션 추가
 

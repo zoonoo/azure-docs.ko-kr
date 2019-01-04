@@ -1,6 +1,6 @@
 ---
 title: Azure Application Gateway로 웹앱 보호 - PowerShell
-description: 이 문서에서는 기존 또는 새 응용 프로그램 게이트웨이에 웹앱을 백 엔드 호스트로 구성하는 방법을 안내합니다.
+description: 이 문서에서는 기존 또는 새 애플리케이션 게이트웨이에 웹앱을 백 엔드 호스트로 구성하는 방법을 안내합니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -16,11 +16,11 @@ ms.locfileid: "49353342"
 ---
 # <a name="configure-app-service-web-apps-with-application-gateway"></a>Application Gateway를 사용하여 App Service Web Apps 구성
 
-응용 프로그램 게이트웨이를 사용하면 Azure 웹앱 또는 다른 다중 테넌트 서비스를 백 엔드 풀 멤버로 사용할 수 있습니다. 이 문서에서는 Application Gateway를 사용하여 Azure 웹앱을 구성하는 방법을 배웁니다. 첫 번째 예에서는 웹앱을 백 엔드 풀 멤버로 사용하도록 기존 응용 프로그램 게이트웨이를 구성하는 방법을 보여 줍니다. 두 번째 예에서는 웹앱을 백 엔드 풀 멤버로 사용하여 새 응용 프로그램 게이트웨이를 만드는 방법을 보여 줍니다.
+애플리케이션 게이트웨이를 사용하면 Azure 웹앱 또는 다른 다중 테넌트 서비스를 백 엔드 풀 멤버로 사용할 수 있습니다. 이 문서에서는 Application Gateway를 사용하여 Azure 웹앱을 구성하는 방법을 배웁니다. 첫 번째 예에서는 웹앱을 백 엔드 풀 멤버로 사용하도록 기존 애플리케이션 게이트웨이를 구성하는 방법을 보여 줍니다. 두 번째 예에서는 웹앱을 백 엔드 풀 멤버로 사용하여 새 애플리케이션 게이트웨이를 만드는 방법을 보여 줍니다.
 
-## <a name="configure-a-web-app-behind-an-existing-application-gateway"></a>기존 응용 프로그램 게이트웨이 뒤에 웹앱 구성
+## <a name="configure-a-web-app-behind-an-existing-application-gateway"></a>기존 애플리케이션 게이트웨이 뒤에 웹앱 구성
 
-다음 예에서는 웹앱을 기존 응용 프로그램 게이트웨이에 백 엔드 풀 멤버로 추가합니다. 웹앱이 작동하려면 프로브 구성의 `-PickHostNamefromBackendHttpSettings` 스위치와 백 엔드 http 설정의 `-PickHostNameFromBackendAddress` 스위치를 모두 제공해야 합니다.
+다음 예에서는 웹앱을 기존 애플리케이션 게이트웨이에 백 엔드 풀 멤버로 추가합니다. 웹앱이 작동하려면 프로브 구성의 `-PickHostNamefromBackendHttpSettings` 스위치와 백 엔드 http 설정의 `-PickHostNameFromBackendAddress` 스위치를 모두 제공해야 합니다.
 
 ```powershell
 # FQDN of the web app
@@ -51,9 +51,9 @@ Set-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -App
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
 
-## <a name="configure-a-web-application-behind-a-new-application-gateway"></a>새 응용 프로그램 게이트웨이 뒤에 웹 응용 프로그램 구성
+## <a name="configure-a-web-application-behind-a-new-application-gateway"></a>새 애플리케이션 게이트웨이 뒤에 웹 애플리케이션 구성
 
-이 시나리오에서는 asp.net 시작 웹 사이트 및 응용 프로그램 게이트웨이를 사용하여 웹앱을 배포합니다.
+이 시나리오에서는 asp.net 시작 웹 사이트 및 애플리케이션 게이트웨이를 사용하여 웹앱을 배포합니다.
 
 ```powershell
 # Defines a variable for a dotnet get started web app repository location
@@ -125,9 +125,9 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 $appgw = New-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName $rg.ResourceGroupName -Location EastUs -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -Probes $probeconfig -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
-## <a name="get-application-gateway-dns-name"></a>응용 프로그램 게이트웨이 DNS 이름 가져오기
+## <a name="get-application-gateway-dns-name"></a>애플리케이션 게이트웨이 DNS 이름 가져오기
 
-게이트웨이가 생성되면 다음 단계는 통신에 대한 프런트 엔드를 구성하는 것입니다. 공용 IP를 사용할 때 Application Gateway는 식별 이름이 아닌 동적으로 할당된 DNS 이름이 필요합니다. 최종 사용자가 Application Gateway를 누를 수 있도록 하려면 CNAME 레코드를 사용하여 Application Gateway의 공용 엔드포인트를 가리키도록 합니다. 별칭을 만들려면 응용 프로그램 게이트웨이에 연결된 PublicIPAddress 요소를 사용하여 응용 프로그램 게이트웨이 및 관련 IP/DNS 이름에 대한 세부 정보를 검색합니다. 이 작업은 [공용 IP 주소](../dns/dns-custom-domain.md#public-ip-address)를 가리키는 CNAME 레코드를 만들어 Azure DNS 또는 다른 DNS 공급자를 사용하여 수행할 수 있습니다. A 레코드를 사용할 경우 응용 프로그램 게이트웨이 다시 시작 시 VIP가 변경될 수 있으므로 이는 권장되지 않습니다.
+게이트웨이가 생성되면 다음 단계는 통신에 대한 프런트 엔드를 구성하는 것입니다. 공용 IP를 사용할 때 Application Gateway는 식별 이름이 아닌 동적으로 할당된 DNS 이름이 필요합니다. 최종 사용자가 Application Gateway를 누를 수 있도록 하려면 CNAME 레코드를 사용하여 Application Gateway의 공용 엔드포인트를 가리키도록 합니다. 별칭을 만들려면 애플리케이션 게이트웨이에 연결된 PublicIPAddress 요소를 사용하여 애플리케이션 게이트웨이 및 관련 IP/DNS 이름에 대한 세부 정보를 검색합니다. 이 작업은 [공용 IP 주소](../dns/dns-custom-domain.md#public-ip-address)를 가리키는 CNAME 레코드를 만들어 Azure DNS 또는 다른 DNS 공급자를 사용하여 수행할 수 있습니다. A 레코드를 사용할 경우 애플리케이션 게이트웨이 다시 시작 시 VIP가 변경될 수 있으므로 이는 권장되지 않습니다.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName ContosoRG -Name publicIP01
@@ -159,7 +159,7 @@ DnsSettings              : {
 
 이 예제에서 배포된 웹앱은 인터넷에서 직접 액세스할 수 있는 공용 IP 주소를 사용합니다. 따라서 새로운 기능을 배우고 새로운 것을 시도할 때 문제를 해결하는 데 도움이 됩니다. 하지만 프로덕션 환경에 기능을 배포하려는 경우 더 많은 제한을 추가해야 합니다.
 
-웹앱에 대한 액세스를 제한할 수 있는 한 가지 방법은 [Azure App Service 고정 IP 제한](../app-service/app-service-ip-restrictions.md)을 사용하는 것입니다. 웹앱이 응용 프로그램 게이트웨이의 트래픽만 수신하도록 웹앱을 제한할 수 있습니다. 앱 서비스 IP 제한 기능을 사용하여 액세스할 수 있는 유일한 주소로 응용 프로그램 게이트웨이 VIP를 나열할 수 있습니다.
+웹앱에 대한 액세스를 제한할 수 있는 한 가지 방법은 [Azure App Service 고정 IP 제한](../app-service/app-service-ip-restrictions.md)을 사용하는 것입니다. 웹앱이 애플리케이션 게이트웨이의 트래픽만 수신하도록 웹앱을 제한할 수 있습니다. 앱 서비스 IP 제한 기능을 사용하여 액세스할 수 있는 유일한 주소로 애플리케이션 게이트웨이 VIP를 나열할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

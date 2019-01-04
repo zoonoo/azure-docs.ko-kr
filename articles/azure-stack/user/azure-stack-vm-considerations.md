@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 12/19/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 9d6bb8d4327b428bb47d1d44422d816e7b20ed87
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8a9fc299f620c7df87544b467cf52535addfe313
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847527"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651506"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Azure Stack에서 virtual machines 사용 시 고려 사항
 
@@ -27,7 +27,7 @@ ms.locfileid: "52847527"
 
 Azure Stack virtual machines는 주문형으로 확장 가능한 컴퓨팅 리소스를 제공합니다. 가상 머신 (Vm)를 배포 하기 전에 Azure Stack에서 사용할 수 있는 가상 머신 기능 및 Microsoft Azure의 차이점을 이해 해야 합니다. 이 문서에서는 이러한 차이점을 설명 하 고 가상 머신 배포를 계획 하는 것에 대 한 주요 고려 사항이 식별 합니다. Azure Stack 및 Azure 간의 대략적인 차이 대 한 자세한 내용은 참조는 [고려 사항 키](azure-stack-considerations.md) 문서.
 
-## <a name="cheat-sheet-virtual-machine-differences"></a>치트 시트: 가상 머신 차이점
+## <a name="cheat-sheet-virtual-machine-differences"></a>참고 자료: 가상 머신 차이점
 
 | 기능 | Azure (전역) | Azure Stack |
 | --- | --- | --- |
@@ -39,6 +39,7 @@ Azure Stack virtual machines는 주문형으로 확장 가능한 컴퓨팅 리�
 | 가상 머신 저장소 | 지원 [디스크를 관리 합니다.](../../virtual-machines/windows/managed-disks-overview.md) | Managed disks는 1808 이상 버전을 사용 하 여 Azure Stack에서 지원 됩니다. |
 | 가상 머신 디스크 성능 | 디스크 유형 및 크기에 따라 달라 집니다. | 디스크가 연결 된 VM의 VM 크기에 따라 달라 집니다를 참조 하는 [Azure Stack에서 지원 되는 가상 머신 크기](azure-stack-vm-sizes.md) 문서.
 | API 버전 | Azure는 항상 모든 가상 머신 기능에 대 한 최신 API 버전을 가집니다. | Azure Stack 이러한 서비스에 대 한 특정 Azure 서비스 및 특정 API 버전을 지원합니다. 지원 되는 API 버전의 목록을 보려면를 참조 합니다 [API 버전](#api-versions) 이 문서의 섹션입니다. |
+| Azure Instance Metadata Service | Azure Instance Metadata Service는 가상 머신을 관리 및 구성하는 데 사용할 수 있는 가상 머신 인스턴스를 실행하는 방법에 대한 정보를 제공합니다.  | Instance metadata service는 Azure Stack에서 지원 되지 않습니다. |
 |가상 컴퓨터 가용성 집합|여러 장애 도메인 (2 또는 3 지역당)<br>여러 업데이트 도메인<br>관리 되는 디스크 지원|여러 장애 도메인 (2 또는 3 지역당)<br>여러 업데이트 도메인 (최대 20)<br>관리 디스크 지원 되지 않습니다|
 |가상 머신 크기 집합|자동 크기 조정 지원|지원 되지 않습니다 자동 크기 조정 합니다.<br>확장 집합 포털, Resource Manager 템플릿 또는 PowerShell을 사용 하 여에 더 많은 인스턴스를 추가 합니다.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Toolkit for IntelliJ: HDInsight Spark에서 원격으로 응용 프로그램 디버그 '
-description: IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여 VPN을 통해 HDInsight 클러스터에서 실행 중인 Spark 응용 프로그램을 원격으로 디버그하는 방법을 알아봅니다.
+title: 'Azure Toolkit for IntelliJ: HDInsight Spark에서 원격으로 애플리케이션 디버그 '
+description: Azure Toolkit for IntelliJ에서 HDInsight 도구를 사용하여 VPN을 통해 HDInsight 클러스터에서 실행 중인 Spark 애플리케이션을 원격으로 디버그하는 방법을 알아봅니다.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -25,8 +25,8 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 1. 사이트 간 또는 지점 및 사이트 간 Azure Virtual Network를 만듭니다. 이 문서의 단계에서는 사이트 간 네트워크를 사용하는 것으로 가정합니다.
 1. 사이트 간 가상 네트워크의 일부인 HDInsight에서 Spark 클러스터를 만듭니다.
 1. 클러스터 헤드 노드 및 데스크톱 간의 연결을 확인합니다.
-1. IntelliJ IDEA에서 Scala 응용 프로그램을 만들고 원격 디버깅을 위해 구성합니다.
-1. 응용 프로그램을 실행하고 디버그합니다.
+1. IntelliJ IDEA에서 Scala 애플리케이션을 만든 다음, 원격 디버깅을 위해 구성합니다.
+1. 애플리케이션을 실행하고 디버그합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * **Azure 구독**. 자세한 내용은 [Azure 평가판 얻기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
@@ -35,7 +35,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 * **IntelliJ IDEA**. 이 문서에서는 버전 2017.1을 사용합니다. [JetBrains 웹 사이트](https://www.jetbrains.com/idea/download/)에서 설치할 수 있습니다.
 * **IntelliJ용 Azure 도구 키트의 HDInsight 도구** IntelliJ용 HDInsight 도구는 IntelliJ용 Azure 도구 키트에 포함되어 제공됩니다. Azure 도구 키트를 설치하는 방법에 대한 지침은 [IntelliJ용 Azure 도구 키트 설치](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation)를 참조하세요.
 * **IntelliJ IDEA에서 Azure 구독에 로그인**. [IntelliJ용 Azure 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램 만들기](apache-spark-intellij-tool-plugin.md)의 지침을 따릅니다.
-* **예외 해결 방법**. Windows 컴퓨터에서 원격 디버깅을 위해 로컬 Spark Scala 응용 프로그램을 실행하는 동안 예외가 발생할 수 있습니다. 이 예외는 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356)에 설명되어 있으며 Windows에서 누락된 WinUtils.exe 파일 때문에 발생합니다. 이 오류를 해결하려면 [여기서 실행 파일을 다운로드](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)하여 **C:\WinUtils\bin** 등의 위치에 저장해야 합니다. **HADOOP_HOME** 환경 변수를 추가하고 이 변수 값을 **C\WinUtils**로 설정합니다.
+* **예외 해결 방법**. Windows 컴퓨터에서 원격 디버깅을 위해 로컬 Spark Scala 애플리케이션을 실행하는 동안 예외가 발생할 수 있습니다. 이 예외는 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356)에 설명되어 있으며 Windows에서 누락된 WinUtils.exe 파일 때문에 발생합니다. 이 오류를 해결하려면 [여기서 실행 파일을 다운로드](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)하여 **C:\WinUtils\bin** 등의 위치에 저장해야 합니다. **HADOOP_HOME** 환경 변수를 추가하고 이 변수 값을 **C\WinUtils**로 설정합니다.
 
 ## <a name="step-1-create-an-azure-virtual-network"></a>1단계: Azure Virtual Network 만들기
 아래 링크의 지침을 따라 Azure Virtual Network를 만든 다음 데스크톱 컴퓨터와 가상 네트워크 간의 연결을 확인합니다.
@@ -155,7 +155,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
                  <value>/etc/hadoop/conf/topology_script.py</value>
            </property>
    다. 파일을 저장합니다.
-1. 응용 프로그램에 대한 기본 클래스를 추가합니다. **프로젝트 탐색기**에서 **src**를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**를 가리킨 다음 **Scala 클래스**를 선택합니다.
+1. 애플리케이션에 대한 기본 클래스를 추가합니다. **프로젝트 탐색기**에서 **src**를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**를 가리킨 다음 **Scala 클래스**를 선택합니다.
 
     ![기본 클래스 선택](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code.png)
 1. **새 Scala 클래스 만들기** 대화 상자에서 이름을 제공하고 **종류** 상자에 **개체**를 선택한 다음 **확인**을 선택합니다.
@@ -195,7 +195,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
            //rdd1.collect().foreach(println)
          }
         }
-1. 8 및 9단계를 반복하여 `RemoteClusterDebugging`이라는 새 클래스를 추가합니다. 이 클래스는 응용 프로그램 디버깅에 사용되는 Spark 테스트 프레임워크를 구현합니다. `RemoteClusterDebugging` 클래스에 다음 코드를 추가합니다.
+1. 8 및 9단계를 반복하여 `RemoteClusterDebugging`이라는 새 클래스를 추가합니다. 이 클래스는 애플리케이션 디버깅에 사용되는 Spark 테스트 프레임워크를 구현합니다. `RemoteClusterDebugging` 클래스에 다음 코드를 추가합니다.
 
         import org.apache.spark.{SparkConf, SparkContext}
         import org.scalatest.FunSuite
@@ -232,11 +232,11 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
     ![원격 실행 드롭다운 목록](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/config-run.png)
 
-## <a name="step-5-run-the-application-in-debug-mode"></a>5단계: 디버그 모드에서 응용 프로그램 실행
+## <a name="step-5-run-the-application-in-debug-mode"></a>5단계: 디버그 모드에서 애플리케이션 실행
 1. IntelliJ IDEA 프로젝트에서 `SparkSample.scala`를 열고 `val rdd1` 옆에 중단점을 만듭니다. **중단점 만들기** 팝업 메뉴에서 **함수 executeJob의 줄**을 선택합니다.
 
     ![중단점 추가](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-breakpoint.png)
-1. 응용 프로그램을 실행하려면 **원격 실행** 구성 드롭다운 목록 옆에 있는 **디버그 실행** 단추를 선택합니다.
+1. 애플리케이션을 실행하려면 **원격 실행** 구성 드롭다운 목록 옆에 있는 **디버그 실행** 단추를 선택합니다.
 
     ![디버그 실행 단추 선택](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-run-mode.png)
 1. 프로그램 실행이 중단점에 도달하면 아래 창에 **디버거** 탭이 표시됩니다.
@@ -246,15 +246,15 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
     ![+ 아이콘 선택](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable.png)
 
-    이 예제에서는 변수 `rdd1`이 만들어지기 전에 응용 프로그램이 중단되었습니다. 이 조사식을 사용하여 변수 `rdd`의 처음 5개 행을 볼 수 있습니다. **Enter** 키를 선택합니다.
+    이 예제에서는 변수 `rdd1`이 만들어지기 전에 애플리케이션이 중단되었습니다. 이 조사식을 사용하여 변수 `rdd`의 처음 5개 행을 볼 수 있습니다. **Enter** 키를 선택합니다.
 
     ![디버그 모드에서 프로그램 실행](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable-value.png)
 
-    이전 이미지에서 보는 것은 런타임 시이며 테라바이트의 데이터를 쿼리하고 응용 프로그램이 진행되는 방법을 디버그할 수 있습니다. 예를 들어 이전 이미지에 표시된 출력에서 출력의 첫 번째 행이 헤더임을 볼 수 있습니다. 이 출력을 기반으로 필요한 경우 응용 프로그램 코드를 헤더 행을 건너뛰도록 수정할 수 있습니다.
-1. 이제 **프로그램 다시 시작** 아이콘을 선택하여 응용 프로그램 실행을 진행할 수 있습니다.
+    이전 이미지에서 보는 것은 런타임 시이며 테라바이트의 데이터를 쿼리하고 애플리케이션이 진행되는 방법을 디버그할 수 있습니다. 예를 들어 이전 이미지에 표시된 출력에서 출력의 첫 번째 행이 헤더임을 볼 수 있습니다. 이 출력을 기반으로 필요한 경우 애플리케이션 코드를 헤더 행을 건너뛰도록 수정할 수 있습니다.
+1. 이제 **프로그램 다시 시작** 아이콘을 선택하여 애플리케이션 실행을 진행할 수 있습니다.
 
     ![프로그램 다시 시작 선택](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-continue-run.png)
-1. 응용 프로그램이 성공적으로 완료되면 다음과 유사한 출력이 표시됩니다.
+1. 애플리케이션이 성공적으로 완료되면 다음과 유사한 출력이 표시됩니다.
 
     ![콘솔 출력](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete.png)
 
@@ -271,7 +271,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 * [Machine Learning과 Apache Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-### <a name="create-and-run-applications"></a>응용 프로그램 만들기 및 실행
+### <a name="create-and-run-applications"></a>애플리케이션 만들기 및 실행
 * [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](../hdinsight-apache-spark-create-standalone-application.md)
 * [Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
 

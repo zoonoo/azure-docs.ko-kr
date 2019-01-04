@@ -38,30 +38,30 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
  아니요. Seamless SSO는 Azure AD의 전 세계 인스턴스에서만 사용할 수 있습니다.
 
-## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Seamless SSO의 `domain_hint` 또는 `login_hint` 매개 변수 기능을 활용하는 응용 프로그램은 무엇인가요?
+## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Seamless SSO의 `domain_hint` 또는 `login_hint` 매개 변수 기능을 활용하는 애플리케이션은 무엇인가요?
 
-다음은 이러한 매개 변수를 Azure AD에 전송할 수 있는 응용 프로그램의 부분 목록으로, Seamless SSO를 사용하여 자동 로그온 환경을 제공합니다(예: 사용자가 사용자 이름 또는 암호를 입력할 필요가 없음).
+다음은 이러한 매개 변수를 Azure AD에 전송할 수 있는 애플리케이션의 부분 목록으로, Seamless SSO를 사용하여 자동 로그온 환경을 제공합니다(예: 사용자가 사용자 이름 또는 암호를 입력할 필요가 없음).
 
-| 응용 프로그램 이름 | 사용할 응용 프로그램 URL |
+| 애플리케이션 이름 | 사용할 응용 프로그램 URL |
 | -- | -- |
 | 액세스 패널 | https://myapps.microsoft.com/contoso.com |
 | 웹용 Outlook | https://outlook.office365.com/contoso.com |
 | Office 365 포털 | https://portal.office.com?domain_hint=contoso.com, https://www.office.com?domain_hint=contoso.com |
 
-또한 응용 프로그램이 Azure AD의 공통 엔드포인트(즉, https://login.microsoftonline.com/common/<...>) 대신 Azure AD의 테넌트 엔드포인트(즉, https://login.microsoftonline.com/contoso.com/<..> 또는 https://login.microsoftonline.com/<tenant_ID>/<..>)로 로그인 요청을 전송할 경우 사용자는 자동 로그온 환경을 사용합니다. 이러한 형식의 로그인을 요청하는 응용 프로그램의 부분 목록이 아래에 나열됩니다.
+또한 애플리케이션이 Azure AD의 공통 엔드포인트(즉, https://login.microsoftonline.com/common/<...>) 대신 Azure AD의 테넌트 엔드포인트(즉, https://login.microsoftonline.com/contoso.com/<..> 또는 https://login.microsoftonline.com/<tenant_ID>/<..>)로 로그인 요청을 전송할 경우 사용자는 자동 로그온 환경을 사용합니다. 이러한 형식의 로그인을 요청하는 애플리케이션의 부분 목록이 아래에 나열됩니다.
 
-| 응용 프로그램 이름 | 사용할 응용 프로그램 URL |
+| 애플리케이션 이름 | 사용할 응용 프로그램 URL |
 | -- | -- |
 | SharePoint Online | https://contoso.sharepoint.com |
 | Azure portal | https://portal.azure.com/contoso.com |
 
-위 표에 나오는 "contoso.com"을 도메인 이름으로 바꾸어 테넌트에 적절한 응용 프로그램 URL로 이동합니다.
+위 표에 나오는 "contoso.com"을 도메인 이름으로 바꾸어 테넌트에 적절한 애플리케이션 URL로 이동합니다.
 
-다른 응용 프로그램에서 자동 로그온 환경을 사용하려는 경우 사용자 의견 섹션에서 알려주십시오.
+다른 애플리케이션에서 자동 로그온 환경을 사용하려는 경우 사용자 의견 섹션에서 알려주십시오.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Seamless SSO에서는 사용자 이름으로 `userPrincipalName` 대신 `Alternate ID`를 지원하는가요?
 
-예. Seamless SSO는 [여기서](how-to-connect-install-custom.md) 보여주듯이 Azure AD Connect에서 구성할 때 `Alternate ID`를 사용자 이름으로 지원합니다. 모든 Office 365 응용 프로그램에서 `Alternate ID`를 지원하지는 않습니다. 지원 내용은 특정 응용 프로그램의 설명서를 참조하세요.
+예. Seamless SSO는 [여기서](how-to-connect-install-custom.md) 보여주듯이 Azure AD Connect에서 구성할 때 `Alternate ID`를 사용자 이름으로 지원합니다. 모든 Office 365 애플리케이션에서 `Alternate ID`를 지원하지는 않습니다. 지원 내용은 특정 애플리케이션의 설명서를 참조하세요.
 
 ## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>[Azure AD 조인](../active-directory-azureadjoin-overview.md) 및 Seamless SSO에서 제공하는 Single Sign-On 환경 간에 차이점은 무엇인가요?
 

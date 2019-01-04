@@ -1,6 +1,6 @@
 ---
-title: 인덱스 만들기(.NET API - Azure Search) | Microsoft Docs
-description: Azure Search .NET SDK를 사용하여 코드에 인덱스를 만듭니다.
+title: .NET API를 사용하여 코드에서 인덱스 만들기 - Azure Search
+description: Azure Search .NET SDK 및 C# 샘플 코드를 사용하여 전체 텍스트 검색 가능 인덱스를 만드는 방법을 알아봅니다.
 author: brjohnstmsft
 manager: jlembicz
 tags: azure-portal
@@ -10,12 +10,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.openlocfilehash: a1c9340acdc2521b9b74f47b0e17d0e4d37aea77
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 6d111b1be310a345e23c440f1af9da4183efff43
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236570"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312598"
 ---
 # <a name="create-an-azure-search-index-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -35,7 +36,7 @@ ms.locfileid: "51236570"
 
 
 ## <a name="identify-your-azure-search-services-admin-api-key"></a>Azure Search 서비스의 관리 API 키 식별
-Azure Search 서비스를 프로비전했다면 .NET SDK를 사용하여 서비스 엔드포인트에 대한 요청을 실행할 준비가 거의 된 것입니다. 먼저 프로비전한 검색 서비스에 대해 생성된 관리 API 키 중 하나가 있어야 합니다. .NET SDK는 서비스에 대한 모든 요청에 대해 이 API 키를 전송합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
+Azure Search 서비스를 프로비전했다면 .NET SDK를 사용하여 서비스 엔드포인트에 대한 요청을 실행할 준비가 거의 된 것입니다. 먼저 프로비전한 검색 서비스에 대해 생성된 관리 API 키 중 하나가 있어야 합니다. .NET SDK는 서비스에 대한 모든 요청에 대해 이 API 키를 전송합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
 1. 서비스의 API 키를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure Search 서비스의 블레이드로 이동합니다.
@@ -53,7 +54,7 @@ Azure Search 서비스를 프로비전했다면 .NET SDK를 사용하여 서비�
 ## <a name="create-an-instance-of-the-searchserviceclient-class"></a>SearchServiceClient 클래스의 인스턴스 만들기
 Azure Search .NET SDK 사용을 시작하려면 `SearchServiceClient` 클래스의 인스턴스를 만들어야 합니다. 이 클래스에는 몇 가지 생성자가 있습니다. 검색 서비스 이름과 `SearchCredentials` 개체를 매개 변수로 사용할 생성자입니다. `SearchCredentials` 는 API 키를 래핑합니다.
 
-아래 코드에서는 응용 프로그램의 구성 파일([샘플 응용 프로그램](https://aka.ms/search-dotnet-howto)의 경우 `appsettings.json`)에 저장된 API 키와 검색 서비스 이름의 값을 사용하여 새 `SearchServiceClient`를 만듭니다.
+아래 코드에서는 애플리케이션의 구성 파일([샘플 애플리케이션](https://aka.ms/search-dotnet-howto)의 경우 `appsettings.json`)에 저장된 API 키와 검색 서비스 이름의 값을 사용하여 새 `SearchServiceClient`를 만듭니다.
 
 ```csharp
 private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
@@ -69,7 +70,7 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 `SearchServiceClient`에는 `Indexes` 속성이 있습니다. 이 속성은 Azure Search 인덱스를 생성, 나열, 업데이트 또는 삭제하는 데 필요한 모든 메서드를 제공합니다.
 
 > [!NOTE]
-> `SearchServiceClient` 클래스는 검색 서비스에 대한 연결을 관리합니다. 너무 많은 연결이 열리는 것을 방지하기 위해 되도록 응용 프로그램에서 단일 `SearchServiceClient` 인스턴스를 공유합니다. 해당 메서드는 스레드로부터 안전하므로 이러한 공유를 사용할 수 있습니다.
+> `SearchServiceClient` 클래스는 검색 서비스에 대한 연결을 관리합니다. 너무 많은 연결이 열리는 것을 방지하기 위해 되도록 애플리케이션에서 단일 `SearchServiceClient` 인스턴스를 공유합니다. 해당 메서드는 스레드로부터 안전하므로 이러한 공유를 사용할 수 있습니다.
 > 
 > 
 
@@ -144,7 +145,7 @@ public partial class Hotel
 }
 ```
 
-응용 프로그램에서 사용되는 방법에 따라 각 속성에 대한 특성을 신중하게 선택했습니다. 예를 들어 호텔을 검색 중인 사용자에게는 `description` 필드에서의 키워드 일치 항목이 유용할 수 있으므로 `IsSearchable` 특성을 `Description` 속성에 추가하여 해당 필드에 대한 전체 텍스트 검색을 사용하도록 설정합니다.
+애플리케이션에서 사용되는 방법에 따라 각 속성에 대한 특성을 신중하게 선택했습니다. 예를 들어 호텔을 검색 중인 사용자에게는 `description` 필드에서의 키워드 일치 항목이 유용할 수 있으므로 `IsSearchable` 특성을 `Description` 속성에 추가하여 해당 필드에 대한 전체 텍스트 검색을 사용하도록 설정합니다.
 
 `Key` 특성을 추가하여 형식 `string`의 인덱스에 정확히 하나의 필드가 *키* 필드로 지정되어야 합니다(위 예제의 `HotelId` 참조).
 

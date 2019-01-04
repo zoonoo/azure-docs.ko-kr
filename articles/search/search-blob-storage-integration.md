@@ -1,6 +1,6 @@
 ---
-title: Blob Storage에 Azure Search 추가 | Microsoft Docs
-description: Azure Search HTTP REST API를 사용하여 코드에 인덱스를 만듭니다.
+title: Azure Blob Storage에 전체 텍스트 검색 추가 - Azure Search
+description: HTTP REST API를 사용한 코드로 Azure Search 인덱싱용 Azure Blob Storage의 텍스트 콘텐츠를 검색합니다.
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -8,12 +8,13 @@ ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
 ms.author: magottei
-ms.openlocfilehash: 4f8099bbd5af250e58441eb0e202d4674f0671fe
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: 7bd7bcf66f0d91a87519a5d5bff7df7c73e2603f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403228"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310881"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Azure Search로 Blob Storage 검색
 

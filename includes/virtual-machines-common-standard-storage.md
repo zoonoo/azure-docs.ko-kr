@@ -17,7 +17,7 @@ ms.locfileid: "51264181"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>비용 효율적인 Standard Storage와 관리되지 않는 Azure VM 디스크 및 관리 Azure VM 디스크
 
-Azure Standard Storage는 대기 시간에 영향을 받지 않는 워크로드를 실행하는 VM에 대해 안정적인 저비용 디스크 지원을 제공합니다. 또한 Blob, 테이블, 큐 및 파일을 지원합니다. Standard Storage를 사용하면 데이터가 HDD(하드 디스크 드라이브)에 저장됩니다. VM 작업 시 개발/테스트 시나리오 및 덜 중요한 워크로드에는 표준 SSD 및 HDD 디스크를 사용하고 중요 업무용 프로덕션 응용 프로그램에는 프리미엄 SSD 디스크를 사용할 수 있습니다. Standard Storage는 모든 Azure 지역에서 사용할 수 있습니다. 
+Azure Standard Storage는 대기 시간에 영향을 받지 않는 워크로드를 실행하는 VM에 대해 안정적인 저비용 디스크 지원을 제공합니다. 또한 Blob, 테이블, 큐 및 파일을 지원합니다. Standard Storage를 사용하면 데이터가 HDD(하드 디스크 드라이브)에 저장됩니다. VM 작업 시 개발/테스트 시나리오 및 덜 중요한 워크로드에는 표준 SSD 및 HDD 디스크를 사용하고 중요 업무용 프로덕션 애플리케이션에는 프리미엄 SSD 디스크를 사용할 수 있습니다. Standard Storage는 모든 Azure 지역에서 사용할 수 있습니다. 
 
 이 문서는 표준 SSD 및 HDD 디스크 사용에 중점을 두고 있습니다. Blob, 테이블, 큐 및 파일이 포함된 저장소 사용에 대한 자세한 내용은 [저장소 소개](../articles/storage/common/storage-introduction.md)를 참조하세요.
 
@@ -71,7 +71,7 @@ Standard Storage의 기능 중 일부를 살펴보겠습니다. 자세한 내용
 
 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../articles/storage/common/storage-scalability-targets.md)를 참조하세요.
 
-응용 프로그램의 요구가 단일 저장소 계정의 확장성 목표를 초과하는 경우, 응용 프로그램에서 여러 저장소 계정을 사용하도록 빌드하고 이러한 저장소 계정에 데이터를 분할합니다. 아니면 Azure Managed Disks를 사용하여 Azure가 데이터의 분할 및 배치를 알아서 관리하도록 할 수 있습니다.
+애플리케이션의 요구가 단일 저장소 계정의 확장성 목표를 초과하는 경우, 애플리케이션에서 여러 저장소 계정을 사용하도록 빌드하고 이러한 저장소 계정에 데이터를 분할합니다. 아니면 Azure Managed Disks를 사용하여 Azure가 데이터의 분할 및 배치를 알아서 관리하도록 할 수 있습니다.
 
 ### <a name="standard-disks-limits"></a>표준 디스크 한도
 

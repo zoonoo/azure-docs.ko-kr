@@ -72,7 +72,7 @@ ms.locfileid: "47039958"
 
 1. **종량제 갤러리 이미지 중 하나에서 만들어진 경우 사용자 고유의 SQL Server 라이선스를 사용하도록 VM을 변경할 수 있나요?**
 
-   아니요. 초 단위로 요금이 부과되는 라이선스에서 사용자 라이선스 사용으로 전환할 수 없습니다. 새로운 Linux VM을 만들고, SQL Server를 설치하고, 데이터를 마이그레이션해야 합니다. 사용자 고유 라이선스를 가져오기에 대한 자세한 내용은 이전 질문을 참조하세요.
+    아니요. 초 단위로 요금이 부과되는 라이선스에서 사용자 라이선스 사용으로 전환할 수 없습니다. 새로운 Linux VM을 만들고, SQL Server를 설치하고, 데이터를 마이그레이션해야 합니다. 사용자 고유 라이선스를 가져오기에 대한 자세한 내용은 이전 질문을 참조하세요.
 
 ## <a name="administration"></a>관리
 
@@ -82,7 +82,7 @@ ms.locfileid: "47039958"
 
 1. **SQL VM에서 SQL Server를 완전히 제거할 수 있나요?**
 
-   예, 그러나 [SQL Server Azure VM에 대한 가격 책정 지침](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json)에 설명된 대로 SQL VM에 대한 비용 청구가 계속됩니다. SQL Server가 더 이상 필요하지 않는 경우 새 가상 컴퓨터를 배포하고 데이터와 응용 프로그램을 새 가상 컴퓨터에 마이그레이션할 수 있습니다. 그런 다음 SQL Server 가상 머신을 제거할 수 있습니다.
+   예, 그러나 [SQL Server Azure VM에 대한 가격 책정 지침](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json)에 설명된 대로 SQL VM에 대한 비용 청구가 계속됩니다. SQL Server가 더 이상 필요하지 않는 경우 새 가상 컴퓨터를 배포하고 데이터와 애플리케이션을 새 가상 컴퓨터에 마이그레이션할 수 있습니다. 그런 다음 SQL Server 가상 머신을 제거할 수 있습니다.
 
 ## <a name="updating-and-patching"></a>업데이트 및 패치
 

@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7af8015e424b4a9169a9b80ed5e7070a8fa6de1c
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4322841f126e4aa017b4d901cbfb1afd39e5bccf
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638458"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342575"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>지속성 함수의 모니터 시나리오 - 날씨 관찰 앱 샘플
 
@@ -32,7 +32,7 @@ ms.locfileid: "52638458"
 * 모니터는 조건이 충족되면 종료되거나 다른 프로세스에 의해 종료될 수 있습니다.
 * 모니터에 매개 변수를 사용할 수 있습니다. 이 샘플에서는 요청 받은 위치와 전화 번호에 동일한 기상 모니터링 프로세스를 적용하는 방법을 보여줍니다.
 * 모니터는 확장성이 있습니다. 각 모니터는 오케스트레이션 인스턴스이기 때문에 새 함수를 만들거나 코드를 더 정의하지 않고도 다수의 모니터를 만들 수 있습니다.
-* 모니터는 보다 큰 워크플로에 쉽게 통합됩니다. 모니터는 더 복잡한 오케스트레이션 함수 또는 [ 하위 오케스트레이션](https://docs.microsoft.com/azure/azure-functions/durable-functions-sub-orchestrations)의 한 섹션이 될 수 있습니다.
+* 모니터는 보다 큰 워크플로에 쉽게 통합됩니다. 모니터는 더 복잡한 오케스트레이션 함수 또는 [ 하위 오케스트레이션](durable-functions-sub-orchestrations.md)의 한 섹션이 될 수 있습니다.
 
 ## <a name="configuring-twilio-integration"></a>Twilio 통합 구성
 
@@ -59,7 +59,7 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 * `E3_SendGoodWeatherAlert`: Twilio를 통해 SMS 메시지를 보내는 작업 함수입니다.
 
 다음 섹션에서는 C# 스크립팅 및 JavaScript에 사용되는 구성 및 코드에 대해 설명합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
- 
+
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>날씨 모니터링 오케스트레이션(Visual Studio Code 및 Azure Portal 샘플 코드)
 
 **E3_Monitor** 함수는 오케스트레이터 함수에 표준 *function.json*을 사용합니다.
@@ -72,7 +72,7 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
@@ -83,7 +83,7 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 3. **E3_GetIsClear**를 호출하여 요청 받은 위치에 하늘이 맑은지 확인합니다.
 4. 날씨가 맑으면 **E3_SendGoodWeatherAlert**를 호출하여 요청 받은 전화 번호로 SMS 알림을 보냅니다.
 5. 다음 폴링 간격에서 오케스트레이션을 다시 시작하도록 지속성 타이머를 만듭니다. 간결함을 위해 이 샘플에서는 하드 코드된 값을 사용합니다.
-6. [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime)이 모니터의 만료 시간을 지나거나 SMS 알림이 전송될 때까지 계속 실행합니다.
+6. [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime)(C#) 또는 `currentUtcDateTime`(JavaScript)이 모니터의 만료 시간을 지나거나 SMS 알림이 전송될 때까지 계속 실행합니다.
 
 **MonitorRequests**를 여러 개 보내면 오케스트레이터 인스턴스를 동시에 여러 개 실행할 수 있습니다. 모니터링할 위치와 SMS 알림을 보낼 전화 번호를 지정할 수 있습니다.
 
@@ -107,7 +107,7 @@ JavaScript 샘플은 매개 변수로 기본 JSON 개체를 사용합니다.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
@@ -121,7 +121,7 @@ SMS 메시지를 보내는 코드는 다음과 같습니다.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 
@@ -134,8 +134,9 @@ POST https://{host}/orchestrators/E3_Monitor
 Content-Length: 77
 Content-Type: application/json
 
-{ "Location": { "City": "Redmond", "State": "WA" }, "Phone": "+1425XXXXXXX" }
+{ "location": { "city": "Redmond", "state": "WA" }, "phone": "+1425XXXXXXX" }
 ```
+
 ```
 HTTP/1.1 202 Accepted
 Content-Type: application/json; charset=utf-8
@@ -144,9 +145,6 @@ RetryAfter: 10
 
 {"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
 ```
-
-   > [!NOTE]
-   > 현재 JavaScript 오케스트레이션 시작 함수는 인스턴스 관리 URI를 반환할 수 없습니다. 이 기능은 이후 릴리스에서 추가될 예정입니다.
 
 **E3_Monitor** 인스턴스가 시작되어 요청 받은 위치의 현재 기상 조건을 쿼리합니다. 날씨가 맑으면 알림을 보낼 작업 함수를 호출하고 그렇지 않으면 타이머를 설정합니다. 타이머가 만료되면 오케스트레이션이 다시 시작됩니다.
 
@@ -168,7 +166,7 @@ Azure Functions 포털의 함수 로그를 검토하여 오케스트레이션의
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-오케스트레이션은 시간 제한에 도달하거나 맑은 하늘이 감지되면 [종료](durable-functions-instance-management.md#terminating-instances)됩니다. 또 다른 함수 내의 `TerminateAsync`를 사용하거나 위의 202 응답에서 참조된 **terminatePostUri** HTTP POST 웹후크를 호출하여 `{text}`를 종료 이유로 대체할 수도 있습니다.
+오케스트레이션은 시간 제한에 도달하거나 맑은 하늘이 감지되면 [종료](durable-functions-instance-management.md#terminating-instances)됩니다. 또 다른 함수 내의 `TerminateAsync`(.NET) 또는 `terminate`(JavaScript)를 사용하거나 위의 202 응답에서 참조된 **terminatePostUri** HTTP POST 웹후크를 호출하여 `{text}`를 종료 이유로 대체할 수도 있습니다.
 
 ```
 POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

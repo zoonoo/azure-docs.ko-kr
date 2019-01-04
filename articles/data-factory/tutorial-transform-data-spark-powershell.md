@@ -135,7 +135,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 - **hostSubscriptionId** - &lt;subscriptionID&gt;를 Azure 구독의 ID로 바꿉니다. 이 구독에 주문형 HDInsight 클러스터가 만들어집니다. 
 - **tenant** - &lt;tenantID&gt;를 Azure 테넌트의 ID로 바꿉니다. 
-- **servicePrincipalId**, **servicePrincipalKey** - &lt;servicePrincipalID&gt; 및 &lt;servicePrincipalKey&gt;를 Azure Active Directory에 있는 서비스 주체의 ID와 키로 바꿉니다. 이 서비스 주체는 클러스터를 만든 구독 또는 리소스 그룹의 참가자 역할의 구성원이어야 합니다. 자세한 내용은 [Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. 
+- **servicePrincipalId**, **servicePrincipalKey** - &lt;servicePrincipalID&gt; 및 &lt;servicePrincipalKey&gt;를 Azure Active Directory에 있는 서비스 주체의 ID와 키로 바꿉니다. 이 서비스 주체는 클러스터를 만든 구독 또는 리소스 그룹의 참가자 역할의 구성원이어야 합니다. 자세한 내용은 [Azure Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. 
 - **clusterResourceGroup** - &lt;resourceGroupOfHDICluster&gt;를 HDInsight 클러스터를 만들어야 하는 리소스 그룹의 이름으로 바꿉니다. 
 
 > [!NOTE]

@@ -1,6 +1,6 @@
 ---
-title: Azure 배포 관리자 개요 | Microsoft Docs
-description: Azure 배포 관리자를 사용하여 여러 지역에 서비스를 배포하는 방법을 설명합니다.
+title: 지역 간 안전한 배포 사례 - Azure 배포 관리자
+description: Azure 배포 관리자를 사용하여 여러 지역에 서비스를 배포하는 방법을 설명합니다. 모든 지역에 롤아웃하기 전에 배포의 안정성을 확인하는 안전한 배포 사례를 보여 줍니다.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: eea981800147f24025e01826f7550a95041c107f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.custom: seodec18
+ms.openlocfilehash: a615ab26e4ea046ced70ce2c154a0c304b741986
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427304"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138350"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Azure 배포 관리자(개인용 미리 보기)로 안전한 배포 사례 사용
 
@@ -339,4 +340,4 @@ Azure 리소스를 배포하려면 템플릿용 매개 변수 파일에서 `$con
 이 문서에서는 배포 관리자에 대해 알아보았습니다. 다음 문서에서 계속해서 배포 관리자를 통한 배포 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
-> [자습서: Azure 배포 관리자에서 Resource Manager 템플릿 사용](./deployment-manager-tutorial.md)
+> [자습서: Resource Manager 템플릿에서 Azure 배포 관리자 사용](./deployment-manager-tutorial.md)

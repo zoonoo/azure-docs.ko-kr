@@ -28,7 +28,7 @@ ms.locfileid: "45580048"
 
 단일 인스턴스 통합(all-in-one) 데모 시스템에 VM 백업 기능을 사용하는 경우 OS 수준에서 HANA 백업을 관리하는 대신 VM 백업을 수행하는 것이 좋습니다. 다른 방법으로는 Azure Blob 스냅숏을 만들어 가상 머신에 연결된 개별 가상 디스크의 복사본을 만들고 HANA 데이터 파일을 유지하는 것입니다. 그러나 중요한 점은 시스템 가동 중에 VM 백업 또는 디스크 스냅숏을 만들 때 앱 일관성을 유지하는 것입니다. [Azure Virtual Machines의 SAP HANA Backup 가이드](sap-hana-backup-guide.md) 관련 문서의 _저장소 스냅숏을 만들 때의 SAP HANA 데이터 일관성_을 참조하세요. SAP HANA에는 이러한 종류의 저장소 스냅숏을 지원하는 기능이 있습니다.
 
-## <a name="sap-hana-snapshots-as-central-part-of-application-consistent-backups"></a>응용 프로그램 일치 백업의 중심 부분인 SAP HANA 스냅숏
+## <a name="sap-hana-snapshots-as-central-part-of-application-consistent-backups"></a>애플리케이션 일치 백업의 중심 부분인 SAP HANA 스냅숏
 
 SAP HANA에는 저장소 스냅숏 만들기를 지원하는 기능이 있습니다. 단일 컨테이너 시스템에는 제한이 있습니다. 둘 이상의 테넌트가 포함된 SAP HANA MCS를 다루는 시나리오에서는 이러한 종류의 SAP HANA 데이터베이스 스냅숏을 지원하지 않습니다([Create a Storage Snapshot (SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm)(저장소 스냅숏 만들기(SAP HANA Studio)) 참조).
 
@@ -96,8 +96,8 @@ Azure Backup에는 다음 네 가지 주요 단계가 있습니다.
 이 시점에 Microsoft는 SAP HANA용으로 준비 스크립트 및 사후 스냅숏 스크립트를 게시하지 않았습니다. 고객 또는 시스템 통합자가 해당 스크립트를 만들고 위에 참조된 문서를 기반으로 절차를 구성해야 합니다.
 
 
-## <a name="restore-from-application-consistent-backup-against-a-vm"></a>VM에 대한 응용 프로그램 일치 백업에서 복원
-Azure Backup에서 사용된 응용 프로그램 일치 백업의 복원 프로세스는 [Azure Virtual Machine 백업에서 파일 복구](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm) 문서에 설명되어 있습니다. 
+## <a name="restore-from-application-consistent-backup-against-a-vm"></a>VM에 대한 애플리케이션 일치 백업에서 복원
+Azure Backup에서 사용된 애플리케이션 일치 백업의 복원 프로세스는 [Azure Virtual Machine 백업에서 파일 복구](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm) 문서에 설명되어 있습니다. 
 
 > [!IMPORTANT]
 > [Azure Virtual Machine 백업에서 파일 복구](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm) 문서에는 디스크 스트라이프 집합을 사용할 때 나열된 예외 및 단계 목록이 있습니다. 스트라이프 디스크는 SAP HANA용 일반 VM 구성일 수 있습니다. 따라서 문서를 읽고 문서에 나열된 경우에 대한 복원 프로세스를 테스트해야 합니다. 

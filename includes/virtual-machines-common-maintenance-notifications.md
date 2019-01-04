@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: b8d759c7b55608be780389991e6bb393f4f3fe9f
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 609389460ab18ba947130e64dbe7b599574816a5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981608"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53215951"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>포털에서 유지 관리를 위해 예약된 VM 보기
 
@@ -49,7 +49,7 @@ Azure Portal을 사용하여 유지 관리하도록 예약된 VM을 찾아볼 �
 
 ## <a name="notification-and-alerts-in-the-portal"></a>포털에서 알림 및 경고
 
-Azure에서는 구독 소유자 및 공동 소유자 그룹에 이메일을 보내 계획된 유지 관리를 위한 일정을 알립니다. Azure 활동 로그 경고를 만들어 이 통신에 받는 사람 및 채널을 더 추가할 수 있습니다. 자세한 내용은 [서비스 알림에 대한 활동 로그 경고 만들기](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)를 참조하세요.
+Azure에서는 구독 소유자 및 공동 소유자 그룹에 이메일을 보내 계획된 유지 관리를 위한 일정을 알립니다. Azure 활동 로그 경고를 만들어 이 통신에 받는 사람 및 채널을 더 추가할 수 있습니다. 자세한 내용은 [서비스 알림에 대한 활동 로그 경고 만들기](../articles/azure-monitor/platform/alerts-activity-log-service-notifications.md)를 참조하세요.
 
 **이벤트 유형**을 **계획된 유지 관리**로, **서비스**를 **Virtual Machine Scale Sets** 및/또는 **Virtual Machines**로 설정했는지 확인합니다.
     

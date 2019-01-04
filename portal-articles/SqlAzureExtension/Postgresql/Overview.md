@@ -17,7 +17,7 @@ ms.locfileid: "47434792"
 ---
 # <a name="azure-database-for-postgresql-documentation"></a>PostgreSQL용 Azure 데이터베이스 설명서
 
-Azure Database for PostgreSQL은 오픈 소스 Postgres 데이터베이스 엔진을 기반으로 한 관계형 데이터베이스 서비스입니다. 예측 가능한 성능, 보안, 고가용성 및 동적인 확장성으로 중요 업무용 워크로드를 처리할 수 있는 완전 관리형 Database as a Service 제품입니다.  사용자가 선택한 오픈 소스 도구 및 플랫폼을 활용한 Azure Database for PostgreSQL로 응용 프로그램을 개발합니다.  빠른 시작, 자습서 및 샘플을 통해 PostgreSQL용 Azure 데이터베이스를 사용하는 방법을 알아보세요.
+Azure Database for PostgreSQL은 오픈 소스 Postgres 데이터베이스 엔진을 기반으로 한 관계형 데이터베이스 서비스입니다. 예측 가능한 성능, 보안, 고가용성 및 동적인 확장성으로 중요 업무용 워크로드를 처리할 수 있는 완전 관리형 Database as a Service 제품입니다.  사용자가 선택한 오픈 소스 도구 및 플랫폼을 활용한 Azure Database for PostgreSQL로 애플리케이션을 개발합니다.  빠른 시작, 자습서 및 샘플을 통해 PostgreSQL용 Azure 데이터베이스를 사용하는 방법을 알아보세요.
 
 ## <a name="5-minute-quickstarts"></a>5분 빠른 시작
 

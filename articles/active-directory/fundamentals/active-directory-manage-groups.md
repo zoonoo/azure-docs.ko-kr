@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 그룹을 사용하여 앱 및 리소스에 대한 액세스 관리에 대해 알아보기 | Microsoft Docs
+title: 그룹을 사용하여 앱 및 리소스 액세스 관리 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory 그룹을 사용하여 조직의 클라우드 기반 앱, 온-프레미스 앱 및 리소스에 대한 액세스를 관리하는 방법에 대해 알아봅니다.
 services: active-directory
 author: eross-msft
@@ -11,14 +11,15 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.openlocfilehash: 69be2cb8b57b34502d5a5688ac163d7451abe48e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 5a706a2a879ae3b4c4adb2690faa77846474ce49
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223975"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087289"
 ---
-# <a name="learn-about-access-management-using-azure-active-directory-groups"></a>Azure Active Directory 그룹을 사용하여 액세스 관리에 대해 알아보기
+# <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Azure Active Directory 그룹을 사용하여 앱 및 리소스 액세스 관리
 Azure AD(Azure Active Directory) 그룹은 조직의 그룹을 사용하여 클라우드 기반 앱, 온-프레미스 앱 및 리소스를 관리하는 데 유용합니다. 사용자 리소스는 디렉터리에서 역할을 통해 개체를 관리하는 권한과 같은 디렉터리에 포함되거나, SaaS(Software as a Service) 앱, Azure 서비스, SharePoint 사이트 및 온-프레미스 리소스와 같은 디렉터리의 외부에 있을 수 있습니다.
 
 >[!NOTE]
@@ -34,7 +35,7 @@ Azure AD는 단일 사용자 또는 전체 Azure AD 그룹에게 액세스 권�
 
 - **직접 할당.** 리소스 소유자는 사용자를 리소스에 직접 할당합니다.
 
-- **그룹 할당.** 리소스 소유자는 Azure AD 그룹을 리소스에 할당하여 자동으로 모든 그룹 구성원에게 리소스에 대한 액세스 권한을 부여합니다. 그룹 구성원 자격은 그룹 소유자 및 리소스 소유자 모두에 의해 관리되고,두 소유자 중 하나가 그룹에서 구성원을 추가하거나 제거할 수 있습니다. 그룹 구성원 자격을 추가하거나 제거하는 방법에 대한 자세한 내용은 [방법: Azure Active Directory 포털을 사용하여 다른 그룹에서 그룹 추가 또는 제거](active-directory-groups-membership-azure-portal.md)를 참조하세요. 
+- **그룹 할당.** 리소스 소유자는 Azure AD 그룹을 리소스에 할당하여 자동으로 모든 그룹 구성원에게 리소스에 대한 액세스 권한을 부여합니다. 그룹 구성원 자격은 그룹 소유자 및 리소스 소유자 모두에 의해 관리되고,두 소유자 중 하나가 그룹에서 구성원을 추가하거나 제거할 수 있습니다. 그룹 멤버 자격 추가 또는 제거에 대한 자세한 내용은 [방법: Azure Active Directory 포털을 사용하여 다른 그룹에서 그룹 추가 또는 제거](active-directory-groups-membership-azure-portal.md)를 참조하세요. 
 
 - **규칙 기반 할당.** 리소스 소유자는 그룹을 만들고 규칙을 사용하여 특정 리소스에 할당되는 사용자를 정의합니다. 규칙은 개별 사용자에게 할당되는 특성을 따릅니다. 리소스 소유자는 규칙을 관리하며, 리소스에 대한 액세스를 허용하는 데 필요한 특성 및 값을 결정합니다. 자세한 내용은 [동적 그룹 만들기 및 상태 확인](../users-groups-roles/groups-create-rule.md)을 참조하세요.
 

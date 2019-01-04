@@ -1,5 +1,5 @@
 ---
-title: 응용 프로그램 또는 사용자 특정 Marathon 서비스
+title: (사용되지 않음) 애플리케이션 또는 사용자 특정 Marathon 서비스
 description: 응용 프로그램 또는 사용자 특정 Marathon 서비스 만들기
 services: container-service
 author: rgardler
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 4ff263fe0ca4f435199127ed64faadee1c2527f9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1ba5ca54c0aa604289eab9c4475297b12580b69a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164543"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996112"
 ---
-# <a name="create-an-application-or-user-specific-marathon-service"></a>응용 프로그램 또는 사용자 특정 Marathon 서비스 만들기
+# <a name="deprecated-create-an-application-or-user-specific-marathon-service"></a>(사용되지 않음) 애플리케이션 또는 사용자 특정 Marathon 서비스 만들기
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Azure 컨테이너 서비스는 Apache Mesos 및 Marathon을 미리 구성하는 마스터 서버 집합을 제공합니다. 클러스터에서 응용 프로그램을 오케스트레이션하는 데 사용할 수 있지만 이러한 목적으로는 마스터 서버를 사용하지 않는 것이 좋습니다. 예를 들어 Marathon 구성을 조정하려면 마스터 서버 자체에 로그인하고 변경해야 합니다. 이 방법에서는 표준과 약간 다르고 독립적으로 처리 및 관리해야 하는 고유 마스터 서버를 권장합니다. 또한 한 팀에 필요한 구성은 다른 팀에게는 최적의 구성이 아닐 수도 있습니다.
 

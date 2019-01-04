@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs를 사용하여 Xamarin.iOS 앱에 알림 푸시 | Microsoft Docs
-description: 이 자습서에서 Azure Notification Hubs를 사용하여 Xamarin iOS 응용 프로그램에 푸시 알림을 보내는 방법을 알아봅니다.
+description: 이 자습서에서 Azure Notification Hubs를 사용하여 Xamarin iOS 애플리케이션에 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 keywords: ios 푸시 알림, 푸시 메시지, 푸시 알림, 푸시 메시지
 documentationcenter: xamarin
@@ -29,7 +29,7 @@ ms.locfileid: "42917706"
 
 ## <a name="overview"></a>개요
 
-이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. [APNs(Apple Push Notification service)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html)를 사용하여 푸시 알림을 받는 빈 Xamarin.iOS 앱을 만듭니다.
+이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 애플리케이션에 푸시 알림을 보내는 방법을 보여 줍니다. [APNs(Apple Push Notification service)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html)를 사용하여 푸시 알림을 받는 빈 Xamarin.iOS 앱을 만듭니다.
 
 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 디바이스로 푸시 알림을 브로드캐스트할 수 있습니다. 완성된 코드는 [NotificationHubs 앱][GitHub] 샘플에서 사용할 수 있습니다.
 
@@ -82,7 +82,7 @@ ms.locfileid: "42917706"
 
 1. Visual Studio에서 새 iOS 프로젝트를 만들고, **단일 뷰 앱** 템플릿을 선택하고, **다음**을 클릭합니다.
 
-     ![Visual Studio - 응용 프로그램 유형 선택][31]
+     ![Visual Studio - 애플리케이션 유형 선택][31]
 
 2. 앱 이름 및 조직 식별자를 입력하고 **다음**, **만들기**를 차례로 누릅니다.
 
@@ -216,7 +216,7 @@ ms.locfileid: "42917706"
     ```
 
     > [!NOTE]
-    > 네트워크 연결이 없는 경우를 처리하도록 **FailedToRegisterForRemoteNotifications()** 를 재정의할 수 있습니다. 이는 사용자가 응용 프로그램을 오프라인 모드(예: 비행기)에서 시작할 수 있고 앱에 특정한 푸시 메시지 시나리오를 처리하려는 경우에 특히 중요합니다.
+    > 네트워크 연결이 없는 경우를 처리하도록 **FailedToRegisterForRemoteNotifications()** 를 재정의할 수 있습니다. 이는 사용자가 애플리케이션을 오프라인 모드(예: 비행기)에서 시작할 수 있고 앱에 특정한 푸시 메시지 시나리오를 처리하려는 경우에 특히 중요합니다.
 
 13. 디바이스에서 앱을 실행합니다.
 

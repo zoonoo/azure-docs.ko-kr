@@ -21,7 +21,7 @@ ms.locfileid: "53106484"
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>개요
-이 문서에서는 Node.js 응용 프로그램의 Azure Table service 또는 Azure Cosmos DB를 사용하는 일반 시나리오를 수행하는 방법을 설명합니다.
+이 문서에서는 Node.js 애플리케이션의 Azure Table service 또는 Azure Cosmos DB를 사용하는 일반 시나리오를 수행하는 방법을 설명합니다.
 
 ## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
 
@@ -35,7 +35,7 @@ ms.locfileid: "53106484"
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
-## <a name="configure-your-application-to-access-azure-storage-or-the-azure-cosmos-db-table-api"></a>Azure Storage 또는 Azure Cosmos DB Table API에 액세스하도록 응용 프로그램 구성
+## <a name="configure-your-application-to-access-azure-storage-or-the-azure-cosmos-db-table-api"></a>Azure Storage 또는 Azure Cosmos DB Table API에 액세스하도록 애플리케이션 구성
 Azure Storage 또는 Azure Cosmos DB를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있는 Node.js용 Azure Storage SDK가 필요합니다.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>NPM(Node Package Manager)을 사용하여 패키지 설치
@@ -202,7 +202,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > 2. 엔터티에서 업데이트 작업을 수행할 때 이전에 검색한 ETag 정보를 새 엔터티에 추가합니다. 예: 
 >
 >       entity2['.metadata'].etag = currentEtag;
-> 3. 업데이트 작업을 수행합니다. ETag 값을 검색한 후에 응용 프로그램의 다른 인스턴스 등에서 엔터티가 수정된 경우에는 요청에 지정된 업데이트 조건이 충족되지 않았다는 내용의 `error`가 반환됩니다.
+> 3. 업데이트 작업을 수행합니다. ETag 값을 검색한 후에 애플리케이션의 다른 인스턴스 등에서 엔터티가 수정된 경우에는 요청에 지정된 업데이트 조건이 충족되지 않았다는 내용의 `error`가 반환됩니다.
 >
 >
 
@@ -369,7 +369,7 @@ dc.table.queryEntities(tableName,
 ## <a name="work-with-shared-access-signatures"></a>공유 액세스 서명 작업
 SAS(공유 액세스 서명)는 저장소 계정 이름이나 키를 제공하지 않으면서 테이블에 세분화된 액세스 권한을 안전하게 제공하는 방법입니다. SAS는 모바일 앱에서 레코드를 쿼리하는 경우와 같이 데이터에 대해 제한된 액세스를 제공하는 경우에 자주 사용합니다.
 
-클라우드 기반 서비스와 같이 신뢰할 수 있는 응용 프로그램에서는 **TableService**의 **generateSharedAccessSignature**를 사용하여 SAS를 생성하고, 이를 모바일 앱과 같은 신뢰할 수 없거나 신뢰가 약한 응용 프로그램에 제공합니다. SAS는 SAS가 유효한 시작 및 종료 날짜와 SAS 소유자에게 부여되는 액세스 수준을 설명하는 정책을 사용하여 생성됩니다.
+클라우드 기반 서비스와 같이 신뢰할 수 있는 애플리케이션에서는 **TableService**의 **generateSharedAccessSignature**를 사용하여 SAS를 생성하고, 이를 모바일 앱과 같은 신뢰할 수 없거나 신뢰가 약한 애플리케이션에 제공합니다. SAS는 SAS가 유효한 시작 및 종료 날짜와 SAS 소유자에게 부여되는 액세스 수준을 설명하는 정책을 사용하여 생성됩니다.
 
 다음 예에서는 SAS 소유자가 테이블을 쿼리('r')할 수 있도록 허용하며 만든 후 100분이 지나면 만료되는 새 공유 액세스 정책을 생성합니다.
 

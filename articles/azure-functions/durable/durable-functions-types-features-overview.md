@@ -8,18 +8,18 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/04/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 265314ebf2568bd586934d371e1e6c1d74e0b9bb
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 359594ab91b903033ecc303eccd270988be19810
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637018"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336530"
 ---
 # <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>지속형 함수의 함수 유형 및 기능에 대한 개요(Azure Functions)
 
-Azure 지속형 함수는 함수 실행의 상태 저장 오케스트레이션을 제공합니다. 지속형 함수는 다양한 Azure Functions로 구성된 솔루션입니다. 이러한 각 함수는 오케스트레이션의 일부로 서로 다른 역할을 수행할 수 있습니다. 다음 문서에서는 지속형 함수 오케스트레이션에 관련된 함수 유형에 대한 개요를 제공합니다. 함수 연결의 몇 가지 일반적인 패턴도 포함되어 있습니다.  지금 바로 시작하려면 [C#](durable-functions-create-first-csharp.md) 또는 [JavaScript](quickstart-js-vscode.md)에서 첫 번째 Durable Functions를 만듭니다.
+Durable Functions는 함수 실행의 상태 저장 오케스트레이션을 제공합니다. 지속형 함수는 다양한 Azure Functions로 구성된 솔루션입니다. 이러한 각 함수는 오케스트레이션의 일부로 서로 다른 역할을 수행할 수 있습니다. 다음 문서에서는 지속형 함수 오케스트레이션에 관련된 함수 유형에 대한 개요를 제공합니다. 함수 연결의 몇 가지 일반적인 패턴도 포함되어 있습니다.  지금 바로 시작하려면 [C#](durable-functions-create-first-csharp.md) 또는 [JavaScript](quickstart-js-vscode.md)에서 첫 번째 지속형 함수를 만듭니다.
 
 ![지속형 함수 유형][1]  
 
@@ -27,9 +27,11 @@ Azure 지속형 함수는 함수 실행의 상태 저장 오케스트레이션�
 
 ### <a name="activity-functions"></a>활동 함수
 
-활동 함수는 지속적인 오케스트레이션의 기본 작업 단위입니다.  활동 함수는 프로세스에서 오케스트레이션되는 함수 및 작업입니다.  예를 들어, 재고 확인, 고객 청구, 배송 생성 등 주문을 처리하는 지속형 함수를 만들 수 있습니다.  이러한 각 작업이 활동 함수입니다.  활동 함수에서 수행할 수 있는 작업 유형에는 제한이 없습니다.  Azure Functions에서 지원하는 모든 언어로 작성할 수 있습니다.  지속형 작업 프레임워크는 호출된 각 활동 함수가 오케스트레이션 중에 한 번 이상 실행되도록 합니다.
+활동 함수는 지속적인 오케스트레이션의 기본 작업 단위입니다.  활동 함수는 프로세스에서 오케스트레이션되는 함수 및 작업입니다.  예를 들어, 재고 확인, 고객 청구, 배송 생성 등 주문을 처리하는 지속형 함수를 만들 수 있습니다.  이러한 각 작업이 활동 함수입니다.  활동 함수에서 수행할 수 있는 작업 유형에는 제한이 없습니다.  [Durable Functions에서 지원하는 모든 언어](durable-functions-overview.md#language-support)로 작성할 수 있습니다. 지속형 작업 프레임워크는 호출된 각 활동 함수가 오케스트레이션 중에 한 번 이상 실행되도록 합니다.
 
-활동 함수는 [작업 트리거](durable-functions-bindings.md#activity-triggers)에 의해 트리거되어야 합니다.  이 함수는 [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html)를 매개 변수로 받습니다. 트리거를 다른 개체에 바인딩하여 함수에 입력을 전달할 수도 있습니다.  활동 함수가 오케스트레이터에게 값을 반환할 수도 있습니다.  활동 함수에서 많은 값을 보내거나 반환하는 경우, [튜플 또는 배열을 활용](durable-functions-bindings.md#passing-multiple-parameters)할 수 있습니다.  활동 함수는 오케스트레이션 인스턴스에서만 트리거할 수 있습니다.  일부 코드가 활동 함수와 다른 함수(예: HTTP 트리거 함수) 간에 공유될 수도 있지만, 각 함수에 트리거는 한 개만 사용할 수 있습니다.
+활동 함수는 [작업 트리거](durable-functions-bindings.md#activity-triggers)에 의해 트리거되어야 합니다.  .NET 함수는 [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html)를 매개 변수로 받습니다. 트리거를 다른 개체에 바인딩하여 함수에 입력을 전달할 수도 있습니다. JavaScript에서 [`context.bindings` 개체](../functions-reference-node.md#bindings)의 `<activity trigger binding name>` 속성을 통해 입력에 액세스할 수 있습니다.
+
+활동 함수가 오케스트레이터에게 값을 반환할 수도 있습니다.  활동 함수에서 많은 값을 보내거나 반환하는 경우, [튜플 또는 배열을 활용](durable-functions-bindings.md#passing-multiple-parameters)할 수 있습니다.  활동 함수는 오케스트레이션 인스턴스에서만 트리거할 수 있습니다.  일부 코드가 활동 함수와 다른 함수(예: HTTP 트리거 함수) 간에 공유될 수도 있지만, 각 함수에 트리거는 한 개만 사용할 수 있습니다.
 
 자세한 정보 및 예제는 [지속형 함수 바인딩 문서](durable-functions-bindings.md#activity-triggers)에서 확인할 수 있습니다.
 
@@ -79,7 +81,9 @@ Azure 지속형 함수는 함수 실행의 상태 저장 오케스트레이션�
 
 지속형 오케스트레이션은 일반적으로 단일 함수 앱의 컨텍스트에서 사용되지만, 다양한 함수 앱에서 오케스트레이션을 조정할 수 있게 해주는 패턴이 있습니다.  HTTP를 통해 앱 간 통신이 발생할 수도 있지만, 각 작업에 대해 지속형 프레임워크를 사용하면 두 앱 간에 지속형 프로세스를 유지 관리할 수 있습니다.
 
-아래에는 C#으로 작성된 함수 앱 간 오케스트레이션의 예가 나와 있습니다.  한 작업이 외부 오케스트레이션을 시작합니다. 그런 다음, 다른 작업이 상태를 검색하고 반환합니다.  오케스트레이터는 계속하기 전에 상태가 완료될 때까지 대기합니다.
+아래에는 C# 및 JavaScript로 작성된 함수 앱 간 오케스트레이션의 예제가 나와 있습니다.  한 작업이 외부 오케스트레이션을 시작합니다. 그런 다음, 다른 작업이 상태를 검색하고 반환합니다.  오케스트레이터는 계속하기 전에 상태가 완료될 때까지 대기합니다.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("OrchestratorA")]
@@ -128,6 +132,64 @@ public static async Task<bool> CheckIsComplete([ActivityTrigger] string statusUr
         return response.StatusCode == HttpStatusCode.OK;
     }
 }
+```
+
+#### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    // Do some work...
+
+    // Call a remote orchestration
+    const statusUrl = yield context.df.callActivity("StartRemoteOrchestration", "OrchestratorB");
+
+    // Wait for the remote orchestration to complete
+    while (true) {
+        const isComplete = yield context.df.callActivity("CheckIsComplete", statusUrl);
+        if (isComplete) {
+            break;
+        }
+
+        const waitTime = moment(context.df.currentUtcDateTime).add(1, "m").toDate();
+        yield context.df.createTimer(waitTime);
+    }
+
+    // B is done. Now go do more work...
+});
+```
+
+```javascript
+const request = require("request-promise-native");
+
+module.exports = async function(context, orchestratorName) {
+    const options = {
+        method: "POST",
+        uri: `https://appB.azurewebsites.net/orchestrations/${orchestratorName}`,
+        body: ""
+    };
+
+    const statusUrl = await request(options);
+    return statusUrl;
+};
+```
+
+```javascript
+const request = require("request-promise-native");
+
+module.exports = async function(context, statusUrl) {
+    const options = {
+        method: "GET",
+        uri: statusUrl,
+        resolveWithFullResponse: true,
+    };
+
+    const response = await request(options);
+    // 200 = Complete, 202 = Running
+    return response.statusCode === 200;
+};
 ```
 
 ## <a name="next-steps"></a>다음 단계

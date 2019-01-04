@@ -1,6 +1,6 @@
 ---
-title: 'Azure Toolkit for IntelliJ: HDInsight 클러스터용 Spark 응용 프로그램 만들기 '
-description: IntelliJ용 Azure 도구 키트를 사용하여 Scala로 작성된 Spark 응용 프로그램을 개발한 후 HDInsight Spark 클러스터로 제출합니다.
+title: 'Azure Toolkit for IntelliJ: HDInsight 클러스터용 Spark 애플리케이션 만들기 '
+description: Azure Toolkit for IntelliJ를 사용하여 Scala로 작성된 Spark 애플리케이션을 개발한 후 HDInsight Spark 클러스터로 제출합니다.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -27,7 +27,7 @@ Azure Toolkit for IntelliJ 플러그 인을 사용하여 [Scala](https://www.sca
 프로젝트를 만들려면 [Azure Toolkit for IntelliJ를 사용하여 Apache Spark 애플리케이션 만들기](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) 비디오를 시청하세요.
 
 > [!IMPORTANT]
-> 이 플러그 인을 사용하면 Linux의 HDInsight Spark 클러스터용 응용 프로그램만 만들고 제출할 수 있습니다.
+> 이 플러그 인을 사용하면 Linux의 HDInsight Spark 클러스터용 애플리케이션만 만들고 제출할 수 있습니다.
 > 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -84,7 +84,7 @@ Apache Ambari 관리 사용자 이름을 사용하여 일반 HDInsight 클러스
       
       ![livy 클러스터 연결 대화 상자](./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png)
    
-3. 입력 정보가 올바르면 Linked 클러스터가 **HDInsight** 노드에 표시됩니다. 이제 응용 프로그램을 연결된 클러스터에 제출할 수 있습니다.
+3. 입력 정보가 올바르면 Linked 클러스터가 **HDInsight** 노드에 표시됩니다. 이제 애플리케이션을 연결된 클러스터에 제출할 수 있습니다.
 
    ![연결된 클러스터](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
 
@@ -92,7 +92,7 @@ Apache Ambari 관리 사용자 이름을 사용하여 일반 HDInsight 클러스
    
    ![연결되지 않은 클러스터](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
-## <a name="create-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터에서 Spark Scala 응용 프로그램 만들기
+## <a name="create-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터에서 Spark Scala 애플리케이션 만들기
 
 1. IntelliJ IDEA를 시작하고 프로젝트를 만듭니다. **새 프로젝트** 대화 상자에서 아래 단계를 수행합니다. 
 
@@ -135,7 +135,7 @@ Apache Ambari 관리 사용자 이름을 사용하여 일반 HDInsight 클러스
 
       ![대화 상자의 아티팩트 정보](./media/apache-spark-intellij-tool-plugin/default-artifact.png)
       
-1. 다음을 수행하여 응용 프로그램 소스 코드를 추가합니다.
+1. 다음을 수행하여 애플리케이션 소스 코드를 추가합니다.
 
    a. 프로젝트 탐색기에서 **src**를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**를 가리킨 다음 **Scala 클래스**를 선택합니다.
       
@@ -165,12 +165,12 @@ Apache Ambari 관리 사용자 이름을 사용하여 일반 HDInsight 클러스
     
         }
 
-## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터에서 Spark Scala 응용 프로그램 실행
-Scala 응용 프로그램을 작성한 후 이를 클러스터에 제출할 수 있습니다.
+## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터에서 Spark Scala 애플리케이션 실행
+Scala 애플리케이션을 작성한 후 이를 클러스터에 제출할 수 있습니다.
 
-1. 프로젝트 탐색기에서 Java 또는 Scala 파일을 찾아 오른쪽 클릭 메뉴에서 **HDInsight에 Spark 응용 프로그램 제출**을 선택합니다.
+1. 프로젝트 탐색기에서 Java 또는 Scala 파일을 찾아 오른쪽 클릭 메뉴에서 **HDInsight에 Spark 애플리케이션 제출**을 선택합니다.
     
-      ![HDInsight에 Spark 응용 프로그램 제출 명령](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
+      ![HDInsight에 Spark 애플리케이션 제출 명령](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
 
 2. 구성 대화 상자 창에서 다음 값을 제공한 후 **SparkJobRun**을 클릭합니다.
 
@@ -201,13 +201,13 @@ Scala 응용 프로그램을 작성한 후 이를 클러스터에 제출할 수 
 
         ![Spark 제출 대화 상자](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-upload-storage-blob.png)
 
-3. **SparkJobRun**을 클릭하여 선택된 클러스터에 프로젝트를 제출합니다. 맨 아래의 **Remote Spark Job in Cluster**(클러스터의 원격 Spark 작업) 탭은 작업 실행 진행 상황을 표시합니다. 빨간색 단추를 클릭하여 응용 프로그램을 중지할 수 있습니다. 작업 출력에 액세스하는 방법을 알아보려면 이 문서의 뒷부분에 나오는 "IntelliJ용 Azure 도구 키트를 사용하여 HDInsight Spark 클러스터 액세스 및 관리" 섹션을 참조하세요.
+3. **SparkJobRun**을 클릭하여 선택된 클러스터에 프로젝트를 제출합니다. 맨 아래의 **Remote Spark Job in Cluster**(클러스터의 원격 Spark 작업) 탭은 작업 실행 진행 상황을 표시합니다. 빨간색 단추를 클릭하여 애플리케이션을 중지할 수 있습니다. 작업 출력에 액세스하는 방법을 알아보려면 이 문서의 뒷부분에 나오는 "IntelliJ용 Azure 도구 키트를 사용하여 HDInsight Spark 클러스터 액세스 및 관리" 섹션을 참조하세요.
       
      ![Spark 제출 창](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
 
 
 ## <a name="debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>HDInsight 클러스터에서 로컬 또는 원격으로 Apache Spark 애플리케이션 디버그 
-Spark 응용 프로그램을 클러스터에 제출하는 또 다른 권장되는 방법이 있습니다. **구성 실행/디버그** IDE에서 매개 변수를 설정하여 이 작업을 수행할 수 있습니다. 자세한 내용은 [Azure Toolkit for IntelliJ를 사용하여 SSH를 통해 HDInsight 클러스터에서 로컬 또는 원격으로 Apache Spark 애플리케이션 디버그](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh)를 참조하세요.
+Spark 애플리케이션을 클러스터에 제출하는 또 다른 권장되는 방법이 있습니다. **구성 실행/디버그** IDE에서 매개 변수를 설정하여 이 작업을 수행할 수 있습니다. 자세한 내용은 [Azure Toolkit for IntelliJ를 사용하여 SSH를 통해 HDInsight 클러스터에서 로컬 또는 원격으로 Apache Spark 애플리케이션 디버그](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh)를 참조하세요.
 
 
 
@@ -219,9 +219,9 @@ IntelliJ용 Azure 도구 키트를 사용하여 다양한 작업을 수행할 �
 
     ![작업 보기 노드](./media/apache-spark-intellij-tool-plugin/job-view-node.png)
 
-1. 오른쪽 창의 **Spark 작업 보기** 탭에는 클러스터에서 실행된 모든 응용 프로그램이 표시됩니다. 자세한 내용을 보려면 원하는 응용 프로그램 이름을 선택합니다.
+1. 오른쪽 창의 **Spark 작업 보기** 탭에는 클러스터에서 실행된 모든 애플리케이션이 표시됩니다. 자세한 내용을 보려면 원하는 애플리케이션 이름을 선택합니다.
 
-    ![응용 프로그램 세부 정보](./media/apache-spark-intellij-tool-plugin/view-job-logs.png)
+    ![애플리케이션 세부 정보](./media/apache-spark-intellij-tool-plugin/view-job-logs.png)
 
 1. 실행 중인 기본 작업 정보를 표시하려면 작업 그래프 위로 마우스를 가져갑니다. 모든 작업이 생성하는 단계 그래프 및 정보를 보려면 작업 그래프에서 노드를 선택합니다.
 
@@ -231,14 +231,14 @@ IntelliJ용 Azure 도구 키트를 사용하여 다양한 작업을 수행할 �
 
     ![로그 세부 정보](./media/apache-spark-intellij-tool-plugin/Job-log-info.png)
 
-1. 창 맨 위에 있는 링크를 클릭하여 Spark 기록 UI 및 YARN UI(응용 프로그램 수준)를 볼 수도 있습니다.
+1. 창 맨 위에 있는 링크를 클릭하여 Spark 기록 UI 및 YARN UI(애플리케이션 수준)를 볼 수도 있습니다.
 
 ### <a name="access-the-spark-history-server"></a>Spark 기록 서버 액세스
 1. Azure 탐색기에서 **HDInsight**를 확장하고, 마우스 오른쪽 단추로 Spark 클러스터 이름을 클릭한 다음 **Spark 기록 UI 열기**를 선택합니다. 
 
 1. 메시지가 나타나면 클러스터를 설정할 때 지정한 클러스터의 관리자 자격 증명을 입력합니다.
 
-1. Spark 기록 서버 대시보드에서 응용 프로그램 이름을 사용하여 방금 실행을 마친 응용 프로그램을 찾을 수 있습니다. 위의 코드에서 `val conf = new SparkConf().setAppName("MyClusterApp")`을 사용하여 응용 프로그램 이름을 설정합니다. 따라서 Spark 응용 프로그램 이름은 **MyClusterApp**입니다.
+1. Spark 기록 서버 대시보드에서 애플리케이션 이름을 사용하여 방금 실행을 마친 애플리케이션을 찾을 수 있습니다. 위의 코드에서 `val conf = new SparkConf().setAppName("MyClusterApp")`을 사용하여 애플리케이션 이름을 설정합니다. 따라서 Spark 애플리케이션 이름은 **MyClusterApp**입니다.
 
 ### <a name="start-the-ambari-portal"></a>Ambari 포털 시작
 1. Azure 탐색기에서 **HDInsight**를 확장하고, 마우스 오른쪽 단추로 Spark 클러스터 이름을 클릭한 다음 **클러스터 관리 포털(Ambari) 열기**를 선택합니다. 
@@ -293,10 +293,10 @@ IntelliJ 2018.2 및 2018.3에서만 지원됩니다.
 
    ![Spark 콘솔로 선택 내용 보내기](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
 
-## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>IntelliJ용 Azure 도구 키트를 사용하도록 기존 IntelliJ IDEA 응용 프로그램 변환
-IntelliJ IDEA에서 만든 기존 Spark Scala 응용 프로그램을 IntelliJ용 Azure 도구 키트와 호환되도록 변환할 수 있습니다. 이렇게 하면 플러그 인을 사용하여 HDInsight Spark 클러스터에 응용 프로그램을 제출할 수 있습니다.
+## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>Azure Toolkit for IntelliJ를 사용하도록 기존 IntelliJ IDEA 애플리케이션 변환
+IntelliJ IDEA에서 만든 기존 Spark Scala 애플리케이션을 Azure Toolkit for IntelliJ와 호환되도록 변환할 수 있습니다. 이렇게 하면 플러그 인을 사용하여 HDInsight Spark 클러스터에 애플리케이션을 제출할 수 있습니다.
 
-1. IntelliJ IDEA를 통해 만들어진 기존 Spark Scala 응용 프로그램의 경우 관련된 .iml 파일을 엽니다.
+1. IntelliJ IDEA를 통해 만들어진 기존 Spark Scala 애플리케이션의 경우 관련된 .iml 파일을 엽니다.
 
 1. 루트 수준에 다음과 같은 **module** 요소가 표시됩니다.
    
@@ -306,7 +306,7 @@ IntelliJ IDEA에서 만든 기존 Spark Scala 응용 프로그램을 IntelliJ용
    
         <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
 
-1. 변경 내용을 저장합니다. 이제 응용 프로그램이 IntelliJ용 Azure 도구 키트와 호환됩니다. 프로젝트 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하여 이 테스트를 수행할 수 있습니다. 이제 팝업 메뉴에 **HDInsight에 Spark 응용 프로그램 제출** 옵션이 표시됩니다.
+1. 변경 내용을 저장합니다. 이제 애플리케이션이 Azure Toolkit for IntelliJ와 호환됩니다. 프로젝트 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하여 이 테스트를 수행할 수 있습니다. 이제 팝업 메뉴에 **HDInsight에 Spark 애플리케이션 제출** 옵션이 표시됩니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -359,7 +359,7 @@ Spark 1.6에서 로컬 실행 동안 32비트 Java SDK를 사용하는 경우 �
 * [Machine Learning과 Apache Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 
-### <a name="creating-and-running-applications"></a>응용 프로그램 만들기 및 실행
+### <a name="creating-and-running-applications"></a>애플리케이션 만들기 및 실행
 * [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](apache-spark-create-standalone-application.md)
 * [Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
 

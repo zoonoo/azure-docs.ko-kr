@@ -33,7 +33,7 @@ MySQL Workbench, mysqldump, Toad 또는 Navicat과 같은 일반 유틸리티 �
 ## <a name="common-uses-for-dump-and-restore"></a>덤프 및 복원을 위한 일반적인 사용
 몇 가지 일반적인 시나리오에서 mysqldump 및 mysqlpump와 같은 MySQL 유틸리티를 사용하여 데이터베이스를 Azure MySQL Database로 덤프 및 로드할 수 있습니다. 다른 시나리오에서 대신 [가져오기 및 내보내기](concepts-migrate-import-export.md) 방법을 사용할 수 있습니다.
 
-- 전체 데이터베이스를 마이그레이션할 때 데이터베이스 덤프를 사용합니다. 이 권장 사항은 많은 양의 MySQL 데이터를 이동하거나 실시간 사이트 또는 응용 프로그램에 대한 서비스 중단을 최소화하려는 경우 유지합니다. 
+- 전체 데이터베이스를 마이그레이션할 때 데이터베이스 덤프를 사용합니다. 이 권장 사항은 많은 양의 MySQL 데이터를 이동하거나 실시간 사이트 또는 애플리케이션에 대한 서비스 중단을 최소화하려는 경우 유지합니다. 
 -  데이터베이스의 모든 테이블이 데이터를 Azure Database for MySQL로 로드할 때 InnoDB 저장소 엔진을 사용하도록 합니다. Azure Database for MySQL은 InnoDB 저장소 엔진만을 지원하므로 대체 저장소 엔진을 지원하지 않습니다. 테이블이 다른 저장소 엔진으로 구성된 경우 Azure Database for MySQL로 마이그레이션 전에 InnoDB 엔진 형식으로 변환합니다.
    예를 들어 MyISAM 테이블을 사용하는 WordPress 또는 WebApp이 있는 경우 Azure Database for MySQL로 복원하기 전에 InnoDB 형식으로 마이그레이션하여 먼저 해당 테이블을 변환합니다. `ENGINE=InnoDB` 절을 사용하여 새 테이블을 만들 때 사용되는 엔진을 설정한 다음 복원 전에 데이터를 호환되는 테이블로 전송합니다. 
 

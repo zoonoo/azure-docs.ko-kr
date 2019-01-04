@@ -9,7 +9,7 @@ documentType: LandingData
 title: Azure Database for MariaDB 설명서
 metadata:
   title: Azure MariaDB 설명서 - 자습서, API 참조 | Microsoft Docs
-  description: Azure Database for MariaDB는 오픈 소스 MariaDB 서버 엔진을 기반으로 하는 관계형 데이터베이스 서비스입니다.  예측 가능한 성능과 동적인 확장성으로 중요 업무용 워크로드를 처리할 수 있는 완전 관리형 Database as a Service 제품입니다. 사용자가 선택한 오픈 소스 도구 및 플랫폼을 활용한 Azure Database for MariaDB로 응용 프로그램을 개발해보세요. 빠른 시작, 자습서 및 샘플을 통해 Azure Database for MariaDB를 사용하는 방법을 알아봅니다.
+  description: Azure Database for MariaDB는 오픈 소스 MariaDB 서버 엔진을 기반으로 하는 관계형 데이터베이스 서비스입니다.  예측 가능한 성능과 동적인 확장성으로 중요 업무용 워크로드를 처리할 수 있는 완전 관리형 Database as a Service 제품입니다. 사용자가 선택한 오픈 소스 도구 및 플랫폼을 활용한 Azure Database for MariaDB로 애플리케이션을 개발해보세요. 빠른 시작, 자습서 및 샘플을 통해 Azure Database for MariaDB를 사용하는 방법을 알아봅니다.
   author: ajlam
   ms.author: andrela
   ms.service: mariadb

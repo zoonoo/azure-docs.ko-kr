@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 12ab224481c519db36ae21dd11916649ff0bfbe3
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 3284202ffaa6767a8dd4a6a5050dbdc928075237
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269037"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846122"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>자습서: ArcGIS Online과 Azure Active Directory 통합
 
@@ -52,7 +52,7 @@ ArcGIS Online과 Azure AD 통합을 구성하려면 다음 항목이 필요합�
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
-이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+ 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 ArcGIS Online 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -67,15 +67,15 @@ ArcGIS Online의 Azure AD 통합을 구성하려면 갤러리의 ArcGIS Online�
 
     ![이미지](./media/arcgis-tutorial/selectazuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![이미지](./media/arcgis-tutorial/a_select_app.png)
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![이미지](./media/arcgis-tutorial/a_new_app.png)
 
-4. 검색 상자에 **ArcGIS Online**을 입력하고 결과 패널에서 **ArcGIS Online**을 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에 **ArcGIS Online**을 입력하고 결과 패널에서 **ArcGIS Online**을 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
      ![이미지](./media/arcgis-tutorial/a_add_app.png)
 
@@ -119,16 +119,16 @@ ArcGIS Online에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 5. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    a. **로그온 URL** 텍스트 상자에 `https://<companyname>.maps.arcgis.com` 패턴으로 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 `https://<companyname>.maps.arcgis.com` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **식별자** 텍스트 상자에 `<companyname>.maps.arcgis.com` 패턴으로 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `<companyname>.maps.arcgis.com` 패턴을 사용하여 URL을 입력합니다.
 
     ![이미지](./media/arcgis-tutorial/b1-domains_and_urls.png)
 
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이 값을 가져오려면 [ArcGIS Online 클라이언트 지원 팀](http://support.esri.com/en/)에 문의하세요.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이 값을 가져오려면 [ArcGIS Online 클라이언트 지원 팀](https://support.esri.com/en/)에 문의하세요.
 
-6. **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 **페더레이션 메타데이터 XML**을 다운로드한 후 컴퓨터에 xml 파일을 저장합니다.
+6. **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 **페더레이션 메타데이터 XML**을 다운로드한 다음, 컴퓨터에 xml 파일을 저장합니다.
 
     ![이미지](./media/arcgis-tutorial/federationxml.png)
 
@@ -136,7 +136,7 @@ ArcGIS Online에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![이미지](./media/arcgis-tutorial/install_extension.png)
 
-8. 브라우저에 확장을 추가한 후 **ArcGIS Online 설정**을 클릭하면 ArcGIS Online 응용 프로그램으로 이동하게 됩니다. 응용 프로그램에서 관리자 자격 증명을 입력하여 ArcGIS Online에 로그인합니다. 브라우저 확장이 응용 프로그램을 자동으로 구성하고 9~13단계를 자동으로 수행합니다.
+8. 브라우저에 확장을 추가한 후 **ArcGIS Online 설정**을 클릭하면 ArcGIS Online 애플리케이션으로 이동하게 됩니다. 응용 프로그램에서 관리자 자격 증명을 입력하여 ArcGIS Online에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 9~13단계를 자동으로 수행합니다.
 
 9. ArcGIS Online을 수동으로 설치하려는 경우 새 웹 브라우저 창을 열고 ArcGIS 회사 사이트에 관리자로 로그인한 후에 다음 단계를 수행합니다.
 
@@ -185,7 +185,7 @@ ArcGIS Online에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음 암호 상자에 표시된 값을 적어 둡니다.
+    다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어 둡니다.
 
     d. **만들기**를 선택합니다.
 
@@ -224,7 +224,7 @@ ArcGIS Online의 경우 프로비전은 수동 작업입니다.
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 ArcGIS Online에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 
     ![이미지](./media/arcgis-tutorial/d_all_applications.png)
 

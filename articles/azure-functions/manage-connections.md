@@ -30,7 +30,7 @@ ms.locfileid: "52999577"
 필요한 것보다 더 많은 연결을 유지하지 않으려면, 각 함수 호출을 사용하여 새 인스턴스를 만드는 대신 클라이언트 인스턴스를 다시 사용합니다. 단일 정적 클라이언트를 사용하는 경우, [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx), [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
 ) 등의 .NET 클라이언트와 Azure Storage 클라이언트에서 연결을 관리할 수 있습니다.
 
-Azure Functions 응용 프로그램에서 서비스 특정 클라이언트를 사용할 때 따라야 할 몇 가지 지침은 다음과 같습니다.
+Azure Functions 애플리케이션에서 서비스 특정 클라이언트를 사용할 때 따라야 할 몇 가지 지침은 다음과 같습니다.
 
 - **금지**: 항상 함수 호출을 사용하여 새 클라이언트를 만듭니다.
 - **허용**: 모든 함수 호출에서 사용할 수 있는 단일 정적 클라이언트를 만듭니다.
@@ -55,7 +55,7 @@ public static async Task Run(string input)
 }
 ```
 
-.NET [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)에 대한 일반적인 질문은 “내 클라이언트를 삭제해야 할까요?”입니다. 일반적으로 `IDisposable`을 구현하는 개체의 사용이 완료되면 해당 개체를 삭제합니다. 하지만 함수가 종료될 때 정적 클라이언트를 사용하지 않을 경우 이 클라이언트는 삭제하지 않습니다. 정적 클라이언트가 응용 프로그램 기간 동안 지속되도록 합니다.
+.NET [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)에 대한 일반적인 질문은 “내 클라이언트를 삭제해야 할까요?”입니다. 일반적으로 `IDisposable`을 구현하는 개체의 사용이 완료되면 해당 개체를 삭제합니다. 하지만 함수가 종료될 때 정적 클라이언트를 사용하지 않을 경우 이 클라이언트는 삭제하지 않습니다. 정적 클라이언트가 애플리케이션 기간 동안 지속되도록 합니다.
 
 ### <a name="http-agent-examples-nodejs"></a>HTTP 에이전트 예제(Node.js)
 
@@ -80,7 +80,7 @@ http.request(options, onResponseCallback);
 ### <a name="documentclient-code-example-c"></a>DocumentClient 코드 예제(C#)
 
 [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
-)는 Azure Cosmos DB 인스턴스에 연결합니다. Azure Cosmos DB 문서에서는 [응용 프로그램 수명 동안 싱글톤 Azure Cosmos DB 클라이언트를 사용](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage)하도록 권장하고 있습니다. 다음 예제에서는 함수에서 이 작업을 수행하는 하나의 패턴을 보여 줍니다.
+)는 Azure Cosmos DB 인스턴스에 연결합니다. Azure Cosmos DB 문서에서는 [애플리케이션 수명 동안 싱글톤 Azure Cosmos DB 클라이언트를 사용](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage)하도록 권장하고 있습니다. 다음 예제에서는 함수에서 이 작업을 수행하는 하나의 패턴을 보여 줍니다.
 
 ```cs
 #r "Microsoft.Azure.Documents.Client"
@@ -114,7 +114,7 @@ public static async Task Run(string input)
 )와 달리, ADO.NET은 기본적으로 연결 풀링을 구현합니다. 그래도 연결이 부족해질 수 있으므로 데이터베이스에 대한 연결을 최적화해야 합니다. 자세한 내용은 [SQL Server 연결 풀링(ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)을 참조하세요.
 
 > [!TIP]
-> [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx) 등의 일부 데이터 프레임워크는 일반적으로 구성 파일의 **ConnectionStrings** 섹션에서 연결 문자열을 가져옵니다. 이 경우, 함수 앱 설정의 **연결 문자열** 컬렉션과 로컬 프로젝트의 [local.settings.json 파일](functions-run-local.md#local-settings-file)에 SQL 데이터베이스 연결 문자열을 명시적으로 추가해야 합니다. 함수 코드에서 [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx)을 만드는 경우, **응용 프로그램 설정**에 다른 연결과 함께 연결 문자열 값을 저장해야 합니다.
+> [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx) 등의 일부 데이터 프레임워크는 일반적으로 구성 파일의 **ConnectionStrings** 섹션에서 연결 문자열을 가져옵니다. 이 경우, 함수 앱 설정의 **연결 문자열** 컬렉션과 로컬 프로젝트의 [local.settings.json 파일](functions-run-local.md#local-settings-file)에 SQL 데이터베이스 연결 문자열을 명시적으로 추가해야 합니다. 함수 코드에서 [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx)을 만드는 경우, **애플리케이션 설정**에 다른 연결과 함께 연결 문자열 값을 저장해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

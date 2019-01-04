@@ -58,7 +58,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory > 엔터프라이즈 앱 > 모든 응용 프로그램** 섹션으로 이동합니다.
 
-1. Single Sign-On에 대한 GoToMeeting을 이미 구성한 경우 검색 필드를 사용하여 GoToMeeting의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **GoToMeeting**을 검색합니다. 검색 결과에서 GoToMeeting을 선택하고 응용 프로그램의 목록에 추가합니다.
+1. Single Sign-On에 대한 GoToMeeting을 이미 구성한 경우 검색 필드를 사용하여 GoToMeeting의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **GoToMeeting**을 검색합니다. 검색 결과에서 GoToMeeting을 선택하고 애플리케이션의 목록에 추가합니다.
 
 1. GoToMeeting의 인스턴스를 선택한 다음, **프로비전** 탭을 선택합니다.
 

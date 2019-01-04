@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning Data Prep SDK를 사용하여 데이터 로드 - Python
+title: '로드: Data Prep Python SDK'
+titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning Data Prep SDK를 사용하여 데이터를 로드하는 방법을 알아봅니다. 다양한 형식의 입력 데이터를 로드하거나, 데이터 파일 형식 및 매개 변수를 지정하거나, SDK 스마트 읽기 기능을 사용하여 파일 형식을 자동으로 검색할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
@@ -9,13 +10,14 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 11/20/2018
-ms.openlocfilehash: 208d6958b56dafbfacc45ecb05a71c14ac024ab4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 9d3b72e62c778d02b25b082643e0de4c6cc09a60
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309876"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190767"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Azure Machine Learning을 사용한 데이터 로드 및 읽기
 
@@ -286,8 +288,8 @@ dataflow.to_pandas_dataframe().head()
 
 ||FMID|MarketName|Website|street|city|국가|
 |----|------|-----|----|----|----|----|
-|0|1012063|Caledonia Farmers Market Association - Danville|https://sites.google.com/site/caledoniafarmers.. ||댄빌|칼레도니아|
+|0|1012063|Caledonia Farmers Market Association - Danville|https://sites.google.com/site/caledoniafarmers... ||댄빌|칼레도니아|
 |1|1011871|Stearns Homestead Farmers' Market|http://Stearnshomestead.com |6975 Ridge Road|파르마|카이어호가|
 |2|1011878|100 Mile Market|http://www.pfcmarkets.com |507 Harrison St|칼라마주|칼라마주|
 |3|1009364|106 S. Main Street Farmers Market|http://thetownofsixmile.wordpress.com/ |106 S. Main Street|식스 마일|||
-|4|1010691|10th Street Community Farmers Market|http://agrimissouri.com/mo-grown/grodetail.php.. |10th Street and Poplar|라마|바턴|
+|4|1010691|10th Street Community Farmers Market|http://agrimissouri.com/mo-grown/grodetail.php... |10th Street and Poplar|라마|바턴|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a56d595ca88541779f5213c6b0ec88fc87913b6a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4ef312ebd6c329028a556778c24c5e0e41706056
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239052"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311000"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 공용 클라우드에서 격리
 ##  <a name="introduction"></a>소개
@@ -41,7 +41,7 @@ Azure의 인프라는 수백만 명의 고객을 동시에 호스팅하기 위�
 
 ### <a name="abstract"></a>요약
 
-Microsoft Azure를 사용하면 공유된 실제 인프라에서 응용 프로그램과 가상 머신(VM)를 실행할 수 있습니다. 클라우드 환경에서 응용 프로그램을 실행하는 데 있어 가장 중요한 경제적 동기 중 하나는 여러 고객에게 공유 리소스에 대한 비용을 분산할 수 있는 능력입니다. 이러한 다중 테넌트 방식은 저렴한 비용으로 서로 다른 고객 간에 리소스를 다중화함으로써 효율성을 향상시킵니다. 아쉽게도 물리적 서버 및 기타 인프라 리소스를 공유하여 임의의 잠재적 악성 사용자에게 속할 수 있는 중요한 응용 프로그램과 VM을 실행할 위험이 있습니다.
+Microsoft Azure를 사용하면 공유된 실제 인프라에서 애플리케이션과 VM(가상 머신)을 실행할 수 있습니다. 클라우드 환경에서 응용 프로그램을 실행하는 데 있어 가장 중요한 경제적 동기 중 하나는 여러 고객에게 공유 리소스에 대한 비용을 분산할 수 있는 능력입니다. 이러한 다중 테넌트 방식은 저렴한 비용으로 서로 다른 고객 간에 리소스를 다중화함으로써 효율성을 향상시킵니다. 아쉽게도 물리적 서버 및 기타 인프라 리소스를 공유하여 임의의 잠재적 악성 사용자에게 속할 수 있는 중요한 응용 프로그램과 VM을 실행할 위험이 있습니다.
 
 이 문서에서는 Microsoft Azure에서 악의적인 사용자와 악의적이지 않은 사용자를 모두 격리하는 방법을 설명하고, 설계자에게 다양한 격리 옵션을 제공하여 클라우드 솔루션을 설계하는 데 유용한 정보를 제공합니다. 이 백서에서는 Azure 플랫폼 및 고객 관련 보안 제어 기술에 중점을 두는 반면, SLA, 가격 책정 모델 및 DevOps 구현 방법에 대한 고려 사항은 다루지 않습니다.
 
@@ -55,7 +55,7 @@ Microsoft Azure를 사용하면 공유된 실제 인프라에서 응용 프로�
 ### <a name="azure-tenancy"></a>Azure 테넌트
 Azure 테넌트(Azure 구독)는 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)에서 "고객/청구" 관계 및 고유한 [테넌트](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant)를 나타냅니다. Microsoft Azure의 테넌트 수준 격리는 Azure Active Directory 및 이 서비스에서 제공하는 [역할 기반 제어](https://docs.microsoft.com/azure/role-based-access-control/overview)를 사용하여 이루어집니다. 각각의 Azure 구독은 하나의 Azure AD(Active Directory) 디렉터리와 연결됩니다.
 
-사용자, 그룹 및 해당 디렉터리에서 응용 프로그램은 Azure 구독에서 리소스를 관리할 수 있습니다. Azure Portal, Azure 명령줄 도구 또는 Azure 관리 API를 사용하여 이러한 액세스 권한을 할당할 수 있습니다. Azure AD 테넌트는 보안 경계를 사용하여 논리적으로 격리되므로 어떤 고객도 악의적으로 또는 실수로 공동 테넌트에 액세스하거나 손상시킬 수 없습니다. Azure AD는 분리된 네트워크 세그먼트에서 격리된 "운영 체제 미설치(bare metal)" 서버에서 실행되며, 여기서 호스트 수준 패킷 필터링과 Windows 방화벽은 원하지 않는 연결과 트래픽을 차단합니다.
+사용자, 그룹 및 해당 디렉터리에서 애플리케이션은 Azure 구독에서 리소스를 관리할 수 있습니다. Azure Portal, Azure 명령줄 도구 또는 Azure 관리 API를 사용하여 이러한 액세스 권한을 할당할 수 있습니다. Azure AD 테넌트는 보안 경계를 사용하여 논리적으로 격리되므로 어떤 고객도 악의적으로 또는 실수로 공동 테넌트에 액세스하거나 손상시킬 수 없습니다. Azure AD는 분리된 네트워크 세그먼트에서 격리된 "운영 체제 미설치(bare metal)" 서버에서 실행되며, 여기서 호스트 수준 패킷 필터링과 Windows 방화벽은 원하지 않는 연결과 트래픽을 차단합니다.
 
 - Azure AD의 데이터에 대한 액세스는 보안 토큰 서비스(STS)를 통해 사용자 인증이 필요합니다. 사용자의 존재, 활성화된 상태 및 역할에 대한 정보는 권한 부여 시스템에서 사용되어 대상 테넌트에 대해 요청된 액세스가 이 세션에서 사용자에 대한 권한이 있는지 확인합니다.
 
@@ -98,7 +98,7 @@ Azure의 나머지 RBAC 역할은 특정 Azure 리소스의 관리를 허용합�
 [RBAC 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)은 Azure에서 사용할 수 있는 역할을 나열합니다. 각 기본 제공 역할이 사용자에게 부여하는 작업 및 범위를 지정합니다. 더 많은 제어를 위해 사용자 고유의 역할을 정의하려는 경우 [Azure RBAC에서 사용자 지정 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)을 빌드하는 방법을 참조하세요.
 
 Azure Active Directory의 몇 가지 다른 기능은 다음과 같습니다.
-- Azure AD는 호스팅되는 위치에 관계 없이 SaaS 응용 프로그램에 SSO를 사용할 수 있게 합니다. 응용 프로그램 일부는 Azure AD를 사용하여 페더레이션되고 나머지는 암호 SSO를 사용합니다. 또한 페더레이션된 응용 프로그램은 사용자 프로비전 및 [암호 보관](https://www.techopedia.com/definition/31415/password-vault)을 지원할 수도 있습니다.
+- Azure AD는 호스팅되는 위치에 관계 없이 SaaS 응용 프로그램에 SSO를 사용할 수 있게 합니다. 응용 프로그램 일부는 Azure AD를 사용하여 페더레이션되고 나머지는 암호 SSO를 사용합니다. 또한 페더레이션된 애플리케이션은 사용자 프로비전 및 [암호 보관](https://www.techopedia.com/definition/31415/password-vault)을 지원할 수도 있습니다.
 
 - [Azure Storage](https://azure.microsoft.com/services/storage/)의 데이터 액세스는 인증을 통해 제어됩니다. 각 저장소 계정에는 기본 키([저장소 계정 키](https://docs.microsoft.com/azure/storage/storage-create-storage-account) 또는 SAK) 및 보조 비밀 키(공유 액세스 서명 또는 SAS)가 있습니다.
 
@@ -149,9 +149,7 @@ Azure의 계산 플랫폼은 Hyper-V 가상 머신에서 모든 고객 코드를
 
 또한 각 노드에는 호스트 OS를 실행하는 특별한 하나의 루트 VM도 있습니다. 중요한 경계는 하이퍼바이저와 루트 OS에서 관리하는 게스트 VM/루트 VM 간 및 게스트 VM 간을 격리하는 것입니다. 하이퍼바이저/루트 OS 페어링은 수십 년간의 Microsoft 운영 체제 보안 경험과 Microsoft Hyper-V의 최신 학습을 활용하여 강력한 게스트 VM 격리를 제공합니다.
 
-Azure 플랫폼은 가상화된 환경을 사용합니다. 사용자 인스턴스는 물리적 호스트 서버에 대한 액세스 권한이 없는 독립 실행형 가상 머신으로 작동하고, 이러한 격리는 실제 프로세서(링 0/링 3) 권한 수준을 사용하여 적용됩니다.
-
-링 0는 사용 권한이 가장 많고 3은 가장 적습니다. 게스트 OS는 권한이 낮은 링 1에서 실행되고 응용 프로그램은 권한이 가장 낮은 링 3에서 실행합니다. 실제 리소스의 가상화는 게스트 OS와 하이퍼바이저 간에 명확한 분리를 이끌어 내고 둘 사이에 추가 보안 분리가 발생합니다.
+Azure 플랫폼은 가상화된 환경을 사용합니다. 사용자 인스턴스는 물리적 호스트 서버에 대한 액세스 권한이 없는 독립 실행형 가상 머신으로 작동합니다.
 
 Azure 하이퍼바이저는 마이크로 커널처럼 작동하고 VMBus라는 공유 메모리 인터페이스를 사용하여 게스트 가상 머신에서 호스트에 모든 하드웨어 액세스 요청을 처리하도록 전달합니다. 이렇게 하면 사용자가 시스템에 원시 읽기/쓰기/실행 액세스를 가져오는 것을 방지하고 시스템 리소스를 공유할 위험을 완화합니다.
 
@@ -187,9 +185,9 @@ Azure 하이퍼바이저, 루트 OS/FA 및 고객 VM/GA의 모음은 계산 노�
 
 프로그래밍되는 규칙에는 다음 두 가지 범주의 규칙이 있습니다.
 
--   **컴퓨터 구성 또는 인프라 규칙**: 기본적으로 모든 통신이 차단됩니다. 가상 머신이 DHCP 및 DNS 트래픽을 보내고 받을 수 있는 데 예외 사항이 있습니다. 또한 가상 머신에서 "공용" 인터넷에 트래픽을 보내고, 동일한 Azure Virtual Network 및 OS 정품 인증 서버 내에서 다른 가상 머신으로 트래픽을 보낼 수도 있습니다. 가상 머신의 허용된 송신 대상 목록에는 Azure 라우터 서브넷, Azure 관리 및 기타 Microsoft 속성이 포함되어 있지 않습니다.
+-   **머신 구성 또는 인프라 규칙:** 기본적으로 모든 통신이 차단됩니다. 가상 머신이 DHCP 및 DNS 트래픽을 보내고 받을 수 있는 데 예외 사항이 있습니다. 또한 가상 머신에서 "공용" 인터넷에 트래픽을 보내고, 동일한 Azure Virtual Network 및 OS 정품 인증 서버 내에서 다른 가상 머신으로 트래픽을 보낼 수도 있습니다. 가상 머신의 허용된 송신 대상 목록에는 Azure 라우터 서브넷, Azure 관리 및 기타 Microsoft 속성이 포함되어 있지 않습니다.
 
--   **역할 구성 파일**: 테넌트의 서비스 모델에 기반하여 인바운드 ACL(Access Control 목록)을 정의합니다.
+-   **역할 구성 파일:** 테넌트의 서비스 모델에 따라 인바운드 ACL(액세스 제어 목록)을 정의합니다.
 
 ### <a name="vlan-isolation"></a>VLAN 격리
 각 클러스터에는 다음과 같이 3개의 VLAN이 있습니다.
@@ -295,7 +293,7 @@ SQL Database는 시장을 선도하는 Microsoft SQL Server 엔진을 기반으�
 
 [Microsoft SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) 데이터베이스는 SQL Server 기술로 구축된 클라우드 기반 관계형 데이터베이스 서비스입니다. Microsoft에서 호스팅하는 확장성 있는 고가용성 다중 테넌트 데이터베이스 서비스를 클라우드에 제공합니다.
 
-응용 프로그램 관점에서 SQL Azure는 다음과 같은 계층 구조를 제공하며, 각 수준 아래에는 1 대 다 시스템 수준이 포함됩니다.
+애플리케이션 관점에서 SQL Azure는 다음과 같은 계층 구조를 제공합니다. 각 수준은 아래 수준과 일대다 포함 관계입니다.
 
 ![SQL Azure 응용 프로그램 모델](./media/azure-isolation/azure-isolation-fig10.png)
 

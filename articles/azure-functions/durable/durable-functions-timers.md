@@ -8,20 +8,20 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/08/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ad6ddacad322e4c2f952591be786d46cbcb95a21
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7af204ad76cb04c3d71c5108948be4036be1d1e4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637558"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338841"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>지속성 함수의 타이머(Azure Functions)
 
 [지속성 함수](durable-functions-overview.md)는 지연을 구현하거나 비동기 작업에 대한 시간 제한을 설정하기 위해 오케스트레이터 함수에 사용할 *지속성 타이머*를 제공합니다. 지속성 타이머는 `Thread.Sleep` 및 `Task.Delay`(C#) 또는 `setTimeout()` 및 `setInterval()`(JavaScript) 대신, 오케스트레이터 함수에 사용해야 합니다.
 
-[DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)에서 [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) 메서드를 호출하여 지속성 타이머를 만듭니다. 이 메서드는 지정된 날짜와 시간에 다시 시작하는 작업을 반환합니다.
+.NET에서 [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)의 [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) 메서드를 호출하거나 JavaScript에서 `DurableOrchestrationContext`의 `createTimer`메서드를 호출하여 지속형 타이머를 만듭니다. 이 메서드는 지정된 날짜와 시간에 다시 시작하는 작업을 반환합니다.
 
 ## <a name="timer-limitations"></a>타이머 제한 사항
 
@@ -29,13 +29,13 @@ ms.locfileid: "52637558"
 
 > [!NOTE]
 > * 지속성 타이머는 Azure Storage의 제한으로 인해 7일을 초과하여 지속될 수 없습니다. [7일을 초과할 수 있도록 타이머를 연장하기 위한 기능](https://github.com/Azure/azure-functions-durable-extension/issues/14)을 요청하고 있습니다.
-> * 지속성 타이머의 상대적인 최종 기한을 계산할 때는 항상 아래 예제와 같이 `DateTime.UtcNow` 대신 [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime)을 사용합니다.
+> * 지속형 타이머의 상대적인 최종 기한을 계산할 때는 항상 아래 예제와 같이 .NET의 `DateTime.UtcNow` 대신 [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime)을 사용하고 JavaScript의 `Date.now` 또는 `Date.UTC` 대신 `currentUtcDateTime`을 사용합니다.
 
 ## <a name="usage-for-delay"></a>지연 사용
 
 다음 예제에서는 실행 지연에 지속성 타이머를 사용하는 방법을 보여 줍니다. 여기서는 청구 알림을 10일 동안 매일 발급하고 있습니다.
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("BillingIssuer")]
@@ -51,7 +51,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript"></a>JavaScript
+### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
 
 ```js
 const df = require("durable-functions");
@@ -68,13 +68,13 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> 오케스트레이터 함수에는 무한 루프를 사용하지 않도록 방지하세요. 무한 루프 시나리오를 안전하고 효율적으로 구현하는 방법에 대한 자세한 내용은 [영구 오케스트레이션](durable-functions-eternal-orchestrations.md)을 참조하세요. 
+> 오케스트레이터 함수에는 무한 루프를 사용하지 않도록 방지하세요. 무한 루프 시나리오를 안전하고 효율적으로 구현하는 방법에 대한 자세한 내용은 [영구 오케스트레이션](durable-functions-eternal-orchestrations.md)을 참조하세요.
 
 ## <a name="usage-for-timeout"></a>시간 제한 사용
 
 이 예제에서는 지속성 타이머를 사용하여 시간 제한을 구현하는 방법을 보여 줍니다.
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("TryGetQuote")]
@@ -105,7 +105,7 @@ public static async Task<bool> Run(
 }
 ```
 
-#### <a name="javascript"></a>JavaScript
+### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
 
 ```js
 const df = require("durable-functions");
@@ -142,4 +142,3 @@ module.exports = df.orchestrator(function*(context) {
 
 > [!div class="nextstepaction"]
 > [외부 이벤트 발생 및 처리](durable-functions-external-events.md)
-

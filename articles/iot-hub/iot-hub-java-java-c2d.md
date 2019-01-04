@@ -101,7 +101,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 2. 명령 프롬프트에서 새 send-c2d-messages 폴더로 이동합니다.
 
-3. 텍스트 편집기를 사용하여 send-c2d-messages 폴더에서 pom.xml 파일을 열고 **종속성** 노드에 다음 종속성을 추가합니다. 의존성을 추가하면 IoT Hub 서비스와 통신하기 위해 응용 프로그램에서 **iothub-java-service-client** 패키지를 사용할 수 있습니다.
+3. 텍스트 편집기를 사용하여 send-c2d-messages 폴더에서 pom.xml 파일을 열고 **종속성** 노드에 다음 종속성을 추가합니다. 의존성을 추가하면 IoT Hub 서비스와 통신하기 위해 애플리케이션에서 **iothub-java-service-client** 패키지를 사용할 수 있습니다.
 
     ```xml
     <dependency>
@@ -177,9 +177,9 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
     mvn clean package -DskipTests
     ```
 
-## <a name="run-the-applications"></a>응용 프로그램 실행
+## <a name="run-the-applications"></a>애플리케이션 실행
 
-이제 응용 프로그램을 실행할 준비가 되었습니다.
+이제 애플리케이션을 실행할 준비가 되었습니다.
 
 1. simulated-device 폴더의 명령 프롬프트에서 다음 명령을 실행하여 IoT Hub에 원격 분석 데이터 전송을 시작하고 사용자의 허브에서 보낸 클라우드-장치 메시지를 수신 대기합니다.
 

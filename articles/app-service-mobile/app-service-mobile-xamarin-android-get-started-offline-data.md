@@ -59,7 +59,7 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 
 ## <a name="update-online-app"></a>모바일 앱 백 엔드를 다시 연결하도록 앱 업데이트
 
-이 섹션에서는 앱을 Mobile App 백 엔드에 다시 연결합니다. 응용 프로그램을 처음 실행하는 경우 `OnCreate` 이벤트 처리기는 `OnRefreshItemsSelected`를 호출합니다. 차례로 `SyncAsync`가 호출되고 백 엔드 데이터베이스와 로컬 저장소가 동기화됩니다.
+이 섹션에서는 앱을 Mobile App 백 엔드에 다시 연결합니다. 애플리케이션을 처음 실행하는 경우 `OnCreate` 이벤트 처리기는 `OnRefreshItemsSelected`를 호출합니다. 차례로 `SyncAsync`가 호출되고 백 엔드 데이터베이스와 로컬 저장소가 동기화됩니다.
 
 1. 공유 프로젝트에서 ToDoActivity.cs를 열고 **applicationURL**의 변경 내용을 되돌립니다.
 2. **F5** 를 눌러 앱을 다시 빌드하고 실행합니다. 앱은 푸시 및 끌어오기 작업을 사용하여 `OnRefreshItemsSelected` 메서드가 실행되면 로컬 변경 내용을 Azure Mobile App 백 엔드와 동기화합니다.

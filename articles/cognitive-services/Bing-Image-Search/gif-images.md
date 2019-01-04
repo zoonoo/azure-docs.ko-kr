@@ -1,7 +1,7 @@
 ---
-title: .gif 이미지 가져오기 - Bing Image Search API
+title: Bing Image Search API를 사용하여 GIF 이미지 검색
 titleSuffix: Azure Cognitive Services
-description: Bing Image Search API를 사용하여 .gif 이미지에 대한 자세한 정보를 가져오는 방법을 보여줍니다.
+description: Bing Image Search API를 사용하여 웹에서 .gif 이미지를 검색합니다.
 services: cognitive-services
 author: MikeDodaro
 manager: cgronlun
@@ -10,16 +10,17 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: rosh
-ms.openlocfilehash: 82a096ccc1ead9bfb542663ae193539fc227c1fb
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.custom: seodec2018
+ms.openlocfilehash: 7536452d3ed0030b34e4f30deba56d6d8ae1957c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870250"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249314"
 ---
-# <a name="search-for-gif-images-using-the-bing-image-search-api"></a>Bing Image Search API를 사용하여 .gif 이미지 검색
+# <a name="search-for-gif-images"></a>GIF 이미지 검색 
 
-Bing Image Search API를 사용하면 관련성이 가장 높은 .gif 이미지에 대해 전체 웹을 검색할 수도 있습니다.  개발자는 다양한 대화 시나리오에 관련된 gif를 통합할 수 있습니다. 
+Bing Image Search API를 사용하면 관련성이 가장 높은 .gif 이미지에 대해 전체 웹을 검색할 수도 있습니다.  개발자는 다양한 대화 시나리오에 관련된 gif를 통합할 수 있습니다. 
 
 다음 URL은 애니메이션된 .gif 이미지에 대한 쿼리입니다.
 ````

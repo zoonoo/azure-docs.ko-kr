@@ -1,5 +1,5 @@
 ---
-title: 포털을 사용하여 Azure Search에서 인덱싱, 쿼리 및 필터링에 대한 자습서 | Microsoft Docs
+title: Azure Portal의 인덱싱, 쿼리 및 필터링에 대한 자습서 - Azure Search
 description: 이 자습서에서는 Azure Portal 및 미리 정의된 샘플 데이터를 사용하여 Azure Search에서 인덱스를 생성합니다. 전체 텍스트 검색, 필터, 패싯, 유사 항목 검색, 지리적 검색 등을 살펴봅니다.
 author: HeidiSteen
 manager: cgronlun
@@ -9,14 +9,15 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: aac579da3aaf6ab1507bbc12d79a5b183a82d665
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.custom: seodec2018
+ms.openlocfilehash: d8b95aaab99fc4f0aa5df21374d6ec023f869b7d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592758"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314026"
 ---
-# <a name="tutorial-use-built-in-tools-for-azure-search-indexing-and-queries"></a>자습서: Azure Search 인덱싱 및 쿼리에 기본 제공 도구 사용
+# <a name="tutorial-use-built-in-portal-tools-for-azure-search-indexing-and-queries"></a>자습서: Azure Search 인덱싱 및 쿼리에 기본 제공 포털 도구 사용
 
 Azure Portal의 Azure Search 서비스 페이지에 제공되는 기본 제공 도구를 사용하여 Azure Search 개념을 간략하게 검토하고 알아볼 수 있습니다. 이러한 도구는 .NET 및 REST API의 일부 기능을 제공하지 않을 수 있습니다. 하지만 마법사 및 편집기는 코드 없는 Azure Search 소개를 제공하므로 샘플 데이터 집합에 대한 흥미로운 쿼리를 즉시 작성할 수 있습니다.
 
@@ -226,7 +227,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 예제 쿼리는 위치 데이터의 모든 결과를 필터링하며, 결과는 위도 및 경도 좌표로 지정된 특정 지점으로부터 5킬로미터 미만입니다. **$count**를 추가하면 거리 또는 좌표를 변경할 때 반환되는 결과가 몇 개인지 확인할 수 있습니다.
 
-지리 공간 검색은 검색 응용 프로그램에 "주변 찾기" 기능이 있거나 지도 탐색을 사용하는 경우에 유용합니다. 하지만 전체 텍스트 검색은 아닙니다. 이름으로 도시 또는 국가를 검색할 수 있어야 한다는 사용자 요구 사항이 있는 경우 좌표 외에도 도시 또는 국가 이름이 포함된 필드를 추가하면 됩니다.
+지리 공간 검색은 검색 애플리케이션에 "주변 찾기" 기능이 있거나 지도 탐색을 사용하는 경우에 유용합니다. 하지만 전체 텍스트 검색은 아닙니다. 이름으로 도시 또는 국가를 검색할 수 있어야 한다는 사용자 요구 사항이 있는 경우 좌표 외에도 도시 또는 국가 이름이 포함된 필드를 추가하면 됩니다.
 
 ## <a name="takeaways"></a>핵심 내용
 

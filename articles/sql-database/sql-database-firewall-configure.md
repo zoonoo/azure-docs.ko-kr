@@ -21,7 +21,7 @@ ms.locfileid: "49945470"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL Database 및 SQL Data Warehouse 방화벽 규칙
 
-Microsoft Azure [SQL Database](sql-database-technical-overview.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)는 Azure 및 다른 인터넷 기반 응용 프로그램에 관계형 데이터베이스 서비스를 제공합니다. 데이터를 보호하기 위해 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다.
+Microsoft Azure [SQL Database](sql-database-technical-overview.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)는 Azure 및 다른 인터넷 기반 애플리케이션에 관계형 데이터베이스 서비스를 제공합니다. 데이터를 보호하기 위해 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다.
 
 > [!NOTE]
 > 이 문서는 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다. 
@@ -35,7 +35,7 @@ IP 규칙 이외에 방화벽도 *가상 네트워크 규칙*을 관리합니다
 
 ## <a name="overview"></a>개요
 
-먼저, Azure SQL 서버에 대한 모든 Transact-SQL 액세스는 방화벽에 의해 차단됩니다. Azure SQL Server를 사용하려면 Azure SQL Server에 액세스를 가능하게 하는 하나 이상의 서버 수준 방화벽 규칙을 지정해야 합니다. 방화벽 규칙을 사용하여 인터넷이 허용하는 IP 주소 범위 및 Azure 응용 프로그램 Azure SQL 서버의 연결 시도 가능 여부를 지정할 수 있습니다.
+먼저, Azure SQL 서버에 대한 모든 Transact-SQL 액세스는 방화벽에 의해 차단됩니다. Azure SQL Server를 사용하려면 Azure SQL Server에 액세스를 가능하게 하는 하나 이상의 서버 수준 방화벽 규칙을 지정해야 합니다. 방화벽 규칙을 사용하여 인터넷이 허용하는 IP 주소 범위 및 Azure 애플리케이션 Azure SQL 서버의 연결 시도 가능 여부를 지정할 수 있습니다.
 
 선택적으로 Azure SQL Server에 있는 데이터베이스 중 하나에 대해서만 액세스 권한을 부여하려면 필수 데이터베이스에 대해 데이터베이스 수준 규칙을 만들어야 합니다. 서버 수준 방화벽 규칙에 지정된 IP 주소 범위 밖의 데이터베이스 방화벽 규칙의 IP 주소 범위를 지정한 경우, 클라이언트의 IP 주소가 데이터베이스 수준 규칙에 지정된 범위에 속하는지 확인합니다.
 
@@ -76,7 +76,7 @@ IP 규칙 이외에 방화벽도 *가상 네트워크 규칙*을 관리합니다
 
 ### <a name="connecting-from-azure"></a>Azure에서 연결
 
-Azure에서 응용 프로그램을 Azure SQL Server에 연결할 수 있게 하려면 Azure 연결을 사용하도록 설정해야 합니다. Azure의 응용 프로그램이 데이터베이스 서버로 연결을 시도할 때, 방화벽은 Azure 연결이 허용되는지 확인합니다. 0.0.0.0으로 된 시작 및 끝 주소가 포함된 방화벽 설정은 연결이 허용됨을 나타냅니다. 연결 시도가 허용되지 않는 경우, 요청은 Azure SQL Database 서버로 도달되지 않습니다.
+Azure에서 애플리케이션을 Azure SQL Server에 연결할 수 있게 하려면 Azure 연결을 사용하도록 설정해야 합니다. Azure의 애플리케이션이 데이터베이스 서버로 연결을 시도할 때, 방화벽은 Azure 연결이 허용되는지 확인합니다. 0.0.0.0으로 된 시작 및 끝 주소가 포함된 방화벽 설정은 연결이 허용됨을 나타냅니다. 연결 시도가 허용되지 않는 경우, 요청은 Azure SQL Database 서버로 도달되지 않습니다.
 
 > [!IMPORTANT]
 > 이 옵션은 다른 고객 구독에서의 연결을 포함하여 Azure에서의 모든 연결을 허용하도록 방화벽을 구성합니다. 이 옵션을 선택할 때 로그인 및 사용자 권한이 부여된 사용자만으로 액세스를 제한하는지 확인합니다.
@@ -215,7 +215,7 @@ Q. 방화벽 규칙을 구성하거나 감사하는 개인이나 팀이 많은(1
 이 선택은 사용자의 필요 및 환경에 따라 달라집니다. 서버 수준 방화벽 규칙이 구성하기 더 쉬울 수 있지만 스크립팅은 데이터베이스 수준에서 규칙을 구성할 수 있습니다. 또한 서버 수준 방화벽 규칙을 사용하더라도 데이터베이스에 대해 `CONTROL` 권한이 있는 사용자가 데이터베이스 수준 방화벽 규칙을 만들었는지 확인하기 위해서는 데이터베이스 방화벽 규칙을 감사해야 할 수 있습니다.
 
 Q. 서버 수준 및 데이터베이스 수준 방화벽 규칙을 함께 사용할 수 있나요?
-예. 관리자와 같은 일부 사용자는 서버 수준 방화벽 규칙이 필요할 수 있습니다. 데이터베이스 응용 프로그램 사용자와 같은 경우는 데이터베이스 수준 방화벽 규칙이 필요할 수 있습니다.
+예. 관리자와 같은 일부 사용자는 서버 수준 방화벽 규칙이 필요할 수 있습니다. 데이터베이스 애플리케이션 사용자와 같은 경우는 데이터베이스 수준 방화벽 규칙이 필요할 수 있습니다.
 
 ## <a name="troubleshooting-the-database-firewall"></a>데이터베이스 방화벽 문제 해결
 
@@ -247,7 +247,7 @@ Microsoft Azure SQL Database 서비스로의 연결이 예상대로 작동되지
 ## <a name="next-steps"></a>다음 단계
 
 - 데이터베이스 및 서버 수준 방화벽 규칙 만들기에 대한 빠른 시작은 [Azure SQL Database 만들기](sql-database-get-started-portal.md)를 참조하세요.
-- 오픈 소스 또는 타사 응용 프로그램에서 Azure SQL Database에 연결하는 방법에 대한 도움말은 [SQL Database에 대한 클라이언트 빠른 시작 코드 샘플](https://msdn.microsoft.com/library/azure/ee336282.aspx)을 참조하세요.
+- 오픈 소스 또는 타사 애플리케이션에서 Azure SQL Database에 연결하는 방법에 대한 도움말은 [SQL Database에 대한 클라이언트 빠른 시작 코드 샘플](https://msdn.microsoft.com/library/azure/ee336282.aspx)을 참조하세요.
 - 열어야 할 수 있는 추가 포트에 대한 자세한 내용은 [ADO.NET 4.5와 SQL Database에 대한 1433 이외 포트](sql-database-develop-direct-route-ports-adonet-v12.md)의 **SQL Database: 내부 및 외부** 섹션을 참조하세요.
 - Azure SQL Database 보안 개요는 [데이터베이스 보안 설정](sql-database-security-overview.md)을 참조하세요.
 

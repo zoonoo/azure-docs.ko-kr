@@ -1,21 +1,22 @@
 ---
-title: LUIS에서 계정 설정 관리 | Microsoft Docs
-description: LUIS 웹 사이트를 사용하여 계정 설정을 관리합니다.
-titleSuffix: Azure
+title: 설정 관리
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: LUIS 웹 사이트를 사용하여 모든 앱에서 사용되는 사용자 계정 설정 및 작성 키를 관리합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: bb41331228e700c55da21c627d617d16faa2dcb9
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: bd6ae88834b45e9e154eb1e5e3ba921f403c7eaa
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335403"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138758"
 ---
 # <a name="manage-account-and-authoring-key"></a>계정 및 작성 키 관리
 LUIS 계정에 대한 두 가지 주요 정보는 사용자 계정과 작성 키입니다. 로그인 정보는 [account.microsoft.com](https://account.microsoft.com)에서 관리됩니다. 작성 키는 [LUIS](luis-reference-regions.md) 웹 사이트 **설정** 페이지에서 관리됩니다. 

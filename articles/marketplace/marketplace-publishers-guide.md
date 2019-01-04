@@ -23,16 +23,16 @@ ms.locfileid: "39223075"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Marketplace 및 AppSource 게시 가이드
 
-Marketplace 게시 가이드는 신규 및 기존 게시자가 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Microsoft AppSource](https://appsource.microsoft.com) 상점에서 응용 프로그램 및 서비스를 나열하여 Microsoft와의 파트너 사업을 성장시키는 방법을 배우도록 도와주기 위해 작성되었습니다.
+Marketplace 게시 가이드는 신규 및 기존 게시자가 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Microsoft AppSource](https://appsource.microsoft.com) 상점에서 애플리케이션 및 서비스를 나열하여 Microsoft와의 파트너 사업을 성장시키는 방법을 배우도록 도와주기 위해 작성되었습니다.
 
 이 가이드는 다음 항목을 설명합니다. 
 *   Marketplace의 정의 및 작동 방식 
 *   Azure Marketplace 및 AppSource 상점 간의 차이점 
 *   Marketplace에 참여할 경우의 혜택 
-*   게시자가 되고 응용 프로그램 또는 서비스를 나열하는 방법 
+*   게시자가 되고 애플리케이션 또는 서비스를 나열하는 방법 
 *   비즈니스 성장 방법 
 
-이 가이드에는 응용 프로그램 및 서비스를 나열하기 전에 수행해야 하는 단계에 대한 기술 및 비즈니스 정보가 포함되어 있습니다. 목차를 사용하여 가이드의 다른 섹션으로 이동하고 핵심 항목으로 직접 이동할 수 있습니다.
+이 가이드에는 애플리케이션 및 서비스를 나열하기 전에 수행해야 하는 단계에 대한 기술 및 비즈니스 정보가 포함되어 있습니다. 목차를 사용하여 가이드의 다른 섹션으로 이동하고 핵심 항목으로 직접 이동할 수 있습니다.
 
 Azure Marketplace 및 AppSource에 대한 질문이 있는 경우 **문제 유형** > **Marketplace 온보딩**에서 메시지를 보내주세요.  Marketplace 게시자 온보딩 팀에서 도움을 드리겠습니다. 
 
@@ -60,7 +60,7 @@ Marketplace를 통해 사용할 수 있는 인사이트 및 분석을 통해 품
 
 Marketplace의 새 품목은 파트너가 Marketplace에서 사업을 성장시키는 데 도움이 되는 다양한 무료 혜택을 받을 수 있습니다. 이러한 혜택은 다음 범주로 구분됩니다. 
 
-*   기술: 응용 프로그램의 출시를 준비하는 데 필요한 모든 기능이 제공됩니다. 기술 지원, 응용 프로그램 디자인 및 아키텍처 디자인부터 개발 및 테스트를 위한 Azure 크레딧까지 모든 혜택을 누릴 수 있습니다. 
+*   기술: 애플리케이션의 출시를 준비하는 데 필요한 모든 기능이 제공됩니다. 기술 지원, 애플리케이션 디자인 및 아키텍처 디자인부터 개발 및 테스트를 위한 Azure 크레딧까지 모든 혜택을 누릴 수 있습니다. 
 
 *   공동 마케팅: 제품을 출시하는 데 필요한 모든 기능이 제공됩니다. 무료 Microsoft Go-to-Market 출시 기본 사항에 액세스하여 솔루션 출시 및 홍보에 대한 도움을 받을 수 있습니다. 추가적인 Microsoft 마케팅 캠페인을 포함할 자격이 있으며 Marketplace에서 잠재 고객을 공략할 수 있습니다.
 

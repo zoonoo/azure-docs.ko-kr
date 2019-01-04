@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 45df284d29ea2d5eb799697b22deeab03cb66622
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6ece07d2be605f51e08274649f3ea15e3bbba472
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956666"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134899"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Azure CLI를 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리
 관리자는 서버 수준 방화벽 규칙을 사용하여 특정 IP 주소 또는 IP 주소 범위에서 MySQL용 Azure Database 서버에 대한 액세스를 관리할 수 있습니다. 편리한 Azure CLI 명령을 사용하면 서버를 관리하는 방화벽 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. MySQL용 Azure Database 방화벽에 대한 개요는 [MySQL용 Azure Database 서버 방화벽 규칙](./concepts-firewall-rules.md)을 참조하세요.
@@ -38,9 +38,9 @@ ms.locfileid: "46956666"
 **az login** 명령을 사용하여 Azure 계정으로 Azure CLI를 안전하게 연결합니다.
 
 1. 명령줄에서 다음 명령을 실행합니다.
-```azurecli
-az login
-```
+    ```azurecli
+    az login
+    ```
 이 명령은 다음 단계에서 사용할 코드를 출력합니다.
 
 2. 웹 브라우저를 사용하여 [https://aka.ms/devicelogin](https://aka.ms/devicelogin) 페이지를 연 다음, 제공된 코드를 입력하세요.
@@ -48,21 +48,21 @@ az login
 3. 프롬프트가 나타나면 Azure 자격 증명을 사용하여 로그인합니다.
 
 4. 로그인 권한이 부여되면 구독 목록은 콘솔에 인쇄됩니다. 원하는 구독의 ID를 복사하여 사용할 현재 구독을 설정합니다. [az account set](/cli/azure/account#az-account-set) 명령을 사용합니다.
-   ```azurecli-interactive
-   az account set --subscription <your subscription id>
-   ```
+    ```azurecli-interactive
+    az account set --subscription <your subscription id>
+    ```
 
 5. 이름이 확실치 않은 경우 리소스 그룹 및 구독에 대한 MySQL용 Azure Databases 서버를 나열합니다. [az mysql server list](/cli/azure/mysql/server#az-mysql-server-list) 명령을 사용합니다.
 
-   ```azurecli-interactive
-   az mysql server list --resource-group myresourcegroup
-   ```
+    ```azurecli-interactive
+    az mysql server list --resource-group myresourcegroup
+    ```
 
    나열되는 이름 특성은 작업할 MySQL 서버가 무엇인지 지정하는 데 사용됩니다. 필요한 경우 해당 서버에 대한 세부 정보를 확인하고 이름 특성을 사용하여 올바른지 확인합니다. [az mysql server show](/cli/azure/mysql/server#az-mysql-server-show) 명령을 사용합니다.
 
-   ```azurecli-interactive
-   az mysql server show --resource-group myresourcegroup --name mydemoserver
-   ```
+    ```azurecli-interactive
+    az mysql server show --resource-group myresourcegroup --name mydemoserver
+    ```
 
 ## <a name="list-firewall-rules-on-azure-database-for-mysql-server"></a>MySQL용 Azure Database 서버에서 방화벽 규칙 나열 
 서버 이름 및 리소스 그룹 이름을 사용하여 기존 서버 방화벽 규칙을 서버에 나열합니다. [az mysql server firewall list](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-list) 명령을 사용합니다.  서버 이름 특성은 **--name** 스위치가 아닌 **--server** 스위치에서 지정됩니다. 

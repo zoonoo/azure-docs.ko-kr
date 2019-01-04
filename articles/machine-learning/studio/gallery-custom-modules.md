@@ -1,12 +1,11 @@
 ---
 title: Azure AI Gallery 사용자 지정 모듈 - Azure Machine Learning Studio | Microsoft Docs
-description: Azure AI 갤러리에서 사용자 지정 기계 학습 모듈을 검색합니다.
+description: Azure AI 갤러리에서 사용자 지정 기계 학습 모듈을 검색합니다. 사용자 지정 모듈은 Azure Machine Learning Studio의 역량을 확장합니다.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 16037a84-dad0-4a8c-9874-a1d3bd551cf0
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.openlocfilehash: a504bcfbbcd70c1d6fc8402d4c232e7e8a5476b0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 92067a93a1f67711df0312f4daf484a577ff14d1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313744"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273201"
 ---
 # <a name="machine-learning-studio-discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Machine Learning Studio: Azure AI 갤러리에서 사용자 지정 기계 학습 모듈 검색
 
@@ -94,5 +93,5 @@ Azure AI 갤러리는 모듈의 복사본을 가져오는 두 가지 방법을 �
 
 **[갤러리로 이동](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

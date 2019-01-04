@@ -20,13 +20,13 @@ ms.locfileid: "52423612"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>자습서: .NET API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
-클라우드에서 Azure Batch를 사용하여 대규모 병렬 및 HPC(고성능 컴퓨팅) 일괄 작업을 Azure에서 효율적으로 실행합니다. 이 자습서는 Batch를 사용하여 병렬 워크로드를 실행하는 C#의 예제를 안내합니다. 일반적인 Batch 응용 프로그램 워크플로, 그리고 Batch 및 Storage 리소스와 프로그래밍 방식으로 상호 작용하는 방법을 알아봅니다. 다음 방법에 대해 알아봅니다.
+클라우드에서 Azure Batch를 사용하여 대규모 병렬 및 HPC(고성능 컴퓨팅) 일괄 작업을 Azure에서 효율적으로 실행합니다. 이 자습서는 Batch를 사용하여 병렬 워크로드를 실행하는 C#의 예제를 안내합니다. 일반적인 Batch 애플리케이션 워크플로, 그리고 Batch 및 Storage 리소스와 프로그래밍 방식으로 상호 작용하는 방법을 알아봅니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Batch 계정에 응용 프로그램 패키지 추가
+> * Batch 계정에 애플리케이션 패키지 추가
 > * Batch 및 Storage 계정 인증
 > * 입력 파일을 Storage에 업로드
-> * 계산 노드 풀을 만들어 응용 프로그램 실행
+> * 계산 노드 풀을 만들어 애플리케이션 실행
 > * 작업 및 태스크를 만들어 입력 파일 처리
 > * 태스크 실행 모니터링
 > * 출력 파일 검색
@@ -47,15 +47,15 @@ ms.locfileid: "52423612"
 
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
-## <a name="add-an-application-package"></a>응용 프로그램 패키지 추가
+## <a name="add-an-application-package"></a>애플리케이션 패키지 추가
 
-Azure Portal을 사용하여 ffmpeg를 Batch 계정에 [응용 프로그램 패키지](batch-application-packages.md)로 추가합니다. 응용 프로그램 패키지를 사용하면 풀의 계산 노드에 태스크 응용 프로그램 및 해당 배포를 간편하게 관리할 수 있습니다. 
+Azure Portal을 사용하여 ffmpeg를 Batch 계정에 [애플리케이션 패키지](batch-application-packages.md)로 추가합니다. 애플리케이션 패키지를 사용하면 풀의 계산 노드에 태스크 애플리케이션 및 해당 배포를 간편하게 관리할 수 있습니다. 
 
 1. Azure Portal에서 **추가 서비스** > **Batch 계정**을 클릭하고 Batch 계정의 이름을 클릭합니다.
 3. **응용 프로그램** > **추가**를 클릭합니다.
-4. **응용 프로그램 ID**에 *ffmpeg*와 패키지 버전 *3.4*를 입력합니다. 이전에 다운로드한 ffmpeg zip 파일을 선택한 다음 **확인**을 클릭합니다. ffmpeg 응용 프로그램 패키지가 Batch 계정에 추가됩니다.
+4. **응용 프로그램 ID**에 *ffmpeg*와 패키지 버전 *3.4*를 입력합니다. 이전에 다운로드한 ffmpeg zip 파일을 선택한 다음 **확인**을 클릭합니다. ffmpeg 애플리케이션 패키지가 Batch 계정에 추가됩니다.
 
-![응용 프로그램 패키지 추가](./media/tutorial-parallel-dotnet/add-application.png)
+![애플리케이션 패키지 추가](./media/tutorial-parallel-dotnet/add-application.png)
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
@@ -86,7 +86,7 @@ private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfw
 
 [!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
 
-또한 솔루션의 ffmpeg 응용 프로그램 패키지 참조가 Batch 계정에 업로드한 ffmpeg 패키지의 ID 및 버전과 일치하는지 확인하세요.
+또한 솔루션의 ffmpeg 애플리케이션 패키지 참조가 Batch 계정에 업로드한 ffmpeg 패키지의 ID 및 버전과 일치하는지 확인하세요.
 
 ```csharp
 const string appPackageId = "ffmpeg";
@@ -95,13 +95,13 @@ const string appPackageVersion = "3.4";
 
 ### <a name="build-and-run-the-sample-project"></a>샘플 프로젝트 빌드 및 실행
 
-Visual Studio 또는 명령줄에서 `dotnet build` 및 `dotnet run` 명령을 사용하여 응용 프로그램을 빌드 및 실행합니다. 응용 프로그램이 실행되면 코드를 검토하여 응용 프로그램의 각 부분에서 수행하는 작업을 알아봅니다. 예를 들어 Visual Studio의 경우 다음과 같습니다.
+Visual Studio 또는 명령줄에서 `dotnet build` 및 `dotnet run` 명령을 사용하여 애플리케이션을 빌드 및 실행합니다. 애플리케이션이 실행되면 코드를 검토하여 애플리케이션의 각 부분에서 수행하는 작업을 알아봅니다. 예를 들어 Visual Studio의 경우 다음과 같습니다.
 
 * 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **솔루션 빌드**를 클릭합니다. 
 
 * 메시지가 표시되면 모든 NuGet 패키지 복원을 확인합니다. 누락된 패키지를 다운로드해야 하는 경우 [NuGet 패키지 관리자](https://docs.nuget.org/consume/installing-nuget)가 설치되어 있는지 확인합니다.
 
-그런 다음 실행합니다. 샘플 응용 프로그램을 실행하는 경우 콘솔 출력은 다음과 비슷합니다. 실행 중에 풀의 계산 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 
+그런 다음 실행합니다. 샘플 애플리케이션을 실행하는 경우 콘솔 출력은 다음과 유사합니다. 실행 중에 풀의 계산 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 
 
 ```
 Sample start: 11/19/2018 3:20:21 PM
@@ -130,13 +130,13 @@ Azure Portal에서 Batch 계정으로 가서 풀, 계산 노드, 작업 및 태�
 
 ![풀 열 지도](./media/tutorial-parallel-dotnet/pool.png)
 
-기본 구성에서 응용 프로그램을 실행하는 경우 일반적인 실행 시간은 **약 10분**입니다. 풀을 만드는 데 가장 많은 시간이 걸립니다.
+기본 구성에서 애플리케이션을 실행하는 경우 일반적인 실행 시간은 **약 10분**입니다. 풀을 만드는 데 가장 많은 시간이 걸립니다.
 
 [!INCLUDE [batch-common-tutorial-download](../../includes/batch-common-tutorial-download.md)]
 
 ## <a name="review-the-code"></a>코드 검토
 
-다음 섹션에서는 샘플 응용 프로그램을 Batch 서비스에서 워크로드를 처리하기 위해 수행하는 단계로 세분화합니다. 샘플의 코드 줄을 모두 설명하지는 않으므로 이 문서의 나머지 부분을 읽는 동안 솔루션의 `Program.cs` 파일을 참조하세요.
+다음 섹션에서는 샘플 애플리케이션을 Batch 서비스에서 워크로드를 처리하기 위해 수행하는 단계로 세분화합니다. 샘플의 코드 줄을 모두 설명하지는 않으므로 이 문서의 나머지 부분을 읽는 동안 솔루션의 `Program.cs` 파일을 참조하세요.
 
 ### <a name="authenticate-blob-and-batch-clients"></a>Blob 및 Batch 클라이언트 인증
 
@@ -198,7 +198,7 @@ List<ResourceFile> inputFiles = await UploadResourceFilesToContainerAsync(
 
 노드 수 및 VM 크기는 정의된 상수를 사용하여 설정됩니다. Batch는 전용 노드와 [우선 순위가 낮은](batch-low-pri-vms.md) 노드를 지원하며, 풀에서 하나 또는 둘 다 사용할 수 있습니다. 전용 노드는 풀에 예약되어 있습니다. 우선 순위가 낮은 노드는 Azure의 잔여 VM 용량에서 할인된 가격으로 제공됩니다. Azure에 충분한 용량이 없으면 우선 순위가 낮은 노드는 사용할 수 없게 됩니다. 이 샘플은 기본적으로 *Standard_A1_v2* 크기의 우선 순위가 낮은 노드 5개만 포함된 풀을 만듭니다.
 
-풀 구성에 [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference)를 추가하면 계산 노드에 ffmpeg 응용 프로그램이 배포됩니다.
+풀 구성에 [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference)를 추가하면 계산 노드에 ffmpeg 애플리케이션이 배포됩니다.
 
 [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync) 메서드는 풀을 Batch 서비스에 제출합니다.
 
@@ -320,10 +320,10 @@ batchClient.JobOperations.TerminateJob(jobId);
 이 자습서에서는 다음을 수행하는 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * Batch 계정에 응용 프로그램 패키지 추가
+> * Batch 계정에 애플리케이션 패키지 추가
 > * Batch 및 Storage 계정 인증
 > * 입력 파일을 Storage에 업로드
-> * 계산 노드 풀을 만들어 응용 프로그램 실행
+> * 계산 노드 풀을 만들어 애플리케이션 실행
 > * 작업 및 태스크를 만들어 입력 파일 처리
 > * 태스크 실행 모니터링
 > * 출력 파일 검색

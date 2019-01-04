@@ -26,7 +26,7 @@ ms.locfileid: "41918384"
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 ## <a name="overview"></a>개요
-이 자습서에서는 Azure Notification Hubs를 사용하여 Windows 스토어 또는 Windows Phone 8.1(비 Silverlight) 응용 프로그램에 속보 알림을 브로드캐스트하는 방법을 보여줍니다. Windows Phone 8.1 Silverlight를 대상으로 하는 경우 [Windows Phone](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) 버전을 참조하세요. 
+이 자습서에서는 Azure Notification Hubs를 사용하여 Windows 스토어 또는 Windows Phone 8.1(비 Silverlight) 애플리케이션에 속보 알림을 브로드캐스트하는 방법을 보여줍니다. Windows Phone 8.1 Silverlight를 대상으로 하는 경우 [Windows Phone](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) 버전을 참조하세요. 
 
 이 자습서에서는 Azure Notification Hubs를 사용하여 UWP(유니버설 Windows 플랫폼) 응용 프로그램을 실행하는 특정 Windows 디바이스에 알림을 푸시하는 방법을 알아봅니다. 이 자습서를 완료한 후에는 관심 있는 속보 범주를 등록하고 해당 카테고리에 대해서만 푸시 알림을 받아볼 수 있습니다. 
 
@@ -129,7 +129,7 @@ ms.locfileid: "41918384"
     여러 템플릿을 등록하려는 경우(예: 토스트 알림용 1개, 타일용 1개) 템플릿 이름(예: "simpleWNSTemplateExample")도 함께 제공합니다. 업데이트하거나 삭제할 수 있는 템플릿 이름을 지정합니다.
    
     >[!NOTE]
-    >디바이스에서 동일한 태그로 여러 템플릿을 등록한 경우 해당 태그를 대상으로 하는 수신 메시지로 인해 디바이스에 여러 번의 알림이 전달됩니다(각 템플릿당 1개). 이 동작은 동일한 논리 메시지로 여러 시각적 알림을 나타내야 하는 경우(예: Windows 스토어 응용 프로그램에 뱃지와 알림을 모두 표시해야 하는 경우)에 유용합니다.
+    >디바이스에서 동일한 태그로 여러 템플릿을 등록한 경우 해당 태그를 대상으로 하는 수신 메시지로 인해 디바이스에 여러 번의 알림이 전달됩니다(각 템플릿당 1개). 이 동작은 동일한 논리 메시지로 여러 시각적 알림을 나타내야 하는 경우(예: Windows 스토어 애플리케이션에 뱃지와 알림을 모두 표시해야 하는 경우)에 유용합니다.
    
     자세한 내용은 [템플릿](notification-hubs-templates-cross-platform-push-messages.md)을 사용하세요.
 

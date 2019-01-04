@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: a4f9fc31f411d36e63775a3665b6dfe27eec7710
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e76464e294a3378bf3a275ec4fe7ccbd87c09475
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318942"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011643"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Azure Security Center에서 모니터링되는 Azure 보안 정책
 이 문서에서는 Security Center에서 모니터링할 수 있는 Azure Policy 정의 목록을 제공합니다.
@@ -43,7 +43,7 @@ Security Center에서 모니터링되는 기본 제공 정책을 이해하려면
 |Service Fabric에서 EncryptAndSign에 대한 ClusterProtectionLevel 속성의 설정 감사|Service Fabric은 기본 클러스터 인증서를 사용하여 노드 간 통신을 위한 3단계 보호(None, Sign 및 EncryptAndSign)를 제공합니다. 모든 노드 간 메시지가 암호화되고 디지털로 서명될 수 있게 보호 수준을 설정합니다.| 
 |Service Fabric의 클라이언트 인증에 대한 Azure Active Directory의 사용 감사|Service Fabric에서 Azure Active Directory를 통한 클라이언트 인증의 사용만 감사| 
 |검색 서비스에 대해 진단 로그의 사용 감사|로그 사용을 감사하고 최대 1년까지 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다.| 
-|Redis Cache에 대한 보안 연결의 사용만 감사|SSL을 통한 Redis Cache 연결의 사용만 감사합니다. 보안 연결을 사용하여 서버와 서비스 간 인증을 보장하고 전송 중인 데이터를 메시지 가로채기(man-in-the-middle), 도청 및 세션 하이재킹과 같은 네트워크 계층 공격으로부터 보호합니다.| 
+|Azure Cache for Redis에 대한 보안 연결의 사용만 감사|SSL을 통해 설정된 Azure Cache for Redis 연결만 감사 보안 연결을 사용하여 서버와 서비스 간 인증을 보장하고 전송 중인 데이터를 메시지 가로채기(man-in-the-middle), 도청 및 세션 하이재킹과 같은 네트워크 계층 공격으로부터 보호합니다.| 
 |Logic Apps에서 진단 로그의 사용 감사|로그 사용을 감사하고 최대 1년까지 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다.| 
 |Key Vault에서 진단 로그의 사용 감사|로그 사용을 감사하고 최대 1년까지 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다.|
 |이벤트 허브에서 진단 로그의 사용 감사|로그 사용을 감사하고 최대 1년까지 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다.| 
@@ -61,22 +61,22 @@ Security Center에서 모니터링되는 기본 제공 정책을 이해하려면
 |[미리 보기]: Azure Security Center에서 암호화되지 않은 SQL 데이터베이스 모니터링|암호화되지 않은 SQL Server 또는 데이터베이스는 Azure Security Center에서 권장 사항으로 모니터링됩니다.| 
 |[미리 보기]: Azure Security Center에서 감사되지 않은 SQL 데이터베이스 모니터링|SQL 감사가 켜져 있지 않은 SQL Server 및 데이터베이스는 Azure Security Center에서 권장 사항으로 모니터링됩니다.| 
 |[미리 보기]: Azure Security Center에서 누락된 시스템 업데이트 모니터링|서버의 누락된 보안 시스템 업데이트는 Azure Security Center에서 권장 사항으로 모니터링합니다.| 
-|[Preview]: 스토리지 계정에 대한 BLOB 암호화 누락 감사|이 정책은 BLOB 암호화 없이 스토리지 계정을 감사합니다. Microsoft.Storage 리소스 종류에만 적용되고 다른 스토리지 공급자에는 적용되지 않습니다. 가능한 네트워크 Just In Time 액세스는 Azure Security Center에서 권장 사항으로 모니터링됩니다.| 
+|[미리 보기]: 스토리지 계정에 대해 누락된 Blob 암호화 감사|이 정책은 BLOB 암호화 없이 스토리지 계정을 감사합니다. Microsoft.Storage 리소스 종류에만 적용되고 다른 스토리지 공급자에는 적용되지 않습니다. 가능한 네트워크 Just In Time 액세스는 Azure Security Center에서 권장 사항으로 모니터링됩니다.| 
 |[미리 보기]: Azure Security Center에서 가능한 네트워크 JIT(Just-In-time) 액세스 모니터링|가능한 네트워크 JIT(Just In Time) 액세스는 Azure Security Center에서 권장 사항으로 모니터링됩니다.| 
 |[미리 보기]: Azure Security Center에서 가능한 앱 허용 목록 모니터링|가능한 애플리케이션 허용 목록 구성은 Azure Security Center에서 모니터링됩니다.| 
 |[미리 보기]: Azure Security Center에서 관대한 네트워크 액세스 모니터링|매우 관대한 규칙을 사용하는 네트워크 보안 그룹은 Azure Security Center에서 권장 사항으로 모니터링됩니다.| 
-|[미리 보기]: Azure Security Center에서 누락된 OS 취약성 모니터링|구성된 기준을 충족하지 않는 서버는 Azure Security Center에서 권장 사항으로 모니터링됩니다.| 
+|[미리 보기]: Azure Security Center에서 OS 취약성 모니터링|구성된 기준을 충족하지 않는 서버는 Azure Security Center에서 권장 사항으로 모니터링됩니다.| 
 |[미리 보기]: Azure Security Center에서 누락된 Endpoint Protection 모니터링|Endpoint Protection 에이전트가 설치되어 있지 않은 서버는 Azure Security Center에서 권장 사항으로 모니터링됩니다.| 
-|[미리 보기]: Azure Security Center의 암호화되지 않은 VM 디스크 모니터링|디스크 암호화를 사용하도록 설정하지 않은 VM은 Azure Security Center에서 권장 사항으로 모니터링됩니다.| 
+|[미리 보기]: Azure Security Center에서 암호화되지 않은 VM 디스크 모니터링|디스크 암호화를 사용하도록 설정하지 않은 VM은 Azure Security Center에서 권장 사항으로 모니터링됩니다.| 
 |[미리 보기]: Azure Security Center에서 VM 취약성 모니터링|권장 구성에 따라 Azure Security Center에서 취약성 평가 솔루션이 발견한 취약성과 취약성 평가 솔루션 없이 VM이 발견한 취약성을 모니터링합니다.| 
 |[미리 보기]: Azure Security Center에서 보호되지 않은 웹 애플리케이션 모니터링|웹 애플리케이션 방화벽 보호가 없는 웹 애플리케이션은 Azure Security Center에서 권장 사항으로 모니터링됩니다.| 
-|[미리 보기]: Azure Security Center의 보호되지 않은 네트워크 엔드포인트 모니터링|차세대 방화벽의 보호가 없는 네트워크 엔드포인트는 Azure Security Center에서 권장 사항으로 모니터링됩니다.| 
+|[미리 보기]: Azure Security Center에서 보호되지 않은 네트워크 엔드포인트 모니터링|차세대 방화벽의 보호가 없는 네트워크 엔드포인트는 Azure Security Center에서 권장 사항으로 모니터링됩니다.| 
 |[미리 보기]: Azure Security Center에서 SQL 취약성 평가 결과 모니터링|취약성 평가 검사 결과 및 데이터베이스 취약성을 해결하는 방법에 대한 권장 사항을 모니터링합니다.| 
 |[미리 보기]: 구독에 대한 최대 소유자 수 감사|보안이 침해된 소유자의 위반 가능성을 줄이려면 최대 3명의 구독 소유자를 지정하는 것이 좋습니다.| 
 |[미리 보기]: 구독에 대한 최소 소유자 수 감사|관리자 액세스 중복성을 유지하려면 둘 이상의 구독 소유자를 지정하는 것이 좋습니다.| 
 |[미리 보기]: 구독에서 MFA가 사용하도록 설정되지 않은 소유자 권한이 있는 계정 감사|계정 또는 리소스 위반을 방지하려면 소유자 권한이 있는 모든 구독 계정에 대해 MFA(Multi-Factor Authentication)를 사용하도록 설정해야 합니다.| 
-|[미리 보기]: 구독에서 MFA를 사용하도록 설정되지 않은 쓰기 권한이 있는 계정 감사|계정 또는 리소스 위반을 방지하려면 쓰기 권한이 있는 모든 구독 계정에서 MFA(Multi-Factor Authentication)를 사용하도록 설정해야 합니다.| 
-|[미리 보기]: 구독에서 MFA를 사용하도록 설정되지 않은 읽기 권한이 있는 계정 감사|계정 또는 리소스 위반을 방지하려면 읽기 권한이 있는 모든 구독 계정에서 MFA(Multi-Factor Authentication)를 사용하도록 설정해야 합니다.| 
+|[미리 보기]: 구독에서 MFA가 사용하도록 설정되지 않은 쓰기 권한이 있는 계정 감사|계정 또는 리소스 위반을 방지하려면 쓰기 권한이 있는 모든 구독 계정에서 MFA(Multi-Factor Authentication)를 사용하도록 설정해야 합니다.| 
+|[미리 보기]: 구독에서 MFA가 사용하도록 설정되지 않은 읽기 권한이 있는 계정 감사|계정 또는 리소스 위반을 방지하려면 읽기 권한이 있는 모든 구독 계정에서 MFA(Multi-Factor Authentication)를 사용하도록 설정해야 합니다.| 
 |[미리 보기]: 구독에서 소유자 권한이 있는 사용되지 않는 계정 감사|소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다. 사용되지 않는 계정은 로그인이 차단된 계정입니다.| 
 |[미리 보기]: 구독에서 사용되지 않는 계정 감사|더 이상 사용되지 않는 계정을 구독에서 제거해야 합니다. 사용되지 않는 계정은 로그인이 차단된 계정입니다.| 
 |[미리 보기]: 구독에서 소유자 권한이 있는 외부 계정 감사|모니터링되지 않는 액세스를 방지하려면 소유자 권한이 있는 외부 계정을 구독에서 제거해야 합니다.| 
@@ -91,9 +91,9 @@ Security Center에서 모니터링되는 기본 제공 정책을 이해하려면
 
 * [Azure Security Center 계획 및 작업 가이드](security-center-planning-and-operations-guide.md): Azure Security Center에 대한 디자인 고려 사항을 계획하고 이해하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md): Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md): 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
-* [Azure Security Center에서 파트너 솔루션 모니터링](security-center-partner-solutions.md): 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center FAQ](security-center-faq.md): 서비스 사용에 관한 질문과 대답을 가져옵니다.
-* [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+* [Azure Security Center에서 보안 경고 관리 및 응답](security-center-managing-and-responding-alerts.md): 보안 경고를 관리하고 응답하는 방법을 알아봅니다.
+* [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md): 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
+* [Azure Security Center FAQ](security-center-faq.md): 서비스 사용에 관한 질문과 대답에 대한 답을 가져옵니다.
+* [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/): Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 
 Azure Policy에 대해 자세히 알아보려면 [Azure Policy란?](../azure-policy/azure-policy-introduction.md)을 참조하세요.

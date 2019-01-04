@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure Active Directory B2C 테넌트 만들기 | Microsoft Docs
-description: Azure Portal을 사용하여 Azure Active Directory B2C 테넌트를 만들어서 응용 프로그램 등록을 준비하는 방법을 알아봅니다.
+description: Azure Portal을 사용하여 Azure Active Directory B2C 테넌트를 만들어서 애플리케이션 등록을 준비하는 방법을 알아봅니다.
 services: B2C
 author: davidmu1
 manager: mtillman
@@ -19,7 +19,7 @@ ms.locfileid: "47408405"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>자습서: Azure Active Directory B2C 테넌트 만들기
 
-응용 프로그램이 Azure AD(Azure Active Directory) B2C와 상호 작용하려면 먼저 사용자가 관리하는 테넌트에 등록되어야 합니다.
+애플리케이션이 Azure AD(Azure Active Directory) B2C와 상호 작용하려면 먼저 사용자가 관리하는 테넌트에 등록되어야 합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "47408405"
 > * Azure AD B2C 테넌트 만들기
 > * 구독에 테넌트 연결
 
-응용 프로그램을 등록하는 방법은 다음 자습서에서 알아봅니다.
+애플리케이션을 등록하는 방법은 다음 자습서에서 알아봅니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

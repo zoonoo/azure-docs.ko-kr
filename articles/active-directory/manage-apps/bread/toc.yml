@@ -7,7 +7,7 @@ items:
     tocHref: /azure/active-directory/saas-apps/
     topicHref: /azure/active-directory/index
     items:
-    - name: 응용 프로그램 관리
+    - name: 애플리케이션 관리
       tocHref: /azure/active-directory/saas-apps/
       topicHref: /azure/active-directory/manage-apps/index
 - name: Azure
@@ -18,7 +18,7 @@ items:
     tocHref: /azure/active-directory/fundamentals/
     topicHref: /azure/active-directory/index
     items:
-    - name: 응용 프로그램 관리
+    - name: 애플리케이션 관리
       tocHref: /azure/active-directory/fundamentals/
       topicHref: /azure/active-directory/manage-apps/index
 ms.openlocfilehash: e05a4ebaf0d27196bef326bc3e1d3c72e748c1ed

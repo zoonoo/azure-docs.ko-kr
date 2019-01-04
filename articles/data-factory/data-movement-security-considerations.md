@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 3c2b44455b417d1bc764337d91a5535d7ffa34a5
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: ad6fe023c4e93328331140dc3552ae1afd7c83ef
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783375"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970646"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -167,7 +167,7 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 | ------------- | ---------------------------------------- |
 | 8050(TCP)    | 자체 호스팅 통합 런타임에서 온-프레미스 데이터 저장소에 대한 자격 증명을 안전하게 설정하기 위해 [Azure Data Factory의 온-프레미스 데이터 저장소에 대한 자격 증명 암호화](encrypt-credentials-self-hosted-integration-runtime.md)에 설명된 대로 PowerShell Encryption cmdlet에서, 그리고 자격 증명 관리자 응용 프로그램에서 필요합니다. |
 
-![게이트웨이 포트 요구 사항](media\data-movement-security-considerations/gateway-port-requirements.png) 
+![게이트웨이 포트 요구 사항](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
 #### <a name="ip-configurations-and-whitelisting-in-data-stores"></a>데이터 저장소의 IP 구성 및 허용 목록 포함
 클라우드의 일부 데이터 저장소는 저장소에 액세스하는 컴퓨터의 IP 주소를 허용 목록에 포함해야 합니다. 자체 호스팅 통합 런타임 컴퓨터의 IP 주소가 방화벽에서 제대로 허용 목록에 추가되거나 구성되어 있는지 확인합니다.

@@ -1,22 +1,23 @@
 ---
-title: Azure AD 앱을 포함한 Azure Disk Encryption 필수 구성 요소(이전 릴리스) | Microsoft Docs
+title: Azure AD 앱을 포함한 Azure Disk Encryption 필수 구성 요소(이전 릴리스)
 description: 이 문서에서는 IaaS VM용 Microsoft Azure Disk Encryption을 사용하기 위한 필수 구성 요소를 설명합니다.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 10/12/2018
-ms.openlocfilehash: d81925589eefa0ea5851180c83db5bc3540aabda
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 12/13/2018
+ms.custom: seodec18
+ms.openlocfilehash: a9beb782496c9234a93f17ffc825e9b4501f2296
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262689"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342411"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure Disk Encryption 필수 구성 요소(이전 릴리스)
 
-**Azure Disk Encryption의 새 릴리스는 Azure AD 응용 프로그램 매개 변수 제공에 대한 요구 사항을 제거하여 VM 디스크 암호화를 사용하도록 설정합니다. 새 릴리스를 사용하면 암호화 단계를 사용하는 동안 더 이상 Azure AD 자격 증명을 제공할 필요가 없습니다. 모든 새 VM은 새 릴리스를 사용하는 Azure AD 응용 프로그램 매개 변수를 사용하지 않고 암호화되어야 합니다. 새 릴리스를 사용하여 VM 디스크 암호화를 설정하는 방법을 보려면 [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md)을 참조하세요. Azure AD 응용 프로그램 매개 변수를 사용하여 이미 암호화된 VM도 여전히 지원되며 AAD 구문을 사용하여 계속 유지 관리되어야 합니다.**
+**Azure Disk Encryption의 새 릴리스는 Azure AD 응용 프로그램 매개 변수 제공에 대한 요구 사항을 제거하여 VM 디스크 암호화를 사용하도록 설정합니다. 새 릴리스를 사용하면 암호화 단계를 사용하는 동안 더 이상 Azure AD 자격 증명을 제공할 필요가 없습니다. 모든 새 VM은 새 릴리스를 사용하는 Azure AD 애플리케이션 매개 변수를 사용하지 않고 암호화되어야 합니다. 새 릴리스를 사용하여 VM 디스크 암호화를 설정하는 방법을 보려면 [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md)을 참조하세요. Azure AD 애플리케이션 매개 변수를 사용하여 이미 암호화된 VM도 여전히 지원되며 AAD 구문을 사용하여 계속 유지 관리되어야 합니다.**
 
  'Azure Disk Encryption 필수 구성 요소'라는 이 문서에서는 Azure Disk Encryption을 사용하기 전에 필요한 항목에 대해 설명합니다. 일반적인 필수 구성 요소와 함께 Azure Disk Encryption은 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)와 통합되고, 키 자격 증명 모음의 암호화 키를 관리하기 위해 Azure AD 응용 프로그램을 사용하여 인증을 제공합니다. 또한 [Azure PowerShell](/powershell/azure/overview) 또는 [Azure CLI](/cli/azure/)를 사용하여 Key Vault 및 Azure AD 응용 프로그램을 설정하거나 구성할 수 있습니다.
 
@@ -71,7 +72,7 @@ Azure Disk Encryption이 지원되는 운영 체제는 다음과 같습니다.
 **그룹 정책:**
  - Azure Disk Encryption 솔루션은 Windows IaaS VM에 대해 BitLocker 외부 키 보호기를 사용합니다. 도메인 가입 VM의 경우 TPM 보호기를 적용하는 그룹 정책을 푸시하지 않습니다. "호환되는 TPM이 없이 BitLocker 허용"에 대한 그룹 정책 정보는 [BitLocker 그룹 정책 참조](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup)를 참조하세요.
 
--  사용자 지정 그룹 정책을 사용하는 도메인 가입 가상 머신의 Bitlocker 정책에는 [Bitlocker 복구 정보의 사용자 저장소 구성 -> 256비트 복구 키 허용](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings) 설정이 포함되어야 합니다. Bitlocker에 대한 사용자 지정 그룹 정책 설정이 호환되지 않으면 Azure Disk Encryption이 실패합니다. 올바른 정책 설정이 없는 머신에서 새 정책을 적용하고, 새 정책을 강제로 업데이트한(gpupdate.exe /force) 다음, 다시 시작해야 할 수 있습니다.  
+-  사용자 지정 그룹 정책을 사용하는 도메인 가입 가상 머신의 Bitlocker 정책은 다음 설정을 포함해야 합니다. [bitlocker 복구 정보의 사용자 스토리지 구성 -> 256비트 복구 키 허용](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Bitlocker에 대한 사용자 지정 그룹 정책 설정이 호환되지 않으면 Azure Disk Encryption이 실패합니다. 올바른 정책 설정이 없는 머신에서 새 정책을 적용하고, 새 정책을 강제로 업데이트한(gpupdate.exe /force) 다음, 다시 시작해야 할 수 있습니다.  
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
@@ -246,23 +247,23 @@ Azure에서 실행 중인 VM에서 암호화를 사용하도록 설정해야 하
 
 1. [필요한 권한 확인](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)
 2. [Azure Active Directory 응용 프로그램 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
-     - 응용 프로그램을 만들 때 원하는 이름과 로그온 URL을 사용할 수 있습니다.
+     - 애플리케이션을 만들 때 원하는 이름과 로그온 URL을 사용할 수 있습니다.
 3. [응용 프로그램 ID 및 인증 키 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) 
      - 인증 키는 클라이언트 비밀이며, Set-AzureRmVMDiskEncryptionExtension에 대한 AadClientSecret로 사용됩니다. 
-        - 인증 키는 응용 프로그램에서 Azure AD에 로그인하기 위한 자격 증명으로 사용됩니다. Azure Portal에서 이 비밀은 키라고 하지만, 키 자격 증명 모음과는 아무런 관련이 없습니다. 이 비밀을 적절하게 보호하세요. 
-     - 응용 프로그램 ID는 나중에 Set-AzureRmVMDiskEncryptionExtension에 대한 AadClientId 및 Set-AzureRmKeyVaultAccessPolicy에 대한 ServicePrincipalName으로 사용됩니다. 
+        - 인증 키는 애플리케이션에서 Azure AD에 로그인하기 위한 자격 증명으로 사용됩니다. Azure Portal에서 이 비밀은 키라고 하지만, 키 자격 증명 모음과는 아무런 관련이 없습니다. 이 비밀을 적절하게 보호하세요. 
+     - 애플리케이션 ID는 나중에 Set-AzureRmVMDiskEncryptionExtension에 대한 AadClientId 및 Set-AzureRmKeyVaultAccessPolicy에 대한 ServicePrincipalName으로 사용됩니다. 
 
 ## <a name="bkmk_KVAP"></a> Azure AD 응용 프로그램에 대한 키 자격 증명 모음 액세스 정책 설정
 지정된 Key Vault에 암호화 비밀을 쓰려면 Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure Active Directory 응용 프로그램의 클라이언트 ID와 클라이언트 비밀이 Azure Disk Encryption에 필요합니다. 
 
 > [!NOTE]
-> Azure Disk Encryption에서는 Azure AD 클라이언트 응용 프로그램에 _WrapKey_ 및 _Set_ 권한과 같은 액세스 정책을 구성해야 합니다.
+> Azure Disk Encryption에서는 Azure AD 클라이언트 애플리케이션에 _WrapKey_ 및 _Set_ 권한과 같은 액세스 정책을 구성해야 합니다.
 
 ### <a name="bkmk_KVAPPSH"></a> Azure PowerShell을 사용하여 Azure AD 응용 프로그램에 대한 키 자격 증명 모음 액세스 정책 설정
-Azure AD 응용 프로그램에 자격 증명 모음의 키 또는 암호에 액세스할 권한이 필요합니다. 클라이언트 ID(응용 프로그램을 등록할 때 생성됨)를 _–ServicePrincipalName_ 매개 변수 값으로 사용하여 응용 프로그램에 권한을 부여하려면 [Set-AzureKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet을 사용합니다. 자세한 내용은 블로그 게시물 [Azure Key Vault - 단계별](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx)을 참조하세요. 
+Azure AD 응용 프로그램에 자격 증명 모음의 키 또는 암호에 액세스할 권한이 필요합니다. 클라이언트 ID(응용 프로그램을 등록할 때 생성됨)를 _–ServicePrincipalName_ 매개 변수 값으로 사용하여 응용 프로그램에 권한을 부여하려면 [Set-AzureKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet을 사용합니다. 자세한 내용은 블로그 게시물 [Azure Key Vault - 단계별](https://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx)을 참조하세요. 
 
 1. 필요한 경우 [Azure 구독에 연결](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH)합니다.
-2. PowerShell을 사용하여 AD 응용 프로그램에 대한 키 자격 증명 모음 액세스 정책을 설정합니다.
+2. PowerShell을 사용하여 AD 애플리케이션에 대한 키 자격 증명 모음 액세스 정책을 설정합니다.
 
      ```azurepowershell-interactive
      $keyVaultName = 'MySecureVault'
@@ -315,7 +316,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
   - **필요한 경우 템플릿 배포에 Key Vault 사용:** 이 키 자격 증명 모음이 템플릿 배포에서 참조되는 경우 Azure Resource Manager에서 이 키 자격 증명 모음으로부터 비밀을 가져올 수 있도록 합니다.
 
      ```azurepowershell-interactive             
-     Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForTemplateDeployment`
+     Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForTemplateDeployment
      ```
 
 ### <a name="bkmk_KVperCLI"></a> Azure CLI를 사용하여 키 자격 증명 모음에 대한 고급 액세스 정책 설정
@@ -332,7 +333,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
      az keyvault update --name "MySecureVault" --resource-group "MySecureRG" --enabled-for-deployment "true"
      ``` 
 
- - **필요한 경우 템플릿 배포에 Key Vault 사용:** Resource Manager에서 자격 증명 모음으로부터 비밀을 검색할 수 있도록 허용합니다.
+ - **필요한 경우 템플릿 배포에 Key Vault 사용:** Resource Manager가 자격 증명 모음에서 비밀을 검색할 수 있습니다.
      ```azurecli-interactive  
      az keyvault update --name "MySecureVault" --resource-group "MySecureRG" --enabled-for-template-deployment "true"
      ```

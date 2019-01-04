@@ -72,9 +72,9 @@ Windows에서 실행되는 이 코드를 가져오려면 [Visual Studio 2017](ht
 
 이 빠른 시작에서는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 구독 키 또는 유료 구독 키를 사용할 수 있습니다.
 
-## <a name="running-the-application"></a>응용 프로그램 실행
+## <a name="running-the-application"></a>애플리케이션 실행
 
-이 응용 프로그램을 실행하려면 다음 단계를 따릅니다.
+이 애플리케이션을 실행하려면 다음 단계를 따릅니다.
 
 1. Visual Studio에서 새 콘솔 솔루션을 만듭니다.
 1. `Program.cs`의 내용을 이 빠른 시작에 표시되는 코드로 바꿉니다.
@@ -248,9 +248,9 @@ namespace VisualSearchInsightsToken
 
 이 빠른 시작에서는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 구독 키 또는 유료 구독 키를 사용할 수 있습니다.
 
-## <a name="running-the-application"></a>응용 프로그램 실행
+## <a name="running-the-application"></a>애플리케이션 실행
 
-이 응용 프로그램을 실행하려면 다음 단계를 따릅니다.
+이 애플리케이션을 실행하려면 다음 단계를 따릅니다.
 
 1. [gson 라이브러리](https://github.com/google/gson)를 다운로드하거나 설치합니다. Maven을 통해 얻을 수도 있습니다.
 2. 즐겨 찾는 IDE 또는 편집기에서 새 Java 프로젝트를 만듭니다.
@@ -366,9 +366,9 @@ public class InsightsToken {
 
 이 빠른 시작에서는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 구독 키 또는 유료 구독 키를 사용할 수 있습니다.
 
-## <a name="running-the-application"></a>응용 프로그램 실행
+## <a name="running-the-application"></a>애플리케이션 실행
 
-이 응용 프로그램을 실행하려면 다음 단계를 따릅니다.
+이 애플리케이션을 실행하려면 다음 단계를 따릅니다.
 
 1. 프로젝트에 대한 폴더를 만듭니다(또는 즐겨찾는 IDE 또는 편집기 사용).
 2. 명령 프롬프트 또는 터미널에서, 방금 만든 폴더로 이동합니다.
@@ -436,7 +436,7 @@ function requestCallback(err, res, body) {
 
 ## <a name="running-the-walkthrough"></a>연습 실행
 
-이 응용 프로그램을 실행하려면 다음 단계를 따릅니다.
+이 애플리케이션을 실행하려면 다음 단계를 따릅니다.
 
 1. 즐겨 찾는 IDE 또는 편집기에서 새 Python 프로젝트를 만듭니다.
 2. visualsearch.py라는 파일을 만들고, 이 빠른 시작에 표시되는 코드를 추가합니다.

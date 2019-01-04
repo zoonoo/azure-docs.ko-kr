@@ -38,7 +38,7 @@ Log Analytics는 네트워크를 모니터링하기 위해 다음과 같은 솔�
 
 * 공용 클라우드 및 온-프레미스
 * 데이터 센터 및 사용자 위치(지점)
-* 다중 계층 응용 프로그램의 다양한 계층을 호스팅하는 서브넷
+* 다중 계층 애플리케이션의 다양한 계층을 호스팅하는 서브넷
 
 자세한 내용은 [네트워크 성능 모니터](https://docs.microsoft.com/azure/networking/network-monitoring-overview)를 참조하세요.
 
@@ -104,7 +104,7 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 
 #### <a name="enable-azure-network-diagnostics-using-powershell"></a>PowerShell을 사용하여 Azure 네트워크 진단 사용 설정
 
-다음 PowerShell 스크립트는 응용 프로그램 게이트웨이에 진단 로깅을 사용하도록 설정하는 방법에 대한 예제를 제공합니다.
+다음 PowerShell 스크립트는 애플리케이션 게이트웨이에 진단 로깅을 사용하도록 설정하는 방법에 대한 예제를 제공합니다.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -117,7 +117,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $work
 ### <a name="use-azure-application-gateway-analytics"></a>Azure Application Gateway 분석 사용
 ![Azure Application Gateway 분석 타일 이미지](media/azure-networking-analytics/log-analytics-appgateway-tile.png)
 
-[개요]에서 **Azure Application Gateway 분석** 타일을 클릭한 후 로그 요약을 확인한 후 다음 범주에 대한 세부 정보를 파악할 수 있습니다.
+개요에서 **Azure Application Gateway 분석** 타일을 클릭한 후 로그 요약을 확인한 후 다음 범주에 대한 세부 정보를 파악할 수 있습니다.
 
 * Application Gateway 액세스 로그
   * Application Gateway 액세스 로그에 대한 클라이언트 및 서버 오류
@@ -126,7 +126,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $work
   * Application Gateway에 대한 사용자 에이전트별 오류
 * Application Gateway 성능 
   * Application Gateway에 대한 호스트 상태
-  * Application Gateway 실패한 요청에 대해 최대값 및 95번째 백분위수
+  * Application Gateway 실패한 요청에 대해 최댓값 및 95번째 백분위수
 
 ![Azure Application Gateway 분석 대시보드 이미지](media/azure-networking-analytics/log-analytics-appgateway01.png)
 

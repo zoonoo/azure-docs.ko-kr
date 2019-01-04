@@ -41,7 +41,7 @@ ms.locfileid: "40234783"
 인증서 키를 포함하는 Key Vault 참조하여 Cluster Resource Manager 템플릿에 인증서를 추가합니다. Resource Manager 템플릿 매개 변수 파일(*azuredeploy.parameters.json*)에 해당 키 자격 증명 모음 매개 변수 및 값을 추가합니다.
 
 ### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>가상 머신 확장 집합 osProfile에 모든 인증서 추가
-클러스터에 설치된 모든 인증서는 확장 집합 리소스(Microsoft.Compute/virtualMachineScaleSets)의 **osProfile** 섹션에 구성되어야 합니다. 이 작업은 리소스 공급자에게 인증서를 VM에 설치하도록 지시합니다. 이 설치에는 클러스터 인증서와, 응용 프로그램에 사용하려는 모든 응용 프로그램 보안 인증서가 포함됩니다.
+클러스터에 설치된 모든 인증서는 확장 집합 리소스(Microsoft.Compute/virtualMachineScaleSets)의 **osProfile** 섹션에 구성되어야 합니다. 이 작업은 리소스 공급자에게 인증서를 VM에 설치하도록 지시합니다. 이 설치에는 클러스터 인증서와, 애플리케이션에 사용하려는 모든 애플리케이션 보안 인증서가 포함됩니다.
 
 ```json
 {
@@ -196,7 +196,7 @@ Azure Service Fabric RM PowerShell 모듈을 사용하려는 경우 클러스터
 },
 ```
 
-응용 프로그램 인증서를 사용하거나 키 자격 증명 모음에 업로드한 기존 클러스터를 사용하는 경우 이 정보를 가져와서 채워야 합니다.
+애플리케이션 인증서를 사용하거나 키 자격 증명 모음에 업로드한 기존 클러스터를 사용하는 경우 이 정보를 가져와서 채워야 합니다.
 
 RM 모듈에는 Azure AD 구성을 생성하는 기능이 없으므로 클라이언트 액세스에 Azure AD를 사용하려는 경우 채워야 합니다.
 

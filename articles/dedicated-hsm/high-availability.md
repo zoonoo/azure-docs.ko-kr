@@ -1,22 +1,23 @@
 ---
-title: Azure Dedicated HSM 고가용성 | Microsoft 문서
-description: Azure Dedicated HSM은 Azure 내에서 FIPS 140-2 수준 3 인증을 충족하는 키 스토리지 기능을 제공합니다.
+title: 고가용성 - Azure Dedicated HSM | Microsoft Docs
+description: Azure Dedicated HSM 고가용성 예제 및 기본적인 고려 사항
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: eb3c6ea64b55d59f261927925d4d4ae87546bf95
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 991482d3d6be4d09b37014e5bb03708987e0f74e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319242"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078177"
 ---
 # <a name="azure-dedicated-hsm-high-availability"></a>Azure Dedicated HSM 고가용성
 

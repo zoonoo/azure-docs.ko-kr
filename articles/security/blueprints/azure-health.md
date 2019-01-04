@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: c0255ff31353ca8fe0cf684af53a12654b400208
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b7232a72a2090465dfd75ef6a4277930e45bf9ed
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407557"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315777"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 
@@ -59,9 +59,9 @@ IaaS 솔루션은 온-프레미스 SQL 기반 솔루션을 Azure로 마이그레
 
 -   **[고객 구현 매트릭스](https://aka.ms/healthcrmblueprint)** Microsoft Excel 통합 문서에는 관련 HITRUST 요구 사항이 나와 있으며, Microsoft와 고객이 각각의 HITRUST 요구 사항을 충족시키는 방법에 대해 설명합니다.
 
--   **[상태 검토.](https://aka.ms/healthreviewpaper)** 솔루션은 Coalfire systems, Inc.에서 검토되었습니다. 구현에 대한 의료 규정 준수(HIPAA 및 HITRUST) \'검토 및 지침에서 감사자의 솔루션에 대한 검토 및 청사진을 프로덕션 준비 배포로 변환하기 위한 고려 사항을 제공합니다.
+-   **[상태 검토.](https://aka.ms/healthreviewpaper)** 이 솔루션은 Coalfire systems, Inc.에서 검토되었습니다. 상태 규정 준수(HIPAA 및 HITRUST) 검토 및 구현에 대한 지침은 이 솔루션에 대한 감사자 검토와, 블루프린트를 프로덕션 가능한 배포로 전환하기 위한 고려 사항을 제공합니다.
 
-# <a name="architectural-diagram"></a>아키텍처 다이어그램
+## <a name="architectural-diagram"></a>아키텍처 다이어그램
 
 
 ![](images/ra2.png)
@@ -87,7 +87,7 @@ IaaS 솔루션은 온-프레미스 SQL 기반 솔루션을 Azure로 마이그레
 데이터베이스 분석가는 SQL Server 인스턴스와 데이터베이스를 관리합니다.
 환자 레코드에는 액세스할 수 없습니다.
 
--   기본 역할 할당: [SQL DB 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [SQL Server 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
+-   기본 제공 역할 할당: [SQL DB 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [SQL Server 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
 -   사용자 지정 역할 할당: 해당 없음
 
@@ -98,7 +98,7 @@ IaaS 솔루션은 온-프레미스 SQL 기반 솔루션을 Azure로 마이그레
 
 데이터 과학자는 Azure Machine Learning Studio를 운영합니다. 데이터를 가져오고, 내보내고, 관리하고, 보고서를 실행할 수 있습니다. 데이터 과학자는 환자 데이터에 액세스할 수 있지만 관리자 권한은 없습니다.
 
--   기본 제공 역할 할당: [저장소 계정 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
+-   기본 제공 역할 할당: [Storage 계정 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
 -   사용자 지정 역할 할당: 해당 없음
 
@@ -128,7 +128,7 @@ CMIO는 의료 조직의 정보학/기술과 의료 전문가 간의 격차를 �
 
 솔루션의 규정 준수를 평가하며, 네트워크에 직접 액세스할 수 없습니다.
 
--   기본 제공 역할 할당: [구독자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
+-   기본 제공 역할 할당: [판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
 -   사용자 지정 역할 할당: 해당 없음
 
@@ -184,7 +184,7 @@ Contosoclinic에서 환자의 입원과 퇴원을 직접 관리해야 하는 개
 Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자이며, Contosoclinc의 네트워크를 검토하기 위해 고용되었습니다. Han은 청사진 및 LOS 솔루션을 통해 중요한 개인 데이터를 저장, 처리 및 표시할 수 있도록 하기 위해 솔루션과 함께 제공된 고객 책임 매트릭스를 검토할 수 있습니다.
 
 
-# <a name="design-configuration"></a>디자인 구성
+## <a name="design-configuration"></a>디자인 구성
 
 
 이 섹션에서는 청사진에 기본 제공된 기본 구성 및 보안 조치에 대해 자세히 설명합니다.
@@ -267,7 +267,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 
 **2. 새 환자 입원**
 
-데모 스크립트. .\\HealthcareDemo.ps1을 **BulkPatientadmission** 스위치와 함께 사용하는 경우 **데모 배포 및 실행**의 설명에 따라 다음 처리 파이프라인을 실행합니다.![](images/securetransact.png)
+데모 스크립트. .\\HealthcareDemo.ps1을 **BulkPatientadmission** 스위치와 함께 사용하는 경우 **데모 배포 및 실행**의 설명에 따라 다음 처리 파이프라인을 실행합니다. ![](images/securetransact.png)
 **1. Azure Function**이 트리거되고 함수에서 Azure Active 디렉터리의 [전달자 토큰](/rest/api/)을 요청합니다.
 
 **2. Key Vault**에 요청한 토큰과 연결된 비밀을 요청합니다.
@@ -345,8 +345,8 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 ### <a name="machine-learning"></a>Machine Learning
 
 
--   Machine Learning Studio 웹 서비스에 대해 [로깅을 사용하도록 설정](/azure/machine-learning/studio/web-services-logging)합니다.
-- [Machine Learning Studio](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) Workbench를 사용하면 솔루션 집합을 예측하는 기능을 제공하는 실험을 개발할 필요가 있습니다. [Workbench를 통합](/azure/machine-learning/desktop-workbench/using-git-ml-project)하면 실험 관리를 간소화할 수 있습니다.
+- Machine Learning Studio 웹 서비스에 대해 [로깅을 사용하도록 설정](/azure/machine-learning/studio/web-services-logging)합니다.
+- [Machine Learning Studio](/azure/machine-learning/studio/what-is-ml-studio)를 사용하면 솔루션 집합을 예측하는 기능을 제공하는 실험을 개발할 필요가 있습니다.
 
 ## <a name="security"></a>보안
 

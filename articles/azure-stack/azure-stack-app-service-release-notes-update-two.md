@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: 9f320f508fd45b6ad70b1357e873663796825621
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: f40d88df7a46c73981b6f20bee0b119743c08257
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078803"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714494"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>App Service에서 Azure Stack 업데이트 2 릴리스 정보
 
@@ -66,7 +66,7 @@ Azure Stack 업데이트 2의 azure App Service는 다음과 같은 향상 된 �
   - .NET Core 업데이트 공용 클라우드에서 Azure App Service를 사용 하 여 일관 되도록 구성 합니다.
   - 업데이트 된 Kudu
 
-- 배포의 자동 교환 슬롯 기능 사용- [자동 교환 구성](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing#configure-auto-swap)
+- 배포의 자동 교환 슬롯 기능 사용- [자동 교환 구성](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)
 
 - 프로덕션 기능 사용-에서 테스트 [프로덕션에서 테스트 소개](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
@@ -83,7 +83,7 @@ Azure Stack 업데이트 2의 azure App Service는 다음과 같은 향상 된 �
 - 작업자는 기존 가상 네트워크에 App Service 배포 되 고 파일 서버 에서만 사용 가능 개인 네트워크의 경우 파일 서버에 연결할 수 없습니다.
 
 기존 가상 네트워크와 파일 서버에 연결할 내부 IP 주소에 배포 하기로 선택한 경우 아웃 바운드 보안 규칙을 추가 하 있습니다 작업자 서브넷과 파일 서버 간에 SMB 트래픽을 사용 하도록 설정 해야 합니다. 이렇게 하려면 관리 포털에서 WorkersNsg 이동한 다음 속성을 사용 하 여 아웃 바운드 보안 규칙을 추가 합니다.
- * 원본: 모든
+ * 원본: 모두
  * 원본 포트 범위: *
  * 대상: IP 주소
  * 대상 IP 주소 범위: 파일 서버에 대 한 Ip의 범위

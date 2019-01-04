@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: ac25fa1bcca9a49054f37d8799511fbc7d95645b
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 247c12fb15fe8aa82c3a29c4c2d1e704db40e424
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584101"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141512"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Azure IoT Hub 가격 책정 정보
 
@@ -35,6 +35,7 @@ ms.locfileid: "47584101"
 | 디바이스 및 모듈 쌍 쿼리 | 쿼리는 결과 크기에 따라 512바이트 청크 단위 메시지로 요금이 청구됩니다. |
 | 작업 연산 <br/> (만들기, 업데이트, 나열, 삭제) | 요금이 부과되지 않습니다. |
 | 장치 단위 작업 연산 | 작업 연산(예: 쌍 업데이트 및 메서드)은 정상적으로 요금이 청구됩니다. 예를 들어 1000개 메서드 호출로 1KB 요청 및 비어 있는 본문 응답을 야기하는 작업은 1000개 메시지로 요금이 청구됩니다. |
+| 연결 유지 메시지 | AMQP 또는 MQTT 프로토콜을 사용하는 경우 연결을 설정하기 위해 교환되는 메시지 및 협상에서 교환되는 메시지는 청구되지 않습니다. |
 
 > [!NOTE]
 > 모든 크기는 바이트 단위의 페이로드 크기를 고려해서 계산됩니다(프로토콜 프레이밍은 무시됨). 속성 및 본문이 있는 메시지의 경우 크기는 프로토콜을 고려하지 않는 방식으로 산출됩니다. 자세한 내용은 [IoT Hub 메시지 형식](iot-hub-devguide-messages-construct.md)을 참조하세요.

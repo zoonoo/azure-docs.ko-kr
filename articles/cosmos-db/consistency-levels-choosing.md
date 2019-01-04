@@ -1,22 +1,21 @@
 ---
-title: Azure Cosmos DB를 사용하는 애플리케이션에 대한 올바른 일관성 수준 선택 | Microsoft Docs
-description: Azure Cosmos DB에서 응용 프로그램에 대한 올바른 일관성 수준 선택
+title: Azure Cosmos DB를 사용하는 애플리케이션에 대한 올바른 일관성 수준 선택
+description: Azure Cosmos DB에서 애플리케이션에 대한 올바른 일관성 수준 선택
 keywords: 일관성, 성능, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
 author: markjbrown
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.author: mjbrown
-ms.openlocfilehash: 42128a05ad9f82ff6b202eb6566c1fea60caa760
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: a1c7d750bcd0c3f37d2269aee299e0ccd8c4ef4a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162435"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849295"
 ---
-# <a name="choose-the-right-consistency-level-for-your-application"></a>응용 프로그램에 대한 올바른 일관성 수준 선택
+# <a name="choose-the-right-consistency-level-for-your-application"></a>애플리케이션에 대한 올바른 일관성 수준 선택
 
 고가용성, 낮은 대기 시간 또는 둘 다에 대한 복제에 의존하는 분산 데이터베이스는 읽기 일관성과 가용성, 대기 시간 및 처리량 간의 기본적인 절충을 수행합니다. 상업적으로 사용할 수 있는 대부분의 분산 데이터베이스는 개발자가 두 가지의 극단적인 일관성 모델: 강력한 일관성과 최종 일관성 간에 선택하도록 합니다. 개발자는 Azure Cosmos DB를 통해 5가지 잘 정의된 일관성 모델(강력, 제한된 부실, 세션, 일관적인 접두사, 결과적) 중에서 선택할 수 있습니다. 이러한 각 일관성 모델은 잘 정의되었으며, 직관적이고, 특정 실제 시나리오에 사용할 수 있습니다. 5가지 일관성 모델은 각각 [가용성 및 성능 장단점](consistency-levels-tradeoffs.md)을 제공하고 포괄적인 SLA로 지원됩니다. 다음 간단한 고려 사항은 여러 가지 일반적인 시나리오에서 올바른 선택을 하는 데 도움이 됩니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Microsoft Power BI 작업 영역 컬렉션 시작
-description: Power BI 작업 영역 컬렉션은 응용 프로그램 개발자가 자신의 응용 프로그램에 대화형 Power BI 보고서를 추가할 수 있는 Azure 서비스입니다.
+description: Power BI 작업 영역 컬렉션은 애플리케이션 개발자가 자신의 애플리케이션에 대화형 Power BI 보고서를 추가할 수 있는 Azure 서비스입니다.
 services: power-bi-embedded
 author: markingmyname
 ROBOTS: NOINDEX
@@ -22,7 +22,7 @@ ms.locfileid: "51233408"
 **Power BI 작업 영역 컬렉션**은 응용 프로그램 개발자가 자신의 응용 프로그램에 대화형 Power BI 보고서를 추가할 수 있는 Azure 서비스입니다. **Power BI 작업 영역 컬렉션**은 사용자가 로그인하는 방식을 다시 디자인하거나 변경하지 않고 기존 응용 프로그램을 사용합니다.
 
 > [!IMPORTANT]
-> Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 응용 프로그램에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.
+> Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 애플리케이션에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.
 
 **Microsoft Power BI 작업 영역 컬렉션**에 대한 리소스는 [Azure Resource Manager API](https://msdn.microsoft.com/library/mt712306.aspx)를 통해 프로비전됩니다. 이 경우에 프로비전되는 리소스는 **Power BI 작업 영역 컬렉션**입니다.
 
@@ -67,11 +67,11 @@ Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부�
 
    ![선택키 내의 두 가지 키](media/get-started/access-keys-2.png)
 
-이러한 키를 복사하고 응용 프로그램에 안전하게 저장합니다. **작업 영역 컬렉션**의 모든 콘텐츠에 대한 액세스를 제공하므로 이러한 키를 암호처럼 처리하는 것이 중요합니다.
+이러한 키를 복사하고 애플리케이션에 안전하게 저장합니다. **작업 영역 컬렉션**의 모든 콘텐츠에 대한 액세스를 제공하므로 이러한 키를 암호처럼 처리하는 것이 중요합니다.
 
 두 키가 나열되지만 한 번에 하나의 키만 필요합니다. 두 번째 키가 제공되므로 서비스에 대한 액세스를 중단하지 않고 정기적으로 키를 다시 생성할 수 있습니다.
 
-이제 응용 프로그램에 대한 Power BI의 인스턴스, **선택키**가 있으며 보고서를 사용자 자신의 앱에 가져올 수 있습니다. 보고서를 가져오는 방법을 알아보기 전에 다음 섹션에서 앱에 포함할 Power BI 데이터 세트 및 보고서를 만드는 방법에 대해 설명합니다.
+이제 애플리케이션에 대한 Power BI의 인스턴스, **액세스 키**가 있으며 보고서를 사용자 자신의 앱에 가져올 수 있습니다. 보고서를 가져오는 방법을 알아보기 전에 다음 섹션에서 앱에 포함할 Power BI 데이터 세트 및 보고서를 만드는 방법에 대해 설명합니다.
 
 ## <a name="working-with-workspaces"></a>작업 영역에서 작업
 

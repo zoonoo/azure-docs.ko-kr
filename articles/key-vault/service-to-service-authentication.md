@@ -23,7 +23,7 @@ ms.locfileid: "52423595"
 
 Azure Key Vault에 인증하려면 Azure AD(Active Directory) 자격 증명, 공유 암호 또는 인증서가 필요합니다. 이러한 자격 증명은 관리가 어려울 수 있어 자격 증명을 원본 또는 구성 파일에 포함하여 앱에 번들로 묶습니다.
 
-.NET 라이브러리에 대한 `Microsoft.Azure.Services.AppAuthentication`은 이 문제를 단순화합니다. 개발자의 자격 증명을 사용하여 로컬 개발 동안 인증합니다. 나중에 Azure에 솔루션이 배포되면 라이브러리는 응용 프로그램 자격 증명으로 자동으로 전환됩니다.  
+.NET 라이브러리에 대한 `Microsoft.Azure.Services.AppAuthentication`은 이 문제를 단순화합니다. 개발자의 자격 증명을 사용하여 로컬 개발 동안 인증합니다. 나중에 Azure에 솔루션이 배포되면 라이브러리는 애플리케이션 자격 증명으로 자동으로 전환됩니다.  
 
 로컬 개발 동안 개발자 자격 증명을 사용하는 것이 Azure AD 자격 증명을 만들거나 개발자 간에 자격 증명을 공유할 필요가 없으므로 더 안전합니다.
 
@@ -34,9 +34,9 @@ Azure Key Vault에 인증하려면 Azure AD(Active Directory) 자격 증명, 공
 <a name="asal"></a>
 ## <a name="using-the-library"></a>라이브러리 사용
 
-.NET 응용 프로그램의 경우 `Microsoft.Azure.Services.AppAuthentication` 패키지를 통해 관리 ID를 사용하는 것이 가장 간단한 방법입니다. 시작 방법은 다음과 같습니다.
+.NET 애플리케이션의 경우 `Microsoft.Azure.Services.AppAuthentication` 패키지를 통해 관리 ID를 사용하는 것이 가장 간단한 방법입니다. 시작 방법은 다음과 같습니다.
 
-1. 응용 프로그램에 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet 패키지의 참조를 추가합니다.
+1. 애플리케이션에 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet 패키지의 참조를 추가합니다.
 
 2. 다음 코드를 추가합니다.
 
@@ -139,7 +139,7 @@ Azure AD 인증을 사용하려면 다음을 확인합니다.
 
 ### <a name="authenticating-to-custom-services"></a>사용자 지정 서비스에 인증
 
-Azure 서비스를 사용하면 사용자와 응용 프로그램에 모두 액세스할 수 있으므로 서비스에서 Azure 서비스를 호출하는 경우 이전 단계가 작동합니다.  
+Azure 서비스를 사용하면 사용자와 애플리케이션에 모두 액세스할 수 있으므로 서비스에서 Azure 서비스를 호출하는 경우 이전 단계가 작동합니다.  
 
 사용자 지정 서비스를 호출하는 서비스를 만들 경우 로컬 개발 인증에 Azure AD 클라이언트 자격 증명을 사용합니다.  두 가지 옵션이 있습니다. 
 
@@ -156,20 +156,20 @@ Azure 서비스를 사용하면 사용자와 응용 프로그램에 모두 액�
 
         서비스 주체에 구독에 대한 액세스 권한이 없을 수 있으므로 `--allow-no-subscriptions` 인수를 사용합니다.
 
-2.  환경 변수를 사용하여 서비스 주체 세부 사항을 지정합니다.  자세한 내용은 [서비스 주체를 사용하여 응용 프로그램 실행](#running-the-application-using-a-service-principal)을 참조하세요.
+2.  환경 변수를 사용하여 서비스 주체 세부 사항을 지정합니다.  자세한 내용은 [서비스 주체를 사용하여 애플리케이션 실행](#running-the-application-using-a-service-principal)을 참조하세요.
 
 Azure에 로그인하고 나면 `AzureServiceTokenProvider`는 서비스 주체를 사용하여 로컬 개발에 대한 토큰을 검색합니다.
 
 이 경우는 로컬 개발에만 적용됩니다. Azure에 솔루션이 배포되면 라이브러리가 관리 ID 인증으로 전환됩니다.
 
 <a name="msi"></a>
-## <a name="running-the-application-using-managed-identity"></a>관리 ID를 사용하여 응용 프로그램 실행 
+## <a name="running-the-application-using-managed-identity"></a>관리 ID를 사용하여 애플리케이션 실행 
 
 Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 코드를 실행하는 경우 라이브러리는 자동으로 관리 ID를 사용합니다. 코드 변경은 필요하지 않습니다. 
 
 
 <a name="sp"></a>
-## <a name="running-the-application-using-a-service-principal"></a>서비스 주체를 사용하여 응용 프로그램 실행 
+## <a name="running-the-application-using-a-service-principal"></a>서비스 주체를 사용하여 애플리케이션 실행 
 
 인증할 Azure AD 클라이언트 자격 증명을 만들어야 할 수 있습니다. 일반적인 예제는 다음을 포함합니다.
 
@@ -194,7 +194,7 @@ Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 �
  
     *{AppId}*, *{TenantId}* 및 *{Thumbprint}* 를 1단계에서 생성된 값으로 바꿉니다. 배포 계획에 따라 *{CertificateStore}* 를 `LocalMachine` 또는 `CurrentUser`로 바꿉니다.
 
-4. 응용 프로그램을 실행합니다. 
+4. 애플리케이션을 실행합니다. 
 
 Azure AD 공유 암호 자격 증명을 사용하여 로그인하려면:
 
@@ -208,7 +208,7 @@ Azure AD 공유 암호 자격 증명을 사용하여 로그인하려면:
 
     _{AppId}_, _{TenantId}_ 및 _{ClientSecret}_ 을 1단계에서 생성된 값으로 바꿉니다.
 
-3. 응용 프로그램을 실행합니다. 
+3. 애플리케이션을 실행합니다. 
 
 모두가 올바로 설정되면 더 이상 코드를 변경할 필요가 없습니다.  `AzureServiceTokenProvider`는 환경 변수 및 인증서를 사용하여 Azure AD에 인증합니다. 
 

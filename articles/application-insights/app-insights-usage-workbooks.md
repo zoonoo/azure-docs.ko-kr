@@ -79,7 +79,7 @@ ms.locfileid: "52727310"
 * 일부 페이지를 보는 사용자에 대한 페이지 로드 시간의 분포는 무엇이었습니까?
 * 사이트의 일부 페이지 집합을 봤지만 다른 일부 페이지 집합을 보지 않은 사용자의 수는? 사이트 기능의 여러 하위 집합을 사용하는 사용자의 클러스터가 있는지 이해하는 데 유용할 수 있습니다(Log Analytics 쿼리 언어에서 `kind=leftanti` 한정자가 포함된 `join` 연산자 사용).
 
-또한 통합 문서를 시작한 응용 프로그램의 컨텍스트에서만 쿼리하도록 제한되지 않습니다. 해당 리소스에 대한 액세스 권한이 있다면 Log Analytics 작업 영역뿐만 아니라 여러 Application Insights 모니터링 앱 간에 쿼리를 수행할 수 있습니다.
+또한 통합 문서를 시작한 애플리케이션의 컨텍스트에서만 쿼리하도록 제한되지 않습니다. 해당 리소스에 대한 액세스 권한이 있다면 Log Analytics 작업 영역뿐만 아니라 여러 Application Insights 모니터링 앱 간에 쿼리를 수행할 수 있습니다.
 
 추가 외부 Application Insights 리소스에서 쿼리하려면 **앱** 식별자를 사용합니다.
 
@@ -88,7 +88,7 @@ union app('app01').requests, app('app02').requests, requests
 | summarize count() by bin(timestamp, 1h)
 ```  
 
-이 쿼리를 세 가지 응용 프로그램의 요청을 통합합니다. 이름이 app01인 앱, 이름이 app02인 앱 및 로컬 Application Insights 리소스의 요청입니다.
+이 쿼리를 세 가지 애플리케이션의 요청을 통합합니다. 이름이 app01인 앱, 이름이 app02인 앱 및 로컬 Application Insights 리소스의 요청입니다.
 
 외부 Log Analytics 작업 영역의 데이터를 가져오려면 **작업 영역** 식별자를 사용합니다.
 

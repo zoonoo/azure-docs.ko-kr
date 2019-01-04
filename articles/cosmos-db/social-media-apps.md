@@ -1,21 +1,19 @@
 ---
-title: 'Azure Cosmos DB 디자인 패턴: 소셜 미디어 앱 | Microsoft Docs'
+title: 'Azure Cosmos DB 디자인 패턴: 소셜 미디어 앱'
 description: Azure Cosmos DB 및 기타 Azure 서비스의 저장소 유연성을 활용하여 소셜 네트워크에 대한 디자인 패턴을 알아봅니다.
 keywords: 소셜 미디어 앱
 services: cosmos-db
 author: ealsur
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: maquaran
-ms.openlocfilehash: 6c2911ac65b95ea0a705944fdd8fb9288af28498
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 669cfdc59fc0b2f509db704afa4867d8f55d86f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165682"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083974"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 소셜 네트워크 디자인
 
@@ -49,14 +47,14 @@ ms.locfileid: "52165682"
         "date":"2016-01-01",
         "body":"this is an awesome post stored on NoSQL",
         "createdBy":User,
-        "images":["http://myfirstimage.png","http://mysecondimage.png"],
+        "images":["https://myfirstimage.png","https://mysecondimage.png"],
         "videos":[
-            {"url":"http://myfirstvideo.mp4", "title":"The first video"},
-            {"url":"http://mysecondvideo.mp4", "title":"The second video"}
+            {"url":"https://myfirstvideo.mp4", "title":"The first video"},
+            {"url":"https://mysecondvideo.mp4", "title":"The second video"}
         ],
         "audios":[
-            {"url":"http://myfirstaudio.mp3", "title":"The first audio"},
-            {"url":"http://mysecondaudio.mp3", "title":"The second audio"}
+            {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
+            {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
         ]
     }
 
@@ -141,7 +139,7 @@ Azure Cosmos DB [Gremlin API](../cosmos-db/graph-introduction.md)를 사용하�
 
 쿼리를 더 빠르게 처리하기 위해 데이터 중복을 허용하게 됩니다. 그 부작용으로 인한 문제는 일부 작업으로 인해 사용자의 데이터가 변경된 경우 해당 사용자가 지금까지 수행한 모든 활동을 찾아서 모두 업데이트해야 한다는 점입니다. 실용적으로 들리지 않죠, 그렇죠?
 
-각 활동에 대해 애플리케이션에 표시하는 사용자의 주요 특성을 식별하여 문제를 해결할 수 있습니다. 게시물을 응용 프로그램에 시각적으로 표시하고 만든 사람의 이름과 사진만 표시했을 뿐인데 “createdBy” 특성에 해당 사용자의 모든 데이터가 저장되는 이유는 무엇일까요? 각 의견에 대해 사용자의 사진만 표시하면 사용자의 나머지 정보는 필요 없습니다. 바로 여기에 “사다리 패턴”이 적용됩니다.
+각 활동에 대해 애플리케이션에 표시하는 사용자의 주요 특성을 식별하여 문제를 해결할 수 있습니다. 게시물을 애플리케이션에 시각적으로 표시하고 만든 사람의 이름과 사진만 표시했을 뿐인데 “createdBy” 특성에 해당 사용자의 모든 데이터가 저장되는 이유는 무엇일까요? 각 의견에 대해 사용자의 사진만 표시하면 사용자의 나머지 정보는 필요 없습니다. 바로 여기에 “사다리 패턴”이 적용됩니다.
 
 다음 사용자 정보를 예로 들어 보겠습니다.
 
@@ -208,9 +206,9 @@ Azure Search에 대한 자세한 내용은 [Hitchhiker의 검색 가이드](http
 
 ## <a name="the-underlying-knowledge"></a>기본 지식
 
-매일 증가하는 이 모든 콘텐츠를 저장한 후에는 이 모든 사용자 정보 스트림으로 수행할 수 있는 작업이 무엇인지 궁금할 수 있습니다.
+매일 증가하는 이 모든 콘텐츠를 저장한 후 다음의 정보를 확인할 수 있습니다. 사용자의 이 모든 정보 스트림으로 무엇을 수행할 수 있나요?
 
-대답은 간단합니다. 사용할 수 있도록 구성한 후 학습하는 것입니다.
+대답은 간단합니다. 작업에 적용하고 학습합니다.
 
 그렇다면 무엇을 배울 수 있을까요? 몇 가지 쉬운 예를 들면 [감정 분석](https://en.wikipedia.org/wiki/Sentiment_analysis), 사용자의 선호도에 따른 콘텐츠 추천 또는 소셜 네트워크에서 게시된 모든 콘텐츠가 가족에게 안전하도록 보장하는 자동화된 콘텐츠 중재자 등이 있습니다.
 

@@ -52,11 +52,11 @@ Graph 탐색기를 사용하여 로그인에 액세스하는 동안 이 오류 �
 
 API를 사용하여 감사 로그 또는 로그인에 액세스하는 동안 이 오류 메시지가 표시되면 Azure Active Directory 테넌트의 **보안 읽기 권한자** 또는 **보고서 구독자** 역할이 계정에 포함되어 있는지 확인합니다. 
 
-### <a name="error-application-missing-aad-read-directory-data-permission"></a>오류: 응용 프로그램에 AAD ‘디렉터리 데이터 읽기’ 권한이 없음 
+### <a name="error-application-missing-aad-read-directory-data-permission"></a>오류: 애플리케이션에 AAD ‘디렉터리 데이터 읽기’ 권한이 없음 
 
 [Azure Active Directory reporting API에 액세스하기 위한 필수 구성 요소](howto-configure-prerequisites-for-reporting-api.md)의 단계에 따라 응용 프로그램이 적합한 권한 집합으로 실행되고 있는지 확인합니다. 
 
-### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>오류: 응용 프로그램에 MSGraph API ‘모든 감사 로그 데이터 읽기’ 권한이 없음
+### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>오류: 애플리케이션에 MSGraph API ‘모든 감사 로그 데이터 읽기’ 권한이 없음
 
 [Azure Active Directory reporting API에 액세스하기 위한 필수 구성 요소](howto-configure-prerequisites-for-reporting-api.md)의 단계에 따라 응용 프로그램이 적합한 권한 집합으로 실행되고 있는지 확인합니다. 
 

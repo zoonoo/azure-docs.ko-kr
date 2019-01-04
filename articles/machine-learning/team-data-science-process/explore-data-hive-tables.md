@@ -1,6 +1,6 @@
 ---
-title: Hive 쿼리를 사용하여 Hive 테이블의 데이터 탐색 | Microsoft Docs
-description: Hive 쿼리를 사용하여 Hive 테이블의 데이터를 탐색합니다.
+title: Hive 쿼리를 사용하여 Hive 테이블의 데이터 탐색 - Team Data Science Process
+description: HDInsight Hadoop 클러스터의 Hive 테이블에서 데이터를 탐색하는 데 사용된 샘플 Hive 스크립트를 사용합니다.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: c50c6de28c60bbe6a6c0d510e62f35cd037d6e95
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: c4d731ad2b94ca662e23e7e48442e396900d68ec
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443315"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132296"
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Hive 쿼리를 사용하여 Hive 테이블의 데이터 탐색
 

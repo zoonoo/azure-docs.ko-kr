@@ -1,5 +1,5 @@
 ---
-title: Azure Search 서비스의 사용량 및 통계 모니터링 | Microsoft Docs
+title: 검색 서비스의 사용량 및 통계 모니터링 - Azure Search
 description: Microsoft Azure에서 호스팅되는 Search 서비스인 Azure Search에 대해 리소스 소비 및 인덱스 크기를 추적합니다.
 author: HeidiSteen
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 286569eef8e17909ecab017b67b0ffc044a4bfe4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 584d1d8ce3285f9f5fb986c9779d3c403ce13d1b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795112"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314162"
 ---
-# <a name="monitoring-an-azure-search-service"></a>Azure Search 서비스 모니터링
+# <a name="monitor-an-azure-search-service-in-azure-portal"></a>Azure Portal에서 Azure Search 서비스 모니터링
 
 Azure Search는 검색 서비스의 사용량 및 성능을 추적하기 위한 다양한 리소스를 제공합니다. Power BI에서 메트릭, 로그, 인덱스 통계 및 확장된 모니터링 기능에 액세스할 수 있게 해줍니다. 이 문서에서는 여러 모니터링 전략을 사용하는 방법 및 결과 데이터를 해석하는 방법을 설명합니다.
 
@@ -26,9 +27,9 @@ Azure Search는 검색 서비스의 사용량 및 성능을 추적하기 위한 
 
 Azure Search는 다음 세 가지 메트릭에 대한 데이터를 수집합니다.
 
-* 검색 대기 시간: 검색 쿼리를 처리하는 데 필요한 Search 서비스의 시간을 1분마다 집계합니다.
-* QPS(초당 검색 쿼리 수): 초당 수신된 검색 쿼리 수를 1분마다 집계합니다.
-* 제한된 검색 쿼리 백분율: 제한된 검색 쿼리의 비율을 1분마다 집계합니다.
+* 검색 대기 시간: 검색 쿼리를 처리하는 데 필요한 검색 서비스의 시간을 1분마다 집계합니다.
+* 검색 QPS(초당 쿼리 수): 초당 수신된 검색 쿼리 수를 1분마다 집계합니다.
+* 제한된 검색 쿼리 백분율: 제한된 검색 쿼리의 백분율을 1분마다 집계합니다.
 
 ![QPS 활동의 스크린 샷][1]
 
@@ -92,30 +93,32 @@ PowerShell 또는 Azure CLI를 사용하려면 [여기](https://docs.microsoft.c
 각 Blob는 **레코드** 라는 하나의 루트 개체를 포함하며 여기에는 로그 개체의 배열이 포함됩니다.
 각 Blob에는 같은 시간 중에 발생한 모든 작업에 대한 레코드가 포함됩니다.
 
-| Name | type | 예 | 메모 |
+| 이름 | type | 예 | 메모 |
 | --- | --- | --- | --- |
 | 실시간 |Datetime |"2015-12-07T00:00:43.6872559Z" |작업 타임스탬프 |
-| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
+| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
 | operationName |string |"Query.Search" |작업 이름 |
 | operationVersion |string |"2015-02-28" |사용된 api-version |
 | 카테고리 |string |"OperationLogs" |constant |
-| resultType |string |"Success" |가능한 값: Success 또는 Failure |
+| resultType |string |"Success" |가능한 값은 다음과 같습니다. Success 또는 Failure |
 | resultSignature |int |200 |HTTP 결과 코드 |
 | durationMS |int |50 |밀리초 단위의 작업 기간 |
 | properties |object |다음 테이블 참조 |데이터별 작업을 포함하는 개체 |
 
 **속성 스키마**
-| Name | type | 예 | 메모 |
+
+| 이름 | type | 예 | 메모 |
 | --- | --- | --- | --- |
-| 설명 |string |"GET /indexes('content')/docs" |작업의 끝점 |
+| 설명 |string |"GET /indexes('content')/docs" |작업의 엔드포인트 |
 | 쿼리 |string |"?search=AzureSearch&$count=true&api-version=2015-02-28" |쿼리 매개 변수 |
 | 문서 |int |42 |처리된 문서 수 |
 | IndexName |string |"testindex" |작업과 연결된 인덱스의 이름 |
 
 #### <a name="metrics-schema"></a>메트릭 스키마
-| Name | type | 예 | 메모 |
+
+| 이름 | type | 예 | 메모 |
 | --- | --- | --- | --- |
-| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |리소스 ID |
+| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |리소스 ID |
 | metricName |string |"Latency" |메트릭 이름 |
 | 실시간 |Datetime |"2015-12-07T00:00:43.6872559Z" |작업의 타임스탬프 |
 | average |int |64 |메트릭 시간 간격에 원시 샘플의 평균 값 |

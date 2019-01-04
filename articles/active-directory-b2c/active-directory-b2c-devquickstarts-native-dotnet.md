@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory B2C에서 프로필 인증, 등록, 편집 | Microsoft Docs
-description: Azure Active Directory B2C를 사용하여 로그인, 등록 및 프로필 관리를 포함하는 Windows 데스크톱 응용 프로그램을 빌드하는 방법을 알아봅니다.
+description: Azure Active Directory B2C를 사용하여 로그인, 등록 및 프로필 관리를 포함하는 Windows 데스크톱 애플리케이션을 빌드하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -23,10 +23,10 @@ Azure AD(Azure Active Directory) B2C를 사용하여 몇 가지 간단한 단계
 ## <a name="get-an-azure-ad-b2c-directory"></a>Azure AD B2C 디렉터리 가져오기
 Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어야 합니다.  디렉터리는 모든 사용자, 앱, 그룹 등을 위한 컨테이너입니다. 아직 없는 경우 [B2C 디렉터리를 만든](active-directory-b2c-get-started.md) 후에 이 가이드를 계속 진행합니다.
 
-## <a name="create-an-application"></a>응용 프로그램 만들기
+## <a name="create-an-application"></a>애플리케이션 만들기
 다음으로 B2C 디렉터리에서 앱을 만들어야 합니다. 앱과 안전하게 통신하는 데 필요한 Azure AD 정보를 제공합니다. 앱을 만들려면 [다음 지침](active-directory-b2c-app-registration.md)에 따릅니다.  다음을 수행해야 합니다.
 
-* 응용 프로그램에 **네이티브 클라이언트** 를 포함합니다.
+* 애플리케이션에 **네이티브 클라이언트**를 포함합니다.
 * **리디렉션 URI** `urn:ietf:wg:oauth:2.0:oob`를 복사합니다. 이 코드 샘플에 대한 기본 URL입니다.
 * 앱에 할당된 **애플리케이션 ID**를 복사합니다. 이 시간은 나중에 필요합니다.
 
@@ -35,7 +35,7 @@ Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-refe
 
 * ID 공급자 블레이드에서 **사용자 ID 등록** 또는 **메일 등록** 중 하나를 선택합니다.
 * 등록 정책에서 **표시 이름** 및 다른 등록 특성을 선택합니다.
-* 모든 정책에 대한 응용 프로그램 클레임으로 **표시 이름** 및 **개체 ID** 클레임을 선택합니다. 물론 다른 클레임을 선택할 수 있습니다.
+* 모든 정책에 대한 애플리케이션 클레임으로 **표시 이름** 및 **개체 ID** 클레임을 선택합니다. 물론 다른 클레임을 선택할 수 있습니다.
 * 각 정책을 만든 후에 **이름**을 복사합니다. 접두사 `b2c_1_`이 있어야 합니다.  이러한 정책 이름이 나중에 필요합니다.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
@@ -56,7 +56,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 Web API가 Azure AD B2C를 사용하여 요청을 안전하게 인증하는 방법을 알아보려면 [Web API 시작 문서](active-directory-b2c-devquickstarts-api-dotnet.md)를 확인하세요.
 
 ## <a name="execute-policies"></a>정책 실행
-앱은 인증 메시지를 전송하여 Azure AD B2C와 통신하며 이는 HTTP 요청의 일부로 실행하고자 하는 정책을 지정합니다. .NET 데스크톱 응용 프로그램의 경우 MSAL(미리 보기 Microsoft 인증 라이브러리)을 사용하여 OAuth 2.0 인증 메시지를 보내고 정책을 실행하고 Web API를 호출하는 토큰을 가져올 수 있습니다.
+앱은 인증 메시지를 전송하여 Azure AD B2C와 통신하며 이는 HTTP 요청의 일부로 실행하고자 하는 정책을 지정합니다. .NET 데스크톱 애플리케이션의 경우 MSAL(미리 보기 Microsoft 인증 라이브러리)을 사용하여 OAuth 2.0 인증 메시지를 보내고 정책을 실행하고 Web API를 호출하는 토큰을 가져올 수 있습니다.
 
 ### <a name="install-msal"></a>MSAL 설치
 Visual Studio 패키지 관리자 콘솔을 사용하여 MSAL을 `TaskClient` 프로젝트에 추가합니다.
@@ -87,7 +87,7 @@ public static class Globals
 [!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ### <a name="create-the-publicclientapplication"></a>PublicClientApplication 만들기
-MSAL의 기본 클래스는 `PublicClientApplication`입니다. 이 클래스는 Azure AD B2C 시스템에 있는 응용 프로그램을 나타냅니다. 앱이 시작되면 `MainWindow.xaml.cs`에서 `PublicClientApplication` 인스턴스를 만듭니다. 이를 창 전체에서 사용할 수 있습니다.
+MSAL의 기본 클래스는 `PublicClientApplication`입니다. 이 클래스는 Azure AD B2C 시스템에 있는 애플리케이션을 나타냅니다. 앱이 시작되면 `MainWindow.xaml.cs`에서 `PublicClientApplication` 인스턴스를 만듭니다. 이를 창 전체에서 사용할 수 있습니다.
 
 ```csharp
 protected async override void OnInitialized(EventArgs e)
@@ -184,7 +184,7 @@ private async void EditProfile(object sender, RoutedEventArgs e)
                     Globals.editProfilePolicy);
 ```
 
-이 모든 경우에 MSAL은 `AuthenticationResult` 에서 토큰을 반환하거나 예외를 throw합니다. MSAL에서 토큰을 가져올 때마다 `AuthenticationResult.User` 개체를 사용하여 UI와 같은 앱의 사용자 데이터를 업데이트합니다. 또한 ADAL은 응용 프로그램의 다른 부분에 사용하기 위해 토큰을 캐시합니다.
+이 모든 경우에 MSAL은 `AuthenticationResult` 에서 토큰을 반환하거나 예외를 throw합니다. MSAL에서 토큰을 가져올 때마다 `AuthenticationResult.User` 개체를 사용하여 UI와 같은 앱의 사용자 데이터를 업데이트합니다. 또한 ADAL은 애플리케이션의 다른 부분에 사용하기 위해 토큰을 캐시합니다.
 
 ### <a name="check-for-tokens-on-app-start"></a>앱 시작에서 토큰 확인
 또한 MSAL를 사용하여 사용자의 로그인 상태를 추적할 수 있습니다.  이 앱에서 사용자가 앱을 닫았다가 다시 연 후에도 로그인된 상태를 유지하게 하려 합니다.  `OnInitialized` 재정의 내부에서 MSAL의 `AcquireTokenSilent` 메서드를 사용하여 캐시된 토큰을 확인합니다.
@@ -311,7 +311,7 @@ private void SignOut(object sender, RoutedEventArgs e)
 ## <a name="add-social-idps"></a>소셜 IDP 추가
 현재, 앱은 **로컬 계정**을 사용하는 사용자 등록 및 로그인만 지원합니다. 이들은 사용자 이름 및 암호를 사용하는 B2C 디렉터리에 저장된 계정입니다. Azure AD B2C를 사용하면 코드를 변경하지 않고도 다른 IDP(ID 공급자)에 대한 지원을 추가할 수 있습니다.
 
-소셜 IDP를 앱에 추가하려면 이 문서 중에서 상세한 지침을 수행하여 시작합니다. 지원하려는 각 IDP의 경우 해당 시스템에서 응용 프로그램을 등록하고 클라이언트 ID를 얻어야 합니다.
+소셜 IDP를 앱에 추가하려면 이 문서 중에서 상세한 지침을 수행하여 시작합니다. 지원하려는 각 IDP의 경우 해당 시스템에서 애플리케이션을 등록하고 클라이언트 ID를 얻어야 합니다.
 
 * [Facebook을 IDP로 설정](active-directory-b2c-setup-fb-app.md)
 * [Google을 IDP로 설정](active-directory-b2c-setup-goog-app.md)
@@ -320,7 +320,7 @@ private void SignOut(object sender, RoutedEventArgs e)
 
 B2C 디렉터리에 ID 공급자를 추가한 후 [정책 참조 문서](active-directory-b2c-reference-policies.md)에서 설명한 대로 새 IDP를 포함하도록 세 가지 정책을 각각 편집해야 합니다. 정책을 저장한 후 앱을 다시 실행합니다. ID 환경 각각에서 로그인 및 등록으로 추가된 새 IDP가 표시되어야 합니다.
 
-정책을 실험하고 샘플 앱에서 영향을 확인할 수 있습니다. IDP를 추가 또는 제거하거나 응용 프로그램 클레임을 조작하거나 등록 특성을 변경합니다. 어떻게 정책, 인증 요청 및 MSAL을 모두 함께 연결하는지 확인할 수 있을 때까지 실험해 보세요.
+정책을 실험하고 샘플 앱에서 영향을 확인할 수 있습니다. IDP를 추가 또는 제거하거나 애플리케이션 클레임을 조작하거나 등록 특성을 변경합니다. 어떻게 정책, 인증 요청 및 MSAL을 모두 함께 연결하는지 확인할 수 있을 때까지 실험해 보세요.
 
 참조를 위해 완료된 샘플은 [.zip 파일로 제공](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip)됩니다. 또한 GitHub에서 복제할 수 있습니다.
 

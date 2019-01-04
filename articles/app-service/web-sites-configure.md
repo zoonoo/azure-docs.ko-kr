@@ -1,5 +1,5 @@
 ---
-title: Azure App Service에서 웹앱 구성
+title: 웹앱 구성 - Azure App Service
 description: Azure App Services에서 웹앱을 구성 하는 방법
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 73d2da542c4f7da0933187d800f562de76bfb3e6
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 4286aa9cbaf07743c1d420fb1f5caace91bab7ee
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443511"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269433"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Azure App Service에서 웹앱 구성
 
@@ -40,8 +41,8 @@ ms.locfileid: "52443511"
 
 * **.NET Framework**: .NET Framework 버전을 설정합니다. 
 * **PHP**: PHP 버전을 설정하거나 PHP를 사용하지 않으려면 **끄기**를 선택합니다. 
-* **Java**: Java 버전을 선택하거나 Java를 사용하지 않도록 **끄기**를 선택합니다. **웹 컨테이너** 옵션을 사용하여 Tomcat 및 Jetty 버전 사이에서 선택합니다.
-* **Python**: Python 버전을 설정하거나, Python을 사용하지 않도록 설정하려면 **끄기**를 선택합니다.
+* **Java**: Java 버전을 선택하거나 Java를 사용하지 않으려면 **끄기**를 선택합니다. **웹 컨테이너** 옵션을 사용하여 Tomcat 및 Jetty 버전 사이에서 선택합니다.
+* **Python**: Python 버전을 선택하거나, Python을 사용하지 않으려면 **끄기**를 선택합니다.
 
 기술적인 이유로, 앱에 Java를 사용하도록 설정하면 .NET, PHP 및 Python 옵션은 사용하지 않도록 설정됩니다.
 
@@ -62,7 +63,7 @@ ms.locfileid: "52443511"
 > [!NOTE]
 > 대부분의 최신 브라우저는 TLS를 통해서만 HTTP/2 프로토콜을 지원하는 반면에 암호화되지 않은 트래픽은 HTTP/1.1을 계속 사용합니다. 클라이언트 브라우저가 HTTP/2를 통해 앱에 연결되도록 하려면 앱의 사용자 지정 도메인에 대해 [App Service Certificate을 구매](web-sites-purchase-ssl-web-site.md)하거나 [타사 인증서를 바인딩](app-service-web-tutorial-custom-ssl.md)합니다.
 
-**ARR 선호도**. 여러 VM 인스턴스로 확장되는 응용 프로그램에서 ARR 선호도 쿠키는 클라이언트가 세션이 끝날 때까지 동일한 인스턴스로 라우팅되도록 보장합니다. 상태 비저장 응용 프로그램의 성능을 향상시키려면 이 옵션을 **꺼짐**으로 설정합니다.   
+**ARR 선호도**. 여러 VM 인스턴스로 확장되는 응용 프로그램에서 ARR 선호도 쿠키는 클라이언트가 세션이 끝날 때까지 동일한 인스턴스로 라우팅되도록 보장합니다. 상태 비저장 애플리케이션의 성능을 향상시키려면 이 옵션을 **꺼짐**으로 설정합니다.   
 
 **자동 교체**. 배포 슬롯에 대한 자동 교체를 사용 하는 경우, 업데이트를 해당 슬롯에 푸시하면 App Service는 자동으로 웹앱을 프로덕션으로 교체합니다. 자세한 내용은 [Azure App Service에서 웹앱에 대한 스테이징 슬롯에 배포](web-sites-staged-publishing.md)를 참조하세요.
 
@@ -164,7 +165,7 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 ### <a name="monitoring"></a>모니터링
 기본 또는 표준 모드에서는 지리적으로 분산된 최대 세 곳의 HTTP 또는 HTTPS 엔드포인트에 대한 가용성을 테스트할 수 있습니다. HTTP 응답 코드가 오류(4xx 또는 5xx)이거나 응답에 30초 넘게 걸리는 경우 모니터링 테스트가 실패합니다. 지정된 모든 위치에서 모니터링 테스트가 성공하는 경우 엔드포인트는 사용 가능한 것으로 간주됩니다. 
 
-자세한 내용은 [방법: 웹 엔드포인트 모니터링]을 참조하세요.
+자세한 내용은 [방법: 웹 엔드포인트 상태 모니터링]을 참조하세요.
 
 > [!NOTE]
 > Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 평가]으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
@@ -179,14 +180,14 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 
 <!-- URL List -->
 
-[ASP.NET SignalR]: http://www.asp.net/signalr
+[ASP.NET SignalR]: https://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
 [Azure App Service에서 사용자 지정 도메인 이름 구성]: ./app-service-web-tutorial-custom-domain.md
 [Azure App Service에서 Web Apps에 대한 스테이징 환경으로 배포]: ./web-sites-staged-publishing.md
 [Azure App Service에서 앱에 대한 HTTPS를 사용하도록 설정]: ./app-service-web-tutorial-custom-ssl.md
-[방법: 웹 엔드포인트 모니터링]: http://go.microsoft.com/fwLink/?LinkID=279906
+[방법: 웹 엔드포인트 상태 모니터링]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Azure App Service에서 Web Apps에 대한 기본 사항 모니터링]: ./web-sites-monitor.md
-[파이프라인 모드]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
+[파이프라인 모드]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Azure App Service에서 웹앱 크기 조정]: ./web-sites-scale.md
 [App Service 평가]: https://azure.microsoft.com/try/app-service/
 

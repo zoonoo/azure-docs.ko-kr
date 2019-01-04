@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Central 응용 프로그램에 이미지 업로드 | Microsoft Docs
-description: 작성자로서 이미지를 준비하여 Azure IoT Central 응용 프로그램에 업로드하는 방법을 알아봅니다.
+title: Azure IoT Central 애플리케이션에 이미지 업로드 | Microsoft Docs
+description: 작성자로서 이미지를 준비하여 Azure IoT Central 애플리케이션에 업로드하는 방법을 알아봅니다.
 author: tbhagwat3
 ms.author: tanmayb
 ms.date: 10/31/2018
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/05/2018
 ms.locfileid: "51005141"
 ---
-# <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>이미지를 준비하여 Azure IoT Central 응용 프로그램에 업로드
+# <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>이미지를 준비하여 Azure IoT Central 애플리케이션에 업로드
 
 이 문서에서는 작성자로서 사용자 지정 이미지를 업로드하여 Azure IoT Central 애플리케이션을 사용자 지정하는 방법을 설명합니다. 예를 들어 디바이스 그림을 사용하여 디바이스 대시보드를 사용자 지정할 수 있습니다.
 
@@ -23,16 +23,16 @@ ms.locfileid: "51005141"
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
-1. Azure IoT Central 응용 프로그램. 자세한 내용은 참조는 [애플리케이션 빠른 시작 만들기](quick-deploy-iot-central.md)를 참조하세요.
+1. Azure IoT Central 애플리케이션. 자세한 내용은 참조는 [애플리케이션 빠른 시작 만들기](quick-deploy-iot-central.md)를 참조하세요.
 1. 이미지 파일의 배율과 크기를 조정하는 데 사용되는 도구.
 
 ## <a name="choose-where-to-use-custom-images"></a>사용자 지정 이미지를 사용할 위치 선택
 
-Azure IoT Central 응용 프로그램에서 다음 위치에 사용자 지정 이미지를 추가할 수 있습니다.
+Azure IoT Central 애플리케이션에서 다음 위치에 사용자 지정 이미지를 추가할 수 있습니다.
 
 * **응용 프로그램 관리자** 페이지
 
-    ![응용 프로그램 관리자 페이지의 이미지](media/howto-prepare-images/applicationmanager.png)
+    ![애플리케이션 관리자 페이지의 이미지](media/howto-prepare-images/applicationmanager.png)
 
 * 홈페이지
 
@@ -62,17 +62,17 @@ Azure IoT Central 응용 프로그램에서 다음 위치에 사용자 지정 �
 | 디바이스 템플릿 | 64x64픽셀 |
 | 홈페이지 및 대시보드 타일 | 최소 타일 크기는 200x200픽셀이고, 작은 타일 여러 개를 정사각형 또는 직사각형 모양으로 이어 붙여서 큰 파일을 만들 수 있습니다. 예를 들어 200x400픽셀, 400x200픽셀 또는 400x400픽셀 타일을 만들 수 있습니다. |
 
-응용 프로그램에서 최상의 디스플레이를 원한다면 앞의 표에 정리된 치수와 일치하는 이미지를 만들어야 합니다.
+애플리케이션에서 최상의 디스플레이를 원한다면 앞의 표에 정리된 치수와 일치하는 이미지를 만들어야 합니다.
 
 ## <a name="upload-the-images"></a>이미지 업로드
 
 다음 섹션에서는 여러 위치에 이미지를 업로드하는 방법을 설명합니다.
 
-### <a name="application-manager"></a>응용 프로그램 관리자
+### <a name="application-manager"></a>애플리케이션 관리자
 
 **애플리케이션 관리자**에 이미지를 업로드하려면 **관리** 섹션에서 **애플리케이션 설정** 페이지로 이동합니다. 이 작업을 완료하려면 관리자여야 합니다.
 
-![응용 프로그램 이미지 업로드](media/howto-prepare-images/uploadapplicationmanager.png)
+![애플리케이션 이미지 업로드](media/howto-prepare-images/uploadapplicationmanager.png)
 
 애플리케이션 이미지를 클릭하여 로컬 머신에서 준비된 이미지(268x160픽셀)를 업로드합니다.
 
@@ -116,7 +116,7 @@ Azure IoT Central 응용 프로그램에서 다음 위치에 사용자 지정 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이미지를 준비하여 Azure IoT Central 응용 프로그램에 업로드하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
+이미지를 준비하여 Azure IoT Central 애플리케이션에 업로드하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
 
 > [!div class="nextstepaction"]
 > [Azure IoT Central 응용 프로그램에서 장치 관리](howto-manage-devices.md)

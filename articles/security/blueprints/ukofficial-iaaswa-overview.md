@@ -1,6 +1,6 @@
 ---
-title: Azure 보안 및 준수 청사진 - UK OFFICIAL에 대한 3계층 IaaS 웹 응용 프로그램
-description: Azure 보안 및 준수 청사진 - UK OFFICIAL에 대한 3계층 IaaS 웹 응용 프로그램
+title: Azure 보안 및 준수 청사진 - UK OFFICIAL에 대한 3계층 IaaS 웹 애플리케이션
+description: Azure 보안 및 준수 청사진 - UK OFFICIAL에 대한 3계층 IaaS 웹 애플리케이션
 services: security
 author: jomolesk
 ms.assetid: 9c32e836-0564-4906-9e15-f070d2707e63
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/14/2018
 ms.locfileid: "39059215"
 ---
-# <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure 보안 및 준수 청사진 - UK OFFICIAL에 대한 3계층 IaaS 웹 응용 프로그램
+# <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure 보안 및 준수 청사진 - UK OFFICIAL에 대한 3계층 IaaS 웹 애플리케이션
 
 ## <a name="overview"></a>개요
 
@@ -27,13 +27,13 @@ ms.locfileid: "39059215"
 
  이 아키텍처와 해당 Azure Resource Manager 템플릿은 Microsoft 백서 [Microsoft Azure를 사용하여 영국 클라우드용 14개의 클라우드 보안 컨트롤](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1)에서 지원됩니다. 이 문서에서는 영국 NCSC 14개의 클라우드 보안 원칙과 Azure 서비스를 맞추는 방법을 목록으로 만들었습니다. 따라서 조직은 전세계 및 영국에서 Microsoft Azure 클라우드의 클라우드 기반 서비스를 사용하여 해당 준수 의무를 빠르게 충족할 수 있습니다.
 
- 이 템플릿은 워크로드에 대한 인프라를 배포합니다. 응용 프로그램 코드 및 지원되는 비즈니스 계층과 데이터 계층 소프트웨어를 설치하고 구성해야 합니다. 자세한 배포 지침은 [여기](https://aka.ms/ukwebappblueprintrepo)에 있습니다.
+ 이 템플릿은 워크로드에 대한 인프라를 배포합니다. 애플리케이션 코드 및 지원되는 비즈니스 계층과 데이터 계층 소프트웨어를 설치하고 구성해야 합니다. 자세한 배포 지침은 [여기](https://aka.ms/ukwebappblueprintrepo)에 있습니다.
 
  Azure 구독이 없는 경우 빠르고 쉽게 등록할 수 있습니다. [Azure를 시작](https://azure.microsoft.com/get-started/)하세요.
 
 ## <a name="architecture-diagram-and-components"></a>아키텍처 다이어그램 및 구성 요소
 
- Azure 템플릿은 UK OFFICIAL 워크로드를 지원하는 Azure 클라우드 환경에서 3계층 웹 응용 프로그램 아키텍처를 제공합니다. 아키텍처는 온-프레미스 네트워크를 Azure 허용 웹 기반 작업으로 확장하는 보안 하이브리드 환경을 제공하여 인터넷에서 회사 사용자가 안전하게 액세스할 수 있게 됩니다.
+ Azure 템플릿은 UK OFFICIAL 워크로드를 지원하는 Azure 클라우드 환경에서 3계층 웹 애플리케이션 아키텍처를 제공합니다. 아키텍처는 온-프레미스 네트워크를 Azure 허용 웹 기반 작업으로 확장하는 보안 하이브리드 환경을 제공하여 인터넷에서 회사 사용자가 안전하게 액세스할 수 있게 됩니다.
 
 ![UK OFFICIAL에 대한 3계층 IaaS 웹 응용 프로그램 참조 아키텍처 다이어그램](images/ukofficial-iaaswa-architecture.png?raw=true "UK OFFICIAL에 대한 3계층 IaaS 웹 응용 프로그램 참조 아키텍처 다이어그램")
 
@@ -141,7 +141,7 @@ Storage
 
 **게이트웨이**: [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)는 온-프레미스 네트워크의 라우터와 프로덕션 VNet 간에 연결을 제공합니다.
 
-**인터넷 게이트웨이 및 공용 IP 주소**: 인터넷 게이트웨이는 인터넷을 통해 사용자에게 응용 프로그램 서비스를 노출합니다. 이러한 서비스에 액세스하는 트래픽은 WAF(웹 응용 프로그램 방화벽) 보호 기능을 포함하는 계층 7 라우팅 및 부하 분산 기능을 제공하는 [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)를 사용하여 보호됩니다.
+**인터넷 게이트웨이 및 공용 IP 주소**: 인터넷 게이트웨이는 인터넷을 통해 사용자에게 응용 프로그램 서비스를 노출합니다. 이러한 서비스에 액세스하는 트래픽은 WAF(웹 애플리케이션 방화벽) 보호 기능을 포함하는 계층 7 라우팅 및 부하 분산 기능을 제공하는 [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)를 사용하여 보호됩니다.
 
 **관리 VNet**: 이 [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)에는 프로덕션 VNet에서 실행되는 워크로드에 관리 및 모니터링 기능을 구현하는 리소스가 포함되어 있습니다.
 
@@ -196,7 +196,7 @@ Storage
 
 **네트워크 보안**: NSG([네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg))는 잘못 구성되었거나 사용할 수 없는 게이트웨이를 무시하는 인바운드 트래픽에 대해 두 번째 수준의 보호를 제공하는 각 서브넷에 권장됩니다. 예제 - [NSG 배포용 Resource Manager 템플릿](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 
-**공용 끝점 보안**: 인터넷 게이트웨이는 인터넷을 통해 사용자에게 응용 프로그램 서비스를 노출합니다. 이러한 서비스에 액세스하는 트래픽은 [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)를 사용하여 보호됩니다. 여기서는 웹 응용 프로그램 방화벽 및 HTTPS 프로토콜 관리를 제공합니다.
+**공용 끝점 보안**: 인터넷 게이트웨이는 인터넷을 통해 사용자에게 응용 프로그램 서비스를 노출합니다. 이러한 서비스에 액세스하는 트래픽은 [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)를 사용하여 보호됩니다. 여기서는 웹 애플리케이션 방화벽 및 HTTPS 프로토콜 관리를 제공합니다.
 
 **IP 범위**: 아키텍처의 IP 범위는 제안된 범위입니다. 고객은 고유한 환경을 고려하고 적절한 범위를 사용하는 것이 좋습니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure 마이크로 서비스에 대한 Windows 개발 환경 설정 | Microsoft Docs
-description: 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 완료하면 Windows에서 응용 프로그램을 빌드할 수 있습니다.
+description: 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 완료하면 Windows에서 애플리케이션을 빌드할 수 있습니다.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2018
 ms.author: ryanwi
-ms.openlocfilehash: f2795e2836dbb374d147b84d2ac91977659a1520
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 968c9f2455269cf41a701de685e4f47255b46847
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883518"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386431"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -66,24 +66,24 @@ SDK만 필요한 경우 다음 패키지를 설치할 수 있습니다.
 * [Microsoft Azure Service Fabric SDK 설치][core-sdk]
 
 현재 버전은 다음과 같습니다.
-* Service Fabric SDK 및 도구 3.2.187
-* Service Fabric 런타임 6.3.187
-* Visual Studio 2015 2.3.10710.3용 Service Fabric 도구
-* Visual Studio 2017 15.7에는 Visual Studio 2.3.10710.1용 Service Fabric 도구가 포함되어 있습니다. 
+* Service Fabric SDK 및 Tools 3.3.617
+* Service Fabric 런타임 6.4.617
+* Visual Studio 2015 2.4.11116.1용 Service Fabric 도구
+* Visual Studio 2017 15.9에는 Visual Studio 2.4.11024.1용 Service Fabric 도구가 포함되어 있습니다. 
 
 지원되는 버전 목록은 [Service Fabric 지원](service-fabric-support.md)을 참조하세요.
 
 > [!NOTE]
-> 단일 컴퓨터 클러스터(OneBox)는 응용 프로그램 또는 클러스터 업그레이드용으로 지원되지 않습니다. 클러스터 업그레이드를 수행해야 하거나 응용 프로그램 업그레이드 수행 시에 문제가 발생하는 경우에는 OneBox 클러스터를 삭제한 후에 다시 만드세요. 
+> 단일 컴퓨터 클러스터(OneBox)는 애플리케이션 또는 클러스터 업그레이드용으로 지원되지 않습니다. 클러스터 업그레이드를 수행해야 하거나 애플리케이션 업그레이드 수행 시에 문제가 발생하는 경우에는 OneBox 클러스터를 삭제한 후에 다시 만드세요. 
 
 ## <a name="enable-powershell-script-execution"></a>PowerShell 스크립트 실행 활성화
-서비스 패브릭은 로컬 개발 클러스터를 만들고 Visual Studio에서 응용 프로그램을 배포하기 위해 Windows PowerShell 스크립트를 사용합니다. 기본적으로 Windows에서는 이러한 스크립트의 실행을 차단합니다. 따라서 이러한 스크립트를 사용하려면 PowerShell 실행 정책을 수정해야 합니다. 관리자로 PowerShell을 열고 다음 명령을 입력합니다.
+서비스 패브릭은 로컬 개발 클러스터를 만들고 Visual Studio에서 애플리케이션을 배포하기 위해 Windows PowerShell 스크립트를 사용합니다. 기본적으로 Windows에서는 이러한 스크립트의 실행을 차단합니다. 따라서 이러한 스크립트를 사용하려면 PowerShell 실행 정책을 수정해야 합니다. 관리자로 PowerShell을 열고 다음 명령을 입력합니다.
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 ## <a name="install-docker-optional"></a>Docker 설치(선택 사항)
-Service Fabric은 머신 클러스터에 마이크로 서비스를 배포하기 위한 [컨테이너 오케스트레이터](service-fabric-containers-overview.md)입니다. 로컬 개발 클러스터에서 Windows 컨테이너 응용 프로그램을 실행하려면 먼저 Windows용 Docker를 설치해야 합니다. [Windows용 Docker CE(안정화)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)를 가져옵니다. Docker를 설치하고 시작한 후에 트레이 아이콘을 마우스 오른쪽 단추로 클릭하고 **Windows 컨테이너로 전환**을 선택합니다. 이 단계는 Windows 기반의 Docker 이미지를 실행하는 데 필요합니다.
+Service Fabric은 머신 클러스터에 마이크로 서비스를 배포하기 위한 [컨테이너 오케스트레이터](service-fabric-containers-overview.md)입니다. 로컬 개발 클러스터에서 Windows 컨테이너 애플리케이션을 실행하려면 먼저 Windows용 Docker를 설치해야 합니다. [Windows용 Docker CE(안정화)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)를 가져옵니다. Docker를 설치하고 시작한 후에 트레이 아이콘을 마우스 오른쪽 단추로 클릭하고 **Windows 컨테이너로 전환**을 선택합니다. 이 단계는 Windows 기반의 Docker 이미지를 실행하는 데 필요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 개발 환경의 설정을 마쳤으므로 앱을 빌드하고 실행하기 시작할 수 있습니다.

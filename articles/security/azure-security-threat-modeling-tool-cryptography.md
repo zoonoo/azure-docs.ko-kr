@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 4128d113535c67c0b440dc3fb275af05b5c1c1ae
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 79803a749b6d08c94bcbf5f3ca66aac8b7294fa3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306148"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844654"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>보안 프레임: 암호화 | 완화 
 | 제품/서비스 | 문서 |
 | --------------- | ------- |
 | **웹 응용 프로그램** | <ul><li>[승인된 대칭 블록 암호화 및 키 길이만 사용](#cipher-length)</li><li>[대칭 암호화에 승인된 블록 암호화 모드 및 초기화 벡터 사용](#vector-ciphers)</li><li>[승인된 비대칭 알고리즘, 키 길이 및 패딩 사용](#padding)</li><li>[승인된 난수 생성기 사용](#numgen)</li><li>[대칭 스트림 암호화 사용 금지](#stream-ciphers)</li><li>[승인된 MAC/HMAC/키 해시 알고리즘 사용](#mac-hash)</li><li>[승인된 암호화 해시 함수만 사용](#hash-functions)</li></ul> |
 | **데이터베이스** | <ul><li>[강력한 암호화 알고리즘을 사용하여 데이터베이스 데이터 암호화](#strong-db)</li><li>[암호화되고 디지털 서명되어야 하는 SSIS 패키지](#ssis-signed)</li><li>[중요한 데이터베이스 보안 개체에 디지털 서명 추가](#securables-db)</li><li>[SQL 서버 EKM을 사용하여 암호화 키 보호](#ekm-keys)</li><li>[데이터베이스 엔진에 암호화 키를 공개하지 않아야 하는 경우 AlwaysEncrypted 기능 사용](#keys-engine)</li></ul> |
-| **IoT 장치** | <ul><li>[IoT 장치에 안전하게 암호화 키 저장](#keys-iot)</li></ul> | 
+| **IoT 디바이스** | <ul><li>[IoT 디바이스에 안전하게 암호화 키 저장](#keys-iot)</li></ul> | 
 | **IoT 클라우드 게이트웨이** | <ul><li>[IoT Hub 인증에 충분한 길이의 임의 대칭 키 생성](#random-hub)</li></ul> | 
-| **Dynamics CRM 모바일 클라이언트** | <ul><li>[PIN 사용이 필요하고 원격 지우기를 허용하는 장치 관리 정책이 있는지 확인](#pin-remote)</li></ul> | 
-| **Dynamics CRM Outlook 클라이언트** | <ul><li>[PIN/암호/자동 잠금이 필요하고 모든 데이터를 암호화(예: Bitlocker)하는 장치 관리 정책이 있는지 확인](#bitlocker)</li></ul> | 
+| **Dynamics CRM 모바일 클라이언트** | <ul><li>[PIN 사용이 필요하고 원격 지우기를 허용하는 디바이스 관리 정책이 있는지 확인](#pin-remote)</li></ul> | 
+| **Dynamics CRM Outlook 클라이언트** | <ul><li>[PIN/암호/자동 잠금이 필요하고 모든 데이터를 암호화(예: Bitlocker)하는 디바이스 관리 정책이 있는지 확인](#bitlocker)</li></ul> | 
 | **Identity Server** | <ul><li>[Identity Server를 사용할 때 서명 키가 롤오버되는지 확인](#rolled-server)</li><li>[Identity Server에서 암호화된 강력한 클라이언트 ID와 클라이언트 비밀이 사용되는지 확인](#client-server)</li></ul> | 
 
 ## <a id="cipher-length"></a>승인된 대칭 블록 암호화 및 키 길이만 사용
@@ -140,7 +140,7 @@ ms.locfileid: "43306148"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [ADD SIGNATURE(TRANSACT-SQL)](https://msdn.microsoft.com/library/ms181700) |
-| **단계** | 중요한 데이터베이스 보안 개체의 무결성을 확인해야 하는 경우 디지털 서명을 사용해야 합니다. 저장 프로시저, 함수, 어셈블리 또는 트리거와 같은 데이터베이스 보안 개체는 디지털로 서명할 수 있습니다. 이러한 디지털 서명이 유용할 수 있는 경우의 예로, ISV(Independent Software Vendor)에서 고객 중 한 사람에게 전달되는 소프트웨어에 대한 지원을 제공한다고 가정해 보겠습니다. ISV는 지원을 제공하기 전에 소프트웨어의 데이터베이스 보안 개체가 실수로 또는 악의적으로 변조되지 않았는지 확인하려고 합니다. 보안 개체가 디지털 서명된 경우 ISV는 해당 디지털 서명을 확인하고 무결성의 유효성을 검사할 수 있습니다.| 
+| **단계** | 중요한 데이터베이스 보안 개체의 무결성을 확인해야 하는 경우 디지털 서명을 사용해야 합니다. 저장 프로시저, 함수, 어셈블리 또는 트리거와 같은 데이터베이스 보안 개체는 디지털로 서명할 수 있습니다. 이러한 디지털 서명이 유용할 수 있는 경우는 다음과 같습니다. ISV(Independent Software Vendor)에서 고객 중 한 사람에게 전달되는 소프트웨어에 대한 지원을 제공한다고 가정해 보겠습니다. ISV는 지원을 제공하기 전에 소프트웨어의 데이터베이스 보안 개체가 실수로 또는 악의적으로 변조되지 않았는지 확인하려고 합니다. 보안 개체가 디지털 서명된 경우 ISV는 해당 디지털 서명을 확인하고 무결성의 유효성을 검사할 수 있습니다.| 
 
 ## <a id="ekm-keys"></a>SQL 서버 EKM을 사용하여 암호화 키 보호
 
@@ -162,9 +162,9 @@ ms.locfileid: "43306148"
 | **적용 가능한 기술** | SQL Azure, 온-프레미스 |
 | **특성**              | SQL 버전 - V12, MsSQL2016 |
 | **참조**              | [상시 암호화(데이터베이스 엔진)](https://msdn.microsoft.com/library/mt163865) |
-| **단계** | 상시 암호화는 Azure SQL Database 또는 SQL Server 데이터베이스에 저장된 신용 카드 번호 또는 주민 등록 번호(예: 미국 사회 보장 번호)와 같은 중요한 데이터를 보호하기 위해 고안된 기능입니다. 상시 암호화를 사용하면 클라이언트에서 클라이언트 응용 프로그램 내의 중요한 데이터를 암호화하고 데이터베이스 엔진(SQL Database 또는 SQL Server)에 암호화 키를 공개하지 않을 수 있습니다. 따라서 상시 암호화는 데이터를 소유하고 볼 수 있는 사용자와 데이터를 관리하지만 액세스 권한이 없는 사용자를 구별합니다. |
+| **단계** | 상시 암호화는 Azure SQL Database 또는 SQL Server 데이터베이스에 저장된 신용 카드 번호 또는 주민 등록 번호(예: 미국 사회 보장 번호)와 같은 중요한 데이터를 보호하기 위해 고안된 기능입니다. 상시 암호화를 사용하면 클라이언트에서 클라이언트 애플리케이션 내의 중요한 데이터를 암호화하고 데이터베이스 엔진(SQL Database 또는 SQL Server)에 암호화 키를 공개하지 않을 수 있습니다. 따라서 상시 암호화는 데이터를 소유하고 볼 수 있는 사용자와 데이터를 관리하지만 액세스 권한이 없는 사용자를 구별합니다. |
 
-## <a id="keys-iot"></a>IoT 장치에 안전하게 암호화 키 저장
+## <a id="keys-iot"></a>IoT 디바이스에 안전하게 암호화 키 저장
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -172,8 +172,8 @@ ms.locfileid: "43306148"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 디바이스 OS - Windows IoT Core, 디바이스 연결 - Azure IoT 디바이스 SDK |
-| **참조**              | [Windows IoT Core의 TPM](https://developer.microsoft.com/windows/iot/docs/tpm)(영문), [Windows IoT Core에서 TPM 설정](https://developer.microsoft.com/windows/iot/win10/setuptpm)(영문), [Azure IoT 장치 SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM)(영문) |
-| **단계** | 대칭 또는 인증서 개인 키는 TPM 또는 스마트 카드 칩과 같은 하드웨어로 보호된 저장소에 안전하게 보관됩니다. Windows 10 IoT Core는 TPM의 사용자를 지원하며, 사용할 수 있는 몇 가지 호환 가능한 TPM이 있습니다. https://developer.microsoft.com/windows/iot/win10/tpm 펌웨어 또는 불연속 TPM을 사용하는 것이 좋습니다. 소프트웨어 TPM은 개발 및 테스트 용도로만 사용해야 합니다. TPM을 사용할 수 있고 이 TPM에 키를 프로비전하는 경우 토큰을 생성하는 코드는 중요한 정보를 하드 코딩하지 않고 작성해야 합니다. | 
+| **참조**              | [Windows IoT Core의 TPM](https://developer.microsoft.com/windows/iot/docs/tpm)(영문), [Windows IoT Core에서 TPM 설정](https://docs.microsoft.com/windows/iot-core/secure-your-device/setuptpm)(영문), [Azure IoT 디바이스 SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM)(영문) |
+| **단계** | 대칭 또는 인증서 개인 키는 TPM 또는 스마트 카드 칩과 같은 하드웨어로 보호된 저장소에 안전하게 보관됩니다. Windows 10 IoT Core는 TPM의 사용자를 지원하며, 사용할 수 있는 몇 가지 호환 가능한 TPM이 있습니다. https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm 펌웨어 또는 불연속 TPM을 사용하는 것이 좋습니다. 소프트웨어 TPM은 개발 및 테스트 용도로만 사용해야 합니다. TPM을 사용할 수 있고 이 TPM에 키를 프로비전하는 경우 토큰을 생성하는 코드는 중요한 정보를 하드 코딩하지 않고 작성해야 합니다. | 
 
 ### <a name="example"></a>예
 ```
@@ -198,7 +198,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **참조**              | 해당 없음  |
 | **단계** | IoT Hub는 디바이스 ID 레지스트리를 포함하고, 디바이스를 프로비전하는 동안 임의 대칭 키를 자동으로 생성합니다. Azure IoT Hub ID 레지스트리의 이 기능을 사용하여 인증에 사용되는 키를 생성하는 것이 좋습니다. 또한 IoT Hub를 사용하면 디바이스를 만드는 동안 키를 지정할 수 있습니다. 디바이스 프로비전 중에 IoT Hub 외부에서 키를 생성하는 경우 임의 대칭 키 또는 256비트 이상의 키를 만드는 것이 좋습니다. |
 
-## <a id="pin-remote"></a>PIN 사용이 필요하고 원격 지우기를 허용하는 장치 관리 정책이 있는지 확인
+## <a id="pin-remote"></a>PIN 사용이 필요하고 원격 지우기를 허용하는 디바이스 관리 정책이 있는지 확인
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -209,7 +209,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **참조**              | 해당 없음  |
 | **단계** | PIN 사용이 필요하고 원격 지우기를 허용하는 디바이스 관리 정책이 있는지 확인합니다. |
 
-## <a id="bitlocker"></a>PIN/암호/자동 잠금이 필요하고 모든 데이터를 암호화(예: Bitlocker)하는 장치 관리 정책이 있는지 확인
+## <a id="bitlocker"></a>PIN/암호/자동 잠금이 필요하고 모든 데이터를 암호화(예: Bitlocker)하는 디바이스 관리 정책이 있는지 확인
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 05/17/2017
-ms.openlocfilehash: c80c7a075b8a7735a4e9d2438c94eaac89f2b50e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a522d436328a3aeb1ed365baa2ec1e3b9d3387ed
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006970"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385026"
 ---
-# <a name="work-in-the-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Windows PC에서 HDInsight의 Hadoop 에코시스템 작업
+# <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Windows PC에서 HDInsight의 Apache Hadoop 에코시스템 작업
 
-HDInsight의 Hadoop 에코시스템 작업을 위한 Windows PC의 개발 및 관리 옵션에 대해 알아봅니다. 
+HDInsight의 Apache Hadoop 에코시스템 작업을 위한 Windows PC의 개발 및 관리 옵션에 대해 알아봅니다. 
 
 HDInsight는 Apache Hadoop 및 Hadoop 구성 요소, Linux에서 개발된 오픈 소스 기술을 기반으로 합니다. HDInsight 버전 3.4 이상에서는 클러스터에 대한 기본 OS로 Ubuntu Linux 배포를 사용합니다. 그러나 Windows 클라이언트 또는 Windows 개발 환경에서 HDInsight로 작업할 수 있습니다.
 
@@ -27,7 +27,7 @@ Azure PowerShell은 Windows에서 HDInsight의 배포 및 관리 작업을 제�
 PowerShell로 수행할 수 있는 작업의 예:
 
 * [PowerShell을 사용하여 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-* [PowerShell을 사용하여 Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-powershell.md)
+* [PowerShell을 사용하여 Apache Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-powershell.md)
 * [PowerShell을 통한 클러스터 관리](hdinsight-administer-use-powershell.md)
 
 [Azure Powershell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) 단계에 따라 최신 버전을 가져옵니다. Azure Resource Manager용 새로운 cmdlet을 사용하도록 수정해야 하는 스크립트가 있는 경우 [HDInsight 클러스터에 대한 Azure Resource Manager 기반 개발 도구에 마이그레이션](hdinsight-hadoop-development-using-azure-resource-manager.md)을 참조하세요.
@@ -35,10 +35,10 @@ PowerShell로 수행할 수 있는 작업의 예:
 ## <a name="utilities-you-can-run-in-a-browser"></a>브라우저에서 실행할 수 있는 유틸리티
 다음 유틸리티는 브라우저에서 실행되는 웹 UI가 있습니다.
 * **[Azure Cloud Shell(미리 보기)](https://docs.microsoft.com/azure/cloud-shell/quickstart)** 은 브라우저 및 Azure Portal 내에서 실행되는 대화형 명령줄 셸입니다.
-* **[Ambari 웹 UI](hdinsight-hadoop-manage-ambari.md)** 는 다음과 같은 다양한 종류의 작업을 관리하는 데 사용할 수 있으며 Azure Portal에서 사용 가능한 관리 및 모니터링 유틸리티입니다.
-    * [REST API로 Ambari 사용](hdinsight-hadoop-manage-ambari-rest-api.md)
-    * [Ambari에서 Hive 보기](hadoop/apache-hadoop-use-hive-ambari-view.md)
-    * [Ambari에서 Tez 보기](hdinsight-debug-ambari-tez-view.md)
+* **[Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)** 는 다음과 같은 다양한 종류의 작업을 관리하는 데 사용할 수 있으며 Azure Portal에서 사용 가능한 관리 및 모니터링 유틸리티입니다.
+    * [REST API로 Apache Ambari 사용](hdinsight-hadoop-manage-ambari-rest-api.md)
+    * [Apache Ambari에서 Apache Hive 보기](hadoop/apache-hadoop-use-hive-ambari-view.md)
+    * [Apache Ambari에서 Apache Tez 보기](hdinsight-debug-ambari-tez-view.md)
 
 ## <a name="data-lake-hadoop-tools-for-visual-studio"></a>Visual Studio용 Data Lake(Hadoop) 도구
 Visual Studio용 Data Lake 도구를 사용하여 Storm 토폴로지를 배포 및 관리합니다. Data Lake 도구는 또한 Visual Studio와 함께 C# Storm 토폴로지를 개발할 수 있는 SCP.NET SDK를 설치합니다.
@@ -55,10 +55,11 @@ Visual Studio용 Data Lake 도구를 사용하여 Storm 토폴로지를 배포 �
 
 Visual Studio에서 .NET SDK와 함께 수행할 수 있는 작업의 예:
 * [.NET Framework 응용 프로그램에서 클러스터 만들기 및 HDInsight 작업](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
-* [.NET SDK를 사용한 Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [Hadoop에서 Hive 및 Pig 스트리밍과 함께 C# 사용자 정의 함수 사용](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [.NET SDK를 사용하여 Apache Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
+* [Apache Hadoop에서 Apache Hive 및 Apache Pig 스트림과 함께 C# 사용자 정의 함수 사용](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-> 팁 .NET 솔루션을 Windows 기반 HDInsight 클러스터와 함께 실행하는 경우 Linux 기반 클러스터로의 마이그레이션을 계획하는 것이 좋습니다. 자세한 내용은 [Windows 기반 HDInsight용 .NET 솔루션을 Linux 기반 HDInsight로 마이그레이션](hdinsight-hadoop-migrate-dotnet-to-linux.md)을 참조하세요.
+> 팁   
+> .NET 솔루션을 Windows 기반 HDInsight 클러스터와 함께 실행하는 경우 Linux 기반 클러스터로의 마이그레이션을 계획하는 것이 좋습니다. 자세한 내용은 [Windows 기반 HDInsight용 .NET 솔루션을 Linux 기반 HDInsight로 마이그레이션](hdinsight-hadoop-migrate-dotnet-to-linux.md)을 참조하세요.
 
 ## <a name="intellij-idea-and-eclipse-ide-for-spark-clusters"></a>Spark 클러스터에 대한 Intellij IDEA 및 Eclipse IDE
 [Intellij IDEA](https://www.jetbrains.com/idea/download) 및 [Eclipse IDE](https://www.eclipse.org/downloads/)는 다음에 사용할 수 있습니다.
@@ -67,15 +68,15 @@ Visual Studio에서 .NET SDK와 함께 수행할 수 있는 작업의 예:
 * Scala Spark 응용 프로그램을 로컬로 개발 및 실행합니다.
 
 다음 문서에 방법이 나와 있습니다. 
-* Intellij IDEA: [Intellij용 Azure 도구 키트 플러그 인 및 Scala SDK를 사용하여 Spark 응용 프로그램 만들기.](spark/apache-spark-intellij-tool-plugin.md)
-* Eclipse IDE 또는 Eclipse용 Scala IDE: [Spark 응용 프로그램 및 Eclipse용 Azure 도구 키트 만들기](spark/apache-spark-eclipse-tool-plugin.md) 
+* Intellij IDEA: [Azure Toolkit for Intellij 플러그 인 및 Scala SDK를 사용하여 Apache Spark 애플리케이션 만들기](spark/apache-spark-intellij-tool-plugin.md)
+* Eclipse IDE 또는 Eclipse용 Scala IDE: [Apache Spark 애플리케이션 및 Azure Toolkit for Eclipse 만들기](spark/apache-spark-eclipse-tool-plugin.md) 
 
 
 ## <a name="notebooks-on-spark-for-data-scientists"></a>데이터 과학자들을 위한 Spark의 Notebook 
-HDInsight의 Apache Spark 클러스터는 Jupyter Notebook과 함께 사용할 수 있는 Zeppelin Notebook 및 커널을 포함합니다. 
+HDInsight의 Apache Spark 클러스터는 Jupyter Notebook과 함께 사용할 수 있는 Apache Zeppelin Notebook 및 커널을 포함합니다. 
 
-* [Spark 클러스터에서 Jupyter Notebook과 함께 커널을 사용하여 Spark 응용 프로그램을 테스트하는 방법 알아보기](spark/apache-spark-zeppelin-notebook.md)
-* [Spark 클러스터에서 Zeppelin Notebook을 사용하여 Spark 작업을 실행하는 방법 알아보기](spark/apache-spark-jupyter-notebook-kernels.md) 
+* [Apache Spark 클러스터에서 Jupyter Notebook과 함께 커널을 사용하여 Spark 애플리케이션을 테스트하는 방법 알아보기](spark/apache-spark-zeppelin-notebook.md)
+* [Apache Spark 클러스터에서 Apache Zeppelin Notebook을 사용하여 Spark 작업을 실행하는 방법 알아보기](spark/apache-spark-jupyter-notebook-kernels.md) 
 
 
 ## <a name="run-linux-based-tools-and-technologies-on-windows"></a>Windows에서 Linux 기반 도구 및 기술 실행
@@ -88,5 +89,5 @@ Linux에서만 사용 가능한 도구 또는 기술을 사용해야 하는 상�
 
 ## <a name="next-steps"></a>다음 단계
 Linux 기반 클러스터에서 작업하는 데 익숙하지 않은 경우 다음 문서를 참조하세요.
-* [Hadoop, Kafka, Spark 또는 다른 클러스터 설정](hdinsight-hadoop-provision-linux-clusters.md)
+* [Apache Hadoop, Apache Kafka, Apache Spark 또는 기타 클러스터 설정](hdinsight-hadoop-provision-linux-clusters.md)
 * [Linux의 HDInsight 클러스터에 대한 팁](hdinsight-hadoop-linux-information.md)

@@ -23,14 +23,14 @@ ms.locfileid: "52997852"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-Kubernetes는 컨테이너화된 응용 프로그램용 분산 플랫폼을 제공합니다. Azure Container Service를 통해 프로덕션이 준비된 Kubernetes 클러스터를 프로비전하는 작업은 간단하고 빠릅니다. 이 자습서(전체 7부 중 3부)에서는 Azure Container Service Kubernetes 클러스터를 배포했습니다. 완료되는 단계는 다음과 같습니다.
+Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제공합니다. Azure Container Service를 통해 프로덕션이 준비된 Kubernetes 클러스터를 프로비전하는 작업은 간단하고 빠릅니다. 이 자습서(전체 7부 중 3부)에서는 Azure Container Service Kubernetes 클러스터를 배포했습니다. 완료되는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
 > * Kubernetes ACS 클러스터 배포
 > * Kubernetes CLI(kubectl) 설치
 > * kubectl 구성
 
-후속 자습서에서는 Azure 투표 응용 프로그램을 클러스터에 배포하고 확장/업데이트하며, Kubernetes 클러스터를 모니터링하도록 Log Analytics를 구성합니다.
+후속 자습서에서는 Azure 투표 애플리케이션을 클러스터에 배포하고 확장/업데이트하며, Kubernetes 클러스터를 모니터링하도록 Log Analytics를 구성합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -88,7 +88,7 @@ k8s-agent-98dc3136-2    Ready                      5m        v1.6.2
 k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.6.2
 ```
 
-이 자습서를 마치면 ACS Kubernetes 클러스터가 워크로드에 대해 준비됩니다. 이후 자습서에서는 다중 컨테이너 응용 프로그램이 이 클러스터에 배포, 규모 확장, 업데이트 및 모니터링됩니다.
+이 자습서를 마치면 ACS Kubernetes 클러스터가 워크로드에 대해 준비됩니다. 이후 자습서에서는 다중 컨테이너 애플리케이션이 이 클러스터에 배포, 규모 확장, 업데이트 및 모니터링됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -99,7 +99,7 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.6.2
 > * Kubernetes CLI(kubectl) 설치
 > * kubectl 구성
 
-다음 자습서로 이동하여 클러스터에서 응용 프로그램 실행에 대해 알아봅니다.
+다음 자습서로 이동하여 클러스터에서 애플리케이션 실행에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [Kubernetes에서 응용 프로그램 배포](./container-service-tutorial-kubernetes-deploy-application.md)

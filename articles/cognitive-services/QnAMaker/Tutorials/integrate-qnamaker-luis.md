@@ -1,7 +1,7 @@
 ---
 title: LUIS 및 QnAMaker - 봇 통합
 titleSuffix: Azure Cognitive Services
-description: QnA Maker와 LUIS를 봇에 통합하는 방법에 대한 단계별 자습서입니다.
+description: QnA Maker 기술 자료가 확장되면 단일 모놀리식 집합으로 유지 관리하기가 어려워지며, 기술 자료를 보다 작은 논리적 청크로 분할해야 합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: diberry
-ms.openlocfilehash: 27f60f9624af2819663990aeba99b4044045540b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: f2d6f956564f01c14edb213f0bc5ae709892c542
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687370"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163315"
 ---
-# <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>QnA Maker와 LUIS를 통합하여 기술 자료 배포
+# <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>QnA Maker 및 LUIS와 함께 봇을 사용하여 기술 자료 배포
 QnA Maker 기술 자료가 확장되면 단일 모놀리식 집합으로 유지 관리하기가 어려워지며, 기술 자료를 보다 작은 논리적 청크로 분할해야 합니다.
 
 QnA Maker에서 간단하게 여러 기술 자료를 만들 수 있지만, 들어오는 질문을 적절한 기술 자료로 라우팅하기 위한 논리가 필요합니다. LUIS를 사용하여 이 작업을 수행할 수 있습니다.
@@ -53,7 +54,7 @@ QnA Maker에서 간단하게 여러 기술 자료를 만들 수 있지만, 들�
 1. LUIS 템플릿을 사용하여 [웹앱 봇을 만듭니다](https://docs.microsoft.com/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample). 3.x SDK 및 C# 프로그래밍 언어를 선택합니다.
 
 1. 웹앱 봇이 만들어지면 Azure Portal에서 해당 웹앱 봇을 선택합니다.
-1. 웹앱 봇 서비스 탐색에서 **응용 프로그램 설정**을 선택하고 아래로 스크롤하여 사용 가능한 설정의 **응용 프로그램 설정** 섹션으로 이동합니다.
+1. 웹앱 봇 서비스 탐색에서 **애플리케이션 설정**을 선택하고 아래로 스크롤하여 사용 가능한 설정의 **애플리케이션 설정** 섹션으로 이동합니다.
 1. **LuisAppId**를 이전 섹션에서 만든 LUIS 앱의 값으로 변경한 후 **저장**을 선택합니다.
 
 

@@ -1,13 +1,12 @@
 ---
-title: Machine Learning Studio에서 간단한 실험 | Microsoft Docs
+title: 간단한 실험 - Azure Machine Learning Studio | Microsoft Docs
 description: 이 기계 학습 자습서에서는 쉬운 데이터 과학 실험을 안내합니다. 회귀 알고리즘을 사용하여 자동차의 가격을 예측합니다.
 keywords: 실험, 선형 회귀, 기계 학습 알고리즘, 기계 학습 자습서, 예측 모델링 기술, 데이터 과학 실험
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cgronlun
 ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2017
-ms.openlocfilehash: 7ee1df8c38ac2dbfc6618febd223d5c4bbf32be6
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b3d8aa709fefcf0eb8c16117f62cbe3bab8e319a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425713"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262421"
 ---
-# <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>기계 학습 자습서: Azure Machine Learning Studio에서 첫 번째 데이터 과학 실험 만들기
+# <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>자습서: Azure Machine Learning Studio에서 첫 번째 데이터 과학 실험 만들기
 
 **Azure Machine Learning Studio**를 사용한 경험이 없는 경우 이 자습서는 도움이 됩니다.
 
@@ -41,7 +40,7 @@ ms.locfileid: "52425713"
 - [알고리즘 예제가 포함된 기계 학습 기본 사항](basics-infographic-with-algorithm-examples.md) - 이 인포그래픽은 Machine Learning Studio에 포함된 기계 학습 알고리즘의 다양한 유형에 대해 자세히 알아보고자 할 경우에 유용합니다.
 - [Machine Learning 가이드](https://gallery.cortanaintelligence.com/Tutorial/Machine-Learning-Guide-1) -이 가이드에서는 위의 인포그래픽과 유사한 정보를 대화형 형식으로 다룹니다.
 - [기계 학습 알고리즘 치트 시트](algorithm-cheat-sheet.md) 및 [Microsoft Azure Machine Learning용 알고리즘 선택 방법](algorithm-choice.md) - 다운로드 가능한 이 포스터 및 관련 문서는 Studio 알고리즘을 깊이 있게 설명합니다.
-- [Machine Learning Studio: 알고리즘 및 모듈 도움말](https://msdn.microsoft.com/library/azure/dn905974.aspx) -기계 학습 알고리즘을 포함하여 모든 Studio 모듈에 대 한 완전한 참조입니다.
+- [Machine Learning Studio: 알고리즘 및 모듈 도움말](https://msdn.microsoft.com/library/azure/dn905974.aspx) -기계 학습 알고리즘을 포함하여 모든 Studio 모듈에 대한 완전한 참조입니다.
 
 
 
@@ -101,9 +100,9 @@ Machine Learning Studio에는 사용할 수 있고 다양한 원본에서 데이
 
 2. 실험 캔버스 왼쪽에는 데이터 세트와 모듈의 팔레트가 있습니다. 이 팔레트 맨 위에 있는 검색 상자에 **automobile**을 입력하여 레이블이 **Automobile price data (Raw)** 인 데이터 세트를 찾습니다. 실험 캔버스에 데이터 세트를 끌어 놓습니다.
 
-    ![자동차 데이터 집합을 찾아서 실험 캔버스에 끌어 놓기][type-automobile]
+    ![자동차 데이터 세트를 찾아서 실험 캔버스에 끌어 놓기][type-automobile]
     <br/>
-    ***자동차 데이터 집합을 찾아서 실험 캔버스에 끌어 놓기***
+    ***자동차 데이터 세트를 찾아서 실험 캔버스에 끌어 놓기***
 
 이 데이터의 모양을 확인하려면 자동차 데이터 세트 아래에서 출력 포트를 두 번 클릭한 다음, **Visualize**를 선택합니다.
 
@@ -135,13 +134,13 @@ Machine Learning Studio에는 사용할 수 있고 다양한 원본에서 데이
 
 1. 모듈 팔레트의 맨 위에 있는 검색 상자에 **열 선택**을 입력하여 [데이터 세트에서 열 선택][select-columns] 모듈을 찾아 실험 캔버스에 끌어 놓습니다. 이 모듈을 사용하면 모델에서 포함하거나 제외할 데이터 열을 선택할 수 있습니다.
 
-2. **자동차 가격 데이터(원시)** 데이터 집합의 입력 포트를 [데이터 집합의 열 선택][select-columns] 모듈의 입력 포트에 연결합니다.
+2. **자동차 가격 데이터(원시)** 데이터 세트의 입력 포트를 [데이터 세트의 열 선택][select-columns] 모듈의 입력 포트에 연결합니다.
 
-    ![“데이터 집합에서 열 선택” 모듈을 실험 캔버스에 추가 및 연결][type-select-columns]
+    ![“데이터 세트에서 열 선택” 모듈을 실험 캔버스에 추가 및 연결][type-select-columns]
     <br/>
-    ***“데이터 집합에서 열 선택” 모듈을 실험 캔버스에 추가 및 연결***
+    ***“데이터 세트에서 열 선택” 모듈을 실험 캔버스에 추가 및 연결***
 
-3. [데이터 집합에서 열 선택][select-columns] 모듈을 클릭하고 **속성** 창에서 **열 선택기 시작**을 클릭합니다.
+3. [데이터 세트에서 열 선택][select-columns] 모듈을 클릭하고 **속성** 창에서 **열 선택기 시작**을 클릭합니다.
 
     - 왼쪽에서 **규칙으로**
     - **다음으로 시작**에서 **모든 열**을 클릭합니다. 그러면 모든 열을 전달하는 [데이터 세트에서 열 선택][select-columns]으로 리디렉션됩니다(제외할 열은 예외임).
@@ -165,7 +164,7 @@ Machine Learning Studio에는 사용할 수 있고 다양한 원본에서 데이
     <br/>
     ***모듈을 두 번 클릭하여 주석 추가***
 
-3. [누락된 데이터 정리][clean-missing-data] 모듈을 실험 캔버스로 끌어 놓고 [데이터 집합에서 열 선택][select-columns] 모듈과 연결합니다. **속성** 창에서 **정리 모드** 아래 **전체 열 제거**를 선택합니다. 그러면 [누락된 데이터 정리][clean-missing-data]로 리디렉션되어 모든 누락 값이 있는 행을 제거하여 데이터를 정리합니다. 모듈을 두 번 클릭하고 주석 "Remove missing value rows"를 입력합니다.
+3. [누락된 데이터 정리][clean-missing-data] 모듈을 실험 캔버스로 끌어 놓고 [데이터 세트에서 열 선택][select-columns] 모듈과 연결합니다. **속성** 창에서 **정리 모드** 아래 **전체 열 제거**를 선택합니다. 그러면 [누락된 데이터 정리][clean-missing-data]로 리디렉션되어 모든 누락 값이 있는 행을 제거하여 데이터를 정리합니다. 모듈을 두 번 클릭하고 주석 "Remove missing value rows"를 입력합니다.
 
     ![“누락된 데이터 정리” 모듈의 경우 정리 모드를 “전체 행 제거”로 설정][set-remove-entire-row]
     <br/>
@@ -197,11 +196,11 @@ Machine Learning Studio에는 사용할 수 있고 다양한 원본에서 데이
     make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
 
-1. 다른 [데이터 세트에서 열 선택][select-columns] 모듈을 실험 캔버스에 끌어 놓습니다. [누락된 데이터 정리][clean-missing-data] 모듈의 왼쪽 출력 포트를 [데이터 집합에서 열 선택][select-columns] 모듈의 입력 포트에 연결합니다.
+1. 다른 [데이터 세트에서 열 선택][select-columns] 모듈을 실험 캔버스에 끌어 놓습니다. [누락된 데이터 정리][clean-missing-data] 모듈의 왼쪽 출력 포트를 [데이터 세트에서 열 선택][select-columns] 모듈의 입력 포트에 연결합니다.
 
-    ![“데이터 집합에서 열 선택” 모듈을 “누락된 데이터 정리” 모듈에 연결][connect-clean-to-select]
+    ![“데이터 세트에서 열 선택” 모듈을 “누락된 데이터 정리” 모듈에 연결][connect-clean-to-select]
     <br/>
-    ***“데이터 집합에서 열 선택” 모듈을 “누락된 데이터 정리” 모듈에 연결***
+    ***“데이터 세트에서 열 선택” 모듈을 “누락된 데이터 정리” 모듈에 연결***
 
 2. 모듈을 두 번 클릭하고 "Select features for prediction"을 입력합니다.
 
@@ -235,9 +234,9 @@ Machine Learning Studio에는 사용할 수 있고 다양한 원본에서 데이
 
 데이터 세트를 별도로 학습하고 테스트하도록 데이터를 분할하여 모델을 학습하고 테스트하는 데 모두 데이터를 사용합니다.
 
-1. [데이터 분할][split] 모듈을 선택하여 실험 캔버스로 끌어 놓고 마지막 [데이터 집합에서 열 선택][select-columns] 모듈에 연결합니다.
+1. [데이터 분할][split] 모듈을 선택하여 실험 캔버스로 끌어 놓고 마지막 [데이터 세트에서 열 선택][select-columns] 모듈에 연결합니다.
 
-2. [데이터 분할][split] 모듈을 클릭하여 선택합니다. **첫 번째 출력 데이터 집합의 행 분수**(캔버스의 오른쪽에 있는 **속성** 창에서)를 찾아서 0.75로 설정합니다. 그러면 데이터의 75%를 모델 학습에 사용하고 25%는 테스트용으로 보유합니다.(나중에 다른 비율로 실험해 볼 수 있습니다.)
+2. [데이터 분할][split] 모듈을 클릭하여 선택합니다. **첫 번째 출력 데이터 세트의 행 분수**(캔버스의 오른쪽에 있는 **속성** 창에서)를 찾아서 0.75로 설정합니다. 그러면 데이터의 75%를 모델 학습에 사용하고 25%는 테스트용으로 보유합니다.(나중에 다른 비율로 실험해 볼 수 있습니다.)
 
     ![“데이터 분할” 모듈의 분할 분수를 0.75로 설정][set-split-data-percentage]
     <br/>
@@ -304,11 +303,11 @@ Machine Learning Studio에는 사용할 수 있고 다양한 원본에서 데이
 
 모델에 대한 다음 통계가 표시됩니다.
 
-- **Mean Absolute Error** ): 절대 평균 오차입니다( *error* 는 예측 값과 실제 값 사이의 차이).
-- **Root Mean Squared Error** ): 테스트 데이터 집합에 대해 예측한 평균 제곱 오차의 제곱근입니다.
-- **Relative Absolute Error**: 실제 값과 모든 실제 값 평균 사이의 절대값 차에 대해 상대적인 절대 오차의 평균입니다.
-- **Relative Squared Error**: 실제 값과 모든 실제 값 평균 사이의 제곱 차에 대해 상대적인 평균 제곱 오차입니다.
-- **Coefficient of Determination**: **R 제곱 값**이라고도 하며, 모델이 데이터에 얼마나 적합한지 나타내는 통계 메트릭입니다.
+- MAE(**절대 평균 오차**): 절대 평균 오차입니다(‘오차’는 예측 값과 실제 값 사이의 차이임).
+- RMSE(**제곱 평균 오차**): 테스트 데이터 세트에 대해 예측한 제곱 평균 오차의 제곱근입니다.
+- **상대 절대 오차**: 실제 값과 모든 실제 값 평균 사이의 절대값 차에 대해 상대적인 절대 평균 오차입니다.
+- **상대 제곱 오차**: 실제 값과 모든 실제 값 평균 사이의 제곱 차에 대해 상대적인 제곱 평균 오차입니다.
+- **결정 계수**: **R 제곱 값**이라고도 하며, 모델이 데이터에 얼마나 적합한지 나타내는 통계 메트릭입니다.
 
 각 오차 통계는 작을수록 좋습니다. 값이 작을수록 예측이 실제 값과 더 근접하게 일치함을 나타냅니다. **결정 계수**의 경우 값이 1(1.0)에 가까울수록 더 잘 예측한 것입니다.
 

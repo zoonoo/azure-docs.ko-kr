@@ -17,7 +17,7 @@ ms.locfileid: "47584288"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>HTTP 엔드포인트에서 이벤트 수신
 
-이 아티클에서는 이벤트 구독으로부터 이벤트를 수신하기 위해 [HTTP 엔드포인트의 유효성을 검사](security-authentication.md#webhook-event-delivery)한 다음, 이벤트를 수신하고 직렬화를 해제하는 방법을 설명합니다. 이 문서에서는 데모용으로 Azure Function을 사용하나 응용 프로그램이 어디서 호스팅되느냐와 관계없이 동일한 개념이 적용됩니다.
+이 아티클에서는 이벤트 구독으로부터 이벤트를 수신하기 위해 [HTTP 엔드포인트의 유효성을 검사](security-authentication.md#webhook-event-delivery)한 다음, 이벤트를 수신하고 직렬화를 해제하는 방법을 설명합니다. 이 문서에서는 데모용으로 Azure Function을 사용하나 애플리케이션이 어디서 호스팅되느냐와 관계없이 동일한 개념이 적용됩니다.
 
 > [!NOTE]
 > Event Grid로 Azure Function을 트리거할 때는 [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md)를 사용하는 것이 **좋습니다**. 여기서 사용된 일반 웹후크 트리거는 데모용입니다.

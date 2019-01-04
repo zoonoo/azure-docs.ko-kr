@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 11/20/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 026f8354b3947b3f92c1fc88b7c2e168177543d9
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: d86727e0a3c681a05b2a1f6ff62bdab83394fa56
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284713"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959821"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹 앱에 Microsoft 로그인 추가
+# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft에 로그인 추가
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
@@ -32,20 +32,20 @@ ms.locfileid: "52284713"
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>빠른 시작 앱 등록 및 다운로드
-> 빠른 시작 응용 프로그램을 시작하는 옵션은 두 가지가 있습니다.
+> 빠른 시작 애플리케이션을 시작하는 옵션은 두 가지가 있습니다.
 > * [기본] [옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * [수동] [옵션 2: 응용 프로그램 및 코드 샘플을 등록하고 수동으로 구성](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> * [수동] [옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
 > 1. [Azure Portal - 응용 프로그램 등록(미리 보기)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs)으로 이동합니다.
-> 1. 응용 프로그램 이름을 입력하고 **등록**을 클릭합니다.
-> 1. 지침에 따라 클릭 한 번으로 새 응용 프로그램을 다운로드하고 자동으로 구성합니다.
+> 1. 애플리케이션 이름을 입력하고 **등록**을 클릭합니다.
+> 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>옵션 2: 응용 프로그램 및 코드 샘플을 등록하고 수동으로 구성
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성
 >
-> #### <a name="step-1-register-your-application"></a>1단계: 응용 프로그램 등록
-> 응용 프로그램을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
+> #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
+> 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
 >
 > 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 > 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
@@ -56,13 +56,13 @@ ms.locfileid: "52284713"
 **인증** 메뉴를 선택하고 **암시적 허용** 아래에서 **ID 토큰**을 설정한 후 **저장을 선택합니다**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-azure-portal"></a>1단계: Azure Portal에서 응용 프로그램 구성
+> #### <a name="step-1-configure-your-application-in-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
 > 이 빠른 시작용 코드 샘플이 작동하려면 회신 URL을 `https://localhost:44368/`으로 추가해야 합니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [자동 변경]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![이미 구성된](media/quickstart-v2-aspnet-webapp/green-check.png) 응용 프로그램이 이 특성을 사용하여 구성됩니다.
+> > ![이미 구성됨](media/quickstart-v2-aspnet-webapp/green-check.png) 이 특성을 사용하여 응용 프로그램을 구성합니다.
 
 #### <a name="step-2-download-your-project"></a>2단계: 프로젝트 다운로드
 
@@ -83,16 +83,16 @@ ms.locfileid: "52284713"
 > 위치:
 > - `Enter_the_Application_Id_here` - 등록한 응용 프로그램의 응용 프로그램 ID입니다.
 > - `Enter_the_Tenant_Info_Here` - 아래 옵션 중 하나입니다.
->   - 응용 프로그램이 **내 조직만** 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
->   - 응용 프로그램이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
->   - 응용 프로그램이 **모든 Microsoft 계정 사용자**를 지원하는 경우 이 값을 `common`으로 바꾸세요.
+>   - 애플리케이션이 **내 조직만** 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
+>   - 애플리케이션이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
+>   - 애플리케이션이 **모든 Microsoft 계정 사용자**를 지원하는 경우 이 값을 `common`으로 바꾸세요.
 >
 > > [!TIP]
 > > *응용 프로그램 ID*, *디렉터리(테넌트) ID* 및 *지원되는 계정 유형*의 값을 찾아보려면 **개요** 페이지로 이동합니다.
 
 ## <a name="more-information"></a>자세한 정보
 
-이 섹션에서는 로그인 사용자에 필요한 코드에 대한 개요를 제공합니다. 이는 작동 방식과 기본 인수를 이해하고 기존 ASP.NET 응용 프로그램에 로그인을 추가하려는 경우에도 유용합니다.
+이 섹션에서는 로그인 사용자에 필요한 코드에 대한 개요를 제공합니다. 이는 작동 방식과 기본 인수를 이해하고 기존 ASP.NET 애플리케이션에 로그인을 추가하려는 경우에도 유용합니다.
 
 ### <a name="owin-middleware-nuget-packages"></a>OWIN 미들웨어 NuGet 패키지
 
@@ -128,7 +128,7 @@ public void Configuration(IAppBuilder app)
             ResponseType = OpenIdConnectResponseType.IdToken,
             // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
             // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name
-            // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter 
+            // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter
             TokenValidationParameters = new TokenValidationParameters()
             {
                 ValidateIssuer = false
@@ -145,8 +145,8 @@ public void Configuration(IAppBuilder app)
 
 > |Where  |  |
 > |---------|---------|
-> | `ClientId`     | Azure Portal에 등록된 응용 프로그램의 응용 프로그램 ID |
-> | `Authority`    | 사용자가 인증하는 STS 엔드포인트 일반적으로 공용 클라우드의 경우 https://login.microsoftonline.com/{tenant}/v2.0입니다. {tenant}는 테넌트 이름, 테넌트 ID, 또는 공통 엔드포인트(다중 테넌트 응용 프로그램에 사용)에 대한 참조인 경우 *common*입니다. |
+> | `ClientId`     | Azure Portal에 등록된 애플리케이션의 애플리케이션 ID |
+> | `Authority`    | 사용자가 인증하는 STS 엔드포인트 일반적으로 공용 클라우드의 경우 https://login.microsoftonline.com/{tenant}/v2.0입니다. 여기서 {tenant}는 테넌트 이름, 테넌트 ID, 또는 공통 엔드포인트(다중 테넌트 애플리케이션에 사용)에 대한 참조인 경우 *common*입니다. |
 > | `RedirectUri`  | Azure AD v2.0 엔드포인트에 대한 인증 후 사용자가 전송되는 URL |
 > | `PostLogoutRedirectUri`     | 서명 해제 후 사용자가 전송되는 URL |
 > | `Scope`     | 요청되는 범위 목록이며 공백으로 구분 |
@@ -179,11 +179,11 @@ public void SignIn()
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작의 전체 설명이 포함된 응용 프로그램 및 새로운 기능 구축의 완전한 단계별 가이드를 위한 ASP.NET 자습서를 사용해 보세요.
+이 빠른 시작의 전체 설명이 포함된 애플리케이션 및 새로운 기능 구축의 완전한 단계별 가이드를 위한 ASP.NET 자습서를 사용해 보세요.
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>빠른 시작에 사용되는 응용 프로그램을 만드는 단계 알아보기
+### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>이 빠른 시작에 사용되는 애플리케이션을 만드는 단계 알아보기
 
 > [!div class="nextstepaction"]
-> [로그인 자습서](.\tutorial-v2-asp-webapp.md)
+> [로그인 자습서](./tutorial-v2-asp-webapp.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

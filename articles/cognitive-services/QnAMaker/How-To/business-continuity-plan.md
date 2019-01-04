@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 41e7425a2e2e6dd8dc8416538cf77e5b8f273284
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 10d3809de590a79b6efa86e3d55fbbe535ea13b6
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041941"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413118"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>QnA Maker 서비스를 위한 비즈니스 연속성 계획 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "47041941"
 
 1. [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)에서 두 개의 병렬 [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)를 설정합니다.
 
-2. 기본 및 보조 Azure 검색 인덱스를 동기로 유지합니다. [여기](https://github.com/pchoudhari/QnAMakerBackupRestore)에서 Github 샘플을 사용하여 Azure 인덱스 백업 복원 방법을 참조합니다.
+2. 기본 및 보조 Azure 검색 인덱스를 동기로 유지합니다. [여기](https://github.com/pchoudhari/QnAMakerBackupRestore)에서 GitHub 샘플을 사용하여 Azure 인덱스를 백업 복원하는 방법을 참조합니다.
 
 3. [연속 내보내기](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)를 사용하여 Application Insights를 백업합니다.
 

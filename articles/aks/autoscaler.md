@@ -402,7 +402,7 @@ Events:  <none>
 
 ## <a name="next-steps"></a>다음 단계
 
-수평 Pod Autoscaler로 클러스터 Autoscaler를 사용하려면 [Kubernetes 응용 프로그램 및 인프라 크기 조정][aks-tutorial-scale]을 체크 아웃합니다.
+수평 Pod Autoscaler로 클러스터 Autoscaler를 사용하려면 [Kubernetes 애플리케이션 및 인프라 크기 조정][aks-tutorial-scale]을 체크 아웃합니다.
 
 AKS 자습서를 통한 AKS 배포 및 관리에 대해 자세히 알아봅니다.
 

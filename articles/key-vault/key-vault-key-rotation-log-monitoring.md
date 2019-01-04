@@ -25,14 +25,14 @@ ms.locfileid: "44302020"
 
 ## <a name="introduction"></a>소개
 
-Key Vault가 있으면 이를 사용하여 키 및 암호를 저장할 수 있습니다. 사용자 응용 프로그램에서는 키 또는 암호 정보를 더 이상 유지할 필요가 없으며, 필요에 따라 자격 증명 모음에서 요청할 수 있습니다. 이렇게 하면 애플리케이션의 동작에 영향을 주지 않고 키 및 비밀을 업데이트할 수 있으며 키 및 비밀 관리 동작에 대한 다양한 가능성이 열립니다.
+Key Vault가 있으면 이를 사용하여 키 및 암호를 저장할 수 있습니다. 사용자 애플리케이션에서는 키 또는 암호 정보를 더 이상 유지할 필요가 없으며, 필요에 따라 자격 증명 모음에서 요청할 수 있습니다. 이렇게 하면 애플리케이션의 동작에 영향을 주지 않고 키 및 비밀을 업데이트할 수 있으며 키 및 비밀 관리 동작에 대한 다양한 가능성이 열립니다.
 
 >[!IMPORTANT]
 > 이 문서의 예제는 설명 용도로만 제공됩니다. 프로덕션 용도로는 사용하지 말아야 합니다. 
 
 이 문서에서는 다음을 안내합니다.
 
-- Azure Key Vault를 사용하여 암호를 저장하는 예. 이 자습서에서, 저장된 암호는 응용 프로그램에서 액세스하는 Azure Storage 계정 키입니다. 
+- Azure Key Vault를 사용하여 암호를 저장하는 예. 이 자습서에서, 저장된 암호는 애플리케이션에서 액세스하는 Azure Storage 계정 키입니다. 
 - 또한 해당 저장소 계정 키의 예약된 회전 구현에 대해서도 살펴봅니다.
 - 예기치 않은 요청이 있을 때 Key Vault 감사 로그를 모니터하고 경고를 생성하는 방법도 보여 줍니다.
 
@@ -98,9 +98,9 @@ Get-AzureKeyVaultSecret –VaultName <vaultName>
 
     ![Azure Active Directory에서 애플리케이션 열기](./media/keyvault-keyrotation/azure-ad-application.png)
 
-4. **만들기** 섹션에서 응용 프로그램 유형을 **웹 응용 프로그램 및/또는 웹 API**로 두고 응용 프로그램 이름을 지정합니다. 응용 프로그램에 **SIGN-ON URL**을 제공합니다. 이 데모에서 원하는 어느 것이든 될 수 있습니다.
+4. **만들기** 섹션에서 응용 프로그램 유형을 **웹 응용 프로그램 및/또는 웹 API**로 두고 응용 프로그램 이름을 지정합니다. 애플리케이션에 **SIGN-ON URL**을 제공합니다. 이 데모에서 원하는 어느 것이든 될 수 있습니다.
 
-    ![응용 프로그램 등록 만들기](./media/keyvault-keyrotation/create-app.png)
+    ![애플리케이션 등록 만들기](./media/keyvault-keyrotation/create-app.png)
 
 5. 애플리케이션이 Azure Active Directory에 추가되면 애플리케이션 페이지로 이동됩니다. **설정**을 선택한 후 속성을 선택합니다. **응용 프로그램 ID** 값을 복사합니다. 이 값은 이후 단계에서 필요합니다.
 
@@ -108,7 +108,7 @@ Get-AzureKeyVaultSecret –VaultName <vaultName>
 
 ![Azure Active Directory 앱 키](./media/keyvault-keyrotation/create-key.png)
 
-애플리케이션에서 Key Vault로 모든 호출을 설정하기 전에 Key Vault에 애플리케이션 및 해당 권한에 대한 정보를 알려야 합니다. 다음 명령은 Azure Active Directory 앱에서 Key Vault 이름 및 응용 프로그램 ID를 가져와 Key Vault에 응용 프로그램에 대한 **Get** 액세스 권한을 부여합니다.
+애플리케이션에서 Key Vault로 모든 호출을 설정하기 전에 Key Vault에 애플리케이션 및 해당 권한에 대한 정보를 알려야 합니다. 다음 명령은 Azure Active Directory 앱에서 Key Vault 이름 및 애플리케이션 ID를 가져와 Key Vault에 애플리케이션에 대한 **Get** 액세스 권한을 부여합니다.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get

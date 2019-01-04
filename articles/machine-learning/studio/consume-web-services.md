@@ -1,12 +1,11 @@
 ---
-title: Azure Machine Learning Studio 웹 서비스 사용 방법 | Microsoft Docs
+title: 웹 서비스 사용 - Azure Machine Learning Studio | Microsoft Docs
 description: Azure Machine Learning Studio에서 기계 학습 서비스가 배포된 후에는 RESTFul 웹 서비스를 실시간 요청-응답 서비스 또는 일괄 처리 실행 서비스로 사용할 수 있습니다.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
-ms.openlocfilehash: df837c64cf0e40f3bfc1c596b2950a9d23c74a90
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d7a48dcb56d2bed0e84714087bb9fda3fae65fc1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309109"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273785"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Azure Machine Learning Studio 웹 서비스 사용 방법
 
@@ -33,10 +32,10 @@ Azure Machine Learning 예측 모델을 웹 서비스로 배포하고 나면 RES
 * 웹 서비스를 배포하는 방법에 대한 자세한 내용은 [Machine Learning 웹 서비스 배포](publish-a-machine-learning-web-service.md)를 참조하세요.
 * Machine Learning에 대한 자세한 내용은 [Machine Learning 설명서 센터](https://azure.microsoft.com/documentation/services/machine-learning/)를 참조하세요.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="overview"></a>개요
-Azure Machine Learning 웹 서비스를 통해 외부 응용 프로그램에서 Machine Learning 워크플로 점수 매기기 모델과 실시간으로 통신할 수 있습니다. Machine Learning 웹 서비스 호출은 외부 응용 프로그램에 예측 결과를 반환합니다. Machine Learning 웹 서비스를 호출하려면 예측을 배포할 때 만들어진 API 키를 전달합니다. Machine Learning 웹 서비스는 웹 프로그래밍 프로젝트에 일반적으로 사용되는 아키텍처인 REST를 기반으로 합니다.
+Azure Machine Learning 웹 서비스를 통해 외부 응용 프로그램에서 Machine Learning 워크플로 점수 매기기 모델과 실시간으로 통신할 수 있습니다. Machine Learning 웹 서비스 호출은 외부 애플리케이션에 예측 결과를 반환합니다. Machine Learning 웹 서비스를 호출하려면 예측을 배포할 때 만들어진 API 키를 전달합니다. Machine Learning 웹 서비스는 웹 프로그래밍 프로젝트에 일반적으로 사용되는 아키텍처인 REST를 기반으로 합니다.
 
 Azure Machine Learning에는 다음 두 가지 유형의 서비스가 있습니다.
 
@@ -102,13 +101,13 @@ Machine Learning 웹 서비스에 연결하려면 **Microsoft.AspNet.WebApi.Clie
 
 **Visual Studio에서 Microsoft.AspNet.WebApi.Client NuGet 설치**
 
-1. UCI: Adult 2 클래스 데이터 세트에서 데이터 세트 다운로드 웹 서비스를 게시합니다.
+1. UCI: 성인 2 클래스 데이터 세트에서 데이터 세트 다운로드 웹 서비스를 게시합니다.
 2. **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 클릭합니다.
 3. **Install-Package Microsoft.AspNet.WebApi.Client**를 선택합니다.
 
 **코드 샘플을 실행하려면**
 
-1. Machine Learning 샘플 컬렉션의 “샘플 1: UCI: Adult 2 클래스 데이터 세트에서 데이터 세트 다운로드” 실험 부분을 게시합니다.
+1. Machine Learning 샘플 컬렉션의 일부인 “샘플 1: UCI: 성인 2 클래스 데이터 세트에서 데이터 세트 다운로드” 실험을 게시합니다.
 2. 웹 서비스에서 가져온 키로 apiKey를 할당합니다. 위의 **Azure Machine Learning 권한 부여 키 가져오기** 를 참조하세요.
 3. 요청 URI로 serviceUri를 할당합니다.
 
@@ -204,7 +203,7 @@ Machine Learning 웹 서비스에 연결하려면 Python 2.X의 경우 **urllib2
 
 **코드 샘플을 실행하려면**
 
-1. Machine Learning 샘플 컬렉션의 “샘플 1: UCI: Adult 2 클래스 데이터 세트에서 데이터 세트 다운로드” 실험 부분을 배포합니다.
+1. Machine Learning 샘플 컬렉션의 일부인 “샘플 1: UCI: 성인 2 클래스 데이터 세트에서 데이터 세트 다운로드” 실험을 배포합니다.
 2. 웹 서비스에서 가져온 키로 apiKey를 할당합니다. 이 문서의 시작 부분 가까이에 있는 **Azure Machine Learning 권한 부여 키 가져오기** 섹션을 참조하세요.
 3. 요청 URI로 serviceUri를 할당합니다.
 

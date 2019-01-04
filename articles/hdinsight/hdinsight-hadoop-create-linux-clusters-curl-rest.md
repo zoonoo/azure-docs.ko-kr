@@ -233,7 +233,7 @@ Azure Resource Manager 템플릿은 **리소스 그룹**과 그 안의 모든 �
 
     목록에서 사용하려는 구독을 선택하고 **Subscription_ID** 및 __Tenant_ID__ 열을 확인합니다. 이 값을 저장합니다.
 
-2. 다음 명령을 사용하여 Azure Active Directory에서 응용 프로그램을 만듭니다.
+2. 다음 명령을 사용하여 Azure Active Directory에서 애플리케이션을 만듭니다.
 
    ```bash
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
@@ -244,7 +244,7 @@ Azure Resource Manager 템플릿은 **리소스 그룹**과 그 안의 모든 �
    > [!NOTE]
    > `--home-page` 및 `--identifier-uris` 값은 인터넷에서 호스트되는 실제 웹 페이지를 참조할 필요가 없습니다. 이 값은 고유한 URI여야 합니다.
 
-   이 명령에서 반환되는 값은 새 응용 프로그램에 대한 __App ID__입니다. 이 값을 저장합니다.
+   이 명령에서 반환되는 값은 새 애플리케이션에 대한 __App ID__입니다. 이 값을 저장합니다.
 
 3. 다음 명령을 수행하여 **App ID**를 사용해 서비스 주체를 만듭니다.
 

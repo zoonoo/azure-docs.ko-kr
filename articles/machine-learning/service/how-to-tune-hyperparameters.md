@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning을 사용하여 모델에 대한 하이퍼 매개 변수 튜닝
+title: 모델에 대한 하이퍼 매개 변수 튜닝
+titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning 서비스를 사용하여 딥 러닝/기계 학습 모델에 대한 하이퍼 매개 변수를 효율적으로 조정합니다. 매개 변수 검색 공간을 정의하고, 최적화할 기본 메트릭을 지정하여 성능이 불량한 실행을 최적화하고 초기 종료하는 방법을 알아봅니다.
 ms.author: swatig
 author: swatig007
@@ -8,15 +9,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: e66dcac1d83c71174ad5d7c3fdcd2310143f8e01
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: da809aaaa1dd46c1232d0b032136833caaf0d2d0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140809"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100738"
 ---
-# <a name="tune-hyperparameters-for-your-model"></a>모델에 대한 하이퍼 매개 변수 튜닝
+# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Machine Learning Service를 사용하여 모델에 대한 하이퍼 매개 변수 튜닝
 
 Azure Machine Learning 서비스를 사용하여 모델에 대한 하이퍼 매개 변수를 효율적으로 조정합니다.  하이퍼 매개 변수 조정에는 다음 단계가 포함됩니다.
 
@@ -36,8 +38,6 @@ Azure Machine Learning 서비스를 사용하여 모델에 대한 하이퍼 매�
 
 Azure Machine Learning을 통해 효율적인 방식으로 하이퍼 매개 변수 탐색을 자동화하여 상당한 시간과 리소스를 절약할 수 있습니다. 하이퍼 매개 변수 값의 범위 및 실행될 최대 학습 수를 지정합니다. 그러면 시스템은 다른 매개 변수 구성을 사용하여 여러 동시 실행을 자동으로 시작하고, 선택한 메트릭으로 측정했을 때 최적의 성능을 제공하는 구성을 찾습니다. 성능이 낮은 학습 실행은 자동으로 초기 종료되어 계산 리소스의 낭비가 줄어듭니다. 이러한 리소스는 다른 하이퍼 매개 변수 구성을 탐색하는 데 대신 사용됩니다.
 
->[!NOTE]
-> 이 문서의 코드는 Azure Machine Learning SDK 버전 0.168에서 테스트되었습니다. 
 
 ## <a name="define-search-space"></a>검색 공간 정의
 
@@ -150,7 +150,7 @@ param_sampling = BayesianParameterSampling( {
 하이퍼 매개 변수 실험을 최적화할 기본 메트릭을 지정합니다. 각 교육 실행은 기본 메트릭에 대해 평가됩니다. 성능이 불량한 실행(기본 메트릭이 초기 종료 정책에서 설정된 기준을 충족하지 않음)은 종료됩니다. 기본 메트릭 이름 외에도 기본 메트릭을 최대화하거나 최소화할지 최적화의 목표를 지정합니다.
 
 * `primary_metric_name`: 최적화할 기본 메트릭의 이름입니다. 기본 메트릭 이름은 학습 스크립트에서 기록된 메트릭의 이름과 정확히 일치해야 합니다. [하이퍼 매개 변수 튜닝에 대한 메트릭 기록](#log-metrics-for-hyperparameter-tuning)을 참조하세요.
-* `primary_metric_goal`: `PrimaryMetricGoal.MAXIMIZE` 또는 `PrimaryMetricGoal.MINIMIZE`일 수 있으며 실행을 평가할 때 기본 메트릭을 최대화 또는 최소화할지 여부를 결정합니다. 
+* `primary_metric_goal`: `PrimaryMetricGoal.MAXIMIZE` 또는 `PrimaryMetricGoal.MINIMIZE`일 수 있으며 실행을 평가할 때 기본 메트릭을 최대화할지 또는 최소화할지 여부를 결정합니다. 
 
 ```Python
 primary_metric_name="accuracy",
@@ -256,14 +256,14 @@ policy=None
 총 교육 실행의 최대 수를 지정하여 하이퍼 매개 변수 조정 실험의 리소스 예산을 제어합니다.  선택적으로 하이퍼 매개 변수 조정 실험의 최대 기간을 지정합니다.
 
 * `max_total_runs`: 생성될 학습 실행 최대 총 수입니다. 상한 - 예를 들어, 하이퍼 매개 변수 공간이 한정되어 있고 샘플이 더 적은 경우더 적은 실행이 있을 수 있습니다. 값은 1에서 1000 사이의 숫자여야 합니다.
-* `max_duration_minutes`: 하이퍼 매개 변수 조정 실험의 최대 지속 시간(분)입니다. 매개 변수는 선택적이며, 있는 경우 이 기간 후 실행될 수 있는 모든 실행은 자동으로 취소됩니다.
+* `max_duration_minutes`: 하이퍼 매개 변수 튜닝 실험의 최대 지속 시간(분)입니다. 매개 변수는 선택적이며, 있는 경우 이 기간 후 실행될 수 있는 모든 실행은 자동으로 취소됩니다.
 
 >[!NOTE] 
 >`max_total_runs` 및 `max_duration_minutes`가 모두 지정된 경우 이러한 두 임계값 중 첫 번째 임계값에 도달하면 하이퍼 매개 변수 조정 실험은 종료됩니다.
 
 또한 하이퍼 매개 변수 조정 검색 중 동시에 실행할 학습 실행의 최대 수를 지정합니다.
 
-* `max_concurrent_runs`: 지정된 순간에 동시에 실행할 실행의 최대 수입니다. 지정되지 않는 경우 모든 `max_total_runs`는 병렬로 시작됩니다. 지정된 경우 1과 100 사이의 숫자여야 합니다.
+* `max_concurrent_runs`: 지정된 순간에 동시에 실행될 실행의 최대 수입니다. 지정되지 않는 경우 모든 `max_total_runs`는 병렬로 시작됩니다. 지정된 경우 1과 100 사이의 숫자여야 합니다.
 
 >[!NOTE] 
 >동시 실행 수는 지정된 계산 대상에서 사용할 수 있는 리소스에서 제어됩니다. 따라서 계산 대상이 원하는 동시성에 대한 사용 가능한 리소스를 갖도록 해야 합니다.
@@ -311,7 +311,7 @@ hyperdrive_run = experiment.submit(hyperdrive_run_config)
 Azure Machine Learning SDK는 학습 실행의 진행률을 시각화하는 Notebook 위젯을 제공합니다. 다음 코드 조각은 Jupyter Notebook에서 모든 하이퍼 매개 변수 조정 실행을 시각화합니다.
 
 ```Python
-from azureml.train.widgets import RunDetails
+from azureml.widgets import RunDetails
 RunDetails(hyperdrive_run).show()
 ```
 
@@ -348,10 +348,9 @@ print('\n batch size:',parameter_values[7])
 ```
 
 ## <a name="sample-notebook"></a>샘플 노트북
-다음을 참조하세요. 
-* Tensorflow 모델의 하이퍼 매개 변수 조정에 대한 자습서는 [training/03.train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow)를 참조하세요. 
-
-이 Notebook을 다운로드하려면 다음 단계를 수행합니다.
+이러한 Notebook을 참조하세요.
+* [how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch) 
+* [how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

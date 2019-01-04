@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Java용 Bing Web Search SDK 사용'
 titleSuffix: Azure Cognitive Services
-description: Bing Web Search SDK를 사용하면 Bing Web Search를 Java 응용 프로그램에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 요청을 보내고, JSON 응답을 받고, 결과를 필터링 및 구문 분석하는 방법에 대해 알아봅니다.
+description: Bing Web Search SDK를 사용하면 Bing Web Search를 Java 애플리케이션에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 요청을 보내고, JSON 응답을 받고, 결과를 필터링 및 구문 분석하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -19,7 +19,7 @@ ms.locfileid: "52309308"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>빠른 시작: Java용 Bing Web Search SDK 사용
 
-Bing Web Search SDK를 사용하면 Bing Web Search를 Java 응용 프로그램에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 요청을 보내고, JSON 응답을 받고, 결과를 필터링 및 구문 분석하는 방법에 대해 알아봅니다.
+Bing Web Search SDK를 사용하면 Bing Web Search를 Java 애플리케이션에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 요청을 보내고, JSON 응답을 받고, 결과를 필터링 및 구문 분석하는 방법에 대해 알아봅니다.
 
 지금 코드를 보시겠나요? [Java용 Bing Web Search SDK 샘플](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/)은 GitHub에서 사용할 수 있습니다.
 
@@ -146,7 +146,7 @@ public class BingWebSearchSample {
 
 ## <a name="construct-a-request"></a>요청 구성
 
-`BingWebSearchSample` 클래스에 있는 `runSample` 메서드는 요청을 구성합니다. 이 코드를 응용 프로그램에 복사합니다.
+`BingWebSearchSample` 클래스에 있는 `runSample` 메서드는 요청을 구성합니다. 이 코드를 애플리케이션에 복사합니다.
 
 ```java
 public static boolean runSample(BingWebSearchAPI client) {
@@ -262,7 +262,7 @@ if (webData != null && webData.videos() != null && webData.videos().value() != n
 
 ## <a name="declare-the-main-method"></a>main 메서드 선언
 
-이 응용 프로그램에서 main 메서드는 클라이언트를 인스턴스화하고, `subscriptionKey`의 유효성을 검사하고, `runSample`를 호출하는 코드를 포함합니다. 계속하기 전에 Azure 계정에 유효한 구독 키를 입력했는지 확인합니다.
+이 애플리케이션에서 main 메서드는 클라이언트를 인스턴스화하고, `subscriptionKey`의 유효성을 검사하고, `runSample`를 호출하는 코드를 포함합니다. 계속하기 전에 Azure 계정에 유효한 구독 키를 입력했는지 확인합니다.
 
 ```java
 public static void main(String[] args) {

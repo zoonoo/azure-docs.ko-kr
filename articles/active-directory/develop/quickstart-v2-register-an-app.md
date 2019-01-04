@@ -35,7 +35,7 @@ v2.0 엔드포인트에서는 일부 Azure AD 시나리오 및 기능만 지원�
 > [!NOTE]
 > 새 앱 등록? Azure Portal에서 새 **앱 등록(미리 보기)** 환경을 사용해 보세요. 시작하려면 [앱 등록(미리 보기)](quickstart-register-app.md)을 참조하세요.
 
-## <a name="step-1-sign-in-to-the-microsoft-application-registration-portal"></a>1단계: Microsoft 응용 프로그램 등록 포털에 로그인
+## <a name="step-1-sign-in-to-the-microsoft-application-registration-portal"></a>1단계: Microsoft 애플리케이션 등록 포털에 로그인
 
 1. [https://apps.dev.microsoft.com/](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에 있는 Microsoft 앱 등록 포털로 이동합니다.
 1. 개인, 직장 또는 학교 Microsoft 계정 중 하나로 로그인 합니다. 계정이 하나라도 없다면, 새로운 개인 계정을 등록합니다.
@@ -44,7 +44,7 @@ v2.0 엔드포인트에서는 일부 Azure AD 시나리오 및 기능만 지원�
 ## <a name="step-2-register-an-app"></a>2단계: 앱 등록
 
 1. **앱 추가**를 선택하고 앱 이름을 지정합니다.
-    포털에서는 나중에 코드에서 사용할 전역적으로 고유한 응용 프로그램 ID를 앱에 할당합니다. 앱이 API(예: Office, Azure 또는 사용자의 고유한 웹 API)를 호출하는 액세스 토큰이 필요한 서버 측 구성 요소를 포함한 경우, **애플리케이션 암호** 또한 만들어야 합니다.
+    포털에서는 나중에 코드에서 사용할 전역적으로 고유한 애플리케이션 ID를 앱에 할당합니다. 앱이 API(예: Office, Azure 또는 사용자의 고유한 웹 API)를 호출하는 액세스 토큰이 필요한 서버 측 구성 요소를 포함한 경우, **애플리케이션 암호** 또한 만들어야 합니다.
 1. 다음으로, 앱에서 사용할 **플랫폼**을 추가합니다.
     * 웹 기반 앱의 경우 로그인 메시지를 보낼 수 있는 **리디렉션 URI**를 제공합니다.
     * 모바일 앱의 경우 자동으로 만들어진 기본 리디렉션 URI를 복사합니다.
@@ -54,7 +54,7 @@ v2.0 엔드포인트에서는 일부 Azure AD 시나리오 및 기능만 지원�
 1. 계속 진행하기 전에 변경 내용을 **저장**합니다.
 
 > [!NOTE]
-> [https://apps.dev.microsoft.com/](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에서 응용 프로그램을 등록하는 경우 응용 프로그램은 포털에 로그인하는 데 사용하는 계정의 홈 테넌트에 등록됩니다. 즉, 개인 Microsoft 계정을 사용하여 Azure AD 테넌트에 응용 프로그램을 등록할 수 없습니다. 응용 프로그램을 특정 테넌트에 명시적으로 등록하려면 해당 테넌트에 원래 만든 계정을 사용하여 로그인합니다.
+> [https://apps.dev.microsoft.com/](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에서 응용 프로그램을 등록하는 경우 응용 프로그램은 포털에 로그인하는 데 사용하는 계정의 홈 테넌트에 등록됩니다. 즉, 개인 Microsoft 계정을 사용하여 Azure AD 테넌트에 애플리케이션을 등록할 수 없습니다. 애플리케이션을 특정 테넌트에 명시적으로 등록하려면 해당 테넌트에 원래 만든 계정을 사용하여 로그인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

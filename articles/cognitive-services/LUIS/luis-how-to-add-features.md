@@ -1,21 +1,22 @@
 ---
-title: 엔터티 검색을 향상시키는 구 목록
-titleSuffix: Azure Cognitive Services
+title: 문구 목록
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS(Language Understanding)를 사용하여 의도 및 엔터티의 감지 또는 예측을 향상시킬 수 있는 앱 기능을 해당 범주 및 패턴에 추가
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: feb51cd55801addaf5ce2486e5527542f794bbc5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 39a6ead041b1783a3effcb9659c59ea788cd2bf6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580964"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139506"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>단어 목록의 신호를 강화하는 구 사용
 
@@ -37,11 +38,11 @@ ms.locfileid: "52580964"
 
 4. LUIS는 구 목록에 추가할 관련 값을 제안할 수 있습니다. **권장**을 클릭하여 추가된 값과 의미 체계가 관련된 제안된 값 그룹을 표시합니다. 제안된 값 중 하나를 클릭하거나 **모두 추가**를 클릭하여 모두 추가할 수 있습니다.
 
-    ![구 목록 제안된 값](./media/luis-add-features/related-values.png)
+    ![구 목록 제안된 값 - 모두 추가](./media/luis-add-features/related-values.png)
 
 5. 추가된 구 목록 값이 서로 교환해서 사용할 수 있는 대체 값이면 **These values are interchangeable**(서로 교환 가능한 값)을 클릭합니다.
 
-    ![구 목록 제안된 값](./media/luis-add-features/interchangeable.png)
+    ![구 목록 제안된 값 - 교환 가능한 상자 선택 ](./media/luis-add-features/interchangeable.png)
 
 6. **저장**을 클릭합니다. "Cities" 구 목록이 **구 목록** 페이지에 추가됩니다.
 

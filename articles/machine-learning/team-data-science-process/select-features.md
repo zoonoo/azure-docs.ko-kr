@@ -1,5 +1,5 @@
 ---
-title: TDSP(팀 데이터 과학 프로세스)의 기능 선택 | Microsoft Docs
+title: Team Data Science Process의 기능 선택
 description: 기능 선택의 목적을 설명하고 기계 학습의 데이터 향상 프로세스에서 수행하는 역할의 예를 제공합니다.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b439f7245dd09a2f8a7ffe5f3b3c5396786220af
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: de8070906f7b2470378fb631f2e94a96b4a2960d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442381"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138656"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>TDSP(팀 데이터 과학 프로세스)의 기능 선택
 이 문서에서는 기능 선택의 목적을 설명하고 기계 학습의 데이터 향상 프로세스에서 수행하는 역할의 예를 제공합니다. 이들 예는 Azure Machine Learning Studio에서 가져온 것입니다. 
@@ -25,8 +25,8 @@ ms.locfileid: "52442381"
 
 기능의 엔지니어링 및 선택은 [팀 데이터 과학 프로세스가 무엇인가요?](overview.md) 문서에 설명된 팀 데이터 과학 프로세스의 한 부분입니다. 기능 엔지니어링 및 선택은 TDSP의 **개발 기능** 단계의 일부입니다.
 
-* **기능 엔지니어링**이 프로세스에서는 데이터의 기존 원시 기능에서 추가 관련 기능을 만들고 학습 알고리즘의 예측 능력을 향상시키려 합니다.
-* **선택 기능**: 이 프로세스에서는 학습 문제의 차원 수를 줄이기 위해 원래 데이터 기능의 주요 하위 집합을 선택합니다.
+* **기능 엔지니어링**: 이 프로세스에서는 데이터의 기존 원시 기능에서 추가 관련 기능을 만들고 학습 알고리즘의 예측 능력을 향상시키려 합니다.
+* **기능 선택**: 이 프로세스에서는 학습 문제의 차원 수를 줄이기 위해 원래 데이터 기능의 주요 하위 집합을 선택합니다.
 
 일반적으로 추가 기능을 생성하기 위해 **기능 엔지니어링**을 먼저 적용한 다음, 관련이 없는 중복 기능이나 고도로 상관된 기능을 제거하기 위해 **기능 선택** 단계가 수행됩니다.
 
@@ -42,21 +42,21 @@ ms.locfileid: "52442381"
 
 Azure Machine Learning Studio에서는 기능 선택에 제공되는 모듈이 있습니다. 다음 그림에 표시된 대로 이러한 모듈에는 [필터 기반 기능 선택][filter-based-feature-selection] 및 [피셔 선형 판별식 분석][fisher-linear-discriminant-analysis]이 포함됩니다.
 
-![기능 선택 예](./media/select-features/feature-Selection.png)
+![기능 선택 모듈](./media/select-features/feature-Selection.png)
 
 예를 들어, [필터 기반 기능 선택][filter-based-feature-selection] 모듈 사용을 고려하세요. 편의를 위해 텍스트 마이닝 예제를 계속 사용합니다. [기능 해싱][feature-hashing] 모듈을 통해 256개의 기능 집합을 생성한 후 회귀 모델을 빌드하려고 하며, 응답 변수는 1 ~ 5 범위의 서적 검토 등급을 포함하는 "Col1"이라고 가정합니다. "기능 점수 매기기 메서드”를 "Pearson 상관"으로 설정하고 "대상 열”은 "Col1"로 설정하며 "원하는 기능 수"는 50으로 설정합니다. 그러면 [필터 기반 기능 선택][filter-based-feature-selection] 모듈에서 대상 특성이 "Col1"과 함께 50개의 기능이 포함된 데이터 세트를 생성합니다. 다음 그림에서는 입력 매개 변수와 이 실험의 흐름을 보여줍니다.
 
-![기능 선택 예](./media/select-features/feature-Selection1.png)
+![필터 기반 기능 선택 모듈 속성](./media/select-features/feature-Selection1.png)
 
 다음 그림에서는 결과 데이터 세트를 보여줍니다.
 
-![기능 선택 예](./media/select-features/feature-Selection2.png)
+![필터 기반 기능 선택 모듈에 대한 결과 데이터 세트](./media/select-features/feature-Selection2.png)
 
 각 기능과 대상 특성 "Col1" 사이의 Pearson 상관 관계에 따라 기능의 점수를 매깁니다. 점수가 가장 높은 기능이 유지됩니다.
 
 선택한 기능의 해당 점수는 다음 그림에 표시되어 있습니다.
 
-![기능 선택 예](./media/select-features/feature-Selection3.png)
+![필터 기반 기능 선택 모듈에 대한 점수](./media/select-features/feature-Selection3.png)
 
 이 [필터 기반 기능 선택][filter-based-feature-selection] 모듈을 적용하면, 256개의 기능 중 50개가 선택됩니다. 이 50개에는 "Pearson 상관" 점수 매기기 메서드에 따라 대상 변수 “Col1”과 가장 상관 관계가 큰 기능이 있기 때문입니다.
 

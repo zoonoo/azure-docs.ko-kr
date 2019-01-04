@@ -1,26 +1,19 @@
 ---
-title: 'ExpressRoute: Portal: Azure용 VNet에 가상 네트워크 게이트웨이 추가 | Microsoft Docs'
+title: 'ExpressRoute에 대해 Azure VNet에 게이트웨이 추가: 포털 | Microsoft Docs'
 description: 이 문서에서는 ExpressRoute에 대해 이미 만들어진 Resource Manager VNet에 가상 네트워크 게이트웨이를 추가하는 과정을 안내합니다.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/17/2017
+ms.date: 12/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6198c8723ccbb225a4cc60526e66f4651390b26c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 37fe2e2adb947e2e9ddc86a34baf6994b5771be6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255696"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091206"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Azure Portal을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]

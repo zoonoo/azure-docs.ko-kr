@@ -5,14 +5,14 @@ author: ponatara
 manager: abhemraj
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: ponatara
-ms.openlocfilehash: 0b8d9765766191533745da4c653f1a91ce635c24
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210315"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310524"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>다중 계층 Citrix XenApp 및 XenDesktop 배포에 대해 재해 복구 설정
 
@@ -130,17 +130,17 @@ XenApp 구성 요소 VM에 대한 복제를 활성화한 후에는 복구 계획
 
 1. 복구 계획에서 XenApp 구성 요소 가상 머신을 추가합니다.
 2. 복구 계획 -> + 복구 계획을 클릭합니다. 복구 계획에 대한 직관적인 이름을 제공합니다.
-3. VMware 가상 머신의 경우 원본 및 대상을 각각 VMware 프로세스 서버와 Microsoft Azure로 선택하고 배포 모델을 Resource Manager로 선택한 후 항목 선택을 클릭합니다.
-4. Hyper-V 가상 머신의 경우 원본 및 대상을 각각 VMM 서버와 Microsoft Azure로 선택하고 배포 모델을 Resource Manager로 선택한 후 항목 선택을 클릭하고 XenApp 배포 VM을 선택합니다.
+3. VMware 가상 머신의 경우: 원본 및 대상을 각각 VMware 프로세스 서버와 Microsoft Azure로 선택하고 배포 모델을 Resource Manager로 선택한 후 항목 선택을 클릭합니다.
+4. Hyper-V 가상 머신의 경우: 원본 및 대상을 각각 VMM 서버와 Microsoft Azure로 선택하고 배포 모델을 Resource Manager로 선택한 후 항목 선택을 클릭하고 XenApp 배포 VM을 선택합니다.
 
 ### <a name="adding-virtual-machines-to-failover-groups"></a>장애 조치 그룹에 가상 머신 추가
 
 복구 계획을 사용자 지정하여 특정 시작 순서, 스크립트 또는 수동 작업에 대한 장애 조치 그룹을 추가할 수 있습니다. 다음 그룹을 복구 계획에 추가해야 합니다.
 
-1. 장애 조치 그룹 1: AD DNS
-2. 장애 조치 그룹 2: SQL Server VM
-2. 장애 조치 그룹 3: VDA 마스터 이미지 VM
-3. 장애 조치 그룹 4: Delivery Controller 및 StoreFront 서버 VM
+1. 장애 조치(failover) 그룹 1: AD DNS
+2. 장애 조치(failover) 그룹 2: SQL Server VM
+2. 장애 조치(failover) 그룹 3: VDA 마스터 이미지 VM
+3. 장애 조치(failover) 그룹 4: Delivery Controller 및 StoreFront 서버 VM
 
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>복구 계획에 스크립트 추가
@@ -149,16 +149,17 @@ XenApp 구성 요소 VM에 대한 복제를 활성화한 후에는 복구 계획
 
 사용자 지정 복구 계획은 다음과 유사합니다.:
 
-1. 장애 조치 그룹 1: AD DNS
-2. 장애 조치 그룹 2: SQL Server VM
-3. 장애 조치 그룹 3: VDA 마스터 이미지 VM
+1. 장애 조치(failover) 그룹 1: AD DNS
+2. 장애 조치(failover) 그룹 2: SQL Server VM
+3. 장애 조치(failover) 그룹 3: VDA 마스터 이미지 VM
 
    >[!NOTE]     
    >수동 또는 스크립트 작업을 포함하는 4, 6 및 7단계는 MCS/PVS 카탈로그가 있는 온-프레미스 XenApp 환경에만 적용됩니다.
 
-4. 그룹 3 수동 또는 스크립트 작업: 마스터 VDA VM을 종료합니다. Azure로 장애 조치된 경우 마스터 VDA VM은 실행 상태에 있게 됩니다. Azure 호스팅을 사용하여 새 MCS 카탈로그를 만들려면 마스터 VDA VM이 중지됨(할당 취소됨) 상태에 있어야 합니다. Azure Portal에서 VM을 종료합니다.
+4. 그룹 3 수동 또는 스크립트 작업: 마스터 VDA VM을 종료합니다.
+Azure로 장애 조치된 경우 마스터 VDA VM은 실행 상태가 됩니다. Azure 호스팅을 사용하여 새 MCS 카탈로그를 만들려면 마스터 VDA VM이 중지됨(할당 취소됨) 상태에 있어야 합니다. Azure Portal에서 VM을 종료합니다.
 
-5. 장애 조치 그룹 4: Delivery Controller 및 StoreFront 서버 VM
+5. 장애 조치(failover) 그룹 4: Delivery Controller 및 StoreFront 서버 VM
 6. 그룹 3 수동 또는 스크립트 작업 1:
 
     ***Azure RM 호스트 연결 추가***

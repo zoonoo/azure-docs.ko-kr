@@ -1,5 +1,5 @@
 ---
-title: C#을 사용하여 Azure Time Series Insights 환경에 대한 참조 데이터 관리 | Microsoft Docs
+title: Azure Time Series Insights C# 참조 데이터 - C#을 사용하여 Azure Time Series Insights 환경에서 참조 데이터 관리 | Microsoft Docs
 description: 이 문서에서는 C#(c-sharp) .NET 언어로 작성된 사용자 지정 응용 프로그램을 만들어 Azure Time Series Insights 환경에 대한 참조 데이터를 관리하는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.openlocfilehash: 52456533d40c8efde6a196d4e480c06bce2f08ab
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 299f1de73b1b0023f55089417b9d9ee5ba98b93f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629188"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276845"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>C#을 사용하여 Azure Time Series Insights 환경에 대한 참조 데이터 관리
 

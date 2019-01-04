@@ -1,20 +1,22 @@
 ---
-title: 웹 서비스 배포 사용 방법 - Azure Machine Learning
-description: Azure Machine Learning 모델을 배포하여 만든 웹 서비스를 사용하는 방법을 알아봅니다. Azure Machine Learning 모델을 배포하면 REST API를 노출하는 웹 서비스가 생성됩니다. 선택한 프로그래밍 언어를 사용하여 이 API에 대한 클라이언트를 만들 수 있습니다. 이 문서에서는 Python 및 C#을 사용하여 API에 액세스하는 방법을 알아봅니다.
+title: 배포된 웹 서비스를 사용하는 클라이언트 만들기
+titleSuffix: Azure Machine Learning service
+description: Azure Machine Learning 모델을 사용하여 모델을 배포한 경우 생성된 웹 서비스를 사용하는 방법을 알아봅니다. REST API를 노출하는 웹 서비스입니다. 선택한 프로그래밍 언어를 사용하여 이 API에 대한 클라이언트를 만듭니다.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.author: raymondl
-author: raymondlaghaeian
+ms.author: aashishb
+author: aashishb
 ms.reviewer: larryfr
-ms.date: 10/30/2018
-ms.openlocfilehash: 58c1b53a4b97aad7b916e593fd4d6b52b51b7a52
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 12/03/2018
+ms.custom: seodec18
+ms.openlocfilehash: fc1f472cec1b1da26456924885d7905ab2458e14
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262910"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251133"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
@@ -100,7 +102,7 @@ REST API는 요청 본문이 다음과 같은 구조의 JSON 문서가 될 것�
 > [!IMPORTANT]
 > 데이터의 구조는 서비스의 채점 스크립트 및 모델이 예상하는 것과 일치해야 합니다. 채점 스크립트는 모델에 데이터를 전달하기 전에 데이터를 수정할 수 있습니다.
 
-예를 들어 [노트북 내에서 학습](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) 예제의 모델에는 10개의 숫자 배열이 필요합니다. 이 예의 채점 스크립트는 요청에서 Numpy 배열을 만들고 모델에 전달합니다. 다음 예제에서는 이 서비스에서 필요한 데이터를 보여줍니다.
+예를 들어 [노트북 내에서 학습](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) 예제의 모델에는 10개의 숫자 배열이 필요합니다. 이 예의 채점 스크립트는 요청에서 Numpy 배열을 만들고 모델에 전달합니다. 다음 예제에서는 이 서비스에서 필요한 데이터를 보여줍니다.
 
 ```json
 {
@@ -124,9 +126,46 @@ REST API는 요청 본문이 다음과 같은 구조의 JSON 문서가 될 것�
 
 웹 서비스는 한 번의 요청으로 여러 데이터 세트를 수락할 수 있습니다. 응답 배열을 포함하는 JSON 문서를 반환합니다.
 
+### <a name="binary-data"></a>이진 데이터
+
+모델이 이미지와 같이 이진 데이터를 허용하는 경우 원시 HTTP 요청을 수락하도록 배포에 사용되는 `score.py` 파일을 수정해야 합니다. 이진 데이터를 허용하고 POST 요청에 대해 반전된 바이트를 반환하는 `score.py`의 예제는 다음과 같습니다. GET 요청의 경우 응답 본문의 전체 URL을 반환합니다.
+
+```python 
+from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    if request.method == 'GET':
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        respBody = bytearray(reqBody)
+        respBody.reverse()
+        respBody = bytes(respBody)
+        return AMLResponse(respBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> 서비스를 개선하려 노력하므로 `azureml.contrib` 네임스페이스의 사물은 자주 변경됩니다. 따라서 이 네임 스페이스의 모든 것을 미리 보기로 간주하므로 Microsoft에서 완벽히 지원하지 않아도 됩니다.
+>
+> 로컬 개발 환경에서 이를 테스트해야 하는 경우 다음 명령을 사용하여 contrib 네임스페이스의 구성 요소를 설치할 수 있습니다.
+> 
+> ```shell
+> pip install azureml-contrib-services
+> ```
+
 ## <a name="call-the-service-c"></a>서비스 호출(C#)
 
-이 예제에서는 C#을 사용하여 [노트북 내에서 학습](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) 예제에서 생성된 웹 서비스를 호출하는 방법을 보여줍니다.
+이 예제에서는 C#을 사용하여 [노트북 내에서 학습](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) 예제에서 생성된 웹 서비스를 호출하는 방법을 보여줍니다.
 
 ```csharp
 using System;
@@ -215,7 +254,7 @@ namespace MLWebServiceClient
 
 ## <a name="call-the-service-go"></a>서비스 호출(Go)
 
-이 예제에서는 Go를 사용하여 [노트북 내에서 학습](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) 예제에서 생성된 웹 서비스를 호출하는 방법을 보여줍니다.
+이 예제에서는 Go를 사용하여 [노트북 내에서 학습](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) 예제에서 생성된 웹 서비스를 호출하는 방법을 보여줍니다.
 
 ```go
 package main
@@ -307,7 +346,7 @@ func main() {
 
 ## <a name="call-the-service-java"></a>서비스 호출(Java)
 
-이 예제에서는 Java를 사용하여 [노트북 내에서 학습](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) 예제에서 생성된 웹 서비스를 호출하는 방법을 보여줍니다.
+이 예제에서는 Java를 사용하여 [노트북 내에서 학습](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) 예제에서 생성된 웹 서비스를 호출하는 방법을 보여줍니다.
 
 ```java
 import java.io.IOException;
@@ -387,7 +426,7 @@ public class App {
 
 ## <a name="call-the-service-python"></a>서비스 호출(Python)
 
-이 예제에서는 Python을 사용하여 [노트북 내에서 학습](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) 예제에서 생성된 웹 서비스를 호출하는 방법을 보여줍니다.
+이 예제에서는 Python을 사용하여 [노트북 내에서 학습](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) 예제에서 생성된 웹 서비스를 호출하는 방법을 보여줍니다.
 
 ```python
 import requests
@@ -446,7 +485,3 @@ print(resp.text)
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
-
-## <a name="next-steps"></a>다음 단계
-
-이제 배포된 모델에 대한 클라이언트를 만드는 방법을 배웠으므로, [IoT Edge 디바이스에 모델을 배포](how-to-deploy-to-iot.md)하는 방법을 알아봅니다.

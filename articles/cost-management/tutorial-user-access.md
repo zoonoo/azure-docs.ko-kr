@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 19cb1e414ba4a486139a502034e958907d027470
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 64e56233546a22804036b43d9769247678036049
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275270"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099446"
 ---
 # <a name="tutorial-assign-access-to-cloudyn-data"></a>자습서: Cloudyn 데이터 액세스 권한 할당
 
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 사용자에 대해 필요한 정보를 입력합니다. **로그인 ID**는 유효한 이메일 주소여야 합니다. 사용자가 다른 사용자를 만들고 수정할 수 있도록 하려면 사용자 관리를 허용하는 권한을 선택합니다. 받는 사람 목록 관리를 통해 사용자가 받는 사람 목록을 편집할 수 있습니다. **전자 메일로 사용자에게 알림**을 선택하면 Cloudyn의 전자 메일을 통해 사용자에게 로그인 정보가 포함된 링크를 보냅니다. 첫 번째 로그인에서 사용자는 암호를 설정합니다.
 
 **사용자에게 관리자 액세스 권한 있음** 아래에서 조직의 루트 엔터티를 선택합니다. 루트를 선택한 상태로 두고 사용자 정보를 저장합니다. 루트 엔터티를 선택하면 사용자가 트리의 루트 엔터티뿐만 아니라 그 아래에 있는 모든 엔터티에 대한 관리자 권한을 가질 수 있습니다.  
-  ![관리자 액세스 권한이 있는 새 사용자 추가](.\media\tutorial-user-access\new-admin-access.png)
+  ![새 사용자 추가 상자에 관리자 액세스 권한을 표시하는 예제](./media/tutorial-user-access/new-admin-access.png)
 
 ## <a name="create-a-user-with-user-access"></a>사용자 액세스 권한이 있는 사용자 만들기
 대시보드 및 보고서와 같은 Cloudyn 데이터에 액세스해야 하는 일반 사용자에게는 해당 항목을 볼 수 있는 사용자 액세스 권한이 있어야 합니다. 다음과 같은 차이점을 제외하고는 관리자 액세스 권한이 있는 사용자를 만든 것과 비슷한 방식으로 사용자 액세스 권한이 있는 새 사용자를 만듭니다.
@@ -56,7 +56,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 - **사용자에게 사용자 액세스 권한 있음** 목록에서 사용자가 액세스해야 하는 엔터티를 선택합니다.
 - 필요에 따라 관리자가 특정 엔터티에 액세스하도록 허용할 수도 있습니다.
 
-![사용자 액세스 권한 이 있는 새 사용자 추가](.\media\tutorial-user-access\new-user-access.png)
+![새 사용자 추가 상자에 사용자 액세스 권한을 표시하는 예제](./media/tutorial-user-access/new-user-access.png)
 
 사용자를 추가하는 방법에 대한 자습서 동영상을 시청하려면 [에 사용자 추가](https://youtu.be/Nzn7GLahx30)를 참조하세요.
 
@@ -88,11 +88,11 @@ Azure 계약 또는 계정을 Cloudyn에 등록했을 때 구독의 사용량, �
 
 Cloudyn 포털에서 오른쪽 위의 기어 기호를 클릭하고 **클라우드 계정**을 선택합니다. 하나의 엔터티(루트)로 시작하여 루트 아래에 엔터티 트리를 작성합니다. 다음은 완성된 트리에서 보여 주는 많은 IT 조직과 비슷한 엔터티 계층 구조의 예입니다.
 
-![엔터티 트리](.\media\tutorial-user-access\entity-tree.png)
+![계정 관리 페이지에 표시되는 엔터티 트리 예제](./media/tutorial-user-access/entity-tree.png)
 
 **엔터티**  옆에서 **엔터티 추가**를 클릭합니다. 추가하려는 개인 또는 부서에 대한 정보를 입력합니다. **전체 이름** 및 **전자 메일** 필드는 기존 사용자와 일치할 필요가 없습니다. 액세스 수준 목록을 보려면 *엔터티 추가*에 대한 도움말을 검색합니다.
 
-![엔터티 추가](.\media\tutorial-user-access\add-entity.png)
+![엔터티 추가 상자에 엔터티 이름 및 액세스 수준을 표시하는 예제](./media/tutorial-user-access/add-entity.png)
 
 완료되면 엔터티를 **저장**합니다.
 

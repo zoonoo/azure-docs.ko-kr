@@ -1,5 +1,5 @@
 ---
-title: R, Python 및 T-SQL을 사용하여 SQL Server 데이터 과학 연습 | Microsoft Docs
+title: R, Python 및 T-SQL을 사용하여 SQL Server에서 분석 - Team Data Science Process
 description: 예측 분석을 수행하기 위해 SQL Server에서 R, Python 및 T-SQL을 사용하는 과정을 안내하는 예제입니다.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 9c97d38bc278ff3632031138e2ac0326200f741f
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5efcf1221fe4bc0e02dd7a35e02ca8b274d5328f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442066"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136480"
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>R, Python 및 T-SQL을 사용하여 SQL Server 데이터 과학 연습
 
@@ -27,7 +27,7 @@ Team Data Science Process를 실행하는 추가 데이터 과학 연습은 사�
 
 ## <a name="predict-taxi-tips-using-python-and-sql-queries-with-sql-server"></a>SQL Server과 함께 Python 및 SQL 쿼리를 사용하여 택시 팁 예측 
 
-[SQL Server 사용](sql-walkthrough.md) 연습에서는 SQL Server와 공개적으로 사용 가능한 NYC Taxi Trip 및 요금 데이터 집합을 사용하여 기계 학습 분류 및 회귀 모델을 구축하고 배포하는 방법을 보여 줍니다.
+[SQL Server 사용](sql-walkthrough.md) 연습에서는 SQL Server와 공개적으로 사용 가능한 NYC Taxi Trip 및 요금 데이터 세트를 사용하여 기계 학습 분류 및 회귀 모델을 구축하고 배포하는 방법을 보여 줍니다.
 
 
 ## <a name="predict-taxi-tips-using-microsoft-r-with-sql-server"></a>SQL Server와 함께 Microsoft R을 사용하여 택시 팁 예측 
@@ -42,7 +42,7 @@ Team Data Science Process를 실행하는 추가 데이터 과학 연습은 사�
 
 ## <a name="predict-taxi-tips-using-python-in-sql-server-stored-procedures"></a>SQL Server 저장 프로시저에서 Python을 사용하여 택시 팁 예측
 
-[SQL Server Python 서비스와 함께 T-SQL 사용](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) 연습에서는 SQL 프로그래머에게 SQL Server에서의 Machine Learning 솔루션 구축 경험을 제공합니다. 저장된 프로시저에 Python 코드를 추가하여 Python을 응용 프로그램으로 통합하는 방법을 보여 줍니다.
+[SQL Server Python 서비스와 함께 T-SQL 사용](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) 연습에서는 SQL 프로그래머에게 SQL Server에서의 Machine Learning 솔루션 구축 경험을 제공합니다. 저장된 프로시저에 Python 코드를 추가하여 Python을 애플리케이션으로 통합하는 방법을 보여 줍니다.
 
 
 ## <a name="next-steps"></a>다음 단계

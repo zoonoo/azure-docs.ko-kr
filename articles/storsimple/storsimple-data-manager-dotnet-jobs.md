@@ -32,7 +32,7 @@ ms.locfileid: "27928239"
  - .NET SDK 사용
  - Azure Automation Runbook 사용
  
- 이 문서에서는 샘플 .NET 콘솔 응용 프로그램을 만들어 데이터 변환 작업을 시작하고 완료하기 위해 추적하는 방법을 자세히 설명합니다. 자동화를 통해 데이터 변환을 시작하는 방법에 대한 자세한 내용을 보려면 [Azure Automation Runbook을 사용하여 데이터 변환 작업 트리거](storsimple-data-manager-job-using-automation.md)로 이동합니다.
+ 이 문서에서는 샘플 .NET 콘솔 애플리케이션을 만들어 데이터 변환 작업을 시작하고 완료하기 위해 추적하는 방법을 자세히 설명합니다. 자동화를 통해 데이터 변환을 시작하는 방법에 대한 자세한 내용을 보려면 [Azure Automation Runbook을 사용하여 데이터 변환 작업 트리거](storsimple-data-manager-job-using-automation.md)로 이동합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -67,7 +67,7 @@ ms.locfileid: "27928239"
 
         ![구성 매개 변수 스크립트 출력](media/storsimple-data-manager-dotnet-jobs/get-config-parameters.png)
 
-3. Visual Studio 2012, 2013 또는 2015를 사용하여 C# .NET 콘솔 응용 프로그램을 만듭니다.
+3. Visual Studio 2012, 2013 또는 2015를 사용하여 C# .NET 콘솔 애플리케이션을 만듭니다.
 
     1. **Visual Studio 2012/2013/2015**을 실행합니다.
     1. **파일 > 새로 만들기 > 프로젝트**를 선택합니다.

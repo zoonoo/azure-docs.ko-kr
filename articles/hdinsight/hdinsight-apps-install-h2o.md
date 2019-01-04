@@ -1,6 +1,6 @@
 ---
-title: 게시된 응용 프로그램 설치 - H2O Sparkling Water - Azure HDInsight
-description: 타사의 Hadoop 응용 프로그램 H2O Sparkling Water를 설치하여 사용합니다.
+title: 게시된 애플리케이션 설치 - H2O Sparkling Water - Azure HDInsight
+description: 타사의 Hadoop 애플리케이션 H2O Sparkling Water를 설치하여 사용합니다.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -16,9 +16,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/28/2018
 ms.locfileid: "52497200"
 ---
-# <a name="install-published-application---h2o-sparkling-water"></a>게시된 응용 프로그램 설치 - H2O Sparkling Water
+# <a name="install-published-application---h2o-sparkling-water"></a>게시된 애플리케이션 설치 - H2O Sparkling Water
 
-이 문서에서는 [H20 Sparkling Water](http://www.h2o.ai/)에 게시된 [Apache Hadoop](https://hadoop.apache.org/) 애플리케이션을 Azure HDInsight에 설치하고 실행하는 방법을 설명합니다. HDInsight 응용 프로그램 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor) 게시된 응용 프로그램 목록은 [타사 Hadoop 응용 프로그램 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 애플리케이션을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 애플리케이션 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
+이 문서에서는 [H20 Sparkling Water](http://www.h2o.ai/)에 게시된 [Apache Hadoop](https://hadoop.apache.org/) 애플리케이션을 Azure HDInsight에 설치하고 실행하는 방법을 설명합니다. HDInsight 애플리케이션 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor) 게시된 애플리케이션 목록은 [타사 Hadoop 애플리케이션 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 애플리케이션을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 애플리케이션 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
 
 ## <a name="about-h2o-sparkling-water"></a>H2O Sparkling Water 정보
 
@@ -47,7 +47,7 @@ H2O Sparkling Water는 선형 확장성을 갖춘 완벽하게 분산된 오픈 
 * 클러스터 유형: Spark
 * 클러스터 버전: 3.5 또는 3.6
 
-## <a name="install-the-h2o-sparkling-water-published-application"></a>H2O Sparkling Water 게시된 응용 프로그램 설치
+## <a name="install-the-h2o-sparkling-water-published-application"></a>H2O Sparkling Water 게시된 애플리케이션 설치
 
 이 애플리케이션 및 사용 가능한 다른 ISV 애플리케이션을 설치하는 단계별 지침은 [타사 Apache Hadoop 애플리케이션 설치](hdinsight-apps-install-applications.md)를 참조하세요.
 

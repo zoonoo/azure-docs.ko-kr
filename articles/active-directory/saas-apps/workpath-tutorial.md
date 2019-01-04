@@ -31,7 +31,7 @@ Workpath를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 Workpath에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -63,11 +63,11 @@ Workpath의 Azure AD 통합을 구성하려면 갤러리의 Workpath를 관리�
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![애플리케이션][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![애플리케이션][3]
 
@@ -75,7 +75,7 @@ Workpath의 Azure AD 통합을 구성하려면 갤러리의 Workpath를 관리�
 
     ![Azure AD 테스트 사용자 만들기](./media/workpath-tutorial/tutorial_workpath_search.png)
 
-1. 결과 패널에서 **Workpath**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **Workpath**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/workpath-tutorial/tutorial_workpath_addfromgallery.png)
 
@@ -96,11 +96,11 @@ Workpath에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Workpath 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Workpath 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Workpath에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Workpath** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Workpath** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -125,7 +125,7 @@ Workpath에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Workpath 지원 팀](https://help.workpath.com)에 문의하세요.
 
-1. Workpath 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이 구성에 대한 예제를 보여줍니다. 
+1. Workpath 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이 구성에 대한 예제를 보여줍니다. 
 
     ![Configure Single Sign-On](./media/workpath-tutorial/tutorial_workpath_attributes.png)
     
@@ -202,7 +202,7 @@ Workpath에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
  
 ### <a name="creating-a-workpath-test-user"></a>Workpath 테스트 사용자 만들기
 
-Workpath는 사용자 프로비전 시간에만 지원합니다. 인증 후 사용자가 응용 프로그램에서 자동으로 만들어집니다. 
+Workpath는 사용자 프로비전 시간에만 지원합니다. 인증 후 사용자가 애플리케이션에서 자동으로 만들어집니다. 
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
@@ -213,11 +213,11 @@ Workpath는 사용자 프로비전 시간에만 지원합니다. 인증 후 사�
 
 **Britta Simon을 Workpath에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Workpath**를 선택합니다.
+1. 애플리케이션 목록에서 **Workpath**를 선택합니다.
 
     ![Configure Single Sign-On](./media/workpath-tutorial/tutorial_workpath_app.png) 
 
@@ -239,7 +239,7 @@ Workpath는 사용자 프로비전 시간에만 지원합니다. 인증 후 사�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Workpath 타일을 클릭하면 Workpath 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Workpath 타일을 클릭하면 Workpath 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [Azure 시작](../user-help/active-directory-saas-access-panel-introduction.md)을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스

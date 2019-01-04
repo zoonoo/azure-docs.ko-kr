@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 200c87bdf2f0d686cd2e768d3b6b9a7fe3a5691b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c5a69e0c15d6d75bb4f182c1d8f62863aae7c760
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282518"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140849"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>응용 프로그램 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
@@ -51,7 +51,7 @@ Azure Active Directory용 PingAccess는 인증에 헤더를 사용하는 응용 
 
 이미 응용 프로그램 프록시를 사용하도록 설정되어 있고 커넥터가 설치되어 있는 경우 이 섹션을 건너뛰고 [응용 프로그램 프록시를 사용하여 Azure AD에 앱 추가](#add-your-app-to-azure-ad-with-application-proxy)로 이동할 수 있습니다.
 
-응용 프로그램 프록시 커넥터는 원격 직원의 트래픽을 게시된 앱으로 전달하는 Windows Server 서비스입니다. 자세한 설치 지침은 [Azure Portal에서 응용 프로그램 프록시 사용](application-proxy-enable.md)을 참조하세요.
+응용 프로그램 프록시 커넥터는 원격 직원의 트래픽을 게시된 앱으로 전달하는 Windows Server 서비스입니다. 자세한 설치 지침은 [Azure Portal에서 응용 프로그램 프록시 사용](application-proxy-add-on-premises-application.md)을 참조하세요.
 
 1. 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **응용 프로그램 프록시**를 선택합니다.
@@ -66,7 +66,7 @@ Azure Active Directory용 PingAccess는 인증에 헤더를 사용하는 응용 
 
 Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저 응용 프로그램 프록시를 사용하여 응용 프로그램을 게시해야 합니다. 그런 다음 PingAccess 단계에서 사용할 수 있는 해당 앱에 대한 정보를 수집해야 합니다.
 
-앱을 게시하려면 다음 단계를 수행합니다. 1 ~ 8 단계에 대한 자세한 연습은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-publish-azure-portal.md)를 참조하세요.
+앱을 게시하려면 다음 단계를 수행합니다. 1 ~ 8 단계에 대한 자세한 연습은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-add-on-premises-application.md)를 참조하세요.
 
 1. 마지막 섹션에 있지 않았던 경우 전역 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **Enterprise 응용 프로그램**을 선택합니다.
@@ -140,7 +140,7 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>선택 사항 - 사용자 지정 필드를 보내도록 GraphAPI 업데이트
 
-Azure AD에서 인증에 대해 전송하는 보안 토큰의 목록은 [Azure AD 토큰 참조](../develop/v1-id-and-access-tokens.md)를 참조하세요. 다른 토큰을 전송하는 사용자 지정 클레임이 필요한 경우 Graph 탐색기 또는 Azure Portal에서 응용 프로그램의 매니페스트를 사용하여 앱 필드 *acceptMappedClaims*를 **True**로 설정합니다.    
+Azure AD에서 인증에 대해 전송하는 보안 토큰의 목록은 [Azure AD 토큰 참조](../develop/v1-id-and-access-tokens.md)를 참조하세요. 다른 토큰을 전송하는 사용자 지정 클레임이 필요한 경우 Graph 탐색기 또는 Azure Portal에서 애플리케이션의 매니페스트를 사용하여 앱 필드 *acceptMappedClaims*를 **True**로 설정합니다.    
 
 이 예에서는 Graph Explorer를 사용합니다.
 

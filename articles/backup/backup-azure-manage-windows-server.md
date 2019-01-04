@@ -2,18 +2,18 @@
 title: Azure Recovery Services 자격 증명 모음 및 서버 관리
 description: Azure Recovery Services 자격 증명 모음에서 작업 및 경고를 관리합니다.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
-ms.author: markgal
-ms.openlocfilehash: c9b3b027a52a6847c566c385c304edc195f7fdda
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: raynew
+ms.openlocfilehash: 716ddcaf61c4d7db40821056dc759667f9376023
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250699"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871340"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services 자격 증명 모음 모니터링 및 관리
 
@@ -67,7 +67,7 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 
 ![중요한 알림에 대해 필터링된 백업 경고 메뉴](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
-위의 이미지에서 [백업 경고] 메뉴의 경우 [상태]는 [활성], [심각도]는 [위험], 시간은 이전 24시간을 기준으로 필터링되었습니다.
+위의 이미지에서 Backup 경고 메뉴는 다음을 기준으로 필터링됩니다. 상태는 활성, 심각도는 위험이며, 시간은 이전 24시간입니다.
 
 ## <a name="manage-backup-alerts"></a>Backup 경고 관리
 
@@ -85,8 +85,8 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 
 | 경고 수준 | 알림을 생성하는 이벤트 |
 | ----------- | ----------- |
-| 중요 | 다음과 같은 경우에 중요한 알림을 받습니다. 백업 작업이 실패하고 복구 작업이 실패하고 서버의 보호를 중지했지만 데이터를 보존할 때.|
-| Warning | 백업 작업이 경고와 함께 완료되었거나(예: 손상 문제로 인해 100개 미만의 파일이 백업되지 않은 경우), 1,000,000개가 넘는 파일이 성공적으로 백업된 경우에는 경고 알림을 받습니다. |
+| 중요 | 다음과 같은 경우에 중요한 경고를 받습니다. 백업 작업이 실패하고, 복구 작업이 실패하고, 서버의 보호를 중지했지만 데이터를 보존하는 경우|
+| Warning | 다음과 같은 경우에 경고 알림을 받습니다. 백업 작업이 경고와 함께 완료되었거나(예: 손상 문제로 인해 100개 미만의 파일이 백업되지 않은 경우), 1,000,000개가 넘는 파일이 성공적으로 백업된 경우 |
 | 정보 제공 | 현재는 사용되는 정보 알림이 없습니다. |
 
 ### <a name="viewing-alert-details"></a>알림 세부 정보 보기
@@ -156,7 +156,7 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 
 ## <a name="manage-backup-items"></a>Backup 항목 관리
 
-Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터를 보유합니다. 백업 유형의 전체 목록은 [백업할 수 있는 응용 프로그램 및 워크로드](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)를 참조하세요. 다양한 서버, 컴퓨터, 데이터베이스 및 워크로드를 관리하려면 **백업 항목** 타일을 클릭하여 자격 증명 모음의 내용을 봅니다.
+Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터를 보유합니다. 백업 유형의 전체 목록은 [백업할 수 있는 애플리케이션 및 워크로드](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)를 참조하세요. 다양한 서버, 컴퓨터, 데이터베이스 및 워크로드를 관리하려면 **백업 항목** 타일을 클릭하여 자격 증명 모음의 내용을 봅니다.
 
 ![Backup 항목 타일](./media/backup-azure-manage-windows-server/backup-items.png)
 

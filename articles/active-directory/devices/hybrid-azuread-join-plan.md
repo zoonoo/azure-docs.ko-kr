@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: ebf5a23743d1fdd9553b391bb0518c2887ddb096
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b22f79195a7246c87a8d5d5b4b5e012cc30a62dd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959990"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274567"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>하이브리드 Azure Active Directory 조인 구현을 계획하는 방법
 
@@ -60,7 +60,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 하이브리드 Azure AD 조인은 광범위한 Windows 디바이스를 지원합니다. 이전 버전의 Windows를 실행하는 디바이스에 대한 구성에는 추가 또는 다른 단계가 필요하므로 지원되는 디바이스는 두 가지 범주로 그룹화됩니다.
 
-**Windows 현재 장치**
+**Windows 현재 디바이스**
 
 - 윈도우 10
     
@@ -71,7 +71,7 @@ Windows 데스크톱 운영 체제를 실행하는 디바이스의 경우 지원
 
 
 
- **Windows 하위 수준 장치**
+ **Windows 하위 수준 디바이스**
 
 - Windows 8.1
  
@@ -112,7 +112,6 @@ DC(도메인 컨트롤러) 역할을 실행하는 Windows Server의 등록은 �
 
 하이브리드 Azure AD 조인은 Azure AD를 사용하여 온-프레미스 도메인 가입 디바이스를 자동으로 등록하는 프로세스입니다. 모든 디바이스가 자동으로 등록되지 않도록 하려는 경우가 있습니다. 이 경우 [디바이스의 하이브리드 Azure AD 조인을 제어하는 방법](hybrid-azuread-join-control.md)을 참조하세요.
 
-
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>디바이스의 하이브리드 Azure AD 조인을 제어하는 방법 검토
 
 하이브리드 Azure AD 조인은 Azure AD를 사용하여 온-프레미스 도메인 가입 디바이스를 자동으로 등록하는 프로세스입니다. 모든 디바이스가 자동으로 등록되지 않도록 하려는 경우가 있습니다. 예를 들어, 초기 롤아웃 동안 모든 항목이 예상대로 작동하는지 확인하려는 경우가 여기에 해당합니다.
@@ -130,9 +129,9 @@ DC(도메인 컨트롤러) 역할을 실행하는 Windows Server의 등록은 �
 
 사용자 환경에 관리되는 도메인이 있는 경우 하이브리드 Azure AD 조인에서 지원하는 작업은 다음과 같습니다.
 
-- Seamless SSO(Single Sign-On)를 사용한 PTA(통과 인증) 
+- PTA(통과 인증)
 
-- Seamless SSO(Single Sign-On)를 사용한 PHS(암호 해시 동기화) 
+- PHS(암호 해시 동기화)
 
 버전 1.1.819.0부터 Azure AD Connect는 하이브리드 Azure AD 조인을 구성하는 마법사를 제공합니다. 마법사를 사용하면 구성 프로세스를 크게 간소화할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
@@ -145,7 +144,22 @@ DC(도메인 컨트롤러) 역할을 실행하는 Windows Server의 등록은 �
  필요한 버전의 Azure AD Connect를 설치할 수 없는 경우 [디바이스 등록을 수동으로 구성하는 방법](../device-management-hybrid-azuread-joined-devices-setup.md)을 참조하세요. 
 
 
+## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Hybrid Azure AD 조인에서 대체 로그인 ID 지원
 
+Windows 10 하이브리드 Azure AD 조인은 대체 로그인 ID 유형, [인증 방법](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn), 도메인 유형 및 Windows 10 버전에 따라 [대체 로그인 ID](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)를 제한적으로 지원합니다. 사용자 환경에 존재할 수 있는 두 가지 유형의 대체 로그인 ID가 있습니다.
+
+ - 라우팅 가능 대체 로그인 ID: 라우팅 가능 대체 로그인 ID에는 도메인 등록 기관에 등록된 유효한 확인된 도메인이 있습니다. 예를 들어 contoso.com이 기본 도메인인 경우 contoso.org 및 contoso.co.uk는 Contoso에서 소유하고 [Azure AD에서 확인](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain)된 유효한 도메인입니다.
+ 
+ - 라우팅 불가능 대체 로그인 ID: 라우팅 불가능 대체 로그인 ID에는 확인된 도메인이 없습니다. 조직의 개인 네트워크에만 적용할 수 있습니다. 예를 들어 contoso.com이 기본 도메인인 경우 contoso.local은 인터넷에서 확인 가능한 도메인이 아니라 Contoso 네트워크 내에서 사용됩니다.
+ 
+아래 표에서는 Windows 10 하이브리드 Azure AD 조인에서 이러한 대체 로그인 ID에 대한 지원을 자세히 설명합니다.
+
+|대체 로그인 ID 유형|도메인 유형|Windows 10 버전|설명|
+|-----|-----|-----|-----|
+|라우팅 가능|페더레이션 |1703 릴리스|일반 공급|
+|라우팅 가능|관리|1709 릴리스|현재 비공개 미리 보기로 제공되고 있습니다. Azure AD SSPR이 지원되지 않음 |
+|라우팅 불가능|페더레이션|1803 릴리스|일반 공급|
+|라우팅 불가능|관리|지원되지 않음||
 
 
 

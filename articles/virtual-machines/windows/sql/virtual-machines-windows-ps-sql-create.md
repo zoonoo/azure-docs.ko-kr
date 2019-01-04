@@ -403,5 +403,5 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $V
    - [저장소 설정](virtual-machines-windows-sql-server-storage-configuration.md) 
    - [자동화된 관리 작업](virtual-machines-windows-sql-server-agent-extension.md)
 - [연결 구성](virtual-machines-windows-sql-connect.md).
-- 새 SQL Server 인스턴스에 클라이언트 및 응용 프로그램을 연결합니다.
+- 새 SQL Server 인스턴스에 클라이언트 및 애플리케이션을 연결합니다.
 

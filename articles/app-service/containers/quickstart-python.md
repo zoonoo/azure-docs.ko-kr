@@ -1,5 +1,5 @@
 ---
-title: Linux의 Azure App Service에서 Python 웹앱 만들기 | Microsoft Docs
+title: Linux에서 Python 웹앱 만들기 - Azure App Service | Microsoft Docs
 description: 몇 분 안에 Linux의 Azure App Service에서 첫 번째 Python Hello World 앱을 배포합니다.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 5f9d694d47c0bd0765af7871d7e535a4174c30ff
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec18
+ms.openlocfilehash: d9d6f3549ec5db914536400fac53de60f2ad4a94
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404731"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261853"
 ---
 # <a name="create-a-python-web-app-in-azure-app-service-on-linux-preview"></a>Linux의 Azure App Service에서 Python 웹앱 만들기(미리 보기)
 
@@ -41,7 +41,7 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 이 문서의 단계를 수�
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
-터미널 창에서 다음 명령을 실행하여, 샘플 응용 프로그램을 로컬 머신에 복제하고 샘플 코드가 들어 있는 디렉터리로 이동합니다.
+터미널 창에서 다음 명령을 실행하여, 샘플 애플리케이션을 로컬 머신에 복제하고 샘플 코드가 들어 있는 디렉터리로 이동합니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
@@ -50,7 +50,7 @@ cd python-docs-hello-world
 
 ## <a name="run-the-app-locally"></a>로컬에서 앱 실행하기
 
-응용 프로그램을 로컬로 실행하여 Azure에 응용 프로그램을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고 아래 명령을 사용하여 필요한 종속성을 설치하고 기본 제공 개발 서버를 시작합니다. 
+애플리케이션을 로컬로 실행하여 Azure에 애플리케이션을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고 아래 명령을 사용하여 필요한 종속성을 설치하고 기본 제공 개발 서버를 시작합니다. 
 
 ```bash
 # In Bash
@@ -123,7 +123,7 @@ To https://user2234@cephalin-python.scm.azurewebsites.net/cephalin-python.git
 
 ## <a name="browse-to-the-app"></a>앱으로 이동
 
-웹 브라우저를 사용하여 배포된 응용 프로그램으로 이동합니다.
+웹 브라우저를 사용하여 배포된 애플리케이션으로 이동합니다.
 
 ```bash
 http://<app_name>.azurewebsites.net

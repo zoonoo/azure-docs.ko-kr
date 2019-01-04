@@ -43,7 +43,7 @@ Azure AD(Azure Active Directory) Connect Health에서는 온-프레미스 ID 인
 ## <a name="why-use-azure-ad-connect"></a>Azure AD Connect를 사용하는 이유
 Azure AD와 온-프레미스 디렉터리를 통합하면 온-프레미스 및 클라우드 리소스 모두에 액세스하기 위한 일반적인 ID를 제공하므로 사용자가 더 생산성을 높일 수 있습니다. 사용자와 조직은 다음과 같은 이점을 얻을 수 있습니다.
 
-* 사용자는 단일 ID를 사용하여 온-프레미스 응용 프로그램 및 Office 365와 같은 클라우드 서비스에 액세스할 수 있습니다.
+* 사용자는 단일 ID를 사용하여 온-프레미스 애플리케이션 및 Office 365와 같은 클라우드 서비스에 액세스할 수 있습니다.
 * 동기화 및 로그인에 대해 간편한 배포 환경을 제공하는 단일 도구입니다.
 * 시나리오에 대한 최신 기능을 제공합니다. Azure AD Connect는 DirSync 및 Azure AD Sync와 같은 이전 버전의 ID 통합 도구를 대체합니다. 자세한 내용은 [하이브리드 ID 디렉터리 통합 도구 비교](plan-hybrid-identity-design-considerations-tools-comparison.md)를 참조하세요.
 

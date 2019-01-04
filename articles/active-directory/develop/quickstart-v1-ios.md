@@ -35,9 +35,9 @@ Azure AD(Azure Active Directory)는 보호된 리소스에 액세스해야 하�
 * OAuth 2.0 인증 프로토콜을 사용하여 Azure AD Graph API를 호출하기 위한 액세스 토큰을 가져옵니다.
 * 지정된 별칭을 가진 사용자를 디렉터리에서 검색합니다.
 
-완전하게 작동하는 응용 프로그램을 빌드하려면 다음 작업이 필요합니다.
+완전하게 작동하는 애플리케이션을 빌드하려면 다음 작업이 필요합니다.
 
-1. Azure AD에 응용 프로그램을 등록합니다.
+1. Azure AD에 애플리케이션을 등록합니다.
 1. ADAL을 설치 및 구성합니다.
 1. ADAL을 사용하여 Azure AD에서 토큰을 가져옵니다.
 
@@ -46,14 +46,14 @@ Azure AD(Azure Active Directory)는 보호된 리소스에 액세스해야 하�
 시작하려면 다음과 같은 필수 조건을 완료하세요.
 
 * [앱 기본 사항을 다운로드](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip)하거나 [완성된 샘플을 다운로드](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip)합니다.
-* 사용자를 만들고 응용 프로그램을 등록할 수 있는 Azure AD 테넌트가 필요합니다. 테넌트가 아직 없는 경우 [얻는 방법을 알아보세요](quickstart-create-new-tenant.md).
+* 사용자를 만들고 애플리케이션을 등록할 수 있는 Azure AD 테넌트가 필요합니다. 테넌트가 아직 없는 경우 [얻는 방법을 알아보세요](quickstart-create-new-tenant.md).
 
 > [!TIP]
 > 몇 분 안에 Azure AD를 실행할 수 있는 새로운 [개발자 포털](https://identity.microsoft.com/Docs/iOS)을 사용해 보세요. 개발자 포털은 앱을 등록하고 코드에 Azure AD를 통합하는 과정을 안내합니다. 이 과정을 완료하면 테넌트에서 사용자를 인증할 수 있는 간단한 애플리케이션 및 토큰을 수락하고 유효성 검사를 수행할 수 있는 백 엔드가 생성됩니다.
 
 ## <a name="step-1-determine-what-your-redirect-uri-is-for-ios"></a>1단계: iOS용 리디렉션 URI 결정
 
-특정 SSO 시나리오에서 애플리케이션을 안전하게 시작하려면, 특정 형식으로 *리디렉션 URI*를 만들어야 합니다. 리디렉션 URI는 토큰을 요청하는 올바른 응용 프로그램에 반환하는데 사용됩니다.
+특정 SSO 시나리오에서 애플리케이션을 안전하게 시작하려면, 특정 형식으로 *리디렉션 URI*를 만들어야 합니다. 리디렉션 URI는 토큰을 요청하는 올바른 애플리케이션에 반환하는데 사용됩니다.
 
 리디렉션 URI에 대한 iOS 형식은 다음과 같습니다.
 
@@ -68,7 +68,7 @@ Azure AD(Azure Active Directory)는 보호된 리소스에 액세스해야 하�
 
 ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
-## <a name="step-2-register-the-directorysearcher-application"></a>2단계: DirectorySearcher 응용 프로그램 등록
+## <a name="step-2-register-the-directorysearcher-application"></a>2단계: DirectorySearcher 애플리케이션 등록
 
 앱에서 토큰을 가져오도록 설정하려면 Azure AD 테넌트에 앱을 등록하고 Azure AD Graph API에 액세스할 수 있는 권한을 부여해야 합니다.
 
@@ -76,15 +76,15 @@ Azure AD(Azure Active Directory)는 보호된 리소스에 액세스해야 하�
 2. 위쪽 막대에서 계정을 선택합니다. **디렉터리** 목록에서 응용 프로그램을 등록할 Active Directory 테넌트를 선택합니다.
 3. 왼쪽 탐색 창에서 **모든 서비스**를 선택한 다음, **Azure Active Directory**를 선택합니다.
 4. **앱 등록**을 선택하고 **추가**를 선택합니다.
-5. 표시되는 메시지에 따라 새 **네이티브 클라이언트 응용 프로그램**을 만듭니다.
+5. 표시되는 메시지에 따라 새 **네이티브 클라이언트 애플리케이션**을 만듭니다.
     * **이름**은 응용 프로그램 이름이고 최종 사용자에게 응용 프로그램을 설명합니다.
     * **리디렉션 URI**는 Azure AD가 토큰 응답을 반환하는 데 사용하는 구성표 및 문자열의 조합입니다. 애플리케이션과 관련되고 이전 리디렉션 URI 정보를 바탕으로 한 값을 입력합니다.
-6. 등록이 완료되면 Azure AD가 앱에 고유한 응용 프로그램 ID를 할당합니다. 이 값은 다음 섹션에서 필요하므로 응용 프로그램 탭에서 복사해 둡니다.
-7. **설정** 페이지에서 **필수 권한 > 추가 > Microsoft Graph**를 선택한 후 **위임된 권한**에서 **디렉터리 데이터 읽기** 권한을 추가합니다. 이 권한은 Azure AD Graph API에서 사용자를 쿼리하도록 응용 프로그램을 설정합니다.
+6. 등록이 완료되면 Azure AD가 앱에 고유한 애플리케이션 ID를 할당합니다. 이 값은 다음 섹션에서 필요하므로 애플리케이션 탭에서 복사해 둡니다.
+7. **설정** 페이지에서 **필수 권한 > 추가 > Microsoft Graph**를 선택한 후 **위임된 권한**에서 **디렉터리 데이터 읽기** 권한을 추가합니다. 이 권한은 Azure AD Graph API에서 사용자를 쿼리하도록 애플리케이션을 설정합니다.
 
 ## <a name="step-3-install-and-configure-adal"></a>3단계: ADAL 설치 및 구성
 
-Azure AD에서 응용 프로그램이 있으므로 ADAL을 설치하고 ID 관련 코드를 작성할 수 있습니다. ADAL이 Azura AD와 통신할 수 있게 하려면, 앱 등록에 관한 일부 정보를 제공해야 합니다.
+Azure AD에서 애플리케이션이 있으므로 ADAL을 설치하고 ID 관련 코드를 작성할 수 있습니다. ADAL이 Azura AD와 통신할 수 있게 하려면, 앱 등록에 관한 일부 정보를 제공해야 합니다.
 
 1. 먼저 CocoaPods를 사용하여 DirectorySearcher 프로젝트에 ADAL을 추가하여 시작합니다.
 
@@ -240,7 +240,7 @@ ADAL에서 확인되는 기본 원칙은 액세스 토큰이 필요할 때마다
 > [!NOTE]
 > `AuthenticationResult` 개체에는 사용자 앱에 필요할 수 있는 정보를 수집하는 데 사용할 수 있는 `tokenCacheStoreItem` 개체가 포함되어 있습니다. 빠른 시작에서 `tokenCacheStoreItem`은 인증이 이미 수행되었는지를 결정하는 데 사용됩니다.
 
-## <a name="step-5-build-and-run-the-application"></a>5단계: 응용 프로그램 빌드 및 실행
+## <a name="step-5-build-and-run-the-application"></a>5단계: 애플리케이션 빌드 및 실행
 
 축하합니다! 이제 사용자를 인증하고 OAuth 2.0을 사용하여 Web API를 안전하게 호출하고, 사용자에 대한 기본 정보를 가져올 수 있는 작동 중인 iOS 애플리케이션이 작성되었습니다.
 
@@ -250,7 +250,7 @@ ADAL에서 확인되는 기본 원칙은 액세스 토큰이 필요할 때마다
 1. 해당 UPN에 따라 다른 사용자를 검색합니다.
 1. 앱을 닫은 다음 다시 시작합니다. 사용자의 세션이 그대로 유지되는 것을 확인합니다.
 
-ADAL은 응용 프로그램에 이러한 모든 일반적인 ID 기능을 쉽게 통합할 수 있습니다. 또한 캐시 관리, OAuth 프로토콜 지원, 사용자에게 로그인 UI 제공, 만료된 토큰 새로 고침 등의 모든 귀찮은 작업을 대신 처리합니다. 실제로 알아두어야 할 모든 항목은 단일 API 호출, `getToken`입니다.
+ADAL은 애플리케이션에 이러한 모든 일반적인 ID 기능을 쉽게 통합할 수 있습니다. 또한 캐시 관리, OAuth 프로토콜 지원, 사용자에게 로그인 UI 제공, 만료된 토큰 새로 고침 등의 모든 귀찮은 작업을 대신 처리합니다. 실제로 알아두어야 할 모든 항목은 단일 API 호출, `getToken`입니다.
 
 참조를 위해 완성된 샘플(사용자 구성 값 제외)이 [GitHub](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip)에 제공됩니다.
 

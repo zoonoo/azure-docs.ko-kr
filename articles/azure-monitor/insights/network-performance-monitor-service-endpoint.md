@@ -10,17 +10,15 @@ ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: ''
-ms.openlocfilehash: d818b4c045139eace88c3ef6b9675e5199c2ed4b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9f881071559eaba0f6b1c86e8827993d52470baf
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52429538"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186211"
 ---
 # <a name="service-connectivity-monitor"></a>서비스 연결 모니터
 
@@ -97,7 +95,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 응용 프로그램의 응답 시간과 네트워크 대기 시간 간의 상관 관계를 관찰하여 응용 프로그램 성능 저하가 네트워크 때문인지 아니면 응용 프로그램 공급자 끝의 문제 때문인지 확인합니다. 
 
-* **응용 프로그램 문제:** 응답 시간이 갑자기 증가하지만 네트워크 대기 시간이 일정한 경우 네트워크는 제대로 작동하고 있으며 응용 프로그램 끝에 문제가 있는 것을 의미합니다. 
+* **애플리케이션 문제:** 응답 시간이 갑자기 증가하지만 네트워크 대기 시간이 일정한 경우 네트워크는 제대로 작동하고 있으며 애플리케이션 끝에 문제가 있는 것을 의미합니다. 
 
     ![서비스 연결 모니터 응용 프로그램 문제](media/network-performance-monitor-service-endpoint/service-endpoint-application-issue.png)
 
@@ -131,4 +129,4 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 
 ## <a name="next-steps"></a>다음 단계
-자세한 네트워크 성능 데이터 레코드를 보려면 [로그 검색](../../log-analytics/log-analytics-queries.md)을 수행합니다.
+자세한 네트워크 성능 데이터 레코드를 보려면 [로그 검색](../../azure-monitor/log-query/log-query-overview.md)을 수행합니다.

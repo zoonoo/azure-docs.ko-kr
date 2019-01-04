@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.author: byvinyal
-ms.openlocfilehash: bd20ea58c7693b3be8f583810384aa26dde572d8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: eb93dfae91ee84400c32af7b662c69aefda979d2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219565"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409176"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간 경과에 따라 이 목록은 더 많은 플랫폼에 적용되도록 확장 및 업데이트됩니다.
@@ -54,10 +54,9 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* [Azure Redis 캐시(영문)](#azure-redis-cache-limits)
+* [Azure Cache for Redis](#azure-redis-cache-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
-* [Batch AI](#batch-ai-limits)
 * [BizTalk Services](#biztalk-services-limits)
 * [CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
@@ -73,7 +72,7 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [Azure Firewall](#azure-firewall-limits)
 * [Front Door](#azure-front-door-service-limits)
 * [IoT Hub](#iot-hub-limits)
-* [IoT Hub Device Provisioning 서비스](#iot-hub-device-provisioning-service-limits)
+* [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
 * [Log Analytics](#log-analytics-limits)
 * [관리 ID](#managed-identity-limits)
@@ -220,9 +219,6 @@ Azure Files 한도에 대한 자세한 내용은 [Azure Files 확장성 및 성�
 ### <a name="batch-limits"></a>Batch 제한
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
-### <a name="batch-ai-limits"></a>Batch AI 제한
-[!INCLUDE [azure-batch-ai-limits](../includes/azure-batch-ai-limits.md)]
-
 ### <a name="biztalk-services-limits"></a>BizTalk Services 제한
 다음 표에서는 Azure Biztalk 서비스에 대한 제한을 보여 줍니다.
 
@@ -329,7 +325,7 @@ Azure Database for PostgreSQL 제한은 [Azure Database for PostgreSQL의 제한
 ### <a name="api-management-limits"></a>API Management 제한
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
 
-### <a name="azure-redis-cache-limits"></a>Azure Redis 캐시 제한
+### <a name="azure-cache-for-redis-limits"></a>Azure Cache for Redis 제한
 [!INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
 
 ### <a name="key-vault-limits"></a>키 값 제한

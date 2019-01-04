@@ -52,11 +52,11 @@ items:
     - name: ID 거버넌스
       tocHref: /azure/active-directory/governance/
       topicHref: /azure/active-directory/governance/
-    - name: 응용 프로그램 관리
+    - name: 애플리케이션 관리
       tocHref: /azure/active-directory/manage-apps/
       topicHref: /azure/active-directory/manage-apps/
       items:
-      - name: SaaS 응용 프로그램 자습서
+      - name: SaaS 애플리케이션 자습서
         tocHref: /azure/active-directory/saas-apps/
         topicHref: /azure/active-directory/saas-apps/tutorial-list
     - name: 보고 및 모니터링
@@ -512,7 +512,7 @@ items:
   - name: 네트워킹
     tocHref: /azure/networking/
     topicHref: /azure/networking/networking-overview
-  - name: 노트북
+  - name: Notebooks
     tocHref: /azure/notebooks/
     topicHref: /azure/notebooks/azure-notebooks-overview
   - name: Notification Hubs

@@ -1,0 +1,78 @@
+---
+title: 운영자 모범 사례 - AKS(Azure Kubernetes Services)의 컨테이너 이미지 관리
+description: AKS(Azure Kubernetes Services)에서 컨테이너 이미지를 관리하고 보안을 유지하는 방법에 대한 클러스터 운영자 모범 사례 알아보기
+services: container-service
+author: iainfoulds
+ms.service: container-service
+ms.topic: conceptual
+ms.date: 12/06/2018
+ms.author: iainfou
+ms.openlocfilehash: 20d3d3d755a35927550064ddfdf3b983348f93d3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111141"
+---
+# <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 컨테이너 이미지 관리 및 보안에 대한 모범 사례
+
+AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 및 실행할 경우 컨테이너 보안 유지가 핵심 고려 사항입니다. 오래된 기본 이미지 또는 애플리케이션 런타임이 포함된 컨테이너는 보안 위험 및 가능한 공격 벡터를 초래합니다. 이러한 위험을 최소화하려면 문제를 검색하고 해결하는 도구를 컨테이너에 통합해야 합니다.
+
+AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 및 실행할 경우 컨테이너 및 컨테이너 이미지의 보안 유지가 핵심 고려 사항입니다. 오래된 기본 이미지 또는 패치되지 않은 애플리케이션 런타임이 포함된 컨테이너는 보안 위험 및 가능한 공격 벡터를 초래합니다. 이러한 위험을 최소화하려면 빌드 타임 뿐만 아니라 런타임에 문제를 검색하고 해결하는 도구를 컨테이너에 통합해야 합니다. 프로세스에서 취약점 또는 오래된 기본 이미지를 더 일찍 찾아낼수록 클러스터가 더 안전해집니다. 이 문서에서 *컨테이너*는 컨테이너 레지스트리에 저장된 컨테이너와 실행 중인 컨테이너를 둘 다 의미합니다.
+
+이 문서에서는 AKS의 컨테이너 보안 유지 방법을 중점적으로 설명합니다. 다음 방법에 대해 알아봅니다.
+
+> [!div class="checklist"]
+> * 이미지 취약성 검색 및 해결
+> * 디지털 서명된 컨테이너 이미지에서 신뢰할 수 있는 레지스트리 사용
+> * 기본 이미지가 업데이트될 때 컨테이너 이미지를 자동으로 트리거하고 다시 배포
+
+[클러스터 보안][best-practices-cluster-security] 및 [Pod 보안][best-practices-pod-security]에 대한 모범 사례를 참조할 수도 있습니다.
+
+## <a name="secure-the-images-and-run-time"></a>이미지 및 런타임 보호
+
+**모범 사례 지침** - 컨테이너 이미지의 취약성을 검사하고 유효성 검사를 통과한 이미지만 배포합니다. 정기적으로 기본 이미지 및 애플리케이션 런타임을 업데이트한 후 AKS 클러스터에서 워크로드를 다시 배포합니다.
+
+컨테이너 기반 워크로드를 도입할 때는 사용자 고유의 애플리케이션을 빌드하는 데 사용되는 이미지 및 런타임의 보안 확인을 우선적으로 고려해야 합니다. 배포에 보안 취약성이 발생하지 않도록 하려면 어떻게 해야 하나요? 배포 워크플로에는 [Twistlock][twistlock] 또는 [Aqua][aqua] 같은 도구를 사용하여 컨테이너 이미지를 검색하는 프로세스를 포함한 후 확인된 이미지만 배포되도록 해야 합니다.
+
+![컨테이너 이미지 검색 및 수정, 유효성 검사 후 배포](media/operator-best-practices-container-security/scan-container-images-simplified.png)
+
+실제 예제에서는 CI/CD(지속적인 통합/지속적인 배포) 파이프라인을 사용하여 이미지 검색, 확인 및 배포를 자동화할 수 있습니다. Azure Container Registry에는 이러한 취약성 검사 기능이 포함되어 있습니다.
+
+## <a name="use-a-trusted-registry"></a>신뢰할 수 있는 레지스트리 사용
+
+**모범 사례 지침** - Pod 및 배포에서 사용할 수 있는 이미지 레지스트리를 제한합니다. 사용할 수 있는 이미지의 유효성을 검사하고 제어하는 신뢰할 수 있는 레지스트리만 허용합니다.
+
+추가 보안을 위해 애플리케이션 코드에 디지털로 서명할 수 있는 것처럼 컨테이너 이미지에도 디지털로 서명할 수 있습니다. 그런 다음, AKS가 서명된 이미지만 배포하도록 허용합니다. 이 프로세스는 취약성 검사를 통과한 이미지만이 아니라 디지털로 서명되고 사용자가 신뢰할 수 있는 이미지만 끌어오도록 AKS를 제한하는 추가적인 보안 계층을 제공합니다. 또한 컨테이너 이미지가 손상되거나 정확히 같은 이름을 갖는 이미지로 바뀌는 일이 없도록 할 수 있습니다.
+
+디지털로 서명된 컨테이너 이미지를 제공하는 신뢰할 수 있는 레지스트리로 인해 작업 환경이 복잡해질 수 있지만 특정 정책 또는 규정 준수를 위해 디지털 서명이 반드시 필요할 수 있습니다. Azure Container Registry는 신뢰할 수 있는 레지스트리와 서명된 이미지가 사용되도록 지원합니다.
+
+디지털로 서명된 이미지에 대한 자세한 내용은 [Azure Container Registry의 콘텐츠 신뢰][acr-content-trust]를 참조하세요.
+
+## <a name="automatically-build-new-images-on-base-image-update"></a>기본 이미지 업데이트 시 새 이미지를 자동으로 빌드
+
+**모범 사례 지침** - 애플리케이션 이미지에 대해 기본 이미지를 사용할 경우, 기본 이미지가 업데이트될 때 자동화를 통해 새 이미지를 빌드합니다. 이러한 기본 이미지에는 일반적으로 보안 수정 사항이 포함되어 있으므로 모든 다운스트림 애플리케이션 컨테이너 이미지를 업데이트합니다.
+
+기본 이미지가 업데이트될 때마다 모든 다운스트림 컨테이너 이미지도 업데이트됩니다. 이 빌드 프로세스는 [Azure Pipelines][azure-pipelines] 또는 Jenkins와 같은 유효성 검사 및 배포 파이프라인에 통합되어야 합니다. 이러한 파이프라인은 애플리케이션이 업데이트된 기본 이미지를 계속 실행하도록 합니다. 애플리케이션 컨테이너 이미지의 유효성이 검사되면 안전한 최신 이미지를 실행하도록 AKS 배포를 업데이트할 수 있습니다.
+
+또한 기본 이미지가 업데이트되면 Azure Container Registry 작업도 컨테이너 이미지를 자동으로 업데이트할 수 있습니다. 이 기능을 사용하여 적은 수의 기본 이미지를 빌드하고, 버그 및 보안 수정 사항으로 정기적으로 업데이트할 수 있습니다.
+
+기본 이미지 업데이트에 대한 자세한 내용은 [Azure Container Registry 작업을 사용하여 기본 이미지 업데이트 시 이미지 빌드 자동화][acr-base-image-update]를 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+이 문서에서는 컨테이너를 보호하는 방법을 중점적으로 설명했습니다. 이러한 일부 영역을 구현하려면 다음 문서를 참조하세요.
+
+* [Azure Container Registry 작업을 사용하여 기본 이미지 업데이트 시 이미지 빌드 자동화][acr-base-image-update]
+* [Azure Container Registry의 콘텐츠 신뢰][acr-content-trust]
+
+<!-- EXTERNAL LINKS -->
+[azure-pipelines]: /azure/devops/pipelines/?view=vsts
+[twistlock]: https://www.twistlock.com/
+[aqua]: https://www.aquasec.com/
+
+<!-- INTERNAL LINKS -->
+[best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[best-practices-pod-security]: developer-best-practices-pod-security.md
+[acr-content-trust]: ../container-registry/container-registry-content-trust.md
+[acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md

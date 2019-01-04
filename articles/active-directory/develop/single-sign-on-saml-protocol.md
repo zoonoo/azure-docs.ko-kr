@@ -61,7 +61,7 @@ Azure AD도 `AuthnRequest`에서 `Conditions` 요소를 무시합니다.
 
 ### <a name="issuer"></a>발급자
 
-`AuthnRequest`의 `Issuer` 요소는 Azure AD에서 클라우드 서비스의 **ServicePrincipalNames** 중 하나와 정확히 일치해야 합니다. 일반적으로 응용 프로그램 등록 중에 지정된 **앱 ID URI** 로 설정됩니다.
+`AuthnRequest`의 `Issuer` 요소는 Azure AD에서 클라우드 서비스의 **ServicePrincipalNames** 중 하나와 정확히 일치해야 합니다. 일반적으로 애플리케이션 등록 중에 지정된 **앱 ID URI** 로 설정됩니다.
 
 `Issuer` 요소가 포함된 SAML 발췌 부분은 다음 샘플과 같습니다.
 

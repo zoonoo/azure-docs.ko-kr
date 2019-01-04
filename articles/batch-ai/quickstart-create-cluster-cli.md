@@ -15,14 +15,17 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 09/03/2018
 ms.author: danlep
-ms.openlocfilehash: 0d4ba7edfb22a6710222c854ceb2bf86284d2d77
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1ea12c9a544704ea91b85ae944e611e6769b5592
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057801"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407136"
 ---
 # <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Batch AI 학습 작업에 대한 클러스터 만들기
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 이 빠른 시작에서는 Azure CLI를 사용하여 AI 및 기계 학습 모델을 학습하는 데 사용할 수 있는 Batch AI 클러스터를 만드는 방법을 보여 줍니다. Batch AI는 데이터 과학자 및 AI 연구원이 Azure Virtual Machines 클러스터에서 AI 및 기타 기계 학습 모델을 대규모로 학습하기 위한 관리 서비스입니다.
 
@@ -61,7 +64,7 @@ az batchai workspace create \
 Batch AI 클러스터를 만들려면 `az batchai cluster create` 명령을 사용합니다. 다음 예제에서는 다음과 같은 속성을 사용하여 클러스터를 만듭니다.
 
 * NVIDIA Tesla K80 GPU가 1개 있는 NC6 VM 크기의 단일 노드를 포함합니다. 
-* 호스트 컨테이너 기반 응용 프로그램으로 디자인된 기본 Ubuntu Server 이미지를 실행합니다. 이 이미지는 대부분의 학습 워크로드에 사용할 수 있습니다. 
+* 호스트 컨테이너 기반 애플리케이션으로 디자인된 기본 Ubuntu Server 이미지를 실행합니다. 이 이미지는 대부분의 학습 워크로드에 사용할 수 있습니다. 
 * *myusername*이라는 사용자 계정을 추가하고 , SSH 키가 로컬 환경의 기본 키 위치(*~/.ssh*)에 아직 없는 경우 생성합니다. 
 
 ```azurecli-interactive
@@ -97,7 +100,7 @@ mycluster  myResourceGroup   myworkspace  STANDARD_NC6  resizing      0         
 
 ## <a name="list-cluster-nodes"></a>클러스터 노드 나열 
 
-응용 프로그램을 설치하거나 유지 관리를 수행하기 위해 클러스터 노드(이 경우 단일 노드)에 연결해야 할 경우 `az batchai cluster node list` 명령을 실행하여 포털에서 연결 정보를 가져옵니다.
+애플리케이션을 설치하거나 유지 관리를 수행하기 위해 클러스터 노드(이 경우 단일 노드)에 연결해야 할 경우 `az batchai cluster node list` 명령을 실행하여 포털에서 연결 정보를 가져옵니다.
 
 
 ```azurecli-interactive
@@ -173,4 +176,4 @@ az group delete --name myResourceGroup
 이 빠른 시작에서는 Azure CLI를 사용하여 Batch AI 클러스터를 만드는 방법을 배웠습니다. Batch AI 클러스터를 사용하여 모델을 학습하는 방법을 자세히 알아보려면 Deep Learning 모델 학습을 위한 빠른 시작을 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Deep Learning 모델 학습](./quickstart-tensorflow-training-cli.md)
+> [딥러닝 모델 학습](./quickstart-tensorflow-training-cli.md)

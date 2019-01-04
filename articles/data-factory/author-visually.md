@@ -166,11 +166,11 @@ GitHub 리포지토리를 지정하려면 사용하고 있는 Azure 구독에 �
 
 **구성 방법 1(공용 리포지토리): 시작하기 페이지**
 
-Azure Data Factory에서  **시작하기**  페이지로 이동합니다.  **코드 리포지토리 구성**을 선택합니다.
+Azure Data Factory에서  **시작하기**  페이지로 이동합니다. 코드  **리포지토리 구성**을 선택합니다.
 
 ![Data Factory 시작 페이지](media/author-visually/github-integration-image1.png)
 
- **리포지토리 설정**  구성 창이 나타납니다.
+리 **포지토리 설정**  구성 창이 나타납니다.
 
 ![GitHub 리포지토리 설정](media/author-visually/github-integration-image2.png)
 
@@ -188,7 +188,7 @@ Azure Data Factory에서  **시작하기**  페이지로 이동합니다.  **
 
 #### <a name="configuration-method-2-public-repo-ux-authoring-canvas"></a>구성 방법 2(공용 리포지토리): UX 제작 캔버스
 
-Azure Data Factory UX  **제작 캔버스**에서 사용자의 데이터 팩터리를 찾습니다.  **Data Factory**  드롭다운 메뉴를 선택한 다음,  **코드 리포지토리 구성**을 선택합니다.
+Azure Data Factory UX  **제작 캔버스**에서 사용자의 데이터 팩터리를 찾습니다.  **Data Factory** 드롭다운 메뉴를 선택한 다음, 코드  **리포지토리 구성**을 선택합니다.
 
 구성 창이 나타납니다. 구성 설정에 대한 자세한 내용은 위의  *구성 방법 1*에 있는 설명을 참조하세요.
 
@@ -198,11 +198,11 @@ Azure Data Factory UX  **제작 캔버스**에서 사용자의 데이터 팩터
 
  #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>구성 방법 1(Enterprise 리포지토리): 시작하기 페이지
 
-Azure Data Factory에서  **시작하기**  페이지로 이동합니다.  **코드 리포지토리 구성**을 선택합니다.
+Azure Data Factory에서  **시작하기**  페이지로 이동합니다. 코드  **리포지토리 구성**을 선택합니다.
 
 ![Data Factory 시작 페이지](media/author-visually/github-integration-image1.png)
 
- **리포지토리 설정**  구성 창이 나타납니다.
+리 **포지토리 설정**  구성 창이 나타납니다.
 
 ![GitHub 리포지토리 설정](media/author-visually/github-integration-image3.png)
 
@@ -222,7 +222,7 @@ Azure Data Factory에서  **시작하기**  페이지로 이동합니다.  **
 
 #### <a name="configuration-method-2-enterprise-repo-ux-authoring-canvas"></a>구성 방법 2(Enterprise 리포지토리): UX 제작 캔버스
 
-Azure Data Factory UX  **제작 캔버스**에서 사용자의 데이터 팩터리를 찾습니다.  **Data Factory**  드롭다운 메뉴를 선택한 다음,  **코드 리포지토리 구성**을 선택합니다.
+Azure Data Factory UX  **제작 캔버스**에서 사용자의 데이터 팩터리를 찾습니다.  **Data Factory** 드롭다운 메뉴를 선택한 다음, 코드  **리포지토리 구성**을 선택합니다.
 
 구성 창이 나타납니다. 구성 설정에 대한 자세한 내용은 위의  *구성 방법 1*에 있는 설명을 참조하세요.
 

@@ -1,21 +1,22 @@
 ---
-title: REST API를 사용하여 Azure Load Balancer 메트릭 검색 | Microsoft Docs
+title: REST API를 사용하여 메트릭 검색
+titlesuffix: Azure Load Balancer
 description: Azure REST API를 사용하여 특정 시간 및 날짜 범위의 Load Balancer 상태 및 사용률 메트릭을 수집합니다.
 services: sql-database
 author: KumudD
 ms.reviewer: routlaw
 manager: jeconnoc
 ms.service: load-balancer
-ms.custom: REST
+ms.custom: REST, seodec18
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: KumudD
-ms.openlocfilehash: 1fac461c3af4ea0a2e1f2257256969c47bc3d134
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 43de0de6fb81d50459ba5b027a8ae1718a89c9a3
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094470"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183865"
 ---
 # <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>REST API를 사용하여 Load Balancer 사용률 메트릭 얻기
 

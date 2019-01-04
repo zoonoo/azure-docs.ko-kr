@@ -1,5 +1,5 @@
 ---
-title: 'Azure Backup 오류 문제 해결: 게스트 에이전트 상태 사용할 수 없음'
+title: 'Azure Backup 오류 문제 해결: 게스트 에이전트 상태를 사용할 수 없음'
 description: 에이전트, 확장명 및 디스크와 관련된 Azure Backup 오류의 증상, 원인 및 해결 방법
 services: backup
 author: genlin
@@ -7,14 +7,14 @@ manager: cshepard
 keywords: Azure 백업; VM 에이전트; 네트워크 연결;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 10/30/2018
+ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: d8b78551a762b4388344aaf3b44e7472127737ae
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 9f26a51a8da2c3fec3ff180dbc8c8de08bb0a93a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977117"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833876"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -25,7 +25,7 @@ ms.locfileid: "51977117"
 ## <a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - VM 에이전트가 Azure Backup과 통신할 수 없습니다.
 
 **오류 코드**: UserErrorGuestAgentStatusUnavailable <br>
-**오류 메시지**: VM 에이전트가 Azure Backup과 통신할 수 없습니다.<br>
+**오류 메시지**: VM 에이전트를 Azure Backup과 통신할 수 없음<br>
 
 Backup 서비스에 대한 VM을 등록하고 예약하면 Backup은 VM 에이전트와 통신함으로써 작업을 시작하여 지정 시간 스냅숏을 수행합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅숏이 트리거되지 않을 수 있습니다. 스냅숏이 트리거되지 않으면 백업이 실패할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.<br>
 **원인 1: [에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
@@ -47,7 +47,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - 복원 지점 컬렉션이 최대 한도에 도달했습니다.
 
 **오류 코드**: UserErrorRpCollectionLimitReached <br>
-**오류 메시지**: 복원 지점 컬렉션이 최대 한도에 도달했습니다. <br>
+**오류 메시지**: 복원 지점 컬렉션 최대 한도에 도달했습니다. <br>
 * 이 문제는 복구 지점 리소스 그룹에 대한 잠금으로 인해 복구 지점을 자동으로 정리할 수 없는 경우에 발생할 수 있습니다.
 * 하루에 여러 개의 백업이 트리거되는 경우에도 이 문제가 발생할 수 있습니다. 현재, 인스턴트 RP가 7일간 보존되고 항상 18개의 인스턴트 RP만 VM에 연결될 수 있으므로 하루에 하나의 백업만 사용하는 것이 좋습니다. <br>
 
@@ -55,7 +55,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 이 문제를 해결하려면 리소스 그룹에 대한 잠금을 제거하고 정리를 트리거하는 작업을 다시 시도합니다.
 
 > [!NOTE]
-    > 백업 서비스는 VM의 리소스 그룹과 별개의 리소스 그룹을 만들어 복원 지점 컬렉션을 저장합니다. 고객은 백업 서비스에서 사용하기 위해 생성된 리소스 그룹을 잠그지 않는 것이 좋습니다. 백업 서비스에서 생성되는 리소스 그룹의 명명 형식은 AzureBackupRG_`<Geo>`_`<number>`(예: AzureBackupRG_northeurope_1)입니다.
+    > 백업 서비스는 VM의 리소스 그룹과 별개의 리소스 그룹을 만들어 복원 지점 컬렉션을 저장합니다. 고객은 백업 서비스에서 사용하기 위해 생성된 리소스 그룹을 잠그지 않는 것이 좋습니다. 백업 서비스가 만드는 리소스 그룹의 명명 형식은 AzureBackupRG_`<Geo>`_`<number>`입니다. 예: AzureBackupRG_northeurope_1
 
 **1단계: [복원 지점 리소스 그룹에서 잠금 제거](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **2단계: [복원 지점 컬렉션 정리](#clean_up_restore_point_collection)**<br>
@@ -63,7 +63,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 ## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - Backup에는 암호화된 VM을 백업할 수 있는 키 자격 증명 모음에 대한 충분한 사용 권한이 없습니다.
 
 **오류 코드**: UserErrorKeyvaultPermissionsNotConfigured <br>
-**오류 메시지**: Backup에는 암호화된 VM을 백업하기 위한 키 자격 증명 모음에 대한 충분한 사용 권한이 없습니다. <br>
+**오류 메시지**: Backup에 암호화된 VM의 백업을 위한 Key Vault에 대한 충분한 권한이 없습니다. <br>
 
 백업 작업이 암호화된 VM에서 성공할 수 있도록 키 자격 증명 모음에 액세스할 수 있는 사용 권한이 있어야 합니다. [Azure Portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#provide-permissions-to-backup) 또는 [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)을 통해 수행할 수 있습니다.
 
@@ -90,7 +90,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 ## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed / BackUpOperationFailedV2 - 내부 오류가 발생하여 백업하지 못했습니다.
 
-**오류 코드**: BackUpOperationFailed/BackUpOperationFailedV2 <br>
+**오류 코드**: BackUpOperationFailed / BackUpOperationFailedV2 <br>
 **오류 메시지**: 내부 오류가 발생하여 백업하지 못했습니다. 몇 분 후에 작업을 다시 시도하세요. <br>
 
 Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM 백업 확장과 통신함으로써 작업을 시작하여 지정 시간 스냅숏을 수행합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅숏이 트리거되지 않을 수 있습니다. 스냅숏이 트리거되지 않으면 백업 실패가 발생할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.  
@@ -98,13 +98,13 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 **원인 2: [VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **원인 3: [스냅숏 상태를 검색할 수 없거나 스냅숏을 만들 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **원인 4: [백업 확장을 업데이트 또는 로드할 수 없습니다.](#the-backup-extension-fails-to-update-or-load)**  
-**원인 5: [리소스 그룹이 잠겨 있으므로 Backup 서비스에는 이전 복원 지점을 삭제할 수 있는 사용 권한이 없습니다.](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)** <br>
+**원인 5: [리소스 그룹이 잠겨 있으므로 Backup 서비스에 이전 복원 지점을 삭제할 수 있는 권한이 없습니다.](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)** <br>
 **원인 6: [VM이 인터넷에 액세스할 수 없습니다.](#the-vm-has-no-internet-access)**
 
 ## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize - 현재 Azure Backup은 1,023GB보다 큰 디스크 크기를 지원하지 않습니다.
 
 **오류 코드**: UserErrorUnsupportedDiskSize <br>
-**오류 메시지**: 현재 Azure Backup은 1023GB보다 큰 디스크 크기를 지원하지 않습니다. <br>
+**오류 메시지**: 현재 Azure Backup은 1,023GB보다 큰 디스크 크기를 지원하지 않습니다. <br>
 
 자격 증명 모음이 Azure VM Backup 스택 V2로 업그레이드되지 않아 디스크 크기가 1023GB를 초과하는 VM을 백업할 때 백업 작업이 실패할 수 있습니다. Azure VM Backup 스택 V2로 업그레이드하면 최대 4TB까지 지원됩니다. 이러한 [혜택](backup-upgrade-to-vm-backup-stack-v2.md) 및 [고려 사항](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)을 검토한 후 다음 [지침](backup-upgrade-to-vm-backup-stack-v2.md#upgrade)에 따라 업그레이드를 계속 진행하세요.  
 
@@ -156,11 +156,11 @@ Azure Managed Disks를 사용하는 경우 방화벽에서 열려 있는 추가 
 #### <a name="solution"></a>해결 방법
 VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에이전트를 다시 설치하면 최신 버전을 가져올 수 있습니다. 또한 서비스와의 통신을 다시 시작하는 데도 도움이 됩니다.
 
-1. VM 서비스(services.msc)에서 Windows 게스트 에이전트 서비스가 실행 중인지 확인합니다. Windows 게스트 에이전트 서비스를 다시 시작하고 백업을 시작해 보세요.    
-2. 서비스에서 Windows 게스트 에이전트 서비스가 표시되지 않으면 제어판에서 **프로그램 및 기능**으로 이동한 후 Windows 게스트 에이전트 서비스가 설치되어 있는지 확인합니다.
-4. Windows 게스트 에이전트에 **프로그램 및 기능**에 표시되면 Windows 게스트 에이전트를 제거합니다.
+1. VM 서비스(services.msc)에서 Microsoft Azure 게스트 에이전트 서비스가 실행 중인지 확인합니다. Windows Azure 게스트 에이전트 서비스를 다시 시작하고 백업을 시작해 보세요.    
+2. Microsoft Azure 게스트 에이전트 서비스가 서비스에 표시되지 않으면 제어판에서 **프로그램 및 기능**으로 이동하여 Windows Azure 게스트 에이전트 서비스가 설치되어 있는지 확인합니다.
+4. Microsoft Azure 게스트 에이전트가 **프로그램 및 기능**에 표시되면 Windows Azure 게스트 에이전트를 제거합니다.
 5. [최신 버전의 에이전트 MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하고 설치합니다. 설치를 완료하려면 관리자 권한이 있어야 합니다.
-6. Windows 게스트 에이전트 서비스가 서비스에 표시되는지 확인합니다.
+6. Microsoft Azure 게스트 에이전트 서비스가 서비스에 표시되는지 확인합니다.
 7. 다음과 같이 주문형 백업을 실행합니다.
     * 포털에서 **지금 백업**을 선택합니다.
 

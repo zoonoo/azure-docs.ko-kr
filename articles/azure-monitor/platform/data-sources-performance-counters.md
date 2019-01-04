@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics의 성능 카운터 수집 및 분석 | Microsoft Docs
-description: 성능 카운터는 Windows 및 Linux 에이전트에서 성능을 분석하기 위해 Log Analytics에 의해 수집됩니다.  이 문서는 Windows 및 Linux 에이전트에 대한 성능 카운터 컬렉션을 구성하는 방법과, 작업 영역에 저장하는 방식에 대한 자세한 내용과, Azure Portal에서 분석하는 방법을 설명합니다.
+title: Azure Monitor의 성능 카운터 수집 및 분석 | Microsoft Docs
+description: 성능 카운터는 Windows 및 Linux 에이전트에서 성능을 분석하기 위해 Azure Monitor에 의해 수집됩니다.  이 문서는 Windows 및 Linux 에이전트에 대한 성능 카운터 컬렉션을 구성하는 방법과, 작업 영역에 저장하는 방식에 대한 자세한 내용과, Azure Portal에서 분석하는 방법을 설명합니다.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -8,29 +8,27 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 20e145e4-2ace-4cd9-b252-71fb4f94099e
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2017
+ms.date: 11/28/2018l
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: ffc3443c0c4bca214cc576e1345ad09874287426
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: f6b6d04df3e3b705fd57e7dffe1570a5e10adb5d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336633"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438373"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Log Analytics의 Windows 및 Linux 성능 데이터 원본
-Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체제 및 응용 프로그램의 성능에 대한 정보를 자세히 제공합니다.  Log Analytics는 장기적인 분석 및 보고를 위한 성능 데이터 집계는 물론 거의 실시간에 가까운(NRT) 분석을 위해 빈번한 간격으로 성능 카운터를 수집할 수 있습니다.
+# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Azure Monitor의 Windows 및 Linux 성능 데이터 원본
+Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체제 및 응용 프로그램의 성능에 대한 정보를 자세히 제공합니다.  Azure Monitor는 장기적인 분석 및 보고를 위한 성능 데이터 집계는 물론 거의 실시간에 가까운(NRT) 분석을 위해 빈번한 간격으로 성능 카운터를 수집할 수 있습니다.
 
 ![성능 카운터](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>성능 카운터 구성
-성능 카운터는 [Log Analytics 설정의 데이터 메뉴](agent-data-sources.md#configuring-data-sources)에서 구성합니다.
+성능 카운터는 [고급 설정의 데이터 메뉴](agent-data-sources.md#configuring-data-sources)에서 구성합니다.
 
-새 Log Analytics 작업 영역에 대한 Windows 또는 Linux 성능 카운터를 처음으로 구성하는 경우, 몇 가지 공용 카운터를 신속하게 만드는 옵션이 제공됩니다.  각 항목은 옆에 확인란과 함께 나열됩니다.  초기에 만들 카운터를 모두 선택한 후 **Add the selected performance counters**(선택한 성능 카운터 추가)를 클릭합니다.
+새 작업 영역에 대한 Windows 또는 Linux 성능 카운터를 처음으로 구성하는 경우, 몇 가지 공용 카운터를 신속하게 만드는 옵션이 제공됩니다.  각 항목은 옆에 확인란과 함께 나열됩니다.  초기에 만들 카운터를 모두 선택한 후 **Add the selected performance counters**(선택한 성능 카운터 추가)를 클릭합니다.
 
 Windows 성능 카운터의 경우, 각 성능 카운터에 대해 특정 인스턴스를 선택할 수 있습니다. Linux 성능 카운터의 경우, 선택하는 각 카운터의 인스턴스는 부모 카운터의 모든 자식 카운터에 적용됩니다. 다음 테이블은 Linux와 Windows 성능 카운터 모두에서 사용할 수 있는 공통 인스턴스를 보여줍니다.
 
@@ -90,7 +88,7 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
 | interval | 개체의 카운터가 수집되는 빈도입니다. |
 
 
-다음 테이블은 구성 파일에서 지정할 수 있는 개체 및 카운터를 나열합니다.  [Log Analytics에서 Linux 응용 프로그램에 대한 성능 카운터 수집](data-sources-linux-applications.md)에서 설명된 대로 특정 응용 프로그램에 사용할 수 있는 추가 카운터가 있습니다.
+다음 테이블은 구성 파일에서 지정할 수 있는 개체 및 카운터를 나열합니다.  [Azure Monitor에서 Linux 애플리케이션에 대한 성능 카운터 수집](data-sources-linux-applications.md)에서 설명된 대로 특정 애플리케이션에 사용할 수 있는 추가 카운터가 있습니다.
 
 | 개체 이름 | 카운터 이름 |
 |:--|:--|
@@ -184,7 +182,7 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
     </source>
 
 ## <a name="data-collection"></a>데이터 수집
-Log Analytics는 카운터가 설치된 모든 에이전트에서 지정된 모든 성능 카운터를 지정된 샘플 간격으로 수집합니다.  데이터는 집계되지 않으며 구독에서 지정한 기간 동안 모든 로그 검색 보기에서 원시 데이터를 사용할 수 있습니다.
+Azure Monitor는 카운터가 설치된 모든 에이전트에서 지정된 모든 성능 카운터를 지정된 샘플 간격으로 수집합니다.  데이터는 집계되지 않으며 구독에서 지정한 기간 동안 모든 로그 쿼리 보기에서 원시 데이터를 사용할 수 있습니다.
 
 ## <a name="performance-record-properties"></a>성능 레코드 속성
 성능 레코드에는 **Perf**라는 type과 다음 테이블의 속성이 포함됩니다.
@@ -197,7 +195,7 @@ Log Analytics는 카운터가 설치된 모든 에이전트에서 지정된 모�
 | CounterValue |카운터의 숫자 값입니다. |
 | InstanceName |이벤트 인스턴스의 이름입니다.  인스턴스가 없으면 비어 있게 됩니다. |
 | ObjectName |성능 개체의 이름입니다. |
-| SourceSystem |데이터가 수집된 에이전트의 유형입니다. <br><br>OpsManager – Windows 에이전트, 직접 연결 또는 SCOM <br>  Linux – 모든 Linux 에이전트  <br>  AzureStorage – Azure 진단 |
+| SourceSystem |데이터가 수집된 에이전트의 유형입니다. <br><br>OpsManager – Windows 에이전트, 직접 연결 또는 SCOM <br> Linux – 모든 Linux 에이전트  <br>  AzureStorage – Azure 진단 |
 | TimeGenerated |데이터가 샘플링된 날짜와 시간입니다. |
 
 ## <a name="sizing-estimates"></a>예상 크기 조정
@@ -205,8 +203,8 @@ Log Analytics는 카운터가 설치된 모든 에이전트에서 지정된 모�
 
     1 MB x (number of counters) x (number of agents) x (number of instances)
 
-## <a name="log-searches-with-performance-records"></a>성능 레코드를 통한 로그 검색
-다음 테이블에서는 성능 레코드를 검색하는 로그 검색의 다양한 예제를 제공합니다.
+## <a name="log-queries-with-performance-records"></a>성능 레코드를 통한 로그 쿼리
+다음 표에서는 성능 레코드를 검색하는 로그 쿼리의 다양한 예제를 제공합니다.
 
 | 쿼리 | 설명 |
 |:--- |:--- |
@@ -227,5 +225,5 @@ Log Analytics는 카운터가 설치된 모든 에이전트에서 지정된 모�
 
 ## <a name="next-steps"></a>다음 단계
 * MySQL 및 Apache HTTP 서버를 포함하여 [Linux 응용 프로그램에서 성능 카운터를 수집](data-sources-linux-applications.md)합니다.
-* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](../../log-analytics/log-analytics-queries.md)에 대해 알아봅니다.  
-* 추가적인 시각화 및 분석을 위해, 수집된 데이터를 [Power BI](../../log-analytics/log-analytics-powerbi.md) 로 내보냅니다.
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../log-query/log-query-overview.md)에 대해 알아봅니다.  
+* 추가적인 시각화 및 분석을 위해, 수집된 데이터를 [Power BI](powerbi.md) 로 내보냅니다.

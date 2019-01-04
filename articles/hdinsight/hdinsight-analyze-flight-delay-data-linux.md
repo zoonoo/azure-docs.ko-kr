@@ -33,7 +33,7 @@ ms.locfileid: "53015056"
 > * Sqoop을 사용하여 Azure SQL 데이터베이스에 데이터 내보내기
 
 
-다음 그림에서는 일반적인 ETL 응용 프로그램 흐름을 보여줍니다.
+다음 그림에서는 일반적인 ETL 애플리케이션 흐름을 보여줍니다.
 
 ![Azure HDInsight에서 Apache Hive를 사용하여 ETL 작업](./media/hdinsight-analyze-flight-delay-data-linux/hdinsight-etl-architecture.png "Azure HDInsight에서 Apache Hive를 사용하여 ETL 작업")
 

@@ -82,7 +82,7 @@ items:
     items:
     - name: Just-In-Time 액세스 관리
       href: security-center-just-in-time.md
-    - name: 적응 응용 프로그램 컨트롤
+    - name: 적응형 애플리케이션 제어
       href: security-center-adaptive-application.md
     - name: 파일 무결성 모니터링
       href: security-center-file-integrity-monitoring.md
@@ -119,9 +119,9 @@ items:
       href: security-center-update-os-version.md
     - name: 취약성 평가 설치되지 않음
       href: security-center-vulnerability-assessment-recommendations.md
-    - name: 웹 응용 프로그램 방화벽 추가
+    - name: 웹 애플리케이션 방화벽 추가
       href: security-center-add-web-application-firewall.md
-    - name: 응용 프로그램 보호 완료
+    - name: 애플리케이션 보호 완료
       href: security-center-add-web-application-firewall.md#finalize-application-protection
     - name: 차세대 방화벽 추가
       href: security-center-add-next-generation-firewall.md

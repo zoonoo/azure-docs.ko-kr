@@ -2,18 +2,18 @@
 title: Azure Stream Analytics 작업의 호환성 수준 이해
 description: Azure Stream Analytics 작업의 호환성 수준을 설정하는 방법과 최신 호환성 수준의 주요 변경 내용을 알아봅니다.
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/15/2018
-ms.openlocfilehash: 83bbb777f5af6d29736db3b53ca39c449402c78e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: b0e0f26abbf8eb5cbf1cf9ba2014204d773ae15d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977716"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187316"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 호환성 수준
  
@@ -27,7 +27,7 @@ ms.locfileid: "50977716"
 
 호환성 수준을 업데이트하기 전에 작업을 중지해야 합니다. 작업이 실행 중인 상태에서는 호환성 수준을 업데이트할 수 없습니다. 
 
-![포털의 호환성 수준](media\stream-analytics-compatibility-level/image1.png)
+![Azure Portal의 Stream Analytics 호환성 수준](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
 
  
 호환성 수준을 업데이트하면 T-SQL 컴파일러는 선택된 호환성 수준에 해당하는 구문을 사용하여 작업의 유효성을 검사합니다. 
@@ -40,11 +40,11 @@ ms.locfileid: "50977716"
 
   * **이전 버전:** Azure Stream Analytics에서 DataContractSerializer를 사용했기 때문에 메시지 내용에 XML 태그가 포함되었습니다. 예: 
     
-   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
+    @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
 
   * **현재 버전:** 추가 태그 없이 메시지 내용에 스트림이 직접 포함됩니다. 예: 
   
-   { "SensorId":"1", "Temperature":64} 
+    { "SensorId":"1", "Temperature":64} 
  
 * **필드 이름의 대/소문자 구분 유지**  
 
@@ -52,8 +52,8 @@ ms.locfileid: "50977716"
 
   * **현재 버전:** Azure Stream Analytics 엔진에서 필드 이름이 처리될 때 대/소문자 구분이 유지됩니다. 
 
-  > [!NOTE] 
-  > 지속적인 대/소문자 구분은 에지 환경을 사용하여 호스팅되는 Stream Analytic 작업에 아직 사용할 수 없습니다. 결과적으로, 작업이 에지에서 호스팅되는 경우 모든 필드 이름은 소문자로 변환됩니다. 
+    > [!NOTE] 
+    > 지속적인 대/소문자 구분은 에지 환경을 사용하여 호스팅되는 Stream Analytic 작업에 아직 사용할 수 없습니다. 결과적으로, 작업이 에지에서 호스팅되는 경우 모든 필드 이름은 소문자로 변환됩니다. 
 
 * **FloatNaNDeserializationDisabled**  
 

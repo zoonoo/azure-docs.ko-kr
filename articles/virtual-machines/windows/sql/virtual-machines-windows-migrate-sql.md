@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: jroth
-ms.openlocfilehash: 0677faa90c73ffe4c0c1c48600c2f1ef2d05eb50
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 298a8597ae111550dfbd44d1e7bd9efb212f08af
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628786"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323220"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Azure VM에서 SQL Server로 SQL Server 데이터베이스 마이그레이션
 
@@ -36,7 +36,7 @@ Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL S
 * 데이터와 로그 파일을 분리하여 Azure Blob 저장소에 복사한 후 URL로 Azure VM의 SQL Server에 첨부
 * 온-프레미스 물리적 컴퓨터를 Hyper-V VHD로 변환하고 Azure Blob 저장소에 업로드한 후 업로드된 VHD를 사용하여 새 VM으로 배포
 * Windows Import/Export 서비스를 사용하여 하드 드라이브 제공
-* AlwaysOn 배포 온-프레미스가 있는 경우에는 [Azure 복제본 추가 마법사](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) 를 사용하여 Azure에 복제본을 만든 다음 사용자가 Azure 데이터베이스 인스턴스에 연결되도록 하는 장애 조치(failover)를 설정합니다.
+* AlwaysOn 가용성 그룹 배포 온-프레미스가 있는 경우에는 [Azure 복제본 추가 마법사](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) 를 사용하여 Azure에 복제본을 만든 다음 사용자가 Azure 데이터베이스 인스턴스에 연결되도록 하는 장애 조치(failover)를 설정합니다.
 * SQL Server [트랜잭션 복제](https://msdn.microsoft.com/library/ms151176.aspx) 를 사용하여 Azure SQL Server 인스턴스를 구독자로 구성한 다음 사용자가 Azure 데이터베이스 인스턴스로 연결되도록 하여 복제를 비활성화합니다.
 
 > [!TIP]

@@ -58,7 +58,7 @@ items:
     items:
     - name: Azure Container Service에서 Linux에 Spring Boot 애플리케이션 배포
       href: container-service-deploy-spring-boot-app-on-linux.md
-    - name: Azure Container Service의 Kubernetes 클러스터에 Spring Boot 응용 프로그램 배포
+    - name: Azure Container Service의 Kubernetes 클러스터에 Spring Boot 애플리케이션 배포
       href: container-service-deploy-spring-boot-app-on-kubernetes.md
     - name: fabric8 Maven 플러그 인을 사용하여 Spring Boot 앱 배포
       href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md

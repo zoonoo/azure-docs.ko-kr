@@ -46,7 +46,7 @@ Azure Portal에서 Content Moderator를 가져온 경우 [검토 도구 계정�
 
 이전 단계를 완료한 후 Azure Portal에서 시작한 경우 두 개의 Content Moderator 키가 생성됩니다. 
 
-SDK 샘플에서 Azure가 제공한 API 키를 사용하려는 경우 [검토 API를 사용하여 Azure 키 사용](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) 섹션에서 언급된 단계를 수행하여 응용 프로그램에서 검토 API를 호출하고 검토를 만들도록 허용합니다.
+SDK 샘플에서 Azure가 제공한 API 키를 사용하려는 경우 [검토 API를 사용하여 Azure 키 사용](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) 섹션에서 언급된 단계를 수행하여 애플리케이션에서 검토 API를 호출하고 검토를 만들도록 허용합니다.
 
 검토 도구에서 생성된 평가판 키를 사용하는 경우 검토 도구 계정은 키에 대해 이미 알고 있으므로 추가 단계가 필요하지 않습니다.
 
@@ -240,10 +240,10 @@ VideoReviews 네임스페이스, Program 클래스에 다음 메서드 정의를
 - **a**. 비디오가 성인 콘텐츠를 포함하는 경우 True입니다.
 - **racyScore**. 비디오 프레임에서 외설 콘텐츠의 심각도 등급을 지정하는 0~1의 값입니다.
 - **r**. 비디오 프레임이 외설 콘텐츠를 포함하는 경우 True입니다.
-- **ReviewerResultTags**. IList<VideoFrameBodyItemReviewerResultTagsItem>입니다. **VideoFrameBodyItemReviewerResultTagsItem**은 단순히 키/값 쌍입니다. 응용 프로그램은 이러한 태그를 사용하여 비디오 프레임을 구성할 수 있습니다.
+- **ReviewerResultTags**. IList<VideoFrameBodyItemReviewerResultTagsItem>입니다. **VideoFrameBodyItemReviewerResultTagsItem**은 단순히 키/값 쌍입니다. 애플리케이션은 이러한 태그를 사용하여 비디오 프레임을 구성할 수 있습니다.
 
 > [!NOTE]
-> 이 빠른 시작은 **adultScore** 및 **racyScore** 속성에 대한 임의 값을 생성합니다. 프로덕션 응용 프로그램에서 Azure 미디어 서비스로 배포된 [비디오 조정 서비스](video-moderation-api.md)에서 이러한 값을 가져옵니다.
+> 이 빠른 시작은 **adultScore** 및 **racyScore** 속성에 대한 임의 값을 생성합니다. 프로덕션 애플리케이션에서 Azure 미디어 서비스로 배포된 [비디오 조정 서비스](video-moderation-api.md)에서 이러한 값을 가져옵니다.
 
 VideoReviews 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다.
 
@@ -408,7 +408,7 @@ VideoReviews 네임스페이스, Program 클래스에 **Main** 메서드 정의�
     }
 
 ## <a name="run-the-program-and-review-the-output"></a>프로그램 실행 및 출력 검토
-응용 프로그램을 실행하면 다음 줄에 출력이 표시됩니다.
+애플리케이션을 실행하면 다음 줄에 출력이 표시됩니다.
 
     Creating a video review.
     Adding a frame to the review with ID 201801v3212bda70ced4928b2cd7459c290c7dc.

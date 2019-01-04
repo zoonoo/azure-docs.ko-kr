@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 2a0f6b75c540f319848805e8a9bda7b166d5d709
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 13cec39278577a818ef43f1215fd2e6653f15ed2
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138662"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678443"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Azure의 네트워크 가상 어플라이언스 문제
 
 Microsoft Azure에서 타사 NVA(네트워크 가상 어플라이언스)를 사용하면 VM 또는 VPN 연결 문제와 오류가 발생할 수 있습니다. 이 문서에서는 NVA 구성에 대한 기본 Azure 플랫폼 요구 사항의 유효성을 검사하는 기본 단계를 제공합니다.
 
-타사 NVA 및 Azure 플랫폼과의 통합에 대한 기술 지원은 NVA 공급 업체에서 제공합니다. NVA와 관련된 연결 또는 라우팅 문제가 있는 경우 직접 [NVA 공급 업체에 문의](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)해야 합니다.
+타사 NVA 및 Azure 플랫폼과의 통합에 대한 기술 지원은 NVA 공급 업체에서 제공합니다. 
+
+> [!NOTE]
+> NVA와 관련된 연결 또는 라우팅 문제가 있는 경우 직접 [NVA 공급 업체에 문의](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)해야 합니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -37,6 +40,7 @@ Microsoft Azure에서 타사 NVA(네트워크 가상 어플라이언스)를 사�
 - NVA의 트래픽을 보내는 가상 네트워크 서브넷의 UDR
 - NVA 내의 라우팅 테이블 및 NVA(예를 들어 NIC1에서 NIC2로)
 - NVA NIC를 추적하여 네트워크 트래픽 수신 및 전송 확인
+- 표준 SKU 및 공용 IP를 사용하는 경우 NSG가 생성되어야 하고 트래픽이 NVA로 라우팅되도록 허용하는 명시적 규칙이 있어야 합니다.
 
 ## <a name="basic-troubleshooting-steps"></a>기본 문제 해결 단계
 
@@ -73,6 +77,8 @@ PowerShell 사용
           Execute: $nic2 #and check for an expected output:
           EnableIPForwarding   : True
           NetworkSecurityGroup : null
+
+**표준 SKU 공용 IP를 사용할 때 NSG 확인** 표준 SKU 및 공용 IP를 사용하는 경우 NSG가 생성되어야 하고 NVA로의 트래픽을 허용하는 명시적 규칙이 있어야 합니다.
 
 **트래픽을 NVA로 라우팅할 수 있는지 확인**
 
@@ -132,5 +138,5 @@ VM 네트워크 사용량이 급증하거나 특정 기간에 사용량이 많�
 
 백 엔드 VM 추적으로 들어오는 패킷이 보이지 않으면 NSG 또는 UDR 방해가 있거나 NVA 라우팅 테이블이 잘못된 것일 수 있습니다.
 
-들어오는 패킷이 표시되지만 응답하지 않으면 VM 응용 프로그램 또는 방화벽 문제를 해결해야 합니다. 필요에 따라 이러한 문제에 대해 [NVA 공급업체에 지원을 요청](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)하세요.
+들어오는 패킷이 표시되지만 응답하지 않으면 VM 애플리케이션 또는 방화벽 문제를 해결해야 합니다. 필요에 따라 이러한 문제에 대해 [NVA 공급업체에 지원을 요청](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)하세요.
 

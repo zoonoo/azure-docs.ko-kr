@@ -147,6 +147,6 @@ newBooksDF: org.apache.spark.sql.DataFrame = [book_id: string, book_author: stri
 
 ## <a name="next-steps"></a>다음 단계
 
- * Java 응용 프로그램을 사용하여 [Cassandra API 계정, 데이터베이스 및 테이블 만들기](create-cassandra-api-account-java.md)를 시작합니다.
+ * Java 애플리케이션을 사용하여 [Cassandra API 계정, 데이터베이스 및 테이블 만들기](create-cassandra-api-account-java.md)를 시작합니다.
  * Java 응용 프로그램을 사용하여 [샘플 데이터를 Cassandra API 테이블에 로드](cassandra-api-load-data.md)합니다.
  * Java 응용 프로그램을 사용하여 [Cassandra API 계정에서 데이터를 쿼리](cassandra-api-query-data.md)합니다.

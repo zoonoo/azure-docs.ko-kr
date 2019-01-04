@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 3f34167cfe689734ec5d5954a1c24a09a1e8d3bd
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8a533b3bf90ac2635ee05c6511c28d18784ddfec
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515015"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343856"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi를 Azure IoT Hub에 연결(Node.js)
 
@@ -31,13 +31,13 @@ ms.locfileid: "51515015"
 * IoT Hub를 만듭니다.
 * IoT Hub에 Pi용 디바이스를 등록합니다.
 * Raspberry Pi를 설정합니다.
-* Pi에서 샘플 응용 프로그램을 실행하여 IoT Hub로 센서 데이터를 보냅니다.
+* Pi에서 샘플 애플리케이션을 실행하여 IoT Hub로 센서 데이터를 보냅니다.
 
 ## <a name="what-you-learn"></a>학습 내용
 
 * Azure IoT Hub를 만들고 새 디바이스 연결 문자열을 가져오는 방법.
 * Pi를 BME280 센서와 연결하는 방법.
-* Pi에서 샘플 응용 프로그램을 실행하여 센서 데이터를 수집하는 방법.
+* Pi에서 샘플 애플리케이션을 실행하여 센서 데이터를 수집하는 방법.
 * IoT Hub로 센서 데이터를 보내는 방법.
 
 ## <a name="what-you-need"></a>필요한 항목
@@ -67,7 +67,7 @@ ms.locfileid: "51515015"
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>IoT 허브에 대한 연결 문자열 검색
+### <a name="retrieve-connection-string-for-iot-hub"></a>IoT Hub에 대한 연결 문자열 검색
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -155,9 +155,9 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
 > [!NOTE]
 > Pi가 컴퓨터와 같은 네트워크에 연결되어 있어야 합니다. 예를 들어 컴퓨터는 무선 네트워크, Pi는 유선 네트워크에 연결되었다면 devdisco 출력에 IP 주소가 표시되지 않을 수 있습니다.
 
-## <a name="run-a-sample-application-on-pi"></a>Pi에서 샘플 응용 프로그램 실행
+## <a name="run-a-sample-application-on-pi"></a>Pi에서 샘플 애플리케이션 실행
 
-### <a name="clone-sample-application-and-install-the-prerequisite-packages"></a>샘플 응용 프로그램을 복제하고 필수 구성 요소 패키지 설치
+### <a name="clone-sample-application-and-install-the-prerequisite-packages"></a>샘플 애플리케이션을 복제하고 필수 구성 요소 패키지 설치
 
 1. 호스트 컴퓨터에서 다음 SSH 클라이언트 중 하나를 사용하여 Raspberry Pi에 연결합니다.
    
@@ -191,7 +191,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    sudo apt-get -y install nodejs
    ```
 
-3. 샘플 응용 프로그램을 복제합니다.
+3. 샘플 애플리케이션을 복제합니다.
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-client-app
@@ -222,9 +222,9 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
 
 2. Control-O > Enter > Control-X를 입력하여 저장하고 종료합니다.
 
-### <a name="run-the-sample-application"></a>샘플 응용 프로그램 실행
+### <a name="run-the-sample-application"></a>샘플 애플리케이션 실행
 
-다음 명령을 실행하여 샘플 응용 프로그램을 실행합니다.
+다음 명령을 실행하여 샘플 애플리케이션을 실행합니다.
 
    ```bash
    sudo node index.js '<YOUR AZURE IOT HUB DEVICE CONNECTION STRING>'
@@ -240,6 +240,6 @@ IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 �
 
 ## <a name="next-steps"></a>다음 단계
 
-샘플 응용 프로그램을 실행하여 센서 데이터를 수집하고 IoT Hub로 전송했습니다. Raspberry Pi가 IoT Hub로 보낸 메시지를 보거나 Raspberry Pi에 메시지를 보내려면 [Visual Studio Code용 Azure IoT Toolkit 확장을 사용하여 디바이스와 IoT Hub 간에 메시지 주고받기](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)를 참조하세요.
+샘플 애플리케이션을 실행하여 센서 데이터를 수집하고 IoT Hub로 전송했습니다. Raspberry Pi가 IoT Hub로 보낸 메시지를 보거나 Raspberry Pi에 메시지를 보내려면 [Visual Studio Code용 Azure IoT Hub Toolkit 확장을 사용하여 디바이스와 IoT Hub 간에 메시지 주고받기](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)를 참조하세요.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

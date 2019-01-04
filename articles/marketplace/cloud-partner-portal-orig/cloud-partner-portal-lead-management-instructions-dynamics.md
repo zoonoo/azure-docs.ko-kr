@@ -56,7 +56,7 @@ Dynamics CRM 인스턴스에 잠재 고객을 기록하려면 서비스 계정�
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-잠재 고객을 계속 가져오기 위해 사용자 이름/암호를 업데이트할 필요가 없는 추가 혜택이 있기 때문에 이 옵션을 사용하는 것이 좋습니다. Azure Active Directory 옵션을 사용하려면 Active Directory 응용 프로그램의 앱 ID, 응용 프로그램 키 및 디렉터리 ID를 제공합니다.
+잠재 고객을 계속 가져오기 위해 사용자 이름/암호를 업데이트할 필요가 없는 추가 혜택이 있기 때문에 이 옵션을 사용하는 것이 좋습니다. Azure Active Directory 옵션을 사용하려면 Active Directory 애플리케이션의 앱 ID, 애플리케이션 키 및 디렉터리 ID를 제공합니다.
 
 Dynamics CRM에 대해 Azure Active Directory를 구성하려면 다음 단계를 사용합니다.
 
@@ -66,12 +66,12 @@ Dynamics CRM에 대해 Azure Active Directory를 구성하려면 다음 단계�
     ![디렉터리 ID 가져오기](./media/cloud-partner-portal-lead-management-instructions-dynamics/directoryid.png)
 
 3.  **앱 등록**을 선택하고 **새 응용 프로그램 등록**을 선택합니다.
-4.  응용 프로그램 이름을 입력합니다.
+4.  애플리케이션 이름을 입력합니다.
 5.  유형으로 **웹앱/API**를 선택합니다.
-6.  URL을 제공합니다. 이 필드는 잠재 고객에는 필요하지 않지만 응용 프로그램을 만드는 데 필요합니다.
+6.  URL을 제공합니다. 이 필드는 잠재 고객에는 필요하지 않지만 애플리케이션을 만드는 데 필요합니다.
 7. **만들기**를 선택합니다.
-8.  이제 응용 프로그램이 등록되었으므로 **속성**을 선택하고 **응용 프로그램 ID 복사**를 선택합니다. Cloud 파트너 포털에서 이 연결 정보를 사용합니다.
-9.  속성에서 응용 프로그램을 다중 테넌트로 설정하고 **저장**을 선택합니다.
+8.  이제 애플리케이션이 등록되었으므로 **속성**을 선택하고 **애플리케이션 ID 복사**를 선택합니다. Cloud 파트너 포털에서 이 연결 정보를 사용합니다.
+9.  속성에서 애플리케이션을 다중 테넌트로 설정하고 **저장**을 선택합니다.
 
 10. **키**를 선택하고 지속 기간이 *사용 기간 제한 없음*으로 설정된 새 키를 만듭니다. **저장**을 선택하여 키를 만듭니다. 
 11. 키 메뉴에서 **키 값 복사**를 선택합니다. Cloud 파트너 포털에 필요하므로 이 값의 복사본을 저장합니다.
@@ -80,15 +80,15 @@ Dynamics CRM에 대해 Azure Active Directory를 구성하려면 다음 단계�
 12. **필요한 권한**을 선택하고 **추가**를 선택합니다. 
 13. 새 API로 **Dynamics CRM Online**을 선택하고 *조직 사용자로 CRM Online 액세스* 권한을 선택합니다.
 
-14. Dynamics CRM에서 사용자로 이동한 다음, “사용할 수 있는 사용자” 드롭다운을 선택하여 **응용 프로그램 사용자**로 전환합니다.
+14. Dynamics CRM에서 사용자로 이동한 다음, “사용할 수 있는 사용자” 드롭다운을 선택하여 **애플리케이션 사용자**로 전환합니다.
     
-    ![응용 프로그램 사용자](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuserfirst.PNG)
+    ![애플리케이션 사용자](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuserfirst.PNG)
 
 15. 새 사용자를 만들려면 **새로 만들기**를 선택합니다. **사용자: 응용 프로그램 사용자** 드롭다운을 선택합니다.
     
-    ![새 응용 프로그램 사용자 추가](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuser.PNG)
+    ![새 애플리케이션 사용자 추가](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuser.PNG)
 
-16. **새 사용자**에서 이 연결에 사용할 이름과 메일을 입력합니다. Azure Portal에서 만든 앱의 **응용 프로그램 ID**를 붙여넣습니다.
+16. **새 사용자**에서 이 연결에 사용할 이름과 메일을 입력합니다. Azure Portal에서 만든 앱의 **애플리케이션 ID**를 붙여넣습니다.
      ![새 사용자 구성](./media/cloud-partner-portal-lead-management-instructions-dynamics/leadgencreateuser.PNG)
 
 17. 이 사용자의 연결 구성을 완료하려면 이 문서의 “보안 설정”으로 이동합니다.

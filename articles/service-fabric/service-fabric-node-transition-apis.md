@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric 앱 테스트를 위한 클러스터 노드 시작 및 중지 | Microsoft Docs
-description: 클러스터 노드를 시작 및 중지하여 Service Fabric 응용 프로그램을 테스트하기 위해 오류 주입을 사용하는 방법을 살펴봅니다.
+description: 클러스터 노드를 시작 및 중지하여 Service Fabric 애플리케이션을 테스트하기 위해 오류 주입을 사용하는 방법을 살펴봅니다.
 services: service-fabric
 documentationcenter: .net
 author: LMWF
@@ -25,7 +25,7 @@ ms.locfileid: "44055406"
 
 ## <a name="what-do-the-stop-node-and-start-node-apis-do"></a>시작 노드 및 중지 노드 API는 어떤 작업을 수행하나요?
 
-노드 중지 API(관리: [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps])는 Service Fabric 노드를 중지합니다.  Service Fabric 노드는 VM도 컴퓨터도 아닌 프로세스입니다. VM이나 컴퓨터는 계속 실행됩니다.  이 문서의 나머지 부분에서 "노드"는 Service Fabric 노드를 의미합니다.  노드를 중지하면 클러스터의 멤버가 아니고 서비스를 호스트할 수 없는 *중지됨* 상태가 되므로 *작동 중단* 노드가 시뮬레이트됩니다.  이 기능은 시스템에 오류를 삽입하여 응용 프로그램을 테스트할 때 유용합니다.  노드 시작 API(관리: [StartNodeAsync()][startnode], PowerShell: [Start-ServiceFabricNode][startnodeps]])는 노드 중지 API를 되돌려 노드를 다시 정상 상태로 만듭니다.
+노드 중지 API(관리: [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps])는 Service Fabric 노드를 중지합니다.  Service Fabric 노드는 VM도 컴퓨터도 아닌 프로세스입니다. VM이나 컴퓨터는 계속 실행됩니다.  이 문서의 나머지 부분에서 "노드"는 Service Fabric 노드를 의미합니다.  노드를 중지하면 클러스터의 멤버가 아니고 서비스를 호스트할 수 없는 *중지됨* 상태가 되므로 *작동 중단* 노드가 시뮬레이트됩니다.  이 기능은 시스템에 오류를 삽입하여 애플리케이션을 테스트할 때 유용합니다.  노드 시작 API(관리: [StartNodeAsync()][startnode], PowerShell: [Start-ServiceFabricNode][startnodeps]])는 노드 중지 API를 되돌려 노드를 다시 정상 상태로 만듭니다.
 
 ## <a name="why-are-we-replacing-these"></a>이러한 API를 교체하는 이유는 무엇일까요?
 

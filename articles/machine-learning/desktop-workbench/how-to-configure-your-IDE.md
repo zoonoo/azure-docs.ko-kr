@@ -43,14 +43,14 @@ ms.locfileid: "46978964"
 
 * Windows 32비트 - `C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2017.2.1\bin\pycharm.exe`. 
 * Windows 64비트 - `C:\Program Files\JetBrains\PyCharm Community Edition 2017.2.1\bin\pycharm64.exe`.
-* macOS - .app 경로(예: “/Applications/PyCharm CE.app”)를 선택하면 앱에서 나머지 경로를 자동으로 추가합니다. 실행 파일의 전체 경로는 기본적으로 `/Applications/PyCharm CE.app/Contents/MacOS/pycharm`입니다. bin 폴더 `/usr/local/bin/charm`에서도 PyCharm을 찾을 수 있습니다.
+* macOS - .app 경로(예: "/Applications/PyCharm CE.app")를 선택하면 앱에서 나머지 경로를 자동으로 추가합니다. 실행 파일의 전체 경로는 기본적으로 `/Applications/PyCharm CE.app/Contents/MacOS/pycharm`입니다. bin 폴더 `/usr/local/bin/charm`에서도 PyCharm을 찾을 수 있습니다.
 
 ## <a name="open-project-in-ide"></a>IDE에서 프로젝트 열기 
 구성이 완료되면 Azure Machine Learning Workbench에서 **파일** 메뉴를 열고 **프로젝트 열기(<IDE_Name>)** 를 클릭하여 Azure Machine Learning 프로젝트를 열 수 있습니다. 이 작업은 구성된 IDE에서 현재 활성 프로젝트를 엽니다. _참고: 프로젝트에 없는 경우 **프로젝트 열기(<IDE_Name>)** 가 비활성화됩니다._
 
 ## <a name="configuring-the-integrated-terminal-in-visual-studio-code"></a>Visual Studio Code에서 통합 터미널 구성
 
-### <a name="windows"></a>Windows 
+### <a name="windows"></a> Windows 
 PowerShell 대신 cmd가 되도록 기본 셸이 재정의되었습니다. **프로젝트 (<IDE_Name>) 열기**를 클릭하면 다음과 같은 프롬프트가 표시됩니다. 
 
 _셸: `C:\windows\System32\cmd.exe`(작업 영역 설정으로 정의됨)가 터미널에서 실행되도록 허용하시겠습니까?_

@@ -49,7 +49,7 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
 
 ## <a name="review-irissklearnpy-and-the-configuration-files"></a>iris_sklearn.py 및 구성 파일 검토
 
-1. Machine Learning Workbench 응용 프로그램을 시작합니다.
+1. Machine Learning Workbench 애플리케이션을 시작합니다.
 
 1. [자습서 시리즈의 1부](tutorial-classifying-iris-part-1.md)에서 만든 **myIris** 프로젝트를 엽니다.
 
@@ -113,7 +113,7 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
 
    이 설치는 약 1분이 걸립니다.
 
-1. Workbench 응용 프로그램으로 돌아갑니다. 
+1. Workbench 애플리케이션으로 돌아갑니다. 
 
 1. **iris_sklearn.py**라는 탭을 찾습니다. 
 

@@ -1,22 +1,24 @@
 ---
-title: Azure에서 아웃바운드 연결 | Microsoft Docs
+title: Azure에서 아웃바운드 연결
+titlesuffix: Azure Load Balancer
 description: 이 문서에서는 Azure에서 VM이 공용 인터넷 서비스를 사용하여 통신하는 방법을 설명합니다.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: fdcc039eb71eaeea03aaae856a6d031d4c528669
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 09de0a3aa0303e169d0b90690016909b29dc4a9b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687574"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190971"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -29,7 +31,7 @@ Azure에 배포되는 솔루션은 공용 IP 주소 공간에 있는 Azure 외�
 
 Azure에서는 SNAT(원본 네트워크 주소 변환)를 사용하여 이 기능을 수행합니다. 단일 공용 IP 주소 뒤에서 여러 개인 IP 주소가 가장하는 경우 Azure는 [PAT(포트 주소 변환)](#pat)를 사용하여 개인 IP 주소를 가장합니다. 삭제 포트는 PAT에 사용되고 풀 크기에 따라 [미리 할당](#preallocatedports)됩니다.
 
-여러 개의 [아웃바운드 시나리오](#scenarios)가 있습니다. 필요에 따라 이러한 시나리오를 결합할 수 있습니다. 주의 깊게 살펴보고 배포 모델 및 응용 프로그램 시나리오에 적용되는 기능, 제약 조건 및 패턴을 이해합니다. [시나리오 관리](#snatexhaust) 지침을 검토합니다.
+여러 개의 [아웃바운드 시나리오](#scenarios)가 있습니다. 필요에 따라 이러한 시나리오를 결합할 수 있습니다. 주의 깊게 살펴보고 배포 모델 및 애플리케이션 시나리오에 적용되는 기능, 제약 조건 및 패턴을 이해합니다. [시나리오 관리](#snatexhaust) 지침을 검토합니다.
 
 >[!IMPORTANT] 
 >표준 Load Balancer는 아웃바웃드 연결에 대한 새로운 기능 및 서로 다른 동작을 설명합니다.   예를 들어 [시나리오 3](#defaultsnat)은 내부 표준 Load Balancer가 있으며 다른 단계를 수행해야 하는 경우에 존재하지 않습니다.   전반적인 개념 및 SKU 간의 차이점을 이해하려면 이 전체 문서를 주의 깊게 검토합니다.
@@ -77,7 +79,7 @@ SNAT 포트는 [SNAT 및 PAT 이해](#snat) 섹션에 설명된 대로 미리 �
 >[!IMPORTANT] 
 >또한 이 시나리오는 내부 기본 Load Balancer가 연결된 경우에__만__ 적용됩니다. 시나리오 3은 내부 표준 Load Balancer가 VM에 연결된 경우에는 __사용할 수 없습니다__.  내부 표준 Load Balancer를 사용하는 것 외에도 명시적으로 [시나리오 1](#ilpip) 또는 [시나리오 2](#lb)를 만들어야 합니다.
 
-Azure는 포트 가장([PAT](#pat))과 함께 SNAT을 사용하여 이 기능을 수행합니다. 이 시나리오는 사용되는 IP 주소를 제어할 수 없다는 점을 제외하고 [시나리오 2](#lb)와 비슷합니다. 시나리오 1 및 2가 없을 때를 대비한 시나리오입니다. 아웃바운드 주소를 제어해야 하는 경우에는 이 시나리오를 사용하지 않는 것이 좋습니다. 아웃바운드 연결이 응용 프로그램의 중요한 부분인 경우 다른 시나리오를 선택해야 합니다.
+Azure는 포트 가장([PAT](#pat))과 함께 SNAT을 사용하여 이 기능을 수행합니다. 이 시나리오는 사용되는 IP 주소를 제어할 수 없다는 점을 제외하고 [시나리오 2](#lb)와 비슷합니다. 시나리오 1 및 2가 없을 때를 대비한 시나리오입니다. 아웃바운드 주소를 제어해야 하는 경우에는 이 시나리오를 사용하지 않는 것이 좋습니다. 아웃바운드 연결이 애플리케이션의 중요한 부분인 경우 다른 시나리오를 선택해야 합니다.
 
 SNAT 포트는 [SNAT 및 PAT 이해](#snat) 섹션에 설명된 대로 미리 할당되며  가용성 집합을 공유하는 VM의 수는 미리 할당 계층이 적용되는 것을 결정합니다.  가용성 집합이 없는 독립 실행형 VM은 사전 할당의 결정을 위한 1의 효과적인 풀입니다(1024 SNAT 포트). SNAT 포트는 소진될 수 있는 한정된 리소스입니다. 어떻게 [소비](#pat)되는지 이해하는 것이 중요합니다. 이 소비를 설계하고 필요에 따라 완화하는 방법을 알아보려면 [SNAT 고갈 관리](#snatexhaust)를 검토하세요.
 
@@ -85,7 +87,7 @@ SNAT 포트는 [SNAT 및 PAT 이해](#snat) 섹션에 설명된 대로 미리 �
 
 이전 섹션에서 설명한 시나리오를 결합하여 특정 결과를 달성할 수 있습니다. 여러 시나리오가 있는 경우 우선 순위가 적용됩니다. [시나리오 1](#ilpip)이 [시나리오 2](#lb) 및 [3](#defaultsnat)보다 우선합니다. [시나리오 2](#lb)가 [시나리오 3](#defaultsnat)을 재정의합니다.
 
-응용 프로그램이 제한된 수의 대상에 대한 아웃바운드 연결에 크게 의존하지만 Load Balancer 프런트 엔드를 통해 인바운드 흐름을 수신하는 Azure Resource Manager 배포를 예로 들 수 있습니다. 이 경우 시나리오 1과 2를 결합하면 안심할 수 있습니다. 추가 패턴은 [SNAT 고갈 관리](#snatexhaust)를 검토하세요.
+애플리케이션이 제한된 수의 대상에 대한 아웃바운드 연결에 크게 의존하지만 Load Balancer 프런트 엔드를 통해 인바운드 흐름을 수신하는 Azure Resource Manager 배포를 예로 들 수 있습니다. 이 경우 시나리오 1과 2를 결합하면 안심할 수 있습니다. 추가 패턴은 [SNAT 고갈 관리](#snatexhaust)를 검토하세요.
 
 ### <a name="multife"></a> 아웃바운드 흐름에 대한 여러 프런트 엔드
 

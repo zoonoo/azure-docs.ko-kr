@@ -1,18 +1,19 @@
 ---
-title: 'ExpressRoute 회로 만들기 및 수정: PowerShell: Azure Resource Manager | Microsoft Docs'
-description: 이 문서에서는 ExpressRoute 회로를 만들고, 프로비전하고, 확인하고, 업데이트하고, 삭제하고, 프로비전을 해제하는 방법을 설명합니다.
+title: 'ExpressRoute 회로 만들기 및 수정 - PowerShell: Azure | Microsoft Docs'
+description: ExpressRoute 회로를 만들고, 프로비전하고, 확인하고, 업데이트하고, 삭제하고, 프로비전을 해제합니다.
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: f95bdfe9a61a271825ff9bbe5ca7f84330c98df5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: ff86c87690f5dd4a919929f0deef4af739cbe4d3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257455"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105005"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>PowerShell을 사용하여 ExpressRoute 회로 만들기 및 수정
 > [!div class="op_single_selector"]
@@ -23,7 +24,7 @@ ms.locfileid: "51257455"
 > * [PowerShell(클래식)](expressroute-howto-circuit-classic.md)
 >
 
-이 문서에서는 PowerShell cmdlet 및 Azure Resource Manager 배포 모델을 사용하여 Azure ExpressRoute 회로를 만드는 방법을 설명합니다. 이 문서에는 회로의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 나와 있습니다.
+이 문서에서는 PowerShell cmdlet 및 Azure Resource Manager 배포 모델을 사용하여 ExpressRoute 회로를 만듭니다. 상태를 확인하고, 회로를 업데이트, 삭제 또는 프로비전 해제할 수도 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

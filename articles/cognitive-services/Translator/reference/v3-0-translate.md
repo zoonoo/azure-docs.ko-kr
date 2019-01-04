@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 847794d46addc7f3cba09437c2d2c6e8a3a04e89
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: bf13ca603927c85784e446157a79cd96fb70ca05
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165427"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956987"
 ---
-# <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Translate
+# <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: 번역
 
 텍스트를 번역합니다.
 
@@ -42,11 +42,11 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>from</td>
-    <td>*선택적 매개 변수*입니다.<br/>입력 텍스트의 언어를 지정합니다. `translation` 범위를 통해 [지원되는 언어](.\v3-0-languages.md)를 조회하여 번역할 수 있는 원본 언어를 찾습니다. `from` 매개 변수를 지정하지 않으면 자동 언어 검색에 따라 원본 언어가 결정됩니다.</td>
+    <td>*선택적 매개 변수*입니다.<br/>입력 텍스트의 언어를 지정합니다. `translation` 범위를 통해 [지원되는 언어](./v3-0-languages.md)를 조회하여 번역할 수 있는 원본 언어를 찾습니다. `from` 매개 변수를 지정하지 않으면 자동 언어 검색에 따라 원본 언어가 결정됩니다.</td>
   </tr>
   <tr>
     <td>to</td>
-    <td>*필수 매개 변수*입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 `translation` 범위에 포함된 [지원되는 언어](.\v3-0-languages.md) 중 하나여야 합니다. 예를 들어, 독일어로 번역하려면 `to=de`를 사용합니다.<br/>쿼리 문자열의 매개 변수를 반복하여 동시에 여러 언어로 번역할 수도 있습니다. 예를 들어, 독일어 및 이탈리아어로 번역하려면 `to=de&to=it`를 사용합니다.</td>
+    <td>*필수 매개 변수*입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 `translation` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다. 예를 들어, 독일어로 번역하려면 `to=de`를 사용합니다.<br/>쿼리 문자열의 매개 변수를 반복하여 동시에 여러 언어로 번역할 수도 있습니다. 예를 들어, 독일어 및 이탈리아어로 번역하려면 `to=de&to=it`를 사용합니다.</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -161,7 +161,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
       * `srcSentLen`: 입력 텍스트의 문장 길이를 나타내는 정수 배열입니다. 배열의 길이는 문장의 수이고 값은 각 문장의 길이입니다.
 
-      * `transSentLen`: 번역된 텍스트의 문장 길이를 나타내는 정수 배열입니다. 배열의 길이는 문장의 수이고 값은 각 문장의 길이입니다.
+      * `transSentLen`:  번역된 텍스트의 문장 길이를 나타내는 정수 배열입니다. 배열의 길이는 문장의 수이고 값은 각 문장의 길이입니다.
 
     문장 경계는 요청 매개 변수 `includeSentenceLength`가 `true`일 때만 포함됩니다.
 

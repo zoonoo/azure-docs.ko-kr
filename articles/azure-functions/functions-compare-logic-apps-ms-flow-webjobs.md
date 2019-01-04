@@ -32,7 +32,7 @@ ms.locfileid: "52634934"
 
 ## <a name="compare-microsoft-flow-and-azure-logic-apps"></a>Microsoft Flow 및 Azure Logic Apps 비교
 
-Flow 및 Logic Apps는 모두 워크플로를 만들 수 있는 *디자이너 중심* 통합 서비스입니다. 두 서비스는 다양한 SaaS 및 엔터프라이즈 응용 프로그램과 통합합니다. 
+Flow 및 Logic Apps는 모두 워크플로를 만들 수 있는 *디자이너 중심* 통합 서비스입니다. 두 서비스는 다양한 SaaS 및 엔터프라이즈 애플리케이션과 통합합니다. 
 
 Flow는 Logic Apps를 기반으로 빌드됩니다. 동일한 워크플로 디자이너 및 동일한 [커넥터](../connectors/apis-list.md)를 공유합니다. 
 
@@ -74,9 +74,9 @@ Azure Functions와 마찬가지로, Azure App Service WebJobs with the WebJobs S
 
 ### <a name="webjobs-and-the-webjobs-sdk"></a>WebJobs 및 WebJobs SDK
 
-App Service의 *WebJobs* 기능을 사용하면 App Service 웹앱의 컨텍스트에서 스크립트 또는 코드를 실행할 수 있습니다. *WebJobs SDK*는 WebJobs를 위해 설계된 프레임워크로, 개발자가 Azure 서비스의 이벤트에 응답하기 위해 작성하는 코드를 간소화합니다. 예를 들어 썸네일 이미지를 만들어서 Azure Storage에 이미지 BLOB 만들기에 대응할 수 있습니다. WebJobs SDK는 WebJob을 배포할 수 있는 .NET 콘솔 응용 프로그램으로 실행됩니다. 
+App Service의 *WebJobs* 기능을 사용하면 App Service 웹앱의 컨텍스트에서 스크립트 또는 코드를 실행할 수 있습니다. *WebJobs SDK*는 WebJobs를 위해 설계된 프레임워크로, 개발자가 Azure 서비스의 이벤트에 응답하기 위해 작성하는 코드를 간소화합니다. 예를 들어 썸네일 이미지를 만들어서 Azure Storage에 이미지 BLOB 만들기에 대응할 수 있습니다. WebJobs SDK는 WebJob을 배포할 수 있는 .NET 콘솔 애플리케이션으로 실행됩니다. 
 
-WebJobs와 WebJobs SDK는 최고의 호환성을 자랑하지만, WebJobs SDK 없이 WebJobs만 또는 그 반대로 사용할 수도 있습니다. WebJob은 App Service 샌드박스에서 실행되는 모든 프로그램 또는 스크립트를 실행할 수 있습니다. WebJobs SDK 콘솔 응용 프로그램은 온-프레미스 서버처럼 콘솔 응용 프로그램을 실행하는 모든 위치에서 실행 가능합니다.
+WebJobs와 WebJobs SDK는 최고의 호환성을 자랑하지만, WebJobs SDK 없이 WebJobs만 또는 그 반대로 사용할 수도 있습니다. WebJob은 App Service 샌드박스에서 실행되는 모든 프로그램 또는 스크립트를 실행할 수 있습니다. WebJobs SDK 콘솔 애플리케이션은 온-프레미스 서버처럼 콘솔 애플리케이션을 실행하는 모든 위치에서 실행 가능합니다.
 
 ### <a name="comparison-table"></a>비교 표
 

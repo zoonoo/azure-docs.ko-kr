@@ -164,13 +164,13 @@ Visual Studio Code를 사용하여(개발 환경을 준비할 때 설치했음) 
 
 ![Visual Studio Code](media/howto-connect-devkit/vscodeview.png)
 
-Azure IoT Central 응용 프로그램으로 원격 분석 데이터가 전송되는 원리를 살펴보려면 원본 폴더의 **main_telemetry.cpp** 파일을 여세요.
+Azure IoT Central 애플리케이션으로 원격 분석 데이터가 전송되는 원리를 살펴보려면 원본 폴더의 **main_telemetry.cpp** 파일을 여세요.
 
 `buildTelemetryPayload` 함수는 디바이스의 센서 데이터를 사용하여 JSON 원격 분석 페이로드를 만듭니다.
 
 `sendTelemetryPayload` 함수는 **iotHubClient.cpp**에서 Azure IoT Central 응용 프로그램이 사용하는 IoT Hub에 JSON 페이로드를 보내는 `sendTelemetry`를 호출합니다.
 
-Azure IoT Central 응용 프로그램으로 속성 값이 보고되는 원리를 살펴보려면 원본 폴더의 **main_telemetry.cpp** 파일을 여세요.
+Azure IoT Central 애플리케이션으로 속성 값이 보고되는 원리를 살펴보려면 원본 폴더의 **main_telemetry.cpp** 파일을 여세요.
 
 `telemetryLoop` 함수는 가속도계가 두 번 탭을 감지하면 **doubleTap** reported 속성을 보냅니다. **iotHubClient.cpp** 원본 파일의 `sendReportedProperty` 함수를 사용합니다.
 

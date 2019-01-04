@@ -35,7 +35,7 @@ ms.locfileid: "46295600"
 * **Azure Active Directory "웹" 응용 프로그램 만들기**. [Azure Active Directory를 사용하여 Data Lake Storage Gen1로 서비스 간 인증](data-lake-store-service-to-service-authenticate-using-active-directory.md)의 단계를 완료해야 합니다.
 
 ## <a name="service-to-service-authentication"></a>서비스 간 인증
-이 시나리오에서 응용 프로그램은 고유한 자격 증명을 제공하여 작업을 수행합니다. 이를 위해 다음 코드 조각과 같은 POST 요청을 실행해야 합니다. 
+이 시나리오에서 애플리케이션은 고유한 자격 증명을 제공하여 작업을 수행합니다. 이를 위해 다음 코드 조각과 같은 POST 요청을 실행해야 합니다. 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
       -F grant_type=client_credentials \

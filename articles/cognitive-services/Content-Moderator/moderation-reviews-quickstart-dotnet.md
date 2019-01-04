@@ -156,7 +156,7 @@ SDK 샘플에서 Azure에서 제공하는 API 키를 사용하려는 경우 [검
         public string ReviewId;
     }
 
-### <a name="initialize-application-specific-settings"></a>응용 프로그램 관련 설정 초기화
+### <a name="initialize-application-specific-settings"></a>애플리케이션 관련 설정 초기화
 
 > [!NOTE]
 > Content Moderator 서비스 키에는 RPS(초당 요청 수) 속도 제한이 있으며, 제한을 초과하는 경우 SDK에서 429 오류 코드로 예외를 throw합니다. 
@@ -240,7 +240,7 @@ SDK 샘플에서 Azure에서 제공하는 API 키를 사용하려는 경우 [검
 
 #### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>Program.cs의 **Program** 클래스에 다음 정적 필드를 추가합니다.
 
-이러한 필드를 사용하여 응용 프로그램 상태를 추적합니다.
+이러한 필드를 사용하여 애플리케이션 상태를 추적합니다.
 
     /// <summary>
     /// A static reference to the text writer to use for logging.
@@ -436,7 +436,7 @@ Content Moderator 검토 도구에 로그인하여 **sc** 레이블을 **true**�
 > [!NOTE]
 > 출력 파일에서 문자열 "\{teamname}" 및 "\{callbackUrl}"은 `TeamName` 및 `CallbackEndpoint` 필드에 대한 값을 각각 반영합니다.
 
-검토 ID 및 이미지 콘텐츠 URL은 응용 프로그램을 실행할 때마다 다르며, 검토가 완료되면 `reviewerResultTags` 필드는 검토자가 항목의 태그를 지정한 방법을 반영합니다.
+검토 ID 및 이미지 콘텐츠 URL은 애플리케이션을 실행할 때마다 다르며, 검토가 완료되면 `reviewerResultTags` 필드는 검토자가 항목의 태그를 지정한 방법을 반영합니다.
 
     Creating reviews for the following images:
         - https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg; with id = 0.

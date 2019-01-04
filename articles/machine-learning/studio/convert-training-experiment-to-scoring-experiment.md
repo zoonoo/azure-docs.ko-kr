@@ -1,12 +1,11 @@
 ---
-title: Azure Machine Learning Studio에서 배포하기 위한 모델을 준비하는 방법 | Microsoft Docs
+title: 배포를 위한 모델 준비 - Azure Machine Learning Studio | Microsoft Docs
 description: Machine Learning Studio 학습 실험을 예측 실험으로 변환하여 학습된 모델을 웹 서비스로 배포하기 위해 준비하는 방법
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: eb943c45-541a-401d-844a-c3337de82da6
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 7849a21e2d005584030375e2193f74a99b3977bd
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: ef54281b91147060e9c00bcc6e45e0db0fb8933a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265239"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273105"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 배포하기 위한 모델을 준비하는 방법
 
@@ -29,11 +28,11 @@ Azure Machine Learning Studio는 예측 분석 모델을 개발한 다음 Azure 
 
 이를 위해 Studio를 사용하여 모델을 학습하고, 점수를 매기고, 편집하는 *학습 실험*이라는 실험을 만듭니다. 이 학습 실험에 만족하면 사용자 데이터에 대한 점수를 매기도록 구성된 *예측 실험*으로 변환함으로써 모델을 배포할 준비가 됩니다.
 
-이 프로세스의 예는 [연습: Azure Machine Learning의 신용 위험 평가에 대한 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)에서 확인할 수 있습니다.
+[연습: Azure Machine Learning의 신용 위험 평가에 대한 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)에서 이 프로세스의 예제를 볼 수 있습니다.
 
 이 문서에서는 학습 실험을 예측 실험으로 변환하는 방법과 예측 실험을 배포하는 방법에 대해 자세히 설명합니다. 이러한 세부 정보를 이해하면 배포된 모델을 더 효과적으로 구성하는 방법을 알 수 있습니다.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="overview"></a>개요 
 
@@ -65,7 +64,7 @@ Azure Machine Learning Studio는 예측 분석 모델을 개발한 다음 Azure 
 
 이 학습 실험을 예측 실험으로 변환하면 이러한 모듈 중 일부는 다음과 같이 더 이상 필요하지 않거나 다른 용도로 사용됩니다.
 
-* **데이터** - 이 샘플 데이터 집합의 데이터는 점수를 매기는 동안 사용되지 않습니다. 웹 서비스 사용자가 점수를 매길 데이터를 제공합니다. 그러나 데이터 형식과 같은 이 데이터 세트의 메타데이터는 학습된 모델에서 사용됩니다. 따라서 이 메타데이터를 제공할 수 있도록 예측 실험에서 데이터 세트를 유지해야 합니다.
+* **데이터** - 이 샘플 데이터 세트의 데이터는 점수를 매기는 동안 사용되지 않습니다. 웹 서비스 사용자가 점수를 매길 데이터를 제공합니다. 그러나 데이터 형식과 같은 이 데이터 세트의 메타데이터는 학습된 모델에서 사용됩니다. 따라서 이 메타데이터를 제공할 수 있도록 예측 실험에서 데이터 세트를 유지해야 합니다.
 
 * **준비** - 점수 매기기를 위해 제출할 사용자 데이터에 따라 이러한 모듈이 들어오는 데이터를 처리하는 데 필요할 수도 있고 그렇지 않을 수도 있습니다. **웹 서비스 설정** 단추는 이러한 모듈을 수정하지 않지만, 이들을 처리할 방법은 결정해야 합니다.
   

@@ -1,20 +1,21 @@
 ---
-title: Node.js를 사용하여 Azure Event Hubs에서 이벤트 수신 | Microsoft Docs
-description: Node.js를 사용하여 Event Hubs에서 이벤트를 수신하는 방법에 대해 알아봅니다.
+title: Node.js를 사용하여 이벤트 수신 - Azure Event Hubs | Microsoft Docs
+description: 이 문서에서는 Azure Event Hubs에 이벤트를 받는 Node.js 애플리케이션을 만드는 과정을 연습할 수 있습니다.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 09/18/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2f59b7f47acc8ce8e566b7f0e2bcfed379ea60d2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: d13f97ff7ec25fd638b92dc1c057afcaeecc2bf9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239087"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434072"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Node.js를 사용하여 Azure Event Hubs에서 이벤트 수신
 
@@ -22,12 +23,12 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 처리할 수 있는 �
 
 Event Hubs에 대해 자세히 알아보려면 [Event Hubs 개요](event-hubs-about.md)를 참조하세요.
 
-이 자습서에서는 Node.js 응용 프로그램에서 Azure [EventProcessorHost](event-hubs-event-processor-host.md)를 사용하여 이벤트 허브에서 이벤트를 수신하는 방법을 설명합니다. EPH(EventProcessorHost)를 사용하면 이벤트 허브의 소비자 그룹 내 모든 파티션에서 수신기를 만들어 이벤트 허브에서 이벤트를 효율적으로 수신할 수 있습니다. EPH는 Azure Storage Blob에서 일정한 간격으로 수신된 메시지의 메타데이터에 검사점을 적용합니다. 이러한 방식이 사용되므로 메시지 수신이 중지된 이후 중지된 시점부터 계속해서 쉽게 메시지를 수신할 수 있습니다.
+이 자습서에서는 Node.js 애플리케이션에서 Azure [EventProcessorHost](event-hubs-event-processor-host.md)를 사용하여 이벤트 허브에서 이벤트를 수신하는 방법을 설명합니다. EPH(EventProcessorHost)를 사용하면 이벤트 허브의 소비자 그룹 내 모든 파티션에서 수신기를 만들어 이벤트 허브에서 이벤트를 효율적으로 수신할 수 있습니다. EPH는 Azure Storage Blob에서 일정한 간격으로 수신된 메시지의 메타데이터에 검사점을 적용합니다. 이러한 방식이 사용되므로 메시지 수신이 중지된 이후 중지된 시점부터 계속해서 쉽게 메시지를 수신할 수 있습니다.
 
 이 빠른 시작용 코드는 [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/processor)에서 제공됩니다.
 
 > [!NOTE]
->  Node.js를 사용하여 Event Hubs로 이벤트를 보내려면 [Node.js를 사용하여 Azure Event Hubs로 이벤트 전송](event-hubs-node-get-started-send.md) 문서를 참조하세요. 
+>  Node.js를 사용하여 Event Hubs에 이벤트를 보내려면 다음 문서를 참조하세요. [Node.js를 사용하여 Azure Event Hubs로 이벤트 전송](event-hubs-node-get-started-send.md). 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -141,7 +142,7 @@ export EVENTHUB_NAME="<your-event-hub-name>"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 이벤트 허브에서 메시지를 받는 Node.js 응용 프로그램을 만들었습니다. Node.js를 사용하여 이벤트 허브에 이벤트를 보내는 방법을 알아보려면 [이벤트 허브에서 이벤트 보내기 - Node.js](event-hubs-node-get-started-send.md)를 참조하세요.
+이 빠른 시작에서는 이벤트 허브에서 메시지를 받는 Node.js 애플리케이션을 만들었습니다. Node.js를 사용하여 이벤트 허브에 이벤트를 보내는 방법을 알아보려면 [이벤트 허브에서 이벤트 보내기 - Node.js](event-hubs-node-get-started-send.md)를 참조하세요.
 
 <!-- Links -->
 [체험 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

@@ -1,21 +1,22 @@
 ---
-title: Speech Service SDK 설명서
+title: 릴리스 정보 - Speech Services
 titlesuffix: Azure Cognitive Services
-description: 릴리스 정보 - 가장 최근 릴리스에서 변경된 내용
+description: Azure 음성 서비스의 기능 릴리스, 향상된 기능, 버그 수정 및 알려진 문제에 대한 실행 로그를 참조하세요.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: ff09926d61d64294a4f12ccf959f6685910539f1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: c99f1691618765e8997ef442a506c83b9a7bd4fa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317894"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088309"
 ---
 # <a name="release-notes"></a>릴리스 정보
 
@@ -58,13 +59,13 @@ ms.locfileid: "52317894"
 * 속성이 설정되지 않은 경우의 잠재적인 심각한 오류가 수정되었습니다.
 * 추가 오류 및 매개 변수 검사가 추가되었습니다.
 * Objective-C: NSString에서 이름 재정의로 인한 잠재적인 심각한 오류가 수정되었습니다.
-* Objectice-C: API의 표시 유형이 조정되었습니다.
+* Objective-C: API의 표시 유형이 조정되었습니다.
 * JavaScript: 관련 이벤트 및 해당 페이로드가 수정되었습니다.
 * 설명서 향상된 기능입니다.
 
 [샘플 리포지토리](https://aka.ms/csspeech/samples)에서 JavaScript에 대한 새로운 샘플이 추가되었습니다.
 
-## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>Cognitive Services Speech SDK 1.0.0: 2018년 9월 release
+## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>Cognitive Services Speech SDK 1.0.0: 2018-9월 릴리스
 
 **새로운 기능**
 
@@ -76,7 +77,7 @@ ms.locfileid: "52317894"
 * 이 릴리스에는 몇 가지 주요한 변경 내용이 도입되었습니다.
   자세한 내용은 [이 페이지](https://aka.ms/csspeech/breakingchanges_1_0_0)를 확인하세요.
 
-## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services Speech SDK 0.6.0: 2018년 8월 릴리스
+## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services Speech SDK 0.6.0: 2018-8월 릴리스
 
 **새로운 기능**
 
@@ -102,11 +103,11 @@ ms.locfileid: "52317894"
 * 오래 실행되는 인식이 전송 중에 종료될 수 있는 문제가 해결되었습니다.
 * 인식기 종료에서 발생하는 경합 조건을 수정했습니다.
 
-## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Cognitive Services Speech SDK 0.5.0: 2018년 7월 릴리스
+## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Cognitive Services Speech SDK 0.5.0: 2018-7월 릴리스
 
 **새로운 기능**
 
-* Android 플랫폼(API 23: Android 6.0 Marshmallow 이상)을 지원합니다. [Android 빠른 시작](quickstart-java-android.md)을 확인하세요.
+* Android 플랫폼 지원(API 23: Android 6.0 Marshmallow 이상). [Android 빠른 시작](quickstart-java-android.md)을 확인하세요.
 * Windows에서 .NET Standard 2.0을 지원합니다. [.NET Core 빠른 시작](quickstart-csharp-dotnetcore-windows.md)을 확인하세요.
 * 실험: Windows(버전 1709 이상)에서 UWP를 지원합니다.
   * [UWP 빠른 시작](quickstart-csharp-uwp.md)을 확인하세요.
@@ -139,7 +140,7 @@ ms.locfileid: "52317894"
 
 * Android용 Speech SDK에서는 번역에 대한 음성 합성 결과를 보고하지 않습니다. 이 문제는 다음 릴리스에서 해결될 예정입니다.
 
-## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Cognitive Services Speech SDK 0.4.0: 2018년 6월 릴리스
+## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Cognitive Services Speech SDK 0.4.0: 2018-6월 릴리스
 
 **기능 변경 내용**
 
@@ -175,6 +176,6 @@ ms.locfileid: "52317894"
 
 추가 샘플이 추가되었고 지속적으로 업데이트되고 있습니다. 최신 샘플 집합은 [Speech SDK 샘플 GitHub 리포지토리](https://aka.ms/csspeech/samples)를 참조하세요.
 
-## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>Cognitive Services Speech SDK 0.2.12733: 2018년 5월 릴리스
+## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>Cognitive Services Speech SDK 0.2.12733: 2018-5월 릴리스
 
 이 릴리스는 Cognitive Services Speech SDK의 첫 번째 공개 미리 보기 릴리스입니다.

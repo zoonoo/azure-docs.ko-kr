@@ -21,9 +21,9 @@ ms.locfileid: "48867618"
 
 이 문서는 브라우저에서 직접 Azure Custom Decision Service API를 호출하는 데 도움이 됩니다.
 
-먼저 [응용 프로그램을 등록](custom-decision-service-get-started-register.md)해야 합니다.
+먼저 [애플리케이션을 등록](custom-decision-service-get-started-register.md)해야 합니다.
 
-이제 시작하겠습니다. 응용 프로그램은 애플리케이션은 여러 문서 페이지로 연결되는 앞 페이지가 있는 것으로 모델링됩니다. 앞 페이지는 Custom Decision Service를 사용하여 문서 페이지의 순서를 지정합니다. 앞 페이지의 HTML 헤드에 다음 코드를 삽입합니다.
+이제 시작하겠습니다. 애플리케이션은 여러 문서 페이지로 연결되는 앞 페이지가 있는 것으로 모델링됩니다. 앞 페이지는 Custom Decision Service를 사용하여 문서 페이지의 순서를 지정합니다. 앞 페이지의 HTML 헤드에 다음 코드를 삽입합니다.
 
 ```html
 // Define the "callback function" to render UI

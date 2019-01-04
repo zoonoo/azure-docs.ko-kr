@@ -41,7 +41,7 @@ ms.locfileid: "51289277"
 
 Microsoft Azure는 데이터 보호 및 개인 정보 보호를 위한 업계 선도적인 노력을 통해 지속적으로 증가하는 통합 클라우드 서비스(분석, 기계 학습, 저장소, 보안, 네트워킹 및 웹) 컬렉션을 결합하는 완전한 클라우드 솔루션을 제공합니다. Microsoft의 [보안 위험 가정](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/) 전략은 공격을 시뮬레이트하는 소프트웨어 보안 전문가로 구성된 전용 *레드 팀*을 활용하여 Azure에서 새로운 위협을 감지 및 보호하고 위험으로부터 복구하는 기능을 테스트합니다. Microsoft의 [글로벌 인시던트 대응](https://www.microsoft.com/en-us/TrustCenter/Security/DesignOpSecurity) 팀은 공격 및 악의적인 활동이 미치는 영향을 최소화 하기 위해 24시간 내내 노력합니다. 이 팀은 문제 관리, 통신 및 복구를 위해 설정된 절차를 따르며 내부 및 외부 파트너와 검색 가능하며 예측 가능한 인터페이스를 사용합니다.
 
-Microsoft의 시스템은 지속적인 침입 탐지 및 방지, 서비스 거부 공격 방지, 일반적인 침투 테스트, 외부 도구를 통해 위협을 식별하고 완화할 수 있습니다. [다단계 인증](../articles/active-directory/authentication/multi-factor-authentication.md) 은 최종 사용자가 네트워크에 액세스하는 추가 보안 계층을 제공합니다. 또한 Microsoft는 응용 프로그램 및 호스트 공급자를 위해 액세스 제어, 모니터링, 맬웨어 방지, 취약점 검색, 패치 및 구성 관리를 제공합니다.
+Microsoft의 시스템은 지속적인 침입 탐지 및 방지, 서비스 거부 공격 방지, 일반적인 침투 테스트, 외부 도구를 통해 위협을 식별하고 완화할 수 있습니다. [다단계 인증](../articles/active-directory/authentication/multi-factor-authentication.md) 은 최종 사용자가 네트워크에 액세스하는 추가 보안 계층을 제공합니다. 또한 Microsoft는 애플리케이션 및 호스트 공급자를 위해 액세스 제어, 모니터링, 맬웨어 방지, 취약점 검색, 패치 및 구성 관리를 제공합니다.
 
 솔루션 가속기는 모든 Microsoft 소프트웨어의 안전한 개발 및 운영을 위한 SDL 및 OSA 프로세스와 함께 Azure 플랫폼에 기본 제공된 보안 및 개인 정보를 활용합니다. 이러한 절차는 인프라 보호, 네트워크 보호, 모든 솔루션의 보안을 위한 기본 사항인 식별 및 관리 기능을 제공합니다.
 
@@ -109,8 +109,8 @@ IoT 인프라에서 사용되는 모든 키는 보안 저장소의 클라우드�
 
 * [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): 장치, 센서, 인프라 및 응용 프로그램에서 실시간 정보를 파악하는 저비용 분석 솔루션을 빠르게 개발 및 배포하는 클라우드의 실시간 스트림 처리입니다. 이 완전히 관리되는 서비스의 데이터를 높은 처리량, 낮은 대기 시간 및 복원력을 확보하면서 어떤 볼륨으로도 확장할 수 있습니다.
 
-* [**Azure App Services**](https://azure.microsoft.com/services/app-service/): 강력한 웹 및 모바일 앱을 빌드하기 위한 클라우드 플랫폼으로 클라우드 또는 온-프레미스 등 어디서나 데이터에 연결할 수 있습니다. iOS, Android 및 Windows를 위한 유용한 모바일 앱을 빌드하세요. 수십 개의 클라우드 기반 서비스와 엔터프라이즈 응용 프로그램에 즉시 연결 가능하므로 귀사의 SaaS(Software as a Service) 및 엔터프라이즈 응용 프로그램과 통합이 용이합니다. 가장 자주 사용하는 언어와 IDE(.NET, Node.js, PHP, Python 또는 Java)로 코딩하여 더욱 빨리 웹앱과 API를 빌드하세요.
+* [**Azure App Services**](https://azure.microsoft.com/services/app-service/): 강력한 웹 및 모바일 앱을 빌드하기 위한 클라우드 플랫폼으로 클라우드 또는 온-프레미스 등 어디서나 데이터에 연결할 수 있습니다. iOS, Android 및 Windows를 위한 유용한 모바일 앱을 빌드하세요. 수십 개의 클라우드 기반 서비스와 엔터프라이즈 애플리케이션에 즉시 연결 가능하므로 귀사의 SaaS(Software as a Service) 및 엔터프라이즈 애플리케이션과 통합이 용이합니다. 가장 자주 사용하는 언어와 IDE(.NET, Node.js, PHP, Python 또는 Java)로 코딩하여 더욱 빨리 웹앱과 API를 빌드하세요.
 
-* [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): Azure App Service의 Logic Apps 기능을 통해 IoT 솔루션을 기존의 LOB(기간 업무) 시스템에 통합하고 워크플로 프로세스를 자동화할 수 있습니다. Logic Apps를 사용하면 개발자는 트리거부터 시작하여 비즈니스 프로세스와 통합할 강력한 커넥터를 사용하는 규칙 및 작업으로 이루어진 일련의 단계를 수행하는 워크플로를 설계할 수 있습니다. Logic Apps는 SaaS, 클라우드 기반 및 온-프레미스 응용 프로그램의 방대한 생태계에 즉시 연결을 제공합니다.
+* [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): Azure App Service의 Logic Apps 기능을 통해 IoT 솔루션을 기존의 LOB(기간 업무) 시스템에 통합하고 워크플로 프로세스를 자동화할 수 있습니다. Logic Apps를 사용하면 개발자는 트리거부터 시작하여 비즈니스 프로세스와 통합할 강력한 커넥터를 사용하는 규칙 및 작업으로 이루어진 일련의 단계를 수행하는 워크플로를 설계할 수 있습니다. Logic Apps는 SaaS, 클라우드 기반 및 온-프레미스 애플리케이션의 방대한 생태계에 즉시 연결을 제공합니다.
 
 * [**Azure Blob Storage**](https://azure.microsoft.com/services/storage/): 장치가 클라우드로 전송하는 데이터에 대한 안정적이고 경제적인 클라우드 저장소입니다.

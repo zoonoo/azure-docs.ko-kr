@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 개요 | Microsoft Docs
+title: Azure Active Directory란? | Microsoft Docs
 description: 필수 용어, 대상, 라이선싱 기본 사항 및 관련 기능을 포함하여 Azure Active Directory에 대해 알아봅니다.
 services: active-directory
 author: eross-msft
@@ -8,12 +8,13 @@ ms.service: active-directory
 ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
-ms.openlocfilehash: 1b1561ed8470c39b13def72774e253db28bf58d8
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 80c3108d468465e68d554b3d36c527c5ccd4a13c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686588"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085929"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory란? 
 Azure AD(Azure Active Directory)는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스입니다. Azure AD를 사용하면 직원들이 다음 항목에서 로그인하여 리소스에 액세스할 수 있습니다.
@@ -76,7 +77,7 @@ Azure AD 라이선스를 선택하면 조직에서 사용 가능한 다음 기�
 
 |Category|설명|
 |-------|-----------|
-|응용 프로그램 관리|애플리케이션 프록시, Single Sign-On, 내 앱 포털(액세스 패널이라고도 함) 및 SaaS(Software as a Service) 앱을 사용하여 클라우드 및 온-프레미스 앱을 관리합니다. 자세한 내용은 [온-프레미스 애플리케이션에 대한 보안 원격 액세스를 제공하는 방법](../manage-apps/application-proxy.md) 및 [애플리케이션 관리 설명서](../manage-apps/index.yml)를 참조하세요.|
+|애플리케이션 관리|애플리케이션 프록시, Single Sign-On, 내 앱 포털(액세스 패널이라고도 함) 및 SaaS(Software as a Service) 앱을 사용하여 클라우드 및 온-프레미스 앱을 관리합니다. 자세한 내용은 [온-프레미스 애플리케이션에 대한 보안 원격 액세스를 제공하는 방법](../manage-apps/application-proxy.md) 및 [애플리케이션 관리 설명서](../manage-apps/index.yml)를 참조하세요.|
 |인증|Azure Active Directory 셀프 서비스 암호 재설정, Multi-Factor Authentication, 사용자 지정 금지된 암호 목록 및 스마트 잠금을 관리합니다. 자세한 내용은 [Azure AD 인증 설명서](../authentication/index.yml)를 참조하세요.|
 |B2B(Business to Business)|회사 데이터에 대한 제어를 유지하면서도 게스트 사용자 및 외부 파트너를 관리합니다. 자세한 내용은 [Azure Active Directory B2B 설명서](../b2b/index.yml)를 참조하세요.|
 |B2C(Business to Consumer)|사용자가 앱을 사용할 때 프로필을 등록, 로그인 및 관리하는 방법을 사용자 지정하고 제어합니다. 자세한 내용은 [Azure Active Directory B2C 설명서](../../active-directory-b2c/index.yml)를 참조하세요.|

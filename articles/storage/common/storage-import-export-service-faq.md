@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 12/13/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: b53f679f6f93dd5d4889fbe51f8b5caf62fc1a36
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8111d80d0888455fbdf3ccf37e723fe348a62bee
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236724"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435007"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure Import/Export 서비스: 질문과 대답 
 Azure Import/Export 서비스를 사용하여 Azure Storage에 데이터를 전송할 때 발생할 수 있는 질문 및 답변은 다음과 같습니다. 질문과 대답은 다음과 같은 범주로 정렬됩니다.
@@ -66,7 +66,10 @@ Azure Import/Export 서비스를 사용하여 Azure Storage에 데이터를 전�
 완료된 작업의 상태는 최대 90일 동안 볼 수 있습니다. 90일이 지나면 완료된 작업이 삭제됩니다.
 
 ### <a name="if-i-want-to-import-or-export-more-than-10-drives-what-should-i-do"></a>10개가 넘는 드라이브를 가져오거나 내보내려면 어떻게 해야 합니까?
-하나의 가져오기 또는 내보내기 작업은 단일 작업에서 10개의 드라이브만을 참조할 수 있습니다. 10개가 넘는 드라이브를 운송하려면 여러 개의 작업을 만들어야 합니다. 동일한 작업과 연결된 드라이브는 동일한 패키지에 함께 발송되어야 합니다. 데이터 용량이 여러 디스크 가져오기 작업에 걸쳐 있는 경우 정보 및 지침은 bulkimport@microsoft.com의 Microsoft에 문의합니다.                                                              
+하나의 가져오기 또는 내보내기 작업은 단일 작업에서 10개의 드라이브만을 참조할 수 있습니다. 10개가 넘는 드라이브를 운송하려면 여러 개의 작업을 만들어야 합니다. 동일한 작업과 연결된 드라이브는 동일한 패키지에 함께 발송되어야 합니다. 데이터 용량이 여러 디스크 가져오기 작업에 걸쳐 있는 경우 정보 및 지침은 bulkimport@microsoft.com의 Microsoft에 문의합니다. 
+
+### <a name="the-uploaded-blob-shows-status-as-lease-expired-what-should-i-do"></a>업로드된 Blob은 상태를 “임대 만료”로 표시합니다. 어떻게 해야 하나요?
+"임대 만료" 필드는 무시해도 됩니다. Import/Export 기능은 업로드 중에 Blob을 임대하여 다른 프로세스가 동시에 Blob을 업데이트할 수 없도록 합니다. 임대 만료는 Import/Export 기능이 더 이상 해당 Blob에 업로드하지 않으므로 사용자가 Blob을 사용할 수 있음을 의미합니다. 
 
 ## <a name="shipping-disks"></a>디스크 운송
 
@@ -116,7 +119,7 @@ Azure Portal 또는 [저장소 탐색기](https://docs.microsoft.com/azure/vs-az
 
 ### <a name="if-a-drive-has-files-that-already-exist-in-my-storage-account-does-the-service-overwrite-existing-blobs-or-files"></a>저장소 계정에 이미 있는 파일이 드라이브에 있는 경우 서비스가 기존 Blob 또는 파일을 덮어쓰나요?
 
-경우에 따라 다릅니다. 드라이브를 준비할 때 데이터 집합 CSV 파일에 있는 Disposition:<rename|no-overwrite|overwrite>라는 필드를 사용하여 대상 파일을 덮어쓰거나 무시해야 하는지를 지정할 수 있습니다. 기본적으로 서비스는 기존 Blob 또는 파일을 덮어쓰지 않고 새 파일의 이름을 변경합니다.
+경우에 따라 다릅니다. 드라이브를 준비할 때 데이터 세트 CSV 파일에 있는 Disposition:&lt;rename|no-overwrite|overwrite&gt;라는 필드를 사용하여 대상 파일을 덮어쓰거나 무시해야 하는지를 지정할 수 있습니다. 기본적으로 서비스는 기존 Blob 또는 파일을 덮어쓰지 않고 새 파일의 이름을 변경합니다.
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>WAImportExport 도구는 32비트 운영 체제와 호환되나요?
  아니요. WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다. 지원되는 OS의 전체 목록은 [지원되는 운영 체제](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements)로 이동합니다. 
