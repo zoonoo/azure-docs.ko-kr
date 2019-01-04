@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/18/2018
-ms.openlocfilehash: e78f0d2012cf4f6152e69fff1bab04f827c0eef7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b9f17ad0ccfd5e58d5b93bde91e6f9c537a15fa6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310891"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606897"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>자동으로 토픽을 작성하기 위해 HDInsight에서 Apache Kafka를 구성하는 방법
 
@@ -55,7 +55,7 @@ Ambari 웹 UI를 통해 기존 클러스터에서 자동 토픽 생성을 사용
 
     ![다시 시작 선택 이미지](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 
-> [!NOTE]
+> [!NOTE]  
 > 또한 Ambari REST API를 통해 Ambari 값을 설정할 수 있습니다. 일반적으로 이렇게 하는 것은 현재 구성을 검색하고 수정하기 위해 REST 호출을 여러 번 해야 하기 때문에 더 어렵습니다. 자세한 내용은 [Apache Ambari REST API를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari-rest-api.md) 문서를 참조하세요.
 
 ## <a name="resource-manager-templates"></a>리소스 관리자 템플릿

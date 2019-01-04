@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: ba462d1c04f9a45932716fe07cbf1b7298d13cdb
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 889f8f597b0b744ea5fe6ef2f5c82f2d09629607
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268669"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605214"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Azure SQL Database 복원 또는 보조 데이터베이스에 대한 장애 조치
 
@@ -61,11 +61,11 @@ Azure SQL Database는 중단에서의 복구를 위해 다음 기능을 제공�
 
 ## <a name="wait-for-service-recovery"></a>서비스 복구 대기
 
-Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위해 열심히 작업하지만 루트에 따라 몇 시간 또는 며칠씩 걸릴 수 있습니다.  애플리케이션이 가동 중지 시간을 상당히 허용할 수 있는 경우 복구가 완료되기를 기다릴 수밖에 없습니다. 이 경우에 사용자의 조치가 필요하지 않습니다. 서비스의 현재 상태를 [Azure 서비스 상태 대시보드](https://azure.microsoft.com/status/)에서 확인할 수 있습니다. 지역 복구 후에 응용 프로그램의 가용성이 복원됩니다.
+Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위해 열심히 작업하지만 루트에 따라 몇 시간 또는 며칠씩 걸릴 수 있습니다.  애플리케이션이 가동 중지 시간을 상당히 허용할 수 있는 경우 복구가 완료되기를 기다릴 수밖에 없습니다. 이 경우에 사용자의 조치가 필요하지 않습니다. 서비스의 현재 상태를 [Azure 서비스 상태 대시보드](https://azure.microsoft.com/status/)에서 확인할 수 있습니다. 지역 복구 후에 애플리케이션의 가용성이 복원됩니다.
 
 ## <a name="fail-over-to-geo-replicated-secondary-server-in-the-failover-group"></a>장애 조치(failover) 그룹에 있는 지역에서 복제된 보조 서버로 장애 조치합니다.
 
-응용 프로그램의 가동 중지 시간으로 인해 비즈니스 책임이 발생할 경우 장애 조치(Failover) 그룹을 사용해야 합니다. 가동 중지 시에도 응용 프로그램이 다른 지역의 가용성을 신속하게 복원할 수 있습니다. 자습서는 [지역 분산 데이터베이스 구현](sql-database-implement-geo-distributed-database.md)을 참조하세요.
+애플리케이션의 가동 중지 시간으로 인해 비즈니스 책임이 발생할 경우 장애 조치(Failover) 그룹을 사용해야 합니다. 가동 중지 시에도 애플리케이션이 다른 지역의 가용성을 신속하게 복원할 수 있습니다. 자습서는 [지역 분산 데이터베이스 구현](sql-database-implement-geo-distributed-database.md)을 참조하세요.
 
 데이터베이스의 가용성을 복원하려면 지원되는 방법 중 하나를 사용하여 보조 서버에 대한 장애 조치(failover)를 시작해야 합니다.
 
@@ -84,7 +84,7 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 
 ### <a name="update-connection-strings"></a>연결 문자열 업데이트
 
-복구된 데이터베이스가 다른 서버에 상주하기 때문에 해당 서버를 가리키도록 응용 프로그램의 연결 문자열을 업데이트해야 합니다.
+복구된 데이터베이스가 다른 서버에 상주하기 때문에 해당 서버를 가리키도록 애플리케이션의 연결 문자열을 업데이트해야 합니다.
 
 연결 문자열을 변경하는 방법에 대한 자세한 내용은 [연결 라이브러리](sql-database-libraries.md)에 대한 적절한 개발 언어를 참조하세요.
 

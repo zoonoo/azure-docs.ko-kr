@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: a48bd66c335981a76a67206f840f4be69aaa8af1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ddd704b41e6d1463bc635f13135cc9a388e677fe
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273350"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634612"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Azure Portal을 사용하여 Azure SQL Database 및 Data Warehouse에 대한 경고 만들기
 
@@ -46,13 +46,13 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 1. [포털](https://portal.azure.com/)에서 모니터링하려는 리소스를 찾아 선택합니다.
 2. 모니터링 섹션에서 **경고(클래식)** 를 선택합니다. 텍스트와 아이콘은 리소스마다 약간씩 다를 수 있습니다.  
    
-     ![모니터링](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
+     ![모니터링](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
   
    - **SQL DW 전용**: **DWU 사용** 그래프를 클릭합니다. **클래식 경고 보기** 선택
 
 3. **메트릭 경고 추가(클래식)** 단추를 선택하고 필드에 입력합니다.
    
-    ![Add alert](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPageClassic.JPG)
+    ![Add alert](media/sql-database-insights-alerts-portal/AddDBAlertPageClassic.JPG)
 4. 경고 규칙의 **이름**을 지정하고 **설명**을 선택합니다. 알림 이메일에도 표시되는 항목입니다.
 5. 모니터링할 **메트릭**을 선택하고 해당 메트릭에 대한 **조건** 및 **임계값**을 선택합니다. 경고를 트리거하기 전에 메트릭 규칙을 만족해야 하는 **기간**도 선택합니다. 예를 들어, "PT5M" 기간을 사용하고 경고가 80% 이상인 CPU를 찾는 경우 **평균** CPU가 5분 동안 80%를 넘으면 이 경고가 트리거됩니다. 첫 번째 트리거가 발생한 후 평균 CPU가 5분 동안 80% 미만을 유지하면 다시 트리거됩니다. CPU 측정은 1 분마다 발생합니다. 지원되는 시간 창 그리고 모든 경고가 아닌 각각의 경고가 평균 값을 사용하는 집계 유형에 대해서는 아래의 테이블을 확인합니다.   
 6. 경고가 발생했을 때 관리자 및 공동 관리자에게 이메일을 보내려면 **소유자에게 이메일 보내기...** 를 선택합니다.
@@ -117,5 +117,5 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 ## <a name="next-steps"></a>다음 단계
 * [Azure 모니터링 개요](../monitoring-and-diagnostics/monitoring-overview.md) 를 확인합니다.
 * [경고에서의 webhook 구성](../azure-monitor/platform/alerts-webhooks.md)에 대해 자세히 알아봅니다.
-* 서비스의 상세 고빈도 메트릭을 수집하기 위한 [진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 의 개요를 살펴봅니다.
+* 서비스의 상세 고빈도 메트릭을 수집하기 위한 [진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md) 의 개요를 살펴봅니다.
 * 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) 의 개요를 살펴봅니다.

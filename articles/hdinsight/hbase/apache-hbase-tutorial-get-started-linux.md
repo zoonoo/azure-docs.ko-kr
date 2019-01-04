@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: b667cfad6eb2a2a13e4b84dacaad0bcd3dfa91b9
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: af604dbabe9df56322342230eaec70548f53c927
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017136"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794501"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight에서 Apache HBase 예제 시작
 
-HDInsight에서 [Apache HBase](http://hbase.apache.org/) 클러스터를 만들고, HBase 테이블을 만들고 [Apache Hive](https://hive.apache.org/)를 사용하여 테이블을 쿼리하는 방법에 대해 알아봅니다.  일반 HBase 정보는 [HDInsight HBase 개요][hdinsight-hbase-overview]를 참조하세요.
+HDInsight에서 [Apache HBase](https://hbase.apache.org/) 클러스터를 만들고, HBase 테이블을 만들고 [Apache Hive](https://hive.apache.org/)를 사용하여 테이블을 쿼리하는 방법에 대해 알아봅니다.  일반 HBase 정보는 [HDInsight HBase 개요][hdinsight-hbase-overview]를 참조하세요.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -50,13 +50,13 @@ HDInsight에서 [Apache HBase](http://hbase.apache.org/) 클러스터를 만들�
      각 클러스터에는 Azure Storage 계정 종속성이 있습니다. 클러스터를 삭제한 후에는 데이터가 저장소 계정에 유지됩니다. 클러스터 기본 저장소 계정 이름은 "저장소"가 추가된 클러스터 이름이입니다. 템플릿 변수 섹션에 하드 코딩됩니다.
 3. **위에 명시된 사용 약관에 동의함**을 선택한 다음 **구매**를 클릭합니다. 클러스터를 만들려면 20분 정도가 걸립니다.
 
-> [!NOTE]
+> [!NOTE]  
 > HBase 클러스터를 삭제한 후에는 동일한 기본 Blob 컨테이너를 사용하여 다른 HBase 클러스터를 만들 수 있습니다. 새 클러스터에서는 원래 클러스터에서 만든 HBase 테이블을 선택합니다. 불일치를 방지하기 위해 클러스터를 삭제하기 전에 HBase 테이블을 사용하지 않도록 설정하는 것이 좋습니다.
 > 
 > 
 
 ## <a name="create-tables-and-insert-data"></a>테이블 만들기 및 데이터 삽입
-SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](http://hbase.apache.org/0.94/book/shell.html)을 사용하여 HBase 테이블을 만들고 데이터 및 쿼리 데이터를 삽입할 수 있습니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https://hbase.apache.org/0.94/book/shell.html)을 사용하여 HBase 테이블을 만들고 데이터 및 쿼리 데이터를 삽입할 수 있습니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 대부분의 사람들의 경우, 데이터는 테이블 형식으로 나타납니다.
 
@@ -109,7 +109,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](http:/
 
 **연락처 HBase 테이블로 대량으로 데이터 로드**
 
-HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다.  자세한 내용은 [대량 로드](http://hbase.apache.org/book.html#arch.bulk.load)를 참조하세요.
+HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다.  자세한 내용은 [대량 로드](https://hbase.apache.org/book.html#arch.bulk.load)를 참조하세요.
 
 샘플 데이터 파일은 공용 Blob 컨테이너인 *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*에 있습니다.  데이터 파일 내용은 다음과 같습니다.
 
@@ -126,9 +126,8 @@ HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다
 
 필요에 따라 텍스트 파일을 만들고 고유한 저장소 계정에 파일을 업로드할 수 있습니다. 지침에 대해서는 [HDInsight에서 Apache Hadoop 작업용 데이터 업로드][hdinsight-upload-data]를 참조하세요.
 
-> [!NOTE]
+> [!NOTE]  
 > 이 절차는 마지막 절차에서 만든 연락처 HBase 테이블을 사용합니다.
-> 
 
 1. SSH에서 다음 명령을 실행하여 데이터 파일을 StoreFiles로 변형하고 Dimporttsv.bulk.output에서 지정한 상대 경로에 저장합니다.  HBase 셸인 경우에는 exit 명령을 사용하여 종료합니다.
 
@@ -224,7 +223,7 @@ REST API는 [기본 인증](https://en.wikipedia.org/wiki/Basic_access_authentic
 
 HBase Rest에 대한 자세한 내용은 [Apache HBase 참조 가이드](https://hbase.apache.org/book.html#_rest)를 참조하세요.
 
-> [!NOTE]
+> [!NOTE]  
 > Thrift는 HDInsight의 HBase에서 지원되지 않습니다.
 >
 > WebHCat에서 Curl 또는 다른 모든 REST 통신을 사용하는 경우 HDInsight 클러스터 관리자의 사용자 이름 및 암호를 제공하여 요청을 인증해야 합니다. 또한 클러스터 이름을 서버로 요청을 보내는 데 사용되는 URI(Uniform Resource Identifier)의 일부로 사용해야 합니다.
@@ -265,7 +264,7 @@ HDInsight에서 HBase는 클러스터 모니터링에 대한 웹 UI와 함께 �
 
 ## <a name="troubleshoot"></a>문제 해결
 
-HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](../hdinsight-administer-use-portal-linux.md#create-clusters)을 참조하세요.
+HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](../hdinsight-hadoop-create-linux-clusters-portal.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Apache HBase 클러스터를 만드는 방법 및 테이블을 만들고 HBase 셸의 데이터를 이 테이블에서 보는 방법을 알아보았습니다. 또한 HBase 테이블에서 데이터에 대해 Hive 쿼리를 사용하는 방법 및 HBase C# REST API를 사용하여 HBase 테이블을 만들고 이 테이블에서 데이터를 검색하는 방법도 알아보았습니다.
@@ -277,9 +276,9 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
-[hbase-reference]: http://hbase.apache.org/book.html#importtsv
+[hbase-reference]: https://hbase.apache.org/book.html#importtsv
 [hbase-schema]: http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf
-[hbase-quick-start]: http://hbase.apache.org/book.html#quickstart
+[hbase-quick-start]: https://hbase.apache.org/book.html#quickstart
 
 
 

@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 5657cfb40e9017918f5842c573895872940b307a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6d0c8f62d109d07a9f08e5190a5a2caa0d66a0c1
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273709"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579331"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기  
 
@@ -96,7 +96,7 @@ ms.locfileid: "53273709"
     규칙을 사용/사용하지 않도록 설정, 편집 또는 삭제할 수 있습니다. 활동 로그 규칙 관리에 대해 [자세히 알아보세요](#view-and-manage-activity-log-alert-rules-in-azure-portal).
 
 
-활동 로그에 경고 규칙을 만들 수 있는 조건을 이해하기 위한 간단한 비유는 [Azure Portal의 Activity Log](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal)를 통해 이벤트를 탐색하거나 필터링하는 것입니다. Azure Monitor-활동 로그에서 필요한 이벤트를 필터링하거나 찾고 **활동 로그 경고 추가** 단추를 사용하여 경고를 만들 수 있습니다. 그런 다음, 위의 자습서에 설명된 대로 4단계를 수행합니다.
+활동 로그에 경고 규칙을 만들 수 있는 조건을 이해하기 위한 간단한 비유는 [Azure Portal의 Activity Log](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal)를 통해 이벤트를 탐색하거나 필터링하는 것입니다. Azure Monitor-활동 로그에서 필요한 이벤트를 필터링하거나 찾고 **활동 로그 경고 추가** 단추를 사용하여 경고를 만들 수 있습니다. 그런 다음, 위의 자습서에 설명된 대로 4단계를 수행합니다.
     
  ![ 활동 로그에서 경고 추가](media/alerts-activity-log/add-activity-log.png)
     
@@ -223,4 +223,4 @@ az group deployment create --resource-group myRG --template-file sampleActivityL
 - [활동 로그에 대한 웹후크 스키마](../../azure-monitor/platform/activity-log-alerts-webhook.md)
 - [활동 로그 개요](../../azure-monitor/platform/activity-log-alerts.md) 
 - [작업 그룹](../../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보세요.  
-- [서비스 상태 알림](../../monitoring-and-diagnostics/monitoring-service-notifications.md)에 대해 자세히 알아보세요.
+- [서비스 상태 알림](../../azure-monitor/platform/service-notifications.md)에 대해 자세히 알아보세요.

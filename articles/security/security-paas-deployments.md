@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: ee62e81b8c75200f26dfb5f7303083190f83eb8e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 199ea6855e661ef39104fdeb54941ccfd9f36933
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016847"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728485"
 ---
 # <a name="securing-paas-deployments"></a>PaaS 배포 보안
 
 이 문서에서 제공하는 유용한 정보는 다음과 같습니다.
 
-- 클라우드에서의 응용 프로그램 호스팅에 대한 보안 이점 이해
+- 클라우드에서의 애플리케이션 호스팅에 대한 보안 이점 이해
 - 다른 클라우드 서비스 모델과 비교하여 서비스로서의 플랫폼 (PaaS)에 대한 보안 이점 평가
 - 네트워크 중심에서 ID 중심 경계 보안 방식으로 보안 목표 변경
 - 일반적인 PaaS 보안 모범 사례 권장 구현
@@ -58,7 +58,7 @@ ms.locfileid: "53016847"
 
 Microsoft는 물리적 인프라인 스택 맨 아래부터 시작하여 일반적인 위험과 책임을 덜어줍니다. Microsoft 클라우드는 Microsoft에서 지속적으로 모니터링하므로 공격하기가 어렵습니다. 따라서 공격자가 Microsoft 클라우드를 목표로 삼는 것은 의미가 없습니다. 공격자가 많은 돈과 자원을 갖고 있지 않으면 다른 대상으로 이동할 가능성이 있습니다.  
 
-스택 중간에 수행되는 PaaS 배포와 온-프레미스 배포 간에는 차이가 없습니다. 유사한 위험이 응용 프로그램 계층과 계정/액세스 관리 계층에도 있습니다. 이 문서의 다음 단계 섹션에서는 이러한 위험을 제거하거나 최소화하는 모범 사례로 안내합니다.
+스택 중간에 수행되는 PaaS 배포와 온-프레미스 배포 간에는 차이가 없습니다. 유사한 위험이 애플리케이션 계층과 계정/액세스 관리 계층에도 있습니다. 이 문서의 다음 단계 섹션에서는 이러한 위험을 제거하거나 최소화하는 모범 사례로 안내합니다.
 
 스택 맨 위에는 데이터 관리와 권한 관리가 있으며 키 관리를 통해 완화될 수 있는 위험이 하나 있습니다. (키 관리는 모범 사례에서 설명합니다.) 키 관리는 추가적인 책임이지만 더 이상 관리할 필요가 없는 PaaS 배포 영역이 있으므로 리소스를 키 관리로 이동할 수 있습니다.
 
@@ -119,12 +119,12 @@ Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/sdl)�
 | 권한 상승 | 권한 부여 | [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md)를 사용합니다. |
 
 ## <a name="develop-on-azure-app-service"></a>Azure App Service에서 개발 진행
-[Azure App Service](../app-service/app-service-web-overview.md)는 플랫폼이나 디바이스를 위한 웹 및 모바일 앱을 만들고 어디서나 클라우드 또는 온-프레미스에 있는 데이터에 연결할 수 있는 PaaS 서비스 제품군입니다. 앱 서비스는 이전에 개별적으로 Azure 웹 사이트 및 Azure Mobile Services로 전달한 웹 및 모바일 기능을 포함합니다. 또한 비즈니스 프로세스를 자동화하고 클라우드 API를 호스팅하는 새 기능을 포함합니다. App Service는 단일 통합 서비스로서 웹, 모바일 및 통합 시나리오에 풍부한 기능 집합을 제공합니다.
+[Azure App Service](../app-service/overview.md)는 플랫폼이나 디바이스를 위한 웹 및 모바일 앱을 만들고 어디서나 클라우드 또는 온-프레미스에 있는 데이터에 연결할 수 있는 PaaS 서비스 제품군입니다. 앱 서비스는 이전에 개별적으로 Azure 웹 사이트 및 Azure Mobile Services로 전달한 웹 및 모바일 기능을 포함합니다. 또한 비즈니스 프로세스를 자동화하고 클라우드 API를 호스팅하는 새 기능을 포함합니다. App Service는 단일 통합 서비스로서 웹, 모바일 및 통합 시나리오에 풍부한 기능 집합을 제공합니다.
 
 App Service 사용 시의 모범 사례는 다음과 같습니다.
 
-**모범 사례**: [Azure Active Directory를 통해 인증](../app-service/app-service-authentication-overview.md)합니다.   
-**세부 정보**: App Service는 ID 공급자를 위한 OAuth 2.0 서비스를 제공합니다. OAuth 2.0은 클라이언트 개발자가 개발을 손쉽게 수행할 수 있도록 하는 기능을 중점적으로 제공하는 동시에, 웹 애플리케이션/데스크톱 애플리케이션/휴대폰용 특정 권한 부여 흐름을 제공합니다. Azure AD는 OAuth 2.0을 사용하여 모바일 및 웹 애플리케이션에 대한 액세스 권한을 부여합니다.
+**모범 사례**: [Azure Active Directory를 통해 인증](../app-service/overview-authentication-authorization.md)합니다.   
+**세부 정보**: App Service는 ID 공급자를 위한 OAuth 2.0 서비스를 제공합니다. OAuth 2.0은 클라이언트 개발자의 단순성에 기반하여 웹 응용 프로그램, 데스크톱 응용 프로그램 및 휴대폰에 대한 특정 권한 부여 흐름을 제공합니다. Azure AD는 OAuth 2.0을 사용하여 모바일 및 웹 애플리케이션에 대한 액세스 권한을 부여합니다.
 
 **모범 사례**: 알아야 할 필요성과 최소 권한 보안 원칙에 따라 액세스를 제한합니다.   
 **세부 정보**: 데이터 액세스를 위한 보안 정책을 시행하려는 조직에서는 액세스를 반드시 제한해야 합니다. RBAC를 사용하여 특정 범위에서 사용자, 그룹 및 애플리케이션에 권한을 할당할 수 있습니다. 사용자에게 애플리케이션 액세스 권한을 부여하는 방법에 대해 자세히 알아보려면 [액세스 관리 시작](../role-based-access-control/overview.md)을 참조하세요.
@@ -144,14 +144,14 @@ App Service 사용 시의 모범 사례는 다음과 같습니다.
 >
 
 ## <a name="install-a-web-application-firewall"></a>웹 애플리케이션 방화벽 설치
-웹 응용 프로그램의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 공격으로는 SQL 삽입 공격, 사이트 간 스크립팅 공격 등이 있습니다. 응용 프로그램 코드로 이러한 공격을 방어하기란 매우 어려울 수 있으며 응용 프로그램 토폴로지의 다양한 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 중앙 집중식 웹 응용 프로그램 방화벽을 통해 보안 관리가 훨씬 간단해지고 응용 프로그램 관리자에게 위협 또는 침입으로부터 효과적인 보호를 제공합니다. 또한 WAF 솔루션은 각각의 웹 응용 프로그램을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 Application Gateway는 웹 응용 프로그램 방화벽을 사용한 Application Gateway로 쉽게 변환될 수 있습니다.
+웹 애플리케이션의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 공격으로는 SQL 삽입 공격, 사이트 간 스크립팅 공격 등이 있습니다. 응용 프로그램 코드로 이러한 공격을 방어하기란 매우 어려울 수 있으며 응용 프로그램 토폴로지의 다양한 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 중앙 집중식 웹 응용 프로그램 방화벽을 통해 보안 관리가 훨씬 간단해지고 응용 프로그램 관리자에게 위협 또는 침입으로부터 효과적인 보호를 제공합니다. 또한 WAF 솔루션은 각각의 웹 응용 프로그램을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 Application Gateway는 웹 애플리케이션 방화벽을 사용한 Application Gateway로 쉽게 변환될 수 있습니다.
 
-[WAF(웹 응용 프로그램 방화벽)](../application-gateway/waf-overview.md)는 일반적인 악용 및 취약점으로부터 웹 응용 프로그램에 대해 중앙 집중화된 보호를 제공하는 Application Gateway의 기능입니다. WAF는 [OWASP(Open Web Application Security Project) 핵심 규칙 집합](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 또는 2.2.9의 규칙에 기반합니다.
+[WAF(웹 애플리케이션 방화벽)](../application-gateway/waf-overview.md)는 일반적인 악용 및 취약점으로부터 웹 애플리케이션에 대해 중앙 집중화된 보호를 제공하는 Application Gateway의 기능입니다. WAF는 [OWASP(Open Web Application Security Project) 핵심 규칙 집합](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 또는 2.2.9의 규칙에 기반합니다.
 
 ## <a name="monitor-the-performance-of-your-applications"></a>애플리케이션 성능 모니터링
-모니터링은 애플리케이션의 성능, 상태 및 가용성을 확인하기 위해 데이터를 수집 및 분석하는 작업입니다. 효과적인 모니터링 전략은 응용 프로그램 구성 요소의 세부 작업을 이해하는 데 도움이 됩니다. 또한 중요한 문제의 알림이 제공되므로 문제가 커지기 전에 해결하여 작동 시간을 늘릴 수 있습니다. 그리고 보안과 관련이 있을 수 있는 변칙적인 상황도 검색할 수 있습니다.
+모니터링은 애플리케이션의 성능, 상태 및 가용성을 확인하기 위해 데이터를 수집 및 분석하는 작업입니다. 효과적인 모니터링 전략은 애플리케이션 구성 요소의 세부 작업을 이해하는 데 도움이 됩니다. 또한 중요한 문제의 알림이 제공되므로 문제가 커지기 전에 해결하여 작동 시간을 늘릴 수 있습니다. 그리고 보안과 관련이 있을 수 있는 변칙적인 상황도 검색할 수 있습니다.
 
-[Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights)를 사용하여 클라우드 또는 온-프레미스에서 호스트되는 응용 프로그램의 가용성, 성능 및 사용량을 모니터링합니다. Application Insights를 사용하면 사용자가 보고할 때까지 기다리지 않고 애플리케이션의 오류를 빠르게 식별하고 진단할 수 있습니다. 수집한 정보를 사용하여, 응용 프로그램의 유지 관리 및 개선에 대해 현명한 결정을 내릴 수 있습니다.
+[Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights)를 사용하여 클라우드 또는 온-프레미스에서 호스트되는 애플리케이션의 가용성, 성능 및 사용량을 모니터링합니다. Application Insights를 사용하면 사용자가 보고할 때까지 기다리지 않고 애플리케이션의 오류를 빠르게 식별하고 진단할 수 있습니다. 수집한 정보를 사용하여, 애플리케이션의 유지 관리 및 개선에 대해 현명한 결정을 내릴 수 있습니다.
 
 Application Insight에는 수집하는 데이터와 상호 작용할 수 있는 광범위한 도구가 있습니다. Application Insights는 공용 저장소에 데이터를 저장합니다. Log Analytics 쿼리 언어를 사용하여 경고, 대시보드 및 심층 분석과 같은 공유된 기능을 활용할 수 있습니다.
 
@@ -165,7 +165,7 @@ Application Insight에는 수집하는 데이터와 상호 작용할 수 있는 
 - [Azure Storage](security-paas-applications-using-storage.md)
 - Azure Cache for Redis
 - Azure Service Bus
-- 웹 응용 프로그램 방화벽
+- 웹 애플리케이션 방화벽
 
 [Azure 보안 모범 사례 및 패턴](security-best-practices-and-patterns.md)에서 Azure를 사용하여 클라우드 솔루션을 디자인하고, 배포하고, 관리할 때 사용할 수 있는 더 많은 보안 모범 사례를 참조하세요.
 

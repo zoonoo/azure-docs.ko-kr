@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights 플랜 - Azure Time Series Insights 환경의 규모 계획 | Microsoft Docs
+title: Azure Time Series Insights 환경의 규모 계획 | Microsoft Docs
 description: 이 문서에서는 저장소 용량, 데이터 보존, 수집 용량, 모니터링 및 BCDR(비즈니스 재해 복구) 모범 사례에 따라 Azure Time Series Insights 환경을 계획하는 방법을 설명합니다.
 services: time-series-insights
 ms.service: time-series-insights
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: 6541363eb2ac19cfa4359fe85bde5fa39157055e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ce31b22dcbf3fbe79192647e9a21983911e77a9c
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273768"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556036"
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Azure Time Series Insights 환경 계획
 

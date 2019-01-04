@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 8c601bdd7fbba536aa5b8a4d1965f4ef2bb906f9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 684fa85749bc131b21ef12070055841ff7d3d169
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187852"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726231"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights 커넥터관리 솔루션(미리 보기)
 
@@ -57,7 +57,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](../../azure-monitor/insights/solutions.md)에서 설명한 프로세스를 사용하여 Azure Web Apps 분석 솔루션을 사용하도록 설정합니다.
 2. [Azure Portal](https://portal.azure.com)로 이동합니다. **모든 서비스**를 선택하여 Application Insights를 엽니다. 그런 다음, Application Insights를 검색합니다. 
-3. **구독**에서 Application Insights 리소스가 포함된 구독을 선택한 다음, **이름**에서 하나 이상의 응용 프로그램을 선택합니다.
+3. **구독**에서 Application Insights 리소스가 포함된 구독을 선택한 다음, **이름**에서 하나 이상의 애플리케이션을 선택합니다.
 4. **저장**을 클릭합니다.
 
 약 30분 내에 데이터가 제공되며 다음 이미지와 같이 Application Insights 타일이 데이터로 업데이트됩니다.
@@ -161,8 +161,8 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 - 가용성
 - 예외
 - 요청
-- 페이지 보기 - 작업 영역에서 페이지 보기를 받으려면 앱에서 해당 정보를 수집하도록 구성해야 합니다. 자세한 내용은 [PageViews](../../application-insights/app-insights-api-custom-events-metrics.md#page-views)를 참조하세요.
-- 사용자 지정 이벤트 - 작업 영역에서 사용자 지정 이벤트를 받으려면 앱에서 해당 정보를 수집하도록 구성해야 합니다. 자세한 내용은 [TrackEvent](../../application-insights/app-insights-api-custom-events-metrics.md#trackevent)를 참조하세요.
+- 페이지 보기 - 작업 영역에서 페이지 보기를 받으려면 앱에서 해당 정보를 수집하도록 구성해야 합니다. 자세한 내용은 [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views)를 참조하세요.
+- 사용자 지정 이벤트 - 작업 영역에서 사용자 지정 이벤트를 받으려면 앱에서 해당 정보를 수집하도록 구성해야 합니다. 자세한 내용은 [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)를 참조하세요.
 
 데이터를 사용할 수 있게 되면 Application Insights에서 Log Analytics로 수신됩니다.
 

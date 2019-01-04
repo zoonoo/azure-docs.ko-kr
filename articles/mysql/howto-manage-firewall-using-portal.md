@@ -1,20 +1,17 @@
 ---
 title: Azure Database for MySQL에서 MySQL 방화벽 규칙 만들기 및 관리
 description: Azure Portal을 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: f7d2d97049d73387f44f55bbd2fb90a6174a9df2
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 598af6bb945318f0a76ffe094dd5786abacccc3f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265863"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543532"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Azure Portal을 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리
 관리자는 서버 수준 방화벽 규칙을 사용하여 특정 IP 주소 또는 IP 주소 범위에서 MySQL용 Azure Database 서버에 액세스할 수 있습니다. 

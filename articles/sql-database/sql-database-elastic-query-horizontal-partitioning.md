@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: de96de96d68164d021f8b823e69bc52322642aa7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 02942cafe6e1532a6829ad7a6761b825739a1e85
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865406"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597973"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
 ![분할된 데이터베이스에 대한 쿼리][1]
@@ -138,7 +138,7 @@ DISTRIBUTION 절은 이 테이블에 사용되는 데이터 배포를 지정합�
 
 1. **SHARDED** 는 데이터가 데이터베이스에서 행 분할되었음을 의미합니다. 데이터 배포의 분할 키는 **<sharding_column_name>** 매개 변수입니다.
 2. **REPLICATED** 는 테이블의 동일한 사본이 각 데이터베이스에 있음을 의미합니다. 사용자가 데이터베이스 전체에서 복제본이 동일한지 확인해야 합니다.
-3. **ROUND\_ROBIN**은 테이블이 응용 프로그램의 배포 방법에 따라 수평 분할되는 것을 의미합니다. 
+3. **ROUND\_ROBIN**은 테이블이 애플리케이션의 배포 방법에 따라 수평 분할되는 것을 의미합니다. 
 
 **데이터 계층 참조**: 외부 테이블 DDL은 외부 데이터 원본을 가리킵니다. 외부 데이터 원본은 외부 테이블에 데이터 계층의 모든 데이터베이스를 찾는 데 필요한 정보를 제공하는 분할 맵을 지정합니다. 
 
@@ -182,7 +182,7 @@ sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본
         N'select count(w_id) as foo from warehouse' 
 
 ## <a name="connectivity-for-tools"></a>도구에 대한 연결
-일반 SQL Server 연결 문자열을 사용 하여 응용 프로그램, BI, 데이터 통합 도구를 외부 테이블 정의가 있는 데이터베이스에 연결합니다. SQL Server 도구에 대한 데이터 소스로 지원 되는지 확인 합니다. 그런 다음 도구에 연결된 타 SQL Server 데이터베이스 등, 탄력적 쿼리 데이터베이스를 참조하고 도구의나 응용 프로그램의 외부 테이블을 로컬 테이블처럼 사용합니다. 
+일반 SQL Server 연결 문자열을 사용하여 애플리케이션, BI, 데이터 통합 도구를 외부 테이블 정의가 있는 데이터베이스에 연결합니다. SQL Server 도구에 대한 데이터 소스로 지원 되는지 확인 합니다. 그런 다음, 도구에 연결된 다른 SQL Server 데이터베이스와 같이 탄력적 쿼리 데이터베이스를 참조하고 도구 또는 애플리케이션의 외부 테이블을 로컬 테이블처럼 사용합니다. 
 
 ## <a name="best-practices"></a>모범 사례
 * 탄력적 쿼리 엔드포인트 데이터베이스에 SQL DB 방화벽을 통한 모든 분할된 데이터베이스 및 분할 맵 데이터베이스 액세스 권한이 있는지 확인합니다.  

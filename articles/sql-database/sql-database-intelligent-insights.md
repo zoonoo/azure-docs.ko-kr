@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 573e0dd1bae584b12cfd3859fe63d7ca20bb7b52
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6969744ff52e9aff9d486d2eab6fffc2c3ac8b74
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278137"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608003"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>AI를 사용하여 데이터베이스 성능을 모니터링하고 문제를 해결하는 Intelligent Insights
 
@@ -39,7 +39,7 @@ Intelligent Insights는 다음 값을 제공하는 Azure의 기본 제공 인텔
 
 ## <a name="how-does-intelligent-insights-work"></a>Intelligent Insights의 작동 방식
 
-Intelligent Insights는 마지막 1시간의 데이터베이스 워크로드와 지난 7일의 기준 워크로드를 비교하여 데이터베이스 성능을 분석합니다. 데이터베이스 워크로드는 가장 많이 반복되고 가장 큰 쿼리와 같이 데이터베이스 성능에 가장 중요하다고 판단되는 쿼리로 구성됩니다. 생성된 각 워크로드 기준이 개별 인스턴스에 대해 특정적이고 고유하기 때문에 각 데이터베이스는 구조, 데이터, 사용량 및 응용 프로그램에 따라 고유합니다. 워크로드 기준과는 별도로 Intelligent Insights는 또한 절대 작업 임계값을 모니터링하고 과도한 대기 시간 문제, 심각한 예외, 성능에 영향을 줄 수 있는 쿼리 매개 변수화의 문제를 감지합니다.
+Intelligent Insights는 마지막 1시간의 데이터베이스 워크로드와 지난 7일의 기준 워크로드를 비교하여 데이터베이스 성능을 분석합니다. 데이터베이스 워크로드는 가장 많이 반복되고 가장 큰 쿼리와 같이 데이터베이스 성능에 가장 중요하다고 판단되는 쿼리로 구성됩니다. 생성된 각 워크로드 기준이 개별 인스턴스에 대해 특정적이고 고유하기 때문에 각 데이터베이스는 구조, 데이터, 사용량 및 애플리케이션에 따라 고유합니다. 워크로드 기준과는 별도로 Intelligent Insights는 또한 절대 작업 임계값을 모니터링하고 과도한 대기 시간 문제, 심각한 예외, 성능에 영향을 줄 수 있는 쿼리 매개 변수화의 문제를 감지합니다.
 
 인공 지능을 사용하여 관찰된 여러 개의 메트릭에서 성능 저하 문제가 검색되면 분석이 수행됩니다. 데이터베이스 상황을 지능적으로 분석한 진단 로그가 생성됩니다. 인텔리전스 Insights를 사용하면 데이터베이스 성능 문제가 처음 출현할 때부터 해결될 때까지 쉽게 추적할 수 있습니다. 검색된 각 문제는 최초 문제 검색부터, 성능 개선 확인, 완료의 주기에서 추적됩니다.
 
@@ -97,7 +97,7 @@ Azure SQL Analytics에서 Intelligent Insights를 사용하고 이전 단계에�
 
 ### <a name="set-up-with-event-hubs"></a>Event Hubs를 사용하여 설정
 
-Event Hubs에서 Intelligent Insights를 사용하고 Event Hubs로 스트리밍되도록 Intelligent Insights 로그 데이터를 구성하려면 [Event Hubs로 Azure 진단 로그 스트리밍](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)을 참조하세요.
+Event Hubs에서 Intelligent Insights를 사용하고 Event Hubs로 스트리밍되도록 Intelligent Insights 로그 데이터를 구성하려면 [Event Hubs로 Azure 진단 로그 스트리밍](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)을 참조하세요.
 
 Event Hubs를 사용하여 사용자 지정 모니터링 및 경고를 설정하려면 [Event Hubs에서 메트릭 및 진단 로그로 할 수 있는 일](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs)을 참조하세요.
 
@@ -180,4 +180,4 @@ Intelligent Insights 로그는 오류 발생 요청의 수를 출력합니다. �
 - [Intelligent Insights를 사용하여 SQL Database 성능 문제를 해결](sql-database-intelligent-insights-troubleshoot-performance.md)하는 방법을 알아봅니다.
 - [Intelligent Insights의 SQL Database 성능 진단 로그](sql-database-intelligent-insights-use-diagnostics-log.md)를 사용합니다.
 - [SQL Analytics를 사용하여 SQL Database를 모니터링](../azure-monitor/insights/azure-sql.md)하는 방법을 알아봅니다.
-- [Azure 리소스에서 로그 데이터 수집 및 소비](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)하는 방법을 알아봅니다.
+- [Azure 리소스에서 로그 데이터 수집 및 소비](../azure-monitor/platform/diagnostic-logs-overview.md)하는 방법을 알아봅니다.

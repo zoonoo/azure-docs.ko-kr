@@ -9,17 +9,16 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 82aebd780b7b821675a6ee891cc81e2b1c6fdafb
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: bf47915ba93a4a3a7dec338395cfe0ce6aa3cdf6
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437217"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993844"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Visual Studio Code용 PySpark 대화형 환경 설정
 
 다음 단계에서는 **HDInsight: PySpark 대화형**을 실행하여 Python 패키지를 설치하는 방법을 보여줍니다.
-
 
 ## <a name="set-up-the-pyspark-interactive-environment-on-macos-and-linux"></a>macOS 및 Linux에서 PySpark 대화형 환경 설정
 **python 3.x**를 사용하는 경우 다음 단계에 **pip3** 명령을 사용해야 합니다.

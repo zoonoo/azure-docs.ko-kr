@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 417f542bcf1711b2ac8e986663353e29a3705fb3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c6bcc5a7948e87a8b887bd0ebd3abc8fc3d3a517
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388454"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545317"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주
 
-[Azure Monitor 진단 로그](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)는 해당 서비스 또는 리소스의 작업을 설명하는 Azure 서비스에서 내보낸 로그입니다. Azure Monitor를 통해 사용할 수 있는 모든 진단 로그는 일반적인 최상위 수준 스키마를 공유하며, 각 서비스가 자체 이벤트에 대한 고유한 속성을 유연성 있게 내보낼 수 있습니다.
+[Azure Monitor 진단 로그](../../azure-monitor/platform/diagnostic-logs-overview.md)는 해당 서비스 또는 리소스의 작업을 설명하는 Azure 서비스에서 내보낸 로그입니다. Azure Monitor를 통해 사용할 수 있는 모든 진단 로그는 일반적인 최상위 수준 스키마를 공유하며, 각 서비스가 자체 이벤트에 대한 고유한 속성을 유연성 있게 내보낼 수 있습니다.
 
 리소스 종류(`resourceId` 속성에 제공) 및 `category`가 조합되어 스키마를 고유하게 식별합니다. 이 문서에서는 진단 로그의 최상위 수준 스키마를 설명하고 각 서비스의 스키마에 대한 링크를 제공합니다.
 
@@ -205,7 +205,7 @@ ms.locfileid: "53388454"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [진단 로그에 대해 자세히 알아보기](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
-* [**Event Hubs**로 리소스 진단 로그 스트림](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [진단 로그에 대해 자세히 알아보기](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [**Event Hubs**로 리소스 진단 로그 스트림](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Azure Monitor REST API를 사용하여 리소스 진단 설정 변경](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [Azure Storage에서 Log Analytics를 사용하여 로그 분석](../../azure-monitor/platform/collect-azure-metrics-logs.md)

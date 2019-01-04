@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 48f178b7a94e8989f8a0154bea6195834b1ec35f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1d199275d6c17dff72c020bd3a9807f50af8af1e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438679"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544042"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 리소스 생성 시 진단 설정 자동 활성화
 이 문서에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md) 을 사용하여 리소스 생성 시 리소스에서 진단 설정을 구성하는 방법을 보여 줍니다. 그러면 Event Hubs로 진단 로그 및 메트릭의 스트리밍을 자동으로 시작하거나, 리소스 생성 시 Log Analytics에 보낼 수 있습니다.
@@ -25,7 +25,7 @@ ms.locfileid: "53438679"
 
 Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방법은 리소스 형식에 따라 다릅니다.
 
-* **비-Compute** 리소스(예를 들어, 네트워크 보안 그룹, Logic Apps, Automation)는 [이 문서에 설명된 진단 설정](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)을 사용합니다.
+* **비-Compute** 리소스(예를 들어, 네트워크 보안 그룹, Logic Apps, Automation)는 [이 문서에 설명된 진단 설정](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)을 사용합니다.
 * **Compute** 리소스(WAD/LAD 기반)는 [이 문서에 설명된 WAD/LAD 구성 파일](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)을 사용합니다.
 
 이 문서에서는 두 방법 중 하나를 사용하여 진단을 구성하는 방법을 설명합니다.
@@ -266,6 +266,6 @@ Compute 리소스(예: Virtual Machine 또는 서비스 패브릭 클러스터)�
 샘플을 포함한 전체 과정은 [이 문서](../../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 설명되어 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure 진단 로그에 대해 자세히 알아보기](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
-* [Event Hubs로 Azure 진단 로그 스트림](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Azure 진단 로그에 대해 자세히 알아보기](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Event Hubs로 Azure 진단 로그 스트림](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 

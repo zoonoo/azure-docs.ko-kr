@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 8d98e428d60c0981385b842bcb4dfc77bdbbcf22
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 4ee98c2d8170df5ef5878f5b534b545eb105667e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413050"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543920"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너 지원
 
@@ -33,8 +33,8 @@ ms.locfileid: "53413050"
 
 - **데이터 제어**: 고객은 이러한 Cognitive Services가 데이터를 처리하도록 허용할 것인지 선택할 수 있습니다. 이는 클라우드로 데이터를 전송할 수는 없지만 Cognitive Services 기술에 액세스해야 하는 고객에게 필수입니다. 하이브리드 환경의 데이터, 관리, ID 및 보안에 걸쳐 일관성을 지원합니다.
 - **모델 업데이트 제어**: 고객이 솔루션에 배포된 모델의 버전 관리 및 업데이트를 유연하게 처리할 수 있습니다.
-- **이식 가능한 아키텍처**: Azure, 온-프레미스 및 에지에 배포할 수 있는 이식 가능한 애플리케이션 아키텍처를 만들 수 있습니다. 컨테이너는 [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/) 또는 [Azure Stack](/azure/azure-stack/)에 배포된 [Kubernetes](https://kubernetes.io/) 클러스터에 직접 배포할 수 있습니다. 자세한 내용은 [Azure Stack에 Kubernetes 배포](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)를 참조하세요.
-- **높은 처리량/짧은 대기 시간**: Cognitive Services가 애플리케이션 로직 및 데이터와 물리적으로 가까운 거리에서 실행되게 만들어서 높은 처리량과 짧은 대기 시간이라는 요구 사항에 맞게 크기를 조정하는 기능을 고객에게 제공합니다. 컨테이너는 TPS(초당 트랜잭션 수)를 제한하지 않으며, 고객이 필요한 하드웨어 리소스를 제공한다면 스케일업 및 스케일아웃이 가능합니다.
+- **이식 가능한 아키텍처**: Azure, 온-프레미스 및 에지에 배포할 수 있는 이식 가능한 애플리케이션 아키텍처를 만들 수 있습니다. 컨테이너는 [Azure Kubernetes Service](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml) 또는 [Azure Stack](../azure-stack/index.yml)에 배포된 [Kubernetes](https://kubernetes.io/) 클러스터에 직접 배포할 수 있습니다. 자세한 내용은 [Azure Stack에 Kubernetes 배포](../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md)를 참조하세요.
+- **높은 처리량/짧은 대기 시간**: Cognitive Services가 애플리케이션 로직 및 데이터와 물리적으로 가까운 거리에서 실행되게 만들어서 높은 처리량과 짧은 대기 시간이라는 요구 사항에 맞게 크기를 조정하는 기능을 고객에게 제공합니다. 컨테이너는 TPS(초당 트랜잭션 수)를 제한하지 않으며, 고객이 필요한 하드웨어 리소스를 제공한다면 스케일업 및 스케일아웃이 가능합니다. 
 
 
 ## <a name="containers-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너
@@ -61,7 +61,7 @@ Azure Cognitive Services 컨테이너는 Azure 구독을 통해 공개적으로 
 
 Azure Cognitive Services 컨테이너를 사용하려면 다음 필수 조건을 충족해야 합니다.
 
-**Docker 엔진**: Docker 엔진이 로컬로 설치되어 있어야 합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 및 [Windows](https://docs.docker.com/docker-for-windows/)에 Docker 환경을 구성하는 패키지를 제공합니다. Windows에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다. Docker 컨테이너는 [Azure Kubernetes Service](/azure/aks/) 또는 [Azure Container Instances](/azure/container-instances/)에 직접 배포할 수도 있습니다.
+**Docker 엔진**: Docker 엔진이 로컬로 설치되어 있어야 합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 및 [Windows](https://docs.docker.com/docker-for-windows/)에 Docker 환경을 구성하는 패키지를 제공합니다. Windows에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다. Docker 컨테이너는 [Azure Kubernetes Service](../aks/index.yml) 또는 [Azure Container Instances](../container-instances/index.yml)에 직접 배포할 수도 있습니다.
 
 Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다.
 

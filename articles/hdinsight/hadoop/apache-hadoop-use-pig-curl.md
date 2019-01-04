@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 855ee1b7396be97c6529480b8fa8200bb8167ee6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 653d3e357e3a02659a225b4e26c386ca54b6288f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434021"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715429"
 ---
 # <a name="run-apache-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>REST를 사용하여 HDInsight에서 Apache Hadoop과 Apache Pig 작업 실행
 
@@ -101,7 +101,7 @@ Azure HDInsight 클러스터에 대한 REST 요청을 만들어 Apache Pig Latin
 
 작업 상태가 **SUCCEEDED**로 변경되면 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달된 `statusdir` 매개 변수에는 출력 파일의 위치(이 경우 `/example/pigcurl`)가 포함됩니다.
 
-HDInsight는 Azure Storage 또는 Azure Data Lake Storage를 기본 데이터 스토리지로 사용할 수 있습니다. 여러 가지 방법으로 사용하는 것에 따라 데이터를 가져올 수 있습니다. 자세한 내용은 [Linux 기반 HDInsight 정보](../hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-store) 문서의 저장소 섹션을 참조하세요.
+HDInsight는 Azure Storage 또는 Azure Data Lake Storage를 기본 데이터 스토리지로 사용할 수 있습니다. 여러 가지 방법으로 사용하는 것에 따라 데이터를 가져올 수 있습니다. 자세한 내용은 [Linux 기반 HDInsight 정보](../hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-storage) 문서의 저장소 섹션을 참조하세요.
 
 ## <a id="summary"></a>요약
 

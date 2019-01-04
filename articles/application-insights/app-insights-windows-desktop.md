@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: mbullwin
-ms.openlocfilehash: 10044f17baee8fb4d7afe9223abdbb518952e71f
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 52c07ee66e37f6bc14c5c9d6414bc47a1225af65
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52741861"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000364"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>클래식 Windows 데스크톱 앱에서 사용량 및 성능 모니터링
 
-온-프레미스 호스팅된 애플리케이션은 Azure 및 다른 클라우드에서 Application Insights를 충분히 활용할 수 있습니다. 유일한 제한은 Application Insights 서비스와 [통신을 허용](app-insights-ip-addresses.md)해야 한다는 것입니다. UWP(유니버설 Windows 플랫폼) 애플리케이션 모니터링에는 [Visual Studio App Center](app-insights-mobile-center-quickstart.md)가 좋습니다.
+온-프레미스 호스팅된 애플리케이션은 Azure 및 다른 클라우드에서 Application Insights를 충분히 활용할 수 있습니다. 유일한 제한은 Application Insights 서비스와 [통신을 허용](../azure-monitor/app/ip-addresses.md)해야 한다는 것입니다. UWP(유니버설 Windows 플랫폼) 애플리케이션 모니터링에는 [Visual Studio App Center](app-insights-mobile-center-quickstart.md)가 좋습니다.
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-classic-windows-application"></a>클래식 Windows 애플리케이션에서 Application Insights에 원격 분석을 전송하려면
 1. [Azure Portal](https://portal.azure.com)에서 [Application Insights 리소스를 만듭니다](app-insights-create-new-resource.md). 애플리케이션 유형으로 ASP.NET 앱을 선택합니다.
@@ -36,7 +36,7 @@ ms.locfileid: "52741861"
     `<InstrumentationKey>`*키*`</InstrumentationKey>` 
    
     ApplicationInsights.config를 사용하는 경우 솔루션 탐색기에서 해당 속성이 **빌드 작업 = 콘텐츠, 출력 디렉터리로 복사 = 복사**로 설정되도록 합니다.
-5. [API를 사용](app-insights-api-custom-events-metrics.md) 하여 원격 분석을 전송합니다.
+5. [API를 사용](../azure-monitor/app/api-custom-events-metrics.md) 하여 원격 분석을 전송합니다.
 6. 앱을 실행하고 Azure Portal에서 만든 리소스의 원격 분석을 참조하세요.
 
 ## <a name="telemetry"></a>예제 코드
@@ -77,8 +77,8 @@ ms.locfileid: "52741861"
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [대시보드 만들기](app-insights-dashboards.md)
-* [진단 검색](app-insights-diagnostic-search.md)
-* [메트릭 탐색](app-insights-metrics-explorer.md)
-* [분석 쿼리 작성](app-insights-analytics.md)
+* [대시보드 만들기](../azure-monitor/app/app-insights-dashboards.md)
+* [진단 검색](../azure-monitor/app/diagnostic-search.md)
+* [메트릭 탐색](../azure-monitor/app/metrics-explorer.md)
+* [분석 쿼리 작성](../azure-monitor/app/analytics.md)
 

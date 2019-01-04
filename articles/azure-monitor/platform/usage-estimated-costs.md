@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.component: ''
-ms.openlocfilehash: 072201dd552f5d68a9b6621b2ca7c83acd76a1f5
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6b8940f62b94615b4622f60786e411b9a18b2dee
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53439570"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001620"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>모니터링 사용량 및 예상 비용
 
@@ -22,7 +22,7 @@ ms.locfileid: "53439570"
 > 이 문서에서는 다른 가격 책정 모델에 대해 여러 Azure 모니터링 기능에서 사용량 및 예상 비용을 보는 방법을 설명합니다.  관련 정보에 대해서는 다음 문서를 참조하세요.
 > - [Log Analytics에서 데이터 볼륨 및 보존을 제어하여 비용 관리](../../azure-monitor/platform/manage-cost-storage.md)에서는 데이터 보존 기간을 변경하여 비용을 제어하는 방법을 설명합니다.
 > - [Log Analytics에서 데이터 사용 현황 분석](../../azure-monitor/platform/data-usage.md)에서는 데이터 사용량을 분석 및 경고하는 방법을 설명합니다.
-> - [Application Insights에서 가격 책정 및 데이터 볼륨 관리](../../application-insights/app-insights-pricing.md)에서는 Application Insights에서 데이터 사용량을 분석하는 방법을 설명합니다.
+> - [Application Insights에서 가격 책정 및 데이터 볼륨 관리](../../azure-monitor/app/pricing.md)에서는 Application Insights에서 데이터 사용량을 분석하는 방법을 설명합니다.
 
 Azure Portal의 모니터 허브에서 **사용량 및 예상 비용** 페이지는 [경고, 메트릭, 알림](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) 및 [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/) 등과 같은 핵심 모니터링 기능의 사용량을 설명합니다. 2018년 4월 이전 제공된 요금제 고객의 경우 Insights 및 Analytics 제안을 통해 구매한 Log Analytics 사용량도 여기에 포함됩니다.
 

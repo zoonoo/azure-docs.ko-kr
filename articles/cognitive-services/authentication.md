@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 327bc964f8dedeee03220e7cd7db1ef7c1e00de6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 11259b99ea9d2486c8c0afde21398710ccc6ccd8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435772"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726293"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Azure Cognitive Services에 대한 요청 인증
 
@@ -34,7 +34,7 @@ Azure Cognitive Services에서 사용할 수 있는 인증 헤더를 빠르게 �
 
 | 헤더 | 설명 |
 |--------|-------------|
-| Ocp-Apim-Subscription-Key | 특정 서비스에 대한 구독 키 또는 다중 서비스 구독 키를 사용하여 인증하려면 이 헤더를 사용합니다. 다중 서비스 구독 키를 사용하는 경우 구독 지역을 `Ocp-Apim-Subscription-Region` 헤더로 제공해야 합니다. |
+| Ocp-Apim-Subscription-Key | 특정 서비스에 대한 구독 키 또는 다중 서비스 구독 키를 사용하여 인증하려면 이 헤더를 사용합니다. |
 | Ocp-Apim-Subscription-Region | 이 헤더는 [Translator Text API](./Translator/reference/v3-0-reference.md)에서 다중 서비스 구독 키를 사용하는 경우에만 필요합니다. 이 헤더를 사용하여 구독 지역을 지정합니다. |
 | 권한 부여 | 인증 토큰을 사용하는 경우 이 헤더를 사용합니다. 토큰 교환을 수행하는 단계는 다음 섹션에서 자세히 설명합니다. 제공되는 값은 `Bearer <TOKEN>` 형식을 따릅니다. |
 
@@ -61,7 +61,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>다중 서비스 구독 키로 인증
 
 >[!WARNING]
-> 현재 QnA Maker, Speech Service 및 Custom Vision 서비스는  다중 서비스 키를 지원하지 **않습니다**.
+> 이 경우 이러한 서비스는 다음과 같은 다중 서비스 키를 지원하지 **않습니다**. QnA Maker, 음성 서비스 및 Custom Vision.
 
 또한 이 옵션은 구독 키를 사용하여 요청을 인증합니다. 주요 차이점은 구독 키가 특정 서비스에 연결되지 않고, 오히려 단일 키를 사용하여 여러 Cognitive Services에 대한 요청을 인증할 수 있다는 것입니다. 지역별 가용성, 지원되는 기능 및 가격 책정에 대한 자세한 내용은 [Cognitive Services 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)을 참조하세요.
 

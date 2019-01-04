@@ -12,12 +12,12 @@ ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: 1eadea53dda60ef5ac8bbbc3d9e9cfe4b5b373dc
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 54449e26279e6c6d83a57daa9c8f40819fab4993
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423595"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715766"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
@@ -234,8 +234,8 @@ Azure AD 공유 암호 자격 증명을 사용하여 로그인하려면:
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 리소스에 대한 관리 ID](/azure/app-service/app-service-managed-service-identity)에 대해 자세히 알아보세요.
+- [Azure 리소스에 대한 관리 ID](/azure/app-service/overview-managed-identity)에 대해 자세히 알아보세요.
 
-- [앱 인증 및 권한 부여](/azure/app-service/app-service-authentication-overview)에 대한 다양한 방법을 알아봅니다.
+- [앱 인증 및 권한 부여](/azure/app-service/overview-authentication-authorization)에 대한 다양한 방법을 알아봅니다.
 
 - Azure AD [인증 시나리오](/azure/active-directory/develop/active-directory-authentication-scenarios#web-browser-to-web-application)에 대해 자세히 알아봅니다.

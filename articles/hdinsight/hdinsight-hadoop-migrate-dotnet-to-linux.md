@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3681f87780f1ef2a6b42e33bcd6fc2d761994d5c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3a9a026af67cd5528dfc00148bcbbcef82b8b189
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384204"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714664"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Windows 기반 HDInsight용 .NET 솔루션을 Linux 기반 HDInsight로 마이그레이션
 
@@ -24,14 +24,14 @@ Linux 기반 HDInsight 클러스터는 [Mono(https://mono-project.com)](https://
 
 Mono 버전 4.2.1은 HDInsight 버전 3.6에 포함되어 있습니다. HDInsight와 함께 제공되는 Mono 버전에 대한 자세한 내용은 [HDInsight 구성 요소 버전](hdinsight-component-versioning.md)을 참조하세요. 특정 버전의 Mono를 설치하려면 [Mono 설치 또는 업데이트](hdinsight-hadoop-install-mono.md) 문서를 참조하세요.
 
-Mono와 .NET 간 호환성에 대한 자세한 내용은 [Mono 호환성(http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) 문서를 참조하세요.
+Mono와 .NET 간 호환성에 대한 자세한 내용은 [Mono 호환성(https://www.mono-project.com/docs/about-mono/compatibility/)](https://www.mono-project.com/docs/about-mono/compatibility/) 문서를 참조하세요.
 
 > [!IMPORTANT]  
 > SCP.NET 프레임워크는 Mono와 호환됩니다. Mono와 함께 SCP.NET을 사용하는 방법에 대한 자세한 내용은 [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](storm/apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
 
 ## <a name="automated-portability-analysis"></a>자동 이식성 분석
 
-[.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)를 사용하여 응용 프로그램과 Mono 간 비호환성 보고서를 생성할 수 있습니다. 분석기를 구성하여 애플리케이션의 Mono 이식성을 확인하려면 다음 단계를 사용하세요.
+[.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)를 사용하여 애플리케이션과 Mono 간 비호환성 보고서를 생성할 수 있습니다. 분석기를 구성하여 애플리케이션의 Mono 이식성을 확인하려면 다음 단계를 사용하세요.
 
 1. [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)를 설치합니다. 설치 중 사용하려는 Visual Studio의 버전을 선택합니다.
 
@@ -52,7 +52,7 @@ Mono와 .NET 간 호환성에 대한 자세한 내용은 [Mono 호환성(http://
 
 ## <a name="manual-portability-analysis"></a>수동 이식성 분석
 
-[응용 프로그램 이식성(http://www.mono-project.com/docs/getting-started/application-portability/)](http://www.mono-project.com/docs/getting-started/application-portability/) 문서의 정보를 사용하여 코드의 수동 감사를 수행합니다.
+[애플리케이션 이식성(https://www.mono-project.com/docs/getting-started/application-portability/)](https://www.mono-project.com/docs/getting-started/application-portability/) 문서의 정보를 사용하여 코드의 수동 감사를 수행합니다.
 
 ## <a name="modify-and-build"></a>수정 및 빌드
 

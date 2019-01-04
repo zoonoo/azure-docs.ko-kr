@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: twhitney
-ms.openlocfilehash: 85623f5acfb33d73774e5898e3f8937b4e07a5a9
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: c4add1034e4b149cbe9d3c76c03987d45ca587c4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299081"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993792"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Service Fabric 컨테이너 서비스에 대한 로그 보기
 Azure Service Fabric은 컨테이너 오케스트레이터이며 [Windows 및 Linux 컨테이너](service-fabric-containers-overview.md)를 모두 지원합니다.  이 문서에서는 문제를 진단하고 해결할 수 있도록 실행 중인 컨테이너 서비스 또는 비활성 컨테이너의 컨테이너 로그를 보는 방법을 설명합니다.
@@ -64,10 +64,10 @@ GET http://localhost:19080/Nodes/_Node_0/$/GetApplications/SimpleHttpServerApp/$
 ```
 
 ### <a name="service-fabric-sfctl"></a>Service Fabric(SFCTL)
-[sfctl service get-container-logs](service-fabric-sfctl-service.md) 명령을 사용하여 손상된 컨테이너에 대한 로그를 가져옵니다.  컨테이너가 실행되었던 노드의 이름, 애플리케이션 이름, 서비스 매니페스트 이름 및 코드 패키지 이름을 지정합니다. `-previous` 플래그를 지정합니다.  응답은 코드 패키지 인스턴스의 비활성 컨테이너에 대한 컨테이너 로그를 포함합니다.
+[sfctl service get-container-logs](service-fabric-sfctl-service.md) 명령을 사용하여 손상된 컨테이너에 대한 로그를 가져옵니다.  컨테이너가 실행되었던 노드의 이름, 애플리케이션 이름, 서비스 매니페스트 이름 및 코드 패키지 이름을 지정합니다. `--previous` 플래그를 지정합니다.  응답은 코드 패키지 인스턴스의 비활성 컨테이너에 대한 컨테이너 로그를 포함합니다.
 
 ```
-sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –previous
+sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –-previous
 ```
 응답:
 ```json
@@ -75,7 +75,7 @@ sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttp
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- [Linux 컨테이너 응용 프로그램 만들기 자습서](service-fabric-tutorial-create-container-images.md)를 진행합니다.
+- [Linux 컨테이너 애플리케이션 만들기 자습서](service-fabric-tutorial-create-container-images.md)를 진행합니다.
 - [Service Fabric 및 컨테이너](service-fabric-containers-overview.md)에 대해 자세알아히 봅니다.
 
 [Image1]: media/service-fabric-containers-view-logs/view-container-logs-sfx.png

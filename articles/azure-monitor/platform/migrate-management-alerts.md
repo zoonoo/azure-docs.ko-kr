@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: e3159ac4074e7ff437e052e0e2c1ae7d31378abe
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8fd7161208f6303e03deaacca6a1e2fad24ec45e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345400"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580879"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>관리 이벤트에 대한 Azure 경고를 활동 로그 경고로 마이그레이션
 
@@ -110,9 +110,9 @@ ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resource
 
 ## <a name="next-steps"></a>다음 단계
 
-* [활동 로그](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)에 대해 자세히 알아보기
+* [활동 로그](../../azure-monitor/platform/activity-logs-overview.md)에 대해 자세히 알아보기
 * [Azure Portal을 통해 활동 로그 경고](../../azure-monitor/platform/activity-log-alerts.md) 구성
 * [Resource Manager를 통해 활동 로그 경고](../../azure-monitor/platform/alerts-activity-log.md) 구성
 * [활동 로그 경고 웹후크 스키마](../../azure-monitor/platform/activity-log-alerts-webhook.md) 검토
-* [서비스 알림](../../monitoring-and-diagnostics/monitoring-service-notifications.md)에 대해 자세히 알아보기
+* [서비스 알림](../../azure-monitor/platform/service-notifications.md)에 대해 자세히 알아보기
 * [작업 그룹](../../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보기

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 8add470048d3ead3f75ff85dd6f489d798af5e29
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c47de9fbe1b9923ff8ce1c38a9a9695af4311858
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253445"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723147"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>App Service 및 Azure Functions의 Key Vault 참조 사용(미리 보기)
 
@@ -32,7 +32,7 @@ Key Vault에서 비밀을 읽으려면 자격 증명 모음을 만들고 해당 
 
 1. [Key Vault 빠른 시작](../key-vault/quick-create-cli.md)에 따라 키 자격 증명 모음을 만듭니다.
 
-1. 애플리케이션에 대한 [시스템 할당 관리형 ID](app-service-managed-service-identity.md)를 만듭니다.
+1. 애플리케이션에 대한 [시스템 할당 관리형 ID](overview-managed-identity.md)를 만듭니다.
 
    > [!NOTE] 
    > Key Vault 참조는 현재 시스템 할당 관리형 ID만 지원합니다. 사용자 할당 ID를 사용할 수 없습니다.

@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: ae6ddea3860c7fc636e071b3c39c418ff4a10272
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ad7d56b3a23d163cfbc6c9ca14c2788c5f96486b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273938"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600865"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Intelligent Insights를 사용하여 Azure SQL Database 성능 문제 해결
 
-이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md) 데이터베이스 성능 진단 로그를 통해 감지되는 Azure SQL Database 및 Managed Instance 성능 문제에 대한 정보를 제공합니다. 이 진단 로그 원격 분석은 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage) 또는 타사 솔루션에 스트림할 수 있습니다.
+이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md) 데이터베이스 성능 진단 로그를 통해 감지되는 Azure SQL Database 및 Managed Instance 성능 문제에 대한 정보를 제공합니다. 이 진단 로그 원격 분석은 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage) 또는 타사 솔루션에 스트림할 수 있습니다.
 
 > [!NOTE]
 > Intelligent Insights를 사용한 빠른 SQL Database 성능 문제 해결 가이드는 이 문서의 [권장되는 문제 해결 흐름](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) 순서도를 참조하세요.
@@ -63,15 +63,15 @@ Intelligent Insights는 쿼리 실행 대기 시간, 오류 또는 시간 제한
 
 SQL Database의 리소스는 일반적으로 [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) 또는 [vCore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore) 리소스라고 합니다. 리소스 제한 도달 패턴은 측정된 리소스 제한 중 하나에 도달하여 쿼리 성능 저하가 발견될 때 인식됩니다.
 
-이러한 세션 한도는 SQL 데이터베이스에 대해 사용 가능한 동시 로그인 수를 지정합니다. 이 성능 패턴은 SQL 데이터베이에 연결하는 응용 프로그램이 데이터베이스에 사용 가능한 동시 로그인 수에 도달하는 경우에 인식됩니다. 응용 프로그램이 데이터베이스에서 사용할 수 있는 것보다 많은 세션을 사용하려고 하면 쿼리 성능에 영향을 줍니다.
+이러한 세션 한도는 SQL 데이터베이스에 대해 사용 가능한 동시 로그인 수를 지정합니다. 이 성능 패턴은 SQL 데이터베이스에 연결하는 애플리케이션이 데이터베이스에 사용 가능한 동시 로그인 수에 도달하는 경우에 인식됩니다. 애플리케이션이 데이터베이스에서 사용할 수 있는 것보다 많은 세션을 사용하려고 하면 쿼리 성능에 영향을 줍니다.
 
 사용 가능한 작업자 수는 DTU 또는 vCore 사용량에 포함되지 않으므로 작업자 제한에 도달하는 것은 리소스 제한 도달의 구체적 경우입니다. 데이터베이스에서 작업자 제한에 도달하면 리소스별 대기 시간이 증가하여 쿼리 성능이 저하됩니다.
 
 ### <a name="troubleshooting"></a>문제 해결
 
-진단 로그는 성능 및 리소스 사용 비율에 영향을 주는 쿼리의 쿼리 해시를 출력합니다. 가장 먼저 이 정보를 사용하여 데이터베이스 워크로드를 최적화할 수 있습니다. 특히 인덱스를 추가하여 성능 저하에 영향을 주는 쿼리를 최적화할 수 있습니다. 또는 더욱 고른 워크로드 배분으로 응용 프로그램을 최적화할 수 있습니다. 워크로드를 줄이거나 최적화할 수 없는 경우 SQL Database 구독의 가격 책정 계층을 높이는 것이 좋습니다.
+진단 로그는 성능 및 리소스 사용 비율에 영향을 주는 쿼리의 쿼리 해시를 출력합니다. 가장 먼저 이 정보를 사용하여 데이터베이스 워크로드를 최적화할 수 있습니다. 특히 인덱스를 추가하여 성능 저하에 영향을 주는 쿼리를 최적화할 수 있습니다. 또는 더욱 고른 워크로드 배분으로 애플리케이션을 최적화할 수 있습니다. 워크로드를 줄이거나 최적화할 수 없는 경우 SQL Database 구독의 가격 책정 계층을 높이는 것이 좋습니다.
 
-사용 가능한 세션 제한에 도달한 경우 데이터베이스에 대한 로그인 수를 줄여 응용 프로그램을 최적화할 수 있습니다. 응용 프로그램에서 데이터베이스에 접속하는 로그인 수를 줄일 수 없는 경우 데이터베이스의 가격 계층을 높이는 것이 좋습니다. 또는 데이터베이스를 여러 데이터베이스로 나누고 이동해 워크로드를 더욱 균형 있게 배분할 수 있습니다.
+사용 가능한 세션 제한에 도달한 경우 데이터베이스에 대한 로그인 수를 줄여 애플리케이션을 최적화할 수 있습니다. 애플리케이션에서 데이터베이스에 접속하는 로그인 수를 줄일 수 없는 경우 데이터베이스의 가격 계층을 높이는 것이 좋습니다. 또는 데이터베이스를 여러 데이터베이스로 나누고 이동해 워크로드를 더욱 균형 있게 배분할 수 있습니다.
 
 세션 제한 해결에 대한 자세한 제안 사항은 [SQL Database 최대 로그인 수 제한을 처리하는 방법(영문)](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/)을 참조하세요. 서버 및 구독 수준의 한도에 관한 정보는 [논리 서버의 리소스 한도 개요](sql-database-resource-limits-logical-server.md)를 참조하세요.
 
@@ -163,7 +163,7 @@ SQL 데이터베이스에는 사용할 수 있는 다양한 유형의 래치가 
 
 진단 로그는 페이지 래치 경합 세부 정보를 출력합니다. 이 정보를 문제 해결의 기초로 사용할 수 있습니다.
 
-페이지 래치는 SQL Database의 내부 제어 메커니즘이므로 사용할 시기를 자동으로 결정합니다. 스키마 디자인을 포함한 응용 프로그램 결정은 래치의 결정적 동작으로 인해 페이지 래치 동작에 영향을 줄 수 있습니다.
+페이지 래치는 SQL Database의 내부 제어 메커니즘이므로 사용할 시기를 자동으로 결정합니다. 스키마 디자인을 포함한 애플리케이션 결정은 래치의 결정적 동작으로 인해 페이지 래치 동작에 영향을 줄 수 있습니다.
 
 래치 경합을 처리하는 한 가지 방법은 순차적 인덱스 키를 순차적이지 않은 키로 바꿔 인덱스 범위에서 삽입을 균등하게 분산하는 것입니다. 일반적으로 인덱스의 선행 열이 워크로드를 비례적으로 배포합니다. 고려해야 할 다른 방법은 테이블 분할입니다. 과도한 래치 경합을 완화하기 위한 일반적인 방법은 분할된 테이블에 계산 열이 있는 해시 분할 스키마를 만드는 것입니다. 페이지 래치 IO 경합이 발생하는 경우 인덱스를 사용하면 이 성능 문제를 완화할 수 있습니다. 
 
@@ -243,7 +243,7 @@ SQL Database의 리소스는 일반적으로 CPU 및 IO(데이터 및 트랜잭�
 
 진단 로그는 탄력적 풀에 대한 정보를 출력하고, DTU 사용량이 가장 높은 데이터베이스를 나열하고, DTU 사용량이 가장 많은 데이터베이스에서 사용하는 풀의 DTU 백분율을 제공합니다.
 
-이 성능 상태는 탄력적 풀에서 동일한 eDTU 풀을 사용하는 여러 데이터베이스와 관련되어 있으므로 문제 해결 단계에서는 DTU 사용량이 가장 높은 데이터베이스에 집중해야 합니다. 사용량이 가장 높은 데이터베이스에서 워크로드를 줄일 수 있으며, 예를 들면 이러한 데이터베이스에서 사용량이 가장 많은 쿼리를 최적화할 수 있습니다. 또한 사용하지 않을 데이터는 쿼리하지 않도록 해야 합니다. 또 다른 방법은 상위 DTU 사용 데이터베이스를 사용하여 응용 프로그램을 최적화하고 여러 데이터베이스 간에 워크로드를 다시 배포하는 것입니다.
+이 성능 상태는 탄력적 풀에서 동일한 eDTU 풀을 사용하는 여러 데이터베이스와 관련되어 있으므로 문제 해결 단계에서는 DTU 사용량이 가장 높은 데이터베이스에 집중해야 합니다. 사용량이 가장 높은 데이터베이스에서 워크로드를 줄일 수 있으며, 예를 들면 이러한 데이터베이스에서 사용량이 가장 많은 쿼리를 최적화할 수 있습니다. 또한 사용하지 않을 데이터는 쿼리하지 않도록 해야 합니다. 또 다른 방법은 상위 DTU 사용 데이터베이스를 사용하여 애플리케이션을 최적화하고 여러 데이터베이스 간에 워크로드를 다시 배포하는 것입니다.
 
 DUT 사용량이 가장 높은 데이터베이스에서 현재 워크로드의 감소 및 최적화가 가능하지 않은 경우 탄력적 풀의 가격 계층을 높여 보십시오. 이와 같이 증가할 경우 탄력적 풀에서 사용 가능한 DTU가 증가합니다.
 
@@ -299,9 +299,9 @@ SQL 데이터베이스는 쿼리 실행 비용을 최소화하는 쿼리 실행 
 
 ### <a name="troubleshooting"></a>문제 해결
 
-검색 가능한 이 성능 패턴은 클라이언트측 상태를 나타냅니다. 클라이언트측 응용 프로그램 또는 클라이언트측 네트워크에서 문제를 해결해야 합니다. 진단 로그는 지난 2시간 이내에 클라이언트에서 사용하기를 가장 많이 기다리는 것처럼 보이는 쿼리 해시와 대기 시간을 출력합니다. 이 정보를 문제 해결의 기초로 사용할 수 있습니다.
+검색 가능한 이 성능 패턴은 클라이언트측 상태를 나타냅니다. 클라이언트 측 애플리케이션 또는 클라이언트 측 네트워크에서 문제를 해결해야 합니다. 진단 로그는 지난 2시간 이내에 클라이언트에서 사용하기를 가장 많이 기다리는 것처럼 보이는 쿼리 해시와 대기 시간을 출력합니다. 이 정보를 문제 해결의 기초로 사용할 수 있습니다.
 
-이러한 쿼리를 사용하기 위해 응용 프로그램의 성능을 최적화할 수 있습니다. 발생 가능한 네트워크 대기 시간 문제를 고려해야 할 수도 있습니다. 성능 저하 문제를 판단하는 기준은 지난 7일간의 성능 기준 변경이므로 최근 응용 프로그램 또는 네트워크 상태 변경이 이 성능 회귀 이벤트의 원인인지 여부를 조사하는 것이 좋습니다. 
+이러한 쿼리를 사용하기 위해 애플리케이션의 성능을 최적화할 수 있습니다. 발생 가능한 네트워크 대기 시간 문제를 고려해야 할 수도 있습니다. 성능 저하 문제를 판단하는 기준은 지난 7일간의 성능 기준 변경이므로 최근 애플리케이션 또는 네트워크 상태 변경이 이 성능 회귀 이벤트의 원인인지 여부를 조사하는 것이 좋습니다. 
 
 ## <a name="pricing-tier-downgrade"></a>가격 책정 계층 다운그레이드
 
@@ -332,4 +332,4 @@ Intelligent Insights는 일반적으로 성능 문제에 대한 근본 원인 �
 - [Intelligent Insights](sql-database-intelligent-insights.md) 개념을 알아봅니다.
 - [Intelligent Insights의 Azure SQL Database 성능 진단 로그](sql-database-intelligent-insights-use-diagnostics-log.md)를 사용합니다.
 - [Azure SQL 분석을 사용하여 Azure SQL Database](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql)를 모니터링합니다.
-- [Azure 리소스에서 로그 데이터 수집 및 소비](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)하는 방법을 알아봅니다.
+- [Azure 리소스에서 로그 데이터 수집 및 소비](../azure-monitor/platform/diagnostic-logs-overview.md)하는 방법을 알아봅니다.

@@ -3,21 +3,21 @@ title: SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이�
 description: SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab
+ms.reviewer: douglas, carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 3808511e588ba4284dee16cf7ca88bfd5a382c3a
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f68cb2d1c34ca351811050546c0eae818e84300a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337481"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651761"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션
 
@@ -31,14 +31,14 @@ ms.locfileid: "53337481"
 - [앱 연결 옵션 선택](sql-database-managed-instance-connect-app.md)
 - [최적 크기의 Managed Instance에 배포](#deploy-to-an-optimally-sized-managed-instance)
 - [마이그레이션 방법 선택 및 마이그레이션](#select-migration-method-and-migrate)
-- [응용 프로그램 모니터링](#monitor-applications)
+- [애플리케이션 모니터링](#monitor-applications)
 
 > [!NOTE]
 > 단일 데이터베이스를 단일 데이터베이스 또는 탄력적 풀로 마이그레이션하려면 [Azure SQL Database로 SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
 
 ## <a name="assess-managed-instance-compatibility"></a>Managed Instance 호환성 평가
 
-먼저 Managed Instance가 응용 프로그램의 데이터베이스 요구 사항과 호환되는지 확인합니다. Managed Instance는 온-프레미스 또는 가상 머신에서 SQL Server를 사용하는 대부분의 기존 응용 프로그램에서 리프트 앤 시프트 방식으로 쉽게 이동할 수 있도록 설계되었습니다. 그러나 경우에 따라 아직 지원되지 않는 기능이 필요할 수 있으며 해결 방법을 구현하는 데 드는 비용이 너무 높습니다.
+먼저 Managed Instance가 애플리케이션의 데이터베이스 요구 사항과 호환되는지 확인합니다. Managed Instance는 온-프레미스 또는 가상 머신에서 SQL Server를 사용하는 대부분의 기존 애플리케이션에서 리프트 앤 시프트 방식으로 쉽게 이동할 수 있도록 설계되었습니다. 그러나 경우에 따라 아직 지원되지 않는 기능이 필요할 수 있으며 해결 방법을 구현하는 데 드는 비용이 너무 높습니다.
 
 [DMA(Data Migration Assistant)](https://docs.microsoft.com/sql/dma/dma-overview)를 사용하여 Azure SQL Database에서 데이터베이스 기능에 영향을 주는 잠재적인 호환성 문제를 검색합니다. DMA는 아직 Managed Instance를 마이그레이션 대상으로 지원하지 않지만, Azure SQL Database에 대한 평가를 실행하고 제품 설명서에 대해 보고된 기능 패리티 및 호환성 문제 목록을 신중하게 검토하는 것이 좋습니다. Azure SQL Database로 마이그레이션하지 못하도록 차단하는 대부분의 문제는 Managed Instance를 통해 제거되었으므로 Managed Instance에서 차단하지 않는 일부 보고된 차단 문제가 있는지 확인하려면 [Azure SQL Database 기능](sql-database-features.md)을 참조하세요. 예를 들어 데이터베이스 간 쿼리, 동일한 인스턴스 내의 데이터베이스 간 트랜잭션, 다른 SQL 원본에 연결된 서버, CLR, 전역 임시 테이블, 인스턴스 수준 보기, Service Broker 등과 같은 기능은 Managed Instance에서 사용할 수 있습니다.
 
@@ -64,12 +64,12 @@ VNet 인프라와 Managed Instance를 만드는 방법을 알아보려면 [Manag
 
 ## <a name="select-migration-method-and-migrate"></a>마이그레이션 방법 선택 및 마이그레이션
 
-Managed Instance는 온-프레미스 또는 IaaS 데이터베이스 구현에서 대량의 데이터베이스 마이그레이션이 필요한 사용자 시나리오를 대상으로 합니다. 인스턴스 수준 및/또는 데이터베이스 간 기능을 정기적으로 사용하는 응용 프로그램의 백 엔드를 리프트 앤 시프트 방식으로 이동해야 하는 경우에 최적의 선택입니다. 이러한 시나리오의 경우 애플리케이션을 다시 구성하지 않고도 Azure에서 전체 인스턴스를 해당 환경으로 이동할 수 있습니다.
+Managed Instance는 온-프레미스 또는 IaaS 데이터베이스 구현에서 대량의 데이터베이스 마이그레이션이 필요한 사용자 시나리오를 대상으로 합니다. 인스턴스 수준 및/또는 데이터베이스 간 기능을 정기적으로 사용하는 애플리케이션의 백 엔드를 리프트 앤 시프트 방식으로 이동해야 하는 경우에 최적의 선택입니다. 이러한 시나리오의 경우 애플리케이션을 다시 구성하지 않고도 Azure에서 전체 인스턴스를 해당 환경으로 이동할 수 있습니다.
 
 SQL 인스턴스를 이동하려면 다음을 신중하게 계획해야 합니다.
 
 - 배치해야 하는 모든 데이터베이스(동일한 인스턴스에서 실행되는 데이터베이스)의 마이그레이션
-- 로그인, 자격 증명, SQL 에이전트 작업 및 연산자, 서버 수준 트리거를 포함하여 응용 프로그램이 종속된 인스턴스 수준 개체의 마이그레이션
+- 로그인, 자격 증명, SQL 에이전트 작업 및 연산자, 서버 수준 트리거를 포함하여 애플리케이션이 종속된 인스턴스 수준 개체의 마이그레이션
 
 Managed Instance는 정기적인 DBA 작업의 일부를 기본 제공되는 플랫폼에 위임할 수 있도록 하는 완벽하게 관리되는 서비스입니다. 따라서 [고가용성](sql-database-high-availability.md)이 기본 제공되므로 정기 백업을 위한 유지 관리 작업 또는 Always On 구성과 같이 일부 인스턴스 수준 데이터는 마이그레이션할 필요가 없습니다.
 
@@ -113,7 +113,7 @@ SAS 자격 증명을 사용하여 Managed Instance에 데이터베이스 백업�
 
 ## <a name="monitor-applications"></a>애플리케이션 모니터링
 
-마이그레이션 후에 응용 프로그램의 동작과 성능을 추적합니다. Managed Instance에서 일부 변경은 [데이터베이스 호환성 수준이 변경된 경우](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database)에만 활성화됩니다. Azure SQL Database로의 데이터베이스 마이그레이션은 대부분의 경우 원래의 호환성 수준을 유지합니다. 마이그레이션 전에 사용자 데이터베이스의 호환성 수준이 100 이상인 경우 마이그레이션 후에도 동일하게 유지됩니다. 마이그레이션 전에 사용자 데이터베이스의 호환성 수준이 90인 경우 업그레이드된 데이터베이스에서 호환성 수준은 100으로 설정됩니다. 이 수준은 Managed Instance에서 지원되는 가장 낮은 호환성 수준입니다. 시스템 데이터베이스의 호환성 수준은 140입니다.
+마이그레이션 후에 애플리케이션의 동작과 성능을 추적합니다. Managed Instance에서 일부 변경은 [데이터베이스 호환성 수준이 변경된 경우](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database)에만 활성화됩니다. Azure SQL Database로의 데이터베이스 마이그레이션은 대부분의 경우 원래의 호환성 수준을 유지합니다. 마이그레이션 전에 사용자 데이터베이스의 호환성 수준이 100 이상인 경우 마이그레이션 후에도 동일하게 유지됩니다. 마이그레이션 전에 사용자 데이터베이스의 호환성 수준이 90인 경우 업그레이드된 데이터베이스에서 호환성 수준은 100으로 설정됩니다. 이 수준은 Managed Instance에서 지원되는 가장 낮은 호환성 수준입니다. 시스템 데이터베이스의 호환성 수준은 140입니다.
 
 마이그레이션 위험을 줄이려면 성능 모니터링 후에만 데이터베이스 호환성 수준을 변경합니다. [최신 SQL Server 버전으로 업그레이드하는 동안 성능 안정성 유지](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade)에서 설명한 대로, 데이터베이스 호환성 수준 변경 전후의 작업 성능에 대한 정보를 얻기 위한 최적의 도구로 쿼리 저장소를 사용합니다.
 

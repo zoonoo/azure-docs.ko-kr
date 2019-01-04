@@ -13,12 +13,12 @@ ms.date: 01/25/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 6bc18d73f66c1ede777d579b764127f034d9f0ca
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 9b987ccd17f2060eea125a5d384446cec24fb68a
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725729"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969168"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Application Insights를 사용하여 영향 분석
 
@@ -35,7 +35,7 @@ Impact는 사이트의 느린 속도가 사용자의 관심도 유지에 미치�
 ![브라우저별 전환율 스크린 샷](./media/app-insights-usage-impact/0004-browsers.png)
 
 > [!NOTE]
-> Application Insights 리소스는 Impact 도구를 사용하기 위한 페이지 보기 또는 사용자 지정 이벤트를 포함해야 합니다. [Application Insights JavaScript SDK를 사용하여 자동으로 페이지 뷰를 수집하도록 앱을 설정하는 방법에 대해 알아봅니다](app-insights-javascript.md). 또한 상관 관계를 분석하는 것이므로 샘플 크기가 중요합니다.
+> Application Insights 리소스는 Impact 도구를 사용하기 위한 페이지 보기 또는 사용자 지정 이벤트를 포함해야 합니다. [Application Insights JavaScript SDK를 사용하여 자동으로 페이지 뷰를 수집하도록 앱을 설정하는 방법에 대해 알아봅니다](../azure-monitor/app/javascript.md). 또한 상관 관계를 분석하는 것이므로 샘플 크기가 중요합니다.
 >
 >
 

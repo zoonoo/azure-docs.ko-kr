@@ -1,6 +1,6 @@
 ---
 title: Mobile Services에서 App Service 모바일 앱으로 마이그레이션
-description: Mobile Services 응용 프로그램을 App Service 모바일 앱으로 쉽게 마이그레이션하는 방법을 알아봅니다.
+description: Mobile Services 애플리케이션을 App Service 모바일 앱으로 쉽게 마이그레이션하는 방법을 알아봅니다.
 services: app-service\mobile
 documentationcenter: ''
 author: conceptdev
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 7fdbbee27f83a4583390158e456270324967b28a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 17fbaa7efcdd9e0de675defb3958a61f29bbc3fe
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961606"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714324"
 ---
 # <a name="article-top"></a>기존 Azure Mobile Services를 Azure App Service로 마이그레이션
 [Azure App Service의 일반적인 가용성]을 사용하여 Azure Mobile Services 사이트를 쉽게 원래 위치로 마이그레이션하여 Azure App Service의 모든 기능을 활용할 수 있습니다.  이 문서에서는 Azure Mobile Services에서 Azure App Service에 사이트를 마이그레이션하는 경우의 결과를 설명합니다.
@@ -84,7 +84,7 @@ Azure App Service를 마이그레이션한 후에 가격 책정에 유연성이 
 | Basic |B1 기본 |
 | Standard |S1 표준 |
 
-응용 프로그램에 대한 올바른 가격 책정 계층을 선택하는 데 유연성을 고려합니다.  새 App Service의 가격 책정에 대한 자세한 내용은 [App Service pricing] 을 참조합니다.
+애플리케이션에 대한 올바른 가격 책정 계층을 선택하는 데 유연성을 고려합니다.  새 App Service의 가격 책정에 대한 자세한 내용은 [App Service pricing] 을 참조합니다.
 
 > [!TIP]
 > App Service 표준 계층은 [스테이징 슬롯], 자동 백업, 자동 크기 조정을 비롯한 사용하려는 다양한 기능에 대한 액세스를 포함합니다.  이 때 새로운 기능을 확인해 보십시오.
@@ -147,21 +147,21 @@ PublishSettings 파일이 컴퓨터에 다운로드됩니다.  일반적으로 �
 
 이러한 자격 증명을 사용하여 git를 통해 사이트를 복제하거나 GitHub, TFS 또는 Mercurial에서 자동화된 배포를 설치할 수 있습니다.  자세한 내용은 [Azure App Service 배포 설명서]를 참조하세요.
 
-### <a name="appsettings"></a>응용 프로그램 설정
+### <a name="appsettings"></a>애플리케이션 설정
 마이그레이션된 모바일 서비스에 대한 설정은 대부분 앱 설정을 통해 사용할 수 있습니다.  [Azure Portal]에서 앱 설정의 목록을 가져올 수 있습니다.
 앱 설정을 보거나 변경하려면:
 
 1. [Azure Portal]에 로그인합니다.
 2. **모든 리소스** 또는 **App Services**를 선택한 후 마이그레이션된 Mobile Services의 이름을 클릭합니다.
 3. 설정 블레이드가 기본적으로 열립니다.
-4. 일반 메뉴에서 **응용 프로그램 설정** 을 클릭합니다.
+4. 일반 메뉴에서 **애플리케이션 설정**을 클릭합니다.
 5. 앱 설정 섹션으로 스크롤하고 앱 설정을 찾습니다.
 6. 앱 설정 값을 클릭하여 값을 편집합니다.  **저장** 을 클릭하여 값을 저장합니다.
 
 동시에 여러 앱 설정을 업데이트할 수 있습니다.
 
 > [!TIP]
-> 동일한 값을 가진 두 응용 프로그램 설정이 있는지 알 수 있습니다.  예를 들어 *ApplicationKey* 및 *MS\_ApplicationKey*를 확인할 수 있습니다.  두 응용 프로그램 설정을 모두 동시에 업데이트합니다.
+> 동일한 값을 가진 두 애플리케이션 설정이 있는지 알 수 있습니다.  예를 들어 *ApplicationKey* 및 *MS\_ApplicationKey*를 확인할 수 있습니다.  두 애플리케이션 설정을 모두 동시에 업데이트합니다.
 >
 >
 
@@ -234,7 +234,7 @@ Mobile Services에서 *API* 탭은 Azure Portal 내에서 *쉬운 API*로 대체
 ### <a name="notification-hubs"></a>Notification Hubs
 Mobile Services는 푸시 알림에 Notification Hubs를 사용합니다.  마이그레이션 후에 알림 허브를 모바일 서비스에 연결하는 데 다음 앱 설정을 사용합니다.
 
-| 응용 프로그램 설정 | 설명 |
+| 애플리케이션 설정 | 설명 |
 |:--- |:--- |
 | **MS\_PushEntityNamespace** |알림 허브 네임스페이스 |
 | **MS\_NotificationHubName** |알림 허브 이름 |
@@ -267,14 +267,14 @@ Notification Hubs에서 소개하기 전에 모바일 서비스에서 푸시를 
 ### <a name="app-settings"></a>기타 앱 설정
 다음 추가 앱 설정은 모바일 서비스에서 마이그레이션되고 *설정* > *App 설정*에서 사용할 수 있습니다.
 
-| 응용 프로그램 설정 | 설명 |
+| 애플리케이션 설정 | 설명 |
 |:--- |:--- |
 | **MS\_MobileServiceName** |앱의 이름 |
 | **MS\_MobileServiceDomainSuffix** |도메인 접두사입니다. 예: azure-mobile.net |
-| **MS\_ApplicationKey** |응용 프로그램 키 |
+| **MS\_ApplicationKey** |애플리케이션 키 |
 | **MS\_MasterKey** |앱 마스터 키 |
 
-응용 프로그램 키 및 마스터 키는 원본 모바일 서비스에서 응용 프로그램 키와 동일합니다.  특히 응용 프로그램 키는 모바일 클라이언트에서 전송되어 모바일 API를 사용하는 유효성을 검사합니다.
+애플리케이션 키 및 마스터 키는 원본 모바일 서비스에서 애플리케이션 키와 동일합니다.  특히 애플리케이션 키는 모바일 클라이언트에서 전송되어 모바일 API를 사용하는 유효성을 검사합니다.
 
 ### <a name="cliequivalents"></a>해당하는 명령줄
 더 이상 *Azure 모바일* 명령을 활용하여 Azure Mobile Services 사이트를 관리할 수 없습니다.  대신 많은 함수가 *Azure 사이트* 명령으로 바뀌었습니다.  다음 표를 사용하여 일반적인 명령에 대한 해당 항목을 찾으세요.
@@ -300,7 +300,7 @@ Notification Hubs에서 소개하기 전에 모바일 서비스에서 푸시를 
 | mobile appsetting delete *name* *key* |site appsetting delete *key* *name* |
 | mobile appsetting show *name* *key* |site appsetting delete *key* *name* |
 
-적절한 응용 프로그램 설정을 업데이트하여 인증 또는 푸시 알림 설정을 업데이트합니다.
+적절한 애플리케이션 설정을 업데이트하여 인증 또는 푸시 알림 설정을 업데이트합니다.
 ftp 또는 git를 통해 파일을 편집하고 사이트를 게시합니다.
 
 ### <a name="diagnostics"></a>진단 및 로깅
@@ -355,12 +355,12 @@ ASP.NET 사이트가 있는 경우 `Web.config` 파일 변경 내용이 적용�
 Traffic Manager 프로필을 만들면 프로필에 마이그레이션된 모바일 서비스를 직접 선택할 수 없습니다.  "외부 엔드포인트"를 사용합니다.  PowerShell을 통해서만 외부 엔드포인트를 추가할 수 있습니다.  자세한 내용은 [Traffic Manager 자습서](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/)를 참조합니다.
 
 ## <a name="next-steps"></a>다음 단계
-응용 프로그램이 App Service에 마이그레이션하지 않지만 더 많은 기능을 활용할 수 있습니다.
+애플리케이션이 App Service에 마이그레이션하지 않지만 더 많은 기능을 활용할 수 있습니다.
 
 * [스테이징 슬롯] 을 배포하면 사이트에 대한 변경 내용을 준비하고 A/B 테스트를 수행할 수 있습니다.
 * [WebJobs]는 요청 시 예약된 작업을 대체합니다.
 * TFS, GitHub 또는 Mercurial에 사이트를 연결하여 사이트를 [지속적으로 배포] 할 수 있습니다.
-* [Application Insights] 를 사용하여 사이트를 모니터링할 수 있습니다.
+* [Application Insights]를 사용하여 사이트를 모니터링할 수 있습니다.
 * 동일한 코드에서 웹 사이트 및 모바일 API를 제공합니다.
 
 ### <a name="upgrading-your-site"></a>Azure Mobile Apps SDK에 Mobile Services 사이트 업그레이드
@@ -376,25 +376,25 @@ Traffic Manager 프로필을 만들면 프로필에 마이그레이션된 모바
 [App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [자동 크기 조정]: ../app-service/web-sites-scale.md
-[Azure App Service]: ../app-service/app-service-web-overview.md
+[Azure App Service]: ../app-service/overview.md
 [Azure 클래식 포털]: https://manage.windowsazure.com
 [Azure Portal]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/regions/
 [Azure Scheduler 계획]: ../scheduler/scheduler-plans-billing.md
-[지속적으로 배포]: ../app-service/app-service-continuous-deployment.md
+[지속적으로 배포]: ../app-service/deploy-continuous-deployment.md
 [혼합 네임스페이스를 변환]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: https://curl.haxx.se/
 [사용자 지정 도메인 이름]: ../app-service/app-service-web-tutorial-custom-domain.md
 [Fiddler]: https://www.telerik.com/fiddler
 [Azure App Service의 일반적인 가용성]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
-[로깅]: ../app-service/web-sites-enable-diagnostic-log.md
+[로깅]: ../app-service/troubleshoot-diagnostic-logs.md
 [Mobile Apps Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
 [Mobile Services 및 App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [Notification Hubs]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [성능 모니터링]: ../app-service/web-sites-monitor.md
 [Postman]: https://www.getpostman.com/
-[스테이징 슬롯]: ../app-service/web-sites-staged-publishing.md
+[스테이징 슬롯]: ../app-service/deploy-staging-slots.md
 [VNet]: ../app-service/web-sites-integrate-with-vnet.md
 [XDT 변환 샘플]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [Functions]: ../azure-functions/functions-overview.md

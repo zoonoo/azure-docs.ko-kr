@@ -9,27 +9,27 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: f73340c9c350fd65b18e73bea2e1607f5eee83fa
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: cffafa68d155273de3b747c0399ce435f609b9fb
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277152"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602208"
 ---
 # <a name="performing-disaster-recovery-drill"></a>재해 복구 훈련 수행
 
-복구 워크플로에 대한 응용 프로그램 준비의 유효성 검사를 정기적으로 수행하는 것이 좋습니다. 응용 프로그램 동작과 데이터 손실의 영향 및/또는 장애 조치(failover)와 관련된 중단을 검사하는 것은 적절한 엔지니어링 실무입니다. 또한 대부분의 업계 표준에서 비즈니스 연속성 인증의 일부로 요구하는 사항이기도 합니다.
+복구 워크플로에 대한 애플리케이션 준비의 유효성 검사를 정기적으로 수행하는 것이 좋습니다. 애플리케이션 동작과 데이터 손실의 영향 및/또는 장애 조치(failover)와 관련된 중단을 검사하는 것은 적절한 엔지니어링 실무입니다. 또한 대부분의 업계 표준에서 비즈니스 연속성 인증의 일부로 요구하는 사항이기도 합니다.
 
 재해 복구 훈련의 수행은 다음으로 구성됩니다.
 
 * 데이터 계층 중단 시뮬레이션
 * 복구
-* 복구 후 응용 프로그램 무결성 검사
+* 복구 후 애플리케이션 무결성 검사
 
-[비즈니스 연속성을 위한 응용 프로그램 설계](sql-database-business-continuity.md)방법에 따라 연습을 실행하는 워크플로가 달라질 수 있습니다. 이 문서에서는 Azure SQL Database와 관련하여 재해 복구 훈련을 수행하기 위한 모범 사례를 설명합니다.
+[비즈니스 연속성을 위한 애플리케이션 설계](sql-database-business-continuity.md)방법에 따라 연습을 실행하는 워크플로가 달라질 수 있습니다. 이 문서에서는 Azure SQL Database와 관련하여 재해 복구 훈련을 수행하기 위한 모범 사례를 설명합니다.
 
 ## <a name="geo-restore"></a>지역 복원
 
@@ -42,7 +42,7 @@ ms.locfileid: "53277152"
 ### <a name="recovery"></a>복구
 
 * [여기](sql-database-disaster-recovery.md)에 설명된 대로 서로 다른 서버에 데이터베이스의 지역 복원을 수행합니다.
-* 복구된 데이터베이스에 연결하도록 응용 프로그램 구성을 변경하고 [복구 후 데이터베이스 구성](sql-database-disaster-recovery.md) 가이드에 따라 복구를 완료합니다.
+* 복구된 데이터베이스에 연결하도록 애플리케이션 구성을 변경하고 [복구 후 데이터베이스 구성](sql-database-disaster-recovery.md) 가이드에 따라 복구를 완료합니다.
 
 ### <a name="validation"></a>유효성 검사
 
@@ -54,7 +54,7 @@ ms.locfileid: "53277152"
 
 ### <a name="outage-simulation"></a>중단 시뮬레이션
 
-중단을 시뮬레이션하기 위해 데이터베이스에 연결된 웹 응용 프로그램 또는 가상 컴퓨터를 비활성화할 수 있습니다. 이와 같은 중단 시뮬레이션이 진행되면 웹 클라이언트에 대한 연결이 실패합니다.
+중단을 시뮬레이션하기 위해 데이터베이스에 연결된 웹 애플리케이션 또는 가상 머신을 비활성화할 수 있습니다. 이와 같은 중단 시뮬레이션이 진행되면 웹 클라이언트에 대한 연결이 실패합니다.
 
 ### <a name="recovery"></a>복구
 

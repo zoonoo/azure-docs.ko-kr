@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 5e3c282c198b6a1290e724549a4af30119f9cb04
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1c83ebd0153e7a28365317b02d3debbe43d976f9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251218"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601579"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>최소 가동 중지 시간으로 동적으로 데이터베이스 리소스 크기 조정
 
@@ -27,7 +27,7 @@ Azure SQL Database를 사용하면 가동 중지 시간을 최소화하면서 �
 
 앱에 대한 수요가 몇 개의 디바이스 및 고객에서 수백만으로 증가할 경우, Azure SQL Database는 가동 중지 시간을 최소화하면서 즉시 크기가 조정됩니다. 확장성은 PaaS의 가장 중요한 특성 중 하나로, 필요한 경우 서비스에 리소스를 동적으로 추가할 수 있게 해줍니다. Azure SQL Database를 사용하면 데이터베이스에 할당된 리소스(CPU 처리 능력, 메모리, IO 처리량 및 저장소)를 쉽게 변경할 수 있습니다.
 
-인덱싱 또는 쿼리 재작성 방법으로 해결할 수 없는, 응용 프로그램 사용량 증가로 인한 성능 문제를 완화할 수 있습니다. 데이터베이스가 현재 리소스 한도에 도달하고 들어오는 워크로드를 처리하기 위해 추가 처리 능력이 필요할 때 리소스를 추가하면 빠르게 대응할 수 있습니다. Azure SQL Database를 사용하면 필요하지 않을 때 리소스를 축소하여 비용을 줄일 수도 있습니다.
+인덱싱 또는 쿼리 재작성 방법으로 해결할 수 없는, 애플리케이션 사용량 증가로 인한 성능 문제를 완화할 수 있습니다. 데이터베이스가 현재 리소스 한도에 도달하고 들어오는 워크로드를 처리하기 위해 추가 처리 능력이 필요할 때 리소스를 추가하면 빠르게 대응할 수 있습니다. Azure SQL Database를 사용하면 필요하지 않을 때 리소스를 축소하여 비용을 줄일 수도 있습니다.
 
 하드웨어 구매 및 기본 인프라 변경에 대해 염려할 필요가 없습니다. Azure Portal에서 슬라이더를 사용하여 데이터베이스 크기를 쉽게 조정할 수 있습니다.
 
@@ -60,7 +60,7 @@ Azure SQL Database의 세 가지 버전은 모두 데이터베이스 크기를 �
 
 ## <a name="alternative-scale-methods"></a>대체 크기 조정 방법
 
-리소스 크기 조정은 데이터베이스 또는 응용 프로그램 코드를 변경하지 않고 데이터베이스 성능을 향상하는 가장 쉽고 효과적인 방법입니다. 경우에 따라 가장 높은 서비스 계층, 계산 크기, 성능 최적화를 사용해도 워크로드가 성공적이고 비용 효과적인 방식으로 처리되지 않을 수 있습니다. 이 경우 다음과 같은 추가 옵션을 사용하여 데이터베이스 크기를 조정할 수 있습니다.
+리소스 크기 조정은 데이터베이스 또는 애플리케이션 코드를 변경하지 않고 데이터베이스 성능을 향상하는 가장 쉽고 효과적인 방법입니다. 경우에 따라 가장 높은 서비스 계층, 계산 크기, 성능 최적화를 사용해도 워크로드가 성공적이고 비용 효과적인 방식으로 처리되지 않을 수 있습니다. 이 경우 다음과 같은 추가 옵션을 사용하여 데이터베이스 크기를 조정할 수 있습니다.
 
 - [읽기 확장](sql-database-read-scale-out.md)은 데이터의 읽기 전용 복제본이 한 개 있고, 보고서 등 까다로운 읽기 전용 쿼리를 실행할 수 있는 경우에 사용할 수 있는 기능입니다. 읽기 전용 복제본은 주 데이터베이스의 리소스 사용량에 영향을 주지 않고 읽기 전용 워크로드를 처리합니다.
 - [데이터베이스 분할](sql-database-elastic-scale-introduction.md)은 데이터를 여러 데이터베이스로 분할하고 독립적으로 크기를 조정할 수 있는 기술 집합입니다.

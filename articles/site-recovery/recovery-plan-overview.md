@@ -3,16 +3,17 @@ title: Azure Site Recovery를 사용하여 재해 복구에서 복구 계획 사
 description: Azure Site Recovery 서비스를 사용하여 재해 복구에 대한 복구 계획을 사용하는 방법을 알아봅니다.
 author: rayne-wiselman
 manager: carmonm
+services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: cb68b71eece998fa72fccc00de45f81e6d2d778c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c7d66c389958aa3b5274a3d81f27f416308acdee
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848394"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975664"
 ---
 # <a name="about-recovery-plans"></a>복구 계획 정보
 
@@ -34,7 +35,7 @@ ms.locfileid: "52848394"
 
 ## <a name="model-apps"></a>앱 모델링
 
-앱 특정 속성을 캡처하도록 복구 그룹을 계획하고 만들 수 있습니다. 예를 들어 SQL 서버 백 엔드, 미들웨어 및 웹 프런트 엔드의 일반적인 3계층 응용 프로그램을 생각해 봅시다. 일반적으로 각 계층의 컴퓨터에서 장애 조치(failover) 후 올바른 순서로 시작하도록 복구 계획을 사용자 지정합니다.
+앱 특정 속성을 캡처하도록 복구 그룹을 계획하고 만들 수 있습니다. 예를 들어 SQL 서버 백 엔드, 미들웨어 및 웹 프런트 엔드의 일반적인 3계층 애플리케이션을 생각해 봅시다. 일반적으로 각 계층의 컴퓨터에서 장애 조치(failover) 후 올바른 순서로 시작하도록 복구 계획을 사용자 지정합니다.
 
     - SQL 백 엔드를 먼저, 미들웨어를 다음으로, 웹 프런트 엔드를 마지막으로 시작해야 합니다.
     - 이러한 시작 순서를 통해 마지막 컴퓨터가 시작되면 앱이 작동하도록 합니다.
@@ -42,7 +43,7 @@ ms.locfileid: "52848394"
     - 이 순서는 또한 모든 구성 요소가 시작되어 실행되고 앱이 요청을 수락할 준비가 되기 전에 최종 사용자가 앱 URL에 연결되지 않도록 프런트 엔드 서버가 마지막에 시작되도록 할 수도 있습니다.
 
 이 순서를 만들려면 복구 그룹에 그룹을 추가하고, 그룹에 컴퓨터를 추가합니다. 
-    - 순서가 지정되면 시퀀싱이 사용됩니다. 작업은 응용 프로그램 복구 RTO를 향상시키도록 적절한 곳에서 병렬로 실행됩니다.
+    - 순서가 지정되면 시퀀싱이 사용됩니다. 작업은 애플리케이션 복구 RTO를 향상시키도록 적절한 곳에서 병렬로 실행됩니다.
     - 단일 그룹의 컴퓨터는 병렬로 장애 조치(failover)됩니다.
     - 서로 다른 그룹의 컴퓨터는 그룹 1의 모든 컴퓨터가 장애 조치(failover)되고 시작된 후에만 그룹 2 컴퓨터가 해당 장애 조치(failover)를 시작하도록 그룹 순서로 장애 조치(failover)됩니다.
 
@@ -58,7 +59,7 @@ ms.locfileid: "52848394"
 
 ## <a name="automate-tasks"></a>작업 자동화
 
-대규모 응용 프로그램 복구는 복잡한 작업일 수 있습니다. 수동 단계는 프로세스를 오류가 발생하기 쉽게 만들고, 장애 조치(failover)를 실행하는 사용자는 모든 앱 복잡성을 인식하지 못할 수 있습니다. 복구 계획을 사용하여 순서를 적용하고 Azure 또는 스크립트로 장애 조치(failover)에 대한 Azure Automation Runbook을 사용하여 각 단계에 필요한 작업을 자동화할 수 있습니다. 자동화할 수 없는 작업의 경우 복구 계획에 수동 작업에 대한 일시 중지를 삽입할 수 있습니다. 두 가지 유형의 작업을 구성할 수 있습니다.
+대규모 애플리케이션 복구는 복잡한 작업일 수 있습니다. 수동 단계는 프로세스를 오류가 발생하기 쉽게 만들고, 장애 조치(failover)를 실행하는 사용자는 모든 앱 복잡성을 인식하지 못할 수 있습니다. 복구 계획을 사용하여 순서를 적용하고 Azure 또는 스크립트로 장애 조치(failover)에 대한 Azure Automation Runbook을 사용하여 각 단계에 필요한 작업을 자동화할 수 있습니다. 자동화할 수 없는 작업의 경우 복구 계획에 수동 작업에 대한 일시 중지를 삽입할 수 있습니다. 두 가지 유형의 작업을 구성할 수 있습니다.
 
 * **장애 조치(failover) 후 Azure VM에서 작업**: Azure로 장애 조치(failover)하는 경우 일반적으로 장애 조치(failover) 후 VM에 연결할 수 있도록 작업을 수행해야 합니다. 예:  
     * Azure VM에서 공용 IP 주소를 만듭니다.
@@ -76,7 +77,7 @@ ms.locfileid: "52848394"
 - 항상 전체 장애 조치(failover)를 실행하기 전에 앱에서 테스트 장애 조치(failover)를 완료합니다. 테스트 장애 조치(failover)는 앱이 복구 사이트에서 작동되는지 여부를 확인하는 데 도움이 됩니다.
 - 누락된 것을 발견한 경우 정리를 트리거한 다음, 테스트 장애 조치(failover)를 다시 실행합니다. 
 - 앱이 원활하게 복구될 때까지 테스트 장애 조치(failover)를 여러 번 실행합니다.
-- 각 앱은 고유하기 때문에 각 응용 프로그램에 맞게 사용자 지정된 복구 계획을 구축하고 각각에서 테스트 장애 조치(failover)를 실행해야 합니다.
+- 각 앱은 고유하기 때문에 각 애플리케이션에 맞게 사용자 지정된 복구 계획을 구축하고 각각에서 테스트 장애 조치(failover)를 실행해야 합니다.
 - 앱 및 해당 종속성은 자주 변경됩니다. 복구 계획을 최신 상태로 유지하려면 각 앱에 대해 매 분기별로 테스트 장애 조치(failover)를 실행합니다.
 
     ![Site Recovery의 테스트 복구 계획 예제 스크린샷](./media/recovery-plan-overview/rptest.png)

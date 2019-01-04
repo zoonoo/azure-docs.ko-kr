@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: e02492b3e80f71b4ae92066e5e4a2baf26818621
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2b6cb711bf0cd2f0ec7f5633bbb36ebaeb203690
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316168"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605537"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>원격 모니터링 솔루션 가속기 개요
 
@@ -135,7 +135,7 @@ ASA 작업은 저장소 및 분석을 위해 원격 분석을 연결된 디바�
 
 ### <a name="authentication-and-authorization-microservice"></a>인증 및 권한 부여 마이크로 서비스
 
-[인증 및 권한 부여 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth)는 솔루션 가속기에 액세스하도록 권한이 부여된 사용자를 관리합니다. 사용자 관리는 [OpenId Connect](http://openid.net/connect/)를 지원하는 모든 ID 서비스 공급자를 사용하여 수행할 수 있습니다.
+[인증 및 권한 부여 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth)는 솔루션 가속기에 액세스하도록 권한이 부여된 사용자를 관리합니다. 사용자 관리는 [OpenId Connect](https://openid.net/connect/)를 지원하는 모든 ID 서비스 공급자를 사용하여 수행할 수 있습니다.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
@@ -145,7 +145,7 @@ ASA 작업은 저장소 및 분석을 위해 원격 분석을 연결된 디바�
 
 이 솔루션은 논리적 구조의 프레젠테이션 부분에 다음과 같은 구성 요소를 포함합니다.
 
-[웹 사용자 인터페이스는 React Javascript 응용 프로그램입니다](https://github.com/Azure/pcs-remote-monitoring-webui). 이 응용 프로그램은:
+[웹 사용자 인터페이스는 React Javascript 애플리케이션입니다](https://github.com/Azure/pcs-remote-monitoring-webui). 이 애플리케이션은:
 
 * Javascript React만 사용하고 브라우저에서 완전히 실행됩니다.
 * CSS 스타일이 적용됩니다.

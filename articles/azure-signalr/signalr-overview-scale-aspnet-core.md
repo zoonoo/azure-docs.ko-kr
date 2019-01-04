@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 09/13/2018
 ms.author: zhshang
-ms.openlocfilehash: e739f3905ff2bbb60669b1f1e214a4630b896db4
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 695cc2afbfd231758e90889eea2c154fbc16dffb
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255468"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602616"
 ---
 # <a name="scale-aspnet-core-signalr-applications-with-azure-signalr-service"></a>Azure SignalR Service를 사용하여 ASP.NET Core SignalR 애플리케이션 크기 조정
 
@@ -21,7 +21,7 @@ ms.locfileid: "53255468"
 
 ASP.NET Core SignalR은 이전 버전을 다시 생성한 것입니다. 결과적으로 ASP.NET Core SignalR은 이전 버전의 SignalR과 호환되지 않습니다. API와 동작이 서로 다릅니다. ASP.NET Core SignalR SDK는 .NET Standard를 대상으로 하므로 .NET Framework에서도 사용할 수 있습니다. 그러나 이전 API 대신 새 API를 사용해야 합니다. SignalR을 사용하지만 ASP.NET Core SignalR 또는 Azure SignalR Service로 이동하려면 API의 차이를 처리하기 위해 코드를 변경해야 합니다.
 
-Azure SignalR Service를 사용하면 ASP.NET Core SignalR의 서버 쪽 구성 요소가 Azure에서 호스팅됩니다. 그러나 이 기술은 ASP.NET Core를 기반으로 하여 구현되므로 [Azure App Service](../app-service/app-service-web-overview.md), [IIS](https://docs.microsoft.com/aspnet/core/host-and-deploy/iis/index), [Nginx](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-nginx), [Apache](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-apache), [Docker](https://docs.microsoft.com/aspnet/core/host-and-deploy/docker/index)를 통해 호스팅하는 동안 여러 플랫폼(Windows, Linux 및 MacOS)에서 실제 웹 애플리케이션을 실행할 수 있습니다. 사용자 자신의 프로세스에 자체 호스팅을 사용할 수도 있습니다.
+Azure SignalR Service를 사용하면 ASP.NET Core SignalR의 서버 쪽 구성 요소가 Azure에서 호스팅됩니다. 그러나 이 기술은 ASP.NET Core를 기반으로 하여 구현되므로 [Azure App Service](../app-service/overview.md), [IIS](https://docs.microsoft.com/aspnet/core/host-and-deploy/iis/index), [Nginx](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-nginx), [Apache](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-apache), [Docker](https://docs.microsoft.com/aspnet/core/host-and-deploy/docker/index)를 통해 호스팅하는 동안 여러 플랫폼(Windows, Linux 및 MacOS)에서 실제 웹 애플리케이션을 실행할 수 있습니다. 사용자 자신의 프로세스에 자체 호스팅을 사용할 수도 있습니다.
 
 애플리케이션이 웹 클라이언트를 실시간 콘텐츠 업데이트로 업데이트하는 최신 기능을 지원하고, 여러 플랫폼(Azure, Windows, Linux 및 macOS)에서 실행하고, 다른 환경에서 호스트하기 위한 것이면 Azure SignalR Service를 활용하는 것이 가장 좋습니다.
 

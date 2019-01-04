@@ -9,21 +9,21 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: billgib
+ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 14183475fcca0e12c56f009f105e77aaf11b0c98
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 604373d450bb03069fcbf97bef4027420e635f20
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315217"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599998"
 ---
-# <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>분할된 다중 테넌트 SQL 데이터베이스를 사용하는 SaaS 응용 프로그램에서 스키마 관리
+# <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>분할된 다중 테넌트 SQL 데이터베이스를 사용하는 SaaS 애플리케이션에서 스키마 관리
 
-이 자습서에서는 SaaS(Software as a Service) 응용 프로그램에서 대규모 데이터베이스를 유지 관리하는 데 따른 문제를 검토합니다. 수많은 데이터베이스에 스키마를 적용하기 위한 솔루션이 설명되어 있습니다.
+이 자습서에서는 SaaS(Software as a Service) 애플리케이션에서 대규모 데이터베이스를 유지 관리하는 데 따른 문제를 검토합니다. 수많은 데이터베이스에 스키마를 적용하기 위한 솔루션이 설명되어 있습니다.
 
-다른 응용 프로그램과 마찬가지로 Wingtip Tickets SaaS 앱도 시간이 지나면서 발전되고, 그에 따라 데이터베이스를 변경해야 합니다. 변경 사항은 스키마나 참조 데이터를 영향을 줄 수도 있고, 데이터베이스 유지 관리 작업에 적용될 수도 있습니다. 테넌트별 데이터베이스 패턴을 사용하는 SaaS 응용 프로그램에서는 수많은 테넌트 데이터베이스를 대상으로 변경 사항을 효율적으로 조율할 수 있어야 합니다. 또한, 변경 사항이 새로 생성되는 데이터베이스에도 포함되도록 데이터베이스 프로비저닝 프로세스에 변경 사항을 반영해야 합니다.
+다른 애플리케이션과 마찬가지로 Wingtip Tickets SaaS 앱도 시간이 지나면서 발전되고, 그에 따라 데이터베이스를 변경해야 합니다. 변경 사항은 스키마나 참조 데이터를 영향을 줄 수도 있고, 데이터베이스 유지 관리 작업에 적용될 수도 있습니다. 테넌트별 데이터베이스 패턴을 사용하는 SaaS 애플리케이션에서는 수많은 테넌트 데이터베이스를 대상으로 변경 사항을 효율적으로 조율할 수 있어야 합니다. 또한, 변경 사항이 새로 생성되는 데이터베이스에도 포함되도록 데이터베이스 프로비저닝 프로세스에 변경 사항을 반영해야 합니다.
 
 #### <a name="two-scenarios"></a>두 가지 시나리오
 
@@ -44,7 +44,7 @@ Azure SQL Database의 [탄력적 작업](sql-database-elastic-jobs-overview.md) 
 ## <a name="prerequisites"></a>필수 조건
 
 - Wingtip Tickets 다중 테넌트 데이터베이스 앱이 설치되어 있어야 합니다.
-    - 자세한 내용은 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱을 소개하는 첫 번째 튜토리얼을 참조하세요.<br />[Azure SQL Database를 사용하는 분할된 다중 테넌트 응용 프로그램 배포 및 탐색](saas-multitenantdb-get-started-deploy.md)합니다.
+    - 자세한 내용은 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱을 소개하는 첫 번째 튜토리얼을 참조하세요.<br />[Azure SQL Database를 사용하는 분할된 다중 테넌트 애플리케이션 배포 및 탐색](saas-multitenantdb-get-started-deploy.md)합니다.
         - 배포 프로세스는 5분 이내에 실행됩니다.
     - *분할된 다중 테넌트* 버전의 Wingtip이 설치되어 있어야 합니다. *독립 실행형* 및 *테넌트별 데이터베이스*용 버전은 이 자습서를 지원하지 않습니다.
 
@@ -67,7 +67,7 @@ Azure SQL Database의 [탄력적 작업](sql-database-elastic-jobs-overview.md) 
 > [!NOTE]
 > 이 자습서에서는 제한된 미리 보기(Elastic Database 작업)에 있는 SQL Database 서비스의 기능을 사용합니다. 이 자습서를 수행하려면 ‘Elastic 작업 미리 보기’라는 제목으로 SaaSFeedback@microsoft.com으로 구독 ID를 보내 주세요. 구독이 활성화되었다는 확인을 받은 후 최신 시험판 작업 cmdlet을 다운로드하여 설치하세요. 이 미리 보기는 제한적으로만 제공되므로 관련 질문이 있거나 지원이 필요한 경우 SaaSFeedback@microsoft.com에 문의해야 합니다.
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램 소스 코드 및 스크립트 가져오기
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 소스 코드 및 스크립트 가져오기
 
 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플리케이션 소스 코드는 GitHub의 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) 리포지토리에서 사용할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 참조하세요.
 
@@ -111,7 +111,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 6. SSMS에서 *...\\Learning Modules\\Schema Management\\DeployReferenceData.sql* 파일을 엽니다.
 
-7. 문을 set @User = &lt;user&gt;로 수정하고 Wingtip Ticket SaaS 다중 테넌트 데이터베이스 응용 프로그램을 배포할 때 사용된 사용자 값을 바꿉니다.
+7. 문을 set @User = &lt;user&gt;로 수정하고 Wingtip Ticket SaaS 다중 테넌트 데이터베이스 애플리케이션을 배포할 때 사용된 사용자 값을 바꿉니다.
 
 8. **F5** 키를 눌러 스크립트를 실행합니다.
 

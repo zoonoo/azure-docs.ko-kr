@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 19582c59460644d8599034afeaafde8735c04ec3
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1e81f165c3ab38fffae7523efc6cb2ae307a1a25
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440260"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549635"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. 다음은 현재 Azure Monitor의 메트릭 파이프라인을 통해 사용할 수 있는 모든 메트릭의 전체 목록입니다.  레거시 API를 통해서 또는 포털에서 다른 메트릭을 제공할 수 있습니다. 아래 목록에는 통합 Azure Monitor 메트릭 파이프라인을 통해 사용할 수 있는 메트릭만 포함됩니다. 이러한 메트릭을 쿼리하고 액세스하려면 [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)을 사용하세요.
@@ -1458,7 +1458,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |IoReadOperationsPerSecond|초당 IO 읽기 작업 수|초당 바이트 수|합계|초당 IO 읽기 작업 수|인스턴스|
 |IoWriteOperationsPerSecond|초당 IO 쓰기 작업 수|초당 바이트 수|합계|초당 IO 쓰기 작업 수|인스턴스|
 |IoOtherOperationsPerSecond|초당 IO 기타 작업 수|초당 바이트 수|합계|초당 IO 기타 작업 수|인스턴스|
-|RequestsInApplicationQueue|응용 프로그램 큐의 요청 수|개수|평균|응용 프로그램 큐의 요청 수|인스턴스|
+|RequestsInApplicationQueue|애플리케이션 큐의 요청 수|개수|평균|애플리케이션 큐의 요청 수|인스턴스|
 |CurrentAssemblies|현재 어셈블리|개수|평균|현재 어셈블리|인스턴스|
 |TotalAppDomains|총 앱 도메인|개수|평균|총 앱 도메인|인스턴스|
 |TotalAppDomainsUnloaded|언로드된 총 앱 도메인|개수|평균|언로드된 총 앱 도메인|인스턴스|
@@ -1484,7 +1484,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |IoReadOperationsPerSecond|초당 IO 읽기 작업 수|초당 바이트 수|합계|초당 IO 읽기 작업 수|인스턴스|
 |IoWriteOperationsPerSecond|초당 IO 쓰기 작업 수|초당 바이트 수|합계|초당 IO 쓰기 작업 수|인스턴스|
 |IoOtherOperationsPerSecond|초당 IO 기타 작업 수|초당 바이트 수|합계|초당 IO 기타 작업 수|인스턴스|
-|RequestsInApplicationQueue|응용 프로그램 큐의 요청 수|개수|평균|응용 프로그램 큐의 요청 수|인스턴스|
+|RequestsInApplicationQueue|애플리케이션 큐의 요청 수|개수|평균|애플리케이션 큐의 요청 수|인스턴스|
 |CurrentAssemblies|현재 어셈블리|개수|평균|현재 어셈블리|인스턴스|
 |TotalAppDomains|총 앱 도메인|개수|평균|총 앱 도메인|인스턴스|
 |TotalAppDomainsUnloaded|언로드된 총 앱 도메인|개수|평균|언로드된 총 앱 도메인|인스턴스|
@@ -1524,7 +1524,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |IoReadOperationsPerSecond|초당 IO 읽기 작업 수|초당 바이트 수|합계|초당 IO 읽기 작업 수|인스턴스|
 |IoWriteOperationsPerSecond|초당 IO 쓰기 작업 수|초당 바이트 수|합계|초당 IO 쓰기 작업 수|인스턴스|
 |IoOtherOperationsPerSecond|초당 IO 기타 작업 수|초당 바이트 수|합계|초당 IO 기타 작업 수|인스턴스|
-|RequestsInApplicationQueue|응용 프로그램 큐의 요청 수|개수|평균|응용 프로그램 큐의 요청 수|인스턴스|
+|RequestsInApplicationQueue|애플리케이션 큐의 요청 수|개수|평균|애플리케이션 큐의 요청 수|인스턴스|
 |CurrentAssemblies|현재 어셈블리|개수|평균|현재 어셈블리|인스턴스|
 |TotalAppDomains|총 앱 도메인|개수|평균|총 앱 도메인|인스턴스|
 |TotalAppDomainsUnloaded|언로드된 총 앱 도메인|개수|평균|언로드된 총 앱 도메인|인스턴스|
@@ -1572,4 +1572,4 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 ## <a name="next-steps"></a>다음 단계
 * [Azure Monitor의 메트릭에 대해 읽기](../../azure-monitor/platform/data-collection.md)
 * [메트릭에 대한 경고 만들기](../../azure-monitor/platform/alerts-overview.md)
-* [저장소, 이벤트 허브 또는 Log Analytics에 메트릭 내보내기](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [저장소, 이벤트 허브 또는 Log Analytics에 메트릭 내보내기](../../azure-monitor/platform/diagnostic-logs-overview.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 815b792f8584e984ff77c32265de65f9b633adb1
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 25e8d0aafc8593c9c759dd8ac1d7d1d495c9e026
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322792"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001773"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Application Insights를 사용하여 이벤트 분석 및 시각화
 
@@ -39,7 +39,7 @@ Application Insights는 Service Fabric을 사용할 때 바로 사용 가능한 
 
 ![Application Insights 개요](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 
-이전 이미지의 오른쪽 패널을 보면 목록에 두 가지 주요 유형인 요청과 이벤트가 있습니다. 이 예에서 요청은 HTTP 요청을 통해 앱의 API로 호출되고, 호출은 코드의 아무 위치에나 추가할 수 있는 원격 분석 데이터 역할을 하는 사용자 지정 이벤트입니다. [사용자 지정 이벤트 및 메트릭용 Application Insights API](../application-insights/app-insights-api-custom-events-metrics.md)에서 응용 프로그램 계측을 추가로 탐색할 수 있습니다. 요청을 클릭하면 다음 이미지처럼 Application Insights Service Fabric nuget 패키지에서 수집되는 Service Fabric 관련 데이터를 포함하여 자세한 정보가 표시됩니다. 이 정보는 문제를 해결하고 애플리케이션 상태를 파악하는 데 유용하며, 이 모든 정보는 Application Insights 내에서 검색할 수 있습니다.
+이전 이미지의 오른쪽 패널을 보면 목록에 두 가지 주요 유형인 요청과 이벤트가 있습니다. 이 예에서 요청은 HTTP 요청을 통해 앱의 API로 호출되고, 호출은 코드의 아무 위치에나 추가할 수 있는 원격 분석 데이터 역할을 하는 사용자 지정 이벤트입니다. [사용자 지정 이벤트 및 메트릭용 Application Insights API](../azure-monitor/app/api-custom-events-metrics.md)에서 애플리케이션 계측을 추가로 탐색할 수 있습니다. 요청을 클릭하면 다음 이미지처럼 Application Insights Service Fabric nuget 패키지에서 수집되는 Service Fabric 관련 데이터를 포함하여 자세한 정보가 표시됩니다. 이 정보는 문제를 해결하고 애플리케이션 상태를 파악하는 데 유용하며, 이 모든 정보는 Application Insights 내에서 검색할 수 있습니다.
 
 ![Application Insights 요청 세부 정보](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
 
@@ -47,7 +47,7 @@ Application Insights에는 들어오는 모든 데이터를 쿼리하기 위해 
 
 ![Application Insights 요청 세부 정보](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
-Application Insights 포털의 기능을 좀 더 자세히 살펴보려면 [Application Insights 포털 설명서](../application-insights/app-insights-dashboards.md)로 이동하세요.
+Application Insights 포털의 기능을 좀 더 자세히 살펴보려면 [Application Insights 포털 설명서](../azure-monitor/app/app-insights-dashboards.md)로 이동하세요.
 
 ### <a name="configuring-application-insights-with-wad"></a>WAD로 Application Insights 구성
 
@@ -114,17 +114,17 @@ EventFlow 및 WAD는 진단 및 모니터링에 좀 더 모듈 방식으로 접�
 
 [Application Insights support for Microservices and Containers](https://azure.microsoft.com/blog/app-insights-microservices/)(마이크로 서비스 및 컨테이너에 대한 Application Insights 지원)에서는 작업 중인 새로운 기능 중 일부(현재 베타 버전)를 보여 주며 이를 통해 Application Insights에서 보다 풍부한 기본 모니터링 옵션을 사용할 수 있습니다. 여기에는 종속성 추적(클러스터의 모든 서비스 및 애플리케이션의 AppMap을 빌드하고 그 사이의 통신을 설정하는 데 사용됨) 및 서비스에서 발생한 추적의 상관 관계가 포함됩니다(애플리케이션 또는 서비스의 워크플로 문제를 정확히 발견 가능).
 
-.NET에서 개발 중이고 Service Fabric의 프로그래밍 모델 중 일부를 사용하고 있으며 이벤트 및 로그 데이터를 시각화하고 분석하기 위한 플랫폼으로 Application Insights를 사용하려는 경우 모니터링 및 진단 워크플로인 Application Insights SDK 경로를 통해 이동하는 것이 좋습니다. Application Insights를 사용하여 로그를 수집 및 표시하려면 [이 문서](../application-insights/app-insights-asp-net-more.md) 및 [이 문서](../application-insights/app-insights-asp-net-trace-logs.md)를 참조하세요.
+.NET에서 개발 중이고 Service Fabric의 프로그래밍 모델 중 일부를 사용하고 있으며 이벤트 및 로그 데이터를 시각화하고 분석하기 위한 플랫폼으로 Application Insights를 사용하려는 경우 모니터링 및 진단 워크플로인 Application Insights SDK 경로를 통해 이동하는 것이 좋습니다. Application Insights를 사용하여 로그를 수집 및 표시하려면 [이 문서](../azure-monitor/app/asp-net-more.md) 및 [이 문서](../azure-monitor/app/asp-net-trace-logs.md)를 참조하세요.
 
 ## <a name="navigating-the-application-insights-resource-in-azure-portal"></a>Azure Portal에서 Application Insights 리소스 이동
 
 Application Insights를 이벤트 및 로그의 출력으로 구성했으면 몇 분 내에 Application Insights 리소스에 정보가 표시되기 시작합니다. Application Insights 리소스로 이동합니다. 그러면 Application Insights 리소스 대시보드가 표시됩니다. Application Insights 작업 표시줄에서 **검색**을 클릭하여 수신한 최신 추적을 보고 필터링할 수 있습니다.
 
-*메트릭 탐색기*는 응용 프로그램, 서비스 및 클러스터가 보고할 수 있는 메트릭을 기반으로 사용자 지정 대시보드를 만드는 데 유용한 도구입니다. 수집 중인 데이터를 기반으로 직접 몇 가지 차트를 설정하려면 [Application Insights에서 메트릭 탐색](../application-insights/app-insights-metrics-explorer.md)을 참조하세요.
+*메트릭 탐색기*는 애플리케이션, 서비스 및 클러스터가 보고할 수 있는 메트릭을 기반으로 사용자 지정 대시보드를 만드는 데 유용한 도구입니다. 수집 중인 데이터를 기반으로 직접 몇 가지 차트를 설정하려면 [Application Insights에서 메트릭 탐색](../azure-monitor/app/metrics-explorer.md)을 참조하세요.
 
-**분석**을 클릭하면 Application Insights 분석 포털로 이동합니다. 이 포털에서는 보다 넓은 범위 및 다양한 옵션으로 이벤트 및 추적을 쿼리할 수 있습니다. 자세한 내용은 [Application Insights의 분석](../application-insights/app-insights-analytics.md)을 참조하세요.
+**분석**을 클릭하면 Application Insights 분석 포털로 이동합니다. 이 포털에서는 보다 넓은 범위 및 다양한 옵션으로 이벤트 및 추적을 쿼리할 수 있습니다. 자세한 내용은 [Application Insights의 분석](../azure-monitor/app/analytics.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [AI에 경고 설정](../application-insights/app-insights-alerts.md) - 성능 또는 사용 변경에 대한 알림 받기
+* [AI에 경고 설정](../azure-monitor/app/alerts.md) - 성능 또는 사용 변경에 대한 알림 받기
 * [Application Insights의 스마트 감지](../application-insights/app-insights-proactive-diagnostics.md) - 잠재적인 성능 문제를 경고하기 위해 Application Insights에 전송되는 원격 분석에 대한 사전 분석 수행

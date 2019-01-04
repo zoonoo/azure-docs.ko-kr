@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: af20d84cbead84e3a9fa5b6ea93661814e42a851
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 5ff6e29fc4d7607c44541c7947404a0bc0301207
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325621"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581492"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Resource Manager 템플릿을 사용하여 VM Scale Sets에 대한 고급 자동 크기 조정 구성
 되풀이 일정 또는 특정 날짜에 성능 메트릭 임계값을 기반으로 Virtual Machine Scale Sets의 규모를 확장 및 감축할 수 있습니다. 또한 크기 조정 동작에 대한 전자 메일 및 웹후크 알림을 구성할 수 있습니다. 이 연습에서는 VM 확장 집합에서 Resource Manager 템플릿을 사용하여 이 모든 개체를 구성하는 예를 보여 줍니다.
@@ -47,8 +47,8 @@ ms.locfileid: "53325621"
 
 4. 이 연습에 사용할 가상의 크기 조정 시나리오는 다음과 같습니다.
 
-    * **부하 기반** - 확장 집합에서 호스트되는 응용 프로그램의 부하에 따라 규모를 확장하거나 감축합니다.*
-    * **메시지 큐 크기** - 응용 프로그램으로 들어오는 메시지에 Service Bus 큐를 사용합니다. 큐의 메시지 수 및 CPU%를 사용하고, 메시지 수 또는 CPU가 임계값에 도달한 경우 크기 조정 동작을 트리거하도록 기본 프로필을 구성합니다.*
+    * **부하 기반** - 확장 세트에서 호스트되는 애플리케이션의 부하에 따라 규모를 확장하거나 감축합니다.*
+    * **메시지 큐 크기** - 애플리케이션으로 들어오는 메시지에 Service Bus 큐를 사용합니다. 큐의 메시지 수 및 CPU%를 사용하고, 메시지 수 또는 CPU가 임계값에 도달한 경우 크기 조정 동작을 트리거하도록 기본 프로필을 구성합니다.*
     * **요일과 시간** - '평일 오전 시간'이라는 매주 되풀이되는 '시간' 기반 프로필을 사용합니다. 기록 데이터에 따라 이 시간 동안 특정 개수의 VM 인스턴스에서 애플리케이션의 부하를 처리하도록 하는 것이 보다 효율적이라는 것을 알고 있습니다.*
     * **특정 날짜** - '제품 출시일' 프로필을 추가했습니다. 애플리케이션이 마케팅 공지 사항으로 인한 부하 및 애플리케이션에 새 제품이 추가될 경우의 부하를 처리할 준비를 갖추도록 특정 날짜를 미리 계획합니다.*
     * *마지막 두 프로필 내에도 다른 성능 메트릭 기반 규칙이 있을 수 있습니다. 이 경우 성능 메트릭 기반 규칙을 하나만 유지할 필요가 없으며, 기본 성능 메트릭 기반 규칙에 의존할 수 있습니다. 되풀이 및 날짜 기반 프로필의 경우에는 규칙이 선택 사항입니다.*
@@ -242,7 +242,7 @@ ms.locfileid: "53325621"
 
 [Azure 자동 크기 조정에 대한 모범 사례](autoscale-best-practices.md)
 
-[PowerShell을 사용하여 자동 크기 조정 관리](../../monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings)
+[PowerShell을 사용하여 자동 크기 조정 관리](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
 
 [CLI를 사용하여 자동 크기 조정 관리](cli-samples.md#autoscale)
 

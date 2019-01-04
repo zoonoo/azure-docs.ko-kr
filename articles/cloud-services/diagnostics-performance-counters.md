@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/18
 ms.author: jeconnoc
-ms.openlocfilehash: b288c6a64572287c460e82cd8746a8504d264933
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: d332a792f693b099ce925e9b5705f09e52507522
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322946"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000243"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Azure Cloud Service에 대한 성능 카운터 수집
 
@@ -84,7 +84,7 @@ Azure 진단 또는 Application Insights를 위해 클라우드 서비스에 성
 
 ### <a name="application-insights"></a>Application Insights
 
-Cloud Services용 Azure Application Insights를 사용하면 수집할 성능 카운터를 지정할 수 있습니다. [Application Insights를 프로젝트에 추가](../application-insights/app-insights-cloudservices.md#sdk)하면 **ApplicationInsights.config**라는 구성 파일이 Visual Studio 프로젝트에 추가됩니다. 이 구성 파일은 Application Insights가 수집하여 Azure에 전송하는 정보 유형을 정의합니다.
+Cloud Services용 Azure Application Insights를 사용하면 수집할 성능 카운터를 지정할 수 있습니다. [Application Insights를 프로젝트에 추가](../azure-monitor/app/cloudservices.md#sdk)하면 **ApplicationInsights.config**라는 구성 파일이 Visual Studio 프로젝트에 추가됩니다. 이 구성 파일은 Application Insights가 수집하여 Azure에 전송하는 정보 유형을 정의합니다.
 
 **ApplicationInsights.config** 파일을 열고 **ApplicationInsights** > **TelemetryModules** 요소를 찾습니다. 각 `<Add>` 자식 요소는 해당 구성과 함께 수집할 원격 분석 유형을 정의합니다. 성능 카운터 원격 분석 모듈 유형은 `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector`입니다. 이 요소가 이미 정의된 경우에는 다시 추가하지 마세요. 수집할 각 성능 카운터는 `<Counters>`라는 노드 아래에 정의됩니다. 다음은 드라이브 성능 카운터를 수집하는 예제입니다.
 
@@ -116,7 +116,7 @@ Application Insights는 다음 성능 카운터를 자동으로 수집합니다.
 * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
 * \Processor(_Total)\% 프로세서 시간
 
-자세한 내용은 [Application Insights의 시스템 성능 카운터](../application-insights/app-insights-performance-counters.md) 및 [Azure Cloud Services용 Application Insights](../application-insights/app-insights-cloudservices.md#performance-counters)를 참조하세요.
+자세한 내용은 [Application Insights의 시스템 성능 카운터](../azure-monitor/app/performance-counters.md) 및 [Azure Cloud Services용 Application Insights](../azure-monitor/app/cloudservices.md#performance-counters)를 참조하세요.
 
 ### <a name="azure-diagnostics"></a>Azure 진단
 
@@ -294,7 +294,7 @@ counterServiceUsed.Increment();
 
 ## <a name="more-information"></a>자세한 정보
 
-- [Azure Cloud Services용 Application Insights](../application-insights/app-insights-cloudservices.md#performance-counters)
-- [Application Insights의 시스템 성능 카운터](../application-insights/app-insights-performance-counters.md)
+- [Azure Cloud Services용 Application Insights](../azure-monitor/app/cloudservices.md#performance-counters)
+- [Application Insights의 시스템 성능 카운터](../azure-monitor/app/performance-counters.md)
 - [카운터 경로 지정](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
 - [Azure 진단 스키마 - 성능 카운터](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)

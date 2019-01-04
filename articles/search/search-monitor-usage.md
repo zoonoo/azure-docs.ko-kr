@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 584d1d8ce3285f9f5fb986c9779d3c403ce13d1b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: aaeb24b836b47f72d0be299738e6c90f599f8d1f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314162"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631901"
 ---
 # <a name="monitor-an-azure-search-service-in-azure-portal"></a>Azure Portal에서 Azure Search 서비스 모니터링
 
@@ -70,7 +70,7 @@ Azure Search REST API와 .NET SDK는 모두 서비스 메트릭에 대한 프로
 
 
 ### <a name="enabling-monitoring"></a>모니터링 사용
-모니터링 사용 옵션 아래에 있는 [Azure Portal](http://portal.azure.com)에서 Azure Search 서비스를 엽니다.
+모니터링 사용 옵션 아래에 있는 [Azure Portal](https://portal.azure.com)에서 Azure Search 서비스를 엽니다.
 
 내보낼 데이터를 선택합니다(로그, 메트릭 또는 둘 다). 데이터를 저장소 계정에 복사하고, 이벤트 허브로 전송하거나 Log Analytics로 내보낼 수 있습니다.
 

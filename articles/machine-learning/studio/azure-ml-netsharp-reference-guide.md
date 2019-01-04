@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: fb6efad1f1c06349adb877516f5323d8b9ee45e8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ec33ac469d33a07d00f379beef2db9f4405e4679
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272238"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631128"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 Net# 인공신경망 사양 언어에 대한 가이드
 
@@ -190,7 +190,7 @@ hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;
 
 학습 데이터에 같은 유형 구조가 있으면 일반적으로 데이터의 높은 수준 기능을 학습하는 데 나선형 연결이 사용됩니다. 예를 들어 이미지, 오디오 또는 비디오 데이터에서 공간 또는 임시 차원은 상당히 균일할 수 있습니다.  
 
-나선형 번들에는 차원을 통해 움직이는 사각형 **커널**이 적용됩니다. 기본적으로 각 커널은 로컬 환경에 적용되는 **커널 애플리케이션**이라는 가중치 세트을 정의합니다. 각 커널 애플리케이션은 **중앙 노드**라는 원본 계층의 노드에 해당합니다. 커널의 가중치는 많은 연결에서 공유됩니다. 나선형 번들에서 각 커널은 사각형이고 모든 커널 애플리케이션은 같은 크기입니다.  
+나선형 번들에는 차원을 통해 움직이는 사각형 **커널**이 적용됩니다. 기본적으로 각 커널은 로컬 환경에 적용되는 **커널 애플리케이션**이라는 가중치 집합을 정의합니다. 각 커널 애플리케이션은 **중앙 노드**라는 원본 계층의 노드에 해당합니다. 커널의 가중치는 많은 연결에서 공유됩니다. 나선형 번들에서 각 커널은 사각형이고 모든 커널 애플리케이션은 같은 크기입니다.  
 
 나선형 번들은 다음 특성을 지원합니다.
 
@@ -388,7 +388,7 @@ output Out [10] sigmoid from H all;
 
 + 첫 번째 줄에서는 이름이 `Data`인 입력 계층을 정의합니다. `auto` 키워드를 사용하는 경우 신경망에 입력 예제의 모든 기능 열이 자동으로 포함됩니다. 
 + 두 번째 줄에서는 숨겨진 계층을 만듭니다. 노드 200개가 포함된 숨겨진 계층에 이름 `H`가 할당됩니다. 이 계층은 입력 계층에 완전히 연결됩니다.
-+ 세 번째 줄에서는 이름이 `O`이고 출력 노드 10개가 포함된 출력 계층을 정의합니다. 신경망을 분류에 사용하는 경우 클래스당 하나의 출력 노드가 있습니다. 키워드 **sigmoid**는 출력 계층에 적용된 출력 함수를 나타냅니다.
++ 세 번째 줄에서는 이름이 `Out`이고 출력 노드 10개가 포함된 출력 계층을 정의합니다. 신경망을 분류에 사용하는 경우 클래스당 하나의 출력 노드가 있습니다. 키워드 **sigmoid**는 출력 계층에 적용된 출력 함수를 나타냅니다.
 
 ### <a name="define-multiple-hidden-layers-computer-vision-example"></a>여러 숨겨진 계층 정의: 컴퓨터 비전 예제
 

@@ -13,12 +13,12 @@ ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 05853cb494ef6cc615bea7eecb1cfac288b46f3b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 54155346c7f417be8beb0ced8ef825ec22a08237
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721955"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971616"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Application Insights에서 사용자 흐름을 사용하여 사용자 탐색 패턴 분석
 
@@ -34,7 +34,7 @@ ms.locfileid: "52721955"
 사용자 흐름 도구는 지정한 초기 페이지 보기, 사용자 지정 이벤트 또는 예외에서 시작됩니다. 초기 이벤트가 정해지면 사용자 세션 전후에 발생한 이벤트가 사용자 흐름에 표시됩니다. 다양한 두께의 선은 사용자가 따라간 각 경로의 횟수를 보여줍니다. 특별 **세션 시작** 노드에는 후속 노드가 세션을 시작한 위치가 표시됩니다. **세션 종료됨** 노드에는 이전 노드 다음에 페이지 보기나 사용자 지정 이벤트를 보내지 않은 사용자 수가 표시되어 사용자가 사이트를 떠난 지점이 강조 표시됩니다.
 
 > [!NOTE]
-> Application Insights 리소스는 사용자 흐름 도구를 사용하기 위한 페이지 보기 또는 사용자 지정 이벤트를 포함해야 합니다. [Application Insights JavaScript SDK를 사용하여 자동으로 페이지 뷰를 수집하도록 앱을 설정하는 방법에 대해 알아봅니다](app-insights-javascript.md).
+> Application Insights 리소스는 사용자 흐름 도구를 사용하기 위한 페이지 보기 또는 사용자 지정 이벤트를 포함해야 합니다. [Application Insights JavaScript SDK를 사용하여 자동으로 페이지 뷰를 수집하도록 앱을 설정하는 방법에 대해 알아봅니다](../azure-monitor/app/javascript.md).
 >
 >
 
@@ -59,7 +59,7 @@ ms.locfileid: "52721955"
 * **편집** 메뉴에서 **제외된 이벤트** 섹션을 확인합니다.
 * **기타** 노드의 더하기 단추를 사용하여 덜 빈번한 이벤트를 시각화에 포함시킵니다.
 * 원하는 페이지 보기 또는 사용자 지정 이벤트를 사용자가 자주 전달하는 경우 **편집** 메뉴에서 시각화의 시간 범위를 늘려 주세요.
-* 원하는 페이지 보기, 사용자 지정 이벤트 또는 예외가 사이트의 소스 코드에 있는 Application Insights SDK를 통해 수집되도록 설정되어야 합니다. [사용자 지정 이벤트 수집에 대해 자세히 알아봅니다.](app-insights-api-custom-events-metrics.md)
+* 원하는 페이지 보기, 사용자 지정 이벤트 또는 예외가 사이트의 소스 코드에 있는 Application Insights SDK를 통해 수집되도록 설정되어야 합니다. [사용자 지정 이벤트 수집에 대해 자세히 알아봅니다.](../azure-monitor/app/api-custom-events-metrics.md)
 
 시각화에서 더 많은 단계를 보려면 시각화 위에서 **이전 단계** 및 **다음 단계** 드롭다운을 사용합니다.
 
@@ -99,4 +99,4 @@ ms.locfileid: "52721955"
 * [사용 현황 개요](app-insights-usage-overview.md)
 * [사용자, 세션 및 이벤트](app-insights-usage-segmentation.md)
 * [보존](app-insights-usage-retention.md)
-* [앱에 사용자 지정 이벤트 추가](app-insights-api-custom-events-metrics.md)
+* [앱에 사용자 지정 이벤트 추가](../azure-monitor/app/api-custom-events-metrics.md)

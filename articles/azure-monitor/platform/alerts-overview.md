@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: cf01ddd53741a77df61e3dc1946eb836640034d0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b24b98760e276c207bb360687f32ae902b3306fb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345475"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976956"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고 개요 
 
@@ -56,7 +56,7 @@ ms.locfileid: "53345475"
 
 ## <a name="what-you-can-alert-on"></a>경고 가능한 내용
 
-[데이터 원본 모니터링](../../monitoring-and-diagnostics/monitoring-data-sources.md)에 설명된 대로 메트릭 및 로그에 대해 경고할 수 있습니다. 포함하지만 다음과 같이 제한되지 않습니다.
+[데이터 원본 모니터링](../../azure-monitor/platform/data-sources-reference.md)에 설명된 대로 메트릭 및 로그에 대해 경고할 수 있습니다. 포함하지만 다음과 같이 제한되지 않습니다.
 - 메트릭 값
 - 로그 검색 쿼리
 - 활동 로그 이벤트
@@ -131,7 +131,7 @@ ms.locfileid: "53345475"
 | **모니터 원본** | **신호 유형**  | **설명** | 
 |-------------|----------------|-------------|
 | 서비스 상태 | 활동 로그  | 지원되지 않습니다. [서비스 알림에 대한 활동 로그 경고 만들기](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)를 참조하세요.  |
-| Application Insights | 웹 가용성 테스트 | 지원되지 않습니다. [웹 테스트 경고](../../application-insights/app-insights-monitor-web-app-availability.md)를 참조하세요. Application Insights에 데이터를 보내도록 계측되는 모든 웹 사이트에서 사용할 수 있습니다. 웹 사이트의 가용성이나 응답성이 기대 이하이면 알림을 받습니다. |
+| Application Insights | 웹 가용성 테스트 | 지원되지 않습니다. [웹 테스트 경고](../../azure-monitor/app/monitor-web-app-availability.md)를 참조하세요. Application Insights에 데이터를 보내도록 계측되는 모든 웹 사이트에서 사용할 수 있습니다. 웹 사이트의 가용성이나 응답성이 기대 이하이면 알림을 받습니다. |
 
 
 ## <a name="all-alerts-page"></a>[모든 경고] 페이지 

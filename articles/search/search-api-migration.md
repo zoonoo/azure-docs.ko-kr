@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: f19d584932be6b6706d6f7b03622303f68f08f91
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 23003859b9a75fb986fe65f5528004f3dd150f9b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312190"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633047"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>최신 Azure Search Service REST API 버전으로 업그레이드
-[Azure Search 서비스 REST API](https://docs.microsoft.com/rest/api/searchservice/)의 이전 버전을 사용하는 경우 이 문서를 통해 최신 일반 공급 API 버전, 2017-11-11을 사용하기 위해 응용 프로그램을 업그레이드할 수 있습니다.
+[Azure Search 서비스 REST API](https://docs.microsoft.com/rest/api/searchservice/)의 이전 버전을 사용하는 경우 이 문서를 통해 최신 일반 공급 API 버전, 2017-11-11을 사용하기 위해 애플리케이션을 업그레이드할 수 있습니다.
 
 REST API의 2017-11-11 버전에는 이전 버전에서 변경된 몇 가지가 포함되어 있습니다. 이는 대부분 이전 버전과 호환되기 때문에 이전에 사용하던 버전에 따라 간단히 코드를 변경할 수 있습니다. 새 API 버전을 사용하는 코드를 변경하는 방법에 대한 지침은 [업그레이드 단계](#UpgradeSteps) 를 참조하세요.
 
@@ -59,7 +59,7 @@ GA 버전, 2015-02-28 또는 2016-09-01에서 업그레이드하는 경우 버�
 ## <a name="conclusion"></a>결론
 Azure Search 서비스 REST API 사용에 대한 자세한 정보가 필요한 경우 MSDN의 최근에 업데이트된 [API 참조](https://docs.microsoft.com/rest/api/searchservice/)를 참조하세요.
 
-Azure Search에 대한 귀하의 피드백을 환영합니다. 문제가 발생하면 [Azure Search MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) 또는 [StackOverflow](http://stackoverflow.com/)를 통해 자유롭게 도움을 요청하세요. StackOverflow에서 Azure Search에 대한 질문이 있는 경우, `azure-search`를 사용하여 태그하세요.
+Azure Search에 대한 귀하의 피드백을 환영합니다. 문제가 발생하면 [Azure Search MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) 또는 [StackOverflow](https://stackoverflow.com/)를 통해 자유롭게 도움을 요청하세요. StackOverflow에서 Azure Search에 대한 질문이 있는 경우, `azure-search`를 사용하여 태그하세요.
 
 Azure Search를 이용해 주셔서 감사합니다!
 

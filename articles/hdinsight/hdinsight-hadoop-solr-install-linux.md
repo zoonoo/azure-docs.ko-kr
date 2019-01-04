@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3500a29c1cdd8b1997f67a3cf1918090dc4ca812
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: e52a7cbb5c81f779ac4d12d2f3e5fd1e4ae62852
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383598"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714018"
 ---
 # <a name="install-and-use-apache-solr-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에서 Apache Solr 설치 및 사용
 
@@ -28,12 +28,12 @@ ms.locfileid: "53383598"
 
 ## <a name="whatis"></a>Solr이란
 
-[Apache Solr](http://lucene.apache.org/solr/features.html)은 데이터에 대한 강력한 전체 텍스트 검색을 가능하게 해주는 엔터프라이즈 검색 플랫폼입니다. Hadoop는 막대한 양의 데이터를 저장 및 관리할 수 있도록 해주고 Apache Solr은 이 데이터를 신속하게 검색할 수 있는 검색 기능을 제공합니다.
+[Apache Solr](https://lucene.apache.org/solr/features.html)은 데이터에 대한 강력한 전체 텍스트 검색을 가능하게 해주는 엔터프라이즈 검색 플랫폼입니다. Hadoop는 막대한 양의 데이터를 저장 및 관리할 수 있도록 해주고 Apache Solr은 이 데이터를 신속하게 검색할 수 있는 검색 기능을 제공합니다.
 
 > [!WARNING]   
 > HDInsight 클러스터에 제공되는 구성 요소는 Microsoft에 완벽히 지원됩니다.
 >
-> Solr와 같은 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. Microsoft 지원은 사용자 지정 구성 요소의 문제를 해결하지 못할 수 있습니다. 도움을 받기 위해 오픈 소스 커뮤니티에 참여해야 할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [http://apache.org](http://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](http://hadoop.apache.org/)).
+> Solr와 같은 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. Microsoft 지원은 사용자 지정 구성 요소의 문제를 해결하지 못할 수 있습니다. 도움을 받기 위해 오픈 소스 커뮤니티에 참여해야 할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [https://apache.org](https://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](https://hadoop.apache.org/)).
 
 ## <a name="what-the-script-does"></a>스크립트가 수행하는 작업
 
@@ -68,7 +68,7 @@ Solr이 설치된 클러스터를 만들려면 [HDInsight 클러스터 만들기
 ## <a name="usesolr"></a>HDInsight에서 Solr을 사용하는 방법
 
 > [!IMPORTANT]  
-> 이 섹션의 단계는 기본적 Solr 기능에 대해 설명합니다. Solr에 대한 자세한 내용은 [Apache Solr 사이트](http://lucene.apache.org/solr/)를 참조하십시오.
+> 이 섹션의 단계는 기본적 Solr 기능에 대해 설명합니다. Solr에 대한 자세한 내용은 [Apache Solr 사이트](https://lucene.apache.org/solr/)를 참조하십시오.
 
 ### <a name="index-data"></a>데이터 인덱싱
 

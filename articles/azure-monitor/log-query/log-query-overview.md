@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: bc37b3b60a5ad7f4e2b4794e4fcb74c1a5004b75
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 33f8547721f499ed7b9a81088681fc2ade2d030c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336886"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723538"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Azure Monitor의 Log Analytics 데이터 분석
 
@@ -95,7 +95,7 @@ union Update, workspace("contoso-workspace").Update
 ## <a name="how-log-analytics-data-is-organized"></a>Log Analytics 데이터 구성 방법
 쿼리를 작성하는 경우 원하는 데이터가 있는 테이블이 무엇인지 확인하는 것으로 시작합니다. 각기 다른 종류의 데이터가 각 [Log Analytics 작업 영역](../../azure-monitor/learn/quick-create-workspace.md)의 전용 테이블에 구분됩니다.  다양한 데이터 원본의 설명서에는 생성되는 데이터 형식의 이름 및 각 속성에 대한 설명이 포함되어 있습니다.  많은 쿼리의 경우 단일 테이블의 데이터만 필요하지만, 여러 테이블의 데이터를 포함하는 다양한 옵션이 사용되는 경우도 있습니다.
 
-[Application Insights](../../application-insights/app-insights-overview.md)는 요청, 예외, 추적 및 사용과 같은 응용 프로그램 데이터를 Log Analytics에 저장하지만, 이 데이터는 다른 로그 데이터와 다른 파티션에 저장됩니다. 동일한 쿼리 언어를 사용하여 이 데이터에 액세스하지만, [Application Insights 콘솔](../../application-insights/app-insights-analytics.md) 또는 [Application Insights REST API](https://dev.applicationinsights.io/)를 사용하여 액세스해야 합니다. [리소스 간 쿼리](../../azure-monitor/log-query/cross-workspace-query.md)를 사용하여 Application Insights 데이터를 Log Analytics의 다른 데이터와 결합할 수 있습니다.
+[Application Insights](../../application-insights/app-insights-overview.md)는 요청, 예외, 추적 및 사용과 같은 애플리케이션 데이터를 Log Analytics에 저장하지만, 이 데이터는 다른 로그 데이터와 다른 파티션에 저장됩니다. 동일한 쿼리 언어를 사용하여 이 데이터에 액세스하지만, [Application Insights 콘솔](../../azure-monitor/app/analytics.md) 또는 [Application Insights REST API](https://dev.applicationinsights.io/)를 사용하여 액세스해야 합니다. [리소스 간 쿼리](../../azure-monitor/log-query/cross-workspace-query.md)를 사용하여 Application Insights 데이터를 Log Analytics의 다른 데이터와 결합할 수 있습니다.
 
 
 ![테이블](media/log-query-overview/queries-tables.png)

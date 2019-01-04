@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 2f4bc578b567462c2591c28b270f863ba5756815
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 734b0cf9373ea98ab33c06b45ad53b46a3355dd6
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193912"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976021"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple 보안 및 데이터 보호
 
@@ -106,7 +106,7 @@ CHAP에 대한 자세한 내용 및 StorSimple을 구성하는 방법을 보려�
 
 ### <a name="storsimple-snapshot-manager-password"></a>StorSimple 스냅숏 관리자 암호
 
-StorSimple 스냅숏 관리자는 볼륨 그룹 및 Windows 볼륨 섀도 복사본 서비스를 사용하여 응용 프로그램에 일관된 백업을 생성하는 Microsoft Management Console (MMC) 스냅인입니다. 또한 백업 일정 및 복제를 만들거나 볼륨을 복원하려면 StorSimple 스냅숏 관리자를 사용할 수 있습니다.
+StorSimple 스냅숏 관리자는 볼륨 그룹 및 Windows 볼륨 섀도 복사본 서비스를 사용하여 애플리케이션에 일관된 백업을 생성하는 Microsoft Management Console (MMC) 스냅인입니다. 또한 백업 일정 및 복제를 만들거나 볼륨을 복원하려면 StorSimple 스냅숏 관리자를 사용할 수 있습니다.
 
 StorSimple 스냅숏 관리자를 사용하여 디바이스를 구성할 때 StorSimple Snapshot Manager 암호를 제공해야 합니다. 이 암호는 등록 중 StorSimple에 대한 Windows PowerShell에서 먼저 설정됩니다. StorSimple 디바이스 관리자 서비스에서 암호를 설정하고 변경할 수도 있습니다. 이 암호는 StorSimple Snapshot Manager 디바이스를 인증합니다.
 
@@ -121,7 +121,7 @@ StorSimple 스냅숏 관리자에 대한 자세한 내용을 보려면 [StorSimp
 StorSimple 암호를 강력하고 잘 보호되도록 만들기 위해서 다음 지침을 사용하는 것이 좋습니다.
 
 * 3개월 마다 암호를 변경합니다. 매년 암호 변경이 강제로 적용됩니다.
-* 강력한 암호를 사용합니다. 자세한 내용을 보려면 [보다 강력한 암호 만들기 및 보호](https://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/)로 이동하세요.
+* 강력한 암호를 사용합니다. 자세한 내용을 보려면 [보다 강력한 암호 만들기 및 보호](https://cloudblogs.microsoft.com/microsoftsecure/2014/08/25/create-stronger-passwords-and-protect-them/)로 이동하세요.
 * 서로 다른 액세스 메커니즘에 대해 항상 다른 암호를 사용합니다. 지정한 각 암호는 고유해야 합니다.
 * StorSimple 디바이스에 액세스할 권한이 없는 사용자와 암호를 공유하지 않습니다.
 * 다른 사람 앞에서 암호에 대해 얘기하거나 암호 형식에 대한 힌트를 제공하지 마세요.

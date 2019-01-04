@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 9ad161e3e19a1e546f30a17b38737fa88bc0953a
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 0ccb502cd5ae21468e52bdc4d56202a595cd19ef
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53399935"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594375"
 ---
 [가상 머신 확장 집합](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)과 [Azure Monitor의 자동 조정 기능](../articles/azure-monitor/platform/autoscale-overview.md)을 사용하면 [VM(가상 머신)](../articles/virtual-machines/windows/overview.md)을 쉽게 [자동으로 크기 조정](../articles/azure-monitor/platform/autoscale-best-practices.md)할 수 있습니다. VM은 자동으로 크기 조정되도록 설정된 확장 집합의 멤버여야 합니다. 이 문서에서는 자동 및 수동 방법을 사용하여 VM을 수직 및 수평으로 확장하는 방법을 더 잘 이해할 수 있는 정보를 제공합니다.
 
@@ -29,7 +29,7 @@ Azure Monitor의 자동 크기 조정 기능은 수평으로만 확장하며, �
 
 자동 크기 조정에서는 애플리케이션의 부하를 처리하는 데 적절한 VM 수를 제공합니다. 이렇게 하면 VM을 추가하여 늘어난 부하를 처리하고, 유휴 상태로 있는 VM을 제거하여 비용을 절약할 수 있습니다. 규칙 집합에 따라 실행할 VM의 최소 및 최대 수를 지정합니다. 최소값을 설정하면 애플리케이션이 항상 부하가 적은 상태에서 실행될 수 있습니다. 최대값을 설정하면 시간당 가능한 총 비용이 제한됩니다.
 
-[Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings)를 사용하여 확장 집합을 만들 때 자동 크기 조정을 사용하도록 설정할 수 있습니다. 확장 집합을 만든 후에도 이와 같이 설정할 수 있습니다. [Azure Resource Manager 템플릿](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)을 사용하여 확장 집합을 만들고, 확장을 설치하고, 자동 크기 조정을 구성할 수 있습니다. Azure Portal에서 Azure Monitor를 통해 자동 크기 조정을 사용하도록 설정하거나, 확장 집합 설정에서 자동 크기 조정을 사용하도록 설정합니다.
+[Azure PowerShell](../articles/azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings)를 사용하여 확장 집합을 만들 때 자동 크기 조정을 사용하도록 설정할 수 있습니다. 확장 집합을 만든 후에도 이와 같이 설정할 수 있습니다. [Azure Resource Manager 템플릿](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)을 사용하여 확장 집합을 만들고, 확장을 설치하고, 자동 크기 조정을 구성할 수 있습니다. Azure Portal에서 Azure Monitor를 통해 자동 크기 조정을 사용하도록 설정하거나, 확장 집합 설정에서 자동 크기 조정을 사용하도록 설정합니다.
 
 ![자동 크기 조정 사용](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  

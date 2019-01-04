@@ -4,19 +4,19 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 30b5ae499d29b8b78b5852074362841ac1ceb49f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: e087a1db008422aeec8fd4e073a7476eebe4d54b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134055"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53729410"
 ---
 1. [Azure Portal]에 로그인합니다.
 2. **+새로 만들기** > **웹 + 모바일** > **모바일 앱**을 선택한 다음, Mobile Apps 백 엔드에 대한 이름을 제공합니다.
 3. **리소스 그룹**의 경우 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다(앱과 같은 이름을 사용하여). 
 4. **App Service 계획**의 경우 기본 계획([표준 계층](https://azure.microsoft.com/pricing/details/app-service/)에)이 선택되어 있습니다. 또한 다른 계획을 선택하거나 [새 계획을 만들 수 있습니다](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan). 
 
-   App Service 계획의 설정에 따라 앱과 연결된 [위치, 기능, 비용 및 계산 리소스](https://azure.microsoft.com/pricing/details/app-service/) 가 결정됩니다. App Service 계획에 대한 자세한 내용과 다른 가격 책정 계층 및 원하는 위치에서 새 계획을 만드는 방법은 [Azure App Service 계획의 포괄 개요](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)를 참조하세요.
+   App Service 계획의 설정에 따라 앱과 연결된 [위치, 기능, 비용 및 계산 리소스](https://azure.microsoft.com/pricing/details/app-service/) 가 결정됩니다. App Service 계획에 대한 자세한 내용과 다른 가격 책정 계층 및 원하는 위치에서 새 계획을 만드는 방법은 [Azure App Service 계획의 포괄 개요](../articles/app-service/overview-hosting-plans.md)를 참조하세요.
    
 5. **만들기**를 선택합니다. 이 단계에서는 Mobile Apps 백 엔드를 만듭니다. 
 6. 새로운 Mobile Apps 백 엔드에 대한 **설정** 창에서 **빠른 시작** > 클라이언트 앱 플랫폼 > **데이터베이스 연결**을 선택합니다. 

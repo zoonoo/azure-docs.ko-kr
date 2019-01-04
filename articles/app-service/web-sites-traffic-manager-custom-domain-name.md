@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 35493d9a7f47bda3344dbc8b0ea415d4492c5741
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5431372abb9a1157b322a8af4a07ba5fa15d8e8e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340059"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720463"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Traffic Manager를 사용하는 Azure App Service의 웹앱에 대한 사용자 지정 도메인 이름 구성
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 [!INCLUDE [intro](../../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-이 문서에서는 부하 분산을 위해 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)와 통합된 [App Service](app-service-web-overview.md) 앱에서 사용자 지정 도메인 이름을 사용하는 일반 지침을 제공합니다.
+이 문서에서는 부하 분산을 위해 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)와 통합된 [App Service](overview.md) 앱에서 사용자 지정 도메인 이름을 사용하는 일반 지침을 제공합니다.
 
 [!INCLUDE [tmwebsitefooter](../../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
@@ -47,7 +47,7 @@ ms.locfileid: "53340059"
 
 ## <a name="add-a-dns-record-for-your-custom-domain"></a>사용자 지정 도메인에 대한 DNS 레코드 추가
 > [!NOTE]
-> Azure App Service Web Apps를 통해 도메인을 구입한 경우 다음 단계를 생략하고 [Web Apps 도메인 구입](custom-dns-web-site-buydomains-web-app.md) 문서의 최종 단계를 참조하세요.
+> Azure App Service Web Apps를 통해 도메인을 구입한 경우 다음 단계를 생략하고 [Web Apps 도메인 구입](manage-custom-dns-buy-domain.md) 문서의 최종 단계를 참조하세요.
 > 
 > 
 

@@ -1,19 +1,17 @@
 ---
 title: Azure Database for PostgreSQL의 모니터링 및 튜닝
 description: 이 문서에서는 Azure Database for PostgreSQL의 모니터링 및 튜닝 기능을 설명합니다.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: b8d5526b258e70238bf8d5e4dc91ab02f403368e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c412ace453eb37646654375454d80a5c4e8dc3a6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843685"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540914"
 ---
 # <a name="monitor-and-tune"></a>모니터링 및 튜닝
 서버에 대한 데이터를 모니터링하면 워크로드에 대한 문제를 해결하고 최적화할 수 있습니다. Azure Database for PostgreSQL은 서버 동작에 대한 인사이트를 제공하기 위해 다양한 모니터링 옵션을 제공합니다.

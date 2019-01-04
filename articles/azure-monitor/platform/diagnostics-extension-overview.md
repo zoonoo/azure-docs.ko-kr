@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 3b7b06b7ab9076b992e6e3349763d633f9b255ef
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: dc8b8e37224201062d0cf53174f3248f04ca0cc3
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338161"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789759"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Azure 진단 확장이란?
 Azure 진단 확장은 배포된 애플리케이션에서 진단 데이터를 수집할 수 있도록 하는 Azure 내의 에이전트입니다. 다양한 원본에서 진단 확장을 사용할 수 있습니다. Azure Cloud Service(클래식) 웹 및 작업자 역할, Virtual Machines, 가상 머신 확장 집합 및 Service Fabric에서 현재 지원되고 있습니다. 다른 Azure 서비스에는 여러 진단 메서드가 있습니다. [Azure의 모니터링 개요](../../azure-monitor/overview.md)를 참조하세요.
@@ -28,7 +28,7 @@ Azure 진단 확장은 다음과 같은 유형의 데이터를 수집할 수 있
 | 데이터 원본 | 설명 |
 | --- | --- |
 | 성능 카운터 |운영 체제 및 사용자 지정 성능 카운터 |
-| 애플리케이션 로그 |애플리케이션에서 작성한 메시지 추적 |
+| 애플리케이션 로그 전송 사용 |애플리케이션에서 작성한 메시지 추적 |
 | Windows 이벤트 로그 |Windows 이벤트 로깅 시스템으로 전송된 정보 |
 | .NET 이벤트 원본 |.NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 클래스를 사용하여 이벤트를 작성하는 코드 |
 | IIS 로그 |IIS 웹 사이트에 대한 정보 |
@@ -42,7 +42,7 @@ Azure 진단 확장은 다음과 같은 유형의 데이터를 수집할 수 있
 ## <a name="data-storage"></a>데이터 저장소
 확장은 해당 데이터를 지정한 [Azure Storage 계정](diagnostics-extension-to-storage.md)에 저장합니다.
 
-이 데이터를 [Application Insights](../../application-insights/app-insights-cloudservices.md)에 보낼 수도 있습니다. 또한 [이벤트 허브](../../event-hubs/event-hubs-about.md)로 스트리밍할 수도 있습니다. 그러면 비 Azure 모니터링 서비스에 보낼 수 있습니다.
+이 데이터를 [Application Insights](../../azure-monitor/app/cloudservices.md)에 보낼 수도 있습니다. 또한 [이벤트 허브](../../event-hubs/event-hubs-about.md)로 스트리밍할 수도 있습니다. 그러면 비 Azure 모니터링 서비스에 보낼 수 있습니다.
 
 ### <a name="azure-monitor"></a>Azure Monitor
 Azure Monitor에 데이터를 보낼 수도 있습니다. 지금은 성능 카운터에만 이 싱크가 적용됩니다. 이 싱크를 통해 VM, VMSS 또는 클라우드 서비스에 수집된 성능 카운터를 Azure Monitor에 사용자 지정 메트릭으로 보낼 수 있습니다. Azure Monitor 싱크는 다음을 지원합니다.
@@ -62,12 +62,12 @@ Azure Monitor에 데이터를 보낼 수도 있습니다. 지금은 성능 카�
 ## <a name="cloud-services-using-azure-diagnostics"></a>Azure 진단을 사용하는 Cloud Services
 * Visual Studio를 사용하는 경우 시작하려면 [Visual Studio를 사용하여 Cloud Services 애플리케이션 추적](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines)을 참조하세요. 그렇지 않은 경우 다음을 참조하세요.
 * [Azure 진단을 사용하여 클라우드 서비스를 모니터링하는 방법](../../cloud-services/cloud-services-how-to-monitor.md)
-* [Cloud Services 응용 프로그램에서 Azure 진단 설정](../../cloud-services/cloud-services-dotnet-diagnostics.md)
+* [Cloud Services 애플리케이션에서 Azure 진단 설정](../../cloud-services/cloud-services-dotnet-diagnostics.md)
 
 고급 항목의 경우 다음을 참조하세요.
 
-* [Cloud Services용 Application Insights에서 Azure 진단 사용](../../application-insights/app-insights-cloudservices.md)
-* [Azure 진단으로 Cloud Services 응용 프로그램의 흐름 추적](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
+* [Cloud Services용 Application Insights에서 Azure 진단 사용](../../azure-monitor/app/cloudservices.md)
+* [Azure 진단으로 Cloud Services 애플리케이션의 흐름 추적](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 * [PowerShell을 사용하여 Cloud Services에 진단 설정](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="virtual-machines"></a>Virtual Machines
@@ -80,7 +80,7 @@ Azure Monitor에 데이터를 보낼 수도 있습니다. 지금은 성능 카�
 * [Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 기능으로 Windows 가상 머신 만들기](../../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="service-fabric"></a>Service Fabric
-[Service Fabric 응용 프로그램 모니터링](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)에서 시작합니다. 이 문서를 사용하면 왼쪽의 탐색 트리에서 다른 여러 서비스 패브릭 진단 문서를 사용할 수 있습니다.
+[서비스 패브릭 애플리케이션 모니터링](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)에서 시작합니다. 이 문서를 사용하면 왼쪽의 탐색 트리에서 다른 여러 서비스 패브릭 진단 문서를 사용할 수 있습니다.
 
 ## <a name="general-articles"></a>일반 문서
 * [Azure 진단에서 성능 카운터 사용](../../cloud-services/diagnostics-performance-counters.md)에 대해 알아봅니다.

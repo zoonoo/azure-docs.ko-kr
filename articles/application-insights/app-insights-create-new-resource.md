@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3c3ff606958503efcf2df5fd99b6e52e4687de4a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 68155b69c1122d645eca5fe121d32bd9353db2da
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996248"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002725"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 Azure Application Insights는 Microsoft Azure *리소스*에 애플리케이션에 대한 데이터를 표시합니다. 따라서 새 리소스 만들기는 [새 애플리케이션을 모니터링하도록 Application Insights를 설정][start]하는 과정에 포함됩니다. 대부분의 경우에 리소스를 만드는 작업은 IDE에 의해 자동으로 할 수 있습니다. 하지만 일부 경우에는 리소스를 수동으로 만듭니다. 예를 들어, 애플리케이션의 제품 개발과 빌드를 위한 별도의 리소스가 있습니다.
@@ -36,7 +36,7 @@ Azure Application Insights는 Microsoft Azure *리소스*에 애플리케이션�
 
 ![새로 만들기, Application Insights 클릭](./media/app-insights-create-new-resource/01-new.png)
 
-* **응용 프로그램 유형**은 개요 블레이드에 표시되는 내용 및 [메트릭 탐색기][metrics]에서 사용할 수 있는 속성에 영향을 줍니다. 앱 유형이 표시되지 않으면 일반을 선택합니다.
+* **애플리케이션 유형**은 개요 블레이드에 표시되는 내용 및 [메트릭 탐색기][metrics]에서 사용할 수 있는 속성에 영향을 줍니다. 앱 유형이 표시되지 않으면 일반을 선택합니다.
 * **구독** 은 Azure의 지불 계정입니다.
 * **리소스 그룹** 은 액세스 제어와 같은 속성을 관리하기 위한 편의 기능입니다. 이미 다른 Azure 리소스를 만든 경우 동일한 그룹에 이 새 리소스를 두도록 선택할 수 있습니다.
 * **위치** 는 데이터를 보관하는 곳입니다.
@@ -66,18 +66,18 @@ SDK는 표준 모듈을 포함하고 있기 때문에 원격 분석을 전송할
 더 많은 데이터를 보려면 몇 초 후에 **새로 고침**을 클릭합니다.
 
 ## <a name="creating-a-resource-automatically"></a>자동으로 리소스 만들기
-리소스를 자동으로 만드는 [PowerShell 스크립트](app-insights-powershell.md) 를 작성할 수 있습니다.
+리소스를 자동으로 만드는 [PowerShell 스크립트](../azure-monitor/app/powershell.md) 를 작성할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [대시보드 만들기](app-insights-dashboards.md)
-* [진단 검색](app-insights-diagnostic-search.md)
-* [메트릭 탐색](app-insights-metrics-explorer.md)
-* [분석 쿼리 작성](app-insights-analytics.md)
+* [대시보드 만들기](../azure-monitor/app/app-insights-dashboards.md)
+* [진단 검색](../azure-monitor/app/diagnostic-search.md)
+* [메트릭 탐색](../azure-monitor/app/metrics-explorer.md)
+* [분석 쿼리 작성](../azure-monitor/app/analytics.md)
 
 <!--Link references-->
 
-[api]: app-insights-api-custom-events-metrics.md
-[diagnostic]: app-insights-diagnostic-search.md
-[metrics]: app-insights-metrics-explorer.md
+[api]: ../azure-monitor/app/api-custom-events-metrics.md
+[diagnostic]: ../azure-monitor/app/diagnostic-search.md
+[metrics]: ../azure-monitor/app/metrics-explorer.md
 [start]: app-insights-overview.md
 

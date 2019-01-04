@@ -4,22 +4,22 @@ description: Microsoft 부드러운 스트리밍 클라이언트 포팅 키트�
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: femila
+manager: steveng
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: ec354cc91b22905c399d7bb19107db1b94e9925f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7b3f6410e65e9a43578d50d6aacaec0ea4ec4684
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136276"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753492"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계 
 
@@ -222,7 +222,7 @@ Azure AD에 대한 내용:
 ### <a name="some-issues-in-implementation"></a>구현에 대한 몇 가지 문제
 구현 문제에 대한 도움을 얻으려면 다음 문제 해결 정보를 참조하세요.
 
-* 발급자 URL는 "/"로 끝나야 합니다. 대상은 플레이어 응용 프로그램 클라이언트 ID여야 하고 발급자 URL 끝에 "/"를 추가해야 합니다.
+* 발급자 URL는 "/"로 끝나야 합니다. 대상은 플레이어 애플리케이션 클라이언트 ID여야 합니다. 발급자 URL 끝에 "/"를 추가해야 합니다.
 
         <add key="ida:audience" value="[Application Client ID GUID]" />
         <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
@@ -245,7 +245,7 @@ Azure AD에 대한 내용:
 
     GUID는 Azure AD 테넌트 ID입니다. Azure Porta의 **끝점** 팝업 창에서 GUID를 찾을 수 있습니다.
 
-* 그룹 멤버 자격 클레임 권한을 부여합니다. Azure AD 응용 프로그램 매니페스트 파일에서 다음이 있는지 확인합니다. 
+* 그룹 멤버 자격 클레임 권한을 부여합니다. Azure AD 애플리케이션 매니페스트 파일에서 다음이 있는지 확인합니다. 
 
     “groupMembershipClaims”: “All”(기본값은 null임)
 
@@ -266,25 +266,25 @@ ASP.NET MVC 플레이어 응용 프로그램은 다음을 지원해야 합니다
 * 클라이언트 및 Azure AD 간 JWT 교환이 HTTPS를 사용해야 함
 * Media Services에서 라이선스 배달이 제공된 경우 클라이언트에 의한 DRM 라이선스 획득 시 HTTPS를 사용해야 함. PlayReady 제품군은 라이선스 배달에 대한 HTTPS를 위임하지 않습니다. PlayReady 라이선스 서버가 Media Services 외부에 있는 경우 HTTP 또는 HTTPS를 사용할 수 있습니다.
 
-ASP.NET 플레이어 응용 프로그램은 HTTPS를 사용하는 것이 가장 좋으므로 Media Player는 HTTPS를 사용하는 페이지에 있게 됩니다. 그러나 스트리밍의 경우 HTTP를 선호하므로 콘텐츠 혼합 문제를 고려해야 합니다.
+ASP.NET 플레이어 애플리케이션은 HTTPS를 사용하는 것이 가장 좋으므로 Media Player는 HTTPS를 사용하는 페이지에 있게 됩니다. 그러나 스트리밍의 경우 HTTP를 선호하므로 콘텐츠 혼합 문제를 고려해야 합니다.
 
 * 브라우저에서는 혼합 콘텐츠를 허용하지 않습니다. 하지만 Silverlight과 같은 플러그인, 부드러운 스트리밍을 위한 OSMF 플러그인 및 DASH는 허용합니다. 악성 JavaScript를 주입할 수 있는 위협으로 인해 고객 데이터가 위험해질 수 있으므로 혼합 콘텐츠는 보안 문제를 발생할 수 있습니다. 브라우저는 기본적으로 이 기능을 차단합니다. 이 문제를 해결하는 유일한 방법이 서버(원본) 쪽에서 HTTPS 또는 HTTP에 관계없이 모든 도메인을 허용하는 것입니다. 하지만 좋은 방법은 아닙니다.
-* 혼합 콘텐츠를 피해야 합니다. 플레이어 응용 프로그램과 Media Player 둘 다 HTTP 또는 HTTPS를 사용해야 합니다. 혼합된 콘텐츠를 재생할 때 silverlightSS 기술은 혼합된 콘텐츠 경고를 지워야 합니다. flashSS 기술은 혼합된 콘텐츠 경고 없이 혼합된 콘텐츠를 처리합니다.
+* 혼합 콘텐츠를 피해야 합니다. 플레이어 애플리케이션과 Media Player 둘 다 HTTP 또는 HTTPS를 사용해야 합니다. 혼합된 콘텐츠를 재생할 때 silverlightSS 기술은 혼합된 콘텐츠 경고를 지워야 합니다. flashSS 기술은 혼합된 콘텐츠 경고 없이 혼합된 콘텐츠를 처리합니다.
 * 스트리밍 엔드포인트가 2014년 8월 전에 만들어진 경우 HTTPS를 지원하지 않습니다. 이 경우 HTTPS에 대한 새 스트리밍 엔드포인트를 만들어 사용하세요.
 
-참조 구현에서 DRM으로 보호된 콘텐츠에서는 응용 프로그램 및 스트리밍이 모두 HTTPS를 사용합니다. 개방 콘텐츠의 경우 플레이어에서 인증 또는 라이선스가 필요하지 않으므로 HTTP 또는 HTTPS를 사용할 수 있습니다.
+참조 구현에서 DRM으로 보호된 콘텐츠에서는 애플리케이션 및 스트리밍이 모두 HTTPS를 사용합니다. 개방 콘텐츠의 경우 플레이어에서 인증 또는 라이선스가 필요하지 않으므로 HTTP 또는 HTTPS를 사용할 수 있습니다.
 
 ### <a name="what-is-azure-active-directory-signing-key-rollover"></a>Azure Active Directory 서명 키 롤오버란?
 서명 키 롤오버는 구현 시 중요한 고려 사항입니다. 이를 고려하지 않으면 완료된 시스템은 결국 6주 이내에 완전히 중지됩니다.
 
-Azure AD에서는 업계 표준을 사용하여 Azure AD 자체와 Azure AD를 사용하는 응용 프로그램 간에 신뢰를 설정합니다. 특히, Azure AD는 공개 및 개인 키 쌍으로 구성된 서명 키를 사용합니다. Azure AD에서 사용자에 대한 정보가 포함된 보안 토큰을 만드는 경우 응용 프로그램으로 다시 전송되기 전에 Azure AD에 의해 개인 키를 사용하여 서명됩니다. 해당 토큰이 유효하고 Azure AD에서 발생한 것인지 확인하기 위해 응용 프로그램은 토큰 서명이 유효한지 검사해야 합니다. 응용 프로그램은 테넌트의 페더레이션 메타데이터 문서에 포함된 Azure AD에 의해 노출되는 공개 키를 사용합니다. 이 공개 키와 이로부터 파생된 서명 키는 Azure AD의 모든 테넌트에 사용된 것과 같습니다.
+Azure AD에서는 업계 표준을 사용하여 Azure AD 자체와 Azure AD를 사용하는 응용 프로그램 간에 신뢰를 설정합니다. 특히, Azure AD는 공개 및 개인 키 쌍으로 구성된 서명 키를 사용합니다. Azure AD에서 사용자에 대한 정보가 포함된 보안 토큰을 만드는 경우 응용 프로그램으로 다시 전송되기 전에 Azure AD에 의해 개인 키를 사용하여 서명됩니다. 해당 토큰이 유효하고 Azure AD에서 발생한 것인지 확인하기 위해 애플리케이션은 토큰 서명이 유효한지 검사해야 합니다. 애플리케이션은 테넌트의 페더레이션 메타데이터 문서에 포함된 Azure AD에 의해 노출되는 공개 키를 사용합니다. 이 공개 키와 이로부터 파생된 서명 키는 Azure AD의 모든 테넌트에 사용된 것과 같습니다.
 
 Azure AD 키 롤오버에 대한 자세한 내용은 [Azure AD의 서명 키 롤오버에 대한 중요한 정보](../../active-directory/active-directory-signing-key-rollover.md)를 참조하세요.
 
 [공개-개인 키 쌍](https://login.microsoftonline.com/common/discovery/keys/)중에서,
 
 * Azure AD가 JWT를 생성하는 데 개인 키가 사용됩니다.
-* Media Services의 DRM 라이선스 배달 서비스와 같은 응용 프로그램에서 JWT를 확인하는 데 공개 키가 사용됩니다.
+* Media Services의 DRM 라이선스 배달 서비스와 같은 애플리케이션에서 JWT를 확인하는 데 공개 키가 사용됩니다.
 
 보안을 위해 Azure AD는 이 인증서를 주기적(6주마다)으로 바꿉니다. 보안 침해가 발생하는 경우에는 언제든지 키 롤오버가 발생할 수 있습니다. 따라서 Media Services의 라이선스 배달 서비스는 Azure AD에서 키 쌍을 순환하므로 사용된 공개 키를 업데이트해야 합니다. 그렇지 않을 경우, Media Services의 토큰 인증이 실패하고 라이선스가 발급되지 않습니다
 
@@ -304,32 +304,32 @@ Azure AD가 JWT를 생성한 후, 플레이어가 확인을 위해 JWT를 Media 
 키는 언제든지 롤오버될 수 있으므로 페더레이션 메타데이터 문서에는 사용 가능한 공개 키가 항상 두 개 이상 있습니다. Media Services 라이선스 배달에서는 문서에 지정된 아무 키나 사용할 수 있습니다. 하나의 키가 곧 롤오버되고 다른 키가 대체될 수 있기 때문입니다.
 
 ### <a name="where-is-the-access-token"></a>액세스 토큰 위치
-웹앱에서 [OAuth 2.0 클라이언트 자격 증명 권한을 사용한 응용 프로그램 ID](../../active-directory/develop/web-api.md)로 API 앱을 호출하는 방식을 살펴보면 인증 흐름은 다음과 같습니다.
+웹앱에서 [OAuth 2.0 클라이언트 자격 증명 권한을 사용한 애플리케이션 ID](../../active-directory/develop/web-api.md)로 API 앱을 호출하는 방식을 살펴보면 인증 흐름은 다음과 같습니다.
 
-* 사용자가 웹 응용 프로그램에서 Azure AD에 로그인합니다. 자세한 내용은 [웹 브라우저-웹 응용 프로그램](../../active-directory/develop/web-app.md)을 참조하세요.
+* 사용자가 웹 애플리케이션에서 Azure AD에 로그인합니다. 자세한 내용은 [웹 브라우저-웹 응용 프로그램](../../active-directory/develop/web-app.md)을 참조하세요.
 * Azure AD 권한 부여 엔드포인트는 사용자 에이전트를 인증 코드와 함께 클라이언트 애플리케이션으로 리디렉션합니다. 사용자 에이전트는 인증 코드를 클라이언트 응용 프로그램의 리디렉션 URI로 반환합니다.
 * 웹 애플리케이션이 웹 API에 인증하고 원하는 리소스를 검색할 수 있도록 액세스 토큰을 획득해야 합니다. Azure AD의 토큰 끝점에 요청하여 자격 증명, 클라이언트 ID, 웹 API의 응용 프로그램 ID URI를 제공합니다. 사용자가 동의했음을 증명하는 인증 코드를 표시합니다.
-* Azure AD가 응용 프로그램을 인증하고 웹 API를 호출하는 데 사용되는 JWT 액세스 토큰을 반환합니다.
-* HTTPS를 통해 웹 응용 프로그램이 반환된 JWT 액세스 토큰을 사용해서 웹 API에 대한 요청의 “권한 부여” 헤더에 “전달자”를 지정한 JWT 문자열을 추가합니다. 그런 후 웹 API에는 JWT의 유효성을 검사합니다. 유효성 검사가 성공하면 원하는 리소스를 반환합니다.
+* Azure AD가 애플리케이션을 인증하고 웹 API를 호출하는 데 사용되는 JWT 액세스 토큰을 반환합니다.
+* HTTPS를 통해 웹 애플리케이션이 반환된 JWT 액세스 토큰을 사용해서 웹 API에 대한 요청의 “권한 부여” 헤더에 “전달자”를 지정한 JWT 문자열을 추가합니다. 그런 후 웹 API에는 JWT의 유효성을 검사합니다. 유효성 검사가 성공하면 원하는 리소스를 반환합니다.
 
 이 응용 프로그램 ID 흐름에서 웹 API는 웹 응용 프로그램이 해당 사용자를 인증했음을 신뢰합니다. 이런 이유로, 이 패턴을 신뢰할 수 있는 하위 시스템이라고 합니다. [권한 부여 흐름 다이어그램](https://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-code)은 인증 코드 부여 흐름이 작동하는 방식을 설명합니다.
 
 토큰 제한으로 라이선스 획득 시 동일한 신뢰할 수 있는 하위 시스템 패턴을 따릅니다. Media Services의 라이선스 배달 서비스가 웹 API 리소스이거나 웹 응용 프로그램이 액세스해야 하는 "백 엔드 리소스"입니다. 그렇다면 액세스 토큰은 어디에 있을까요?
 
-Azure AD에서 액세스 토큰을 가져옵니다. 사용자 인증에 성공하면 인증 코드가 반환됩니다. 그런 다음 액세스 토큰 교환을 위해 인증 코드가 클라이언트 ID 및 앱 키와 함께 사용됩니다. 액세스 토큰은 Media Services 라이선스 배달 서비스를 가리키거나 나타내는 "포인터" 응용 프로그램에 액세스하는 데 사용됩니다.
+Azure AD에서 액세스 토큰을 가져옵니다. 사용자 인증에 성공하면 인증 코드가 반환됩니다. 그런 다음 액세스 토큰 교환을 위해 인증 코드가 클라이언트 ID 및 앱 키와 함께 사용됩니다. 액세스 토큰은 Media Services 라이선스 배달 서비스를 가리키거나 나타내는 "포인터" 애플리케이션에 액세스하는 데 사용됩니다.
 
 Azure AD에서 포인터 앱을 등록 및 구성하려면 다음 단계를 따릅니다.
 
 1. Azure AD 테넌트에서
 
-   * 로그온 URL https://[resource_name].azurewebsites.net/을 사용하여 응용 프로그램(리소스)을 추가합니다. 
+   * 로그온 URL https://[resource_name].azurewebsites.net/을 사용하여 애플리케이션(리소스)을 추가합니다. 
    * URL https://[aad_tenant_name].onmicrosoft.com/[resource_name]을 사용하여 앱 ID를 추가합니다.
 
 2. 리소스 앱에 대한 새 키를 추가합니다.
 
 3. groupMembershipClaims 속성이 “groupMembershipClaims”: “All”을 포함하도록 앱 매니페스트 파일을 업데이트합니다.
 
-4. 플레이어 웹앱을 가리키는 Azure AD 앱의 **다른 응용 프로그램에 대한 권한** 섹션에서 1단계에서 추가한 리소스 앱을 추가합니다. **위임된 권한**에서 **[resource_name] 액세스**를 선택합니다. 이 옵션은 리소스 앱에 액세스하는 액세스 토큰을 만드는 웹앱 권한을 제공합니다. Visual Studio 및 Azure Web App으로 개발 중이라면 웹앱의 로컬 및 배포된 버전 모두에 대해 이 작업을 수행합니다.
+4. 플레이어 웹앱을 가리키는 Azure AD 앱의 **다른 애플리케이션에 대한 권한** 섹션에서 1단계에서 추가한 리소스 앱을 추가합니다. **위임된 권한**에서 **[resource_name] 액세스**를 선택합니다. 이 옵션은 리소스 앱에 액세스하는 액세스 토큰을 만드는 웹앱 권한을 제공합니다. Visual Studio 및 Azure Web App으로 개발 중이라면 웹앱의 로컬 및 배포된 버전 모두에 대해 이 작업을 수행합니다.
 
 Azure AD에서 발급한 JWT가 포인터 리소스에 액세스하는 데 사용되는 액세스 토큰입니다.
 
@@ -425,7 +425,7 @@ Windows 8.1 이상의 Internet Explorer 11, Windows 10의 Microsoft Edge 브라�
 
 Windows 10의 Microsoft Edge 및 Internet Explorer 11에 있는 EME를 통해 이를 지원하는 Windows 10 디바이스에서 [PlayReady SL3000](https://www.microsoft.com/playready/features/EnhancedContentProtection.aspx/)을 호출할 수 있습니다. PlayReady SL3000은 향상된 프리미엄 콘텐츠(4K, HDR) 흐름 및 새 콘텐츠 배달 모델(향상된 콘텐츠용)의 잠금을 해제합니다.
 
-Windows 디바이스에 집중: PlayReady는 Windows 디바이스(PlayReady SL3000)에서 사용 가능한 하드웨어의 유일한 DRM입니다. 스트리밍 서비스는 EME 또는 유니버설 Windows 플랫폼 응용 프로그램을 통해 PlayReady를 사용하고 PlayReady SL3000을 사용하여 다른 DRM보다 더 높은 화질을 제공할 수 있습니다. 일반적으로 2K 이내의 콘텐츠는 Chrome 또는 Firefox를 통해 흐르고, 4K 이내의 콘텐츠는 동일한 디바이스의 Microsoft Edge/Internet Explorer 11 또는 유니버설 Windows 플랫폼 응용 프로그램을 통해 흐릅니다. 그 양은 서비스 설정 및 구현에 따라 다릅니다.
+Windows 디바이스에 집중: PlayReady는 Windows 디바이스(PlayReady SL3000)에서 사용 가능한 하드웨어의 유일한 DRM입니다. 스트리밍 서비스는 EME 또는 유니버설 Windows 플랫폼 애플리케이션을 통해 PlayReady를 사용하고 PlayReady SL3000을 사용하여 다른 DRM보다 더 높은 화질을 제공할 수 있습니다. 일반적으로 2K 이내의 콘텐츠는 Chrome 또는 Firefox를 통해 흐르고, 4K 이내의 콘텐츠는 동일한 디바이스의 Microsoft Edge/Internet Explorer 11 또는 유니버설 Windows 플랫폼 응용 프로그램을 통해 흐릅니다. 그 양은 서비스 설정 및 구현에 따라 다릅니다.
 
 #### <a name="use-eme-for-widevine"></a>Widevine에 EME 사용
 Windows 10, Windows 8.1, Mac OSX Yosemite의 Chrome 41 이상, Android 4.4.4의 Chrome과 같이 EME/Widevine을 지원하는 최신 브라우저에서는 Google Widevine이 EME 뒤의 DRM입니다.
@@ -439,7 +439,7 @@ Widevine은 보호된 비디오의 화면 캡처 만들기를 차단하지 않�
 #### <a name="use-eme-for-fairplay"></a>FairPlay용 EME 사용
 마찬가지로 macOS 또는 iOS 11.2 이상의 Safari의 이 테스트 플레이어에서 FairPlay로 보호된 콘텐츠를 테스트할 수 있습니다.
 
-protectionInfo.type으로 "FairPlay"를 입력하고 FPS AC 경로(FairPlay 스트리밍 응용 프로그램 인증서 경로)에 응용 프로그램 인증서에 대한 올바른 URL을 입력해야 합니다.
+protectionInfo.type으로 "FairPlay"를 입력하고 FPS AC 경로(FairPlay 스트리밍 애플리케이션 인증서 경로)에 애플리케이션 인증서에 대한 올바른 URL을 입력해야 합니다.
 
 ### <a name="unentitled-users"></a>자격이 없는 사용자
 사용자가 "Entitled Users" 그룹의 구성원이 아닌 경우 사용자는 자격 확인을 통과하지 못합니다. 그러면 다중 DRM 라이선스 서비스는 아래 표시된 것처럼 요청된 라이선스의 발급을 거부합니다. 자세한 설명은 설계된 대로 "라이선스 획득 실패"입니다.

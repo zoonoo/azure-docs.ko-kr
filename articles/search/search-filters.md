@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d99196e231d122fcb0e707d30aed4d3b3eb2b89d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 539a7fc5b9d3038424059f1ee599c6966a968781
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310354"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629600"
 ---
 # <a name="filters-in-azure-search"></a>Azure Search의 필터 
 
@@ -50,7 +50,7 @@ ms.locfileid: "53310354"
 
  + `searchFields` 쿼리 매개 변수는 검색을 특정 필드로 고정합니다. 예를 들어, 인덱스에서 영어와 스페인어 설명을 위한 별도의 필드를 제공하는 경우 searchFields를 사용하여 전체 텍스트 검색에 사용할 대상 필드를 지정할 수 있습니다. 
 
-+ `$select` 매개 변수는 결과 집합에 포함할 필드를 지정하는 데 사용되며 호출 응용 프로그램에 보내기 전에 효과적으로 응답을 조정합니다. 이 매개 변수는 쿼리를 구체화하거나 문서 컬렉션을 줄이지 않지만 세부적인 응답이 목표인 경우 이 매개 변수 옵션을 고려할 수 있습니다. 
++ `$select` 매개 변수는 결과 집합에 포함할 필드를 지정하는 데 사용되며 호출 애플리케이션에 보내기 전에 효과적으로 응답을 조정합니다. 이 매개 변수는 쿼리를 구체화하거나 문서 컬렉션을 줄이지 않지만 세부적인 응답이 목표인 경우 이 매개 변수 옵션을 고려할 수 있습니다. 
 
 두 매개 변수에 대한 자세한 내용은 [문서 검색 > 요청 > 쿼리 매개 변수](https://docs.microsoft.com/rest/api/searchservice/search-documents#request)를 참조하세요.
 
@@ -96,7 +96,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ## <a name="filter-design-patterns"></a>필터 디자인 패턴
 
-다음 예제에는 필터 시나리오에 대한 여러 디자인 패턴이 나와 있습니다. 자세한 내용은 [OData 식 구문 > 예제](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples)를 참조하세요.
+다음 예제에는 필터 시나리오에 대한 여러 디자인 패턴이 나와 있습니다. 자세한 내용은 [OData 식 구문 > 예제](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)를 참조하세요.
 
 + 독립 실행형 **$filter**는 쿼리 문자열 없이, 필터 식이 관심 있는 문서를 정규화할 수 있을 때 유용합니다. 쿼리 문자열이 없으면 어휘 또는 언어 분석, 점수 매기기 및 순위 지정 등이 없으며 검색 문자열은 비어 있습니다.
 
@@ -192,7 +192,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=city gt 'Seattle'
 ```
 
-더 많은 예제를 사용하려면 [OData 필터 식 구문 > 예제](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples)를 참조하세요.
+더 많은 예제를 사용하려면 [OData 필터 식 구문 > 예제](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 

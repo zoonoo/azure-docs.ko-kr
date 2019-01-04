@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: a110d14293b391a6856b56d0d8a84a24a90d33e1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 98ce2127cc9f60128767f8e4409134f2393ac84f
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341663"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582432"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure 청구 및 비용 관리를 사용하여 예기치 않은 비용 방지
 
@@ -31,9 +31,6 @@ Azure에 등록하면 몇 가지 방법을 통해 지출을 보다 명확히 파
 - 구독이 평가판, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), AIO(Azure in Open) 또는 BizSpark인 경우, 크레딧을 모두 사용하면 구독이 자동으로 사용되지 않도록 설정됩니다. 구독이 예기치 않게 사용할 수 없도록 설정되는 것을 방지하려면 [지출 한도](#spending-limit)에 대해 자세히 알아보세요.
 
 - [Azure 체험 계정](https://azure.microsoft.com/free/)에 가입하는 경우 [12개월 동안 체험용으로 가장 널리 사용되는 Azure 서비스의 일부를 사용할 수 있습니다](billing-create-free-services-included-free-account.md). 아래에 나열된 권장 사항과 함께 [체험 계정에서 요금 청구 방지](billing-avoid-charges-free-account.md)를 참조하세요.
-
-> [!div class="nextstepaction"]
-> [Azure 청구 문서 개선](https://go.microsoft.com/fwlink/p/?linkid=2010091) 
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Azure 서비스를 추가하기 전에 예상 비용 얻기
 

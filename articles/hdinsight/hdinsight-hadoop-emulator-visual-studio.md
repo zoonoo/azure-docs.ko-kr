@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: c2fd32ad15366c76c061ba42fa0a59d43a317b43
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7c2a1c586b4d6f5f9f6e34a091702a35f994544f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012762"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726632"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Hortonworks Sandbox와 Azure Data Lake tools for Visual Studio 사용
 
@@ -60,13 +60,13 @@ Hortonworks Sandbox가 실행 중인지 확인합니다. [Hortonworks 샌드박�
 
     ![업데이트 단추가 강조 표시된 대화 상자의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > 업데이트 프로세스는 Ambari를 사용하여 Visual Studio용 Data Lake 도구에서 예상한 Hortonworks Sandbox 구성을 수정합니다.
 
 6. 유효성 검사가 완료되면 **마침**을 선택하여 구성을 완료합니다.
     ![마침 단추가 강조 표시된 대화 상자의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
 
-     >[!NOTE]
+     >[!NOTE]  
      > 개발 환경의 속도 및 가상 머신에 할당된 메모리 양에 따라 서비스를 구성하고 유효성을 검사하는 데 몇 분 정도 걸릴 수 있습니다.
 
 이러한 단계를 따르면 **HDInsight** 섹션의 서버 탐색기에서 **HDInsight 로컬 클러스터** 항목이 생성됩니다.
@@ -99,7 +99,7 @@ Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼
 
     **작업 상태**가 **완료됨**으로 변경되면 DAG(방향성 비순환 그래프)가 표시됩니다. 이 다이어그램은 Hive 쿼리 처리 시 Tez에 의해 결정된 실행 경로를 설명합니다. Tez는 로컬 클러스터 기반 Hive의 기본 실행 엔진입니다.
 
-    > [!NOTE]
+    > [!NOTE]  
     > 또한 Linux 기반 HDInsight 클러스터를 사용하는 경우 Apache Tez는 기본값입니다. Windows 기반 HDInsight에서 기본값이 아닙니다. 사용하려면 Hive 쿼리의 시작 부분에 `set hive.execution.engine = tez;` 라인을 추가해야 합니다.
 
     출력을 보려면 **작업 출력** 링크를 사용합니다. 이 경우 823이며, 이는 sample_08 테이블의 행 수입니다. **작업 로그** 및 **YARN 로그 다운로드** 링크를 사용하여 작업에 대한 진단 정보를 볼 수 있습니다.
@@ -110,7 +110,7 @@ Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼
 
     대화형 쿼리는 처리 중에 생성된 출력 로그를 **HiveServer2 출력** 창으로 스트리밍합니다.
 
-    > [!NOTE]
+    > [!NOTE]  
     > 이 정보는 작업 완료 후 **작업 로그** 링크에서 사용할 수 있는 것과 동일한 정보입니다.
 
     ![출력 로그의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)
@@ -131,9 +131,9 @@ Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼
 
 Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼리 언어(HiveQL)를 제공하지만 Pig는 데이터에 대한 변환을 수행하는 방식으로 작동합니다. Pig는 변환의 파이프라인을 개발할 수 있는 언어(Pig Latin)를 제공합니다. 로컬 클러스터에서 Pig를 사용하려면 다음 단계를 따르세요.
 
-1. Visual Studio를 열고 **파일**, **새로 만들기**, **프로젝트**를 차례로 선택합니다. 프로젝트 목록에서 **템플릿**, **Azure Data Lake**를 차례로 확장한 다음 **Pig(HDInsight)** 를 선택합니다. 템플릿 목록에서 **Pig 응용 프로그램**을 선택합니다. 이름과 위치를 입력한 다음 **확인**을 선택합니다.
+1. Visual Studio를 열고 **파일**, **새로 만들기**, **프로젝트**를 차례로 선택합니다. 프로젝트 목록에서 **템플릿**, **Azure Data Lake**를 차례로 확장한 다음 **Pig(HDInsight)** 를 선택합니다. 템플릿 목록에서 **Pig 애플리케이션**을 선택합니다. 이름과 위치를 입력한 다음 **확인**을 선택합니다.
 
-    ![Azure Data Lake, Pig, Pig 예제 및 확인이 강조 표시된 새 프로젝트 창의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/new-pig.png)
+    ![Azure Data Lake, Pig, Pig 애플리케이션 및 확인이 강조 표시된 새 프로젝트 창의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/new-pig.png)
 
 2. 이 프로젝트로 만든 **script.pig** 파일의 콘텐츠로 다음 텍스트를 입력합니다.
 

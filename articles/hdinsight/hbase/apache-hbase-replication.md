@@ -9,20 +9,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: b03cffe35337ee5720944dc4cfe88c17c3b5b748
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 933506e732926b0f3827f039a65e78acd3a6932b
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163839"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653818"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure Virtual Network에서 Apache HBase 클러스터 복제 설정
 
-Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에 [Apache HBase](http://hbase.apache.org/) 복제를 설정하는 방법을 알아봅니다.
+Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에 [Apache HBase](https://hbase.apache.org/) 복제를 설정하는 방법을 알아봅니다.
 
 클러스터 복제에서는 원본-푸시 방법을 사용합니다. HBase 클러스터는 원본 또는 대상이 될 수도 있고, 한 번에 두 가지 역할을 모두 수행할 수도 있습니다. 복제는 비동기적이며, 그 목표는 결과적으로 일관성에 맞춰져 있습니다. 복제를 사용하도록 설정된 경우 원본에서 열 패밀리에 대한 편집 내용을 받으면 해당 편집 내용이 모든 대상 클러스터로 전파됩니다. 한 클러스터에서 다른 클러스터로 데이터를 복제하는 경우 복제 루프를 방지하기 위해 데이터를 이미 사용한 원본 클러스터 및 모든 클러스터가 추적됩니다.
 
-이 자습서에서는 원본-대상 복제를 설정합니다. 다른 클러스터 토폴로지는 [Apache HBase 참조 가이드(영문)](http://hbase.apache.org/book.html#_cluster_replication)를 참조하세요.
+이 자습서에서는 원본-대상 복제를 설정합니다. 다른 클러스터 토폴로지는 [Apache HBase 참조 가이드(영문)](https://hbase.apache.org/book.html#_cluster_replication)를 참조하세요.
 
 단일 가상 네트워크에 대한 HBase 복제 사용 사례는 다음과 같습니다.
 
@@ -34,7 +34,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 두 가상 네트워크에 대한 HBase 복제 사용 사례는 다음과 같습니다.
 
 * 재해 복구 설정
-* 응용 프로그램 부하 분산 및 분할
+* 애플리케이션 부하 분산 및 분할
 * 고가용성 추가
 
 [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication)에 있는 [스크립트 동작](../hdinsight-hadoop-customize-cluster-linux.md) 스크립트를 사용하여 클러스터를 복제할 수 있습니다.
@@ -121,7 +121,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
     `sshuser`을 DNS 가상 머신을 만들 때 지정한 SSH 사용자 계정으로 바꿉니다.
 
-    > [!NOTE]
+    > [!NOTE]  
     > 다양한 방법으로 `ssh` 유틸리티를 가져올 수 있습니다. Linux, Unix 및 macOS에서 운영 체제의 일부분으로 제공됩니다. Windows를 사용하는 경우 다음 옵션 중 하나를 고려하세요.
     >
     > * [Azure Cloud Shell](../../cloud-shell/quickstart.md)
@@ -162,7 +162,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
     };
     ```
     
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > `goodclients` 섹션의 값을 두 가상 네트워크의 IP 주소 범위로 바꿉니다. 이 섹션에서는 이 DNS 서버가 요청을 수락하는 주소를 정의합니다.
 
     이 파일을 편집하려면 다음 명령을 사용합니다.
@@ -197,7 +197,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
     };
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > `v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net`을 다른 가상 네트워크의 DNS 접미사로 바꿔야 합니다. 전달자 IP는 다른 가상 네트워크에서 DNS 서버의 개인 IP 주소입니다.
 
     이 파일을 편집하려면 다음 명령을 사용합니다.
@@ -221,7 +221,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
     nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > `vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net`를 다른 네트워크의 DNS 가상 머신의 FQDN(정규화된 도메인 이름)으로 바꿉니다.
     >
     > `10.2.0.4`를 다른 가상 네트워크에 있는 사용자 지정 DNS 서버의 __내부 IP 주소__로 바꿉니다.
@@ -258,7 +258,7 @@ sudo service bind9 status
 
 ## <a name="create-apache-hbase-clusters"></a>Apache HBase 클러스터 만들기
 
-다음 구성을 사용하여 두 가상 네트워크에 각각 [Apache HBase](http://hbase.apache.org/) 클러스터를 만듭니다.
+다음 구성을 사용하여 두 가상 네트워크에 각각 [Apache HBase](https://hbase.apache.org/) 클러스터를 만듭니다.
 
 - **리소스 그룹 이름**: 가상 네트워크를 만들 때 동일한 리소스 그룹 이름을 사용합니다.
 - **클러스터 유형**: HBase
@@ -289,14 +289,13 @@ sudo service bind9 status
 5. 다음 정보를 선택하거나 입력합니다.
 
   1. **이름**: **복제 사용**을 입력합니다.
-  2. **Bash 스크립트 URL**: **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**을 입력합니다.
+  2. **Bash 스크립트 URL**: https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**을 입력합니다.
   3.  **헤드**: 선택되어 있는지 확인합니다. 다른 노드 형식은 선택 취소합니다.
   4. **매개 변수**: 다음 샘플 매개 변수를 사용하면 기존의 모든 테이블을 복제하도록 설정한 다음, 모든 데이터를 원본 클러스터에서 대상 클러스터로 복사합니다.
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
-    >[!note]
-    >
+    > [!NOTE]
     > 원본 및 대상 클러스터 DNS 이름에 대한 FQDN 대신 호스트 이름을 사용합니다.
 
 6. **만들기**를 선택합니다. 특히 **-copydata** 인수를 사용하는 경우 스크립트를 실행하는 데 약간의 시간이 걸릴 수 있습니다.

@@ -7,16 +7,16 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
-ms.component: activitylog
-ms.openlocfilehash: 19f97d097c47229038595b202e82ccf41dfbfefc
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.component: logs
+ms.openlocfilehash: 9714cb8ce1c3380ac74150148c8d84bd410e3fc4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434922"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715221"
 ---
 # <a name="archive-the-azure-activity-log"></a>Azure 활동 로그 보관
-이 문서에서는 Azure 포털, PowerShell Cmdlet 또는 플랫폼 간 CLI를 사용하여 저장소 계정에서 [**Azure 활동 로그**](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)를 보관하는 방법을 보여 줍니다. 이 옵션은 감사, 정적 분석 또는 백업을 위해 활동 로그를 90일 이상(보존 정책에 대해 모든 권한으로) 유지하려는 경우에 유용합니다. 90일 이내로 이벤트를 보관해야 하는 경우 활동 로그는 보관 활성화 없이 Azure 플랫폼에 90일 동안 보관되므로 저장소 계정에 보관을 설정할 필요가 없습니다.
+이 문서에서는 Azure 포털, PowerShell Cmdlet 또는 플랫폼 간 CLI를 사용하여 저장소 계정에서 [**Azure 활동 로그**](../../azure-monitor/platform/activity-logs-overview.md)를 보관하는 방법을 보여 줍니다. 이 옵션은 감사, 정적 분석 또는 백업을 위해 활동 로그를 90일 이상(보존 정책에 대해 모든 권한으로) 유지하려는 경우에 유용합니다. 90일 이내로 이벤트를 보관해야 하는 경우 활동 로그는 보관 활성화 없이 Azure 플랫폼에 90일 동안 보관되므로 저장소 계정에 보관을 설정할 필요가 없습니다.
 
 > [!WARNING]
 > 저장소 계정에서 로그 데이터의 형식이 2018년 11월 1일에 JSON 줄로 변경됩니다. [새 형식을 처리하도록 도구를 업데이트하는 방법과 영향에 대한 설명은 이 아티클을 참조하세요.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -30,7 +30,7 @@ ms.locfileid: "53434922"
 >  현재는 보안 가상 네트워크 뒤에서 만들어진 스토리지 계정에 데이터를 보관할 수 없습니다.
 
 ## <a name="log-profile"></a>로그 프로필
-다음 방법 중 하나를 사용하여 활동 로그를 보관하려면 구독에 대해 **로그 프로필** 을 설정합니다. 로그 프로필은 저장 또는 스트리밍되는 이벤트 및 출력(저장소 계정 및/또는 이벤트 허브)의 형식을 정의합니다. 또한 저장소 계정에 저장되는 이벤트에 대한 보존 정책(보존할 일 수)을 정의합니다. 보존 정책이 0으로 설정된 경우 이벤트 무기한으로 저장됩니다. 그렇지 않으면 1에서 2147483647 사이의 값으로 설정할 수 있습니다. 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다. 삭제 프로세스는 자정(UTC)에 시작되지만, 저장소 계정에서 로그가 삭제될 때까지 최대 24시간이 걸릴 수 있습니다. [여기에서 로그 프로필에 대한 자세한 내용을 확인할 수 있습니다](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
+다음 방법 중 하나를 사용하여 활동 로그를 보관하려면 구독에 대해 **로그 프로필** 을 설정합니다. 로그 프로필은 저장 또는 스트리밍되는 이벤트 및 출력(저장소 계정 및/또는 이벤트 허브)의 형식을 정의합니다. 또한 저장소 계정에 저장되는 이벤트에 대한 보존 정책(보존할 일 수)을 정의합니다. 보존 정책이 0으로 설정된 경우 이벤트 무기한으로 저장됩니다. 그렇지 않으면 1에서 2147483647 사이의 값으로 설정할 수 있습니다. 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다. 삭제 프로세스는 자정(UTC)에 시작되지만, 저장소 계정에서 로그가 삭제될 때까지 최대 24시간이 걸릴 수 있습니다. [여기에서 로그 프로필에 대한 자세한 내용을 확인할 수 있습니다](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). 
 
 ## <a name="archive-the-activity-log-using-the-portal"></a>포털을 사용하여 활동 로그 보관
 1. 포털의 왼쪽 탐색에서 **활동 로그** 링크를 클릭합니다. 활동 로그에 대한 링크가 보이지 않으면 **모든 서비스** 링크를 먼저 클릭합니다.
@@ -64,8 +64,8 @@ ms.locfileid: "53434922"
 
 | 자산 | 필수 | 설명 |
 | --- | --- | --- |
-| StorageAccountId |yes |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
-| 위치 |yes |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. `(Get-AzureRmLocation).Location`을 사용하여 구독에 대한 모든 지역 목록을 볼 수 있습니다. |
+| StorageAccountId |예 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
+| 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. `(Get-AzureRmLocation).Location`을 사용하여 구독에 대한 모든 지역 목록을 볼 수 있습니다. |
 | RetentionInDays |아니요 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
 | 범주 |아니요 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다.  지정하지 않으면 가능한 모든 값을 가정합니다. |
 
@@ -77,12 +77,12 @@ ms.locfileid: "53434922"
 
 | 자산 | 필수 | 설명 |
 | --- | --- | --- |
-| 이름 |yes |로그 프로필의 이름입니다. |
-| storage-account-id |yes |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
-| 위치 |yes |활동 로그 이벤트를 수집할 공백으로 구분된 지역 목록입니다. `az account list-locations --query [].name`을 사용하여 구독에 대한 모든 지역 목록을 볼 수 있습니다. |
-| days |yes |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다.  0이면 활성화된 매개 변수를 true로 설정해야 합니다. |
-|사용 | yes |True 또는 False입니다.  보존 정책을 사용하거나 비활성화하는 데 사용합니다.  True이면 일 매개 변수 0보다 큰 값이어야 합니다.
-| 범주 |yes |수집해야 할 공백으로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
+| 이름 |예 |로그 프로필의 이름입니다. |
+| storage-account-id |예 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
+| 위치 |예 |활동 로그 이벤트를 수집할 공백으로 구분된 지역 목록입니다. `az account list-locations --query [].name`을 사용하여 구독에 대한 모든 지역 목록을 볼 수 있습니다. |
+| days |예 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다.  0이면 활성화된 매개 변수를 true로 설정해야 합니다. |
+|사용 | 예 |True 또는 False입니다.  보존 정책을 사용하거나 비활성화하는 데 사용합니다.  True이면 일 매개 변수 0보다 큰 값이어야 합니다.
+| 범주 |예 |수집해야 할 공백으로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
 
 ## <a name="storage-schema-of-the-activity-log"></a>활동 로그의 저장소 스키마
 보관을 설정한 후 활동 로그 이벤트가 발생하는 즉시 저장소 계정에 저장소 컨테이너가 만들어집니다. 컨테이너 내의 Blob은 다음과 같이 설명된 활동 로그 및 진단 로그에 대해 동일한 명명 규칙을 따릅니다.
@@ -182,6 +182,6 @@ PT1H.json 파일 내에서 각 이벤트는 이 형식에 따라 "레코드" 배
 
 ## <a name="next-steps"></a>다음 단계
 * [분석을 위한 Blob 다운로드](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-* [활동 로그를 Event Hubs로 스트리밍](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
-* [활동 로그에 대한 자세한 내용](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+* [활동 로그를 Event Hubs로 스트리밍](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+* [활동 로그에 대한 자세한 내용](../../azure-monitor/platform/activity-logs-overview.md)
 

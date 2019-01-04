@@ -15,17 +15,17 @@ ms.date: 07/07/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2d035883534430e76d251b22dfc95d34e4eb03cd
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 8b0277d1e82e655edd9308f8b8afa7d6dcec434e
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723570"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754835"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Visual Studio에서 Azure Application Insights로 애플리케이션 디버그
 Visual Studio(2015 이상)에서 [Azure Application Insights](app-insights-overview.md)의 원격 분석을 사용하여 디버깅 및 프로덕션의 성능을 분석하고 ASP.NET 웹앱의 문제를 진단할 수 있습니다.
 
-Visual Studio 2017 이상을 사용하여 ASP.NET 웹앱을 만든 경우 이미 Application Insights SDK가 설치되어 있습니다. 그렇지 않은 경우 아직 수행하지 않았다면 [앱에 Application Insights를 추가합니다](app-insights-asp-net.md).
+Visual Studio 2017 이상을 사용하여 ASP.NET 웹앱을 만든 경우 이미 Application Insights SDK가 설치되어 있습니다. 그렇지 않은 경우 아직 수행하지 않았다면 [앱에 Application Insights를 추가합니다](../azure-monitor/app/asp-net.md).
 
 앱이 라이브 프로덕션 상태인 경우 모니터링하려면 일반적으로 [Azure Portal](https://portal.azure.com)에서 Application Insights 원격 분석을 봅니다. 여기서 경고를 설정하고 강력한 모니터링 도구를 적용할 수 있습니다. 그러나 디버깅하려면 Visual Studio에서 원격 분석 데이터를 검색하고 분석할 수 있습니다. Visual Studio를 사용하여 개발 컴퓨터에서 프로덕션 사이트 및 디버깅 실행의 원격 분석을 분석할 수 있습니다. 후자의 경우 Azure Portal에 원격 분석을 보내도록 SDK를 아직 구성하지 않더라도 디버깅 실행을 분석할 수 있습니다. 
 
@@ -60,7 +60,7 @@ Application Insights Search 창에서는 기록된 이벤트가 표시됩니다.
 ![요청 세부 정보에서 관련된 항목까지 아래로 스크롤합니다.](./media/app-insights-visual-studio/41.png)
 
 ## <a name="view-exceptions-and-failed-requests"></a>예외 및 실패한 요청 보기
-Search 창에서 예외 보고서가 표시됩니다. (일부 ASP.NET 애플리케이션의 이전 유형에서는 [예외 모니터링을 설정](app-insights-asp-net-exceptions.md)하여 프레임워크에 의해 처리되는 예외를 볼 수 있습니다.)
+Search 창에서 예외 보고서가 표시됩니다. (일부 ASP.NET 애플리케이션의 이전 유형에서는 [예외 모니터링을 설정](../azure-monitor/app/asp-net-exceptions.md)하여 프레임워크에 의해 처리되는 예외를 볼 수 있습니다.)
 
 예외를 클릭하여 스택 추적을 가져옵니다. 앱의 코드가 Visual Studio에서 열린 경우 스택 추적에서 코드의 관련된 줄까지 클릭할 수 있습니다.
 
@@ -72,7 +72,7 @@ Search 창에서 예외 보고서가 표시됩니다. (일부 ASP.NET 애플리�
 ![예외 스택 추적](./media/app-insights-visual-studio/21.png)
 
 > [!NOTE] 
-> [Application Insights 포털에 원격 분석을 전송하도록 앱을 구성](app-insights-asp-net.md)한 경우 코드 렌즈에서는 Application Insights 데이터를 표시합니다.
+> [Application Insights 포털에 원격 분석을 전송하도록 앱을 구성](../azure-monitor/app/asp-net.md)한 경우 코드 렌즈에서는 Application Insights 데이터를 표시합니다.
 >
 
 [코드 렌즈의 Application Insights에 대한 자세한 정보](app-insights-visual-studio-codelens.md)
@@ -93,7 +93,7 @@ Application Insights 도구 모음 단추 또는 Application Insights Search 창
 
 이전 버전의 앱을 이미 게시한 경우에 바람직합니다. 게시된 앱의 Application Insights 포털에서 원격 분석과 디버깅 세션의 원격 분석을 혼합하려 하지 않습니다.
 
-포털에 원격 분석을 보내기 전에 디버깅하려는 [사용자 지정 원격 분석](app-insights-api-custom-events-metrics.md) 이 있는 경우에도 유용합니다.
+포털에 원격 분석을 보내기 전에 디버깅하려는 [사용자 지정 원격 분석](../azure-monitor/app/api-custom-events-metrics.md) 이 있는 경우에도 유용합니다.
 
 * *우선 Application Insights를 완전히 구성하여 포털에 원격 분석을 전송했습니다. 하지만 이제 Visual Studio에서만 원격 분석을 확인하려 합니다.*
   
@@ -104,6 +104,6 @@ Application Insights 도구 모음 단추 또는 Application Insights Search 창
 ## <a name="next-steps"></a>다음 단계
 |  |  |
 | --- | --- |
-| **[더 많은 데이터 추가](app-insights-asp-net-more.md)**<br/>사용량, 가용성, 종속성, 예외를 모니터링합니다. 로깅 프레임 워크의 추적을 통합합니다. 사용자 지정 원격 분석을 작성합니다. |![Visual studio](./media/app-insights-visual-studio/64.png) |
-| **[Application Insights 포털 사용](app-insights-dashboards.md)**<br/>대시보드, 강력한 분석 및 진단 도구, 경고, 애플리케이션의 라이브 종속성 맵 및 내보낸 원격 분석 데이터를 봅니다. |![Visual studio](./media/app-insights-visual-studio/62.png) |
+| **[더 많은 데이터 추가](../azure-monitor/app/asp-net-more.md)**<br/>사용량, 가용성, 종속성, 예외를 모니터링합니다. 로깅 프레임 워크의 추적을 통합합니다. 사용자 지정 원격 분석을 작성합니다. |![Visual studio](./media/app-insights-visual-studio/64.png) |
+| **[Application Insights 포털 사용](../azure-monitor/app/app-insights-dashboards.md)**<br/>대시보드, 강력한 분석 및 진단 도구, 경고, 애플리케이션의 라이브 종속성 맵 및 내보낸 원격 분석 데이터를 봅니다. |![Visual studio](./media/app-insights-visual-studio/62.png) |
 

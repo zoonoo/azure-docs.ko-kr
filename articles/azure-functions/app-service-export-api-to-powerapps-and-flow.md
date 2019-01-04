@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: c9ff4332a10247787e3b11c5508d0d94a1f1c8ba
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 53aa40c047b2b5201cd74c0409d56e97d2880eb0
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410468"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602854"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Azure에서 호스트되는 API를 PowerApps 및 Microsoft Flow로 내보내기
 
 [PowerApps](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/)는 플랫폼 간에 데이터와 작업을 연결하는 사용자 지정 비즈니스 앱을 빌드하고 사용할 수 있는 서비스입니다. [Microsoft Flow](https://flow.microsoft.com/guided-learning/learning-introducing-flow/)는 자주 사용하는 앱과 서비스 간의 워크플로 및 비즈니스 프로세스를 간단하게 자동화할 수 있습니다. PowerApps와 Microsoft Flow에는 Office 365, Dynamics 365, Salesforce 등 다양한 데이터 원본 커넥터가 기본적으로 제공됩니다. 경우에 따라 앱 및 흐름 빌더도 데이터 원본 그리고 조직에서 작성한 API에 연결하려 합니다.
 
-마찬가지로 조직 내에서 자신의 API를 보다 광범위하게 노출하려는 개발자는 앱 및 흐름 빌더에 자신의 API를 제공하려 합니다. 이 토픽에서는 [Azure Functions](../azure-functions/functions-overview.md) 또는 [Azure App Service](../app-service/app-service-web-overview.md)를 통해 작성한 API를 노출하는 방법을 보여 줍니다. 내보낸 API는 *사용자 지정 커넥터*가 되며, 이 커넥터는 마치 기본 커넥터처럼 PowerApps 및 Microsoft Flow에 사용됩니다.
+마찬가지로 조직 내에서 자신의 API를 보다 광범위하게 노출하려는 개발자는 앱 및 흐름 빌더에 자신의 API를 제공하려 합니다. 이 토픽에서는 [Azure Functions](../azure-functions/functions-overview.md) 또는 [Azure App Service](../app-service/overview.md)를 통해 작성한 API를 노출하는 방법을 보여 줍니다. 내보낸 API는 *사용자 지정 커넥터*가 되며, 이 커넥터는 마치 기본 커넥터처럼 PowerApps 및 Microsoft Flow에 사용됩니다.
 
 ## <a name="create-and-export-an-api-definition"></a>API 정의를 만들고 내보내기
 API를 내보내기 전에 먼저 OpenAPI 정의(이전에는 [Swagger](https://swagger.io/) 파일)를 사용하여 API를 설명해야 합니다. 이 정의에는 API에서 사용할 수 있는 작업 및 API에 대한 요청 및 응답 데이터가 구성되는 방식에 대한 정보가 포함됩니다. PowerApps 및 Microsoft Flow는 모든 OpenAPI 2.0 정의를 위한 사용자 지정 커넥터를 만들 수 있습니다. Azure Functions 및 Azure App Service는 OpenAPI 정의를 만들고 호스트하고 관리할 수 있는 기본 지원을 제공합니다. 자세한 내용은 [Azure App Service에서 CORS를 통해 RESTful API 호스팅](../app-service/app-service-web-tutorial-rest-api.md)을 참조하세요.
@@ -32,7 +32,7 @@ API를 내보내기 전에 먼저 OpenAPI 정의(이전에는 [Swagger](https://
 
 API 정의를 내보내려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 Azure Functions 또는 또 다른 App Service 응용 프로그램으로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 Azure Functions 또는 또 다른 App Service 애플리케이션으로 이동합니다.
 
     Azure Functions를 사용하는 경우 함수 앱을 선택하고 **플랫폼 기능**, **API 정의**를 차례로 선택합니다.
 

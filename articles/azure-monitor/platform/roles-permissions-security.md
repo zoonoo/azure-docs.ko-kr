@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 310a349aad4e6626033ca2f378e7c1b0ffa96560
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 47a957453bf5962f59518719895edc0f13fe7dc8
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388446"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584380"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure Monitor에서의 역할, 권한 및 보안 시작
 많은 팀에서는 모니터링 데이터 및 설정에 대한 액세스를 엄격히 규제할 필요가 있습니다. 예를 들어 모니터링에 대해 단독으로 작업하는 팀원(지원 엔지니어, devops 엔지니어)이 있거나, 관리되는 서비스 공급자를 사용할 경우 이들에게 리소스 생성, 수정 또는 삭제 기능은 제한하면서 모니터링 데이터에 대해서만 액세스를 부여하고자 할 수 있씁니다. 이 문서에서는 Azure의 사용자에게 기본 제공 모니터링 RBAC 역할을 신속하게 적용하거나 제한된 모니터링 권한이 필요한 사용자에 대해 자체 사용자 지정 역할을 구성하는 방법을 보여 줍니다. 그런 다음 Azure Monitor 관련 리소스에 대한 보안 고려 사항과, 포함된 데이터에 대한 액세스를 제한하는 방법에 대해 논의합니다.
@@ -21,15 +21,15 @@ ms.locfileid: "53388446"
 ## <a name="built-in-monitoring-roles"></a>기본 제공 모니터링 역할
 Azure Monitor의 기본 제공 역할은 구독에서 리소스에 대한 액세스를 제한하면서, 인프라 모니터링을 담당하는 사용자는 필요한 데이터를 확보 및 구성할 수 있게 지원하도록 설계되었습니다. Azure Monitor는 두 개의 기본 제공 역할인 모니터링 읽기 권한자와 모니터링 참가자를 제공합니다.
 
-### <a name="monitoring-reader"></a>모니터링 읽기 권한자
+### <a name="monitoring-reader"></a>Monitoring Reader
 Monitoring Reader 역할이 할당된 사용자는 구독에서 모든 모니터링 데이터를 볼 수 있지만 리소스를 수정하거나 모니터링 리소스와 관련한 설정은 편집할 수 없습니다. 이 역할은 다음이 필요한 지원과 같은 조직의 사용자나 운영 엔지니어에게 적합합니다.
 
 * 포털의 모니터링 대시보드를 확인하고 자체 개별 모니터링 대시보드를 만듭니다.
 * [Azure 경고](../../azure-monitor/platform/alerts-overview.md)에 정의된 경고 규칙 보기
-* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](../../monitoring-and-diagnostics/insights-powershell-samples.md) 또는 [플랫폼 간 CLI](../../azure-monitor/platform/cli-samples.md)를 사용하여 메트릭을 쿼리합니다.
+* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md) 또는 [플랫폼 간 CLI](../../azure-monitor/platform/cli-samples.md)를 사용하여 메트릭을 쿼리합니다.
 * 포털, Azure Monitor REST API, PowerShell cmdlet 또는 플랫폼 간 CLI를 사용하여 작업 로그를 쿼리합니다.
-* 리소스에 대한 [진단 설정](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) 을 확인합니다.
-* 구독에 대한 [로그 프로필](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) 을 봅니다.
+* 리소스에 대한 [진단 설정](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) 을 확인합니다.
+* 구독에 대한 [로그 프로필](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) 을 봅니다.
 * 자동 크기 조정 설정을 봅니다.
 * 경고 활동 및 설정을 봅니다.
 * Application Insights 데이터에 액세스하고 AI Analytics에서 데이터를 봅니다.
@@ -45,12 +45,12 @@ Monitoring Reader 역할이 할당된 사용자는 구독에서 모든 모니터
 > 
 > 
 
-### <a name="monitoring-contributor"></a>모니터링 참가자
+### <a name="monitoring-contributor"></a>Monitoring Contributor
 Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링 데이터를 볼 수 있으며, 모니터링 설정을 만들거나 수정할 수 있지만 다른 리소스는 수정할 수 없습니다. 이 역할은 Monitoring Reader 역할의 상위 집합이며, 조직의 모니터링 팀 구성원이거나 위의 권한 외에도 다음이 필요한 관리되는 서비스 제공자인 사용자에게 적합합니다.
 
 * 공유 대시보드로 모니터링 대시보드를 게시합니다.
-* 리소스에 대한 [진단 설정](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) 을 구성합니다.*
-* 구독에 대한 [로그 프로필](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) 을 설정합니다.*
+* 리소스에 대한 [진단 설정](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) 을 구성합니다.*
+* 구독에 대한 [로그 프로필](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) 을 설정합니다.*
 * [Azure 경고](../../azure-monitor/platform/alerts-overview.md)를 통해 경고 규칙 활동 및 설정을 지정합니다.
 * Application Insights 웹 테스트 및 구성 요소를 만듭니다.
 * Log Analytics 작업 영역 공유 키를 나열합니다.
@@ -133,7 +133,7 @@ $token = New-AzureStorageAccountSASToken -ResourceType Service -Service Blob -Pe
 
 그런 다음 해당 저장소 계정에서의 읽기가 필요한 개체에게 토큰을 부여하면 해당 저장소 계정의 모든 Blob을 나열하고 읽을 수 있습니다.
 
-또는 RBAC로 이 권한을 제어해야 할 경우 해당 특정 저장소 계정에서 개체에 Microsoft.Storage/storageAccounts/listkeys/action 권한을 부여할 수 있습니다. 저장소 계정에 보관하기 위해 로그 프로필이나 진단 설정을 구성할 수 있는 사용자에게 필요한 항목입니다. 예를 들어, 한 저장소 계정에서 읽기만 필요한 사용자 또는 응용 프로그램에 대해 다음 사용자 지정 RBAC 역할을 만들 수 있습니다.
+또는 RBAC로 이 권한을 제어해야 할 경우 해당 특정 저장소 계정에서 개체에 Microsoft.Storage/storageAccounts/listkeys/action 권한을 부여할 수 있습니다. 저장소 계정에 보관하기 위해 로그 프로필이나 진단 설정을 구성할 수 있는 사용자에게 필요한 항목입니다. 예를 들어, 한 저장소 계정에서 읽기만 필요한 사용자 또는 애플리케이션에 대해 다음 사용자 지정 RBAC 역할을 만들 수 있습니다.
 
 ```powershell
 $role = Get-AzureRmRoleDefinition "Reader"

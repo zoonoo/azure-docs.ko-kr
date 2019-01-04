@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: ace025f096b756259d25ca2adb347dd23a12a910
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 280d56951053870d5dc1bb8fba52cc089e842757
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409526"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743870"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>SSH 터널링을 사용하여 Apache Ambari Web UI, JobHistory, NameNode, Apache Oozie 및 기타 웹 UI에 액세스
 
@@ -47,7 +47,7 @@ Ambari의 일부 메뉴만 SSH 터널을 통해 작동합니다. 이러한 메�
 
 * SOCKS5 프록시를 사용하도록 구성할 수 있는 웹 브라우저입니다.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Windows 인터넷 설정에 기본 제공되는 SOCKS 프록시 지원은 SOCKS5를 지원하지 않으며, 이 문서의 단계에서 작동하지 않습니다. 다음 브라우저는 Windows 프록시 설정에 의존하고 현재 이 문서의 단계에서 작동하지 않습니다.
     >
     > * Microsoft Edge
@@ -78,7 +78,7 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
 ## <a name="useputty"></a>PuTTY를 사용하여 터널 만들기
 
-[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty)는 Windows용 그래픽 SSH 클라이언트입니다. PuTTY에 대해 잘 모르는 경우 [PuTTY 설명서](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)를 참조하세요. PuTTY를 사용하여 SSH 터널을 만들려면 다음 단계를 사용합니다.
+[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty)는 Windows용 그래픽 SSH 클라이언트입니다. PuTTY에 대해 잘 모르는 경우 [PuTTY 설명서](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)를 참조하세요. PuTTY를 사용하여 SSH 터널을 만들려면 다음 단계를 사용합니다.
 
 ### <a name="create-or-load-a-session"></a>세션 만들기 또는 로드
 
@@ -120,7 +120,7 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
    > [!NOTE]  
    > **Remote DNS**를 선택하면 HDInsight 클러스터를 통해 DNS(Domain Name System) 요청이 확인됩니다. 이 설정은 클러스터의 헤드 노드를 사용하여 DNS를 확인합니다.
 
-2. [http://www.whatismyip.com/](http://www.whatismyip.com/)과 같은 사이트를 방문하여 터널이 작동하는지 확인합니다. 반환된 IP는 Microsoft Azure 데이터 센터에서 사용하는 하나여야 합니다.
+2. [https://www.whatismyip.com/](https://www.whatismyip.com/)과 같은 사이트를 방문하여 터널이 작동하는지 확인합니다. 반환된 IP는 Microsoft Azure 데이터 센터에서 사용하는 하나여야 합니다.
 
 ## <a name="verify-with-ambari-web-ui"></a>Ambari 웹 UI 통해 확인
 

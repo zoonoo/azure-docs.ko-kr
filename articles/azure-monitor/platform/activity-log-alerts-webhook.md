@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 3fb68370f9b26aacc33d0e2e6090fe819010f468
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0f72097ad9e8b8675d78654c07a62fb6baf90f4a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283219"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582306"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 활동 로그 경고에 대한 웹후크
 작업 그룹 정의의 일부로 활동 로그 경고 알림을 받도록 웹후크 엔드포인트를 구성할 수 있습니다. 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 이러한 알림을 다른 시스템으로 라우팅할 수 있습니다. 이 문서는 Webhook에 대한 HTTP POST의 페이로드 형태를 보여 줍니다.
@@ -161,9 +161,9 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 }
 ```
 
-서비스 상태 알림 활동 로그 경고에 대한 특정 스키마 세부 정보는 [서비스 상태 알림](../../monitoring-and-diagnostics/monitoring-service-notifications.md)을 참조하세요. 또한 [기존 문제 관리 솔루션으로 서비스 상태 웹후크 알림 구성](../../service-health/service-health-alert-webhook-guide.md) 방법에 대해 알아봅니다.
+서비스 상태 알림 활동 로그 경고에 대한 특정 스키마 세부 정보는 [서비스 상태 알림](../../azure-monitor/platform/service-notifications.md)을 참조하세요. 또한 [기존 문제 관리 솔루션으로 서비스 상태 웹후크 알림 구성](../../service-health/service-health-alert-webhook-guide.md) 방법에 대해 알아봅니다.
 
-다른 모든 활동 로그 경고에 대한 특정 스키마 세부 정보는 [Azure 활동 로그 개요](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)를 참조하세요.
+다른 모든 활동 로그 경고에 대한 특정 스키마 세부 정보는 [Azure 활동 로그 개요](../../azure-monitor/platform/activity-logs-overview.md)를 참조하세요.
 
 | 요소 이름 | 설명 |
 | --- | --- |
@@ -196,7 +196,7 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 | subStatus |일반적으로 해당 REST 호출의 HTTP 상태 코드를 포함합니다. 하위 상태를 설명하는 다른 문자열을 포함할 수도 있습니다. 일반적인 하위 상태 값에는 OK(HTTP 상태 코드:  200), 만들어짐(HTTP 상태 코드: 201), 수락됨(HTTP 상태 코드: 202), 콘텐츠 없음(HTTP 상태 코드: 204), 잘못된 요청(HTTP 상태 코드: 400), 찾을 수 없음(HTTP 상태 코드: 404), 충돌(HTTP 상태 코드: 409), 내부 서버 오류(HTTP 상태 코드: 500), 서비스를 사용할 수 없음(HTTP 상태 코드: 503), 게이트웨이 시간 초과(HTTP 상태 코드: 504) 등이 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
-* [활동 로그에 대해 자세히 알아보세요](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+* [활동 로그에 대해 자세히 알아보세요](../../azure-monitor/platform/activity-logs-overview.md).
 * [Azure 경고에 대한 Azure Automation 스크립트(Runbook)를 실행하세요](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [논리 앱을 사용하여 Azure 경고에서 Twilio를 통해 SMS를 보냅니다](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
 * [논리 앱을 사용하여 Azure 경고에서 Slack 메시지를 보냅니다](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.

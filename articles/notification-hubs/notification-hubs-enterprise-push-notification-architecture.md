@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 962bc996a86340bb10a28b90ef6340a98c5d9275
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1c9161f6d31a3fcff8f8926c8bf188f1bdc14799
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430609"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725864"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>엔터프라이즈 푸시 아키텍처 지침
 오늘날 기업에서는 최종 사용자(외부)를 위해 또는 직원(내부)을 위해 모바일 애플리케이션을 만드는 일이 점점 많아지고 있습니다. 기업은 가동 중인 기존 백 엔드 시스템이 모바일 애플리케이션 아키텍처에 통합되어야 하는 메인프레임 또는 일부 LoB 애플리케이션이 되도록 합니다. 이 가이드에서는 일반적인 시나리오에 사용 가능한 솔루션을 권장하는 이 통합을 가장 잘 수행할 수 있는 방법에 대해 설명합니다.
@@ -65,7 +65,7 @@ ms.locfileid: "39430609"
    
     a. 이 프로젝트는 *WindowsAzure.ServiceBus* NuGet 패키지를 사용하며 [Service Bus Pub/Sub 프로그래밍]을 기반으로 합니다.
    
-    나. 이 애플리케이션은 모바일 앱으로 메시지를 전달하기 시작하는 LoB 시스템을 시뮬레이션하기 위한 간단한 C# 콘솔 앱입니다.
+    b. 이 애플리케이션은 모바일 앱으로 메시지를 전달하기 시작하는 LoB 시스템을 시뮬레이션하기 위한 간단한 C# 콘솔 앱입니다.
    
         static void Main(string[] args)
         {
@@ -128,7 +128,7 @@ ms.locfileid: "39430609"
    
     a. 이 프로젝트는 *WindowsAzure.ServiceBus* 및 *Microsoft.Web.WebJobs.Publish* NuGet 패키지를 사용하며 [Service Bus Pub/Sub 프로그래밍]을 기반으로 합니다.
    
-    나. LoB/백 엔드 시스템에서 메시지를 지속적으로 수신하려면 이를 실행해야 하므로 다음 콘솔 앱은 [Azure WebJob]으로 실행합니다. 이 애플리케이션은 모바일 백 엔드의 일부입니다.
+    b. LoB/백 엔드 시스템에서 메시지를 지속적으로 수신하려면 이를 실행해야 하므로 다음 콘솔 앱은 [Azure WebJob]으로 실행합니다. 이 애플리케이션은 모바일 백 엔드의 일부입니다.
    
         static void Main(string[] args)
         {
@@ -221,7 +221,7 @@ ms.locfileid: "39430609"
    
     a. 이 애플리케이션은 모바일 백 엔드의 일부로 실행 중인 WebJob에서 토스트 알림을 수신하여 이를 표시하는 Windows 스토어 애플리케이션입니다. 이 코드는 [Notification Hubs - Windows 범용 자습서]를 기반으로 합니다.  
    
-    나. 애플리케이션이 토스트 알림을 받을 수 있는지 확인합니다.
+    b. 애플리케이션이 토스트 알림을 받을 수 있는지 확인합니다.
    
     다. 앱 시작 시 다음 Notification Hubs 등록 코드가 호출되었는지 확인합니다(*HubName* 및 *DefaultListenSharedAccessSignature* 교체 후).
    
@@ -244,7 +244,7 @@ ms.locfileid: "39430609"
 ### <a name="running-sample"></a>샘플 실행:
 1. WebJob이 성공적으로 실행 중이고 계속 실행되도록 예약되었는지 확인합니다.
 1. **EnterprisePushMobileApp을 실행하면 Windows 스토어 앱을 시작합니다.
-1. **EnterprisePushBackendSystem** 콘솔 응용 프로그램을 실행하면 LoB 백 엔드를 시뮬레이션 하고 메시지를 보내기 시작하기 때문에 다음 이미지와 같이 나타나는 토스트 알림이 보여야 합니다.
+1. **EnterprisePushBackendSystem** 콘솔 애플리케이션을 실행하면 LoB 백 엔드를 시뮬레이션 하고 메시지를 보내기 시작하기 때문에 다음 이미지와 같이 나타나는 토스트 알림이 보여야 합니다.
    
     ![][5]
 1. 원래 메시지는 웹 작업의 Service Bus 구독에서 모니터링하는 Service Bus 항목으로 전송되었습니다. 메시지가 수신되면 알림이 생성되어 모바일 앱으로 전송됩니다. 사용자의 웹 작업에 대한 [Azure Portal]의 로그 링크로 이동하면 WebJob 로그를 통해 처리 상태를 확인할 수 있습니다.
@@ -264,6 +264,6 @@ ms.locfileid: "39430609"
 [Azure 모바일 서비스]: http://azure.microsoft.com/documentation/services/mobile-services/
 [Azure Service Bus]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
 [Service Bus Pub/Sub 프로그래밍]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-[Azure WebJob]: ../app-service/web-sites-create-web-jobs.md
+[Azure WebJob]: ../app-service/webjobs-create.md
 [Notification Hubs - Windows 범용 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Azure Portal]: https://portal.azure.com/

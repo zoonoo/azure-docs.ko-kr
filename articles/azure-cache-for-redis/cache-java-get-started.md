@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 05/23/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 3bef0e0545b0c6d287a6cfeaed06f95d5ba5dae9
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 0a407cdfd6786848825a114ff5667ccaff91fe71
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53018941"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556876"
 ---
 # <a name="quickstart-how-to-use-azure-cache-for-redis-with-java"></a>빠른 시작: Java에서 Azure Cache for Redis를 사용하는 방법
 
@@ -118,7 +118,7 @@ public class App
         System.out.println( "\nCache Command  : SET Message" );
         System.out.println( "Cache Response : " + jedis.set("Message", "Hello! The cache is working from Java!"));
 
-        // Demostrate "SET Message" executed as expected...
+        // Demonstrate "SET Message" executed as expected...
         System.out.println( "\nCache Command  : GET Message" );
         System.out.println( "Cache Response : " + jedis.get("Message"));
 
@@ -167,7 +167,7 @@ mvn exec:java -D exec.mainClass=example.demo.App
 
 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 후 **삭제**를 클릭합니다.
 
-잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
+잠시 후 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
 
 

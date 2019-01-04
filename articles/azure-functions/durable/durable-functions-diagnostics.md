@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b297be16110e24342b224f7f89c2a3c0c44229a9
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5a09bd8db89f85c785d3d701a3b7180e4616e52c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341409"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713234"
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>지속성 함수의 진단(Azure Functions)
 
@@ -25,7 +25,7 @@ ms.locfileid: "53341409"
 
 Azure Functions에서 진단 및 모니터링을 수행하려면 [Application Insights](../../application-insights/app-insights-overview.md)를 사용하는 것이 좋습니다. 지속성 함수에도 동일하게 적용됩니다. 함수 앱에서 Application Insights를 활용하는 방법에 대한 개요는 [Azure Functions 모니터링](../functions-monitoring.md)을 참조하세요.
 
-또한 Azure Functions 지속성 확장은 오케스트레이션의 종단 간 실행을 추적할 수 있는 *추적 이벤트*를 내보냅니다. 이러한 이벤트는 Azure Portal에서 [Application Insights 분석](../../application-insights/app-insights-analytics.md) 도구를 사용하여 검색하고 쿼리할 수 있습니다.
+또한 Azure Functions 지속성 확장은 오케스트레이션의 종단 간 실행을 추적할 수 있는 *추적 이벤트*를 내보냅니다. 이러한 이벤트는 Azure Portal에서 [Application Insights 분석](../../azure-monitor/app/analytics.md) 도구를 사용하여 검색하고 쿼리할 수 있습니다.
 
 ### <a name="tracking-data"></a>추적 데이터
 

@@ -13,12 +13,12 @@ ms.date: 05/03/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 85fd0131da6d67cb8001c4b3de25af0c4575a64d
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 7aa5dae1b23726c8b908a5f166c7f0bff67e5e6a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721989"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715990"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Application Insights를 사용한 웹 애플리케이션의 사용자 재방문 주기 분석
 
@@ -61,7 +61,7 @@ Application Insights 포털의 재방문 주기 도구에서 아직 데이터가
    telemetry.TrackEvent("won game");
 ```
 
-[사용자 지정 이벤트 작성에 대해 자세히 알아봅니다](app-insights-api-custom-events-metrics.md#trackevent).
+[사용자 지정 이벤트 작성에 대해 자세히 알아봅니다](../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 
 ## <a name="next-steps"></a>다음 단계

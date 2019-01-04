@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8782db64a39ab3994c4689e7f809005c20c6dacd
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: b8ab4acd24a53267711fde4408bb9fa8f52c35f3
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017460"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635581"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-in-hdinsight"></a>HDInsight에서 Apache Hive를 사용하여 Twitter 데이터 분석
 소셜 웹 사이트는 빅데이터 채택의 주요 추진력 중 하나입니다. Twitter와 같은 사이트에서 제공하는 공개 API는 대중적인 추세를 분석하고 이해하는 데 유용한 데이터 원본입니다.
 이 자습서에서는 Twitter 스트리밍 API를 사용하여 트윗을 가져온 다음 Azure HDInsight의 [Apache Hive](https://hive.apache.org/)를 사용하여 특정 단어가 포함된 트윗을 가장 많이 보낸 Twitter 사용자 목록을 가져옵니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이 문서의 단계에는 Windows 기반 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요. Linux 기반 클러스터에 대한 단계는 [HDInsight에서 Apache Hive를 사용하여 Twitter 데이터 분석(Linux)](hdinsight-analyze-twitter-data-linux.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -42,7 +42,7 @@ ms.locfileid: "53017460"
     Select-AzureRmSubscription -SubscriptionID <Azure Subscription ID>
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Azure Service Manager를 사용하여 HDInsight 리소스를 관리하는 Azure PowerShell 지원은 더 이상 **지원되지 않고** 2017년 1월 1일에 제거되었습니다. 이 문서의 단계에서는 Azure Resource Manager로 작동하는 새 HDInsight cmdlet을 사용합니다.
     >
     > [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs) 단계를 수행하여 최신 버전의 Azure PowerShell을 설치합니다. Azure Resource Manager로 작동하는 새로운 cmdlet을 사용하도록 수정해야 하는 스크립트가 있는 경우 자세한 내용은 [HDInsight 클러스터에 대한 Azure Resource Manager 기반 개발 도구에 마이그레이션](hdinsight-hadoop-development-using-azure-resource-manager.md) 을 참조하세요.
@@ -61,16 +61,16 @@ ms.locfileid: "53017460"
 ## <a name="get-twitter-feed"></a>Twitter 피드 가져오기
 이 자습서에는 [Twitter 스트리밍 API][twitter-streaming-api](영문)를 사용합니다. 사용할 특정 Twitter 스트리밍 API는 [상태/필터][twitter-statuses-filter](영문)입니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 트윗 10,000개와 Hive 스크립트 파일(다음 섹션에서 설명됨)을 포함하는 파일이 공용 Blob 컨테이너에 업로드되었습니다. 업로드된 파일을 사용하려는 경우 이 섹션을 건너뛸 수 있습니다.
 
 트윗 데이터는 복잡한 중첩 구조를 포함하는 JSON(JavaScript Object Notation) 형식으로 저장됩니다. 기존의 프로그래밍 언어를 사용하여 여러 줄의 코드를 작성하는 대신, 이 중첩 구조를 Hive 테이블로 변환하여 HiveQL이라는 SQL(구조적 쿼리 언어)과 유사한 언어로 쿼리할 수 있습니다.
 
-Twitter는 OAuth를 사용하여 API에 대한 권한 있는 액세스를 제공합니다. OAuth는 사용자가 암호를 공유하지 않아도 사용자를 대신하여 애플리케이션 작동을 승인할 수 있게 하는 인증 프로토콜입니다. 자세한 내용은 [oauth.net](http://oauth.net/)(영문) 또는 Hueniverse가 제공하는 유용한 [OAuth 초보자 가이드](http://hueniverse.com/oauth/)(영문)를 참조하세요.
+Twitter는 OAuth를 사용하여 API에 대한 권한 있는 액세스를 제공합니다. OAuth는 사용자가 암호를 공유하지 않아도 사용자를 대신하여 애플리케이션 작동을 승인할 수 있게 하는 인증 프로토콜입니다. 자세한 내용은 [oauth.net](https://oauth.net/)(영문) 또는 Hueniverse가 제공하는 유용한 [OAuth 초보자 가이드](https://hueniverse.com/oauth/)(영문)를 참조하세요.
 
 OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 애플리케이션을 만드는 것입니다.
 
-**Twitter 응용 프로그램을 만들려면**
+**Twitter 애플리케이션을 만들려면**
 
 1. [https://apps.twitter.com/](https://apps.twitter.com/)에 로그인합니다. Twitter 계정이 없는 경우 **Sign up now** 링크를 클릭합니다.
 2. **Create New App**을 클릭합니다.
@@ -80,8 +80,8 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 애플
    | --- | --- |
    |  이름 |MyHDInsightApp |
    |  설명 |MyHDInsightApp |
-   |  Website |http://www.myhdinsightapp.com |
-4. **Yes, I agree**를 선택한 후 **Create your Twitter application**을 클릭합니다.
+   |  Website |https://www.myhdinsightapp.com |
+4. **Yes, I agree**를 선택한 후 **Twitter 애플리케이션 만들기**를 클릭합니다.
 5. **Permissions** 탭을 클릭합니다. 기본 권한은 **Read only**입니다. 이 자습서에는 이 권한이면 충분합니다.
 6. **Keys and Access Tokens** 탭을 클릭합니다.
 7. **Create my access token**을 클릭합니다.
@@ -90,7 +90,7 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 애플
 
 이 자습서에서는 Windows PowerShell을 사용하여 웹 서비스를 호출합니다. 웹 서비스 호출에 많이 사용되는 다른 도구는 [*Curl*][curl]입니다. Curl은 [여기][curl-download](영문)에서 다운로드할 수 있습니다.
 
-> [!NOTE]
+> [!NOTE]  
 > Windows에서 curl 명령을 사용할 때는 옵션 값에 작은따옴표 대신 큰따옴표를 사용합니다.
 
 **트윗을 가져오려면**
@@ -229,7 +229,7 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 애플
     변수|설명
     ---|---
     $clusterName|애플리케이션을 실행하려는 HDInsight 클러스터의 이름입니다.
-    $oauth_consumer_key|앞에서 Twitter 애플리케이션을 만들 때 적어 둔 Twitter 애플리케이션 **consumer key**입니다.
+    $oauth_consumer_key|앞에서 Twitter 애플리케이션을 만들 때 적어 둔 Twitter 애플리케이션 **consumer key** 입니다.
     $oauth_consumer_secret|앞에서 기록해 둔 Twitter 애플리케이션 **consumer secret** 입니다.
     $oauth_token|앞에서 기록해 둔 Twitter 애플리케이션 **access token** 입니다.
     $oauth_token_secret|앞에서 기록해 둔 Twitter 애플리케이션 **access token secret** 입니다.
@@ -245,7 +245,7 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 애플
 ## <a name="create-hiveql-script"></a>HiveQL 스크립트 만들기
 Azure PowerShell을 사용하여 여러 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 문을 한 번에 하나씩 실행하거나 HiveQL 문을 스크립트 파일에 패키징할 수 있습니다. 이 자습서에서는 HiveQL 스크립트를 만듭니다. 스크립트 파일은 Azure Blob 저장소에 업로드해야 합니다. 다음 섹션에서는 Azure PowerShell을 사용하여 스크립트 파일을 실행합니다.
 
-> [!NOTE]
+> [!NOTE]  
 > Hive 스크립트 파일 및 트윗 10,000개를 포함하는 파일이 공용 Blob 컨테이너에 업로드되었습니다. 업로드된 파일을 사용하려는 경우 이 섹션을 건너뛸 수 있습니다.
 
 HiveQL 스크립트는 다음을 수행합니다.
@@ -453,7 +453,7 @@ HiveQL 스크립트는 다음을 수행합니다.
 ### <a name="submit-a-hive-job"></a>Hive 작업 제출
 다음 Windows PowerShell 스크립트를 사용하여 Hive 스크립트를 실행합니다. 첫 번째 변수를 설정해야 합니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 마지막 두 섹션에서 업로드한 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 스크립트 및 트윗을 사용하려면 $hqlScriptFile을 "/tutorials/twitter/twitter.hql"로 설정합니다. 사용자를 위해 공개 blob에 업로드한 것을 사용하려면 $hqlScriptFile을 “wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql”로 설정합니다.
 
 ```powershell
@@ -529,7 +529,7 @@ Write-Host "==================================" -ForegroundColor Green
 #end region
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Hive 테이블은 필드 구분 기호로 \001을 사용합니다. 구분 기호는 출력에서 보이지 않습니다.
 
 분석 결과가 Azure Blob 스토리지에 배치된 후에는 데이터를 Azure SQL 데이터베이스/SQL Server로 내보내거나, 파워 쿼리를 사용하여 데이터를 Excel로 내보내거나, Hive ODBC 드라이버를 사용하여 애플리케이션을 데이터에 연결할 수 있습니다. 자세한 내용은 [HDInsight에서 Apache Sqoop 사용][hdinsight-use-sqoop], [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-delay-data], [파워 쿼리로 HDInsight에 Excel 연결][hdinsight-power-query] 및 [Microsoft Hive ODBC Driver로 Excel을 HDInsight에 연][hdinsight-hive-odbc]을 참조하세요.
@@ -543,7 +543,7 @@ Write-Host "==================================" -ForegroundColor Green
 * [Microsoft Hive ODBC 드라이버로 HDInsight에 Excel 연결][hdinsight-hive-odbc]
 * [HDInsight에서 Apache Sqoop 사용][hdinsight-use-sqoop]
 
-[curl]: http://curl.haxx.se
+[curl]: https://curl.haxx.se
 [curl-download]: https://curl.haxx.se/download.html
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial

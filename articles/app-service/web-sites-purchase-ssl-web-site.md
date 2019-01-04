@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ff2fd2c9b66cc9c80087ab5009ee65c0ba73714b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 78b7668dee892841ced1a06626ff09a534a88b69
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268719"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714303"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Azure App Service에 대한 SSL 인증서 구입 및 구성
 
@@ -35,7 +35,7 @@ ms.locfileid: "53268719"
 이 방법 가이드를 수행하려면 다음이 필요합니다.
 
 - [App Service 앱 만들기](/azure/app-service/)
-- [도메인 이름을 웹앱에 매핑](app-service-web-tutorial-custom-domain.md)하거나 [Azure에서 구입하여 구성](custom-dns-web-site-buydomains-web-app.md)
+- [도메인 이름을 웹앱에 매핑](app-service-web-tutorial-custom-domain.md)하거나 [Azure에서 구입하여 구성](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -64,7 +64,7 @@ ms.locfileid: "53268719"
 
 ![KV에 저장할 준비 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/ReadyKV.png)
 
-[Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)는 클라우드 응용 프로그램 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 되는 Azure 서비스입니다. App Service Certificate에 대해 선택한 저장소입니다.
+[Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 되는 Azure 서비스입니다. App Service Certificate에 대해 선택한 저장소입니다.
 
 **Key Vault 상태** 페이지에서 **Key Vault 리포지토리**를 클릭하여 새 자격 증명 모음을 만들거나 기존 자격 증명 모음을 선택합니다. 새 자격 증명 모음을 만들려면 다음 표를 사용하여 자격 증명 모음을 구성하고 만들기를 클릭합니다. 동일한 구독 및 리소스 그룹 내에서 새로운 Key Vault 생성을 참조하세요.
 
@@ -91,7 +91,7 @@ ms.locfileid: "53268719"
 > 네 가지 유형의 도메인 확인 방법이 지원됩니다. 
 > 
 > - **App Service**  - 도메인이 동일한 구독의 App Service 앱에 이미 매핑된 경우 가장 편리한 옵션입니다. App Service 앱이 도메인 소유권을 이미 확인했다는 사실을 활용합니다.
-> - **도메인** - [Azure에서 구매한 App Service 도메인](custom-dns-web-site-buydomains-web-app.md)을 확인합니다. Azure는 사용자에게 자동으로 확인 TXT 레코드를 추가하고 프로세스를 완료합니다.
+> - **도메인** - [Azure에서 구매한 App Service 도메인](manage-custom-dns-buy-domain.md)을 확인합니다. Azure는 사용자에게 자동으로 확인 TXT 레코드를 추가하고 프로세스를 완료합니다.
 > - **이메일** - 도메인 관리자에게 이메일을 보내서 도메인을 확인합니다. 옵션을 선택하면 지침이 제공됩니다.
 > - **수동** - HTML 페이지(**표준** 인증서만) 또는 DNS TXT 레코드를 사용하여 도메인을 확인합니다. 옵션을 선택하면 지침이 제공됩니다.
 
@@ -158,5 +158,5 @@ ms.locfileid: "53268719"
 
 * [HTTPS 적용](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [TLS 1.1/1.2 적용](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
-* [Azure App Service의 응용 프로그램 코드에서 SSL 인증서 사용](app-service-web-ssl-cert-load.md)
+* [Azure App Service의 애플리케이션 코드에서 SSL 인증서 사용](app-service-web-ssl-cert-load.md)
 * [FAQ : App Service Certificate](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

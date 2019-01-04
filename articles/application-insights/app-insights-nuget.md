@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 76cdd4bd4d95c7c11906f9c02a0f5cfa2326390e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: d8d48a41f9100abc3bc8ba306c766d9511f80026
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000769"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972076"
 ---
 # <a name="application-insights-nuget-packages"></a>Application Insights NuGet 패키지
 
@@ -70,7 +70,7 @@ ms.locfileid: "53000769"
 | Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  x64 애플리케이션의 런타임 데이터 수집을 사용하도록 설정합니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  x86 애플리케이션의 런타임 데이터 수집을 사용하도록 설정합니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
 
-이러한 패키지는 [상태 모니터](app-insights-monitor-performance-live-website-now.md)의 핵심 런타임 모니터링 기능 중 일부를 구성합니다. 이러한 패키지를 직접 다운로드할 필요는 없으며 상태 모니터 설치 관리자를 사용하기만 하면 됩니다. 이러한 패키지가 내부적으로 작동하는 방식을 알라보려면 먼저 개발자가 만든 [블로그 게시물](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)을 참조하면 좋습니다.
+이러한 패키지는 [상태 모니터](../azure-monitor/app/monitor-performance-live-website-now.md)의 핵심 런타임 모니터링 기능 중 일부를 구성합니다. 이러한 패키지를 직접 다운로드할 필요는 없으며 상태 모니터 설치 관리자를 사용하기만 하면 됩니다. 이러한 패키지가 내부적으로 작동하는 방식을 알라보려면 먼저 개발자가 만든 [블로그 게시물](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)을 참조하면 좋습니다.
 
 ## <a name="additional-packages"></a>추가 패키지
 
@@ -81,6 +81,6 @@ ms.locfileid: "53000769"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [ASP.NET Core](app-insights-asp-net-core.md)를 모니터링합니다.
+- [ASP.NET Core](../azure-monitor/app/asp-net-core.md)를 모니터링합니다.
 - ASP.NET Core [Azure Linux 웹앱](app-insights-profiler-aspnetcore-linux.md)을 프로파일링합니다.
 - ASP.NET [스냅숏](app-insights-snapshot-debugger.md)을 디버그합니다.

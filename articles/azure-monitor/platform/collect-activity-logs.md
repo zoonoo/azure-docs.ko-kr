@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 1556c228aa2e00cf18f16cc26eefab4691f6de23
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 20246cfa5904c3c89ab9a14d11f2e61883b27344
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184953"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540260"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Log Analytics에서 Azure 활동 로그 수집 및 분석
 
 ![Azure 활동 로그 기호](./media/collect-activity-logs/activity-log-analytics.png)
 
-활동 로그 분석 솔루션은 모든 Azure 구독에서 [Azure 활동 로그](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)를 분석하고 검색할 수 있게 해줍니다. Azure 활동 로그는 구독의 리소스에서 수행된 작업에 대한 자세한 정보를 제공하는 로그입니다. 활동 로그는 구독에 대한 이벤트를 보고하므로 이전에는 *감사 로그* 또는 *작업 로그*라고 했습니다.
+활동 로그 분석 솔루션은 모든 Azure 구독에서 [Azure 활동 로그](../../azure-monitor/platform/activity-logs-overview.md)를 분석하고 검색할 수 있게 해줍니다. Azure 활동 로그는 구독의 리소스에서 수행된 작업에 대한 자세한 정보를 제공하는 로그입니다. 활동 로그는 구독에 대한 이벤트를 보고하므로 이전에는 *감사 로그* 또는 *작업 로그*라고 했습니다.
 
 활동 로그를 통해 구독의 리소스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에서 *무엇을*, *누가*, *언제* 썼는지 확인할 수 있습니다. 작업과 기타 관련 속성의 상태도 이해할 수 있습니다. 활동 로그에는 읽기(GET) 작업 또는 클래식 배포 모델을 사용하는 리소스에 대한 작업이 포함되지 않습니다.
 

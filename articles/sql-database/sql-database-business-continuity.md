@@ -1,6 +1,6 @@
 ---
 title: 클라우드 무중단 업무 방식 - 데이터베이스 복구 - SQL Database | Microsoft Docs
-description: Azure SQL Database에서 클라우드 무중단 업무 방식 및 데이터베이스 복구를 지원하고 중요 업무용 클라우드 응용 프로그램을 계속해서 실행할 수 있도록 하는 방법을 알아봅니다.
+description: Azure SQL Database에서 클라우드 무중단 업무 방식 및 데이터베이스 복구를 지원하고 중요 업무용 클라우드 애플리케이션을 계속해서 실행할 수 있도록 하는 방법을 알아봅니다.
 keywords: 무중단 업무 방식, 클라우드 무중단 업무 방식, 데이터베이스 재해 복구, 데이터베이스 복구
 services: sql-database
 ms.service: sql-database
@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: aecfecda08a6008b931738802bb89054f9d3963c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3b3f1268866c936ae4674188f8e3297702167415
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274126"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599436"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Database의 비즈니스 연속성 개요
 
@@ -65,7 +65,7 @@ SQL Database는 이러한 시나리오를 완화할 수 있는 자동화된 백�
 
 SQL Database는 데이터 손실로부터 비즈니스를 보호하기 위해 매주 전체 데이터베이스 백업, 일반적으로 12시간 간격의 차등 데이터베이스 백업 및 5-10분 간격의 트랜잭션 로그 백업을 조합하여 자동으로 수행합니다. 백업은 7일 동안 백업이 저장되는 기본 DTU 서비스 계층을 제외한 모든 서비스 계층에 대해 35일 동안 RA-GRS 저장소에 저장됩니다. 자세한 내용은 [자동 데이터베이스 백업](sql-database-automated-backups.md)을 참조하세요. Azure Portal, PowerShell 또는 REST API를 사용하여 자동화된 백업에서 이전의 특정 시점으로 기존 데이터베이스를 동일한 논리 서버의 새 데이터베이스로 복원할 수 있습니다. 자세한 내용은 [특정 시점 복원](sql-database-recovery-using-backups.md#point-in-time-restore)을 참조하세요.
 
-지원되는 최대 PITR(Point-in-Time 복원) 보존 기간이 응용 프로그램에 대해 충분하지 않을 경우에 데이터베이스에 대한 LTR(장기 보존) 정책을 구성하여 확장할 수 있습니다. 자세한 내용은 [장기 백업 보존](sql-database-long-term-retention.md)을 참조하세요.
+지원되는 최대 PITR(Point-in-Time 복원) 보존 기간이 애플리케이션에 대해 충분하지 않을 경우에 데이터베이스에 대한 LTR(장기 보존) 정책을 구성하여 확장할 수 있습니다. 자세한 내용은 [장기 백업 보존](sql-database-long-term-retention.md)을 참조하세요.
 
 이러한 자동 데이터베이스 백업을 사용하여 다양한 중단 이벤트에서 데이터 센터 내로 및 다른 데이터 센터로 데이터베이스를 복구할 수 있습니다. 복구 시간은 일반적으로 12시간 미만입니다. 대규모이거나 활성 데이터베이스를 복구하는 데 더 많은 시간이 걸릴 수 있습니다. 자동 데이터베이스 백업을 사용할 경우 예상 복구 시간은 동일한 지역에서 동시에 복구되는 총 데이터베이스 수, 데이터베이스 크기, 트랜잭션 로그 크기 및 네트워크 대역폭에 따라 좌우됩니다. 복구 시간에 대한 자세한 내용은 [데이터베이스 복구 시간](sql-database-recovery-using-backups.md#recovery-time)을 참조하세요. 다른 데이터 영역으로 복구할 때 잠재적인 데이터 손실은 지역 중복 백업을 사용하여 1시간으로 제한됩니다.
 
@@ -142,7 +142,7 @@ SQL Database는 데이터 손실로부터 비즈니스를 보호하기 위해 �
 
 ## <a name="upgrade-an-application-with-minimal-downtime"></a>최소 가동 중단으로 애플리케이션 업그레이드
 
-애플리케이션 업그레이드와 같은 계획된 유지 관리로 인해 애플리케이션을 오프라인 상태로 전환해야 하는 경우도 있습니다. [응용 프로그램 업그레이드 관리](sql-database-manage-application-rolling-upgrade.md) 에서는 활성 지역 복제를 사용하여 클라우드 응용 프로그램의 롤링 업그레이드를 사용하도록 설정함으로써 업그레이드 기간에 가동 중지 시간을 최소화하고 오류가 발생한 경우 복구 경로를 제공하는 방법을 설명합니다.
+애플리케이션 업그레이드와 같은 계획된 유지 관리로 인해 애플리케이션을 오프라인 상태로 전환해야 하는 경우도 있습니다. [애플리케이션 업그레이드 관리](sql-database-manage-application-rolling-upgrade.md)에서는 활성 지역 복제를 사용하여 클라우드 애플리케이션의 롤링 업그레이드를 사용하도록 설정함으로써 업그레이드 기간에 가동 중지 시간을 최소화하고 오류가 발생한 경우 복구 경로를 제공하는 방법을 설명합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

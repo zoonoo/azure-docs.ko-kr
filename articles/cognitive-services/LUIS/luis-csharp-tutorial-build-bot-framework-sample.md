@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 74fec29c2e70f929b64a7a64bab2a525f4facbc6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 951a202f8d57c736af8c17af91859ce89e9efc7d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438730"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717962"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot Framework 3.x 및 Azure 웹앱 봇을 사용하는 C#의 LUIS 봇
 
@@ -77,7 +77,7 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합
 
 ## <a name="connect-your-luis-app-to-the-bot"></a>봇에 LUIS 앱 연결
 
-**응용 프로그램 설정**을 열고 **LuisAppId** 필드를 편집하여 LUIS 앱의 응용 프로그램 ID를 포함합니다. HomeAutomation LUIS 앱을 미국 서부 이외의 지역에서 만든 경우 **LuisAPIHostName**도 변경해야 합니다. **LuisAPIKey**가 작성 키로 설정되어 있습니다. 이 작성 키는 트래픽이 체험 계층 할당량을 초과하면 끝점 키로 변경됩니다. 
+**애플리케이션 설정**을 열고 **LuisAppId** 필드를 편집하여 LUIS 앱의 애플리케이션 ID를 포함합니다. HomeAutomation LUIS 앱을 미국 서부 이외의 지역에서 만든 경우 **LuisAPIHostName**도 변경해야 합니다. **LuisAPIKey**가 작성 키로 설정되어 있습니다. 이 작성 키는 트래픽이 체험 계층 할당량을 초과하면 끝점 키로 변경됩니다. 
 
   ![Azure에서 LUIS 앱 ID 업데이트](./media/luis-tutorial-cscharp-web-bot/bot-service-app-settings.png)
 
@@ -165,16 +165,5 @@ Azure Portal에서 **웹 채팅에서 테스트**를 클릭하여 봇을 테스�
 > [!div class="nextstepaction"]
 > [의도 추가](./luis-how-to-add-intents.md)
 > [음성 초기화](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)
-
-
-<!-- Links -->
-[GitHub-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
-[GitHub-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
-[GitHub-LUIS-Samples-cs-hotel-bot]: https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/csharp
-[GitHub-LUIS-Samples-cs-hotel-bot-readme]: https://github.com/Microsoft/LUIS-Samples/blob/master/bot-integration-samples/hotel-finder/csharp/README.md
-[BFPortal]: https://dev.botframework.com/
-[RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
-[BotFramework]: https://docs.microsoft.com/bot-framework/
-[VisualStudio]: https://www.visualstudio.com/
 
 <!-- tested on Win10 -->

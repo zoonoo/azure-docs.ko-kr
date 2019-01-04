@@ -15,17 +15,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bbba7898329af9d9bca9d35883e3cb4097ca3de4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 33e968ac608c393d65f69bfd6abbc0d205fb9bd9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968615"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718880"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
 
-이 항목은 주요 Azure App Service Mobile Apps 시나리오에서 .NET 백 엔드 서버 SDK를 사용하는 방법을 보여줍니다. Azure Mobile Apps SDK를 사용하면 ASP.NET 응용 프로그램에서 모바일 클라이언트를 사용하여 작업할 수 있습니다.
+이 항목은 주요 Azure App Service Mobile Apps 시나리오에서 .NET 백 엔드 서버 SDK를 사용하는 방법을 보여줍니다. Azure Mobile Apps SDK를 사용하면 ASP.NET 애플리케이션에서 모바일 클라이언트를 사용하여 작업할 수 있습니다.
 
 > [!TIP]
 > [Azure Mobile Apps용 .NET 서버 SDK][2]는 GitHub에서 오픈 소스입니다. 리포지토리는 전체 서버 SDK 단위 테스트 도구 모음 및 일부 샘플 프로젝트를 포함하는 모든 소스 코드를 포함합니다.
@@ -53,7 +53,7 @@ Visual Studio 설치 관리자를 통해 Azure 워크로드를 설치하여 Visu
 
 1. **새 프로젝트** 대화를 엽니다(**파일** > **새로 만들기** > **프로젝트...** 에서).
 2. **Visual C#** 를 확장하고 **웹**을 선택합니다.
-3. **ASP.NET 웹 응용 프로그램(.NET Framework)** 을 선택합니다.
+3. **ASP.NET 웹 애플리케이션(.NET Framework)** 을 선택합니다.
 4. 프로젝트 이름을 입력합니다. 그런 후 **OK**를 클릭합니다.
 5. 템플릿 목록에서 **Azure 모바일 앱**을 선택합니다.
 6. **확인**을 클릭하여 솔루션을 만듭니다.
@@ -66,7 +66,7 @@ Visual Studio에서 Azure Mobile Apps 프로젝트를 만들려면 [.NET용 Azur
 
 1. **새 프로젝트** 대화를 엽니다(**파일** > **새로 만들기** > **프로젝트...** 에서).
 2. **템플릿** > **Visual C#** 를 확장하고 **웹**을 선택합니다.
-3. **ASP.NET 웹 응용 프로그램**을 선택합니다.
+3. **ASP.NET 웹 애플리케이션**을 선택합니다.
 4. 프로젝트 이름을 입력합니다. 그런 후 **OK**를 클릭합니다.
 5. *ASP.NET 4.5.2 템플릿*아래에서 **Azure Mobile App**을 선택합니다. **클라우드에 호스트** 를 선택하여 클라우드에 이 프로젝트를 게시할 수 있는 모바일 백 엔드를 만듭니다.
 6. **확인**을 클릭합니다.
@@ -140,7 +140,7 @@ Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()** 을 호
 * [Microsoft.Azure.Mobile.Server.Login]은 사용자 지정 인증 시나리오 동안 사용되는 정적 메서드인 AppServiceLoginHandler.CreateToken() 메서드를 제공합니다.
 
 ## <a name="publish-server-project"></a>방법: 서버 프로젝트 게시
-이 섹션에서는 Visual Studio에서 .NET 백 엔드 프로젝트를 게시하는 방법을 보여줍니다. [Git](../app-service/app-service-deploy-local-git.md) 또는 사용 가능한 다른 메서드를 사용하여 백 엔드 프로젝트를 배포할 수도 있습니다.
+이 섹션에서는 Visual Studio에서 .NET 백 엔드 프로젝트를 게시하는 방법을 보여줍니다. [Git](../app-service/deploy-local-git.md) 또는 사용 가능한 다른 메서드를 사용하여 백 엔드 프로젝트를 배포할 수도 있습니다.
 
 1. Visual Studio에서 NuGet 패키지를 복원하려면 프로젝트를 빌드하십시오.
 2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다. 처음 게시할 때는 게시 프로필을 정의해야 합니다. 이미 정의된 프로필이 있을 때 프로필을 선택하고 **게시**를 클릭합니다.
@@ -432,15 +432,15 @@ Notification Hubs를 사용하면 태그를 사용하여 특정 등록에 대상
 Azure App Service는 ASP.NET 애플리케이션에 대한 여러 디버깅 및 문제 해결 기술을 제공합니다.
 
 * [Azure App Service 모니터링](../app-service/web-sites-monitor.md)
-* [Azure App Service에 진단 로그 사용](../app-service/web-sites-enable-diagnostic-log.md)
-* [Visual Studio에서 Azure App Service 문제 해결](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md)
+* [Azure App Service에 진단 로그 사용](../app-service/troubleshoot-diagnostic-logs.md)
+* [Visual Studio에서 Azure App Service 문제 해결](../app-service/troubleshoot-dotnet-visual-studio.md)
 
 ### <a name="logging"></a>로깅
 표준 ASP.NET 추적 작성을 사용하여 App Service 진단 로그에 쓸 수 있습니다. 로그를 작성하려면 먼저 모바일 앱 백 엔드에서 진단을 활성화해야 합니다.
 
 진단을 사용하도록 설정하고 로그에 쓰려면:
 
-1. [진단을 사용하는 방법](../app-service/web-sites-enable-diagnostic-log.md#enablediag)에서 단계를 수행합니다.
+1. [진단을 사용하는 방법](../app-service/troubleshoot-diagnostic-logs.md#enablediag)에서 단계를 수행합니다.
 2. 코드 파일에 다음 using 문을 추가합니다.
 
         using System.Web.Http.Tracing;
@@ -449,7 +449,7 @@ Azure App Service는 ASP.NET 애플리케이션에 대한 여러 디버깅 및 �
         ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
         traceWriter.Info("Hello, World");
 4. 서버 프로젝트를 다시 게시하고 모바일 앱 백 엔드에 액세스하여 로깅을 통해 코드 경로를 실행합니다.
-5. [방법: 로그 다운로드](../app-service/web-sites-enable-diagnostic-log.md#download)에 설명된 대로 로그를 다운로드하고 평가합니다.
+5. [방법: 로그 다운로드](../app-service/troubleshoot-diagnostic-logs.md#download)에 설명된 대로 로그를 다운로드하고 평가합니다.
 
 ### <a name="local-debug"></a>인증을 사용하여 로컬 디버깅
 애플리케이션을 로컬로 실행하여 변경 내용을 클라우드에 게시하기 전에 테스트할 수 있습니다. 대부분의 Azure Mobile Apps 백 엔드의 경우 Visual Studio에 있는 동안 *F5* 를 누릅니다. 그러나 인증을 사용할 때 몇 가지 추가 고려 사항이 있습니다.

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: ea509d3804053f060ad551b6eff945b70cec8796
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c9a2d569641ab0f8f6aa1d7234da1d3cbb0ab147
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261061"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744992"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Azure Cache for Redis 샘플
 이 항목에서는 캐시에 연결, 캐시에서 데이터 읽기 및 쓰기, ASP.NET Azure Cache for Redis 공급자 사용과 같은 시나리오를 다루는 Azure Cache for Redis 샘플 목록을 제공합니다. 일부 샘플은 다운로드 가능한 프로젝트이고, 일부 샘플은 단계별 지침을 제공하며 코드 조각을 포함하지만 다운로드 가능한 프로젝트에 연결되지 않습니다.
@@ -40,7 +40,7 @@ ms.locfileid: "53261061"
 * Redis 집합을 사용하여 태그 지정 구현
 * Redis 클러스터 작업
 
-자세한 내용은 GitHub의 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 설명서를 참조하고, 추가 사용 시나리오는 [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests) 단위 테스트를 참조하세요.
+자세한 내용은 GitHub의 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 설명서를 참조하고, 추가 사용 시나리오는 [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/tests) 단위 테스트를 참조하세요.
 
 [Python에서 Azure Cache for Redis를 사용하는 방법](cache-python-get-started.md)에서 Python과 [redis-py](https://github.com/andymccurdy/redis-py) 클라이언트를 사용하여 Azure Cache for Redis를 시작하는 방법을 보여 줍니다.
 

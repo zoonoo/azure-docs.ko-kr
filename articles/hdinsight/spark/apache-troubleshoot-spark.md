@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f286d8b2ba254cfad542db14b8719d6f3f676222
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2108de8988e973644e0622a4b76a04408949298e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093746"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635155"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Spark 문제 해결
 
@@ -218,7 +218,7 @@ java.lang.OutOfMemoryError
 
 ### <a name="additional-reading"></a>추가 참조 자료
 
-- [Apache Spark 메모리 관리 개요](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
+- [Apache Spark 메모리 관리 개요](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
 - [HDInsight 클러스터에서 Apache Spark 애플리케이션 디버그](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
 

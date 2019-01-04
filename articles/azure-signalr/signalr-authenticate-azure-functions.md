@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/18/2018
 ms.author: zhshang
-ms.openlocfilehash: 34cbb4d2c8a1e84499961802ca7bd07408375345
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 0cd0dcaf200b1248204efc2d2c0011a94d3c41d3
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409396"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720971"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>자습서: Azure Functions를 사용하여 Azure SignalR Service 인증
 
@@ -298,7 +298,7 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 ### <a name="configure-function-app-for-authentication"></a>인증을 위한 함수 앱 구성
 
-지금까지 채팅 앱은 익명으로 작동합니다. Azure에서는 [App Service 인증](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)을 사용하여 사용자를 인증합니다. 인증된 사용자의 사용자 ID 또는 사용자 이름을 *SignalRConnectionInfo* 바인딩에 전달하여 사용자로 인증된 연결 정보를 생성할 수 있습니다.
+지금까지 채팅 앱은 익명으로 작동합니다. Azure에서는 [App Service 인증](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)을 사용하여 사용자를 인증합니다. 인증된 사용자의 사용자 ID 또는 사용자 이름을 *SignalRConnectionInfo* 바인딩에 전달하여 사용자로 인증된 연결 정보를 생성할 수 있습니다.
 
 메시지를 보내는 경우 연결된 모든 클라이언트에 보낼지, 아니면 지정한 사용자에게 인증된 클라이언트에만 보낼지 여부를 결정할 수 있습니다.
 

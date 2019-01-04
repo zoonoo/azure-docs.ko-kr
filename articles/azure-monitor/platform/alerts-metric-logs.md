@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 76355723baa7727c0dda10ace449603d6ebefbe1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: bfa5cc9a5c04d4c6a692d9a70844f2ec0c35e132
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435857"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579178"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Azure Monitor에서 로그 메트릭 경고 만들기  
 
 ## <a name="overview"></a>개요
-Azure Monitor는 [클래식 경고](../../azure-monitor/platform/alerts-classic-portal.md)보다 이점이 있는 [메트릭 경고 유형](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)을 지원합니다. [다양한 Azure 서비스](../../azure-monitor/platform/metrics-supported.md)에 대해 메트릭을 사용할 수 있습니다. 이 문서에서는 리소스(`Microsoft.OperationalInsights/workspaces`)의 하위 집합을 사용하는 방법에 대해 설명합니다. 
+Azure Monitor는 [클래식 경고](../../azure-monitor/platform/alerts-classic-portal.md)보다 이점이 있는 [메트릭 경고 유형](../../azure-monitor/platform/alerts-metric-near-real-time.md)을 지원합니다. [다양한 Azure 서비스](../../azure-monitor/platform/metrics-supported.md)에 대해 메트릭을 사용할 수 있습니다. 이 문서에서는 리소스(`Microsoft.OperationalInsights/workspaces`)의 하위 집합을 사용하는 방법에 대해 설명합니다. 
 
 Azure 또는 온-프레미스의 리소스를 포함하여 [로그]에서 [메트릭]의 일부인 메트릭으로 추출된 메트릭 경고를 인기 있는 Log Analytics 로그에서 사용할 수 있습니다. 지원되는 Log Analytics 솔루션은 다음과 같습니다.
 - Windows 및 Linux 컴퓨터에 대한 [성능 카운터](../../azure-monitor/platform/data-sources-performance-counters.md)
@@ -51,7 +51,7 @@ Log Analytics 데이터에서 수집된 로그에 대한 메트릭이 작동하�
 4. **로그를 보내도록 Log Analytics 솔루션 구성**: Log Analytcis 솔루션은 [Log Analytics 작업 영역에 지원되는 메트릭](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)에 해당하는 필수 로그/데이터를 사용하도록 설정해야 합니다. 예를 들어 *% 사용 가능한 메모리* 카운터는 먼저 [성능 카운터](../../azure-monitor/platform/data-sources-performance-counters.md) 솔루션에 구성해야 합니다.
 
 ## <a name="configuring-metric-alert-for-logs"></a>로그 메트릭 경고 구성
- 메트릭 경고는 Azure Portal, Resource Manager 템플릿, REST API, PowerShell 및 Azure CLI를 사용하여 만들고 관리할 수 있습니다. 로그 메트릭 경고는 메트릭 경고의 변형이므로 필수 조건이 완료되면 지정된 Log Analytics 작업 영역에 대한 로그 메트릭 경고를 만들 수 있습니다. 페이로드 스키마, 적용 가능한 할당량 한도 및 청구 가격을 포함하여 [메트릭 경고](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)의 모든 특성과 기능은 로그 메트릭 경고에도 적용할 수 있습니다.
+ 메트릭 경고는 Azure Portal, Resource Manager 템플릿, REST API, PowerShell 및 Azure CLI를 사용하여 만들고 관리할 수 있습니다. 로그 메트릭 경고는 메트릭 경고의 변형이므로 필수 조건이 완료되면 지정된 Log Analytics 작업 영역에 대한 로그 메트릭 경고를 만들 수 있습니다. 페이로드 스키마, 적용 가능한 할당량 한도 및 청구 가격을 포함하여 [메트릭 경고](../../azure-monitor/platform/alerts-metric-near-real-time.md)의 모든 특성과 기능은 로그 메트릭 경고에도 적용할 수 있습니다.
 
 단계별 세부 정보 및 샘플은 [메트릭 경고 만들기 및 관리](https://aka.ms/createmetricalert)를 참조하세요. 특히 로그 메트릭 경고의 경우 메트릭 경고 관리 지침을 따르고 다음 사항을 확인합니다.
 - 메트릭 경고의 대상은 유효한 *Log Analytics 작업 영역*입니다.

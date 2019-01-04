@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 5b8db52623eead2800b0a5d8154a222573808750
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 6254a32349a0f7c743c3fb4993080ca3437c8276
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192433"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810273"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Log Analytics 및 Application Insights에 저장된 개인 데이터에 대한 지침
 
@@ -58,7 +58,7 @@ Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 
 * *사용자 지정 데이터*: Log Analytics를 사용하면 사용자 지정 로그와 사용자 지정 필드, [HTTP 데이터 수집기 API](../../azure-monitor/platform/data-collector-api.md) 및 시스템 이벤트 로그의 일부로 수집된 사용자 지정 데이터 등 다양한 방법으로 수집할 수 있습니다. 이러한 방법은 모두 개인 데이터를 포함하는 데 취약하고 이러한 정보가 있는지 여부를 확인하기 위해 조사해야 합니다.
 * *솔루션에서 캡처된 데이터*: 솔루션 메커니즘은 제한되지 않으므로 솔루션에서 생성된 모든 테이블을 검토하여 규정 준수 여부를 확인하는 것이 좋습니다.
 
-### <a name="application-data"></a>응용 프로그램 데이터
+### <a name="application-data"></a>애플리케이션 데이터
 
 * *IP 주소*: Application Insights는 기본적으로 모든 IP 주소 필드를 "0.0.0.0"으로 난독 처리하지만, 세션 정보를 유지하기 위해 이 값을 실제 사용자로 재정의하는 것이 매우 일반적인 패턴입니다. 아래의 Analytics 쿼리는 지난 24 시간 동안 "0.0.0.0"이 아닌 IP 주소 열의 값을 포함한 모든 테이블을 찾는 데 사용될 수 있습니다.
     ```
@@ -66,7 +66,7 @@ Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 
     | where timestamp > ago(1d)
     | summarize numNonObfuscatedIPs_24h = count() by $table
     ```
-* *사용자 ID*: Application Insights는 기본적으로 사용자 및 세션 추적을 위해 임의로 생성된 ID를 사용합니다. 그러나 응용 프로그램에 더 많은 관련이 있는 ID를 저장하려면 이러한 재정의된 필드를 확인하는 것이 일반적입니다. 예: 사용자 이름, AAD GUID 등. 이러한 ID는 자주 범위 내 개인 데이터로 간주되므로 적절하게 처리되어야 합니다. 이러한 ID는 항상 난독 처리하거나 익명화하는 것이 좋습니다. 이러한 값이 보통 발견되는 필드에는 session_Id, user_Id, user_AuthenticatedId, user_AccountId 및 customDimensions이 포함됩니다.
+* *사용자 ID*: Application Insights는 기본적으로 사용자 및 세션 추적을 위해 임의로 생성된 ID를 사용합니다. 그러나 애플리케이션에 더 많은 관련이 있는 ID를 저장하려면 이러한 재정의된 필드를 확인하는 것이 일반적입니다. 예: 사용자 이름, AAD GUID 등. 이러한 ID는 자주 범위 내 개인 데이터로 간주되므로 적절하게 처리되어야 합니다. 이러한 ID는 항상 난독 처리하거나 익명화하는 것이 좋습니다. 이러한 값이 보통 발견되는 필드에는 session_Id, user_Id, user_AuthenticatedId, user_AccountId 및 customDimensions이 포함됩니다.
 * *사용자 지정 데이터*: Application Insights를 사용하면 모든 데이터 형식에 사용자 지정 차원 세트를 추가할 수 있습니다. 이러한 차원은 *모든* 데이터일 수 있습니다. 다음 쿼리를 사용하여 지난 24시간 동안 수집된 모든 사용자 지정 크기를 식별합니다.
     ```
     search * 
@@ -110,7 +110,7 @@ Azure Resource Manager 역할이 할당되면 두 개의 새 API 경로를 사�
 > [!IMPORTANT]
 >  대부분의 제거 작업은 SLA보다 훨씬 빨리 완료될 것으로 예상하지만, Log Analytics에서 사용하는 데이터 플랫폼에 많은 영향을 미치기 때문에 **제거 작업 완료에 대한 공식 SLA는 30일로 설정됩니다**. 
 
-#### <a name="application-data"></a>응용 프로그램 데이터
+#### <a name="application-data"></a>애플리케이션 데이터
 
 * [게시 제거](https://docs.microsoft.com/rest/api/application-insights/components/purge) - 삭제할 데이터의 매개 변수를 지정하는 개체를 사용하고 참조 GUID를 반환합니다.
 * GET 상태 가져오기 - POST 제거 호출은 제거 API의 상태를 결정하기 위해 호출할 수 있는 URL이 포함된 'x-ms-status-location' 헤더를 반환합니다. 예: 
@@ -124,4 +124,4 @@ Azure Resource Manager 역할이 할당되면 두 개의 새 API 경로를 사�
 
 ## <a name="next-steps"></a>다음 단계
 - Log Analytics 데이터 수집, 처리 및 보안 방법에 대한 자세한 내용은 [Log Analytics 데이터 보안](../../azure-monitor/platform/data-security.md)을 참조하세요.
-- Application Insights 데이터 수집, 처리 및 보안 방법에 대한 자세한 내용은 [Application Insights 데이터 보안](../../application-insights/app-insights-data-retention-privacy.md)을 참조하세요.
+- Application Insights 데이터 수집, 처리 및 보안 방법에 대한 자세한 내용은 [Application Insights 데이터 보안](../../azure-monitor/app/data-retention-privacy.md)을 참조하세요.

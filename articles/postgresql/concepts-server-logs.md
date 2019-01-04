@@ -1,19 +1,17 @@
 ---
 title: PostgreSQL용 Azure 데이터베이스의 서버 로그
 description: 이 문서에서는 Azure Database for PostgreSQL에서 쿼리 및 오류 로그를 생성하는 방법과 로그 보존을 구성하는 방법을 설명합니다.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 2ee9f750ff52b8afe4be54233f1374f523a789f4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0e2dc2af6b4c7ddf531458136e6bcabb49be3b8f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845172"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538808"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 서버 로그 
 PostgreSQL용 Azure 데이터베이스에서는 쿼리 및 오류 로그를 생성합니다. 쿼리 및 오류 로그는 구성 오류 및 최적 상태가 아닌 성능 문제를 식별하고, 문제를 해결하고, 복구하는 데 사용될 수 있습니다. 단, 트랜잭션 로그 액세스 권한은 포함되지 않습니다. 
@@ -30,7 +28,7 @@ PostgreSQL용 Azure 데이터베이스에서는 쿼리 및 오류 로그를 생�
 
 
 ## <a name="diagnostic-logs"></a>진단 로그
-Azure Database for PostgreSQL은 Azure Monitor 진단 로그와 통합됩니다. PostgreSQL 서버에서 로그를 사용하도록 설정하고 나면 [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Event Hubs 또는 Azure Storage로 로그를 내보내도록 선택할 수 있습니다. 진단 로그를 사용하도록 설정하는 방법에 대한 자세한 내용은 [진단 로그 설명서](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)의 방법 섹션을 참조하세요. 
+Azure Database for PostgreSQL은 Azure Monitor 진단 로그와 통합됩니다. PostgreSQL 서버에서 로그를 사용하도록 설정하고 나면 [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Event Hubs 또는 Azure Storage로 로그를 내보내도록 선택할 수 있습니다. 진단 로그를 사용하도록 설정하는 방법에 대한 자세한 내용은 [진단 로그 설명서](../azure-monitor/platform/diagnostic-logs-overview.md)의 방법 섹션을 참조하세요. 
 
 
 아래 표에는 각 로그의 내용에 대한 설명이 나와 있습니다. 포함되는 필드와 이러한 필드가 표시되는 순서는 선택한 출력 엔드포인트에 따라 달라질 수 있습니다. 

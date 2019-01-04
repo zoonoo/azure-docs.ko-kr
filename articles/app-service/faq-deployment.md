@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 833b655246035fa3eb9a820316a95b73eed5b2bd
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 07d233ba50f4253b4ea3097748b9c58142e08a91
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388693"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549431"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 배포 FAQ
 
@@ -36,7 +36,7 @@ ms.locfileid: "53388693"
 *   Visual Studio를 사용하여 배포. Visual Studio 솔루션이 있는 경우 웹 애플리케이션 프로젝트를 마우스 오른쪽 단추로 클릭하고 나서 **게시**를 선택합니다.
 *   FTP 클라이언트를 사용하여 배포. Azure Portal에서 코드를 배포할 웹앱에 대한 게시 프로필을 다운로드합니다. 그다음에 동일한 게시 프로필 FTP 자격 증명을 사용하여 \site\wwwroot에 파일을 업로드합니다.
 
-자세한 내용은 [App Service에 앱 배포](app-service-deploy-local-git.md)를 참조하세요.
+자세한 내용은 [App Service에 앱 배포](deploy-local-git.md)를 참조하세요.
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Visual Studio에서 배포하려고 할 때 오류 메시지가 표시됩니다. 이 문제를 해결하려면 어떻게 해야 하나요?
 
@@ -44,14 +44,14 @@ ms.locfileid: "53388693"
 
 이 오류를 해결하려면 [최신 SDK](https://azure.microsoft.com/downloads/)로 업그레이드합니다. 이 메시지가 표시되고 최신 SDK가 있으면 지원 요청을 제출하세요.
 
-## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>Visual Studio에서 App Service로 ASP.NET 응용 프로그램을 배포하려면 어떻게 하나요?
+## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>Visual Studio에서 App Service로 ASP.NET 애플리케이션을 배포하려면 어떻게 하나요?
 <a id="deployasp"></a>
 
-[Azure에서 ASP.NET 웹앱 만들기](app-service-web-get-started-dotnet.md) 자습서에서는 Visual Studio 2017을 사용하여 ASP.NET 웹 응용 프로그램을 Azure App Service의 웹앱에 배포하는 방법을 보여 줍니다.
+[Azure에서 ASP.NET 웹앱 만들기](app-service-web-get-started-dotnet.md) 자습서에서는 Visual Studio 2017을 사용하여 ASP.NET 웹 애플리케이션을 Azure App Service의 웹앱에 배포하는 방법을 보여줍니다.
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>배포 자격 증명 형식에는 무엇이 있나요?
 
-App Service에서는 로컬 Git 배포 및 FTP/S 배포에 대한 두 가지 형식의 자격 증명을 지원합니다. 배포 자격 증명을 구성하는 방법에 대한 자세한 내용은 [App Service에 대한 배포 자격 증명 구성](app-service-deployment-credentials.md)을 참조하세요.
+App Service에서는 로컬 Git 배포 및 FTP/S 배포에 대한 두 가지 형식의 자격 증명을 지원합니다. 배포 자격 증명을 구성하는 방법에 대한 자세한 내용은 [App Service에 대한 배포 자격 증명 구성](deploy-configure-credentials.md)을 참조하세요.
 
 ## <a name="what-is-the-file-or-directory-structure-of-my-app-service-web-app"></a>내 App Service 웹앱의 파일 또는 디렉터리 구조는 무엇인가요?
 
@@ -63,7 +63,7 @@ App Service 앱의 파일 구조에 대한 자세한 내용은 [File structure i
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>내 App Service 웹앱에 대한 지속적인 배포를 설정하려면 어떻게 하나요?
 
-Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox 및 기타 Git 리포지토리를 포함한 여러 리소스에서 지속적인 배포를 설정할 수 있습니다. 이러한 옵션은 포털에서 사용할 수 있습니다. [App Service에 대한 지속적인 배포](app-service-continuous-deployment.md)는 지속적인 배포를 설정하는 방법을 설명하는 유용한 자습서입니다.
+Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox 및 기타 Git 리포지토리를 포함한 여러 리소스에서 지속적인 배포를 설정할 수 있습니다. 이러한 옵션은 포털에서 사용할 수 있습니다. [App Service에 대한 지속적인 배포](deploy-continuous-deployment.md)는 지속적인 배포를 설정하는 방법을 설명하는 유용한 자습서입니다.
 
 ## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>GitHub 및 Bitbucket의 지속적인 배포 관련 문제를 해결하려면 어떻게 하나요?
 
@@ -84,7 +84,7 @@ Azure 빠른 시작은 선택한 배포 스택 및 방법을 사용하여 앱을
 
 ## <a name="why-does-my-app-sometimes-restart-after-deployment-to-app-service"></a>App Service에 배포한 후 때때로 앱이 다시 시작되지 않는 이유는 무엇인가요?
 
-응용 프로그램 배포 후 다시 시작되는 경우를 알아보려면 [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts")(배포 및 런타임 문제)를 참조하세요. 문서에서 설명하는 대로 App Service는 파일을 wwwroot 폴더에 배포합니다. 앱을 직접 다시 시작하지는 않습니다.
+애플리케이션 배포 후 다시 시작되는 경우를 알아보려면 [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts")(배포 및 런타임 문제)를 참조하세요. 문서에서 설명하는 대로 App Service는 파일을 wwwroot 폴더에 배포합니다. 앱을 직접 다시 시작하지는 않습니다.
 
 ## <a name="how-do-i-integrate-azure-devops-code-with-app-service"></a>Azure DevOps 코드를 App Service와 통합하려면 어떻게 하나요?
 
@@ -100,4 +100,4 @@ Azure DevOps에서 지속적인 배포를 사용할 수 있는 다음과 같은 
 
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>FTP 또는 FTPS를 사용하여 App Service에 내 앱을 배포하려면 어떻게 하나요?
 
-FTP 또는 FTPS를 사용하여 App Service에 웹앱을 배포하는 방법에 대한 자세한 내용은 [FTP/S를 사용하여 App Service에 앱 배포](app-service-deploy-ftp.md)를 참조하세요.
+FTP 또는 FTPS를 사용하여 App Service에 웹앱을 배포하는 방법에 대한 자세한 내용은 [FTP/S를 사용하여 App Service에 앱 배포](deploy-ftp.md)를 참조하세요.

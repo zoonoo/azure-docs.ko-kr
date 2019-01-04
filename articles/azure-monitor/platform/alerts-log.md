@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 3c9514e39e061067b7332570e0eb6273924529e0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: be86e961d04b600f112a173c041b60cbe50ea00d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339215"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725062"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리  
 
@@ -23,7 +23,7 @@ ms.locfileid: "53339215"
 - 조건: 신호에서 표시될 때 작업을 트리거해야 하는 특정 조건 또는 논리
 - 작업: 알림의 받는 사람에게 보내는 특정 호출 - 이메일, SMS, 웹후크 등
 
-**로그 경고**라는 용어는 신호가 [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) 또는 [Application Insights](../../application-insights/app-insights-analytics.md)를 기준으로 하는 사용자 지정 쿼리인 경고를 설명합니다. [로그 경고 - 개요](../../azure-monitor/platform/alerts-unified-log.md)에서 기능, 용어 및 형식에 대해 자세히 알아보세요.
+**로그 경고**라는 용어는 신호가 [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) 또는 [Application Insights](../../azure-monitor/app/analytics.md)를 기준으로 하는 사용자 지정 쿼리인 경고를 설명합니다. [로그 경고 - 개요](../../azure-monitor/platform/alerts-unified-log.md)에서 기능, 용어 및 형식에 대해 자세히 알아보세요.
 
 > [!NOTE]
 > [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md)에서 인기 있는 로그 데이터를 이제 Azure Monitor의 메트릭 플랫폼에서도 사용할 수 있습니다. 세부 정보 보기의 경우 [로그에 대한 메트릭 경고](../../azure-monitor/platform/alerts-metric-logs.md)를 참조하세요.
@@ -245,6 +245,6 @@ az group deployment create --resource-group myRG --template-file sampleScheduled
 
 * [Azure Alerts의 로그 경고](../../azure-monitor/platform/alerts-unified-log.md)에 대해 알아보기
 * [로그 경고에 대한 웹후크 작업](../../azure-monitor/platform/alerts-log-webhook.md) 이해
-* [Application Insights](../../application-insights/app-insights-analytics.md)에 대해 자세히 알아보기
+* [Application Insights](../../azure-monitor/app/analytics.md)에 대해 자세히 알아보기
 * [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)에 대해 자세히 알아보기 
 

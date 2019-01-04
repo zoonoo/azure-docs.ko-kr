@@ -1,20 +1,17 @@
 ---
 title: Azure Portal에서 Azure Database for MySQL에 대한 서버 로그 구성 및 액세스
 description: 이 문서에서는 Azure Portal에서 Azure Database for MySQL의 서버 로그를 구성 및 액세스하는 방법을 설명합니다.
-services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 030c9bf32da7b635066a744270739251b9bf3d03
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: e0701d2e10b366a6bf849512484fb216c42823bc
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984709"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544960"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Azure Portal에서 서버 로그 구성 및 액세스
 

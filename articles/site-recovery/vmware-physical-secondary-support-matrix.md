@@ -4,15 +4,16 @@ description: Azure Site Recovery를 사용한 VMware VM 및 물리적 서버와 
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 7e86757f42a90de971155137b44d1a8ad9cc9ac1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b03ee4ebf1113fd422d34ebf219461e75c4a5a45
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847918"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970766"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>VMware VM 또는 물리적 서버에서 보조 사이트로 재해 복구하기 위한 지원 매트릭스
 
@@ -56,15 +57,15 @@ Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 
 
 **구성** | **지원됨**  
 --- | --- 
-호스트 - NIC 팀 | yes 
-호스트 - VLAN | yes 
-호스트 - IPv4 | yes 
+호스트 - NIC 팀 | 예 
+호스트 - VLAN | 예 
+호스트 - IPv4 | 예 
 호스트 - IPv6 | 아니요 
 게스트 VM - NIC 팀 | 아니요
-게스트 VM - IPv4 | yes
+게스트 VM - IPv4 | 예
 게스트 VM - IPv6 | 아니요
-게스트 VM - Windows/Linux - 고정 IP 주소 | yes
-게스트 VM - 다중 NIC | yes
+게스트 VM - Windows/Linux - 고정 IP 주소 | 예
+게스트 VM - 다중 NIC | 예
 
 
 ## <a name="storage"></a>Storage
@@ -73,29 +74,29 @@ Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 
 
 **Storage(호스트)** | **지원됨** 
 --- | --- 
-NFS | yes 
+NFS | 예 
 SMB 3.0 | 해당 없음 
-SAN(ISCSI) | yes 
-다중 경로(MPIO) | yes 
+SAN(ISCSI) | 예 
+다중 경로(MPIO) | 예 
 
 ### <a name="guest-or-physical-server-storage"></a>게스트 또는 물리적 서버 저장소
 
 **구성** | **지원됨** 
 --- | --- 
-VMDK | yes 
+VMDK | 예 
 VHD/VHDX | 해당 없음 
 2세대 VM | 해당 없음 
-공유 클러스터 디스크 | yes 
+공유 클러스터 디스크 | 예 
 암호화된 디스크 | 아니요 
-UEFI| yes 
+UEFI| 예 
 NFS | 아니요 
 SMB 3.0 | 아니요 
-RDM | yes 
-디스크 > 1TB | yes 
-스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM | yes 
+RDM | 예 
+디스크 > 1TB | 예 
+스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM | 예 
 저장소 공간 | 아니요 
-디스크 핫 추가/제거 | yes 
-디스크 제외 | yes 
+디스크 핫 추가/제거 | 예 
+디스크 제외 | 예 
 다중 경로(MPIO) | 해당 없음 
 
 ## <a name="vaults"></a>자격 증명 모음

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 3a0b92e2c2a588fa8ef7edcddaa8c692780814f0
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 471bb1b3fb17adc9e06dba591663ee20dd9d8baf
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388405"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721566"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 애플리케이션 성능 FAQ
 
@@ -95,7 +95,7 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 기본적으로 웹앱은 일정 기간 유휴 상태인 경우 언로드됩니다. 이를 통해 시스템이 리소스를 절약할 수 있습니다. 단점은 웹앱이 로드되고 응답 제공을 시작할 수 있도록 웹앱이 언로드된 후 첫 번째 요청에 대한 응답 시간이 더 길어진다는 것입니다. 기본 및 표준 서비스 계획에서 **무중단** 설정을 켜서 항상 앱을 계속 로드할 수 있습니다. 이렇게 하면 앱이 유휴 상태인 후에 로드 시간이 길어지지 않습니다. **무중단** 설정을 변경하려면:
 
 1. Azure Portal에서 웹앱으로 이동합니다.
-2. **응용 프로그램 설정**을 선택합니다.
+2. **애플리케이션 설정**을 선택합니다.
 3. **무중단**에 대해 **켜기**를 선택합니다.
 
 ## <a name="how-do-i-turn-on-failed-request-tracing"></a>실패한 요청 추적을 어떻게 켜나요?
@@ -163,7 +163,7 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 
 Azure Load Balancer에는 4분의 기본 유휴 시간 제한 설정이 있습니다. 이 설정은 일반적으로 웹 요청에 대한 합리적인 응답 시간 제한입니다. 웹앱에 백그라운드 처리가 필요한 경우 Azure WebJobs를 사용하는 것이 좋습니다. Azure 웹앱은 WebJobs를 호출하고 백그라운드 처리가 완료되면 알림을 받을 수 있습니다. 큐 및 트리거를 포함하여 WebJobs를 사용하기 위한 여러 방법 중에서 선택할 수 있습니다.
 
-WebJobs는 백그라운드에서 처리되도록 디자인됩니다. WebJob에서 원하는 만큼 백그라운드 처리를 수행할 수 있습니다. WebJobs에 대한 자세한 내용은 [WebJob으로 백그라운드 작업 실행](web-sites-create-web-jobs.md)을 참조하세요.
+WebJobs는 백그라운드에서 처리되도록 디자인됩니다. WebJob에서 원하는 만큼 백그라운드 처리를 수행할 수 있습니다. WebJobs에 대한 자세한 내용은 [WebJob으로 백그라운드 작업 실행](webjobs-create.md)을 참조하세요.
 
 ## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>App Service에서 호스트되는 ASP.NET Core 애플리케이션이 때때로 응답을 중지합니다. 이 문제를 어떻게 해결하나요?
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: b2399e47c9071bac159f407deac9755606763a67
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: c22c97efed7c70b554acd449ed15c6641e377b6a
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325613"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788500"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Application Insights에 클라우드 서비스, Virtual Machine 또는 Service Fabric 데이터 보내기
 클라우드 서비스, Virtual Machines, Virtual Machine Scale Sets 및 Service Fabric은 모두 Azure 진단 확장을 사용하여 데이터를 수집합니다.  Azure 진단은 데이터를 Azure Storage 테이블에 보냅니다.  그러나 Azure 진단 확장 1.5 이상을 사용하여 다른 위치에 데이터의 하위 집합이나 전체를 파이핑할 수 있습니다.
@@ -62,7 +62,7 @@ Application Insights에 대한 싱크 예제 구성:
 
 - **ApplicationInsights** 요소는 Azure 진단 데이터를 보낼 Application Insights 리소스의 계측 키를 지정합니다.
     - 기존 Application Insights 리소스가 없는 경우 리소스 만들기 및 계측 키 가져오기에 대한 자세한 내용은 [새 Application Insights 리소스 만들기](../../application-insights/app-insights-create-new-resource.md)를 참조하세요.
-    - Azure SDK 2.8 이상에서 클라우드 서비스를 개발하는 경우 이 계측 키는 자동으로 채워집니다. 클라우드 서비스 프로젝트를 패키징할 때 값은 **APPINSIGHTS_INSTRUMENTATIONKEY** 서비스 구성을 기반으로 합니다. [Cloud Services와 함께 Application Insights 사용](../../application-insights/app-insights-cloudservices.md)을 참조하세요.
+    - Azure SDK 2.8 이상에서 클라우드 서비스를 개발하는 경우 이 계측 키는 자동으로 채워집니다. 클라우드 서비스 프로젝트를 패키징할 때 값은 **APPINSIGHTS_INSTRUMENTATIONKEY** 서비스 구성을 기반으로 합니다. [Cloud Services와 함께 Application Insights 사용](../../azure-monitor/app/cloudservices.md)을 참조하세요.
 
 - **채널** 요소는 하나 이상의 **채널** 요소를 포함합니다.
     - *name* 특성은 고유하게 해당 채널을 의미합니다.
@@ -216,5 +216,5 @@ Application Insights에 대한 싱크 예제 구성:
 
 ## <a name="next-steps"></a>다음 단계
 * Application Insights에서 [Azure 진단 정보를 보는 방법](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events)에 대해 알아봅니다.
-* [PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md)을 사용하여 응용 프로그램에 대한 Azure 진단 확장을 사용하도록 설정합니다.
-* [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) 를 사용하여 응용 프로그램에 대한 Azure 진단 확장을 사용하도록 설정합니다.
+* [PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md) 을 사용하여 애플리케이션에 대한 Azure 진단 확장을 사용하도록 설정합니다.
+* [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)를 사용하여 애플리케이션에 대한 Azure 진단 확장을 사용하도록 설정합니다.

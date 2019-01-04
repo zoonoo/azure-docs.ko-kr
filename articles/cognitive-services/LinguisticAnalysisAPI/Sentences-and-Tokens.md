@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl
 ROBOTS: NOINDEX
-ms.openlocfilehash: 289cab4999276cbfb1fa558f558ebafa8e4e3a30
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 96c2bd1c11554481e441662a6051620f4b2e2993
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237877"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972365"
 ---
 # <a name="sentence-separation-and-tokenization"></a>문장 분리 및 토큰화
 
@@ -75,4 +75,4 @@ ms.locfileid: "48237877"
 ## <a name="specification"></a>사양
 
 문장 및 토큰 구성을 일관적으로 결정하는 것이 중요합니다.
-현재, [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42)의 기준을 참조하고 있습니다(일부 추가 세부 사항은 ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html 참조).
+현재, [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42)의 기준을 참조하고 있습니다(일부 추가 세부 사항은 ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html 참조).

@@ -1,21 +1,18 @@
 ---
 title: Azure CLI를 사용하여 Azure Database for MySQL의 서버 로그에 액세스
 description: 이 아티클에서는 Azure CLI 명령줄 유틸리티를 사용하여 Azure Database for MySQL에서 서버 로그에 액세스하는 방법을 설명합니다.
-services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: e3940f07ab97eb2ad03c347c39bf2412a8497f5e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 207e9965f6600477e1df93845bc41bd33b5c028c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978457"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547034"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Azure CLI를 사용하여 서버 로그 구성 및 액세스
 Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for MySQL 서버 로그를 다운로드할 수 있습니다.
@@ -28,7 +25,7 @@ Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for MyS
 ## <a name="configure-logging-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대한 로깅 구성
 다음 단계를 수행하여 MySQL 느린 쿼리 로그에 액세스하도록 서버를 구성할 수 있습니다.
 1. **slow\_query\_log** 매개 변수를 켜기로 설정하여 로깅을 사용합니다.
-2. **long\_query\_time** 및 **log\_slow\_admin\_statements**와 같은 다른 매개 변수를 조정합니다.
+2. **long\_query\_time** 및 **log\_slow\_admin\_statements**와 같은 다른 매개 변수를 조정합니다.
 
 Azure CLI를 통해 이러한 매개 변수 값을 설정하는 방법을 알아보려면 [서버 매개 변수를 구성하는 방법](howto-configure-server-parameters-using-cli.md)을 참조하세요. 
 

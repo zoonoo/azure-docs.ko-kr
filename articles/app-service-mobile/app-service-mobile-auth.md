@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.openlocfilehash: de501b79107aafa61c489db607c37d086a5f4ed4
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 87bdfcc827155e5dd0a02ffb1640bf7e9cd4e479
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408020"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715789"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Azure App Service에서 모바일 앱에 대한 인증 및 권한 부여
 
@@ -26,7 +26,7 @@ ms.locfileid: "53408020"
 
 이 문서는 모바일 앱 개발에 중점을 둡니다. 모바일 앱에 대한 App Service 인증 및 권한 부여를 빠르게 시작하려면 [iOS 앱에 인증 추가][iOS](또는 [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] 또는 [Cordova]) 자습서 중 하나를 참조하세요. 
 
-App Service에서 인증 및 권한 부여가 작동하는 방법에 대한 내용은 [Azure App Service의 인증 및 권한 부여](../app-service/app-service-authentication-overview.md)를 참조하세요.
+App Service에서 인증 및 권한 부여가 작동하는 방법에 대한 내용은 [Azure App Service의 인증 및 권한 부여](../app-service/overview-authentication-authorization.md)를 참조하세요.
 
 ## <a name="authentication-with-provider-sdk"></a>공급자 SDK를 사용하는 인증
 
@@ -44,7 +44,7 @@ App Service에서 모든 항목이 구성되면 App Service를 사용하여 로�
 
 공급자 토큰을 가져오면 유효성 검사에 대한 App Service에 전송되어야 합니다. App Service는 토큰 유효성을 검사한 후, 클라이언트에 반환되는 새 App Service 토큰을 만듭니다. Mobile Apps 클라이언트 SDK에는 이 교환을 관리하고 애플리케이션 백 엔드에 대한 모든 요청에 토큰을 자동으로 연결하는 도우미 메서드가 있습니다. 개발자는 공급자 토큰에 대한 참조를 유지할 수도 있습니다.
 
-인증 흐름에 대한 자세한 내용은 [App Service 인증 흐름](../app-service/app-service-authentication-overview.md#authentication-flow)을 참조하세요. 
+인증 흐름에 대한 자세한 내용은 [App Service 인증 흐름](../app-service/overview-authentication-authorization.md#authentication-flow)을 참조하세요. 
 
 ## <a name="authentication-without-provider-sdk"></a>공급자 SDK를 사용하지 않는 인증
 
@@ -52,10 +52,10 @@ App Service에서 모든 항목이 구성되면 App Service를 사용하여 로�
 
 이 흐름을 시작하는 코드는 각 플랫폼에 대한 인증 자습서에 포함됩니다. 흐름의 끝에서 클라이언트 SDK에는 App Service 토큰이 있고 토큰은 애플리케이션 백 엔드에 대한 모든 요청에 자동으로 연결됩니다.
 
-인증 흐름에 대한 자세한 내용은 [App Service 인증 흐름](../app-service/app-service-authentication-overview.md#authentication-flow)을 참조하세요. 
+인증 흐름에 대한 자세한 내용은 [App Service 인증 흐름](../app-service/overview-authentication-authorization.md#authentication-flow)을 참조하세요. 
 ## <a name="more-resources"></a>추가 리소스
 
-다음 자습서에서는 [서버 제어 흐름](../app-service/app-service-authentication-overview.md#authentication-flow)을 사용하여 모바일 클라이언트에 인증을 추가하는 방법을 보여 줍니다.
+다음 자습서에서는 [서버 제어 흐름](../app-service/overview-authentication-authorization.md#authentication-flow)을 사용하여 모바일 클라이언트에 인증을 추가하는 방법을 보여 줍니다.
 
 * [iOS 앱에 인증 추가][iOS]
 * [Android 앱에 인증 추가][Android]
@@ -65,21 +65,21 @@ App Service에서 모든 항목이 구성되면 App Service를 사용하여 로�
 * [ 앱에 인증 추가][Xamarin.Forms]
 * [Cordova 앱에 인증 추가][Cordova]
 
-Azure Active Directory에 대한 [클라이언트 제어 흐름](../app-service/app-service-authentication-overview.md#authentication-flow)을 사용하려는 경우 다음 리소스를 사용하세요.
+Azure Active Directory에 대한 [클라이언트 제어 흐름](../app-service/overview-authentication-authorization.md#authentication-flow)을 사용하려는 경우 다음 리소스를 사용하세요.
 
 * [iOS용 Active Directory 인증 라이브러리 사용][ADAL-iOS]
 * [Android용 Active Directory 인증 라이브러리 사용][ADAL-Android]
 * [Windows 및 Xamarin용 Active Directory 인증 라이브러리 사용][ADAL-dotnet]
 
-Facebook에 대한 [클라이언트 제어 흐름](../app-service/app-service-authentication-overview.md#authentication-flow)을 사용하려는 경우 다음 리소스를 사용하세요.
+Facebook에 대한 [클라이언트 제어 흐름](../app-service/overview-authentication-authorization.md#authentication-flow)을 사용하려는 경우 다음 리소스를 사용하세요.
 
 * [iOS용 Facebook SDK 사용](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#facebook-sdk)
 
-Twitter에 대한 [클라이언트 제어 흐름](../app-service/app-service-authentication-overview.md#authentication-flow)을 사용하려는 경우 다음 리소스를 사용하세요.
+Twitter에 대한 [클라이언트 제어 흐름](../app-service/overview-authentication-authorization.md#authentication-flow)을 사용하려는 경우 다음 리소스를 사용하세요.
 
 * [iOS용 Twitter 패브릭 사용](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#twitter-fabric)
 
-Google에 대한 [클라이언트 제어 흐름](../app-service/app-service-authentication-overview.md#authentication-flow)을 사용하려는 경우 다음 리소스를 사용하세요.
+Google에 대한 [클라이언트 제어 흐름](../app-service/overview-authentication-authorization.md#authentication-flow)을 사용하려는 경우 다음 리소스를 사용하세요.
 
 * [iOS용 Google 로그인 SDK 사용](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
 

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: 1493eb6978b00771aa8ed4d8cfc28c37a9dde5b6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c6a995c20beefb3a939aa1421eed537137037922
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139750"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994966"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>Azure로 마이그레이션된 워크로드에 대한 네트워킹 설정 모범 사례
 
@@ -118,7 +118,7 @@ VNet을 배포하는 경우 Azure에서 기본적으로 DNS 서버를 추가합�
 
 **자세한 정보:**
 - 사용자 고유의 DNS 서버를 사용하는 경우의 이름 확인에 대해 [알아보기](https://docs.microsoft.com/azure/migrate/contoso-migration-infrastructure)
-- DNS 명명 규칙 및 제한 사항에 대해 [알아보기](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions)
+- DNS 명명 규칙 및 제한 사항에 대해 [알아보기](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions)
 
 
 ## <a name="best-practice-set-up-availability-zones"></a>모범 사례: 가용성 영역 설정
@@ -336,7 +336,7 @@ Vnet을 보호하는 경우 공격 벡터를 고려해야 합니다.
 
 **자세한 정보:**
 
-- NSG에 대한 [참조](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview).
+- NSG에 대한 [참조](https://docs.microsoft.com/azure/virtual-network/security-overview).
 - NSG에 사용할 수 있는 서비스 태그 [검토](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 
@@ -369,7 +369,7 @@ NIC4 | AsgDb
     Deny-Database-All | AllowVNetInBound 기본 보안 규칙은 동일한 VNet에 있는 리소스 간의 모든 통신을 허용합니다. 이 규칙은 모든 리소스의 트래픽을 거부하는 데 필요합니다. | 우선 순위: 120<br/><br/> 원본: *<br/><br/> 원본 포트: *<br/><br/> 대상: AsgDb<br/><br/> 대상 포트: 1433<br/><br/> 프로토콜: 모두<br/><br/> 액세스: 거부
     Allow-Database-BusinessLogic | AsgLogic 애플리케이션 보안 그룹에서 AsgDb 애플리케이션 보안 그룹으로의 트래픽을 허용합니다. 이 규칙의 우선 순위는 Deny-Database-All 규칙보다 높으며, 해당 규칙보다 먼저 처리되므로 AsgLogic 애플리케이션 보안 그룹의 트래픽이 허용되지만, 다른 모든 트래픽은 차단됩니다. | 우선 순위: 110<br/><br/> 원본: AsgLogic<br/><br/> 원본 포트: *<br/><br/> 대상: AsgDb<br/><br/> 대상 포트: 1433<br/><br/> 프로토콜: TCP<br/><br/> 액세스: 허용
 
-- 원본 또는 대상으로 응용 프로그램 보안 그룹을 지정하는 규칙은 응용 프로그램 보안 그룹의 멤버인 네트워크 인터페이스에만 적용됩니다. 네트워크 인터페이스가 응용 프로그램 보안 그룹의 멤버가 아닌 경우에는 네트워크 보안 그룹이 서브넷과 연결되어도 규칙이 네트워크 인터페이스에 적용되지 않습니다.
+- 원본 또는 대상으로 애플리케이션 보안 그룹을 지정하는 규칙은 애플리케이션 보안 그룹의 멤버인 네트워크 인터페이스에만 적용됩니다. 네트워크 인터페이스가 애플리케이션 보안 그룹의 멤버가 아닌 경우에는 네트워크 보안 그룹이 서브넷과 연결되어도 규칙이 네트워크 인터페이스에 적용되지 않습니다.
 
 **자세한 정보:**
 
@@ -437,7 +437,7 @@ Azure Firewall은 VNet 리소스를 보호하는 관리형 클라우드 기반 �
 
 ## <a name="best-practice-deploy-azure-web-application-firewall-waf"></a>모범 사례: Azure WAF(웹 애플리케이션 방화벽) 배포
 
-웹 애플리케이션은 점점 더 일반적으로 알려진 취약성을 악용하는 악의적인 공격의 대상이 되고 있습니다. 악용에는 SQL 삽입 공격과 사이트 간 스크립팅 공격이 포함됩니다. 애플리케이션 코드에서 이러한 공격을 방지하는 것은 매우 어려울 수 있으며, 애플리케이션 토폴로지의 여러 계층에서 엄격히 유지 관리하고, 패치를 적용하고, 모니터링해야 할 수 있습니다. 중앙 집중식 웹 애플리케이션 방화벽을 통해 보안 관리가 훨씬 간단해지고 애플리케이션 관리자가 위협 또는 침입으로부터 보호할 수 있습니다. 웹 애플리케이션 방화벽은 각각의 개별 웹 애플리케이션을 보호하는 대신 중앙 위치에서 알려진 취약성에 패치를 적용하여 보안 위협에 더 빠르게 대응할 수 있습니다. 기존 Application Gateway는 웹 응용 프로그램 방화벽을 사용한 Application Gateway로 쉽게 변환될 수 있습니다.
+웹 애플리케이션은 점점 더 일반적으로 알려진 취약성을 악용하는 악의적인 공격의 대상이 되고 있습니다. 악용에는 SQL 삽입 공격과 사이트 간 스크립팅 공격이 포함됩니다. 애플리케이션 코드에서 이러한 공격을 방지하는 것은 매우 어려울 수 있으며, 애플리케이션 토폴로지의 여러 계층에서 엄격히 유지 관리하고, 패치를 적용하고, 모니터링해야 할 수 있습니다. 중앙 집중식 웹 애플리케이션 방화벽을 통해 보안 관리가 훨씬 간단해지고 애플리케이션 관리자가 위협 또는 침입으로부터 보호할 수 있습니다. 웹 애플리케이션 방화벽은 각각의 개별 웹 애플리케이션을 보호하는 대신 중앙 위치에서 알려진 취약성에 패치를 적용하여 보안 위협에 더 빠르게 대응할 수 있습니다. 기존 Application Gateway는 웹 애플리케이션 방화벽을 사용한 Application Gateway로 쉽게 변환될 수 있습니다.
 
 Azure WAF(웹 애플리케이션 방화벽)는 Azure 애플리케이션 게이트웨이의 기능입니다.
 - WAF는 일반적인 악용과 취약성으로부터 웹 애플리케이션을 중앙 집중식으로 보호합니다.

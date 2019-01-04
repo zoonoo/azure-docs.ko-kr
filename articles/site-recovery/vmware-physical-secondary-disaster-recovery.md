@@ -4,15 +4,16 @@ description: Azure Site Recovery를 사용하여 보조 사이트에 VMware VM �
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 2198d7520d660904423eabbec8df71e55e3011dd
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c37676a32dd1fb58c1ac03640ff0bbfbdc3f7d8f
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338637"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972894"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>보조 사이트에 온-프레미스 VMware 가상 머신 또는 물리적 서버의 재해 복구 설정
 
@@ -33,7 +34,7 @@ ms.locfileid: "53338637"
 
 업데이트 8 이후 추가적인 업데이트는 릴리스되지 않습니다. 업데이트 8에 추가된 운영 체제에 대한 핫픽스 지원 및 최상의 노력을 기반으로 한 버그 수정이 제한됩니다.
 
-Azure Site Recovery는 VMware 및 Hyper-V 고객에게 재해 복구 사이트인 Azure를 통해 동급 최상의 원활한 DRaaS 솔루션을 제공하면서 계속해서 혁신해 나갑니다. Microsoft는 기존 InMage/ASR Scout 고객들이 비즈니스의 연속성 요구를 위해 Azure 시나리오에 대한 Azure Site Recovery의 VMware 사용을 고려할 것을 권장합니다. Azure 시나리오에 대한 Azure Site Recovery의 VMware은 VMware 응용 프로그램을 위한 엔터프라이즈 수준의 DR 솔루션으로, RPO 및 RTO 시간(분), 여러 VM 응용 프로그램 복제 및 복구를 위한 지원, 원활한 온보딩, 포괄적인 모니터링 및 중요한 TCO 장점을 제공합니다.
+Azure Site Recovery는 VMware 및 Hyper-V 고객에게 재해 복구 사이트인 Azure를 통해 동급 최상의 원활한 DRaaS 솔루션을 제공하면서 계속해서 혁신해 나갑니다. Microsoft는 기존 InMage/ASR Scout 고객들이 비즈니스의 연속성 요구를 위해 Azure 시나리오에 대한 Azure Site Recovery의 VMware 사용을 고려할 것을 권장합니다. Azure 시나리오에 대한 Azure Site Recovery의 VMware은 VMware 애플리케이션을 위한 엔터프라이즈 수준의 DR 솔루션으로, RPO 및 RTO 시간(분), 여러 VM 애플리케이션 복제 및 복구를 위한 지원, 원활한 온보딩, 포괄적인 모니터링 및 중요한 TCO 장점을 제공합니다.
 
 ### <a name="scenario-migration"></a>시나리오 마이그레이션
 대안으로는 온-프레미스 VMware VM 및 물리적 머신을 Azure에 복제하여 그에 대한 재해 복구를 설정하는 것이 좋습니다. 다음과 같이 수행합니다.

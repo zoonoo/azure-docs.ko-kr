@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 1f0b6ecae68a732e7d4bdc313ce9b249b387be8b
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: bb240437870ce5457e40e8dcc3b31f3909b546fc
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325596"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607135"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Event Hubs를 사용하여 실행 부하 과다 경로에서 Azure 진단 데이터 스트리밍
 Azure 진단에서는 클라우드 서비스 VM(가상 머신)에서 메트릭 및 로그를 수집하고 결과를 Azure Storage로 전송하는 유연한 방법을 제공합니다. 2016년 3월(SDK 2.9)부터 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)를 사용하여 데이터 원본을 사용자 지정하고 몇 초 만에 실행 부하 과다 경로 데이터를 전송할 수 있는 진단을 보낼 수 있습니다.
@@ -24,7 +24,7 @@ Azure 진단에서는 클라우드 서비스 VM(가상 머신)에서 메트릭 �
 * Windows (ETW) 이벤트에 대한 이벤트 추적
 * 성능 카운터
 * Windows 이벤트 로그
-* 응용 프로그램 로그
+* 애플리케이션 로그
 * Azure 진단 인프라 로그
 
 이 문서에서는 Event Hubs에 Azure 진단을 구성하는 방법을 완벽하게 보여 줍니다. 다음과 같은 일반적인 시나리오에 대한 지침도 제공됩니다.
@@ -39,13 +39,13 @@ Azure 진단에서 데이터를 수신하는 Event Hubs는 Azure SDK 2.9 및 해
 
 * Azure 진단 확장 1.6(기본적으로[Azure SDK for .NET 2.9 이상](https://azure.microsoft.com/downloads/) 대상)
 * [Visual Studio 2013 이상](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
-* *.wadcfgx* 파일과 다음 방법 중 하나를 사용하는 응용 프로그램에서 Azure 진단의 기존 구성은 다음과 같습니다.
+* *.wadcfgx* 파일과 다음 방법 중 하나를 사용하는 애플리케이션에서 Azure 진단의 기존 구성은 다음과 같습니다.
   * Visual Studio: [Azure Cloud Services 및 Virtual Machines에서 진단 구성](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
   * Windows PowerShell: [PowerShell을 사용하여 Azure Cloud Services에 진단 사용](../../cloud-services/cloud-services-diagnostics-powershell.md)
 * [Event Hubs 시작](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Event Hubs 싱크에 Azure 진단 연결
-기본적으로 Azure 진단은 항상 Azure Storage 계정에 로그 및 메트릭을 전송합니다. 응용 프로그램은 *.wadcfgx* 파일의 **PublicConfig** / **WadCfg** 요소에 새로운 **Sinks** 섹션을 추가하여 Event Hubs에 데이터를 전송할 수도 있습니다. Visual Studio에서 *.wadcfgx* 파일은 **클라우드 서비스 프로젝트** > **역할** > **(RoleName)** > **diagnostics.wadcfgx** 파일 경로에 저장됩니다.
+기본적으로 Azure 진단은 항상 Azure Storage 계정에 로그 및 메트릭을 전송합니다. 애플리케이션은 *.wadcfgx* 파일의 **PublicConfig** / **WadCfg** 요소에 새로운 **Sinks** 섹션을 추가하여 Event Hubs에 데이터를 전송할 수도 있습니다. Visual Studio에서 *.wadcfgx* 파일은 **클라우드 서비스 프로젝트** > **역할** > **(RoleName)** > **diagnostics.wadcfgx** 파일 경로에 저장됩니다.
 
 ```xml
 <SinksConfig>
@@ -108,7 +108,7 @@ Azure 진단에서 데이터를 수신하는 Event Hubs는 Azure SDK 2.9 및 해
 >
 
 ## <a name="configure-azure-diagnostics-to-send-logs-and-metrics-to-event-hubs"></a>Azure 진단을 구성하여 Event Hubs에 로그 및 메트릭 전송
-이전에 설명한 대로 모든 기본 및 사용자 지정 진단 데이터(예: 메트릭 및 로그)는 구성된 간격으로 Azure Storage로 자동 전송됩니다. Event Hubs 및 추가 싱크를 사용하여 이벤트 허브로 전송될 계층 구조에서 루트 또는 리프 노드를 지정할 수 있습니다. 여기에는 ETW 이벤트, 성능 카운터, Windows 이벤트 로그 및 응용 프로그램 로그가 포함되어 있습니다.   
+이전에 설명한 대로 모든 기본 및 사용자 지정 진단 데이터(예: 메트릭 및 로그)는 구성된 간격으로 Azure Storage로 자동 전송됩니다. Event Hubs 및 추가 싱크를 사용하여 이벤트 허브로 전송될 계층 구조에서 루트 또는 리프 노드를 지정할 수 있습니다. 여기에는 ETW 이벤트, 성능 카운터, Windows 이벤트 로그 및 애플리케이션 로그가 포함되어 있습니다.   
 
 얼마나 많은 데이터 요소를 실제로 Event Hubs로 전송해야 하는지 고려하는 것이 중요합니다. 일반적으로 개발자는 신속하게 사용하고 해석해야 하는 대기 시간이 짧은 실행 부하 과다 경로 데이터를 전송합니다. 예는 경고를 모니터링하고 규칙을 자동 크기 조정하는 시스템입니다. 개발자는 대체 분석 또는 검색 저장소(예: Azure Stream Analytics, ElasticSearch, 사용자 지정 모니터링 시스템 또는 즐겨찾는 타사 모니터링 시스템)를 구성할 수도 있습니다.
 
@@ -201,28 +201,28 @@ Azure 진단에서 데이터를 수신하는 Event Hubs는 Azure SDK 2.9 및 해
 
 이 예제에서 싱크는 로그에 적용되며 오류 수준 추적으로만 필터링됩니다.
 
-## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Cloud Services 응용 프로그램과 진단 구성 배포 및 업데이트
-Visual Studio에서는 응용 프로그램 및 Event Hubs 싱크 구성을 배포하는 가장 쉬운 방법을 제공합니다. 파일을 보고 편집하려면 Visual Studio에서 *.wadcfgx* 파일을 열고 편집하고 저장합니다. 경로는 **클라우드 서비스 프로젝트** > **역할** > **(RoleName)** > **diagnostics.wadcfgx**입니다.  
+## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Cloud Services 애플리케이션과 진단 구성 배포 및 업데이트
+Visual Studio에서는 애플리케이션 및 Event Hubs 싱크 구성을 배포하는 가장 쉬운 방법을 제공합니다. 파일을 보고 편집하려면 Visual Studio에서 *.wadcfgx* 파일을 열고 편집하고 저장합니다. 경로는 **클라우드 서비스 프로젝트** > **역할** > **(RoleName)** > **diagnostics.wadcfgx**입니다.  
 
 이 시점에서 Visual Studio의 모든 배포 및 배포 업데이트 작업, Visual Studio Team System 및 MSBuild에 기반하고 **/t:publish** 대상을 사용하는 모든 명령 또는 스크립트에는 패키징 프로세스에 있는 *.wadcfgx* 가 포함됩니다. 또한 배포 및 업데이트는 VM에서 적절한 Azure 진단 에이전트 확장을 사용하여 파일을 Azure에 배포합니다.
 
-응용 프로그램 및 Azure 진단 구성을 배포한 후에 이벤트 허브의 대시보드에서 즉시 작업을 확인하게 됩니다. 이것은 사용자가 선택한 분석 도구 또는 수신기 클라이언트에서 실행 부하 과다 경로 데이터를 볼 준비가 되었다는 것을 나타냅니다.  
+애플리케이션 및 Azure 진단 구성을 배포한 후에 이벤트 허브의 대시보드에서 즉시 작업을 확인하게 됩니다. 이것은 사용자가 선택한 분석 도구 또는 수신기 클라이언트에서 실행 부하 과다 경로 데이터를 볼 준비가 되었다는 것을 나타냅니다.  
 
 다음 그림에서 Event Hubs 대시보드는 오후 11시 이후에 시작하는 이벤트 허브에 진단 데이터를 정상적으로 보내는 작업을 보여 줍니다. 이 때 애플리케이션이 업데이트된 *.wadcfgx* 파일과 함께 배포되고 싱크가 올바르게 구성됩니다.
 
 ![][0]  
 
 > [!NOTE]
-> Azure 진단 구성 파일(.wadcfgx)을 업데이트할 경우 Visual Studio 게시 또는 Windows PowerShell 스크립트를 사용하여 구성 뿐만 아니라 전체 응용 프로그램에 대한 업데이트를 푸시하는 것이 좋습니다.  
+> Azure 진단 구성 파일(.wadcfgx)을 업데이트할 경우 Visual Studio 게시 또는 Windows PowerShell 스크립트를 사용하여 구성 뿐만 아니라 전체 애플리케이션에 대한 업데이트를 푸시하는 것이 좋습니다.  
 >
 >
 
 ## <a name="view-hot-path-data"></a>실행 부하 과다 경로 데이터 보기
 이전에 설명한 대로 Event Hubs 데이터를 수신하고 처리하는 많은 사용 사례가 있습니다.
 
-한 가지 간단한 접근 방법은 이벤트 허브를 수신하고 출력 스트림을 인쇄하기 위한 작은 테스트 콘솔 응용 프로그램을 만드는 것입니다. [Event Hubs 시작](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)문서에서 더 자세히 설명되어 있는 다음 코드를 콘솔 응용 프로그램에 배치할 수 있습니다.  
+한 가지 간단한 접근 방법은 이벤트 허브를 수신하고 출력 스트림을 인쇄하기 위한 작은 테스트 콘솔 애플리케이션을 만드는 것입니다. [Event Hubs 시작](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) 문서에서 자세히 설명하는 다음 코드를 콘솔 애플리케이션에 배치할 수 있습니다.  
 
-콘솔 응용 프로그램에는 [이벤트 프로세서 호스트 NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/)가 포함되어 있어야 합니다.  
+콘솔 애플리케이션에는 [이벤트 프로세서 호스트 NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/)가 포함되어 있어야 합니다.  
 
 **기본** 함수에서 꺾쇠 괄호로 묶인 값을 리소스에 사용할 값으로 바꾸십시오.   
 
@@ -286,7 +286,7 @@ namespace EventHubListener
     {
         static void Main(string[] args)
         {
-            string eventHubConnectionString = "Endpoint= <your connection string>”
+            string eventHubConnectionString = "Endpoint= <your connection string>”;
             string eventHubName = "<Event hub name>";
             string storageAccountName = "<Storage account name>";
             string storageAccountKey = "<Storage account key>”;
@@ -316,7 +316,7 @@ namespace EventHubListener
     우선 이벤트 허브 및 구성 정보가 이전에 설명한 대로 정확한지를 확인합니다. 때로는 배포 업데이트에서 **PrivateConfig** 가 다시 설정됩니다. 권장되는 해결 방법은 프로젝트에서 *.wadcfgx* 에 모든 변경 사항을 적용한 다음 전체 애플리케이션 업데이트를 푸시하는 것입니다. 불가능한 경우 진단 업데이트가 SAS 키를 포함하여 전체 **PrivateConfig** 를 푸시하도록 해야 합니다.  
 * 제안된 방법을 시도했지만 이벤트 허브가 여전히 작동하지 않습니다.
 
-    Azure 진단 자체에 대한 로그 및 오류가 포함된 Azure Storage 테이블 (**WADDiagnosticInfrastructureLogsTable**)을 살펴봅니다. 한 가지 옵션은 [Azure Storage 탐색기](http://www.storageexplorer.com) 등의 도구를 사용하여 이 Storage 계정에 연결하고 이 테이블을 본 후 지난 24시간 동안의 타임스탬프에 대한 쿼리를 추가하는 것입니다. 이 도구를 사용하여 .csv 파일을 내보내고 Microsoft Excel과 같은 응용 프로그램에서 열 수 있습니다. Excel를 통해 어떤 오류가 보고되는지 확인하는 **EventHubs**와 같은 전화 카드 문자열을 쉽게 검색할 수 있습니다.  
+    Azure 진단 자체에 대한 로그 및 오류가 포함된 Azure Storage 테이블 (**WADDiagnosticInfrastructureLogsTable**)을 살펴봅니다. 한 가지 옵션은 [Azure Storage 탐색기](http://www.storageexplorer.com) 등의 도구를 사용하여 이 Storage 계정에 연결하고 이 테이블을 본 후 지난 24시간 동안의 타임스탬프에 대한 쿼리를 추가하는 것입니다. 이 도구를 사용하여 .csv 파일을 내보내고 Microsoft Excel과 같은 애플리케이션에서 열 수 있습니다. Excel를 통해 어떤 오류가 보고되는지 확인하는 **EventHubs**와 같은 전화 카드 문자열을 쉽게 검색할 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 • [Event Hubs에 대해 자세히 알아보기](https://azure.microsoft.com/services/event-hubs/)

@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 3/10/2017
+ms.date: 03/10/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 337ee5259e980509c73099f0e3417bb31ec3276d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 67cc955e4a265a2b29893bd0484dd905f4f2c2b2
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313941"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632436"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Search에서 패싯 탐색을 구현하는 방법
 패싯 탐색은 검색 애플리케이션에서 자기 주도형 드릴다운 탐색을 제공하는 필터링 메커니즘입니다. '패싯 탐색'이라는 용어가 낯설 수도 있지만 아마도 이전에 사용해 보셨을 것입니다. 다음 예제와 같이 패싯 탐색은 결과를 필터링하는 데 사용되는 범주일 뿐입니다.
@@ -34,7 +34,7 @@ ms.locfileid: "53313941"
 ## <a name="sample-code-and-demo"></a>샘플 코드 및 데모
 이 문서에서는 구직 검색 포털을 예로 사용합니다. 이 예제는 ASP.NET MVC 애플리케이션으로 구현됩니다.
 
--   [Azure Search 구직 포털 데모](http://azjobsdemo.azurewebsites.net/)에서 온라인으로 작업 데모를 살펴보고 테스트하세요.
+-   [Azure Search 구직 포털 데모](https://azjobsdemo.azurewebsites.net/)에서 온라인으로 작업 데모를 살펴보고 테스트하세요.
 
 -   [GitHub의 Azure 샘플 리포지토리](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)에서 코드를 다운로드하세요.
 
@@ -371,7 +371,7 @@ Azure Search에는 **geo.distance** 및 **geo.intersects**라는 두 개의 지�
 ## <a name="try-the-demo"></a>데모 사용해 보기
 Azure Search 구직 포털 데모에는 이 문서에 나와 있는 예제가 포함되어 있습니다.
 
--   [Azure Search 구직 포털 데모](http://azjobsdemo.azurewebsites.net/)에서 온라인으로 작업 데모를 살펴보고 테스트하세요.
+-   [Azure Search 구직 포털 데모](https://azjobsdemo.azurewebsites.net/)에서 온라인으로 작업 데모를 살펴보고 테스트하세요.
 
 -   [GitHub의 Azure 샘플 리포지토리](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)에서 코드를 다운로드하세요.
 
@@ -379,7 +379,7 @@ Azure Search 구직 포털 데모에는 이 문서에 나와 있는 예제가 �
 
 1. 데모 앱의 매핑 기능을 사용하려면 [Bing Maps 개발자 센터](https://www.bingmapsportal.com/)에서 Bing Maps 키를 가져옵니다. 가져온 키를 `index.cshtml` 페이지의 기존 키 위에 붙여 넣습니다. `Web.config` 파일의 `BingApiKey` 설정은 사용되지 않습니다. 
 
-2. 응용 프로그램을 실행합니다. 원한다면 대화 상자를 둘러보고 대화 상자를 닫습니다.
+2. 애플리케이션을 실행합니다. 원한다면 대화 상자를 둘러보고 대화 상자를 닫습니다.
    
 3. "분석가" 등의 검색 용어를 입력하고 검색 아이콘을 클릭합니다. 쿼리가 신속하게 실행됩니다.
    
@@ -396,12 +396,12 @@ Azure Search 구직 포털 데모에는 이 문서에 나와 있는 예제가 �
 <a name="nextstep"></a>
 
 ## <a name="learn-more"></a>자세한 정보
-[Azure Search 심층 정보](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410)를 살펴보세요. 45분 25초 구간에 패싯을 구현하는 방법에 대한 데모가 있습니다.
+[Azure Search 심층 정보](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410)를 살펴보세요. 45분 25초 구간에 패싯을 구현하는 방법에 대한 데모가 있습니다.
 
 패싯 탐색의 디자인 원칙에 대한 자세한 내용은 다음 링크를 참조하는 것이 좋습니다.
 
 * [패싯 검색을 위한 디자인](http://www.uie.com/articles/faceted_search/)
-* [디자인 패턴: 패싯 탐색](http://alistapart.com/article/design-patterns-faceted-navigation)
+* [디자인 패턴: 패싯 탐색](https://alistapart.com/article/design-patterns-faceted-navigation)
 
 
 <!--Anchors-->
@@ -431,7 +431,7 @@ Azure Search 구직 포털 데모에는 이 문서에 나와 있는 예제가 �
 
 <!--Link references-->
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
-[Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
+[Design Patterns: Faceted Navigation]: https://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
 [OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/

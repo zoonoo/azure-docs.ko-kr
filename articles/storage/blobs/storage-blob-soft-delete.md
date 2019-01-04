@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/15/2018
 ms.author: mihauss
 ms.component: blobs
-ms.openlocfilehash: 0e7487525dc23482cbd3029b626e7bb30dd51b50
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 7f7071c9f87528eddbfe3d541cd85624e308948f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398563"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633388"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure Storage Blob에 대한 일시 삭제
 Azure Storage는 이제 애플리케이션 또는 다른 저장소 계정 사용자에 의해 잘못 수정되거나 삭제될 때 데이터를 보다 쉽게 복구할 수 있도록 Blob 개체에 대한 일시 삭제를 제공합니다.
@@ -170,26 +170,29 @@ Blob의 스냅숏을 삭제 취소하면 **승격**을 클릭하여 루트 Blob�
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
 
 ### <a name="powershell"></a>PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 일시 삭제를 활성화하려면 Blob 클라이언트의 서비스 속성을 업데이트합니다. 다음 예제에서는 구독에서 계정의 하위 집합에 대한 일시 삭제를 활성화합니다.
 
 ```powershell
-Set-AzureRmContext -Subscription "<subscription-name>"
-$MatchingAccounts = Get-AzureRMStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
-$MatchingAccounts | Enable-AzureStorageDeleteRetentionPolicy -RetentionDays 7
+Set-AzContext -Subscription "<subscription-name>"
+$MatchingAccounts = Get-AzStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
+$MatchingAccounts | Enable-AzStorageDeleteRetentionPolicy -RetentionDays 7
 ```
 다음 명령을 사용하여 일시 삭제가 켜졌는지 확인할 수 있습니다.
 
 ```powershell
-$MatchingAccounts | Get-AzureStorageServiceProperty -ServiceType Blob
+$MatchingAccounts | Get-AzStorageServiceProperty -ServiceType Blob
 ```
 
 실수로 삭제된 Blob을 복구하려면 해당 Blob에서 삭제 취소를 호출합니다. 활성 및 일시 삭제된 Blob 모두에서 **삭제 취소 Blob**을 호출하면 활성으로 연결된 모든 일시 삭제된 스냅숏을 복원합니다. 다음 예제에서는 컨테이너의 모든 일시 삭제된 Blob 및 활성 Blob에서 삭제 취소를 호출합니다.
 ```powershell
 # Create a context by specifying storage account name and key
-$ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+$ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
 # Get the blobs in a given container and show their properties
-$Blobs = Get-AzureStorageBlob -Container $StorageContainerName -Context $ctx -IncludeDeleted
+$Blobs = Get-AzStorageBlob -Container $StorageContainerName -Context $ctx -IncludeDeleted
 $Blobs.ICloudBlob.Properties
 
 # Undelete the blobs
@@ -198,8 +201,8 @@ $Blobs.ICloudBlob.Undelete()
 현재 일시 삭제 보존 정책을 찾으려면 다음 명령을 사용합니다.
 
 ```azurepowershell-interactive
-   $account = Get-AzureRmStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
-   Get-AzureStorageServiceProperty -ServiceType Blob -Context $account.Context
+   $account = Get-AzStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
+   Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context
 ```
 
 ### <a name="azure-cli"></a>Azure CLI 
@@ -311,12 +314,12 @@ blockBlob.StartCopy(copySource);
 **일시 삭제를 가상 머신 디스크에 사용할 수 있나요?**  
 일시 삭제는 프리미엄 및 표준 관리되지 않는 디스크 모두에 사용할 수 있습니다. 일시 삭제는 **Blob 삭제**, **Blob 배치**, **블록 목록 배치**, **블록 배치** 및 **Blob 복사**로 삭제된 데이터를 복구하는 데에만 도움을 줍니다. **페이지 배치**에 대한 호출로 덮어쓰여진 데이터는 복구할 수 없습니다.
 
-**일시 삭제를 사용하려면 기존 응용 프로그램을 변경해야 하나요?**  
+**일시 삭제를 사용하려면 기존 애플리케이션을 변경해야 하나요?**  
 사용하는 API 버전에 관계 없이 일시 삭제를 활용할 수 있습니다. 그러나 일시 삭제된 Blob 및 Blob 스냅숏을 나열하고 복구하려면 [저장소 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services)의 2017-07-29 버전 이상을 사용해야 합니다. 일반적으로 이 기능을 사용 중인지 여부에 관계없이 항상 최신 버전을 사용하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [.NET 샘플 코드](https://github.com/Azure-Samples/storage-dotnet-blob-soft-delete)
 * [BLOB 서비스 REST API](/rest/api/storageservices/blob-service-rest-api)
 * [Azure Storage 복제](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [RA-GRS를 사용하여 항상 사용 가능한 응용 프로그램 설계](../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [RA-GRS를 사용하여 항상 사용 가능한 애플리케이션 설계](../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Azure Storage 중단이 발생할 경우 수행할 작업](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
