@@ -3,17 +3,15 @@ title: Azure Database for MariaDB에 대한 SSL 연결
 description: SSL 연결을 올바르게 사용하도록 Azure Database for MariaDB 및 연결된 애플리케이션을 구성하는 방법에 대한 정보
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 1d0b27a8fd7e3882a73624fa1b668ac602a85e6b
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 15bb28846b3409dd31bcdf8d42990facc94fd06d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249505"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539605"
 ---
 # <a name="ssl-connectivity-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 SSL 연결
 Azure Database for MariaDB는 SSL(Secure Sockets Layer)을 사용하여 데이터베이스 서버를 클라이언트 애플리케이션에 연결하도록 지원합니다. 데이터베이스 서버와 클라이언트 애플리케이션 간 SSL 연결을 적용하면 서버와 애플리케이션 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.

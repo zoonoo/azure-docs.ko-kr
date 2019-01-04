@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights 단일 페이지 웹앱 만들기 | Microsoft Docs
+title: '자습서: Azure Time Series Insights 단일 페이지 웹앱 만들기 | Microsoft Docs'
 description: TSI 환경에서 데이터를 쿼리하고 렌더링하는 단일 페이지 웹 애플리케이션을 만드는 방법을 알아봅니다.
 author: ashannon7
 ms.service: time-series-insights
@@ -8,12 +8,12 @@ ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: fccd509d4f16cee86d30feb0e838f1493cae4e0b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 9d18b1382bdb421afcc8aee92fd99b7ef0d09e32
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275842"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540149"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>자습서: Azure Time Series Insights 단일 페이지 웹앱 만들기
 
@@ -53,7 +53,7 @@ ms.locfileid: "53275842"
    매개 변수|설명
    ---|---
    **Name** | 의미 있는 등록 이름을 입력합니다.  
-   **응용 프로그램 유형** | SPA 웹 애플리케이션을 빌드하는 것이므로 "웹앱/API"로 둡니다.
+   **애플리케이션 유형** | SPA 웹 애플리케이션을 빌드하는 것이므로 "웹앱/API"로 둡니다.
    **로그온 URL** | 애플리케이션의 홈/로그인 페이지 URL을 입력합니다. 애플리케이션이 Azure App Service에 호스트될 예정이므로(차후에) "https://azurewebsites.net" 도메인 내에서 URL을 사용해야 합니다. 이 예제에서는 이름이 등록 이름을 기반으로 합니다.
 
    여기까지 마쳤으면 **만들기**를 클릭하여 새 애플리케이션 등록을 만듭니다.
@@ -122,7 +122,7 @@ ms.locfileid: "53275842"
       <link rel="stylesheet" type="text/css" href="dist/tsiclient.css"></link> -->
       ```
 
-   b. 다음으로, 새 Azure AD 애플리케이션 등록을 사용하도록 액세스 토큰 논리를 변경합니다. [Azure AD에 응용 프로그램 등록](#register-the-application-with-azure-ad) 섹션의 9단계에서 복사한 응용 프로그램 ID 및 홈페이지 URL을 사용하도록 `clientID` 및 `postLogoutRedirectUri` 변수를 각각 변경합니다.
+   b. 다음으로, 새 Azure AD 애플리케이션 등록을 사용하도록 액세스 토큰 논리를 변경합니다. [Azure AD에 애플리케이션 등록](#register-the-application-with-azure-ad) 섹션의 9단계에서 복사한 애플리케이션 ID 및 홈페이지 URL을 사용하도록 `clientID` 및 `postLogoutRedirectUri` 변수를 각각 변경합니다.
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 
@@ -156,7 +156,7 @@ ms.locfileid: "53275842"
    
       필드 | 설명
       ---|---
-      **앱 이름** | [Azure AD에 응용 프로그램 등록](#register-the-application-with-azure-ad)의 3단계에서 사용한 Azure AD 응용 프로그램 등록 이름으로 변경합니다. 
+      **앱 이름** | [Azure AD에 애플리케이션 등록](#register-the-application-with-azure-ad)의 3단계에서 사용한 Azure AD 애플리케이션 등록 이름으로 변경합니다. 
       **리소스 그룹** | **새로 만들기...** 단추를 사용하여 **앱 이름** 필드와 일치하도록 변경합니다.
       **App Service 계획** | **새로 만들기...** 단추를 사용하여 **앱 이름** 필드와 일치하도록 변경합니다.
 
@@ -178,9 +178,9 @@ ms.locfileid: "53275842"
 
 오류 코드/조건 | 설명
 ---------------------| -----------
-*AADSTS50011: 애플리케이션에 대해 등록된 회신 주소가 없습니다.* | Azure AD 등록에 "회신 URL" 속성이 없습니다. Azure AD 애플리케이션 등록의 **설정** / **회신 URL** 페이지로 이동합니다. [Azure AD에 응용 프로그램 등록](#register-the-application-with-azure-ad)의 3단계에서 지정한 **로그온** URL이 있는지 확인합니다. 
-*AADSTS50011: 요청에 지정된 회신 URL이 애플리케이션에 대해 구성된 회신 URL('<Application ID GUID>')과 일치하지 않습니다.* | [웹 응용 프로그램 빌드 및 게시](#build-and-publish-the-web-application)의 4.b 단계에서 지정한 `postLogoutRedirectUri`는 Azure AD 응용 프로그램 등록의 **설정** / **회신 URL** 속성에서 지정한 값과 일치해야 합니다. 또한 `https`를 사용하도록 **대상 URL**을 변경해야 합니다. 자세한 단계는 [웹 응용 프로그램 빌드 및 게시](#build-and-publish-the-web-application)의 5.e를 참조하세요.
-웹 애플리케이션이 로드되지만, 흰색 배경에 스타일 없이 텍스트로만 구성된 로그인 페이지가 표시됩니다. | [웹 응용 프로그램 빌드 및 게시](#build-and-publish-the-web-application)의 4.a 단계에서 설명한 경로가 올바른지 확인합니다. 웹 애플리케이션이 .css 파일을 찾을 수 없는 경우 페이지 스타일이 올바르게 지정되지 않습니다.
+*AADSTS50011: 애플리케이션에 대해 등록된 회신 주소가 없습니다.* | Azure AD 등록에 "회신 URL" 속성이 없습니다. Azure AD 애플리케이션 등록의 **설정** / **회신 URL** 페이지로 이동합니다. [Azure AD에 애플리케이션 등록](#register-the-application-with-azure-ad)의 3단계에서 지정한 **로그온** URL이 있는지 확인합니다. 
+*AADSTS50011: 요청에 지정된 회신 URL이 애플리케이션에 대해 구성된 회신 URL('<Application ID GUID>')과 일치하지 않습니다.* | [웹 애플리케이션 빌드 및 게시](#build-and-publish-the-web-application)의 4.b 단계에서 지정한 `postLogoutRedirectUri`는 Azure AD 애플리케이션 등록의 **설정** / **회신 URL** 속성에서 지정한 값과 일치해야 합니다. 또한 `https`를 사용하도록 **대상 URL**을 변경해야 합니다. 자세한 단계는 [웹 애플리케이션 빌드 및 게시](#build-and-publish-the-web-application)의 5.e를 참조하세요.
+웹 애플리케이션이 로드되지만, 흰색 배경에 스타일 없이 텍스트로만 구성된 로그인 페이지가 표시됩니다. | [웹 애플리케이션 빌드 및 게시](#build-and-publish-the-web-application)의 4.a 단계에서 설명한 경로가 올바른지 확인합니다. 웹 애플리케이션이 .css 파일을 찾을 수 없는 경우 페이지 스타일이 올바르게 지정되지 않습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

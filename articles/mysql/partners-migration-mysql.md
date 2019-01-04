@@ -1,18 +1,17 @@
 ---
 title: Azure Database for MySQL 마이그레이션 파트너 | Microsoft Docs
 description: Azure Database for MySQL을 지원하는 솔루션을 제공하는 타사 마이그레이션 파트너 목록입니다.
-services: mysql
 author: HJToland3
 ms.author: jtoland
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: e50cd285d904830bd7332f39d51aaa149f38b82a
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 8c081c6436939089565425a0f14bbf1856ca7ce8
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038542"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536766"
 ---
 # <a name="azure-database-for-mysql-migration-partners"></a>Azure Database for MySQL 마이그레이션 파트너
 Azure Database for MySQL 솔루션을 광범위하게 지원하기 위해 다양한 업계 선도 파트너 및 도구를 선택할 수 있습니다. 이 문서에서는 Azure Database for MySQL을 지원하는 마이그레이션 솔루션을 제공하는 Microsoft 파트너를 중점적으로 소개합니다.

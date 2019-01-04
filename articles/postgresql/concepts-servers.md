@@ -1,19 +1,17 @@
 ---
 title: Azure Database for PostgreSQL의 서버 개념
 description: 이 문서에서는 Azure Database for PostgreSQL 서버 구성 및 관리를 위한 고려 사항 및 지침을 제공합니다.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: b482a43236885f4b5574a9ba3319f74b083df33a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: a5b6db9f4bfbe9a11119270e9236580b41fae8c7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281263"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540865"
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Azure Database for PostgreSQL 서버
 이 문서에서는 Azure Database for PostgreSQL 서버를 사용할 때의 고려 사항 및 지침을 제공합니다.

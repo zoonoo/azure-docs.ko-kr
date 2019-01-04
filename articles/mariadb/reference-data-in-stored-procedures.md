@@ -3,17 +3,15 @@ title: Azure Database for MariaDB 입력 데이터 복제 저장 프로시저
 description: 이 문서에서는 데이터 내부 복제에 사용된 모든 저장 프로시저를 소개합니다.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: reference
 ms.date: 09/24/2018
-ms.openlocfilehash: 87c6fa783964c019841810ec38f342a5a44c0ee3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 75dc10ba3d95fd12ea99e10d321237560ee28171
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959090"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53535355"
 ---
 # <a name="azure-database-for-mariadb-data-in-replication-stored-procedures"></a>Azure Database for MariaDB 입력 데이터 복제 저장 프로시저
 

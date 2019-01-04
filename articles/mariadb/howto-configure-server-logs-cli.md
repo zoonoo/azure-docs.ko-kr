@@ -1,21 +1,18 @@
 ---
 title: Azure CLI를 사용하여 Azure Database for MariaDB의 서버 로그에 액세스
 description: 이 문서에서는 Azure CLI 명령줄 유틸리티를 사용하여 Azure Database for MariaDB의 서버 로그에 액세스하는 방법을 설명합니다.
-services: mariadb
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: b9ae07b88164a830598db791d61b77a6abb7b1df
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 403f111882b1bd151b26af56fd614355e7ba88e3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516535"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539214"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Azure CLI를 사용하여 서버 로그 구성 및 액세스
 Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for MariaDB 서버 로그를 다운로드할 수 있습니다.

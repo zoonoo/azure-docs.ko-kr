@@ -2,20 +2,17 @@
 title: Azure Database for MariaDB에 대한 일시적 연결 오류 처리 | Microsoft Docs
 description: Azure Database for MariaDB에 대한 일시적 연결 오류를 처리하는 방법을 알아봅니다.
 keywords: MySQL 연결, 연결 문자열, 연결 문제, 일시적 오류, 연결 오류
-services: mariadb
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 203401e3842912169371f315048f6930c8dc80eb
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f5f5915e6fdb240fa519ee10526c935a524cb5b4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568100"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546286"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대한 일시적 연결 오류 처리
 
@@ -39,7 +36,7 @@ ms.locfileid: "51568100"
 * 다시 시도할 때마다 대기 시간이 최대 60초까지 기하급수적으로 증가합니다.
 * 애플리케이션에서 작업이 실패한 것으로 간주하는 시점의 최대 재시도 횟수를 설정합니다.
 
-활성 트랜잭션과의 연결에 실패하면 복구를 제대로 처리하기가 더 어렵습니다. 두 가지 경우가 있습니다. 트랜잭션이 실제로 읽기 전용인 경우 연결을 다시 열고 트랜잭션을 다시 시도하는 것이 안전합니다. 그러나 트랜잭션이 데이터베이스에도 기록한 경우 트랜잭션이 롤백되었는지 또는 일시적 오류가 발생하기 전에 성공했는지 확인해야 합니다. 이 경우 데이터베이스 서버로부터 커밋 승인을 받지 못했을 수 있습니다.
+활성 트랜잭션과의 연결에 실패하면 복구를 제대로 처리하기가 더 어렵습니다. 다음 두 가지 경우가 있습니다. 트랜잭션이 기본적으로 읽기 전용인 경우 연결을 다시 열고 트랜잭션을 다시 시도하는 것이 안전합니다. 그러나 트랜잭션이 데이터베이스에도 기록한 경우 트랜잭션이 롤백되었는지 또는 일시적 오류가 발생하기 전에 성공했는지 확인해야 합니다. 이 경우 데이터베이스 서버로부터 커밋 승인을 받지 못했을 수 있습니다.
 
 이 작업을 수행하는 한 가지 방법은 클라이언트에서 모든 다시 시도에 사용되는 고유 ID를 생성하는 것입니다. 이 고유 ID를 트랜잭션의 일환으로 서버에 전달하고, 고유 제약 조건이 있는 열에 이를 저장합니다. 이렇게 하면 트랜잭션을 안전하게 다시 시도할 수 있습니다. 이전 트랜잭션이 롤백되고 클라이언트에서 생성된 고유 ID가 시스템에 아직 없으면 이 작업이 성공합니다. 이전 트랜잭션이 성공적으로 완료되었으므로 고유 ID가 이전에 저장된 경우 중복 키 위반을 나타내는 데 실패합니다.
 
