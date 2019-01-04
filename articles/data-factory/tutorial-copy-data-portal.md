@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: f7d6f34c75069f91e06d58c960249d040b2bda8a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6e3ab097b08e3a15d012ccc644307bc8f4b281ab
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299203"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971685"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob 저장소에서 SQL 데이터베이스로 데이터 복사
 이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 데이터 팩터리를 만듭니다. 데이터 팩터리의 파이프라인은 Azure Blob 저장소에서 SQL 데이터베이스로 데이터를 복사합니다. 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
@@ -134,9 +134,9 @@ ms.locfileid: "44299203"
 
 ### <a name="configure-source"></a>원본 구성
 
-1. **원본** 탭으로 이동합니다. **+ 새로 만들기**를 선택하여 원본 데이터 집합을 만듭니다. 
+1. **원본** 탭으로 이동합니다. **+ 새로 만들기**를 선택하여 원본 데이터 세트를 만듭니다. 
 
-1. **새 데이터 집합** 창에서 **Azure Blob Storage**를 선택한 다음, **마침**을 선택합니다. 원본 데이터는 Blob 저장소에 있으므로 원본 데이터 세트로 **Azure Blob Storage**를 선택합니다. 
+1. **새 데이터 세트** 창에서 **Azure Blob Storage**를 선택한 다음, **마침**을 선택합니다. 원본 데이터는 Blob 저장소에 있으므로 원본 데이터 세트로 **Azure Blob Storage**를 선택합니다. 
 
     ![저장소 선택](./media/tutorial-copy-data-portal/select-azure-blob-dataset.png)
 
@@ -174,10 +174,10 @@ ms.locfileid: "44299203"
 
 ### <a name="configure-sink"></a>싱크 구성
 
-1. **싱크** 탭으로 이동하고, **+ 새로 만들기**를 선택하여 싱크 데이터 집합을 만듭니다. 
+1. **싱크** 탭으로 이동하고, **+ 새로 만들기**를 선택하여 싱크 데이터 세트를 만듭니다. 
 
     ![싱크 데이터 세트](./media/tutorial-copy-data-portal/new-sink-dataset-button.png)
-1. **새 데이터 집합** 창에서 검색 상자에 "SQL"을 입력하고, **Azure SQL Database**를 선택한 다음, **마침**을 선택합니다. 이 자습서에서는 데이터를 SQL 데이터베이스에 복사합니다. 
+1. **새 데이터 세트** 창에서 검색 상자에 "SQL"을 입력하고, **Azure SQL Database**를 선택한 다음, **마침**을 선택합니다. 이 자습서에서는 데이터를 SQL 데이터베이스에 복사합니다. 
 
     ![SQL 데이터베이스 선택](./media/tutorial-copy-data-portal/select-azure-sql-dataset.png)
 1. **속성** 창에 있는 **일반** 탭의 **이름**에서 **OutputSqlDataset**를 설정합니다. 
@@ -217,7 +217,7 @@ ms.locfileid: "44299203"
 
     ![파이프라인 탭](./media/tutorial-copy-data-portal/pipeline-tab-2.png)        
 
-### <a name="confugure-mapping"></a>매핑 구성
+### <a name="configure-mapping"></a>매핑 구성
 
 **속성** 창의 아래쪽에 있는 **매핑** 탭으로 이동하고 **스키마 가져오기**를 선택합니다. 원본 파일의 첫 번째 및 두 번째 열은 SQL 데이터베이스의 **FirstName** 및 **LastName**에 매핑됩니다.
 

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f08de2398174363604576874627026dcc6199ac5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: dd6d25d05f59d9561eadb0b55d2a1ec528c27b56
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104665"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753951"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>자습서: Event Grid를 사용하여 업로드된 이미지 크기 자동 조정
 
@@ -89,7 +89,7 @@ az functionapp create --name <function_app> --storage-account  <general_storage_
 
 ## <a name="configure-the-function-app"></a>함수 앱 구성
 
-함수에는 Blob Storage 계정에 연결된 연결 문자열이 필요합니다. 다음 단계에서 Azure에 배포하는 함수 코드는 앱 설정 myblobstorage_STORAGE에서 연결 문자열을 검색하고, 앱 설정 myContainerName에서 썸네일 이미지 컨테이너 이름을 검색합니다. [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) 명령으로 연결 문자열을 가져옵니다. [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) 명령을 사용하여 응용 프로그램 설정을 설정합니다.
+함수에는 Blob Storage 계정에 연결된 연결 문자열이 필요합니다. 다음 단계에서 Azure에 배포하는 함수 코드는 앱 설정 myblobstorage_STORAGE에서 연결 문자열을 검색하고, 앱 설정 myContainerName에서 썸네일 이미지 컨테이너 이름을 검색합니다. [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) 명령으로 연결 문자열을 가져옵니다. [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) 명령을 사용하여 애플리케이션 설정을 설정합니다.
 
 다음 CLI 명령에서 `<blob_storage_account>`는 이전 자습서에서 만든 Blob Storage 계정의 이름입니다.
 
@@ -110,7 +110,7 @@ myContainerName=thumbnails FUNCTIONS_EXTENSION_VERSION=~2
 
 ## <a name="deploy-the-function-code"></a>함수 코드 배포 
 
-# <a name="nettabnet"></a>[\.NET](#tab/net)
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
 샘플 C# 스크립트(.csx) 크기 조정은 [GitHub](https://github.com/Azure-Samples/function-image-upload-resize)에서 사용할 수 있습니다. 이 Functions 코드 프로젝트를 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) 명령을 사용하여 함수 앱에 배포합니다. 
 
@@ -197,7 +197,7 @@ Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 �
 저장소 자습서 시리즈의 3부를 통해 저장소 계정에 대한 보안 액세스를 학습합니다.
 
 > [!div class="nextstepaction"]
-> [클라우드에서 응용 프로그램 데이터에 대한 보안 액세스](../storage/blobs/storage-secure-access-application.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [클라우드에서 애플리케이션 데이터에 대한 보안 액세스](../storage/blobs/storage-secure-access-application.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 + Event Grid에 대한 소개는 [Azure Event Grid](overview.md)를 참조하세요. 
 + Azure Functions를 다룬 다른 자습서를 살펴보려면 [Azure Logic Apps와 통합하는 함수 만들기](../azure-functions/functions-twitter-email.md)를 참조하세요. 

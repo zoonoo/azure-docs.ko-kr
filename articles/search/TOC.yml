@@ -9,8 +9,12 @@ items:
   items:
   - name: 서비스 만들기
     href: search-create-service-portal.md
-  - name: 인지 검색 시도
-    href: cognitive-search-quickstart-blob.md
+  - name: 포털
+    items:
+    - name: 가져오기 - 인덱스 - 검색
+      href: search-get-started-portal.md
+    - name: 인지 검색 시도
+      href: cognitive-search-quickstart-blob.md
   - name: .NET
     items:
     - name: 인덱스 만들기
@@ -32,8 +36,6 @@ items:
   expanded: true
 - name: 자습서
   items:
-  - name: Azure Portal에서 도구 사용
-    href: search-get-started-portal.md
   - name: Cognitive Search API 알아보기
     href: cognitive-search-tutorial-blob.md
   - name: Azure Blob 인덱싱
@@ -285,9 +287,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: 동영상
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: 901db48ea082a7de7179632f3a53043ef1e5cf23
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 4bf8c36945d1a02d87ca6b0602de14d7f9694594
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717707"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999393"

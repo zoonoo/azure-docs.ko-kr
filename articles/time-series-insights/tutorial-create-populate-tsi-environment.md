@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights 환경 만들기 | Microsoft Docs
+title: '자습서: Azure Time Series Insights 환경 만들기 | Microsoft Docs'
 description: 시뮬레이션된 디바이스의 데이터로 채워진 Time Series Insights 환경을 만드는 방법에 대해 알아봅니다.
 services: time-series-insights
 author: ashannon7
@@ -9,12 +9,12 @@ ms.date: 12/05/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 1a5f9901dfb3b08a068d1051b7ea434f1d5d5412
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c2aeab6888cf93be75742028b0354c45a1834d51
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278494"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537285"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>자습서: Azure Time Series Insights 환경 만들기
 
@@ -166,7 +166,7 @@ IoT Hub는 다른 행위자와 기능을 공유할 수 있는 다양한 엔드�
 
 이제 모든 구성 작업이 완료되었으므로 TSI 환경을 시뮬레이션된 디바이스의 샘플 데이터로 채우면 됩니다.
 
-[디바이스 시뮬레이션 만들기 섹션](#create-a-device-simulation)에서 살펴보았듯이 여러 Azure 리소스가 솔루션을 지원하기 위해 가속기에 의해 만들어졌습니다. 앞에서 설명한 IoT Hub와 함께, 시뮬레이션된 디바이스 원격 분석을 만들고 전송하도록 Azure App Service 웹 응용 프로그램이 생성되었습니다.
+[디바이스 시뮬레이션 만들기 섹션](#create-a-device-simulation)에서 살펴보았듯이 여러 Azure 리소스가 솔루션을 지원하기 위해 가속기에 의해 만들어졌습니다. 앞에서 설명한 IoT Hub와 함께, 시뮬레이션된 장치 원격 분석을 만들고 전송하도록 Azure App Service 웹 애플리케이션이 생성되었습니다.
 
 1. [솔루션 가속기 대시보드](https://www.azureiotsolutions.com/Accelerators#dashboard)로 돌아갑니다. 필요한 경우 이 자습서에서 사용한 것과 동일한 Azure 계정을 사용하여 다시 로그인합니다. 이제 “디바이스 시뮬레이션” 솔루션 아래 **실행** 단추를 클릭할 수 있습니다.
 
@@ -174,7 +174,7 @@ IoT Hub는 다른 행위자와 기능을 공유할 수 있는 다양한 엔드�
 
 2. 이 시점에서 디바이스 시뮬레이션 웹앱이 시작되고 초기 로드가 완료되는 데 몇 초가 소요될 수 있습니다. 또한 웹 애플리케이션에 “로그인 및 프로필 읽기” 권한을 부여하기 위한 동의를 묻는 메시지가 나타납니다. 이 권한을 통해 애플리케이션은 애플리케이션의 기능을 지원하는 데 필요한 사용자 프로필 정보를 검색할 수 있습니다.
 
-     ![디바이스 시뮬레이션 웹 응용 프로그램 동의](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)
+     ![장치 시뮬레이션 웹 애플리케이션 동의](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)
 
 3. **시뮬레이션 설정** 페이지가 로드되면 필수 매개 변수를 입력합니다. 
 

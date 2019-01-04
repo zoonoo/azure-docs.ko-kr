@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 18675737dd03dd6c95a8f57a8f8bcdaed6c8b93d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a6833e2a492a9fb0a6a73a24c9f9d17638958dca
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837327"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975732"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 
@@ -173,7 +173,7 @@ Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 
 
 다음과 같은 방법으로 복제 사용을 수행할 수 있습니다.
 
-1. **응용 프로그램 복제** > **원본**을 선택합니다.
+1. **애플리케이션 복제** > **원본**을 선택합니다.
 2. **원본**에서 **온-프레미스**를 선택하고, **원본 위치**에서 구성 서버를 선택합니다.
 3. **컴퓨터 형식**에서 **Virtual Machines**를 선택합니다.
 4. **vCenter/vSphere 하이퍼바이저**에서 vSphere 호스트를 관리하는 vSphere 호스트 또는 vCenter Server를 선택하거나 해당 호스트를 선택합니다.

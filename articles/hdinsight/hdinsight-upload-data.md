@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 0adc8ad651989d198fecabf00d38fbdeb7cf3cd1
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: a54c47c0f67052f2ce486a97e009293a118919d4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407097"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994116"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Apache Hadoop 작업용 데이터 업로드
 
@@ -135,7 +135,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동�
 예를 들어, HDInsight와 함께 작동하도록 만들진 PowerShell 스크립트는 [HDInsight 도구](https://github.com/blackmist/hdinsight-tools)를 참조하세요.
 
 #### <a id="azcopy"></a>AzCopy
-AzCopy는 데이터를 Azure Storage 계정으로 보내고 받는 작업을 간소화하도록 설계된 명령줄 도구입니다. 이 유틸리티는 독립 실행형 도구로 사용할 수도 있고 기존 응용 프로그램에 통합할 수도 있습니다. [AzCopy를 다운로드][azure-azcopy-download]하세요.
+AzCopy는 데이터를 Azure Storage 계정으로 보내고 받는 작업을 간소화하도록 설계된 명령줄 도구입니다. 이 유틸리티는 독립 실행형 도구로 사용할 수도 있고 기존 애플리케이션에 통합할 수도 있습니다. [AzCopy를 다운로드][azure-azcopy-download]하세요.
 
 AzCopy 구문은 다음과 같습니다.
 
@@ -171,30 +171,28 @@ HDInsight의 기본 파일 시스템이 Azure Storage에 있으므로 /example/d
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
-파일로 작업하는 다른 Hadoop 명령의 목록은 [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)을 참조하세요.
+파일로 작업하는 다른 Hadoop 명령의 목록은 [https://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)을 참조하세요.
 
 > [!WARNING]  
 > Apache HBase 클러스터에서 데이터 쓰기 시 사용되는 기본 블록 크기는 256KB입니다. HBase API 또는 REST API를 사용할 때는 잘 작동하는 반면 `hadoop` 또는 `hdfs dfs` 명령을 사용하여 12GB를 초과하는 데이터를 기록하면 오류가 발생합니다. 자세한 내용은 이 문서의 [Blob에서 쓰기를 위한 저장소 예외](#storageexception) 섹션을 참조하세요.
->
->
 
 ### <a name="graphical-clients"></a>그래픽 클라이언트
-Azure Storage를 사용하기 위한 그래픽 인터페이스를 제공하는 몇몇 응용 프로그램이 있습니다. 다음 테이블은 이러한 응용 프로그램 중 일부의 목록입니다.
+Azure Storage를 사용하기 위한 그래픽 인터페이스를 제공하는 몇몇 애플리케이션이 있습니다. 다음 테이블은 이러한 애플리케이션 중 일부의 목록입니다.
 
 | 클라이언트 | Linux | OS X |  Windows |
 | --- |:---:|:---:|:---:|
 | [HDInsight 용 Microsoft Visual Studio Tools](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
-| [Azure Storage 탐색기](http://storageexplorer.com/) |✔ |✔ |✔ |
-| [클라우드 저장소 스튜디오 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
+| [Azure Storage 탐색기](https://storageexplorer.com/) |✔ |✔ |✔ |
+| [클라우드 저장소 스튜디오 2](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
-| [Azure 탐색기](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
+| [Azure 탐색기](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### <a name="visual-studio-tools-for-hdinsight"></a>HDInsight 용 Visual Studio Tools
 자세한 내용은 [연결된 리소스 탐색](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources)을 참조하세요.
 
 #### <a id="storageexplorer"></a>Azure Storage 탐색기
-*Azure Storage 탐색기* 는 Blob의 데이터를 검사하고 변경하는 데 유용한 도구입니다. [http://storageexplorer.com/](http://storageexplorer.com/)에서 다운로드할 수 있는 무료 오픈 소스 도구입니다. 소스 코드도 이 링크에서 사용할 수 있습니다.
+*Azure Storage 탐색기* 는 Blob의 데이터를 검사하고 변경하는 데 유용한 도구입니다. [https://storageexplorer.com/](https://storageexplorer.com/)에서 다운로드할 수 있는 무료 오픈 소스 도구입니다. 소스 코드도 이 링크에서 사용할 수 있습니다.
 
 이 도구를 사용하기 전에 Azure 저장소 계정 이름과 계정 키를 알아야 합니다. 이 정보를 얻는 방법에 대한 지침을 보려면 [스토리지 계정 생성, 관리 또는 삭제][azure-create-storage-account]에서 "방법: 스토리지 액세스 키 보기, 복사 및 다시 생성" 섹션을 참조하세요.
 
@@ -315,7 +313,7 @@ Ambari 사용에 대한 자세한 내용은 [Apache Ambari 웹 UI를 사용하�
 
 [sqldatabase-create-configure]: ../sql-database-create-configure.md
 
-[apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
+[apache-sqoop-guide]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 

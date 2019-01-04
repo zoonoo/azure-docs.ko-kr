@@ -11,12 +11,12 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 040e54b02161386dcc16b943956f39b86b264303
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 77fafb3f3a4c834c5a7f185d129a1c651db58089
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950525"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719849"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>App Center 및 Application Insights를 사용하여 모바일 앱 분석 시작
 
@@ -77,7 +77,7 @@ Analytics.trackEvent("Video clicked")
     | 설정        |  값           | 설명  |
    | ------------- |:-------------|:-----|
    | **Name**      | "myApp-iOS" 등의 일부 전역적으로 고유 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
-   | **응용 프로그램 유형** | App Center 애플리케이션 | 모니터링하는 응용 프로그램의 유형입니다. |
+   | **애플리케이션 유형** | App Center 애플리케이션 | 모니터링하는 응용 프로그램의 유형입니다. |
    | **리소스 그룹**     | 새 리소스 그룹, 또는 메뉴의 기존 리소스 그룹 | 새 Application Insights 리소스를 만들 리소스 그룹 |
    | **위치**: | 메뉴의 위치 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 
@@ -92,7 +92,7 @@ Analytics.trackEvent("Video clicked")
 앱에 대한 App Center 인스턴스:
 
 1. **설정** 페이지에서 **내보내기**를 클릭합니다.
-2. **새 내보내기**, **Application Insights**를 차례로 선택한 다음 **사용자 지정**을 클릭합니다.
+2. **새 내보내기**, **Application Insights**를 차례로 선택한 다음, **사용자 지정**을 클릭합니다.
 3. Application Insights 계측 키를 입력란에 붙여넣습니다.
 4. Application Insights 리소스를 포함하는 Azure 구독 사용 증가에 동의합니다. 각 Application Insights 리소스는 매월 받은 데이터의 첫 1GB는 무료입니다. [Application Insights 가격 책정 자세히 알아보기](https://azure.microsoft.com/pricing/details/application-insights/)
 
@@ -126,7 +126,7 @@ Application Insights는 분석 도구인 App Center에서 제공하는 것 이�
    1. 텍스트 편집기에서 쿼리의 아무 곳이나 클릭하여 해당 쿼리를 선택합니다.
    2. 그런 다음, **이동**을 클릭하여 쿼리를 실행합니다. 
 
-   [Application Insights Analytics](app-insights-analytics.md) 및 [Log Analytics 쿼리 언어](https://aka.ms/LogAnalyticsLanguageReference)에 대해 자세히 알아봅니다.
+   [Application Insights Analytics](../azure-monitor/app/analytics.md) 및 [Log Analytics 쿼리 언어](https://aka.ms/LogAnalyticsLanguageReference)에 대해 자세히 알아봅니다.
 
 
 2. **사용자 지정 이벤트 원격 분석을 필터링하고 분할합니다**. Application Insights **개요** 페이지의 목차에서 **사용자**를 선택합니다.

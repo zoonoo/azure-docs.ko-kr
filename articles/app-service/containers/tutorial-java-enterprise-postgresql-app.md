@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 2a38b117cde6d6b51b101f6b0ef0eb3a19b42ba3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3a668783e8257ef9074d12b30ff0afc3a40325f4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344230"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539725"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>자습서: Azure에서 Java EE 및 Postgres 웹앱 빌드
 
@@ -170,7 +170,7 @@ _pom.xml_에서 자리 표시자 값을 Postgres 서버 이름, 관리자 로그
 
 ### <a name="ftp-the-configuration-files"></a>구성 파일을 FTP로 전송
 
-FTP를 통해 `wildfly_config/`의 콘텐츠를 App Service 인스턴스로 전송해야 합니다. FTP 자격 증명을 가져오려면 Azure Portal의 App Service 블레이드에서 **게시 프로필 가져오기** 단추를 클릭합니다. 다운로드한 XML 문서를 보면 FTP 사용자 이름 및 암호가 있습니다. 게시 프로필에 대한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials)를 참조하세요.
+FTP를 통해 `wildfly_config/`의 콘텐츠를 App Service 인스턴스로 전송해야 합니다. FTP 자격 증명을 가져오려면 Azure Portal의 App Service 블레이드에서 **게시 프로필 가져오기** 단추를 클릭합니다. 다운로드한 XML 문서를 보면 FTP 사용자 이름 및 암호가 있습니다. 게시 프로필에 대한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials)를 참조하세요.
 
 원하는 FTP 도구를 사용하여 `wildfly_config/`의 4개 파일을 `/home/site/deployments/tools/`에 전송합니다. (디렉터리가 아닌 파일만 전송해야 합니다.)
 

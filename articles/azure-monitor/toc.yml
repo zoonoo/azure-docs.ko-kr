@@ -99,7 +99,7 @@ items:
       - name: 분산된 추적
         href: app/distributed-tracing.md
       - name: 로그 기반 및 사전 집계 메트릭
-        href: ../application-insights/pre-aggregated-metrics-log-metrics.md?toc=/azure/azure-monitor/toc.json
+        href: app/pre-aggregated-metrics-log-metrics.md
     - name: 컨테이너
       href: insights/container-insights-overview.md
     - name: Virtual Machines
@@ -155,7 +155,7 @@ items:
       - name: 작업 영역
         href: platform/manage-access.md
       - name: 응용 프로그램
-        href: ../application-insights/app-insights-resources-roles-access-control.md?toc=/azure/azure-monitor/toc.json
+        href: app/resources-roles-access-control.md
       - name: IP 주소
         href: app/ip-addresses.md
     - name: 응용 프로그램 모니터링
@@ -273,7 +273,7 @@ items:
           - name: 개요
             href: ../application-insights/app-insights-profiler-overview.md?toc=/azure/azure-monitor/toc.json
           - name: App Service에 대해 Profiler 사용하도록 설정
-            href: ../application-insights/app-insights-profiler.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler.md
           - name: Cloud Service에 대해 Profiler 사용하도록 설정
             href: ../application-insights/app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json
           - name: Service Fabric 애플리케이션에 대해 Profiler 사용하도록 설정
@@ -289,7 +289,7 @@ items:
         - name: 진단
           href: ../application-insights/app-insights-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
         - name: 미리 보기
-          href: ../application-insights/app-insights-previews.md?toc=/azure/azure-monitor/toc.json
+          href: app/previews.md
       - name: ASP.NET 앱
         items:
         - name: 웹 앱
@@ -304,11 +304,11 @@ items:
           href: app/asp-net-core.md
           items:
           - name: Linux 앱 서비스에 대한 Profiler
-            href: ../application-insights/app-insights-profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-aspnetcore-linux.md
         - name: 콘솔
           href: app/console.md
         - name: 응용 프로그램 대시보드
-          href: ../application-insights/app-insights-overview-dashboard.md?toc=/azure/azure-monitor/toc.json
+          href: app/overview-dashboard.md
         - name: 더 많은 원격 분석 수집
           href: app/asp-net-more.md
         - name: 예외
@@ -316,7 +316,7 @@ items:
         - name: 로그 추적
           href: app/asp-net-trace-logs.md
         - name: 성능 카운터
-          href: ../application-insights/app-insights-performance-counters.md?toc=/azure/azure-monitor/toc.json
+          href: app/performance-counters.md
         - name: 종속성
           href: app/asp-net-dependencies.md
         - name: 릴리스 주석
@@ -324,7 +324,7 @@ items:
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
         - name: 스냅숏 디버거
-          href: ../application-insights/app-insights-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
+          href: app/snapshot-debugger.md
       - name: Java 앱
         items:
         - name: 웹 앱
@@ -346,7 +346,7 @@ items:
       - name: Node.js 앱
         items:
         - name: Node.js
-          href: ../application-insights/app-insights-nodejs.md?toc=/azure/azure-monitor/toc.json
+          href: app/nodejs.md
       - name: 웹 페이지
         items:
         - name: JavaScript
@@ -356,38 +356,38 @@ items:
       - name: 분산된 추적
         items:
         - name: 로컬 전달자
-          href: ../application-insights/opencensus-local-forwarder.md?toc=/azure/azure-monitor/toc.json
+          href: app/opencensus-local-forwarder.md
         - name: Python
-          href: ../application-insights/opencensus-python.md?toc=/azure/azure-monitor/toc.json
+          href: app/opencensus-python.md
         - name: Go
-          href: ../application-insights/opencensus-go.md?toc=/azure/azure-monitor/toc.json
+          href: app/opencensus-go.md
       - name: 기타 플랫폼
         items:
         - name: SharePoint 사이트
           href: ../application-insights/app-insights-sharepoint.md?toc=/azure/azure-monitor/toc.json
         - name: Dynamics CRM
-          href: ../application-insights/app-insights-sample-mscrm.md?toc=/azure/azure-monitor/toc.json
+          href: app/sample-mscrm.md
       - name: 스마트 검색
         href: ../application-insights/app-insights-proactive-diagnostics.md?toc=/azure/azure-monitor/toc.json
         items:
         - name: 오류 잘못된 부분
-          href: ../application-insights/app-insights-proactive-failure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-failure-diagnostics.md
         - name: 성능 이상
-          href: ../application-insights/app-insights-proactive-performance-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-performance-diagnostics.md
         - name: 추적 성능 저하
-          href: ../application-insights/app-insights-proactive-trace-severity.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-trace-severity.md
         - name: 예외 볼륨
-          href: ../application-insights/app-insights-proactive-exception-volume.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-exception-volume.md
         - name: 메모리 누수
-          href: ../application-insights/app-insights-proactive-potential-memory-leak.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-potential-memory-leak.md
         - name: 리소스 사용률
-          href: ../application-insights/app-insights-proactive-low-utilization-cloud-resources.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-low-utilization-cloud-resources.md
         - name: 보안 검색
-          href: ../application-insights/app-insights-proactive-application-security-detection-pack.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-application-security-detection-pack.md
         - name: Azure Cloud Services
-          href: ../application-insights/app-insights-proactive-cloud-services.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-cloud-services.md
         - name: 스마트 검색 규칙 관리
-          href: ../application-insights/app-insights-proactive-arm-config.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-arm-config.md
       - name: 리소스 만들기
         href: ../application-insights/app-insights-create-new-resource.md?toc=/azure/azure-monitor/toc.json
       - name: 문제 해결
@@ -433,7 +433,7 @@ items:
       - name: 구성 관리자
         href: platform/collect-sccm.md
       - name: SCOM을 사용하여 응용 프로그램 성능 모니터링
-        href: ../application-insights/app-insights-scom.md?toc=/azure/azure-monitor/toc.json
+        href: app/scom.md
     - name: 데이터 라우팅
       items:
       - name: 활동 로그 보관
@@ -472,13 +472,13 @@ items:
         - name: 검색
           href: app/diagnostic-search.md
         - name: 메트릭
-          href: ../application-insights/app-insights-metrics-explorer.md?toc=/azure/azure-monitor/toc.json
+          href: app/metrics-explorer.md
         - name: 라이브 스트림
-          href: ../application-insights/app-insights-live-stream.md?toc=/azure/azure-monitor/toc.json
+          href: app/live-stream.md
         - name: 응용 프로그램 맵
           href: app/app-map.md
         - name: 트랜잭션 진단
-          href: ../application-insights/app-insights-transaction-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: app/transaction-diagnostics.md
         - name: HockeyApp 데이터
           href: app/hockeyapp-bridge-app.md
       - name: Visual Studio
@@ -830,7 +830,7 @@ items:
     - name: 사용량 및 예상 비용
       href: platform/usage-estimated-costs.md
     - name: 애플리케이션 사용량 및 비용
-      href: ../application-insights/app-insights-pricing.md?toc=/azure/azure-monitor/toc.json
+      href: app/pricing.md
     - name: 로그 데이터 사용량 및 비용
       href: platform/manage-cost-storage.md
   - name: 자동화
@@ -844,13 +844,13 @@ items:
       - name: 응용 프로그램
         items:
         - name: Application Insights 리소스 만들기
-          href: ../application-insights/app-insights-powershell.md?toc=/azure/azure-monitor/toc.json
+          href: app/powershell.md
         - name: 리소스 만들기
-          href: ../application-insights/app-insights-powershell-script-create-resource.md?toc=/azure/azure-monitor/toc.json
+          href: app/powershell-script-create-resource.md
         - name: 경고 설정
-          href: ../application-insights/app-insights-powershell-alerts.md?toc=/azure/azure-monitor/toc.json
+          href: app/powershell-alerts.md
         - name: Azure 진단 가져오기
-          href: ../application-insights/app-insights-powershell-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: app/powershell-azure-diagnostics.md
     - name: Azure CLI 샘플
       href: platform/cli-samples.md
     - name: 리소스 관리자 템플릿
@@ -880,7 +880,7 @@ items:
       - name: 필터링 및 원격 분석 전처리
         href: app/api-filtering-sampling.md
       - name: 샘플링
-        href: ../application-insights/app-insights-sampling.md?toc=/azure/azure-monitor/toc.json
+        href: app/sampling.md
     - name: 모니터링 솔루션
       items:
       - name: 디자인 및 빌드
@@ -908,7 +908,7 @@ items:
     - name: NuGet 패키지
       href: ../application-insights/app-insights-nuget.md?toc=/azure/azure-monitor/toc.json
     - name: 플랫폼 지원
-      href: ../application-insights/app-insights-platforms.md?toc=/azure/azure-monitor/toc.json
+      href: app/platforms.md
   - name: Application Insights 데이터 모델
     items:
     - name: 개요
@@ -989,9 +989,9 @@ items:
     - name: Log Analytics 서비스 업데이트
       href: https://azure.microsoft.com/updates/?product=log-analytics
     - name: SDK 릴리스 정보
-      href: ../application-insights/app-insights-release-notes.md
+      href: app/release-notes.md
     - name: 개발자 분석 도구에 대한 릴리스 정보
-      href: ../application-insights/app-insights-release-notes-vsix.md
+      href: app/release-notes-vsix.md
   - name: Windows 분석
     href: https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics
   - name: 국가별 가용성
@@ -1004,9 +1004,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 코드 샘플
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 1b80318e470995d060467f42aa61cdf6f4e8f34b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 0cfca3a41157065f2e64c0da8062ebd011375f70
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974576"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016115"

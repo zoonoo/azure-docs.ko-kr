@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 008e61841611f36c440bb4896ae5a85d0bf4d874
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 17c1cce5c20570f36505ce67a472280b03ef8f0e
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991622"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744537"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>ASP.NET Core 웹 애플리케이션 모니터링 시작
 
@@ -33,7 +33,7 @@ Azure Application Insights를 사용하면 웹 애플리케이션의 가용성, 
 - [.NET Core SDK 2.0 설치](https://www.microsoft.com/net/core)
 - Azure 구독 및 기존 .NET Core 웹 애플리케이션이 필요합니다.
 
-ASP.NET Core 웹 애플리케이션에 없는 경우에 [ASP.NET Core 앱을 만들고 Application Insights를 추가](app-insights-asp-net-core.md)하려면 단계별 가이드를 사용할 수 있습니다.
+ASP.NET Core 웹 애플리케이션에 없는 경우에 [ASP.NET Core 앱을 만들고 Application Insights를 추가](../azure-monitor/app/asp-net-core.md)하려면 단계별 가이드를 사용할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -54,7 +54,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
     | 설정        |  값           | 설명  |
    | ------------- |:-------------|:-----|
    | **Name**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
-   | **응용 프로그램 유형** | ASP.NET 웹 애플리케이션 | 모니터링하는 응용 프로그램의 유형입니다. |
+   | **애플리케이션 유형** | ASP.NET 웹 애플리케이션 | 모니터링하는 응용 프로그램의 유형입니다. |
    | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. |
    | **위치**: | 미국 동부 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 
@@ -83,7 +83,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
    ![애플리케이션 맵](./media/app-insights-dotnetcore-quick-start/application-map.png)
 
-3. **앱 분석** 아이콘![ 응용 프로그램 맵 아이콘](./media/app-insights-dotnetcore-quick-start/006.png)을 클릭합니다.  그러면 Application Insights에 의해 수집된 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights Analytics**가 열립니다. 이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
+3. **앱 분석** 아이콘![ 애플리케이션 맵 아이콘](./media/app-insights-dotnetcore-quick-start/006.png)을 클릭합니다.  그러면 Application Insights에 의해 수집된 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights Analytics**가 열립니다. 이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
 
    ![일정 기간의 사용자 요청에 대한 분석 그래프](./media/app-insights-dotnetcore-quick-start/0007-dc.png)
 

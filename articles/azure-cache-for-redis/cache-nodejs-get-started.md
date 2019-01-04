@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 05/21/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 67983adc9588ff445c45d8718e1ed0fc9ef3fc41
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: cff742688c307becf4bf87cced15036b25fa10c8
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53018793"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554625"
 ---
 # <a name="quickstart-how-to-use-azure-cache-for-redis-with-nodejs"></a>빠른 시작: Node.js에서 Azure Cache for Redis를 사용하는 방법
 
@@ -106,7 +106,7 @@ async function testCache() {
     console.log("Cache response : " + await cacheConnection.setAsync("Message",
         "Hello! The cache is working from Node.js!"));    
 
-    // Demostrate "SET Message" executed as expected...
+    // Demonstrate "SET Message" executed as expected...
     console.log("\nCache command: GET Message");
     console.log("Cache response : " + await cacheConnection.getAsync("Message"));    
 
@@ -147,7 +147,7 @@ node redistest.js
 
 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 후 **삭제**를 클릭합니다.
 
-잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
+잠시 후 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
 
 

@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 01/03/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: dacc28c1cfe2ee896597aeaf92a22c7f6e13c306
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2ab696436a8cf139eff92edc3b8ff2c27b40a7aa
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726615"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018386"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack에서 Azure CLI를 사용 하 여 API 버전 프로필 사용
 
@@ -26,7 +26,7 @@ Linux, Mac 및 Windows 클라이언트 플랫폼에서 Azure Stack 개발 키트
 
 ## <a name="install-cli"></a>CLI 설치
 
-개발 워크스테이션에 로그인 하 고 CLI를 설치 합니다. Azure Stack에는 버전의 Azure CLI 2.0 이상이 필요합니다. 에 설명 된 단계를 사용 하 여 설치할 수 있습니다 합니다 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli) 문서. 설치가 성공 했는지 여부를 확인 하려면 터미널 또는 명령 프롬프트 창을 열고 다음 명령을 실행 합니다.
+개발 워크스테이션에 로그인 하 고 CLI를 설치 합니다. Azure Stack에는 버전의 Azure CLI 2.0 이상이 필요합니다. 에 설명 된 단계를 사용 하 여 해당 버전을 설치할 수는 [Azure CLI 설치](/cli/azure/install-azure-cli) 문서. 설치가 성공 했는지 여부를 확인 하려면 터미널 또는 명령 프롬프트 창을 열고 다음 명령을 실행 합니다.
 
 ```azurecli
 az --version
@@ -40,11 +40,11 @@ Azure CLI 및 컴퓨터에 설치 된 기타 종속 된 라이브러리의 버�
 
 1. 컴퓨터에 인증서 위치를 찾습니다. 위치는 Python 설치에 따라 달라질 수 있습니다. 해야 합니다 [pip](https://pip.pypa.io) 하며 [로](https://pypi.org/project/certifi/) 모듈을 설치 합니다. Bash 프롬프트에서 다음 Python 명령에 사용할 수 있습니다.
 
-  ```bash  
+    ```bash  
     python -c "import certifi; print(certifi.where())"
-  ```
+    ```
 
-  인증서 위치를 기록해 둡니다. 예: `~/lib/python3.5/site-packages/certifi/cacert.pem` 특정 경로 설치 된 Python의 버전 및 OS에 따라 달라 집니다.
+    인증서 위치; 기록 예를 들어 `~/lib/python3.5/site-packages/certifi/cacert.pem`합니다. 특정 경로는 운영 체제에 설치 된 Python 버전에 따라 달라 집니다.
 
 ### <a name="set-the-path-for-a-development-machine-inside-the-cloud"></a>클라우드 내에서 개발 컴퓨터에 대 한 경로 설정 합니다.
 
@@ -56,13 +56,11 @@ sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
 
 ### <a name="set-the-path-for-a-development-machine-outside-the-cloud"></a>클라우드 외부 개발 컴퓨터에 대 한 경로 설정 합니다.
 
-컴퓨터에서 CLI를 실행 하는 경우 **외부** Azure Stack 환경:  
+사용 하는 컴퓨터는 Azure Stack 환경 외부에서 CLI를 실행 하는 경우:  
 
-1. 설정 해야 합니다 [Azure Stack에 VPN 연결](azure-stack-connect-azure-stack.md)합니다.
-
+1. 설정할 [Azure Stack에 VPN 연결](azure-stack-connect-azure-stack.md)합니다.
 1. Azure Stack 연산자에서 가져온 PEM 인증서를 복사 하 고 (PATH_TO_PEM_FILE) 파일의 위치를 기록해 둡니다.
-
-1. 끝 개발 워크스테이션의 운영 체제에 따라 다음 명령을 실행 합니다.
+1. 개발용 워크스테이션에서 운영 체제에 따라 다음 섹션에서는 명령을 실행 합니다.
 
 #### <a name="linux"></a>Linux
 
@@ -84,7 +82,7 @@ $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Down
 $root = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
 $root.Import($pemFile)
 
-Write-Host "Extracting needed information from the cert file"
+Write-Host "Extracting required information from the cert file"
 $md5Hash    = (Get-FileHash -Path $pemFile -Algorithm MD5).Hash.ToLower()
 $sha1Hash   = (Get-FileHash -Path $pemFile -Algorithm SHA1).Hash.ToLower()
 $sha256Hash = (Get-FileHash -Path $pemFile -Algorithm SHA256).Hash.ToLower()
@@ -104,21 +102,20 @@ $serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n"
 Write-Host "Adding the certificate content to Python Cert store"
 Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
 
-Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate"
+Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
 ```
 
 ## <a name="get-the-virtual-machine-aliases-endpoint"></a>가상 머신 별칭 끝점 가져오기
 
-사용자는 CLI를 사용 하 여 가상 컴퓨터를 만들 수 있습니다, 전에 Azure Stack 운영자에 게 문의 하 고 가상 머신 별칭 끝점 URI를 가져올 되어야 합니다. Azure는 다음 URI를 사용 하는 예를 들어: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json합니다. 클라우드 관리자는 Azure Stack marketplace에서 사용할 수 있는 이미지를 사용 하 여 Azure Stack에 대 한 유사한 끝점 설정 해야 합니다. 사용자가 끝점 URI를 전달 해야 하는 `endpoint-vm-image-alias-doc` 매개 변수를를 `az cloud register` 다음 섹션에 표시 된 대로 명령을 합니다. 
-   
-
+CLI를 사용 하 여 가상 컴퓨터를 만들 수 있습니다, 전에 Azure Stack 운영자에 게 문의 하 고 가상 머신 별칭 끝점 URI를 가져올 해야 합니다. Azure는 다음 URI를 사용 하는 예를 들어: `https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json`합니다. 클라우드 관리자는 Azure Stack marketplace에서 사용할 수 있는 이미지를 사용 하 여 Azure Stack에 대 한 유사한 끝점 설정 해야 합니다. 끝점 URI를 전달 해야 합니다의 `endpoint-vm-image-alias-doc` 매개 변수는 `az cloud register` 다음 섹션에 표시 된 대로 명령을 합니다. 
+  
 ## <a name="connect-to-azure-stack"></a>Azure Stack에 연결
 
 다음 단계를 사용 하 여 Azure Stack에 연결 합니다.
 
 1. Azure Stack 환경을 실행 하 여 등록 된 `az cloud register` 명령입니다.
    
-   a. 등록 하는 *클라우드 관리* 환경에서 사용 하 여:
+    a. 등록 하는 *클라우드 관리* 환경에서 사용 하 여:
 
       ```azurecli
       az cloud register \ 
@@ -128,7 +125,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
         --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
-   b. 등록 하는 *사용자* 환경에서 사용 하 여:
+    b. 등록 하는 *사용자* 환경에서 사용 하 여:
 
       ```azurecli
       az cloud register \ 
@@ -166,14 +163,14 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
       ```
 1. 다음 명령을 사용 하 여 활성 환경을 설정 합니다.
    
-   a. 에 대 한 합니다 *클라우드 관리* 환경에서 사용 하 여:
+    a. 에 대 한 합니다 *클라우드 관리* 환경에서 사용 하 여:
 
       ```azurecli
       az cloud set \
         -n AzureStackAdmin
       ```
 
-   b. 에 대 한 합니다 *사용자* 환경에서 사용 하 여:
+    b. 에 대 한 합니다 *사용자* 환경에서 사용 하 여:
 
       ```azurecli
       az cloud set \
@@ -182,18 +179,18 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
 
 1. Azure Stack 특정 API 버전 프로필을 사용 하도록 사용자의 환경 구성을 업데이트 합니다. 구성 값을 업데이트 하려면 다음 명령을 실행 합니다.
 
-   ```azurecli
-   az cloud update \
-     --profile 2018-03-01-hybrid
+    ```azurecli
+    az cloud update \
+      --profile 2018-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >API 버전 프로필을 사용 하는 1808 빌드 전에 Azure Stack의 버전을 실행 하는 경우 **2017-03-09-profile** API 버전 프로필 대신 **2018-03-01-하이브리드**합니다.
+    >1808 빌드 전에 Azure Stack의 버전을 실행 하는 경우에 API 버전 프로필을 사용 해야 **2017-03-09-profile** API 버전 프로필 대신 **2018-03-01-하이브리드**합니다.
 
-1. 사용 하 여 Azure Stack 환경에 로그인 합니다 `az login` 명령입니다. 로그인 할 수 있습니다 Azure Stack 환경에 사용자 또는으로 [서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects)합니다. 
+1. 사용 하 여 Azure Stack 환경에 로그인 합니다 `az login` 명령입니다. 로그인 할 수 있습니다 Azure Stack 환경에 사용자 또는으로 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)합니다. 
 
     * Azure AD 환경
-      * 으로 로그인을 *사용자*: Username 및 password 내에서 직접 지정할 수 있습니다는 `az login` 명령을 선택 하거나 브라우저를 사용 하 여 인증 합니다. 사용자 계정에 multi-factor authentication 사용 하는 경우에 후자를 수행 해야 합니다.
+      * 으로 로그인을 *사용자*: Username 및 password 내에서 직접 지정할 수 있습니다는 `az login` 명령, 또는 브라우저를 사용 하 여 인증 합니다. 사용자 계정에 multi-factor authentication 사용 하는 경우 후자를 수행 해야 합니다.
 
       ```azurecli
       az login \
@@ -202,7 +199,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
       ```
 
       > [!NOTE]
-      > 사용자 계정에 multi-factor authentication 사용 하는 경우 사용할 수 있습니다 합니다 `az login command` 제공 하지 않고는 `-u` 매개 변수입니다. URL 및 인증을 사용 해야 하는 코드를 제공 명령을 실행 합니다.
+      > 사용자 계정에 multi-factor authentication 사용 하는 경우 사용할 수 있습니다 합니다 `az login command` 제공 하지 않고는 `-u` 매개 변수입니다. URL 및 인증을 사용 해야 하는 코드를 제공이 명령을 실행 합니다.
    
       * 으로 로그인을 *서비스 주체*: 로그인 하기 전에 [Azure portal 통해 서비스 주체를 만들려면](azure-stack-create-service-principals.md) 또는 CLI 역할을 할당 합니다. 이제 다음 명령을 사용 하 여 로그인 합니다.
 
@@ -230,9 +227,9 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
         
           1. 서비스 보안 주체 로그인에 사용 되는.pem 파일을 준비 합니다.
 
-            * 보안 주체가 생성 된 위치를 클라이언트 컴퓨터에서 서비스 주체 인증서를 pfx로 개인 키를 사용 하 여 내보내기 (위치한 `cert:\CurrentUser\My;` 인증서 이름을 주 서버는 같은 이름을 가진).
+            * 보안 주체가 생성 된 위치를 클라이언트 컴퓨터에서 서비스 주체 인증서에 개인 키를 사용 하 여 pfx 있는 내보내기 `cert:\CurrentUser\My`, 이름을 주 서버는 같은 이름을 가진 인증서입니다.
         
-            * Pfx에서 pem (사용 하 여 OpenSSL 유틸리티)으로 변환 합니다.
+            * Pfx에서 pem (사용 하 여 OpenSSL 유틸리티를) 변환 합니다.
 
           2.  CLI에 로그인 합니다.
             ```azurecli  
@@ -245,7 +242,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
 
 ## <a name="test-the-connectivity"></a>연결 테스트
 
-이제는 것은 모두 갖추어 설치 프로그램을 살펴보겠습니다 CLI를 사용 하 여 Azure Stack에서 리소스를 만듭니다. 예를 들어, 응용 프로그램에 대 한 리소스 그룹을 만들고 가상 머신 추가 수 있습니다. 다음 명령을 사용 하 여 "myresourcegroup 이라는" 이름의 리소스 그룹을 만듭니다.
+모든 항목을 사용 하 여 CLI를 사용 하 여 Azure Stack에서 리소스 만들기를 설정 합니다. 예를 들어, 응용 프로그램에 대 한 리소스 그룹을 만들고 가상 머신 추가 수 있습니다. 다음 명령을 사용 하 여 "myresourcegroup 이라는" 이름의 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create \
@@ -257,16 +254,15 @@ az group create \
 ![리소스 그룹에는 출력 만들기](media/azure-stack-connect-cli/image1.png)
 
 ## <a name="known-issues"></a>알려진 문제
-Azure Stack에서 CLI를 사용 하는 경우 주의 해야 하는 몇 가지 알려진된 문제는
 
- - CLI 대화형 모드 즉 `az interactive` 명령은 Azure Stack에서 아직 지원 되지 않습니다.
- - Azure Stack에서 사용할 수 있는 가상 머신 이미지 목록을 사용 합니다 `az vm image list --all` 대신 명령을 `az vm image list` 명령입니다. 지정 된 `--all` 옵션을 선택 하면 Azure Stack 환경에서 사용할 수 있는 이미지만 응답 반환 하는지 확인 합니다.
+Azure Stack에서 CLI를 사용 하는 경우 발견 된 문제 들입니다.
+
+ - CLI 대화형 모드. 예를 들어를 `az interactive` 명령, Azure Stack에서 아직 지원 되지 않습니다.
+ - Azure Stack에서 사용할 수 있는 가상 머신 이미지 목록을 사용 합니다 `az vm image list --all` 대신 명령을 `az vm image list` 명령입니다. 지정 된 `--all` 옵션을 사용 하면 Azure Stack 환경에서 사용할 수 있는 이미지만 반환 하는 응답 합니다.
  - Azure에서 사용할 수 있는 가상 머신 이미지 별칭 Azure Stack에 적용할 수 없습니다. 가상 머신 이미지를 사용 하는 경우에 전체 URN 매개 변수를 사용 해야 합니다 (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) 이미지 별칭 대신 합니다. 이 URN에서 파생 된 이미지 사양과 일치 해야 합니다는 `az vm images list` 명령입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure CLI을 사용하여 템플릿 배포](azure-stack-deploy-template-command-line.md)
-
-[Azure Stack 사용자 (운영자)에 대 한 Azure CLI를 사용 하도록 설정](../azure-stack-cli-admin.md)
-
-[사용자 권한 관리](azure-stack-manage-permissions.md)
+- [Azure CLI을 사용하여 템플릿 배포](azure-stack-deploy-template-command-line.md)
+- [Azure Stack 사용자 (운영자)에 대 한 Azure CLI를 사용 하도록 설정](../azure-stack-cli-admin.md)
+- [사용자 권한 관리](azure-stack-manage-permissions.md) 

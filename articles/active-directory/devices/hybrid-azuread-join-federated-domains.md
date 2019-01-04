@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c35c16e1414b1287fa891d1ce1f65ca8eff3d2c5
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3bce57f919490e1689ce40f59a3799ce451ee6e7
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434956"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752795"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>자습서: 페더레이션 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -57,8 +57,6 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 이 자습서의 시나리오를 구성하려면 다음이 필요합니다.
 
 - Windows Server 2012 R2 AD FS
-
-- 스키마 레벨이 85 이상인 온-프레미스 AD(Active Directory). 자세한 내용은 [Active Directory 스키마 업그레이드](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema)를 참조하세요.
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) 버전 1.1.819.0 이상 
  

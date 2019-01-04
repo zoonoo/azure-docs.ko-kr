@@ -1,31 +1,30 @@
 ---
 title: Azure PowerShell 스크립트 샘플 - Azure 가상 컴퓨터 백업 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - Azure 가상 컴퓨터 백업
+description: Azure PowerShell 스크립트 샘플 - Azure 가상 머신 백업
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 tags: ''
 ms.assetid: ''
 ms.service: backup
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/07/2017
-ms.author: markgal
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4376add4a2e51806bd5db228ad2fe2afcf2e4f57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb22dc88c971e0ddc293fabd64bfd30145b2edd1
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22997528"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651387"
 ---
-# <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>PowerShell을 사용하여 암호화된 Azure 가상 컴퓨터 백업
+# <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>PowerShell을 사용하여 암호화된 Azure 가상 머신 백업
 
-이 스크립트는 암호화된 Azure 가상 컴퓨터에 대한 GRS(지역 중복 저장소)를 사용하여 Recovery Services 자격 증명 모음을 만듭니다. 자격 증명 모음에 기본 보호 정책이 적용됩니다. 이 정책은 가상 컴퓨터에 대한 일별 백업을 생성하고 30일 동안 각 백업을 유지합니다. 또한 스크립트는 가상 컴퓨터에 대한 초기 복구 지점을 트리거하고 해당 복구 지점을 365일 동안 유지합니다. 
+이 스크립트는 암호화된 Azure 가상 머신에 대한 GRS(지역 중복 저장소)를 사용하여 Recovery Services 자격 증명 모음을 만듭니다. 자격 증명 모음에 기본 보호 정책이 적용됩니다. 이 정책은 가상 머신에 대한 일별 백업을 생성하고 30일 동안 각 백업을 유지합니다. 또한 스크립트는 가상 머신에 대한 초기 복구 지점을 트리거하고 해당 복구 지점을 365일 동안 유지합니다. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -48,7 +47,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 이 스크립트는 다음 명령을 사용하여 배포합니다. 테이블에 있는 각 항목은 명령에 해당하는 문서에 연결됩니다.
 
 
-| 명령 | 참고 사항 | 
+| 명령 | 메모 | 
 |---|---| 
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. | 
 | [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/New-AzureRmRecoveryServicesVault) | 백업을 저장할 복구 서비스 자격 증명 모음을 만듭니다. | 

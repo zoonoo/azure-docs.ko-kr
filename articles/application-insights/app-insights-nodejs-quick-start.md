@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 8bc725a5d9e3e9cdf82a01693aed83bff1f16c04
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: c2202a194c3912bd9a8b8f534df792e6f1a3543b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991631"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998696"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Node.js 웹 애플리케이션 모니터링 시작
 
@@ -50,7 +50,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
     | 설정        | 값           | 설명  |
    | ------------- |:-------------|:-----|
    | **Name**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
-   | **응용 프로그램 유형** | Node.js 애플리케이션 | 모니터링하는 응용 프로그램의 유형입니다. |
+   | **애플리케이션 유형** | Node.js 애플리케이션 | 모니터링하는 응용 프로그램의 유형입니다. |
    | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. |
    | **위치**: | 미국 동부 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 
@@ -58,7 +58,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
 ## <a name="configure-app-insights-sdk"></a>Application Insights SDK 구성
 
-1. **개요** > **기본 정보**를 차례로 선택하고, 응용 프로그램의 **계측 키**를 복사합니다.
+1. **개요** > **기본 정보**를 차례로 선택하고, 애플리케이션의 **계측 키**를 복사합니다.
 
    ![새로운 App Insights 리소스 형식](./media/app-insights-nodejs-quick-start/instrumentation-key-001.png)
 
@@ -68,7 +68,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
    npm install applicationinsights --save
    ```
 
-3. 응용 프로그램의 첫 번째 .js 파일을 편집하고, 스크립트의 맨 위쪽에 아래 두 줄을 추가합니다. [Node.js 빠른 시작 응용 프로그램](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)을 사용하는 경우 index.js 파일을 수정합니다. &lt;instrumentation_key&gt;를 응용 프로그램의 계측 키로 바꿉니다. 
+3. 응용 프로그램의 첫 번째 .js 파일을 편집하고, 스크립트의 맨 위쪽에 아래 두 줄을 추가합니다. [Node.js 빠른 시작 응용 프로그램](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)을 사용하는 경우 index.js 파일을 수정합니다. &lt;instrumentation_key&gt;를 애플리케이션의 계측 키로 바꿉니다. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');
@@ -90,7 +90,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
    ![애플리케이션 맵](./media/app-insights-nodejs-quick-start/application-map.png)
 
-3. **앱 분석** 아이콘![ 응용 프로그램 맵 아이콘](./media/app-insights-nodejs-quick-start/006.png)을 클릭합니다.  그러면 Application Insights에 의해 수집된 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights Analytics**가 열립니다. 이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
+3. **앱 분석** 아이콘![ 애플리케이션 맵 아이콘](./media/app-insights-nodejs-quick-start/006.png)을 클릭합니다.  그러면 Application Insights에 의해 수집된 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights Analytics**가 열립니다. 이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
 
    ![일정 기간의 사용자 요청에 대한 분석 그래프](./media/app-insights-nodejs-quick-start/007-Black.png)
 
@@ -124,7 +124,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
    ![서버 메트릭 그래프](./media/app-insights-nodejs-quick-start/009-Black.png)
 
-Node.js 모니터링에 대한 자세한 내용은 [Application Insights Node.js 추가 설명서](app-insights-nodejs.md)를 참조하세요.
+Node.js 모니터링에 대한 자세한 내용은 [Application Insights Node.js 추가 설명서](../azure-monitor/app/nodejs.md)를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

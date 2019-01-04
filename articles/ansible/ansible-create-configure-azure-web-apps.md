@@ -8,15 +8,15 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/08/2018
-ms.openlocfilehash: a7e7c04b458575cdc9f2608d0c84f0df105bf202
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 4a772977130f5679da2d879cc12738b89be09f1d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261758"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726734"
 ---
 # <a name="create-azure-app-service-web-apps-by-using-ansible"></a>Ansible을 사용하여 Azure App Service 웹앱 만들기
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview)(또는 간단히 Web Apps)는 웹 애플리케이션, REST API 및 모바일 백 엔드를 호스팅합니다. .NET, .NET Core, Java, Ruby, Node.js, PHP 또는 Python 등 원하는 언어로 개발할 수 있습니다.
+[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview)(또는 간단히 Web Apps)는 웹 애플리케이션, REST API 및 모바일 백 엔드를 호스팅합니다. .NET, .NET Core, Java, Ruby, Node.js, PHP 또는 Python 등 원하는 언어로 개발할 수 있습니다.
 
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. 이 문서에서는 Ansible을 사용하여 Java 런타임을 포함하는 웹앱을 만드는 방법을 보여줍니다. 
 
@@ -93,7 +93,7 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0
 ## <a name="create-an-app-service-by-using-traffic-manager"></a>Traffic Manager를 사용하여 앱 서비스 만들기
 [Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager)를 사용하면 웹 클라이언트의 요청을 Azure App Service의 앱에 분산하는 방법을 제어할 수 있습니다. App Service 엔드포인트가 Azure Traffic Manager 프로필에 추가되면 Traffic Manager는 App Service 앱의 상태를 추적합니다. 상태에는 실행 중, 중지됨 및 삭제됨이 있습니다. 그런 다음, Traffic Manager는 트래픽을 수신할 엔드포인트를 결정할 수 있습니다.
 
-App Service의 앱은 [App Service 계획](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
+App Service의 앱은 [App Service 계획](https://docs.microsoft.com/azure/app-service/overview-hosting-plans
 )에서 실행됩니다. App Service 계획은 실행할 웹앱에 대한 계산 리소스 집합을 정의합니다. 다른 그룹에서 App Service 계획 및 웹앱을 관리할 수 있습니다.
 
 이 섹션에서는 다음 리소스를 정의하는 샘플 Ansible 플레이북을 제공합니다.

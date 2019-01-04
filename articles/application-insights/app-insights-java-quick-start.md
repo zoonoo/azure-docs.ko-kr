@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 45d1275ac3b78836cbb77c4e1508d0689c215d69
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 98ceaddab192a146aa61223d883c78dc7c6af730
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998598"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970375"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Java 웹 애플리케이션 모니터링 시작
 
@@ -55,7 +55,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
     | 설정        | 값           | 설명  |
    | ------------- |:-------------|:-----|
    | **Name**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
-   | **응용 프로그램 유형** | Java 웹 애플리케이션 | 모니터링하는 응용 프로그램의 유형입니다. |
+   | **애플리케이션 유형** | Java 웹 애플리케이션 | 모니터링하는 응용 프로그램의 유형입니다. |
    | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. |
    | **위치**: | 미국 동부 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 
@@ -79,7 +79,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
 3. **프로젝트 탐색기**에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **Azure**를 선택하고, **Application Insights 구성**을 클릭합니다.
 
-4. **Application Insights로 원격 분석 사용**을 선택하고, Java 응용 프로그램에 연결하려는 Application Insights 리소스 및 관련 **계측 키**를 선택합니다.
+4. **Application Insights로 원격 분석 사용**을 선택하고, Java 애플리케이션에 연결하려는 Application Insights 리소스 및 관련 **계측 키**를 선택합니다.
 
    ![Eclipse Azure 구성 메뉴](./media/app-insights-java-quick-start/0007-j.png)
 
@@ -96,7 +96,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
    ![애플리케이션 맵](./media/app-insights-java-quick-start/application-map-001.png)
 
-3. **앱 분석** 아이콘![ 응용 프로그램 맵 아이콘](./media/app-insights-java-quick-start/006.png)을 클릭합니다. 그러면 Application Insights에 의해 수집된 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights Analytics**가 열립니다. 이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
+3. **앱 분석** 아이콘![ 애플리케이션 맵 아이콘](./media/app-insights-java-quick-start/006.png)을 클릭합니다. 그러면 Application Insights에 의해 수집된 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights Analytics**가 열립니다. 이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
 
    ![일정 기간의 사용자 요청에 대한 분석 그래프](./media/app-insights-java-quick-start/0010-j.png)
 
@@ -130,7 +130,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
    ![서버 메트릭 그래프](./media/app-insights-java-quick-start/livemetricsjava.png)
 
-Java 모니터링에 대한 자세한 내용은 [Application Insights Java 추가 설명서](./app-insights-java-get-started.md)를 참조하세요.
+Java 모니터링에 대한 자세한 내용은 [Application Insights Java 추가 설명서](./../azure-monitor/app/java-get-started.md)를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

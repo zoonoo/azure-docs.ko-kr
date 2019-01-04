@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: d5e97d82a011bc4aba29aa597a7fc6473d17a3b2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5a991bf5da6d17aad6b1456e82f6c7795ab67356
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970793"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745026"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Azure Application Insights를 사용하여 고객이 애플리케이션을 사용하는 방법 이해
 
@@ -39,8 +39,8 @@ Azure Application Insights는 사용량 정보를 수집하여 사용자자 애�
     - ASP.NET 및 웹 개발
     - Azure 개발
 - [Visual Studio 스냅숏 디버거](https://aka.ms/snapshotdebugger)를 다운로드 및 설치합니다.
-- Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](app-insights-asp-net.md)합니다. 
-- 사용자 지정 이벤트/페이지 보기 추가에 대한 [응용 프로그램에서 원격 분석 전송](app-insights-usage-overview.md#send-telemetry-from-your-app)
+- Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](../azure-monitor/app/asp-net.md)합니다. 
+- 사용자 지정 이벤트/페이지 보기 추가에 대한 [애플리케이션에서 원격 분석 전송](app-insights-usage-overview.md#send-telemetry-from-your-app)
 - [사용자 컨텍스트](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context)를 전송하여 시간에 따라 사용자 작업을 추적하고 사용량 기능을 최대한 활용합니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
@@ -49,7 +49,7 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 ## <a name="get-information-about-your-users"></a>사용자에 대한 정보 가져오기
 **사용자** 패널을 통해 여러 가지 방법으로 사용자에 대한 중요한 세부 정보를 이해할 수 있습니다. 이 패널을 사용하여 사용자가 연결하는 위치, 해당 클라이언트의 세부 정보 및 액세스하는 애플리케이션의 영역과 같은 정보를 이해합니다. 
 
-1. **Application Insights**를 선택한 다음 구독을 선택합니다.
+1. **Application Insights**를 선택한 다음, 구독을 선택합니다.
 2. 메뉴에서 **사용자**를 선택합니다.
 3. 기본 보기는 지난 24시간 동안 애플리케이션에 연결한 고유 사용자 수를 표시합니다.  시간 창을 변경할 수 있으며 다양한 조건을 설정하여 이 정보를 필터링할 수 있습니다.
 
@@ -118,7 +118,7 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 
 
 ## <a name="learn-which-customers-return"></a>돌아오는 고객 알아보기
-**재방문 주기**를 통해 응용 프로그램으로 다시 돌아오는 사용자를 이해할 수 있습니다.  
+**재방문 주기**를 통해 애플리케이션으로 다시 돌아오는 사용자를 이해할 수 있습니다.  
 
 1. 메뉴에서 **재방문 주기**를 선택합니다.
 2. 기본적으로 분석된 정보는 작업을 수행한 다음 작업을 수행하기 위해 돌아온 사용자를 포함합니다.  이 필터를 다음을 포함하도록, 예를 들어, 구매를 완료한 후 돌아온 사용자만 포함하도록 변경할 수 있습니다.
@@ -130,7 +130,7 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
     ![](media/app-insights-tutorial-users/retentiongraph.png)
 
 ## <a name="analyze-user-navigation"></a>사용자 탐색 분석
-**사용자 흐름**은 페이지와 응용 프로그램의 기능 간에 사용자가 탐색하는 방법을 시각화합니다.  이 기능을 사용하면 사용자가 일반적으로 특정 페이지에서 이동하는 위치, 일반적으로 애플리케이션을 종료하는 방법 및 정기적으로 반복되는 작업이 있는지와 같은 질문에 답할 수 있습니다.
+**사용자 흐름**은 페이지와 애플리케이션의 기능 간에 사용자가 탐색하는 방법을 시각화합니다.  이 기능을 사용하면 사용자가 일반적으로 특정 페이지에서 이동하는 위치, 일반적으로 애플리케이션을 종료하는 방법 및 정기적으로 반복되는 작업이 있는지와 같은 질문에 답할 수 있습니다.
 
 1.  메뉴에서 **사용자 흐름**을 선택합니다.
 2.  **새로 만들기**를 클릭하여 새 사용자 흐름을 만든 다음 **편집**을 클릭하여 해당 세부 정보를 편집합니다.

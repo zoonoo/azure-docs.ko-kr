@@ -1,30 +1,30 @@
 ---
-title: Azure Site Recovery 서비스를 사용하여 다른 Azure 지역으로 Azure IaaS VM 마이그레이션 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 Azure 지역 간에 Azure IaaS VM을 마이그레이션합니다.
+title: Azure Site Recovery 서비스를 사용하여 다른 Azure 지역으로 Azure IaaS VM 이동 | Microsoft Docs
+description: Azure Site Recovery를 사용하여 Azure 지역 간에 Azure IaaS VM을 이동합니다.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/28/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9ad994ad3dc1fc350a9a41c23574acfa2bae9629
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: dc27e49cc67a902bb45b1d889bb61b1f4b3aab83
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212287"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788772"
 ---
-# <a name="migrate-azure-vms-to-another-region"></a>다른 지역으로 Azure VM 마이그레이션
+# <a name="move-azure-vms-to-another-region"></a>다른 지역으로 Azure VM 이동
 
-BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 온-프레미스 컴퓨터 및 Azure VM의 재해 복구를 관리하고 오케스트레이션하는 것은 물론, Site Recovery를 사용하여 Azure VM을 보조 지역으로 마이그레이션하는 작업을 관리할 수도 있습니다. Azure VM을 마이그레이션하려면 해당 VM에 복제를 사용하도록 설정하고 주 지역에서 선택한 보조 지역으로 장애 조치(failover)합니다.
+BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 온-프레미스 머신 및 Azure VM의 재해 복구를 관리하고 오케스트레이션하는 것은 물론, Site Recovery를 사용하여 Azure VM을 보조 지역으로 이동하는 작업을 관리할 수도 있습니다. Azure VM을 이동하려면 해당 VM에 복제를 사용하도록 설정하고 주 지역에서 선택한 보조 지역으로 장애 조치(failover)합니다.
 
-이 자습서에서는 Azure VM을 다른 지역으로 마이그레이션하는 방법을 보여 줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Azure VM을 다른 지역으로 이동하는 방법을 보여줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Recovery Services 자격 증명 모음 만들기
 > * VM에 대한 복제 사용
-> * 장애 조치(failover)를 실행하여 VM 마이그레이션
+> * 장애 조치(failover)를 실행하여 VM 이동
 
 이 자습서에서는 이미 Azure 구독이 있다고 가정합니다. Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
@@ -34,7 +34,7 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 
 ## <a name="prerequisites"></a>필수 조건
 
-- 마이그레이션하려는 Azure 지역에서 Azure VM이 있는지 확인합니다.
+- 이동하려는 Azure 지역에서 Azure VM이 있는지 확인합니다.
 - [시나리오 아키텍처 및 구성 요소](azure-to-azure-architecture.md)를 이해해야 합니다.
 - [제한 사항 및 요구 사항 지원](azure-to-azure-support-matrix.md)을 검토합니다.
 
@@ -66,12 +66,12 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 
 ### <a name="verify-vm-outbound-access"></a>VM 아웃바운드 액세스 확인
 
-1. 마이그레이션할 VM의 네트워크 연결을 제어하기 위해 인증 프록시를 사용하지 않도록 합니다. 
-2. 이 자습서에서는 마이그레이션할 VM이 인터넷에 액세스할 수 있고 방화벽 프록시를 사용하여 아웃바운드 액세스를 제어하지 않는다고 가정합니다. 액세스를 제어하는 경우 [여기](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity)서 요구 사항을 확인합니다.
+1. 이동할 VM의 네트워크 연결을 제어하기 위해 인증 프록시를 사용하지 않도록 합니다. 
+2. 이 자습서에서는 이동할 VM이 인터넷에 액세스할 수 있고 방화벽 프록시를 사용하여 아웃바운드 액세스를 제어하지 않는다고 가정합니다. 액세스를 제어하는 경우 [여기](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity)서 요구 사항을 확인합니다.
 
 ### <a name="verify-vm-certificates"></a>VM 인증서 확인
 
-마이그레이션할 Azure VM에 모든 최신 루트 인증서가 있는지 확인합니다. 최신 루트 인증서가 없는 경우 보안 제약 조건으로 인해 Site Recovery에 VM을 등록할 수 없습니다.
+이동할 Azure VM에 모든 최신 루트 인증서가 있는지 확인합니다. 최신 루트 인증서가 없는 경우 보안 제약 조건으로 인해 Site Recovery에 VM을 등록할 수 없습니다.
 
 - Windows VM의 경우 VM에 최신 Windows 업데이트를 모두 설치하여 신뢰할 수 있는 모든 루트 인증서가 컴퓨터에 있도록 합니다. 연결이 끊어진 환경에서 조직의 표준 Windows 업데이트 및 인증서 업데이트 프로세스를 따릅니다.
 - Linux VM의 경우 Linux 배포자가 제공한 지침에 따라 신뢰할 수 있는 최신 루트 인증서 및 인증서 해지 목록을 VM에 가져옵니다.
@@ -113,7 +113,7 @@ Site Recovery는 구독 및 리소스 그룹과 연관된 VM 목록을 검색합
 
 
 1. Azure Portal에서 **가상 머신**을 클릭합니다.
-2. 마이그레이션할 VM을 선택합니다. 그런 후 **OK**를 클릭합니다.
+2. 이동할 VM을 선택합니다. 그런 후 **OK**를 클릭합니다.
 3. **설정**에서 **재해 복구**를 클릭합니다.
 4. **재해 복구 구성** > **대상 지역**에서 복제할 대상 지역을 선택합니다.
 5. 이 자습서에서는 다른 기본 설정을 적용합니다.
@@ -136,7 +136,7 @@ Site Recovery는 구독 및 리소스 그룹과 연관된 VM 목록을 검색합
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure VM을 다른 Azure 지역으로 마이그레이션했습니다. 이제 마이그레이션된 VM에 대해 재해 복구를 구성할 수 있습니다.
+이 자습서에서는 Azure VM을 다른 Azure 지역으로 이동했습니다. 이제 이동한 VM에 대해 재해 복구를 구성할 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [마이그레이션 후 재해 복구 설정](azure-to-azure-quickstart.md)

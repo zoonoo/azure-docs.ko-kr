@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 10/28/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e5f6cbec75a9f652cf05c9608c412e00489288b9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 881ec1a12f42c56f3ef3b4c3d858102ac36d2eb0
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212933"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793668"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>보조 Azure 지역에 Azure VM의 재해 복구 설정 
 
@@ -54,7 +54,7 @@ Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 
 복제를 비활성화하면 주 지역의 VM이 복제를 중지합니다.
 
-- 원본 복제 설정이 자동으로 정리됩니다.
+- 원본 복제 설정이 자동으로 정리됩니다. 복제의 일부로 설치되는 Site Recovery 확장은 제거되지 않았으며 수동으로 제거해야 합니다. 
 - VM에 대한 Site Recovery 청구도 중지됩니다.
 
 다음과 같이 복제를 중지합니다.
