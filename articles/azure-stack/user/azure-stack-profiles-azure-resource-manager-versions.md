@@ -10,29 +10,30 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: bc57d445c334baeb32dbffda814cb10a35956d03
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d1b15e634cae0758f1f872750ffd9dd569e83a8e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380219"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036242"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack의 프로필에서 지 원하는 리소스 공급자 API 버전
 
 이 문서의 Azure Stack에서 사용 하는 각 API 프로필에 대 한 리소스 공급자 및 버전 번호를 찾을 수 있습니다. 이 문서의 표에 각 리소스 공급자 및 API 버전의 프로필에 대 한 지원 되는 버전을 나열 합니다. 각 리소스 공급자에는 리소스 유형 및 특정 버전 번호의 집합을 포함 합니다.
 
 API 프로필 3 명명 규칙을 사용합니다.
- - 최신
- - Yyyy-mm-dd-하이브리드
- - yyyy-mm-dd-프로필
+
+ - **latest**
+ - **yyyy-mm-dd-hybrid**
+ - **yyyy-mm-dd-profile**
 
 Azure Stack에 대 한 API 프로필 버전 릴리스 작업 리듬에 한 설명과 참조 [Azure Stack에서 관리 하는 API 버전 프로필](azure-stack-version-profiles.md)합니다.
 
 > [!Note]  
-> 합니다 **최신** API 프로필 리소스 공급자 API 버전의 최신 있고이 문서에 나타나지 않습니다.
+> 합니다 **최신** API 프로필 리소스 공급자 API의 최신 버전을 포함 하 고이 문서에 나열 되지 합니다.
 
 ## <a name="overview-of-2018--03-01-hybrid"></a>2018-03-01-하이브리드 개요
 
@@ -76,13 +77,13 @@ Azure Stack에 대 한 API 프로필 버전 릴리스 작업 리듬에 한 설�
 | Resources_Locks | 2016-09-01 |
 | 구독 | 2016-06-1 |
 
-더 api 프로필에서 공급자에 대 한 각 리소스 종류에 대 한 버전의 목록은 참조 하세요. [2018-03-01-하이브리드에 대 한 세부 정보](#details-for-the-2018-03-01-hybrid)
+API 프로필에서 공급자에 대 한 각 리소스 종류의 버전 목록을 다음 섹션을 참조 하세요.
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>2018-03-01-하이브리드에 대 한 세부 정보
 
 ### <a name="microsoftauthorization"></a>Microsoft.Authorization
 
-역할 기반 액세스 제어를 사용 하 여 작업을 관리 합니다 조직의 사용자가 리소스에서 수행할 수 있습니다. 이 작업 집합을 사용 하면 역할을 정의 사용자 또는 그룹에 역할 할당 및 사용 권한에 대 한 정보를 얻을 수 있습니다. 자세한 내용은 [권한 부여](https://docs.microsoft.com/rest/api/authorization/)합니다.
+역할 기반 액세스 제어를 사용 하 여 작업을 관리 합니다 조직의 사용자가 리소스에서 수행할 수 있습니다. 이 작업 집합을 사용 하면 역할을 정의 사용자 또는 그룹에 역할 할당 및 사용 권한에 대 한 정보를 얻을 수 있습니다. 자세한 내용은 [권한 부여](/rest/api/authorization/)합니다.
 
 | 리소스 종류 | API 버전 |
 |---------------------|--------------------|
@@ -108,7 +109,7 @@ Azure Stack에 대 한 API 프로필 버전 릴리스 작업 리듬에 한 설�
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
-Azure Compute Api 가상 컴퓨터 및 해당 지원 리소스에 프로그래밍 방식으로 액세스할 수 있습니다. 자세한 내용은 [Azure Compute](https://docs.microsoft.com/rest/api/compute/)합니다.
+Azure Compute Api 가상 컴퓨터 및 해당 지원 리소스에 프로그래밍 방식으로 액세스할 수 있습니다. 자세한 내용은 [Azure Compute](/rest/api/compute/)합니다.
 
 | 리소스 종류 | API 버전 |
 |---------------------------------------------------------------|-------------|
@@ -155,7 +156,7 @@ Azure Compute Api 가상 컴퓨터 및 해당 지원 리소스에 프로그래�
 
 ### <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
-키, 암호 및 키 자격 증명 모음 내에서 인증서 및 자격 증명 모음 키를 관리 합니다. 자세한 내용은 [Azure Key Vault REST API 참조](https://docs.microsoft.com/rest/api/keyvault/)합니다.
+키, 암호 및 키 자격 증명 모음 내에서 인증서 및 자격 증명 모음 키를 관리 합니다. 자세한 내용은 참조는 [Azure Key Vault REST API 참조](/rest/api/keyvault/)합니다.
 
 | 리소스 종류 | API 버전 |
 |-------------------------|--------------|
@@ -166,7 +167,7 @@ Azure Compute Api 가상 컴퓨터 및 해당 지원 리소스에 프로그래�
 
 ### <a name="microsoftnetwork"></a>Microsoft.Network
 
-작업 호출 결과는 사용 가능한 네트워크 클라우드 작업 목록의 표현입니다. 자세한 내용은 [REST API 작업](https://docs.microsoft.com/rest/api/operation/)합니다.
+작업 호출 결과는 사용 가능한 네트워크 클라우드 작업 목록 표현입니다. 자세한 내용은 [REST API 작업](/rest/api/operation/)합니다.
 
 | 리소스 종류 | API 버전 |
 |---------------------------|--------------|
@@ -188,7 +189,7 @@ Azure Compute Api 가상 컴퓨터 및 해당 지원 리소스에 프로그래�
 
 ### <a name="microsoftresources"></a>Microsoft.Resources
 
-Azure Resource Manager를 사용하면 Azure 솔루션 인프라를 배포하고 관리할 수 있습니다. 리소스 그룹의 관련 리소스를 구성하고 JSON 템플릿을 사용하여 리소스를 배포합니다. Resource Manager로 리소스 배포 및 관리 소개를 참조 하세요 [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)합니다.
+Azure Resource Manager를 사용하면 Azure 솔루션 인프라를 배포하고 관리할 수 있습니다. 리소스 그룹의 관련 리소스를 구성하고 JSON 템플릿을 사용하여 리소스를 배포합니다. 참조에 대 한 Resource Manager로 리소스 배포 및 관리를 소개 합니다 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)합니다.
 
 | 리소스 종류 | API 버전 |
 |-----------------------------------------|-------------------|
@@ -220,7 +221,7 @@ Azure Resource Manager를 사용하면 Azure 솔루션 인프라를 배포하고
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage 
 
-(SRP (저장소 리소스 공급자)를 사용 하면 저장소 계정 및 키를 프로그래밍 방식으로 관리할 수 있습니다. 자세한 내용은 [Azure Storage 리소스 공급자 REST API 참조](https://docs.microsoft.com/rest/api/storagerp/)합니다.
+(SRP (저장소 리소스 공급자)를 사용 하면 저장소 계정 및 키를 프로그래밍 방식으로 관리할 수 있습니다. 자세한 내용은 참조는 [Azure Storage 리소스 공급자 REST API 참조](/rest/api/storagerp/)합니다.
 
 | 리소스 종류 | API 버전 |
 |-------------------------|--------------|

@@ -143,7 +143,7 @@ items:
     - name: Log Analytics
       href: platform/log-faq.md
     - name: Application Insights
-      href: ../application-insights/app-insights-troubleshoot-faq.md?toc=/azure/azure-monitor/toc.json
+      href: app/troubleshoot-faq.md
 - name: 방법 가이드
   items:
   - name: 계획 및 준비
@@ -163,9 +163,9 @@ items:
       - name: 웹앱 및 서비스 심층 진단
         href: ../application-insights/app-insights-devops.md?toc=/azure/azure-monitor/toc.json
       - name: 웹 응용 프로그램의 성능 모니터링
-        href: ../application-insights/app-insights-web-monitor-performance.md?toc=/azure/azure-monitor/toc.json
+        href: app/web-monitor-performance.md
       - name: 개발, 테스트 및 프로덕션 구분
-        href: ../application-insights/app-insights-separate-resources.md?toc=/azure/azure-monitor/toc.json
+        href: app/separate-resources.md
       - name: Application Insights에서 다음을 수행하는 방법
         href: app/how-do-i.md
     - name: 작업 영역 관리
@@ -267,7 +267,7 @@ items:
         - name: Azure Cloud Services
           href: app/cloudservices.md
         - name: 연속 모니터링 추가
-          href: ../application-insights/app-insights-vsts-continuous-monitoring.md?toc=/azure/azure-monitor/toc.json
+          href: app/continuous-monitoring.md
         - name: 프로파일러
           items:
           - name: 개요
@@ -299,7 +299,7 @@ items:
         - name: Windows 서비스
           href: ../application-insights/app-insights-windows-services.md?toc=/azure/azure-monitor/toc.json
         - name: Windows 데스크톱
-          href: ../application-insights/app-insights-windows-desktop.md?toc=/azure/azure-monitor/toc.json
+          href: app/windows-desktop.md
         - name: ASP.NET Core
           href: app/asp-net-core.md
           items:
@@ -364,11 +364,11 @@ items:
       - name: 기타 플랫폼
         items:
         - name: SharePoint 사이트
-          href: ../application-insights/app-insights-sharepoint.md?toc=/azure/azure-monitor/toc.json
+          href: app/sharepoint.md
         - name: Dynamics CRM
           href: app/sample-mscrm.md
       - name: 스마트 검색
-        href: ../application-insights/app-insights-proactive-diagnostics.md?toc=/azure/azure-monitor/toc.json
+        href: app/proactive-diagnostics.md
         items:
         - name: 오류 잘못된 부분
           href: app/proactive-failure-diagnostics.md
@@ -401,7 +401,7 @@ items:
         - name: 자바
           href: app/java-troubleshoot.md
         - name: 사용 현황 분석
-          href: ../application-insights/app-insights-usage-troubleshoot.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-troubleshoot.md
     - name: Azure 리소스
       items:
       - name: Azure 활동 로그
@@ -484,31 +484,31 @@ items:
       - name: Visual Studio
         items:
         - name: F5 통찰력
-          href: ../application-insights/app-insights-visual-studio.md?toc=/azure/azure-monitor/toc.json
+          href: app/visual-studio.md
         - name: 추세
-          href: ../application-insights/app-insights-visual-studio-trends.md?toc=/azure/azure-monitor/toc.json
+          href: app/visual-studio-trends.md
         - name: CodeLens
-          href: ../application-insights/app-insights-visual-studio-codelens.md?toc=/azure/azure-monitor/toc.json
+          href: app/visual-studio-codelens.md
       - name: 사용 현황
         items:
         - name: 개요
-          href: ../application-insights/app-insights-usage-overview.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-overview.md
         - name: 사용자 컨텍스트 전송
-          href: ../application-insights/app-insights-usage-send-user-context.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-send-user-context.md
         - name: 사용자, 세션, 이벤트
-          href: ../application-insights/app-insights-usage-segmentation.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-segmentation.md
         - name: 깔때기
-          href: ../application-insights/usage-funnels.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-funnels.md
         - name: 코호트
-          href: ../application-insights/app-insights-usage-cohorts.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-cohorts.md
         - name: 영향
-          href: ../application-insights/app-insights-usage-impact.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-impact.md
         - name: 보존
-          href: ../application-insights/app-insights-usage-retention.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-retention.md
         - name: 사용자 흐름
-          href: ../application-insights/app-insights-usage-flows.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-flows.md
         - name: 통합 문서
-          href: ../application-insights/app-insights-usage-workbooks.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-workbooks.md
       - name: 웹앱 분석 솔루션
         href: insights/azure-web-apps-analytics.md
     - name: 모니터 컨테이너
@@ -1004,9 +1004,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 코드 샘플
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 0cfca3a41157065f2e64c0da8062ebd011375f70
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 8fc518262ba4b1d1c53c8fd2622f724550cddb2e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016115"
+ms.locfileid: "54053656"

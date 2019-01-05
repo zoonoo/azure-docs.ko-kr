@@ -12,23 +12,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 4bad339ca704f14f57c120db5e731d0dbfeb8d59
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: e86e1d862644aa143046045e74ec994d42a5598e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793444"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050169"
 ---
-# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack에 Managed Disks: 차이점 및 고려 사항
-이 문서에서는 Azure Stack의 Managed Disks 및 azure Managed Disks의 알려진된 차이점을 요약 합니다. Azure Stack 및 Azure 간의 대략적인 차이 대 한 자세한 내용은 참조는 [고려 사항 키](azure-stack-considerations.md) 문서.
+# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack의 Managed Disks: 차이점 및 고려 사항
 
-Managed Disks를 관리 하 여 IaaS Vm 용 디스크 관리를 간소화 합니다 [저장소 계정](/azure/azure-stack/azure-stack-manage-storage-accounts) 는 VM 디스크와 연결 합니다.
+이 문서에는 알려진된 차이점이 요약 되어 있습니다. [Azure Stack의 Managed Disks](azure-stack-manage-vm-disks.md) 하 고 [azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md)합니다. Azure Stack 및 Azure 간의 대략적인 차이 대 한 자세한 내용은 참조는 [고려 사항 키](azure-stack-considerations.md) 문서.
+
+Managed Disks를 관리 하 여 IaaS Vm 용 디스크 관리를 간소화 합니다 [저장소 계정](../azure-stack-manage-storage-accounts.md) 는 VM 디스크와 연결 합니다.
 
 > [!Note]  
-> Azure Stack에 managed Disks는 1808에서 사용할 수 있습니다.
+> Azure Stack에 managed Disks는 1808 릴리스에서 사용할 수 있습니다.
   
 
 ## <a name="cheat-sheet-managed-disk-differences"></a>참고 자료: 관리 디스크 차이점
@@ -48,28 +49,32 @@ Managed Disks를 관리 하 여 IaaS Vm 용 디스크 관리를 간소화 합니
 |디스크 성능 분석 |메트릭을 집계 하 고 지원 되는 디스크 메트릭 당 |아직 지원 되지 않음 |
 |마이그레이션      |VM을 다시 만들 필요 없이 기존 관리 되지 않는 Azure Resource Manager Vm에서 마이그레이션하는 도구를 제공 합니다.  |아직 지원 되지 않음 |
 
-> [!Note]  
+> [!NOTE]  
 > 관리 되는 디스크 IOPs 및 처리량이 Azure Stack 하드웨어 및 Azure Stack에서 실행 중인 워크 로드에 영향을 받이 있습니다 프로 비전 된 숫자가 대신 cap 숫자입니다.
 
-
 ## <a name="metrics"></a>메트릭
-저장소 메트릭 사용 하 여 차이점도 있습니다.
-- Azure Stack을 사용 하 여 storage 메트릭에서는 트랜잭션 데이터는 내부 또는 외부 네트워크 대역폭을 다르지 않습니다.
-- Storage 메트릭에서는 azure Stack 트랜잭션 데이터는 탑재 된 디스크에 대 한 가상 컴퓨터 액세스를 포함 하지 않습니다.
 
+저장소 메트릭 사용 하 여 차이점도 있습니다.
+
+- Azure Stack을 사용 하 여 storage 메트릭에서는 트랜잭션 데이터 내부 또는 외부 네트워크 대역폭을 지지 않습니다.
+- Storage 메트릭에서는 azure Stack 트랜잭션 데이터에는 탑재 된 디스크에 대 한 가상 머신 액세스를 포함 되지 않습니다.
 
 ## <a name="api-versions"></a>API 버전
+
 Azure Stack Managed Disks는 다음과 같은 API 버전을 지원합니다.
+
 - 2017-03-30
 
 ## <a name="known-issues"></a>알려진 문제
-업데이트 된 1809를 적용 한 후, Managed Disks를 사용 하 여 Vm을 배포 하는 경우 다음과 같은 문제가 발생할 수 있습니다.
 
-   - Managed Disks를 사용 하 여 VM 배포 1808 업데이트 하기 전에 구독을 만든 경우 내부 오류 메시지와 함께 실패할 수 있습니다. 오류를 해결 하려면 각 구독에 대해 다음이 단계를 수행 합니다.
-      1. 테 넌 트 포털에서로 이동 **구독** 구독을 찾습니다. 클릭 **리소스 공급자**, 클릭 **Microsoft.Compute**를 클릭 하 고 **re-register**합니다.
-      2. 로 동일한 구독에 따라 **액세스 제어 (IAM)**, 되어 있는지 확인 하 고 **Azure Stack – Managed Disk** 나열 됩니다.
-   - 다중 테 넌 트 환경에 구성한 게스트 디렉터리와 연결 된 구독에서 Vm을 배포할 내부 오류 메시지와 함께 실패할 수 있습니다. 오류를 해결 하려면에서 다음이 단계를 수행 [이 문서에서는](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) 각 게스트 디렉터리를 다시 구성 합니다.
+적용 한 후 합니다 [1811 업데이트](../azure-stack-update-1811.md), Managed Disks를 사용 하 여 Vm을 배포 하는 경우 다음과 같은 문제가 발생할 수 있습니다.
+
+- Managed Disks를 사용 하 여 VM 배포 1808 업데이트 하기 전에 구독을 만든 경우 내부 오류 메시지와 함께 실패할 수 있습니다. 오류를 해결 하려면 각 구독에 대해 다음이 단계를 수행 합니다.
+   1. 테 넌 트 포털에서로 이동 **구독** 구독을 찾습니다. 클릭 **리소스 공급자**, 클릭 **Microsoft.Compute**를 클릭 하 고 **re-register**합니다.
+   2. 로 동일한 구독에 따라 **액세스 제어 (IAM)**, 되어 있는지 확인 하 고 **Azure Stack – Managed Disk** 나열 됩니다.
+- 다중 테 넌 트 환경에 구성한 게스트 디렉터리와 연결 된 구독에서 Vm을 배포할 내부 오류 메시지와 함께 실패할 수 있습니다. 오류를 해결 하려면에서 다음이 단계를 수행 [이 문서에서는](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) 각 게스트 디렉터리를 다시 구성 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Stack virtual machines에 알아보기](azure-stack-compute-overview.md)
+
+- [Azure Stack virtual machines에 알아보기](azure-stack-compute-overview.md)

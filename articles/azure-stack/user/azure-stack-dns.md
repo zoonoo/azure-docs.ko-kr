@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 01/05/2019
 ms.author: sethm
-ms.openlocfilehash: df4f6066a4bf03f6b09777f3556c52a237501592
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: ba1e310234485d972646320f082d8b882a3d43f1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497657"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052345"
 ---
 # <a name="using-dns-in-azure-stack"></a>Azure Stack의 DNS를 사용 하 여
 
@@ -33,7 +33,7 @@ Azure Stack 다음 도메인 이름 시스템 (DNS) 기능을 지원 합니다.
 
 공용 IP 리소스에 대 한 DNS 도메인 이름 레이블을 지정할 수 있습니다. 다음을 사용 하 여 azure Stack **domainnamelabel.location.cloudapp.azurestack.external** 레이블 이름 및 맵에 대 한 DNS 서버 관리 Azure Stack에서 공용 IP 주소에 해당 합니다.
 
-예를 들어, 사용 하 여 공용 IP 리소스를 만들면 **contoso** 로컬 Azure Stack 위치에서 도메인 이름 레이블로 합니다 [정규화 된 도메인 이름 (FQDN)](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)  **contoso.local.cloudapp.azurestack.external** 리소스의 공용 IP 주소로 확인 합니다.   사용자 지정 도메인을 Azure Stack에서 공용 IP 주소를 가리키는 CNAME 레코드를 만들려면이 FQDN을 사용할 수 있습니다.
+예를 들어, 사용 하 여 공용 IP 리소스를 만들면 **contoso** 로컬 Azure Stack 위치에서 도메인 이름 레이블로 합니다 [정규화 된 도메인 이름 (FQDN)](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)  **contoso.local.cloudapp.azurestack.external** 리소스의 공용 IP 주소로 확인 합니다. 사용자 지정 도메인을 Azure Stack에서 공용 IP 주소를 가리키는 CNAME 레코드를 만들려면이 FQDN을 사용할 수 있습니다.
 
 이름 확인에 대 한 자세한 내용은 참조는 [DNS 확인](../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 문서.
 
@@ -58,23 +58,19 @@ Azure Stack DNS 인프라는 Azure 보다 간결 합니다. 크기와 위치는 
 
 ## <a name="comparison-with-azure-dns"></a>Azure DNS 사용 하 여 비교
 
-Azure Stack의 DNS는 Azure에서 DNS 비슷합니다 되지만 중요 한 예외:
+Azure Stack의 DNS를 Azure에서 DNS 유사 하지만 몇 가지 중요 한 예외 사항이 있습니다.
 
-* **AAAA 레코드를 지원 하지 않습니다.**
+* **AAAA 레코드를 지원 하지 않습니다**: Azure Stack에서 IPv6 주소를 지원 하지 않으므로 azure Stack AAAA 레코드를 지원 하지 않습니다. 이것이 Azure에서 DNS 및 Azure Stack 간의 주요 차이점입니다.
 
-    Azure Stack에서 IPv6 주소를 지원 하지 않으므로 azure Stack AAAA 레코드를 지원 하지 않습니다. 이것이 Azure에서 DNS 및 Azure Stack 간의 주요 차이점입니다.
-* **다중 테 넌 트 아닙니다.**
+* **다중 테 넌 트 아닙니다**: Azure Stack의 DNS 서비스를 다중 테 넌 트 아닙니다. 각 테 넌 트 동일한 DNS 영역을 만들 수 없습니다. 영역을 만들려고 시도 하는 첫 번째 구독만 성공 하 고 후속 요청이 실패 합니다. 이것이 Azure 및 Azure Stack DNS 간의 주요 차이점입니다.
 
-    Azure Stack의 DNS 서비스를 다중 테 넌 트 아닙니다. 각 테 넌 트 동일한 DNS 영역을 만들 수 없습니다. 영역을 만들려고 시도 하는 첫 번째 구독만 성공 하 고 후속 요청이 실패 합니다. 이것이 Azure 및 Azure Stack DNS 간의 주요 차이점입니다.
-* **태그, 메타 데이터 및 Etag**
-
-    Azure Stack의 태그, 메타 데이터, Etag 및 제한을 처리 하는 방법에 약간의 차이가 있습니다.
+* **태그, 메타 데이터 및 Etag**: Azure Stack의 태그, 메타 데이터, Etag 및 제한을 처리 하는 방법에 약간의 차이가 있습니다.
 
 Azure DNS에 대 한 자세한 내용은 참조 하세요 [DNS 영역 및 레코드](../../dns/dns-zones-records.md)합니다.
 
 ### <a name="tags"></a>태그들
 
-Azure Stack DNS는 DNS 영역 리소스에서 Azure Resource Manager 태그를 사용 하 여 지원 합니다. 대신 'metadata'는 지원 되지만 DNS 레코드 집합의 다음에 설명 된 대로 DNS 레코드 집합의 태그는 지원 되지 않습니다.
+Azure Stack DNS는 DNS 영역 리소스에서 Azure Resource Manager 태그를 사용 하 여 지원 합니다. 지원 하지 않습니다 태그 DNS 레코드 집합에 있지만 안으로 **메타 데이터** 다음 섹션에 설명 된 대로 DNS 레코드 집합에서 지원 됩니다.
 
 ### <a name="metadata"></a>Metadata
 
@@ -86,7 +82,7 @@ Azure Stack의 DNS 레코드 집합 태그 대신 사용 하 여 레코드 집�
 
 Azure Stack DNS 사용 *Etag* 동일한 리소스에 대 한 동시 변경을 안전 하 게 처리할 수 있습니다. Etag는 Azure Resource Manager에서 다른 *태그*합니다. 각 DNS 리소스(영역 또는 레코드 집합)에는 Etag가 연결되어 있습니다. 리소스를 검색할 때 해당 Etag도 검색 됩니다. 리소스를 업데이트할 때 전달할 다시 Etag Azure Stack DNS 하는지 확인할 수 있도록 Etag server 일치 항목을 선택할 수 있습니다. 리소스를 업데이트할 때마다 Etag가 다시 생성되므로 Etag 불일치는 동시 변경이 발생했음을 나타냅니다. 새 리소스를 만들 때도 Etag를 사용하여 리소스가 존재하지 않는지 확인합니다.
 
-Azure Stack DNS PowerShell cmdlet을 기본적으로 영역에 대 한 동시 변경을 차단 및 레코드 집합에 Etag를 사용 합니다. 선택적 **-Overwrite** 스위치를 사용하여 Etag 검사를 무시할 수 있으며, 이 경우 발생한 동시 변경 내용을 덮어쓰게 됩니다.
+Azure Stack DNS PowerShell cmdlet을 기본적으로 영역에 대 한 동시 변경을 차단 및 레코드 집합에 Etag를 사용 합니다. 선택적 따르면 `-Overwrite` 동시 변경 내용을 덮어쓸 수에 발생 한 경우 Etag 검사를 하지 않으려면 전환 합니다.
 
 Azure Stack DNS REST API의 수준에서 Etag는 HTTP 헤더를 사용 하 여 지정 됩니다. 해당 동작은 다음 표에 설명 되어 있습니다.
 
@@ -109,4 +105,4 @@ Azure Stack DNS를 사용 하는 경우 다음과 같은 기본 제한이 적용
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Stack 용 iDNS 소개](azure-stack-understanding-dns.md)
+- [Azure Stack 용 iDNS 소개](azure-stack-understanding-dns.md)
