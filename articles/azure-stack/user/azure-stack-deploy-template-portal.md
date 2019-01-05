@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 4013b7136fd365b1d37348cfc1f0b46cce787ce2
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 63f0c1846a6e32dc5a5fcc9b1162d343890387a1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363126"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053520"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>Azure Stack 포털을 사용하여 템플릿 배포
 
@@ -31,7 +31,7 @@ Azure Stack에 Azure Resource Manager 템플릿을 배포 하려면 포털을 �
 ## <a name="to-deploy-a-template"></a>템플릿을 배포 하려면
 
 1. 포털에 로그인 **+ 리소스 만들기**를 선택한 후 **사용자 지정**합니다.
-2. 선택 **템플릿 배포**합니다.
+2. **템플릿 배포**를 선택합니다.
 3. 선택 **템플릿 편집**, JSON 템플릿 코드의 코드 창에 붙여넣습니다. **저장**을 선택합니다.
 4. 선택 **매개 변수 편집**에 표시 되 고 선택한 매개 변수의 값을 제공할 **확인**합니다.
 5. 선택 **구독**합니다. 를 사용 하 고 선택 하려는 구독을 선택 **확인**합니다.
@@ -40,6 +40,6 @@ Azure Stack에 Azure Resource Manager 템플릿을 배포 하려면 포털을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-템플릿 배포에 대 한 자세한 내용은 다음을 참조 하세요.
+템플릿 배포에 대 한 자세한 내용은 다음 문서를 참조 합니다.
 
-[PowerShell을 사용하여 템플릿 배포](azure-stack-deploy-template-powershell.md)
+- [PowerShell을 사용하여 템플릿 배포](azure-stack-deploy-template-powershell.md)
