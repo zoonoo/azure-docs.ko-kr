@@ -24,7 +24,7 @@ ms.locfileid: "53275694"
 >
 > Azure Files는 현재 저장소 분석 메트릭을 지원하지만 아직 로깅을 지원하지 않습니다.
 > 
-> 저장소 분석 및 기타 도구를 사용하여 Azure Storage 관련 문제를 식별, 진단 및 해결하는 방법에 대한 자세한 지침은 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](../storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
+> 스토리지 분석 및 기타 도구를 사용하여 Azure Storage 관련 문제를 식별, 진단 및 해결하는 방법에 대한 자세한 지침은 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](../storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
 >
 
 ## <a name="configure-monitoring-for-a-storage-account"></a>저장소 계정에 대한 모니터링 구성
@@ -51,7 +51,7 @@ ms.locfileid: "53275694"
 **상태**를 **해제**로 설정하여 메트릭 수집 및 로깅을 사용하지 않도록 설정할 수 있습니다.
 
 > [!NOTE]
-> Azure Storage는 [테이블 저장소](../common/storage-introduction.md#table-storage)를 사용하여 저장소 계정에 대한 메트릭을 저장하고, 계정의 테이블에 메트릭을 저장합니다. 자세한 내용은 다음을 참조하세요. [메트릭 저장 방법](../common/storage-analytics.md#how-metrics-are-stored).
+> Azure Storage는 [테이블 스토리지](../common/storage-introduction.md#table-storage)를 사용하여 스토리지 계정에 대한 메트릭을 저장하고, 계정의 테이블에 메트릭을 저장합니다. 자세한 내용은 다음을 참조하세요. [메트릭 저장 방법](../common/storage-analytics.md#how-metrics-are-stored).
 >
 
 ## <a name="customize-metrics-charts"></a>메트릭 차트 사용자 지정
@@ -104,7 +104,7 @@ ms.locfileid: "53275694"
 
 ## <a name="add-metrics-charts-to-the-portal-dashboard"></a>포털 대시보드에 메트릭 차트 추가
 
-저장소 계정에 대한 Azure Storage 메트릭 차트를 포털 대시보드에 추가할 수 있습니다.
+스토리지 계정에 대한 Azure Storage 메트릭 차트를 포털 대시보드에 추가할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 대시보드를 보면서 **대시보드 편집**을 클릭합니다.
 1. **타일 갤러리**에서 **타일 찾기 기준** > **유형**을 차례로 선택합니다.

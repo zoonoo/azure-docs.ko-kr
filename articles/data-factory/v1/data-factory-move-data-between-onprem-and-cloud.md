@@ -48,7 +48,7 @@ ms.locfileid: "51242843"
 이 연습을 시작하기 전에 다음 필수 조건이 있어야 합니다.
 
 * **Azure 구독**.  구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 문서를 참조하세요.
-* **Azure Storage 계정**. 이 자습서에서는 Blob Storage를 **대상/싱크** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
+* **Azure Storage 계정**. 이 자습서에서는 Blob Storage를 **대상/싱크** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
 * **SQL Server**. 이 자습서에서는 온-프레미스 SQL Server 데이터베이스를 **원본** 데이터 저장소로 사용합니다. 
 
 ## <a name="create-data-factory"></a>데이터 팩터리 만들기

@@ -398,7 +398,7 @@ SQL Server 2014에는 [버퍼 풀 확장](https://docs.microsoft.com/sql/databas
 SAP 워크플로가 포함된 SQL Server 버퍼 풀 확장을 통해 얻은 경험은 엇갈리고 있으며, 아직도 모든 경우에 사용할지 여부에 대한 명확한 권장 사항이 허용되지 않고 있습니다. 이상적으로는 SAP 애플리케이션에 필요한 작업 집합이 주 메모리에 적합하다는 것입니다. 한편 Azure는 최대 4TB의 메모리가 있는 VM을 제공하므로 작업 집합을 메모리에서 유지할 수 있습니다. 따라서 버퍼 풀 확장은 일부 드문 경우에만 사용하도록 제한되며 일반적인 사례로 사용되지 않아야 합니다.  
 
 ## <a name="backuprecovery-considerations-for-sql-server"></a>SQL Server에 대한 Backup/복구 고려 사항
-SQL Server를 Azure에 배포하는 경우 백업 방법을 검토해야 합니다. 프로덕션 시스템이 아닌 경우에도 SQL Server에서 호스팅하는 SAP 데이터베이스는 정기적으로 백업해야 합니다. Azure Storage에는 이제 세 개의 이미지가 있으므로 저장소 작동 중단을 보완하는 측면에서 백업의 중요성이 줄어들었습니다. 적절한 백업 및 복구 계획 유지 관리가 중요한 이유는 특정 시점 복구 기능을 제공하여 논리/수동 오류를 보완할 수 있기 때문입니다. 따라서 목표는 백업을 사용하여 데이터베이스를 다시 특정 시점으로 복원하거나 기존 데이터베이스를 복사하여 다른 시스템에 시딩하는 데 Azure의 백업을 사용하는 것입니다. 
+SQL Server를 Azure에 배포하는 경우 백업 방법을 검토해야 합니다. 프로덕션 시스템이 아닌 경우에도 SQL Server에서 호스팅하는 SAP 데이터베이스는 정기적으로 백업해야 합니다. Azure Storage에는 이제 세 개의 이미지가 있으므로 스토리지 작동 중단을 보완하는 측면에서 백업의 중요성이 줄어들었습니다. 적절한 백업 및 복구 계획 유지 관리가 중요한 이유는 특정 시점 복구 기능을 제공하여 논리/수동 오류를 보완할 수 있기 때문입니다. 따라서 목표는 백업을 사용하여 데이터베이스를 다시 특정 시점으로 복원하거나 기존 데이터베이스를 복사하여 다른 시스템에 시딩하는 데 Azure의 백업을 사용하는 것입니다. 
 
 Azure에서 다양한 SQL Server 백업 가능성을 살펴보려면 [Azure Virtual Machines에서 SQL Server의 백업 및 복원](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery) 문서를 참조하세요. 이 문서에서는 여러 가지 가능성을 다루고 있습니다.
 
@@ -469,7 +469,7 @@ Azure Marketplace의 SQL Server 이미지는 SAP NetWeaver 애플리케이션에
 SAP용 Azure IaaS 배포에서 SQL Server를 사용하면 DBMS 계층을 고가용성으로 배포하기 위해 추가할 수 있는 여러 가지 다른 가능성이 있습니다. [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 이미 설명한 대로 Azure는 Azure 가용성 집합에 배포된 단일 VM과 한 쌍의 VM에 대해 서로 다른 가동 시간 SLA를 제공합니다. Azure 가용성 집합에서 배포가 필요한 프로덕션 배포에 대한 가동 시간 SLA를 추진하고 있다고 가정합니다. 이 경우 가용성 집합에 최소 2개의 VM을 배포해야 합니다. 한 VM에서 활성 SQL Server 인스턴스를 실행하며, 다른 하나의 VM에서는 수동 인스턴스를 실행합니다.
 
 ### <a name="sql-server-clustering-using-windows-scale-out-file-server"></a>Windows 스케일 아웃 파일 서버를 사용하는 SQL Server 클러스터링
-Microsoft는 Windows Server 2016에서 [저장소 공간 직접 배포](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)를 도입했습니다. 저장소 공간 직접 배포에 따라 SQL Server FCI 클러스터링이 지원됩니다. 자세한 내용은 [Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster) 문서에서 찾을 수 있습니다. 이 솔루션에는 클러스터 리소스의 가상 IP 주소를 처리하는 Azure 부하 분산 장치도 필요합니다. SQL Server 데이터베이스 파일은 저장소 공간에 저장됩니다. 따라서 Azure Premium Storage에 기반한 Windows 저장소 공간을 구축해야 합니다. 이 솔루션은 아직 지원되지 않기 때문에 SAP 프로덕션 시나리오에서 이 솔루션을 사용하는 것으로 알려진 SAP 고객이 없습니다.  
+Microsoft는 Windows Server 2016에서 [저장소 공간 직접 배포](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)를 도입했습니다. 저장소 공간 직접 배포에 따라 SQL Server FCI 클러스터링이 지원됩니다. 자세한 내용은 [Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster) 문서에서 찾을 수 있습니다. 이 솔루션에는 클러스터 리소스의 가상 IP 주소를 처리하는 Azure 부하 분산 장치도 필요합니다. SQL Server 데이터베이스 파일은 저장소 공간에 저장됩니다. 따라서 Azure Premium Storage에 기반한 Windows 스토리지 공간을 구축해야 합니다. 이 솔루션은 아직 지원되지 않기 때문에 SAP 프로덕션 시나리오에서 이 솔루션을 사용하는 것으로 알려진 SAP 고객이 없습니다.  
 
 ### <a name="sql-server-log-shipping"></a>SQL Server 로그 전달
 HA(고가용성) 방법 중 하나는 SQL Server 로그 전달입니다. HA 구성에 참여하는 VM에 이름 확인 작업이 있는 경우 아무 문제가 없으며 Azure 설정이 온-프레미스의 설정과 다르지 않습니다. 로그 전달 및 로그 전달 관련 원칙을 설정하는 것과 관련하여 SQL Server 로그 전달에 대한 자세한 내용은 [로그 전달 정보(SQL Server)](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server?view=sql-server-2017) 문서에서 찾을 수 있습니다.
@@ -554,7 +554,7 @@ SQL Server TDE에 Azure Key Vault를 사용하는 방법에 대한 자세한 내
 1. SQL Server 2017과 같이 Azure에서 가장 많은 이점을 제공하는 최신 DBMS 릴리스를 사용합니다. 
 2. 데이터 파일 레이아웃과 Azure 제한 사항 균형을 조정하도록 Azure에서 SAP 시스템 배경을 신중하게 계획합니다.
    * 디스크가 너무 많으면 안 되지만 필요한 IOPS에 도달할 수 있을 만큼 충분해야 합니다.
-   * Managed Disks를 사용하지 않는 경우 IOPS는 Azure Storage 계정별로 제한되며, 해당 저장소 계정도 각 Azure 구독 내에서 제한됩니다([자세한 내용][azure-subscription-service-limits]). 
+   * Managed Disks를 사용하지 않는 경우 IOPS는 Azure Storage 계정별로 제한되며, 해당 스토리지 계정도 각 Azure 구독 내에서 제한됩니다([자세한 내용][azure-subscription-service-limits]). 
    * 더 높은 처리량이 필요한 경우에만 디스크를 스트라이프합니다.
 3. D:\ 드라이브는 비영구적이며 Windows 재부팅 시 이 드라이브의 내용이 모두 손실되므로 계속 유지해야 하는 소프트웨어를 설치하거나 파일을 저장하지 마세요.
 4. Azure Standard Storage에 대해 디스크 캐싱을 사용하지 마세요.

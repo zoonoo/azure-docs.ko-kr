@@ -33,7 +33,7 @@ Azure Automation의 Automation 계정 범위에서 사용자, 그룹 및 응용 
 | Automation 운영자 |Automation 연산자 역할을 사용하면 Runbook 이름 및 속성을 보고 Automation 계정의 모든 Runbook에 대한 작업을 만들고 관리할 수 있습니다. 이 역할은 자격 증명 자산 및 Runnbook 등의 Automation 계정 리소스를 보거나 수정하지 못하도록 보호하며 조직의 구성원이 이러한 Runbook을 여전히 실행하도록 하려는 경우 유용합니다. |
 |Automation 작업 연산자|Automation 작업 연산자 역할을 사용하면 Automation 계정의 모든 Runbook에 대한 작업을 만들고 관리할 수 있습니다.|
 |Automation Runbook 운영자|Automation Runbook 연산자 역할을 사용하면 Runbook의 이름 및 속성을 볼 수 있습니다.|
-| Log Analytics 참가자 | Log Analytics Contributor 역할을 사용하면 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 저장소 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다.|
+| Log Analytics 참가자 | Log Analytics Contributor 역할을 사용하면 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다.|
 | Log Analytics 읽기 권한자 | Log Analytics Reader 역할을 사용하면 모니터링 설정을 볼 뿐만 아니라 모든 모니터링 데이터를 보고 검색할 수 있습니다. 여기에는 모든 Azure 리소스에 대한 Azure 진단 구성 보기가 포함됩니다. |
 | 모니터링 참가자 | Monitoring Contributor 역할을 사용하면 모든 모니터링 데이터를 읽고 모니터링 설정을 업데이트할 수 있습니다.|
 | 모니터링 읽기 권한자 | Montioring Reader 역할을 사용하면 모든 모니터링 데이터를 읽을 수 있습니다. |
@@ -131,7 +131,7 @@ Automation Runbook 운영자 역할은 Runbook 범위에서 부여됩니다. Aut
 
 ### <a name="log-analytics-contributor"></a>Log Analytics 참가자
 
-Log Analytics Contributor 역할은 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 저장소 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
+Log Analytics Contributor 역할은 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
 |**Actions**  |**설명**  |
 |---------|---------|

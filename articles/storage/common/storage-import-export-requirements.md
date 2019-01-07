@@ -45,7 +45,7 @@ Azure Import/Export 서비스는 다음과 같은 유형의 저장소 계정을 
 - Blob Storage 계정
 - 범용 v1 스토리지 계정(클래식 또는 Azure Resource Manager 배포 모두), 
 
-저장소 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요.
+스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요.
 
 각 작업은 하나의 저장소 계정에서만 데이터 전송에 사용될 수 있습니다. 다시 말해, 하나의 가져오기/내보내기 작업이 여러 저장소 계정에서 사용될 수 없습니다. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-quickstart-create-account.md)(영문)을 참조하세요.
 

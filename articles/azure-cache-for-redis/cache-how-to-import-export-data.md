@@ -78,7 +78,7 @@ ms.locfileid: "53022130"
 2. **저장소 컨테이너 선택** 을 클릭하고 원하는 Storage 계정을 선택합니다. 저장소 계정은 캐시와 동일한 구독 및 지역 내에 있어야 합니다.
 
    > [!IMPORTANT]
-   > 내보내기는 페이지 Blob을 사용하고, 클래식 및 Resource Manager 저장소 계정 양쪽 모두에서 지원되지만, Blob Storage 계정에서는 현재 지원되지 않습니다. 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md)를 참조하세요.
+   > 내보내기는 페이지 Blob을 사용하고, 클래식 및 Resource Manager 스토리지 계정 양쪽 모두에서 지원되지만, Blob Storage 계정에서는 현재 지원되지 않습니다. 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md)를 참조하세요.
    >
    >
 

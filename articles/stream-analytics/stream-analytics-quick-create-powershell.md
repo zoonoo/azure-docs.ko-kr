@@ -68,7 +68,7 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
 
 2. 다음 PowerShell 코드 블록은 여러 명령을 수행하여 작업에 필요한 입력 데이터를 준비합니다. 코드를 이해하려면 섹션을 검토합니다. 
 
-   1. [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) cmdlet을 사용하여 표준 범용 저장소 계정을 만듭니다.  이 예제에서는 LRS(로컬 중복 저장소) 및 Blob 암호화(기본적으로 사용)를 사용하여 mystorageaccount라는 저장소 계정을 만듭니다.  
+   1. [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) cmdlet을 사용하여 표준 범용 저장소 계정을 만듭니다.  이 예제에서는 LRS(로컬 중복 스토리지) 및 Blob 암호화(기본적으로 사용)를 사용하여 mystorageaccount라는 스토리지 계정을 만듭니다.  
 
    2. 사용할 저장소 계정을 정의하는 저장소 계정 컨텍스트 `$storageAccount.Context`를 검색합니다. 저장소 계정으로 작업할 때 자격 증명을 반복적으로 제공하는 대신 컨텍스트를 참조합니다. 
 

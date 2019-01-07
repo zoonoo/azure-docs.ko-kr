@@ -22,7 +22,7 @@ Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 파일 �
 
 이 문서에서는 Data Lake Storage Gen2가 HDInsight 클러스터에서 작동하는 방식에 대해 알아봅니다. HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [Hadoop, Spark, Kafka 등으로 Azure Data Lake Storage를 사용하여 HDInsight 클러스터 설정](data-lake-storage-quickstart-create-connect-hdi-cluster.md)을 참조하세요.
 
-Azure Storage는 HDInsight와 매끄럽게 통합되는 강력한 범용 저장소 솔루션입니다. HDInsight는 Azure Data Lake Storage를 클러스터의 기본 파일 시스템으로 사용할 수 있습니다. HDFS(Hadoop Distributed File System) 인터페이스를 통해 HDInsight의 전체 구성 요소 집합이 Azure Data Lake Storage의 파일에서 직접 작동할 수 있습니다.
+Azure Storage는 HDInsight와 매끄럽게 통합되는 강력한 범용 스토리지 솔루션입니다. HDInsight는 Azure Data Lake Storage를 클러스터의 기본 파일 시스템으로 사용할 수 있습니다. HDFS(Hadoop Distributed File System) 인터페이스를 통해 HDInsight의 전체 구성 요소 집합이 Azure Data Lake Storage의 파일에서 직접 작동할 수 있습니다.
 
 기본 파일 시스템은 비즈니스 데이터를 저장하는 데 사용하지 않는 것이 좋습니다. 저장소 비용을 줄이기 위해 사용한 후에는 매번 기본 파일 시스템을 삭제하는 것이 좋습니다. 기본 컨테이너에는 애플리케이션 및 시스템 로그가 포함되어 있습니다. 컨테이너를 삭제하기 전에 이러한 로그를 검색해야 합니다.
 
@@ -30,7 +30,7 @@ Azure Storage는 HDInsight와 매끄럽게 통합되는 강력한 범용 저장�
 
 ## <a name="hdinsight-storage-architecture"></a>HDInsight 저장소 아키텍처
 
-다음 다이어그램은 Azure Storage 사용의 HDInsight 저장소 아키텍처의 추상 보기를 제공합니다.
+다음 다이어그램은 Azure Storage 사용의 HDInsight 스토리지 아키텍처의 추상 보기를 제공합니다.
 
 ![Hadoop 클러스터는 HDFS API를 사용하여 Blob Storage의 구조적 및 비구조적 데이터에 액세스하고 저장합니다.](./media/data-lake-storage-use-hdi-cluster/HDI.ABFS.Arch.png "HDInsight Storage 아키텍처")
 
@@ -59,7 +59,7 @@ Hive, MapReduce, Hadoop 스트리밍 및 Pig를 비롯한 여러 WebHCat 작업�
 
 ## <a id="benefits"></a>Azure Storage의 이점
 
-계산 클러스터 및 저장소 리소스의 공동 배치에 따른 암시적 성능 비용은 계산 클러스터를 Azure 지역 내의 저장소 계정 리소스 근처에 만드는 방식으로 완화됩니다. 여기서 고속 네트워크 환경은 계산 노드가 Azure Storage 내에 있는 데이터에 효율적으로 액세스하도록 합니다.
+계산 클러스터 및 스토리지 리소스의 공동 배치에 따른 암시적 성능 비용은 계산 클러스터를 Azure 지역 내의 스토리지 계정 리소스 근처에 만드는 방식으로 완화됩니다. 여기서 고속 네트워크 환경은 계산 노드가 Azure Storage 내에 있는 데이터에 효율적으로 액세스하도록 합니다.
 
 HDFS 대신 Azure Storage에 데이터를 저장할 경우 몇 가지 이점이 있습니다:
 

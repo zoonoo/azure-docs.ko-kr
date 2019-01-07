@@ -794,7 +794,7 @@ test custom activity Microsoft test custom activity Microsoft
    * 파이프라인에는 **DotNetActivity** 형식인 하나의 작업만이 있습니다.
    * **AssemblyName**은 DLL **MyDotNetActivity.dll** 이름으로 설정합니다.
    * **EntryPoint**는 **MyDotNetActivityNS.MyDotNetActivity**로 설정합니다. 기본적으로 코드에 있는 \<namespace\>.\<classname\>입니다.
-   * **PackageLinkedService**가 사용자 지정 작업 zip 파일을 포함하는 Blob Storage를 가리키는 **StorageLinkedService**로 설정됩니다. 입/출력 파일 및 사용자 지정 작업 zip 파일에 대해 서로 다른 저장소 계정을 사용하는 경우 다른 Storage 연결된 서비스를 만들어야 합니다. 이 문서에서는 동일한 저장소 계정을 사용한다고 가정합니다.
+   * **PackageLinkedService**가 사용자 지정 작업 zip 파일을 포함하는 Blob Storage를 가리키는 **StorageLinkedService**로 설정됩니다. 입/출력 파일 및 사용자 지정 작업 zip 파일에 대해 서로 다른 스토리지 계정을 사용하는 경우 다른 Storage 연결된 서비스를 만들어야 합니다. 이 문서에서는 동일한 저장소 계정을 사용한다고 가정합니다.
    * **PackageFile**은 **customactivitycontainer/MyDotNetActivity.zip**으로 설정합니다. \<containerforthezip\>/\<nameofthezip.zip\> 형식입니다.
    * 사용자 지정 작업은 입력으로 **InputDataset**, 출력으로 **OutputDataset**을 사용합니다.
    * 사용자 지정 작업의 **linkedServiceName** 속성은 **AzureBatchLinkedService**를 가리키며 Data Factory에 사용자 지정 작업을 Batch에서 실행해야 함을 알려줍니다.

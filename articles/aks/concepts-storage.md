@@ -50,11 +50,11 @@ Azure Disks 또는 Azure Files는 PersistentVolume을 제공하는 데 사용됩
 
 ![AKS(Azure Kubernetes Service) 클러스터의 영구적 볼륨](media/concepts-storage/persistent-volumes.png)
 
-PersistentVolume은 클러스터 관리자에서 *정적으로* 만들거나 Kubernetes API 서버에서 *동적으로* 만들 수 있습니다. Pod가 예약되어 있고 현재 사용할 수 없는 저장소를 요청하는 경우 Kubernetes에서 기본 Azure Disks 또는 Azure Files 저장소를 만들어 해당 Pod에 연결할 수 있습니다. 동적 프로비전은 *StorageClass*를 사용하여 만들어야 하는Azure 저장소의 유형을 식별합니다.
+PersistentVolume은 클러스터 관리자에서 *정적으로* 만들거나 Kubernetes API 서버에서 *동적으로* 만들 수 있습니다. Pod가 예약되어 있고 현재 사용할 수 없는 저장소를 요청하는 경우 Kubernetes에서 기본 Azure Disks 또는 Azure Files 저장소를 만들어 해당 Pod에 연결할 수 있습니다. 동적 프로비전은 *StorageClass*를 사용하여 만들어야 하는Azure 스토리지의 유형을 식별합니다.
 
 ## <a name="storage-classes"></a>저장소 클래스
 
-Premium 및 Standard와 같은 다른 계층의 저장소를 정의하기 위해 *StorageClass*를 만들 수 있습니다. StorageClass는 *reclaimPolicy*도 정의합니다. 이 reclaimPolicy는 Pod가 삭제되고 영구적 볼륨이 더 이상 필요하지 않을 때 기본 Azure 저장소 리소스의 동작을 제어합니다. 기본 저장소 리소스는 삭제하거나 나중에 Pod에서 사용할 수 있도록 유지할 수 있습니다.
+Premium 및 Standard와 같은 다른 계층의 스토리지를 정의하기 위해 *StorageClass*를 만들 수 있습니다. StorageClass는 *reclaimPolicy*도 정의합니다. 이 reclaimPolicy는 Pod가 삭제되고 영구적 볼륨이 더 이상 필요하지 않을 때 기본 Azure 저장소 리소스의 동작을 제어합니다. 기본 저장소 리소스는 삭제하거나 나중에 Pod에서 사용할 수 있도록 유지할 수 있습니다.
 
 AKS에서 만드는 두 가지 초기 StorageClass는 다음과 같습니다.
 
@@ -77,7 +77,7 @@ parameters:
 
 ## <a name="persistent-volume-claims"></a>영구적 볼륨 클레임
 
-PersistentVolumeClaim은 특정 StorageClass의 Disk 또는 File 저장소, 액세스 모드 및 크기를 요청합니다. 정의된 StorageClass에 따라 클레임을 처리할 기존 리소스가 없는 경우 Kubernetes API 서버는 Azure에서 기본 저장소 리소스를 동적으로 프로비전할 수 있습니다. 볼륨이 Pod에 연결되면 Pod 정의에 볼륨 탑재가 포함됩니다.
+PersistentVolumeClaim은 특정 StorageClass의 Disk 또는 File 스토리지, 액세스 모드 및 크기를 요청합니다. 정의된 StorageClass에 따라 클레임을 처리할 기존 리소스가 없는 경우 Kubernetes API 서버는 Azure에서 기본 스토리지 리소스를 동적으로 프로비전할 수 있습니다. 볼륨이 Pod에 연결되면 Pod 정의에 볼륨 탑재가 포함됩니다.
 
 ![AKS(Azure Kubernetes Service) 클러스터의 영구적 볼륨 클레임](media/concepts-storage/persistent-volume-claims.png)
 

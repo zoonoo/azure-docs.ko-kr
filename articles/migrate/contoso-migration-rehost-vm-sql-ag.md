@@ -706,7 +706,7 @@ VM 보안 모범 사례에 대해 [자세히 알아보세요](https://docs.micro
  BCDR(비즈니스 연속성 및 재해 복구)을 위해 Contoso는 다음 작업을 수행합니다.
  - 데이터를 안전하게 유지: Contoso는 Azure Backup 서비스를 사용하여 WEBVM, SQLAOG1 및 SQLAOG2 VM의 데이터를 백업합니다. [자세한 정보].
 (https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-- Contoso는 Azure Storage를 사용하여 SQL Server를 BLOB 저장소에 직접 백업하는 방법도 알아볼 것입니다. [자세히 알아보기](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-use-storage-sql-server-backup-restore).
+- Contoso는 Azure Storage를 사용하여 SQL Server를 BLOB 스토리지에 직접 백업하는 방법도 알아볼 것입니다. [자세히 알아보기](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-use-storage-sql-server-backup-restore).
 - 앱 가동 및 실행 유지: Contoso는 Site Recovery를 사용하여 Azure의 앱 VM을 보조 지역에 복제합니다. [자세히 알아보기](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
 
 

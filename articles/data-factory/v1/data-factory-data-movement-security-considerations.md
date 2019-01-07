@@ -44,7 +44,7 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 
 이 문서에서는 다음 두 가지 데이터 이동 시나리오에서 보안 고려 사항을 검토합니다. 
 
-- **클라우드 시나리오** - 이 시나리오에서는 출처와 목적지 모두 인터넷을 통해 공개적으로 액세스할 수 있습니다. 여기에는 Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, Salesforce와 같은 SaaS 서비스, FTP 및 OData와 같은 웹 프로토콜과 같은 관리 클라우드 저장소 서비스가 포함됩니다. 지원되는 데이터 원본 목록은 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 있습니다.
+- **클라우드 시나리오** - 이 시나리오에서는 출처와 목적지 모두 인터넷을 통해 공개적으로 액세스할 수 있습니다. 여기에는 Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, Salesforce와 같은 SaaS 서비스, FTP 및 OData와 같은 웹 프로토콜과 같은 관리 클라우드 스토리지 서비스가 포함됩니다. 지원되는 데이터 원본 목록은 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 있습니다.
 - **하이브리드 시나리오** - 이 시나리오에서는 원본 또는 대상이 방화벽 뒤에 있거나 회사 내 회사 네트워크 내에 있거나 데이터 저장소가 개인 네트워크/가상 네트워크(주로 원본)에 있으며 공개적으로 액세스할 수 없습니다. 가상 머신에서 호스팅되는 데이터베이스 서버도 이 시나리오에 해당합니다.
 
 ## <a name="cloud-scenarios"></a>클라우드 시나리오

@@ -212,7 +212,7 @@ armclient post "https://management.azure.com/subscriptions/${subscriptionId}/Res
 
 ## <a name="download-a-flow-log"></a>흐름 로그 다운로드
 
-흐름 로그의 저장소 위치를 만들 때 정의합니다. 저장소 계정에 저장되는 이러한 흐름 로그에 액세스하는 편리한 도구는 Microsoft Azure Storage 탐색기이며 http://storageexplorer.com/에서 다운로드할 수 있습니다.
+흐름 로그의 저장소 위치를 만들 때 정의합니다. 스토리지 계정에 저장되는 이러한 흐름 로그에 액세스하는 편리한 도구는 Microsoft Azure Storage 탐색기이며 http://storageexplorer.com/에서 다운로드할 수 있습니다.
 
 저장소 계정이 지정되어 있으면 패킷 캡처 파일은 다음 위치에서 저장소 계정에 저장됩니다.
 

@@ -39,7 +39,7 @@ Backup Server V2는 스토리지 볼륨을 허용합니다. 볼륨을 추가하�
 
 볼륨이 포함된 Backup Server V2 이상을 디스크 스토리지로 사용하면 스토리지를 지속적으로 제어할 수 있습니다. 볼륨은 단일 디스크일 수 있습니다. 하지만 나중에 저장소를 확장하려는 경우에는 저장소 공간을 사용하여 만들어진 디스크에서 볼륨을 만듭니다. 이렇게 하면 백업 저장소용 볼륨을 확장하려는 경우 도움이 될 수 있습니다. 이 섹션에서는 이 설정을 통해 볼륨을 만드는 모범 사례를 제공합니다.
 
-1. 서버 관리자에서 **파일 및 Storage 서비스** > **볼륨** > **저장소 풀**을 선택합니다. **실제 디스크**에서 **새 저장소 풀**을 선택합니다.
+1. 서버 관리자에서 **파일 및 Storage 서비스** > **볼륨** > **스토리지 풀**을 선택합니다. **실제 디스크**에서 **새 저장소 풀**을 선택합니다.
 
     ![새 저장소 풀 만들기](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
@@ -93,7 +93,7 @@ PowerShell을 사용하여 변경하는 내용은 Backup Server 관리자 콘솔
 ![관리자 콘솔의 디스크 및 볼륨](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
 
 
-## <a name="migrate-legacy-storage-to-modern-backup-storage"></a>Modern Backup Storage로 레거시 저장소 마이그레이션
+## <a name="migrate-legacy-storage-to-modern-backup-storage"></a>Modern Backup Storage로 레거시 스토리지 마이그레이션
 Backup Server V2로 업그레이드하거나 이 버전을 설치하고 운영 체제를 Windows Server 2016으로 업그레이드한 후 Modern Backup Storage를 사용하도록 보호 그룹을 업데이트합니다. 기본적으로 보호 그룹은 변경되지 않습니다. 보호 그룹은 처음에 설정된 대로 계속 작동합니다.
 
 Modern Backup Storage를 사용하도록 보호 그룹을 업데이트하는 것은 선택 사항입니다. 보호 그룹을 업데이트하려면 데이터 보존 옵션을 사용하여 모든 데이터 원본의 보호를 중지합니다. 그다음에 데이터 원본을 새 보호 그룹에 추가합니다.

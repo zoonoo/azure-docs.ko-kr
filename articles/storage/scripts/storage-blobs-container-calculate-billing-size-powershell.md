@@ -128,4 +128,4 @@ For-Each Signed Identifier[512 bytes]
 
 - Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/overview)를 참조하세요.
 
-- 추가 저장소 PowerShell 스크립트 샘플은 [Microsoft Azure Storage에 대한 PowerShell 샘플](../blobs/storage-samples-blobs-powershell.md)에서 찾을 수 있습니다.
+- 추가 스토리지 PowerShell 스크립트 샘플은 [Microsoft Azure Storage에 대한 PowerShell 샘플](../blobs/storage-samples-blobs-powershell.md)에서 찾을 수 있습니다.

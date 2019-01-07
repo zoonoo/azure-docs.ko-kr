@@ -133,7 +133,7 @@ RDM | 해당 없음 | 해당 없음
 미사용 암호화(SSE)| 예 | 예
 Premium Storage | 예 | 예
 Import/Export 서비스 | 아니요 | 아니요
-대상 저장소/캐시 저장소(복제 데이터 저장에 사용됨) 계정에 구성된 가상 네트워크용 Azure Storage 방화벽 | 아니요 | 아니요
+대상 스토리지/캐시 스토리지(복제 데이터 저장에 사용됨) 계정에 구성된 가상 네트워크용 Azure Storage 방화벽 | 아니요 | 아니요
 
 
 ## <a name="azure-compute-features"></a>Azure 계산 기능

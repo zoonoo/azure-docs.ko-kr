@@ -27,7 +27,7 @@ ms.locfileid: "49406248"
 ## <a name="architecture-diagram-and-components"></a>아키텍처 다이어그램 및 구성 요소
 이 Azure 보안 및 규정 준수 청사진은 SQL Server 백 엔드가 있는 IaaS 웹 애플리케이션에 대한 참조 아키텍처를 배포합니다. 이 아키텍처는 웹 계층, 데이터 계층, Active Directory 인프라, Azure Application Gateway 및 Azure Load Balancer를 포함합니다. 웹 및 데이터 계층에 배포되는 VM(가상 머신)은 가용성 집합에서 구성됩니다. SQL Server 인스턴스는 고가용성을 제공하기 위해 AlwaysOn 가용성 그룹에서 구성됩니다. VM은 도메인에 조인되며 Active Directory 그룹 정책을 사용하여 운영 체제 수준에서 보안 및 규정 준수 구성을 적용합니다.
 
-전체 솔루션은 고객이 Azure Portal에서 구성하는 Azure Storage를 기반으로 합니다. Storage는 저장소 서비스 암호화를 통해 모든 데이터를 암호화하여 미사용 데이터의 기밀을 유지합니다. 또한 지역 중복 저장소가 사용되므로 고객의 기본 데이터 센터에서 사고가 발생해도 데이터가 손실되지 않습니다. 두 번째 복사본은 매우 멀리 떨어진 별도의 위치에 저장됩니다.
+전체 솔루션은 고객이 Azure Portal에서 구성하는 Azure Storage를 기반으로 합니다. Storage는 스토리지 서비스 암호화를 통해 모든 데이터를 암호화하여 미사용 데이터의 기밀을 유지합니다. 또한 지역 중복 저장소가 사용되므로 고객의 기본 데이터 센터에서 사고가 발생해도 데이터가 손실되지 않습니다. 두 번째 복사본은 매우 멀리 떨어진 별도의 위치에 저장됩니다.
 
 보안 향상을 위해 이 솔루션의 모든 리소스는 Azure Resource Manager를 통해 리소스 그룹으로 관리됩니다. 그리고 Azure AD(Active Directory) RBAC(역할 기반 액세스 제어)를 사용하여 배포된 리소스 및 Azure Key Vault의 키 액세스를 제어합니다. 시스템 상태는 Azure Monitor를 통해 모니터링됩니다. 고객은 로그를 캡처하도록 두 모니터링 서비스를 구성합니다. 시스템 상태는 쉽게 사용할 수 있는 단일 대시보드에 표시됩니다.
 

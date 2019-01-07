@@ -75,7 +75,7 @@ ms.locfileid: "51614024"
 1. 트리 뷰에서 생성한 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 
 ### <a name="azure-storage-account"></a>Azure Storage 계정
-이 자습서에서는 범용 Azure 저장소 계정(특히 Blob 저장소)을 대상/싱크 데이터 저장소로 사용합니다. 범용 Azure Storage 계정이 없는 경우 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. 이 자습서에서 만드는 데이터 팩터리의 파이프라인은 온-프레미스 SQL Server 데이터베이스(원본)에서 Blob 저장소(싱크)로 데이터를 복사합니다. 
+이 자습서에서는 범용 Azure 저장소 계정(특히 Blob 저장소)을 대상/싱크 데이터 저장소로 사용합니다. 범용 Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. 이 자습서에서 만드는 데이터 팩터리의 파이프라인은 온-프레미스 SQL Server 데이터베이스(원본)에서 Blob 저장소(싱크)로 데이터를 복사합니다. 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>저장소 계정 이름 및 계정 키 가져오기
 이 자습서에서는 저장소 계정의 이름과 키를 사용합니다. 저장소 계정의 이름과 키를 가져오려면 다음 단계를 수행합니다. 

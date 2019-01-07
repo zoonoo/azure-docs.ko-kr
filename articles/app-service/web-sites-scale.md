@@ -73,7 +73,7 @@ ms.locfileid: "53727482"
    
     또한 SQL Database 인스턴스에 [지역에서 복제](../sql-database/sql-database-geo-replication-overview.md) 를 설정합니다.
    
-    Azure Storage 리소스의 경우 **설정** > **구성**을 클릭하여 저장소 옵션을 강화합니다.
+    Azure Storage 리소스의 경우 **설정** > **구성**을 클릭하여 스토리지 옵션을 강화합니다.
    
     ![Azure 앱에서 사용하는 Azure Storage 계정을 강화합니다](./media/web-sites-scale/ScaleStorage.png)
 

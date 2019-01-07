@@ -150,7 +150,7 @@ Azure Portal의 왼쪽에서 **모니터**, **Network Watcher**, **NSG 흐름 �
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights
 ```
 
-NSG 흐름을 저장할 Azure Storage 계정이 아직 없으면 지금 저장소 계정을 만듭니다. 다음에 나오는 명령을 사용하여 저장소 계정을 만들 수 있습니다. 명령은 실행하기 전에 `<replace-with-your-unique-storage-account-name>`을 모든 Azure 위치에서 고유한 이름으로 바꿉니다. 이름은 3-24자 사이여야 하고 숫자와 소문자만 사용할 수 있습니다. 필요한 경우 리소스 그룹 이름을 변경할 수도 있습니다.
+NSG 흐름을 저장할 Azure Storage 계정이 아직 없으면 지금 스토리지 계정을 만듭니다. 다음에 나오는 명령을 사용하여 저장소 계정을 만들 수 있습니다. 명령은 실행하기 전에 `<replace-with-your-unique-storage-account-name>`을 모든 Azure 위치에서 고유한 이름으로 바꿉니다. 이름은 3-24자 사이여야 하고 숫자와 소문자만 사용할 수 있습니다. 필요한 경우 리소스 그룹 이름을 변경할 수도 있습니다.
 
 ```azurepowershell-interactive
 New-AzureRmStorageAccount `

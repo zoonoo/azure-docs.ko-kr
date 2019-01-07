@@ -38,7 +38,7 @@ ms.locfileid: "53385621"
 
 ![Microsoft Azure Storage 탐색기 - 연결 창](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
-작업이 완료되면 Azure Storage 탐색기는 표시된 **탐색기** 탭을 로드합니다. 이 보기는 [Azure Storage 에뮬레이터](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 계정 또는 [Azure Stack](../../azure-stack/user/azure-stack-storage-connect-se.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 환경을 통해 구성된 로컬 저장소뿐만 아니라 모든 Azure Storage 계정에 대한 정보를 제공합니다.
+작업이 완료되면 Azure Storage 탐색기는 표시된 **탐색기** 탭을 로드합니다. 이 보기는 [Azure Storage 에뮬레이터](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 계정 또는 [Azure Stack](../../azure-stack/user/azure-stack-storage-connect-se.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 환경을 통해 구성된 로컬 스토리지뿐만 아니라 모든 Azure Storage 계정에 대한 정보를 제공합니다.
 
 ![Microsoft Azure Storage 탐색기 - 연결 창](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 

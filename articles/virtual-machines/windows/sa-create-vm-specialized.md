@@ -85,7 +85,7 @@ Get-AzureRmStorageAccount
     ```
    
 ### <a name="upload-the-vhd-to-your-storage-account"></a>저장소 계정에 VHD 업로드
-[Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet을 사용하여 저장소 계정의 컨테이너에 이미지를 업로드합니다. 이 예제에서는 `"C:\Users\Public\Documents\Virtual hard disks\"`에서 **myResourceGroup** 리소스 그룹의 **mystorageaccount**라는 저장소 계정에 파일 **myVHD.vhd**를 업로드합니다. 파일은 **mycontainer**라는 컨테이너에 배치되고 새 파일 이름은 **myUploadedVHD.vhd**가 됩니다.
+[Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet을 사용하여 저장소 계정의 컨테이너에 이미지를 업로드합니다. 이 예제에서는 `"C:\Users\Public\Documents\Virtual hard disks\"`에서 **myResourceGroup** 리소스 그룹의 **mystorageaccount**라는 스토리지 계정에 파일 **myVHD.vhd**를 업로드합니다. 파일은 **mycontainer**라는 컨테이너에 배치되고 새 파일 이름은 **myUploadedVHD.vhd**가 됩니다.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -161,7 +161,7 @@ AzCopy를 사용하여 저장소 계정 간에 파일을 복사할 수 있습니
 
 AzCopy를 사용하려면 로컬 컴퓨터에서 명령 프롬프트를 열고 AzCopy가 설치된 폴더로 이동합니다. 이 폴더는 *C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy*와 유사합니다. 
 
-컨테이너 내의 모든 파일을 복사하려면 **/S** 스위치를 사용합니다. 동일한 컨테이너에 있는 경우 OS VHD 및 모든 데이터 디스크를 복사하는 데 사용할 수 있습니다. 이 예에서는 **mysourcestorageaccount** 저장소 계정의 **mysourcecontainer** 컨테이너에 있는 모든 파일을 **mydestinationstorageaccount** 저장소 계정의 **mydestinationcontainer** 컨테이너로 복사하는 방법을 보여 줍니다. 저장소 계정 및 컨테이너의 이름을 사용자 고유 값으로 바꿉니다. `<sourceStorageAccountKey1>` 및 `<destinationStorageAccountKey1>`을 사용자 고유 키로 바꿉니다.
+컨테이너 내의 모든 파일을 복사하려면 **/S** 스위치를 사용합니다. 동일한 컨테이너에 있는 경우 OS VHD 및 모든 데이터 디스크를 복사하는 데 사용할 수 있습니다. 이 예에서는 **mysourcestorageaccount** 스토리지 계정의 **mysourcecontainer** 컨테이너에 있는 모든 파일을 **mydestinationstorageaccount** 스토리지 계정의 **mydestinationcontainer** 컨테이너로 복사하는 방법을 보여 줍니다. 저장소 계정 및 컨테이너의 이름을 사용자 고유 값으로 바꿉니다. `<sourceStorageAccountKey1>` 및 `<destinationStorageAccountKey1>`을 사용자 고유 키로 바꿉니다.
 
 ```
 AzCopy /Source:https://mysourcestorageaccount.blob.core.windows.net/mysourcecontainer `
@@ -272,7 +272,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
     
 ### <a name="configure-the-os-disk"></a>OS 디스크 구성
 
-1. 업로드하거나 복사한 VHD의 URI를 설정합니다. 이 예에서는 **myOsDisk.vhd**라는 VHD 파일을 **myContainer**라는 컨테이너의 **myStorageAccount**라는 저장소 계정에 보관합니다.
+1. 업로드하거나 복사한 VHD의 URI를 설정합니다. 이 예에서는 **myOsDisk.vhd**라는 VHD 파일을 **myContainer**라는 컨테이너의 **myStorageAccount**라는 스토리지 계정에 보관합니다.
 
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"

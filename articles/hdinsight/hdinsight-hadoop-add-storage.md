@@ -119,7 +119,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 
 3. __필터 ...__ 필드에서 __fs.azure.account__의 값을 입력합니다. 이렇게 하면 클러스터에 추가된 추가 저장소 계정에 대한 항목이 반환됩니다. 항목에는 두 가지 유형, __keyprovider__와 __key__가 있습니다. 둘 다 키 이름의 일부로 저장소 계정의 이름을 포함합니다.
 
-    다음은 __mystorage__라는 저장소 계정의 예제 항목입니다.
+    다음은 __mystorage__라는 스토리지 계정의 예제 항목입니다.
 
         fs.azure.account.keyprovider.mystorage.blob.core.windows.net
         fs.azure.account.key.mystorage.blob.core.windows.net

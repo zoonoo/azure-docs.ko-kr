@@ -28,7 +28,7 @@ ms.locfileid: "49637088"
 
 먼저 다음 팁을 검토합니다.
 * 가상 머신의 크기로 연결할 수 있는 디스크 개수가 제어됩니다. 자세한 내용은 [가상 머신의 크기](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
-* Premium Storage를 사용하려면 DS 시리즈 또는 GS 시리즈 가상 머신과 같은 Premium Storage 지원 VM 유형이 필요합니다. 자세한 내용은 [Premium Storage: Azure Virtual Machine 워크로드용 고성능 저장소](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+* Premium Storage를 사용하려면 DS 시리즈 또는 GS 시리즈 가상 머신과 같은 Premium Storage 지원 VM 유형이 필요합니다. 자세한 내용은 [Premium Storage: Azure Virtual Machine 워크로드용 고성능 스토리지](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 

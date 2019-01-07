@@ -17,7 +17,7 @@ ms.locfileid: "51572457"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>VM의 고성능 Premium Storage 및 관리 디스크
 
-Azure Premium Storage는 입력/출력(I/O) 사용량이 많은 워크로드가 있는 VM(가상 머신)에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. Premium Storage를 사용하는 VM 디스크는 SSD(반도체 드라이브)에 데이터를 저장합니다. 프리미엄 저장소의 속도 및 성능을 활용하기 위해 기존 VM 디스크를 Premium Storage로 마이그레이션할 수 있습니다.
+Azure Premium Storage는 입력/출력(I/O) 사용량이 많은 워크로드가 있는 VM(가상 머신)에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. Premium Storage를 사용하는 VM 디스크는 SSD(반도체 드라이브)에 데이터를 저장합니다. 프리미엄 스토리지의 속도 및 성능을 활용하기 위해 기존 VM 디스크를 Premium Storage로 마이그레이션할 수 있습니다.
 
 Azure에서는 여러 프리미엄 저장소 디스크를 VM에 연결할 수 있습니다. 여러 디스크를 사용하면 애플리케이션에 VM당 최대 256TB의 저장소가 제공되며, 미리 보기 크기를 사용할 경우에는 애플리케이션에 VM 당 최대 약 2PiB의 저장소가 제공될 수 있습니다. Premium Storage를 사용할 경우 VM당 80,000 IOPS(초당 I/O 작업 수) 및 VM당 디스크 처리량을 2,000MB/초까지 달성할 수 있습니다. 읽기 작업의 대기 시간이 매우 짧습니다.
 
@@ -61,23 +61,23 @@ Premium Storage 기능 중 일부는 다음과 같습니다.
 
 * **Premium Storage 계정**
 
-    Premium Storage를 사용하려면 관리되지 않는 디스크에 대한 프리미엄 저장소 계정을 만들어야 합니다. [Azure Portal](https://portal.azure.com)에서 프리미엄 저장소 계정을 만들려면 **Premium** 성능 계층을 선택합니다. **LRS(로컬 중복 저장소)** 복제 옵션을 선택합니다. 성능 계층을 **Premium_LRS**로 설정하여 프리미엄 저장소 계정을 만들 수도 있습니다. 성능 계층을 변경하려면 다음 방법 중 하나를 사용합니다.
+    Premium Storage를 사용하려면 관리되지 않는 디스크에 대한 프리미엄 스토리지 계정을 만들어야 합니다. [Azure Portal](https://portal.azure.com)에서 프리미엄 저장소 계정을 만들려면 **Premium** 성능 계층을 선택합니다. **LRS(로컬 중복 저장소)** 복제 옵션을 선택합니다. 성능 계층을 **Premium_LRS**로 설정하여 프리미엄 저장소 계정을 만들 수도 있습니다. 성능 계층을 변경하려면 다음 방법 중 하나를 사용합니다.
      
     - [Azure Storage용 PowerShell](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
     - [Azure Storage용 Azure CLI](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
     - [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp)(Azure Resource Manager 배포용) 또는 Azure Storage 리소스 공급자 클라이언트 라이브러리 중 하나
 
-    프리미엄 저장소 계정 한도에 대해 자세히 알아보려면 [Premium Storage 확장성 및 성능 목표](#premium-storage-scalability-and-performance-targets)를 참조하세요.
+    프리미엄 스토리지 계정 한도에 대해 자세히 알아보려면 [Premium Storage 확장성 및 성능 목표](#premium-storage-scalability-and-performance-targets)를 참조하세요.
 
 * **프리미엄 로컬 중복 저장소**
 
     프리미엄 저장소 계정은 복제 옵션으로 로컬 중복 저장소만 지원합니다. 로컬 중복 저장소는 단일 지역 내에 데이터 복사본 3개를 유지합니다. 지역적 재해 복구를 위해 [Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md)을 사용하여 VM 디스크를 다른 지역에 백업해야 합니다. 또한 백업 자격 증명 모음으로 GRS(지역 중복 저장소) 계정을 사용해야 합니다. 
 
-    Azure는 저장소 계정을 관리되지 않는 디스크의 컨테이너로 사용합니다. 관리되지 않는 디스크로 Premium Storage를 지원하는 Azure VM을 만들고 프리미엄 저장소 계정을 선택하는 경우 운영 체제와 데이터 디스크가 해당 저장소 계정에 저장됩니다.
+    Azure는 저장소 계정을 관리되지 않는 디스크의 컨테이너로 사용합니다. 관리되지 않는 디스크로 Premium Storage를 지원하는 Azure VM을 만들고 프리미엄 스토리지 계정을 선택하는 경우 운영 체제와 데이터 디스크가 해당 스토리지 계정에 저장됩니다.
 
 ## <a name="supported-vms"></a>지원되는 VM
 
-Premium Storage는 다양한 Azure VM에서 지원됩니다. 이러한 VM 유형에는 표준 및 프리미엄 저장소 디스크를 사용할 수 있습니다. Premium Storage와 호환되지 않는 VM 시리즈에서는 프리미엄 저장소 디스크를 사용할 수 없습니다.
+Premium Storage는 다양한 Azure VM에서 지원됩니다. 이러한 VM 유형에는 표준 및 프리미엄 저장소 디스크를 사용할 수 있습니다. Premium Storage와 호환되지 않는 VM 시리즈에서는 프리미엄 스토리지 디스크를 사용할 수 없습니다.
 
 
 Azure에서 Windows용 VM 유형 및 크기에 대한 자세한 내용은 [Windows VM 크기](../articles/virtual-machines/windows/sizes.md)를 참조하세요. Azure에서 Linux용 VM 유형 및 크기에 대한 자세한 내용은 [Linux VM 크기](../articles/virtual-machines/linux/sizes.md)를 참조하세요.
@@ -225,7 +225,7 @@ Storage 서비스에서 VHD 파일은 페이지 Blob입니다. 페이지 Blob의
 
 ### <a name="unmanaged-disks"></a>관리되지 않는 디스크
 
-관리되지 않는 프리미엄 디스크에 대한 [증분 스냅숏](../articles/virtual-machines/linux/incremental-snapshots.md)은 표준 저장소에서 스냅숏을 사용하는 것과 같은 방식으로 만듭니다. Premium Storage는 복제 옵션으로 로컬 중복 저장소만 지원합니다. 스냅숏을 만든 후 지역 중복 표준 저장소 계정에 이러한 스냅숏을 복사하는 것이 좋습니다. 자세한 내용은 [Azure Storage 중복 옵션](../articles/storage/common/storage-redundancy.md)을 참조하세요.
+관리되지 않는 프리미엄 디스크에 대한 [증분 스냅숏](../articles/virtual-machines/linux/incremental-snapshots.md)은 표준 저장소에서 스냅숏을 사용하는 것과 같은 방식으로 만듭니다. Premium Storage는 복제 옵션으로 로컬 중복 스토리지만 지원합니다. 스냅숏을 만든 후 지역 중복 표준 저장소 계정에 이러한 스냅숏을 복사하는 것이 좋습니다. 자세한 내용은 [Azure Storage 중복 옵션](../articles/storage/common/storage-redundancy.md)을 참조하세요.
 
 디스크가 VM에 연결되어 있으면 디스크에서 일부 API 작업이 허용되지 않습니다. 예를 들어 디스크가 VM에 연결되어 있는 경우 해당 Blob에 대해 [Blob 복사](/rest/api/storageservices/Copy-Blob) 작업을 수행할 수 없습니다. 대신 [스냅숏 Blob](/rest/api/storageservices/Snapshot-Blob) REST API를 사용하여 Blob의 스냅숏을 먼저 만듭니다. 그런 다음 스냅숏의 [Blob 복사](/rest/api/storageservices/Copy-Blob)를 수행하여 연결된 디스크를 복사합니다. 또는 디스크를 분리한 후 필요한 작업을 수행할 수 있습니다.
 
@@ -239,7 +239,7 @@ Storage 서비스에서 VHD 파일은 페이지 Blob입니다. 페이지 Blob의
 
 스냅숏의 지역 중복 복사본을 유지하려면 AzCopy 또는 Blob 복사를 사용하여 프리미엄 저장소 계정에서 지역 중복 표준 저장소 계정으로 스냅숏을 복사할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](../articles/storage/common/storage-use-azcopy.md) 및 [Blob 복사](/rest/api/storageservices/Copy-Blob)를 참조하세요.
 
-프리미엄 저장소 계정에서 페이지 Blob에 대한 REST 작업을 수행하는 방법에 대한 자세한 내용은 [Azure Premium Storage로 Blob service 작업](https://go.microsoft.com/fwlink/?LinkId=521969)을 참조하세요.
+프리미엄 스토리지 계정에서 페이지 Blob에 대한 REST 작업을 수행하는 방법에 대한 자세한 내용은 [Azure Premium Storage로 Blob service 작업](https://go.microsoft.com/fwlink/?LinkId=521969)을 참조하세요.
 
 ### <a name="managed-disks"></a>관리 디스크
 

@@ -112,7 +112,7 @@ CRP(Compute 리소스 공급자)를 사용하면 Azure Stack 테넌트가 고유
 NRP(네트워크 리소스 공급자)는 사설 클라우드를 위한 일련의 SDN (소프트웨어 정의된 네트워킹) 및 NFV(네트워크 기능 가상화) 기능을 제공합니다.  소프트웨어 부하 분산 장치 공용 Ip, 네트워크 보안 그룹, 가상 네트워크와 같은 리소스를 만들려면 NRP를 사용할 수 있습니다.
 
 ### <a name="storage-rp"></a>저장소 RP
-저장소 RP는 네 가지 일관 된 Azure 저장소 서비스를 제공 합니다: blob, 테이블, 큐 및 계정 관리 합니다. 또한 저장소 클라우드 관리 서비스를 제공하여 Azure에 일관된 Storage 서비스의 서비스 공급자 관리를 용이하게 합니다. Azure Storage는 Azure Blob가 있는 문서 및 미디어 파일, Azure 테이블이 있는 구조화된 NoSQL 기반 데이터 등 구조화되지 않은 많은 양의 데이터를 저장하고 검색하도록 유연성을 제공합니다. Azure Storage에 대 한 자세한 내용은 참조 하세요. [Microsoft Azure Storage 소개](../storage/common/storage-introduction.md)합니다.
+저장소 RP는 네 가지 일관 된 Azure 저장소 서비스를 제공 합니다: blob, 테이블, 큐 및 계정 관리 합니다. 또한 스토리지 클라우드 관리 서비스를 제공하여 Azure에 일관된 Storage 서비스의 서비스 공급자 관리를 용이하게 합니다. Azure Storage는 Azure Blob가 있는 문서 및 미디어 파일, Azure 테이블이 있는 구조화된 NoSQL 기반 데이터 등 구조화되지 않은 많은 양의 데이터를 저장하고 검색하도록 유연성을 제공합니다. Azure Storage에 대 한 자세한 내용은 참조 하세요. [Microsoft Azure Storage 소개](../storage/common/storage-introduction.md)합니다.
 
 #### <a name="blob-storage"></a>Blob 저장소
 Blob 저장소는 데이터 집합을 저장합니다. Blob은 문서, 미디어 파일 또는 애플리케이션 설치 프로그램 등 모든 종류의 텍스트 또는 이진 데이터일 수 있습니다. 테이블 저장소는 구조화된 데이터 세트를 저장합니다. 테이블 저장소는 신속한 개발과 대량 데이터에 대한 빠른 액세스를 가능하게 하는 NoSQL 키-특성 데이터 저장소입니다. 큐 저장소는 워크플로 처리 및 클라우드 서비스 구성 요소 사이의 통신을 위한 안정적인 메시징을 제공합니다.

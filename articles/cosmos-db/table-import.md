@@ -64,7 +64,7 @@ Azure Table Storage 또는 테이블 API 미리 보기를 마이그레이션 원
     /s.Filter: Optional. Filter string to apply
     /s.Projection: Optional. List of columns to select
 
-Azure Table Storage에서 가져올 때 원본 연결 문자열을 검색하려면 Azure Portal을 열고 **저장소 계정** > **계정** > **액세스 키**를 클릭한 후 복사 단추를 사용하여 **연결 문자열**을 복사합니다.
+Azure Table Storage에서 가져올 때 원본 연결 문자열을 검색하려면 Azure Portal을 열고 **스토리지 계정** > **계정** > **액세스 키**를 클릭한 후 복사 단추를 사용하여 **연결 문자열**을 복사합니다.
 
 ![HBase 원본 옵션의 스크린샷](./media/table-import/storage-table-access-key.png)
 

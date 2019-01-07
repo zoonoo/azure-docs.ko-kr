@@ -168,7 +168,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
     scp ./2017-01-FlightData.csv sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net:2017-01-FlightData.csv
     ```
 
-2. HDFS 명령을 사용하여 헤드 노드 로컬 저장소에서 Azure Storage로 파일을 복사합니다.
+2. HDFS 명령을 사용하여 헤드 노드 로컬 스토리지에서 Azure Storage로 파일을 복사합니다.
 
     ```bash
     hdfs dfs -put ./2017-01-FlightData.csv /example/data/flights/2017-01-FlightData.csv

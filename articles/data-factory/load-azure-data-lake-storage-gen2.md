@@ -98,7 +98,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
 8. **Azure Data Lake Storage 연결 지정** 페이지에서 다음 단계를 수행합니다.
 
-   1. "저장소 계정 이름" 드롭다운 목록에서 Data Lake Storage Gen2 계정을 선택합니다.
+   1. "스토리지 계정 이름" 드롭다운 목록에서 Data Lake Storage Gen2 계정을 선택합니다.
    2. **마침**을 선택하여 연결을 만듭니다. 그런 후 **다음**을 선택합니다.
    
    ![Azure Data Lake Storage Gen2 계정 지정](./media/load-azure-data-lake-storage-gen2/specify-adls.png)

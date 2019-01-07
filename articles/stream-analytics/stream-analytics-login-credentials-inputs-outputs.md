@@ -22,7 +22,7 @@ Stream Analytics 작업의 입력 또는 출력에대 한 자격 증명을 다�
 
 ## <a name="regenerate-new-credentials-and-update-your-job-with-the-new-credentials"></a>새 자격 증명을 다시 생성하고 새 자격 증명으로 작업 업데이트 
 
-이 섹션에서는 Blob 저장소, Event Hubs, SQL Database 및 Table Storage에 대한 자격 증명을 다시 생성하는 과정을 안내합니다. 
+이 섹션에서는 Blob 스토리지, Event Hubs, SQL Database 및 Table Storage에 대한 자격 증명을 다시 생성하는 과정을 안내합니다. 
 
 ### <a name="blob-storagetable-storage"></a>Blob 저장소/테이블 저장소
 1. Azure Portal에 로그인하고 Stream Analytics 작업에 대한 입/출력으로 사용한 저장소 계정으로 이동합니다.    

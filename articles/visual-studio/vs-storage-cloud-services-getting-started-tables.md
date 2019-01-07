@@ -32,7 +32,7 @@ Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 �
 **참고:** Azure 저장소에 대한 호출을 수행하는 일부 API는 비동기적입니다. 자세한 내용은 [Async 및 Await를 사용한 비동기 프로그래밍](https://msdn.microsoft.com/library/hh191443.aspx) 을 참조하세요. 아래 코드에서는 비동기 프로그래밍 메서드를 사용한다고 가정합니다.
 
 * 테이블을 프로그래밍 방식으로 조작하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Azure 테이블 저장소 시작](../storage/storage-dotnet-how-to-use-tables.md) 을 참조하세요.
-* Azure Storage에 대한 일반적인 내용은 [저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.
+* Azure Storage에 대한 일반적인 내용은 [스토리지 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.
 * Azure Cloud Services에 대한 일반적인 내용은 [Cloud Services 설명서](https://azure.microsoft.com/documentation/services/cloud-services/) 를 참조하세요.
 * ASP.NET 애플리케이션을 프로그래밍하는 방법에 대한 자세한 내용은 [ASP.NET](http://www.asp.net) 을 참조하세요.
 
@@ -46,7 +46,7 @@ Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 �
         using Microsoft.WindowsAzure.Storage.Table;
         using System.Threading.Tasks;
         using LogLevel = Microsoft.Framework.Logging.LogLevel;
-2. 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다.
+2. 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다.
    
          CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
            CloudConfigurationManager.GetSetting("<storage account name>

@@ -42,7 +42,7 @@ Managed Disks로 VM을 만드는 방법에 대한 자세한 내용은 다음 문
 
 Standard Storage의 기능 중 일부를 살펴보겠습니다. 자세한 내용은 [Azure Storage 소개](../articles/storage/common/storage-introduction.md)를 참조하세요.
 
-**Standard Storage**: Azure Standard Storage는 Azure Disks, Azure Blobs, Azure Files, Azure Tables 및 Azure Queues를 지원합니다. 표준 저장소 서비스를 사용하려면 [Azure Storage 계정 만들기](../articles/storage/common/storage-quickstart-create-account.md)에서 시작하세요.
+**Standard Storage**: Azure Standard Storage는 Azure Disks, Azure Blobs, Azure Files, Azure Tables 및 Azure Queues를 지원합니다. 표준 스토리지 서비스를 사용하려면 [Azure Storage 계정 만들기](../articles/storage/common/storage-quickstart-create-account.md)에서 시작하세요.
 
 **표준 SSD 디스크:** 표준 SSD 디스크는 표준 HDD 디스크보다 더 안정적인 성능을 제공하며, 현재 사용할 수 있습니다. 표준 SSD 디스크의 지역 가용성에 대한 자세한 내용은 [표준 SSD 디스크의 지역 가용성](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions)을 참조하세요.
 
@@ -50,7 +50,7 @@ Standard Storage의 기능 중 일부를 살펴보겠습니다. 자세한 내용
 
 **표준 페이지 Blob**: 표준 페이지 Blob은 VM의 영구적인 디스크를 보존하는 데 사용되며 다른 유형의 Azure Blob처럼 REST를 통해 직접 액세스할 수도 있습니다. [페이지 Blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs)은 임의 읽기 및 쓰기 작업용으로 최적화된 512바이트 페이지 컬렉션입니다. 
 
-**저장소 복제:** 대부분의 지역에서 Standard Storage 계정의 데이터는 로컬에 복제되거나 여러 데이터 센터에 지리적으로 복제될 수 있습니다. 사용 가능한 네 가지의 복제 유형은 LRS(로컬 중복 저장소), ZRS(영역 중복 저장소), GRS(지역 중복 저장소) 및 RA-GRS(읽기 액세스 지역 중복 저장소)입니다. Standard Storage의 Managed Disks는 현재 LRS(로컬 중복 저장소)만 지원합니다. 자세한 내용은 [저장소 복제](../articles/storage/common/storage-redundancy.md)를 참조하세요.
+**저장소 복제:** 대부분의 지역에서 Standard Storage 계정의 데이터는 로컬에 복제되거나 여러 데이터 센터에 지리적으로 복제될 수 있습니다. 사용 가능한 네 가지의 복제 유형은 LRS(로컬 중복 저장소), ZRS(영역 중복 저장소), GRS(지역 중복 저장소) 및 RA-GRS(읽기 액세스 지역 중복 저장소)입니다. Standard Storage의 Managed Disks는 현재 LRS(로컬 중복 스토리지)만 지원합니다. 자세한 내용은 [저장소 복제](../articles/storage/common/storage-redundancy.md)를 참조하세요.
 
 ## <a name="scalability-and-performance-targets"></a>확장성 및 성능 대상
 
@@ -99,7 +99,7 @@ Storage 서비스에서 VHD 파일은 페이지 Blob입니다. 페이지 Blob의
 
 스냅숏의 지역 중복 복사본을 유지하려면 AzCopy 또는 Blob 복사를 사용하여 지역 중복 저장소 계정에서 지역 중복 표준 저장소 계정으로 스냅숏을 복사할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](../articles/storage/common/storage-use-azcopy.md) 및 [Blob 복사](/rest/api/storageservices/Copy-Blob)를 참조하세요.
 
-표준 저장소 계정에서 페이지 Blob에 대한 REST 작업을 수행하는 방법에 대한 자세한 내용은 [Azure Storage 서비스 REST API](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)를 참조하세요.
+표준 스토리지 계정에서 페이지 Blob에 대한 REST 작업을 수행하는 방법에 대한 자세한 내용은 [Azure Storage 서비스 REST API](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)를 참조하세요.
 
 ### <a name="managed-disks"></a>관리 디스크
 

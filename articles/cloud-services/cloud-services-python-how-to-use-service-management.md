@@ -204,7 +204,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure Cloud Services 인증서 �
         print('')
 
 ## <a name="DeleteStorageService"> </a>저장소 서비스 삭제
-저장소 서비스를 삭제하려면 저장소 서비스 이름을 **delete\_storage\_account** 메서드에 전달합니다. 저장소 서비스를 삭제하면 그 서비스에 저장되어 있는 모든 데이터(Blob, 테이블, 큐)가 삭제됩니다.
+스토리지 서비스를 삭제하려면 스토리지 서비스 이름을 **delete\_storage\_account** 메서드에 전달합니다. 저장소 서비스를 삭제하면 그 서비스에 저장되어 있는 모든 데이터(Blob, 테이블, 큐)가 삭제됩니다.
 
     from azure import *
     from azure.servicemanagement import *

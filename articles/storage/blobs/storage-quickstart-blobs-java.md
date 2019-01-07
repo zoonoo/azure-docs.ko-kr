@@ -84,7 +84,7 @@ Deleting the source, and downloaded files
 계속하기 전에 샘플 파일에 대한 기본 디렉터리(Windows 사용자의 경우 *C:\Users\<user>\AppData\Local\Temp*)를 확인합니다. 콘솔 창에서 blob에 대한 URL을 복사하고 브라우저에 붙여 넣어 Blob Storage의 파일 콘텐츠를 봅니다. 디렉터리의 샘플 파일을 Blob 저장소에 저장된 콘텐츠와 비교하는 경우 동일하게 표시됩니다. 
 
   >[!NOTE]
-  >[Azure Storage 탐색기](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)와 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage 탐색기는 저장소 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다.
+  >[Azure Storage 탐색기](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)와 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage 탐색기는 스토리지 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다.
 
 파일을 확인한 후에 **Enter** 키를 눌러 데모를 완료하고 테스트 파일을 삭제합니다. 이 샘플의 용도 파악했으므로 **AzureApp.java** 파일을 열고 코드를 확인합니다. 
 
@@ -96,7 +96,7 @@ Deleting the source, and downloaded files
 
 가장 먼저 할 일은 Blob Storage의 액세스 및 관리에 사용되는 개체에 대한 참조를 만드는 것입니다. 이러한 개체는 서로를 기준으로 작성됩니다. 즉, 각 개체가 목록의 다음 개체에 사용됩니다.
 
-* 저장소 계정을 가리키는 [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage._storage_account) 개체의 인스턴스를 만듭니다.
+* 스토리지 계정을 가리키는 [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage._storage_account) 개체의 인스턴스를 만듭니다.
 
     **CloudStorageAccount** 개체는 저장소 계정을 나타내며 이를 통해 저장소 계정 속성을 프로그래밍 방식으로 설정하고 액세스할 수 있습니다. **CloudStorageAccount** 개체를 사용하여 Blob 서비스에 액세스하는 데 필요한 **CloudBlobClient** 인스턴스를 만들 수 있습니다.
 

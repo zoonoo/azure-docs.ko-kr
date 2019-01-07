@@ -58,7 +58,7 @@ az group create --name myResourceGroup --location southeastasia
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-이 샘플은 Azure Storage 계정의 blob 컨테이너에 이미지를 업로드합니다. 저장소 계정은 Azure Storage 데이터 개체의 저장 및 액세스를 위한 고유한 네임스페이스를 제공합니다. [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용하여 만든 리소스 그룹에 저장소 계정을 만듭니다.
+이 샘플은 Azure Storage 계정의 blob 컨테이너에 이미지를 업로드합니다. 스토리지 계정은 Azure Storage 데이터 개체의 저장 및 액세스를 위한 고유한 네임스페이스를 제공합니다. [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용하여 만든 리소스 그룹에 저장소 계정을 만듭니다.
 
 > [!IMPORTANT]
 > 자습서의 2부에서는 Blob 스토리지에서 Azure Event Grid를 사용합니다. 스토리지 계정은 Event Grid를 지원하는 Azure 지역에 만듭니다. 지원되는 지역 목록은 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all)을 참조하세요.

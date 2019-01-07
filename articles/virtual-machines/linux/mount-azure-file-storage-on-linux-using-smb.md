@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-[az storage account create](/cli/azure/storage/account#create)를 사용하여 만든 리소스 그룹 내에 새 저장소 계정을 만듭니다. 다음 예제에서는 *mySTORAGEACCT<random number>* 라는 저장소 계정을 만들고, 해당 저장소 계정의 이름을 **STORAGEACCT** 변수에 배치합니다. 저장소 계정 이름은 고유해야 하며, 사용하는 `$RANDOM` 끝에 숫자를 추가하여 고유하게 만듭니다.
+[az storage account create](/cli/azure/storage/account#create)를 사용하여 만든 리소스 그룹 내에 새 저장소 계정을 만듭니다. 다음 예제에서는 *mySTORAGEACCT<random number>* 라는 스토리지 계정을 만들고, 해당 스토리지 계정의 이름을 **STORAGEACCT** 변수에 배치합니다. 저장소 계정 이름은 고유해야 하며, 사용하는 `$RANDOM` 끝에 숫자를 추가하여 고유하게 만듭니다.
 
 ```bash
 STORAGEACCT=$(az storage account create \

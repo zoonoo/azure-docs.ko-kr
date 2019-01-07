@@ -36,7 +36,7 @@ ms.locfileid: "53106484"
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="configure-your-application-to-access-azure-storage-or-the-azure-cosmos-db-table-api"></a>Azure Storage 또는 Azure Cosmos DB Table API에 액세스하도록 애플리케이션 구성
-Azure Storage 또는 Azure Cosmos DB를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있는 Node.js용 Azure Storage SDK가 필요합니다.
+Azure Storage 또는 Azure Cosmos DB를 사용하려면 스토리지 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있는 Node.js용 Azure Storage SDK가 필요합니다.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>NPM(Node Package Manager)을 사용하여 패키지 설치
 1. **PowerShell**(Windows), **Terminal**(Mac) 또는 **Bash**(Unix) 등과 같은 명령줄 인터페이스를 사용하여 응용 프로그램을 만든 폴더로 이동합니다.
@@ -52,7 +52,7 @@ Azure Storage 또는 Azure Cosmos DB를 사용하려면 저장소 REST 서비스
        +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
        +-- xml2js@0.2.7 (sax@0.5.2)
        +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
-3. **ls** 명령을 수동으로 실행하여 **node_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 저장소에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure-storage** 패키지를 찾습니다.
+3. **ls** 명령을 수동으로 실행하여 **node_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 스토리지에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure-storage** 패키지를 찾습니다.
 
 ### <a name="import-the-package"></a>패키지 가져오기
 애플리케이션에서 아래 코드를 **server.js** 파일의 맨 위에 추가합니다.

@@ -49,7 +49,7 @@ ms.locfileid: "43098031"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
-* **Azure Storage 계정**. Azure Storage 계정은 대량 복사 작업에서 스테이징 Blob 저장소로 사용됩니다. 
+* **Azure Storage 계정**. Azure Storage 계정은 대량 복사 작업에서 스테이징 Blob 스토리지로 사용됩니다. 
 * **Azure SQL Database**. 이 데이터베이스에는 원본 데이터가 포함되어 있습니다. 
 * **Azure SQL Data Warehouse** 이 데이터 웨어하우스에는 SQL Database에서 복사된 데이터를 보관하고 있습니다. 
 
@@ -110,7 +110,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 연결된 서비스를 만들어 데이터 저장소와 계산을 데이터 팩터리에 연결합니다. 연결된 서비스에는 런타임에 Data Factory 서비스에서 데이터 저장소에 연결하는 데 사용하는 연결 정보가 있습니다. 
 
-이 자습서에서는 Azure SQL Database, Azure SQL Data Warehouse 및 Azure Blob Storage 데이터 저장소를 데이터 팩터리에 연결합니다. Azure SQL Database는 원본 데이터 저장소입니다. Azure SQL Data Warehouse는 싱크/대상 데이터 저장소입니다. Azure Blob Storage는 PolyBase를 사용하여 데이터를 SQL Data Warehouse에 로드하기 전에 데이터를 준비하는 저장소입니다. 
+이 자습서에서는 Azure SQL Database, Azure SQL Data Warehouse 및 Azure Blob Storage 데이터 저장소를 데이터 팩터리에 연결합니다. Azure SQL Database는 원본 데이터 저장소입니다. Azure SQL Data Warehouse는 싱크/대상 데이터 저장소입니다. Azure Blob Storage는 PolyBase를 사용하여 데이터를 SQL Data Warehouse에 로드하기 전에 데이터를 준비하는 스토리지입니다. 
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>원본 Azure SQL Database 연결된 서비스 만들기
 이 단계에서는 Azure SQL Database를 데이터 팩터리에 연결하기 위한 연결된 서비스를 만듭니다. 

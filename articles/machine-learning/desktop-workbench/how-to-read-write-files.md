@@ -155,7 +155,7 @@ C:\users\<username>\.azureml\share\<exp_acct_name>\<workspace_name>\<proj_name>\
 자세한 내용은 [Azure Machine Learning Workbench 실행 구성 파일](experimentation-service-configuration-reference.md)을 참조하세요.
 
 >[!NOTE]
->`AZUREML_NATIVE_SHARE_DIRECTORY` 환경 변수는 HDInsight 계산 컨텍스트에서 지원되지 않습니다. 그러나 연결된 Blob Storage에 저장소에 파일을 쓰고 읽을 때 명시적으로 절대 Azure Blob Storage 경로를 사용하면 간단하게 동일한 결과를 얻을 수 있습니다.
+>`AZUREML_NATIVE_SHARE_DIRECTORY` 환경 변수는 HDInsight 계산 컨텍스트에서 지원되지 않습니다. 그러나 연결된 Blob Storage에 스토리지에 파일을 쓰고 읽을 때 명시적으로 절대 Azure Blob Storage 경로를 사용하면 간단하게 동일한 결과를 얻을 수 있습니다.
 
 ## <a name="option-3-use-external-durable-storage"></a>옵션 3: 외부 영구 저장소 사용
 

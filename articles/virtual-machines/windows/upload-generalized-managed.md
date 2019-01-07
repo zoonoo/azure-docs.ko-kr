@@ -70,7 +70,7 @@ Get-AzureRmStorageAccount | Format-Table
 
 ## <a name="upload-the-vhd-to-your-storage-account"></a>저장소 계정에 VHD 업로드
 
-[Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd) cmdlet을 사용하여 저장소 계정의 컨테이너에 VHD를 업로드합니다. 이 예제에서는 *C:\Users\Public\Documents\Virtual hard disks\\*의 *myVHD.vhd* 파일을 *myResourceGroup* 리소스 그룹의 *mystorageaccount*라는 저장소 계정에 업로드합니다. 파일은 *mycontainer*라는 컨테이너에 배치되고 새 파일 이름은 *myUploadedVHD.vhd*가 됩니다.
+[Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd) cmdlet을 사용하여 저장소 계정의 컨테이너에 VHD를 업로드합니다. 이 예제에서는 *C:\Users\Public\Documents\Virtual hard disks\\*의 *myVHD.vhd* 파일을 *myResourceGroup* 리소스 그룹의 *mystorageaccount*라는 스토리지 계정에 업로드합니다. 파일은 *mycontainer*라는 컨테이너에 배치되고 새 파일 이름은 *myUploadedVHD.vhd*가 됩니다.
 
 ```powershell
 $rgName = "myResourceGroup"

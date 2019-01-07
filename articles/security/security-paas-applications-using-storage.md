@@ -26,7 +26,7 @@ ms.locfileid: "47451870"
 
 Azure에서는 온-프레미스에서는 쉽게 달성할 수 없는 방식으로 저장소를 배포하고 사용할 수 있습니다. Azure Storage를 사용하면 비교적 적은 노력으로 높은 수준의 확장성 및 가용성을 얻을 수 있습니다. Azure Storage는 Windows 및 Linux Azure Virtual Machines의 기반일 뿐만 아니라 대규모 분산 애플리케이션도 지원할 수 있습니다.
 
-Azure Storage는 Blob 저장소, 테이블 저장소, 큐 저장소 및 파일 저장소 등의 4가지 서비스를 제공합니다. 자세한 내용은 [Microsoft Azure Storage 소개](../storage/storage-introduction.md)를 참조하세요.
+Azure Storage는 Blob 스토리지, 테이블 스토리지, 큐 스토리지 및 파일 스토리지 등의 4가지 서비스를 제공합니다. 자세한 내용은 [Microsoft Azure Storage 소개](../storage/storage-introduction.md)를 참조하세요.
 
 [Azure Storage 보안 가이드](../storage/common/storage-security-guide.md)는 Azure Storage 및 보안에 대한 자세한 정보를 제공합니다. 이 모범 사례 문서에서는 보안 가이드에 나오는 일부 개념을 소개하고 좀 더 자세한 정보를 원하는 사용자를 위해 보안 가이드 및 기타 원본에 대한 링크를 제공합니다.
 
@@ -39,7 +39,7 @@ Azure Storage는 Blob 저장소, 테이블 저장소, 큐 저장소 및 파일 �
 
 
 ## <a name="use-a-shared-access-signature-instead-of-a-storage-account-key"></a>저장소 계정 키 대신 공유 액세스 서명 사용
-액세스 제어는 중요합니다. Azure Storage 액세스를 쉽게 제어할 수 있도록 하기 위해 저장소 계정을 만들 때는 512비트 SAK(저장소 계정 키) 2개가 생성됩니다. 이처럼 키가 중복 생성되므로 일상적인 키 순환 중에 서비스 중단을 방지할 수 있습니다. 
+액세스 제어는 중요합니다. Azure Storage 액세스를 쉽게 제어할 수 있도록 하기 위해 스토리지 계정을 만들 때는 512비트 SAK(스토리지 계정 키) 2개가 생성됩니다. 이처럼 키가 중복 생성되므로 일상적인 키 순환 중에 서비스 중단을 방지할 수 있습니다. 
 
 저장소 액세스 키는 우선 순위가 높은 비밀로, 저장소 액세스 제어를 담당하는 사용자만 액세스할 수 있어야 합니다. 잘못된 사용자가 이러한 키에 액세스하면 저장소를 완전히 제어하고 저장소에서 파일을 바꾸거나 삭제하거나 추가할 수 있게 됩니다. 여기에는 조직 또는 고객에게 손상을 줄 수 있는 맬웨어 및 다른 유형의 콘텐츠가 포함됩니다.
 

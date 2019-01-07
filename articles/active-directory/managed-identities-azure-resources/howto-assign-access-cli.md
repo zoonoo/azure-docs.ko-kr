@@ -59,7 +59,7 @@ ms.locfileid: "53081373"
    spID=$(az resource list -n DevTestVMSS --query [*].identity.principalId --out tsv)
    ```
 
-3. 서비스 사용자 ID를 가져오면 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)를 사용하여 가상 머신 또는 가상 머신 확장 집합 "읽기 권한자" 액세스 권한을 "myStorageAcct"라는 저장소 계정에 부여합니다.
+3. 서비스 사용자 ID를 가져오면 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)를 사용하여 가상 머신 또는 가상 머신 확장 집합 "읽기 권한자" 액세스 권한을 "myStorageAcct"라는 스토리지 계정에 부여합니다.
 
    ```azurecli-interactive
    az role assignment create --assignee $spID --role 'Reader' --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/myStorageAcct

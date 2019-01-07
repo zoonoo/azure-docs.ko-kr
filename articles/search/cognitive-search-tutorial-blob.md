@@ -83,7 +83,7 @@ Azure Search에 대한 REST 호출을 만들려면 PowerShell이나 Telerik Fidd
 
 1. [샘플 데이터를 다운로드합니다](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). 샘플 데이터는 여러 종류의 작은 파일 집합으로 구성됩니다. 
 
-1. Azure Blob 저장소에 등록하고, 저장소 계정을 만들고, Storage 탐색기에 로그인하고, `basicdemo`라는 컨테이너를 만드세요. 모든 단계에 대한 지침은 [Azure Storage 탐색기 빠른 시작](../storage/blobs/storage-quickstart-blobs-storage-explorer.md)을 참조하세요.
+1. Azure Blob 스토리지에 등록하고, 스토리지 계정을 만들고, Storage 탐색기에 로그인하고, `basicdemo`라는 컨테이너를 만드세요. 모든 단계에 대한 지침은 [Azure Storage 탐색기 빠른 시작](../storage/blobs/storage-quickstart-blobs-storage-explorer.md)을 참조하세요.
 
 1. 앞에서 만든 `basicdemo` 컨테이너에서 Azure Storage 탐색기를 사용하여 **업로드**를 클릭하고 샘플 파일을 업로드합니다.
 

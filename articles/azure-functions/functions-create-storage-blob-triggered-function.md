@@ -94,7 +94,7 @@ ms.locfileid: "52999881"
 
 1. Azure Portal로 돌아가서 함수를 찾은 후 페이지 맨 아래에 있는 **로그**를 확장하고 로그 스트리밍이 일시 중지되지 않았는지 확인합니다.
 
-1. Storage 탐색기에서 저장소 계정, **Blob 컨테이너** 및 **samples-workitems**를 확장합니다. **업로드**를 클릭한 후 **파일 업로드...** 를 클릭합니다.
+1. Storage 탐색기에서 스토리지 계정, **Blob 컨테이너** 및 **samples-workitems**를 확장합니다. **업로드**를 클릭한 후 **파일 업로드...** 를 클릭합니다.
 
     ![Blob 컨테이너에 파일 업로드.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 

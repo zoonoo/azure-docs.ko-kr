@@ -26,7 +26,7 @@ Terraform에는 Terraform 상태에 대한 원격 저장소인 상태 백 엔드
 
 ## <a name="configure-storage-account"></a>저장소 계정 구성
 
-Azure Storage를 백 엔드로 사용하기 전에 저장소 계정을 만들어야 합니다. 저장소 계정은 Azure Portal, PowerShell, Azure CLI 또는 자체 Terraform을 사용하여 만들 수 있습니다. Azure CLI를 사용하여 저장소 계정을 구성하려면 다음 샘플을 사용합니다.
+Azure Storage를 백 엔드로 사용하기 전에 스토리지 계정을 만들어야 합니다. 저장소 계정은 Azure Portal, PowerShell, Azure CLI 또는 자체 Terraform을 사용하여 만들 수 있습니다. Azure CLI를 사용하여 저장소 계정을 구성하려면 다음 샘플을 사용합니다.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -100,7 +100,7 @@ resource "azurerm_resource_group" "state-demo-secure" {
 
 ## <a name="state-locking"></a>상태 잠금
 
-상태 저장소에 대한 Azure Storage Blob을 사용하는 경우 blob은 상태를 기록하는 모든 작업 전에 자동으로 잠겨 있습니다. 이 구성은 손상을 일으킬 수 있는 여러 동시 상태 작업을 방지합니다. 자세한 내용은 Terraform 설명서의 [상태 잠금][terraform-state-lock]을 참조하세요.
+상태 스토리지에 대한 Azure Storage Blob을 사용하는 경우 blob은 상태를 기록하는 모든 작업 전에 자동으로 잠겨 있습니다. 이 구성은 손상을 일으킬 수 있는 여러 동시 상태 작업을 방지합니다. 자세한 내용은 Terraform 설명서의 [상태 잠금][terraform-state-lock]을 참조하세요.
 
 Azure Portal 또는 기타 Azure 관리 도구를 통해 blob을 검토할 때는 잠겨져 있습니다.
 

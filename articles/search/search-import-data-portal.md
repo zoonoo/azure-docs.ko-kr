@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 사용하여 검색 인덱스로 데이터 가져오기 - Azure Search
-description: Azure Portal에서 데이터 가져오기 마법사를 사용하여 Azure VM에 있는 Cosmos DB, Blob Storage, 테이블 저장소, SQL Database 및 SQL Server에서 Azure 데이터를 크롤링하는 방법을 알아봅니다.
+description: Azure Portal에서 데이터 가져오기 마법사를 사용하여 Azure VM에 있는 Cosmos DB, Blob Storage, 테이블 스토리지, SQL Database 및 SQL Server에서 Azure 데이터를 크롤링하는 방법을 알아봅니다.
 author: HeidiSteen
 manager: cgronlun
 services: search

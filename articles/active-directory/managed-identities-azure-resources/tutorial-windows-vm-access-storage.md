@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: eeb615a89469ef8c165ed7ad76acaa01493f78ec
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 776aa384808e8c802001aefd5cc4acd383aca8ae
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625541"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52719694"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 액세스 키를 통해 Azure Storage에 액세스
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 Windows VM(가상 머신)에 대한 시스템 할당 관리 ID를 사용하여 저장소 계정 액세스 키를 검색하는 방법을 보여줍니다. Storage SDK를 사용하는 등의 저장소 작업을 수행할 때 일반적인 방식으로 저장소 액세스 키를 사용할 수 있습니다. 이 자습서의 경우 Azure Storage PowerShell을 사용하여 Blob을 업로드하고 다운로드합니다. 다음 방법을 알게 됩니다.
+이 자습서에서는 Windows VM(가상 머신)에 대한 시스템 할당 관리 ID를 사용하여 저장소 계정 액세스 키를 검색하는 방법을 보여줍니다. Storage SDK를 사용하는 등의 스토리지 작업을 수행할 때 일반적인 방식으로 스토리지 액세스 키를 사용할 수 있습니다. 이 자습서의 경우 Azure Storage PowerShell을 사용하여 Blob을 업로드하고 다운로드합니다. 다음 방법을 알게 됩니다.
 
 
 > [!div class="checklist"]
@@ -67,7 +67,7 @@ Azure Storage는 Azure AD 인증을 기본적으로 지원하지 않습니다.  
 
 1. 새로 만든 저장소 계정으로 다시 이동합니다.  
 2. 왼쪽 패널의 **액세스 제어(IAM)** 링크를 클릭합니다.  
-3. 페이지 위쪽에 있는 **+ 추가**를 클릭하여 VM에 대한 새 역할 할당을 추가합니다.
+3. 페이지의 위쪽에서 **+ 역할 할당 추가**를 클릭하여 VM에 대한 새 역할 할당을 추가합니다.
 4. 페이지 오른쪽에서 **역할**을 "저장소 계정 키 운영자 서비스 역할"로 설정합니다. 
 5. 다음 드롭다운에서 **다음에 대한 액세스 할당**을 “Virtual Machine” 리소스로 설정합니다.  
 6. 다음으로 적절한 구독이 **구독** 드롭다운에 나열되는지 확인하고 **리소스 그룹**을 "모든 리소스 그룹"으로 설정합니다.  

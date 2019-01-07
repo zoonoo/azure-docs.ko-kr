@@ -69,11 +69,11 @@ Azure Storage 큐에 메시지가 제출될 때 트리거되는 함수를 만드
 
 1. **만들기**를 클릭하여 사용자의 함수를 만듭니다.
 
-다음으로 Azure Storage 계정에 연결하고 **myqueue-items** 저장소 큐를 만듭니다.
+다음으로 Azure Storage 계정에 연결하고 **myqueue-items** 스토리지 큐를 만듭니다.
 
 ## <a name="create-the-queue"></a>큐 만들기
 
-1. 함수에서 **통합**을 클릭하고 **설명서**를 확장하여 **계정 이름** 및 **계정 키**를 모두 복사합니다. 이러한 자격 증명을 사용하여 Azure Storage 탐색기에서 저장소 계정에 연결합니다. 저장소 계정에 이미 연결된 경우 4단계로 건너뜁니다.
+1. 함수에서 **통합**을 클릭하고 **설명서**를 확장하여 **계정 이름** 및 **계정 키**를 모두 복사합니다. 이러한 자격 증명을 사용하여 Azure Storage 탐색기에서 스토리지 계정에 연결합니다. 저장소 계정에 이미 연결된 경우 4단계로 건너뜁니다.
 
     ![Storage 계정 연결 자격 증명 가져오기.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)
 
@@ -95,7 +95,7 @@ Azure Storage 큐에 메시지가 제출될 때 트리거되는 함수를 만드
 
 1. Azure Portal로 돌아가서 함수를 찾은 후 페이지 맨 아래에 있는 **로그**를 확장하고 로그 스트리밍이 일시 중지되지 않았는지 확인합니다.
 
-1. Storage 탐색기에서 저장소 계정, **큐** 및 **myqueue-items**를 확장한 후 **메시지 추가**를 클릭합니다.
+1. Storage 탐색기에서 스토리지 계정, **큐** 및 **myqueue-items**를 확장한 후 **메시지 추가**를 클릭합니다.
 
     ![큐에 메시지 추가.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-add-message.png)
 

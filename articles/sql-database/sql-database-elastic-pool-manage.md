@@ -49,7 +49,7 @@ Azure PowerShell을 사용하여 SQL Database 탄력적 풀 및 풀링된 데이
 | --- | --- |
 |[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|논리 SQL Server에서 Elastic Database 풀을 만듭니다.|
 |[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|논리 SQL Server에서 탄력적 풀과 해당 속성 값을 가져옵니다.|
-|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|논리 SQL Server에서 Elastic Database 풀의 속성을 수정합니다. 예를 들어 **StorageMB** 속성을 사용하여 탄력적 풀의 최대 저장소를 수정합니다.|
+|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|논리 SQL Server에서 Elastic Database 풀의 속성을 수정합니다. 예를 들어 **StorageMB** 속성을 사용하여 탄력적 풀의 최대 스토리지를 수정합니다.|
 |[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|논리 SQL Server에서 Elastic Database 풀을 삭제합니다.|
 |[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|논리 SQL Server에서 탄력적 풀에 대한 작업 상태를 가져옵니다.|
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|기존 풀 또는 단일 데이터베이스에서 새 데이터베이스를 만듭니다. |

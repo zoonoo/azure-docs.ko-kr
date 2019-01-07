@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **Azure Storage 계정**. Blob 저장소를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
+* **Azure Storage 계정**. Blob 저장소를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
 * **Azure SQL Database**. 데이터베이스를 **싱크** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure SQL Database를 만드는 단계는 [Azure SQL Database 만들기](../sql-database/sql-database-get-started-portal.md) 문서를 참조하세요.
 * **Visual Studio** 2015 또는 2017 이 문서의 연습에서는 Visual Studio 2017을 사용합니다.
 * **[Azure .NET SDK](https://azure.microsoft.com/downloads/)를 다운로드하고 설치합니다**.

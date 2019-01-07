@@ -43,7 +43,7 @@ ms.locfileid: "45729455"
 데이터 센터 가동 중단에서 더 빠르게 복구하고 싶은 경우 다음과 같은 몇 가지 단계를 수행하여 Microsoft Genomics 워크플로를 보조 지역으로 수동으로 다시 전송하는 데 걸리는 시간을 단축할 수 있습니다.
 
 * 해당 보조 지역을 식별하고 해당 지역에서 Genomics 계정을 미리 만듭니다.
-* 보조 지역에서 데이터를 즉시 사용할 수 있도록 기본 및 보조 지역에서 데이터를 복제합니다. 이 작업은 수동으로 완료하거나 Azure Storage의 [지역 중복 저장소](https://docs.microsoft.com/azure/storage/common/storage-redundancy) 기능을 사용하여 수행할 수 있습니다. 
+* 보조 지역에서 데이터를 즉시 사용할 수 있도록 기본 및 보조 지역에서 데이터를 복제합니다. 이 작업은 수동으로 완료하거나 Azure Storage의 [지역 중복 스토리지](https://docs.microsoft.com/azure/storage/common/storage-redundancy) 기능을 사용하여 수행할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Microsoft Genomics 서비스를 사용할 때의 비즈니스 연속성 및 재해 복구 옵션에 대해 알아보았습니다. Azure 내의 일반적인 비즈니스 연속성 및 재해 복구에 대한 자세한 내용은 [Azure 복원 기술 지침](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)을 참조하세요. 

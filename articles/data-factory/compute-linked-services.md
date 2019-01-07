@@ -41,7 +41,7 @@ ms.locfileid: "52873830"
 > 주문형 구성은 현재 Azure HDInsight 클러스터에 대해서만 지원됩니다.
 
 ## <a name="azure-hdinsight-on-demand-linked-service"></a>Azure HDInsight 주문형 연결된 서비스
-Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight 클러스터를 자동으로 만들 수 있습니다. 클러스터는 클러스터와 연결된 저장소 계정(JSON에서 linkedServiceName 속성)과 동일한 하위 지역에 만들어집니다. 저장소 계정은 범용 표준 Azure Storage 계정이어야 합니다. 
+Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight 클러스터를 자동으로 만들 수 있습니다. 클러스터는 클러스터와 연결된 저장소 계정(JSON에서 linkedServiceName 속성)과 동일한 하위 지역에 만들어집니다. 스토리지 계정은 범용 표준 Azure Storage 계정이어야 합니다. 
 
 주문형 HDInsight 연결된 서비스에 대해 다음 **중요한** 점에 유의하십시오.
 

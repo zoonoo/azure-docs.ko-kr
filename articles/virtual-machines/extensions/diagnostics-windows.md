@@ -39,11 +39,11 @@ Azure 리소스 관리자 배포 모델을 통해 Windows VM을 만드는 동안
 
 *$diagnosticsconfig_path*는 아래 [샘플](#sample-diagnostics-configuration)에 설명된 XML의 진단 구성이 포함된 파일의 경로입니다.  
 
-진단 구성 파일이 저장소 계정 이름으로 **StorageAccount** 요소를 지정할 경우 *Set-AzureRMVMDiagnosticsExtension* 스크립트에서 해당 저장소 계정으로 진단 데이터를 보내도록 진단 확장을 자동으로 설정합니다. 이렇게 작동하려면, 저장소 계정이 VM과 동일한 구독 내에 있어야 합니다.
+진단 구성 파일이 스토리지 계정 이름으로 **StorageAccount** 요소를 지정할 경우 *Set-AzureRMVMDiagnosticsExtension* 스크립트에서 해당 스토리지 계정으로 진단 데이터를 보내도록 진단 확장을 자동으로 설정합니다. 이렇게 작동하려면, 저장소 계정이 VM과 동일한 구독 내에 있어야 합니다.
 
 진단 구성에 **StorageAccount** 가 지정되지 않은 경우 cmdlet에 *StorageAccountName* 매개 변수를 전달해야 합니다. *StorageAccountName* 매개 변수가 지정된 경우 cmdlet은 항상 진단 구성 파일에 지정된 저장소 계정이 아닌 매개 변수에 지정된 저장소 계정을 사용합니다.
 
-진단 저장소 계정이 VM과 다른 구독에 있는 경우 *StorageAccountName* 및 *StorageAccountKey* 매개 변수를 cmdlet에 명시적으로 전달해야 합니다. 진단 저장소 계정이 동일한 구독에 있는 경우 진단 확장을 사용하도록 설정하면 cmdlet이 키 값을 자동으로 쿼리하고 설정할 수 있으므로 *StorageAccountKey* 매개 변수가 필요하지 않습니다. 하지만 진단 저장소 계정이 다른 구독에 있는 경우에는 cmdlet이 자동으로 키를 얻지 못할 수 있으며, 사용자가 *StorageAccountKey* 매개 변수를 통해 키를 명시적으로 지정해야 합니다.  
+진단 스토리지 계정이 VM과 다른 구독에 있는 경우 *StorageAccountName* 및 *StorageAccountKey* 매개 변수를 cmdlet에 명시적으로 전달해야 합니다. 진단 스토리지 계정이 동일한 구독에 있는 경우 진단 확장을 사용하도록 설정하면 cmdlet이 키 값을 자동으로 쿼리하고 설정할 수 있으므로 *StorageAccountKey* 매개 변수가 필요하지 않습니다. 하지만 진단 스토리지 계정이 다른 구독에 있는 경우에는 cmdlet이 자동으로 키를 얻지 못할 수 있으며, 사용자가 *StorageAccountKey* 매개 변수를 통해 키를 명시적으로 지정해야 합니다.  
 
     Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 
@@ -87,7 +87,7 @@ cmdlet은 *PublicSettings*를 반환하며, 여기에는 진단 구성이 포함
       ```
       <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
       ```
-  * 성능 카운터와 메트릭 구성을 기반으로 메트릭을 생성하는 방법에 대한 자세한 내용은 [Azure Diagnostics metrics table in storage(저장소의 Azure 진단 메트릭 테이블)](diagnostics-template.md#wadmetrics-tables-in-storage)을 참조하세요.
+  * 성능 카운터와 메트릭 구성을 기반으로 메트릭을 생성하는 방법에 대한 자세한 내용은 [Azure Diagnostics metrics table in storage](diagnostics-template.md#wadmetrics-tables-in-storage)(스토리지의 Azure 진단 메트릭 테이블)을 참조하세요.
 * **StorageAccount** 요소를 진단 저장소 계정의 이름으로 업데이트해야 합니다.
   
     ```

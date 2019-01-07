@@ -124,7 +124,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId 
 
 ## <a name="azure-diagnostics-to-storage-then-to-log-analytics"></a>Azure 진단 -> Azure Storage -> Log Analytics
 
-일부 리소스에서 로그를 수집하기 위해서는 Azure Storage에 로그를 보낸 다음 저장소에서 로그를 읽도록 Log Analytics를 구성할 수 있습니다.
+일부 리소스에서 로그를 수집하기 위해서는 Azure Storage에 로그를 보낸 다음 스토리지에서 로그를 읽도록 Log Analytics를 구성할 수 있습니다.
 
 Log Analytics는 이 접근 방법을 사용하여 다음 리소스 및 로그에 대한 진단을 Azure Storage에서 수집할 수 있습니다.
 

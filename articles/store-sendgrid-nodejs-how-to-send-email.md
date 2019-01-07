@@ -131,7 +131,7 @@ sendgrid.send({
 ```
 
 > [!NOTE]
-> **files** 속성을 사용할 경우, 해당 파일은 [fs.readFile](https://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile)을 통해 액세스할 수 있어야 합니다. 첨부하려는 파일이 Blob 컨테이너 등의 Azure Storage에서 호스트되는 경우, 먼저 파일을 로컬 저장소 또는 Azure 드라이브에 복사해야 **files** 속성을 사용하여 해당 파일을 첨부 파일로 보낼 수 있습니다.
+> **files** 속성을 사용할 경우, 해당 파일은 [fs.readFile](https://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile)을 통해 액세스할 수 있어야 합니다. 첨부하려는 파일이 Blob 컨테이너 등의 Azure Storage에서 호스트되는 경우, 먼저 파일을 로컬 스토리지 또는 Azure 드라이브에 복사해야 **files** 속성을 사용하여 해당 파일을 첨부 파일로 보낼 수 있습니다.
 > 
 > 
 

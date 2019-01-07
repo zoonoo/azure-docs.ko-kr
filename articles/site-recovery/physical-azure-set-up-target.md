@@ -37,7 +37,7 @@ ms.locfileid: "52849243"
 
 유효성 검사가 성공적으로 완료되면 확인을 클릭하여 다음 단계로 이동합니다.
 
-호환되는 Resource Manager 저장소 계정 또는 가상 네트워크가 없는 경우 페이지 맨 위에 있는 **+Storage 계정** 또는 **+네트워크** 단추를 클릭하여 만들 수 있습니다.
+호환되는 Resource Manager 스토리지 계정 또는 가상 네트워크가 없는 경우 페이지 맨 위에 있는 **+Storage 계정** 또는 **+네트워크** 단추를 클릭하여 만들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [복제 설정 구성](vmware-azure-set-up-replication.md)

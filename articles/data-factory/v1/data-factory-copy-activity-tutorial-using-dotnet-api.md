@@ -236,7 +236,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
 
     이에 따라 두 개의 연결된 서비스, 즉 AzureStorage와 AzureSqlDatabase 유형의 AzureStorageLinkedService와 AzureSqlLinkedService를 만듭니다.  
 
-    AzureStorageLinkedService는 Azure 저장소 계정을 데이터 팩터리에 연결합니다. 이 저장소 계정은 컨테이너를 만들고 [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 데이터를 업로드한 계정입니다.
+    AzureStorageLinkedService는 Azure 스토리지 계정을 데이터 팩터리에 연결합니다. 이 저장소 계정은 컨테이너를 만들고 [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 데이터를 업로드한 계정입니다.
 9. **Azure SQL 연결된 서비스**를 만드는 다음 코드를 **Main** 메서드에 추가합니다.
 
    > [!IMPORTANT]

@@ -86,7 +86,7 @@ ms.locfileid: "51254403"
 * **CloudPageBlob**
 *  [ICloudBlobStreamBinder](#getting-serialized-blob-content-by-using-icloudblobstreambinder)
 
-Azure 저장소 계정으로 직접 작업하려는 경우 메서드 서명에 **CloudStorageAccount** 매개 변수를 추가할 수도 있습니다.
+Azure 스토리지 계정으로 직접 작업하려는 경우 메서드 서명에 **CloudStorageAccount** 매개 변수를 추가할 수도 있습니다.
 
 ## <a name="getting-text-blob-content-by-binding-to-string"></a>문자열에 바인딩하여 텍스트 Blob 콘텐츠 가져오기
 텍스트 Blob이 필요한 경우 **BlobTrigger**를 **string** 매개 변수에 적용할 수 있습니다. 다음 코드 샘플은 텍스트 Blob을 **logMessage**라는 **string** 매개 변수에 바인딩합니다. 이 함수에서는 이 매개 변수를 사용하여 Blob의 콘텐츠를 WebJobs SDK 대시보드에 작성합니다.
@@ -191,7 +191,7 @@ WebJobs SDK는 애플리케이션이 시작될 때 **BlobTrigger** 특성에 지
 ### <a name="blob-receipts"></a>Blob 수신 확인
 WebJobs SDK는 동일한 새 Blob 또는 업데이트된 Blob에 대해 **BlobTrigger** 함수가 두 번 이상 호출되지 않도록 합니다. 이를 위해 *blob 수신 확인* 을 유지 관리하여 지정된 Blob 버전이 처리되었는지 확인합니다.
 
-Blob 수신 확인은 AzureWebJobsStorage 연결 문자열에 지정된 Azure 저장소 계정의 *azure-webjobs-hosts* 라는 컨테이너에 저장됩니다. Blob 수신 확인에는 다음 정보가 포함됩니다.
+Blob 수신 확인은 AzureWebJobsStorage 연결 문자열에 지정된 Azure 스토리지 계정의 *azure-webjobs-hosts* 라는 컨테이너에 저장됩니다. Blob 수신 확인에는 다음 정보가 포함됩니다.
 
 * Blob에 대해 호출된 함수("*{WebJob 이름}*.Functions.*{함수 이름}*", 예: "WebJob1.Functions.CopyBlob")
 * 컨테이너 이름

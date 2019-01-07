@@ -1,6 +1,6 @@
 ---
-title: 'Azure 빠른 시작: Java Storage SDK V10을 사용하여 개체 저장소에 BLOB 만들기 | Microsoft Docs'
-description: 이 빠른 시작에서는 Java Storage SDK를 사용하여 개체(Azure Blob) 저장소에 컨테이너를 만들고, 파일을 업로드하고, 개체를 나열하고, 다운로드합니다.
+title: 'Azure 빠른 시작: Java Storage SDK V10을 사용하여 개체 스토리지에 BLOB 만들기 | Microsoft Docs'
+description: 이 빠른 시작에서는 Java Storage SDK를 사용하여 개체(Azure Blob) 스토리지에 컨테이너를 만들고, 파일을 업로드하고, 개체를 나열하고, 다운로드합니다.
 services: storage
 author: roygara
 ms.custom: mvc
@@ -100,7 +100,7 @@ Cleaning up the sample and exiting!
 
 샘플을 제어할 수 있으므로 코드를 실행하는 명령을 입력합니다. 입력은 대/소문자를 구분합니다.
 
-[Azure Storage 탐색기](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage 탐색기는 저장소 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다. 
+[Azure Storage 탐색기](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage 탐색기는 스토리지 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다. 
 
 파일을 확인합니다. 그런 다음, **E**를 선택하고 **Enter** 키를 눌러 데모를 완료하고 테스트 파일을 삭제합니다. 이 샘플의 용도를 파악했으므로 **Quickstart.java** 파일을 열고 코드를 확인합니다. 
 
@@ -112,7 +112,7 @@ Cleaning up the sample and exiting!
 
 먼저 Blob Storage에 액세스하고 관리하는 데 사용되는 개체의 참조를 만듭니다. 이러한 개체는 서로를 기반으로 합니다. 각각은 목록의 그 다음 개체에서 사용됩니다.
 
-1. 저장소 계정을 가리키는 **StorageURL** 개체의 인스턴스를 만듭니다.
+1. 스토리지 계정을 가리키는 **StorageURL** 개체의 인스턴스를 만듭니다.
 
     * [StorageURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._storage_u_r_l?view=azure-java-stable) 개체는 저장소 계정의 표현입니다. 새 파이프라인을 생성하는 데 사용할 수 있습니다. 
     * 파이프라인은 권한 부여, 로깅 및 메커니즘 다시 시도를 사용하여 요청 및 응답을 조작하는 데 사용되는 정책 집합입니다. 자세한 내용은 [HTTP 파이프라인](https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview#url-types--http-pipeline)을 참조하세요.  

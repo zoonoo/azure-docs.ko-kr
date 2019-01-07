@@ -42,7 +42,7 @@ Media Services는 제공되는 저장소 키에 따라 달라집니다. 특히, 
 ## <a name="steps-to-rotate-storage-keys"></a>저장 키를 회전하는 단계 
  
  1. PowerShell cmdlet 또는 [Azure](https://portal.azure.com/) 포털을 통해 저장소 계정 기본 키를 변경합니다.
- 2. 적절한 매개 변수로 Sync-AzureRmMediaServiceStorageKeys cmdlet을 호출하여 미디어 계정에서 저장소 계정 키를 가져오도록 합니다.
+ 2. 적절한 매개 변수로 Sync-AzureRmMediaServiceStorageKeys cmdlet을 호출하여 미디어 계정에서 스토리지 계정 키를 가져오도록 합니다.
  
     다음 예제에서는 키를 저장소 계정에 동기화하는 방법을 보여 줍니다.
   
@@ -50,7 +50,7 @@ Media Services는 제공되는 저장소 키에 따라 달라집니다. 특히, 
   
  3. 1 시간 정도 기다립니다. 스트리밍 시나리오가 작동하는지 확인합니다.
  4. PowerShell cmdlet 또는 Azure Portal을 통해 저장소 계정 보조 키를 변경합니다.
- 5. 적절한 매개 변수로 Sync-AzureRmMediaServiceStorageKeys PowerShell cmdlet을 호출하여 미디어 계정에서 새 저장소 계정 키를 가져오도록 합니다. 
+ 5. 적절한 매개 변수로 Sync-AzureRmMediaServiceStorageKeys PowerShell cmdlet을 호출하여 미디어 계정에서 새 스토리지 계정 키를 가져오도록 합니다. 
  6. 1 시간 정도 기다립니다. 스트리밍 시나리오가 작동하는지 확인합니다.
  
 ### <a name="a-powershell-cmdlet-example"></a>PowerShell cmdlet 예제 

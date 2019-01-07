@@ -388,7 +388,7 @@ Web proxy                               Not enabled         Web proxy is not...
 
     진단 도구에서 보고된 읽기-쓰기 대기 시간이 너무 높은 경우:
 
-    1. Azure Storage 계정에 대한 대기 시간을 이해하기 위해 Blob services에 대한 저장소 분석을 구성하고 출력을 분석합니다. 자세한 지침은 [저장소 분석 설정 및 구성](../storage/common/storage-enable-and-view-metrics.md)으로 이동합니다. 그러한 대기 시간이 높고 StorSimple 진단 도구에서 수신한 숫자와 비교 가능한 경우 Azure Storage로 서비스 요청을 로그해야 합니다.
+    1. Azure Storage 계정에 대한 대기 시간을 이해하기 위해 Blob services에 대한 스토리지 분석을 구성하고 출력을 분석합니다. 자세한 지침은 [저장소 분석 설정 및 구성](../storage/common/storage-enable-and-view-metrics.md)으로 이동합니다. 그러한 대기 시간이 높고 StorSimple 진단 도구에서 수신한 숫자와 비교 가능한 경우 Azure Storage로 서비스 요청을 로그해야 합니다.
 
     2. 저장소 계정 대기 시간이 너무 낮은 경우 사용자 네트워크의 대기 시간 문제 조사를 위해 네트워크 관리자에게 문의합니다.
 

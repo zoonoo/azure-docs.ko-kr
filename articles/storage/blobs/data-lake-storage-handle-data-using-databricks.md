@@ -271,7 +271,7 @@ DataBricks Notebook으로 돌아가서 새 셀에 다음 코드를 입력합니�
 
 이 섹션에서는 변환된 데이터를 Azure SQL Data Warehouse로 업로드합니다. Azure Databricks용 Azure SQL Data Warehouse 커넥터를 사용하여 데이터 프레임을 SQL 데이터 웨어하우스의 테이블로 직접 업로드할 수 있습니다.
 
-앞서 언급했듯이, SQL 데이터 웨어하우스 커넥터는 Azure Blob Storage를 임시 저장소로 사용하여 Azure Databricks와 Azure SQL Data Warehouse 간의 데이터를 업로드합니다. 따라서 저장소 계정에 연결하는 구성을 먼저 제공해야 합니다. 이 문서의 필수 구성 요소로 이미 계정을 만들어 두셨을 것입니다.
+앞서 언급했듯이, SQL 데이터 웨어하우스 커넥터는 Azure Blob Storage를 임시 스토리지로 사용하여 Azure Databricks와 Azure SQL Data Warehouse 간의 데이터를 업로드합니다. 따라서 저장소 계정에 연결하는 구성을 먼저 제공해야 합니다. 이 문서의 필수 구성 요소로 이미 계정을 만들어 두셨을 것입니다.
 
 1. Azure Databricks에서 Azure Storage 계정에 액세스하기 위한 구성을 입력합니다.
 

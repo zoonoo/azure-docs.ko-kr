@@ -23,7 +23,7 @@ ms.locfileid: "53100024"
 
 * Microsoft 피어링에 연결하려면 NAT를 설정하고 관리해야 합니다. 연결 공급자에서 NAT를 관리 서비스로 설정하고 관리할 수 있습니다. Microsoft 피어링에서 Azure PaaS 및 Azure SaaS 서비스에 액세스하려는 경우 NAT IP 풀의 크기를 올바르게 조정해야 합니다. ExpressRoute용 NAT에 대한 자세한 내용은 [Microsoft 피어링에 대한 NAT 요구 사항](expressroute-nat.md#nat-requirements-for-microsoft-peering)을 참조하세요.
 
-* 공용 피어링을 사용하고 있고 현재 [Azure Storage](../storage/common/storage-network-security.md)나 [Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md)에 액세스하는 데 사용되는 공용 IP 주소에 대한 IP 네트워크 규칙이 있는 경우, Microsoft 피어링으로 구성된 NAT IP 풀이 Azure 저장소 계정 또는 Azure SQL 계정의 공용 IP 주소 목록에 포함되어 있는지 확인해야 합니다.
+* 공용 피어링을 사용하고 있고 현재 [Azure Storage](../storage/common/storage-network-security.md)나 [Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md)에 액세스하는 데 사용되는 공용 IP 주소에 대한 IP 네트워크 규칙이 있는 경우, Microsoft 피어링으로 구성된 NAT IP 풀이 Azure 스토리지 계정 또는 Azure SQL 계정의 공용 IP 주소 목록에 포함되어 있는지 확인해야 합니다.
 
 * 가동 중지 없이 Microsoft 피어링으로 이동하려면 이 문서의 단계를 제시된 순서대로 사용하십시오.
 

@@ -25,7 +25,7 @@ DistCp는 다양한 명령줄 매개 변수를 제공하며, 이 도구의 사�
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Data Lake Storage Gen2 미리 보기 기능(계층 구조 네임스페이스)을 사용하도록 설정되지 않은 기존 Azure Storage 계정**
-* **Data Lake Storage Gen2(미리 보기) 기능을 사용하는 Azure Storage 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen2 미리 보기 저장소 계정 만들기](data-lake-storage-quickstart-create-account.md)를 참조하세요.
+* **Data Lake Storage Gen2(미리 보기) 기능을 사용하는 Azure Storage 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen2 미리 보기 스토리지 계정 만들기](data-lake-storage-quickstart-create-account.md)를 참조하세요.
 * 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정에 만든 **파일 시스템**
 * Data Lake Storage Gen2를 사용하는 스토리지 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](data-lake-storage-use-hdi-cluster.md)을 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
 
@@ -51,7 +51,7 @@ HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터로 �
 
         hadoop distcp wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder
 
-    이 명령은 Blob 저장소에 있는 **/example/data/gutenberg/** 폴더의 콘텐츠를 Data Lake Storage 계정의 **/myfolder** 폴더에 복사합니다.
+    이 명령은 Blob 스토리지에 있는 **/example/data/gutenberg/** 폴더의 콘텐츠를 Data Lake Storage 계정의 **/myfolder** 폴더에 복사합니다.
 
 5. 마찬가지로 DistCp를 사용하여 데이터를 Data Lake Storage 계정에서 Blob Storage(WASB)로 복사합니다.
 

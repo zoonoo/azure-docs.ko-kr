@@ -39,7 +39,7 @@ ms.locfileid: "54001889"
 2. 앱을 게시하고 Application Insights 리소스에 표시되는 원격 분석 데이터를 확인합니다.
 
 ## <a name="create-storage-in-azure"></a>Azure에서 저장소 만들기
-연속 내보내기는 항상 Azure Storage 계정에 데이터를 출력하므로 저장소를 먼저 만들어야 합니다.
+연속 내보내기는 항상 Azure Storage 계정에 데이터를 출력하므로 스토리지를 먼저 만들어야 합니다.
 
 1. [Azure Portal][portal]에서 구독에 저장소 계정을 만듭니다.
    

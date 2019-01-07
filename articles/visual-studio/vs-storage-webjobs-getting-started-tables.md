@@ -63,7 +63,7 @@ Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 �
             public string Name { get; set; }
         }
 
-Azure 저장소 API로 직접 작업하려는 경우 메서드 서명에 **CloudStorageAccount** 매개 변수를 추가할 수 있습니다.
+Azure 스토리지 API로 직접 작업하려는 경우 메서드 서명에 **CloudStorageAccount** 매개 변수를 추가할 수 있습니다.
 
 ## <a name="real-time-monitoring"></a>실시간 모니터링
 데이터 수신 함수는 많은 양의 데이터를 처리하는 경우가 많기 때문에 WebJobs SDK 대시보드에서는 실시간 모니터링 데이터를 제공합니다. **호출 로그** 섹션에 함수가 여전히 실행 중인지 표시됩니다.

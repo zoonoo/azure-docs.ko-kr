@@ -168,7 +168,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    ![HDInsight 연결된 서비스 설정](./media/tutorial-transform-data-spark-portal/azure-hdinsight-linked-service-settings.png)
 
 > [!NOTE]
-> Azure HDInsight는 지원하는 각 Azure 지역에서 사용할 수 있는 총 코어 수를 제한합니다. 주문형 HDInsight 연결된 서비스의 경우 HDInsight 클러스터는 기본 저장소로 사용되는 Azure Storage와 동일한 위치에 만들어집니다. 클러스터를 성공적으로 만드는 데 충분한 코어 할당량이 있는지 확인합니다. 자세한 내용은 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터 설정](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요. 
+> Azure HDInsight는 지원하는 각 Azure 지역에서 사용할 수 있는 총 코어 수를 제한합니다. 주문형 HDInsight 연결된 서비스의 경우 HDInsight 클러스터는 기본 스토리지로 사용되는 Azure Storage와 동일한 위치에 만들어집니다. 클러스터를 성공적으로 만드는 데 충분한 코어 할당량이 있는지 확인합니다. 자세한 내용은 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터 설정](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요. 
 
 ## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
 

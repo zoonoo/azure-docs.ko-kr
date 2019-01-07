@@ -28,7 +28,7 @@ ms.locfileid: "43125467"
 ## <a name="prerequisites"></a>필수 조건
 
 - **SQL Server**. 이 샘플에서는 온-프레미스 SQL Server 데이터베이스를 **원본** 데이터 저장소로 사용합니다.
-- **Azure Storage 계정**. 이 샘플에서는 Azure Blob Storage를 **대상/싱크** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
+- **Azure Storage 계정**. 이 샘플에서는 Azure Blob Storage를 **대상/싱크** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
 - **자체 호스팅 통합 런타임**. [다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 MSI 파일을 다운로드하고 실행하여 컴퓨터에 자체 호스팅 통합 런타임을 설치합니다.  
 
 ### <a name="create-sample-database-in-sql-server"></a>SQL Server에서 샘플 데이터베이스 만들기

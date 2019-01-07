@@ -94,7 +94,7 @@ Azure Portal에 최근에 추가된 또 다른 방법을 사용하면 새 모듈
 - `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` 의 모듈 폴더를 임시 폴더에 복사
 - 주 폴더에서 샘플 및 설명서 삭제
 - 주 폴더를 압축하고 ZIP 파일 이름을 폴더와 정확히 같게 지정 
-- ZIP 파일을 Azure Storage 계정의 Blob 저장소와 같은 연결할 수 있는 HTTP 위치에 배치합니다.
+- ZIP 파일을 Azure Storage 계정의 Blob 스토리지와 같은 연결할 수 있는 HTTP 위치에 배치합니다.
 - 이 PowerShell 실행:
 
   ```powershell

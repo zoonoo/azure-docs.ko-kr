@@ -214,7 +214,7 @@ title = MSFT_TEST_636573304831318844
 
  **Azure 테이블/Azure Blob을 리드 대상으로 구성했습니다. 리드를 보려면 어떻게 해야 하나요?** 
 
-Azure Portal에서 Blob 또는 테이블에 액세스하거나 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 무료로 다운로드한 후 설치하여 Azure 저장소 계정의 테이블/Blob을 볼 수 있습니다. 
+Azure Portal에서 Blob 또는 테이블에 액세스하거나 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 무료로 다운로드한 후 설치하여 Azure 스토리지 계정의 테이블/Blob을 볼 수 있습니다. 
 
 
 **Azure 테이블을 리드 대상으로 구성했습니다. Marketplace에서 새 리드를 보낼 때마다 알림을 받을 수 있나요?** 

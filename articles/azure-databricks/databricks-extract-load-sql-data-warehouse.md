@@ -21,7 +21,7 @@ ms.locfileid: "53413679"
 
 이 자습서에서는 Azure Databricks를 사용하여 ETL(추출, 변환 및 데이터 로드) 작업을 수행합니다. Azure Data Lake Store에서 Azure Databricks로 데이터를 추출하고, Azure Databricks에서 데이터를 변환한 다음, Azure SQL Data Warehouse로 데이터를 로드합니다.
 
-이 자습서의 단계에서는 Azure Databricks용 SQL Data Warehouse 커넥터를 사용하여 Azure Databricks로 데이터를 전송합니다. 그러면 이 커넥터는 Azure Blob Storage를 Azure Databricks 클러스터와 Azure SQL Data Warehouse 간에 전송되는 데이터의 임시 저장소로 사용합니다.
+이 자습서의 단계에서는 Azure Databricks용 SQL Data Warehouse 커넥터를 사용하여 Azure Databricks로 데이터를 전송합니다. 그러면 이 커넥터는 Azure Blob Storage를 Azure Databricks 클러스터와 Azure SQL Data Warehouse 간에 전송되는 데이터의 임시 스토리지로 사용합니다.
 
 다음 그림에서는 애플리케이션 흐름을 보여줍니다.
 

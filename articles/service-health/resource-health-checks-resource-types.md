@@ -124,7 +124,7 @@ ms.locfileid: "53163041"
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 |실행된 검사|
 |---|
-|<ul><li>Azure Storage 플랫폼 문제로 인해 저장소 계정에서 데이터를 읽는 요청이 실패하는가?</li><li>Azure Storage 플랫폼 문제로 인해 저장소 계정에 데이터를 쓰는 요청이 실패하는가?</li><li>저장소 계정이 있는 저장소 클러스터를 사용할 수 없는가?</li></ul>|
+|<ul><li>Azure Storage 플랫폼 문제로 인해 스토리지 계정에서 데이터를 읽는 요청이 실패하는가?</li><li>Azure Storage 플랫폼 문제로 인해 스토리지 계정에 데이터를 쓰는 요청이 실패하는가?</li><li>저장소 계정이 있는 저장소 클러스터를 사용할 수 없는가?</li></ul>|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 |실행된 검사|

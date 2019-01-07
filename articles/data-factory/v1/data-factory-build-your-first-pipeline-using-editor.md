@@ -321,7 +321,7 @@ ms.locfileid: "45732229"
 
     JSON 코드 조각에서 Hive를 사용하여 HDInsight 클러스터에서 데이터를 처리하는 단일 작업으로 구성되는 파이프라인을 만듭니다.
 
-    Hive 스크립트 파일 **partitionweblogs.hql**은 저장소 계정(**AzureStorageLinkedService**이라고 하는 scriptLinkedService에 의해 지정됨)에 저장됩니다. 컨테이너 **adfgetstarted**의 **스크립트** 폴더에서 찾을 수 있습니다.
+    Hive 스크립트 파일 **partitionweblogs.hql**은 스토리지 계정(**AzureStorageLinkedService**이라고 하는 scriptLinkedService에 의해 지정됨)에 저장됩니다. 컨테이너 **adfgetstarted**의 **스크립트** 폴더에서 찾을 수 있습니다.
 
     **defines** 섹션은 Hive 스크립트에 Hive 구성 값으로 전달되는 런타임 설정을 지정하는 데 사용됩니다. 예는 ${hiveconf:inputtable} 및 ${hiveconf:partitionedtable}입니다.
 

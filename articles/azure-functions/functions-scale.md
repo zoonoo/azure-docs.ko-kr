@@ -97,11 +97,11 @@ Always On이 설정된 경우에도 개별 함수의 실행 시간 초과는 [ho
 
 ## <a name="storage-account-requirements"></a>Storage 계정 요구 사항
 
-소비 계획 또는 App Service 계획에서 함수 앱을 사용하려면 Azure Blob, Queue, Files 및 Table 저장소를 지원하는 일반 Azure Storage 계정이 필요합니다. Functions는 트리거 관리 및 함수 실행 기록과 같은 작업에 Azure Storage를 사용하지만 일부 저장소 계정은 큐와 테이블을 지원하지 않기 때문입니다. Blob 전용 저장소 계정(Premium Storage 포함) 및 영역 중복 저장소 복제가 사용되는 범용 저장소 계정을 포함한 계정은 함수 앱을 만들 때 기존 **저장소 계정** 선택 항목에서 필터링됩니다.
+소비 계획 또는 App Service 계획에서 함수 앱을 사용하려면 Azure Blob, Queue, Files 및 Table 스토리지를 지원하는 일반 Azure Storage 계정이 필요합니다. Functions는 트리거 관리 및 함수 실행 기록과 같은 작업에 Azure Storage를 사용하지만 일부 스토리지 계정은 큐와 테이블을 지원하지 않기 때문입니다. Blob 전용 스토리지 계정(Premium Storage 포함) 및 영역 중복 스토리지 복제가 사용되는 범용 스토리지 계정을 포함한 계정은 함수 앱을 만들 때 기존 **스토리지 계정** 선택 항목에서 필터링됩니다.
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
-저장소 계정 유형에 대해 자세히 알아보려면 [Azure Storage 서비스 소개](../storage/common/storage-introduction.md#azure-storage-services)를 참조하세요.
+스토리지 계정 유형에 대해 자세히 알아보려면 [Azure Storage 서비스 소개](../storage/common/storage-introduction.md#azure-storage-services)를 참조하세요.
 
 ## <a name="how-the-consumption-plan-works"></a>소비 계획의 작동 원리
 

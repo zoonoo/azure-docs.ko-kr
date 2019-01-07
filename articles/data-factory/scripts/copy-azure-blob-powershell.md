@@ -26,7 +26,7 @@ ms.locfileid: "43127040"
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="prerequisites"></a>필수 조건
-* **Azure Storage 계정**. Blob 저장소를 **원본** 및 **싱크** 데이터 저장소 모두로 사용합니다. Azure Storage 계정이 없는 경우 [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하여 하나 만듭니다. 
+* **Azure Storage 계정**. Blob 저장소를 **원본** 및 **싱크** 데이터 저장소 모두로 사용합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하여 하나 만듭니다. 
 * Blob Storage에 **Blob 컨테이너**를 만들고 컨테이너에 입력 **폴더**를 만들고 폴더에 일부 파일을 업로드합니다. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용하여 Azure Blob Storage에 연결, Blob 컨테이너 만들기, 입력 파일 업로드 및 출력 파일 확인을 수행할 수 있습니다.
 
 ## <a name="sample-script"></a>샘플 스크립트

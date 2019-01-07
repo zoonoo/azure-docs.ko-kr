@@ -27,7 +27,7 @@ ms.locfileid: "49639400"
 
 ## <a name="how-do-you-create-a-vm-from-the-azure-portal-using-the-vhd-that-is-uploaded-to-premium-storage"></a>Premium Storage에 업로드된 VHD를 사용하여 Azure Portal에서 VM을 만들려면 어떻게 해야 하나요?
 
-현재 Azure Marketplace는 관리되는 저장소 또는 Azure Premium Storage에 있는 이미지에서 VM 제안을 만들도록 지원하지 않습니다.  이러한 저장소 계정 옵션에 대한 자세한 내용은 [Azure Managed Disks 개요](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) 및 [VM의 고성능 Premium Storage 및 관리 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)를 참조하세요.
+현재 Azure Marketplace는 관리되는 스토리지 또는 Azure Premium Storage에 있는 이미지에서 VM 제안을 만들도록 지원하지 않습니다.  이러한 스토리지 계정 옵션에 대한 자세한 내용은 [Azure Managed Disks 개요](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) 및 [VM의 고성능 Premium Storage 및 관리 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)를 참조하세요.
 
 
 ## <a name="can-you-use-generation-2-vms-for-offers"></a>2세대 VM은 제안에 사용할 수 있나요?

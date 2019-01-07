@@ -1,5 +1,5 @@
 ---
-title: Blob Storage 소개 - Azure의 개체 저장소
+title: Blob Storage 소개 - Azure의 개체 스토리지
 description: Azure Blob Storage는 텍스트 또는 이진 데이터와 같이 구조화되지 않은 대량의 개체 데이터를 저장합니다. Azure Blob Storage는 확장성이 뛰어나고 항상 사용 가능합니다. 클라이언트는 PowerShell 또는 Azure CLI에서, Azure Storage 클라이언트 라이브러리를 통해 프로그래밍 방식으로 또는 REST를 사용하여 Blob Storage의 데이터 개체에 액세스할 수 있습니다.
 services: storage
 author: tamram
@@ -33,7 +33,7 @@ Blob Storage는 다음 세 가지 유형의 리소스를 제공합니다.
 
 ### <a name="storage-accounts"></a>Storage 계정
 
-저장소 계정은 데이터에 대해 Azure에서 고유의 네임스페이스를 제공합니다. Azure Storage 계정에 저장한 모든 개체는 고유 계정 이름을 포함하는 주소를 갖습니다. 계정 이름과 Azure Storage 서비스 엔드포인트의 조합이 저장소 계정의 엔드포인트가 됩니다.
+저장소 계정은 데이터에 대해 Azure에서 고유의 네임스페이스를 제공합니다. Azure Storage 계정에 저장한 모든 개체는 고유 계정 이름을 포함하는 주소를 갖습니다. 계정 이름과 Azure Storage 서비스 엔드포인트의 조합이 스토리지 계정의 엔드포인트가 됩니다.
 
 예를 들어 스토리지 계정의 이름이 *mystorageaccount*일 경우 Blob Storage의 기본 엔드포인트는 다음과 같습니다.
 

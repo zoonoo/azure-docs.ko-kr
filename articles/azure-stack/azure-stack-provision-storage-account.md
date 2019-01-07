@@ -21,7 +21,7 @@ ms.lasthandoff: 11/07/2018
 ms.locfileid: "51235346"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Azure Stack의 Storage 계정
-Storage 계정에는 Blob 및 Table service, 그리고 저장소 데이터 개체에 대한 고유한 네임스페이스가 있습니다. 기본적으로 계정에 대한 데이터는 저장소 계정 소유자에만 사용할 수 있습니다.
+Storage 계정에는 Blob 및 Table service, 그리고 스토리지 데이터 개체에 대한 고유한 네임스페이스가 있습니다. 기본적으로 계정에 대한 데이터는 저장소 계정 소유자에만 사용할 수 있습니다.
 
 1. Azure Stack POC 컴퓨터에 로그인 `https://adminportal.local.azurestack.external` 으로 [관리자로](azure-stack-connect-azure-stack.md)를 클릭 하 고 **+ 리소스 만들기** > **데이터 + 저장소**  >  **저장소 계정**합니다.
 

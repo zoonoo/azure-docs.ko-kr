@@ -66,7 +66,7 @@ Azure Batch는 태스크 출력을 유지하는 한 가지 이상의 방법을 �
 
 파일 규칙 라이브러리를 사용하여 작업 및 태스크 출력 데이터를 유지하려면 Azure Storage에 컨테이너를 만든 다음 출력을 컨테이너에 저장합니다. 태스크 코드에서 [.NET용 Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage)를 사용하여 태스크 출력을 컨테이너에 업로드합니다. 
 
-Azure Storage의 컨테이너와 Blob 사용에 대한 자세한 내용은 [.NET을 사용하여 Azure Blob 저장소 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요.
+Azure Storage의 컨테이너와 Blob 사용에 대한 자세한 내용은 [.NET을 사용하여 Azure Blob 스토리지 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요.
 
 > [!WARNING]
 > 파일 규칙 라이브러리를 사용하여 유지되는 모든 작업 및 태스크 출력은 동일한 컨테이너에 저장됩니다. 많은 수의 태스크에서 동시에 파일을 유지하려고 시도하면 [저장소 제한](../storage/common/storage-performance-checklist.md#blobs)이 적용될 수 있습니다.

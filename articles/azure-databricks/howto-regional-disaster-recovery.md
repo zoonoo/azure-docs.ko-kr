@@ -27,7 +27,7 @@ Azure Databricks는 빠르고 쉬운 공동 작업 Apache Spark 기반 분석 �
 
 ## <a name="azure-databricks-architecture"></a>Azure Databricks 아키텍처
 
-간략하게 설명하자면, Azure Portal에서 Azure Databricks 작업 영역을 만들면 선택한 Azure 지역(예: 미국 서부)에 [관리되는 어플라이언스](../managed-applications/overview.md)가 구독의 Azure 리소스로 배포됩니다. 이 어플라이언스는 구독에서 사용할 수 있는 [네트워크 보안 그룹](../virtual-network/manage-network-security-group.md) 및 Azure Storage 계정을 사용하여 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)에 배포됩니다. 가상 네트워크는 Databricks 작업 영역에 경계 수준 보안을 제공하며 네트워크 보안 그룹을 통해 보호됩니다. 작업 영역 내에서, 작업자 및 드라이버 VM 유형과 Databricks 런타임 버전을 제공하여 Databricks 클러스터를 만들 수 있습니다. 지속형 데이터는 저장소 계정에서 사용할 수 있으며, 저장소 계정은 Azure Blob Storage 또는 Azure Data Lake Store입니다. 클러스터가 만들어지면 작업을 특정 클러스터에 연결하여 노트북, REST API, ODBC/JDBC 엔드포인트를 통해 작업을 실행할 수 있습니다.
+간략하게 설명하자면, Azure Portal에서 Azure Databricks 작업 영역을 만들면 선택한 Azure 지역(예: 미국 서부)에 [관리되는 어플라이언스](../managed-applications/overview.md)가 구독의 Azure 리소스로 배포됩니다. 이 어플라이언스는 구독에서 사용할 수 있는 [네트워크 보안 그룹](../virtual-network/manage-network-security-group.md) 및 Azure Storage 계정을 사용하여 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)에 배포됩니다. 가상 네트워크는 Databricks 작업 영역에 경계 수준 보안을 제공하며 네트워크 보안 그룹을 통해 보호됩니다. 작업 영역 내에서, 작업자 및 드라이버 VM 유형과 Databricks 런타임 버전을 제공하여 Databricks 클러스터를 만들 수 있습니다. 지속형 데이터는 스토리지 계정에서 사용할 수 있으며, 스토리지 계정은 Azure Blob Storage 또는 Azure Data Lake Store입니다. 클러스터가 만들어지면 작업을 특정 클러스터에 연결하여 노트북, REST API, ODBC/JDBC 엔드포인트를 통해 작업을 실행할 수 있습니다.
 
 Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모니터링합니다. 클러스터 만들기 같은 관리 작업은 제어 평면에서 시작됩니다. 예약된 작업 같은 모든 메타데이터는 내결함성을 위해 지역 복제 기능을 갖춘 Azure Database에 저장됩니다.
 
@@ -43,7 +43,7 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
 
    1. 별도의 Azure 지역에 여러 Azure Databricks 작업 영역을 프로비전합니다. 예를 들어 미국 동부 2에 기본 Azure Databricks 작업 영역을 만듭니다. 미국 서부 같은 별도의 지역에 보조 재해 복구 Azure Databricks 작업 영역을 만듭니다.
 
-   2. [지역 중복 저장소](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)를 사용합니다. Azure Databricks와 연결된 데이터는 기본적으로 Azure Storage에 저장됩니다. 또한 Databricks 작업의 결과가 기본적으로 Azure Blob Storage에 저장되므로, 처리된 데이터는 클러스터가 종료된 후에도 내구성과 고가용성을 유지합니다. Storage 및 Databricks 클러스터가 같이 배치되므로 기본 지역에 더 이상 액세스할 수 없을 때 보조 지역에서 데이터에 액세스할 수 있도록 지역 중복 저장소를 사용해야 합니다.
+   2. [지역 중복 저장소](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)를 사용합니다. Azure Databricks와 연결된 데이터는 기본적으로 Azure Storage에 저장됩니다. 또한 Databricks 작업의 결과가 기본적으로 Azure Blob Storage에 저장되므로, 처리된 데이터는 클러스터가 종료된 후에도 내구성과 고가용성을 유지합니다. Storage 및 Databricks 클러스터가 같이 배치되므로 기본 지역에 더 이상 액세스할 수 없을 때 보조 지역에서 데이터에 액세스할 수 있도록 지역 중복 스토리지를 사용해야 합니다.
 
    3. 보조 지역을 만든 후에는 사용자, 사용자 폴더, 노트북, 클러스터 구성, 작업 구성, 라이브러리, 저장소, init 스크립트를 마이그레이션하고 액세스 제어를 다시 구성해야 합니다. 자세한 내용은 다음 섹션에 나와 있습니다.
 

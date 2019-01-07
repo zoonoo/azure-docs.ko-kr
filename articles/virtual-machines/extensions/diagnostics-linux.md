@@ -388,7 +388,7 @@ minSeverity | syslog 심각도 수준입니다(예: "LOG\_ERR" 또는 "LOG\_INFO
 ------- | -----
 namespace | (선택 사항) 실행해야 할 쿼리 내의 OMI 네임스페이스입니다. 지정되지 않은 경우 기본값은 [System Center 플랫폼 간 공급자](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation)가 구현한 "root/scx"입니다.
 쿼리 | 실행될 OMI 쿼리입니다.
-테이블 | (선택 사항) 지정된 저장소 계정의 Azure Storage 테이블입니다([보호 설정](#protected-settings) 참조).
+테이블 | (선택 사항) 지정된 스토리지 계정의 Azure Storage 테이블입니다([보호 설정](#protected-settings) 참조).
 frequency | (선택 사항) 쿼리 실행 간격(초)입니다. 기본값은 300(5분)이고 최소값은 15초입니다.
 sinks | (선택 사항) 원시 샘플 메트릭 결과가 게시되어야 하는 쉼표로 구분된 추가 싱크 이름 목록입니다. 이러한 원시 샘플의 집계는 확장 또는 Azure Metrics에서 계산되지 않습니다.
 
@@ -411,7 +411,7 @@ sinks | (선택 사항) 원시 샘플 메트릭 결과가 게시되어야 하는
 요소 | 값
 ------- | -----
 file | 확인 및 캡처할 로그 파일의 전체 경로 이름입니다. 경로 이름은 단일 파일의 이름을 지정해야 합니다. 디렉터리 이름을 지정하거나 와일드카드를 포함할 수 없습니다.
-테이블 | (선택 사항) 보호되는 구성에서 지정된 대로, 파일의 “끝"에서 새 줄이 작성되고 지정된 저장소 계정의 Azure Storage 테이블입니다.
+테이블 | (선택 사항) 보호되는 구성에서 지정된 대로, 파일의 “끝"에서 새 줄이 작성되고 지정된 스토리지 계정의 Azure Storage 테이블입니다.
 sinks | (선택 사항) 로그 줄이 전송되는 쉼표로 구분된 추가 싱크 이름 목록입니다.
 
 "table"이나 "sinks" 또는 둘 다 지정해야 합니다.

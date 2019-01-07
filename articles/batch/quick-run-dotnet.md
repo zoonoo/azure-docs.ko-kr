@@ -113,7 +113,7 @@ stderr:
 
 ### <a name="preliminaries"></a>준비 단계
 
-저장소 계정과 상호 작용하기 위해 앱에서 .NET용 Azure Storage 클라이언트 라이브러리를 사용합니다. [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount)를 사용하여 계정에 대한 참조를 만들고, 이 참조로부터 [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient)를 만듭니다.
+스토리지 계정과 상호 작용하기 위해 앱에서 .NET용 Azure Storage 클라이언트 라이브러리를 사용합니다. [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount)를 사용하여 계정에 대한 참조를 만들고, 이 참조로부터 [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient)를 만듭니다.
 
 ```csharp
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();

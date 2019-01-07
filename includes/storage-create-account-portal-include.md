@@ -39,4 +39,4 @@ Azure Portal에서 범용 v2 저장소 계정을 만들려면 다음 단계를 �
 1. **검토 + 만들기**를 선택하여 저장소 계정 설정을 검토하고 계정을 만듭니다.
 1. **만들기**를 선택합니다.
 
-저장소 계정 유형 및 기타 저장소 계정 설정에 대한 자세한 내용은 [Azure Storage 계정 개요](https://docs.microsoft.com/azure/storage/common/storage-account-overview)를 참조하세요. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 참조하세요. 
+스토리지 계정 유형 및 기타 스토리지 계정 설정에 대한 자세한 내용은 [Azure Storage 계정 개요](https://docs.microsoft.com/azure/storage/common/storage-account-overview)를 참조하세요. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 참조하세요. 

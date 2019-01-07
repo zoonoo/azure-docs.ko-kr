@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 * Azure에 [HDInsights Spark 클러스터](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal)가 만들어져 있습니다.
 * Azure 저장소 계정.
 * Workbench에서 새 프로젝트는 만드는 방법에 익숙해야 합니다.
-* 필수는 아니지만, [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 설치하면 저장소 계정에서 BLOB을 업로드, 다운로드 및 확인할 수 있으므로 유용합니다.
+* 필수는 아니지만, [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 설치하면 스토리지 계정에서 BLOB을 업로드, 다운로드 및 확인할 수 있으므로 유용합니다.
 
 ## <a name="data-acquisition"></a>데이터 취득
 이 자습서에서는 [Boston Hubway 데이터 세트](https://s3.amazonaws.com/hubway-data/index.html) 및 [NOAA](http://www.noaa.gov/)의 보스턴 날씨 데이터를 사용합니다.

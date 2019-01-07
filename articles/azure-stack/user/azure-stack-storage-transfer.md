@@ -307,7 +307,7 @@ Microsoft Azure storage 탐색기는 Microsoft의 독립 실행형 앱입니다.
 
 ## <a name="blobfuse"></a>Blobfuse 
 
-[blobfuse](https://github.com/Azure/azure-storage-fuse)는 Azure Blob Storage용 가상 파일 시스템 드라이버로, Linux 파일 시스템을 통해 Storage 계정의 기존 블록 Blob 데이터에 액세스할 수 있습니다. Azure Blob Storage는 개체 저장소 서비스이므로 계층 구조 네임스페이스가 없습니다. Blobfuse는 슬래시를 사용 하 여 가상 direcectory 체계를 사용 하 여이 네임 스페이스를 제공 `/` 를 구분 합니다. Blobfuse는 Azure 및 Azure Stack에서 작동합니다. 
+[blobfuse](https://github.com/Azure/azure-storage-fuse)는 Azure Blob Storage용 가상 파일 시스템 드라이버로, Linux 파일 시스템을 통해 Storage 계정의 기존 블록 Blob 데이터에 액세스할 수 있습니다. Azure Blob Storage는 개체 스토리지 서비스이므로 계층 구조 네임스페이스가 없습니다. Blobfuse는 슬래시를 사용 하 여 가상 direcectory 체계를 사용 하 여이 네임 스페이스를 제공 `/` 를 구분 합니다. Blobfuse는 Azure 및 Azure Stack에서 작동합니다. 
 
 Linux에 Blobfuse 사용 하 여 파일 시스템으로 Blob storage를 탑재 하는 방법에 대 한 자세한 내용은 참조 하세요 [Blobfuse 사용 하 여 Blob 저장소 파일 시스템으로 탑재 하는 방법을](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)합니다. 
 

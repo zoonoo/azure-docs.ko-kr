@@ -38,7 +38,7 @@ Azure에서 여러 표준 크기를 선택할 수 있습니다. 이러한 크기
 * 다양한 하드웨어 유형 및 프로세서에 A 시리즈 VM을 배포할 수 있습니다. 배포된 하드웨어에 관계없이 인스턴스 실행 시 일관된 프로세서 성능을 제공하기 위해 하드웨어에 따라 크기가 제한됩니다. 이 크기가 배포되는 실제 하드웨어를 확인하려면 Virtual Machine 내에서 가상 하드웨어를 쿼리합니다.
 * A0 크기는 실제 하드웨어에서 과도하게 구독됩니다. 이 특정 크기만 다른 고객 배포가 실행 중인 워크로드의 성능에 영향을 줄 수 있습니다. 상대적인 성능은 예상 기준으로 아래에 대략적으로 나와 있으며 약 15%의 변동성이 적용됩니다.
 
-가상 컴퓨터의 크기는 가격 산정에 영향을 줍니다. 크기는 가상 컴퓨터의 처리, 메모리 및 저장소 용량에 영향을 줍니다. 저장소 비용은 Storage 계정에 사용된 페이지에 따라 개별적으로 계산됩니다. 자세한 내용은 [Cloud Services 가격 세부 정보](https://azure.microsoft.com/pricing/details/cloud-services/) 및 [Azure Storage 가격](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
+가상 컴퓨터의 크기는 가격 산정에 영향을 줍니다. 크기는 가상 컴퓨터의 처리, 메모리 및 저장소 용량에 영향을 줍니다. 스토리지 비용은 Storage 계정에 사용된 페이지에 따라 개별적으로 계산됩니다. 자세한 내용은 [Cloud Services 가격 세부 정보](https://azure.microsoft.com/pricing/details/cloud-services/) 및 [Azure Storage 가격](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
 
 다음 고려 사항이 크기를 결정하는 데 도움이 될 수 있습니다.
 

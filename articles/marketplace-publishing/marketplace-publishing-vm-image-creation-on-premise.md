@@ -113,11 +113,11 @@ VHD를 미국의 지역에 있는 저장소 계정에 업로드하는 것이 좋
   ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
 
 ### <a name="create-a-storage-account-by-using-powershell"></a>PowerShell을 사용하여 저장소 계정 만들기
-PowerShell을 사용하여 [New-AzureStorageAccount](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azurestorageaccount) cmdlet를 사용 저장소 계정을 만듭니다.
+PowerShell을 사용하여 [New-AzureStorageAccount](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azurestorageaccount) cmdlet를 사용 스토리지 계정을 만듭니다.
 
         New-AzureStorageAccount -StorageAccountName “mystorageaccount” -Location “West US”
 
-그 후 [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) cmdlet를 사용하여 해당 저장소 계정 내에 컨테이너를 만들 수 있습니다.
+그 후 [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) cmdlet를 사용하여 해당 스토리지 계정 내에 컨테이너를 만들 수 있습니다.
 
         New-AzureStorageContainer -Name “containername” -Permission “Off”
 

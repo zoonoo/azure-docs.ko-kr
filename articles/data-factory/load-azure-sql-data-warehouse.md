@@ -41,7 +41,7 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
 * Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * Azure SQL Data Warehouse: 데이터 웨어하우스에는 SQL 데이터베이스에서 복사된 데이터를 보관하고 있습니다. Azure SQL Data Warehouse가 아직 없는 경우 [SQL Data Warehouse 만들기](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md)의 지침을 참조하세요.
 * Azure SQL Database: 이 자습서는 Adventure Works LT 샘플 데이터가 포함된 Azure SQL 데이터베이스에서 데이터를 복사합니다. [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)의 지침을 따라 SQL 데이터베이스를 만들 수 있습니다. 
-* Azure 저장소 계정: Azure Storage는 대량 복사 작업에서 _스테이징_ Blob으로 사용됩니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)의 지침을 참조하세요.
+* Azure 스토리지 계정: Azure Storage는 대량 복사 작업에서 _스테이징_ Blob으로 사용됩니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)의 지침을 참조하세요.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 

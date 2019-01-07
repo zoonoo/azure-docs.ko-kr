@@ -213,7 +213,7 @@ Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만�
     ```
 
     > [!NOTE]
-    > 이 예제에서는 Azure Storage가 클러스터에 대한 기본 저장소라고 가정합니다. 클러스터가 Data Lake Storage를 대신 사용하는 경우 `wasb:///` 값을 `adl:///`로 변경합니다.
+    > 이 예제에서는 Azure Storage가 클러스터에 대한 기본 스토리지라고 가정합니다. 클러스터가 Data Lake Storage를 대신 사용하는 경우 `wasb:///` 값을 `adl:///`로 변경합니다.
 
 3. UDF를 사용하여 검색한 값을 테이블에서 소문자 문자열로 변환합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Blob Storage 소개 - Azure의 개체 저장소
+title: Blob Storage 소개 - Azure의 개체 스토리지
 description: Azure Blob Storage는 텍스트 또는 이진 데이터와 같이 구조화되지 않은 대량의 개체 데이터를 저장합니다. Blob Storage는 빅 데이터 분석을 위한 Azure Data Lake Storage Gen2도 지원합니다.
 services: storage
 author: tamram

@@ -37,7 +37,7 @@ Azure Table 저장소에는 개발에 사용할 수 있는 다음과 같은 SDK�
 
 - [WindowsAzure.Storage .NET SDK](https://www.nuget.org/packages/WindowsAzure.Storage/). 이 라이브러리를 통해 저장소 Table 서비스를 사용할 수 있습니다.
 - [Python SDK](table-sdk-python.md). Python용 Azure Cosmos DB Table SDK도 저장소 Table 서비스를 지원합니다.
-- [Java용 Azure Storage SDK](https://github.com/azure/azure-storage-java). 이 Azure Storage SDK는 Java에서 Azure Table 저장소를 사용하기 위한 클라이언트 라이브러리를 제공합니다.
+- [Java용 Azure Storage SDK](https://github.com/azure/azure-storage-java). 이 Azure Storage SDK는 Java에서 Azure Table 스토리지를 사용하기 위한 클라이언트 라이브러리를 제공합니다.
 - [Node.js SDK](table-sdk-nodejs.md). 이 SDK는 저장소 Table 서비스를 사용하기 위한 Node.js 패키지 및 브라우저 호환 JavaScript 클라이언트 라이브러리를 제공합니다.
 - [AzureRmStorageTable PowerShell 모듈](https://www.powershellgallery.com/packages/AzureRmStorageTable/1.0.0.7). 이 PowerShell 모듈에는 저장소 테이블과 함께 작동하는 cmdlet이 있습니다.
 - [C++용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-cpp/). 이 라이브러리를 사용하면 Azure Storage에 애플리케이션을 빌드할 수 있습니다.

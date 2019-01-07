@@ -131,7 +131,7 @@ FROM HiveSampleIn Group by ProfileID
 1. 연결된 서비스를 만들어 [자체적인 HDInsight 컴퓨팅 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)를 등록하거나 [주문형 HDInsight 컴퓨팅 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 구성합니다. 이 연결된 서비스를 "HDInsightLinkedService"라고 하겠습니다.
 2. [연결된 서비스](data-factory-azure-blob-connector.md)를 만들어 데이터를 호스팅하는 Azure Blob 저장소에 연결을 구성합니다. 이 연결된 서비스를 "StorageLinkedService"라고 합니다.
 3. 입력 및 출력 데이터를 가리키는 [데이터 세트](data-factory-create-datasets.md)를 만듭니다. 입력 데이터 세트를 "HiveSampleIn"라고 하고 출력 데이터 세트를 "HiveSampleOut"라고 합니다.
-4. \#2단계에서 구성된 Azure Blob Storage에 Hive 쿼리를 파일로 복사합니다. 데이터를 호스팅하는 저장소가 이 쿼리 파일을 호스트하는 저장소와 다른 경우 서비스에 연결된 별도 Azure Storage를 만들고 작업에서 이를 참조합니다. **scriptPath**를 사용하여 hive 쿼리 파일에 대한 경로를 지정하고 **scriptLinkedService**를 사용하여 스크립트 파일을 포함하는 Azure 저장소를 지정합니다. 
+4. \#2단계에서 구성된 Azure Blob Storage에 Hive 쿼리를 파일로 복사합니다. 데이터를 호스팅하는 스토리지가 이 쿼리 파일을 호스트하는 스토리지와 다른 경우 서비스에 연결된 별도 Azure Storage를 만들고 작업에서 이를 참조합니다. **scriptPath**를 사용하여 hive 쿼리 파일에 대한 경로를 지정하고 **scriptLinkedService**를 사용하여 스크립트 파일을 포함하는 Azure 저장소를 지정합니다. 
    
    > [!NOTE]
    > **script** 속성을 사용하여 활동 정의에서 Hive 스크립트를 인라인으로 제공할 수도 있습니다. 이렇게 하면 JSON 문서 내의 스크립트 모든 특수 문자를 이스케이프 처리해야 하므로 디버그 관련 문제가 발생할 수 있기 때문에 이 방식은 사용하지 않는 것이 좋습니다. 모법 사례는 4단계를 수행하는 것입니다.

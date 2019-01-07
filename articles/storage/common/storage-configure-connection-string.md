@@ -32,14 +32,14 @@ Azure Storage에 대해 만들어진 요청 권한을 부여하려면 런타임�
 * Azure 클라우드 서비스에서 실행 중인 애플리케이션의 경우, 연결 문자열을 [Azure 서비스 구성 스키마(.cscfg) 파일](https://msdn.microsoft.com/library/ee758710.aspx)에 저장할 수 있습니다. 연결 문자열을 서비스 구성 파일의 **ConfigurationSettings** 섹션에 추가합니다.
 * 사용자 코드에서 직접 연결 문자열을 사용할 수 있습니다. 그러나 대부분의 시나리오에서 구성 파일에 연결 문자열을 저장하는 것이 좋습니다.
 
-사용자의 연결 문자열을 구성 파일에 저장하면 연결 문자열을 업데이트하여 저장소 에뮬레이터와 클라우드의 Azure Storage 계정 사이에 전환하기 쉽습니다. 대상 환경을 가리키도록 연결 문자열을 편집하기만 하면 됩니다.
+사용자의 연결 문자열을 구성 파일에 저장하면 연결 문자열을 업데이트하여 스토리지 에뮬레이터와 클라우드의 Azure Storage 계정 사이에 전환하기 쉽습니다. 대상 환경을 가리키도록 연결 문자열을 편집하기만 하면 됩니다.
 
 [Microsoft Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)를 사용하여 응용 프로그램이 실행 중인 위치와 상관없이 런타임에 사용자의 연결 문자열에 액세스할 수 있습니다.
 
 ## <a name="create-a-connection-string-for-the-storage-emulator"></a>저장소 에뮬레이터에 대한 연결 문자열 만들기
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
-저장소 에뮬레이터에 대한 자세한 내용은 [개발 및 테스트를 위한 Azure Storage 에뮬레이터 사용](storage-use-emulator.md)을 참조하세요.
+스토리지 에뮬레이터에 대한 자세한 내용은 [개발 및 테스트를 위한 Azure Storage 에뮬레이터 사용](storage-use-emulator.md)을 참조하세요.
 
 ## <a name="create-a-connection-string-for-an-azure-storage-account"></a>Azure Storage 계정에 대한 연결 문자열 만들기
 Azure Storage 계정에 연결 문자열을 만들려면 다음 형식을 사용 합니다. HTTPS(권장) 또는 HTTP를 통해 저장소 계정에 연결할지 여부를 나타내며, `myAccountName`을 저장소 계정의 이름으로 바꾸고, `myAccountKey`를 계정 액세스 키로 바꿉니다.

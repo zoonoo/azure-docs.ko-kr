@@ -250,7 +250,7 @@ EXIT /B %errorlevel%
 ## <a name="create-files-in-local-storage-from-a-startup-task"></a>시작 작업에서 로컬 저장소에 파일을 만듭니다.
 로컬 저장소 리소스를 사용하여 애플리케이션에 의해 나중에 액세스하는 시작 태스크에서 만든 파일을 저장할 수 있습니다.
 
-로컬 저장소 리소스를 만들려면 [LocalResources] 섹션을 [ServiceDefinition.csdef] 파일에 추가한 다음 [LocalStorage] 자식 요소를 추가합니다. 로컬 저장소 리소스에 고유한 이름을 부여하고 시작 작업에 대한 적절한 크기를 부여합니다.
+로컬 스토리지 리소스를 만들려면 [LocalResources] 섹션을 [ServiceDefinition.csdef] 파일에 추가한 다음 [LocalStorage] 자식 요소를 추가합니다. 로컬 저장소 리소스에 고유한 이름을 부여하고 시작 작업에 대한 적절한 크기를 부여합니다.
 
 시작 작업에서 로컬 저장소 리소스를 사용하려면 로컬 저장소 리소스 위치를 참조하는 환경 변수를 만들어야 합니다. 그러면 시작 태스크 및 애플리케이션이 로컬 저장소 리소스에 파일을 읽고 쓸 수 있게 됩니다.
 
@@ -278,7 +278,7 @@ EXIT /B %errorlevel%
 </ServiceDefinition>
 ```
 
-한 예로 이 **Startup.cmd** 배치 파일은 **PathToStartupStorage** 환경 변수를 사용하여 로컬 저장소 위치에 파일 **MyTest.txt**를 만듭니다.
+한 예로 이 **Startup.cmd** 배치 파일은 **PathToStartupStorage** 환경 변수를 사용하여 로컬 스토리지 위치에 파일 **MyTest.txt**를 만듭니다.
 
 ```cmd
 REM   Create a simple text file.

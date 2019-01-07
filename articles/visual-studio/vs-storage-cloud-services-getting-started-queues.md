@@ -30,7 +30,7 @@ ms.locfileid: "42144933"
 **연결된 서비스 추가** 작업은 프로젝트의 Azure 저장소에 액세스하는 데 적합한 NuGet 패키지를 설치하고 프로젝트 구성 파일에 저장소 계정에 대한 연결 문자열을 추가합니다.
 
 * 코드에서 큐를 조작하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Azure 큐 저장소 시작](../storage/queues/storage-dotnet-how-to-use-queues.md) 을 참조하세요.
-* Azure Storage에 대한 일반적인 내용은 [저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.
+* Azure Storage에 대한 일반적인 내용은 [스토리지 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.
 * Azure Cloud Services에 대한 일반적인 내용은 [Cloud Services 설명서](https://azure.microsoft.com/documentation/services/cloud-services/) 를 참조하세요.
 * ASP.NET 애플리케이션을 프로그래밍하는 방법에 대한 자세한 내용은 [ASP.NET](http://www.asp.net) 을 참조하세요.
 
@@ -44,7 +44,7 @@ Visual Studio Cloud Services 프로젝트의 큐에 액세스하려면 Azure 큐
         using Microsoft.Framework.Configuration;
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Queue;
-2. 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다.
+2. 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다.
    
          CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
            CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));

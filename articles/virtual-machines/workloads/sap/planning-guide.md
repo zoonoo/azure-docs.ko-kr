@@ -556,7 +556,7 @@ VM이 배포되면 Azure VM에서 비영구 디스크를 제공합니다. VM을 
 
 - - -
 
-Microsoft Azure Storage는 영구 저장소와 SAN 저장소에서 확인되는 일반적인 수준의 보호 및 중복성을 제공합니다. Azure Storage를 기준으로 하는 디스크는 Azure Storage 서비스에 있는 VHD(가상 하드 디스크)입니다. 로컬 OS 디스크(Windows C:\, Linux /dev/sda1)는 Azure Storage에 저장되고, VM에 탑재된 추가 볼륨/디스크도 여기에 저장됩니다.
+Microsoft Azure Storage는 영구 스토리지와 SAN 스토리지에서 확인되는 일반적인 수준의 보호 및 중복성을 제공합니다. Azure Storage를 기준으로 하는 디스크는 Azure Storage 서비스에 있는 VHD(가상 하드 디스크)입니다. 로컬 OS 디스크(Windows C:\, Linux /dev/sda1)는 Azure Storage에 저장되고, VM에 탑재된 추가 볼륨/디스크도 여기에 저장됩니다.
 
 온-프레미스에서 기존 VHD를 업로드하거나 Azure 내에서 빈 VHD를 만든 후에 배포된 VM에 연결할 수 있습니다.
 
@@ -571,9 +571,9 @@ Azure Storage에 관한 자세한 내용은 다음 항목에서 찾을 수 있�
 * <https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview.aspx>
 
 #### <a name="azure-standard-storage"></a>Azure Standard Storage
-Azure Standard Storage는 Azure IaaS가 출시되었을 때 사용할 수 있던 저장소의 유형입니다. 이 저장소에서는 IOPS 할당량이 단일 디스크 단위로 적용되었습니다. 대기 시간도 온-프레미스에 호스트된 고성능 SAP 시스템에 대해 일반적으로 배포되는 SAN/NAS 디바이스와 동일한 수준이 아니었습니다. 그럼에도 불구하고 Azure Standard Storage는 Azure에 배포되는 수백 가지 SAP 시스템에 충분한 것으로 입증되었습니다.
+Azure Standard Storage는 Azure IaaS가 출시되었을 때 사용할 수 있던 스토리지의 유형입니다. 이 저장소에서는 IOPS 할당량이 단일 디스크 단위로 적용되었습니다. 대기 시간도 온-프레미스에 호스트된 고성능 SAP 시스템에 대해 일반적으로 배포되는 SAN/NAS 디바이스와 동일한 수준이 아니었습니다. 그럼에도 불구하고 Azure Standard Storage는 Azure에 배포되는 수백 가지 SAP 시스템에 충분한 것으로 입증되었습니다.
 
-Azure Standard Storage 계정에 저장되는 데이터는 저장된 실제 데이터, 저장소 트랜잭션 볼륨, 아웃바운드 데이터 전송 및 선택한 중복성 옵션에 따라 비용이 청구됩니다. 많은 디스크를 최대 1TB의 크기로 만들 수 있지만 비어 있는 경우에는 무료입니다. VHD를 각각 100GB로 채우면 VHD가 만들어질 때의 보통 크기가 아니라 100GB를 저장하기 위한 비용이 청구됩니다.
+Azure Standard Storage 계정에 저장되는 데이터는 저장된 실제 데이터, 스토리지 트랜잭션 볼륨, 아웃바운드 데이터 전송 및 선택한 중복성 옵션에 따라 비용이 청구됩니다. 많은 디스크를 최대 1TB의 크기로 만들 수 있지만 비어 있는 경우에는 무료입니다. VHD를 각각 100GB로 채우면 VHD가 만들어질 때의 보통 크기가 아니라 100GB를 저장하기 위한 비용이 청구됩니다.
 
 #### <a name="ff5ad0f9-f7f4-4022-9102-af07aef3bc92"></a>Azure Premium Storage
 Azure Premium Storage는 다음을 제공하는 것을 목표로 도입되었습니다.
@@ -624,16 +624,16 @@ SAP는 현재 지원 프리미엄 관리 디스크만 지원합니다. 자세한
 
 #### <a name="microsoft-azure-storage-resiliency"></a>Microsoft Azure Storage 복원력
 
-Microsoft Azure Storage는 최소 3개의 별도 저장소 노드에 기본 VHD(OS 포함) 및 연결된 디스크 또는 Blob을 저장합니다. 이 사실을 LRS(로컬 중복 저장소)라고 합니다. LRS는 Azure의 모든 저장소 유형에 대한 기본값입니다. 
+Microsoft Azure Storage는 최소 3개의 별도 스토리지 노드에 기본 VHD(OS 포함) 및 연결된 디스크 또는 Blob을 저장합니다. 이 사실을 LRS(로컬 중복 저장소)라고 합니다. LRS는 Azure의 모든 저장소 유형에 대한 기본값입니다. 
 
 [ 가지 더 많은 중복 방법이 있으며, Azure Storage 복제](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)에서 모두 설명하고 있습니다.
 
 > [!NOTE]
->데이터베이스 및 로그/다시 실행 파일을 저장하는 DBMS VM 및 디스크에 권장되는 저장소 유형인 Azure Premium Storage에서는 LRS만 사용할 수 있습니다. 결과적으로 데이터베이스 데이터를 다른 Azure 지역 또는 다른 Azure 가용성 영역으로 복제할 수 있게 하려면 SQL Server Always On, Oracle Data Guard 또는 HANA System Replication과 같은 데이터베이스 메서드를 구성해야 합니다.
+>데이터베이스 및 로그/다시 실행 파일을 저장하는 DBMS VM 및 디스크에 권장되는 스토리지 유형인 Azure Premium Storage에서는 LRS만 사용할 수 있습니다. 결과적으로 데이터베이스 데이터를 다른 Azure 지역 또는 다른 Azure 가용성 영역으로 복제할 수 있게 하려면 SQL Server Always On, Oracle Data Guard 또는 HANA System Replication과 같은 데이터베이스 메서드를 구성해야 합니다.
 
 
 > [!NOTE]
-> DBMS 배포의 경우 Azure Standard Storage에서 사용할 수 있는 지역 중복 저장소의 사용은 성능에 심각한 영향을 미치고 VM에 연결된 여러 VHD에서 쓰기 순서를 따르지 않으므로 권장되지 않습니다. 여러 VHD에서 쓰기 순서를 따르지 않으면, 데이터베이스 및 로그/다시 실행 파일이 원본 VM 쪽의 여러 VHD에 분산되어 있는 경우(대부분의 경우) 복제 대상 쪽에는 일관성 없는 데이터베이스로 끝날 가능성이 높습니다.
+> DBMS 배포의 경우 Azure Standard Storage에서 사용할 수 있는 지역 중복 스토리지의 사용은 성능에 심각한 영향을 미치고 VM에 연결된 여러 VHD에서 쓰기 순서를 따르지 않으므로 권장되지 않습니다. 여러 VHD에서 쓰기 순서를 따르지 않으면, 데이터베이스 및 로그/다시 실행 파일이 원본 VM 쪽의 여러 VHD에 분산되어 있는 경우(대부분의 경우) 복제 대상 쪽에는 일관성 없는 데이터베이스로 끝날 가능성이 높습니다.
 
 
 ### <a name="61678387-8868-435d-9f8c-450b2424f5bd"></a>Microsoft Azure 네트워킹
@@ -1048,7 +1048,7 @@ Azure Infrastructure as a Services는 VHD 및 SAP 시스템을 업로드만 할 
   ```
 
   * VHD 다운로드  
-  SAP 시스템이 중지되고 VM이 종료되면 온-프레미스 대상에 대해 PowerShell cmdlet Save-AzureRmVhd를 사용하여 VHD 디스크를 온-프레미스 환경으로 다시 다운로드할 수 있습니다. 이를 위해 Azure Portal의 '저장소 섹션'에서 찾을 수 있는 VHD의 URL이 있어야 하며(Storage 계정 및 VHD가 만들어진 저장소 컨테이너로 이동해야 함) VHD를 복사할 위치를 알아야 합니다.
+  SAP 시스템이 중지되고 VM이 종료되면 온-프레미스 대상에 대해 PowerShell cmdlet Save-AzureRmVhd를 사용하여 VHD 디스크를 온-프레미스 환경으로 다시 다운로드할 수 있습니다. 이를 위해 Azure Portal의 '스토리지 섹션'에서 찾을 수 있는 VHD의 URL이 있어야 하며(Storage 계정 및 VHD가 만들어진 스토리지 컨테이너로 이동해야 함) VHD를 복사할 위치를 알아야 합니다.
 
   그런 다음, 매개 변수 SourceUri를 다운로드할 VHD의 URL로 정의하고 LocalFilePath를 VHD의 물리적 위치(해당 이름 포함)로 정의하여 이 명령을 활용할 수 있습니다. 명령은 다음과 같습니다.
 
@@ -1068,7 +1068,7 @@ Azure Infrastructure as a Services는 VHD 및 SAP 시스템을 업로드만 할 
   ```
 
   * VHD 다운로드   
-  SAP 시스템이 중지되고 VM이 종료되면 온-프레미스 대상에 대해 Azure CLI 명령 _azure storage blob download_를 사용하여 VHD 디스크를 온-프레미스 환경으로 다시 다운로드할 수 있습니다. 이를 위해 Azure Portal의 '저장소 섹션'에서 찾을 수 있는 VHD의 이름 및 컨테이너가 있어야 하며(Storage 계정 및 VHD가 만들어진 저장소 컨테이너로 이동해야 함) VHD를 복사할 위치를 알아야 합니다.
+  SAP 시스템이 중지되고 VM이 종료되면 온-프레미스 대상에 대해 Azure CLI 명령 _azure storage blob download_를 사용하여 VHD 디스크를 온-프레미스 환경으로 다시 다운로드할 수 있습니다. 이를 위해 Azure Portal의 '스토리지 섹션'에서 찾을 수 있는 VHD의 이름 및 컨테이너가 있어야 하며(Storage 계정 및 VHD가 만들어진 스토리지 컨테이너로 이동해야 함) VHD를 복사할 위치를 알아야 합니다.
 
   그런 다음, 다운로드할 VHD의 blob 및 container 매개 변수를 VHD의 URL로 정의하고 destination을 VHD의 물리적 대상 위치(해당 이름 포함)로 정의하여 이 명령을 활용할 수 있습니다. 명령은 다음과 같습니다.
 

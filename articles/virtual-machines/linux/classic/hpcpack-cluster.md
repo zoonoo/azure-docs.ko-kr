@@ -196,7 +196,7 @@ cmdkey /add:allvhdsje.file.core.windows.net /user:allvhdsje /pass:<storageaccoun
 net use Z: \\allvhdje.file.core.windows.net\rdma /persistent:yes
 ```
 
-이 예제에서 allvhdsje는 저장소 계정 이름이고, storageaccountkey는 저장소 계정 키이고, rdma는 Azure 파일 공유 이름입니다. Azure 파일 공유는 헤드 노드에 Z:로 탑재됩니다.
+이 예제에서 allvhdsje는 스토리지 계정 이름이고, storageaccountkey는 스토리지 계정 키이고, rdma는 Azure 파일 공유 이름입니다. Azure 파일 공유는 헤드 노드에 Z:로 탑재됩니다.
 
 Linux 노드에 Azure 파일 공유를 탑재하려면 헤드 노드에서 **clusrun** 명령을 실행합니다. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)** 은 여러 노드에서 관리 작업을 수행할 수 있는 유용한 HPC 팩 도구입니다. 이 문서의 [Linux 노드에 대한 Clusrun](#Clusrun-for-Linux-nodes) 도 참조하세요.
 
@@ -208,7 +208,7 @@ clusrun /nodegroup:LinuxNodes mkdir -p /rdma
 clusrun /nodegroup:LinuxNodes mount -t cifs //allvhdsje.file.core.windows.net/rdma /rdma -o vers=2.1`,username=allvhdsje`,password=<storageaccountkey>'`,dir_mode=0777`,file_mode=0777
 ```
 
-첫 번째 명령은 LinuxNodes 그룹의 모든 노드에 /rdma라는 폴더를 만듭니다. 두 번째 명령은 dir 및 파일 모드 비트를 777로 설정하여 Azure 파일 공유 allvhdsjw.file.core.windows.net/rdma를 /rdma 폴더에 탑재합니다. 두 번째 명령에서 allvhdsje는 저장소 계정 이름이고 storageaccountkey는 저장소 계정 키입니다.
+첫 번째 명령은 LinuxNodes 그룹의 모든 노드에 /rdma라는 폴더를 만듭니다. 두 번째 명령은 dir 및 파일 모드 비트를 777로 설정하여 Azure 파일 공유 allvhdsjw.file.core.windows.net/rdma를 /rdma 폴더에 탑재합니다. 두 번째 명령에서 allvhdsje는 스토리지 계정 이름이고 storageaccountkey는 스토리지 계정 키입니다.
 
 > [!NOTE]
 > 두 번째 명령의 “\`” 기호는 PowerShell의 이스케이프 기호입니다. “\`,”는 ","(쉼표)가 명령의 일부임을 의미합니다.

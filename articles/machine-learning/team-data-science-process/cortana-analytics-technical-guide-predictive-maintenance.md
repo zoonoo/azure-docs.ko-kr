@@ -107,7 +107,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 
 이 솔루션에서 쿼리는 이 솔루션 템플릿의 일부로 제공되는 Power BI 대시보드에 들어오는 데이터 스트림에 대한 거의 실시간 분석 정보로 세 개의 데이터 세트를 출력합니다. 들어오는 데이터 형식에 대한 암시적 지식이 있기 때문에 이러한 쿼리는 데이터 형식에 기반하여 변경되어야 합니다.
 
-두 번째 Stream Analytics 작업 **maintenancesa02asablob**의 쿼리는 모든 [이벤트 허브](https://azure.microsoft.com/services/event-hubs/) 이벤트를 [Azure Storage](https://azure.microsoft.com/services/storage/)에 출력하므로 전체 이벤트 정보는 저장소로 스트리밍되므로 데이터 형식에 관계 없이 변경이 필요하지 않습니다.
+두 번째 Stream Analytics 작업 **maintenancesa02asablob**의 쿼리는 모든 [이벤트 허브](https://azure.microsoft.com/services/event-hubs/) 이벤트를 [Azure Storage](https://azure.microsoft.com/services/storage/)에 출력하므로 전체 이벤트 정보는 스토리지로 스트리밍되므로 데이터 형식에 관계 없이 변경이 필요하지 않습니다.
 
 ### <a name="azure-data-factory"></a>Azure 데이터 팩터리
 [Azure 데이터 팩터리](https://azure.microsoft.com/documentation/services/data-factory/) 서비스는 데이터의 이동 및 처리를 오케스트레이션합니다. 항공 솔루션 템플릿에 대한 예측 유지 관리에서 데이터 팩터리는 다양한 기술을 사용하여 데이터를 이동 및 처리하는 세 개의 [파이프라인](../../data-factory/concepts-pipelines-activities.md)으로 구성됩니다.  솔루션의 배포로 만든 솔루션 템플릿 다이어그램 맨 아래의 데이터 팩터리 노드를 열어 데이터 팩터리에 액세스합니다. 데이터 세트에서 발생한 오류는 데이터 생성기가 시작되기 전에 배포된 데이터로 인한 것입니다. 이러한 오류는 무시할 수 있으며 데이터 팩터리도 제대로 작동합니다.

@@ -2639,7 +2639,7 @@ ETW 추적 수집을 지정합니다. ETW 추적은 애플리케이션에 속한
 |이름|ManagedAssembly|
 |형식|[ManagedAssemblyType](#managedassemblytype-complextype)|
 ## <a name="driveroptiontype-complextype"></a>DriverOptionType complexType
-드라이버에 전달할 드라이버 옵션입니다. Azure Files 볼륨 플러그 인은 드라이버 옵션으로 shareName(컨테이너용 볼륨을 제공하는 Azure Files 파일 공유), storageAccountName(Azure Files 파일 공유를 포함하는 Azure 저장소 계정), storageAccountKey(Azure Files 파일 공유를 포함하는 Azure 저장소 계정의 액세스 키)를 지원합니다.
+드라이버에 전달할 드라이버 옵션입니다. Azure Files 볼륨 플러그 인은 드라이버 옵션으로 shareName(컨테이너용 볼륨을 제공하는 Azure Files 파일 공유), storageAccountName(Azure Files 파일 공유를 포함하는 Azure 스토리지 계정), storageAccountKey(Azure Files 파일 공유를 포함하는 Azure 스토리지 계정의 액세스 키)를 지원합니다.
 이 세 가지 드라이버 옵션이 모두 필요합니다.
 
 |특성|값|

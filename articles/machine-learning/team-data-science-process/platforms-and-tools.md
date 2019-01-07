@@ -57,7 +57,7 @@ DSVM에서 일반적인 데이터 과학 작업 중 일부를 효율적으로 �
 
 Apache Spark는 메모리 내 처리를 지원하여 빅데이터 분석 응용 프로그램의 성능을 향상시키는 오픈 소스 병렬 처리 프레임워크입니다. 속도, 간편한 사용 및 정교한 분석을 위해 Spark 처리 엔진이 빌드되었습니다. Spark의 메모리 내 계산 기능은 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다. 또한 Spark는 Azure Blob 저장소(WASB)와 호환되므로 Azure에 저장된 기존 데이터를 Spark를 통해 쉽게 처리할 수 있습니다.
 
-HDInsight에서 Spark 클러스터를 만들 때는 설치 및 구성된 Spark로 Azure 계산 리소스를 만듭니다. HDInsight에서 Spark 클러스터를 만드는 데 약 10분 정도 걸립니다. 처리되는 데이터는 Azure Blob Storage에 저장합니다. 클러스터에서 Azure Blob Storage를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop으로 HDFS 호환 Azure Blob 저장소 사용](../../hdinsight/hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
+HDInsight에서 Spark 클러스터를 만들 때는 설치 및 구성된 Spark로 Azure 계산 리소스를 만듭니다. HDInsight에서 Spark 클러스터를 만드는 데 약 10분 정도 걸립니다. 처리되는 데이터는 Azure Blob Storage에 저장합니다. 클러스터에서 Azure Blob Storage를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop으로 HDFS 호환 Azure Blob 스토리지 사용](../../hdinsight/hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
 
 Microsoft의 TDSP 팀은 Azure HDInsight Spark Clusters를 사용하여 Python과 다른 Scala를 사용하여 데이터 과학 솔루션을 구축하는 방법에 대한 두 가지 포괄적인 연습을 게시했습니다. Azure HDInsight **Spark 클러스터**에 대한 자세한 내용은 [개요: HDInsight Linux의 Apache Spark](../../hdinsight/spark/apache-spark-overview.md)를 참조하세요. Azure HDInsight Spark 클러스터에서 **Python**을 사용하여 데이터 과학 솔루션을 빌드하는 방법은 [Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](spark-overview.md)를 참조하세요. Azure HDInsight Spark 클러스터에서 **Scala**를 사용하여 데이터 과학 솔루션을 빌드하는 방법은 [Azure에서 Scala 및 Spark를 사용하는 데이터 과학](scala-walkthrough.md)을 참조하세요. 
 

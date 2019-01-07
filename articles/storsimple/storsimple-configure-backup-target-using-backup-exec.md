@@ -25,7 +25,7 @@ ms.locfileid: "51248731"
 
 ## <a name="overview"></a>개요
 
-Azure StorSimple은 Microsoft의 하이브리드 클라우드 저장소 솔루션입니다. StorSimple은 Azure Storage 계정을 온-프레미스 솔루션의 확장으로 사용하고 온-프레미스 저장소 및 클라우드 저장소 전반에 걸쳐 데이터를 자동으로 계층화하여 지수 데이터 증가의 복잡성을 해결합니다.
+Azure StorSimple은 Microsoft의 하이브리드 클라우드 저장소 솔루션입니다. StorSimple은 Azure Storage 계정을 온-프레미스 솔루션의 확장으로 사용하고 온-프레미스 스토리지 및 클라우드 스토리지 전반에 걸쳐 데이터를 자동으로 계층화하여 지수 데이터 증가의 복잡성을 해결합니다.
 
 이 문서에서는 Veritas Backup Exec과 StorSimple의 통합 및 두 솔루션을 통합하는 모범 사례에 대해 설명합니다. 또한 StorSimple과 가장 잘 통합되도록 Backup Exec을 설정하는 방법에 대한 권장 사항을 제공합니다. 개별 백업 요구 사항 및 SLA(서비스 수준 약정)를 충족하도록 Backup Exec을 설정하는 가장 좋은 방법은 Veritas 모범 사례, 백업 설계자 및 관리자에게 맡기는 것입니다.
 
@@ -46,7 +46,7 @@ Azure StorSimple은 Microsoft의 하이브리드 클라우드 저장소 솔루�
 StorSimple이 백업 대상으로 적합한 이유는 다음과 같습니다.
 
 -   변경 없이 빠른 백업 대상으로 사용할 백업 애플리케이션용 표준 로컬 저장소를 제공합니다. StorSimple을 사용하여 최근 백업을 빠르게 복원할 수도 있습니다.
--   클라우드 계층화는 비용 효율적인 Azure Storage를 사용할 수 있도록 Azure 클라우드 저장소 계정과 완벽하게 통합됩니다.
+-   클라우드 계층화는 비용 효율적인 Azure Storage를 사용할 수 있도록 Azure 클라우드 스토리지 계정과 완벽하게 통합됩니다.
 -   재해 복구를 위해 오프사이트 저장소를 자동으로 제공합니다.
 
 ## <a name="key-concepts"></a>주요 개념

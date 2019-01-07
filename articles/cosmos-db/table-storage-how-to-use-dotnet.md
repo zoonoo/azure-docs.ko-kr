@@ -93,7 +93,7 @@ NuGet 패키지를 가져오려면 다음 단계를 수행합니다.
 > 
 
 > [!TIP]
-> Azure 테이블 저장소에 이미 친숙한 개발자는 과거에 [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) 패키지를 사용했을 수도 있습니다. 모든 새 테이블 애플리케이션은 [Azure Storage 공용 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common) 및 [Azure Cosmos DB 테이블 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)를 사용하는 것이 좋지만 WindowsAzure.Storage 패키지는 계속해서 지원됩니다. WindowsAzure.Storage 라이브러리를 사용하는 경우 using 문에 Microsoft.WindowsAzure.Storage.Table을 포함합니다.
+> Azure 테이블 스토리지에 이미 친숙한 개발자는 과거에 [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) 패키지를 사용했을 수도 있습니다. 모든 새 테이블 애플리케이션은 [Azure Storage 공용 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common) 및 [Azure Cosmos DB 테이블 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)를 사용하는 것이 좋지만 WindowsAzure.Storage 패키지는 계속해서 지원됩니다. WindowsAzure.Storage 라이브러리를 사용하는 경우 using 문에 Microsoft.WindowsAzure.Storage.Table을 포함합니다.
 >
 >
 
@@ -102,19 +102,19 @@ NuGet 패키지를 가져오려면 다음 단계를 수행합니다.
 
 * 클라우드에서 Azure Storage 계정에 대한 코드를 실행할 수 있습니다. 
 * 클라우드에서 Azure Cosmos DB 계정에 대해 코드를 실행할 수 있습니다.
-* Azure 저장소 에뮬레이터에 대해 코드를 실행할 수 있습니다. 저장소 에뮬레이터는 클라우드에서 Azure Storage 계정을 에뮬레이트하는 로컬 환경입니다. 에뮬레이터는 애플리케이션을 개발하는 동안 코드의 테스트 및 디버깅하기 위한 무료 옵션입니다. 에뮬레이터는 잘 알려진 계정 및 키를 사용합니다. 자세한 내용은 [개발 및 테스트에 Azure Storage 에뮬레이터 사용](../storage/common/storage-use-emulator.md)을 참조하세요.
+* Azure 저장소 에뮬레이터에 대해 코드를 실행할 수 있습니다. 스토리지 에뮬레이터는 클라우드에서 Azure Storage 계정을 에뮬레이트하는 로컬 환경입니다. 에뮬레이터는 애플리케이션을 개발하는 동안 코드의 테스트 및 디버깅하기 위한 무료 옵션입니다. 에뮬레이터는 잘 알려진 계정 및 키를 사용합니다. 자세한 내용은 [개발 및 테스트에 Azure Storage 에뮬레이터 사용](../storage/common/storage-use-emulator.md)을 참조하세요.
 
 클라우드에서 저장소 계정을 대상으로 하는 경우 Azure Portal에서 저장소 계정에 대한 기본 선택키를 복사합니다. 자세한 내용은 [저장소 계정 액세스 키](../storage/common/storage-account-manage.md#access-keys)를 참조하세요.
 
 > [!NOTE]
-> Azure Storage와 연결하여 비용이 초래되지 않도록 저장소 에뮬레이터를 대상으로 할 수 있습니다. 그러나 클라우드에서 Azure 저장소 계정을 대상으로 하도록 선택하는 경우 이 샘플을 수행하는 비용은 무시됩니다.
+> Azure Storage와 연결하여 비용이 초래되지 않도록 스토리지 에뮬레이터를 대상으로 할 수 있습니다. 그러나 클라우드에서 Azure 저장소 계정을 대상으로 하도록 선택하는 경우 이 샘플을 수행하는 비용은 무시됩니다.
 > 
 > 
 
 Azure Cosmos DB 계정을 대상으로 할 경우 Azure Portal에서 Table API 계정에 대한 기본 액세스 키를 복사합니다. 자세한 내용은 [연결 문자열 업데이트](create-table-dotnet.md#update-your-connection-string)를 참조하세요.
 
 ### <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
-Azure Storage Common Library for .NET은 저장소 연결 문자열을 사용하여 저장소 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 구성하는 작업을 지원합니다. 저장소 연결 문자열을 유지하는 가장 좋은 방법은 구성 파일 안에 있습니다. 
+Azure Storage Common Library for .NET은 스토리지 연결 문자열을 사용하여 스토리지 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 구성하는 작업을 지원합니다. 저장소 연결 문자열을 유지하는 가장 좋은 방법은 구성 파일 안에 있습니다. 
 
 연결 문자열에 대한 자세한 내용은 [Azure Storage에 연결 문자열 구성](../storage/common/storage-configure-connection-string.md)을 참조하세요.
 

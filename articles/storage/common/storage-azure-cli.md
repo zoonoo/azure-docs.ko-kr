@@ -173,7 +173,7 @@ Done
 ## <a name="manage-storage-accounts"></a>저장소 계정 관리
 
 ### <a name="create-a-new-storage-account"></a>새 저장소 계정 만들기
-Azure Storage를 사용하려면 저장소 계정이 필요합니다. [구독에 연결](#connect-to-your-azure-subscription)하도록 컴퓨터를 구성한 후 새 Azure Storage 계정을 만들 수 있습니다.
+Azure Storage를 사용하려면 스토리지 계정이 필요합니다. [구독에 연결](#connect-to-your-azure-subscription)하도록 컴퓨터를 구성한 후 새 Azure Storage 계정을 만들 수 있습니다.
 
 ```azurecli
 az storage account create \
@@ -197,7 +197,7 @@ az storage account create \
 
 Azure 구독에서 여러 저장소 계정을 사용할 수 있습니다. 모든 후속 저장소 명령에 사용하기 위해 이러한 계정 중 하나를 선택하려면 환경 변수를 다음과 같이 설정할 수 있습니다.
 
-먼저, [az storage account keys list](/cli/azure/storage/account/keys#list) 명령을 사용하여 저장소 계정 키를 표시합니다.
+먼저, [az storage account keys list](/cli/azure/storage/account/keys#list) 명령을 사용하여 스토리지 계정 키를 표시합니다.
 
 ```azurecli-interactive
 az storage account keys list \

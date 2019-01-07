@@ -109,7 +109,7 @@ Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 az group create --name myResourceGroup --location eastus
 ```
 
-VHD를 업로드하려면 [az storage account create](/cli/azure/storage/account#az_storage_account_create)를 사용하여 저장소 계정을 만듭니다. Storage 계정 이름은 고유해야 하므로 자신만의 이름을 제공하세요. 다음 예제에서는 *mystorageaccount*라는 저장소 계정을 만듭니다.
+VHD를 업로드하려면 [az storage account create](/cli/azure/storage/account#az_storage_account_create)를 사용하여 스토리지 계정을 만듭니다. Storage 계정 이름은 고유해야 하므로 자신만의 이름을 제공하세요. 다음 예제에서는 *mystorageaccount*라는 스토리지 계정을 만듭니다.
 
 ```azurecli
 az storage account create --resource-group myResourceGroup \
@@ -118,7 +118,7 @@ az storage account create --resource-group myResourceGroup \
     --sku Premium_LRS
 ```
 
-저장소 계정에 대한 액세스를 제어하려면 다음과 같이 [az storage account key list](/cli/azure/storage/account/keys#az_storage_account_keys_list)를 사용하여 저장소 키를 확보합니다.
+스토리지 계정에 대한 액세스를 제어하려면 다음과 같이 [az storage account key list](/cli/azure/storage/account/keys#az_storage_account_keys_list)를 사용하여 스토리지 키를 확보합니다.
 
 ```azurecli
 STORAGE_KEY=$(az storage account keys list \
@@ -127,7 +127,7 @@ STORAGE_KEY=$(az storage account keys list \
     --query "[?keyName=='key1']  | [0].value" -o tsv)
 ```
 
-업로드하는 VHD를 논리적으로 분리하려면 [az storage container create](/cli/azure/storage/container#az_storage_container_create)를 사용하여 저장소 계정 내에서 컨테이너를 만듭니다.
+업로드하는 VHD를 논리적으로 분리하려면 [az storage container create](/cli/azure/storage/container#az_storage_container_create)를 사용하여 스토리지 계정 내에서 컨테이너를 만듭니다.
 
 ```azurecli
 az storage container create \

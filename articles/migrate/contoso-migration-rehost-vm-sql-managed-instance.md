@@ -265,7 +265,7 @@ Contoso에서 고려해야 하는 요소는 다음과 같습니다.
 Database Migration Service를 준비하기 위해 Contoso 관리자는 다음 몇 가지 작업을 수행해야 합니다.
 
 - Azure에서 Database Migration Service 공급자를 등록합니다.
-- 데이터베이스를 마이그레이션하는 데 사용되는 백업 파일을 업로드하기 위해 Azure Storage에 대한 액세스 권한을 Database Migration Service에 제공합니다. Azure Storage에 대한 액세스를 제공하기 위해 Azure Blob 저장소 컨테이너를 만들고, 이 Blob 저장소 컨테이너에 대한 SAS URI를 생성합니다. 
+- 데이터베이스를 마이그레이션하는 데 사용되는 백업 파일을 업로드하기 위해 Azure Storage에 대한 액세스 권한을 Database Migration Service에 제공합니다. Azure Storage에 대한 액세스를 제공하기 위해 Azure Blob 스토리지 컨테이너를 만들고, 이 Blob 저장소 컨테이너에 대한 SAS URI를 생성합니다. 
 - Database Migration Service 프로젝트를 만듭니다.
 
 그런 다음, 다음 단계를 수행합니다.

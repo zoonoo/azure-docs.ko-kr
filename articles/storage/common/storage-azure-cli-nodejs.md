@@ -1,6 +1,6 @@
 ---
 title: Azure Storage에서 Azure 클래식 CLI 사용 | Microsoft Docs
-description: Azure Storage에서 Azure 클래식 CLI(명령줄 인터페이스)를 사용하여 저장소 계정을 만들어 관리하고 Azure Blob 및 파일 작업을 수행하는 방법에 대해 알아봅니다.
+description: Azure Storage에서 Azure 클래식 CLI(명령줄 인터페이스)를 사용하여 스토리지 계정을 만들어 관리하고 Azure Blob 및 파일 작업을 수행하는 방법에 대해 알아봅니다.
 services: storage
 author: seguler
 ms.service: storage

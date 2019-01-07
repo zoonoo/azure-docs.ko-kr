@@ -33,7 +33,7 @@ ms.locfileid: "42142524"
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure Blob Storage 사이에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
 ## <a name="overview"></a>개요
-모든 지원되는 원본 데이터 저장소에서 Azure Blob Storage로 또는 Azure Blob Storage에서 모든 지원되는 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 다음 표에서는 복사 활동에서 원본 및 싱크로 지원되는 데이터 저장소 목록을 제공합니다. 예를 들어 데이터를 SQL Server 데이터베이스 또는 Azure SQL 데이터베이스**에서** Azure Blob 저장소**로**로 이동할 수 있습니다. 그리고 데이터를 Azure Blob Storage 저장소**에서** Azure SQL Data Warehouse 또는 Azure Cosmos DB 컬렉션**으로** 복사할 수 있습니다. 
+모든 지원되는 원본 데이터 저장소에서 Azure Blob Storage로 또는 Azure Blob Storage에서 모든 지원되는 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 다음 표에서는 복사 활동에서 원본 및 싱크로 지원되는 데이터 저장소 목록을 제공합니다. 예를 들어 데이터를 SQL Server 데이터베이스 또는 Azure SQL 데이터베이스**에서** Azure Blob 저장소**로**로 이동할 수 있습니다. 그리고 데이터를 Azure Blob Storage 스토리지**에서** Azure SQL Data Warehouse 또는 Azure Cosmos DB 컬렉션**으로** 복사할 수 있습니다. 
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 **Azure Blob Storage에서** 다음 데이터 저장소로 데이터를 복사할 수 있습니다.
@@ -174,7 +174,7 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 Azure Blob 저장소 간에 데이터를 빠르게 복사하는 방법을 살펴보겠습니다. 이 연습에 나오는 원본 및 대상 데이터 저장소의 유형은 모두 Azure Blob Storage입니다. 이 연습의 파이프라인은 한 폴더의 데이터를 동일한 Blob 컨테이너의 다른 폴더로 복사합니다. 이 연습에서는 Blob Storage를 원본 또는 싱크로 사용할 때 설정 또는 속성을 표시하는 것이 간단합니다. 
 
 ### <a name="prerequisites"></a>필수 조건
-1. 아직 만들지 않은 경우 범용 **Azure Storage 계정**을 만듭니다. 이 연습에서는 Blob 저장소를 **원본** 및 **대상** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
+1. 아직 만들지 않은 경우 범용 **Azure Storage 계정**을 만듭니다. 이 연습에서는 Blob 저장소를 **원본** 및 **대상** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
 2. 저장소 계정에 **adfblobconnector**라는 Blob 컨테이너를 만듭니다. 
 4. **adfblobconnector** 컨테이너에 **input**이라는 폴더를 만듭니다.
 5. [Azure Storage 탐색기](https://azurestorageexplorer.codeplex.com/)와 같은 도구를 사용하여 다음 내용이 포함된 **emp.txt**라는 파일을 만들어 **input** 폴더에 업로드합니다.

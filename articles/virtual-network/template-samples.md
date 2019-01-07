@@ -31,6 +31,6 @@ ms.locfileid: "31528990"
 |----|----|
 |[두 서브넷이 있는 가상 네트워크 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)| 두 개의 서브넷이 있는 가상 네트워크를 만듭니다.|
 |[네트워크 가상 어플라이언스를 통한 트래픽 라우팅](https://github.com/Azure/azure-quickstart-templates/tree/master/201-userdefined-routes-appliance)| 세 개의 서브넷이 있는 가상 네트워크를 만듭니다. 각 서브넷에 가상 머신을 배포합니다. 세 번째 서브넷의 가상 머신을 통해 한 서브넷에서 다른 서브넷으로 트래픽을 보내는 경로가 포함된 경로 테이블을 만듭니다. 경로 테이블을 서브넷 중 하나에 연결합니다.|
-|[Azure Storage에 대한 가상 네트워크 서비스 엔드포인트 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-2subnets-service-endpoints-storage-integration)|두 서브넷과 각 서브넷의 네트워크 인터페이스를 사용하여 새 가상 네트워크를 만듭니다. 서브넷 중 하나에 Azure Storage에 대한 서비스 엔드포인트를 사용하도록 설정하고 해당 서브넷에 새 저장소 계정의 보안을 설정합니다.|
+|[Azure Storage에 대한 가상 네트워크 서비스 엔드포인트 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-2subnets-service-endpoints-storage-integration)|두 서브넷과 각 서브넷의 네트워크 인터페이스를 사용하여 새 가상 네트워크를 만듭니다. 서브넷 중 하나에 Azure Storage에 대한 서비스 엔드포인트를 사용하도록 설정하고 해당 서브넷에 새 스토리지 계정의 보안을 설정합니다.|
 |[두 가상 네트워크 연결](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-to-vnet-peering)| 두 가상 네트워크를 만들고 이들 간에 가상 네트워크 피어링을 만듭니다.|
 |[여러 IP 주소로 가상 머신 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-ipconfig)| 여러 IP 주소로 Windows 또는 Linux VM을 만듭니다.|

@@ -49,7 +49,7 @@ az group create --name <resource_group_name> --location westcentralus
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-Blob Storage 이벤트는 범용 v2 저장소 계정과 Blob Storage 계정에서 사용할 수 있습니다. **범용 v2** 저장소 계정은 Blob, 파일, 큐 및 테이블을 포함하여 모든 저장소 서비스의 모든 기능을 지원하는 저장소 계정입니다. **Blob Storage 계정**은 Azure Storage에서 Blob와 같은 구조화되지 않은 데이터(개체) 저장을 위한 특수 Storage 계정입니다. Blob Storage 계정은 범용 저장소 계정과 유사하면서, 현재 사용되고 있는 모든 뛰어난 내구성, 가용성, 확장성 및 성능 기능을 공유합니다(예: 블록 Blob 및 추가 Blob에 대한 100% API 일관성). 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
+Blob Storage 이벤트는 범용 v2 스토리지 계정과 Blob Storage 계정에서 사용할 수 있습니다. **범용 v2** 저장소 계정은 Blob, 파일, 큐 및 테이블을 포함하여 모든 저장소 서비스의 모든 기능을 지원하는 저장소 계정입니다. **Blob Storage 계정**은 Azure Storage에서 Blob와 같은 구조화되지 않은 데이터(개체) 저장을 위한 특수 Storage 계정입니다. Blob Storage 계정은 범용 스토리지 계정과 유사합니다. 블록 Blob과 연결 Blob에 대한 100% API 일관성을 포함하여 현재 제공되는 뛰어난 내구성, 가용성, 확장성은 모두 같습니다. 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
 `<storage_account_name>`을 저장소 계정의 고유한 이름으로 바꾸고 `<resource_group_name>`을 이전에 만든 리소스 그룹으로 바꿉니다.
 

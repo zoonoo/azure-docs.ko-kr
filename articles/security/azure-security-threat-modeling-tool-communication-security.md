@@ -179,7 +179,7 @@ ms.locfileid: "53013188"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [Azure Storage 전송 수준 암호화 - HTTPS 사용](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_encryption-in-transit) |
-| **단계** | 전송 중인 Azure Storage 데이터의 보안을 유지하려면 REST API를 호출하거나 저장소의 개체에 액세스할 때 항상 HTTPS 프로토콜을 사용합니다. 또한 Azure Storage 개체에 대한 액세스를 위임하는 데 사용할 수 있는 공유 액세스 서명에는 공유 액세스 서명을 사용할 때 HTTPS 프로토콜만 사용할 수 있도록 지정하여 SAS 토큰이 있는 링크를 보내는 사용자는 모두 적절한 프로토콜을 사용할 수 있도록 하는 옵션이 포함되어 있습니다.|
+| **단계** | 전송 중인 Azure Storage 데이터의 보안을 유지하려면 REST API를 호출하거나 스토리지의 개체에 액세스할 때 항상 HTTPS 프로토콜을 사용합니다. 또한 Azure Storage 개체에 대한 액세스를 위임하는 데 사용할 수 있는 공유 액세스 서명에는 공유 액세스 서명을 사용할 때 HTTPS 프로토콜만 사용할 수 있도록 지정하여 SAS 토큰이 있는 링크를 보내는 사용자는 모두 적절한 프로토콜을 사용할 수 있도록 하는 옵션이 포함되어 있습니다.|
 
 ## <a id="md5-https"></a>HTTPS를 사용할 수 없는 경우 Blob을 다운로드한 후 MD5 해시 유효성 검사
 

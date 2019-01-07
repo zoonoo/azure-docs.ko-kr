@@ -62,7 +62,7 @@ Advisor는 최신 [테이블 통계](https://docs.microsoft.com/azure/sql-data-w
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>저장소 계정을 Azure Resource Manager로 마이그레이션하여 최신 Azure 기능 모두 이용하기
 
-저장소 계정 배포 모델을 ARM(Azure Resource Manager)으로 마이그레이션하여 템플릿 배포, 추가 보안 옵션, Azure Storage의 최신 기능 활용을 위해 GPv2 계정으로 업그레이드하는 기능을 활용하세요. Advisor는 Classic 배포 모델을 사용 중인 독립형 저장소 계정을 식별하고 ARM 배포 모델로 마이그레이션할 것을 권장합니다. 
+스토리지 계정 배포 모델을 ARM(Azure Resource Manager)으로 마이그레이션하여 템플릿 배포, 추가 보안 옵션, Azure Storage의 최신 기능 활용을 위해 GPv2 계정으로 업그레이드하는 기능을 활용하세요. Advisor는 Classic 배포 모델을 사용 중인 독립형 저장소 계정을 식별하고 ARM 배포 모델로 마이그레이션할 것을 권장합니다. 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Advisor에서 성능 권장 사항에 액세스하는 방법
 

@@ -200,7 +200,7 @@ while (true)
 
 1. 웹앱 및 저장소 계정을 만듭니다.
 
-1. 웹앱에서 AzureWebJobsStorage라는 앱 설정에 저장소 연결 문자열을 저장합니다.
+1. 웹앱에서 AzureWebJobsStorage라는 앱 설정에 스토리지 연결 문자열을 저장합니다.
 
 1. 앱 유형이 **일반**인 Application Insights 리소스를 만듭니다.
 

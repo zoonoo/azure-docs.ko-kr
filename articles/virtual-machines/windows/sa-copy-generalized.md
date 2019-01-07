@@ -123,7 +123,7 @@ JSON 파일 템플릿에서 이미지의 URL을 얻을 수 있습니다. 이미�
 
 ### <a name="set-the-uri-of-the-vhd"></a>VHD의 URI 설정
 
-VHD에 대한 URI는 형식: https://**mystorageaccount**.blob.core.windows.net/**mycontainer**/**MyVhdName**.vhd. 이 예에서는 **myVHD**로 명명된 VHD가 **mycontainer** 컨테이너의 **mystorageaccount** 저장소 계정에 있습니다.
+VHD에 대한 URI는 형식: https://**mystorageaccount**.blob.core.windows.net/**mycontainer**/**MyVhdName**.vhd. 이 예에서는 **myVHD**로 명명된 VHD가 **mycontainer** 컨테이너의 **mystorageaccount** 스토리지 계정에 있습니다.
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vhd"

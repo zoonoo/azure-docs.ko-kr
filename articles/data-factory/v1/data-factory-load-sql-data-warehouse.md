@@ -47,7 +47,7 @@ ms.locfileid: "40246725"
 >
 
 ## <a name="prerequisites"></a>필수 조건
-* Azure Blob Storage: 이 실험에서는 Azure Blob Storage(GRS)를 사용하여 TPC-H 테스트 데이터 세트를 저장합니다.  Azure Storage 계정이 없을 경우 [저장소 계정을 만드는 방법](../../storage/common/storage-quickstart-create-account.md)을 참조하세요.
+* Azure Blob Storage: 이 실험에서는 Azure Blob Storage(GRS)를 사용하여 TPC-H 테스트 데이터 세트를 저장합니다.  Azure Storage 계정이 없을 경우 [스토리지 계정을 만드는 방법](../../storage/common/storage-quickstart-create-account.md)을 참조하세요.
 * [TPC-H](http://www.tpc.org/tpch/) 데이터: 테스트 집합으로는 TPC-H를 사용할 것입니다.  이렇게 하려면 데이터 세트를 생성하도록 도와주는 TPC-H 도구 키트의 `dbgen`을 사용해야 합니다.  [TPC 도구](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp)에서 `dbgen`에 대한 원본 코드를 다운로드하여 직접 컴파일하거나, [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools)에서 컴파일된 이진 파일을 다운로드할 수 있습니다.  dbgen.exe를 다음 명령과 함께 실행하여 10개 파일에 분산되어 있는 `lineitem` 표에 대한 1TB의 플랫 파일을 생성합니다.
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`

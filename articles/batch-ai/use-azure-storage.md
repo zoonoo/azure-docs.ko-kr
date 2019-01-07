@@ -1,6 +1,6 @@
 ---
 title: Azure Storage를 사용하여 Batch AI 작업 입출력 저장 | Microsoft Docs
-description: 입출력 파일의 쉽고 빠른 클라우드 저장소용 Batch AI에서 Azure Storage를 사용하는 방법
+description: 입출력 파일의 쉽고 빠른 클라우드 스토리지용 Batch AI에서 Azure Storage를 사용하는 방법
 services: batch-ai
 documentationcenter: ''
 author: kevwang1
@@ -23,11 +23,11 @@ ms.locfileid: "53408003"
 
 [!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
-이 가이드에서는 작업을 실행하는 경우 입출력 파일을 저장하기 위해 Azure Storage를 사용하는 방법을 설명합니다. Azure Storage는 Batch AI에서 지원하는 여러 저장소 옵션 중 하나입니다. Batch AI는 클라우드에 저장된 파일에 대한 원활한 액세스를 허용하면서 Batch AI 작업 또는 클러스터 파일 시스템에 Azure Storage 시스템을 탑재하여 Azure Storage와 통합합니다. 
+이 가이드에서는 작업을 실행하는 경우 입출력 파일을 저장하기 위해 Azure Storage를 사용하는 방법을 설명합니다. Azure Storage는 Batch AI에서 지원하는 여러 스토리지 옵션 중 하나입니다. Batch AI는 클라우드에 저장된 파일에 대한 원활한 액세스를 허용하면서 Batch AI 작업 또는 클러스터 파일 시스템에 Azure Storage 시스템을 탑재하여 Azure Storage와 통합합니다. 
 
 ## <a name="introduction-to-azure-storage"></a>Azure Storage 소개
 
-Azure Storage는 Microsoft의 클라우드 저장소 솔루션입니다. Batch AI는 Azure Blob 컨테이너 및 Azure 파일 공유를 Batch AI 작업 또는 클러스터에 탑재를 지원하면서 마치 파일이 네이티브 파일 시스템에 있는 것처럼 작업에서 파일에 액세스할 수 있습니다. Batch AI는 [blobfuse](https://github.com/Azure/azure-storage-fuse)를 사용하여 Azure Blob 컨테이너를, SMB 프로토콜을 통해 Azure 파일 공유를 탑재합니다. Azure Storage에 대한 자세한 내용은 [Azure Storage 소개](../storage/common/storage-introduction.md)를 참조하세요.
+Azure Storage는 Microsoft의 클라우드 스토리지 솔루션입니다. Batch AI는 Azure Blob 컨테이너 및 Azure 파일 공유를 Batch AI 작업 또는 클러스터에 탑재를 지원하면서 마치 파일이 네이티브 파일 시스템에 있는 것처럼 작업에서 파일에 액세스할 수 있습니다. Batch AI는 [blobfuse](https://github.com/Azure/azure-storage-fuse)를 사용하여 Azure Blob 컨테이너를, SMB 프로토콜을 통해 Azure 파일 공유를 탑재합니다. Azure Storage에 대한 자세한 내용은 [Azure Storage 소개](../storage/common/storage-introduction.md)를 참조하세요.
 
 ## <a name="store-datasets-and-input-scripts-in-azure-storage"></a>Azure Storage에 데이터 세트 및 입력 스크립트 저장
 

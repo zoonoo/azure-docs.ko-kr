@@ -1,6 +1,6 @@
 ---
-title: Azure Storage의 저비용 중복 구성을 위한 LRS(로컬 중복 저장소) | Microsoft Docs
-description: 기본적으로 새 Azure Storage 계정에서는 복제에 LRS(로컬 중복 저장소)를 사용합니다. LRS는 가장 저렴한 복제 옵션입니다. 데이터센터의 하드웨어 실패로부터는 보호되지만 데이터센터 수준의 재해로부터는 보호되지 않습니다.
+title: Azure Storage의 저비용 중복 구성을 위한 LRS(로컬 중복 스토리지) | Microsoft Docs
+description: 기본적으로 새 Azure Storage 계정에서는 복제에 LRS(로컬 중복 스토리지)를 사용합니다. LRS는 가장 저렴한 복제 옵션입니다. 데이터센터의 하드웨어 실패로부터는 보호되지만 데이터센터 수준의 재해로부터는 보호되지 않습니다.
 services: storage
 author: tolandmike
 ms.service: storage
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/01/2018
 ms.locfileid: "50739960"
 ---
-# <a name="locally-redundant-storage-lrs-low-cost-data-redundancy-for-azure-storage"></a>LRS(로컬 중복 저장소): Azure Storage에 대한 저렴한 데이터 중복
+# <a name="locally-redundant-storage-lrs-low-cost-data-redundancy-for-azure-storage"></a>LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복
 
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-lrs.md)]
 

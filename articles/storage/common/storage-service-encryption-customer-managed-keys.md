@@ -156,7 +156,7 @@ Azure Key Vault 사용과 관련된 비용이 있습니다. 자세한 내용은 
 Azure Disk Encryption은 BitLocker, DM-Crypt와 같은 OS 기반 솔루션과 Azure KeyVault 간의 통합을 제공합니다. 저장소 서비스 암호화는 기본적으로 가상 머신 아래 Azure 저장소 플랫폼 계층에서 암호화를 제공합니다.
 
 **암호화 키에 대한 액세스를 해지할 수 있나요?**
-예, 언제든 액세스를 해지할 수 있습니다. 키에 대한 액세스를 취소하는 방법은 여러 가지가 있습니다. 자세한 내용은 [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) 및 [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault)를 참조하세요. 액세스를 취소하면 Azure Storage에서 계정 암호화 키에 액세스할 수 없으므로 저장소 계정의 모든 Blob에 대한 액세스가 효과적으로 차단됩니다.
+예, 언제든 액세스를 해지할 수 있습니다. 키에 대한 액세스를 취소하는 방법은 여러 가지가 있습니다. 자세한 내용은 [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) 및 [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault)를 참조하세요. 액세스를 취소하면 Azure Storage에서 계정 암호화 키에 액세스할 수 없으므로 스토리지 계정의 모든 Blob에 대한 액세스가 효과적으로 차단됩니다.
 
 **저장소 계정 및 키를 다른 지역에 만들 수 있나요?**  
 아니요. 저장소 계정 및 Azure Key Vault/키는 동일한 지역에 있어야 합니다.
@@ -168,7 +168,7 @@ Azure Disk Encryption은 BitLocker, DM-Crypt와 같은 OS 기반 솔루션과 Az
 아니요. 암호화를 사용하지 않도록 설정할 수 없습니다. 암호화는 Azure Blob Storage, Azure Files, Azure Queue 및 Azure Table Storage에 대해 기본적으로 사용하도록 설정됩니다. 경우에 따라, Microsoft 관리 키에서 고객 관리 키로 또는 그 반대로 사용 방식을 전환할 수 있습니다.
 
 **새 저장소 계정을 만들 때 SSE가 사용되도록 설정되어 있나요?**  
-SSE는 모든 저장소 계정 및 Azure Blob Storage, Azure Files, Azure Queue Storage 및 Azure Table Storage에 대해 사용하도록 설정됩니다.
+SSE는 모든 스토리지 계정 및 Azure Blob Storage, Azure Files, Azure Queue Storage 및 Azure Table Storage에 대해 사용하도록 설정됩니다.
 
 **저장소 계정에서 고객 관리 키를 사용하여 SSE를 사용하도록 설정할 수 없습니다.**  
 Azure Resource Manager 저장소 계정인가요? 클래식 저장소 계정에서는 고객 관리 키가 지원되지 않습니다. 고객 관리 키를 사용하는 SSE는 Resource Manager 저장소 계정에서만 사용할 수 있습니다.

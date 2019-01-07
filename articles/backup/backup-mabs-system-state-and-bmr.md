@@ -100,7 +100,7 @@ Backup Server에서는 Windows Server 백업을 호출하고 해당 BMR 백업�
     * [System requirements for Azure Backup Server](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)(Azure Backup Server 시스템 요구 사항)
     * [Backup Server 보호 매트릭스](backup-mabs-protection-matrix.md)
 
-2.  **저장소 설정**. 백업 데이터를 디스크 및 테이프에 저장하고 Azure를 통해 클라우드에 저장할 수 있습니다. 자세한 내용은 [Prepare data storage](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage)(데이터 저장소 준비)를 참조하세요.
+2.  **저장소 설정**. 백업 데이터를 디스크 및 테이프에 저장하고 Azure를 통해 클라우드에 저장할 수 있습니다. 자세한 내용은 [Prepare data storage](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage)(데이터 스토리지 준비)를 참조하세요.
 
 3.  **보호 에이전트 설치**. 백업할 컴퓨터에 보호 에이전트를 설치합니다. 자세한 내용은 [Deploy the DPM protection agent](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent)(DPM 보호 에이전트 배포)를 참조하세요.
 

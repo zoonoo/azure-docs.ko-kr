@@ -28,7 +28,7 @@ Azure 파일 공유에 대한 부모 리소스는 Azure 저장소 계정입니�
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 > [!Important]  
-> 다른 저장소 서비스에서 저장소 계정을 활용하면 저장소 계정의 Azure 파일 공유에 영향을 줍니다. 예를 들어 Azure Blob Storage를 사용하여 최대 저장소 계정 용량에 도달하면 Azure 파일 공유가 최대 공유 크기보다 작은 경우에도 Azure 파일 공유에 새 파일을 만들 수 없습니다.
+> 다른 저장소 서비스에서 저장소 계정을 활용하면 저장소 계정의 Azure 파일 공유에 영향을 줍니다. 예를 들어 Azure Blob Storage를 사용하여 최대 스토리지 계정 용량에 도달하면 Azure 파일 공유가 최대 공유 크기보다 작은 경우에도 Azure 파일 공유에 새 파일을 만들 수 없습니다.
 
 ## <a name="azure-files-scale-targets"></a>Azure Files 크기 조정 목표
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]

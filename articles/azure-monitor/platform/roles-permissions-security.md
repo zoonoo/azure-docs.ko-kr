@@ -133,7 +133,7 @@ $token = New-AzureStorageAccountSASToken -ResourceType Service -Service Blob -Pe
 
 그런 다음 해당 저장소 계정에서의 읽기가 필요한 개체에게 토큰을 부여하면 해당 저장소 계정의 모든 Blob을 나열하고 읽을 수 있습니다.
 
-또는 RBAC로 이 권한을 제어해야 할 경우 해당 특정 저장소 계정에서 개체에 Microsoft.Storage/storageAccounts/listkeys/action 권한을 부여할 수 있습니다. 저장소 계정에 보관하기 위해 로그 프로필이나 진단 설정을 구성할 수 있는 사용자에게 필요한 항목입니다. 예를 들어, 한 저장소 계정에서 읽기만 필요한 사용자 또는 애플리케이션에 대해 다음 사용자 지정 RBAC 역할을 만들 수 있습니다.
+또는 RBAC로 이 권한을 제어해야 할 경우 해당 특정 스토리지 계정에서 개체에 Microsoft.Storage/storageAccounts/listkeys/action 권한을 부여할 수 있습니다. 저장소 계정에 보관하기 위해 로그 프로필이나 진단 설정을 구성할 수 있는 사용자에게 필요한 항목입니다. 예를 들어, 한 저장소 계정에서 읽기만 필요한 사용자 또는 애플리케이션에 대해 다음 사용자 지정 RBAC 역할을 만들 수 있습니다.
 
 ```powershell
 $role = Get-AzureRmRoleDefinition "Reader"

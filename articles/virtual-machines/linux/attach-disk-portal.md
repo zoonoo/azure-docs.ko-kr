@@ -28,7 +28,7 @@ ms.locfileid: "39001619"
 VM에 디스크를 연결하기 전에 다음 팁을 검토합니다.
 
 * 가상 머신의 크기로 연결할 수 있는 디스크 개수가 제어됩니다. 자세한 내용은 [가상 머신의 크기](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
-* 프리미엄 저장소를 사용하려면 DS 시리즈 또는 GS 시리즈 가상 머신이 필요합니다. 이러한 가상 머신과 함께 프리미엄 및 표준 디스크를 모두 사용할 수 있습니다. 프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 [Premium Storage: Azure Virtual Machine 작업을 위한 고성능 저장소](../windows/premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+* 프리미엄 저장소를 사용하려면 DS 시리즈 또는 GS 시리즈 가상 머신이 필요합니다. 이러한 가상 머신과 함께 프리미엄 및 표준 디스크를 모두 사용할 수 있습니다. 프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 [Premium Storage: Azure Virtual Machine 작업을 위한 고성능 스토리지](../windows/premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 * 가상 머신에 연결된 디스크는 실제로 Azure에 저장된 .vhd 파일입니다. 자세한 내용은 [가상 머신용 디스크 및 VHD 정보](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 * 디스크를 연결한 후 [Linux VM에 연결하여 새 디스크를 탑재](#connect-to-the-linux-vm-to-mount-the-new-disk)해야 합니다.
 

@@ -418,7 +418,7 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 ## <a name="reference"></a>참고 자료
 다음은 지원되는 데이터 저장소에 대한 몇 가지 성능 모니터링 및 튜닝 참조입니다.
 
-* Azure Storage(Blob 저장소 및 테이블 저장소 포함): [Azure Storage 확장성 목표](../../storage/common/storage-scalability-targets.md) 및 [Azure Storage 성능 및 확장성 검사 목록](../../storage/common/storage-performance-checklist.md)
+* Azure Storage(Blob 스토리지 및 테이블 스토리지 포함): [Azure Storage 확장성 목표](../../storage/common/storage-scalability-targets.md) 및 [Azure Storage 성능 및 확장성 검사 목록](../../storage/common/storage-performance-checklist.md)
 * Azure SQL Database: [성능을 모니터링](../../sql-database/sql-database-single-database-monitor.md)하고 DTU(데이터베이스 트랜잭션 단위) 비율을 확인할 수 있습니다.
 * Azure SQL Data Warehouse: 해당 기능은 DWU(데이터 웨어하우스 단위)로 측정됩니다. [Azure SQL Data Warehouse의 계산 능력 관리(개요)](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)를 참조하세요.
 * Azure Cosmos DB: [Azure Cosmos DB의 성능 수준](../../cosmos-db/performance-levels.md)

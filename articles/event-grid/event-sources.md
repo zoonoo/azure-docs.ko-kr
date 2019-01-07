@@ -128,7 +128,7 @@ Blob Storage 이벤트를 구독하여 만든 blob 및 삭제된 이벤트에 �
 | [빠른 시작: Azure Portal을 사용하여 Blob Storage 이벤트 만들기 및 라우팅](blob-event-quickstart-portal.md) | 포털를 사용하여 Blob Storage 이벤트를 WebHook로 전송하는 방법을 보여줍니다. |
 | [Azure CLI: Blob Storage 계정에 대한 이벤트 구독](./scripts/event-grid-cli-blob.md) | Blob Storage 계정에 대한 이벤트를 구독하는 샘플 스크립트입니다. 이벤트를 WebHook로 전송합니다. |
 | [PowerShell: Blob Storage 계정에 대한 이벤트 구독](./scripts/event-grid-powershell-blob.md) | Blob Storage 계정에 대한 이벤트를 구독하는 샘플 스크립트입니다. 이벤트를 WebHook로 전송합니다. |
-| [Resource Manager 템플릿: Blob Storage 및 구독 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Azure Blob Storage 계정을 배포하고 해당 저장소 계정에 대한 이벤트를 구독합니다. WebHook에 이벤트를 보냅니다. |
+| [Resource Manager 템플릿: Blob Storage 및 구독 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Azure Blob Storage 계정을 배포하고 해당 스토리지 계정에 대한 이벤트를 구독합니다. WebHook에 이벤트를 보냅니다. |
 | [개요: Blob Storage 이벤트에 대응](../storage/blobs/storage-blob-event-overview.md) | Event Grid와 Blob 저장소 통합의 개요입니다. |
 | [이벤트 스키마](event-schema-blob-storage.md) | Blob Storage 이벤트의 필드를 표시합니다. |
 

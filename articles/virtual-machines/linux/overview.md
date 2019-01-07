@@ -37,7 +37,7 @@ Azure는 모든 디스크에 프리미엄 저장소를 사용하여 VM을 배포
 
 ## <a name="managed-disks"></a>Managed Disks
 
-Managed Disks는 백그라운드에서 Azure Storage 계정 만들기 및 관리 작업을 처리하기 때문에 저장소 계정의 확장성 제한에 걱정할 필요가 없습니다. 디스크 크기와 성능 계층(표준 또는 프리미엄)을 지정하면, Azure가 디스크를 만들고 관리합니다. 디스크를 추가하거나 VM을 확장하고 축소하면 사용 중인 저장소에 대해 걱정할 필요가 없습니다. 새 VM을 만드는 경우 [Azure CLI를 사용](quick-create-cli.md)하거나 Azure Portal을 사용하여 관리되는 OS 및 데이터 디스크로 VM을 만듭니다. 관리되지 않는 디스크가 있는 VM이 있는 경우 [Managed Disks로 지원되도록 VM을 변환](convert-unmanaged-to-managed-disks.md)할 수 있습니다.
+Managed Disks는 백그라운드에서 Azure Storage 계정 만들기 및 관리 작업을 처리하기 때문에 스토리지 계정의 확장성 제한에 걱정할 필요가 없습니다. 디스크 크기와 성능 계층(표준 또는 프리미엄)을 지정하면, Azure가 디스크를 만들고 관리합니다. 디스크를 추가하거나 VM을 확장하고 축소하면 사용 중인 저장소에 대해 걱정할 필요가 없습니다. 새 VM을 만드는 경우 [Azure CLI를 사용](quick-create-cli.md)하거나 Azure Portal을 사용하여 관리되는 OS 및 데이터 디스크로 VM을 만듭니다. 관리되지 않는 디스크가 있는 VM이 있는 경우 [Managed Disks로 지원되도록 VM을 변환](convert-unmanaged-to-managed-disks.md)할 수 있습니다.
 
 또한 Azure 지역당 하나의 저장소 계정에서 사용자 지정 이미지를 관리하고 동일한 구독에서 수백 개의 VM을 만드는 데 사용할 수도 있습니다. 관리 디스크에 대한 자세한 내용은 [Managed Disks 개요](../linux/managed-disks-overview.md)를 참조하세요.
 

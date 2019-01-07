@@ -72,7 +72,7 @@ Distcp를 사용하여 Azure Storage Blob과 Data Lake Storage Gen1 간에 데�
 
 
 ## <a name="use-sqoop-from-an-hdinsight-cluster-with-access-to-data-lake-storage-gen1"></a>Data Lake Storage Gen1 액세스 권한이 있는 HDInsight 클러스터에서 Sqoop 사용
-HDInsight 클러스터에는 사용 가능한 Sqoop 패키지가 이미 있습니다. Data Lake Storage Gen1을 추가 저장소로 사용하도록 HDInsight 클러스터를 구성한 경우 Sqoop(구성 변경 없이)를 사용하여 관계형 데이터베이스(이 예제의 경우 Azure SQL Database)와 Data Lake Storage Gen1 계정 간에 데이터를 가져오고 내보낼 수 있습니다.
+HDInsight 클러스터에는 사용 가능한 Sqoop 패키지가 이미 있습니다. Data Lake Storage Gen1을 추가 스토리지로 사용하도록 HDInsight 클러스터를 구성한 경우 Sqoop(구성 변경 없이)를 사용하여 관계형 데이터베이스(이 예제의 경우 Azure SQL Database)와 Data Lake Storage Gen1 계정 간에 데이터를 가져오고 내보낼 수 있습니다.
 
 1. 이 자습서에서는 Linux 클러스터를 만든 것으로 가정하므로 SSH를 사용하여 클러스터에 연결해야 합니다. [Linux 기반 HDInsight 클러스터에 연결](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 2. 클러스터에서 Data Lake Storage Gen1 계정에 액세스할 수 있는지 확인합니다. SSH 프롬프트에서 다음 명령을 실행합니다.

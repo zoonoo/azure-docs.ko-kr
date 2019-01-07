@@ -85,7 +85,7 @@ Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원�
 * 두 번째 저장소 암호화 ContentKey를 저장소 암호화된 Asset에 연결하려는 시도가 있었습니다.
 * 동일한 ContentKey를 Asset에 연결하려는 시도가 있었습니다.
 * 저장소 컨테이너가 누락되었거나 더 이상 해당 Asset과 연결되지 않은 Asset에 로케이터를 만들려는 시도가 있었습니다.
-* 사용 중인 로케이터가 5개 있는 Asset에 로케이터를 만들려는 시도가 있었습니다. (Azure Storage는 한 개의 저장소 컨테이너에 다섯 개의 공유 액세스 정책이란 제한을 적용합니다.)
+* 사용 중인 로케이터가 5개 있는 Asset에 로케이터를 만들려는 시도가 있었습니다. (Azure Storage는 한 개의 스토리지 컨테이너에 다섯 개의 공유 액세스 정책이란 제한을 적용합니다.)
 * Asset을 IngestManifestAsset에 연결하는 저장소 계정은 상위 IngestManifest에서 사용되는 저장소 계정과는 다릅니다.  
 
 ## <a name="500-internal-server-error"></a>500 내부 서버 오류

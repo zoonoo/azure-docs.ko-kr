@@ -27,7 +27,7 @@ Media Services 계정을 만들려면 Azure Storage 계정 리소스의 이름�
 >[!NOTE]
 > Blob 전용 계정은 **기본**으로 허용되지 않습니다. 
 
-핫 저장소 계층과 쿨 저장소 계층 중 하나를 선택할 수 있도록 GPv2를 사용하는 것이 좋습니다. 저장소 계정을 자세히 알아보려면 [Azure Storage 계정 개요](../../storage/common/storage-account-overview.md)를 참조하세요. 
+핫 저장소 계층과 쿨 저장소 계층 중 하나를 선택할 수 있도록 GPv2를 사용하는 것이 좋습니다. 스토리지 계정을 자세히 알아보려면 [Azure Storage 계정 개요](../../storage/common/storage-account-overview.md)를 참조하세요. 
 
 ## <a name="assets-in-a-storage-account"></a>저장소 계정의 자산
 

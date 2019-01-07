@@ -34,7 +34,7 @@ ms.locfileid: "43106647"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
-- **Azure Storage 계정**. Hive 스크립트를 만들어 Azure 저장소에 업로드합니다. Hive 스크립트의 출력은 이 저장소 계정에 저장됩니다. 이 샘플에서 HDInsight 클러스터는 이 Azure Storage 계정을 기본 저장소로 사용합니다. 
+- **Azure Storage 계정**. Hive 스크립트를 만들어 Azure 저장소에 업로드합니다. Hive 스크립트의 출력은 이 저장소 계정에 저장됩니다. 이 샘플에서 HDInsight 클러스터는 이 Azure Storage 계정을 기본 스토리지로 사용합니다. 
 - **Azure Virtual Network** - 아직 없는 경우 [이 지침](../virtual-network/quick-create-portal.md)에 따라 Azure Virtual Network를 만듭니다. 이 샘플에서 HDInsight는 Azure Virtual Network에 있습니다. 다음은 Azure Virtual Network의 샘플 구성입니다. 
 
     ![가상 네트워크 만들기](media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png)

@@ -17,7 +17,7 @@ ms.locfileid: "53994439"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Monitor의 Azure Storage 메트릭
 
-Azure Storage에 관한 메트릭을 사용하여 사용량 추세를 분석하고 요청을 추적하며 저장소 계정에 대한 문제를 진단할 수 있습니다.
+Azure Storage에 관한 메트릭을 사용하여 사용량 추세를 분석하고 요청을 추적하며 스토리지 계정에 대한 문제를 진단할 수 있습니다.
 
 Azure Monitor는 다양한 Azure 서비스를 모니터링하기 위한 통합된 사용자 인터페이스를 제공합니다. 자세한 내용은 [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)를 참조하세요. Azure Storage는 메트릭 데이터를 Azure Monitor 플랫폼에 전송하여 Azure Monitor를 통합합니다.
 

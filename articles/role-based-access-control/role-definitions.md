@@ -133,7 +133,7 @@ JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있�
 
 ### <a name="data-operations-example"></a>데이터 작업 예제
 
-관리 및 데이터 작업 방법에 대한 이해를 돕기 위한 구체적인 예를 살펴 보겠습니다. Alice는 구독 범위에서 [소유자](built-in-roles.md#owner) 역할을 할당 받았습니다. Bob에게는 저장소 계정 범위에서 [Storage Blob 데이터 기여자(미리 보기)](built-in-roles.md#storage-blob-data-contributor-preview) 역할이 할당되었습니다. 다음 다이어그램은 이 예제를 보여 줍니다.
+관리 및 데이터 작업 방법에 대한 이해를 돕기 위한 구체적인 예를 살펴 보겠습니다. Alice는 구독 범위에서 [소유자](built-in-roles.md#owner) 역할을 할당 받았습니다. Bob에게는 스토리지 계정 범위에서 [Storage Blob 데이터 기여자(미리 보기)](built-in-roles.md#storage-blob-data-contributor-preview) 역할이 할당되었습니다. 다음 다이어그램은 이 예제를 보여 줍니다.
 
 ![역할 기반 액세스 제어가 관리 및 데이터 작업을 모두 지원하도록 확장되었습니다.](./media/role-definitions/rbac-management-data.png)
 

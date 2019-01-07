@@ -31,7 +31,7 @@ ms.locfileid: "49092588"
 Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
-다음 절차에 따라 Azure 구독에 대한 새 저장소 계정을 만듭니다. 저장소 계정을 통해 Azure Storage 서비스에 액세스할 수 있습니다. 저장소 계정은 Azure Blob, Queue Storage, Table Storage와 같은 각 Azure Storage 서비스 구성 요소에 액세스하기 위한 가장 높은 수준의 네임스페이스를 나타냅니다. 자세한 내용은 [Microsoft Azure Storage 소개](../storage/common/storage-introduction.md) 를 참조하세요.
+다음 절차에 따라 Azure 구독에 대한 새 저장소 계정을 만듭니다. 스토리지 계정을 통해 Azure Storage 서비스에 액세스할 수 있습니다. 스토리지 계정은 Azure Blob, Queue Storage, Table Storage와 같은 각 Azure Storage 서비스 구성 요소에 액세스하기 위한 가장 높은 수준의 네임스페이스를 나타냅니다. 자세한 내용은 [Microsoft Azure Storage 소개](../storage/common/storage-introduction.md) 를 참조하세요.
 
 저장소 계정을 만들려면 관련 구독에 대한 서비스 관리자 또는 공동 관리자여야 합니다.
 

@@ -96,7 +96,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     
     자세한 내용은 [Azure Blob 저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
 
-3. Blob Storage 계정에 저장소 컨테이너를 만들고 컨테이너에 샘플 json 파일을 업로드합니다. Azure Portal 또는 [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 파일을 업로드할 수 있습니다.
+3. Blob Storage 계정에 스토리지 컨테이너를 만들고 컨테이너에 샘플 json 파일을 업로드합니다. Azure Portal 또는 [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 파일을 업로드할 수 있습니다.
 
     - Azure Portal에서 저장소 계정을 엽니다.
     - **Blob**을 선택합니다.

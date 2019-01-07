@@ -30,7 +30,7 @@ ms.locfileid: "53631365"
 
 ## <a name="storage-account-support"></a>저장소 계정 지원
 
-수명 주기 관리 정책은 범용 v2(GPv2) 계정과 Blob Storage 계정에 모두 사용할 수 있습니다. Azure Portal에서 간단한 원클릭 프로세스를 이용하여 기존의 범용(GPv1) 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 저장소 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.  
+수명 주기 관리 정책은 범용 v2(GPv2) 계정과 Blob Storage 계정에 모두 사용할 수 있습니다. Azure Portal에서 간단한 원클릭 프로세스를 이용하여 기존의 범용(GPv1) 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.  
 
 ## <a name="pricing"></a>가격 
 

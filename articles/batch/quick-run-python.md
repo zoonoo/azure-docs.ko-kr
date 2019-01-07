@@ -118,7 +118,7 @@ Batch processing began with mainframe computers and punch cards. Today it still 
 
 ### <a name="preliminaries"></a>준비 단계
 
-저장소 계정과 상호 작용하기 위해 앱에서 [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) 패키지를 사용하여 [BlockBlobService](/python/api/azure.storage.blob.blockblobservice.blockblobservice) 개체를 만듭니다.
+스토리지 계정과 상호 작용하기 위해 앱에서 [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) 패키지를 사용하여 [BlockBlobService](/python/api/azure.storage.blob.blockblobservice.blockblobservice) 개체를 만듭니다.
 
 ```python
 blob_client = azureblob.BlockBlobService(

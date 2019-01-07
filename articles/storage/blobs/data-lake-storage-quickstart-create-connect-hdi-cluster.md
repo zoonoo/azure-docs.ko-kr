@@ -100,7 +100,7 @@ Hadoop의 온-프레미스 설치가 클러스터의 저장소에 HDFS(Hadoop �
 > [!WARNING]
 > HDInsight 클러스터와 다른 위치에서는 추가 저장소 계정을 사용할 수 없습니다.
 
-구성하는 동안 기본 저장소 엔드포인트에 대해 Data Lake Storage를 지정합니다. 기본 저장소에는 애플리케이션 및 시스템 로그가 포함되어 있습니다. 필요에 따라 클러스터에서 액세스할 수 있는 Data Lake Storage Gen2를 사용한 연결된 스토리지 계정을 추가로 지정할 수 있습니다. HDInsight 클러스터와 종속된 저장소 계정은 같은 Azure 위치에 있어야 합니다.
+구성하는 동안 기본 스토리지 엔드포인트에 대해 Data Lake Storage를 지정합니다. 기본 저장소에는 애플리케이션 및 시스템 로그가 포함되어 있습니다. 필요에 따라 클러스터에서 액세스할 수 있는 Data Lake Storage Gen2를 사용한 연결된 스토리지 계정을 추가로 지정할 수 있습니다. HDInsight 클러스터와 종속된 저장소 계정은 같은 Azure 위치에 있어야 합니다.
 
 ![클러스터 스토리지 설정: HDFS 호환 스토리지 엔드포인트](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 

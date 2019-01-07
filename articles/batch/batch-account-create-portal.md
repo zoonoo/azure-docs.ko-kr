@@ -71,7 +71,7 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
     ![Azure Portal에서 Batch 계정 키][account_keys]
 
-* 배치 계정에 연결된 저장소 계정의 이름 및 키를 보려면 **Storage 계정**을 선택합니다.
+* 배치 계정에 연결된 스토리지 계정의 이름 및 키를 보려면 **Storage 계정**을 선택합니다.
 
 * 배치 계정에 적용되는 리소스 할당량을 보려면 **할당량**을 선택합니다. 자세한 내용은 [Batch 서비스 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
 

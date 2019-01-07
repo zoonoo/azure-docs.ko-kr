@@ -93,7 +93,7 @@ IOPS 및 저장소 처리량에서 저장소 유형 및 해당 SLA의 목록을 
 > [!NOTE]
 > Azure Premium과 Standard 저장소는 세 개의 VHD 이미지를 유지하므로 RAID 볼륨을 사용하여 모든 중복 수준을 구성할 필요가 없습니다. RAID 볼륨의 사용법은 순수하게 충분한 I/O 처리량을 제공하는 볼륨을 구성하는 것입니다.
 
-RAID 아래의 Azure VHD 수 누적은 IOPS 및 저장소 처리량 측면의 누적입니다. 따라서 3 x P30 Azure Premium Storage 디스크에 대해 RAID 0을 설정하는 경우 IOPS의 세 배 및 단일 Azure Premium Storage P30 디스크의 저장소 처리량의 세 배를 제공해야 합니다.
+RAID 아래의 Azure VHD 수 누적은 IOPS 및 저장소 처리량 측면의 누적입니다. 따라서 3 x P30 Azure Premium Storage 디스크에 대해 RAID 0을 설정하는 경우 IOPS의 세 배 및 단일 Azure Premium Storage P30 디스크의 스토리지 처리량의 세 배를 제공해야 합니다.
 
 아래 캐싱 권장 사항은 다음과 같이 나열된 SAP HANA에 대한 I/O 특성을 가정하고 있습니다.
 
@@ -175,7 +175,7 @@ Azure Write Accelerator에 대한 세부 정보 및 제한 사항은 동일한 �
 | M128ms | 3800GiB | 2000MB/s | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S50 |
 
 
-3 x P20을 사용하는 작은 VM 유형에 권장되는 디스크는 [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)(SAP TDI 저장소 백서)에 따른 공간 권장 사항과 관련된 볼륨 크기를 초과합니다. 하지만 이 표에 표시된 항목은 SAP HANA에 필요한 충분한 디스크 처리량을 제공하도록 선택되었습니다. 메모리 볼륨의 두 배인 백업을 유지하기 위해 크기 지정된 **/hana/backup** 볼륨을 변경해야 하는 경우 자유롭게 조정할 수 있습니다.   
+3 x P20을 사용하는 작은 VM 유형에 권장되는 디스크는 [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)(SAP TDI 스토리지 백서)에 따른 공간 권장 사항과 관련된 볼륨 크기를 초과합니다. 하지만 이 표에 표시된 항목은 SAP HANA에 필요한 충분한 디스크 처리량을 제공하도록 선택되었습니다. 메모리 볼륨의 두 배인 백업을 유지하기 위해 크기 지정된 **/hana/backup** 볼륨을 변경해야 하는 경우 자유롭게 조정할 수 있습니다.   
 제안된 다른 볼륨에 대한 저장소 처리량이 실행하려는 작업을 충족하는지 여부를 확인합니다. 작업에 **/hana/data** 및 **/hana/log**에 대한 더 높은 볼륨이 필요한 경우 Azure Premium Storage VHD의 수를 증가시켜야 합니다. 나열된 것보다 더 많은 VHD로 볼륨을 크기 조정하면 Azure 가상 머신 유형의 한도 내 IOPS 및 I/O 처리량이 증가합니다. 
 
 > [!NOTE]
@@ -359,7 +359,7 @@ SAP HANA Dynamic Tiering 2.0은 SAP BW 또는 S4HANA에서 지원되지 않습�
 - DT 2.0은 전용 Azure VM에 설치해야 합니다. SAP HANA가 실행되는 동일한 VM에서 실행되지 않을 수 있습니다.
 - SAP HANA 및 DT 2.0 VM은 동일한 Azure Vnet 내에 배포해야 합니다.
 - Azure 가속 네트워킹을 사용하도록 설정된 SAP HANA 및 DT 2.0 VM을 배포해야 합니다.
-- DT 2.0 VM에 대한 저장소 유형은 Azure Premium Storage여야 합니다.
+- DT 2.0 VM에 대한 스토리지 유형은 Azure Premium Storage여야 합니다.
 - DT 2.0 VM에 여러 Azure 디스크를 연결해야 합니다.
 - Azure 디스크에서 스트라이핑을 사용하여 소프트웨어 RAID/스트라이프 볼륨을 만들어야 합니다(lvm 또는 mdadm을 통해).
 

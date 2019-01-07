@@ -1,6 +1,6 @@
 ---
-title: Azure Storage 소개 - Azure의 클라우드 저장소 | Microsoft Docs
-description: Azure Storage는 Microsoft의 클라우드 저장소 솔루션입니다. Azure Storage는 고가용성, 보안, 지속형, 확장성이 뛰어난 중복된 데이터 개체에 대한 저장소를 제공합니다.
+title: Azure Storage 소개 - Azure의 클라우드 스토리지 | Microsoft Docs
+description: Azure Storage는 Microsoft의 클라우드 스토리지 솔루션입니다. Azure Storage는 고가용성, 보안, 지속형, 확장성이 뛰어난 중복된 데이터 개체에 대한 스토리지를 제공합니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -17,7 +17,7 @@ ms.locfileid: "52963252"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Storage 소개
 
-Azure Storage는 최신 데이터 저장소 시나리오를 위한 Microsoft의 클라우드 저장소 솔루션입니다. Azure Storage는 데이터 개체에 대한 확장성 있는 개체 저장소, 클라우드에 대한 파일 시스템 서비스, 신뢰할 수 있는 메시징을 위한 메시징 저장소 및 NoSQL 저장소를 제공합니다. Azure Storage는:
+Azure Storage는 최신 데이터 스토리지 시나리오를 위한 Microsoft의 클라우드 스토리지 솔루션입니다. Azure Storage는 데이터 개체에 대한 확장성 있는 개체 저장소, 클라우드에 대한 파일 시스템 서비스, 신뢰할 수 있는 메시징을 위한 메시징 저장소 및 NoSQL 저장소를 제공합니다. Azure Storage는:
 
 - **내구성 및 고가용성** 중복성을 통해 일시적인 하드웨어 오류가 발생할 경우 데이터를 안전하게 보호합니다. 또한 로컬 재해 또는 자연 재해로부터 추가 보호를 위해 데이터 센터 또는 지리적 영역에서 데이터를 복제하도록 선택할 수도 있습니다. 이러한 방식으로 복제된 데이터는 예기치 않은 중단이 발생할 경우 항상 사용 가능한 상태로 유지됩니다. 
 - **보안** Azure Storage에 기록된 모든 데이터는 서비스에 의해 암호화됩니다. Azure Storage는 데이터에 액세스할 수 있는 사용자에 대한 세분화된 제어를 제공합니다.
@@ -110,7 +110,7 @@ Table 저장소에 대한 자세한 내용은 [Azure Table 저장소 개요](../
 
 ### <a name="blob-storage-accounts"></a>Blob Storage 계정
 
-Blob Storage 계정은 블록 Blob 및 추가 Blob을 저장하는 데 사용되는 특별한 저장소 계정입니다. 이러한 계정에 페이지 Blob을 저장할 수 없습니다. 따라서 VHD 파일을 저장할 수 없습니다. 이러한 계정을 사용하면 액세스 계층을 핫 또는 쿨로 설정할 수 있습니다. 계층은 언제든지 변경할 수 있습니다.
+Blob Storage 계정은 블록 Blob 및 추가 Blob을 저장하는 데 사용되는 특별한 스토리지 계정입니다. 이러한 계정에 페이지 Blob을 저장할 수 없습니다. 따라서 VHD 파일을 저장할 수 없습니다. 이러한 계정을 사용하면 액세스 계층을 핫 또는 쿨로 설정할 수 있습니다. 계층은 언제든지 변경할 수 있습니다.
 
 핫 액세스 계층은 자주 액세스 하는 파일에 대해 사용합니다. 저장소의 경우 비용이 많이 들지만 Blob에 액세스하는 비용이 훨씬 낮습니다. 쿨 액세스 계층에 저장된 Blob의 경우 Blob에 액세스하기 위한 비용이 많이 들지만 저장소 비용이 훨씬 낮습니다.
 
@@ -118,7 +118,7 @@ Blob Storage 계정은 블록 Blob 및 추가 Blob을 저장하는 데 사용되
 
 각 저장소 계정에는 모든 작업에 사용할 수 있는 두 개의 인증 키가 있습니다. 경우에 따라 보안을 강화하기 위해 키를 롤백할 수 있도록 구 개의 키가 있습니다. 키 소유권과 계정 이름이 있으면 저장소 계정의 모든 데이터에 무제한 액세스할 수 있으므로 이러한 키를 안전하게 보관하는 것이 중요합니다.
 
-이 섹션에서는 저장소 계정 및 해당 데이터를 보호하는 두 가지 방법을 알아봅니다. 저장소 계정 및 데이터를 보호하는 방법에 대한 자세한 내용은 [Azure Storage 보안 가이드](storage-security-guide.md)를 참조하세요.
+이 섹션에서는 저장소 계정 및 해당 데이터를 보호하는 두 가지 방법을 알아봅니다. 스토리지 계정 및 데이터를 보호하는 방법에 대한 자세한 내용은[Azure Storage 보안 가이드](storage-security-guide.md)를 참조하세요.
 
 ### <a name="securing-access-to-storage-accounts-using-azure-ad"></a>Azure AD를 사용하여 저장소 계정에 대한 액세스 보호
 
@@ -138,7 +138,7 @@ Storage 서비스에 사용할 수 있는 기본적인 종류의 두 가지 암�
 
 ### <a name="encryption-at-rest"></a>휴지 상태의 암호화
 
-미사용 Azure SSE(저장소 서비스 암호화)를 사용하면 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. 이 기능을 통해 Azure Storage는 저장소를 유지하기 전에 데이터를 자동으로 암호화하고 검색하기 전에 암호를 해독합니다. 암호화, 암호 해독 및 키 관리는 사용자에게 완전히 투명하게 처리됩니다.
+미사용 Azure SSE(저장소 서비스 암호화)를 사용하면 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. 이 기능을 통해 Azure Storage는 스토리지를 유지하기 전에 데이터를 자동으로 암호화하고 검색하기 전에 암호를 해독합니다. 암호화, 암호 해독 및 키 관리는 사용자에게 완전히 투명하게 처리됩니다.
 
 
 SSE는 모든 성능 계층(표준 및 프리미엄), 모든 배포 모델(Azure Resource Manager 및 클래식) 및 모든 Azure Storage 서비스(Blob, 큐, 테이블 및 파일)의 데이터를 자동으로 암호화합니다. SSE는 Azure Storage 성능에 영향을 주지 않습니다.
@@ -208,4 +208,4 @@ Azure Storage 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Storage를 사용하여 가동하고 실행하려면 [저장소 계정 만들기](storage-quickstart-create-account.md)를 참조하세요.
+Azure Storage를 사용하여 가동하고 실행하려면 [스토리지 계정 만들기](storage-quickstart-create-account.md)를 참조하세요.

@@ -31,7 +31,7 @@ Azure는 **Storage 큐** 및 **Service Bus 큐**의 두 가지 큐 유형을 지
 
 **Service Bus 큐**는 더 폭넓은 [Azure 메시징](https://azure.microsoft.com/services/service-bus/) 인프라의 일부이며, 큐뿐 아니라 게시/구독과 여러 고급 통합 패턴도 지원합니다. Service Bus 큐/항목/구독에 대한 자세한 내용은 [Service Bus 개요](service-bus-messaging-overview.md)를 참조하세요.
 
-두 큐 기술이 동시에 존재하고 있지만, Storage 큐가 Azure Storage 서비스를 기반으로 구축된 전용 큐 저장소 메커니즘으로 먼저 소개되었습니다. Service Bus 큐는 여러 통신 프로토콜, 데이터 계약, 신뢰 도메인 및/또는 네트워크 환경에 걸쳐 존재할 수 있는 애플리케이션 또는 애플리케이션 구성 요소를 통합하도록 설계된 더 폭넓은 메시징 인프라를 기반으로 구축되었습니다.
+두 큐 기술이 동시에 존재하고 있지만, Storage 큐가 Azure Storage 서비스를 기반으로 구축된 전용 큐 스토리지 메커니즘으로 먼저 소개되었습니다. Service Bus 큐는 여러 통신 프로토콜, 데이터 계약, 신뢰 도메인 및/또는 네트워크 환경에 걸쳐 존재할 수 있는 애플리케이션 또는 애플리케이션 구성 요소를 통합하도록 설계된 더 폭넓은 메시징 인프라를 기반으로 구축되었습니다.
 
 ## <a name="technology-selection-considerations"></a>기술 선택 시 고려 사항
 Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하는 메시지 큐 서비스의 구현입니다. 각각은 약간씩 다른 기능 집합을 가지고 있으며, 이는 특정 솔루션의 요구 또는 해결하려는 비즈니스/기술 문제에 따라 하나 또는 다른 것 또는 둘 모두를 선택할 수 있음을 의미합니다.

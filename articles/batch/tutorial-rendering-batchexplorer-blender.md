@@ -46,7 +46,7 @@ ms.locfileid: "47392556"
 * 왼쪽 기본 메뉴에서 '데이터' 메뉴 항목을 선택합니다.
 * 풀다운에서 '파일 그룹'을 선택했는지 확인합니다.
 * '+' 단추를 선택하고 'blender-classroom'이라는 새로운 '빈 파일 그룹'을 만듭니다.
-  * 파일 그룹은 단순히 'fgrp-' 접두사가 있는 Azure Storage Blob 컨테이너입니다. 이것은 저장소 계정에서 다른 컨테이너를 필터링하는 데 사용되는 규칙입니다.
+  * 파일 그룹은 단순히 'fgrp-' 접두사가 있는 Azure Storage Blob 컨테이너입니다. 이것은 스토리지 계정에서 다른 컨테이너를 필터링하는 데 사용되는 규칙입니다.
 
 ![장면 파일의 파일 그룹](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_scene_filegroup.png)
 

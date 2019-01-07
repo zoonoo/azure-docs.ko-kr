@@ -30,7 +30,7 @@ ms.locfileid: "45580048"
 
 ## <a name="sap-hana-snapshots-as-central-part-of-application-consistent-backups"></a>애플리케이션 일치 백업의 중심 부분인 SAP HANA 스냅숏
 
-SAP HANA에는 저장소 스냅숏 만들기를 지원하는 기능이 있습니다. 단일 컨테이너 시스템에는 제한이 있습니다. 둘 이상의 테넌트가 포함된 SAP HANA MCS를 다루는 시나리오에서는 이러한 종류의 SAP HANA 데이터베이스 스냅숏을 지원하지 않습니다([Create a Storage Snapshot (SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm)(저장소 스냅숏 만들기(SAP HANA Studio)) 참조).
+SAP HANA에는 저장소 스냅숏 만들기를 지원하는 기능이 있습니다. 단일 컨테이너 시스템에는 제한이 있습니다. 둘 이상의 테넌트가 포함된 SAP HANA MCS를 다루는 시나리오에서는 이러한 종류의 SAP HANA 데이터베이스 스냅숏을 지원하지 않습니다([Create a Storage Snapshot (SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm)(스토리지 스냅숏 만들기(SAP HANA Studio)) 참조).
 
 다음과 같이 작동합니다.
 

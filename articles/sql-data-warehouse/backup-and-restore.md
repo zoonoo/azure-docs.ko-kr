@@ -44,7 +44,7 @@ order by run_id desc
 
 
 > [!NOTE]
-> 7일보다 더 긴 복원 시점이 필요한 경우 [여기서](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points) 이 기능에 대해 투표해 주세요. 또한 사용자 정의 복원 지점을 만들어 새로 만든 복원 지점에서 새 데이터 웨어하우스로 복원할 수 있습니다. 복원되면 데이터 웨어하우스가 온라인 상태가 되며, 이를 무기한 일시 중지하여 계산 비용을 절감할 수 있습니다. 일시 중지된 데이터베이스에는 Azure Premium Storage 요금으로 저장소 비용이 부과됩니다. 복원된 데이터 웨어하우스의 활성 복사본이 필요한 경우 몇 분 만에 다시 시작할 수 있습니다.
+> 7일보다 더 긴 복원 시점이 필요한 경우 [여기서](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points) 이 기능에 대해 투표해 주세요. 또한 사용자 정의 복원 지점을 만들어 새로 만든 복원 지점에서 새 데이터 웨어하우스로 복원할 수 있습니다. 복원되면 데이터 웨어하우스가 온라인 상태가 되며, 이를 무기한 일시 중지하여 계산 비용을 절감할 수 있습니다. 일시 중지된 데이터베이스에는 Azure Premium Storage 요금으로 스토리지 비용이 부과됩니다. 복원된 데이터 웨어하우스의 활성 복사본이 필요한 경우 몇 분 만에 다시 시작할 수 있습니다.
 >
 
 ### <a name="restore-point-retention"></a>복원 지점 보존
@@ -68,16 +68,16 @@ SQL Data Warehouse는 하루에 한 번 [쌍으로 연결된 데이터 센터](.
 지역 백업은 기본적으로 켜져 있습니다. 데이터 웨어하우스가 Gen1인 경우 원하는 대로 [옵트아웃](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy)할 수 있습니다. 데이터 보호는 기본 제공으로 보증되므로 Gen2에 대한 지역 백업을 옵트아웃할 수 없습니다.
 
 > [!NOTE]
-> 지역 백업에 더 짧은 RPO가 필요한 경우 [여기에서](https://feedback.azure.com/forums/307516-sql-data-warehouse) 이 기능에 대해 투표해 주세요. 또한 사용자 정의 복원 지점을 만들어 새로 만든 복원 지점에서 다른 지역의 새 데이터 웨어하우스로 복원할 수 있습니다. 복원되면 데이터 웨어하우스가 온라인 상태가 되며, 이를 무기한 일시 중지하여 계산 비용을 절감할 수 있습니다. 일시 중지된 데이터베이스에는 Azure Premium Storage 요금으로 저장소 비용이 부과됩니다. 그런 다음, 일시 중지합니다.<!-- should this be removed or is something missing? --> 데이터 웨어하우스의 활성 복사본이 필요한 경우 몇 분 만에 다시 시작할 수 있습니다.
+> 지역 백업에 더 짧은 RPO가 필요한 경우 [여기에서](https://feedback.azure.com/forums/307516-sql-data-warehouse) 이 기능에 대해 투표해 주세요. 또한 사용자 정의 복원 지점을 만들어 새로 만든 복원 지점에서 다른 지역의 새 데이터 웨어하우스로 복원할 수 있습니다. 복원되면 데이터 웨어하우스가 온라인 상태가 되며, 이를 무기한 일시 중지하여 계산 비용을 절감할 수 있습니다. 일시 중지된 데이터베이스에는 Azure Premium Storage 요금으로 스토리지 비용이 부과됩니다. 그런 다음, 일시 중지합니다.<!-- should this be removed or is something missing? --> 데이터 웨어하우스의 활성 복사본이 필요한 경우 몇 분 만에 다시 시작할 수 있습니다.
 >
 
 
 ## <a name="backup-and-restore-costs"></a>백업 및 복원 비용
-Azure 청구서에는 Storage 및 재해 복구 저장소에 대한 항목이 있습니다. Storage 요금은 스냅숏에서 캡처된 증분 변경과 함께 주 지역에 데이터를 저장하는 데 드는 총 비용입니다. 현재 스냅숏을 수행하는 방법에 대한 자세한 내용은 이 [설명서](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios)를 참조하세요. 지역 중복 요금은 지역 백업을 저장하는 데 드는 비용을 포함합니다.  
+Azure 청구서에는 Storage 및 재해 복구 스토리지에 대한 항목이 있습니다. Storage 요금은 스냅숏에서 캡처된 증분 변경과 함께 주 지역에 데이터를 저장하는 데 드는 총 비용입니다. 현재 스냅숏을 수행하는 방법에 대한 자세한 내용은 이 [설명서](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios)를 참조하세요. 지역 중복 요금은 지역 백업을 저장하는 데 드는 비용을 포함합니다.  
 
 주 데이터 웨어하우스 및 7일 간의 스냅숏 변경에 대한 총 비용은 가장 가까운 TB로 반올림하여 계산됩니다. 예를 들어 데이터 웨어하우스가 1.5TB이고 스냅숏에서 100GB를 캡처하면 2TB 데이터에 대한 비용이 Azure Premium Storage 요율로 청구됩니다. 
 
-지역 중복 저장소를 사용하는 경우 별도의 저장소 비용이 청구됩니다. 지역 중복 저장소는 표준 RA-GRS(Read-Access Geo Redundant Storage) 요금이 청구됩니다.
+지역 중복 저장소를 사용하는 경우 별도의 저장소 비용이 청구됩니다. 지역 중복 스토리지는 표준 RA-GRS(Read-Access Geo Redundant Storage) 요금이 청구됩니다.
 
 SQL Data Warehouse 가격 책정에 대한 자세한 내용은 [SQL Data Warehouse 가격](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) 및 지역 간 복원시의 [송신 요금](https://azure.microsoft.com/pricing/details/bandwidth/)을 참조하세요.
 

@@ -25,7 +25,7 @@ ms.locfileid: "44296656"
 
 ## <a name="2016-10-01---managed-storage-account-keys"></a>2016-10-01 - 관리 저장소 계정 키
 
-2017년 여름 - Azure Storage와 더 쉽게 통합하는 저장소 계정 키 기능을 추가했습니다. 자세한 내용은 개요 토픽 [관리 저장소 계정 키 개요](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys)를 참조하세요.
+2017년 여름 - Azure Storage와 더 쉽게 통합하는 스토리지 계정 키 기능을 추가했습니다. 자세한 내용은 개요 토픽 [관리 저장소 계정 키 개요](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys)를 참조하세요.
 
 ## <a name="2016-10-01---soft-delete"></a>2016-10-01 - 일시 삭제
 

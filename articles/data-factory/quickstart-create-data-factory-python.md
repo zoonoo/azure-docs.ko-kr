@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **Azure Storage 계정**. Blob Storage를 **원본** 및 **싱크** 데이터 저장소 모두로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
+* **Azure Storage 계정**. Blob Storage를 **원본** 및 **싱크** 데이터 저장소 모두로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
 * [이러한 지침](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)에 따라 **Azure Active Directory에 응용 프로그램을 만듭니다**. 나중에 나오는 단계에서 사용하는 다음 값을 기록해 둡니다. **애플리케이션 ID**, **인증 키** 및 **테넌트 ID**. 동일한 문서의 지침에 따라 애플리케이션을 “**참가자**” 역할에 할당합니다.
 
 ### <a name="create-and-upload-an-input-file"></a>입력 파일 만들기 및 업로드

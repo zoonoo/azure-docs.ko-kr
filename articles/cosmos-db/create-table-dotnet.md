@@ -95,7 +95,7 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 2. Visual Studio에서 App.config 파일을 엽니다. 
 
-3. 이 자습서에서는 Azure SDK 저장소 에뮬레이터를 사용하지 않으므로, 8줄의 StorageConnectionString 주석 처리를 제거하고, 7줄의 StorageConnectionString을 주석으로 처리합니다. 이제 7줄과 8줄은 다음과 같이 표시됩니다.
+3. 이 자습서에서는 Azure SDK 스토리지 에뮬레이터를 사용하지 않으므로, 8줄의 StorageConnectionString 주석 처리를 제거하고, 7줄의 StorageConnectionString을 주석으로 처리합니다. 이제 7줄과 8줄은 다음과 같이 표시됩니다.
 
     ```
     <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->

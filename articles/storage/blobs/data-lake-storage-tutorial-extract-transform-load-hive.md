@@ -64,7 +64,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="upload-data-to-an-hdinsight-cluster"></a>HDInsight 클러스터에 데이터 업로드
 
-HDInsight 클러스터와 연결된 저장소로 데이터를 업로드하는 여러 가지 방법이 있습니다. 이 섹션에서는 `scp`를 사용하여 데이터를 업로드합니다. 데이터를 업로드하는 다른 방법을 알아보려면 [Distcp를 사용하여 기존 저장소 계정과 Data Lake Storage Gen2가 사용되는 새 저장소 계정 간에 데이터 복사](data-lake-storage-use-distcp.md)를 참조하세요.
+HDInsight 클러스터와 연결된 저장소로 데이터를 업로드하는 여러 가지 방법이 있습니다. 이 섹션에서는 `scp`를 사용하여 데이터를 업로드합니다. 데이터를 업로드하는 다른 방법을 알아보려면 [Distcp를 사용하여 기존 스토리지 계정과 Data Lake Storage Gen2가 사용되는 새 스토리지 계정 간에 데이터 복사](data-lake-storage-use-distcp.md)를 참조하세요.
 
 1. 명령 프롬프트를 열고 다음 명령을 사용하여 HDInsight 클러스터 헤드 노드에 .zip 파일을 업로드합니다.
 

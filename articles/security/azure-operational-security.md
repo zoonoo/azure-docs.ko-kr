@@ -239,7 +239,7 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 
 [저장소 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 Storage 서비스 요청과 관련하여 집계된 트랜잭션 통계 및 용량 데이터를 포함하는 메트릭을 저장할 수 있습니다. 트랜잭션은 API 작업 수준과 저장소 서비스 수준에서 모두 보고되며 용량은 저장소 서비스 수준에서 보고됩니다. 메트릭 데이터를 사용하면 저장소 서비스 사용량을 분석하고 저장소 서비스에 대한 요청의 문제를 진단하며 서비스를 사용하는 애플리케이션의 성능을 개선할 수 있습니다.
 
-[Azure Storage 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 로깅을 수행하며 Storage 계정에 대한 메트릭 데이터를 제공합니다. 이 데이터를 사용하여 요청을 추적하고 사용량 추세를 분석하며 저장소 계정에 대한 문제를 진단할 수 있습니다. Storage 분석 로깅은 [Blob, 큐 및 Table service](https://docs.microsoft.com/azure/storage/storage-introduction)에서 사용할 수 있습니다. 저장소 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다.
+[Azure Storage 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 로깅을 수행하며 Storage 계정에 대한 메트릭 데이터를 제공합니다. 이 데이터를 사용하여 요청을 추적하고 사용량 추세를 분석하며 저장소 계정에 대한 문제를 진단할 수 있습니다. Storage 분석 로깅은 [Blob, 큐 및 Table service](https://docs.microsoft.com/azure/storage/storage-introduction)에서 사용할 수 있습니다. 스토리지 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다.
 
 이 정로를 사용하면 개별 요청을 모니터링하고 저장소 서비스의 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다. 서비스 엔드포인트에 대한 요청이 있는 경우에만 로그 항목이 만들어집니다. 예를 들어 저장소 계정의 활동이 Blob 엔드포인트에는 있지만 테이블 또는 큐 엔드포인트에는 없는 경우 Blob service와 관련된 로그만 만들어집니다.
 
@@ -247,7 +247,7 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 
 집계된 데이터는 알려진 로깅용 Blob 및 알려진 메트릭용 테이블에 저장됩니다. Blob service 및 Table service API를 사용하면 이러한 Blob와 테이블에 액세스할 수 있습니다.
 
-저장소 분석에 저장되는 데이터의 양은 총 Storage 계정의 총 한도와 관계없이 20TB로 제한됩니다. 모든 로그는 $logs라는 컨테이너의 [블록 Blob](https://docs.microsoft.com/azure/storage/storage-analytics)에 저장되며, Storage 계정에 대해 저장소 분석을 사용하도록 설정하면 자동으로 만들어집니다.
+스토리지 분석에 저장되는 데이터의 양은 총 Storage 계정의 총 한도와 관계없이 20TB로 제한됩니다. 모든 로그는 $logs라는 컨테이너의 [블록 Blob](https://docs.microsoft.com/azure/storage/storage-analytics)에 저장되며, Storage 계정에 대해 스토리지 분석을 사용하도록 설정하면 자동으로 만들어집니다.
 
 저장소 분석에서 수행하는 다음 작업에 대해 요금이 청구될 수 있습니다.
 
@@ -259,7 +259,7 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 > 최적의 성능을 얻기 위해 가상 머신에 연결되어 자주 활용되는 디스크의 수를 제한하여 가능한 제한을 방지하려고 합니다. 모든 디스크가 동시에 자주 활용되지 않으면 저장소 계정에서 많은 디스크를 지원할 수 있습니다.
 
 > [!Note]
-> 저장소 계정 제한에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](https://docs.microsoft.com/azure/storage/storage-scalability-targets)를 참조하세요.
+> 스토리지 계정 제한에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](https://docs.microsoft.com/azure/storage/storage-scalability-targets)를 참조하세요.
 
 
 다음과 같은 유형의 인증된 요청 및 익명 요청이 기록됩니다.

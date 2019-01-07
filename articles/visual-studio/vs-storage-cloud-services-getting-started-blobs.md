@@ -30,7 +30,7 @@ Azure Blob Storage는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 액
 파일이 폴더에 저장되듯이 저장소 Blob은 컨테이너에 저장됩니다. 저장소를 만든 후 해당 저장소에 하나 이상의 컨테이너를 만듭니다. 예를 들어 "Scrapbook"이라는 저장소를 만든 다음 저장소에 사진을 저장할 "images"라는 컨테이너를 만들고 오디오 파일을 저장할 "audio"라는 컨테이너를 만들 수 있습니다. 컨테이너를 만든 후 컨테이너에 개별 Blob 파일을 업로드할 수 있습니다.
 
 * 프로그래밍 방식으로 조작하는 blob에 대한 자세한 내용은 [.NET을 사용하여 Azure Blob 저장소 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요.
-* Azure Storage에 대한 일반 정보는 [저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.
+* Azure Storage에 대한 일반 정보는 [스토리지 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.
 * Azure Cloud Services에 대한 일반적인 내용은 [Cloud Services 설명서](https://azure.microsoft.com/documentation/services/cloud-services/)를 참조하세요.
 * ASP.NET 애플리케이션을 프로그래밍하는 방법에 대한 자세한 내용은 [ASP.NET](http://www.asp.net)을 참조하세요.
 
@@ -44,7 +44,7 @@ Azure Blob Storage는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 액
         using Microsoft.WindowsAzure.Storage.Blob;
         using System.Threading.Tasks;
         using LogLevel = Microsoft.Framework.Logging.LogLevel;
-2. 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다.
+2. 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다.
    
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));

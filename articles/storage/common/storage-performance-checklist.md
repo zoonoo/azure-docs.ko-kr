@@ -104,7 +104,7 @@ Azure Storage를 사용하는 모든 애플리케이션 개발자는 시간을 �
 다음 링크에서는 확장성 목표에 대한 추가 정보를 제공합니다.
 
 * 확장성 목표에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](storage-scalability-targets.md) 를 참조하세요.
-* 저장소 중복 옵션에 대한 내용은 [Azure Storage 복제](storage-redundancy.md) 및 블로그 게시물 [Azure Storage 중복 옵션 및 읽기 액세스 지역 중복 저장소](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)를 참조하세요.
+* 스토리지 중복 옵션에 대한 내용은 [Azure Storage 복제](storage-redundancy.md) 및 블로그 게시물 [Azure Storage 중복 옵션 및 읽기 액세스 지역 중복 스토리지](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)를 참조하세요.
 * Azure 서비스 가격에 대한 최신 정보는 [Azure 가격 책정](https://azure.microsoft.com/pricing/overview/)을 참조하세요.  
 
 ### <a name="subheading47"></a>파티션 명명 규칙
@@ -130,7 +130,7 @@ API 호출은 중요한 작업이기는 하지만 애플리케이션의 실제 �
 가상 머신 크기 및 할당된 대역폭에 대한 자세한 내용은 [Windows VM 크기](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [Linux VM 크기](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.  
 
 #### <a name="subheading4"></a>위치
-모든 분산 환경에서는 클라이언트를 서버 근처에 배치하면 성능을 최대화할 수 있습니다. Azure Storage 액세스 시 대기 시간을 최소화하려는 경우에는 클라이언트를 같은 Azure 지역 내에 배치하는 것이 가장 좋습니다. 예를 들어 Azure 웹 사이트에서 Azure Storage를 사용하는 경우 웹 사이트와 저장소를 모두 단일 하위 지역(예: 미국 서부 또는 동남 아시아) 내에 배치해야 합니다. 그러면 대기 시간과 비용이 감소합니다. 이 문서를 작성할 당시 단일 하위 지역 내의 대역폭 사용은 무료입니다.  
+모든 분산 환경에서는 클라이언트를 서버 근처에 배치하면 성능을 최대화할 수 있습니다. Azure Storage 액세스 시 대기 시간을 최소화하려는 경우에는 클라이언트를 같은 Azure 지역 내에 배치하는 것이 가장 좋습니다. 예를 들어 Azure 웹 사이트에서 Azure Storage를 사용하는 경우 웹 사이트와 스토리지를 모두 단일 하위 지역(예: 미국 서부 또는 동남 아시아) 내에 배치해야 합니다. 그러면 대기 시간과 비용이 감소합니다. 이 문서를 작성할 당시 단일 하위 지역 내의 대역폭 사용은 무료입니다.  
 
 모바일 디바이스 앱이나 온-프레미스 엔터프라이즈 서비스와 같이 클라이언트 응용 프로그램이 Azure 내에서 호스트되지 않는 경우에도 저장소 계정을 해당 계정에 액세스할 디바이스와 가까운 하위 지역에 배치하면 대체적으로 대기 시간이 짧아집니다. 클라이언트가 일부는 북아메리카에 있고 일부는 유럽에 있는 등 광범위하게 분산되어 있다면 여러 저장소 계정(하나는 북아메리카 지역에 있고 하나는 유럽 지역에 있음)을 사용해야 합니다. 이렇게 하면 두 지역 사용자의 대기 시간이 모두 짧아집니다. 일반적으로 애플리케이션에서 개별 사용자 관련 데이터를 저장하며 스토리지 계정 간에 데이터를 복제하지 않아도 되는 경우 이 방식을 보다 쉽게 구현할 수 있습니다.  콘텐츠를 광범위하게 배포하려는 경우에는 CDN을 사용하는 것이 좋습니다. 자세한 내용은 다음 섹션을 참조하세요.  
 
@@ -239,10 +239,10 @@ Blob의 목표 처리량에 대한 자세한 내용은 [Azure Storage 확장성 
 자세한 내용은 [Blob 복사](https://msdn.microsoft.com/library/azure/dd894037.aspx)를 참조하세요.  
 
 #### <a name="subheading18"></a>AzCopy 사용
-Azure Storage 팀은 여러 저장소 계정으로/계정에서/계정 간에 많은 Blob을 대량으로 전송하는 데 사용할 수 있는 명령줄 도구인 "AzCopy"를 공개했습니다.  이 도구는 이러한 시나리오용으로 최적화되어 있으며 높은 전송 속도를 제공할 수 있습니다.  대량 업로드, 다운로드 및 복사 시나리오에는 이 도구를 사용하는 것이 좋습니다. 이 도구에 대해 자세히 알아보고 도구를 다운로드하려면 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)을 참조하세요.  
+Azure Storage 팀은 여러 스토리지 계정으로/계정에서/계정 간에 많은 Blob을 대량으로 전송하는 데 사용할 수 있는 명령줄 도구인 "AzCopy"를 공개했습니다.  이 도구는 이러한 시나리오용으로 최적화되어 있으며 높은 전송 속도를 제공할 수 있습니다.  대량 업로드, 다운로드 및 복사 시나리오에는 이 도구를 사용하는 것이 좋습니다. 이 도구에 대해 자세히 알아보고 도구를 다운로드하려면 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)을 참조하세요.  
 
 #### <a name="subheading19"></a>Azure Import/Export 서비스
-1TB가 초과하는 매우 많은 양의 데이터에 대해 Azure 저장소에서는 Import/Export 서비스를 제공합니다. 이 서비스를 사용하는 경우 하드 드라이브를 배송하여 Blob Storage에서 데이터를 업로드하고 다운로드할 수 있습니다.  데이터를 하드 드라이브에 저장한 다음 업로드용으로 Microsoft에 보내거나 데이터 다운로드를 위해 빈 하드 드라이브를 Microsoft에 보낼 수 있습니다.  자세한 내용은 [Microsoft Azure Import/Export Service를 사용하여 Blob Storage에 데이터 전송](../storage-import-export-service.md)을 참조하세요.  네트워크를 통해 많은 양의 데이터를 업로드/다운로드하는 것보다 이 서비스를 사용하는 것이 훨씬 더 효율적일 수 있습니다.  
+1TB가 초과하는 매우 많은 양의 데이터에 대해 Azure 스토리지에서는 Import/Export 서비스를 제공합니다. 이 서비스를 사용하는 경우 하드 드라이브를 배송하여 Blob Storage에서 데이터를 업로드하고 다운로드할 수 있습니다.  데이터를 하드 드라이브에 저장한 다음 업로드용으로 Microsoft에 보내거나 데이터 다운로드를 위해 빈 하드 드라이브를 Microsoft에 보낼 수 있습니다.  자세한 내용은 [Microsoft Azure Import/Export Service를 사용하여 Blob Storage에 데이터 전송](../storage-import-export-service.md)을 참조하세요.  네트워크를 통해 많은 양의 데이터를 업로드/다운로드하는 것보다 이 서비스를 사용하는 것이 훨씬 더 효율적일 수 있습니다.  
 
 ### <a name="subheading20"></a>메타데이터 사용
 Blob 서비스는 HEAD 요청을 지원하며, 여기에는 Blob 관련 메타데이터가 포함될 수 있습니다. 예를 들어 애플리케이션은 사진에서 EXIF 데이터를 추출해야 하는 경우 사진을 검색해 데이터를 추출할 수 있습니다. 대역폭을 줄이고 성능을 개선하려면 애플리케이션이 사진을 업로드할 때 Blob의 메타데이터에 EXIF 데이터를 저장하면 됩니다. 그런 다음, HEAD 요청만 사용하여 메타데이터에서 EXIF 데이터를 검색함으로써 Blob을 읽을 때마다 EXIF 데이터를 추출하는 데 필요한 상당한 대역폭과 처리 시간을 줄일 수 있습니다. Blob의 전체 데이터가 아닌 메타데이터만 필요한 시나리오에서는 이러한 방식이 유용합니다.  메타데이터는 Blob당 8KB만 저장할 수 있으므로(이보다 많은 메타데이터를 저장하려는 요청은 Blob 서비스에서 허용되지 않음) 메타데이터 크기가 8KB를 초과하면 이 방식을 사용할 수 없습니다.  

@@ -489,7 +489,7 @@ public int run(
 * `Table` 특성과 동일한 매개 변수에 적용된 `StorageAccount` 특성
 * 함수에 적용된 `StorageAccount` 특성
 * 클래스에 적용된 `StorageAccount` 특성
-* 함수 앱의 기본 저장소 계정("AzureWebJobsStorage" 앱 설정)
+* 함수 앱의 기본 스토리지 계정("AzureWebJobsStorage" 앱 설정)
 
 ## <a name="input---java-annotations"></a>입력 - Java 주석
 

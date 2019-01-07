@@ -111,7 +111,7 @@ Service Fabric은 OWIN(Open Web Interface for .NET) 및 ASP.NET Core를 사용�
 
     >**시작**: [Azure Cosmos DB 웹앱을 빌드](../../cosmos-db/create-sql-api-dotnet.md)합니다. MongoDB 개발자라면 [Azure Cosmos DB를 통한 MongoDB 웹앱 빌드](../../cosmos-db/create-mongodb-dotnet.md)를 참조하세요.
 
--   **Azure Storage**: Blob, Queue, File 및 다른 종류의 비관계형 데이터에 대해 항상 사용 가능한 지속형 스토리지를 제공합니다. Storage는 VM의 저장소 기반을 제공합니다.
+-   **Azure Storage**: Blob, Queue, File 및 다른 종류의 비관계형 데이터에 대해 항상 사용 가능한 지속형 스토리지를 제공합니다. Storage는 VM의 스토리지 기반을 제공합니다.
 
     >**사용 시기**: 앱이 키-값 쌍(테이블), Blob, 파일 공유 또는 메시지(큐)와 같은 비관계형 데이터를 저장하는 경우입니다.
 

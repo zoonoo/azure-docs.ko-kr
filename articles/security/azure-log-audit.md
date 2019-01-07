@@ -160,7 +160,7 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다.
 * [Azure Resource Manager를 사용하여 모니터링 및 진단을 갖춘 Windows 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### <a name="storage-analytics"></a>저장소 분석
-[Azure 저장소 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 저장소 계정에 대한 메트릭 데이터를 기록하고 제공합니다. 이 데이터를 사용하여 요청을 추적하고 사용량 추세를 분석하며 저장소 계정에 대한 문제를 진단할 수 있습니다. 저장소 분석 로깅은 [Azure Blob, Azure Queue 및 Azure Table 저장소 서비스](https://docs.microsoft.com/azure/storage/storage-introduction)에서 사용할 수 있습니다. 저장소 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다.
+[Azure 저장소 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 저장소 계정에 대한 메트릭 데이터를 기록하고 제공합니다. 이 데이터를 사용하여 요청을 추적하고 사용량 추세를 분석하며 저장소 계정에 대한 문제를 진단할 수 있습니다. 저장소 분석 로깅은 [Azure Blob, Azure Queue 및 Azure Table 저장소 서비스](https://docs.microsoft.com/azure/storage/storage-introduction)에서 사용할 수 있습니다. 스토리지 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다.
 
 이 정보를 사용하여 개별 요청을 모니터링하고 저장소 서비스 관련 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다. 서비스 엔드포인트에 대한 요청이 있는 경우에만 로그 항목이 만들어집니다. 예를 들어 저장소 계정에 Blob 엔드포인트의 활동은 있지만 테이블 또는 큐 엔드포인트의 활동이 없는 경우 Blob 저장소 서비스와 관련된 로그만 만들어집니다.
 
@@ -172,7 +172,7 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다.
 
 > [!Note]
 > * 청구 및 데이터 보존 정책에 대한 자세한 내용은 [저장소 분석 및 청구](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-and-billing)를 참조하세요.
-> * 저장소 계정 제한에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](https://docs.microsoft.com/azure/storage/storage-scalability-targets)를 참조하세요.
+> * 스토리지 계정 제한에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](https://docs.microsoft.com/azure/storage/storage-scalability-targets)를 참조하세요.
 
 저장소 분석에서 로깅하는 인증된 요청과 익명 요청의 유형은 다음과 같습니다.
 
@@ -311,7 +311,7 @@ Log Analytics의 중심에는 Azure에서 호스팅되는 Log Analytics 작업 �
 [Azure 서비스에 대한 로그와 메트릭을 수집](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)하는 네 가지 방법은 다음과 같습니다.
 * Azure 진단에서 Log Analytics로 직접(다음 표의 **진단**)
 
-* Azure 진단, Azure Storage, Log Analytics 순서로(다음 표의 **저장소**)
+* Azure 진단, Azure Storage, Log Analytics 순서로(다음 표의 **스토리지**)
 
 * Azure 서비스용 커넥터(다음 표의 **커넥터**)
 

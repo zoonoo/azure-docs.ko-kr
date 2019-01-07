@@ -36,7 +36,7 @@ ms.locfileid: "46124613"
 1. "데이터 센터 B"에서 Media Services 계정을 설정합니다.
 2. 대상 Media Services 계정에서 빈 대상 자산을 만듭니다.
 3. 쓰기 공유 액세스 서명 로케이터를 만듭니다. 빈 대상 자산에 대상 자산과 연관된 대상 저장소 계정에서 컨테이너에 대한 쓰기 액세스 권한을 부여합니다.
-4. Azure Storage SDK를 사용하여 "데이터 센터 A"의 원본 저장소 계정과 "데이터 센터 B"의 대상 저장소 계정 간에 Blob(자산 파일)을 복사합니다. 이러한 저장소 계정은 관련 자산과 연결됩니다.
+4. Azure Storage SDK를 사용하여 "데이터 센터 A"의 원본 스토리지 계정과 "데이터 센터 B"의 대상 스토리지 계정 간에 Blob(자산 파일)을 복사합니다. 이러한 저장소 계정은 관련 자산과 연결됩니다.
 5. 대상 자산을 사용하여 대상 blob 컨테이너에 복사된 blob(자산 파일)를 연결합니다. 
 6. "데이터 센터 B"의 자산에 원본 로케이터를 만들고 "데이터 센터 A"의 자산에 생성된 로케이터 ID를 지정합니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "46124613"
 고려 사항은 다음과 같습니다.
 
 * Media Services SDK의 현재 버전은 자산 파일과 자산을 연결하는 IAssetFile 정보를 프로그래밍 방식으로 생성하도록 지원하지 않습니다. 이를 수행하려면 대신 CreateFileInfos Media Services REST API를 사용합니다. 
-* 자산을 암호화한 저장소(AssetCreationOptions.StorageEncrypted)는 복제에 지원되지 않습니다(암호화 키가 Media Services 계정 모두에서 다르기 때문임). 
+* 자산을 암호화한 스토리지(AssetCreationOptions.StorageEncrypted)는 복제에 지원되지 않습니다(암호화 키가 Media Services 계정 모두에서 다르기 때문임). 
 * 동적 패키징을 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태인지 확인합니다.
 
 ## <a name="prerequisites"></a>필수 조건

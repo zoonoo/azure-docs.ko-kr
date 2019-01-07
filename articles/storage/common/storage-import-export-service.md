@@ -160,7 +160,7 @@ Azure에 드라이브를 발송하는 경우 운송업체에 발송 비용을 �
 
 **트랜잭션 비용**
 
-데이터를 Azure Storage로 가져올 때 표준 저장소 트랜잭션 비용 이외에 필요한 트랜잭션 비용은 없습니다. Blob 저장소에서 데이터를 내보낼 때는 표준 송신 요금이 적용됩니다. 트랜잭션 비용에 대한 자세한 내용은 [데이터 전송 가격 책정](https://azure.microsoft.com/pricing/details/data-transfers/)을 참조하세요.
+데이터를 Azure Storage로 가져올 때 표준 스토리지 트랜잭션 비용 이외에 필요한 트랜잭션 비용은 없습니다. Blob 저장소에서 데이터를 내보낼 때는 표준 송신 요금이 적용됩니다. 트랜잭션 비용에 대한 자세한 내용은 [데이터 전송 가격 책정](https://azure.microsoft.com/pricing/details/data-transfers/)을 참조하세요.
 
 
 

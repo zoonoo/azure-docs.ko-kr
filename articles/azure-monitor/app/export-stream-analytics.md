@@ -32,7 +32,7 @@ ms.locfileid: "54001841"
 ![SA를 통해 PBI로 내보내기에 대한 블록 다이어그램](./media/export-stream-analytics/020.png)
 
 ## <a name="create-storage-in-azure"></a>Azure에서 저장소 만들기
-연속 내보내기는 항상 Azure Storage 계정에 데이터를 출력하므로 저장소를 먼저 만들어야 합니다.
+연속 내보내기는 항상 Azure Storage 계정에 데이터를 출력하므로 스토리지를 먼저 만들어야 합니다.
 
 1. [Azure 포털](https://portal.azure.com)에서 구독에 "클래식" 저장소 계정을 만듭니다.
    

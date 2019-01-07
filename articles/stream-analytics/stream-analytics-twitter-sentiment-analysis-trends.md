@@ -303,7 +303,7 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
     * **Storage 계정**. **새 저장소 계정 만들기**를 선택합니다.
     * **Storage 계정**(두 번째 상자). `YOURNAMEsa`를 입력합니다. 여기서 `YOURNAME`은 사용자 이름 또는 다른 고유 문자열입니다. 이름으로 소문자 및 숫자만 사용할 수 있으며 Azure 전체에서 고유해야 합니다. 
     * **컨테이너**. `socialtwitter`을 입력합니다.
-    저장소 계정 이름 및 컨테이너 이름을 다음과 같이 함께 사용하여 Blob Storage에 대한 URI를 제공해야 합니다. 
+    스토리지 계정 이름 및 컨테이너 이름을 다음과 같이 함께 사용하여 Blob Storage에 대한 URI를 제공해야 합니다. 
 
     `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
     

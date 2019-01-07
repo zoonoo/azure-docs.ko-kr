@@ -28,7 +28,7 @@ Blob Storage 이벤트는 다양한 다시 시도 정책 및 배달 못한 편�
 ![Event Grid 모델](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
 ## <a name="blob-storage-accounts"></a>Blob 저장소 계정
-Blob Storage 이벤트는 범용 v2 저장소 계정과 Blob Storage 계정에서 사용할 수 있습니다. **범용 v2** 저장소 계정은 Blob, 파일, 큐 및 테이블을 포함하여 모든 저장소 서비스의 모든 기능을 지원합니다. **Blob Storage 계정**은 Azure Storage에서 Blob와 같은 구조화되지 않은 데이터(개체) 저장을 위한 특수 Storage 계정입니다. Blob Storage 계정은 범용 저장소 계정과 유사하면서, 현재 사용되고 있는 모든 뛰어난 내구성, 가용성, 확장성 및 성능 기능을 공유합니다(예: 블록 Blob 및 추가 Blob에 대한 100% API 일관성). 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
+Blob Storage 이벤트는 범용 v2 스토리지 계정과 Blob Storage 계정에서 사용할 수 있습니다. **범용 v2** 저장소 계정은 Blob, 파일, 큐 및 테이블을 포함하여 모든 저장소 서비스의 모든 기능을 지원합니다. **Blob Storage 계정**은 Azure Storage에서 Blob와 같은 구조화되지 않은 데이터(개체) 저장을 위한 특수 Storage 계정입니다. Blob Storage 계정은 범용 스토리지 계정과 유사합니다. 블록 Blob과 연결 Blob에 대한 100% API 일관성을 포함하여 현재 제공되는 뛰어난 내구성, 가용성, 확장성은 모두 같습니다. 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
 ## <a name="available-blob-storage-events"></a>사용 가능한 Blob Storage 이벤트
 Event Grid는 [이벤트 구독](../../event-grid/concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다.  Blob Storage 이벤트 구독에는 다음 두 가지 유형의 이벤트가 포함될 수 있습니다.  
@@ -39,7 +39,7 @@ Event Grid는 [이벤트 구독](../../event-grid/concepts.md#event-subscription
 > |`Microsoft.Storage.BlobDeleted`|`DeleteBlob` 작업에 의해 Blob이 삭제될 때 실행됩니다.|
 
 ## <a name="event-schema"></a>이벤트 스키마
-Blob Storage 이벤트에는 데이터 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다.  eventType 속성이 "Microsoft.Storage"로 시작하므로 Blob 저장소 이벤트를 식별할 수 있습니다. Event Grid 이벤트 속성 사용에 대한 추가 정보는 [Event Grid 이벤트 스키마](../../event-grid/event-schema.md)에 설명되어 있습니다.  
+Blob Storage 이벤트에는 데이터 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다.  eventType 속성이 "Microsoft.Storage"로 시작하므로 Blob 스토리지 이벤트를 식별할 수 있습니다. Event Grid 이벤트 속성 사용에 대한 추가 정보는 [Event Grid 이벤트 스키마](../../event-grid/event-schema.md)에 설명되어 있습니다.  
 
 > |자산|type|설명|
 > |-------------------|------------------------|-----------------------------------------------------------------------|

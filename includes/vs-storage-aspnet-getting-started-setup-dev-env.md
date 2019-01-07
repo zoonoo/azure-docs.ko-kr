@@ -43,7 +43,7 @@ ms.locfileid: "45979296"
 
     ![연결된 서비스 대화 상자 스크린샷](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 
-1. **Azure Storage** 대화 상자에서 이 자습서에 사용할 Azure Storage 계정을 선택합니다. 새 Azure Storage 계정을 만들려면 **새 저장소 계정 만들기**를 선택하고 양식을 완성합니다. 기존 저장소 계정을 선택하거나 새 저장소 계정을 만든 후에 **추가**를 선택합니다. Visual Studio에서는 Azure Storage용 NuGet 패키지 및 저장소 연결 문자열을 **Web.config**에 설치합니다.
+1. **Azure Storage** 대화 상자에서 이 자습서에 사용할 Azure Storage 계정을 선택합니다. 새 Azure Storage 계정을 만들려면 **새 스토리지 계정 만들기**를 선택하고 양식을 완성합니다. 기존 저장소 계정을 선택하거나 새 저장소 계정을 만든 후에 **추가**를 선택합니다. Visual Studio에서는 Azure Storage용 NuGet 패키지 및 스토리지 연결 문자열을 **Web.config**에 설치합니다.
 
 > [!TIP]
 > [Azure Portal](https://portal.azure.com)에서 저장소 계정을 만드는 방법을 알아보려면 [저장소 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)를 참조하세요.

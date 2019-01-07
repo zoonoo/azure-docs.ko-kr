@@ -49,7 +49,7 @@ ms.locfileid: "51243576"
 이 자습서를 시작하기 전에 다음 필수 조건이 있어야 합니다.
 
 * **Azure 구독**.  구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 문서를 참조하세요.
-* **Azure Storage 계정**. 이 자습서에서는 Blob 저장소를 **원본** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
+* **Azure Storage 계정**. 이 자습서에서는 Blob 저장소를 **원본** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
 * **Azure SQL Database**. 이 자습서에서는 Azure SQL 데이터베이스를 **대상** 데이터 저장소로 사용합니다. 자습서에서 사용할 수 있는 Azure SQL Database가 없는 경우 [Azure SQL Database를 만들고 구성하는 방법](../../sql-database/sql-database-get-started.md) 을 참조하여 새로 만드세요.
 * **SQL Server 2012/2014 또는 Visual Studio 2013**. SQL Server Management Studio 또는 Visual Studio를 사용하여 샘플 데이터베이스를 만들고 데이터베이스에서 결과 데이터를 확인합니다.  
 

@@ -56,12 +56,12 @@ public static final String storageConnectionString =
 ```
 
 > [!NOTE]
-> your_storage_account_name과 your_storage_account_key를 자신의 저장소 계정에 대한 실제 값으로 바꿉니다.
+> your_storage_account_name과 your_storage_account_key를 자신의 스토리지 계정에 대한 실제 값으로 바꿉니다.
 > 
 > 
 
 ## <a name="connecting-to-an-azure-storage-account"></a>Azure 저장소 계정에 연결
-저장소 계정에 연결하려면, **CloudStorageAccount** 개체를 사용하여 **구문 분석** 메서드로 연결 문자열을 전달합니다.
+스토리지 계정에 연결하려면, **CloudStorageAccount** 개체를 사용하여 **구문 분석** 메서드로 연결 문자열을 전달합니다.
 
 ```java
 // Use the CloudStorageAccount object to connect to your storage account

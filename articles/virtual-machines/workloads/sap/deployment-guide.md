@@ -435,7 +435,7 @@ Azure Marketplace에서 이미지를 사용하여 새 가상 머신을 만드는
   * **Storage**
     * **디스크 유형**: OS 디스크의 디스크 유형을 선택합니다. 데이터 디스크로 Premium Storage를 사용하려는 경우 OS 디스크에도 Premium Storage를 사용하는 것이 좋습니다.
     * **관리 디스크 사용**: Managed Disks를 사용하려는 경우 [예]를 선택합니다. Managed Disks에 대한 자세한 내용은 이 계획 가이드의 [Managed Disks][planning-guide-managed-disks] 챕터를 참조하세요.
-    * **Storage 계정**: 기존 Storage 계정을 선택하거나 새 Storage 계정을 만듭니다. 모든 저장소 유형이 SAP 애플리케이션 실행을 위해 작동하지는 않습니다. 저장소 유형에 대한 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포][dbms-guide]의 [Microsoft Azure Storage][dbms-guide-2.3]를 참조하세요.
+    * **Storage 계정**: 기존 Storage 계정을 선택하거나 새 Storage 계정을 만듭니다. 모든 저장소 유형이 SAP 애플리케이션 실행을 위해 작동하지는 않습니다. 스토리지 유형에 대한 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포][dbms-guide]의 [Microsoft Azure Storage][dbms-guide-2.3]를 참조하세요.
   * **네트워크**
     * **가상 네트워크** 및 **서브넷**: 인트라넷에 가상 머신을 통합하려면 온-프레미스 네트워크에 연결된 가상 네트워크를 선택합니다.
     * **공용 IP 주소**: 사용하려는 공용 IP 주소를 선택하거나 매개 변수를 입력하여 새 공용 IP 주소를 만듭니다. 인터넷에서 가상 머신에 액세스하는 공용 IP 주소를 사용할 수 있습니다. 또한 가상 머신에 안전하게 액세스하려면 네트워크 보안 그룹을 만들어야 합니다.

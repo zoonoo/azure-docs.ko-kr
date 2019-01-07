@@ -158,7 +158,7 @@ Azure Analysis Services 방화벽은 규칙에 지정된 해다 IP 주소 이외
 
 ### <a name="data-security"></a>데이터 보안
 
-Azure Analysis Services에서는 Azure Blob Storage를 사용하여 Analysis Services 데이터베이스의 저장소와 메타데이터를 유지합니다. Blob에 있는 데이터 파일은 [Azure Blob SSE(Server Side Encryption)](../storage/common/storage-service-encryption.md)를 사용하여 암호화됩니다. 직접 쿼리 모드를 사용하는 경우 메타데이터만 저장됩니다. 실제 데이터는 쿼리 시 데이터 원본에서 암호화된 프로토콜을 통해 액세스됩니다.
+Azure Analysis Services에서는 Azure Blob Storage를 사용하여 Analysis Services 데이터베이스의 스토리지와 메타데이터를 유지합니다. Blob에 있는 데이터 파일은 [Azure Blob SSE(Server Side Encryption)](../storage/common/storage-service-encryption.md)를 사용하여 암호화됩니다. 직접 쿼리 모드를 사용하는 경우 메타데이터만 저장됩니다. 실제 데이터는 쿼리 시 데이터 원본에서 암호화된 프로토콜을 통해 액세스됩니다.
 
 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 설치하고 구성하여 조직의 온-프레미스 데이터 원본에 대한 액세스를 보호합니다. 게이트웨이는 DirectQuery와 메모리 내 모드 모두의 데이터에 대한 액세스 권한을 제공합니다.
 

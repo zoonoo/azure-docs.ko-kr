@@ -18,7 +18,7 @@ ms.locfileid: "49944221"
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>빠른 시작: Azure Storage 탐색기를 사용하여 Azure 파일 공유 만들기 및 관리
 이 가이드에서는 Azure Storage 탐색기를 사용하여 [Azure 파일 공유](storage-files-introduction.md)로 작업하는 기본 사항을 설명합니다. Azure 파일 공유는 다른 파일 공유와 유사하지만, 클라우드에 저장되고 Azure Platform에서 지원합니다. Azure 파일 공유는 산업 표준 SMB 프로토콜을 지원하며 여러 머신, 애플리케이션 및 인스턴스 전반에서 파일 공유를 활성화합니다. 
 
-Azure Storage 탐색기는 Windows, macOS 및 Linux에 사용할 수 있는 일반적인 클라이언트 도구입니다. Storage 탐색기를 사용하여 Azure 파일 공유 및 기타 저장소 리소스를 관리할 수 있습니다.
+Azure Storage 탐색기는 Windows, macOS 및 Linux에 사용할 수 있는 일반적인 클라이언트 도구입니다. Storage 탐색기를 사용하여 Azure 파일 공유 및 기타 스토리지 리소스를 관리할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -34,7 +34,7 @@ Storage 탐색기를 사용하여 새 리소스를 만들 수 없습니다. 이 
 Storage 탐색기를 처음 시작할 때 **Microsoft Azure Storage 탐색기 - 연결** 창이 나타납니다. Storage 탐색기는 Storage 계정에 연결하는 여러 방법을 제공합니다. 
 
 - **Azure 계정을 사용하여 로그인**: 조직 또는 Microsoft 계정에 대한 사용자 자격 증명을 사용하여 로그인할 수 있습니다. 
-- **연결 문자열 또는 SAS 토큰을 사용하여 특정 저장소 계정에 연결**: 연결 문자열은 저장소 계정 이름 및 저장소 계정 키/SAS 토큰을 포함하는 특별한 문자열입니다. 토큰을 사용하여 Storage 탐색기는 저장소 계정에 직접 액세스합니다(Azure 계정에서 모든 저장소 계정을 단순히 보는 대신). 연결 문자열에 대해 자세히 알아보려면 [Azure Storage 연결 문자열 구성](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
+- **연결 문자열 또는 SAS 토큰을 사용하여 특정 저장소 계정에 연결**: 연결 문자열은 저장소 계정 이름 및 저장소 계정 키/SAS 토큰을 포함하는 특별한 문자열입니다. 토큰을 사용하여 Storage 탐색기는 스토리지 계정에 직접 액세스합니다(Azure 계정에서 모든 스토리지 계정을 단순히 보는 대신). 연결 문자열에 대해 자세히 알아보려면 [Azure Storage 연결 문자열 구성](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
 - **저장소 계정 이름 및 키를 사용하여 특정 저장소 계정에 연결**: 저장소 계정 이름 및 저장소 계정에 대한 키를 사용하여 Azure 저장소에 연결합니다.
 
 이 빠른 시작의 목적상 Azure 계정을 사용하여 로그인합니다. **Azure 계정 추가**를 선택한 다음, **로그인**을 선택합니다. 표시되는 메시지에 따라 Azure 계정에 로그인합니다.

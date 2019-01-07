@@ -152,7 +152,7 @@ Azure Portal에서 직접 시스템 및 성능 데이터를 보고 구성하려�
 
 ## <a name="review-your-data"></a>데이터 검토
 
-성능 및 진단 데이터는 Azure Storage 테이블에 저장됩니다. Azure CLI 스크립트를 사용하여 저장소 테이블의 데이터에 액세스 하는 방법을 알아보려면 [Ruby에서 Azure Table Storage를 사용하는 방법](../../../cosmos-db/table-storage-how-to-use-ruby.md) 을 검토하세요.
+성능 및 진단 데이터는 Azure Storage 테이블에 저장됩니다. Azure CLI 스크립트를 사용하여 스토리지 테이블의 데이터에 액세스 하는 방법을 알아보려면 [Ruby에서 Azure Table Storage를 사용하는 방법](../../../cosmos-db/table-storage-how-to-use-ruby.md) 을 검토하세요.
 
 또한 다음 UI 도구를 사용하여 데이터에 액세스할 수 있습니다.
 

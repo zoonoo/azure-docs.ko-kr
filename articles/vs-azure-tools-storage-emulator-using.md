@@ -23,12 +23,12 @@ ms.locfileid: "43382639"
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
 
 ## <a name="overview"></a>개요
-Azure SDK 개발 환경은 로컬 개발 컴퓨터의 Azure에서 사용할 수 있는 Blob, 큐 및 테이블 저장소를 시뮬레이션하는 유틸리티인 저장소 에뮬레이터를 포함합니다. Azure 스토리지 서비스를 사용하는 클라우드 서비스를 구축하거나 스토리지 서비스를 호출하는 외부 애플리케이션을 작성하는 경우, 스토리지 에뮬레이터에 대해 로컬로 코드를 테스트할 수 있습니다. Microsoft Visual Studio용 Azure Tools는 저장소 에뮬레이터의 관리를 Visual Studio로 통합합니다. 처음으로 Azure Tools가 저장소 에뮬레이터 데이터베이스를 초기화하고, Visual Studio에서 코드를 실행하거나 디버깅할 때 저장소 에뮬레이터 서비스를 시작하고, Azure Storage 탐색기를 통해 저장소 에뮬레이터 데이터에 대한 읽기 전용 액세스를 제공합니다.
+Azure SDK 개발 환경은 로컬 개발 컴퓨터의 Azure에서 사용할 수 있는 Blob, 큐 및 테이블 저장소를 시뮬레이션하는 유틸리티인 저장소 에뮬레이터를 포함합니다. Azure 스토리지 서비스를 사용하는 클라우드 서비스를 구축하거나 스토리지 서비스를 호출하는 외부 애플리케이션을 작성하는 경우, 스토리지 에뮬레이터에 대해 로컬로 코드를 테스트할 수 있습니다. Microsoft Visual Studio용 Azure Tools는 저장소 에뮬레이터의 관리를 Visual Studio로 통합합니다. 처음으로 Azure Tools가 스토리지 에뮬레이터 데이터베이스를 초기화하고, Visual Studio에서 코드를 실행하거나 디버깅할 때 스토리지 에뮬레이터 서비스를 시작하고, Azure Storage 탐색기를 통해 스토리지 에뮬레이터 데이터에 대한 읽기 전용 액세스를 제공합니다.
 
-시스템 요구 사항 및 사용자 지정 구성 지침을 포함한 저장소 에뮬레이터에 대한 자세한 정보는 [개발 및 테스트용으로 Azure Storage 에뮬레이터 사용](storage/common/storage-use-emulator.md)을 참조하세요.
+시스템 요구 사항 및 사용자 지정 구성 지침을 포함한 스토리지 에뮬레이터에 대한 자세한 정보는 [개발 및 테스트용으로 Azure Storage 에뮬레이터 사용](storage/common/storage-use-emulator.md)을 참조하세요.
 
 > [!NOTE]
-> 저장소 에뮬레이터 시뮬레이션과 Azure 저장소 서비스 간 기능에 몇 가지 차이점이 있습니다. 특정 차이점에 대한 정보는 Azure SDK 설명서에서 [저장소 에뮬레이터와 Azure Storage 서비스 간 차이점](storage/common/storage-use-emulator.md)을 참조하세요.
+> 저장소 에뮬레이터 시뮬레이션과 Azure 저장소 서비스 간 기능에 몇 가지 차이점이 있습니다. 특정 차이점에 대한 정보는 Azure SDK 설명서에서 [스토리지 에뮬레이터와 Azure Storage 서비스 간 차이점](storage/common/storage-use-emulator.md)을 참조하세요.
 > 
 > 
 
@@ -53,5 +53,5 @@ Visual Studio에서 서비스를 실행하거나 디버깅하는 경우 Visual S
 저장소 에뮬레이터는 로컬 저장소 서비스의 상태를 보고 시작, 중지 및 다시 설정하는 사용자 인터페이스를 제공합니다. 저장소 에뮬레이터 서비스가 시작된 후 사용자 인터페이스를 표시하거나, Windows 작업 표시줄에서 Microsoft Azure 에뮬레이터에 대한 알림 영역 아이콘을 마우스 오른쪽 단추로 클릭하여 서비스를 시작하거나 중지할 수 있습니다.
 
 ## <a name="viewing-storage-emulator-data-in-server-explorer"></a>서버 탐색기에서 저장소 에뮬레이터 데이터 보기
-서버 탐색기에서 Azure Storage 노드를 사용하면 데이터를 보고 저장소 에뮬레이터를 포함한 Storage 계정의 blob 및 테이블 데이터에 대한 설정을 변경할 수 있습니다. 자세한 내용은 [Storage 탐색기를 사용하여 Azure Blob Storage 리소스 관리](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)를 참조하세요.
+서버 탐색기에서 Azure Storage 노드를 사용하면 데이터를 보고 스토리지 에뮬레이터를 포함한 Storage 계정의 blob 및 테이블 데이터에 대한 설정을 변경할 수 있습니다. 자세한 내용은 [Storage 탐색기를 사용하여 Azure Blob Storage 리소스 관리](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)를 참조하세요.
 

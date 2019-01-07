@@ -112,7 +112,7 @@ Azure Storage 계정에 이미 데이터가 있다면 Genomics 계정과 동일�
 
 ![Storage 만들기 블레이드](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Storage 만들기 블레이드")
 
-앞의 이미지와 같이 다음 정보를 사용하여 Storage 계정을 구성합니다. 저장소 계정에 대한 대부분의 표준 옵션을 사용하되, 계정은 일반적인 용도가 아닌 Blob Storage 전용으로 지정합니다. Blob Storage 용량은 다운로드 및 업로드 시 2-5배 빨라질 수 있습니다. 
+앞의 이미지와 같이 다음 정보를 사용하여 Storage 계정을 구성합니다. 스토리지 계정에 대한 대부분의 표준 옵션을 사용하되, 계정은 일반적인 용도가 아닌 Blob Storage 전용으로 지정합니다. Blob Storage 용량은 다운로드 및 업로드 시 2-5배 빨라질 수 있습니다. 
 
 
  |**설정**          |  **제안 값**  | **필드 설명** |
@@ -120,7 +120,7 @@ Azure Storage 계정에 이미 데이터가 있다면 Genomics 계정과 동일�
  |이름         | MyStorageAccount     |고유한 계정 식별자를 선택합니다. 유효한 이름은 [이름 지정 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
  |배포 모델         | 리소스 관리자| 리소스 관리자는 권장되는 배포 모델입니다. 자세한 내용은 [리소스 관리자 배포 이해](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model)를 참조하세요. |      
  |계정 종류       | Blob 저장소       |  Blob Storage는 다운로드 및 업로드 시 범용보다 2-5배 빨라질 수 있습니다. |
- |성능                  | Standard                   | 기본값은 표준입니다. 표준 및 프리미엄 저장소 계정에 대한 자세한 내용은 [Microsoft Azure Storage 소개 ](https://docs.microsoft.com/azure/storage/common/storage-introduction)를 참조하세요.    |
+ |성능                  | Standard                   | 기본값은 표준입니다. 표준 및 프리미엄 스토리지 계정에 대한 자세한 내용은 [Microsoft Azure Storage 소개 ](https://docs.microsoft.com/azure/storage/common/storage-introduction)를 참조하세요.    |
  |복제                  | 로컬 중복 저장소                  | 로컬 중복 저장소는 저장소 계정을 만든 지역의 데이터 센터 내에서 데이터를 복제합니다. 자세한 내용은 [ Azure Storage 복제 ](https://docs.microsoft.com/azure/storage/common/storage-redundancy)를 참조하세요.    |
  |보안 전송 필요                  | 사용 안 함                 | 기본적으로 이 옵션은 사용하지 않도록 설정됩니다. 데이터 전송 보안에 대한 자세한 내용은 [보안 전송 필요](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)를 참조하세요.    |
  |액세스 계층                  | 핫                   | 핫 액세스는 저장소 계정의 개체가 더 자주 액세스됨을 나타냅니다.    |
@@ -152,7 +152,7 @@ Microsoft Genomics 서비스는 페어드 엔드 리드를 입력 파일로 기�
 ## <a name="run-a-workflow-through-the-microsoft-genomics-service-using-the-python-client"></a>Python 클라이언트를 사용하여 Microsoft Genomics 서비스를 통해 워크플로 실행 
 
 Microsoft Genomics 서비스를 통해 워크플로를 실행하려면 config.txt 파일을 편집하여 데이터에 대한 입력 및 출력 저장소 컨테이너를 지정합니다.
-Genomics 계정에서 다운로드한 config.txt 파일을 엽니다. 지정해야 하는 섹션은 구독 키와 아래에 있는 여섯 개의 항목, 저장 계정 이름, 입력 및 출력에 대한 키 및 컨테이너 이름입니다. 포털에서 저장소 계정의 **액세스 키**로 이동하거나 Azure Storage 탐색기에서 직접 이 정보를 찾을 수 있습니다.  
+Genomics 계정에서 다운로드한 config.txt 파일을 엽니다. 지정해야 하는 섹션은 구독 키와 아래에 있는 여섯 개의 항목, 저장 계정 이름, 입력 및 출력에 대한 키 및 컨테이너 이름입니다. 포털에서 스토리지 계정의 **액세스 키**로 이동하거나 Azure Storage 탐색기에서 직접 이 정보를 찾을 수 있습니다.  
 
 
 ![Genomics 구성](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Genomics 구성")

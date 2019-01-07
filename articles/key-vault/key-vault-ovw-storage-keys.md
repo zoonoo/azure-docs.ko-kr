@@ -1,7 +1,7 @@
 ---
 ms.assetid: ''
 title: Azure Key Vault 관리 스토리지 계정 - CLI
-description: 저장소 계정 키는 Azure Key Vault 간의 원활한 통합과 Azure Storage 계정에 대한 키 기반 액세스를 제공합니다.
+description: 스토리지 계정 키는 Azure Key Vault 간의 원활한 통합과 Azure Storage 계정에 대한 키 기반 액세스를 제공합니다.
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault

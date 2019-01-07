@@ -390,7 +390,7 @@ dataFactoryName은 다음과 같이 정의됩니다.
 5. [복사 작업을 포함하는 데이터 파이프라인](#data-pipeline)
 
 #### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
-AzureStorageLinkedService는 Azure 저장소 계정을 데이터 팩터리에 연결합니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 컨테이너를 만들고 이 저장소 계정에 데이터를 업로드했습니다. 이 섹션의 Azure 저장소 계정 이름 및 키를 지정합니다. Azure Storage 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Storage 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-linked-service)를 참조하세요. 
+AzureStorageLinkedService는 Azure 스토리지 계정을 데이터 팩터리에 연결합니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 컨테이너를 만들고 이 저장소 계정에 데이터를 업로드했습니다. 이 섹션의 Azure 저장소 계정 이름 및 키를 지정합니다. Azure Storage 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Storage 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-linked-service)를 참조하세요. 
 
 ```json
 {

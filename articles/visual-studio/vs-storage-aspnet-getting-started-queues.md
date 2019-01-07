@@ -1,6 +1,6 @@
 ---
 title: Azure Queue Storage 및 Visual Studio 연결 서비스 시작(ASP.NET) | Microsoft Docs
-description: Visual Studio 연결 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio ASP.NET 프로젝트에서 Azure Queue Storage 사용을 시작하는 방법입니다.
+description: Visual Studio 연결 서비스를 사용하여 스토리지 계정에 연결한 후 Visual Studio ASP.NET 프로젝트에서 Azure Queue Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
 manager: douge

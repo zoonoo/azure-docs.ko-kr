@@ -1,5 +1,5 @@
 ---
-title: Azure Portal - Azure Storage에서 저장소 계정 설정 관리 | Microsoft Docs
+title: Azure Portal - Azure Storage에서 스토리지 계정 설정 관리 | Microsoft Docs
 description: Azure Portal에서 액세스 제어 설정 구성, 계정 액세스 키 재생성, 액세스 계층 변경 또는 계정에서 사용하는 복제 유형 수정을 포함하여 저장소 계정 설정을 관리하는 방법에 대해 알아봅니다. 또한 포털에서 저장소 계정을 삭제하는 방법도 알아봅니다.
 services: storage
 author: tamram
@@ -20,7 +20,7 @@ ms.locfileid: "46981334"
 
 ## <a name="access-control"></a>Access Control
 
-Azure Storage는 RBAC(역할 기반 액세스 제어)를 통해 Blob 저장소 및 큐 저장소(미리보기)에 대한 Azure Active Directory의 인증을 지원합니다. Azure AD로 인증하는 방법에 대한 자세한 내용은 [Azure Active Directory(미리 보기)를 사용하여 Azure Blob 및 큐에 대한 액세스 인증](storage-auth-aad.md)을 참조하세요.
+Azure Storage는 RBAC(역할 기반 액세스 제어)를 통해 Blob 스토리지 및 큐 스토리지(미리보기)에 대한 Azure Active Directory의 인증을 지원합니다. Azure AD로 인증하는 방법에 대한 자세한 내용은 [Azure Active Directory(미리 보기)를 사용하여 Azure Blob 및 큐에 대한 액세스 인증](storage-auth-aad.md)을 참조하세요.
 
 Azure Portal의 **액세스 제어** 설정은 RBAC 역할을 사용자, 그룹, 서비스 주체 및 관리 ID에 할당하는 간단한 방법을 제공합니다. RBAC 역할 할당에 대한 자세한 내용은 [RBAC를 사용하여 Blob 및 큐 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
 

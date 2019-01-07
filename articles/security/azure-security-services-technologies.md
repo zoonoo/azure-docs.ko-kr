@@ -46,7 +46,7 @@ ms.locfileid: "49384890"
 |[StorSimple 암호화된 하이브리드 저장소](../storsimple/storsimple-ova-overview.md)| 온-프레미스 디바이스 및 Azure 클라우드 저장소 간의 저장소 태스크를 관리하는 통합된 저장소 솔루션입니다.|
 |[Azure 클라이언트 쪽 암호화](../storage/common/storage-client-side-encryption.md)| Azure Storage에 업로드하기 전에 클라이언트 애플리케이션 내의 데이터를 암호화하고, 다운로드하는 동안 데이터를 해독하는 클라이언트 쪽 암호화 솔루션입니다. |
 | [Azure Storage 공유 액세스 서명](../storage/common/storage-dotnet-shared-access-signature-part-1.md)|공유 액세스 서명은 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다.  |
-|[Azure Storage 계정 키](../storage/common/storage-create-storage-account.md)| 저장소 계정에 액세스할 때 인증에 사용되는 Azure Storage에 대한 액세스 제어 방법입니다. |
+|[Azure Storage 계정 키](../storage/common/storage-create-storage-account.md)| 스토리지 계정에 액세스할 때 인증에 사용되는 Azure Storage에 대한 액세스 제어 방법입니다. |
 |[SMB 3.0 암호화를 사용한 Azure 파일 공유](../storage/files/storage-files-introduction.md)|SMB(서버 메시지 블록) 파일 공유 프로토콜에 자동 네트워크 암호화를 사용하는 네트워크 보안 기술입니다. |
 |[Azure Storage 분석](https://docs.microsoft.com/rest/api/storageservices/Storage-Analytics)| 저장소 계정의 데이터에 대한 로깅 및 메트릭 생성 기술입니다. |
 

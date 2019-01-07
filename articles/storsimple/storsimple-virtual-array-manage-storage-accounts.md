@@ -52,7 +52,7 @@ Storage 계정 자격 증명은 클라우드 서비스 공급자와 Storage 계�
 StorSimple 디바이스에서 사용할 수 있는 스토리지 계정 자격 증명에는 다음과 같은 세 종류가 있습니다.
 
 * **자동 생성된 저장소 계정 자격 증명** – 이름 제안 시, 서비스를 처음 만들 때 이 저장소 계정 자격 증명 유형이 자동으로 생성됩니다. 이 저장소 계정 자격 증명을 만드는 방법에 대해 더 알아보려면 [새 서비스 만들기](storsimple-virtual-array-manage-service.md#create-a-service)를 참조하세요.
-* **서비스 구독의 저장소 계정 자격 증명** – 이러한 계정은 서비스와 동일한 구독과 연결된 Azure Storage 계정 자격 증명입니다. 이러한 저장소 계정 자격 증명을 만드는 방법에 대해 더 알아보려면 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요.
+* **서비스 구독의 저장소 계정 자격 증명** – 이러한 계정은 서비스와 동일한 구독과 연결된 Azure Storage 계정 자격 증명입니다. 이러한 스토리지 계정 자격 증명을 만드는 방법에 대해 더 알아보려면 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요.
 * **서비스 구독 외부의 저장소 계정 자격 증명** - 이러한 계정 자격 증명은 서비스와 연결되지 않았고 서비스가 만들어지기 전에 존재했던 Azure Storage 계정 자격 증명입니다.
 
 ## <a name="add-a-storage-account-credential"></a>저장소 계정 자격 증명 추가
@@ -90,7 +90,7 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
    
     2. Azure Storage 계정 자격 증명의 이름을 제공합니다.
    
-    3. **저장소 계정 선택키** 텍스트 상자에서 Azure Storage 계정 자격 증명의 기본 선택키를 지정합니다. 이 키를 가져오려면 Azure Storage 서비스로 이동하고 저장소 계정 자격 증명을 선택한 다음 **계정 키 관리**를 클릭합니다. 이제 기본 선택키를 복사할 수 있습니다.
+    3. **저장소 계정 선택키** 텍스트 상자에서 Azure Storage 계정 자격 증명의 기본 선택키를 지정합니다. 이 키를 가져오려면 Azure Storage 서비스로 이동하고 스토리지 계정 자격 증명을 선택한 다음 **계정 키 관리**를 클릭합니다. 이제 기본 선택키를 복사할 수 있습니다.
    
     4. SSL을 사용하도록 설정하려면 **사용** 단추를 클릭하여 StorSimple 디바이스 관리자 서비스와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만듭니다. 사설 클라우드 내에서 작동하는 경우에만 **사용 안 함** 단추를 클릭합니다.
    
@@ -133,7 +133,7 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
       ![저장소 계정 자격 증명 삭제](./media/storsimple-virtual-array-manage-storage-accounts/ova-del-storageacct.png)
 
 ## <a name="synchronizing-storage-account-credential-keys"></a>저장소 계정 자격 증명 키 동기화
-보안상의 이유로 키 회전이 데이터 센터에서 요구되기도 합니다. Microsoft Azure 관리자가 Microsoft Azure Storage 서비스를 통해 저장소 계정 자격 증명에 직접 액세스하여 기본 키 또는 보조 키를 다시 생성하거나 변경할 수 있습니다. StorSimple 디바이스 관리자 서비스는 이 변경 사항을 자동으로 표시하지 않습니다.
+보안상의 이유로 키 회전이 데이터 센터에서 요구되기도 합니다. Microsoft Azure 관리자가 Microsoft Azure Storage 서비스를 통해 스토리지 계정 자격 증명에 직접 액세스하여 기본 키 또는 보조 키를 다시 생성하거나 변경할 수 있습니다. StorSimple 디바이스 관리자 서비스는 이 변경 사항을 자동으로 표시하지 않습니다.
 
 StorSimple Device Manager 서비스에 변경을 알리려면 StorSimple Device Manager 서비스에 액세스하고 스토리지 계정 자격 증명에 액세스한 다음, 기본 또는 보조 키(변경된 키에 따라 다름)를 동기화해야 합니다. 그러면 서비스는 최신 키를 가져오고 해당 키를 암호화하여 디바이스에 암호화된 키를 보냅니다.
 

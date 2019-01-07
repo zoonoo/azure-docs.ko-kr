@@ -431,7 +431,7 @@ structure:
 ```
 
 #### <a name="azure-storage-sas-linked-service"></a>Azure Storage SAS 연결된 서비스
-Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사용하여 Azure Storage 계정을 Azure Data Factory에 연결할 수 있습니다. 이 서비스는 저장소의 모든/특정 리소스(Blob/컨테이너)에 대해 제한된/시간 제한 액세스를 데이터 팩터리에 제공합니다. 공유 액세스 서명을 사용하여 Azure 저장소 계정을 데이터 팩터리에 연결하려면 Azure Storage SAS 연결된 서비스를 만듭니다. Azure Storage SAS 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureStorageSas**로 설정합니다. 그런 다음 **typeProperties** 섹션에서 다음 속성을 지정하면 됩니다.   
+Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사용하여 Azure Storage 계정을 Azure Data Factory에 연결할 수 있습니다. 이 서비스는 저장소의 모든/특정 리소스(Blob/컨테이너)에 대해 제한된/시간 제한 액세스를 데이터 팩터리에 제공합니다. 공유 액세스 서명을 사용하여 Azure 스토리지 계정을 데이터 팩터리에 연결하려면 Azure Storage SAS 연결된 서비스를 만듭니다. Azure Storage SAS 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureStorageSas**로 설정합니다. 그런 다음 **typeProperties** 섹션에서 다음 속성을 지정하면 됩니다.   
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
@@ -1417,7 +1417,7 @@ Azure Search 인덱스에 데이터를 복사하는 경우 복사 활동의 **si
 ```
 
 #### <a name="azure-storage-sas-linked-service"></a>Azure Storage SAS 연결된 서비스
-Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사용하여 Azure Storage 계정을 Azure Data Factory에 연결할 수 있습니다. 이 서비스는 저장소의 모든/특정 리소스(Blob/컨테이너)에 대해 제한된/시간 제한 액세스를 데이터 팩터리에 제공합니다. 공유 액세스 서명을 사용하여 Azure 저장소 계정을 데이터 팩터리에 연결하려면 Azure Storage SAS 연결된 서비스를 만듭니다. Azure Storage SAS 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureStorageSas**로 설정합니다. 그런 다음 **typeProperties** 섹션에서 다음 속성을 지정하면 됩니다.   
+Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사용하여 Azure Storage 계정을 Azure Data Factory에 연결할 수 있습니다. 이 서비스는 저장소의 모든/특정 리소스(Blob/컨테이너)에 대해 제한된/시간 제한 액세스를 데이터 팩터리에 제공합니다. 공유 액세스 서명을 사용하여 Azure 스토리지 계정을 데이터 팩터리에 연결하려면 Azure Storage SAS 연결된 서비스를 만듭니다. Azure Storage SAS 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureStorageSas**로 설정합니다. 그런 다음 **typeProperties** 섹션에서 다음 속성을 지정하면 됩니다.   
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
@@ -5287,7 +5287,7 @@ Hadoop 스트리밍 활동 JSON 정의에서 다음 속성을 지정할 수 있�
 | input | 매퍼의 입력 파일(위치 포함)입니다. 예제의 "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt"에서 adfsample은 BLOB 컨테이너이고 example/data/Gutenberg는 폴더이며 davinci.txt는 BOLB입니다. |
 | output | 리듀서의 출력 파일(위치 포함)입니다. Hadoop 스트리밍 작업의 출력이 이 속성에 지정된 위치에 기록됩니다. |
 | filePaths | 매퍼 및 리듀서 실행 파일의 경로입니다. "adfsample/example/apps/wc.exe" 예에서 adfsample은 Blob 컨테이너, example/apps는 폴더, wc.exe는 실행 파일입니다. | 
-| fileLinkedService | filePaths 섹션에 지정된 파일이 포함된 Azure 저장소를 나타내는 Azure Storage 연결된 서비스입니다. | 
+| fileLinkedService | filePaths 섹션에 지정된 파일이 포함된 Azure 스토리지를 나타내는 Azure Storage 연결된 서비스입니다. | 
 | arguments | MapReduce 프로그램에 대해 쉼표로 구분된 인수 목록입니다. 런타임에 MapReduce 프레임워크의 몇 개 인수(예: mapreduce.job.tags)가 추가로 표시됩니다. MapReduce 인수로 사용자 인수를 구분하려면 다음 예제와 같이 인수로 옵션과 값을 모두 사용하는 것이 좋습니다(-s, --input, --output 등은 바로 뒤에 해당 값이 있는 옵션임). | 
 | getDebugInfo | 선택적 요소입니다. Failure로 설정되면 실패한 경우에만 로그가 다운로드됩니다. All로 설정되면 실행 상태에 관계 없이 로그가 항상 다운로드됩니다. | 
 
@@ -5386,7 +5386,7 @@ Spark 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 다음 사항에 유의하세요. 
 
 - **type** 속성은 **HDInsightSpark**로 설정됩니다.
-- **rootPath**는 **adfspark\\pyFiles**로 설정되며, 여기서 adfspark는 Azure Blob 컨테이너이고, pyFiles는 해당 컨테이너의 파일 폴더입니다. 이 예에서 Azure Blob Storage는 Spark 클러스터와 연결되어 있습니다. 파일을 다른 Azure Storage에 업로드할 수 있습니다. 이렇게 하는 경우 해당 저장소 계정을 데이터 팩터리에 연결하는 Azure Storage 연결된 서비스를 만들어야 합니다. 그런 다음 연결된 서비스의 이름을 **sparkJobLinkedService** 속성의 값으로 지정합니다. 이 속성과 Spark 작업에서 지원하는 기타 속성에 대한 자세한 내용은 [Spark 작업 속성](#spark-activity-properties)을 참조하세요.
+- **rootPath**는 **adfspark\\pyFiles**로 설정되며, 여기서 adfspark는 Azure Blob 컨테이너이고, pyFiles는 해당 컨테이너의 파일 폴더입니다. 이 예에서 Azure Blob Storage는 Spark 클러스터와 연결되어 있습니다. 파일을 다른 Azure Storage에 업로드할 수 있습니다. 이렇게 하는 경우 해당 스토리지 계정을 데이터 팩터리에 연결하는 Azure Storage 연결된 서비스를 만들어야 합니다. 그런 다음 연결된 서비스의 이름을 **sparkJobLinkedService** 속성의 값으로 지정합니다. 이 속성과 Spark 작업에서 지원하는 기타 속성에 대한 자세한 내용은 [Spark 작업 속성](#spark-activity-properties)을 참조하세요.
 - **entryFilePath**는 python 파일인 **test.py**로 설정됩니다. 
 - **getDebugInfo** 속성은 **Always**로 설정되며, 이는 로그 파일이 항상 생성(성공 또는 실패)된다는 것을 의미합니다.  
 
@@ -5639,7 +5639,7 @@ U-SQL 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 |:--- |:--- |:--- |
 | AssemblyName | 어셈블리의 이름입니다. 예제에서는 **MyDotnetActivity.dll**입니다. | yes |
 | EntryPoint |IDotNetActivity 인터페이스를 구현하는 클래스의 이름입니다. 예제에서는 **MyDotNetActivityNS.MyDotNetActivity**이며, 여기서 MyDotNetActivityNS는 네임스페이스이고, MyDotNetActivity는 클래스입니다.  | yes | 
-| PackageLinkedService | 사용자 지정 활동 zip 파일이 포함된 Blob 저장소를 가리키는 Azure Storage 연결된 서비스의 이름입니다. 예제에서는 **AzureStorageLinkedService**입니다.| yes |
+| PackageLinkedService | 사용자 지정 활동 zip 파일이 포함된 Blob 스토리지를 가리키는 Azure Storage 연결된 서비스의 이름입니다. 예제에서는 **AzureStorageLinkedService**입니다.| yes |
 | PackageFile | zip 파일의 이름입니다. 예제에서는 **customactivitycontainer/MyDotNetActivity.zip**입니다. | yes |
 | extendedProperties | 정의하고 .NET 코드에 전달할 수 있는 확장된 속성입니다. 예제에서 **SliceStart** 변수는 SliceStart 시스템 변수에 기반한 값으로 설정됩니다. | 아니요 | 
 

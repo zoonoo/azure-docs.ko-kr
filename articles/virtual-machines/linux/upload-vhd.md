@@ -100,7 +100,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-[az storage account create](/cli/azure/storage/account#az-storageaccount-create)를 사용하여 사용자 지정 디스크 및 VM에 대한 저장소 계정을 만듭니다. 다음 예제에서는 이전에 만든 리소스 그룹에 *mystorageaccount*라는 저장소 계정을 만듭니다.
+[az storage account create](/cli/azure/storage/account#az-storageaccount-create)를 사용하여 사용자 지정 디스크 및 VM에 대한 저장소 계정을 만듭니다. 다음 예제에서는 이전에 만든 리소스 그룹에 *mystorageaccount*라는 스토리지 계정을 만듭니다.
 
 ```azurecli
 az storage account create \

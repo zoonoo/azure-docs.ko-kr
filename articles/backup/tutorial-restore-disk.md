@@ -137,7 +137,7 @@ fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31
         --source $uri
     ```
 
-4. 이제 복원된 디스크에서 관리 디스크를 얻었으므로 [az storage account delete](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-delete)를 사용하여 관리되지 않는 디스크와 저장소 계정을 정리합니다. *mystorageaccount*를 다음과 같이 저장소 계정의 이름으로 바꿉니다.
+4. 이제 복원된 디스크에서 관리 디스크를 얻었으므로 [az storage account delete](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-delete)를 사용하여 관리되지 않는 디스크와 스토리지 계정을 정리합니다. *mystorageaccount*를 다음과 같이 저장소 계정의 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az storage account delete \

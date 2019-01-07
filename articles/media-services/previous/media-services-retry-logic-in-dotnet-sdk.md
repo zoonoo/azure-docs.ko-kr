@@ -26,7 +26,7 @@ Microsoft Azure 서비스에서 작업할 때 일시적 오류가 발생할 수 
 
  다음은 Web Request, Storage, Query 및 SaveChanges 정책에 대한 간략한 지침입니다.  
 
-* Storage 정책은 blob 저장소 작업(자산 파일의 업로드 또는 다운로드)에 사용됩니다.  
+* Storage 정책은 blob 스토리지 작업(자산 파일의 업로드 또는 다운로드)에 사용됩니다.  
 * Web Request 정책은 일반적인 웹 요청(예: 인증 토큰을 가져오고 사용자 클러스터 엔드포인트를 해결하기 위함)에 사용됩니다.  
 * Query 정책은 REST(예: mediaContext.Assets.Where(…))에서 엔터티를 쿼리하는 데 사용됩니다.  
 * SaveChanges 정책은 서비스 내에서 데이터를 변경하는 무언가를 하는 것(예: 엔터티 생성, 엔터티 업데이트, 작업에 대한 서비스 함수 호출)에 대해 사용됩니다.  

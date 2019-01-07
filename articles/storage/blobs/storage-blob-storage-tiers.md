@@ -1,6 +1,6 @@
 ---
-title: Blob에 대한 프리미엄, 핫, 쿨 및 보관 저장소 - Azure Storage
-description: Azure Storage 계정에 대한 프리미엄, 핫, 쿨 및 보관 저장소입니다.
+title: Blob에 대한 프리미엄, 핫, 쿨 및 보관 스토리지 - Azure Storage
+description: Azure Storage 계정에 대한 프리미엄, 핫, 쿨 및 보관 스토리지입니다.
 services: storage
 author: kuhussai
 ms.service: storage
@@ -19,7 +19,7 @@ ms.locfileid: "53014500"
 
 ## <a name="overview"></a>개요
 
-Azure Storage는 가장 비용 효율적인 방식으로 Blob 개체 데이터를 저장할 수 있는 다른 저장소 계층을 제공합니다. 사용 가능한 계층은 다음을 포함합니다.
+Azure Storage는 가장 비용 효율적인 방식으로 Blob 개체 데이터를 저장할 수 있는 다른 스토리지 계층을 제공합니다. 사용 가능한 계층은 다음을 포함합니다.
 
 - **프리미엄 저장소(미리 보기)** 는 자주 액세스되는 데이터에 대해 고성능 하드웨어를 제공합니다.
  
@@ -43,7 +43,7 @@ Azure Storage는 가장 비용 효율적인 방식으로 Blob 개체 데이터�
 
 클라우드에 저장된 데이터는 기하급수적으로 증가합니다. 저장소 확장 요구에 대한 비용을 관리하려면 비용 최적화를 위해 액세스 빈도 및 계획 보존 기간과 같은 속성을 기반으로 하여 데이터를 구성하는 것이 좋습니다. 클라우드에 저장되는 데이터는 수명 기간 동안 생성, 처리 및 액세스되는 방식이 서로 다를 수 있습니다. 일부 데이터는 수명 기간 전반에 걸쳐 활발하게 액세스되고 수정됩니다. 일부 데이터는 수명 기간 초반에는 빈번하게 액세스되지만 데이터가 오래될수록 액세스 빈도가 급격하게 떨어집니다. 일부 데이터는 클라우드에 유휴 상태로 유지되며 드물지만 한 번 액세스됩니다.
 
-이러한 각각의 데이터 액세스 시나리오에서는 특정 액세스 패턴에 맞게 최적화되어 다양한 저장소 계층이 유용합니다. Azure Blob Storage는 핫, 쿨 및 보관 저장소 계층에서 별도의 가격 책정 모델을 통한 차별화된 저장소 계층에 대한 이러한 수요를 해결합니다.
+이러한 각각의 데이터 액세스 시나리오에서는 특정 액세스 패턴에 맞게 최적화되어 다양한 저장소 계층이 유용합니다. Azure Blob Storage는 핫, 쿨 및 보관 스토리지 계층에서 별도의 가격 책정 모델을 통한 차별화된 스토리지 계층에 대한 이러한 수요를 해결합니다.
 
 ## <a name="storage-accounts-that-support-tiering"></a>계층을 지원하는 저장소 계정
 
@@ -57,7 +57,7 @@ Blob 저장소 및 GPv2 계정은 계정 수준에서 **액세스 계층** 특�
 
 이 계층은 빠르고 일관된 응답 시간이 필요한 워크로드에 적합합니다. 대화형 비디오 편집, 정적 웹 콘텐츠, 온라인 거래 등과 같이 최종 사용자를 포함하는 데이터는 프리미엄 액세스 계층에 적합합니다. 이 계층은 원격 분석 데이터 캡처, 메시징 및 데이터 변환 등 소규모의 트랜잭션을 많이 수행하는 워크로드에 맞게 조정됩니다.
 
-이 계층을 사용하려면 새 블록 Blob 저장소 계정을 프로비전하고, [Blob 서비스 REST API](/rest/api/storageservices/blob-service-rest-api), [AzCopy](/azure/storage/common/storage-use-azcopy) 또는 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 컨테이너 및 Blob을 만들기 시작합니다.
+이 계층을 사용하려면 새 블록 Blob 스토리지 계정을 프로비전하고, [Blob 서비스 REST API](/rest/api/storageservices/blob-service-rest-api), [AzCopy](/azure/storage/common/storage-use-azcopy) 또는 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 컨테이너 및 Blob을 만들기 시작합니다.
 
 미리 보기 동안 프리미엄 액세스 계층은 다음과 같습니다.
 
@@ -173,7 +173,7 @@ GB당 요금 및 월정액 이외에도 쿨 계층으로 이동된 모든 Blob(G
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
-모든 저장소 계정에서는 각 Blob의 계층에 따라 Blob Storage에 가격 책정 모델을 사용합니다. 다음과 같은 비용 청구 고려 사항을 염두에 둡니다.
+모든 스토리지 계정에서는 각 Blob의 계층에 따라 Blob Storage에 가격 책정 모델을 사용합니다. 다음과 같은 비용 청구 고려 사항을 염두에 둡니다.
 
 * **스토리지 비용**: 저장된 데이터 크기 외에도, 데이터 저장 비용은 스토리지 계층에 따라 달라집니다. 계층이 차가워질수록 기가바이트당 비용이 감소합니다.
 * **데이터 액세스 비용**: 계층이 차가워질수록 데이터 액세스 요금이 증가합니다. 쿨 및 보관 저장소 계층에 있는 데이터의 경우 읽기에 대해 기가바이트당 데이터 액세스 요금이 부과됩니다.
@@ -183,7 +183,7 @@ GB당 요금 및 월정액 이외에도 쿨 계층으로 이동된 모든 Blob(G
 * **스토리지 계층 변경**: 계정 스토리지 계층을 쿨에서 핫으로 변경하면 스토리지 계정에서 모든 기존 데이터를 읽는 것과 같은 요금이 발생합니다. 하지만 계정 저장소 계층을 핫에서 쿨로 변경하면 모든 데이터를 쿨 계층에 쓰는 것과 동일한 요금이 부과됩니다(GPv2 계정에만 해당).
 
 > [!NOTE]
-> Blob 저장소 계정의 가격 책정에 대한 자세한 내용은 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 페이지를 참조하세요. 아웃바운드 데이터 전송 요금에 대한 자세한 내용은 [데이터 전송 가격 책정 정보](https://azure.microsoft.com/pricing/details/data-transfers/) 페이지를 참조하세요.
+> Blob 스토리지 계정의 가격 책정에 대한 자세한 내용은 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 페이지를 참조하세요. 아웃바운드 데이터 전송 요금에 대한 자세한 내용은 [데이터 전송 가격 책정 정보](https://azure.microsoft.com/pricing/details/data-transfers/) 페이지를 참조하세요.
 
 ## <a name="faq"></a>FAQ
 

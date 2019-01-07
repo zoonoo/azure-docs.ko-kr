@@ -42,7 +42,7 @@ Azure Site Recovery Deployment Planner는 Hyper-V에서 Azure로 및 VMware에�
 
 * 각 VM에 대한 저장소 유형(표준 또는 프리미엄 저장소 계정) 요구 사항
 * 복제를 위해 설정해야 할 표준 및 프리미엄 저장소 계정의 총 수
-* Azure Storage 지침에 따른 저장소 계정 명명 제안
+* Azure Storage 지침에 따른 스토리지 계정 명명 제안
 * 모든 VM에 대한 저장소 계정 위치
 * 테스트 장애 조치 또는 구독에 대한 장애 조치 이전에 설정해야 할 Azure 코어의 수
 * 각 온-프레미스 VM에 대한 Azure VM 권장 크기

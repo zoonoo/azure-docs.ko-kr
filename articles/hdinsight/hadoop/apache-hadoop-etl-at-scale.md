@@ -62,7 +62,7 @@ Azure Storage에는 여러 가지 유형의 Blob이 있습니다.  *추가 Blob*
 
 여러 Blob을 많은 서버에 분산하여 액세스를 확장할 수 있지만, 단일 Blob은 단일 서버에서만 제공할 수 있습니다. Blob 컨테이너에서 blob를 논리적으로 그룹화하는 반면 해당 그룹화에는 파티션이 적용되지 않습니다.
 
-또한 Azure Storage에는 Blob 저장소를 위한 WebHDFS API 계층도 있습니다.  HDInsight의 모든 서비스는 HDFS(Hadoop 분산 파일 시스템)를 사용하는 방식과 비슷하게 데이터 정리 및 데이터 처리를 위해 Azure Blob Storage의 파일에 액세스할 수 있습니다.
+또한 Azure Storage에는 Blob 스토리지를 위한 WebHDFS API 계층도 있습니다.  HDInsight의 모든 서비스는 HDFS(Hadoop 분산 파일 시스템)를 사용하는 방식과 비슷하게 데이터 정리 및 데이터 처리를 위해 Azure Blob Storage의 파일에 액세스할 수 있습니다.
 
 데이터는 일반적으로 PowerShell, Azure Storage SDK 또는 AZCopy를 사용하여 Azure Storage로 수집됩니다.
 

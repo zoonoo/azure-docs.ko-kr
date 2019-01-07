@@ -91,7 +91,7 @@ HDInsight 연결된 서비스에서 참조하는 Azure Blob Storage에 다음 �
 | ./archives            | 이 폴더 아래 모든 파일이 압축 해제됨 | 아니오       | 폴더 |
 | ./logs                | Spark 클러스터의 로그를 포함하는 폴더입니다. | 아니오       | 폴더 |
 
-HDInsight 연결된 서비스에서 참조하는 Azure Blob Storage에 두 개의 Spark 작업 파일이 포함된 저장소에 대한 예는 다음과 같습니다.
+HDInsight 연결된 서비스에서 참조하는 Azure Blob Storage에 두 개의 Spark 작업 파일이 포함된 스토리지에 대한 예는 다음과 같습니다.
 
 ```
 SparkJob1

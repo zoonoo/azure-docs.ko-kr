@@ -89,7 +89,7 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 애플리케이션을 �
 * 표준 저장소는 일반적인 회전 디스크로 지원되며, 사용 중인 용량 및 원하는 저장소 가용성을 기준으로 요금이 청구됩니다.
   * RA-GRS의 경우 해당 데이터를 또 다른 Azure 지역에 복제하는 대역폭에 대해 추가적인 지역 복제 데이터 전송 비용이 부과됩니다.
 
-다양한 저장소 형식 및 가용성에 대한 가격 책정 정보를 보려면 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 을 참조하세요.
+다양한 스토리지 형식 및 가용성에 대한 가격 책정 정보를 보려면 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 을 참조하세요.
 
 ## <a name="availability-sets"></a>가용성 집합
 가용성 세트은 중복성과 가용성을 제공하기 위해 Azure에서 애플리케이션이 빌드되는 방식을 이해할 수 있도록 하는 데이터 센터에 있는 VM의 논리적 그룹입니다. 고가용성 애플리케이션을 제공하고 [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 충족할 수 있도록 가용성 집합 내에 둘 이상의 VM을 만드는 것이 좋습니다. 가용성 집합 자체에 대한 비용은 없으므로 만드는 각 VM 인스턴스에 대해서만 요금을 지불합니다. 단일 VM이 [Azure Premium Storage](../articles/virtual-machines/windows/premium-storage.md)를 사용하는 경우, Azure SLA는 계획되지 않은 유지 관리 이벤트에 적용합니다. 

@@ -184,7 +184,7 @@ const uploadLocalFile = async (containerName, filePath) => {
     });
 };
 ```
-콘텐츠를 Blob에 업로드하는 데 사용할 수 있는 다른 방법은 [text](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext-string--string--string---buffer--errororresult-blobresult--) 및 [streams](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream-string--string--stream-readable--number--errororresult-blobresult--)를 사용하는 것입니다. 파일이 Blob 저장소에 업로드되었는지 확인하려면 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 계정의 데이터를 확인하면 됩니다.
+콘텐츠를 Blob에 업로드하는 데 사용할 수 있는 다른 방법은 [text](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext-string--string--string---buffer--errororresult-blobresult--) 및 [streams](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream-string--string--stream-readable--number--errororresult-blobresult--)를 사용하는 것입니다. 파일이 Blob 스토리지에 업로드되었는지 확인하려면 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 계정의 데이터를 확인하면 됩니다.
 
 ### <a name="list-the-blobs"></a>Blob 나열
 

@@ -125,7 +125,7 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
 | 형식                | Data Lake Analytics U-SQL 작업의 경우 작업 형식은 **DataLakeAnalyticsU-SQL**입니다. | yes      |
 | linkedServiceName   | Azure Data Lake Analytics에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요.  |yes       |
 | scriptPath          | U-SQL 스크립트가 포함된 폴더 경로입니다. 파일 이름은 대/소문자를 구분합니다. | yes      |
-| scriptLinkedService | 스크립트가 포함된 저장소를 **Azure Data Lake Store** 또는 **Azure Storage**에 연결하는 연결된 서비스입니다. | yes      |
+| scriptLinkedService | 스크립트가 포함된 스토리지를 **Azure Data Lake Store** 또는 **Azure Storage**에 연결하는 연결된 서비스입니다. | yes      |
 | degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 아니요       |
 | 우선 순위            | 대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. | 아니요       |
 | 매개 변수          | U-SQL 스크립트에 전달할 매개 변수입니다.    | 아니요       |

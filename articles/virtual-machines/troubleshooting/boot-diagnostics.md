@@ -55,7 +55,7 @@ Linux 가상 머신의 경우 포털에서 콘솔 로그의 출력을 쉽게 볼
     ![VM 만들기](./media/virtual-machines-common-boot-diagnostics/create-storage-account.png)
 
     > [!NOTE]
-    > 부팅 진단 기능은 프리미엄 저장소 계정을 지원하지 않습니다. 부팅 진단에 프리미엄 저장소 계정을 사용하는 경우 VM을 시작할 때 StorageAccountTypeNotSupported 오류가 발생할 수 있습니다.
+    > 부팅 진단 기능은 프리미엄 저장소 계정을 지원하지 않습니다. 부팅 진단에 프리미엄 스토리지 계정을 사용하는 경우 VM을 시작할 때 StorageAccountTypeNotSupported 오류가 발생할 수 있습니다.
     >
     > 
 

@@ -16,14 +16,14 @@ ms.lasthandoff: 11/07/2018
 ms.locfileid: "51226977"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>C++에서 Azure Storage 리소스 나열
-목록 작업은 Azure Storage를 사용하는 다양한 배포 시나리오에 중요합니다. 이 문서에서는 Microsoft Azure Storage Client Library for C++에서 제공된 API 목록을 사용하여 Microsoft Azure 저장소에서 개체를 보다 효율적으로 열거하는 방법에 대해 설명합니다.
+목록 작업은 Azure Storage를 사용하는 다양한 배포 시나리오에 중요합니다. 이 문서에서는 Microsoft Azure Storage Client Library for C++에서 제공된 API 목록을 사용하여 Microsoft Azure 스토리지에서 개체를 보다 효율적으로 열거하는 방법에 대해 설명합니다.
 
 > [!NOTE]
 > 이 가이드는 [NuGet](http://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/Azure/azure-storage-cpp)를 통해 사용할 수 있는 Azure Storage Client Library for C++ 버전 2.x을(를) 대상으로 합니다.
 > 
 > 
 
-Storage Client Library는 Azure 저장소에서 개체를 나열 또는 쿼리하는 다양한 방법을 제공합니다. 이 문서는 다음과 같은 시나리오를 다룹니다.
+Storage Client Library는 Azure 스토리지에서 개체를 나열 또는 쿼리하는 다양한 방법을 제공합니다. 이 문서는 다음과 같은 시나리오를 다룹니다.
 
 * 계정에서 컨테이너 나열
 * 컨테이너 또는 가상 Blob 디렉터리에서 Blob 나열
@@ -189,7 +189,7 @@ lazy 목록 API는 Storage Client Library for C++ 버전 2.2.0에 포함됩니�
 * greedy 목록은 권장되지 않으며 라이브러리에서 제거되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure 저장소 및 Storage Client Library for C++에 대한 자세한 내용은 다음 리소스를 참조하세요.
+Azure 스토리지 및 Storage Client Library for C++에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 * [C++에서 Blob Storage를 사용하는 방법](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [C++에서 Table Storage를 사용하는 방법](../../cosmos-db/table-storage-how-to-use-c-plus.md)

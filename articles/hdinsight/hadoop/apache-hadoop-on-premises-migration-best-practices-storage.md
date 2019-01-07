@@ -91,11 +91,11 @@ Azure Data Lake Storage는 HDFS 및 POSIX 스타일 액세스 제어 모델을 �
 
 ### <a name="azure-data-lake-storage-gen2-preview"></a>Azure Data Lake Storage Gen2(미리 보기)
 
-Azure Data Lake Storage Gen2는 최신 저장소 제품이며 이 문서의 작성 당시에는 미리 보기로 제공됩니다. Azure Data Lake Storage의 1세대에서 핵심 기능을 Azure Blob Storage로 직접 통합된 Hadoop 호환 파일 시스템 엔드포인트와 통합합니다. 이 향상된 기능은 개체 저장소의 크기 조정 및 비용 혜택을 일반적으로 온-프레미스 파일 시스템에만 연결된 안정성 및 성능과 결합합니다.
+Azure Data Lake Storage Gen2는 최신 스토리지 제품이며 이 문서의 작성 당시에는 미리 보기로 제공됩니다. Azure Data Lake Storage의 1세대에서 핵심 기능을 Azure Blob Storage로 직접 통합된 Hadoop 호환 파일 시스템 엔드포인트와 통합합니다. 이 향상된 기능은 개체 저장소의 크기 조정 및 비용 혜택을 일반적으로 온-프레미스 파일 시스템에만 연결된 안정성 및 성능과 결합합니다.
 
-ADLS Gen 2는  [Azure Blob 저장소](../../storage/blobs/storage-blobs-introduction.md)를 기반으로 빌드되었으며 이를 사용하면 파일 시스템 및 개체 저장소 패러다임을 모두 사용하여 데이터를 조작할 수 있습니다. 파일 시스템 의미 체계, 파일 수준 보안 및 확장과 같은  [Azure Data Lake Storage Gen1](../../data-lake-store/index.md)의 기능은  [Azure Blob 저장소](../../storage/blobs/storage-blobs-introduction.md)의 낮은 비용, 계층화된 저장소, 높은 가용성/재해 복구 기능 및 대규모 SDK/도구 에코시스템과 결합됩니다. Data Lake Storage Gen2에서 분석 워크로드에 맞게 최적화된 파일 시스템 인터페이스의 이점이 추가되는 동안 개체 저장소의 모든 특성이 유지됩니다.
+ADLS Gen 2는  [Azure Blob 저장소](../../storage/blobs/storage-blobs-introduction.md)를 기반으로 빌드되었으며 이를 사용하면 파일 시스템 및 개체 저장소 패러다임을 모두 사용하여 데이터를 조작할 수 있습니다. 파일 시스템 의미 체계, 파일 수준 보안 및 확장과 같은  [Azure Data Lake Storage Gen1](../../data-lake-store/index.md)의 기능은  [Azure Blob 스토리지](../../storage/blobs/storage-blobs-introduction.md)의 낮은 비용, 계층화된 스토리지, 높은 가용성/재해 복구 기능 및 대규모 SDK/도구 에코시스템과 결합됩니다. Data Lake Storage Gen2에서 분석 워크로드에 맞게 최적화된 파일 시스템 인터페이스의 이점이 추가되는 동안 개체 스토리지의 모든 특성이 유지됩니다.
 
-Data Lake Storage Gen2의 기본 기능은 데이터 액세스 성능을 개선하기 위해 개체/파일을 디렉터리 계층 구조로 구성하는  [계층 구조 네임스페이스](../../storage/data-lake-storage/namespace.md) 를 Blob 저장소 서비스에 추가한 것입니다. 계층 구조를 통해 디렉터리 이름 바꾸기 또는 삭제와 같은 작업은 디렉터리의 이름 접두사를 공유하는 모든 개체를 열거 및 처리하는 대신 디렉터리에 대한 단일 원자성 메타데이터 작업이 됩니다.
+Data Lake Storage Gen2의 기본 기능은 데이터 액세스 성능을 개선하기 위해 개체/파일을 디렉터리 계층 구조로 구성하는  [계층 구조 네임스페이스](../../storage/data-lake-storage/namespace.md) 를 Blob 스토리지 서비스에 추가한 것입니다. 계층 구조를 통해 디렉터리 이름 바꾸기 또는 삭제와 같은 작업은 디렉터리의 이름 접두사를 공유하는 모든 개체를 열거 및 처리하는 대신 디렉터리에 대한 단일 원자성 메타데이터 작업이 됩니다.
 
 과거 클라우드 기반 분석은 성능, 관리 및 보안 영역을 양보해야 했습니다. ADLS(Azure Data Lake Storage) Gen2의 주요 기능은 아래와 같습니다.
 
@@ -193,14 +193,14 @@ Azure에서 SAS 토큰 사용에 관해 기억해야 할 세 가지 중요한 �
 
 ## <a name="use-data-encryption-and-replication"></a>데이터 암호화 및 복제 사용
 
-Azure Storage에 쓴 모든 데이터는  [SSE(저장소 서비스 암호화)](../../storage/common/storage-service-encryption.md)를 사용하여 자동으로 암호화됩니다. Azure 저장소 계정의 데이터는 항상 고가용성을 위해 복제됩니다. 저장소 계정을 만들 때 다음 복제 옵션 중 하나를 선택할 수 있습니다.
+Azure Storage에 쓴 모든 데이터는  [SSE(스토리지 서비스 암호화)](../../storage/common/storage-service-encryption.md)를 사용하여 자동으로 암호화됩니다. Azure 저장소 계정의 데이터는 항상 고가용성을 위해 복제됩니다. 저장소 계정을 만들 때 다음 복제 옵션 중 하나를 선택할 수 있습니다.
 
 - [LRS(로컬 중복 저장소)](../../storage/common/storage-redundancy-lrs.md)
 - [ZRS(영역 중복 저장소)](../../storage/common/storage-redundancy-zrs.md)
 - [GRS(지역 중복 저장소)](../../storage/common/storage-redundancy-grs.md)
 - [RA-GRS(읽기 액세스 지역 중복 저장소)](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
-Azure Data Lake Storage는 LRS(로컬 중복 저장소)를 제공하지만 재해 복구 계획의 요구에 맞게 정렬된 주파수를 사용하여 다른 지역의 다른 Data Lake Storage 계정에 중요한 데이터를 복사해야 합니다.  [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), DistCp, [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md) 또는  [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)를 포함하여 데이터를 복사하는 다양한 메서드가 있습니다. 또한 실수로 인한 삭제를 방지하도록 Data Lake Storage 계정에 대한 액세스 정책을 적용하는 것이 좋습니다.
+Azure Data Lake Storage는 LRS(로컬 중복 스토리지)를 제공하지만 재해 복구 계획의 요구에 맞게 정렬된 주파수를 사용하여 다른 지역의 다른 Data Lake Storage 계정에 중요한 데이터를 복사해야 합니다.  [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), DistCp, [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md) 또는  [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)를 포함하여 데이터를 복사하는 다양한 메서드가 있습니다. 또한 실수로 인한 삭제를 방지하도록 Data Lake Storage 계정에 대한 액세스 정책을 적용하는 것이 좋습니다.
 
 자세한 내용은 다음 문서를 참조하세요.
 
@@ -209,7 +209,7 @@ Azure Data Lake Storage는 LRS(로컬 중복 저장소)를 제공하지만 재�
 
 ## <a name="attach-additional-azure-storage-accounts-to-cluster"></a>클러스터에 추가로 Azure Storage 계정 연결
 
-HDInsight를 만드는 과정에서 Azure Storage 계정 또는 Azure Data Lake 저장소 계정이 기본 파일 시스템으로 선택됩니다. 클러스터 만들기 프로세스 중이나 클러스터를 만든 후에 이 기본 저장소 계정 외에도 동일한 Azure 구독 또는 다른 Azure 구독에서 저장소 계정을 추가할 수 있습니다.
+HDInsight를 만드는 과정에서 Azure Storage 계정 또는 Azure Data Lake 스토리지 계정이 기본 파일 시스템으로 선택됩니다. 클러스터 만들기 프로세스 중이나 클러스터를 만든 후에 이 기본 저장소 계정 외에도 동일한 Azure 구독 또는 다른 Azure 구독에서 저장소 계정을 추가할 수 있습니다.
 
 다음과 같은 방법으로 추가 저장소 계정을 추가할 수 있습니다.
 - 저장소 계정 이름 및 서비스를 다시 시작하는 키를 추가하는 Ambari HDFS 구성 고급 사용자 지정 core-site

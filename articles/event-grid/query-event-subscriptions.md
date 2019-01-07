@@ -113,7 +113,7 @@ PowerShell의 경우 다음을 사용합니다.
 Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.EventGrid.Topics" -Location westus2
 ```
 
-특정 위치의 저장소 계정에 대한 구독을 얻으려면 **Microsoft.Storage.StorageAccounts**의 위치와 항목 종류를 제공합니다.
+특정 위치의 스토리지 계정에 대한 구독을 얻으려면 **Microsoft.Storage.StorageAccounts**의 위치와 항목 종류를 제공합니다.
 
 Azure CLI의 경우 
 

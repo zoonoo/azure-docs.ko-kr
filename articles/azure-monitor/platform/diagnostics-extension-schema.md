@@ -180,7 +180,7 @@ EventHub로 라우팅하는 기능이 추가되었습니다.
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2.6 및 진단 확장 1.3
 Visual Studio에서 클라우드 서비스 프로젝트의 경우 다음 사항이 변경되었습니다. (이러한 변경 사항은 이후 버전의 Azure SDK에도 적용됩니다.)
 
-* 이제 로컬 에뮬레이터에서 진단을 지원합니다. 따라서 Visual Studio에서 개발 및 테스트하는 동안 진단 데이터를 수집하고 애플리케이션에서 올바른 추적을 생성하고 있는지 확인할 수 있습니다. 연결 문자열 `UseDevelopmentStorage=true` 는 Azure 저장소 에뮬레이터를 사용하여 Visual Studio에서 클라우드 서비스 프로젝트를 실행하는 동안 진단 데이터 수집을 사용하도록 설정합니다. 모든 진단 데이터는 (개발 저장소) Storage 계정에 수집됩니다.
+* 이제 로컬 에뮬레이터에서 진단을 지원합니다. 따라서 Visual Studio에서 개발 및 테스트하는 동안 진단 데이터를 수집하고 애플리케이션에서 올바른 추적을 생성하고 있는지 확인할 수 있습니다. 연결 문자열 `UseDevelopmentStorage=true` 는 Azure 저장소 에뮬레이터를 사용하여 Visual Studio에서 클라우드 서비스 프로젝트를 실행하는 동안 진단 데이터 수집을 사용하도록 설정합니다. 모든 진단 데이터는 (개발 스토리지) Storage 계정에 수집됩니다.
 * 진단 저장소 계정 연결 문자열(Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString)은 서비스 구성(.cscfg) 파일에 다시 저장됩니다. Azure SDK 2.5에서는 진단 저장소 계정이 diagnostics.wadcfgx 파일에 지정되었습니다.
 
 Azure SDK 2.4 이하와 Azure SDK 2.6 이상 버전에서 연결 문자열이 작동하는 방식 간에 몇 가지 주목할 만한 차이점이 있습니다.

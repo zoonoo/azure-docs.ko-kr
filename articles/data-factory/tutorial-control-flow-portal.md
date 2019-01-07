@@ -21,7 +21,7 @@ ms.lasthandoff: 08/27/2018
 ms.locfileid: "43086929"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
-이 자습서에서는 몇 가지 컨트롤 흐름 기능을 보여 주는 Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Azure Blob Storage의 컨테이너에서 동일한 저장소 계정의 다른 컨테이너로 간단한 복사를 수행합니다. 복사 활동이 성공하면 파이프라인에서 성공적인 복사 작업에 대한 세부 정보(예: 기록된 데이터 양)를 성공 전자 메일에 보냅니다. 복사 활동이 실패하면 파이프라인에서 실패한 복사 작업에 대한 세부 정보(예: 오류 메시지)를 실패 전자 메일에 보냅니다. 자습서 전체에서 매개 변수를 전달하는 방법을 확인할 수 있습니다.
+이 자습서에서는 몇 가지 컨트롤 흐름 기능을 보여 주는 Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Azure Blob Storage의 컨테이너에서 동일한 스토리지 계정의 다른 컨테이너로 간단한 복사를 수행합니다. 복사 활동이 성공하면 파이프라인에서 성공적인 복사 작업에 대한 세부 정보(예: 기록된 데이터 양)를 성공 전자 메일에 보냅니다. 복사 활동이 실패하면 파이프라인에서 실패한 복사 작업에 대한 세부 정보(예: 오류 메시지)를 실패 전자 메일에 보냅니다. 자습서 전체에서 매개 변수를 전달하는 방법을 확인할 수 있습니다.
 
 대략적인 시나리오 개요: ![개요](media/tutorial-control-flow-portal/overview.png)
 
@@ -42,7 +42,7 @@ ms.locfileid: "43086929"
 ## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-* **Azure Storage 계정**. Blob 저장소를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
+* **Azure Storage 계정**. Blob 저장소를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
 * **Azure SQL Database**. 데이터베이스를 **싱크** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure SQL Database를 만드는 단계는 [Azure SQL Database 만들기](../sql-database/sql-database-get-started-portal.md) 문서를 참조하세요.
 
 ### <a name="create-blob-table"></a>Blob 테이블 만들기

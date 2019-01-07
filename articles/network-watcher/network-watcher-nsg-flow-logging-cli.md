@@ -54,7 +54,7 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 
 지정한 저장소 계정은 Microsoft 서비스 또는 특정 가상 네트워크에 대한 네트워크 액세스를 제한하도록 구성된 네트워크 규칙을 가질 수 없습니다. 저장소 계정은 동일하거나 흐름 로그를 활성화하는 NSG와 다른 Azure 구독에 있을 수 있습니다. 서로 다른 구독을 사용하는 경우 동일한 Azure Active Directory 테넌트에 연결되어야 합니다. 각 구독에 대해 사용하는 계정에 [필요한 권한](required-rbac-permissions.md)이 있어야 합니다. 
 
-저장소 계정이 네트워크 보안 그룹과 다른 리소스 그룹 또는 구독에 있으면 이름이 아닌 저장소 계정의 전체 ID를 지정합니다. 예를 들어 저장소 계정이 *RG-Storage*라는 리소스 그룹에 있으면 이전 명령에서 *storageAccountName*을 지정하기 보다는 */subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/storageAccountName*을 지정합니다.
+저장소 계정이 네트워크 보안 그룹과 다른 리소스 그룹 또는 구독에 있으면 이름이 아닌 저장소 계정의 전체 ID를 지정합니다. 예를 들어 스토리지 계정이 *RG-Storage*라는 리소스 그룹에 있으면 이전 명령에서 *storageAccountName*을 지정하기 보다는 */subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/storageAccountName*을 지정합니다.
 
 ## <a name="disable-network-security-group-flow-logs"></a>네트워크 보안 그룹 흐름 로그 사용 중지
 
@@ -66,7 +66,7 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 
 ## <a name="download-a-flow-log"></a>흐름 로그 다운로드
 
-흐름 로그의 저장소 위치를 만들 때 정의합니다. 저장소 계정에 저장되는 이러한 흐름 로그에 액세스하는 편리한 도구는 Microsoft Azure Storage 탐색기이며 http://storageexplorer.com/에서 다운로드할 수 있습니다.
+흐름 로그의 저장소 위치를 만들 때 정의합니다. 스토리지 계정에 저장되는 이러한 흐름 로그에 액세스하는 편리한 도구는 Microsoft Azure Storage 탐색기이며 http://storageexplorer.com/에서 다운로드할 수 있습니다.
 
 저장소 계정이 지정되어 있으면 패킷 캡처 파일은 다음 위치에서 저장소 계정에 저장됩니다.
 

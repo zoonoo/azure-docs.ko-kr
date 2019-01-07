@@ -298,7 +298,7 @@ Windows의 경우와 달리 Linux용 sapinst 통합 SAP 고가용성 구성은 �
 자세한 내용은 [Azure에서 Windows 가상 머신의 가용성 관리][azure-virtual-machines-manage-availability]를 참조하세요.
 
 ### <a name="azure-storage-redundancy"></a>Azure Storage 중복성
-저장소 계정의 데이터는 항상 내구성 및 고가용성을 보증하도록 복제되며 일시적인 하드웨어 오류가 발생하는 경우에도 Azure Storage SLA를 충족합니다.
+스토리지 계정의 데이터는 항상 내구성 및 고가용성을 보증하도록 복제되며 일시적인 하드웨어 오류가 발생하는 경우에도 Azure Storage SLA를 충족합니다.
 
 Azure Storage에서는 기본적으로 데이터의 3가지 이미지를 유지하므로 여러 Azure 디스크에서 RAID 5 또는 RAID 1을 사용할 필요가 없습니다.
 

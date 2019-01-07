@@ -45,7 +45,7 @@ ms.locfileid: "47391466"
 * Azure 데이터 센터 내에서 Service Bus의 오류입니다. 몇 분 또는 몇 시간 동안 시스템에 연결할 수 없는 "치명적 오류"입니다.
 
 > [!NOTE]
-> 용어 **저장소**는 Azure Storage 및 SQL Azure를 의미할 수 있습니다.
+> 용어 **스토리지**는 Azure Storage 및 SQL Azure를 의미할 수 있습니다.
 > 
 > 
 

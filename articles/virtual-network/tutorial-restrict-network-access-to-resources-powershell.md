@@ -183,7 +183,7 @@ New-AzureRmStorageAccount `
   -Kind StorageV2
 ```
 
-저장소 계정이 생성된 후 [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey)를 사용하여 저장소 계정의 키를 변수로 검색합니다.
+스토리지 계정이 생성된 후 [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey)를 사용하여 스토리지 계정의 키를 변수로 검색합니다.
 
 ```azurepowershell-interactive
 $storageAcctKey = (Get-AzureRmStorageAccountKey `
@@ -373,6 +373,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 가상 네트워크 서브넷에 대해 서비스 엔드포인트를 사용하도록 설정했습니다. 여러 Azure 서비스로 배포된 리소스에 대해 서비스 끝점을 사용하도록 설정할 수 있음을 배웠습니다. Azure Storage 계정을 만들고 저장소 계정에 대한 네트워크 액세스를 가상 네트워크 서브넷 내의 리소스로만 제한했습니다. 서비스 끝점에 대한 자세한 내용은 [서비스 끝점 개요](virtual-network-service-endpoints-overview.md) 및 [서브넷 관리](virtual-network-manage-subnet.md)를 참조하세요.
+이 문서에서는 가상 네트워크 서브넷에 대해 서비스 엔드포인트를 사용하도록 설정했습니다. 여러 Azure 서비스로 배포된 리소스에 대해 서비스 끝점을 사용하도록 설정할 수 있음을 배웠습니다. Azure Storage 계정을 만들고 스토리지 계정에 대한 네트워크 액세스를 가상 네트워크 서브넷 내의 리소스로만 제한했습니다. 서비스 끝점에 대한 자세한 내용은 [서비스 끝점 개요](virtual-network-service-endpoints-overview.md) 및 [서브넷 관리](virtual-network-manage-subnet.md)를 참조하세요.
 
 계정에 여러 개의 가상 네트워크가 있는 경우, 각 가상 네트워크 내의 리소스가 서로 통신할 수 있도록 두 개의 가상 네트워크를 함께 연결하는 것이 좋습니다. 방법을 알아보려면 [가상 네트워크 연결](tutorial-connect-virtual-networks-powershell.md)을 참조하세요.

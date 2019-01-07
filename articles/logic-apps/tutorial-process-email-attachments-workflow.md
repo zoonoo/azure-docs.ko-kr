@@ -24,7 +24,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 저장된 이메일 및 첨부 파일을 확인할 수 있도록 [Azure 저장소](../storage/common/storage-introduction.md) 및 Storage 탐색기를 설정합니다.
+> * 저장된 이메일 및 첨부 파일을 확인할 수 있도록 [Azure 스토리지](../storage/common/storage-introduction.md) 및 Storage 탐색기를 설정합니다.
 > * 이메일에서 HTML을 제거하는 [Azure 함수](../azure-functions/functions-overview.md)를 만듭니다. 이 자습서에는 이 함수에 사용할 수 있는 코드가 포함되어 있습니다.
 > * 빈 논리 앱을 만듭니다.
 > * 이메일의 첨부 파일을 모니터링하는 트리거를 추가합니다.
@@ -102,19 +102,19 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
    저장소 컨테이너를 만들려면 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create)를 사용할 수도 있습니다. 
 
-다음으로, Storage 탐색기를 저장소 계정에 연결합니다.
+다음으로, Storage 탐색기를 스토리지 계정에 연결합니다.
 
 ## <a name="set-up-storage-explorer"></a>Storage 탐색기 설정
 
-이제 Storage 탐색기를 저장소 계정에 연결하여 논리 앱에서 첨부 파일을 Blob으로 저장소 컨테이너에 올바르게 저장하는지 확인할 수 있습니다.
+이제 Storage 탐색기를 스토리지 계정에 연결하여 논리 앱에서 첨부 파일을 Blob으로 스토리지 컨테이너에 올바르게 저장하는지 확인할 수 있습니다.
 
 1. Microsoft Azure Storage 탐색기를 엽니다. 
 
-   Storage 탐색기에서 저장소 계정에 대한 연결을 묻는 메시지를 표시합니다. 
+   Storage 탐색기에서 스토리지 계정에 대한 연결을 묻는 메시지를 표시합니다. 
 
 2. **Azure Storage에 연결** 창에서 **저장소 계정 이름 및 키 사용**을 선택하고 **다음**을 선택합니다. 
 
-   ![Storage 탐색기 - 저장소 계정에 연결](./media/tutorial-process-email-attachments-workflow/storage-explorer-choose-storage-account.png)
+   ![Storage 탐색기 - 스토리지 계정에 연결](./media/tutorial-process-email-attachments-workflow/storage-explorer-choose-storage-account.png)
 
    > [!TIP]
    > 메시지가 표시되지 않으면 Storage 탐색기 도구 모음에서 **계정 추가**를 선택합니다.
@@ -127,7 +127,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
 5. **저장소 계정** 아래에서 Blob 저장소 컨테이너를 찾으려면 저장소 계정(여기서는 **attachmentstorageacct**), **Blob 컨테이너**(**attachments** 컨테이너가 있음)를 차례로 확장합니다. 예를 들면 다음과 같습니다. 
 
-   ![Storage 탐색기 - 저장소 컨테이너 찾기](./media/tutorial-process-email-attachments-workflow/storage-explorer-check-contianer.png)
+   ![Storage 탐색기 - 스토리지 컨테이너 찾기](./media/tutorial-process-email-attachments-workflow/storage-explorer-check-contianer.png)
 
 다음으로, 수신 이메일에서 HTML을 제거하는 [Azure 함수](../azure-functions/functions-overview.md)를 만듭니다.
 

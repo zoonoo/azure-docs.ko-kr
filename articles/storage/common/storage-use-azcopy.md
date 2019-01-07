@@ -16,7 +16,7 @@ ms.lasthandoff: 11/07/2018
 ms.locfileid: "51256734"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Windows에서 AzCopy를 사용하여 데이터 전송
-AzCopy는 최적의 성능을 내는 간단한 명령을 사용하여 데이터를 Microsoft Azure Blob, File 및 Table Storage에 복사하거나 이들 저장소에서 복사하기 위한 명령줄 유틸리티입니다. 파일 시스템과 저장소 계정 간 또는 저장소 계정 간에 데이터를 복사할 수 있습니다.  
+AzCopy는 최적의 성능을 내는 간단한 명령을 사용하여 데이터를 Microsoft Azure Blob, File 및 Table Storage에 복사하거나 이들 스토리지에서 복사하기 위한 명령줄 유틸리티입니다. 파일 시스템과 저장소 계정 간 또는 저장소 계정 간에 데이터를 복사할 수 있습니다.  
 
 두 가지 버전의 AzCopy를 다운로드할 수 있습니다. Windows의 AzCopy는 Windows 스타일 명령줄 옵션을 제공합니다. [Linux의 AzCopy](storage-use-azcopy-linux.md)는 Linux 플랫폼을 대상으로 POSIX 스타일 명령줄 옵션을 제공합니다. 이 문서에서는 Windows에서 AzCopy를 설명합니다.
 

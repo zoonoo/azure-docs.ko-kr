@@ -71,7 +71,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="prerequisites"></a>필수 조건
 * Azure PowerShell. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
 * **Azure SQL Database**. 데이터베이스를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure SQL Database를 만드는 단계는 [Azure SQL Database 만들기](../sql-database/sql-database-get-started-portal.md) 문서를 참조하세요.
-* **Azure Storage 계정**. Blob 저장소를 **싱크** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요. **adftutorial**이라는 컨테이너를 만듭니다. 
+* **Azure Storage 계정**. Blob 저장소를 **싱크** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요. **adftutorial**이라는 컨테이너를 만듭니다. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Azure SQL 데이터베이스에 데이터 원본 테이블 만들기
 1. **SQL Server Management Studio**를 시작하고 Azure SQL Server에 연결합니다. 

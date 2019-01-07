@@ -206,7 +206,7 @@ OS 디스크의 이미지만 만들려면 관리 디스크 ID를 OS 디스크로
 
 ## <a name="create-an-image-from-a-vhd-in-a-storage-account"></a>저장소 계정의 VHD에서 이미지 만들기
 
-저장소 계정의 일반화된 OS VHD에서 관리되는 이미지를 만듭니다. 저장소 계정에 있는 VHD의 URI가 필요합니다. 이 URI는 https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd* 형식입니다. 이 예제의 VHD는 *vhdcontainer* 컨테이너의 *mystorageaccount*에 있으며 VHD 파일 이름은 *vhdfilename.vhd*입니다.
+저장소 계정의 일반화된 OS VHD에서 관리되는 이미지를 만듭니다. 스토리지 계정에 있는 VHD의 URI가 필요합니다. 이 URI는 https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd* 형식입니다. 이 예제의 VHD는 *vhdcontainer* 컨테이너의 *mystorageaccount*에 있으며 VHD 파일 이름은 *vhdfilename.vhd*입니다.
 
 
 1.  일부 변수를 만듭니다.

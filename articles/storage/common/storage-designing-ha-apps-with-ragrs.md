@@ -236,6 +236,6 @@ static function OnBeforeResponse(oSession: Session) {
 
 ## <a name="next-steps"></a>다음 단계
 
-* LastSyncTime 설정 방법에 대한 다른 예제를 비롯한 읽기 액세스 지역 중복에 대한 자세한 내용은 [Windows Azure Storage 중복 작업 및 읽기 액세스 지역 중복 저장소](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)를 참조하세요.
+* LastSyncTime 설정 방법에 대한 다른 예제를 비롯한 읽기 액세스 지역 중복에 대한 자세한 내용은 [Windows Azure Storage 중복 작업 및 읽기 액세스 지역 중복 스토리지](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)를 참조하세요.
 
 * 기본 엔드포인트와 보조 엔드포인트 간에 전환을 수행하는 방법을 보여주는 전체 샘플은 [Azure 샘플 – RA-GRS 저장소에서 회로 차단 패턴 사용](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs)을 참조하세요.

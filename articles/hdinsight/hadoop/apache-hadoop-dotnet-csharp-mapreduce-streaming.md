@@ -155,9 +155,9 @@ namespace reducer
 
     ![클러스터에 대한 저장소 계정을 보여주는 서버 탐색기](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/storage.png)
 
-    * 이 항목을 확장할 수 있는 경우 클러스터의 기본 저장소로 __Azure Storage 계정__을 사용하고 있음을 의미합니다. 클러스터의 기본 저장소에서 파일을 보려면 항목을 확장한 다음 __(기본 컨테이너)__ 를 두 번 클릭합니다.
+    * 이 항목을 확장할 수 있는 경우 클러스터의 기본 스토리지로 __Azure Storage 계정__을 사용하고 있음을 의미합니다. 클러스터의 기본 저장소에서 파일을 보려면 항목을 확장한 다음 __(기본 컨테이너)__ 를 두 번 클릭합니다.
 
-    * 이 항목을 확장할 수 없는 경우 클러스터의 기본 스토리지로 __Azure Data Lake Storage__를 사용하고 있음을 의미합니다. 클러스터의 기본 저장소에 있는 파일을 보려면 항목을 확장한 다음 __(기본 Storage 계정)__ 을 두 번 클릭합니다.
+    * 이 항목을 확장할 수 없는 경우 클러스터의 기본 스토리지로 __Azure Data Lake Storage__를 사용하고 있음을 의미합니다. 클러스터의 기본 스토리지에 있는 파일을 보려면 항목을 확장한 다음 __(기본 Storage 계정)__ 을 두 번 클릭합니다.
 
 5. .exe 파일을 업로드하려면 다음 방법 중 하나를 사용합니다.
 
@@ -181,7 +181,7 @@ namespace reducer
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
         ```
     
-    * 기본 저장소로 __Azure Storage__를 사용하는 경우
+    * 기본 스토리지로 __Azure Storage__를 사용하는 경우
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout

@@ -90,7 +90,7 @@ VNET으로 마이그레이션하려면 Microsoft 지원 티켓을 제출할 수 
 ```
 
 ### <a name="storage-accounts"></a>Storage 계정
-Premium Storage용으로 구성된 새 저장소 계정을 만들어야 합니다. Premium Storage 사용은 개별 VHD가 아니라 Storage 계정에서 설정되지만 DS* 시리즈 VM을 사용할 때는 프리미엄 및 Standard Storage 계정에서 VHD를 연결할 수 있습니다. Premium Storage 계정에 OS VHD를 배치하지 않으려는 경우 이러한 방식을 사용할 수 있습니다.
+Premium Storage용으로 구성된 새 스토리지 계정을 만들어야 합니다. Premium Storage 사용은 개별 VHD가 아니라 Storage 계정에서 설정되지만 DS* 시리즈 VM을 사용할 때는 프리미엄 및 Standard Storage 계정에서 VHD를 연결할 수 있습니다. Premium Storage 계정에 OS VHD를 배치하지 않으려는 경우 이러한 방식을 사용할 수 있습니다.
 
 아래에 나와 있는 "Premium_LRS" **형식**을 사용하는 **New-AzureStorageAccountPowerShell** 명령은 Premium Storage 계정을 만듭니다.
 
@@ -105,9 +105,9 @@ Premium Storage 계정의 일부분인 디스크를 만들 때의 기본적인 �
 VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 업데이트된 캐시 설정으로 VHD를 분리했다가 다시 연결해야 합니다.
 
 ### <a name="windows-storage-spaces"></a>Windows 저장소 공간
-이전 Standard Storage와 같이 [Windows 저장소 공간](https://technet.microsoft.com/library/hh831739.aspx)을 사용할 수 있습니다. 그러면 이미 저장소 공간을 사용 중인 VM을 마이그레이션할 수 있습니다. [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)의 예제(9단계부터)에서는 여러 VHD가 연결된 VM을 추출하고 가져오는 PowerShell 코드를 보여 줍니다.
+이전 Standard Storage와 같이 [Windows 스토리지 공간](https://technet.microsoft.com/library/hh831739.aspx)을 사용할 수 있습니다. 그러면 이미 스토리지 공간을 사용 중인 VM을 마이그레이션할 수 있습니다. [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)의 예제(9단계부터)에서는 여러 VHD가 연결된 VM을 추출하고 가져오는 PowerShell 코드를 보여 줍니다.
 
-저장소 풀은 처리량을 높이고 대기 시간을 줄이기 위해 표준 Azure Storage 계정에서 사용되었습니다. 새 배포의 경우 Premium Storage에서도 저장소 풀을 사용해 볼 수 있습니다. 그러나 이렇게 하면 저장소 설정이 더 복잡해집니다.
+스토리지 풀은 처리량을 높이고 대기 시간을 줄이기 위해 표준 Azure Storage 계정에서 사용되었습니다. 새 배포의 경우 Premium Storage에서도 스토리지 풀을 사용해 볼 수 있습니다. 그러나 이렇게 하면 스토리지 설정이 더 복잡해집니다.
 
 #### <a name="how-to-find-which-azure-virtual-disks-map-to-storage-pools"></a>저장소 풀에 매핑되는 Azure 가상 디스크를 찾는 방법
 연결된 VHD에 따라 각기 다른 캐시 설정을 사용하는 것이 좋으므로 VHD를 Premium Storage 계정에 복사할 수 있습니다. 그러나 새 DS 시리즈 VM에 VHD를 다시 연결할 때는 캐시 설정을 변경해야 할 수 있습니다. SQL 데이터 파일 및 로그 파일이 모두 포함된 VHD를 하나 사용하기보다는 두 파일에 대해 각각 별도의 VHD를 사용하는 경우 Premium Storage 권장 캐시 설정을 보다 간편하게 적용할 수 있습니다.
@@ -149,7 +149,7 @@ Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
 
 이제 이 정보를 사용하여 연결된 VHD를 저장소 풀의 실제 디스크에 연결할 수 있습니다.
 
-저장소 풀의 실제 디스크에 매핑한 VHD는 분리하여 Premium Storage 계정으로 복사한 다음 올바른 캐시 설정을 사용하여 연결할 수 있습니다. [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 8~12단계의 예제를 참조하세요. 이러한 단계에서는 VM에 연결된 VHD 디스크 구성을 CSV파일에 추출하고 VHD를 복사한 다음 디스크 구성 캐시 설정을 변경하고 마지막으로 모든 연결된 디스크와 함께 VM을 DS 시리즈 VM으로 다시 배포하는 방법을 보여 줍니다.
+스토리지 풀의 실제 디스크에 매핑한 VHD는 분리하여 Premium Storage 계정으로 복사한 다음 올바른 캐시 설정을 사용하여 연결할 수 있습니다. [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 8~12단계의 예제를 참조하세요. 이러한 단계에서는 VM에 연결된 VHD 디스크 구성을 CSV파일에 추출하고 VHD를 복사한 다음 디스크 구성 캐시 설정을 변경하고 마지막으로 모든 연결된 디스크와 함께 VM을 DS 시리즈 VM으로 다시 배포하는 방법을 보여 줍니다.
 
 ### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>VM 저장소 대역폭 및 VHD 저장소 처리량
 저장소 성능은 지정한 DS* VM 크기와 VHD 크기에 따라 달라집니다. VM마다 연결할 수 있는 VHD 수와 지원하는 최대 대역폭(MB/s)이 다릅니다. 구체적인 대역폭 수치는 [Azure를 위한 Virtual Machine 및 클라우드 서비스 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.

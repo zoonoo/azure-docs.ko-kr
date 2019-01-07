@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="prerequisites"></a>필수 조건
 
 * **Azure PowerShell**. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps)의 지침을 따르세요.
-* **Azure Storage 계정**. Azure Storage 계정은 대량 복사 작업에서 스테이징 Blob 저장소로 사용됩니다. 
+* **Azure Storage 계정**. Azure Storage 계정은 대량 복사 작업에서 스테이징 Blob 스토리지로 사용됩니다. 
 * **Azure SQL Database**. 이 데이터베이스에는 원본 데이터가 포함되어 있습니다. 
 * **Azure SQL Data Warehouse** 이 데이터 웨어하우스에는 SQL Database에서 복사된 데이터를 보관하고 있습니다. 
 

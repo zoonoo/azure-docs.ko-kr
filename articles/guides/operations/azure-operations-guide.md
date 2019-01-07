@@ -359,7 +359,7 @@ NSG(네트워크 보안 그룹) 리소스를 사용하여 공용 IP 주소를 �
 
 ## <a name="azure-storage"></a>Azure Storage
 
-Azure Storage는 내구성이 뛰어나고 확장 가능하며 중복 저장소를 제공하는 Microsoft 관리 서비스입니다. 리소스 배포 방법을 사용하여 Azure storage 계정을 리소스 그룹에 리소스로 추가할 수 있습니다. Azure의 네 가지 스토리지 유형은: Blob Storage, File Storage, Table Storage 및 Queue Storage입니다. 저장소 계정을 배포할 때 범용 및 Blob Storage라는 두 가지 계정 유형을 사용할 수 있습니다. 범용 저장소 계정을 사용하면 네 가지 저장소 유형 모두에 액세스할 수 있습니다. Blob Storage 계정은 범용 계정과 유사하지만 핫 액세스 계층 및 콜드 액세스 계층을 포함하는 특수한 Blob을 포함합니다. Blob Storage에 대한 자세한 내용은 [Azure Blob Storage](../../storage/blobs/storage-blob-storage-tiers.md)를 참조하세요.
+Azure Storage는 내구성이 뛰어나고 확장 가능하며 중복 스토리지를 제공하는 Microsoft 관리 서비스입니다. 리소스 배포 방법을 사용하여 Azure storage 계정을 리소스 그룹에 리소스로 추가할 수 있습니다. Azure의 네 가지 스토리지 유형은: Blob Storage, File Storage, Table Storage 및 Queue Storage입니다. 스토리지 계정을 배포할 때 범용 및 Blob Storage라는 두 가지 계정 유형을 사용할 수 있습니다. 범용 저장소 계정을 사용하면 네 가지 저장소 유형 모두에 액세스할 수 있습니다. Blob Storage 계정은 범용 계정과 유사하지만 핫 액세스 계층 및 콜드 액세스 계층을 포함하는 특수한 Blob을 포함합니다. Blob Storage에 대한 자세한 내용은 [Azure Blob Storage](../../storage/blobs/storage-blob-storage-tiers.md)를 참조하세요.
 
 Azure storage 계정은 여러 수준의 중복성으로 구성할 수 있습니다.
 
@@ -375,7 +375,7 @@ Azure storage 계정은 여러 수준의 중복성으로 구성할 수 있습니
 
 #### <a name="blob-storage"></a>Blob 저장소
 
-*Blob*이라는 단어는 *Binary Large Object*의 머리글자어입니다. Blob은 컴퓨터에 저장한 파일과 같은 구조화되지 않은 파일입니다. Blob storage는 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob storage를 개체 저장소라고 합니다. Azure Blob Storage에는 Azure Virtual Machines 데이터 디스크도 저장됩니다.
+*Blob*이라는 단어는 *Binary Large Object*의 머리글자어입니다. Blob은 컴퓨터에 저장한 파일과 같은 구조화되지 않은 파일입니다. Blob storage는 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob Storage를 개체 스토리지라고 합니다. Azure Blob Storage에는 Azure Virtual Machines 데이터 디스크도 저장됩니다.
 
 Azure Storage는 세 종류의 Blob을 지원합니다.
 
@@ -421,13 +421,13 @@ Azure Portal에서 저장소 계정을 배포하는 것 외에도 포털에서 A
 
 #### <a name="powershell"></a>PowerShell
 
-PowerShell을 사용하여 Azure storage 계정을 배포하면 저장소 계정을 완벽하게 배포 자동화할 수 있습니다. 자세한 내용은 [Azure Storage와 Azure PowerShelld 사용](../../storage/common/storage-powershell-guide-full.md)을 참조하세요.
+PowerShell을 사용하여 Azure storage 계정을 배포하면 스토리지 계정을 완벽하게 배포 자동화할 수 있습니다. 자세한 내용은 [Azure Storage와 Azure PowerShelld 사용](../../storage/common/storage-powershell-guide-full.md)을 참조하세요.
 
 Azure 리소스를 개별적으로 배포하는 것 외에도 Azure PowerShell 모듈을 사용하여 Azure Resource Manager 템플릿을 배포할 수 있습니다. 자세한 내용은 [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy.md)를 참조하세요.
 
 #### <a name="command-line-interface-cli"></a>CLI(명령줄 인터페이스)
 
-PowerShell 모듈과 마찬가지로 Azure 명령줄 인터페이스는 배포 자동화를 제공하며 Windows, OS X 또는 Linux 시스템에서 사용할 수 있습니다. Azure CLI **storage account create** 명령을 사용하여 저장소 계정을 만들 수 있습니다. 자세한 내용은 [Azure Storage에서 Azure CLI 사용](../../storage/common/storage-azure-cli.md)을 참조하세요.
+PowerShell 모듈과 마찬가지로 Azure 명령줄 인터페이스는 배포 자동화를 제공하며 Windows, OS X 또는 Linux 시스템에서 사용할 수 있습니다. Azure CLI **storage account create** 명령을 사용하여 스토리지 계정을 만들 수 있습니다. 자세한 내용은 [Azure Storage에서 Azure CLI 사용](../../storage/common/storage-azure-cli.md)을 참조하세요.
 
 마찬가지로 Azure CLI를 사용하여 Azure Resource Manager 템플릿을 배포할 수 있습니다. 자세한 내용은 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../resource-group-template-deploy-cli.md)를 참조하세요.
 
@@ -441,7 +441,7 @@ Azure Storage는 Azure Portal을 통해, VM 생성 및 작동 중에, Storage �
 
 #### <a name="storage-tools"></a>저장소 도구
 
-Azure storage 계정은 Visual Studio 클라우드 탐색기와 같은 다양한 저장소 탐색기를 통해 액세스할 수 있습니다. 이러한 도구를 사용하면 저장소 계정 및 데이터를 검색할 수 있습니다. 자세한 내용 및 사용 가능한 저장소 탐색기 목록은 [Azure Storage 클라이언트 도구](../../storage/common/storage-explorers.md)를 참조하세요.
+Azure storage 계정은 Visual Studio 클라우드 탐색기와 같은 다양한 스토리지 탐색기를 통해 액세스할 수 있습니다. 이러한 도구를 사용하면 저장소 계정 및 데이터를 검색할 수 있습니다. 자세한 내용 및 사용 가능한 스토리지 탐색기 목록은 [Azure Storage 클라이언트 도구](../../storage/common/storage-explorers.md)를 참조하세요.
 
 #### <a name="storage-api"></a>저장소 API
 

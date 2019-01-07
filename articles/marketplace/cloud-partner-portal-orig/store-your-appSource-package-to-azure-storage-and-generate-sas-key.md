@@ -46,7 +46,7 @@ Blob 저장소에 패키지를 업로드하려면 다음 단계를 수행합니�
 
 6.  Microsoft [Azure Storage 탐색기](http://storageexplorer.com/)를 아직 다운로드하여 설치하지 않은 경우 다운로드/설치합니다.
 
-7.  Storage 탐색기를 열고 아이콘을 사용하여 Azure 저장소 계정에 연결합니다.
+7.  Storage 탐색기를 열고 아이콘을 사용하여 Azure 스토리지 계정에 연결합니다.
 
 8.  앞에서 만든 Blob 컨테이너로 이동한 다음 **업로드**를 클릭하여 패키지 zip 파일을 추가합니다.
 

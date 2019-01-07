@@ -192,12 +192,12 @@ SQL Server 인증을 사용하도록 설정하지 않으면, VM의 로컬 관리
 
 ### <a name="storage-configuration"></a>Storage 구성
 
-저장소 요구 사항을 지정하려면 **Storage 구성**을 클릭합니다.
+스토리지 요구 사항을 지정하려면 **Storage 구성**을 클릭합니다.
 
 ![SQL Storage 구성](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-storage.png)
 
 > [!NOTE]
-> 표준 저장소를 사용하도록 VM을 수동으로 구성한 경우 이 옵션은 사용할 수 없습니다. 자동 저장소 최적화는 Premium Storage에서만 사용할 수 있습니다.
+> 표준 저장소를 사용하도록 VM을 수동으로 구성한 경우 이 옵션은 사용할 수 없습니다. 자동 스토리지 최적화는 Premium Storage에서만 사용할 수 있습니다.
 
 > [!TIP]
 > 정지 수와 각 슬라이더의 상한값은 사용자가 선택한 VM 크기에 따라 다릅니다. 더 크고 효율적인 VM이 추가 확장할 수 있습니다.

@@ -29,7 +29,7 @@ Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](storage-b
 ## <a name="create-a-c-application"></a>C++ 응용 프로그램 만들기
 이 가이드에서는 C++ 응용 프로그램 내에서 실행할 수 있는 저장소 기능을 사용합니다.  
 
-이 기능을 사용하려면, Azure Storage Client Library for C++를 설치하고 Azure 구독에서 Azure 저장소 계정을 만들어야 합니다.   
+이 기능을 사용하려면, Azure Storage Client Library for C++를 설치하고 Azure 구독에서 Azure 스토리지 계정을 만들어야 합니다.   
 
 Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사용할 수 있습니다.
 
@@ -253,7 +253,7 @@ blockBlob.delete_blob();
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 Azure Storage 작업에 대해 알아보세요.  
+이제 Blob 스토리지의 기본 사항을 배웠으므로 다음 링크를 따라 Azure Storage 작업에 대해 알아보세요.  
 
 * [C++에서 Queue Storage를 사용하는 방법](../storage-c-plus-plus-how-to-use-queues.md)
 * [C++에서 Table Storage를 사용하는 방법](../../cosmos-db/table-storage-how-to-use-c-plus.md)

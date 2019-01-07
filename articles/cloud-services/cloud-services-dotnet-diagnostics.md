@@ -174,7 +174,7 @@ namespace WorkerRole1
 웹 또는 작업자 역할에서 진단을 관리하는 데 사용되는 PowerShell cmdlet은 Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension 및 Remove-AzureServiceDiagnosticsExtension입니다.
 
 1. Azure PowerShell을 엽니다.
-2. 작업자 역할에 진단을 설치하기 위한 스크립트를 실행합니다(*StorageAccountKey*를 wadexample 저장소 계정의 저장소 계정 키로 바꾸고 *config_path*를 *WadExample.xml* 파일에 대한 경로로 바꿈).
+2. 작업자 역할에 진단을 설치하기 위한 스크립트를 실행합니다(*StorageAccountKey*를 wadexample 스토리지 계정의 스토리지 계정 키로 바꾸고 *config_path*를 *WadExample.xml* 파일에 대한 경로로 바꿈).
 
 ```powershell
 $storage_name = "wadexample"

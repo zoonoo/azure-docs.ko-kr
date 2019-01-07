@@ -28,7 +28,7 @@ ms.locfileid: "51232298"
 
 * Azure IoT Hub - IoT Hub가 없는 경우 [New-AzureRmIoTHub cmdlet](https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub)을 사용하여 IoT Hub를 만들거나, 포털을 사용하여 [IoT Hub를 만들](iot-hub-create-through-portal.md) 수 있습니다.
 
-* Azure 저장소 계정. Azure 저장소 계정이 없는 경우 [Azure Storage PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.storage/)을 사용하여 저장소 계정을 만들거나, 포털을 사용하여 [저장소 계정을 만들](../storage/common/storage-create-storage-account.md) 수 있습니다.
+* Azure 저장소 계정. Azure 스토리지 계정이 없는 경우 [Azure Storage PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.storage/)을 사용하여 스토리지 계정을 만들거나, 포털을 사용하여 [스토리지 계정을 만들](../storage/common/storage-create-storage-account.md) 수 있습니다.
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Azure 계정 로그인 및 설정
 

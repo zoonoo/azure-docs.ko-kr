@@ -41,7 +41,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
 New-AzureRmRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 
-많은 Azure Backup cmdlet에는 Recovery Services 자격 증명 모음 개체가 입력으로 필요합니다. 이런 이유 때문에, 백업 Recovery Services 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다. 그런 다음 **Set-AzureRmRecoveryServicesBackupProperties**를 사용해 **-BackupStorageRedundancy** 옵션을 [GRS(지역 중복 저장소)](../storage/common/storage-redundancy-grs.md)로 설정합니다. 
+많은 Azure Backup cmdlet에는 Recovery Services 자격 증명 모음 개체가 입력으로 필요합니다. 이런 이유 때문에, 백업 Recovery Services 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다. 그런 다음 **Set-AzureRmRecoveryServicesBackupProperties**를 사용해 **-BackupStorageRedundancy** 옵션을 [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy-grs.md)로 설정합니다. 
 
 ```powershell
 $vault1 = Get-AzureRmRecoveryServicesVault –Name myRSVault

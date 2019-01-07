@@ -115,7 +115,7 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
 
 활동 로깅은 모든 Resource Manager 리소스에 대해 사용하도록 설정됩니다. 이러한 로그를 통해 사용 가능한 데이터 수집을 시작하려면 액세스 및 성능 로깅을 사용하도록 설정해야 합니다. 로깅을 사용하려면 다음 단계를 사용합니다.
 
-1. 로그 데이터를 저장할 저장소 계정의 리소스 ID를 적어 둡니다. 이 값의 형식은 /subscriptions/\<subscriptionId\>/resourceGroups/\<리소스 그룹 이름\>/providers/Microsoft.Storage/storageAccounts/\<저장소 계정 이름\>입니다. 구독의 모든 저장소 계정을 사용할 수 있습니다. Azure Portal을 사용하여 이 정보를 찾을 수 있습니다.
+1. 로그 데이터를 저장할 저장소 계정의 리소스 ID를 적어 둡니다. 이 값의 형식은 /subscriptions/\<subscriptionId\>/resourceGroups/\<리소스 그룹 이름\>/providers/Microsoft.Storage/storageAccounts/\<스토리지 계정 이름\>입니다. 구독의 모든 저장소 계정을 사용할 수 있습니다. Azure Portal을 사용하여 이 정보를 찾을 수 있습니다.
 
     ![포털: 저장소 계정의 리소스 ID](./media/application-gateway-diagnostics/diagnostics1.png)
 

@@ -19,7 +19,7 @@ ms.locfileid: "53077923"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>IoT Edge(미리 보기)에서 Azure Blob Storage를 사용하여 에지에 데이터 저장
 
-IoT Edge의 Azure Blog Storage는 에지에 [블록 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 저장소 솔루션을 제공합니다. IoT Edge 디바이스의 Blob 저장소 모듈은 Azure 블록 Blob 서비스처럼 작동하지만, 블록 Blob은 IoT Edge 디바이스에 로컬로 저장됩니다. 동일한 Azure 저장소 SDK 메서드 또는 이미 익숙한 블록 Blob API 호출을 사용하여 Blob에 액세스할 수 있습니다. 
+IoT Edge의 Azure Blog Storage는 에지에 [블록 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 스토리지 솔루션을 제공합니다. IoT Edge 디바이스의 Blob 저장소 모듈은 Azure 블록 Blob 서비스처럼 작동하지만, 블록 Blob은 IoT Edge 디바이스에 로컬로 저장됩니다. 동일한 Azure 저장소 SDK 메서드 또는 이미 익숙한 블록 Blob API 호출을 사용하여 Blob에 액세스할 수 있습니다. 
 
 비디오, 이미지, 재무 데이터, 병원 데이터 또는 로컬에 저장해야 하는 모든 데이터 관련 시나리오는 이 모듈을 사용하여 나중에 로컬로 처리하거나 클라우드로 전송할 수 있는 좋은 예입니다.
 
@@ -207,7 +207,7 @@ IoT Edge에 Azure Blob Storage 인스턴스를 여러 개 배포하려면 모듈
 
 ### <a name="try-it-out"></a>체험
 
-Azure Blob Storage 설명서에는 여러 언어로 샘플 코드를 제공하는 빠른 시작이 포함되어 있습니다. 이러한 샘플을 실행하여 Blob 저장소 모듈을 가리키도록 Blob 엔드포인트를 변경하는 방법으로 IoT Edge의 Azure Blob Storage를 테스트할 수 있습니다.
+Azure Blob Storage 설명서에는 여러 언어로 샘플 코드를 제공하는 빠른 시작이 포함되어 있습니다. 이러한 샘플을 실행하여 Blob 스토리지 모듈을 가리키도록 Blob 엔드포인트를 변경하는 방법으로 IoT Edge의 Azure Blob Storage를 테스트할 수 있습니다.
 
 다음 빠른 시작에서는 IoT Edge에서도 지원되는 언어를 사용하므로, Blob 저장소 모듈과 함께 IoT Edge 모듈로 배포할 수 있습니다.
 
@@ -218,7 +218,7 @@ Azure Blob Storage 설명서에는 여러 언어로 샘플 코드를 제공하�
 
 ## <a name="supported-storage-operations"></a>지원되는 저장소 작업
 
-IoT Edge의 Blob 저장소 모듈은 동일한 Azure Storage SDK를 사용하며, 블록 Blob 엔드포인트용 Azure Storage API의 2018-03-28 버전과 일치합니다. 이후 릴리스는 고객의 요구에 따라 다릅니다. 
+IoT Edge의 Blob 스토리지 모듈은 동일한 Azure Storage SDK를 사용하며, 블록 Blob 엔드포인트용 Azure Storage API의 2018-03-28 버전과 일치합니다. 이후 릴리스는 고객의 요구에 따라 다릅니다. 
 
 일부 Azure Blob Storage 작업은 IoT Edge의 Azure Blob Storage에서 지원되지 않습니다. 다음 섹션에서는 지원되지 않는 작업에 대해 설명합니다. 
 

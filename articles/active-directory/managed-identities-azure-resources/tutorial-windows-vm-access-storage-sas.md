@@ -1,6 +1,6 @@
 ---
 title: Windows VM 시스템 할당 관리 ID를 사용하여 SAS 자격 증명으로 Azure Storage에 액세스
-description: Windows VM 시스템 할당 관리 ID를 사용하여 저장소 계정 액세스 키 대신 SAS 자격 증명으로 Azure Storage에 액세스하는 방법을 보여주는 자습서입니다.
+description: Windows VM 시스템 할당 관리 ID를 사용하여 스토리지 계정 액세스 키 대신 SAS 자격 증명으로 Azure Storage에 액세스하는 방법을 보여주는 자습서입니다.
 services: active-directory
 documentationcenter: ''
 author: daveba

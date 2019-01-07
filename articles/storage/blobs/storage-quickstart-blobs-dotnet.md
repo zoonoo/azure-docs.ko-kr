@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: .Net을 사용하여 개체 저장소에 Blob 만들기 - Azure Storage'
+title: '빠른 시작: .Net을 사용하여 개체 스토리지에 Blob 만들기 - Azure Storage'
 description: 이 빠른 시작에서는 .NET용 Azure Storage 클라이언트 라이브러리를 사용하여 Blob(개체) Storage에서 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 나열하는 방법을 알아봅니다.
 services: storage
 author: tamram
@@ -152,7 +152,7 @@ Press any key to delete the sample files and example container.
 
 ### <a name="try-parsing-the-connection-string"></a>연결 문자열 구문 분석 시도
 
-샘플에서 수행하는 첫 번째 작업은 환경 변수가 저장소 계정을 가리키는 [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) 개체를 만들도록 구문 분석될 수 있는 연결 문자열을 포함하는지 확인하는 것입니다. 연결 문자열이 유효한지 확인하려면 [TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) 메서드를 사용합니다. **TryParse**가 성공적인 경우 *storageAccount* 변수를 초기화하고 **true**를 반환합니다.
+샘플에서 수행하는 첫 번째 작업은 환경 변수가 스토리지 계정을 가리키는 [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) 개체를 만들도록 구문 분석될 수 있는 연결 문자열을 포함하는지 확인하는 것입니다. 연결 문자열이 유효한지 확인하려면 [TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) 메서드를 사용합니다. **TryParse**가 성공적인 경우 *storageAccount* 변수를 초기화하고 **true**를 반환합니다.
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -299,7 +299,7 @@ Blob 저장소를 사용하는 .NET 개발에 대한 이러한 추가 리소스�
 
 이 빠른 시작에서는 .NET을 사용하여 Blob을 업로드, 다운로드 및 나열하는 방법을 배웠습니다. 
 
-Blob 저장소로 이미지를 업로드하는 웹앱을 만드는 방법에 대해 자세히 알아보려면 [Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드](storage-upload-process-images.md)를 참조하세요.
+Blob 스토리지로 이미지를 업로드하는 웹앱을 만드는 방법에 대해 자세히 알아보려면 [Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드](storage-upload-process-images.md)를 참조하세요.
 
 > [!div class="nextstepaction"]
 > [Blob Storage 작업 방법](storage-dotnet-how-to-use-blobs.md)

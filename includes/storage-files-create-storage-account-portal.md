@@ -25,8 +25,8 @@ ms.locfileid: "38732795"
 
 3. **이름**에 *mystorageacct*를 입력하고 고유 이름임을 나타내는 녹색 확인 표시가 표시될 때까지 이름 뒤에 임의의 숫자를 붙입니다. 저장소 계정 이름은 모두 소문자여야 하며 전역적으로 고유해야 합니다. 저장소 계정 이름을 적어둡니다. 나중에 필요합니다. 
 4. **배포 모델**에서 **Resource Manager**의 기본값을 그대로 둡니다. Azure Resource Manager와 클래식 배포 모델 간의 차이점을 자세히 알아보려면 [Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해](../articles/azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.
-5. **계정 종류**에서 **StorageV2**를 선택합니다. 다양한 종류의 저장소 계정을 자세히 알아보려면 [Azure storage 계정 이해](../articles/storage/common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
-6. **성능**에서 **표준 저장소**의 기본값을 유지합니다. 현재 Azure Files은 표준 저장소만을 지원합니다. Azure Premium Storage를 선택하더라도 파일 공유가 표준 저장소에 저장됩니다.
+5. **계정 종류**에서 **StorageV2**를 선택합니다. 다양한 종류의 스토리지 계정을 자세히 알아보려면 [Azure storage 계정 이해](../articles/storage/common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
+6. **성능**에서 **표준 저장소**의 기본값을 유지합니다. 현재 Azure Files은 표준 스토리지만을 지원합니다. Azure Premium Storage를 선택하더라도 파일 공유가 표준 스토리지에 저장됩니다.
 7. **복제**에서 **LRS(로컬 중복 저장소)** 를 선택합니다. 
 8. **보안 전송 필요**에서 항상 **사용**을 선택하는 것이 좋습니다. 이 옵션에 대해 자세히 알아보려면 [전송 중인 암호화 이해](../articles/storage/common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
 9. **구독**에서 저장소 계정을 만들 때 사용된 구독을 선택합니다. 구독이 하나밖에 없는 경우 해당 구독이 기본 구독이어야 합니다.

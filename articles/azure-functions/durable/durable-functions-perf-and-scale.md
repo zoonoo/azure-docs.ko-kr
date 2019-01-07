@@ -75,7 +75,7 @@ ms.locfileid: "53341171"
 }
 ```
 
-계정을 지정하지 않으면 기본 `AzureWebJobsStorage` 저장소 계정이 사용됩니다. 그렇지만 성능이 중요한 워크로드에서는 기본이 아닌 저장소 계정을 구성하는 것이 좋습니다. 지속형 함수는 Azure Storage를 과도하게 사용하며, 전용 저장소 계정을 사용하면 지속형 함수 저장소 사용이 Azure Functions 호스트의 내부 사용과 분리됩니다.
+계정을 지정하지 않으면 기본 `AzureWebJobsStorage` 저장소 계정이 사용됩니다. 그렇지만 성능이 중요한 워크로드에서는 기본이 아닌 저장소 계정을 구성하는 것이 좋습니다. 지속형 함수는 Azure Storage를 과도하게 사용하며, 전용 스토리지 계정을 사용하면 지속형 함수 스토리지 사용이 Azure Functions 호스트의 내부 사용과 분리됩니다.
 
 ## <a name="orchestrator-scale-out"></a>오케스트레이터 확장
 
@@ -230,7 +230,7 @@ Azure Functions는 단일 응용 프로그램 인스턴스 내에서 여러 함�
 > [!NOTE]
 > 이러한 수치는 지속형 함수 확장의 v1.4.0(GA) 릴리스 당시의 최신 값입니다. 이러한 수치는 시간이 지나면서 기능이 완성되고 최적화가 진행됨에 따라 달라질 수 있습니다.
 
-예상되는 처리량 수치가 표시되지 않는데 CPU 및 메모리 사용량이 정상으로 표시되면 해당 원인이 [저장소 계정의 상태](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)와 관련이 있는 것인지 확인합니다. 지속형 함수 확장은 Azure Storage 계정에 과도한 부하를 발생할 수 있으며 충분히 높은 부하는 저장소 계정 제한을 유발할 수 있습니다.
+예상되는 처리량 수치가 표시되지 않는데 CPU 및 메모리 사용량이 정상으로 표시되면 해당 원인이 [저장소 계정의 상태](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)와 관련이 있는 것인지 확인합니다. 지속형 함수 확장은 Azure Storage 계정에 과도한 부하를 발생할 수 있으며 충분히 높은 부하는 스토리지 계정 제한을 유발할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

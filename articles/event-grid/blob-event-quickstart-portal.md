@@ -38,7 +38,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문
 
    ![저장소 선택](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. 이벤트를 구독하려면 범용 v2 저장소 계정 또는 Blob Storage 계정을 만듭니다. 자세한 내용은 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md) 를 참조하세요.
+1. 이벤트를 구독하려면 범용 v2 스토리지 계정 또는 Blob Storage 계정을 만듭니다. 자세한 내용은 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md) 를 참조하세요.
 
    ![시작 단계](./media/blob-event-quickstart-portal/provide-blob-values.png)
 

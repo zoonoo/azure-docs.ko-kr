@@ -60,7 +60,7 @@ ms.locfileid: "53093338"
 
     ![저장소 계정 세부 정보 입력](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
 
-4. Azure Portal에서 저장소 계정을 선택합니다. 저장소 계정 블레이드에서 **컨테이너**를 클릭하고 **+&nbsp;컨테이너**를 클릭하여 Blob Storage를 만듭니다.
+4. Azure Portal에서 저장소 계정을 선택합니다. 스토리지 계정 블레이드에서 **컨테이너**를 클릭하고 **+&nbsp;컨테이너**를 클릭하여 Blob Storage를 만듭니다.
 
     ![입력에 대한 Blob Storage 컨테이너 만들기](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 

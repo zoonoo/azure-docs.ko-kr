@@ -21,7 +21,7 @@ Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여
 
 이 문서에서는 Azure 클래식 Cloud Services에 대한 게스트 OS 성능 메트릭을 Azure Monitor 메트릭 저장소에 보내는 프로세스에 대해 설명합니다. 진단 버전 1.11부터 표준 플랫폼 메트릭이 이미 수집된 Azure Monitor 메트릭 저장소에 메트릭을 직접 기록할 수 있습니다. 
 
-이 위치에 메트릭을 저장하면 플랫폼 메트릭의 경우와 동일한 작업에 액세스할 수 있습니다. 작업에는 실시간에 가까운 경고, 차트 작성, 라우팅, REST API에서 액세스 등이 포함됩니다.  과거에는 진단 확장이 Azure Monitor 데이터 저장소가 아니라 Azure Storage에 기록했습니다.  
+이 위치에 메트릭을 저장하면 플랫폼 메트릭의 경우와 동일한 작업에 액세스할 수 있습니다. 작업에는 실시간에 가까운 경고, 차트 작성, 라우팅, REST API에서 액세스 등이 포함됩니다.  과거에는 진단 확장을 Azure Monitor 데이터 저장소가 아니라 Azure Storage에 기록했습니다.  
 
 이 문서에서 설명하는 프로세스는 Azure Cloud Services의 성능 카운터에서만 작동합니다. 다른 사용자 지정 메트릭에서는 작동하지 않습니다. 
 

@@ -105,7 +105,7 @@ FreeBSD에서 지원되는 VM 확장은 다음과 같습니다.
 ### <a name="customscript"></a>CustomScript
 [CustomScript](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) 확장으로 다음을 수행할 수 있습니다.
 
-* 제공될 경우 Azure Storage 또는 외부 공용 저장소(예: GitHub)에서 사용자 지정된 스크립트를 다운로드합니다.
+* 제공될 경우 Azure Storage 또는 외부 공용 스토리지(예: GitHub)에서 사용자 지정된 스크립트를 다운로드합니다.
 * 진입점 스크립트를 실행합니다.
 * 인라인 명령을 지원합니다.
 * 셸 및 Python 스크립트에서 Windows 스타일 줄 바꿈 문자를 자동으로 변환합니다.

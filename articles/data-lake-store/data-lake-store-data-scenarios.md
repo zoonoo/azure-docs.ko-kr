@@ -69,7 +69,7 @@ ms.locfileid: "46984282"
 웹 서버 로그 데이터를 업로드하고 다른 종류의 데이터 (예: 소셜 정서 데이터)를 업로드하려는 경우 고유의 사용자 지정 스크립트/애플리케이션을 작성하는 것이 좋습니다. 데이터 업로드 구성 요소를 더 큰 빅 데이터 애플리케이션의 일부로 유연하게 포함할 수 있기 때문입니다. 어떤 경우에는 이 코드가 스크립트 형태 또는 간단한 명령줄 유틸리티의 형태를 취할 수 있습니다. 또 어떤 경우에는 빅 데이터 처리를 비즈니스 애플리케이션 또는 솔루션에 통합하는 데 이 코드가 사용될 수 있습니다.
 
 ### <a name="data-associated-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터와 연결된 데이터
-대부분의 HDInsight 클러스터 유형(Hadoop, HBase, Storm)은 Data Lake Storage Gen1을 데이터 저장소 리포지토리로 지원합니다. HDInsight 클러스터는 Azure Storage Blob(WASB)에서 데이터에 액세스합니다. WASB의 데이터를 클러스터와 연결된 Data Lake Storage Gen1 계정에 복사하면 성능을 향상시킬 수 있습니다. 다음 도구를 사용하여 데이터를 복사할 수 있습니다.
+대부분의 HDInsight 클러스터 유형(Hadoop, HBase, Storm)은 Data Lake Storage Gen1을 데이터 스토리지 리포지토리로 지원합니다. HDInsight 클러스터는 Azure Storage Blob(WASB)에서 데이터에 액세스합니다. WASB의 데이터를 클러스터와 연결된 Data Lake Storage Gen1 계정에 복사하면 성능을 향상시킬 수 있습니다. 다음 도구를 사용하여 데이터를 복사할 수 있습니다.
 
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
 * [AdlCopy Service](data-lake-store-copy-data-azure-storage-blob.md)

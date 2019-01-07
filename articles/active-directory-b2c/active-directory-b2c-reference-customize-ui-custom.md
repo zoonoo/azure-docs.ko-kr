@@ -106,7 +106,7 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 
 1.  Windows 탐색기를 사용하여 이전 섹션에서 생성한 *UI-Customization-Pack* 폴더 아래에 있는 *B2C-AzureBlobStorage-Client-master* 폴더로 이동합니다.
 2.  *B2CAzureStorageClient.exe* 파일을 실행합니다. 이 프로그램은 저장소 계정에 사용자가 지정한 디렉터리의 모든 파일을 업로드하고 해당 파일에 대한 CORS 액세스가 가능하도록 합니다.
-3.  메시지가 표시되면 다음을 지정합니다. a.  저장소 계정의 이름 *storageAccountName*(예: *contoso369b2c*).
+3.  메시지가 표시되면 다음을 지정합니다. a.  스토리지 계정의 이름 *storageAccountName*(예: *contoso369b2c*).
     b.  Azure Blob Storage의 기본 액세스 키 *key1*(예: *contoso369b2c*).
     다.  Storage Blob Storage 컨테이너의 이름 *containerName*(예: *b2c*).
     d.  *Starter-Pack* 샘플 파일의 경로(예: *..\B2CTemplates\wingtiptoys*).

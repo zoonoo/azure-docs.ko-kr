@@ -77,7 +77,7 @@ SQL Server Virtual Machine을 특정 Azure 지역에 있는 클라우드 서비�
    ```
 
    > [!NOTE]
-   > 새 저장소 계정이 필요한 경우 먼저 New-AzureStorageAccount 명령을 사용하여 저장소 계정 이름(모두 소문자)을 만듭니다. `New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
+   > 새 스토리지 계정이 필요한 경우 먼저 New-AzureStorageAccount 명령을 사용하여 스토리지 계정 이름(모두 소문자)을 만듭니다. `New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
 
 4. 대상 저장소 계정 이름을 **$staccount**에 할당합니다. **Set-AzureSubscription** 을 사용하여 구독 및 현재 저장소 계정을 설정합니다.
 

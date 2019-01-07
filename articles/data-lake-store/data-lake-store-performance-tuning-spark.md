@@ -51,7 +51,7 @@ Spark 작업을 실행할 때 Data Lake Storage Gen1에서 성능을 향상시�
 
 ## <a name="guidance"></a>지침
 
-Data Lake Storage Gen1의 데이터로 작업하는 Spark 분석 워크로드를 실행하는 동안 Data Lake Storage Gen1의 성능을 극대화하려면 최신 HDInsight 버전을 사용하는 것이 좋습니다. 작업이 I/O 집약적인 경우 성능 개선을 위해 특정 매개 변수를 구성할 수 있습니다.  Data Lake Storage Gen1은 높은 처리량을 처리할 수 있는 확장성 높은 저장소 플랫폼입니다.  작업이 주로 읽기 또는 쓰기를 구성하는 경우 Data Lake Storage Gen1 간의 I/O에 대한 동시성이 증가하면 성능도 향상될 수 있습니다.
+Data Lake Storage Gen1의 데이터로 작업하는 Spark 분석 워크로드를 실행하는 동안 Data Lake Storage Gen1의 성능을 극대화하려면 최신 HDInsight 버전을 사용하는 것이 좋습니다. 작업이 I/O 집약적인 경우 성능 개선을 위해 특정 매개 변수를 구성할 수 있습니다.  Data Lake Storage Gen1은 높은 처리량을 처리할 수 있는 확장성 높은 스토리지 플랫폼입니다.  작업이 주로 읽기 또는 쓰기를 구성하는 경우 Data Lake Storage Gen1 간의 I/O에 대한 동시성이 증가하면 성능도 향상될 수 있습니다.
 
 I/O 집약적인 작업에 대한 동시성을 높이는 몇 가지 일반적인 방법이 있습니다.
 

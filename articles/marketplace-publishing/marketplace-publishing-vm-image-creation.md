@@ -327,7 +327,7 @@ Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계는 다음�
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_04.png)
 
-6. Azure Storage Explorer가 특정 저장소 계정에 연결되면 저장소 계정 내에 포함된 내용을 모두 보여 주기 시작합니다. 운영 체제 디스크 VHD 파일(시나리오에 적용 가능한 경우 데이터 디스크도 해당)을 복사한 컨테이너를 선택합니다.
+6. Azure Storage Explorer가 특정 스토리지 계정에 연결되면 스토리지 계정 내에 포함된 내용을 모두 보여 주기 시작합니다. 운영 체제 디스크 VHD 파일(시나리오에 적용 가능한 경우 데이터 디스크도 해당)을 복사한 컨테이너를 선택합니다.
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_05.png)
 

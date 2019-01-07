@@ -20,7 +20,7 @@ ms.locfileid: "46127111"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 데이터용 재해 복구 지침
 
-Azure Data Lake Storage Gen1에서는 LRS(로컬 중복 저장소)를 제공합니다. 그러므로 데이터 센터 내에서 일시적인 하드웨어 장애가 발생하는 경우 자동화된 복제본을 통해 Data Lake Storage Gen1 계정의 데이터를 복원할 수 있습니다. 이러한 방식을 통해 Data Lake Storage Gen1 SLA를 충족하는 고가용성과 내구성이 보장됩니다. 이 문서에서는 드물게 발생하는 전체 지역 가동 중단 또는 삭제 실수로부터 데이터를 보호하는 방법에 대한 지침을 제공합니다.
+Azure Data Lake Storage Gen1에서는 LRS(로컬 중복 스토리지)를 제공합니다. 그러므로 데이터 센터 내에서 일시적인 하드웨어 장애가 발생하는 경우 자동화된 복제본을 통해 Data Lake Storage Gen1 계정의 데이터를 복원할 수 있습니다. 이러한 방식을 통해 Data Lake Storage Gen1 SLA를 충족하는 고가용성과 내구성이 보장됩니다. 이 문서에서는 드물게 발생하는 전체 지역 가동 중단 또는 삭제 실수로부터 데이터를 보호하는 방법에 대한 지침을 제공합니다.
 
 ## <a name="disaster-recovery-guidance"></a>재해 복구 지침
 모든 고객은 자체적으로 재해 복구 계획을 준비하는 것이 중요합니다. 재해 복구 계획을 빌드하려면 이 아티클의 정보를 참고합니다. 여기에는 고유한 계획을 직접 만들 수 있는 리소스가 있습니다.

@@ -144,7 +144,7 @@ StorSimple 디바이스 관리자 서비스를 실행한 후에는 서비스 등
 
 이 단계는 선택 사항이며 서비스를 사용하여 저장소 계정을 자동으로 생성하도록 설정하지 않은 경우에만 수행해야 합니다.
 
-다른 지역에 Azure Storage 계정을 만들어야 하는 경우 단계별 지침은 [저장소 계정을 만드는 방법](../storage/common/storage-quickstart-create-account.md)을 참조하세요.
+다른 지역에 Azure Storage 계정을 만들어야 하는 경우 단계별 지침은 [스토리지 계정을 만드는 방법](../storage/common/storage-quickstart-create-account.md)을 참조하세요.
 
 기존 Microsoft Azure Storage 계정을 추가하려면 StorSimple 장치 관리자 서비스 페이지의 [Azure Portal](https://ms.portal.azure.com/)에서 다음 단계를 수행합니다.
 

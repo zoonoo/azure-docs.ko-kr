@@ -21,7 +21,7 @@ Azure Data Lake Storage Gen2 미리 보기와 호환되는 [Hadoop 파일 시스
 
 ## <a name="uri-syntax"></a>URI 구문
 
-Data Lake Storage Gen2에 대한 URI 구문은 저장소 계정이 Data Lake Storage Gen2를 기본 파일 시스템으로 포함하도록 설정되었는지 여부에 따라 다릅니다.
+Data Lake Storage Gen2에 대한 URI 구문은 스토리지 계정이 Data Lake Storage Gen2를 기본 파일 시스템으로 포함하도록 설정되었는지 여부에 따라 다릅니다.
 
 주소를 지정할 Data Lake Storage Gen2 지원 계정이 계정을 만드는 동안 기본 파일 시스템으로 설정되지 **않은** 경우, 줄임 URI 구문은 다음과 같습니다.
 

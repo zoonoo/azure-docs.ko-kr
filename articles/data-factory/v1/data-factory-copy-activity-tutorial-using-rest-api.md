@@ -379,7 +379,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 계산 서비스를 데이터 팩터리에 연결합니다. 이 자습서에서는 Azure HDInsight 또는 Azure Data Lake Analytics와 같은 계산 서비스를 사용하지 않습니다. Azure Storage(원본) 및 Azure SQL Database(대상) 유형의 두 데이터 저장소를 사용합니다. 이에 따라 두 개의 연결된 서비스, 즉 AzureStorage와 AzureSqlDatabase 유형의 AzureStorageLinkedService와 AzureSqlLinkedService를 만듭니다.  
 
-AzureStorageLinkedService는 Azure 저장소 계정을 데이터 팩터리에 연결합니다. 이 저장소 계정은 컨테이너를 만들고 [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 데이터를 업로드한 계정입니다.   
+AzureStorageLinkedService는 Azure 스토리지 계정을 데이터 팩터리에 연결합니다. 이 저장소 계정은 컨테이너를 만들고 [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 데이터를 업로드한 계정입니다.   
 
 AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. Blob 저장소에서 복사된 데이터는 이 데이터베이스에 저장됩니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 이 데이터베이스에서 emp 테이블을 만들었습니다.  
 

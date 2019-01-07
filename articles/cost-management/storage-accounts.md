@@ -1,6 +1,6 @@
 ---
 title: Azure에서 Cloudyn을 위한 저장소 계정 구성 | Microsoft Docs
-description: 이 문서에서는 Cloudyn을 위한 Azure Storage 계정 및 AWS 저장소 버킷 구성 방법을 설명합니다.
+description: 이 문서에서는 Cloudyn을 위한 Azure Storage 계정 및 AWS 스토리지 버킷 구성 방법을 설명합니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
@@ -21,13 +21,13 @@ ms.locfileid: "53100857"
 
 <!--- intent: As a Cloudyn user, I want to configure Cloudyn to use my cloud service provider storage account to store my reports. -->
 
-Cloudyn 보고서를 Cloudyn 포털, Azure Storage 또는 AWS 저장소 버킷에 저장할 수 있습니다. Cloudyn 포털에 보고서를 저장하는 것은 무료입니다. 그러나 클라우드 서비스 공급자의 저장소에 보고서를 저장하는 것은 선택 사항이며 추가 비용이 발생합니다. 이 문서는 보고서를 저장하도록 Azure Storage 계정 및 AWS(Amazon Web Services) 저장소 버킷을 구성하는 데 도움을 줍니다.
+Cloudyn 보고서를 Cloudyn 포털, Azure Storage 또는 AWS 스토리지 버킷에 저장할 수 있습니다. Cloudyn 포털에 보고서를 저장하는 것은 무료입니다. 그러나 클라우드 서비스 공급자의 저장소에 보고서를 저장하는 것은 선택 사항이며 추가 비용이 발생합니다. 이 문서는 보고서를 저장하도록 Azure Storage 계정 및 AWS(Amazon Web Services) 스토리지 버킷을 구성하는 데 도움을 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure Storage 계정 또는 Amazon 저장소 버킷이 있어야 합니다.
+Azure Storage 계정 또는 Amazon 스토리지 버킷이 있어야 합니다.
 
-Azure Storage 계정이 없는 경우 만들어야 합니다. Azure Storage 계정 생성에 대한 자세한 내용은 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
+Azure Storage 계정이 없는 경우 만들어야 합니다. Azure Storage 계정 생성에 대한 자세한 내용은 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
 
 AWS 단순 저장소 서비스(S3) 버킷이 없는 경우 만들어야 합니다. S3 버킷 생성에 대한 자세한 내용은 [버킷 만들기](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)를 참조하세요.
 

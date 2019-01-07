@@ -55,7 +55,7 @@ Azure 진단 확장은 "데이터 싱크"라는 기능을 사용하여 메트릭
 
 *azuredeploy.json* 파일을 엽니다.
 
-템플릿의 **variables** 섹션에 있는 **storageAccountName** 항목 뒤에 저장소 계정 ID를 추가합니다.
+템플릿의 **variables** 섹션에 있는 **storageAccountName** 항목 뒤에 스토리지 계정 ID를 추가합니다.
 
 ```json
 // Find these lines.

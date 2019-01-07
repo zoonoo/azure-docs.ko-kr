@@ -55,7 +55,7 @@ ms.locfileid: "50240919"
 1. Azure **데이터 팩터리**를 만듭니다. 이 단계에서는 ADFTutorialDataFactory라는 데이터 팩터리를 만듭니다. 
 2. 데이터 팩터리에서 **연결된 서비스**를 만듭니다. 이 단계에서는 두 가지 연결된 서비스 유형, 즉 Azure Storage와 Azure SQL Database를 만듭니다. 
     
-    AzureStorageLinkedService는 Azure 저장소 계정을 데이터 팩터리에 연결합니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 컨테이너를 만들고 이 저장소 계정에 데이터를 업로드했습니다.   
+    AzureStorageLinkedService는 Azure 스토리지 계정을 데이터 팩터리에 연결합니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 컨테이너를 만들고 이 저장소 계정에 데이터를 업로드했습니다.   
 
     AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. Blob 저장소에서 복사된 데이터는 이 데이터베이스에 저장됩니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 이 데이터베이스에서 SQL 테이블을 만들었습니다.   
 3. 데이터 팩터리에서 입력 및 출력 **데이터 세트**를 만듭니다.  
@@ -117,7 +117,7 @@ ms.locfileid: "50240919"
 
 이에 따라 두 개의 연결된 서비스, 즉 AzureStorage와 AzureSqlDatabase 유형의 AzureStorageLinkedService와 AzureSqlLinkedService를 만듭니다.  
 
-AzureStorageLinkedService는 Azure 저장소 계정을 데이터 팩터리에 연결합니다. 이 저장소 계정은 컨테이너를 만들고 [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 데이터를 업로드한 계정입니다.   
+AzureStorageLinkedService는 Azure 스토리지 계정을 데이터 팩터리에 연결합니다. 이 저장소 계정은 컨테이너를 만들고 [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 데이터를 업로드한 계정입니다.   
 
 AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. Blob 저장소에서 복사된 데이터는 이 데이터베이스에 저장됩니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 이 데이터베이스에서 emp 테이블을 만들었습니다.  
 
