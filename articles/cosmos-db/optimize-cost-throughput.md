@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 501fe1d2da89b6968f5a3619fc8e02b01b1abd7a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f0d0442a8640a75b21e95e3ae024fd7994602b51
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263438"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807944"
 ---
 # <a name="optimizing-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 처리량 비용 최적화
 
@@ -56,7 +56,7 @@ Azure Cosmos DB는 프로비전된 처리량 모델을 제공하여 규모에 �
 |API|**공유** 처리량의 경우 구성 항목 |**전용** 처리량의 경우 구성 항목 |
 |----|----|----|
 |SQL API|데이터베이스|컨테이너|
-|MongoDB API|데이터베이스|컬렉션|
+|Azure Cosmos DB의 API for MongoDB|데이터베이스|컬렉션|
 |Cassandra API|Keyspace|테이블|
 |Gremlin API|데이터베이스 계정|그래프|
 |테이블 API|데이터베이스 계정|테이블|
