@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: fc23efb206496bd36922da39adc0ff32abb78907
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 05a0e0d88f09853274d6bc6b65f66cf66369f77d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608684"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044198"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack에서 사용할 수 있는 azure Marketplace 항목
 
@@ -236,6 +236,7 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![EventTracker SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [EventTracker SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM에 포괄적인 보안 플랫폼을 제공 하는 고급 감사 준비 규정 준수 기능을 사용 하 여 보안 도구입니다. | EventTracker |
 | ![Exivity-하이브리드 클라우드 청구 솔루션](media/azure-stack-marketplace-azure-items/exivity.png) | [Exivity-하이브리드 클라우드 청구 솔루션](https://azuremarketplace.microsoft.com/marketplace/apps/exivity.exivity-vm)  | 온-프레미스, 공용 클라우드 또는 하이브리드 환경 내에서 배포 여부를 거의 모든 IT 서비스 제공의 요구 사항을 충족 시킬 수는 청구 도구 모델링 합니다. | Exivity |
 | ![f5 키](media/azure-stack-marketplace-azure-items/f5.png) | [f5 BIG-IP 가상 버전](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | 부하 분산, GSLB, 네트워크 방화벽, DNS, WAF 및 응용 프로그램 액세스 고급입니다. | F5 Networks |
+| ![FortiGate 차세대 방화벽](media/azure-stack-marketplace-azure-items/fortinetsquare.png) | [FortiGate 차세대 방화벽](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-fortigate-singlevm) | 종합적인 강력한 보안 기능을 사용 하 여 전체 콘텐츠 및 네트워크 보호 기능을 제공 하는 방화벽 기술입니다. 응용 프로그램 제어, 바이러스 백신, IPS, 웹 필터링, 취약성 관리와 같은 고급 기능과 함께 VPN 식별 하 고 최신 복잡 한 보안 위협을 완화 하기 위해 함께에서 작동 합니다. | Fortinet |
 | ![Hortonworks Data Platform (HDP) 샌드박스](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) 샌드박스](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | 연결 된 HDP 2.5 100% 오픈 소스 플랫폼 Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari에 대 한 합니다. | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky 하이브리드 클라우드 보안](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | Kaspersky 하이브리드 클라우드 보안을 통해 원활 하 게 조정 되 고 적응 사이버 보안 에코 시스템을 수 있습니다. | Kaspersky 랩 |
 | ![KEMP LoadMaster 부하 분산 장치 ADC 콘텐츠 스위치](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster 부하 분산 장치 ADC 콘텐츠 스위치](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 계층 4-7 응용 프로그램 배달 컨트롤러 (ADC) 부하 분산, 콘텐츠 스위치 및 Traffic Manager. | KEMP Technologies Inc. |
