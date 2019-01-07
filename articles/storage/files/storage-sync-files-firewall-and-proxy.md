@@ -132,9 +132,9 @@ BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 저�
 
 **예:** `"West US"`에 저장소 동기화 서비스를 배포하고 서버를 등록합니다. 여기서 서버가 통신할 수 있는 URL은 다음과 같습니다.
 
-> - https://kailani.one.microsoft.com(기본 엔드포인트: 미국 서부)
-> - https://kailani1.one.microsoft.com(쌍을 이루는 장애 조치 지역: 미국 동부)
-> - https://tm-kailani.one.microsoft.com(주 지역의 검색 URL)
+> - https://kailani.one.microsoft.com (기본 엔드포인트: 미국 서부)
+> - https://kailani1.one.microsoft.com (쌍을 이루는 장애 조치 지역: 미국 동부)
+> - https://tm-kailani.one.microsoft.com (주 지역의 검색 URL)
 
 ## <a name="summary-and-risk-limitation"></a>요약 및 위험 제한
 이 문서의 앞부분에 나오는 목록에는 Azure 파일 동기화가 현재 통신하는 URL이 포함되어 있습니다. 방화벽은 이러한 도메인의 아웃바운드 트래픽을 허용할 수 있어야 합니다. Microsoft는 이 목록을 업데이트 상태로 유지하려고 합니다.
