@@ -12,17 +12,17 @@ items:
   - name: 응용 프로그램
     items:
     - name: .NET 응용 프로그램
-      href: ../application-insights/quick-monitor-portal.md?toc=/azure/azure-monitor/toc.json
+      href: learn/quick-monitor-portal.md
     - name: .NET Core 애플리케이션
-      href: ../application-insights/app-insights-dotnetcore-quick-start.md?toc=/azure/azure-monitor/toc.json
+      href: learn/dotnetcore-quick-start.md
     - name: Node.js 애플리케이션
-      href: ../application-insights/app-insights-nodejs-quick-start.md?toc=/azure/azure-monitor/toc.json
+      href: learn/nodejs-quick-start.md
     - name: Java 응용 프로그램
-      href: ../application-insights/app-insights-java-quick-start.md?toc=/azure/azure-monitor/toc.json
+      href: learn/java-quick-start.md
     - name: 모바일 응용 프로그램
-      href: ../application-insights/app-insights-mobile-center-quickstart.md?toc=/azure/azure-monitor/toc.json
+      href: learn/mobile-center-quickstart.md
     - name: 웹 응용 프로그램
-      href: ../application-insights/app-insights-website-monitoring.md?toc=/azure/azure-monitor/toc.json
+      href: app/website-monitoring.md
   - name: 가상 머신
     items:
     - name: 수집 - Azure VM
@@ -45,15 +45,15 @@ items:
   - name: 성능 및 일정에 대한 자동 크기 조정
     href: learn/tutorial-autoscale-performance-schedule.md
   - name: 응용 프로그램 런타임 예외 찾기
-    href: ../application-insights/app-insights-tutorial-runtime-exceptions.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-runtime-exceptions.md
   - name: 응용 프로그램 성능 문제 찾기
     href: ../application-insights/app-insights-tutorial-performance.md?toc=/azure/azure-monitor/toc.json
   - name: 응용 프로그램 상태에 대한 경고
-    href: ../application-insights/app-insights-tutorial-alert.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-alert.md
   - name: 응용 프로그램 사용자 이해
     href: ../application-insights/app-insights-tutorial-users.md?toc=/azure/azure-monitor/toc.json
   - name: 사용자 지정 대시보드 만들기
-    href: ../application-insights/app-insights-tutorial-dashboards.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-app-dashboards.md
 - name: 샘플
   items:
   - name: Azure PowerShell
@@ -262,8 +262,8 @@ items:
       items:
       - name: Azure 앱
         items:
-        - name: Azure 웹앱
-          href: app/azure-web-apps.md
+        - name: Azure App Service
+          href: ../application-insights/app-insights-azure-web-apps.md?toc=/azure/azure-monitor/toc.json
         - name: Azure Cloud Services
           href: app/cloudservices.md
         - name: 연속 모니터링 추가
@@ -271,21 +271,21 @@ items:
         - name: 프로파일러
           items:
           - name: 개요
-            href: ../application-insights/app-insights-profiler-overview.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-overview.md
           - name: App Service에 대해 Profiler 사용하도록 설정
             href: app/profiler.md
           - name: Cloud Service에 대해 Profiler 사용하도록 설정
-            href: ../application-insights/app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-cloudservice.md
           - name: Service Fabric 애플리케이션에 대해 Profiler 사용하도록 설정
-            href: ../application-insights/app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-servicefabric.md
           - name: Azure VM에 대해 Profiler 사용하도록 설정
-            href: ../application-insights/app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-vm.md
           - name: Profiler 설정
-            href: ../application-insights/app-insights-profiler-settings.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-settings.md
           - name: 프로파일링을 위한 요청 추적
-            href: ../application-insights/app-insights-profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-trackrequests.md
           - name: Profiler 문제 해결
-            href: ../application-insights/app-insights-profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-troubleshooting.md
         - name: 진단
           href: ../application-insights/app-insights-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
         - name: 미리 보기
@@ -297,7 +297,7 @@ items:
         - name: 상태 모니터
           href: app/monitor-performance-live-website-now.md
         - name: Windows 서비스
-          href: ../application-insights/app-insights-windows-services.md?toc=/azure/azure-monitor/toc.json
+          href: app/windows-services.md
         - name: Windows 데스크톱
           href: app/windows-desktop.md
         - name: ASP.NET Core
@@ -389,7 +389,7 @@ items:
         - name: 스마트 검색 규칙 관리
           href: app/proactive-arm-config.md
       - name: 리소스 만들기
-        href: ../application-insights/app-insights-create-new-resource.md?toc=/azure/azure-monitor/toc.json
+        href: app/create-new-resource.md
       - name: 문제 해결
         items:
         - name: .NET에 대한 데이터 없음
@@ -645,7 +645,7 @@ items:
       - name: 로그 데이터 내보내기
         href: platform/powerbi.md
       - name: 응용 프로그램 데이터 내보내기
-        href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
+        href: app/export-power-bi.md
     - name: 데이터를 Grafana에 보내기
       href: platform/grafana-plugin.md
   - name: 데이터 분석
@@ -713,6 +713,7 @@ items:
         - name: 응용 프로그램 데이터
           href: app/analytics.md
         - name: 표준 속성
+          href: platform/log-standard-properties.md
         - name: 텍스트 데이터 구문 분석
           href: log-query/parse-text.md
       - name: 검색 결과에서 작업 수행
@@ -930,7 +931,7 @@ items:
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Azure 기능
-    href: ../application-insights/azure-functions-supported-features.md?toc=/azure/azure-monitor/toc.json
+    href: app/azure-functions-supported-features.md
   - name: Azure PowerShell
     items:
     - name: 모니터
@@ -1004,9 +1005,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 코드 샘플
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 8fc518262ba4b1d1c53c8fd2622f724550cddb2e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: daba9eb12d568e3eb49a7aa4d21f1d2eaa367ab8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053656"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074617"

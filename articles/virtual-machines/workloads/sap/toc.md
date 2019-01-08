@@ -52,12 +52,9 @@
 ## [SAP HANA 파일 수준 백업](sap-hana-backup-file-level.md)
 ## [SAP HANA 저장소 스냅숏 백업](sap-hana-backup-storage-snapshots.md)
 # Azure Virtual Machines의 SAP NetWeaver 및 Business One
-## [Azure Virtual Machines의 SAP Business One](business-one-azure.md)
-## [Windows/SQL Server SAP CAL 배포 가이드에 SAP IDES](cal-ides-erp6-erp7-sp3-sql.md)
-## [Azure Linux VM의 SAP NetWeaver](suse-quickstart.md)
+## [SAP 워크로드 계획 및 배포 검사 목록](sap-deployment-checklist.md)
 ## [Azure에서 SAP NetWeaver 계획 및 구현](planning-guide.md)
 ## [SAP NetWeaver 배포 가이드](deployment-guide.md)
-## [Azure용 SAP LaMa 커넥터](lama-installation.md)
 ## SAP 워크로드에 대한 DBMS 배포 가이드
 ### [SAP 워크로드에 대한 일반적인 Azure Virtual Machines DBMS 배포](dbms_guide_general.md)
 ### [SAP 워크로드에 대한 SQL Server Azure Virtual Machines DBMS 배포](dbms_guide_sqlserver.md)
@@ -69,6 +66,10 @@
 ### [Azure의 SAP HANA 가용성 개요](sap-hana-availability-overview.md)
 ### [단일 Azure 지역 내 Azure의 SAP HANA 가용성](sap-hana-availability-one-region.md)
 ### [Azure 지역 간 Azure의 SAP HANA 가용성](sap-hana-availability-across-regions.md)
+## [Azure Virtual Machines의 SAP Business One](business-one-azure.md)
+## [Windows/SQL Server SAP CAL 배포 가이드에 SAP IDES](cal-ides-erp6-erp7-sp3-sql.md)
+## [Azure Linux VM의 SAP NetWeaver](suse-quickstart.md)
+## [Azure용 SAP LaMa 커넥터](lama-installation.md)
 ## Windows 및 Linux의 HA(고가용성)
 ### [개요](sap-high-availability-guide-start.md)
 ### 고가용성 아키텍처

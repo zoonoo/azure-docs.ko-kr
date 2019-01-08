@@ -107,7 +107,7 @@
    Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  
 -->
 
-<!-- new for SaaS 12/05/2018 -->
+<!-- new for SaaS 12/24/2018 -->
 ## [SaaS 애플리케이션 제품](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
 ### [필수 구성 요소](./cloud-partner-portal/saas-app/cpp-prerequisites.md)
 ### [SaaS 애플리케이션 제품 만들기](./cloud-partner-portal/saas-app/cpp-create-offer.md)
@@ -121,6 +121,7 @@
 ### [제품 게시](./cloud-partner-portal/saas-app/cpp-publish-offer.md)
 ### [기존 제품 업데이트](./cloud-partner-portal/saas-app/cpp-update-existing-offer.md)
 ### [SaaS API](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
+### [SaaS 자체 테스트 클라이언트](./cloud-partner-portal/saas-app/cpp-selftest-client.md)
 
 <!-- Legacy SaaS Offer replaced
 ## [SaaS application offer](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
@@ -162,12 +163,26 @@
 
 <!-- ## [Cortana Intelligence](./cloud-partner-portal-orig/cloud-partner-portal-publish-cortana-intelligence-app.md)  -->
 
-## [Dynamics 365 for Customer Engagement 제품](./cloud-partner-portal-orig/cpp-customer-engagement-offer.md)
-### [솔루션 만들기](./cloud-partner-portal-orig/dynamics-365-solution-preparation.md)
-### [패키지 만들기](./cloud-partner-portal-orig/appSource-package-preparation.md)
-### [SAS 키 생성](./cloud-partner-portal-orig/store-your-appSource-package-to-azure-storage-and-generate-sas-key.md)
-### [제품 만들기](./cloud-partner-portal-orig/setup-your-application-in-the-publishing-portal.md)
-### [제품 게시](./cloud-partner-portal-orig/request-to-publish-the-app.md)
+## [Dynamics 365 for Customer Engagement 제품](./cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer.md)
+### [필수 구성 요소](./cloud-partner-portal/dyn365ce/cpp-prerequisites.md)
+### [IoT Edge 모듈 제품 만들기](./cloud-partner-portal/dyn365ce/cpp-create-offer.md)
+#### [제품 설정 탭](./cloud-partner-portal/dyn365ce/cpp-offer-settings-tab.md)
+#### [기술 정보 탭](./cloud-partner-portal/dyn365ce/cpp-technical-info-tab.md)
+#### [시험 사용 탭](./cloud-partner-portal/dyn365ce/cpp-testdrive-tab.md)
+#### [상점 세부 정보 탭](./cloud-partner-portal/dyn365ce/cpp-storefront-details-tab.md)
+#### [연락처 탭](./cloud-partner-portal/dyn365ce/cpp-contacts-tab.md)
+### [고객 참여 기술 자산 만들기](./cloud-partner-portal/dyn365ce/cpp-create-technical-assets.md)
+### [고객 참여 제품 게시](./cloud-partner-portal/dyn365ce/cpp-publish-offer.md)
+
+<!-- Following legacy IoT section was replaced.  -->
+<!-- 
+## [Dynamics 365 for Customer Engagement offer](./cloud-partner-portal-orig/cpp-customer-engagement-offer.md)
+### [Create solution](./cloud-partner-portal-orig/dynamics-365-solution-preparation.md)
+### [Create package](./cloud-partner-portal-orig/appSource-package-preparation.md)
+### [Generate SAS key](./cloud-partner-portal-orig/store-your-appSource-package-to-azure-storage-and-generate-sas-key.md)
+### [Create offer](./cloud-partner-portal-orig/setup-your-application-in-the-publishing-portal.md)
+### [Publish offer](./cloud-partner-portal-orig/request-to-publish-the-app.md)
+-->
 
 ## [Dynamics 365 Business Central 제품](./cloud-partner-portal-orig/cpp-business-central-offer.md)
 ### [개요 게시](./cloud-partner-portal-orig/d365-finance-overview-publish-your-app.md)
