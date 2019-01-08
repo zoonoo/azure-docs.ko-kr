@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 01/05/2019
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 16cf679f91dae185a857813ec27441b9a4440e37
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.reviewer: ''
+ms.openlocfilehash: 34804dae53fcf06d1a18bf503cdabea61f272585
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244052"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065395"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Azure Resource Manager 템플릿 고려 사항
 
@@ -30,11 +30,11 @@ ms.locfileid: "51244052"
 
 ## <a name="resource-provider-availability"></a>리소스 공급자 가용성
 
-서식 파일을 배포할 계획 이라면을 이미 제공 되거나 Azure Stack에서 미리 보기에 있는 Microsoft Azure 서비스를 사용만 해야 합니다.
+템플릿을 배포 하려고 하는 중이거나 이미 사용할 수 있는 Azure Stack에서 미리 보기로 제공 하는 Microsoft Azure 서비스를 사용만 해야 합니다.
 
 ## <a name="public-namespaces"></a>공용 네임스페이스
 
-Azure Stack이 데이터 센터에서 호스트되므로 Azure 공용 클라우드와는 다른 서비스 엔드포인트 네임스페이스가 제공됩니다. 결과적으로, Azure Resource Manager 템플릿의 하드 코드 된 공용 끝점에는 Azure Stack에 배포 하려고 하면 실패 합니다. 사용 하 여 서비스 끝점을 동적으로 빌드할 수 있습니다는 *참조* 하 고 *연결* 배포 중 리소스 공급자에서 값을 검색 하는 함수입니다. 하드 코딩 하는 대신에 예를 들어 *blob.core.windows.net* 서식 파일을 검색 합니다 [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) 동적으로 설정 합니다 *osDisk.URI* 끝점:
+Azure Stack이 데이터 센터에서 호스트되므로 Azure 공용 클라우드와는 다른 서비스 엔드포인트 네임스페이스가 제공됩니다. 결과적으로, Azure Resource Manager 템플릿의 하드 코드 된 공용 끝점에는 Azure Stack에 배포 하려고 하면 실패 합니다. 사용 하 여 서비스 끝점을 동적으로 빌드할 수 있습니다 합니다 `reference` 및 `concatenate` 배포 중 리소스 공급자에서 값을 검색 하는 함수입니다. 하드 코딩 하는 대신에 예를 들어 *blob.core.windows.net* 서식 파일을 검색 합니다 [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) 동적으로 설정 합니다 *osDisk.URI* 끝점:
 
 ```json
 "osDisk": {"name": "osdisk","vhd": {"uri":

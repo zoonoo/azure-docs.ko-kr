@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: f3994c2be50939a837256224030e5284cc6f385b
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 97b7defded39e572a1fecae3e93d389014b15a6b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754053"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077966"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 업데이트
 
@@ -48,6 +48,8 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
    자세한 내용은 [Azure Stack syslog 전달을](azure-stack-integrate-security.md)합니다.
 
 - 이제 [등록 리소스 이동](azure-stack-registration.md#move-a-registration-resource) 다시 등록 하지 않고 리소스 그룹 간에 Azure에서. 클라우드 솔루션 공급자 (Csp) 간에 이동할 수도 등록 리소스 구독으로 새 일정과 이전 구독을 모두 같은 CSP 파트너 ID에 매핑됩니다. 기존 고객 테 넌 트 매핑을 영향을 주지 않습니다. 
+
+- 네트워크 인터페이스 당 여러 IP 주소를 할당 하기 위한 지원이 추가 되었습니다.  자세한 내용은 참조 하세요 [PowerShell을 사용 하 여 가상 머신에 여러 IP 주소를 할당](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell)합니다.
 
 ### <a name="fixed-issues"></a>해결된 문제
 

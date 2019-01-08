@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 3be22e7f8e69ded8ccc8956cc7fd7c6d71fe5fa1
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 51f3861d53ac5dac80b53fad9a4efe7b276807fe
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497739"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065412"
 ---
 # <a name="develop-for-azure-stack"></a>Azure Stack에 대한 개발
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-있습니다 수 응용 프로그램 개발 시작 현재 Azure Stack 환경에 액세스할 수 없는 경우에 합니다. 데이터 센터에서 실행 되는 Microsoft Azure 서비스를 제공 하는 Azure Stack, 때문에 Azure와 마찬가지로 Azure Stack에 대해 개발에 유사한 도구 및 프로세스를 사용할 수 있습니다. 
+있습니다 수 응용 프로그램 개발 시작 현재 Azure Stack 환경에 액세스할 수 없는 경우에 합니다. 데이터 센터에서 실행 되는 Microsoft Azure 서비스를 제공 하는 Azure Stack, 때문에 Azure와 마찬가지로 Azure Stack에 대해 개발에 유사한 도구 및 프로세스를 사용할 수 있습니다.
 
 ## <a name="development-considerations"></a>개발 고려 사항
 
@@ -40,5 +40,5 @@ ms.locfileid: "46497739"
 
 Azure Stack 개발에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-- [Azure Resource Manager 템플릿 모범 사례](azure-stack-develop-templates.md)
-- [Azure Stack 빠른 시작 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates)
+* [Azure Resource Manager 템플릿 모범 사례](azure-stack-develop-templates.md)
+* [GitHub의 azure Stack 빠른 시작 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates)
