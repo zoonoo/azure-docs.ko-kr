@@ -11,7 +11,7 @@ items:
     href: search-create-service-portal.md
   - name: 포털
     items:
-    - name: 가져오기 - 인덱스 - 검색
+    - name: 도구를 사용하여 가져오기, 인덱스 및 쿼리
       href: search-get-started-portal.md
     - name: 인지 검색 시도
       href: cognitive-search-quickstart-blob.md
@@ -60,12 +60,12 @@ items:
   items:
   - name: 인지 검색(미리 보기)
     items:
+    - name: Cognitive Services 리소스 연결
+      href: cognitive-search-attach-cognitive-services.md
     - name: 기술 집합 정의
       href: cognitive-search-defining-skillset.md
     - name: 주석 참조
       href: cognitive-search-concept-annotations-syntax.md
-    - name: 기술과 Cognitive Services 연결
-      href: cognitive-search-attach-cognitive-services.md
     - name: 인덱스 필드에 매핑
       href: cognitive-search-output-field-mapping.md
     - name: 이미지에서 정보 처리 및 추출
@@ -287,9 +287,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: 동영상
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: 4bf8c36945d1a02d87ca6b0602de14d7f9694594
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: d6b670b1302ec4363ebdf1853ae93677268724f7
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999393"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121280"
