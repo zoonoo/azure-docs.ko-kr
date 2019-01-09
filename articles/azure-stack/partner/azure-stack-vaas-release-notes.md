@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: a6245472f0fc3f65dcbeebdf251387efed5f02b8
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 687e47eff000679f24088a59297a258a1469f3fd
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333021"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106276"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>서비스 유효성 검사에 대 한 릴리스 정보
 
@@ -49,7 +49,7 @@ ms.locfileid: "52333021"
 
 - 업데이트 VaaS 필수 구성 요소 및 VHD
 
-    `Install-VaaSPrerequisites` 이제 패키지 유효성 검사 중 문제를 해결 하려면 클라우드 관리자 자격 증명이 필요 합니다. 설명서 [에이전트를 다운로드 및 설치](azure-stack-vaas-local-agent.md#download-and-install-the-agent) 다음을 사용 하 여 업데이트 되었습니다.
+    `Install-VaaSPrerequisites` 이제 솔루션 유효성 검사 중 문제를 해결 하려면 클라우드 관리자 자격 증명이 필요 합니다. 설명서 [에이전트를 다운로드 및 설치](azure-stack-vaas-local-agent.md#download-and-install-the-agent) 다음을 사용 하 여 업데이트 되었습니다.
 
     ```PowerShell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -76,7 +76,7 @@ ms.locfileid: "52333021"
 
   - 패키지 서명 알림
 
-    OEM 사용자 지정 패키지를 패키지 유효성 검사 워크플로의 일부로 전송 되 면 게시 된 사양을 따르는지 확인 하는 패키지 형식 유효성 검사가 수행 됩니다. 패키지 맞지 않는 경우 실행이 실패 합니다. 전자 메일 알림 대화 상대의 등록 된 Azure Active Directory 테 넌 트에 대 한 전자 메일 주소로 보내집니다.
+    OEM 사용자 지정 패키지를 솔루션의 유효성 검사 워크플로의 일부로 전송 되 면 게시 된 사양을 따르는지 확인 하는 패키지 형식 유효성 검사가 수행 됩니다. 패키지 맞지 않는 경우 실행이 실패 합니다. 전자 메일 알림 대화 상대의 등록 된 Azure Active Directory 테 넌 트에 대 한 전자 메일 주소로 보내집니다.
 
   - 대화형 테스트 범주
 

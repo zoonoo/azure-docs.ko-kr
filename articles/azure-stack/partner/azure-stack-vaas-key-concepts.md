@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 1/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 871df693878611b0322a0f06634c62a7a9efd90a
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 6a14a806b48b30d84b021a84a1ef0a2f4318ea94
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335166"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106476"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>서비스 키 개념으로 유효성 검사
 
@@ -44,7 +44,7 @@ VaaS 워크플로 VaaS 솔루션의 컨텍스트 내에서 작동합니다. Azur
 ![VaaS 워크플로 타일](media/tile_all-workflows.png)
 
 > [!NOTE]
-> **패키지 유효성 검사** 워크플로 두 가지 시나리오는 현재 지원: [패키지의 유효성을 검사 하는 OEM](azure-stack-vaas-validate-oem-package.md) 및 [Microsoft의 소프트웨어 업데이트의 유효성을 검사](azure-stack-vaas-validate-microsoft-updates.md)합니다.
+> 합니다 **솔루션 유효성 검사** 워크플로 현재 두 가지 시나리오를 지원 합니다. [OEM 패키지 유효성 검사](azure-stack-vaas-validate-oem-package.md) 하 고 [Microsoft의 소프트웨어 업데이트의 유효성을 검사](azure-stack-vaas-validate-microsoft-updates.md)합니다.
 
 워크플로 형식에 대 한 자세한 내용은 참조 하세요. [서비스로 Azure Stack에 대 한 유효성 검사를 란?](azure-stack-vaas-overview.md)합니다.
 
@@ -53,9 +53,9 @@ VaaS 워크플로 VaaS 솔루션의 컨텍스트 내에서 작동합니다. Azur
 1. 솔루션 대시보드에서 새 솔루션을 만들거나 기존 항목을 선택 합니다. 이 새로 고침과 워크플로 타일 수 있습니다.
 2. 새 워크플로 만들려면에서 선택 **시작** 타일입니다. 각 워크플로 관련 내용은 다음 문서를 참조 합니다.
     - 테스트 통과: [빠른 시작: 서비스 포털로 유효성 검사를 사용 하 여 첫 번째 테스트를 예약 하려면](azure-stack-vaas-schedule-test-pass.md)
-    - 솔루션의 유효성 검사: [새 Azure Stack 솔루션의 유효성을 검사](azure-stack-vaas-validate-solution-new.md)
-    - 패키지 유효성 검사: [Microsoft에서 소프트웨어 업데이트의 유효성을 검사](azure-stack-vaas-validate-microsoft-updates.md)
-    - 패키지 유효성 검사: [패키지 유효성 검사 OEM](azure-stack-vaas-validate-oem-package.md)
+    - 솔루션의 유효성 검사: [새 Azure Stack 솔루션의 유효성을 검사합니다](azure-stack-vaas-validate-solution-new.md)
+    - 솔루션의 유효성 검사: [Microsoft의 소프트웨어 업데이트의 유효성을 검사합니다](azure-stack-vaas-validate-microsoft-updates.md)
+    - 솔루션의 유효성 검사: [OEM 패키지 유효성 검사](azure-stack-vaas-validate-oem-package.md)
 
 3. 를 관리 하거나 기존 워크플로 모니터링에서 선택 **관리** 워크플로 타일입니다. 이름을 사용 하 여 워크플로 선택 합니다 **편집** 단추 속성을 보거나 일반적인 테스트 매개 변수를 변경 합니다.
 

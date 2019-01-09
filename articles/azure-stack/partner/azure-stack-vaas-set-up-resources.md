@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 0830deaaa1161880706c39aee741af06a41b4b6f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 58c69840e7b8ebdc2bd367859184ab54460c9426
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426361"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103481"
 ---
-# <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>자습서: 서비스로 유효성 검사에 대 한 리소스 설정
+# <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>자습서: 서비스 유효성 검사에 대 한 리소스 설정
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -51,7 +51,7 @@ Azure AD 테 넌 트를 인증 하 고 VaaS 등록 필요 합니다. 테 넌 트
     | 역할 이름 | 설명 |
     |---------------------|------------------------------------------|
     | 소유자 | 모든 리소스에 전체 액세스할 수 있습니다. |
-    | 읽기 권한자 | 모든 리소스 보기 하지만 하지 만들 수도 있고 관리. |
+    | 판독기 | 모든 리소스 보기 하지만 하지 만들 수도 있고 관리. |
     | 테스트 참가자 | 만들 하 고 테스트 리소스를 관리할 수 있습니다. |
 
     역할을 할당 합니다 **Azure Stack 유효성 검사 서비스** 응용 프로그램:
@@ -90,7 +90,7 @@ Azure AD 관리자로 VaaS Azure AD 응용 프로그램을 테 넌 트를 대신
 
 ## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
-테스트 실행 도중 VaaS Azure Storage 계정에 진단 로그를 출력합니다. 테스트 로그 외에도 저장소 계정을 사용할 수도 있습니다 업로드 OEM 확장 패키지에 패키지 유효성 검사 워크플로에 대 한 합니다.
+테스트 실행 도중 VaaS Azure Storage 계정에 진단 로그를 출력합니다. 테스트 로그 외에도 저장소 계정을 사용할 수도 있습니다 업로드 OEM 확장 패키지를 솔루션 유효성 검사 워크플로에 대 한 합니다.
 
 Azure Storage 계정에 Azure Stack 환경에 없는 Azure 공용 클라우드에서 호스팅됩니다.
 

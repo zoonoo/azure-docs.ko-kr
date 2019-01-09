@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: e2acccfdf45fcacae6e380e95c75f77a3a48b994
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: b2520864589558a530f4f9dbfed83a9f3b8c727a
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074753"
+ms.locfileid: "54104100"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Marketplace 항목 만들기 및 게시
 
@@ -132,7 +132,7 @@ ms.locfileid: "54074753"
 | --- | --- | --- | --- | --- |
 | 이름 |X |문자열 |[A-Za-z0-9]+ | |
 | 게시자 |X |문자열 |[A-Za-z0-9]+ | |
-| 버전 |X |문자열 |[SemVer v2](http://semver.org/) | |
+| 버전 |X |문자열 |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Metadata
 

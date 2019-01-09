@@ -1,5 +1,5 @@
 ---
-title: 'App Services를 배포 합니다: Azure Stack | Microsoft Docs'
+title: App Services를 배포 합니다. Azure Stack | Microsoft Docs
 description: Azure Stack에서 App Service를 배포 하기 위한 자세한 지침
 services: azure-stack
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: anwestg
-ms.openlocfilehash: cd16bf400c5a5e5a07c7e2dc459d801e6fc810b9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 504cd5a0bfbae1ff91f7914abe12aa35b699ee80
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635376"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104763"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure Stack에 App Service 리소스 공급자 추가
 
@@ -204,7 +204,7 @@ App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 �
 
     기존 가상 네트워크에 배포 하 고 내부 IP 주소를 사용 하 여 파일 서버에 연결할, 아웃 바운드 보안 규칙을 추가 해야 합니다. 이 규칙에 작업자 서브넷과 파일 서버 간에 SMB 트래픽을 사용 하도록 설정 합니다.  이렇게 하려면 관리 포털에서 WorkersNsg 이동한 다음 속성을 사용 하 여 아웃 바운드 보안 규칙을 추가 합니다.
 
-    - 원본: 모든
+    - 원본: 모두
     - 원본 포트 범위: *
     - 대상: IP 주소
     - 대상 IP 주소 범위: Ip 범위에 파일 서버에 대 한
@@ -260,9 +260,9 @@ App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 �
  - [MySQL 리소스 공급자](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
-[Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
-[App_Service_Deployment]: http://go.microsoft.com/fwlink/?LinkId=723982
-[AppServiceHelperScripts]: http://go.microsoft.com/fwlink/?LinkId=733525
+[Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531
+[App_Service_Deployment]: https://go.microsoft.com/fwlink/?LinkId=723982
+[AppServiceHelperScripts]: https://go.microsoft.com/fwlink/?LinkId=733525
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy/app-service-installer.png

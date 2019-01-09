@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: e35a63a36a84316815d609afa178f9a896415c2b
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 2ccfe09e35dc819542739df77d26a6f8a08152f5
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584119"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102825"
 ---
 # <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Azure Stack Key Vault에 저장 된 보안 암호를 사용 하 여 가상 머신 만들기
 
@@ -88,7 +88,7 @@ SecretName, 사용자 환경에 따라 가상 머신 값의 adminUsername KeyVau
 
 ```json
 {
-    "$schema":  "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema":  "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion":  "1.0.0.0",
     "parameters":  {
        "adminUsername":  {

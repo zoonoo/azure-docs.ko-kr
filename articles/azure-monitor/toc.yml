@@ -47,11 +47,11 @@ items:
   - name: 응용 프로그램 런타임 예외 찾기
     href: learn/tutorial-runtime-exceptions.md
   - name: 응용 프로그램 성능 문제 찾기
-    href: ../application-insights/app-insights-tutorial-performance.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-performance.md
   - name: 응용 프로그램 상태에 대한 경고
     href: learn/tutorial-alert.md
   - name: 응용 프로그램 사용자 이해
-    href: ../application-insights/app-insights-tutorial-users.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-users.md
   - name: 사용자 지정 대시보드 만들기
     href: learn/tutorial-app-dashboards.md
 - name: 샘플
@@ -93,7 +93,7 @@ items:
     - name: Application Insights
       items:
       - name: 개요
-        href: ../application-insights/app-insights-overview.md?toc=/azure/azure-monitor/toc.json
+        href: app/app-insights-overview.md
       - name: DevOps
         href: app/detect-triage-diagnose.md
       - name: 분산된 추적
@@ -161,7 +161,7 @@ items:
     - name: 응용 프로그램 모니터링
       items:
       - name: 웹앱 및 서비스 심층 진단
-        href: ../application-insights/app-insights-devops.md?toc=/azure/azure-monitor/toc.json
+        href: app/devops.md
       - name: 웹 응용 프로그램의 성능 모니터링
         href: app/web-monitor-performance.md
       - name: 개발, 테스트 및 프로덕션 구분
@@ -342,7 +342,7 @@ items:
         - name: 필터 원격 분석
           href: app/java-filter-telemetry.md
         - name: 마이크로미터 메트릭
-          href: ../application-insights/micrometer-java.md?toc=/azure/azure-monitor/toc.json
+          href: app/micrometer-java.md
       - name: Node.js 앱
         items:
         - name: Node.js
@@ -907,7 +907,7 @@ items:
     - name: 원격 분석 상관 관계
       href: app/correlation.md
     - name: NuGet 패키지
-      href: ../application-insights/app-insights-nuget.md?toc=/azure/azure-monitor/toc.json
+      href: app/nuget.md
     - name: 플랫폼 지원
       href: app/platforms.md
   - name: Application Insights 데이터 모델
@@ -1005,9 +1005,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 코드 샘플
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: daba9eb12d568e3eb49a7aa4d21f1d2eaa367ab8
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 02748b429bf7122dd0f1531d45c8af1217ceaa43
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074617"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120928"

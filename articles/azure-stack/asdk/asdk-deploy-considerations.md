@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 22032f9d2e60d3c51546c32df8b98f9633c95535
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 4bcb71829b2fb5f35398f36dee36d4e98c5a609b
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726544"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106736"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 배포의 계획 고려 사항
 Azure Stack 개발 키트 (ASDK)를 배포 하기 전에 개발 키트 호스트 컴퓨터에는이 문서에 설명 된 요구 사항을 충족 해야 합니다.
@@ -82,7 +82,7 @@ AD FS 옵션을 사용 하 여 배포 하는 경우 Azure AD로 전환 하려면
 ### <a name="azure-active-directory-accounts"></a>Azure Active Directory 계정
 Azure AD 계정을 사용 하 여 Azure Stack을 배포 하려면 배포 PowerShell 스크립트를 실행 하기 전에 Azure AD 계정을 준비 해야 합니다. 이 계정이 Azure AD 테 넌 트에 대 한 전역 관리자가 됩니다. 프로 비전 하 고 응용 프로그램 및 Azure Active Directory Graph API와 상호 작용 하는 모든 Azure Stack 서비스에 대 한 서비스 주체를 위임 하는 것이 됩니다. (나중에 변경할 수 있습니다)는 기본 공급자 구독 소유자로 사용 됩니다. 이 계정을 사용 하 여 Azure Stack 시스템의 관리자 포털에 로그인 수 있습니다.
 
-1. 하나 이상의 Azure ad 디렉터리 관리자는 Azure AD 계정을 만듭니다. 이미 있는 경우 하나를 사용할 수 있습니다. 그렇지 않은 경우에 만들 수 있습니다 하나 무료로 [ https://azure.microsoft.com/free/ ](https://azure.microsoft.com/pricing/free/) (중국에서 방문 <http://go.microsoft.com/fwlink/?LinkID=717821> 대신). 나중에 계획 하는 경우 [Azure를 사용 하 여 Azure Stack 등록](asdk-register.md), 새로 만든 계정에 구독이 있어야 합니다.
+1. 하나 이상의 Azure ad 디렉터리 관리자는 Azure AD 계정을 만듭니다. 이미 있는 경우 하나를 사용할 수 있습니다. 그렇지 않은 경우에 만들 수 있습니다 하나 무료로 [ https://azure.microsoft.com/free/ ](https://azure.microsoft.com/pricing/free/) (중국에서 방문 <https://go.microsoft.com/fwlink/?LinkID=717821> 대신). 나중에 계획 하는 경우 [Azure를 사용 하 여 Azure Stack 등록](asdk-register.md), 새로 만든 계정에 구독이 있어야 합니다.
    
     서비스 관리자로 사용 하기 위해 이러한 자격 증명을 저장 합니다. 이 계정을 구성 하 고 리소스 클라우드, 사용자 계정, 테 넌 트 계획, 할당량 및 가격 책정을 관리할 수 있습니다. 포털에서 웹 사이트 클라우드, 가상 컴퓨터 개인 클라우드 및 계획을 만들고 사용자 구독을 관리할 수 있습니다.
 1. 개발 키트 테 넌 트에 로그인 할 수 있도록 Azure AD에서 사용자 계정을 하나 이상의 테스트를 만듭니다.

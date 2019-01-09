@@ -3,7 +3,7 @@ title: Azure Stack ADFS에 대 한 사용자 추가 | Microsoft Docs
 description: Azure Stack의 ADFS 배포에 대 한 사용자를 추가 하는 방법 알아보기
 services: azure-stack
 documentationcenter: ''
-author: patricka
+author: PatAltimore
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: patricka
 ms.reviewer: unknown
-ms.openlocfilehash: f8abacbcb05d1346931b5c2e1097660cfbd8e594
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ee571ec14a93653b524401d1d304021178ecd794
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344169"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120815"
 ---
 # <a name="add-azure-stack-users-in-ad-fs"></a>AD FS에서 Azure Stack 사용자를 추가 합니다.
 사용할 수는 **Active Directory Users and Computers** 스냅인을 AD FS를 id 공급자로 활용 하 여 Azure Stack 환경에 사용자를 추가 합니다.

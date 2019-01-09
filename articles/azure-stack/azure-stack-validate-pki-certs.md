@@ -11,26 +11,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 1/08/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f3a83352e5aa7591d3f7b325adb542ba89e57fe5
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 1205bb636c01ff03e7e5d6f245c7469c186fca6f
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515831"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121178"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Azure Stack PKI 인증서의 유효성 검사
 
-이 문서에 설명 된 Azure Stack 준비 상태 검사기 도구를 사용할 수 [PowerShell 갤러리에서](https://aka.ms/AzsReadinessChecker)합니다. 도구를 사용 하 여 유효성을 검사 하는 [PKI 인증서를 생성](azure-stack-get-pki-certs.md) 전 배포에 적합 합니다. 충분 한 시간을 테스트 하 고 필요한 경우 인증서를 다시 실행 하 여 인증서를 확인 해야 합니다.
+이 문서에 설명 된 Azure Stack 준비 상태 검사기 도구를 사용할 수 [PowerShell 갤러리에서](https://aka.ms/AzsReadinessChecker)합니다. 도구를 사용 하 여 유효성을 검사 하는 [PKI 인증서를 생성](azure-stack-get-pki-certs.md) 전 배포에 적합 합니다. 충분 한 시간을 테스트 하 고 필요한 경우 인증서를 다시 실행 하 여 인증서의 유효성을 검사 합니다.
 
 준비 검사 도구는 다음 인증서 유효성 검사를 수행합니다.
 
 - **PFX 읽기**  
-    올바른 PFX 파일에서 올바른 암호를 확인 하 고 공개 정보는 암호로 보호 되지 않은 경우 경고를 표시 합니다. 
+    올바른 PFX 파일에서 올바른 암호를 확인 하 고 공개 정보는 암호로 보호 되어 있지 않으면 여부. 
 - **서명 알고리즘**  
-    서명 알고리즘은 SHA1을 확인 합니다.
+    서명 알고리즘을 s h a 1 없습니다 확인 합니다.
 - **개인 키**  
     개인 키가 로컬 컴퓨터 특성을 사용 하 여 내보낸 확인 합니다. 
 - **인증서 체인**  
@@ -86,8 +86,8 @@ ms.locfileid: "51515831"
     
      - 이전 단계에서 만든 적절 한 디렉터리에서 사용자 인증서를 배치 합니다. 예:   
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
-        - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx`
-        - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx`
+        - `c:\certificates\Admin Portal\CustomerCertificate.pfx`
+        - `c:\certificates\ARM Admin\CustomerCertificate.pfx`
 
 3. PowerShell 창에서 값을 변경할 **RegionName** 하 고 **FQDN** Azure Stack 환경에 적합 하 고 다음을 실행 합니다.
 
@@ -172,7 +172,7 @@ Invoke-AzsCertificateValidation Completed
     Invoke-AzsCertificateValidation Completed
     ```
 
-**해상도**: 각 인증서에 대 한 테스트의 각 집합 세부 정보 섹션에서이 도구의 지침을 따릅니다.
+**해결 방법**: 각 인증서에 대 한 테스트의 각 집합 세부 정보 섹션에서이 도구의 지침을 따릅니다.
 
 ## <a name="perform-platform-as-a-service-certificate-validation"></a>플랫폼 서비스 인증서 유효성 검사 수행
 

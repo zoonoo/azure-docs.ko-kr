@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: jeffgo
-ms.openlocfilehash: 932b4c80912fa516a08c18cd581f96b5ea91e1dc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 397f07c23d1c272e540741a339b57a8e1bcce198
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232310"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104015"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Azure Stack에 대 한 Red Hat 기반 가상 머신 준비
 
 이 문서에서는 Azure Stack에서 사용 하 여 Red Hat Enterprise Linux (RHEL) 가상 컴퓨터를 준비 하는 방법을 배웁니다. 이 문서에 설명 되어 있는 RHEL의 버전은 7.1 +입니다. 이 문서에서 다룰 준비에 대한 하이퍼바이저는 Hyper-V, KVM(커널 기반 가상 머신) 및 VMware입니다.
 
-Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531)합니다.
+Red Hat Enterprise Linux 지원 정보에 대 한 참조 [Red Hat 및 Azure Stack: 질문과 대답](https://access.redhat.com/articles/3413531)합니다.
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Hyper-V 관리자에서 Red Hat 기반 가상 머신 준비
 
@@ -347,7 +347,7 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>VMware에서 RedHat 기반 가상 머신 준비
 
-이 섹션은 VMWare에 RHEL 가상 머신이 이미 설치되어 있다고 가정합니다. VMWare에서 운영 체제를 설치하는 자세한 방법은 [VMWare 게스트 운영 체제 설치 가이드](http://partnerweb.vmware.com/GOSIG/home.html)를 참조하세요.
+이 섹션은 VMWare에 RHEL 가상 머신이 이미 설치되어 있다고 가정합니다. VMWare에서 운영 체제를 설치하는 자세한 방법은 [VMWare 게스트 운영 체제 설치 가이드](https://partnerweb.vmware.com/GOSIG/home.html)를 참조하세요.
 
 * Linux 운영 체제를 설치하는 경우 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이 운영 체제 디스크 문제 해결에 대 한 다른 가상 컴퓨터에 연결 해야 하는 경우에 특히 복제 된 가상 머신과 LVM 이름이 충돌을 피할 수 있습니다. 원하는 경우에는 데이터 디스크에서 LVM 또는 RAID를 사용할 수 있습니다.
 * 운영 체제 디스크에서는 스왑 파티션을 구성하지 마세요. Linux 에이전트를 구성하여 임시 리소스 디스크에서 스왑 파일을 만들 수 있습니다. 여기에 대한 자세한 내용은 아래 단계에서 찾을 수 있습니다.

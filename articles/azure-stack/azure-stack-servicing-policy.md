@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/18/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: 1865b4fa03f774fb4cbe69a5c8b17b096981ebc8
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 49d49553a9375baa92160d9d9a89936acc7dd461
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632792"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102621"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 서비스 정책
 
@@ -30,7 +30,7 @@ ms.locfileid: "53632792"
 
 Microsoft는 전체 월간 업데이트 패키지 뿐만 아니라 특정 문제를 해결 하려면 핫픽스 패키지 모두 해제 합니다. 
 
-월간 업데이트 패키지는 보안 Azure 끝점에서 호스트 됩니다. 사용 하 여 수동으로 다운로드할 수 있습니다 합니다 [Azure Stack 업데이트 다운로더 도구](http://aka.ms/azurestackupdatedownload)합니다. 업데이트 관리자 포털에 자동으로 표시 하는 배율 단위에 연결 되어 있으면 **사용할 수 있는 업데이트**합니다. Full, 월간 업데이트 패키지 문서화 되어 각 릴리스마다 합니다. 각 릴리스에 대 한 자세한 정보에 대 한 모든 릴리스를 클릭할 수는 [업데이트 패키지에 대 한 릴리스 작업 리듬](#update-package-release-cadence) 이 문서의 섹션입니다.
+월간 업데이트 패키지는 보안 Azure 끝점에서 호스트 됩니다. 사용 하 여 수동으로 다운로드할 수 있습니다 합니다 [Azure Stack 업데이트 다운로더 도구](https://aka.ms/azurestackupdatedownload)합니다. 업데이트 관리자 포털에 자동으로 표시 하는 배율 단위에 연결 되어 있으면 **사용할 수 있는 업데이트**합니다. Full, 월간 업데이트 패키지 문서화 되어 각 릴리스마다 합니다. 각 릴리스에 대 한 자세한 정보에 대 한 모든 릴리스를 클릭할 수는 [업데이트 패키지에 대 한 릴리스 작업 리듬](#update-package-release-cadence) 이 문서의 섹션입니다.
 
 핫픽스 업데이트 패키지는 동일한 보안 Azure 끝점에서 호스트 됩니다. 각각의 개별 핫픽스 KB 문서; 포함 된 링크를 사용 하 여 수동으로 다운로드할 수 있습니다. 예를 들어 [Azure Stack 핫픽스 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114)합니다. 전체, 월간 업데이트 패키지와 마찬가지로, Azure Stack 운영자.xml,.bin 및.exe 파일을 다운로드 하의 절차를 사용 하 여 가져올 [Azure Stack의 업데이트 적용](azure-stack-apply-updates.md)합니다. 연결 된 배율 단위를 사용 하 여 azure Stack 운영자는 메시지를 사용 하 여 관리자 포털에 자동으로 표시 하는 핫픽스 나타납니다 **사용할 수 있는 업데이트**합니다.
 
