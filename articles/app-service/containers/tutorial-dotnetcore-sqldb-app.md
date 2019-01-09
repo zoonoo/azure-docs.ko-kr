@@ -15,20 +15,20 @@ ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: cb81699671bd2a0e86838d043ad0a4442eb79a6c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: fe6a1db295bc8fb1ab8e6c9d2d149be62871e733
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254244"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629818"
 ---
-# <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 .NET Core 및 SQL Database 웹앱 빌드
+# <a name="build-a-net-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 .NET Core 및 SQL Database 앱 빌드
 
 > [!NOTE]
-> 이 문서에서는 Linux의 App Service에 앱을 배포합니다. _Windows_에서 App Service를 배포하려면 [Azure App Service에서 .NET Core 및 SQL Database 웹앱 빌드](../app-service-web-tutorial-dotnetcore-sqldb.md)를 참조하세요.
+> 이 문서에서는 Linux의 App Service에 앱을 배포합니다. _Windows_에서 App Service에 배포하려면 [Azure App Service에서 .NET Core 및 SQL Database 앱 빌드](../app-service-web-tutorial-dotnetcore-sqldb.md)를 참조하세요.
 >
 
-[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 .NET Core 웹앱을 만들고 SQL Database에 연결하는 방법을 보여줍니다. 완료되면 .NET Core MVC 앱이 Linux의 App Service에서 실행됩니다.
+[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 .NET Core 앱을 만들고 SQL Database에 연결하는 방법을 보여줍니다. 완료되면 .NET Core MVC 앱이 Linux의 App Service에서 실행됩니다.
 
 ![Linux의 App Service에서 실행 중인 앱](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
@@ -55,7 +55,7 @@ ms.locfileid: "53254244"
 
 이 단계에서는 로컬 .NET Core 프로젝트를 설정합니다.
 
-### <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
+### <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
 터미널 창에서 `cd`를 사용하여 작업 디렉터리로 이동합니다.
 
@@ -68,9 +68,9 @@ cd dotnetcore-sqldb-tutorial
 
 샘플 프로젝트에는 [Entity Framework Core](https://docs.microsoft.com/ef/core/)를 사용하는 기본 CRUD(Create-Read-Update-Delete) 앱이 포함되어 있습니다.
 
-### <a name="run-the-application"></a>애플리케이션 실행
+### <a name="run-the-application"></a>응용 프로그램 실행
 
-다음 명령을 실행하여 필요한 패키지를 설치하고 데이터베이스 마이그레이션을 실행하고 애플리케이션을 시작합니다.
+다음 명령을 실행하여 필요한 패키지를 설치하고 데이터베이스 마이그레이션을 실행하고 응용 프로그램을 시작합니다.
 
 ```bash
 dotnet restore
@@ -179,7 +179,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 다음으로 `ASPNETCORE_ENVIRONMENT` 앱 설정을 _프로덕션_으로 지정합니다. 로컬 개발 환경에 SQLite를 사용하고 Azure 환경에 SQL Database를 사용하기 때문에 이 설정을 통해 Azure에서 실행 중인지 여부를 알 수 있습니다.
 
-다음 예제에서는 Azure 웹앱에 `ASPNETCORE_ENVIRONMENT` 앱 설정을 구성합니다. *\<app_name>* 자리 표시자를 바꿉니다.
+다음 예제에서는 Azure 앱에 `ASPNETCORE_ENVIRONMENT` 앱 설정을 구성합니다. *\<app_name>* 자리 표시자를 바꿉니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
@@ -250,9 +250,9 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-### <a name="browse-to-the-azure-web-app"></a>Azure 웹앱 찾아보기
+### <a name="browse-to-the-azure-app"></a>Azure 앱 찾아보기
 
-웹 브라우저를 사용하여 배포된 웹앱으로 이동합니다.
+웹 브라우저를 사용하여 배포된 앱으로 이동합니다.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -354,21 +354,21 @@ git commit -m "added done field"
 git push azure master
 ```
 
-`git push`가 완료되면 Azure 웹앱으로 이동하여 새 기능을 테스트해 봅니다.
+`git push`가 완료되면 Azure 앱으로 이동하여 새 기능을 테스트해 봅니다.
 
-![Code First 마이그레이션 후 Azure 웹앱](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
+![Code First 마이그레이션 후 Azure 앱](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
 
 기존의 모든 할 일 항목이 계속 표시됩니다. .NET Core 앱을 다시 게시해도 SQL Database의 기존 데이터가 손실되지 않습니다. 또한 Entity Framework Core 마이그레이션은 데이터 스키마만 변경하고 기존 데이터는 그대로 유지합니다.
 
-## <a name="manage-your-azure-web-app"></a>Azure Web App 관리
+## <a name="manage-your-azure-app"></a>Azure 앱 관리
 
-[Azure Portal](https://portal.azure.com)로 이동하여 만든 웹앱을 확인합니다.
+[Azure Portal](https://portal.azure.com)로 이동하여 만든 앱을 확인합니다.
 
-왼쪽 메뉴에서 **App Services**를 클릭한 다음 Azure 웹앱의 이름을 클릭합니다.
+왼쪽 메뉴에서 **App Services**를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
 
-![Azure 웹앱에 대한 포털 탐색](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
+![Azure 앱에 대한 포털 탐색](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
 
-기본적으로 포털에는 웹앱의 **개요** 페이지가 표시됩니다. 이 페이지에서는 앱이 어떻게 작동하고 있는지를 보여 줍니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 페이지의 왼쪽에 있는 탭에서는 열 수 있는 여러 구성 페이지를 보여 줍니다.
+기본적으로 포털에 앱의 **개요** 페이지가 표시됩니다. 이 페이지에서는 앱이 어떻게 작동하고 있는지를 보여 줍니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 페이지의 왼쪽에 있는 탭에서는 열 수 있는 여러 구성 페이지를 보여 줍니다.
 
 ![Azure Portal의 App Service 페이지](./media/tutorial-dotnetcore-sqldb-app/web-app-blade.png)
 
@@ -387,7 +387,7 @@ git push azure master
 > * Azure에서 터미널로 로그 스트림
 > * Azure Portal에서 앱 관리
 
-다음 자습서로 이동하여 사용자 지정 DNS 이름을 웹앱에 매핑하는 방법을 알아봅니다.
+다음 자습서로 이동하여 사용자 지정 DNS 이름을 앱에 매핑하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md)
+> [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md)

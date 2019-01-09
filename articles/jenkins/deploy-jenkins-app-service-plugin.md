@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 5f76d18662105df6d278e09e047baa13773ab4ac
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 98e69c7759f736c132601305156290f7a43eeaf9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319356"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537582"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins 플러그 인을 사용하여 Azure App Service에 배포 
 
@@ -55,7 +55,7 @@ Web App for Containers에 배포하려면 Jenkins 마스터 또는 빌드에 사
 Azure에 배포하려면 Azure 서비스 주체가 필요합니다. 
 
 
-1. Azure 서비스 주체를 만들려면 [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) 또는 [Azure Portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal)을 사용합니다.
+1. Azure 서비스 주체를 만들려면 [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) 또는 [Azure Portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal)을 사용합니다.
 2. Jenkins 대시보드에서 **자격 증명** > **시스템**을 선택합니다. 그런 다음 **전역 자격 증명(제한 없음)** 을 선택합니다.
 3. Microsoft Azure 서비스 주체를 추가하려면 **자격 증명 추가**를 선택합니다. **구독 ID**, **클라이언트 ID**, **클라이언트 암호** 및 **OAuth 2.0 토큰 엔드포인트** 필드에 대한 값을 제공합니다. **ID** 필드를 **mySp**로 설정합니다. 이 ID는 이 문서의 후속 단계에서 사용됩니다.
 
@@ -64,9 +64,9 @@ Azure에 배포하려면 Azure 서비스 주체가 필요합니다.
 
 Web Apps에 프로젝트를 배포하려면 파일을 업로드하여 빌드 아티팩트를 업로드할 수 있습니다. Azure App Service는 여러 배포 옵션을 지원합니다. Azure App Service Jenkins 플러그 인은 배포를 간소화하며, 파일 형식에 따라 다른 배포 옵션을 제공합니다. 
 
-* Java EE 애플리케이션의 경우 [WAR 배포](/azure/app-service/app-service-deploy-zip#deploy-war-file)가 사용됩니다.
-* Java SE 애플리케이션의 경우 [ZIP 배포](/azure/app-service/app-service-deploy-zip#deploy-zip-file)가 사용됩니다.
-* 다른 언어의 경우 [Git 배포](/azure/app-service/app-service-deploy-local-git)가 사용됩니다.
+* Java EE 애플리케이션의 경우 [WAR 배포](/azure/app-service/deploy-zip#deploy-war-file)가 사용됩니다.
+* Java SE 애플리케이션의 경우 [ZIP 배포](/azure/app-service/deploy-zip#deploy-zip-file)가 사용됩니다.
+* 다른 언어의 경우 [Git 배포](/azure/app-service/deploy-local-git)가 사용됩니다.
 
 Jenkins에서 작업을 설정하기 전에 Java 앱을 실행하려면 웹앱과 Azure App Service 계획이 필요합니다.
 
@@ -206,7 +206,7 @@ Jenkins에서 작업을 설정하기 전에 Linux에 웹앱이 필요합니다. 
     Sun Jun 17 16:39:10 UTC 2017
     ```
 
-3. http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>로 이동합니다. &lt;x>와 &lt;y>를 임의의 숫자로 바꿔 x + y의 합을 구합니다. 계산기에 합계가 표시됩니다. ![계산기: 추가](./media/execute-cli-jenkins-pipeline/calculator-add.png)
+3. http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>로 이동합니다. &lt;x>와 &lt;y>를 임의의 숫자로 바꿔 x + y의 합을 구합니다. 계산기에 합계가 표시됩니다. ![계산기: 더하기](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
 ### <a name="for-azure-app-service-on-linux"></a>Linux의 Azure App Service
 

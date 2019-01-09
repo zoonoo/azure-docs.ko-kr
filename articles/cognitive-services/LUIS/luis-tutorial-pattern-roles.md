@@ -9,18 +9,36 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: b6d800705509edc31b410d1e9cd30f8b53702010
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8b66895e1ae37947c995ffc643505d466c42b93b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094409"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753118"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>자습서 4: 컨텍스트 관련 패턴 추출
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>자습서: 역할을 사용하여 컨텍스트 관련 패턴 추출
 
 이 자습서에서는 적절한 형식의 템플릿 발언에서 데이터를 추출하는 패턴을 사용합니다. 템플릿 발언은 간단한 엔터티와 역할을 사용하여 원본 위치 및 대상 위치 같은 관련 데이터를 추출합니다.  패턴을 사용할 경우 의도에 더 적은 수의 예제 발언이 필요합니다.
+
+
+**이 자습서에서 학습할 내용은 다음과 같습니다.**
+
+> [!div class="checklist"]
+> * 앱 가져오기 예제
+> * 새 엔터티 만들기
+> * 새 의도 만들기
+> * 학습
+> * 게시
+> * 엔드포인트에서 의도 및 엔터티 가져오기
+> * 역할을 사용하여 패턴 만들기
+> * 도시 구 목록 만들기
+> * 엔드포인트에서 의도 및 엔터티 가져오기
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="using-roles-in-patterns"></a>패턴에 역할 사용
 
 역할의 용도는 발언에서 문맥상 관련이 있는 엔터티를 추출하는 것입니다. 발언 `Move new employee Robert Williams from Sacramento and San Francisco`에서 출발지 도시 및 목적지 도시 값은 서로 관련이 있으며 일반적인 언어를 사용해서 각 위치를 나타냅니다. 
 
@@ -37,27 +55,12 @@ ms.locfileid: "53094409"
 
 이것은 도시와 같은 이름이므로 단순 엔터티를 검색하는 데 문제가 있는 경우 비슷한 값의 구 목록을 추가하는 것이 좋습니다. 이렇게 하면 LUIS에 해당 형식의 단어 또는 구에 대한 추가 신호를 제공하여 도시 이름 검색에 도움을 줍니다. 구 목록은 패턴이 일치하는 데 필요한 엔터티 검색에 도움을 주는 방식으로만 패턴을 지원합니다. 
 
-**이 자습서에서 학습할 내용은 다음과 같습니다.**
-
-> [!div class="checklist"]
-> * 기존 자습서 앱 사용
-> * 새 엔터티 만들기
-> * 새 의도 만들기
-> * 학습
-> * 게시
-> * 엔드포인트에서 의도 및 엔터티 가져오기
-> * 역할을 사용하여 패턴 만들기
-> * 도시 구 목록 만들기
-> * 엔드포인트에서 의도 및 엔터티 가져오기
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>기존 앱 사용
+## <a name="import-example-app"></a>앱 가져오기 예제
 마지막 자습서에서 만든 **HumanResources**라는 앱을 사용하여 계속 진행합니다. 
 
-이전 자습서의 HumanResources 앱이 없으면 다음 단계를 사용합니다.
+다음 단계를 사용하세요.
 
-1.  [앱 JSON 파일](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json)을 다운로드하고 저장합니다.
+1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json)을 다운로드하고 저장합니다.
 
 2. JSON을 새 앱으로 가져옵니다.
 

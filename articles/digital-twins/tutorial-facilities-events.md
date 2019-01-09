@@ -1,18 +1,19 @@
 ---
-title: Azure Digital Twins 공간으로부터 이벤트 캡처 | Microsoft Docs
+title: '자습서: Azure Digital Twins 공간으로부터 이벤트 캡처 | Microsoft Docs'
 description: 이 자습서의 단계에 따라 Azure Digital Twins를 Logic Apps와 통합하여 공간에서 알림을 받는 방법을 알아봅니다.
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: bf41be4a3a4856302a054e5767b3d7b5ba423c60
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a52a3be8c3023893569e95b566a18c032be26459
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583264"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556019"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>자습서: Logic Apps를 사용하여 Azure Digital Twins 공간으로부터 알림 수신
 
@@ -174,7 +175,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
    다. **받는 사람** 상자에서 알림을 받을 이메일 ID를 입력합니다. **주체**에서 **공간의 공기질 저하에 대한 Digital Twins 알림** 텍스트를 입력합니다. 그런 다음, **JSON 구문 분석**의 **동적 콘텐츠** 목록에서 **TopologyObjectId**를 선택합니다.
 
-   d. 같은 창의 **본문**에 **객실의 공기질이 저하된 것을 발견함. 온도를 조정해야 함**과 비슷한 텍스트를 입력합니다. **동적 콘텐츠** 목록의 요소를 사용하여 자유롭게 기술하면 됩니다.
+   d. 동일한 창의 **본문** 아래에 다음과 유사한 텍스트를 입력합니다. **실내 공기질이 저하되었으며 온도를 조정해야 합니다**. **동적 콘텐츠** 목록의 요소를 사용하여 자유롭게 기술하면 됩니다.
 
    ![Logic Apps "이메일 보내기" 선택 영역](./media/tutorial-facilities-events/logic-app-send-email.png)
 

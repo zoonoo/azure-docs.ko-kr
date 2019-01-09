@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 11e674771e9f4a8afbe820aa91dfee1c8b8ab6db
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: fd5a995bf03d530ccbcf9b839ccc840d202b47d6
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53018805"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556190"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱 만들기 
 
@@ -50,7 +50,7 @@ ms.locfileid: "53018805"
 
     b. **클라우드**를 선택합니다.
 
-    다. **ASP.NET 웹 응용 프로그램**을 선택합니다.
+    다. **ASP.NET 웹 애플리케이션**을 선택합니다.
 
     d. **.NET Framework 4.5.2** 이상이 선택되었는지 확인합니다.
 
@@ -98,7 +98,7 @@ ms.locfileid: "53018805"
 이 섹션에서는 Azure Cache for Redis에 대해 간단한 테스트를 표시하는 새 보기를 지원하도록 애플리케이션을 업데이트합니다.
 
 * [캐시에 대한 앱 설정이 포함된 web.config 파일 업데이트](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
-* [StackExchange.Redis 클라이언트를 사용하도록 응용 프로그램 구성](#configure-the-application-to-use-stackexchangeredis)
+* [StackExchange.Redis 클라이언트를 사용하도록 애플리케이션 구성](#configure-the-application-to-use-stackexchangeredis)
 * [HomeController 및 레이아웃 업데이트](#update-the-homecontroller-and-layout)
 * [새 RedisCache 뷰 추가](#add-a-new-rediscache-view)
 
@@ -106,7 +106,7 @@ ms.locfileid: "53018805"
 
 애플리케이션을 로컬로 실행하는 경우 *CacheSecrets.config*의 정보는 Azure Cache for Redis 인스턴스에 연결하는 데 사용됩니다. 나중에 이 애플리케이션을 Azure에 배포합니다. 그때 애플리케이션이 이 파일 대신 캐시 연결 정보를 검색하는 데 사용하는 앱 설정을 Azure에서 구성합니다. 
 
-*CacheSecrets.config* 파일이 응용 프로그램과 함께 Azure에 배포되지 않으므로 응용 프로그램을 로컬로 테스트하는 동안에만 사용합니다. 캐시 데이터에 대한 악의적인 액세스를 방지하기 위해 이 정보를 최대한 안전하게 유지하세요.
+*CacheSecrets.config* 파일이 애플리케이션과 함께 Azure에 배포되지 않으므로 애플리케이션을 로컬로 테스트하는 동안에만 사용합니다. 캐시 데이터에 대한 악의적인 액세스를 방지하기 위해 이 정보를 최대한 안전하게 유지하세요.
 
 #### <a name="to-update-the-webconfig-file"></a>*Web.config* 파일을 업데이트하려면
 1. **솔루션 탐색기**에서 *web.config* 파일을 두 번 클릭하여 엽니다.
@@ -118,7 +118,7 @@ ms.locfileid: "53018805"
 * 이전: `<appSettings>`
 * 이후: ` <appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
-ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그와 병합합니다. 지정된 파일을 찾을 수 없는 경우 런타임에서 파일 특성을 무시합니다. 암호(캐시에 대한 연결 문자열)는 애플리케이션에 대 한 소스 코드의 일부분으로 포함되지 않습니다. Azure에 웹앱을 배포하는 경우 *CacheSecrests.config* 파일은 배포되지 않습니다.
+ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그와 병합합니다. 지정된 파일을 찾을 수 없는 경우 런타임에서 파일 특성을 무시합니다. 암호(캐시에 대한 연결 문자열)는 애플리케이션에 대 한 소스 코드의 일부분으로 포함되지 않습니다. Azure에 웹앱을 배포하는 경우 *CacheSecrets.config* 파일은 배포되지 않습니다.
 
 ### <a name="to-configure-the-application-to-use-stackexchangeredis"></a>StackExchange.Redis를 사용하도록 애플리케이션을 구성하려면
 
@@ -173,7 +173,7 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
             ViewBag.command3 = "SET Message \"Hello! The cache is working from ASP.NET!\"";
             ViewBag.command3Result = cache.StringSet("Message", "Hello! The cache is working from ASP.NET!").ToString();
 
-            // Demostrate "SET Message" executed as expected...
+            // Demonstrate "SET Message" executed as expected...
             ViewBag.command4 = "GET Message";
             ViewBag.command4Result = cache.StringGet("Message").ToString();
 

@@ -1,23 +1,20 @@
 ---
 title: PHP에서 Azure Database for MySQL에 연결
 description: 이 빠른 시작에서는 MySQL용 Azure Database의 데이터를 연결하고 쿼리하는 데 사용할 수 있는 여러 PHP 코드 샘플을 제공합니다.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 7fa9272a8609d933a3f12abb0f33e78c4bdc1b12
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 76d721ca102ae0affeba23c46d5da9fd44743f5b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984811"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608769"
 ---
-# <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>MySQL용 Azure Database: PHP를 사용하여 데이터 연결 및 쿼리
+# <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Azure Database for MySQL: PHP를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 [PHP](https://secure.php.net/manual/intro-whatis.php) 애플리케이션을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 항목에서는 PHP를 사용한 개발에 익숙하고Azure Database for MySQL를 처음 사용한다고 가정합니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -26,7 +23,7 @@ ms.locfileid: "49984811"
 - [Azure CLI를 사용한 MySQL용 Azure Database 서버 만들기](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-php"></a>PHP 설치
-사용자의 서버에 PHP를 설치하거나 PHP를 포함하는 Azure [웹앱](../app-service/app-service-web-overview.md)을 만듭니다.
+사용자의 서버에 PHP를 설치하거나 PHP를 포함하는 Azure [웹앱](../app-service/overview.md)을 만듭니다.
 
 ### <a name="macos"></a>MacOS
 - [PHP 7.1.4 버전](https://secure.php.net/downloads.php) 다운로드.

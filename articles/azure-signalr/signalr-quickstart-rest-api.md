@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: fdbdbe77c6541d62acef0d23d599d9687f5301b1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1443508985c7c7fef313a7eea3f622e7759a71ef
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251864"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540099"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>빠른 시작: 콘솔 앱에서 실시간 메시지 브로드캐스트
 
@@ -37,7 +37,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
 ## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
-서비스가 배포되는 동안 코드 준비로 전환하겠습니다. [GitHub의 샘플 앱](https://github.com/aspnet/AzureSignalR-samples.git)을 복제하고, SignalR Service 연결 문자열을 설정하고, 응용 프로그램을 로컬로 실행합니다.
+서비스가 배포되는 동안 코드 준비로 전환하겠습니다. [GitHub의 샘플 앱](https://github.com/aspnet/AzureSignalR-samples.git)을 복제하고, SignalR Service 연결 문자열을 설정하고, 애플리케이션을 로컬로 실행합니다.
 
 1. Git 터미널 창을 엽니다. 샘플 프로젝트를 복제할 폴더로 변경합니다.
 
@@ -129,13 +129,13 @@ Azure SignalR 서비스를 통해 타사 서비스를 시스템과 통합할 수
 
 API | `1.0-preview` | `1.0`
 --- | --- | ---
-[모두에게 브로드캐스트](#broadcast) | :heavy_check_mark: | :heavy_check_mark:
-[그룹에 브로드캐스트](#broadcast-group) | :heavy_check_mark: | :heavy_check_mark:
-일부 그룹에 브로드캐스트 | :heavy_check_mark: (사용되지 않음) | `N / A`
-[특정 사용자에게 보내기](#send-user) | :heavy_check_mark: | :heavy_check_mark:
-일부 사용자에게 보내기 | :heavy_check_mark: (사용되지 않음) | `N / A`
-[그룹에 사용자 추가](#add-user-to-group) | `N / A` | :heavy_check_mark:
-[그룹에서 사용자 제거](#remove-user-from-group) | `N / A` | :heavy_check_mark:
+[모두에게 브로드캐스트](#broadcast) | **&#x2713;** | **&#x2713;**
+[그룹에 브로드캐스트](#broadcast-group) | **&#x2713;** | **&#x2713;**
+일부 그룹에 브로드캐스트 | **&#x2713;**(사용되지 않음) | `N / A`
+[특정 사용자에게 보내기](#send-user) | **&#x2713;** | **&#x2713;**
+일부 사용자에게 보내기 | **&#x2713;**(사용되지 않음) | `N / A`
+[그룹에 사용자 추가](#add-user-to-group) | `N / A` | **&#x2713;**
+[그룹에서 사용자 제거](#remove-user-from-group) | `N / A` | **&#x2713;**
 
 <a name="broadcast"> </a>
 ### <a name="broadcast-to-everyone"></a>모두에게 브로드캐스트

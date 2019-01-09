@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: overview
 ms.date: 07/25/2018
-ms.openlocfilehash: cb4082046e57ac16abd6cdef3d5779525e7cfc82
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 93185483a2c5a1ddb308cc2fc9fd918c539b5e3d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105532"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602332"
 ---
 # <a name="azure-and-jenkins"></a>Azure 및 Jenkins
 
@@ -42,9 +42,9 @@ Azure에서 Jenkins를 호스트하여 빌드 자동화를 중앙 집중화하�
 
 ## <a name="deploy-your-code-into-azure-services"></a>Azure 서비스에 코드 배포
 
-Jenkins CI/CD 파이프라인의 일부로 Azure에 애플리케이션을 배포하려면 Jenkins 플러그 인을 사용합니다. [Azure App Service](/azure/app-service/) 및 [Azure Container Service](/azure/container-service/kubernetes/)에 배포하면 기본 인프라를 관리하지 않고도 응용 프로그램에 업데이트를 준비, 테스트 및 릴리스할 수 있습니다.
+Jenkins CI/CD 파이프라인의 일부로 Azure에 애플리케이션을 배포하려면 Jenkins 플러그 인을 사용합니다. [Azure App Service](/azure/app-service/) 및 [Azure Container Service](/azure/container-service/kubernetes/)에 배포하면 기본 인프라를 관리하지 않고도 애플리케이션에 업데이트를 준비, 테스트 및 릴리스할 수 있습니다.
 
  플러그 인은 다음과 같은 서비스 및 환경에 배포하는 데 사용할 수 있습니다.
 
-- [Linux에서 Azure Web App](/azure/app-service/containers/app-service-linux-intro). 시작하려면 [자습서](java-deploy-webapp-tutorial.md)를 참조하세요.
-- [Azure Web App](/azure/app-service/app-service-web-overview). 시작하려면 [방법](deploy-Jenkins-app-service-plugin.md)을 참조하세요.
+- [Linux에서의 Azure App Service](/azure/app-service/containers/app-service-linux-intro). 시작하려면 [자습서](java-deploy-webapp-tutorial.md)를 참조하세요.
+- [Azure App Service](/azure/app-service/overview). 시작하려면 [방법](deploy-Jenkins-app-service-plugin.md)을 참조하세요.

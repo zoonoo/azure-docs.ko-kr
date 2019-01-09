@@ -1,5 +1,5 @@
 ---
-title: Linux에서 .NET Core 웹앱 만들기 - Azure App Service | Microsoft Docs
+title: Linux에서 .NET Core 앱 만들기 - Azure App Service | Microsoft Docs
 description: 몇 분 안에 Linux의 App Service에 첫 번째 .NET Core Hello World 앱을 배포합니다.
 keywords: azure app service, 웹앱, dotnet, core, linux, oss
 services: app-service
@@ -16,20 +16,20 @@ ms.topic: quickstart
 ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: f074c6184652ced133a7253bee3cc7a8a556c574
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 047ed6026412cac7fc7c51135e1837a20decd910
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251796"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633933"
 ---
-# <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Linux의 App Service에서 .NET Core 웹앱 만들기
+# <a name="create-a-net-core-app-in-app-service-on-linux"></a>Linux의 App Service에서 .NET Core 앱 만들기
 
 > [!NOTE]
-> 이 문서에서는 Linux의 App Service에 앱을 배포합니다. _Windows_의 App Service에 배포하려면 [Azure에서 ASP.NET Core 웹앱 만들기](../app-service-web-get-started-dotnet.md)를 참조하세요.
+> 이 문서에서는 Linux의 App Service에 앱을 배포합니다. _Windows_의 App Service에 배포하려면 [Azure에서 ASP.NET Core 앱 만들기](../app-service-web-get-started-dotnet.md)를 참조하세요.
 >
 
-[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 Linux의 App Service에서 [.NET Core](https://docs.microsoft.com/aspnet/core/) 앱을 만드는 방법을 보여줍니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git를 사용하여 웹앱에 .NET Core 코드를 배포합니다.
+[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 Linux의 App Service에서 [.NET Core](https://docs.microsoft.com/aspnet/core/) 앱을 만드는 방법을 보여줍니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 앱을 만들고 Git을 사용하여 앱에 .NET Core 코드를 배포합니다.
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -53,7 +53,7 @@ md hellodotnetcore
 cd hellodotnetcore
 ```
 
-새 .NET Core 웹앱을 만듭니다.
+.NET Core 앱을 만듭니다.
 
 ```bash
 dotnet new web
@@ -95,15 +95,15 @@ git commit -m "first commit"
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
 
-새로 만든 웹앱으로 이동합니다. _&lt;앱 이름>_ 을 해당하는 웹앱 이름으로 바꿉니다.
+새로 만든 앱으로 이동합니다. _&lt;app name>_ 을 앱 이름으로 바꿉니다.
 
 ```bash
 http://<app name>.azurewebsites.net
 ```
 
-새로운 웹앱은 다음과 같아야 합니다.
+새로운 앱은 다음과 같아야 합니다.
 
-![빈 웹앱 페이지](media/quickstart-dotnetcore/dotnet-browse-created.png)
+![빈 앱 페이지](media/quickstart-dotnetcore/dotnet-browse-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -144,7 +144,7 @@ To https://cephalin-dotnetcore.scm.azurewebsites.net/cephalin-dotnetcore.git
 http://<app_name>.azurewebsites.net
 ```
 
-.NET Core 샘플 코드가 기본 제공 이미지가 있는 웹앱에서 실행됩니다.
+.NET Core 샘플 코드가 기본 제공 이미지가 있는 Linux의 App Service에서 실행됩니다.
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -169,15 +169,15 @@ git push azure master
 
 ![Azure에서 실행되는 업데이트된 샘플 앱](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
 
-## <a name="manage-your-new-azure-web-app"></a>새로운 Azure 웹앱 관리
+## <a name="manage-your-new-azure-app"></a>새 Azure 앱 관리
 
-만든 웹앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다.
+만든 앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다.
 
-왼쪽 메뉴에서 **App Services**를 클릭한 다음 Azure 웹앱의 이름을 클릭합니다.
+왼쪽 메뉴에서 **App Services**를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
 
-![Azure 웹앱에 대한 포털 탐색](./media/quickstart-dotnetcore/portal-app-service-list.png)
+![Azure 앱에 대한 포털 탐색](./media/quickstart-dotnetcore/portal-app-service-list.png)
 
-웹앱의 개요 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 
+앱의 개요 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 
 
 ![Azure Portal의 App Service 페이지](media/quickstart-dotnetcore/portal-app-overview.png)
 
@@ -188,4 +188,4 @@ git push azure master
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Linux의 Azure App Service에서 .NET Core 및 SQL Database 웹앱 빌드](tutorial-dotnetcore-sqldb-app.md)
+> [Linux의 Azure App Service에서 .NET Core 및 SQL Database 앱 빌드](tutorial-dotnetcore-sqldb-app.md)

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 도메인 모델 사용 - REST, Python - Computer Vision'
+title: '빠른 시작: 도메인 특정 이미지 콘텐츠 - REST, Python'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 도메인 모델에서 Python과 함께 Computer Vision API를 사용하여 이미지의 유명인과 랜드마크를 식별합니다.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 4594d84c411994b4157b2fa51ed5d6d24088380d
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: 9a511cb26f5bc4ba44e4d999cb7b3c3ba98bca4c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852336"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582238"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Python을 통해 도메인 모델 사용
 

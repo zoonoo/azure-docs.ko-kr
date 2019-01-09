@@ -1,7 +1,7 @@
 ---
-title: '회귀 모델 자습서: 자동으로 모델 학습'
+title: '회귀 모델 자습서: 자동화된 ML'
 titleSuffix: Azure Machine Learning service
-description: 자동화된 기계 학습을 사용하여 ML 모델을 생성하는 방법에 대해 알아봅니다.  Azure Machine Learning은 데이터 전처리, 알고리즘 선택 및 하이퍼 매개 변수 선택을 자동화된 방식으로 수행할 수 있습니다. 그런 다음, Azure Machine Learning 서비스를 사용하여 최종 모델을 배포할 수 있습니다.
+description: 자동화된 Machine Learning을 사용하여 Machine Learning 모델을 만드는 방법에 대해 알아봅니다. Azure Machine Learning은 데이터 전처리, 알고리즘 선택 및 하이퍼 매개 변수 선택을 자동화된 방식으로 수행할 수 있습니다. 그런 다음, Azure Machine Learning Service를 사용하여 최종 모델을 배포할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,26 +11,26 @@ ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6bbc2d44ab128aec032ead29bf247cd834f932b6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5bd6649b063521853864d4da423372ae181cf977
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315206"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580521"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>자습서: 자동화된 기계 학습을 사용하여 모델 빌드
 
 이 자습서는 **2부로 구성된 자습서 시리즈 중 제2부**입니다. 이전 자습서에서는 [회귀 모델링을 위해 NYC 택시 데이터를 준비했습니다](tutorial-data-prep.md).
 
-이제 Azure Machine Learning 서비스를 사용하여 모델 빌드를 시작할 준비가 되었습니다. 자습서의 이 파트에서는 준비된 데이터를 사용하여 택시 요금을 예측하는 회귀 모델을 자동으로 생성하겠습니다. 서비스의 자동화된 ML 기능을 사용하면 기계 학습 목표 및 제약 조건을 정의하고 자동화된 기계 학습 프로세스를 시작하고 알고리즘 선택 및 하이퍼 매개 변수 튜닝을 수행할 수 있습니다. 자동화된 ML 기술은 사용자의 기준을 기반으로 최상의 모델을 발견할 때까지 알고리즘과 하이퍼 매개 변수의 여러 조합을 반복합니다.
+이제 Azure Machine Learning Service를 사용하여 모델 빌드를 시작할 준비가 되었습니다. 자습서의 이 파트에서는 준비된 데이터를 사용하여 택시 요금을 예측하는 회귀 모델을 자동으로 생성합니다. 서비스의 자동화된 Machine Learning 기능을 사용하여 Machine Learning 목표와 제약 조건을 정의합니다. 자동화된 Machine Learning 프로세스를 시작합니다. 그러면 알고리즘 선택 및 하이퍼 매개 변수 조정이 가능합니다. 자동화된 Machine Learning 기술은 사용자의 기준을 기반으로 최상의 모델을 발견할 때까지 알고리즘과 하이퍼 매개 변수의 여러 조합을 반복합니다.
 
 ![흐름 다이어그램](./media/tutorial-auto-train-models/flow2.png)
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Python 환경 설정 및 SDK 패키지 가져오기
-> * Azure Machine Learning 서비스 작업 영역 구성
+> * Azure Machine Learning Service 작업 영역 구성
 > * 회귀 모델 자동 학습
 > * 사용자 지정 매개 변수를 사용하여 로컬로 모델 실행
 > * 결과 탐색
@@ -39,16 +39,16 @@ ms.locfileid: "53315206"
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](http://aka.ms/AMLFree)을 지금 사용해 보세요.
 
 >[!NOTE]
-> 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.0에서 테스트했습니다.
+> 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.0에서 테스트되었습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 > * [데이터 준비 자습서를 실행합니다](tutorial-data-prep.md).
-> * 자동 기계 학습이 환경(예: Azure Notebook, 로컬 Python 환경 또는 Data Science Virtual Machine)을 구성했습니다. 자동화된 기계 학습을 [설정](samples-notebooks.md)합니다.
+> * 자동화된 Machine Learning이 구성된 환경. Azure Notebooks, 로컬 Python 환경 또는 Data Science Virtual Machine을 예로 들 수 있습니다. [자동화된 Machine Learning을 설정합니다](samples-notebooks.md).
 
 ## <a name="get-the-notebook"></a>Notebook 가져오기
 
-사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb)으로 제공됩니다. Azure Notebooks 또는 자체 Jupyter 노트북 서버에서 `regression-part2-automated-ml.ipynb` 노트북을 실행할 수 있습니다.
+사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb)으로 제공됩니다. Azure Notebooks 또는 사용자 고유의 Jupyter Notebook 서버에서 `regression-part2-automated-ml.ipynb` 노트북을 실행합니다.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -68,9 +68,11 @@ import os
 
 ## <a name="configure-workspace"></a>작업 영역 구성
 
-기존 작업 영역에서 작업 영역 개체를 만듭니다. `Workspace`는 Azure 구독 및 리소스 정보를 허용하고 클라우드 리소스를 만들어 모델 실행을 모니터링하고 추적하는 클래스입니다. `Workspace.from_config()`는 **aml_config/config.json** 파일을 읽고, 세부 정보를 `ws`라는 개체에 로드합니다.  `ws`는 이 자습서에서 나머지 코드에 사용됩니다.
+기존 작업 영역에서 작업 영역 개체를 만듭니다. `Workspace`는 Azure 구독 및 리소스 정보를 허용하는 클래스입니다. 또한 클라우드 리소스를 만들어서 모델 실행을 모니터링하고 추적합니다. 
 
-작업 영역 개체를 만든 후 실험의 이름을 지정하고 작업 영역을 사용하여 로컬 디렉터리를 만들고 등록합니다. 모든 실행에 대한 기록은 지정된 실험 및 [Azure Portal](https://portal.azure.com) 아래에 레코드됩니다.
+`Workspace.from_config()`는 **aml_config/config.json** 파일을 읽고, 세부 정보를 `ws`라는 개체에 로드합니다.  `ws`는 이 자습서에서 나머지 코드에 사용됩니다.
+
+작업 영역 개체가 생긴 후 실험에 사용할 이름을 지정합니다. 작업 영역을 사용하여 로컬 디렉터리를 만들고 등록합니다. 모든 실행에 대한 기록은 지정된 실험 및 [Azure Portal](https://portal.azure.com)에 기록됩니다.
 
 
 ```python
@@ -93,7 +95,7 @@ pd.DataFrame(data=output, index=['']).T
 
 ## <a name="explore-data"></a>데이터 탐색
 
-이전 자습서에서 만든 데이터 흐름 개체를 활용합니다. 데이터 흐름을 열어 실행하고 결과를 검토합니다.
+이전 자습서에서 만든 데이터 흐름 개체를 사용합니다. 데이터 흐름을 열어 실행하고 결과를 검토합니다.
 
 
 ```python
@@ -581,16 +583,16 @@ dflow_prepared.get_profile()
   </tbody>
 </table>
 
-모델 생성을 위한 기능이 되도록 `dflow_x`에 열을 추가하여 실험용 데이터를 준비합니다. 예측 값인 비용이 되도록 `dflow_y`를 정의합니다.
+모델 생성을 위한 기능이 되도록 `dflow_x`에 열을 추가하여 실험용 데이터를 준비합니다. 예측 값인 **비용**이 되도록 `dflow_y`를 정의합니다.
 
 ```python
 dflow_X = dflow_prepared.keep_columns(['pickup_weekday','pickup_hour', 'distance','passengers', 'vendor'])
 dflow_y = dflow_prepared.keep_columns('cost')
 ```
 
-### <a name="split-data-into-train-and-test-sets"></a>훈련 및 테스트 집합으로 데이터 분할
+### <a name="split-the-data-into-train-and-test-sets"></a>학습 및 테스트 세트로 데이터 분할
 
-이제 `sklearn` 라이브러리에서 `train_test_split` 함수를 사용하여 데이터를 학습 및 테스트 집합으로 분할합니다. 이 함수는 데이터를 모델 학습용 x(기능) 데이터 세트 및 테스트용 y(예측 값) 데이터 세트로 분리합니다. `test_size` 매개 변수는 테스트에 할당할 데이터 백분율을 정의합니다. `random_state` 매개 변수는 학습-테스트 분할이 항상 결정적이 되도록 임의 생성기에 시드를 설정합니다.
+이제 `sklearn` 라이브러리에서 `train_test_split` 함수를 사용하여 데이터를 학습 및 테스트 세트로 분할합니다. 이 함수는 데이터를 모델 학습용 x(**기능**) 데이터 세트 및 테스트용 y(**예측 값**) 데이터 세트로 분리합니다. `test_size` 매개 변수는 테스트에 할당할 데이터 백분율을 정의합니다. `random_state` 매개 변수는 학습-테스트 분할이 항상 결정적이 되도록 임의 생성기에 시드를 설정합니다.
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -607,7 +609,7 @@ y_train.values.flatten()
 
 ## <a name="automatically-train-a-model"></a>자동으로 모델 학습
 
-자동으로 모델을 학습하려면
+자동으로 모델을 학습하려면 다음 단계를 수행합니다.
 1. 실험 실행을 위한 설정 정의
 1. 모델 튜닝을 위한 실험 제출
 
@@ -621,9 +623,9 @@ y_train.values.flatten()
 |**iteration_timeout_minutes**|10|각 반복에 대한 분 단위 시간 제한|
 |**iterations**|30|반복 횟수입니다. 각 반복에서 모델은 특정 파이프라인을 통해 데이터를 학습합니다.|
 |**primary_metric**| spearman_correlation | 최적화하려는 메트릭입니다.|
-|**preprocess**| True | True를 사용하면 실험에서 입력에 대한 전처리를 수행할 수 있습니다.|
+|**preprocess**| True | **True**를 사용하여 실험은 입력을 전처리할 수 있습니다.|
 |**verbosity**| logging.INFO | 로깅 수준을 제어합니다.|
-|**n_cross_validationss**|5|교차 유효성 검사 분할의 수입니다.
+|**n_cross_validationss**|5|교차 유효성 검사 분할의 수입니다.|
 
 
 
@@ -653,7 +655,7 @@ automated_ml_config = AutoMLConfig(task = 'regression',
 
 ### <a name="train-the-automatic-regression-model"></a>자동 회귀 모델 학습
 
-실험을 시작하여 로컬로 실행합니다. 정의된 `automated_ml_config` 개체를 실험에 전달하고 출력을 `True`로 설정하여 실험하는 중에 진행률을 확인합니다.
+실험을 시작하여 로컬로 실행합니다. 정의된 `automated_ml_config` 개체를 실험에 전달합니다. 실험하는 동안 진행률을 확인하려면 출력을 `True`로 설정합니다.
 
 
 ```python
@@ -722,7 +724,7 @@ RunDetails(local_run).show()
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>옵션 2: Python에서 모든 실행 반복 가져오기 및 검사
 
-또는 각 실험의 기록을 검색하고 각 반복 실행에 대한 개별 메트릭을 검색할 수 있습니다.
+또는 각 실험의 기록을 검색하고 각 반복 실행에 대한 개별 메트릭을 살펴볼 수 있습니다.
 
 ```python
 children = list(local_run.get_children())
@@ -1071,7 +1073,7 @@ rundata
 
 ## <a name="retrieve-the-best-model"></a>최적 모델 검색
 
-해당 반복에서 최적의 파이프라인을 선택합니다. `automl_classifier`에 대한 `get_output` 메서드는 마지막 맞춤 호출에 대한 최적의 실행 및 맞춤 모델을 반환합니다. 모든 기록된 메트릭 또는 특정 반복에 대한 최적의 실행 및 맞춤 모델을 검색할 수 있는 `get_output`에 대한 오버로드가 있습니다.
+해당 반복에서 최적의 파이프라인을 선택합니다. `automl_classifier`에 대한 `get_output` 메서드는 마지막 맞춤 호출에 대한 최적의 실행 및 맞춤 모델을 반환합니다. `get_output`에 대한 오버로드를 사용하여 모든 기록된 메트릭 또는 특정 반복에 대한 최적의 실행 및 맞춤 모델을 검색할 수 있습니다.
 
 ```python
 best_run, fitted_model = local_run.get_output()
@@ -1081,7 +1083,7 @@ print(fitted_model)
 
 ## <a name="register-the-model"></a>모델 등록
 
-Azure Machine Learning 서비스 작업 영역에 모델을 등록합니다.
+Azure Machine Learning Service 작업 영역에 모델을 등록합니다.
 
 
 ```python
@@ -1093,14 +1095,14 @@ local_run.model_id # Use this id to deploy the model as a web service in Azure
 
 ## <a name="test-the-best-model-accuracy"></a>최적 모델 정확도 테스트
 
-최적 모델을 사용하여 테스트 데이터 세트에서 예측을 실행합니다. `predict` 함수는 최적 모델을 사용하고 `x_test` 데이터 세트에서 y(출장 비용) 값을 예측합니다. `y_predict`에서 첫 10개의 예측 비용 값을 인쇄합니다.
+최적 모델을 사용하여 테스트 데이터 세트에서 예측을 실행합니다. `predict` 함수는 최적 모델을 사용하고 `x_test` 데이터 세트에서 y(**출장 비용**) 값을 예측합니다. `y_predict`에서 첫 10개의 예측 비용 값을 인쇄합니다.
 
 ```python
 y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-실제 비용 값과 비교하여 예측 비용 값을 시각화하는 산점도를 만듭니다. 다음 코드에서는 `distance` 기능을 x-축으로, 여행 `cost`를 y-축으로 사용합니다. 각 여행 거리 값에서 예측 비용의 차이를 비교하기 위해 첫 번째 100개의 예측 및 실제 비용 값이 별도의 시리즈로 만들어집니다. 도표를 살펴보면 거리/비용 관계가 거의 선형이고, 대부분의 경우 예측 비용 값이 동일한 여행 거리에 대한 실제 비용 값에 매우 가깝다는 것을 알 수 있습니다.
+실제 비용 값과 비교하여 예측 비용 값을 시각화하는 산점도를 만듭니다. 다음 코드에서는 `distance` 기능을 x-축으로, 여행 `cost`를 y-축으로 사용합니다. 각 여행 거리 값에서 예측 비용의 차이를 비교하기 위해 처음 100개의 예측 및 실제 비용 값이 별도의 시리즈로 만들어집니다. 도표 검사로 거리/비용 관계가 선형에 가까움을 알 수 있습니다. 또한 예측된 비용 값은 대부분의 경우 동일한 여행 거리에 대해 실제 비용 값에 매우 근접합니다.
 
 ```python
 import matplotlib.pyplot as plt
@@ -1125,7 +1127,7 @@ plt.show()
 
 ![예측 산점도](./media/tutorial-auto-train-models/automl-scatter-plot.png)
 
-결과의 `root mean squared error`를 계산합니다. `y_test` 데이터 프레임을 사용하고 이를 목록으로 변환하여 예측 값과 비교합니다. `mean_squared_error` 함수는 두 개의 값 배열을 사용하고 두 배열 간의 평균 제곱 오차를 계산합니다. 결과의 제곱근을 사용하면 y 변수(비용)와 동일한 단위의 오차를 제공하고, 예측 값과 실제 값의 차이를 대략적으로 표시합니다.
+결과의 `root mean squared error`를 계산합니다. `y_test` 데이터 프레임을 사용합니다. 이를 목록으로 변환하여 예측 값과 비교합니다. `mean_squared_error` 함수는 두 개의 값 배열을 사용하고 두 배열 간의 평균 제곱 오차를 계산합니다. 결과의 제곱근을 구하면 y 변수(**비용**)와 동일한 단위에서 오류가 나타납니다. 이는 대략적으로 실제 값과 예측 간 차이를 나타냅니다.
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -1137,7 +1139,7 @@ rmse
 
     3.2204936862688798
 
-전체 `y_actual` 및 `y_predict` 데이터 세트를 사용하여 MAPE(절대 평균 백분율 오차)를 계산하려면 다음 코드를 실행입니다. 이 메트릭은 각 예측 값 및 실제 값 사이의 절대 차이를 계산하고 모든 차이를 집계한 다음, 해당 집계를 실제 값의 총계에 대한 백분율로 나타냅니다.
+전체 `y_actual` 및 `y_predict` 데이터 세트를 사용하여 MAPE(절대 평균 백분율 오차)를 계산하려면 다음 코드를 실행합니다. 이 메트릭은 각 예측 및 실제 값 사이 절대값 차이를 계산하며 모든 차이를 합산합니다. 그런 다음, 실제 값의 합계에 대한 백분율로 해당 합산을 표현합니다.
 
 ```python
 sum_actuals = sum_errors = 0
@@ -1170,12 +1172,12 @@ print(1 - mean_abs_percent_error)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자동화된 기계 학습 자습서에서 다음을 수행했습니다.
+이 자동화된 Machine Learning 자습서에서 다음 작업을 수행했습니다.
 
 > [!div class="checklist"]
 > * 작업 영역을 구성하고 실험을 위해 데이터를 준비했습니다.
 > * 사용자 지정 매개 변수를 통해 로컬로 자동화된 회귀 모델 사용을 학습했습니다.
-> * 학습 결과를 검색하고 검토했습니다.
+> * 학습 결과를 탐색하고 검토했습니다.
 > * 최적 모델을 등록했습니다.
 
 Azure Machine Learning을 사용하여 [모델을 배포합니다](tutorial-deploy-models-with-aml.md).

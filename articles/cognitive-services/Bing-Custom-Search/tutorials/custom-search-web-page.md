@@ -10,14 +10,14 @@ ms.component: bing-custom-search
 ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: aahi
-ms.openlocfilehash: d39ec856d628a8a607c6a8ea214f5dd9fbd63a9c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0c98f75417bbcba13e179502eb1c8b4488b17d78
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427364"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558025"
 ---
-# <a name="tutorial-build-a-custom-search-web-page"></a>자습서: Custom Search 웹 페이지 작성
+# <a name="tutorial-build-a-custom-search-web-page"></a>자습서: Custom Search 웹 페이지 빌드
 
 Bing Custom Search를 사용하면 관심 있는 토픽에 대한 맞춤형 검색 경험을 만들 수 있습니다. 예를 들어 검색 환경을 제공하는 무술 웹 사이트를 소유하고 있는 경우 Bing에서 검색하는 도메인, 하위 사이트 및 웹 페이지를 지정할 수 있습니다. 사용자는 관련 없는 콘텐츠를 포함할 수 있는 일반적인 검색 결과를 페이징할 필요 없이 관심 있는 콘텐츠에 맞게 조정된 검색 결과를 보게 됩니다. 
 
@@ -79,7 +79,7 @@ Bing Custom Search 인스턴스를 만들려면
 
 ## <a name="add-pinned-entries"></a>고정된 항목 추가
 
-특정 웹 페이지를 검색 결과의 맨 위에 고정하려면 웹 페이지와 쿼리 용어를 **고정됨** 탭에 추가합니다. **고정됨** 탭에는 특정 쿼리의 맨 위 결과로 표시되는 웹 페이지를 지정하는 웹 페이지 및 쿼리 용어 쌍 목록이 포함됩니다. 사용자의 쿼리 문자열이 고정의 일치 조건을 기준으로 하는 고정의 쿼리 문자열과 일치하는 경우에만 웹 페이지가 고정됩니다. 인덱싱된 웹 페이지만 검색에 표시됩니다. 자세한 내용은 [사용자 지정 보기 정의](../define-your-custom-view.md#pin-to-top)를 참조하세요.
+특정 웹 페이지를 검색 결과의 맨 위에 고정하려면 웹 페이지와 쿼리 용어를 **고정됨** 탭에 추가합니다. **고정됨** 탭에는 특정 쿼리의 맨 위 결과로 표시되는 웹 페이지를 지정하는 웹 페이지 및 쿼리 용어 쌍 목록이 포함됩니다. 사용자의 쿼리 문자열이 고정의 일치 조건을 기준으로 하는 고정의 쿼리 문자열과 일치하는 경우에만 웹 페이지가 고정됩니다. 인덱싱된 웹 페이지만 검색에 표시됩니다. 자세한 내용은 [사용자 지정 보기 정의](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results)를 참조하세요.
 
 1. **구성** 페이지에서 **고정됨** 탭을 클릭하고 맨 위 결과로 반환되도록 할 웹 페이지 및 웹 페이지의 쿼리 용어를 입력합니다.  
   
@@ -130,7 +130,7 @@ Custom Search는 사용자 지정 검색 인스턴스의 JSON 응답을 렌더�
 - 옵션 1: 제공된 JavaScript 코드 조각을 애플리케이션에 통합합니다.
 - 옵션 2: 제공된 HTML 엔드포인트를 사용합니다.
 
-이 자습서의 나머지 부분에서는 **옵션 1: Javascript 코드 조각**을 보여 줍니다.  
+이 자습서의 나머지 부분에서는 **옵션 1: Javascript 코드 조각**을 설명합니다.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Visual Studio 솔루션 설정
 
@@ -138,11 +138,11 @@ Custom Search는 사용자 지정 검색 인스턴스의 JSON 응답을 렌더�
   
 2. **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다.  
   
-3. **새 프로젝트** 창에서 **Visual C#/Web/ASP.NET Core 웹 응용 프로그램**을 선택하고, 프로젝트 이름을 지정한 다음, **확인**을 클릭합니다.  
+3. **새 프로젝트** 창에서 **Visual C#/Web/ASP.NET Core 웹 애플리케이션**을 선택하고, 프로젝트 이름을 지정한 다음, **확인**을 클릭합니다.  
   
   ![새 프로젝트 창의 스크린샷](./media/custom-search-new-project.png)  
   
-4. **새 ASP.NET Core 웹 응용 프로그램** 창에서 **웹 응용 프로그램**을 선택하고 **확인**을 클릭합니다.  
+4. **새 ASP.NET Core 웹 애플리케이션** 창에서 **웹 애플리케이션**을 선택하고 **확인**을 클릭합니다.  
   
   ![새 프로젝트 창의 스크린샷](./media/custom-search-new-webapp.png)  
 

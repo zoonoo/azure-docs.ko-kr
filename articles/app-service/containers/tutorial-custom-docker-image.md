@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: ae9da43ac40a3da188e6030659cfb6de166c53bb
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 62cdc50b40fb1273fdc2eece050869fc2284cf6c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256080"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632979"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Web App for Containers에 사용자 지정 Docker 이미지 사용
 
@@ -193,7 +193,7 @@ v1.0.0: digest: sha256:21f2798b20555f4143f2ca0591a43b4f6c8138406041f2d32ec908974
 
 ## <a name="deploy-app-to-azure"></a>Azure에 앱 배포
 
-Azure Web Apps를 사용하여 클라우드에서 네이티브 Linux 애플리케이션을 호스트할 수 있습니다. 컨테이너용 Web App을 만들려면 그룹, 서비스 계획 및 웹앱 자체를 만드는 Azure CLI 명령을 실행해야 합니다. 
+방금 푸시한 이미지를 사용하는 앱을 만들려면 그룹을 만든 다음, 서비스 계획을 만들고 최종적으로 웹앱 자체를 만드는 Azure CLI 명령을 실행합니다. 
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 

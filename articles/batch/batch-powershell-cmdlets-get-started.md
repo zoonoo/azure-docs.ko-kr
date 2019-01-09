@@ -1,9 +1,9 @@
 ---
-title: Azure Batch용 PowerShell 시작 | Microsoft Docs
+title: PowerShell 시작 - Azure Batch | Microsoft Docs
 description: Batch 리소스를 관리하는 데 사용할 수 있는 Azure PowerShell cmdlet에 대한 간략한 소개입니다.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 10/05/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d05cb2fbee1f171daa3b73caab57a0b6acebfad
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: bd8e5425a09f0faeaa573cec58def88f352b9a1d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116111"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548071"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>PowerShell cmdlet을 사용한 Batch 리소스 관리
 
@@ -205,13 +205,13 @@ Get-AzureBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-Azur
 
 애플리케이션 패키지는 풀에서 계산 노드에 애플리케이션을 배포하는 간단한 방법을 제공합니다. Batch PowerShell cmdlet으로 Batch 계정에 애플리케이션 패키지를 업로드하여 관리하고 노드를 계산하는 패키지 버전을 배포할 수 있습니다.
 
-**만듭니다** .
+애플리케이션을 **만듭니다**.
 
 ```PowerShell
 New-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 ```
 
-**추가합니다** .
+애플리케이션 패키지를 **추가**합니다.
 
 ```PowerShell
 New-AzureRmBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0" -Format zip -FilePath package001.zip
@@ -223,7 +223,7 @@ New-AzureRmBatchApplicationPackage -AccountName <account_name> -ResourceGroupNam
 Set-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -DefaultVersion "1.0"
 ```
 
-응용 프로그램의 패키지 **열거**
+애플리케이션의 패키지 **열거**
 
 ```PowerShell
 $application = Get-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
@@ -231,13 +231,13 @@ $application = Get-AzureRmBatchApplication -AccountName <account_name> -Resource
 $application.ApplicationPackages
 ```
 
-응용 프로그램 패키지 **삭제**
+애플리케이션 패키지 **삭제**
 
 ```PowerShell
 Remove-AzureRmBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0"
 ```
 
-응용 프로그램 **삭제**
+애플리케이션 **삭제**
 
 ```PowerShell
 Remove-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
@@ -267,7 +267,7 @@ $appPackageReference.Version = "1.0"
 New-AzureBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 ```
 
-[Batch 응용 프로그램 패키지를 사용하여 계산 노드에 응용 프로그램 배포](batch-application-packages.md)에서 응용 프로그램 패키지에 대한 자세한 정보를 찾을 수 있습니다.
+[Batch 애플리케이션 패키지를 사용하여 계산 노드에 애플리케이션 배포](batch-application-packages.md)에서 애플리케이션 패키지에 대한 자세한 정보를 찾을 수 있습니다.
 
 > [!IMPORTANT]
 > 애플리케이션 패키지를 사용하려면 [Azure Storage 계정](#linked-storage-account-autostorage)을 Batch 계정에 연결해야 합니다.

@@ -9,12 +9,12 @@ ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 76bc59b41bf35f6427b1dcb273f3f50c5e70b748
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f69babb4520b4829a8cf59e2dac7763471a2db65
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344060"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557101"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>자습서: Node.js IoT Edge 모듈 개발 및 시뮬레이션된 디바이스에 배포
 
@@ -36,6 +36,7 @@ ms.locfileid: "53344060"
 Azure IoT Edge 장치:
 
 * [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다.
+* Windows에서 IoT Edge를 실행하는 경우 IoT Edge 버전 1.0.5는 Node.js 모듈을 지원하지 않습니다. 자세한 내용은 [1.0.5 릴리스 정보](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5)를 참조하세요. 특정 버전을 설치하는 방법에 대한 단계는 [IoT Edge 보안 디먼 및 런타임 업데이트](how-to-update-iot-edge.md)를 참조하세요.
 
 클라우드 리소스:
 
@@ -223,7 +224,7 @@ VS Code 통합 터미널에서 실행되는 `docker build` 명령에서 태그�
 
 IoT Edge 디바이스를 설정할 때 사용한 빠른 시작 문서에서는 Azure Portal을 사용하여 모듈을 배포했습니다. Visual Studio Code용 Azure IoT Hub Toolkit 확장(이전의 Azure IoT Toolkit 확장)을 사용하여 모듈을 배포할 수도 있습니다. 여러분의 시나리오를 위한 배포 매니페스트인 **deployment.json** 파일이 이미 준비되어 있습니다. 이제 배포를 받을 디바이스를 선택하기만 하면 됩니다.
 
-1. VS Code 명령 팔레트에서 **Azure IoT Hub:  IoT Hub 선택**을 실행합니다. 
+1. VS Code 명령 팔레트에서 **Azure IoT Hub: IoT Hub 선택**을 실행합니다. 
 
 2. 구성하려는 IoT Edge 디바이스가 포함된 구독 및 IoT Hub를 선택합니다. 
 

@@ -1,5 +1,6 @@
 ---
-title: Microsoft의 기계 학습 제품 옵션 비교
+title: Machine Learning 제품 옵션 비교
+titleSuffix: Microsoft
 description: Microsoft의 다양한 제품을 비교하여 기계 학습 모델을 빌드, 배포 및 관리합니다. 솔루션에 대해 선택할 제품을 결정합니다.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
-ms.openlocfilehash: bae28fd24cfbbf9fe36a626af1f0ec9359c8cda0
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: b2d7888234a05c82f1245bd58b98f505989d7f2d
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274125"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557889"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Microsoft의 기계 학습 제품이란?
 
@@ -37,7 +38,7 @@ Microsoft에서는 다양한 제품 옵션을 제공하여 기계 학습 모델�
 
 ## <a name="azure-machine-learning-service"></a>Azure Machine Learning 서비스
 
-[Azure Machine Learning 서비스](overview-what-is-azure-ml.md)는 대규모로 ML 모델을 학습, 배포 및 관리하는 데 사용되는 완벽한 관리형 클라우드 서비스입니다. 이 서비스는 오픈 소스 기술을 완벽히 지원하여 TensorFlow, PyTorch 및 scikit-learn 등의 수많은 오픈 소스 Python 패키지를 사용할 수 있습니다. [Azure 노트북](https://notebooks.azure.com/), [Jupyter 노트북](http://jupyter.org) 또는 [Visual Studio Code용 Azure Machine Learning](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/)와 같이 다양한 도구도 제공되어 데이터를 쉽게 검색하고 변환하게 한 다음, 모델을 학습 및 배포합니다. Azure Machine Learning 서비스에는 간편하고 효율적이고 정확한 모델 생성 및 튜닝을 자동화하는 기능이 포함됩니다.
+[Azure Machine Learning 서비스](overview-what-is-azure-ml.md)는 대규모로 ML 모델을 학습, 배포 및 관리하는 데 사용되는 완벽한 관리형 클라우드 서비스입니다. 이 서비스는 오픈 소스 기술을 완벽히 지원하여 TensorFlow, PyTorch 및 scikit-learn 등의 수많은 오픈 소스 Python 패키지를 사용할 수 있습니다. [Azure 노트북](https://notebooks.azure.com/), [Jupyter 노트북](http://jupyter.org) 또는 [Visual Studio Code용 Azure Machine Learning](https://aka.ms/vscodetoolsforai)와 같이 다양한 도구도 제공되어 데이터를 쉽게 검색하고 변환하게 한 다음, 모델을 학습 및 배포합니다. Azure Machine Learning 서비스에는 간편하고 효율적이고 정확한 모델 생성 및 튜닝을 자동화하는 기능이 포함됩니다.
 
 클라우드 규모의 Python 및 CLI를 통해 ML 모델을 학습, 배포 및 관리하려면 Azure Machine Learning 서비스를 사용합니다.
 
@@ -72,7 +73,7 @@ Cognitive Services를 사용하여 장치 및 플랫폼에서 앱을 개발합�
 
 ## <a name="azure-data-science-virtual-machine"></a>Azure 데이터 과학 가상 머신
 
-[Data Science Virtual Machine](../data-science-virtual-machine/overview.md)은 데이터 과학을 수행하기 위해 특별히 빌드된 Microsoft Azure 클라우드에서 사용자 지정된 가상 머신 환경입니다. 여기에는 고급 분석을 위한 지능형 애플리케이션 구축에 바로 뛰어들 수 있도록 다수의 유명한 데이터 과학 및 기타 도구가 미리 설치 및 구성되어 있습니다.
+[Data Science Virtual Machine](../data-science-virtual-machine/overview.md)은 데이터 과학을 수행하기 위해 특별히 빌드된 Microsoft Azure 클라우드에서 사용자 지정된 가상 머신 환경입니다. 여기에는 고급 분석을 위한 지능형 응용 프로그램 구축에 바로 뛰어들 수 있도록 다수의 유명한 데이터 과학 및 기타 도구가 미리 설치 및 구성되어 있습니다.
 
 Data Science Virtual Machine은 Azure Machine Learning 서비스의 대상으로 지원됩니다.
 또한 Windows와 Linux Ubuntu용 버전에서도 사용할 수 있습니다(Linux CentOS에서는 Azure Machine Learning 서비스를 지원하지 않습니다).
@@ -94,15 +95,15 @@ Data Science Virtual Machine은 Azure Machine Learning 서비스의 대상으로
 
 ## <a name="mlnet"></a>ML.NET
 
-[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/)는 무료, 오픈 소스, 플랫폼 간 기계 학습 프레임워크로서 사용자 지정 기계 학습 솔루션을 빌드해서 .NET 응용 프로그램에 통합할 수 있습니다.
+[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/)는 무료, 오픈 소스, 플랫폼 간 기계 학습 프레임워크로서 사용자 지정 기계 학습 솔루션을 빌드해서 .NET 애플리케이션에 통합할 수 있습니다.
 
 .NET 애플리케이션에 기계 학습 솔루션을 통합하려는 경우 ML.NET를 사용합니다.
 
 ## <a name="windows-ml"></a>Windows ML
 
-[Windows ML](https://docs.microsoft.com/windows/uwp/machine-learning/)은 애플리케이션에서 학습된 기계 학습 모델을 사용하면서 Windows 10 디바이스에서 로컬로 학습된 모델을 평가할 수 있습니다.
+[Windows ML](https://docs.microsoft.com/windows/uwp/machine-learning/)은 애플리케이션에서 학습된 기계 학습 모델을 사용하면서 Windows 10 장치에서 로컬로 학습된 모델을 평가할 수 있습니다.
 
-Windows 애플리케이션 내에서 학습된 기계 학습 모델을 사용하려는 경우 Windows ML을 사용합니다.
+Windows 응용 프로그램 내에서 학습된 기계 학습 모델을 사용하려는 경우 Windows ML을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

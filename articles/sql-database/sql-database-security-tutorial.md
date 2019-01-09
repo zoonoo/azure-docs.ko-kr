@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: 814d558efee4a72a25d956828e0db237424cab24
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.date: 12/17/2018
+ms.openlocfilehash: aea95c245b86905b7bef0a35ffaa6c5e00567111
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409771"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558637"
 ---
 # <a name="tutorial-secure-a-single-database-in-azure-sql-database"></a>자습서: Azure SQL Database에서 단일 데이터베이스 보호
 
@@ -137,6 +137,9 @@ Azure Portal에서 Azure SQL 서버의 Azure Active Directory 관리자를 프�
 
 2. **SQL Server** 페이지에서 **Active Directory 관리자**를 선택하고, **Active Directory 관리자** 페이지에서 **관리자 설정**을 선택합니다.  ![active directory 선택](./media/sql-database-aad-authentication/select-active-directory.png)  
 
+   > [!IMPORTANT]
+   > 이 작업을 수행하려면 “회사 관리자” 또는 “글로벌 관리자”여야 합니다.
+
 3. **관리자 추가** 페이지에서 사용자를 검색하고 관리자가 될 사용자 또는 그룹을 선택한 다음, **선택**을 선택합니다. Active Directory 관리자 페이지에는 Active Directory의 모든 멤버와 그룹이 표시됩니다. 회색으로 표시된 사용자나 그룹은 Azure AD 관리자로 지원되지 않기 때문에 선택할 수 없습니다. [SQL Database 및 SQL Data Warehouse에서 인증을 위해 Azure Active Directory 인증 사용](sql-database-aad-authentication.md)의 **Azure AD 기능 및 제한 사항** 섹션에서 지원되는 관리자 목록을 참조하세요. 역할 기반 액세스 제어(RBAC)는 포털에만 적용되며 SQL Server에 전파되지 않습니다.
     ![관리자 선택](./media/sql-database-aad-authentication/select-admin.png)  
 
@@ -244,7 +247,7 @@ Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure 
 ## <a name="enable-sql-database-threat-detection"></a>SQL Database 위협 감지 사용
 
 위협 감지는 비정상적인 활동에 대한 보안 경고를 제공하여 잠재적인 위협이 발생하면 고객이 이를 감지하고 대응할 수 있도록 하는 새로운 차원의 보안을 제공합니다. 사용자는 데이터베이스의 데이터를 액세스, 침범 또는 악용하려는 시도로 인해 의심스러운 이벤트가 발생했는지를 판단하기 위해서 SQL Database 감사를 사용하여 의심스러운 이벤트를 살펴볼 수 있습니다. 위협 감지는 보안 전문가가 되거나 고급 보안 모니터링 시스템을 관리할 필요 없이 데이터베이스에 대한 잠재적인 위협에 간단하게 대처할 수 있도록 합니다.
-예를 들어 위협 감지는 잠재적인 SQL 삽입 시도를 나타내는 비정상적인 데이터베이스 활동을 감지합니다. SQL 삽입은 데이터 기반 애플리케이션 공격에 사용되는 인터넷 상의 일반적인 웹 애플리케이션 보안 문제 중 하나입니다. 공격자는 데이터베이스의 데이터를 침범하거나 수정하기 위해 응용 프로그램의 취약성을 이용하여 악의적인 SQL 문을 응용 프로그램 항목 필드에 삽입합니다.
+예를 들어 위협 감지는 잠재적인 SQL 삽입 시도를 나타내는 비정상적인 데이터베이스 활동을 감지합니다. SQL 삽입은 데이터 기반 애플리케이션 공격에 사용되는 인터넷 상의 일반적인 웹 애플리케이션 보안 문제 중 하나입니다. 공격자는 데이터베이스의 데이터를 침범하거나 수정하기 위해 애플리케이션의 취약성을 이용하여 악의적인 SQL 문을 애플리케이션 항목 필드에 삽입합니다.
 
 1. 모니터링할 SQL Database의 구성 블레이드로 이동합니다. 설정 블레이드에서 **감사 및 위협 감지**를 선택합니다.
 
@@ -286,7 +289,7 @@ Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure 
 
     ![Excel 매개 변수](./media/sql-database-threat-detection-get-started/9_td_excel_parameters.png)
 
-11. **SQL 감사 로그** 시트에 결과가 표시되며 사용자는 이를 통해 감지된 비정상적인 활동을 심층적으로 분석하고 응용 프로그램의 보안 이벤트에 대한 영향을 완화시킬 수 있습니다.
+11. **SQL 감사 로그** 시트에 결과가 표시되며 사용자는 이를 통해 감지된 비정상적인 활동을 심층적으로 분석하고 애플리케이션의 보안 이벤트에 대한 영향을 완화시킬 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
