@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB 에뮬레이터를 사용하여 로컬로 개발
-description: Azure Cosmos DB 에뮬레이터를 사용하여 Azure 구독을 구입하지 않고도 무료로 로컬에서 애플리케이션을 개발하고 테스트할 수 있습니다.
+description: Azure Cosmos DB 에뮬레이터를 사용하여 Azure 구독을 구입하지 않고도 무료로 로컬에서 응용 프로그램을 개발하고 테스트할 수 있습니다.
 services: cosmos-db
 keywords: Azure Cosmos DB 에뮬레이터
 author: David-Noble-at-work
@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 2979cdd0184e287ba83ae8a254722b64decce83d
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 1876a74ff1631ee8a383ebe954df9756f7ef89f1
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413696"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811446"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos DB 에뮬레이터 사용
 
@@ -34,7 +34,7 @@ ms.locfileid: "53413696"
 
 Azure Cosmos DB 에뮬레이터는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공합니다. Azure Cosmos DB 에뮬레이터를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 애플리케이션을 테스트할 수 있습니다. Azure Cosmos DB 에뮬레이터에서 애플리케이션이 작동하는 방식에 만족하는 경우 Azure Cosmos DB 계정을 클라우드에서 사용하도록 전환할 수 있습니다.
 
-현재 에뮬레이터의 데이터 탐색기는 SQL API 컬렉션 및 MongoDB 컬렉션만 완전히 지원합니다. 테이블, 그래프 및 Cassandra 컨테이너는 완벽히 지원되지는 않습니다.
+현재 에뮬레이터의 데이터 탐색기는 SQL API 및 Azure Cosmos DB의 MongoDB API용 클라이언트만 완벽하게 지원합니다. Table, Graph 및 Cassandra API용 클라이언트는 완벽하게 지원되지 않습니다.
 
 이 문서에서 다루는 작업은 다음과 같습니다.
 
@@ -50,20 +50,20 @@ Azure Cosmos DB 에뮬레이터는 개발 목적으로 Azure Cosmos DB 서비스
 
 ## <a name="how-the-emulator-works"></a>에뮬레이터의 작동 원리
 
-Azure Cosmos DB 에뮬레이터는 신뢰도 있는 Azure Cosmos DB 서비스의 에뮬레이션을 제공합니다. JSON 문서 만들기 및 쿼리, 컬렉션 프로비전 및 확장, 저장 프로시저 및 트리거 실행을 비롯하여 Azure Cosmos DB으로 동일한 기능을 지원합니다. Azure Cosmos DB 에뮬레이터를 사용하여 애플리케이션을 개발 및 테스트하고 Azure Cosmos DB에 대한 연결 엔드포인트에 대한 단일 구성을 변경하여 글로벌 규모로 Azure에 배포할 수 있습니다.
+Azure Cosmos DB 에뮬레이터는 신뢰도 있는 Azure Cosmos DB 서비스의 에뮬레이션을 제공합니다. JSON 문서 만들기 및 쿼리, 컬렉션 프로비전 및 확장, 저장 프로시저 및 트리거 실행을 비롯하여 Azure Cosmos DB으로 동일한 기능을 지원합니다. Azure Cosmos DB 에뮬레이터를 사용하여 응용 프로그램을 개발 및 테스트하고 Azure Cosmos DB에 대한 연결 엔드포인트에 대한 단일 구성을 변경하여 글로벌 규모로 Azure에 배포할 수 있습니다.
 
 Azure Cosmos DB 서비스의 에뮬레이션이 충실한 경우 에뮬레이터의 구현은 서비스와 다릅니다. 예를 들어 에뮬레이터는 로컬 파일 시스템(지속성) 및 HTTPS 프로토콜 스택(연결성)과 같은 표준 OS 구성 요소를 사용합니다. 따라서 전역 복제, 한 자리 밀리초 읽기/쓰기 대기 시간, 튜닝 가능한 일관성 수준 등 Azure 인프라를 기반으로 하는 기능은 사용할 수 없습니다.
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>에뮬레이터와 서비스 간 차이
 Azure Cosmos DB 에뮬레이터는 로컬 개발자 워크스테이션에서 실행되는 에뮬레이트된 환경을 제공하기 때문에 클라우드의 Azure Cosmos DB 계정과 기능 면에서 몇 가지 차이가 있습니다.
 
-* 현재 에뮬레이터의 데이터 탐색기는 SQL API 컬렉션 및 MongoDB 컬렉션만 지원합니다. Table, Graph 및 Cassandra API는 아직 지원되지 않습니다.
+* 현재 에뮬레이터의 데이터 탐색기는 SQL API 및 Azure Cosmos DB의 MongoDB API용 클라이언트를 지원합니다. Table, Graph 및 Cassandra API용 클라이언트는 아직 지원되지 않습니다.
 * Azure Cosmos DB 에뮬레이터는 단일 고정 계정과 알려진 마스터 키만 지원합니다. Azure Cosmos DB 에뮬레이터에서는 키를 다시 생성할 수 없습니다.
 * Azure Cosmos DB 에뮬레이터는 확장 가능한 서비스가 아니며 많은 컬렉션을 지원하지 않습니다.
 * Azure Cosmos DB 에뮬레이터는 여러 [Azure Cosmos DB 일관성 수준](consistency-levels.md)을 시뮬레이션하지 않습니다.
 * Azure Cosmos DB 에뮬레이터는 [다중 지역 복제](distribute-data-globally.md)를 시뮬레이션하지 않습니다.
 * Azure Cosmos DB 에뮬레이터는 Azure Cosmos DB 서비스에서 사용할 수 있는 서비스 할당량 재정의(예: 문서 크기 제한, 향상된 분할된 컬렉션 저장소)를 지원하지 않습니다.
-* Azure Cosmos DB 에뮬레이터의 복사본은 최신 Azure Cosmos DB 서비스가 포함된 가장 최근의 변경 사항이 적용된 최신 에뮬레이터가 아닐 수 있으므로 [Azure Cosmos DB Capacity Planner](https://www.documentdb.com/capacityplanner)를 사용하여 애플리케이션에 요구되는 프로덕션 처리량(RU)을 정확하게 예측해야 합니다.
+* Azure Cosmos DB 에뮬레이터의 복사본은 최신 Azure Cosmos DB 서비스가 포함된 가장 최근의 변경 사항이 적용된 최신 에뮬레이터가 아닐 수 있으므로 [Azure Cosmos DB Capacity Planner](https://www.documentdb.com/capacityplanner)를 사용하여 응용 프로그램에 요구되는 프로덕션 처리량(RU)을 정확하게 예측해야 합니다.
 
 ## <a name="system-requirements"></a>시스템 요구 사항
 Azure Cosmos DB 에뮬레이터에는 다음과 같은 하드웨어 및 소프트웨어 요구 사항이 있습니다.
@@ -125,14 +125,14 @@ Azure Cosmos DB 서비스와 마찬가지로 Azure Cosmos DB 에뮬레이터는 
 처음에 네트워크 액세스를 사용하도록 설정하려면 사용자는 에뮬레이터를 종료하고 에뮬레이터의 데이터 디렉터리(C:\Users\user_name\AppData\Local\CosmosDBEmulator)를 삭제해야 합니다.
 
 ## <a name="developing-with-the-emulator"></a>에뮬레이터를 사용한 개발
-Azure Cosmos DB 에뮬레이터를 데스크톱에서 실행하는 경우 지원되는 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 또는 [Azure Cosmos DB REST API](/rest/api/cosmos-db/)를 사용하여 에뮬레이터와 상호 작용할 수 있습니다. Azure Cosmos DB 에뮬레이터에는 코드를 작성하지 않고도 SQL 및 MongoDB API 컬렉션을 만들고 문서를 확인 및 편집할 수 있는 기본 제공 데이터 탐색기도 포함되어 있습니다.
+Azure Cosmos DB 에뮬레이터를 데스크톱에서 실행하는 경우 지원되는 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 또는 [Azure Cosmos DB REST API](/rest/api/cosmos-db/)를 사용하여 에뮬레이터와 상호 작용할 수 있습니다. 또한 Azure Cosmos DB 에뮬레이터에는 코드를 작성하지 않고도 SQL API 또는 Cosmos DB의 MongoDB API 컬렉션을 만들고 문서를 확인 및 편집할 수 있는 기본 제공 데이터 탐색기도 포함되어 있습니다.
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(
         new Uri("https://localhost:8081"),
         "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
-[MongoDB에 대한 Azure Cosmos DB 프로토콜 지원](mongodb-introduction.md)을 사용할 경우에는 다음 연결 문자열을 사용하세요.
+[MongoDB에 대한 Azure Cosmos DB 유선 프로토콜](mongodb-introduction.md)을 사용하는 경우 다음 연결 문자열을 사용합니다.
 
     mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
 
@@ -151,7 +151,7 @@ Windows 인증서 저장소와 통합되지 않는 런타임 및 언어와 함�
 
 ![Azure Cosmos DB 로컬 에뮬레이터 SSL 인증서](./media/local-emulator/database-local-emulator-ssl_certificate.png)
 
-[Java CA 인증서 저장소에 인증서 추가](https://docs.microsoft.com/azure/java-add-certificate-ca-store)의 지침을 따라 X.509 인증서를 Java 인증서 저장소로 가져올 수 있습니다. 인증서를 인증서 저장소에 가져온 후 Java 및 MongoDB 애플리케이션을 Azure Cosmos DB 에뮬레이터에 연결할 수 있습니다.
+[Java CA 인증서 저장소에 인증서 추가](https://docs.microsoft.com/azure/java-add-certificate-ca-store)의 지침을 따라 X.509 인증서를 Java 인증서 저장소로 가져올 수 있습니다. 인증서를 인증서 저장소에 가져오면 SQL API 및 Azure Cosmos DB의 MongoDB API용 클라이언트에서 Azure Cosmos DB 에뮬레이터에 연결할 수 있습니다.
 
 Python 및 Node.js SDK에서 에뮬레이터에 연결하면 SSL 확인이 비활성화됩니다.
 

@@ -2,8 +2,7 @@
 title: '자습서: Azure Stream Analytics 작업에서 Azure Functions 실행 | Microsoft Docs'
 description: 이 자습서에서는 Stream Analytics 작업에 대한 출력 싱크로 Azure Functions를 구성하는 방법에 대해 알아봅니다.
 services: stream-analytics
-author: jasonwhowell
-manager: kfile
+author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
@@ -11,12 +10,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 6a89333f32fb4ccc8fc4d4710266157fca16fe02
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 818c75feffc5dcf09421b22d82b8b0c767cbed7f
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164163"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993011"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업에서 Azure Functions 실행 
 
@@ -48,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Event Hubs에서 입력으로 사용할 Stream Analytics 작업 만들기
 
-[실시간 사기 감지](stream-analytics-real-time-fraud-detection.md) 자습서에 따라 이벤트 허브를 만들고, 이벤트 생성자 응용 프로그램을 시작하고, Stream Analytics 작업을 만듭니다. (쿼리 및 출력을 만드는 단계는 건너뜁니다. 대신 다음 섹션을 참조해서 Functions 출력을 설정합니다.)
+[실시간 사기 감지](stream-analytics-real-time-fraud-detection.md) 자습서에 따라 이벤트 허브를 만들고, 이벤트 생성자 애플리케이션을 시작하고, Stream Analytics 작업을 만듭니다. (쿼리 및 출력을 만드는 단계는 건너뜁니다. 대신 다음 섹션을 참조해서 Functions 출력을 설정합니다.)
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Azure Cache for Redis 인스턴스 만들기
 
@@ -152,7 +151,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. Azure 포털에서 Stream Analytics 작업을 엽니다.  
 
-2. 함수를 찾아서 **개요** > **출력** > **추가**를 선택합니다. 새 출력을 추가하려면 싱크 옵션에 대해 **Azure Function**을 선택합니다. 다음과 같은 속성을 포함하는 새로운 Functions 출력 어댑터를 사용할 수 있습니다.  
+2. 함수를 찾아서 **개요** > **출력** > **추가**를 선택합니다. 새 출력을 추가하려면 싱크 옵션에 대해 **Azure Function**을 선택합니다. Functions 출력 어댑터에는 다음과 같은 속성이 있습니다.  
 
    |**속성 이름**|**설명**|
    |---|---|
@@ -160,7 +159,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    |가져오기 옵션| 현재 구독에서 함수를 사용하거나 함수가 다른 구독에 있는 경우 설정을 수동으로 제공할 수 있습니다. |
    |함수 앱| Functions 앱의 이름입니다. |
    |함수| Functions 앱의 이름(run.csx 함수 이름)입니다.|
-   |최대 일괄 처리 크기|함수로 전송되는 각 출력 일괄 처리의 최대 크기를 설정합니다. 기본적으로 이 값은 256KB로 설정됩니다.|
+   |최대 일괄 처리 크기|함수로 전송되는 각 출력 일괄 처리의 최대 크기(바이트)를 설정합니다. 기본적으로 이 값은 256KB(262,144바이트)로 설정됩니다.|
    |최대 일괄 처리 수|함수로 전송되는 각 일괄 처리에서 최대 이벤트 수를 지정합니다. 기본값은 100입니다. 이 속성은 선택 사항입니다.|
    |키|다른 구독의 함수를 사용할 수 있습니다. 함수에 액세스하기 위한 키 값을 제공합니다. 이 속성은 선택 사항입니다.|
 

@@ -1,21 +1,18 @@
 ---
 title: Azure Database for PostgreSQL 관계형 데이터베이스 서비스 개요
 description: PostgreSQL 관계형 데이터베이스 서비스에 대한 Azure Docs 개요를 제공합니다.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 11/14/2018
-ms.openlocfilehash: c1e90e9e39bb9ff698b2e53a2b7cf02340e1111f
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 775c9990c85feb3e9e180af6470e7c9a1aa124f3
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685857"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808981"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>PostgreSQL용 Azure Database란?
 
@@ -49,7 +46,7 @@ Azure Database for PostgreSQL 서비스는 기본, 범용 및 메모리 최적�
 Azure의 업계 선도적인 99.99% 가용성 SLA(서비스 수준 약정)를 Microsoft에서 관리되는 전 세계 데이터 센터 네트워크의 지원을 받아 앱을 연중 무휴(24/7)로 실행할 수 있습니다. 모든 PostgreSQL 서버용 Azure Database에서 다른 방법으로 구입 또는 설계, 구축 및 관리해야 하는 기본 제공 보안, 내결함성 및 데이터 보호를 활용합니다. Azure Database for PostgreSQL을 사용하면 각 가격 책정 계층에서 해당 방식으로 시작하고 실행하고 계속하는 데 사용할 수 있는 일단의 포괄적인 비즈니스 연속성 기능 및 옵션을 제공합니다. [특정 시점 복원](howto-restore-server-portal.md)을 사용하면 데이터베이스를 최대 35일 전의 상태로 복원할 수 있습니다. 또한 데이터베이스를 호스팅하는 데이터 센터에서 중단이 발생하면 최신 백업의 지역 중복 복사본에서 데이터베이스를 복원할 수 있습니다.
 
 ## <a name="secure-your-data"></a>데이터 보호
-Azure Database 서비스는 PostgreSQL용 Azure Database가 액세스를 제한하고, 미사용 및 사용 중인 데이터를 보호하고, 작업을 모니터링하는 데 도움이 되는 기능을 사용하여 보관하도록 데이터 보안을 유지해왔습니다. Azure의 플랫폼 보안에 대한 자세한 내용을 보려면 [Azure 보안 센터](https://www.microsoft.com/en-us/trustcenter/security)를 방문하세요.
+Azure Database 서비스는 PostgreSQL용 Azure Database가 액세스를 제한하고, 미사용 및 사용 중인 데이터를 보호하고, 작업을 모니터링하는 데 도움이 되는 기능을 사용하여 보관하도록 데이터 보안을 유지해왔습니다. Azure의 플랫폼 보안에 대한 자세한 내용을 보려면 [Azure 보안 센터](https://azure.microsoft.com/overview/trusted-cloud/)를 방문하세요.
 
 PostgreSQL용 Azure 데이터베이스 서비스는 미사용 데이터에 대해 저장소 암호화를 사용합니다. 백업을 포함한 데이터는 디스크에서 암호화됩니다. 단, 쿼리를 실행하는 동안 엔진에서 만든 임시 파일은 예외입니다. 서비스는 Azure Storage 암호화에 포함된 AES 256비트 암호화를 사용하며 키는 시스템에서 관리합니다. 저장소 암호화는 항상 켜져 있고 해제할 수 없습니다.
 
@@ -66,4 +63,4 @@ Azure Database for PostgreSQL 작업에 대해 궁금한 점이나 제안하고 
 ## <a name="next-steps"></a>다음 단계
 - 비용 비교 및 계산기는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/postgresql/)를 참조하세요.
 - [첫 번째 PostgreSQL용 Azure Database를 만들](./quickstart-create-server-database-portal.md)어서 시작합니다.
-- Python, PHP, Ruby, C\#, Java, Node.js에서 첫 번째 앱 빌드: [연결 라이브러리](./concepts-connection-libraries.md)
+- Python, PHP, Ruby, C\#, Java, Node.js에서 첫 번째 앱을 빌드합니다([연결 라이브러리](./concepts-connection-libraries.md)).

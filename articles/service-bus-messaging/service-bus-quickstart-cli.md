@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 8beabfb8c77d4d62b9b15dca8ae3146c34c3b20a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 522447b73454016bff5188d07b27702fa21cb748
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634815"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998679"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>빠른 시작: Azure CLI 및 Java를 사용하여 메시지 보내기 및 받기
 
@@ -66,7 +66,7 @@ connectionString=$(az servicebus namespace authorization-rule keys list \
 
 ## <a name="send-and-receive-messages"></a>메시지 보내기 및 받기
 
-네임스페이스와 큐가 만들어지고 필요한 자격 증명이 있으면 메시지를 보내고 받을 준비가 됩니다. [이 GitHub 샘플 폴더](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java)에서 코드를 검사할 수 있습니다.
+네임스페이스와 큐가 만들어지고 필요한 자격 증명이 있으면 메시지를 보내고 받을 준비가 됩니다. [이 GitHub 샘플 폴더](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters)에서 코드를 검사할 수 있습니다.
 
 1. Cloud Shell이 열려 있는지 확인하고 Bash 프롬프트를 표시합니다.
 
@@ -108,7 +108,7 @@ az group delete --resource-group myResourceGroup
 
 ## <a name="understand-the-sample-code"></a>샘플 코드 이해
 
-이 섹션에는 샘플 코드의 주요 섹션에 대한 자세한 내용이 포함되어 있습니다. [여기](https://github.com/Azure/azure-service-bus/blob/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java)의 GitHub 리포지토리에 있는 코드를 찾아볼 수 있습니다.
+이 섹션에는 샘플 코드의 주요 섹션에 대한 자세한 내용이 포함되어 있습니다. [여기](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters)의 GitHub 리포지토리에 있는 코드를 찾아볼 수 있습니다.
 
 ### <a name="get-connection-string-and-queue"></a>연결 문자열 및 큐 가져오기
 

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 썸네일 생성 - REST, Ruby - Computer Vision'
+title: '빠른 시작: 썸네일 생성 - REST, Ruby'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Ruby와 함께 Computer Vision API를 사용하여 이미지에서 썸네일을 생성합니다.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 2ddd2417a1e2a7548be641eca8e72b7967ace685
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: e666c9371b4f38f20c5835b06d7b9959ad5718ad
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958621"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53578719"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-ruby-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Ruby를 사용하여 썸네일 생성
 

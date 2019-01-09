@@ -1,5 +1,5 @@
 ---
-title: Azure 솔루션 자습서의 에지 변칙 검색 | Microsoft Docs
+title: 솔루션의 에지에서 이상 감지 자습서 - Azure | Microsoft Docs
 description: 이 자습서에서는 원격 모니터링 솔루션 가속기를 사용하여 IoT Edge 디바이스를 모니터링하는 방법을 알아봅니다.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 51c19447e115426bd39d39fedc86193c8f091df1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2f6e8b40907d02e62ede95a44fa10168f7590bd5
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843311"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606251"
 ---
-# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>자습서: 원격 모니터링 솔루션 가속기를 사용하여 에지에서 변칙 검색
+# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>자습서: 원격 모니터링 솔루션 가속기를 사용하여 에지에서 이상 감지
 
 이 자습서에서는 IoT Edge 디바이스에서 검색된 이상에 대응하도록 원격 모니터링 솔루션을 구성합니다. IoT Edge 디바이스에서는 Edge의 원격 분석을 처리하여 솔루션에 전송되는 원격 분석의 양을 줄이고 디바이스의 이벤트에 더 빠르게 대응할 수 있습니다. 에지 처리의 이점에 대한 자세한 내용은 [Azure IoT Edge란?](../iot-edge/about-iot-edge.md)을 참조하세요.
 
@@ -316,7 +316,7 @@ Edge 모듈로 패키징하기 전에 포털에서 Stream Analytics 작업을 �
     | ------ | ----- |
     | 규칙 이름 | 오일 펌프 온도 |
     | 설명 | 오일 펌프 온도가 300을 초과했습니다. |
-    | 디바이스 그룹 | OilPumps |
+    | 장치 그룹 | OilPumps |
     | 계산 | 인스턴트 |
     | 필드 | 온도 |
     | 연산자 | > |

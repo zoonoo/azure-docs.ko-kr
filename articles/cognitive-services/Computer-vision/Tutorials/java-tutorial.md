@@ -1,5 +1,5 @@
 ---
-title: '자습서: Computer Vision API Java'
+title: '자습서: 이미지 작업 수행 - Java'
 titlesuffix: Azure Cognitive Services
 description: Azure Cognitive Services에서 Computer Vision API를 사용하는 기본 Java Swing 앱을 살펴봅니다. OCR를 수행하고, 썸네일을 만들고, 이미지의 시각적 기능으로 작업합니다.
 services: cognitive-services
@@ -9,13 +9,14 @@ ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: tutorial
 ms.author: kefre
+ms.custom: seodec18
 ms.date: 09/21/2017
-ms.openlocfilehash: 36a8a49ee49636d186ca217ae223b1eebf9bb54b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f039e85ab3fccfc36b704f06d9fcfa3b4cfed758
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340259"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584550"
 ---
 # <a name="tutorial-computer-vision-api-java"></a>자습서: Computer Vision API Java
 
@@ -69,7 +70,7 @@ NetBeans는 .zip 파일에서 프로젝트를 가져오므로 .zip 파일의 콘
 
 ### <a name="build-and-run-the-tutorial-project"></a>자습서 프로젝트 빌드 및 실행
 
-1. **F6** 키를 눌러 자습서 응용 프로그램을 빌드 및 실행합니다.
+1. **F6** 키를 눌러 자습서 애플리케이션을 빌드 및 실행합니다.
 
     자습서 애플리케이션에서 Tab 키를 클릭하여 해당 기능의 창을 표시합니다. 단추에는 빈 메서드가 있으므로 아무 작업도 수행하지 않습니다.
 
@@ -203,7 +204,7 @@ Computer Vision의 [분석] 기능은 이미지를 검사하여 2,000개가 넘�
 
 #### <a name="run-the-application"></a>애플리케이션 실행
 
-**F6** 키를 눌러 응용 프로그램을 실행합니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. 분석할 이미지에 대한 URL을 입력한 다음, **이미지 분석** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
+**F6** 키를 눌러 애플리케이션을 실행합니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. 분석할 이미지에 대한 URL을 입력한 다음, **이미지 분석** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
 ### <a name="recognize-a-landmark"></a>랜드마크 인식
 
@@ -327,7 +328,7 @@ Computer Vision의 [랜드마크] 기능은 산이나 유명한 건물과 같은
 
 #### <a name="run-the-application"></a>애플리케이션 실행
 
-**F6** 키를 눌러 응용 프로그램을 실행합니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. **랜드마크** 탭을 클릭하고, 랜드마크 이미지의 URL을 입력한 다음, **이미지 분석** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
+**F6** 키를 눌러 애플리케이션을 실행합니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. **랜드마크** 탭을 클릭하고, 랜드마크 이미지의 URL을 입력한 다음, **이미지 분석** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
 ### <a name="recognize-celebrities"></a>유명 인사 인식
 
@@ -451,7 +452,7 @@ Computer Vision의 [유명 인사] 기능은 유명 인사에 대한 이미지�
 
 #### <a name="run-the-application"></a>애플리케이션 실행
 
-**F6** 키를 눌러 응용 프로그램을 실행합니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. **유명인** 탭을 클릭하고, 유명인 이미지의 URL을 입력한 다음, **이미지 분석** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
+**F6** 키를 눌러 애플리케이션을 실행합니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. **유명인** 탭을 클릭하고, 유명인 이미지의 URL을 입력한 다음, **이미지 분석** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
 ### <a name="intelligently-generate-a-thumbnail"></a>지능적으로 썸네일 생성
 
@@ -574,7 +575,7 @@ Computer Vision의 썸네일 기능은 이미지에서 썸네일을 생성합니
 
 #### <a name="run-the-application"></a>애플리케이션 실행
 
-**F6** 키를 눌러 응용 프로그램을 실행합니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. **썸네일** 탭을 클릭하고, 이미지의 URL을 입력한 다음, **썸네일 생성** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
+**F6** 키를 눌러 애플리케이션을 실행합니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. **썸네일** 탭을 클릭하고, 이미지의 URL을 입력한 다음, **썸네일 생성** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
 ### <a name="read-printed-text-ocr"></a>인쇄된 텍스트 읽기(OCR)
 
@@ -685,7 +686,7 @@ Computer Vision의 OCR(광학 인식) 기능은 인쇄된 텍스트의 이미지
 
 #### <a name="run-the-application"></a>애플리케이션 실행
 
-**F6** 키를 눌러 응용 프로그램을 실행합니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. **OCR** 탭을 클릭하고, 인쇄 텍스트 이미지의 URL을 입력한 다음, **이미지 읽기** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
+**F6** 키를 눌러 애플리케이션을 실행합니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. **OCR** 탭을 클릭하고, 인쇄 텍스트 이미지의 URL을 입력한 다음, **이미지 읽기** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
 ### <a name="read-handwritten-text-handwriting-recognition"></a>필기 텍스트 읽기(필기 인식)
 

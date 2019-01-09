@@ -1,5 +1,5 @@
 ---
-title: Linux에서 Postgres를 사용하여 Ruby 웹앱 빌드 - Azure App Service | Microsoft Docs
+title: Linux에서 Postgres를 사용하여 Ruby 앱 빌드 - Azure App Service | Microsoft Docs
 description: Azure에서 PostgreSQL 데이터베이스에 연결하여 Ruby 앱이 작동하도록 하는 방법에 대해 알아봅니다.
 services: app-service\web
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 247c4f24869901f0f50b081d8f57b7e3841a8e8a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e42d9592d74e845410441097fa6082cfb3f4ac5e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271031"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713882"
 ---
-# <a name="build-a-ruby-and-postgres-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Ruby 및 Postgres 웹앱 빌드
+# <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Ruby 및 Postgres 앱 빌드
 
-[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 Ruby 웹앱을 만들고 PostgreSQL 데이터베이스에 연결하는 방법을 보여줍니다. 완료되면 [Ruby on Rails](https://rubyonrails.org/) 앱이 Linux의 App Service에서 실행됩니다.
+[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 Ruby 앱을 만들고 PostgreSQL 데이터베이스에 연결하는 방법을 보여줍니다. 완료되면 [Ruby on Rails](https://rubyonrails.org/) 앱이 Linux의 App Service에서 실행됩니다.
 
 ![Azure App Service에서 실행 중인 Ruby on Rails 앱](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
@@ -92,7 +92,7 @@ bundle install --path vendor/bundle
 
 ### <a name="run-the-sample-locally"></a>로컬에서 샘플 실행
 
-[Rails 마이그레이션](https://guides.rubyonrails.org/active_record_migrations.html#running-migrations)을 실행하여 응용 프로그램에 필요한 테이블을 만듭니다. 마이그레이션에서 만들어진 테이블을 보려면 Git 리포지토리의 _db/migrate_ 디렉터리를 살펴봅니다.
+[Rails 마이그레이션](https://guides.rubyonrails.org/active_record_migrations.html#running-migrations)을 실행하여 애플리케이션에 필요한 테이블을 만듭니다. 마이그레이션에서 만들어진 테이블을 보려면 Git 리포지토리의 _db/migrate_ 디렉터리를 살펴봅니다.
 
 ```bash
 rake db:create
@@ -162,7 +162,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 ```
 
 > [!TIP] 
-> [앱이 사용하는 아웃바운드 IP 주소만 사용](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips)으로 방화벽 규칙을 훨씬 더 엄격하게 제한할 수 있습니다.
+> [앱이 사용하는 아웃바운드 IP 주소만 사용](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips)으로 방화벽 규칙을 훨씬 더 엄격하게 제한할 수 있습니다.
 >
 
 ### <a name="connect-to-production-postgres-server-locally"></a>로컬에서 프로덕션 Postgres 서버에 연결
@@ -357,7 +357,7 @@ remote: Running deployment command...
 < Output has been truncated for readability >
 ```
 
-### <a name="browse-to-the-azure-web-app"></a>Azure 웹앱 찾아보기
+### <a name="browse-to-the-azure-app"></a>Azure 앱 찾아보기
 
 `http://<app_name>.azurewebsites.net`으로 이동한 후 목록에 몇 가지 작업을 추가합니다.
 
@@ -390,7 +390,7 @@ rails generate migration AddDoneToTasks Done:boolean
 rake db:migrate
 ```
 
-### <a name="update-application-logic"></a>응용 프로그램 논리 업데이트
+### <a name="update-application-logic"></a>애플리케이션 논리 업데이트
 
 *app/controllers/tasks_controller.rb* 파일을 엽니다. 파일 끝에 다음 줄을 추가합니다.
 
@@ -470,21 +470,21 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-`git push`가 완료되면 Azure 웹앱으로 이동하여 새 기능을 테스트해 봅니다.
+`git push`가 완료되면 Azure 앱으로 이동하여 새 기능을 테스트해 봅니다.
 
 ![Azure에 게시된 모델 및 데이터베이스 변경 내용](media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
 모든 작업을 추가했으면 데이터베이스에서 유지됩니다. 데이터 스키마를 업데이트하는 경우 기존 데이터는 그대로 유지됩니다.
 
-## <a name="manage-the-azure-web-app"></a>Azure 웹앱 관리
+## <a name="manage-the-azure-app"></a>Azure 앱 관리
 
-만든 웹앱을 관리하려면 [Azure Portal](https://portal.azure.com)로 이동합니다.
+만든 앱을 관리하려면 [Azure Portal](https://portal.azure.com)로 이동합니다.
 
-왼쪽 메뉴에서 **App Services**를 클릭한 다음 Azure 웹앱의 이름을 클릭합니다.
+왼쪽 메뉴에서 **App Services**를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
 
-![Azure 웹앱에 대한 포털 탐색](./media/tutorial-php-mysql-app/access-portal.png)
+![Azure 앱에 대한 포털 탐색](./media/tutorial-php-mysql-app/access-portal.png)
 
-웹앱의 개요 페이지가 표시됩니다. 여기서 중지, 시작, 다시 시작, 찾아보기 및 삭제와 같은 기본 관리 작업을 수행할 수 있습니다.
+앱의 개요 페이지가 표시됩니다. 여기서 중지, 시작, 다시 시작, 찾아보기 및 삭제와 같은 기본 관리 작업을 수행할 수 있습니다.
 
 왼쪽 메뉴에서 앱을 구성하기 위한 페이지를 제공합니다.
 
@@ -506,7 +506,7 @@ git push azure master
 > * Azure에서 진단 로그 스트림
 > * Azure Portal에서 앱 관리
 
-다음 자습서로 이동하여 사용자 지정 DNS 이름을 웹앱에 매핑하는 방법을 알아봅니다.
+다음 자습서로 이동하여 사용자 지정 DNS 이름을 앱에 매핑하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md)
+> [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md)

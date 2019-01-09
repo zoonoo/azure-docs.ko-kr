@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 11/06/2018
-ms.openlocfilehash: f279d7ca40eac1764ec5549aecec36b0f62034e8
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4dd9634d5d5e6ce749a4ee563903b07e22bc45ee
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495772"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652335"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>자습서: Azure HDInsight의 Apache Spark 클러스터에서 데이터 로드 및 쿼리 실행
 
@@ -58,7 +58,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     csvFile.write.saveAsTable("hvac")
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > PySpark 커널을 사용하여 Notebook을 만들면 첫 번째 코드 셀을 실행할 때 `spark` 세션이 자동으로 만들어집니다. 세션을 명시적으로 만들 필요가 없습니다.
 
 

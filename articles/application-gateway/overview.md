@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: b58237f25a51438f0255243f960cc2a6aed2b0ca
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6badfabb3ad20b5c17b3bb2bf09ae13f63568d05
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679174"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714754"
 ---
 # <a name="what-is-azure-application-gateway"></a>Azure Application Gateway란?
 
@@ -25,7 +25,7 @@ Azure Application Gateway는 웹 애플리케이션에 대한 트래픽을 관�
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1-720.png)
 
-이 유형의 라우팅은 애플리케이션 계층(OSI 계층 7) 부하 분산이라고 합니다. Azure Application Gateway는 URL 기반 라우팅 및 기타 작업을 수행할 수 있습니다. 
+이 유형의 라우팅은 응용 프로그램 계층(OSI 계층 7) 부하 분산이라고 합니다. Azure Application Gateway는 URL 기반 라우팅 및 기타 작업을 수행할 수 있습니다. 
 
 다음 기능이 Azure Application Gateway에 포함되어 있습니다.
 
@@ -37,7 +37,7 @@ Azure Application Gateway는 웹 애플리케이션에 대한 트래픽을 관�
 
 - **영역 중복** - Application Gateway 또는 WAF 배포가 여러 가용성 영역으로 확장될 수 있으므로 Traffic Manager를 사용하여 각 영역에 별도의 Application Gateway 인스턴스를 프로비전하고 작동할 필요가 없습니다.
 
-- **정적 VIP** - 응용 프로그램 게이트웨이 VIP가 이제 정적 VIP 유형만 독점적으로 지원합니다. 따라서 재시작 후에도 애플리케이션 게이트웨이와 연결된 VIP가 변하지 않습니다.
+- **정적 VIP** - 응용 프로그램 게이트웨이 VIP가 이제 정적 VIP 유형만 독점적으로 지원합니다. 따라서 재시작 후에도 응용 프로그램 게이트웨이와 연결된 VIP가 변하지 않습니다.
 
 - 일반 공급되는 SKU에 비해 **배포 및 업데이트 시간이 빠릅**니다. 
 
@@ -64,11 +64,11 @@ Application Gateway를 사용하면 기본 오류 페이지를 표시하는 대�
 
 자세한 내용은 [Application Gateway 사용자 지정 오류 페이지 만들기](custom-error.md)를 참조하세요.
 
-## <a name="web-application-firewall"></a>웹 애플리케이션 방화벽
+## <a name="web-application-firewall"></a>웹 응용 프로그램 방화벽
 
-WAF(웹 애플리케이션 방화벽)는 일반적인 악용 및 취약점으로부터 웹 애플리케이션에 대해 중앙 집중화된 보호를 제공하는 Application Gateway의 기능입니다. WAF는 [OWASP(Open Web Application Security Project) 핵심 규칙 집합](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 또는 2.2.9의 규칙에 기반합니다. 
+WAF(웹 응용 프로그램 방화벽)는 일반적인 악용 및 취약점으로부터 웹 응용 프로그램에 대해 중앙 집중화된 보호를 제공하는 Application Gateway의 기능입니다. WAF는 [OWASP(Open Web Application Security Project) 핵심 규칙 집합](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 또는 2.2.9의 규칙에 기반합니다. 
 
-웹 애플리케이션의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 공격으로는 SQL 삽입 공격, 사이트 간 스크립팅 공격 등이 있습니다. 애플리케이션 코드로 이러한 공격을 방어하기란 매우 어려울 수 있으며 애플리케이션 토폴로지의 다양한 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 중앙 집중식 웹 애플리케이션 방화벽을 통해 보안 관리가 훨씬 간단해지고 애플리케이션 관리자에게 위협 또는 침입으로부터 효과적인 보호를 제공합니다. 또한 WAF 솔루션은 각각의 웹 애플리케이션을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 Application Gateway는 웹 애플리케이션 방화벽을 사용한 Application Gateway로 쉽게 변환될 수 있습니다.
+웹 응용 프로그램의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 공격으로는 SQL 삽입 공격, 사이트 간 스크립팅 공격 등이 있습니다. 응용 프로그램 코드로 이러한 공격을 방어하기란 매우 어려울 수 있으며 응용 프로그램 토폴로지의 다양한 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 중앙 집중식 웹 응용 프로그램 방화벽을 통해 보안 관리가 훨씬 간단해지고 응용 프로그램 관리자에게 위협 또는 침입으로부터 효과적인 보호를 제공합니다. 또한 WAF 솔루션은 각각의 웹 응용 프로그램을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 Application Gateway는 웹 응용 프로그램 방화벽을 사용한 Application Gateway로 쉽게 변환될 수 있습니다.
 
 ## <a name="url-based-routing"></a>URL 기반 라우팅
 
@@ -105,6 +105,14 @@ Application Gateway 리디렉션 지원에서는 다음과 같은 기능을 제�
 Application Gateway는 WebSocket 및 HTTP/2 프로토콜에 대한 네이티브 지원을 제공합니다. WebSocket 지원을 선택적으로 사용하거나 사용하지 않도록 설정하는 사용자 구성 가능 설정은 없습니다. HTTP/2 지원은 Azure PowerShell을 사용하여 활성화할 수 있습니다.
 
 WebSocket 및 HTTP/2 프로토콜을 사용하면 장기 실행 TCP 연결을 통해 서버와 클라이언트 간의 전이중 통신을 수행할 수 있습니다. 이를 사용하면 웹 서버와 클라이언트 간의 대화형 통신이 가능하며, HTTP 기반 구현에서 필요에 따라 폴링하지 않고도 양방향 통신을 수행할 수 있습니다. 프로토콜은 HTTP와 달리 오버헤드가 낮고 여러 요청/응답에 동일한 TCP 연결을 다시 사용하므로 리소스를 보다 효율적으로 사용할 수 있습니다. 이러한 프로토콜은 기존의 HTTP 포트 80 및 443을 통해 작동하도록 디자인되었습니다.
+
+## <a name="rewrite-http-headers-public-preview"></a>HTTP 헤더 다시 쓰기(공개 미리 보기)
+
+HTTP 헤더를 통해 클라이언트와 서버는 요청 또는 응답을 사용하여 추가 정보를 전달할 수 있습니다. 이러한 HTTP 헤더를 다시 쓰면 HSTS/ X-XSS-보호와 같은 보안 관련 헤더 필드 추가 또는 백 엔드 서버 이름과 같은 중요한 정보를 표시할 수 있는 응답 헤더 필드 제거와 같은 여러 중요한 시나리오를 수행할 수 있습니다. 
+
+Application Gateway는 이제 들어오는 HTTP 요청 뿐만 아니라 나가는 HTTP 응답의 헤더를 다시 쓰는 기능을 지원합니다. 요청/응답 패킷이 클라이언트와 백 엔드 풀 사이를 이동하는 동안 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트할 수 있습니다. 표준([RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)에 정의됨) 및 비표준 헤더 필드 모두를 다시 쓸 수 있습니다.  
+
+이 공개 미리 보기 기능에 대한 자세한 내용은 [HTTP 헤더 다시 쓰기](rewrite-http-headers.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

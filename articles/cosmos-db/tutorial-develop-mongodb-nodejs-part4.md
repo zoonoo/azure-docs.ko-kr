@@ -1,5 +1,5 @@
 ---
-title: Node.Js, MongoB API를 사용하는 Angular 앱(4부)
+title: Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Cosmos 계정 만들기
 titleSuffix: Azure Cosmos DB
 description: MongoDB에 사용하는 것과 정확히 동일한 API를 사용한 Azure Cosmos DB의 Angular 및 노드를 사용하여 MongoDB 앱을 만드는 방법에 대한 자습서 시리즈의 4부
 author: johnpapa
@@ -10,22 +10,22 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: d6119186bd8ffbda4fa3bb2c432dd58d851992ea
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d85183f0104d9066f93adc73c09c76406128700d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136225"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787803"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account"></a>Angular 및 Azure Cosmos DB에서 MongoDB 앱 만들기 - 4부: Azure Cosmos DB 계정 만들기
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Cosmos 계정 만들기
 
-이 다중 파트 자습서에서는 Express, Angular Azure Cosmos DB 데이터베이스를 포함한 Node.js로 작성된 새 [MongoDB API](mongodb-introduction.md) 앱을 만드는 방법을 보여줍니다.
+여러 파트로 구성된 이 자습서에서는 Express 및 Angular를 사용하여 Node.js로 작성된 새 앱을 만든 다음, [Cosmos DB의 API for MongoDB를 사용하여 구성된 Cosmos 계정](mongodb-introduction.md)에 연결하는 방법을 보여줍니다.
 
 자습서의 4부는 [3부](tutorial-develop-mongodb-nodejs-part3.md)를 기반으로 하고 다음과 같은 작업을 다룹니다.
 
 > [!div class="checklist"]
 > * Azure CLI를 사용하여 Azure 리소스 그룹 만들기
-> * Azure CLI를 사용하여 Azure Cosmos DB 계정 만들기
+> * Azure CLI를 사용하여 Cosmos 계정 만들기
 
 ## <a name="video-walkthrough"></a>연습 동영상
 
@@ -44,7 +44,7 @@ ms.locfileid: "53136225"
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)]
 
 > [!TIP]
-> 이 자습서에서는 애플리케이션을 구축하는 단계를 단계별로 설명합니다. 완료된 프로젝트를 다운로드하려는 경우 GitHub의 [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb)에서 완성된 애플리케이션을 가져올 수 있습니다.
+> 이 자습서에서는 응용 프로그램을 구축하는 단계를 단계별로 설명합니다. 완료된 프로젝트를 다운로드하려는 경우 GitHub의 [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb)에서 완성된 응용 프로그램을 가져올 수 있습니다.
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정 만들기
 

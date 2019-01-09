@@ -8,15 +8,15 @@ ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/20/2018
+ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 7e654e070ce64b0f5e7f9fb5734bf0ec1584dbf6
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9db223075284b02de1cf3de8cfa7a0b5aa35f286
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423612"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754223"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>자습서: .NET API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
@@ -52,8 +52,8 @@ ms.locfileid: "52423612"
 Azure Portal을 사용하여 ffmpeg를 Batch 계정에 [애플리케이션 패키지](batch-application-packages.md)로 추가합니다. 애플리케이션 패키지를 사용하면 풀의 계산 노드에 태스크 애플리케이션 및 해당 배포를 간편하게 관리할 수 있습니다. 
 
 1. Azure Portal에서 **추가 서비스** > **Batch 계정**을 클릭하고 Batch 계정의 이름을 클릭합니다.
-3. **응용 프로그램** > **추가**를 클릭합니다.
-4. **응용 프로그램 ID**에 *ffmpeg*와 패키지 버전 *3.4*를 입력합니다. 이전에 다운로드한 ffmpeg zip 파일을 선택한 다음 **확인**을 클릭합니다. ffmpeg 애플리케이션 패키지가 Batch 계정에 추가됩니다.
+3. **애플리케이션** > **추가**를 클릭합니다.
+4. **애플리케이션 ID**에 *ffmpeg*와 패키지 버전 *3.4*를 입력합니다. 이전에 다운로드한 ffmpeg zip 파일을 선택한 다음 **확인**을 클릭합니다. ffmpeg 애플리케이션 패키지가 Batch 계정에 추가됩니다.
 
 ![애플리케이션 패키지 추가](./media/tutorial-parallel-dotnet/add-application.png)
 
@@ -248,11 +248,14 @@ await job.CommitAsync();
 
 이 샘플은 [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) 개체 목록을 만드는 `AddTasksAsync` 메서드를 호출하여 작업에 태스크를 만듭니다. 각 `CloudTask`는 [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) 속성을 사용하여 입력된 `ResourceFile` 개체를 처리하는 ffmpeg를 실행합니다. ffmpeg는 이전에 풀이 생성될 때 각 노드에 설치되었습니다. 여기서 명령줄은 fmpeg를 실행하여 입력된 각 MP4(비디오) 파일을 MP3(오디오) 파일로 변환합니다.
 
-이 샘플에서는 명령줄을 실행한 후 MP3 파일에 대한 [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) 개체를 만듭니다. 각 태스크의 출력 파일(이 경우에는 하나)은 태스크의 [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) 속성을 사용하여 연결된 저장소 계정의 컨테이너에 업로드됩니다.
+이 샘플에서는 명령줄을 실행한 후 MP3 파일에 대한 [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) 개체를 만듭니다. 각 태스크의 출력 파일(이 경우에는 하나)은 태스크의 [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) 속성을 사용하여 연결된 저장소 계정의 컨테이너에 업로드됩니다. 이전 코드 샘플에서는 출력 컨테이너에 대한 쓰기 액세스를 제공하기 위해 공유 액세스 서명 URL(`outputContainerSasUrl`)을 획득했습니다. `outputFile` 개체에 설정된 조건을 잘 보세요. 작업이 성공적으로 완료된 후 (`OutputFileUploadCondition.TaskSuccess`) 작업의 출력 파일이 컨테이너에만 업로드됩니다. 자세한 구현 정보는 GitHub에서 전체 [코드 샘플](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial)을 참조하세요.
 
 그런 다음, 샘플에서는 [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync) 메서드를 사용하여 작업에 태스크를 추가하고, 해당 태스크를 계산 노드에서 실행할 때까지 큐에서 대기합니다.
 
 ```csharp
+ // Create a collection to hold the tasks added to the job.
+List<CloudTask> tasks = new List<CloudTask>();
+
 for (int i = 0; i < inputFiles.Count; i++)
 {
     string taskId = String.Format("Task{0}", i);
@@ -265,7 +268,7 @@ for (int i = 0; i < inputFiles.Count; i++)
         ".mp3");
     string taskCommandLine = String.Format("cmd /c {0}\\ffmpeg-3.4-win64-static\\bin\\ffmpeg.exe -i {1} {2}", appPath, inputMediaFile, outputMediaFile);
 
-    // Create a cloud task (with the task ID and command line) 
+    // Create a cloud task (with the task ID and command line)
     CloudTask task = new CloudTask(taskId, taskCommandLine);
     task.ResourceFiles = new List<ResourceFile> { inputFiles[i] };
 

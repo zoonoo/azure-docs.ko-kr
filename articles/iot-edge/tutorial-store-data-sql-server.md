@@ -9,12 +9,12 @@ ms.date: 12/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 0193d79dec663b089184099c2a4d275c91380c8b
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: a78c4d64761b5eecc5b7ebf8aa0223b862935575
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163415"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728196"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>자습서: SQL Server 데이터베이스로 에지에 데이터 저장
 
@@ -340,7 +340,7 @@ IoT Hub를 통해 디바이스에서 모듈을 설정할 수 있지만 Visual St
 
 배포가 성공하는 경우 VS Code 출력에 확인 메시지가 출력됩니다. 
 
-VS Code의 Azure IoT Hub Devices 섹션에서 디바이스의 상태를 새로 고칩니다. 새 모듈이 나열되고, 컨테이너가 설치되고 시작됨에 따라 다음 몇 분 동안 '실행 중'이라고 보고되기 시작합니다. 모든 모듈이 장치에서 실행되는지를 확인할 수도 있습니다. IoT Edge 장치에서 다음 명령을 실행하여 모듈의 상태를 확인합니다. 
+VS Code의 Azure IoT Hub Devices 섹션에서 디바이스의 상태를 새로 고칩니다. 새 모듈이 나열되고, 컨테이너가 설치되고 시작됨에 따라 다음 몇 분 동안 '실행 중'이라고 보고되기 시작합니다. 모든 모듈이 디바이스에서 실행되는지를 확인할 수도 있습니다. IoT Edge 장치에서 다음 명령을 실행하여 모듈의 상태를 확인합니다. 
 
    ```cmd/sh
    iotedge list

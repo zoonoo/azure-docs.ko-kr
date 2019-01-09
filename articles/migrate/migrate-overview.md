@@ -4,15 +4,15 @@ description: Azure Migrate 서비스의 개요를 제공합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: fcf26b8a5eff407d6dde092ae645084fb20a14a8
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c511ef8fc4ae580f869ef90da3e2c8764a146881
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250588"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969134"
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
@@ -37,8 +37,9 @@ Azure Migrate의 기능:
 -  다음 지역에서만 Azure Migrate 프로젝트를 만들 수 있지만, 여전히 다른 대상 Azure 위치를 평가할 수 있습니다.
     **지리** | **스토리지 위치**
     --- | ---
-    미국 | 미국 중서부 또는 미국 동부
     Azure Government | 미국 정부 버지니아
+    유럽 | 북유럽 또는 유럽 서부
+    미국 | 미국 동부 또는 미국 중서부
 
     마이그레이션 프로젝트와 연결된 지역은 온-프레미스 환경에서 발견된 메타데이터를 저장하는 데 사용됩니다. 메타데이터는 마이그레이션 프로젝트에 지정된 지역에 따라 지역 중 하나에 저장됩니다. 새 Log Analytics 작업 영역을 만들어서 종속성 시각화를 사용할 경우 작업 영역은 프로젝트와 같은 지역에 생성됩니다.
 - Azure Government에서는 종속성 시각화 기능을 사용할 수 없습니다.
@@ -76,7 +77,7 @@ Azure Migrate 가격 책정에 대해 [자세히 알아봅니다](https://azure.
 4. 검색을 시작하려면 VM에서 수집기를 실행합니다.
 5. 수집기는 VMware PowerCLI cmdlet을 사용하여 VM 메타데이터를 수집합니다. 검색은 에이전트 없이 수행되며, 및 VMware 호스트 또는 VM에 어떠한 것도 설치하지 않습니다. 수집된 메타데이터에는 VM 정보(코어, 메모리, 디스크, 디스크 크기 및 네트워크 어댑터)가 포함됩니다. 수집기는 CPU 및 메모리 사용량, 디스크 IOPS, 디스크 처리량(MBps) 및 네트워크 출력(MBps)을 포함하여 VM에 대한 성능 데이터도 수집합니다.
 5.  메타데이터는 Azure Migrate 프로젝트에 푸시됩니다. Azure Portal에서 메타데이터를 볼 수 있습니다.
-6.  평가를 위해 검색한 VM을 그룹으로 모읍니다. 예를 들면 동일한 애플리케이션을 실행하는 VM을 그룹화할 수 있습니다. 더 상세한 그룹화를 위해 종속성 시각화를 사용하여 특정 컴퓨터나 그룹의 모든 시스템에 대한 종속성을 보고 그룹을 구체화할 수 있습니다.
+6.  평가를 위해 검색한 VM을 그룹으로 모읍니다. 예를 들면 동일한 응용 프로그램을 실행하는 VM을 그룹화할 수 있습니다. 더 상세한 그룹화를 위해 종속성 시각화를 사용하여 특정 컴퓨터나 그룹의 모든 시스템에 대한 종속성을 보고 그룹을 구체화할 수 있습니다.
 7.  그룹을 정의한 후에 이에 대해 평가합니다.
 8.  평가가 완료되면 포털에서 보거나 Excel 형식으로 다운로드할 수 있습니다.
 

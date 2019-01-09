@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/13/2018
 ms.author: chlandsi
-ms.openlocfilehash: eaa44f942082c6bd062599dbdd0401fe4505daf4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 75411ebd50448c5f490a1f03fbbf25a61dbffaf8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090211"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718115"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>빠른 시작: Speech Service SDK를 사용하여 iOS의 Objective-C에서 음성 인식
 
@@ -35,7 +35,7 @@ ms.locfileid: "53090211"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Cognitive Services 음성 SDK의 현재 버전은 `1.1.0`입니다.
+Cognitive Services 음성 SDK의 현재 버전은 `1.2.0`입니다.
 
 Mac 및 iOS용 Cognitive Services Speech SDK는 현재 Cocoa Framework로 배포됩니다.
 https://aka.ms/csspeech/iosbinary에서 다운로드할 수 있습니다. 홈 디렉터리에 파일을 다운로드합니다.
@@ -49,7 +49,7 @@ Xcode를 시작하고, **파일** > **새로 만들기** > **프로젝트**를 �
 
 1. 프로젝트 옵션 대화 상자
     1. 빠른 시작 앱의 이름을 입력합니다(예: `helloworld`).
-    1. Apple 개발자 계정이 이미 있는 경우 적절한 조직 이름 및 조직 식별자를 입력합니다. 테스트를 위해 `testorg`와 같은 이름을 선택할 수 있습니다. 앱에 서명하기 위해 적절한 프로비전 프로이 필요합니다. 자세한 내용은 [Apple 개발자 사이트](https://developer.apple.com/)를 참조하세요.
+    1. Apple 개발자 계정이 이미 있는 경우 적절한 조직 이름 및 조직 식별자를 입력합니다. 테스트를 위해 `testorg`와 같은 이름을 선택할 수 있습니다. 앱에 서명하려면 적절한 프로비전 프로필이 필요합니다. 자세한 내용은 [Apple 개발자 사이트](https://developer.apple.com/)를 참조하세요.
     1. 프로젝트에 대한 언어로 Objective-C가 선택되었는지 확인합니다.
     1. 테스트 및 핵심 데이터에 대한 모든 확인란을 사용하지 않도록 설정합니다.
     ![프로젝트 설정](media/sdk/qs-objectivec-project-settings.png)
@@ -68,7 +68,7 @@ Xcode를 시작하고, **파일** > **새로 만들기** > **프로젝트**를 �
 예제 앱에서는 UI가 아주 단순합니다. 파일 또는 마이크 입력에서 음성 인식을 시작하는 단추 두 개와 결과를 표시하는 텍스트 레이블로 구성되어 있습니다.
 UI는 프로젝트의 일부로 `Main.storyboard`에 설정되어 있습니다.
 마우스 오른쪽 단추로 프로젝트 트리의 `Main.storyboard` 항목을 클릭하고 **다음 형식으로 열기...** > **소스 코드**를 선택하여 스토리보드의 XML 뷰를 엽니다.
-자동으로 생성된 XML을 다음으로 바꿉니다.
+자동으로 생성된 XML을 이 코드로 바꿉니다.
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/Base.lproj/Main.storyboard)]
 
@@ -99,10 +99,7 @@ UI는 프로젝트의 일부로 `Main.storyboard`에 설정되어 있습니다.
 
 1. 앱에서 "Recognize (Microphone)" 단추를 클릭하고 몇 단어를 말하면 화면 아래쪽 부분에 사용자가 말한 텍스트가 보영 합니다.
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-이 예제를 `quickstart/objectivec-ios` 폴더에서 찾을 수 있습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [샘플 가져오기](speech-sdk.md#get-the-samples)
+> [GitHub의 Objective-C 샘플 살펴보기](https://aka.ms/csspeech/samples)

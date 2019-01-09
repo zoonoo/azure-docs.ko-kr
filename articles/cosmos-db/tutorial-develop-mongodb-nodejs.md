@@ -7,21 +7,21 @@ ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: ea69e4c8ba74dc685dd0b0fb7ac61cc6d061a26f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 364c8d4c0ca9ac9a733ee98fd73b2dfd8497625f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137653"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791289"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db"></a>Angular 및 Azure Cosmos DB에서 MongoDB 앱 만들기 
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기
 
-이 다중 파트 자습서에서는 Express, Angular 및 Node.js(MEAN 스택)을 사용하여 새 [MongoDB API](mongodb-introduction.md) 앱을 만들고 Azure Cosmos DB 데이터베이스에 연결하는 방법을 보여줍니다. Azure Cosmos DB는 MongoDB 클라이언트 연결을 지원합니다. 따라서 MongoDB 대신 Azure Cosmos DB를 사용할 수 있지만 MongoDB 앱에 사용하는 동일한 코드를 사용합니다. 여기에는 추가 이점이 있습니다. Azure Cosmos DB의 이러한 이점은 쉬운 클라우드 배포, 크기 조정, 보안, 복제된 글로벌 데이터, 다중 모델 지원 및 초고속 읽기 및 쓰기입니다. 
+여러 파트로 구성된 이 자습서에서는 Express 및 Angular를 사용하여 Node.js로 작성된 새 앱을 만든 다음, [Cosmos DB의 API for MongoDB를 사용하여 구성된 Cosmos 계정](mongodb-introduction.md)에 연결하는 방법을 보여줍니다.
 
-Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
+Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Cosmos DB의 핵심인 글로벌 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
 이 다중 파트 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -40,7 +40,7 @@ React를 사용하여 동일한 앱을 빌드하시겠습니까? [React 자습�
 
 ## <a name="finished-project"></a>완료된 프로젝트 
 
-이 자습서에서는 애플리케이션을 구축하는 단계를 단계별로 설명합니다. 완료된 프로젝트를 다운로드하려는 경우 GitHub의 [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb)에서 완성된 애플리케이션을 가져올 수 있습니다.
+이 자습서에서는 응용 프로그램을 구축하는 단계를 단계별로 설명합니다. 완료된 프로젝트를 다운로드하려는 경우 GitHub의 [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb)에서 완성된 응용 프로그램을 가져올 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 44b5702aa765b0e821850f6a390432563126482d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6e0cff6725db52601b4639ad638216370dd3cfda
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839911"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810698"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM의 Azure로의 재해 복구 설정
 
@@ -81,8 +81,24 @@ ms.locfileid: "52839911"
 5. **프록시 설정**에서 **프록시 서버 없이 Azure Site Recovery에 직접 연결**을 선택합니다.
 6. **등록**에서 자격 증명 모음에 서버를 등록한 후에 **마침**을 클릭합니다.
 
-Azure Site Recovery에서 Hyper-V 서버의 메타데이터가 검색되며 서버가 **Site Recovery 인프라** > **Hyper-V 호스트**에 표시됩니다. 이 프로세스는 최대 30분 정도 걸릴 수 있습니다.
+Azure Site Recovery에서 Hyper-V 서버의 메타데이터가 검색되며 서버가 **Site Recovery 인프라** > **Hyper-V 호스트**에 표시됩니다. 이 프로세스는 최대 30분 정도 걸릴 수 있습니다.        
 
+Hyper-V 코어 서버를 사용하는 경우 [여기](#set-up-the-source-environment)서 설명한 대로 공급자 및 자격 증명 모음 자격 증명을 다운로드한 후 다음 단계를 수행합니다.
+
+1. 다음을 실행하여 AzureSiteRecoveryProvider에서 파일을 추출합니다.
+
+    ``AzureSiteRecoveryProvider.exe /x:. /q``
+ 
+    그러면 파일이 로컬 디렉터리에 추출됩니다.
+ 
+2.  ``.\setupdr.exe /i `` 실행
+
+    결과가 %Programdata%\ASRLogs\DRASetupWizard.log에 기록됩니다.
+
+3.  다음 명령을 사용하여 서버를 등록합니다.
+
+``cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved" ``
+ 
 
 ## <a name="set-up-the-target-environment"></a>대상 환경 설정
 
@@ -115,7 +131,7 @@ Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 
 ## <a name="enable-replication"></a>복제 사용
 
 
-1. **응용 프로그램 복제**에서 **원본**을 클릭합니다. 
+1. **애플리케이션 복제**에서 **원본**을 클릭합니다. 
 2. **원본**에서 **ContosoHyperVSite** 사이트를 선택합니다. 그런 후 **OK**를 클릭합니다.
 3. **대상**에서 대상(Azure), 자격 증명 모음 구독, **Resource Manager** 배포 모델을 확인합니다.
 4. 이전 자습서에서 복제된 데이터용으로 만든 **contosovmsacct1910171607** 저장소 계정을 선택하고, 장애 조치(failover) 후 Azure VM이 배치될 **ContosoASRnet** 네트워크를 선택합니다.

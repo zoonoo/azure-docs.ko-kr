@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services를 사용하여 업로드, 인코딩 및 스트리밍 - REST | Microsoft Docs
-description: 이 자습서의 단계에 따라 REST를 사용하여 Azure Media Services에서 파일을 업로드하고, 비디오를 인코딩하고, 콘텐츠를 스트림합니다.
+title: Azure Media Services를 사용하여 URL에 따라 원격 파일 인코딩 및 스트림 - REST | Microsoft Docs
+description: 이 자습서의 단계에 따라 REST를 사용하여 Azure Media Services에서 URL에 따라 파일을 인코딩하고 콘텐츠를 스트림합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,20 +10,20 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 12/19/2018
 ms.author: juliako
-ms.openlocfilehash: 67a0b6ced771519bd97934f8914ba420ee3119ce
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: cd020566b61dac7da37b24f10eebfc69b19073cb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615775"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720954"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>자습서: REST를 사용하여 비디오 업로드, 인코딩 및 스트림
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - REST
 
 Azure Media Services를 사용하면 다양한 브라우저 및 디바이스에서 재생할 수 있는 형식으로 미디어 파일을 인코딩할 수 있습니다. 예를 들어 콘텐츠를 Apple의 HLS 또는 MPEG DASH 형식으로 스트림할 수 있습니다. 스트림하기 전에 고품질 디지털 미디어 파일을 인코딩해야 합니다. 인코딩 지침은 [인코딩 개념](encoding-concept.md)을 참조하세요.
 
-이 자습서에서는 REST를 사용하는 Azure Media Services에서 비디오 파일을 업로드하고, 인코딩하고, 스트리밍하는 방법을 보여줍니다. 
+이 자습서에서는 REST를 사용하여 Azure Media Services에서 URL에 따라 파일을 인코딩하고 비디오를 스트림하는 방법을 보여줍니다. 
 
 ![비디오 재생](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -42,9 +42,9 @@ Azure Media Services를 사용하면 다양한 브라우저 및 디바이스에�
 
 ## <a name="prerequisites"></a>필수 조건
 
-- CLI를 로컬로 설치하여 사용하기 위해 이 문서에는 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+- CLI를 로컬로 설치하여 사용하려면 이 문서에서 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
-    현재 일부 [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) 명령만 Azure Cloud Shell에서 작동합니다. CLI를 로컬로 사용하는 것이 좋습니다.
+    현재 일부 [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) 명령은 Azure Cloud Shell에서 작동하지 않습니다. CLI를 로컬로 사용하는 것이 좋습니다.
 
 - [Media Services 계정 만들기](create-account-cli-how-to.md)
 
@@ -52,7 +52,7 @@ Azure Media Services를 사용하면 다양한 브라우저 및 디바이스에�
 
 - [Postman](https://www.getpostman.com/) REST 클라이언트를 설치하여 일부 AMS REST 자습서에 표시되는 REST API를 실행합니다. 
 
-    지금은 **Postman**을 사용하고 있지만 어떤 REST 도구도 괜찮습니다. **Visual Studio Code**와 REST 플러그 인을 함께 사용하거나, **Telerik Fiddler**를 사용할 수도 있습니다. 
+    지금은 **Postman**을 사용하고 있지만 어떤 REST 도구도 괜찮습니다. 다른 대안은 다음과 같습니다. **Visual Studio Code**와 REST 플러그 인을 함께 사용하거나, **Telerik Fiddler**를 사용할 수도 있습니다. 
 
 ## <a name="download-postman-files"></a>Postman 파일 다운로드
 
@@ -111,7 +111,7 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
 
 ### <a name="get-azure-ad-token"></a>Azure AD 토큰 가져오기 
 
-1. Postman의 왼쪽 창에서 "1단계: AAD 인증 토큰 가져오기"를 선택합니다.
+1. Postman의 왼쪽 창에서 “1단계: AAD 인증 토큰 가져오기”를 선택합니다.
 2. 그런 다음, "서비스 주체 인증을 위한 Azure AD 토큰 가져오기"를 선택합니다.
 3. **보내기**를 누릅니다.
 
@@ -174,7 +174,7 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
         ```json
         {
             "properties": {
-                "description": "Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets",
+                "description": "Standard Transform using an Adaptive Streaming encoding preset from the library of built-in Standard Encoder presets",
                 "outputs": [
                     {
                     "onError": "StopProcessingJob",
@@ -228,7 +228,7 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
 
 작업을 완료하는 데 시간이 다소 걸리기 때문에 완료되면 알림을 받는 것이 좋습니다. 작업 진행률을 보려면 Event Grid를 사용하는 것이 좋습니다. Event Grid는 고가용성, 일관된 성능 및 동적 크기 조정을 위해 설계되었습니다. Event Grid를 사용하면 앱이 사용자 지정 원본뿐만 아니라 거의 모든 Azure 서비스의 이벤트에 대해 수신 대기하고 대응할 수 있습니다. 간단한 HTTP 기반 반응형 이벤트 처리는 이벤트의 지능형 필터링 및 라우팅을 통해 효율적인 솔루션을 구축하는 데 도움이 됩니다.  [이벤트를 사용자 지정 웹 엔드포인트로 라우팅](job-state-events-cli-how-to.md)을 참조하세요.
 
-**작업**은 일반적으로 **예약됨**, **큐에 대기됨**, **처리 중**, **마침**(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중**이 표시되고 완료되면 **취소됨**이 표시됩니다.
+**작업**은 일반적으로 **예약됨**, **대기**, **처리 중**, **마침**(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중**이 표시되고 완료되면 **취소됨**이 표시됩니다.
 
 ### <a name="create-a-streaming-locator"></a>스트리밍 로케이터 만들기
 

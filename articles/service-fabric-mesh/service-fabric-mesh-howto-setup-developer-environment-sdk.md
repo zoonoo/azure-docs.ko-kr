@@ -1,6 +1,6 @@
 ---
 title: Service Fabric Mesh 앱을 빌드하기 위한 Windows 개발 환경 설정 | Microsoft Docs
-description: Service Fabric Mesh 애플리케이션을 만들고 Azure Service Fabric Mesh에 배포할 수 있도록 Windows 개발 환경을 설정합니다.
+description: Service Fabric Mesh 응용 프로그램을 만들고 Azure Service Fabric Mesh에 배포할 수 있도록 Windows 개발 환경을 설정합니다.
 services: service-fabric-mesh
 keywords: ''
 author: tylermsft
@@ -9,12 +9,12 @@ ms.date: 12/12/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: 3493b94e93a03faaf60aaa64bf8b80cefb754657
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a2c00d5373bd4e19a6e6057c6eddc758857860da
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309062"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556767"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Service Fabric Mesh 앱을 빌드하기 위한 Windows 개발 환경 설정
 
@@ -37,7 +37,7 @@ Windows 개발 머신에서 Azure Service Fabric Mesh 애플리케이션을 빌�
 
 ## <a name="visual-studio"></a>Visual Studio
 
-Visual Studio 2017은 Service Fabric Mesh 애플리케이션을 배포하는 데 필요합니다. [설치 버전 15.6.0][download-visual-studio] 이상은 다음 워크로드를 사용하도록 설정합니다.
+Visual Studio 2017은 Service Fabric Mesh 응용 프로그램을 배포하는 데 필요합니다. [설치 버전 15.6.0][download-visual-studio] 이상은 다음 워크로드를 사용하도록 설정합니다.
 
 * ASP.NET 및 웹 개발
 * Azure 개발
@@ -86,7 +86,7 @@ Install-WindowsFeature Containers
 > 터미널 창을 열고 오류가 발생하는지를 확인하는 `docker ps`를 실행하여 Docker가 실행되는지 테스트합니다. 응답이 오류를 나타내지 않는 경우 Docker가 실행되고 클러스터를 빌드할 준비가 되었습니다.
 
 > [!Note]
-> Windows Fall Creators 업데이트(버전 1709) 머신에서 개발하는 경우 Windows 버전 1709의 Docker 이미지만 사용할 수 있습니다.
+> Windows Fall Creators 업데이트(버전 1709) 머신에서 개발하는 경우 Windows 버전 1709 Docker 이미지만 사용할 수 있습니다.
 > Windows 10 2018년 4월 업데이트(버전 1803) 머신에서 개발하는 경우 Windows 버전 1709 또는 1803의 Docker 이미지를 사용합니다.
 
 Visual Studio를 사용하는 경우 계정이 없으면 Visual Studio가 자동으로 로컬 클러스터를 만들기 때문에 이 섹션을 건너뛰어도 됩니다.
@@ -111,7 +111,7 @@ Visual Studio를 사용하는 경우 계정이 없으면 Visual Studio가 자동
 
 ![그림 1 - 로컬 클러스터 시작](./media/service-fabric-mesh-howto-setup-developer-environment-sdk/start-local-cluster.png)
 
-이제 Service Fabric Mesh 애플리케이션을 만들 준비가 되었습니다!
+이제 Service Fabric Mesh 응용 프로그램을 만들 준비가 되었습니다!
 
 ## <a name="next-steps"></a>다음 단계
 

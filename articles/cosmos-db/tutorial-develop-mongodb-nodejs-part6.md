@@ -1,5 +1,5 @@
 ---
-title: Node.Js, MongoB API를 사용하는 Angular 앱(6부)
+title: Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - 앱에 CRUD 함수 추가
 titleSuffix: Azure Cosmos DB
 description: MongoDB에 사용하는 것과 정확히 동일한 API를 사용한 Azure Cosmos DB의 Angular 및 노드를 사용하여 MongoDB 앱을 만드는 방법에 대한 자습서 시리즈의 6부
 author: johnpapa
@@ -7,21 +7,19 @@ ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: ec6fc4237fd2be11d1e937ec6aed12898689e73f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: affa3fcc580ab69d7cba9db93890ed5f3c499bf4
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139982"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793362"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-crud-functions-to-the-app"></a>Angular 및 Azure Cosmos DB에서 MongoDB 앱 만들기 - 6부: 앱에 CRUD 함수 추가
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - 앱에 CRUD 함수 추가
 
-이 다중 파트 자습서에서는 Express 및 Angular와 Node.js로 작성된 새 [MongoDB API](mongodb-introduction.md) 앱을 만들고 Azure Cosmos DB 데이터베이스에 연결하는 방법을 보여줍니다.
-
-자습서의 6부는 [5부](tutorial-develop-mongodb-nodejs-part5.md)를 기반으로 하고 다음과 같은 작업을 다룹니다.
+여러 파트로 구성된 이 자습서에서는 Express 및 Angular를 사용하여 Node.js로 작성된 새 앱을 만든 다음, [Cosmos DB의 API for MongoDB를 사용하여 구성된 Cosmos 계정](mongodb-introduction.md)에 연결하는 방법을 보여줍니다. 자습서의 6부는 [5부](tutorial-develop-mongodb-nodejs-part5.md)를 기반으로 하고 다음과 같은 작업을 다룹니다.
 
 > [!div class="checklist"]
 > * Hero 서비스에 게시, 배치 및 삭제 함수 만들기
@@ -34,7 +32,7 @@ ms.locfileid: "53139982"
 자습서의 이 부분을 시작하기 전에 자습서 [5부](tutorial-develop-mongodb-nodejs-part5.md)의 단계를 완료했는지 확인합니다.
 
 > [!TIP]
-> 이 자습서에서는 애플리케이션을 구축하는 단계를 단계별로 설명합니다. 완료된 프로젝트를 다운로드하려는 경우 GitHub의 [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb)에서 완성된 애플리케이션을 가져올 수 있습니다.
+> 이 자습서에서는 응용 프로그램을 구축하는 단계를 단계별로 설명합니다. 완료된 프로젝트를 다운로드하려는 경우 GitHub의 [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb)에서 완성된 응용 프로그램을 가져올 수 있습니다.
 
 ## <a name="add-a-post-function-to-the-hero-service"></a>Hero 서비스에 게시 함수 추가
 

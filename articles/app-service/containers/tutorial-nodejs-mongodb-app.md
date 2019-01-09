@@ -15,27 +15,27 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 59173550c0cdff44931e0b686308b39e985dddcf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 44f5ea606efafbb310e4740d75cbf86b7069e7ca
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254958"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722518"
 ---
-# <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Node.js 및 MongoDB 웹앱 작성
+# <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Node.js 및 MongoDB 앱 작성
 
 > [!NOTE]
-> 이 문서에서는 Linux의 App Service에 앱을 배포합니다. _Windows_의 App Service에 배포하려면 [Azure에서 Node.js 및 MongoDB 웹앱 작성](../app-service-web-tutorial-nodejs-mongodb-app.md)을 참조하세요.
+> 이 문서에서는 Linux의 App Service에 앱을 배포합니다. _Windows_의 App Service에 배포하려면 [Azure에서 Node.js 및 MongoDB 앱 작성](../app-service-web-tutorial-nodejs-mongodb-app.md)을 참조하세요.
 >
 
-[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 Node.js 웹앱을 만들어서 MongoDB 데이터베이스에 로컬로 연결한 다음 MongoDB API를 사용하여 CosmosDB 데이터베이스에 연결된 Azure에 배포하는 방법을 보여줍니다. 완료되면 MEAN 애플리케이션(MongoDB, 기본, AngularJS 및 Node.js)이 Linux의 App Service에서 실행됩니다. 간편하게 하기 위해 샘플 응용 프로그램은 [MEAN.js 웹 프레임워크](https://meanjs.org/)를 사용합니다.
+[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 Node.js 앱을 만들고, MongoDB 데이터베이스에 로컬로 연결한 다음, Azure Cosmos DB for MongoDB API 데이터베이스로 배포하는 방법을 보여줍니다. 완료되면 MEAN 애플리케이션(MongoDB, 기본, AngularJS 및 Node.js)이 Linux의 App Service에서 실행됩니다. 간편하게 하기 위해 샘플 애플리케이션은 [MEAN.js 웹 프레임워크](https://meanjs.org/)를 사용합니다.
 
 ![Azure App Service에서 실행 중인 MEAN.js 응용 프로그램](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Azure에서 MongoDB API를 사용하여 CosmosDB 데이터베이스 만들기
+> * Azure Cosmos DB for MongoDB API를 사용하여 데이터베이스 만들기
 > * Node.js 앱을 MongoDB에 연결
 > * Azure에 앱 배포
 > * 데이터 모델 업데이트 및 앱 다시 배포
@@ -85,7 +85,7 @@ git clone https://github.com/Azure-Samples/meanjs.git
 
 ### <a name="run-the-application"></a>애플리케이션 실행
 
-다음 명령을 실행하여 필요한 패키지를 설치하고 응용 프로그램을 시작합니다.
+다음 명령을 실행하여 필요한 패키지를 설치하고 애플리케이션을 시작합니다.
 
 ```bash
 cd meanjs
@@ -109,7 +109,7 @@ MEAN.JS version: 0.5.0
 
 브라우저에서 `http://localhost:3000` 으로 이동합니다. 위쪽 메뉴에서 **등록**을 클릭하고 테스트 사용자를 만듭니다. 
 
-MEAN.js 샘플 응용 프로그램은 데이터베이스에 사용자 데이터를 저장합니다. 사용자 만들기와 로그인에 성공하면 앱에서 로컬 MongoDB 데이터베이스에 데이터를 쓰고 있습니다.
+MEAN.js 샘플 애플리케이션은 데이터베이스에 사용자 데이터를 저장합니다. 사용자 만들기와 로그인에 성공하면 앱에서 로컬 MongoDB 데이터베이스에 데이터를 쓰고 있습니다.
 
 ![MEAN.js가 MongoDB 연결에 성공](./media/tutorial-nodejs-mongodb-app/mongodb-connect-success.png)
 
@@ -121,9 +121,7 @@ MEAN.js 샘플 응용 프로그램은 데이터베이스에 사용자 데이터�
 
 ## <a name="create-production-mongodb"></a>프로덕션 MongoDB 만들기
 
-이 단계에서는 Azure에 MongoDB 데이터베이스를 만듭니다. Azure에 앱을 배포하면 이 클라우드 데이터베이스가 사용됩니다.
-
-MongoDB의 경우 이 자습서에서는 [Azure Cosmos DB](/azure/documentdb/)를 사용합니다. Cosmos DB는 MongoDB 클라이언트 연결을 지원합니다.
+이 단계에서는 Azure에서 MongoDB API로 구성된 Cosmos 데이터베이스를 만듭니다. Azure에 앱을 배포하면 이 클라우드 데이터베이스가 사용됩니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -159,7 +157,7 @@ Cosmos DB 계정을 만든 경우 Azure CLI는 다음 예와 비슷한 정보를
 }
 ```
 
-## <a name="connect-app-to-production-mongodb"></a>프로덕션 MongoDB에 앱 연결
+## <a name="connect-app-to-production-cosmos-db-configured-with-mongodb-api"></a>MongoDB API로 구성된 프로덕션 Cosmos DB에 앱 연결
 
 이 단계에서는 MongoDB 연결 문자열을 사용하여 MEAN.js 샘플 애플리케이션을 방금 만든 Cosmos DB 데이터베이스에 연결합니다.
 
@@ -204,7 +202,7 @@ module.exports = {
 
 변경 내용을 저장합니다.
 
-### <a name="test-the-application-in-production-mode"></a>프로덕션 모드에서 응용 프로그램 테스트
+### <a name="test-the-application-in-production-mode"></a>프로덕션 모드에서 애플리케이션 테스트
 
 로컬 터미널 창에서 다음 명령을 실행하여 프로덕션 환경에 대한 스크립트를 축소하고 패키지합니다. 이 프로세스는 프로덕션 환경에 필요한 파일을 생성합니다.
 
@@ -218,7 +216,7 @@ gulp prod
 NODE_ENV=production node server.js
 ```
 
-`NODE_ENV=production`은 프로덕션 환경에서 실행되도록 Node.js에 지시하는 환경 변수를 설정합니다.  `node server.js`는 리포지토리 루트의 `server.js`로 Node.js 서버를 시작합니다. 이 방법으로 Node.js 응용 프로그램을 Azure에 로드합니다.
+`NODE_ENV=production`은 프로덕션 환경에서 실행되도록 Node.js에 지시하는 환경 변수를 설정합니다.  `node server.js`는 리포지토리 루트의 `server.js`로 Node.js 서버를 시작합니다. 이 방법으로 Node.js 애플리케이션을 Azure에 로드합니다.
 
 앱이 로드되면 프로덕션 환경에서 실행 중인지 확인해야 합니다.
 
@@ -239,7 +237,7 @@ MEAN.JS version: 0.5.0
 
 ## <a name="deploy-app-to-azure"></a>Azure에 앱 배포
 
-이 단계에서는 MongoDB에 연결된 Node.js 애플리케이션을 Azure App Service에 배포합니다.
+이 단계에서는 Node.js 애플리케이션을 Azure App Service에 배포합니다.
 
 ### <a name="configure-local-git-deployment"></a>로컬 Git 배포 구성
 
@@ -257,11 +255,11 @@ MEAN.JS version: 0.5.0
 
 ### <a name="configure-an-environment-variable"></a>환경 변수 구성
 
-기본적으로 MEAN.js 프로젝트는 _config/env/local-production.js_를 Git 리포지토리 외부에 둡니다. 따라서 Azure 웹앱의 경우 앱 설정을 사용하여 MongoDB 연결 문자열을 정의합니다.
+기본적으로 MEAN.js 프로젝트는 _config/env/local-production.js_를 Git 리포지토리 외부에 둡니다. 따라서 Azure 앱의 경우 앱 설정을 사용하여 MongoDB 연결 문자열을 정의합니다.
 
 앱 설정을 지정하려면 Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용합니다.
 
-다음 예제에서는 Azure 웹앱에 `MONGODB_URI` 앱 설정을 구성합니다. *\<app_name>*, *\<cosmosdb_name>* 및 *\<primary_master_key>* 자리 표시자를 바꿉니다.
+다음 예제에서는 Azure 앱에 `MONGODB_URI` 앱 설정을 구성합니다. *\<app_name>*, *\<cosmosdb_name>* 및 *\<primary_master_key>* 자리 표시자를 바꿉니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
@@ -307,11 +305,11 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 - _.deployment_ - 이 파일은 App Service에서 `bash deploy.sh`를 사용자 지정 배포 스크립트로 실행하게 만듭니다.
 - _deploy.sh_ - 사용자 지정 배포 스크립트입니다. 파일을 검토 하는 경우 실행 되도록 표시 됩니다 `gulp prod` 후 `npm install` 및 `bower install`합니다.
 
-이 방식으로 Git 기반 배포에 어떤 단계든 추가할 수 있습니다. 언제든지 Azure Web App을 다시 시작하면 App Service에서 이 자동화 작업을 다시 실행하지 않습니다.
+이 방식으로 Git 기반 배포에 어떤 단계든 추가할 수 있습니다. 언제든지 Azure 앱을 다시 시작하는 경우 App Service에서는 이러한 자동화 작업을 다시 실행하지 않습니다.
 
-### <a name="browse-to-the-azure-web-app"></a>Azure 웹앱 찾아보기
+### <a name="browse-to-the-azure-app"></a>Azure 앱 찾아보기
 
-웹 브라우저를 사용하여 배포된 웹앱으로 이동합니다.
+웹 브라우저를 사용하여 배포된 앱으로 이동합니다.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -319,7 +317,7 @@ http://<app_name>.azurewebsites.net
 
 위쪽 메뉴에서 **등록**을 클릭하고 더미 사용자를 만듭니다.
 
-성공한 후 만들어진 사용자로 앱이 자동 로그인되면 Azure의 MEAN.js 앱이 Cosmos DB 데이터베이스 MongoDB API에 연결된 것입니다.
+성공한 후 만들어진 사용자로 앱이 자동 로그인되면 Azure의 MEAN.js 앱이 Azure Cosmos DB for MongoDB API에 연결된 것입니다.
 
 ![Azure App Service에서 실행 중인 MEAN.js 응용 프로그램](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -447,21 +445,21 @@ git commit -am "added article comment"
 git push azure master
 ```
 
-`git push`가 완료되면 Azure 웹앱으로 이동하여 새 기능을 테스트해 봅니다.
+`git push`가 완료되면 Azure 앱으로 이동하여 새 기능을 테스트해 봅니다.
 
 ![Azure에 게시된 모델 및 데이터베이스 변경 내용](media/tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
 이전에 문서를 추가했으면 그 문서를 지금도 볼 수 있습니다. Cosmos DB의 기존 데이터는 손실되지 않습니다. 또한 데이터 스키마가 업데이트되고 기존 데이터는 그대로 유지됩니다.
 
-## <a name="manage-your-azure-web-app"></a>Azure Web App 관리
+## <a name="manage-your-azure-app"></a>Azure 앱 관리
 
-[Azure Portal](https://portal.azure.com)로 이동하여 만든 웹앱을 확인합니다.
+[Azure Portal](https://portal.azure.com)로 이동하여 만든 앱을 확인합니다.
 
-왼쪽 메뉴에서 **App Services**를 클릭한 다음 Azure 웹앱의 이름을 클릭합니다.
+왼쪽 메뉴에서 **App Services**를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
 
-![Azure 웹앱에 대한 포털 탐색](./media/tutorial-nodejs-mongodb-app/access-portal.png)
+![Azure 앱에 대한 포털 탐색](./media/tutorial-nodejs-mongodb-app/access-portal.png)
 
-기본적으로 포털에는 웹앱의 **개요** 페이지가 표시됩니다. 이 페이지에서는 앱이 어떻게 작동하고 있는지를 보여 줍니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 페이지의 왼쪽에 있는 탭에서는 열 수 있는 여러 구성 페이지를 보여 줍니다.
+기본적으로 포털에 앱의 **개요** 페이지가 표시됩니다. 이 페이지에서는 앱이 어떻게 작동하고 있는지를 보여 줍니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 페이지의 왼쪽에 있는 탭에서는 열 수 있는 여러 구성 페이지를 보여 줍니다.
 
 ![Azure Portal의 App Service 페이지](./media/tutorial-nodejs-mongodb-app/web-app-blade.png)
 
@@ -474,14 +472,14 @@ git push azure master
 학습한 내용은 다음과 같습니다.
 
 > [!div class="checklist"]
-> * Azure에서 MongoDB API를 사용하여 CosmosDB 데이터베이스 만들기
-> * Node.js 앱을 MongoDB에 연결
+> * Azure Cosmos DB for MongoDB API를 사용하여 데이터베이스 만들기
+> * Node.js 앱을 데이터베이스에 연결
 > * Azure에 앱 배포
 > * 데이터 모델 업데이트 및 앱 다시 배포
 > * Azure에서 터미널로 로그 스트림
 > * Azure Portal에서 앱 관리
 
-다음 자습서로 이동하여 사용자 지정 DNS 이름을 웹앱에 매핑하는 방법을 알아봅니다.
+다음 자습서로 이동하여 사용자 지정 DNS 이름을 앱에 매핑하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md)
+> [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md)

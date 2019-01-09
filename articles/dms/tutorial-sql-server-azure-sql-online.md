@@ -5,18 +5,18 @@ services: dms
 author: pochiraju
 ms.author: rajpo
 manager: craigg
-ms.reviewer: ''
+ms.reviewer: douglasl
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/04/2018
-ms.openlocfilehash: aea6b9628ffff4ba5075338c48340b88c95b6174
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/19/2018
+ms.openlocfilehash: 63cc71ff784a25984672090bc6dbba662d9a52c1
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956860"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728145"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-online-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 Azure SQL Database로 온라인 마이그레이션
 Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 데이터베이스를 온-프레미스 SQL Server 인스턴스에서 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)로 마이그레이션할 수 있습니다. 이 자습서에서는 Azure Database Migration Service를 사용하여 SQL Server 2016 이상의 온-프레미스 인스턴스로 복원된 **Adventureworks2012** 데이터베이스를 Azure SQL Database로 마이그레이션합니다.
@@ -32,7 +32,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 > * 마이그레이션 보고서를 다운로드합니다.
 
 > [!NOTE]
-> Azure Database Migration Service를 사용하여 온라인 마이그레이션을 수행하려면 프리미엄(미리 보기) 가격 책정 계층에 따라 인스턴스를 만들어야 합니다.
+> Azure Database Migration Service를 사용하여 온라인 마이그레이션을 수행하려면 프리미엄 가격 책정 계층에 따라 인스턴스를 만들어야 합니다.
 
 > [!IMPORTANT]
 > 최적의 마이그레이션 환경을 위해 대상 데이터베이스와 동일한 Azure 지역에서 Azure Database Migration Service의 인스턴스를 만드는 것이 좋습니다. 영역 또는 지역 간에 데이터를 이동하면 마이그레이션 프로세스 속도가 저하되고 오류가 발생할 수 있습니다.

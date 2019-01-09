@@ -1,23 +1,20 @@
 ---
 title: 빠른 시작 - Azure Portal을 사용하여 Azure Database for PostgreSQL 서버 만들기
 description: Azure Portal 사용자 인터페이스를 사용하여 PostgreSQL 서버용 Azure Database를 만들고 관리하기 위한 빠른 시작 가이드입니다.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/01/2018
-ms.openlocfilehash: 5cb51a412738c2361bbe30ecd1415f81c3f85c9c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 9aa4bdf438637572c7e78a2d4a39f6bcebd7b254
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959038"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540490"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Database for PostgreSQL 서버 만들기
+# <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 PostgreSQL 서버용 Azure Database 만들기
 
 PostgreSQL용 Azure Database는 클라우드에서 항상 사용 가능한 PostgreSQL 데이터베이스를 실행, 관리 및 크기 조정하는 데 사용하는 관리 서비스입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 약 5분 안에 Azure Database for PostgreSQL 서버를 만드는 방법을 보여 줍니다.
 
@@ -48,7 +45,7 @@ PostgreSQL 서버용 Azure Database를 만들려면 다음 단계를 따릅니�
     리소스 그룹|*myresourcegroup*| 새 리소스 그룹 이름 또는 구독의 기존 이름입니다.
     원본 선택 | *비어 있음* | 새 서버를 처음부터 만들려면 *비어 있음*을 선택합니다. (기존 Azure Database for PostgreSQL 서버의 지역 백업에서 서버를 만든 경우 *백업*을 선택합니다).
     서버 관리자 로그인 |*myadmin*| 서버에 연결할 경우 사용할 사용자 고유의 로그인 계정입니다. 관리자 로그인 이름은 **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** 또는 **public**이 될 수 없습니다. **pg_** 로 시작할 수 없습니다.
-    암호 |사용자 암호| 서버 관리자 계정의 새 암호입니다. 8-128자여야 합니다. 암호에는 영어 대문자, 영어 소문자, 숫자(0-9) 및 영숫자가 아닌 문자(!, $, #, % 등)의 세 가지 범주에 속하는 문자가 포함되어야 합니다.
+    암호 |사용자 암호| 서버 관리자 계정의 새 암호입니다. 8-128자여야 합니다. 사용자 암호는 다음 범주 중 세 개의 문자를 포함해야 합니다. 영문 대문자, 영문 소문자, 숫자(0-9) 및 영숫자가 아닌 문자(!, $, #, % 등).
     위치|사용자와 가장 가까운 지역| 사용자에게 가장 가까운 위치입니다.
     버전|최신 주 버전| 다른 특정 요구 사항이 없는 한 최신 PostgreSQL 주 버전입니다.
     가격 책정 계층  | **범용**, **4세대**, **2개 vCore**, **5GB**, **7일**, **지역 중복** | 새 서버에 대한 계산, 저장소 및 백업 구성입니다. **가격 책정 계층**을 선택합니다. 그런 다음, **범용** 탭을 선택합니다. *4세대*, *2개 vCore*, *5GB* 및 *7일*은 **세대 계산**, **vCore**, **저장소** 및 **백업 보존 기간**에 대한 기본 값입니다. 해당 슬라이더를 그대로 둘 수 있습니다. 지역 중복 저장소에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션**에서 **지역 중복**을 선택합니다. 이 가격 책정 계층 선택을 저장하려면 **확인**을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
@@ -64,7 +61,7 @@ PostgreSQL 서버용 Azure Database를 만들려면 다음 단계를 따릅니�
 
     ![[알림] 창](./media/quickstart-create-database-portal/3-notifications.png)
    
-   기본적으로 **postgres** 데이터베이스가 서버 아래에 만들어집니다. [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) 데이터베이스는 사용자, 유틸리티 및 타사 응용 프로그램에서 사용하는 기본 데이터베이스입니다. (다른 기본 데이터베이스는 **azure_maintenance**입니다. 해당 기능은 사용자 작업으로부터 관리되는 서비스 프로세스를 구분하는 것입니다. 이 데이터베이스에 액세스할 수 없습니다.)
+   기본적으로 **postgres** 데이터베이스가 서버 아래에 만들어집니다. [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) 데이터베이스는 사용자, 유틸리티 및 타사 애플리케이션에서 사용하는 기본 데이터베이스입니다. (다른 기본 데이터베이스는 **azure_maintenance**입니다. 해당 기능은 사용자 작업으로부터 관리되는 서비스 프로세스를 구분하는 것입니다. 이 데이터베이스에 액세스할 수 없습니다.)
 
 ## <a name="configure-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 구성
 
@@ -143,7 +140,7 @@ Azure Database for PostgreSQL 서버 연결하기 위해 사용할 수 있는 �
     > [!TIP]
     > 방화벽이 클라이언트의 IP 주소를 허용하도록 구성되지 않은 경우 다음 오류가 발생합니다.
     > 
-    > "psql: FATAL: "<IP address>" 호스트, user "myadmin", database "postgres"에 대한 pg_hba.conf 항목이 없습니다. SSL on FATAL: SSL 연결이 필요합니다. SSL 옵션을 지정하고 다시 시도하세요.
+    > "psql: 오류: 호스트 "<IP address>", 사용자 "myadmin", 데이터베이스 "postgres"에 대한 pg_hba.conf 항목이 없습니다. SSL 설정 오류: SSL 연결이 필요합니다. SSL 옵션을 지정하고 다시 시도하세요.
     > 
     > 이 오류를 해결하려면 서버 구성이 문서의 “서버 수준 방화벽 규칙 구성” 섹션에 있는 단계와 일치하는지 확인합니다.
 

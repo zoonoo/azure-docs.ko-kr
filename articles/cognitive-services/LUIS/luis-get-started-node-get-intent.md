@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 92e10b1f4ec8be1dc67ff449df32ef76e365b5f2
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 3a16c87e96a94fcf95694d3cbfd6f8f07adedb74
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162667"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717078"
 ---
 # <a name="quickstart-get-intent-using-nodejs"></a>빠른 시작: Node.js를 사용하여 의도 가져오기
 
@@ -34,7 +34,7 @@ ms.locfileid: "53162667"
 
 
 > [!NOTE] 
-> 전체 Node.js 솔루션은 [**LUIS-Samples** GitHub 리포지토리](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/node)에서 사용할 수 있습니다.
+> 전체 Node.js 솔루션은 [**Azure-Samples** GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/analyze-text/node)에서 사용할 수 있습니다.
 
 ## <a name="get-luis-key"></a>LUIS 키 가져오기
 

@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b22ea49367009a4c76135d979d783c5b73449d9d
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: b8c1130a45f60b9caaacd365cd1c256f50ed7675
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261571"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629572"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>자습서: Azure App Service에서 CORS를 통해 RESTful API 호스팅
 
-[Azure App Service](app-service-web-overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한 App Service에는 RESTful API에 대한 [CORS(Cross-Origin Resource Sharing)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing)의 지원이 기본적으로 제공됩니다. 이 자습서에서는 CORS 지원을 사용하여 ASP.NET Core API 앱을 App Service에 배포하는 방법을 보여 줍니다. 명령줄 도구를 사용하여 앱을 구성하고, Git을 사용하여 앱을 배포합니다. 
+[Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한 App Service에는 RESTful API에 대한 [CORS(Cross-Origin Resource Sharing)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing)의 지원이 기본적으로 제공됩니다. 이 자습서에서는 CORS 지원을 사용하여 ASP.NET Core API 앱을 App Service에 배포하는 방법을 보여 줍니다. 명령줄 도구를 사용하여 앱을 구성하고, Git을 사용하여 앱을 배포합니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -132,7 +132,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-### <a name="browse-to-the-azure-web-app"></a>Azure 웹앱 찾아보기
+### <a name="browse-to-the-azure-app"></a>Azure 앱 찾아보기
 
 브라우저에서 `http://<app_name>.azurewebsites.net/swagger`로 이동하여 Swagger UI를 실행해 봅니다.
 

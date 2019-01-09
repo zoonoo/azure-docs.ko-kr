@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9bbff92b7706fd207894616b83580c4ddf85e5eb
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: a130351131f59511ef4f60b579197da96f9334e6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444787"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720734"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>자습서: Application Insights를 사용하여 Service Fabric에서 ASP.NET Core 애플리케이션 모니터링 및 진단
 
@@ -35,8 +35,8 @@ ms.locfileid: "52444787"
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)
-> * [응용 프로그램을 원격 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [.NET Service Fabric 애플리케이션 빌드](service-fabric-tutorial-create-dotnet-app.md)
+> * [애플리케이션을 원격 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [ASP.NET Core 프런트 엔드 서비스에 HTTPS 엔드포인트 추가](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * [Azure Pipelines를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * 애플리케이션에 대한 모니터링 및 진단 설정
@@ -51,7 +51,7 @@ ms.locfileid: "52444787"
 
 ## <a name="download-the-voting-sample-application"></a>투표 애플리케이션 예제 다운로드
 
-[이 자습서 시리즈의 1부](service-fabric-tutorial-create-dotnet-app.md)에서 투표 예제 응용 프로그램을 빌드하지 않은 경우 다운로드할 수 있습니다. 명령 창 또는 터미널에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
+[이 자습서 시리즈의 1부](service-fabric-tutorial-create-dotnet-app.md)에서 투표 예제 애플리케이션을 빌드하지 않은 경우 다운로드할 수 있습니다. 명령 창 또는 터미널에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
 
 ```git
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
@@ -63,7 +63,7 @@ Application Insights는 Azure의 애플리케이션 성능 관리 플랫폼이�
 
 ![새 AI 리소스 만들기](./media/service-fabric-tutorial-monitoring-aspnet/new-ai-resource.png)
 
-이제 만들려는 리소스의 특성에 대한 필수 정보를 입력해야 합니다. 해당 *이름*, *리소스 그룹* 및 *구독*을 입력합니다. 나중에 Service Fabric 클러스터를 배포할 *위치*를 설정합니다. 이 자습서에서는 로컬 클러스터에 앱을 배포하므로 *위치* 필드는 관련이 없습니다. *응용 프로그램 종류*를 “ASP.NET 웹 응용 프로그램”으로 두어야 합니다.
+이제 만들려는 리소스의 특성에 대한 필수 정보를 입력해야 합니다. 해당 *이름*, *리소스 그룹* 및 *구독*을 입력합니다. 나중에 Service Fabric 클러스터를 배포할 *위치*를 설정합니다. 이 자습서에서는 로컬 클러스터에 앱을 배포하므로 *위치* 필드는 관련이 없습니다. *애플리케이션 종류*를 “ASP.NET 웹 애플리케이션”으로 두어야 합니다.
 
 ![AI 리소스 특성](./media/service-fabric-tutorial-monitoring-aspnet/new-ai-resource-attrib.png)
 
@@ -72,7 +72,7 @@ Application Insights는 Azure의 애플리케이션 성능 관리 플랫폼이�
 
 ## <a name="add-application-insights-to-the-applications-services"></a>애플리케이션의 서비스에 Application Insights 추가
 
-상승된 권한으로 Visual Studio 2017을 시작합니다. 시작 메뉴에서 Visual Studio 아이콘을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택하면 이 작업을 수행할 수 있습니다. **파일** > **열기** > **프로젝트/솔루션**을 클릭하고 자습서의 1부에서 만들었거나 git clone한 Voting 응용 프로그램으로 이동합니다. *Voting.sln*을 열고, 응용 프로그램의 NuGet 패키지를 복원하라는 메시지가 표시되면 **예**를 클릭합니다.
+상승된 권한으로 Visual Studio 2017을 시작합니다. 시작 메뉴에서 Visual Studio 아이콘을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택하면 이 작업을 수행할 수 있습니다. **파일** > **열기** > **프로젝트/솔루션**을 클릭하고 자습서의 1부에서 만들었거나 git clone한 Voting 애플리케이션으로 이동합니다. *Voting.sln*을 열고, 애플리케이션의 NuGet 패키지를 복원하라는 메시지가 표시되면 **예**를 클릭합니다.
 
 VotingWeb 및 VotingData 서비스 둘 다에 대해 Application Insights를 구성하려면 다음 단계를 따르세요.
 
@@ -191,11 +191,11 @@ Azure Portal에서 Application Insights 리소스로 이동합니다.
 
 ![AI 추적 세부 정보](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
-앱 지도는 특히 함께 작동하는 여러 서비스를 추가할 때 애플리케이션 토폴로지를 더 잘 이해하는 데 유용할 수 있습니다. 또한 요청 성공률에 대한 기본 데이터를 제공하며, 오류가 발생할 수 있는 위치를 파악하기 위해 실패한 요청을 진단하는 데 유용할 수 있습니다. 앱 지도를 사용하는 방법에 대한 자세한 내용은 [Application Insights의 애플리케이션 맵](../application-insights/app-insights-app-map.md)을 참조하세요.
+앱 지도는 특히 함께 작동하는 여러 서비스를 추가할 때 애플리케이션 토폴로지를 더 잘 이해하는 데 유용할 수 있습니다. 또한 요청 성공률에 대한 기본 데이터를 제공하며, 오류가 발생할 수 있는 위치를 파악하기 위해 실패한 요청을 진단하는 데 유용할 수 있습니다. 앱 지도를 사용하는 방법에 대한 자세한 내용은 [Application Insights의 애플리케이션 맵](../azure-monitor/app/app-map.md)을 참조하세요.
 
 ## <a name="add-custom-instrumentation-to-your-application"></a>애플리케이션에 사용자 지정 계측 추가
 
-Application Insights는 기본적으로 많은 원격 분석 데이터를 제공하지만 사용자 지정 계측을 추가하는 것이 좋습니다. 비즈니스 요구를 기반으로 하거나, 애플리케이션에서 오류가 발생할 때 진단을 개선하기 위한 것일 수 있습니다. Application Insights에는 사용자 지정 이벤트 및 메트릭을 수집하는 API가 있으며, [여기](../application-insights/app-insights-api-custom-events-metrics.md)서 자세한 내용을 확인할 수 있습니다.
+Application Insights는 기본적으로 많은 원격 분석 데이터를 제공하지만 사용자 지정 계측을 추가하는 것이 좋습니다. 비즈니스 요구를 기반으로 하거나, 애플리케이션에서 오류가 발생할 때 진단을 개선하기 위한 것일 수 있습니다. Application Insights에는 사용자 지정 이벤트 및 메트릭을 수집하는 API가 있으며, [여기](../azure-monitor/app/api-custom-events-metrics.md)서 자세한 내용을 확인할 수 있습니다.
 
 *VoteDataController.cs*(*VotingData* > *Controllers* 아래)에 몇 가지 사용자 지정 이벤트를 추가하여 기본 *votesDictionary*에서 응답이 추가 및 삭제되는 시기를 추적해 보겠습니다.
 

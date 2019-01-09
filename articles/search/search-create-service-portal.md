@@ -6,19 +6,23 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 07/09/2018
+ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2055ad9baff0c6acc05c9287ca1b8fb08731f8bc
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5165dd16b77a242ca83d3e5864b6e60f3e12a567
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315988"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002640"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>포털에서 Azure Search서비스 만들기
 
-포털에서 Azure Search 서비스를 만들거나 프로비전하는 방법에 대해 알아봅니다. 
+Azure Search는 사용자 지정 앱에 검색 환경을 추가하는 데 사용되는 독립 실행형 리소스입니다. Azure Search는 다른 여러 Azure 서비스와 쉽게 통합되지만 네트워크 서버에서 호스트되는 앱 또는 다른 클라우드 플랫폼에서 실행되는 소프트웨어를 통해 단독으로 Azure Search를 사용할 수 있습니다. 
+
+이 문서에서는 [Azure Portal](https://portal.azure.com/)에서 Azure Search 리소스를 만드는 방법을 알아봅니다. 
+
+![포털의 Azure Search 리소스](media/search-create-service-portal/azure-search-resource-label.png)
 
 PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](https://azure.microsoft.com/resources/templates/101-azure-search-create/)을 사용합니다. 시작하기 도움말은 배경에 대한 [PowerShell로 Azure Search 관리](search-manage-powershell.md)를 참조하세요.
 
@@ -31,13 +35,15 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 ## <a name="find-azure-search"></a>Azure Search 찾기
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 위 모퉁이에서 더하기 기호("+ 리소스 만들기")를 클릭합니다.
-3. **웹** > **Azure Search**를 선택합니다.
+3. 검색 창을 사용하여 "Azure Search"를 찾거나 **웹** > **Azure Search**를 통해 리소스로 이동합니다.
 
 ![](./media/search-create-service-portal/find-search3.png)
 
 ## <a name="name-the-service-and-url-endpoint"></a>서비스 및 URL 엔드포인트의 이름
 
-서비스 이름은 API 호출이 발급되는 URL 엔드포인트의 일부입니다.`https://your-service-name.search.windows.net` **URL** 필드에 서비스 이름을 입력합니다. 
+서비스 이름은 API 호출이 발급되는 URL 엔드포인트의 일부입니다.`https://your-service-name.search.windows.net` **URL** 필드에 서비스 이름을 입력합니다.
+
+예를 들어 엔드포인트가 `https://my-app-name-01.search.windows.net`이기를 원하는 경우 `my-app-name-01`을 입력합니다.
 
 서비스 이름 요구 사항:
    * search.windows.net 네임스페이스 내에서 고유해야 함
@@ -51,6 +57,8 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 
 ## <a name="select-a-resource-group"></a>리소스 그룹 선택
 리소스 그룹은 함께 사용된 Azure 서비스 및 리소스의 컬렉션입니다. 예를 들어 Azure Search를 사용하여 SQL Database를 인덱싱하는 경우 이들 두 서비스는 동일한 리소스 그룹의 일부여야 합니다.
+
+단일 그룹에 리소스를 결합하지 않거나 기존 리소스 그룹을 관련이 없는 솔루션에서 사용되는 리소스로 채우는 경우 Azure Search 리소스에 대해서만 새 리소스 그룹을 만듭니다.
 
 > [!TIP]
 > 리소스 그룹을 삭제하면 그 안의 서비스도 삭제됩니다. 여러 서비스를 이용하는 프로토타입 프로젝트의 경우, 이들을 모두 동일한 리소스 그룹에 배치하면 프로젝트가 종료된 후 쉽게 정리할 수 있습니다. 
@@ -109,7 +117,7 @@ Azure 서비스인 Azure Search는 전 세계 데이터 센터에서 호스팅�
 고가용성을 위해 두 번째 서비스가 필요하지 않습니다. 동일한 서비스에 두 개 이상의 복제본을 사용하는 경우 쿼리에 대한 가용성을 높일 수 있습니다. 복제본 업데이트는 순차적입니다. 즉, 서비스 업데이트가 롤아웃될 때도 적어도 하나의 서비스는 작동됩니다. 가동 시간에 대한 자세한 내용은 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/search/v1_0/)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Search 서비스를 프로비전한 후에 [인덱스를 정의](search-what-is-an-index.md)할 준비가 되었으므로 데이터를 업로드하고 검색할 수 있습니다. 
+Azure Search 서비스를 프로비전하면 포털에서 첫 번째 인덱스를 계속 만들 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [.NET에서 Azure Search를 사용하는 방법](search-howto-dotnet-sdk.md)
+> [자습서: 포털에서 데이터 가져오기, 인덱싱 및 쿼리 실행](search-get-started-portal.md)

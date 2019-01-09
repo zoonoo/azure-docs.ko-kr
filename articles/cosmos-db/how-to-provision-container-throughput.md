@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: dd47976bca75569142f1912eee06c66061e92fa6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4c17c972a39cd336ab33f6be8bd3db5b8f0f2c92
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097668"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808420"
 ---
 # <a name="provision-throughput-for-an-azure-cosmos-db-container"></a>Azure Cosmos DB 컨테이너의 처리량 프로비전
 
@@ -47,7 +47,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-MongoDB API 계정의 처리량을 프로비전하는 경우 파티션 키 경로로 '/myShardKey'를 사용하고, Cassandra API 계정의 처리량을 프로비전할 때에는 파티션 키 경로로 '/myPrimaryKey'를 사용합니다.
+Azure Cosmos DB의 MongoDB API로 구성된 Cosmos 계정에 대한 처리량을 프로비전하는 경우 파티션 키 경로에 '/myShardKey'를 사용하고, Cassandra API에 대해 구성된 Cosmos 계정에 대한 처리량을 프로비전하는 경우 파티션 키 경로에 '/myPrimaryKey'를 사용합니다.
 
 ## <a name="provision-throughput-using-net-sdk"></a>.NET SDK를 사용하여 처리량 프로비전
 

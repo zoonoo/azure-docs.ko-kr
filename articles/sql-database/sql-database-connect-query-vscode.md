@@ -4,7 +4,7 @@ description: Visual Studio Code를 사용하여 Azure에서 SQL Database에 연�
 keywords: SQL Database에 연결
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -13,16 +13,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/06/2018
-ms.openlocfilehash: 786b4fab42fb49cd44c1985bfa04ce33e77cadf0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 994f7d300b1e9a76e109e73467a2e7f0d4c1584d
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098987"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652118"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>빠른 시작: Visual Studio Code를 사용하여 Azure SQL Database 연결 및 쿼리
 
-[Visual Studio Code](https://code.visualstudio.com/docs)는 Windows, macOS, Linux용 그래픽 코드 편집기입니다. Microsoft SQL Server, Azure SQL Database 및 SQL Data Warehouse를 쿼리하는 [mssql 확장](https://aka.ms/mssql-marketplace)을 비롯한 여러 확장을 지원합니다. 이 빠른 시작은 Visual Studio Code를 사용하여 Azure SQL 데이터베이스에 연결한 후 Transact-SQL 문을 실행하여 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다.
+[Visual Studio Code](https://code.visualstudio.com/docs)는 Windows, macOS, Linux용 그래픽 코드 편집기입니다. Microsoft SQL Server, Azure SQL Database 및 SQL Data Warehouse를 쿼리하는 [mssql 확장](https://aka.ms/mssql-marketplace)을 비롯한 여러 확장을 지원합니다. 이 빠른 시작에서는 Visual Studio Code를 사용하여 Azure SQL Database에 연결한 다음, Transact-SQL 문을 실행하여 데이터를 쿼리, 삽입, 업데이트 및 삭제합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -82,11 +82,11 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
 
 1. Visual Studio Code에서 **Ctrl+Shift+P**(또는 **F1** 키)를 눌러서 명령 팔레트를 엽니다.
 
-2. **MS SQL:Connect**를 선택하고 **Enter** 키를 누릅니다.
+2. **MS SQL:Connect**를 선택하고 **Enter**를 선택합니다.
 
 3. **연결 프로필 만들기**를 선택합니다.
 
-4. 프롬프트에 따라 새 프로필의 연결 속성을 지정합니다. 각 값을 지정한 후에 **Enter** 키를 눌러서 계속합니다. 
+4. 프롬프트에 따라 새 프로필의 연결 속성을 지정합니다. 각 값을 지정한 후에 **Enter**를 선택하여 계속합니다. 
 
    | 자산       | 제안 값 | 설명 |
    | ------------ | ------------------ | ------------------------------------------------- | 
@@ -102,7 +102,7 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
 
 ## <a name="query-data"></a>쿼리 데이터
 
-다음 [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 문을 사용하여 범주별 상위 20개 제품을 쿼리합니다.
+다음 [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 문을 실행하여 범주별 상위 20개 제품을 쿼리합니다.
 
 1. 편집기 창에서 다음 SQL 쿼리를 붙여넣습니다.
 
@@ -119,7 +119,7 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
 
 ## <a name="insert-data"></a>데이터 삽입
 
-다음 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 문을 사용하여 `SalesLT.Product` 테이블에 새 제품을 추가합니다.
+다음 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 문을 실행하여 `SalesLT.Product` 테이블에 새 제품을 추가합니다.
 
 1. 이전 쿼리를 다음 쿼리로 바꿉니다.
 
@@ -147,7 +147,7 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
 
 ## <a name="update-data"></a>데이터 업데이트
 
-다음 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 문을 사용하여 추가된 제품을 업데이트합니다.
+다음 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 문을 실행하여 추가된 제품을 업데이트합니다.
 
 1. 이전 쿼리를 다음 쿼리로 바꿉니다.
 
@@ -161,7 +161,7 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
 
 ## <a name="delete-data"></a>데이터 삭제
 
-다음 [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL 문을 사용하여 새 제품을 제거합니다.
+다음 [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL 문을 실행하여 새 제품을 제거합니다.
 
 1. 이전 쿼리를 다음 쿼리로 바꿉니다.
 

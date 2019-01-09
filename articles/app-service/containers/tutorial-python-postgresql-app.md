@@ -1,5 +1,5 @@
 ---
-title: Linux에서 PostgreSQL을 사용하여 Python 웹앱 빌드 - Azure App Service | Microsoft Docs
+title: Linux에서 PostgreSQL을 사용하여 Python 앱 빌드 - Azure App Service | Microsoft Docs
 description: Azure에서 데이터 기반 Python 앱을 실행하고 PostgreSQL 데이터베이스에 연결하는 방법을 알아봅니다.
 services: app-service\web
 documentationcenter: python
@@ -12,16 +12,16 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8846ec386ad1776172ae1949b5e0f26e03ddf1df
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c70c7e8b893c511aae36f122c5983fd0958eac8e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337992"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975392"
 ---
-# <a name="build-a-python-and-postgresql-web-app-in-azure-app-service"></a>Azure App Service에서 Python 및 PostgreSQL 웹앱 빌드
+# <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>Azure App Service에서 Python 및 PostgreSQL 앱 빌드
 
-[Linux의 App Service](app-service-linux-intro.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 PostgreSQL을 데이터베이스 백 엔드로 사용하여 데이터 기반 Python 웹앱을 만드는 방법을 보여줍니다. 완료되면 Linux의 App Service에서 Django 애플리케이션을 실행하게 됩니다.
+[Linux의 App Service](app-service-linux-intro.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 PostgreSQL을 데이터베이스 백 엔드로 사용하여 데이터 기반 Python 앱을 만드는 방법을 보여줍니다. 완료되면 Linux의 App Service에서 Django 애플리케이션을 실행하게 됩니다.
 
 ![Linux의 App Service의 Python Django 앱](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
@@ -203,9 +203,9 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 ```
 
 > [!NOTE]
-> 이 설정을 사용하면 Azure 네트워크 내의 모든 IP에서 네트워크 연결을 허용합니다. 프로덕션에서 사용하기 위해 [앱에서 사용하는 아웃바운드 IP 주소를 사용하여](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips) 가장 제한적인 방화벽 규칙을 구성하려고 합니다.
+> 이 설정을 사용하면 Azure 네트워크 내의 모든 IP에서 네트워크 연결을 허용합니다. 프로덕션에서 사용하기 위해 [앱에서 사용하는 아웃바운드 IP 주소를 사용하여](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips) 가장 제한적인 방화벽 규칙을 구성하려고 합니다.
 
-Cloud Shell에서 *\<you_ip_address>* 를 [로컬 IPv4 IP 주소](https://www.whatsmyip.org/)로 바꾸어 로컬 컴퓨터에서 데이터베이스에 액세스할 수 있도록 명령을 다시 실행합니다.
+Cloud Shell에서 *\<you_ip_address>* 를 [로컬 IPv4 IP 주소](http://www.whatsmyip.org/)로 바꾸어 로컬 컴퓨터에서 데이터베이스에 액세스할 수 있도록 명령을 다시 실행합니다.
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address> --name AllowLocalClient
@@ -234,7 +234,7 @@ GRANT ALL PRIVILEGES ON DATABASE pollsdb TO manager;
 `\q`를 입력하여 PostgreSQL 클라이언트를 종료합니다.
 
 > [!NOTE]
-> 관리 사용자를 사용하는 대신 특정 애플리케이션에 대해 제한된 사용 권한으로 데이터베이스 사용자를 만드는 것이 좋습니다. 이 예제에서 `manager` 사용자에게는 `pollsdb` 데이터베이스에 대해서_만_ 모든 권한이 있습니다.
+> 관리 사용자를 사용하는 대신 특정 응용 프로그램에 대해 제한된 사용 권한으로 데이터베이스 사용자를 만드는 것이 좋습니다. 이 예제에서 `manager` 사용자에게는 `pollsdb` 데이터베이스에 대해서_만_ 모든 권한이 있습니다.
 
 ### <a name="test-app-connectivity-to-production-database"></a>프로덕션 데이터베이스에 대한 앱 연결 테스트
 
@@ -277,7 +277,7 @@ python manage.py runserver
 
 ## <a name="deploy-to-azure"></a>Deploy to Azure
 
-이 단계에서는 Postgres에 연결된 Python 애플리케이션을 Azure App Service에 배포합니다.
+이 단계에서는 Postgres에 연결된 Python 응용 프로그램을 Azure App Service에 배포합니다.
 
 ### <a name="configure-repository"></a>리포지토리 구성
 
@@ -371,9 +371,9 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 App Service 배포 서버는 리포지토리 루트에서 _requirements.txt_를 살펴보고 `git push` 후에 Python 패키지 관리를 자동으로 실행합니다.
 
-### <a name="browse-to-the-azure-web-app"></a>Azure 웹앱 찾아보기
+### <a name="browse-to-the-azure-app"></a>Azure 앱으로 이동
 
-배포된 웹앱으로 이동합니다. 앱이 처음으로 요청될 때 컨테이너를 다운로드하여 실행해야 하므로 시작될 때까지 시간이 걸립니다. 페이지가 시간 초과 또는 오류 메시지를 표시하는 경우 몇 분 정도 기다렸다가 페이지를 새로 고칩니다.
+배포된 앱으로 이동합니다. 앱이 처음으로 요청될 때 컨테이너를 다운로드하여 실행해야 하므로 시작될 때까지 시간이 걸립니다. 페이지가 시간 초과 또는 오류 메시지를 표시하는 경우 몇 분 정도 기다렸다가 페이지를 새로 고칩니다.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -403,15 +403,15 @@ az webapp log config --name <app_name> --resource-group myResourceGroup --docker
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ```
 
-## <a name="manage-your-web-app-in-the-azure-portal"></a>Azure Portal에서 웹앱 관리
+## <a name="manage-your-app-in-the-azure-portal"></a>Azure Portal에서 앱 관리
 
-[Azure Portal](https://portal.azure.com)로 이동하여 만든 웹앱을 확인합니다.
+[Azure Portal](https://portal.azure.com)로 이동하여 만든 앱을 확인합니다.
 
-왼쪽 메뉴에서 **App Services**를 클릭한 다음 Azure 웹앱의 이름을 클릭합니다.
+왼쪽 메뉴에서 **App Services**를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
 
-![Azure 웹앱에 대한 포털 탐색](./media/tutorial-python-postgresql-app/app-resource.png)
+![Azure 앱에 대한 포털 탐색](./media/tutorial-python-postgresql-app/app-resource.png)
 
-기본적으로 포털에는 웹앱의 **개요** 페이지가 표시됩니다. 이 페이지에서는 앱이 어떻게 작동하고 있는지를 보여 줍니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 페이지의 왼쪽에 있는 탭에서는 열 수 있는 여러 구성 페이지를 보여 줍니다.
+기본적으로 포털에 앱의 **개요** 페이지가 표시됩니다. 이 페이지에서는 앱이 어떻게 작동하고 있는지를 보여 줍니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 페이지의 왼쪽에 있는 탭에서는 열 수 있는 여러 구성 페이지를 보여 줍니다.
 
 ![Azure Portal의 App Service 페이지](./media/tutorial-python-postgresql-app/app-mgmt.png)
 
@@ -428,10 +428,10 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 > * 진단 로그 보기
 > * Azure Portal에서 앱 관리
 
-다음 자습서로 이동하여 사용자 지정 DNS 이름을 웹앱에 매핑하는 방법을 알아봅니다.
+다음 자습서로 이동하여 사용자 지정 DNS 이름을 앱에 매핑하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md)
+> [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md)
 
 > [!div class="nextstepaction"]
 > [기본 제공 Python 이미지 구성 및 오류 문제 해결](how-to-configure-python.md)

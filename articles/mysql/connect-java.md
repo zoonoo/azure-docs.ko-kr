@@ -1,24 +1,21 @@
 ---
 title: Java를 사용하여 Azure Database for MySQL에 연결
 description: 이 빠른 시작에서는 MySQL 데이터베이스용 Azure Database의 데이터를 연결하고 쿼리하는 데 사용할 수 있는 Java 코드 샘플을 제공합니다.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 02/28/2018
-ms.openlocfilehash: 4532b920fe1d4b20eb34f09fac4cb3b30ad36e6a
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: e660daa0a0676f7f4267be7e6852568d80791774
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985395"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539112"
 ---
-# <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>MySQL용 Azure Database: Java를 사용하여 데이터 연결 및 쿼리
+# <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Azure Database for MySQL: Java를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 Java 애플리케이션과 [MySQL 커넥터/J](https://dev.mysql.com/downloads/connector/j/) JDBC 드라이버를 사용하여 Azure Database for MySQL에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서에서는 Java를 사용하여 개발하는 데 익숙하고 Azure Database for MySQL을 처음 사용한다고 가정합니다.
 
 [MySQL 커넥터 예제 페이지](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html)에는 다른 많은 예제와 샘플 코드가 있습니다.
@@ -32,7 +29,7 @@ ms.locfileid: "49985395"
 
 3. 다음 방법 중 하나를 사용하여 MySQL 커넥터/J 커넥터를 가져옵니다.
    - Maven 패키지 [mysql-connector-java](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22)를 사용하여 프로젝트에 대한 POM 파일에 [mysql 종속성](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6)을 포함시킵니다.
-   - [MySQL 커넥터/J](https://dev.mysql.com/downloads/connector/j/) JDBC 드라이버를 다운로드하고 응용 프로그램 클래스 경로에 JDBC jar 파일(예: mysql-connector-java-5.1.42-bin.jar)을 포함시킵니다. 클래스 경로 문제가 있는 경우 환경(예: [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) 또는 [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html))의 클래스 경로 세부 사항에 대한 설명서를 참조하세요.
+   - [MySQL 커넥터/J](https://dev.mysql.com/downloads/connector/j/) JDBC 드라이버를 다운로드하고 애플리케이션 클래스 경로에 JDBC jar 파일(예: mysql-connector-java-5.1.42-bin.jar)을 포함시킵니다. 클래스 경로 문제가 있는 경우 환경(예: [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) 또는 [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html))의 클래스 경로 세부 사항에 대한 설명서를 참조하세요.
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.

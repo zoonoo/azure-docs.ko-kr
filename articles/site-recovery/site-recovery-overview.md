@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5942f27313cf8bb6a9ed8bf0a5cc4fb556693065
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2cd9e89c92b2bed75c52654d779f4f7d8c17596e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832227"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975324"
 ---
 # <a name="about-site-recovery"></a>Site Recovery란?
 
@@ -23,8 +23,8 @@ Azure Site Recovery 서비스를 시작합니다. 이 문서에서는 빠른 서
 
 Azure Recovery Services는 BCDR 전략에 기여합니다.
 
-- **Site Recovery 서비스**: Site Recovery는 중단 시간 중에도 비즈니스 앱과 워크로드를 지속적으로 실행하여 비즈니스 연속성을 보장합니다. Site Recovery는 물리적 컴퓨터와 VM(가상 머신)에서 실행되는 워크로드를 기본 사이트에서 보조 위치로 복제합니다. 기본 사이트에서 중단이 발생하면 보조 위치로 장애 조치(failover)하고 여기에서 앱에 액세스합니다. 기본 위치가 다시 실행되면 장애 복구(failback)할 수 있습니다.  
-- **백업 서비스**: [Azure Backup](https://docs.microsoft.com/azure/backup/) 서비스는 Azure에 데이터를 백업하여 계속 안전하고 복구 가능하도록 유지합니다.
+- **Site Recovery 서비스**: Site Recovery는 중단 기간 동안에도 비즈니스 앱과 워크로드를 유지하여 비즈니스 연속성을 보장합니다. Site Recovery는 물리적 컴퓨터와 VM(가상 머신)에서 실행되는 워크로드를 기본 사이트에서 보조 위치로 복제합니다. 기본 사이트에서 중단이 발생하면 보조 위치로 장애 조치(failover)하고 여기에서 앱에 액세스합니다. 기본 위치가 다시 실행되면 장애 복구(failback)할 수 있습니다.  
+- **Backup 서비스**: [Azure Backup](https://docs.microsoft.com/azure/backup/) 서비스는 Azure에 데이터를 백업하여 안전하게 유지하고 복구할 수 있도록 합니다.
 
 Site Recovery는 다음을 위해 복제를 관리할 수 있습니다.
 

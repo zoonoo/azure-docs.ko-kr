@@ -9,18 +9,36 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: e8a1575527f906fab130e08cda715f6c8e904275
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: c0c79e3d85a8ced2b868c9fa7741a14105c1de05
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166271"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753051"
 ---
-# <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>자습서 7: 간단한 엔터티 및 구 목록을 사용하여 이름 추출
+# <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>자습서: 단순 엔터티 및 구 목록을 사용하여 이름 추출
 
 이 자습서에서는 **단순** 엔터티를 사용하여 발화에서 배포 작업 이름의 기계 학습 데이터를 추출합니다. 추출 정확도를 높이려면 간단한 엔터티에 특정된 용어의 구 목록을 추가합니다.
+
+간단한 엔터티는 단어 또는 구에 포함된 단일 데이터 개념을 검색합니다.
+
+**이 자습서에서 학습할 내용은 다음과 같습니다.**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * 앱 가져오기 예제
+> * 단순 엔터티 추가 
+> * 구 목록을 추가하여 신호 단어 강화
+> * 학습 
+> * 게시 
+> * 엔드포인트에서 의도 및 엔터티 가져오기
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+
+## <a name="simple-entity"></a>단순 엔터티
 
 이 자습서에서는 직무 이름을 추출하는 간단한 새 엔터티를 추가합니다. 이 LUIS 앱의 단순 엔터티는 메시지가 무엇인지와 발화 중 어디에서 직무 이름을 찾을 수 있는지를 LUIS에 가르치기 위한 것입니다. 작업 이름에 해당하는 발화 부분은 단어 선택과 발화 길이에 따라 발화 간에 변경될 수 있습니다. LUIS에는 작업 이름을 사용하는 모든 의도에 대한 작업 이름의 예제가 필요합니다.  
 
@@ -31,34 +49,6 @@ ms.locfileid: "53166271"
 * 데이터는 전화 번호 또는 데이터의 미리 빌드된 엔터티와 같이 일반적이지 않습니다.
 * 데이터는 목록 엔터티와 같은 알려진 단어 목록과 정확하게 일치하지 않습니다.
 * 데이터에는 복합 엔터티 또는 계층적 엔터티와 같은 다른 데이터 항목이 없습니다.
-
-**이 자습서에서는 다음 방법에 대해 알아봅니다.**
-
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * 기존 자습서 앱 사용
-> * 앱에서 직무를 추출하는 단순 엔터티 만들기
-> * 구 목록을 추가하여 직무 단어 표시 확대
-> * 학습 
-> * 게시 
-> * 엔드포인트에서 의도 및 엔터티 가져오기
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>기존 앱 사용
-
-마지막 자습서에서 만든 **HumanResources**라는 앱을 사용하여 계속 진행합니다. 
-
-이전 자습서의 HumanResources 앱이 없으면 다음 단계를 사용합니다.
-
-1.  [앱 JSON 파일](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-composite-HumanResources.json)을 다운로드하고 저장합니다.
-
-2. JSON을 새 앱으로 가져옵니다.
-
-3. **관리** 섹션의 **버전** 탭에서 버전을 복제하고 `simple`라는 이름을 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 버전 이름이 URL 경로의 일부로 사용되므로 이름에는 URL에 유효하지 않은 문자가 포함될 수 없습니다.
-
-## <a name="simple-entity"></a>단순 엔터티
-간단한 엔터티는 단어 또는 구에 포함된 단일 데이터 개념을 검색합니다.
 
 챗봇에서 다음 발화를 살펴보겠습니다.
 
@@ -87,25 +77,38 @@ ms.locfileid: "53166271"
 
 엔터티가 예제 발화에 표시되면 간단한 엔터티의 신호를 강화하는 구 목록을 추가해야 합니다. 구 목록은 정확한 일치로 사용되지 **않고** 예상되는 모든 값일 필요가 없습니다. 
 
+## <a name="import-example-app"></a>앱 가져오기 예제
+
+1.  의도 자습서에서 [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/intentonly.json)을 다운로드하여 저장합니다.
+
+2. JSON을 새 앱으로 가져옵니다.
+
+3. **관리** 섹션의 **버전** 탭에서 버전을 복제하고 `simple`라는 이름을 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 버전 이름이 URL 경로의 일부로 사용되므로 이름에는 URL에 유효하지 않은 문자가 포함될 수 없습니다.
+
+## <a name="mark-entities-in-example-utterances-of-an-intent"></a>의도 발언 예제에서 엔터티 표시
+
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. **의도** 페이지에서 **ApplyForJob** 의도를 선택합니다. 
+1. **의도** 페이지에서 **ApplyForJob** 의도를 선택합니다. 
 
-3. `I want to apply for the new accounting job` 발화에서 `accounting`을 선택하고, 팝업 메뉴의 위쪽 필드에서 `Job`을 입력한 다음, 팝업 메뉴에서 **새 엔터티 만들기**를 선택합니다. 
+1. `I want to apply for the new accounting job` 발화에서 `accounting`을 선택하고, 팝업 메뉴의 위쪽 필드에서 `Job`을 입력한 다음, 팝업 메뉴에서 **새 엔터티 만들기**를 선택합니다. 
 
     [![엔터티 만들기 단계가 강조 표시된 LUIS의 ‘ApplyForJob’ 의도 스크린샷](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "엔터티 만들기 단계가 강조 표시된 LUIS의 ‘ApplyForJob’ 의도 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
-4. 팝업 창에서 엔터티 이름과 형식을 확인하고 **완료**를 선택합니다.
+1. 팝업 창에서 엔터티 이름과 형식을 확인하고 **완료**를 선택합니다.
 
     ![직무의 이름과 단순 형식을 사용한 단순 엔터티 만들기 팝업 모달 대화 상자](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-5. `Submit resume for engineering position` 발화에서 `engineering`이라는 단어를 직무 엔터티의 레이블로 지정합니다. `engineering`이라는 단어를 선택한 다음, 팝업 메뉴에서 **직무**를 선택합니다. 
+1. 나머지 발언에서 단어 또는 구를 선택한 다음, 팝업 메뉴에서 **직무**를 선택하여 직무 관련 단어에 **직무** 엔터티를 표시합니다. 
 
     [![강조 표시된 LUIS 직무 엔터티 레이블 지정의 스크린샷](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "강조 표시된 LUIS 직무 엔터티 레이블 지정의 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
-    모든 발화에는 레이블이 지정되지만, 5개의 발화는 LUIS에서 직무 관련 단어와 구를 학습하는 데 충분하지 않습니다. 숫자 값을 사용하는 직무는 정규식 엔터티를 사용하므로 이러한 직무에는 예제가 많이 필요하지 않습니다. 그러나 단어 또는 구를 사용하는 직무에는 15개 이상의 예제가 필요합니다. 
 
-6. 더 많은 발화를 추가하고 직무 단어 또는 구를 **직무** 엔터티로 표시합니다. 직무 유형은 고용 서비스의 직업에서 일반적입니다. 특정 산업과 관련된 직무를 원하는 경우 직무 단어에서 해당 산업을 반영해야 합니다. 
+## <a name="add-more-example-utterances-and-mark-entity"></a>더 많은 예제 발언을 추가하고 엔터티 표시
+
+예측의 신뢰도를 높이려면 단순 엔터티에 많은 예제가 필요합니다. 
+ 
+1. 더 많은 발화를 추가하고 직무 단어 또는 구를 **직무** 엔터티로 표시합니다. 
 
     |발화|직무 엔터티|
     |:--|:--|
@@ -126,100 +129,64 @@ ms.locfileid: "53166271"
     |생물학 교수 직에 지원하기 위한 내 이력서가 동봉되어 있습니다.|생물학 교수|
     |사진 촬영 직에 지원하고 싶습니다.|사진 촬영 기사|git 
 
-## <a name="label-entity-in-example-utterances"></a>예제 발화의 레이블 엔터티
-
-엔터티에서는 레이블 지정 또는 _표시_를 사용하여 엔터티가 예제 발화에 있는 LUIS를 보여줍니다.
+## <a name="mark-job-entity-in-other-intents"></a>다른 의도에서 직무 엔터티 표시
 
 1. 왼쪽 메뉴에서 **의도**를 선택합니다.
 
-2. 의도 목록에서 **GetJobInformation**을 선택합니다. 
+1. 의도 목록에서 **GetJobInformation**을 선택합니다. 
 
-3. 발화 예제의 직무에 대한 레이블을 지정합니다.
+1. 발화 예제의 직무에 대한 레이블 지정
 
-    |발화|직무 엔터티|
-    |:--|:--|
-    |데이터베이스에 어떤 직무가 있나요?|데이터베이스|
-    |회계 직무와 관련된 새 상황을 찾고 있습니다.|회계|
-    |수석 엔지니어에게 사용할 수 있는 직위는 무엇인가요?|수석 엔지니어|
+    한 의도에 다른 의도보다 더 많은 예제 발언이 있는 경우 해당 의도의 예측된 의도 점수가 가장 높을 가능성이 많습니다. 
 
-    다른 발화 예제가 있지만 직무 단어는 포함되어 있지 않습니다.
-
-## <a name="train"></a>학습
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>의도에 대한 변경 내용을 테스트할 수 있도록 앱 학습시키기 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>게시
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>학습된 모델을 엔드포인트에서 쿼리할 수 있도록 앱 게시
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>엔드포인트에서 의도 및 엔터티 가져오기 
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>엔드포인트에서 의도 및 엔터티 예측 가져오기 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. 주소의 URL 끝으로 이동하고 `Here is my c.v. for the programmer job`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발화 **쿼리**를 나타내는 `q`입니다. 이 발화는 레이블이 지정된 발화와 같지 않으므로 유용한 테스트이며, `ApplyForJob` 발화가 반환되어야 합니다.
+2. 주소의 URL 끝으로 이동하고 `Here is my c.v. for the engineering job`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발화 **쿼리**를 나타내는 `q`입니다. 이 발화는 레이블이 지정된 발화와 같지 않으므로 유용한 테스트이며, `ApplyForJob` 발화가 반환되어야 합니다.
 
     ```json
     {
-      "query": "Here is my c.v. for the programmer job",
+      "query": "Here is my c.v. for the engineering job",
       "topScoringIntent": {
         "intent": "ApplyForJob",
-        "score": 0.9826467
+        "score": 0.98052007
       },
       "intents": [
         {
           "intent": "ApplyForJob",
-          "score": 0.9826467
+          "score": 0.98052007
         },
         {
           "intent": "GetJobInformation",
-          "score": 0.0218927357
-        },
-        {
-          "intent": "MoveEmployee",
-          "score": 0.007849265
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.00349470088
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 0.00348804821
+          "score": 0.03424581
         },
         {
           "intent": "None",
-          "score": 0.00319909188
-        },
-        {
-          "intent": "FindForm",
-          "score": 0.00222647213
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00211193133
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.00172086991
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.00138010911
+          "score": 0.0015820954
         }
       ],
       "entities": [
         {
-          "entity": "programmer",
+          "entity": "engineering",
           "type": "Job",
           "startIndex": 24,
-          "endIndex": 33,
-          "score": 0.5230502
+          "endIndex": 34,
+          "score": 0.668959737
         }
       ]
     }
     ```
     
-    LUIS에서는 `programmer` 값을 사용하여 올바른 의도인 **ApplyForJob**을 찾고 올바른 엔터티인 **작업**을 추출했습니다.
+    LUIS에서는 `engineering` 값을 사용하여 올바른 의도인 **ApplyForJob**을 찾고 올바른 엔터티인 **작업**을 추출했습니다.
 
 
 ## <a name="names-are-tricky"></a>처리하기 어려운 이름
@@ -229,51 +196,23 @@ LUIS 앱은 높은 신뢰도를 통해 올바른 의도를 찾고 직무 이름�
 
 ```json
 {
-  "query": "This is the lead welder paperwork.",
+  "query": "This is the lead welder paperwork",
   "topScoringIntent": {
     "intent": "ApplyForJob",
-    "score": 0.468558252
+    "score": 0.860295951
   },
   "intents": [
     {
       "intent": "ApplyForJob",
-      "score": 0.468558252
+      "score": 0.860295951
     },
     {
       "intent": "GetJobInformation",
-      "score": 0.0102701457
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.009442534
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00639619166
+      "score": 0.07265678
     },
     {
       "intent": "None",
-      "score": 0.005859333
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.005087704
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.00315379258
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00259344373
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.00193389168
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 0.000420796918
+      "score": 0.00482481951
     }
   ],
   "entities": []
@@ -282,94 +221,76 @@ LUIS 앱은 높은 신뢰도를 통해 올바른 의도를 찾고 직무 이름�
 
 이름은 무엇이든 될 수 있으므로 표시를 확대할 수 있는 단어에 대한 구 목록이 있는 경우 LUIS는 엔터티를 더 정확하게 예측합니다.
 
-## <a name="to-boost-signal-add-phrase-list"></a>신호를 강화하려면 구 목록을 추가합니다.
+## <a name="to-boost-signal-of-the-job-related-words-add-a-phrase-list-of-job-related-words"></a>직무 관련 단어의 신호를 강화하려면 직무 관련 단어 구 목록을 추가
 
-LUIS-Samples GitHub 리포지토리에서 [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv)를 엽니다. 이 목록에는 1,000개가 넘는 직무 단어와 구가 있습니다. 이 목록에서 의미 있는 직무 단어를 찾습니다. 단어 또는 구가 목록에 없으면 직접 추가합니다.
+Azure-Samples GitHub 리포지토리에서 [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/job-phrase-list.csv)를 엽니다. 이 목록에는 1,000개가 넘는 직무 단어와 구가 있습니다. 이 목록에서 의미 있는 직무 단어를 찾습니다. 단어 또는 구가 목록에 없으면 직접 추가합니다.
 
 1. LUIS 앱의 **빌드** 섹션에서 **앱 성능 향상** 메뉴 아래에 있는 **구 목록**을 선택합니다.
 
-2. **새 구 목록 만들기**를 선택합니다. 
+1. **새 구 목록 만들기**를 선택합니다. 
 
-3. 새 구 목록의 이름을 `Job`로 지정하고, **값** 텍스트 상자에 jobs-phrase-list.csv의 목록을 복사합니다. Enter 키를 선택합니다. 
+1. 새 구 목록의 이름을 `JobNames`로 지정하고, **값** 텍스트 상자에 jobs-phrase-list.csv의 목록을 복사합니다. Enter 키를 선택합니다. 
 
     [![새 구 목록 만들기 대화 상자 팝업의 스크린샷](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "새 구 목록 만들기 대화 상자 팝업의 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
     구 목록에 더 많은 단어를 추가하려면 **관련 값**을 검토하고 관련된 내용을 추가합니다. 
 
-4. **저장**을 선택하여 구 목록을 활성화합니다.
+1. **저장**을 선택하여 구 목록을 활성화합니다.
 
     [![구 목록 값 상자에 단어가 포함된 새 구 목록 만들기 대화 상자 팝업의 스크린샷](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "구 목록 값 상자에 단어가 포함된 새 구 목록 만들기 대화 상자 팝업의 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-5. 구 목록을 사용할 수 있도록 앱을 다시 [학습](#train) 및 [게시](#publish)합니다.
+1. 구 목록을 사용할 수 있도록 앱을 다시 [학습](#train) 및 [게시](#publish)합니다.
 
-6. 동일한 `This is the lead welder paperwork.` 발화를 사용하여 엔드포인트에서 다시 쿼리합니다.
+1. 동일한 `This is the lead welder paperwork.` 발화를 사용하여 엔드포인트에서 다시 쿼리합니다.
 
     추출된 엔터티가 JSON 응답에 포함됩니다.
 
     ```json
-    {
-        "query": "This is the lead welder paperwork.",
-        "topScoringIntent": {
-            "intent": "ApplyForJob",
-            "score": 0.920025647
+      {
+      "query": "This is the lead welder paperwork.",
+      "topScoringIntent": {
+        "intent": "ApplyForJob",
+        "score": 0.983076453
+      },
+      "intents": [
+        {
+          "intent": "ApplyForJob",
+          "score": 0.983076453
         },
-        "intents": [
-            {
-            "intent": "ApplyForJob",
-            "score": 0.920025647
-            },
-            {
-            "intent": "GetJobInformation",
-            "score": 0.003800706
-            },
-            {
-            "intent": "Utilities.StartOver",
-            "score": 0.00299335527
-            },
-            {
-            "intent": "MoveEmployee",
-            "score": 0.0027167045
-            },
-            {
-            "intent": "None",
-            "score": 0.00259556063
-            },
-            {
-            "intent": "FindForm",
-            "score": 0.00224019377
-            },
-            {
-            "intent": "Utilities.Stop",
-            "score": 0.00200693542
-            },
-            {
-            "intent": "Utilities.Cancel",
-            "score": 0.00195913855
-            },
-            {
-            "intent": "Utilities.Help",
-            "score": 0.00162656687
-            },
-            {
-            "intent": "Utilities.Confirm",
-            "score": 0.0002851904
-            }
-        ],
-        "entities": [
-            {
-            "entity": "lead welder",
-            "type": "Job",
-            "startIndex": 12,
-            "endIndex": 22,
-            "score": 0.8295959
-            }
-        ]
+        {
+          "intent": "GetJobInformation",
+          "score": 0.0120766377
+        },
+        {
+          "intent": "None",
+          "score": 0.00248388131
+        }
+      ],
+      "entities": [
+        {
+          "entity": "lead welder",
+          "type": "Job",
+          "startIndex": 12,
+          "endIndex": 22,
+          "score": 0.8373154
+        }
+      ]
     }
     ```
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## <a name="related-information"></a>관련 정보
+
+* [엔터티 자습서 없는 의도](luis-quickstart-intents-only.md)
+* [단순 엔터티](luis-concept-entity-types.md) 개념 정보
+* [구 목록](luis-concept-feature.md) 개념 정보
+* [학습 방법](luis-how-to-train.md)
+* [게시 방법](luis-how-to-publish-app.md)
+* [LUIS 포털에서 테스트하는 방법](luis-interactive-test.md)
+
 
 ## <a name="next-steps"></a>다음 단계
 

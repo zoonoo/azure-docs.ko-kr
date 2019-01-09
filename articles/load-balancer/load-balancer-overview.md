@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
-ms.openlocfilehash: 3b1f2374618a0fdb446c4d0bf59fa14a828639ea
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 55cb1eee1c0319f9b1037476da208de377e0c47b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185616"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971191"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer란?
 
@@ -68,9 +68,9 @@ Load Balancer는 TCP 및 UDP 애플리케이션에 대해 다음과 같은 기�
 
 * **포트 전달**
 
-    Load Balancer를 사용하여 특정 프런트 엔드 IP 주소의 특정 포트에서 가상 네트워크 내에 있는 특정 백 엔드 인스턴스의 특정 포트로 트래픽을 전달하기 위한 인바운드 NAT 규칙을 만들 수 있습니다. 또한 이러한 작업은 부하 분산과 동일한 해시 기반 배포에 의해서도 수행됩니다. 이 기능에 대한 일반적인 시나리오는 Azure Virtual Network 내의 개별 VM 인스턴스에 대한 RDP(원격 데스크톱 프로토콜) 또는 SSH(보안 셸) 세션입니다. 여러 개의 내부 엔드포인트를 동일한 프런트 엔드 IP 주소의 서로 다른 포트에 매핑할 수 있습니다. 프런트 엔드 IP 주소를 사용하여 추가 프로그램 없이 인터넷을 통해 VM을 원격으로 관리할 수 있습니다.
+    Load Balancer를 사용하여 특정 프런트 엔드 IP 주소의 특정 포트에서 가상 네트워크 내에 있는 특정 백 엔드 인스턴스의 특정 포트로 트래픽을 전달하기 위한 인바운드 NAT 규칙을 만들 수 있습니다. 또한 이러한 작업은 부하 분산과 동일한 해시 기반 배포에 의해서도 수행됩니다. 이 기능에 대한 일반적인 시나리오는 Azure Virtual Network 내의 개별 VM 인스턴스에 대한 RDP(원격 데스크톱 프로토콜) 또는 SSH(보안 셸) 세션입니다. 여러 개의 내부 엔드포인트를 동일한 프런트 엔드 IP 주소의 서로 다른 포트에 매핑할 수 있습니다. 프런트 엔드 IP 주소를 사용하여 추가 점프 상자 없이 인터넷을 통해 VM을 원격으로 관리할 수 있습니다.
 
-* **응용 프로그램 모호성 및 투명성**
+* **애플리케이션 모호성 및 투명성**
 
     Load Balancer는 TCP/UDP 또는 애플리케이션 계층과 직접 상호 작용하지 않으며, 모든 TCP 또는 UDP 애플리케이션이 지원될 수 있습니다.  Load Balancer는 흐름을 종료하거나 시작하지 않고 흐름의 페이로드와 상호 작용하지 않으며, 애플리케이션 계층 게이트웨이 기능을 제공하고, 프로토콜 핸드셰이크는 항상 클라이언트와 백 엔드 풀 인스턴스 간에 직접 발생합니다.  인바운드 흐름에 대한 응답은 항상 가상 머신의 응답입니다.  흐름이 가상 머신에 도착하면 원래 원본 IP 주소도 유지됩니다.  투명도를 더 자세히 설명하기 위한 몇 가지 예입니다.
     - 모든 엔드포인트는 VM에서만 응답합니다.  예를 들어, TCP 핸드셰이크는 항상 클라이언트와 선택한 백 엔드 VM 사이에서 발행합니다.  프런트 엔드에 요청에 대한 응답은 백 엔드 VM에서 생성한 응답입니다. 프런트 엔드에 대한 연결의 유효성을 성공적으로 확인하는 경우 최소 하나 이상의 백 엔드 가상 머신에 통합형 연결의 유효성을 검사하는 것입니다.

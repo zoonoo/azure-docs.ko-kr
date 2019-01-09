@@ -2,27 +2,21 @@
 title: Azure Cosmos DB 글로벌 배포
 description: Azure Portal에서 Azure Cosmos DB를 사용하여 데이터를 전역으로 복제하는 방법을 알아봅니다.
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 03/26/2018
-ms.author: sngun
+ms.date: 12/26/2018
+ms.author: rimman
 ms.custom: include file
-ms.openlocfilehash: fb9418d47d2888467e1c1c40862833029111b75b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 751571820d52c003a7e740bd63af8c9d9e071c7a
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38747560"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53796116"
 ---
-Azure Cosmos DB 프로그램 관리자 Andrew Liu가 글로벌 배포 기능에 대해 설명하는 다음 비디오를 통해 Azure Cosmos DB 글로벌 배포에 대해 배울 수 있습니다.
-
->[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
-
-글로벌 데이터베이스 복제가 Azure Cosmos DB에서 작동하는 방법에 대한 자세한 내용은 [Cosmos DB를 사용하여 전역적으로 데이터 배포](../articles/cosmos-db/distribute-data-globally.md)를 참조하세요.
-
 ## <a id="addregion"></a>Azure Portal을 사용하여 글로벌 데이터베이스 지역 추가
-Azure Cosmos DB는 전세계 모든 [Azure 지역][azureregions]에 제공됩니다. 데이터베이스 계정에서 기본 일관성 수준을 선택한 후에는 (선택한 기본 일관성 수준 및 글로벌 배포 수요에 따라) 하나 이상의 지역을 연결합니다.
+Azure Cosmos DB는 전 세계의 모든 [Azure 지역][azureregions]에서 사용할 수 있습니다. 데이터베이스 계정에서 기본 일관성 수준을 선택한 후에는 (선택한 기본 일관성 수준 및 글로벌 배포 수요에 따라) 하나 이상의 지역을 연결합니다.
 
 1. [Azure Portal](https://portal.azure.com/)의 왼쪽 막대에서 **Azure Cosmos DB**를 클릭합니다.
 2. **Azure Cosmos DB** 페이지에서 수정할 데이터베이스 계정을 선택합니다.
@@ -41,7 +35,7 @@ Azure Cosmos DB는 전세계 모든 [Azure 지역][azureregions]에 제공됩니
 
 최종 사용자에게 낮은 대기 시간을 제공하기 위해서는 애플리케이션 사용자가 있는 위치와 동일한 지역에 애플리케이션과 Azure Cosmos DB를 모두 배포하는 것이 좋습니다.
 
-BCDR의 경우 [비즈니스 연속성 및 재해 복구(BCDR): Azure 쌍을 이루는 지역][bcdr] 문서에서 설명된 하위 지역 쌍에 기초하여 지역을 추가하는 것이 좋습니다.
+BCDR의 경우 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역][bcdr] 문서에서 설명하는 지역 쌍에 기반하여 지역을 추가하는 것이 좋습니다.
 
 <!--
 

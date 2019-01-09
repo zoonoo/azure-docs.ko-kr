@@ -1,84 +1,50 @@
 ---
-title: '빠른 시작: 음성 인식, Java - Speech Services'
+title: '빠른 시작: 음성 인식, Java(Windows, Linux) - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Java(Windows 또는 Linux)에서 음성을 인식하는 방법 알아보기
+description: 이 빠른 시작에서는 컴퓨터의 마이크에서 사용자 음성을 캡처하고 전사하는 간단한 Java 애플리케이션을 만듭니다.
 services: cognitive-services
 author: fmegen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/18/2018
 ms.author: fmegen
-ms.openlocfilehash: 7d1f26a43866025c3b542fc10a3f316ad0d1dc37
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0591ca0275c039ddb5828cb48bda2b0b305d7003
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103122"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721392"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>빠른 시작: Speech Service SDK를 사용하여 Windows 또는 Linux 기반 Java에서 음성 인식
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>빠른 시작: Java용 Speech SDK를 사용하여 음성 인식
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-이 문서에서는 [Speech Service SDK](speech-sdk.md)를 사용하여 Java 콘솔 애플리케이션을 만듭니다. PC에서 마이크를 사용하여 실시간으로 음성을 텍스트로 변환합니다. 애플리케이션은 Speech SDK Maven 패키지와 64비트 Windows 또는 Ubuntu Linux 16.04 기반의 Eclipse Java IDE(v4.8)를 사용하여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
+이 문서에서는 [Speech Service SDK](speech-sdk.md)를 사용하여 Java 콘솔 애플리케이션을 만듭니다. PC에서 마이크를 사용하여 실시간으로 음성을 텍스트로 변환합니다. 애플리케이션은 Speech SDK Maven 패키지와 64비트 Windows 또는 64비트 Ubuntu Linux 16.04/18.04 기반의 Eclipse Java IDE(v4.8)를 사용하여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
 
 > [!NOTE]
 > Speech Devices SDK 및 Roobo 디바이스에 대한 내용은 [Speech Devices SDK](speech-devices-sdk.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 완료하려면 음성 서비스 구독 키가 필요합니다. 무료로 가져올 수 있습니다. 자세한 내용은 [음성 서비스를 무료로 체험해보기](get-started.md)를 참조하세요.
+이 빠른 시작에는 다음이 필요합니다.
 
+* 운영 체제: Windows(64 비트) 또는 Ubuntu Linux 16.04/18.04(64비트)
+* [Eclipse Java IDE](https://www.eclipse.org/downloads/)
+* [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 또는 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* Speech Service에 대한 Azure 구독 키 [무료로 가져올 수 있습니다](get-started.md).
+
+Ubuntu 16.04/18.04를 실행하는 경우 Eclipse를 시작하기 전에 이러한 종속성이 설치되어 있는지 확인합니다.
+
+```console
+sudo apt-get update
+sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+```
 
 ## <a name="create-and-configure-project"></a>프로젝트 만들기 및 구성
 
-Ubuntu 16.04를 사용하는 경우 Eclipse를 시작하기 전에 다음 명령을 실행하여 필수 패키지가 설치되어 있는지 확인합니다.
-
-  ```sh
-  sudo apt-get update
-  sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
-  ```
-
-1. Eclipse를 시작합니다.
-
-1. Eclipse Launcher에서 **작업 영역** 필드에 새 작업 영역 디렉터리의 이름을 입력합니다. 그리고 **시작**을 선택합니다.
-
-   ![Eclipse Launcher의 스크린샷](media/sdk/qs-java-jre-01-create-new-eclipse-workspace.png)
-
-1. 잠시 후 Eclipse IDE의 주 창이 표시됩니다. 시작 화면이 표시되는 경우 시작 화면을 닫습니다.
-
-1. Eclipse 메뉴 모음에서 **파일** > **새로 만들기** > **프로젝트**를 선택하여 새 프로젝트를 만듭니다.
-
-1. **새 프로젝트** 대화 상자가 나타납니다. **Java 프로젝트**를 선택하고 **다음**을 선택합니다.
-
-   ![Java 프로젝트가 강조 표시된 새 프로젝트 대화 상자의 스크린샷](media/sdk/qs-java-jre-02-select-wizard.png)
-
-1. 새 Java 프로젝트 마법사가 시작됩니다. **프로젝트 이름** 필드에 **빠른 시작**을 입력하고, 실행 환경으로 **JavaSE-1.8**을 선택합니다. **마침**을 선택합니다.
-
-   ![새 Java 프로젝트 마법사의 스크린샷](media/sdk/qs-java-jre-03-create-java-project.png)
-
-1. **연결된 큐브 뷰를 열까요?** 라는 창이 나타나면 **큐브 뷰 열기**를 선택합니다.
-
-1. **패키지 탐색기**에서 **빠른 시작** 프로젝트를 마우스 오른쪽 단추로 클릭합니다. 바로 가기 메뉴에서 **구성** > **Maven 프로젝트로 변환**을 선택합니다.
-
-   ![패키지 탐색기의 스크린샷](media/sdk/qs-java-jre-04-convert-to-maven-project.png)
-
-1. **새 POM 만들기** 창이 나타납니다. **그룹 Id** 필드에 **com.microsoft.cognitiveservices.speech.samples**를 입력하고, **아티팩트 Id**에 **빠른 시작**을 입력합니다. 그런 다음, **마침**을 선택합니다.
-
-   ![[새 POM 만들기] 창의 스크린샷](media/sdk/qs-java-jre-05-configure-maven-pom.png)
-
-1. **pom.xml** 파일을 열고 편집합니다.
-
-   * 파일 끝 부분에서 닫는 `</project>` 태그 앞에 다음과 같이 Speech SDK의 Maven 리포지토리에 대한 참조를 사용하여 `repositories` 요소를 만듭니다.
-
-     [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
-
-  * 또한 Speech SDK 버전 1.1.0을 종속성으로 사용하여 `dependencies` 요소를 추가합니다.
-
-     [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
-
-   * 변경 내용을 저장합니다.
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
 ## <a name="add-sample-code"></a>샘플 코드 추가
 
@@ -105,16 +71,15 @@ F11 키를 누르거나 **실행** > **디버그**를 선택합니다.
 
 ![인식에 성공한 후의 콘솔 출력 스크린샷](media/sdk/qs-java-jre-07-console-output.png)
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-이 예제를 `quickstart/java-jre` 폴더에서 찾을 수 있습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
+오디오 파일에서 음성을 읽는 방법 등의 추가 샘플은 GitHub에서 사용할 수 있습니다.
+
 > [!div class="nextstepaction"]
-> [Java용 Speech SDK를 사용하여 음성에서 의도 인식](how-to-recognize-intents-from-speech-java.md)
+> [GitHub에서 Java 샘플 살펴보기](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>참고 항목
 
-- [음성 번역](how-to-translate-speech-csharp.md)
+- [빠른 시작: 음성 변환, Java(Windows, Linux)](quickstart-translate-speech-java-jre.md)
 - [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
 - [언어 모델 사용자 지정](how-to-customize-language-model.md)

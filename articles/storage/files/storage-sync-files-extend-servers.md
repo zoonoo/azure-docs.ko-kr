@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: cc34411cc27870dbd9c707a34ebf34b96c7253dc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3ebf450f4e84fed572307a18f20f36013e32c7a5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986120"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630702"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>자습서: Azure 파일 동기화를 사용하여 Windows 파일 서버 확장
 이 자습서에서는 Azure 파일 동기화를 사용하여 Windows 서버의 저장소 용량을 확장하기 위한 기본 단계를 살펴봅니다. 이 자습서에서는 Windows Server Azure VM을 사용하지만 일반적으로는 온-프레미스 서버에 이 프로세스를 수행하게 될 것입니다. 자체 환경에 Azure 파일 동기화를 배포하려면 이 대신 [Azure 동기화 배포](storage-sync-files-deployment-guide.md) 문서를 사용하세요.
@@ -29,7 +29,7 @@ ms.locfileid: "49986120"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
-https://portal.azure.com에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="prepare-your-environment"></a>환경 준비
 Azure 파일 동기화를 배포하기 전에 이 자습서를 위한 몇 가지 설정이 필요합니다. Azure Storage 계정 및 파일 공유와 함께 Windows Server 2016 Datacenter VM을 만들고 Azure 파일 동기화를 위한 서버를 준비합니다.
@@ -163,14 +163,14 @@ Azure 파일 동기화를 배포하기 전에 이 자습서를 위한 몇 가지
 
 1. **탐색기**와 **서버 관리자**를 닫습니다.
 
-### <a name="download-the-azurerm-powershell-module"></a>AzureRM PowerShell 모듈 다운로드
-이제 **Windows Server 2016 Datacenter** VM에서 서버에 **AzureRM PowerShell 모듈**을 설치합니다.
+### <a name="download-the-azure-powershell-module"></a>Azure PowerShell 모듈 다운로드
+이제 **Windows Server 2016 Datacenter** VM에서 서버에 **Azure PowerShell 모듈**을 설치합니다.
 
 1. VM에서 관리자 권한 Windows PowerShell 창을 엽니다.
 1. 다음 명령 실행:
 
    ```powershell
-   Install-Module -Name AzureRM -AllowClobber
+   Install-Module -Name Az -AllowClobber
    ```
 
    > [!NOTE]
@@ -189,7 +189,7 @@ Azure 파일 동기화를 배포하기 전에 이 자습서를 위한 몇 가지
 
 1. 설치를 계속하려면 `Yes` 또는 `Yes to All`로 답변합니다.
 
-`AzureRM` 모듈은 Azure PowerShell cmdlet의 롤업 모듈입니다. 설치하면 사용 가능한 모든 Azure Resource Manager 모듈이 다운로드되고 cmdlet을 사용할 수 있게 됩니다.
+`Az` 모듈은 Azure PowerShell cmdlet의 롤업 모듈입니다. 설치하면 사용 가능한 모든 Azure Resource Manager 모듈이 다운로드되고 cmdlet을 사용할 수 있게 됩니다.
 
 이제 자습서를 위한 환경 설정을 마쳤고 **저장소 동기화 서비스** 배포를 시작할 수 있습니다.
 
@@ -237,7 +237,7 @@ Azure 동기화 서비스를 배포하고 **Windows Server 2016 Datacenter** VM�
 ## <a name="register-windows-server"></a>Windows Server 등록
 저장소 동기화 서비스에 Windows Server를 등록하면 서버(또는 클러스터)와 저장소 동기화 서비스 간에 트러스트 관계가 설정됩니다. 서버는 한 저장소 동기화 서비스에만 등록할 수 있으며 동일한 저장소 동기화 서비스에 연결된 다른 서버 및 Azure 파일 공유와 동기화할 수 있습니다.
 
-**Azure 파일 동기화 에이전트** 설치 후 서버 등록 UI가 자동으로 열립니다. 그렇지 않은 경우 파일 위치(C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe)에서 수동으로 열 수 있습니다.
+**Azure 파일 동기화 에이전트** 설치 후 서버 등록 UI가 자동으로 열립니다. 그렇지 않으면 다음 파일 위치에서 수동으로 열 수 있습니다. C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.
 
 1. VM에 서버 등록 UI가 열리면 **확인**을 클릭합니다.
 1. **로그인**을 클릭하여 시작합니다.

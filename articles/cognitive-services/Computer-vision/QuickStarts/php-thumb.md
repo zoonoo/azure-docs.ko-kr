@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 썸네일 생성 - REST, PHP - Computer Vision'
+title: '빠른 시작: 썸네일 생성 - REST, PHP'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 PHP와 함께 Computer Vision API를 사용하여 이미지에서 썸네일을 생성합니다.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 171893dd3017d46c405d2269506fe37896155e55
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 1527f57a1d300f730222d100bc9caf2001098fea
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964512"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579348"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-php-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 PHP를 사용하여 썸네일 생성
 
@@ -33,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 샘플을 만들고 실행하려면 다음 단계를 수행합니다.
 
-1. PHP5 [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) 패키지를 설치합니다.
+1. PHP5 [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2) 패키지를 설치합니다.
    1. 관리자로 명령 프롬프트 창을 엽니다.
    1. 다음 명령 실행:
 

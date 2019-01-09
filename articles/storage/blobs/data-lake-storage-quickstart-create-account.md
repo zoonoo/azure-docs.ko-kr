@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 914dcf6d19ca0791c5914e7d605e48f15a610d62
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d093dbe50cb76faedc463603edc459b22dda4fba
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099514"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628241"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>빠른 시작: Azure Data Lake Storage Gen2 스토리지 계정 만들기
 
@@ -116,21 +116,11 @@ Azure Portal을 사용하여 리소스 그룹을 제거하려면
 
 ### <a name="upgrade-your-powershell-module"></a>PowerShell 모듈 업그레이드
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 PowerShell을 사용하여 Data Lake Storage Gen2와 상호 작용하려면 모듈 Az.Storage 버전 **0.7** 이상을 설치해야 합니다.
 
 관리자 권한으로 PowerShell 세션을 열어 시작합니다.
-
-그런 다음, AzureRM.Storage 모듈이 설치되어 있는지 확인합니다.
-
-```powershell
-Get-Module -ListAvailable AzureRM.Storage
-```
-
-모듈이 나타나면 모듈을 제거합니다.
-
-```powershell
-Uninstall-Module AzureRM.Storage -Force
-```
 
 Az.Storage 모듈 설치
 
@@ -138,28 +128,20 @@ Az.Storage 모듈 설치
 Install-Module Az.Storage -Repository PSGallery -RequiredVersion 0.7.0 -AllowPrerelease -AllowClobber -Force
 ```
 
-AzureRM의 호환성 모드를 사용하도록 설정합니다.
-
-```powershell
-Enable-AzureRMAlias
-```
-
-호환성 모드는 AzureRM.Storage 모듈을 사용하는 스크립트가 AzureRM.Storage 모듈을 제거한 경우에도 계속 작동한다는 것을 의미합니다.
-
 > [!NOTE]
-> Azure Powershell Az 모듈은 PowerShell에서 Azure 서비스 작업을 위한 기본 설정 모듈입니다. 자세한 내용은 [새로운 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0)를 참조하세요.
+> Azure Powershell Az 모듈은 PowerShell에서 Azure 서비스 작업을 위한 기본 설정 모듈입니다. 자세한 내용은 [새로운 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)를 참조하세요.
 
 ### <a name="log-in-to-your-azure-subscription"></a>Azure 구독에 로그인
 
-`Login-AzureRmAccount` 명령을 사용하고 화면의 지시에 따라 인증합니다.
+`Login-AzAccount` 명령을 사용하고 화면의 지시에 따라 인증합니다.
 
 ```powershell
-Login-AzureRmAccount
+Login-AzAccount
 ```
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-PowerShell에서 새 리소스 그룹을 만들려면 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 명령을 사용합니다. 
+PowerShell에서 새 리소스 그룹을 만들려면 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용합니다. 
 
 > [!NOTE]
 > 계층 구조 네임스페이스는 현재 모든 공용 영역에서 사용할 수 있습니다. 현재 소버린 클라우드에서는 사용할 수 없습니다.
@@ -169,17 +151,17 @@ PowerShell에서 새 리소스 그룹을 만들려면 [New-AzureRmResourceGroup]
 # without hardcoding it repeatedly
 $resourceGroup = "storage-quickstart-resource-group"
 $location = "westus2"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>범용 v2 저장소 계정 만들기
 
-PowerShell에서 LRS(로컬 중복 저장소)를 사용하여 범용 v2 저장소 계정을 만들려면 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 명령을 사용합니다.
+PowerShell에서 LRS(로컬 중복 스토리지)를 사용하여 범용 v2 스토리지 계정을 만들려면 [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) 명령을 사용합니다.
 
 ```powershell
 $location = "westus2"
 
-New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
   -SkuName Standard_LRS `
@@ -189,10 +171,10 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 
 ### <a name="clean-up-resources"></a>리소스 정리
 
-새 저장소 계정을 포함하여 리소스 그룹과 관련 리소스를 제거하려면 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 명령을 사용합니다. 
+새 스토리지 계정을 포함하여 리소스 그룹 및 관련 리소스를 제거하려면 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 명령을 사용합니다. 
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="create-an-account-using-azure-cli"></a>Azure CLI를 사용하여 계정 만들기

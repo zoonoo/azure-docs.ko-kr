@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: Python을 사용하여 엔드포인트 호출 - Bing Custom Search'
+title: '빠른 시작: Python을 사용하여 Bing Custom Search 엔드포인트 호출 | Microsoft Docs'
 titlesuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Python으로 Bing Custom Search 엔드포인트를 호출하여 사용자 지정 검색 인스턴스에서 검색 결과를 요청하는 방법을 보여줍니다.
+description: 이 빠른 시작을 사용하여 Python을 사용하여 Bing Custom Search 인스턴스의 검색 결과를 요청할 수 있습니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,63 +10,54 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: aahi
-ms.openlocfilehash: d7977f49a484665f133a119f491bd8986c0b6fc4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9534a60e66f194bf653e1bfd28d6d6f2a96ba90a
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310722"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558722"
 ---
-# <a name="quickstart-call-bing-custom-search-endpoint-python"></a>빠른 시작: Bing Custom Search 엔드포인트 호출(Python)
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-python"></a>빠른 시작: Python을 사용하여 Bing Custom Search 엔드포인트 호출
 
-이 빠른 시작에서는 Python으로 Bing Custom Search 엔드포인트를 호출하여 사용자 지정 검색 인스턴스에서 검색 결과를 요청하는 방법을 보여줍니다. 
+이 빠른 시작을 사용하여 Bing Custom Search 인스턴스의 검색 결과를 요청할 수 있습니다. 이 애플리케이션은 Python으로 작성되지만 Bing Custom Search API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingCustomSearchv7.py)에 제공됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 완료하려면 다음이 필요합니다.
+- Bing Custom Search 인스턴스 [빠른 시작: 처음으로 Bing Custom Search 인스턴스 만들기](quick-start.md)에서 자세한 내용을 참조하세요.
+- [Python](https://www.python.org/) 2.x 또는 3.x
 
-- 바로 사용할 수 있는 사용자 지정 검색 인스턴스. [처음으로 Bing Custom Search 인스턴스 만들기](quick-start.md)를 참조하세요.
-- 설치된 [Python](https://www.python.org/).
-- 구독 키 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)을 정품 인증하면 구독 키를 받을 수 있습니다. Azure 대시보드에서 유료 구독 키를 사용할 수도 있습니다([Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 참조).   [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 
-## <a name="run-the-code"></a>코드 실행
+## <a name="create-and-initialize-the-application"></a>애플리케이션 만들기 및 초기화
 
-이 예제를 실행하려면 다음 단계를 수행합니다.
+1. 즐겨 찾는 IDE 또는 편집기에서 새 Python 파일을 만들고 다음 가져오기 명령문을 추가합니다. 구독 키, 사용자 지정 구성 ID 및 검색어에 대한 변수를 만듭니다. 
 
-1. 코드 폴더를 만듭니다.  
-  
-2. 관리자 명령 프롬프트 또는 터미널에서, 방금 만든 폴더로 이동합니다.  
-  
-3. **요청** python 모듈을 설치합니다.  
-  
-    <pre>
-    pip install pipenv
-    pipenv install requests
-    </pre>  
-      
-4. 앞에서 만든 폴더에 BingCustomSearch.py 파일을 만들고 다음 코드를 해당 파일에 복사합니다. **YOUR-SUBSCRIPTION-KEY** 및 **YOUR-CUSTOM-CONFIG-ID**는 해 구독 키와 구성 ID로 바꿉니다.  
-  
-    ``` Python
+    ```python
     import json
     import requests
     
     subscriptionKey = "YOUR-SUBSCRIPTION-KEY"
     customConfigId = "YOUR-CUSTOM-CONFIG-ID"
     searchTerm = "microsoft"
-    
-    url = 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=' + searchTerm + '&customconfig=' + customConfigId
+    ```
+
+## <a name="send-and-receive-a-search-request"></a>검색 요청 보내고 받기 
+
+1. 검색어를 `q=` 쿼리 매개 변수에 추가하고 검색 인스턴스의 사용자 지정 구성 ID를 `customconfig=`에 추가하여 요청 URL을 구성합니다. 매개 변수를 `&` 문자로 분리합니다. 
+
+    ```python
+    url = 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?' + 'q=' + searchTerm + '&' + 'customconfig=' + customConfigId
+    ```
+
+2. Bing Custom Search 인스턴스에 요청을 보내고 반환된 검색 결과를 출력합니다.  
+
+    ```python
     r = requests.get(url, headers={'Ocp-Apim-Subscription-Key': subscriptionKey})
     print(r.text)
-    ```  
-  
-7. 다음 명령을 사용하여 코드를 실행합니다.  
-  
-    ```
-    python BingCustomSearch.py
     ```
 
 ## <a name="next-steps"></a>다음 단계
-- [호스트된 UI 환경 구성](./hosted-ui.md)
-- [장식 표식을 사용하여 텍스트를 강조 표시](./hit-highlighting.md)
-- [웹 페이지 페이징](./page-webpages.md)
+
+> [!div class="nextstepaction"]
+> [Custom Search 웹앱 빌드](./tutorials/custom-search-web-page.md)

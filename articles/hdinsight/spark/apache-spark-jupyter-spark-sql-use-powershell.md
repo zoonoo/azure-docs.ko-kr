@@ -9,19 +9,19 @@ ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: fcc25449d4e65dc36be0eb2f13cb35bf23ae6f00
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d05d8c39ae393d62969967c2ce09a97ec6a6710f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498050"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791713"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-powershell"></a>빠른 시작: PowerShell을 사용하여 HDInsight에서 Apache Spark 클러스터 만들기
-Azure HDInsight에서 [Apache Spark](https://spark.apache.org/) 클러스터를 만드는 방법과 [Apache Hive](https://hive.apache.org/) 테이블에 대해 Spark SQL 쿼리를 실행하는 방법을 알아봅니다. Apache Spark를 통해 메모리 내 처리 기능을 사용하여 데이터 분석 및 클러스터 컴퓨팅을 신속하게 처리합니다. HDInsight의 Spark에 대한 자세한 내용은 [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)를 참조하세요.
+Azure HDInsight에서 [Apache Spark](https://spark.apache.org/) 클러스터를 만드는 방법과 [Apache Hive](https://hive.apache.org/) 테이블에 대해 Spark SQL 쿼리를 실행하는 방법을 알아봅니다. Apache Spark를 통해 메모리 내 처리 기능을 사용하여 데이터 분석 및 클러스터 컴퓨팅을 신속하게 처리합니다. HDInsight의 Spark에 대한 자세한 내용은 [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)를 참조하세요.
 
 이 빠른 시작에서는 Azure PowerShell을 사용하여 HDInsight Spark 클러스터를 만듭니다. 클러스터는 클러스터 저장소로 Azure Storage Blob을 사용합니다. Data Lake Storage Gen2를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > HDInsight 클러스터에 대한 결제는 사용 여부에 관계없이 분당으로 비례 배분됩니다. 사용한 후에 클러스터를 삭제해야 합니다. 자세한 내용은 이 문서의 [리소스 정리](#clean-up-resources) 섹션을 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
@@ -31,7 +31,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 다음과 같은 Azure 개체와 리소스 만들기를 포함하는 HDInsight 클러스터를 만듭니다.
 
 - Azure 리소스 그룹. Azure 리소스 그룹은 Azure 리소스에 대한 컨테이너입니다. 
-- Azure Storage 계정 또는 Azure Data Lake Store.  각 HDInsight 클러스터에는 종속 데이터 저장소가 필요합니다. 이 빠른 시작에서는 저장소 계정을 만듭니다.
+- Azure 스토리지 계정 또는 Azure Data Lake Storage.  각 HDInsight 클러스터에는 종속 데이터 저장소가 필요합니다. 이 빠른 시작에서는 저장소 계정을 만듭니다.
 - 다른 클러스터 유형의 HDInsight 클러스터.  이 빠른 시작에서는 Spark 2.3 클러스터를 만듭니다.
 
 PowerShell 스크립트를 사용하여 리소스를 만듭니다.  스크립트를 실행하는 경우 다음 값을 입력하라는 메시지가 표시됩니다.
@@ -116,7 +116,7 @@ PowerShell 스크립트를 사용하여 리소스를 만듭니다.  스크립트
     ```
 클러스터를 만드는 데 약 20분이 걸립니다. 다음 세션을 계속하려면 먼저 클러스터를 만들어야 합니다.
 
-HDInsight 클러스터를 만드는 데 문제가 발생하는 경우 이를 수행하기 위한 적절한 사용 권한이 없을 수 있습니다. 자세한 내용은 [액세스 제어 요구 사항](../hdinsight-administer-use-portal-linux.md#create-clusters)을 참조하세요.
+HDInsight 클러스터를 만드는 데 문제가 발생하는 경우 이를 수행하기 위한 적절한 사용 권한이 없을 수 있습니다. 자세한 내용은 [액세스 제어 요구 사항](../hdinsight-hadoop-create-linux-clusters-portal.md)을 참조하세요.
 
 ## <a name="create-a-jupyter-notebook"></a>Jupyter Notebook 만들기
 
@@ -173,7 +173,7 @@ SQL(구조적 쿼리 언어)은 데이터 쿼리 및 정의에 가장 일반적�
 2. Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 선택합니다. Notebook을 종료하면 클러스터 리소스가 릴리스됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
-HDInsight는 Azure Storage 또는 Azure Data Lake Store에 데이터를 저장하므로 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. [다음 단계](#next-steps)에 나열된 자습서를 즉시 수행하려는 경우 클러스터를 유지할 수 있습니다.
+HDInsight는 Azure Storage 또는 Azure Data Lake Storage에 데이터를 저장하므로 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. [다음 단계](#next-steps)에 나열된 자습서를 즉시 수행하려는 경우 클러스터를 유지할 수 있습니다.
 
 Azure Portal로 다시 전환하고, **삭제**를 선택합니다.
 

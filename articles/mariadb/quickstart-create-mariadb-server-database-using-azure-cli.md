@@ -3,19 +3,17 @@ title: '빠른 시작: Azure Database for MariaDB 서버 만들기 - Azure CLI'
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 Azure 리소스 그룹에서 Azure Database for MariaDB 서버를 만드는 방법을 살펴봅니다.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: bc32cde7e4b4cf68b12b100eb402237098459aae
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 19c1952a25e6a6db9b81b74f79bdcd2970cb2c78
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566451"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538749"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB 서버 만들기
 
@@ -52,14 +50,14 @@ az group create --name myresourcegroup --location westus
 이름 | **mydemoserver** | Azure Database for MariaDB 서버를 식별하는 고유한 이름을 입력합니다. 서버 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3~63자여야 합니다.
 resource-group | **myresourcegroup** | Azure 리소스 그룹의 이름을 입력합니다.
 sku-name | **GP_Gen5_2** | SKU의 이름입니다. *가격 책정 계층*\_*계산 세대*\_*vCores* 규칙을 축약형으로 따릅니다. **sku-name** 매개 변수에 대한 자세한 내용은 이 표 다음에 나오는 섹션을 참조하세요.
-backup-retention | **7** | 백업을 보존하는 기간입니다. 단위는 일입니다. 범위: 7~35. 
-geo-redundant-backup | **사용 안 함** | 이 서버에 지역 중복 백업을 사용할 것인지 여부를 결정합니다. 허용되는 값은 **사용** 및 **사용 안 함**입니다.
+backup-retention | **7** | 백업을 보존하는 기간입니다. 단위는 일입니다. 범위: 7 ~ 35 
+geo-redundant-backup | **사용 안 함** | 이 서버에 지역 중복 백업을 사용할 것인지 여부를 결정합니다. 허용되는 값은 다음과 같습니다. **사용**, **사용 안 함**
 location | **westus** | 서버에 대한 Azure 위치입니다.
-ssl-enforcement | **사용** | 이 서버에 SSL을 사용할 것인지 여부를 결정합니다. 허용되는 값은 **사용** 및 **사용 안 함**입니다.
+ssl-enforcement | **사용** | 이 서버에 SSL을 사용할 것인지 여부를 결정합니다. 허용되는 값은 다음과 같습니다. **사용**, **사용 안 함**
 storage-size | **51200** | 서버의 저장소 용량입니다(단위는 메가바이트). 유효한 저장소 크기는 5,120MB(최소)이고 1,024MB 단위로 증가합니다. 저장소 크기 한도에 대한 자세한 내용은 [가격 책정 계층](./concepts-pricing-tiers.md)을 참조하세요. 
 버전 | **10.2** | MariaDB 주 엔진 버전입니다.
 admin-user | **myadmin** | 관리자 로그인에 대한 사용자 이름입니다. **admin-user** 매개 변수는 **azure_superuser**, **admin**, **administrator**, **root**, **guest** 또는 **public**일 수 없습니다.
-admin-password | *사용자 암호* | 관리자 사용자의 암호입니다. 암호는 8-128자여야 합니다. 암호에는 영어 대문자, 영어 소문자, 숫자 및 영숫자가 아닌 문자의 세 범주에 해당하는 문자가 포함되어야 합니다.
+admin-password | *사용자 암호* | 관리자 사용자의 암호입니다. 암호는 8-128자여야 합니다. 다음 범주 중 세 개의 문자를 포함해야 합니다. 영문 대문자, 영문 소문자, 숫자 및 영숫자가 아닌 문자
 
 **sku-name** 매개 변수 값은 다음 예제처럼 *가격 책정 계층*\_*계산 세대*\_*vCores* 규칙을 따릅니다.
 + `--sku-name B_Gen5_4`는 기본 가격 책정 계층, Gen 5 계산 세대 및 vCore 4개에 매핑됩니다.

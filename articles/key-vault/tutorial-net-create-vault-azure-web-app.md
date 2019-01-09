@@ -1,5 +1,5 @@
 ---
-title: 자습서 - .NET에서 Azure Web App과 Azure Key Vault 사용 | Microsoft Docs
+title: 자습서 - .NET의 Azure 웹앱에서 Azure Key Vault 사용 - Azure Key Vault | Microsoft Docs
 description: 자습서 - Key Vault에서 비밀을 읽도록 ASP.NET Core 애플리케이션 구성
 services: key-vault
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 50a7f3166d677fe1af961866ccae4445a3d810b8
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: b6dbae0f721983920c2073927fff74100528678e
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322144"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998798"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>자습서: .NET에서 Azure 웹앱과 함께 Azure Key Vault 사용
 
 Azure Key Vault는 API 키 및 데이터베이스 연결 문자열과 같은 비밀을 보호하는 데 도움이 됩니다. 애플리케이션, 서비스 및 IT 리소스에 대한 액세스도 제공합니다.
 
-이 자습서에서는 Azure Key Vault에서 정보를 읽을 수 있는 Azure 웹 애플리케이션을 만드는 방법을 알아봅니다. 이 프로세스에서는 Azure 리소스에 대해 관리 ID를 사용합니다. Azure 웹 애플리케이션에 대한 자세한 내용은 [Azure Web Apps](../app-service/app-service-web-overview.md)를 참조하세요.
+이 자습서에서는 Azure Key Vault에서 정보를 읽을 수 있는 Azure 웹 애플리케이션을 만드는 방법을 알아봅니다. 이 프로세스에서는 Azure 리소스에 대해 관리 ID를 사용합니다. Azure 웹 애플리케이션에 대한 자세한 내용은 [Azure App Service](../app-service/overview.md)를 참조하세요.
 
 이 문서에서는 다음 방법을 안내합니다.
 
@@ -256,4 +256,4 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 ## <a name="next-steps"></a>다음 단계
 
 >[!div class="nextstepaction"]
->[Azure Key Vault 개발자 가이드](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-developers-guide)
+>[Azure Key Vault 개발자 가이드](https://docs.microsoft.com/azure/key-vault/key-vault-developers-guide)

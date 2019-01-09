@@ -9,19 +9,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
-ms.date: 05/07/2018
-ms.openlocfilehash: 845aa85a025d75dcc0e80b59fbc1620d8cbae082
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 12/27/2018
+ms.openlocfilehash: bec4e4271fa9f1e2333e9414268832fe77b722cb
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435745"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811225"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Azure HDInsight에서 Apache Hadoop 및 Apache Hive 시작
 
 이 문서에서는 Resource Manager 템플릿을 사용하여 HDInsight에서 [Apache Hadoop](https://hadoop.apache.org/) 클러스터를 만든 다음, HDInsight에서 Hive 작업을 실행하는 방법을 알아봅니다. Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 일부 작업을 실행한 다음 클러스터를 삭제합니다. 이 문서에서는 세 가지 작업을 모두 수행할 수 있습니다.
 
-이 빠른 시작에서는 Resource Manager 템플릿을 사용하여 HDInsight Hadoop 클러스터를 만듭니다. 또한 [Azure Portal](apache-hadoop-linux-create-cluster-get-started-portal.md)을 사용하여 클러스터를 만들 수도 있습니다.
+이 빠른 시작에서는 Resource Manager 템플릿을 사용하여 HDInsight Hadoop 클러스터를 만듭니다. 또한 [Azure Portal](apache-hadoop-linux-create-cluster-get-started-portal.md)을 사용하여 클러스터를 만들 수도 있습니다.  비슷한 템플릿은 [Azure 퀵 스타트 템플릿](https://azure.microsoft.com/resources/templates/?term=hdinsight)에서 볼 수 있습니다.
 
 현재 HDInsight는 [일곱 가지 클러스터 형식](./apache-hadoop-introduction.md#cluster-types-in-hdinsight)으로 제공됩니다. 각 클러스터 유형은 서로 다른 구성 요소 집합을 지원합니다. 모든 클러스터 형식은 Hive를 지원합니다. HDInsight에서 지원되는 구성 요소 목록은 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능](../hdinsight-component-versioning.md)  
 
@@ -39,9 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 2. 다음 스크린샷에서 설명된 대로 값을 입력하거나 선택합니다.
 
     > [!NOTE]  
-    > 사용자가 제공하는 값은 고유해야 하며 명명 지침을 따라야 합니다. 템플릿은 유효성 검사를 수행하지 않습니다. 사용자가 제공하는 값이 이미 사용 중이거나 지침을 준수하지 않는 경우 템플릿을 제출한 후 오류가 발생합니다.       
-    > 
-    >
+    > 사용자가 제공하는 값은 고유해야 하며 명명 지침을 따라야 합니다. 템플릿은 유효성 검사를 수행하지 않습니다. 사용자가 제공하는 값이 이미 사용 중이거나 지침을 준수하지 않는 경우 템플릿을 제출한 후 오류가 발생합니다.    
     
     ![HDInsight Linux 포털에서 Resource Manager 템플릿 시작](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Azure Portal과 리소스 그룹 관리자 템플릿을 사용하여 HDInsigut에 Hadoop 클러스터 배포")
 
@@ -52,23 +50,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     |**구독**     |  Azure 구독을 선택합니다. |
     |**리소스 그룹**     | 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.  리소스 그룹은 Azure 구성 요소의 컨테이너입니다.  이 경우 리소스 그룹에는 HDInsight 클러스터 및 종속 Azure Storage 계정이 포함되어 있습니다. |
     |**위치**:     | 클러스터를 만들려는 Azure 위치를 선택합니다.  성능 향상을 위해 가까운 곳을 선택합니다. |
+    |**클러스터 이름**     | Hadoop 클러스터에 사용할 이름을 입력합니다. HDInsight의 모든 클러스터는 동일한 DNS 네임스페이스를 공유하므로 이 이름은 고유해야 합니다. 이름은 소문자, 숫자 및 하이픈만 포함할 수 있으며 문자로 시작해야 합니다.  각 하이픈의 앞과 뒤에는 하이픈이 아닌 문자가 있어야 합니다.  또한 이름은 3~59자여야 합니다. |
     |**클러스터 유형**     | **hadoop**을 선택합니다. |
-    |**클러스터 이름**     | Hadoop 클러스터에 사용할 이름을 입력합니다. HDInsight의 모든 클러스터는 동일한 DNS 네임스페이스를 공유하므로 이 이름은 고유해야 합니다. 이름은 문자, 숫자 및 하이픈을 포함하여 최대 59자로 구성할 수 있습니다. 이름의 첫 번째 및 마지막 문자에는 하이픈을 사용할 수 없습니다. |
     |**클러스터 로그인 이름 및 암호**     | 기본 로그인 이름은 **admin**입니다. 암호는 10자 이상이어야 하며, 숫자, 대문자, 소문자 및 영숫자가 아닌 문자(' " ` 문자 제외\)를 각각 하나 이상 포함해야 합니다. "Pass@word1"과 같은 일반적인 암호를 **제공하지 않았는지** 확인합니다.|
     |**SSH 사용자 이름 및 암호**     | 기본 사용자 이름은 **sshuser**입니다.  SSH 사용자 이름은 바꿀 수 있습니다.  SSH 사용자 암호에는 클러스터 로그인 암호와 동일한 요구 사항이 적용됩니다.|
        
     일부 속성이 템플릿에 하드 코딩되었습니다.  템플릿에서 이러한 값을 구성할 수 있습니다. 이러한 속성에 대한 자세한 설명은 [HDInsight에서 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
-3. **위에 명시된 사용 약관에 동의함** 및 **대시보드에 고정**을 선택한 다음, **구매**를 선택합니다. 포털 대시보드에 **배포 제출 중**이라는 제목의 새 타일이 표시됩니다. 클러스터를 만들려면 20분 정도가 걸립니다.
+3. **위에 명시된 사용 약관에 동의함**을 선택한 다음, **구매**를 선택합니다. 배포가 진행 중이라는 알림이 표시됩니다.  클러스터를 만들려면 20분 정도가 걸립니다.
 
-    ![템플릿 배포 진행률](./media/apache-hadoop-linux-tutorial-get-started/deployment-progress-tile.png "Azure 템플릿 배포 진행률")
-
-4. 클러스터가 생성되면 타일의 캡션이 지정한 리소스 그룹 이름으로 변경됩니다. 또한 타일은 리소스 그룹 내에서 만든 HDInsight 클러스터를 나열합니다. 
-   
-    ![HDInsight Linux 시작 - 리소스 그룹](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Azure HDInsight 클러스터 리소스 그룹")
-    
-5. 또한 타일은 클러스터와 연결된 기본 저장소를 나열합니다. 각 클러스터에는 [Azure Storage 계정](../hdinsight-hadoop-use-blob-storage.md) 또는 [Azure Data Lake 계정](../hdinsight-hadoop-use-data-lake-store.md) 종속성이 있습니다. 이 저장소 계정을 기본 저장소 계정이라고 합니다. HDInsight 클러스터와 해당 기본 저장소 계정은 같은 Azure 지역에 있어야 합니다. 클러스터를 삭제해도 저장소 계정은 삭제되지 않습니다.
-    
+4. 클러스터가 만들어지면 **리소스 그룹으로 이동** 링크가 포함된 **배포 성공** 알림이 표시됩니다.  **리소스 그룹** 페이지에 새 HDInsight 클러스터와 해당 클러스터에 연결된 기본 스토리지가 나열됩니다. 각 클러스터에는 [Azure Storage 계정](../hdinsight-hadoop-use-blob-storage.md) 또는 [Azure Data Lake Storage 계정](../hdinsight-hadoop-use-data-lake-store.md) 종속성이 있습니다. 이 저장소 계정을 기본 저장소 계정이라고 합니다. HDInsight 클러스터와 해당 기본 스토리지 계정은 같은 Azure 지역에 있어야 합니다. 클러스터를 삭제해도 저장소 계정은 삭제되지 않습니다.
 
 > [!NOTE]  
 > 기타 클러스터 생성 방법 및 이 자습서에 사용된 속성에 대한 이해는 [HDInsight 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.       
@@ -172,7 +163,7 @@ Hive 솔루션을 만들고 실행하려면,
 1. **파일** 메뉴에서 **새로 만들기**, **프로젝트**를 차례로 선택합니다.
 2. 왼쪽 창에서 **HDInsight**를 선택합니다. 가운데 창에서 **Hive 애플리케이션**을 선택합니다. 속성을 입력한 다음, **확인**을 선택합니다.
    
-    ![HDInsight Visual Studio Tools - 새 Hive 프로젝트의 스크린샷](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.new.hive.project.png "Visual Studio에서 Hive 응용 프로그램 만들기")
+    ![HDInsight Visual Studio Tools - 새 Hive 프로젝트의 스크린샷](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.new.hive.project.png "Visual Studio에서 Hive 애플리케이션 만들기")
 3. **솔루션 탐색기**에서 **Script.hql**을 두 번 클릭하여 이 스크립트를 엽니다.
 4. Hive 쿼리를 입력하고 제출합니다. (위의 3단계 및 4단계 참조)  
 
@@ -182,13 +173,13 @@ Hive 솔루션을 만들고 실행하려면,
 
 [Apache Hive](hdinsight-use-hive.md) 는 HDInsight에서 사용되는 가장 인기 있는 구성 요소입니다. HDInsight에서 Hive 작업을 실행하는 방법은 여러 가지가 있습니다. 이 자습서에서는 포털에서 Ambari Hive 뷰를 사용합니다. Hive 작업을 제출하는 다른 방법은 [HDInsight에서 Apache Hive 사용](hdinsight-use-hive.md)을 참조하세요.
 
-1. 이전 스크린샷에서 Ambari를 열려면 **클러스터 대시보드**를 선택합니다.  **https://&lt;ClusterName>.azurehdinsight.net**으로 이동할 수도 있습니다. 여기서 &lt;ClusterName>은 이전 섹션에서 만든 클러스터입니다.
+1. Ambari를 열려면 **클러스터 대시보드** 타일에서 **Ambari 보기**를 선택합니다.  **https://&lt;ClusterName&gt;.azurehdinsight.net**으로 이동할 수도 있습니다. 여기서 &lt;ClusterName&gt;은 이전 섹션에서 만든 클러스터입니다.
 
     ![HDInsight Linux 클러스터 대시보드 시작](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-open-cluster-dashboard.png "HDInsight Linux 클러스터 대시보드 시작")
 
 2. 클러스터를 만들 때 지정한 Hadoop 사용자 이름 및 암호를 입력합니다. 기본 사용자 이름은 **admin**입니다.
 
-3. 다음 스크린샷에 표시된 것처럼 **Hive 뷰** 를 엽니다.
+3. 다음 스크린샷과 같이**Hive View 2.0**을 선택합니다.
    
     ![Ambari 보기 선택](./media/apache-hadoop-linux-tutorial-get-started/selecthiveview.png "HDInsight Hive 뷰어 메뉴")
 
@@ -220,7 +211,7 @@ Hive 작업을 완료한 후에 [결과를 Azure SQL Database 또는 SQL Server 
 
 ## <a name="troubleshoot"></a>문제 해결
 
-HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](../hdinsight-administer-use-portal-linux.md#create-clusters)을 참조하세요.
+HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](../hdinsight-hadoop-create-linux-clusters-portal.md)을 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 이 문서를 완료한 후에 클러스터를 삭제할 수 있습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. 

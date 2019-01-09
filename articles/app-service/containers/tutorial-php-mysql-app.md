@@ -1,5 +1,5 @@
 ---
-title: Linux에서 MySQL을 사용하여 PHP 웹앱 빌드 - Azure App Service | Microsoft Docs
+title: Linux에서 MySQL을 사용하여 PHP 앱 빌드 - Azure App Service | Microsoft Docs
 description: Azure의 MySQL 데이터베이스에 연결하여 Linux의 Azure App Service에서 PHP 앱이 작동하도록 하는 방법을 알아봅니다.
 services: app-service\web
 author: cephalin
@@ -11,20 +11,20 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5d9843eecfed56f09c3a6d659976ca1ce5f42d80
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0470c12f7965ec5d7e151bb6b03163d6946b83e6
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342362"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743241"
 ---
-# <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 PHP 및 MySQL 웹앱 작성
+# <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 PHP 및 MySQL 앱 빌드
 
 > [!NOTE]
-> 이 문서에서는 Linux의 App Service에 앱을 배포합니다. _Windows_의 App Service에 배포하려면 [Azure에서 PHP 및 MySQL 웹앱 빌드](../app-service-web-tutorial-php-mysql.md)를 참조하세요.
+> 이 문서에서는 Linux의 App Service에 앱을 배포합니다. _Windows_의 App Service에 배포하려면 [Azure에서 PHP 및 MySQL 앱 빌드](../app-service-web-tutorial-php-mysql.md)를 참조하세요.
 >
 
-[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 PHP 웹앱을 만들고 MySQL 데이터베이스에 연결하는 방법을 보여줍니다. 완료되면 [Laravel](https://laravel.com/) 앱이 Linux의 App Service에서 실행됩니다.
+[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 PHP 앱을 만들고 MySQL 데이터베이스에 연결하는 방법을 보여줍니다. 완료되면 [Laravel](https://laravel.com/) 앱이 Linux의 App Service에서 실행됩니다.
 
 ![Azure App Service에서 실행 중인 PHP 앱](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -123,7 +123,7 @@ Laravel에서 _.env_ 파일을 사용하는 방법에 대한 자세한 내용은
 
 ### <a name="run-the-sample-locally"></a>로컬에서 샘플 실행
 
-[Laravel 데이터베이스 마이그레이션](https://laravel.com/docs/5.4/migrations)(영문)을 실행하여 응용 프로그램에 필요한 테이블을 만듭니다. 마이그레이션에서 만들어진 테이블을 보려면 Git 리포지토리의 _database/migrations_ 디렉터리를 살펴봅니다.
+[Laravel 데이터베이스 마이그레이션](https://laravel.com/docs/5.4/migrations)(영문)을 실행하여 애플리케이션에 필요한 테이블을 만듭니다. 마이그레이션에서 만들어진 테이블을 보려면 Git 리포지토리의 _database/migrations_ 디렉터리를 살펴봅니다.
 
 ```bash
 php artisan migrate
@@ -161,7 +161,7 @@ PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
 [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) 명령을 사용하여 Azure Database for MySQL의 서버를 만듭니다.
 
-다음 명령에서 *\<mysql_server_name>* 자리 표시자를 고유한 서버 이름으로, *\<admin_user>* 를 사용자 이름으로, *\<admin_password* 자리 표시자를 암호로 대체하세요. 서버 이름은 MySQL 엔드포인트(`https://<mysql_server_name>.mysql.database.azure.com`)의 일부로 사용되므로 이름은 Azure의 모든 서버에서 고유해야 합니다.
+다음 명령에서 *\<mysql_server_name>* 자리 표시자를 고유한 서버 이름으로, *\<admin_user>* 를 사용자 이름으로, *\<admin_password* 자리 표시자를 암호로 대체하세요. 서버 이름은 MySQL 엔드포인트(`https://<mysql_server_name>.mysql.database.azure.com`)의 일부로 사용되므로 이름은 Azure의 모든 서버에서 고유해야 합니다. MySQL DB SKU 선택에 대한 자세한 내용은 [MySQL 서버용 Azure Database 만들기](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server)를 참조하세요.
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql_server_name> --location "West Europe" --admin-user <admin_user> --admin-password <admin_password> --sku-name B_Gen5_1
@@ -191,7 +191,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 ```
 
 > [!TIP] 
-> [앱이 사용하는 아웃바운드 IP 주소만 사용](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips)으로 방화벽 규칙을 훨씬 더 엄격하게 제한할 수 있습니다.
+> [앱이 사용하는 아웃바운드 IP 주소만 사용](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips)으로 방화벽 규칙을 훨씬 더 엄격하게 제한할 수 있습니다.
 >
 
 Cloud Shell에서 *\<you_ip_address>* 를 [로컬 IPv4 IP 주소](https://www.whatsmyip.org/)로 바꾸어 로컬 컴퓨터에서 데이터베이스에 액세스할 수 있도록 명령을 다시 실행합니다.
@@ -286,13 +286,13 @@ _.env.production_을 환경 파일로 사용해서 Laravel 데이터베이스 �
 php artisan migrate --env=production --force
 ```
 
-_.env.production_에는 아직 유효한 응용 프로그램 키가 없습니다. 터미널에서 새 키를 생성합니다.
+_.env.production_에는 아직 유효한 애플리케이션 키가 없습니다. 터미널에서 새 키를 생성합니다.
 
 ```bash
 php artisan key:generate --env=production --force
 ```
 
-_.env.production_을 환경 파일로 사용해서 샘플 응용 프로그램을 실행합니다.
+_.env.production_을 환경 파일로 사용해서 샘플 애플리케이션을 실행합니다.
 
 ```bash
 php artisan serve --env=production
@@ -324,7 +324,7 @@ git commit -m "database.php updates"
 Laravel 애플리케이션은 _/public_ 디렉터리에서 시작됩니다. App Service용 기본 PHP Docker 이미지는 Apache를 사용하며 Laravel에 맞게 `DocumentRoot`를 사용자 지정하는 것을 허용하지 않습니다. 하지만 `.htaccess`를 사용하여 루트 디렉터리 대신 _/public_을 가리키도록 모든 요청을 다시 쓸 수 있습니다. 리포지토리 루트에는 이 목적을 위해 `.htaccess`가 이미 추가되었습니다. 이를 통해 Laravel 애플리케이션을 배포할 수 있습니다.
 
 > [!NOTE] 
-> _.htaccess_ 다시 쓰기를 사용하지 않으려면 [사용자 지정 Docker 이미지](quickstart-docker-go.md)를 대신 사용하여 Laravel 응용 프로그램을 배포할 수 있습니다.
+> _.htaccess_ 다시 쓰기를 사용하지 않으려면 [사용자 지정 Docker 이미지](quickstart-docker-go.md)를 대신 사용하여 Laravel 애플리케이션을 배포할 수 있습니다.
 >
 >
 
@@ -367,19 +367,19 @@ PHP [getenv](https://php.net/manual/en/function.getenv.php) 메서드를 사용�
 
 Laravel에는 App Service의 애플리케이션 키가 필요합니다. 앱 설정을 사용하여 키를 구성할 수 있습니다.
 
-`php artisan`을 사용하면 _.env_로 저장하지 않고도 새 응용 프로그램 키를 생성할 수 있습니다.
+`php artisan`을 사용하면 _.env_로 저장하지 않고도 새 애플리케이션 키를 생성할 수 있습니다.
 
 ```bash
 php artisan key:generate --show
 ```
 
-[`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용하여 App Service 웹앱에서 응용 프로그램 키를 설정합니다. 자리 표시자 _&lt;appname>_ 및 _&lt;outputofphpartisankey:generate>_ 를 바꿉니다.
+[`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용하여 App Service 앱에서 애플리케이션 키를 설정합니다. 자리 표시자 _&lt;appname>_ 및 _&lt;outputofphpartisankey:generate>_ 를 바꿉니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
-`APP_DEBUG="true"`는 배포된 웹앱에서 오류가 발생하면 디버깅 정보를 반환하도록 Laravel에 지시합니다. 프로덕션 애플리케이션을 실행할 때 더 안전한 `false`로 설정합니다.
+`APP_DEBUG="true"`는 배포된 앱에서 오류가 발생하면 디버깅 정보를 반환하도록 Laravel에 지시합니다. 프로덕션 애플리케이션을 실행할 때 더 안전한 `false`로 설정합니다.
 
 ### <a name="push-to-azure-from-git"></a>Git에서 Azure에 푸시
 
@@ -422,7 +422,7 @@ remote: Running deployment command...
 > 이 방식으로 App Service에 대한 Git 기반 배포에 어떤 단계든 추가할 수 있습니다. 자세한 내용은 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)를 참조하세요.
 >
 
-### <a name="browse-to-the-azure-web-app"></a>Azure 웹앱 찾아보기
+### <a name="browse-to-the-azure-app"></a>Azure 앱으로 이동
 
 `http://<app_name>.azurewebsites.net`으로 이동한 후 목록에 몇 가지 작업을 추가합니다.
 
@@ -480,7 +480,7 @@ php artisan migrate
 
 [Laravel 명명 규칙](https://laravel.com/docs/5.4/eloquent#defining-models)에 따라 `Task`(_app/Task.php_ 참조) 모델은 기본적으로 `tasks` 테이블에 매핑됩니다.
 
-### <a name="update-application-logic"></a>응용 프로그램 논리 업데이트
+### <a name="update-application-logic"></a>애플리케이션 논리 업데이트
 
 *routes/web.php* 파일을 엽니다. 애플리케이션에서 해당 경로 및 비즈니스 논리를 여기에 정의합니다.
 
@@ -566,21 +566,21 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-`git push`가 완료되면 Azure 웹앱으로 이동하여 새 기능을 테스트해 봅니다.
+`git push`가 완료되면 Azure 앱으로 이동하여 새 기능을 테스트합니다.
 
 ![Azure에 게시된 모델 및 데이터베이스 변경 내용](media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
 모든 작업을 추가했으면 데이터베이스에서 유지됩니다. 데이터 스키마를 업데이트하는 경우 기존 데이터는 그대로 유지됩니다.
 
-## <a name="manage-the-azure-web-app"></a>Azure 웹앱 관리
+## <a name="manage-the-azure-app"></a>Azure 앱 관리
 
-만든 웹앱을 관리하려면 [Azure Portal](https://portal.azure.com)로 이동합니다.
+만든 앱을 관리하려면 [Azure Portal](https://portal.azure.com)로 이동합니다.
 
-왼쪽 메뉴에서 **App Services**를 클릭한 다음 Azure 웹앱의 이름을 클릭합니다.
+왼쪽 메뉴에서 **App Services**를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
 
-![Azure 웹앱에 대한 포털 탐색](./media/tutorial-php-mysql-app/access-portal.png)
+![Azure 앱에 대한 포털 탐색](./media/tutorial-php-mysql-app/access-portal.png)
 
-웹앱의 개요 페이지가 표시됩니다. 여기서 중지, 시작, 다시 시작, 찾아보기 및 삭제와 같은 기본 관리 작업을 수행할 수 있습니다.
+앱의 [개요] 페이지가 표시됩니다. 여기서 중지, 시작, 다시 시작, 찾아보기 및 삭제와 같은 기본 관리 작업을 수행할 수 있습니다.
 
 왼쪽 메뉴에서 앱을 구성하기 위한 페이지를 제공합니다.
 
@@ -602,7 +602,7 @@ git push azure master
 > * Azure에서 진단 로그 스트림
 > * Azure Portal에서 앱 관리
 
-다음 자습서로 이동하여 사용자 지정 DNS 이름을 웹앱에 매핑하는 방법을 알아봅니다.
+다음 자습서로 이동하여 사용자 지정 DNS 이름을 앱에 매핑하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md)
+> [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md)

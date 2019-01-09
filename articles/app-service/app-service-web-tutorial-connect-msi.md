@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: b7d8a9b0ef48f7daed74fb15263e516d820a6a38
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6af6eb0dd6473b9fe947f7cc4939da4e0cbc77cb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259072"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718515"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 
-[App Service](app-service-web-overview.md)는 Azure에서 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한 [Azure SQL Database](/azure/sql-database/) 및 기타 Azure 서비스에 대한 액세스를 보호하기 위한 턴키 솔루션인 [관리 ID](app-service-managed-service-identity.md)를 앱에 제공합니다. App Service의 관리 ID는 연결 문자열의 자격 증명과 같은 비밀을 앱에서 제거하여 앱의 보안을 보다 강화합니다. 이 자습서에서는 [자습서:  SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드](app-service-web-tutorial-dotnet-sqldatabase.md)에서 빌드된 ASP.NET 웹앱 샘플에 관리 ID를 추가합니다. 완료되면 샘플 앱은 사용자 이름과 암호 없이도 안전하게 SQL Database에 연결됩니다.
+[App Service](overview.md)는 Azure에서 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한 [Azure SQL Database](/azure/sql-database/) 및 기타 Azure 서비스에 대한 액세스를 보호하기 위한 턴키 솔루션인 [관리 ID](overview-managed-identity.md)를 앱에 제공합니다. App Service의 관리 ID는 연결 문자열의 자격 증명과 같은 비밀을 앱에서 제거하여 앱의 보안을 보다 강화합니다. 이 자습서에서는 [자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드](app-service-web-tutorial-dotnet-sqldatabase.md)에서 빌드된 ASP.NET 웹앱 샘플에 관리 ID를 추가합니다. 완료되면 샘플 앱은 사용자 이름과 암호 없이도 안전하게 SQL Database에 연결됩니다.
 
 > [!NOTE]
 > 이 시나리오는 현재 .NET Framework 4.6 이상에서 지원되지만, [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows)에서는 지원되지 않습니다. [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2)는 이 시나리오를 지원하지만, 아직 App Service의 기본 이미지에 포함되지 않습니다. 
@@ -34,7 +34,7 @@ ms.locfileid: "53259072"
 > [!div class="checklist"]
 > * 관리 ID 사용
 > * 관리 ID에 SQL Database 액세스 권한 부여
-> * Azure Active Directory 인증을 사용하여 SQL Database로 인증하도록 애플리케이션 코드 구성
+> * Azure Active Directory 인증을 사용하여 SQL Database로 인증하도록 응용 프로그램 코드 구성
 > * SQL Database에서 관리 ID에 최소한의 권한 부여
 
 > [!NOTE]
@@ -123,7 +123,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 }
 ```
 
-이 생성자는 App Service의 Azure SQL Database에 대한 액세스 토큰을 사용하도록 사용자 지정 SqlConnection 개체를 구성합니다. 이 액세스 토큰을 사용하면 App Service 앱이 관리 ID를 사용하여 Azure SQL Database로 인증됩니다. 자세한 내용은 [Azure 리소스 토큰 가져오기](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources)를 참조하세요. `if` 문을 사용하면 LocalDB에서 로컬로 앱을 계속 테스트할 수 있습니다.
+이 생성자는 App Service의 Azure SQL Database에 대한 액세스 토큰을 사용하도록 사용자 지정 SqlConnection 개체를 구성합니다. 이 액세스 토큰을 사용하면 App Service 앱이 관리 ID를 사용하여 Azure SQL Database로 인증됩니다. 자세한 내용은 [Azure 리소스 토큰 가져오기](overview-managed-identity.md#obtaining-tokens-for-azure-resources)를 참조하세요. `if` 문을 사용하면 LocalDB에서 로컬로 앱을 계속 테스트할 수 있습니다.
 
 > [!NOTE]
 > `SqlConnection.AccessToken`은 현재 .NET Framework 4.6 이상과 [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2)에서 지원되지만 [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows)에서는 지원되지 않습니다.
@@ -147,7 +147,7 @@ private MyDatabaseContext db = new MyDatabaseContext(new System.Data.SqlClient.S
 
 게시 페이지에서 **게시**를 클릭합니다. 새 웹 페이지에 할 일 목록이 표시되면 앱이 관리 ID를 사용하여 데이터베이스에 연결합니다.
 
-![Code First 마이그레이션 후 Azure 웹앱](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
+![Code First 마이그레이션 후 Azure 앱](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
 이제 이전처럼 할 일 목록을 편집할 수 있어야 합니다.
 
@@ -205,10 +205,10 @@ GO
 > [!div class="checklist"]
 > * 관리 ID 사용
 > * 관리 ID에 SQL Database 액세스 권한 부여
-> * Azure Active Directory 인증을 사용하여 SQL Database로 인증하도록 애플리케이션 코드 구성
+> * Azure Active Directory 인증을 사용하여 SQL Database로 인증하도록 응용 프로그램 코드 구성
 > * SQL Database에서 관리 ID에 최소한의 권한 부여
 
 다음 자습서로 이동하여 사용자 지정 DNS 이름을 웹앱에 매핑하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)
+> [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)

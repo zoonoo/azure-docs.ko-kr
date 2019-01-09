@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0e6e72424530d18b55f68077ba7c3328d9a2e549
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3e20af1c90f0e8a7a582d2d01dc4218a14496c40
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621431"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653291"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 로그인 보고서 다운로드
 
@@ -31,7 +31,7 @@ ms.locfileid: "51621431"
 
 다음 작업을 수행해야 합니다.
 
-* 로그인 활동 보고서를 볼 수 있는 프리미엄 라이선스를 가진 Azure Active Directory 테넌트. 
+* 로그인 활동 보고서를 볼 수 있는 프리미엄 라이선스를 가진 Azure Active Directory 테넌트. [Azure Active Directory Premium 시작하기](../fundamentals/active-directory-get-started-premium.md)를 참조하여 Azure Active Directory 버전을 업그레이드하세요.
 * 테넌트에 대한 **보안 관리자**, **보안 읽기 권한자**, **보고서 읽기 권한자** 또는 **글로벌 관리자** 역할의 사용자 또한 테넌트의 모든 사용자는 자신의 로그인에 액세스할 수 있습니다.
 
 ## <a name="quickstart-download-a-sign-in-report"></a>빠른 시작: 로그인 보고서 다운로드

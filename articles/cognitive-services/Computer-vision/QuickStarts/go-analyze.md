@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 원격 이미지 분석 - REST, Go - Computer Vision'
+title: '빠른 시작: 원격 이미지 분석 - REST, Go'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Go와 함께 Computer Vision API를 사용하여 이미지를 분석합니다.
 services: cognitive-services
@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: c50f65abd6a0bb446444d889de88348ed4fea84a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: acd00955631395efb12acccb3ad25a52b28b27de
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852608"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580725"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-go-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Go를 사용하여 원격 이미지 분석
 
-이 빠른 시작에서는 Computer Vision의 REST API를 사용하여 시각적 기능을 추출하기 위해 원격으로 저장된 이미지를 분석합니다. [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 메서드를 사용하면 이미지 콘텐츠를 기반으로 하여 시각적 특징을 추출할 수 있습니다.
+이 빠른 시작에서는 Computer Vision의 REST API.를 사용하여 시각적 기능을 추출하기 위해 원격으로 저장된 이미지를 분석합니다. [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 메서드를 사용하면 이미지 콘텐츠를 기반으로 하여 시각적 특징을 추출할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)을 만듭니다.
 

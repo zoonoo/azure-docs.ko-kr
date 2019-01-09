@@ -12,16 +12,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 471d2b0b8d98651d4b9ef4e88df0e863715b0c88
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5f2c8c2a9a2b21a15aa997ff0cc98860ceec76cc
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341782"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744839"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>빠른 시작: .NET Core(C#)를 사용하여 Azure SQL 데이터베이스 쿼리
 
-이 빠른 시작에서는 [.NET Core](https://www.microsoft.com/net/) 및 C# 코드를 사용하여 Azure SQL 데이터베이스에 연결하고 Transact-SQL 문을 실행해서 데이터를 쿼리하는 방법을 보여 줍니다.
+이 빠른 시작에서는 [.NET Core](https://www.microsoft.com/net/) 및 C# 코드를 사용하여 Azure SQL 데이터베이스에 연결합니다. 그런 다음, Transact-SQL 문을 실행하여 데이터를 쿼리합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -53,14 +53,14 @@ ms.locfileid: "53341782"
   
 ## <a name="create-a-new-net-core-project"></a>새로운 .NET Core 프로젝트 만들기
 
-1. 명령 프롬프트를 열고 **sqltest**라는 폴더를 만듭니다. 이 폴더로 이동한 후 다음 명령을 실행합니다.
+1. 명령 프롬프트를 열고 **sqltest**라는 폴더를 만듭니다. 이 폴더로 이동하여 이 명령을 실행합니다.
 
     ```cmd
     dotnet new console
     ```
-    초기 C# 코드 파일(**Program.cs**), XML 구성 파일(**sqltest.csproj**) 및 필요한 이진을 포함하는 새로운 앱 프로젝트 파일이 생성됩니다.
+    이 명령은 초기 C# 코드 파일(**Program.cs**), XML 구성 파일(**sqltest.csproj**) 및 필요한 이진 파일을 포함하여 새로운 앱 프로젝트 파일을 만듭니다.
 
-2. 텍스트 편집기에서 **sqltest.csproj**를 열고 `<Project>` 태그 사이에 다음 XML을 붙여넣습니다. 그러면 `System.Data.SqlClient`가 종속성으로 추가됩니다.
+2. 텍스트 편집기에서 **sqltest.csproj**를 열고 `<Project>` 태그 사이에 다음 XML을 붙여넣습니다. 이 XML은 `System.Data.SqlClient`를 종속성으로 추가합니다.
 
     ```xml
     <ItemGroup>
@@ -173,7 +173,7 @@ namespace sqltest
 
    Done. Press enter.
    ```
-3. **Enter** 키를 눌러 애플리케이션 창을 닫습니다.
+3. **Enter**를 선택하여 애플리케이션 창을 닫습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

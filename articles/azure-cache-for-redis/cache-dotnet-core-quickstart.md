@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 1f2d55155a6df496eec4a92aca5b3b932e03c181
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a253b1d34b134700778152b7ef0b0571190b2511
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53018829"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554846"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>빠른 시작: .NET Core 앱에서 Azure Cache for Redis 사용
 
@@ -94,7 +94,7 @@ dotnet add package Microsoft.Extensions.Configuration.UserSecrets
 dotnet restore
 ```
 
-명령 창에서 캐시 이름과 기본 액세스 키에 대한 자리 표시자(꺾쇠괄호 포함)를 바꾼 다음, 다음 명령을 실행하여 *CacheConnection*이라는 새 비밀을 저장합니다.
+명령 창에서 캐시 이름과 기본 액세스 키에 대한 자리 표시자(꺾쇠 괄호 포함)를 바꾼 다음, 다음 명령을 실행하여 *CacheConnection*이라는 새 비밀을 저장합니다.
 
 ```
 dotnet user-secrets set CacheConnection "<cache name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<primary-access-key>"
@@ -144,7 +144,7 @@ using StackExchange.Redis;
 
 Azure Cache for Redis 연결은 `ConnectionMultiplexer` 클래스로 관리됩니다. 이 클래스는 클라이언트 애플리케이션 전체에서 공유하고 다시 사용해야 합니다. 각 작업에 대해 새 연결을 만들지 마세요. 
 
-*Program.cs*에서 콘솔 응용 프로그램의 `Program` 클래스에 다음 멤버를 추가합니다.
+*Program.cs*에서 콘솔 애플리케이션의 `Program` 클래스에 다음 멤버를 추가합니다.
 
 ```csharp
         private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -168,7 +168,7 @@ Azure Cache for Redis 연결은 `ConnectionMultiplexer` 클래스로 관리됩�
 
 ## <a name="executing-cache-commands"></a>캐시 명령 실행
 
-*Program.cs*에서 콘솔 응용 프로그램의 `Program` 클래스에 대한 `Main` 프로시저에 다음 코드를 추가합니다.
+*Program.cs*에서 콘솔 애플리케이션의 `Program` 클래스에 대한 `Main` 프로시저에 다음 코드를 추가합니다.
 
 ```csharp
         static void Main(string[] args)
@@ -195,7 +195,7 @@ Azure Cache for Redis 연결은 `ConnectionMultiplexer` 클래스로 관리됩�
             Console.WriteLine("\nCache command  : " + cacheCommand + " or StringSet()");
             Console.WriteLine("Cache response : " + cache.StringSet("Message", "Hello! The cache is working from a .NET Core console app!").ToString());
 
-            // Demostrate "SET Message" executed as expected...
+            // Demonstrate "SET Message" executed as expected...
             cacheCommand = "GET Message";
             Console.WriteLine("\nCache command  : " + cacheCommand + " or StringGet()");
             Console.WriteLine("Cache response : " + cache.StringGet("Message").ToString());
@@ -248,7 +248,7 @@ dotnet add package Newtonsoft.json
 
 다음 `using` 문을 *Program.cs*의 맨 위쪽에 추가합니다.
 
-```charp
+```csharp
 using Newtonsoft.Json;
 ```
 
@@ -319,7 +319,7 @@ dotnet run
 
 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 후 **삭제**를 클릭합니다.
 
-잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
+잠시 후 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
 
 

@@ -1,22 +1,19 @@
 ---
 title: '자습서: Azure CLI를 사용하여 Azure Database for PostgreSQL 디자인'
 description: 이 자습서에서는 Azure CLI를 사용하여 첫 번째 Azure Database for PostgreSQL 서버를 만들고, 구성하고, 쿼리하는 방법을 보여줍니다.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
-ms.openlocfilehash: c04eede63df50359af55f3956041df10fa2d075e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 03c9d647c98122b63b81baa453e0cccdf951901a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982344"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547323"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Database for PostgreSQL 디자인 
 이 자습서에서는 Azure CLI(명령줄 인터페이스) 및 기타 유틸리티를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
@@ -63,7 +60,7 @@ sku-name 매개 변수 값은 아래 예에서 같이 {가격 책정 계층}\_{�
 > [!IMPORTANT]
 > 여기에 지정한 서버 관리자 로그인 및 암호는 이 빠른 시작의 뒷부분에 나오는 서버 및 데이터베이스에 로그인하는 데 필요합니다. 나중에 사용하기 위해 이 정보를 기억하거나 기록합니다.
 
-기본적으로 **postgres** 데이터베이스가 서버 아래에 만들어집니다. [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) 데이터베이스는 사용자, 유틸리티 및 타사 응용 프로그램에서 사용하는 기본 데이터베이스입니다. 
+기본적으로 **postgres** 데이터베이스가 서버 아래에 만들어집니다. [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) 데이터베이스는 사용자, 유틸리티 및 타사 애플리케이션에서 사용하는 기본 데이터베이스입니다. 
 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 구성
@@ -195,9 +192,9 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 ```
 
 `az postgres server restore` 명령에는 다음 매개 변수가 필요합니다.
-| 설정 | 제안 값 | 설명  |
+| 설정 | 제안 값 | 설명  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  원본 서버가 존재하는 리소스 그룹입니다.  |
+| resource-group |  myresourcegroup |  원본 서버가 존재하는 리소스 그룹입니다.  |
 | 이름 | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | 복원하려는 지정 시간을 선택합니다. 이 날짜 및 시간은 원본 서버의 백업 보존 기간 내에 있어야 합니다. ISO8601 날자 및 시간 형식을 사용합니다. 예를 들어 `2017-04-13T05:59:00-08:00`과 같은 고유한 현지 표준 시간대 또는 UTC Zulu 형식 `2017-04-13T13:59:00Z`를 사용할 수도 있습니다. |
 | source-server | mydemoserver | 복원을 수행하려는 원본 서버의 이름 또는 ID입니다. |
@@ -218,4 +215,4 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 > * 데이터 업데이트
 > * 데이터 복원
 
-다음에는 Azure Portal을 사용하여 유사한 작업을 수행하는 방법에 대해 알아보고, [Azure Portal을 사용하여 첫 번째 Azure Database for PostgreSQL 디자인](tutorial-design-database-using-azure-portal.md) 자습서를 검토합니다.
+다음으로, Azure Portal을 사용하여 유사한 작업을 수행하는 방법을 알아보려면 이 자습서를 검토합니다. [Azure Portal을 사용하여 첫 번째 Azure Database for PostgreSQL 디자인](tutorial-design-database-using-azure-portal.md)

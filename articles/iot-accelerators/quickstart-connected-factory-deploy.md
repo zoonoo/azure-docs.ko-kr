@@ -1,5 +1,5 @@
 ---
-title: Azure에서 솔루션을 사용하여 산업용 IoT 디바이스 관리하기 | Microsoft Docs
+title: 솔루션을 사용하여 산업용 IoT 디바이스 관리 - Azure | Microsoft Docs
 description: 이 빠른 시작에서는 연결된 팩터리 Azure IoT 솔루션 가속기를 배포하고 로그인하여 솔루션 대시보드를 사용합니다.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 8cb604aee39f651770cb708f8dd92b6fbc0921f5
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d02e72a46e2bec69792eacef673c779310561f83
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139017"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602650"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>빠른 시작: 클라우드 기반 솔루션으로 산업용 IoT 디바이스 관리해 보기
+# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>빠른 시작: 클라우드 기반 솔루션으로 산업용 IoT 디바이스 관리
 
 이 빠른 시작에서는 Azure IoT 연결된 팩터리 솔루션 가속기를 배포하여 산업용 IoT 디바이스에 대한 클라우드 기반 모니터링 및 관리 시뮬레이션을 실행하는 방법을 보여줍니다. 연결된 팩터리 솔루션 가속기를 배포할 때 일반적인 산업용 IoT 시나리오를 단계별로 실행할 수 있는 시뮬레이션된 리소스가 미리 채워집니다. 몇 가지 시뮬레이션된 팩터리가 솔루션에 연결되어 있으면서 OEE(설비종합효율)와 KPI(핵심 성과 지표)를 계산하는 데 필요한 데이터 값을 보고합니다. 이 빠른 시작에서는 솔루션 대시보드를 사용하여 다음 작업을 수행하는 방법을 보여줍니다.
 
@@ -76,7 +76,7 @@ Azure 구독에 배포가 완료되면 솔루션 타일에 녹색 확인 표시 
 
 [![설비종합효율(OEE)](./media/quickstart-connected-factory-deploy/oee-inline.png)](./media/quickstart-connected-factory-deploy/oee-expanded.png#lightbox)
 
-OEE는 생산 관련 운영 매개 변수를 사용하여 제조 프로세스의 효율성을 평가합니다. OEE는 가용성 등급, 성능 등급, 품질 비율을 곱하여(OEE = 가용성 x 성능 x 품질) 계산되는 산업 표준 측정값입니다.
+OEE는 생산 관련 운영 매개 변수를 사용하여 제조 프로세스의 효율성을 평가합니다. OEE는 가용성 등급, 성능 등급, 품질 비율을 곱하여 계산되는 산업 표준 측정값입니다. (OEE = 가용성 x 성능 x 품질)
 
 계층 구조 데이터의 모든 수준에서 OEE를 더 자세히 분석할 수 있습니다. OEE, 가용성, 성능 또는 품질 비율 다이얼을 클릭합니다. 컨텍스트 패널이 나타나면서 다양한 시간별 데이터를 포함된 시각화가 표시됩니다.
 

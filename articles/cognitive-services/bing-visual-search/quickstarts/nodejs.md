@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: 시각적 개체 검색 쿼리 만들기, Node.js - Bing Visual Search'
+title: '빠른 시작: Bing Visual Search REST API 및 Node.js를 사용하여 이미지 인사이트 가져오기'
 titleSuffix: Azure Cognitive Services
-description: Bing Visual Search API에 이미지를 업로드하고 이미지에 대한 중요 정보를 다시 얻는 방법입니다.
+description: 이미지를 Bing Visual Search API에 업로드하고 이미지에 대한 인사이트를 가져오는 방법을 알아봅니다.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,18 +10,18 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 553d068d70f7e722f3c8e4de3978f3583b941963
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 5fca4e960b449988a0e77b2ecc2d0a9c8ca1988f
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442535"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741474"
 ---
-# <a name="quickstart-your-first-bing-visual-search-query-in-javascript"></a>빠른 시작: JavaScript의 첫 번째 Bing Visual Search 쿼리
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>빠른 시작: Bing Visual Search REST API 및 Node.js를 사용하여 이미지 인사이트 가져오기
 
-Bing Visual Search API는 사용자가 제공하는 이미지에 대한 정보를 반환합니다. 이미지의 URL, 인사이트 토큰을 사용하거나 이미지를 업로드하여 이미지를 제공할 수 있습니다. 이러한 옵션에 대한 내용은 [Bing Visual Search API란?](../overview.md)을 참조하세요. 이 아티클에서는 이미지 업로드 방법을 보여줍니다. 이미지 업로드는 잘 알려진 이정표 사진을 찍은 후 해당 정보를 다시 얻는 모바일 시나리오에서 유용할 수 있습니다. 예를 들어, 중요 정보에는 이정표에 대한 잡학 지식이 포함될 수 있습니다. 
+이 빠른 시작을 사용하여 Bing Visual Search API를 처음 호출하고 검색 결과를 확인합니다. 이 간단한 JavaScript 애플리케이션은 API에 이미지를 업로드하고, 이미지에 대한 반환된 정보를 표시합니다. 이 애플리케이션은 JavaScript에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
-로컬 이미지를 업로드하는 경우 다음은 POST 본문에 포함해야 하는 양식 데이터를 보여줍니다. 양식 데이터에는 Content-Disposition 헤더가 포함되어야 합니다. 해당 `name` 매개 변수를 "image"로 설정해야 하고 `filename` 매개 변수를 임의의 문자열 매개 변수로 설정할 수 있습니다. 양식의 콘텐츠는 이미지의 이진입니다. 업로드할 수는 최대 이미지 크기는 1MB입니다. 
+로컬 이미지를 업로드하는 경우 양식 데이터에는 Content-Disposition 헤더가 포함되어야 합니다. 해당 `name` 매개 변수를 "image"로 설정해야 하고 `filename` 매개 변수를 임의의 문자열 매개 변수로 설정할 수 있습니다. 양식의 콘텐츠는 이미지의 이진입니다. 업로드할 수는 최대 이미지 크기는 1MB입니다.
 
 ```
 --boundary_1234-abcd
@@ -32,79 +32,67 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-이 문서에는 Bing Visual Search API 요청을 보내고 JSON 검색 결과를 표시하는 간단한 콘솔 애플리케이션이 포함되어 있습니다. JavaScript에서 이 애플리케이션이 작성되는 반면 API는 RESTful 웹 서비스로서 HTTP를 요청하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다. 
-
 ## <a name="prerequisites"></a>필수 조건
-이 빠른 시작의 경우 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/)에 표시된 대로 S9 가격 계층에서 구독을 시작해야 합니다. 
 
-Azure Portal에서 구독을 시작하려면
-1. `Search resources, services, and docs`라고 표시되는 Azure Portal의 맨 위에 있는 텍스트 상자에 'BingSearchV7'을 입력합니다.  
-2. 드롭다운 목록의 Marketplace 아래에서 `Bing Search v7`을 선택합니다.
-3. 새 리소스에 대해 `Name`을 입력합니다.
-4. `Pay-As-You-Go` 구독을 선택합니다.
-5. `S9` 가격 책정 계층을 선택합니다.
-6. `Enable`을 클릭하여 구독을 시작합니다.
+* [Node.JS](https://nodejs.org/en/download/)
+* JavaScript에 대한 요청 모듈
+    * `npm install request`를 사용하여 이 모듈을 설치할 수 있습니다.
+* form-data 모듈
+    * `npm install form-data`를 사용하여 이 모듈을 설치할 수 있습니다.
 
-이 코드를 실행하려면 [Node.js 6](https://nodejs.org/en/download/)이 필요합니다.
 
-## <a name="running-the-application"></a>애플리케이션 실행
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-다음에서는 Node.js의 FormData를 사용하여 메시지를 보내는 방법을 보여 줍니다.
 
-이 애플리케이션을 실행하려면 다음 단계를 따릅니다.
+## <a name="initialize-the-application"></a>애플리케이션 초기화
 
-1. 프로젝트에 대한 폴더를 만듭니다(또는 즐겨찾는 IDE 또는 편집기 사용).
-2. 명령 프롬프트 또는 터미널에서, 방금 만든 폴더로 이동합니다.
-3. 요청 모듈을 설치합니다.  
-  ```  
-  npm install request  
-  ```  
-3. 다음과 같이 form-data 모듈을 설치합니다.  
-  ```  
-  npm install form-data  
-  ```  
-4. GetVisualInsights.js라는 파일을 만들고 다음 코드를 추가합니다.
-5. `subscriptionKey` 값을 구독 키로 바꿉니다.
-6. `imagePath` 값을 업로드할 이미지의 경로로 바꿉니다.
-7. 프로그램을 실행합니다.  
-  ```
-  node GetVisualInsights.js
-  ```
+1. 선호하는 IDE 또는 편집기에서 새 JavaScript 파일을 만들고 다음 요구 사항을 설정합니다.
 
-```javascript
-var request = require('request');
-var FormData = require('form-data');
-var fs = require('fs');
+    ```javascript
+    var request = require('request');
+    var FormData = require('form-data');
+    var fs = require('fs');
+    ```
 
-var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';
-var subscriptionKey = '<yoursubscriptionkeygoeshere>';
-var imagePath = "<pathtoyourimagegoeshere>";
+2. API 엔드포인트, 구독 키에 대한 변수 및 이미지에 대한 경로를 만듭니다.
 
-var form = new FormData();
-form.append("image", fs.createReadStream(imagePath));
+    ```javascript
+    var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';
+    var subscriptionKey = 'your-api-key';
+    var imagePath = "path-to-your-image";
+    ```
 
-form.getLength(function(err, length){
-  if (err) {
-    return requestCallback(err);
-  }
+3. `requestCallback()`이라는 함수를 만들어 API에서 응답을 인쇄합니다.
 
-  var r = request.post(baseUri, requestCallback);
-  r._form = form; 
-  r.setHeader('Ocp-Apim-Subscription-Key', subscriptionKey);
-});
+    ```javascript
+    function requestCallback(err, res, body) {
+        console.log(JSON.stringify(JSON.parse(body), null, '  '))
+    }
+    ```
 
-function requestCallback(err, res, body) {
-    console.log(JSON.stringify(JSON.parse(body), null, '  '))
-}
-```
+## <a name="construct-and-send-the-search-request"></a>검색 요청 생성 및 보내기
 
+1. `FormData()`를 사용하여 form-data를 만들고, `fs.createReadStream()`을 사용하여 이미지 경로를 추가합니다.
+    
+    ```javascript
+    var form = new FormData();
+    form.append("image", fs.createReadStream(imagePath));
+    ```
+
+2. 요청 라이브러리를 사용하여 응답을 인쇄하도록 `requestCallback()`을 호출하는 이미지를 업로드합니다. 요청 헤더에 구독 키를 추가해야 합니다. 
+
+    ```javascript
+    form.getLength(function(err, length){
+      if (err) {
+        return requestCallback(err);
+      }
+      var r = request.post(baseUri, requestCallback);
+      r._form = form; 
+      r.setHeader('Ocp-Apim-Subscription-Key', subscriptionKey);
+    });
+    ```
 
 ## <a name="next-steps"></a>다음 단계
 
-[인사이트 토큰을 사용하여 이미지에 대한 중요 정보 얻기](../use-insights-token.md)  
-[Bing Visual Search 이미지 업로드 자습서](../tutorial-visual-search-image-upload.md)
-[Bing Visual Search 단일 페이지 앱 자습서](../tutorial-bing-visual-search-single-page-app.md)  
-[Bing Visual Search 개요](../overview.md)  
-[사용해보기](https://aka.ms/bingvisualsearchtryforfree)  
-[평가판 액세스 키 받기](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing Visual Search API 참조](https://aka.ms/bingvisualsearchreferencedoc)
+> [!div class="nextstepaction"]
+> [Custom Search 웹앱 빌드](../tutorial-bing-visual-search-single-page-app.md)

@@ -3,18 +3,16 @@ title: '자습서: Azure Portal을 사용하여 Azure Database for MariaDB 디�
 description: 이 자습서에서는 Azure Portal을 사용하여 Azure Database for MariaDB 서버 및 데이터베이스를 만들고 관리하는 방법에 대해 설명합니다.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 20714bed5c36cd93d11cb4ade6640798775f5055
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 23af00b8a8e061056e9b7ad8ea2c999414783ad6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322059"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538109"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Database for MariaDB 데이터베이스 디자인
 
@@ -56,7 +54,7 @@ Azure Database for MariaDB 서버는 정의된 [계산 및 저장소 리소스](
     리소스 그룹 | **myresourcegroup** | 리소스 그룹 이름을 입력하거나 기존 리소스 그룹을 선택합니다.
     원본 선택 | **비어 있음** | 새 서버를 만들려면 **비어 있음**을 선택합니다. 기존 Azure Database for MariaDB 서버의 지역 백업에서 서버를 만드는 경우 **백업**을 선택합니다.
     서버 관리자 로그인 | **myadmin** | 서버 연결에 사용할 로그인 계정입니다. 관리자 로그인 이름은 **azure_superuser**, **admin**, **administrator**, **root**, **guest** 또는 **public**일 수 없습니다.
-    암호 | *사용자 선택* | 서버 관리자 계정의 새 암호를 입력합니다. 8-128자여야 합니다. 암호는 영어 대문자, 영어 소문자, 숫자(0-9), 특수 문자(!, $, #, % 등) 중 세 가지 범주의 문자를 포함해야 합니다.
+    암호 | *사용자 선택* | 서버 관리자 계정의 새 암호를 입력합니다. 8-128자여야 합니다. 사용자 암호는 다음 범주 중 세 개의 문자를 포함해야 합니다. 영문 대문자, 영문 소문자, 숫자(0-9) 및 영숫자가 아닌 문자(!, $, #, % 등).
     암호 확인 | *사용자 선택*| 관리자 계정 암호를 확인합니다.
     위치 | *사용자와 가장 가까운 지역*| 사용자 또는 다른 Azure 애플리케이션에 가장 가까운 위치를 선택합니다.
     버전 | *최신 버전*| 최신 버전입니다(다른 버전을 사용하는 특정 요구 사항이 없는 경우).

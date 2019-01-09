@@ -5,115 +5,108 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: 8c27e340-2b25-47b6-bf1f-438be4c14f93
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/06/2018
+ms.topic: tutorial
+ms.date: 12/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 24353f89f7c833a16675841f741a4a81ac34597c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 5ecb26a7ca0f164c2ba8d9a9de26bf19777653a0
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015227"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810636"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>자습서: Qlik Sense Enterprise와 Azure Active Directory 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Qlik Sense Enterprise를 통합하는 방법에 대해 알아봅니다.
-
 Qlik Sense Enterprise를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
-- Azure AD에서 사용자의 Qlik Sense Enterprise에 대한 액세스 권한을 제어할 수 있습니다.
-- 사용자가 해당 Azure AD 계정으로 Qlik Sense Enterprise에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
+* Azure AD에서 사용자의 Qlik Sense Enterprise에 대한 액세스 권한을 제어할 수 있습니다.
+* 사용자가 해당 Azure AD 계정으로 Qlik Sense Enterprise에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
+* 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 Qlik Sense Enterprise와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
-- Azure AD 구독
-- Qlik Sense Enterprise Single Sign-On이 설정된 구독
-
-> [!NOTE]
-> 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
-
-이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
-
-- 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 마세요.
-- Azure AD 평가판 환경이 없으면 [평가판 제품](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+* Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
+* Qlik Sense Enterprise Single Sign-On을 사용하도록 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
-1. 갤러리에서 Qlik Sense Enterprise 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+
+* Qlik Sense Enterprise에서 **SP** 시작 SSO를 지원합니다.
 
 ## <a name="adding-qlik-sense-enterprise-from-the-gallery"></a>갤러리에서 Qlik Sense Enterprise 추가
+
 Qlik Sense Enterprise의 Azure AD 통합을 구성하려면 갤러리의 Qlik Sense Enterprise를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
 **갤러리에서 Qlik Sense Enterprise를 추가하려면 다음 단계를 수행합니다.**
 
 1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
-    ![Azure Active Directory 단추][1]
+    ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
 
-    ![엔터프라이즈 애플리케이션 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
 3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **Qlik Sense Enterprise**를 입력하고 결과 패널에서 **Qlik Sense Enterprise**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에 **Qlik Sense Enterprise**를 입력하고 결과 패널에서 **Qlik Sense Enterprise**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-    ![결과 목록의 Qlik Sense Enterprise](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_addfromgallery.png)
+     ![결과 목록의 Qlik Sense Enterprise](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 Qlik Sense Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
-
-Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Qlik Sense Enterprise 사용자가 누구인지 알고 있어야 합니다. 즉, Azure AD 사용자와 Qlik Sense Enterprise의 관련 사용자 간에 연결이 형성되어야 합니다.
-
-Qlik Sense Enterprise에서 Azure AD의 **사용자 이름** 값을 **Username** 값으로 할당하여 링크 관계를 설정합니다.
+이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 하여 Qlik Sense Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+Single Sign-On이 작동하려면 Azure AD 사용자와 Qlik Sense Enterprise의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 Qlik Sense Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-3. **[Qlik Sense Enterprise 테스트 사용자 만들기](#create-a-qlik-sense-enterprise-test-user)** - Britta Simon의 Azure AD 표현과 연결되는 대응 사용자를 Qlik Sense Enterprise에 만듭니다.
+2. **[Qlik Sense Enterprise Single Sign-On 구성](#configure-qlik-sense-enterprise-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+5. **[Qlik Sense Enterprise 테스트 사용자 만들기](#create-qlik-sense-enterprise-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Qlik Sense Enterprise에 만듭니다.
+6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Qlik Sense Enterprise 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정합니다.
 
-**Qlik Sense Enterprise에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
+Qlik Sense Enterprise에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1. Azure Portal의 **Qlik Sense Enterprise** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **Qlik Sense Enterprise** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
-    ![Single Sign-On 구성 링크][4]
+    ![Single Sign-On 구성 링크](common/select-sso.png)
 
-2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+2. **Single Sign-On 방법 선택** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
 
-    ![Single Sign-On 대화 상자](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_samlbase.png)
+    ![Single Sign-On 선택 모드](common/select-saml-option.png)
 
-3. **Qlik Sense Enterprise 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+3. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 아이콘을 클릭하여 **기본 SAML 구성** 대화 상자를 엽니다.
 
-    ![Qlik Sense Enterprise 도메인 및 URL Single Sign-On 정보](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_url.png)
+    ![기본 SAML 구성 편집](common/edit-urls.png)
+
+4. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+
+    ![Qlik Sense Enterprise 도메인 및 URL Single Sign-On 정보](common/sp-identifier-reply.png)
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<Qlik Sense Fully Qualifed Hostname>:4443/azure/hub`
 
     b. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
-    
     | |
     |--|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qlikpoc.com`|
@@ -127,15 +120,13 @@ Qlik Sense Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 로그온 URL, 식별자 및 회신 URL로 업데이트합니다. 이러한 값은 이 자습서의 뒷부분에서 설명되며, [Qlik Sense Enterprise 클라이언트 지원 팀](https://www.qlik.com/us/services/support)에 문의하여 얻을 수 있습니다.
 
-4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
+5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 
-    ![인증서 다운로드 링크](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_certificate.png)
+    ![인증서 다운로드 링크](common/metadataxml.png)
 
-5. **저장** 단추를 클릭합니다.
+### <a name="configure-qlik-sense-enterprise-single-sign-on"></a>Qlik Sense Enterprise Single Sign-On 구성
 
-    ![Single Sign-On 구성 저장 단추](./media/qliksense-enterprise-tutorial/tutorial_general_400.png)
-
-6. Qlik Sense 서버에 업로드할 수 있도록 페더레이션 메타데이터 XML 파일을 준비합니다.
+1. Qlik Sense 서버에 업로드할 수 있도록 페더레이션 메타데이터 XML 파일을 준비합니다.
 
     > [!NOTE]
     > Qlik Sense 서버로 IdP 메타데이터를 업로드하기 전에 Azure AD와 Qlik Sense 서버 간의 적절한 작동을 위해 정보를 제거하도록 파일을 편집해야 합니다.
@@ -150,21 +141,21 @@ Qlik Sense Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     d. 파일을 저장하고 이 문서의 뒷부분에서 사용하기 위해 가까이 둡니다.
 
-7. 가상 프록시 구성을 만들 수 있는 사용자로 Qlik Sense QMC(Qlik Management Console)로 이동합니다.
+2. 가상 프록시 구성을 만들 수 있는 사용자로 Qlik Sense QMC(Qlik Management Console)로 이동합니다.
 
-8. QMC에서 **가상 프록시** 메뉴 항목을 클릭합니다.
+3. QMC에서 **가상 프록시** 메뉴 항목을 클릭합니다.
 
     ![QlikSense][qs6]
 
-9. 화면 아래쪽에서 **새로 만들기** 단추를 클릭합니다.
+4. 화면 아래쪽에서 **새로 만들기** 단추를 클릭합니다.
 
     ![QlikSense][qs7]
 
-10. 가상 프록시 편집 화면이 나타납니다.  화면 오른쪽은 구성 옵션을 표시하기 위한 메뉴입니다.
+5. 가상 프록시 편집 화면이 나타납니다.  화면 오른쪽은 구성 옵션을 표시하기 위한 메뉴입니다.
 
     ![QlikSense][qs9]
 
-11. 식별 메뉴 옵션을 선택하여 Azure 가상 프록시 구성에 대한 식별 정보를 입력합니다.
+6. 식별 메뉴 옵션을 선택하여 Azure 가상 프록시 구성에 대한 식별 정보를 입력합니다.
 
     ![QlikSense][qs8]  
 
@@ -176,7 +167,7 @@ Qlik Sense Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     d. **세션 쿠키 헤더 이름**은 인증에 성공한 후 사용자가 받는 Qlik Sense 세션에 대한 세션 식별자를 저장하는 쿠키 이름입니다.  이 이름은 고유해야 합니다.
 
-12. 표시하려면 인증 메뉴 옵션을 클릭합니다.  인증 화면이 나타납니다.
+7. 표시하려면 인증 메뉴 옵션을 클릭합니다.  인증 화면이 나타납니다.
 
     ![QlikSense][qs10]
 
@@ -192,154 +183,134 @@ Qlik Sense Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     f. Azure AD가 Qlik Sense 서버에 전송하는 **UserID**를 나타내는 SAML 특성에 대한 특성 이름 또는 스키마 참조를 입력합니다.  스키마 참조 정보는 Azure 앱 화면 게시 구성에서 사용할 수 있습니다.  이름 특성을 사용하려면 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`을 선택합니다.
 
-    g. Azure AD 통해 Qlik Sense 서버에 인증하는 경우 사용자에 연결될 **사용자 디렉터리** 에 대한 값을 입력합니다.  하드 코드된 값은 **[](대괄호)** 로 묶어야 합니다.  Azure AD SAML 어설션에서 전송된 특성을 사용하려면 대괄호 **없이** 이 텍스트 상자에 특성의 이름을 입력합니다.
+    g. Azure AD 통해 Qlik Sense 서버에 인증하는 경우 사용자에 연결될 **사용자 디렉터리** 에 대한 값을 입력합니다.  하드 코드된 값은 **(대괄호)[]** 로 묶어야 합니다.  Azure AD SAML 어설션에서 전송된 특성을 사용하려면 대괄호 **없이** 이 텍스트 상자에 특성의 이름을 입력합니다.
 
     h. **SAML 서명 알고리즘** 은 가상 프록시 구성에 대한 서비스 공급자(이 경우 Qlik Sense 서버) 인증서 서명을 설정합니다.  Qlik Sense 서버가 Microsoft Enhanced RSA and AES Cryptographic Provider를 사용하여 생성된 신뢰할 수 있는 인증서를 사용하는 경우 SAML 서명 알고리즘을 **SHA-256**으로 변경합니다.
 
     i. SAML 특성 매핑 섹션을 통해 그룹과 같은 추가 특성을 보안 규칙에서 사용하기 위해 Qlik Sense로 전송할 수 있습니다.
 
-13. 표시하려면 **부하 분산** 메뉴 옵션을 클릭합니다.  부하 분산 화면이 나타납니다.
+8. 표시하려면 **부하 분산** 메뉴 옵션을 클릭합니다.  부하 분산 화면이 나타납니다.
 
     ![QlikSense][qs11]
 
-14. **새 서버 노드 추가** 단추를 클릭하고 Qlik Sense가 부하 분산을 위해 세션을 전송할 엔진 노드 또는 노드를 선택하고 **추가** 단추를 클릭합니다.
+9. **새 서버 노드 추가** 단추를 클릭하고 Qlik Sense가 부하 분산을 위해 세션을 전송할 엔진 노드 또는 노드를 선택하고 **추가** 단추를 클릭합니다.
 
     ![QlikSense][qs12]
 
-15. 표시하려면 고급 메뉴 옵션을 클릭합니다. 고급 화면이 나타납니다.
+10. 표시하려면 고급 메뉴 옵션을 클릭합니다. 고급 화면이 나타납니다.
 
     ![QlikSense][qs13]
 
     호스트 허용 목록은 Qlik Sense 서버에 연결할 때 허용되는 호스트 이름을 식별합니다.  **Qlik Sense 서버에 연결할 때 사용자가 지정할 호스트 이름을 입력합니다.** 호스트 이름은 https:// 없이 SAML 호스트 URI와 동일한 값입니다.
 
-16. **적용** 단추를 클릭합니다.
+11. **적용** 단추를 클릭합니다.
 
     ![QlikSense][qs14]
 
-17. 확인을 클릭하여 가상 프록시에 연결된 프록시가 다시 시작된다는 경고 메시지를 수락합니다.
+12. 확인을 클릭하여 가상 프록시에 연결된 프록시가 다시 시작된다는 경고 메시지를 수락합니다.
 
     ![QlikSense][qs15]
 
-18. 화면 오른쪽에 연결된 항목 메뉴가 나타납니다.  **프록시** 메뉴 옵션을 클릭합니다.
+13. 화면 오른쪽에 연결된 항목 메뉴가 나타납니다.  **프록시** 메뉴 옵션을 클릭합니다.
 
     ![QlikSense][qs16]
 
-19. 프록시 화면이 나타납니다.  맨 아래의 **링크** 단추를 클릭하여 가상 프록시에 프록시를 연결합니다.
+14. 프록시 화면이 나타납니다.  맨 아래의 **링크** 단추를 클릭하여 가상 프록시에 프록시를 연결합니다.
 
     ![QlikSense][qs17]
 
-20. 이 가상 프록시 연결을 지원하는 프록시 노드를 선택하고 **링크** 단추를 클릭합니다.  연결 후 연결된 프록시 아래에 프록시가 나열됩니다.
+15. 이 가상 프록시 연결을 지원하는 프록시 노드를 선택하고 **링크** 단추를 클릭합니다.  연결 후 연결된 프록시 아래에 프록시가 나열됩니다.
 
     ![QlikSense][qs18]
   
     ![QlikSense][qs19]
 
-21. 약 5~10초 후에 새로 고침 QMC 메시지가 표시됩니다.  **새로 고침 QMC** 단추를 클릭합니다.
+16. 약 5~10초 후에 새로 고침 QMC 메시지가 표시됩니다.  **새로 고침 QMC** 단추를 클릭합니다.
 
     ![QlikSense][qs20]
 
-22. QMC가 새로 고쳐지면 **가상 프록시** 메뉴 항목을 클릭합니다. 새 SAML 가상 프록시 항목이 화면의 테이블에 나열됩니다.  가상 프록시 항목을 한 번 클릭합니다.
+17. QMC가 새로 고쳐지면 **가상 프록시** 메뉴 항목을 클릭합니다. 새 SAML 가상 프록시 항목이 화면의 테이블에 나열됩니다.  가상 프록시 항목을 한 번 클릭합니다.
 
     ![QlikSense][qs51]
 
-23. 화면 맨 아래에서 SP 메타데이터 다운로드 단추가 활성화됩니다.  **SP 메타데이터 다운로드** 단추를 클릭하여 파일에 메타데이터를 저장합니다.
+18. 화면 맨 아래에서 SP 메타데이터 다운로드 단추가 활성화됩니다.  **SP 메타데이터 다운로드** 단추를 클릭하여 파일에 메타데이터를 저장합니다.
 
     ![QlikSense][qs52]
 
-24. SP 메타데이터 파일을 엽니다.  **entityID** 및 **AssertionConsumerService** 항목을 관찰합니다.  이러한 값은 Azure AD 애플리케이션 구성의 **ID**, **로그인 URL** 및 **회신 URL**에 해당합니다. Azure AD 응용 프로그램 구성의 **Qlik Sense Enterprise 도메인 및 URL** 섹션에 해당 값을 붙여 넣습니다. 일치하지 않는 경우 Azure AD 앱 구성 마법사에서 대체해야 합니다.
+19. SP 메타데이터 파일을 엽니다.  **entityID** 및 **AssertionConsumerService** 항목을 관찰합니다.  이러한 값은 Azure AD 애플리케이션 구성의 **ID**, **로그인 URL** 및 **회신 URL**에 해당합니다. Azure AD 애플리케이션 구성의 **Qlik Sense Enterprise 도메인 및 URL** 섹션에 해당 값을 붙여 넣습니다. 일치하지 않는 경우 Azure AD 앱 구성 마법사에서 대체해야 합니다.
 
     ![QlikSense][qs53]
 
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-![Azure AD 테스트 사용자 만들기][100]
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
 
-**Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
+    !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** 단추를 클릭합니다.
+2. 화면 위쪽에서 **새 사용자**를 선택합니다.
 
-   ![Azure Active Directory 단추](./media/qliksense-enterprise-tutorial/create_aaduser_01.png)
+    ![새 사용자 단추](common/new-user.png)
 
-2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
+3. 사용자 속성에서 다음 단계를 수행합니다.
 
-   !["사용자 및 그룹" 및 "모든 사용자" 링크](./media/qliksense-enterprise-tutorial/create_aaduser_02.png)
+    ![사용자 대화 상자](common/user-properties.png)
 
-3. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
+    a. **이름** 필드에 **BrittaSimon**을 입력합니다.
+  
+    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    예를 들어 BrittaSimon@contoso.com
 
-   ![추가 단추](./media/qliksense-enterprise-tutorial/create_aaduser_03.png)
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
-4. **사용자** 대화 상자에서 다음 단계를 수행합니다.
-
-   ![사용자 대화 상자](./media/qliksense-enterprise-tutorial/create_aaduser_04.png)
-
-   a. **이름** 상자에 **BrittaSimon**을 입력합니다.
-
-   나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
-
-   다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
-
-   d. **만들기**를 클릭합니다.
-
-### <a name="create-a-qlik-sense-enterprise-test-user"></a>Qlik Sense Enterprise 테스트 사용자 만들기
-
-이 섹션에서는 Qlik Sense Enterprise에서 Britta Simon이라는 사용자를 만듭니다. Qlik Sense Enterprise 플랫폼에서 사용자를 추가하려면  [Qlik Sense Enterprise 클라이언트 지원 팀](https://www.qlik.com/us/services/support) 에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+    d. **만들기**를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Qlik Sense Enterprise에 대한 액세스 권한을 부여합니다.
 
-![사용자 역할 할당][200]
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Qlik Sense Enterprise**를 차례로 선택합니다.
 
-**Qlik Sense Enterprise에 Britta Simon을 할당하려면 다음 단계를 수행합니다.**
+    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
+2. 애플리케이션 목록에서 **Qlik Sense Enterprise**를 입력하고 선택합니다.
 
-    ![사용자 할당][201]
+    ![애플리케이션 목록의 Qlik Sense Enterprise 링크](common/all-applications.png)
 
-2. 응용 프로그램 목록에서 **Qlik Sense Enterprise**를 선택합니다.
+3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
 
-    ![응용 프로그램 목록의 Qlik Sense Enterprise 링크](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_app.png)  
+    !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
-    !["사용자 및 그룹" 링크][202]
+    ![할당 추가 창](common/add-assign-user.png)
 
-4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 
-    ![할당 추가 창][203]
-
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
-
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+6. SAML 어설션 및 **역할 선택** 대화 상자에서 모든 역할 값이 필요한 경우 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에 있는 **선택** 단추를 클릭합니다.
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="test-single-sign-on"></a>Single Sign-On 테스트
+### <a name="create-qlik-sense-enterprise-test-user"></a>Qlik Sense Enterprise 테스트 사용자 만들기
+
+이 섹션에서는 Qlik Sense Enterprise에서 Britta Simon이라는 사용자를 만듭니다.  [Qlik Sense Enterprise 지원 팀](https://www.qlik.com/us/services/support)과 협력하여 사용자를 Qlik Sense Enterprise 플랫폼에 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+
+### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Qlik Sense Enterprise 타일을 클릭하면 Qlik Sense Enterprise 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Qlik Sense Enterprise 타일을 클릭하면 SSO를 설정한 Qlik Sense Enterprise 애플리케이션에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+
+- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+
+- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 <!--Image references-->
-
-[1]: ./media/qliksense-enterprise-tutorial/tutorial_general_01.png
-[2]: ./media/qliksense-enterprise-tutorial/tutorial_general_02.png
-[3]: ./media/qliksense-enterprise-tutorial/tutorial_general_03.png
-[4]: ./media/qliksense-enterprise-tutorial/tutorial_general_04.png
-
-[100]: ./media/qliksense-enterprise-tutorial/tutorial_general_100.png
-
-[200]: ./media/qliksense-enterprise-tutorial/tutorial_general_200.png
-[201]: ./media/qliksense-enterprise-tutorial/tutorial_general_201.png
-[202]: ./media/qliksense-enterprise-tutorial/tutorial_general_202.png
-[203]: ./media/qliksense-enterprise-tutorial/tutorial_general_203.png
 
 [qs6]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_06.png
 [qs7]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_07.png
@@ -360,3 +331,4 @@ Qlik Sense Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하
 [qs51]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_51.png
 [qs52]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_52.png
 [qs53]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_53.png
+

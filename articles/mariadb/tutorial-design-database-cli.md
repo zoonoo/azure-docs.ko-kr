@@ -1,22 +1,19 @@
 ---
 title: '자습서: Azure CLI를 사용하여 Azure Database for MariaDB 디자인'
 description: 이 자습서에서는 명령줄에서 Azure CLI를 사용하여 Azure Database for MariaDB 서버 및 데이터베이스를 만들고 관리하는 방법을 설명합니다.
-services: mariadb
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 2d715f89b56af822c2c1174cca0f2a9c1b847fc0
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: fa056dad052914e771251585cb426c70591aa235
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516340"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541194"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Database for MariaDB 디자인
 
@@ -175,7 +172,7 @@ SELECT * FROM inventory;
 
 복원에는 다음 정보가 필요합니다.
 
-- 복원 지점: 데이터베이스를 변경하기 전의 특정 시점을 선택합니다. 원본 데이터베이스의 가장 오래된 백업 값보다 크거나 같아야 합니다.
+- 복원 지점: 서버를 변경하기 전 발생한 특정 시점을 선택합니다. 원본 데이터베이스의 가장 오래된 백업 값보다 크거나 같아야 합니다.
 - 대상 서버: 복원해 두려는 새 서버의 이름을 제공합니다.
 - 원본 서버: 복원해 오려는 서버의 이름을 제공합니다.
 - 위치: 지역은 선택할 수 없으며, 기본적으로 원본 서버와 동일합니다.

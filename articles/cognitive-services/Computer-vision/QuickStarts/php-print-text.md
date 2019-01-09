@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 인쇄 텍스트 추출(OCR) - REST, PHP - Computer Vision'
+title: '빠른 시작: 인쇄된 텍스트 추출 - REST, PHP'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 PHP와 함께 Computer Vision API를 사용하여 이미지의 인쇄 텍스트를 추출합니다.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 10be09c4d18cc7bc395937e1a175a5bfcd1e5d7e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 2707134c3fb451f4386748f691086eeb617d3ebe
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340242"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581388"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-php-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 PHP를 사용하여 인쇄 텍스트 추출(OCR)
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-php-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 PHP를 사용하여 인쇄된 텍스트 추출(OCR)
 
 이 빠른 시작에서는 Computer Vision의 REST API를 사용하여 이미지에서 OCR(광학 문자 인식)이 포함된 인쇄 텍스트를 추출합니다. [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 메서드를 사용하여 이미지의 인쇄 텍스트를 감지하고, 인식된 문자를 머신에서 사용 가능한 문자 스트림으로 추출할 수 있습니다.
 
@@ -33,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 샘플을 만들고 실행하려면 다음 단계를 수행합니다.
 
-1. PHP5 [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) 패키지를 설치합니다.
+1. PHP5 [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2) 패키지를 설치합니다.
    1. 관리자로 명령 프롬프트 창을 엽니다.
    1. 다음 명령 실행:
 
@@ -48,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     1. `subscriptionKey`의 값을 구독 키로 바꿉니다.
     1. 필요한 경우 `uriBase`의 값을 구독 키를 가져온 Azure 지역의 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 메서드에 대한 엔드포인트 URL로 바꿉니다.
     1. 필요에 따라 `imageUrl`의 값을 인쇄 텍스트를 추출하려는 다른 이미지의 URL로 바꿉니다.
-1. 코드를 `.php` 확장명의 파일로 저장합니다. 예: `get-printed-text.php`.
+1. 코드를 `.php` 확장명의 파일로 저장합니다. 예: `get-printed-text.php`
 1. PHP를 지원하는 브라우저 창을 엽니다.
 1. 파일을 브라우저 창으로 끌어서 놓습니다.
 

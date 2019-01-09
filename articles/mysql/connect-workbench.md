@@ -1,23 +1,20 @@
 ---
 title: MySQL Workbench에서 Azure Database for MySQL에 연결
 description: 이 빠른 시작에서는 MySQL용 Azure Database에서 데이터를 연결하고 쿼리하는 데 MySQL Workbench를 사용하는 단계를 제공합니다.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: seanli1988
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: def984a6a31cdfe9b9dfbba93ccfb5016b5e315d
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f93c581b916a7f9c4f454833cb37f603cc177856
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265180"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540472"
 ---
-# <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>MySQL용 Azure Database: MySQL Workbench을 사용하여 데이터 쿼리
+# <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MySQL: MySQL Workbench를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 MySQL Workbench 애플리케이션을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. 
 
 ## <a name="prerequisites"></a>필수 조건

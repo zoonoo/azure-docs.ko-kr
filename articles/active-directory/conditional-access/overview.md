@@ -17,18 +17,18 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f0ba365096808954c24beb073f3570499fd23523
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 06866b1a0b986190ab6770e5484fb7d950d10b26
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408279"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753917"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스란?
 
 보안은 클라우드를 사용하는 조직에서 가장 중요한 문제입니다. 클라우드 보안의 주요 측면은 클라우드 리소스 관리에 사용되는 ID 및 액세스입니다. 모바일 우선, 클라우드 우선 환경에서는 사용자가 다양한 디바이스와 앱을 사용하여 어디서나 조직의 리소스에 액세스할 수 있습니다. 따라서 리소스에 액세스할 수 있는 사람에만 초점을 맞추는 것은 더 이상 충분하지 않습니다. 보안과 생산성 간의 균형을 이루기 위해서는 리소스가 액세스되는 방법도 액세스 제어 결정에 고려해야 합니다. Azure AD(Azure Active Directory) 조건부 액세스를 사용하면 이 요구 사항을 처리할 수 있습니다. 조건부 액세스는 Azure Active Directory의 기능입니다. 조건부 액세스를 사용하면 조건에 따라 클라우드 앱에 액세스할 수 있는 사용자를 결정하는 자동 액세스 제어 결정 시스템을 구현할 수 있습니다. 
 
-1단계 인증이 완료되면 조건부 액세스 정책이 적용됩니다. 즉, 조건부 액세스는 DoS(서비스 거부) 공격에 대응 조치와 같은 작업을 수행하기 위한 메커니즘이 되지 않습니다.  
+1단계 인증이 완료된 후 조건부 액세스 정책이 적용됩니다. 이처럼 조건부 액세스는 DoS(서비스 거부) 공격 같은 시나리오에서 최전방 방어선으로 사용하기 위해 개발된 것은 아니지만, 이러한 이벤트의 신호를 활용하여(예: 로그인 위험 수준, 요청 위치 등) 액세스를 결정할 수 있습니다.  
 
 ![제어](./media/overview/81.png)
 
@@ -99,7 +99,7 @@ Azure AD 조건부 액세스를 사용하여 권한 있는 사용자가 클라�
 
 구성된 조건부 액세스 정책에 다단계 인증이 필요할 경우 Azure AD의 기본값은 Azure MFA를 사용하는 것입니다. MFA에 대해 페디레이션 서비스를 사용할 경우 [PowerShell](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings)에서 `-SupportsMFA`를 `$true`로 설정하여 페더레이션 서비스로 리디렉션하도록 Azure AD를 구성할 수 있습니다 이 설정은 `wauth= http://schemas.microsoft.com/claims/multipleauthn`을 사용하여 Azure AD에서 발행한 MFA 과제 요청을 지원하는 페더레이션된 인증 서비스에 적용됩니다.
 
-사용자가 페더레이션된 인증 서비스에 로그인한 후 Azure AD는 디바이스 준수, 승인된 애플리케이션 같은 다른 정책 요구 사항을 처리합니다.
+사용자가 페더레이션된 인증 서비스에 로그인한 후 Azure AD는 장치 준수, 승인된 애플리케이션 같은 다른 정책 요구 사항을 처리합니다.
 
 ## <a name="license-requirements-for-using-conditional-access"></a>조건부 액세스를 사용하기 위한 라이선스 요구 사항
 

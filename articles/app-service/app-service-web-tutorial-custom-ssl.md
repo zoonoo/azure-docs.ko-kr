@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 57046b9e199fbe5e88d0ea7fa25248641693508a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: cdd73c46d87ec09439188024945bd60299bb1d57
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256998"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629750"
 ---
-# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>자습서: Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩
+# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩
 
-Azure Web Apps는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 신뢰할 수 있는 인증 기관에서 구매한 사용자 지정 SSL 인증서를 [Azure Web Apps](app-service-web-overview.md)에 바인딩하는 방법을 보여 줍니다. 완료하면 사용자 지정 DNS 도메인의 HTTPS 엔드포인트에서 웹앱에 액세스할 수 있습니다.
+Azure App Service는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 신뢰할 수 있는 인증 기관에서 구매한 사용자 지정 SSL 인증서를 [Azure App Service](overview.md)에 바인딩하는 방법을 보여줍니다. 완료하면 사용자 지정 DNS 도메인의 HTTPS 엔드포인트에서 앱에 액세스할 수 있습니다.
 
 ![사용자 지정 SSL 인증서가 포함된 웹앱](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
@@ -39,14 +39,14 @@ Azure Web Apps는 확장성 있는 자체 패치 웹 호스팅 서비스를 제�
 > * 스크립트를 사용하여 TLS 관리 자동화
 
 > [!NOTE]
-> 사용자 지정 SSL 인증서가 필요한 경우 Azure Portal에서 직접 SSL 인증서를 구매하고 웹앱에 바인딩할 수 있습니다. [App Service 인증서 자습서](web-sites-purchase-ssl-web-site.md)를 따르세요.
+> 사용자 지정 SSL 인증서가 필요한 경우 Azure Portal에서 구매하고 앱에 바인딩할 수 있습니다. [App Service 인증서 자습서](web-sites-purchase-ssl-web-site.md)를 따르세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - [App Service 앱 만들기](/azure/app-service/)
-- [웹앱에 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)
+- [App Service 앱에 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)
 - 신뢰할 수 있는 인증 기관에서 SSL 인증서 구매
 - SSL 인증서 요청을 서명하는 데 사용되는 개인 키 보유
 
@@ -70,7 +70,7 @@ App Service에서 인증서를 사용하려면 인증서가 다음 요구 사항
 
 ## <a name="bind-your-ssl-certificate"></a>SSL 인증서 바인딩
 
-SSL 인증서를 웹앱에 업로드할 준비가 되었습니다.
+SSL 인증서를 앱에 업로드할 준비가 되었습니다.
 
 ### <a name="merge-intermediate-certificates"></a>중간 인증서 병합
 
@@ -114,7 +114,7 @@ IIS 또는 _Certreq.exe_를 사용하여 인증서 요청을 생성한 경우 �
 
 ### <a name="upload-your-ssl-certificate"></a>SSL 인증서 업로드
 
-SSL 인증서를 업로드하려면 웹앱의 왼쪽 탐색 영역에서 **SSL 설정**을 클릭합니다.
+SSL 인증서를 업로드하려면 앱의 왼쪽 탐색 영역에서 **SSL 설정**을 클릭합니다.
 
 **인증서 업로드**를 클릭합니다. 
 
@@ -154,24 +154,24 @@ App Service에서 인증서 업로드가 완료되면 **SSL 바인딩** 섹션�
 
 ## <a name="remap-a-record-for-ip-ssl"></a>IP SSL에 대한 A 레코드 다시 매핑
 
-웹앱에서 IP 기반 SSL을 사용하지 않을 경우 [사용자 지정 도메인에 대한 HTTPS 테스트](#test)로 건너뜁니다.
+앱에서 IP 기반 SSL을 사용하지 않을 경우 [사용자 지정 도메인에 대한 HTTPS 테스트](#test)로 건너뜁니다.
 
-기본적으로 웹앱에서는 공유 공용 IP 주소를 사용합니다. IP 기반 SSL을 사용하여 인증서를 바인딩하면 App Service에서 웹앱에 대한 새로운 전용 IP 주소를 만듭니다.
+기본적으로 앱에서는 공유 공용 IP 주소를 사용합니다. IP 기반 SSL을 사용하여 인증서를 바인딩하면 App Service에서 앱에 대한 새로운 전용 IP 주소를 만듭니다.
 
-A 레코드를 웹앱에 매핑한 경우 이 새로운 전용 IP 주소로 도메인 레지스트리를 업데이트합니다.
+A 레코드를 앱에 매핑한 경우 이 새로운 전용 IP 주소로 도메인 레지스트리를 업데이트합니다.
 
-웹앱의 **사용자 지정 도메인** 페이지가 새로운 전용 IP 주소로 업데이트됩니다. [이 IP 주소를 복사](app-service-web-tutorial-custom-domain.md#info)하고 이 새로운 IP 주소에 [A 레코드를 다시 매핑](app-service-web-tutorial-custom-domain.md#map-an-a-record)합니다.
+앱의 **사용자 지정 도메인** 페이지가 새로운 전용 IP 주소로 업데이트됩니다. [이 IP 주소를 복사](app-service-web-tutorial-custom-domain.md#info)하고 이 새로운 IP 주소에 [A 레코드를 다시 매핑](app-service-web-tutorial-custom-domain.md#map-an-a-record)합니다.
 
 <a name="test"></a>
 
 ## <a name="test-https"></a>HTTPS 테스트
 
-이제 HTTPS가 사용자 지정 도메인에 작동하는지 확인하는 작업만 남았습니다. 다양한 브라우저에서 `https://<your.custom.domain>`으로 이동하여 웹앱을 처리하는지 확인합니다.
+이제 HTTPS가 사용자 지정 도메인에 작동하는지 확인하는 작업만 남았습니다. 다양한 브라우저에서 `https://<your.custom.domain>` 으로 이동하여 앱을 처리하는지 확인합니다.
 
 ![Azure 앱에 대한 포털 탐색](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
 > [!NOTE]
-> 웹앱에서 인증서 유효성 검사 오류가 발생한 경우 자체 서명된 인증서를 사용하고 있을 수도 있습니다.
+> 앱에서 인증서 유효성 검사 오류가 발생한 경우 자체 서명된 인증서를 사용하고 있을 수도 있습니다.
 >
 > 그렇지 않으면 인증서를 PFX 파일로 내보낼 때 중간 인증서를 생략했을 수도 있습니다.
 
@@ -187,9 +187,9 @@ A 레코드를 웹앱에 매핑한 경우 이 새로운 전용 IP 주소로 도�
 
 ## <a name="enforce-https"></a>HTTPS 적용
 
-기본적으로 누구나 HTTP를 사용하여 웹앱에 액세스할 수 있습니다. HTTPS 포트에 모든 HTTP 요청을 리디렉션할 수 있습니다.
+기본적으로 누구나 HTTP를 사용하여 앱에 액세스할 수 있습니다. HTTPS 포트에 모든 HTTP 요청을 리디렉션할 수 있습니다.
 
-웹앱 페이지의 왼쪽 탐색 영역에서 **SSL 설정**을 선택합니다. 그런 다음 **HTTPS에만 해당**에서 **켜기**를 선택합니다.
+앱 페이지의 왼쪽 탐색 영역에서 **SSL 설정**을 선택합니다. 그런 다음 **HTTPS에만 해당**에서 **켜기**를 선택합니다.
 
 ![HTTPS 적용](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
@@ -203,7 +203,7 @@ A 레코드를 웹앱에 매핑한 경우 이 새로운 전용 IP 주소로 도�
 
 앱에는 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)와 같이 업계 표준에서 권장되는 TLS 수준인 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2가 기본적으로 허용됩니다. 다른 TLS 버전을 적용하려면 다음 단계를 수행합니다.
 
-웹앱 페이지의 왼쪽 탐색 영역에서 **SSL 설정**을 선택합니다. 그런 다음, **TLS 버전**에서 원하는 최소 TLS 버전을 선택합니다. 이 설정은 인바운드 호출만 제어합니다. 
+앱 페이지의 왼쪽 탐색 영역에서 **SSL 설정**을 선택합니다. 그런 다음, **TLS 버전**에서 원하는 최소 TLS 버전을 선택합니다. 이 설정은 인바운드 호출만 제어합니다. 
 
 ![TLS 1.1 또는 1.2 적용](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
@@ -211,7 +211,7 @@ A 레코드를 웹앱에 매핑한 경우 이 새로운 전용 IP 주소로 도�
 
 ## <a name="automate-with-scripts"></a>스크립트를 사용하여 자동화
 
-[Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azure/overview)을 통해 스크립트를 사용하여 웹앱에 대한 SSL 바인딩을 자동화할 수 있습니다.
+[Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azure/overview)을 통해 스크립트를 사용하여 앱에 대한 SSL 바인딩을 자동화할 수 있습니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -260,9 +260,9 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>공용 인증서(선택 사항)
-앱이 클라이언트로써 원격 리소스에 액세스해야 하고 원격 리소스에 인증서 인증이 필요한 경우 웹앱에 [공용 인증서](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/)를 업로드하면 됩니다. 앱의 SSL 바인딩에는 공용 인증서가 필요하지 않습니다.
+앱이 클라이언트로써 원격 리소스에 액세스해야 하고 원격 리소스에 인증서 인증이 필요한 경우 앱에 [공용 인증서](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/)를 업로드하면 됩니다. 앱의 SSL 바인딩에는 공용 인증서가 필요하지 않습니다.
 
-앱에서 공용 인증서를 로드 및 사용하는 방법에 대한 자세한 내용은 [Azure App Service의 애플리케이션 코드에서 SSL 인증서 사용](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load)을 참조하세요. App Service Environments의 앱에도 공용 인증서를 사용할 수 있습니다. LocalMachine 인증서 저장소에 인증서를 저장해야 하는 경우 App Service Environments에서 웹앱을 사용해야 합니다. 자세한 내용은 [웹앱에 공용 인증서를 구성하는 방법](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer)을 참조하세요.
+앱에서 공용 인증서를 로드 및 사용하는 방법에 대한 자세한 내용은 [Azure App Service의 애플리케이션 코드에서 SSL 인증서 사용](app-service-web-ssl-cert-load.md)을 참조하세요. App Service Environments의 앱에도 공용 인증서를 사용할 수 있습니다. LocalMachine 인증서 저장소에 인증서를 저장해야 하는 경우 App Service Environment에서 앱을 사용해야 합니다. 자세한 내용은 [App Service 앱에 공용 인증서를 구성하는 방법](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer)을 참조하세요.
 
 ![공용 인증서 업로드](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

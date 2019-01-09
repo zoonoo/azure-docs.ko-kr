@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 원격 이미지 분석 - REST, Python - Computer Vision'
+title: '빠른 시작: 원격 이미지 분석 - REST, Python'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Computer Vision API를 사용하여 Python을 통해 원격 이미지를 분석합니다.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: daad35129c99deb37b44e4a98e0c228963d99840
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: f60a3c3c2ab586bdf1eb44cf1e81a9adb87584b0
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854155"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583939"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API와 Python을 사용하여 원격 이미지 분석
 

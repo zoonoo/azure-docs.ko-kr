@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 음성 인식, Javascript(브라우저) - Speech Services'
+title: '빠른 시작: 음성 인식, JavaScript(브라우저) - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Speech Service SDK를 사용하여 브라우저에서 JavaScript로 음성을 인식하는 방법 알아보기
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: f8b6f4d39ce4dc65d691ec6a0e3d0734abb19734
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b6add6ac94e45789033cfe9913ec64e69f394f45
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087918"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715140"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>빠른 시작: Speech Service SDK를 사용하여 브라우저에서 JavaScript로 음성 인식
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 이 문서에서는 음성을 텍스트로 변환하는 Cognitive Services Speech SDK의 JavaScript 바인딩을 사용하여 웹 사이트를 만드는 방법을 설명합니다.
-이 애플리케이션은 Cognitive Services Speech SDK([다운로드 버전 1.1.0](https://aka.ms/csspeech/jsbrowserpackage))를 기반으로 합니다.
+이 애플리케이션은 Cognitive Services Speech SDK([다운로드 버전 1.2.0](https://aka.ms/csspeech/jsbrowserpackage))를 기반으로 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -40,8 +40,8 @@ ms.locfileid: "53087918"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Speech SDK를 [.zip 패키지](https://aka.ms/csspeech/jsbrowserpackage)로 다운로드하여 새로 만든 폴더에 압축 해체합니다. 그러면 압축이 풀린 두 개의 파일(`microsoft.cognitiveservices.speech.sdk.bundle.js` 및 `microsoft.cognitiveservices.speech.sdk.bundle.js.map`)이 생깁니다.
-두 번째 파일은 옵션이며, 필요할 때 SDK 코드를 디버깅하는 데 사용됩니다.
+Speech SDK를 [.zip 패키지](https://aka.ms/csspeech/jsbrowserpackage)로 다운로드하여 새로 만든 폴더에 압축 해체합니다. 이로 인해 두 파일은 `microsoft.cognitiveservices.speech.sdk.bundle.js` 및 `microsoft.cognitiveservices.speech.sdk.bundle.js.map`으로 압축 해제됩니다.
+후자의 파일은 선택 사항이며, SDK 코드로 디버깅하는 데 유용합니다.
 
 ## <a name="create-an-indexhtml-page"></a>Index.html 페이지 만들기
 
@@ -103,10 +103,7 @@ Speech SDK를 [.zip 패키지](https://aka.ms/csspeech/jsbrowserpackage)로 다�
 
 앱을 시작하려면 선호하는 웹 브라우저를 열고 폴더를 호스트하는 공용 URL을 가리킨 다음, [영역](regions.md)을 입력하고, 마이크를 사용하여 인식을 트리거합니다. 구성된 경우 토큰 소스에서 토큰을 획득합니다.
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-이 예제를 `quickstart/js-browser` 폴더에서 찾을 수 있습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [샘플 가져오기](speech-sdk.md#get-the-samples)
+> [GitHub의 JavaScript 샘플 살펴보기](https://aka.ms/csspeech/samples)

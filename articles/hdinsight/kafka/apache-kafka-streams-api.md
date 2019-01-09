@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 8319376c597f16a5bfe1a357d74c59453b797e51
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: cb959bd74322534573f83c2b3258ff28d4c324ff
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495140"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584159"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>자습서: Apache Kafka Streams API
 
@@ -22,7 +22,7 @@ Apache Kafka Streams API를 사용하는 애플리케이션을 만들고 HDInsig
 
 이 자습서에서 사용되는 애플리케이션은 스트리밍 워드 카운트입니다. 이 응용 프로그램은 Kafka 토픽에서 텍스트 데이터를 읽고, 개별 단어를 추출한 다음, 워드 카운트를 다른 Kafka 토픽에 저장합니다.
 
-> [!NOTE]
+> [!NOTE]  
 > Kafka 스트림 처리는 종종 Apache Spark 또는 Apache Storm을 사용하여 수행됩니다. Kafka 0.10.0 버전(HDInsight 3.5 및 3.6)에 Kafka Streams API가 도입되었습니다. 이 API를 사용하면 입력 및 출력 토픽 간의 데이터 스트림을 변환할 수 있습니다. 경우에 따라 Spark 또는 Storm 스트리밍 솔루션을 만드는 대신 이 방법을 사용할 수 있습니다. 
 >
 > Kafka Streams에 대한 자세한 내용은 Apache.org의 [Streams 소개](https://kafka.apache.org/10/documentation/streams/) 문서를 참조하세요.
@@ -48,7 +48,7 @@ Apache Kafka Streams API를 사용하는 애플리케이션을 만들고 HDInsig
 
 * [Java JDK 8](https://aka.ms/azure-jdks) 또는 이와 동등한 프로그램(예: OpenJDK)
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * SSH 클라이언트 및 `scp` 명령입니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md) 문서를 참조하세요.
 
@@ -63,7 +63,7 @@ Apache Kafka Streams API를 사용하는 애플리케이션을 만들고 HDInsig
 
 `pom.xml` 파일에서 이해할 중요한 사항은 다음과 같습니다.
 
-* 종속성: 이 프로젝트는 `kafka-clients` 패키지에서 제공하는 Kafka 스트림 API에 의존합니다. 다음 XML 코드는 이 종속성을 정의합니다.
+* 종속성: 이 프로젝트는 `kafka-clients` 패키지에서 제공하는 Kafka Streams API를 사용합니다. 다음 XML 코드는 이 종속성을 정의합니다.
 
     ```xml
     <!-- Kafka client for producer/consumer operations -->
@@ -74,17 +74,17 @@ Apache Kafka Streams API를 사용하는 애플리케이션을 만들고 HDInsig
     </dependency>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > `${kafka.version}` 항목은 `pom.xml`의 `<properties>..</properties>` 섹션에서 선언되며, HDInsight 클러스터의 Kafka 버전으로 구성됩니다.
 
 * 플러그 인: Maven 플러그 인은 다양한 기능을 제공합니다. 이 프로젝트에서는 다음 플러그 인이 사용됩니다.
 
     * `maven-compiler-plugin`: 프로젝트에서 사용하는 Java 버전을 8로 설정하는 데 사용됩니다. HDInsight 3.6에는 Java 8이 필요합니다.
-    * `maven-shade-plugin`: 이 응용 프로그램 및 모든 종속성을 포함하는 uber jar를 생성하는 데 사용됩니다. 또한 기본 클래스를 지정하지 않고 Jar 파일을 직접 실행할 수 있도록 애플리케이션의 진입점을 설정하는 데 사용됩니다.
+    * `maven-shade-plugin`: 이 애플리케이션 및 모든 종속성을 포함하는 uber jar를 생성하는 데 사용됩니다. 또한 기본 클래스를 지정하지 않고 Jar 파일을 직접 실행할 수 있도록 애플리케이션의 진입점을 설정하는 데 사용됩니다.
 
 ### <a name="streamjava"></a>Stream.java
 
-[Stream.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Streaming/src/main/java/com/microsoft/example/Stream.java) 파일은 스트림 API를 사용하여 워드 카운트 응용 프로그램을 구현합니다. 이 파일은 `test`라는 Kafka 토픽에서 데이터를 읽고, `wordcounts`라는 토픽에 워드 카운트를 씁니다.
+[Stream.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Streaming/src/main/java/com/microsoft/example/Stream.java) 파일은 스트림 API를 사용하여 워드 카운트 애플리케이션을 구현합니다. 이 파일은 `test`라는 Kafka 토픽에서 데이터를 읽고, `wordcounts`라는 토픽에 워드 카운트를 씁니다.
 
 다음 코드는 워드 카운트 애플리케이션을 정의합니다.
 
@@ -184,7 +184,7 @@ public class Stream
 
 4. 스트리밍 작업에서 사용되는 토픽을 만들려면 다음 명령을 사용합니다.
 
-    > [!NOTE]
+    > [!NOTE]  
     > `test` 토픽이 이미 있다는 오류가 표시될 수 있습니다. 생산자 및 소비자 API 자습서에서 토픽이 만들어졌을 수 있으므로 이것은 정상적인 것입니다.
 
     ```bash
@@ -200,11 +200,11 @@ public class Stream
     토픽은 다음과 같은 용도로 사용됩니다.
 
     * `test`: 이 토픽은 레코드가 수신되는 위치입니다. 여기에서 스트리밍 애플리케이션이 읽습니다.
-    * `wordcounts`: 이 토픽은 스트리밍 응용 프로그램이 출력을 저장하는 위치입니다.
+    * `wordcounts`: 이 토픽은 스트리밍 애플리케이션이 출력을 저장하는 위치입니다.
     * `RekeyedIntermediateTopic`: 이 토픽은 `countByKey` 연산자에 의해 카운트가 업데이트되므로 데이터를 다시 분할하는 데 사용됩니다.
     * `wordcount-example-Counts-changelog`: 이 토픽은 `countByKey` 작업에서 사용되는 상태 저장소입니다.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > HDInsight의 Kafka를 자동으로 토픽을 만들도록 구성할 수도 있습니다. 자세한 내용은 [자동 토픽 만들기 구성](apache-kafka-auto-create-topics.md) 문서를 참조하세요.
 
 ## <a name="run-the-code"></a>코드 실행
@@ -215,10 +215,10 @@ public class Stream
     java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS &
     ```
 
-    > [!NOTE]
-    > log4j에 대한 경고가 발생할 수 있습니다. 이 경고는 무시해도 됩니다.
+    > [!NOTE]  
+    > Apache log4j에 대한 경고가 발생할 수 있습니다. 이 경고는 무시해도 됩니다.
 
-2. `test` 토픽으로 레코드를 보내려면 다음 명령을 사용하여 생산자 응용 프로그램을 시작합니다.
+2. `test` 토픽으로 레코드를 보내려면 다음 명령을 사용하여 생산자 애플리케이션을 시작합니다.
 
     ```bash
     java -jar kafka-producer-consumer.jar producer test $KAFKABROKERS
@@ -230,7 +230,7 @@ public class Stream
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --from-beginning
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > `--property` 매개 변수는 콘솔 소비자에게 개수(값)와 함께 키(단어)를 인쇄하도록 지시합니다. 또한 이 매개 변수는 Kafka에서 이 값을 읽을 때 사용할 역직렬 변환기를 구성합니다.
 
     다음 텍스트와 유사하게 출력됩니다.
@@ -248,10 +248,10 @@ public class Stream
         jumped  13640
         jumped  13641
    
-    > [!NOTE]
+    > [!NOTE]  
     > 매개 변수 `--from-beginning`은 토픽에 저장된 레코드의 시작 부분에서 소비자가 시작되도록 구성합니다. 단어를 만날 때마다 카운트가 증가하며 토픽은 각 단어에 대해 카운트를 늘리는 여러 항목을 포함합니다.
 
-7. __Ctrl + C__를 사용하여 생산자를 종료합니다. __Ctrl + C__를 한 번 더 사용하여 응용 프로그램 및 소비자를 종료합니다.
+7. __Ctrl + C__를 사용하여 생산자를 종료합니다. __Ctrl + C__를 한 번 더 사용하여 애플리케이션 및 소비자를 종료합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

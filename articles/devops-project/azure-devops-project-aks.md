@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure DevOps Projects를 사용하여 AKS(Azure Kubernetes Service)에 ASP.NET Core 앱 배포'
+title: '자습서: Azure DevOps Projects를 사용하여 Azure Kubernetes Service에 ASP.NET Core 앱 배포'
 description: Azure DevOps Projects를 사용하면 Azure를 쉽게 시작할 수 있습니다. DevOps Projects를 사용하면 AKS(Azure Kubernetes Service)를 사용하여 ASP.NET Core 앱을 몇 가지 빠른 단계로 배포할 수 있습니다.
 ms.author: mlearned
 ms.manager: douge
@@ -9,21 +9,22 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 6e2b53e51d7da117a7f690cb676d0ec096bcb1cd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 2aa103b36f60a84aaafc47f03a6cf6d5b6b66160
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165555"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993789"
 ---
-# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-kubernetes-service-aks-by-using-azure-devops-projects"></a>자습서: Azure DevOps Projects를 사용하여 AKS(Azure Kubernetes Service)에 ASP.NET Core 앱 배포
+# <a name="tutorial-deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-projects"></a>자습서: Azure DevOps Projects를 사용하여 Azure Kubernetes Service에 ASP.NET Core 앱 배포
 
-Azure DevOps Projects는 기존 코드와 Git 리포지토리를 가져오거나 샘플 애플리케이션을 선택하여 Azure에 CI(지속적인 통합) 및 CD(지속적인 업데이트) 파이프라인을 만드는 간소화된 환경을 제공합니다. 
+Azure DevOps Projects는 기존 코드와 Git 리포지토리를 가져오거나 샘플 애플리케이션을 선택하여 Azure에 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인을 만드는 간소화된 환경을 제공합니다. 
 
 또한 DevOps Projects는 다음을 수행합니다.
 * AKS(Azure Kubernetes Service)와 같은 Azure 리소스를 자동으로 만듭니다.
 * Azure DevOps에서 CI/CD용 빌드 및 릴리스 파이프라인을 설정하는 릴리스 파이프라인을 만들고 구성합니다.
 * 모니터링을 위해 Azure Application Insights 리소스를 만듭니다.
+* [컨테이너용 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)에서 AKS 클러스터의 컨테이너 워크로드에 대한 성능을 모니터링할 수 있도록 설정합니다.
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -113,7 +114,7 @@ DevOps Projects는 Azure DevOps 조직에서 CI/CD 파이프라인을 자동으�
     이 창에 대한 최근 변경 내용의 감사 내역이 표시됩니다. Azure DevOps는 빌드 파이프라인에 대한 모든 변경 내용을 계속 추적하고 버전을 비교할 수 있습니다.
 
 1. **트리거**를 선택합니다.  
-    DevOps Projects는 CI 트리거를 자동으로 생성하면 리포지토리에 대한 모든 커밋이 새 빌드를 시작합니다. 필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
+    DevOps Projects는 CI 트리거를 자동으로 생성하며, 리포지토리에 대한 모든 커밋이 새 빌드를 시작합니다. 필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
 
 1. **보존**을 선택합니다.  
     시나리오에 따라 특정 수의 빌드를 유지하거나 제거하는 정책을 지정할 수 있습니다.
@@ -190,4 +191,4 @@ DevOps Projects는 Azure DevOps 조직에서 Azure 구독에 배포하는 데 �
 Kubernetes 대시보드 사용에 대해 자세히 알아보려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Kubernetes 대시보드 사용](https://docs.microsoft.com/en-us/azure/aks/kubernetes-dashboard)
+> [Kubernetes 대시보드 사용](https://docs.microsoft.com/azure/aks/kubernetes-dashboard)

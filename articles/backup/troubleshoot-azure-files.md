@@ -8,36 +8,37 @@ ms.author: raynew
 ms.date: 10/23/2018
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: faf229d67a5b4a7a15774d6e01af1c5706d18058
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 4806ca77bda1d380d3c5f1d958a335bceddc7f16
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023154"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787446"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Azure 파일 공유 백업 문제 해결
 다음 표에 나열된 정보를 참조하여 Azure 파일 공유 백업을 사용하는 동안 발생하는 문제 및 오류를 해결할 수 있습니다.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Azure 파일 공유 백업 미리 보기의 제한 사항
-Azure 파일 공유를 위한 백업은 미리 보기로 제공됩니다. 다음 백업 시나리오에는 Azure 파일 공유가 지원되지 않습니다.
+Azure 파일 공유를 위한 백업은 미리 보기로 제공됩니다. 범용 v1 및 범용 v2 저장소 계정 둘 다에서 Azure 파일 공유가 지원됩니다. 다음 백업 시나리오에는 Azure 파일 공유가 지원되지 않습니다.
 - 저장소 계정에서 RA-GRS([읽기 액세스 지역 중복 저장소](../storage/common/storage-redundancy-grs.md)) 복제*를 사용하여 Azure 파일 공유를 보호할 수 없습니다.
 - Virtual Networks 또는 방화벽을 사용하도록 설정된 저장소 계정에서 Azure 파일 공유를 보호할 수 없습니다.
-- Azure Backup을 사용하여 Azure Files를 보호할 수 있는 PowerShell 또는 CLI가 없습니다.
+- Azure Backup을 사용하여 Azure Files를 보호할 수 있는 CLI가 없습니다.
 - 일별 최대 예약 백업의 수는 1개입니다.
 - 일별 최대 주문형 백업의 수는 4개입니다.
 - 저장소 계정에서 [리소스 잠금](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest)을 사용하면 Recovery Services 자격 증명 모음에서 Backup이 실수로 삭제되는 것을 방지할 수 있습니다.
 - Azure Backup으로 생성된 스냅숏은 삭제하지 마십시오. 스냅숏을 삭제하면 복구 지점이 손실되거나 복원이 실패할 수 있습니다.
+- Azure Backup으로 보호되는 파일 공유는 삭제하지 마세요. 현재 솔루션은 파일 공유가 삭제되면 Azure Backup에서 만든 모든 스냅숏을 삭제하므로 모든 복원 지점이 손실됩니다.
 
 \*RA-GRS([읽기 액세스 지역 중복 저장소](../storage/common/storage-redundancy-grs.md)) 복제 기능을 GRS로 사용하고 GRS 가격이 청구되는 저장소 계정의 Azure 파일 공유.
 
-ZRS([지역 중복 저장소](../storage/common/storage-redundancy-zrs.md)) 복제 기능을 지원하는 저장소 계정의 Azure 파일 공유 백업은 현재 CUS(미국 중부), EUS2(미국 동부2), NE(북유럽), SEA(동남아시아) 및 WE(서유럽)에서만 사용할 수 있습니다.
+ZRS([지역 중복 저장소](../storage/common/storage-redundancy-zrs.md)) 복제 기능을 지원하는 저장소 계정의 Azure 파일 공유 백업은 현재 CUS(미국 중부), EUS(미국 동부), EUS2(미국 동부2), NE(북유럽), SEA(동남아시아), WE(서유럽) 및 WUS2(미국 서부 2)에서만 사용할 수 있습니다.
 
 ## <a name="configuring-backup"></a>백업 구성
 다음은 백업 구성에 대한 표입니다.
 
 | 백업 구성 | 해결 방법 또는 해결 팁 |
 | ------------------ | ----------------------------- |
-| Azure 파일 공유에 대한 백업을 구성할 저장소 계정을 찾을 수 없습니다. | <ul><li>검색이 완료될 때까지 기다립니다. <li>저장소 계정의 파일 공유가 이미 다른 Recovery Services 자격 증명 모음으로 보호되고 있는지 확인합니다. **참고**: 저장소 계정의 모든 파일 공유를 Recovery Services 자격 증명 모음 하나로 보호할 수 있습니다. <li>지원되지 않는 저장소 계정에 파일 공유가 있지 않도록 주의해야 합니다.|
+| Azure 파일 공유에 대한 백업을 구성할 저장소 계정을 찾을 수 없습니다. | <ul><li>검색이 완료될 때까지 기다립니다. <li>저장소 계정의 파일 공유가 이미 다른 Recovery Services 자격 증명 모음으로 보호되고 있는지 확인합니다. **참고**: 스토리지 계정의 모든 파일 공유를 Recovery Services 자격 증명 모음 하나로 보호할 수 있습니다. <li>지원되지 않는 저장소 계정에 파일 공유가 있지 않도록 주의해야 합니다.|
 | 저장소 계정의 포털 상태 검색이 실패했다는 오류가 발생합니다. | 구독이 파트너(CSP 사용)인 경우 오류를 무시합니다. 구독이 CSP를 사용하지 않고 저장소 계정을 검색할 수 없는 경우 고객 지원으로 문의합니다.|
 | 선택한 저장소 계정 유효성 검사 또는 등록이 실패했습니다.| 작업을 다시 시도하고, 문제가 계속되면 고객 지원으로 문의합니다.|
 | 선택한 저장소 계정에서 파일 공유를 나열하거나 찾을 수 없습니다. | <ul><li> 리소스 그룹에 저장소 계정이 있는지(그리고 마지막 유효성 검사/등록 후 자격 증명 모음에서 삭제 또는 이동되지는 않았는지) 확인합니다.<li>보호하려는 파일 공유가 삭제되지는 않았는지 확인합니다. <li>저장소 계정이 파일 공유 백업에 지원되는 저장소 계정인지 확인합니다.<li>파일 공유가 이미 동일한 Recovery Services 자격 증명 모음에서 보호되고 있는지 확인합니다.|

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 이벤트 허브에서 Azure 데이터 탐색기로 데이터 수집'
+title: '빠른 시작: Event Hub에서 Azure Data Explorer로 데이터 수집'
 description: 이 빠른 시작 문서에서는 이벤트 허브에서 Azure 데이터 탐색기로 데이터를 수집(로드)하는 방법에 대해 알아봅니다.
 services: data-explorer
 author: orspod
@@ -8,22 +8,20 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 3350c222cced036af6319cee166c53da0b14f2a9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 563b171177b491037e34dce891b565ea0943feda
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210451"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53654107"
 ---
-# <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>빠른 시작: 이벤트 허브에서 Azure 데이터 탐색기로 데이터 수집
+# <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>빠른 시작: Event Hub에서 Azure Data Explorer로 데이터 수집
 
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기에서는 빅 데이스트리터 밍 플랫폼이자 이벤트 수집 서비스인 이벤트 허브에서 데이터를 수집(로드)하는 기능을 제공합니다. 이벤트 허브에서는 초당 수백만 개의 이벤트를 거의 실시간으로 처리할 수 있습니다. 이 빠른 시작 문서에서는 이벤트 허브를 만들고 Azure 데이터 탐색기에서 해당 이벤트 허브에 연결한 다음 시스템을 통과하는 데이터 흐름을 확인합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 완료하려면 Azure 구독 외에 다음 항목이 필요합니다.
+* Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 * [테스트 클러스터 및 데이터베이스](create-cluster-database-portal.md)
 
@@ -61,7 +59,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
     |---|---|---|
     | 구독 | 사용자의 구독 | 이벤트 허브에 사용할 Azure 구독을 선택합니다.|
     | 리소스 그룹 | *test-hub-rg* | 새 리소스 그룹을 만듭니다. |
-    | 위치 | *미국 서부* | 이 빠른 시작에서는 *미국 서부*를 선택합니다. 프로덕션 시스템의 경우 요구에 가장 적합한 지역을 선택합니다.
+    | 위치 | *미국 서부* | 이 빠른 시작에서는 *미국 서부*를 선택합니다. 프로덕션 시스템의 경우 요구에 가장 적합한 지역을 선택합니다. 최상의 성능을 위해 Kusto 클러스터와 동일한 위치에 Event Hub 네임스페이스를 만듭니다(처리량이 높은 Event Hub 네임스페이스에 가장 중요).
     | 네임스페이스 이름 | 고유한 네임스페이스 이름 | 네임스페이스를 식별하는 고유한 이름을 선택합니다. 예를 들어 *mytestnamespace*를 선택합니다. 입력한 이름에 도메인 이름 *servicebus.windows.net*이 추가됩니다. 이 이름에는 문자, 숫자 및 하이픈만 포함할 수 있습니다. 이름은 문자로 시작하고 문자나 숫자로 끝나야 합니다. 값의 길이는 6자에서 50자 사이여야 합니다.
     | 이벤트 허브 이름 | *test-hub* | 이벤트 허브는 고유한 범위 지정 컨테이너 역할을 하는 네임스페이스 아래에 배치됩니다. 이벤트 허브 이름은 네임스페이스 내에서 고유해야 합니다. |
     | 소비자 그룹 이름 | *test-group* | 소비자 그룹을 사용하면 각기 별도의 이벤트 스트림 보기가 표시되는 여러 애플리케이션을 사용할 수 있습니다. |
@@ -200,4 +198,4 @@ Azure 데이터 탐색기와 이벤트 허브가 연결되었으므로 다운로
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [빠른 시작: Azure 데이터 탐색기에서 데이터 쿼리](web-query-data.md)
+> [빠른 시작: Azure Data Explorer에서 데이터 쿼리](web-query-data.md)

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 로컬 이미지 분석 - REST, cURL - Computer Vision'
+title: '빠른 시작: 로컬 이미지 분석 - REST, cURL'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 cURL과 함께 Computer Vision API를 사용하여 로컬 이미지를 분석합니다.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
-ms.openlocfilehash: c7c3cf2bae66e1739c4a62e1ce823542d0dfce36
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: c5e3de438593a6fb960edaffd14fa18ebe03f548
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339919"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579391"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-curl-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 cURL을 사용하여 로컬 이미지 분석
 
@@ -36,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 필요한 경우 명령에서 다음 내용을 변경합니다.
     1. `<subscriptionKey>`의 값을 구독 키로 바꿉니다.
     1. 필요한 경우 요청 URL(`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze`)을 구독 키를 가져온 Azure 지역의 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 메서드에 대한 엔드포인트 URL로 바꿉니다.
-    1. `<localImage>`의 값을 분석할 이미지의 전체 경로 및 파일 이름으로 바꿉니다. 예: `@C:/Pictures/ImageToAnalyze.jpg`.
+    1. `<localImage>`의 값을 분석할 이미지의 전체 경로 및 파일 이름으로 바꿉니다. 예: `@C:/Pictures/ImageToAnalyze.jpg`
     1. 필요한 경우 다른 지원되는 언어를 사용하도록 요청 URL(`language=en`)의 언어 매개 변수를 변경합니다.
 1. 명령 프롬프트 창을 엽니다.
 1. 텍스트 편집기에서 명령 프롬프트 창으로 명령을 붙여넣은 후 명령을 실행합니다.

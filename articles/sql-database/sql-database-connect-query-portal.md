@@ -13,16 +13,16 @@ ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/05/2018
-ms.openlocfilehash: fa46260fdd5623ba32da9979aaea8470139096b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86120e65ad6a3b7fab2a5db78a338bed0e277cb8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091393"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651950"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>빠른 시작: Azure Portal의 SQL 쿼리 편집기를 사용하여 데이터 연결 및 쿼리
 
-SQL 쿼리 편집기는 Azure SQL Database 또는 Azure SQL Data Warehouse에서 SQL 쿼리를 쉽게 실행하는 방법을 제공하는 Azure Portal 브라우저 도구입니다. 이 빠른 시작에서는 쿼리 편집기를 사용하여 SQL 데이터베이스에 연결한 다음, Transact-SQL 문을 실행하여 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다.
+SQL 쿼리 편집기는 Azure SQL Database 또는 Azure SQL Data Warehouse에서 SQL 쿼리를 쉽게 실행하는 방법을 제공하는 Azure Portal 브라우저 도구입니다. 이 빠른 시작에서는 쿼리 편집기를 사용하여 SQL Database에 연결한 다음, Transact-SQL 문을 실행하여 데이터를 쿼리, 삽입, 업데이트 및 삭제합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -70,7 +70,7 @@ AD(Active Directory) 관리자를 구성하면 단일 ID를 사용하여 Azure P
 
 4. AD 관리자 페이지 도구 모음에서 **저장**을 선택합니다.
 
-5. **mySampleDatabase** 데이터베이스로 이동하고 왼쪽 메뉴에서 **쿼리 편집기(미리 보기)** 를 선택합니다. **로그인** 페이지가 나타납니다. AD 관리자인 경우 왼쪽 메뉴의 **Active Directory Single Sign-On** 아래에 로그인되었다는 메시지가 나타납니다. 
+5. **mySampleDatabase** 데이터베이스로 이동하고 왼쪽 메뉴에서 **쿼리 편집기(미리 보기)** 를 선택합니다. **로그인** 페이지가 나타납니다. AD 관리자인 경우 오른쪽에 있는 **Active Directory Single Sign-On**에 로그인되었다는 메시지가 나타납니다. 
    
 6. **확인**을 선택합니다.
 
@@ -92,7 +92,7 @@ AD(Active Directory) 관리자를 구성하면 단일 ID를 사용하여 Azure P
 
 ## <a name="insert-data"></a>데이터 삽입
 
-다음 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 문을 사용하여 `SalesLT.Product` 테이블에 새 제품을 추가합니다.
+다음 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 문을 실행하여 `SalesLT.Product` 테이블에 새 제품을 추가합니다.
 
 1. 이전 쿼리를 다음 쿼리로 바꿉니다.
 
@@ -117,12 +117,12 @@ AD(Active Directory) 관리자를 구성하면 단일 ID를 사용하여 Azure P
    ```
 
 
-2. **실행**을 선택하여 Product 테이블에서 새 행을 삽입합니다. **메시지** 창에 **쿼리 성공: 영향을 받는 행: 1**이 표시됩니다.
+2. **실행**을 선택하여 `Product` 테이블에서 새 행을 삽입합니다. **메시지** 창에 **쿼리 성공: 영향을 받는 행: 1**이 표시됩니다.
 
 
 ## <a name="update-data"></a>데이터 업데이트
 
-다음 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 문을 사용하여 새 제품을 수정합니다.
+다음 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 문을 실행하여 새 제품을 수정합니다.
 
 1. 이전 쿼리를 다음 쿼리로 바꿉니다.
 
@@ -132,11 +132,11 @@ AD(Active Directory) 관리자를 구성하면 단일 ID를 사용하여 Azure P
    WHERE Name = 'myNewProduct';
    ```
 
-2. **실행**을 선택하여 Product 테이블에서 지정된 행을 업데이트합니다. **메시지** 창에 **쿼리 성공: 영향을 받는 행: 1**이 표시됩니다.
+2. **실행**을 선택하여 `Product` 테이블에서 지정된 행을 업데이트합니다. **메시지** 창에 **쿼리 성공: 영향을 받는 행: 1**이 표시됩니다.
 
 ## <a name="delete-data"></a>데이터 삭제
 
-다음 [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 문을 사용하여 새 제품을 제거합니다.
+다음 [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 문을 실행하여 새 제품을 제거합니다.
 
 1. 이전 쿼리를 다음 쿼리로 바꿉니다.
 
@@ -145,7 +145,7 @@ AD(Active Directory) 관리자를 구성하면 단일 ID를 사용하여 Azure P
    WHERE Name = 'myNewProduct';
    ```
 
-2. **실행**을 선택하여 Product 테이블에서 지정된 행을 삭제합니다. **메시지** 창에 **쿼리 성공: 영향을 받는 행: 1**이 표시됩니다.
+2. **실행**을 선택하여 `Product` 테이블에서 지정된 행을 삭제합니다. **메시지** 창에 **쿼리 성공: 영향을 받는 행: 1**이 표시됩니다.
 
 
 ## <a name="query-editor-considerations"></a>쿼리 편집기에 대한 고려 사항
@@ -156,7 +156,7 @@ AD(Active Directory) 관리자를 구성하면 단일 ID를 사용하여 Azure P
 
 * F5 키를 누르면 쿼리 편집기 페이지가 새로 고쳐지고 작업 중인 모든 쿼리가 손실됩니다.
 
-* 쿼리 편집기는 마스터 데이터베이스 연결을 지원하지 않습니다.
+* 쿼리 편집기는 `master` 데이터베이스 연결을 지원하지 않습니다.
 
 * 쿼리 실행에 대한 제한 시간은 5분입니다.
 

@@ -1,18 +1,19 @@
 ---
-title: Azure Digital Twins를 사용하여 공간 모니터링 | Microsoft Docs
+title: '자습서: Azure Digital Twins를 사용하여 공간 모니터링 | Microsoft Docs'
 description: 이 자습서의 단계에 따라 Azure Digital Twins를 사용하여 공간 리소스를 프로비전하고 작업 상태를 모니터링하는 방법을 알아봅니다.
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/26/2018
 ms.author: dkshir
-ms.openlocfilehash: a9784860cbc0b6d58f63fb22b7ad676048c8aee6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 077dee19bbe32379bc88919117b3c61177828094
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584199"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556104"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>자습서: Azure Digital Twins를 사용하여 건물을 프로비전하고 작업 조건 모니터링
 

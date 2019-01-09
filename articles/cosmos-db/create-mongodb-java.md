@@ -1,23 +1,23 @@
 ---
-title: Azure Cosmos DB는 Java 및 MongoDB API를 사용하여 콘솔 앱 빌드
-description: Azure Cosmos DB MongoDB API에 연결 및 쿼리하는 데 사용할 수 있는 Java 코드 샘플을 제시합니다.
+title: Azure Cosmos DB의 API for MongoDB 및 Java SDK를 사용하여 콘솔 앱 빌드
+description: Azure Cosmos DB의 API for MongoDB를 사용하여 연결 및 쿼리할 수 있는 Java 코드 샘플을 제공합니다.
 services: cosmos-db
-author: slyons
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc
+ms.custom: quickstart
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 05/10/2017
-ms.author: sclyon
-ms.openlocfilehash: 30e87ba14c6754fa39269f3afac318a02cf99a2c
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.date: 12/26/2017
+ms.author: rimman
+ms.openlocfilehash: 6a27958a38006d8ef81fab469bbf3c9d97e90a69
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162022"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793147"
 ---
-# <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB는 Java 및 Azure Portal에서 MongoDB API 콘솔 앱 빌드
+# <a name="build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-java-sdk"></a>Azure Cosmos DB의 API for MongoDB 및 Java SDK를 사용하여 웹앱 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -28,9 +28,9 @@ ms.locfileid: "53162022"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
+Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Cosmos DB의 핵심인 글로벌 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
-이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 계정, 문서 데이터베이스 및 컬렉션을 만드는 방법을 보여 줍니다. 그런 다음, [MongoDB Java 드라이버](https://docs.mongodb.com/ecosystem/drivers/java/)에서 작성한 콘솔 앱을 빌드 및 배포합니다. 
+이 빠른 시작에서는 [Azure Cosmos DB의 API for MongoDB](mongodb-introduction.md)를 사용하여 Cosmos 계정을 만드는 방법을 보여줍니다. 그런 다음, [MongoDB Java 드라이버](https://docs.mongodb.com/ecosystem/drivers/java/)를 사용하여 콘솔 앱을 빌드 및 배포합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -53,7 +53,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
-이제 GitHub에서 MongoDB API 앱을 복제하고 연결 문자열을 설정한 다음, 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
+이제 GitHub에서 앱을 복제하고, 연결 문자열을 설정하고, 앱을 실행하겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
 1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
@@ -123,7 +123,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 1. 터미널에서 `mvn package`를 실행하여 필요한 npm 모듈을 설치합니다.
 
-2. 터미널에서 `mvn exec:java -D exec.mainClass=GetStarted.Program`을 실행하여 Java 애플리케이션을 시작합니다.
+2. 터미널에서 `mvn exec:java -D exec.mainClass=GetStarted.Program`을 실행하여 Java 응용 프로그램을 시작합니다.
 
 이제 [Robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-mongochef.md)를 사용하여 이 새 데이터를 쿼리, 수정 및 사용할 수 있습니다.
 
@@ -137,9 +137,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서, Azure Cosmos DB 계정을 만들고, 데이터 탐색기를 사용하여 컬렉션을 만들고, 콘솔 앱을 실행하는 방법을 알아보았습니다. 이제 사용자의 Cosmos DB 계정에 추가 데이터를 가져올 수 있습니다. 
+이 빠른 시작에서는 Cosmos 계정을 만들고, 컬렉션을 만들고, 콘솔 앱을 실행하는 방법을 알아보았습니다. 이제 Cosmos 데이터베이스에 추가 데이터를 가져올 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB로 MongoDB 데이터 가져오기](mongodb-migrate.md)
-
-

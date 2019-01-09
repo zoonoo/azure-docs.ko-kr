@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 26b5b16e3eb016edbe53c3526e51c3aa44f307b5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: cced3d363f9eb7418d6f453eccb1bf1d7ac20ead
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583587"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972348"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-python"></a>자습서: Python에서 Azure Windows Virtual Machine에 Azure Key Vault를 사용하는 방법
+# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-python"></a>자습서: Python으로 Azure Windows Virtual Machine에서 Azure Key Vault를 사용하는 방법
 
 Azure Key Vault를 통해 애플리케이션, 서비스 및 IT 리소스에 액세스하는 데 필요한 API 키, 데이터베이스 연결 문자열과 같은 비밀을 보호할 수 있습니다.
 
-이 자습서에서는 Azure 리소스의 관리 ID를 사용하여 Azure 웹 애플리케이션이 Azure Key Vault에서 정보를 읽는 데 필요한 단계를 수행합니다. 이 자습서는 [Azure Web Apps](../app-service/app-service-web-overview.md)를 기반으로 합니다. 다음에서 사용 방법을 알아봅니다.
+이 자습서에서는 Azure 리소스의 관리 ID를 사용하여 Azure 웹 애플리케이션이 Azure Key Vault에서 정보를 읽는 데 필요한 단계를 수행합니다. 다음에서 사용 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 키 자격 증명 모음을 만듭니다.
@@ -80,7 +80,7 @@ az group create --name "<YourResourceGroupName>" --location "West US"
 
 다음으로, 이전 단계에서 만든 리소스 그룹에 키 자격 증명 모음을 만듭니다. 다음 정보를 지정합니다.
 
-* 키 자격 증명 모음 이름: 3-24자의 문자열이어야 하며 (0-9, a-z, A-Z 및 -)만 포함해야 합니다.
+* 키 자격 증명 모음 이름: 3-24자의 문자열이어야 하며 0-9, a-z, A-Z 및 -만 포함해야 합니다.
 * 리소스 그룹 이름
 * 위치: **미국 서부**
 
@@ -91,7 +91,7 @@ az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGr
 
 ## <a name="add-a-secret-to-the-key-vault"></a>키 자격 증명 모음에 비밀 추가
 
-이 작업을 설명하기 위한 비밀을 추가하고 있습니다. 안전하게 유지하면서 애플리케이션에서 사용할 수 있도록 하는 데 필요한 SQL 연결 문자열 또는 기타 정보를 저장할 수 있습니다.
+이 작업을 설명하기 위한 비밀을 추가하고 있습니다. 안전하게 유지하면서 응용 프로그램에서 사용할 수 있도록 하는 데 필요한 SQL 연결 문자열 또는 기타 정보를 저장할 수 있습니다.
 
 다음 명령을 입력하여 키 자격 증명 모음에 **AppSecret**라고 하는 비밀을 만듭니다. 이 비밀에는 **MySecret** 값이 저장됩니다.
 
@@ -137,7 +137,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 ## <a name="create-and-run-sample-python-app"></a>샘플 Python 앱을 만들고 실행
 
-다음은 이름이 "Sample.py"인 예제 파일에 불과합니다. 이 예제는 [requests](http://docs.python-requests.org/master/) 라이브러리를 사용하여 HTTP GET 호출을 수행합니다.
+다음은 이름이 "Sample.py"인 예제 파일에 불과합니다. 이 예제는 [requests](http://docs.python-requests.org/en/master/) 라이브러리를 사용하여 HTTP GET 호출을 수행합니다.
 
 ## <a name="edit-samplepy"></a>Sample.py 편집
 Sample.py를 만든 후 파일 열기 및 아래 코드 복사

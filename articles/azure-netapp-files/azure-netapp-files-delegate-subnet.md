@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/13/2018
 ms.author: b-juche
-ms.openlocfilehash: fc8ec5c3bbe0157f5737e2eb757478357aa6e867
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 8ec41c6db8c8e5c62d15dc0638762f2649c637b8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53414305"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631654"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Azure NetApp Files에 서브넷 위임 
 
@@ -28,7 +28,7 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.   볼륨을 만들 �
 ## <a name="about-this-task"></a>이 작업에 대한 정보
 * 새 서브넷 만들기용 마법사의 기본값은 /24 네트워크 마스크이며, 이는 251개의 IP 주소를 제공합니다. 16개의 사용 가능한 IP 주소를 제공하는 /28 네트워크 마스크를 서비스에 사용하면 충분합니다.
 * 위임된 서브넷에서 네트워크 보안 그룹 또는 서비스 엔드포인트를 지정할 수 없습니다. 이렇게 하면 서브넷 위임이 실패합니다.
-* 각 Azure Virtual Network(VNet)에서 하나의 서브넷만 Azure NetApp Files에 위임할 수 있습니다.
+* 각 Azure Vnet(Virtual Network)에서 하나의 서브넷만 Azure NetApp Files에 위임할 수 있습니다.
 * 피어링된 가상 네트워크에서 볼륨에 액세스하는 것은 현재 지원되지 않습니다.
 
 ## <a name="steps"></a>단계 

@@ -1,5 +1,5 @@
 ---
-title: Computer Vision API란?
+title: Computer Vision API란? - Computer Vision
 titlesuffix: Azure Cognitive Services
 description: Computer Vision 서비스는 개발자에게 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 대한 액세스를 제공합니다.
 services: cognitive-services
@@ -10,18 +10,19 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
-ms.openlocfilehash: c5340599bc4ed400ce11ea8ba997d03c4df7cc05
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 4c952c847aa56b385065a878b664b3d1d98763f4
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963218"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584023"
 ---
 # <a name="what-is-computer-vision"></a>Computer Vision이란?
 
 클라우드 기반 Computer Vision 서비스는 개발자에게 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 대한 액세스를 제공합니다. Computer Vision은 JPEG 및 PNG와 같은 인기 있는 이미지 형식을 사용합니다. 이미지를 분석하려면 이미지를 업로드하거나 이미지 URL을 지정할 수 있습니다. Computer Vision 알고리즘은 관심 있는 시각적 기능에 따라 이미지의 콘텐츠를 다양한 방식으로 분석할 수 있습니다. 예를 들어 Computer Vision에서 이미지에 성인용 또는 선정적인 콘텐츠가 포함되어 있는지 확인하거나 이미지의 모든 얼굴을 찾을 수 있습니다.
 
-[클라이언트 라이브러리](quickstarts-sdk/csharp-analyze-sdk.md)를 통해 서비스를 호출하거나 [REST API](vision-api-how-to-topics/howtocallvisionapi.md)를 직접 호출하여 응용 프로그램에서 Computer Vision을 통해 다음을 수행할 수 있습니다.
+[클라이언트 라이브러리](quickstarts-sdk/csharp-analyze-sdk.md)를 통해 서비스를 호출하거나 [REST API](vision-api-how-to-topics/howtocallvisionapi.md)를 직접 호출하여 애플리케이션에서 Computer Vision을 통해 다음을 수행할 수 있습니다.
 
 - [인사이트를 위한 이미지 분석](#analyzing-images-for-insight)
 - [이미지에서 텍스트 추출](#extracting-text-from-images)

@@ -3,18 +3,17 @@ title: Azure의 Kubernetes 자습서 - 애플리케이션 준비
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Docker Compose를 사용하여 AKS에 배포할 수 있는 다중 컨테이너 앱을 준비하고 빌드하는 방법을 알아봅니다.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 20a57a0d528fa6a291aa66f91ff6ddd71053f478
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: b529af1db6d72d87abc25eb37f2f1c39216a0ba4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297063"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724167"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에 대한 애플리케이션 준비
 
@@ -29,7 +28,7 @@ ms.locfileid: "46297063"
 
 ![Azure의 Kubernetes 클러스터 이미지](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-후속 자습서에서는 컨테이너 이미지를 Azure Container Registry에 업로드한 다음, AKS 클러스터에 배포합니다.
+추가 자습서에서는 컨테이너 이미지를 Azure Container Registry에 업로드한 다음, AKS 클러스터에 배포합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -43,13 +42,13 @@ Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필�
 
 이 자습서에서 사용되는 애플리케이션 예제는 기본 투표 앱입니다. 애플리케이션은 프런트 엔드 웹 구성 요소 및 백 엔드 Redis 인스턴스로 구성됩니다. 웹 구성 요소는 사용자 지정 컨테이너 이미지에 패키지됩니다. Redis 인스턴스는 Docker 허브에서 수정되지 않은 이미지를 사용합니다.
 
-[git][]을 사용하여 응용 프로그램 예제를 개발 환경에 복제합니다.
+[git][]을 사용하여 애플리케이션 예제를 개발 환경에 복제합니다.
 
 ```console
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-복제된 디렉터리에서 작업할 수 있도록 디렉터리를 변경합니다.
+복제된 디렉터리로 변경합니다.
 
 ```console
 cd azure-voting-app-redis
@@ -59,7 +58,7 @@ cd azure-voting-app-redis
 
 ## <a name="create-container-images"></a>컨테이너 이미지 만들기
 
-[Docker Compose][docker-compose]는 컨테이너 이미지 빌드 및 다중 컨테이너 응용 프로그램 배포를 자동화하는 데 사용할 수 있습니다.
+[Docker Compose][docker-compose]는 컨테이너 이미지 빌드 및 다중 컨테이너 애플리케이션 배포를 자동화하는 데 사용할 수 있습니다.
 
 샘플 `docker-compose.yaml` 파일을 사용하여 컨테이너 이미지를 만들고, Redis 이미지를 다운로드하고, 애플리케이션을 시작합니다.
 
@@ -67,7 +66,7 @@ cd azure-voting-app-redis
 docker-compose up -d
 ```
 
-완료되면 [docker images][docker-images] 명령을 사용하여 만든 이미지를 확인합니다. 3개 이미지가 다운로드되거나 생성되었는지 확인합니다. *azure-vote-front* 이미지는 응용 프로그램을 포함하며 `nginx-flask` 이미지를 기준으로 사용합니다. `redis` 이미지는 Redis 인스턴스를 시작하는 데 사용됩니다.
+완료되면 [docker images][docker-images] 명령을 사용하여 만든 이미지를 확인합니다. 3개 이미지가 다운로드되거나 생성되었는지 확인합니다. *azure-vote-front* 이미지는 애플리케이션을 포함하며 `nginx-flask` 이미지를 기준으로 사용합니다. `redis` 이미지는 Redis 인스턴스를 시작하는 데 사용됩니다.
 
 ```
 $ docker images

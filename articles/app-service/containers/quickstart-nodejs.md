@@ -1,5 +1,5 @@
 ---
-title: Linux에서 Node.js 웹앱 만들기 - Azure App Service | Microsoft Docs
+title: Linux에서 Node.js 앱 만들기 - Azure App Service | Microsoft Docs
 description: 몇 분 안에 Linux의 Azure App Service에서 첫 번째 Node.js Hello World를 배포합니다.
 services: app-service\web
 documentationcenter: ''
@@ -15,17 +15,17 @@ ms.topic: quickstart
 ms.date: 06/07/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 22a022b12e931fd4edf139038eb7506e69422f8e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c739aa4fb510bd5ebe9e3ffff67f93a2dd49cf0c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253584"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631535"
 ---
-# <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Node.js 웹앱 만들기
+# <a name="create-a-nodejs-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Node.js 앱 만들기
 
 > [!NOTE]
-> 이 문서에서는 Linux의 App Service에 앱을 배포합니다. _Windows_의 App Service에 배포하려면 [Azure에서 Node.js 웹앱 만들기](../app-service-web-get-started-nodejs.md)를 참조하세요.
+> 이 문서에서는 Linux의 App Service에 앱을 배포합니다. _Windows_의 App Service에 배포하려면 [Azure에서 Node.js 앱 만들기](../app-service-web-get-started-nodejs.md)를 참조하세요.
 >
 
 [Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작은 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용하여 Linux의 App Service에 Node.js 앱을 배포하는 방법을 보여줍니다.
@@ -136,17 +136,17 @@ All done.
 
 - 지정된 이름의 앱 만들기
 
-- 현재 작업 디렉터리에서 웹앱까지의 [Zip 배포](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip) 파일
+- 현재 작업 디렉터리에서 앱까지의 [배포 파일을 압축합니다](https://docs.microsoft.com/azure/app-service/deploy-zip).
 
 ## <a name="browse-to-the-app"></a>앱으로 이동
 
-웹 브라우저를 사용하여 배포된 애플리케이션으로 이동합니다. <app_name>을 웹앱 이름으로 바꿉니다.
+웹 브라우저를 사용하여 배포된 애플리케이션으로 이동합니다. <app_name>을 앱 이름으로 바꿉니다.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-Node.js 샘플 코드가 기본 제공 이미지가 있는 웹앱에서 실행됩니다.
+Node.js 샘플 코드가 기본 제공 이미지가 있는 Linux의 App Service에서 실행됩니다.
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -166,7 +166,7 @@ response.end("Hello Azure!");
 
 변경 내용을 저장하고 Nano를 종료합니다. `^O` 명령을 사용하여 저장하고 `^X` 명령을 사용하여 종료합니다.
 
-이제 앱을 다시 배포합니다. `<app_name>`을 웹앱으로 대체합니다.
+이제 앱을 다시 배포합니다. `<app_name>`을 앱으로 대체합니다.
 
 ```bash
 az webapp up -n <app_name>
@@ -176,15 +176,15 @@ az webapp up -n <app_name>
 
 ![Azure에서 실행되는 업데이트된 샘플 앱](media/quickstart-nodejs/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>새로운 Azure 웹앱 관리
+## <a name="manage-your-new-azure-app"></a>새 Azure 앱 관리
 
-만든 웹앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다.
+만든 앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다.
 
-왼쪽 메뉴에서 **App Services**를 클릭한 다음 Azure 웹앱의 이름을 클릭합니다.
+왼쪽 메뉴에서 **App Services**를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
 
-![Azure 웹앱에 대한 포털 탐색](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
+![Azure 앱에 대한 포털 탐색](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
 
-웹앱의 개요 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 완료할 수 있습니다.
+앱의 개요 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 완료할 수 있습니다.
 
 ![Azure Portal의 App Service 페이지](media/quickstart-nodejs/nodejs-docs-hello-world-app-service-detail.png)
 

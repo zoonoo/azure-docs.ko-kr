@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2018
+ms.date: 12/19/2018
 ms.author: pareshmu
-ms.openlocfilehash: 66fdf1a4e683d87bc6c6c0376fda9a36c939b354
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3b1f0d01fb5f1cea890f5c554bbc580049c563c9
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410230"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976871"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -158,7 +158,6 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
   * [CoreSite](http://www.coresite.com/)
   * [Equinix 클라우드 Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
   * [InterXion](http://www.interxion.com/)
-  * [IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)
   * [NextDC](http://www.nextdc.com/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)
@@ -171,11 +170,13 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 ## <a name="c1partners"></a>추가 서비스 공급자를 통한 연결
 | **위치**: | **Exchange** | **연결 공급자** |
 | --- | --- | --- |
-| **암스테르담** | Equinix, Telecity | BICS, Eurofiber, Fastweb S.p.A, MainOne, Nianet, Post, Proximus, Telecom Italia Sparkle, Telia |
+| **암스테르담** | Equinix, Telecity | BICS, Eurofiber, Fastweb S.p.A, Gulf Bridge International, MainOne, Nianet, Post, Proximus, Telecom Italia Sparkle, Telia |
+| **케이프타운** | Teraco | MTN |
 | **시카고** | Equinix | Lightower, Windstream |
 | **댈러스** | Equinix, Megaport | Axtel, C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **프랑크푸르트** | Telecity | BICS, Nianet, QSC AG |
 | **홍콩** | Equinix | Macroview Telecom |
+| **요하네스버그** | Teraco | MTN |
 | **런던** | Equinix, euNetworks, Telecity | Bezeq International Ltd., Epsilon, Exponential E, HSO, NexGen Networks, Tamares Telecom, Zain |
 | **로스앤젤레스** | Equinix |Transtelco |
 | **마드리드** | Level3 | Zertia |

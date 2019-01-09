@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 467484824ec3a3ceffb6dfa692953406ed6acc1b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ec282bc1159e8a8cf21b88b8430bbf3067686528
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963324"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788625"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>자습서: Service Fabric Mesh 애플리케이션 배포
 
@@ -52,7 +52,7 @@ ms.locfileid: "46963324"
 
 ## <a name="download-the-to-do-sample-application"></a>할 일 애플리케이션 샘플 다운로드
 
-[이 자습서 시리즈의 2부](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)에서 할 일 응용 프로그램 샘플을 빌드하지 않은 경우 다운로드할 수 있습니다. 명령 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
+[이 자습서 시리즈의 2부](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)에서 할 일 애플리케이션 샘플을 빌드하지 않은 경우 다운로드할 수 있습니다. 명령 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
 
 ```
 git clone https://github.com/azure-samples/service-fabric-mesh
@@ -74,7 +74,7 @@ Azure 계정과 구독을 선택합니다. **위치**를 선택합니다. 이 �
 
 ![Visual Studio의 Service Fabric Mesh 새 리소스 그룹 대화 상자](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
-**Service Fabric 응용 프로그램 게시** 대화 상자로 돌아간 다음, **Azure Container Registry**에서 **\<새 컨테이너 레지스트리 만들기...>** 를 선택합니다. **컨테이너 레지스트리 만들기** 대화 상자에서 **컨테이너 레지스트리 이름**에 대해 고유한 이름을 사용합니다. **위치**를 지정합니다(이 자습서에서는 **미국 동부** 사용). 드롭다운에서 이전 단계에서 만든 **리소스 그룹**(예: **sfmeshTutorial1RG**)을 선택합니다. **SKU**를 **기본**으로 설정한 후 **만들기**를 눌러 개인 Azure 컨테이너 레지스트리를 만들고 게시 대화 상자로 돌아갑니다.
+**Service Fabric 애플리케이션 게시** 대화 상자로 돌아간 다음, **Azure Container Registry**에서 **\<새 컨테이너 레지스트리 만들기...&gt;** 를 선택합니다. **컨테이너 레지스트리 만들기** 대화 상자에서 **컨테이너 레지스트리 이름**에 대해 고유한 이름을 사용합니다. **위치**를 지정합니다(이 자습서에서는 **미국 동부** 사용). 이전 단계에서 만든 **리소스 그룹**(예: **sfmeshTutorial1RG**)을 드롭다운에서 선택합니다. **SKU**를 **기본**으로 설정한 후 **만들기**를 눌러 개인 Azure 컨테이너 레지스트리를 만들고 게시 대화 상자로 돌아갑니다.
 
 ![Visual Studio Service Fabric Mesh 새 컨테이너 레지스트리 대화 상자](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
 
@@ -113,10 +113,10 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 이 시점에서 애플리케이션이 배포되었습니다. `app show` 명령을 사용하여 상태를 확인할 수 있습니다. 
 
-자습서 앱에 대한 애플리케이션 이름은 `ServiceMeshApp`입니다. 다음 명령을 사용하여 애플리케이션에 대한 세부 정보를 수집합니다.
+자습서 앱에 대한 애플리케이션 이름은 `todolistapp`입니다. 다음 명령을 사용하여 애플리케이션에 대한 세부 정보를 수집합니다.
 
 ```azurecli-interactive
-az mesh app show --resource-group $rg --name ServiceMeshApp
+az mesh app show --resource-group $rg --name todolistapp
 ```
 
 ## <a name="see-all-applications-currently-deployed-to-your-subscription"></a>현재 구독에 배포된 모든 애플리케이션 보기

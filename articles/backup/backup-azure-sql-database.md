@@ -2,25 +2,18 @@
 title: Azure에 SQL Server 데이터베이스 백업 | Microsoft Docs
 description: 이 자습서에서는 Azure에 SQL Server를 백업하는 방법을 설명합니다. SQL Server 복구에 대해서도 설명합니다.
 services: backup
-documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
-editor: ''
-keywords: ''
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/02/2018
-ms.author: anuragm
-ms.custom: ''
-ms.openlocfilehash: e2e6742fb3eda0523c7333451e836beb069e57ca
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.topic: tutorial
+ms.date: 12/21/2018
+ms.author: raynew
+ms.openlocfilehash: 50085336c59f2284f357e32b875eae08ff90d30f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410366"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790177"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Azure에 SQL Server 데이터베이스 백업
 
@@ -44,9 +37,9 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 - Azure 공용 IP 주소에 액세스하려면 SQL 가상 머신(VM)에 인터넷 연결이 필요합니다. 자세한 내용은 [네트워크 연결 설정](backup-azure-sql-database.md#establish-network-connectivity)을 참조하세요.
 - Recovery Services 자격 증명 모음 하나에서 최대 2,000개의 SQL 데이터베이스를 보호합니다. 추가 SQL 데이터베이스는 별도의 Recovery Services 자격 증명 모음에 저장해야 합니다.
 - [분산형 가용성 그룹의 백업](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017)에는 제한 사항이 있습니다.
-- SQL Server Always On FCI(장애 조치(failover) 클러스터 인스턴스)가 지원되지 않습니다.
+- 백업에는 SQL Server Always On FCI(장애 조치(failover) 클러스터 인스턴스)가 지원되지 않습니다.
 - Azure Portal을 사용하여 SQL Server 데이터베이스를 보호하도록 Azure Backup을 구성합니다. Azure PowerShell, Azure CLI 및 REST API는 현재 지원되지 않습니다.
-- 미러 데이터베이스, 데이터베이스 스냅숏 및 FCI에 있는 데이터베이스의 백업/복원 작업은 지원되지 않습니다.
+- FCI 미러 데이터베이스, 데이터베이스 스냅숏 및 데이터베이스의 백업/복원 작업은 지원되지 않습니다.
 - 많은 수의 파일이 있는 데이터베이스는 보호할 수 없습니다. 지원되는 최대 파일 수는 확실하지 않지만 파일 수 뿐만 아니라 파일의 경로 길이에 따라 좌우됩니다. 그렇지만 이러한 경우는 일반적이지 않습니다. 이 문제를 처리하기 위한 솔루션을 개발 중입니다.
 
 지원되는/지원되지 않는 시나리오에 대한 자세한 내용은 [FAQ 섹션](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq)을 참조하세요.
@@ -136,7 +129,7 @@ SQL Server 데이터베이스를 백업하기 전에 다음 조건을 확인하�
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>Marketplace SQL VM이 아닌 VM에 대한 사용 권한 설정
 
-가상 머신을 백업하려면 Azure Backup에 **AzureBackupWindowsWorkload** 확장이 설치되어 있어야 합니다. Azure Marketplace 가상 머신을 사용하는 경우 [SQL Server 데이터베이스 검색](backup-azure-sql-database.md#discover-sql-server-databases)으로 건너뜁니다. SQL 데이터베이스를 호스팅하는 가상 머신이 Azure Marketplace에서 만들어지지 않은 경우에는 다음 절차를 완료하여 확장을 설치하고 적절한 권한을 설정합니다. **AzureBackupWindowsWorkload** 확장 외에 SQL 데이터베이스를 보호하려면 Azure Backup에 sysadmin 권한이 필요합니다. 가상 머신에서 데이터베이스를 검색하기 위해 Azure Backup은 **NT Service\AzureWLBackupPluginSvc** 계정을 만듭니다. 이 계정은 백업 및 복원에 사용되며 SQL sysadmin 권한이 있어야 합니다. 또한 Azure Backup은 DB 검색/조회를 위해 **NT AUTHORITY\SYSTEM** 계정을 활용하므로 이 계정은 SQL에서 공용 로그인이어야 합니다.
+가상 머신을 백업하려면 Azure Backup에 **AzureBackupWindowsWorkload** 확장이 설치되어 있어야 합니다. Azure Marketplace 가상 머신을 사용하는 경우 [SQL Server 데이터베이스 검색](backup-azure-sql-database.md#discover-sql-server-databases)으로 건너뜁니다. SQL 데이터베이스를 호스팅하는 가상 머신이 Azure Marketplace에서 만들어지지 않은 경우에는 다음 절차를 완료하여 확장을 설치하고 적절한 권한을 설정합니다. **AzureBackupWindowsWorkload** 확장 외에 SQL 데이터베이스를 보호하려면 Azure Backup에 sysadmin 권한이 필요합니다. 가상 머신에서 데이터베이스를 검색하기 위해 Azure Backup은 **NT SERVICE\AzureWLBackupPluginSvc** 계정을 만듭니다. 이 계정은 백업 및 복원에 사용되며 SQL sysadmin 권한이 있어야 합니다. 또한 Azure Backup은 DB 검색/조회를 위해 **NT AUTHORITY\SYSTEM** 계정을 활용하므로 이 계정은 SQL에서 공용 로그인이어야 합니다.
 
 권한을 구성하려면:
 
@@ -182,7 +175,7 @@ SQL Server 데이터베이스를 백업하기 전에 다음 조건을 확인하�
 
     ![로그인 - 신규 대화 상자에서 검색 선택](./media/backup-azure-sql-database/new-login-search.png)
 
-3. Windows 가상 서비스 계정 **NT Service\AzureWLBackupPluginSvc**는 가상 머신 등록 및 SQL 검색 단계 중에 만들어졌습니다. **선택할 개체 이름 입력** 상자에 표시된 대로 계정 이름을 입력합니다. **이름 확인**을 선택하여 이름을 확인합니다.
+3. Windows 가상 서비스 계정 **NT SERVICE\AzureWLBackupPluginSvc**는 가상 머신 등록 및 SQL 검색 단계 중에 만들어졌습니다. **선택할 개체 이름 입력** 상자에 표시된 대로 계정 이름을 입력합니다. **이름 확인**을 선택하여 이름을 확인합니다.
 
     ![이름 확인을 클릭하여 알 수 없는 서비스 이름 확인](./media/backup-azure-sql-database/check-name.png)
 
@@ -443,7 +436,7 @@ Azure Backup은 트랜잭션 로그 백업을 사용하여 개별 데이터베�
 
 1. 동일한 Azure 지역의 SQL Server 인스턴스에 데이터베이스를 복원할 수 있습니다. 대상 서버를 원본과 동일한 Recovery Services 자격 증명 모음에 등록해야 합니다.  
 2. TDE 암호화된 데이터베이스를 다른 SQL Server로 복원하려면, 먼저 [여기](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017)에 설명된 단계에 따라 인증서를 대상 서버에 복원합니다.
-3. “마스터” 데이터베이스의 복원을 트리거하기 전에 시작 옵션 `-m AzureWorkloadBackup`을 사용하여 단일 사용자 모드로 SQL Server 인스턴스를 시작합니다. `-m` 옵션의 인수는 클라이언트의 이름입니다. 이 클라이언트만 연결을 열 수 있습니다. 모든 시스템 데이터베이스(모델, 마스터, msdb)에 대해 복원을 트리거하기 전에 SQL 에이전트 서비스를 중지합니다. 이러한 데이터베이스에 대한 연결을 도용하려고 하는 응용 프로그램을 닫습니다.
+3. “마스터” 데이터베이스의 복원을 트리거하기 전에 시작 옵션 `-m AzureWorkloadBackup`을 사용하여 단일 사용자 모드로 SQL Server 인스턴스를 시작합니다. `-m` 옵션의 인수는 클라이언트의 이름입니다. 이 클라이언트만 연결을 열 수 있습니다. 모든 시스템 데이터베이스(모델, 마스터, msdb)에 대해 복원을 트리거하기 전에 SQL 에이전트 서비스를 중지합니다. 이러한 데이터베이스에 대한 연결을 도용하려고 하는 애플리케이션을 닫습니다.
 
 ### <a name="steps-to-restore-a-database"></a>데이터베이스를 복원하는 단계:
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 4b5f884fe6e1f1fdc12d7993418f7a10614a4cbe
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 76a509c1cb9277ac72f99ec9ebfc239bfd71390c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602958"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969185"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>논리 앱을 API로 가져오기
 
@@ -33,8 +33,8 @@ ms.locfileid: "38602958"
 
 ## <a name="prerequisites"></a>필수 조건
 
-+ 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
-+ 구독에 논리 앱이 있는지 확인합니다. 자세한 내용은 [첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조하세요.
+* 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
+* HTTP 엔드포인트를 노출하는 구독에 Logic Apps가 있는지 확인합니다. 자세한 내용은 [HTTP 엔드포인트를 통해 워크플로 트리거](../logic-apps/logic-apps-http-endpoint.md)를 참조하세요.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -44,7 +44,7 @@ ms.locfileid: "38602958"
 2. **새 API 추가** 목록에서 **논리 앱**을 선택합니다.
 
     ![논리 앱](./media/import-logic-app-as-api/logic-app-api.png)
-3. **찾아보기**를 눌러 구독의 논리 앱 목록을 표시합니다.
+3. **찾아보기**를 눌러서 구독의 호출 가능한 Logic Apps 목록을 표시합니다.
 4. 앱을 선택합니다. APIM은 선택한 앱과 연결된 swagger를 찾아서 페치하고 가져옵니다. 
 5. API URL 접미사를 추가합니다. 접미사는 이 APIM 인스턴스에서 이 특정 API를 식별하는 이름입니다. 이 APIM 인스턴스 내에서 고유해야 합니다.
 6. API를 제품에 연결하여 API를 게시합니다. 이 경우 "*Unlimited*" 제품이 사용됩니다.  API를 게시하고 개발자가 사용할 수 있게 하려면 제품에 추가합니다. API를 만드는 동안 이 작업을 수행할 수도 있고 나중에 설정할 수도 있습니다.

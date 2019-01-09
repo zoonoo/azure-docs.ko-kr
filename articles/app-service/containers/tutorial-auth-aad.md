@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 65c503c96305cf23b97511dd06a56b5eb6fcc1be
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 8ebaab260d38a3fe4f492f2545c5ec8b07990235
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409416"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715242"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>자습서: Linux의 Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 
-[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한, App Service는 [사용자 인증 및 권한 부여](../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)를 기본적으로 지원합니다. 이 자습서에는 App Service 인증 및 권한 부여를 통해 앱을 보호하는 방법을 보여줍니다. Angular.js 프런트 엔드가 있는 ASP.NET Core 앱이 사용되지만 예제일 뿐입니다. App Service 인증 및 권한 부여는 모든 언어 런타임을 지원하며 자습서를 수행하면서 원하는 언어에 적용하는 방법을 알아볼 수 있습니다.
+[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한, App Service는 [사용자 인증 및 권한 부여](../overview-authentication-authorization.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)를 기본적으로 지원합니다. 이 자습서에는 App Service 인증 및 권한 부여를 통해 앱을 보호하는 방법을 보여줍니다. Angular.js 프런트 엔드가 있는 ASP.NET Core 앱이 사용되지만 예제일 뿐입니다. App Service 인증 및 권한 부여는 모든 언어 런타임을 지원하며 자습서를 수행하면서 원하는 언어에 적용하는 방법을 알아볼 수 있습니다.
 
 이 자습서에서는 샘플 앱을 사용하여 자체 포함 앱을 보호하는 방법을 보여줍니다([백 엔드 앱에 대한 인증 및 권한 부여 사용](#enable-authentication-and-authorization-for-back-end-app)).
 
@@ -86,7 +86,7 @@ dotnet run
 
 ### <a name="create-azure-resources"></a>Azure 리소스 만들기
 
-Cloud Shell에서 다음 명령을 실행하여 웹앱 두 개를 만듭니다. _&lt;front\_end\_app\_name>_ 및 _&lt;back\_end\_app\_name>_ 을 두 개의 전역적으로 고유한 앱 이름(유효한 문자: `a-z`, `0-9` 및 `-`)으로 바꿉니다. 각 명령에 대한 자세한 내용은 [Linux의 App Service에서 .NET Core 웹앱 만들기](quickstart-dotnetcore.md)를 참조하세요.
+Cloud Shell에서 다음 명령을 실행하여 두 개의 App Service 앱을 만듭니다. _&lt;front\_end\_app\_name>_ 및 _&lt;back\_end\_app\_name>_ 을 두 개의 전역적으로 고유한 앱 이름(유효한 문자: `a-z`, `0-9` 및 `-`)으로 바꿉니다. 각 명령에 대한 자세한 내용은 [Linux의 App Service에서 .NET Core 앱 만들기](quickstart-dotnetcore.md)를 참조하세요.
 
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"
@@ -129,7 +129,7 @@ git commit -m "add CORS to back end"
 
 ### <a name="push-to-azure-from-git"></a>Git에서 Azure에 푸시
 
-로컬 터미널 창에서 다음 Git 명령을 실행하여 백 엔드 앱에 배포합니다. _&lt;deploymentLocalGitUrl-of-back-end-app>_ 을 [Azure 리소스 만들기](#create-azure-resources)에서 저장한 Git 원격 URL로 바꿉니다. Git Credential Manager에서 자격 증명을 입력하라는 메시지가 표시되면 Azure Portal에 로그인하는 데 사용하는 자격 증명이 아닌 [배포 자격 증명](../app-service-deployment-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)을 입력해야 합니다.
+로컬 터미널 창에서 다음 Git 명령을 실행하여 백 엔드 앱에 배포합니다. _&lt;deploymentLocalGitUrl-of-back-end-app>_ 을 [Azure 리소스 만들기](#create-azure-resources)에서 저장한 Git 원격 URL로 바꿉니다. Git Credential Manager에서 자격 증명을 입력하라는 메시지가 표시되면 Azure Portal에 로그인하는 데 사용하는 자격 증명이 아닌 [배포 자격 증명](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)을 입력해야 합니다.
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
@@ -143,7 +143,7 @@ git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
 git push frontend master
 ```
 
-### <a name="browse-to-the-azure-web-apps"></a>Azure Web Apps로 이동합니다.
+### <a name="browse-to-the-azure-apps"></a>Azure 앱 찾아보기
 
 브라우저에서 다음 URL로 이동하여 두 개의 앱이 작동하는지 확인합니다.
 
@@ -260,7 +260,7 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 `Successfully saved the Auth Settings for <back_end_app_name> App` 메시지가 포함된 알림이 표시되면 페이지를 새로 고칩니다.
 
-**Azure Active Directory**를 다시 클릭한 다음 **응용 프로그램 관리**를 클릭합니다.
+**Azure Active Directory**를 다시 클릭한 다음, **애플리케이션 관리**를 클릭합니다.
 
 AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메모장에 복사합니다. 이 값은 나중에 필요합니다.
 
@@ -289,7 +289,7 @@ AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/tutorial-auth-aad/add-api-access-front-end.png)
 
-**API 선택** 페이지에서 백 엔드 앱의 AD 응용 프로그램 이름을 입력합니다. 이것은 기본적으로 백 엔드 앱 이름과 같습니다. 이것을 목록에서 선택하고 **선택**을 클릭합니다.
+**API 선택** 페이지에서 백 엔드 앱의 AD 애플리케이션 이름을 입력합니다. 이것은 기본적으로 백 엔드 앱 이름과 같습니다. 이것을 목록에서 선택하고 **선택**을 클릭합니다.
 
 **_&lt;AD\_application\_name>에 액세스_** 옆의 확인란을 선택합니다. **선택** > **완료**를 클릭합니다.
 
@@ -453,7 +453,7 @@ az group delete --name myAuthResourceGroup
 > * 서버 코드에서 액세스 토큰 사용
 > * 클라이언트(브라우저) 코드에서 액세스 토큰 사용
 
-다음 자습서로 이동하여 사용자 지정 DNS 이름을 웹앱에 매핑하는 방법을 알아봅니다.
+다음 자습서로 이동하여 사용자 지정 DNS 이름을 앱에 매핑하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+> [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)

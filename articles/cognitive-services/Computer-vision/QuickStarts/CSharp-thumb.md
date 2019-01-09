@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 썸네일 생성 - REST, C# - Computer Vision'
+title: '빠른 시작: 썸네일 생성 - REST, C#'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 C#과 함께 Computer Vision API를 사용하여 이미지에서 썸네일을 생성합니다.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 67cd712869ce2d4bb3bd03725dc0bdf2fb428577
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 8355b78b33a4ac559f1ca61db8dc21537b02cc09
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962929"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579450"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-c35-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 C&#35;을 사용하여 썸네일 생성
 

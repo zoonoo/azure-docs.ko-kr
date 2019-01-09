@@ -1,24 +1,21 @@
 ---
 title: Go를 사용하여 Azure Database for MySQL에 연결
 description: 이 빠른 시작에서는 MySQL용 Azure Database에서 데이터를 연결하고 쿼리하는 데 사용할 수 있는 몇 가지 Go 코드 샘플을 제공합니다.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 8f11453cd7ccdd878e20d80469f12263e72166b7
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b61aefcee36584b6ecfd1d701cb548c06f731d05
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264860"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536647"
 ---
-# <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>MySQL용 Azure Database: Go 언어를 사용하여 데이터 연결 및 쿼리
+# <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Azure Database for MySQL: Go 언어를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 [Go](https://golang.org/) 언어로 작성된 코드를 사용하여 Windows, Ubuntu Linux 및 Apple macOS 플랫폼에서 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 항목에서는 Go를 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -32,9 +29,9 @@ ms.locfileid: "35264860"
 ### <a name="windows"></a> Windows
 1. [설치 지침](https://golang.org/doc/install)에 따라 Microsoft Windows용 Go를 [다운로드](https://golang.org/dl/)하고 설치합니다.
 2. [시작] 메뉴에서 [명령 프롬프트]를 선택합니다.
-3. 다음과 같이 프로젝트 폴더를 만듭니다. `mkdir  %USERPROFILE%\go\src\mysqlgo`
+3. 다음과 같이 프로젝트 폴더를 만듭니다. `mkdir  %USERPROFILE%\go\src\mysqlgo`.
 4. 디렉터리를 프로젝트 폴더로 변경합니다(예: `cd %USERPROFILE%\go\src\mysqlgo`).
-5. 소스 코드 디렉터리를 가리키도록 GOPATH에 대한 환경 변수를 설정합니다. `set GOPATH=%USERPROFILE%\go`
+5. 소스 코드 디렉터리를 가리키도록 GOPATH에 대한 환경 변수를 설정합니다. `set GOPATH=%USERPROFILE%\go`.
 6. `go get github.com/go-sql-driver/mysql` 명령을 실행하여 [MySQL용 go-sql-driver(영문)](https://github.com/go-sql-driver/mysql#installation)를 설치합니다.
 
    요약하자면, Go 설치 후 명령 프롬프트에서 다음이 명령을 실행합니다.

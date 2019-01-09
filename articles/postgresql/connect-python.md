@@ -1,24 +1,21 @@
 ---
 title: Python에서 Azure Database for PostgreSQL에 연결
 description: 이 빠른 시작에서는 PostgreSQL용 Azure Database의 데이터를 연결하고 쿼리하는 데 사용할 수 있는 Python 코드 샘플을 제공합니다.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 557d4217819449cd0513d4a21e331e660e37037b
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: eb6b23d8f8c476ba41bea918456fdf7fb9782920
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987684"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541135"
 ---
-# <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>PostgreSQL용 Azure Database: Python을 사용하여 데이터 연결 및 쿼리
+# <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database for PostgreSQL: Python을 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 [Python](https://python.org)을 사용하여 Azure Database for PostgreSQL에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 macOS, Ubuntu Linux 및 Windows 플랫폼에서 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법도 보여 줍니다. 이 문서의 단계에서는 개발자가 Python을 사용하여 개발하는 것에 익숙하고 PostgreSQL용 Azure Database 작업에 익숙하지 않다고 가정합니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -66,7 +63,7 @@ PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가�
 -  코드를 실행하려면 Python 명령 다음에 파일 이름을 입력합니다(예: `Python postgres.py`).
 
 > [!NOTE]
-> Python 버전 3년부터 다음 코드 블록을 실행하면 `SyntaxError: Missing parentheses in call to 'print'` 오류가 표시될 수 있습니다. 이 경우 `print "string"` 명령의 모든 호출을 괄호를 사용하는 함수 호출(예: `print("string")`)로 바꿉니다.
+> Python 버전 3부터는 다음 코드 블록을 실행할 때 `SyntaxError: Missing parentheses in call to 'print'` 오류가 표시될 수 있습니다. 이 경우 `print "string"` 명령에 대한 각 호출을 함수 호출(괄호 사용)로 바꾸세요(예: `print("string")`).
 
 ## <a name="connect-create-table-and-insert-data"></a>테이블 연결, 생성 및 데이터 삽입
 **INSERT** SQL 문이 있는 [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) 함수를 사용하여 데이터를 연결하고 로드하려면 다음 코드를 사용하세요. [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) 함수는 PostgreSQL 데이터베이스에 대해 SQL 쿼리를 실행하는 데 사용됩니다. host, dbname, user 및 password 매개 변수는 서버 및 데이터베이스를 만들 때 지정한 값으로 바꾸세요.

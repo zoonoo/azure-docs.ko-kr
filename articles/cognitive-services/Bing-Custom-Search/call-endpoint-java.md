@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: Java를 사용하여 엔드포인트 호출 - Bing Custom Search'
+title: '빠른 시작: Java를 사용하여 Bing Custom Search 엔드포인트 호출 | Microsoft Docs'
 titlesuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Java로 Bing Custom Search 엔드포인트를 호출하여 사용자 지정 검색 인스턴스에서 검색 결과를 요청하는 방법을 보여줍니다.
+description: 이 빠른 시작을 사용하여 Java로 Bing Custom Search 인스턴스의 검색 결과를 요청할 수 있습니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,33 +10,31 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: aahi
-ms.openlocfilehash: 5b4494f7840dd9b32cad88ecda800e4dac9c4d8a
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 65dc4f837a7b5d5cb3f41eacf9833ebd5a601bab
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315922"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970953"
 ---
-# <a name="quickstart-call-bing-custom-search-endpoint-java"></a>빠른 시작: Bing Custom Search 엔드포인트 호출(Java)
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>빠른 시작: Java를 사용하여 Bing Custom Search 엔드포인트 호출
 
-이 빠른 시작에서는 Java로 Bing Custom Search 엔드포인트를 호출하여 사용자 지정 검색 인스턴스에서 검색 결과를 요청하는 방법을 보여줍니다. 
+이 빠른 시작을 사용하여 Bing Custom Search 인스턴스의 검색 결과를 요청할 수 있습니다. 이 애플리케이션은 Java로 작성되지만 Bing Custom Search API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingCustomSearchv7.java)에 제공됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 완료하려면 다음이 필요합니다.
+- Bing Custom Search 인스턴스 [빠른 시작: 처음으로 Bing Custom Search 인스턴스 만들기](quick-start.md)에서 자세한 내용을 참조하세요.
 
-- 바로 사용할 수 있는 사용자 지정 검색 인스턴스. [처음으로 Bing Custom Search 인스턴스 만들기](quick-start.md)를 참조하세요.
-- 설치된 [Java](https://www.java.com).
-- 구독 키 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)을 정품 인증하면 구독 키를 받을 수 있습니다. Azure 대시보드에서 유료 구독 키를 사용할 수도 있습니다([Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 참조).   [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
+- 최신 [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html)  
 
-## <a name="run-the-code"></a>코드 실행
+- [Gson 라이브러리](https://github.com/google/gson)
 
-이 예제를 실행하려면 다음 단계를 수행합니다.
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
-1. 원하는 Java IDE를 사용하여 패키지를 만듭니다.  
-  
-2. 패키지에 CustomSrchJava.java라는 파일을 만들고 다음 코드를 복사합니다. **YOUR-SUBSCRIPTION-KEY** 및 **YOUR-CUSTOM-CONFIG-ID**를 구독 키와 구성 ID로 바꿉니다.  
-  
+## <a name="create-and-initialize-the-application"></a>애플리케이션 만들기 및 초기화
+
+1. 즐겨 찾는 IDE 또는 편집기에서 새 Java 프로젝트를 만들고 다음 라이브러리를 가져옵니다.
+
     ```java
     import java.io.InputStream;
     import java.net.URL;
@@ -45,48 +43,40 @@ ms.locfileid: "52315922"
     import java.util.List;
     import java.util.Map;
     import java.util.Scanner;
-    
     import javax.net.ssl.HttpsURLConnection;
-    
     import com.google.gson.Gson;
     import com.google.gson.GsonBuilder;
     import com.google.gson.JsonObject;
     import com.google.gson.JsonParser;
-    
-    public class CustomSrchJava {       
+    ```
+
+2. `CustomSrchJava`라는 클래스를 만들고 구독 키, 사용자 지정 검색 엔드포인트 및 검색 인스턴스의 사용자 지정 구성 ID에 대한 변수를 만듭니다. 
+    ```java
+    public class CustomSrchJava {
         static String host = "https://api.cognitive.microsoft.com";
         static String path = "/bingcustomsearch/v7.0/search";
         static String subscriptionKey = "YOUR-SUBSCRIPTION-KEY"; 
-        static String customConfigId = "YOUR-CUSTOM-CONFIG-ID";  
-    
-        static String searchTerm = "Microsoft";  // Replace with search term specific to your search scenario.
-    
-        public static SearchResults SearchWeb (String searchQuery) throws Exception {
-            // construct URL of search request (endpoint + query string)
-            URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchTerm, "UTF-8") + "&CustomConfig=" + customConfigId);
-            HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-            connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-    
-            // receive JSON body
-            InputStream stream = connection.getInputStream();
-            String response = new Scanner(stream).useDelimiter("\\A").next();
-    
-            // construct result object for return
-            SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-    
-            // extract Bing-related HTTP headers
-            Map<String, List<String>> headers = connection.getHeaderFields();
-            for (String header : headers.keySet()) {
-                if (header == null) continue;      // may have null key
-                if (header.startsWith("BingAPIs-") || header.startsWith("X-MSEdge-")) {
-                    results.relevantHeaders.put(header, headers.get(header).get(0));
-                }
-            }
-    
-            stream.close();
-            return results;
+        static String customConfigId = "YOUR-CUSTOM-CONFIG-ID";
+        static String searchTerm = "Microsoft";  
+    ...
+    ```
+
+3. `SearchResults`라는 또 다른 클래스를 만들고 Bing Custom Search 인스턴스의 응답을 포함합니다.
+
+    ```csharp
+    class SearchResults{
+        HashMap<String, String> relevantHeaders;
+        String jsonResponse;
+        SearchResults(HashMap<String, String> headers, String json) {
+            relevantHeaders = headers;
+            jsonResponse = json;
         }
-    
+    }
+    ```
+
+4. `prettify()`라는 함수를 만들어서 Bing Custom Search API의 JSON 응답 형식을 지정합니다.
+
+    ```java
         // pretty-printer for JSON; uses GSON parser to parse and re-serialize
         public static String prettify(String json_text) {
             JsonParser parser = new JsonParser();
@@ -94,48 +84,52 @@ ms.locfileid: "52315922"
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             return gson.toJson(json);
         }
-    
-        public static void main (String[] args) {
-            if (subscriptionKey.length() != 32) {
-                System.out.println("Invalid Custom Search subscription key!");
-                System.out.println("Please paste yours into the source code.");
-                System.exit(1);
-            }
-    
-            try {
-                System.out.println("Searching your slice of the Web for: " + searchTerm);
-    
-                SearchResults result = SearchWeb(searchTerm);
-    
-                System.out.println("\nRelevant HTTP Headers:\n");
-                for (String header : result.relevantHeaders.keySet())
-                    System.out.println(header + ": " + result.relevantHeaders.get(header));
-    
-                System.out.println("\nJSON Response:\n");
-                System.out.println(prettify(result.jsonResponse));
-            }
-            catch (Exception e) {
-                e.printStackTrace(System.out);
-                System.exit(1);
-            }
+    ```
+
+## <a name="send-and-receive-a-search-request"></a>검색 요청 보내고 받기 
+
+1. 요청을 보내고 `SearchResults` 개체를 반환하는 `SearchWeb()`라는 함수를 만듭니다. 사용자 지정 구성 ID, 쿼리 및 엔드포인트 정보를 결합하여 요청 URL을 만듭니다. `Ocp-Apim-Subscription-Key` 헤더에 구독 키를 추가합니다.
+
+    ```java
+    public class CustomSrchJava {
+    ...
+        public static SearchResults SearchWeb (String searchQuery) throws Exception {
+            // construct the URL for your search request (endpoint + query string)
+            URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchTerm, "UTF-8") + "&CustomConfig=" + customConfigId);
+            HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
+            connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+    ...
+    ```
+
+2. 스트림을 만들고 JSON 응답을 `SearchResults` 개체에 저장합니다.
+
+    ```java
+    public class CustomSrchJava {
+    ...
+        public static SearchResults SearchWeb (String searchQuery) throws Exception {
+            ...
+            // receive the JSON body
+            InputStream stream = connection.getInputStream();
+            String response = new Scanner(stream).useDelimiter("\\A").next();
+        
+            // construct result object for return
+            SearchResults results = new SearchResults(new HashMap<String, String>(), response);
+            
+            stream.close();
+            return results;
         }
-    }
-    
-    // Container class for search results encapsulates relevant headers and JSON data
-    static class SearchResults{
-        HashMap<String, String> relevantHeaders;
-        String jsonResponse;
-        SearchResults(HashMap<String, String> headers, String json) {
-            relevantHeaders = headers;
-            jsonResponse = json;
-        }
-    
-    }
-    ```  
-  
+    ```
+
+3. 애플리케이션의 Main 메서드에서 검색 용어를 사용하여 `SearchWeb()`을 호출하고, 
+
+    ```java
+    System.out.println("\nJSON Response:\n");
+    System.out.println(prettify(result.jsonResponse));
+    ```
+
 4. 프로그램을 실행합니다.
     
 ## <a name="next-steps"></a>다음 단계
-- [호스트된 UI 환경 구성](./hosted-ui.md)
-- [장식 표식을 사용하여 텍스트를 강조 표시](./hit-highlighting.md)
-- [웹 페이지 페이징](./page-webpages.md)
+
+> [!div class="nextstepaction"]
+> [Custom Search 웹 앱 빌드](./tutorials/custom-search-web-page.md)

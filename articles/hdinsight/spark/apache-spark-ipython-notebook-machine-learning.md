@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure HDInsight에서 Spark 기계 학습 애플리케이션 빌드'
+title: '자습서: Azure HDInsight에서 Spark Machine Learning 애플리케이션 빌드'
 description: Jupyter Notebook을 사용하여 HDInsight Spark 클러스터에서 Apache Spark Machine Learning 애플리케이션을 빌드하는 방법에 대한 단계별 지침입니다.
 services: hdinsight
 ms.service: hdinsight
@@ -9,14 +9,14 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: a730f6ccba9f935855b233ca804a8180aa7f504b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 0a0712e4985414263d1e90299d78d5e30fe78a3e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580573"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608514"
 ---
-# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>자습서: HDInsight에서 Apache Spark 기계 학습 애플리케이션 빌드 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>자습서: HDInsight에서 Apache Spark Machine Learning 애플리케이션 빌드 
 
 이 자습서에서는 [Jupyter Notebook](https://jupyter.org/)을 사용하여 Azure HDInsight에 대한 [Apache Spark](https://spark.apache.org/) 기계 학습 애플리케이션을 빌드하는 방법을 알아봅니다. 
 
@@ -97,7 +97,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
     ```
 
-    파이프라인 및 작동 방법에 대한 자세한 내용은 <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark Machine Learning 파이프라인</a>을 참조하세요.
+    파이프라인 및 작동 방법에 대한 자세한 내용은 <a href="https://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Apache Spark Machine Learning 파이프라인</a>을 참조하세요.
 
 5. 학습 문서에 파이프라인을 맞춥니다.
    
@@ -184,7 +184,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 10. Notebook을 종료하여 리소스를 해제합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 선택합니다. 그러면 Notebook이 종료된 후 닫힙니다.
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>Spark Machine Learning에 대한 Anaconda scikit-learn 라이브러리 사용
-HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포함되어 있습니다. Machine Learning에 대한 **scikit-learn** 라이브러리도 있습니다. 또한 라이브러리에는 Jupyter 노트북에서 직접 샘플 애플리케이션을 빌드하는 데 사용할 수 있는 다양한 데이터 집합이 포함되어 있습니다. scikit-learn 라이브러리 사용에 대한 예제는 [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html)을 참조하세요.
+HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포함되어 있습니다. Machine Learning에 대한 **scikit-learn** 라이브러리도 있습니다. 또한 라이브러리에는 Jupyter 노트북에서 직접 샘플 애플리케이션을 빌드하는 데 사용할 수 있는 다양한 데이터 집합이 포함되어 있습니다. scikit-learn 라이브러리 사용에 대한 예제는 [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -15,18 +15,18 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 14dbd723772caa0045e9744ddb726060e3a1b8cf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ffa6e44a4be8813b74dc707f161bd5c17f72f350
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257780"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720053"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드
 
-[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 Azure에서 데이터 기반 ASP.NET 웹앱을 개발하고 [Azure SQL Database](../sql-database/sql-database-technical-overview.md)에 연결하는 방법을 보여 줍니다. 완료되면 ASP.NET 앱이 Azure에서 실행되고 SQL Database에 연결됩니다.
+[Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 App Service에서 데이터 기반 ASP.NET 앱을 개발하고 [Azure SQL Database](../sql-database/sql-database-technical-overview.md)에 연결하는 방법을 보여줍니다. 완료되면 ASP.NET 앱이 Azure에서 실행되고 SQL Database에 연결됩니다.
 
-![Azure 웹앱의 게시된 ASP.NET 애플리케이션](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
+![Azure App Service의 게시된 ASP.NET 애플리케이션](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -65,7 +65,7 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 
 **편집**, **세부 정보** 및 **삭제** 링크를 테스트합니다.
 
-앱은 데이터베이스 컨텍스트를 사용하여 데이터베이스에 연결합니다. 이 샘플의 데이터베이스 컨텍스트에는 `MyDbConnection`이라는 연결 문자열이 사용됩니다. 연결 문자열은 *Web.config* 파일에서 설정되고 *Models\MyDatabaseContext.cs* 파일에서 참조됩니다. 연결 문자열 이름은 이 자습서의 뒷부분에서 Azure 웹앱을 Azure SQL Database에 연결하는 데 사용됩니다. 
+앱은 데이터베이스 컨텍스트를 사용하여 데이터베이스에 연결합니다. 이 샘플의 데이터베이스 컨텍스트에는 `MyDbConnection`이라는 연결 문자열이 사용됩니다. 연결 문자열은 *Web.config* 파일에서 설정되고 *Models\MyDatabaseContext.cs* 파일에서 참조됩니다. 연결 문자열 이름은 이 자습서의 뒷부분에서 Azure 앱을 Azure SQL Database에 연결하는 데 사용됩니다. 
 
 ## <a name="publish-to-azure-with-sql-database"></a>SQL Database를 사용하여 Azure에 게시
 
@@ -77,7 +77,7 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 
 ![프로젝트 개요 페이지에서 게시](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-to-app-service.png)
 
-게시하는 경우 Azure에서 ASP.NET 웹앱을 실행하는 데 필요한 모든 Azure 리소스를 만들 수 있는 유용한 **App Service 만들기** 대화 상자가 열립니다.
+게시하는 경우 Azure에서 ASP.NET 앱을 실행하는 데 필요한 모든 Azure 리소스를 만들 수 있는 유용한 **App Service 만들기** 대화 상자가 열립니다.
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -118,7 +118,7 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 
 | 설정  | 제안 값 | Blob에 대한 자세한 내용은 |
 | ----------------- | ------------ | ----|
-|**App Service 계획**| myAppServicePlan | [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
+|**App Service 계획**| myAppServicePlan | [App Service 계획](../app-service/overview-hosting-plans.md) |
 |**위치**:| 서유럽 | [Azure 지역](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
 |**크기**| 무료 | [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
@@ -139,7 +139,7 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 이 사용자 이름과 암호를 기억해 두세요. 나중에 논리 서버 인스턴스를 관리하는 데 필요합니다.
 
 > [!IMPORTANT]
-> 연결 문자열의 암호가 마스킹되었지만(Visual Studio 및 App Service에서도) 어딘가에서 유지 관리되기 때문에 앱의 공격 노출 영역이 늘어납니다. App Service는 [관리되는 서비스 ID](app-service-managed-service-identity.md)를 사용하기 때문에 코드 또는 앱 구성의 비밀을 유지 관리할 필요가 전혀 없어 이러한 위험이 사라집니다. 자세한 내용은 [다음 단계](#next-steps)를 참조하세요.
+> 연결 문자열의 암호가 마스킹되었지만(Visual Studio 및 App Service에서도) 어딘가에서 유지 관리되기 때문에 앱의 공격 노출 영역이 늘어납니다. App Service는 [관리되는 서비스 ID](overview-managed-identity.md)를 사용하기 때문에 코드 또는 앱 구성의 비밀을 유지 관리할 필요가 전혀 없어 이러한 위험이 사라집니다. 자세한 내용은 [다음 단계](#next-steps)를 참조하세요.
 
 ![SQL Server 인스턴스 만들기](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
@@ -163,7 +163,7 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 
 몇 가지 할 일 항목을 추가합니다.
 
-![Azure 웹앱의 게시된 ASP.NET 애플리케이션](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
+![Azure 앱의 게시된 ASP.NET 애플리케이션](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
 축하합니다! 데이터 기반 ASP.NET 애플리케이션이 Azure App Service에서 라이브로 실행되고 있습니다.
 
@@ -189,7 +189,7 @@ Visual Studio를 사용하면 **SQL Server 개체 탐색기**에서 새 SQL Data
 
 ### <a name="allow-client-connection-from-your-computer"></a>컴퓨터에서 클라이언트 연결 허용
 
-**새 방화벽 규칙 만들기** 대화 상자가 열립니다. 기본적으로 SQL Database 인스턴스는 Azure 웹앱과 같은 Azure 서비스의 연결만 허용합니다. 데이터베이스에 연결하려면 SQL Database 인스턴스에 방화벽 규칙을 만듭니다. 방화벽 규칙에는 로컬 컴퓨터의 공용 IP 주소가 허용됩니다.
+**새 방화벽 규칙 만들기** 대화 상자가 열립니다. 기본적으로 SQL Database 인스턴스는 Azure 앱과 같은 Azure 서비스의 연결만 허용합니다. 데이터베이스에 연결하려면 SQL Database 인스턴스에 방화벽 규칙을 만듭니다. 방화벽 규칙에는 로컬 컴퓨터의 공용 IP 주소가 허용됩니다.
 
 대화 상자가 컴퓨터의 공용 IP 주소로 이미 채워져 있습니다.
 
@@ -207,7 +207,7 @@ Visual Studio에서 SQL Database 인스턴스에 대한 방화벽 설정을 만�
 
 ## <a name="update-app-with-code-first-migrations"></a>Code First 마이그레이션으로 앱 업데이트
 
-Visual Studio의 친숙한 도구를 사용하여 Azure에서 데이터베이스 및 웹앱을 업데이트할 수 있습니다. 이 단계에서는 Entity Framework에서 Code First 마이그레이션을 사용하여 데이터베이스 스키마를 변경하고 Azure에 게시합니다.
+Visual Studio의 친숙한 도구를 사용하여 Azure에서 데이터베이스 및 앱을 업데이트할 수 있습니다. 이 단계에서는 Entity Framework에서 Code First 마이그레이션을 사용하여 데이터베이스 스키마를 변경하고 Azure에 게시합니다.
 
 Entity Framework Code First 마이그레이션 사용에 대한 자세한 내용은 [MVC 5를 사용하여 Entity Framework 6 Code First 시작](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)을 참조하세요.
 
@@ -301,7 +301,7 @@ _Views\Todos\Index.cshtml_을 엽니다.
 
 ### <a name="enable-code-first-migrations-in-azure"></a>Azure에서 Code First 마이그레이션 사용
 
-데이터베이스 마이그레이션을 비롯하여 코드 변경이 수행되었으므로 Azure 웹앱에 게시하고 Code First 마이그레이션을 사용하여 SQL Database도 업데이트합니다.
+데이터베이스 마이그레이션을 비롯하여 코드 변경이 수행되었으므로 Azure 앱에 게시하고 Code First 마이그레이션을 사용하여 SQL Database도 업데이트합니다.
 
 이전과 마찬가지로 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
@@ -313,42 +313,42 @@ _Views\Todos\Index.cshtml_을 엽니다.
 
 SQL Database에 대한 연결 문자열이 **MyDatabaseContext (MyDbConnection)** 로 채워졌는지 확인합니다. 드롭다운에서 **myToDoAppDb** 데이터베이스를 선택해야 할 수 있습니다. 
 
-**Execute Code First Migrations (runs on application start)**(Code First 마이그레이션 실행(응용 프로그램 시작 시 실행))를 선택한 다음 **저장**을 클릭합니다.
+**Execute Code First Migrations (runs on application start)**(Code First 마이그레이션 실행(애플리케이션 시작 시 실행))를 선택한 다음, **저장**을 클릭합니다.
 
-![Azure 웹앱에서 Code First 마이그레이션 사용](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
+![Azure 앱에서 Code First 마이그레이션 사용](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
 
 ### <a name="publish-your-changes"></a>변경 내용 게시
 
-이제 Azure 웹앱에서 Code First 마이그레이션을 사용하도록 설정했으므로 코드 변경 내용을 게시합니다.
+이제 Azure 앱에서 Code First 마이그레이션을 사용하도록 설정했으므로 코드 변경 내용을 게시합니다.
 
 게시 페이지에서 **게시**를 클릭합니다.
 
 할 일 항목 추가를 다시 시도하고 **Done**(완료)을 선택합니다. 그러면 홈페이지에 완료된 항목으로 표시되어야 합니다.
 
-![Code First 마이그레이션 후 Azure 웹앱](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
+![Code First 마이그레이션 후 Azure 앱](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
 기존의 모든 할 일 항목이 계속 표시됩니다. ASP.NET 애플리케이션을 다시 게시해도 SQL Database의 기존 데이터가 손실되지 않습니다. 또한 Code First 마이그레이션은 데이터 스키마만 변경하고 기존 데이터는 그대로 유지합니다.
 
 
 ## <a name="stream-application-logs"></a>애플리케이션 로그 스트림
 
-Azure 웹앱에서 직접 Visual Studio로 추적 메시지를 스트림할 수 있습니다.
+Azure 앱에서 직접 Visual Studio로 추적 메시지를 스트림할 수 있습니다.
 
 _Controllers\TodosController.cs_를 엽니다.
 
-각 동작은 `Trace.WriteLine()` 메서드로 시작됩니다. 이 코드는 Azure 웹앱에 추적 메시지를 추가하는 방법을 보여 주기 위해 추가되었습니다.
+각 동작은 `Trace.WriteLine()` 메서드로 시작됩니다. 이 코드는 Azure 앱에 추적 메시지를 추가하는 방법을 보여주기 위해 추가되었습니다.
 
 ### <a name="open-server-explorer"></a>서버 탐색기 열기
 
-**보기** 메뉴에서 **서버 탐색기**를 선택합니다. **서버 탐색기**에서 Azure 웹앱에 대한 로깅을 구성할 수 있습니다. 
+**보기** 메뉴에서 **서버 탐색기**를 선택합니다. **서버 탐색기**에서 Azure 앱에 대한 로깅을 구성할 수 있습니다. 
 
 ### <a name="enable-log-streaming"></a>로그 스트리밍 사용
 
 **서버 탐색기**에서 **Azure** > **App Service**를 확장합니다.
 
-Azure 웹앱을 처음 만들 때 만든 **myResourceGroup** 리소스 그룹을 확장합니다.
+Azure 앱을 처음 만들 때 만든 **myResourceGroup** 리소스 그룹을 확장합니다.
 
-Azure 웹앱을 마우스 오른쪽 단추로 클릭하고 **스트리밍 로그 보기**를 선택합니다.
+Azure 앱을 마우스 오른쪽 단추로 클릭하고 **스트리밍 로그 보기**를 선택합니다.
 
 ![로그 스트리밍 사용](./media/app-service-web-tutorial-dotnet-sqldatabase/stream-logs.png)
 
@@ -356,15 +356,15 @@ Azure 웹앱을 마우스 오른쪽 단추로 클릭하고 **스트리밍 로그
 
 ![출력 창에서 로그 스트리밍](./media/app-service-web-tutorial-dotnet-sqldatabase/log-streaming-pane.png)
 
-그러나 추적 메시지가 아직 표시되지 않습니다. **스트리밍 로그 보기**를 먼저 선택하면 Azure 웹앱에서 추적 수준을 `Error`로 설정하여 `Trace.TraceError()` 메서드로 생성된 오류 이벤트만 로깅하기 때문입니다.
+그러나 추적 메시지가 아직 표시되지 않습니다. **스트리밍 로그 보기**를 먼저 선택하면 Azure 앱에서 추적 수준을 `Error`로 설정하여 `Trace.TraceError()` 메서드로 생성된 오류 이벤트만 로깅하기 때문입니다.
 
 ### <a name="change-trace-levels"></a>추적 수준 변경
 
 다른 추적 메시지를 출력하도록 추적 수준을 변경하려면 **서버 탐색기**로 돌아갑니다.
 
-Azure 웹앱을 마우스 오른쪽 단추로 다시 클릭하고 **설정 보기**를 선택합니다.
+Azure 앱을 마우스 오른쪽 단추로 다시 클릭하고 **설정 보기**를 선택합니다.
 
-**응용 프로그램 로깅(파일 시스템)** 드롭다운에서 **자세한 정보 표시**를 선택합니다. **저장**을 클릭합니다.
+**애플리케이션 로깅(파일 시스템)** 드롭다운에서 **자세한 정보 표시**를 선택합니다. **저장**을 클릭합니다.
 
 ![추적 수준을 자세한 정보 표시로 설정](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
@@ -373,7 +373,7 @@ Azure 웹앱을 마우스 오른쪽 단추로 다시 클릭하고 **설정 보�
 >
 >
 
-브라우저에서 *http://&lt;your app name>.azurewebsites.net*에 있는 웹앱으로 다시 이동한 다음, Azure에서 할 일 목록 응용 프로그램 주위를 클릭해 보세요. 추적 메시지가 Visual Studio의 **출력** 창으로 스트리밍됩니다.
+브라우저에서 *http://&lt;your app name&gt;.azurewebsites.net*에 있는 앱으로 다시 이동한 다음, Azure에서 할 일 목록 애플리케이션 주위를 클릭해 보세요. 추적 메시지가 Visual Studio의 **출력** 창으로 스트리밍됩니다.
 
 ```console
 Application: 2017-04-06T23:30:41  PID[8132] Verbose     GET /Todos/Index
@@ -390,17 +390,17 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 
 ![로그 스트리밍 중지](./media/app-service-web-tutorial-dotnet-sqldatabase/stop-streaming.png)
 
-## <a name="manage-your-azure-web-app"></a>Azure Web App 관리
+## <a name="manage-your-azure-app"></a>Azure 앱 관리
 
-[Azure Portal](https://portal.azure.com)로 이동하여 만든 웹앱을 확인합니다. 
+[Azure Portal](https://portal.azure.com)로 이동하여 만든 앱을 확인합니다. 
 
 
 
-왼쪽 메뉴에서 **App Service**를 클릭한 다음 Azure 웹앱의 이름을 클릭합니다.
+왼쪽 메뉴에서 **App Service**를 클릭한 다음 사용자의 Azure 앱 이름을 클릭합니다.
 
-![Azure 웹앱에 대한 포털 탐색](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
+![Azure 앱에 대한 포털 탐색](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
 
-웹앱 페이지에 연결되었습니다. 
+앱 페이지에 연결되었습니다. 
 
 기본적으로 포털에서 **개요** 페이지가 표시됩니다. 이 페이지에서는 앱이 어떻게 작동하고 있는지를 보여 줍니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 페이지의 왼쪽에 있는 탭에서는 열 수 있는 여러 구성 페이지를 보여 줍니다. 
 

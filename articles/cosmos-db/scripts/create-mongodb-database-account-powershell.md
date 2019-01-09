@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 스크립트 - Azure Cosmos DB MongoDB API 계정 만들기
-description: Azure PowerShell 스크립트 샘플 - Azure Cosmos DB MongoDB API 계정 만들기
+title: Azure PowerShell 스크립트 - MongoDB에 대한 Azure Cosmos DB API 계정 만들기
+description: Azure PowerShell 스크립트 샘플 - MongoDB에 대한 Azure Cosmos DB API 계정 만들기
 services: cosmos-db
 ms.service: cosmos-db
 author: SnehaGunda
@@ -9,16 +9,16 @@ ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.date: 05/29/2018
-ms.openlocfilehash: 1df8749f0032f60bc3d18f6d8352712e74c53fd5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: c12f2f86e56ac90fbea366e43959dd934c89d931
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963899"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811055"
 ---
-# <a name="azure-cosmos-db-create-a-mongodb-api-account-using-powershell"></a>Azure Cosmos DB는 PowerShell을 사용하여 MongoDB API 계정 만들기
+# <a name="create-an-azure-cosmos-db-account-with-azure-cosmos-dbs-api-for-mongodb-using-powershell"></a>PowerShell에서 Azure Cosmos DB의 MongoDB API를 사용하여 Azure Cosmos DB 계정 만들기
 
-이 샘플 PowerShell 스크립트는 Azure Cosmos DB MongoDB API 계정을 만듭니다. 
+이 PowerShell 스크립트 샘플에서는 Azure Cosmos DB의 MongoDB API를 사용하여 Cosmos 계정을 만듭니다. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

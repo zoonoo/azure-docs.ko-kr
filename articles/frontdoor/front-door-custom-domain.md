@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 8106c68397dea8d52c6d2daa2d09dfbc72c2a4c8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 58829bcd1b3c38b70929167beae5d8866483d616
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995061"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716500"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>자습서: Front Door에 사용자 지정 도메인 추가
 이 자습서에서는 사용자 지정 도메인을 Front Door에 추가하는 방법을 알아봅니다. 애플리케이션 전송에 Azure Front Door Service를 사용하는 경우 고유한 도메인 이름을 최종 사용자 요청에 표시하려면 사용자 지정 도메인이 필요합니다. 볼 수 있는 도메인 이름이 있다면 고객에게 편리하고 브랜딩 목적상 유용합니다.
@@ -36,7 +36,7 @@ Front Door를 만든 후, 기본적으로 백 엔드에서 Front Door 콘텐츠�
 
 이 자습서의 단계를 완료하려면 먼저 Front Door를 만들어야 합니다. 자세한 내용은 [빠른 시작: Front Door 만들기](quickstart-create-front-door.md)를 참조하세요.
 
-사용자 지정 도메인이 없으면 먼저 도메인 공급자를 통해 구매해야 합니다. 예를 들어 [사용자 지정 도메인 이름 구매](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app)를 참조하세요.
+사용자 지정 도메인이 없으면 먼저 도메인 공급자를 통해 구매해야 합니다. 예를 들어 [사용자 지정 도메인 이름 구매](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain)를 참조하세요.
 
 Azure를 사용하여 [DNS 도메인](https://docs.microsoft.com/azure/dns/dns-overview)을 호스트하는 경우 도메인 공급자의 DNS(Domain Name System)를 Azure DNS에 위임해야 합니다. 자세한 내용은 [Azure DNS에 도메인 위임](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns)을 참조하세요. 그렇지 않으면, 도메인 공급자를 사용하여 DNS 도메인을 처리하는 경우 [CNAME DNS 레코드 만들기](#create-a-cname-dns-record)로 계속 진행합니다.
 
@@ -90,7 +90,7 @@ afdverify 하위 도메인에서 CNAME 레코드를 만들려면:
 
     - 호스트: afdverify 하위 도메인 이름을 포함하여 사용할 사용자 지정 도메인의 하위 도메인을 입력합니다. 예: afdverify.www.
 
-    - 가리키는 대상: afdverify 하위 도메인 이름을 포함하여 기본 Front Door 프런트 엔드 호스트의 호스트 이름을 입력합니다. 예: afdverify.contoso.azurefd.net. 
+    - 지시 대상: afdverify 하위 도메인 이름을 포함하여 기본 Front Door 프런트 엔드 호스트의 호스트 이름을 입력합니다. 예: afdverify.contoso.azurefd.net. 
 
     - TTL: *1시간*을 선택해 둡니다.
 
@@ -171,7 +171,7 @@ afdverify 하위 도메인이 Front Door에 성공적으로 매핑되었음을 �
 
     - 호스트: 사용할 사용자 지정 도메인의 하위 도메인을 입력합니다. 예: www 또는 프로필.
 
-    - 가리키는 대상: Front Door의 기본 호스트 이름을 입력합니다. 예: contoso.azurefd.net. 
+    - 지시 대상: Front Door의 기본 호스트 이름을 입력합니다. 예: contoso.azurefd.net. 
 
     - TTL: *1시간*을 선택해 둡니다.
 

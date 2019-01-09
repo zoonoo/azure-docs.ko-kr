@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2debb52c703aaa25b2ff0a182bed3e07431b6f48
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 89852e30929cc26aa0cbe63ed4e334c4e878b90b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270266"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714341"
 ---
-# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>자습서: Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑
 
-[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 기존 사용자 지정 DNS 이름을 Azure Web Apps에 매핑하는 방법을 보여 줍니다.
+[Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 기존 사용자 지정 DNS 이름을 Azure App Service에 매핑하는 방법을 보여줍니다.
 
 ![Azure 앱에 대한 포털 탐색](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
@@ -48,7 +48,7 @@ ms.locfileid: "53270266"
   예를 들어 `contoso.com` 및 `www.contoso.com`에 대한 DNS 항목을 추가하려면 `contoso.com` 루트 도메인에 대한 DNS 설정을 구성할 수 있어야 합니다.
 
   > [!NOTE]
-  > 기존 도메인 이름이 없으면 [Azure Portal을 사용하여 도메인을 구입](custom-dns-web-site-buydomains-web-app.md)하는 것이 좋습니다. 
+  > 기존 도메인 이름이 없으면 [Azure Portal을 사용하여 도메인을 구입](manage-custom-dns-buy-domain.md)하는 것이 좋습니다. 
 
 ## <a name="prepare-the-app"></a>앱 준비
 
@@ -156,7 +156,7 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 ![추가된 CNAME 레코드](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> SSL 바인딩을 추가하려면 [Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
+> SSL 바인딩을 추가하려면 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
 
 이전에 단계를 잊었거나 철자를 잘못 입력한 경우에는 페이지 아래쪽에 확인 오류가 표시됩니다.
 
@@ -231,7 +231,7 @@ Azure Portal에서 해당 앱의 **사용자 지정 도메인** 페이지로 돌
 ![추가된 A 레코드](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> SSL 바인딩을 추가하려면 [Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
+> SSL 바인딩을 추가하려면 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
 
 이전에 단계를 잊었거나 철자를 잘못 입력한 경우에는 페이지 아래쪽에 확인 오류가 표시됩니다.
 
@@ -286,7 +286,7 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 ![추가된 CNAME 레코드](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> SSL 바인딩을 추가하려면 [Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
+> SSL 바인딩을 추가하려면 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
 
 ## <a name="test-in-browser"></a>브라우저에서 테스트
 
@@ -305,7 +305,7 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 
 ## <a name="migrate-an-active-domain"></a>활성 도메인 마이그레이션
 
-라이브 사이트 및 해당 DNS 도메인 이름을 가동 중지 시간 없이 App Service로 마이그레이션하려면 [활성 DNS 이름을 Azure App Service로 마이그레이션](app-service-custom-domain-name-migrate.md)을 참조하세요.
+라이브 사이트 및 해당 DNS 도메인 이름을 가동 중지 시간 없이 App Service로 마이그레이션하려면 [활성 DNS 이름을 Azure App Service로 마이그레이션](manage-custom-dns-migrate-domain.md)을 참조하세요.
 
 ## <a name="redirect-to-a-custom-directory"></a>사용자 지정 디렉터리로 리디렉션
 
@@ -334,7 +334,7 @@ az webapp config hostname add \
     --hostname <fully_qualified_domain_name> 
 ``` 
 
-자세한 내용은 [웹앱에 사용자 지정 도메인 매핑](scripts/app-service-cli-configure-custom-domain.md)을 참조하세요. 
+자세한 내용은 [웹앱에 사용자 지정 도메인 매핑](scripts/cli-configure-custom-domain.md)을 참조하세요. 
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 
@@ -347,7 +347,7 @@ Set-AzureRmWebApp `
     -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
 ```
 
-자세한 내용은 [Web App에 사용자 지정 도메인 할당](scripts/app-service-powershell-configure-custom-domain.md)을 참조하세요.
+자세한 내용은 [Web App에 사용자 지정 도메인 할당](scripts/powershell-configure-custom-domain.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -363,4 +363,4 @@ Set-AzureRmWebApp `
 다음 자습서로 이동하여 사용자 지정 SSL 인증서를 웹앱에 바인딩하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)
+> [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)

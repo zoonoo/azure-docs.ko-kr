@@ -3,22 +3,21 @@ title: Azure의 Kubernetes 자습서 - 컨테이너 레지스트리 만들기
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Azure Container Registry 인스턴스를 만들고 애플리케이션 예제 컨테이너 이미지를 업로드합니다.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4f240d346457717c66a6ed189cfd8610c7a764da
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 51cfc62adaf9d9c780888477aa6eab2a812fe98c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41919560"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718036"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>자습서: Azure Container Registry 배포 및 사용
 
-ACR(Azure Container Registry)은 Docker 컨테이너 이미지를 위한 Azure 기반의 개인 레지스트리입니다. 개인 컨테이너 레지스트리를 사용하면 애플리케이션 및 사용자 지정 코드를 안전하게 빌드하고 배포할 수 있습니다. 7부 중 2부에 해당하는 이 자습서에서는 ACR 인스턴스를 배포하고 컨테이너 이미지를 푸시합니다. 다음 방법에 대해 알아봅니다.
+ACR(Azure Container Registry)은 컨테이너 이미지를 위한 비공개 레지스트리입니다. 개인 컨테이너 레지스트리를 사용하면 애플리케이션 및 사용자 지정 코드를 안전하게 빌드하고 배포할 수 있습니다. 7부 중 2부에 해당하는 이 자습서에서는 ACR 인스턴스를 배포하고 컨테이너 이미지를 푸시합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * ACR(Azure Container Registry) 인스턴스 만들기
@@ -26,13 +25,13 @@ ACR(Azure Container Registry)은 Docker 컨테이너 이미지를 위한 Azure �
 > * ACR에 이미지 업로드
 > * 레지스트리의 이미지 보기
 
-후속 자습서에서 이 ACR 인스턴스는 AKS의 Kubernetes 클러스터와 통합되고, 이미지로 애플리케이션을 배포합니다.
+추가 자습서에서 이 ACR 인스턴스는 AKS의 Kubernetes 클러스터와 통합되고, 이미지로 애플리케이션을 배포합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-[이전 자습서][aks-tutorial-prepare-app]에서는 간단한 Azure Voting 응용 프로그램에 대한 컨테이너 이미지를 만들었습니다. Azure Voting 앱 이미지를 만들지 않은 경우 [자습서 1 - 컨테이너 이미지 만들기][aks-tutorial-prepare-app]로 돌아갑니다.
+[이전 자습서][aks-tutorial-prepare-app]에서는 간단한 Azure Voting 애플리케이션에 대한 컨테이너 이미지를 만들었습니다. Azure Voting 앱 이미지를 만들지 않은 경우 [자습서 1 - 컨테이너 이미지 만들기][aks-tutorial-prepare-app]로 돌아갑니다.
 
-이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.44 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.53 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ## <a name="create-an-azure-container-registry"></a>Azure Container Registry 만들기
 
@@ -44,7 +43,7 @@ Azure Container Registry를 만들려면 먼저 리소스 그룹이 필요합니
 az group create --name myResourceGroup --location eastus
 ```
 
-[az acr create][az-acr-create] 명령을 사용하여 Azure Container Registry 인스턴스를 만들고 고유한 레지스트리 이름을 입력합니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 이 자습서의 나머지 부분에서는 컨테이너 레지스트리 이름의 자리 표시자로 `<acrName>`을 사용합니다. *기본* SKU는 개발을 위해 비용에 최적화된 진입점으로, 저장소와 처리량의 균형을 적절하게 맞추었습니다.
+[az acr create][az-acr-create] 명령을 사용하여 Azure Container Registry 인스턴스를 만들고 고유한 레지스트리 이름을 입력합니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 이 자습서의 나머지 부분에서는 컨테이너 레지스트리 이름의 자리 표시자로 `<acrName>`을 사용합니다. 사용자 고유의 레지스트리 이름을 제공합니다. *기본* SKU는 개발을 위해 비용에 최적화된 진입점으로, 저장소와 처리량의 균형을 적절하게 맞추었습니다.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -101,7 +100,7 @@ tiangolo/uwsgi-nginx-flask                           flask         788ca94b2313 
 
 ## <a name="push-images-to-registry"></a>레지스트리에 이미지 푸시
 
-이제 *azure-vote-front* 이미지를 ACR 인스턴스로 푸시할 수 있습니다. 다음과 같이 [docker push][docker-push] 명령을 사용하여 고유의 *acrLoginServer* 주소를 이미지 이름으로 입력합니다.
+빌드 및 태그가 지정된 이미지를 사용하여 *azure-vote-front* 이미지를 ACR 인스턴스로 푸시합니다. 다음과 같이 [docker push][docker-push] 명령을 사용하여 고유의 *acrLoginServer* 주소를 이미지 이름으로 입력합니다.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v1

@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: ca99f9ac36281ecddf41bcc228440adcad90412b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2480aa92dec8d8e8879db813b1cfcddc26f77b7e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582431"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792529"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Azure IoT(사물 인터넷)란?
 
@@ -105,7 +105,7 @@ Azure에는 몇 가지 IoT 관련 서비스가 있으며, 어떤 서비스를 �
 
 1. [**IoT Central**](../iot-central/overview-iot-central.md): IoT 디바이스를 연결, 모니터링 및 관리하는 데 도움이 되는 SaaS 솔루션입니다. 시작하려면 디바이스 유형에 맞는 템플릿을 선택하고, 디바이스 운영자가 사용할 기본 IoT Central 애플리케이션을 만들고 테스트합니다. 또한 IoT Central 애플리케이션을 사용하면 디바이스를 모니터링하고 새 디바이스를 프로비전할 수 있습니다. 이 서비스는 자세히 사용자 지정할 필요가 없는 간단한 솔루션입니다. 
 
-2. [**IoT 솔루션 가속기**](/azure/iot-suite): IoT 솔루션 개발을 가속화하는 데 사용할 수 있는 PaaS 솔루션의 모음입니다. 먼저 제공된 IoT 솔루션으로 시작한 다음, 요구 사항에 맞게 해당 솔루션을 완벽하게 사용자 지정합니다. 백 엔드를 사용자 지정하려면 Java 또는 .NET 기술이 필요하고, 시각화를 사용자 지정하려면 JavaScript 기술이 필요합니다. 
+2. [**IoT 솔루션 가속기**](/azure/iot-suite): IoT 솔루션 개발을 가속화하는 데 사용할 수 있는 PaaS 솔루션 컬렉션입니다. 먼저 제공된 IoT 솔루션으로 시작한 다음, 요구 사항에 맞게 해당 솔루션을 완벽하게 사용자 지정합니다. 백 엔드를 사용자 지정하려면 Java 또는 .NET 기술이 필요하고, 시각화를 사용자 지정하려면 JavaScript 기술이 필요합니다. 
 
 3. [**IoT Hub**](/azure/iot-hub/): 이 서비스를 통해 디바이스에서 IoT Hub에 연결하고, 수십억 개의 IoT 디바이스를 모니터링하고 제어할 수 있습니다. 이 서비스는 IoT 디바이스와 백 엔드 간에 양방향 통신이 필요한 경우에 특히 유용합니다. IoT Central 및 IoT 솔루션 가속기에 대한 기본 서비스입니다. 
 

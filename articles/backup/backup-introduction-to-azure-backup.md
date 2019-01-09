@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 8/2/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b0d920c1a41ff679c3dedcb6745e250b77cb769a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f07bcf3cb1b489ad7ec06dff1437e49d83748998
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878333"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631165"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure Backup의 기능에 대한 개요
 Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)하고 복원하는 데 사용할 수 있는 Azure 기반 서비스이며, 기존의 온-프레미스 또는 오프사이트 백업 솔루션을 신뢰할 수 있고 안전하며 가격 경쟁력이 있는 클라우드 기반 솔루션으로 대체합니다. Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운로드하고 배포하는 여러 구성 요소를 제공합니다. 배포하는 구성 요소 또는 에이전트는 보호하려는 대상에 따라 달라집니다. 온-프레미스 또는 클라우드에서 데이터를 보호하는지 여부에 관계 없이 모든 Azure Backup 구성 요소는 Azure에서 Recovery Services 자격 증명 모음에 데이터를 백업하는 데 사용할 수 있습니다. 특정 데이터, 애플리케이션 또는 워크로드 보호하는 데 사용할 구성 요소에 대한 내용은 이 문서의 뒷부분에 있는 [Azure Backup 구성 요소 표](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)를 참조하세요.
@@ -39,7 +39,7 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 
 **데이터 암호화** - 공용 클라우드에서 데이터의 전송 및 저장을 보호합니다. 암호화 암호는 로컬에서 저장되며, Azure에서 전송되거나 저장되지는 않습니다. 데이터를 복원해야 하는 경우 암호화 암호 또는 키만 이으면 됩니다.
 
-**응용 프로그램 일치 백업** - 복구 지점에 백업 복사본을 복원하는 데 필요한 모든 데이터가 있음을 의미합니다. Azure Backup에서 애플리케이션 일치 백업을 제공하므로 데이터를 복원하기 위한 추가 수정 프로그램이 필요하지 않습니다. 애플리케이션 일치 데이터를 복원하면 실행 상태로 빠르게 돌아갈 수 있으므로 복원 시간을 줄여줍니다.
+**애플리케이션 일치 백업** - 복구 지점에 백업 복사본을 복원하는 데 필요한 모든 데이터가 있음을 의미합니다. Azure Backup에서 애플리케이션 일치 백업을 제공하므로 데이터를 복원하기 위한 추가 수정 프로그램이 필요하지 않습니다. 애플리케이션 일치 데이터를 복원하면 실행 상태로 빠르게 돌아갈 수 있으므로 복원 시간을 줄여줍니다.
 
 **장기 보존** - 단기 및 장기 데이터 보존을 위해 Recovery Services 자격 증명 모음을 사용할 수 있습니다. Azure는 Recovery Services 자격 증명 모음에 데이터를 유지할 수 있는 기간을 제한하지 않습니다. 원하는 만큼 자격 증명 모음에 데이터를 유지할 수 있습니다. Azure Backup에는 보호된 인스턴스당 9999개 복구 지점의 제한이 있습니다. 이 제한이 백업 필요성에 어떻게 영향을 줄 수 있는지에 대한 설명은 이 문서의 [Backup 및 보존](backup-introduction-to-azure-backup.md#backup-and-retention) 섹션을 참조하세요.
 
@@ -78,17 +78,17 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 | Azure IaaS VM(Linux) |Azure에서 실행 |[Azure Backup(VM 확장)](backup-azure-vms-introduction.md) |
 
 ## <a name="linux-support"></a>Linux 지원
-다음 표에서는 Linux를 지원하는 Azure Backup 구성 요소를 보여 줍니다.  
+다음 표에서는 Linux를 지원하는 Azure Backup 구성 요소를 보여줍니다.  
 
-| 구성 요소 | Linux(Azure 인증) 지원 |
-| --- | --- |
-| Azure Backup(MARS) 에이전트 |아니요(Windows 기반 에이전트만) |
-| System Center DPM |<li> Hyper-V 및 VMWare에서 일관성 있는 Linux 게스트 VM 파일 백업<br/> <li> Hyper-V 및 VMWare Linux 게스트 VM의 VM 복원 </br> </br>  *Azure VM에서 파일 일치 백업을 사용할 수 없음* <br/> |
-| Azure Backup 서버 |<li>Hyper-V 및 VMWare에서 일관성 있는 Linux 게스트 VM 파일 백업<br/> <li> Hyper-V 및 VMWare Linux 게스트 VM의 VM 복원 </br></br> *Azure VM에서 파일 일치 백업을 사용할 수 없음*  |
-| Azure IaaS VM Backup |[사전 스크립트 및 사후 스크립트 프레임워크](backup-azure-linux-app-consistent.md)를 사용하여 응용 프로그램 일치 백업<br/> [세분화된 파일 복구](backup-azure-restore-files-from-vm.md)<br/> [모든 VM 디스크 복원](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [VM 복원](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
+**구성 요소** | **Linux(Azure 인증)**
+--- | --- 
+Azure Backup(MARS) 에이전트 | 아니요(Windows 기반 에이전트만) 
+System Center DPM | Hyper-V 및 VMWare에서 일관성 있는 Linux 게스트 VM 파일 백업<br/><br/> Hyper-V 및 VMWare Linux 게스트 VM의 VM 복원</br></br> Azure VM에서 파일 일치 백업을 사용할 수 없음
+Azure Backup 서버 | Hyper-V 및 VMWare에서 일관성 있는 Linux 게스트 VM 파일 백업<br/><br/> Hyper-V 및 VMWare Linux 게스트 VM의 VM 복원</br></br> Azure VM에서 파일 일치 백업을 사용할 수 없음 
+Azure IaaS VM Backup | [사전 스크립트 및 사후 스크립트 프레임워크](backup-azure-linux-app-consistent.md)를 사용하여 앱 일치 백업<br/><br/> [파일 수준 복구](backup-azure-restore-files-from-vm.md)<br/><br/> [복원된 디스크에서 VM 만들기](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [복원된 지점에서 VM 만들기](backup-azure-arm-restore-vms.md#create-new-create-a-vm)
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Azure Backup에서 Premium Storage VM 사용
-Azure Backup은 Premium Storage VM을 보호합니다. Azure Premium Storage는 I/O 집중 워크로드를 지원하도록 설계된 SSD(반도체 드라이브) 기반 저장소이며, Premium Storage는 VM(가상 컴퓨터) 워크로드에 유용합니다. Premium Storage에 대한 자세한 내용은 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 저장소](../virtual-machines/windows/premium-storage.md)를 참조하세요.
+Azure Backup은 Premium Storage VM을 보호합니다. Azure Premium Storage는 I/O 집중 워크로드를 지원하도록 설계된 SSD(반도체 드라이브) 기반 저장소이며, Premium Storage는 VM(가상 컴퓨터) 워크로드에 유용합니다. Premium Storage에 대한 자세한 내용은 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 스토리지](../virtual-machines/windows/premium-storage.md) 문서를 참조하세요.
 
 ### <a name="back-up-premium-storage-vms"></a>Premium Storage VM 백업
 Premium Storage VM을 백업하는 동안, Backup 서비스는 프리미엄 저장소 계정에 "AzureBackup-"이라는 임시 준비 위치를 만듭니다. 준비 위치의 크기는 복구 지점 스냅숏의 크기와 같습니다. Premium Storage 계정에 임시 준비 위치에 맞게 충분한 여유 공간이 있어야 합니다. 자세한 내용은 [Premium Storage 제한](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) 문서를 참조하세요. 백업 작업이 완료되면, 준비 위치가 삭제됩니다. 준비 위치에 사용된 저장소의 가격은 모든 [프리미엄 저장소 가격 책정](../virtual-machines/windows/premium-storage.md#pricing-and-billing)과 일치합니다.
@@ -116,11 +116,11 @@ Azure Backup을 사용하면 관리 디스크로 전체 VM을 복원하거나 �
 ### <a name="storage"></a>Storage
 | 기능 | Azure Backup 에이전트 | System Center DPM | Azure Backup 서버 | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
-| Recovery Services 자격 증명 모음 |![yes][green] |![예][green] |![예][green] |![yes][green] |
-| 디스크 저장소 | |![yes][green] |![yes][green] | |
-| 테이프 저장소 | |![yes][green] | | |
-| 압축 <br/>(Recovery Services 자격 증명 모음에서) |![yes][green] |![예][green] |![yes][green] | |
-| 증분 백업 |![yes][green] |![예][green] |![예][green] |![yes][green] |
+| Recovery Services 자격 증명 모음 |![예][green] |![예][green] |![예][green] |![예][green] |
+| 디스크 저장소 | |![예][green] |![예][green] | |
+| 테이프 저장소 | |![예][green] | | |
+| 압축 <br/>(Recovery Services 자격 증명 모음에서) |![예][green] |![예][green] |![예][green] | |
+| 증분 백업 |![예][green] |![예][green] |![예][green] |![예][green] |
 | 디스크 중복 제거 | |![부분적으로][yellow] |![부분적으로][yellow] | | |
 
 ![테이블 키](./media/backup-introduction-to-azure-backup/table-key.png)
@@ -157,8 +157,8 @@ Recovery Services 자격 증명 모음은 모든 구성 요소에서 기본 설�
 ### <a name="security"></a>보안
 | 기능 | Azure Backup 에이전트 | System Center DPM | Azure Backup 서버 | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
-| 네트워크 보안<br/> (Azure에 대한) |![yes][green] |![예][green] |![예][green] |![yes][green] |
-| 데이터 보안<br/> (Azure에서) |![yes][green] |![예][green] |![예][green] |![yes][green] |
+| 네트워크 보안<br/> (Azure에 대한) |![예][green] |![예][green] |![예][green] |![예][green] |
+| 데이터 보안<br/> (Azure에서) |![예][green] |![예][green] |![예][green] |![예][green] |
 
 ![테이블 키](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -176,8 +176,8 @@ Azure VM을 백업하려면 가상 머신 *내에서* 암호화를 설정해야 
 ### <a name="network"></a>네트워크
 | 기능 | Azure Backup 에이전트 | System Center DPM | Azure Backup 서버 | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
-| 네트워크 압축 <br/>(**백업 서버**에 대한) | |![yes][green] |![yes][green] | |
-| 네트워크 압축 <br/>(**Recovery Services 자격 증명 모음**에) |![yes][green] |![예][green] |![yes][green] | |
+| 네트워크 압축 <br/>(**백업 서버**에 대한) | |![예][green] |![예][green] | |
+| 네트워크 압축 <br/>(**Recovery Services 자격 증명 모음**에) |![예][green] |![예][green] |![예][green] | |
 | 네트워크 프로토콜 <br/>(**백업 서버**에 대한) | |TCP |TCP | |
 | 네트워크 프로토콜 <br/>(**Recovery Services 자격 증명 모음**에) |HTTPS |HTTPS |HTTPS |HTTPS |
 
@@ -240,7 +240,7 @@ Windows Server에서 데이터를 보호하거나 Azure에서 VM(가상 머신)�
 다른 워크로드를 보호하는 방법에 대한 자세한 내용은 다음 문서 중 하나를 사용하세요.
 
 * [Windows Server 백업](backup-configure-vault.md)
-* [응용 프로그램 워크로드 백업](backup-azure-microsoft-azure-backup.md)
+* [애플리케이션 워크로드 백업](backup-azure-microsoft-azure-backup.md)
 * [Azure IaaS VM Backup](backup-azure-arm-vms-prepare.md)
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png

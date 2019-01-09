@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 7af18272c335c835a2aa406fc635f3e7afda2a3a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 182dada35e0bea7101cc58ff62fde76fbcb8971e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003455"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722280"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Node.js 애플리케이션 빌드 및 배포
 
@@ -56,11 +56,11 @@ Cloud Services에 대한 자세한 내용 및 Azure Websites와 Virtual Machines
 
     ![New-AzureService helloworld 명령의 결과][The result of the New-AzureService helloworld command]
 
-    **New-AzureServiceProject** cmdlet은 클라우드 서비스에 Node.js 응용 프로그램을 게시하기 위한 기본 구조를 생성합니다. 여기에는 Azure에 게시하는 데 필요한 구성 파일이 포함됩니다. 또한 이 cmdlet은 작업 디렉터리를 서비스에 대한 디렉터리로 변경합니다.
+    **New-AzureServiceProject** cmdlet은 클라우드 서비스에 Node.js 애플리케이션을 게시하기 위한 기본 구조를 생성합니다. 여기에는 Azure에 게시하는 데 필요한 구성 파일이 포함됩니다. 또한 이 cmdlet은 작업 디렉터리를 서비스에 대한 디렉터리로 변경합니다.
 
     Cmdlet은 다음 파일을 만듭니다.
 
-   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** 및 **ServiceDefinition.csdef**는 응용 프로그램을 게시하는 데 필요한 Azure 관련 파일입니다. 자세한 내용은 [Azure에 대한 호스티드 서비스 만들기 개요](영문)를 참조하세요.
+   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** 및 **ServiceDefinition.csdef**: 애플리케이션을 게시하는 데 필요한 Azure 관련 파일입니다. 자세한 내용은 [Azure에 대한 호스티드 서비스 만들기 개요](영문)를 참조하세요.
    * **deploymentSettings.json**: Azure PowerShell 배포 cmdlet에 사용되는 로컬 설정이 저장됩니다.
 4. 다음 명령을 사용하여 새 웹 역할을 추가하려면
 
@@ -68,7 +68,7 @@ Cloud Services에 대한 자세한 내용 및 Azure Websites와 Virtual Machines
 
    ![Add-AzureNodeWebRole 명령의 출력][The output of the Add-AzureNodeWebRole command]
 
-   **Add-AzureNodeWebRole** cmdlet는 기본 Node.js 응용 프로그램을 만듭니다. 또한 **.csfg** 및 **.csdef** 파일을 수정하여 새 역할에 대한 구성 항목을 추가합니다.
+   **Add-AzureNodeWebRole** cmdlet는 기본 Node.js 애플리케이션을 만듭니다. 또한 **.csfg** 및 **.csdef** 파일을 수정하여 새 역할에 대한 구성 항목을 추가합니다.
 
    > [!NOTE]
    > 역할 이름을 지정하지 않으면 기본 이름이 사용됩니다. 첫번째 cmdlet 매개변수로 이름을 제공할 수 있습니다. `Add-AzureNodeWebRole MyRole`
@@ -113,7 +113,7 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
     Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 
 * **-ServiceName**은 배포에 대한 이름을 지정합니다. 이 이름은 고유해야 합니다. 그렇지 않으면 게시 프로세스가 실패합니다. **Get-Date** 명령은 이름을 고유하게 만들어야 하는 날짜/시간 문자열을 추적합니다.
-* **-위치** 응용 프로그램이 호스팅될 데이터센터를 지정합니다. 사용 가능한 데이터센터 목록을 보려면 **Get-AzureLocation** cmdlet을 사용하세요.
+* **-위치** 애플리케이션이 호스팅될 데이터센터를 지정합니다. 사용 가능한 데이터센터 목록을 보려면 **Get-AzureLocation** cmdlet을 사용하세요.
 * **-Launch** 는 브라우저 창을 열고 배포가 완료 된 후 호스티ㅡㄷ 서비스를 탐색합니다.
 
 게시가 성공하면 다음과 같은 응답이 표시됩니다.
@@ -133,7 +133,7 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 
 1. 배포할 패키지를 만듭니다. 이 패키지에는 애플리케이션 폴더의 모든 파일이 포함됩니다.
 2. **저장소 계정** 이 없는 경우 새로 만듭니다. Azure 저장소 계정은 배포 중 애플리케이션 패키지를 저장하는 데 사용됩니다. 배포가 완료된 후에는 저장소 계정을 삭제해도 안전합니다.
-3. **클라우드 서비스** 가 아직 없는 경우 새로 만듭니다. **클라우드 서비스** 는 응용 프로그램이 Azure에 배포될 때 호스트되는 컨테이너입니다. 자세한 내용은 [Azure에 대한 호스티드 서비스 만들기 개요](영문)를 참조하세요.
+3. **클라우드 서비스** 가 아직 없는 경우 새로 만듭니다. **클라우드 서비스**는 애플리케이션이 Azure에 배포될 때 호스트되는 컨테이너입니다. 자세한 내용은 [Azure에 대한 호스티드 서비스 만들기 개요](영문)를 참조하세요.
 4. 배포 패키지를 Azure에 게시합니다.
 
 ## <a name="stopping-and-deleting-your-application"></a>애플리케이션 중지 및 삭제
@@ -164,7 +164,7 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 
 <!-- URL List -->
 
-[Azure Websites, Cloud Services 및 Virtual Machines 비교]: ../app-service/choose-web-site-cloud-service-vm.md
+[Azure Websites, Cloud Services 및 Virtual Machines 비교]: ../app-service/overview-compare.md
 [간단한 웹앱 사용]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Azure SDK for .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178

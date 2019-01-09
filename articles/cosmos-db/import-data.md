@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: 57c70716ac0e3156440d4a602704cb0ac2e30130
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 45c9d5fac24bbbc7d90abf43f5f7662c26c7d4b0
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091166"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810154"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>데이터 마이그레이션 도구를 사용하여 Azure Cosmos DB로 데이터 마이그레이션
 
@@ -24,7 +24,7 @@ Azure Cosmos DB와 함께 사용할 API는 무엇인가요?
 
 * **[SQL API](documentdb-introduction.md)** - 데이터 마이그레이션 도구에서 제공되는 원본 옵션 중 하나를 사용하여 데이터를 가져올 수 있습니다.
 * **[Table API](table-introduction.md)** - 데이터 마이그레이션 도구 또는 AzCopy를 사용하여 데이터를 가져올 수 있습니다. 자세한 정보는 [Azure Cosmos DB Table API와 함께 사용할 데이터 가져오기](table-import.md)를 참조하세요.
-* **[MongoDB API](mongodb-introduction.md)** - 데이터 마이그레이션 도구는 현재 원본 또는 대상으로 Azure Cosmos DB MongoDB API를 지원하지 않습니다. Azure Cosmos DB의 MongoDB API 컬렉션에서 데이터를 마이그레이션하거나 내보내려는 경우 자세한 내용은 [Azure Cosmos DB: MongoDB API에 대한 데이터를 마이그레이션하는 방법](mongodb-migrate.md)을 참조하세요. 데이터 마이그레이션 도구를 사용하여 SQL API와 함께 사용할 수 있도록 MongoDB에서 Azure Cosmos DB SQL API 컬렉션으로 데이터를 내보낼 수 있습니다.
+* **[Azure Cosmos DB의 MongoDB API](mongodb-introduction.md)** - 데이터 마이그레이션 도구는 현재 Azure Cosmos DB의 MongoDB API를 원본 또는 대상으로 지원하지 않습니다. Azure Cosmos DB의 API 컬렉션에서 데이터를 마이그레이션하려는 경우 지침은 [Azure Cosmos DB의 MongoDB API를 사용하여 MongoDB 데이터를 Cosmos 데이터베이스로 마이그레이션하는 방법](mongodb-migrate.md)을 참조하세요. 데이터 마이그레이션 도구를 사용하여 SQL API와 함께 사용할 수 있도록 MongoDB에서 Azure Cosmos DB SQL API 컬렉션으로 데이터를 내보낼 수 있습니다.
 * **[Gremlin API](graph-introduction.md)** - 데이터 마이그레이션 도구는 이 경우에 Gremlin API 계정에 지원되는 가져오기 도구가 아닙니다.
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
@@ -111,7 +111,7 @@ dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t
 ## <a id="MongoDB"></a>MongoDB에서 가져오기
 
 > [!IMPORTANT]
-> MongoDB에 대한 지원을 포함한 Azure Cosmos DB 계정을 가져오는 경우 다음 [지침](mongodb-migrate.md)을 수행합니다.
+> Azure Cosmos DB의 MongoDB API로 구성된 Cosmos 계정으로 가져오는 경우 이러한 [지침](mongodb-migrate.md)을 따르세요.
 
 MongoDB 원본 가져오기 옵션을 사용하면 단일 MongoDB 컬렉션에서 가져오고 필요에 따라 쿼리를 사용하여 문서를 필터링하거나 프로젝션을 사용하여 문서 구조를 수정할 수 있습니다.  
 

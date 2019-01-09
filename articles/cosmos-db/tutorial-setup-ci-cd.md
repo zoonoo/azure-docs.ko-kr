@@ -8,20 +8,20 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: 8b64142a7d693e8e48e1739a61978abbab740e3d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 83178abab84679dcfb36a361950097f9224eda81
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875215"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810646"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하여 Azure DevOps에서 CI/CD 파이프라인 설정
 
-Azure Cosmos DB 에뮬레이터는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공합니다. 이 에뮬레이터를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 애플리케이션을 테스트할 수 있습니다. 
+Azure Cosmos DB 에뮬레이터는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공합니다. 이 에뮬레이터를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 응용 프로그램을 테스트할 수 있습니다. 
 
 Azure DevOps에 대한 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하면 CI 환경에서와 동일한 작업을 수행할 수 있습니다. 빌드 작업을 사용하면 빌드 및 릴리스 워크플로의 일부로 에뮬레이터에 대한 테스트를 실행할 수 있습니다. 이 작업은 에뮬레이터가 이미 실행 중인 Docker 컨테이너를 스핀업하고, 빌드 정의의 나머지 부분에서 사용할 수 있는 엔드포인트를 제공합니다. 별도 컨테이너에서 실행되는 필요한 만큼 많은 에뮬레이터의 인스턴스를 만들고 시작할 수 있습니다. 
 
-이 문서에서는 Cosmos DB 에뮬레이터 빌드 작업을 사용하여 테스트를 실행하는 ASP.NET 애플리케이션에 대해 Azure DevOps에서 CI 파이프라인을 설정하는 방법을 설명합니다. 유사한 방법을 사용하여 Node.js 또는 Python 애플리케이션에 대한 CI 파이프라인을 설정할 수 있습니다. 
+이 문서에서는 Cosmos DB 에뮬레이터 빌드 작업을 사용하여 테스트를 실행하는 ASP.NET 응용 프로그램에 대해 Azure DevOps에서 CI 파이프라인을 설정하는 방법을 설명합니다. 유사한 방법을 사용하여 Node.js 또는 Python 애플리케이션에 대한 CI 파이프라인을 설정할 수 있습니다. 
 
 ## <a name="install-the-emulator-build-task"></a>에뮬레이터 빌드 작업 설치
 
@@ -81,7 +81,7 @@ Azure DevOps에 대한 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용�
 </RunSettings>
 ```
 
-Azure Cosmos DB MongoDB API를 사용하는 애플리케이션에 대한 CI/CD 파이프라인을 설정하는 경우 기본적으로 MongoDB 연결 문자열에는 포트 번호 10255가 포함됩니다. 그러나 이 포트는 현재 열려 있지 않아 대안으로 포트 10250을 사용하여 연결을 설정합니다. 지원되는 포트 번호가 10255 대신 10250인 점을 제외하고 MongoDB API 연결 문자열은 동일하게 유지됩니다.
+Azure Cosmos DB의 MongoDB API를 사용하는 애플리케이션에 대한 CI/CD 파이프라인을 설정하는 경우 기본적으로 10255 포트 번호가 연결 문자열에 포함됩니다. 그러나 이 포트는 현재 열려 있지 않아 대안으로 포트 10250을 사용하여 연결을 설정합니다. 지원되는 포트 번호가 10255 대신 10250이라는 점을 제외하고는 Azure Cosmos DB의 MongoDB API 연결 문자열이 동일하게 유지됩니다.
 
 이러한 매개 변수 `TestRunParameters`는 애플리케이션 테스트 프로젝트의 `TestContext` 속성을 통해 참조됩니다. Cosmos DB에 대해 실행되는 테스트의 예제는 다음과 같습니다.
 

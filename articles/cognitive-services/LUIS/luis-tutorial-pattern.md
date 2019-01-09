@@ -9,23 +9,23 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 346d8a83661c487a1d9a11e4da7d7bb67843e0b4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 05af52ab492fcfe509b547efdd182a366642b9ed
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075525"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754410"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>자습서 3: 일반적인 발언 서식 추가
+# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>자습서: 일반적인 패턴 템플릿 발언 서식 추가
 
 이 자습서에서는 패턴을 사용하여 의도 및 엔터티 예측을 높이는 한편 발화 예제를 줄입니다. 패턴은 엔터티 및 무시 가능한 텍스트를 식별하는 구문을 포함하는 템플릿 발언 예제를 통해 제공됩니다. 패턴은 식 일치 및 기계 학습의 조합입니다.  의도 발언과 함께 템플릿 발언 예제는 의도에 맞는 발언을 LUIS가 더 잘 이해하도록 합니다. 
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 
 > [!div class="checklist"]
-> * 기존 자습서 앱 사용 
+> * 앱 가져오기 예제 
 > * 의도 만들기
 > * 학습
 > * 게시
@@ -37,13 +37,13 @@ ms.locfileid: "53075525"
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>기존 앱 사용
+## <a name="import-example-app"></a>앱 가져오기 예제
 
 마지막 자습서에서 만든 **HumanResources**라는 앱을 사용하여 계속 진행합니다. 
 
-이전 자습서의 HumanResources 앱이 없으면 다음 단계를 사용합니다.
+다음 단계를 사용하세요.
 
-1.  [앱 JSON 파일](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json)을 다운로드하고 저장합니다.
+1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json)을 다운로드하고 저장합니다.
 
 2. JSON을 새 앱으로 가져옵니다.
 

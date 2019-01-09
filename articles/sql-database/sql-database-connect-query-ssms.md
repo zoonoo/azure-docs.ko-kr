@@ -4,7 +4,7 @@ description: SQL Server Management Studio(SSMS)를 사용하여 SQL Database에 
 keywords: SQL Database에 연결, SQL Server Management Studio
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -13,16 +13,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: b3342164aec49967e819c316827dca9a65f2674f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 636adcf15479fe8e072b833b59ddc78b5f820550
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098958"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745077"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>빠른 시작: SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 연결 및 쿼리
 
-SSMS([SQL Server Management Studio][ssms-install-latest-84g])를 사용하여 Microsoft Windows의 SQL Server에서 SQL Database에 이르는 모든 SQL 인프라를 관리할 수 있습니다. 이 빠른 시작은 SSMS를 사용하여 Azure SQL 데이터베이스에 연결한 후 Transact-SQL 문을 실행하여 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 
+이 빠른 시작에서는 [SSMS(SQL Server Management Studio)][ssms-install-latest-84g]를 사용하여 Azure SQL 데이터베이스에 연결합니다. 그 후 Transact-SQL 문을 실행하여 데이터를 쿼리, 삽입, 업데이트 및 삭제합니다. SSMS를 사용하여 Microsoft Windows의 SQL Server에서 SQL Database에 이르는 모든 SQL 인프라를 관리할 수 있습니다.  
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -75,11 +75,11 @@ SMSS에서 Azure SQL Database 서버에 연결합니다.
 
 ## <a name="query-data"></a>쿼리 데이터
 
-다음 [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 코드를 사용하여 범주별 상위 20개 제품을 쿼리합니다.
+이 [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 코드를 실행하여 범주별 상위 20개 제품을 쿼리합니다.
 
-1. 개체 탐색기에서 **mySampleDatabase**를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다. 데이터베이스에 연결된 비어 있는 쿼리 창이 열립니다.
+1. 개체 탐색기에서 **mySampleDatabase**를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다. 데이터베이스에 연결된 새 쿼리 창이 열립니다.
 
-1. 쿼리 창에서 이 SQL 쿼리를 붙여넣습니다.
+2. 쿼리 창에서 이 SQL 쿼리를 붙여넣습니다.
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -90,11 +90,11 @@ SMSS에서 Azure SQL Database 서버에 연결합니다.
 
 3. 도구 모음에서 **실행**을 선택하여 `Product` 및 `ProductCategory` 테이블에서 데이터를 검색합니다.
 
-    ![2개 테이블에서 데이터를 검색하는 쿼리](./media/sql-database-connect-query-ssms/query2.png)
+    ![두 테이블에서 데이터를 검색하는 쿼리](./media/sql-database-connect-query-ssms/query2.png)
 
 ## <a name="insert-data"></a>데이터 삽입
 
-다음 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 코드를 사용하여 `SalesLT.Product` 테이블에서 새 제품을 만듭니다.
+이 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 코드를 실행하여 `SalesLT.Product` 테이블에서 새 제품을 만듭니다.
 
 1. 이전 쿼리를 다음 쿼리로 바꿉니다.
 
@@ -117,7 +117,7 @@ SMSS에서 Azure SQL Database 서버에 연결합니다.
            ,GETDATE() );
    ```
 
-2. **실행**을 선택하여 Product 테이블에서 새 행을 삽입합니다. **메시지** 창에 **(영향을 받는 행 1개)** 가 표시됩니다.
+2. **실행**을 선택하여 `Product` 테이블에서 새 행을 삽입합니다. **메시지** 창에 **(영향을 받는 행 1개)** 가 표시됩니다.
 
 ## <a name="view-the-result"></a>결과 보기
 
@@ -134,7 +134,7 @@ SMSS에서 Azure SQL Database 서버에 연결합니다.
  
 ## Update data
 
-Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify the new product you just added.
+Run this [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify your new product.
 
 1. Replace the previous query with this one.
 
@@ -144,11 +144,11 @@ Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. **실행**을 선택하여 Product 테이블에서 지정된 행을 업데이트합니다. **메시지** 창에 **(영향을 받는 행 1개)** 가 표시됩니다.
+2. **실행**을 선택하여 `Product` 테이블에서 지정된 행을 업데이트합니다. **메시지** 창에 **(영향을 받는 행 1개)** 가 표시됩니다.
 
 ## <a name="delete-data"></a>데이터 삭제
 
-다음 [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 코드를 사용하여 이전에 추가한 새 제품을 제거합니다.
+이 [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 코드를 실행하여 새 제품을 제거합니다.
 
 1. 이전 쿼리를 다음 쿼리로 바꿉니다.
 
@@ -157,7 +157,7 @@ Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. **실행**을 선택하여 Product 테이블에서 지정된 행을 삭제합니다. **메시지** 창에 **(영향을 받는 행 1개)** 가 표시됩니다.
+2. **실행**을 선택하여 `Product` 테이블에서 지정된 행을 삭제합니다. **메시지** 창에 **(영향을 받는 행 1개)** 가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

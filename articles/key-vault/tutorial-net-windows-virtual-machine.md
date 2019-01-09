@@ -1,5 +1,5 @@
 ---
-title: 자습서 - .NET에서 Azure Windows Virtual Machine에 Azure Key Vault를 사용하는 방법 | Microsoft Docs
+title: 자습서 - .NET의 Azure Windows Virtual Machine에서 Azure Key Vault를 사용하는 방법 - Azure Key Vault | Microsoft Docs
 description: 자습서 Key Vault에서 비밀을 읽도록 ASP.NET Core 애플리케이션 구성
 services: key-vault
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: key-vault
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: d1f24c8bebc8740f47dc0f02089db1091c22f597
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: f12d73904b547da6531e24a899277eca7dd46660
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711330"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998764"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>자습서: .NET에서 Azure Windows Virtual Machine에 Azure Key Vault를 사용하는 방법
+# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>자습서: .NET의 Azure Windows Virtual Machine에서 Azure Key Vault를 사용하는 방법
 
 Azure Key Vault를 통해 애플리케이션, 서비스 및 IT 리소스에 액세스하는 데 필요한 API 키, 데이터베이스 연결 문자열과 같은 비밀을 보호할 수 있습니다.
 
-이 자습서에서는 Azure 리소스의 관리 ID를 사용하여 Console 애플리케이션이 Azure Key Vault에서 정보를 읽는 데 필요한 단계를 수행합니다. 이 자습서는 [Azure Web Apps](../app-service/app-service-web-overview.md)를 기반으로 합니다. 다음에서 사용 방법을 알아봅니다.
+이 자습서에서는 Azure 리소스의 관리 ID를 사용하여 Console 애플리케이션이 Azure Key Vault에서 정보를 읽는 데 필요한 단계를 따릅니다. 다음에서 사용 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 키 자격 증명 모음을 만듭니다.
@@ -45,6 +45,7 @@ Azure Key Vault를 통해 애플리케이션, 서비스 및 IT 리소스에 액�
 이 자습서에서는 관리 서비스 ID를 사용합니다.
 
 ## <a name="what-is-managed-service-identity-and-how-does-it-work"></a>관리 서비스 ID란 무엇이고 어떻게 작동하나요?
+
 계속하기 전에 MSI를 이해하겠습니다. Azure Key Vault가 자격 증명을 안전하게 저장할 수 있도록 해당 코드 이외로 작성되지만 검색하려면 Azure Key Vault에 인증해야 합니다. Key Vault에 인증하려면 자격 증명이 필요합니다. 클래식 부트스트랩 문제가 있습니다. MSI는 Azure 및 Azure AD의 기능을 통해 작업을 간단하게 만드는 "부트스트랩 ID"를 제공합니다.
 
 방법은 다음과 같습니다. Virtual Machines, App Service 또는 Functions와 같은 Azure 서비스에 대해 MSI를 사용하도록 설정하면 Azure에서는 Azure Active Directory의 서비스 인스턴스에 대한 [서비스 주체](key-vault-whatis.md#basic-concepts)를 만들고, 서비스 인스턴스에 서비스 주체의 자격 증명을 삽입합니다. 
@@ -54,7 +55,7 @@ Azure Key Vault를 통해 애플리케이션, 서비스 및 IT 리소스에 액�
 다음으로, 코드는 액세스 토큰을 가져오기 위해 Azure 리소스에 사용할 수 있는 로컬 메타데이터 서비스를 호출합니다.
 코드는 Azure Key Vault 서비스를 인증하기 위해 로컬 MSI_ENDPOINT에서 가져오는 액세스 토큰을 사용합니다. 
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
 Azure CLI를 사용하여 Azure에 로그인하려면 다음을 입력합니다.
 
@@ -80,9 +81,9 @@ az group create --name "<YourResourceGroupName>" --location "West US"
 
 다음으로, 이전 단계에서 만든 리소스 그룹에 키 자격 증명 모음을 만듭니다. 다음 정보를 지정합니다.
 
-* 키 자격 증명 모음 이름: 3-24자의 문자열이어야 하며 (0-9, a-z, A-Z 및 -)만 포함해야 합니다.
+* 키 자격 증명 모음 이름: 3-24자의 문자열이어야 하며 0-9, a-z, A-Z 및 -만 포함해야 합니다.
 * 리소스 그룹 이름
-* 위치: **미국 서부**
+* 위치: **미국 서부**.
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
@@ -91,7 +92,7 @@ az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGr
 
 ## <a name="add-a-secret-to-the-key-vault"></a>키 자격 증명 모음에 비밀 추가
 
-이 작업을 설명하기 위한 비밀을 추가하고 있습니다. 안전하게 유지하면서 애플리케이션에서 사용할 수 있도록 하는 데 필요한 SQL 연결 문자열 또는 기타 정보를 저장할 수 있습니다.
+이 작업을 설명하기 위한 비밀을 추가하고 있습니다. 안전하게 유지하면서 응용 프로그램에서 사용할 수 있도록 하는 데 필요한 SQL 연결 문자열 또는 기타 정보를 저장할 수 있습니다.
 
 다음 명령을 입력하여 키 자격 증명 모음에 **AppSecret**라고 하는 비밀을 만듭니다. 이 비밀에는 **MySecret** 값이 저장됩니다.
 
@@ -115,7 +116,7 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
-아래의 systemAssignedIdentity를 기록해 두세요. 위 명령의 출력은 다음과 같습니다. 
+아래의 systemAssignedIdentity를 참고하세요. 위 명령의 출력은 다음과 같습니다. 
 
 ```
 {
@@ -131,7 +132,7 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## <a name="login-to-the-virtual-machine"></a>Virtual Machine에 로그인
+## <a name="sign-in-to-the-virtual-machine"></a>Virtual Machine에 로그인
 
 이 [자습서](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon)를 수행하면 됩니다.
 
@@ -161,7 +162,8 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
-그런 다음, 아래 코드를 포함하도록 클래스 파일을 변경합니다. 이 작업은 2단계 프로세스입니다. 
+그런 다음, 아래 코드를 포함하도록 클래스 파일을 변경합니다. 이 작업은 2단계 프로세스입니다.
+
 1. VM의 로컬 MSI 엔드포인트에서 토큰을 가져옵니다. 그러면 VM이 Azure Active Directory에서 토큰을 가져옵니다.
 2. Key Vault에 토큰을 전달하고 비밀 가져오기 
 
@@ -211,7 +213,7 @@ using Newtonsoft.Json.Linq;
 ```
 
 
-위의 코드는 Azure Linux Virtual Machine에서 Azure Key Vault 작업을 수행하는 방법을 보여줍니다. 
+위의 코드는 Azure Windows Virtual Machine에서 Azure Key Vault 작업을 수행하는 방법을 보여줍니다. 
 
 
 

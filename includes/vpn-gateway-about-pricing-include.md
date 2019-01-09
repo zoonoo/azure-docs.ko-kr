@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 205c67377e4bff66c02e3ee508c0f6f4e2823608
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ae36adc78d8c87d85c64fd61cb3a50dfcae60b85
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30196712"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995742"
 ---
 가상 네트워크 게이트웨이에 대한 시간당 계산 비용 및 가상 네트워크 게이트웨이에서 송신 데이터 전송 등 두 가지에 대한 비용을 지불합니다. 가격 책정 정보는 [가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway) 페이지에 있습니다.
 
-**가상 네트워크 게이트웨이 계산 비용**<br>각 가상 네트워크 게이트웨이에는 시간당 계산 비용이 포함됩니다. 가격은 가상 네트워크 게이트웨이를 만들 때 지정한 게이트웨이 SKU에 따라 다릅니다. 비용은 게이트웨이 자체에 대한 것이며 게이트웨이를 통해 전달되는 데이터 전송에 추가됩니다.
+**가상 네트워크 게이트웨이 계산 비용**<br>각 가상 네트워크 게이트웨이에는 시간당 계산 비용이 포함됩니다. 가격은 가상 네트워크 게이트웨이를 만들 때 지정한 게이트웨이 SKU에 따라 다릅니다. 비용은 게이트웨이 자체에 대한 것이며 게이트웨이를 통해 전달되는 데이터 전송에 추가됩니다. 활성-능동 설정의 비용은 활성-수동의 비용과 같습니다.
 
 **데이터 전송 비용**<br>데이터 전송 비용은 원본 가상 네트워크 게이트웨이의 송신 트래픽에 따라 계산됩니다.
 

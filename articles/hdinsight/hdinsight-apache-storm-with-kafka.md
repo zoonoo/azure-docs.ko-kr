@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: 1c2a61ba936fa86bb3acb560909b29cda762693c
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 44ad80732d1e874ccec4ecc376b9ce9b513a3aa9
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166577"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652374"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Storm 및 Apache Kafka 사용
 
@@ -37,9 +37,9 @@ ms.locfileid: "53166577"
 
 * Kafka 토픽 생성 방법 이해. 자세한 내용은 [HDInsight의 Kafka 빠른 시작](./kafka/apache-kafka-get-started.md) 문서를 참조하세요.
 
-* Storm 솔루션(토폴로지) 빌드 및 배포 방법 이해. 특히, [Flux](https://storm.apache.org/releases/current/flux.html) 프레임워크를 사용하는 토폴로지에 대한 기본 지식이 필요합니다. 자세한 내용은 [Java에서 Storm 토폴로지 만들기](./storm/apache-storm-develop-java-topology.md) 문서를 참조하세요.
+* Storm 솔루션(토폴로지) 빌드 및 배포 방법 이해. 특히, [Apache Storm Flux](https://storm.apache.org/releases/current/flux.html) 프레임워크를 사용하는 토폴로지에 대한 기본 지식이 필요합니다. 자세한 내용은 [Java에서 Apache Storm 토폴로지 만들기](./storm/apache-storm-develop-java-topology.md) 문서를 참조하세요.
 
-* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) 이상 - HDInsight 3.5 이상에는 Java 8이 필요합니다.
+* [Java JDK 1.8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) 이상 - HDInsight 3.5 이상에는 Java 8이 필요합니다.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -54,7 +54,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
     * `JAVA_HOME\bin`(또는 이와 동등한 경로)
     * Maven이 설치된 디렉터리
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이 문서의 단계를 수행하려면 HDInsight의 Storm과 HDInsight의 Kafka 클러스터를 모두 포함하는 Azure 리소스 그룹이 필요합니다. 이러한 클러스터는 모두 Azure Virtual Network에 있으며, 여기서는 Storm 클러스터와 Kafka 클러스터 간에 직접 통신할 수 있습니다.
 > 
 > 사용자의 편의를 위해, 이 문서는 필요한 모든 Azure 리소스를 만들 수 있는 템플릿에 연결되어 있습니다. 
@@ -124,7 +124,7 @@ Apache Storm은 Apache Kafka로 작업하기 위한 몇 가지 구성 요소를 
 
 * Kafka-reader: Kafka에서 데이터를 읽고 Storm 클러스터의 HDFS 호환 파일 저장소에 저장합니다.
 
-    > [!WARNING] 
+    > [!WARNING]  
     > Storm이 HDInsight에서 사용되는 HDFS 호환 저장소를 사용할 수 있도록 하려면 스크립트 작업이 필요합니다. 이 스크립트는 여러 개의 jar 파일을 Storm에 대한 `extlib` 경로에 설치합니다. 이 자습서의 템플릿은 클러스터 생성 중에 자동으로 이 스크립트를 사용합니다.
     >
     > Storm 클러스터를 만드는 데 이 문서의 템플릿을 사용하지 않을 경우 클러스터에 스크립트 작업을 수동으로 적용해야 합니다.
@@ -141,7 +141,7 @@ Apache Storm은 Apache Kafka로 작업하기 위한 몇 가지 구성 요소를 
 
 * `${kafka.zookeeper.hosts}`: Kafka 클러스터에서 Zookeeper가 실행되는 호스트입니다.
 
-* `${hdfs.url}`: HDFSBolt 구성 요소에 대한 파일 시스템 URL입니다. 데이터를 Azure Storage 계정에 쓸지 또는 Azure Data Lake Store에 쓸지를 나타냅니다.
+* `${hdfs.url}`: HDFSBolt 구성 요소에 대한 파일 시스템 URL입니다. 데이터를 Azure Storage 계정에 쓸지 또는 Azure Data Lake Storage에 쓸지를 나타냅니다.
 
 * `${hdfs.write.dir}`: 데이터가 기록된 디렉터리입니다.
 
@@ -373,7 +373,7 @@ streams:
 | `kafka.broker.hosts` | Kafka 브로커 호스트(작업자 노드를)입니다. |
 | `kafka.topic` | 토폴로지에서 사용되는 Kafka 토픽입니다. |
 | `hdfs.write.dir` | Kafka-reader 토폴로지가 쓰는 디렉터리입니다. |
-| `hdfs.url` | Storm 클러스터에서 사용되는 파일 시스템입니다. Azure Storage 계정의 경우 `wasb:///` 값을 사용합니다. Azure Data Lake Store의 경우 `adl:///` 값을 사용합니다. |
+| `hdfs.url` | Storm 클러스터에서 사용되는 파일 시스템입니다. Azure Storage 계정의 경우 `wasb:///` 값을 사용합니다. Azure Data Lake Storage의 경우 `adl:///` 값을 사용합니다. |
 
 ## <a name="create-the-clusters"></a>클러스터 만들기
 
@@ -383,7 +383,7 @@ HDInsight의 Apache Kafka는 공용 인터넷을 통한 액세스를 Kafka broke
 
 ![Azure 가상 네트워크에 있는 Storm 및 Kafka 클러스터 다이어그램](./media/hdinsight-apache-storm-with-kafka/storm-kafka-vnet.png)
 
-> [!NOTE]
+> [!NOTE]  
 > SSH 및 [Apache Ambari](https://ambari.apache.org/)와 같은 클러스터의 다른 서비스는 인터넷을 통해 액세스할 수 있습니다. HDInsight에서 사용할 수 있는 공용 포트에 대한 자세한 내용은 [HDInsight에서 사용하는 포트 및 URI](hdinsight-hadoop-port-settings-for-services.md)를 참조하세요.
 
 Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 만들려면 다음 단계를 사용합니다.
@@ -400,7 +400,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
     * HDInsight 버전 3.6의 Kafka(작업자 노드 3개)
     * HDInsight 버전 3.6의 Storm(작업자 노드 3개)
 
-  > [!WARNING]
+  > [!WARNING]  
   > HDInsight에서 Kafka의 사용 가능성을 보장하려면 클러스터에 작업자 노드가 3개 이상 포함되어야 합니다. 이 템플릿은 세 개의 작업자 노드를 포함하는 Kafka 클러스터를 만듭니다.
 
 2. 다음 지침을 사용하여 **사용자 지정 배포** 섹션의 항목을 채웁니다.
@@ -425,7 +425,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
 
 4. 마지막으로 **대시보드에 고정**을 선택한 다음 **구매**를 선택합니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 클러스터를 만드는 데 최대 20분이 걸릴 수 있습니다.
 
 ## <a name="build-the-topology"></a>토폴로지 작성
@@ -463,7 +463,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
     ($brokerHosts -join ":9092,") + ":9092"
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 다음 Bash 예제에서는 `$CLUSTERNAME`에 __Kafka__ 클러스터 이름이 포함되어 있다고 가정합니다. 또한 [jq](https://stedolan.github.io/jq/) 버전 1.5 이상이 설치되어 있다고 가정합니다. 메시지가 표시되면 클러스터 로그인 계정에 대한 암호를 입력합니다.
 
     ```bash
@@ -474,7 +474,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
 
         wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 클러스터에 대해 두 개 이상의 브로커 호스트가 있을 수 있습니다. 클라이언트에 대한 모든 호스트의 전체 목록을 제공할 필요는 없습니다. 하나 또는 두 개로도 충분합니다.
 
 2. 다음 방법 중 하나를 사용하여 HDInsight 클러스터에서 __Kafka__에 대한 Zookeeper 호스트를 검색합니다.
@@ -490,7 +490,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
     ($zookeeperHosts -join ":2181,") + ":2181"
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 다음 Bash 예제에서는 `$CLUSTERNAME`에 __Kafka__ 클러스터가 포함되어 있다고 가정합니다. [jq](https://stedolan.github.io/jq/)도 설치되어 있다고 가정합니다. 메시지가 표시되면 클러스터 로그인 계정에 대한 암호를 입력합니다.
 
     ```bash
@@ -501,7 +501,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
 
         zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 두 개 이상의 Zookeeper 노드가 있습니다. 클라이언트에 대한 모든 호스트의 전체 목록을 제공할 필요는 없습니다. 하나 또는 두 개로도 충분합니다.
 
     나중에 사용하므로 이 값을 저장합니다.
@@ -512,8 +512,8 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
         kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
         kafka.topic: stormtopic
 
-    > [!IMPORTANT]
-    > `hdfs.url` 항목은 Azure Storage 계정을 사용하는 클러스터에 대해 구성됩니다. Data Lake Store를 사용하는 Storm 클러스터에서 이 토폴로지를 사용하려면 이 값을 `wasb`에서 `adl`로 변경합니다.
+    > [!IMPORTANT]  
+    > `hdfs.url` 항목은 Azure Storage 계정을 사용하는 클러스터에 대해 구성됩니다. Data Lake Storage를 사용하는 Storm 클러스터에서 이 토폴로지를 사용하려면 이 값을 `wasb`에서 `adl`로 변경합니다.
 
 4. `dev.properties` 파일을 저장하고 다음 명령을 사용하여 **Storm** 클러스터로 업로드합니다.
 
@@ -630,7 +630,7 @@ Azure Portal을 사용하여 리소스 그룹을 제거하려면:
 2. 삭제할 리소스 그룹을 찾은 다음 목록 오른쪽에 있는 __자세히__ 단추(...)를 마우스 오른쪽 단추로 클릭합니다.
 3. __리소스 그룹 삭제__를 선택한 다음 확인합니다.
 
-> [!WARNING]
+> [!WARNING]  
 > 클러스터가 만들어지면 HDInsight 클러스터 청구가 시작되고 클러스터가 삭제되면 중지됩니다. 분 단위로 청구되므로 더 이상 사용하지 않으면 항상 클러스터를 삭제해야 합니다.
 > 
 > HDInsight 클러스터의 Kafka를 삭제하면 Kafka에 저장된 데이터가 모두 삭제됩니다.

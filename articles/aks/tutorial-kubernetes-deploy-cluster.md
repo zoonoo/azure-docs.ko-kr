@@ -3,22 +3,21 @@ title: Azure의 Kubernertes 자습서 - 클러스터 배포
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 AKS 클러스터를 만들고 kubectl을 사용하여 Kubernetes 마스터 노드에 연결합니다.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 80b011f9df389098095f58c02008da891b2aa8a7
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 7e5c78e1b30b311c6ce918453fe728ae86060dda
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41917971"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720665"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>자습서: AKS(Azure Kubernetes Service) 클러스터 배포
 
-Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제공합니다. AKS를 사용하면 프로덕션 준비 Kubernetes 클러스터를 신속하게 프로비전할 수 있습니다. 총 7부 중 3부인 이 자습서에서는 Kubernetes 클러스터가 AKS에 배포됩니다. 다음 방법에 대해 알아봅니다.
+Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제공합니다. AKS를 사용하면 프로덕션 준비 Kubernetes 클러스터를 신속하게 만들 수 있습니다. 총 7부 중 3부인 이 자습서에서는 Kubernetes 클러스터가 AKS에 배포됩니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 리소스 상호 작용에 대한 서비스 사용자 만들기
@@ -26,19 +25,19 @@ Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제�
 > * Kubernetes CLI(kubectl) 설치
 > * AKS 클러스터에 연결하도록 kubectl 구성
 
-후속 자습서에서 Azure Vote 애플리케이션은 클러스터에 배포되고, 크기가 조정되며, 업데이트됩니다.
+추가 자습서에서 Azure Vote 애플리케이션은 클러스터에 배포되고, 크기가 조정되며, 업데이트됩니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이전 자습서에서는 컨테이너 이미지를 만들어 Azure Container Registry 인스턴스에 업로드했습니다. 이러한 단계를 아직 수행하지 않았으나 수행하려는 경우 [자습서 1 - 컨테이너 이미지 만들기][aks-tutorial-prepare-app]로 돌아갑니다.
+이전 자습서에서는 컨테이너 이미지를 만들어 Azure Container Registry 인스턴스에 업로드했습니다. 이러한 단계를 아직 수행하지 않았으나 수행하려는 경우 [자습서 1 - 컨테이너 이미지 만들기][aks-tutorial-prepare-app]에서 시작합니다.
 
-이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.44 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.53 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기
 
 AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 Azure Active Directory 서비스 사용자를 사용합니다. Azure CLI 또는 포털에서 이 서비스 주체를 자동으로 생성하거나 추가 사용 권한을 미리 만고 할당할 수 있습니다. 이 자습서에서는 서비스 사용자를 만들고, 이전 자습서에서 만든 ACR(Container Registry) 인스턴스에 대한 액세스 권한을 부여한 다음, AKS 클러스터를 만듭니다.
 
-[az ad sp create-for-rbac][] 명령을 사용하여 서비스 사용자를 만듭니다. `--skip-assignment` 매개 변수는 다른 추가 사용 권한이 할당되지 않도록 제한합니다.
+[az ad sp create-for-rbac][] 명령을 사용하여 서비스 사용자를 만듭니다. `--skip-assignment` 매개 변수는 다른 추가 사용 권한이 할당되지 않도록 제한합니다. 기본적으로 이 서비스 주체는 1년 동안 유효합니다.
 
 ```azurecli
 az ad sp create-for-rbac --skip-assignment
@@ -76,7 +75,7 @@ az role assignment create --assignee <appId> --scope <acrId> --role Reader
 
 ## <a name="create-a-kubernetes-cluster"></a>Kubernetes 클러스터 만들기
 
-AKS 클러스터는 Kubernetes RBAC(역할 기반 액세스 제어)를 사용할 수 있습니다. 이러한 컨트롤을 통해 사용자에게 할당된 역할에 따라 리소스에 대한 액세스를 정의할 수 있습니다. 사용자에게 여러 역할이 할당된 경우 권한을 결합할 수 있으며, 권한의 범위를 단일 네임스페이스 또는 전체 클러스터로 지정할 수 있습니다. Kubernetes RBAC는 현재 AKS 클러스터에 미리 보기로 제공됩니다. 기본적으로 Azure CLI는 사용자가 AKS 클러스터를 만들면 자동으로 RBAC를 사용하도록 설정합니다.
+AKS 클러스터는 Kubernetes RBAC(역할 기반 액세스 제어)를 사용할 수 있습니다. 이러한 컨트롤을 통해 사용자에게 할당된 역할에 따라 리소스에 대한 액세스를 정의할 수 있습니다. 사용자에게 여러 역할이 할당된 경우 권한을 결합할 수 있으며, 권한의 범위를 단일 네임스페이스 또는 전체 클러스터로 지정할 수 있습니다. 기본적으로 Azure CLI는 사용자가 AKS 클러스터를 만들면 자동으로 RBAC를 사용하도록 설정합니다.
 
 [az aks create][] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myAKSCluster*라는 클러스터를 만듭니다. 이 리소스 그룹은 [이전 자습서][aks-tutorial-prepare-acr]에서 만들었습니다. 서비스 사용자를 만든 이전 단계의 고유한 `<appId>` 및 `<password>`를 입력합니다.
 
@@ -104,7 +103,7 @@ az aks install-cli
 
 ## <a name="connect-to-cluster-using-kubectl"></a>kubectl을 사용하여 클러스터에 연결
 
-Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면[az aks get-credentials][] 명령을 사용합니다. 다음 예제에서는 *myResourceGroup*에서 AKS 클러스터 이름 *myAKSCluster*에 대한 자격 증명을 가져옵니다.
+Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면 [az aks get-credentials][] 명령을 사용합니다. 다음 예제에서는 *myResourceGroup*에서 AKS 클러스터 이름 *myAKSCluster*에 대한 자격 증명을 가져옵니다.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -115,8 +114,8 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 $ kubectl get nodes
 
-NAME                       STATUS    ROLES     AGE       VERSION
-aks-nodepool1-66427764-0   Ready     agent     9m        v1.9.9
+NAME                       STATUS   ROLES   AGE     VERSION
+aks-nodepool1-28993262-0   Ready    agent   3m18s   v1.9.11
 ```
 
 ## <a name="next-steps"></a>다음 단계
@@ -129,10 +128,10 @@ aks-nodepool1-66427764-0   Ready     agent     9m        v1.9.9
 > * Kubernetes CLI(kubectl) 설치
 > * AKS 클러스터에 연결하도록 kubectl 구성
 
-그 다음 자습서를 계속 진행하여 클러스터에 애플리케이션을 배포하는 방법을 알아보세요.
+그 다음 자습서를 계속 진행하여 클러스터에 응용 프로그램을 배포하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
-> [Kubernetes에서 응용 프로그램 배포][aks-tutorial-deploy-app]
+> [Kubernetes에서 애플리케이션 배포][aks-tutorial-deploy-app]
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/

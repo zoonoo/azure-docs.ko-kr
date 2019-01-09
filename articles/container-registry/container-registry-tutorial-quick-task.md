@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: eafd6a75b4297056bcf4c5415f77179cefde6541
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 9d3b1c14ce872cd02fc8d4a8c2596d7d1e270895
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256692"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754376"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>자습서: Azure Container Registry 작업을 사용하여 클라우드에 컨테이너 이미지 빌드 및 배포
 
@@ -201,12 +201,12 @@ az keyvault secret set \
   --value $(az ad sp create-for-rbac \
                 --name $ACR_NAME-pull \
                 --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
-                --role reader \
+                --role acrpull \
                 --query password \
                 --output tsv)
 ```
 
-이전 명령의 `--role` 인수는 *읽기 권한자* 역할을 사용해서 서비스 주체를 구성하고, 레지스트리에 대해 끌어오기 전용 액세스 권한을 부여합니다. 밀어넣기 및 끌어오기 액세스 권한을 부여하려면 `--role` 인수를 *contributor*로 변경합니다.
+이전 명령의 `--role` 인수는 *acrpull* 역할을 사용하여 서비스 주체를 구성하고, 레지스트리에 대해 끌어오기 전용 액세스 권한을 부여합니다. 밀어넣기 및 끌어오기 액세스 권한을 모두 부여하려면 `--role` 인수를 *acrpush*로 변경합니다.
 
 다음으로, 인증을 위해 Azure Container Registry에 전달하는 **username**인 서비스 주체의 *appId*를 자격 증명 모음에 저장합니다.
 
@@ -286,7 +286,7 @@ Start streaming logs:
 Server running at http://localhost:80
 ```
 
-`Server running at http://localhost:80`이 표시되면 브라우저에서 컨테이너의 FQDN으로 이동하여 실행 중인 응용 프로그램을 확인합니다. FQDN은 이전 섹션에서 실행한 `az container create` 명령의 출력에 표시되었어야 합니다.
+`Server running at http://localhost:80`이 표시되면 브라우저에서 컨테이너의 FQDN으로 이동하여 실행 중인 애플리케이션을 확인합니다. FQDN은 이전 섹션에서 실행한 `az container create` 명령의 출력에 표시되었어야 합니다.
 
 ![브라우저에서 렌더링된 샘플 애플리케이션의 스크린샷][quick-build-02-browser]
 

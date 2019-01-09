@@ -1,20 +1,20 @@
 ---
-title: '빠른 시작: 노드 웹앱을 사용하여 Azure Key Vault에서 비밀 설정 및 검색 | Microsoft Docs'
+title: '빠른 시작: 노드 웹앱을 사용하여 Azure Key Vault에서 비밀 설정 및 검색 - Azure Key Vault | Microsoft Docs'
 description: '빠른 시작: .NET 웹앱을 사용하여 Azure Key Vault에서 비밀 설정 및 검색'
 services: key-vault
 author: prashanthyv
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: a53130dcc489764ce9284f15b8de0de37e0827e5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 20d47ecaea8ce393f60cba93c3dbcf7ca4a076c8
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686673"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002606"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>빠른 시작: .NET 웹앱을 사용하여 Azure Key Vault에서 비밀 설정 및 검색
 
@@ -33,7 +33,7 @@ ms.locfileid: "51686673"
 >[!NOTE]
 >Key Vault는 프로그래밍 방식으로 비밀을 저장하는 중앙 리포지토리입니다. 하지만 이렇게 하려면 애플리케이션과 사용자가 먼저 Key Vault에 인증해야 합니다. 즉, 비밀을 제공해야 합니다. 보안 모범 사례에 따라 이 첫 번째 비밀을 정기적으로 회전시켜야 합니다. 
 >
->[Azure 리소스의 관리 서비스 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하면 Azure에서 실행되는 응용 프로그램에 Azure에서 자동으로 관리하는 ID가 부여됩니다. 이렇게 하면 *비밀 소개 문제*를 해결할 수 있으므로 사용자와 애플리케이션에서 모범 사례를 따를 수 있고 첫 번째 비밀을 회전시켜야 하는 것에 대해 걱정할 필요가 없습니다.
+>[Azure 리소스의 관리 서비스 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하면 Azure에서 실행되는 애플리케이션에 Azure에서 자동으로 관리하는 ID가 부여됩니다. 이렇게 하면 *비밀 소개 문제*를 해결할 수 있으므로 사용자와 애플리케이션에서 모범 사례를 따를 수 있고 첫 번째 비밀을 회전시켜야 하는 것에 대해 걱정할 필요가 없습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -77,9 +77,9 @@ az group create --name "<YourResourceGroupName>" --location "East US"
 
 다음으로, 이전 단계에서 만든 리소스 그룹에 키 자격 증명 모음을 만듭니다. 다음 정보를 지정합니다.
 
-* 키 자격 증명 모음 이름: 3-24자의 문자열이어야 하며 (0-9, a-z, A-Z 및 -)만 포함해야 합니다.
+* 키 자격 증명 모음 이름: 3-24자의 문자열이어야 하며 0-9, a-z, A-Z 및 -만 포함해야 합니다.
 * 리소스 그룹 이름
-* 위치: **미국 동부**
+* 위치: **미국 동부**.
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "East US"
@@ -89,7 +89,7 @@ az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGr
 
 ## <a name="add-a-secret-to-the-key-vault"></a>키 자격 증명 모음에 비밀 추가
 
-이 작업을 설명하기 위한 비밀을 추가하고 있습니다. 안전하게 유지하면서 애플리케이션에서 사용할 수 있도록 하는 데 필요한 SQL 연결 문자열 또는 기타 정보를 저장할 수 있습니다.
+이 작업을 설명하기 위한 비밀을 추가하고 있습니다. 안전하게 유지하면서 응용 프로그램에서 사용할 수 있도록 하는 데 필요한 SQL 연결 문자열 또는 기타 정보를 저장할 수 있습니다.
 
 다음 명령을 입력하여 키 자격 증명 모음에 **AppSecret**라고 하는 비밀을 만듭니다. 이 비밀에는 **MySecret** 값이 저장됩니다.
 

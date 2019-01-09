@@ -3,35 +3,34 @@ title: Azure의 Kubernetes 자습서 - 애플리케이션 크기 조정
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Kubernetes에서 노드 및 Pod 크기를 조정하고 수평 방향 Pod 자동 크기 조정을 구현하는 방법을 알아봅니다.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e2ba61ada16c922dc89d9d6c9aa6a0fce8b0941
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 8d07c87a1849a25738c433b7a4c2753b51661947
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414185"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722722"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 크기 조정
 
-자습서를 수행하고 있다면 AKS에서 작동하는 Kubernetes 클러스터가 있으며 Azure Voting 앱을 배포한 상태입니다. 7개 중 5단계인 이 자습서에서는 앱의 Pod를 스케일 아웃하고 Pod 자동 크기 조정을 시도합니다. Azure VM 노드 수를 조정하여 워크로드 호스팅을 위한 클러스터 용량을 변경하는 방법도 알아봅니다. 다음 방법에 대해 알아봅니다.
+자습서를 수행한 경우 AKS에서 작동하는 Kubernetes 클러스터가 있으며 샘플 Azure Voting 앱을 배포한 상태입니다. 7개 중 5단계인 이 자습서에서는 앱의 Pod를 스케일 아웃하고 Pod 자동 크기 조정을 시도합니다. Azure VM 노드 수를 조정하여 워크로드 호스팅을 위한 클러스터 용량을 변경하는 방법도 알아봅니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Kubernetes 노드 크기 조정
 > * 애플리케이션을 실행하는 Kubernetes Pod의 크기를 수동으로 조정
 > * 앱 프런트 엔드를 실행하는 Pod 자동 크기 조정 구성
 
-후속 자습서에서 Azure Vote 애플리케이션은 새 버전으로 업데이트됩니다.
+추가 자습서에서 Azure Vote 애플리케이션은 새 버전으로 업데이트됩니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이전 자습서에서는 애플리케이션을 컨테이너 이미지에 패키지하고, 이 이미지를 Azure Container Registry에 업로드하고, Kubernetes 클러스터를 만들었습니다. 그런 다음, Kubernetes 클러스터에서 애플리케이션을 실행했습니다. 이러한 단계를 아직 수행하지 않았으나 수행하려는 경우 [자습서 1 - 컨테이너 이미지 만들기][aks-tutorial-prepare-app]로 돌아갑니다.
+이전 자습서에서 애플리케이션은 컨테이너 이미지로 패키징되었습니다. 이 이미지는 Azure Container Registry로 업로드되었고, AKS 클러스터를 만들었습니다. 그런 다음, 애플리케이션은 AKS 클러스터에 배포되었습니다. 이러한 단계를 아직 수행하지 않았으나 수행하려는 경우 [자습서 1 - 컨테이너 이미지 만들기][aks-tutorial-prepare-app]로 시작합니다.
 
-이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.38 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.53 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ## <a name="manually-scale-pods"></a>수동으로 Pod 크기 조정
 
@@ -55,7 +54,7 @@ azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-[kubectl get pods][kubectl-get] 명령을 다시 실행하여 Kubernetes가 추가 Pod를 만드는지 확인합니다. 약 1분이 지나면 클러스터에서 추가 Pod를 사용할 수 있습니다.
+[kubectl get pods][kubectl-get] 명령을 다시 실행하여 AKS가 추가 Pod를 만드는지 확인합니다. 약 1분이 지나면 클러스터에서 추가 Pod를 사용할 수 있습니다.
 
 ```console
 $ kubectl get pods
@@ -77,14 +76,14 @@ Kubernetes는 [수평 Pod 자동 크기 조정][kubernetes-hpa]을 지원하여 
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
 ```
 
-AKS 클러스터 버전이 *1.10*보다 낮으면 메트릭 서버를 설치하고, 그렇지 않으면 이 단계를 건너뜁니다. `metrics-server` GitHub 리포지토리를 복제하고 예제 리소스 정의를 설치합니다. 이러한 YAML 정의의 콘텐츠를 참조하려면 [Kuberenetes 1.8+에 대한 메트릭 서버][metrics-server-github]를 참조하세요.
+AKS 클러스터 버전이 *1.10*보다 낮으면 메트릭 서버를 설치하고, 그렇지 않으면 이 단계를 건너뜁니다. 설치하려면 `metrics-server` GitHub 리포지토리를 복제하고 예제 리소스 정의를 설치합니다. 이러한 YAML 정의의 콘텐츠를 참조하려면 [Kuberenetes 1.8+에 대한 메트릭 서버][metrics-server-github]를 참조하세요.
 
 ```console
 git clone https://github.com/kubernetes-incubator/metrics-server.git
 kubectl create -f metrics-server/deploy/1.8+/
 ```
 
-자동 크기 조정기를 사용하려면 Pod에 CPU 요청 및 제한이 정의되어 있어야 합니다. `azure-vote-front` 배포에서 프런트 엔드 컨테이너는 0.25 CPU를 요청하며 제한은 0.5 CPU입니다. 설정은 다음과 같습니다.
+자동 크기 조정기를 사용하려면 Pod에 CPU 요청 및 제한이 정의되어 있어야 합니다. `azure-vote-front` 배포에서 프런트 엔드 컨테이너는 0.25 CPU를 요청하며 제한은 0.5 CPU입니다. 다음 예제 코드 조각에 나와 있는 것처럼 이러한 리소스 요청 및 제한이 정의됩니다.
 
 ```yaml
 resources:
@@ -94,7 +93,7 @@ resources:
      cpu: 500m
 ```
 
-다음 예제에서는 [kubectl autoscale][kubectl-autoscale] 명령을 사용하여 *azure-vote-front* 배포의 Pod 수를 자동으로 조정합니다. CPU 사용률이 50%를 초과하면 자동 크기 조정기가 Pod를 최대 10개 인스턴스로 늘립니다.
+다음 예제에서는 [kubectl autoscale][kubectl-autoscale] 명령을 사용하여 *azure-vote-front* 배포의 Pod 수를 자동으로 조정합니다. CPU 사용률이 50%를 초과하면 자동 크기 조정기가 Pod를 최대 *10*개 인스턴스로 늘립니다. 그런 다음, 최소 *3*개의 인스턴스가 배포에 대해 정의됩니다.
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
@@ -121,7 +120,7 @@ Azure Vote 앱에 최소 부하를 적용한 상태로 몇 분이 지나면 Pod 
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 ```
 
-다음과 유사하게 출력됩니다.
+클러스터가 성공적으로 크기 조정되면 출력은 다음 예제와 비슷합니다.
 
 ```
 "agentPoolProfiles": [
@@ -144,14 +143,14 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 이 자습서에서는 Kubernetes 클러스터의 다양한 크기 조정 기능을 사용했습니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * Kubernetes 노드 크기 조정
 > * 애플리케이션을 실행하는 Kubernetes Pod의 크기를 수동으로 조정
 > * 앱 프런트 엔드를 실행하는 Pod 자동 크기 조정 구성
+> * 수동으로 Kubernetes 노드 크기 조정
 
 그 다음 자습서로 이동하여 Kubernetes에서 애플리케이션을 업데이트하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
-> [Kubernetes에서 응용 프로그램 업데이트][aks-tutorial-update-app]
+> [Kubernetes에서 애플리케이션 업데이트][aks-tutorial-update-app]
 
 <!-- LINKS - external -->
 [kubectl-autoscale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#autoscale

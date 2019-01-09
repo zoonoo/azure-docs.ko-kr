@@ -1,5 +1,5 @@
 ---
-title: Azure에서 클라우드 기반 IoT 원격 모니터링 솔루션 사용하기 | Microsoft Docs
+title: 클라우드 기반 IoT 원격 모니터링 솔루션 사용해보기 - Azure | Microsoft Docs
 description: 이 빠른 시작에서는 원격 모니터링 Azure IoT 솔루션 가속기를 배포하고 로그인하여 솔루션 대시보드를 사용합니다.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2018
 ms.author: dobett
-ms.openlocfilehash: 4071770a74d205570cee082d9af0c0fb7c77e203
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 3f30b46138fc7753a1a4282497cbb06b6a4defbc
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824781"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608360"
 ---
-# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>빠른 시작: 클라우드 기반 원격 모니터링 솔루션 시도
+# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>빠른 시작: 클라우드 기반 원격 모니터링 솔루션 사용해보기
 
 이 빠른 시작에서는 Azure IoT 원격 모니터링 솔루션 가속기를 배포하는 방법을 보여줍니다. 이 클라우드 기반 솔루션에서 **대시보드** 페이지를 사용하여 시뮬레이션된 디바이스를 맵에서 시각화하면 **유지 관리** 페이지가 시뮬레이션된 냉각기 디바이스의 압력 경고에 응답합니다. 학습 도구로 또는 고유한 구현을 위한 시작점으로 이 솔루션 가속기를 사용할 수 있습니다.
 
@@ -69,25 +69,25 @@ Azure 구독에 배포가 완료되면 솔루션 타일에 녹색 확인 표시 
 
 솔루션 대시보드에 Contoso의 시뮬레이션된 디바이스에 대한 다음 정보가 표시됩니다.
 
-* **장치 통계** 패널에는 경고에 대한 요약 및 총 장치 수가 표시됩니다. 기본 배포에서 Contoso에는 서로 다른 유형의 시뮬레이션된 디바이스가 10개 있습니다.
+* **디바이스 통계** 패널에는 경고에 대한 요약 및 총 디바이스 수가 표시됩니다. 기본 배포에서 Contoso에는 서로 다른 유형의 시뮬레이션된 디바이스가 10개 있습니다.
 
-* **장치 위치** 패널에는 장치의 물리적 위치가 표시됩니다. 디바이스에서 경고가 발생하면 핀에 색상이 나타납니다.
+* **디바이스 위치** 패널에는 디바이스의 물리적 위치가 표시됩니다. 디바이스에서 경고가 발생하면 핀에 색상이 나타납니다.
 
-* **경고** 패널에는 장치에서 발생한 경고에 대한 세부 정보가 표시됩니다.
+* **경고** 패널에는 디바이스에서 발생한 경고에 대한 세부 정보가 표시됩니다.
 
-* **원격 분석** 패널에는 장치의 원격 분석 데이터가 표시됩니다. 맨 위에 있는 원격 측정 유형을 클릭하면 다른 원격 측정 스트림을 볼 수 있습니다.
+* **원격 분석** 패널에는 디바이스의 원격 분석 데이터가 표시됩니다. 맨 위에 있는 원격 측정 유형을 클릭하면 다른 원격 측정 스트림을 볼 수 있습니다.
 
-* **분석** 패널에는 장치에서 발생한 경고를 결합한 정보가 표시됩니다.
+* **분석** 패널에는 디바이스에서 발생한 경고를 결합한 정보가 표시됩니다.
 
 ## <a name="respond-to-an-alert"></a>경고에 응답
 
-Contoso 운영자는 솔루션 대시보드에서 디바이스를 모니터링 할 수 있습니다. **장치 통계** 패널에는 여러 가지 중요한 경고가 발생한 것이 표시되며 **경고** 패널에는 이들 대부분이 냉각 장치에서 발생한 것으로 표시됩니다. Contoso의 냉각 디바이스에서 내부 압력이 250 PSI를 초과하면 디바이스가 올바르게 작동하지 않는 것을 나타냅니다.
+Contoso 운영자는 솔루션 대시보드에서 디바이스를 모니터링 할 수 있습니다. **디바이스 통계** 패널에는 여러 가지 중요한 경고가 발생한 것이 표시되며 **경고** 패널에는 이들 대부분이 냉각 디바이스에서 발생한 것으로 표시됩니다. Contoso의 냉각 디바이스에서 내부 압력이 250 PSI를 초과하면 디바이스가 올바르게 작동하지 않는 것을 나타냅니다.
 
 ### <a name="identify-the-issue"></a>문제 식별
 
 **대시보드** 페이지의 **경고** 패널에서 **냉각기 압력 너무 높음** 경고를 볼 수 있습니다. 맵에서 냉각기에 빨간 핀이 나타납니다. (맵을 이동하거나 확대해야 할 수 있습니다.)
 
-[![대시보드는 맵에 압력 경고 및 장치를 보여줍니다.](./media/quickstart-remote-monitoring-deploy/dashboardalarm-inline.png)](./media/quickstart-remote-monitoring-deploy/dashboardalarm-expanded.png#lightbox)
+[![맵에 압력 경고 및 디바이스를 보여주는 대시보드](./media/quickstart-remote-monitoring-deploy/dashboardalarm-inline.png)](./media/quickstart-remote-monitoring-deploy/dashboardalarm-expanded.png#lightbox)
 
 **Alerts** 패널에서 **Chiller pressure too high**(냉각기 압력이 너무 높음) 규칙 옆에 있는 **탐색** 열에서 **...** 를 클릭합니다. **유지 관리** 페이지가 열리면 경고를 트리거한 규칙의 세부 정보를 볼 수 있습니다.
 
@@ -107,7 +107,7 @@ Contoso 운영자는 솔루션 대시보드에서 디바이스를 모니터링 �
 
 냉각기에 조치를 취하려면 **관련 정보**가 나올 때까지 아래로 스크롤하고, **Alerted devices**(경고를 받은 디바이스) 목록에서 냉각기 디바이스를 선택한 다음, **작업**을 선택합니다.
 
-[![장치 선택 및 작업 예약](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-expanded.png#lightbox)
+[![디바이스 선택 및 작업 예약](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-expanded.png#lightbox)
 
 **작업** 패널에서 **메서드 실행**, **EmergencyValveRelease** 메서드를 차례로 합니다. 작업 이름**ChillerPressureRelease**을 추가하고 **적용**을 클릭합니다. 이 설정은 즉시 실행되는 작업을 자동으로 만듭니다.
 
@@ -142,4 +142,4 @@ Contoso 운영자는 솔루션 대시보드에서 디바이스를 모니터링 �
 시뮬레이션된 디바이스를 사용하는 솔루션 가속기에 대해 자세히 알아보려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [자습서: IoT 장치 모니터링](iot-accelerators-remote-monitoring-monitor.md)
+> [자습서: IoT 디바이스 모니터링](iot-accelerators-remote-monitoring-monitor.md)

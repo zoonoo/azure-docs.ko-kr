@@ -13,16 +13,18 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5f355604e2bff1c3f03c8237f30cbe41ce7e5810
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: b50609449d6144d2bb013d82e2eb29e94b5b01be
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616150"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754121"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>자습서: Resource Manager 템플릿을 사용하여 여러 리소스 인스턴스 만들기
 
 Azure Resource Manager 템플릿을 반복하여 Azure 리소스의 여러 인스턴스를 만드는 방법을 알아봅니다. 이 자습서에서는 3개의 저장소 계정 인스턴스를 만들도록 템플릿을 수정합니다.
+
+이 자습서에서 다루는 작업은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * 빠른 시작 템플릿 열기
@@ -120,14 +122,14 @@ Visual Studio Code에서 다음 4개의 변경 내용을 만듭니다.
 
 세 개의 모든 저장소 계정을 나열하려면 --name 매개 변수를 생략합니다.
 
-# <a name="clitabcli"></a>[CLI](#tab/CLI)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az storage account list --resource-group $resourceGroupName
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -149,7 +151,7 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 여러 저장소 계정 인스턴스를 만드는 방법을 배웠습니다. 지금까지 하나의 저장소 계정 또는 여러 저장소 계정 인스턴스를 만들었습니다. 다음 자습서에서는 여러 리소스 및 여러 리소스 종류가 있는 템플릿을 개발합니다. 일부 리소스에는 종속 리소스가 있습니다.
+이 자습서에서는 여러 저장소 계정 인스턴스를 만드는 방법을 배웠습니다. 다음 자습서에서는 한 리소스 그룹에서 다른 리소스 그룹으로 리소스를 이동하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [종속 리소스 만들기](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [리소스 이동](./resource-manager-tutorial-move-resources.md)

@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cd5da2a3c5fa3d9cd67715493eb649926badb694
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 314f1c1656485f93942eb23f928cc66720a12565
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622537"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753543"
 ---
 # <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>빠른 시작: Azure Active Directory Power BI 콘텐츠 팩 설치
 
@@ -39,7 +39,7 @@ Azure AD(Azure Active Directory)에 대한 Power BI 콘텐츠 팩을 통해 환�
 
 * Power BI 계정 O365 또는 Azure AD 계정과 동일한 계정입니다. 
 * Azure AD 테넌트 ID. Azure Portal의 [속성 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)에 있는 디렉터리의 **디렉터리 ID**입니다.
-* Azure AD Premium(P1/P2) 라이선스 
+* Azure AD Premium(P1/P2) 라이선스 [Azure Active Directory Premium 시작하기](../fundamentals/active-directory-get-started-premium.md)를 참조하여 Azure Active Directory 버전을 업그레이드하세요.
 
 ## <a name="install-azure-ad-power-bi-content-pack"></a>Azure AD Power BI 콘텐츠 팩 설치 
 

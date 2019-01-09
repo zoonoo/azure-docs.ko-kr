@@ -1,5 +1,5 @@
 ---
-title: Azure에서 디바이스 시뮬레이션 솔루션 시도 및 실행 | Microsoft Docs
+title: 디바이스 시뮬레이션 솔루션 시도 및 실행 - Azure | Microsoft Docs
 description: 이 빠른 시작에서는 Azure IoT 디바이스 시뮬레이션을 배포하고 시뮬레이션을 실행합니다.
 author: troyhopwood
 manager: timlt
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/28/2018
 ms.author: troyhop
-ms.openlocfilehash: a109f3536ea8709313de3d1d6d17ce69c5652289
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: 12f993f606fc1ef44280142d5acfa2687cd4e043
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50753936"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601596"
 ---
 # <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>빠른 시작: Azure에서 IoT 디바이스 시뮬레이션 배포 및 실행
 
@@ -38,7 +38,7 @@ Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.a
 
 ![지금 사용해보기 클릭](./media/quickstart-device-simulation-deploy/devicesimulationPDP.png)
 
-**장치 시뮬레이션 솔루션 만들기** 페이지에서 고유한 **솔루션 이름**을 입력합니다.
+**디바이스 시뮬레이션 솔루션 만들기** 페이지에서 고유한 **솔루션 이름**을 입력합니다.
 
 솔루션 가속기를 배포하는 데 사용하려는 **구독** 및 **지역**을 선택합니다. 일반적으로, 자신에게 가장 가까운 지역을 선택합니다. 구독 내에서 [전역 관리자 또는 사용자](iot-accelerators-permissions.md)여야 합니다.
 
@@ -54,7 +54,7 @@ Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.a
 
 ![디바이스 시뮬레이션 열기](./media/quickstart-device-simulation-deploy/choosenew.png)
 
-**수락**을 클릭하여 권한 요청을 수락하면 장치 시뮬레이션 솔루션 대시보드가 브라우저에 표시됩니다.
+**수락**을 클릭하여 권한 요청을 수락하면 디바이스 시뮬레이션 솔루션 대시보드가 브라우저에 표시됩니다.
 
 처음으로 열리면 **시작** 가이드가 있는 디바이스 시뮬레이션 대시보드가 표시됩니다. 첫 번째 타일을 클릭하여 샘플 시뮬레이션을 엽니다. **시작** 가이드를 닫는 경우 해당 타일을 클릭하여 대시보드에서 **샘플 간단한 시뮬레이션**을 열 수 있습니다.
 
@@ -95,4 +95,4 @@ Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.a
 이 빠른 시작에서는 디바이스 시뮬레이션을 배포하고 샘플 IoT 디바이스 시뮬레이션을 실행했습니다.
 
 > [!div class="nextstepaction"]
-> [하나 이상의 장치 유형으로 시뮬레이션 만들기](iot-accelerators-device-simulation-create-simulation.md)
+> [하나 이상의 디바이스 유형으로 시뮬레이션 만들기](iot-accelerators-device-simulation-create-simulation.md)

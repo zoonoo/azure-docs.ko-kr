@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 93928d7eb84ce986c8a9322188183e4c3dd76d99
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1866a5d86d3ee47371a5eb6e14c2976798d2b4da
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847867"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787853"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Azure 지역 간에 Azure VM 장애 조치(Failover) 및 장애 복구
 
@@ -45,7 +45,7 @@ ms.locfileid: "52847867"
 2. **장애 조치(Failover)** 에서 장애 조치(failover)할 **복구 지점**을 선택합니다. 다음 옵션 중 하나를 사용할 수 있습니다.
 
    * **최신**(기본값): 이 옵션은 Site Recovery 서비스의 모든 데이터를 처리하고 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
-   * **가장 최근에 처리된 시점**: 이 옵션은 Site Recovery 서비스에서 처리한 최근 복구 지점으로 가상 머신을 되돌립니다.
+   * **가장 최근에 처리됨**: 이 옵션은 Site Recovery 서비스에서 처리한 최근 복구 지점으로 가상 머신을 되돌립니다.
    * **사용자 지정**: 특정 복구 지점으로 장애 조치(failover)하려면 이 옵션을 사용합니다. 이 옵션은 테스트 장애 조치(failover)를 수행하는 데 유용합니다.
 
 3. 장애 조치를 트리거하기 전에 Site Recovery에서 원본 가상 머신을 종료하려고 시도하는 경우 **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다**를 선택합니다. 종료가 실패하더라도 장애 조치는 계속됩니다.

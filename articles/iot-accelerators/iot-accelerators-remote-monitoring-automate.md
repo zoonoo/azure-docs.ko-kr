@@ -1,5 +1,5 @@
 ---
-title: Azure 기반 원격 모니터링 솔루션에서 디바이스 문제 검색 자습서 | Microsoft Docs
+title: 원격 모니터링 솔루션에서 디바이스 문제 감지 자습서 - Azure | Microsoft Docs
 description: 이 자습서에서는 규칙 및 작업을 사용하여 원격 모니터링 솔루션에서 임계값 기반 디바이스 문제를 자동으로 감지하는 방법을 보여줍니다.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 7ebe81565bc6bd28747f3a251b39a3c010493307
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 91ee5087e5f41cda3648c2ecadcfcf16fd32a249
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819103"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598685"
 ---
-# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>자습서: 모니터링 솔루션에 연결된 디바이스를 사용하여 문제 검색
+# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>자습서: 모니터링 솔루션에 연결된 디바이스를 사용하여 문제 감지
 
 이 자습서에서는 연결된 IoT 디바이스를 사용하여 문제를 검색하도록 원격 모니터링 솔루션 가속기를 구성할 수 있습니다. 디바이스를 사용하여 문제를 검색하려면 솔루션 대시보드에서 경고를 생성하는 규칙을 추가합니다.
 
@@ -55,7 +55,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 | ---------------- | ------------------------------------- |
 | 규칙 이름        | 냉각기 경고                       |
 | 설명      | 냉각기 압력이 150PSI를 초과함 |
-| 디바이스 그룹     | **냉각기** 장치 그룹             |
+| 장치 그룹     | **냉각기** 디바이스 그룹             |
 | 계산      | 인스턴트                               |
 | 조건 1 필드| pressure                              |
 | 조건 1 연산자 | 초과                      |
@@ -78,7 +78,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 | ---------------- | ------------------------------------- |
 | 규칙 이름        | 냉각기 습도 및 온도 위험    |
 | 설명      | 습도 및 온도가 중요함 |
-| 디바이스 그룹     | **냉각기** 장치 그룹             |
+| 장치 그룹     | **냉각기** 디바이스 그룹             |
 | 계산      | 평균                               |
 | 기간      | 5                                     |
 | 조건 1 필드| humidity                              |
@@ -137,4 +137,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 자습서에서는 원격 모니터링 솔루션 가속기의 **규칙** 페이지를 사용하여 솔루션에서 경고를 트리거하는 규칙을 만들고 관리하는 방법을 보여주었습니다. 솔루션 가속기를 사용하여 연결된 디바이스를 관리하고 구성하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [모니터링 솔루션에 연결된 장치 구성 및 관리](iot-accelerators-remote-monitoring-manage.md)
+> [모니터링 솔루션에 연결된 디바이스 구성 및 관리](iot-accelerators-remote-monitoring-manage.md)

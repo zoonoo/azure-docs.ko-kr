@@ -1,32 +1,34 @@
 ---
-title: Azure Portal의 인덱싱, 쿼리 및 필터링에 대한 자습서 - Azure Search
-description: 이 자습서에서는 Azure Portal 및 미리 정의된 샘플 데이터를 사용하여 Azure Search에서 인덱스를 생성합니다. 전체 텍스트 검색, 필터, 패싯, 유사 항목 검색, 지리적 검색 등을 살펴봅니다.
+title: Azure Portal을 사용하여 빠른 시작 자습서 인덱싱 및 쿼리 - Azure Search
+description: 이 빠른 시작 자습서에서는 Azure Portal 및 기본 제공 샘플 데이터를 사용하여 Azure Search에서 인덱스를 생성합니다. 전체 텍스트 검색, 필터, 패싯, 유사 항목 검색, 지리적 검색 등을 살펴봅니다.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d8b95aaab99fc4f0aa5df21374d6ec023f869b7d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 3f75cd61d948f3f6df34124a9b16b333f6c5e6d5
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314026"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001790"
 ---
-# <a name="tutorial-use-built-in-portal-tools-for-azure-search-indexing-and-queries"></a>자습서: Azure Search 인덱싱 및 쿼리에 기본 제공 포털 도구 사용
+# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>빠른 시작: Azure Search 가져오기, 인덱싱 및 쿼리에 기본 제공 포털 도구 사용
 
-Azure Portal의 Azure Search 서비스 페이지에 제공되는 기본 제공 도구를 사용하여 Azure Search 개념을 간략하게 검토하고 알아볼 수 있습니다. 이러한 도구는 .NET 및 REST API의 일부 기능을 제공하지 않을 수 있습니다. 하지만 마법사 및 편집기는 코드 없는 Azure Search 소개를 제공하므로 샘플 데이터 집합에 대한 흥미로운 쿼리를 즉시 작성할 수 있습니다.
+Azure Search 개념에서 빠른 램프업의 경우 Azure Portal에서 기본 제공 도구를 시도해 보세요. 마법사 및 편집기는 .NET 및 REST API가 포함된 완벽한 패리티를 제공하지는 않지만 코드 없는 도입을 통해 빠르게 시작하고 몇 분 내에 샘플 데이터에 대한 흥미로운 쿼리를 작성할 수 있습니다.
 
 > [!div class="checklist"]
-> * 공용 샘플 데이터를 사용하여 시작하고 **데이터 가져오기** 마법사를 사용하여 Azure Search 인덱스를 자동 생성합니다.
-> * Azure Search에 게시된 모든 인덱스에 대한 인덱스 스키마 및 특성을 봅니다.
-> * **검색 탐색기**를 사용하여 전체 텍스트 검색, 필터, 패싯, 유사 항목 검색, 지리적 검색을 살펴봅니다.  
+> * Azure에서 호스트되는 무료 공용 샘플 데이터 세트로 시작
+> * 데이터를 로드하고 인덱스를 생성하려면 Azure Search의 **데이터 가져오기** 마법사 실행
+> * 포털에서 인덱싱 진행률 모니터링
+> * 기존 인덱스 및 이를 수정하기 위한 옵션 보기
+> * **검색 탐색기**를 사용하여 전체 텍스트 검색, 필터, 패싯, 유사 항목 검색, 지리적 검색 살펴보기
 
-도구가 너무 제한적인 경우 [.NET에서 Azure Search 프로그래밍에 대한 코드 기반 소개](search-howto-dotnet-sdk.md) 또는 [REST API 호출에 대한 웹 테스트 도구](search-fiddler.md)를 고려해 볼 수 있습니다.
+도구가 너무 제한적인 경우 [.NET에서 Azure Search 프로그래밍에 대한 코드 기반 소개](search-howto-dotnet-sdk.md)를 고려하거나 [REST API를 호출하기 위해 Postman 또는 Fiddler](search-fiddler.md)를 사용할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 이 [Azure Search 개요 비디오](https://channel9.msdn.com/Events/Connect/2016/138)를 시작하고 약 3분 후에 시작하는 이 자습서의 단계에 대한 6분짜리 데모 영상을 시청하셔도 됩니다.
 
@@ -44,82 +46,95 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 많은 고객이 무료 서비스를 시작합니다. 이 버전은 3개의 인덱스, 3개의 데이터 소스 및 3개의 인덱서로 제한됩니다. 시작하기 전에 추가 항목에 대한 공간이 있는지 확인합니다. 이 자습서에서는 각 개체를 하나씩 만듭니다.
 
-> [!TIP]
-> 서비스 대시보드의 타일은 현재 갖고 있는 인덱스, 인덱서 및 데이터 원본 수를 보여줍니다. 인덱서 타일은 성공 및 실패 지표를 표시합니다. 인덱서 수를 보려면 타일을 클릭합니다.
->
-> ![인덱서 및 데이터 원본에 대한 타일][1]
->
+서비스 대시보드의 섹션에서는 현재 보유 중인 인덱스, 인덱서 및 데이터 원본 수를 보여줍니다. 
+
+![Lists of indexes, indexers, and datasources][media/search-get-started-portal/tiles-indexers-datasources2.png]
 
 ## <a name="create-index"></a> 인덱스 및 부하 데이터 만들기
 
 검색 쿼리는 특정 검색 동작을 최적화하는 검색 가능 데이터, 메타데이터 및 추가 구문을 포함하는 [*인덱스*](search-what-is-an-index.md)에 대해 반복됩니다.
 
-이 자습서에서는 **데이터 가져오기** 마법사를 통해 [*인덱서*](search-indexer-overview.md)를 사용하여 크롤링할 수 있는 기본 제공 샘플 데이터 세트를 사용합니다. 인덱서는 지원되는 Azure 데이터 원본에서 메타데이터 및 콘텐츠를 읽을 수 있는 원본 관련 크롤러입니다. 이러한 인덱서는 **데이터 가져오기** 마법사를 통해 포털에 표시됩니다. 나중에 프로그래밍 방식으로 인덱스를 독립 리소스로 만들고 관리할 수 있습니다.
+이 자습서에서는 **데이터 가져오기** 마법사를 통해 [*인덱서*](search-indexer-overview.md)를 사용하여 크롤링할 수 있는 기본 제공 샘플 데이터 세트를 사용합니다. 인덱서는 지원되는 Azure 데이터 원본에서 메타데이터 및 콘텐츠를 읽을 수 있는 원본 관련 크롤러입니다. 일반적으로 인덱서를 프로그래밍 방식으로 사용하지만 포털에서는 **데이터 가져오기** 마법사를 통해 인덱서에 액세스할 수 있습니다. 
 
-### <a name="step-1-start-the-import-data-wizard"></a>1단계: 데이터 가져오기 마법사 시작
+### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>1단계 - 데이터 가져오기 마법사 시작 및 데이터 원본 만들기
 
-1. Azure Search 서비스 대시보드의 명령 모음에서 **데이터 가져오기**를 클릭하여 마법사를 시작합니다. 이 마법사를 사용하여 검색 인덱스를 만들고 채울 수 있습니다.
+1. Azure Search 서비스 대시보드의 명령 모음에서 **데이터 가져오기**를 클릭하여 검색 인덱스를 만들고 채웁니다.
 
-    ![데이터 가져오기 명령][2]
+   ![데이터 가져오기 명령](media/search-get-started-portal/import-data-cmd2.png)
 
-2. 마법사에서 **데이터에 연결** > **샘플** > **realestate-us-sample**을 클릭합니다. 이 데이터 원본은 이름, 형식 및 연결 정보를 통해 미리 구성되어 있습니다. 생성되는 데이터 원본은 다른 가져오기 작업에서 다시 사용할 수 있는 "기존 데이터 원본"이 됩니다.
+2. 마법사에서 **데이터에 연결** > **샘플** > **realestate-us-sample**을 클릭합니다. 이 데이터 원본은 기본 제공됩니다. 사용자 고유의 데이터 원본을 만든 경우 이름, 형식 및 연결 정보를 지정해야 합니다. 생성되는 데이터 원본은 다른 가져오기 작업에서 다시 사용할 수 있는 "기존 데이터 원본"이 됩니다.
 
-    ![샘플 데이터 세트 선택][9]
+   ![샘플 데이터 세트 선택](media/search-get-started-portal/import-datasource-sample2.png)
 
-3. 사용하려면 **확인**을 클릭합니다.
+3. 다음 페이지를 계속합니다.
 
-### <a name="skip-cognitive-skills"></a>인식 기술 건너뛰기
+   ![인식 검색에 대한 다음 페이지 단추](media/search-get-started-portal/next-button-add-cog-search.png)
 
-**데이터 가져오기**는 인덱싱에 사용자 지정 AI 알고리즘을 추가할 수 있는 선택적 인식 기술을 단계를 제공합니다. 지금은 이 단계를 건너뛰고, **대상 인덱스 사용자 지정**으로 이동합니다.
+### <a name="step-2---skip-cognitive-skills"></a>2단계 - 인식 기술 건너뛰기
+
+마법사는 Cognitive Services AI 알고리즘을 인덱싱에 통합하기 위해 [인식 기술 파이프라인](cognitive-search-concept-intro.md) 생성을 지원합니다. 
+
+지금은 이 단계를 건너뛰고, **대상 인덱스 사용자 지정**으로 직접 이동하겠습니다.
+
+   ![인식 기술 단계 건너뛰기](media/search-get-started-portal/skip-cog-skill-step.png)
 
 > [!TIP]
 > [인식 검색 빠른 시작](cognitive-search-quickstart-blob.md) 또는 [자습서](cognitive-search-tutorial-blob.md)에서 Azure Search를 위한 새로운 인식 검색 미리 보기 기능을 사용해 볼 수 있습니다.
 
-   ![인식 기술 단계 건너뛰기][11]
+### <a name="step-3---configure-index"></a>3단계: 인덱스 구성
 
-### <a name="step-2-define-the-index"></a>2단계: 인덱스 정의
-
-일반적으로 인덱스 만들기는 코드를 사용하여 수동으로 수행됩니다. 이 자습서에서 마법사는 크롤링 가능한 데이터 원본에 대한 인덱스를 생성할 수 있습니다. 인덱스에는 적어도 이름 및 필드 컬렉션이 필요하며, 필드 중 하나는 각 문서를 고유하게 식별하는 문서 키로 표시되어야 합니다.
+일반적으로 인덱스 생성은 코드 기반 실행으로서 데이터를 로드하기 전에 완료됩니다. 그러나 이 자습서에 표시된 대로 마법사는 크롤링 가능한 데이터 원본에 대한 기본 인덱스를 생성할 수 있습니다. 인덱스에는 적어도 이름 및 필드 컬렉션이 필요하며, 필드 중 하나는 각 문서를 고유하게 식별하는 문서 키로 표시되어야 합니다. 또한 제안된 쿼리를 자동 완료하려는 경우 언어 분석기 및 제안기를 지정할 수 있습니다.
 
 필드에는 데이터 유형과 특성이 있습니다. 위쪽에 있는 확인란은 필드가 사용되는 방법을 제어하는 *인덱스 특성*입니다.
 
 * **조회 가능** 은 검색 결과 목록에 표시된다는 의미입니다. 예를 들어 필드가 필터 식에만 사용되는 경우 이 확인란을 지워 검색 결과에 대한 제한 해제로 개별 필드를 표시할 수 있습니다.
-* **필터링 가능**, **정렬 가능** 및 **패싯 가능**은 필드를 필터, 정렬 또는 패싯 탐색 구조에 사용할 수 있는지 여부를 결정합니다.
+* **키**는 고유한 문서 식별자입니다. 또한 항상 문자열이며 필요합니다.
+* **필터링 가능**, **정렬 가능** 및 **패싯 가능**은 필드를 필터, 정렬 또는 패싯 탐색 구조에 사용하는지 여부를 결정합니다.
 * **검색 가능** 은 필드가 전체 텍스트 검색에 포함된다는 의미입니다. 문자열은 검색할 수 있습니다. 숫자 필드와 부울 필드는 종종 검색할 수 없다고 표시됩니다.
+
+스토리지 요구 사항은 선택의 결과에 따라 달라지지 않습니다. 예를 들어 여러 필드에 **조회 가능** 특성을 설정하는 경우 스토리지 요구 사항이 증가하지 않습니다.
 
 기본적으로 마법사는 키 필드에 대한 기반으로 고유 식별자에 대한 데이터 원본을 검색합니다. 문자열은 검색 가능한 것으로 규정됩니다. 정수는 검색 가능하고, 필터링 가능하고, 정렬 가능하고, 패싯 가능한 것으로 규정됩니다.
 
-  ![생성된 realestate 인덱스][3]
+1. 모든 기본값을 적용합니다.
 
-**확인**을 클릭하여 인덱스를 만듭니다.
+  ![생성된 realestate 인덱스](media/search-get-started-portal/realestateindex2.png)
 
-### <a name="step-3-define-the-indexer"></a>3단계: 인덱서 정의
+2. 다음 페이지를 계속합니다.
+
+  ![다음 페이지 인덱서 만들기](media/search-get-started-portal/next-button-create-indexer.png)
+
+### <a name="step-4---configure-indexer"></a>4단계 - 인덱서 구성
 
 **데이터 가져오기** 마법사에서 **인덱서** > **이름**을 클릭하고 인덱서 이름을 입력합니다.
 
-이 개체는 실행 가능한 프로세스를 정의합니다. 이 개체를 되풀이 일정에 게시할 수 있지만 지금은 **확인**을 클릭할 때 즉시 기본 옵션을 사용하여 인덱서를 한 번 실행합니다.  
+이 개체는 실행 가능한 프로세스를 정의합니다. 이 개체를 되풀이 일정에 게시할 수 있지만 지금은 즉시 기본 옵션을 사용하여 인덱서를 한 번 실행합니다.
 
-  ![realestate 인덱서][8]
+**제출**을 클릭하여 인덱서를 만드는 동시에 실행합니다.
 
-### <a name="check-progress"></a>진행 확인
+  ![realestate 인덱서](media/search-get-started-portal/realestate-indexer2.png)
 
-데이터 가져오기를 모니터링하려면 서비스 대시보드로 돌아가서 아래로 스크롤하고 **인덱서** 타일을 두 번 클릭하여 인덱서 목록을 엽니다. 방금 만든 인덱서가 목록에 표시되고 인덱싱된 문서 수와 함께 상태가 "진행 중" 또는 성공으로 표시될 것입니다.
+## <a name="monitor-progress"></a>진행률 모니터링
 
-   ![인덱서 진행 메시지][4]
+마법사는 진행률을 모니터링할 수 있는 인덱서 목록으로 사용자를 이동시켜야 합니다. 자체 탐색을 위해 개요 페이지로 이동하고 **인덱서**를 클릭합니다.
 
-### <a name="step-4-view-the-index"></a>4단계: 인덱스 보기
+포털에서 페이지를 업데이트하는 데 몇 분 정도 걸리지만 인덱싱된 문서 수와 함께 상태가 "진행 중" 또는 성공으로 나타나고 새로 만든 인덱서가 목록에 표시되어야 합니다.
 
-서비스 대시보드의 타일은 리소스의 다양한 개체에 대한 요약 정보 뿐만 아니라 자세한 정보에 대한 액세스를 제공합니다. **인덱스** 타일은 이전 단계에서 만든 *realestate-us-sample* 인덱스를 포함한 기존 인덱스 목록을 표시합니다.
+   ![인덱서 진행 메시지](media/search-get-started-portal/indexers-inprogress2.png)
 
-이제 *realestate-us-sample* 인덱스를 클릭하여 해당 정의에 대한 포털 옵션을 봅니다. **필드 추가/편집** 옵션을 통해 새 필드를 만들고 완전히 특성을 지정할 수 있습니다. 기존 필드는 Azure Search에서 물리적 표현이 있으므로 코드에서 조차 수정할 수 없습니다. 기존 필드를 근본적으로 변경하려면 새 필드를 만들고 기존 필드를 삭제합니다.
+## <a name="view-the-index"></a>인덱스 보기
 
-   ![샘플 인덱스 정의][10]
+**인덱스** 목록은 마법사에서 만든 *realestate-us-sample* 인덱스를 포함하여 기존 인덱스를 보여줍니다.
+
+이 목록에서 인덱스 스키마를 확인하고 필요에 따라 새 필드를 추가할 수 있지만 기존 필드를 변경할 수는 없습니다. 기존 필드는 Azure Search에서 물리적 표현이 있으므로 코드에서 조차 수정할 수 없습니다. 기존 필드를 근본적으로 변경하려면 새 인덱스를 만들고 기존 인덱스를 삭제합니다.
+
+   ![샘플 인덱스 정의](media/search-get-started-portal/sample-index-def.png)
 
 점수 매기기 프로필 및 CORS 옵션과 같은 다른 구문을 언제든지 추가할 수 있습니다.
 
-인덱스 디자인 중 편집할 수 있고 편집할 수 없는 것을 명확하게 이해하려면 인덱스 정의 옵션을 잠시 살펴봅니다. 흐리게 표시된 옵션은 값을 수정하거나 삭제할 수 없는 표시기입니다. 마찬가지로, 지금은 분석기 및 제안기 확인란을 건너뜁니다.
+인덱스 디자인 중 편집할 수 있고 편집할 수 없는 것을 명확하게 이해하려면 인덱스 정의 옵션을 잠시 살펴봅니다. 흐리게 표시된 옵션은 값을 수정하거나 삭제할 수 없는 표시기입니다. 
 
-## <a name="query-index"></a> 인덱스 쿼리
+## <a name="query-index"></a> 검색 탐색기를 사용하여 쿼리
 
 앞으로 기본 제공 [**검색 탐색기**](search-explorer.md) 쿼리 페이지를 사용하여 쿼리할 준비가 된 검색 인덱스가 있어야 합니다. 임의의 쿼리 문자열을 테스트할 수 있도록 검색 상자를 제공합니다.
 
@@ -129,11 +144,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 명령 모음에서 **검색 탐색기** 를 클릭합니다.
 
-   ![검색 탐색기 명령][5]
+   ![검색 탐색기 명령](media/search-get-started-portal/search-explorer-cmd2.png)
 
 2. *realestate-us-sample*로 변경하려면 명령 모음에서 **인덱스 변경**을 클릭합니다. 어떤 REST API가 제공되는지 확인하려면 명령 모음에서 **API 버전 설정**을 클릭합니다. 아래 쿼리의 경우 일반적으로 제공되는 버전(2017-11-11)을 사용합니다.
 
-   ![인덱스 및 API 명령][6]
+   ![인덱스 및 API 명령](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 
 3. 검색 창에 아래의 쿼리 문자열을 입력하고 **검색**을 클릭합니다.
 
@@ -141,17 +156,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     > **검색 탐색기**는 [REST API 요청](https://docs.microsoft.com/rest/api/searchservice/search-documents)을 처리하도록 탑재되어 있습니다. [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 및 [완전한 Lucene 쿼리 파서](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)에 대한 구문과 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) 작업에 제공되는 모든 검색 매개 변수를 허용합니다.
     >
 
+## <a name="example-queries"></a>쿼리 예
+
+Bing 이나 Google 검색, 또는 완전히 지정된 쿼리 식에서 수행할 수 있는 작업과 비슷한 조건 및 구를 입력할 수 있습니다. 결과는 자세한 JSON 문서로 반환됩니다.
+
 ### <a name="simple-query-with-top-n-results"></a>상위 N개 결과를 사용하는 간단한 쿼리
 
-#### <a name="example-string-searchseattle"></a>예제(문자열): `search=seattle`
+#### <a name="example-string-query-searchseattle"></a>예제(문자열 쿼리): `search=seattle`
 
 * **search** 매개 변수는 완전한 텍스트 검색의 키워드를 입력하는 데 사용됩니다. 이 예에서는 워싱턴 주 킹 카운티의 목록을 반환하며, 문서에서 검색 가능한 모든 필드에 *시애틀*이 포함되어 있습니다.
 
 * **검색 탐색기**는 문서 구조가 조밀하면 장황하고 읽기 어려운 JSON으로 결과를 반환합니다. 이는 의도적인 것으로, 전체 문서의 가시성은 개발을 위해, 특히 테스트에 중요합니다. 더 나은 사용자 환경을 위해 중요한 요소를 끌어내도록 [검색 결과를 처리](search-pagination-page-layout.md)하는 코드를 작성해야 합니다.
 
-* 문서는 인덱스에서 "검색 가능"으로 표시되는 모든 필드로 구성됩니다. 포털에서 인덱스 특성을 보려면 *인덱스* 타일에서 **realestate-us-sample**을 클릭합니다.
+* 문서는 인덱스에서 "검색 가능"으로 표시되는 모든 필드로 구성됩니다. 포털에서 인덱스 특성을 보려면 *인덱스* 목록에서 **realestate-us-sample**을 클릭합니다.
 
-#### <a name="example-parameterized-searchseattlecounttruetop100"></a>예제(매개 변수가 있는): `search=seattle&$count=true&$top=100`
+#### <a name="example-parameterized-query-searchseattlecounttruetop100"></a>예제(매개 변수가 있는 쿼리): `search=seattle&$count=true&$top=100`
 
 * **&** 기호는 순서에 관계 없이 지정할 수 있는 검색 매개 변수를 추가하는 데 사용됩니다.
 
@@ -231,17 +250,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="takeaways"></a>핵심 내용
 
-이 자습서에서는 Azure Portal에서 Azure Search를 사용하는 방법을 간략하게 소개했습니다.
+이 자습서에서는 Azure Portal을 사용하여 Azure Search를 간략하게 소개했습니다.
 
 **데이터 가져오기** 마법사를 사용하여 검색 인덱스를 만드는 방법을 배웠습니다. [게시된 인덱스에 대한 지원되는 수정](https://docs.microsoft.com/rest/api/searchservice/update-index)을 포함하여 [인덱서](search-indexer-overview.md) 및 인덱스 디자인에 대한 기본 워크플로를 알아보았습니다.
 
 Azure Portal에서 **검색 탐색기**를 사용하여 필터, 적중 항목 강조 표시, 유사 항목 검색, 지리적 검색 등의 주요 기능을 보여주는 실습 예제를 통해 몇 가지 기본 쿼리 구문을 알아보았습니다.
 
-또한 검색 인덱스, 인덱서 및 데이터 원본에 대시보드의 타일을 사용하는 방법을 배웠습니다. 향후 어떤 새 데이터 원본이 주어지더라도 포털을 사용하여 최소한의 노력으로 신속하게 정의 또는 필드 컬렉션을 확인할 수 있습니다.
+포털에서 인덱스, 인덱서 및 데이터 원본을 찾는 방법도 알아보았습니다. 향후 어떤 새 데이터 원본이 주어지더라도 포털을 사용하여 최소한의 노력으로 신속하게 정의 또는 필드 컬렉션을 확인할 수 있습니다.
 
 ## <a name="clean-up"></a>정리
 
-이 자습서를 통해 Azure Search 서비스를 처음 사용한 경우 Azure Search 서비스가 포함된 리소스 그룹을 삭제하세요. 처음이 아닌 경우 서비스 목록에서 올바른 리소스 그룹 이름을 조회하여 적절한 리소스 그룹을 삭제하세요.
+이 자습서를 통해 Azure Search 서비스를 처음 사용한 경우 Azure Search 서비스가 포함된 리소스 그룹을 삭제합니다. 처음이 아닌 경우 서비스 목록에서 올바른 리소스 그룹 이름을 조회하여 적절한 리소스 그룹을 삭제하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -249,17 +268,4 @@ Azure Portal에서 **검색 탐색기**를 사용하여 필터, 적중 항목 �
 
 * [.NET SDK를 사용하여 인덱스 만들기](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
 * [REST API를 사용하여 인덱스 만들기](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Azure Search REST API를 호출하기 위한 Postman 또는 Fiddler 같은 웹 테스트 도구](search-fiddler.md) 사용
-
-<!--Image references-->
-[1]: ./media/search-get-started-portal/tiles-indexers-datasources2.png
-[2]: ./media/search-get-started-portal/import-data-cmd2.png
-[3]: ./media/search-get-started-portal/realestateindex2.png
-[4]: ./media/search-get-started-portal/indexers-inprogress2.png
-[5]: ./media/search-get-started-portal/search-explorer-cmd2.png
-[6]: ./media/search-get-started-portal/search-explorer-changeindex-se2.png
-[7]: ./media/search-get-started-portal/search-explorer-query2.png
-[8]: ./media/search-get-started-portal/realestate-indexer2.png
-[9]: ./media/search-get-started-portal/import-datasource-sample2.png
-[10]: ./media/search-get-started-portal/sample-index-def.png
-[11]: ./media/search-get-started-portal/skip-cog-skill-step.png
+* [Postman 또는 Fiddler 및 Azure Search REST API를 사용하여 인덱스 만들기](search-fiddler.md)

@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 7f57e75f90511ace45198d7516a5d2550123d9be
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 19b485add894dbe99a524d16f891d001991c1ec7
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075117"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558382"
 ---
-# <a name="enable-capturing-of-events-streaming-through-azure-event-event-hubs"></a>Azure Event Hubs를 통해 이벤트 스트리밍을 캡처하도록 설정
+# <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Azure Event Hubs를 통해 이벤트 스트리밍을 캡처하도록 설정
 
 Azure [Event Hubs 캡처][capture-overview]를 사용하면 Event Hubs의 스트리밍 데이터를 선택한 [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) 또는 [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) 계정에 자동으로 전달할 수 있습니다.
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: beaedf754df2b1c4739c5dfb2abcdc40c163dc81
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: be44a233c2b09aa91ec04b5a64b523a2d0b00db1
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254125"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599862"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>자습서: Azure SignalR Service 인증
 
@@ -378,7 +378,7 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 ## <a name="deploy-the-app-to-azure"></a>Azure에 앱 배포
 
-이 섹션에서는 Azure Cloud Shell의 Azure CLI(명령줄 인터페이스)를 사용하여 Azure에서 ASP.NET 애플리케이션을 호스트할 새 [Azure 웹앱](https://docs.microsoft.com/azure/app-service/)을 만듭니다. 이 웹앱은 로컬 Git 배포를 사용하도록 구성됩니다. 또한 SignalR 연결 문자열, GitHub OAuth 앱 암호 및 배포 사용자로도 구성됩니다.
+이 섹션에서는 Azure Cloud Shell의 Azure CLI(명령줄 인터페이스)를 사용하여 Azure에서 ASP.NET 애플리케이션을 호스트할 새 웹앱을 [Azure App Service](https://docs.microsoft.com/azure/app-service/)에서 만듭니다. 이 웹앱은 로컬 Git 배포를 사용하도록 구성됩니다. 또한 SignalR 연결 문자열, GitHub OAuth 앱 암호 및 배포 사용자로도 구성됩니다.
 
 이 섹션의 단계에서는 Azure CLI에 대해 *signalr* 확장을 사용합니다. 다음 명령을 실행하여 Azure CLI용 *signalr* 확장을 설치합니다.
 
@@ -571,13 +571,13 @@ az webapp deployment source config-local-git --name $WebAppName \
 
 [Azure 포털](https://portal.azure.com) 에 로그인하고 **리소스 그룹**을 클릭합니다.
 
-**이름을 기준으로 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다. 이 문서의 지침에서는 *SignalRTestResources*라는 리소스 그룹을 사용합니다. 결과 목록의 리소스 그룹에서 **...** 를 클릭한 다음, **리소스 그룹 삭제**를 클릭합니다.
+**이름을 기준으로 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다. 이 문서의 지침에서는 *SignalRTestResources*라는 리소스 그룹을 사용합니다. 결과 목록의 리소스 그룹에서 **...** 를 클릭한 후 **리소스 그룹 삭제**를 클릭합니다.
 
 ![삭제](./media/signalr-authenticate-oauth/signalr-delete-resource-group.png)
 
 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 후 **삭제**를 클릭합니다.
 
-잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
+잠시 후 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

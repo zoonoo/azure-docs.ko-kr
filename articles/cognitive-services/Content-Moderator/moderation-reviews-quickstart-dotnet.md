@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: NET을 사용하여 검토 만들기 - Content Moderator'
+title: '빠른 시작: .NET을 사용하여 검토 만들기 - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: .NET용 Azure Content Moderator SDK를 사용하여 검토를 만드는 방법입니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: ce90c5f691a0a8a333161f3135856d720d1de310
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6409011c1a7c125dd03bb706f49ccad1a1fd49a4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226588"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538874"
 ---
 # <a name="quickstart-create-reviews-using-net"></a>빠른 시작: .NET을 사용하여 검토 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "47226588"
 - 사용자 중재자에 대한 검토 집합 만들기
 - 사용자 중재자에 대한 기존 검토의 상태 가져오기
 
-일반적으로 콘텐츠는 사용자 검토를 위해 예약되기 전에 일부 자동화된 중재를 거칩니다. 이 문서에서는 사용자 중재에 대한 검토를 만드는 방법만을 다룹니다. 자세한 전체 시나리오는 [Facebook 콘텐츠 조정](facebook-post-moderation.md) 및 [전자 상거래 카탈로그 조정](ecommerce-retail-catalog-moderation.md) 자습서를 참조하세요.
+일반적으로 콘텐츠는 사용자 검토를 위해 예약되기 전에 일부 자동화된 중재를 거칩니다. 이 문서에서는 사용자 중재에 대한 검토를 만드는 방법만을 다룹니다. 자세한 전체 시나리오는 [Facebook 콘텐츠 조정](facebook-post-moderation.md) 및 [전자 상거래 제품 이미지 조정](ecommerce-retail-catalog-moderation.md) 자습서를 참조하세요.
 
 이 문서에서는 사용자가 Visual Studio 및 C#에 이미 익숙한 것으로 가정합니다.
 
@@ -41,7 +41,7 @@ Azure Portal에서 Content Moderator를 가져온 경우 [검토 도구 계정�
 
 이전 단계를 완료한 후 Azure Portal에서 시작한 경우 두 개의 Content Moderator 키가 생성됩니다. 
 
-SDK 샘플에서 Azure에서 제공하는 API 키를 사용하려는 경우 [검토 API를 사용하여 Azure 키 사용](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) 섹션에서 언급된 단계를 수행하여 응용 프로그램에서 검토 API를 호출하고 검토를 만들도록 허용합니다.
+SDK 샘플에서 Azure가 제공한 API 키를 사용하려는 경우 [검토 API를 사용하여 Azure 키 사용](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) 섹션에서 언급된 단계를 수행하여 애플리케이션에서 검토 API를 호출하고 검토를 만들도록 허용합니다.
 
 검토 도구에서 생성된 평가판 키를 사용하는 경우 검토 도구 계정은 키에 대해 이미 알고 있으므로 추가 단계가 필요하지 않습니다.
 

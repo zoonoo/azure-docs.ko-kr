@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/13/2018
+ms.date: 12/17/2018
 ms.author: b-juche
-ms.openlocfilehash: 8fc76c33055f7131444a073d2f8560e136c0701d
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 937ff9cf4c099f229df28070be07ba76339704e0
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413254"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584006"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 볼륨 만들기
 
@@ -56,13 +56,13 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
     * **가상 네트워크**  
         볼륨에 액세스하려는 Azure Vnet(가상 네트워크)을 지정합니다.  
 
-        지정하는 VNet에는 Azure NetApp Files에 위임된 서브넷이 있어야 합니다. Azure NetApp Files 서비스는 동일한 VNet 또는 VNet 피어링을 통해 볼륨과 동일한 영역에 있는 VNet에서만 액세스할 수 있습니다. Express 경로를 통해 온-프레미스 네트워크에서 볼륨에 액세스할 수도 있습니다.   
+        지정하는 VNet에는 Azure NetApp Files에 위임된 서브넷이 있어야 합니다. Azure NetApp Files 서비스는 동일한 VNet 또는 VNet 피어링을 통해 볼륨과 동일한 영역에 있는 VNet에서만 액세스할 수 있습니다. ExpressRoute를 통해 온-프레미스 네트워크에서 볼륨에 액세스할 수도 있습니다.   
 
     * **서브넷**  
         볼륨에 사용할 서브넷을 지정합니다.  
         지정하는 서브넷은 Azure NetApp Files에 위임되어야 합니다. 
         
-        서브넷을 위임하지 않은 경우에는 볼륨 만들기 페이지에서 **새로 만들기**를 클릭할 수 있습니다. 그런 다음, 서브넷 만들기 페이지에서 서브넷 정보를 지정하고 **Microsoft.NetApp/volumes**를 선택하여 Azure NetApp Files의 서브넷을 위임합니다.    
+        서브넷을 위임하지 않은 경우에는 볼륨 만들기 페이지에서 **새로 만들기**를 클릭할 수 있습니다. 그런 다음, 서브넷 만들기 페이지에서 서브넷 정보를 지정하고 **Microsoft.NetApp/volumes**를 선택하여 Azure NetApp Files의 서브넷을 위임합니다. 각 Vnet에서 하나의 서브넷만 Azure NetApp Files에 위임할 수 있습니다.   
  
         ![새 볼륨](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     

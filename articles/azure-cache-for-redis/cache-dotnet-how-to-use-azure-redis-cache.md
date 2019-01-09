@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: b75d84fefa9c45711003731666ecb21336057cc2
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 6b2ab1ba89fbc2b271ede177a906a1919c14023d
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53018826"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557668"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-application"></a>빠른 시작: .NET 애플리케이션에서 Azure Cache for Redis 사용
 
@@ -63,7 +63,7 @@ ms.locfileid: "53018826"
 
 Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 클릭합니다.
 
-**Visual C#** 아래에서 **Windows 클래식 데스크톱**을 클릭한 다음, **콘솔 앱** 및 **확인**을 클릭하여 새 콘솔 응용 프로그램을 만듭니다.
+**Visual C#** 아래에서 **Windows 클래식 데스크톱**을 클릭한 다음, **콘솔 앱** 및 **확인**을 클릭하여 새 콘솔 애플리케이션을 만듭니다.
 
 
 <a name="configure-the-cache-clients"></a>
@@ -110,7 +110,7 @@ Azure Cache for Redis 연결은 `ConnectionMultiplexer` 클래스로 관리됩�
 
 소스 코드에 자격 증명을 저장해서는 안 됩니다. 이 샘플을 단순하게 유지하기 위해 외부 비밀 구성 파일만을 사용합니다. 더 나은 방법은 [인증서로 Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/certificate-scenarios)를 사용하는 것입니다.
 
-*Program.cs*에서 콘솔 응용 프로그램의 `Program` 클래스에 다음 멤버를 추가합니다.
+*Program.cs*에서 콘솔 애플리케이션의 `Program` 클래스에 다음 멤버를 추가합니다.
 
 ```csharp
         private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -160,7 +160,7 @@ Azure Cache for Redis 연결은 `ConnectionMultiplexer` 클래스로 관리됩�
             Console.WriteLine("\nCache command  : " + cacheCommand + " or StringSet()");
             Console.WriteLine("Cache response : " + cache.StringSet("Message", "Hello! The cache is working from a .NET console app!").ToString());
 
-            // Demostrate "SET Message" executed as expected...
+            // Demonstrate "SET Message" executed as expected...
             cacheCommand = "GET Message";
             Console.WriteLine("\nCache command  : " + cacheCommand + " or StringGet()");
             Console.WriteLine("Cache response : " + cache.StringGet("Message").ToString());
@@ -201,7 +201,7 @@ Install-Package Newtonsoft.Json
 
 다음 `using` 문을 *Program.cs*의 맨 위쪽에 추가합니다.
 
-```charp
+```csharp
 using Newtonsoft.Json;
 ```
 
@@ -262,7 +262,7 @@ using Newtonsoft.Json;
 
 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 후 **삭제**를 클릭합니다.
 
-잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
+잠시 후 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
 
 

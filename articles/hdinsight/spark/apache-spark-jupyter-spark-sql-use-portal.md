@@ -9,26 +9,26 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.custom: mvc
-ms.openlocfilehash: 370503cc463fd3683f47fe0b573ad83daa0b9d14
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 5833571bc1c1ac2674723abf286437c3e5e0a5ae
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584556"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791868"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 HDInsight에서 Apache Spark 클러스터 만들기
-Azure HDInsight에서 Apache Spark 클러스터를 만드는 방법과 Hive 테이블에 대해 Spark SQL 쿼리를 실행하는 방법을 알아봅니다. Apache Spark를 통해 메모리 내 처리 기능을 사용하여 데이터 분석 및 클러스터 컴퓨팅을 신속하게 처리합니다. HDInsight의 Spark에 대한 자세한 내용은 [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)를 참조하세요.
+Azure HDInsight에서 Apache Spark 클러스터를 만드는 방법과 Hive 테이블에 대해 Spark SQL 쿼리를 실행하는 방법을 알아봅니다. Apache Spark를 통해 메모리 내 처리 기능을 사용하여 데이터 분석 및 클러스터 컴퓨팅을 신속하게 처리합니다. HDInsight의 Spark에 대한 자세한 내용은 [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)를 참조하세요.
 
 이 빠른 시작에서는 Azure Portal을 사용하여 HDInsight Spark 클러스터를 만듭니다. 클러스터는 클러스터 저장소로 Azure Storage Blob을 사용합니다. Data Lake Storage Gen2를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > HDInsight 클러스터에 대한 결제는 사용 여부에 관계없이 분당으로 비례 배분됩니다. 사용한 후에 클러스터를 삭제해야 합니다. 자세한 내용은 이 문서의 [리소스 정리](#clean-up-resources) 섹션을 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="create-an-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터 만들기
 
-1. Azure Portal에서 **리소스 만들기** > **데이터 + 분석** > **HDInsight**를 차례로 선택합니다. 
+1. Azure Portal에서 **리소스 만들기** > **분석** > **HDInsight**를 차례로 선택합니다. 
 
     ![Azure Portal의 HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster.png "Azure Portal의 HDInsight")
 2. **기본**에서 다음 값을 입력합니다.
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     |---------|---------|
     |**클러스터 이름**     | HDInsight Spark 클러스터에 이름을 지정합니다. 이 빠른 시작에 사용되는 클러스터 이름은 **myspark20180403**입니다.|
     |**구독**     | 드롭다운에서 이 클러스터에 사용되는 Azure 구독을 선택합니다. 이 빠른 시작에 사용되는 구독은 **&lt;Azure 구독 이름**입니다. |
-    |**클러스터 유형**| 해당 항목을 확장한 다음, **Spark**를 클러스터 유형으로 선택하고 Spark 클러스터 버전을 지정합니다. <br/> <img src="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-type.png" alt = "Slect HDInsight clsuter type" /> |
+    |**클러스터 유형**| 해당 항목을 확장한 다음, **Spark**를 클러스터 유형으로 선택하고 Spark 클러스터 버전을 지정합니다. <br/> <img src="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-type.png" alt = "Select HDInsight cluster type" /> |
     |**클러스터 로그인 사용자 이름**| 클러스터 로그인 사용자 이름을 입력합니다.  기본 이름은 *admin*입니다. 이 계정을 사용하여 빠른 시작의 뒷부분에 나오는 Jupyter 노트북에 로그인합니다. |
     |**클러스터 로그인 암호**| 클러스터 로그인 암호를 입력합니다. |
     |**SSH(보안 셸) 사용자 이름**| SSH 사용자 이름을 입력합니다. 이 빠른 시작에 사용되는 SSH 사용자 이름은 **sshuser**입니다. 기본적으로 이 계정에는 *클러스터 로그인 사용자 이름* 계정과 동일한 암호를 공유합니다. |
@@ -53,7 +53,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![HDInsight Spark 클러스터 저장소 구성 만들기](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-storage.png "HDInsight 저장소 구성에서 Spark 클러스터 만들기")
 
-    > [!NOTE] 
+    > [!NOTE]  
     > 스크린샷에 **기존 항목 선택**이 표시됩니다. 링크는 **새로 만들기**와 **기존 항목 선택**을 토글합니다.
 
     **기본 컨테이너**에는 기본 이름이 있습니다.  원하는 경우 이름을 변경할 수 있습니다.
@@ -63,7 +63,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 3. **요약**에서 **만들기**를 선택합니다. 클러스터를 만드는 데 약 20분이 걸립니다. 다음 세션을 계속하려면 먼저 클러스터를 만들어야 합니다.
 
-HDInsight 클러스터를 만드는 데 문제가 발생하는 경우 이를 수행하기 위한 적절한 사용 권한이 없을 수 있습니다. 자세한 내용은 [액세스 제어 요구 사항](../hdinsight-administer-use-portal-linux.md#create-clusters)을 참조하세요.
+HDInsight 클러스터를 만드는 데 문제가 발생하는 경우 이를 수행하기 위한 적절한 사용 권한이 없을 수 있습니다. 자세한 내용은 [액세스 제어 요구 사항](../hdinsight-hadoop-create-linux-clusters-portal.md)을 참조하세요.
 
 ## <a name="create-a-jupyter-notebook"></a>Jupyter Notebook 만들기
 

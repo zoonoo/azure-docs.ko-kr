@@ -1,5 +1,5 @@
 ---
-title: Linux에서 Python 웹앱 만들기 - Azure App Service | Microsoft Docs
+title: Linux에서 Python 앱 만들기 - Azure App Service | Microsoft Docs
 description: 몇 분 안에 Linux의 Azure App Service에서 첫 번째 Python Hello World 앱을 배포합니다.
 services: app-service\web
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d9d6f3549ec5db914536400fac53de60f2ad4a94
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3af8f57cab6e420a7c7515bdf32b7ef382441cf9
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261853"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633150"
 ---
-# <a name="create-a-python-web-app-in-azure-app-service-on-linux-preview"></a>Linux의 Azure App Service에서 Python 웹앱 만들기(미리 보기)
+# <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Linux의 Azure App Service에서 Python 앱 만들기(미리 보기)
 
 [Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 [Azure CLI](/cli/azure/install-azure-cli)를 사용하여 App Service에서 기본 Python 이미지(미리 보기) 위에 Python 앱을 배포하는 방법을 보여 줍니다.
 
@@ -85,17 +85,17 @@ flask run
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
 
-기본 제공 이미지를 사용하여 새로 만든 웹앱을 보려면 사이트로 이동합니다. _&lt;앱 이름>_ 을 해당하는 웹앱 이름으로 바꿉니다.
+기본 제공 이미지를 사용하여 새로 만든 앱을 보려면 사이트로 이동합니다. _&lt;app name>_ 을 앱 이름으로 바꿉니다.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-새로운 웹앱은 다음과 같아야 합니다.
+새로운 앱은 다음과 같아야 합니다.
 
-![빈 웹앱 페이지](media/quickstart-php/app-service-web-service-created.png)
+![빈 앱 페이지](media/quickstart-php/app-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -129,7 +129,7 @@ To https://user2234@cephalin-python.scm.azurewebsites.net/cephalin-python.git
 http://<app_name>.azurewebsites.net
 ```
 
-Python 샘플 코드가 기본 제공 이미지가 있는 웹앱에서 실행됩니다.
+Python 샘플 코드가 기본 제공 이미지가 있는 Linux의 App Service에서 실행됩니다.
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-python/hello-world-in-browser.png)
 
@@ -154,15 +154,15 @@ git push azure master
 
 ![Azure에서 실행되는 업데이트된 샘플 앱](media/quickstart-python/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>새로운 Azure 웹앱 관리
+## <a name="manage-your-new-azure-app"></a>새 Azure 앱 관리
 
-만든 웹앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다.
+만든 앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다.
 
-왼쪽 메뉴에서 **App Services**를 클릭한 다음 Azure 웹앱의 이름을 클릭합니다.
+왼쪽 메뉴에서 **App Services**를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
 
-![Azure 웹앱에 대한 포털 탐색](./media/quickstart-python/app-service-list.png)
+![Azure 앱에 대한 포털 탐색](./media/quickstart-python/app-service-list.png)
 
-웹앱의 개요 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다.
+앱의 개요 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다.
 
 ![Azure Portal의 App Service 페이지](media/quickstart-python/app-service-detail.png)
 

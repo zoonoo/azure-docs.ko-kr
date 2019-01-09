@@ -1,24 +1,21 @@
 ---
 title: Go 언어를 사용하여 Azure Database for PostgreSQL에 연결
 description: 이 빠른 시작에서는 PostgreSQL용 Azure Database의 데이터를 연결하고 쿼리하는 데 사용할 수 있는 Go 프로그래밍 언어 샘플을 제공합니다.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: eef5d9b6878b46d402a91f3adbfd965c47493c25
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 026913e8afbc1eca5742e21d28ed65c1f1f04d96
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986484"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549523"
 ---
-# <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>PostgreSQL용 Azure Database: Go 언어를 사용하여 데이터 연결 및 쿼리
+# <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>Azure Database for PostgreSQL: Go 언어를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 [Go](https://golang.org/) 언어(golang)로 작성된 코드를 사용하여 PostgreSQL용 Azure Database에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서에서는 개발자가 Go를 사용하여 개발하는 것에 익숙하고 PostgreSQL용 Azure Database 작업에 익숙하지 않다고 가정합니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -34,7 +31,7 @@ ms.locfileid: "49986484"
 2. [시작] 메뉴에서 [명령 프롬프트]를 선택합니다.
 3. `mkdir  %USERPROFILE%\go\src\postgresqlgo`와 같이 프로젝트에 폴더를 만듭니다.
 4. 디렉터리를 프로젝트 폴더로 변경합니다(예: `cd %USERPROFILE%\go\src\postgresqlgo`).
-5. 소스 코드 디렉터리를 가리키도록 GOPATH에 대한 환경 변수를 설정합니다. `set GOPATH=%USERPROFILE%\go`
+5. 소스 코드 디렉터리를 가리키도록 GOPATH에 대한 환경 변수를 설정합니다. `set GOPATH=%USERPROFILE%\go`.
 6. `go get github.com/lib/pq` 명령을 실행하여 [Pure Go Postgres 드라이버(pq)](https://github.com/lib/pq)를 설치합니다.
 
    요약하자면, Go 설치 후 명령 프롬프트에서 다음이 명령을 실행합니다.
@@ -92,7 +89,7 @@ PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가�
 2. 다음 섹션에서 Golang 코드를 텍스트 파일에 붙여넣고 파일 확장명 \*.go로 프로젝트 폴더에 저장합니다(예: Windows 경로 `%USERPROFILE%\go\src\postgresqlgo\createtable.go` 또는 Linux 경로 `~/go/src/postgresqlgo/createtable.go`).
 3. 코드에서 `HOST`, `DATABASE`, `USER` 및 `PASSWORD` 상수를 찾아 예제 값을 사용자 고유의 값으로 바꿉니다.  
 4. 명령 프롬프트 또는 Bash 셸을 시작합니다. 디렉터리를 프로젝트 폴더로 변경합니다. 예를 들어 Windows에서는 `cd %USERPROFILE%\go\src\postgresqlgo\`이고, Linux에서는 `cd ~/go/src/postgresqlgo/`를 실행합니다. 언급된 일부 IDE 환경에서는 셸 명령 없이 디버그 및 런타임 기능을 제공합니다.
-5. `go run createtable.go` 명령을 입력하여 코드를 실행하고 응용 프로그램을 컴파일한 후 실행합니다. 
+5. `go run createtable.go` 명령을 입력하여 코드를 실행하고 애플리케이션을 컴파일한 후 실행합니다. 
 6. 또는 원시 애플리케이션 `go build createtable.go`에 코드를 빌드하려면 `createtable.exe`를 시작하여 애플리케이션을 실행합니다.
 
 ## <a name="connect-and-create-a-table"></a>테이블 연결 및 생성

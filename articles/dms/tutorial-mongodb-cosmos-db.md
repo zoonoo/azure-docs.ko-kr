@@ -5,18 +5,18 @@ services: dms
 author: pochiraju
 ms.author: rajpo
 manager: craigg
-ms.reviewer: ''
+ms.reviewer: douglasl
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/11/2018
-ms.openlocfilehash: 46e8ca97411e9dce77c0c82c4e0f5dd164bce01b
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 4651c9afab99577622af71297e1fb6465a20097f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320735"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713100"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-db-mongo-api-offline-using-dms"></a>자습서: DMS를 사용하여 Azure Cosmos DB Mongo API에 MongoDB를 오프라인으로 마이그레이션
 Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이터베이스를 MongoDB 온-프레미스 또는 클라우드 인스턴스에서 Azure Cosmos DB Mongo API로 마이그레이션할 수 있습니다.
@@ -28,11 +28,11 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 > * 마이그레이션을 실행합니다.
 > * 마이그레이션을 모니터링합니다.
 
-이 자습서에서는 Azure Database Migration Service를 사용하여 Azure Virtual Machine에서 호스트되는 MongoDB의 **Wingtips** 데이터 세트를 Cosmos DB의 MongoDB API로 마이그레이션합니다. MongoDB 원본을 설정하지 않은 경우 [Azure의 Windows VM에서 MongoDB 설치 및 구성](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb) 문서를 참조하세요.
+이 자습서에서는 Azure Database Migration Service를 사용하여 Azure Virtual Machine에서 호스트되는 MongoDB의 **Wingtips** 데이터 세트를 Azure Cosmos DB for MongoDB API로 마이그레이션합니다. MongoDB 원본을 설정하지 않은 경우 [Azure의 Windows VM에서 MongoDB 설치 및 구성](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb) 문서를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음이 필요합니다.
-- [Azure Cosmos DB MongoDB API 계정 만들기](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
+- [Azure Cosmos DB for MongoDB API를 만듭니다](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
 - Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 VNET을 만듭니다. 이를 통해 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에서 사이트 간 연결을 제공합니다.
 - Azure VNET(Virtual Network) 네트워크 보안 그룹 규칙이 다음과 같은 통신 포트를 차단하지 않는지 확인합니다. 443, 53, 9354, 445 및 12000 Azure VNET NSG 트래픽 필터링에 대한 자세한 정보는 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
 - Azure Database Migration Service에서 기본적으로 27017 TCP 포트인 원본 MongoDB 서버에 액세스할 수 있도록 Windows 방화벽을 엽니다.
@@ -163,7 +163,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 
 ## <a name="verify-data-in-cosmos-db"></a>Cosmos DB에서 데이터 확인
 
-- 마이그레이션이 완료되면 Cosmos DB MongoDB API 계정을 검사하여 모든 컬렉션이 성공적으로 마이그레이션되었는지 확인할 수 있습니다.
+- 마이그레이션이 완료되면 Cosmos DB for MongoDB API 계정을 검사하여 모든 컬렉션이 성공적으로 마이그레이션되었는지 확인할 수 있습니다.
 
     ![작업 상태 완료됨](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
 

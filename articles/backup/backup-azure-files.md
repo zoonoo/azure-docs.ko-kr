@@ -8,12 +8,12 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 94a3282451a0efcc9209c4aac3d316e40560495f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 13003f671e479217d73d1c611be36987b3bda7bc
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972134"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793586"
 ---
 # <a name="back-up-azure-file-shares"></a>Azure 파일 공유 백업
 이 문서에서는 Azure Portal을 사용하여 [Azure 파일 공유](../storage/files/storage-files-introduction.md)를 백업 및 복원하는 방법을 설명합니다.
@@ -34,7 +34,7 @@ Azure 파일 공유를 백업하려면 파일 공유가 [지원되는 저장소 
 Azure 파일 공유를 위한 백업은 미리 보기로 제공됩니다. 범용 v1 및 범용 v2 저장소 계정 둘 다에서 Azure 파일 공유가 지원됩니다. 다음 백업 시나리오에는 Azure 파일 공유가 지원되지 않습니다.
 - 저장소 계정에서 RA-GRS([읽기 액세스 지역 중복 저장소](../storage/common/storage-redundancy-grs.md)) 복제*를 사용하여 Azure 파일 공유를 보호할 수 없습니다.
 - Virtual Networks 또는 방화벽을 사용하도록 설정된 저장소 계정에서 Azure 파일 공유를 보호할 수 없습니다.
-- Azure Backup을 사용하여 Azure Files를 보호할 수 있는 PowerShell 또는 CLI가 없습니다.
+- Azure Backup을 사용하여 Azure Files를 보호할 수 있는 CLI가 없습니다.
 - 일별 최대 예약 백업의 수는 1개입니다.
 - 일별 최대 주문형 백업의 수는 4개입니다.
 - 저장소 계정에서 [리소스 잠금](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest)을 사용하면 Recovery Services 자격 증명 모음에서 Backup이 실수로 삭제되는 것을 방지할 수 있습니다.

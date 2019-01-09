@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 9a35c1205c0b564c8d0db1fbd0535d41bb9c84a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9f96b4cbe95d918a94ea0d02f9b8fdd8f663eeec
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989909"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001467"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Azure Functions를 사용하여 서버 없는 API 만들기
 
@@ -39,14 +39,14 @@ Azure Portal을 엽니다. 이렇게 하려면 Azure 계정으로 [https://porta
 
     ![HTTP 함수 사용자 지정](./media/functions-create-serverless-api/customizing-http.png)
 
-1. 표에 지정된 것처럼 HTTP 트리거 설정을 사용합니다.
+1. 테이블에 지정된 것처럼 HTTP 트리거 설정을 사용합니다.
 
     | 필드 | 샘플 값 | 설명 |
     |---|---|---|
     | 허용된 HTTP 메서드 | 선택된 메서드 | 이 함수를 호출하는 데 사용할 수 있는 HTTP 메서드 결정 |
     | 선택한 HTTP 메서드 | GET | 선택한 HTTP 메서드만 이 함수를 호출하는 데 사용할 수 있도록 허용 |
     | 경로 템플릿 | /hello | 이 함수를 호출하는 데 사용할 경로 결정 |
-    | 권한 부여 수준 | 익명 | 선택 사항: 함수가 API 키 없이 액세스할 수 있게 됩니다 |
+    | 권한 부여 수준 | 익명 | 선택 사항: API 키 없이도 함수가 액세스할 수 있게 됩니다 |
 
     > [!NOTE] 
     > `/api` 기본 경로 접두사는 전역 설정에 의해 처리되므로 경로 템플릿에 포함하지 않았습니다.
@@ -71,7 +71,7 @@ Azure Portal을 엽니다. 이렇게 하려면 Azure 계정으로 [https://porta
 
 프록시는 다음과 같은 HTTP 리소스를 가리킬 수 있습니다.
 - Azure 기능 
-- [Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-overview)의 API 앱
+- [Azure App Service](https://docs.microsoft.com/azure/app-service/overview)의 API 앱
 - [Linux의 App Service](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)에 있는 Docker 컨테이너
 - 기타 호스트된 API
 
@@ -86,7 +86,7 @@ Azure Portal을 엽니다. 이렇게 하려면 Azure 계정으로 [https://porta
 [함수 앱 만들기](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) 단계를 반복하여 프록시를 만들 새 함수 앱을 만듭니다. 이 새로운 앱의 URL은 API에 대한 프런트 엔드로 사용되고 이전에 편집하던 함수 앱은 백 엔드로 사용됩니다.
 
 1. 포털의 새 프런트 엔드 함수 앱으로 이동합니다.
-1. **플랫폼 기능**을 선택하고 **응용 프로그램 설정**을 선택합니다.
+1. **플랫폼 기능**을 선택하고 **애플리케이션 설정**을 선택합니다.
 1. 키/값 쌍이 저장된 **애플리케이션 설정**으로 스크롤하고 "HELLO_HOST" 키로 새 설정을 만듭니다. 해당 값을 백 엔드 함수 앱의 호스트(예: `<YourBackendApp>.azurewebsites.net`)로 설정합니다. 이것은 HTTP 함수를 테스트할 때 이전에 복사한 URL의 일부입니다. 나중에 구성에서 이 설정을 참조할 수 있습니다.
 
     > [!NOTE] 
@@ -104,7 +104,7 @@ Azure Portal을 엽니다. 이렇게 하려면 Azure 계정으로 [https://porta
     | 필드 | 샘플 값 | 설명 |
     |---|---|---|
     | 이름 | HelloProxy | 관리에 대해서만 사용되는 이름 |
-    | 경로 템플릿 | /api/hello | 이 프록시를 호출하는 데 사용할 경로 결정 |
+    | 경로 템플릿 | /api/remotehello | 이 프록시를 호출하는 데 사용할 경로 결정 |
     | 백 엔드 URL | https://%HELLO_HOST%/api/hello | 요청을 프록시 처리할 엔드포인트를 지정합니다. |
     
 1. 프록시는 `/api` 기본 경로 접두사를 제공하지 않으며 경로 템플릿에 포함되어야 합니다.
@@ -112,9 +112,9 @@ Azure Portal을 엽니다. 이렇게 하려면 Azure 계정으로 [https://porta
 1. **만들기**를 클릭합니다.
 1. 프록시 URL을 복사하고 브라우저 또는 자주 사용하는 HTTP 클라이언트에서 테스트하여 새 프록시를 시험해볼 수 있습니다.
     1. 익명 함수의 경우 다음을 사용합니다.
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?name="Proxies"`
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"`
     1. 권한이 부여된 함수의 경우 다음을 사용합니다.
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?code=YOURCODE&name="Proxies"`
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?code=YOURCODE&name="Proxies"`
 
 ## <a name="create-a-mock-api"></a>모의 API 만들기
 
@@ -132,7 +132,7 @@ Azure Portal을 엽니다. 이렇게 하려면 Azure 계정으로 [https://porta
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         }
@@ -148,7 +148,7 @@ Azure Portal을 엽니다. 이렇게 하려면 Azure 계정으로 [https://porta
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         },

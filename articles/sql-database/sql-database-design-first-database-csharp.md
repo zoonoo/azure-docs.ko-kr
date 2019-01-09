@@ -4,22 +4,20 @@ description: 첫 번째 Azure SQL Database를 설계하고 ADO.NET을 사용하�
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
-ms.devlang: ''
 ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
-ms.date: 11/01/2018
-ms.openlocfilehash: 82cf0303019d2cbb620c442fd6f750f733930f84
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/10/2018
+ms.openlocfilehash: cf180f6e2970ac4435602f1cceeb98a4dd9e8724
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912342"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727168"
 ---
-# <a name="tutorial-design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>자습서: Azure SQL Database 설계 및 C&#x23;과 ADO.NET에 연결
+# <a name="tutorial-design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>자습서: Azure SQL Database 설계 및 C#과 ADO.NET에 연결
 
 Azure SQL Database는 Microsoft Cloud(Azure)의 관계형 DBaaS(Database-As-A-Service)입니다. 이 자습서에서는 Visual Studio에서 Azure Portal 및 ADO.NET을 사용하여 다음과 같은 작업을 수행하는 방법에 대해 알아봅니다.
 
@@ -35,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 
-설치된 [Visual Studio Community 2017, Visual Studio Professional 2017 또는 Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/)
+[Visual Studio 2017](https://www.visualstudio.com/downloads/)의 설치
 
 <!-- The following included .md, sql-database-tutorial-portal-create-firewall-connection-1.md, is long.
 And it starts with a ## H2.
@@ -51,16 +49,16 @@ And it starts with a ## H2.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 데이터베이스 및 테이블 만들기, 데이터 로드 및 쿼리, 데이터베이스를 이전 시점으로 복원과 같은 기본적인 데이터베이스 작업에 대해 배웁니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 데이터베이스 및 테이블 만들기, 데이터베이스에 연결, 데이터 로드 및 쿼리 실행과 같은 기본적인 데이터베이스 작업에 대해 배웠습니다. 다음 방법에 대해 알아보았습니다.
+
 > [!div class="checklist"]
 > * 데이터베이스 만들기
 > * 방화벽 규칙 설정
 > * [Visual Studio 및 C#](sql-database-connect-query-dotnet-visual-studio.md)을 사용하여 데이터베이스에 연결
 > * 테이블 만들기
-> * 데이터 삽입, 업데이트 및 삭제
-> * 쿼리 데이터
+> * 데이터 삽입, 업데이트, 삭제 및 쿼리
 
-데이터를 마이그레이션하는 방법에 대해 자세히 알아보려면 다음 자습서로 이동합니다.
+데이터 마이그레이션에 대해 자세히 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
-> [SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션](sql-database-migrate-your-sql-server-database.md)
+> [DMS를 사용하여 오프라인에서 SQL Server를 Azure SQL Database로 마이그레이션](../dms/tutorial-sql-server-to-azure-sql.md)

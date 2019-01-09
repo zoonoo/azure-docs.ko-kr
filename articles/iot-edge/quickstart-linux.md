@@ -4,17 +4,17 @@ description: 이 빠른 시작에서는 IoT Edge 디바이스를 만든 다음, 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/14/2018
+ms.date: 12/31/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6757438512c03ad7b5a80c08babf5a37417dbe49
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: af95c2a5182a8adca9aeb40f047c7767413b9b1c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339504"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973675"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>빠른 시작: Linux x64 디바이스에 첫 번째 IoT Edge 모듈 배포
 
@@ -61,11 +61,13 @@ IoT Edge 장치:
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
 
+   새 가상 머신을 만들고 시작하는 데 몇 분 정도 걸릴 수 있습니다. 
+
    새 가상 머신을 만들 때 create 명령 출력의 일부로 제공되는 **publicIpAddress**를 기록해 둡니다. 빠른 시작의 뒷부분에서 이 공용 IP 주소를 사용하여 가상 머신에 연결합니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
-Azure CLI를 사용하여 IoT Hub를 만들어서 이 빠른 시작을 시작합니다.
+Azure CLI를 사용하여 IoT Hub를 만들어서 빠른 시작을 시작합니다.
 
 ![다이어그램 - 클라우드에 IoT 허브 만들기](./media/quickstart-linux/create-iot-hub.png)
 
@@ -96,13 +98,15 @@ IoT Edge 디바이스는 일반적인 IoT 디바이스와 다르게 작동하며
 
    iothubowner 정책 키에 대한 오류가 표시될 경우 Cloud Shell에서 최신 버전의 azure-cli-iot-ext 확장이 실행 중인지 확인합니다. 
 
-2. IoT Hub에서 물리적 장치를 해당 ID에 연결하는 장치에 대한 연결 문자열을 검색합니다. 
+2. IoT Hub에서 물리적 디바이스를 해당 ID에 연결하는 디바이스에 대한 연결 문자열을 검색합니다. 
 
    ```azurecli-interactive
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. 연결 문자열을 복사하고 저장합니다. 다음 섹션에서 이 값을 사용하여 IoT Edge 런타임을 구성할 것입니다. 
+3. JSON 출력에서 연결 문자열을 복사하여 저장합니다. 다음 섹션에서 이 값을 사용하여 IoT Edge 런타임을 구성할 것입니다.
+
+   ![CLI 출력에서 연결 문자열 검색](./media/quickstart/retrieve-connection-string.png)
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>IoT Edge 런타임 설치 및 시작
 
@@ -115,7 +119,7 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 �
 
 ### <a name="connect-to-your-iot-edge-device"></a>IoT Edge 디바이스에 연결
 
-이 섹션의 단계는 모두 IoT Edge 디바이스에서 수행됩니다. 사용자 고유의 머신을 IoT Edge 디바이스로 사용하는 경우 이 부분을 건너뛰어도 됩니다. 가상 머신 또는 보조 하드웨어를 사용하는 경우 이제 해당 머신에 연결할 수 있습니다. 
+이 섹션의 단계는 모두 IoT Edge 디바이스에서 수행됩니다. 자체 머신을 IoT Edge 디바이스로 사용하는 경우에는 다음 섹션을 진행하면 됩니다. 가상 머신 또는 보조 하드웨어를 사용하는 경우 이제 해당 머신에 연결할 수 있습니다. 
 
 이 빠른 시작에 대한 Azure Virtual Machine을 만든 경우 만들기 명령에 의해 출력된 공용 IP 주소를 검색합니다. Azure Portal의 가상 머신 개요 페이지에서 공용 IP 주소를 찾을 수 있습니다. 다음 명령을 사용하여 가상 머신에 연결합니다. **{publicIpAddress}** 를 컴퓨터의 주소로 바꿉니다. 
 
@@ -194,12 +198,12 @@ IoT Edge 런타임은 일단의 컨테이너이며, IoT Edge 디바이스에 배
    sudo systemctl restart iotedge
    ```
 
->[!TIP]
->`iotedge` 명령을 실행하려면 상승된 권한이 필요합니다. IoT Edge 런타임을 설치한 후 처음으로 머신에서 로그아웃했다가 다시 로그인하면 권한이 자동으로 업데이트됩니다. 그 전까지는 명령 앞에 **sudo**를 사용합니다. 
-
 ### <a name="view-the-iot-edge-runtime-status"></a>IoT Edge 런타임 상태 보기
 
 런타임이 성공적으로 설치 및 구성되었는지 확인합니다.
+
+>[!TIP]
+>`iotedge` 명령을 실행하려면 상승된 권한이 필요합니다. IoT Edge 런타임을 설치한 후 처음으로 머신에서 로그아웃했다가 다시 로그인하면 권한이 자동으로 업데이트됩니다. 그 전까지는 명령 앞에 **sudo**를 사용합니다. 
 
 1. Edge 보안 디먼이 시스템 서비스로 실행되고 있는지 확인합니다.
 
@@ -242,17 +246,20 @@ IoT Edge 장치가 구성되었습니다. 클라우드 배포 모듈을 실행�
    sudo iotedge list
    ```
 
-   ![장치에서 세 가지 모듈 보기](./media/quickstart-linux/iotedge-list-2.png)
+   ![디바이스에서 세 가지 모듈 보기](./media/quickstart-linux/iotedge-list-2.png)
 
-tempSensor 모듈에서 전송되는 메시지를 봅니다.
+온도 센서 모듈에서 전송되는 메시지를 봅니다.
 
    ```bash
-   sudo iotedge logs tempSensor -f
+   sudo iotedge logs SimulatedTemperatureSensor -f
    ```
 
-![모듈의 데이터 보기](./media/quickstart-linux/iotedge-logs.png)
+   >[!TIP]
+   >IoT Edge 명령은 모듈 이름을 참조하는 경우 대/소문자를 구분합니다.
 
-로그에 표시된 마지막 줄이 `Using transport Mqtt_Tcp_Only`인 경우 온도 센서 모듈이 Edge Hub에 연결하기 위해 대기 중일 수 있습니다. 모듈을 종료하고 Edge 에이전트가 다시 시작되도록 합니다. 모듈은 `sudo docker stop tempSensor` 명령으로 종료할 수 있습니다.
+   ![모듈의 데이터 보기](./media/quickstart-linux/iotedge-logs.png)
+
+로그에 표시된 마지막 줄이 **Using transport Mqtt_Tcp_Only**인 경우 온도 센서 모듈이 Edge Hub에 연결하기 위해 대기 중일 수 있습니다. 모듈을 중지하고 Edge 에이전트가 다시 시작되도록 합니다. 모듈은 `sudo docker stop SimulatedTemperatureSensor` 명령으로 중지할 수 있습니다.
 
 [Visual Studio Code용 Azure IoT Hub Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)(이전의 Azure IoT Toolkit 확장)을 사용하여 IoT 허브에 메시지가 도착하는 것을 확인할 수도 있습니다. 
 
@@ -286,10 +293,10 @@ IoT Edge 런타임을 제거하면 만든 컨테이너는 중지되지만 장치
    sudo docker ps -a
    ```
 
-IoT Edge 런타임에 의해 디바이스에서 만들어진 컨테이너를 삭제합니다. tempSensor 컨테이너를 다르게 부른 경우 컨테이너의 이름을 변경합니다. 
+IoT Edge 런타임에 의해 디바이스에서 만들어진 컨테이너를 삭제합니다. 
 
    ```bash
-   sudo docker rm -f tempSensor
+   sudo docker rm -f SimulatedTemperatureSensor
    sudo docker rm -f edgeHub
    sudo docker rm -f edgeAgent
    ```

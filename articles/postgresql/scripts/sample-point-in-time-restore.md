@@ -1,22 +1,19 @@
 ---
 title: Azure CLI 스크립트 - Azure Database for PostgreSQL 서버 복원
 description: 이 샘플 Azure CLI 스크립트는 Azure Database for PostgreSQL 서버 및 해당 데이터베이스를 이전 시점으로 복원하는 방법을 보여 줍니다.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: c5280265fd985b77d07351ba1817652f9c059328
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 721e385d7c8e6b401ce1fe6d3518006f3a96e4fe
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581462"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541101"
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for PostgreSQL 서버 복원
 이 샘플 CLI 스크립트는 단일 Azure Database for PostgreSQL 서버를 이전 시점으로 복원합니다.
@@ -44,6 +41,6 @@ CLI를 로컬로 실행하도록 선택한 경우 이 문서에 Azure CLI 버전
 | [az group delete](/cli/azure/group#az_group_delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
-- Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
-- 추가 스크립트 시도: [PostgreSQL용 Azure 데이터베이스 대한 Azure CLI 샘플](../sample-scripts-azure-cli.md)
+- Azure CLI에 대한 자세한 내용: [Azure CLI 설명서](/cli/azure)
+- 추가 스크립트 시도: [PostgreSQL용 Azure Database에 대한 Azure CLI 샘플](../sample-scripts-azure-cli.md)
 - [Azure Portal을 사용하여 Azure Database for PostgreSQL에서 서버를 백업 및 복원하는 방법](../howto-restore-server-portal.md)

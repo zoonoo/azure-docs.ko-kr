@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure 클라우드 스토리지에서 반정형 데이터 검색 - Azure Search
+title: Azure Blob Storage에서 JSON 검색에 관한 자습서 - Azure Search
 description: 이 자습서에서는 Azure Search를 사용하여 반구조화된 Azure Blob 데이터를 검색하는 방법을 알아봅니다.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5608495ff2975cabefdb83e5794a7d92b318b5a5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ba9b34dbd9d0959e79c755abc8dad9fe1d358a50
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313828"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632945"
 ---
 # <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>자습서: Azure 클라우드 저장소에서 반구조화된 데이터 검색
 
@@ -60,7 +60,7 @@ Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[Azure Portal](http://portal.azure.com)에 로그인합니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 ## <a name="upload-the-sample-data"></a>샘플 파일 업로드
 

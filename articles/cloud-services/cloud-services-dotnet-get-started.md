@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 04c68308739f641e892a335832725ba87e36f7af
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 59354b7f4a1a82d1fa2fd105bd743ecb73526434
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242129"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716109"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services 및 ASP.NET 시작
 
@@ -33,10 +33,10 @@ ms.locfileid: "51242129"
 
 ![광고 목록](./media/cloud-services-dotnet-get-started/list.png)
 
-이 애플리케이션에서는 [큐 중심 작업 패턴](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) 을 사용하여 미리 보기를 만드는 CPU 사용량이 많은 작업을 백 엔드 프로세스에 오프로드합니다.
+이 애플리케이션에서는 [큐 중심 작업 패턴](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)을 사용하여 미리 보기를 만드는 CPU 사용량이 많은 작업을 백 엔드 프로세스에 오프로드합니다.
 
-## <a name="alternative-architecture-web-apps-and-webjobs"></a>대체 아키텍처: Web Apps 및 WebJobs
-이 자습서에서는 Azure 클라우드 서비스에서 프런트 엔드 및 백 엔드를 실행하는 방법을 보여 줍니다. 대안은 [Azure Web Apps](/azure/app-service/)에서 프런트 엔드를 실행하고 백 엔드에 [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) 기능을 사용하는 것입니다. WebJobs를 사용하는 자습서는 [Azure WebJobs SDK 시작](https://github.com/Azure/azure-webjobs-sdk/wiki)(영문)을 참조하세요. 시나리오에 가장 적합한 서비스를 선택하는 방법에 대한 자세한 내용은 [Azure Websites, Cloud Services 및 가상 머신 비교](../app-service/choose-web-site-cloud-service-vm.md)(영문)를 참조하세요.
+## <a name="alternative-architecture-app-service-and-webjobs"></a>대체 아키텍처: App Service 및 WebJobs
+이 자습서에서는 Azure 클라우드 서비스에서 프런트 엔드 및 백 엔드를 실행하는 방법을 보여 줍니다. 대안은 [Azure App Service](/azure/app-service/)에서 프런트 엔드를 실행하고 백 엔드에 [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) 기능을 사용하는 것입니다. WebJobs를 사용하는 자습서는 [Azure WebJobs SDK 시작](https://github.com/Azure/azure-webjobs-sdk/wiki)(영문)을 참조하세요. 시나리오에 가장 적합한 서비스를 선택하는 방법에 대한 자세한 내용은 [Azure App Service, Cloud Services 및 가상 머신 비교](../app-service/overview-compare.md)를 참조하세요.
 
 ## <a name="what-youll-learn"></a>학습할 내용
 * Azure SDK를 설치하여 사용자 컴퓨터에서 Azure를 개발할 수 있도록 하는 방법
@@ -232,7 +232,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 1. **솔루션 탐색기**에서 **ContosoAdsCloudService** 프로젝트의 **역할** 아래에 있는 **ContosoAdsWeb**을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 
     ![역할 속성](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. **설정** 탭을 클릭합니다. 서비스 구성 드롭다운 상자에서 **클라우드**를 선택합니다.
+2. **설정** 탭을 클릭합니다. **서비스 구성** 드롭다운 상자에서 **클라우드**를 선택합니다.
 
     ![클라우드 구성](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. **StorageConnectionString** 항목을 선택하면 줄 오른쪽 끝에 줄임표(**...**) 단추가 표시됩니다. 줄임표 단추를 클릭하여 **Storage 계정 연결 문자열 만들기** 대화 상자를 엽니다.
@@ -284,7 +284,7 @@ Visual Studio UI를 사용하여 구성한 역할 환경 설정은 ContosoAdsClo
 1. **솔루션 탐색기**에서 **ContosoAdsCloudService** 클라우드 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **게시**를 선택합니다.
 
    ![게시 메뉴](./media/cloud-services-dotnet-get-started/pubmenu.png)
-2. **Azure 응용 프로그램 게시** 마법사의 **로그인** 단계에서 **다음**을 클릭합니다.
+2. **Azure 애플리케이션 게시** 마법사의 **로그인** 단계에서 **다음**을 클릭합니다.
 
     ![로그인 단계](./media/cloud-services-dotnet-get-started/pubsignin.png)
 3. 마법사의 **설정** 단계에서 **다음**을 클릭합니다.
@@ -391,8 +391,8 @@ Contoso Ads 애플리케이션을 만드는 데는 다음 단계가 필요합니
 8. 계속 **ContosoAdsWorker [Role]** 속성 창에서 다른 연결 문자열을 추가합니다.
 
    * 이름: ContosoAdsDbConnectionString
-   * 형식: String
-   * 값: 웹 역할 프로젝트에 사용한 것과 동일한 연결 문자열을 붙여 넣습니다. (다음은 Visual Studio 2013용 예제입니다. 이 예제를 복사하고 Visual Studio 2015 이상을 사용하는 경우 데이터 원본을 반드시 변경해야 합니다.)
+   * 형식: 문자열
+   * 값: 웹 역할 프로젝트에 사용한 것과 동일한 연결 문자열을 붙여넣습니다. (다음은 Visual Studio 2013용 예제입니다. 이 예제를 복사하고 Visual Studio 2015 이상을 사용하는 경우 데이터 원본을 반드시 변경해야 합니다.)
 
        ```
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
@@ -407,7 +407,7 @@ Contoso Ads 애플리케이션을 만드는 데는 다음 단계가 필요합니
 2. ContosoAdsWeb 프로젝트에 다운로드한 프로젝트에서 가져온 다음 파일을 추가합니다.
 
    * *Global.asax.cs*  
-   * *Views\Shared* 폴더: *\__Layout.cshtml*
+   * *Views\Shared* 폴더: *\_Layout.cshtml*
    * *Views\Home* 폴더: *Index.cshtml*
    * *Controllers* 폴더: *AdController.cs*
    * *Views\Ad* 폴더(먼저 폴더 만들기): 5개의 *.cshtml* 파일
@@ -767,7 +767,7 @@ Contoso Ads 애플리케이션은 시작 자습서용으로 의도적으로 단�
 다음은 더 실질적인 코딩 방식을 보여 주는 몇 가지 클라우드 서비스 샘플 애플리케이션입니다. 복잡성이 낮은 것부터 높은 것 순서로 나열되었습니다.
 
 * [PhluffyFotos](https://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31)(영문). 개념이 Contoso Ads와 비슷하지만, 더 많은 기능과 더 실질적인 코딩 방식을 구현합니다.
-* [테이블, 큐 및 Blob이 포함된 Azure 클라우드 서비스 다중 계층 응용 프로그램](https://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)(영문). Azure Storage 테이블 뿐만 아니라 Blob 및 큐를 소개합니다. .NET용 Azure SDK의 이전 버전에 기반하여 현재 버전으로 작업하려면 약간 수정해야 합니다.
+* [테이블, 큐 및 Blob이 포함된 Azure 클라우드 서비스 다중 계층 애플리케이션](https://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)(영문). Azure Storage 테이블 뿐만 아니라 Blob 및 큐를 소개합니다. .NET용 Azure SDK의 이전 버전에 기반하여 현재 버전으로 작업하려면 약간 수정해야 합니다.
 
 클라우드용 개발 관련 일반 정보는 [Azure에서 실제 클라우드 앱 빌드(영문)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction)를 참조하세요.
 

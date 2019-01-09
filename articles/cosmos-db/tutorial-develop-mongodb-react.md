@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: bd72aad51d2649ba6f110ab07b3f85d58da2a09d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c6086c3d3bc025feaf9da2d4c26d7f008b304b57
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867038"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788126"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>React 및 Azure Cosmos DB에서 MongoDB 앱 만들기  
 
-이 여러 비디오 자습서는 React 프런트 엔드에서 추적 앱을 만드는 방법을 보여줍니다. 서버에 대한 앱 사용 노드 및 Express는 [MongoDB API](mongodb-introduction.md)에서 Azure Cosmos DB에 연결되고 앱의 서버 부분에 React 프런트 엔드를 연결합니다. 이 자습서에는 Azure Portal에서 Azure Cosmos DB 포인트 클릭 동작 크기 조정을 수행하는 방법 및 모든 사용자가 즐겨 찾는 Heroes를 추적할 수 있도록 인터넷에 앱을 배포하는 방법을 보여줍니다. 
+이 여러 비디오 자습서는 React 프런트 엔드에서 추적 앱을 만드는 방법을 보여줍니다. 앱에서 서버에 노드 및 Express를 사용하고, [Azure Cosmos DB의 API for MongoDB](mongodb-introduction.md)를 사용하여 구성된 Cosmos 데이터베이스에 연결하고, 앱의 서버 부분에 React 프런트 엔드를 연결합니다. 이 자습서에는 Azure Portal에서 Cosmos DB 포인트 클릭 동작 크기 조정을 수행하는 방법 및 모든 사용자가 자신이 좋아하는 Heroes를 추적할 수 있도록 인터넷에 앱을 배포하는 방법을 보여줍니다. 
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 MongoDB 클라이언트 연결을 지원합니다. 따라서 MongoDB 대신 Azure Cosmos DB를 사용할 수 있지만 MongoDB 앱에 사용하는 동일한 코드를 사용합니다. 또한 간단한 클라우드 배포, 크기 조정 및 초고속 읽기 및 쓰기와 같은 추가 이점이 있습니다.  
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 MongoDB와의 유선 프로토콜 호환성을 지원하므로 클라이언트가 MongoDB 대신 Azure Cosmos DB를 사용할 수 있습니다.  
 
 이 다중 파트 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -55,7 +55,7 @@ Angular를 사용하여 동일한 앱을 빌드하시겠습니까? [Angular 자�
 
 ## <a name="build-the-ui"></a>UI 빌드
 
-이 비디오에서는 React를 사용하여 애플리케이션의 UI(사용자 인터페이스)를 만드는 방법을 보여줍니다. 
+이 비디오에서는 React를 사용하여 응용 프로그램의 UI(사용자 인터페이스)를 만드는 방법을 보여줍니다. 
 
 > [!NOTE]
 > 이 비디오에서 참조되는 CSS는 [react-cosmosdb GitHub 리포지토리](https://github.com/Azure-Samples/react-cosmosdb/blob/master/src/index.css)에서 찾을 수 있습니다.

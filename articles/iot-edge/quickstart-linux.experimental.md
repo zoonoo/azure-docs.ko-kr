@@ -4,17 +4,17 @@ description: 이 빠른 시작에서는 IoT Edge 디바이스를 만든 다음, 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/14/2018
+ms.date: 12/31/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1bc7425d1979b2e1a35884c0800117455aebe9b6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 44b47a595c422f62cae13fb1aeb582e0c15787d6
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338060"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973505"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>빠른 시작: Linux x64 디바이스에 첫 번째 IoT Edge 모듈 배포
 
@@ -55,11 +55,13 @@ Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다.
 
 IoT Edge 장치:
 
-* IoT Edge 장치 역할을 하는 Linux 장치 또는 가상 머신입니다. IoT Edge 런타임을 사전 설치할 [Ubuntu 가상 머신에 Microsoft에서 제공하는 Azure IoT Edge](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu)를 사용하는 것이 좋습니다. 다음 명령을 사용하여 이 가상 머신을 만듭니다.
+* IoT Edge 디바이스 역할을 하는 Linux 디바이스 또는 가상 머신입니다. Microsoft에서 제공하는 [Ubuntu의 Azure IoT Edge](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) 가상 머신을 사용하는 것이 좋습니다. 여기에는 디바이스에서 IoT Edge를 실행하는 데 필요한 모든 것이 미리 설치되어 있습니다. 다음 명령을 사용하여 이 가상 머신을 만듭니다.
 
    ```azurecli-interactive
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
+
+   새 가상 머신을 만들고 시작하는 데 몇 분 정도 걸릴 수 있습니다. 
 
    새 가상 머신을 만들 때 create 명령 출력의 일부로 제공되는 **publicIpAddress**를 기록해 둡니다. 빠른 시작의 뒷부분에서 이 공용 IP 주소를 사용하여 가상 머신에 연결할 것입니다.
 
@@ -69,7 +71,7 @@ IoT Edge 장치:
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
-Azure CLI를 사용하여 IoT Hub를 만들어서 이 빠른 시작을 시작합니다.
+Azure CLI를 사용하여 IoT Hub를 만들어서 빠른 시작을 시작합니다.
 
 ![다이어그램 - 클라우드에 IoT 허브 만들기](./media/quickstart-linux/create-iot-hub.png)
 
@@ -86,9 +88,10 @@ Azure CLI를 사용하여 IoT Hub를 만들어서 이 빠른 시작을 시작합
 ## <a name="register-an-iot-edge-device"></a>IoT Edge 장치 등록
 
 새로 만든 IoT Hub에 IoT Edge 디바이스를 등록합니다.
+
 ![다이어그램 - IoT Hub ID로 디바이스 등록](./media/quickstart-linux/register-device.png)
 
-IoT Hub와 통신할 수 있도록, 시뮬레이션된 디바이스의 디바이스 ID를 만듭니다. 장치 ID는 클라우드에 있으며, 사용자는 고유한 장치 연결 문자열을 사용하여 물리적 장치를 장치 ID에 연결합니다. 
+IoT 허브와 통신할 수 있도록 IoT Edge 디바이스에 대한 디바이스 ID를 만듭니다. 디바이스 ID는 클라우드에 있으며, 사용자는 고유한 디바이스 연결 문자열을 사용하여 물리적 디바이스를 디바이스 ID에 연결합니다. 
 
 IoT Edge 디바이스는 일반적인 IoT 디바이스와 다르게 작동하며 다른 방식으로 관리될 수 있으므로, `--edge-enabled` 플래그를 사용하여 이 ID를 IoT Edge 디바이스로 선언합니다. 
 
@@ -100,17 +103,20 @@ IoT Edge 디바이스는 일반적인 IoT 디바이스와 다르게 작동하며
 
    iothubowner 정책 키에 대한 오류가 표시될 경우 Cloud Shell에서 최신 버전의 azure-cli-iot-ext 확장이 실행 중인지 확인합니다. 
 
-2. IoT Hub에서 물리적 장치를 해당 ID에 연결하는 장치에 대한 연결 문자열을 검색합니다. 
+2. IoT Hub에서 물리적 디바이스를 해당 ID에 연결하는 디바이스에 대한 연결 문자열을 검색합니다. 
 
    ```azurecli-interactive
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. 연결 문자열을 복사하고 저장합니다. 다음 섹션에서 이 값을 사용하여 IoT Edge 런타임을 구성할 것입니다. 
+3. JSON 출력에서 연결 문자열을 복사하여 저장합니다. 다음 섹션에서 이 값을 사용하여 IoT Edge 런타임을 구성할 것입니다.
 
-## <a name="connect-the-iot-edge-device-to-iot-hub"></a>IoT Edge 디바이스를 IoT Hub에 연결
+   ![CLI 출력에서 연결 문자열 검색](./media/quickstart/retrieve-connection-string.png)
 
-IoT Edge 디바이스에 Azure IoT Edge 런타임을 설치하고 시작합니다. 
+## <a name="configure-your-iot-edge-device"></a>IoT Edge 디바이스 구성
+
+IoT Edge 디바이스에서 Azure IoT Edge 런타임을 시작합니다. 
+
 ![다이어그램 - 디바이스에서 런타임 시작](./media/quickstart-linux/start-runtime.png)
 
 IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 구성 요소가 있습니다. **IoT Edge 보안 디먼**은 Edge 장치가 부팅되고 IoT Edge 에이전트를 시작하여 장치를 부트스트랩할 때마다 시작됩니다. **IoT Edge 에이전트**는 IoT Edge 허브를 포함하여 IoT Edge 장치에서 모듈을 쉽게 배포하고 모니터링할 수 있습니다. **IoT Edge 허브**는 IoT Edge 장치의 모듈 간 통신과 장치와 IoT Hub 간의 통신을 관리합니다. 
@@ -119,30 +125,26 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 �
 
 ### <a name="set-the-connection-string-on-the-iot-edge-device"></a>IoT Edge 디바이스에서 연결 문자열 설정
 
-* Ubuntu 가상 머신에서 Azure IoT Edge를 사용하는 경우 이전에 복사한 디바이스 연결 문자열을 사용하여 IoT Edge 디바이스를 원격으로 구성하세요.
+필수 구성 요소에서 권장된 Ubuntu 가상 머신에서 Azure IoT Edge를 사용하는 경우에는 디바이스에 IoT Edge 런타임이 이미 설치되어 있습니다. 이전 섹션에서 검색한 디바이스 연결 문자열로 디바이스를 구성하기만 하면 됩니다. 이 작업은 가상 머신에 연결하지 않고 원격으로 수행할 수 있습니다. 다음 명령에서 **{device_connection_string}** 을 자체 문자열로 바꿔서 실행합니다. 
 
    ```azurecli-interactive
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
    ```
 
-   나머지 단계는 만들기 명령에 의해 출력된 공용 IP 주소를 검색합니다. Azure Portal의 가상 머신 개요 페이지에서 공용 IP 주소를 찾을 수 있습니다. 다음 명령을 사용하여 가상 머신에 연결합니다. **{publicIpAddress}** 를 컴퓨터의 주소로 바꿉니다. 
+로컬 머신이나 ARM32 디바이스에서 IoT Edge를 실행하는 경우에는 디바이스에 IoT Edge 런타임과 필수 구성 요소를 설치해야 합니다. [Linux(x64)에서 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux.md)나 [Linux(ARM32v7/armhf)에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux-arm.md)의 지침을 수행한 후에 이 빠른 시작으로 돌아오십시오. 
+
+### <a name="view-the-iot-edge-runtime-status"></a>IoT Edge 런타임 상태 보기
+
+이 빠른 시작의 나머지 명령은 IoT Edge 디바이스 자체에서 발생하기 때문에 디바이스에서 발생하는 상황을 볼 수 있습니다. 가상 머신을 사용하는 경우에는 만들기 명령에 의해 출력된 공용 IP 주소를 사용하여 해당 머신에 연결하십시오. Azure Portal의 가상 머신 개요 페이지에서 공용 IP 주소를 찾을 수 있습니다. 다음 명령을 사용하여 가상 머신에 연결합니다. 필수 구성 요소에 제안된 이름과 다른 이름을 사용하는 경우에는 **{azureuser}** 를 바꿉니다. **{publicIpAddress}** 를 컴퓨터의 주소로 바꿉니다. 
 
    ```azurecli-interactive
    ssh azureuser@{publicIpAddress}
    ```
 
-* 로컬 머신이나 ARM32 디바이스에서 IoT Edge를 실행중인 경우 /etc/iotedge/config.yaml에 있는 구성 파일을 열고 **device_connection_string** 변수를 이전에 복사한 값으로 업데이트한 다음, IoT Edge 보안 디먼을 다시 시작하여 변경 내용을 적용합니다.
-
-   ```bash
-   sudo systemctl restart iotedge
-   ```
+IoT Edge 디바이스에서 런타임이 성공적으로 설치 및 구성되었는지 확인합니다. 
 
 >[!TIP]
 >`iotedge` 명령을 실행하려면 상승된 권한이 필요합니다. IoT Edge 런타임을 설치한 후 처음으로 머신에서 로그아웃했다가 다시 로그인하면 권한이 자동으로 업데이트됩니다. 그 전까지는 명령 앞에 **sudo**를 사용합니다. 
-
-### <a name="view-the-iot-edge-runtime-status"></a>IoT Edge 런타임 상태 보기
-
-런타임이 성공적으로 설치 및 구성되었는지 확인합니다.
 
 1. Edge 보안 디먼이 시스템 서비스로 실행되고 있는지 확인합니다.
 
@@ -185,17 +187,20 @@ IoT Edge 디바이스에서 명령 프롬프트를 다시 열거나 Azure CLI에
    sudo iotedge list
    ```
 
-   ![장치에서 세 가지 모듈 보기](./media/quickstart-linux/iotedge-list-2.png)
+   ![디바이스에서 세 가지 모듈 보기](./media/quickstart-linux/iotedge-list-2.png)
 
-tempSensor 모듈에서 전송되는 메시지를 봅니다.
+온도 센서 모듈에서 전송되는 메시지를 봅니다.
 
    ```bash
-   sudo iotedge logs tempSensor -f
+   sudo iotedge logs SimulatedTemperatureSensor -f
    ```
 
-![모듈의 데이터 보기](./media/quickstart-linux/iotedge-logs.png)
+   >[!TIP]
+   >IoT Edge 명령은 모듈 이름을 참조하는 경우 대/소문자를 구분합니다.
 
-로그에 표시된 마지막 줄이 `Using transport Mqtt_Tcp_Only`인 경우 온도 센서 모듈이 Edge Hub에 연결하기 위해 대기 중일 수 있습니다. 모듈을 종료하고 Edge 에이전트가 다시 시작되도록 합니다. 모듈은 `sudo docker stop tempSensor` 명령으로 종료할 수 있습니다.
+   ![모듈의 데이터 보기](./media/quickstart-linux/iotedge-logs.png)
+
+로그에 표시된 마지막 줄이 **Using transport Mqtt_Tcp_Only**인 경우 온도 센서 모듈이 Edge Hub에 연결하기 위해 대기 중일 수 있습니다. 모듈을 중지하고 Edge 에이전트가 다시 시작되도록 합니다. 모듈은 `sudo docker stop SimulatedTemperatureSensor` 명령으로 중지할 수 있습니다.
 
 [Visual Studio Code용 Azure IoT Hub Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)(이전의 Azure IoT Toolkit 확장)을 사용하여 IoT 허브에 메시지가 도착하는 것을 확인할 수도 있습니다. 
 
@@ -229,10 +234,10 @@ IoT Edge 런타임을 제거하면 만든 컨테이너는 중지되지만 장치
    sudo docker ps -a
    ```
 
-IoT Edge 런타임에 의해 디바이스에서 만들어진 컨테이너를 삭제합니다. tempSensor 컨테이너를 다르게 부른 경우 컨테이너의 이름을 변경합니다. 
+IoT Edge 런타임에 의해 디바이스에서 만들어진 컨테이너를 삭제합니다. 
 
    ```bash
-   sudo docker rm -f tempSensor
+   sudo docker rm -f SimulatedTemperatureSensor
    sudo docker rm -f edgeHub
    sudo docker rm -f edgeAgent
    ```

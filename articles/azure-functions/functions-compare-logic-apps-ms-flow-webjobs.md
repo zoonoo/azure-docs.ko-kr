@@ -1,6 +1,6 @@
 ---
 title: Flow, Logic Apps, Functions 및 WebJobs 비교 - Azure
-description: '통합 작업: Flow, Logic Apps, Functions 및 WebJobs에 최적화된 Microsoft 클라우드 서비스를 비교합니다.'
+description: 다음 통합 작업에 최적화된 Microsoft 클라우드 서비스를 비교합니다.  Flow, Logic Apps, Functions 및 WebJobs
 services: functions, logic-apps
 documentationcenter: na
 author: ggailey777
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: c22d75b4eb058942da5a3b0699cbb4a23eec42f3
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ec2c7a25c5108ee3c6f861defd8403ff40113075
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634934"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722220"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, Functions 및 WebJobs 비교
 
@@ -26,7 +26,7 @@ ms.locfileid: "52634934"
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure 기능](https://azure.microsoft.com/services/functions/)
-* [Azure App Service WebJobs](../app-service/web-sites-create-web-jobs.md)
+* [Azure App Service WebJobs](../app-service/webjobs-create.md)
 
 이 모든 서비스는 통합 문제를 해결하고 비즈니스 프로세스를 자동화할 수 있습니다. 입력, 동작, 조건 및 출력을 모두 정의할 수 있습니다. 각 서비스를 일정이나 트리거에 따라 실행할 수 있습니다. 그러나 서비스마다 고유의 장점이 있으며, 이 문서에서는 차이점을 설명합니다.
 
@@ -70,7 +70,7 @@ Azure Functions의 경우 코드를 작성하고 [지속성 함수 확장](durab
 
 ## <a name="compare-functions-and-webjobs"></a>Functions 및 WebJobs 비교
 
-Azure Functions와 마찬가지로, Azure App Service WebJobs with the WebJobs SDK는 개발자를 위해 설계된 *코드 중심* 통합 서비스입니다. 둘 다 [Azure App Service](../app-service/app-service-web-overview.md)를 기반으로 빌드되며 [소스 제어 통합](../app-service/app-service-continuous-deployment.md), [인증](../app-service/app-service-authentication-overview.md), [Application Insights를 사용한 모니터링](functions-monitoring.md) 등의 기능을 지원합니다.
+Azure Functions와 마찬가지로, Azure App Service WebJobs with the WebJobs SDK는 개발자를 위해 설계된 *코드 중심* 통합 서비스입니다. 둘 다 [Azure App Service](../app-service/overview.md)를 기반으로 빌드되며 [소스 제어 통합](../app-service/deploy-continuous-deployment.md), [인증](../app-service/overview-authentication-authorization.md), [Application Insights를 사용한 모니터링](functions-monitoring.md) 등의 기능을 지원합니다.
 
 ### <a name="webjobs-and-the-webjobs-sdk"></a>WebJobs 및 WebJobs SDK
 

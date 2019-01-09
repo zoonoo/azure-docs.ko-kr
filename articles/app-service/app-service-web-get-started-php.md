@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: cephalin;cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 02c80f3b3883af4b32b5bc0fb837680dad1e0ecf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 48df416002a2c89e0172e82278f6154c6a6da836
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261554"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630022"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Azure에서 PHP 웹앱 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "53261554"
 > 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_의 App Service에 배포하려면 [Linux의 App Service에서 PHP 웹앱 만들기](./containers/quickstart-php.md)를 참조하세요.
 >
 
-[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작 자습서에서는 PHP 앱을 Azure Web Apps에 배포하는 방법을 보여 줍니다. Cloud Shell에서 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git을 사용하여 웹앱에 샘플 PHP 코드를 배포합니다.
+[Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작 자습서에서는 PHP 앱을 Azure App Service에 배포하는 방법을 보여줍니다. Cloud Shell에서 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git을 사용하여 웹앱에 샘플 PHP 코드를 배포합니다.
 
 ![Azure에서 실행되는 샘플 앱](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
@@ -181,13 +181,13 @@ git push azure master
 
 ![Azure에서 실행되는 업데이트된 샘플 앱](media/app-service-web-get-started-php/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>새로운 Azure 웹앱 관리
+## <a name="manage-your-new-azure-app"></a>새 Azure 앱 관리
 
 만든 웹앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다.
 
-왼쪽 메뉴에서 **App Services**를 클릭한 다음 Azure 웹앱의 이름을 클릭합니다.
+왼쪽 메뉴에서 **App Services**를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
 
-![Azure 웹앱에 대한 포털 탐색](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
+![Azure 앱에 대한 포털 탐색](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
 웹앱의 개요 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다.
 

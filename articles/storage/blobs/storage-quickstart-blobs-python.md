@@ -6,16 +6,16 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
+ms.date: 12/14/2018
 ms.author: tamram
-ms.openlocfilehash: dd304bd4a53094605149483c0996cd5f12040a84
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 94e9d19302c4a51d1401a88248431f237bf59758
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713183"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743511"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-with-python"></a>빠른 시작: Python을 사용하여 Blobs 업로드, 다운로드 및 나열
+# <a name="quickstart-upload-download-and-list-blobs-with-python"></a>빠른 시작: Python을 사용하여 Blob 업로드, 다운로드 및 나열
 
 이 빠른 시작에서 Python을 사용하여 Azure Blob Storage에서 컨테이너에 블록 Blob을 업로드하고, 다운로드하고, 나열하는 방법을 알아봅니다. 
 
@@ -31,7 +31,7 @@ ms.locfileid: "51713183"
 ## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
 이 빠른 시작 가이드에서 [샘플 애플리케이션](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git)은 기본 Python 애플리케이션입니다.  
 
-[git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드합니다. 
+[git](https://git-scm.com/)을 사용하여 개발 환경에 애플리케이션 복사본을 다운로드합니다. 
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git 
@@ -53,7 +53,7 @@ block_blob_service = BlockBlobService(account_name='accountname', account_key='a
 
 먼저 `pip install` 명령을 실행하여 종속 항목을 설치합니다.
 
-    pip install azure-storage
+    pip install azure-storage-blob
 
 다음으로 샘플을 실행합니다. 다음 출력과 비슷한 메시지가 표시됩니다.
   
