@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 01/08/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: da88be76d01b246e273739566d629348895b68b6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: georgel
+ms.openlocfilehash: ca924494231f422d6edc8990ef851c9ef454cd1d
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972000"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120005"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Azure Stack에서 MySQL 리소스 공급자 배포
 
-MySQL Server 리소스 공급자를 사용 하 여 Azure Stack 서비스로 MySQL 데이터베이스를 표시 합니다. MySQL 리소스 공급자는 Windows Server 2016 Server Core 가상 머신 (VM)에서 서비스로 실행 됩니다.
+MySQL 서버 리소스 공급자를 사용하여 MySQL 데이터베이스를 Azure Stack 서비스로 노출합니다. MySQL 리소스 공급자는 Windows Server 2016 Server Core 가상 머신 (VM)에서 서비스로 실행 됩니다.
 
 > [!IMPORTANT]
 > 항목을 만드는 서버에서 해당 호스트 SQL 또는 MySQL 리소스 공급자에만 사용할 수 있습니다. 리소스 공급자에 의해 생성 되지 않은 호스트 서버에서 생성 하는 항목 일치 하지 않는 상태가 될 수 있습니다.
@@ -45,6 +45,7 @@ Azure Stack MySQL 리소스 공급자를 배포 하기 전에 준비에서 되�
 
   |Azure Stack의 최소 버전|MySQL RP 버전|
   |-----|-----|
+  |버전 1811 (1.1811.0.101)|[MySQL 버전 1.1.33.0 RP](https://aka.ms/azurestackmysqlrp11330)|  
   |버전 1808 (1.1808.0.97)|[MySQL 버전 1.1.30.0 RP](https://aka.ms/azurestackmysqlrp11300)|
   |버전 1804 (1.0.180513.1)|[MySQL 버전 1.1.24.0 RP](https://aka.ms/azurestackmysqlrp11240)
   |     |     |
@@ -97,7 +98,7 @@ MySQL 리소스 공급자를 배포 하려면 (PowerShell ISE 없습니다 ()를
 | **RetryDuration** | 시간 (초)에서 재시도 사이의 시간 제한 간격입니다. | 120 |
 | **제거** | 리소스 공급자와 연결 된 모든 리소스 (아래 참고 참조)를 제거 합니다. | 아닙니다. |
 | **DebugMode** | 실패 한 경우 자동 정리를 방지합니다. | 아닙니다. |
-| **AcceptLicense** | GPL 라이선스에 동의 하는 메시지를 건너뜁니다.  <http://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
+| **AcceptLicense** | GPL 라이선스에 동의 하는 메시지를 건너뜁니다.  <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>사용자 지정 스크립트를 사용 하 여 MySQL 리소스 공급자 배포
 
