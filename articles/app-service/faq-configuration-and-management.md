@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 266c9df095e9153533dbd89b4cd557d12ddcdc66
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4cd6b375385326889226f6d4284815dfa0f47c49
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408887"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971310"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -39,7 +39,7 @@ Azure 웹앱에서 사용자 지정 도메인 이름을 사용하는 방법에 �
 
 ## <a name="how-do-i-purchase-a-new-custom-domain-for-my-web-app"></a>내 웹앱에 대한 새로운 사용자 지정 도메인을 어떻게 구매할 수 있나요?
 
-App Service 웹앱에 대한 사용자 지정 도메인을 구매 및 설정하는 방법을 알아보려면 [App Service에서 사용자 지정 도메인 이름 구매 및 구성](custom-dns-web-site-buydomains-web-app.md)을 참조하세요.
+App Service 웹앱에 대한 사용자 지정 도메인을 구매 및 설정하는 방법을 알아보려면 [App Service에서 사용자 지정 도메인 이름 구매 및 구성](manage-custom-dns-buy-domain.md)을 참조하세요.
 
 
 ## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>내 웹앱에 대한 기존 SSL 인증서를 어떻게 업로드 및 구성할 수 있나요?
@@ -72,9 +72,11 @@ App Service 웹앱에 대한 SSL 인증서를 구매 및 설정하는 방법을 
     * 값 = *원하는 표준 시간대*
 3. **저장**을 선택합니다.
 
+허용되는 값은 [기본 표준 시간대](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) 문서에서 **표준 시간대** 열을 참조하세요.
+
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>내 연속 WebJobs가 때때로 실패하는 이유는 무엇인가요?
 
-기본적으로 웹앱은 일정 기간 유휴 상태인 경우 언로드됩니다. 이를 통해 시스템 리소스가 절약됩니다. 기본 및 표준 계획에서 **무중단** 설정을 켜서 항상 웹앱을 계속 로드할 수 있습니다. 웹앱에서 연속 WebJobs를 실행하는 경우 **무중단**을 켜야 합니다. 그렇지 않으면 WebJobs가 안정적으로 실행되지 않을 수 있습니다. 자세한 내용은 [연속형 WebJob 만들기](web-sites-create-web-jobs.md#CreateContinuous)를 참조하세요.
+기본적으로 웹앱은 일정 기간 유휴 상태인 경우 언로드됩니다. 이를 통해 시스템 리소스가 절약됩니다. 기본 및 표준 계획에서 **무중단** 설정을 켜서 항상 웹앱을 계속 로드할 수 있습니다. 웹앱에서 연속 WebJobs를 실행하는 경우 **무중단**을 켜야 합니다. 그렇지 않으면 WebJobs가 안정적으로 실행되지 않을 수 있습니다. 자세한 내용은 [연속형 WebJob 만들기](webjobs-create.md#CreateContinuous)를 참조하세요.
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>내 웹앱의 아웃바운드 IP 주소를 어떻게 확인할 수 있나요?
 
@@ -124,7 +126,7 @@ PCI DSS 버전 3.1 인증을 적용하려면 TLS(전송 계층 보안) 1.0을 �
 
 표준 및 프리미엄 App Service 계획에서 웹앱을 App Service에 배포할 때 기본 프로덕션 슬롯 대신 개별 배포 슬롯으로 배포할 수 있습니다. 배포 슬롯은 자체 호스트 이름을 갖춘 라이브 웹앱입니다. 웹앱 콘텐츠 및 구성 요소는 프로덕션 슬롯을 포함하여 두 배포 슬롯 간에 교환될 수 있습니다.
 
-배포 슬롯 사용에 대한 자세한 내용은 [App Service에서 스테이징 환경 설정](web-sites-staged-publishing.md)을 참조하세요.
+배포 슬롯 사용에 대한 자세한 내용은 [App Service에서 스테이징 환경 설정](deploy-staging-slots.md)을 참조하세요.
 
 ## <a name="how-do-i-access-and-review-webjob-logs"></a>WebJob 로그에 액세스하고 이를 검토하려면 어떻게 해야 하나요?
 
@@ -248,7 +250,7 @@ Cron 식을 사용하여 예약된 WebJob을 만들 수 있습니다.
     {month} {day of the week}" }
     ```
 
-예약된 WebJob에 대한 자세한 내용은 [Cron 식을 사용하여 예약된 WebJob 만들기](web-sites-create-web-jobs.md#CreateScheduledCRON)를 참조하세요.
+예약된 WebJob에 대한 자세한 내용은 [Cron 식을 사용하여 예약된 WebJob 만들기](webjobs-create.md#CreateScheduledCRON)를 참조하세요.
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>내 App Service 앱에 대한 침투 테스트를 수행하려면 어떻게 하나요?
 

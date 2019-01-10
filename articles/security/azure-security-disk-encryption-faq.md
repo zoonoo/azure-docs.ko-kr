@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: ba955e9e71926a513f6c083acb6508b3ec330d17
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cc9368bfe95aba3da3dba3a4ac4293790bb09cd3
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094562"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754087"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM용 Azure Disk Encryption FAQ
 
@@ -44,10 +44,10 @@ Azure Disk Encryption은 다음과 같은 Linux 서버 배포 및 버전에서 �
 | --- | --- |--- |
 | Ubuntu | 16.04-DAILY-LTS | OS 및 데이터 디스크 |
 | Ubuntu | 14.04.5-DAILY-LTS | OS 및 데이터 디스크 |
-| RHEL | 7.5 | 데이터 디스크* |
-| RHEL | 7.4 | 데이터 디스크* |
-| RHEL | 7.3 | 데이터 디스크* |
-| RHEL | 7.2 | 데이터 디스크* |
+| RHEL | 7.5 | OS 및 데이터 디스크* |
+| RHEL | 7.4 | OS 및 데이터 디스크* |
+| RHEL | 7.3 | OS 및 데이터 디스크* |
+| RHEL | 7.2 | OS 및 데이터 디스크* |
 | RHEL | 6.8 | 데이터 디스크* |
 | RHEL | 6.7 | 데이터 디스크* |
 | CentOS | 7.4 | OS 및 데이터 디스크 |
@@ -67,7 +67,7 @@ Azure Disk Encryption은 다음과 같은 Linux 서버 배포 및 버전에서 �
 | SLES | 11 SP4 | 데이터 디스크  |
 
 
-*__ADE는 데이터 디스크의 RHEL에 대해 지원됩니다. 현재 ADE 구현은 OS 디스크와 호환되지만 현재는 공동 지원되지 않습니다. Microsoft와 Red Hat은 공동 지원되는 솔루션을 개발 중입니다. 그 때까지는 [Linux용 Azure Disk Encryption](azure-security-disk-encryption-linux.md) 문서__를 참조할 수 있습니다.
+*__새 ADE 구현은 RHEL OS 및 RHEL7 종량제 이미지용 데이터 디스크에서 지원됩니다. ADE는 현재 RHEL BYOS(Bring-Your-Own-Subscription) 이미지에서 지원되지 않습니다. 자세한 내용은 [Linux용 Azure Disk Encryption](azure-security-disk-encryption-linux.md) 문서를 참조하세요.__
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Azure Disk Encryption을 사용하기 시작하려면 어떻게 해야 하나요?
 
@@ -95,7 +95,7 @@ Azure Disk Encryption의 경우 필수 구성 요소가 있습니다. 새 Key Va
 
 ## <a name="what-are-the-prerequisites-to-configure-azure-disk-encryption-with-an-azure-ad-app-previous-release"></a>Azure AD 앱(이전 릴리스)을 사용하여 Azure Disk Encryption을 구성하기 위한 필수 구성 요소는 무엇인가요?
 
-Azure Disk Encryption의 경우 필수 구성 요소가 있습니다. Azure Active Directory 응용 프로그램을 만들거나 새 Key Vault를 만들거나, 디스크 암호화 액세스에 대한 기존 Key Vault를 설정하여 암호화를 사용하도록 설정하고 비밀과 키를 보호하려면 [Azure Disk Encryption 필수 구성 요소](azure-security-disk-encryption-prerequisites-aad.md) 문서를 참조하세요. 키 암호화 키 지원 시나리오에 대한 자세한 내용은 [Azure Disk Encryption 개요](azure-security-disk-encryption-overview.md)를 참조하세요.
+Azure Disk Encryption의 경우 필수 구성 요소가 있습니다. Azure Active Directory 애플리케이션을 만들거나 새 Key Vault를 만들거나, 디스크 암호화 액세스에 대한 기존 Key Vault를 설정하여 암호화를 사용하도록 설정하고 비밀과 키를 보호하려면 [Azure Disk Encryption 필수 구성 요소](azure-security-disk-encryption-prerequisites-aad.md) 문서를 참조하세요. 키 암호화 키 지원 시나리오에 대한 자세한 내용은 [Azure Disk Encryption 개요](azure-security-disk-encryption-overview.md)를 참조하세요.
 
 ## <a name="is-azure-disk-encryption-using-an-azure-ad-app-previous-release-still-supported"></a>Azure AD 앱(이전 릴리스)을 사용한 Azure Disk Encryption은 여전히 지원되나요?
 예. Azure AD 앱을 사용한 디스크 암호화는 계속 지원됩니다. 그러나 새 VM을 암호화하는 경우 Azure AD 앱을 사용하여 암호화하기보다 새 메서드를 사용하는 것이 좋습니다. 

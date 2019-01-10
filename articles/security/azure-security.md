@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 2dd6ebb9e2f35eccae3b267402a4ef9b0e1b2dbe
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: a00f3d2ea4e191bb7860b88d39ff0ccaa338e0ff
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567165"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714239"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
@@ -69,7 +69,7 @@ Azure의 인프라는 수백만 명의 고객을 동시에 호스팅하기 위�
 ### <a name="security-features-offered-by-azure-to-secure-data-and-application"></a>데이터와 애플리케이션 보안을 유지하기 위해 Azure에서 제공하는 보안 기능
 클라우드 서비스 모델에 따라 애플리케이션 또는 서비스에 대한 보안 관리 담당자의 책임이 달라질 수 있습니다. Azure 플랫폼에는 기본 제공 기능 및 Azure 구독에 배포할 수 있는 파트너 솔루션을 통해 이러한 책임을 이행하는 데 도움이 되는 기능이 있습니다.
 
-기본 제공 기능은 운영, 애플리케이션, Storage, 네트워킹, Compute 및 ID라는 6가지 기능 영역으로 구성됩니다. Azure 플랫폼에서 사용할 수 있는 이러한 6가지 영역의 기능에 대한 자세한 추가 정보는 요약 정보를 통해 제공됩니다.
+기본 제공 기능은 6개의 기능 영역인 작업, 애플리케이션, 스토리지, 네트워킹, 컴퓨팅 및 ID로 구성되어 있습니다. Azure 플랫폼에서 사용할 수 있는 이러한 6가지 영역의 기능에 대한 자세한 추가 정보는 요약 정보를 통해 제공됩니다.
 
 ## <a name="operations"></a>작업
 이 섹션에서는 보안 작업의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
@@ -85,7 +85,7 @@ Azure의 인프라는 수백만 명의 고객을 동시에 호스팅하기 위�
 Azure Resource Manager 템플릿 기반 배포를 사용하면 표준 보안 제어 설정을 표준화된 템플릿 기반 배포에 통합할 수 있기 때문에 Azure에 배포된 솔루션의 보안을 향상시킬 수 있습니다. 이렇게 하면 수동 배포 중에 발생할 수 있는 보안 구성 오류의 위험이 줄어듭니다.
 
 ### <a name="application-insights"></a>Application Insights
-[Application Insights](https://docs.microsoft.com/azure/application-insights/)는 웹 개발자를 위한 확장 가능한 APM(응용 프로그램 성능 관리) 서비스입니다. Application Insights를 사용하면 라이브 웹 애플리케이션을 모니터링하고 성능 이상을 자동으로 검색할 수 있습니다. 사용자가 문제를 진단하고 사용자가 실제로 앱을 사용하여 수행할 작업을 이해하는 데 도움이 되는 강력한 분석 도구가 포함되어 있습니다. 테스트 중인 경우 및 게시하거나 배포한 후에 실행 중인 모든 시간 동안 애플리케이션을 모니터링합니다.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/)는 웹 개발자를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. Application Insights를 사용하면 라이브 웹 애플리케이션을 모니터링하고 성능 이상을 자동으로 검색할 수 있습니다. 사용자가 문제를 진단하고 사용자가 실제로 앱을 사용하여 수행할 작업을 이해하는 데 도움이 되는 강력한 분석 도구가 포함되어 있습니다. 테스트 중인 경우 및 게시하거나 배포한 후에 실행 중인 모든 시간 동안 애플리케이션을 모니터링합니다.
 
 예를 들어 Application Insights는 많은 사용자를 가져오는 시간, 앱이 얼마나 반응하는지, 종속된 외부 서비스에서 얼마나 잘 제공되는지를 보여주는 차트 및 테이블을 만듭니다.
 
@@ -110,22 +110,22 @@ Log Analytics를 사용하면 유연한 쿼리 방법으로 대량의 보안 관
 이 섹션에서는 애플리케이션 보안의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="web-application-vulnerability-scanning"></a>웹 애플리케이션 취약성 스캔
-[App Service 앱](https://docs.microsoft.com/azure/app-service/app-service-web-overview)에서 취약성 테스트를 시작하는 가장 쉬운 방법 중 하나는 [Tinfoil Security와 통합](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)을 사용하여 앱에서 한 번의 클릭으로 취약성 스캔을 수행하는 것입니다. 이해하기 쉬운 보고서에서 테스트 결과를 확인하고 단계별 지침에 따라 각 취약점을 수정하는 방법을 알아볼 수 있습니다.
+[App Service 앱](https://docs.microsoft.com/azure/app-service/overview)에서 취약성 테스트를 시작하는 가장 쉬운 방법 중 하나는 [Tinfoil Security와 통합](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)을 사용하여 앱에서 한 번의 클릭으로 취약성 스캔을 수행하는 것입니다. 이해하기 쉬운 보고서에서 테스트 결과를 확인하고 단계별 지침에 따라 각 취약점을 수정하는 방법을 알아볼 수 있습니다.
 
 ### <a name="penetration-testing"></a>침투 테스트
 사용자 고유의 침투 테스트를 수행하거나 다른 스캐너 도구 모음 또는 공급자를 사용하려면 [Azure 침투 테스트 승인 프로세스](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) 에 따라 원하는 침투 테스트를 수행하기 위한 사전 승인을 얻어야 합니다.
 
 ### <a name="web-application-firewall"></a>웹 애플리케이션 방화벽
-[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/)의 WAF(웹 응용 프로그램 방화벽)는 SQL 삽입, 사이트 간 스크립팅 공격, 세션 하이재킹과 같은 일반적인 웹 기반 공격으로부터 웹 응용 프로그램을 보호합니다. [OWASP(Open Web Application Security Project)에서 상위 10개 일반 취약성](https://msdn.microsoft.com/library/)으로 확인된 위협으로부터 보호하는 기능이 미리 구성되어 있습니다.
+[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/)의 WAF(웹 애플리케이션 방화벽)는 SQL 삽입, 사이트 간 스크립팅 공격, 세션 하이재킹과 같은 일반적인 웹 기반 공격으로부터 웹 애플리케이션을 보호합니다. [OWASP(Open Web Application Security Project)에서 상위 10개 일반 취약성](https://msdn.microsoft.com/library/)으로 확인된 위협으로부터 보호하는 기능이 미리 구성되어 있습니다.
 
 ### <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 인증 및 권한 부여
-[App Service 인증/권한 부여](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)는 앱 백 엔드에서 코드를 변경할 필요가 없도록 사용자가 응용 프로그램에 로그인하는 방법을 제공하는 기능입니다. 애플리케이션을 보호하고 사용자 단위당 데이터로 작업하는 쉬운 방법을 제공합니다.
+[App Service 인증/권한 부여](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)는 앱 백 엔드에서 코드를 변경할 필요가 없도록 사용자가 애플리케이션에 로그인하는 방법을 제공하는 기능입니다. 애플리케이션을 보호하고 사용자 단위당 데이터로 작업하는 쉬운 방법을 제공합니다.
 
 ### <a name="layered-security-architecture"></a>계층화된 보안 아키텍처
-[App Service 환경](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-intro)이 [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)에 배포된 격리된 런타임 환경을 제공하므로 개발자는 각 응용 프로그램 계층에 서로 다른 수준의 네트워크 액세스를 제공하는 계층화된 보안 아키텍처를 만들 수 있습니다. 일반적으로 일반 인터넷 액세스로부터 API 백 엔드를 숨기거나 API가 업스트림 웹앱에서 호출될 수 있도록 하기 원합니다. [NSG(네트워크 보안 그룹)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/)은 App Service 환경을 포함하는 Azure Virtual Network 서브넷에서 사용하여 API 응용 프로그램에 대한 공용 액세스를 제한할 수 있습니다.
+[App Service 환경](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-intro)이 [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)에 배포된 격리된 런타임 환경을 제공하므로 개발자는 각 애플리케이션 계층에 서로 다른 수준의 네트워크 액세스를 제공하는 계층화된 보안 아키텍처를 만들 수 있습니다. 일반적으로 일반 인터넷 액세스로부터 API 백 엔드를 숨기거나 API가 업스트림 웹앱에서 호출될 수 있도록 하기 원합니다. [NSG(네트워크 보안 그룹)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/)은 App Service 환경을 포함하는 Azure Virtual Network 서브넷에서 사용하여 API 애플리케이션에 대한 공용 액세스를 제한할 수 있습니다.
 
 ### <a name="web-server-diagnostics-and-application-diagnostics"></a>웹 서버 진단 및 애플리케이션 진단
-App Service 웹앱은 웹 서버와 웹 애플리케이션 모두의 정보를 로깅할 수 있도록 진단 기능을 제공합니다. 이는 논리적으로 [웹 서버 진단](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) 및 [애플리케이션 진단](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx)으로 구분됩니다. 웹 서버에서 사이트와 애플리케이션을 진단하고 문제를 해결하는 두 가지의 큰 발전이 이루어졌습니다.
+App Service 웹앱은 웹 서버와 웹 애플리케이션 모두의 정보를 로깅할 수 있도록 진단 기능을 제공합니다. 이는 논리적으로 [웹 서버 진단](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs) 및 [애플리케이션 진단](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx)으로 구분됩니다. 웹 서버에서 사이트와 애플리케이션을 진단하고 문제를 해결하는 두 가지의 큰 발전이 이루어졌습니다.
 
 첫째, 새로운 기능으로 애플리케이션 풀, 작업자 프로세스, 사이트, 애플리케이션 도메인 및 실행 중인 요청에 대한 실시간 상태 정보가 있습니다. 둘째, 새로운 이점으로 요청-응답 프로세스 전체에서 요청을 추적하는 자세한 추적 이벤트가 있습니다.
 
@@ -141,7 +141,7 @@ App Service 웹앱은 웹 서버와 웹 애플리케이션 모두의 정보를 �
 -   웹 서버 로깅 - W3C 확장 로그 파일 형식을 사용하는 HTTP 트랜잭션에 대한 정보입니다. 이는 처리된 요청 수, 특정 IP 주소에서 들어온 요청 수 등의 전체 사이트 메트릭을 확인하는 경우에 유용합니다.
 
 #### <a name="application-diagnostics"></a>애플리케이션 진단
-[응용 프로그램 진단](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)을 사용하면 웹 응용 프로그램에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 애플리케이션은 [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 애플리케이션 진단에는 두 가지 주요 유형의 이벤트, 즉 애플리케이션 성능과 관련된 이벤트와 애플리케이션 실패 및 오류와 관련된 이벤트가 있습니다. 실패와 오류는 연결, 보안 및 오류 문제로 더 자세히 구분할 수 있습니다. 오류 문제는 일반적으로 애플리케이션 코드에서 발생하는 문제와 관련이 있습니다.
+[애플리케이션 진단](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs)을 사용하면 웹 애플리케이션에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 애플리케이션은 [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 애플리케이션 진단에는 두 가지 주요 유형의 이벤트, 즉 애플리케이션 성능과 관련된 이벤트와 애플리케이션 실패 및 오류와 관련된 이벤트가 있습니다. 실패와 오류는 연결, 보안 및 오류 문제로 더 자세히 구분할 수 있습니다. 오류 문제는 일반적으로 애플리케이션 코드에서 발생하는 문제와 관련이 있습니다.
 
 애플리케이션 진단에서 다음과 같은 방법으로 그룹화된 이벤트를 볼 수 있습니다.
 
@@ -201,7 +201,7 @@ Azure 저장소 서비스는 이제 CORS를 지원하므로 서비스에 대한 
 #### <a name="route-control-and-forced-tunneling"></a>경로 제어 및 터널링 적용
 Azure Virtual Network에 라우팅 동작을 제어하는 기능은 중요한 네트워크 보안 및 액세스 제어 기능입니다. 예를 들어 Azure Virtual Network에 들어오고 나가는 모든 트래픽이 해당 가상 보안 어플라이언스를 통과하는지 확인하려면 라우팅 동작을 제어하고 사용자 지정할 수 있어야 합니다. 이렇게 하려면 Azure에서 사용자 정의 경로를 구성하면 됩니다.
 
-[사용자 정의 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)를 사용하면 개별 가상 머신 또는 서브넷으로 들어오고 나가는 트래픽의 인바운드 및 아웃바운드 경로를 사용자 지정하여 가능한 가장 안전한 경로를 보장할 수 있습니다. [터널링 적용](https://www.petri.com/azure-forced-tunneling) 은 사용자의 서비스가 인터넷에서 장치에 대한 연결을 개시하지 못하게 하도록 사용할 수 있는 메커니즘입니다.
+[사용자 정의 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)를 사용하면 개별 가상 머신 또는 서브넷으로 들어오고 나가는 트래픽의 인바운드 및 아웃바운드 경로를 사용자 지정하여 가능한 가장 안전한 경로를 보장할 수 있습니다. [터널링 적용](https://www.petri.com/azure-forced-tunneling)은 사용자의 서비스가 인터넷에서 디바이스에 대한 연결을 개시하지 못하게 하도록 사용할 수 있는 메커니즘입니다.
 
 이는 들어오는 연결을 수락한 다음 응답을 받을 수 있는 것과 다릅니다. 프런트 엔드 웹 서버는 인터넷 호스트의 요청에 응답해야 하므로 인터넷 소싱 트래픽은 이러한 웹 서버에 허용되는 인바운드이며 웹 서버에서 응답할 수 있습니다.
 
@@ -274,7 +274,7 @@ Microsoft [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manag
 
 Traffic Manager는 다양한 애플리케이션 요구 사항, 엔드포인트 상태 [모니터링](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) 및 자동 장애 조치에 잘 맞는 트래픽 라우팅 메서드를 제공합니다. Traffic Manager는 전체 Azure 지역의 오류를 포함한, 오류에 대해 복원력을 갖습니다.
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-[Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)는 응용 프로그램에 고가용성 및 네트워크 성능을 제공합니다. 이 장치는 부하 분산 장치 집합에 정의된 서비스의 정상 인스턴스 간에 들어오는 트래픽을 분산하는 계층 4(TCP, UDP) 부하 분산 장치입니다. Azure Load Balancer는 다음과 같이 구성할 수 있습니다.
+[Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)는 애플리케이션에 고가용성 및 네트워크 성능을 제공합니다. 이 장치는 부하 분산 장치 집합에 정의된 서비스의 정상 인스턴스 간에 들어오는 트래픽을 분산하는 계층 4(TCP, UDP) 부하 분산 장치입니다. Azure Load Balancer는 다음과 같이 구성할 수 있습니다.
 
 -   들어오는 인터넷 트래픽을 가상 머신에 부하 분산합니다. 이 구성을 [인터넷 연결 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)이라고 합니다.
 
@@ -289,9 +289,9 @@ Traffic Manager는 다양한 애플리케이션 요구 사항, 엔드포인트 �
 [Domain Name System](https://technet.microsoft.com/library/bb629410.aspx), 즉 DNS는 웹 사이트 또는 서비스 이름을 해당 IP 주소로 변환(또는 확인)합니다. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview)는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공하는 DNS 도메인에 대한 호스팅 서비스입니다. Azure에 도메인을 호스트하면 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다. DNS는 "CIA" 보안 3요소를 한 조로 묶어 가용성 측면을 지원합니다.
 ### <a name="log-analytics-nsgs"></a>Log Analytics NSG
 NSG에 대한 다음 진단 로그 범주를 활성화할 수 있습니다.
--   이벤트: VM 및 MAC 주소 기반 인스턴스 역할에 NSG 규칙이 적용되는 항목을 포함합니다. 이러한 규칙에 대한 상태는 60초마다 수집됩니다.
+-   이벤트: VM 및 MAC 주소 기반 인스턴스 역할에 적용된 NSG 규칙에 대한 항목을 포함합니다. 이러한 규칙에 대한 상태는 60초마다 수집됩니다.
 
--   규칙 카운터: 트래픽을 허용하거나 거부하기 위해 각 NSG 규칙이 적용되는 횟수에 대한 항목을 포함합니다.
+-   규칙 카운터: 트래픽을 허용하거나 거부하기 위해 각 NSG 규칙이 적용된 횟수에 대한 항목을 포함합니다.
 
 ### <a name="azure-security-center"></a>Azure Security Center
 Security Center는 위협을 예방, 검색 및 대응하는 데 도움이 되며, Azure 리소스의 보안에 대한 향상된 가시성과 제어를 제공합니다. Azure 구독을 통해 통합된 보안 모니터링 및 정책 관리를 제공하고, 달리 발견되지 않을 수도 있는 위협을 검색하는 데 도움이 되며, 보안 솔루션의 광범위한 에코시스템에서 작동합니다. 네트워크 권장 사항은 방화벽, 네트워크 보안 그룹, 인바운드 트래픽 규칙 구성 등에 초점을 맞추고 있습니다.
@@ -315,10 +315,10 @@ Security Center는 위협을 예방, 검색 및 대응하는 데 도움이 되�
 Azure IaaS를 사용하면 Microsoft, Symantec, Trend Micro, McAfee 및 Kaspersky와 같은 보안 공급업체의 맬웨어 방지 소프트웨어를 통해 악성 파일, 애드웨어 및 기타 위협으로부터 가상 머신을 보호할 수 있습니다. Azure Cloud Services 및 Virtual Machines를 위한 [Microsoft 맬웨어 방지 프로그램](https://docs.microsoft.com/azure/security/azure-security-antimalware)은 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별하고 제거하는 데 도움이 되는 보호 기능입니다. Microsoft 맬웨어 방지 프로그램은 알려진 악성 또는 원치 않는 소프트웨어가 Azure 시스템에서 스스로의 설치나 실행을 시도할 때 구성 가능한 경고를 제공합니다. 또한 Microsoft 맬웨어 방지 프로그램은 Azure Security Center를 통해 배포할 수도 있습니다.
 
 ### <a name="hardware-security-module"></a>하드웨어 보안 모듈
-암호화 및 인증은 키 자체가 보호되지 않는 한 보안을 향상시키지 않습니다. 중요한 비밀과 키를 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)에 저장하여 관리와 보안을 단순화할 수 있습니다. Key Vault는 FIPS 140-2 Level 2 기준에 따라 인증된 HSM(하드웨어 보안 모듈)에 키를 저장할 수 있는 옵션을 제공합니다. 백업 또는 [투명한 데이터 암호화](https://msdn.microsoft.com/library/bb934049.aspx) 를 위한 SQL Server 암호화 키는 애플리케이션의 키 또는 암호와 함께 주요 자격 증명 모음에 저장됩니다. 이러한 보호된 항목에 대한 사용 권한 및 액세스는 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)를 통해 관리됩니다.
+암호화 및 인증은 키 자체가 보호되지 않는 한 보안을 향상시키지 않습니다. 중요한 비밀과 키를 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)에 저장하여 관리와 보안을 단순화할 수 있습니다. Key Vault는 FIPS 140-2 Level 2 기준에 따라 인증된 HSM(하드웨어 보안 모듈)에 키를 저장할 수 있는 옵션을 제공합니다. 백업 또는 [투명한 데이터 암호화](https://msdn.microsoft.com/library/bb934049.aspx)를 위한 SQL Server 암호화 키는 애플리케이션의 키 또는 암호와 함께 주요 자격 증명 모음에 저장됩니다. 이러한 보호된 항목에 대한 사용 권한 및 액세스는 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)를 통해 관리됩니다.
 
 ### <a name="virtual-machine-backup"></a>가상 머신 백업
-[Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)은 자본 투자 없이 최소의 운영 비용으로 응용 프로그램 데이터를 보호하는 솔루션입니다. 애플리케이션 오류로 인해 데이터가 손상될 수 있으며, 사용자 실수로 인해 애플리케이션에 버그가 발생하여 보안 문제가 발생할 수 있습니다. Azure Backup은 Windows 및 Linux를 실행하는 가상 머신의 보호에 도움이 됩니다.
+[Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)은 자본 투자 없이 최소의 운영 비용으로 애플리케이션 데이터를 보호하는 솔루션입니다. 애플리케이션 오류로 인해 데이터가 손상될 수 있으며, 사용자 실수로 인해 애플리케이션에 버그가 발생하여 보안 문제가 발생할 수 있습니다. Azure Backup은 Windows 및 Linux를 실행하는 가상 머신의 보호에 도움이 됩니다.
 
 ### <a name="azure-site-recovery"></a>Azure Site Recovery
 계획되거나 계획되지 않은 중단 상태가 발생하는 경우 조직 [BCDR(비즈니스 연속성/재해 복구)](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) 전략의 중요한 부분은 회사 워크로드 및 앱을 가동 및 실행하도록 유지하는 방법을 파악하는 것입니다. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하면 기본 위치가 중단되는 경우 보조 위치에서 사용할 수 있도록 워크로드 및 앱의 복제, 장애 조치 및 복구를 오케스트레이션할 수 있습니다.
@@ -364,14 +364,14 @@ Microsoft는 제품 및 서비스 전반에 여러 가지 보안 사례와 기�
 -   [통합 ID 관리(하이브리드 ID)](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/) - 모든 리소스에 대한 인증 및 권한 부여를 위한 단일 사용자 ID를 만들어 내부 데이터 센터 및 클라우드 플랫폼에서 사용자 액세스에 대한 제어를 유지할 수 있게 합니다.
 
 ### <a name="secure-apps-and-data"></a>보안 앱 및 데이터
-포괄적인 ID 및 액세스 관리 클라우드 솔루션인 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)는 사이트 및 클라우드의 응용 프로그램에서 데이터에 대한 보안 액세스를 지원하고, 사용자 및 그룹 관리를 간소화합니다. 핵심 디렉터리 서비스, 고급 ID 관리, 보안 및 애플리케이션 액세스 관리를 결합하고, 개발자가 정책 기반 ID 관리를 자신의 앱에 쉽게 만들 수 있습니다. Azure Active Directory를 강화하려면 Azure Active Directory Basic, Premium P1 및 Premium P2 Edition을 사용하여 유료 기능을 추가할 수 있습니다.
+포괄적인 ID 및 액세스 관리 클라우드 솔루션인 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)는 사이트 및 클라우드의 애플리케이션에서 데이터에 대한 보안 액세스를 지원하고, 사용자 및 그룹 관리를 간소화합니다. 핵심 디렉터리 서비스, 고급 ID 관리, 보안 및 애플리케이션 액세스 관리를 결합하고, 개발자가 정책 기반 ID 관리를 자신의 앱에 쉽게 만들 수 있습니다. Azure Active Directory를 강화하려면 Azure Active Directory Basic, Premium P1 및 Premium P2 Edition을 사용하여 유료 기능을 추가할 수 있습니다.
 
 | 평가판/일반 기능     | Basic 기능    |Premium P1 기능 |Premium P2 기능 | Azure Active Directory 조인 – Windows 10 전용 관련 기능|
 | :------------- | :------------- |:------------- |:------------- |:------------- |
-|   [디렉터리 개체](https://docs.microsoft.com/azure/active-directory/active-directory-editions#directory-objects), [사용자/그룹 관리(추가/업데이트/삭제), 사용자 기반 프로비전, 장치 등록](https://docs.microsoft.com/azure/active-directory/active-directory-editions#usergroup-management-addupdatedelete-user-based-provisioning-device-registration), [SSO(Single Sign-On)](https://docs.microsoft.com/azure/active-directory/active-directory-editions#single-sign-on-sso), [클라우드 사용자를 위한 셀프 서비스 암호 변경](https://docs.microsoft.com/azure/active-directory/active-directory-editions#self-service-password-change-for-cloud-users), [연결(온-프레미스 디렉터리를 Azure Active Directoryfh 확장하는 동기화 엔진)](https://docs.microsoft.com/azure/active-directory/active-directory-editions#connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory), [보안/사용량 보고서](https://docs.microsoft.com/azure/active-directory/active-directory-editions#securityusage-reports)       |   [그룹 기반 액세스 관리/프로비전](https://docs.microsoft.com/azure/active-directory/active-directory-editions#group-based-access-managementprovisioning), [클라우드 사용자를 위한 셀프 서비스 암호 재설정](https://docs.microsoft.com/azure/active-directory/active-directory-editions#self-service-password-reset-for-cloud-users), [회사 브랜딩(로그온 페이지/액세스 패널 사용자 지정)](https://docs.microsoft.com/azure/active-directory/active-directory-editions#company-branding-logon-pagesaccess-panel-customization), [응용 프로그램 프록시](https://docs.microsoft.com/azure/active-directory/active-directory-editions#application-proxy), [SLA 99.9%](https://docs.microsoft.com/azure/active-directory/active-directory-editions#sla-999) |  [셀프 서비스 그룹 및 응용 프로그램 관리/셀프 서비스 응용 프로그램 추가/동적 그룹](https://docs.microsoft.com/azure/active-directory/active-directory-editions#self-service-group), [셀프 서비스 암호 재설정/변경/온-프레미스 쓰기 저장을 통한 잠금 해제](https://docs.microsoft.com/azure/active-directory/active-directory-editions#self-service-password-resetchangeunlock-with-on-premises-write-back), [Multi-Factor Authentication(클라우드 및 온-프레미스(MFA 서버))](https://docs.microsoft.com/azure/active-directory/active-directory-editions#multi-factor-authentication-cloud-and-on-premises-mfa-server), [MIM CAL + MIM 서버](https://docs.microsoft.com/azure/active-directory/active-directory-editions#mim-cal-mim-server), [Cloud App Discovery](https://docs.microsoft.com/azure/active-directory/active-directory-editions#cloud-app-discovery), [Connect Health](https://docs.microsoft.com/azure/active-directory/active-directory-editions#connect-health), [그룹 계정에 대한 자동 암호 롤오버](https://docs.microsoft.com/azure/active-directory/active-directory-editions#automatic-password-rollover-for-group-accounts)|   [ID 보호](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure)|  [장치를 Azure AD, 데스크톱 SSO, Azure AD용 Microsoft Passport, 관리자 Bitlocker 복구에 조인](https://docs.microsoft.com/azure/active-directory/active-directory-editions#join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery), [MDM 자동 등록, 셀프 서비스 Bitlocker 복구, Azure AD 조인을 통해 Windows 10 장치에 로컬 관리자 추가](https://docs.microsoft.com/azure/active-directory/active-directory-editions#mdm-auto-enrollment)|
+|   [디렉터리 개체](https://docs.microsoft.com/azure/active-directory/active-directory-editions#directory-objects), [사용자/그룹 관리(추가/업데이트/삭제), 사용자 기반 프로비전, 디바이스 등록](https://docs.microsoft.com/azure/active-directory/active-directory-editions#usergroup-management-addupdatedelete-user-based-provisioning-device-registration), [SSO(Single Sign-On)](https://docs.microsoft.com/azure/active-directory/active-directory-editions#single-sign-on-sso), [클라우드 사용자를 위한 셀프 서비스 암호 변경](https://docs.microsoft.com/azure/active-directory/active-directory-editions#self-service-password-change-for-cloud-users), [연결(온-프레미스 디렉터리를 Azure Active Directoryfh 확장하는 동기화 엔진)](https://docs.microsoft.com/azure/active-directory/active-directory-editions#connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory), [보안/사용량 보고서](https://docs.microsoft.com/azure/active-directory/active-directory-editions#securityusage-reports)       |   [그룹 기반 액세스 관리/프로비전](https://docs.microsoft.com/azure/active-directory/active-directory-editions#group-based-access-managementprovisioning), [클라우드 사용자를 위한 셀프 서비스 암호 재설정](https://docs.microsoft.com/azure/active-directory/active-directory-editions#self-service-password-reset-for-cloud-users), [회사 브랜딩(로그온 페이지/액세스 패널 사용자 지정)](https://docs.microsoft.com/azure/active-directory/active-directory-editions#company-branding-logon-pagesaccess-panel-customization), [애플리케이션 프록시](https://docs.microsoft.com/azure/active-directory/active-directory-editions#application-proxy), [SLA 99.9%](https://docs.microsoft.com/azure/active-directory/active-directory-editions#sla-999) |  [셀프 서비스 그룹 및 애플리케이션 관리/셀프 서비스 애플리케이션 추가/동적 그룹](https://docs.microsoft.com/azure/active-directory/active-directory-editions#self-service-group), [셀프 서비스 암호 재설정/변경/온-프레미스 쓰기 저장을 통한 잠금 해제](https://docs.microsoft.com/azure/active-directory/active-directory-editions#self-service-password-resetchangeunlock-with-on-premises-write-back), [Multi-Factor Authentication(클라우드 및 온-프레미스(MFA 서버))](https://docs.microsoft.com/azure/active-directory/active-directory-editions#multi-factor-authentication-cloud-and-on-premises-mfa-server), [MIM CAL + MIM 서버](https://docs.microsoft.com/azure/active-directory/active-directory-editions#mim-cal-mim-server), [Cloud App Discovery](https://docs.microsoft.com/azure/active-directory/active-directory-editions#cloud-app-discovery), [Connect Health](https://docs.microsoft.com/azure/active-directory/active-directory-editions#connect-health), [그룹 계정에 대한 자동 암호 롤오버](https://docs.microsoft.com/azure/active-directory/active-directory-editions#automatic-password-rollover-for-group-accounts)|   [ID 보호](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure)|  [디바이스를 Azure AD, 데스크톱 SSO, Azure AD용 Microsoft Passport, 관리자 Bitlocker 복구에 조인](https://docs.microsoft.com/azure/active-directory/active-directory-editions#join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery), [MDM 자동 등록, 셀프 서비스 Bitlocker 복구, Azure AD 조인을 통해 Windows 10 디바이스에 로컬 관리자 추가](https://docs.microsoft.com/azure/active-directory/active-directory-editions#mdm-auto-enrollment)|
 
 
-- [클라우드 앱 검색](https://docs.microsoft.com/azure/active-directory/active-directory-cloudappdiscovery-whatis) - 조직의 직원이 사용하는 클라우드 응용 프로그램을 식별할 수 있게 하는 Azure Active Directory의 프리미엄 기능입니다.
+- [클라우드 앱 검색](https://docs.microsoft.com/azure/active-directory/active-directory-cloudappdiscovery-whatis) - 조직의 직원이 사용하는 클라우드 애플리케이션을 식별할 수 있게 하는 Azure Active Directory의 프리미엄 기능입니다.
 
 - [Azure Active Directory ID 보호](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/) - Azure Active Directory 변칙 검색 기능을 사용하여 조직의 ID에 영향을 줄 수 있는 위험 이벤트 및 잠재적 취약성에 대한 통합된 보기를 제공하는 보안 서비스입니다.
 
@@ -379,11 +379,11 @@ Microsoft는 제품 및 서비스 전반에 여러 가지 보안 사례와 기�
 
 - [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) - 수백만 개의 ID로 확장하고 모바일 및 웹 플랫폼에 통합할 수 있는 소비자 지향 응용 프로그램을 위한 전역적인 고가용성 ID 관리 서비스입니다. 고객은 기존 소셜 미디어 계정을 사용하는 사용자 지정 가능한 환경을 통해 모든 앱에 로그인하거나 새 독립 실행 형 자격 증명을 만들 수 있습니다.
 
-- [Azure Active Directory B2B 공동 작업](https://aka.ms/aad-b2b-collaboration) - 파트너가 자체 관리 ID를 사용하여 회사 응용 프로그램 및 데이터에 선택적으로 액세스할 수 있게 하여 회사 간 관계를 지원하는 안전한 파트너 통합 솔루션입니다.
+- [Azure Active Directory B2B 공동 작업](https://aka.ms/aad-b2b-collaboration) - 파트너가 자체 관리 ID를 사용하여 회사 애플리케이션 및 데이터에 선택적으로 액세스할 수 있게 하여 회사 간 관계를 지원하는 안전한 파트너 통합 솔루션입니다.
 
-- [Azure Active Directory 조인](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/) - 중앙 집중식 관리를 위해 클라우드 기능을 Windows 10 장치로 확장할 수 있게 합니다. 사용자가 Azure Active Directory를 통해 회사 또는 조직의 클라우드에 연결할 수 있게 하며, 앱과 리소스에 대한 액세스를 간소화합니다.
+- [Azure Active Directory 조인](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/) - 중앙 집중식 관리를 위해 클라우드 기능을 Windows 10 디바이스로 확장할 수 있게 합니다. 사용자가 Azure Active Directory를 통해 회사 또는 조직의 클라우드에 연결할 수 있게 하며, 앱과 리소스에 대한 액세스를 간소화합니다.
 
-- [Azure Active Directory 응용 프로그램 프록시](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) - 온-프레미스에 호스팅되는 웹 응용 프로그램에 대해 SSO(Single Sign-On) 및 보안된 원격 액세스를 제공합니다.
+- [Azure Active Directory 애플리케이션 프록시](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) - 온-프레미스에 호스팅되는 웹 애플리케이션에 대해 SSO(Single Sign-On) 및 보안된 원격 액세스를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [Microsoft Azure 보안 시작](https://docs.microsoft.com/azure/security/azure-security-getting-started)

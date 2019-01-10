@@ -5,25 +5,28 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 12/19/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: e590500dd622988226c592352b0b86f16d54a9d4
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 08fed2206d7d74d9ab6cb7f1462388486f999987
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983066"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718795"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>조직의 사용자가 게스트 사용자를 앱에 초대할 수 있는 방법
 
-Azure AD의 디렉터리에 게스트 사용자가 추가되면, 애플리케이션 소유자는 공유하려는 앱에 대한 직접 링크를 게스트 사용자에게 보낼 수 있습니다. Azure AD 관리자는 게스트 사용자가 아직 디렉터리에 추가되지 않은 경우에도 애플리케이션 소유자가 자신의 게스트 사용자를 관리할 수 있도록 셀프 서비스 관리를 설정할 수도 있습니다. 앱이 셀프 서비스로 구성되면 애플리케이션 소유자는 해당 액세스 패널을 사용하여 게스트 사용자를 앱에 초대하거나 게스트 사용자를 앱에 액세스할 수 있는 그룹에 추가합니다. 셀프 서비스 앱 관리를 위해서는 관리자가 일부 초기 설정을 해야 합니다. 설정 단계에 대한 요약은 다음과 같습니다(자세한 내용은 이 페이지의 뒷부분에서 [필수 구성 요소](#prerequisites) 참조).
+Azure AD의 디렉터리에 게스트 사용자가 추가되면, 애플리케이션 소유자는 공유하려는 앱에 대한 직접 링크를 게스트 사용자에게 보낼 수 있습니다. Azure AD 관리자는 Azure AD 테넌트에서 갤러리 또는 SAML 기반 앱의 셀프 서비스 관리를 설정할 수도 있습니다. 이러한 방식으로 게스트 사용자가 아직 디렉터리에 추가되지 않은 경우에도 애플리케이션 소유자가 자신의 게스트 사용자를 관리할 수 있습니다. 앱이 셀프 서비스로 구성되면 애플리케이션 소유자는 해당 액세스 패널을 사용하여 게스트 사용자를 앱에 초대하거나 게스트 사용자를 앱에 액세스할 수 있는 그룹에 추가합니다. 갤러리 및 SAML 기반 앱의 셀프 서비스 앱 관리를 위해서는 관리자가 일부 초기 설정을 해야 합니다. 설정 단계에 대한 요약은 다음과 같습니다(자세한 내용은 이 페이지의 뒷부분에서 [필수 구성 요소](#prerequisites) 참조).
 
  - 테넌트를 위한 셀프 서비스 그룹 관리 사용
  - 앱에 할당할 그룹을 만들고 사용자를 소유자로 만들기
  - 셀프 서비스에 대한 앱 구성 및 앱에 그룹 할당
+
+> [!NOTE]
+> 이 문서에서는 Azure AD 테넌트에 추가한 갤러리 및 SAML 기반 앱의 셀프 서비스 관리를 설정하는 방법을 설명합니다. 사용자가 자신의 Office 365 그룹에 대한 액세스를 관리할 수 있도록 [셀프 서비스 Office 365 그룹을 설정](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management)할 수도 있습니다. 보다 다양한 방법으로 사용자는 게스트 사용자와 Office 파일 및 앱을 공유할 수 있습니다. [Office 365 그룹에 대한 게스트 액세스](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) 및 [SharePoint 파일 또는 폴더 공유](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c)를 참조하세요.
 
 ## <a name="invite-a-guest-user-to-an-app-from-the-access-panel"></a>액세스 패널에서 앱에 게스트 사용자 초대
 
@@ -98,10 +101,11 @@ Azure AD의 디렉터리에 게스트 사용자가 추가되면, 애플리케이
 ### <a name="configure-the-app-for-self-service-and-assign-the-group-to-the-app"></a>셀프 서비스에 대한 앱 구성 및 앱에 그룹 할당
 1. Azure AD 관리자 또는 글로벌 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 탐색 창에서 **Azure Active Directory**를 선택합니다.
-3. **관리**에서 **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**을 선택합니다.
+3. **관리**에서 **엔터프라이즈 애플리케이션** > **모든 애플리케이션**을 선택합니다.
 4. 애플리케이션 목록에서 앱을 찾아 엽니다.
-5. **관리**에서 **Single Sign-On**을 선택하고 Single Sign-On에 대한 응용 프로그램을 구성합니다. (자세한 내용은 [엔터프라이즈 앱에 대한 Single Sign-On 관리 방법](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal)을 참조하세요.)
+5. **관리**에서 **Single Sign-On**을 선택하고 Single Sign-On에 대한 애플리케이션을 구성합니다. (자세한 내용은 [엔터프라이즈 앱에 대한 Single Sign-On 관리 방법](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal)을 참조하세요.)
 6. **관리**에서 **셀프 서비스**를 선택하고 셀프 서비스 앱 액세스를 설정합니다. (자세한 내용은 [셀프 서비스 앱 액세스 사용 방법](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to)을 참조하세요.) 
+
     > [!NOTE]
     > **할당된 사용자는 어느 그룹에 추가되어야 합니까?** 설정에 대해서는 이전 섹션에서 만든 그룹을 선택합니다.
 7. **관리**에서 **사용자 및 그룹**을 선택하고 생성한 셀프 서비스 그룹이 목록에 나타나는지 확인합니다.

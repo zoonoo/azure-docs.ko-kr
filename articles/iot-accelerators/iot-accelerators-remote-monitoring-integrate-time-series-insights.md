@@ -1,5 +1,5 @@
 ---
-title: 원격 모니터링과 Azure Time Series Insights 통합 | Microsoft Docs
+title: 원격 모니터링과 Time Series Insights 통합 - Azure | Microsoft Docs
 description: 이 방법에서 아직 Time Series Insights를 포함하지 않은 기존 원격 모니터링 솔루션에 대해 Time Series Insights를 구성하는 방법에 대해 알아봅니다.
 author: aditidugar
 manager: timlt
@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: e6dcbf9d185b45c18261e47e9d575adf40812611
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 655d65ebfbb0141acd829a64414d9ba20dd2c697
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253819"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633745"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>원격 모니터링과 Azure Time Series Insights 통합
 
@@ -49,7 +49,7 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 다음으로, 원격 모니터링 솔루션에 Time Series Insights를 추가 리소스로 배포하고 IoT 허브에 연결합니다.
 
-1. [Azure Portal](http://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. **리소스 만들기** > **사물 인터넷** > **Time Series Insights**를 선택합니다.
 
@@ -120,7 +120,7 @@ IoT 허브에 연결할 새 이벤트 원본을 만듭니다. 이전 단계에�
 
 1. **역할** 드롭다운 목록에서 **읽기 권한자** 및 **기여자** 같은 역할을 선택합니다.
 
-1. **선택** 목록에서 사용자, 그룹 또는 응용 프로그램을 선택합니다. 목록에 보안 주체가 보이지 않으면 **선택** 상자에 직접 입력하여 표시 이름, 이메일 주소 및 개체 식별자에 대한 디렉터리를 검색할 수 있습니다.
+1. **선택** 목록에서 사용자, 그룹 또는 애플리케이션을 선택합니다. 목록에 보안 주체가 보이지 않으면 **선택** 상자에 직접 입력하여 표시 이름, 이메일 주소 및 개체 식별자에 대한 디렉터리를 검색할 수 있습니다.
 
 1. **저장**을 선택하여 역할 할당을 만듭니다. 몇 분이 지나면 데이터 액세스 정책에서 보안 주체에 역할이 할당됩니다.
 
@@ -164,12 +164,13 @@ IoT 허브에 연결할 새 이벤트 원본을 만듭니다. 이전 단계에�
 
 .NET: 
 
-```
+```cmd/sh
 docker pull azureiotpcs/asa-manager-dotnet:1.0.2
 ```
 
 Java:
-```
+
+```cmd/sh
 docker pull azureiotpcs/asa-manager-java:1.0.2
 ```
 
@@ -178,13 +179,14 @@ docker pull azureiotpcs/asa-manager-java:1.0.2
 명령 프롬프트에 다음 명령을 입력하여 최신 원격 분석 마이크로서비스를 끌어옵니다.
 
 .NET:
-```
+
+```cmd/sh
 docker pull azureiotpcs/telemetry-dotnet:1.0.2
 ```
 
 Java:
 
-```
+```cmd/sh
 docker pull azureiotpcs/telemetry-java:1.0.2
 ```
 
@@ -192,7 +194,7 @@ docker pull azureiotpcs/telemetry-java:1.0.2
 
 Time Series Insights 탐색기에서 쉽게 데이터를 보려면 환경에 쉽게 연결할 UI를 사용자 지정하는 것이 좋습니다. 이렇게 하려면 다음 명령을 사용하여 Web UI에 대한 최신 변경 내용을 끌어옵니다.
 
-```
+```cmd/sh
 docker pull azureiotpcs/pcs-remote-monitoring-webui:1.0.2
 ```
 
@@ -208,9 +210,9 @@ Time Series Insights 통합을 완료하려면 업데이트된 마이크로서�
 
 1. **앱 등록**을 클릭합니다.
 
-1. **ContosoRM** 응용 프로그램을 검색하여 클릭합니다.
+1. **ContosoRM** 애플리케이션을 검색하여 클릭합니다.
 
-1. **설정** > **키**로 이동한 다음, 응용 프로그램에 대한 새 키를 만듭니다. 키 값을 안전한 위치에 복사해야 합니다.
+1. **설정** > **키**로 이동한 다음, 애플리케이션에 대한 새 키를 만듭니다. 키 값을 안전한 위치에 복사해야 합니다.
 
 1. 최신 태그를 사용하여 GitHub 리포지토리에서 [최신 Docker Compose yaml 파일](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm)을 끌어옵니다. 
 
@@ -220,7 +222,7 @@ Time Series Insights 통합을 완료하려면 업데이트된 마이크로서�
 
 1. Docker Compose yaml 파일의 각 마이크로서비스 및 VM의 `env-setup` 스크립트에 다음과 같은 환경 변수를 추가합니다.
 
-    ```
+    ```sh
     PCS_TELEMETRY_STORAGE_TYPE=tsi
     PCS_TSI_FQDN={TSI Data Access FQDN}
     PCS_AAD_TENANT={AAD Tenant Id}
@@ -244,7 +246,7 @@ Time Series Insights 통합을 완료하려면 업데이트된 마이크로서�
 
 1. 구성 지도를 찾아 TSI에 대한 다음의 새 환경 변수를 추가합니다.
 
-    ```
+    ```yaml
     telemetry.storage.type: "tsi"
     telemetry.tsi.fqdn: "{TSI Data Access FQDN}"
     security.auth.serviceprincipal.secret: "{AAD application service principal secret}"
@@ -252,7 +254,7 @@ Time Series Insights 통합을 완료하려면 업데이트된 마이크로서�
 
 4. 원격 분석 서비스 Pod에 대한 템플릿 yaml 파일을 편집합니다.
 
-    ```
+    ```yaml
     - name: PCS_AAD_TENANT
         valueFrom:
         configMapKeyRef:
@@ -282,7 +284,7 @@ Time Series Insights 통합을 완료하려면 업데이트된 마이크로서�
 
 5. ASA 관리자 서비스 Pod에 대한 템플릿 yaml 파일을 편집합니다.
 
-    ```
+    ```yaml
     - name: PCS_TELEMETRY_STORAGE_TYPE
         valueFrom:
         configMapKeyRef:

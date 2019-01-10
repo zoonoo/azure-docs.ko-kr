@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jejiang
 ms.custom: seodec18
-ms.openlocfilehash: 1ce483a88c1f57912dfe30efa98f46335e97c01c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: fb758c12d699bb80f81b65db99e1fec68c4efabf
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138129"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809763"
 ---
 # <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Azure Storage Explorer를 사용하여 Azure Cosmos DB 리소스 관리
 
-Azure Storage 탐색기에서 Azure Cosmos DB를 사용하면 사용자는 Azure Cosmos DB 엔터티를 관리하고, 데이터를 조작하고, Storage Blob 및 큐와 같은 다른 Azure 엔터티와 함께 저장 프로시저 및 트리거를 업데이트할 수 있게 됩니다. 이제 동일한 도구를 사용하여 다양한 Azure 엔터티를 한 곳에서 관리할 수 있습니다. 현재 Azure Storage 탐색기는 SQL, MongoDB, Graph 및 Table 계정을 지원합니다.
+Azure Storage 탐색기에서 Azure Cosmos DB를 사용하면 사용자는 Azure Cosmos DB 엔터티를 관리하고, 데이터를 조작하고, Storage Blob 및 큐와 같은 다른 Azure 엔터티와 함께 저장 프로시저 및 트리거를 업데이트할 수 있게 됩니다. 이제 동일한 도구를 사용하여 다양한 Azure 엔터티를 한 곳에서 관리할 수 있습니다. 현재 Azure Storage 탐색기는 SQL, MongoDB, Graph 및 Table API용으로 구성된 Cosmos 계정을 지원합니다.
 
 
 ## <a name="prerequisites"></a>필수 조건
 
-SQL API <!--or MongoDB API-->에 대한 Azure Cosmos DB 계정. 계정이 없는 경우 Azure Portal에서 계정을 만들 수 있습니다. 설명은 [Azure Cosmos DB: .NET 및 Azure Portal을 사용하여 SQL API 웹앱 빌드](create-sql-api-dotnet.md)를 참조하세요.
+SQL API 또는 Azure Cosmos DB의 MongoDB API가 있는 Cosmos 계정 계정이 없는 경우 Azure Portal에서 계정을 만들 수 있습니다. 설명은 [Azure Cosmos DB: .NET 및 Azure Portal을 사용하여 SQL API 웹앱 빌드](create-sql-api-dotnet.md)를 참조하세요.
 
 ## <a name="installation"></a>설치
 
@@ -208,7 +208,7 @@ Storage 탐색기의 Azure Cosmos DB에서 나타나는 일반적인 문제에 �
 
 ### <a name="sign-in-issues"></a>로그인 문제
 
-계속하기 전에 응용 프로그램을 다시 시작하고 문제가 해결될 수 있는지 확인합니다.
+계속하기 전에 애플리케이션을 다시 시작하고 문제가 해결될 수 있는지 확인합니다.
 
 #### <a name="self-signed-certificate-in-certificate-chain"></a>인증서 체인의 자체 서명된 인증서
 

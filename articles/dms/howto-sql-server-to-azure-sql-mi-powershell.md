@@ -4,19 +4,19 @@ description: Azure PowerShell을 사용하여 온-프레미스 SQL Server에서 
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 64d77a17241c44c9d450b9e7602222cdb89482b7
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c4ccbe8a6f1e1923e83d2bdcbeb2d61429083aee
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247168"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724201"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure SQL Database Managed Instance로 SQL Server 온-프레미스 마이그레이션
 이 문서에서는 Microsoft Azure PowerShell을 사용하여 SQL Server 2005 이상의 온-프레미스 인스턴스로 복원된 **Adventureworks2012** 데이터베이스를 Azure SQL Database Managed Instance로 마이그레이션합니다. Microsoft Azure PowerShell에서 `AzureRM.DataMigration` 모듈을 사용하여 온-프레미스 SQL Server 인스턴스의 데이터베이스를 Azure SQL Database Managed Instance로 마이그레이션할 수 있습니다.
@@ -176,7 +176,7 @@ $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%
 ```
 
 ### <a name="select-logins"></a>로그인 선택
-아래 예제와 같이 마이그레이션할 로그인 목록을 만듭니다. 참고: DMS는 현재 SQL 로그인 마이그레이션만 지원합니다. 
+아래 예제와 같이 마이그레이션할 로그인 목록을 만듭니다.  참고로, 현재 DMS는 SQL 로그인 마이그레이션만 지원합니다. 
 
 ```powershell
 $selectedLogins = @("user1", "user2")

@@ -1,18 +1,18 @@
 ---
 title: 서비스 주체로 Azure Container Registry 인증
-description: Azure Active Directory 서비스 주체를 사용하여 개인 컨테이너 레지스트리에 있는 이미지에 대한 액세스 권한을 제공하는 방법에 대해 알아봅니다.
+description: Azure Active Directory 서비스 주체를 사용하여 개인 컨테이너 레지스트리에 있는 이미지에 대한 액세스 권한을 제공합니다.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 30f0eb04b4b7d07785854e3079bc6656889edec6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 70ca1b88c653601e077c55a847c13f67efc3e300
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854490"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754206"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>서비스 주체로 Azure Container Registry 인증
 
@@ -20,9 +20,9 @@ Azure AD(Azure Active Directory) 서비스 주체를 사용하여 컨테이너 �
 
 ## <a name="what-is-a-service-principal"></a>서비스 주체란?
 
-Azure AD *서비스 주체*는 구독 내 Azure 리소스에 대한 액세스를 제공합니다. 서비스 주체는 서비스에 대한 사용자 ID라고 생각할 수 있습니다. 여기서 "서비스"는 리소스에 액세스 권한이 필요한 애플리케이션, 서비스 또는 플랫폼입니다. 지정한 리소스에 대해서만 액세스 권한이 있는 서비스 주체를 구성할 수 있습니다. 그런 다음, 서비스 주체의 자격 증명을 사용하여 해당 리소스에 액세스하도록 애플리케이션이나 서비스를 구성할 수 있습니다.
+Azure AD *서비스 주체*는 구독 내 Azure 리소스에 대한 액세스를 제공합니다. 서비스 주체는 서비스에 대한 사용자 ID라고 생각할 수 있습니다. 여기서 "서비스"는 리소스에 액세스 권한이 필요한 애플리케이션, 서비스 또는 플랫폼입니다. 지정한 리소스에 대해서만 액세스 권한이 있는 서비스 주체를 구성할 수 있습니다. 그런 다음, 서비스 주체의 자격 증명을 사용하여 해당 리소스에 액세스하도록 애플리케이션이나 서비스를 구성합니다.
 
-Azure Container Registry 컨텍스트에서, Azure의 개인 Docker 레지스트리에 대한 풀, 푸시 및 풀 또는 소유자 권한이 있는 Azure AD 서비스 주체를 만들 수 있습니다.
+Azure Container Registry 컨텍스트에서, Azure의 개인 레지스트리에 대한 풀, 푸시 및 풀 또는 기타 권한이 있는 Azure AD 서비스 주체를 만들 수 있습니다. 전체 목록에 대해서는 [Azure Container Registry 역할 및 권한](container-registry-roles.md)을 참조하세요.
 
 ## <a name="why-use-a-service-principal"></a>서비스 주체를 사용하는 이유
 

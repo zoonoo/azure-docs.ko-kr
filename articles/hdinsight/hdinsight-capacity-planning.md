@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: hrasheed
-ms.openlocfilehash: c8ca936220bf1f4d7f38858c0e09e332cd474077
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7eb18b5560e849796770ce9d24574d7a3d0db262
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193861"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716143"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 클러스터의 용량 계획
 
@@ -38,17 +38,17 @@ HDInsight는 여러 Azure 지역에서 사용할 수 있습니다. 가장 가까
 
 ### <a name="location-of-default-storage"></a>기본 저장소의 위치
 
-Azure Storage 계정 또는 Azure Data Lake Store에 해당하는 기본 저장소는 클러스터와 동일한 위치에 있어야 합니다. Azure Storage는 모든 위치에서 사용할 수 있습니다. Data Lake Store Gen1은 일부 지역에서 사용할 수 있습니다. [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/regions/services/)의 *Storage*에서 현재 Data Lake Store 가용성을 참조하세요.
+Azure Storage 계정 또는 Azure Data Lake Storage에 해당하는 기본 스토리지는 클러스터와 동일한 위치에 있어야 합니다. Azure Storage는 모든 위치에서 사용할 수 있습니다. Data Lake Storage Gen1은 일부 지역에서 사용할 수 있습니다. [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/regions/services/)의 *Storage*에서 현재 Data Lake Storage 가용성을 참조하세요.
 
 ### <a name="location-of-existing-data"></a>기존 데이터의 위치
 
-데이터를 포함하는 저장소 계정 또는 Data Lake Store가 이미 있으며 이 저장소를 클러스터의 기본 저장소로 사용하려면 같은 위치에 클러스터를 배포해야 합니다.
+데이터를 포함하는 스토리지 계정 또는 Data Lake Storage가 이미 있으며 이 스토리지를 클러스터의 기본 스토리지로 사용하려면 같은 위치에 클러스터를 배포해야 합니다.
 
 ### <a name="storage-size"></a>저장소 크기
 
-HDInsight 클러스터를 배포한 후에 추가 Azure Storage 계정을 연결하거나 다른 Data Lake Store에 액세스할 수 있습니다. 모든 저장소 계정은 클러스터와 동일한 위치에 있어야 합니다. Data Lake Store는 다른 위치에 있을 수 있으며 이 경우 데이터 읽기/쓰기 대기 시간이 발생할 수 있습니다.
+HDInsight 클러스터를 배포한 후에 추가 Azure Storage 계정을 연결하거나 다른 Data Lake Storage에 액세스할 수 있습니다. 모든 저장소 계정은 클러스터와 동일한 위치에 있어야 합니다. Data Lake Storage는 다른 위치에 있을 수 있으며 이 경우 데이터 읽기/쓰기 대기 시간이 발생할 수 있습니다.
 
-Azure Storage에는 일부 [용량 제한](../azure-subscription-service-limits.md#storage-limits)이 있지만 Data Lake Store Gen1은 사실상 제한이 없습니다.
+Azure Storage에는 일부 [용량 제한](../azure-subscription-service-limits.md#storage-limits)이 있지만 Data Lake Storage Gen1은 사실상 제한이 없습니다.
 
 클러스터는 다른 저장소 계정 조합에 액세스할 수 있습니다. 일반적인 예제:
 
@@ -75,7 +75,7 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 
 * RAM: VM 크기는 VM에서 사용할 수 있는 RAM의 양을 나타내기도 합니다. 데이터를 디스크에서 읽지 않고, 처리를 위해 데이터를 메모리에 저장하는 워크로드의 경우, 작업자 노드에 데이터에 맞는 충분한 메모리가 있는지 확인합니다.
 
-* 네트워크: 대부분의 클러스터 유형에서 클러스터에 의해 처리된 데이터는 로컬 디스크에 저장되지 않고 Data Lake Store 또는 Azure Storage와 같은 외부 스토리지 서비스에 저장됩니다. 노드 VM 및 저장소 서비스 간의 네트워크 대역폭과 처리량을 고려합니다. VM에 사용할 수 있는 네트워크 대역폭은 일반적으로 더 크게 늘어납니다. 자세한 내용은 [VM 크기 개요](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)를 참조하세요.
+* 네트워크: 대부분의 클러스터 유형에서 클러스터에 의해 처리된 데이터는 로컬 디스크에 저장되지 않고 Data Lake Storage 또는 Azure Storage와 같은 외부 스토리지 서비스에 저장됩니다. 노드 VM 및 저장소 서비스 간의 네트워크 대역폭과 처리량을 고려합니다. VM에 사용할 수 있는 네트워크 대역폭은 일반적으로 더 크게 늘어납니다. 자세한 내용은 [VM 크기 개요](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)를 참조하세요.
 
 ## <a name="choose-the-cluster-scale"></a>클러스터 확장 선택
 
@@ -89,7 +89,7 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 
 클러스터의 수명은 사용자의 책임입니다. 특정 시간에만 클러스터를 가동하고 실행해야 하는 경우 [Azure Data Factory를 사용하여 요청 시 클러스터를 만들 수 있습니다](hdinsight-hadoop-create-linux-clusters-adf.md). 클러스터를 프로비전하고 삭제하는 PowerShell 스크립트를 만든 다음 [Azure Automation](https://azure.microsoft.com/services/automation/)을 사용하여 해당 스크립트를 예약할 수도 있습니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 클러스터를 삭제하면 해당 기본 Hive metastore도 삭제됩니다. 다음에 클러스터를 다시 만들 때를 대비해서 metastore를 보존하려면 Azure Database 또는 [Apache Oozie](https://oozie.apache.org/)와 같은 외부 메타데이터 저장소를 사용합니다.
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
@@ -120,7 +120,7 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 1. **다음: 리뷰 + 만들기**를 클릭합니다.
 1. **리뷰 + 만들기** 탭에서 **만들기**를 클릭합니다.
 
-> [!Note]
+> [!NOTE]  
 > 개인 영역에서 HDInsight 코어 할당량을 늘려야 하는 경우 [허용 목록에 추가 요청을 제출합니다](https://aka.ms/canaryintwhitelist).
 
 [지원 서비스에 문의하여 할당량 증가를 요청](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)할 수 있습니다.

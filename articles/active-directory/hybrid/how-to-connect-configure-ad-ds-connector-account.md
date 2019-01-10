@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 97352cdc89aabe312bf500901347acaf5238e871
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b05b3fee5c49f69979f5e778f897d4be863a3715
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436996"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809882"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS 커넥터 계정 권한 구성 
 
@@ -219,7 +219,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 |-----|-----|-----|-----| 
 |허용 |AD DS 커넥터 계정 |일반 읽기/쓰기 |하위 Group 개체| 
 |허용 |AD DS 커넥터 계정 |자식 개체 만들기/삭제 |이 개체 및 모든 자식 개체| 
-|허용 |AD DS 커넥터 계정 |삭제/개체 및 모든 해당 자식 삭제 |이 개체 및 모든 자식 개체|
+|허용 |AD DS 커넥터 계정 |개체 및 모든 해당 자식 만들기/삭제 |이 개체 및 모든 자식 개체|
 
 ### <a name="permissions-for-exchange-hybrid-deployment"></a>Exchange 하이브리드 배포에 대한 권한 
 Exchange 하이브리드 배포를 사용하는 경우 AD DS 커넥터 계정에 대한 권한을 설정하려면 다음을 실행합니다. 

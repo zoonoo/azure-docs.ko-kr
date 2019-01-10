@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b1fbf77bfb771bd94ed9acdecb3c54e4c6894687
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 183afaeb40b90de078a44f4677dd0218b8d86ba8
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182113"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53968989"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Facebook 계정으로 등록 설정 및 로그인
 
@@ -31,14 +31,14 @@ Azure AD(Azure Active Directory) B2C에서 Facebook 계정을 ID 공급자로 �
 6. **설정** > **기본**을 선택합니다.
 7. `Business and Pages` 등의 **범주**를 선택합니다. 이 값은 Facebook의 경우 필수이지만 Azure AD B2C에서는 사용되지 않습니다.
 8. 페이지의 맨 아래에서 **플랫폼 추가**를 선택한 후 **웹 사이트**를 선택합니다.
-9. **사이트 URL**에 `https://your-tenant-name.b2clogin.com/`을 입력합니다. 여기서 `your-tenant-name`은 실제 테넌트의 이름으로 바꾸세요. **개인 정보 취급 방침 URL**의 URL(예: `http://www.contoso.com`)을 입력합니다. 정책 URL은 애플리케이션에 대한 개인 정보를 제공하기 위해 유지 관리하는 페이지입니다.
+9. **사이트 URL**에 `https://your-tenant-name.b2clogin.com/`을 입력합니다. 여기서 `your-tenant-name`은 실제 테넌트의 이름으로 바꾸세요. **개인 정보 취급 방침 URL**의 URL(예: `http://www.contoso.com`)을 입력합니다. 정책 URL은 응용 프로그램에 대한 개인 정보를 제공하기 위해 유지 관리하는 페이지입니다.
 10. **변경 내용 저장**을 선택합니다.
 11. 페이지의 맨 위에서 **앱 ID** 값을 복사합니다. 
 12. **표시**를 클릭하고 **앱 비밀** 값을 복사합니다. 테넌트에서 Facebook을 ID 공급자로 구성하려면 둘 다 사용합니다. **앱 암호** 는 중요한 보안 자격 증명입니다.
 13. **제품**을 선택한 후 **Facebook 로그인** 아래에서 **설정**을 선택합니다.
 14. **Facebook 로그인** 아래에서 **설정**을 선택합니다.
 15. **유효한 OAuth 리디렉션 URI**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. `your-tenant-name`을 테넌트 이름으로 바꿉니다. 페이지 아래쪽에 있는 **변경 내용 저장** 을 클릭합니다.
-16. Azure AD B2C에서 Facebook 애플리케이션을 사용할 수 있도록 하려면 **App Review를** 선택하고 **My Application을** 공개로 설정하나요? [**예**]를 누른 다음[**확인**]을 누릅니다.
+16. Azure AD B2C에서 Facebook 애플리케이션을 사용할 수 있도록 하려면 페이지 오른쪽 위에 있는 상태 선택기를 클릭한 후 **설정**하여 공용 애플리케이션으로 만들고 **확인**을 클릭합니다.  이때 상태가 **개발**에서 **라이브**로 변경됩니다.
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Facebook 계정을 ID 공급자로 구성
 

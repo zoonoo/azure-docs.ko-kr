@@ -4,22 +4,22 @@ description: Azure Database Migration Service에서 지원하는 마이그레이
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/11/2018
-ms.openlocfilehash: 9eea3c28751ecaec0ffdb27e08f84cad1bf62acd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 12/19/2018
+ms.openlocfilehash: 81bd23f7e4b7065155b708703e52bc0a351696c1
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53267869"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722093"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Azure Database Migration Service에서 지원하는 마이그레이션 시나리오 상태
-Azure Database Migration Service는 오프라인(일회성) 및 온라인(연속 동기화) 마이그레이션 둘 다에 대한 다양한 마이그레이션 시나리오(원본/대상 쌍)를 지원하도록 디자인되었습니다. Azure Database Migration Service가 제공하는 시나리오 범위는 시간에 따라 확장되고 있습니다. 새로운 시나리오를 정기적으로 추가되고 있습니다. 이 문서는 현재 Azure Database Migration Service에서 지원하는 마이그레이션 시나리오와 상태(비공개 미리 보기, 공개 미리 보기 또는 일반 공급)를 설명합니다.
+Azure Database Migration Service는 오프라인(일회성) 및 온라인(연속 동기화) 마이그레이션 둘 다에 대한 다양한 마이그레이션 시나리오(원본/대상 쌍)를 지원하도록 디자인되었습니다. Azure Database Migration Service가 제공하는 시나리오 범위는 시간에 따라 확장되고 있습니다. 새로운 시나리오를 정기적으로 추가되고 있습니다. 이 문서는 현재 Azure Database Migration Service에서 지원하는 마이그레이션 시나리오와 상태(비공개[또는 제한된] 미리 보기, 공개 미리 보기 또는 일반 공급)를 설명합니다.
 
 ## <a name="offline-versus-online-migrations"></a>오프라인 및 온라인 마이그레이션
 Azure Database Migration Service를 사용하여 데이터베이스를 Azure에 마이그레이션할 때는 오프라인 또는 온라인 마이그레이션을 수행할 수 있습니다. *오프라인* 마이그레이션을 사용하는 경우 애플리케이션 가동 중지 시간이 마이그레이션 시작과 동시에 시작됩니다. *온라인* 마이그레이션의 경우에는 가동 중지 시간이 마이그레이션 완료 시 새 환경으로 전환하는 데 필요한 시간으로 제한됩니다. 오프라인 마이그레이션을 테스트하여 가동 중지 시간이 용납 가능한 수준인지 판단하고, 용납되지 않는다면 온라인 마이그레이션을 수행하는 것이 좋습니다.

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: d801ed309b0d79dd6655c7dd59ebd17bd37de222
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 9d566c0f95325635c5ce5030f4d3b22dba7ceb08
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164401"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726034"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database 구매 모델
 
@@ -60,7 +60,7 @@ vCore 기반 구매 모델을 사용하면 계산 및 저장소 리소스를 독
 
 ## <a name="dtu-based-purchasing-model"></a>DTU 기반 구매 모델
 
-DTU(데이터베이스 트랜잭션 단위)는 CPU, 메모리, 읽기 및 쓰기의 혼합 측정값을 나타냅니다. DTU 기반 구매 모델은 다양한 수준의 응용 프로그램 성능을 구동하기 위해 계산 리소스 및 포함된 저장소를 미리 구성된 번들로 묶은 집합을 제공합니다. 매월 미리 구성된 번들과 고정된 지불 금액의 단순성을 선호하는 고객의 경우 DTU 기반 모델이 요구 사항에 더 적합하다는 것을 알 수 있습니다. DTU 기반 구매 모델에서 고객은 [단일 데이터베이스](sql-database-single-database-scale.md) 및 [탄력적 풀](sql-database-elastic-pool.md) 모두에 대해 **기본**, **표준** 및 **프리미엄** 서비스 계층 중에서 선택할 수 있습니다. 이 구매 모델은 [관리되는 인스턴스](sql-database-managed-instance.md)에서 사용할 수 없습니다.
+DTU(데이터베이스 트랜잭션 단위)는 CPU, 메모리, 읽기 및 쓰기의 혼합 측정값을 나타냅니다. DTU 기반 구매 모델은 다양한 수준의 애플리케이션 성능을 구동하기 위해 계산 리소스 및 포함된 저장소를 미리 구성된 번들로 묶은 집합을 제공합니다. 매월 미리 구성된 번들과 고정된 지불 금액의 단순성을 선호하는 고객의 경우 DTU 기반 모델이 요구 사항에 더 적합하다는 것을 알 수 있습니다. DTU 기반 구매 모델에서 고객은 [단일 데이터베이스](sql-database-single-database-scale.md) 및 [탄력적 풀](sql-database-elastic-pool.md) 모두에 대해 **기본**, **표준** 및 **프리미엄** 서비스 계층 중에서 선택할 수 있습니다. 이 구매 모델은 [관리되는 인스턴스](sql-database-managed-instance.md)에서 사용할 수 없습니다.
 
 ### <a name="database-transaction-units-dtus"></a>DTU(데이터베이스 트랜잭션 단위)
 

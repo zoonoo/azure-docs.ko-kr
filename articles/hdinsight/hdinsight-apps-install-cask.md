@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: ef61ee9f15253c6a270cd4089625776a458df2ee
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 715e536d7356a4e37f512027a23236b1fd37cbac
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499334"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651302"
 ---
 # <a name="install-published-application---cask-data-application-platform-cdap"></a>게시된 애플리케이션 설치 - CDAP(Cask Data Application Platform)
 
-이 문서에서는 Azure HDInsight에 [CDAP](http://cask.co/products/cdap/)에서 게시된 [Apache Hadoop](https://hadoop.apache.org/) 애플리케이션을 설치하고 실행하는 방법을 설명합니다. HDInsight 애플리케이션 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor)에서 게시된 애플리케이션 목록은 [타사 Apache Hadoop 애플리케이션 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 애플리케이션을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 애플리케이션 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
+이 문서에서는 Azure HDInsight에 [CDAP](https://cask.co/products/cdap/)에서 게시된 [Apache Hadoop](https://hadoop.apache.org/) 애플리케이션을 설치하고 실행하는 방법을 설명합니다. HDInsight 애플리케이션 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor)에서 게시된 애플리케이션 목록은 [타사 Apache Hadoop 애플리케이션 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 애플리케이션을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 애플리케이션 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
 
 ## <a name="about-cdap"></a>CDAP 정보
 
@@ -30,7 +30,7 @@ CDAP(Cask Data Application Platform)는 빅 데이터용 통합 플랫폼입니�
 
 CDAP는 개발자에게 익숙한 상위 수준 개념 및 추상화를 사용합니다. 이러한 추상화는 내부 시스템의 복잡성을 감추고 솔루션의 재사용을 유도합니다.
 
-[Cask Hydrator](http://cask.co/products/hydrator/)라고 하는 CDAP 확장은 데이터 파이프라인을 개발하고 관리할 수 있는 사용자 인터페이스를 제공합니다. 데이터 파이프라인은 데이터 취득, 변환, 분석, 실행 후 작업 등의 작업을 수행하는 다양한 *플러그 인으로 구성됩니다.
+[Cask Hydrator](https://cask.co/products/hydrator/)라고 하는 CDAP 확장은 데이터 파이프라인을 개발하고 관리할 수 있는 사용자 인터페이스를 제공합니다. 데이터 파이프라인은 데이터 취득, 변환, 분석, 실행 후 작업 등의 작업을 수행하는 다양한 *플러그 인으로 구성됩니다.
 
 애플리케이션의 나머지 부분을 건드릴 필요 없이 한 플러그 인을 다른 플러그인으로 바꾸기만 하면 여러 기술을 평가할 수 있도록, CDAP 플러그 인마다 인터페이스가 잘 정의되어 있습니다.
 
@@ -42,7 +42,7 @@ CDAP *파이프라인*은 애플리케이션 내 데이터의 상위 수준 흐�
 
 이 종단 간 파이프라인은 **Cask Hydrator UI**를 사용하여 빌드되며, 플러그 인 인터페이스 및 끌어서 놓기 기능을 사용하여 각 단계 간 연결을 형성합니다. 각 플러그 인의 기능을 독립적으로 격리하고 수정할 수 있습니다. CDAP를 사용하면 몇 시간 안에 비슷한 파이프라인을 빌드하고 유효성을 검사할 수 있습니다. 일반적인 Hadoop 세계에서는 이러한 솔루션을 구축하는 데 며칠이 걸릴 수 있습니다.
 
-CDAP는 애플리케이션을 통해 이동하는 데이터를 시각적으로 추적할 수 있는 [Cask 추적기](http://cask.co/products/tracker/)라는 확장 기능을 제공합니다. Cask 추적기는 자산이 애플리케이션 전체에서 공식적으로 관리되도록 시스템에 *데이터 거버넌스*를 추가합니다. 각 데이터 요소의 계보를 추적하고, 관련 메트릭을 수집하고, 프로세스 전체의 데이터 내역을 감사할 수 있습니다.
+CDAP는 애플리케이션을 통해 이동하는 데이터를 시각적으로 추적할 수 있는 [Cask 추적기](https://cask.co/products/tracker/)라는 확장 기능을 제공합니다. Cask 추적기는 자산이 애플리케이션 전체에서 공식적으로 관리되도록 시스템에 *데이터 거버넌스*를 추가합니다. 각 데이터 요소의 계보를 추적하고, 관련 메트릭을 수집하고, 프로세스 전체의 데이터 내역을 감사할 수 있습니다.
 
 다음 그림은 위의 파이프라인에서 흐르는 데이터 흐름을 보여줍니다.
 
@@ -52,7 +52,7 @@ CDAP는 애플리케이션을 통해 이동하는 데이터를 시각적으로 �
 
 새 HDInsight 클러스터 또는 기존 클러스터에 이 앱을 설치하려면 다음 구성이 필요합니다.
 
-* 클러스터 계층: 표준
+* 클러스터 계층: Standard
 * 클러스터 유형: HBase
 * 클러스터 버전: 3.4, 3.5
 
@@ -126,9 +126,9 @@ CDAP는 애플리케이션을 통해 이동하는 데이터를 시각적으로 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Cask 설명서](http://cask.co/resources/documentation/).
-* [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md): HDInsight에 게시되지 않은 HDInsight 응용 프로그램을 배포하는 방법을 알아봅니다.
-* [HDInsight 응용 프로그램 게시](hdinsight-apps-publish-applications.md): 사용자 지정 HDInsight 응용 프로그램을 Azure Marketplace에 게시하는 방법을 알아봅니다.
-* [MSDN: HDInsight 응용 프로그램 설치](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight 응용 프로그램을 정의하는 방법을 알아봅니다.
-* [스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md): 스크립트 동작을 사용하여 추가 응용 프로그램을 설치하는 방법을 알아봅니다.
-* [HDInsight에서 빈 에지 노드 사용](hdinsight-apps-use-edge-node.md): 빈 에지 노드를 사용하여 HDInsight 클러스터에 액세스하고 HDInsight 응용 프로그램을 테스트 및 호스팅하는 방법을 알아봅니다.
+* [Cask 설명서](https://cask.co/resources/documentation/).
+* [사용자 지정 HDInsight 애플리케이션 설치](hdinsight-apps-install-custom-applications.md): 게시 취소된 HDInsight 애플리케이션을 HDInsight에 배포하는 방법을 알아봅니다.
+* [HDInsight 애플리케이션 게시](hdinsight-apps-publish-applications.md): 사용자 지정 HDInsight 애플리케이션을 Azure Marketplace에 게시하는 방법을 알아봅니다.
+* [MSDN: HDInsight 애플리케이션 설치](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight 애플리케이션을 정의하는 방법을 알아봅니다.
+* [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md): 스크립트 작업을 사용하여 추가 애플리케이션을 설치하는 방법을 알아봅니다.
+* [HDInsight에서 빈 에지 노드 사용](hdinsight-apps-use-edge-node.md): 빈 에지 노드를 사용하여 HDInsight 클러스터에 액세스하고 HDInsight 애플리케이션을 테스트 및 호스트하는 방법을 알아봅니다.

@@ -7,18 +7,22 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/25/2018
 ms.author: juliako
-ms.openlocfilehash: a051f40cb5586cae58d8e4939f4fcee35438bf69
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 2c07cfcba473e2e27f14ff0118e6ca8a8f484df1
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292081"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791827"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>애플리케이션에 Video Indexer 위젯 포함
 
 이 문서에서는 애플리케이션에 Video Indexer 위젯을 포함하는 방법에 대해 설명합니다. Video Indexer는 **인지 인사이트** 및 **플레이어**라는 두 가지 유형의 위젯을 애플리케이션에 포함할 수 있도록 지원합니다. 
+
+> [!NOTE]
+> 2018년 2월 1일부터 **인지 인사이트** 위젯 버전 1은 더 이상 사용되지 않습니다. Embed URL 버전의 기본값은 `version=2`입니다.
+
 ## <a name="widget-types"></a>위젯 유형
 
 ### <a name="cognitive-insights-widget"></a>인지 인사이트 위젯
@@ -28,7 +32,7 @@ ms.locfileid: "52292081"
 |이름|정의|설명|
 |---|---|---|
 |widgets|쉼표로 구분된 문자열|렌더링하려는 인사이트를 제어할 수 있습니다. <br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`는 사용자 및 브랜드 UI 인사이트만 제공합니다.<br/>사용 가능한 옵션: people, keywords, annotations, brands, sentiments, transcript, search<br/>version=2에서 URL을 통해 지원되지 않습니다.<br/><br/>**참고:** **version=2**를 사용하는 경우 **widgets** URL 매개 변수가 지원되지 않습니다. |
-|버전|**인지 인사이트** 위젯의 버전|최신 인사이트 위젯 업데이트를 가져오려면 포함 URL에 `?version=2` 쿼리 매개 변수를 추가합니다. 예를 들어 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> 이전 버전을 가져오려면 URL에서 `version=2`만 제거하면 됩니다.
+|버전|**인지 인사이트** 위젯의 버전|최신 인사이트 위젯 업데이트를 가져오려면 Embed URL에 `?version=2` 쿼리 매개 변수를 추가합니다. 예를 들어 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> 이전 버전을 가져오려면 URL에서 `version=2`만 제거하면 됩니다.
 
 ### <a name="player-widget"></a>플레이어 위젯
 
@@ -39,7 +43,7 @@ ms.locfileid: "52292081"
 |t|시작 시간(초)|플레이어가 지정된 시점에서 재생을 시작하도록 합니다.<br/>예: t=60|
 |captions|언어 코드|자막 메뉴에서 사용할 수 있도록 위젯을 로드하는 동안 지정된 언어의 자막을 가져옵니다.<br/>예: captions=en-US|
 |showCaptions|부울 값|플레이어가 자막을 사용하도록 설정된 상태로 로드되도록 합니다.<br/>예: showCaptions=true|
-|형식||오디오 플레이어 스킨을 활성화합니다(비디오 부분은 제거됨).<br/>예: type=audio|
+|형식||오디오 플레이어 스킨을 활성화합니다(비디오 부분은 제거됨).<br/>예: type=audio|"
 |autoplay|부울 값|플레이어가 로드되면 비디오 재생을 시작해야 하는지 여부를 나타냅니다(기본값: true).<br/>예: autoplay=false|
 |언어|언어 코드|플레이어 언어를 제어합니다(기본값: en-US).<br/>예: language=de-DE|
 

@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: 951292a34f59fd143a7997571513a3c852bbce81
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 161158157e3af92b1ac4fe81a664d95aa6816490
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497980"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001569"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>HDInsight에서 Apache Spark를 사용하여 Application Insights 원격 분석 로그 분석
 
 HDInsight에서 [Apache Spark](https://spark.apache.org/)를 사용하여 Application Insights 원격 분석 데이터를 분석하는 방법에 대해 알아봅니다.
 
-[Visual Studio Application Insights](../../application-insights/app-insights-overview.md) 는 웹 응용 프로그램을 모니터링하는 분석 서비스입니다. Application Insights에 의해 생성된 원격 분석 데이터를 Azure Storage로 내보낼 수 있습니다. 데이터가 Azure Storage에 있으면 HDInsight를 사용하여 분석할 수 있습니다.
+[Visual Studio Application Insights](../../application-insights/app-insights-overview.md) 는 웹 애플리케이션을 모니터링하는 분석 서비스입니다. Application Insights에 의해 생성된 원격 분석 데이터를 Azure Storage로 내보낼 수 있습니다. 데이터가 Azure Storage에 있으면 HDInsight를 사용하여 분석할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -28,14 +28,14 @@ HDInsight에서 [Apache Spark](https://spark.apache.org/)를 사용하여 Applic
 
 * Linux 기반 HDInsight 클러스터를 만드는 데 익숙해야 합니다. 자세한 내용은 [HDInsight에서 Apache Spark 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 * 웹 브라우저.
 
 이 문서를 개발하고 테스트하는 데 다음 리소스를 사용했습니다.
 
-* [Application Insights를 사용하도록 구성된 Node.js 웹앱](../../application-insights/app-insights-nodejs.md)를 사용하여 Application Insights 원격 분석 데이터를 생성했습니다.
+* [Application Insights를 사용하도록 구성된 Node.js 웹앱](../../azure-monitor/app/nodejs.md)를 사용하여 Application Insights 원격 분석 데이터를 생성했습니다.
 
 * HDInsight 클러스터 버전 3.5의 Linux 기반 Spark는 데이터를 분석하는 데 사용되었습니다.
 
@@ -51,7 +51,7 @@ Application Insights가 Blob에 원격 분석 정보를 지속적으로 내보�
 
 * **위치**: Storage 계정 및 HDInsight가 다른 위치에 있는 경우 대기 시간이 증가할 수 있습니다. 또한 지역 간에 이동하는 데이터에 송신 요금이 적용되면 비용이 증가합니다.
 
-    > [!WARNING]
+    > [!WARNING]  
     > HDInsight와 다른 위치에서는 Storage 계정을 사용할 수 없습니다.
 
 * **Blob 유형**: HDInsight는 블록 Blob만을 지원합니다. Application Insights의 기본값은 블록 Blob을 사용하므로 기본적으로 HDInsight와 함께 사용해야 합니다.
@@ -60,11 +60,11 @@ Application Insights가 Blob에 원격 분석 정보를 지속적으로 내보�
 
 ### <a name="data-schema"></a>데이터 스키마
 
-Application Insights는 Blob으로 내보낸 원격 분석 데이터 형식에 대한 [데이터 모델 내보내기](../../application-insights/app-insights-export-data-model.md) 정보를 제공합니다. 이 문서의 단계에서는 Spark SQL을 데이터와 함께 사용합니다. Spark SQL은 Application Insights에 의해 기록된 JSON 데이터 구조체에 대한 스키마를 자동으로 생성할 수 있습니다.
+Application Insights는 Blob으로 내보낸 원격 분석 데이터 형식에 대한 [데이터 모델 내보내기](../../azure-monitor/app/export-data-model.md) 정보를 제공합니다. 이 문서의 단계에서는 Spark SQL을 데이터와 함께 사용합니다. Spark SQL은 Application Insights에 의해 기록된 JSON 데이터 구조체에 대한 스키마를 자동으로 생성할 수 있습니다.
 
 ## <a name="export-telemetry-data"></a>원격 분석 데이터 내보내기
 
-[연속 내보내기 구성](../../application-insights/app-insights-export-telemetry.md) 의 단계에 따라 Azure Storage Blob으로 원격 분석 정보를 내보내도록 Application Insights를 구성할 수 있습니다.
+[연속 내보내기 구성](../../azure-monitor/app/export-telemetry.md) 의 단계에 따라 Azure Storage Blob으로 원격 분석 정보를 내보내도록 Application Insights를 구성할 수 있습니다.
 
 ## <a name="configure-hdinsight-to-access-the-data"></a>HDInsight를 구성하여 데이터에 액세스
 
@@ -111,10 +111,10 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 저장소
 
     반환된 wasb 경로는 Application Insights 원격 분석 데이터의 위치입니다. 셀에서 `hdfs dfs -ls` 줄을 변경하여 반환된 wasb 경로를 사용한 다음 **SHIFT+ENTER**를 사용하여 셀을 다시 실행합니다. 이번 결과는 원격 분석 데이터를 포함하는 디렉터리를 표시해야 합니다.
 
-   > [!NOTE]
+   > [!NOTE]  
    > 이 섹션의 나머지 단계에서는 `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` 디렉터리를 사용했습니다. 사용자의 디렉터리 구조는 다를 수 있습니다.
 
-6. 다음 셀에서 다음 코드를 입력합니다. `WASB_PATH`를 이전 단계의 경로로 바꿉니다.
+6. 다음 셀에 다음 코드를 입력합니다. `WASB_PATH`를 이전 단계의 경로로 바꿉니다.
 
    ```python
    jsonFiles = sc.textFile('WASB_PATH')
@@ -200,7 +200,7 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 저장소
 
     이 쿼리는 context.location.city가 null이 아닌 상위 20개 레코드에 대한 도시 정보를 반환합니다.
 
-   > [!NOTE]
+   > [!NOTE]  
    > 컨텍스트 구조는 Application Insights에 의해 기록된 모든 원격 분석에 표시됩니다. 도시 요소는 로그에서 채워지지 않을 수 있습니다. 스키마를 사용하여 로그에 대한 데이터를 포함하는 쿼리할 수 있는 다른 요소를 식별합니다.
 
     이 쿼리는 다음 텍스트와 비슷한 정보를 반환합니다.
@@ -215,7 +215,7 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 저장소
         ...
         +---------+
 
-## <a name="analyze-the-data-scala"></a>데이터 분석: Scala
+## <a name="analyze-the-data-scala"></a>데이터 분석: 스칼라
 
 1. [Azure 포털](https://portal.azure.com)에서 HDInsight 클러스터의 Spark를 선택합니다. **빠른 링크** 섹션에서 **클러스터 대시보드**를 선택한 다음 클러스터 대시보드__ 섹션에서 **Jupyter Notebook**을 선택합니다.
 
@@ -252,10 +252,10 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 저장소
 
     반환된 wasb 경로는 Application Insights 원격 분석 데이터의 위치입니다. 셀에서 `hdfs dfs -ls` 줄을 변경하여 반환된 wasb 경로를 사용한 다음 **SHIFT+ENTER**를 사용하여 셀을 다시 실행합니다. 이번 결과는 원격 분석 데이터를 포함하는 디렉터리를 표시해야 합니다.
 
-   > [!NOTE]
+   > [!NOTE]  
    > 이 섹션의 나머지 단계에서는 `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` 디렉터리를 사용했습니다. 원격 분석 데이터가 웹앱에 대한 것이 아니면 이 디렉터리는 없을 수도 있습니다.
 
-6. 다음 셀에서 다음 코드를 입력합니다. `WASB\_PATH`를 이전 단계의 경로로 바꿉니다.
+6. 다음 셀에 다음 코드를 입력합니다. `WASB\_PATH`를 이전 단계의 경로로 바꿉니다.
 
    ```scala
    var jsonFiles = sc.textFile('WASB_PATH')
@@ -343,7 +343,7 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 저장소
 
     이 쿼리는 context.location.city가 null이 아닌 상위 20개 레코드에 대한 도시 정보를 반환합니다.
 
-   > [!NOTE]
+   > [!NOTE]  
    > 컨텍스트 구조는 Application Insights에 의해 기록된 모든 원격 분석에 표시됩니다. 도시 요소는 로그에서 채워지지 않을 수 있습니다. 스키마를 사용하여 로그에 대한 데이터를 포함하는 쿼리할 수 있는 다른 요소를 식별합니다.
    >
    >
@@ -365,11 +365,11 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 저장소
 Azure의 데이터와 서비스 작업에 Apache Spark를 사용하는 더 많은 예제는 다음 문서를 참조하세요.
 
 * [BI와 Apache Spark: BI 도구와 함께 HDInsight의 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 HVAC 데이터로 건물 온도 분석](apache-spark-ipython-notebook-machine-learning.md)
 * [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 
 Spark 애플리케이션을 만들고 실행하는 자세한 내용은 다음 문서를 참조하세요.
 
-* [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](apache-spark-create-standalone-application.md)
+* [Scala를 사용하여 독립 실행형 애플리케이션 만들기](apache-spark-create-standalone-application.md)
 * [Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 100c9266718d618b8b00a3169c3d88ac7d501791
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c3cb9b7988269f394615b6498bbe7af5bb0ab1e1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409924"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743360"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Storage 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한
 
@@ -180,10 +180,10 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
    > [!IMPORTANT]  
    > HTTP/s 또는 SSH 사용자 이름 및 암호를 묻는 메시지가 나타나면 다음 조건을 충족하는 암호를 제공해야 합니다.
    >
-   > * 길이가 10자 이상이어야 함
-   > * 숫자를 1개 이상 포함해야 함
-   > * 영숫자가 아닌 문자를 1개 이상 포함해야 함
-   > * 대문자 또는 소문자를 1개 이상 포함해야 함
+   > * 길이가 10자 이상이어야 합니다.
+   > * 숫자를 1개 이상 포함해야 합니다.
+   > * 영숫자가 아닌 문자를 1개 이상 포함해야 합니다.
+   > * 대문자 또는 소문자를 1개 이상 포함해야 합니다.
 
 이 스크립트를 완료하는 데는 일반적으로 약 15분이 소요됩니다. 스크립트가 오류 없이 완료되면 클러스터가 만들어진 것입니다.
 
@@ -202,7 +202,7 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
    * **키**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
    * **값**: 이전에 실행한 C# 또는 Python 애플리케이션에서 반환된 SAS
 
-     **CONTAINERNAME** 을 C# 또는 SAS 응용 프로그램에서 사용한 컨테이너 이름으로 바꿉니다. **STORAGEACCOUNTNAME** 을 사용한 저장소 계정 이름으로 바꿉니다.
+     **CONTAINERNAME** 을 C# 또는 SAS 애플리케이션에서 사용한 컨테이너 이름으로 바꿉니다. **STORAGEACCOUNTNAME** 을 사용한 저장소 계정 이름으로 바꿉니다.
 
 5. **Add** 단추를 클릭하여 이 키 및 값을 저장한 후 **Save** 단추를 클릭하여 구성 변경을 저장합니다. 메시지가 나타나면 변경에 대한 설명(예: "SAS 저장소 액세스 추가")을 추가하고 **저장**을 클릭합니다.
 
@@ -290,10 +290,10 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 
 **해결 방법**: 다음 조건을 충족하는 암호를 사용합니다.
 
-* 길이가 10자 이상이어야 함
-* 숫자를 1개 이상 포함해야 함
-* 영숫자가 아닌 문자를 1개 이상 포함해야 함
-* 대문자 또는 소문자를 1개 이상 포함해야 함
+* 길이가 10자 이상이어야 합니다.
+* 숫자를 1개 이상 포함해야 합니다.
+* 영숫자가 아닌 문자를 1개 이상 포함해야 합니다.
+* 대문자 또는 소문자를 1개 이상 포함해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

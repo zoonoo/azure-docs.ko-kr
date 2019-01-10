@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 814afb8731f8e4da3d3cbc75ef69c3b5da487914
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f2cdeea546e7153c63cb1edfbc53f3644facc4f2
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877873"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743904"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>PowerShell을 사용하여 가상 머신 백업 및 복원
 
-이 문서는 Azure PowerShell cmdlet을 사용하여 Recovery Services 자격 증명 모음으로부터 Azure VM(가상 머신)을 복원하고 백업하는 방법을 보여 줍니다. Recovery Services 자격 증명 모음은 Azure Backup 및 Azure Site Recovery 서비스에서 데이터와 자산을 보호하는 데 사용되는 Azure Resource Manager 리소스입니다. 
+이 문서는 Azure PowerShell cmdlet을 사용하여 Recovery Services 자격 증명 모음으로부터 Azure VM(가상 머신)을 복원하고 백업하는 방법을 보여 줍니다. Recovery Services 자격 증명 모음은 Azure Backup 및 Azure Site Recovery 서비스에서 데이터와 자산을 보호하는 데 사용되는 Azure Resource Manager 리소스입니다.
 
 > [!NOTE]
 > Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md) 모델이 있습니다. 이 문서는 리소스 관리자 모델을 사용하여 생성된 VM 사용에 대해 설명합니다.
@@ -28,6 +28,7 @@ ms.locfileid: "52877873"
 이 문서는 PowerShell을 사용하여 VM을 보호하고, 복구 지점으로부터 데이터를 복원하는 단계를 안내합니다.
 
 ## <a name="concepts"></a>개념
+
 Azure Backup Service를 잘 모르는 경우, [Azure 백업이란?](backup-introduction-to-azure-backup.md) 문서에서 서비스에 대한 개요를 확인하세요. 시작하기 전에 먼저 Azure Backup에 필요한 필수 조건 및 현재 VM 백업 솔루션의 제한에 대해 다루었는지 확인합니다.
 
 PowerShell을 효과적으로 사용하기 위해 개체의 계층 구조와 시작하는 위치를 이해하는 데 필요합니다.
@@ -43,7 +44,7 @@ AzureRm.RecoveryServices.Backup PowerShell cmdlet 참조를 보려면 Azure 라�
 1. [PowerShell 최신 버전 다운로드](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)(필요한 최소 버전: 1.4.0)
 
 2. 다음 명령을 입력하여 사용할 수 있는 Azure Backup PowerShell cmdlet을 찾습니다.
-   
+
     ```powershell
     Get-Command *azurermrecoveryservices*
     ```    
@@ -326,7 +327,7 @@ $rp[0]
 
 다음 예제와 유사하게 출력됩니다.
 
-```
+```powershell
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -350,6 +351,7 @@ BackupManagementType        : AzureVM
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG"
 $restorejob
 ```
+
 #### <a name="restore-managed-disks"></a>Managed Disks 복원
 
 > [!NOTE]
@@ -359,16 +361,15 @@ $restorejob
 
 추가 매개 변수를 **TargetResourceGroupName**을 제공하여 Managed Disks를 복원할 RG를 지정합니다.
 
-
 ```powershell
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"
 ```
 
 **VMConfig.JSON** 파일은 저장소 계정으로 복원되고, Managed Disks는 지정한 대상 RG로 복원됩니다.
 
-
 다음 예제와 유사하게 출력됩니다.
-```
+
+```powershell
 WorkloadName     Operation          Status               StartTime                 EndTime            JobID
 ------------     ---------          ------               ---------                 -------          ----------
 V2VM              Restore           InProgress           4/23/2016 5:00:30 PM                        cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
@@ -397,6 +398,27 @@ $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
 > 복원된 디스크에서 암호화된 VM을 만들려면 Azure 역할에 **Microsoft.KeyVault/vaults/deploy/action** 작업을 수행할 권한이 있어야 합니다. 사용자의 역할에 이 사용 권한이 없는 경우 이 작업이 포함된 사용자 지정 역할을 만드세요. 자세한 내용은 [Azure RBAC에서 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조하세요.
 >
 >
+
+> [!NOTE]
+> 디스크를 복원하면 이제 새 VM을 만드는 데 직접 사용할 수 있는 배포 템플릿을 가져올 수 있습니다. 암호화/암호화되지 않은 관리/비관리 VM을 만들기 위한 더 이상의 다른 PS cmdlet은 없습니다.
+
+결과 작업 세부 정보는 쿼리 및 배포 가능한 템플릿 URI를 제공합니다.
+
+```powershell
+   $properties = $details.properties
+   $templateBlobURI = $properties["Template Blob Uri"]
+```
+
+[여기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy#deploy-a-template-from-an-external-source)에 설명된 대로 템플릿을 배포하여 새 VM을 만들면 됩니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobURI -storageAccountType Standard_GRS
+```
+
+다음 섹션에서는 "VMConfig" 파일을 사용하여 VM을 만드는 데 필요한 단계를 나열합니다.
+
+> [!NOTE]
+> 위에 설명된 배포 템플릿을 사용하여 VM을 만드는 것이 좋습니다. 이 섹션(포인트 1-6)은 곧 삭제될 예정입니다.
 
 1. 복원된 디스크 속성에서 작업 세부 정보를 쿼리합니다.
 
@@ -476,14 +498,14 @@ $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
    * **관리 및 암호화되지 않은 VM** - 암호하되지 않은 관리되는 VM의 경우 복원된 Managed Disks를 연결합니다. 자세한 내용은 [PowerShell을 사용하여 Windows VM에 데이터 디스크 연결](../virtual-machines/windows/attach-disk-ps.md) 문서를 참조하세요.
 
    * **관리 및 암호화되는 VM(BEK만 사용)** - 관리 및 암호화되는 VM의 경우(BEK만 사용하여 암호화됨) 복원된 Managed Disks를 연결합니다. 자세한 내용은 [PowerShell을 사용하여 Windows VM에 데이터 디스크 연결](../virtual-machines/windows/attach-disk-ps.md) 문서를 참조하세요.
-   
-      다음 명령을 사용하여 데이터 디스크의 암호화를 수동으로 사용 설정합니다.
+
+     다음 명령을 사용하여 데이터 디스크의 암호화를 수동으로 사용 설정합니다.
 
        ```powershell
        Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
        ```
 
-   * **관리 및 암호화되는 VM(BEK 및 KEK)** - 관리 및 암호화되는 VM의 경우(BEK 및 KEK를 사용하여 암호화됨) 복원된 Managed Disks를 연결합니다. 자세한 내용은 [PowerShell을 사용하여 Windows VM에 데이터 디스크 연결](../virtual-machines/windows/attach-disk-ps.md) 문서를 참조하세요. 
+   * **관리 및 암호화되는 VM(BEK 및 KEK)** - 관리 및 암호화되는 VM의 경우(BEK 및 KEK를 사용하여 암호화됨) 복원된 Managed Disks를 연결합니다. 자세한 내용은 [PowerShell을 사용하여 Windows VM에 데이터 디스크 연결](../virtual-machines/windows/attach-disk-ps.md) 문서를 참조하세요.
 
       다음 명령을 사용하여 데이터 디스크의 암호화를 수동으로 사용 설정합니다.
 
@@ -520,7 +542,6 @@ Azure VM 백업에서 파일을 복원하는 기본 단계는 다음과 같습�
 * 복구 지점의 디스크 탑재
 * 필요한 파일 복사
 * 디스크 분리
-
 
 ### <a name="select-the-vm"></a>VM 선택
 
@@ -575,7 +596,7 @@ Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 다음 예제와 유사하게 출력됩니다.
 
-```
+```powershell
 OsType  Password        Filename
 ------  --------        --------
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe

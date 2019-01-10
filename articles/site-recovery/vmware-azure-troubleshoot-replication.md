@@ -5,18 +5,19 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/17/2018
 ms.author: ramamill
-ms.openlocfilehash: ae2f32a02005bc015d2521e576ea5625bef2d377
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1c37b764b47856d3a369228d3f224f2a464029bb
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846014"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790659"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버에 대한 복제 문제 해결
 
 Azure Site Recovery를 사용하여 VMware 가상 머신 또는 물리적 서버를 보호하는 경우 특정 오류 메시지가 나타날 수 있습니다. 이 아티클에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 온-프레미스 VMware VM 및 실제 서버를 Azure에 복제하는 경우 발생할 수 있는 몇 가지 일반적인 문제를 설명합니다.
+
 
 ## <a name="initial-replication-issues"></a>초기 복제 문제
 
@@ -33,7 +34,7 @@ Azure Site Recovery를 사용하여 VMware 가상 머신 또는 물리적 서버
 
 * 실행되지 않는 경우 서비스 `InMage Scout VX Agent – Sentinel/OutpostStart`의 상태를 확인하고 문제가 여전히 있는지 확인합니다.   
 
-## <a name="verify-the-process-server"></a>프로세스 서버를 확인합니다.
+### <a name="verify-the-process-server"></a>프로세스 서버를 확인합니다.
 
 * **프로세스 서버가 데이터를 Azure로 적극적으로 밀어넣는지 확인**
 
@@ -87,6 +88,19 @@ Microsoft Azure Backup 검색
 
 
 * **프로세스 서버에서 스로틀 대역폭이 제한되지 않는지 확인**:  대역폭을 늘리고 문제가 아직 있는지 확인합니다.
+
+## <a name="source-machine-to-be-protected-through-site-recovery-is-not-listed-on-azure-portal"></a>Site Recovery를 통해 보호할 원본 컴퓨터가 Azure Portal에 표시되지 않습니다.
+
+Azure Site Recovery를 통해 복제를 사용하도록 설정할 원본 컴퓨터를 선택하려고 하면 다음과 같은 이유로 컴퓨터를 계속 사용하지 못할 수 있습니다.
+
+* vCenter에 인스턴스 UUID가 같은 두 개의 가상 머신이 있는 경우 구성 서버에서 첫 번째로 검색된 가상 머신이 포털에 표시됩니다. 이 문제를 해결하려면 두 개의 가상 머신에 동일한 인스턴스 UUID가 없는지 확인합니다.
+* OVF 템플릿 또는 통합 설정을 통해 구성을 설정하는 동안 올바른 vCenter 자격 증명을 추가했는지 확인합니다. 추가된 자격 증명을 확인하려면 [여기](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery)에서 공유되는 지침을 참조하세요.
+* vCenter에 액세스하기 위해 제공된 사용 권한에 충분한 권한이 없는 경우 가상 머신을 검색하는 동안 오류가 발생할 수 있습니다. [여기](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery)에 제공된 사용 권한이 vCenter 사용자 계정에 추가되었는지 확인합니다.
+* Site Recovery를 통해 가상 머신이 이미 보호되는 경우 보호할 수 없습니다. 포털에서 찾고 있는 가상 머신이 다른 사용자 또는 다른 구독을 통해 아직 보호되고 있지 않은지 확인합니다.
+
+## <a name="protected-virtual-machines-are-greyed-out-in-the-portal"></a>보호된 가상 머신은 포털에 회색으로 표시됩니다.
+
+Site Recovery에서 복제된 가상 머신은 시스템에 중복된 항목이 있으면 회색으로 표시됩니다. [여기](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx)에 제공된 지침을 참조하여 오래된 항목을 삭제하고 문제를 해결하세요.
 
 ## <a name="next-steps"></a>다음 단계
 도움이 필요한 경우 [Azure Site Recovery 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)에 쿼리를 게시하세요. 활발히 유지되는 커뮤니티가 있으며 엔지니어 중 하나가 도움을 줄 수 있습니다.

@@ -1,5 +1,5 @@
 ---
-title: CLI를 사용하여 Azure Key Vault 관리 | Microsoft Docs
+title: CLI를 사용하여 Azure Key Vault 관리 - Azure Key Vault | Microsoft Docs
 description: 이 문서를 참조하여 Azure CLI를 사용해 Key Vault에서 일반 작업을 자동화할 수 있습니다.
 services: key-vault
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: f3b91e73cbfe9972969f5a061768a2c2bbfa7d1b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 632620bf8140ba855198a9354fbd7e50604e18c3
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256457"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000311"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Azure CLI를 사용하여 Key Vault 관리 
 
@@ -194,10 +194,10 @@ az keyvault certificate list --vault-name 'ContosoKeyVault'
 
 자격 증명 모음 키를 사용하는 애플리케이션은 Azure Active Directory에서 토큰을 사용하여 인증해야 합니다.  애플리케이션 소유자가 먼저 Azure Active Directory에 등록해야 합니다. 등록 끝에 애플리케이션 소유자는 다음 값을 가져옵니다.
 
-- **응용 프로그램 ID**(AAD 클라이언트 ID 또는 appID라고도 함)
+- **애플리케이션 ID**(AAD 클라이언트 ID 또는 appID라고도 함)
 - **인증 키**(또한 공유 암호라고도 함) 
 
-애플리케이션은 토큰을 가져올 Azure Active Directory에 이 두 값 모두가 있어야 합니다. 토큰을 가져오도록 애플리케이션을 구성하는 방법은 애플리케이션에 따라 다릅니다. [Key Vault 샘플 응용 프로그램](https://www.microsoft.com/download/details.aspx?id=45343)의 경우, 응용 프로그램 소유자는 app.config 파일에서 이러한 값을 설정합니다.
+애플리케이션은 토큰을 가져올 Azure Active Directory에 이 두 값 모두가 있어야 합니다. 토큰을 가져오도록 애플리케이션을 구성하는 방법은 애플리케이션에 따라 다릅니다. [Key Vault 샘플 애플리케이션](https://www.microsoft.com/download/details.aspx?id=45343)의 경우, 애플리케이션 소유자는 app.config 파일에서 이러한 값을 설정합니다.
 
 Azure Active Directory에 애플리케이션을 등록하는 방법에 대한 자세한 단계를 알아보려면 [Azure Active Directory와 애플리케이션 통합](../active-directory/develop/active-directory-integrating-applications.md), [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md) 및 [Azure CLI를 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli) 문서를 검토해야 합니다.
 
@@ -228,18 +228,18 @@ az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec
 
 키 자격 증명 모음에 대해 고급 정책을 사용하도록 설정하려면 [az keyvault update](/cli/azure/keyvault#az-keyvault-update)를 사용합니다. 
 
- 배포에 키 자격 증명 모음 사용: 가상 머신이 자격 증명 모음에서 비밀로 저장된 인증서를 검색할 수 있도록 허용합니다.
+ 배포에 Key Vault 사용: Virtual Machines에서 자격 증명 모음으로부터 비밀로 저장된 인증서를 검색할 수 있도록 허용합니다.
  ```azurecli
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-deployment 'true'
  ``` 
 
-디스크 암호화에 키 자격 증명 모음 사용: Azure 디스크 암호화에 자격 증명 모음을 사용하는 경우 필요합니다.
+디스크 암호화에 Key Vault 사용: Azure Disk Encryption에 대해 자격 증명 모음을 사용하는 경우에 필요합니다.
 
  ```azurecli
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-disk-encryption 'true'
  ```  
 
-템플릿 배포에 키 자격 증명 모음 사용: Resource Manager가 자격 증명 모음에서 비밀을 검색할 수 있도록 허용합니다.
+템플릿 배포에 Key Vault 사용: Resource Manager가 자격 증명 모음에서 비밀을 검색할 수 있습니다.
  ```azurecli 
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-template-deployment 'true'
  ```

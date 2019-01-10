@@ -6,50 +6,83 @@ author: HeidiSteen
 manager: cgronlun
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 12/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9c9af69e45af6a70c5327393a1c10385ba2c2aed
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 55de72b2a82dea3dfe763d786966565beb229042
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316899"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745094"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Azure Search 인덱스를 다시 빌드하는 방법
 
-인덱스를 다시 빌드하면 인덱스 구조가 변경되어 Azure Search 서비스의 인덱스에 대한 실제 표현이 변경됩니다. 이에 반해 인덱스 새로 고침은 콘텐트 전용 업데이트이며 영향을 주는 외부 데이터 원본에서 최신 변경 내용을 선택합니다. 이 문서에서는 구조적으로나 실질적으로 인덱스를 업데이트하는 방법에 대한 지침을 제공합니다.
+이 문서에서는 Azure Search 인덱스는 다시 작성하는 방법, 다시 작성이 필요한 상황, 지속적인 쿼리 요청에 다시 작성이 미치는 영향을 완화하기 위한 권장 사항을 설명합니다.
 
-인덱스 업데이트에는 서비스 수준의 읽기-쓰기 권한이 필요합니다. 프로그래밍 방식으로 REST 또는 .NET API를 호출하여 업데이트 옵션을 지정하는 매개 변수를 통해 콘텐츠 전체를 다시 작성하거나 증분 인덱싱을 수행할 수 있습니다. 
+*다시 작성*은 모든 필드 기반의 반전된 인덱스를 포함하여 인덱스와 연결된 실제 데이터 구조를 삭제했다가 다시 만드는 것을 의미합니다. Azure Search에서는 특정 필드를 삭제했다가 다시 만들 수 없습니다. 인덱스를 다시 작성하려면 모든 필드 스토리지를 삭제하고, 기존 또는 수정된 인덱스 스키마를 기준으로 다시 만든 후 인덱스에 푸시되었거나 외부 원본에서 가져온 데이터로 다시 채워야 합니다. 개발 중에 인덱스를 다시 작성하는 것이 일반적이지만 복합 형식을 추가하는 경우처럼 구조적 변경을 수용하기 위해 프로덕션 수준의 인덱스를 다시 작성해야 할 수도 있습니다.
 
-일반적으로 인덱스에 대한 업데이트는 주문형입니다. 하지만 특정 소스에 대한 [인덱서](search-indexer-overview.md)를 사용하여 채워진 인덱스의 경우 기본 제공 스케줄러를 사용할 수 있습니다. 스케줄러는 필요한 간격 및 패턴에 따라 최대 15분 간격으로 문서 새로 고침을 지원합니다. 새로 고침 빈도를 높이려면 외부 데이터 원본과 Azure Search 인덱스를 동시에 업데이트하여 트랜잭션에 대한 이중 쓰기를 통해 수동으로 인덱스 업데이트 내용을 밀어 넣어야 합니다.
+인덱스를 오프라인으로 전환하는 다시 작성과 달리, *데이터 새로 고침*은 백그라운드 작업으로 실행됩니다. 일반적으로 쿼리를 완료하는 데 더 오래 걸리지만, 쿼리 워크로드 중단을 최소화하면서 문서를 추가하고 제거하고 교체할 수 있습니다. 인덱스 콘텐츠 업데이트에 대한 자세한 내용은 [문서 추가, 업데이트 또는 삭제](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)를 참조하세요.
 
-## <a name="full-rebuilds"></a>전체 다시 빌드
+## <a name="rebuild-conditions"></a>다시 작성 조건
 
-많은 유형의 업데이트에 대해 전체 다시 빌드가 필요합니다. 전체 다시 빌드란 인덱스(데이터와 메타데이터 모두)를 삭제한 다음, 외부 데이터 원본으로 인덱스를 다시 채우는 작업을 말합니다. 프로그래밍 방식으로 인덱스를 [삭제](https://docs.microsoft.com/rest/api/searchservice/delete-index), [생성](https://docs.microsoft.com/rest/api/searchservice/create-index) 및 [다시 로드](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)하여 다시 빌드합니다. 
+| 조건 | 설명 |
+|-----------|-------------|
+| 필드 정의 변경 | 이름, 데이터 형식 또는 특정 [인덱싱 특성](https://docs.microsoft.com/rest/api/searchservice/create-index)(검색 가능, 필터링 가능, 정렬 가능, 패싯 가능)을 수정하려면 전체적으로 다시 작성해야 합니다. |
+| 필드 삭제 | 필드의 모든 추적을 실제로 제거하려면 인덱스를 다시 작성해야 합니다. 즉시 다시 작성이 가능하지 않은 경우 대부분의 개발자는 "삭제된" 필드에 액세스하지 못하도록 애플리케이션 코드를 수정합니다. 실제로 필드 정의와 콘텐츠는 다음 번에 해당 필드를 생략하는 스키마를 사용하여 다시 작성이 수행될 때까지 인덱스에 남아 있습니다. |
+| 계층 전환 | 용량이 더 필요한 경우 현재 위치 업그레이드가 수행되지 않습니다. 새 용량 지점에서 새 서비스가 만들어지며, 새 서비스에서는 인덱스를 처음부터 새로 작성해야 합니다. |
 
-다시 빌드한 다음, 쿼리 패턴 및 채점 프로파일을 테스트해봤다면, 기본 콘텐츠가 변경된 경우 쿼리 결과의 변형을 예상할 수 있습니다.
+기존 실제 구조를 영향을 주지 않으면서 다른 부분을 수정할 수 있습니다. 특히, 다음 변경은 인덱스 다시 작성을 나타내지 *않습니다*.
 
-## <a name="when-to-rebuild"></a>다시 빌드하는 경우
++ 새 필드 추가
++ 기존 필드에 대해 **Retrievable** 특성 설정
++ 기존 필드에 대해 분석기 설정
++ 점수 매기기 프로필 추가, 업데이트 또는 삭제
++ CORS 설정 추가, 업데이트 또는 삭제
++ 확인기 추가, 업데이트 또는 삭제
++ synonymMaps 추가, 업데이트 또는 삭제
 
-인덱스 스키마가 유동적인 상태인 경우 개발하는 동안 빈번한 전체 다시 빌드를 계획합니다.
-
-| 수정 | 다시 빌드 상태|
-|--------------|---------------|
-| 필드 이름, 데이터 형식 또는 [인덱스 특성](https://docs.microsoft.com/rest/api/searchservice/create-index) 변경 | 필드 정의를 변경하면 일반적으로 [인덱스 특성](https://docs.microsoft.com/rest/api/searchservice/create-index): Retrievable, SearchAnalyzer, SynonymMaps를 제외하고 다시 빌드 패널티가 발생합니다. 색인을 다시 빌드할 필요 없이 Retrievable, SearchAnalyzer 및 SynonymMaps 특성을 기존 필드에 추가할 수 있습니다.|
-| 필드 추가 | 다시 빌드에 대한 엄격한 요구 사항은 없습니다. 기존의 인덱싱된 문서에는 새 필드에 null 값이 제공됩니다. 나중에 인덱스를 다시 수행하면 원본 데이터의 값이 Azure Search에 의해 추가된 null을 대체합니다. |
-| 필드 삭제 | Azure Search 인덱스에서 필드를 직접 삭제할 수는 없습니다. 대신 응용 프로그램이 "삭제된" 필드를 무시하고 사용하지 않도록 해야 합니다. 물리적으로 필드 정의와 콘텐츠는 다음 번에 해당 필드를 생략하는 스키마를 사용하여 인덱스를 다시 빌드할 때까지 인덱스에 남아 있습니다.|
-
-> [!Note]
-> 계층을 전환하는 경우에도 다시 빌드가 필요합니다. 특정 시점에서 용량 확장을 결정하는 경우, 현재 위치 업그레이드가 없습니다. 새 용량 지점에서 새 서비스를 만들어야 하며 새 서비스에서 인덱스는 처음부터 빌드해야 합니다. 
+새 필드를 추가할 때 기존의 인덱싱된 문서에는 새 필드에 null 값이 제공됩니다. 나중에 데이터를 새로 고치면 외부 원본 데이터의 값이 Azure Search에 의해 추가된 null을 대체합니다.
 
 ## <a name="partial-or-incremental-indexing"></a>부분 또는 증분 인덱싱
 
-인덱스가 프로덕션 환경에 있으면 증분 인덱싱에 중점을 두게 되며 인식할만한 서비스 중단은 대개 없습니다. 부분 인덱싱 또는 증분 인덱싱은 검색 인덱스의 콘텐츠를 동기화하여 영향을 주는 데이터 원본의 콘텐트 상태를 반영하는 콘텐트 전용 워크로드입니다. 원본에 추가되거나 삭제된 문서가 인덱스에 추가되거나 삭제됩니다. 코드에서 [문서 추가, 업데이트 또는 삭제](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 작업이나 .NET의 해당 작업을 호출합니다.
+Azure Search에서는 필드를 기준으로 하는 인덱싱을 제어하여 특정 필드를 삭제할지 또는 다시 만들지를 선택할 수 없습니다. 마찬가지로, [조건에 따른 문서 인덱싱](https://stackoverflow.com/questions/40539019/azure-search-what-is-the-best-way-to-update-a-batch-of-documents)을 위한 기본 제공 메커니즘이 없습니다. 조건 기반 인덱싱에 대한 요구 사항은 사용자 지정 코드를 통해 충족해야 합니다.
 
-> [!Note]
-> 외부 데이터 원본을 크롤링하는 인덱서를 사용하는 경우 원본 시스템의 변경 내용 추적 메커니즘을 사용하여 증분 인덱싱이 수행됩니다. [Azure Blob 저장소](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection)의 경우 `lastModified` 필드가 사용됩니다. [Azure Table 저장소](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection)에서 `timestamp`는 동일한 용도로 사용됩니다. 마찬가지로 [Azure SQL Database 인덱서](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows)와 [Azure Cosmos DB 인덱서](search-howto-index-cosmosdb.md#indexing-changed-documents) 모두에는 행 업데이트 플래그를 지정하는 필드가 있습니다. 인덱서에 대한 자세한 내용은 [인덱서 개요](search-indexer-overview.md)를 참조하세요.
+그러나 쉽게 수행할 수 있는 작업은 인덱스에서 *문서를 새로 고치는 것*입니다. 많은 검색 솔루션에서 외부 원본 데이터는 일시적이며 원본 데이터와 검색 인덱스 간의 동기화를 수행하는 것이 일반적입니다. 코드에서 [문서 추가, 업데이트 또는 삭제](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 작업 또는 [해당 .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexesoperationsextensions.createorupdate?view=azure-dotnet)을 호출하여 인덱스 콘텐츠를 업데이트하거나 새 필드의 값을 추가합니다.
 
+## <a name="partial-indexing-with-indexers"></a>인덱서를 사용하는 부분 인덱싱
+
+[인덱서](search-indexer-overview.md)는 데이터 새로 고침 작업을 간소화합니다. 인덱서는 외부 데이터 원본에서 하나의 테이블 또는 뷰만 인덱싱할 수 있습니다. 여러 테이블을 인덱싱하려는 경우 가장 간단한 방법은 테이블을 조인하고 인덱싱하려는 열을 프로젝션하는 뷰를 만드는 것입니다. 
+
+외부 데이터 원본을 탐색하는 인덱서를 사용하는 경우 원본 데이터에서 "상위 워터마크" 열을 확인합니다. 이 열이 있는 경우 새 콘텐츠 또는 수정된 콘텐츠가 포함된 행만 선택하여 증분 변경 내용 검색에 사용할 수 있습니다. [Azure Blob 저장소](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection)의 경우 `lastModified` 필드가 사용됩니다. [Azure Table 저장소](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection)에서 `timestamp`는 동일한 용도로 사용됩니다. 마찬가지로 [Azure SQL Database 인덱서](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows)와 [Azure Cosmos DB 인덱서](search-howto-index-cosmosdb.md#indexing-changed-documents) 모두에는 행 업데이트 플래그를 지정하는 필드가 있습니다. 
+
+인덱서에 대한 자세한 내용은 [인덱서 개요](search-indexer-overview.md) 및 [인덱서 재설정 REST API](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)를 참조하세요.
+
+## <a name="how-to-rebuild-an-index"></a>인덱스를 다시 작성하는 방법
+
+인덱스 스키마가 유동적인 상태인 경우 개발하는 동안 빈번한 전체 다시 빌드를 계획합니다. 이미 프로덕션 환경에서 사용되는 애플리케이션의 경우 기존 인덱스와 나란히 실행되는 새 인덱스를 만들어 쿼리 가동 중지 시간을 피하는 것이 좋습니다.
+
+SLA 요구 사항이 엄격한 경우, 특별히 이 작업용으로 새 서비스를 프로비전하고 프로덕션 인덱스와는 완전히 고립된 상태로 개발 및 인덱싱을 진행하는 것이 바람직할 수 있습니다. 별도 서비스를 자체 하드웨어에서 실행하여 리소스 경합 가능성을 모두 제거합니다. 개발이 완료되면 새 인덱스를 원래 위치에 두고, 쿼리를 새 엔드포인트 및 인덱스로 리디렉션하거나, 완료된 코드를 실행하여 원래 Azure Search 서비스에서 수정된 인덱스를 게시할 수 있습니다. 현재는 사용 준비가 완료된 인덱스를 다른 서비스로 이동하기 위한 메커니즘이 없습니다.
+
+인덱스 업데이트에는 서비스 수준의 읽기-쓰기 권한이 필요합니다. 프로그래밍 방식으로 전체 다시 작성을 위해 [인덱스 업데이트 REST API](https://docs.microsoft.com/rest/api/searchservice/update-index) 또는 .NET API를 호출할 수 있습니다. 요청은 [인덱스 만들기 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)와 동일하지만 컨텍스트는 다릅니다.
+
+1. 인덱스 이름을 다시 사용하는 경우 [기존 인덱스를 삭제](https://docs.microsoft.com/rest/api/searchservice/delete-index)합니다. 해당 인덱스를 대상으로 하는 모든 쿼리는 즉시 삭제됩니다. 인덱스 삭제는 되돌릴 수 없으며, 필드 컬렉션 및 기타 구문의 실제 스토리지가 제거됩니다. 따라서 인덱스를 삭제하기 전에 삭제에 따른 결과를 명확히 인식해야 합니다. 
+
+2. 변경 또는 수정된 필드 정의를 포함하는 인덱스 스키마에 제공합니다. 스키마 요구 사항은 [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)에 설명되어 있습니다.
+
+3. 요청에 [관리자 키](https://docs.microsoft.com/azure/search/search-security-api-keys)를 제공합니다.
+
+4. [인덱스 업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) 명령을 전송하여 Azure Search에서 인덱스의 실제 식을 다시 작성합니다. 요청 본문은 인덱스 스키마와 프로필, 분석기, 제안기 및 CORS 옵션에 점수를 매기기 위한 구문을 포함합니다.
+
+5. 외부 원본의 [문서를 사용하는 인덱스를 로드](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)합니다. 업데이트된 문서로 기존의 변경되지 않은 인덱스 스키마를 새로 고치는 경우에도 이 API를 사용할 수 있습니다.
+
+인덱스를 만들면 실제 스토리지가 인덱스 스키마의 각 필드에 할당되고 검색 가능한 각 필드에 대해 반전된 인덱스가 생성됩니다. 검색할 수 없는 필드는 필터 또는 식에서 사용할 수 있지만 반전된 인덱스는 없으며 전체 텍스트 검색이 가능하지 않습니다. 인덱스 다시 작성 시, 사용자가 제공하는 인덱스 스키마에 따라 이러한 반전된 인덱스가 삭제된 후 다시 만들어집니다.
+
+인덱스를 로드할 때 각 필드의 반전된 인덱스가 각 문서의 고유한 토큰화된 모든 단어와 해당 문서 ID에 대한 맵으로 채워집니다. 예를 들어, 호텔 데이터 세트를 인덱싱할 때 City 필드용으로 만든 반전된 인덱스는 Seattle, Portland 등의 용어를 포함할 수 있습니다. City 필드에 Seattle 또는 Portland가 포함된 문서는 해당 용어와 함께 문서 ID가 표시됩니다. [추가, 업데이트 또는 삭제](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 작업에서 용어 및 문서 ID 목록이 이에 따라 업데이트됩니다.
+
+## <a name="view-updates"></a>업데이트 보기
+
+첫 번째 문서를 로드하는 즉시 인덱스 쿼리를 시작할 수 있습니다. 문서 ID를 알고 있는 경우 [문서 조회 REST API](https://docs.microsoft.com/rest/api/searchservice/lookup-document)가 특정 문서를 반환합니다. 보다 광범위한 테스트를 위해서는 인덱스가 완전히 로드될 때까지 기다린 다음, 쿼리를 사용하여 보려는 컨텍스트를 확인합니다.
 
 ## <a name="see-also"></a>참고 항목
 

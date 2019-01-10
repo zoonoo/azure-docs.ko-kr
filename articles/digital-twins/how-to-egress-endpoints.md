@@ -1,25 +1,71 @@
 ---
 title: Azure Digital Twins의 송신 및 엔드포인트 | Microsoft Docs
-description: Azure Digital Twins를 사용하여 엔드포인트를 만드는 방법에 대한 지침
+description: Azure Digital Twins를 사용하여 엔드포인트를 만드는 방법에 대한 지침입니다.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 12/31/2018
 ms.author: alinast
-ms.openlocfilehash: c94d29f16c011a9ff9951d064d7496d3a87f70ef
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: e93811a56f934a95dde45633c4fb64312b3696df
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636308"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994830"
 ---
 # <a name="egress-and-endpoints"></a>송신 및 엔드포인트
 
-Azure Digital Twins는 **엔드포인트** 개념을 지원합니다. 각 엔드포인트는 사용자의 Azure 구독에서 메시지 또는 이벤트 브로커를 나타냅니다. 이벤트 및 메시지를 Azure Event Hubs, Azure Event Grid 및 Azure Service Bus 토픽으로 전송할 수 있습니다.
+Azure Digital Twins *엔드포인트*는 사용자의 Azure 구독 내 메시지 또는 이벤트 브로커를 나타냅니다. 이벤트 및 메시지를 Azure Event Hubs, Azure Event Grid 및 Azure Service Bus 토픽으로 전송할 수 있습니다.
 
-이벤트는 미리 정의된 라우팅 기본 설정에 따라 엔드포인트로 전송됩니다. 사용자는 다음 이벤트를 수신할 엔드포인트를 지정할 수 있습니다. 
+이벤트는 미리 정의된 라우팅 기본 설정에 따라 엔드포인트로 라우팅됩니다. 사용자는 각 엔드포인트가 수신할 수 있는 *이벤트 유형*을 지정합니다.
+
+이벤트, 라우팅 및 이벤트 유형에 대해 자세히 알아보려면 [Azure Digital Twins의 라우팅 이벤트 및 메시지](./concepts-events-routing.md)를 참조하세요.
+
+## <a name="events"></a>이벤트
+
+이벤트는 Azure 메시지 및 이벤트 브로커에서 처리할 수 있도록 IoT 개체(예: 디바이스 및 센서)로 전송됩니다. 이벤트는 다음 [Azure Event Grid 이벤트 스키마 참조](../event-grid/event-schema.md)로 정의됩니다.
+
+```JSON
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "subject": "ExtendedPropertyKey",
+  "data": {
+    "SpacesToNotify": [
+      "3a16d146-ca39-49ee-b803-17a18a12ba36"
+    ],
+    "Id": "00000000-0000-0000-0000-000000000000",
+      "Type": "ExtendedPropertyKey",
+    "AccessType": "Create"
+  },
+  "eventType": "TopologyOperation",
+  "eventTime": "2018-04-17T17:41:54.9400177Z",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
+}
+```
+
+| 특성 | type | 설명 |
+| --- | --- | --- |
+| id | string | 이벤트에 대한 고유 식별자입니다. |
+| 제목 | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
+| 데이터 | object | 특정 리소스 공급자에 대한 이벤트 데이터입니다. |
+| eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
+| eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
+| dataVersion | string | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
+| metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
+| 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
+
+Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하세요.
+
+- [Azure Event Grid 이벤트 스키마 참조](../event-grid/event-schema.md)를 검토합니다.
+- [Azure EventGrid Node.js SDK EventGridEvent 참조](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest)를 읽어봅니다.
+
+## <a name="event-types"></a>일정 유형
+
+이벤트 유형은 이벤트의 특성을 분류하며 **eventType** 필드에 설정됩니다. 사용 가능한 이벤트 유형은 다음 목록에 나와 있습니다.
 
 - TopologyOperation
 - UdfCustom
@@ -27,15 +73,11 @@ Azure Digital Twins는 **엔드포인트** 개념을 지원합니다. 각 엔드
 - SpaceChange
 - DeviceMessage
 
-이벤트 라우팅 및 이벤트 유형에 대해 기본적으로 이해하려면 [이벤트 라우팅 및 메시지](concepts-events-routing.md)를 참조하세요.
-
-## <a name="event-types-description"></a>이벤트 유형 설명
-
-각 이벤트 유형에 대한 이벤트 형식은 다음 섹션에 설명되어 있습니다.
+다음 하위 섹션에서는 각 이벤트 유형의 이벤트 형식을 추가로 설명합니다.
 
 ### <a name="topologyoperation"></a>TopologyOperation
 
-**TopologyOperation**은 그래프 변경 내용에 적용됩니다. **subject** 속성은 영향받는 개체의 유형을 지정합니다. 다음 유형의 개체는 이 이벤트를 트리거할 수 있습니다. 
+**TopologyOperation**은 그래프 변경 내용에 적용됩니다. **subject** 속성은 영향받는 개체의 유형을 지정합니다. 다음 유형의 개체는 이 이벤트를 트리거할 수 있습니다.
 
 - 디바이스
 - DeviceBlobMetadata
@@ -86,7 +128,7 @@ Azure Digital Twins는 **엔드포인트** 개념을 지원합니다. 각 엔드
 
 ### <a name="udfcustom"></a>UdfCustom
 
-**UdfCustom**은 UDF(사용자 정의 함수)에서 전송하는 이벤트입니다. 
+**UdfCustom**은 UDF(사용자 정의 함수)에서 전송하는 이벤트입니다.
   
 > [!IMPORTANT]  
 > 이 이벤트는 UDF 자체에서 명시적으로 전송해야 합니다.
@@ -195,10 +237,19 @@ Azure Digital Twins는 **엔드포인트** 개념을 지원합니다. 각 엔드
 
 ## <a name="configure-endpoints"></a>엔드포인트 구성
 
-엔드포인트 관리는 엔드포인트 API를 통해 수행합니다. 다음 예제는 지원되는 여러 엔드포인트를 구성하는 방법을 보여줍니다. 엔드포인트에 대한 라우팅을 정의하므로 이벤트 유형 배열에 특히 주의하세요.
+엔드포인트 관리는 엔드포인트 API를 통해 수행합니다.
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
+다음 예제는 지원되는 엔드포인트를 구성하는 방법을 보여줍니다.
+
+>[!IMPORTANT]
+> **eventTypes** 특성에 유의합니다. 이 특성은 엔드포인트가 처리하는 이벤트 유형을 정의하고 해당 라우팅을 결정합니다.
+
+인증된 HTTP POST 요청
 
 ```plaintext
-POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
+YOUR_MANAGEMENT_API_URL/endpoints
 ```
 
 - Service Bus 이벤트 유형 **SensorChange**, **SpaceChange** 및 **TopologyOperation**으로 라우팅합니다.

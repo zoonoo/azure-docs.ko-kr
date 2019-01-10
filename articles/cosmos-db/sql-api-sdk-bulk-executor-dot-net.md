@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: c239464a37637b21504227951d917977cfea6726
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8be453ae479e88d441a240ce472f3314b3f4de31
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343960"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809746"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET Bulk Executor 라이브러리: 정보 다운로드 
 
@@ -77,7 +77,7 @@ ms.locfileid: "53343960"
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
 * Azure Cosmos DB SQL API 계정용 BulkDelete 작업에 대한 지원이 추가되었습니다.
-* Azure Cosmos DB MongoDB API 계정용 BulkImport 작업에 대한 지원이 추가되었습니다.
+* Azure Cosmos DB의 MongoDB API 계정용 BulkImport 작업에 대한 지원이 추가되었습니다.
 * DocumentDB.NET SDK 종속성이 버전 2.0.0으로 향상되었습니다. 
 
 ### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2

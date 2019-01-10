@@ -4,19 +4,19 @@ description: 데이터베이스 마이그레이션 서비스에 대한 원본 �
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/8/2018
-ms.openlocfilehash: cd62b60718a35aed9129db61413086266bb9f2c7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/19/2018
+ms.openlocfilehash: bc54b3dbcdb304b18f916e5fbd4866ff54d1bfa2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971082"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713199"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Azure Database Migration Service를 사용한 Azure SQL DB Managed Instance 마이그레이션에 대한 네트워크 토폴로지
 이 문서에서는 온-프레미스 SQL Server에서 Azure SQL Database Managed Instance로의 포괄적인 마이그레이션 환경을 제공하기 위해 Azure Database Migration Service에서 사용할 수 있는 다양한 네트워크 토폴로지에 대해 설명합니다.
@@ -87,4 +87,5 @@ Azure SQL Database Managed Instance가 온-프레미스 네트워크에 연결�
 - [Azure Portal을 사용하여 가상 네트워크 만들기](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
 
 ## <a name="next-steps"></a>다음 단계
-공개 미리 보기 중 Azure Database Migration Service 및 국가별 가용성에 대한 개요는 [Azure Database Migration Service 미리 보기란 무엇인가요?](dms-overview.md) 문서를 참조하세요. 
+- Azure Database Migration Service의 개요는 [Azure Database Migration Service란?](dms-overview.md) 문서를 참조하세요.
+- Azure Database Migration Service의 지역별 가용성에 대한 최신 정보는 [지역별로 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration) 페이지를 참조하세요.

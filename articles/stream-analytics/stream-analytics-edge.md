@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: bf290343634f9f9f836a87ab15f13cc1dac6f86f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9d5a0cf9fa4f9ad8b5a673cd2420416f92edda91
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141954"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994983"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>IoT Edge의 Azure Stream Analytics
  
@@ -144,7 +144,7 @@ ASA 작업에서 만든 입/출력의 이름은 라우팅을 위한 엔드포인
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>클라우드 작업 대비 IoT Edge 작업의 현재 제한 사항
 목표는 IoT Edge 작업과 클라우드 작업 간에 패리티를 유지하는 것입니다. SQL 쿼리 언어 기능의 대부분은 이미 지원됩니다.
 그러나 다음 기능이 Edge 작업에서는 아직 지원되지 않습니다.
-* JavaScript의 UDF(사용자 정의 함수). UDF는 [IoT Edge 작업용 C#](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-edge-csharp-udf)(미리 보기)에서 사용할 수 있습니다.
+* JavaScript의 UDF(사용자 정의 함수). UDF는 [IoT Edge 작업용 C#](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf)(미리 보기)에서 사용할 수 있습니다.
 * UDA(사용자 정의 집계).
 * Azure ML 함수
 * 한 번에 15개 이상의 집계 사용
@@ -167,7 +167,7 @@ IoT Edge에서 ASA를 실행하려면 [Azure IoT Edge](https://azure.microsoft.c
 
 ASA 및 Azure IoT Edge는 **Docker** 컨테이너를 사용하여 여러 호스트 운영 체제(Windows, Linux)에서 실행되는 이식 가능한 솔루션을 제공합니다.
 
-IoT Edge의 ASA는 x86-64 또는 Azure Resource Manager 아키텍처 모두에서 실행되는 Windows 및 Linux 이미지로 사용할 수 있습니다. 
+IoT Edge의 ASA는 x86-64 또는 ARM(Advanced RISC Machines) 아키텍처 둘 다에서 실행되는 Windows 및 Linux 이미지로 사용할 수 있습니다. 
 
 
 ### <a name="input-and-output"></a>입력 및 출력

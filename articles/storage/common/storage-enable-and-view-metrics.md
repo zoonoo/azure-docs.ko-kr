@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: a12f2f3775808edb2045be5a1d955280f515ff7d
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3e6a11a8c225afb220f290cee2db39c36750b401
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530427"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632147"
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Azure Storage 메트릭 사용 및 메트릭 데이터 보기
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -37,7 +37,10 @@ ms.locfileid: "39530427"
 [Azure Portal](https://portal.azure.com)에서는 현재 저장소 계정에서 분 메트릭을 구성할 수 없습니다. 따라서 PowerShell을 사용하거나 프로그래밍 방식으로 분 메트릭을 사용하도록 설정해야 합니다.
 
 ## <a name="how-to-enable-metrics-using-powershell"></a>PowerShell을 사용하여 메트릭을 사용하도록 설정하는 방법
-로컬 컴퓨터에서 PowerShell을 사용하여 저장소 계정의 저장소 메트릭을 구성할 수 있습니다. Azure PowerShell cmdlet Get-AzureStorageServiceMetricsProperty를 사용하여 현재 설정을 검색하고, Set-AzureStorageServiceMetricsProperty cmdlet을 사용하여 현재 설정을 변경합니다.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+로컬 컴퓨터에서 PowerShell을 사용하여 스토리지 계정의 스토리지 메트릭을 구성할 수 있습니다. Azure PowerShell cmdlet Get-AzStorageServiceMetricsProperty를 사용하여 현재 설정을 검색하고, Set-AzStorageServiceMetricsProperty cmdlet을 사용하여 현재 설정을 변경합니다.
 
 Storage 메트릭을 제어하는 cmdlet은 다음 매개 변수를 사용합니다.
 
@@ -48,16 +51,16 @@ Storage 메트릭을 제어하는 cmdlet은 다음 매개 변수를 사용합니
 예를 들어 다음 명령은 보존 기간을 5일로 설정하여 기본 저장소 계정의 Blob service에 대해 분 메트릭을 설정합니다.
 
 ```powershell
-Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
+Set-AzStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
 ```
 
 다음 명령은 기본 저장소 계정의 Blob 서비스에 대해 현재 시간 메트릭 수준 및 보존 기간(일)을 검색합니다.
 
 ```powershell
-Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
+Get-AzStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
 ```
 
-Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사용할 기본 저장소 계정을 선택하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
+Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사용할 기본 스토리지 계정을 선택하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
 ## <a name="how-to-enable-storage-metrics-programmatically"></a>프로그래밍 방식으로 Storage 메트릭을 사용하도록 설정하는 방법
 다음 C# 코드 조각은 .NET용 저장소 클라이언트 라이브러리를 사용하여 Blob service에 대한 로깅 및 메트릭을 사용하도록 설정하는 방법을 보여 줍니다.

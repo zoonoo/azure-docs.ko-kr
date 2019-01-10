@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 7a1577e3c352c24983cc3a586c11ad43c416acc4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091046"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000549"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream Analytics에서 쿼리 병렬 처리 사용
 이 문서에서는 Azure Stream Analytics에서 병렬 처리 기능을 활용하는 방법을 보여 줍니다. 입력 파티션을 구성하고, 분석 쿼리 정의를 조정하여 Stream Analytics 작업의 크기를 조정하는 방법을 알아봅니다.
@@ -41,12 +41,13 @@ Stream Analytics로 작업할 때 다음 출력에서 분할을 활용할 수 �
 -   Azure 기능
 -   Azure 테이블
 -   Blob 저장소(파티션 키를 명시적으로 설정할 수 있음)
--   CosmosDB(파티션 키를 명시적으로 설정해야 함)
--   EventHub(파티션 키를 명시적으로 설정해야 함)
+-   Cosmos DB(파티션 키를 명시적으로 설정해야 함)
+-   Event Hubs(파티션 키를 명시적으로 설정해야 함)
 -   IoT Hub(파티션 키를 명시적으로 설정해야 함)
 -   Service Bus
+- 선택적 분할을 사용하는 SQL 및 SQL Data Warehouse: [Azure SQL Database로의 출력 페이지](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf)에서 자세한 내용을 참조하세요.
 
-PowerBI, SQL 및 SQL Data-Warehouse 출력은 분할을 지원하지 않습니다. 그러나 [이 섹션](#multi-step-query-with-different-partition-by-values)에 설명된 대로 입력은 여전히 분할할 수 있습니다. 
+Power BI는 분할을 지원하지 않습니다. 그러나 [이 섹션](#multi-step-query-with-different-partition-by-values)에 설명된 대로 입력은 여전히 분할할 수 있습니다. 
 
 파티션에 대한 자세한 내용은 다음 문서를 참조하세요.
 
@@ -115,9 +116,9 @@ PowerBI, SQL 및 SQL Data-Warehouse 출력은 분할을 지원하지 않습니�
 
 ### <a name="query-using-non-partitioned-output"></a>분할되지 않은 출력을 사용하여 쿼리
 * 입력: 8개의 파티션이 있는 이벤트 허브
-* 출력: PowerBI
+* 출력: Power BI
 
-PowerBI 출력은 현재 분할을 지원하지 않습니다. 따라서 이 시나리오는 병렬 처리가 적합하지 않습니다.
+Power BI 출력은 현재 분할을 지원하지 않습니다. 따라서 이 시나리오는 병렬 처리가 적합하지 않습니다.
 
 ### <a name="multi-step-query-with-different-partition-by-values"></a>서로 다른 PARTITION BY 값이 있는 다중 단계 쿼리
 * 입력: 8개의 파티션이 있는 이벤트 허브

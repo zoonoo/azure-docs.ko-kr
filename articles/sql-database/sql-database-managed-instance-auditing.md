@@ -14,12 +14,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 375e1a0ba4be9483986c088195e380e856d32a67
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b295f7a2a454e3987e8639814f785b7457dd452b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093751"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973097"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL Database Managed Instance 감사 시작
 
@@ -153,7 +153,7 @@ Azure Blob 저장소에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 감사 로그 사용 방법의 전체 목록은 [SQL 데이터베이스 감사 시작](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing)을 참조하세요.
+- 감사 로그 사용 방법의 전체 목록은 [SQL 데이터베이스 감사 시작](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)을 참조하세요.
 - 표준 규정 준수를 지원하는 Azure 프로그램에 대한 자세한 내용은 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center/compliance/)를 참조하세요.
 
 

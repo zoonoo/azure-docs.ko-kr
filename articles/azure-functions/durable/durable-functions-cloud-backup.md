@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d3dfcb74852f90615af90f9eab3711b1b235c53e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 7bb2a68209e657b1e3ff8c3a61730d42f04a3b8a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341391"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727380"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>지속성 함수의 팬아웃/팬인 시나리오 - 클라우드 백업 예제
 
@@ -172,6 +172,9 @@ Content-Type: application/json; charset=utf-8
 ## <a name="visual-studio-sample-code"></a>Visual Studio 샘플 코드
 
 다음은 Visual Studio 프로젝트의 단일 C# 파일로서의 오케스트레이션입니다.
+
+> [!NOTE]
+> 아래의 샘플 코드를 실행하려면 `Microsoft.Azure.WebJobs.Extensions.Storage` Nuget 패키지를 설치해야 합니다.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs)]
 

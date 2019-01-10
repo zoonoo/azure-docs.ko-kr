@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 43b7b2e7b4f4da4939e08a68bc2ac7ea0a2c2a6b
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: f7bf5d521f4bcb5672ff1d710a08bed2e0872545
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458991"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974406"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Azure Service Fabric 모니터링 파트너
 
@@ -27,7 +27,7 @@ ms.locfileid: "49458991"
 
 ## <a name="dynatrace"></a>Dynatrace
 
-Dynatrace와의 통합은 Service Fabric 클러스터를 모니터링하는 대부분의 기본 제공 기능을 제공합니다. VMSS 인스턴스에 Dynatrace OneAgent를 설치하면 해당 앱 수준까지 성능 카운터 및 Service Fabric 배포의 토폴로지를 제공합니다. Dynatrace는 온-프레미스 모니터링에도 적합합니다. 클러스터에서 Dynatrace를 활성화하려면 [알림](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) 및 [지침](https://www.dynatrace.com/support/help/cloud-platforms/azure/how-do-i-monitor-azure-service-fabric-applications/)에 나열된 기능을 추가로 확인합니다. 
+Dynatrace와의 통합은 Service Fabric 클러스터를 모니터링하는 대부분의 기본 제공 기능을 제공합니다. VMSS 인스턴스에 Dynatrace OneAgent를 설치하면 해당 앱 수준까지 성능 카운터 및 Service Fabric 배포의 토폴로지를 제공합니다. Dynatrace는 온-프레미스 모니터링에도 적합합니다. 클러스터에서 Dynatrace를 활성화하려면 [알림](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) 및 [지침](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/)에 나열된 기능을 추가로 확인합니다. 
 
 ## <a name="datadog"></a>Datadog
 
@@ -43,7 +43,7 @@ New Relic은 Service Fabric 애플리케이션과 잘 통합되는 다른 애플
 
 ## <a name="elk"></a>ELK 
 
-ELK 스택은 오픈 소스 기술의 컬렉션입니다. Elasticsearch, Logstash 및 Kibana 이를 조합으로 사용하여 Service Fabric 모니터링 및 진단 데이터를 수집, 저장 및 분석할 수 있습니다. [여기](service-fabric-tutorial-java-elk.md)에 Service Fabric 네이티브 Java 응용 프로그램을 사용하여 이 작업을 수행하는 방법에 대한 자습서가 있습니다. 
+ELK 스택은 Elasticsearch, Logstash, Kibana를 의미하는 오픈 소스 기술 컬렉션입니다. 이를 조합으로 사용하여 Service Fabric 모니터링 및 진단 데이터를 수집, 저장 및 분석할 수 있습니다. [여기](service-fabric-tutorial-java-elk.md)에 Service Fabric 네이티브 Java 응용 프로그램을 사용하여 이 작업을 수행하는 방법에 대한 자습서가 있습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

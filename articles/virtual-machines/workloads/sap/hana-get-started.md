@@ -16,14 +16,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 6355a7ce203f2bf75b5c93d225502f961deeee43
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c1d9047de814b7a80210fe2502d219921f5829a4
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032087"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976905"
 ---
-# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>빠른 시작: Azure VMs에서 단일 인스턴스 SAP HANA 수동 설치
+# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>빠른 시작: Azure VM에서 단일 인스턴스 SAP HANA 수동 설치
 ## <a name="introduction"></a>소개
 이 가이드는 SAP NetWeaver 7.5 및 SAP HANA 1.0 SP12를 수동으로 설치할 때 Azure VM(가상 머신)에서 단일 인스턴스 SAP HANA를 설정하는 데 유용합니다. 따라서 SAP HANA를 Azure에 배포하는 데 중점을 두고 있으며, SAP 설명서를 대체하지는 않습니다. 
 
@@ -69,10 +69,10 @@ SAP HANA 지원 운영 체제에 대한 내용은 [SAP Support Note #2235581 - S
 
 SAP HANA 및 다른 Linux 운영 체제에 대한 SAP 추가 설명서는 다음을 참조하세요.
 
-* [SAP Support Note #171356 – SAP Software on Linux: 일반 정보](https://launchpad.support.sap.com/#/notes/1984787)(영문)
+* [SAP Support Note #171356 - SAP Software on Linux:  일반 정보](https://launchpad.support.sap.com/#/notes/1984787)
 * [SAP Support Note #1944799 – SLES 운영 체제 설치를 위한 SAP HANA 지침](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)(영문)
 * [SAP Support Note #2205917 – SAP HANA DB: SLES 12 for SAP Applications를 위한 권장 OS 설정](https://launchpad.support.sap.com/#/notes/2205917/E)(영문)
-* [SAP Support Note #1984787 – SUSE Linux Enterprise Server 12: 설치 참고](https://launchpad.support.sap.com/#/notes/1984787)(영문)
+* [SAP Support Note #1984787 - SUSE Linux Enterprise Server 12:  설치 참고 사항](https://launchpad.support.sap.com/#/notes/1984787)
 * [SAP Support Note #1391070 – Linux UUID 솔루션](https://launchpad.support.sap.com/#/notes/1391070)(영문)
 * [SAP Support Note #2009879 – RHEL(Red Hat Enterprise Linux) 운영 체제에 대한 SAP HANA 지침](https://launchpad.support.sap.com/#/notes/2009879)
 * [2292690 - SAP HANA DB: RHEL 7에 대한 권장 OS 설정](https://launchpad.support.sap.com/#/notes/2292690/E)
@@ -87,7 +87,7 @@ Azure에서 SAP를 모니터링하는 방법에 대한 내용은 다음을 참�
 ### <a name="azure-vm-types"></a>Azure VM 유형
 SAP HANA와 함께 사용되는 Azure VM 유형 및 SAP 지원 워크로드 시나리오는 [SAP 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html)(영문)에서 설명하고 있습니다. 
 
-SAP NetWeaver 또는 S/4HANA 애플리케이션 계층에 대해 SAP에서 인증한 Azure VM 유형은 [SAP Note 1928533 - SAP Applications on Azure: 지원 제품 및 Azure VM 유형](https://launchpad.support.sap.com/#/notes/1928533/E)(영문)에서 설명하고 있습니다.
+SAP NetWeaver 또는 S/4HANA 애플리케이션 계층에 대해 SAP에서 인증한 Azure VM 유형은 [SAP Note 1928533 - SAP Applications on Azure: 지원 제품 및 Azure VM 유형](https://launchpad.support.sap.com/#/notes/1928533/E)에서 설명하고 있습니다.
 
 >[!Note]
 >SAP-Linux-Azure 통합은 Azure Resource Manager에서만 지원하며, 클래식 배포 모델에서는 지원하지 않습니다. 
@@ -208,7 +208,7 @@ Linux를 게스트 OS로 실행하는 Azure VM에 디스크를 연결하는 방�
 
 Azure Premium Storage에서는 디스크 캐싱 모드를 정의할 수 있습니다. /hana/data 및 /hana/log를 보유하는 스트라이프 집합의 경우 디스크 캐싱을 비활성화해야 합니다. 다른 볼륨(디스크)의 경우 캐싱 모드를 **ReadOnly**로 설정해야 합니다.
 
-자세한 내용은 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 저장소](../../windows/premium-storage.md)를 참조하세요.
+자세한 내용은 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 스토리지](../../windows/premium-storage.md)를 참조하세요.
 
 VM 만들기를 위한 샘플 JSON 템플릿을 찾으려면 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates)으로 이동합니다.
 vm-simple-sles 템플릿은 기본 템플릿입니다. 여기에는 100GB 추가 데이터 디스크가 포함된 저장소 섹션이 있습니다. 이 템플릿을 기반으로 사용할 수 있습니다. 특정 구성에 맞게 템플릿을 조정할 수 있습니다.
@@ -404,7 +404,7 @@ SWPM을 사용하여 분산 설치의 일부로 SAP HANA를 설치하는 것 외
 HANA HDBLCM 도구에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Choosing the Correct SAP HANA HDBLCM for Your Task(작업을 위해 올바른 SAP HANA HDBLCM 선택)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm)
-* [SAP HANA Lifecycle Management Tools(SAP HANA 수명 주기 관리 도구)](http://saphanatutorial.com/sap-hana-lifecycle-management-tools/)
+* [SAP HANA Lifecycle Management Tools(SAP HANA 수명 주기 관리 도구)](https://www.tutorialspoint.com/sap_hana_administration/sap_hana_administration_lifecycle_management.htm)
 * [SAP HANA Server Installation and Update Guide(SAP HANA 서버 설치 및 업데이트 가이드)](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
 
 HDBLCM 도구로 만든 `\<HANA SID\>adm user`에 대한 기본 그룹 ID 설정에 문제가 발생하지 않도록 HDBLCM을 통해 SAP HANA를 설치하기 전에 `1001` 그룹 ID를 사용하여 `sapsys`라는 새 그룹을 정의합니다.

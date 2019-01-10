@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 90b9a1104dd387c857e4955cabfb121773aedcca
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 5f3857480bfe6c4d5c4efe759b11761123fa4441
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410076"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973063"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 조건이란? 
 
@@ -64,7 +64,7 @@ ms.locfileid: "53410076"
 
 ## <a name="cloud-apps"></a>클라우드 앱 
 
-클라우드 앱은 웹 사이트 또는 서비스입니다. Azure AD 응용 프로그램 프록시로 보호되는 웹 사이트는 클라우드 앱이기도 합니다. 지원되는 클라우드 앱에 대한 자세한 설명은 [클라우드 앱 할당](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments)을 참조하세요. 
+클라우드 앱은 웹 사이트 또는 서비스입니다. Azure AD 애플리케이션 프록시로 보호되는 웹 사이트는 클라우드 앱이기도 합니다. 지원되는 클라우드 앱에 대한 자세한 설명은 [클라우드 앱 할당](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments)을 참조하세요. 
 
 **클라우드 앱** 조건은 조건부 액세스 정책에서 필수입니다. 정책에서 **모든 클라우드 앱**을 선택할 수도 있고 특정 앱을 선택할 수도 있습니다.
 
@@ -158,7 +158,7 @@ ms.locfileid: "53410076"
 
 - Azure AD(기타 클라이언트)에 대해 **[레거시 인증을 차단](block-legacy-authentication.md)** 합니다.
 
-- 웹 응용 프로그램 액세스를 차단하지만, 모바일 및 데스크톱 응용 프로그램 액세스는 허용합니다.
+- 웹 애플리케이션 액세스를 차단하지만, 모바일 및 데스크톱 애플리케이션 액세스는 허용합니다.
 
 
 

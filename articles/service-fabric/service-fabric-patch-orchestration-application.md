@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 3416d257a23e94460199a1ddfe63302ff55ad5a5
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 58e853a3e9df0c3ba78b41f0c62e37bbcc3cdb5a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285053"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754036"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
@@ -29,7 +29,7 @@ ms.locfileid: "52285053"
 >
 >
 
-[Azure 가상 머신 확장 집합 자동 OS 이미지 업그레이드](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)는 Azure에서 패치된 운영 체제를 유지하는 모범 사례이며, POA(패치 오케스트레이션 응용 프로그램)는 비 Azure 호스트 클러스터에 대한 OS 패치 일정을 기반으로 구성을 사용하는 Service Fabrics RepairManager Systems 서비스에 대한 래퍼입니다. 비 Azure 호스트 클러스터의 경우 POA가 필요하지 않지만, 가동 중지 시간 없이 Service Fabric 클러스터 호스트를 패치하려면 업그레이드 도메인에 의한 패치 설치를 예약해야 합니다.
+[Azure 가상 머신 확장 집합 자동 OS 이미지 업그레이드](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)는 Azure에서 패치된 운영 체제를 유지하는 모범 사례이며, POA(패치 오케스트레이션 애플리케이션)는 비 Azure 호스트 클러스터에 대한 OS 패치 일정을 기반으로 구성을 사용하는 Service Fabrics RepairManager Systems 서비스에 대한 래퍼입니다. 비 Azure 호스트 클러스터의 경우 POA가 필요하지 않지만, 가동 중지 시간 없이 Service Fabric 클러스터 호스트를 패치하려면 업그레이드 도메인에 의한 패치 설치를 예약해야 합니다.
 
 POA는 Service Fabric 클러스터에서 가동 중지 시간 없이 운영 체제 패치를 자동화하는 Azure Service Fabric 애플리케이션입니다.
 
@@ -152,12 +152,12 @@ sfpkg 형식의 애플리케이션은 [sfpkg 링크](https://aka.ms/POA/POA_v1.2
 |MaxResultsToCache    |long                              | 캐시되어야 하는 Windows 업데이트 결과의 최대 수입니다. <br>기본값은 3000입니다. <br> - 노드 수는 20입니다. <br> - 매월 노드에서 발생하는 업데이트 수는 5입니다. <br> - 작업당 결과 수는 10일 수 있습니다. <br> - 지난 3개월 동안의 결과를 저장해야 합니다. |
 |TaskApprovalPolicy   |열거형 <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy는 Service Fabric 클러스터 노드에서 Windows 업데이트를 설치하기 위해 코디네이터 서비스에서 사용하는 정책을 나타냅니다.<br>                         허용되는 값은 다음과 같습니다. <br>                                                           <b>NodeWise</b>. Windows 업데이트가 한 번에 하나의 노드에 설치됩니다. <br>                                                           <b>UpgradeDomainWise</b>. Windows 업데이트가 한 번에 하나의 업그레이드 도메인에 설치됩니다. 최대, 한 업그레이드 도메인에 속하는 모든 노드가 Windows 업데이트에 해당될 수 있습니다.<br> 클러스터에 대한 가장 적합한 정책을 결정하는 방법은 [FAQ](#frequently-asked-questions) 섹션을 참조하세요.
 |LogsDiskQuotaInMB   |long  <br> (기본값: 1024)               |패치 오케스트레이션 앱 로그의 최대 크기(MB)로, 노드에서 로컬로 유지될 수 있습니다.
-| WUQuery               | string<br>(기본값: "IsInstalled = 0")                | Windows 업데이트를 가져올 쿼리입니다. 자세한 내용은 [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)를 참조하세요.
+| WUQuery               | string<br>(기본값: "IsInstalled=0")                | Windows 업데이트를 가져올 쿼리입니다. 자세한 내용은 [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)를 참조하세요.
 | InstallWindowsOSOnlyUpdates | BOOLEAN <br> (기본값: True)                 | 이 플래그를 사용하면 Windows 운영 체제 업데이트를 설치할 수 있습니다.            |
 | WUOperationTimeOutInMinutes | int <br>(기본값: 90)                   | Windows 업데이트 작업에 대한 시간 제한을 지정합니다(검색, 다운로드 또는 설치). 지정된 시간 제한 내에 작업이 완료되지 않으면 중단됩니다.       |
 | WURescheduleCount     | int <br> (기본값: 5)                  | 작업이 영구적으로 실패하는 경우 서비스에서 Windows 업데이트를 다시 예약하는 최대 횟수입니다.          |
 | WURescheduleTimeInMinutes | int <br>(기본값: 30) | 오류가 계속 발생하는 경우 서비스에서 Windows 업데이트를 다시 예약하는 간격입니다. |
-| WUFrequency           | 쉼표로 구분된 문자열(기본값: "매주, 수요일, 7시")     | Windows Update를 설치하는 빈도입니다. 형식 및 가능한 값은 다음과 같습니다. <br>-   매월, DD, HH:MM:SS(예: 매월, 5,12:22:32) <br> -   매주, DAY, HH:MM:SS(예: 매주, 화요일, 12:22:32)  <br> -   매일, HH:MM:SS(예: 매일, 12:22:32)  <br> -   [없음]은 Windows 업데이트를 수행하지 않음을 나타냅니다.  <br><br> 시간은 UTC 형식입니다.|
+| WUFrequency           | 쉼표로 구분된 문자열(기본값: "Weekly, Wednesday, 7:00:00")     | Windows Update를 설치하는 빈도입니다. 형식 및 가능한 값은 다음과 같습니다. <br>-   매월, DD, HH:MM:SS(예: 매월, 5,12:22:32) <br> -   매주, DAY, HH:MM:SS(예: 매주, 화요일, 12:22:32)  <br> -   매일, HH:MM:SS(예: 매일, 12:22:32)  <br> -   [없음]은 Windows 업데이트를 수행하지 않음을 나타냅니다.  <br><br> 시간은 UTC 형식입니다.|
 | AcceptWindowsUpdateEula | BOOLEAN <br>(기본값: True) | 이 플래그를 설정하면 애플리케이션이 컴퓨터의 소유자를 대신하여 Windows 업데이트에 대한 최종 사용자 사용권 계약에 동의합니다.              |
 
 > [!TIP]
@@ -166,7 +166,7 @@ sfpkg 형식의 애플리케이션은 [sfpkg 링크](https://aka.ms/POA/POA_v1.2
 ## <a name="deploy-the-app"></a>앱 배포
 
 1. 모든 필수 구성 요소 단계를 완료하여 클러스터를 준비합니다.
-2. 다른 Service Fabric 앱과 마찬가지로 패치 오케스트레이션 앱을 배포합니다. PowerShell을 사용하여 앱을 배포할 수 있습니다. [PowerShell을 사용하여 응용 프로그램 배포 및 제거](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications)의 단계를 따릅니다.
+2. 다른 Service Fabric 앱과 마찬가지로 패치 오케스트레이션 앱을 배포합니다. PowerShell을 사용하여 앱을 배포할 수 있습니다. [PowerShell을 사용하여 애플리케이션 배포 및 제거](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications)의 단계를 따릅니다.
 3. 배포 시 애플리케이션을 구성하려면 `ApplicationParameter`를 `New-ServiceFabricApplication` cmdlet에 전달합니다. 편의를 위해 Deploy.ps1 스크립트가 애플리케이션과 함께 제공됩니다. 스크립트를 사용하려면 다음을 수행합니다.
 
     - `Connect-ServiceFabricCluster`를 사용하여 Service Fabric 클러스터에 연결합니다.
@@ -316,7 +316,7 @@ a. 'UpgradeDomainWise'를 통해 병렬로 업그레이드 도메인에 속하�
 
 Q. **노드를 패치하는 데 시간이 얼마나 걸리나요?**
 
-a. 노드를 패치하는 데 몇 분(예: [Windows Defender 정의 업데이트](https://www.microsoft.com/wdsi/definitions))에서 몇 시간(예: [Windows 누적 업데이트](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update))이 걸릴 수 있습니다 시간 . 노드를 패치하는 데 필요한 시간은 대부분 다음에 따라 달라집니다. 
+a. 노드를 패치하는 데 몇 분(예: [Windows Defender 정의 업데이트](https://www.microsoft.com/wdsi/definitions))에서 몇 시간(예: [Windows 누적 업데이트](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update))이 걸릴 수 있습니다. 노드를 패치하는 데 필요한 시간은 대부분 다음에 따라 달라집니다. 
  - 업데이트 크기
  - 패치하는 창에 적용해야 하는 업데이트 수
  - 업데이트를 설치하고, (필요한 경우) 노드를 다시 부팅하고, 다시 부팅 후 설치 단계를 완료하는 데 걸리는 시간
@@ -327,7 +327,7 @@ Q. **전체 클러스터를 패치하는 데 시간이 얼마나 걸리나요?**
 a. 전체 클러스터를 패치하는 데 필요한 시간은 다음과 같은 요인에 따라 달라집니다.
 
 - 노드를 패치하는 데 필요한 시간
-- 코디네이터 서비스 정책 기본 정책인 `NodeWise`에 따라, 한 번에 하나의 노드에만 패치를 적용합니다. 그러면 `UpgradeDomainWise`보다 느려집니다. 예를 들어 각각 4개의 노드가 포함된 5개의 업그레이드 도메인이 있는 20개의 노드(동일한 형식의 노드) 클러스터를 패치하기 위해 노드를 패치하는 데 최대 1시간이 걸리는 경우입니다.
+- 코디네이터 서비스 정책 기본 정책인 `NodeWise`에 따라, 한 번에 하나의 노드에만 패치를 적용합니다. 그러면 `UpgradeDomainWise`보다 느려집니다. 예:  각각 4개의 노드가 포함된 5개의 업그레이드 도메인이 있는 20개의 노드(동일한 형식의 노드) 클러스터를 패치하기 위해 노드를 패치하는 데 최대 1시간이 걸리는 경우입니다.
     - 정책이 `NodeWise`인 경우 전체 클러스터를 패치하는 데 최대 20시간이 걸립니다.
     - 정책이 `UpgradeDomainWise`인 경우 최대 5시간이 걸립니다.
 - 클러스터 로드 - 각 패치 작업에서는 고객 워크로드를 클러스터에서 사용 가능한 다른 노드로 재배치해야 합니다. 패치를 진행 중인 노드는 이 시간 동안 [사용 안 함](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) 상태입니다. 클러스터가 거의 최대 부하를 실행하는 경우 프로세스를 사용하지 않도록 설정하는 데 시간이 오래 걸립니다. 따라서 전체 패치 프로세스는 이러한 스트레스 조건에서 느려질 수 있습니다.

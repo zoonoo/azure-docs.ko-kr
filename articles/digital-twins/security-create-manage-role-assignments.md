@@ -1,132 +1,285 @@
 ---
-title: Azure Digital Twins 디바이스 연결 및 인증 이해 | Microsoft Docs
-description: Azure Digital Twins를 사용하여 디바이스 연결 및 인증
+title: Azure Digital Twins에서 역할 할당 만들기 및 관리 | Microsoft Docs
+description: Azure Digital Twins에서 역할 할당 만들고 관리합니다.
 author: lyrana
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/26/2018
 ms.author: lyrana
-ms.openlocfilehash: f032e3ebf6a10411057cd6d41df0cad6248f328b
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.custom: seodec18
+ms.openlocfilehash: 72a42e273029bd42d77531953ff5cbfc0fe5c295
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636240"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810902"
 ---
-# <a name="create-and-manage-role-assignments"></a>역할 할당 만들기 및 관리
+# <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Azure Digital Twins에서 역할 할당 만들기 및 관리
 
 Azure Digital Twins는 [RBAC](./security-role-based-access-control.md)(역할 기반 액세스 제어)를 사용하여 리소스 액세스를 관리합니다.
 
-각 역할 할당에는 다음이 포함됩니다.
+## <a name="role-assignments-overview"></a>역할 할당 개요
 
-* **개체 식별자**: Azure Active Directory ID, 서비스 사용자 개체 ID 또는 도메인 이름
-* **개체 식별자 유형**
-* **역할 정의 ID**
-* **공간 경로**
-* **테넌트 ID**: 대부분의 경우 Azure Active Directory 테넌트 ID
+각 역할 할당은 다음 정의를 준수합니다.
+
+```JSON
+{
+  "roleId": "00e00ad7-00d4-4007-853b-b9968ad000d1",
+  "objectId": "be2c6daa-a3a0-0c0a-b0da-c000000fbc5f",
+  "objectIdType": "ServicePrincipalId",
+  "path": "/",
+  "tenantId": "00f000bf-86f1-00aa-91ab-2d7cd000db47"
+}
+```
+
+아래 표에서는 각 특성을 설명합니다.
+
+| 특성 | 이름 | 필수 | 형식 | 설명 |
+| --- | --- | --- | --- | --- |
+| roleId | 역할 정의 식별자 | 예 | 문자열 | 원하는 역할 할당의 고유 ID입니다. 시스템 API를 쿼리하거나 아래 표를 검토하여 역할 정의와 해당 식별자를 찾습니다. |
+| objectId | 개체 식별자 | 예 | 문자열 | Azure Active Directory ID, 서비스 주체 개체 ID 또는 도메인 이름입니다. 새로운 역할이 할당되는 대상 또는 사람입니다. 연결된 형식에 따라 역할 할당의 형식을 지정해야 합니다. `DomainName` objectIdType의 경우 objectId가 `“@”` 문자로 시작해야 합니다. |
+| objectIdType | 개체 식별자 유형 | 예 | 문자열 | 사용되는 개체 식별자의 종류입니다. 아래의 **지원되는 ObjectIdTypes**를 참조하세요. |
+| 경로 | 공간 경로 | 예 | 문자열 | `Space` 개체의 전체 액세스 경로입니다. 예는 `/{Guid}/{Guid}`입니다. 식별자에 전체 그래프에 대한 역할 할당이 필요한 경우 `"/"`를 지정합니다. 이 문자는 루트를 지정하지만 사용하지 않는 것이 좋습니다. 항상 최소 권한 원칙을 준수합니다. |
+| tenantId | 테넌트 식별자 | 다름 | 문자열 | 대부분의 경우 Azure Active Directory 테넌트 ID입니다. `DeviceId` 및 `TenantId` ObjectIdTypes에 허용되지 않습니다. `UserId` 및 `ServicePrincipalId` ObjectIdTypes에는 필수입니다. DomainName ObjectIdType에는 선택 사항입니다. |
+
+### <a name="supported-role-definition-identifiers"></a>지원되는 역할 정의 식별자
+
+각 역할 할당은 Azure Digital Twins 환경에서 엔터티에 역할 정의를 연결합니다.
+
+[!INCLUDE [digital-twins-roles](../../includes/digital-twins-roles.md)]
+
+### <a name="supported-object-identifier-types"></a>지원되는 개체 식별자 유형
+
+이전에는 **objectIdType** 특성이 도입되었습니다.
+
+[!INCLUDE [digital-twins-object-types](../../includes/digital-twins-object-id-types.md)]
+
+## <a name="role-assignment-operations"></a>역할 할당 작업
+
+Azure Digital Twins는 역할 할당에 대해 모든 *CREATE*, *READ*, 및 *DELETE* 작업을 지원합니다. *UPDATE* 작업은 역할 할당을 추가하거나, 역할 할당을 제거하거나, 역할 할당이 액세스 권한을 부여하는 [공간 인텔리전스 그래프](./concepts-objectmodel-spatialgraph.md) 노드를 수정하여 처리됩니다.
+
+![역할 할당 엔드포인트][1]
+
+제공된 Swagger 참조 설명서에는 사용 가능한 모든 API 엔드포인트, 요청 작업 및 정의에 대한 추가 정보도 포함되어 있습니다.
+
+[!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-## <a name="role-definition-identifiers"></a>역할 정의 식별자
+<div id="grant"></div>
 
-다음 표는 시스템/역할 API를 쿼리하여 얻을 수 있는 항목을 보여줍니다.
+### <a name="grant-permissions-to-your-service-principal"></a>서비스 주체에 권한 부여
 
-| **역할** | **식별자** |
-| --- | --- |
-| 공간 관리자 | 98e44ad7-28d4-4007-853b-b9968ad132d1 |
-| 사용자 관리자| dfaac54c-f583-4dd2-b45d-8d4bbc0aa1ac |
-| 디바이스 관리자 | 3cdfde07-bc16-40d9-bed3-66d49a8f52ae |
-| 키 관리자 | 5a0b1afc-e118-4068-969f-b50efb8e5da6 |
-| 토큰 관리자 | 38a3bb21-5424-43b4-b0bf-78ee228840c3 |
-| 사용자 | b1ffdb77-c635-4e7e-ad25-948237d85b30 |
-| 지원 전문가 | 6e46958b-dc62-4e7c-990c-c3da2e030969 |
-| 디바이스 설치 관리자 | b16dd9fe-4efe-467b-8c8c-720e2ff8817c |
-| 게이트웨이 디바이스 | d4c69766-e9bd-4e61-bfc1-d8b6e686c7a8 |
+서비스 주체에 대한 권한 부여는 종종 Azure Digital Twins를 사용할 때 수행하는 첫 번째 단계 중 하나입니다. 이 과정에서 다음이 수행됩니다.
 
-## <a name="supported-objectidtypes"></a>지원되는 ObjectIdTypes
+1. PowerShell을 통해 Azure에 로그인
+1. 서비스 주체 정보 획득
+1. 서비스 주체에 원하는 역할 할당
 
-지원되는 `ObjectIdTypes`:
+애플리케이션 ID가 Azure Active Directory에서 사용자에게 제공됩니다. Active Directory의 Azure Digital Twins 구성 및 프로비전에 대한 자세한 내용은 [빠른 시작](./quickstart-view-occupancy-dotnet.md)을 읽어보세요.
 
-* `UserId`
-* `DeviceId`
-* `DomainName`
-* `TenantId`
-* `ServicePrincipalId`
-* `UserDefinedFunctionId`
+애플리케이션 ID가 있으면 다음 PowerShell 명령을 실행합니다.
 
-## <a name="create-a-role-assignment"></a>역할 할당 만들기
-
-```plaintext
-HTTP POST YOUR_MANAGEMENT_API_URL/roleassignments
+```shell
+Login-AzureRmAccount
+Get-AzureRmADServicePrincipal -ApplicationId  <ApplicationId>
 ```
 
-| **Name** | **필수** | **형식** | **설명** |
+**관리자** 역할이 있는 사용자는 URL에 대해 인증된 HTTP POST 요청을 수행하여 사용자에게 공간 관리자 역할을 할당할 수 있습니다.
+
+```plaintext
+YOUR_MANAGEMENT_API_URL/roleassignments
+```
+
+다음 JSON 본문을 사용합니다.
+
+```JSON
+{
+  "roleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
+  "objectId": "YOUR_SERVICE_PRINCIPLE_OBJECT_ID",
+  "objectIdType": "ServicePrincipalId",
+  "path": "YOUR_PATH",
+  "tenantId": "YOUR_TENANT_ID"
+}
+```
+
+<div id="all"></div>
+
+### <a name="retrieve-all-roles"></a>모든 역할 검색
+
+![시스템 역할][2]
+
+사용 가능한 모든 역할(역할 정의)을 나열하려면 다음에 대해 인증된 HTTP GET 요청을 수행합니다.
+
+```plaintext
+YOUR_MANAGEMENT_API_URL/system/roles
+```
+
+요청이 성공하면 할당될 수 있는 각 역할에 대한 항목을 포함하는 JSON 배열이 반환됩니다.
+
+```JSON
+[
+    {
+        "id": "3cdfde07-bc16-40d9-bed3-66d49a8f52ae",
+        "name": "DeviceAdministrator",
+        "permissions": [
+            {
+                "notActions": [],
+                "actions": [
+                    "Read",
+                    "Create",
+                    "Update",
+                    "Delete"
+                ],
+                "condition": "@Resource.Type Any_of {'Device', 'DeviceBlobMetadata', 'DeviceExtendedProperty', 'Sensor', 'SensorBlobMetadata', 'SensorExtendedProperty'} || ( @Resource.Type == 'ExtendedType' && (!Exists @Resource.Category || @Resource.Category Any_of { 'DeviceSubtype', 'DeviceType', 'DeviceBlobType', 'DeviceBlobSubtype', 'SensorBlobSubtype', 'SensorBlobType', 'SensorDataSubtype', 'SensorDataType', 'SensorDataUnitType', 'SensorPortType', 'SensorType' } ) )"
+            },
+            {
+                "notActions": [],
+                "actions": [
+                    "Read"
+                ],
+                "condition": "@Resource.Type == 'Space' && @Resource.Category == 'WithoutSpecifiedRbacResourceTypes' || @Resource.Type Any_of {'ExtendedPropertyKey', 'SpaceExtendedProperty', 'SpaceBlobMetadata', 'SpaceResource', 'Matcher'}"
+            }
+        ],
+        "accessControlPath": "/system",
+        "friendlyPath": "/system",
+        "accessControlType": "System"
+    }
+]
+```
+
+<div id="check"></div>
+
+### <a name="check-a-specific-role-assignment"></a>특정 역할 할당 확인
+
+특정 역할 할당을 확인하려면 다음에 대해 인증된 HTTP GET 요청을 수행합니다.
+
+```plaintext
+YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
+```
+
+| **매개 변수 값** | **필수** |  **형식** |  **설명** |
 | --- | --- | --- | --- |
-| roleId| yes |문자열 | 역할 정의 식별자입니다. 시스템 API를 쿼리하여 역할 정의와 해당 식별자를 찾습니다. |
-| objectId | yes |문자열 | 연결된 형식에 따라 포맷해야 하는 역할 할당의 개체 ID입니다. `DomainName` ObjectIdType의 경우 ObjectId가 `“@”` 문자로 시작해야 합니다. |
-| objectIdType | yes |문자열 | 역할 할당의 형식입니다. 이 표의 행 중 하나여야 합니다. |
-| tenantId | 다름 | 문자열 |테넌트 식별자입니다. `DeviceId` 및 `TenantId` ObjectIdTypes에 허용되지 않습니다. `UserId` 및 `ServicePrincipalId` ObjectIdTypes에는 필수입니다. DomainName ObjectIdType에는 선택 사항입니다. |
-| path* | yes | 문자열 |`Space` 개체의 전체 액세스 경로입니다. 예는 `/{Guid}/{Guid}`입니다. 식별자에 전체 그래프에 대한 역할 할당이 필요한 경우 `"/"`를 지정합니다. 이 문자는 루트를 지정하지만 사용하지 않는 것이 좋습니다. 항상 최소 권한 원칙을 준수합니다. |
+| YOUR_USER_ID |  True | 문자열 |   UserId objectIdType의 objectId입니다. |
+| YOUR_PATH | True | 문자열 |   액세스를 확인할 선택한 경로입니다. |
+| YOUR_ACCESS_TYPE |  True | 문자열 |   확인할 액세스 형식입니다. |
+| YOUR_RESOURCE_TYPE | True | 문자열 |  확인할 리소스입니다. |
 
-## <a name="sample-configuration"></a>샘플 구성
+요청이 성공하면 지정된 경로 및 리소스의 사용자에게 액세스 형식이 할당되었는지 여부를 나타내기 위해 부울 `true` 또는 `false`가 반환됩니다.
 
-이 예제에서는 사용자가 테넌트 공간의 층에 대한 관리자 액세스가 필요합니다.
+### <a name="get-role-assignments-by-path"></a>경로별 역할 할당 가져오기
 
-  ```JSON
-    {
-      "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
-      "ObjectId" : " 0fc863bb-eb51-4704-a312-7d635d70e599",
-      "ObjectIdType" : "UserId",
-      "TenantId": " a0c20ae6-e830-4c60-993d-a91ce6032724",
-      "Path": "/ 091e349c-c0ea-43d4-93cf-6b57abd23a44/ d84e82e6-84d5-45a4-bd9d-006a118e3bab"
-    }
-  ```
-
-이 예제에서는 애플리케이션이 디바이스 및 센서를 모의 실험하는 테스트 시나리오를 실행합니다.
-
-  ```JSON
-    {
-      "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
-      "ObjectId" : "cabf7acd-af0b-41c5-959a-ce2f4c26565b",
-      "ObjectIdType" : "ServicePrincipalId",
-      "TenantId": " a0c20ae6-e830-4c60-993d-a91ce6032724",
-      "Path": "/"
-    }
-  ```
-
-도메인의 일부인 모든 사용자는 공간, 센서, 사용자에 대한 읽기 액세스 권한을 받습니다. 이 액세스는 해당 관련 개체를 포함합니다.
-
-  ```JSON
-    {
-      "RoleId": " b1ffdb77-c635-4e7e-ad25-948237d85b30",
-      "ObjectId" : "@microsoft.com",
-      "ObjectIdType" : "DomainName",
-      "Path": "/091e349c-c0ea-43d4-93cf-6b57abd23a44"
-    }
-  ```
-
-GET을 사용하여 역할 할당을 가져옵니다.
+경로의 모든 역할 할당을 가져오려면 다음에 대해 인증된 HTTP GET 요청을 수행합니다.
 
 ```plaintext
-HTTP GET YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
+YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
-| **Name** | **위치** | **필수** |    **형식** |  **설명** |
-| --- | --- | --- | --- | --- |
-| YOUR_PATH | path | True | 문자열 |    공간의 전체 경로 |
+| 값 | 다음 항목으로 교체 |
+| --- | --- |
+| YOUR_PATH | 공간의 전체 경로 |
 
-DELETE를 사용하여 역할 할당을 삭제합니다.
+요청이 성공하면 선택한 **path** 매개 변수와 연결된 각 역할 할당을 포함하는 JSON 배열이 반환됩니다.
+
+```JSON
+[
+    {
+        "id": "0000c484-698e-46fd-a3fd-c12aa11e53a1",
+        "roleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
+        "objectId": "0de38846-1aa5-000c-a46d-ea3d8ca8ee5e",
+        "objectIdType": "UserId",
+        "path": "/"
+    }
+]
+```
+
+### <a name="revoke-a-permission"></a>권한 해지
+
+받는 사람으로부터 권한을 해지하려면 인증된 HTTP DELETE 요청을 수행하여 역할 할당을 삭제합니다.
 
 ```plaintext
-HTTP DELETE YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ID
+YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 ```
 
-| **Name** | **위치** | **필수** | **형식** | **설명** |
-| --- | --- | --- | --- | --- |
-| YOUR_ROLE_ID | path | True | 문자열 | 역할 할당 ID |
+| 매개 변수 | 다음 항목으로 교체 |
+| --- | --- |
+| *YOUR_ROLE_ASSIGNMENT_ID* | 제거할 역할 할당의 **id** |
+
+DELETE 요청이 성공하면 204 응답 상태가 반환됩니다. 역할 할당이 아직 유지되는지 여부를 [확인](#check)하여 역할 할당 제거를 검토합니다.
+
+### <a name="create-a-role-assignment"></a>역할 할당 만들기
+
+역할 할당을 만들려면 다음과 같이 URL에 대해 인증된 HTTP POST 요청을 수행합니다.
+
+```plaintext
+YOUR_MANAGEMENT_API_URL/roleassignments
+```
+
+JSON 본문이 다음 스키마를 준수하는지 확인합니다.
+
+```JSON
+{
+  "roleId": "YOUR_ROLE_ID",
+  "objectId": "YOUR_OBJECT_ID",
+  "objectIdType": "YOUR_OBJECT_ID_TYPE",
+  "path": "YOUR_PATH",
+  "tenantId": "YOUR_TENANT_ID"
+}
+```
+
+요청이 성공하면 새로 만든 역할 할당의 **id**와 함께 201 응답 상태가 반환됩니다.
+
+```JSON
+"d92c7823-6e65-41d4-aaaa-f5b32e3f01b9"
+```
+
+## <a name="configuration-examples"></a>구성 예제
+
+다음 예제에서는 일반적으로 발생하는 몇 가지 역할 할당 시나리오에 JSON 본문을 구성하는 방법을 보여 줍니다.
+
+* **예제**: 사용자가 테넌트 공간의 층에 대한 관리자 액세스가 필요합니다.
+
+   ```JSON
+   {
+    "roleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
+    "objectId" : " 0fc863aa-eb51-4704-a312-7d635d70e000",
+    "objectIdType" : "UserId",
+    "tenantId": " a0c20ae6-e830-4c60-993d-a00ce6032724",
+    "path": "/ 000e349c-c0ea-43d4-93cf-6b00abd23a44/ d84e82e6-84d5-45a4-bd9d-006a000e3bab"
+   }
+   ```
+
+* **예제**: 애플리케이션이 디바이스 및 센서를 모의 실험하는 테스트 시나리오를 실행합니다.
+
+   ```JSON
+   {
+    "roleId": "98e44ad7-28d4-0007-853b-b9968ad132d1",
+    "objectId" : "cabf7aaa-af0b-41c5-000a-ce2f4c20000b",
+    "objectIdType" : "ServicePrincipalId",
+    "tenantId": " a0c20ae6-e000-4c60-993d-a91ce6000724",
+    "path": "/"
+   }
+    ```
+
+* **예제**: 도메인의 일부인 모든 사용자는 공간, 센서, 사용자에 대한 읽기 액세스 권한을 받습니다. 이 액세스는 해당 관련 개체를 포함합니다.
+
+   ```JSON
+   {
+    "roleId": " b1ffdb77-c635-4e7e-ad25-948237d85b30",
+    "objectId" : "@microsoft.com",
+    "objectIdType" : "DomainName",
+    "path": "/000e349c-c0ea-43d4-93cf-6b00abd23a00"
+   }
+   ```
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Digital Twins 보안에 대한 자세한 내용은 [API 인증](./security-authenticating-apis.md)합을 참조하세요.
+Azure Digital Twins 역할 기반 액세스 제어를 검토하려면 [Role-base-access-control](./security-authenticating-apis.md)을 읽어보세요.
+
+Azure Digital Twins API 인증에 대한 자세한 내용은 [API 인증](./security-authenticating-apis.md)을 읽어보세요.
+
+<!-- Images -->
+[1]: media/security-roles/roleassignments.png
+[2]: media/security-roles/system.png

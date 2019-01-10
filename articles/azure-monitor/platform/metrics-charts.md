@@ -5,34 +5,34 @@ author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 12/20/2018
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: daa3a140e749700665427a011292f48ac8f163d2
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 8932f8aa1dd950693378e9fc58c79838fad6166b
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388422"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741762"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor 메트릭 탐색기
 
-Azure Monitor 메트릭 탐색기는 Microsoft Azure Portal의 구성 요소이며 차트를 그리고, 추세의 상관 관계를 시각적으로 지정하고, 메트릭 값에서 급증 및 하락을 조사할 수 있습니다. 메트릭 탐색기는 Azure에서 호스트되거나 Azure Monitor 서비스에서 모니터링되는 응용 프로그램 및 인프라와 관련된 다양한 성능 및 가용성 문제를 조사하는 데 필수적인 시작점입니다. 
+Azure Monitor 메트릭 탐색기는 Microsoft Azure Portal의 구성 요소이며 차트를 그리고, 추세의 상관 관계를 시각적으로 지정하고, 메트릭 값에서 급증 및 하락을 조사할 수 있습니다. 메트릭 탐색기는 Azure에서 호스트되거나 Azure Monitor 서비스에서 모니터링되는 애플리케이션 및 인프라와 관련된 다양한 성능 및 가용성 문제를 조사하는 데 필수적인 시작점입니다.
 
 ## <a name="metrics-in-azure"></a>Azure의 메트릭
 
-Microsoft Azure의 메트릭은 지남에 따라 수집되고 저장된 일련의 측정된 값과 수입니다. 표준(또는 "플랫폼") 메트릭 및 사용자 지정 메트릭이 있습니다. 표준 메트릭은 Azure 플랫폼 자체에서 제공됩니다. 표준 메트릭은 Azure 리소스의 상태 및 사용량 통계를 반영합니다. 사용자 지정 메트릭은 [사용자 지정 이벤트의 Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)를 사용하여 애플리케이션에서 Azure로 전송되는 반면 사용자 지정 메트릭은 다른 응용 프로그램 특정 메트릭과 함께 Application Insights 리소스에 저장됩니다.
+Microsoft Azure의 메트릭은 지남에 따라 수집되고 저장된 일련의 측정된 값과 수입니다. 표준(또는 "플랫폼") 메트릭 및 사용자 지정 메트릭이 있습니다. 표준 메트릭은 Azure 플랫폼 자체에서 제공됩니다. 표준 메트릭은 Azure 리소스의 상태 및 사용량 통계를 반영합니다. 사용자 지정 메트릭은 [사용자 지정 이벤트의 Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)를 사용하여 애플리케이션에서 Azure로 전송되는 반면 사용자 지정 메트릭은 다른 애플리케이션 특정 메트릭과 함께 Application Insights 리소스에 저장됩니다.
 
 ## <a name="create-a-new-chart"></a>새 차트 만들기
 
 1. Azure 포털 열기
 2. 새 **모니터** 탭으로 이동하여 **메트릭**을 선택합니다.
 
-   ![메트릭 이미지](./media/metrics-charts/0001.png)
+   ![메트릭 이미지](./media/metrics-charts/00001.png)
 
 3. **메트릭 선택기**가 자동으로 열립니다. 해당 관련 메트릭을 보려면 목록에서 리소스를 선택합니다. 메트릭을 포함한 리소스만이 목록에 표시됩니다.
 
-   ![메트릭 이미지](./media/metrics-charts/0002.png)
+   ![메트릭 이미지](./media/metrics-charts/00002.png)
 
    > [!NOTE]
    >Azure 구독이 여러 개 있는 경우 메트릭 탐색기는 포털 설정 -> 구독 목록별 필터에서 선택된 모든 구독에 걸쳐 리소스를 끌어옵니다. 이를 변경하려면 화면 맨 위에서 포털 설정 기어 아이콘을 클릭하고 사용하려는 구독을 선택합니다.
@@ -41,15 +41,15 @@ Microsoft Azure의 메트릭은 지남에 따라 수집되고 저장된 일련�
 
    예를 들어 각 Azure Storage에는 저장소 계정의 모든 부분인 하위 서비스 "Blob", "파일", "큐" 및 "테이블"에 대한 메트릭이 있습니다. 그러나 "큐 메시지 수" 메트릭은 다른 저장소 계정 하위 서비스가 아닌 "큐" 하위 서비스에 자연스럽 게 적용됩니다.
 
-   ![메트릭 이미지](./media/metrics-charts/0003.png)
+   ![메트릭 이미지](./media/metrics-charts/00003.png)
 
 5. 목록에서 메트릭을 선택합니다. 원하는 메트릭의 이름을 일부 알고 있는 경우 입력하여 사용 가능한 메트릭의 필터링된 목록을 볼 수 있습니다.
 
-   ![메트릭 이미지](./media/metrics-charts/0004.png)
+   ![메트릭 이미지](./media/metrics-charts/00004.png)
 
 6. 메트릭을 선택한 후에 차트는 선택한 메트릭에 대한 기본 집계로 렌더링됩니다. 이 시점에서 **메트릭 선택기**를 닫으려면 바깥쪽을 클릭하면 됩니다. 또한 선택적으로 다른 집계로 차트를 전환할 수 있습니다. 일부 메트릭의 경우 집계를 전환하면 차트에 표시하려는 값을 선택할 수 있습니다. 예를 들어 평균, 최소 및 최대 값을 전환할 수 있습니다. 
 
-7. 메트릭 추가 아이콘을 클릭하고 ![메트릭 아이콘](./media/metrics-charts/icon001.png) 3~6단계를 반복하여 동일한 차트에서 메트릭을 추가할 수 있습니다.
+7. **메트릭 추가**를 클릭하고 3~6단계를 반복하여 동일한 차트에서 메트릭을 추가할 수 있습니다.
 
    > [!NOTE]
    > 일반적으로 하나의 차트에서 다른 단위의 측정값(예: "밀리초" 및 "킬로바이트") 또는 크게 다른 규모를 갖는 메트릭을 사용하지 않습니다. 대신, 여러 차트를 사용하는 것이 좋습니다. 차트 추가 단추를 클릭하여 메트릭 탐색기에서 여러 개의 차트를 만듭니다.
@@ -60,19 +60,19 @@ Microsoft Azure의 메트릭은 지남에 따라 수집되고 저장된 일련�
 
 ### <a name="to-add-a-filter"></a>필터를 추가하려면
 
-1. 필터 추가 아이콘을 클릭합니다. ![필터 아이콘](./media/metrics-charts/icon002.png) 차트 위에서
+1. 차트 위에 있는 **필터 추가**를 선택합니다.
 
 2. 필터링하려는 차원(속성)을 선택합니다.
 
-   ![메트릭 이미지](./media/metrics-charts/0006.png)
+   ![메트릭 이미지](./media/metrics-charts/00006.png)
 
 3. 차트를 그릴 때 포함하려는 차원 값을 선택합니다(이 예제에서는 성공적인 저장소 트랜잭션을 필터링하도록 표시함).
 
-   ![메트릭 이미지](./media/metrics-charts/0007.png)
+   ![메트릭 이미지](./media/metrics-charts/00007.png)
 
 4. 필터 값을 선택한 후에 필터 선택기를 닫으려면 바깥쪽을 클릭합니다. 이제 차트에서는 실패한 저장소 트랜잭션 수를 보여줍니다.
 
-   ![메트릭 이미지](./media/metrics-charts/0008.png)
+   ![메트릭 이미지](./media/metrics-charts/00008.png)
 
 5. 동일한 차트에 여러 필터를 적용하려면 1~4단계를 반복하면 됩니다.
 
@@ -82,23 +82,37 @@ Microsoft Azure의 메트릭은 지남에 따라 수집되고 저장된 일련�
 
 ### <a name="to-segment-a-chart"></a>차트를 분할하려면
 
-1. 그룹화 추가 아이콘을 클릭합니다.  ![메트릭 이미지](./media/metrics-charts/icon003.png) 차트 위에서
+1. 차트 위쪽의 **분할 적용**을 클릭합니다.
  
    > [!NOTE]
-   > 단일 차트에 여러 개의 필터가 있을 수 있지만 그룹화는 하나만이 가능합니다.
+   > 단일 차트에 여러 개의 필터가 있을 수 있지만 분할/세그먼트화는 하나만 가능합니다.
 
-2. 차트를 분할하려는 차원을 선택합니다. 
+2. 차트를 분할하려는 차원을 선택합니다.
 
-   ![메트릭 이미지](./media/metrics-charts/0010.png)
+   ![메트릭 이미지](./media/metrics-charts/00010.png)
 
    이제 차트에서는 차원의 각 세그먼트에 하나씩 여러 줄을 표시합니다.
 
-   ![메트릭 이미지](./media/metrics-charts/0012.png)
+   ![메트릭 이미지](./media/metrics-charts/00012.png)
 
 3. **그룹화 선택기**를 닫으려면 바깥쪽을 클릭합니다.
 
    > [!NOTE]
-   > 동일한 차원에서 필터링 및 그룹화를 모두 사용하여 시나리오에 관련이 없는 세그먼트를 숨기고 차트를 더 쉽게 읽을 수 있습니다.
+   > 동일한 차원에서 필터링 및 분할을 둘 다 사용하여 시나리오와 관련 없는 세그먼트를 숨기고 차트를 더 쉽게 읽을 수 있습니다.
+
+### <a name="new-alert-rule"></a>새 경고 규칙
+
+또한 설정한 조건을 사용하여 메트릭을 메트릭 기반 경고 규칙의 기본 논리에 대한 기준으로 시각화할 수도 있습니다. 
+
+**새로운 경고 규칙**을 클릭하는 경우
+
+![새로운 경고 규칙 단추가 빨간색으로 강조 표시됨](./media/metrics-charts/015.png)
+
+사용자 지정 경고 규칙을 보다 쉽게 생성할 수 있도록 차트의 기본 메트릭 크기가 미리 채워진 경고 규칙 만들기 창으로 이동됩니다.
+
+![경고 규칙 만들기](./media/metrics-charts/016.png)
+
+메트릭 경고를 설정하는 방법을 자세히 알아보려면 이 [문서](alerts-metric.md)를 확인하세요.
 
 ## <a name="lock-boundaries-of-chart-y-axis"></a>차트 Y축의 경계 잠그기
 
@@ -110,20 +124,20 @@ Microsoft Azure의 메트릭은 지남에 따라 수집되고 저장된 일련�
 
 Y축 범위를 제어하려면 “...” 차트 메뉴를 사용하고 **차트 편집**을 선택하여 고급 차트 설정에 액세스합니다. Y축 범위 섹션의 값을 수정하거나 **자동** 단추를 사용하여 기본값으로 되돌립니다.
 
-![메트릭 이미지](./media/metrics-charts/0014-manually-set-granularity.png)
+![메트릭 이미지](./media/metrics-charts/00014-manually-set-granularity.png)
 
 > [!WARNING]
 > 일정 기간 동안 다양한 개수나 합계(이에 따라 사용 개수, 합계, 최소값 또는 최대 집계)를 추적하는 차트의 Y축 경계를 잠그려면 일반적으로 자동 기본값을 사용하지 않고 고정 시간 세분성을 지정해야 합니다. 사용자가 브라우저 창 크기를 조정하거나 화면 해상도를 변경할 때 시간 세분성이 자동으로 수정되면 차트의 값이 변경되므로 이 설정이 필요합니다. 시간 세분성의 변경 결과는 차트 모양에 영향을 주고 Y축 범위의 현재 선택이 무효화됩니다.
 
 ## <a name="pin-charts-to-dashboards"></a>대시보드에 차트 고정
 
-차트를 구성한 후에 다른 모니터링 원격 분석의 컨텍스트에서 다시 보거나 팀과 공유할 수 있도록 대시보드에 추가하려고 합니다. 
+차트를 구성한 후에 다른 모니터링 원격 분석의 컨텍스트에서 다시 보거나 팀과 공유할 수 있도록 대시보드에 추가하려고 합니다.
 
 구성된 차트를 대시보드에 고정하려면:
 
 차트를 구성한 후에 차트의 오른쪽의 위 모서리에서 **차트 작업** 메뉴를 클릭하고 **대시보드에 고정**을 클릭합니다.
 
-![메트릭 이미지](./media/metrics-charts/0013.png)
+![메트릭 이미지](./media/metrics-charts/00013.png)
 
 ## <a name="next-steps"></a>다음 단계
 

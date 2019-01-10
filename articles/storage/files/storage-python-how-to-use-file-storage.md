@@ -6,15 +6,15 @@ author: wmgries
 ms.service: storage
 ms.devlang: python
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 12/14/2018
 ms.author: tamram
 ms.component: files
-ms.openlocfilehash: 4082352c8c9814b8e6533d3f64b18450a6cf416d
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: f1ebc059c66615ecf21054e85472b2a6d86dfce6
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165575"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743190"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Python을 사용하여 Azure Files 개발
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -29,11 +29,11 @@ ms.locfileid: "53165575"
 * 파일 업로드, 다운로드 및 삭제
 
 > [!Note]  
-> Azure Files는 SMB를 통해 액세스할 수 있기 때문에 표준 Python I/O 클래스 및 함수를 사용하여 Azure File 공유에 액세스하는 간단한 응용 프로그램을 작성할 수 있습니다. 이 문서에서는 [Azure Files REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api)를 사용하여 Azure Files와 통신하는 Azure Storage Python SDK를 사용하는 애플리케이션을 작성하는 방법에 대해 설명합니다.
+> Azure Files는 SMB를 통해 액세스할 수 있기 때문에 표준 Python I/O 클래스 및 함수를 사용하여 Azure File 공유에 액세스하는 간단한 애플리케이션을 작성할 수 있습니다. 이 문서에서는 [Azure Files REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api)를 사용하여 Azure Files와 통신하는 Azure Storage Python SDK를 사용하는 애플리케이션을 작성하는 방법에 대해 설명합니다.
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>Azure Storage SDK for Python 다운로드 및 설치
 
-Azure Storage SDK for Python은 Python 2.7, 3.3, 3.4, 3.5 또는 3.6을 요구하며 `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` 및 `azure-storage-queue` 4가지 패키지로 제공됩니다. 이 자습서에서는 `azure-storage-file` 패키지를 사용하겠습니다.
+[Azure Storage SDK for Python](https://github.com/azure/azure-storage-python)에는 Python 2.7, 3.3, 3.4, 3.5 또는 3.6이 필요합니다.
  
 ## <a name="install-via-pypi"></a>PyPi를 통해 설치
 
@@ -43,13 +43,15 @@ PyPi(Python Package Index)를 통해 설치하려면 다음을 입력합니다.
 pip install azure-storage-file
 ```
 
-
 > [!NOTE]
-> 앞으로는 더 이상 Storage SDK for Python을 단일 패키지로 릴리스하지 않으므로, Azure Storage SDK for Python 버전 0.36 이상에서 업그레이드하는 경우 먼저 `pip uninstall azure-storage`를 사용하여 제거해야 합니다.
-> 
-> 
+> Azure Storage SDK for Python 버전 0.36 또는 이전 버전에서 업그레이드하는 경우 최신 패키지를 설치하기 전에 `pip uninstall azure-storage`를 사용하여 이전 SDK를 제거합니다.
 
 대체 설치 방법을 확인하려면 [GitHub의 Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python/)을 방문하세요.
+
+## <a name="view-the-sample-application"></a>샘플 애플리케이션 보기
+Azure Files에서 Python을 사용하는 방법을 보여 주는 샘플 애플리케이션을 보고 실행하려면 [Azure Storage: Python에서 Azure Files 시작](https://github.com/Azure-Samples/storage-file-python-getting-started)을 참조하세요. 
+
+샘플 애플리케이션을 실행하려면 `azure-storage-file` 및 `azure-storage-common` 패키지를 둘 다 설치해야 합니다.
 
 ## <a name="set-up-your-application-to-use-azure-files"></a>Azure Files를 사용하도록 애플리케이션 설정
 프로그래밍 방식으로 Azure Storage에 액세스하려는 Python 원본 파일의 맨 위쪽에 다음을 추가합니다.

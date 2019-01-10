@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0519bb78b01cd7cab6abaf453efd7a4595101ef4
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c8870fdb0ff0a62c9b1a3b690724aa004e911bb3
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133760"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810885"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드
 
@@ -32,12 +32,12 @@ Azure Cosmos DB의 변경 피드를 사용하면 다음 그림과 같이 이러�
 
 이 기능은 현재 다음 Azure Cosmos DB API 및 클라이언트 SDK에서 지원됩니다.
 
-| **클라이언트 드라이버** | **Azure CLI** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API**|**Table API** |
+| **클라이언트 드라이버** | **Azure CLI** | **SQL API** | **Cassandra API** | **Azure Cosmos DB의 MongoDB API** | **Gremlin API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | 해당 없음 | yes | 아니요 | 아니요 | yes | 아니요 |
-|자바|해당 없음|yes|아니요|아니요|yes|아니요|
-|Python|해당 없음|yes|아니요|아니요|yes|아니요|
-|Node/JS|해당 없음|yes|아니요|아니요|yes|아니요|
+| .NET | 해당 없음 | 예 | 아니요 | 아니요 | 예 | 아니요 |
+|자바|해당 없음|예|아니요|아니요|예|아니요|
+|Python|해당 없음|예|아니요|아니요|예|아니요|
+|Node/JS|해당 없음|예|아니요|아니요|예|아니요|
 
 ## <a name="change-feed-and-different-operations"></a>변경 피드 및 다양한 작업
 

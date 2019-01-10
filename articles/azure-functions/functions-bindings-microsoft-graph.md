@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 3932ad18ceedb36a4a8c1f9fc78eb8aef27a8a4f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e979930ed504dafe330b774725f4193f1c15ed17
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51301019"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793991"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure Functions에 대한 Microsoft Graph 바인딩
 
@@ -63,7 +63,7 @@ Visual Studio를 사용하는 경우 [앞서 이 아티클에서 나열된 NuGet
 
 ### <a name="configuring-authentication--authorization"></a>인증/권한 부여 구성
 
-이 문서에서 설명하는 바인딩은 반드시 ID를 사용해야 합니다. 이를 통해 Microsoft Graph가 권한을 적용하고 상호 작용을 감사할 수 있습니다. ID는 애플리케이션에 액세스하는 사용자일 수도 있고 애플리케이션 자체일 수도 있습니다. 이 ID를 구성하려면 Azure Active Directory를 사용하여 [App Service 인증/권한 부여](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)를 설정합니다. 그리고 함수에 필요한 리소스 권한을 요청해야 합니다.
+이 문서에서 설명하는 바인딩은 반드시 ID를 사용해야 합니다. 이를 통해 Microsoft Graph가 권한을 적용하고 상호 작용을 감사할 수 있습니다. ID는 애플리케이션에 액세스하는 사용자일 수도 있고 애플리케이션 자체일 수도 있습니다. 이 ID를 구성하려면 Azure Active Directory를 사용하여 [App Service 인증/권한 부여](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)를 설정합니다. 그리고 함수에 필요한 리소스 권한을 요청해야 합니다.
 
 > [!Note] 
 > Microsoft Graph 확장은 Azure AD 인증만 지원합니다. 사용자는 회사 또는 학교 계정으로 로그인해야 합니다.
@@ -226,7 +226,8 @@ module.exports = function (context, req) {
 
 토큰은 항상 코드에 문자열로 표시됩니다.
 
-
+> [!Note]
+> `userFromId`, `userFromToken` 또는 `userFromRequest` 옵션 중 하나를 사용하여 로컬로 개발할 경우 필요한 토큰을 [수동으로 가져오고](https://github.com/Azure/azure-functions-microsoftgraph-extension/issues/54#issuecomment-392865857) 호출 클라이언트 애플리케이션의 `X-MS-TOKEN-AAD-ID-TOKEN` 요청 헤더에 지정할 수 있습니다.
 
 
 <a name="excel-input"></a>

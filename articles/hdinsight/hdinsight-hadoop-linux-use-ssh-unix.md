@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: bcd550ac8f4b75002648f2e4737a4683349aa45f
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: a7ba66fae3f2a8426cc333cca109a4c6793d1da2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384635"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724326"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>SSH를 사용하여 HDInsight(Apache Hadoop)에 연결
 
@@ -63,7 +63,7 @@ Microsoft Windows는 기본적으로 SSH 클라이언트를 설치하지 않습�
 
 * [Git(https://git-scm.com/)](https://git-scm.com/): `ssh` 및 `scp` 명령은 GitBash 명령줄을 통해 사용할 수 있습니다.
 
-또한 [PuTTY(http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) 및 [MobaXterm(http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/) 같은 여러 그래픽 SSH 클라이언트가 있습니다. 이러한 클라이언트를 사용하여 HDInsight에 연결할 수 있지만, 연결하는 프로세스는 `ssh` 유틸리티를 사용하는 것과 다릅니다. 자세한 내용은 사용하는 그래픽 클라이언트의 설명서를 참조하세요.
+또한 [PuTTY(https://www.chiark.greenend.org.uk/~sgtatham/putty/)](https://www.chiark.greenend.org.uk/~sgtatham/putty/) 및 [MobaXterm(https://mobaxterm.mobatek.net/)](https://mobaxterm.mobatek.net/) 같은 여러 그래픽 SSH 클라이언트가 있습니다. 이러한 클라이언트를 사용하여 HDInsight에 연결할 수 있지만, 연결하는 프로세스는 `ssh` 유틸리티를 사용하는 것과 다릅니다. 자세한 내용은 사용하는 그래픽 클라이언트의 설명서를 참조하세요.
 
 ## <a id="sshkey"></a>인증: SSH 키
 
@@ -252,7 +252,7 @@ scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
 >
 > * [Azure Storage를 사용하는 HDInsight](hdinsight-hadoop-use-blob-storage.md)
 >
-> * [Azure Data Lake Store를 사용하는 HDInsight](hdinsight-hadoop-use-data-lake-store.md)
+> * [Azure Data Lake Storage를 사용하는 HDInsight](hdinsight-hadoop-use-data-lake-store.md)
 
 ## <a name="next-steps"></a>다음 단계
 

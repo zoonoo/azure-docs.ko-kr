@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: 43acf5f59667f45e67156b33e31d28160ba47c13
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 19a842eacb00e877d31712febeeebc72cbdd25a0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408811"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743173"
 ---
 # <a name="archived-release-notes-for-azure-hdinsight"></a>Azure HDInsight에 대한 보관 릴리스 정보
 
@@ -52,10 +52,9 @@ HDInsight의 2018년 6월 릴리스는 고객을 위한 많은 새로운 업데�
   
 
 
-
 ## <a name="04062017---general-availability-of-hdinsight-36"></a>2017/04/06 - HDInsight 3.6 일반 공급
 
-* 이 릴리스에서 Azure HDInsight는 HDP 2.6을 기준으로 하는 버전 3.6을 추가합니다. HDP 2.6 릴리스 정보는 [여기](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html)에서 확인할 수 있고 HDInsight 버전에 대한 자세한 정보는 [여기](hdinsight-component-versioning.md)에서 확인할 수 있습니다. HDInsight 3.6은 다음과 같은 작업에 사용할 수 있습니다.
+* 이 릴리스에서 Azure HDInsight는 HDP 2.6을 기준으로 하는 버전 3.6을 추가합니다. HDP 2.6 릴리스 정보는 [여기](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html)에서 확인할 수 있고 HDInsight 버전에 대한 자세한 정보는 [여기](hdinsight-component-versioning.md)에서 확인할 수 있습니다. HDInsight 3.6은 다음과 같은 작업에 사용할 수 있습니다.
 
     * Hadoop v2.7.3
     * HBase v1.1.2
@@ -63,7 +62,7 @@ HDInsight의 2018년 6월 릴리스는 고객을 위한 많은 새로운 업데�
     * Spark v2.1.0
     * Interactive Hive v2.1.0
 
-* **하이브 보기 2.0에 대한 지원**. Interactive Hive의 사용자 환경이 개선됩니다. 자세한 내용은 [Hortonworks 설명서](http://docs.hortonworks.com/HDPDocuments/Ambari-2.5.0.3/bk_ambari-views/content/ch_using_hive_view.html)를 참조하세요.
+* **하이브 보기 2.0에 대한 지원**. Interactive Hive의 사용자 환경이 개선됩니다. 자세한 내용은 [Hortonworks 설명서](https://docs.hortonworks.com/HDPDocuments/Ambari-2.5.0.3/bk_ambari-views/content/ch_using_hive_view.html)를 참조하세요.
 
 * **Hive LLAP를 통한 성능 향상**. 자세한 내용은 [Hortonworks 설명서](https://hortonworks.com/blog/top-5-performance-boosters-with-apache-hive-llap/)를 참조하세요.
 
@@ -87,11 +86,11 @@ HDInsight의 2018년 6월 릴리스는 고객을 위한 많은 새로운 업데�
 
 
 ## <a name="02282017---release-of-spark-21-on-hdinsight-36-preview"></a>2017/02/28 - HDInsight 3.6(Preview)의 Spark 2.1 릴리스
-* [Spark 2.1](http://spark.apache.org/releases/spark-release-2-1-0.html)에서는 이전 버전에서 발생했던 수많은 안정성 및 유용성 문제가 개선되었습니다. 또한 Spark Core, SQL, ML 및 스트리밍 등 모든 Spark 워크로드 간에 새로운 기능을 적용할 수 있습니다.
+* [Spark 2.1](https://spark.apache.org/releases/spark-release-2-1-0.html)에서는 이전 버전에서 발생했던 수많은 안정성 및 유용성 문제가 개선되었습니다. 또한 Spark Core, SQL, ML 및 스트리밍 등 모든 Spark 워크로드 간에 새로운 기능을 적용할 수 있습니다.
 * 구조화된 스트리밍으로 이벤트 시간 워터마크 및 Kafka 0.10 커넥터 지원을 포함하며 확장성이 향상되었습니다.
-* 이제 Spark SQL 분할이 새로운 확장성 있는 파티션 처리 메커니즘을 사용하여 처리됩니다. 업그레이드 방법에 대한 자세한 내용은 [여기](http://spark.apache.org/releases/spark-release-2-1-0.html)를 참조하세요.
+* 이제 Spark SQL 분할이 새로운 확장성 있는 파티션 처리 메커니즘을 사용하여 처리됩니다. 업그레이드 방법에 대한 자세한 내용은 [여기](https://spark.apache.org/releases/spark-release-2-1-0.html)를 참조하세요.
 * 현재 Azure HDInsight 3.6 Preview에서 Spark 2.1은 ODBC 드라이버를 사용한 BI 도구 연결을 지원하지 않습니다.
-* Spark 2.1 클러스터에서 Azure Data Lake Store 액세스는 이 미리 보기에서 지원되지 않습니다.
+* Spark 2.1 클러스터에서 Azure Data Lake Storage 액세스는 이 미리 보기에서 지원되지 않습니다.
 
 
 ## <a name="11182016---release-of-spark-201-on-hdinsight-35"></a>2016/11/18 - HDInsight 3.5의 Spark 2.0.1 릴리스
@@ -110,9 +109,4 @@ Spark 2.0.1은 Spark 클러스터(HDInsight 버전 3.5)에서 사용할 수 있�
 * HDInsight의 R 서버 클러스터 프로비전이 간소화되었습니다.
 * 이제 HDInsight의 R 서버를 일반 HDInsight "R 서버" 클러스터 유형으로 사용할 수 있으며 별도의 HDInsight 애플리케이션으로는 더 이상 설치되지 않습니다. 이제 에지 노드 및 R 서버 이진 파일이 R 서버 클러스터 배포의 일부로 프로비전됩니다. 그러면 프로비전의 속도 및 안정성이 향상됩니다. R 서버에 대한 가격 책정 모델이 이에 따라 업데이트됩니다.
 * R 서버 클러스터 유형 가격은 표준 계층 가격 및 R 서버 추가 요금 가격을 따릅니다. 이러한 변경은 R 서버의 실효 가격에 영향을 주지 않으며 청구서에 요금이 표시되는 방식만 변경합니다. 기존의 모든 R 서버 클러스터는 계속 작동하고 Resource Manager 템플릿은 사용 중단 공지가 있을 때까지 계속 작동합니다. **새로운 Resource Manager 템플릿을 사용하도록 스크립트 배포를 업데이트하는 것이 좋습니다.**
-
-
-
-
-
 

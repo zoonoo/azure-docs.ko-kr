@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: f86107c5fcd4c0175d59689718dca15736aa3b17
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: fb4fed2aa6b80ceb37dde1205996a16f0c30bdd4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497354"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994717"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>SLES 12 SP3에서 SAP HANA 스케일 아웃 고가용성 설정 확인 및 문제 해결 
 
@@ -173,7 +173,7 @@ nc: connect to 10.0.2.40 port 40002 (tcp) failed: Connection refused
 
 테스트 시스템에 있는 **corosync.conf**의 내용은 예제입니다.
 
-첫 번째 섹션은 [클러스터 설치](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation), 11단계의 설명대로 **totem**입니다. **mcastaddr**에 대한 값은 무시할 수 있습니다. 기존 항목만 유지합니다. **token** 및 **consensus**에 대한 항목은[Microsoft Azure SAP HANA 설명서][sles-pacemaker-ha-guide]에 따라 설정해야 합니다.
+첫 번째 섹션은 [클러스터 설치](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation), 11단계의 설명대로 **totem**입니다. **mcastaddr**에 대한 값은 무시할 수 있습니다. 기존 항목만 유지합니다. **token** 및 **consensus**에 대한 항목은[Microsoft Azure SAP HANA 설명서][sles-pacemaker-ha-guide]에 따라 설정해야 합니다.
 
 <pre><code>
 totem {
@@ -280,7 +280,7 @@ systemctl restart corosync
 
 ## <a name="sbd-device"></a>SBD 디바이스
 
-Azure VM에서 SBD 디바이스를 설정하는 방법은 [SBD 펜싱](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing)에 설명되어 있습니다.
+Azure VM에서 SBD 디바이스를 설정하는 방법은 [SBD 펜싱](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing)에 설명되어 있습니다.
 
 먼저, 클러스터의 모든 노드에 대해 ACL 항목이 있는 경우 SBD 서버 VM을 확인합니다. SBD 서버 VM에서 다음 명령을 실행합니다.
 
@@ -423,7 +423,7 @@ sbd -d /dev/sdm message hso-hana-vm-s2-2 test
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
 </code></pre>
 
-**/etc/sysconfig/sbd**에 있는 항목이 [Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing)의 설명과 일치하는지 확인합니다. **/etc/iscsi/iscsid.conf**의 startup(시작) 설정이 automatic으로 설정되어 있는지 확인합니다.
+**/etc/sysconfig/sbd**에 있는 항목이 [Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing)의 설명과 일치하는지 확인합니다. **/etc/iscsi/iscsid.conf**의 startup(시작) 설정이 automatic으로 설정되어 있는지 확인합니다.
 
 다음 항목은 **/etc/sysconfig/sbd**에 중요합니다. 필요한 경우 **id** 값을 조정합니다.
 
@@ -458,7 +458,7 @@ node.startup = automatic
 5. 초기자 이름 위에 **Service Start**(서비스 시작) 값이 **When Booting**(부팅 시)로 설정되어 있는지 확인합니다.
 6. 그렇지 않은 경우 **Manually**(수동) 대신 **When Booting**(부팅 시)으로 설정합니다.
 7. 그런 다음, 위쪽 탭을 **Connected Targets**(연결된 대상)으로 전환합니다.
-8. **Connected Targets**(연결된 대상) 화면에서 SBD 디바이스에 대한 항목이 이 샘플과 같이 표시됩니다(**10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**).
+8. **연결된 대상** 화면에서 이 샘플과 같은 SBD 디바이스에 대한 항목 (**10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**)이 표시됩니다.
 9. **Start-Up**(시작) 값이 **on boot**(부팅)로 설정되어 있는지 확인합니다.
 10. 그렇지 않은 경우 **Edit**(편집)을 선택하여 변경합니다.
 11. 변경 내용을 저장하고 YaST2를 종료합니다.

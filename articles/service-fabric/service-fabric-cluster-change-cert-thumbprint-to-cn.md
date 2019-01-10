@@ -12,17 +12,20 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/24/2018
+ms.date: 01/01/2019
 ms.author: ryanwi
-ms.openlocfilehash: 378f4609efcc9e9f0652b9ec68f5374b1fe3626a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6e596b0db1a03efbf6b029487ed956105b632edb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959651"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972807"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>인증서 지문에서 일반 이름으로 클러스터 변경
 두 인증서가 동일한 지문을 사용하면 안 됩니다. 이렇게 될 경우 클러스터 인증서가 롤오버되거나 관리에 어려움이 발생합니다. 그러나 여러 인증서가 동일한 일반 이름 또는 제목을 사용하는 것은 가능합니다.  배포된 클러스터를 인증서 지문에서 인증서 일반 이름으로 전환하면 인증서 관리 방법이 훨씬 간단해집니다. 이 문서에서는 인증서 지문 대신 인증서 일반 이름을 사용하도록 실행 중인 Service Fabric 클러스터를 업데이트하는 방법을 설명합니다.
+
+>[!NOTE]
+> 템플릿에 두 개의 지문이 선언된 경우 두 개의 배포를 수행해야 합니다.  첫 번째 배포는 이 문서의 단계를 따르기 전에 수행합니다.  첫 번째 배포는 템플릿의 **thumbprint** 속성을 사용 중인 인증서로 설정하고 **thumbprintSecondary** 속성을 제거합니다.  두 번째 배포에서 이 문서의 단계를 수행합니다.
  
 ## <a name="get-a-certificate"></a>인증서 얻기
 먼저 [CA(인증 기관)](https://wikipedia.org/wiki/Certificate_authority)에서 인증서를 얻습니다.  인증서 일반 이름이 클러스터의 호스트 이름이어야 합니다.  예: "myclustername.southcentralus.cloudapp.azure.com".  

@@ -8,17 +8,19 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: ee0d46cd07de4e9b123357bcc4ee9d1e51926f49
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: eeaedc84e860cebc0b001300ace4fe1594375af2
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312979"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999410"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
 
 이 문서에 설명된 단계를 완료하기 전에 [Azure Files 배포에 대한 계획](storage-files-planning.md) 및 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)을 읽어보는 것이 좋습니다.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 * Azure 파일 동기화를 배포하려는 영역과 동일한 영역에 Azure 저장소 계정 및 Azure 파일 공유가 있어야 합니다. 자세한 내용은 다음을 참조하세요.
@@ -36,12 +38,12 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
     > [!Note]  
     > Azure 파일 동기화는 Windows Server 2012 R2 또는 Windows Server 2016에서 PowerShell 6+를 아직 지원하지 않습니다.
-* Azure 파일 동기화와 함께 사용할 서버의 AzureRM PowerShell 모듈. AzureRM PowerShell 모듈을 설치하는 자세한 방법은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)을 참조하세요. 항상 최신 버전의 Azure PowerShell 모듈을 설치하는 것이 좋습니다. 
+* Azure 파일 동기화와 함께 사용할 서버의 Azure PowerShell 모듈. Azure PowerShell 모듈을 설치하는 자세한 방법은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-Az-ps)을 참조하세요. 항상 최신 버전의 Azure PowerShell 모듈을 설치하는 것이 좋습니다. 
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Azure 파일 동기화에 사용할 Windows Server 준비
 장애 조치(failover) 클러스터의 각 서버 노드를 포함하여 Azure 파일 동기화에 사용할 각 서버에 대해 **Internet Explorer 보안 강화 구성**을 사용하지 않도록 설정합니다. 초기 서버 등록에만 필요합니다. 서버가 등록된 후에 사용하도록 다시 설정할 수 있습니다.
 
-# <a name="portaltabportal"></a>[포털](#tab/portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 1. [서버 관리자]를 엽니다.
 2. **로컬 서버**를 클릭합니다.  
     ![서버 관리자 UI 왼쪽에 있는 "로컬 서버"](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
@@ -50,7 +52,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 4. **Internet Explorer 보안 강화 구성** 대화 상자에서 **관리자**와 **사용자**에 대해 **사용 안 함**을 선택합니다.  
     ![“해제"가 선택된 Internet Explorer 보안 강화 구성 팝업 창](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-3.png)
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Internet Explorer 보안 강화 구성을 해제하려면 관리자 권한 PowerShell 세션에서 다음 명령을 실행합니다.
 
 ```PowerShell
@@ -73,7 +75,7 @@ Stop-Process -Name iexplore -ErrorAction SilentlyContinue
 ## <a name="install-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트 설치
 Azure 파일 동기화 에이전트는 Windows Server가 Azure 파일 공유와 동기화되도록 하는 다운로드 가능 패키지입니다. 
 
-# <a name="portaltabportal"></a>[포털](#tab/portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 [Microsoft 다운로드 센터](https://go.microsoft.com/fwlink/?linkid=858257)에서 에이전트를 다운로드할 수 있습니다. 다운로드가 완료되면 MSI 패키지를 두 번 클릭하여 Azure 파일 동기화 에이전트 설치를 시작합니다.
 
 > [!Important]  
@@ -85,7 +87,7 @@ Azure 파일 동기화 에이전트는 Windows Server가 Azure 파일 공유와 
 
 Azure 파일 동기화 에이전트 설치를 마치면 서버 등록 UI가 자동으로 열립니다. 등록하려면 저장소 동기화 서비스가 있어야 합니다. 저장소 동기화 서비스를 만드는 방법은 다음 섹션을 참조하세요.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 다음 PowerShell 코드를 실행하여 사용하는 OS에 맞는 Azure 파일 동기화 에이전트 버전을 다운로드하고 시스템에 설치합니다.
 
 > [!Important]  
@@ -131,7 +133,7 @@ Azure 파일 동기화 배포에서 가장 먼저 할 일은 선택한 그룹의
 > [!Note]
 > 저장소 동기화 서비스는 배포된 구독 및 리소스 그룹에서 액세스 권한을 상속합니다. 누가 액세스 권한을 갖고 있는지 신중하게 확인하는 것이 좋습니다. 쓰기 액세스 권한이 있는 엔터티는 등록된 서버에서 이 저장소 동기화 서비스로 새 파일 집합의 동기화를 시작하고, 파일에 액세스할 수 있는 Azure 저장소로 데이터가 흐르도록 만들 수 있습니다.
 
-# <a name="portaltabportal"></a>[포털](#tab/portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 저장소 동기화 서비스를 배포하려면 [Azure Portal](https://portal.azure.com/)로 이동하여 *새로 만들기*를 클릭한 후 Azure 파일 동기화를 검색합니다. 검색 결과에서 **Azure 파일 동기화**를 선택한 후 **만들기**를 선택하여 **저장소 동기화 배포** 탭을 엽니다.
 
 열리는 창에 다음 정보를 입력합니다.
@@ -143,14 +145,14 @@ Azure 파일 동기화 배포에서 가장 먼저 할 일은 선택한 그룹의
 
 작업이 끝나면 **만들기**를 선택하여 저장소 동기화 서비스를 배포합니다.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
-Azure 파일 동기화 관리 cmdlet과 상호 작용하려면 DLL을 가져오고 Azure 파일 동기화 관리 컨텍스트를 만들어야 합니다. Azure 파일 동기화 관리 cmdlet은 아직 AzureRM PowerShell 모듈의 일부가 아니기 때문입니다.
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+Azure 파일 동기화 관리 cmdlet과 상호 작용하려면 DLL을 가져오고 Azure 파일 동기화 관리 컨텍스트를 만들어야 합니다. Azure 파일 동기화 관리 cmdlet은 아직 Azure PowerShell 모듈의 일부가 아니기 때문입니다.
 
 > [!Note]  
-> Azure 파일 동기화 관리 cmdlet을 포함하고 있는 StorageSync.Management.PowerShell.Cmdlets.dll 패키지는 승인되지 않은 동사(`Login`)를 사용하는 cmdlet을 (의도적으로) 포함합니다. `Login-AzureRmStorageSync` 이름은 AzureRM PowerShell 모듈의 `Login-AzureRmAccount` cmdlet 별칭과 일치시키기 위해 선택되었습니다. 이 오류 메시지(및 cmdlet)가 제거되고 Azure 파일 동기화 에이전트는 AzureRM PowerShell 모듈에 추가됩니다.
+> Azure 파일 동기화 관리 cmdlet을 포함하고 있는 StorageSync.Management.PowerShell.Cmdlets.dll 패키지는 승인되지 않은 동사(`Login`)를 사용하는 cmdlet을 (의도적으로) 포함합니다. `Login-AzureStorageSync` 이름은 Azure PowerShell 모듈의 `Login-AzAccount` cmdlet 별칭과 일치시키기 위해 선택되었습니다. 이 오류 메시지(및 cmdlet)가 제거되고 Azure 파일 동기화 에이전트는 Azure PowerShell 모듈에 추가됩니다.
 
 ```PowerShell
-$acctInfo = Login-AzureRmAccount
+$acctInfo = Login-AzAccount
 
 # The location of the Azure File Sync Agent. If you have installed the Azure File Sync 
 # agent to a non-standard location, please update this path.
@@ -164,7 +166,7 @@ Import-Module "$agentPath\StorageSync.Management.PowerShell.Cmdlets.dll"
 $subID = $acctInfo.Context.Subscription.Id
 
 # this variable holds your Azure Active Directory tenant ID
-# use Login-AzureRMAccount to get the ID from that context
+# use Login-AzAccount to get the ID from that context
 $tenantID = $acctInfo.Context.Tenant.Id
 
 # this variable holds the Azure region you want to deploy 
@@ -174,7 +176,7 @@ $region = '<Az_Region>'
 # Check to ensure Azure File Sync is available in the selected Azure
 # region.
 $regions = @()
-Get-AzureRmLocation | ForEach-Object { 
+Get-AzLocation | ForEach-Object { 
     if ($_.Providers -contains "Microsoft.StorageSync") { 
         $regions += $_.Location 
     } 
@@ -189,12 +191,12 @@ $resourceGroup = '<RG_Name>'
 
 # Check to ensure resource group exists and create it if doesn't
 $resourceGroups = @()
-Get-AzureRmResourceGroup | ForEach-Object { 
+Get-AzResourceGroup | ForEach-Object { 
     $resourceGroups += $_.ResourceGroupName 
 }
 
 if ($resourceGroups -notcontains $resourceGroup) {
-    New-AzureRmResourceGroup -Name $resourceGroup -Location $region
+    New-AzResourceGroup -Name $resourceGroup -Location $region
 }
 
 # the following command creates an AFS context 
@@ -207,7 +209,7 @@ Login-AzureRmStorageSync `
     -Location $region
 ```
 
-`Login-AzureRmStorageSync` 을 사용하여 Azure 파일 동기화 컨텍스트를 만든 후에는 저장소 동기화 서비스를 만들 수 있습니다. `<my-storage-sync-service>`를 원하는 저장소 동기화 서비스 이름으로 바꿔야 합니다.
+`Login-AzureR,StorageSync` 을 사용하여 Azure 파일 동기화 컨텍스트를 만든 후에는 저장소 동기화 서비스를 만들 수 있습니다. `<my-storage-sync-service>`를 원하는 저장소 동기화 서비스 이름으로 바꿔야 합니다.
 
 ```PowerShell
 $storageSyncName = "<my-storage-sync-service>"
@@ -222,7 +224,7 @@ New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
 > [!Note]
 > 서버 등록 시 Azure 자격 증명을 사용하여 스토리지 동기화 서비스와 Windows Server 사이에 트러스트 관계가 생성되지만, 그 이후 서버는 고유의 ID를 만들어서 사용하며 이 ID는 서버의 등록 상태가 유지되고 현재 공유 액세스 서명 토큰(Storage SAS)이 유효한 동안에는 유효성을 유지합니다. 서버가 등록되지 않으면 새 SAS 토큰을 발급할 수 없으며, 따라서 Azure 파일 공유에 액세스하는 서버 기능이 제거되고 모든 동기화가 중지됩니다.
 
-# <a name="portaltabportal"></a>[포털](#tab/portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 Azure 파일 동기화 에이전트 설치 후 서버 등록 UI가 자동으로 열립니다. 그렇지 않으면 다음 파일 위치에서 수동으로 열 수 있습니다. C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. 서버 등록 UI가 열리면 **로그인**을 선택하여 시작합니다.
 
 로그인한 후에 다음 정보를 묻는 메시지가 나타납니다.
@@ -235,7 +237,7 @@ Azure 파일 동기화 에이전트 설치 후 서버 등록 UI가 자동으로 
 
 적절한 정보를 선택한 후 **등록**을 선택하여 서버 등록을 완료합니다. 등록 프로세스의 일부로 추가 로그인을 요구하는 메시지가 표시됩니다.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```PowerShell
 $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $storageSyncName
 ```
@@ -250,7 +252,7 @@ $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $s
 > [!Important]  
 > 동기화 그룹의 클라우드 엔드포인트 또는 서버 엔드포인트를 변경할 수 있고, 파일이 동기화 그룹의 다른 엔드포인트와 동기화되도록 할 수 있습니다. 클라우드 엔드포인트(Azure 파일 공유)를 직접 변경하는 경우 변경 사항은 먼저 Azure 파일 동기화 변경 내용 검색 작업으로 검색되어야 합니다. 변경 내용 검색 작업은 클라우드 엔드포인트에 대해 24시간마다 한 번씩만 시작됩니다. 자세한 내용은 [Azure Files 질문과 대답](storage-files-faq.md#afs-change-detection)을 참조하세요.
 
-# <a name="portaltabportal"></a>[포털](#tab/portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 동기화 그룹을 만들려면 [Azure Portal](https://portal.azure.com/)에서 저장소 동기화 서비스로 이동한 후 **+동기화 그룹**을 선택합니다.
 
 ![Azure Portal에서 새 동기화 그룹 만들기](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
@@ -262,7 +264,7 @@ $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $s
 - **스토리지 계정**: **스토리지 계정 선택**을 선택하면 동기화할 Azure 파일 공유가 있는 스토리지 계정을 선택할 수 있는 또 다른 창이 나타납니다.
 - **Azure 파일 공유**: 동기화할 Azure 파일 공유의 이름입니다.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 동기화 그룹을 만들려면 다음 PowerShell을 실행합니다. `<my-sync-group>`을 원하는 동기화 그룹 이름으로 바꿉니다.
 
 ```PowerShell
@@ -275,12 +277,12 @@ New-AzureRmStorageSyncGroup -SyncGroupName $syncGroupName -StorageSyncService $s
 ```PowerShell
 # Get or create a storage account with desired name
 $storageAccountName = "<my-storage-account>"
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup | Where-Object {
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup | Where-Object {
     $_.StorageAccountName -eq $storageAccountName
 }
 
 if ($storageAccount -eq $null) {
-    $storageAccount = New-AzureRmStorageAccount `
+    $storageAccount = New-AzStorageAccount `
         -Name $storageAccountName `
         -ResourceGroupName $resourceGroup `
         -Location $region `
@@ -291,12 +293,12 @@ if ($storageAccount -eq $null) {
 
 # Get or create an Azure file share within the desired storage account
 $fileShareName = "<my-file-share>"
-$fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object {
+$fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $fileShareName -and $_.IsSnapshot -eq $false
 }
 
 if ($fileShare -eq $null) {
-    $fileShare = New-AzureStorageShare -Context $storageAccount.Context -Name $fileShareName
+    $fileShare = New-AzStorageShare -Context $storageAccount.Context -Name $fileShareName
 }
 
 # Create the cloud endpoint
@@ -312,7 +314,7 @@ New-AzureRmStorageSyncCloudEndpoint `
 ## <a name="create-a-server-endpoint"></a>서버 엔드포인트 만들기
 서버 엔드포인트는 서버 볼륨의 폴더와 같이 등록된 서버의 특정 위치를 나타냅니다. 서버 엔드포인트는 등록된 서버(탑재된 공유가 아닌)의 경로여야 하며, 클라우드 계층화를 사용하려면 이 경로가 비 시스템 볼륨에 있어야 합니다. NAS(Network Attached Storage)는 지원되지 않습니다.
 
-# <a name="portaltabportal"></a>[포털](#tab/portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 서버 엔드포인트를 추가하려면 새로 만든 동기화 그룹으로 이동한 후 **서버 엔드포인트 추가**를 클릭합니다.
 
 ![동기화 그룹 창에서 새 서버 엔드포인트 추가](media/storage-sync-files-deployment-guide/create-sync-group-2.png)
@@ -326,7 +328,7 @@ New-AzureRmStorageSyncCloudEndpoint `
 
 서버 엔드포인트를 추가하려면 **만들기**를 선택합니다. 이제 Azure 파일 공유 및 Windows Server에서 파일이 동기화 상태로 유지됩니다. 
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 다음 PowerShell 명령을 실행하여 서버 엔드포인트를 만들고, `<your-server-endpoint-path>` 및 `<your-volume-free-space>`를 원하는 값으로 바꿉니다.
 
 ```PowerShell

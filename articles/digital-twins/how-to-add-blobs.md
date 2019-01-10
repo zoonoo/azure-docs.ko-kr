@@ -1,19 +1,20 @@
 ---
-title: Azure Digital Twins에서 개체에 Blob 추가 | Microsoft Docs
+title: Azure Digital Twins에서 Blob을 개체에 추가하는 방법 | Microsoft Docs
 description: Azure Digital Twins에서 Blob을 개체에 추가하는 방법을 알아봅니다.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/28/2018
 ms.author: adgera
-ms.openlocfilehash: 8a68ba35ddf7caacbf2339d87c5aeef80f470ba4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.custom: seodec18
+ms.openlocfilehash: 604093dcec048b0991bbc9beac3ef998cc47e351
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725627"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974521"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Azure Digital Twins에서 개체에 Blob 추가
 
@@ -21,10 +22,7 @@ Blob은 그림 및 로그 같은 일반적인 파일 형식의 비정형 표현�
 
 Azure Digital Twins는 Blobs를 디바이스, 공간 및 사용자에 연결할 수 있습니다. Blob은 사용자, 디바이스 사진, 비디오, 맵 또는 로그에 대한 프로필 사진을 나타낼 수 있습니다.
 
-> [!NOTE]
-> 이 문서에서는 다음과 같이 가정합니다.
-> * 인스턴스가 관리 API 요청을 받도록 올바르게 구성되어 있습니다.
-> * 원하는 REST 클라이언트를 사용하여 올바르게 인증했습니다.
+[!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
 ## <a name="uploading-blobs-an-overview"></a>Blob 업로드: 개요
 
@@ -93,9 +91,9 @@ This is my blob content. In this case, some text, but I could also be uploading 
 --USER_DEFINED_BOUNDARY--
 ```
 
-| 매개 변수 값 | 다음 항목으로 교체 |
+| 값 | 다음 항목으로 교체 |
 | --- | --- |
-| *USER_DEFINED_BOUNDARY* | 다중 파트 콘텐츠 경계 이름 |
+| USER_DEFINED_BOUNDARY | 다중 파트 콘텐츠 경계 이름 |
 
 다음 코드는 동일한 Blob 업로드의 .NET 구현으로 [MultipartFormDataContent](https://docs.microsoft.com/dotnet/api/system.net.http.multipartformdatacontent) 클래스를 사용합니다.
 
@@ -116,7 +114,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 ## <a name="api-endpoints"></a>API 엔드포인트
 
-다음 섹션에서는 핵심 엔드포인트 및 해당 기능을 살펴봅니다.
+다음 섹션에서는 핵심 Blob 관련 API 엔드포인트 및 해당 기능에 대해 설명합니다.
 
 ### <a name="devices"></a>디바이스
 
