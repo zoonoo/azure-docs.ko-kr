@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: fb8e2b11ce6178c10fb9dc7d13c5c7d817ece821
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2a88b130c92f7b9074fd248afc97f0ea6b4c13bb
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344111"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042141"
 ---
 # <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터를 쿼리하는 SQL 쿼리 예제
 
@@ -1736,7 +1736,7 @@ Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑�
 다음은 SQL .NET SDK에 포함된 LINQ 공급자에서 지원되는 LINQ 연산자의 목록입니다.
 
 * **Select**: 프로젝션에서 개체 생성을 포함하는 SQL SELECT로 변환합니다.
-* **Where**: 필터에서 SQL WHERE로 변환하고, &&, || 및 ! 간의 SQL 연산자로의 변환을 지원합니다.
+* **Where**: 필터에서 SQL WHERE로 변환하고, &&, || 및 ! 간의 SQL 연산자로 변환을 지원합니다.
 * **SelectMany**: SQL JOIN 절에 대한 배열 해제를 허용합니다. 배열 요소를 필터링하는 데 체인/중첩 식을 사용할 수 있습니다.
 * **OrderBy 및 OrderByDescending**: ORDER BY 오름차순/내림차순으로 변환합니다.
 * 집계를 위한 **Count**, **Sum**, **Min**, **Max** 및 **Average** 연산자와 해당 비동기 동급 연산자 **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** 및 **AverageAsync**
