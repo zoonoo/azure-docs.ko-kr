@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 1c90c85f667e18a80c4673a73867ee2d6b3b6294
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1d4760eb6490ce458e699ad9bc59a57cb473ef6d
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189900"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104125"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결
 
@@ -91,7 +91,7 @@ Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](https
 
 |MMA 관련 옵션                   |메모         |
 |---------------------------------------|--------------|
-| NOAPM=1                               | 선택적 매개 변수. .NET 응용 프로그램 성능 모니터링 없이 에이전트를 설치합니다.|   
+| NOAPM=1                               | 선택적 매개 변수. .NET 애플리케이션 성능 모니터링 없이 에이전트를 설치합니다.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = 작업 영역에 보고하도록 에이전트 구성                |
 |OPINSIGHTS_WORKSPACE_ID                | 추가할 작업 영역의 작업 영역 ID(guid)                    |
 |OPINSIGHTS_WORKSPACE_KEY               | 작업 영역에서 처음 인증하는 데 사용되는 작업 영역 키 |
@@ -128,9 +128,9 @@ Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](https
 
 32비트 및 64비트 버전의 에이전트 패키지에는 서로 다른 제품 코드가 있으며 릴리스된 새 버전에도 고유한 값이 있습니다.  제품 코드는 애플리케이션 또는 제품의 보안 주체 ID이며 Windows Installer **ProductCode** 속성으로 표시되는 GUID입니다.  **MMAgent.ps1** 스크립트의 `ProductId` 값은 32비트 또는 64비트 에이전트 설치 관리자 패키지의 제품 코드와 일치해야 합니다.
 
-에이전트 설치 패키지에서 제품 코드를 직접 검색하려면 Windows 소프트웨어 개발 키트의 구성 요소인 [Windows Installer 개발자용 Windows SDK 구성 요소](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx)에서 Orca.exe를 사용하거나 MVP(Microsoft Valuable Professional)에서 작성된 [예제 스크립트](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/)에 따라 PowerShell을 사용할 수 있습니다.  두 가지 방법에서 먼저 **MOMagent.msi** 파일을 MMASetup 설치 패키지에서 추출해야 합니다.  이는 앞서 첫 번째 단계의 [명령줄을 사용하여 에이전트 설치](#install-the-agent-using-the-command-line) 섹션에 나와 있습니다.  
+에이전트 설치 패키지에서 제품 코드를 직접 검색하려면 Windows 소프트웨어 개발 키트의 구성 요소인 [Windows Installer 개발자용 Windows SDK 구성 요소](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx)에서 Orca.exe를 사용하거나 MVP(Microsoft Valuable Professional)에서 작성된 [예제 스크립트](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/)에 따라 PowerShell을 사용할 수 있습니다.  두 가지 방법에서 먼저 **MOMagent.msi** 파일을 MMASetup 설치 패키지에서 추출해야 합니다.  이는 앞서 첫 번째 단계의 [명령줄을 사용하여 에이전트 설치](#install-the-agent-using-the-command-line) 섹션에 나와 있습니다.  
 
-1. [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration)에서 xPSDesiredStateConfiguration DSC 모듈을 Azure Automation으로 가져옵니다.  
+1. [https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration)에서 xPSDesiredStateConfiguration DSC 모듈을 Azure Automation으로 가져옵니다.  
 2.  *OPSINSIGHTS_WS_ID* 및 *OPSINSIGHTS_WS_KEY*의 Azure Automation 변수 자산을 만듭니다. *OPSINSIGHTS_WS_ID*를 Log Analytics 작업 영역 ID에 설정하고 *OPSINSIGHTS_WS_KEY*를 작업 영역의 기본 키에 설정합니다.
 3.  스크립트를 복사하여 MMAgent.ps1로 저장합니다.
 

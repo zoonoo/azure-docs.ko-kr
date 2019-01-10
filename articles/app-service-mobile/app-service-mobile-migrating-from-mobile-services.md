@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 17fbaa7efcdd9e0de675defb3958a61f29bbc3fe
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1c519c658db29152f7ecafa8ac244c922cf4cd9f
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714324"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118995"
 ---
 # <a name="article-top"></a>기존 Azure Mobile Services를 Azure App Service로 마이그레이션
 [Azure App Service의 일반적인 가용성]을 사용하여 Azure Mobile Services 사이트를 쉽게 원래 위치로 마이그레이션하여 Azure App Service의 모든 기능을 활용할 수 있습니다.  이 문서에서는 Azure Mobile Services에서 Azure App Service에 사이트를 마이그레이션하는 경우의 결과를 설명합니다.
@@ -374,7 +374,7 @@ Traffic Manager 프로필을 만들면 프로필에 마이그레이션된 모바
 
 <!-- Links -->
 [App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[Application Insights]: ../application-insights/app-insights-overview.md
+[Application Insights]: ../azure-monitor/app/app-insights-overview.md
 [자동 크기 조정]: ../app-service/web-sites-scale.md
 [Azure App Service]: ../app-service/overview.md
 [Azure 클래식 포털]: https://manage.windowsazure.com

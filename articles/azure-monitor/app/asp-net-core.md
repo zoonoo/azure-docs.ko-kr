@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 19830ade92e5d2a046abc8a2ad00c086a5bf62ec
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 24132fdb23ff89045f2b497327997d95e4ceecac
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972790"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054846"
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core용 Application Insights
 
@@ -62,7 +62,7 @@ ASP.NET Core 2+ 기반 프로젝트가 있는 Visual Studio 2015 업데이트 2 
    ![Visual Studio Application Insights 검색 스크린샷](./media/asp-net-core/006-search.png)
 
 > [!NOTE]
-> Application Insights를 ASP.NET Core 프로젝트에 추가하기 전에 [Application Insights 검색](../../application-insights/app-insights-visual-studio.md) 및 [CodeLens](../../application-insights/app-insights-visual-studio-codelens.md) 같은 기능을 Visual Studio에서 켜는 방법에 대해 자세히 알려면 [Application Insights 검색 계속](#application-insights-search-continued)을 참조하세요.
+> Application Insights를 ASP.NET Core 프로젝트에 추가하기 전에 [Application Insights 검색](../../azure-monitor/app/visual-studio.md) 및 [CodeLens](../../azure-monitor/app/visual-studio-codelens.md) 같은 기능을 Visual Studio에서 켜는 방법에 대해 자세히 알려면 [Application Insights 검색 계속](#application-insights-search-continued)을 참조하세요.
 
 ## <a name="add-application-insights-telemetry"></a>Application Insights 원격 분석 추가
 
@@ -404,7 +404,7 @@ Visual Studio.NET Core 프로젝트에서 Application Insights를 완전히 사�
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
 
 ## <a name="next-steps"></a>다음 단계
-* [사용자 흐름을 탐색](../../application-insights/app-insights-usage-flows.md)하여 사용자가 앱을 탐색하는 방식을 이해합니다.
+* [사용자 흐름을 탐색](../../azure-monitor/app/usage-flows.md)하여 사용자가 앱을 탐색하는 방식을 이해합니다.
 * 예외가 throw되는 시점의 소스 코드 및 변수 상태를 확인하려면 [스냅숏 컬렉션을 구성](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications)합니다.
 * [API를 사용](../../azure-monitor/app/api-custom-events-metrics.md) 합니다.
 * [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 사용하여 전 세계에서 사용자 앱을 지속적으로 확인합니다.

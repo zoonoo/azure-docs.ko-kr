@@ -27,7 +27,8 @@
 
 # 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=data-catalog)
-## [REST](/rest/api/datacatalog/)
+## [REST (영문)](/rest/api/datacatalog/)
+## [Resource Manager 템플릿](/azure/templates/microsoft.datacatalog/catalogs)
 ## [검색 구문 참조](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [개발자 개념](data-catalog-developer-concepts.md)
 

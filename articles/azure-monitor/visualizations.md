@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 862380a35dcc4d50dce8d709bd1dbea1aa38e37a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9b160c011a8a9507698443446ad5fe908b32fb9e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728349"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54049965"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure Monitor의 데이터 시각화
 이 문서에서는 Azure Monitor에 저장된 로그 및 메트릭 데이터를 시각화하는 데 사용할 수 있는 방법을 요약해서 보여 줍니다.
@@ -71,7 +71,7 @@ ms.locfileid: "53728349"
 
 
 ## <a name="application-insights-workbooks"></a>Application Insights 통합 문서
-[통합 문서](../application-insights/app-insights-usage-workbooks.md)는 팀 내 데이터, 조사, 공동 작업에 대한 깊이 있는 인사이트를 제공하는 대화형 문서입니다. 통합 문서가 효율적으로 활용되는 구체적인 예는 문제 해결 가이드 및 인시던트 사후 검토에 나와 있습니다.
+[통합 문서](../azure-monitor/app/usage-workbooks.md)는 팀 내 데이터, 조사, 공동 작업에 대한 깊이 있는 인사이트를 제공하는 대화형 문서입니다. 통합 문서가 효율적으로 활용되는 구체적인 예는 문제 해결 가이드 및 인시던트 사후 검토에 나와 있습니다.
 
 ![통합 문서](media/visualizations/workbook.png)
 
@@ -140,7 +140,7 @@ ms.locfileid: "53728349"
 - [Azure Monitor에서 수집하는 데이터](platform/data-collection.md)에 대해 알아봅니다.
 - [Azure 대시보드](../azure-portal/azure-portal-dashboards.md)에 대해 알아봅니다.
 - [Azure Monitor의 뷰](platform/view-designer.md)에 대해 알아봅니다.
-- [Application Insights의 통합 문서](../application-insights/app-insights-usage-workbooks.md)에 대해 알아봅니다.
+- [Application Insights의 통합 문서](../azure-monitor/app/usage-workbooks.md)에 대해 알아봅니다.
 - [Power BI로 로그 데이터 가져오기](../azure-monitor/platform/powerbi.md)에 대해 알아봅니다.
 - [Grafana Azure Monitor 데이터 원본 플러그 인](../azure-monitor/platform/grafana-plugin.md)에 대해 알아봅니다.
 

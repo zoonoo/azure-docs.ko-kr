@@ -4,7 +4,7 @@ description: 몇 분 안에 Linux의 Azure App Service에서 첫 번째 Node.js 
 services: app-service\web
 documentationcenter: ''
 author: msangapu
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/07/2017
+ms.date: 11/20/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c739aa4fb510bd5ebe9e3ffff67f93a2dd49cf0c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: b3c57a9a8912f44dbe7e9261549d034e99356547
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631535"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190581"
 ---
 # <a name="create-a-nodejs-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Node.js 앱 만들기
 
@@ -37,22 +37,6 @@ Cloud Shell에서 이 빠른 시작을 완료하지만 [Azure CLI](/cli/azure/in
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-## <a name="install-web-app-extension-for-cloud-shell"></a>Cloud Shell 사용을 위한 웹앱 확장 설치
-
-이 빠른 시작을 완료하려면 [az web app extension](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add)을 추가해야 합니다. 확장이 이미 설치되어 있는 경우 최신 버전으로 업데이트해야 합니다. 웹앱 확장을 업데이트하려면 `az extension update -n webapp`을 입력합니다.
-
-웹앱 확장을 설치하려면 다음 명령을 실행합니다.
-
-```bash
-az extension add -n webapp
-```
-
-확장이 설치되면 Cloud Shell이 다음 예제와 같은 정보를 표시합니다.
-
-```bash
-The installed extension 'webapp' is in preview.
-```
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 

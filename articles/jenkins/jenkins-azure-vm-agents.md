@@ -3,17 +3,17 @@ title: Azure VM 에이전트를 통해 Jenkins 배포의 크기를 조정합니�
 description: Jenkins Azure VM 에이전트 플러그 인과 함께 Azure Virtual Machines를 사용하여 Jenkins 파이프라인에 추가 용량을 추가합니다.
 ms.service: jenkins
 keywords: Jenkins, Azure, DevOps, 가상 머신, 에이전트
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 46710b3a669b6a00dc1826c55e8d35fe700f312f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 5cfece551f99a0925099b6ef936703e72f078985
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106226"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074668"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Azure VM 에이전트를 통해 요구 사항을 충족하도록 Jenkins 배포의 비율 크기 조정
 

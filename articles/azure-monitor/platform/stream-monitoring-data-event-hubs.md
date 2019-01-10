@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: a39d497c90f49f8699b9d27be175e501973804c5
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 7225bc8121ddab8809ebb1c409a3af59dbcc42f2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811514"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118390"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>이벤트 허브로 Azure 모니터링 데이터를 스트리밍하여 외부 도구에서 사용
 
@@ -26,7 +26,7 @@ Azure Monitor는 Azure 환경의 모든 모니터링 데이터에 액세스할 �
 Azure 환경에서 모니터링 데이터에는 여러 '계층'이 있으며, 각 계층에서 데이터에 액세스하는 방법은 약간 다릅니다. 이러한 계층은 일반적으로 다음과 같이 설명할 수 있습니다.
 
 - **애플리케이션 모니터링 데이터:** Azure에서 작성하고 실행되는 코드의 성능 및 기능에 대한 데이터입니다. 애플리케이션 모니터링 데이터의 예로 성능 추적, 애플리케이션 로그 및 사용자 원격 분석이 있습니다. 애플리케이션 모니터링 데이터는 일반적으로 다음 방법 중 하나로 수집됩니다.
-  - [Application Insights SDK](../../application-insights/app-insights-overview.md)와 같은 SDK를 사용하여 코드를 계측합니다.
+  - [Application Insights SDK](../../azure-monitor/app/app-insights-overview.md)와 같은 SDK를 사용하여 코드를 계측합니다.
   - 애플리케이션이 실행되고 있는 컴퓨터에서 새 애플리케이션 로그를 수신 대기하는 모니터링 에이전트(예: [Windows Azure 진단 에이전트](./../../azure-monitor/platform/diagnostics-extension-overview.md) 또는 [Linux Azure 진단 에이전트](../../virtual-machines/extensions/diagnostics-linux.md))를 실행합니다.
 - **게스트 OS 모니터링 데이터:** 애플리케이션이 실행되고 있는 운영 체제에 대한 데이터입니다. 게스트 OS 모니터링 데이터의 예로 Linux syslog 또는 Windows 시스템 이벤트가 있습니다. 이러한 유형의 데이터를 수집하려면 [Windows Azure 진단 에이전트](./../../azure-monitor/platform/diagnostics-extension-overview.md) 또는 [Linux Azure 진단 에이전트](../../virtual-machines/extensions/diagnostics-linux.md)와 같은 에이전트를 설치해야 합니다.
 - **Azure 리소스 모니터링 데이터:** Azure 리소스의 작업에 대한 데이터입니다. 가상 머신과 같은 일부 Azure 리소스 종류의 경우, Azure 서비스 내부에서 모니터링할 게스트 OS 및 애플리케이션이 있습니다. 네트워크 보안 그룹과 같은 다른 Azure 리소스의 경우, 해당 리소스에서 실행되는 게스트 OS 또는 해당 애플리케이션이 없으므로 리소스 모니터링 데이터가 사용할 수 있는 가장 높은 수준의 데이터입니다. 이 데이터는 [리소스 진단 설정](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)을 사용하여 수집할 수 있습니다.
@@ -98,7 +98,7 @@ Azure 리소스는 두 가지 유형의 모니터링 데이터를 내보냅니�
 
 ## <a name="application-monitoring-data"></a>애플리케이션 모니터링 데이터
 
-애플리케이션 모니터링 데이터를 사용하려면 코드가 SDK를 통해 계측되어야 하므로, 애플리케이션 모니터링 데이터를 Azure의 이벤트 허브로 라우팅하는 범용 솔루션이 없습니다. 그러나 [Azure Application Insights](../../application-insights/app-insights-overview.md)는 Azure 애플리케이션 수준 데이터를 수집하는 데 사용할 수 있는 하나의 서비스입니다. Application Insights를 사용하는 경우 다음을 수행하여 모니터링 데이터를 이벤트 허브로 스트리밍할 수 있습니다.
+애플리케이션 모니터링 데이터를 사용하려면 코드가 SDK를 통해 계측되어야 하므로, 애플리케이션 모니터링 데이터를 Azure의 이벤트 허브로 라우팅하는 범용 솔루션이 없습니다. 그러나 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)는 Azure 애플리케이션 수준 데이터를 수집하는 데 사용할 수 있는 하나의 서비스입니다. Application Insights를 사용하는 경우 다음을 수행하여 모니터링 데이터를 이벤트 허브로 스트리밍할 수 있습니다.
 
 1. 스토리지 계정에 Application Insights 데이터의 [연속 내보내기를 설정](../../azure-monitor/app/export-telemetry.md)합니다.
 
@@ -108,7 +108,7 @@ Azure 리소스는 두 가지 유형의 모니터링 데이터를 내보냅니�
 
 Azure Monitor를 사용하여 모니터링 데이터를 이벤트 허브로 라우팅하면 파트너 SIEM 및 모니터링 도구와 쉽게 통합할 수 있습니다. 대부분의 도구에서는 이벤트 허브 연결 문자열과 Azure 구독에 대한 특정 권한을 사용하여 이벤트 허브에서 데이터를 읽을 수 있습니다. 다음은 Azure Monitor와 통합되는 완전하지 않은 도구 목록입니다.
 
-* **IBM QRadar** - Microsoft Azure DSM 및 Microsoft Azure 이벤트 허브 프로토콜은 [IBM 지원 웹 사이트](http://www.ibm.com/support)에서 다운로드할 수 있습니다. [Azure와의 통합에 대해 여기서 자세히 알아볼 수 있습니다](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+* **IBM QRadar** - Microsoft Azure DSM 및 Microsoft Azure 이벤트 허브 프로토콜은 [IBM 지원 웹 사이트](https://www.ibm.com/support)에서 다운로드할 수 있습니다. [Azure와의 통합에 대해 여기서 자세히 알아볼 수 있습니다](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
 * **Splunk** - Splunk 설정에 따라 두 가지 접근 방법이 있습니다.
     1. [Splunk용 Azure Monitor 추가 기능](https://splunkbase.splunk.com/app/3534/)은 Splunkbase와 오픈 소스 프로젝트에서 사용할 수 있습니다. [해당 설명서는 여기에 있습니다](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
     2. Splunk 인스턴스에 추가 기능을 설치할 수 없는 경우(예: 프록시를 사용 중이거나 Splunk Cloud에서 실행 중인 경우), [이벤트 허브의 새 메시지로 트리거되는 이 함수](https://github.com/Microsoft/AzureFunctionforSplunkVS)를 사용하여 이러한 이벤트를 Splunk HTTP 이벤트 수집기로 전달할 수 있습니다.

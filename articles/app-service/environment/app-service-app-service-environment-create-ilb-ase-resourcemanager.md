@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: d9d94a7ece4b3758792cc0df8e013d14ac40c027
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 34278e02c62bda18a4b4d2f404417e8844dd5fc4
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276366"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156683"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 ILB ASE를 만드는 방법
 
@@ -42,7 +42,7 @@ Azure Resource Manager 템플릿 예제 및 관련 매개 변수 파일은 GitHu
 
 *azuredeploy.parameters.json* 파일에 있는 대부분의 매개 변수는 ILB ASE와 공용 VIP에 바인딩된 ASE 둘 다를 만들 때 공통적으로 적용됩니다.  아래 목록에서는 ILB ASE를 만들 때 특별한 고려 사항이 있거나 고유한 매개 변수를 호출합니다.
 
-* *interalLoadBalancingMode*:  대부분의 경우 이 속성을 3으로 설정합니다. 이것은 포트 80/443의 HTTP/HTTPS 트래픽과 ASE의 FTP 서비스에서 수신하는 컨트롤/데이터 채널 포트가 ILB 할당 가상 네트워크 내부 주소에 바인딩될 것임을 의미합니다.  대신, 이 속성을 2로 설정하면 FTP 서비스 관련 포트(컨트롤 및 데이터 채널)는 ILB 주소에 바인딩되지만, HTTP/HTTPS 트래픽은 공용 VIP에 유지됩니다.
+* *internalLoadBalancingMode*:  대부분의 경우 이 속성을 3으로 설정합니다. 이것은 포트 80/443의 HTTP/HTTPS 트래픽과 ASE의 FTP 서비스에서 수신하는 컨트롤/데이터 채널 포트가 ILB 할당 가상 네트워크 내부 주소에 바인딩될 것임을 의미합니다.  대신, 이 속성을 2로 설정하면 FTP 서비스 관련 포트(컨트롤 및 데이터 채널)는 ILB 주소에 바인딩되지만, HTTP/HTTPS 트래픽은 공용 VIP에 유지됩니다.
 * *dnsSuffix*:  이 매개 변수는 ASE에 할당될 기본 루트 도메인을 정의합니다.  Azure App Service의 공용 변형에서 모든 웹앱용 기본 루트 도메인은 *azurewebsites.net*입니다.  그러나 ILB ASE는 고객의 가상 네트워크 내부에 있으므로 공용 서비스의 기본 루트 도메인을 사용하는 것은 적합하지 않습니다.  대신, ILB ASE에는 회사의 내부 가상 네트워크 내에서 사용하기 적합한 기본 루트 도메인이 있어야 합니다.  예를 들어 가상의 Contoso Corporation은 Contoso의 가상 네트워크 내에서만 확인 가능하고 액세스할 수 있는 앱에 기본 루트 도메인 *internal-contoso.com* 을 사용할 수 있습니다. 
 * *ipSslAddressCount*:  이 매개 변수는 ILB ASE가 단일 ILB 주소만 가지므로 *azuredeploy.json* 파일에서 자동으로 기본값인 0을 갖습니다.  ILB ASE에 대한 명시적 IP-SSL 주소는 없으므로 ILB ASE에 대한 IP-SSL 주소 풀을 0으로 설정해야 합니다. 그러지 않으면 프로비전 오류가 발생합니다. 
 
@@ -128,7 +128,7 @@ SSL 인증서가 생성되고 Base64 인코딩 문자열로 변환되면 [기본
 
 Azure Resource Manager 템플릿이 제출된 후에 변경 내용을 적용하는 데 ASE 프런트 엔드당 대략 40분이 소요됩니다.  예를 들어 두 개의 프런트 엔드를 사용하는 기본 크기의 ASE가 있는 경우 템플릿을 완료하는 데 약 1시간 20분이 소요됩니다.  템플릿이 실행되는 동안에는 ASE 크기를 조정할 수 없습니다.  
 
-템플릿이 완료되면 ILB ASE의 앱에 HTTPS를 통해 액세스할 수 있으며 기본 SSL 인증서를 사용하여 연결이 보호됩니다.  기본 SSL 인증서는 ILB ASE의 앱 주소는 응용 프로그램 이름과 기본 호스트 이름 조합을 사용하여 지정됩니다.  예를 들어 *https://mycustomapp.internal-contoso.com*은 **.internal-contoso.com*에 기본 SSL 인증서를 사용합니다.
+템플릿이 완료되면 ILB ASE의 앱에 HTTPS를 통해 액세스할 수 있으며 기본 SSL 인증서를 사용하여 연결이 보호됩니다.  기본 SSL 인증서는 ILB ASE의 앱 주소는 애플리케이션 이름과 기본 호스트 이름 조합을 사용하여 지정됩니다.  예를 들어 *https://mycustomapp.internal-contoso.com*은 **.internal-contoso.com*에 기본 SSL 인증서를 사용합니다.
 
 그러나 공용 다중 테넌트 서비스에서 실행 중인 앱의 경우와 마찬가지로, 개발자는 개별 앱에 대한 사용자 지정 호스트 이름을 구성한 다음 개별 앱에 대해 고유한 SNI SSL 인증서 바인딩을 구성할 수 있습니다.  
 

@@ -12,26 +12,27 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: ebdfc80d3802ad8eb7da6fb7f152efdaee8d777d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a8000fb26ce5496a9c62ba475b862f8f80adf6b7
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345371"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041767"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance에 대한 VNet 구성
 
 이 항목에서는 Azure SQL Database Managed Instance를 배포할 수 있는 유효한 VNet 및 서브넷을 만드는 방법을 설명합니다.
 
-Azure SQL Database Managed Instance는 Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 내에 배포해야 합니다. 이 배포를 사용하면 다음과 같은 시나리오를 수행할 수 있습니다. 
+Azure SQL Database Managed Instance는 Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 내에 배포해야 합니다. 이 배포를 사용하면 다음과 같은 시나리오를 수행할 수 있습니다.
+
 - 보안 개인 IP 주소.
-- 온-프레미스 네트워크에서 직접 Managed Instance에 연결 
-- 연결된 서버 또는 다른 온-프레미스 데이터 저장소에 Managed Instance 연결 
+- 온-프레미스 네트워크에서 직접 Managed Instance에 연결
+- 연결된 서버 또는 다른 온-프레미스 데이터 저장소에 Managed Instance 연결
 - Azure 리소스에 Managed Instance 연결  
 
   > [!Note]
   > 리소스를 삽입한 후에는 서브넷 크기를 조정할 수 없으므로 첫 번째 인스턴스를 배포하기 전에 [Managed Instance의 서브넷 크기를 결정](sql-database-managed-instance-determine-size-vnet-subnet.md)해야 합니다.
-  > 기존 가상 네트워크를 사용하려는 경우 Managed Instance를 수용하도록 해당 네트워크 구성을 수정해야 합니다. 자세한 내용은 [Managed Instance의 기존 가상 네트워크 수정](sql-database-managed-instance-configure-vnet-subnet.md)을 참조하세요. 
+  > 기존 가상 네트워크를 사용하려는 경우 Managed Instance를 수용하도록 해당 네트워크 구성을 수정해야 합니다. 자세한 내용은 [Managed Instance의 기존 가상 네트워크 수정](sql-database-managed-instance-configure-vnet-subnet.md)을 참조하세요.
 
 ## <a name="create-a-new-virtual-network"></a>새 가상 네트워크 만들기
 
@@ -41,18 +42,18 @@ Azure SQL Database Managed Instance는 Azure [VNet(가상 네트워크)](../virt
 
 2. **Azure에 배포** 단추를 사용하여 Azure 클라우드에 가상 네트워크를 배포합니다.
 
-  <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
+   <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
 
-  이 단추를 사용하면 네트워크 환경을 구성하는 데 사용할 수 있는 양식이 열리는데, 여기서 Managed Instance를 배포할 수 있습니다.
+   이 단추를 사용하면 네트워크 환경을 구성하는 데 사용할 수 있는 양식이 열리는데, 여기서 Managed Instance를 배포할 수 있습니다.
 
-  > [!Note]
-  > 이 Azure Resource Manager 템플릿은 두 개의 서브넷이 있는 가상 네트워크를 배포합니다. **ManagedInstances**라는 서브넷은 Managed Instance를 위해 예약되며, 경로 테이블이 미리 구성되어 있지만 **Default**라는 다른 서브넷은 Managed Instance(예: Azure Virtual Machines)에 액세스해야 하는 다른 리소스에 사용됩니다. **Default** 서브넷이 필요하지 않으면 제거할 수 있습니다.
+   > [!Note]
+   > 이 Azure Resource Manager 템플릿은 두 개의 서브넷이 있는 가상 네트워크를 배포합니다. **ManagedInstances**라는 서브넷은 Managed Instance를 위해 예약되며, 경로 테이블이 미리 구성되어 있지만 **Default**라는 다른 서브넷은 Managed Instance(예: Azure Virtual Machines)에 액세스해야 하는 다른 리소스에 사용됩니다. **Default** 서브넷이 필요하지 않으면 제거할 수 있습니다.
 
 3. 네트워크 환경을 구성합니다. 다음 양식에서 네트워크 환경의 매개 변수를 구성할 수 있습니다.
 
 ![Azure 네트워크 구성](./media/sql-database-managed-instance-vnet-configuration/create-mi-network-arm.png)
 
-VNet 및 서브넷의 이름을 변경하고, 네트워킹 리소스에 연결된 IP 범위를 조정할 수 있습니다. "구매" 단추를 누르면 이 양식이 생성되어 환경을 구성합니다. 두 개의 서브넷 필요하지 않은 경우에는 기본 서브넷을 삭제할 수 있습니다. 
+VNet 및 서브넷의 이름을 변경하고, 네트워킹 리소스에 연결된 IP 범위를 조정할 수 있습니다. "구매" 단추를 누르면 이 양식이 생성되어 환경을 구성합니다. 두 개의 서브넷 필요하지 않은 경우에는 기본 서브넷을 삭제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

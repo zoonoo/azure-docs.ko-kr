@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: f6b7764bf994079f7f3ef9e6243720da0d2f4a28
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 70f8533843668a86607e31a551e6ebf9abeab6c4
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868228"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016633"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>일정에 따라 파이프라인을 실행하는 트리거 만들기
 이 문서에서는 일정 트리거 및 일정 트리거를 만들고 시작 및 모니터링하는 단계에 대한 정보를 제공합니다. 다른 트리거 유형의 경우 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md)를 참조하세요.
@@ -325,10 +324,10 @@ Azure Data Factory 버전 1은 다음 시스템 변수를 사용하여 분할된
 
 | JSON 속성 | 형식 | 필수 | 기본값 | 유효한 값 | 예 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | 문자열 | yes | 없음 | ISO-8601 날짜-시간 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | Object | yes | 없음 | 되풀이 개체 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | 문자열 | 예 | 없음 | ISO-8601 날짜-시간 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | Object | 예 | 없음 | 되풀이 개체 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Number | 아니요 | 1 | 1~1,000 | `"interval":10` |
-| **endTime** | 문자열 | yes | 없음 | 현재 이후의 시간을 나타내는 날짜-시간 값입니다. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | 문자열 | 예 | 없음 | 현재 이후의 시간을 나타내는 날짜-시간 값입니다. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | Object | 아니요 | 없음 | 일정 개체 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>startTime 속성

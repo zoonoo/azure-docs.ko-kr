@@ -1,19 +1,17 @@
 ---
 title: BI 분석 도구를 사용하여 Azure Cosmos DB에 연결
 description: BI 및 데이터 분석 소프트웨어에서 정규화된 데이터를 볼 수 있도록 Azure Cosmos DB ODBC 드라이버를 사용하여 테이블 및 뷰를 만드는 방법을 알아봅니다.
-keywords: odbc, odbc 드라이버
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: d1ea0a51d9637c1ca1dba214e969e6835dfb241c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f51ce90d9349d345bb1e77ca5e254315c20c1b1d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136361"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034475"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>ODBC 드라이버와 함께 BI 분석 도구를 사용하여 Azure Cosmos DB에 연결
 
@@ -25,7 +23,7 @@ Azure Cosmos DB ODBC 드라이버는 ODBC 3.8 규격으로, ANSI SQL-92 구문�
 > Azure Cosmos DB와 ODBC 드라이버 연결은 현재 Azure Cosmos DB SQL API 계정에서만 지원됩니다.
 
 ## <a name="why-do-i-need-to-normalize-my-data"></a>데이터를 정규화해야 하는 이유는 무엇인가요?
-Azure Cosmos DB는 엄격한 스키마로 국한하지 않으면서 신속한 애플리케이션 개발과 데이터 모델 반복 기능을 지원하는 스키마 없는 데이터베이스입니다. 단일 Azure Cosmos DB 데이터베이스에 다양한 구조의 JSON 문서가 포함될 수 있습니다. 이러한 특징은 신속한 응용 프로그램 개발에 유용하지만 데이터 분석 및 BI 도구를 사용하여 데이터 보고서를 분석하고 만들려는 경우 데이터를 평면화하고 특정 스키마를 따르도록 할 필요가 있습니다.
+Azure Cosmos DB는 엄격한 스키마로 국한하지 않으면서 신속한 애플리케이션 개발과 데이터 모델 반복 기능을 지원하는 스키마 없는 데이터베이스입니다. 단일 Azure Cosmos DB 데이터베이스에 다양한 구조의 JSON 문서가 포함될 수 있습니다. 이러한 특징은 신속한 애플리케이션 개발에 유용하지만 데이터 분석 및 BI 도구를 사용하여 데이터 보고서를 분석하고 만들려는 경우 데이터를 평면화하고 특정 스키마를 따르도록 할 필요가 있습니다.
 
 바로 이러한 경우 ODBC 드라이버가 사용됩니다. 이제 ODBC 드라이버를 사용하여 Azure Cosmos DB의 데이터를 데이터 분석 및 보고 요구에 맞는 테이블 및 뷰로 다시 정규화할 수 있습니다. 다시 정규화된 스키마는 기본 데이터에 아무런 영향도 미치지 않고 개발자도 이러한 스키마를 준수할 필요가 없습니다. 대신, 사용자는 ODBC 호환 도구를 사용하여 데이터에 액세스할 수 있습니다. 이제 Azure Cosmos DB 데이터베이스는 개발 팀에서 선호될 뿐 아니라 데이터 분석에서도 많이 사용될 것입니다.
 
@@ -72,7 +70,7 @@ ODBC 드라이버를 살펴보겠습니다.
     - **쿼리 일관성**: 작업에 대해 [일관성 수준](consistency-levels.md)을 선택합니다. 기본값은 세션입니다.
     - **재시도 횟수**: 초기 요청이 서비스 속도 제한으로 인해 완료되지 않은 경우 작업을 다시 시도할 횟수를 입력합니다.
     - **스키마 파일**: 다양한 옵션이 있습니다.
-        - 기본적으로 이 항목을 있는 그대로(비어 있음) 두면 드라이버는 첫 번째 페이지 데이터에서 모든 컬렉션을 검색하여 각 컬렉션의 스키마를 확인합니다. 이 작업을 컬렉션 매핑이라고 합니다. 정의된 스키마 파일이 없이 경우 이 드라이버는 각 드라이버 세션을 검색하므로, DSN을 사용하는 응용 프로그램의 시작 시간이 더 늘어날 수 있습니다. 따라서 DSN에 대한 스키마 파일을 항상 연결하는 것이 좋습니다.
+        - 기본적으로 이 항목을 있는 그대로(비어 있음) 두면 드라이버는 첫 번째 페이지 데이터에서 모든 컬렉션을 검색하여 각 컬렉션의 스키마를 확인합니다. 이 작업을 컬렉션 매핑이라고 합니다. 정의된 스키마 파일이 없이 경우 이 드라이버는 각 드라이버 세션을 검색하므로, DSN을 사용하는 애플리케이션의 시작 시간이 더 늘어날 수 있습니다. 따라서 DSN에 대한 스키마 파일을 항상 연결하는 것이 좋습니다.
         - 스키마 파일이 이미 있는 경우([스키마 편집기](#schema-editor)를 사용하여 만들었을 수 있음) **찾아보기**를 클릭하고 해당 파일로 이동한 후 **저장**을 클릭하고 **확인**을 클릭합니다.
         - 새 스키마를 만들려면 **확인**을 클릭하고 주 창에서 **스키마 편집기**를 클릭합니다. 그런 후 [스키마 편집기](#schema-editor) 정보로 이동합니다. 새 스키마 파일을 만든 후 **고급 옵션** 창으로 돌아가 새로 만든 스키마 파일을 포함해야 합니다.
 

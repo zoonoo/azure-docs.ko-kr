@@ -1,19 +1,20 @@
 ---
 title: Key Vault를 사용하여 Azure Cosmos DB 키 저장 및 액세스
 description: Azure Key Vault를 사용하여 Azure Cosmos DB 연결 문자열, 키, URI를 저장 및 액세스합니다.
-services: cosmos-db
 author: rafats
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
-ms.openlocfilehash: f5d494006ebafab37bd10591ad02671e192d73e8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: c80f555a3789a12420cef0dc91ef7accc6a4388d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837395"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036191"
 ---
 # <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>Key Vault를 사용하여 Azure Cosmos DB 키 저장 및 액세스
 
@@ -24,7 +25,7 @@ Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다�
 * 주요 자격 증명 모음 만들기  
 * Key Vault에 Azure Cosmos DB 액세스 키 추가  
 * Azure 웹 애플리케이션 만들기  
-* 응용 프로그램 등록 및 Key Vault를 읽을 권한 부여  
+* 애플리케이션 등록 및 Key Vault를 읽을 권한 부여  
 
 
 ## <a name="create-a-key-vault"></a>주요 자격 증명 모음 만들기
@@ -72,7 +73,7 @@ Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다�
 
 ![액세스 없이 배포된 앱](./media/access-secrets-from-keyvault/app-deployed-without-access.png)
 
-## <a name="register-the-application--grant-permissions-to-read-the-key-vault"></a>응용 프로그램 등록 및 Key Vault를 읽을 권한 부여
+## <a name="register-the-application--grant-permissions-to-read-the-key-vault"></a>애플리케이션 등록 및 Key Vault를 읽을 권한 부여
 
 이 섹션에서는 Azure Active Directory에 애플리케이션을 등록하고 애플리케이션이 Key Vault를 읽을 수 있는 권한을 부여합니다. 
 
@@ -86,7 +87,7 @@ Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다�
 
 ![비밀로 배포된 앱](./media/access-secrets-from-keyvault/app-deployed-with-access.png)
  
-마찬가지로, 키 자격 증명 모음에 액세스할 사용자를 추가할 수 있습니다. **액세스 정책**을 선택하여 자신을 Key Vault에 추가한 다음, Visual Studio에서 응용 프로그램을 실행하는 데 필요한 모든 권한을 부여해야 합니다. 이 애플리케이션이 데스크톱에서 실행될 때 사용자의 ID를 사용합니다.
+마찬가지로, 키 자격 증명 모음에 액세스할 사용자를 추가할 수 있습니다. **액세스 정책**을 선택하여 자신을 Key Vault에 추가한 다음, Visual Studio에서 애플리케이션을 실행하는 데 필요한 모든 권한을 부여해야 합니다. 이 애플리케이션이 데스크톱에서 실행될 때 사용자의 ID를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

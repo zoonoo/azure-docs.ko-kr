@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: b2f106edf69b57410fd1990d0888cf9d3a71be56
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 867af6de05d1d9ab54cf8a4bf02221acc43a2b28
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880185"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075637"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace 상용 트랜잭션 기능 및 고려 사항
 
@@ -214,7 +214,7 @@ Marketplace를 통해 처리되는 주문은 고객의 Azure 인프라 비용과
 
 자세한 내용과 법률 규정은 [게시자 계약](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf)(Cloud 파트너 포털에서 확인 가능)을 참조하세요.
 
-청구 관련 질문에 대한 도움말을 보려면 [지원 인시던트를 만들고](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636764613233453423) 사용하는 제품 유형에 따라 Virtual Machines 또는 Web Apps(즉, SaaS 앱)를 선택합니다.
+청구 관련 질문에 대한 도움말을 보려면 [지원 인시던트를 만들고](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&pesid=16230&forceorigin=esmc&ccsid=636764613233453423) 사용하는 제품 유형에 따라 Virtual Machines 또는 Web Apps(즉, SaaS 앱)를 선택합니다.
 
 ## <a name="transact-requirements"></a>거래 요구 사항
 

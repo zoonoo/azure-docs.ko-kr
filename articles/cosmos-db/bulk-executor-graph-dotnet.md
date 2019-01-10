@@ -1,21 +1,19 @@
 ---
 title: 그래프 BulkExecutor .NET 라이브러리를 사용하여 Azure Cosmos DB Gremlin API에서 대량 작업 수행
 description: BulkExecutor 라이브러리를 사용하여 그래프 데이터를 대량으로 Azure Cosmos DB Gremlin API 컨테이너로 가져오는 방법을 알아봅니다.
-services: cosmos-db
-keywords: 그래프, gremlin, 대량, bulkexecutor, 마이그레이션, 데이터, cosmosdb, cosmos, 데이터베이스, 가져오기
 author: luisbosquez
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
+ms.subservice: cosmosdb-graph
 ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: lbosq
-ms.custom: mvc
-ms.openlocfilehash: d5a25bd7cab68f77a37b14ba41bf3cc832c2125f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: 2f949265e3961794e2fc4b0efbce107762a75ef7
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836715"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041563"
 ---
 # <a name="using-the-graph-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>그래프 BulkExecutor .NET 라이브러리를 사용하여 Azure Cosmos DB Gremlin API에서 대량 작업 수행
 

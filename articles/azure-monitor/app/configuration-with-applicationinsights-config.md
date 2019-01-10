@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: be572e068b0dd08f3af60701c4f5aa39646ac1fc
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 3c7b855588b45cd61bb13848720d6e926bbecba4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000396"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121110"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
 Application Insights .NET SDK는 NuGet 패키지의 숫자로 구성됩니다. [코어 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights에 원격 분석을 보내는 경우에 API를 제공합니다. [추가 패키지](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)는 해당 컨텍스트 및 애플리케이션에서 원격 분석을 자동으로 추적하기 위해 원격 분석 *모듈* 및 *이니셜라이저*를 제공합니다. 구성 파일을 조정하여 모듈을 활성화하거나 비활성화하고 이 중 일부 모듈의 매개 변수를 설정할 수 있습니다.
@@ -154,7 +154,7 @@ Service Fabric에서 실행되는 .NET 애플리케이션에 대해 `Microsoft.A
 
 매개 변수는 알고리즘을 달성하려고 하는 대상을 제공합니다. SDK의 각 인스턴스가 독립적으로 작동하므로 서버가 여러 컴퓨터의 클러스터인 경우 원격 분석의 실제 볼륨을 적절하게 곱합니다.
 
-[샘플링에 대해 자세히 알아봅니다](../../application-insights/app-insights-sampling.md).
+[샘플링에 대해 자세히 알아봅니다](../../azure-monitor/app/sampling.md).
 
 #### <a name="fixed-rate-sampling-telemetry-processor-from-200-beta1"></a>고정 비율 샘플링 원격 분석 프로세서(2.0.0-beta1부터)
 또한 표준 [샘플링 원격 분석 프로세서](../../azure-monitor/app/api-filtering-sampling.md) 도 있습니다(2.0.1부터).
@@ -382,6 +382,6 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationI
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [exceptions]: ../../azure-monitor/app/asp-net-exceptions.md
 [netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
-[new]: ../../application-insights/app-insights-create-new-resource.md
+[new]: ../../azure-monitor/app/create-new-resource.md 
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md

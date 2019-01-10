@@ -1,19 +1,17 @@
 ---
 title: 데이터베이스 보안 - Azure Cosmos DB
 description: Azure Cosmos DB에서 데이터에 대해 데이터베이스 보호 및 데이터 보안을 제공하는 방법을 알아봅니다.
-keywords: nosql 데이터베이스 보안, 정보 보안, 데이터 보안, 데이터베이스 암호화, 데이터베이스 보호, 보안 정책, 보안 테스트
-services: cosmos-db
 author: rafats
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: 0ffd07269570b26b527286f1a0b5a57a6b5c6018
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5fcf04c57f957b670d813de8ffe2d945f70cb3c5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093423"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038775"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 데이터베이스 보안
 
@@ -62,7 +60,7 @@ ms.locfileid: "53093423"
 |---|---|---|
 |네트워크 보안|IP 방화벽을 사용하는 것이 데이터베이스를 보호하기 위한 첫 번째 보호 계층입니다. Azure Cosmos DB는 인바운드 방화벽 지원을 위해 정책 중심 IP 기반 액세스 제어를 지원합니다. IP 기반 액세스 제어는 기존의 데이터베이스 시스템에서 사용된 방화벽 규칙과 유사하지만 승인된 컴퓨터 집합 또는 클라우드 서비스에서만 Azure Cosmos DB 데이터베이스 계정에 액세스할 수 있도록 확장되었습니다. <br><br>Azure Cosmos DB를 통해 특정 IP 주소(168.61.48.0), IP 범위(168.61.48.0/8), IP와 범위 조합을 사용하도록 할 수 있습니다. <br><br>이 허용된 목록 이외의 컴퓨터에서 보내는 모든 요청은 Azure Cosmos DB에서 차단됩니다. 승인된 컴퓨터 및 클라우드 서비스에서 보내는 요청은 리소스에 대한 액세스 제어를 부여 받기 위해 인증 과정을 완료해야 합니다.<br><br>자세한 내용은 [Azure Cosmos DB 방화벽 지원](firewall-support.md)을 참조하세요.|
 |권한 부여|Azure Cosmos DB는 권한 부여를 위해 HMAC(해시 기반 메시지 인증 코드)를 사용합니다. <br><br>각 요청은 비밀 계정 키를 사용하여 해시되고, Azure Cosmos DB를 호출할 때마다 base-64로 인코드된 후속 해시가 전송됩니다. 요청의 유효성을 검사하기 위해 Azure Cosmos DB 서비스는 올바른 비밀 키와 속성을 사용하여 해시를 생성한 후 요청에 있는 값과 비교합니다. 두 값이 일치하면 작업이 성공적으로 인증되어 요청이 처리되고 그렇지 않은 경우 권한 부여 오류로 요청이 거부됩니다.<br><br>문서와 같은 리소스에 세분화된 액세스를 허용하는 [마스터 키](secure-access-to-data.md#master-keys) 또는 [리소스 토큰](secure-access-to-data.md#resource-tokens)을 사용할 수 있습니다.<br><br>자세한 내용은 [Azure Cosmos DB 리소스에 대한 액세스 보호](secure-access-to-data.md)를 참조하세요.|
-|사용자 및 사용 권한|계정에 [마스터 키](#master-key)를 사용하여 데이터베이스당 사용자 리소스 및 권한 리소스를 만들 수 있습니다. [리소스 토큰](#resource-token)은 데이터베이스에 있는 권한과 연결되며 사용자가 데이터베이스에 있는 응용 프로그램 리소스에 대한 액세스 권한(읽기-쓰기, 읽기 전용 또는 액세스 권한 없음)을 보유하는지 확인합니다. 응용 프로그램 리소스에는 컨테이너, 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF가 포함됩니다. 그리고 인증 중에는 리소스 토큰이 사용되어 리소스에 대한 액세스를 제공 또는 거부합니다.<br><br>자세한 내용은 [Azure Cosmos DB 리소스에 대한 액세스 보호](secure-access-to-data.md)를 참조하세요.|
+|사용자 및 사용 권한|계정에 [마스터 키](#master-key)를 사용하여 데이터베이스당 사용자 리소스 및 권한 리소스를 만들 수 있습니다. [리소스 토큰](#resource-token)은 데이터베이스에 있는 권한과 연결되며 사용자가 데이터베이스에 있는 애플리케이션 리소스에 대한 액세스 권한(읽기-쓰기, 읽기 전용 또는 액세스 권한 없음)을 보유하는지 확인합니다. 애플리케이션 리소스에는 컨테이너, 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF가 포함됩니다. 그리고 인증 중에는 리소스 토큰이 사용되어 리소스에 대한 액세스를 제공 또는 거부합니다.<br><br>자세한 내용은 [Azure Cosmos DB 리소스에 대한 액세스 보호](secure-access-to-data.md)를 참조하세요.|
 |Active Directory 통합(RBAC)| 이 표 다음의 스크린샷에 나와 있는 것처럼, Azure Portal에서 액세스 제어(IAM)를 사용하여 데이터베이스 계정에 대한 액세스도 제공할 수 있습니다. IAM은 역할 기반 액세스 제어를 제공하며 Active Directory와 통합됩니다. 다음 이미지처럼 개인 및 그룹에 대해 기본 제공 역할이나 사용자 지정 역할을 사용할 수 있습니다.|
 |글로벌 복제|Azure Cosmos DB는 단추 클릭만으로 Azure 전 세계 데이터 센터 중 어디로나 데이터를 복제할 수 있는 턴키 글로벌 배포 기능을 제공합니다. 글로벌 복제를 통해 전역적으로 크기를 조정하고 전 세계 데이터에 짧은 대기 시간으로 액세스할 수 있습니다.<br><br>보안 컨텍스트에서 글로벌 복제는 지역별 오류에 대해 데이터 보호를 보장해줍니다.<br><br>[데이터를 글로벌 배포](distribute-data-globally.md)에 대한 자세한 정보|
 |지역별 장애 조치|데이터를 둘 이상의 데이터 센터에 복제한 경우 지역 데이터 센터가 오프라인으로 전환되면 Azure Cosmos DB가 사용자 작업을 자동으로 롤오버합니다. 데이터가 복제된 지역을 사용하여 장애 조치 지역의 우선 순위가 지정된 목록을 만들 수 있습니다. <br><br>[Azure Cosmos DB의 지역별 장애 조치(Failover)](high-availability.md)에서 자세히 알아보세요.|

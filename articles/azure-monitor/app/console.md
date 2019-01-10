@@ -13,21 +13,21 @@ ms.topic: conceptual
 ms.date: 08/28/2018
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: c3381ac2dcc3755bb0aedb5f36e398ebc5842959
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 5873907485633753eb471855e443d452e4118b26
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53797621"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120753"
 ---
 # <a name="application-insights-for-net-console-applications"></a>.NET 콘솔 애플리케이션용 Application Insights
-[Application Insights](../../application-insights/app-insights-overview.md)를 사용하여 웹 애플리케이션의 가용성, 성능 및 사용량을 모니터링할 수 있습니다.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md)를 사용하여 웹 애플리케이션의 가용성, 성능 및 사용량을 모니터링할 수 있습니다.
 
 [Microsoft Azure](https://azure.com)를 구독해야 합니다. Microsoft 계정으로 로그인합니다. Windows, Xbox Live 또는 기타 Microsoft 클라우드 서비스의 계정을 사용할 수 있습니다. 팀에서 Azure를 단체 구독할 수도 있습니다. 소유자에게 Microsoft 계정을 사용하여 추가해 달라고 요청하세요.
 
 ## <a name="getting-started"></a>시작
 
-* [Azure Portal](https://portal.azure.com)에서 [Application Insights 리소스를 만듭니다](../../application-insights/app-insights-create-new-resource.md). 애플리케이션 유형으로 **일반**을 선택합니다.
+* [Azure Portal](https://portal.azure.com)에서 [Application Insights 리소스를 만듭니다](../../azure-monitor/app/create-new-resource.md ). 애플리케이션 유형으로 **일반**을 선택합니다.
 * 계측 키를 복사합니다. 만든 새 리소스의 **필수** 드롭다운에서 키를 찾습니다. 
 * 최신 [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) 패키지를 설치합니다.
 * 원격 분석을 추적하기 전에 코드에서 계측 키를 설정합니다(또는 APPINSIGHTS_INSTRUMENTATIONKEY 환경 변수 설정). 그런 다음, 수동으로 원격 분석을 추적하고 Azure Portal에서 확인할 수 있습니다.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: cwatson
-ms.openlocfilehash: a9ca57ce916dc3f9bc8d451063596519d1d6649c
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: ed3737b2f64fb4aad3f1418f08e909bf720b42f3
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391348"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103845"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Azure 대시보드를 프로그래밍 방식으로 만들기
 
@@ -100,7 +100,7 @@ Azure는 여러 리소스의 배포를 오케스트레이션하는 기능을 제
 ```json
 
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "virtualMachineName": {
@@ -386,7 +386,7 @@ __이 문서의 끝에서 작동 중인 전체 템플릿을 볼 수 있습니다
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "virtualMachineName": {

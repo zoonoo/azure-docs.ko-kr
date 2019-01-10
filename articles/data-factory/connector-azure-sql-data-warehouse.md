@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 0971122ee7b9cde0664ee661454a8b7824f4b7d5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3d82becf209e44fe66711c964f825ce78d691b2d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093909"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024840"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -102,7 +101,7 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
 
 서비스 주체 기반의 Azure AD 애플리케이션 토큰 인증을 사용하려면 다음 단계를 따르세요.
 
-1. Azure Portal에서 **[Azure Active Directory 응용 프로그램을 만듭니다](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**. 애플리케이션 이름 및 연결된 서비스를 정의하는 다음 값을 적어 둡니다.
+1. Azure Portal에서 **[Azure Active Directory 애플리케이션을 만듭니다](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**. 애플리케이션 이름 및 연결된 서비스를 정의하는 다음 값을 적어 둡니다.
 
     - 애플리케이션 UI
     - 애플리케이션 키
@@ -399,7 +398,7 @@ SQL Data Warehouse PolyBase는 Azure Blob 및 Azure Data Lake Store를 직접 �
 
 조건을 충족하지 않는 경우, Azure Data Factory는 설정을 확인한 후 데이터 이동을 위해 BULKINSERT 메커니즘으로 자동으로 대체됩니다.
 
-1. **원본에 연결된 서비스** 유형은 계정 키 인증을 사용하는 Azure Blob 저장소(**AzureBLobStorage**/**AzureStorage**) 또는 서비스 주체 인증을 사용하는 Azure Data Lake Storage Gen1(**AzureDataLakeStore**)입니다.
+1. **원본에 연결된 서비스** 유형은 계정 키 인증을 사용하는 Azure Blob 스토리지(**AzureBLobStorage**/**AzureStorage**) 또는 서비스 주체 인증을 사용하는 Azure Data Lake Storage Gen1(**AzureDataLakeStore**)입니다.
 2. **입력 데이터 세트** 유형은 **AzureBlob** 또는 **AzureDataLakeStoreFile**입니다. `type` 속성 아래의 형식 유형은 다음 구성을 사용하는 **OrcFormat**, **ParquetFormat** 또는 **TextFormat**입니다.
 
    1. `fileName`은 와일드 카드 필터를 포함하지 않습니다.

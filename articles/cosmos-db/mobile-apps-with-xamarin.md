@@ -1,19 +1,18 @@
 ---
 title: Xamarin 및 Azure Cosmos DB를 사용하여 모바일 애플리케이션 빌드
 description: Azure Cosmos DB를 사용하여 Xamarin iOS, Android 또는 Forms 애플리케이션을 만드는 방법에 대한 자습서입니다. Azure Cosmos DB는 속도가 빠른 세계적 규모의 모바일 앱용 클라우드 데이터베이스입니다.
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: d5c17325bfccef2c97378cb54d8843290cc98635
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0580129d8a1e8500a7be1b0728bacc947f4ece5a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878009"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043875"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Xamarin 및 Azure Cosmos DB를 사용하여 모바일 애플리케이션 빌드
 
@@ -105,7 +104,7 @@ Azure Cosmos DB는 관리되는 Database as a Service입니다. 사용자 기반
 ## <a name="next-steps"></a>다음 단계
 * [GitHub의 Xamarin 및 Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin)의 소스 코드를 봅니다.
 * [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md)를 다운로드합니다.
-* [.NET 응용 프로그램](sql-api-dotnet-samples.md)에 대한 추가 코드 샘플을 찾습니다.
+* [.NET 애플리케이션](sql-api-dotnet-samples.md)에 대한 추가 코드 샘플을 찾습니다.
 * [Azure Cosmos DB의 다양한 쿼리 기능](how-to-sql-query.md)에 대해 알아봅니다.
 * [Azure Cosmos DB의 지리 공간적 지원](geospatial.md)에 대해 알아봅니다.
 

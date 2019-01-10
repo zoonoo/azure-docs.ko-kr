@@ -8,16 +8,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 67fc3d733062867086cb4c208f2997d3490452bb
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: a42f5f441dd63f8d6a7f5bd1cfdf0452d025816e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681928"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017687"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory 서비스 ID
 
@@ -25,7 +24,7 @@ ms.locfileid: "52681928"
 
 ## <a name="overview"></a>개요
 
-데이터 팩터리를 만들 때 팩터리가 만들어지면서 서비스 ID도 생성할 수 있습니다. 서비스 ID는 Azure Activity Directory에 등록된 관리되는 응용 프로그램이고 이 특정 데이터 팩터리를 나타냅니다.
+데이터 팩터리를 만들 때 팩터리가 만들어지면서 서비스 ID도 생성할 수 있습니다. 서비스 ID는 Azure Activity Directory에 등록된 관리형 애플리케이션이고 이 특정 데이터 팩터리를 나타냅니다.
 
 데이터 팩터리 서비스 ID는 다음과 같은 기능을 제공합니다.
 
@@ -159,7 +158,7 @@ Azure Portal -> 데이터 팩터리 -> 설정 -> 속성에서 서비스 ID 정�
 
 - 서비스 ID ID
 - 서비스 ID 테넌트
-- **서비스 ID 응용 프로그램 ID** > 이 값 복사
+- **SERVICE IDENTITY APPLICATION ID** &gt; 이 값 복사
 
 ![서비스 ID 검색](media/data-factory-service-identity/retrieve-service-identity-portal.png)
 

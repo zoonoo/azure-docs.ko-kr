@@ -13,12 +13,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: b284b599c569fe1c492b28d09fbc62a9130e939e
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: b6f93cc3c35ab18ecd50ccd6b3090985497baabf
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409312"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121773"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps용 iOS 클라이언트 라이브러리를 사용하는 방법
 
@@ -81,7 +81,7 @@ let table = client.tableWithName("TodoItem")
 
 ```objc
 [table readWithCompletion:^(MSQueryResult *result, NSError *error) {
-        if(error) { // error is nil if no error occured
+        if(error) { // error is nil if no error occurred
                 NSLog(@"ERROR %@", error);
         } else {
                 for(NSDictionary *item in result.items) { // items is NSArray of records that match query
@@ -546,7 +546,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 ## <a name="adal"></a>방법: Active Directory 인증 라이브러리를 사용하여 사용자 인증
 
-Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로그인하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다. ID 공급자 SDK를 사용하는 클라이언트 흐름 인증이 `loginWithProvider:completion:` 메서드보다 선호도가 높습니다.  클라이언트 흐름 인증은 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기 때문입니다.
+Azure Active Directory를 사용하여 애플리케이션에 사용자가 로그인하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다. ID 공급자 SDK를 사용하는 클라이언트 흐름 인증이 `loginWithProvider:completion:` 메서드보다 선호도가 높습니다.  클라이언트 흐름 인증은 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기 때문입니다.
 
 1. [Active Directory 로그인에 App Service를 구성하는 방법][7] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 애플리케이션을 등록하는 선택적 단계를 완료해야 합니다. iOS의 경우 권장하는 리디렉션 URI는 `<app-scheme>://<bundle-id>` 형식입니다. 자세한 내용은 [ADAL iOS 빠른 시작][8]을 참조하세요.
 2. Cocoapods를 사용하여 ADAL을 설치합니다. 다음 정의를 포함하도록 Podfile을 편집합니다. 이때 **YOUR-PROJECT**를 Xcode 프로젝트의 이름으로 바꿉니다.
@@ -560,11 +560,11 @@ Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로�
         pod 'ADALiOS'
 
 3. 터미널을 사용하여 프로젝트를 포함하는 디렉터리에서 `pod install`을 실행한 다음 생성된 Xcode 작업 영역(프로젝트 아님)을 엽니다.
-4. 사용하는 언어에 따라 응용 프로그램에 다음 코드를 추가합니다. 각 코드에서 다음과 같이 값을 바꿉니다.
+4. 사용하는 언어에 따라 애플리케이션에 다음 코드를 추가합니다. 각 코드에서 다음과 같이 값을 바꿉니다.
 
-   * **INSERT-AUTHORITY-HERE** 를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com이어야 합니다. 이 값은 [Azure Portal]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
+   * **INSERT-AUTHORITY-HERE**를 애플리케이션이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com이어야 합니다. 이 값은 [Azure Portal]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
    * **INSERT-RESOURCE-ID-HERE** 를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 Azure **Active Directory 설정**에 있는 **고급** 탭에서 클라이언트 ID를 가져올 수 있습니다.
-   * **INSERT-CLIENT-ID-HERE** 를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
+   * **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 애플리케이션에서 복사한 클라이언트 ID로 바꿉니다.
    * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE** 를 사이트의 */.auth/login/done* 엔드포인트로 바꿉니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done*과 비슷해야 합니다.
 
 **Objective-C**:
@@ -633,7 +633,7 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 
 ## <a name="facebook-sdk"></a>방법: iOS용 Facebook SDK를 사용하여 사용자 인증
 
-Facebook을 사용하여 응용 프로그램에 사용자를 로그인하도록 iOS용 Facebook SDK를 사용할 수 있습니다.  클라이언트 흐름 인증이 `loginWithProvider:completion:` 메서드보다 선호도가 높습니다.  클라이언트 흐름 인증은 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기 때문입니다.
+Facebook을 사용하여 애플리케이션에 사용자를 로그인하도록 iOS용 Facebook SDK를 사용할 수 있습니다.  클라이언트 흐름 인증이 `loginWithProvider:completion:` 메서드보다 선호도가 높습니다.  클라이언트 흐름 인증은 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기 때문입니다.
 
 1. [Facebook 로그인에 App Service를 구성하는 방법][9] 자습서를 수행하여 Facebook 로그인에 모바일 앱 백 엔드를 구성합니다.
 2. [iOS용 Facebook SDK - 시작][10] 설명서에 따라 iOS용 Facebook SDK를 설치합니다. 앱을 만드는 대신 기존 등록에 iOS 플랫폼을 추가할 수 있습니다.
@@ -656,7 +656,7 @@ Facebook을 사용하여 응용 프로그램에 사용자를 로그인하도록 
     }
     ```
 4. 또한 프로젝트에 `FBSDKCoreKit.framework`을 추가하는 것 외에도 같은 방식으로 `FBSDKLoginKit.framework`에 참조를 추가합니다.
-5. 사용하는 언어에 따라 응용 프로그램에 다음 코드를 추가합니다.
+5. 사용하는 언어에 따라 애플리케이션에 다음 코드를 추가합니다.
 
     **Objective-C**:
 
@@ -712,13 +712,13 @@ Facebook을 사용하여 응용 프로그램에 사용자를 로그인하도록 
 
 ## <a name="twitter-fabric"></a>방법: iOS용 Twitter Fabric을 사용하여 사용자 인증
 
-Twitter를 사용하여 응용 프로그램에 사용자를 로그인하도록 iOS용 Fabric을 사용할 수 있습니다. 클라이언트 흐름 인증은 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기에 `loginWithProvider:completion:` 메서드보다 선호도가 높습니다.
+Twitter를 사용하여 애플리케이션에 사용자를 로그인하도록 iOS용 Fabric을 사용할 수 있습니다. 클라이언트 흐름 인증은 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기에 `loginWithProvider:completion:` 메서드보다 선호도가 높습니다.
 
 1. 다음으로 [Twitter 로그인에 App Service를 구성하는 방법](../app-service/configure-authentication-provider-twitter.md) 자습서를 수행하여 Twitter 로그인에 모바일 앱 백 엔드를 구성합니다.
 2. [iOS용 Fabric - 시작] 설명서를 수행하고 TwitterKit를 설정하여 프로젝트에 Fabric을 추가합니다.
 
    > [!NOTE]
-   > 기본적으로 패브릭은 사용자를 위해 Twitter 응용 프로그램을 만듭니다. 다음 코드 조각을 사용하여 이전에 만든 소비자 키 및 소비자 암호를 등록하면 응용 프로그램을 만들지 않아도 됩니다.    또는 [패브릭 대시보드]에 표시되는 값으로 App Service를 제공하는 소비자 키 및 소비자 암호 값을 바꿀 수 있습니다. 이 옵션을 선택하면 콜백 URL을 `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`와 같은 자리 표시자 값으로 설정해야 합니다.
+   > 기본적으로 패브릭은 사용자를 위해 Twitter 애플리케이션을 만듭니다. 다음 코드 조각을 사용하여 이전에 만든 소비자 키 및 소비자 암호를 등록하면 애플리케이션을 만들지 않아도 됩니다.    또는 [패브릭 대시보드]에 표시되는 값으로 App Service를 제공하는 소비자 키 및 소비자 암호 값을 바꿀 수 있습니다. 이 옵션을 선택하면 콜백 URL을 `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`와 같은 자리 표시자 값으로 설정해야 합니다.
 
     이전에 만든 암호를 사용하도록 선택한 경우 앱 대리자에 다음 코드를 추가합니다.
 
@@ -751,7 +751,7 @@ Twitter를 사용하여 응용 프로그램에 사용자를 로그인하도록 i
     }
     ```
 
-3. 사용하는 언어에 따라 응용 프로그램에 다음 코드를 추가합니다.
+3. 사용하는 언어에 따라 애플리케이션에 다음 코드를 추가합니다.
 
     **Objective-C**:
 
@@ -794,7 +794,7 @@ Twitter를 사용하여 응용 프로그램에 사용자를 로그인하도록 i
 
 ## <a name="google-sdk"></a>방법: iOS용 Google 로그인 SDK를 사용하여 사용자 인증
 
-Google 로그인을 사용하여 응용 프로그램에 사용자를 로그인하도록 iOS용 Google 로그인 SDK를 사용할 수 있습니다.  최근에 Google에서 OAuth 보안 정책 변경 소식을 발표했습니다.  정책이 변경됨에 따라 향후에는 Google SDK를 사용해야 할 것입니다.
+Google 로그인을 사용하여 애플리케이션에 사용자를 로그인하도록 iOS용 Google 로그인 SDK를 사용할 수 있습니다.  최근에 Google에서 OAuth 보안 정책 변경 소식을 발표했습니다.  정책이 변경됨에 따라 향후에는 Google SDK를 사용해야 할 것입니다.
 
 1. 다음으로 [Google 로그인에 App Service를 구성하는 방법](../app-service/configure-authentication-provider-google.md) 자습서를 수행하여 Google 로그인에 모바일 앱 백 엔드를 구성합니다.
 2. [iOS용 Google 로그인 - 통합 시작](https://developers.google.com/identity/sign-in/ios/start-integrating) 설명서에 따라 iOS용 Google SDK를 설치합니다. "백 엔드 서버를 사용하여 인증" 섹션은 건너뛰어도 됩니다.

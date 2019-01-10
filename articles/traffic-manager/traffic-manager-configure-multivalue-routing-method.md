@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 521a9dd49abee8fdeaa42b1ea8c13b9a648f1875
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d4a51551fb0f9067929df1fdf074e7286938004b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187370"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187708"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Traffic Manager에서 다중값 라우팅 방법 구성
 
-이 문서에서는 다중값 트래픽 라우팅 방법을 구성하는 방법을 설명합니다. **다중값** 트래픽 라우팅 방법을 사용하면 여러 정상 엔드포인트를 반환할 수 있으며, 다른 DNS 조회하지 않고도 다시 시도할 수 있는 옵션이 클라이언트에게 있으므로 응용 프로그램의 안정성을 높이는 데 도움이 됩니다. 다중값 라우팅은 IPv4 또는 IPv6 주소를 사용하여 지정된 모든 엔드포인트가 있는 프로필에서만 활성화할 수 있습니다. 쿼리가 이 프로필에 대해 수신되면 지정된 구성 가능한 최대 반환 수를 기반으로 모든 정상 엔드포인트가 반환됩니다. 
+이 문서에서는 다중값 트래픽 라우팅 방법을 구성하는 방법을 설명합니다. **다중값** 트래픽 라우팅 방법을 사용하면 여러 정상 엔드포인트를 반환할 수 있으며, 다른 DNS 조회하지 않고도 다시 시도할 수 있는 옵션이 클라이언트에게 있으므로 애플리케이션의 안정성을 높이는 데 도움이 됩니다. 다중값 라우팅은 IPv4 또는 IPv6 주소를 사용하여 지정된 모든 엔드포인트가 있는 프로필에서만 활성화할 수 있습니다. 쿼리가 이 프로필에 대해 수신되면 지정된 구성 가능한 최대 반환 수를 기반으로 모든 정상 엔드포인트가 반환됩니다. 
 
 >[!NOTE]
 > 이 시점에 IPv4 또는 IPv6 주소를 사용하여 엔드포인트를 추가하는 것은 **외부** 유형의 엔드포인트에만 지원됩니다. 따라서 다중값 라우팅도 그러한 엔드포인트에 대해서만 지원됩니다.
@@ -47,9 +47,9 @@ Traffic Manager 프로필에 대한 리소스 그룹을 만듭니다.
     | 구독            | 구독을 선택합니다.                          |
     | 리소스 그룹          | *myResourceGroupTM1*을 선택합니다. |
     | 위치                | 이 설정은 리소스 그룹의 위치를 나타내며 전역적으로 배포되는 Traffic Manager 프로필에는 영향을 미치지 않습니다.                              |
-    
+   |        |           | 
   
-    ![Traffic Manager 프로필 만들기](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
+  ![Traffic Manager 프로필 만들기](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Traffic Manager 엔드포인트 추가
 
@@ -69,7 +69,7 @@ Traffic Manager 프로필에 대한 리소스 그룹을 만듭니다.
 4. **FQDN(정규화된 도메인 이름) 또는 IP**에 *myEndpoint2*라는 다른 엔드포인트를 추가하려면 2-3단계를 반복하고, 두 번째 엔드포인트의 공용 IP 주소를 입력합니다.
 5.  두 엔드포인트 추가가 완료되면 **온라인**인 모니터링 상태와 함께 **Traffic Manager 프로필**에 표시됩니다.
 
-    ![Traffic Manager 엔드포인트 추가](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
+   ![Traffic Manager 엔드포인트 추가](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
  
 ## <a name="next-steps"></a>다음 단계
 

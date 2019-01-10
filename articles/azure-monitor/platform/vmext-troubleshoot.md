@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.openlocfilehash: 72a24175b93057bf774810517f4d6c5e4b6c41eb
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f2f50144e188a297468ac8ea8fc8891d2e4ec145
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183321"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106494"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>Log Analytics VM 확장 문제 해결
 이 문서는 Microsoft Azure에서 실행되는 Windows 및 Linux 가상 머신에 대한 Log Analytics VM 확장에서 발생할 수 있는 오류를 해결하는 데 도움을 주며, 가능한 해결 방법을 제안합니다.
 
 확장의 상태를 확인하려면 Azure Portal에서 다음 단계를 수행합니다.
 
-1. [Azure Portal](http://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에 **가상 머신**을 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **가상 머신**을 선택합니다.
 3. 가상 머신 목록에서 해당 가상 머신을 찾아 선택합니다.
 3. 가상 머신에서 **확장**을 클릭합니다.

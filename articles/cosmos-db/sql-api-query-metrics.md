@@ -1,20 +1,18 @@
 ---
 title: Azure Cosmos DB SQL API에 대한 SQL 쿼리 메트릭
 description: Azure Cosmos DB 요청의 SQL 쿼리 성능을 계측 및 디버깅하는 방법에 대해 알아봅니다.
-keywords: sql 구문, sql 쿼리, 여러 SQL 쿼리, json 쿼리 언어, 데이터베이스 개념 및 sql 쿼리, 집계 함수
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: 02f5cf7159847d6f67ee3d8e92805f785a58e959
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e6d16c31b8975036202fe77906e2d729391b5c59
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53142490"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038078"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Azure Cosmos DB와 함께 쿼리 성능 튜닝
 
@@ -49,7 +47,7 @@ SDK는 쿼리 실행을 위한 다양한 옵션을 제공합니다. 예를 들�
 | `MaxDegreeOfParallelism` | Azure Cosmos DB 데이터베이스 서비스에서 병렬 쿼리를 실행하는 동안 클라이언트 쪽에서 실행되는 동시 작업 수를 가져오거나 설정합니다. 양수 속성 값은 동시 작업 수를 설정 값으로 제한합니다. 0보다 작은 값으로 설정할 경우 시스템이 실행할 동시 작업 수를 자동으로 결정합니다. |
 | `PopulateQueryMetrics` | 컴파일 시간, 인덱스 루프 시간 및 문서 로드 시간과 같은 다양한 쿼리 실행 단계에서 소요한 시간에 대한 통계 정보를 자세히 로깅할 수 있습니다. 쿼리 통계의 출력을 Azure 지원과 공유하여 쿼리 성능 문제를 진단할 수 있습니다. |
 | `RequestContinuation` | 쿼리에서 반환한 불투명 연속 토큰을 전달하여 쿼리 실행을 다시 시작할 수 있습니다. 연속 토큰은 쿼리 실행에 필요한 모든 상태를 캡슐화합니다. |
-| `ResponseContinuationTokenLimitInKb` | 서버에서 반환한 연속 토큰의 최대 크기를 제한할 수 있습니다. 응용 프로그램 호스트에 응답 헤더 크기에 대한 제한이 있는 경우 설정해야 합니다. 이 옵션을 설정하면 해당 쿼리에 사용된 전체 기간 및 RU를 늘릴 수 있습니다.  |
+| `ResponseContinuationTokenLimitInKb` | 서버에서 반환한 연속 토큰의 최대 크기를 제한할 수 있습니다. 애플리케이션 호스트에 응답 헤더 크기에 대한 제한이 있는 경우 설정해야 합니다. 이 옵션을 설정하면 해당 쿼리에 사용된 전체 기간 및 RU를 늘릴 수 있습니다.  |
 
 예를 들어, 파티션 키로 `/city`를 포함하고 100,000 RU/s의 처리량으로 프로비전된 컬렉션에 대해 요청된 파티션 키에 대한 쿼리 예제를 살펴보겠습니다. .NET에서 다음과 같이 `CreateDocumentQuery<T>`를 사용하여 이 쿼리를 요청합니다.
 
@@ -184,7 +182,7 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 ```
 
 #### <a name="max-degree-of-parallelism"></a>병렬 처리의 최대 수준
-쿼리의 경우 `MaxDegreeOfParallelism`을 조정하여 사용자 응용 프로그램에 가장 적합한 구성을 식별합니다. 특히 파티션 키 값에 대한 필터 없이 파티션 간 쿼리를 수행하는 경우 해당됩니다. `MaxDegreeOfParallelism`은 병렬로 방문할 최대 파티션 수와 같이 최대 병렬 작업 수를 제어합니다. 
+쿼리의 경우 `MaxDegreeOfParallelism`을 조정하여 사용자 애플리케이션에 가장 적합한 구성을 식별합니다. 특히 파티션 키 값에 대한 필터 없이 파티션 간 쿼리를 수행하는 경우 해당됩니다. `MaxDegreeOfParallelism`은 병렬로 방문할 최대 파티션 수와 같이 최대 병렬 작업 수를 제어합니다. 
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(

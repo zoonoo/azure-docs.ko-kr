@@ -1,21 +1,19 @@
 ---
 title: Azure Cosmos DB는 SQL Java API, SDK 및 리소스
 description: 릴리스 날짜, 사용 중지 날짜 및 Azure Cosmos DB SQL Java SDK의 각 버전 간 변경 내용을 포함하여 SQL Java API 및 SDK에 대한 모든 것을 알아봅니다.
-services: cosmos-db
-author: rnagpal
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 ms.date: 11/29/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5c733ecd65482e4b02a5d4e28784e84e63f2231
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.author: sngun
+ms.openlocfilehash: e62276debf121cc39fc5642ed8e5a9faf6b876ed
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340524"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039642"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Java SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -44,7 +42,7 @@ SQL API Java SDK는 동기 작업을 지원합니다. 비동기 지원의 경우
 
 <tr><td>**시작**</td><td>[Java SDK 시작](sql-api-java-get-started.md)</td></tr>
 
-<tr><td>**웹앱 자습서**</td><td>[Azure Cosmos DB를 사용한 웹 응용 프로그램 개발](sql-api-java-application.md)</td></tr>
+<tr><td>**웹앱 자습서**</td><td>[Azure Cosmos DB를 사용한 웹 애플리케이션 개발](sql-api-java-application.md)</td></tr>
 
 <tr><td>**지원되는 최소 런타임**</td><td>[JDK(Java Development Kit) 7 이상](https://aka.ms/azure-jdks)</td></tr>
 </table></br>
@@ -184,7 +182,7 @@ SQL API Java SDK는 동기 작업을 지원합니다. 비동기 지원의 경우
 * 다른 SDK와 일치하도록 little-endian의 해시 값을 생성하는 HashPartitionResolver의 버그를 수정합니다.
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
-* 여러 파티션 간의 응용 프로그램 분할을 지원하기 위해 해시 및 범위 파티션 해결 프로그램을 추가합니다.
+* 여러 파티션 간의 애플리케이션 분할을 지원하기 위해 해시 및 범위 파티션 해결 프로그램을 추가합니다.
 
 ### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
 * Upsert를 구현합니다. 새로운 upsertXXX 메서드가 Upsert 기능을 지원하기 위해 추가되었습니다.

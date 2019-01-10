@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 81bfd5e0354fefea4690e6871dd5e846f41dc6d8
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6bd8d0cee01853547efd028feef0a97f9398024e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53982120"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015525"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Java 웹앱에서 원격 분석 필터링
 
@@ -31,7 +31,7 @@ ms.locfileid: "53982120"
 
 > [!NOTE]
 > 필터는 앱 메트릭의 타이밍 스큐를 발생합니다. 예를 들어 느린 응답을 진단하기 위해서는 빠른 응답 시간을 삭제하는 필터를 설정하도록 결정할 수 있습니다. 하지만 Application Insights에서 보고하는 평균 응답 시간이 실제 속도보다 느리고 요청 수가 실제 수보다 작을 것이라는 점을 알아야 합니다.
-> 이것이 문제가 될 경우 대신 [샘플링](../../application-insights/app-insights-sampling.md)을 사용합니다.
+> 이것이 문제가 될 경우 대신 [샘플링](../../azure-monitor/app/sampling.md)을 사용합니다.
 
 ## <a name="setting-filters"></a>필터 설정
 
@@ -262,4 +262,4 @@ ApplicationInsights.xml:
 
 ## <a name="next-steps"></a>다음 단계
 
-* [샘플링](../../application-insights/app-insights-sampling.md) - 메트릭을 스큐하지 않는 대안으로 샘플링을 고려합니다.
+* [샘플링](../../azure-monitor/app/sampling.md) - 메트릭을 스큐하지 않는 대안으로 샘플링을 고려합니다.

@@ -1,5 +1,6 @@
 ---
-title: Azure Portal을 사용하여 Azure DDoS Protection 표준 관리 | Microsoft Docs
+title: Azure Portal을 사용하여 Azure DDoS Protection 표준 관리
+titlesuffix: Azure Virtual Network
 description: Azure Monitor에서 Azure DDoS Protection 표준 원격 분석을 사용하여 공격을 완화하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: jdial
-ms.openlocfilehash: 39525c7e25e247504429ea36210986a5e3300cc1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 360c0d9a96b8dac2f08b89caa8c1fd36e8a54b3f
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537177"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020424"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure DDoS Protection 표준 관리
 

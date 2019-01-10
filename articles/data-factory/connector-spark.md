@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 39b5a7a99f56c33aee0b0db9211f4f45a058f418
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 370da046e5a964d91b668ea80730b8d331065d29
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094342"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019965"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Spark에서 데이터 복사 
 
@@ -42,12 +41,12 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성을 다음으로 설정해야 합니다. **Spark** | yes |
-| host | Spark 서버의 IP 주소 또는 호스트 이름입니다.  | yes |
-| 포트 | Spark 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. Azure HDInsights에 연결하는 경우 포트를 443으로 지정합니다. | yes |
+| 형식 | type 속성을 다음으로 설정해야 합니다. **Spark** | 예 |
+| host | Spark 서버의 IP 주소 또는 호스트 이름입니다.  | 예 |
+| 포트 | Spark 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. Azure HDInsights에 연결하는 경우 포트를 443으로 지정합니다. | 예 |
 | serverType | Spark 서버의 유형입니다. <br/>허용되는 값은 다음과 같습니다. **SharkServer**, **SharkServer2**, **SparkThriftServer** | 아니요 |
 | thriftTransportProtocol | Thrift 계층에서 사용할 전송 프로토콜입니다. <br/>허용되는 값은 다음과 같습니다. **Binary**, **SASL**, **HTTP** | 아니요 |
-| authenticationType | Spark 서버에 액세스하는 데 사용되는 인증 방법입니다. <br/>허용되는 값은 다음과 같습니다. **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | yes |
+| authenticationType | Spark 서버에 액세스하는 데 사용되는 인증 방법입니다. <br/>허용되는 값은 다음과 같습니다. **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | 예 |
 | 사용자 이름 | Spark 서버에 액세스하는 데 사용하는 사용자 이름입니다.  | 아니요 |
 | 암호 | 사용자에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
 | httpPath | Spark 서버에 해당하는 부분 URL입니다.  | 아니요 |
@@ -87,7 +86,7 @@ Spark에서 데이터를 복사하려면 데이터 세트의 type 속성을 **Sp
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **SparkObject** | yes |
+| 형식 | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **SparkObject** | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -116,7 +115,7 @@ Spark에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Spa
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **SparkSource** | yes |
+| 형식 | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **SparkSource** | 예 |
 | 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**

@@ -1,3 +1,16 @@
+---
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: cephalin
+ms.openlocfilehash: f188f2c7bea511f1109d37ef49563e0f745a770e
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133186"
+---
 Azure Resource Manager를 사용하여 템플릿을 배포할 때 사용할 값에 대한 매개 변수를 정의할 수 있습니다. 템플릿은 모든 매개 변수 값이 포함된 `parameters` 섹션을 포함합니다. 각 매개 변수 값은 배포하려는 리소스를 정의하는 템플릿에서 사용됩니다.
 
 > [!NOTE]

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 0355b8cf19209509dca2f3cac93c7abb92a63990
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 10cc8007c4f54808b5d7eb41ad2caa008b5c7107
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323323"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079003"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하여 액세스 토큰을 획득하는 방법 
 
@@ -44,7 +44,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 ## <a name="overview"></a>개요
 
-클라이언트 애플리케이션은 지정된 리소스에 액세스하기 위해 Azure 리소스에 대한 관리 ID [앱 전용 액세스 토큰](../develop/developer-glossary.md#access-token)을 요청할 수 있습니다. 이 토큰은 [Azure 리소스 서비스 주체에 대한 관리 ID를 기준으로](overview.md#how-does-it-work) 합니다. 따라서 고유한 서비스 주체 하에서 액세스 토큰을 가져오기 위해 클라이언트를 등록하지 않아도 됩니다. 토큰은 [서비스 간 호출 요청 클라이언트 자격 증명](../develop/v1-oauth2-client-creds-grant-flow.md)에서 전달자 토큰으로 사용하기에 적합합니다.
+클라이언트 응용 프로그램은 지정된 리소스에 액세스하기 위해 Azure 리소스에 대한 관리 ID [앱 전용 액세스 토큰](../develop/developer-glossary.md#access-token)을 요청할 수 있습니다. 이 토큰은 [Azure 리소스 서비스 주체에 대한 관리 ID를 기준으로](overview.md#how-does-it-work) 합니다. 따라서 고유한 서비스 주체 하에서 액세스 토큰을 가져오기 위해 클라이언트를 등록하지 않아도 됩니다. 토큰은 [서비스 간 호출 요청 클라이언트 자격 증명](../develop/v1-oauth2-client-creds-grant-flow.md)에서 전달자 토큰으로 사용하기에 적합합니다.
 
 |  |  |
 | -------------- | -------------------- |
@@ -124,7 +124,7 @@ Content-Type: application/json
 
 ## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>.NET용 Microsoft.Azure.Services.AppAuthentication 라이브러리를 사용하여 토큰 가져오기
 
-.NET 애플리케이션 및 함수의 경우 Azure 리소스에 대한 관리 ID를 사용하는 가장 간단한 방법은 Microsoft.Azure.Services.AppAuthentication 패키지입니다. 또한 이 라이브러리는 개발 머신에서 Visual Studio, [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) 또는 Active Directory 통합 인증의 사용자 계정을 사용하여 로컬로 코드를 테스트할 수 있습니다. 이 라이브러를 통한 로컬 개발 옵션에 대한 자세한 내용은 [Microsoft.Azure.Services.AppAuthentication 참조]를 참조하세요. 이 섹션에서는 코드에서 이 라이브러리를 시작하는 방법을 보여 줍니다.
+.NET 응용 프로그램 및 함수의 경우 Azure 리소스에 대한 관리 ID를 사용하는 가장 간단한 방법은 Microsoft.Azure.Services.AppAuthentication 패키지입니다. 또한 이 라이브러리는 개발 머신에서 Visual Studio, [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) 또는 Active Directory 통합 인증의 사용자 계정을 사용하여 로컬로 코드를 테스트할 수 있습니다. 이 라이브러를 통한 로컬 개발 옵션에 대한 자세한 내용은[Microsoft.Azure.Services.AppAuthentication 참조](/azure/key-vault/service-to-service-authentication)를 참조하세요. 이 섹션에서는 코드에서 이 라이브러리를 시작하는 방법을 보여 줍니다.
 
 1. 애플리케이션에 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 및 [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet 패키지의 참조를 추가합니다.
 

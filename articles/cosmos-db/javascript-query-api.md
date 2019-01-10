@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 00ad005fff54940dbec468e0fde105e936579378
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 1fff32896ef794a26f223cae4ae491a2995d9acf
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411355"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191142"
 ---
 # <a name="working-with-javascript-language-integrated-query-api-with-azure-cosmos-db"></a>Azure Cosmos DB에서 JavaScript LINQ(Language-Integrated Query) API 사용
 
@@ -64,7 +64,7 @@ Azure Cosmos DB의 SQL API를 사용하여 쿼리를 발급하는 방식과 더�
 
 Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 작성하고 사용하는 개념 및 방법을 알아봅니다.
 
-- [JavaScript 쿼리 API를 사용하여 저장 프로시저 및 트리거를 작성하는 방법](how-to-write-javascript-query-api.md#)
+- [JavaScript 쿼리 API를 사용하여 저장 프로시저 및 트리거를 작성하는 방법](how-to-write-javascript-query-api.md)
 - [Azure Cosmos DB 저장 프로시저, 트리거 및 사용자 정의 함수 작업](stored-procedures-triggers-udfs.md)
 - [Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 사용하는 방법](how-to-use-stored-procedures-triggers-udfs.md)
 - [Azure Cosmos DB JavaScript 서버 쪽 API 참조](https://azure.github.io/azure-cosmosdb-js-server)

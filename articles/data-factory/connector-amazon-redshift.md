@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 686b602828856e75300152c41bfe4c35cd6a8219
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7c790d03143eece9b0c827a033bdd46bfd1a8f45
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970164"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024368"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon Redshift에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,12 +53,12 @@ Amazon Redshift 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성을 다음으로 설정해야 합니다. **AmazonRedshift** | yes |
-| 서버 |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |yes |
+| 형식 | type 속성을 다음으로 설정해야 합니다. **AmazonRedshift** | 예 |
+| 서버 |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |예 |
 | 포트 |Amazon Redshift 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트 수입니다. |아니요(기본값: 5439) |
-| 데이터베이스 |Amazon Redshift 데이터베이스의 이름입니다. |yes |
-| 사용자 이름 |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |yes |
-| 암호 |사용자 계정의 password입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |yes |
+| 데이터베이스 |Amazon Redshift 데이터베이스의 이름입니다. |예 |
+| 사용자 이름 |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |예 |
+| 암호 |사용자 계정의 password입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제:**
@@ -96,7 +95,7 @@ Amazon Redshift에서 데이터를 복사하려면 데이터 세트의 type 속�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **RelationalTable** | yes |
+| 형식 | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **RelationalTable** | 예 |
 | tableName | Amazon Redshift에서 테이블의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -126,7 +125,7 @@ Amazon Redshift에서 데이터를 복사하려면 복사 작업의 원본 형�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **AmazonRedshiftSource** | yes |
+| 형식 | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **AmazonRedshiftSource** | 예 |
 | 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |아니요(데이터 세트의 "tableName"이 지정된 경우) |
 | redshiftUnloadSettings | Amazon Redshift UNLOAD를 사용하는 경우 속성 그룹입니다. | 아니요 |
 | s3LinkedServiceName | “AmazonS3” 형식의 연결된 서비스 이름을 지정하여 중간 저장소로 사용하려는 Amazon S3을 참조합니다. | 예(UNLOAD를 사용하는 경우) |

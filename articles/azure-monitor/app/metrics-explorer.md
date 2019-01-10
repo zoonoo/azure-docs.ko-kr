@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: aaa34d27e73c1691e69ea2f6860226639217f0c6
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 752f28eed3a6be5f7f136999c66e405bf7785a42
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004740"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120974"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Application Insights에서 메트릭 탐색
 [Application Insights][start]의 메트릭은 애플리케이션의 원격 분석에서 전송된 측정된 값 및 이벤트 수입니다. 성능 문제를 감지하고 애플리케이션 사용 방식의 추세를 볼 수 있습니다. 다양한 표준 메트릭이 있으며 사용자 고유의 사용자 지정 메트릭 및 이벤트를 만들 수도 있습니다.
@@ -193,18 +193,18 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 
     여러 차트에서 서로 다른 필터를 설정하려면 해당 차트를 서로 다른 블레이드를 만들어 별도의 즐겨찾기로 저장합니다. 필요한 경우 대시보드에 고정하여 서로 나란히 볼 수 있습니다.
 * 메트릭에 정의되지 않은 속성으로 차트를 그룹화한 경우 차트에 아무 것도 표시되지 않습니다. '그룹화 기준'을 지우거나 다른 그룹화 속성을 선택하세요.
-* 성능 데이터(CPU, IO 속도 등)는 Java 웹 서비스, Windows 데스크톱 앱, [IIS Web Apps 및 서비스(상태 모니터를 설치한 경우)](../../azure-monitor/app/monitor-performance-live-website-now.md) 및 [Azure Cloud Services](../../application-insights/app-insights-overview.md)에 사용할 수 있습니다. Azure 웹 사이트에는 사용할 수는 없습니다.
+* 성능 데이터(CPU, IO 속도 등)는 Java 웹 서비스, Windows 데스크톱 앱, [IIS Web Apps 및 서비스(상태 모니터를 설치한 경우)](../../azure-monitor/app/monitor-performance-live-website-now.md) 및 [Azure Cloud Services](../../azure-monitor/app/app-insights-overview.md)에 사용할 수 있습니다. Azure 웹 사이트에는 사용할 수는 없습니다.
 
 ## <a name="video"></a>비디오
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>다음 단계
-* [Application Insights를 사용하여 사용량 모니터링](../../application-insights/app-insights-usage-overview.md)
+* [Application Insights를 사용하여 사용량 모니터링](../../azure-monitor/app/usage-overview.md)
 * [진단 검색 사용](../../azure-monitor/app/diagnostic-search.md)
 
 <!--Link references-->
 
 [alerts]: ../../azure-monitor/app/alerts.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 [track]: ../../azure-monitor/app/api-custom-events-metrics.md

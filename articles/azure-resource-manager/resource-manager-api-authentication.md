@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: 69127702a7d8e7027e78a8e04a4e8e1bc3e36b65
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d7beab66bdaed312f32adef74ceb4b2944e6853e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956343"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103894"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Resource Manager 인증 API를 사용하여 구독에 액세스
 ## <a name="introduction"></a>소개
@@ -156,7 +156,7 @@ Open ID Connect 응답 예제:
 
 인증서 자격 증명을 사용하여 작업할 때 JSON 웹 토큰(JWT)을 만들고 애플리케이션의 인증서 자격 증명의 개인 키를 사용하여 서명합니다(RSA SHA256). 이 토큰을 빌드하는 과정은 [클라이언트 자격 증명 흐름](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#second-case-access-token-request-with a-certificate)에 표시됩니다.  참고로 클라이언트 어설션 JWT 토큰에 서명하는 방법은 [Active Directory 인증 라이브러리(.NET) 코드](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) 를 참조하세요.
 
-클라이언트 인증에 대한 자세한 내용은 [Open ID Connect 사양](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) 을 참조하세요.
+클라이언트 인증에 대한 자세한 내용은 [Open ID Connect 사양](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) 을 참조하세요.
 
 다음 예제에서는 인증서 자격 증명을 사용하여 코드 부여 토큰에 대한 요청을 보여 줍니다.
 
@@ -303,7 +303,7 @@ ASP.net MVC 샘플 앱의 [GetRoleId](https://github.com/dushyantgill/VipSwapper
 
 | 역할 | GUID |
 | --- | --- |
-| 읽기 권한자 |acdd72a7-3385-48ef-bd42-f606fba81ae7 |
+| 판독기 |acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 | 참가자 |b24988ac-6180-42a0-ab88-20f7382dd24c |
 | 가상 머신 참가자 |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 | Virtual Network 참여자 |b34d265f-36f7-4a0d-a4d4-e158ca92e90f |

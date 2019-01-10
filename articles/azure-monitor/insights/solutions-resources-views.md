@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 6e0bab08e52233d10cff3ec936d024dcbb86d2a6
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 4bd8e4ea347c1b26cba831317bdc1d837701788b
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188013"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107398"
 ---
 # <a name="views-in-management-solutions-preview"></a>관리 솔루션 보기(미리 보기)
 > [!NOTE]
@@ -107,7 +107,7 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 예를 들어 다음 샘플에서는 보기가 있는 단순 솔루션 파일을 보여 줍니다.  공간 문제로 **Dashboard** 및 **OverviewTile** 내용에는 줄임표(...)가 표시됩니다.
 
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "workspaceName": {

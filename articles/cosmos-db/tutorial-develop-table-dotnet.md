@@ -2,20 +2,21 @@
 title: .NET SDK를 사용하여 Table API로 개발
 titleSuffix: Azure Cosmos DB
 description: .NET SDK를 사용하여 Azure Cosmos DB에서 Table API로 개발하는 방법을 알아봅니다.
-author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/07/2018
-ms.author: sngun
+author: wmengmsft
+ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: f10cb17f0300b6bd21d17b1e2ff204d57e4a7988
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.reviewer: sngun
+ms.openlocfilehash: 0f0e5219298cf0bce30e2a1e9d66135b4146db5d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251184"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036786"
 ---
 # <a name="develop-with-azure-cosmos-dbs-table-api-using-net-sdk"></a>.NET SDK를 사용하여 Azure Cosmos DB의 Table API로 개발
 
@@ -219,7 +220,7 @@ public class CustomerEntity : TableEntity
 
 다음 코드 조각에서는 Azure 저장소 SDK에 포함된 엔터티를 삽입하는 방법을 보여 줍니다. Azure Cosmos DB는 전 세계의 어떤 규모에서나 짧은 대기 시간을 보장하도록 설계되었습니다.
 
-Azure Cosmos DB 계정과 동일한 지역에서 실행되는 응용 프로그램의 경우 쓰기 작업은 p99에서 15ms 이내, p50에서 6ms까지 완료됩니다. 그리고 이 기간 동안 쓰기 작업이 동기적으로 복제되고, 영구적으로 커밋되며, 모든 콘텐츠가 인덱싱된 후에만 클라이언트에서 다시 승인됩니다.
+Azure Cosmos DB 계정과 동일한 지역에서 실행되는 애플리케이션의 경우 쓰기 작업은 p99에서 15ms 이내, p50에서 6ms까지 완료됩니다. 그리고 이 기간 동안 쓰기 작업이 동기적으로 복제되고, 영구적으로 커밋되며, 모든 콘텐츠가 인덱싱된 후에만 클라이언트에서 다시 승인됩니다.
 
 
 ```csharp

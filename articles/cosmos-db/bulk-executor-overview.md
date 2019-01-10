@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB에서 Bulk Executor 라이브러리를 사용하여 데이터 대량 가져오기 및 업데이트
 description: Azure Cosmos DB에서 대량 가져오기를 통해 대량 작업을 수행하고 Bulk Executor 라이브러리에서 제공하는 API를 대량 업데이트합니다.
-services: cosmos-db
 author: tknandu
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: e3b77ce28e5c3a236abcd9a22e643428b53ed0a6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: e0176af0ce77e9306f6f0031122f8ba8a7b27e61
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834811"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038283"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB 대량 실행기 라이브러리 개요
  
@@ -28,11 +28,11 @@ Bulk Executor 라이브러리를 사용하면 이 대규모 처리량 및 저장
  
 ## <a name="key-features-of-the-bulk-executor-library"></a>대량 실행기 라이브러리의 주요 기능  
  
-* 컨테이너에 할당된 처리량을 사용하는 데 필요한 클라이언트 쪽 계산 리소스를 크게 줄여 줍니다. 대량 가져오기 API를 사용하여 데이터를 작성하는 단일 스레드 응용 프로그램은 클라이언트 컴퓨터의 CPU를 사용하면서 동시에 데이터를 작성하는 멀티 스레드 응용 프로그램에 비해 10회 이상의 쓰기 처리량을 달성합니다.  
+* 컨테이너에 할당된 처리량을 사용하는 데 필요한 클라이언트 쪽 계산 리소스를 크게 줄여 줍니다. 대량 가져오기 API를 사용하여 데이터를 작성하는 단일 스레드 애플리케이션은 클라이언트 컴퓨터의 CPU를 사용하면서 동시에 데이터를 작성하는 멀티 스레드 애플리케이션에 비해 10회 이상의 쓰기 처리량을 달성합니다.  
 
-* 응용 프로그램 논리 작성의 지루한 작업을 추상화하여 요청의 속도 제한, 요청 시간 제한 및 다른 일시적 예외를 라이브러리 내에서 효과적으로 처리합니다.  
+* 애플리케이션 논리 작성의 지루한 작업을 추상화하여 요청의 속도 제한, 요청 시간 제한 및 다른 일시적 예외를 라이브러리 내에서 효과적으로 처리합니다.  
 
-* 응용 프로그램이 스케일 아웃할 대량 작업을 수행할 수 있도록 간소화된 메커니즘을 제공합니다. Azure VM에서 실행하는 단일 Bulk Executor 인스턴스는 500K RU/s 이상을 사용할 수 있으며, 사용자는 개별 클라이언트 VM에서 추가 인스턴스를 추가하여 더 높은 처리량 속도를 얻을 수 있습니다.  
+* 애플리케이션이 스케일 아웃할 대량 작업을 수행할 수 있도록 간소화된 메커니즘을 제공합니다. Azure VM에서 실행하는 단일 Bulk Executor 인스턴스는 500K RU/s 이상을 사용할 수 있으며, 사용자는 개별 클라이언트 VM에서 추가 인스턴스를 추가하여 더 높은 처리량 속도를 얻을 수 있습니다.  
  
 * 스케일 아웃 아키텍처를 사용하면 한 시간에 테라바이트 이상의 데이터를 대량으로 가져올 수 있습니다.  
 
@@ -48,7 +48,7 @@ Bulk Executor 라이브러리는 컬렉션에 할당된 처리량을 최대로 �
 
 ## <a name="next-steps"></a>다음 단계 
   
-* [.NET](bulk-executor-dot-net.md) 및 [Java](bulk-executor-java.md)에서 Bulk Executor 라이브러리를 사용하는 샘플 응용 프로그램을 사용해 보며 자세히 알아봅니다.  
+* [.NET](bulk-executor-dot-net.md) 및 [Java](bulk-executor-java.md)에서 Bulk Executor 라이브러리를 사용하는 샘플 애플리케이션을 사용해 보며 자세히 알아봅니다.  
 * [.NET](sql-api-sdk-bulk-executor-dot-net.md) 및 [Java](sql-api-sdk-bulk-executor-java.md)에서 대량 실행기 SDK 정보 및 릴리스 정보를 확인하세요.
 * Bulk Executor 라이브러리는 Cosmos DB Spark 커넥터에 통합됩니다. 자세한 내용은 [Azure Cosmos DB Spark 커넥터](spark-connector.md) 문서를 참조하세요.  
 * 또한 대량 실행기 라이브러리는 Azure Data Factory가 데이터를 복사할 수 있도록 [Azure Cosmos DB 커넥터](https://aka.ms/bulkexecutor-adf-v2)의 새 버전에 통합됩니다.

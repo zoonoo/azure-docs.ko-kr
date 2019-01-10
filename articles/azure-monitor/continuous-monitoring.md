@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 2d58a39efca8733902d157083489e59bf22ef161
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a7b91bfdc616e19fde9f74246d05cf14ecbd335e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002283"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117268"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Azure Monitor를 사용하여 연속 모니터링
 
@@ -32,9 +32,9 @@ ms.locfileid: "54002283"
 전체 환경에서 식별 가능성을 얻으려면 모든 웹 애플리케이션 및 서비스에서 모니터링을 사용하도록 설정해야 합니다. 이렇게 하면 모든 구성 요소에서 엔드투엔드 트랜잭션 및 연결을 쉽게 시각화할 수 있습니다.
 
 - [Azure DevOps Projects](../devops-project/overview.md)는 기존 코드와 Git 리포지토리가 포함된 간소화된 환경을 제공하거나 샘플 애플리케이션 중 하나를 선택하여 Azure에 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인을 만듭니다.
-- [DevOps 릴리스 파이프라인의 연속 모니터링](../application-insights/app-insights-vsts-continuous-monitoring.md)을 사용하면 모니터링 데이터를 기반으로 배포를 제어 또는 롤백할 수 있습니다.
+- [DevOps 릴리스 파이프라인의 연속 모니터링](../azure-monitor/app/continuous-monitoring.md)을 사용하면 모니터링 데이터를 기반으로 배포를 제어 또는 롤백할 수 있습니다.
 - [상태 모니터](../azure-monitor/app/monitor-performance-live-website-now.md)를 사용하면 코드를 수정하거나 다시 배포하지 않고도 Azure Application Insights를 사용하여 Windows에서 라이브 .NET 앱을 계측할 수 있습니다.
-- 애플리케이션의 코드에 액세스할 수 있는 경우 [.NET](../application-insights/quick-monitor-portal.md), [Java](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md) 또는 [기타 프로그래밍 언어](../azure-monitor/app/platforms.md)용 Azure Monitor Application Insights SDK를 설치하여 [Application Insights](../application-insights/app-insights-overview.md)를 통해 전체 모니터링을 사용하도록 설정합니다. 이렇게 하면 애플리케이션 및 비즈니스에 관련된 사용자 지정 이벤트, 메트릭 또는 페이지 보기를 지정할 수 있습니다.
+- 애플리케이션의 코드에 액세스할 수 있는 경우 [.NET](../azure-monitor/learn/quick-monitor-portal.md), [Java](../azure-monitor/learn/java-quick-start.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md) 또는 [기타 프로그래밍 언어](../azure-monitor/app/platforms.md)용 Azure Monitor Application Insights SDK를 설치하여 [Application Insights](../azure-monitor/app/app-insights-overview.md)를 통해 전체 모니터링을 사용하도록 설정합니다. 이렇게 하면 애플리케이션 및 비즈니스에 관련된 사용자 지정 이벤트, 메트릭 또는 페이지 보기를 지정할 수 있습니다.
 
 
 
@@ -64,7 +64,7 @@ ms.locfileid: "54002283"
 
 - [Azure Pipelines](/azure/devops/pipelines)를 사용하여 지속적인 배포를 구현하고 CI/CD 테스트를 기반으로 코드 커밋에서 프로덕션으로 전체 프로세스를 자동화합니다.
 - [품질 게이트](/devops/pipelines/release/approvals/gates)를 사용하여 모니터링을 사전 배포 또는 사후 배포에 통합합니다. 이렇게 하면 애플리케이션이 개발 환경에서 프로덕션 환경으로 이동하고 인프라 환경 또는 규모의 차이가 KPI에 부정적인 영향을 주지 않으므로 핵심 상태/성과 지표(KPI)가 충족됩니다.
-- 개발, 테스트, 카나리아 및 프로덕션과 같은 다양한 배포 환경 간에 [개별 모니터링 인스턴스를 유지 관리](../application-insights/app-insights-separate-resources.md)합니다. 이렇게 하면 수집된 데이터가 연결된 애플리케이션 및 인프라 간에 관련됩니다. 환경 간에 데이터를 상호 연결해야 하면 [메트릭 탐색기에서 다중 리소스 차트](../azure-monitor/platform/metrics-charts.md)를 사용하거나 [Log Analytics에서 리소스 간 쿼리](log-query/cross-workspace-query.md)를 만들 수 있습니다.
+- 개발, 테스트, 카나리아 및 프로덕션과 같은 다양한 배포 환경 간에 [개별 모니터링 인스턴스를 유지 관리](../azure-monitor/app/separate-resources.md)합니다. 이렇게 하면 수집된 데이터가 연결된 애플리케이션 및 인프라 간에 관련됩니다. 환경 간에 데이터를 상호 연결해야 하면 [메트릭 탐색기에서 다중 리소스 차트](../azure-monitor/platform/metrics-charts.md)를 사용하거나 [Log Analytics에서 리소스 간 쿼리](log-query/cross-workspace-query.md)를 만들 수 있습니다.
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>작업을 사용하여 실행 가능한 경고 만들기
@@ -79,17 +79,17 @@ ms.locfileid: "54002283"
 ## <a name="prepare-dashboards-and-workbooks"></a>대시보드 및 통합 문서 준비
 개발 및 운영이 동일한 원격 분석 및 도구에 액세스할 수 있도록 하면 전체 환경에서 패턴을 보고 MTTD(평균 검색 시간) 및 MTTR(평균 복원 시간)을 최소화할 수 있습니다.
 
-- 조직의 다양한 역할에 대한 공통 메트릭 및 로그를 기반으로 [사용자 지정 대시보드](../application-insights/app-insights-tutorial-dashboards.md)를 준비합니다. 대시보드는 모든 Azure 리소스의 데이터를 결합할 수 있습니다.
-- 개발 및 운영 간에 정보 공유를 보장하기 위해 [통합 문서](../application-insights/app-insights-usage-workbooks.md)를 준비합니다. 이러한 통합 문서는 메트릭 차트 및 로그 쿼리를 사용하여 동적 보고서로 준비하거나 기본적인 문제를 처리하는 고객 지원 또는 운영에 도움이 되도록 개발자가 마련한 문제 해결 가이드로도 준비할 수 있습니다.
+- 조직의 다양한 역할에 대한 공통 메트릭 및 로그를 기반으로 [사용자 지정 대시보드](../azure-monitor/learn/tutorial-app-dashboards.md)를 준비합니다. 대시보드는 모든 Azure 리소스의 데이터를 결합할 수 있습니다.
+- 개발 및 운영 간에 정보 공유를 보장하기 위해 [통합 문서](../azure-monitor/app/usage-workbooks.md)를 준비합니다. 이러한 통합 문서는 메트릭 차트 및 로그 쿼리를 사용하여 동적 보고서로 준비하거나 기본적인 문제를 처리하는 고객 지원 또는 운영에 도움이 되도록 개발자가 마련한 문제 해결 가이드로도 준비할 수 있습니다.
 
 ## <a name="continuously-optimize"></a>지속적으로 최적화
  모니터링은 KPI 및 사용자 동작 메트릭을 지속적으로 추적하고 반복 계획을 통해 최대한 최적화하도록 권장하는 널리 사용되는 빌드-측정-학습 철학의 기본 측면 중 하나입니다. Azure Monitor를 사용하여 비즈니스에 관련된 메트릭 및 로그를 수집하고 필요에 따라 다음 배포에 새 데이터 요소를 추가할 수 있습니다.
 
-- Application Insights의 도구를 사용하여 [최종 사용자 동작 및 참여를 추적](../application-insights/app-insights-tutorial-users.md)합니다.
-- [영향 분석](../application-insights/app-insights-usage-impact.md)을 사용하여 중요 KPI에 집중하기 위해 초점을 맞출 영역의 우선 순위를 지정할 수 있습니다.
+- Application Insights의 도구를 사용하여 [최종 사용자 동작 및 참여를 추적](../azure-monitor/learn/tutorial-users.md)합니다.
+- [영향 분석](../azure-monitor/app/usage-impact.md)을 사용하여 중요 KPI에 집중하기 위해 초점을 맞출 영역의 우선 순위를 지정할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Monitor](overview.md)의 차이 구성 요소에 대해 알아봅니다.
-- 릴리스 파이프라인에 [연속 모니터링을 추가](../application-insights/app-insights-vsts-continuous-monitoring.md)합니다.
+- 릴리스 파이프라인에 [연속 모니터링을 추가](../azure-monitor/app/continuous-monitoring.md)합니다.

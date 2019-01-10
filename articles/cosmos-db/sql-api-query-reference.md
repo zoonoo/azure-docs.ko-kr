@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB의 SQL 언어 구문
 description: 이 문서에서는 Azure Cosmos DB에 사용된 SQL 쿼리 언어 구문, 다른 연산자 및 이 언어로 사용 가능한 키워드에 대해 설명합니다.
-author: LalithaMV
+author: markjbrown
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.topic: reference
 ms.date: 12/07/2018
-ms.author: laviswa
+ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: eec3846319a93e94ca362d9ef6815a73d0ca958a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9e589c582e52aafb9bdd93f80a702b581b883a59
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53142510"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044385"
 ---
 # <a name="azure-cosmos-db-sql-language-reference"></a>Azure Cosmos DB SQL 언어 참조 
 

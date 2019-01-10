@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: f4f7546efca0bd69fd71418116142acacb927604
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 31dc45dbe8d7e3ed9b701f8623fd4e1425320316
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970902"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107466"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>자습서: G Suite와 Azure Active Directory 통합
 
@@ -146,15 +146,15 @@ G Suite에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     ![G Suite 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에 `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com` 패턴을 사용하여 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com` 패턴을 사용하는 URL을 입력합니다.
 
     b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
     | |
     |--|
     | `google.com/a/<yourdomain.com>` |
     | `google.com` |
-    | `http://google.com` |
-    | `http://google.com/a/<yourdomain.com>` |
+    | `https://google.com` |
+    | `https://google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [G Suite 클라이언트 지원 팀](https://www.google.com/contact/)에 문의하세요.
@@ -163,7 +163,7 @@ G Suite에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     ![이미지](common/edit-attribute.png)
 
-6. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **아이콘 편집**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
+6. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
 
     | 이름 | 원본 특성 |
     | ---------------| --------------- |
@@ -203,7 +203,7 @@ G Suite에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 ### <a name="configure-g-suite-single-sign-on"></a>G Suite Single Sign-On 구성
 
-1. 브라우저에서 새 탭을 열고 관리자 계정을 사용하여 [G Suite 관리 콘솔](http://admin.google.com/) 에 로그인합니다.
+1. 브라우저에서 새 탭을 열고 관리자 계정을 사용하여 [G Suite 관리 콘솔](https://admin.google.com/) 에 로그인합니다.
 
 2. **보안**을 클릭합니다. 링크가 보이지 않으면 화면 아래쪽에 있는 **기타 컨트롤** 메뉴에 숨겨져 있을 수 있습니다.
 

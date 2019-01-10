@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 61cefe762b639dcc58c2e10fc845dd9729cb2cb2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4fcb692d7189c84e32f55995538ffc692cb67dd6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078241"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064715"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Azure Active Directory Premium P2 라이선스 기능 검사 목록
 
@@ -69,7 +69,7 @@ ID 인프라를 잘 계획하고 실행해 두면 인증된 사용자와 디바�
 - [게스트 사용자 액세스에 대한 계획](../b2b/what-is-b2b.md)
    - [Azure Portal에서 Azure Active Directory B2B 공동 작업 사용자 추가](../b2b/add-users-administrator.md)
    - [특정 조직의 B2B 사용자 초대 허용 또는 차단](../b2b/allow-deny-list.md)
-   - [Azure AD의 B2B 사용자에게 온-프레미스 응용 프로그램에 대한 액세스 권한 부여](../b2b/hybrid-cloud-to-on-premises.md)
+   - [Azure AD의 B2B 사용자에게 온-프레미스 애플리케이션에 대한 액세스 권한 부여](../b2b/hybrid-cloud-to-on-premises.md)
 - 사용자 수명 주기 관리 전략 결정
 - [디바이스 관리 전략 결정](../devices/overview.md)
    - [Azure AD 연결에 대한 사용 시나리오와 배포 고려 사항](../devices/azureadjoin-plan.md)
@@ -84,9 +84,9 @@ ID 인프라를 잘 계획하고 실행해 두면 인증된 사용자와 디바�
 - 전체적으로 사용자 수명 주기 관리
    - Azure AD에 ID 수명 주기를 관리하는 방법이 있습니다.
    - 무단 액세스를 방지하려면 직원 계정 수명 주기에서 수동 단계를 제거하십시오.
-      - HR 시스템(진실의 근원)의 ID를 Azure AD에 동기화합니다. 지원되는 HR 시스템에 링크)
+      - HR 시스템(진실의 근원)의 ID를 Azure AD에 동기화합니다.
       - [동적 그룹을 사용하여 부서, 직함, 지역 및 기타 속성과 같은 HR(또는 진실의 근원)의 특성을 기반으로 사용자를 그룹에 자동으로 할당합니다.](../users-groups-roles/groups-dynamic-membership.md)
-      - [그룹 기반 액세스 관리 프로비전을 사용하여 SaaS 응용 프로그램에 사용자를 자동으로 프로비전합니다.](../manage-apps/what-is-access-management.md)
+      - [그룹 기반 액세스 관리 프로비전을 사용하여 SaaS 애플리케이션에 사용자를 자동으로 프로비전합니다.](../manage-apps/what-is-access-management.md)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 69310e51495cbb91303c3e8837ad42f6a4ac3374
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 03a73d672aefc1b8203f3df5cf2301e94e322129
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972911"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159947"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>PowerShell을 사용하여 Azure Security Center 온보딩 자동화
 
@@ -81,7 +81,7 @@ PowerShell을 사용하여 Azure Security Center를 온보딩하면 Azure 리소
 
 5.  선택 사항: Security Center에서 생성한 경고 및 알림의 수신자로 사용될, 온보딩하는 구독의 보안 연락처 세부 정보를 정의하는 것이 좋습니다.
 
-        Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertsAdmin -NotifyOnAlert 
+        Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert 
 
 6.  기본 Security Center 정책 이니셔티브를 할당합니다.
 

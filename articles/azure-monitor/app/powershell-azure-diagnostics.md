@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/17/2015
 ms.author: mbullwin
-ms.openlocfilehash: 6016d8a8b5a7b50561e703a29bdd76ef89770463
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: f929c58d38cbae4ba5f8aea73a2acf30d8bbe7d2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004891"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121433"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>PowerShell을 사용하여 Azure 웹앱에서 Application Insights 설정
-[Microsoft Azure](https://azure.com)는 [Azure Application Insights](../../application-insights/app-insights-overview.md)에 [Azure 진단을 보내도록 구성](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)될 수 있습니다. 진단은 Azure Cloud Services 및 Azure VM과 연관됩니다. 이들 항목은 Application Insights SDK를 사용하여 앱 내부에서 보내는 원격 분석을 보완합니다. Azure에서 새 리소스 생성 과정에 대한 자동화의 일환으로 PowerShell을 사용하여 진단을 구성할 수 있습니다.
+[Microsoft Azure](https://azure.com)는 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)에 [Azure 진단을 보내도록 구성](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)될 수 있습니다. 진단은 Azure Cloud Services 및 Azure VM과 연관됩니다. 이들 항목은 Application Insights SDK를 사용하여 앱 내부에서 보내는 원격 분석을 보완합니다. Azure에서 새 리소스 생성 과정에 대한 자동화의 일환으로 PowerShell을 사용하여 진단을 구성할 수 있습니다.
 
 ## <a name="azure-template"></a>Azure 템플릿
 웹앱이 Azure에 있고 Azure Resource Manager 템플릿을 사용하여 리소스를 만드는 경우 리소스 노드에 이를 추가하여 Application Insights를 구성할 수 있습니다.

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18be454c93c32e0902a55a08748045c26d649ce7
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: a5386e56bffd9a9789fe431aae8ed13df8ffae13
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322042"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117438"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합을 사용한 자동 크기 조정 개요
 Azure 가상 머신 확장 집합은 애플리케이션을 실행하는 VM 인스턴스의 수를 자동으로 늘리거나 줄입니다. 자동화되고 탄력적인 이 동작은 관리 오버헤드를 줄여 애플리케이션의 성능을 모니터링하고 최적화합니다. 긍정적인 고객 만족을 위해 허용되는 성능을 정의하는 규칙을 만듭니다. 정의된 임계값이 충족되면 자동 크기 조정 규칙에 따라 확장 집합의 용량을 조정하는 작업을 수행합니다. 확정된 시간에 확장 집합의 용량을 자동으로 늘리거나 줄이도록 이벤트를 예약할 수도 있습니다. 이 문서에서는 사용 가능한 성능 메트릭과 자동 크기 조정에서 수행할 수 있는 작업에 대해 간략히 설명합니다.
@@ -122,7 +122,7 @@ Azure 진단 확장을 사용하려면 VM 인스턴스에 대한 Azure 저장소
 ## <a name="application-level-metrics-with-app-insights"></a>App Insights를 사용한 애플리케이션 수준 메트릭
 애플리케이션 성능에 대한 가시성을 높이려면Application Insights를 사용할 수 있습니다. 앱을 모니터링하고 원격 분석을 Azure로 보내는 작은 계측 패키지를 애플리케이션에 설치합니다. 애플리케이션의 응답 시간, 페이지 로드 성능 및 세션 수와 같은 메트릭을 모니터링할 수 있습니다. 고객 만족에 영향을 줄 수 있는 실행 가능한 정보에 따라 규칙을 트리거할 때 이러한 애플리케이션 메트릭을 사용하여 세분화되고 포함된 수준의 자동 크기 조정 규칙을 만들 수 있습니다.
 
-App Insights에 대한 자세한 내용은 [Application Insights란?](../application-insights/app-insights-overview.md)을 참조하세요.
+App Insights에 대한 자세한 내용은 [Application Insights란?](../azure-monitor/app/app-insights-overview.md)을 참조하세요.
 
 
 ## <a name="scheduled-autoscale"></a>예약된 자동 크기 조정

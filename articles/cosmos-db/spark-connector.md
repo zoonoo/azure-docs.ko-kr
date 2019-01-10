@@ -1,19 +1,17 @@
 ---
 title: Azure Cosmos DB에 Apache Spark 연결
 description: Azure Cosmos DB에 Apache Spark를 연결할 수 있도록 하는 Azure Cosmos DB Spark 커넥터에 대해 알아봅니다. Microsoft의 다중 테넌트, 글로벌하게 분산된 데이터베이스 시스템에서 분산된 집계를 수행할 수 있습니다.
-keywords: Apache Spark
-services: cosmos-db
 author: tknandu
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: fd1fa105a880acb0d2b18a3b69ba8d475d8f82a3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6d80de23f815d96ba78f023f46a530561d5ec39d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081594"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034644"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Apache Spark-Azure Cosmos DB 커넥터를 사용하여 빅 데이터 분석 가속화
  
@@ -177,7 +175,7 @@ Spark 작업자 노드와 Azure Cosmos DB 데이터 노드(파티션) 간에 데
 
 4. Twitter 피드 샘플의 콘텐츠를 추출하고 config.py 파일을 엽니다. masterKey, host, databaseId, collectionId 및 preferredLocations 값을 업데이트합니다.  
 
-5. `https://apps.twitter.com/`으로 이동하고 Twitter 피드 응용 프로그램을 등록합니다. 애플리케이션 이름을 선택하면 **소비자 키, 소비자 암호, 액세스 토큰 및 액세스 토큰 암호**가 제공됩니다. 이 값을 복사하고 config.py 파일에서 업데이트하여 Twitter에 대한 애플리케이션의 프로그래밍 방식 액세스를 Twitter 피드에 제공합니다.   
+5. `https://apps.twitter.com/`으로 이동하고 Twitter 피드 애플리케이션을 등록합니다. 애플리케이션 이름을 선택하면 **소비자 키, 소비자 암호, 액세스 토큰 및 액세스 토큰 암호**가 제공됩니다. 이 값을 복사하고 config.py 파일에서 업데이트하여 Twitter에 대한 애플리케이션의 프로그래밍 방식 액세스를 Twitter 피드에 제공합니다.   
 
 6. config.py 파일을 저장합니다. 명령 프롬프트를 열고, 다음 명령을 사용하여 Python 애플리케이션을 실행합니다.
 

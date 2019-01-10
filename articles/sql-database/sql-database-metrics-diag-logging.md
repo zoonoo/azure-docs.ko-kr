@@ -11,28 +11,28 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 138368c8e79d68a9a9c5a711b99d8926da7dc68d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/03/2019
+ms.openlocfilehash: 49c411487a29a7faa5a6cec5087a85d472309a4b
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601562"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044572"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅
 
 Azure SQL Database, 탄력적 풀, Managed Instance 및 Managed Instance의 데이터베이스는 성능을 더 쉽게 모니터링할 수 있도록 메트릭 및 진단 로그를 스트림할 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 다음 Azure 리소스 중 하나로 전송하도록 데이터베이스를 구성할 수 있습니다.
 
-* **Azure SQL 분석**: 성능 보고서, 경고 및 완화 권장 사항을 포함하는 Azure 데이터베이스의 인텔리전트 모니터링을 가져옵니다.
-* **Azure Event Hubs**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합합니다.
-* **Azure Storage**: 적은 비용으로 방대한 양의 원격 분석 데이터를 보관합니다.
+- **Azure SQL 분석**: 성능 보고서, 경고 및 완화 권장 사항을 포함하는 Azure 데이터베이스의 인텔리전트 모니터링을 가져옵니다.
+- **Azure Event Hubs**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합합니다.
+- **Azure Storage**: 적은 비용으로 방대한 양의 원격 분석 데이터를 보관합니다.
 
     ![아키텍처](./media/sql-database-metrics-diag-logging/architecture.png)
 
 다양한 Azure 서비스에서 지원하는 메트릭 및 로그 범주에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Microsoft Azure의 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Microsoft Azure의 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+- [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 이 문서에서는 데이터베이스, 탄력적 풀 및 Managed Instance에 대한 진단 원격 분석을 사용하도록 설정하는 데 도움이 되는 지침을 제공합니다. 또한 이를 통해 데이터베이스 진단 원격 분석을 보기 위한 모니터링 도구로 Azure SQL 분석을 구성하는 방법을 이해할 수 있습니다.
 
@@ -101,7 +101,6 @@ Azure SQL Database에 진단 원격 분석 스트리밍을 사용하도록 설�
 
 > [!NOTE]
 > 데이터베이스 진단 설정에서는 보안 감사 로그를 사용하도록 설정할 수 없습니다. 감사 로그 스트리밍을 사용하도록 설정하려면 [데이터베이스에 대해 감사 설정](sql-database-auditing.md#subheading-2) 및 [Azure Log Analytics 및 Azure Event Hubs의 SQL 감사 로그](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/)를 참조하세요.
-
 > [!TIP]
 > 모니터링하려는 각 Azure SQL Database에 대해 이러한 단계를 반복합니다.
 
@@ -112,17 +111,17 @@ Azure SQL Database에 진단 원격 분석 스트리밍을 사용하도록 설�
 Managed Instance의 데이터베이스에 진단 원격 분석 스트리밍을 사용하도록 설정하려면 다음 단계를 따릅니다.
 
 1. Managed Instance의 데이터베이스로 이동합니다.
-1. **진단 설정**을 선택합니다.
-1. 이전 설정이 없으면 **진단 켜기**를 선택하고, 이전 설정이 있으면 **설정 편집**을 선택하여 이전 설정을 편집합니다.
+2. **진단 설정**을 선택합니다.
+3. 이전 설정이 없으면 **진단 켜기**를 선택하고, 이전 설정이 있으면 **설정 편집**을 선택하여 이전 설정을 편집합니다.
    - 진단 원격 분석을 스트림하는 병렬 연결을 3개까지 만들 수 있습니다.
    - **+진단 설정 추가**를 선택하여 진단 데이터를 여러 리소스로 병렬 스트림하도록 구성합니다.
 
    ![Managed Instance 데이터베이스에 대해 진단 사용](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
-1. 고유한 참조의 설정 이름을 입력합니다.
-1. 스트리밍 진단 데이터의 대상 리소스를 선택합니다. **스토리지 계정에 보관**, **이벤트 허브로의 스트림** 또는 **Log Analytics에 보내기**.
-1. 데이터베이스 진단 원격 분석에 대해 다음 확인란을 선택합니다. **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** 및 **Errors**.
-1. **저장**을 선택합니다.
+4. 고유한 참조의 설정 이름을 입력합니다.
+5. 스트리밍 진단 데이터의 대상 리소스를 선택합니다. **스토리지 계정에 보관**, **이벤트 허브로의 스트림** 또는 **Log Analytics에 보내기**.
+6. 데이터베이스 진단 원격 분석에 대해 다음 확인란을 선택합니다. **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** 및 **Errors**.
+7. **저장**을 선택합니다.
 
    ![Managed Instance 데이터베이스에 대해 진단 구성](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 
@@ -170,7 +169,7 @@ Managed Instance의 데이터베이스에 진단 원격 분석 스트리밍을 �
 
 | 리소스 | 모니터링 원격 분석 |
 | :------------------- | ------------------- |
-| **Managed Instance** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats)는 vCore 수, 평균 CPU 백분율, IO 요청 수, 읽은/쓴 바이트, 예약된 스토리지 공간 및 사용된 스토리지 공간을 포함합니다. |
+| **Managed Instance** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#logs-for-managed-instance)는 vCore 수, 평균 CPU 백분율, IO 요청 수, 읽은/쓴 바이트, 예약된 스토리지 공간 및 사용된 스토리지 공간을 포함합니다. |
 
 Managed Instance 리소스에 진단 원격 분석 스트리밍을 사용하도록 설정하려면 다음 단계를 따릅니다.
 
@@ -338,11 +337,11 @@ Azure Portal에서 기본 제공되는 **이벤트 허브로 스트림** 옵션�
 
 Event Hubs의 스트림된 메트릭을 사용하여 다음을 수행할 수 있습니다.
 
-* **Power BI로 핫 패스 데이터를 스트림하여 서비스 상태를 확인합니다**. Event Hubs, Stream Analytics 및 PowerBI를 사용하여 Azure 서비스에서 메트릭 및 진단 데이터를 거의 실시간 정보로 간편하게 변환할 수 있습니다. Event Hubs를 설정하고 Stream Analytics로 데이터를 처리하며 출력으로 PowerBI를 사용하는 방법에 대한 개요는 [Stream Analytics 및 Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)를 참조하세요.
+- **Power BI로 핫 패스 데이터를 스트림하여 서비스 상태를 확인합니다**. Event Hubs, Stream Analytics 및 PowerBI를 사용하여 Azure 서비스에서 메트릭 및 진단 데이터를 거의 실시간 정보로 간편하게 변환할 수 있습니다. Event Hubs를 설정하고 Stream Analytics로 데이터를 처리하며 출력으로 PowerBI를 사용하는 방법에 대한 개요는 [Stream Analytics 및 Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)를 참조하세요.
 
-* **제3자 로깅 및 원격 분석에 로그를 스트림합니다**. Event Hubs 스트리밍을 사용하여 메트릭 및 진단 로그를 다양한 타사 모니터링 및 로그 분석 솔루션으로 가져올 수 있습니다.
+- **제3자 로깅 및 원격 분석에 로그를 스트림합니다**. Event Hubs 스트리밍을 사용하여 메트릭 및 진단 로그를 다양한 타사 모니터링 및 로그 분석 솔루션으로 가져올 수 있습니다.
 
-* **사용자 지정 원격 분석 및 로깅 플랫폼을 빌드합니다**. 사용자 지정 빌드 원격 분석 플랫폼이 이미 있거나 빌드를 고려하고 있나요? Event Hubs의 확장성 높은 게시-구독 특성을 통해 진단 로그를 유연하게 수집할 수 있습니다. [글로벌 확장 원격 분석 플랫폼에 Event Hubs 사용에 대한 Dan Rosanova의 가이드](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)를 참조하세요.
+- **사용자 지정 원격 분석 및 로깅 플랫폼을 빌드합니다**. 사용자 지정 빌드 원격 분석 플랫폼이 이미 있거나 빌드를 고려하고 있나요? Event Hubs의 확장성 높은 게시-구독 특성을 통해 진단 로그를 유연하게 수집할 수 있습니다. [글로벌 확장 원격 분석 플랫폼에 Event Hubs 사용에 대한 Dan Rosanova의 가이드](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)를 참조하세요.
 
 ## <a name="stream-into-storage"></a>Storage에 스트림
 
@@ -386,7 +385,7 @@ Azure SQL 분석을 사용하는 경우 Azure SQL 분석의 탐색 메뉴에서 
 
 ## <a name="metrics-and-logs-available"></a>사용 가능한 메트릭 및 로그
 
-수집한 모니터링 원격 분석을 [SQL Analytics 언어](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)를 사용하여 사용자 고유의 _사용자 지정 분석_ 및 _애플리케이션 개발_에 사용할 수 있습니다. 
+수집한 모니터링 원격 분석을 [SQL Analytics 언어](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)를 사용하여 사용자 고유의 _사용자 지정 분석_ 및 _애플리케이션 개발_에 사용할 수 있습니다.
 
 ## <a name="all-metrics"></a>모든 메트릭
 
@@ -690,12 +689,12 @@ Azure SQL Database 및 Managed Instance 데이터베이스 로그에 대한 자�
 
 로깅을 사용하도록 설정하는 방법을 알아보고 여러 Azure 서비스에서 지원되는 메트릭과 로그 범주를 이해하려면 다음을 참조하세요.
 
-* [Microsoft Azure의 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Microsoft Azure의 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+- [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 Event Hubs에 대해 알아보려면 다음을 확인합니다.
 
-* [Azure Event Hubs 정의](../event-hubs/event-hubs-what-is-event-hubs.md)
-* [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+- [Azure Event Hubs 정의](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 Azure Storage에 대해 자세히 알아보려면 [Storage에서 메트릭 및 진단 로그 다운로드하는 방법](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application)을 참조하세요.

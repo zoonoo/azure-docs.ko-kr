@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 946d0895ff25509a0e35695fe27c783b3c50784b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a6937b5b6b3b85dd51d80a928de02a00c361cc0e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999580"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117608"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
-마이크로 서비스의 세상에서 모든 논리 작업에는 다양한 서비스 구성 요소로 이루어지는 작업이 필요합니다. 이러한 각 구성 요소는 [Application Insights](../../application-insights/app-insights-overview.md)에서 개별적으로 모니터링할 수 있습니다. 웹앱 구성 요소는 인증 공급자 구성 요소와 통신하여 사용자 자격 증명의 유효성을 검사하고, API 구성 요소를 사용하여 시각화할 데이터를 가져옵니다. 이에 따라 API 구성 요소는 다른 서비스의 데이터를 쿼리하고, 캐시 공급자 구성 요소를 사용하고, 이 호출에 대해 청구 구성 요소에 알릴 수 있습니다. Application Insights는 분산 원격 분석 상관 관계를 지원합니다. 이를 통해 실패하거나 성능 저하된 구성 요소를 검색할 수 있습니다.
+마이크로 서비스의 세상에서 모든 논리 작업에는 다양한 서비스 구성 요소로 이루어지는 작업이 필요합니다. 이러한 각 구성 요소는 [Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 개별적으로 모니터링할 수 있습니다. 웹앱 구성 요소는 인증 공급자 구성 요소와 통신하여 사용자 자격 증명의 유효성을 검사하고, API 구성 요소를 사용하여 시각화할 데이터를 가져옵니다. 이에 따라 API 구성 요소는 다른 서비스의 데이터를 쿼리하고, 캐시 공급자 구성 요소를 사용하고, 이 호출에 대해 청구 구성 요소에 알릴 수 있습니다. Application Insights는 분산 원격 분석 상관 관계를 지원합니다. 이를 통해 실패하거나 성능 저하된 구성 요소를 검색할 수 있습니다.
 
 이 문서에서는 여러 구성 요소에서 보낸 원격 분석의 상관 관계를 지정하기 위해 Application Insights에서 사용되는 데이터 모델에 대해 설명합니다. 컨텍스트 전파 기술 및 프로토콜을 다룹니다. 다양한 언어와 플랫폼에 대한 상관 관계 개념 구현도 다룹니다.
 

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: eaafc8acb73dd48e213d05d953d9ada457c53132
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0cccef6a50d6e93a13f27b8585fe7e605c75deb9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957268"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025541"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드 
 이 자습서에서는 원본 Azure SQL 데이터베이스의 **변경 내용 추적** 정보를 기반으로 Azure Blob 저장소에 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.  
@@ -197,7 +196,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 3. **새 연결된 서비스** 창에서 다음 단계를 수행합니다. 
 
     1. **이름**에 대해 **AzureStorageLinkedService**를 입력합니다. 
-    2. **저장소 계정 이름**에 대해 Azure Storage 계정을 선택합니다. 
+    2. **스토리지 계정 이름**에 대해 Azure Storage 계정을 선택합니다. 
     3. **저장**을 클릭합니다. 
     
    ![Azure Storage 계정 설정](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-storage-linked-service-settings.png)

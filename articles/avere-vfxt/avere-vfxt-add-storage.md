@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: d38fe1cab27cfade3e6e4d2f6764f455896ac470
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a7036f6fbab771dc090e97034a6191cf82b707a7
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001963"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190854"
 ---
 # <a name="configure-storage"></a>저장소 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "53001963"
 
 다음 두 가지 주요 작업이 있습니다.
 
-1. [코어 파일러 만들기](#create-a-core-filer) - vFXT 클러스터를 기존 저장소 시스템 또는 Azure Storage 계정에 연결합니다.
+1. [코어 파일러 만들기](#create-a-core-filer) - vFXT 클러스터를 기존 스토리지 시스템 또는 Azure Storage 계정에 연결합니다.
 
 1. [네임스페이스 접합 만들기](#create-a-junction) - 클라이언트에서 탑재할 경로를 정의합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "53001963"
 
 ## <a name="create-a-core-filer"></a>코어 파일러 만들기
 
-"코어 파일러"는 백 엔드 저장소 시스템에 대한 vFXT 용어입니다. 저장소는 NetApp 또는 Isilon과 같은 하드웨어 NAS 어플라이언스이거나 클라우드 개체 저장소일 수 있습니다. 코어 파일러에 대한 자세한 내용은 [Avere 클러스터 설정 가이드](http://library.averesystems.com/ops_guide/4_7/settings_overview.html#managing-core-filers)에서 찾을 수 있습니다.
+"코어 파일러"는 백 엔드 저장소 시스템에 대한 vFXT 용어입니다. 저장소는 NetApp 또는 Isilon과 같은 하드웨어 NAS 어플라이언스이거나 클라우드 개체 저장소일 수 있습니다. 코어 파일러에 대한 자세한 내용은 [Avere 클러스터 설정 가이드](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers)에서 찾을 수 있습니다.
 
 코어 파일러를 추가하려면 다음 두 가지 주요 유형 중 하나의 코어 파일러를 선택합니다.
 
@@ -70,7 +70,7 @@ NAS 코어 파일러를 추가하는 단계는 다음과 같습니다.
   
    * **다음**을 클릭하고 캐시 정책을 선택합니다. 
    * **파일러 추가**를 클릭합니다.
-   * 자세한 내용은 Avere 클러스터 설정 가이드의 [새 NAS 코어 파일러 추가](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html)를 참조하세요.
+   * 자세한 내용은 Avere 클러스터 설정 가이드의 [새 NAS 코어 파일러 추가](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html)를 참조하세요.
 
 그런 다음, [접합 만들기](#create-a-junction)로 계속 진행합니다.  
 
@@ -156,7 +156,7 @@ Blob 저장소를 클러스터에 추가하려면 다음 작업이 필요합니�
    * 필요에 따라 **암호화 유형**을 **없음**으로 설정합니다.  Azure Storage는 기본적으로 암호화되어 있습니다.
    * **파일러 추가**를 클릭합니다.
 
-  자세한 내용은 Avere 클러스터 구성 가이드의 [새 클라우드 코어 파일러 추가](<http://library.averesystems.com/ops_guide/4_7/new_core_filer_cloud.html>)를 참조하세요. 
+  자세한 내용은 Avere 클러스터 구성 가이드의 [새 클라우드 코어 파일러 추가](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>)를 참조하세요. 
 
 페이지가 새로 고쳐지거나 페이지를 새로 고쳐 새 코어 파일러를 표시할 수 있습니다.
 
@@ -168,7 +168,7 @@ Blob 저장소를 클러스터에 추가하려면 다음 작업이 필요합니�
 
 예를 들어 `/avere/files`를 만들어 `/vol0/data` NetApp 코어 파일러 내보내기 및 `/project/resources` 하위 디렉터리에 매핑할 수 있습니다.
 
-접합에 대한 자세한 내용은 [Avere 클러스터 구성 가이드의 네임스페이스 섹션](http://library.averesystems.com/ops_guide/4_7/gui_namespace.html)에서 찾을 수 있습니다.
+접합에 대한 자세한 내용은 [Avere 클러스터 구성 가이드의 네임스페이스 섹션](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html)에서 찾을 수 있습니다.
 
 Avere 제어판 설정 인터페이스에서 다음 단계를 수행합니다.
 

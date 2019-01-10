@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.openlocfilehash: 613001c8495ba6c6a259063b8d8d3bce21b66960
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 46d113d06ee9d59cd3c3143b87c9166c9bd09fdc
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336427"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101806"
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Log Analytics에서 사용할 사용자 지정 대시보드 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "53336427"
 
 OMS 포털에서 만든 모든 사용자 지정 대시보드는 OMS 모바일 앱에서도 사용할 수 있습니다. 앱에 대한 자세한 내용은 다음 페이지를 참조하십시오.
 
-* [Microsoft 스토어의 OMS 모바일 앱](http://www.windowsphone.com/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
+* [Microsoft 스토어의 OMS 모바일 앱](https://www.windowsphone.com/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
 * [Apple iTunes의 OMS 모바일 앱](https://itunes.apple.com/app/microsoft-operations-management/id1042424859?mt=8)
 
 ![모바일 대시보드](./media/dashboards/oms-search-mobile.png)

@@ -3,20 +3,20 @@ title: Azure 인프라의 규정 준수 자동화에 대한 InSpec 사용
 description: Azure 배포의 문제를 감지하려면 InSpec 사용 방법을 알아봅니다
 keywords: azure, chef, devops, 가상 머신, 개요, 자동화, inspec
 ms.service: virtual-machines-linux
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 4193b7fdb3932cbffa2b56b5d7eee6f3b573bd99
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 9256a4daf6564761553b495e559805a46e4eae32
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259731"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050730"
 ---
 # <a name="use-inspec-for-compliance-automation-of-your-azure-infrastructure"></a>Azure 인프라의 규정 준수 자동화에 대한 InSpec 사용
-[InSpec](https://www.chef.io/inspec/)은 응용 프로그램 및 인프라를 감사하고 테스트하기 위한 무료 및 오픈 소스 프레임워크입니다. InSpec는 읽기 쉽고 쓰기 쉬운 InSpec 코드에서 표현하는 필요한 상태를 시스템의 실제 상태와 비교하여 작동합니다. InSpec은 위반을 감지하고 보고서의 형태로 결과물을 표시하지만 재구성을 사용자에게 컨트롤하게 합니다. InSpec을 사용하여 Azure에서 실행 중인 가상 머신 상태의 유효성을 검사할 수 있습니다. 또한 InSpec를 사용하여 구독 내의 리소스 그룹 및 리소스 상태의 유효성을 검사할 수 있습니다.
+[InSpec](https://www.chef.io/inspec/)은 애플리케이션 및 인프라를 감사하고 테스트하기 위한 무료 및 오픈 소스 프레임워크입니다. InSpec는 읽기 쉽고 쓰기 쉬운 InSpec 코드에서 표현하는 필요한 상태를 시스템의 실제 상태와 비교하여 작동합니다. InSpec은 위반을 감지하고 보고서의 형태로 결과물을 표시하지만 재구성을 사용자에게 컨트롤하게 합니다. InSpec을 사용하여 Azure에서 실행 중인 가상 머신 상태의 유효성을 검사할 수 있습니다. 또한 InSpec를 사용하여 구독 내의 리소스 그룹 및 리소스 상태의 유효성을 검사할 수 있습니다.
 
 이 문서에서는 Azure에서 보안 및 규정 준수를 더 쉽게 하기 위한 InSpec의 사용 혜택을 설명합니다.
 

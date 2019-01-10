@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: lagayhar
-ms.openlocfilehash: 65375cab9e59697856ef2c37b5a7a192501577eb
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: b662f5c4baa9c4c6e7689f3f463761dbd456f33f
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000005"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074180"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작하기
 
@@ -491,7 +491,7 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 [apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#trackexception
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[eclipse]: ../../application-insights/app-insights-java-quick-start.md
+[eclipse]: ../../azure-monitor/learn/java-quick-start.md
 [javalogs]: java-trace-logs.md
 [metrics]: ../../azure-monitor/app/metrics-explorer.md
 [usage]: javascript.md

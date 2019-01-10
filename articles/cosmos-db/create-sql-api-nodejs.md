@@ -1,21 +1,19 @@
 ---
 title: Azure Cosmos DB는 JavaScript SDK를 사용하여 Azure Cosmos DB SQL API 데이터를 관리하는 Node.js 앱 빌드
 description: Azure Cosmos DB SQL API에 연결하고 쿼리하는 데 사용할 수 있는 Node.js 코드 샘플을 제공합니다.
-services: cosmos-db
 author: deborahc
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: ae935157264dd5fa33df9afd0d8f7d5447855a92
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: f0c342eb673902f0855ba1ceb482aed10dc01a56
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53161292"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034916"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Azure Cosmos DB는 JavaScript SDK를 사용하여 Azure Cosmos DB SQL API 데이터를 관리하는 Node.js 앱 빌드
 
@@ -57,7 +55,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 [!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
-## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
+## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
 이제 GitHub에서 SQL API 앱을 복제하고, 연결 문자열을 설정하고, 실행해보겠습니다.
 

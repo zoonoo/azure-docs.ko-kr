@@ -1,20 +1,17 @@
 ---
 title: Azure Cosmos DB의 일관성 수준
 description: Azure Cosmos DB에는 최종 일관성, 가용성 및 대기 시간을 절충하여 조정하는 데 유용한 5가지 일관성 수준이 있습니다.
-keywords: 최종 일관성, azure cosmos db, azure, Microsoft azure
-services: cosmos-db
-author: aliuy
-ms.author: andrl
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/27/2018
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b509c7eceb3c2e2fb2e53f20791976b0322ad744
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 914933e4e0489d68640edb58ceb91dc73a963eb3
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089737"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034967"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준
 

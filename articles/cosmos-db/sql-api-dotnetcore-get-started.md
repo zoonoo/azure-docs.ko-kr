@@ -3,18 +3,18 @@ title: '자습서: .NET Core 앱을 빌드하여 Azure Cosmos DB의 SQL API 계�
 description: 이 자습서에서는 Azure Cosmos DB에 SQL API .NET Core SDK를 사용하여 온라인 데이터베이스 및 C# 콘솔 애플리케이션을 만듭니다.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a .NET Core application to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities that Azure Cosmos DB offers.
-ms.openlocfilehash: 2dbfa4264fb9d1bd1b7f976a9a067e0ab741cbe4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1aad68a3248561c86e195b55c1d509ab7a15964e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969281"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035681"
 ---
 # <a name="tutorial-build-a-net-core-app-to-manage-data-stored-in-a-sql-api-account"></a>자습서: .NET Core 앱을 빌드하여 SQL API 계정에 저장된 데이터 관리
 
@@ -121,7 +121,7 @@ Azure Portal에서 Azure Cosmos 계정으로 이동한 다음, **키**를 선택
 
 ![Azure Portal에서 키 가져오기][keys]
 
-**DocumentClient**의 새 인스턴스를 만드는 것으로 시작 응용 프로그램을 시작해 보겠습니다.
+**DocumentClient**의 새 인스턴스를 만드는 것으로 시작 애플리케이션을 시작해 보겠습니다.
 
 **Main** 메서드 아래에 **GetStartedDemo**라는 이름의 새로운 비동기 작업을 추가하면 새 **DocumentClient**가 인스턴스화됩니다.
 
@@ -165,7 +165,7 @@ static void Main(string[] args)
         }
 ```
 
-**DocumentDBGettingStarted** 단추를 선택하여 응용 프로그램을 빌드하고 실행합니다.
+**DocumentDBGettingStarted** 단추를 선택하여 애플리케이션을 빌드하고 실행합니다.
 
 ## <a id="CreateDatabase"></a>데이터베이스 만들기
 
@@ -192,7 +192,7 @@ private async Task GetStartedDemo()
     await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB_oa" });
 ```
 
-**DocumentDBGettingStarted** 단추를 선택하여 응용 프로그램을 실행합니다.
+**DocumentDBGettingStarted** 단추를 선택하여 애플리케이션을 실행합니다.
 
 ## <a id="CreateColl"></a>컬렉션 만들기
 
@@ -212,7 +212,7 @@ private async Task GetStartedDemo()
     await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"), new DocumentCollection { Id = "FamilyCollection_oa" });
 ```
 
-**DocumentDBGettingStarted** 단추를 선택하여 응용 프로그램을 실행합니다.
+**DocumentDBGettingStarted** 단추를 선택하여 애플리케이션을 실행합니다.
 
 ## <a id="CreateDoc"></a>JSON 문서 만들기
 
@@ -372,7 +372,7 @@ Family wakefieldFamily = new Family
 await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 ```
 
-**DocumentDBGettingStarted** 단추를 선택하여 응용 프로그램을 실행합니다.
+**DocumentDBGettingStarted** 단추를 선택하여 애플리케이션을 실행합니다.
 
 ![계정, 온라인 데이터베이스, 컬렉션 간의 계층 관계](./media/sql-api-dotnetcore-get-started/nosql-tutorial-account-database.png)
 
@@ -427,7 +427,7 @@ await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa",
 this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 ```
 
-**DocumentDBGettingStarted** 단추를 선택하여 응용 프로그램을 실행합니다.
+**DocumentDBGettingStarted** 단추를 선택하여 애플리케이션을 실행합니다.
 
 다음 다이어그램에서는 만든 컬렉션에 대해 Azure Cosmos DB SQL 쿼리 구문을 호출하는 방법을 보여 줍니다. 동일한 논리가 LINQ 쿼리에 적용됩니다.
 
@@ -466,7 +466,7 @@ await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen
 this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 ```
 
-**DocumentDBGettingStarted** 단추를 선택하여 응용 프로그램을 실행합니다.
+**DocumentDBGettingStarted** 단추를 선택하여 애플리케이션을 실행합니다.
 
 ## <a id="DeleteDocument"></a>JSON 문서 삭제
 
@@ -494,7 +494,7 @@ this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
 ```
 
-**DocumentDBGettingStarted** 단추를 선택하여 응용 프로그램을 실행합니다.
+**DocumentDBGettingStarted** 단추를 선택하여 애플리케이션을 실행합니다.
 
 ## <a id="DeleteDatabase"></a>데이터베이스 삭제
 
@@ -510,7 +510,7 @@ await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.
 await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"));
 ```
 
-**DocumentDBGettingStarted** 단추를 선택하여 응용 프로그램을 실행합니다.
+**DocumentDBGettingStarted** 단추를 선택하여 애플리케이션을 실행합니다.
 
 ## <a id="Run"></a>C# 콘솔 애플리케이션 실행
 

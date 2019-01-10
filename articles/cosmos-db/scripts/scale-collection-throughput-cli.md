@@ -3,15 +3,17 @@ title: Azure CLI 스크립트 - Azure Cosmos DB 컨테이너 처리량 확장 | 
 description: Azure CLI 스크립트 샘플 - Azure Cosmos DB 컨테이너 처리량 확장
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: 4eafc94349acaedeee72edb408d5cea43eae92c3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.reviewer: sngun
+ms.openlocfilehash: 593fade731fac86e7fcda69bfe223716127de9e1
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005634"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038452"
 ---
 # <a name="scale-azure-cosmos-db-container-throughput-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos DB 컨테이너 처리량 확장
 

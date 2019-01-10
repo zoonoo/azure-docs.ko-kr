@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: e6292c97d3e7bbbe74477188586257b4fbf91218
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: b6264d47c7627d72b8746c79e7e050fd468171de
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582714"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105120"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Azure Cache for Redis를 모니터링하는 방법
 Azure Cache for Redis에서는 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)를 사용하여 캐시 인스턴스를 모니터링하기 위한 몇 가지 옵션을 제공합니다. 메트릭을 보고, 메트릭 차트를 시작 보드에 고정하고, 모니터링 차트의 날짜 및 시간 범위를 사용자 지정하고, 차트에서 메트릭을 추가 및 제거하고, 특정 조건이 충족될 경우의 경고를 설정할 수 있습니다. 이러한 도구는 Azure Cache for Redis 인스턴스의 상태를 모니터링할 수 있게 해주며 캐싱 애플리케이션 관리에 도움이 됩니다.
 
-Azure Cache for Redis 인스턴스의 메트릭은 Redis [INFO](http://redis.io/commands/info) 명령을 사용하여 분당 약 2번 수집되고 30일 동안 자동으로 저장되므로(다른 보존 정책을 구성하려는 경우 [캐시 메트릭 내보내기](#export-cache-metrics) 참조) 메트릭 차트에 표시하고 경고 규칙에 따라 평가할 수 있습니다. 각 캐시 메트릭에 사용되는 다양한 INFO 값에 대한 자세한 내용은 [사용 가능한 메트릭 및 보고 간격](#available-metrics-and-reporting-intervals)을 참조하세요.
+Azure Cache for Redis 인스턴스의 메트릭은 Redis [INFO](https://redis.io/commands/info) 명령을 사용하여 분당 약 2번 수집되고 30일 동안 자동으로 저장되므로(다른 보존 정책을 구성하려는 경우 [캐시 메트릭 내보내기](#export-cache-metrics) 참조) 메트릭 차트에 표시하고 경고 규칙에 따라 평가할 수 있습니다. 각 캐시 메트릭에 사용되는 다양한 INFO 값에 대한 자세한 내용은 [사용 가능한 메트릭 및 보고 간격](#available-metrics-and-reporting-intervals)을 참조하세요.
 
 <a name="view-cache-metrics"></a>
 
@@ -98,7 +98,7 @@ Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용�
 
 | 메트릭 | 설명 |
 | --- | --- |
-| 캐시 적중 |지정한 보고 간격 동안 성공한 키 조회 수입니다. 이 값은 Redis [INFO](http://redis.io/commands/info) 명령에서 `keyspace_hits`에 매핑됩니다. |
+| 캐시 적중 |지정한 보고 간격 동안 성공한 키 조회 수입니다. 이 값은 Redis [INFO](https://redis.io/commands/info) 명령에서 `keyspace_hits`에 매핑됩니다. |
 | 캐시 대기 시간(미리 보기) | 캐시의 대기 시간은 캐시의 노드 간 대기 시간에 따라 계산됩니다. 이 메트릭은 마이크로초 단위로 측정되고, "평균", "최소" 및 "최대"라는 3차원이 있습니다. 해당 차원은 각각 지정된 보고 간격 동안 캐시의 평균, 최소 및 최대 대기 시간을 나타냅니다. |
 | 캐시 누락 |지정한 보고 간격 동안 실패한 키 조회 수입니다. 이 값은 Redis INFO 명령에서 `keyspace_misses` 에 매핑됩니다. 캐시 누락이 반드시 캐시에 문제가 있음을 의미하는 것은 아닙니다. 예를 들어 캐시 배제 프로그래밍 패턴을 사용하는 경우 애플리케이션은 먼저 캐시에서 항목을 찾습니다. 항목이 캐시에 없으면(캐시 누락) 데이터베이스에서 항목을 검색하고 다음 검색을 위해 캐시에 항목을 추가합니다. 캐시 누락은 캐시 배제 프로그래밍 패턴의 일반적인 동작입니다. 캐시 누락 수가 예상보다 높은 경우 캐시를 채우고 캐시에서 읽는 애플리케이션 논리를 검사합니다. 메모리 압력 때문에 캐시에서 항목이 제거되고 있는 경우 캐시 누락이 있을 수 있으며 메모리 압력을 모니터링하는 데 더 유용한 메트릭은 `Used Memory` 또는 `Evicted Keys`입니다. |
 | 캐시 읽기 |지정한 보고 간격 동안 캐시에서 읽은 초당 메가바이트(MB/s) 단위의 데이터 양입니다. 이 값은 캐시를 호스트하는 가상 컴퓨터를 지원하는 네트워크 인터페이스 카드에서 가져오며 Redis에 특정한 값이 아닙니다. **이 값은 캐시에서 사용되는 네트워크 대역폭에 해당합니다. 서버 쪽 네트워크 대역폭 제한에 대한 경고를 설정하려면 `Cache Read` 카운터를 사용하여 경고를 생성합니다. 다양한 캐시 가격 책정 계층 및 크기에 대해 관찰된 대역폭 제한은 [이 테이블](cache-faq.md#cache-performance)을 참조하세요.** |

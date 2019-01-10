@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 11832a3b7fb68dce6fb24f44ceec5ffb9a57eb69
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7251ec6e20dcbc9169c2dab2247386ff500760e7
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437557"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033879"
 documentType: LandingData
 title: Azure SQL Database Managed Instance
 metadata:
@@ -18,7 +18,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
-  ms.date: 12/14/2018
+  ms.date: 01/03/2019
   ms.author: jovanpop
 abstract:
   description: Azure SQL Database Managed Instance는 Azure 클라우드에서 호스트되는 완전히 관리되는 SQL Server 데이터베이스 엔진 인스턴스입니다. SQL Server 데이터베이스를 클라우드로 마이그레이션하기 위한 최상의 PaaS 옵션입니다. 빠른 시작, 자습서 및 샘플로 Managed Instance를 만들고 사용하는 방법을 알아봅니다.
@@ -78,7 +78,7 @@ sections:
     - html: 지정 시간 복원을 위해 <a href="https://aka.ms/managed-instance-configurable-backup-retention">백업 보존을 최대 35일로 구성</a>합니다. 장기 백업 보존(최대 10년)은 여전히 사용할 수 없으므로 대신 <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">복사 전용 백업</a>을 사용할 수 있습니다.
     - html: (미리 보기) <a href="https://aka.ms/managed-instance-failover-groups">지리적으로 분산된 장애 조치(Failover) 그룹</a>을 사용하여 다른 지역에 인스턴스 복사본을 유지하고 해당 지역의 재해 시나리오에서도 데이터를 사용할 수 있도록 합니다.
     - html: (미리 보기) - TDE(투명한 데이터 암호화)를 이미 사용하고 있는 온-프레미스 데이터베이스를 마이그레이션하는 동안 <a href="https://aka.ms/managed-instance-tde-byok">사용자 고유의 암호화 키</a>를 가져옵니다.
-    - html: Managed Instance는 <a href="sql-database-managed-instance-endpoint-verify-built-in-firewall">기본 제공 방화벽</a>으로 보호됩니다.
+    - html: Managed Instance는 <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-management-endpoint-verify-built-in-firewall">기본 제공 방화벽</a>으로 보호됩니다.
 - title: 5분 빠른 시작
   items:
   - type: paragraph
@@ -132,7 +132,7 @@ sections:
     items:
     - html: <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">하드웨어 특징 및 제한</a> 사항과 <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">Transact-SQL 언어 차이</a>에 대해 알아봅니다.
     - html: Managed Instance가 배포될 Azure VNet을 <a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">구성합니다</a>.
-    - html: 기존 Azure VNet을 Managed Instances를 배포하는 데 사용할 수 있는지 <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#modify-an-existing-virtual-network-for-managed-instances">유효성을 검사합니다</a>.
+    - html: 기존 Azure VNet을 Managed Instances를 배포하는 데 사용할 수 있는지 <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration.md#modify-an-existing-virtual-network-for-managed-instances">유효성을 검사합니다</a>.
     - html: <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/21/the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Azure Virtual Machine</a> 또는 <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">지점 및 사이트 간 연결</a> 또는 <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">애플리케이션</a>을 사용하여 사용자 인스턴스에 연결합니다.
     - html: <a href="https://www.microsoft.com/download/details.aspx?id=53595">데이터 마이그레이션 도우미</a> 또는 <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">데이터베이스 실험 도우미</a>를 사용하여 데이터베이스를 마이그레이션할 수 있는지 확인합니다.
     - html: <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">네이티브 복원</a> 또는 <a href="/azure/dms/tutorial-sql-server-managed-instance-online">데이터 마이그레이션 서비스</a>를 사용하여 Managed Instance로 데이터베이스를 가져옵니다.

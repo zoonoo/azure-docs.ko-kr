@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9402be4045b9b3113623cfe3e441c944f62296cc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5088d1d4f5b80e4de3dca1d8d41ee48feea12a46
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079385"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019744"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Hive에서 데이터 복사 
 
@@ -42,12 +41,12 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성을 다음으로 설정해야 합니다. **Hive** | yes |
-| host | Hive 서버의 IP 주소 또는 호스트 이름으로, 호스트가 여러 개인 경우 ‘,’로 구분합니다(serviceDiscoveryMode가 사용되는 경우에만 해당).  | yes |
-| 포트 | Hive 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. Azure HDInsights에 연결하는 경우 포트를 443으로 지정합니다. | yes |
+| 형식 | type 속성을 다음으로 설정해야 합니다. **Hive** | 예 |
+| host | Hive 서버의 IP 주소 또는 호스트 이름으로, 호스트가 여러 개인 경우 ‘,’로 구분합니다(serviceDiscoveryMode가 사용되는 경우에만 해당).  | 예 |
+| 포트 | Hive 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. Azure HDInsights에 연결하는 경우 포트를 443으로 지정합니다. | 예 |
 | serverType | Hive 서버의 유형입니다. <br/>허용되는 값은 다음과 같습니다. **HiveServer1**, **HiveServer2**, **HiveThriftServer** | 아니요 |
 | thriftTransportProtocol | Thrift 계층에서 사용할 전송 프로토콜입니다. <br/>허용되는 값은 다음과 같습니다. **Binary**, **SASL**, **HTTP** | 아니요 |
-| authenticationType | Hive 서버에 액세스하는 데 사용되는 인증 방법입니다. <br/>허용되는 값은 다음과 같습니다. **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | yes |
+| authenticationType | Hive 서버에 액세스하는 데 사용되는 인증 방법입니다. <br/>허용되는 값은 다음과 같습니다. **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | 예 |
 | serviceDiscoveryMode | true이면 ZooKeeper 서비스 사용을 나타내고, false이면 그렇지 않습니다.  | 아니요 |
 | zooKeeperNameSpace | ZooKeeper에서 Hive 서버 2 노드가 추가되는 네임스페이스입니다.  | 아니요 |
 | useNativeQuery | 드라이버가 기본 HiveQL 쿼리를 사용하는지, 이 쿼리를 동일한 HiveQL의 형식으로 변환하는지를 지정합니다.  | 아니요 |
@@ -90,8 +89,8 @@ Hive에서 데이터를 복사하려면 데이터 세트의 type 속성을 **Hiv
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 type 속성을 **HiveObject**로 설정해야 합니다. | yes |
-| tableName | 테이블의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
+| 형식 | 데이터 세트의 type 속성을 **HiveObject**로 설정해야 합니다. | 예 |
+| tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
 
@@ -119,7 +118,7 @@ Hive에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Hive
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성을 **HiveSource**로 설정해야 합니다. | yes |
+| 형식 | 복사 작업 원본의 type 속성을 **HiveSource**로 설정해야 합니다. | 예 |
 | 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**

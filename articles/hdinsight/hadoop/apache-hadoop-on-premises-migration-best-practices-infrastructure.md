@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6b0b047e74496fb9e58df05dc6118c5f376cb99d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1a8c0ec8a7926d443963075fec576b9e2168d41f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437523"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052635"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 인프라 모범 사례
 
@@ -43,7 +43,7 @@ HDInsight 클러스터 용량 계획을 만들기 위한 주요 선택 항목은
 
 온-프레미스 클러스터에서 사용할 수 있었지만 HDInsight 클러스터의 일부가 아닌 애플리케이션 또는 구성 요소를 HDInsight 클러스터와 동일한 VNet에서 에지 노드 또는 VM에 추가할 수 있습니다. Azure HDInsight에서 사용할 수 없는 타사 Hadoop 애플리케이션을 HDInsight 클러스터에서 "애플리케이션" 옵션을 사용하여 설치할 수 있습니다. 사용자 지정 Hadoop 애플리케이션을 "스크립트 동작"을 사용하여 HDInsight 클러스터에 설치할 수 있습니다. 다음 표는 일반적인 애플리케이션 및 해당 HDInsight 통합 옵션 중 일부를 나열합니다.
 
-|**응용 프로그램**|**통합**
+|**애플리케이션**|**통합**
 |---|---|
 |기류|IaaS 또는 HDInsight 에지 노드
 |Alluxio|IaaS  
@@ -93,13 +93,13 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 > [!Note]  
 > HDInsight는 사용자 지정 hadoop 구성 요소 또는 스크립트 동작을 사용하여 설치된 구성 요소에 대한 직접적인 지원을 제공하지 않습니다.
 
-스크립트 작업을 Azure Marketplace에 HDInsight 응용 프로그램으로 게시할 수도 있습니다.
+스크립트 작업을 Azure Marketplace에 HDInsight 애플리케이션으로 게시할 수도 있습니다.
 
 자세한 내용은 다음 문서를 참조하세요.
 
 - [HDInsight에 타사 Apache Hadoop 애플리케이션 설치](../hdinsight-apps-install-applications.md)
 - [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md)
-- [Azure Marketplace에 HDInsight 응용 프로그램 게시](../hdinsight-apps-publish-applications.md)
+- [Azure Marketplace에 HDInsight 애플리케이션 게시](../hdinsight-apps-publish-applications.md)
 
 ## <a name="customize-hdinsight-configs-using-bootstrap"></a>부트스트랩을 사용하여 HDInsight 클러스터 구성 사용자 지정
 
@@ -205,7 +205,7 @@ HDInsight는 Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB 및 SQL
 자세한 내용은 다음 문서를 참조하세요.
 
 - [가상 네트워크 서비스 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md)
-- [서비스 엔드포인트를 사용하여 HDInsight 보안 강화](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/.md)
+- [서비스 엔드포인트를 사용하여 HDInsight 보안 강화](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
 
 ## <a name="connect-hdinsight-to-the-on-premises-network"></a>온-프레미스 네트워크에 HDInsight 연결
 

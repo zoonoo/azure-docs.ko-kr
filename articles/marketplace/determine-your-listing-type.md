@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0ad4fef9dd67ed0bf2bc9a3c66e26fc111526b90
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4abed1718d77c93e864fe5bb1d39aba5e5272f10
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081543"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074473"
 ---
 # <a name="determine-your-publishing-option"></a>게시 옵션 확인
 제안에 대해 선택한 게시 옵션은 적격성 요구 사항 및 마켓플레이스 GTM 혜택 모두와 직접 관련이 있습니다. 무엇보다도 Cloud 파트너 포털에서 게시 옵션 및 제품 유형의 선택은 사용자가 귀하의 마켓플레이스 제안과 상호 작용하는 방법을 정의합니다.
@@ -42,7 +42,7 @@ ms.locfileid: "53081543"
 
 게시 옵션을 선택하기 전에 마켓플레이스 솔루션, 앱 및 서비스에 대한 상점 자격 요구 사항을 이해해야 됩니다.
 
-**Azure Marketplace** 응용 프로그램은 Azure를 위해 또는 바탕으로 빌드된 기술적 "빌딩 블록" 솔루션입니다. Azure Marketplace 컨설팅 서비스는 고객이 Azure 사용을 시작하거나 가속화하도록 도와주는 전문 서비스 제품입니다.
+**Azure Marketplace** 애플리케이션은 Azure를 위해 또는 바탕으로 빌드된 기술적 "빌딩 블록" 솔루션입니다. Azure Marketplace 컨설팅 서비스는 고객이 Azure 사용을 시작하거나 가속화하도록 도와주는 전문 서비스 제품입니다.
 
 **AppSource** 애플리케이션은 Azure를 바탕으로 빌드되거나 Dynamics 365, Office 365, PowerBI 또는 Power Apps를 위해 빌드될 수 있는 기간 업무 솔루션입니다. AppSource 컨설팅 서비스는 고객이 Dynamics 365 및 Power BI 사용을 시작하거나 가속화하도록 도와주는 전문 서비스 제품입니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "53081543"
 
 ## <a name="choose-a-publishing-option"></a>게시 옵션 선택
 
-사용 가능한 게시 옵션은 차별화된 고객 참여를 제공하면서 잠재 고객 공유 및 [Go-To-Market 혜택](https://partner.microsoft.com/en-US/reach-customers/gtm)에 대한 액세스 권한을 부여합니다. Marketplace 제품을 만들기 위해 Cloud 파트너 포털을 사용하기 전에 세 가지 가능한 게시 옵션에서 선택합니다. 게시 옵션에 해당하는 CTA(calls-to-action)를 참고합니다.
+사용 가능한 게시 옵션은 차별화된 고객 참여를 제공하면서 잠재 고객 공유 및 [Go-To-Market 혜택](https://partner.microsoft.com/reach-customers/gtm)에 대한 액세스 권한을 부여합니다. Marketplace 제품을 만들기 위해 Cloud 파트너 포털을 사용하기 전에 세 가지 가능한 게시 옵션에서 선택합니다. 게시 옵션에 해당하는 CTA(calls-to-action)를 참고합니다.
 
 | **게시 옵션**    | **설명**  |
 | :------------------- | :-------------------|

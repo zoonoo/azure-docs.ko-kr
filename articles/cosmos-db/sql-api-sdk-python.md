@@ -1,21 +1,19 @@
 ---
 title: Azure Cosmos DB는 SQL Python API, SDK 및 리소스
 description: 릴리스 날짜, 사용 중지 날짜 및 Azure Cosmos DB Python SDK의 각 버전 간 변경 내용을 포함하여 SQL Python API 및 SDK에 대한 모든 것을 알아봅니다.
-services: cosmos-db
-author: rnagpal
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf796466d8d4156eb442e6b0d1b51cb70d0d30f3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.author: sngun
+ms.openlocfilehash: 01f6fe3ef309f19896befe61512d524a8543745f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337090"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041461"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Python SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -125,7 +123,7 @@ ms.locfileid: "53337090"
 * [분할된 컬렉션](partition-data.md) 및 [사용자 정의 성능 수준](performance-levels.md)이 구현되었습니다. 
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
-* 여러 파티션 간의 응용 프로그램 분할을 지원하기 위해 해시 및 범위 파티션 해결 프로그램을 추가합니다.
+* 여러 파티션 간의 애플리케이션 분할을 지원하기 위해 해시 및 범위 파티션 해결 프로그램을 추가합니다.
 
 ### <a name="a-name142142"></a><a name="1.4.2"/>1.4.2
 * Upsert를 구현합니다. 새로운 UpsertXXX 메서드가 Upsert 기능을 지원하기 위해 추가되었습니다.

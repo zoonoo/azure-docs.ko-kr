@@ -9,17 +9,16 @@ ms.assetid: 01d15078-58dc-455c-9d9d-98fbdf4ea51e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ee0cd90b8d1b901f9e8a506674b3f04167b48899
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1fde06f483821b0e9958c25bf5ce37aae4c8f61d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968786"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022022"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Amazon Redshift에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -63,12 +62,12 @@ Azure Portal, Visual Studio, Azure PowerShell 또는 다른 도구를 사용하�
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| **type** |이 속성은 **AmazonRedshift**로 설정되어야 합니다. |yes |
-| **server** |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |yes |
+| **type** |이 속성은 **AmazonRedshift**로 설정되어야 합니다. |예 |
+| **server** |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |예 |
 | **port** |Amazon Redshift 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트 수입니다. |아니요(기본값: 5439) |
-| **database** |Amazon Redshift 데이터베이스의 이름입니다. |yes |
-| **사용자 이름** |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |yes |
-| **암호** |사용자 계정의 암호입니다. |yes |
+| **database** |Amazon Redshift 데이터베이스의 이름입니다. |예 |
+| **사용자 이름** |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |예 |
+| **암호** |사용자 계정의 암호입니다. |예 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 

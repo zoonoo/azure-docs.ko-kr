@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 0f12627e169af00f575347796d1f2e79fe1f6fa2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 97116c4ad6efbaad28aec6451b02fc0dee1ac79f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252782"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054863"
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>Azure Machine Learning Studio 클래식 웹 서비스의 재학습 문제 해결
 ## <a name="retraining-overview"></a>재학습 개요
@@ -67,7 +67,7 @@ ms.locfileid: "53252782"
 4. 사용 중인 점수 매기기 웹 서비스를 클릭합니다(웹 서비스의 기본 이름을 수정하지 않은 경우 "[Scoring Exp.]"로 끝남).
 5. **+새로 만들기**를 클릭합니다.
 6. 엔드포인트가 추가된 후 엔드포인트 이름을 클릭합니다.
-7. **패치** URL 아래의 **API 도움말**을 클릭하여 패치 도움말 페이지를 엽니다.
+7. **패치** URL 아래의 **API 도움말**을클 릭하여 패치 도움말 페이지를 엽니다.
 
 > [!NOTE]
 > 예측 웹 서비스 대신 학습 웹 서비스에 엔드포인트를 추가한 경우 **업데이트 리소스** 링크를 클릭하면 다음과 같은 오류가 발생합니다. "죄송합니다. 이 기능은 지원되지 않거나 이 컨텍스트에서 사용할 수 없습니다. 이 웹 서비스에 업데이트할 수 있는 리소스가 없습니다. 불편을 끼쳐 드려 죄송합니다. 이 워크플로를 개선하도록 작업 중입니다.”
@@ -104,7 +104,7 @@ PATCH 도움말 페이지에는 사용해야 하는 PATCH URL이 들어 있으�
 
 <!-- Image Links -->
 
-[image1]: ./media/troubleshooting-retraining-a-model/ml-studio-tm-connnected-to-web-service-out.png
+[image1]: ./media/troubleshooting-retraining-a-model/ml-studio-tm-connected-to-web-service-out.png
 [image2]: ./media/troubleshooting-retraining-a-model/addEndpoint-output.png
 [image3]: ./media/troubleshooting-retraining-a-model/azure-portal-update-resource.png
 [image4]: ./media/troubleshooting-retraining-a-model/check-workspace-region.png

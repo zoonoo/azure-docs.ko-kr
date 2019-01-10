@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: a9c9ac9ada6dfab051deda14cddb4ba6c07f48df
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998900"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119173"
 ---
 # <a name="using-search-in-application-insights"></a>Application Insights에서 Search 사용
-Search는 페이지 보기, 예외 사항 또는 웹 요청과 같은 개별 원격 분석 항목을 찾고 검색하는 데 사용하는 [Application Insights](../../application-insights/app-insights-overview.md)의 기능입니다. 또한 코딩한 로그 추적 및 이벤트를 볼 수 있습니다.
+Search는 페이지 보기, 예외 사항 또는 웹 요청과 같은 개별 원격 분석 항목을 찾고 검색하는 데 사용하는 [Application Insights](../../azure-monitor/app/app-insights-overview.md)의 기능입니다. 또한 코딩한 로그 추적 및 이벤트를 볼 수 있습니다.
 
 (사용자 데이터에 비해 좀 더 복잡한 쿼리를 위해서는 [Analytics](../../azure-monitor/log-query/get-started-portal.md)를 사용합니다.)
 
@@ -129,7 +129,7 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 ## <a name="sampling"></a>샘플링
 앱에서 다양한 원격 분석을 생성하는 경우(ASP.NET SDK 버전 2.0.0-beta3 이상 사용), 적응 샘플링 모듈 이벤트의 대표적인 일부만 전송하여 포털에 전송되는 볼륨이 자동으로 줄어듭니다. 그러나, 동일한 요청과 관련된 이벤트가 그룹으로 선택되거나 선택 취소되므로 관련 이벤트 간을 이동할 수 있습니다. 
 
-[샘플링에 대해 알아봅니다](../../application-insights/app-insights-sampling.md).
+[샘플링에 대해 알아봅니다](../../azure-monitor/app/sampling.md).
 
 ## <a name="create-work-item"></a>작업 항목 만들기
 원격 분석 항목의 세부 정보를 이용하여 GitHub 또는 Azure DevOps에서 버그를 만들 수 있습니다. 
@@ -166,4 +166,4 @@ Application Insights SDK에서 보낸 기본 원격 분석 외에도 다음을 �
 * [분석에서 복잡한 쿼리 작성](../../azure-monitor/log-query/get-started-portal.md)
 * [Application Insights에 로그 및 사용자 지정 원격 분석 전송](../../azure-monitor/app/asp-net-trace-logs.md)
 * [가용성 및 응답성 테스트 설정](../../azure-monitor/app/monitor-web-app-availability.md)
-* [문제 해결](../../application-insights/app-insights-troubleshoot-faq.md)
+* [문제 해결](../../azure-monitor/app/troubleshoot-faq.md)

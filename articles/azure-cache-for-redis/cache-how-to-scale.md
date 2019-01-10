@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 46f94a512ea78016a327357a3d0ee25a91ad607e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 009fbd3b86518758e9654fab547bab99bec369de
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53022063"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105205"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Azure Cache for Redis 크기를 조정하는 방법
-Azure Cache for Redis에는 캐시 크기와 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. 캐시를 만든 후 응용 프로그램 요구 사항이 변경되면 캐시의 크기 및 가격 책정 계층의 크기를 조정할 수 있습니다. 이 문서에서는 Azure Portal과 Azure PowerShell 및 Azure CLI와 같은 도구를 사용하여 캐시 크기를 조정하는 방법을 보여 줍니다.
+Azure Cache for Redis에는 캐시 크기와 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. 캐시를 만든 후 애플리케이션 요구 사항이 변경되면 캐시의 크기 및 가격 책정 계층의 크기를 조정할 수 있습니다. 이 문서에서는 Azure Portal과 Azure PowerShell 및 Azure CLI와 같은 도구를 사용하여 캐시 크기를 조정하는 방법을 보여 줍니다.
 
 ## <a name="when-to-scale"></a>크기를 조정하는 경우
 Azure Cache for Redis의 [모니터링](cache-how-to-monitor.md) 기능을 사용하여 캐시의 상태 및 성능을 모니터링하고 캐시 크기를 조정해야 하는 경우를 결정할 수 있습니다. 
@@ -34,7 +34,7 @@ Azure Cache for Redis의 [모니터링](cache-how-to-monitor.md) 기능을 사�
 * 네트워크 대역폭
 * CPU 사용량
 
-캐시가 더 이상 응용 프로그램 요구 사항을 충족시키지 못한다고 판단되면 응용 프로그램에 적합하도록 더 크거나 더 작은 캐시 가격 책정 계층으로 규모를 변경할 수 있습니다. 사용할 캐시 가격 책정 계층을 결정하는 방법에 대한 자세한 내용은 [사용해야 하는 Azure Cache for Redis 제안 및 크기는 어떻게 되나요?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)를 참조하세요.
+캐시가 더 이상 애플리케이션 요구 사항을 충족시키지 못한다고 판단되면 애플리케이션에 적합하도록 더 크거나 더 작은 캐시 가격 책정 계층으로 규모를 변경할 수 있습니다. 사용할 캐시 가격 책정 계층을 결정하는 방법에 대한 자세한 내용은 [사용해야 하는 Azure Cache for Redis 제안 및 크기는 어떻게 되나요?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)를 참조하세요.
 
 ## <a name="scale-a-cache"></a>캐시 크기 조정
 캐시 크기를 조정하려면 [Azure Portal](cache-configure.md#configure-azure-cache-for-redis-settings)에서 [캐시를 찾은](https://portal.azure.com) 다음 **리소스 메뉴**에서 **크기 조정**을 클릭합니다.
@@ -136,7 +136,7 @@ Azure Cache for Redis 크기 조정에 대해 자주 묻는 질문과 대답이 
 ### <a name="will-i-lose-data-from-my-cache-during-scaling"></a>크기를 조정하는 동안 캐시의 데이터가 손실되나요?
 * **기본** 캐시 크기를 새 크기로 조정하는 경우 모든 데이터가 손실되고 크기 조정 작업을 수행하는 동안 캐시를 사용할 수 없습니다.
 * **기본** 캐시를 **표준** 캐시로 확장하는 경우 캐시의 데이터가 일반적으로 유지됩니다.
-* **표준** 캐시가 더 큰 크기나 계층으로 확장되거나, **프리미엄** 캐시가 더 크게 확장되는 경우에는 일반적으로 모든 데이터가 유지됩니다. **표준** 또는 **프리미엄** 캐시를 더 작게 축소하는 경우, 새로 조정된 크기 대비 캐시에 있는 데이터의 양에 따라 데이터가 손실될 수 있습니다. 크기를 축소하는 경우 데이터가 손실되면 [allkeys-lru](http://redis.io/topics/lru-cache) 제거 정책을 사용하여 키를 제거합니다. 
+* **표준** 캐시가 더 큰 크기나 계층으로 확장되거나, **프리미엄** 캐시가 더 크게 확장되는 경우에는 일반적으로 모든 데이터가 유지됩니다. **표준** 또는 **프리미엄** 캐시를 더 작게 축소하는 경우, 새로 조정된 크기 대비 캐시에 있는 데이터의 양에 따라 데이터가 손실될 수 있습니다. 크기를 축소하는 경우 데이터가 손실되면 [allkeys-lru](https://redis.io/topics/lru-cache) 제거 정책을 사용하여 키를 제거합니다. 
 
 ### <a name="is-my-custom-databases-setting-affected-during-scaling"></a>사용자 지정 데이터베이스 설정이 크기 조정 하는 동안에 영향을 받나요?
 캐시 생성 중에 `databases` 설정에 대한 사용자 지정 값을 구성한 경우 일부 가격 책정 계층에 서로 다른 [데이터베이스 제한](cache-configure.md#databases)이 있습니다. 이 시나리오를 확장할 때 몇 가지 고려 사항이 있습니다.

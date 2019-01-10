@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 1ddadcf17a5733767e24505b970b2ac21c8d7fa8
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 8a8883989a731265fb358c119d44fa4243b54a5e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325476"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103947"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 진단 문제 해결
 이 문서에서는 Azure 진단 사용과 관련된 문제 해결 정보를 설명합니다. Azure 진단에 대한 자세한 내용은 [Azure 진단 개요](diagnostics-extension-overview.md)를 참조하세요.
@@ -118,7 +118,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 #### <a name="is-the-host-generating-data"></a>호스트에서 데이터를 생성하고 있습니까?
 - **성능 카운터**: perfmon을 열고 카운터를 확인합니다.
 
-- **추적 로그**:  VM에 원격 액세스하고 앱의 구성 파일에 TextWriterTraceListener를 추가합니다.  http://msdn.microsoft.com/library/sk36c28t.aspx 문서를 참조하여 텍스트 수신기를 설정합니다.  `<trace>` 요소에 `<trace autoflush="true">`가 있는지 확인합니다.<br />
+- **추적 로그**:  VM에 원격 액세스하고 앱의 구성 파일에 TextWriterTraceListener를 추가합니다.  https://msdn.microsoft.com/library/sk36c28t.aspx 문서를 참조하여 텍스트 수신기를 설정합니다.  `<trace>` 요소에 `<trace autoflush="true">`가 있는지 확인합니다.<br />
 생성된 추적 로그가 표시되지 않으면 [누락된 추적 로그에 대한 자세한 정보](#more-about-trace-logs-missing)를 참조하세요.
 
 - **ETW 추적**: VM에 원격 액세스하고 PerfView를 설치합니다.  PerfView에서 **파일** > **사용자 명령** > **Listen etwprovder1** > **etwprovider2** 등을 차례로 실행합니다. **Listen** 명령은 대/소문자를 구분하며, 쉼표로 구분된 ETW 공급자 목록 사이에는 공백이 없어야 합니다. 명령을 실행하지 못하는 경우 Perfview 도구의 오른쪽 아래에 있는 **로그** 단추를 선택하여 실행하려고 시도한 내용과 그 결과를 확인할 수 있습니다.  입력이 올바르다고 가정하면 새 창이 나타납니다. 몇 초 후 ETW 추적 보기를 시작합니다.
@@ -217,9 +217,9 @@ ETW 이벤트를 보유하는 Azure Storage의 테이블 이름은 다음 코드
 
 두 경우 모두 **Microsoft.Azure.Diagnostics**를 검색한 다음 **xmlCfg** 또는 **WadCfg** 필드를 검색합니다.
 
-가상 머신에서 검색하는데 **WadCfg** 필드가 있으면 구성이 JSON 형식임을 의미합니다. **xmlCfg** 필드가 있는 경우 구성은 XML 형식이고 base64로 인코딩됩니다. 진단에서 로드한 XML을 보려면 [디코딩](http://www.bing.com/search?q=base64+decoder)해야 합니다.
+가상 머신에서 검색하는데 **WadCfg** 필드가 있으면 구성이 JSON 형식임을 의미합니다. **xmlCfg** 필드가 있는 경우 구성은 XML 형식이고 base64로 인코딩됩니다. 진단에서 로드한 XML을 보려면 [디코딩](https://www.bing.com/search?q=base64+decoder)해야 합니다.
 
-Cloud Service 역할의 경우 디스크에서 구성을 선택하면 데이터가 base64로 인코딩되므로 진단에서 로드한 XML을 보려면 [디코딩](http://www.bing.com/search?q=base64+decoder)해야 합니다.
+Cloud Service 역할의 경우 디스크에서 구성을 선택하면 데이터가 base64로 인코딩되므로 진단에서 로드한 XML을 보려면 [디코딩](https://www.bing.com/search?q=base64+decoder)해야 합니다.
 
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Azure 진단 플러그 인 종료 코드
 플러그 인은 다음 종료 코드를 반환합니다.

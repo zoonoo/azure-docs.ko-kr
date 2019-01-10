@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: a37ed044275abfca23c83e7d17012b9afdc78f6c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 92c1e706d3cbcff8bb0d66ddf4f2e73362a96af6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906459"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064528"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>PowerShell을 사용하여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링
 
@@ -33,7 +33,7 @@ ms.locfileid: "37906459"
 * 서브넷에 VM(가상 머신) 배포
 * 트래픽 필터 테스트
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
@@ -52,7 +52,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우, 이 �
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-[New-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup)으로 응용 프로그램 보안 그룹을 만듭니다. 애플리케이션 보안 그룹을 사용하면 유사한 포트 필터링 요구 사항을 갖는 서버를 그룹화할 수 있습니다. 다음 예제에서는 두 애플리케이션 보안 그룹을 만듭니다.
+[New-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup)으로 애플리케이션 보안 그룹을 만듭니다. 애플리케이션 보안 그룹을 사용하면 유사한 포트 필터링 요구 사항을 갖는 서버를 그룹화할 수 있습니다. 다음 예제에서는 두 애플리케이션 보안 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 $webAsg = New-AzureRmApplicationSecurityGroup `
@@ -302,4 +302,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 이 문서에서는 네트워크 보안 그룹을 만들어 가상 네트워크 서브넷에 연결했습니다. 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹 개요](security-overview.md) 및 [네트워크 보안 그룹 관리](manage-network-security-group.md)를 참조하세요.
 
-기본적으로 Azure는 서브넷 간에 트래픽을 라우팅합니다. 그 대신 방화벽 역할을 하는 VM 등을 통해 서브넷 간에 트래픽을 라우팅하도록 선택할 수 있습니다. 기본적으로 Azure는 서브넷 간에 트래픽을 라우팅합니다. 그 대신 방화벽 역할을 하는 VM 등을 통해 서브넷 간에 트래픽을 라우팅하도록 선택할 수 있습니다. 자세한 내용은 [경로 테이블 만들기](tutorial-create-route-table-powershell.md)를 참조하세요.
+기본적으로 Azure는 서브넷 간에 트래픽을 라우팅합니다. 그 대신 방화벽 역할을 하는 VM 등을 통해 서브넷 간에 트래픽을 라우팅하도록 선택할 수 있습니다. 자세한 내용은 [경로 테이블 만들기](tutorial-create-route-table-powershell.md)를 참조하세요.

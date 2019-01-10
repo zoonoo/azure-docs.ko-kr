@@ -1,21 +1,19 @@
 ---
 title: Python용 Azure Cosmos DB Table API
 description: 릴리스 날짜, 사용 중지 날짜 및 각 버전의 변경 내용을 포함하여 Azure Cosmos DB Table API에 대해 자세히 알아봅니다.
-services: cosmos-db
-author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: reference
 ms.date: 11/20/2017
-ms.author: sngun
-ms.custom: ''
-ms.openlocfilehash: 165dbaf3faec90498cf42bad39257e26662da072
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+author: wmengmsft
+ms.author: wmeng
+ms.openlocfilehash: 257d55fd0c7d843934c4f07a798247c5271d8ed7
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869860"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044300"
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Python용 Azure Cosmos DB Table API SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]

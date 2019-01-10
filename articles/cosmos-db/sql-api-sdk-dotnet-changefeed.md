@@ -1,20 +1,19 @@
 ---
 title: 'Azure Cosmos DB: .NET 변경 피드 프로세서 API, SDK 및 리소스'
 description: 릴리스 날짜, 사용 중지 날짜 및 .NET 변경 피드 프로세서 SDK의 각 버전 간 변경 내용을 포함하여 변경 피드 프로세서 API 및 SDK에 대한 모든 것을 알아봅니다.
-services: cosmos-db
 author: ealsur
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 7b6fefd575901648a99bb3a67a05e705622bb74a
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: f7c8313e6216f10dccdfbb298bbf02036e21c138
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407867"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043008"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]

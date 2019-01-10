@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: a0bf8543338043d9a1990fd2be33a65a478af721
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: fd5e62138d47622417bde658bf0d05308594d64e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53021618"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104151"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Azure Cache for Redis 문제를 해결하는 방법
 이 문서에서는 다음 범주의 Azure Cache for Redis 문제를 해결하는 방법에 대한 지침을 제공합니다.
@@ -67,7 +67,7 @@ ms.locfileid: "53021618"
 위의 메시지에는 몇 가지 흥미로운 문제가 있습니다.
 
 1. `IOCP` 섹션과 `WORKER` 섹션에 `Min` 값보다 큰 `Busy` 값이 있습니다. 이러한 차이는 `ThreadPool` 설정이 조정을 필요로 한다는 것을 의미입니다.
-2. 또한 `in: 64221`도 볼 수 있습니다: 이 값은 64211 바이트를 커널 소켓 계층에서 받았지만 응용 프로그램 (예: StackExchange.Redis)에서 아직 읽지 않았음을 나타냅니다. 이 차이는 일반적으로 응용 프로그램이 데이터를 서버에서 보내는 만큼 빠르게 서버로부터 읽지 못하고 있음을 의미합니다.
+2. 또한 `in: 64221`도 볼 수 있습니다: 이 값은 64211 바이트를 커널 소켓 계층에서 받았지만 애플리케이션 (예: StackExchange.Redis)에서 아직 읽지 않았음을 나타냅니다. 이 차이는 일반적으로 애플리케이션이 데이터를 서버에서 보내는 만큼 빠르게 서버로부터 읽지 못하고 있음을 의미합니다.
 
 #### <a name="resolution"></a>해결 방법
 버스트 시나리오 하에서 스레드 풀이 신속하게 규모 확장을 하도록 [스레드 풀 설정](https://gist.github.com/JonCole/e65411214030f0d823cb)을 구성합니다.
@@ -99,7 +99,7 @@ Azure Portal을 통해 또는 연결된 성능 카운터를 통해 시스템 전
 
 ### <a name="large-requestresponse-size"></a>큰 요청/응답 크기
 #### <a name="problem"></a>문제
-큰 요청/응답으로 시간 초과가 발생할 수 있습니다. 예를 들어 클라이언트에 구성된 시간 제한 값이 1초라고 가정합시다. 응용 프로그램이 동시에 2개의 키(예: 'A' 및 'B')를 요청합니다(동일한 실제 네트워크 연결 사용). 대부분 클라이언트는 두 요청 ‘A’와 ‘B’를 응답을 기다리지 않고 연달아 서버에 전송되는 것과 같은 요청 “파이프라인”을 지원합니다. 서버는 응답을 동일한 순서로 전송합니다. 응답 'A'가 큰 경우 후속 요청을 위한 제한 시간 대부분을 다 써버릴 수 있습니다. 
+큰 요청/응답으로 시간 초과가 발생할 수 있습니다. 예를 들어 클라이언트에 구성된 시간 제한 값이 1초라고 가정합시다. 애플리케이션이 동시에 2개의 키(예: 'A' 및 'B')를 요청합니다(동일한 실제 네트워크 연결 사용). 대부분 클라이언트는 두 요청 ‘A’와 ‘B’를 응답을 기다리지 않고 연달아 서버에 전송되는 것과 같은 요청 “파이프라인”을 지원합니다. 서버는 응답을 동일한 순서로 전송합니다. 응답 'A'가 큰 경우 후속 요청을 위한 제한 시간 대부분을 다 써버릴 수 있습니다. 
 
 다음 예제에서는 이 시나리오를 보여 줍니다. 이 시나리오에서는 요청 'A'와 'B'가 신속하게 전송되고, 서버가 응답 'A'와 'B'를 신속하게 보내기 시작하지만, 데이터 전송 시간 때문에 서버가 신속하게 응답했어도 'B'가 다른 요청 뒤에 갇혀 꼼짝 못하고 시간이 초과되어 버립니다.
 
@@ -142,7 +142,7 @@ Azure Portal을 통해 또는 연결된 성능 카운터를 통해 시스템 전
 2. Redis가 높은 메모리 조각화를 보입니다-큰 개체 저장이 원인이 되어 일어나는 경우가 가장 많습니다.(Redis 작은 개체에 대해 최적화됩니다-상세한 내용은 [redis를 위한 이상적인 값 크기 범위는 무엇입니까? 100KB는 너무 큰가요?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) 게시물을 참조하세요.) 
 
 #### <a name="measurement"></a>측정
-Redis는 이 문제를 식별하는 데 도움이 되는 두 개의 메트릭을 노출합니다. 첫째는 `used_memory`이고 다른 하나는 `used_memory_rss`입니다. [이러한 메트릭](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)은 Azure Portal에서 또는 [Redis INFO](http://redis.io/commands/info) 명령을 통해 사용할 수 있습니다.
+Redis는 이 문제를 식별하는 데 도움이 되는 두 개의 메트릭을 노출합니다. 첫째는 `used_memory`이고 다른 하나는 `used_memory_rss`입니다. [이러한 메트릭](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)은 Azure Portal에서 또는 [Redis INFO](https://redis.io/commands/info) 명령을 통해 사용할 수 있습니다.
 
 #### <a name="resolution"></a>해결 방법
 메모리 사용량의 정상 유지를 위해 몇 가지 가능한 변경은 다음과 같습니다.
@@ -227,9 +227,9 @@ StackExchange.Redis는 기본값이 1000ms인 동기 작업에 대해 `synctimeo
    
    * CPU가 클라이언트에 바인딩되어 요청이 `synctimeout` 간격 내에 처리될 수가 없게 되어 시간 초과가 일어나는지 확인합니다. 더 큰 클라이언트 크기로 이동하거나 부하를 분산한다면 이 문제를 제어하는데 도움이 됩니다. 
    * 서버에서 CPU가 서버에 바인딩되는지 `CPU` [캐시 성능 메트릭](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)을 모니터링하여 확인합니다. Redis가 CPU에 바인딩된 동안 들어오는 요청은 시간 초과를 초래할 수 있습니다. 이 상태를 해결하기 위해 부하를 프리미엄 캐시에서 여러 분할된 데이터베이스로 분산하거나 더 큰 크기나 가격 책정 계층으로 업그레이드할 수 있습니다. 자세한 내용은 [서버 쪽 대역폭 초과](#server-side-bandwidth-exceeded)를 참조합니다.
-5. 서버에서 처리하는데 시간이 오래 걸리는 명령이 있습니까? Redis 서버에서 처리하는 데 시간이 오래 걸리는 장기 실행 명령은 시간 초과의 원인이 될 수 있습니다. 장기 실행 명령의 몇 가지 예로 다수의 키 작동을 요하는 `mget`, `keys *` 또는 형편없게 짜여진 lua 스크립트 등이 있습니다. redis-cli 클라이언트를 사용하여 Azure Cache for Redis 인스턴스에 연결할 수 있거나 [Redis 콘솔](cache-configure.md#redis-console)을 사용하고 [SlowLog](http://redis.io/commands/slowlog) 명령을 실행하여 예상보다 오래 걸리는 요청이 있는지 확인할 수 있습니다. Redis 서버와 StackExchange.Redis는 작은 수의 큰 요청보다 많은 수의 작은 요청을 위해 최적화되어 있습니다. 데이터를 더 작은 청크로 분할한다면 다음을 향상시킵니다. 
+5. 서버에서 처리하는데 시간이 오래 걸리는 명령이 있습니까? Redis 서버에서 처리하는 데 시간이 오래 걸리는 장기 실행 명령은 시간 초과의 원인이 될 수 있습니다. 장기 실행 명령의 몇 가지 예로 다수의 키 작동을 요하는 `mget`, `keys *` 또는 형편없게 짜여진 lua 스크립트 등이 있습니다. redis-cli 클라이언트를 사용하여 Azure Cache for Redis 인스턴스에 연결할 수 있거나 [Redis 콘솔](cache-configure.md#redis-console)을 사용하고 [SlowLog](https://redis.io/commands/slowlog) 명령을 실행하여 예상보다 오래 걸리는 요청이 있는지 확인할 수 있습니다. Redis 서버와 StackExchange.Redis는 작은 수의 큰 요청보다 많은 수의 작은 요청을 위해 최적화되어 있습니다. 데이터를 더 작은 청크로 분할한다면 다음을 향상시킵니다. 
    
-    redis-cli 및 stunnel를 사용하여 Azure Cache for Redis SSL 엔드포인트에 연결하는 방법에 대한 자세한 내용은 [Redis용 ASP.NET 세션 상태 제공자 미리 보기 릴리스 발표](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) 블로그 게시물을 참조하세요. 자세한 내용은 [SlowLog](http://redis.io/commands/slowlog)를 참조하세요.
+    redis-cli 및 stunnel를 사용하여 Azure Cache for Redis SSL 엔드포인트에 연결하는 방법에 대한 자세한 내용은 [Redis용 ASP.NET 세션 상태 제공자 미리 보기 릴리스 발표](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) 블로그 게시물을 참조하세요. 자세한 내용은 [SlowLog](https://redis.io/commands/slowlog)를 참조하세요.
 6. 높은 Redis 서버 부하로 시간 초과가 발생할 수 있습니다. `Redis Server Load` [캐시 성능 메트릭](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)을 모니터링함으로써 서버 부하를 모니터링할 수 있습니다. 100(최대 값)이란 서버 부하는 redis 서버가 요청을 처리하느라 유휴 시간이 전혀 없이 사용 중이었음을 나타냅니다. 특정 요청이 서버 기능의 전부를 차지하는지 확인하려면 이전 단락에서 설명한 대로 SlowLog 명령을 실행합니다. 자세한 내용은 [높은 CPU 사용량/서버 로드](#high-cpu-usage-server-load)를 참조하세요.
 7. 클라이언트 쪽에서 네트워크 문제를 일으킬 만한 이벤트가 있었습니까? 클라이언트 인스턴스 수를 위아래로 조정하거나, 클라이언트 새 버전을 배포하거나, 자동 크기 조정을 사용하도록 설정되었는지 클라이언트(웹, 작업자 역할 또는 Iaas VM)를 확인합니다.우리 테스트에서 자동 크기 조정이나 위/아래 크기 조정을 하면 아웃바운드 네트워크 연결이 몇초간 끊어진다는 점이 밝혀졌습니다. StackExchange.Redis 코드는 이러한 이벤트에 복원력이 있어 다시 연결합니다. 다시 연결되는 이 시간 동안 큐에 있는 모든 요청은 시간 초과될 수 있습니다.
 8. 시간이 초과된 Azure Cache for Redis에 대한 몇 가지 작은 요청에 앞서 큰 요청이 있었습니까? 오류 메시지에 있는 매개 변수 `qs`는 클라이언트에서 서버로 요청은 보내졌으나 아직 응답 처리가 되지 않은 경우가 얼마나 많은지 알려줍니다. StackExchange.Redis는 하나의 TCP 연결을 사용하고 한 번에 하나의 응답만 읽을 수 있기 때문에 이 값은 계속 증가할 수 있습니다. 첫 번째 작업이 시간 초과하더라도, 서버와 데이터를 주고 받는 일이 중단되지 않으며, 다른 요청은 큰 요청이 끝날 때까지 차단되기 때문에 시간 초과가 일어납니다. 하나의 솔루션은 워크로드를 감당할 수 있게 캐시를 충분히 크게 하고 큰 값을 작은 청크로 분할하여 시간 초과의 가능성을 최소화하는 것입니다. 또 다른 가능한 솔루션은 클라이언트에서 `ConnectionMultiplexer` 개체 풀을 사용하고, 새 요청을 보낼 때 부하가 최소인 `ConnectionMultiplexer`을 선택합니다, 이렇게 하면 단일 시간 초과가 다른 요청들도 또한 시간 초과되게 하는 것을 막습니다.

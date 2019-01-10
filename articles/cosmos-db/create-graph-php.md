@@ -1,21 +1,19 @@
 ---
 title: '빠른 시작: Gremlin API와 PHP - Azure Cosmos DB'
 description: 이 빠른 시작은 Azure Portal 및 PHP와 함께 Azure Cosmos DB Gremlin API를 사용하여 콘솔 애플리케이션을 만드는 방법을 보여줍니다.
-services: cosmos-db
 author: luisbosquez
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-graph
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: f6ff46f391ce03f67619ef685f841dcf95a1fd92
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f13f8878f24309330db8143eb0f5cf3ae890d2fe
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089469"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039149"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB는 PHP 및 Azure Portal을 사용하여 그래프 데이터베이스 만들기
 
@@ -50,7 +48,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
-## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
+## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
 이제 코드 사용으로 전환해 보겠습니다. GitHub에서 Gremlin API 앱을 복제하고, 연결 문자열을 설정하고, 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다.  
 
@@ -177,7 +175,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
    composer install
    ```
 
-3. git 터미널 창에서 다음 명령을 사용하여 PHP 애플리케이션을 시작합니다.
+3. git 터미널 창에서 다음 명령을 사용하여 PHP 응용 프로그램을 시작합니다.
     
     ```
     php connect.php

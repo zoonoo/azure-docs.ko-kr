@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 0186882183ed0848fd8b14d186b55ad1a5ff58ea
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 746e1c082d370cdcf1fca6597923b0e38b9a6d62
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53022093"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105239"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Cache for Redis 관리
 > [!div class="op_single_selector"]
@@ -148,11 +148,11 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 | maxmemory-reserved |비 캐시 프로세스를 위해 [예약되는 메모리](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) 를 구성합니다 |표준 및 프리미엄 |
 | maxmemory-policy |캐시에 대한 [제거 정책](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) 을 구성합니다 |모든 가격 책정 계층 |
 | notify-keyspace-events | [Keyspace 알림](cache-configure.md#keyspace-notifications-advanced-settings) |표준 및 프리미엄 |
-| hash-max-ziplist-entries |작은 집계 데이터 형식에 대한 [메모리 최적화](http://redis.io/topics/memory-optimization) 구성 |표준 및 프리미엄 |
-| hash-max-ziplist-value |작은 집계 데이터 형식에 대한 [메모리 최적화](http://redis.io/topics/memory-optimization) 구성 |표준 및 프리미엄 |
-| set-max-intset-entries |작은 집계 데이터 형식에 대한 [메모리 최적화](http://redis.io/topics/memory-optimization) 구성 |표준 및 프리미엄 |
-| zset-max-ziplist-entries |작은 집계 데이터 형식에 대한 [메모리 최적화](http://redis.io/topics/memory-optimization) 구성 |표준 및 프리미엄 |
-| zset-max-ziplist-value |작은 집계 데이터 형식에 대한 [메모리 최적화](http://redis.io/topics/memory-optimization) 구성 |표준 및 프리미엄 |
+| hash-max-ziplist-entries |작은 집계 데이터 형식에 대한 [메모리 최적화](https://redis.io/topics/memory-optimization) 구성 |표준 및 프리미엄 |
+| hash-max-ziplist-value |작은 집계 데이터 형식에 대한 [메모리 최적화](https://redis.io/topics/memory-optimization) 구성 |표준 및 프리미엄 |
+| set-max-intset-entries |작은 집계 데이터 형식에 대한 [메모리 최적화](https://redis.io/topics/memory-optimization) 구성 |표준 및 프리미엄 |
+| zset-max-ziplist-entries |작은 집계 데이터 형식에 대한 [메모리 최적화](https://redis.io/topics/memory-optimization) 구성 |표준 및 프리미엄 |
+| zset-max-ziplist-value |작은 집계 데이터 형식에 대한 [메모리 최적화](https://redis.io/topics/memory-optimization) 구성 |표준 및 프리미엄 |
 | 데이터베이스 |데이터베이스 수를 구성합니다. 이 속성은 캐시 만들기에서만 구성할 수 있습니다. |표준 및 프리미엄 |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Azure Cache for Redis를 만들려면
@@ -237,7 +237,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 기본 매개 변수로 캐시를 만들려면 다음 명령을 실행합니다.
 
@@ -317,7 +317,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 `Size`, `Sku`, `EnableNonSslPort`의 속성과 `RedisConfiguration` 값을 업데이트하는 데 `Set-AzureRmRedisCache` cmdlet을 사용할 수 있습니다. 
 
@@ -421,7 +421,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 현재 구독의 모든 캐시에 대한 정보를 반환하려면 매개 변수 없이 `Get-AzureRmRedisCache`를 실행합니다.
 
@@ -488,7 +488,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 캐시에 대한 키를 검색하려면 `Get-AzureRmRedisCacheKey` cmdlet을 호출하고 캐시 이름과 해당 캐시를 포함하는 리소스 그룹 이름을 전달합니다.
 
@@ -533,7 +533,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 캐시에 대한 주 및 보조 키를 다시 생성하려면 `New-AzureRmRedisCacheKey` cmdlet을 호출하고 이름, 리소스 그룹을 전달하고 `KeyType` 매개 변수에 대해 `Primary` 또는 `Secondary`를 지정합니다. 다음 예제에서는 캐시에 대한 보조 액세스 키가 다시 생성됩니다.
 
@@ -584,7 +584,7 @@ Azure Cache for Redis를 삭제하려면 [Remove-AzureRmRedisCache](https://docs
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 다음 예제에서는 캐시 이름 `myCache` 가 제거됩니다.
 
@@ -648,7 +648,7 @@ Azure Cache for Redis를 삭제하려면 [Remove-AzureRmRedisCache](https://docs
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 다음 명령은 SAS URI가 지정한 Blob에서 Azure Cache for Redis에 데이터를 가져옵니다.
@@ -707,7 +707,7 @@ Azure Cache for Redis를 삭제하려면 [Remove-AzureRmRedisCache](https://docs
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 다음 명령은 Azure Cache for Redis 인스턴스에서 SAS uri가 지정한 컨테이너로 데이터를 내보냅니다.
@@ -768,7 +768,7 @@ Azure Cache for Redis를 삭제하려면 [Remove-AzureRmRedisCache](https://docs
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 다음 명령은 지정된 캐시의 두 노드를 모두 재부팅합니다.
@@ -785,5 +785,5 @@ Azure에서 Windows PowerShell 사용에 대한 자세한 내용은 다음 리�
 * [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-template-deploy-portal.md): Azure Portal에서 리소스 그룹을 만들고 관리하는 방법
 * [Azure 블로그](https://azure.microsoft.com/blog/): Azure의 새로운 기능에 대해 알아봅니다.
 * [Windows PowerShell 블로그](https://blogs.msdn.com/powershell): Windows PowerShell의 새로운 기능에 대해 알아봅니다.
-* ["Hey, Scripting Guy!" 블로그](http://blogs.technet.com/b/heyscriptingguy/): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
+* ["Hey, Scripting Guy!" 블로그](https://blogs.technet.com/b/heyscriptingguy/): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
 

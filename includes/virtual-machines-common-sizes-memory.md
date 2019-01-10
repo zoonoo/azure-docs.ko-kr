@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: dc78c8794923a180264058fc984a58aa29171c58
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b992947245175803f8f2f8c6a5aba70fe13bde2c
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978748"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54084024"
 ---
 메모리 최적화 VM 크기는 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합한 높은 메모리 대 CPU 비율을 제공합니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다. 
 
 * M 시리즈는 클라우드의 VM 중에서 가장 높은 vCPU 수(최대 128개의 vCPU) 및 가장 큰 메모리(최대 3.8TiB)를 제공합니다.  높은 vCPU 개수 및 많은 양의 메모리를 활용하는 매우 큰 데이터베이스 또는 다른 애플리케이션에 이상적입니다.
 
-* Dv2 시리즈, G 시리즈 및 DSv2/GS는 더 빠른 vCPU와 더 좋은 임시 저장소 성능을 요구하거나 더 높은 메모리 요구량을 가진 응용 프로그램에 이상적입니다.  이들은 많은 엔터프라이즈급 애플리케이션을 위한 강력한 조합을 제공합니다.
+* Dv2 시리즈, G 시리즈 및 DSv2/GS는 더 빠른 vCPU와 더 좋은 임시 저장소 성능을 요구하거나 더 높은 메모리 요구량을 가진 애플리케이션에 이상적입니다.  이들은 많은 엔터프라이즈급 애플리케이션을 위한 강력한 조합을 제공합니다.
 
 
 * 원래 D 시리즈의 후속판인 Dv2 시리즈는 더 강력한 CPU가 특징입니다. Dv2 시리즈 CPU는 D 시리즈 CPU보다 약 35% 빠릅니다. 최신 출시된 2.4GHz Intel Xeon® E5-2673 v3 2.4GHz(Haswell) 또는 E5-2673 v4 2.3GHz(Broadwell) 프로세서를 기반으로 하며, Intel Turbo Boost Technology 2.0과 함께 사용하면 최대 3.1GHz까지 확장할 수 있습니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
@@ -109,7 +109,7 @@ Write Accelerator  [지원됨](https://docs.microsoft.com/azure/virtual-machines
 | Standard_M64s  | 64 | 1,024   | 2,048 | 64 | 80,000/800(6,348)| 40,000/1,000 | 8 / 16,000          |
 | Standard_M64ls  | 64 | 512    | 2,048 | 64 | 80,000/800(6,348) | 40,000/1,000 | 8 / 16,000 |
 | Standard_M64ms&nbsp;<sup>3</sup>  | 64   | 1,792 | 2,048 | 64 | 80,000/800(6,348)| 40,000/1,000 | 8 / 16,000          |
-| Standard_M128s&nbsp;<sup>2,&nbsp;3</sup> | 128  | 2,048        | 4,096  | 64 | 160,000 / 1,600 (12,696) | 80,000/2,000                            | 8 / 30,000          |
+| Standard_M128s&nbsp;<sup>2</sup> | 128  | 2,048        | 4,096  | 64 | 160,000 / 1,600 (12,696) | 80,000/2,000                            | 8 / 30,000          |
 | Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3,892  | 4,096 | 64 | 160,000 / 1,600 (12,696) | 80,000/2,000                            | 8 / 30,000          |
 | Standard_M64   | 64  | 1,024 | 7,168  | 64 | 80,000/800(1,228) | 40,000/1,000 | 8 / 16,000 |
 | Standard_M64m  | 64  | 1,792 | 7,168  | 64 | 80,000/800(1,228) | 40,000/1,000 | 8 / 16,000 |

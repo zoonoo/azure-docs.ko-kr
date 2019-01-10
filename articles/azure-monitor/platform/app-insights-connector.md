@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 684fa85749bc131b21ef12070055841ff7d3d169
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 6b725d7912fa4b0d6b46acb35eda80ae66e4a38c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726231"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121416"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights 커넥터관리 솔루션(미리 보기)
 
@@ -27,7 +27,7 @@ ms.locfileid: "53726231"
 >[!NOTE]
 > [cross-resource queries](../../azure-monitor/log-query/cross-workspace-query.md)를 지원하면 Application Insights 커넥터 관리 솔루션이 더 이상 필요하지 않고 사용되지 않습니다. 7월부터 새 Application Insights 리소스를 Log Analytics 작업 영역에 연결할 수 없게 됩니다. 기존 링크 및 대시보드는 2018년 11월까지 서비스될 예정입니다. 자세한 내용은 [Azure로 이동하는 OMS 포털](../../azure-monitor/platform/oms-portal-transition.md)을 참조하세요.
 
-Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Application Insights](../../application-insights/app-insights-overview.md)를 통해 모니터링하는 경우 사용자가 해당 앱으로 수행하는 작업을 파악하는 데 도움이 됩니다. 개발자가 Application Insights에서 참조하는 것과 동일한 애플리케이션 원격 분석 뷰를 Log Analytics에서 사용할 수 있습니다. 그러나 Log Analytics와 Application Insights 앱을 통합하는 경우 작업 및 애플리케이션 데이터가 한 곳에 있게 되므로 애플리케이션에 대한 가시성이 향상됩니다. 동일한 뷰가 있으면 앱 개발자와 공동 작업을 수행하는 데 도움이 됩니다. 공통 뷰는 애플리케이션 및 플랫폼 문제를 감지하고 해결하는 데 소요되는 시간을 줄일 수 있습니다.
+Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Application Insights](../../azure-monitor/app/app-insights-overview.md)를 통해 모니터링하는 경우 사용자가 해당 앱으로 수행하는 작업을 파악하는 데 도움이 됩니다. 개발자가 Application Insights에서 참조하는 것과 동일한 애플리케이션 원격 분석 뷰를 Log Analytics에서 사용할 수 있습니다. 그러나 Log Analytics와 Application Insights 앱을 통합하는 경우 작업 및 애플리케이션 데이터가 한 곳에 있게 되므로 애플리케이션에 대한 가시성이 향상됩니다. 동일한 뷰가 있으면 앱 개발자와 공동 작업을 수행하는 데 도움이 됩니다. 공통 뷰는 애플리케이션 및 플랫폼 문제를 감지하고 해결하는 데 소요되는 시간을 줄일 수 있습니다.
 
 이 솔루션을 사용하면 다음을 수행할 수 있습니다.
 
@@ -142,7 +142,7 @@ Application Insights 커넥터 블레이드는 사용자가 *Azure Portal을 사
 
 ### <a name="sample-corrected-data"></a>샘플 수정 데이터
 
-Application Insights는 *[샘플링 수정](../../application-insights/app-insights-sampling.md)* 을 제공하므로 원격 분석 트래픽을 줄이는 데 도움이 됩니다. Application Insights 앱에서 샘플링을 사용하도록 설정하는 경우 Application Insights 및 Log Analytics 모두에서 저장되는 항목의 수가 감소됩니다. **Application Insights 커넥터** 페이지 및 큐브 뷰에서 데이터 일관성이 유지되지만 사용자 지정 쿼리를 위해 샘플링된 데이터는 수동으로 수정해야 합니다.
+Application Insights는 *[샘플링 수정](../../azure-monitor/app/sampling.md)* 을 제공하므로 원격 분석 트래픽을 줄이는 데 도움이 됩니다. Application Insights 앱에서 샘플링을 사용하도록 설정하는 경우 Application Insights 및 Log Analytics 모두에서 저장되는 항목의 수가 감소됩니다. **Application Insights 커넥터** 페이지 및 큐브 뷰에서 데이터 일관성이 유지되지만 사용자 지정 쿼리를 위해 샘플링된 데이터는 수동으로 수정해야 합니다.
 
 다음은 로그 검색 쿼리의 샘플링 수정 예입니다.
 

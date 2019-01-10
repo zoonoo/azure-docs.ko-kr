@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: wesmc
-ms.openlocfilehash: 21f6f729cef6478c190c9e8b872723e4ae67fb1e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: da99d446da1451c2b05f6ecab8ba19eaa1e2bfa3
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020841"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104950"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>자습서: ASP.NET에서 캐시 배제 순위표 만들기
 
@@ -242,7 +242,7 @@ ms.locfileid: "53020841"
 
     ![코드 변경 내용](./media/cache-web-app-cache-aside-leaderboard/cache-layout-cshtml-code.png)
 
-1. **Ctrl+F5** 키를 눌러 응용 프로그램을 빌드 및 실행합니다. 이 버전의 애플리케이션이 데이터베이스에서 직접 결과를 읽습니다. 참고로 **새로 만들기**, **편집**, **세부 정보** 및 **삭제** 작업은 애플리케이션에 **Entity Framework를 사용하는 보기 포함 MVC 5 컨트롤러** 스캐폴드에 의해 자동으로 추가되었습니다. 자습서의 다음 섹션에서는 데이터 액세스를 최적화하고 애플리케이션에 추가 기능을 제공하기 위해 Azure Cache for Redis를 추가합니다.
+1. **Ctrl+F5** 키를 눌러 애플리케이션을 빌드 및 실행합니다. 이 버전의 애플리케이션이 데이터베이스에서 직접 결과를 읽습니다. 참고로 **새로 만들기**, **편집**, **세부 정보** 및 **삭제** 작업은 애플리케이션에 **Entity Framework를 사용하는 보기 포함 MVC 5 컨트롤러** 스캐폴드에 의해 자동으로 추가되었습니다. 자습서의 다음 섹션에서는 데이터 액세스를 최적화하고 애플리케이션에 추가 기능을 제공하기 위해 Azure Cache for Redis를 추가합니다.
 
     ![시작 애플리케이션](./media/cache-web-app-cache-aside-leaderboard/cache-starter-application.png)
 
@@ -520,7 +520,7 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
     ```csharp
     // POST: Teams/Create
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-    // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+    // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Create([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
@@ -544,7 +544,7 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
     ```csharp
     // POST: Teams/Edit/5
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-    // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+    // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Edit([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
@@ -642,7 +642,7 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 
 로컬로 앱을 실행하려면 다음을 수행합니다.
 
-1. **Ctrl+F5** 를 눌러 응용 프로그램을 실행합니다.
+1. **Ctrl+F5**를 눌러 애플리케이션을 실행합니다.
 
     ![로컬로 실행되는 앱](./media/cache-web-app-cache-aside-leaderboard/cache-local-application.png)
 
@@ -739,7 +739,7 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 
 4. 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 후 **삭제**를 클릭합니다.
 
-    잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
+    잠시 후 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

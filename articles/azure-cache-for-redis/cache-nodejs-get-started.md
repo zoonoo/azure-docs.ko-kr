@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 05/21/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: cff742688c307becf4bf87cced15036b25fa10c8
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: f47b1d35ada061601233506222903742393c6830
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554625"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101754"
 ---
 # <a name="quickstart-how-to-use-azure-cache-for-redis-with-nodejs"></a>빠른 시작: Node.js에서 Azure Cache for Redis를 사용하는 방법
 
@@ -42,7 +42,7 @@ Azure Cache for Redis를 통해 Microsoft에서 관리하는 안전한 전용 Az
 
     npm install redis
 
-이 자습서에서는 [node_redis](https://github.com/mranney/node_redis)를 사용합니다. 다른 Node.js 클라이언트를 사용한 예는 [Node.js Redis 클라이언트](http://redis.io/clients#nodejs)에 나열된 Node.js 클라이언트의 개별 설명서를 참조하세요.
+이 자습서에서는 [node_redis](https://github.com/mranney/node_redis)를 사용합니다. 다른 Node.js 클라이언트를 사용한 예는 [Node.js Redis 클라이언트](https://redis.io/clients#nodejs)에 나열된 Node.js 클라이언트의 개별 설명서를 참조하세요.
 
 
 ## <a name="create-a-cache"></a>캐시 만들기
@@ -77,7 +77,7 @@ var client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME,
 
 *redistest.js*라는 새 스크립트 파일을 만듭니다.
 
-다음 예제 JavaScript를 파일에 추가합니다. 이 코드는 캐시 호스트 이름 및 키 환경 변수를 사용하여 Azure Cache for Redis 인스턴스에 연결하는 방법을 보여 줍니다. 코드는 또한 캐시에 문자열 값을 저장하고 검색합니다. 또한 `PING` 및 `CLIENT LIST` 명령을 실행했습니다. [node_redis](https://github.com/mranney/node_redis) 클라이언트가 포함된 Redis 사용에 관한 더 많은 예는 [http://redis.js.org/](http://redis.js.org/)를 참조하세요.
+다음 예제 JavaScript를 파일에 추가합니다. 이 코드는 캐시 호스트 이름 및 키 환경 변수를 사용하여 Azure Cache for Redis 인스턴스에 연결하는 방법을 보여 줍니다. 코드는 또한 캐시에 문자열 값을 저장하고 검색합니다. 또한 `PING` 및 `CLIENT LIST` 명령을 실행했습니다. [node_redis](https://github.com/mranney/node_redis) 클라이언트가 포함된 Redis 사용에 관한 더 많은 예는 [https://redis.js.org/](https://redis.js.org/)를 참조하세요.
 
 ```js
 var redis = require("redis");

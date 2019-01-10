@@ -1,22 +1,19 @@
 ---
 title: Azure Cosmos DB의 Python Flask 웹 애플리케이션 자습서
-description: Azure Cosmos DB를 사용하여 Azure에 호스트된 Python Flask 웹 애플리케이션에서 데이터를 저장하고 액세스하는 방법에 대한 데이터베이스 자습서를 검토합니다. 애플리케이션 개발 솔루션을 찾습니다.
-keywords: 애플리케이션 개발, Python flask, Python 웹 애플리케이션, Python 웹 개발
-services: cosmos-db
+description: Azure Cosmos DB를 사용하여 Azure에 호스트된 Python Flask 웹 응용 프로그램에서 데이터를 저장하고 액세스하는 방법에 대한 데이터베이스 자습서를 검토합니다. 애플리케이션 개발 솔루션을 찾습니다.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2c7b7c5dc68bb96e0b54dc89f2c170cdb20c792
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a59de5fad7f457fffcc36ed55fd5862bc9329a1d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081917"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037160"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Python Flask 웹 애플리케이션 빌드
 
@@ -28,18 +25,18 @@ ms.locfileid: "53081917"
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
-이 자습서에서는 Azure Cosmos DB를 사용하여 Azure App Service에서 호스트하는 Python Flask 웹 애플리케이션의 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 이 자습서에서는 이전에 Python 및 Azure 웹 사이트를 사용해 본 경험이 있다고 가정합니다.
+이 자습서에서는 Azure Cosmos DB를 사용하여 Azure App Service에서 호스트하는 Python Flask 웹 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 이 자습서에서는 이전에 Python 및 Azure 웹 사이트를 사용해 본 경험이 있다고 가정합니다.
 
 이 데이터베이스 자습서에서는 다음 내용을 다룹니다.
 
 1. Azure Cosmos DB 계정 만들기 및 프로비전
-2. Python Flask 애플리케이션 만들기
-3. 웹 애플리케이션에서 Azure Cosmos DB 연결 및 사용
-4. Azure App Service에 웹 애플리케이션 배포
+2. Python Flask 응용 프로그램 만들기
+3. 웹 응용 프로그램에서 Azure Cosmos DB 연결 및 사용
+4. Azure App Service에 웹 응용 프로그램 배포
 
 이 자습서를 따르면 설문 조사에 투표할 수 있는 간단한 투표 응용 프로그램을 빌드합니다.
 
-![이 데이터베이스 자습서에서 만든 투표 애플리케이션의 스크린샷](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
+![이 데이터베이스 자습서에서 만든 투표 응용 프로그램의 스크린샷](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
 
 ## <a name="database-tutorial-prerequisites"></a>데이터베이스 자습서 필수 조건
 이 문서의 지침을 따르기 전에 다음이 설치되어 있는지 확인해야 합니다.
@@ -298,7 +295,7 @@ def vote():
     </form>
     {% endblock %}
     ```
-7. **templates** 폴더에서 **index.html**의 내용을 다음과 같이 바꿉니다. 이 코드는 애플리케이션의 방문 페이지 역할을 합니다.
+7. **templates** 폴더에서 **index.html**의 내용을 다음과 같이 바꿉니다. 이 코드는 응용 프로그램의 방문 페이지 역할을 합니다.
    
     ```html
     {% extends "layout.html" %}
@@ -430,9 +427,9 @@ def vote():
 투표 페이지에 오류가 발생하고 **자습서**가 아닌 다른 이름으로 프로젝트의 이름을 지정한 경우 **\_\_init\_\_.py**가 줄에서 올바른 프로젝트 이름을 참조하도록 합니다. `import tutorial.view`
 
 ## <a name="next-steps"></a>다음 단계
-축하합니다! Azure Cosmos DB를 사용하여 첫 Python 웹 애플리케이션을 완성하고 Azure에 게시했습니다.
+축하합니다! Azure Cosmos DB를 사용하여 첫 Python 웹 응용 프로그램을 완성하고 Azure에 게시했습니다.
 
-웹 애플리케이션에 다른 기능을 추가하려면 [Azure Cosmos DB Python SDK](sql-api-sdk-python.md)에서 사용할 수 있는 API를 검토하세요.
+웹 응용 프로그램에 다른 기능을 추가하려면 [Azure Cosmos DB Python SDK](sql-api-sdk-python.md)에서 사용할 수 있는 API를 검토하세요.
 
 Azure, Visual Studio 및 Python에 대한 자세한 내용은 [Python 개발자 센터](https://azure.microsoft.com/develop/python/)를 참조하세요. 
 

@@ -1,21 +1,19 @@
 ---
 title: Java용 Azure Cosmos DB Table API
 description: 릴리스 날짜, 사용 중지 날짜 및 각 버전의 변경 내용을 포함하여 Azure Cosmos DB Table API에 대해 자세히 알아봅니다.
-services: cosmos-db
-author: yarong
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: java
 ms.topic: reference
 ms.date: 11/20/2017
-ms.author: yaronyg
-ms.custom: ''
-ms.openlocfilehash: 54fad2e830ae7ff1d07cc8f67e50d2b5bc4fe8a7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+author: wmengmsft
+ms.author: wmeng
+ms.openlocfilehash: 724f0b9eb09b9eecad5b0a360d9301616d1494f1
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096587"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035146"
 ---
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>Java용 Azure Cosmos DB Table API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]

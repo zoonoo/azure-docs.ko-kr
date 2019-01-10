@@ -1,19 +1,18 @@
 ---
 title: Azure Cosmos DB Gremlin API 소개
 description: Azure Cosmos DB를 사용하여 Apache TinkerPop의 Gremlin 그래프 쿼리 언어로 대기 시간을 단축하면서 대량의 그래프를 저장하고 쿼리하고 트래버스하는 방법을 알아봅니다.
-services: cosmos-db
 author: LuisBosquez
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
+ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 09/05/2018
 ms.author: lbosq
-ms.openlocfilehash: 833b9e7ce65a566757c739feebdfc8e0f1d268e9
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: a0d782ac1ba14e58e3cc377bb55ea25bb923c5c4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976344"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038911"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB 소개: Gremlin API
 

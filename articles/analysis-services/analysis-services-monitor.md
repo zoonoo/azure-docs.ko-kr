@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d10e9d3d2b6fe339b04d3c0754290313312bc2b7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6f686ff40805050b6da05a1971aeabb367da96d7
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427283"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190835"
 ---
 # <a name="monitor-server-metrics"></a>서버 메트릭 모니터링
 
@@ -33,7 +33,9 @@ Analysis Services에서는 서버의 성능 및 상태를 모니터링하는 메
     ![모니터링 차트](./media/analysis-services-monitor/aas-monitor-chart.png)
 
 <a id="#server-metrics"></a>
+
 ## <a name="server-metrics"></a>서버 메트릭
+
 모니터링 시나리오에 가장 적합한 메트릭을 확인하기 위해 이 테이블을 사용합니다. 동일한 단위의 메트릭만이 같은 차트에 표시될 수 있습니다.
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|
@@ -69,7 +71,7 @@ Analysis Services에서는 서버의 성능 및 상태를 모니터링하는 메
 |LongParsingBusyThreads|스레드: 긴 구문 분석 사용 중인 스레드|개수|평균|긴 구문 분석 스레드 풀에서 사용 중인 스레드 수입니다.|
 |LongParsingIdleThreads|스레드: 긴 구문 분석 유휴 상태 스레드|개수|평균|긴 구문 분석 스레드 풀에서 유휴 상태 스레드 수입니다.|
 |LongParsingJobQueueLength|스레드: 긴 구문 분석 작업 큐 길이|개수|평균|긴 구문 분석 스레드 풀의 큐에 있는 작업 수입니다.|
-|ProcessingPoolIOJobQueueLength|스레드: 처리 풀 I/O 작업 큐 길이|개수|평균|처리 스레드 풀의 큐에 있는 I/O 작업 수입니다.|
+|ProcessingPoolIOJobQueueLength|스레드: 처리 중인 풀 I/O 작업 큐 길이|개수|평균|처리 스레드 풀의 큐에 있는 I/O 작업 수입니다.|
 |ProcessingPoolBusyIOJobThreads|스레드: 처리 풀 사용 중인 I/O 작업 스레드|개수|평균|처리 스레드 풀에서 I/O 작업을 실행 중인 스레드 수입니다.|
 |ProcessingPoolBusyNonIOThreads|스레드: 처리 풀 사용 중인 비-I/O 스레드|개수|평균|처리 스레드 풀에서 비-I/O 작업을 실행 중인 스레드 수입니다.|
 |ProcessingPoolIdleIOJobThreads|스레드: 처리 풀 유휴 상태 I/O 작업 스레드|개수|평균|처리 스레드 풀에서 I/O 작업의 유휴 상태 스레드 수입니다.|

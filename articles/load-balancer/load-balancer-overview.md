@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
-ms.openlocfilehash: 55cb1eee1c0319f9b1037476da208de377e0c47b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 7b0a837bf23145c5ac5e5775d4324582fa3a6b20
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971191"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120838"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer란?
 
@@ -64,7 +64,7 @@ Load Balancer는 TCP 및 UDP 애플리케이션에 대해 다음과 같은 기�
 
     ![해시 기반 배포](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    그림: 해시 기반 배포
+    그림: 해시 기반 배포*
 
 * **포트 전달**
 
@@ -131,7 +131,7 @@ _아직 필수적인 것은 아니지만 SKU를 명시적으로 지정하는 것
 
 ![공용 Load Balancer 예](./media/load-balancer-overview/IC727496.png)
 
-그림: 공용 Load Balancer를 사용하여 웹 트래픽 부하 분산
+그림: 공용 Load Balancer를 사용하여 웹 트래픽 부하 분산*
 
 인터넷 클라이언트가 TCP 포트 80에서 웹앱의 공용 IP 주소에 웹 페이지 요청을 보내면 Azure Load Balancer가 부하 분산 집합에 있는 3개의 VM에 요청을 분산합니다. Load Balancer 알고리즘에 대한 자세한 내용은 이 문서의 [Load Balancer 기능](load-balancer-overview.md##fundamental-load-balancer-features) 섹션을 참조하세요.
 
@@ -150,7 +150,7 @@ _아직 필수적인 것은 아니지만 SKU를 명시적으로 지정하는 것
 
 ![내부 Load Balancer 예제](./media/load-balancer-overview/IC744147.png)
 
-그림: 공용 및 내부 Load Balancer를 둘 다 사용하여 다중 계층 애플리케이션 부하 분산
+그림: 공용 및 내부 Load Balancer를 둘 다 사용하여 다중 계층 애플리케이션 부하 분산*
 
 ## <a name="pricing"></a>가격
 표준 Load Balancer 사용량은 구성된 부하 분산 규칙 수와 인바운드 및 아웃바운드 처리 데이터의 양에 따라 청구됩니다. 표준 Load Balancer 가격 정보에 대해서는 [Load Balancer 가격](https://azure.microsoft.com/pricing/details/load-balancer/) 페이지를 참조하세요.

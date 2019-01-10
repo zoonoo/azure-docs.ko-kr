@@ -2,17 +2,17 @@
 title: Azure Storage를 Terraform 백 엔드로 사용
 description: Azure Storage에서의 Terraform 상태 저장을 소개합니다.
 services: terraform
-author: neilpeterson
+author: tomarchermsft
 ms.service: terraform
 ms.topic: article
 ms.date: 09/13/2018
-ms.author: nepeters
-ms.openlocfilehash: 48351dc0351b7a717a610ac9552e11362707e150
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: tarcher
+ms.openlocfilehash: db02a613e742c811341641e33b9a179b52045bd4
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128020"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077371"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>Terraform 상태를 Azure Storage에 저장
 

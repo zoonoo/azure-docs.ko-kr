@@ -1,21 +1,19 @@
 ---
 title: Azure Cosmos DB는 SQL Node.js API, SDK 및 리소스
 description: 릴리스 날짜, 사용 중지 날짜 및 Azure Cosmos DB Node.js SDK의 각 버전 간 변경 내용을 포함하여 SQL Node.js API 및 SDK에 대한 모든 것을 알아봅니다.
-services: cosmos-db
 author: deborahc
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
 ms.date: 09/24/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08e928143e8e54797869a06f4f7b99fd89cdcacc
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.author: dech
+ms.openlocfilehash: 1cb6889305e5f6bce5728039712a1834dc2e9353
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343992"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033590"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Node.js SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -40,7 +38,7 @@ ms.locfileid: "53343992"
 |SDK에 참여 | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
 | 샘플 | [Node.js 코드 샘플](sql-api-nodejs-samples.md)
 | 시작 자습서 | [JavaScript SDK 시작](sql-api-nodejs-get-started.md)
-| 웹앱 자습서 | [Azure Cosmos DB를 사용하여 Node.js 웹 응용 프로그램 빌드](sql-api-nodejs-application.md)
+| 웹앱 자습서 | [Azure Cosmos DB를 사용하여 Node.js 웹 애플리케이션 빌드](sql-api-nodejs-application.md)
 | 현재 지원되는 플랫폼 | [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - SDK 버전 2.0.0 이상이 필요합니다.<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## <a name="release-notes"></a>릴리스 정보

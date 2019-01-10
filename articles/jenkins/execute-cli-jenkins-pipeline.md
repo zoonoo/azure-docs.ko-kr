@@ -3,17 +3,17 @@ title: Jenkins로 Azure CLI 실행
 description: Azure CLI를 사용하여 Jenkins 파이프라인을 통해 Azure에 Java 웹앱을 배포하는 방법을 알아봅니다.
 ms.service: jenkins
 keywords: Jenkins, Azure, DevOps, App Service, CLI
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 6/7/2017
-ms.openlocfilehash: b9ca8848da543bbfb27246109c3a4ab97eb6bc58
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 05e21083b060e00602f58e1a17f52f40ced7d34e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974921"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075212"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Jenkins 및 Azure CLI를 사용해 Azure App Service에 배포
 Azure에 Java 웹앱을 배포하기 위해 [Jenkins 파이프라인](https://jenkins.io/doc/book/pipeline/)에서 Azure CLI를 사용할 수 있습니다. 이 자습서에서는 Azure VM에서 CI/CD 파이프라인을 만들며 다음 방법이 포함됩니다.

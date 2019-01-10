@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: bb240437870ce5457e40e8dcc3b31f3909b546fc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 200f36ee5312c92bed7dc9a7ffa29a0ee4993c43
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607135"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103369"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Event Hubs를 사용하여 실행 부하 과다 경로에서 Azure 진단 데이터 스트리밍
 Azure 진단에서는 클라우드 서비스 VM(가상 머신)에서 메트릭 및 로그를 수집하고 결과를 Azure Storage로 전송하는 유연한 방법을 제공합니다. 2016년 3월(SDK 2.9)부터 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)를 사용하여 데이터 원본을 사용자 지정하고 몇 초 만에 실행 부하 과다 경로 데이터를 전송할 수 있는 진단을 보낼 수 있습니다.
@@ -316,7 +316,7 @@ namespace EventHubListener
     우선 이벤트 허브 및 구성 정보가 이전에 설명한 대로 정확한지를 확인합니다. 때로는 배포 업데이트에서 **PrivateConfig** 가 다시 설정됩니다. 권장되는 해결 방법은 프로젝트에서 *.wadcfgx* 에 모든 변경 사항을 적용한 다음 전체 애플리케이션 업데이트를 푸시하는 것입니다. 불가능한 경우 진단 업데이트가 SAS 키를 포함하여 전체 **PrivateConfig** 를 푸시하도록 해야 합니다.  
 * 제안된 방법을 시도했지만 이벤트 허브가 여전히 작동하지 않습니다.
 
-    Azure 진단 자체에 대한 로그 및 오류가 포함된 Azure Storage 테이블 (**WADDiagnosticInfrastructureLogsTable**)을 살펴봅니다. 한 가지 옵션은 [Azure Storage 탐색기](http://www.storageexplorer.com) 등의 도구를 사용하여 이 Storage 계정에 연결하고 이 테이블을 본 후 지난 24시간 동안의 타임스탬프에 대한 쿼리를 추가하는 것입니다. 이 도구를 사용하여 .csv 파일을 내보내고 Microsoft Excel과 같은 애플리케이션에서 열 수 있습니다. Excel를 통해 어떤 오류가 보고되는지 확인하는 **EventHubs**와 같은 전화 카드 문자열을 쉽게 검색할 수 있습니다.  
+    Azure 진단 자체에 대한 로그 및 오류가 포함된 Azure Storage 테이블 (**WADDiagnosticInfrastructureLogsTable**)을 살펴봅니다. 한 가지 옵션은 [Azure Storage 탐색기](https://www.storageexplorer.com) 등의 도구를 사용하여 이 Storage 계정에 연결하고 이 테이블을 본 후 지난 24시간 동안의 타임스탬프에 대한 쿼리를 추가하는 것입니다. 이 도구를 사용하여 .csv 파일을 내보내고 Microsoft Excel과 같은 애플리케이션에서 열 수 있습니다. Excel를 통해 어떤 오류가 보고되는지 확인하는 **EventHubs**와 같은 전화 카드 문자열을 쉽게 검색할 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 • [Event Hubs에 대해 자세히 알아보기](https://azure.microsoft.com/services/event-hubs/)

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 322cd75fe9198bae459e7c22bed794f583d13363
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 69caec10c1be067cf9e8fc7ad83c8daeaced2bda
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325612"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106696"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure 진단 1.2 구성 스키마
 > [!NOTE]
@@ -109,12 +109,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |------------------|-----------------|  
 |**DiagnosticMonitorConfiguration**|필수 사항입니다. 선택적 특성은 다음과 같습니다.<br /><br /> -                     **overallQuotaInMB** - Azure 진단으로 수집된 진단 데이터의 다양한 형식에서 사용될 수 있는 로컬 디스크 공간의 최대 크기입니다. 기본 설정은 5120MB입니다.<br /><br /> -                     **useProxyServer** - IE 설정에서 설정한 대로 프록시 서버 설정을 사용하도록 Azure 진단을 구성합니다.|  
 |**CrashDumps**|크래시 덤프의 수집을 사용하도록 설정합니다. 선택적 특성은 다음과 같습니다.<br /><br /> -                     **containerName** - 크래시 덤프를 저장하는 데 사용할 Azure Storage 계정의 blob 컨테이너의 이름입니다.<br /><br /> -                     **crashDumpType** - 최소 또는 전체 크래시 덤프를 수집하도록 Azure 진단을 구성합니다.<br /><br /> -                     **directoryQuotaPercentage**- VM에서 크래시 덤프에 대해 예약될 **overallQuotaInMB**의 비율을 구성합니다.|  
-|**DiagnosticInfrastructureLogs**|Azure 진단에 의해 생성된 로그의 컬렉션을 사용하도록 설정합니다. 진단 인프라 로그는 진단 시스템 자체의 문제 해결에 유용합니다. 선택적 특성은 다음과 같습니다.<br /><br /> -                     **scheduledTransferLogLevelFilter** - 수집된 로그의 최소 심각도 수준을 구성합니다.<br /><br /> -                     **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](http://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
-|**Directories**|디렉터리, IIS 실패한 액세스 요청 로그 및/또는 IIS 로그의 콘텐츠 수집을 활성화합니다. 선택적 특성:<br /><br /> **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](http://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
+|**DiagnosticInfrastructureLogs**|Azure 진단에 의해 생성된 로그의 컬렉션을 사용하도록 설정합니다. 진단 인프라 로그는 진단 시스템 자체의 문제 해결에 유용합니다. 선택적 특성은 다음과 같습니다.<br /><br /> -                     **scheduledTransferLogLevelFilter** - 수집된 로그의 최소 심각도 수준을 구성합니다.<br /><br /> -                     **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
+|**Directories**|디렉터리, IIS 실패한 액세스 요청 로그 및/또는 IIS 로그의 콘텐츠 수집을 활성화합니다. 선택적 특성:<br /><br /> **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
 |**EtwProviders**|EventSource의 ETW 이벤트 및/또는 공급자를 기반으로 하는 ETW 매니페스트의 컬렉션을 구성합니다.|  
 |**Metrics**(메트릭)|이 요소는 빠른 쿼리를 위해 최적화된 성능 카운터 테이블을 생성할 수 있도록 합니다. **PerformanceCounters** 요소에 정의되어 있는 각 성능 카운터는 성능 카운터 테이블에 추가된 메트릭 테이블에 저장되어 있습니다. 필수 특성:<br /><br /> **resourceId** - 이는 Azure 진단을 배포하는 Virtual Machine의 리소스 ID입니다. [Azure Portal](https://portal.azure.com)에서 **resourceID**를 가져옵니다. **찾아보기** -> **리소스 그룹** -> **<이름\>** 을 선택합니다. **속성** 타일을 클릭하고 **ID** 필드입에서 값을 복사합니다.|  
-|**PerformanceCounters**|성능 카운터의 컬렉션을 활성화합니다. 선택적 특성:<br /><br /> **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](http://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
-|**WindowsEventLog**|Windows 이벤트 로그의 컬렉션을 활성화합니다. 선택적 특성:<br /><br /> **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](http://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
+|**PerformanceCounters**|성능 카운터의 컬렉션을 활성화합니다. 선택적 특성:<br /><br /> **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
+|**WindowsEventLog**|Windows 이벤트 로그의 컬렉션을 활성화합니다. 선택적 특성:<br /><br /> **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
 
 ## <a name="crashdumps-element"></a>CrashDumps 요소  
  크래시 덤프의 수집을 사용하도록 설정합니다. 다음 표는 자식 요소에 대해 설명합니다.  
@@ -154,8 +154,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |요소 이름|설명|  
 |------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|[EventSource 클래스](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx)에서 생성된 이벤트 컬렉션을 구성합니다. 필수 특성:<br /><br /> **provider** - EventSource 이벤트의 클래스 이름입니다.<br /><br /> 선택적 특성은 다음과 같습니다.<br /><br /> -                     **scheduledTransferLogLevelFilter** - 저장소 계정으로 전송할 최소 심각도 수준입니다.<br /><br /> -                     **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML 기간 데이터 형식](http://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
-|**EtwManifestProviderConfiguration**|필수 특성:<br /><br /> **provider** - 이벤트 공급자의 GUID<br /><br /> 선택적 특성은 다음과 같습니다.<br /><br /> - **scheduledTransferLogLevelFilter** - 저장소 계정으로 전송할 최소 심각도 수준입니다.<br /><br /> -                     **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML 기간 데이터 형식](http://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
+|**EtwEventSourceProviderConfiguration**|[EventSource 클래스](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx)에서 생성된 이벤트 컬렉션을 구성합니다. 필수 특성:<br /><br /> **provider** - EventSource 이벤트의 클래스 이름입니다.<br /><br /> 선택적 특성은 다음과 같습니다.<br /><br /> -                     **scheduledTransferLogLevelFilter** - 저장소 계정으로 전송할 최소 심각도 수준입니다.<br /><br /> -                     **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML 기간 데이터 형식](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
+|**EtwManifestProviderConfiguration**|필수 특성:<br /><br /> **provider** - 이벤트 공급자의 GUID<br /><br /> 선택적 특성은 다음과 같습니다.<br /><br /> - **scheduledTransferLogLevelFilter** - 저장소 계정으로 전송할 최소 심각도 수준입니다.<br /><br /> -                     **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML 기간 데이터 형식](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
 
 ## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration 요소  
  [EventSource 클래스](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx)에서 생성된 이벤트 컬렉션을 구성합니다. 다음 표는 자식 요소에 대해 설명합니다.  
@@ -178,7 +178,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |요소 이름|설명|  
 |------------------|-----------------|  
-|**MetricAggregation**|필수 특성:<br /><br /> **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML 기간 데이터 형식](http://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
+|**MetricAggregation**|필수 특성:<br /><br /> **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML 기간 데이터 형식](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters 요소  
  성능 카운터의 컬렉션을 활성화합니다. 다음 표는 자식 요소에 대해 설명합니다.  

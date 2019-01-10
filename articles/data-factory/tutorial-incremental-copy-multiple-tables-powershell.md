@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 20a921a0248fdb8a3856e27ad5e2620f7adb70de
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 588fd951098b5c15b1d12b67e66e84a6e7862665
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962139"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018316"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
 이 자습서에서는 델타 데이터를 온-프레미스 SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
@@ -714,7 +713,7 @@ END
 
     ![타일 모니터링 및 관리](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-monitor-manage-tile-3.png)
 
-1. **데이터 통합 응용 프로그램**이 별도의 탭에서 열립니다. 모든 파이프라인 실행과 해당 상태를 볼 수 있습니다. 다음 예제에서 파이프라인 실행의 상태는 **성공**입니다. 파이프라인에 전달된 매개 변수를 확인하려면 **매개 변수** 열의 링크를 선택합니다. 오류가 발생하면 **오류** 열에 링크가 표시됩니다. **작업** 열에서 링크를 선택합니다. 
+1. **데이터 통합 애플리케이션**이 별도의 탭에서 열립니다. 모든 파이프라인 실행과 해당 상태를 볼 수 있습니다. 다음 예제에서 파이프라인 실행의 상태는 **성공**입니다. 파이프라인에 전달된 매개 변수를 확인하려면 **매개 변수** 열의 링크를 선택합니다. 오류가 발생하면 **오류** 열에 링크가 표시됩니다. **작업** 열에서 링크를 선택합니다. 
 
     ![파이프라인 실행](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 1. **작업** 열에 있는 링크를 선택하면 파이프라인에 실행된 모든 작업을 보여주는 다음 페이지가 표시됩니다. 

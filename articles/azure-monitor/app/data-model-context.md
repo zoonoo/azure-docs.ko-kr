@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: fc2b5a5badcf38f7bc94a876f9f0a21af4f558b7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 7c1f47c9b88bd68b326b3c8923ba5b81d425c3e4
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53813509"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015477"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>원격 분석 컨텍스트: Application Insights 데이터 모델
 
@@ -84,7 +84,7 @@ ms.locfileid: "53813509"
 
 익명 사용자 ID입니다. 애플리케이션의 최종 사용자를 나타냅니다. 원격 분석이 서비스에서 전송되는 경우 사용자 컨텍스트는 서비스에서 작업을 시작한 사용자와 관련이 있습니다.
 
-[샘플링](../../application-insights/app-insights-sampling.md)은 수집된 원격 분석의 양을 최소화하는 기술 중 하나입니다. 샘플링 알고리즘은 상관 관계가 지정된 모든 원격 분석을 샘플링합니다. 익명 사용자 ID는 샘플링 점수 생성에 사용됩니다. 따라서 익명 사용자 ID는 충분히 임의의 값이어야 합니다. 
+[샘플링](../../azure-monitor/app/sampling.md)은 수집된 원격 분석의 양을 최소화하는 기술 중 하나입니다. 샘플링 알고리즘은 상관 관계가 지정된 모든 원격 분석을 샘플링합니다. 익명 사용자 ID는 샘플링 점수 생성에 사용됩니다. 따라서 익명 사용자 ID는 충분히 임의의 값이어야 합니다. 
 
 익명 사용자 ID를 사용하여 사용자 이름을 저장하는 것은 이 필드의 오용입니다. 인증된 사용자 ID를 사용하세요.
 

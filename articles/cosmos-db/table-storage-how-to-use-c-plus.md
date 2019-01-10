@@ -1,20 +1,19 @@
 ---
 title: C++로 Azure Table Storage 및 Azure Cosmos DB Table API를 사용하는 방법
 description: Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
-services: cosmos-db
-author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: cpp
 ms.topic: sample
 ms.date: 04/05/2018
-ms.author: sngun
-ms.openlocfilehash: 9bfc6ed2c781ddc54815665c492e7f2413033ca0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+author: wmengmsft
+ms.author: wmeng
+ms.openlocfilehash: 40b84a56f93ad670a26eb876a18820e0d4037f63
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087119"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033980"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>C++로 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -37,7 +36,7 @@ ms.locfileid: "53087119"
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="create-a-c-application"></a>C++ 응용 프로그램 만들기
-이 가이드에서는 C++ 애플리케이션 내에서 실행할 수 있는 저장소 기능을 사용합니다. 이 기능을 사용하려면, Azure Storage Client Library for C++를 설치하고 Azure 구독에서 Azure 스토리지 계정을 만들어야 합니다.  
+이 가이드에서는 C++ 애플리케이션 내에서 실행할 수 있는 저장소 기능을 사용합니다. 이 기능을 사용하려면, Azure Storage Client Library for C++를 설치하고 Azure 구독에서 Azure 저장소 계정을 만들어야 합니다.  
 
 Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사용할 수 있습니다.
 
@@ -54,7 +53,7 @@ Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사�
 #include <was/table.h>
 ```
 
-Azure Storage 클라이언트 또는 Cosmos DB 클라이언트는 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 애플리케이션을 실행할 때 적절한 형식의 스토리지 연결 문자열 또는 Azure Cosmos DB 연결 문자열을 제공해야 합니다.
+Azure Storage 클라이언트 또는 Cosmos DB 클라이언트는 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램을 실행할 때 적절한 형식의 저장소 연결 문자열 또는 Azure Cosmos DB 연결 문자열을 제공해야 합니다.
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Azure Storage 연결 문자열 설정
  *AccountName* 및 *AccountKey* 값에 대해 [Azure Portal](https://portal.azure.com)에 나열된 Storage 계정에서 Storage 계정 이름 및 액세스 키를 사용합니다. Storage 계정 및 액세스 키에 대한 자세한 내용은 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요. 이 예제에서는 고정 필드가 Azure Storage 연결 문자열을 보유하도록 선언하는 방법을 보여줍니다.  
@@ -73,14 +72,14 @@ const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=ht
 ```
 
 
-로컬 Windows 기반 컴퓨터에서 애플리케이션을 테스트하려면 [Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치된 Azure [스토리지 에뮬레이터](../storage/common/storage-use-emulator.md)를 사용할 수 있습니다. 저장소 에뮬레이터는 로컬 개발 컴퓨터에서 사용할 수 있는 Azure Blob, 큐 및 Table service를 시뮬레이션하는 유틸리티입니다. 다음 예제에서는 로컬 저장소 에뮬레이터에 연결 문자열을 포함할 수 있도록 정적 필드를 선언하는 방법을 보여줍니다.  
+로컬 Windows 기반 컴퓨터에서 응용 프로그램을 테스트하려면 [Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치된 Azure [저장소 에뮬레이터](../storage/common/storage-use-emulator.md)를 사용할 수 있습니다. 저장소 에뮬레이터는 로컬 개발 컴퓨터에서 사용할 수 있는 Azure Blob, 큐 및 Table service를 시뮬레이션하는 유틸리티입니다. 다음 예제에서는 로컬 저장소 에뮬레이터에 연결 문자열을 포함할 수 있도록 정적 필드를 선언하는 방법을 보여줍니다.  
 
 ```cpp
 // Define the connection string with Azure storage emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 클릭하거나 Windows 키를 누릅니다. **Azure Storage 에뮬레이터** 입력을 시작한 다음 응용 프로그램 목록에서 **Microsoft Azure Storage 에뮬레이터**를 선택합니다.  
+Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 클릭하거나 Windows 키를 누릅니다. **Azure Storage 에뮬레이터** 입력을 시작한 다음, 애플리케이션 목록에서 **Microsoft Azure Storage 에뮬레이터**를 선택합니다.  
 
 다음 샘플에서는 저장소 연결 문자열을 가져오기 위해 위의 두 메서드 중 하나를 사용한 것으로 가정합니다.  
 

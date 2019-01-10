@@ -1,21 +1,19 @@
 ---
 title: Gremlin API를 사용하여 Azure Cosmos DB .NET Framework 또는 Core 애플리케이션 빌드
 description: Azure Cosmos DB에 연결 및 쿼리하는 데 사용할 수 있는 .NET Framework/Core 코드 샘플을 제시합니다.
-services: cosmos-db
 author: luisbosquez
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-graph
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: c44936604d0dcea2f00f237f27d27a03491c532e
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: d929eb5d9aa8e2e84f76039a6f0ac73a65078957
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407680"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037857"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-gremlin-api"></a>Azure Cosmos DB는 Gremlin API를 사용한 .NET Framework 또는 Core 애플리케이션 빌드
 
@@ -48,7 +46,7 @@ Visual Studio 2017이 이미 설치되어 있는 경우 [Visual Studio 2017 업�
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
-## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
+## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
 이제 GitHub에서 Gremlin API 앱을 복제하고, 연결 문자열을 설정하고, 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
@@ -196,7 +194,7 @@ Visual Studio 2017이 이미 설치되어 있는 경우 [Visual Studio 2017 업�
 
 ## <a name="run-the-console-app"></a>콘솔 앱 실행
 
-Ctrl+F5를 눌러 애플리케이션을 실행합니다. 애플리케이션이 Gremlin 쿼리 명령과 콘솔의 결과를 모두 인쇄합니다.
+Ctrl+F5를 눌러 응용 프로그램을 실행합니다. 응용 프로그램이 Gremlin 쿼리 명령과 콘솔의 결과를 모두 인쇄합니다.
 
    그래프에 추가된 꼭짓점 및 에지가 콘솔 창에 표시됩니다. 스크립트가 완료되면 ENTER 키를 눌러 콘솔 창을 닫습니다.
 

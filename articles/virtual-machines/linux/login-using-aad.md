@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: e75758c5a4171adc7af56581026a727db2ef4740
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: bc556991cc304aa8c5edc04dba1d333dc77ad230
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850978"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073410"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure에서 Azure Active Directory 인증을 사용하여 Linux 가상 머신에 로그인(미리 보기)
 
@@ -80,7 +80,7 @@ VM 및 지원 리소스를 만드는 데 몇 분이 걸립니다.
 
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Azure AD 로그인 VM 확장 설치
 
-Azure AD 자격 증명을 사용하여 Linux VM에 로그인하려면 VM 확장에서 Azure Active Directory 로그를 설치합니다. VM 확장은 Azure 가상 머신에서 배포 후 구성 및 Automation 작업을 제공하는 작은 응용 프로그램입니다. [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set)을 사용하여 *myResourceGroup* 리소스 그룹의 *myVM*이라는 VM에 *AADLoginForLinux* 확장을 설치합니다.
+Azure AD 자격 증명을 사용하여 Linux VM에 로그인하려면 VM 확장에서 Azure Active Directory 로그를 설치합니다. VM 확장은 Azure 가상 머신에서 배포 후 구성 및 Automation 작업을 제공하는 작은 애플리케이션입니다. [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set)을 사용하여 *myResourceGroup* 리소스 그룹의 *myVM*이라는 VM에 *AADLoginForLinux* 확장을 설치합니다.
 
 ```azurecli-interactive
 az vm extension set \
@@ -150,7 +150,7 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 
 ## <a name="sudo-and-aad-login"></a>Sudo 및 AAD 로그인
 
-sudo를 처음 실행하면 두 번째에는 인증이 요청됩니다. sudo를 실행하기 위해 다시 인증하고 싶지 않다면 sudoer 파일(`/aad/etc/sudoers.d/aad_admins`)을 편집하고 다음 줄로 교체할 수 있습니다.
+sudo를 처음 실행하면 두 번째에는 인증이 요청됩니다. sudo를 실행하기 위해 다시 인증하고 싶지 않다면 sudoer 파일(`/etc/sudoers.d/aad_admins`)을 편집하고 다음 줄로 교체할 수 있습니다.
 
 ```bash
 %aad_admins ALL=(ALL) ALL

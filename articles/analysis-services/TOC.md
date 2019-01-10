@@ -94,7 +94,7 @@
 ## [사용자 의견](https://feedback.azure.com/forums/556165-azure-analysis-services)
 ## [가격](https://azure.microsoft.com/pricing/details/analysis-services/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
-## [Stackoverflow](https://stackoverflow.com/questions/tagged/azure-analysis-services)
+## [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
 
 

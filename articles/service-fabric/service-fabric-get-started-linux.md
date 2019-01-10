@@ -1,6 +1,6 @@
 ---
 title: Linux에서 개발 환경 설정 | Microsoft Docs
-description: Linux에서 런타임 및 SDK를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 마치면 응용 프로그램을 빌드할 수 있습니다.
+description: Linux에서 런타임 및 SDK를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 마치면 애플리케이션을 빌드할 수 있습니다.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 8b2d7053ce8d980f15132e1d48497aff192713d0
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 3454f9eecf1f06391b21bc7a3dcd89b7f8e78853
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309377"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105358"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "53309377"
 >
 >  
 
-Linux 개발 컴퓨터에서 [Azure Service Fabric 응용 프로그램](service-fabric-application-model.md) 을 배포하고 실행하려면 런타임 및 일반적인 SDK를 설치해야 합니다. 또한 Java 및 .NET Core 배포에 선택적 SDK를 설치할 수 있습니다. 
+Linux 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션](service-fabric-application-model.md)을 배포하고 실행하려면 런타임 및 일반적인 SDK를 설치해야 합니다. 또한 Java 및 .NET Core 배포에 선택적 SDK를 설치할 수 있습니다. 
 
 이 문서의 단계에서는 기본적으로 Linux에 설치하거나 Service Fabric OneBox 컨테이너 이미지 `microsoft/service-fabric-onebox`를 사용한다고 가정합니다.
 
@@ -195,7 +195,7 @@ RHEL | - | OpenJDK 1.8 | npm에서 암시적 | 최신 |
 
     ![Linux의 Service Fabric Explorer][sfx-linux]
 
-    이제 게스트 컨테이너 또는 게스트 실행 파일에 따라 미리 빌드된 Service Fabric 응용 프로그램 패키지 또는 새 응용 프로그램 패키지를 배포할 수 있습니다. Java 또는 .NET Core SDK를 사용하여 새 서비스를 빌드하려면 다음 섹션에서 제공되는 선택적 설정 단계를 수행합니다.
+    이제 게스트 컨테이너 또는 게스트 실행 파일에 따라 미리 빌드된 Service Fabric 애플리케이션 패키지 또는 새 애플리케이션 패키지를 배포할 수 있습니다. Java 또는 .NET Core SDK를 사용하여 새 서비스를 빌드하려면 다음 섹션에서 제공되는 선택적 설정 단계를 수행합니다.
 
 
 > [!NOTE]
@@ -207,11 +207,11 @@ RHEL | - | OpenJDK 1.8 | npm에서 암시적 | 최신 |
 
 ## <a name="set-up-the-service-fabric-cli"></a>Service Fabric CLI 설정
 
-[Service Fabric CLI](service-fabric-cli.md)는 클러스터 및 응용 프로그램을 비롯하여 Service Fabric 엔터티와 상호 작용하기 위한 명령을 포함합니다. CLI를 설치하려면 [Service Fabric CLI](service-fabric-cli.md)의 지침을 따릅니다.
+[Service Fabric CLI](service-fabric-cli.md)는 클러스터 및 애플리케이션을 비롯하여 Service Fabric 엔터티와 상호 작용하기 위한 명령을 포함합니다. CLI를 설치하려면 [Service Fabric CLI](service-fabric-cli.md)의 지침을 따릅니다.
 
 
 ## <a name="set-up-yeoman-generators-for-containers-and-guest-executables"></a>컨테이너 및 게스트 실행 파일에 Yeoman 생성기 설정
-Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Service Fabric 응용 프로그램을 만들 수 있는 스캐폴딩 도구를 제공합니다. Service Fabric Yeoman 템플릿 생성기를 설정하려면 이러한 단계를 수행합니다.
+Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Service Fabric 애플리케이션을 만들 수 있는 스캐폴딩 도구를 제공합니다. Service Fabric Yeoman 템플릿 생성기를 설정하려면 이러한 단계를 수행합니다.
 
 1. 컴퓨터에서 Node.js 및 npm을 설치합니다.
 
@@ -235,7 +235,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
 
 ## <a name="set-up-net-core-20-development"></a>.NET Core 2.0 개발 설정
 
-[Ubuntu용 .NET Core 2.0 SDK](https://www.microsoft.com/net/core#linuxubuntu)를 설치하여 [C# Service Fabric 응용 프로그램을 만들기](service-fabric-create-your-first-linux-application-with-csharp.md)를 시작합니다. NuGet.org는 현재 미리 보기 상태인 .NET Core 2.0 Service Fabric 응용 프로그램의 패키지를 호스팅합니다.
+[Ubuntu용 .NET Core 2.0 SDK](https://www.microsoft.com/net/core#linuxubuntu)를 설치하여 [C# Service Fabric 애플리케이션을 만들기](service-fabric-create-your-first-linux-application-with-csharp.md)를 시작합니다. NuGet.org는 현재 미리 보기 상태인 .NET Core 2.0 Service Fabric 애플리케이션의 패키지를 호스팅합니다.
 
 ## <a name="set-up-java-development"></a>Java 개발 설정
 
@@ -245,7 +245,8 @@ Java를 사용하여 Service Fabric 서비스를 빌드하려면 Gradle을 설�
 * Ubuntu
 
     ```bash
-    sudo apt-get install gradle
+    curl -s https://get.sdkman.io | bash
+    sdk install gradle 5.1
     ```
 
 * Red Hat Enterprise Linux 7.4(Service Fabric 미리 보기 지원)
@@ -264,7 +265,7 @@ Java 실행 파일에 대한 Service Fabric Yeo 생성기를 설치해야 합니
  
 ## <a name="install-the-eclipse-plug-in-optional"></a>Eclipse 플러그 인 설치(선택 사항)
 
-Java 개발자용 또는 Java EE 개발자용 Eclipse IDE 내에서 Service Fabric용 Eclipse 플러그 인을 설치할 수 있습니다. Eclipse를 사용하여 Service Fabric Java 응용 프로그램 외에도 Service Fabric 게스트 실행 파일 응용 프로그램 및 컨테이너 응용 프로그램을 만들 수 있습니다.
+Java 개발자용 또는 Java EE 개발자용 Eclipse IDE 내에서 Service Fabric용 Eclipse 플러그 인을 설치할 수 있습니다. Eclipse를 사용하여 Service Fabric Java 애플리케이션 외에도 Service Fabric 게스트 실행 파일 애플리케이션 및 컨테이너 애플리케이션을 만들 수 있습니다.
 
 > [!IMPORTANT]
 > Service Fabric 플러그 인에는 Eclipse Neon 이상 버전이 필요합니다. Eclipse의 버전을 확인하는 방법은 이 부분 뒤에 나오는 지침을 참조하십시오. 이전 버전의 Eclipse가 설치되어있는 경우 [Eclipse 사이트](https://www.eclipse.org)에서 최신 버전을 다운로드할 수 있습니다. 기존 Eclipse 설치 위에 설치하는 것(덮어쓰기)은 좋지 않습니다. 설치 관리자를 실행하기 전에 제거하거나 다른 디렉터리에 새 버전을 설치합니다.
@@ -287,7 +288,7 @@ Java 개발자용 또는 Java EE 개발자용 Eclipse IDE 내에서 Service Fabr
 
 Service Fabric Eclipse 플러그 인이 이미 설치되어 있으면 최신 버전인지 확인합니다. **도움말** > **Eclipse 정보** > **설치 세부 정보**를 선택하여 확인합니다. 그런 다음, 설치된 플러그 인 목록에서 Service Fabric을 검색합니다. 최신 버전을 사용할 수 있는 경우 **업데이트**를 선택합니다.
 
-자세한 내용은 [Eclipse Java 응용 프로그램 배포를 위한 Azure Service Fabric 플러그 인](service-fabric-get-started-eclipse.md)을 참조하세요.
+자세한 내용은 [Eclipse Java 애플리케이션 배포를 위한 Azure Service Fabric 플러그 인](service-fabric-get-started-eclipse.md)을 참조하세요.
 
 ## <a name="update-the-sdk-and-runtime"></a>SDK 및 런타임 업데이트
 
@@ -325,12 +326,12 @@ Service Fabric SDK를 제거하려면 다음 명령을 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Yeoman을 사용하여 Linux에서 첫 번째 Service Fabric Java 응용 프로그램 만들기 및 배포](service-fabric-create-your-first-linux-application-with-java.md)
-* [Eclipse용 Service Fabric 플러그 인을 사용하여 Linux에서 첫 번째 Service Fabric Java 응용 프로그램 만들기 및 배포](service-fabric-get-started-eclipse.md)
-* [Linux에서 첫 번째 CSharp 응용 프로그램 만들기](service-fabric-create-your-first-linux-application-with-csharp.md)
+* [Yeoman을 사용하여 Linux에서 첫 번째 Service Fabric Java 애플리케이션 만들기 및 배포](service-fabric-create-your-first-linux-application-with-java.md)
+* [Eclipse용 Service Fabric 플러그 인을 사용하여 Linux에서 첫 번째 Service Fabric Java 애플리케이션 만들기 및 배포](service-fabric-get-started-eclipse.md)
+* [Linux에서 첫 번째 CSharp 애플리케이션 만들기](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [OSX에서 개발 환경 준비](service-fabric-get-started-mac.md)
 * [Windows에서 Linux 개발 환경 준비](service-fabric-local-linux-cluster-windows.md)
-* [Service Fabric CLI를 사용하여 응용 프로그램 관리](service-fabric-application-lifecycle-sfctl.md)
+* [Service Fabric CLI를 사용하여 애플리케이션 관리](service-fabric-application-lifecycle-sfctl.md)
 * [Service Fabric Windows 및 Linux 차이점](service-fabric-linux-windows-differences.md)
 * [Linux 클러스터에서 운영 체제 패치 자동화](service-fabric-patch-orchestration-application-linux.md)
 * [Service Fabric CLI 시작](service-fabric-cli.md)

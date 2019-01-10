@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 7184a5e1e9b41653cfe23aa863f8e4e4ea86c620
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: a07512c801d8e6c0f0ff3242fe1b94eeab5b2534
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409244"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105001"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](../../azure-monitor/platform/itsmc-overview.md)를 참조하세요.
@@ -224,7 +224,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 | **사용자 이름**   | ITSMC에 대한 연결을 지원하기 위해 ServiceNow 앱에서 만든 통합 사용자 이름을 입력합니다. 추가 정보: [ServiceNow 앱 사용자 역할](#create-integration-user-role-in-servicenow-app).|
 | **암호**   | 이 사용자 이름과 관련된 암호를 입력합니다. **참고**: 사용자 이름 및 암호는 인증 토큰 생성에만 사용되며 ITSMC 서비스에는 저장되지 않습니다.  |
 | **서버 URL**   | ITSMC에 연결하려는 ServiceNow 인스턴스의 URL을 입력합니다. |
-| **클라이언트 ID**   | 이전에 생성한 OAuth2 인증에 사용하려는 클라이언트 ID를 입력합니다.  클라이언트 ID 및 암호 생성에 대한 추가 정보:   [OAuth 설정](http://wiki.servicenow.com/index.php?title=OAuth_Setup). |
+| **클라이언트 ID**   | 이전에 생성한 OAuth2 인증에 사용하려는 클라이언트 ID를 입력합니다.  클라이언트 ID 및 암호 생성에 대한 추가 정보:   [OAuth 설정](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **클라이언트 암호**   | 이 ID에 대해 생성된 클라이언트 암호를 입력합니다.   |
 | **데이터 동기화 범위**   | ITSMC를 통해 Azure Log Analytics와 동기화할 ServiceNow 작업 항목을 선택합니다.  선택한 값을 Log Analytics로 가져옵니다.   **옵션:**  인시던트 및 변경 요청.|
 | **데이터 동기화** | 데이터를 원하는 이전 일 수를 입력합니다. **최대 제한**: 120일. |

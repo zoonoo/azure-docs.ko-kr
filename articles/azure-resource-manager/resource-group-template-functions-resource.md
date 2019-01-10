@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 72b0aba4d2bf9cb666d1cb7ae30d0cbdefe3045b
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 32a0263c4c8c1e85145f5d11fd44823216efdcbc
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438414"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107058"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 리소스 함수
 
@@ -55,8 +55,8 @@ list 작업을 지원하는 모든 리소스 형식에 대한 값을 반환합�
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| resourceName 또는 resourceIdentifier |yes |string |리소스에 대한 고유 식별자. |
-| apiVersion |yes |string |리소스 런타임 상태의 API 버전입니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
+| resourceName 또는 resourceIdentifier |예 |string |리소스에 대한 고유 식별자. |
+| apiVersion |예 |string |리소스 런타임 상태의 API 버전입니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
 | functionValues |아니요 |object | 함수에 대한 값이 있는 개체입니다. 저장소 계정의 **listAccountSas** 같은 매개 변수 값을 가진 개체를 받는 것을 지원하는 함수에 대해 이 개체를 제공합니다. | 
 
 ### <a name="return-value"></a>반환 값
@@ -192,7 +192,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |yes |string |공급자의 네임스페이스입니다. |
+| providerNamespace |예 |string |공급자의 네임스페이스입니다. |
 | resourceType |아니요 |string |지정된 네임스페이스 내의 리소스 유형입니다. |
 
 ### <a name="return-value"></a>반환 값
@@ -280,7 +280,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| resourceName 또는 resourceIdentifier |yes |string |리소스의 이름 또는 고유 식별자입니다. |
+| resourceName 또는 resourceIdentifier |예 |string |리소스의 이름 또는 고유 식별자입니다. |
 | apiVersion |아니요 |string |지정된 리소스의 API 버전입니다. 리소스가 동일한 템플릿 내에서 프로비전되지 않은 경우 이 매개 변수를 포함합니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
 | 'Full' |아니요 |string |전체 리소스 개체를 반환할지 여부를 지정하는 값입니다. `'Full'`을 지정하지 않으면 리소스의 속성 개체만 반환됩니다. 전체 개체에는 리소스 ID 및 위치와 같은 값이 포함됩니다. |
 
@@ -345,7 +345,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "storageAccountName": { 
@@ -581,8 +581,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 |:--- |:--- |:--- |:--- |
 | subscriptionId |아니요 |문자열(GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
 | resourceGroupName |아니요 |string |기본값은 현재 리소스 그룹입니다. 다른 리소스 그룹에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
-| resourceType |yes |string |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
-| resourceName1 |yes |string |리소스의 이름입니다. |
+| resourceType |예 |string |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
+| resourceName1 |예 |string |리소스의 이름입니다. |
 | resourceName2 |아니요 |string |리소스가 중첩된 경우 다음 리소스 이름 세그먼트입니다. |
 
 ### <a name="return-value"></a>반환 값
@@ -631,7 +631,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "virtualNetworkName": {
@@ -777,5 +777,5 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 * Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 * 여러 템플릿을 병합하려면 [Azure Resource Manager에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.
 * 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
-* 만든 템플릿을 배포하는 방법을 보려면 [Azure Resource Manager 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
+* 만든 템플릿을 배포하는 방법을 보려면 [Azure Resource Manager 템플릿을 사용하여 애플리케이션 배포](resource-group-template-deploy.md)를 참조하세요.
 

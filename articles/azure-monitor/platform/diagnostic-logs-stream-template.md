@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 1d199275d6c17dff72c020bd3a9807f50af8af1e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 69959db83ba99989f7c701f94cf1b17e1721bb47
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544042"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104440"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 리소스 생성 시 진단 설정 자동 활성화
 이 문서에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md) 을 사용하여 리소스 생성 시 리소스에서 진단 설정을 구성하는 방법을 보여 줍니다. 그러면 Event Hubs로 진단 로그 및 메트릭의 스트리밍을 자동으로 시작하거나, 리소스 생성 시 Log Analytics에 보낼 수 있습니다.
@@ -134,7 +134,7 @@ Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방�
     },
     "testUri": {
       "type": "string",
-      "defaultValue": "http://azure.microsoft.com/status/feed/"
+      "defaultValue": "https://azure.microsoft.com/status/feed/"
     },
     "settingName": {
       "type": "string",

@@ -1,19 +1,18 @@
 ---
 title: Azure Cosmos DB를 사용하는 애플리케이션에 대한 올바른 일관성 수준 선택
 description: Azure Cosmos DB에서 애플리케이션에 대한 올바른 일관성 수준 선택
-keywords: 일관성, 성능, azure cosmos db, azure, Microsoft azure
-services: cosmos-db
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/24/2018
-ms.author: mjbrown
-ms.openlocfilehash: a1c7d750bcd0c3f37d2269aee299e0ccd8c4ef4a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: c4523b5028aae5de565e517fea61c62e29a4e7a3
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849295"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044079"
 ---
 # <a name="choose-the-right-consistency-level-for-your-application"></a>애플리케이션에 대한 올바른 일관성 수준 선택
 
@@ -61,5 +60,5 @@ Cosmos DB 계정이 강력한 일관성 이외의 일관성 수준으로 구성�
 
 * [Cosmos DB API에서 일관성 수준 매핑](consistency-levels-across-apis.md)
 * [다양한 일관성 수준에 대한 가용성 및 성능의 장단점](consistency-levels-tradeoffs.md)
-* [응용 프로그램에 대한 세션 토큰을 관리하는 방법](how-to-manage-consistency.md#utilize-session-tokens)
+* [애플리케이션에 대한 세션 토큰을 관리하는 방법](how-to-manage-consistency.md#utilize-session-tokens)
 * [PBS(확률적 제한된 부실) 메트릭 모니터링](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)

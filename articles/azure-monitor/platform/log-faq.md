@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 8d062108dbb27095e978b4973cb7bc5172a4d814
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: a2213ac9b31623aed18855ce87e7e00870b05247
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186279"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107230"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics FAQ
 Microsoft FAQ는 Microsoft Azure의 Log Analytics에 대해 자주 묻는 질문의 목록입니다. Log Analytics에 대한 추가 질문이 있으면 [토론 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
@@ -219,7 +219,7 @@ a. 무료 요금제에서는 작업 영역당 일일 용량을 500MB로 설정�
 
 Log Analytics 에이전트는 작은 공간을 갖도록 설계되었습니다. 데이터 볼륨은 사용하도록 설정한 솔루션에 따라 다릅니다. [사용량](../../azure-monitor/platform/data-usage.md) 페이지에서 데이터 볼륨에 대한 자세한 정보를 확인하고 솔루션별로 정리된 내용을 볼 수 있습니다.
 
-자세한 내용은 OMS 에이전트의 리소스 사용률(공간)을 평가한 후 해당 결과를 보여주는 [고객 블로그](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html)를 참조할 수 있습니다.
+자세한 내용은 OMS 에이전트의 리소스 사용률(공간)을 평가한 후 해당 결과를 보여주는 [고객 블로그](https://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html)를 참조할 수 있습니다.
 
 ### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>Q. 데이터를 Log Analytics로 전송할 때 Microsoft Management Agent(MMA)에 사용된 네트워크 대역폭은 얼마나 되나요?
 

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4e13050715927fb0b158c32393b56b32290cf175
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d48c046fbbb363e0c8409e43ebd0ac0b1480d87b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078092"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019405"
 ---
 # <a name="copy-data-from-vertica-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Vertica에서 데이터 복사 
 
@@ -42,8 +41,8 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성을 다음으로 설정해야 합니다. **Vertica** | yes |
-| connectionString | Vertica에 연결할 ODBC 연결 문자열입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| 형식 | 형식 속성을 다음으로 설정해야 합니다. **Vertica** | 예 |
+| connectionString | Vertica에 연결할 ODBC 연결 문자열입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제:**
@@ -75,7 +74,7 @@ Vertica에서 데이터를 복사하려면 데이터 세트의 형식 속성을 
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 형식 속성을 다음으로 설정해야 합니다. **VerticaTable** | yes |
+| 형식 | 데이터 세트의 형식 속성을 다음으로 설정해야 합니다. **VerticaTable** | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -104,7 +103,7 @@ Vertica에서 데이터를 복사하려면 복사 작업의 원본 형식을 **V
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 형식 속성을 다음으로 설정해야 합니다. **VerticaSource** | yes |
+| 형식 | 복사 작업 원본의 형식 속성을 다음으로 설정해야 합니다. **VerticaSource** | 예 |
 | 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**

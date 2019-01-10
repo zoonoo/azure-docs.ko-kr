@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 25e8d0aafc8593c9c759dd8ac1d7d1d495c9e026
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: efcd2e279d1bf387bc11c238a0592ecee6545cc4
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001773"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053622"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Application Insights를 사용하여 이벤트 분석 및 시각화
 
@@ -127,4 +127,4 @@ Application Insights를 이벤트 및 로그의 출력으로 구성했으면 몇
 ## <a name="next-steps"></a>다음 단계
 
 * [AI에 경고 설정](../azure-monitor/app/alerts.md) - 성능 또는 사용 변경에 대한 알림 받기
-* [Application Insights의 스마트 감지](../application-insights/app-insights-proactive-diagnostics.md) - 잠재적인 성능 문제를 경고하기 위해 Application Insights에 전송되는 원격 분석에 대한 사전 분석 수행
+* [Application Insights의 스마트 감지](../azure-monitor/app/proactive-diagnostics.md) - 잠재적인 성능 문제를 경고하기 위해 Application Insights에 전송되는 원격 분석에 대한 사전 분석 수행

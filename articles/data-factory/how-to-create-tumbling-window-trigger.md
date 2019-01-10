@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: shlo
-ms.openlocfilehash: 4f124be9ef2247ab91d1e968b4533297ee8dba02
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6efccdb3034bb25e60904c858f346ff9a5695fc0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437251"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019727"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>연속 창에 따라 파이프라인을 실행하는 트리거 만들기
 이 문서에서는 연속 창 트리거를 만들고 시작 및 모니터링하는 단계를 제공합니다. 트리거 및 지원되는 형식에 대한 일반적인 내용은 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md)를 참조하세요.
@@ -78,14 +77,14 @@ Azure Portal에서 연속 창 트리거를 만들려면 **트리거 > 연속 창
 
 | JSON 요소 | 설명 | type | 허용되는 값 | 필수 |
 |:--- |:--- |:--- |:--- |:--- |
-| **type** | 트리거 형식입니다. 형식은 고정된 값 "TumblingWindowTrigger"입니다. | 문자열 | "TumblingWindowTrigger" | yes |
-| **runtimeState** | 트리거 런타임의 현재 상태입니다.<br/>**참고**: 이 요소는 \<readOnly>입니다. | 문자열 | "시작된," "중지된," "사용 안 함" | yes |
-| **frequency** | 트리거를 되풀이하는 빈도 단위(시간 또는 분)를 나타내는 문자열입니다. **startTime** 날짜 값이 **frequency** 값보다 더 세부적인 경우 **startTime** 날짜는 시간 경계를 계산할 때 고려됩니다. 예를 들어, **frequency** 값이 시간이고 **startTime** 값이 2017-09-01T10:10:10Z이면 첫 번째 기간은 (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z)입니다. | 문자열 | "minute," "hour"  | yes |
-| **interval** | 트리거가 실행되는 빈도를 결정하는 **frequency** 값에 대한 간격을 나타내는 양의 정수입니다. 예를 들어 **interval**이 3이고 **frequency**가 "시간"인 경우 트리거가 세 시간마다 되풀이됩니다. | 정수  | 양의 정수입니다. | yes |
-| **startTime**| 첫 번째 발생이며 과거일 수 있습니다. 첫 번째 트리거 간격은 (**startTime**, **startTime** + **interval**)입니다. | Datetime | DateTime 값입니다. | yes |
-| **endTime**| 마지막 발생이며 과거일 수 있습니다. | Datetime | DateTime 값입니다. | yes |
+| **type** | 트리거 형식입니다. 형식은 고정된 값 "TumblingWindowTrigger"입니다. | 문자열 | "TumblingWindowTrigger" | 예 |
+| **runtimeState** | 트리거 런타임의 현재 상태입니다.<br/>**참고**: 이 요소는 \<readOnly>입니다. | 문자열 | "시작된," "중지된," "사용 안 함" | 예 |
+| **frequency** | 트리거를 되풀이하는 빈도 단위(시간 또는 분)를 나타내는 문자열입니다. **startTime** 날짜 값이 **frequency** 값보다 더 세부적인 경우 **startTime** 날짜는 시간 경계를 계산할 때 고려됩니다. 예를 들어, **frequency** 값이 시간이고 **startTime** 값이 2017-09-01T10:10:10Z이면 첫 번째 기간은 (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z)입니다. | 문자열 | "minute," "hour"  | 예 |
+| **interval** | 트리거가 실행되는 빈도를 결정하는 **frequency** 값에 대한 간격을 나타내는 양의 정수입니다. 예를 들어 **interval**이 3이고 **frequency**가 "시간"인 경우 트리거가 세 시간마다 되풀이됩니다. | 정수  | 양의 정수입니다. | 예 |
+| **startTime**| 첫 번째 발생이며 과거일 수 있습니다. 첫 번째 트리거 간격은 (**startTime**, **startTime** + **interval**)입니다. | Datetime | DateTime 값입니다. | 예 |
+| **endTime**| 마지막 발생이며 과거일 수 있습니다. | Datetime | DateTime 값입니다. | 예 |
 | **delay** | 시간에서 데이터 처리의 시작 지점을 지연하는 시간입니다. 예상 실행 시간 및 **delay** 시간 후에 파이프라인이 실행되기 시작됩니다. **delay**는 새 실행을 트리거하기 전에 트리거가 기한 이후 대기하는 기간을 정의합니다. **delay**는 **startTime** 시간을 변경하지 않습니다. 예를 들어 00:10:00이라는 **delay** 값은 10분을 지연한다는 의미입니다. | Timespan<br/>(hh:mm:ss)  | 기본값이 00:00:00인 시간 범위 값입니다. | 아니요 |
-| **maxConcurrency** | 준비된 시간에 발생하는 동시 트리거 실행 수입니다. 예를 들어 채우기를 백업 하려면 24 windows에서 어제 결과 대 한 매시간 실행 됩니다. **maxConcurrency** = 10이면 처음 10개 시간(00:00-01:00 - 09:00-10:00)에만 트리거 이벤트가 발생합니다. 처음 10개의 트리거된 파이프라인 실행이 완료되면 다음 10개 시간(10:00-11:00 - 19:00-20:00)에 트리거 실행이 발생합니다. **maxConcurrency** = 10이라는 이 예제에서 10개 시간이 준비되면 총 10개의 파이프라인이 실행됩니다. 1개의 시간이 있는 경우 1개의 파이프라인만이 실행됩니다. | 정수  | 1~50 사이의 정수입니다. | yes |
+| **maxConcurrency** | 준비된 시간에 발생하는 동시 트리거 실행 수입니다. 예를 들어 채우기를 백업 하려면 24 windows에서 어제 결과 대 한 매시간 실행 됩니다. **maxConcurrency** = 10이면 처음 10개 시간(00:00-01:00 - 09:00-10:00)에만 트리거 이벤트가 발생합니다. 처음 10개의 트리거된 파이프라인 실행이 완료되면 다음 10개 시간(10:00-11:00 - 19:00-20:00)에 트리거 실행이 발생합니다. **maxConcurrency** = 10이라는 이 예제에서 10개 시간이 준비되면 총 10개의 파이프라인이 실행됩니다. 1개의 시간이 있는 경우 1개의 파이프라인만이 실행됩니다. | 정수  | 1~50 사이의 정수입니다. | 예 |
 | **retryPolicy: Count** | 파이프라인 실행이 "실패함"으로 표시되기 전에 다시 시도한 횟수입니다.  | 정수  | 기본값이 0(다시 시도 안 함)인 정수입니다. | 아니요 |
 | **retryPolicy: intervalInSeconds** | 시간(초)로 지정된 다시 시도 사이의 지연입니다. | 정수  | 기본값이 30인 시간(초)입니다. | 아니요 |
 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 20af014e5a59cb526d5b96e543b10d5b2b6d6937
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 9140739e1c9610cb4cbefb611546fe9588512d06
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679599"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050594"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>원격 모니터링 아키텍처 선택
 
@@ -51,7 +51,7 @@ Azure IoT Hub는 원격 모니터링 솔루션 클라우드 게이트웨이로 �
 
 IoT 디바이스 연결을 위해 다음을 사용할 수 있습니다.
 
-- [IoT Hub 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks): 디바이스에 대한 기본 클라이언트 애플리케이션을 구현합니다. SDK는 IoT Hub REST API에 대한 래퍼를 제공하고 다시 시도 같은 시나리오를 처리합니다.
+- [IoT Hub 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks): 디바이스에 대한 기본 클라이언트 애플리케이션을 구현합니다. SDK는 IoT Hub REST API에 대한 래퍼를 제공하고 다시 시도 같은 시나리오를 처리합니다.
 - Azure IoT Edge와 통합하여 디바이스의 컨테이너에서 실행되는 사용자 지정 모듈을 배포 및 관리합니다.
 - IoT Hub의 자동 디바이스 관리와 통합하여 연결된 디바이스를 대량으로 관리합니다.
 

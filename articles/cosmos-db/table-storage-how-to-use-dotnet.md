@@ -1,20 +1,19 @@
 ---
 title: .NET을 사용하여 Azure Table Storage 및 Azure Cosmos DB Table API 시작
 description: Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
-services: cosmos-db
-author: SnehaGunda
+author: wmengmsft
+ms.author: wmeng
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
-ms.author: sngun
-ms.openlocfilehash: 23ee4142dbf3d3c07eb89640554a464d0ac51822
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7798af5d667bcf70ba562bb7198f9af570f3005a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102999"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044419"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>.NET을 사용하여 Azure Table Storage 및 Azure Cosmos DB Table API 시작
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -22,7 +21,7 @@ ms.locfileid: "53102999"
 
 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 NoSQL 데이터를 저장하고, 스키마 없이 디자인된 키/특성 저장소를 제공할 수 있습니다. Table Storage 및 Azure Cosmos DB Table API는 모두 스키마가 없기 때문에 애플리케이션의 요구 사항이 변화함에 따라 데이터를 쉽게 적응시킬 수 있습니다. Table Storage 데이터 및 Azure Cosmos DB Table API에 대한 액세스는 많은 애플리케이션 유형에 대해 빠르고 비용 효율적이며 비슷한 양의 데이터일 때 일반적으로 전통적인 SQL에 비해 비용이 매우 낮습니다.
 
-Table Storage 또는 Azure Cosmos DB Table API를 사용하여 웹 응용 프로그램의 사용자 데이터, 주소록, 디바이스 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 집합을 저장할 수 있습니다. 테이블에 저장할 수 있는 엔터티 수에는 제한이 없으며, 저장소 계정 또는 Table API 계정에 포함할 수 있는 테이블의 수에는 저장소 계정 또는 Table API 계정의 최대 용량 한도까지 제한이 없습니다.
+Table Storage 또는 Azure Cosmos DB Table API를 사용하여 웹 애플리케이션의 사용자 데이터, 주소록, 장치 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 집합을 저장할 수 있습니다. 테이블에 저장할 수 있는 엔터티 수에는 제한이 없으며, 저장소 계정 또는 Table API 계정에 포함할 수 있는 테이블의 수에는 저장소 계정 또는 Table API 계정의 최대 용량 한도까지 제한이 없습니다.
 
 ### <a name="about-this-sample"></a>이 샘플 정보
 이 샘플에서는 몇 가지 일반적인 Azure Table Storage 및 Table API 시나리오에서 [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)을 사용하는 방법을 보여 줍니다. 패키지의 이름은 Azure Cosmos DB에 사용할 것임을 의미하지만 이 패키지는 Azure Cosmos DB Table API와 Azure Tables 저장소 모두에서 작동하며 각 서비스에 고유한 엔드포인트가 있습니다. 다음 방법을 설명하는 C# 예제를 통해 이러한 시나리오를 살펴보겠습니다.
@@ -58,18 +57,18 @@ Table Storage를 사용하는 추가 예제는 [.NET에서 Azure Table Storage �
 ### <a name="create-an-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Table API 계정 만들기
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
-### <a name="create-a-windows-console-application-project"></a>Windows 콘솔 응용 프로그램 프로젝트 만들기
+### <a name="create-a-windows-console-application-project"></a>Windows 콘솔 애플리케이션 프로젝트 만들기
 Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다. 다음 단계에서는 Visual Studio 2017에서 콘솔 애플리케이션을 만드는 방법을 보여 줍니다. 이러한 단계는 다른 버전의 Visual Studio에서도 비슷합니다.
 
 1. **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 2. **설치됨** > **Visual C#** > **Windows 기본 바탕 화면**을 차례로 선택합니다.
 3. **콘솔 앱(.NET Framework)** 을 선택합니다.
-4. **이름:** 필드에서 응용 프로그램의 이름을 입력합니다.
+4. **이름:** 필드에서 애플리케이션의 이름을 입력합니다.
 5. **확인**을 선택합니다.
 
 이 샘플의 모든 코드 예제는 콘솔 애플리케이션에 있는 `Program.cs` 파일의 `Main()` 메서드에 추가될 수 있습니다.
 
-Azure 클라우드 서비스, 웹앱, 바탕화면 및 모바일 응용 프로그램을 포함하여 .NET 응용 프로그램의 모든 형식에서 Azure CosmosDB 테이블 라이브러리를 사용할 수 있습니다. 이 가이드에서는 편의상 콘솔 애플리케이션을 사용합니다.
+Azure 클라우드 서비스, 웹앱, 바탕화면 및 모바일 애플리케이션을 포함하여 .NET 애플리케이션의 모든 형식에서 Azure CosmosDB 테이블 라이브러리를 사용할 수 있습니다. 이 가이드에서는 편의상 콘솔 애플리케이션을 사용합니다.
 
 ### <a name="install-the-required-nuget-packages"></a>필요한 NuGet 패키지 설치
 이 샘플을 완료하기 위해 프로젝트에서 참조해야 하는 세 개의 권장되는 패키지가 있습니다.
@@ -366,7 +365,7 @@ else
 ```
 
 ## <a name="replace-an-entity"></a>엔터티 바꾸기
-엔터티를 업데이트하려면 Table service에서 검색하고 엔터티 개체를 수정한 다음 변경 내용을 다시 Table service에 저장합니다. 다음 코드에서는 기존 고객의 전화 번호를 변경합니다. 이 코드에서는 [Insert][dotnet_TableOperation_Insert]를 호출하는 대신 [Replace][dotnet_TableOperation_Replace]를 사용합니다. [Replace][dotnet_TableOperation_Replace]를 실행하면 서버의 엔터티가 검색된 후 변경되어 작업이 실패하는 경우를 제외하고 서버에서 엔터티가 완전히 바뀝니다. 이러한 실패는 응용 프로그램이 검색 및 업데이트 사이에 다른 응용 프로그램 구성 요소에 의해 변경된 내용을 실수로 덮어쓰는 것을 방지합니다. 이 실패를 올바르게 처리하려면 엔터티를 다시 검색하고 변경한 다음(유효한 경우) 다른 [Replace][dotnet_TableOperation_Replace] 작업을 수행합니다. 다음 섹션에서는 이 동작을 재정의하는 방법을 보여 줍니다.
+엔터티를 업데이트하려면 Table service에서 검색하고 엔터티 개체를 수정한 다음 변경 내용을 다시 Table service에 저장합니다. 다음 코드에서는 기존 고객의 전화 번호를 변경합니다. 이 코드에서는 [Insert][dotnet_TableOperation_Insert]를 호출하는 대신 [Replace][dotnet_TableOperation_Replace]를 사용합니다. [Replace][dotnet_TableOperation_Replace]를 실행하면 서버의 엔터티가 검색된 후 변경되어 작업이 실패하는 경우를 제외하고 서버에서 엔터티가 완전히 바뀝니다. 이러한 실패는 애플리케이션이 검색 및 업데이트 사이에 다른 애플리케이션 구성 요소에 의해 변경된 내용을 실수로 덮어쓰는 것을 방지합니다. 이 실패를 올바르게 처리하려면 엔터티를 다시 검색하고 변경한 다음(유효한 경우) 다른 [Replace][dotnet_TableOperation_Replace] 작업을 수행합니다. 다음 섹션에서는 이 동작을 재정의하는 방법을 보여 줍니다.
 
 ```csharp
 // Retrieve the storage account from the connection string.

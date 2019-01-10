@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 905431c73488ddc6ebf2d13823e4bb705d16304c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b0bbfe973f18067284514e39d36442a63bd3efc8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102013"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019268"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Presto에서 데이터 복사(미리 보기)
 
@@ -45,12 +44,12 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성을 다음으로 설정해야 합니다. **Presto** | yes |
-| host | Presto 서버의 IP 주소 또는 호스트 이름입니다. 즉, 192.168.222.160입니다.  | yes |
-| serverVersion | Presto 서버의 버전입니다. 즉, 0.148-t입니다.  | yes |
-| catalog | 서버에 대한 모든 요청의 카탈로그 컨텍스트입니다.  | yes |
+| 형식 | type 속성을 다음으로 설정해야 합니다. **Presto** | 예 |
+| host | Presto 서버의 IP 주소 또는 호스트 이름입니다. 즉, 192.168.222.160입니다.  | 예 |
+| serverVersion | Presto 서버의 버전입니다. 즉, 0.148-t입니다.  | 예 |
+| catalog | 서버에 대한 모든 요청의 카탈로그 컨텍스트입니다.  | 예 |
 | 포트 | Presto 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 8080입니다.  | 아니요 |
-| authenticationType | Presto 서버에 연결하는 데 사용되는 인증 메커니즘입니다. <br/>허용되는 값은 다음과 같습니다. **Anonymous**, **LDAP** | yes |
+| authenticationType | Presto 서버에 연결하는 데 사용되는 인증 메커니즘입니다. <br/>허용되는 값은 다음과 같습니다. **Anonymous**, **LDAP** | 예 |
 | 사용자 이름 | Presto에 연결하는 데 사용되는 사용자 이름입니다.  | 아니요 |
 | 암호 | 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
 | enableSsl | 서버에 대한 연결이 SSL을 사용하여 암호화되는지 여부를 지정합니다. 기본값은 False입니다.  | 아니요 |
@@ -92,7 +91,7 @@ Presto에서 데이터를 복사하려면 데이터 세트의 type 속성을 **P
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **PrestoObject** | yes |
+| 형식 | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **PrestoObject** | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -121,7 +120,7 @@ Presto에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Pr
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **PrestoSource** | yes |
+| 형식 | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **PrestoSource** | 예 |
 | 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**

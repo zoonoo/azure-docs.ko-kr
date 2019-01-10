@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 12/06/2018
-ms.openlocfilehash: 5b0543b28117d349ceaef173a1201574cf2b3682
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/03/2019
+ms.openlocfilehash: 36a448a861bdfdcd85e532578383b14e56f54b1a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604551"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039098"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Resource Health를 사용하여 Azure SQL Database 연결 문제 해결
 
@@ -77,6 +77,6 @@ Azure 인프라는 정기적으로 계획된 유지 관리(데이터 센터의 �
 
 - [일시적인 오류에 대한 재시도 논리](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)에 대한 자세한 정보
 - [문제 해결, 진단 및 SQL 연결 오류 방지](./sql-database-connectivity-issues.md)
-- [Resource Health 경고 구성](/articles/service-health/resource-health-alert-arm-template-guide.md)에 대한 자세한 정보
-- [Resource Health](/articles/service-health/resource-health-overview.md)의 개요 보기
-- [Resource Health FAQ](/articles/service-health/resource-health-faq.md)
+- [Resource Health 경고 구성](../service-health/resource-health-alert-arm-template-guide.md)에 대한 자세한 정보
+- [Resource Health](../service-health/resource-health-overview.md)의 개요 보기
+- [Resource Health FAQ](../service-health/resource-health-faq.md)

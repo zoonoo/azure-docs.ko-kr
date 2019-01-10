@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: cee04bd3901db7136a877643979832ed8a70cbd8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 287f399d9c30da75972503abf71f9937f99c8842
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076162"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022090"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Concur에서 데이터 복사(미리 보기)
 
@@ -48,10 +47,10 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성을 다음으로 설정해야 합니다. **Concur** | yes |
-| clientId | Concur App Management에서 제공하는 애플리케이션 client_id입니다.  | yes |
-| 사용자 이름 | Concur Service에 액세스하는 데 사용되는 사용자 이름입니다.  | yes |
-| 암호 | username 필드에서 제공한 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| 형식 | type 속성을 다음으로 설정해야 합니다. **Concur** | 예 |
+| clientId | Concur App Management에서 제공하는 애플리케이션 client_id입니다.  | 예 |
+| 사용자 이름 | Concur Service에 액세스하는 데 사용되는 사용자 이름입니다.  | 예 |
+| 암호 | username 필드에서 제공한 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
@@ -83,7 +82,7 @@ Concur에서 데이터를 복사하려면 데이터 세트의 type 속성을 **C
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **ConcurObject** | yes |
+| 형식 | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **ConcurObject** | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 
@@ -113,7 +112,7 @@ Concur에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Co
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **ConcurSource** | yes |
+| 형식 | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **ConcurSource** | 예 |
 | 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Opportunities where Id = xxx "` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**

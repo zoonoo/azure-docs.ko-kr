@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 82b5e175f0340aae7e35b177d9faa4831982984c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a47b18972e945e495e5a5d3dd90e383390612865
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999054"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189612"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Avere vFXT 클러스터 관리
 
@@ -63,11 +63,11 @@ Avere 제어판은 데이터 무결성의 우선 순위를 지정하므로 가�
 > [!NOTE] 
 > 활성 노드 수가 변경되면 IP 주소가 클러스터 노드 간에 이동할 수 있습니다.
 
-자세한 내용은 Avere 클러스터 설정 가이드의 [클러스터 > FXT 노드](<http://library.averesystems.com/ops_guide/4_7/gui_fxt_nodes.html#gui-fxt-nodes>)를 참조하세요.
+자세한 내용은 Avere 클러스터 설정 가이드의 [클러스터 > FXT 노드](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html#gui-fxt-nodes>)를 참조하세요.
 
 ### <a name="stop-or-reboot-the-cluster-with-avere-control-panel"></a>Avere 제어판을 사용하여 클러스터 중지 또는 다시 부팅
 
-**시스템 유지 관리** 설정 페이지에는 클러스터 서비스를 다시 시작하거나, 클러스터를 다시 부팅하거나, 클러스터의 작동을 안전하게 중지하는 명령이 있습니다. 자세한 내용은 Avere 클러스터 설정 가이드의 [관리 > 시스템 유지 관리](<http://library.averesystems.com/ops_guide/4_7/gui_system_maintenance.html#gui-system-maintenance>)를 참조하세요.
+**시스템 유지 관리** 설정 페이지에는 클러스터 서비스를 다시 시작하거나, 클러스터를 다시 부팅하거나, 클러스터의 작동을 안전하게 중지하는 명령이 있습니다. 자세한 내용은 Avere 클러스터 설정 가이드의 [관리 > 시스템 유지 관리](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>)를 참조하세요.
 
 클러스터가 종료되면 처음에는 상태 메시지를 **대시보드** 탭에 게시합니다. 잠시 후에 Avere 제어판 세션에서 응답을 중지합니다. 이는 클러스터가 종료되었음을 의미합니다.
 

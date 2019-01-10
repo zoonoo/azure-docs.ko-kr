@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: a4e4ca1ca4878a2a405b12413e4378a2cb79aef6
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 3ea7d6562965debda2c146fedab2ea9ab19f6cc8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999121"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077456"
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Application Insights에서 Docker 애플리케이션 모니터링
 
@@ -36,9 +36,9 @@ Docker 호스트에서 [Application Insights 이미지](https://hub.docker.com/r
 
 ## <a name="set-up-your-application-insights-resource"></a>Application Insights 리소스 설정
 
-1. [Microsoft Azure Portal](https://azure.com)에 로그인하고 앱에 대한 Application Insights 리소스를 열거나 [새 리소스를 만듭니다](../../application-insights/app-insights-create-new-resource.md). 
+1. [Microsoft Azure Portal](https://azure.com)에 로그인하고 앱에 대한 Application Insights 리소스를 열거나 [새 리소스를 만듭니다](../../azure-monitor/app/create-new-resource.md ). 
    
-    *어떤 리소스를 사용해야 하나요?* 호스트에서 실행하는 앱을 다른 사람이 개발한 경우에는 [새로운 Application Insights 리소스를 만들어야 합니다](../../application-insights/app-insights-create-new-resource.md). 이 리소스에서 원격 분석을 보고 분석하게 됩니다. (앱 형식에 대해 '일반'을 선택합니다.)
+    *어떤 리소스를 사용해야 하나요?* 호스트에서 실행하는 앱을 다른 사람이 개발한 경우에는 [새로운 Application Insights 리소스를 만들어야 합니다](../../azure-monitor/app/create-new-resource.md ). 이 리소스에서 원격 분석을 보고 분석하게 됩니다. (앱 형식에 대해 '일반'을 선택합니다.)
    
     해당 앱의 개발자인 경우에는 각 앱에 [Application Insights SDK를 추가](../../azure-monitor/app/java-live.md) 하셨기를 바랍니다. 실제로 모든 리소스가 단일 비즈니스 애플리케이션의 구성 요소라면, 하나의 리소스에 원격 분석을 보내도록 모든 리소스를 구성하고, 동일한 리소스를 사용하여 Docker 수명 주기 및 성능 데이터를 표시하게 됩니다. 
    

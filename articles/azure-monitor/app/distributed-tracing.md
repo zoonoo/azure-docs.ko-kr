@@ -10,16 +10,16 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e68e236c54083862bbe1524ec2f7fc3ee6c52ef2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7bc04748f2a5b8caa8f589140dd46f0650b7b390
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002215"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102978"
 ---
 # <a name="what-is-distributed-tracing"></a>분산 추적이란?
 
-최신 클라우드 및 [마이크로 서비스](http://azure.com/microservices) 아키텍처가 등장하면서 비용을 절감하면서 가용성과 처리량을 높일 수 있는 독립적으로 배포할 수 있는 간단한 서비스가 생겨났습니다. 이러한 움직임으로 인해 개별 서비스를 전반적으로 이해하기는 쉬워졌지만 전체 시스템을 추론하고 디버그하기가 더 어려워졌습니다.
+최신 클라우드 및 [마이크로 서비스](https://azure.com/microservices) 아키텍처가 등장하면서 비용을 절감하면서 가용성과 처리량을 높일 수 있는 독립적으로 배포할 수 있는 간단한 서비스가 생겨났습니다. 이러한 움직임으로 인해 개별 서비스를 전반적으로 이해하기는 쉬워졌지만 전체 시스템을 추론하고 디버그하기가 더 어려워졌습니다.
 
 모놀리식 아키텍처에서는 호출 스택을 사용하여 디버깅하는 데 익숙해져 왔습니다. 호출 스택은 각 호출에 대한 세부 정보 및 매개 변수와 함께 실행 흐름(메서드 A가 메서드 B를 호출하고 이로 인해 메서드 C가 호출됨)을 표시하기에 훌륭한 도구입니다. 이런 방식은 단일 프로세스에서 실행되는 단일 조직이나 서비스에는 적합하지만 호출이 로컬 스택의 참조가 아닌 프로세스 경계를 넘어서는 경우에는 어떻게 디버그해야 할까요? 
 
@@ -59,4 +59,4 @@ OpenCensus 웹 사이트에는 [Python](https://opencensus.io/api/python/trace/u
 
 * [OpenCensus Python 사용 가이드](https://opencensus.io/api/python/trace/usage.html)
 * [애플리케이션 맵](./../../azure-monitor/app/app-map.md)
-* [종단 간 성능 모니터링](./../../application-insights/app-insights-tutorial-performance.md)
+* [종단 간 성능 모니터링](./../../azure-monitor/learn/tutorial-performance.md)

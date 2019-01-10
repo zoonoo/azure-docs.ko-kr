@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: c93b23e3b06afe754ea1ca2472806d26c70f4c92
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c2374bd0d67115bdc9fef2b6937f7b087bc581de
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973267"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076776"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
 표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 스토리지로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.  
@@ -27,7 +27,7 @@ ms.locfileid: "53973267"
 * 메트릭 또는 검색 블레이드 맨 위에 있는 내보내기 단추를 사용하면 테이블 및 차트를 Excel 스프레드시트에 전송할 수 있습니다.
 
 * [분석](../../azure-monitor/app/analytics.md)은 원격 분석을 위한 강력한 쿼리 언어를 제공합니다. 결과를 내보낼 수도 있습니다.
-* [Power BI에서 데이터를 탐색](../../application-insights/app-insights-export-power-bi.md)하려는 경우 연속 내보내기를 사용하지 않고 탐색할 수 있습니다.
+* [Power BI에서 데이터를 탐색](../../azure-monitor/app/export-power-bi.md )하려는 경우 연속 내보내기를 사용하지 않고 탐색할 수 있습니다.
 * [데이터 액세스 REST API](https://dev.applicationinsights.io/)를 사용하여 원격 분석에 프로그래밍 방식으로 액세스할 수 있습니다.
 * [Powershell을 통해 연속 내보내기](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0) 설정에 액세스할 수도 있습니다.
 
@@ -71,14 +71,14 @@ ms.locfileid: "53973267"
 ## <a name="analyze"></a> 어떤 이벤트를 얻나요?
 클라이언트 IP 주소에서 계산하는 위치 데이터를 추가한다는 점을 제외하고 내보낸 데이터는 애플리케이션에서 수신하는 원시 원격 분석입니다.
 
-[샘플링](../../application-insights/app-insights-sampling.md) 에서 무시된 데이터는 내보낸 데이터에 포함되지 않습니다.
+[샘플링](../../azure-monitor/app/sampling.md) 에서 무시된 데이터는 내보낸 데이터에 포함되지 않습니다.
 
 계산된 다른 메트릭은 포함되지 않습니다. 예를 들어 평균 CPU 사용률을 내보내지 않지만 평균이 계산된 곳에서 원시 원격 분석을 내보냅니다.
 
 데이터에는 설정한 [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)의 결과도 포함됩니다.
 
 > [!NOTE]
-> **샘플링** 애플리케이션에서 많은 양의 데이터를 전송하는 경우 샘플링 기능이 작동하여 생성된 원격 분석의 일부만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](../../application-insights/app-insights-sampling.md)
+> **샘플링** 애플리케이션에서 많은 양의 데이터를 전송하는 경우 샘플링 기능이 작동하여 생성된 원격 분석의 일부만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -194,4 +194,4 @@ Where
 <!--Link references-->
 
 [exportasa]: ../../azure-monitor/app/code-sample-export-sql-stream-analytics.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md

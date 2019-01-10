@@ -9,17 +9,16 @@ ms.assetid: 6f1523c7-46c3-4b8d-9ed6-b847ae5ec4ae
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a940b1d2184961d907f72ad072270dad3571e844
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8ff100cd3fc1c9def10b4e585119414281b90d92
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229256"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017381"
 ---
 # <a name="use-case---product-recommendations"></a>사용 사례 - 제품 추천
 Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구현하는 데 사용되는 다양한 서비스 중 하나입니다.  이 제품군에 대한 자세한 내용은 [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) 페이지를 참조하세요. 이 문서에서는 Azure 사용자가 Azure Data Factory 및 기타 Cortana Intelligence 구성 요소 서비스를 사용하여 이미 해결하고 구현한 경험이 있는 일반적인 사용 사례를 설명합니다.

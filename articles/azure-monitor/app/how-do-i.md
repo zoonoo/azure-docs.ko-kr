@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: c8ff6abe72a55be24b35b254a4bfc2a446b13c0b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 5e22a3f3b362811fd87460ec41b61a990f4d83fb
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999684"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074209"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights에서 어떻게 할까요?
 ## <a name="get-an-email-when-"></a>전자 메일을 받는 경우
@@ -83,18 +83,18 @@ ms.locfileid: "53999684"
 ## <a name="separate-telemetry-from-different-versions"></a>서로 다른 버전에서 별도 원격 분석
 
 * 앱에서 여러 역할: 단일 Application Insights 리소스 사용 및 [cloud_Rolename](../../azure-monitor/app/app-map.md) 필터링
-* 개발, 테스트 및 릴리스 버전 구분: 다른 Application Insights 리소스 사용 web.config에서 계측 키를 선택합니다. [자세히 알아보기](../../application-insights/app-insights-separate-resources.md)
-* 빌드 버전 보고: 원격 분석 이니셜라이저를 사용하여 속성 추가 [자세히 알아보기](../../application-insights/app-insights-separate-resources.md)
+* 개발, 테스트 및 릴리스 버전 구분: 다른 Application Insights 리소스 사용 web.config에서 계측 키를 선택합니다. [자세히 알아보기](../../azure-monitor/app/separate-resources.md)
+* 빌드 버전 보고: 원격 분석 이니셜라이저를 사용하여 속성 추가 [자세히 알아보기](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>백엔드 서버 및 데스크톱 앱 모니터링
-[Windows Server SDK 모듈을 사용합니다](../../application-insights/app-insights-windows-desktop.md).
+[Windows Server SDK 모듈을 사용합니다](../../azure-monitor/app/windows-desktop.md).
 
 ## <a name="visualize-data"></a>데이터 가상화
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>여러 앱의 메트릭이 있는 대시보드
 * [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md)에서 차트를 사용자 지정하고 즐겨찾기에 저장합니다. Azure 대시보드에 고정합니다.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>다른 원본 및 Application Insights의 데이터가 표시된 대시보드
-* [Power BI에 원격 분석을 내보냅니다](../../application-insights/app-insights-export-power-bi.md).
+* [Power BI에 원격 분석을 내보냅니다](../../azure-monitor/app/export-power-bi.md ).
 
 또는
 

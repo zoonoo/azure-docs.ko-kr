@@ -1,19 +1,20 @@
 ---
 title: Bulk Executor .NET 라이브러리를 사용하여 Azure Cosmos DB에서 대량 가져오기 및 업데이트 작업 수행
 description: Bulk Executor .NET 라이브러리를 사용하여 Azure Cosmos DB 문서를 대량으로 가져오고 업데이트합니다.
-services: cosmos-db
 author: tknandu
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: adde24faa4bd0f15eb3a2700021e9ace14fcc6b4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: d6fed65dad0e8f12495177b274cef181e9e91879
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840982"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044317"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>대량 실행기 .NET 라이브러리를 사용하여 Azure Cosmos DB에서 대량 작업 수행
 
@@ -31,15 +32,15 @@ ms.locfileid: "52840982"
 
 * .NET 빠른 시작 문서의 [데이터베이스 계정 만들기](create-sql-api-dotnet.md#create-a-database-account) 섹션에 설명된 단계를 사용하여 Azure Cosmos DB SQL API 계정을 만듭니다. 
 
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
-이제 GitHub에서 몇 가지 샘플 .NET 응용 프로그램을 다운로드하여 코드 작업으로 전환해 보겠습니다. 이러한 응용 프로그램은 Azure Cosmos DB 데이터에서 대량 작업을 수행합니다. 응용 프로그램을 복제하려면 명령 프롬프트를 열고, 응용 프로그램을 복사할 디렉터리로 이동한 후, 다음 명령을 실행합니다.
+이제 GitHub에서 몇 가지 샘플 .NET 애플리케이션을 다운로드하여 코드 작업으로 전환해 보겠습니다. 이러한 애플리케이션은 Azure Cosmos DB 데이터에서 대량 작업을 수행합니다. 애플리케이션을 복제하려면 명령 프롬프트를 열고, 애플리케이션을 복사할 디렉터리로 이동한 후, 다음 명령을 실행합니다.
 
 ```
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
-복제된 리포지토리에는 “BulkImportSample” 및 “BulkUpdateSample” 두 개의 샘플이 포함됩니다. 샘플 응용 프로그램 중 하나를 열고, Azure Cosmos DB 계정의 연결 문자열로 App.config 파일에서 연결 문자열을 업데이트하고, 솔루션을 빌드하고 실행할 수 있습니다. 
+복제된 리포지토리에는 “BulkImportSample” 및 “BulkUpdateSample” 두 개의 샘플이 포함됩니다. 샘플 애플리케이션 중 하나를 열고, Azure Cosmos DB 계정의 연결 문자열로 App.config 파일에서 연결 문자열을 업데이트하고, 솔루션을 빌드하고 실행할 수 있습니다. 
 
 “BulkImportSample” 애플리케이션은 임의의 문서를 생성하고 Azure Cosmos DB에 대량으로 가져옵니다. “BulkUpdateSample” 애플리케이션은 특정 문서 필드에서 수행할 작업으로 패치를 지정하여 가져온 문서를 대량으로 업데이트합니다. 다음 섹션에서는 이러한 각 샘플 앱에서 코드를 검토하겠습니다.
 
@@ -86,7 +87,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
    client.ConnectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 0;
    ```
 
-5. 응용 프로그램은 BulkImportAsync API를 호출합니다. .NET 라이브러리는 대량 가져오기 API의 두 오버로드를 제공합니다. 하나는 직렬화된 JSON 문서의 목록을 수락하고, 다른 하나는 deserialize된 POCO 문서의 목록을 수락합니다. 이러한 오버로드된 메서드의 정의를 자세히 알아보려면 [API 설명서](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkimportasync?view=azure-dotnet)를 참조하세요.
+5. 애플리케이션은 BulkImportAsync API를 호출합니다. .NET 라이브러리는 대량 가져오기 API의 두 오버로드를 제공합니다. 하나는 직렬화된 JSON 문서의 목록을 수락하고, 다른 하나는 deserialize된 POCO 문서의 목록을 수락합니다. 이러한 오버로드된 메서드의 정의를 자세히 알아보려면 [API 설명서](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkimportasync?view=azure-dotnet)를 참조하세요.
 
    ```csharp
    BulkImportResponse bulkImportResponse = await bulkExecutor.BulkImportAsync(
@@ -139,7 +140,7 @@ BulkUpdateAsync API를 사용하여 기존 문서를 업데이트할 수 있습�
    }
    ```
 
-3. 응용 프로그램은 BulkUpdateAsync API를 호출합니다. BulkUpdateAsync 메서드의 정의에 대해 자세히 알아보려면 [API 설명서](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.ibulkexecutor.bulkupdateasync?view=azure-dotnet)를 참조하세요.  
+3. 애플리케이션은 BulkUpdateAsync API를 호출합니다. BulkUpdateAsync 메서드의 정의에 대해 자세히 알아보려면 [API 설명서](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.ibulkexecutor.bulkupdateasync?view=azure-dotnet)를 참조하세요.  
 
    ```csharp
    BulkUpdateResponse bulkUpdateResponse = await bulkExecutor.BulkUpdateAsync(
@@ -168,21 +169,21 @@ BulkUpdateAsync API를 사용하여 기존 문서를 업데이트할 수 있습�
 
 Bulk Executor 라이브러리를 사용하는 경우 성능 향상을 위해 다음 사항을 고려합니다.
 
-* 최상의 성능을 위해 Cosmos DB 계정 작성 지역과 동일한 지역의 Azure 가상 머신에서 응용 프로그램을 실행합니다.  
+* 최상의 성능을 위해 Cosmos DB 계정 작성 지역과 동일한 지역의 Azure 가상 머신에서 애플리케이션을 실행합니다.  
 
-* 특정 Cosmos DB 컨테이너에 해당하는 단일 가상 머신 내에서 전체 응용 프로그램에 대한 단일 BulkExecutor 개체를 인스턴스화하는 것이 좋습니다.  
+* 특정 Cosmos DB 컨테이너에 해당하는 단일 가상 머신 내에서 전체 애플리케이션에 대한 단일 BulkExecutor 개체를 인스턴스화하는 것이 좋습니다.  
 
-* 단일 대량 작업 API 실행은 클라이언트 컴퓨터의 CPU 및 네트워크 IO의 대규모 청크를 사용하기 때문입니다. 이는 내부적으로 여러 작업을 생성되며 발생합니다. 대량 작업 API 호출을 각각 실행하는 응용 프로그램 내에서 여러 동시 작업이 발생하지 않도록 하십시오. 단일 가상 머신에서 실행되는 단일 대량 작업 API 호출에서 전체 컨테이너의 처리량을 사용할 수 없는 경우(컨테이너의 처리량이 1백만 RU/s 미만인 경우) 대량 작업 API 호출을 동시에 실행하도록 개별 가상 머신을 만드는 것이 좋습니다.  
+* 단일 대량 작업 API 실행은 클라이언트 컴퓨터의 CPU 및 네트워크 IO의 대규모 청크를 사용하기 때문입니다. 이는 내부적으로 여러 작업을 생성되며 발생합니다. 대량 작업 API 호출을 각각 실행하는 애플리케이션 내에서 여러 동시 작업이 발생하지 않도록 하십시오. 단일 가상 머신에서 실행되는 단일 대량 작업 API 호출에서 전체 컨테이너의 처리량을 사용할 수 없는 경우(컨테이너의 처리량이 1백만 RU/s 미만인 경우) 대량 작업 API 호출을 동시에 실행하도록 개별 가상 머신을 만드는 것이 좋습니다.  
 
 * InitializeAsync()가 대상 Cosmos DB 컨테이너 파티션 맵을 가져오기 위해 BulkExecutor 개체를 인스턴스화한 후 호출되는지 확인합니다.  
 
-* 응용 프로그램의 App.Config에서 성능 향상을 위해 **gcServer**를 사용할 수 있도록 설정되었는지 확인합니다.
+* 애플리케이션의 App.Config에서 성능 향상을 위해 **gcServer**를 사용할 수 있도록 설정되었는지 확인합니다.
   ```xml  
   <runtime>
     <gcServer enabled="true" />
   </runtime>
   ```
-* 라이브러리는 로그 파일 또는 콘솔에 수집할 수 있는 추적을 내보냅니다. 둘 다를 사용하려면 다음을 사용자의 응용 프로그램의 App.Config에 추가합니다.
+* 라이브러리는 로그 파일 또는 콘솔에 수집할 수 있는 추적을 내보냅니다. 둘 다를 사용하려면 다음을 사용자의 애플리케이션의 App.Config에 추가합니다.
 
   ```xml
   <system.diagnostics>

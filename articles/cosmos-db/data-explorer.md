@@ -1,18 +1,17 @@
 ---
 title: Azure Cosmos DB 탐색기를 사용하여 데이터 관리
 description: Azure Cosmos DB 탐색기는 Azure Cosmos DB에 저장된 데이터를 보고 관리할 수 있는 독립 실행형 웹 기반 인터페이스입니다.
-services: cosmos-db
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: dech
-ms.openlocfilehash: c1af73d57255b3c74bbab4c69767d1756b24a6da
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: df0b031e432c91897ff61e2cd9fcadc86bb54ee2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541577"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036871"
 ---
 # <a name="use-azure-cosmos-db-explorer-to-manage-your-data"></a>Azure Cosmos DB 탐색기를 사용하여 데이터 관리 
 

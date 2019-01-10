@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: d93eadd1053cfbc88b2d0748f2f22e359694baa7
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: a5f13bfa4d0e9962622565cc5ac9c80372b50123
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579654"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107687"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>자습서: Azure Container Instance에서 이미지 분류 모델 배포
 
@@ -342,8 +342,6 @@ plt.show()
 테스트 이미지 중 임의의 한 샘플에 대한 결과는 다음과 같습니다.
 
 ![결과를 보여주는 그래픽](./media/tutorial-deploy-models-with-aml/results.png)
-
-![결과](./media/tutorial-deploy-models-with-aml/results.png)
 
 원시 HTTP 요청을 보내 웹 서비스를 테스트할 수도 있습니다.
 

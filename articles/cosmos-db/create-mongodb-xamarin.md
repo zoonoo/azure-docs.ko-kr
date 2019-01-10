@@ -1,21 +1,19 @@
 ---
 title: .NET 및 Azure Cosmos DB의 MongoDB API를 사용하여 Xamarin.Forms 앱 빌드
 description: Azure Cosmos DB의 MongoDB API를 사용하여 연결하고 쿼리할 수 있는 Xamarin 코드 샘플을 제공합니다.
-services: cosmos-db
 author: codemillmatt
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
-ms.custom: quickstart, xamarin
+ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: 456d35666e1475379b7ec90e8683ed47a1946f67
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 9236a340c05bc5e342b9fc2c377d6d8eacb94f7d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808964"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036432"
 ---
 # <a name="quickstart-quickstart-build-a-xamarinforms-app-with-net-and-azure-cosmos-dbs-api-for-mongodb"></a>빠른 시작: 빠른 시작: .NET 및 Azure Cosmos DB의 MongoDB API를 사용하여 Xamarin.Forms 앱 빌드
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 57cde41bf65c370f86ebc57a39e917b95721ca81
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: a9decacc3b22676d94726e3cf979198b3486d270
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52893326"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104644"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>맵에 타일 계층 추가
 
@@ -24,7 +24,7 @@ ms.locfileid: "52893326"
 
 * X, Y, 확대/축소 표기법-확대/축소 수준에 따라 타일 그리드에서 x는 열 위치이고 y는 행 위치입니다.
 * Quadkey 표기법-x, y 조합은 정보를 타일의 고유 식별자인 단일 문자열 값으로 확대/축소합니다.
-* 경계 상자-경계 상자 좌표를 사용하여 일반적으로 [웹 매핑 서비스(WMS)](http://www.opengeospatial.org/standards/wms)에 사용하는 `{west},{south},{east},{north}` 형식으로 이미지를 지정할 수 있습니다.
+* 경계 상자-경계 상자 좌표를 사용하여 일반적으로 [웹 매핑 서비스(WMS)](https://www.opengeospatial.org/standards/wms)에 사용하는 `{west},{south},{east},{north}` 형식으로 이미지를 지정할 수 있습니다.
 
 > [!TIP]
 > [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest)는 맵에서 큰 데이터 세트를 시각화하는 좋은 방법입니다. 이미지에서 타일 계층을 생성할 있을 뿐 아니라 타일 계층으로 벡터 데이터도 렌더링할 수 있습니다. 맵 컨트롤은 타일 계층으로 벡터 데이터를 렌더링함으로써, 맵 컨트롤은 표현하는 벡터 데이터보다 파일 크기가 훨씬 더 작은 타일만 로드해야 합니다. 이 기술은 맵에서 수 백만 행의 데이터를 렌더링해야 할 경우에 사용됩니다.
@@ -40,7 +40,7 @@ ms.locfileid: "52893326"
 
 ## <a name="add-a-tile-layer"></a>타일 계층 추가
 
- 이 샘플은 x, y, 확대/축소 타일 배치 체계를 사용하는 타일 세트를 가리키는 타일 계층을 만드는 방법을 보여줍니다. 이 타일 계층의 원본은 [아이오와 주립 대학교의 Iowa Environmental Mesonet](http://mesonet.agron.iastate.edu/ogc/)에서 받은 날씨 레이더 오버레이입니다.
+ 이 샘플은 x, y, 확대/축소 타일 배치 체계를 사용하는 타일 세트를 가리키는 타일 계층을 만드는 방법을 보여줍니다. 이 타일 계층의 원본은 [아이오와 주립 대학교의 Iowa Environmental Mesonet](https://mesonet.agron.iastate.edu/ogc/)에서 받은 날씨 레이더 오버레이입니다.
 
 <br/>
 

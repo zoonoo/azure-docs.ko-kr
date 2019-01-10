@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: fe675a39abfd1ddc70ecdb21496b7197962ca368
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: b1f4d278079b81b4a224dc4712426d1f078de110
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004743"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020407"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Application Insights 스마트 검색 규칙 관리
 
@@ -159,6 +159,6 @@ Azure Resource Manager를 통해 규칙 설정을 구성할 수 있도록, 이�
 
 자동으로 감지하는 방법에 대해 자세히 알아봅니다.
 
-- [오류 잘못된 부분](../../application-insights/app-insights-proactive-failure-diagnostics.md)
-- [메모리 누수](../../application-insights/app-insights-proactive-potential-memory-leak.md)
-- [성능 이상](../../application-insights/app-insights-proactive-performance-diagnostics.md)
+- [오류 잘못된 부분](../../azure-monitor/app/proactive-failure-diagnostics.md)
+- [메모리 누수](../../azure-monitor/app/proactive-potential-memory-leak.md)
+- [성능 이상](../../azure-monitor/app/proactive-performance-diagnostics.md)

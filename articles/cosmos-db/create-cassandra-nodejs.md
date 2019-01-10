@@ -1,21 +1,19 @@
 ---
 title: '빠른 시작: Cassandra API와 Node.js - Azure Cosmos DB'
 description: 이 빠른 시작은 Node.js와 함께 Azure Cosmos DB Cassandra API를 사용하여 프로필 애플리케이션을 만드는 방법을 보여줍니다.
-services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: e1015331af3b31fa34170db6c1729b8e38bcbd04
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e6128a9bbdba058068057c202595508cef69fbb3
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251059"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037908"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>빠른 시작: Node.js 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -200,7 +198,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 1. git 터미널 창에서 `npm install`을 실행하여 필요한 npm 모듈을 설치합니다.
 
-2. `node uprofile.js`를 실행하여 노드 응용 프로그램을 시작합니다.
+2. `node uprofile.js`를 실행하여 노드 애플리케이션을 시작합니다.
 
 3. 명령줄에서 예상대로 결과가 나타나는지 확인하세요.
 

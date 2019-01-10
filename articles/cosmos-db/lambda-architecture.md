@@ -1,19 +1,17 @@
 ---
 title: Azure Cosmos DB 및 HDInsight(Apache Spark)를 사용하는 람다 아키텍처
 description: 이 문서에서는 Azure Cosmos DB, HDInsight 및 Spark를 사용하여 람다 아키텍처를 구현하는 방법을 설명합니다.
-keywords: 람다 아키텍처
-services: cosmos-db
 ms.service: cosmos-db
 author: tknandu
 ms.author: ramkris
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: b6831e9c6b679d2fd4fa585331213290d67068c2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3c59b96146928a066c70113cb3fb1cd1915d9c8b
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084023"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034015"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB는 Azure 플랫폼에 람다 아키텍처 구현 
 
@@ -21,7 +19,7 @@ ms.locfileid: "53084023"
 
 Azure에서 람다 아키텍처를 구현하려면 다음 기술을 결합하여 실시간 빅 데이터 분석을 가속화합니다.
 * [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) - 업계 최초로 전 세계적으로 배포된 다중 모델 데이터베이스 서비스입니다. 
-* [Azure HDInsight용 Apache Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) - 대규모 데이터 분석 응용 프로그램을 실행하는 처리 프레임워크입니다.
+* [Azure HDInsight용 Apache Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) - 대규모 데이터 분석 애플리케이션을 실행하는 처리 프레임워크입니다.
 * Azure Cosmos DB [변경 피드](change-feed.md) - HDInsight의 일괄 처리 계층에 새 데이터를 스트리밍하여 처리합니다.
 * [Spark-Azure Cosmos DB 커넥터](spark-connector.md)
 

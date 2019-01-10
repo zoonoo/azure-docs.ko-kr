@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4a4a75885b1303b7bc6666ea65993ac875b98f0d
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: cb32069de295b883cdc6d3a9fa495b1bea719c39
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001722"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116990"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Application Insights를 사용하여 웹앱에서 예외 진단
-라이브 웹앱의 예외는 [Application Insights](../../application-insights/app-insights-overview.md)에서 보고됩니다. 클라이언트와 서버에서 실패한 요청을 예외 및 다른 이벤트와 상호 연결하여 원인을 신속하게 진단할 수 있습니다.
+라이브 웹앱의 예외는 [Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 보고됩니다. 클라이언트와 서버에서 실패한 요청을 예외 및 다른 이벤트와 상호 연결하여 원인을 신속하게 진단할 수 있습니다.
 
 ## <a name="set-up-exception-reporting"></a>예외 보고 설정
 * 서버 앱에서 예외를 보고하도록 하려면
@@ -90,7 +90,7 @@ Application Insights는 APM 환경과 함께 제공되어 모니터링된 애플
 ![드릴스루](./media/asp-net-exceptions/viewCustomEvents.png)
 
 > [!NOTE]
-> 앱에서 다양한 원격 분석을 생성하는 경우 적응 샘플링 모듈은 이벤트의 대표적인 분수만 전송하여 포털에 전송되는 볼륨을 자동으로 줄입니다. 동일한 작업에 속하는 이벤트를 그룹으로 선택하거나 선택 취소되므로 관련된 이벤트를 탐색할 수 있습니다. [샘플링에 대해 알아봅니다.](../../application-insights/app-insights-sampling.md)
+> 앱에서 다양한 원격 분석을 생성하는 경우 적응 샘플링 모듈은 이벤트의 대표적인 분수만 전송하여 포털에 전송되는 볼륨을 자동으로 줄입니다. 동일한 작업에 속하는 이벤트를 그룹으로 선택하거나 선택 취소되므로 관련된 이벤트를 탐색할 수 있습니다. [샘플링에 대해 알아봅니다.](../../azure-monitor/app/sampling.md)
 >
 >
 

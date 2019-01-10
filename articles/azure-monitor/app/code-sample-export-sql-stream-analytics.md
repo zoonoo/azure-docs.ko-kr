@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8ed645066eef93ae02722858381af77854d7d1eb
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 502ccf15fe3e2f803febb711d4ea8850abbaea85
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001889"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116588"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>연습: Stream Analytics를 사용하여 Application Insights에서 SQL로 내보내기
 이 문서에서는 [연속 내보내기][export] 및 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)을 사용하여 [Azure Application Insights][start]에서 Azure SQL Database로 원격 분석 데이터를 이동하는 방법을 보여줍니다. 
@@ -249,7 +249,7 @@ SQL 데이터베이스를 지정합니다.
 
 
 ## <a name="related-articles"></a>관련 문서
-* [Stream Analytics를 사용하여 PowerBI로 내보내기](../../application-insights/app-insights-export-power-bi.md)
+* [Stream Analytics를 사용하여 PowerBI로 내보내기](../../azure-monitor/app/export-power-bi.md )
 * [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](../../azure-monitor/app/export-data-model.md)
 * [Application Insights에서 연속 내보내기](../../azure-monitor/app/export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
@@ -260,5 +260,5 @@ SQL 데이터베이스를 지정합니다.
 [export]: ../../azure-monitor/app/export-telemetry.md
 [metrics]: ../../azure-monitor/app/metrics-explorer.md
 [portal]: https://portal.azure.com/
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 

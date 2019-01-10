@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 3b06335019cf15cc296c1814ee1fcf5ce50c3949
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 7cd06bda16200f45d2b6aa9e20a536e62ad2c2d6
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971852"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105480"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Azure에 온-프레미스 물리적 서버에 대한 재해 복구 설정
 
@@ -27,8 +27,6 @@ ms.locfileid: "53971852"
 > * 원본 및 대상 복제 환경 설정
 > * 복제 정책 만들기
 > * 서버에 대해 복제 사용
-
-이 재해 복구 시나리오용 [아키텍처를 검토](concepts-hyper-v-to-azure-architecture.md)합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

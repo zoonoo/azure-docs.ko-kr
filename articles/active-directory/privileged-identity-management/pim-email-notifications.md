@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 11/30/2018
+ms.date: 01/05/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 00b096f59e70962b6883a8024744e8c91a5f9ae3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4bc963d09b9d01efdfad65b78ce9ce336798d375
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846898"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065344"
 ---
 # <a name="email-notifications-in-pim"></a>PIM에서 이메일 알림
 
@@ -43,16 +43,15 @@ Azure AD 역할에 대해 다음 이벤트가 발생하면 PIM이 이메일을 �
 
 - 권한 있는 역할 활성화가 승인 보류 중인 경우
 - 권한 있는 역할 활성화 요청이 완료된 경우
-- 권한 있는 역할이 적격으로 할당된 경우
 - Azure AD PIM이 사용되도록 설정된 경우
 
 Azure AD 역할에 대한 이러한 이메일을 받는 사람은 역할, 이벤트 및 알림 설정에 따라 달라집니다.
 
-| 사용자 | 역할 활성화가 승인 보류 중임 | 역할 활성화 요청이 완료됨 | 역할이 적격으로 할당됨 | PIM이 사용하도록 설정됨 |
-| --- | --- | --- | --- | --- |
-| 권한 있는 역할 관리자</br>(활성화/적격) | yes</br>(명시적인 승인자가 지정되지 않은 경우만) | 예* | yes | yes |
-| 보안 관리자</br>(활성화/적격) | 아니요 | 예* | yes | yes |
-| 전역 관리자</br>(활성화/적격) | 아니요 | 예* | yes | yes |
+| 사용자 | 역할 활성화가 승인 보류 중임 | 역할 활성화 요청이 완료됨 | PIM이 사용하도록 설정됨 |
+| --- | --- | --- | --- |
+| 권한 있는 역할 관리자</br>(활성화/적격) | 예</br>(명시적인 승인자가 지정되지 않은 경우만) | 예* | 예 |
+| 보안 관리자</br>(활성화/적격) | 아니요 | 예* | 예 |
+| 전역 관리자</br>(활성화/적격) | 아니요 | 예* | 예 |
 
 \* [**알림** 설정](pim-how-to-change-default-settings.md#notifications)이 **사용**으로 설정된 경우
 

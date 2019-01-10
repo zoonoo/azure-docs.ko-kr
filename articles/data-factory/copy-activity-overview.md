@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1958d694ab87d635624884b43486761269e37c37
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 36c94a035c7585d655f4482239de70cd2e1a5cc6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082649"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014134"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -28,7 +27,7 @@ ms.locfileid: "53082649"
 > * [버전 1](v1/data-factory-data-movement-activities.md)
 > * [현재 버전](copy-activity-overview.md)
 
-Azure Data Factory에서는 복사 작업을 사용해 온-프레미스 및 클라우드 간에 데이터를 복사할 수 있습니다. 복사한 데이터는 추가로 변환하고 분석할 수 있습니다. 복사 활동을 통해 BI(비즈니스 인텔리전스) 및 응용 프로그램에서 사용할 수 있도록 변환 및 분석 결과를 게시할 수도 있습니다.
+Azure Data Factory에서는 복사 작업을 사용해 온-프레미스 및 클라우드 간에 데이터를 복사할 수 있습니다. 복사한 데이터는 추가로 변환하고 분석할 수 있습니다. 복사 활동을 통해 BI(비즈니스 인텔리전스) 및 애플리케이션에서 사용할 수 있도록 변환 및 분석 결과를 게시할 수도 있습니다.
 
 ![복사 활동의 역할](media/copy-activity-overview/copy-activity.png)
 
@@ -130,12 +129,12 @@ Azure Data Factory에서 복사 작업을 사용하려면 다음이 필요합니
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업의 type 속성은 다음으로 설정해야 합니다. **Copy** | yes |
-| inputs | 원본 데이터를 가리키는 만든 데이터 세트를 지정합니다. 복사 작업에서는 하나의 입력만 지원합니다. | yes |
-| outputs | 싱크 데이터를 가리키는 만든 데이터 세트를 지정합니다. 복사 작업에서는 하나의 출력만 지원합니다. | yes |
-| typeProperties | 복사 작업을 구성하는 속성의 그룹입니다. | yes |
-| 원본 | 데이터 검색 방법에 대한 해당 속성과 복사 원본 유형을 지정합니다.<br/><br/>자세한 내용은 [지원되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 열거된 커넥터 문서의 "복사 작업 속성" 섹션을 참조하세요. | yes |
-| 싱크 | 데이터 쓰기 방법에 대한 해당 속성과 복사 싱크 유형을 지정합니다.<br/><br/>자세한 내용은 [지원되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 열거된 커넥터 문서의 "복사 작업 속성" 섹션을 참조하세요. | yes |
+| 형식 | 복사 작업의 type 속성은 다음으로 설정해야 합니다. **Copy** | 예 |
+| inputs | 원본 데이터를 가리키는 만든 데이터 세트를 지정합니다. 복사 작업에서는 하나의 입력만 지원합니다. | 예 |
+| outputs | 싱크 데이터를 가리키는 만든 데이터 세트를 지정합니다. 복사 작업에서는 하나의 출력만 지원합니다. | 예 |
+| typeProperties | 복사 작업을 구성하는 속성의 그룹입니다. | 예 |
+| 원본 | 데이터 검색 방법에 대한 해당 속성과 복사 원본 유형을 지정합니다.<br/><br/>자세한 내용은 [지원되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 열거된 커넥터 문서의 "복사 작업 속성" 섹션을 참조하세요. | 예 |
+| 싱크 | 데이터 쓰기 방법에 대한 해당 속성과 복사 싱크 유형을 지정합니다.<br/><br/>자세한 내용은 [지원되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 열거된 커넥터 문서의 "복사 작업 속성" 섹션을 참조하세요. | 예 |
 | 번역기 | 원본에서 싱크로의 명시적 열 매핑을 지정합니다. 기본 복사 동작이 요구를 수행할 수 없는 경우 적용됩니다.<br/><br/>자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요. | 아니요 |
 | dataIntegrationUnits | 데이터 복사를 수행할 [Azure Integration Runtime](concepts-integration-runtime.md)의 강도를 지정합니다. 이전의 클라우드 DMU(데이터 이동 단위)입니다. <br/><br/>자세한 내용은 [데이터 통합 단위](copy-activity-performance.md#data-integration-units)를 참조하세요. | 아니요 |
 | parallelCopies | 원본에서 데이터를 읽어 싱크에 쓸 때 복사 작업이 사용할 병렬 처리를 지정합니다.<br/><br/>자세한 내용은 [병렬 복사](copy-activity-performance.md#parallel-copy)를 참조하세요. | 아니요 |

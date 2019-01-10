@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: 892342dfa4407a7ed138ffb004e7854c0cd07b4a
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: d034bf130440fdb5b783db41161ab5a21a306478
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53797526"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103115"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>사용자 지정 데이터 원본을 사용하여 Application Insights 데이터 상호 연결
 
@@ -28,7 +28,7 @@ Application Insights는 여러 다른 데이터 형식을 수집합니다(예외
 
 - 데이터 보강 또는 조회 테이블: 예를 들어 서버 이름을 서버의 소유자 및 찾을 수 있는 랩 위치로 보완합니다. 
 - Application Insights 데이터 원본과 상관 관계: 예를 들어 배송 시간 예측값의 정확도를 확인하려면 구매 처리 서비스의 정보와 웹 스토어에서 구매에 대한 데이터를 상관 관계를 만듭니다. 
-- 완전한 사용자 지정 데이터: 대부분의 고객은 Application Insights를 지원하는 Log Analytics 데이터 플랫폼의 쿼리 언어 및 성능을 즐겨 사용하고 Application Insights와 전혀 관련되지 않은 데이터를 쿼리하는 데 사용합니다. 예를 들어 [여기]( http://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/)에서 설명한 대로 스마트 홈 설치의 일부로 태양 패널 성능을 추적하려고 합니다.
+- 완전한 사용자 지정 데이터: 대부분의 고객은 Application Insights를 지원하는 Log Analytics 데이터 플랫폼의 쿼리 언어 및 성능을 즐겨 사용하고 Application Insights와 전혀 관련되지 않은 데이터를 쿼리하는 데 사용합니다. 예를 들어 [여기]( https://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/)에서 설명한 대로 스마트 홈 설치의 일부로 태양 패널 성능을 추적하려고 합니다.
 
 ## <a name="how-to-correlate-custom-data-with-application-insights-data"></a>Application Insights와 사용자 지정 데이터 상관 관계 만들기 
 

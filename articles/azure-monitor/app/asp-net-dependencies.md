@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7cde9fa0849729ba9db9b604dd0ad26cf362a484
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 48e20df61844d83deb8ac992f783cf227e658aaf
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969865"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119988"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights 설정: 종속성 추적
-*종속성*은 앱에서 호출하는 외부 구성 요소로, 일반적으로 HTTP, 데이터베이스 또는 파일 시스템을 사용하여 호출되는 서비스입니다. [Application Insights](../../application-insights/app-insights-overview.md)는 애플리케이션이 종속성을 기다리는 시간과 종속성 호출에 실패하는 빈도를 측정합니다. 특정 호출을 조사하여 요청 및 예외와 연관지을 수 있습니다.
+*종속성*은 앱에서 호출하는 외부 구성 요소로, 일반적으로 HTTP, 데이터베이스 또는 파일 시스템을 사용하여 호출되는 서비스입니다. [Application Insights](../../azure-monitor/app/app-insights-overview.md)는 애플리케이션이 종속성을 기다리는 시간과 종속성 호출에 실패하는 빈도를 측정합니다. 특정 호출을 조사하여 요청 및 예외와 연관지을 수 있습니다.
 
 기본적으로 종속성 모니터는 현재 다음 유형의 종속성에 대한 호출을 보고합니다.
 
@@ -121,7 +121,7 @@ ms.locfileid: "53969865"
 
 ### <a name="profile-your-live-site"></a>라이브 사이트 프로파일링
 
-시간에 따른 위치를 알 수 없나요? [Application Insights 프로파일러](../../application-insights/app-insights-profiler.md)는 라이브 사이트에 대한 HTTP 호출을 추적하고 가장 오래 걸린 코드의 함수를 표시합니다.
+시간에 따른 위치를 알 수 없나요? [Application Insights 프로파일러](../../azure-monitor/app/profiler.md)는 라이브 사이트에 대한 HTTP 호출을 추적하고 가장 오래 걸린 코드의 함수를 표시합니다.
 
 ## <a name="failed-requests"></a>실패한 요청
 실패한 요청은 종속성에 대한 실패한 호출과 연관이 있을 수도 있습니다. 문제를 클릭하여 추적할 수 있습니다.

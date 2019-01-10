@@ -6,19 +6,18 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/3/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: fab03f12f4099fe2df2525cb3a6fa093170d1c79
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ec1c24e4a9714506a4107fd5bfd53d1a562c8781
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850179"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022362"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임을 위한 사용자 지정 설치
 
@@ -63,7 +62,7 @@ Azure SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
 
 1.  [Azure Storage 탐색기](http://storageexplorer.com/)를 다운로드 및 설치하고 시작합니다.
 
-    1.   **(로컬 및 연결)** 에서 **저장소 계정**을 마우스 오른쪽 단추로 선택하고 **Azure Storage에 연결**을 선택합니다.
+    1.  **(로컬 및 연결)** 에서 **스토리지 계정**을 마우스 오른쪽 단추로 선택하고 **Azure Storage에 연결**을 선택합니다.
 
        ![Azure Storage에 연결](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
 
@@ -119,7 +118,7 @@ Azure SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
 
 1.  다른 사용자 지정 설정 예제를 보려면 Azure Storage Explorer를 통해 공개 미리 보기 컨테이너에 연결합니다.
 
-    a.  **(로컬 및 연결)** 에서 **저장소 계정**을 마우스 오른쪽 단추로 클릭하고 **Azure Storage에 연결**을 선택한 다음, **연결 문자열 또는 공유 액세스 서명 URI**를 선택하고 **다음**을 선택합니다.
+    a.  **(로컬 및 연결)** 에서 **스토리지 계정**을 마우스 오른쪽 단추로 클릭하고 **Azure Storage에 연결**을 선택한 다음, **연결 문자열 또는 공유 액세스 서명 URI**를 선택하고 **다음**을 선택합니다.
 
        ![공유 액세스 서명을 사용하여 Azure Storage에 연결](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image9.png)
 

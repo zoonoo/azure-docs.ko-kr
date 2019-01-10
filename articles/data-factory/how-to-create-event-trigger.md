@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: f744e379521fe62f4b3fbbad0cc524ccb3e1b18d
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 3fb9f98e94191c019b78c5666d2ff5336cc895eb
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429391"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021869"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>이벤트에 대한 응답으로 파이프라인을 실행하는 트리거 만들기
 
@@ -70,7 +69,7 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 
 | **JSON 요소** | **설명** | **형식** | **허용되는 값** | **필수** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **scope** | 저장소 계정의 Azure Resource Manager 리소스 ID입니다. | 문자열 | Azure Resource Manager ID | yes |
+| **scope** | 저장소 계정의 Azure Resource Manager 리소스 ID입니다. | 문자열 | Azure Resource Manager ID | 예 |
 | **events** | 이 트리거를 발생시키는 이벤트 유형입니다. | 배열    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | 예, 이러한 값의 조합입니다. |
 | **blobPathBeginsWith** | Blob 경로는 발생시킬 트리거에 제공된 패턴으로 시작해야 합니다. 예를 들어 `/records/blobs/december/`는 `records` 컨테이너 아래의 `december` 폴더에서 Blob에 대한 트리거만을 시작합니다. | 문자열   | | 이러한 속성 중 하나 이상에 대한 값을 제공해야 합니다. `blobPathBeginsWith` 또는 `blobPathEndsWith` |
 | **blobPathEndsWith** | Blob 경로는 발생시킬 트리거에 제공된 패턴으로 끝나야 합니다. 예를 들어 `december/boxes.csv`는 `december` 폴더에서 `boxes`라는 이름의 Blob에 대한 트리거만을 시작합니다. | 문자열   | | 이러한 속성 중 하나 이상에 대한 값을 제공해야 합니다. `blobPathBeginsWith` 또는 `blobPathEndsWith` |

@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 4db0deac72adc5e51294cf7e4c6da334259a5531
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 3e3d6b8fdc9ac8dd28f73fecd6231e97a5645407
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000437"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120090"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>종속성 원격 분석: Application Insights 데이터 모델
 
-[Application Insights](../../application-insights/app-insights-overview.md)에서 종속성 원격 분석은 모니터링되는 구성 요소와 원격 구성 요소(예: SQL 또는 HTTP 엔드포인트)의 상호 작용을 나타냅니다.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 종속성 원격 분석은 모니터링되는 구성 요소와 원격 구성 요소(예: SQL 또는 HTTP 엔드포인트)의 상호 작용을 나타냅니다.
 
 ## <a name="name"></a>이름
 

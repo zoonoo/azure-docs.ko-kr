@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: d261fe78bc6902558e2714d9fe4e66d991a7bd09
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 403906a60d16a478dffd313b45aa1ce24e42196a
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004841"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119238"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>라이브 메트릭 스트림: 1초 대기 시간으로 모니터링 및 진단
 
-[Application Insights](../../application-insights/app-insights-overview.md)의 라이브 메트릭 스트림을 사용하여 프로덕션 웹 애플리케이션에서 실시간 심장 박동을 검사합니다. 메트릭과 성능 카운터를 선택 및 필터링하여 서비스에 지장 없이 실시간으로 확인합니다. 실패한 요청 및 예외 샘플에서 스택 추적을 검사합니다. [프로파일러](../../application-insights/app-insights-profiler.md), [스냅숏 디버거](../../application-insights/app-insights-snapshot-debugger.md) 및 [성능 테스트](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests)와 함께 라이브 메트릭 스트림은 라이브 웹 사이트에 강력하고 비침해적인 진단 도구를 제공합니다.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md)의 라이브 메트릭 스트림을 사용하여 프로덕션 웹 애플리케이션에서 실시간 심장 박동을 검사합니다. 메트릭과 성능 카운터를 선택 및 필터링하여 서비스에 지장 없이 실시간으로 확인합니다. 실패한 요청 및 예외 샘플에서 스택 추적을 검사합니다. [프로파일러](../../azure-monitor/app/profiler.md), [스냅숏 디버거](../../azure-monitor/app/snapshot-debugger.md) 및 [성능 테스트](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests)와 함께 라이브 메트릭 스트림은 라이브 웹 사이트에 강력하고 비침해적인 진단 도구를 제공합니다.
 
 라이브 메트릭 스트림을 사용하여 다음을 수행할 수 있습니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "54004841"
 
 ## <a name="get-started"></a>시작하기
 
-1. 아직 ASP.NET 웹앱 또는 [Windows 서버 앱](../../application-insights/app-insights-windows-services.md)에 [Application Insights를 설치](../../azure-monitor/app/asp-net.md)하지 않은 경우 지금 설치합니다. 
+1. 아직 ASP.NET 웹앱 또는 [Windows 서버 앱](../../azure-monitor/app/windows-services.md)에 [Application Insights를 설치](../../azure-monitor/app/asp-net.md)하지 않은 경우 지금 설치합니다. 
 2. Application Insights 패키지의 **최신 버전으로 업데이트**합니다. Visual Studio에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Nuget 패키지 관리**를 선택합니다. **업데이트** 탭을 열어 **시험판 포함**을 선택하고 모든 Microsoft.ApplicationInsights.* 패키지를 선택합니다.
 
     응용 프로그램을 다시 배포 합니다.
@@ -202,7 +202,7 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => mod
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Application Insights를 사용하여 사용량 모니터링](../../application-insights/app-insights-usage-overview.md)
+* [Application Insights를 사용하여 사용량 모니터링](../../azure-monitor/app/usage-overview.md)
 * [진단 검색 사용](../../azure-monitor/app/diagnostic-search.md)
-* [프로파일러](../../application-insights/app-insights-profiler.md)
-* [스냅숏 디버거](../../application-insights/app-insights-snapshot-debugger.md)
+* [프로파일러](../../azure-monitor/app/profiler.md)
+* [스냅숏 디버거](../../azure-monitor/app/snapshot-debugger.md)

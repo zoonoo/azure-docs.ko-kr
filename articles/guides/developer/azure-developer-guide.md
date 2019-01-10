@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 84d8d3838740ec5d448b14b5c4539f7d78c96b5e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 7c4eefa09f0a70d42601a5b1fe8694500b5c6be2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714358"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118254"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -178,7 +178,7 @@ Azure에서 애플리케이션을 실행하는 경우 성능을 모니터링하�
 
 -   **Visual Studio Application Insights**: Azure에서 호스트되는 확장 가능한 분석 서비스로, Visual Studio와 통합하여 라이브 웹 애플리케이션을 모니터링합니다. Azure에서 호스트되는지 여부에 관계없이 지속적으로 앱의 성능 및 가용성을 개선하기 위해 필요한 데이터를 제공합니다.
 
-    >**시작**: [Application Insights 자습서](../../application-insights/app-insights-overview.md)를 수행합니다.
+    >**시작**: [Application Insights 자습서](../../azure-monitor/app/app-insights-overview.md)를 수행합니다.
 
 -   **Azure Monitor**: Azure 인프라와 리소스에서 생성되는 로그 및 메트릭에 대해 작업, 시각화, 쿼리, 라우트, 보관을 수행하는 데 도움이 되는 서비스입니다. Monitor는 Azure Portal에서 참조하는 데이터 뷰를 제공하며 Azure 리소스를 모니터링하기 위한 단일 소스입니다.
  

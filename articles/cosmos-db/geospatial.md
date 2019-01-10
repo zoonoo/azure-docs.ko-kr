@@ -1,18 +1,17 @@
 ---
 title: Azure Cosmos DB SQL API 계정에서 지리 공간적 데이터 작업
 description: Azure Cosmos DB 및 SQL API를 사용하여 공간 개체를 만들고 인덱싱 및 쿼리하는 방법을 이해합니다.
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 29bb495bbbd56ab39964b34db35fb4d222a60179
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5f096d016b2fa82e3b340a4a6b6c7e1fd6420216
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074698"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037194"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB SQL API 계정에서 지리 공간 및 GeoJSON 위치 데이터 사용
 
@@ -43,7 +42,7 @@ Azure Cosmos DB는 인덱싱 및 지리 공간 지점 데이터의 쿼리를 지
 ```
 
 > [!NOTE]
-> GeoJSON 사양은 경도를 먼저 지정하고 위도를 두 번째로 지정합니다. 다른 매핑 응용 프로그램과 마찬가지로 경도와 위도는 각도이며 도 단위로 표시됩니다. 경도 값은 본초 자오선에서 측정되고 -180도와 180.0도 사이이고, 위도 값은 적도에서 측정되고 -90.0도와 90.0도 사이입니다. 
+> GeoJSON 사양은 경도를 먼저 지정하고 위도를 두 번째로 지정합니다. 다른 매핑 애플리케이션과 마찬가지로 경도와 위도는 각도이며 도 단위로 표시됩니다. 경도 값은 본초 자오선에서 측정되고 -180도와 180.0도 사이이고, 위도 값은 적도에서 측정되고 -90.0도와 90.0도 사이입니다. 
 > 
 > Azure Cosmos DB는 WGS-84 참조 시스템을 기준으로 좌표를 해석합니다. 좌표 참조 시스템에 대한 자세한 내용은 아래를 참조하세요.
 > 

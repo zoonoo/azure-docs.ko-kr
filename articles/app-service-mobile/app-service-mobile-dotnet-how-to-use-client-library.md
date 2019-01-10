@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 30eb458b9d0584b467479163d8312d7bd5456be1
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 62711ac094a10a9e4a0350319a316c5a293fd522
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409737"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157331"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure Mobile Apps에 관리되는 클라이언트를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -328,7 +328,7 @@ Mobile Apps는 테이블의 **id** 열에 대한 고유한 사용자 지정 문�
 
 * ID는 데이터베이스에 대한 왕복 없이도 생성됩니다.
 * 여러 테이블 또는 데이터베이스의 레코드를 병합하기가 더 쉽습니다.
-* 응용 프로그램의 논리를 통해 ID 값이 더 효율적으로 통합될 수 있습니다.
+* 애플리케이션의 논리를 통해 ID 값이 더 효율적으로 통합될 수 있습니다.
 
 문자열 ID 값이 삽입된 레코드에 설정되지 않은 경우 모바일 앱 백 엔드는 해당 ID에 대한 고유한 값을 생성합니다. [Guid.NewGuid] 메서드를 사용하여 클라이언트나 백엔드에서 고유한 ID 값을 생성할 수 있습니다.
 
@@ -539,7 +539,7 @@ await this.client.SyncContext.InitializeAsync(store);
 클라이언트를 만든 후 저장소 초기화는 일반적으로 즉시 이루어집니다.  **OfflineDbPath**는 모든 플랫폼에서 사용하기에 적합한 이름이어야 합니다.  경로가 정규화 된 경로인 경우 (즉, 슬래시로 시작), 해당 경로를 사용 합니다.  경로가 정규화되지 않은 경우 파일은 플랫폼 특정 위치에 배치됩니다.
 
 * IOS 및 Android 디바이스에 대한 기본 경로는 "개인 파일" 폴더입니다.
-* Windows 디바이스에 대한 기본 경로는 응용 프로그램별 "AppData" 폴더입니다.
+* Windows 장치에 대한 기본 경로는 애플리케이션별 "AppData" 폴더입니다.
 
 `GetSyncTable<>` 메서드를 사용하여 테이블 참조를 가져올 수 있습니다.
 
@@ -651,12 +651,12 @@ Mobile Apps는 다음과 같이 다양한 외부 ID 공급자를 사용하여 �
 Azure Active Directory 인증을 사용하여 클라이언트에서 사용자 인증을 시작하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다.
 
 1. 다음으로 [Active Directory 로그인에 대한 App Service를 구성하는 방법] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 애플리케이션을 등록하는 선택적 단계를 완료해야 합니다.
-2. Visual Studio 또는 Xamarin Studio에서 프로젝트를 열고 `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet 패키지에 참조를 추가합니다. 검색할 때 시험판 버전을 포함합니다.
+2. Visual Studio 또는 Xamarin Studio에서 프로젝트를 열고 `Microsoft.IdentityModel.Clients.ActiveDirectory` NuGet 패키지에 참조를 추가합니다. 검색할 때 시험판 버전을 포함합니다.
 3. 사용하는 플랫폼에 따라 애플리케이션에 다음 코드를 추가합니다. 각각에서 다음과 같이 대체합니다.
 
-   * **INSERT-AUTHORITY-HERE** 를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com이어야 합니다. 이 값은 [Azure Portal]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
+   * **INSERT-AUTHORITY-HERE**를 애플리케이션이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com이어야 합니다. 이 값은 [Azure Portal]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
    * **INSERT-RESOURCE-ID-HERE** 를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 Azure **Active Directory 설정**에 있는 **고급** 탭에서 클라이언트 ID를 가져올 수 있습니다.
-   * **INSERT-CLIENT-ID-HERE** 를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
+   * **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 애플리케이션에서 복사한 클라이언트 ID로 바꿉니다.
    * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE** 를 사이트의 */.auth/login/done* 엔드포인트로 바꿉니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done*과 비슷해야 합니다.
 
      각 플랫폼에 필요한 코드는 다음과 같습니다.
@@ -905,7 +905,7 @@ WNS에 푸시하는 경우, [Microsoft Store 패키지 SID를 가져와야](#pac
 태그로 디바이스를 등록하려는 경우 사용자를 대신해 Notification Hubs API를 사용하여 등록을 수행하는 사용자 지정 API를 만듭니다.  `RegisterNativeAsync()` 메서드 대신에 [사용자 지정 API를 호출합니다.](#customapi)
 
 ### <a name="package-sid"></a>방법: Microsoft Store 패키지 SID 가져오기
-Microsoft Store 앱에서 푸시 알림 사용에 패키지 SID가 필요합니다.  패키지 SID를 수신하려면 Microsoft Store에 응용 프로그램을 등록합니다.
+Microsoft Store 앱에서 푸시 알림 사용에 패키지 SID가 필요합니다.  패키지 SID를 수신하려면 Microsoft Store에 애플리케이션을 등록합니다.
 
 이 값을 가져오려면
 

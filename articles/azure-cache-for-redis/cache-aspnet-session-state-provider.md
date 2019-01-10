@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: wesmc
-ms.openlocfilehash: c9b843bfd448c05cb2b11165e54d19db0a7ad60e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a7f3e23cd74baa2e1fdef178be8c5b213a3905ef
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53022135"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105290"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 ASP.NET 세션 상태 제공자
 Azure Cache for Redis는 메모리 내 또는 SQL Server 데이터베이스가 아니라 Azure Cache for Redis를 통해 세션 상태를 저장하는 데 사용할 수 있는 세션 상태 제공자를 제공합니다. 캐싱 세션 상태 제공자를 사용하려면 먼저 캐시를 구성하고 Azure Cache for Redis 세션 상태 NuGet 패키지를 사용하여 캐시용 ASP.NET 애플리케이션을 구성합니다.
@@ -125,9 +125,9 @@ Web.config 파일에서 표준 InProc 세션 상태 제공자 섹션을 주석�
 ## <a name="aspnet-session-state-options"></a>ASP.NET 세션 상태 옵션
 * 메모리 내 세션 상태 제공자 - 이 공급자는 메모리에 세션 상태를 저장합니다. 이 공급자를 사용하면 단순하고 빠르다는 이점이 있습니다. 그러나 배포되지 않는 메모리 공급자에서 사용 중인 경우 Web Apps의 크기를 조정할 수 없습니다.
 * SQL Server 세션 상태 제공자 - 이 공급자는 SQL Server에 세션 상태를 저장합니다. 영구 저장소에서 세션 상태를 유지하려는 경우 이 제공자를 사용합니다. Web App의 크기를 조정할 수 있지만 세션에 SQL Server를 사용하면 Web App의 성능에 영향을 줍니다. 이 공급자를 [메모리 내 OLTP 구성](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/11/28/asp-net-session-state-with-sql-server-in-memory-oltp/)에 사용하여 성능을 높일 수도 있습니다.
-* Azure Cache for Redis 세션 상태 제공자와 같은 배포된 메모리 내 세션 상태 제공자 - 이 공급자는 두 분야의 모든 장점을 제공합니다. Web App에는 빠르고 간단하며 확장성 있는 세션 상태 제공자가 있을 수 있습니다. 이 제공자가 캐시에서 세션 상태를 저장하기 때문에 앱이 일시적인 네트워크 오류와 같은 분산된 메모리 내 캐시와 통신할 때 관련된 모든 특성을 고려해야 합니다. 캐시 사용의 모범 사례는 Microsoft Patterns & Practices [Azure 클라우드 응용 프로그램 설계 및 구현 지침](https://github.com/mspnp/azure-guidance)에서 [캐싱 지침](../best-practices-caching.md)을 참조하세요.
+* Azure Cache for Redis 세션 상태 제공자와 같은 배포된 메모리 내 세션 상태 제공자 - 이 공급자는 두 분야의 모든 장점을 제공합니다. Web App에는 빠르고 간단하며 확장성 있는 세션 상태 제공자가 있을 수 있습니다. 이 제공자가 캐시에서 세션 상태를 저장하기 때문에 앱이 일시적인 네트워크 오류와 같은 분산된 메모리 내 캐시와 통신할 때 관련된 모든 특성을 고려해야 합니다. 캐시 사용의 모범 사례는 Microsoft Patterns &amp; Practices [Azure 클라우드 애플리케이션 설계 및 구현 지침](https://github.com/mspnp/azure-guidance)에서 [캐싱 지침](../best-practices-caching.md)을 참조하세요.
 
-세션 상태 및 기타 모범 사례에 대한 자세한 내용은 [웹 개발 모범 사례(Azure를 사용하는 실제 클라우드 앱 빌드)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices)를 참조하세요.
+세션 상태 및 기타 모범 사례에 대한 자세한 내용은 [웹 개발 모범 사례(Azure를 사용하는 실제 클라우드 앱 빌드)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Cache for Redis에 대한 ASP.NET 출력 캐시 제공자](cache-aspnet-output-cache-provider.md)를 확인합니다.

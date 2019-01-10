@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: e31f35aadfa7e46426a1779cdc057691bef91336
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ad490630d3ce5d625bce05c75c20fa71a7aa2d29
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965550"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014543"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Azure SQL 데이터베이스에서 Azure Blob 저장소로 데이터 증분 로드
 이 자습서에서는 Azure SQL 데이터베이스의 테이블에서 Azure Blob 저장소로 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다. 
@@ -280,7 +279,7 @@ END
 26. **새 연결된 서비스** 창에서 다음 단계를 수행합니다. 
 
     1. **이름**에 대해 **AzureStorageLinkedService**를 입력합니다. 
-    2. **저장소 계정 이름**에 대해 Azure Storage 계정을 선택합니다.
+    2. **스토리지 계정 이름**에 대해 Azure Storage 계정을 선택합니다.
     3. **저장**을 클릭합니다. 
 
         ![Azure Storage 연결된 서비스 - 설정](./media/tutorial-incremental-copy-portal/azure-storage-linked-service-settings.png)
@@ -335,7 +334,7 @@ END
     ![작업 실행](./media/tutorial-incremental-copy-portal/activity-runs.png)
 
 ## <a name="review-the-results"></a>결과 검토
-1. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용하여 Azure 저장소 계정에 연결합니다. 출력 파일이 **adftutorial** 컨테이너의 **incrementalcopy** 폴더에 만들어졌는지 확인합니다.
+1. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용하여 Azure 스토리지 계정에 연결합니다. 출력 파일이 **adftutorial** 컨테이너의 **incrementalcopy** 폴더에 만들어졌는지 확인합니다.
 
     ![첫 번째 출력 파일](./media/tutorial-incremental-copy-portal/first-output-file.png)
 2. 출력 파일을 열고 모든 데이터가 **data_source_table**에서 Blob 파일로 복사되었는지 확인합니다. 

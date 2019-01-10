@@ -3,19 +3,19 @@ title: '자습서: 단일 페이지 웹앱 만들기 - Bing Image Search API'
 titleSuffix: Azure cognitive services
 description: Bing Image Search API를 사용하면 웹에서 고품질 관련 이미지를 검색할 수 있습니다. 이 자습서를 사용하여 검색 쿼리를 API에 보낼 수 있는 단일 페이지 웹 애플리케이션을 빌드하고 웹 페이지 내에 결과를 표시합니다.
 services: cognitive-services
-author: aahi
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: tutorial
 ms.date: 9/12/2018
 ms.author: aahi
-ms.openlocfilehash: e2013b28e8c829d49efe662a9b0eba245c6d5fab
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f7ab94c6d935222c65c1259f1ce3b01d10f78ec1
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253955"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062862"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>자습서: Bing Image Search API를 사용하여 단일 페이지 앱 만들기
 

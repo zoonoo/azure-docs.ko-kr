@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: ff6a3f32d9163be01483e8b8c743caa4e5bb573c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 8a78823a208a5310e62714de7b1a3cd2e35eaa8f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581252"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104678"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache for Redis를 구성하는 방법
 이 항목에서는 Azure Cache for Redis 인스턴스에 사용할 수 있는 구성에 대해 설명합니다. 또한 Azure Cache for Redis 인스턴스에 대한 기본 Redis 서버 구성에 대해서도 설명합니다.
@@ -147,7 +147,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
 * `volatile-ttl`
 * `noeviction`
 
-`maxmemory` 정책에 대한 자세한 내용은 [제거 정책](http://redis.io/topics/lru-cache#eviction-policies)을 참조하세요.
+`maxmemory` 정책에 대한 자세한 내용은 [제거 정책](https://redis.io/topics/lru-cache#eviction-policies)을 참조하세요.
 
 **maxmemory-reserved** 설정은 장애 조치(Failover) 중 복제와 같은 비캐시 작업을 위해 예약되는 메모리의 양을 MB 단위로 구성합니다. 이 값을 설정하면 부하가 달라져도 Redis 서버 환경이 더 일관되도록 할 수 있습니다. 이 값은 쓰기 작업이 많은 워크로드에서 더 높게 설정되어야 합니다. 이러한 작업을 위해 메모리가 예약된 경우 캐시된 데이터의 저장에는 사용할 수 없습니다.
 
@@ -170,7 +170,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 > 
 > 
 
-자세한 내용은 [Redis Keyspace 알림](http://redis.io/topics/notifications)을 참조하세요. 샘플 코드는 [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 샘플의 [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) 파일을 참조하세요.
+자세한 내용은 [Redis Keyspace 알림](https://redis.io/topics/notifications)을 참조하세요. 샘플 코드는 [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 샘플의 [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) 파일을 참조하세요.
 
 
 <a name="recommendations"></a>
@@ -406,7 +406,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 | `maxmemory-samples` |3 |메모리를 절약하기 위해 LRU 및 최소 TTL 알고리즘은 정밀한 알고리즘이 아닌 대략적인 알고리즘입니다. 기본적으로 Redis는 세 개의 키를 확인하고 가장 오래 전에 사용된 키를 선택합니다. |
 | `lua-time-limit` |5,000 |밀리초 단위의 Lua 스크립트 최대 실행 시간입니다. 최대 실행 시간에 도달하면 Redis는 허용된 시간 이후에도 실행 중인 스크립트를 기록하고 쿼리에 오류로 응답하기 시작합니다. |
 | `lua-event-limit` |500 |스크립트 이벤트 큐의 최대 크기 |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |클라이언트 출력 버퍼 제한은 어떤 이유로 서버에서 데이터를 읽는 속도가 충분히 빠르지 않은 클라이언트의 연결을 강제로 끊는 데 사용할 수 있습니다. 속도가 느린 일반적인 이유는 게시/구독 클라이언트가 게시자의 생성 속도만큼 빠르게 메시지를 소화하지 못하기 때문입니다. 자세한 내용은 [http://redis.io/topics/clients](http://redis.io/topics/clients)을 참조하세요. |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |클라이언트 출력 버퍼 제한은 어떤 이유로 서버에서 데이터를 읽는 속도가 충분히 빠르지 않은 클라이언트의 연결을 강제로 끊는 데 사용할 수 있습니다. 속도가 느린 일반적인 이유는 게시/구독 클라이언트가 게시자의 생성 속도만큼 빠르게 메시지를 소화하지 못하기 때문입니다. 자세한 내용은 [https://redis.io/topics/clients](https://redis.io/topics/clients)을 참조하세요. |
 
 <a name="databases"></a>
 <sup>1</sup>`databases`에 대한 제한은 Azure Cache for Redis 가격 책정 계층마다 다르며 캐시를 만들 때 설정할 수 있습니다. 캐시를 만드는 동안 `databases` 설정이 지정되지 않았다면 기본값은 16입니다.
@@ -424,7 +424,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
   * P2(13GB-130GB)-최대 32개의 데이터베이스
   * P3(26GB-260GB)-최대 48개의 데이터베이스
   * P4(53GB-530GB)-최대 64개의 데이터베이스
-  * Redis 클러스터를 사용할 수 있는 모든 프리미엄 캐시 - Redis 클러스터는 0 데이터베이스의 사용만을 지원하므로 Redis 클러스터를 사용할 수 있는 모든 프리미엄 캐시에 대한 `databases` 제한은 사실상 1이며 [Select](http://redis.io/commands/select) 명령은 허용되지 않습니다. 자세한 내용은 [클러스터링을 사용하려면 클라이언트 애플리케이션을 변경해야 합니까?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+  * Redis 클러스터를 사용할 수 있는 모든 프리미엄 캐시 - Redis 클러스터는 0 데이터베이스의 사용만을 지원하므로 Redis 클러스터를 사용할 수 있는 모든 프리미엄 캐시에 대한 `databases` 제한은 사실상 1이며 [Select](https://redis.io/commands/select) 명령은 허용되지 않습니다. 자세한 내용은 [클러스터링을 사용하려면 클라이언트 애플리케이션을 변경해야 합니까?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
 데이터베이스에 대한 자세한 내용은 [Redis 데이터베이스란?](cache-faq.md#what-are-redis-databases)을 참조하세요.
 
@@ -473,14 +473,14 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 > 
 > 
 
-Redis 명령에 대한 자세한 내용은 [http://redis.io/commands](http://redis.io/commands)를 참조하세요.
+Redis 명령에 대한 자세한 내용은 [https://redis.io/commands](https://redis.io/commands)를 참조하세요.
 
 ## <a name="redis-console"></a>Redis 콘솔
 Azure Portal에서 모든 캐시에 제공되는 **Redis 콘솔**을 사용하여 Azure Cache for Redis 인스턴스에 명령을 안전하게 실행할 수 있습니다.
 
 > [!IMPORTANT]
 > - Redis 콘솔이 [VNET](cache-how-to-premium-vnet.md)에서 작동하지 않습니다. 캐시가 VNET의 일부인 경우 VNET의 클라이언트만 캐시에 액세스할 수 있습니다. Redis 콘솔은 VNET 외부에 있는 로컬 브라우저에서 실행되기 때문에 캐시에 연결할 수 없습니다.
-> - Redis 명령 중 일부는 Azure Cache for Redis에서 지원되지 않습니다. Azure Cache for Redis에서 사용할 수 없는 Redis 명령 목록은 이전 [Azure Cache for Redis에서 지원되지 않는 Redis 명령](#redis-commands-not-supported-in-azure-cache-for-redis) 섹션을 참조하세요. Redis 명령에 대한 자세한 내용은 [http://redis.io/commands](http://redis.io/commands)를 참조하세요.
+> - Redis 명령 중 일부는 Azure Cache for Redis에서 지원되지 않습니다. Azure Cache for Redis에서 사용할 수 없는 Redis 명령 목록은 이전 [Azure Cache for Redis에서 지원되지 않는 Redis 명령](#redis-commands-not-supported-in-azure-cache-for-redis) 섹션을 참조하세요. Redis 명령에 대한 자세한 내용은 [https://redis.io/commands](https://redis.io/commands)를 참조하세요.
 > 
 > 
 

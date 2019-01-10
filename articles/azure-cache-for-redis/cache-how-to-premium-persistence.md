@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2017
 ms.author: wesmc
-ms.openlocfilehash: d74f552395a80509c76adf70aef0581260126b49
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 60f9baf7fb54706dc9d31c6920c0df24173d7b35
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53022075"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105849"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 데이터 지속성을 구성하는 방법
 Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지원과 같은 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. 이 문서에서는 프리미엄 Azure Cache for Redis에서 지속성을 구성하는 방법에 대해 설명합니다.
@@ -59,7 +59,7 @@ RDB 지속성을 사용하도록 설정하려면 **RDB**를 클릭합니다. 이
 
 백업 간격을 구성하려면 드롭다운 목록에서 **Backup 빈도** 를 선택합니다. **15분**, **30분**, **60분**, **6시간**, **12시간** 및 **24시간** 중에서 선택할 수 있습니다. 이 간격은 이전 백업 작업이 성공적으로 완료되어 새 백업이 시작된 시점부터 계산됩니다.
 
-**Storage 계정**을 클릭하여 사용할 Storage 계정을 선택하고 **저장소 키** 드롭다운 목록에서 사용할 **기본 키** 또는 **보조 키**를 선택합니다. 캐시와 동일한 영역에 있는 Storage 계정을 선택해야 하며 높은 처리량을 가진 **Premium Storage** 계정을 사용하는 것이 좋습니다. 
+**Storage 계정**을 클릭하여 사용할 Storage 계정을 선택하고 **스토리지 키** 드롭다운 목록에서 사용할 **기본 키** 또는 **보조 키**를 선택합니다. 캐시와 동일한 영역에 있는 Storage 계정을 선택해야 하며 높은 처리량을 가진 **Premium Storage** 계정을 사용하는 것이 좋습니다. 
 
 > [!IMPORTANT]
 > 지속성 계정에 대한 저장소 키가 다시 생성된 경우에는 **저장소 키** 드롭다운에서 원하는 키를 다시 구성해야 합니다.
@@ -130,7 +130,7 @@ RDB 및 AOF 지속성:
 
 * 더 큰 크기로 조정했다면 영향은 없습니다.
 * 더 작은 크기를 조정했고 새 크기에 대한 [데이터베이스 제한](cache-configure.md#databases)보다 사용자 지정 [데이터베이스](cache-configure.md#databases) 설정이 더 크다면, 그러한 데이터베이스에 저장된 데이터는 복원되지 않습니다. 자세한 내용은 [사용자 지정 데이터베이스 설정이 크기 조정 동안 영향을 받나요?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
-* 더 작은 크기로 조정 했고 마지막 백업의 모든 데이터를 저장하기에 충분한 공간이 더 작은 크기에 없는 경우, 일반적으로 [allkeys-lru](http://redis.io/topics/lru-cache) 제거 정책을 사용하여 복원 프로세스 중에 키가 제거됩니다.
+* 더 작은 크기로 조정 했고 마지막 백업의 모든 데이터를 저장하기에 충분한 공간이 더 작은 크기에 없는 경우, 일반적으로 [allkeys-lru](https://redis.io/topics/lru-cache) 제거 정책을 사용하여 복원 프로세스 중에 키가 제거됩니다.
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>캐시를 만든 후 RDB 백업 주기를 변경할 수 있나요?
 그렇습니다. **Redis 데이터 지속성** 블레이드에서 RDB 지속성에 대한 백업 빈도를 변경할 수 있습니다. 자세한 내용은 [Redis 지속성 구성](#configure-redis-persistence)을 참조하세요.

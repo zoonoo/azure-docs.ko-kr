@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 04566009ba7b71b48cf3dfc7d51cbbdcd596dc0e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 953f0d2652c328b32d9cc7bac239901075ff6c1b
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186541"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104712"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Log Analytics에서 Wire Data 2.0(미리 보기) 솔루션
 
@@ -33,7 +33,7 @@ Log Analytics 에이전트 외에 Wire Data 솔루션은 IT 인프라에서 컴�
 
 기본적으로 Log Analytics는 사용자가 지정할 수 있는 다른 성능 카운터 뿐만 아니라 Windows 및 Linux에 기본 제공되는 카운터의 CPU, 메모리, 디스크 데이터와 네트워크 성능 데이터를 로깅합니다. 컴퓨터에 사용되는 서브넷 및 애플리케이션 수준 프로토콜을 포함하여 네트워크 및 기타 데이터 수집이 에이전트별로 실시간으로 이루어집니다.  실시간 데이터는 TCP 전송 계층으로 내려가지 않고 애플리케이션 수준에서 네트워크 데이터를 확인합니다.  솔루션은 개별 ACK 및 SYN을 확인하지 않습니다.  핸드셰이크가 완료되면 라이브 연결로 간주되고 연결됨으로 표시됩니다. 해당 연결은 양쪽에서 소켓이 열려 있고 데이터를 앞뒤로 전달할 수 있음을 동의할 경우 실시간 상태를 유지합니다.  어느 한 쪽에서 연결을 닫으면 연결 끊김으로 표시됩니다.  따라서 성공적으로 완료된 패킷의 대역폭만 계산하며 재전송된 패킷 또는 실패한 패킷 수는 보고하지 않습니다.
 
-[Cisco의 NetFlow 프로토콜](http://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html)과 함께 [sFlow](http://www.sflow.org/) 또는 다른 소프트웨어를 사용한 경우 실시간 데이터에서 볼 통계 및 데이터는 익숙하게 느껴집니다.
+[Cisco의 NetFlow 프로토콜](https://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html)과 함께 [sFlow](http://www.sflow.org/) 또는 다른 소프트웨어를 사용한 경우 실시간 데이터에서 볼 통계 및 데이터는 익숙하게 느껴집니다.
 
 기본 제공 로그 검색 쿼리 유형 중 일부는 다음과 같습니다.
 
@@ -58,9 +58,9 @@ Wire Data는 Microsoft 종속성 에이전트에서 해당 데이터를 가져�
 
 | **연결된 원본** | **지원됨** | **설명** |
 | --- | --- | --- |
-| Windows 에이전트 | yes | Wire Data는 Windows 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br> [Windows용 Log Analytics 에이전트](../../azure-monitor/platform/agent-windows.md) 외에도 Windows 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](../../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems)를 참조하세요. |
-| Linux 에이전트 | yes | Wire Data는 Linux 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다.<br><br> [Linux용 Log Analytics 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) 외에도 Linux 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems)를 참조하세요. |
-| System Center Operations Manager 관리 그룹 | yes | Wire Data는 연결된 [System Center Operations Manager 관리 그룹](../../azure-monitor/platform/om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br> System Center Operations Manager 에이전트 컴퓨터에서 Log Analytics로의 직접 연결이 필요합니다. |
+| Windows 에이전트 | 예 | Wire Data는 Windows 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br> [Windows용 Log Analytics 에이전트](../../azure-monitor/platform/agent-windows.md) 외에도 Windows 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](../../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems)를 참조하세요. |
+| Linux 에이전트 | 예 | Wire Data는 Linux 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다.<br><br> [Linux용 Log Analytics 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) 외에도 Linux 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems)를 참조하세요. |
+| System Center Operations Manager 관리 그룹 | 예 | Wire Data는 연결된 [System Center Operations Manager 관리 그룹](../../azure-monitor/platform/om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br> System Center Operations Manager 에이전트 컴퓨터에서 Log Analytics로의 직접 연결이 필요합니다. |
 | Azure Storage 계정 | 아니요 | Wire Data는 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
 
 Windows에서 System Center Operations Manager와 Log Analytics는 MMA(Microsoft Monitoring Agent)를 사용하여 데이터를 수집하고 전송합니다. 에이전트는 컨텍스트에 따라 System Center Operations Manager 에이전트, Log Analytics 에이전트, MMA 또는 직접 에이전트라고 합니다. System Center Operations Manager와 Log Analytics는 MMA의 약간 다른 버전을 제공합니다. 이러한 버전은 각각 System Center Operations Manager, Log Analytics 또는 양쪽 모두에 보고할 수 있습니다.
@@ -398,7 +398,7 @@ Azure Portal의 사용자 Log Analytics 작업 영역에 대한 **개요** 페�
 
 ![로그 검색 예제](./media/wire-data/log-search-example02.png)
 
-**응용 프로그램 수준 프로토콜** 블레이드는 사용 중인 프로토콜을 아는 데 도움이 되므로 유용합니다. 예를 들어 네트워크 환경에서 SSH가 사용되지 않는 것을 예상할 수 있습니다. 블레이드에서 사용할 수 있는 정보 보기는 사용자의 예상을 신속하게 확인하거나 예상이 틀렸음을 증명할 수 있습니다.
+**애플리케이션 수준 프로토콜** 블레이드는 사용 중인 프로토콜을 아는 데 도움이 되므로 유용합니다. 예를 들어 네트워크 환경에서 SSH가 사용되지 않는 것을 예상할 수 있습니다. 블레이드에서 사용할 수 있는 정보 보기는 사용자의 예상을 신속하게 확인하거나 예상이 틀렸음을 증명할 수 있습니다.
 
 ![로그 검색 예제](./media/wire-data/log-search-example03.png)
 

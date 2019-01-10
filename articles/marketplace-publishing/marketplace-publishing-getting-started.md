@@ -3,7 +3,7 @@ title: 제품을 만들고 Marketplace에 배포하는 방법 개요 | Microsoft
 description: 승인된 Microsoft 개발자가 되고, 가상 머신 이미지, 템플릿, 데이터 서비스 또는 개발자 서비스를 만들어서 Azure Marketplace에 배포하는 데 필요한 단계를 이해합니다.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 5343bd26-c6e4-4589-85b7-4a2c00bba8ab
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 2c8c97d8f5477e7640df87030ed6ef27c4c7b979
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7c2f33755628d6ee4880f1965545cde019b72c5e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310082"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073836"
 ---
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Azure Marketplace에 제품 게시 및 관리
 
@@ -52,7 +53,7 @@ Azure 게시자인 사용자는 Marketplace에서 다른 개발자, ISV 및 IT �
 >[!NOTE]
 > 파트너 계정 관리자나 DX 파트너 관리자와 함께 작업하는 경우에는 Azure Certified 프로그램에 솔루션을 추천해달라고 요청하세요. 또는 [Microsoft Azure Certified](http://createopportunity.azurewebsites.net) 웹 페이지로 이동하여 애플리케이션 양식을 작성하면 됩니다. **Microsoft 스폰서 연락처** 상자에서 파트너 계정 관리자 또는 DX 파트너 관리자의 이메일을 입력합니다.
 
-[Azure Marketplace 참여 정책](https://go.microsoft.com/fwlink/?LinkID=526833)의 자격 조건을 충족하고 응용 프로그램이 승인되면 Marketplace에 솔루션을 등록하기 위한 작업을 시작합니다.
+[Azure Marketplace 참여 정책](https://go.microsoft.com/fwlink/?LinkID=526833)의 자격 조건을 충족하고 애플리케이션이 승인되면 Marketplace에 솔루션을 등록하기 위한 작업을 시작합니다.
 
 ### <a name="register-your-account-as-a-microsoft-seller"></a>Microsoft 판매자로 계정 등록
 [Microsoft 개발자 계정](marketplace-publishing-accounts-creation-registration.md)으로 Microsoft 계정을 등록합니다.

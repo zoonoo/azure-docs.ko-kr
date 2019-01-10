@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: ed18be8b875ba7cf4c465123297d8f390ac4ae7c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: b94136f063f9d4793ce4c8a03c17454df920af26
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004679"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117557"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>PowerShell을 사용하여 Application Insights에서 경고 설정
-[Application Insights](../../application-insights/app-insights-overview.md)에서 [경고](../../azure-monitor/app/alerts.md)의 구성을 자동화할 수 있습니다.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 [경고](../../azure-monitor/app/alerts.md)의 구성을 자동화할 수 있습니다.
 
 또한 [webhook를 설정하여 경고에 대한 응답을 자동화](../../azure-monitor/platform/alerts-webhooks.md)할 수 있습니다.
 

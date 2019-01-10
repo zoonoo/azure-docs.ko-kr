@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8e2b65f83395c9e8991338864d2037d0572dd269
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 676eac6853c8cead40cb702855090eac5e2ce7d8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078009"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025659"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Netezza에서 데이터 복사 
 
@@ -42,8 +41,8 @@ Azure Data Factory는 연결을 허용하는 기본 제공 드라이버를 제�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | **형식** 속성은 **Netezza**로 설정되어야 합니다. | yes |
-| connectionString | Netezza에 연결할 ODBC 연결 문자열입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | yes |
+| 형식 | **형식** 속성은 **Netezza**로 설정되어야 합니다. | 예 |
+| connectionString | Netezza에 연결할 ODBC 연결 문자열입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 선택할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |아니요 |
 
 일반적인 연결 문자열은 `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`입니다. 다음 표에서는 설정 가능한 여러 속성을 설명합니다.
@@ -84,7 +83,7 @@ Netezza에서 데이터를 복사하려면 데이터 세트의 **형식** 속성
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 형식 속성을 다음으로 설정해야 합니다. **NetezzaTable** | yes |
+| 형식 | 데이터 세트의 형식 속성을 다음으로 설정해야 합니다. **NetezzaTable** | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -115,7 +114,7 @@ Netezza에서 데이터를 복사하려면 복사 작업의 **원본** 형식을
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 **형식** 속성을 **NetezzaSource**로 설정해야 합니다. | yes |
+| 형식 | 복사 작업 원본의 **형식** 속성을 **NetezzaSource**로 설정해야 합니다. | 예 |
 | 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**

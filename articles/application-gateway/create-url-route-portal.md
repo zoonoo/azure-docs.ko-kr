@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: victorh
-ms.openlocfilehash: e106094ce94b7f232fd5687988af2bd11b971e3f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 227e09ad087f1ac06f0dbb5b731c68f7c0a6980e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001924"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159777"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Azure Portal을 사용하여 경로 기반 회람 규칙을 사용하여 애플리케이션 게이트웨이 만들기
 
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 2. **네트워킹**을 선택한 다음, 추천 목록에서 **Application Gateway**를 선택합니다.
 3. 애플리케이션 게이트웨이에 대해 다음 값을 입력합니다.
 
-    - *myAppGateway* - 응용 프로그램 게이트웨이의 이름
+    - *myAppGateway* - 애플리케이션 게이트웨이의 이름
     - *myResourceGroupAG* - 새 리소스 그룹의 이름
 
     ![새 애플리케이션 게이트웨이 만들기](./media/create-url-route-portal/application-gateway-create.png)
@@ -123,7 +123,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>가상 머신으로 백 엔드 풀 만들기
 
 1. **모든 리소스**를 클릭한 다음, **myAppGateway**를 클릭합니다.
-2. **백 엔드 풀**을 클릭합니다. 기본 풀이 애플리케이션 게이트웨이와 함께 자동으로 만들어졌습니다. **appGateayBackendPool**을 클릭합니다.
+2. **백 엔드 풀**을 클릭합니다. 기본 풀이 애플리케이션 게이트웨이와 함께 자동으로 만들어졌습니다. **appGatewayBackendPool**을 클릭합니다.
 3. **대상 추가**를 클릭하여 *myVM1*을 appGatewayBackendPool에 추가합니다.
 
     ![백 엔드 서버 추가](./media/create-url-route-portal/application-gateway-backend.png)

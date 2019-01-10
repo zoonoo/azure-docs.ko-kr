@@ -10,12 +10,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: 814c3ebec326ab1c17f4fea7f11b2bacaa6b42d9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2ae8c14b40fa13a1aa8008588fb0efb1b1d2c3f6
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997621"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159420"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Azure Portal을 사용하여 SSL 종료로 애플리케이션 게이트웨이 구성
 
@@ -148,8 +148,8 @@ Export-PfxCertificate \
 ### <a name="add-backend-servers"></a>백 엔드 서버 추가
 
 3. **모든 리소스**를 클릭한 다음, **myAppGateway**를 클릭합니다.
-4. **백 엔드 풀**을 클릭합니다. 기본 풀이 애플리케이션 게이트웨이와 함께 자동으로 만들어졌습니다. **appGateayBackendPool**을 클릭합니다.
-5. **대상 추가**를 클릭하여 생성된 각각의 가상 머신을 백 엔드 풀에 추가합니다.
+4. **백 엔드 풀**을 클릭합니다. 기본 풀이 애플리케이션 게이트웨이와 함께 자동으로 만들어졌습니다. **appGatewayBackendPool**을 클릭합니다.
+5. **대상 추가**를 클릭하여 만든 가상 머신 각각을 백 엔드 풀에 추가합니다.
 
     ![백 엔드 서버 추가](./media/create-ssl-portal/application-gateway-backend.png)
 

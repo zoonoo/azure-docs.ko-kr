@@ -1,18 +1,17 @@
 ---
 title: Azure Cosmos DB로 데이터 글로벌 배포
 description: 글로벌 분산형 다중 모델 데이터베이스 서비스인 Azure Cosmos DB에서 글로벌 데이터베이스를 사용한 전 세계적 지역 복제, 다중 마스터, 장애 조치(Failover) 및 데이터 복구에 대해 알아봅니다.
-services: cosmos-db
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
-ms.openlocfilehash: 2c217a1a89d3b573bfe2297a263bf55849b5f6e1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3599875f96c6bd79ecace1d59c3580027fab3168
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843855"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040356"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용한 글로벌 데이터 분산
 

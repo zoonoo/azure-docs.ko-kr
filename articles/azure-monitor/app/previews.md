@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7b7de745d63ca5f6ac28dee4f98b0069a52ea0a8
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: e53aa250f19c69e234a678be5e9f51a3836cb3a2
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004894"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074855"
 ---
 # <a name="preview-upcoming-changes-to-azure-application-insights"></a>Azure Application Insights에 예정된 변경 내용 미리 보기 
 
@@ -37,4 +37,4 @@ Application Insights는 자주 새로운 기능을 릴리스합니다. 이러한
 
 ## <a name="next-steps"></a>다음 단계
 
-- [리소스 그룹 만들기](../../application-insights/app-insights-create-new-resource.md)
+- [리소스 그룹 만들기](../../azure-monitor/app/create-new-resource.md )

@@ -9,17 +9,16 @@ ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a20ba54226e5cdcec242e29344110840615a0c95
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: e053fa52b7b7cea1c35b68a0f2079eb5a590a76a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317528"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021580"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리
 > [!NOTE]
@@ -32,7 +31,7 @@ ms.locfileid: "53317528"
 첫째, Data Factory 및 Batch 서비스가 클라우드에서 대용량 데이터 세트를 처리할 수 있는 방법을 살펴보겠습니다.     
 
 ## <a name="why-azure-batch"></a>Azure Batch를 사용해야 하는 이유
- 클라우드에서 Batch를 사용하여 대규모 병렬 및 HPC(고성능 컴퓨팅) 응용 프로그램을 효율적으로 실행할 수 있습니다. Batch는 계산 집약적 작업이 관리되는 VM(가상 머신) 컬렉션에서 실행되도록 예약하는 플랫폼 서비스입니다. 작업의 요구 사항을 충족하기 위해 계산 리소스의 크기를 조정할 수 있습니다.
+ 클라우드에서 Batch를 사용하여 대규모 병렬 및 HPC(고성능 컴퓨팅) 애플리케이션을 효율적으로 실행할 수 있습니다. Batch는 계산 집약적 작업이 관리되는 VM(가상 머신) 컬렉션에서 실행되도록 예약하는 플랫폼 서비스입니다. 작업의 요구 사항을 충족하기 위해 계산 리소스의 크기를 조정할 수 있습니다.
 
 Batch 서비스를 통해 애플리케이션을 병렬로 규모에 따라 실행하도록 Azure 계산 리소스를 정의합니다. 주문형 또는 예약된 작업을 실행할 수 있습니다. HPC 클러스터, 개별 VM, 가상 네트워크 또는 복잡한 작업 및 태스크 예약 인프라를 수동으로 만들거나 구성하거나 관리할 필요가 없습니다.
 
@@ -122,7 +121,7 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
    f. **확인**을 선택하여 풀을 만듭니다.
 
 #### <a name="azure-storage-explorer"></a>Azure Storage 탐색기
-[Azure Storage 탐색기 6](https://azurestorageexplorer.codeplex.com/) 또는 [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)(ClumsyLeaf Software)를 사용하여 Storage 프로젝트의 데이터를 검사하고 변경합니다. 클라우드 호스팅 응용 프로그램의 로그에 있는 데이터를 검사하고 변경할 수도 있습니다.
+[Azure Storage 탐색기 6](https://azurestorageexplorer.codeplex.com/) 또는 [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)(ClumsyLeaf Software)를 사용하여 Storage 프로젝트의 데이터를 검사하고 변경합니다. 클라우드 호스팅 애플리케이션의 로그에 있는 데이터를 검사하고 변경할 수도 있습니다.
 
 1. 개인 액세스로 **mycontainer**라는 컨테이너를 만듭니다(익명 액세스 없음).
 
@@ -936,7 +935,7 @@ Data Factory 및 Batch 기능에 대한 자세한 내용을 보려면 이 샘플
 
 1. 상위/하위 **VM당 최대 작업**을 가진 풀을 만듭니다. 만든 새 풀을 사용하려면 Data Factory 솔루션에서 Batch 연결된 서비스를 업데이트합니다. **VM당 최대 작업** 설정에 대한 자세한 내용은 “4단계: 사용자 지정 작업을 사용하여 파이프라인 만들기 및 실행”을 참조하세요.
 
-1. **자동 크기 조정** 기능이 있는 Batch 풀을 만듭니다. Batch 풀에서 자동으로 계산 노드 크기를 조정하는 것은 응용 프로그램에서 사용하는 처리 능력을 동적으로 조정하는 것입니다. 
+1. **자동 크기 조정** 기능이 있는 Batch 풀을 만듭니다. Batch 풀에서 자동으로 계산 노드 크기를 조정하는 것은 애플리케이션에서 사용하는 처리 능력을 동적으로 조정하는 것입니다. 
 
     샘플 수식은 다음과 같은 동작을 수행합니다. 풀이 처음으로 만들어질 때 하나의 VM을 시작합니다. $PendingTasks 메트릭은 실행 중이거나 큐에 대기 중인 활성 상태의 작업 수를 정의합니다. 이 수식은 지난 180초 동안에서 보류 중인 작업의 평균 수를 찾은 후 그에 따라 TargetDedicated를 설정합니다. 또한 TargetDedicated가 25개의 VM을 초과하지 않도록 합니다. 새 작업이 제출되면 풀은 자동으로 증가합니다. 작업이 완료되면 VM은 하나씩 비워지고 자동 크기 조정은 해당 VM을 축소합니다. startingNumberOfVMs 및 maxNumberofVMs을 요구에 맞게 조정할 수 있습니다.
  
