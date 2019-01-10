@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: e86e1d862644aa143046045e74ec994d42a5598e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3445974cf832b7ed594f704615482e1d9b0e351c
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050169"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159369"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack의 Managed Disks: 차이점 및 고려 사항
 
@@ -29,7 +29,7 @@ ms.locfileid: "54050169"
 Managed Disks를 관리 하 여 IaaS Vm 용 디스크 관리를 간소화 합니다 [저장소 계정](../azure-stack-manage-storage-accounts.md) 는 VM 디스크와 연결 합니다.
 
 > [!Note]  
-> Azure Stack에 managed Disks는 1808 릴리스에서 사용할 수 있습니다.
+> Azure Stack에 managed Disks는 1808 업데이트에서 사용할 수 있습니다. 1811 업데이트에서 Azure Stack 포털을 사용 하 여 가상 컴퓨터를 만들 때 기본적으로 활성화 됩니다.
   
 
 ## <a name="cheat-sheet-managed-disk-differences"></a>참고 자료: 관리 디스크 차이점
@@ -67,7 +67,7 @@ Azure Stack Managed Disks는 다음과 같은 API 버전을 지원합니다.
 
 ## <a name="known-issues"></a>알려진 문제
 
-적용 한 후 합니다 [1811 업데이트](../azure-stack-update-1811.md), Managed Disks를 사용 하 여 Vm을 배포 하는 경우 다음과 같은 문제가 발생할 수 있습니다.
+1808 후 업데이트를 적용 한 후에 Managed Disks를 사용 하 여 Vm을 배포 하는 경우 다음과 같은 문제가 발생할 수 있습니다.
 
 - Managed Disks를 사용 하 여 VM 배포 1808 업데이트 하기 전에 구독을 만든 경우 내부 오류 메시지와 함께 실패할 수 있습니다. 오류를 해결 하려면 각 구독에 대해 다음이 단계를 수행 합니다.
    1. 테 넌 트 포털에서로 이동 **구독** 구독을 찾습니다. 클릭 **리소스 공급자**, 클릭 **Microsoft.Compute**를 클릭 하 고 **re-register**합니다.

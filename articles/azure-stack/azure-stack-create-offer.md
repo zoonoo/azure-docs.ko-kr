@@ -11,25 +11,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.openlocfilehash: 4ccff997c7e9f29aafc6966730ab36dfcf72ca9f
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 079f45e37bef24ac974a0e2df7b1e81f1002cac0
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077343"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159080"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Azure Stack에서 제안 만들기
 
-[제공](azure-stack-key-features.md) 그룹 공급자를 구입 하거나 구독 하는 사용자에 게 제공 하는 하나 이상의 계획입니다. 이 문서를 포함 하는 제품을 만드는 방법을 보여 줍니다.는 [사용자가 만든 계획](azure-stack-create-plan.md)합니다. 이 제안은 구독자가 가상 컴퓨터를 설정 하는 기능을 제공 합니다.
+[제공](azure-stack-key-features.md) 공급자 사용자 구입 하거나 구독할 수 있는 사용자에 게 제공 하는 하나 이상의 계획의 그룹입니다. 이 문서에서는 포함 된 제품을 만드는 방법을 설명 합니다 [사용자가 만든 계획](azure-stack-create-plan.md)합니다. 이 제품은 구독자가 가상 컴퓨터 (Vm)를 설정 하는 기능을 제공 합니다.
 
-1. Azure Stack 관리자 포털에 로그인 (https://adminportal.local.azurestack.external) 선택한 **+ 리소스 만들기** > **테 넌 트 제공 + 계획** > **제공**.
+1. 에 로그인 합니다 [Azure Stack 관리자 포털](https://adminportal.local.azurestack.external) 선택한 **+ 리소스 만들기**, 다음 **테 넌 트 제공 + 계획**를 차례로 **제공**합니다.
 
    ![제품 만들기](media/azure-stack-create-offer/image01.png)
   
-2. 아래 **새 제품**, 입력을 **표시 이름** 및 **리소스 이름**를 선택한 후 **리소스 그룹**을 선택 **만들기 새** 나 **기존 항목 사용**합니다. 표시 이름에는 제품에 대 한 친숙 한 이름입니다. 친숙 한 이름은이 제품을 구독할 때 사용자가 표시 되는 제품에 대 한 정보만 보여 줍니다. 사용자가 제품을 사용 하 여 무엇이 이해할 수 있도록 직관적인 이름을 사용 합니다. 관리자만 리소스 이름을 볼 수 있습니다. 관리자가 Azure Resource Manager 리소스로 제품 작업을 하는 데 사용하는 이름입니다.
+2. 아래 **새 제품**, 입력을 **표시 이름** 및 **리소스 이름**를 선택한 후 **리소스 그룹**을 선택 **만들기 새** 나 **기존 항목 사용**합니다. 표시 이름에는 제품에 대 한 친숙 한 이름이입니다. 친숙 한 이름은이 제품을 구독할 때 사용자에 게 표시 하는 제품에 대 한 정보만 보여 줍니다. 사용자가 제품을 사용 하 여 무엇이 이해할 수 있도록 직관적인 이름을 사용 합니다. 관리자만 리소스 이름을 볼 수 있습니다. 관리자가 Azure Resource Manager 리소스로 제품 작업을 하는 데 사용하는 이름입니다.
 
    ![새 제품](media/azure-stack-create-offer/image01a.png)
   
@@ -37,17 +37,17 @@ ms.locfileid: "49077343"
 
    ![계획 선택](media/azure-stack-create-offer/image02.png)
   
-4. 제품을 만든 후 해당 상태를 변경할 수 있습니다. 제품을 만들어야 *공용* 사용자가 구독할 때 전체 보기를 볼 수 있습니다. 제공 될 수 있습니다.
+4. 제품을 만든 후 해당 상태를 변경할 수 있습니다. 제품을 만들어야 **공용** 사용자가 구독할 때 전체 보기를 볼 수 있습니다. 제공 될 수 있습니다.
 
    - **공용**: 사용자에 게 표시 합니다.
-   - **개인**: 클라우드 관리자에만 표시 합니다. 계획 또는 제품 초안을 작성 하는 동안이 설정은 유용 클라우드 관리자가 하려는 경우 또는 [사용자에 대 한 각 구독을 만드는](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator)합니다.
-   - **역할 해제**: 새 구독자가 접근할 수 없습니다. 클라우드 관리자를 사용 하 여 향후 구독을 차단할 수 있지만 현재 구독자가 영향을 받지 않은 역할 해제 합니다.
+   - **개인**: 클라우드 관리자에만 표시 됩니다. 계획 또는 제품 초안을 작성 하는 동안이 설정은 유용 클라우드 관리자가 하려는 경우 또는 [사용자에 대 한 각 구독을 만드는](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator)합니다.
+   - **서비스 해제**: 새로운 구독자에 게 닫힙니다. 클라우드 관리자에는 향후 구독을 차단할 수 있지만 현재 구독자가 영향을 받지 않은 문제를 서비스 해제할 수 있습니다.
 
    > [!TIP]  
-   > 제품에 변경 내용이 즉시 사용자에 게 표시 하지 않습니다. 변경 내용을 보려면, 로그 아웃 했다가 다시 로그온 사용자 포털에 새 제품을 확인 하려면 사용자가 해야 할 수 있습니다.
+   > 제품에 대 한 변경 내용을 사용자에 게 즉시 표시 되지 않습니다. 변경 내용을 보려면, 로그 아웃 했다가 다시 로그온 사용자 포털에 새 제품을 확인 하려면 사용자가 해야 할 수 있습니다.
 
-   제품에 대 한 개요를 선택 **접근성 상태**합니다. 사용 하려는 상태 선택 (예를 들어 **공개**)를 선택한 **저장**합니다.
- 
+   제품에 대 한 개요 화면에서 선택 **접근성 상태**합니다. 사용 하려는 상태 선택 (예를 들어 **공용**)를 선택한 후 **저장**합니다.
+
      ![상태 선택](media/azure-stack-create-offer/change-stage-1807.png)
 
      대신 선택 **상태 변경** 상태를 선택 합니다.
@@ -55,7 +55,7 @@ ms.locfileid: "49077343"
     ![내게 필요한 옵션 상태를 선택 합니다.](media/azure-stack-create-offer/change-stage-select-1807.png)
 
    > [!NOTE]
-   > 또한 기본 제공, 계획 및 할당량을 만들려면 PowerShell을 사용할 수 있습니다. 자세한 내용은 [Azure Stack Powershell 1.4.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0)합니다.
+   > 또한 기본 제공, 계획 및 할당량을 만들려면 PowerShell을 사용할 수 있습니다. 자세한 내용은 [Azure Stack Powershell 1.4.0](/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

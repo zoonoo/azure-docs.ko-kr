@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 1/09/2019
 ms.author: jeffgilb
 ms.reviewer: georgel
-ms.openlocfilehash: 7bcec2d17f61345986c1676d13011946a0036666
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 5cbbc3c1c2371264e3e29028d4b9d68533cc59ff
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164731"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54154949"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>SQL 리소스 공급자 1.1.30.0 릴리스 정보
 
@@ -81,7 +81,10 @@ ms.locfileid: "53164731"
     ```powershell
     [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
     ```
+- **SQL 리소스 공급자를 SQL Server Always On 수신기를 추가 하지**합니다. SQL Server Always On 수신기의 수신기 IP 주소를 사용 하는 경우 VM의 SQL 리소스 공급자에 수신기의 호스트 이름을 확인할 수 없습니다.
 
+    **해결 방법**: 수신기 IP 수신기 호스트 이름을 확인할 DNS 제대로 작동 하는지 확인 합니다.
+    
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Azure Stack을 운영 하는 클라우드 관리자에 대 한 알려진된 문제
 설명서를 참조 합니다 [Azure Stack 릴리스](azure-stack-servicing-policy.md)합니다.
 
