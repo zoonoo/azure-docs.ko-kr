@@ -3,17 +3,17 @@ title: Ansible을 사용하여 Azure 경로 테이블 만들기, 변경 또는 �
 description: Ansible을 사용하여 경로 테이블을 만들거나, 변경하거나, 삭제하는 방법을 알아봅니다.
 ms.service: ansible
 keywords: Ansible, Azure, DevOps, Bash, 플레이북, 네트워킹, 경로, 경로 테이블
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
-ms.author: yuwzho, kyliel
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/17/2018
-ms.openlocfilehash: fa050733bbfcdb8ae0f2630c4f716aeed0ebd07e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 5d7a16ebda088d0ed42021e9def20a398e914ad9
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53797133"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158129"
 ---
 # <a name="create-change-or-delete-an-azure-route-table-using-ansible"></a>Ansible을 사용하여 Azure 경로 테이블 만들기, 변경 또는 삭제
 Azure는 Azure 서브넷, 가상 네트워크 및 온-프레미스 네트워크 간에 트래픽을 자동으로 라우트합니다. Azure에서 기본 라우팅 중 하나를 변경하려면 [경로 테이블](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)을 만들어 변경합니다.

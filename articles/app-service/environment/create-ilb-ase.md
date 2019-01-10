@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b6c04c5b167eb963e9b2befa57e270ac454f5d74
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9c44e2564c26a16d632a16195d3e53b8ce83d735
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344281"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629886"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>App Service Environment에서 내부 부하 분산 장치 만들기 및 사용 #
 
@@ -78,7 +78,7 @@ ILB ASE를 만들려면
 
     * &lt;asename&gt;.p.azurewebsites.net
 
-   웹앱에 기존 DNS 이름을 매핑할 수 있는 사용자 지정 도메인 이름이라는 기능이 있습니다. 해당 기능은 [웹앱에 기존 DNS 이름 매핑][customdomain] 문서에서 자세히 알아볼 수 있습니다. 앱의 사용자 지정 도메인 이름 및 ASE에서 사용하는 도메인 이름은 겹칠 수 없습니다. _contoso.com_이라는 도메인 이름의 ILB ASE의 경우 앱에 다음과 비슷한 사용자 지정 도메인 이름을 사용할 수 없습니다.
+   [앱에 기존 DNS 이름을 매핑][customdomain]할 수 있습니다. 앱의 사용자 지정 도메인 이름 및 ASE에서 사용하는 도메인 이름은 겹칠 수 없습니다. _contoso.com_이라는 도메인 이름의 ILB ASE의 경우 앱에 다음과 비슷한 사용자 지정 도메인 이름을 사용할 수 없습니다.
 
     * www.contoso.com
 
@@ -88,7 +88,7 @@ ILB ASE를 만들려면
 
    앱의 사용자 지정 도메인 이름을 알고 있는 경우 해당 사용자 지정 도메인 이름과 충돌하지 않는 ILB ASE의 도메인을 선택합니다. 이 예제에서는 *.contoso.com*으로 끝나는 사용자 지정 도메인 이름과 충돌하지 않는 *contoso-internal.com*과 같은 이름을 ASE의 도메인에 사용할 수 있습니다.
 
-1. **확인**을 선택하고 **만들기**를 선택합니다.
+8. **확인**을 선택하고 **만들기**를 선택합니다.
 
     ![ASE 만들기][1]
 
@@ -160,23 +160,23 @@ SSL 인증서를 .pfx 파일로 변환/저장합니다. .pfx 파일에는 모든
 
 1. ASE에 ILB 주소를 가져옵니다. **ASE** > **속성** > **가상 IP 주소**를 선택합니다.
 
-1. ASE를 만든 후에 해당 ASE에서 웹앱을 만듭니다.
+2. ASE를 만든 후에 해당 ASE에서 앱을 만듭니다.
 
-1. VM이 VNet에 없는 경우 VM을 만듭니다.
+3. VM이 VNet에 없는 경우 VM을 만듭니다.
 
     > [!NOTE] 
     > 실패하거나 문제를 일으키기 때문에 이 VM를 ASE와 동일한 서브넷에 만들려고 하지 않습니다.
     >
 
-1. ASE 도메인에 DNS를 설정합니다. DNS에 있는 도메인에서 와일드 카드를 사용할 수 있습니다. 몇 가지 간단한 테스트를 수행하려면 VIP IP 주소에 웹앱 이름을 설정하도록 VM에 대한 호스트 파일을 편집합니다.
+4. ASE 도메인에 DNS를 설정합니다. DNS에 있는 도메인에서 와일드 카드를 사용할 수 있습니다. 몇 가지 간단한 테스트를 수행하려면 VIP IP 주소에 앱 이름을 설정하도록 VM에 대한 호스트 파일을 편집합니다.
 
-    a. ASE의 도메인 이름이 _.ilbase.com_이고 _mytestapp_이라는 웹앱을 만든 경우 _mytestapp.ilbase.com_으로 주소가 지정됩니다. 그런 다음 _mytestapp.ilbase.com_을 설정하여 ILB 주소로 확인할 수 있습니다. (Windows에서 호스트 파일은 _C:\Windows\System32\drivers\etc\_에 있습니다.)
+    a. ASE의 도메인 이름이 _.ilbase.com_이고 _mytestapp_이라는 앱을 만든 경우 _mytestapp.ilbase.com_으로 주소가 지정됩니다. 그런 다음 _mytestapp.ilbase.com_을 설정하여 ILB 주소로 확인할 수 있습니다. (Windows에서 호스트 파일은 _C:\Windows\System32\drivers\etc\_에 있습니다.)
 
     b. 웹 배포 게시를 테스트하거나 고급 콘솔에 액세스하려면 _mytestapp.scm.ilbase.com_의 레코드를 만듭니다.
 
-1. 해당 VM에서 브라우저를 사용하여 https://mytestapp.ilbase.com으로 이동합니다. (또는 도메인에서 웹앱 이름으로 이동합니다.)
+5. 해당 VM에서 브라우저를 사용하여 https://mytestapp.ilbase.com으로 이동합니다. (또는 도메인에서 앱 이름으로 이동합니다.)
 
-1. 해당 VM에서 브라우저를 사용하여 https://mytestapp.ilbase.com으로 이동합니다. 자체 서명된 인증서를 사용하는 경우 보안 부족에 동의합니다.
+6. 해당 VM에서 브라우저를 사용하여 https://mytestapp.ilbase.com으로 이동합니다. 자체 서명된 인증서를 사용하는 경우 보안 부족에 동의합니다.
 
     ILB의 IP 주소가 **IP 주소**에 나열됩니다. 이 목록에는 외부 VIP 및 인바운드 관리 트래픽에 사용하는 IP 주소도 있습니다.
 
@@ -217,7 +217,7 @@ ILB ASE의 앱에 대한 게시 엔드포인트에서는 ILB ASE가 만들어진
 
 Azure App Service는 시스템을 보호하는 많은 보안 조치를 제공합니다. 앱이 해킹되었는지를 확인할 수도 있습니다. 웹 애플리케이션을 보호하기 위해 WAF(웹 애플리케이션 방화벽)를 사용하여 Azure App Service와 같은 호스팅 플랫폼을 결합해야 합니다. ILB ASE에 네트워크 격리 애플리케이션 엔드포인트가 있기 때문에 사용하기에 적합합니다.
 
-WAF 디바이스를 사용하여 ILB ASE를 구성하는 방법에 대한 자세한 내용은 [App Service Environment를 사용하여 웹 응용 프로그램 방화벽 구성][ASEWAF]을 참조하세요. 이 문서에서는 ASE를 사용하여 Barracuda 가상 어플라이언스를 사용하는 방법을 보여줍니다. 다른 방법은 Azure Application Gateway를 사용하는 것입니다. Application Gateway는 이후에 배치할 모든 애플리케이션을 보호하기 위해 OWASP 핵심 규칙을 사용합니다. Application Gateway에 대한 자세한 내용은 [Azure 웹 애플리케이션 방화벽 소개][AppGW]를 참조하세요.
+WAF 장치를 사용하여 ILB ASE를 구성하는 방법에 대한 자세한 내용은 [App Service Environment를 사용하여 웹 애플리케이션 방화벽 구성][ASEWAF]을 참조하세요. 이 문서에서는 ASE를 사용하여 Barracuda 가상 어플라이언스를 사용하는 방법을 보여줍니다. 다른 방법은 Azure Application Gateway를 사용하는 것입니다. Application Gateway는 이후에 배치할 모든 애플리케이션을 보호하기 위해 OWASP 핵심 규칙을 사용합니다. Application Gateway에 대한 자세한 내용은 [Azure 웹 애플리케이션 방화벽 소개][AppGW]를 참조하세요.
 
 ## <a name="get-started"></a>시작하기 ##
 
@@ -237,7 +237,7 @@ WAF 디바이스를 사용하여 ILB ASE를 구성하는 방법에 대한 자세
 [NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
-[webapps]: ../app-service-web-overview.md
+[webapps]: ../overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/

@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: cc3a2e96222e06324500e2203d870c06d0f3e8c0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 93894f9c45ac8b2cfcec23cf6a9ccd4d8e6f6824
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140509"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121727"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 이메일 및 첨부 파일 처리 자동화
 
@@ -112,7 +112,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
    Storage 탐색기에서 스토리지 계정에 대한 연결을 묻는 메시지를 표시합니다. 
 
-2. **Azure Storage에 연결** 창에서 **저장소 계정 이름 및 키 사용**을 선택하고 **다음**을 선택합니다. 
+2. **Azure Storage에 연결** 창에서 **스토리지 계정 이름 및 키 사용**을 선택하고 **다음**을 선택합니다. 
 
    ![Storage 탐색기 - 스토리지 계정에 연결](./media/tutorial-process-email-attachments-workflow/storage-explorer-choose-storage-account.png)
 
@@ -123,9 +123,9 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
 4. 연결 정보를 확인한 다음, **연결**을 선택합니다. 
 
-   Storage 탐색기에서 연결을 만들고, 탐색기 창의 **(Local and Attached)(로컬 및 첨부)** > **저장소 계정** 아래에 저장소 계정이 표시됩니다. 
+   Storage 탐색기에서 연결을 만들고, 탐색기 창의 **(Local and Attached)(로컬 및 첨부)**>**스토리지 계정** 아래에 스토리지 계정이 표시됩니다. 
 
-5. **저장소 계정** 아래에서 Blob 저장소 컨테이너를 찾으려면 저장소 계정(여기서는 **attachmentstorageacct**), **Blob 컨테이너**(**attachments** 컨테이너가 있음)를 차례로 확장합니다. 예를 들면 다음과 같습니다. 
+5. **스토리지 계정** 아래에서 Blob 스토리지 컨테이너를 찾으려면 스토리지 계정(여기서는 **attachmentstorageacct**), **Blob 컨테이너**(**attachments** 컨테이너가 있음)를 차례로 확장합니다. 예를 들면 다음과 같습니다. 
 
    ![Storage 탐색기 - 스토리지 컨테이너 찾기](./media/tutorial-process-email-attachments-workflow/storage-explorer-check-contianer.png)
 
@@ -145,7 +145,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
    | **호스팅 계획** | 소비 계획 | 이 설정은 계산 성능처럼 함수 앱을 실행하기 위한 리소스를 할당하고 크기를 조정하는 방법을 결정합니다. [호스팅 계획 비교](../azure-functions/functions-scale.md)를 참조하세요. | 
    | **위치**: | 미국 서부 | 이전에 사용한 동일한 지역 | 
    | **Storage** | cleantextfunctionstorageacct | 함수 앱에 대한 저장소 계정을 만듭니다. 소문자와 숫자만 사용할 수 있습니다. <p>**참고:** 이 스토리지 계정은 함수 앱을 포함하며, 이메일 첨부 파일에 대해 이전에 만든 스토리지 계정과 다릅니다. | 
-   | **Application Insights** | 꺼짐 | [Application Insights](../application-insights/app-insights-overview.md)를 통해 응용 프로그램 모니터링을 사용하도록 설정하지만, 이 자습서에서는 **해제** 설정을 선택합니다. | 
+   | **Application Insights** | 꺼짐 | [Application Insights](../azure-monitor/app/app-insights-overview.md)를 통해 애플리케이션 모니터링을 사용하도록 설정하지만, 이 자습서에서는 **해제** 설정을 선택합니다. | 
    |||| 
 
    배포 후 함수 앱이 자동으로 열리지 않으면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에서 앱을 찾습니다. Azure 주 메뉴에서 **함수 앱**을 선택하고 해당 함수 앱을 선택합니다. 
@@ -274,8 +274,8 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
       | 설정 | 값 | 설명 | 
       | ------- | ----- | ----------- | 
-      | **첨부 파일 있음** | yes | 첨부 파일이 있는 이메일만 받습니다. <p>**참고:** 이 트리거는 계정에서 이메일을 제거하지 않으며, 새 메시지만 확인하고 제목 필터와 일치하는 이메일만 처리합니다. | 
-      | **첨부 파일 포함** | yes | 첨부 파일을 확인하는 데서 그치지 않고 첨부 파일을 워크플로의 입력으로 가져옵니다. | 
+      | **첨부 파일 있음** | 예 | 첨부 파일이 있는 이메일만 받습니다. <p>**참고:** 이 트리거는 계정에서 이메일을 제거하지 않으며, 새 메시지만 확인하고 제목 필터와 일치하는 이메일만 처리합니다. | 
+      | **첨부 파일 포함** | 예 | 첨부 파일을 확인하는 데서 그치지 않고 첨부 파일을 워크플로의 입력으로 가져옵니다. | 
       | **제목 필터** | ```Business Analyst 2 #423501``` | 이메일 제목에서 찾을 텍스트 | 
       |  |  |  | 
 
@@ -475,9 +475,9 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
 3. 논리 앱이 이메일을 올바른 저장소 컨테이너에 저장했는지 확인합니다. 
 
-   1. Storage 탐색기에서 **(로컬 또는 연결된)** > 
-   **저장소 계정** > **attachmentstorageacct (외부)** > 
-   **BLOB 컨테이너** > **첨부 파일**을 확장합니다.
+   1. Storage 탐색기에서 **(로컬 또는 연결된)**> 
+   **스토리지 계정**>**attachmentstorageacct (외부)**> 
+   **BLOB 컨테이너**>**첨부 파일**을 확장합니다.
 
    2. 이메일의 **첨부 파일** 컨테이너를 선택합니다. 
 
@@ -558,9 +558,9 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
 3. 논리 앱이 이메일과 첨부 파일을 올바른 저장소 컨테이너에 저장했는지 확인합니다. 
 
-   1. Storage 탐색기에서 **(로컬 또는 연결된)** > 
-   **저장소 계정** > **attachmentstorageacct (외부)** > 
-   **BLOB 컨테이너** > **첨부 파일**을 확장합니다.
+   1. Storage 탐색기에서 **(로컬 또는 연결된)**> 
+   **스토리지 계정**>**attachmentstorageacct (외부)**> 
+   **BLOB 컨테이너**>**첨부 파일**을 확장합니다.
 
    2. 이메일 및 첨부 파일용 **첨부 파일** 컨테이너를 확인합니다.
 

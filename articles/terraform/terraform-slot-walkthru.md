@@ -4,17 +4,17 @@ description: Azure 공급자 배포 슬롯에서 Terraform을 사용하는 방�
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, 가상 머신, Azure, 배포 슬롯
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 4/05/2018
-ms.openlocfilehash: a85e7c46aa41309bc031f59ed841dc8149d878b3
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1564991ecfe29b1977837c2fdff4be7b3a3e1797
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723963"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074821"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Terraform을 사용하여 Azure 배포 슬롯으로 인프라 프로비전
 

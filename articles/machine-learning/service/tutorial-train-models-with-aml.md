@@ -11,18 +11,18 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 117934c83d54cb5454f476ffb3b1a1437c0fd30b
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 5008aebfea8fc284b1b85797f0523bc4fb11c7bd
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811480"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075943"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>자습서: Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습
 
 이 자습서에서는 로컬로 및 원격 계산 리소스에 대해 Machine Learning 모델을 학습합니다. Python Jupyter Notebook에서 Azure Machine Learning Service에 대한 학습 및 배포 워크플로를 사용합니다. 그런 다음, 이 노트를 템플릿으로 사용하여 자신의 데이터로 고유한 Machine Learning 모델을 학습할 수 있습니다. 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부**입니다.  
 
-이 자습서에서는 Azure Machine Learning Service에서 [MNIST](https://yann.lecun.com/exdb/mnist/) 데이터 세트 및 [scikit-learn](https://scikit-learn.org)을 사용하여 간단한 로지스틱 회귀를 학습합니다. MNIST는 70,000개의 회색조 이미지로 구성된 인기 있는 데이터 세트입니다. 각 이미지는 0-9의 숫자를 나타내는 28x28 픽셀의 필기체 숫자입니다. 목표는 지정된 이미지가 나타내는 숫자를 식별하는 다중 클래스 분류자를 만드는 것입니다. 
+이 자습서에서는 Azure Machine Learning Service에서 [MNIST](http://yann.lecun.com/exdb/mnist/) 데이터 세트 및 [scikit-learn](https://scikit-learn.org)을 사용하여 간단한 로지스틱 회귀를 학습합니다. MNIST는 70,000개의 회색조 이미지로 구성된 인기 있는 데이터 세트입니다. 각 이미지는 0-9의 숫자를 나타내는 28x28 픽셀의 필기체 숫자입니다. 목표는 지정된 이미지가 나타내는 숫자를 식별하는 다중 클래스 분류자를 만드는 것입니다. 
 
 다음 작업을 수행하는 방법에 대해 알아봅니다.
 
@@ -322,7 +322,7 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 + 학습 스크립트에서 인수를 읽어 데이터가 있는 디렉터리를 찾습니다. 나중에 작업을 제출할 때 이 인수에 대한 데이터 저장소를 가리킵니다(`parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`).
 
 + 학습 스크립트에서 **outputs**라는 디렉터리에 모델을 <br/>
-저장합니다(`joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`).<br/>
+`joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`.<br/>
 이 디렉터리에 작성된 모든 내용은 작업 영역으로 자동 업로드됩니다. 자습서의 뒷부분에서는 이 디렉터리의 모델에 액세스합니다.
 `utils.py` 파일은 데이터 세트를 올바르게 로드하기 위해 학습 스크립트에서 참조됩니다. 이 스크립트를 스크립트 폴더에 복사합니다. 그러면 원격 리소스의 학습 스크립트와 함께 액세스할 수 있습니다.
 

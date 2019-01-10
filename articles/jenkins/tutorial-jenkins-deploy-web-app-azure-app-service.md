@@ -3,17 +3,17 @@ title: 자습서 - Jenkins를 사용하여 GitHub에서 Azure App Service로 배
 description: GitHub에서의 CI(지속적인 통합) 및 Java 웹앱용 Azure App Service로의 CD(연속 배포)를 위해 Jenkins 설정
 services: jenkins
 ms.service: jenkins
-author: tomarcher
+author: tomarchermsft
 ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: b65972b79fd16b912abfbd2e35642ef5d9f5adc4
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 786fc427e4cb631c4aedd0f795daebebd9fb15bc
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438475"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077439"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>자습서: Jenkins 연속 통합 및 배포를 사용하여 GitHub에서 Azure App Service로 배포
 

@@ -1,20 +1,18 @@
 ---
 title: SQL API의 Azure Cosmos DB 글로벌 배포 자습서
 description: SQL API를 사용하여 Azure Cosmos DB 전역 배포를 설정하는 방법에 대해 알아봅니다.
-services: cosmos-db
-keywords: 전역 배포
-author: rafats
+author: rimman
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: rafats
-ms.custom: mvc
-ms.openlocfilehash: 8bef38aca9c14dbddb30b57871267490bc03e00f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.author: rimman
+ms.reviewer: sngun
+ms.openlocfilehash: 19e0dd8a60155272f2e338c760db409d20a9f755
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863485"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157244"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>SQL API를 사용하여 Azure Cosmos DB 전역 배포 설정
 
@@ -42,7 +40,7 @@ SDK는 현재 쓰기 지역에 모든 쓰기를 자동 전송합니다.
 
 SDK는 PreferredLocations에 지정된 지역에서만 읽기를 시도합니다. 따라서 가령 데이터베이스 계정이 4개 지역에서 사용될 수 있지만 클라이언트는 PreferredLocations에 두 읽기(쓰기 아님) 지역만 지정했다면, PreferredLocations에 지정되지 않은 읽기 지역에서 읽기를 제공하지 않습니다. PreferredLocations에 지정된 읽기 영역을 사용할 수 없는 경우 읽기는 쓰기 영역 외부로 처리됩니다.
 
-애플리케이션은 두 가지 속성(WirteEndpoint 및 ReadEndpoint)을 확인하여 SDK가 선택한 현재의 쓰기 엔드포인트와 읽기 엔드포인트를 확인할 수 있습니다. SDK 버전 1.8 이상부터 사용 가능합니다.
+응용 프로그램은 두 가지 속성(WirteEndpoint 및 ReadEndpoint)을 확인하여 SDK가 선택한 현재의 쓰기 엔드포인트와 읽기 엔드포인트를 확인할 수 있습니다. SDK 버전 1.8 이상부터 사용 가능합니다.
 
 PreferredLocations 속성이 설정되지 않는다면 모든 요청은 현재 쓰기 지역에서 제공됩니다.
 
@@ -94,7 +92,7 @@ SDK는 코드 변경 없이 사용할 수 있습니다. 이 경우 SDK는 읽기
 
 다음은 NodeJS/Javascript의 코드 예제입니다. Python과 Java도 같은 패턴을 따릅니다.
 
-```java
+```JavaScript
 // Creating a ConnectionPolicy object
 var connectionPolicy = new DocumentBase.ConnectionPolicy();
 
