@@ -1,21 +1,19 @@
 ---
 title: 'NoSQL 자습서: Azure Cosmos DB Java SDK용 SQL API'
 description: Azure Cosmos DB용 SQL API를 사용하여 온라인 데이터베이스 및 Java 콘솔 애플리케이션을 만드는 NoSQL 자습서입니다. Azure SQL은 JSON의 NoSQL 데이터베이스입니다.
-keywords: NoSQL 자습서, 온라인 데이터베이스, Java 콘솔 애플리케이션
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 0bab289fedbbceb2d5cb763bd0f55e455bb60a29
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4b03fc3721d7a2be1e2099bf4878f6abb50e6b76
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093027"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044045"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL 자습서: SQL API Java 콘솔 애플리케이션 빌드
 
@@ -29,7 +27,7 @@ ms.locfileid: "53093027"
 > * [Node.JS](sql-api-nodejs-get-started.md)
 > 
 
-Azure Cosmos DB Java SDK용 SQL API에 대한 NoSQL 자습서를 시작합니다. 이 자습서를 따라 하면 Azure Cosmos DB 리소스를 만들고 쿼리하는 콘솔 애플리케이션이 생깁니다.
+Azure Cosmos DB Java SDK용 SQL API에 대한 NoSQL 자습서를 시작합니다. 이 자습서를 따라 하면 Azure Cosmos DB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다.
 
 다음 항목에 대해서 다룹니다.
 
@@ -138,7 +136,7 @@ Azure Portal에서 Azure Cosmos DB 계정으로 이동한 다음 **키**를 클�
 
     this.client.createDocument("/dbs/familydb/colls/familycoll", family, new RequestOptions(), true);
 
-![NoSQL에서 Java 콘솔 응용 프로그램을 만들기 위해 사용한 계정, 데이터베이스, 컬렉션 및 문서 간의 계층 관계를 보여 주는 다이어그램](./media/sql-api-get-started/nosql-tutorial-account-database.png)
+![NoSQL에서 Java 콘솔 애플리케이션을 만들기 위해 사용한 계정, 데이터베이스, 컬렉션 및 문서 간의 계층 관계를 보여주는 다이어그램](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
 ## <a id="Query"></a>7단계: Azure Cosmos DB 리소스 쿼리
 Azure Cosmos DB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 쿼리](how-to-sql-query.md)를 지원합니다.  다음 샘플 코드에서는 [queryDocuments](/java/api/com.microsoft.azure.documentdb._document_client.querydocuments) 메서드와 함께 SQL 구문을 사용하여 Azure Cosmos DB의 문서를 쿼리하는 방법을 보여 줍니다.
@@ -186,7 +184,7 @@ Azure Cosmos DB는 [replaceDocument](/java/api/com.microsoft.azure.documentdb._d
 축하합니다! 이 NoSQL 자습서를 완료했으며 실행되는 Java 콘솔 애플리케이션이 생겼습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* Java 웹앱 자습서가 필요한가요? [Azure Cosmos DB를 사용하여 Java로 웹 응용 프로그램 빌드](sql-api-java-application.md)를 참조하세요.
+* Java 웹앱 자습서가 필요한가요? [Azure Cosmos DB를 사용하여 Java로 웹 애플리케이션 빌드](sql-api-java-application.md)를 참조하세요.
 * [Azure Cosmos DB 계정 모니터링](monitor-accounts.md) 방법에 대해 알아보세요.
 * [쿼리 실습](https://www.documentdb.com/sql/demo)의 샘플 데이터 집합에 대해 쿼리를 실행합니다.
 

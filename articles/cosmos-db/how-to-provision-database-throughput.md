@@ -1,18 +1,17 @@
 ---
 title: Azure Cosmos DB에서 데이터베이스 처리량 프로비전
 description: Azure Cosmos DB의 데이터베이스 수준에서 처리량을 프로비전하는 방법 알아보기
-services: cosmos-db
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 4eba0381eb302ca4400fb5669b486fb3ad337993
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7c253141e0e6e76f845d08e68a1d79949fe811e8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262525"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034236"
 ---
 # <a name="provision-throughput-for-a-database-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터베이스에 대한 처리량 프로비전
 

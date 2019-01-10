@@ -12,20 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/21/2018
+ms.date: 01/04/2018
 ms.author: b-juche
-ms.openlocfilehash: ff28429ba81a97ca85364364a2a432e39aaad380
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 0a5483cd5a6316cb5d6cba3a110ca757eb2171c8
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53414292"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103998"
 ---
 # <a name="register-for-azure-netapp-files"></a>Azure NetApp Files에 등록
 NetApp Azure Files를 사용하기 전에 요청을 제출하여 Azure NetApp Files 서비스에 등록해야 합니다.  등록 후에 서비스를 사용하도록 등록합니다.
 
 ## <a name="request-to-enroll-in-the-service"></a>서비스에서 등록 요청
-사용자가 공개 미리 보기 프로그램에 속해 있고 Microsoft.NetApp Azure 리소스 공급자에 액세스하는 허용 목록에 지정되어야 합니다. 공개 미리 보기 프로그램에 참여하는 방법에 대한 자세한 내용은 [Azure NetApp Files 공개 미리 보기 등록 페이지](http://aka.ms/anfsignup)를 참조하세요. 
+사용자가 공개 미리 보기 프로그램에 속해 있고 Microsoft.NetApp Azure 리소스 공급자에 액세스하는 허용 목록에 지정되어야 합니다. 공개 미리 보기 프로그램에 참여하는 방법에 대한 자세한 내용은 [Azure NetApp Files 공개 미리 보기 등록 페이지](https://aka.ms/nfspublicpreview)를 참조하세요. 
 
 
 ## <a name="register-the-netapp-resource-provider"></a>NetApp 리소스 공급자 등록
