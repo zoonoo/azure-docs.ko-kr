@@ -4,17 +4,17 @@ description: Terraform을 사용하여 Packer에서 생성한 사용자 지정 �
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, 확장 집합, 가상 머신, 네트워크, 저장소, 모듈, 사용자 지정 이미지, packer
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/29/2017
-ms.openlocfilehash: 9e999ba8a36edd990bbab4648d9d4d98e3301153
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 12c6ebc9b29c356ad169dbd921e71c7aa0c273b7
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668634"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077507"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Terraform을 사용하여 Packer 사용자 지정 이미지에서 Azure 가상 머신 확장 집합 만들기
 

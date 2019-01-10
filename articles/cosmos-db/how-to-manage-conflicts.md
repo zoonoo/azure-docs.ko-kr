@@ -1,18 +1,17 @@
 ---
 title: Azure Cosmos DB의 Azure 지역 간 충돌을 관리하는 방법 알아보기
 description: Azure Cosmos DB의 충돌을 관리하는 방법 알아보기
-services: cosmos-db
 author: christopheranderson
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 6b44e08fc1dce489e703bea1cbef2a7e94ae0f2a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1f06b27868547dd448e3da547dd61b861db913d2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961044"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034780"
 ---
 # <a name="manage-conflicts-between-regions"></a>Azure 지역 간 충돌 관리
 
@@ -83,9 +82,9 @@ manual_collection = {
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
-## <a name="create-a-custom-conflict-resolution-policy-with-stored-procedure"></a>저장 프로시저가 포함된 사용자 지정 충돌 해결 정책 만들기
+## <a name="create-a-custom-conflict-resolution-policy-with-a-stored-procedure"></a>저장 프로시저가 포함된 사용자 지정 충돌 해결 정책 만들기
 
-다음 샘플은 저장 프로시저가 포함된 사용자 지정 충돌 해결 정책을 사용하여 충돌을 해결하는 컨테이너 설정 방법을 보여줍니다. 이러한 충돌은 저장 프로시저에 오류가 없는 한, 충돌 피드에 표시되지 **않습니다**.
+다음 샘플은 저장 프로시저가 포함된 사용자 지정 충돌 해결 정책을 사용하여 충돌을 해결하는 컨테이너 설정 방법을 보여줍니다. 저장 프로시저에 오류가 없으면 이러한 충돌이 충돌 피드에 표시되지 않습니다.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
 
@@ -102,7 +101,7 @@ DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIf
   });
 ```
 
-컨테이너를 만든 후 `resolver` 저장 프로시저를 만들어야 합니다.
+컨테이너가 만들어지면 `resolver` 저장 프로시저를 만들어야 합니다.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>Java 비동기 SDK
 
@@ -114,7 +113,7 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-컨테이너를 만든 후 `resolver` 저장 프로시저를 만들어야 합니다.
+컨테이너가 만들어지면 `resolver` 저장 프로시저를 만들어야 합니다.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-sync"></a>Java 동기 SDK
 
@@ -127,7 +126,7 @@ udpCollection.setConflictResolutionPolicy(udpPolicy);
 DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, udpCollection);
 ```
 
-컨테이너를 만든 후 `resolver` 저장 프로시저를 만들어야 합니다.
+컨테이너가 만들어지면 `resolver` 저장 프로시저를 만들어야 합니다.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
@@ -146,7 +145,7 @@ const { container: udpContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-컨테이너를 만든 후 `resolver` 저장 프로시저를 만들어야 합니다.
+컨테이너가 만들어지면 `resolver` 저장 프로시저를 만들어야 합니다.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>Python SDK
 
@@ -154,11 +153,11 @@ const { container: udpContainer } = await database.containers.createIfNotExists(
 
 ```
 
-컨테이너를 만든 후 `resolver` 저장 프로시저를 만들어야 합니다.
+컨테이너가 만들어지면 `resolver` 저장 프로시저를 만들어야 합니다.
 
-## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>마지막 기록자 우선 충돌 해결 정책 만들기
+## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>최종 작성자 인정(last-writer-wins) 충돌 해결 정책 만들기
 
-다음 샘플은 마지막 기록자 우선 충돌 해결 정책을 사용하여 컨테이너를 설정하는 방법을 보여줍니다. 경로가 설정되지 않거나 유효하지 않은 경우 기본값인 `_ts` 속성(타임스탬프 필드)으로 지정됩니다. 이러한 충돌은 충돌 피드에 표시되지 **않습니다**.
+다음 샘플에서는 최종 작성자 인정 충돌 해결 정책을 사용하여 컨테이너를 설정하는 방법을 보여 줍니다. 경로가 설정되어 있지 않거나 유효하지 않은 경우 기본적으로 `_ts` 속성으로 지정됩니다. 이 속성은 타임스탬프 필드 입니다. 이러한 충돌은 충돌 피드에 표시되지 않습니다.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
 
@@ -210,7 +209,7 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-`conflictResolutionPath` 속성을 생략하면 기본값인 `_ts` 속성으로 지정됩니다.
+`conflictResolutionPath` 속성을 생략하면 기본적으로 `_ts` 속성으로 지정됩니다.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-python"></a>Python SDK
 
@@ -227,7 +226,7 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 ## <a name="read-from-conflict-feed"></a>충돌 피드에서 읽기
 
-다음 샘플은 컨테이너의 충돌 피드에서 읽는 방법을 보여줍니다. 충돌이 자동으로 해결되지 않는 경우에만 충돌 피드에 충돌이 표시됩니다.
+다음 샘플은 컨테이너의 충돌 피드에서 읽는 방법을 보여줍니다. 충돌이 자동으로 해결되지 않은 경우에만 해당 충돌이 충돌 피드에 표시됩니다.
 
 ### <a id="read-from-conflict-feed-dotnet"></a>.NET SDK
 
@@ -277,8 +276,8 @@ while conflict:
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 다음 Cosmos DB 개념 학습으로 넘어가셔도 좋습니다.
+다음 Azure Cosmos DB 개념에 대해 자세히 알아봅니다.
 
 * [분할 및 데이터 배포](partition-data.md)
-* [Cosmos DB의 인덱싱](indexing-policies.md)
+* [Azure Cosmos DB의 인덱싱](indexing-policies.md)
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: be44a233c2b09aa91ec04b5a64b523a2d0b00db1
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bd872e7aa9ada8c46b0af897b4d7ad137b767514
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599862"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103794"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>자습서: Azure SignalR Service 인증
 
@@ -547,7 +547,7 @@ az webapp deployment source config-local-git --name $WebAppName \
 
 수행해야 하는 마지막 작업은 GitHub OAuth 앱의 **홈페이지 URL** 및 **권한 부여 콜백 URL**이 새로 호스트된 앱을 가리키도록 업데이트하는 것입니다.
 
-1. 브라우저에서 [http://github.com](http://github.com)을 열고 계정의 **설정** > **개발자 설정** > **Oauth 앱**으로 이동합니다.
+1. 브라우저에서 [https://github.com](https://github.com)을 열고 계정의 **설정** > **개발자 설정** > **Oauth 앱**으로 이동합니다.
 
 2. 인증 앱을 클릭하고 아래와 같이 **홈페이지 URL** 및 **권한 부여 콜백 URL**을 업데이트합니다.
 
