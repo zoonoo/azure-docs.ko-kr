@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 12/12/2018
+ms.date: 1/8/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 856d702bcf1f566d0cc455cdd2676e6c2e23d179
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 203168f27e06d58c192bc5009db077461738011a
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53326475"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54122788"
 ---
 데이터 팩터리는 각각 다른 작업 부하에서 고객 구독이 보호되도록 하기 위해 다음 기본 제한을 적용한 다중 테넌트 서비스입니다. 지원에 문의하여 최대 한도까지 구독에 대한 제한 수를 늘릴 수 있습니다.
 
@@ -23,7 +23,7 @@ ms.locfileid: "53326475"
 | -------- | ------------- | ------------- |
 | Azure 구독의 데이터 팩터리 | 50 | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 데이터 팩터리 내 총 엔터티(파이프라인, 데이터 세트, 트리거, 연결된 서비스, 통합 런타임) 수 | 5,000 | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| 하나의 구독에 대한 Azure-SSIS Integration Runtime의 총 CPU 코어 | 128 | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| 하나의 구독에 대한 Azure-SSIS Integration Runtime의 총 CPU 코어 | 256 | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 데이터 팩터리당 동시 파이프라인 실행(팩터리의 모든 파이프라인에서 공유됨) | 10000  | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 파이프라인당 최대 활동 수(컨테이너에 대한 내부 활동 포함) | 40 | 40 |
 | 파이프라인당 최대 매개 변수 수 | 50 | 50 |

@@ -9,12 +9,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aa71d171bbb2125a61cc6fec6b07639a5c340796
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 885f4da5ec9b360605a3e46ee8be8d338a638ede
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004719"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102672"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Python(미리 보기)에서 분산 추적 수집
 
@@ -204,4 +204,4 @@ Python용 OpenCensus를 로컬 전달자 및 Application Insights에 연결하�
 
 * [OpenCensus Python 사용 가이드](https://opencensus.io/api/python/trace/usage.html)
 * [애플리케이션 맵](./../../azure-monitor/app/app-map.md)
-* [종단 간 성능 모니터링](./../../application-insights/app-insights-tutorial-performance.md)
+* [종단 간 성능 모니터링](./../../azure-monitor/learn/tutorial-performance.md)

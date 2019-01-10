@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 83bf45c93648ca768243a2208f6a91cc9011a919
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 1b0c991c09d1235215dc9b930c529a219d492a8c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002521"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117080"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Application Insights 포털에서 탐색 및 대시보드
-[프로젝트에서 Application Insights를 설정](../../application-insights/app-insights-overview.md)하면 앱의 성능 및 사용에 대한 원격 분석 데이터가 [Azure Portal](https://portal.azure.com)에서 프로젝트의 Application Insights 리소스에 나타납니다.
+[프로젝트에서 Application Insights를 설정](../../azure-monitor/app/app-insights-overview.md)하면 앱의 성능 및 사용에 대한 원격 분석 데이터가 [Azure Portal](https://portal.azure.com)에서 프로젝트의 Application Insights 리소스에 나타납니다.
 
 ## <a name="find-your-telemetry"></a>원격 분석 찾기
 [Azure Portal](https://portal.azure.com)에 로그인하고 앱에 대해 만든 Application Insights 리소스를 찾습니다.
@@ -34,7 +34,7 @@ ms.locfileid: "54002521"
 차트 및 표를 사용자 지정하고 이를 대시보드에 고정할 수 있습니다. 이런 방식으로 중앙 대시보드에 있는 여러 다른 앱의 주요 원격 분석을 함께 불러올 수 있습니다.
 
 ## <a name="dashboards"></a>대시보드
-[Microsoft Azure 포털](https://portal.azure.com) 에 로그인한 후 가장 먼저 표시되는 것이 대시보드입니다. [Azure Application Insights](../../application-insights/app-insights-overview.md)의 원격 분석을 포함하여, 모든 Azure 리소스에서 가장 중요한 차트를 이곳에 한데 모을 수 있습니다.
+[Microsoft Azure 포털](https://portal.azure.com) 에 로그인한 후 가장 먼저 표시되는 것이 대시보드입니다. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)의 원격 분석을 포함하여, 모든 Azure 리소스에서 가장 중요한 차트를 이곳에 한데 모을 수 있습니다.
 
 ![사용자 지정 대시보드입니다.](./media/app-insights-dashboards/31.png)
 
@@ -96,7 +96,7 @@ ms.locfileid: "54002521"
 
 ![대시보드 헤더에서 공유를 클릭합니다.](./media/app-insights-dashboards/41.png)
 
-[역할 및 액세스 제어](../../application-insights/app-insights-resources-roles-access-control.md)에 대해 알아보세요.
+[역할 및 액세스 제어](../../azure-monitor/app/resources-roles-access-control.md)에 대해 알아보세요.
 
 ## <a name="create-dashboards-programmatically"></a>대시보드를 프로그래밍 방식으로 만들기
 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) 및 간단한 JSON 편집기를 사용하여 대시보드 생성을 자동화할 수 있습니다.
@@ -113,28 +113,28 @@ ms.locfileid: "54002521"
 * [**검색**](../../azure-monitor/app/diagnostic-search.md) - 요청, 예외 또는 로그 추적과 같은 이벤트의 특정 인스턴스를 조사할 수 있습니다.
 * [**분석**](../../azure-monitor/app/analytics.md) - 원격 분석을 통해 강력한 쿼리를 합니다.
 * **시간 범위** - 블레이드의 모든 차트에서 표시되는 범위를 조정합니다.
-* **삭제** - 앱에 대한 Application Insights 리소스를 삭제합니다. 또한 앱 코드에서 Application Insights 패키지를 제거하거나 앱에서 [계측 키](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key)를 편집하여 다른 Application Insights 리소스에 원격 분석을 지시합니다.
+* **삭제** - 앱에 대한 Application Insights 리소스를 삭제합니다. 또한 앱 코드에서 Application Insights 패키지를 제거하거나 앱에서 [계측 키](../../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key)를 편집하여 다른 Application Insights 리소스에 원격 분석을 지시합니다.
 
 ### <a name="essentials-tab"></a>Essentials 탭
-* [계측 키](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) - 이 앱 리소스를 식별합니다.
+* [계측 키](../../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) - 이 앱 리소스를 식별합니다.
 
 ### <a name="app-navigation-bar"></a>앱 탐색 모음
 ![왼쪽 탐색 모음](./media/app-insights-dashboards/app-left-nav-bar.png)
 
 * **개요** - 앱 개요 블레이드로 돌아갑니다.
 * **활동 로그** - 경고 및 Azure 관리 이벤트입니다.
-* [**액세스 제어**](../../application-insights/app-insights-resources-roles-access-control.md) - 팀 멤버 및 다른 사용자에 대한 액세스를 제공합니다.
+* [**액세스 제어**](../../azure-monitor/app/resources-roles-access-control.md) - 팀 멤버 및 다른 사용자에 대한 액세스를 제공합니다.
 * [**태그**](../../azure-resource-manager/resource-group-using-tags.md) - 태그를 사용하여 다른 사용자와 앱을 그룹화합니다.
 
 조사
 
 * [**애플리케이션 맵**](app-map.md) - 종속성 정보에서 파생된 애플리케이션의 구성 요소를 표시하는 활성 맵입니다.
-* [**스마트 감지**](../../application-insights/app-insights-proactive-diagnostics.md) - 최근 성능 경고를 검토합니다.
+* [**스마트 감지**](../../azure-monitor/app/proactive-diagnostics.md) - 최근 성능 경고를 검토합니다.
 * [**라이브 스트림**](../../azure-monitor/app/live-stream.md) - 거의 즉각적인 고정된 메트릭 집합을 제공하며, 새 빌드를 배포 또는 디버깅할 때 유용합니다.
 * [**가용성/웹 테스트**](../../azure-monitor/app/monitor-web-app-availability.md) - 전세계에서 웹앱에 일반 요청을 전송합니다.*
-* [**오류, 성능**](../../application-insights/app-insights-web-monitor-performance.md) - 사용자의 앱에 대한 요청 및 사용자 앱의 [종속성](../../azure-monitor/app/asp-net-dependencies.md)에 대한 요청의 예외, 실패율 및 응답 시간입니다.
-* [**성능**](../../application-insights/app-insights-web-monitor-performance.md) - 응답 시간, 종속성 응답 시간입니다.
-* [서버](../../application-insights/app-insights-web-monitor-performance.md) - 성능 카운터입니다. [상태 모니터를 설치하면](../../azure-monitor/app/monitor-performance-live-website-now.md)사용할 수 있습니다.
+* [**오류, 성능**](../../azure-monitor/app/web-monitor-performance.md) - 사용자의 앱에 대한 요청 및 사용자 앱의 [종속성](../../azure-monitor/app/asp-net-dependencies.md)에 대한 요청의 예외, 실패율 및 응답 시간입니다.
+* [**성능**](../../azure-monitor/app/web-monitor-performance.md) - 응답 시간, 종속성 응답 시간입니다.
+* [서버](../../azure-monitor/app/web-monitor-performance.md) - 성능 카운터입니다. [상태 모니터를 설치하면](../../azure-monitor/app/monitor-performance-live-website-now.md)사용할 수 있습니다.
 * **브라우저** - 페이지 뷰 및 AJAX 성능입니다. [웹 페이지를 계측할 때](../../azure-monitor/app/javascript.md)사용할 수 있습니다.
 * **사용** - 페이지 조회수, 사용자 및 세션 수입니다. [웹 페이지를 계측할 때](../../azure-monitor/app/javascript.md)사용할 수 있습니다.
 
@@ -145,7 +145,7 @@ ms.locfileid: "54002521"
 * [경고](../../azure-monitor/app/alerts.md) -메트릭 경고 구성입니다.
 * [연속 내보내기](../../azure-monitor/app/export-telemetry.md) - Azure Storage에 대한 원격 분석 내보내기를 구성합니다.
 * [성능 테스트](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests) -웹 사이트에 대한 종합 부하를 설정 합니다.
-* [할당량 및 가격 책정](../../azure-monitor/app/pricing.md)과 [수집 샘플링](../../application-insights/app-insights-sampling.md)입니다.
+* [할당량 및 가격 책정](../../azure-monitor/app/pricing.md)과 [수집 샘플링](../../azure-monitor/app/sampling.md)입니다.
 * **API 액세스** - [릴리스 주석](annotations.md)을 작성하고 데이터 액세스 API에 사용됩니다.
 * [**작업 항목**](../../azure-monitor/app/diagnostic-search.md#create-work-item) - 작업 추적 시스템과 연결하여 원격 분석을 검사하는 동안 버그를 만들 수 있습니다.
 

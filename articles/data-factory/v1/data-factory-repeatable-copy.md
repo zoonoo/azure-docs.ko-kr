@@ -9,17 +9,16 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8b1d1cf62dad94ca6141ce33783c0b16b50c931c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 450e6a180b104d8f384fd08cc7c4cafcd53b4453
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622638"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021342"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Azure Data Factory에서 반복 가능한 복사
 
@@ -29,7 +28,7 @@ ms.locfileid: "34622638"
 > [!NOTE]
 > 다음 예제는 Azure SQL에 대한 것이지만, 직사각 데이터 세트를 지원하는 모든 데이터 저장소에 적용할 수 있습니다. 데이터 저장소에 대해 소스의 **type** 및 **query** 속성(예: sqlReaderQuery 대신 query)을 조정해야 할 수도 있습니다.   
 
-일반적으로 관계형 저장소에서 읽어올 때는 해당 조각에 대한 데이터만 읽고자 할 것입니다. 이것은 Azure Data Factory에서 제공하는 WindowStart 및 WindowEnd 시스템 변수를 사용하면 됩니다. [Azure Data Factory - 함수 및 시스템 변수](data-factory-functions-variables.md) 문서에서 Azure Data Factory의 변수 및 함수 부분을 읽어보세요. 예: 
+일반적으로 관계형 저장소에서 읽어올 때는 해당 조각에 대한 데이터만 읽고자 할 것입니다. 이것은 Azure Data Factory에서 제공하는 WindowStart 및 WindowEnd 시스템 변수를 사용하면 됩니다. [Azure Data Factory - 함수 및 시스템 변수](data-factory-functions-variables.md) 문서에서 Azure Data Factory의 변수 및 함수 부분을 읽어보세요. 예제: 
 
 ```json
 "source": {

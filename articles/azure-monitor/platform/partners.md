@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 95e4140125f064d4e279c90f60b390c4762e8cf8
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6ed8bae2e1571722f7a9a0030a48e64c4f7fbc60
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580215"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106667"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 | 파트너 |  |  |
@@ -34,7 +34,7 @@ Alert Logic Log Manager는 보안 분석 및 보존을 위해 VM, 애플리케�
 [설명서로 이동합니다.][alertlogic-doc]
 
 ## <a name="appdynamics"></a>AppDynamics
-AppDynamics APM(Application Performance Management)을 사용하면 애플리케이션 소유자가 성능 병목 문제를 신속히 해결하고 Azure 환경에서 실행되는 애플리케이션의 성능을 최적화할 수 있습니다. Azure Cloud Services(PaaS), Virtual Machines(IaaS), 원격 서비스 탐지(Microsoft Azure Service Bus), Microsoft Azure Queue Microsoft Azure Remote Services(Azure Blob), Azure Queue(Microsoft Service Bus), 데이터 저장소, Microsoft Azure Blob Storage 모니터링에 사용할 수 있습니다. 이제 Azure Marketplace에서 AppDynamics APM을 사용할 수 있습니다.
+AppDynamics APM(Application Performance Management)을 사용하면 애플리케이션 소유자가 성능 병목 문제를 신속히 해결하고 Azure 환경에서 실행되는 애플리케이션의 성능을 최적화할 수 있습니다. Azure Cloud Services(PaaS), Virtual Machines(IaaS), 원격 서비스 탐지(Microsoft Azure Service Bus), Microsoft Azure Queue Microsoft Azure Remote Services(Azure Blob), Azure Queue(Microsoft Service Bus), 데이터 스토리지, Microsoft Azure Blob Storage 모니터링에 사용할 수 있습니다. 이제 Azure Marketplace에서 AppDynamics APM을 사용할 수 있습니다.
 
 [설명서로 이동합니다.][appdynamics-doc]
 
@@ -126,7 +126,7 @@ OpsGenie는 Azure가 생성한 경고의 디스패처 역할을 합니다. OpsGe
 [설명서로 이동합니다.][pagerduty-doc]
 
 ## <a name="qradar"></a>QRadar
-Microsoft Azure DSM 및 Microsoft Azure 이벤트 허브 프로토콜은 [IBM 지원 웹 사이트](http://www.ibm.com/support)에서 다운로드할 수 있습니다. [Azure와의 통합에 대해 여기서 자세히 알아볼 수 있습니다][qradar-doc].
+Microsoft Azure DSM 및 Microsoft Azure 이벤트 허브 프로토콜은 [IBM 지원 웹 사이트](https://www.ibm.com/support)에서 다운로드할 수 있습니다. [Azure와의 통합에 대해 여기서 자세히 알아볼 수 있습니다][qradar-doc].
 
 ## <a name="sciencelogic"></a>ScienceLogic
 ScienceLogic은 어디서든지 모든 기술을 관리하는 차세대 IT 서비스 보증 플랫폼을 제공합니다. ScienceLogic은 IT 리소스, 서비스 및 애플리케이션을 관리하는 작업의 간소화에 필요한 규모, 보안, 자동화 및 복원력을 제공합니다. ScienceLogic 플랫폼은 Azure API를 사용하여 Microsoft Azure와 상호 작용합니다. ScienceLogic은 Azure 서비스 및 리소스에 대한 실시간 가시성을 제공합니다. 따라서 더 신속하게 잘못된 것을 파악하고 해결할 수 있습니다. 또한 다른 클라우드 및 데이터 센터 시스템과 서비스와 함께 Azure를 관리할 수 있습니다.
@@ -230,8 +230,8 @@ Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최�
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric 소개."
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
-[cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix 소개."
-[datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog 설명서."
+[cloudmonix-doc]: https://cloudmonix.com/features/azure-management/ "CloudMonix 소개."
+[datadog-doc]: https://docs.datadoghq.com/integrations/azure/ "Datadog 설명서."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace 설명서."
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Elastic 설명서."
 [grafana-doc]: ./grafana-plugin.md "Azure Monitor Grafana 통합."

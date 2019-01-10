@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 374a27b10b3928838b10e4fba24e1f36721c162a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e6d95d44dbfe2d66189be5103552d841ccbdf690
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433682"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117421"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>디바이스 연결 및 원격 분석 수신
 
@@ -69,8 +69,8 @@ YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=Con
 
 | 속성 이름 | 값 | 필수 | 설명 |
 |---|---|---|---|
-| **DigitalTwins-Telemetry** | 1.0 | yes | 시스템에 메시지를 식별하는 상수 값입니다. |
-| **DigitalTwins-SensorHardwareId** | `string(72)` | yes | **Message**를 보내는 센서의 고유 식별자입니다. 이 값은 시스템에서 처리하려면 개체의 **HardwareId** 속성과 일치해야 합니다. 예: `00FF0643BE88-CO2` |
+| **DigitalTwins-Telemetry** | 1.0 | 예 | 시스템에 메시지를 식별하는 상수 값입니다. |
+| **DigitalTwins-SensorHardwareId** | `string(72)` | 예 | **Message**를 보내는 센서의 고유 식별자입니다. 이 값은 시스템에서 처리하려면 개체의 **HardwareId** 속성과 일치해야 합니다. 예: `00FF0643BE88-CO2` |
 | **CreationTimeUtc** | `string` | 아니요 | 페이로드의 샘플링 시간을 식별하는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 형식의 날짜 문자열입니다. 예: `2018-09-20T07:35:00.8587882-07:00` |
 | **CorrelationId** | `string` | 아니요 | 시스템에서 이벤트를 추적하는 데 사용되는 UUID입니다. 예: `cec16751-ab27-405d-8fe6-c68e1412ce1f`
 
@@ -80,4 +80,4 @@ Digital Twins에 메시지를 보내려면 DeviceClient [SendEventAsync](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Digital Twins의 데이터 처리 및 사용자 정의 함수 기능에 대해 알아보려면 [Azure Digital Twins 데이터 처리 및 사용자 정의 함수](concepts-user-defined-functions.md)를 참조하세요.
+- Azure Digital Twins의 데이터 처리 및 사용자 정의 함수 기능에 대해 알아보려면 [Azure Digital Twins 데이터 처리 및 사용자 정의 함수](concepts-user-defined-functions.md)를 참조하세요.

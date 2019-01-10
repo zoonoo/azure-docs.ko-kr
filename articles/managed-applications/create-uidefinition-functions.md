@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: a01a59a7e8c9757cb41d328cd26a34fa219f9152
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 80fd593eecf189d516a8c9d7ef2a94ec9f23fc39
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304507"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063797"
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition 함수
 이 섹션에는 CreateUiDefinition의 지원되는 모든 함수에 대한 서명이 포함되어 있습니다.
@@ -80,7 +80,7 @@ ms.locfileid: "34304507"
 예를 들어 `element1`의 출력 값이 `"bar"`인 경우 이 예제에서는 `"foobar!"` 문자열을 반환합니다.
 
 ```json
-"[concat('foo', steps('step1').element1), '!']"
+"[concat('foo', steps('step1').element1, '!')]"
 ```
 
 ### <a name="substring"></a>substring

@@ -10,17 +10,17 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/21/2016
+ms.date: 01/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2ce302f78de2cd344c82300a808b125c3443179f
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 12025dfb93bbcfc86ae301f8fb63e7ac74697cf2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000039"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119275"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights 데이터 모델 내보내기
-이 테이블은 [Application Insights](../../application-insights/app-insights-overview.md) SDK에서 포털로 전송된 원격 분석의 속성을 나열합니다.
+이 테이블은 [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDK에서 포털로 전송된 원격 분석의 속성을 나열합니다.
 이러한 속성이 [연속 내보내기](export-telemetry.md)에서 데이터 출력에 표시됩니다
 또한 [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md) 및 [진단 검색](../../azure-monitor/app/diagnostic-search.md)의 속성 필터에 나타납니다.
 
@@ -130,9 +130,11 @@ ms.locfileid: "54000039"
 | context.device.locale |string |en-GB, de-DE, ... |
 | context.device.network |string | |
 | context.device.oemName |string | |
+| context.device.os |string | |
 | context.device.osVersion |string |호스트 OS |
 | context.device.roleInstance |string |서버 호스트의 ID |
 | context.device.roleName |string | |
+| context.device.screenResolution |string | |
 | context.device.type |string |PC, 브라우저... |
 | context.location |object |clientip에서 파생됩니다. |
 | context.location.city |string |알 수 있는 경우 clientip에서 파생됩니다. |
@@ -146,10 +148,13 @@ ms.locfileid: "54000039"
 | context.session.id |string |동일한 소스의 작업 그룹 ID입니다. 30분 동안 작업이 없으면 세션이 끝난 것입니다. |
 | context.session.isFirst |부울 | |
 | context.user.accountAcquisitionDate |string | |
+| context.user.accountId |string | |
 | context.user.anonAcquisitionDate |string | |
 | context.user.anonId |string | |
 | context.user.authAcquisitionDate |string |[인증된 사용자](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
+| context.user.authId |string | |
 | context.user.isAuthenticated |부울 | |
+| context.user.storeRegion |string | |
 | internal.data.documentVersion |string | |
 | internal.data.id |string | 항목이 Application Insights에 수집된 경우 할당된 고유 ID |
 
@@ -158,7 +163,7 @@ ms.locfileid: "54000039"
 
 | path | type | 메모 |
 | --- | --- | --- |
-| event [0] count |정수 |100/([샘플링](../../application-insights/app-insights-sampling.md) 속도) 예: 4 =&gt; 25%. |
+| event [0] count |정수 |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
 | event [0] name |string |이벤트 이름입니다.  최대 길이 250 |
 | event [0] url |string | |
 | event [0] urlData.base |string | |
@@ -170,7 +175,7 @@ ms.locfileid: "54000039"
 | path | type | 메모 |
 | --- | --- | --- |
 | basicException [0] assembly |string | |
-| basicException [0] count |정수 |100/([샘플링](../../application-insights/app-insights-sampling.md) 속도) 예: 4 =&gt; 25%. |
+| basicException [0] count |정수 |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
 | basicException [0] exceptionGroup |string | |
 | basicException [0] exceptionType |string | |
 | basicException [0] failedUserCodeMethod |string | |
@@ -211,7 +216,7 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](..
 | remoteDependency [0] async |부울 | |
 | remoteDependency [0] baseName |string | |
 | remoteDependency [0] commandName |string |예를 들어 "홈/인덱스" |
-| remoteDependency [0] count |정수 |100/([샘플링](../../application-insights/app-insights-sampling.md) 속도) 예: 4 =&gt; 25%. |
+| remoteDependency [0] count |정수 |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
 | remoteDependency [0] dependencyTypeName |string |HTTP, SQL, ... |
 | remoteDependency [0] durationMetric.value |number |호출부터 종속성의 응답 완료까지 걸리는 시간 |
 | remoteDependency [0] id |string | |
@@ -229,7 +234,7 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](..
 
 | path | type | 메모 |
 | --- | --- | --- |
-| request [0] count |정수 |100/([샘플링](../../application-insights/app-insights-sampling.md) 속도) 예:  4 =&gt; 25%. |
+| request [0] count |정수 |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예:  4 =&gt; 25%. |
 | request [0] durationMetric.value |number |요청부터 응답까지 걸리는 시간입니다. 1e7 == 1s |
 | request [0] id |string |작업 ID |
 | request [0] name |string |GET/POST + url 기본입니다.  최대 길이 250 |
@@ -264,7 +269,7 @@ trackPageView() 또는 [stopTrackPage](../../azure-monitor/app/api-custom-events
 
 | path | type | 메모 |
 | --- | --- | --- |
-| view [0] count |정수 |100/([샘플링](../../application-insights/app-insights-sampling.md) 속도) 예: 4 =&gt; 25%. |
+| view [0] count |정수 |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
 | view [0] durationMetric.value |정수 |필요에 따라 trackPageView()에서 또는 startTrackPage() - stopTrackPage()에 의해 설정한 값입니다. clientPerformance 값과 다릅니다. |
 | view [0] name |string |페이지 제목입니다.  최대 길이 250 |
 | view [0] url |string | |
@@ -279,7 +284,7 @@ trackPageView() 또는 [stopTrackPage](../../azure-monitor/app/api-custom-events
 | --- | --- | --- |
 | availability [0] availabilityMetric.name |string |Availability |
 | availability [0] availabilityMetric.value |number |1.0 또는 0.0 |
-| availability [0] count |정수 |100/([샘플링](../../application-insights/app-insights-sampling.md) 속도) 예: 4 =&gt; 25%. |
+| availability [0] count |정수 |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
 | availability [0] dataSizeMetric.name |string | |
 | availability [0] dataSizeMetric.value |정수 | |
 | availability [0] durationMetric.name |string | |
@@ -341,12 +346,12 @@ TrackMetric()에서 생성합니다.
 
 위의 테이블에서는 거의 사용되지 않는 필드인 count, min, max, stdDev 및 sampledValue가 생략되었습니다.
 
-원격 분석의 양을 줄여야 하는 경우 사전 집계 메트릭 대신 [샘플링](../../application-insights/app-insights-sampling.md) 을 사용할 수 있습니다
+원격 분석의 양을 줄여야 하는 경우 사전 집계 메트릭 대신 [샘플링](../../azure-monitor/app/sampling.md) 을 사용할 수 있습니다
 
 ### <a name="durations"></a>기간
 달리 명시된 경우를 제외하고, 기간은 10분의 1 마이크로초로 표현되므로 10000000.0은 1초를 의미합니다.
 
 ## <a name="see-also"></a>참고 항목
-* [Application Insights](../../application-insights/app-insights-overview.md)
+* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
 * [연속 내보내기](export-telemetry.md)
 * [코드 샘플](export-telemetry.md#code-samples)

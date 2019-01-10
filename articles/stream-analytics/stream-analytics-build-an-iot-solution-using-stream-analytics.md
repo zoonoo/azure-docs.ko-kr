@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4817efcb5cfa5f8692f2b7e5c65d411bc0d21942
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 820a918b9ab5dd7a399dc43bcfed29fb3b94e99b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317392"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971106"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Stream Analytics를 사용하여 IoT 솔루션 빌드
 
@@ -185,7 +185,7 @@ ms.locfileid: "53317392"
 ## <a name="review-the-cosmosdb-output-data"></a>CosmosDB 출력 데이터 검토
 1. TollApp 리소스를 포함하는 리소스 그룹을 찾습니다.
 
-2. **tollapp<random>-cosmos** 이름 패턴을 가진 Azure Cosmos DB 계정을 선택합니다.
+2. **tollapp\<random\>-cosmos** 이름 패턴을 가진 Azure Cosmos DB 계정을 선택합니다.
 
 3. **데이터 탐색기** 제목을 선택하여 데이터 탐색기 페이지를 엽니다.
 

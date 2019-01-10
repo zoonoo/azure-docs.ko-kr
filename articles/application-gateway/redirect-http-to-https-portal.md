@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/7/2018
 ms.author: victorh
-ms.openlocfilehash: 1d30ddfb97b065d0d2fdf3bf91a73d3f7eb1b70f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a10314d4c396298f018459e56252d0d0d1656f08
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53111343"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107789"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Azure Portal을 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 애플리케이션 게이트웨이 만들기
 
@@ -23,7 +23,7 @@ Azure Portal을 사용하여 SSL 종료를 위한 인증서로 [애플리케이�
 > [!div class="checklist"]
 > * 자체 서명된 인증서 만들기
 > * 네트워크 설정
-> * 인증서가 있는 응용 프로그램 게이트웨이 만들기
+> * 인증서가 있는 애플리케이션 게이트웨이 만들기
 > * 수신기 및 리디렉션 규칙 추가
 > * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
 
@@ -61,19 +61,19 @@ Export-PfxCertificate `
   -Password $pwd
 ```
 
-## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
+## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
-가상 네트워크는 사용자가 만든 리소스 간의 통신에 필요합니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 응용 프로그램 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 응용 프로그램 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다.
+가상 네트워크는 사용자가 만든 리소스 간의 통신에 필요합니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 애플리케이션 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다.
 
-1. [http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기**를 클릭합니다.
 3. **네트워킹**을 선택한 다음, 추천 목록에서 **Application Gateway**를 선택합니다.
-4. 응용 프로그램 게이트웨이에 대해 다음 값을 입력합니다.
+4. 애플리케이션 게이트웨이에 대해 다음 값을 입력합니다.
 
-    - *myAppGateway* - 응용 프로그램 게이트웨이의 이름
+    - *myAppGateway* - 애플리케이션 게이트웨이의 이름
     - *myResourceGroupAG* - 새 리소스 그룹의 이름
 
-    ![새 응용 프로그램 게이트웨이 만들기](./media/create-url-route-portal/application-gateway-create.png)
+    ![새 애플리케이션 게이트웨이 만들기](./media/create-url-route-portal/application-gateway-create.png)
 
 5. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
 6. **가상 네트워크 선택**을 클릭하고 **새로 만들기**를 클릭한 다음, 가상 네트워크에 대해 다음 값을 입력합니다.
@@ -90,7 +90,7 @@ Export-PfxCertificate `
 9. **수신기 구성** 아래에서 **HTTPS**를 선택한 후 **파일 선택**을 선택하고 *c:\appgwcert.pfx* 파일로 이동한 다음, **열기**를 선택합니다.
 10. 인증서 이름으로 *appgwcert*를 입력하고 암호로 *Azure123456!* 을 입력합니다. 암호
 11. 웹 애플리케이션 방화벽을 사용하지 않도록 설정하고 **확인**을 선택합니다.
-12. 요약 페이지에서 설정을 검토한 다음, **확인**을 선택하여 네트워크 리소스와 애플리케이션 게이트웨이를 만듭니다. 응용 프로그램 게이트웨이를 만드는 데 몇 분이 걸릴 수 있습니다. 배포가 완료될 때까지 기다린 후 다음 섹션으로 이동합니다.
+12. 요약 페이지에서 설정을 검토한 다음, **확인**을 선택하여 네트워크 리소스와 애플리케이션 게이트웨이를 만듭니다. 애플리케이션 게이트웨이가 생성되는 데 몇 분이 걸릴 수 있습니다. 배포가 완료될 때까지 기다렸다가 다음 섹션으로 이동합니다.
 
 ### <a name="add-a-subnet"></a>서브넷 추가
 
@@ -128,7 +128,7 @@ Export-PfxCertificate `
 
 ## <a name="create-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 만들기
 
-이 예제에서는 응용 프로그램 게이트웨이에서 백 엔드 풀에 대한 서버를 제공하도록 가상 머신 확장 집합을 만듭니다.
+이 예제에서는 애플리케이션 게이트웨이에서 백 엔드 풀에 대한 서버를 제공하도록 가상 머신 확장 집합을 만듭니다.
 
 1. 포털 왼쪽 위 모서리에서 **+리소스 만들기**를 선택합니다.
 2. **컴퓨팅**을 선택합니다.
@@ -206,7 +206,7 @@ IIS 사용하여 인스턴스를 변경한 후에는 이 변경 내용으로 확
 3. 두 인스턴스를 선택하고 **업그레이드**를 선택합니다.
 4. **예**를 선택하여 확인합니다.
 
-## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
+## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
 애플리케이션 게이트웨이 개요 페이지에서 애플리케이션 공용 IP 주소를 가져올 수 있습니다.
 
@@ -219,7 +219,7 @@ IIS 사용하여 인스턴스를 변경한 후에는 이 변경 내용으로 확
 
 4. 자체 서명된 인증서를 사용하는 경우 보안 경고를 받으려면 **세부 정보**, **웹 페이지로 이동**을 차례로 선택합니다. 그러면 보안 IIS 웹 사이트가 다음 예제와 같이 표시됩니다.
 
-   ![응용 프로그램 게이트웨이의 기준 URL 테스트](./media/redirect-http-to-https-powershell/application-gateway-iistest.png)
+   ![애플리케이션 게이트웨이의 기준 URL 테스트](./media/redirect-http-to-https-powershell/application-gateway-iistest.png)
 
 ## <a name="next-steps"></a>다음 단계
 

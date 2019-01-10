@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a9916a412341d0b345bfc7a0e0f28d8e0add1846
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6b45284f8fe4bd7fb45e89eeecf13ae7b9b2969b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081459"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016684"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 Salesforce Marketing Cloud에서 데이터 복사
 
@@ -45,9 +44,9 @@ Salesforce Marketing Cloud 연결된 서비스에 다음 속성이 지원됩니�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성을 다음으로 설정해야 합니다. **SalesforceMarketingCloud** | yes |
-| clientId | Salesforce Marketing Cloud 응용 프로그램과 관련된 클라이언트 ID입니다.  | yes |
-| clientSecret | Salesforce Marketing Cloud 응용 프로그램과 관련된 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하거나, ADF에 안전하게 저장하거나, Azure Key Vault에 암호를 저장하도록 선택하고 데이터 복사를 수행하는 경우 여기에서 ADF 복사 작업을 끌어올 수 있습니다. [Key Vault에서 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아봅니다. | yes |
+| 형식 | 형식 속성을 다음으로 설정해야 합니다. **SalesforceMarketingCloud** | 예 |
+| clientId | Salesforce Marketing Cloud 애플리케이션과 관련된 클라이언트 ID입니다.  | 예 |
+| clientSecret | Salesforce Marketing Cloud 애플리케이션과 관련된 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하거나, ADF에 안전하게 저장하거나, Azure Key Vault에 암호를 저장하도록 선택하고 데이터 복사를 수행하는 경우 여기에서 ADF 복사 작업을 끌어올 수 있습니다. [Key Vault에서 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아봅니다. | 예 |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
@@ -82,7 +81,7 @@ Salesforce Marketing Cloud에서 데이터를 복사하려면 데이터 세트�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 형식 속성을 다음으로 설정해야 합니다. **SalesforceMarketingCloudObject** | yes |
+| 형식 | 데이터 세트의 형식 속성을 다음으로 설정해야 합니다. **SalesforceMarketingCloudObject** | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -111,7 +110,7 @@ Salesforce Marketing Cloud에서 데이터를 복사하려면 복사 작업의 �
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 형식 속성을 다음으로 설정해야 합니다. **SalesforceMarketingCloudSource** | yes |
+| 형식 | 복사 작업 원본의 형식 속성을 다음으로 설정해야 합니다. **SalesforceMarketingCloudSource** | 예 |
 | 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**

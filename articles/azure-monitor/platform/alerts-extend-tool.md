@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 0524e38f155049c630ace7f33805ef230c8dccca
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: bdc3646116dfd5f16c0c039c4fb95d11c6593adf
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344247"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120996"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Log Analytics에서 Azure Alerts로 경고 확장
 Azure Log Analytics에서 경고 기능은 Azure Alerts로 바뀝니다. 이 전환의 일부로 Log Analytics에서 원래 구성된 경고를 Azure로 확장합니다. 해당 경고가 Azure로 자동으로 이동하는 것을 기다리지 않으려면 다음 프로세스를 시작하면 됩니다.
@@ -89,7 +89,7 @@ GET 요청에 성공한 경우 HTTP 상태 코드 200은 JSON 데이터에서 �
                     "webhookActions": [
                         {
                             "name": "Webhook_1",
-                            "serviceUri": "http://test.com"
+                            "serviceUri": "https://test.com"
                         }
                     ],
                     "itsmAction": {}
@@ -186,7 +186,7 @@ POST 요청에 성공한 경우 다음과 같은 응답과 함께 HTTP 200 확�
                     "webhookActions": [
                         {
                             "name": "Webhook_1",
-                            "serviceUri": "http://test.com"
+                            "serviceUri": "https://test.com"
                         }
                     ],
                     "itsmAction": {}
@@ -263,7 +263,7 @@ catch
 {
 
     $ErrorMessage = $_.Exception.Message
-    "Error occured while fetching/parsing Extend summary: $ErrorMessage"
+    "Error occurred while fetching/parsing Extend summary: $ErrorMessage"
     exit 
 }
 

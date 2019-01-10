@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: bwren
-ms.openlocfilehash: f1125c9d0ce543984393c99d70d511a3a162041e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: b499f6e1b05e42c7af71dedd81fd15bc7574b0aa
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975188"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118850"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 개요
 
@@ -66,10 +66,10 @@ Azure Monitor는 [데이터 수집기 API](../azure-monitor/platform/data-collec
 
 
 ## <a name="insights"></a>자세한 정보
-데이터 모니터링은 계산 환경의 작업에 대한 가시성을 높일 수 있는 경우에만 유용합니다. Azure Monitor는 애플리케이션 및 애플리케이션에서 사용하는 다른 리소스에 대한 소중한 인사이트를 제공하는 여러 기능과 도구를 포함하고 있습니다. [Application Insights](../application-insights/app-insights-overview.md) 및 Container Insights 같은 [모니터링 솔루션](insights/solutions.md)과 여러 기능은 애플리케이션 및 특정 Azure 서비스의 다양한 측면에 대한 심층 정보를 제공합니다. 
+데이터 모니터링은 계산 환경의 작업에 대한 가시성을 높일 수 있는 경우에만 유용합니다. Azure Monitor는 애플리케이션 및 애플리케이션에서 사용하는 다른 리소스에 대한 소중한 인사이트를 제공하는 여러 기능과 도구를 포함하고 있습니다. [Application Insights](../azure-monitor/app/app-insights-overview.md) 및 Container Insights 같은 [모니터링 솔루션](insights/solutions.md)과 여러 기능은 애플리케이션 및 특정 Azure 서비스의 다양한 측면에 대한 심층 정보를 제공합니다. 
 
 ### <a name="application-insights"></a>Application Insights
-[Application Insights](../application-insights/app-insights-overview.md)는 클라우드 또는 온-프레미스에 호스트되는 웹 애플리케이션의 가용성, 성능 및 사용량을 모니터링할 수 있습니다. Azure Monitor의 강력한 데이터 분석 플랫폼을 활용하여 애플리케이션의 작업에 대한 심층 인사이트를 제공하고, 사용자가 오류를 보고할 때까지 기다리지 않고 오류를 진단합니다. Application Insights는 다양한 개발 도구에 대한 연결점을 포함하고 있으며 Visual Studio와 통합되어 DevOps 프로세스를 지원합니다.
+[Application Insights](../azure-monitor/app/app-insights-overview.md)는 클라우드 또는 온-프레미스에 호스트되는 웹 애플리케이션의 가용성, 성능 및 사용량을 모니터링할 수 있습니다. Azure Monitor의 강력한 데이터 분석 플랫폼을 활용하여 애플리케이션의 작업에 대한 심층 인사이트를 제공하고, 사용자가 오류를 보고할 때까지 기다리지 않고 오류를 진단합니다. Application Insights는 다양한 개발 도구에 대한 연결점을 포함하고 있으며 Visual Studio와 통합되어 DevOps 프로세스를 지원합니다.
 
 ![App Insights](media/overview/app-insights.png)
 

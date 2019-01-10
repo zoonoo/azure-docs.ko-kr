@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 126c0d63a7d59b76361a25844575ee6556a475b1
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 8536cce8de79f396b5d60058dd41f733d2627c87
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002079"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119138"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application Insights의 메트릭 차트에 대한 주석
 
 [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md) 차트의 주석은 새 빌드를 배포한 위치 또는 다른 중요한 이벤트를 표시합니다. 릴리스 주석으로 변경 내용이 애플리케이션의 성능에 영향을 주는지 여부를 쉽게 확인할 수 있습니다. 릴리스 주석은 [Azure DevOps Services 빌드 시스템](https://docs.microsoft.com/azure/devops/pipelines/tasks/)에서 자동으로 만들 수 있습니다. [PowerShell에서 만들어](#create-annotations-from-powershell) 원하는 이벤트에 대한 플래그를 지정하는 주석을 만들 수도 있습니다.
 
 > [!NOTE]
-> 이 문서에서는 사용하지 않는 **클래식 메트릭 환경**을 반영합니다. 주석은 현재 클래식 환경 및 **[workbook](../../application-insights/app-insights-usage-workbooks.md)** 에서만 사용할 수 있습니다. 현재 메트릭 환경에 대한 자세한 정보는 [이 문서](../../azure-monitor/platform/metrics-charts.md)를 참조하세요.
+> 이 문서에서는 사용하지 않는 **클래식 메트릭 환경**을 반영합니다. 주석은 현재 클래식 환경 및 **[workbook](../../azure-monitor/app/usage-workbooks.md)** 에서만 사용할 수 있습니다. 현재 메트릭 환경에 대한 자세한 정보는 [이 문서](../../azure-monitor/platform/metrics-charts.md)를 참조하세요.
 
 ![서버 응답 시간과 상관 관계가 표시된 주석 예제](./media/annotations/00.png)
 
@@ -46,7 +46,7 @@ Azure DevOps Services 조직에 대해 이 작업을 한 번만 수행하면 됩
 
 각 Azure DevOps Services 릴리스 템플릿에 대한 별도의 API 키를 가져와야 합니다.
 
-1. [Microsoft Azure Portal](https://portal.azure.com) 에 로그인하고 애플리케이션을 모니터링하는 Application Insights 리소스를 엽니다. (또는 아직 만들지 않은 경우 [지금 만듭니다](../../application-insights/app-insights-overview.md).)
+1. [Microsoft Azure Portal](https://portal.azure.com) 에 로그인하고 애플리케이션을 모니터링하는 Application Insights 리소스를 엽니다. (또는 아직 만들지 않은 경우 [지금 만듭니다](../../azure-monitor/app/app-insights-overview.md).)
 2. **API 액세스**, **Application Insights ID**를 차례로 엽니다.
    
     ![portal.azure.com에서 Application Insights 리소스를 열고 설정을 선택합니다. API 액세스를 엽니다. 애플리케이션 ID를 복사합니다.](./media/annotations/20.png)

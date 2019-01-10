@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 54fda4852e986749499b7fc8717308edf81915b2
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a97a3330ff99cada3921f98b76cf08ed7a464bcc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338497"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156564"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
@@ -62,11 +62,11 @@ Office 365 구독에서 수집할 정보:
 - 클라이언트 암호: 인증에 필요한 암호화된 문자열입니다.
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>Azure Active Directory에서 Office 365 애플리케이션 만들기
-첫 번째 단계는 Azure Active Directory에 관리 솔루션이 Office 365 솔루션에 액세스할 때 사용할 애플리케이션을 만드는 것입니다.
+첫 번째 단계는 Azure Active Directory에 관리 솔루션이 Office 365 솔루션에 액세스할 때 사용할 응용 프로그램을 만드는 것입니다.
 
 1. Azure Portal([https://portal.azure.com](https://portal.azure.com/))에 로그인합니다.
 1. **Azure Active Directory**를 선택한 다음, **앱 등록**을 선택합니다.
-1. **새 응용 프로그램 등록**을 클릭합니다.
+1. **새 애플리케이션 등록**을 클릭합니다.
 
     ![앱 등록 추가](media/solution-office-365/add-app-registration.png)
 1. 애플리케이션 **이름** 및 **로그온 URL**을 입력합니다.  이름은 구체적이어야 합니다.  URL로 _http://localhost_를 사용하고, **애플리케이션 형식**은 _웹앱/API_로 유지합니다.
@@ -100,7 +100,7 @@ Office 365 구독에서 수집할 정보:
 
     ![권한 부여](media/solution-office-365/grant-permissions.png)
 
-### <a name="add-a-key-for-the-application"></a>애플리케이션 키 추가
+### <a name="add-a-key-for-the-application"></a>응용 프로그램 키 추가
 
 1. **설정** 메뉴에서 **키**를 선택합니다.
 1. 새 키의 **설명** 및 **기간**을 입력합니다.
@@ -308,7 +308,7 @@ Office 365 구독에서 수집할 정보:
                                     'office365TenantID': '" + $OfficeTennantId + "',
                                     'connectionID': 'office365connection_" + $SubscriptionId + $OfficeTennantId + "',
                                     'office365AdminUsername': '" + $OfficeUsername + "',
-                                    'contentTypes':'Audit.Exchange,Audit.AzureActiveDirectory,Audit.Sharepoint'
+                                    'contentTypes':'Audit.Exchange,Audit.AzureActiveDirectory,Audit.SharePoint'
                                   },
                     'etag': '*',
                     'kind': 'Office365',

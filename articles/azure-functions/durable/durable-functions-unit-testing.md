@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: kadimitr
-ms.openlocfilehash: 3dcc9e4880c65e868f1cd62d3c6e1567e82b6870
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 38db54889c1fff0406f4e21cea80e16b6fdc25d1
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337872"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105511"
 ---
 # <a name="durable-functions-unit-testing"></a>Durable Functions 단위 테스트
 
@@ -184,6 +184,6 @@ ms.locfileid: "53337872"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [xUnit에 대해 자세히 알아보기](http://xunit.github.io/docs/getting-started-dotnet-core)
+> [xUnit에 대해 자세히 알아보기](https://xunit.github.io/docs/getting-started-dotnet-core)
 
 > [moq에 대해 자세히 알아보기 ](https://github.com/Moq/moq4/wiki/Quickstart)

@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: e5d415593a510acb81eac65242010d1841044857
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: a6a2fb246e407d6ea240ff40f4d2fa2b1b780931
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162650"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054015"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Virtual Kubelet 사용
 
@@ -87,9 +87,9 @@ az aks install-connector --resource-group myAKSCluster --name myAKSCluster --con
 
 | 인수: | 설명 | 필수 |
 |---|---|:---:|
-| `--connector-name` | ACI 커넥터의 이름입니다.| yes |
-| `--name` `-n` | 관리되는 클러스터의 이름입니다. | yes |
-| `--resource-group` `-g` | 리소스 그룹의 이름입니다. | yes |
+| `--connector-name` | ACI 커넥터의 이름입니다.| 예 |
+| `--name` `-n` | 관리되는 클러스터의 이름입니다. | 예 |
+| `--resource-group` `-g` | 리소스 그룹의 이름입니다. | 예 |
 | `--os-type` | 컨테이너 인스턴스 운영 체제 형식입니다. 허용되는 값은 다음과 같습니다. 둘 다, Linux, Windows. Default: Linux. | 아니요 |
 | `--aci-resource-group` | ACI 컨테이너 그룹을 만들 리소스 그룹입니다. | 아니요 |
 | `--location` `-l` | ACI 컨테이너 그룹을 만들 위치입니다. | 아니요 |
@@ -148,7 +148,7 @@ spec:
         effect: NoSchedule
 ```
 
-[kubectl create][kubectl-create] 명령을 사용하여 응용 프로그램을 실행합니다.
+[kubectl create][kubectl-create] 명령을 사용하여 애플리케이션을 실행합니다.
 
 ```console
 kubectl create -f virtual-kubelet-linux.yaml
@@ -198,7 +198,7 @@ spec:
         effect: NoSchedule
 ```
 
-[kubectl create][kubectl-create] 명령을 사용하여 응용 프로그램을 실행합니다.
+[kubectl create][kubectl-create] 명령을 사용하여 애플리케이션을 실행합니다.
 
 ```console
 kubectl create -f virtual-kubelet-windows.yaml
@@ -240,7 +240,7 @@ Virtual Kubelet에 대한 자세한 내용은 [Virtual Kubelet GitHub 프로젝�
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
-[kubectl-get]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#get
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [vk-github]: https://github.com/virtual-kubelet/virtual-kubelet

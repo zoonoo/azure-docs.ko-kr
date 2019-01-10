@@ -11,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
 ms.custom: seodec18
-ms.openlocfilehash: 176d0f00774106bbf9ae8dade0fe3fd4062530bb
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 385f829002d65335c8039e478c148b6140148ad8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277185"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117251"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Application Insights를 사용하여 Azure Machine Learning 모델 모니터링
 
@@ -25,12 +25,12 @@ ms.locfileid: "53277185"
 * 종속성 비율, 응답 시간 및 실패율
 * 예외.
 
-[Application Insights에 대해 자세히 알아봅니다](../../application-insights/app-insights-overview.md). 
+[Application Insights에 대해 자세히 알아봅니다](../../azure-monitor/app/app-insights-overview.md). 
 
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](http://aka.ms/AMLFree)을 지금 사용해 보세요.
+* Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](http://aka.ms/AMLFree)을 지금 사용해 보세요.
 
 * Azure Machine Learning 작업 영역, 스크립트가 포함된 로컬 디렉터리 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. 이러한 필수 구성 요소를 충족하는 방법을 알아보려면 [개발 환경 구성 방법](how-to-configure-environment.md)을 참조하세요.
 * AKS(Azure Kubernetes Service) 또는 ACI(Azure Container Instances)에 배포할 학습된 Machine Learning 모델. 이러한 모델이 없으면 [이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 자습서를 참조하세요.
@@ -126,7 +126,7 @@ Azure Portal에서 Application Insights를 사용하거나 사용하지 않도�
 
    [![사용자 지정 추적](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
-Application Insights 사용 방법에 대한 자세한 내용은 [Application Insights란?](../../application-insights/app-insights-overview.md)을 참조하세요.
+Application Insights 사용 방법에 대한 자세한 내용은 [Application Insights란?](../../azure-monitor/app/app-insights-overview.md)을 참조하세요.
     
 
 ## <a name="example-notebook"></a>예제 Notebook

@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 9d7266e75d863ab5c024217e137566c109e79f70
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 749b4077b457eff836ec515f21d97e892e663156
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997900"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120668"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Application Insights 원격 분석 데이터 모델
 
-[Azure Application Insights](../../application-insights/app-insights-overview.md)는 애플리케이션의 성능과 사용을 분석할 수 있도록 웹 애플리케이션에서 Azure Portal로 원격 분석을 보냅니다. 원격 분석 모델은 플랫폼 및 언어 독립적인 모니터링을 만들 수 있도록 표준화되었습니다. 
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)는 애플리케이션의 성능과 사용을 분석할 수 있도록 웹 애플리케이션에서 Azure Portal로 원격 분석을 보냅니다. 원격 분석 모델은 플랫폼 및 언어 독립적인 모니터링을 만들 수 있도록 표준화되었습니다. 
 
 Application Insights에서 수집한 데이터를 통해 다음과 같은 일반적인 애플리케이션 실행 패턴을 모델링합니다.
 
@@ -55,5 +55,5 @@ Application Insights 데이터 모델은 애플리케이션 원격 분석을 모
 
 - [사용자 지정 원격 분석을 작성합니다](../../azure-monitor/app/api-custom-events-metrics.md).
 - [원격 분석을 확장 및 필터링](../../azure-monitor/app/api-filtering-sampling.md)하는 방법을 알아봅니다.
-- [샘플링](../../application-insights/app-insights-sampling.md)을 사용하여 데이터 모델을 기준으로 하는 원격 분석의 양을 최소화합니다.
+- [샘플링](../../azure-monitor/app/sampling.md)을 사용하여 데이터 모델을 기준으로 하는 원격 분석의 양을 최소화합니다.
 - Application Insights에서 지원되는 [플랫폼](../../azure-monitor/app/platforms.md)을 확인합니다.

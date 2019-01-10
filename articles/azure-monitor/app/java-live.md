@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/10/2016
 ms.author: mbullwin
-ms.openlocfilehash: 4510c66dc0a64f65de9f9ee57563b847e20e25de
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 5d0866bdd96a1b0f626c369cfd646f6249a4da54
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000481"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121382"
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>이미 라이브 상태인 Java 웹앱용 Application Insights
 
-J2EE 서버에서 이미 실행 중인 웹 애플리케이션이 있는 경우 코드를 변경하거나 프로젝트를 다시 컴파일할 필요 없이 [Application Insights](../../application-insights/app-insights-overview.md)를 사용하여 모니터링을 시작할 수 있습니다. 이 옵션을 사용하면 서버로 전송된 HTTP 요청, 처리되지 않은 예외 및 성능 카운터에 대한 정보를 얻을 수 있습니다.
+J2EE 서버에서 이미 실행 중인 웹 애플리케이션이 있는 경우 코드를 변경하거나 프로젝트를 다시 컴파일할 필요 없이 [Application Insights](../../azure-monitor/app/app-insights-overview.md)를 사용하여 모니터링을 시작할 수 있습니다. 이 옵션을 사용하면 서버로 전송된 HTTP 요청, 처리되지 않은 예외 및 성능 카운터에 대한 정보를 얻을 수 있습니다.
 
 [Microsoft Azure](https://azure.com)를 구독해야 합니다.
 

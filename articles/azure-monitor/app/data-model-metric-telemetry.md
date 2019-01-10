@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 5a3fe90da0b469707c67c852784468455bbec95d
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 0973c86d055ff4ebbe7e5a3c4a2ca4e3dcabc6a0
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999191"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117693"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>메트릭 원격 분석: Application Insights 데이터 모델
 
-[Application Insights](../../application-insights/app-insights-overview.md)에서 지원하는 메트릭 원격 분석에는 두 가지 유형, 즉 단일 측정 및 미리 집계된 메트릭이 있습니다. 단일 측정은 이름 및 값만 포함합니다. 미리 집계된 메트릭은 집계 간격에서 메트릭의 최소값 및 최대값과 해당 표준 편차를 지정합니다.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 지원하는 메트릭 원격 분석에는 두 가지 유형, 즉 단일 측정 및 미리 집계된 메트릭이 있습니다. 단일 측정은 이름 및 값만 포함합니다. 미리 집계된 메트릭은 집계 간격에서 메트릭의 최소값 및 최대값과 해당 표준 편차를 지정합니다.
 
 미리 집계된 메트릭 원격 분석은 집계 기간을 1분으로 가정합니다.
 

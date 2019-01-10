@@ -1,19 +1,17 @@
 ---
 title: Azure Cosmos DB 에뮬레이터 인증서 내보내기
 description: Windows 인증서 저장소를 사용하지 않는 언어와 런타임으로 개발할 때는 SSL 인증서를 내보내고 관리해야 합니다. 이 게시물에서는 단계별 지침을 제공합니다.
-services: cosmos-db
-keywords: Azure Cosmos DB 에뮬레이터
-author: David-Noble-at-work
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 06/06/2017
-ms.author: danoble
-ms.openlocfilehash: b7a6649fab8b0203c20b93bee9e941614828a99b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+author: deborahc
+ms.author: dech
+ms.openlocfilehash: 1cbf08cc903069f5b1cf81f57b7daa16f24c0216
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091801"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043858"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Java, Python 및 Node.js에서 사용할 Azure Cosmos DB 에뮬레이터 인증서 내보내기
 
@@ -32,7 +30,7 @@ Azure Cosmos DB 에뮬레이터는 SSL 연결 사용을 포함하여 개발 목�
 
 Azure Cosmos DB 로컬 에뮬레이터의 인증서는 에뮬레이터를 처음 실행할 때 생성되며, 두 개의 인증서가 있습니다. 하나는 로컬 에뮬레이터에 연결하는 데 사용되고, 다른 하나는 에뮬레이터 내에서 비밀을 관리하는 데 사용됩니다. 내보내려는 인증서는 "DocumentDBEmulatorCertificate"라는 이름의 연결 인증서입니다.
 
-Windows 트레이에서 실행 중인 Azure Cosmos DB 에뮬레이터에서 아래와 같이 **데이터 다시 설정**을 클릭하여 두 인증서를 모두 다시 생성할 수 있습니다. 인증서를 다시 생성하여 Java 인증서 저장소에 설치했거나 다른 곳에서 사용한 경우에는 이 인증서를 업데이트해야 합니다. 그렇지 않으면 애플리케이션이 더 이상 로컬 에뮬레이터에 연결되지 않습니다.
+Windows 트레이에서 실행 중인 Azure Cosmos DB 에뮬레이터에서 아래와 같이 **데이터 다시 설정**을 클릭하여 두 인증서를 모두 다시 생성할 수 있습니다. 인증서를 다시 생성하여 Java 인증서 저장소에 설치했거나 다른 곳에서 사용한 경우에는 이 인증서를 업데이트해야 합니다. 그렇지 않으면 응용 프로그램이 더 이상 로컬 에뮬레이터에 연결되지 않습니다.
 
 ![Azure Cosmos DB 로컬 에뮬레이터 데이터 다시 설정](./media/local-emulator-export-ssl-certificates/database-local-emulator-reset-data.png)
 

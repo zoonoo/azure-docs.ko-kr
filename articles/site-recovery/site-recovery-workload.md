@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 10e73cf7fde019b4b4fe54d23f02c5afc0c582c9
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 3ad3438f02ead9063a683a39d4ac5823274d55f7
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976854"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155173"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까?
 
@@ -48,7 +48,7 @@ Site Recovery는 지원되는 컴퓨터에서 실행 중인 모든 앱을 복제
 | Active Directory, DNS |Y |Y |Y |Y |Y|
 | 웹앱(IIS, SQL) |Y |Y |Y |Y |Y|
 | System Center Operations Manager |Y |Y |Y |Y |Y|
-| Sharepoint |Y |Y |Y |Y |Y|
+| SharePoint |Y |Y |Y |Y |Y|
 | SAP<br/><br/>비 클러스터에 대해 Azure에 SAP 사이트 복제 |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트)|
 | Exchange(비 DAG) |Y |Y |Y |Y |Y|
 | 원격 데스크톱/VDI |Y |Y |Y |Y |Y|

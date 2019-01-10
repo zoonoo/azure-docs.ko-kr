@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: c9a2d569641ab0f8f6aa1d7234da1d3cbb0ab147
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: e14e76be50fc71738779e0196b2034ca4f8e0097
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744992"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103884"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Azure Cache for Redis 샘플
 이 항목에서는 캐시에 연결, 캐시에서 데이터 읽기 및 쓰기, ASP.NET Azure Cache for Redis 공급자 사용과 같은 시나리오를 다루는 Azure Cache for Redis 샘플 목록을 제공합니다. 일부 샘플은 다운로드 가능한 프로젝트이고, 일부 샘플은 단계별 지침을 제공하며 코드 조각을 포함하지만 다운로드 가능한 프로젝트에 연결되지 않습니다.
@@ -47,7 +47,7 @@ ms.locfileid: "53744992"
 [캐시의 .NET 개체 사용](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache)에서 Azure Cache for Redis 인스턴스에서 읽고 쓸 수 있도록 .NET 개체를 직렬화하는 한 가지 방법을 보여 줍니다. 
 
 ## <a name="use-azure-cache-for-redis-as-a-scale-out-backplane-for-aspnet-signalr"></a>Azure Cache for Redis를 ASP.NET SignalR에 대한 규모 확장 백플레인으로 사용
-[Azure Cache for Redis를 ASP.NET SignalR에 대한 규모 확장 백플레인으로 사용](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) 샘플에서 Azure Cache for Redis를 SignalR 백플레인으로 사용하는 방법을 보여 줍니다. 백플레인에 대한 자세한 내용은 [Redis를 사용한 SignalR 규모 확장](http://www.asp.net/signalr/overview/performance/scaleout-with-redis)을 참조하세요.
+[Azure Cache for Redis를 ASP.NET SignalR에 대한 규모 확장 백플레인으로 사용](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) 샘플에서 Azure Cache for Redis를 SignalR 백플레인으로 사용하는 방법을 보여 줍니다. 백플레인에 대한 자세한 내용은 [Redis를 사용한 SignalR 규모 확장](https://www.asp.net/signalr/overview/performance/scaleout-with-redis)을 참조하세요.
 
 ## <a name="azure-cache-for-redis-customer-query-sample"></a>Azure Cache for Redis 고객 쿼리 샘플
 이 샘플은 캐시의 데이터 액세스와 영구적 저장소의 데이터 액세스 간 성능 비교를 보여 줍니다. 이 샘플에는 두 개의 프로젝트가 있습니다.

@@ -12,24 +12,24 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: a57422b4bbac4b929a67495bfffeec7bf0476e9c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c8320a0f504927830c47400f1f1ef0369c0e1cad
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000226"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116537"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: Application Insights에서 Linux 성능 메트릭
 
 
-Linux 시스템 성능 메트릭을[Application Insights](../../application-insights/app-insights-overview.md)에서 탐색하려면 [collectd](https://collectd.org/)와 Application Insights 플러그 인을 함께 설치합니다. 이 오픈 소스 솔루션은 다양한 시스템 및 네트워크 통계를 수집합니다.
+Linux 시스템 성능 메트릭을[Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 탐색하려면 [collectd](https://collectd.org/)와 Application Insights 플러그 인을 함께 설치합니다. 이 오픈 소스 솔루션은 다양한 시스템 및 네트워크 통계를 수집합니다.
 
 이미 [Application Insights로 Java 웹 서비스를 계측][java]한 경우 일반적으로 collectd를 사용합니다. 앱의 성능을 향상시키거나 문제를 진단할 수 있도록 더 많은 데이터를 제공합니다. 
 
 ![예제 차트](./media/java-collectd/sample.png)
 
 ## <a name="get-your-instrumentation-key"></a>계측 키 가져오기
-[Microsoft Azure Portal](https://portal.azure.com)에서 데이터를 표시하고 싶은 [Application Insights](../../application-insights/app-insights-overview.md) 리소스를 엽니다. (또는 [새 리소스를 만듭니다](../../application-insights/app-insights-create-new-resource.md).)
+[Microsoft Azure Portal](https://portal.azure.com)에서 데이터를 표시하고 싶은 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 리소스를 엽니다. (또는 [새 리소스를 만듭니다](../../azure-monitor/app/create-new-resource.md ).)
 
 리소스를 식별하는 계측 키의 복사본을 만듭니다.
 

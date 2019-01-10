@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.reviewer: harelbr
 ms.author: mbullwin
-ms.openlocfilehash: c71ace039c8b8b7ec89c5a38ef203399f5af82aa
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 219ba632d7688f1a428378309828b689698d2fe5
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004716"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019477"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Azure Application Insights와 Azure Diagnostics 통합을 사용하여 Azure Cloud Services의 문제에 대한 경고
 
@@ -120,7 +120,7 @@ Application Insights 리소스 내 탐색 메뉴에서 **경고**로 이동한 �
 
 자동으로 감지하는 방법에 대해 자세히 알아봅니다.
 
-[오류 잘못된 부분](../../application-insights/app-insights-proactive-failure-diagnostics.md)
-[메모리 누수](../../application-insights/app-insights-proactive-potential-memory-leak.md)
-[성능 이상](../../application-insights/app-insights-proactive-performance-diagnostics.md)
+[오류 잘못된 부분](../../azure-monitor/app/proactive-failure-diagnostics.md)
+[메모리 누수](../../azure-monitor/app/proactive-potential-memory-leak.md)
+[성능 이상](../../azure-monitor/app/proactive-performance-diagnostics.md)
 
