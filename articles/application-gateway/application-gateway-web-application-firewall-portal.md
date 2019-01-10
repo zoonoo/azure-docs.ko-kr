@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 12ef6447e53ba0da3fbd3d56749d7798c49a2cfe
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b368ef3b5503d90b0eb928113e8154aabca9c04a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993967"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157142"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Azure Portal을 사용하여 웹 애플리케이션 방화벽이 있는 애플리케이션 게이트웨이를 만듭니다.
 
@@ -43,7 +43,7 @@ Azure Portal을 사용하여 WAF([웹 애플리케이션 방화벽](application-
 2. **네트워킹**을 선택한 다음, 추천 목록에서 **Application Gateway**를 선택합니다.
 3. 애플리케이션 게이트웨이에 대해 다음 값을 입력합니다.
 
-    - *myAppGateway* - 응용 프로그램 게이트웨이의 이름
+    - *myAppGateway* - 애플리케이션 게이트웨이의 이름
     - *myResourceGroupAG* - 새 리소스 그룹
     - 애플리케이션 게이트웨이의 계층에 *WAF*를 선택합니다.
 
@@ -119,8 +119,8 @@ Azure Portal을 사용하여 WAF([웹 애플리케이션 방화벽](application-
 ### <a name="add-backend-servers"></a>백 엔드 서버 추가
 
 1. **모든 리소스**를 클릭한 다음, **myAppGateway**를 클릭합니다.
-2. **백 엔드 풀**을 클릭합니다. 기본 풀이 애플리케이션 게이트웨이와 함께 자동으로 만들어졌습니다. **appGateayBackendPool**을 클릭합니다.
-3. **대상 추가**를 클릭하여 생성된 각각의 가상 머신을 백 엔드 풀에 추가합니다.
+2. **백 엔드 풀**을 클릭합니다. 기본 풀이 애플리케이션 게이트웨이와 함께 자동으로 만들어졌습니다. **appGatewayBackendPool**을 클릭합니다.
+3. **대상 추가**를 클릭하여 만든 가상 머신 각각을 백 엔드 풀에 추가합니다.
 
     ![백 엔드 서버 추가](./media/application-gateway-web-application-firewall-portal/application-gateway-backend.png)
 

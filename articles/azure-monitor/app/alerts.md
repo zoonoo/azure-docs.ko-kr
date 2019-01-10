@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3ed4039ae17828959f00de27c839454b63a7be6d
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: fe63813220d526536a31efb48b6ec29b6ae383e8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998271"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121144"
 ---
 # <a name="set-alerts-in-application-insights"></a>Application Insights에서 경고 설정
 [Azure Application Insights][start]는 웹앱의 성능 및 사용 메트릭이 변경되면 사용자에게 경고할 수 있습니다. 
@@ -29,7 +29,7 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 
 * **메트릭 경고**는 메트릭이 응답 시간, 예외 수, CPU 사용량 또는 페이지 보기 등의 임계값을 일정 기간 동안 초과하면 그 사실을 알려 줍니다. 
 * [**웹 테스트**][availability]는 인터넷에서 사이트를 사용할 수 없거나 응답 속도가 느려지면 그 사실을 알려 줍니다. [자세한 정보][availability].
-* [**사전 진단**](../../application-insights/app-insights-proactive-diagnostics.md)은 비정상적인 성능 패턴에 대해 알려 주기 위해 자동으로 구성됩니다.
+* [**사전 진단**](../../azure-monitor/app/proactive-diagnostics.md)은 비정상적인 성능 패턴에 대해 알려 주기 위해 자동으로 구성됩니다.
 
 이 문서에서는 메트릭 경고에 집중합니다.
 
@@ -41,7 +41,7 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 * 다른 속성에 앞서 리소스를 설정합니다. **"(구성 요소)" 리소스 선택** 성능 또는 사용 메트릭에 대한 경고를 설정하려는 경우.
 * 경고에 입력하는 이름은 리소스 그룹(애플리케이션 아님) 내에서 고유한 이름이어야 합니다.
 * 임계값을 입력하라는 단위에 주의하세요.
-* "메일 소유자..." 확인란을 선택하면 이 리소스 그룹에 액세스하는 모든 사용자에게 메일로 경고가 보내집니다. 사용자 집합을 확장하려면 [리소스 그룹 또는 구독](../../application-insights/app-insights-resources-roles-access-control.md) (리소스 아님)에 추가합니다.
+* "메일 소유자..." 확인란을 선택하면 이 리소스 그룹에 액세스하는 모든 사용자에게 메일로 경고가 보내집니다. 사용자 집합을 확장하려면 [리소스 그룹 또는 구독](../../azure-monitor/app/resources-roles-access-control.md) (리소스 아님)에 추가합니다.
 * "추가 메일"을 지정하면 "메일 소유자..." 확인란의 선택 여부와 상관없이 이러한 개인 또는 그룹에게 경고가 보내집니다. 
 * 경고에 응답하는 웹앱을 설정한 경우 [웹후크 주소](../../azure-monitor/platform/alerts-webhooks.md)를 설정합니다. 경고가 활성화될 때 및 해결될 때 모두 호출됩니다. 그러나 현재 쿼리 매개 변수는 웹후크 속성으로 전달되지 않습니다.
 * 블레이드 맨 위에 있는 단추를 참조하여 경고를 사용 또는 사용 안 함으로 설정할 수 있습니다.
@@ -51,7 +51,7 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 * 조직 계정을 사용 중이신가요? 이 애플리케이션 리소스에 소유자 또는 참가자 액세스가 가능하면 경고를 설정할 수 있습니다. Access Control 블레이드를 살펴봅니다. [액세스 제어에 대해 자세히 알아보세요][roles].
 
 > [!NOTE]
-> 경고 블레이드에 [자동 관리 진단](../../application-insights/app-insights-proactive-failure-diagnostics.md) 경고 설정이 이미 있습니다. 자동 경고는 특정 메트릭, 요청 실패율을 모니터링합니다. 사전 경고를 사용하지 않으려는 경우가 아니면 요청 실패율에 대한 자체 경고를 설정할 필요가 없습니다. 
+> 경고 블레이드에 [자동 관리 진단](../../azure-monitor/app/proactive-failure-diagnostics.md) 경고 설정이 이미 있습니다. 자동 경고는 특정 메트릭, 요청 실패율을 모니터링합니다. 사전 경고를 사용하지 않으려는 경우가 아니면 요청 실패율에 대한 자체 경고를 설정할 필요가 없습니다. 
 > 
 > 
 
@@ -89,7 +89,7 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 * 서버 쪽 웹 애플리케이션에 대한 **서버 응답 시간**. 경고 설정 외에도 이 메트릭을 주시하여 메트릭이 불균형적으로 변하고 요청 속도가 빠른지 살펴보는 것이 좋습니다. 변형은 앱에 리소스가 부족하다는 의미일 수 있습니다. 
 * **서버 예외** 를 보려면 일부 [추가 설치](../../azure-monitor/app/asp-net-exceptions.md)작업을 수행해야 합니다.
 
-[자동 관리 실패율 진단](../../application-insights/app-insights-proactive-failure-diagnostics.md)은 앱이 오류 코드로 요청에 응답하는 속도를 자동으로 모니터링한다는 것을 잊지 마십시오. 
+[자동 관리 실패율 진단](../../azure-monitor/app/proactive-failure-diagnostics.md)은 앱이 오류 코드로 요청에 응답하는 속도를 자동으로 모니터링한다는 것을 잊지 마십시오. 
 
 ## <a name="automation"></a>Automation
 * [PowerShell을 사용하여 경고 설정 자동화](../../azure-monitor/app/powershell-alerts.md)
@@ -102,13 +102,13 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 ## <a name="see-also"></a>참고 항목
 * [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)
 * [경고 설정 자동화](../../azure-monitor/app/powershell-alerts.md)
-* [사전 진단](../../application-insights/app-insights-proactive-diagnostics.md) 
+* [사전 진단](../../azure-monitor/app/proactive-diagnostics.md) 
 
 <!--Link references-->
 
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [client]: ../../azure-monitor/app/javascript.md
 [platforms]: ../../azure-monitor/app/platforms.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
-[start]: ../../application-insights/app-insights-overview.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 

@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: 5052ec73114c040a4c140d258b197fdde58f6667
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c0e6aa34b80389689e49ac6ad3566a3a109a96e1
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409329"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158165"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android용 Azure Mobile Apps SDK를 사용하는 방법
 
@@ -957,7 +957,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 </activity>
 ```
 
-**redirectUriScheme**을 응용 프로그램의 `build.gradle` 파일에 추가합니다.
+**redirectUriScheme**을 애플리케이션의 `build.gradle` 파일에 추가합니다.
 
 ```text
 android {
@@ -1071,7 +1071,7 @@ MobileServiceUser user = mClient
 
 ### <a name="adal"></a>Active Directory 인증 라이브러리(ADAL)를 사용하여 사용자 인증
 
-Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로그인하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다. 클라이언트 흐름 로그인은 UX 느낌을 그대로 제공하고 추가 사용자 지정이 가능하기 때문에 `loginAsync()` 메서드보다 선호도가 높습니다.
+Azure Active Directory를 사용하여 애플리케이션에 사용자가 로그인하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다. 클라이언트 흐름 로그인은 UX 느낌을 그대로 제공하고 추가 사용자 지정이 가능하기 때문에 `loginAsync()` 메서드보다 선호도가 높습니다.
 
 1. [Active Directory 로그인에 App Service를 구성하는 방법][22] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 애플리케이션을 등록하는 선택적 단계를 완료해야 합니다.
 2. 다음 정의를 포함하도록 build.gradle 파일을 수정하여 ADAL을 설치합니다.
@@ -1101,9 +1101,9 @@ Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로�
 
 3. 애플리케이션에 아래 코드를 추가하여 다음과 같이 대체합니다.
 
-    * **INSERT-AUTHORITY-HERE** 를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com이어야 합니다.
+    * **INSERT-AUTHORITY-HERE**를 애플리케이션이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com이어야 합니다.
     * **INSERT-RESOURCE-ID-HERE** 를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 Azure **Active Directory 설정**에 있는 **고급** 탭에서 클라이언트 ID를 가져올 수 있습니다.
-    * **INSERT-CLIENT-ID-HERE** 를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
+    * **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 애플리케이션에서 복사한 클라이언트 ID로 바꿉니다.
     * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE** 를 사이트의 */.auth/login/done* 엔드포인트로 바꿉니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done*과 비슷해야 합니다.
 
 ```java
@@ -1188,7 +1188,7 @@ mClient = new MobileServiceClient("https://myappname.azurewebsites.net");
 mClient.setAndroidHttpClientFactory(new OkHttpClientFactory() {
     @Override
     public OkHttpClient createOkHttpClient() {
-        OkHttpClient client = new OkHttpClinet();
+        OkHttpClient client = new OkHttpClient();
         client.setReadTimeout(60, TimeUnit.SECONDS);
         client.setWriteTimeout(60, TimeUnit.SECONDS);
         return client;
@@ -1281,7 +1281,7 @@ FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {
 client.setGsonBuilder(
     MobileServiceClient
         .createMobileServiceGsonBuilder()
-        .setFieldNamingStrategy(namingStategy)
+        .setFieldNamingStrategy(namingStrategy)
 );
 ```
 
