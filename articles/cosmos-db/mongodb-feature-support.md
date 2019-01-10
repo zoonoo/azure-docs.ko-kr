@@ -1,19 +1,18 @@
 ---
 title: Azure Cosmos DB의 API for MongoDB 기능 지원 사용
 description: Azure Cosmos DB의 API for MongoDB가 MongoDB 3.4에 제공하는 기능 지원에 대해 알아봅니다.
-services: cosmos-db
-author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 12/26/2018
-ms.author: rimman
-ms.openlocfilehash: bb25cf6ed60317dd5d7266e2f4750c2bb9f4859d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+author: sivethe
+ms.author: sivethe
+ms.openlocfilehash: 7bf8258524b0b5e73c1a499fb6d3578098a0821e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790286"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039166"
 ---
 # <a name="use-azure-cosmos-dbs-api-for-mongodb-support-for-mongodb-features-and-syntax"></a>MongoDB 기능 및 구문에 Azure Cosmos DB의 API for MongoDB 지원 사용
 

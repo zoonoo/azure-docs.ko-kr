@@ -4,14 +4,16 @@ description: Azure CLI 스크립트 샘플 - Azure Cosmos DB에 대한 방화벽
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/26/2018
-ms.openlocfilehash: 793fc68bfcd2d7afdc7a5a4b1916737889d27ba5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: sngun
+ms.openlocfilehash: efe69ef80be81d0423310d220304e719036266d2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955369"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042719"
 ---
 # <a name="azure-cosmos-db-create-a-firewall-using-azure-cli"></a>Azure Cosmos DB는 Azure CLI를 사용하여 방화벽 만들기
 

@@ -1,21 +1,19 @@
 ---
 title: Azure Cosmos DB의 API for MongoDB 및 .NET SDK를 사용하여 웹앱 빌드
 description: Azure Cosmos DB의 API for MongoDB를 사용하여 연결 및 쿼리할 수 있는 .NET 코드 샘플을 제공합니다.
-services: cosmos-db
 author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
-ms.custom: quickstart
+ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.author: rimman
-ms.openlocfilehash: c6ae9fa46e9dd3abc1a526d5c7121c86d6e9a08c
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c68d95f7eddfa98713f1af0786f82c1d633fbfff
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791220"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044487"
 ---
 # <a name="build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-net-sdk"></a>Azure Cosmos DB의 API for MongoDB 및 .NET SDK를 사용하여 웹앱 빌드
 
