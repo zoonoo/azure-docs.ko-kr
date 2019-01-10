@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 12/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 4108355415d1230f98db36a4f83497de2fa848f7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2dcc72e0e3b9caef9ab01d9f754671cb0365a358
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185582"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608837"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure Security Center에서 지원하는 기능 및 플랫폼
 
@@ -30,7 +30,7 @@ ms.locfileid: "53185582"
 >
 >
 
-## <a name="supported-platforms"></a>지원되는 플랫폼 
+## <a name="platforms-that-support-the-data-collection-agent"></a>데이터 수집 에이전트를 지원하는 플랫폼 
 
 이 섹션에서는 Azure Security Center 에이전트를 실행하고 데이터를 수집할 수 있는 플랫폼을 나열합니다.
 
@@ -43,6 +43,10 @@ ms.locfileid: "53185582"
 * Windows Server 2012 R2
 * Windows Server 2016
 
+> [!NOTE]
+> Windows Defender ATP와의 통합은 Windows Server 2012 R2 및 Windows Server 2016만 지원합니다.
+>
+>
 
 ### <a name="supported-platforms-for-linux-computers-and-vms"></a>Linux 컴퓨터 및 VM에 대해 지원되는 플랫폼
 다음 Linux 운영 체제가 지원됩니다.
@@ -55,11 +59,6 @@ ms.locfileid: "53185582"
 * Oracle Linux 버전 5, 6 및 7
 * Amazon Linux 2012.09~2017
 * OpenSSL 1.1.0은 x86_64 플랫폼, 64비트에서만 지원
-
-> [!NOTE]
-> Linux 운영 체제에서는 아직 가상 머신 동작 분석을 사용할 수 없습니다.
->
->
 
 ## <a name="vms-and-cloud-services"></a>VM 및 Cloud Services
 클라우드 서비스에서 실행되는 VM도 지원됩니다. 프로덕션 슬롯에서 실행되는 클라우드 서비스 웹 및 작업자 역할만 모니터링됩니다. 클라우드 서비스에 대한 자세한 내용은 [Azure Cloud Services 개요](../cloud-services/cloud-services-choose-me.md)를 참조하세요.
@@ -80,7 +79,7 @@ ms.locfileid: "53185582"
 |보안 구성|✔|✔|✔|✔|
 |맬웨어 방지 프로그램|✔|✔|X|X|
 |JIT VM 액세스|✔|X|✔|X|
-|적응 응용 프로그램 컨트롤|✔|X|X|X|
+|적응형 애플리케이션 제어|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
 |디스크 암호화|✔|X|✔|X|
 |타사 배포|✔|X|✔|X|

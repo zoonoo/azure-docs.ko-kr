@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 768dc4f555ade9483e11c3aec0f4622fe6b441c1
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 9dafe7df3c488dbc6d0c2f27a6265e86eebad41c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384203"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718931"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight를 사용하여 스크립트 작업 개발
 
@@ -134,7 +134,7 @@ Linux 기반 HDInsight 클러스터는 클러스터 내에서 활성화 되는 �
 
 ### <a name="bPS6"></a>Azure Blob 저장소를 사용하도록 사용자 지정 구성 요소 구성
 
-클러스터에 설치하는 구성 요소에는 Apache HDFS(Hadoop 분산 파일 시스템) 스토리지를 사용하기 위한 기본 구성이 있을 수 있습니다. HDInsight는 Azure Storage 또는 Data Lake Store를 기본 저장소로 사용합니다. 클러스터가 삭제되는 경우에도 데이터가 지속되는 HDFS 호환 가능 파일 시스템을 제공합니다. 설치하는 구성 요소가 HDFS 대신 WASB 또는 ADL을 사용하도록 구성해야 할 수 있습니다.
+클러스터에 설치하는 구성 요소에는 Apache HDFS(Hadoop 분산 파일 시스템) 스토리지를 사용하기 위한 기본 구성이 있을 수 있습니다. HDInsight는 Azure Storage 또는 Data Lake Storage를 기본 스토리지로 사용합니다. 클러스터가 삭제되는 경우에도 데이터가 지속되는 HDFS 호환 가능 파일 시스템을 제공합니다. 설치하는 구성 요소가 HDFS 대신 WASB 또는 ADL을 사용하도록 구성해야 할 수 있습니다.
 
 대부분의 작업의 경우 파일 시스템을 지정할 필요가 없습니다. 예를 들어 다음은 giraph-examples.jar 파일을 로컬 파일 시스템에서 클러스터 저장소로 복사합니다.
 
@@ -142,7 +142,7 @@ Linux 기반 HDInsight 클러스터는 클러스터 내에서 활성화 되는 �
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-이 예제에서 `hdfs` 명령은 기본 클러스터 저장소를 투명하게 사용합니다. 일부 작업의 경우 URI를 지정해야 할 수도 있습니다. 예를 들어 Data Lake Store에 대해 `adl:///example/jars`를 또는 Azure Storage에 대해 `wasb:///example/jars`를 지정합니다.
+이 예제에서 `hdfs` 명령은 기본 클러스터 저장소를 투명하게 사용합니다. 일부 작업의 경우 URI를 지정해야 할 수도 있습니다. 예를 들어 Data Lake Storage에 대해 `adl:///example/jars`를 또는 Azure Storage에 대해 `wasb:///example/jars`를 지정합니다.
 
 ### <a name="bPS7"></a>STDOUT 및 STDERR에 정보 쓰기
 
@@ -163,7 +163,7 @@ echo "Getting ready to install Foo"
 >&2 echo "An error occurred installing Foo"
 ```
 
-이는 STDOUT에 작성된 정보를 STDERR(2)로 대신 리디렉션합니다. IO 리디렉션에 대한 자세한 내용은 [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html)을 참조하세요.
+이는 STDOUT에 작성된 정보를 STDERR(2)로 대신 리디렉션합니다. IO 리디렉션에 대한 자세한 내용은 [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html)을 참조하세요.
 
 스크립트 동작에서 기록된 정보 보기에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
@@ -278,17 +278,17 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 * __공개적으로 읽을 수 있는 URI__ 예를 들어 OneDrive, Dropbox 또는 다른 파일 호스팅 서비스에 저장된 데이터에 대한 URL
 
-* HDInsight 클러스터와 연결된 __Azure Data Lake Store 계정__ HDInsight에서 Azure Data Lake Store를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
+* HDInsight 클러스터와 연결된 __Azure Data Lake Storage 계정__ HDInsight에서 Azure Data Lake Storage를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
 
     > [!NOTE]  
-    > HDInsight에서 Data Lake Store에 액세스하는 데 사용하는 서비스 주체에는 스크립트에 대한 읽기 권한이 있어야 합니다.
+    > HDInsight에서 Data Lake Storage에 액세스하는 데 사용하는 서비스 주체에는 스크립트에 대한 읽기 권한이 있어야 합니다.
 
 스크립트에서 사용되는 리소스는 공개적으로도 사용할 수 있어야 합니다.
 
-Azure Storage 계정 또는 Azure Data Lake Store에서 파일을 저장하면 Azure 네트워크 내에서 두 가지 모두 빠른 액세스를 제공합니다.
+Azure Storage 계정 또는 Azure Data Lake Storage에서 파일을 저장하면 Azure 네트워크 내에서 두 가지 모두 빠른 액세스를 제공합니다.
 
 > [!NOTE]  
-> 스크립트를 참조하는 데 사용되는 URI 형식은 사용 중인 서비스에 따라 다릅니다. HDInsight 클러스터와 연결된 저장소 계정의 경우 `wasb://` 또는 `wasbs://`를 사용합니다. 공개적으로 읽을 수 있는 URI의 경우 `http://` 또는 `https://`를 사용합니다. Data Lake Store의 경우 `adl://`을 사용합니다.
+> 스크립트를 참조하는 데 사용되는 URI 형식은 사용 중인 서비스에 따라 다릅니다. HDInsight 클러스터와 연결된 저장소 계정의 경우 `wasb://` 또는 `wasbs://`를 사용합니다. 공개적으로 읽을 수 있는 URI의 경우 `http://` 또는 `https://`를 사용합니다. Data Lake Storage의 경우 `adl://`을 사용합니다.
 
 ### <a name="checking-the-operating-system-version"></a>운영 체제 버전 검사
 
@@ -371,5 +371,5 @@ Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘�
 ## <a name="seeAlso"></a>다음 단계
 
 *  [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)
-* [HDInsight.NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) 를 사용하여 HDInsight를 관리하는 .NET 응용 프로그램을 만드는 방법을 알아봅니다.
+* [HDInsight.NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)를 사용하여 HDInsight를 관리하는 .NET 애플리케이션을 만드는 방법을 알아봅니다.
 * [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) 를 사용하여 REST를 통해 HDInsight 클러스터에서 관리 작업을 수행하는 방법을 알아봅니다.

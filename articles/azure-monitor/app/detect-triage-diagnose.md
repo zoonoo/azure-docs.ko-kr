@@ -13,16 +13,16 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b3cfd57ff0e4b881352c07081d71bb9ba80fd11e
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: d5cba3b21ff6099a4132a7ebfab38d1ead9afded
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000192"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118085"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>DevOps용 Application Insights 개요
 
-[Application Insights](../../application-insights/app-insights-overview.md)를 사용하면 앱이 라이브 상태일 때 앱의 성능과 사용 방식을 신속하게 파악할 수 있습니다. 문제가 있는 경우 문제에 대해 알려주며 영향을 평가하고 원인을 확인하는 데 도움을 줍니다.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md)를 사용하면 앱이 라이브 상태일 때 앱의 성능과 사용 방식을 신속하게 파악할 수 있습니다. 문제가 있는 경우 문제에 대해 알려주며 영향을 평가하고 원인을 확인하는 데 도움을 줍니다.
 
 웹 애플리케이션을 개발하는 팀의 사례는 다음과 같습니다.
 
@@ -61,7 +61,7 @@ Marcela Markova는 OBS 팀에서 선임 개발자이며 온라인 성능 모니�
 하지만 더 중요한 점은 모든 오류에 대한 경고가 개발팀에 이메일로 전송된다는 것입니다. 이러한 방법으로 팀은 거의 모든 고객보다 먼저 이에 대해 알고 있습니다.
 
 ## <a name="monitor-performance"></a>성능 모니터링
-Application Insights의 개요 페이지에는 [주요 메트릭](../../application-insights/app-insights-web-monitor-performance.md)을 보여 주는 차트가 있습니다.
+Application Insights의 개요 페이지에는 [주요 메트릭](../../azure-monitor/app/web-monitor-performance.md)을 보여 주는 차트가 있습니다.
 
 ![개요 성능 KPI 그래프 스크린샷](./media/detect-triage-diagnose/overview-graphs.png)
 
@@ -151,7 +151,7 @@ TrackException은 스택 복사본을 보내기 때문에 예외 사항을 보�
 
 
 ## <a name="monitor-proactively"></a>사전 모니터링
-Marcela는 가만히 앉아서 경고를 기다리고 있지는 않습니다. 매든 재배포 후 곧바로 예외 수뿐 아니라 가장 느린 요청의 전체적인 수치 및 표 모두 [응답 시간](../../application-insights/app-insights-web-monitor-performance.md)을 살펴봅니다.  
+Marcela는 가만히 앉아서 경고를 기다리고 있지는 않습니다. 매든 재배포 후 곧바로 예외 수뿐 아니라 가장 느린 요청의 전체적인 수치 및 표 모두 [응답 시간](../../azure-monitor/app/web-monitor-performance.md)을 살펴봅니다.  
 
 ![응답 시간 그래프 및 서버 응답 시간 표.](./media/detect-triage-diagnose/response-time.png)
 
@@ -184,11 +184,11 @@ Marcela는 가만히 앉아서 경고를 기다리고 있지는 않습니다. �
 
 일부 느린 종속성 문제는 지리적 위치 문제입니다. Fabrikam 은행은 Azure 가상 컴퓨터를 사용하며, 의도치 않게 다른 국가에 웹 서버 및 계정 서버가 있음을 발견했습니다. 그 중 하나를 마이그레이션하여 극적인 개선이 이루어졌습니다.
 
-**무엇을 했나요?**  문제가 종속성에 있는 것으로 나타나지 않고 항상 있지 않는 경우, 최근 변경 내용으로 인한 것일 수 있습니다. 메트릭 및 이벤트 차트에서 제공하는 기록적 관점을 통해 갑작스러운 변경 내용과 배포를 쉽게 연관지을 수 있습니다. 이는 문제에 대한 검색 범위를 좁힙니다. 애플리케이션 코드에서 성능을 저하시킨 줄을 확인하려면 Application Insights Profiler를 사용하도록 설정합니다. [Application Insights를 사용하여 라이브 Azure Web Apps 프로파일링](./../../application-insights/app-insights-profiler.md)을 참조하세요. Profiler를 사용하도록 설정하고 나면 다음과 같은 추적이 표시됩니다. 이 예제에서는 *GetStorageTableData* 메서드로 인해 문제가 발생했음을 쉽게 확인할 수 있습니다.  
+**무엇을 했나요?**  문제가 종속성에 있는 것으로 나타나지 않고 항상 있지 않는 경우, 최근 변경 내용으로 인한 것일 수 있습니다. 메트릭 및 이벤트 차트에서 제공하는 기록적 관점을 통해 갑작스러운 변경 내용과 배포를 쉽게 연관지을 수 있습니다. 이는 문제에 대한 검색 범위를 좁힙니다. 애플리케이션 코드에서 성능을 저하시킨 줄을 확인하려면 Application Insights Profiler를 사용하도록 설정합니다. [Application Insights를 사용하여 라이브 Azure Web Apps 프로파일링](./../../azure-monitor/app/profiler.md)을 참조하세요. Profiler를 사용하도록 설정하고 나면 다음과 같은 추적이 표시됩니다. 이 예제에서는 *GetStorageTableData* 메서드로 인해 문제가 발생했음을 쉽게 확인할 수 있습니다.  
 
 ![App Insights Profiler 추적](./media/detect-triage-diagnose/AppInsightsProfiler.png)
 
-**무엇이 일어나고 있나요?**  일부 문제가 드물게만 발생하고 오프라인 테스트를 통해서는 추적하기 어려울 수 있습니다. 최대한 할 수 있는 일은 실시간으로 발생할 때 버그를 확보하려고 노력하는 것입니다. 예외 보고서에서 스택 덤프를 점검할 수 있습니다. 또한 자주 사용하는 로깅 프레임워크 또는 TrackTrace()나 TrackEvent()를 사용하여 추적 호출을 작성할 수 있습니다.  
+**무엇이 일어나고 있나요?** 일부 문제가 드물게만 발생하고 오프라인 테스트를 통해서는 추적하기 어려울 수 있습니다. 최대한 할 수 있는 일은 실시간으로 발생할 때 버그를 확보하려고 노력하는 것입니다. 예외 보고서에서 스택 덤프를 점검할 수 있습니다. 또한 자주 사용하는 로깅 프레임워크 또는 TrackTrace()나 TrackEvent()를 사용하여 추적 호출을 작성할 수 있습니다.  
 
 Fabrikam은 계좌 간 이체에 간헐적인 문제가 있었으나 특정 계좌 유형에만 발생하지는 않았습니다. 자세히 이해하기 위해 계좌 유형을 각각의 호출에 속성으로 연결하여 코드에서 주요 포인트로 TrackTrace() 호출을 삽입했습니다. 이를 통해 진단 검색에서 해당 추적을 필터링하기 쉬워졌습니다. 또한 속성 및 측정값으로 매개 변수 값을 추적 호출에 연결했습니다.
 
@@ -215,7 +215,7 @@ Application Insights는 사용자가 앱으로 수행할 작업에 대해 알아
 
 팀은 사용자 작업에 대한 정보를 가져오는 데 익숙합니다. 오늘날에는 새로운 기능을 디자인할 때마다 사용에 대한 피드백을 받는 방법을 생각합니다. 처음부터 기능으로의 추적 호출을 디자인합니다. 피드백을 사용하여 각 개발 주기로 기능을 향상시킵니다.
 
-[사용 현황 추적에 대해 자세히 읽어보세요](../../application-insights/app-insights-usage-overview.md).
+[사용 현황 추적에 대해 자세히 읽어보세요](../../azure-monitor/app/usage-overview.md).
 
 ## <a name="apply-the-devops-cycle"></a>DevOps 주기 적용
 이것이 한 팀이 Application Insights를 사용하여 개별 문제를 수정하는 것이 아니라 개발 수명 주기를 개선한 방법입니다. Application Insights가 애플리케이션의 성능 관리를 개선하는 데 어떻게 도움을 줄 수 있는지에 대한 아이디어를 제공했기 바랍니다.
@@ -230,6 +230,6 @@ Application Insights는 사용자가 앱으로 수행할 작업에 대해 알아
 * [ASP.NET 웹 애플리케이션](../../azure-monitor/app/asp-net.md)
 * [Java 웹 애플리케이션](../../azure-monitor/app/java-get-started.md)
 * [Node.js 웹 애플리케이션](../../azure-monitor/app/nodejs.md)
-* [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [J2EE](../../azure-monitor/app/java-live.md) 또는 [Azure](../../application-insights/app-insights-overview.md)에서 호스트되는 이미 배포된 앱
+* [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [J2EE](../../azure-monitor/app/java-live.md) 또는 [Azure](../../azure-monitor/app/app-insights-overview.md)에서 호스트되는 이미 배포된 앱
 * [웹 페이지](../../azure-monitor/app/javascript.md) - 단일 페이지 앱 또는 일반 웹 페이지 - 독립적으로 또는 다른 서버 옵션과 함께 사용
 * [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md) - 공용 인터넷에서 앱 테스트
