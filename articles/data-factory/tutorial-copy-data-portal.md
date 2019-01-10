@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 6e3ab097b08e3a15d012ccc644307bc8f4b281ab
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 5c7e6a4da9880677fbc4aad76b820ba596058bb6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971685"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025252"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob 저장소에서 SQL 데이터베이스로 데이터 복사
 이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 데이터 팩터리를 만듭니다. 데이터 팩터리의 파이프라인은 Azure Blob 저장소에서 SQL 데이터베이스로 데이터를 복사합니다. 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
@@ -136,7 +135,7 @@ ms.locfileid: "53971685"
 
 1. **원본** 탭으로 이동합니다. **+ 새로 만들기**를 선택하여 원본 데이터 세트를 만듭니다. 
 
-1. **새 데이터 세트** 창에서 **Azure Blob Storage**를 선택한 다음, **마침**을 선택합니다. 원본 데이터는 Blob 저장소에 있으므로 원본 데이터 세트로 **Azure Blob Storage**를 선택합니다. 
+1. **새 데이터 세트** 창에서 **Azure Blob Storage**를 선택한 다음, **마침**을 선택합니다. 원본 데이터는 Blob 스토리지에 있으므로 원본 데이터 집합으로 **Azure Blob Storage**를 선택합니다. 
 
     ![저장소 선택](./media/tutorial-copy-data-portal/select-azure-blob-dataset.png)
 
@@ -148,7 +147,7 @@ ms.locfileid: "53971685"
 
     ![새 연결된 서비스 단추](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 
-1. **새로 연결된 서비스** 창에서 **AzureStorageLinkedService**를 이름으로 입력하고, **저장소 계정 이름** 목록에서 저장소 계정의 이름을 선택한 다음, **저장**을 선택하여 연결된 서비스를 배포합니다.
+1. **새로 연결된 서비스** 창에서 **AzureStorageLinkedService**를 이름으로 입력하고, **스토리지 계정 이름** 목록에서 스토리지 계정의 이름을 선택한 다음, **저장**을 선택하여 연결된 서비스를 배포합니다.
 
     ![새 연결된 서비스](./media/tutorial-copy-data-portal/new-azure-storage-linked-service.png)
 

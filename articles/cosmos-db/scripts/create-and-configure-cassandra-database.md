@@ -1,21 +1,20 @@
 ---
 title: Azure PowerShell 스크립트 - Azure Cosmos DB Cassandra API 계정 만들기
 description: Azure PowerShell 스크립트 샘플 - Azure Cosmos DB Cassandra API 계정 만들기
-services: cosmos-db
-author: SnehaGunda
-ms.author: sngun
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
-ms.custom: mvc
+ms.subservice: cosmosdb-graph
 ms.devlang: PowerShell
 ms.topic: sample
 ms.date: 08/08/2018
-ms.openlocfilehash: d4b834293116d96e312d862970132b0f55187102
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: sngun
+ms.openlocfilehash: 13305224ec0f1c0c6126a86af366474ebf1db9c3
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960297"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040815"
 ---
 # <a name="azure-cosmos-db-create-a-cassandra-api-account-using-powershell"></a>Azure Cosmos DB는 PowerShell을 사용하여 Cassandra API 계정 만들기
 

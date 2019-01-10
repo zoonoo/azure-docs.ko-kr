@@ -3,17 +3,17 @@ title: .Net 미리 보기 SDK를 사용하여 Azure Cosmos DB로 ASP.NET MVC 웹
 description: 이 자습서에서는 Azure Cosmos DB를 사용하여 ASP .Net MVC 웹 애플리케이션을 만드는 방법을 설명합니다. Azure에서 호스팅하는 Todo 앱에서 JSON 데이터를 저장하고 액세스하게 됩니다.
 author: deborahc
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.author: dech
-ms.openlocfilehash: c0b1ed5aff7f22000a179983396239c24d21a311
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e3ad852246b4b78d5ed7ac938348e59e9b7e6ce0
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101333"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037126"
 ---
 # <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>자습서: .Net 미리 보기 SDK를 사용하여 Azure Cosmos DB를 통해 ASP.NET MVC 웹 애플리케이션 개발 
 
@@ -227,7 +227,7 @@ Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정
    TodoItemService.Initialize().GetAwaiter().GetResult();
    ```
 
-   이때 솔루션이 오류 없이 프로젝트를 빌드할 수 있어야 합니다. 지금 애플리케이션을 실행하면 **HomeController** 및 해당 컨트롤러의 **인덱스** 뷰가 열립니다. 이것은 시작할 때 선택한 MVC 템플릿 프로젝트에 대한 기본 동작입니다. 이 동작을 변경하기 위해 이 MVC 애플리케이션의 라우팅을 변경하겠습니다.
+   이때 솔루션이 오류 없이 프로젝트를 빌드할 수 있어야 합니다. 지금 애플리케이션을 실행하면 **HomeController** 및 해당 컨트롤러의 **인덱스** 뷰가 열립니다. 이것은 시작할 때 선택한 MVC 템플릿 프로젝트에 대한 기본 동작입니다. 이 동작을 변경하기 위해 이 MVC 응용 프로그램의 라우팅을 변경하겠습니다.
 
 1. ***App\_Start\RouteConfig.cs***를 열고 “defaults:”로 시작하는 줄을 찾은 후 다음 코드로 업데이트합니다.
 

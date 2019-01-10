@@ -1,22 +1,19 @@
 ---
 title: SQL API를 사용하여 Azure Cosmos DB가 있는 .NET 웹앱 빌드
 description: 이 빠른 시작에서 Azure Cosmos DB SQL API 및 Azure Portal을 사용하여 .NET 웹앱 만들기
-services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
-ms.custom: quick start connect, mvc, devcenter
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-clicktale: true
 ms.date: 04/10/2018
-ms.openlocfilehash: d8869d21be84ea886dd2ea7db48c60b1a308f807
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6f90485b17361089de9770bb630db38cf91abe12
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098120"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040917"
 ---
 # <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>빠른 시작: SQL API 및 Azure Portal을 사용하여 Azure Cosmos DB가 포함된 .NET 웹앱 빌드
 
@@ -62,7 +59,7 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 [!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
-## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
+## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
 이제 코드 사용으로 전환해 보겠습니다. [GitHub에서 SQL API 앱](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)을 복제하고 연결 문자열을 설정하고 실행해보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
@@ -145,7 +142,7 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 3. 결과에서 **Microsoft.Azure.DocumentDB** 라이브러리를 설치합니다. 그러면 Microsoft.Azure.DocumentDB 패키지 뿐만 아니라 모든 종속성도 설치됩니다.
 
-4. Ctrl + F5를 선택하여 애플리케이션을 실행합니다. 앱이 브라우저에 표시됩니다. 
+4. Ctrl + F5를 선택하여 응용 프로그램을 실행합니다. 앱이 브라우저에 표시됩니다. 
 
 5. 브라우저에서 **새로 만들기**를 선택하고 Todo 앱에서 몇 가지 새 작업을 만듭니다.
 
