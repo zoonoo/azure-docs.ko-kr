@@ -1,19 +1,18 @@
 ---
 title: Azure Storage Explorer를 사용하여 Azure Cosmos DB 리소스 관리
 description: Azure Storage 탐색기를 사용하여 Azure Cosmos DB에 연결하고 리소스를 관리하는 방법을 알아봅니다.
-author: Jejiang
-tags: Azure Cosmos DB
+author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: jejiang
+ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: fb758c12d699bb80f81b65db99e1fec68c4efabf
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: d19aaa6e486732cb1453e3299c8e598e8fd2f507
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809763"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044623"
 ---
 # <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Azure Storage Explorer를 사용하여 Azure Cosmos DB 리소스 관리
 

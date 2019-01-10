@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: f15a0670932a9017c079ff0cf1e7cb4ad598a9c4
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 326f0e21582c1aee03c8a44adcd709f3ddf59b0b
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004921"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119631"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -53,10 +53,10 @@ Application Insights를 사용하면 최근 사용 패턴에 따른 가능한 �
 
 ![가격 책정 선택](./media/pricing/pricing-001.png)
 
-a. 해당 월의 데이터 볼륨을 검토합니다. 여기에는 서버 및 클라이언트 앱과 가용성 테스트에서 수신되고 보유되는([샘플링](../../application-insights/app-insights-sampling.md) 이후) 모든 데이터가 포함됩니다.  
+a. 해당 월의 데이터 볼륨을 검토합니다. 여기에는 서버 및 클라이언트 앱과 가용성 테스트에서 수신되고 보유되는([샘플링](../../azure-monitor/app/sampling.md) 이후) 모든 데이터가 포함됩니다.  
 B. [다단계 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests)에 대해서는 별도 요금이 부과됩니다. (여기에는 간단한 가용성 테스트는 포함되지 않습니다. 이 테스트의 경우 데이터 볼륨 요금에 포함됩니다.)  
 C. 지난 달의 데이터 볼륨 추세를 봅니다.  
-D. 데이터 수집 [샘플링](../../application-insights/app-insights-sampling.md)을 사용합니다.   
+D. 데이터 수집 [샘플링](../../azure-monitor/app/sampling.md)을 사용합니다.   
 E. 일일 데이터 볼륨 한도를 설정합니다.  
 
 Application Insights 사용량을 보다 자세히 조사하려면 **메트릭** 페이지를 열고 "데이터 요소 볼륨"이라는 메트릭을 추가한 후 *분할 적용* 옵션을 선택하여 데이터를 "원격 분석 항목 유형"에 따라 분할합니다. 
@@ -68,7 +68,7 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 ## <a name="data-rate"></a>데이터 속도
 보내는 데이터의 볼륨은 세 가지 방법으로 제한됩니다.
 
-* **샘플링**: 샘플링을 사용하여 메트릭 왜곡을 최소화하면서 서버 및 클라이언트 앱에서 전송되는 원격 분석의 양을 줄일 수 있습니다. 샘플링은 보내는 데이터의 양을 조정하는 데 사용할 수 있는 기본 도구입니다. [샘플링 기능](../../application-insights/app-insights-sampling.md)에 대해 자세히 알아보세요. 
+* **샘플링**: 샘플링을 사용하여 메트릭 왜곡을 최소화하면서 서버 및 클라이언트 앱에서 전송되는 원격 분석의 양을 줄일 수 있습니다. 샘플링은 보내는 데이터의 양을 조정하는 데 사용할 수 있는 기본 도구입니다. [샘플링 기능](../../azure-monitor/app/sampling.md)에 대해 자세히 알아보세요. 
 * **일일 한도**: Azure Portal에서 Application Insights 리소스를 만들 때 일일 한도는 100GB/일로 설정됩니다. Visual Studio에서 Application Insights 리소스를 만들 때 기본값은 적습니다(불과 32.3MB/일). 일일 한도 기본값은 테스트가 용이하도록 설정됩니다. 앱을 프로덕션에 배포하기 전에 사용자가 일일 한도를 높여야 합니다. 
 
     트래픽이 많은 애플리케이션에 대해 더 높은 최대값을 요구하지 않으면 최대 한도는 하루 1,000GB입니다. 
@@ -91,7 +91,7 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 ## <a name="reduce-your-data-rate"></a>데이터 속도 줄이기
 다음 작업을 수행하여 데이터 볼륨을 줄일 수 있습니다.
 
-* [샘플링](../../application-insights/app-insights-sampling.md)을 사용합니다. 이 기술은 메트릭을 기울이지 않고 데이터의 속도를 줄입니다. 검색에서 관련된 항목 간을 탐색하는 기능을 손실하지 않습니다. 서버 앱에서는 샘플링이 자동으로 수행됩니다.
+* [샘플링](../../azure-monitor/app/sampling.md)을 사용합니다. 이 기술은 메트릭을 기울이지 않고 데이터의 속도를 줄입니다. 검색에서 관련된 항목 간을 탐색하는 기능을 손실하지 않습니다. 서버 앱에서는 샘플링이 자동으로 수행됩니다.
 * [보고될 수 있는 Ajax 호출 수를 제한](../../azure-monitor/app/javascript.md#detailed-configuration) 하거나 Ajax 보고를 해제합니다.
 * [ApplicationInsights.config를 편집](../../azure-monitor/app/configuration-with-applicationinsights-config.md)하여 필요하지 않은 컬렉션 모듈을 끕니다. 예를 들어 성능 카운터 또는 종속성 데이터가 필요하지 않다고 결정할 수 있습니다.
 * 별도 계측 키에서 원격 분석을 분할합니다. 
@@ -101,20 +101,20 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 
 일일 볼륨 한도를 사용하여 수집된 데이터를 제한할 수 있습니다. 그러나 한도가 충족되는 경우 해당 날짜의 나머지 기간 동안 애플리케이션에서 보낸 모든 원격 분석의 손실이 발생합니다. 애플리케이션이 일일 한도에 도달하는 것은 *권장되지 않습니다*. 일일 한도에 도달한 후 애플리케이션의 상태 및 성능을 추적할 수 없습니다.
 
-일별 볼륨 한도를 사용하는 대신 [샘플링](../../application-insights/app-insights-sampling.md)을 사용하여 원하는 수준으로 데이터 볼륨을 조정합니다. 그런 다음, 애플리케이션이 예기치 않게 높은 볼륨의 원격 분석을 보내기 시작하는 경우 "최후의 수단"으로만 일일 한도를 사용합니다.
+일별 볼륨 한도를 사용하는 대신 [샘플링](../../azure-monitor/app/sampling.md)을 사용하여 원하는 수준으로 데이터 볼륨을 조정합니다. 그런 다음, 애플리케이션이 예기치 않게 높은 볼륨의 원격 분석을 보내기 시작하는 경우 "최후의 수단"으로만 일일 한도를 사용합니다.
 
 일일 한도를 변경하려면 Application Insights 리소스의 **구성** 섹션의 **사용량 및 예상 비용** 창에서 **일일 상한**을 선택합니다.
 
 ![일별 원격 분석 볼륨 한도 조정](./media/pricing/pricing-003.png)
 
 ## <a name="sampling"></a>샘플링
-[샘플링](../../application-insights/app-insights-sampling.md)은 진단 검색 중에 관련 이벤트를 찾는 기능은 유지하면서 앱에 원격 분석이 전송되는 속도를 줄이는 방법입니다. 또한 올바른 이벤트 개수를 유지합니다.
+[샘플링](../../azure-monitor/app/sampling.md)은 진단 검색 중에 관련 이벤트를 찾는 기능은 유지하면서 앱에 원격 분석이 전송되는 속도를 줄이는 방법입니다. 또한 올바른 이벤트 개수를 유지합니다.
 
 샘플링은 요금을 줄이고 월간 할당량 내로 유지하는 효과적인 방법입니다. 샘플링 알고리즘은 예를 들어 검색을 사용하면 특정 예외와 관련된 요청을 찾을 수 있도록 원격 분석의 관련된 항목을 유지합니다. 알고리즘은 또한 요청 속도, 예외 속도 및 기타 카운트에 대해 메트릭 탐색기에 올바른 값을 확인할 수 있도록 올바른 카운트를 유지합니다.
 
 샘플링에는 여러 가지 유형이 있습니다.
 
-* [적응 샘플링](../../application-insights/app-insights-sampling.md)은 ASP.NET SDK에 대한 기본값입니다. 적응 샘플링은 앱이 보내는 원격 분석의 양을 자동으로 조정합니다. 웹앱의 SDK에서 자동으로 작동하여 네트워크에서 원격 분석 트래픽이 감소됩니다. 
+* [적응 샘플링](../../azure-monitor/app/sampling.md)은 ASP.NET SDK에 대한 기본값입니다. 적응 샘플링은 앱이 보내는 원격 분석의 양을 자동으로 조정합니다. 웹앱의 SDK에서 자동으로 작동하여 네트워크에서 원격 분석 트래픽이 감소됩니다. 
 * *수집 샘플링*은 한 가지 대안으로서 앱의 원격 분석이 Application Insights 서비스에 들어가는 지점에서 작동합니다. 수집 샘플링은 앱에서 보낸 원격 분석의 양에 영향을 주지 않지만 서비스에서 보존하는 양을 줄여 줍니다. 수집 샘플링을 사용하여 브라우저 및 다른 SDK의 원격 분석에서 사용한 할당량을 줄일 수 있습니다.
 
 수집 샘플링을 설정하려면 **가격 책정** 창으로 이동합니다.
@@ -196,9 +196,9 @@ Enterprise 계획에는 노드별 청구가 사용되며 각 노드는 일일 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [샘플링](../../application-insights/app-insights-sampling.md)
+* [샘플링](../../azure-monitor/app/sampling.md)
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
-[start]: ../../application-insights/app-insights-overview.md
-[pricing]: http://azure.microsoft.com/pricing/details/application-insights/
+[start]: ../../azure-monitor/app/app-insights-overview.md
+[pricing]: https://azure.microsoft.com/pricing/details/application-insights/

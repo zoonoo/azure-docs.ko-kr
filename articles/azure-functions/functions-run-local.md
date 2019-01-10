@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 3239cbc957d2a79c7a5411604759f86f0268bd70
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c99d5e9d64e9e9715589ecf2c0de57ce660917aa
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976310"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103692"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -198,7 +198,7 @@ local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions �
 + [Java](functions-reference-java.md#environment-variables)
 + [JavaScript](functions-reference-node.md#environment-variables)
 
-**AzureWebJobsStorage**에 유효한 저장소 연결 문자열이 설정되어 있지 않고 에뮬레이터가 사용되지 않으면 다음 오류 메시지가 표시됩니다.
+**AzureWebJobsStorage**에 유효한 스토리지 연결 문자열이 설정되어 있지 않고 에뮬레이터가 사용되지 않으면 다음 오류 메시지가 표시됩니다.
 
 > local.settings.json에 AzureWebJobsStorage 값이 없습니다. 이 값은 HTTP 이외의 모든 트리거에 필요합니다. 'func azure functionapp fetch-app-settings \<functionAppName\>'을 실행하거나 local.settings.json에서 연결 문자열을 지정할 수 있습니다.
 
@@ -307,6 +307,7 @@ func host start
 | **`--password`** | .pfx 파일에 대한 암호가 포함된 암호 또는 파일입니다. `--cert`을 통해서만 사용됩니다. 버전 2.x 전용입니다. |
 | **`--port -p`** | 수신 대기할 로컬 포트입니다. 기본값: 7071. |
 | **`--pause-on-error`** | 프로세스를 종료하기 전에 추가 입력에 대해 일시 중지합니다. IDE(통합 개발 환경)에서 Core Tools를 시작할 때만 사용됩니다.|
+| **`--script-root --prefix`** | 실행하거나 배포할 함수 앱의 루트 경로를 지정하는 데 사용됩니다. 하위 폴더에 프로젝트 파일을 생성하는 컴파일된 프로젝트용으로 사용됩니다. 예를 들어 C# 클래스 라이브러리 프로젝트를 작성할 때는 `MyProject/bin/Debug/netstandard2.0`과 같은 경로를 사용하여 *root* 하위 폴더에 host.json, local.settings.json 및 function.json 파일이 생성됩니다. 이 경우 접두사를 `--script-root MyProject/bin/Debug/netstandard2.0`으로 설정합니다. 이 접두사는 Azure에서 실행할 때의 함수 앱 루트입니다. |
 | **`--timeout -t`** | Functions 호스트를 시작할 제한 시간(초)입니다. Default: 20초.|
 | **`--useHttps`** | `http://localhost:{port}`가 아닌 `https://localhost:{port}`에 바인딩합니다. 기본적으로 이 옵션은 사용자 컴퓨터에 신뢰할 수 있는 인증서를 만듭니다.|
 

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 9d1acabd07e7c01445c55a57be9b0c9a36140aa5
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: b8ff1ae2f4c07dc59bd1ffb631378817493b96b0
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163772"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995051"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Azure로 마이그레이션된 워크로드에 대한 비용 계산 및 크기 조정 모범 사례
 
@@ -117,7 +117,7 @@ Azure에서 여러 유형의 스토리지 계정과 성능 계층을 제공합�
 
 **계정 유형** | **세부 정보** | **사용 현황**
 --- | --- | ---
-**범용 v2 표준** | Blob(블록, 페이지, 추가), 파일, 디스크, 큐 및 테이블을 지원합니다.<br/><br/> 핫, 쿨 및 보관 액세스 계층을 지원합니다. ZRS를 지원합니다. | 대부분의 시나리오 및 대부분의 데이터 형식에 사용합니다. 표준 스토리지 계정은 HHD 또는 SSD를 기반으로 할 수 있습니다.
+**범용 v2 표준** | Blob(블록, 페이지, 추가), 파일, 디스크, 큐 및 테이블을 지원합니다.<br/><br/> 핫, 쿨 및 보관 액세스 계층을 지원합니다. ZRS를 지원합니다. | 대부분의 시나리오 및 대부분의 데이터 형식에 사용합니다. 표준 스토리지 계정은 HDD 또는 SSD를 기준으로 할 수 있습니다.
 **범용 v2 프리미엄** | Blob 스토리지 데이터(페이지 Blob)를 지원합니다. 핫, 쿨 및 보관 액세스 계층을 지원합니다. ZRS를 지원합니다.<br/><br/> SSD에 저장됩니다. | 모든 VM에 사용하는 것이 좋습니다.
 **범용 v1** | 액세스 계층은 지원되지 않습니다. ZRS를 지원하지 않습니다. | 애플리케이션에 Azure 클래식 배포 모델이 필요한 경우에 사용합니다.
 **Blob** | 비정형 개체를 저장하도록 특수화된 스토리지 계정입니다. 블록 Blob을 제공하고 Blob만 추가합니다(파일, 큐, 테이블 또는 디스크 스토리지 서비스는 없음). 범용 v2와 동일한 내구성, 가용성, 확장성 및 성능을 제공합니다. | 이러한 계정에는 페이지 Blob을 저장할 수 없으므로 VHD 파일을 저장할 수 없습니다. 액세스 계층을 핫 또는 쿨로 설정할 수 있습니다.
@@ -248,7 +248,7 @@ Azure에서는 리소스를 사용할 때 사용하는 항목에 대해 비용�
 **자세한 정보:**
 - [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) 및 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview)에 대한 개요 살펴보기
 - Advisor 비용 추천 사항 [살펴보기](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations)
-- [추천 사항에서 비용을 최적화](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json)하고 [예기치 않은 요금을 방지](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started)하는 방법에 대해 알아보기
+- [추천 사항에서 비용을 최적화](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json)하고 [예기치 않은 요금을 방지](https://docs.microsoft.com/azure/billing/billing-getting-started)하는 방법에 대해 알아보기
 - ARO(Azure Resource Optimization) 도구 키트에 대해 [알아보기](https://github.com/Azure/azure-quickstart-templates/tree/master/azure-resource-optimization-toolkit/)
 
 ## <a name="best-practice-implement-resource-group-budgets"></a>모범 사례: 리소스 그룹 예산 구현

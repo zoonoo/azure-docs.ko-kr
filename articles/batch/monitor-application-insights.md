@@ -11,16 +11,16 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: a92d2cb5f6abc73dc768567d239ec38554e493b4
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 986a05dab29226ff492269587ab6c0f49585cef6
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001586"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119910"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Application Insights를 사용하여 Azure Batch .NET 애플리케이션 모니터링 및 디버깅
 
-[Application Insights](../application-insights/app-insights-overview.md)는 개발자가 Azure 서비스에 배포된 애플리케이션을 모니터링 및 디버그할 수 있는 세련되고 강력한 방법을 제공합니다. Application Insights를 사용하여 성능 카운터 및 예외를 모니터링하고 사용자 지정 메트릭 및 추적으로 코드를 계측할 수 있습니다. Application Insights를 Azure Batch 애플리케이션과 통합하면 동작에 대한 구체적인 인사이트를 얻고 거의 실시간으로 문제를 조사할 수 있습니다.
+[Application Insights](../azure-monitor/app/app-insights-overview.md)는 개발자가 Azure 서비스에 배포된 애플리케이션을 모니터링 및 디버그할 수 있는 세련되고 강력한 방법을 제공합니다. Application Insights를 사용하여 성능 카운터 및 예외를 모니터링하고 사용자 지정 메트릭 및 추적으로 코드를 계측할 수 있습니다. Application Insights를 Azure Batch 애플리케이션과 통합하면 동작에 대한 구체적인 인사이트를 얻고 거의 실시간으로 문제를 조사할 수 있습니다.
 
 이 문서에서는 Azure Batch .NET 솔루션에 Application Insights 라이브러리를 추가 및 구성하고 애플리케이션 코드를 계측하는 방법을 보여줍니다. Azure Portal을 통해 애플리케이션을 모니터링하고 사용자 지정 대시보드를 빌드하는 방법도 보여줍니다. Application Insights의 다른 언어 지원에 대한 내용은 [언어, 플랫폼 및 통합 설명서](../azure-monitor/app/platforms.md)를 참조하세요.
 
@@ -35,11 +35,11 @@ ms.locfileid: "54001586"
 
 * [Batch 계정 및 연결된 저장소 계정](batch-account-create-portal.md)
 
-* [Application Insights 리소스](../application-insights/app-insights-create-new-resource.md)
+* [Application Insights 리소스](../azure-monitor/app/create-new-resource.md )
   
    * Azure Portal을 사용하여 Application Insights *리소스*를 만듭니다. *일반***애플리케이션 유형**을 선택합니다.
 
-   * 포털에서 [계측 키](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key)를 복사합니다. 이 문서의 뒷부분에서 필요합니다.
+   * 포털에서 [계측 키](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key)를 복사합니다. 이 문서의 뒷부분에서 필요합니다.
   
   > [!NOTE]
   > Application Insights에 저장된 데이터에 대한 [요금이 청구](https://azure.microsoft.com/pricing/details/application-insights/)될 수 있습니다. 여기에는 이 문서에서 살펴보는 진단 및 모니터링 데이터가 포함됩니다.
@@ -338,11 +338,11 @@ pool.StartTask = new StartTask()
 
 ## <a name="throttle-and-sample-data"></a>스로틀 및 샘플 데이터 
 
-프로덕션 환경에서 실행되는 Azure Batch 애플리케이션은 그 규모가 크기 때문에 비용 관리를 위해 Application Insights에서 수집하는 데이터 양을 제한할 수 있습니다. 자세한 메커니즘은 [Application Insights의 샘플링](../application-insights/app-insights-sampling.md)을 참조하세요.
+프로덕션 환경에서 실행되는 Azure Batch 애플리케이션은 그 규모가 크기 때문에 비용 관리를 위해 Application Insights에서 수집하는 데이터 양을 제한할 수 있습니다. 자세한 메커니즘은 [Application Insights의 샘플링](../azure-monitor/app/sampling.md)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Application Insights](../application-insights/app-insights-overview.md)에 대해 자세히 알아봅니다.
+* [Application Insights](../azure-monitor/app/app-insights-overview.md)에 대해 자세히 알아봅니다.
 
 * Application Insights의 다른 언어 지원에 대한 내용은 [언어, 플랫폼 및 통합 설명서](../azure-monitor/app/platforms.md)를 참조하세요.
 

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: caf3ecb64d0bdb5771b2fde705fdcbffdffccacb
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: de3407b45fb82aa38bec7b84fef34c1654676122
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969304"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016218"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>리소스 업데이트 작업을 사용하여 Azure Machine Learning 모델 업데이트
 이 문서는 기본 Azure Data Factory - Azure Machine Learning 통합 문서인 [Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)를 보완합니다. 수행하지 않았다면 이 문서를 읽기 전에 기본 문서를 검토하세요. 

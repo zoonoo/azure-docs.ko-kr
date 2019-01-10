@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: eeaedc84e860cebc0b001300ace4fe1594375af2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 737cb31fd4e33229e0317e6a0610fb098beed6f4
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999410"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191907"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -66,7 +66,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Componen
 
 # Force Internet Explorer closed, if open. This is required to fully apply the setting.
 # Save any work you have open in the IE browser. This will not affect other browsers,
-# including Edge.
+# including Microsoft Edge.
 Stop-Process -Name iexplore -ErrorAction SilentlyContinue
 ``` 
 

@@ -1,25 +1,24 @@
 ---
 title: Azure Cosmos DB의 고가용성
 description: 이 문서에서는 Azure Cosmos DB에서 고가용성을 제공하는 방법을 설명합니다.
-services: cosmos-db
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 3f3af4b9ca7369cb14f0e91915f9f35086dc761c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 4fc17daf640e95ab028150cec029471a0c7bc565
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999631"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062998"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB의 고가용성
 
 Azure Cosmos DB는 Cosmos 계정과 연결된 모든 Azure 지역에서 데이터를 투명하게 복제합니다. Cosmos DB는 다음 이미지와 같이 데이터에 대해 여러 계층의 중복성을 사용합니다.
 
-![물리적 분할](./media/high-availability/figure1.png)
+![물리적 분할](./media/high-availability/cosmosdb-data-redundancy.png)
 
 - Cosmos 컨테이너 내 데이터는 수평 분할됩니다.
 

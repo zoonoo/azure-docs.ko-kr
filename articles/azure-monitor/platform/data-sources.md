@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 0349e3f482923a236ea29332abfc3a9206828ba7
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 39229bbd120ca52f31a0bd54446e49990d952c9d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976888"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020135"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Azure 모니터의 데이터 원본
 이 문서에서는 Azure Monitor에서 수집한 데이터 원본에 대해 설명하여 리소스 및 해당 리소스에서 실행 중인 애플리케이션의 상태와 성능을 모니터링합니다. 이러한 리소스는 Azure, 다른 클라우드 또는 온-프레미스에 있을 수 있습니다.  이 데이터를 저장한 방법 및 이 데이터를 볼 수 있는 방법에 대한 자세한 내용은 [Azure Monitor에서 수집한 데이터](data-collection.md)를 참조하세요.
@@ -96,7 +96,7 @@ Windows 또는 Linux 가상 머신 또는 물리적 컴퓨터의 포괄적인 �
 [사용자 지정 메트릭을 만들](../../azure-monitor/app/api-custom-events-metrics.md)려면 Application Insights를 사용할 수도 있습니다.  숫자 값을 계산한 다음, 메트릭 탐색기에서 액세스하고 [자동 크기 조정](../../azure-monitor/platform/autoscale-custom-metric.md) 및 메트릭 경고에 사용할 수 있는 다른 메트릭으로 해당 값을 저장하기 위한 사용자 고유의 논리를 정의할 수 있습니다.
 
 ### <a name="dependencies"></a>종속성
-애플리케이션의 다른 논리 작업을 모니터링하려면 [여러 구성 요소에 걸쳐 원격 분석을 수집](../../application-insights/app-insights-transaction-diagnostics.md)해야 합니다. Application Insights는 함께 분석하도록 허용하는 구성 요소 간 종속성을 식별하는 [분산 원격 분석 상관 관계](../../azure-monitor/app/correlation.md)를 지원합니다.
+애플리케이션의 다른 논리 작업을 모니터링하려면 [여러 구성 요소에 걸쳐 원격 분석을 수집](../../azure-monitor/app/transaction-diagnostics.md)해야 합니다. Application Insights는 함께 분석하도록 허용하는 구성 요소 간 종속성을 식별하는 [분산 원격 분석 상관 관계](../../azure-monitor/app/correlation.md)를 지원합니다.
 
 ### <a name="availability-tests"></a>가용성 테스트
 Application Insights의 [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)는 공용 인터넷의 다른 위치에서 애플리케이션의 가용성 및 응답성을 테스트할 수 있습니다. 사용자 시나리오를 시뮬레이션하는 웹 테스트를 만들려면 애플리케이션이 활성 상태이거나 Visual Studio를 사용하는지 확인하는 간단한 ping 테스트를 할 수 있습니다.  가용성 테스트는 애플리케이션에서 계측이 필요하지 않습니다.

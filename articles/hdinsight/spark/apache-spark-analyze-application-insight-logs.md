@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: 161158157e3af92b1ac4fe81a664d95aa6816490
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 806e5b6f764797d2e038cc7ed58ec1d04f678e2b
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001569"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120379"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>HDInsight에서 Apache Spark를 사용하여 Application Insights 원격 분석 로그 분석
 
 HDInsight에서 [Apache Spark](https://spark.apache.org/)를 사용하여 Application Insights 원격 분석 데이터를 분석하는 방법에 대해 알아봅니다.
 
-[Visual Studio Application Insights](../../application-insights/app-insights-overview.md) 는 웹 애플리케이션을 모니터링하는 분석 서비스입니다. Application Insights에 의해 생성된 원격 분석 데이터를 Azure Storage로 내보낼 수 있습니다. 데이터가 Azure Storage에 있으면 HDInsight를 사용하여 분석할 수 있습니다.
+[Visual Studio Application Insights](../../azure-monitor/app/app-insights-overview.md) 는 웹 애플리케이션을 모니터링하는 분석 서비스입니다. Application Insights에 의해 생성된 원격 분석 데이터를 Azure Storage로 내보낼 수 있습니다. 데이터가 Azure Storage에 있으면 HDInsight를 사용하여 분석할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -70,7 +70,7 @@ Application Insights는 Blob으로 내보낸 원격 분석 데이터 형식에 �
 
 HDInsight 클러스터를 만드는 경우에 클러스터를 만드는 동안 저장소 계정을 추가합니다.
 
-Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 저장소 계정 추가](../hdinsight-hadoop-add-storage.md) 문서의 내용을 사용하세요.
+Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 스토리지 계정 추가](../hdinsight-hadoop-add-storage.md) 문서의 내용을 사용하세요.
 
 ## <a name="analyze-the-data-pyspark"></a>데이터 분석: PySpark
 

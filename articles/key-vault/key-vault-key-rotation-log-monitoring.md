@@ -1,5 +1,5 @@
 ---
-title: 종단 간 키 회전 및 감사를 사용하여 Azure Key Vault 설정 | Microsoft Docs
+title: 엔드투엔드 키 회전 및 감사를 사용하여 Azure Key Vault 설정 - Azure Key Vault | Microsoft Docs
 description: 키 회전 및 Key Vault 로그의 모니터링을 통해 설정을 가져오는 데 이 방법을 사용합니다.
 services: key-vault
 documentationcenter: ''
@@ -10,29 +10,28 @@ ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: bf3aba431e7b417b2213bc3410fd7722d7888d15
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4dbfd993a8464c569d30f11e305d4bae000a778f
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302020"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077711"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>키 회전 및 감사를 사용하여 Azure Key Vault 설정
 
 ## <a name="introduction"></a>소개
 
-Key Vault가 있으면 이를 사용하여 키 및 암호를 저장할 수 있습니다. 사용자 애플리케이션에서는 키 또는 암호 정보를 더 이상 유지할 필요가 없으며, 필요에 따라 자격 증명 모음에서 요청할 수 있습니다. 이렇게 하면 애플리케이션의 동작에 영향을 주지 않고 키 및 비밀을 업데이트할 수 있으며 키 및 비밀 관리 동작에 대한 다양한 가능성이 열립니다.
+Key Vault가 있으면 이를 사용하여 키 및 암호를 저장할 수 있습니다. 사용자 응용 프로그램에서는 키 또는 암호 정보를 더 이상 유지할 필요가 없으며, 필요에 따라 자격 증명 모음에서 요청할 수 있습니다. 이렇게 하면 애플리케이션의 동작에 영향을 주지 않고 키 및 비밀을 업데이트할 수 있으며 키 및 비밀 관리 동작에 대한 다양한 가능성이 열립니다.
 
 >[!IMPORTANT]
 > 이 문서의 예제는 설명 용도로만 제공됩니다. 프로덕션 용도로는 사용하지 말아야 합니다. 
 
 이 문서에서는 다음을 안내합니다.
 
-- Azure Key Vault를 사용하여 암호를 저장하는 예. 이 자습서에서, 저장된 암호는 애플리케이션에서 액세스하는 Azure Storage 계정 키입니다. 
+- Azure Key Vault를 사용하여 암호를 저장하는 예. 이 자습서에서, 저장된 암호는 응용 프로그램에서 액세스하는 Azure Storage 계정 키입니다. 
 - 또한 해당 저장소 계정 키의 예약된 회전 구현에 대해서도 살펴봅니다.
 - 예기치 않은 요청이 있을 때 Key Vault 감사 로그를 모니터하고 경고를 생성하는 방법도 보여 줍니다.
 
@@ -100,7 +99,7 @@ Get-AzureKeyVaultSecret –VaultName <vaultName>
 
 4. **만들기** 섹션에서 응용 프로그램 유형을 **웹 응용 프로그램 및/또는 웹 API**로 두고 응용 프로그램 이름을 지정합니다. 애플리케이션에 **SIGN-ON URL**을 제공합니다. 이 데모에서 원하는 어느 것이든 될 수 있습니다.
 
-    ![애플리케이션 등록 만들기](./media/keyvault-keyrotation/create-app.png)
+    ![응용 프로그램 등록 만들기](./media/keyvault-keyrotation/create-app.png)
 
 5. 애플리케이션이 Azure Active Directory에 추가되면 애플리케이션 페이지로 이동됩니다. **설정**을 선택한 후 속성을 선택합니다. **응용 프로그램 ID** 값을 복사합니다. 이 값은 이후 단계에서 필요합니다.
 
@@ -108,7 +107,7 @@ Get-AzureKeyVaultSecret –VaultName <vaultName>
 
 ![Azure Active Directory 앱 키](./media/keyvault-keyrotation/create-key.png)
 
-애플리케이션에서 Key Vault로 모든 호출을 설정하기 전에 Key Vault에 애플리케이션 및 해당 권한에 대한 정보를 알려야 합니다. 다음 명령은 Azure Active Directory 앱에서 Key Vault 이름 및 애플리케이션 ID를 가져와 Key Vault에 애플리케이션에 대한 **Get** 액세스 권한을 부여합니다.
+애플리케이션에서 Key Vault로 모든 호출을 설정하기 전에 Key Vault에 애플리케이션 및 해당 권한에 대한 정보를 알려야 합니다. 다음 명령은 Azure Active Directory 앱에서 Key Vault 이름 및 응용 프로그램 ID를 가져와 Key Vault에 응용 프로그램에 대한 **Get** 액세스 권한을 부여합니다.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
@@ -167,7 +166,7 @@ var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 
 Azure Key Vault 암호 정보로 저장하는 값을 위한 회전 전략을 구현하는 다양한 옵션이 있습니다. 수동 프로세스의 일부로 비밀을 회전할 수 있으며 API 호출을 활용하여 프로그래밍 방식으로 회전하거나 Automation 스크립트 방식으로 회전할 수 있습니다. 이 문서의 목적에 따라 Azure Automation과 결합된 Azure PowerShell을 사용하여 Azure Storage 계정 액세스 키를 변경합니다. 그런 다음 해당 새 키를 사용하여 Key Vault 비밀을 업데이트합니다.
 
-Azure Automation이 Key Vault의 비밀 값을 설정할 수 있도록 허용하려면 Azure Automation 인스턴스를 설정할 때 AzureRunAsConnection이라는 이름으로 생성된 연결에 대한 클라이언트 ID를 가져와야 합니다. Azure Automation 인스턴스에서 **자산**을 선택하여 이 ID를 가져올 수 있습니다. 여기에서 **연결**을 선택한 후 **AzureRunAsConnection** 서비스 사용자를 선택합니다. **응용 프로그램 ID**를 기록해 둡니다.
+Azure Automation이 Key Vault의 비밀 값을 설정할 수 있도록 허용하려면 Azure Automation 인스턴스를 설정할 때 AzureRunAsConnection이라는 이름으로 생성된 연결에 대한 클라이언트 ID를 가져와야 합니다. Azure Automation 인스턴스에서 **자산**을 선택하여 이 ID를 가져올 수 있습니다. 여기에서 **연결**을 선택한 후 **AzureRunAsConnection** 서비스 사용자를 선택합니다. **애플리케이션 ID**를 기록해 둡니다.
 
 ![Azure Automation 클라이언트 ID](./media/keyvault-keyrotation/Azure_Automation_ClientID.png)
 
@@ -414,7 +413,7 @@ project.json이라는 파일에 다음 콘텐츠를 추가합니다.
 
 **저장** 시 Azure Functions가 필요한 이진 파일을 다운로드합니다.
 
-**통합** 탭으로 전환하고 타이머 매개 변수에 함수 내에서 사용할 의미 있는 이름을 지정합니다. 위의 코드는 타이머가 *myTimer*로 호출될 것으로 예상합니다. 타이머에 대한 [CRON 식](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON)을 0 \* \* \* \* \*로 지정하면 함수가 1분에 한 번 실행됩니다.
+**통합** 탭으로 전환하고 타이머 매개 변수에 함수 내에서 사용할 의미 있는 이름을 지정합니다. 위의 코드는 타이머가 *myTimer*로 호출될 것으로 예상합니다. 다음과 같이 [CRON 식](../app-service/webjobs-create.md#CreateScheduledCRON)을 지정합니다. 타이머에 대해 0 \* \* \* \* \*로 지정하면 함수가 1분에 한 번씩 실행됩니다.
 
 동일한 **통합** 탭에서 **Azure Blob Storage** 형식의 입력을 추가합니다. 이렇게 하면 함수에서 확인하는 최신 이벤트의 타임스탬프를 포함하는 sync.txt 파일을 가리키게 됩니다. 그러면 함수 내에서 매개 변수 이름으로 사용할 수 있게 됩니다. 위의 코드에서 Azure Blob Storage 입력에 대한 매개 변수 이름은 *inputBlob*으로 예상됩니다. sync.txt 파일이 상주할 저장소 계정을 선택합니다(같은 저장소 계정일 수도 있고 다른 저장소 계정일 수도 있음). 경로 필드에는 파일이 {container-name}/path/to/sync.txt 형식으로 상주하는 경로를 입력합니다.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
-ms.openlocfilehash: 72a42e273029bd42d77531953ff5cbfc0fe5c295
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 725f95797de0a4d4e6240be4d42cf8a196d94889
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810902"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118594"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Azure Digital Twins에서 역할 할당 만들기 및 관리
 
@@ -276,9 +276,9 @@ JSON 본문이 다음 스키마를 준수하는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Digital Twins 역할 기반 액세스 제어를 검토하려면 [Role-base-access-control](./security-authenticating-apis.md)을 읽어보세요.
+- Azure Digital Twins 역할 기반 액세스 제어를 검토하려면 [Role-base-access-control](./security-authenticating-apis.md)을 읽어보세요.
 
-Azure Digital Twins API 인증에 대한 자세한 내용은 [API 인증](./security-authenticating-apis.md)을 읽어보세요.
+- Azure Digital Twins API 인증에 대한 자세한 내용은 [API 인증](./security-authenticating-apis.md)을 읽어보세요.
 
 <!-- Images -->
 [1]: media/security-roles/roleassignments.png
