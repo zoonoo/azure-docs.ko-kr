@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: tamram
-ms.openlocfilehash: fd635682d1b5dc7c3ab784208ac485872d5c7099
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: deb91e1b881afe59d47f677fbee1c307da51f4e5
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999002"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062216"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Azure Files용 SMB(미리 보기)를 통해 Azure Active Directory 인증 사용
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -119,7 +119,7 @@ Azure CLI 2.0에서 SMB를 통한 Azure AD 인증을 사용하도록 설정하�
 az extension add --name storage-preview
 ```
   
-다음으로 새 저장소 계정을 만든 다음, [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-update)를 호출하고 `--file-aad` 속성을 **true**로 설정합니다. 아래 예제의 자리 표시자 값은 실제 값으로 바꾸세요.
+다음으로 새 스토리지 계정을 만든 다음, [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-update)를 호출하고 `--file-aad` 속성을 **true**로 설정합니다. 아래 예제의 자리 표시자 값은 실제 값으로 바꾸세요.
 
 ```azurecli-interactive
 # Create a new storage account
@@ -153,14 +153,15 @@ Azure AD 자격 증명을 사용하여 Azure Files 리소스에 액세스하려�
   "IsCustom": true,
   "Description": "Allows for read, write and delete access to Azure File Share over SMB",
   "Actions": [
-    "Microsoft.Storage/storageAccounts/fileServices/fileshare/*"
+    "*"
+  ],
+  "NotActions": [
+    "Microsoft.Authorization/*/Delete",
+        "Microsoft.Authorization/*/Write",
+        "Microsoft.Authorization/elevateAccess/Action"
   ],
   "DataActions": [
-    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/*"
-  ],
-  "NotDataActions": [
-    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermission",
-    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/actasadmin"
+    "*"
   ],
   "AssignableScopes": [
         "/subscriptions/<Subscription-ID>"
@@ -178,10 +179,10 @@ Azure AD 자격 증명을 사용하여 Azure Files 리소스에 액세스하려�
   "IsCustom": true,
   "Description": "Allows for read access to Azure File Share over SMB",
   "Actions": [
-    "Microsoft.Storage/storageAccounts/fileServices/fileshare/read"
+    "*/read"
   ],
   "DataActions": [
-    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read"
+    "*/read"
   ],
   "AssignableScopes": [
         "/subscriptions/<Subscription-ID>"

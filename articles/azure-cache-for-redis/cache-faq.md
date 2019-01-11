@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: aee91f6d9b8d16db7f14bbc2372d7c465377ce28
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 444f1aaee496666745be548bcdfadf3a4f162699
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971531"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104066"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Azure Cache for Redis FAQ
 Azure Cache for Redis에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다.
@@ -90,7 +90,7 @@ Azure Cache for Redis는 몇 가지 방법으로 시작할 수 있습니다.
 
 * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md) 및 [Python](cache-python-get-started.md)에 대해 사용할 수 있는 자습서 중 하나를 확인해볼 수 있습니다.
 * [Microsoft Azure Cache for Redis를 사용하여 고성능 앱을 빌드하는 방법](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/)을 참조할 수 있습니다.
-* Redis 사용 방법을 확인하려면 사용 중인 프로젝트의 개발 언어와 일치하는 클라이언트용 클라이언트 설명서를 확인해 보세요. Azure Cache for Redis에서 사용할 수 있는 많은 Redis 클라이언트가 있습니다. Redis 클라이언트 목록은 [http://redis.io/clients](http://redis.io/clients)에서 참조할 수 있습니다.
+* Redis 사용 방법을 확인하려면 사용 중인 프로젝트의 개발 언어와 일치하는 클라이언트용 클라이언트 설명서를 확인해 보세요. Azure Cache for Redis에서 사용할 수 있는 많은 Redis 클라이언트가 있습니다. Redis 클라이언트 목록은 [https://redis.io/clients](https://redis.io/clients)에서 참조할 수 있습니다.
 
 Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 
@@ -210,7 +210,7 @@ StackExchange.Redis에는 많은 옵션이 있습니다. 이 섹션에서는 몇
       * 이 지침을 따르면 `ConnectionMultiplexer`당 대기 시간이 감소할 수 있습니다.
 
 ### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>사용할 수 있는 Azure Cache for Redis 클라이언트는 어떻게 되나요?
-Redis의 장점 중 하나는 여러 가지 개발 언어를 지원하는 많은 클라이언트가 있다는 것입니다. 클라이언트의 현재 목록에 대해서는 [Redis 클라이언트](http://redis.io/clients)를 참조하세요. 여러 언어와 클라이언트를 다루는 자습서는 [Azure Cache for Redis를 사용하는 방법](cache-dotnet-how-to-use-azure-redis-cache.md)을 참조하고, 문서의 위쪽에 있는 언어 전환기에서 원하는 언어를 클릭합니다.
+Redis의 장점 중 하나는 여러 가지 개발 언어를 지원하는 많은 클라이언트가 있다는 것입니다. 클라이언트의 현재 목록에 대해서는 [Redis 클라이언트](https://redis.io/clients)를 참조하세요. 여러 언어와 클라이언트를 다루는 자습서는 [Azure Cache for Redis를 사용하는 방법](cache-dotnet-how-to-use-azure-redis-cache.md)을 참조하고, 문서의 위쪽에 있는 언어 전환기에서 원하는 언어를 클릭합니다.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
@@ -236,12 +236,12 @@ Azure Cache for Redis에 대한 로컬 에뮬레이터는 없지만 다음 예�
         }
 
 
-원하는 경우 선택적으로 온라인 Azure Cache for Redis의 [기본 캐시 설정](cache-configure.md#default-redis-server-configuration)과 더 가깝게 일치하도록 [redis.conf](http://redis.io/topics/config) 파일을 구성할 수 있습니다.
+원하는 경우 선택적으로 온라인 Azure Cache for Redis의 [기본 캐시 설정](cache-configure.md#default-redis-server-configuration)과 더 가깝게 일치하도록 [redis.conf](https://redis.io/topics/config) 파일을 구성할 수 있습니다.
 
 <a name="cache-commands"></a>
 
 ### <a name="how-can-i-run-redis-commands"></a>어떻게 Redis 명령을 실행할 수 있나요?
-[Azure Cache for Redis에서 지원되지 않는 Redis 명령](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis)에 나열된 명령을 제외하고는 [Redis 명령](http://redis.io/commands#)에 나열된 명령 중 하나를 사용할 수 있습니다. Redis 명령을 실행하는 여러 가지 옵션이 있습니다.
+[Azure Cache for Redis에서 지원되지 않는 Redis 명령](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis)에 나열된 명령을 제외하고는 [Redis 명령](https://redis.io/commands#)에 나열된 명령 중 하나를 사용할 수 있습니다. Redis 명령을 실행하는 여러 가지 옵션이 있습니다.
 
 * 표준 또는 프리미엄 캐시를 사용하는 경우 [Redis 콘솔](cache-configure.md#redis-console)을 사용하여 Redis 명령을 실행할 수 있습니다. Redis 콘솔은 Azure Portal에서 Redis 명령을 안전하게 실행하는 방법을 제공합니다.
 * Redis 명령줄 도구를 사용할 수도 있습니다. 이 도구를 사용하려면 다음 단계를 수행합니다.
@@ -257,7 +257,7 @@ Azure Cache for Redis에 대한 로컬 에뮬레이터는 없지만 다음 예�
 <a name="cache-reference"></a>
 
 ### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>다른 일부 Azure 서비스와 달리 Azure Cache for Redis에는 MSDN 클래스 라이브러리 참조가 왜 없나요?
-Microsoft Azure Cache for Redis는 인기 있는 오픈 소스 Azure Cache for Redis를 기반으로 하며, 다양한 [Redis 클라이언트](http://redis.io/clients)에서 다양한 프로그래밍 언어로 액세스할 수 있습니다. 각 클라이언트에는 [Redis 명령](http://redis.io/commands)을 사용하여 Azure Cache for Redis 인스턴스를 호출하는 자체 API가 있습니다.
+Microsoft Azure Cache for Redis는 인기 있는 오픈 소스 Azure Cache for Redis를 기반으로 하며, 다양한 [Redis 클라이언트](https://redis.io/clients)에서 다양한 프로그래밍 언어로 액세스할 수 있습니다. 각 클라이언트에는 [Redis 명령](https://redis.io/commands)을 사용하여 Azure Cache for Redis 인스턴스를 호출하는 자체 API가 있습니다.
 
 클라이언트마다 다르기 때문에 MSDN에 하나의 중앙 집중식 클래스 참조는 없고, 각 클라이언트가 자체 참조 설명서를 유지 관리합니다. 참조 설명서 외에도 다양한 언어와 캐시 클라이언트를 사용하여 Azure Cache for Redis를 시작하는 방법을 보여 주는 몇 가지 자습서가 있습니다. 이러한 자습서에 액세스하려면 [Azure Cache for Redis를 사용하는 방법](cache-dotnet-how-to-use-azure-redis-cache.md)을 참조하고, 문서의 위쪽에 있는 언어 전환기에서 원하는 언어를 클릭합니다.
 
@@ -310,7 +310,7 @@ Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행�
 * Redis는 더 작은 값에서 가장 잘 작동하므로 더 큰 데이터를 여러 개의 키로 분할하는 것을 고려합니다. [이 Redis 토론](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ)에서 100KB는 큰 것으로 간주합니다. 큰 값을 사용할 때 야기될 수 있는 문제 예에 대해서는 [이 문서](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) 를 읽어보세요.
 * 시간 초과를 방지하도록 [ThreadPool 설정](#important-details-about-threadpool-growth) 을 구성합니다.
 * 기본 connectTimeout인 5초 이상을 사용합니다. 이렇게 하면 네트워크 문제가 발생할 경우 StackExchange.Redis에서 연결을 다시 설정할 충분한 시간을 얻게 됩니다.
-* 실행 중인 다른 작업을 관련된 성능 비용을 고려해야 합니다. 예를 들어 `KEYS` 명령은 O(n) 작업이므로 피해야 합니다. [redis.io 사이트](http://redis.io/commands/) 에는 지원되는 각 작업에 대한 시간 복잡도와 관련된 세부 정보가 제공됩니다. 각 작업에 대한 복잡성을 확인하려면 각 명령을 클릭합니다.
+* 실행 중인 다른 작업을 관련된 성능 비용을 고려해야 합니다. 예를 들어 `KEYS` 명령은 O(n) 작업이므로 피해야 합니다. [redis.io 사이트](https://redis.io/commands/) 에는 지원되는 각 작업에 대한 시간 복잡도와 관련된 세부 정보가 제공됩니다. 각 작업에 대한 복잡성을 확인하려면 각 명령을 클릭합니다.
 
 #### <a name="configuration-and-concepts"></a>구성 및 개념
 * 프로덕션 시스템에 대해 표준 또는 프리미엄 계층을 사용합니다. 기본 계층은 데이터 복제 및 SLA가 없는 단일 노드 시스템입니다. 또한 C1 이상의 캐시를 사용합니다. C0 캐시는 일반적으로 간단한 개발/테스트 시나리오에 사용됩니다.
@@ -329,7 +329,7 @@ Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행�
 
 ### <a name="what-are-some-of-the-considerations-when-using-common-redis-commands"></a>일반적인 Redis 명령을 사용할 때 고려해야 하는 몇 가지 사항은 무엇인가요?
 * 완료하는 데 시간이 오래 걸리는 특정 Redis 명령은 명령의 영향을 알고 있는 경우에만 실행해야 합니다.
-  * 예를 들어 [KEYS](http://redis.io/commands/keys) 명령은 키 수에 따라 반환되는 데 시간이 오래 걸릴 수 있으므로 프로덕션에서 실행하지 마세요. Redis는 단일 스레드 서버이며 한 번에 하나씩 명령을 처리합니다. KEYS 후에 실행된 다른 명령이 있는 경우 Redis가 KEYS 명령을 처리할 때까지 처리되지 않습니다. [redis.io 사이트](http://redis.io/commands/) 에는 지원되는 각 작업에 대한 시간 복잡도와 관련된 세부 정보가 제공됩니다. 각 작업에 대한 복잡성을 확인하려면 각 명령을 클릭합니다.
+  * 예를 들어 [KEYS](https://redis.io/commands/keys) 명령은 키 수에 따라 반환되는 데 시간이 오래 걸릴 수 있으므로 프로덕션에서 실행하지 마세요. Redis는 단일 스레드 서버이며 한 번에 하나씩 명령을 처리합니다. KEYS 후에 실행된 다른 명령이 있는 경우 Redis가 KEYS 명령을 처리할 때까지 처리되지 않습니다. [redis.io 사이트](https://redis.io/commands/) 에는 지원되는 각 작업에 대한 시간 복잡도와 관련된 세부 정보가 제공됩니다. 각 작업에 대한 복잡성을 확인하려면 각 명령을 클릭합니다.
 * 키 크기 - 작은 키/값을 사용해야 하나요, 아니면 큰 키/값을 사용해야 하나요? 일반적으로 시나리오에 따라 다릅니다. 시나리오에서 큰 키가 필요한 경우 ConnectionTimeout 및 다시 시도 값을 조정하고 다시 시도 논리를 조정할 수 있습니다. Redis 서버 관점에서는 값이 작을수록 더 나은 성능이 관찰됩니다.
 * 이러한 고려 사항이 Redis에서 큰 값을 저장할 수 없다는 의미는 아닙니다. 다음과 같은 고려 사항에 주의해야 합니다. 대기 시간이 더 길어집니다. 큰 데이터 집합 1개와 작은 데이터 집합 1개가 있는 경우, 이전의 [StackExchange.Redis 구성 옵션은 어떤 기능을 수행하나요?](#cache-configuration) 섹션에 설명된 대로 각각 다른 시간 제한 및 재시도 값으로 구성된 여러 개의 ConnectionMultiplexer 인스턴스를 사용할 수 있습니다.
 

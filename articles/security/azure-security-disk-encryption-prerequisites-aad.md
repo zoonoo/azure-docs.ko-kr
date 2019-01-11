@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/17/2018
+ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4bc66c3b17dbaf2d011bd0f4b6f355df3d1b50a3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 071f07e9d485a5fab5f2ce3d23a383e974001143
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547765"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158024"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure Disk Encryption 필수 구성 요소(이전 릴리스)
 
@@ -80,11 +80,10 @@ Azure Disk Encryption이 지원되는 운영 체제는 다음과 같습니다.
 [Azure PowerShell](/powershell/azure/overview)은 Azure 리소스를 관리하기 위해 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 모델을 사용하는 cmdlet 집합을 제공합니다. 브라우저에서 [Azure Cloud Shell](../cloud-shell/overview.md)을 통해 사용하거나 아래 지침에 따라 로컬 머신에 설치하여 PowerShell 세션에서 사용할 수 있습니다. 이미 로컬에 설치되어있는 경우 최신 버전의 Azure PowerShell SDK 버전을 사용하여 Azure Disk Encryption을 구성해야 합니다. 최신 버전의 [Azure PowerShell 릴리스](https://github.com/Azure/azure-powershell/releases)를 다운로드합니다.
 
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>로컬 머신에서 사용할 Azure PowerShell 설치(선택 사항):  
-1. 운영 체제에 대한 링크의 지침을 수행한 다음, 아래의 나머지 단계를 계속 진행합니다.      
-    - [Windows용 Azure PowerShell 설치 및 구성](/powershell/azure/install-azurerm-ps). 
+1. 운영 체제에 대한 링크의 지침을 수행한 다음, 아래의 나머지 단계를 계속 진행합니다.
+    - [Windows용 Azure PowerShell 설치 및 구성](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0). 
         - PowerShellGet, Azure PowerShell을 설치하고 AzureRM 모듈을 로드합니다. 
-    - [macOS 및 Linux에서 Azure PowerShell 설치 및 구성](/powershell/azure/install-azurermps-maclinux)
-        -  PowerShell Core, .NET Core용 Azure PowerShell을 설치하고 Az 모듈을 로드합니다.
+
 2. [Azure Active Directory PowerShell 모듈](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module)을 설치합니다. 
 
      ```powershell

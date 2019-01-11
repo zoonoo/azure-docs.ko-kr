@@ -9,16 +9,17 @@ ms.assetid: 4fad8445-4e96-4ce0-aa23-9b88e5ec1965
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 1a0130c7cd42d81609379ba4d9ba7fc922e50b16
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 29b3f0de5fd7cd578f152902412ca9d7cb82912b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022396"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975205"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기
 

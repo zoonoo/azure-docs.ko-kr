@@ -1,18 +1,17 @@
 ---
 title: Azure Cosmos DB에서 데이터에 대한 액세스를 보호하는 방법
 description: 마스터 키, 읽기 전용 키, 사용자 및 권한을 포함해서 Azure Cosmos DB의 액세스 제어 개념에 대해 알아봅니다.
-services: cosmos-db
 author: rafats
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: c203334b0ea1b47aa1884155f477e34bd8f2e1db
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a3bf6557bce10eddabaa52cc4a997ed661a8fc31
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724762"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041342"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Azure Cosmos DB 데이터에 대한 액세스 보호
 이 문서에서는 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)에 저장된 데이터에 대한 액세스를 보호하는 방법을 개괄적으로 설명합니다.

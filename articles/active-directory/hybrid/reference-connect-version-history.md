@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2018
+ms.date: 12/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5e13f21971c7babaeaebc9714fe2a040229eebb2
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 780a4c5cd590b4fa1b4dd5b29fab738cb9a8bb6a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278681"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608446"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -36,6 +36,17 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](reference-connect-accounts-permissions.md#upgrade)을 참조하세요.
 
 다운로드 | [Azure AD Connect 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="12700"></a>1.2.70.0
+
+### <a name="release-status"></a>릴리스 상태
+
+12/18/2018: 다운로드용으로 릴리스됨
+
+### <a name="fixed-issues"></a>해결된 문제
+
+이 빌드는 Azure AD Connect와 함께 제공되는 비표준 커넥터(예: 일반 LDAP 커넥터, 일반 SQL 커넥터)를 업데이트합니다. 적용 가능한 커넥터에 대한 자세한 정보는 [커넥터 버전 릴리스 기록](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history)에서 1.1.911.0 버전을 참조하세요.
+
 
 ## <a name="12690"></a>1.2.69.0
 
@@ -265,7 +276,7 @@ SQL Always On 가용성이 ADSync DB에 대해 구성된 경우 Azure AD Connect
 
 [!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]  
 
-* 응용 프로그램 원격 분석 - 관리자는 이 데이터 클래스를 설정/해제할 수 있습니다.
+* 애플리케이션 원격 분석 - 관리자는 이 데이터 클래스를 설정/해제할 수 있습니다.
 
 * Azure AD 상태 데이터 - 관리자는 상태 설정을 제어하는 상태 포털을 방문해야 합니다.
    서비스 정책이 변경되고 나면 에이전트에서 읽고 적용합니다.
@@ -461,7 +472,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 * 업그레이드 후 불필요하게 발생하는 전체 동기화 단계를 유발하는 문제가 해결되었습니다. 기본 제공 동기화 규칙에 변화가 있는 경우 일반적으로 업그레이드한 후 전체 동기화 단계를 실행해야 합니다. 이 문제는 줄 바꿈 문자가 있는 동기화 규칙 식이 발생하는 경우 변경 사항을 잘못 감지한 변경 검색 논리의 오류로 인한 것입니다. 줄 바꿈 문자는 가독성을 높이기 위해 동기화 규칙 식에 삽입됩니다.
 * Azure AD Connect 서버가 자동 업그레이드 후 올바르게 작동하지 않을 수 있는 문제가 수정되었습니다. 이 문제는 1.1.443.0(또는 이전) 버전을 사용하는 Azure AD Connect 서버에 영향을 미칩니다. 문제에 대한 자세한 내용은 아티클 [자동 업그레이드 후 Azure AD Connect가 제대로 작동하지 않습니다](https://support.microsoft.com/help/4038479/azure-ad-connect-is-not-working-correctly-after-an-automatic-upgrade)를 참조하세요.
 * 오류가 발생한 경우 자동 업그레이드가 5분마다 다시 시도되는 문제가 해결되었습니다. 수정 후에는 오류가 발생하면 자동 업그레이드가 지수적 백오프로 다시 시도합니다.
-* 암호 동기화 이벤트 611이 Windows 응용 프로그램 이벤트 로그에 **오류**가 아닌 **정보**로 잘못 표시되는 문제가 해결되었습니다. 이벤트 611이 암호 동기화에 문제가 발생할 때마다 생성됩니다. 
+* 암호 동기화 이벤트 611이 Windows 애플리케이션 이벤트 로그에 **오류**가 아닌 **정보**로 잘못 표시되는 문제가 해결되었습니다. 이벤트 611이 암호 동기화에 문제가 발생할 때마다 생성됩니다. 
 * Azure AD Connect 마법사에서 그룹 쓰기 저장에 필요한 OU를 선택하지 않고 그룹 쓰기 저장 기능을 사용하도록 설정하는 문제가 해결되었습니다.
 
 #### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
@@ -577,7 +588,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 ### <a name="pass-through-authentication"></a>통과 인증
 
 #### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
-* 통과 인증에 필요한 에이전트 이름이 *Microsoft Azure AD 응용 프로그램 프록시 커넥터*에서 *Microsoft Azure AD Connect 인증 에이전트*로 변경되었습니다.
+* 통과 인증에 필요한 에이전트 이름이 *Microsoft Azure AD 애플리케이션 프록시 커넥터*에서 *Microsoft Azure AD Connect 인증 에이전트*로 변경되었습니다.
 
 * 통과 인증을 사용하도록 설정하면 기본적으로 암호 해시 동기화가 더 이상 활성화되지 않습니다.
 
@@ -621,7 +632,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 * 이전에는 [원본 앵커로서의 ms-DS-ConsistencyGuid](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) 기능을 새 배포에만 사용할 수 있었습니다. 이제 기존 배포에도 사용할 수 있습니다. 더 구체적으로 살펴보면 다음과 같습니다.
   * 기능에 액세스하려면 Azure AD Connect 마법사를 시작하고 *원본 앵커 업데이트* 옵션을 선택합니다.
   * 이 옵션은 objectGuid를 sourceAnchor 특성으로 사용하는 기존 배포에만 표시됩니다.
-  * 옵션을 구성할 때 마법사는 온-프레미스 Active Directory의 ms-DS-ConsistencyGuid 특성 상태를 확인합니다. 특성이 디렉터리에 있는 사용자 개체에 구성되어 있지 않으면, 마법사는 ms-DS-ConsistencyGuid를 sourceAnchor 특성으로 사용합니다. 특성이 디렉터리에 있는 하나 이상의 사용자 개체에 구성되어 있으면, 마법사는 특성이 다른 애플리케이션에서 사용되고 있으며 sourceAnchor 특성으로 적합하지 않다고 결정하고 원본 앵커 변경이 진행되지 않도록 합니다. 기존 응용 프로그램에서 특성을 사용하지 않는다고 확신하는 경우, 오류를 표시하지 않는 방법에 대한 정보를 얻기 위해 지원에 문의해야 합니다.
+  * 옵션을 구성할 때 마법사는 온-프레미스 Active Directory의 ms-DS-ConsistencyGuid 특성 상태를 확인합니다. 특성이 디렉터리에 있는 사용자 개체에 구성되어 있지 않으면, 마법사는 ms-DS-ConsistencyGuid를 sourceAnchor 특성으로 사용합니다. 특성이 디렉터리에 있는 하나 이상의 사용자 개체에 구성되어 있으면, 마법사는 특성이 다른 애플리케이션에서 사용되고 있으며 sourceAnchor 특성으로 적합하지 않다고 결정하고 원본 앵커 변경이 진행되지 않도록 합니다. 기존 애플리케이션에서 특성을 사용하지 않는다고 확신하는 경우, 오류를 표시하지 않는 방법에 대한 정보를 얻기 위해 지원에 문의해야 합니다.
 
 * 디바이스 개체의 **userCertificate** 특성과 관련해서, Azure AD Connect는 이제 [Windows 10 환경용 Azure AD에 도메인 가입 디바이스를 연결](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy)하는 데 필요한 인증서 값을 찾은 다음 Azure AD에 동기화하기 전에 나머지 값을 필터링합니다. 이 동작을 사용하도록 설정하기 위해 기본 제공 동기화 규칙 "Out to AAD - Device Join SOAInAD"가 업데이트되었습니다.
 

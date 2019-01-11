@@ -11,22 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2018
+ms.date: 1/7/2019
 ms.author: raiye
-ms.openlocfilehash: 94cf90dbc41533b8f5d41a0bdb18e5cdcb7be474
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 154b925cc173a1a8fac697e347759764807a3052
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541033"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107908"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
 
 ## <a name="december-2018-guest-os"></a>2018년 12월 게스트 OS
-
->[!NOTE]
->12월 게스트 OS는 자동 업데이트용으로 구성된 클라우드 서비스 VM으로 롤아웃 중입니다. 롤아웃이 완료되면 이 버전은 Azure Portal 및 구성 파일을 통해 수동으로 업데이트할 수 있습니다. 다음과 같은 패치가 12월 게스트 OS에 포함됩니다. 이 목록은 변경될 수 있습니다.
 
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |

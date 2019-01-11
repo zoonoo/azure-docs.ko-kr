@@ -32,7 +32,7 @@ ms.locfileid: "51232745"
 | **웹 응용 프로그램** | <ul><li>[HTTPS를 통해 사용할 수 있는 응용 프로그램은 보안 쿠키를 사용해야 함](#https-secure-cookies)</li><li>[모든 http 기반 응용 프로그램은 쿠키 정의에 대해서 http만을 지정해야 함](#cookie-definition)</li><li>[ASP.NET 웹 페이지에서 CSRF(교차 사이트 요청 위조) 공격에 대해 완화](#csrf-asp)</li><li>[비활성 수명에 대한 세션 설정](#inactivity-lifetime)</li><li>[응용 프로그램에서 적절한 로그아웃 구현](#proper-app-logout)</li></ul> |
 | **앱 API** | <ul><li>[ASP.NET Web API에서 CSRF(교차 사이트 요청 위조) 공격에 대해 완화](#csrf-api)</li></ul> |
 
-## <a id="logout-adal">Azure AD를 사용하는 경우에 ADAL 메서드를 사용하여 적절한 로그아웃 구현</a>
+## <a id="logout-adal"></a>Azure AD를 사용하는 경우에 ADAL 메서드를 사용하여 적절한 로그아웃 구현
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |

@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그
 description: Azure Cosmos DB에서 메트릭을 사용하여 일반적인 문제를 디버그하고 데이터베이스를 모니터링합니다.
-services: cosmos-db
 ms.service: cosmos-db
 author: kanshiG
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.openlocfilehash: afc3b9dbb1965ea28995d67f8f5e174721d73197
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.reviewer: sngun
+ms.openlocfilehash: ff6e0b6084eebf236d01b4dd00a46897687938c2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999444"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034729"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그
 

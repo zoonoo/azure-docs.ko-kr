@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a5f1e728f7a13f763367abc3f380fb9fbdb67b5c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 5835e8275bedebaca01d585a992930d6856edfd7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326546"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53553542"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -189,7 +189,7 @@ Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용하여 표
 
 ## <a name="migrate-to-managed-disks"></a>Managed Disks로 마이그레이션
 
-** 마이그레이션이 Managed Disks 성능에 영향을 주나요?
+**마이그레이션이 Managed Disks 성능에 영향을 주나요?**
 
 마이그레이션에는 스토리지 위치 간 디스크 이동이 포함됩니다. 이는 완료하는 데 몇 시간(일반적으로 디스크의 데이터 양에 따라 24시간 미만)이 걸릴 수 있는 데이터의 백그라운드 복사를 통해 오케스트레이션됩니다. 이 기간 동안 일부 읽기가 원래 위치로 리디렉션될 수 있어 완료하는 데 더 오래 걸릴 수 있으므로 애플리케이션의 읽기 대기 시간이 일반적인 읽기 대기 시간보다 길어질 수 있습니다. 이 기간 동안 쓰기 대기 시간에는 영향이 없습니다.  
 
@@ -223,7 +223,7 @@ Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용하여 표
 
 **Managed Disks에 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크가 있는 VM을 마이그레이션할 수 있나요?**
 
-yes
+예
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks 및 Storage 서비스 암호화
 
@@ -260,7 +260,7 @@ Azure Portal, Azure CLI 및 PowerShell에서 Managed Disk를 만든 시간을 �
 
 **Managed Disks에 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크가 있는 VM을 변환할 수 있나요?**
 
-yes
+예
 
 **Managed Disk 또는 스냅숏에서 내보낸 VHD도 암호화되나요?**
 
@@ -290,7 +290,7 @@ DS 시리즈의 캐시 및 로컬 SSD에 대한 결합 제한은 코어당 4,000
 
 **Managed Disks VM에 로컬 SSD가 지원되나요?**
 
-로컬 SSD는 Managed Disks VM에 포함되어 있는 임시 저장소입니다. 이 임시 저장소에 대한 추가 비용은 없습니다. 이 로컬 SSD가 Azure Blob Storage에 보존되지 않기 때문에 응용 프로그램 데이터를 저장하는 데 사용하지 않는 것이 좋습니다.
+로컬 SSD는 Managed Disks VM에 포함되어 있는 임시 저장소입니다. 이 임시 저장소에 대한 추가 비용은 없습니다. 이 로컬 SSD가 Azure Blob Storage에 보존되지 않기 때문에 애플리케이션 데이터를 저장하는 데 사용하지 않는 것이 좋습니다.
 
 **프리미엄 디스크에서 TRIM의 사용에 대한 영향이 있나요?**
 

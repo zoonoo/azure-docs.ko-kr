@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 790aab75b311b116e6ca03af016e181c11019e27
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9c66a937ffd9155569820c47c99946d186c55cce
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726649"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052158"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Azure App Service에서 느린 앱 성능 문제 해결
 이 문서에서는 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)의 느린 앱 성능 문제를 해결하는 데 도움을 줍니다.
@@ -92,7 +92,7 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 - [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx)와 같은 소스 코드 편집기. 
 - 앱에 연결된 MySQL 데이터베이스와 같은 연결된 리소스에 대한 관리 도구
 
-[Azure Application Insights](https://azure.microsoft.com/services/application-insights/)도 사용할 수 있는 성능 모니터링 사이트 확장입니다. Application Insights를 사용하려면 SDK를 통해 코드를 다시 빌드합니다. 추가 데이터에 대한 액세스를 제공하는 확장을 설치할 수도 있습니다. SDK를 통해 앱의 사용과 성능을 보다 자세하게 모니터링하기 위한 코드를 작성할 수 있습니다. 자세한 내용은 [웹 애플리케이션의 성능 모니터링](../application-insights/app-insights-web-monitor-performance.md)을 참조하세요.
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/)도 사용할 수 있는 성능 모니터링 사이트 확장입니다. Application Insights를 사용하려면 SDK를 통해 코드를 다시 빌드합니다. 추가 데이터에 대한 액세스를 제공하는 확장을 설치할 수도 있습니다. SDK를 통해 앱의 사용과 성능을 보다 자세하게 모니터링하기 위한 코드를 작성할 수 있습니다. 자세한 내용은 [웹 애플리케이션의 성능 모니터링](../azure-monitor/app/web-monitor-performance.md)을 참조하세요.
 
 <a name="collect" />
 
@@ -114,7 +114,7 @@ Application Insights Profiler를 활성화하여 자세한 성능 추적 캡처�
 
 Application Insights Profiler는 각 웹 호출에 대한 응답 시간 및 느린 응답을 일으키는 코드 줄을 나타내는 추적에 대한 통계를 제공합니다. 때로는 특정 코드가 성능 기준에 맞게 작성되지 않아 App Service 앱이 느리게 작동합니다. 예를 들어 병렬로 실행될 수 있는 순차 코드와 원하지 않는 데이터베이스 잠금 경합이 있습니다. 코드에서 이러한 병목 현상을 제거하면 앱 성능이 향상되지만, 정교한 추적과 로그를 설정하지 않으면 감지하기가 어렵습니다. Application Insights Profiler에 의해 수집된 추적은 애플리케이션의 속도를 낮추는 코드 줄을 식별하는 데 도움이 되고 App Service 앱에 대한 이 과제를 해결합니다.
 
- 자세한 내용은 [Application Insights를 사용하여 Azure App Service에서 라이브 앱 프로파일링](../application-insights/app-insights-profiler.md)을 참조하세요.
+ 자세한 내용은 [Application Insights를 사용하여 Azure App Service에서 라이브 앱 프로파일링](../azure-monitor/app/profiler.md)을 참조하세요.
 
 ##### <a name="use-remote-profiling"></a>원격 프로파일링 사용하기
 Azure App Service에서 웹앱, API 앱, 모바일 백 엔드 및 WebJob을 원격으로 프로파일할 수 있습니다. 앱 리소스에 대한 액세스가 있고 문제를 재현하는 방법을 알거나 성능 문제가 발생하는 정확한 시간 간격을 알고 있는 경우 이 옵션을 선택합니다.

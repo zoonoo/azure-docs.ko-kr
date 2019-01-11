@@ -9,48 +9,47 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
-ms.openlocfilehash: adfb30b73bbc9929bbfe3b07bd830d3f278bcc27
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d42b6b857f04c191ebdfb1687c8ee2adcad95d26
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723691"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054291"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory에서 웹 작업
-웹 작업은 Data Factory 파이프라인에서 사용자 지정 REST 엔드포인트를 호출하는 데 사용할 수 있습니다. 작업에서 사용하고 액세스하도록 데이터 세트 및 연결된 서비스를 전달할 수 있습니다. 
+웹 작업은 Data Factory 파이프라인에서 사용자 지정 REST 엔드포인트를 호출하는 데 사용할 수 있습니다. 작업에서 사용하고 액세스하도록 데이터 세트 및 연결된 서비스를 전달할 수 있습니다.
 
 ## <a name="syntax"></a>구문
 
 ```json
-{  
+{
    "name":"MyWebActivity",
    "type":"WebActivity",
-   "typeProperties":{  
+   "typeProperties":{
       "method":"Post",
       "url":"<URLEndpoint>",
-      "headers":{  
+      "headers":{
          "Content-Type":"application/json"
       },
-      "authentication":{  
-         "type":"ClientCertificate",  
+      "authentication":{
+         "type":"ClientCertificate",
          "pfx":"****",
          "password":"****"
       },
-      "datasets":[  
-         {  
+      "datasets":[
+         {
             "referenceName":"<ConsumedDatasetName>",
             "type":"DatasetReference",
-            "parameters":{  
+            "parameters":{
                ...
             }
          }
       ],
-      "linkedServices":[  
-         {  
+      "linkedServices":[
+         {
             "referenceName":"<ConsumedLinkedServiceName>",
             "type":"LinkedServiceReference"
          }
@@ -93,10 +92,10 @@ linkedServices | 엔드포인트에 전달되는 연결된 서비스 목록입�
 인증이 필요 없는 경우 "authentication" 속성을 포함하지 않습니다.
 
 ### <a name="basic"></a>Basic
-기본 인증에 사용할 사용자 이름 및 암호를 지정합니다. 
+기본 인증에 사용할 사용자 이름 및 암호를 지정합니다.
 
 ```json
-"authentication":{  
+"authentication":{
    "type":"Basic",
    "username":"****",
    "password":"****"
@@ -104,12 +103,12 @@ linkedServices | 엔드포인트에 전달되는 연결된 서비스 목록입�
 ```
 
 ### <a name="client-certificate"></a>클라이언트 인증서
-PFX 파일의 base64로 인코딩된 콘텐츠 및 암호를 지정합니다. 
+PFX 파일의 base64로 인코딩된 콘텐츠 및 암호를 지정합니다.
 
 ```json
-"authentication":{  
+"authentication":{
    "type":"ClientCertificate",
-   "pfx":"****",   
+   "pfx":"****",
    "password":"****"
 }
 ```
@@ -126,7 +125,7 @@ PFX 파일의 base64로 인코딩된 콘텐츠 및 암호를 지정합니다.
 ```
 
 ## <a name="request-payload-schema"></a>요청 페이로드 스키마
-POST/PUT 메서드를 사용하는 경우 body 속성은 엔드포인트에 전송되는 페이로드를 나타냅니다. 연결된 서비스 및 데이터 세트를 페이로드의 일부로 전달할 수 있습니다. 페이로드 스키마는 다음과 같습니다. 
+POST/PUT 메서드를 사용하는 경우 body 속성은 엔드포인트에 전송되는 페이로드를 나타냅니다. 연결된 서비스 및 데이터 세트를 페이로드의 일부로 전달할 수 있습니다. 페이로드 스키마는 다음과 같습니다.
 
 ```json
 {
@@ -145,11 +144,11 @@ POST/PUT 메서드를 사용하는 경우 body 속성은 엔드포인트에 전�
             }
         }]
     }
-} 
+}
 ```
 
 ## <a name="example"></a>예
-이 예제에서 파이프라인의 웹 작업은 REST 끝점을 호출하고 Azure SQL 연결된 서비스 및 Azure SQL 데이터 세트를 엔드포인트에 전달합니다. REST 끝점은 Azure SQL 연결 문자열을 사용하여 Azure SQL Server에 연결하고 SQL Server의 인스턴스 이름을 반환합니다. 
+이 예제에서 파이프라인의 웹 작업은 REST 끝점을 호출하고 Azure SQL 연결된 서비스 및 Azure SQL 데이터 세트를 엔드포인트에 전달합니다. REST 끝점은 Azure SQL 연결 문자열을 사용하여 Azure SQL Server에 연결하고 SQL Server의 인스턴스 이름을 반환합니다.
 
 ### <a name="pipeline-definition"></a>파이프라인 정의
 
@@ -243,7 +242,7 @@ public HttpResponseMessage Execute(JObject payload)
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요. 
+Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요.
 
 - [파이프라인 실행 작업](control-flow-execute-pipeline-activity.md)
 - [ForEach 작업](control-flow-for-each-activity.md)

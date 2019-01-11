@@ -1,19 +1,17 @@
 ---
 title: .NET에 대한 Azure Cosmos DB 성능 팁
 description: Azure Cosmos DB 데이터베이스 성능 향상을 위한 클라이언트 구성 옵션에 대한 자세한 정보
-keywords: 데이터베이스 성능 개선 방법
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: f8045153482cdd8b9a13c0a6f2ebdb26627d44e4
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: f05935f73f385b076741d2e856af8316a74e9d2f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811412"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042498"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 및 .NET에 대한 성능 팁
 

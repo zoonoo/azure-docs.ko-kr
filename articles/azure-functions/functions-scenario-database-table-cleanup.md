@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: e59c0b6994a64972b1458c0f295f24d0a615d871
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 4ec2e9b931e6405aca5b4237bc044647af3b8bb3
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740113"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608582"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Azure Functions를 사용하여 Azure SQL Database에 연결
 
@@ -70,7 +70,7 @@ SqlClient 라이브러리를 포함하는 NuGet 패키지를 추가해야 합니
 
 1. **찾아보기** 탭에서 ```System.Data.SqlClient```를 검색하고 찾은 항목을 선택합니다.
 
-1. **System.Data.SqlClient** 페이지에서 **설치**를 클릭합니다.
+1. **System.Data.SqlClient** 페이지에서 `4.5.1` 버전을 선택한 다음, **설치**를 클릭합니다.
 
 1. 설치가 완료되면 변경 내용을 검토한 다음 **확인**을 클릭하여 **미리 보기** 창을 닫습니다.
 

@@ -9,21 +9,21 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: e448b367e574b044762fb1ee7eaa30e1bb3e1f8b
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a6c17ad8d4af568d910597da4b44f09676d1c36a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011745"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652493"
 ---
-# <a name="use-sqoop-with-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop과 Sqoop 사용
+# <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop과 Apache Sqoop 사용
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
 HDInsight에서 Apache Sqoop을 사용하여 HDInsight 클러스터와 Azure SQL 데이터베이스 또는 SQL Server 데이터베이스 사이에서 가져오기 및 내보내는 방법을 알아봅니다.
 
 비구조적 및 반구조적 데이터(예: 로그 및 파일)를 처리하기 위해 당연히 Apache Hadoop을 선택하지만, 관계형 데이터베이스에 저장된 구조적 데이터를 처리해야 할 경우도 있습니다.
 
-[Apache Sqoop][sqoop-user-guide-1.4.4]은 Hadoop 클러스터와 관계형 데이터베이스 간 데이터 전송을 위해 설계된 도구입니다. 이 도구를 사용하면 SQL Server, MySQL, Oracle 등의 RDBMS(관계형 데이터베이스 관리 시스템)에서 HDFS(Hadoop Distributed File System)로 데이터를 가져오고, MapReduce 또는 Hive로 Hadoop의 데이터를 변환한 후 데이터를 RDBMS로 다시 내보낼 수 있습니다. 이 자습서에서는 관계형 데이터베이스에 SQL Server 데이터베이스를 사용합니다.
+[Apache Sqoop][sqoop-user-guide-1.4.4]은 Hadoop 클러스터와 관계형 데이터베이스 간 데이터 전송을 위해 설계된 도구입니다. 이 도구를 사용하면 SQL Server, MySQL, Oracle 등의 RDBMS(관계형 데이터베이스 관리 시스템)에서 HDFS(Hadoop 분산 파일 시스템)로 데이터를 가져오고, MapReduce 또는 Apache Hive로 Hadoop의 데이터를 변환한 후 데이터를 RDBMS로 다시 내보낼 수 있습니다. 이 자습서에서는 관계형 데이터베이스에 SQL Server 데이터베이스를 사용합니다.
 
 HDInsight 클러스터에서 지원되는 Sqoop 버전을 보려면 [HDInsight에서 제공하는 클러스터 버전의 새로운 기능][hdinsight-versions]을 참조하세요.
 
@@ -31,7 +31,7 @@ HDInsight 클러스터에서 지원되는 Sqoop 버전을 보려면 [HDInsight�
 
 HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다음 두 샘플을 사용합니다.
 
-* */example/data/sample.log*에 있는 log4j 로그 파일. 이 파일에서 다음 로그가 추출됩니다.
+* */example/data/sample.log*에 있는 Apache Log4j 로그 파일. 이 파일에서 다음 로그가 추출됩니다.
   
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -65,7 +65,7 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
 
 Azure PowerShell을 사용하여 클러스터 및 SQL Database를 만들려면 [부록 A](#appendix-a---a-powershell-sample)를 참조하세요.
 
-> [!NOTE]
+> [!NOTE]  
 > 템플릿 또는 Azure Portal을 사용하여 가져오기는 Azure Blob Storage에서 BACPAC 파일을 가져오는 것만 지원합니다.
 
 **리소스 관리 템플릿을 사용하여 환경을 구성하려면**
@@ -101,32 +101,29 @@ Azure PowerShell을 사용하여 클러스터 및 SQL Database를 만들려면 [
 
 * **Azure SQL 데이터베이스**: 워크스테이션에서 액세스할 수 있도록 Azure SQL 데이터베이스 서버의 방화벽 규칙을 구성해야 합니다. Azure SQL Database 만들기 및 방화벽 구성에 대한 자세한 내용은 [Azure SQL Database 사용 시작][sqldatabase-get-started]을 참조하세요. 
   
-  > [!NOTE]
+  > [!NOTE]  
   > 기본적으로 Azure SQL 데이터베이스는 Azure HDInsight 같은 Azure 서비스로부터의 연결을 허용합니다. 이 방화벽 설정을 사용하지 않도록 설정한 경우 Azure Portal에서 사용하도록 설정해야 합니다. Azure SQL Database 만들기 및 방화벽 규칙 구성에 대한 지침은 [SQL Database 만들기 및 구성][sqldatabase-create-configure]을 참조하세요.
-  > 
-  > 
+
 * **SQL Server**: HDInsight 클러스터가 SQL Server와 같은 Azure의 가상 네트워크에 있으면 이 문서의 단계를 사용하여 SQL Server 데이터베이스에 대해 데이터 가져오기 및 내보내기를 수행할 수 있습니다.
   
-  > [!NOTE]
+  > [!NOTE]  
   > HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선호도 그룹 기반 가상 네트워크와는 연동되지 않습니다.
-  > 
-  > 
+
   
   * 가상 네트워크를 만들고 구성하려면 [Azure Portal을 사용하여 가상 네트워크 만들기](../../virtual-network/quick-create-portal.md)를 참조하세요
     
     * 데이터 센터에서 SQL Server를 사용할 때는 가상 네트워크를 *사이트 간* 또는 *지점 및 사이트 간*으로 구성해야 합니다.
       
-      > [!NOTE]
-      > **지점 및 사이트 간** 가상 네트워크의 경우 SQL Server가 VPN 클라이언트 구성 응용 프로그램을 실행해야 합니다. 이 응용 프로그램은 Azure 가상 네트워크 구성의 **대시보드**에서 사용 가능합니다.
-      > 
-      > 
+      > [!NOTE]  
+      > **지점 및 사이트 간** 가상 네트워크의 경우 SQL Server가 VPN 클라이언트 구성 애플리케이션을 실행해야 합니다. 이 애플리케이션은 Azure 가상 네트워크 구성의 **대시보드**에서 사용 가능합니다.
+
+
     * Azure 가상 머신에서 SQL Server를 사용할 때는 SQL Server를 호스트하는 가상 머신이 HDInsight와 같은 가상 네트워크의 멤버이면 모든 가상 네트워크 구성을 사용할 수 있습니다.
-  * 가상 네트워크에 HDInsight 클러스터를 만들려면 [사용자 지정 옵션을 사용하여 HDInsight의 Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)
+  * 가상 네트워크에 HDInsight 클러스터를 만들려면 [사용자 지정 옵션을 사용하여 HDInsight의 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
     
-    > [!NOTE]
+    > [!NOTE]  
     > SQL Server는 인증도 허용해야 합니다. 이 문서의 단계를 완료하려면 SQL 서버 로그인을 사용해야 합니다.
-    > 
-    > 
+
 
 **구성의 유효성을 검사하려면**
 
@@ -158,8 +155,8 @@ HDInsight는 다양한 메서드를 사용하여 Sqoop 작업을 실행할 수 �
 ## <a name="next-steps"></a>다음 단계
 이제 Sqoop을 사용하는 방법에 대해 알아봤습니다. 자세한 내용은 다음을 참조하세요.
 
-* [HDInsight에서 하이브 사용](../hdinsight-use-hive.md)
-* [HDInsight에서 Pig 사용](../hdinsight-use-pig.md)
+* [HDInsight에서 Apache Hive 사용](../hdinsight-use-hive.md)
+* [HDInsight에서 Apache Pig 사용](../hdinsight-use-pig.md)
 * [HDInsight에 데이터 업로드][hdinsight-upload-data]: HDInsight/Azure Blob Storage에 데이터를 업로드하는 다른 방법을 찾습니다.
 
 ## <a name="appendix-a---a-powershell-sample"></a>부록 A - PowerShell 샘플
@@ -211,7 +208,7 @@ PowerShell 샘플은 다음 단계를 수행합니다.
    
     원본 파일은 tutorials/usesqoop/data/sample.log입니다. 데이터를 내보낸 테이블은 log4jlogs라고 합니다.
    
-   > [!NOTE]
+   > [!NOTE]  
    > 연결 문자열 정보를 제외하면 이 섹션의 단계는 Azure SQL 데이터베이스 또는 SQL Server에 대해 작동합니다. 이러한 단계는 다음 구성을 사용하여 테스트했습니다.
    > 
    > * **Azure 가상 네트워크 지점 및 사이트 간 구성**: 개인 데이터 센터에서 HDInsight 클러스터를 SQL Server에 연결하는 가상 네트워크입니다. 자세한 내용은 [관리 포털에서 지점 및 사이트 간 VPN 구성](../../vpn-gateway/vpn-gateway-point-to-site-create.md) 을 참조하세요.
@@ -260,7 +257,7 @@ $sqlDatabaseConnectionString = "Data Source=$sqlDatabaseServerName.database.wind
 $sqlDatabaseMaxSizeGB = 10
 
 # Used for retrieving external IP address and creating firewall rules
-$ipAddressRestService = "http://bot.whatismyipaddress.com"
+$ipAddressRestService = "https://bot.whatismyipaddress.com"
 $fireWallRuleName = "UseSqoop"
 
 # Used for creating tables and clustered indexes

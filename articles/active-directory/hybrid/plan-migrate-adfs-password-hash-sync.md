@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cad368cb968b94d1327cc99ed4dfa6df0aedd2cd
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: a14e630c23af3e0228bf4806851f29cfab199215
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555101"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103981"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-ad"></a>Azure AD에 대해 페더레이션에서 암호 해시 동기화로 마이그레이션
 다음 문서에서는 AD FS에서 암호 해시 동기화로 전환하는 방법에 대한 지침을 제공합니다.
@@ -133,9 +133,9 @@ AD FS Rapid Restore Tool을 사용하지 않도록 선택한 경우 최소한, �
 |-|-|
 | 다른 애플리케이션에 대해 AD FS를 보존하려고 합니다.| AD FS와 Azure AD를 둘 다 사용하며, 그에 따른 최종 사용자 환경을 고려해야 합니다. 일부 시나리오에서 사용자는 Azure AD에서 1번(SSO를 통해 Office 365 등의 기타 애플리케이션에 로그인하는 경우), AD FS에 신뢰 당사자 트러스트로 바인딩되어 있는 애플리케이션에서 1번, 두 번의 인증을 받아야 할 수 있습니다. |
 | AD FS는 과도하게 사용자 지정되며 Azure AD에서 중복될 수 없는 onload.js 파일의 특정 사용자 지정 설정에 크게 의존합니다(예를 들어, 사용자가 UPN과 달리 사용자 이름으로 SamAccountName 형식만 입력하거나 과도하게 브랜딩한 로그인 환경이 제공되도록 로그인 환경을 변경한 경우).| 계속하기 전에 Azure AD에서 현재 사용자 지정 요구 사항을 충족할 수 있는지 확인해야 합니다. 자세한 내용 및 지침은 AD FS 브랜딩 및 AD FS 사용자 지정 섹션을 참조하세요.|
-| AD FS를 통해 레거시 인증 클라이언트를 차단하려고 합니다.| 현재 AD FS에 있는 레거시 인증 클라이언트를 차단하기 위한 컨트롤 대신, [레거시 인증을 위한 조건부 액세스 제어](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) 및 [Exchange Online 클라이언트 액세스 규칙](http://aka.ms/EXOCAR)을 함께 사용하는 것을 고려하세요.|
+| AD FS를 통해 레거시 인증 클라이언트를 차단하려고 합니다.| 현재 AD FS에 있는 레거시 인증 클라이언트를 차단하기 위한 컨트롤 대신, [레거시 인증을 위한 조건부 액세스 제어](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) 및 [Exchange Online 클라이언트 액세스 규칙](https://aka.ms/EXOCAR)을 함께 사용하는 것을 고려하세요.|
 | 사용자가 AD FS에서 인증을 받을 때 온-프레미스 MFA 서버 솔루션에 대해 MFA를 수행하도록 해야 합니다.| 온-프레미스 MFA 솔루션을 통해 관리되는 도메인의 인증 흐름에 MFA 질문을 삽입할 수 없지만 도메인이 변환되면 Azure MFA 서비스를 사용하여 이 작업을 진행할 수 있습니다. 현재, 사용자가 Azure MFA를 사용하지 않는 경우, 일회성 최종 사용자 등록 단계를 준비한 후 최종 사용자에게 전달해야 합니다.|
-| 지금 당장 AD FS에서 액세스 제어 정책(AuthZ 규칙)을 사용하여 Office 365에 대한 액세스를 제어합니다.| 이러한 방식을 동급의 Azure AD [조건부 액세스 정책](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) 및 [Exchange Online 클라이언트 액세스 규칙](http://aka.ms/EXOCAR)으로 바꿀 수 있습니다.|
+| 지금 당장 AD FS에서 액세스 제어 정책(AuthZ 규칙)을 사용하여 Office 365에 대한 액세스를 제어합니다.| 이러한 방식을 동급의 Azure AD [조건부 액세스 정책](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) 및 [Exchange Online 클라이언트 액세스 규칙](https://aka.ms/EXOCAR)으로 바꿀 수 있습니다.|
 
 ### <a name="considerations-for-common-ad-fs-customizations"></a>일반적인 AD FS 사용자 지정에 대한 고려 사항
 
@@ -368,7 +368,7 @@ Azure AD에 디바이스를 조인하면 보안 및 규정 준수를 위한 액�
 
 테넌트가 페더레이션을 사용하는 경우 사용자는 Azure AD 로그인 페이지에서 AD FS 환경으로 리디렉션됩니다. 이제 테넌트가 페더레이션 대신 암호 해시 동기화를 사용하도록 구성되었으므로 사용자는 AD FS로 리디렉션되지 않고, 대신 Azure AD 로그인 페이지를 통해 직접 로그인하게 됩니다.
 
-InPrivate 모드에서 Internet Explorer를 열어 자동으로 Seamless SSO 로그인이 수행되지 않도록 하고 Office 365 로그인 페이지([http://portal.office.com](http://portal.office.com/))로 이동합니다. 사용자의 UPN을 입력하고 [다음]을 클릭합니다. 온-프레미스 Active Directory에서 동기화되었으며 이전에 페더레이션된 하이브리드 사용자의 UPN을 입력해야 합니다. 사용자 이름과 암호를 입력하는 화면이 표시됩니다.
+InPrivate 모드에서 Internet Explorer를 열어 자동으로 Seamless SSO 로그인이 수행되지 않도록 하고 Office 365 로그인 페이지([https://portal.office.com](https://portal.office.com/))로 이동합니다. 사용자의 UPN을 입력하고 [다음]을 클릭합니다. 온-프레미스 Active Directory에서 동기화되었으며 이전에 페더레이션된 하이브리드 사용자의 UPN을 입력해야 합니다. 사용자 이름과 암호를 입력하는 화면이 표시됩니다.
 
 ![그림 9](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image18.png)
 

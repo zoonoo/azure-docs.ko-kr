@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: db412d3fd0af84d528ad0c83d86cc5d055359914
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: aad31e72682e15c49fb3d6dce64e7ef46525cb66
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632690"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051855"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows의 노드 애플리케이션에 대한 모범 사례 및 문제 해결 가이드
 
@@ -147,7 +147,7 @@ var keepaliveAgent = new Agent({
 
 #### <a name="my-node-application-is-consuming-too-much-cpu"></a>내 노드 애플리케이션이 너무 많은 CPU를 사용하고 있습니다.
 
-포털의 Azure App Service에서 높은 CPU 사용량에 대한 권장 사항을 받게 됩니다. 또한 특정 [메트릭](web-sites-monitor.md)을 감시하도록 모니터를 설정할 수도 있습니다. [Azure Portal 대시보드](../application-insights/app-insights-web-monitor-performance.md)에서 CPU 사용량을 확인할 때는 최고값을 놓치지 않도록 CPU에 대한 MAX 값을 확인하세요.
+포털의 Azure App Service에서 높은 CPU 사용량에 대한 권장 사항을 받게 됩니다. 또한 특정 [메트릭](web-sites-monitor.md)을 감시하도록 모니터를 설정할 수도 있습니다. [Azure Portal 대시보드](../azure-monitor/app/web-monitor-performance.md)에서 CPU 사용량을 확인할 때는 최고값을 놓치지 않도록 CPU에 대한 MAX 값을 확인하세요.
 애플리케이션에서 CPU를 너무 많이 사용한다고 생각되고 그 이유를 설명할 수 없는 경우 노드 애플리케이션을 프로파일링해서 찾을 수 있습니다.
 
 #### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Azure App Service에서 V8-Profiler로 노드 애플리케이션 프로파일링
@@ -220,7 +220,7 @@ http.createServer(function (req, res) {
 
 ### <a name="my-node-application-is-consuming-too-much-memory"></a>내 노드 애플리케이션이 메모리를 너무 많이 사용합니다.
 
-애플리케이션에서 메모리를 너무 많이 사용하면 포털의 Azure App Service에서 높은 메모리 사용량에 대한 알림이 표시됩니다. 특정 [메트릭](web-sites-monitor.md)을 감시하도록 모니터를 설정할 수 있습니다. [Azure Portal 대시보드](../application-insights/app-insights-web-monitor-performance.md)에서 메모리 사용량을 확인할 때는 최고값을 놓치지 않도록 메모리에 대한 MAX 값을 확인해야 합니다.
+애플리케이션에서 메모리를 너무 많이 사용하면 포털의 Azure App Service에서 높은 메모리 사용량에 대한 알림이 표시됩니다. 특정 [메트릭](web-sites-monitor.md)을 감시하도록 모니터를 설정할 수 있습니다. [Azure Portal 대시보드](../azure-monitor/app/web-monitor-performance.md)에서 메모리 사용량을 확인할 때는 최고값을 놓치지 않도록 메모리에 대한 MAX 값을 확인해야 합니다.
 
 #### <a name="leak-detection-and-heap-diff-for-nodejs"></a>node.js에 대한 누수 감지 및 힙 Diff
 

@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 50e252b7dbd20d5330f8117eaa45ccf52303f277
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b98261601f352668fa3cc8d18dc3b1d0d7fe2654
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51678203"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53553442"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: 고성능을 위한 설계
+# <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: 고성능을 위한 디자인
 
 이 문서는 Azure Premium Storage를 사용하여 고성능 애플리케이션을 빌드하기 위한 지침을 제공합니다. 애플리케이션에서 사용되는 기술에 적용 가능한 성능 모범 사례가 결합된 이 문서에 제공된 지침을 사용할 수 있습니다. 지침을 설명하기 위해 이 문서 전체에서 한 예로 Premium Storage에서 실행되는 SQL Server를 사용했습니다.
 
@@ -35,7 +35,7 @@ Premium Storage에서 실행되는 작업은 성능이 매우 중요하므로 �
 > 경우에 따라 디스크 성능 문제로 보이는 것은 실제로 네트워크 병목 현상입니다. 이러한 상황에서 [네트워크 성능](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md)을 최적화해야 합니다.
 > VM에서 가속화된 네트워킹을 지원하는 경우 VM이 활성화되어 있는지 확인해야 합니다. 활성화되어 있지 않으면 [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) 및 [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms) 모두에 이미 배포된 VM에서 활성화할 수 있습니다.
 
-시작하기 전에 Premium Storage를 처음 사용하는 경우 먼저 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 저장소](../articles/virtual-machines/windows/premium-storage.md) 및 [Azure Storage 확장성 및 성능 목표](../articles/storage/common/storage-scalability-targets.md) 문서를 읽어 보세요.
+시작하기 전에 Premium Storage를 처음 사용하는 경우 먼저 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 스토리지](../articles/virtual-machines/windows/premium-storage.md) 및 [Azure Storage 확장성 및 성능 목표](../articles/storage/common/storage-scalability-targets.md) 문서를 읽어 보세요.
 
 ## <a name="application-performance-indicators"></a>애플리케이션 성과 지표
 
@@ -63,9 +63,17 @@ IOPS는 애플리케이션에서 스토리지 디스크에 1초 동안 보내는
 
 ## <a name="latency"></a>대기 시간
 
-대기 시간은 애플리케이션이 단일 요청을 수신하고 이를 스토리지 디스크에 보내고 클라이언트에 응답을 보내는데 걸리는 시간입니다. 이는 IOPS 및 처리량 외에도 애플리케이션의 성능에 대한 중요한 측정입니다. 프리미엄 스토리지 디스크의 대기 시간은 요청에 대한 정보를 검색하고 애플리케이션응에게 다시 전달하는데 걸리는 시간입니다. Premium Storage는 일관된 낮은 대기 시간을 제공합니다. 프리미엄 저장소 디스크에 읽기 전용 호스트 캐싱을 사용하는 경우 훨씬 더 낮은 읽기 대기 시간을 얻을 수 있습니다. *응용 프로그램 성능 최적화*의 이후 섹션에서 디스크 캐싱에 대해 자세히 설명합니다.
+대기 시간은 애플리케이션이 단일 요청을 수신하고 이를 스토리지 디스크에 보내고 클라이언트에 응답을 보내는데 걸리는 시간입니다. 이는 IOPS 및 처리량 외에도 애플리케이션의 성능에 대한 중요한 측정입니다. 프리미엄 스토리지 디스크의 대기 시간은 요청에 대한 정보를 검색하고 애플리케이션응에게 다시 전달하는데 걸리는 시간입니다. Premium Storage는 일관된 낮은 대기 시간을 제공합니다. 프리미엄 저장소 디스크에 읽기 전용 호스트 캐싱을 사용하는 경우 훨씬 더 낮은 읽기 대기 시간을 얻을 수 있습니다. *애플리케이션 성능 최적화*의 이후 섹션에서 디스크 캐싱에 대해 자세히 설명합니다.
 
 높은 IOPS 및 처리량을 얻기 위해 애플리케이션을 최적화하는 경우 애플리케이션의 대기 시간에 영향을 줍니다. 애플리케이션 성능 튜닝 후 예기치 않은 대기 시간 동작을 방지하도록 항상 애플리케이션의 대기 시간을 평가합니다.
+
+Managed Disks에서 제어 평면 작업을 수행하면 디스크가 한 스토리지 위치에서 다른 스토리지 위치로 이동할 수 있습니다. 이는 완료하는 데 몇 시간(일반적으로 디스크의 데이터 양에 따라 24시간 미만)이 걸릴 수 있는 데이터의 백그라운드 복사를 통해 오케스트레이션됩니다. 이 기간 동안 일부 읽기가 원래 위치로 리디렉션될 수 있어 완료하는 데 더 오래 걸릴 수 있으므로 애플리케이션의 읽기 대기 시간이 일반적인 읽기 대기 시간보다 길어질 수 있습니다. 이 기간 동안 쓰기 대기 시간에는 영향이 없습니다.  
+
+1.  [스토리지 형식 업데이트](../articles/virtual-machines/windows/convert-disk-storage.md)
+2.  [한 VM에서 다른 VM으로 디스크 분리 및 연결](../articles/virtual-machines/windows/attach-disk-ps.md)
+3.  [VHD에서 관리 디스크 만들기](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md)
+4.  [스냅숏에서 관리 디스크 만들기](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)
+5.  [비관리 디스크에서 관리 디스크로 변환](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)
 
 ## <a name="gather-application-performance-requirements"></a>애플리케이션 성능 요구 사항 수집
 
@@ -98,7 +106,7 @@ Azure Premium Storage에서 실행되는 고성능 애플리케이션을 설계�
 > [!NOTE]
 > 애플리케이션의 예상된 향후 성장에 따라 이러한 숫자를 확장하는 것이 좋습니다. 나중에 성능 향상을 위한 인프라를 변경하기가 더 어려울 수 있으므로 사전 확장을 계획하는 것이 좋습니다.
 
-기존 애플리케이션이 있고 Premium Storage로 이동하려는 경우 먼저 기존 애플리케이션에 대해 위의 검사 목록을 빌드합니다. 그런 다음, Premium Storage에 있는 애플리케이션의 프로토타입을 빌드하고 이 문서의 이후 섹션의 *애플리케이션 성능 최적화*에 설명된 지침에 따라 애플리케이션을 설계합니다. 다음 섹션에서는 성능 측정값을 수집하는데 사용할 수 있는 도구를 설명합니다.
+기존 애플리케이션이 있고 Premium Storage로 이동하려는 경우 먼저 기존 애플리케이션에 대해 위의 검사 목록을 빌드합니다. 그런 다음, Premium Storage에 있는 애플리케이션의 프로토타입을 빌드하고 이 문서의 이후 섹션의 *애플리케이션 성능 최적화* 에 설명된 지침에 따라 애플리케이션을 설계합니다. 다음 섹션에서는 성능 측정값을 수집하는데 사용할 수 있는 도구를 설명합니다.
 
 프로토타입에 대한 기존 애플리케이션과 비슷한 검사 목록을 만듭니다. 벤치마킹 도구를 사용하여 작업을 시뮬레이션하고 프로토타입 애플리케이션의 성능을 측정할 수 있습니다. 자세한 내용은 [벤치마킹](#benchmarking) 의 섹션을 참조하세요. 이렇게 하여 Premium Storage가 애플리케이션 성능 요구 사항에 일치하거나 능가할 수 있는지 여부를 결정할 수 있습니다. 그런 다음, 프로덕션 애플리케이션에 대해 동일한 지침을 구현할 수 있습니다.
 
@@ -236,7 +244,7 @@ Azure Premium Storage는 현재 미리 보기로 3개의 디스크 크기 및 8�
 *규모 제한(IOPS 및 처리량)*  
  각 프리미엄 디스크 크기의 IOPS 및 처리량 한계는 VM 규모 제한과 서로 다르며 독립적입니다. 디스크에서 총 IOPS 및 처리량이 선택한 VM 크기의 규모 제한 내에 있는지 확인합니다.
 
-예를 들어 애플리케이션 요구 사항이 최대 250MB/초의 처리량이고 단일 P30 디스크와 함께 DS4 VM을 사용하는 경우를 가정합니다. DS4 VM은 최대 256MB/초의 처리량을 제공할 수 있습니다. 그러나 단일 P30 디스크는 200MB/초의 처리량 제한이 있습니다. 따라서 디스크 제한으로 인해 응용 프로그램에 200MB/초로 제한이 적용됩니다. 이 제한을 극복하기 위해 VM에 둘 이상의 데이터 디스크를 프로비전하거나 디스크의 크기를 P40 또는 P50으로 조정합니다.
+예를 들어 애플리케이션 요구 사항이 최대 250MB/초의 처리량이고 단일 P30 디스크와 함께 DS4 VM을 사용하는 경우를 가정합니다. DS4 VM은 최대 256MB/초의 처리량을 제공할 수 있습니다. 그러나 단일 P30 디스크는 200MB/초의 처리량 제한이 있습니다. 따라서 디스크 제한으로 인해 애플리케이션에 200MB/초로 제한이 적용됩니다. 이 제한을 극복하기 위해 VM에 둘 이상의 데이터 디스크를 프로비전하거나 디스크의 크기를 P40 또는 P50으로 조정합니다.
 
 > [!NOTE]
 >  캐시에서 제공하는 읽기는 디스크 IOPS 및 처리량에 포함되지 않으므로 디스크 제한이 없습니다. 캐시에는 VM당 별도 IOPS 및 처리량 제한이 있습니다.
@@ -597,7 +605,7 @@ sudo fio --runtime 30 fioreadwrite.ini
 
 Azure Premium Storage에 대한 자세한 정보
 
-* [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 저장소](../articles/virtual-machines/windows/premium-storage.md)  
+* [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 스토리지](../articles/virtual-machines/windows/premium-storage.md)  
 
 SQL Server 사용자의 경우 SQL Server에 대한 성능 모범 사례의 문서를 읽으세요.
 

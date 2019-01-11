@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 5f07f462fc33761f7d29944594491a72f283cd31
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 6044c0e565a4e321b57789f51e01473933f63d44
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582567"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630493"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Java에서 Apache Storm 토폴로지 만들기
 
-[Apache Storm](http://storm.apache.org/)에 대한 Java 기반 토폴로지를 만드는 방법을 알아봅니다. 단어 계산 애플리케이션을 구현하는 Storm 토폴로지를 만들어야 합니다. [Apache Maven](https://maven.apache.org/)을 사용하여 프로젝트를 빌드하고 패키징합니다. 그런 다음 Flux 프레임워크를 사용하여 토폴로지를 정의하는 방법을 알아봅니다.
+[Apache Storm](https://storm.apache.org/)에 대한 Java 기반 토폴로지를 만드는 방법을 알아봅니다. 단어 계산 애플리케이션을 구현하는 Storm 토폴로지를 만들어야 합니다. [Apache Maven](https://maven.apache.org/)을 사용하여 프로젝트를 빌드하고 패키징합니다. 그런 다음 Flux 프레임워크를 사용하여 토폴로지를 정의하는 방법을 알아봅니다.
 
 이 문서의 단계를 완료한 후에 HDInsight에서 Apache Storm에 토폴로지를 배포할 수 있습니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 이 문서에서 만든 Storm 토폴로지 예제의 전체 버전은 [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount)에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -56,7 +56,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > PowerShell을 사용하는 경우 큰 따옴표로 `-D` 매개 변수를 묶어야 합니다.
 >
 > `mvn archetype:generate "-DarchetypeArtifactId=maven-archetype-quickstart" "-DgroupId=com.microsoft.example" "-DartifactId=WordCount" "-DinteractiveMode=false"`
@@ -64,8 +64,8 @@ mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupI
 이 명령은 기본 Maven 프로젝트를 포함하는 현재 위치에 `WordCount`라는 디렉터리를 만듭니다. `WordCount` 디렉터리에는 다음과 같은 항목이 포함됩니다.
 
 * `pom.xml`: Maven 프로젝트에 대한 설정을 포함합니다.
-* `src\main\java\com\microsoft\example`: 응용 프로그램 코드를 포함합니다.
-* `src\test\java\com\microsoft\example`: 응용 프로그램에 대한 테스트를 포함합니다. 
+* `src\main\java\com\microsoft\example`: 애플리케이션 코드를 포함합니다.
+* `src\test\java\com\microsoft\example`: 애플리케이션에 대한 테스트를 포함합니다. 
 
 ### <a name="remove-the-generated-example-code"></a>생성된 예제 코드 제거
 
@@ -76,7 +76,7 @@ mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupI
 
 ## <a name="add-maven-repositories"></a>Maven 리포지토리 추가
 
-HDInsight는 HDP(Hortonworks Data Platform)를 기반으로 하므로 Hortonworks 리포지토리를 사용하여 Apache Storm 프로젝트에 대한 종속성을 다운로드하는 것이 좋습니다. __pom.xml__ 파일에서 `<url> http://maven.apache.org</url>` 줄 뒤에 다음 XML을 추가합니다.
+HDInsight는 HDP(Hortonworks Data Platform)를 기반으로 하므로 Hortonworks 리포지토리를 사용하여 Apache Storm 프로젝트에 대한 종속성을 다운로드하는 것이 좋습니다. __pom.xml__ 파일에서 `<url> https://maven.apache.org</url>` 줄 뒤에 다음 XML을 추가합니다.
 
 ```xml
 <repositories>
@@ -93,7 +93,7 @@ HDInsight는 HDP(Hortonworks Data Platform)를 기반으로 하므로 Hortonwork
         </snapshots>
         <id>HDPReleases</id>
         <name>HDP Releases</name>
-        <url>http://repo.hortonworks.com/content/repositories/releases/</url>
+        <url>https://repo.hortonworks.com/content/repositories/releases/</url>
         <layout>default</layout>
     </repository>
     <repository>
@@ -109,7 +109,7 @@ HDInsight는 HDP(Hortonworks Data Platform)를 기반으로 하므로 Hortonwork
         </snapshots>
         <id>HDPJetty</id>
         <name>Hadoop Jetty</name>
-        <url>http://repo.hortonworks.com/content/repositories/jetty-hadoop/</url>
+        <url>https://repo.hortonworks.com/content/repositories/jetty-hadoop/</url>
         <layout>default</layout>
     </repository>
 </repositories>
@@ -147,7 +147,7 @@ Storm 구성 요소에 대한 종속성을 추가합니다. `<dependencies>` 섹
 
 컴파일 시간에 Maven은 이 정보를 사용하여 Maven 리포지토리에서 `storm-core`를 찾습니다. 먼저 로컬 컴퓨터의 리포지토리에서 찾습니다. 파일이 없으면 Maven은 공개 Maven 리포지토리에서 파일을 다운로드하여 로컬 리포지토리에 저장합니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 이 섹션에서 `<scope>provided</scope>` 줄을 확인합니다. 이 설정은 Maven이 만든 JAR 파일에서 **storm-core**를 제외하도록 요청합니다. 시스템을 통해 제공되기 때문입니다.
 
 ## <a name="build-configuration"></a>빌드 구성
@@ -163,11 +163,11 @@ Maven 플러그 인을 사용하면 프로젝트의 빌드 단계를 사용자 �
 </build>
 ```
 
-이 섹션은 플러그 인, 리소스 및 다른 빌드 구성 옵션을 추가하는 데 사용됩니다. **pom.xml** 파일에 대한 전체 참조를 보려면 [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html)을 참조하세요.
+이 섹션은 플러그 인, 리소스 및 다른 빌드 구성 옵션을 추가하는 데 사용됩니다. **pom.xml** 파일에 대한 전체 참조를 보려면 [https://maven.apache.org/pom.html](https://maven.apache.org/pom.html)을 참조하세요.
 
 ### <a name="add-plug-ins"></a>플러그 인 추가
 
-Java에서 구현된 Apache Storm 토폴로지의 경우 [Exec Maven 플러그 인](http://www.mojohaus.org/exec-maven-plugin/)을 사용하면 개발 환경에서 토폴로지를 로컬에서 쉽게 실행할 수 있어 유용합니다. Exec Maven 플러그 인을 추가하려면 `pom.xml` 파일의 `<plugins>` 섹션에 다음을 추가합니다.
+Java에서 구현된 Apache Storm 토폴로지의 경우 [Exec Maven 플러그 인](https://www.mojohaus.org/exec-maven-plugin/)을 사용하면 개발 환경에서 토폴로지를 로컬에서 쉽게 실행할 수 있어 유용합니다. Exec Maven 플러그 인을 추가하려면 `pom.xml` 파일의 `<plugins>` 섹션에 다음을 추가합니다.
 
 ```xml
 <plugin>
@@ -192,7 +192,7 @@ Java에서 구현된 Apache Storm 토폴로지의 경우 [Exec Maven 플러그 �
 </plugin>
 ```
 
-다른 유용한 플러그 인은 컴파일 옵션을 변경하는 데 사용되는 [Apache Maven 컴파일러 플러그 인](http://maven.apache.org/plugins/maven-compiler-plugin/)입니다. 사용자의 애플리케이션에 대한 원본 및 대상에 Maven이 사용하는 Java 버전이 변경됩니다.
+다른 유용한 플러그 인은 컴파일 옵션을 변경하는 데 사용되는 [Apache Maven 컴파일러 플러그 인](https://maven.apache.org/plugins/maven-compiler-plugin/)입니다. 사용자의 애플리케이션에 대한 원본 및 대상에 Maven이 사용하는 Java 버전이 변경됩니다.
 
 * HDInsight __3.4 이하__의 경우 원본과 대상의 Java 버전을 __1.7__로 설정합니다.
 
@@ -242,11 +242,11 @@ Java 기반 Apache Storm 토폴로지는 사용자가 작성자이거나 종속�
 
 외부 데이터 소스 설정에 대한 요구를 줄이기 위해 다음 spout가 임의의 문장을 내보냅니다. 이는 [Storm-Starter 예제](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter)와 함께 제공된 Spout의 수정된 버전입니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 외부 데이터 소스에서 읽는 Spout의 예는 다음 예제 중 하나를 참조하세요.
 >
-> * [TwitterSampleSPout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java): Twitter에서 읽는 예제 Spout
-> * [Storm-Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka): Kafka에서 읽는 Spout
+> * [TwitterSampleSPout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java): Twitter에서 읽는 예제 Spout입니다.
+> * [Storm-Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka): Kafka에서 읽는 Spout입니다.
 
 Spout의 경우 `src\main\java\com\microsoft\example` 디렉터리에 `RandomSentenceSpout.java`라는 파일을 만들고 다음 Java 코드를 그 콘텐츠로 사용합니다.
 
@@ -312,7 +312,7 @@ public class RandomSentenceSpout extends BaseRichSpout {
 }
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 이 토폴로지는 하나의 spout만 사용하지만 다른 토폴로지는 다른 소스에서 해당 토폴로지로 데이터를 피드하는 여러 spout를 사용할 수 있습니다.
 
 ### <a name="create-the-bolts"></a>Bolt 만들기
@@ -323,7 +323,7 @@ Bolt는 데이터 처리를 다룹니다. 이 토폴로지는 두 개의 bolt를
 
 * **WordCount**: 각각의 단어가 발생한 횟수를 계산합니다.
 
-> [!NOTE]
+> [!NOTE]  
 > Bolt는 계산, 지속성, 외부 구성 요소에 말하기 등 모든 작업을 수행할 수 있습니다.
 
 `src\main\java\com\microsoft\example` 디렉터리에서 두 개의 새 파일인 `SplitSentence.java` 및 `WordCount.java`를 만듭니다. 파일 내용으로 다음 텍스트를 사용합니다.
@@ -559,10 +559,10 @@ Storm은 [Apache Log4j 2](https://logging.apache.org/log4j/2.x/)를 사용하여
 
 `<Root level="error">` 섹션은 루트 수준의 로깅(모든 항목이 `com.microsoft.example`에 있지는 않음)을 오류 정보를 기록하도록 구성합니다.
 
-Log4j 2의 로깅 구성에 대한 자세한 내용은 [http://logging.apache.org/log4j/2.x/manual/configuration.html](http://logging.apache.org/log4j/2.x/manual/configuration.html)을 참조하세요.
+Log4j 2의 로깅 구성에 대한 자세한 내용은 [https://logging.apache.org/log4j/2.x/manual/configuration.html](https://logging.apache.org/log4j/2.x/manual/configuration.html)을 참조하세요.
 
-> [!NOTE]
-> Storm 버전 0.10.0 이상은 Log4j 2.x를 사용합니다. 이전 버전의 Storm은 로그 구성에 다른 형식을 사용하는 Log4j 1.x를 사용합니다. 오래된 구성에 대한 자세한 내용은 [http://wiki.apache.org/logging-log4j/Log4jXmlFormat](http://wiki.apache.org/logging-log4j/Log4jXmlFormat)을 참조하세요.
+> [!NOTE]  
+> Storm 버전 0.10.0 이상은 Log4j 2.x를 사용합니다. 이전 버전의 Storm은 로그 구성에 다른 형식을 사용하는 Log4j 1.x를 사용합니다. 오래된 구성에 대한 자세한 내용은 [https://wiki.apache.org/logging-log4j/Log4jXmlFormat](https://wiki.apache.org/logging-log4j/Log4jXmlFormat)을 참조하세요.
 
 ## <a name="test-the-topology-locally"></a>로컬에서 토폴로지 테스트
 
@@ -588,14 +588,14 @@ mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
 
 ## <a name="convert-the-topology-to-flux"></a>토폴로지를 Flux로 변환
 
-[Flux](http://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html)는 Storm 0.10.0 이상에서 사용할 수 있는 새로운 프레임워크로서 구성을 구현과 분리할 수 있습니다. 구성 요소가 여전히 Java로 정의되지만 토폴로지는 YAML 파일을 사용하여 정의됩니다. 프로젝트를 통해 기본 토폴로지 정의를 패키지하거나 토폴로지를 제출할 때 독립 실행형 파일을 사용할 수 있습니다. Storm에 토폴로지를 제출할 때 환경 변수 또는 구성 파일을 사용하여 YAML 토폴로지 정의에서 값을 채울 수 있습니다.
+[Flux](https://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html)는 Storm 0.10.0 이상에서 사용할 수 있는 새로운 프레임워크로서 구성을 구현과 분리할 수 있습니다. 구성 요소가 여전히 Java로 정의되지만 토폴로지는 YAML 파일을 사용하여 정의됩니다. 프로젝트를 통해 기본 토폴로지 정의를 패키지하거나 토폴로지를 제출할 때 독립 실행형 파일을 사용할 수 있습니다. Storm에 토폴로지를 제출할 때 환경 변수 또는 구성 파일을 사용하여 YAML 토폴로지 정의에서 값을 채울 수 있습니다.
 
 YAML 파일은 토폴로지 및 구성 요소 간 데이터 흐름에 사용할 구성 요소를 정의합니다. jar 파일의 일부로 YAML 파일을 포함하거나 외부 YAML 파일을 사용할 수 있습니다.
 
 Flux에 대한 자세한 내용은 [Flux 프레임워크(https://storm.apache.org/releases/1.0.6/flux.html)](https://storm.apache.org/releases/1.0.6/flux.html)를 참조하세요.
 
-> [!WARNING]
-> Storm 1.0.1의 [버그(https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055)로 인해 [Storm 개발 환경](http://storm.apache.org/releases/current/Setting-up-development-environment.html)을 설치하여 Flux 토폴로지를 로컬로 실행해야 합니다.
+> [!WARNING]  
+> Storm 1.0.1의 [버그(https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055)로 인해 [Storm 개발 환경](https://storm.apache.org/releases/current/Setting-up-development-environment.html)을 설치하여 Flux 토폴로지를 로컬로 실행해야 합니다.
 
 1. `WordCountTopology.java` 파일을 프로젝트에서 제외합니다. 이전에 이 파일은 토폴로지를 정의했지만 Flux에는 필요하지 않습니다.
 
@@ -713,10 +713,10 @@ Flux에 대한 자세한 내용은 [Flux 프레임워크(https://storm.apache.or
     mvn compile exec:java "-Dexec.args=--local -R /topology.yaml"
     ```
 
-    > [!WARNING]
-    > 토폴로지가 Storm 1.0.1 비트를 사용하는 경우 이 명령은 실패합니다. 이 실패는 [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055)로 인한 것입니다. 대신, [개발 환경에서 Storm을 설치](http://storm.apache.org/releases/current/Setting-up-development-environment.html)하고 다음 단계를 사용합니다.
+    > [!WARNING]  
+    > 토폴로지가 Storm 1.0.1 비트를 사용하는 경우 이 명령은 실패합니다. 이 실패는 [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055)로 인한 것입니다. 대신, [개발 환경에서 Storm을 설치](https://storm.apache.org/releases/current/Setting-up-development-environment.html)하고 다음 단계를 사용합니다.
     >
-    > [개발 환경에서 Storm을 설치](http://storm.apache.org/releases/current/Setting-up-development-environment.html)한 경우 다음 명령을 대신 사용할 수 있습니다.
+    > [개발 환경에서 Storm을 설치](https://storm.apache.org/releases/current/Setting-up-development-environment.html)한 경우 다음 명령을 대신 사용할 수 있습니다.
     >
     > ```bash
     > mvn compile package
@@ -762,15 +762,15 @@ Flux에 대한 자세한 내용은 [Flux 프레임워크(https://storm.apache.or
 
     토폴로지가 시작되면 내보낸 배치 간의 간격이 newtopology.yaml에 있는 값을 반영하도록 변경되었다는 점에 유의해야 합니다. 따라서 토폴로지를 다시 컴파일하지 않고도 YAML 파일을 통해 구성을 변경할 수 있습니다.
 
-Flux 프레임워크의 다른 기능에 대한 자세한 내용은 [Flux(http://storm.apache.org/releases/current/flux.html)](http://storm.apache.org/releases/current/flux.html)를 참조하세요.
+Flux 프레임워크의 다른 기능에 대한 자세한 내용은 [Flux(https://storm.apache.org/releases/current/flux.html)](https://storm.apache.org/releases/current/flux.html)를 참조하세요.
 
 ## <a name="trident"></a>Trident
 
-[Trident](http://storm.apache.org/releases/current/Trident-API-Overview.html)는 Storm에서 제공하는 높은 수준의 추상화이며 상태 저장 처리를 지원합니다. Trident의 주요 이점은 토폴로지가 입력하는 모든 메시지가 한 번만 처리된다는 점입니다. Trident를 사용하지 않으면 토폴로지는 메시지가 최소한 한 번은 처리된다는 것만 보장할 수 있습니다. Bolt를 만드는 대신 사용할 수 있는 기본 제공 구성 요소와 같은 다른 차이점도 있습니다. 사실 Bolt는 필터, 프로젝션 및 함수와 같이 덜 일반적인 구성 요소로 대체됩니다.
+[Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html)는 Storm에서 제공하는 높은 수준의 추상화이며 상태 저장 처리를 지원합니다. Trident의 주요 이점은 토폴로지가 입력하는 모든 메시지가 한 번만 처리된다는 점입니다. Trident를 사용하지 않으면 토폴로지는 메시지가 최소한 한 번은 처리된다는 것만 보장할 수 있습니다. Bolt를 만드는 대신 사용할 수 있는 기본 제공 구성 요소와 같은 다른 차이점도 있습니다. 사실 Bolt는 필터, 프로젝션 및 함수와 같이 덜 일반적인 구성 요소로 대체됩니다.
 
 Trident 애플리케이션은 Maven 프로젝트를 사용하여 만들 수 있습니다. 이 문서의 앞부분에 제공된 것과 동일한 기본 단계를 거치며 코드만 다릅니다. Trident도 현재 Flux 프레임워크에서 사용할 수 없습니다.
 
-Trident에 대한 자세한 내용은 [Trident API 개요](http://storm.apache.org/releases/current/Trident-API-Overview.html)를 참조하세요.
+Trident에 대한 자세한 내용은 [Trident API 개요](https://storm.apache.org/releases/current/Trident-API-Overview.html)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

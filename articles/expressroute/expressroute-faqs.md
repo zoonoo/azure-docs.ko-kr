@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 0621c2d1632dead41463810b9e71ebf0404a8cbe
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6de5fefa3d70c1daecf00909d3ce44d4a4d8561c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077752"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543566"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -166,7 +166,7 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 ### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>가상 네트워크를 포함하는 여러 Azure 구독을 가지고 있습니다. 개별 구독에 속한 가상 네트워크를 단일 ExpressRoute 회로에 연결할 수 있나요?
 
-예. 단일 ExpressRoute 회로를 사용하여 다른 Azure 구독을 최대 10개까지 권한을 부여할 수 있습니다. ExpressRoute 프리미엄 기능을 사용하여 이 한도를 늘릴 수 있습니다.
+예. 회로와 동일한 구독 또는 단일 ExpressRoute 회로를 사용하는 서로 다른 구독에서 최대 10개 가상 네트워크를 연결할 수 있습니다. ExpressRoute 프리미엄 기능을 사용하여 이 한도를 늘릴 수 있습니다.
 
 자세한 내용은 [여러 구독에서 ExpressRoute 회로 공유](expressroute-howto-linkvnet-arm.md)를 참조하세요.
 

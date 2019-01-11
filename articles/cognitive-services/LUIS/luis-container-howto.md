@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 1398db59199c62e90f8cf5654586bda1c24f2541
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2542364db3a895c060c752beeb0cfabf75834f7d
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055050"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970275"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>LUIS docker 컨테이너 설치 및 실행
  
@@ -66,7 +66,7 @@ LUIS 컨테이너를 실행하려면 다음이 필요 합니다.
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
-사용 가능한 태그에 대한 전체 설명은 이전 명령에서 사용되는 `latest`처럼 Docker 허브에서 [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204)를 참조하세요.
+사용 가능한 태그에 대한 전체 설명은 이전 명령에서 사용되는 `latest`처럼 Docker 허브에서 [LUIS](https://hub.docker.com/r/microsoft/azure-cognitive-services-luis/)를 참조하세요.
 
 > [!TIP]
 > [docker images](https://docs.docker.com/engine/reference/commandline/images/) 명령을 사용하여 다운로드한 컨테이너 이미지를 나열할 수 있습니다. 예를 들어 다음 명령은 다운로드한 각 컨테이너 이미지의 ID, 리포지토리 및 태그를 테이블 형식으로 나열합니다.

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: e20b18afb579839343fc4c079c039d7b9e5438f7
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/03/2019
+ms.openlocfilehash: 958dcb8113f58409d413b5471c96d2e0ba83c361
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994643"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033811"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 
@@ -175,7 +175,7 @@ ms.locfileid: "53994643"
 
   새 인스턴스를 만들면 고유 ID가 DNS 영역으로 자동 생성되고 인스턴스 DNS 이름에 포함됩니다. 이 인스턴스의 다중 도메인(SAN) 인증서는 SAN 필드를 사용하여 `zone_id.database.windows.net` 형식으로 프로비전됩니다. 이 인증서를 사용하여 동일한 DNS 영역의 인스턴스에 클라이언트 연결을 인증할 수 있습니다. 장애 조치(failover) 후 주 인스턴스에 대한 무중단 연결을 보장하려면 주 인스턴스와 보조 인스턴스가 동일한 DNS 영역에 있어야 합니다. 애플리케이션이 프로덕션 배포에 사용할 준비가 되면 다른 지역에 보조 인스턴스를 만들고 주 인스턴스와 DNS 영역을 공유하는지 확인합니다. 이렇게 하려면 Azure Portal, PowerShell 또는 REST API를 사용하여 `DNS Zone Partner` 선택적 매개 변수를 지정합니다.
 
-  주 인스턴스와 동일한 DNS 영역에 보조 인스턴스를 만드는 방법에 대한 자세한 내용은 [Managed Instances(미리 보기)를 사용하여 장애 조치(failover) 그룹 관리](#managing-failover-groups-with-managed-instances-preview)를 참조하세요.
+  주 인스턴스와 동일한 DNS 영역에 보조 인스턴스를 만드는 방법에 대한 자세한 내용은 [Managed Instances(미리 보기)를 사용하여 장애 조치(failover) 그룹 관리](#powershell-managing-failover-groups-with-managed-instances-preview)를 참조하세요.
 
 - **두 인스턴스 간에 복제 트래픽 사용**
 
@@ -349,7 +349,7 @@ ms.locfileid: "53994643"
 | API | 설명 |
 | --- | --- |
 | [장애 조치(failover) 그룹 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | 장애 조치(failover) 그룹을 만들거나 업데이트합니다. |
-| [장애 조치(failover) 그룹 삭제](https://docs.microsoft.com/rest/api/instancefailovergroups/delete) | 서버에서 장애 조치 그룹을 제거합니다. |
+| [장애 조치(failover) 그룹 삭제](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | 서버에서 장애 조치 그룹을 제거합니다. |
 | [장애 조치(failover)(계획됨)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | 현재 주 서버에서 이 서버로 장애 조치(failover)합니다. |
 | [장애 조치(failover)로 인한 데이터 손실 허용](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) |현재 주 서버에서 이 서버로 장애 조치(failover)합니다. 이 작업으로 인해 데이터가 손실될 수 있습니다. |
 | [장애 조치 그룹 가져오기](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | 장애 조치(failover) 그룹을 가져옵니다. |

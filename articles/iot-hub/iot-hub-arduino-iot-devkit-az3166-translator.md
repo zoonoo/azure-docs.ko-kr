@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: liydu
-ms.openlocfilehash: 87091cf3d128eecdbbf06a41d516f13e590338b9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 038b1d9fa319837f3877c20c9fc3b1b83970e7b4
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788415"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158621"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Azure Functions 및 Cognitive Services에서 IoT DevKit AZ3166을 사용하여 언어 번역기 만들기
 
@@ -40,7 +40,7 @@ ms.locfileid: "53788415"
 
 1. IoT DevKit가 컴퓨터에 연결되어 있지 **않은지** 확인합니다. VS Code를 시작하고 DevKit를 컴퓨터에 연결합니다.
 
-1. `F1` 키를 클릭하여 명령 팔레트를 연 다음, **Azure IoT Device Workbench: Open Examples...**(예제 열기...)를 입력하고 선택합니다. 보드로 **IoT DevKit**를 선택합니다.
+1. `F1` 키를 클릭하여 명령 팔레트를 열고, **Azure IoT Device Workbench: 예제 열기...** 를 입력하고 선택합니다. 보드로 **IoT DevKit**를 선택합니다.
 
 1. IoT Workbench 예제 페이지에서 **DevKit Translator**를 찾은 다음, **샘플 열기**를 클릭합니다. 기본 경로를 선택하여 샘플 코드를 다운로드합니다.
   ![샘플 열기](media/iot-hub-arduino-iot-devkit-az3166-translator/open-sample.png)
@@ -97,7 +97,7 @@ ms.locfileid: "53788415"
 1. 완료되면 알림이 표시됩니다.
   ![연결 문자열 구성 성공](media/iot-hub-arduino-iot-devkit-az3166-translator/configure-connection-string-success.png)
 
-1. `F1` 키를 다시 클릭한 다음, **Azure IoT Device Workbench: Upload Device Code**(디바이스 코드 업로드)를 입력하고 선택합니다. 컴파일을 시작하고 코드를 DevKit로 업로드합니다.
+1. `F1` 키를 다시 클릭한 다음, **Azure IoT Device Workbench: 디바이스 코드 업로드**를 입력하고 선택합니다. 컴파일을 시작하고 코드를 DevKit로 업로드합니다.
   ![디바이스 업로드](media/iot-hub-arduino-iot-devkit-az3166-translator/device-upload.png)
 
 ## <a name="test-the-project"></a>프로젝트 테스트
@@ -137,7 +137,7 @@ IoT DevKit는 음성을 기록한 다음, HTTP 요청을 게시하여 Azure Func
 문제가 발생하면 [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)를 참조하거나 다음 지원 채널을 사용하여 문의해주세요.
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [스택 오버플로](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights JSON - Azure Time Series Insights 쿼리에서 JSON 셰이핑 모범 사례 | Microsoft Docs
+title: Azure Time Series Insights 쿼리에서 JSON을 셰이핑하는 방법 모범 사례 | Microsoft Docs
 description: Azure Time Series Insights 쿼리 효율성을 개선하는 방법을 알아봅니다.
 services: time-series-insights
 author: ashannon7
@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/24/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: 284bbf435c7940658753e7bbf1daff00a79d57a1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: aa09183d1dbb78822b6c46333dada3ed7f54811a
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273853"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554574"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>JSON을 셰이핑하여 쿼리 성능을 극대화하는 방법 
 

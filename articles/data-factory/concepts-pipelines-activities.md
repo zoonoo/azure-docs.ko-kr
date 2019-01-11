@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: ac72de799ce7cd00e939e9b67f1ef5574ce3eed3
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8ceae771f1a66f6d999dd0dc2b1f298d4aae8f86
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972569"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017296"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory의 파이프라인 및 작업
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -344,7 +343,7 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 다음 사항에 유의하세요.
 
 - activities 섹션에는 **type**이 **HDInsightHive**로 설정된 작업만 있습니다.
-- Hive 스크립트 파일 **partitionweblogs.hql**은 Azure 저장소 계정(AzureStorageLinkedService라는 scriptLinkedService에 의해 지정됨) 및 컨테이너 `adfgetstarted`의 스크립트 폴더에 저장됩니다.
+- Hive 스크립트 파일 **partitionweblogs.hql**은 Azure 스토리지 계정(AzureStorageLinkedService라는 scriptLinkedService에 의해 지정됨) 및 컨테이너 `adfgetstarted`의 스크립트 폴더에 저장됩니다.
 - `defines` 섹션은 Hive 스크립트에 Hive 구성 값(예: $`{hiveconf:inputtable}`, `${hiveconf:partitionedtable}`)으로 전달되는 런타임 설정을 지정하는 데 사용됩니다.
 
 **typeProperties** 섹션은 각 변환 활동마다 다릅니다. 변환 작업에 대해 지원되는 형식 속성에 대해 알아보려면 [데이터 변환 작업](#data-transformation-activities)에서 변환 작업을 클릭합니다.

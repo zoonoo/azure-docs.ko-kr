@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: e62910cc760a200abba6d56e4fa1eb87973285ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 748a9c0c583d4e1af9626527a440b19900898b87
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963597"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600308"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 용어집: Azure 플랫폼의 클라우드 용어 사전
 
@@ -37,7 +37,7 @@ Azure 구독에 액세스하고 구독을 관리하는 데 사용되는 계정�
 [App Service 앱](#app-service-app)의 다른 이름입니다.
 
 ## <a name="app-service-app"></a>App Service 앱
-[Azure App Service](app-service/app-service-web-overview.md)에서 웹 사이트 또는 웹 응용 프로그램, 웹 API 또는 [모바일 앱 백 엔드](app-service-mobile/app-service-mobile-value-prop.md)를 호스팅하기 위해 제공하는 계산 리소스입니다. App Service 앱은 *App Services*, *웹앱*, *API 앱* 및 *모바일 앱*이라고도 합니다.
+[Azure App Service](app-service/overview.md)에서 웹 사이트 또는 웹 애플리케이션, 웹 API 또는 [모바일 앱 백 엔드](app-service-mobile/app-service-mobile-value-prop.md)를 호스팅하기 위해 제공하는 계산 리소스입니다. App Service 앱은 *App Services*, *웹앱*, *API 앱* 및 *모바일 앱*이라고도 합니다.
 
 ## <a name="availability-set"></a>가용성 집합
 애플리케이션 중복성 및 안정성을 제공하기 위해 함께 관리되는 가상 머신의 컬렉션입니다. 가용성 집합을 사용하면 계획되거나 계획되지 않은 유지 관리 이벤트 중에 하나 이상의 가상 머신을 사용할 수 있도록 합니다.  
@@ -119,7 +119,7 @@ Azure 솔루션에 속한 항목입니다. 각 Azure 서비스를 사용하면 �
 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 참조하세요.
 
 ## <a name="sas"></a>SAS(공유 액세스 서명)
-계정 키를 노출하지 않고 리소스에 대한 제한된 액세스 권한을 부여할 수 있는 서명입니다. 예를 들어 [Azure Storage는 SAS를 사용하여](storage/common/storage-dotnet-shared-access-signature-part-1.md) BLOB과 같은 개체에 대한 클라이언트 액세스 권한을 부여합니다. [IoT Hub는 SAS를 사용하여](iot-hub/iot-hub-devguide-security.md#security-tokens) 원격 분석을 보낼 수 있는 권한을 장치에 부여합니다.
+계정 키를 노출하지 않고 리소스에 대한 제한된 액세스 권한을 부여할 수 있는 서명입니다. 예를 들어 [Azure Storage는 SAS를 사용하여](storage/common/storage-dotnet-shared-access-signature-part-1.md) BLOB과 같은 개체에 대한 클라이언트 액세스 권한을 부여합니다. [IoT Hub는 SAS를 사용하여](iot-hub/iot-hub-devguide-security.md#security-tokens) 원격 분석을 보낼 수 있는 권한을 디바이스에 부여합니다.
 
 ## <a name="storage-account"></a>저장소 계정 만들기
 Azure Storage의 Azure Blob, 큐, 테이블 및 파일 서비스에 대한 액세스 권한을 제공하는 계정입니다. 저장소 계정 이름은 Azure Storage 데이터 개체의 고유한 네임스페이스를 정의합니다.  
@@ -157,6 +157,6 @@ Azure 서비스를 받을 수 있도록 하는, 고객과 Microsoft와의 계약
 
 * [Azure 시작](https://azure.microsoft.com/get-started/)
 * [클라우드 리소스 센터](https://azure.microsoft.com/resources/)  
-* [비즈니스 응용 프로그램을 위한 Azure](https://azure.microsoft.com/overview/business-apps-on-azure/)
+* [비즈니스 애플리케이션을 위한 Azure](https://azure.microsoft.com/overview/business-apps-on-azure/)
 * [데이터 센터의 Azure](https://azure.microsoft.com/overview/business-apps-on-azure/)
 

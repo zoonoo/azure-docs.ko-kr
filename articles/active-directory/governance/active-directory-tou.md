@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance
 ms.date: 12/20/2018
 ms.author: rolyon
-ms.openlocfilehash: 0a5d58d0403471d591ce2aa2ed9de9092127ea15
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 859d81239cfad9eb5396a30f5db316bc73285831
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744108"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188430"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 사용 약관 기능
 Azure AD 사용 약관은 조직이 최종 사용자에게 정보를 제공하는 데 사용할 수 있는 간단한 방법을 제공합니다. 이 프레젠테이션은 사용자가 법률 또는 규정 준수 요구 사항에 대한 관련 고지 사항을 볼 수 있게 해줍니다. 이 문서는 사용 약관을 시작하는 방법을 설명합니다.
@@ -263,7 +263,7 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 > |  | iOS | Android | 윈도우 10 | 기타 |
 > | --- | --- | --- | --- | --- |
 > | **네이티브 앱** | 예 | 예 | 예 |  |
-> | **Edge** | 예 | 예 | 예 |  |
+> | **Microsoft Edge** | 예 | 예 | 예 |  |
 > | **Internet Explorer** | 예 | 예 | 예 |  |
 > | **Chrome(확장 포함)** | 예 | 예 | 예 |  |
 

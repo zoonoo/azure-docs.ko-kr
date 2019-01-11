@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 6d701878886cb1d5cc20a57614a474537f06a728
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5a9f168a0abc28b1decc6f327a62f5eaa4163e6f
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242911"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601528"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 애플리케이션
 
-[탄력적 데이터베이스 도구](sql-database-elastic-scale-get-started.md) 및 [RLS(행 수준 보안)][rls]는 Azure SQL Database를 사용하여 다중 테넌트 응용 프로그램의 데이터 계층을 확장할 수 있도록 지원합니다. 이러한 기술을 함께 사용하면 확장성이 뛰어난 데이터 계층이 있는 애플리케이션을 작성할 수 있습니다. 데이터 계층은 다중 테넌트 분할된 데이터베이스를 지원하며 **ADO.NET SqlClient** 또는 **Entity Framework**를 사용합니다. 자세한 내용은 [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션의 설계 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
+[탄력적 데이터베이스 도구](sql-database-elastic-scale-get-started.md) 및 [RLS(행 수준 보안)][rls]는 Azure SQL Database를 사용하여 다중 테넌트 애플리케이션의 데이터 계층을 확장할 수 있도록 지원합니다. 이러한 기술을 함께 사용하면 확장성이 뛰어난 데이터 계층이 있는 애플리케이션을 작성할 수 있습니다. 데이터 계층은 다중 테넌트 분할된 데이터베이스를 지원하며 **ADO.NET SqlClient** 또는 **Entity Framework**를 사용합니다. 자세한 내용은 [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션의 설계 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
 
 - **탄력적 데이터베이스 도구**를 사용하면 개발자는 .NET 라이브러리 및 Azure 서비스 템플릿을 사용하여 표준 분할 방법을 통해 데이터 계층을 확장할 수 있습니다. [Elastic Database 클라이언트 라이브러리][s-d-elastic-database-client-library]를 사용하여 분할된 데이터베이스를 관리하면 일반적으로 분할과 관련된 여러 인프라 작업을 자동화 및 간소화하는 데 도움이 됩니다.
 - **행 수준 보안**을 사용하면 개발자가 동일한 데이터베이스에 여러 테넌트에 대한 데이터를 안전하게 저장할 수 있습니다. RLS 보안 정책은 쿼리를 실행하는 테넌트에 속하지 않는 행을 필터링합니다. 데이터베이스 내부에 필터 논리를 중앙화하면 유지 관리가 단순해지고 보안 오류 위험이 줄어듭니다. 모든 클라이언트 코드에 의존하여 보안을 강제 적용하는 다른 대안은 위험합니다.
@@ -54,7 +54,7 @@ ms.locfileid: "51242911"
 
 분할된 데이터베이스에서 아직 RLS를 설정하지 않았기 때문에 각 테스트에서 다음 문제가 발생합니다. 테넌트가 자신에게 속하지 않은 블로그를 볼 수 있으며 애플리케이션에서 잘못된 테넌트에 대한 블로그를 삽입할 수 있습니다. 이 문서의 나머지 부분에서는 RLS로 테넌트를 강제 격리하여 이러한 문제를 해결하는 방법을 설명합니다. 두 단계가 있습니다. 
 
-1. **응용 프로그램 계층**: 연결을 연 후 응용 프로그램 코드를 수정하여 SESSION\_CONTEXT에서 현재 TenantId를 항상 설정합니다. 샘플 프로젝트에서는 이미 TenantId를 이 방법으로 설정합니다. 
+1. **애플리케이션 계층**: 연결을 연 후 애플리케이션 코드를 수정하여 SESSION\_CONTEXT에서 현재 TenantId를 항상 설정합니다. 샘플 프로젝트에서는 이미 TenantId를 이 방법으로 설정합니다. 
 2. **데이터 계층**: 각 분할된 데이터베이스에서 SESSION\_CONTEXT에 저장된 TenantId에 따라 행을 필터링하는 RLS 보안 정책을 만듭니다. 분할된 데이터베이스 각각에 대해 정책을 만듭니다. 그렇지 않으면 다중 테넌트 분할된 데이터베이스의 행이 필터링되지 않습니다. 
 
 ## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. 애플리케이션 계층: SESSION\_CONTEXT에서 TenantId 설정
@@ -352,9 +352,9 @@ GO
 
 - [Azure 탄력적 풀이란?](sql-database-elastic-pool.md)
 - [Azure SQL Database를 사용하여 확장](sql-database-elastic-scale-introduction.md)
-- [Azure SQL Database를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](saas-tenancy-app-design-patterns.md)
+- [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션 디자인 패턴](saas-tenancy-app-design-patterns.md)
 - [Azure AD 및 OpenID Connect를 사용하여 다중 테넌트 앱에서 인증](../guidance/guidance-multitenant-identity-authenticate.md)
-- [Tailspin 설문 조사 응용 프로그램](../guidance/guidance-multitenant-identity-tailspin.md)
+- [Tailspin 설문 조사 애플리케이션](../guidance/guidance-multitenant-identity-tailspin.md)
 
 ## <a name="questions-and-feature-requests"></a>질문 및 기능 요청
 
