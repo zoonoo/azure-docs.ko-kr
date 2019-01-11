@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 7373cc23654e2168963a364e4b4069331bf196c5
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8a0808c0e82ee31a5fd684d449fa30cd331d3dba
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969933"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063870"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon 단순 저장소 서비스에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,7 +31,7 @@ Amazon S3에서 지원되는 모든 싱크 데이터 저장소로 데이터를 �
 특히, Amazon S3 커넥터는 이 파일을 있는 그대로 복사 또는 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md)을 사용하여 파일 붙여넣기를 지원합니다.
 
 >[!TIP]
->이 Amazon S3 커넥터를 사용하여 **S3 호환 스토리지 공급 기업**(예: [Google Cloud Storage](#copy-from-google-cloud-storage))의 데이터를 복사할 수 있습니다. 연결된 서비스 구성에서 해당 서비스 URL을 지정합니다.
+>이 Amazon S3 커넥터를 사용하여 **S3 호환 스토리지 공급 기업**(예: [Google Cloud Storage](connector-google-cloud-storage.md))의 데이터를 복사할 수 있습니다. 연결된 서비스 구성에서 해당 서비스 URL을 지정합니다.
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 
@@ -212,35 +212,6 @@ Amazon S3에서 데이터를 복사하려면 복사 작업의 원본 형식을 *
         }
     }
 ]
-```
-
-## <a name="copy-from-google-cloud-storage"></a>Google Cloud Storage에서 복사
-
-Google Cloud Storage는 S3 호환 상호 운용성을 제공하므로, Amazon S3 커넥터를 사용하여 Google Cloud Storage에서 [지원되는 싱크 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)로 데이터를 복사할 수 있습니다. 
-
-ADF 제작 UI 커넥터 갤러리에서 서비스 URL이 자동으로 `https://storage.googleapis.com`으로 채워지는 특정 Google Cloud Storage 항목을 찾을 수 있습니다. 액세스 키 및 비밀을 찾으려면 **Google Cloud Storage** > **설정** > **상호 운용성**으로 이동합니다. S3 커넥터를 사용하여 데이터를 복사하는 방법을 자세히 알아보려면 이 문서를 처음부터 읽어보세요.
-
-**연결된 서비스 예제:**
-
-```json
-{
-    "name": "GoogleCloudStorageLinkedService",
-    "properties": {
-        "type": "AmazonS3",
-        "typeProperties": {
-            "accessKeyId": "<access key id>",
-            "secretAccessKey": {
-                "type": "SecureString",
-                "value": "<secret access key>"
-            },
-            "serviceUrl": "https://storage.googleapis.com"
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
 ```
 
 ## <a name="next-steps"></a>다음 단계

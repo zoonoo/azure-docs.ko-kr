@@ -10,16 +10,15 @@ ms.assetid: 51abafa1-812b-460f-a129-d714fdc391da
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 44c1406c8ecd8c5ff103fed4d105ecd64d16c358
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a53e37cf2ac99dcd755f71e9a2a236f27832fbd7
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002470"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079207"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Azure Key Vault에 대해 HSM 보호된 키를 생성하고 전송하는 방법
 
@@ -414,7 +413,7 @@ Thales **generatekey** 프로그램을 사용하여 키를 생성합니다.
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1
 
-이 명령을 실행할 때 *contosokey*를 [키 생성](#step-3-generate-your-key) 단계의 **3.5단계: 새 키 만들기**에서 지정한 값과 동일한 값으로 바꿉니다.
+이 명령을 실행할 때 *contosokey*를 키 생성 단계의 **3.5단계: 새 키 만들기**에서 지정한 값과 동일한 값으로 바꿉니다.
 
 보안 영역 관리자 카드를 플러그인하라는 메시지가 표시됩니다.
 
@@ -428,7 +427,7 @@ Thales 유틸리티에서 다음 명령을 사용하여 ACL을 검사할 수 있
 * kmfile-dump.exe:
 
         "%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
-  이 명령을 실행할 때 contosokey를 [키 생성](#step-3-generate-your-key) 단계의 **3.5단계: 새 키 만들기**에서 지정한 값과 동일한 값으로 바꿉니다.
+  이 명령을 실행할 때 contosokey를 키 생성 단계의 **3.5단계: 새 키 만들기**에서 지정한 값과 동일한 값으로 바꿉니다.
 
 ### <a name="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>4.2단계: Microsoft의 키 교환 키를 사용하여 키 암호화
 
@@ -479,8 +478,8 @@ Thales 유틸리티에서 다음 명령을 사용하여 ACL을 검사할 수 있
 
 이 명령을 실행할 때 다음 지침을 사용합니다.
 
-* *contosokey*를 [키 생성](#step-3-generate-your-key) 단계의 **3.5단계: 새 키 만들기**에서 키를 생성하는 데 사용한 식별자로 바꿉니다.
-* *SubscriptionID* 를 주요 자격 증명 모음이 포함된 Azure 구독 ID로 바꿉니다. 이전에 [인터넷에 연결된 워크스테이션 준비](#step-1-prepare-your-internet-connected-workstation) 단계의 **1.2단계: Azure 구독 ID 가져오기**에서 이 값을 검색했습니다.
+* *contosokey*를 키 생성 단계의 **3.5단계: 새 키 만들기**에서 키를 생성하는 데 사용한 식별자로 바꿉니다.
+* *SubscriptionID* 를 주요 자격 증명 모음이 포함된 Azure 구독 ID로 바꿉니다. 이전에 [인터넷에 연결된 워크스테이션 준비](#step-1-prepare-your-internet-connected-workstation) 단계의 1.2단계: Azure 구독 ID 가져오기**에서 이 값을 검색했습니다.
 * *ContosoFirstHSMKey*를 출력 파일 이름에 사용할 레이블로 바꿉니다.
 
 이 작업이 성공적으로 완료되면 **결과: 성공**을 표시하고, 다음과 같은 이름의 새 파일이 현재 폴더에 생성됩니다. KeyTransferPackage-*ContosoFirstHSMkey*.byok
