@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights 미리 보기 이벤트 셰이핑 - Azure Time Series Insights 미리 보기를 사용하여 이벤트 셰이핑 | Microsoft Docs
+title: Azure Time Series Insights 미리 보기를 사용하여 이벤트 셰이핑 | Microsoft Docs
 description: Azure Time Series Insights 미리 보기를 사용하여 이벤트를 셰이핑하는 방법을 이해합니다.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: b0ce3b5bbd58c594147f64de9f06f248f4a87fc3
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: eb398ad621167ad9f9b245fb8aa98c6942b87668
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269076"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557430"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기를 사용하여 이벤트 셰이핑
 

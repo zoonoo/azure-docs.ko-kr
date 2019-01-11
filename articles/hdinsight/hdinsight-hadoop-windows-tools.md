@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 05/17/2017
-ms.openlocfilehash: a522d436328a3aeb1ed365baa2ec1e3b9d3387ed
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 4b6eb0aa7011226fda667370f3e854081b795ae6
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385026"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744873"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Windows PC에서 HDInsight의 Apache Hadoop 에코시스템 작업
 
@@ -28,7 +28,7 @@ PowerShell로 수행할 수 있는 작업의 예:
 
 * [PowerShell을 사용하여 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 * [PowerShell을 사용하여 Apache Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-powershell.md)
-* [PowerShell을 통한 클러스터 관리](hdinsight-administer-use-powershell.md)
+* [PowerShell을 사용하여 클러스터 관리](hdinsight-administer-use-powershell.md)
 
 [Azure Powershell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) 단계에 따라 최신 버전을 가져옵니다. Azure Resource Manager용 새로운 cmdlet을 사용하도록 수정해야 하는 스크립트가 있는 경우 [HDInsight 클러스터에 대한 Azure Resource Manager 기반 개발 도구에 마이그레이션](hdinsight-hadoop-development-using-azure-resource-manager.md)을 참조하세요.
 
@@ -51,21 +51,21 @@ Visual Studio용 Data Lake 도구를 사용하여 Storm 토폴로지를 배포 �
 
 ## <a name="visual-studio-and-the-net-sdk"></a>Visual Studio 및 .NET SDK 
 
-.NET SDK와 함께 Visual Studio를 사용하여 클러스터를 관리하고 빅 데이터 응용 프로그램을 개발할 수 있습니다. 다음 작업에 대해 다른 IDE를 사용할 수 있으나 예제는 Visual Studio에 표시됩니다.
+.NET SDK와 함께 Visual Studio를 사용하여 클러스터를 관리하고 빅 데이터 애플리케이션을 개발할 수 있습니다. 다음 작업에 대해 다른 IDE를 사용할 수 있으나 예제는 Visual Studio에 표시됩니다.
 
 Visual Studio에서 .NET SDK와 함께 수행할 수 있는 작업의 예:
-* [.NET Framework 응용 프로그램에서 클러스터 만들기 및 HDInsight 작업](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
+* [.NET Framework 애플리케이션의 HDInsight에서 클러스터 만들기 및 작업](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 * [.NET SDK를 사용하여 Apache Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
 * [Apache Hadoop에서 Apache Hive 및 Apache Pig 스트림과 함께 C# 사용자 정의 함수 사용](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-> 팁   
+> [!TIP]
 > .NET 솔루션을 Windows 기반 HDInsight 클러스터와 함께 실행하는 경우 Linux 기반 클러스터로의 마이그레이션을 계획하는 것이 좋습니다. 자세한 내용은 [Windows 기반 HDInsight용 .NET 솔루션을 Linux 기반 HDInsight로 마이그레이션](hdinsight-hadoop-migrate-dotnet-to-linux.md)을 참조하세요.
 
 ## <a name="intellij-idea-and-eclipse-ide-for-spark-clusters"></a>Spark 클러스터에 대한 Intellij IDEA 및 Eclipse IDE
 [Intellij IDEA](https://www.jetbrains.com/idea/download) 및 [Eclipse IDE](https://www.eclipse.org/downloads/)는 다음에 사용할 수 있습니다.
-* HDInsight Spark 클러스터에서 Scala Spark 응용 프로그램을 개발 및 제출합니다.
+* HDInsight Spark 클러스터에서 Scala Spark 애플리케이션을 개발 및 제출합니다.
 * Spark 클러스터 리소스에 액세스합니다.
-* Scala Spark 응용 프로그램을 로컬로 개발 및 실행합니다.
+* Scala Spark 애플리케이션을 로컬로 개발 및 실행합니다.
 
 다음 문서에 방법이 나와 있습니다. 
 * Intellij IDEA: [Azure Toolkit for Intellij 플러그 인 및 Scala SDK를 사용하여 Apache Spark 애플리케이션 만들기](spark/apache-spark-intellij-tool-plugin.md)
@@ -85,7 +85,7 @@ Linux에서만 사용 가능한 도구 또는 기술을 사용해야 하는 상�
 
 * **Windows 10의 Bash(베타)** 는 Windows에서 Linux 하위 시스템을 제공합니다. Bash를 사용하면 전용 Linux 설치를 유지하지 않고도 Linux 유틸리티를 직접 실행할 수 있습니다. [Bash 베타를 Windows 10에서 설치 및 실행](https://msdn.microsoft.com/commandline/wsl/install_guide)
 * **Windows용 Docker**는 대부분의 Linux 기반 도구에 대한 액세스를 제공하며 Windows에서 직접 실행할 수 있습니다. 예를 들어, Docker를 사용하여 Hive에 대한 Beeline 클라이언트를 Windows에서 직접 실행할 수 있습니다. 또한 Docker를 사용하여 로컬 Jupyter Notebook을 실행하고 HDInsight의 Spark에 원격으로 연결할 수 있습니다. [Windows용 Docker 시작](https://docs.docker.com/docker-for-windows/)
-* **[MobaXTerm](http://mobaxterm.mobatek.net/)** 을 사용하면 그래픽 방식으로 SSH 연결을 통해 클러스터 파일 시스템을 찾아볼 수 있습니다.
+* **[MobaXTerm](https://mobaxterm.mobatek.net/)** 을 사용하면 그래픽 방식으로 SSH 연결을 통해 클러스터 파일 시스템을 찾아볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Linux 기반 클러스터에서 작업하는 데 익숙하지 않은 경우 다음 문서를 참조하세요.

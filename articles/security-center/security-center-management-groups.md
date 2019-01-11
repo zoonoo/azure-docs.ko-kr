@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
+ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: cb70c99d56cb1d09e561a44a90fd6c007ea9b59f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f05c0469dffa074501a301802412901ead3d1e69
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964120"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720818"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Security Center에 대한 테넌트 수준 가시성 얻기
 이 문서에서는 Azure Security Center에서 제공하는 혜택을 최대화하는 여러 작업을 수행하여 시작하도록 돕습니다. 이러한 작업을 수행하면 Azure Active Directory 테넌트에 연결된 모든 Azure 구독에 대한 가시성을 얻고 집합적 방식으로 여러 구독에 보안 정책을 적용하여 모든 규모에서 조직의 보안 상태를 효율적으로 관리할 수 있습니다.
@@ -71,13 +71,13 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 
    ![Azure AD 속성 - 스크린샷](./media/security-center-management-groups/aad-properties.png)
 
-3. **전역 관리자는 Azure 구독 및 관리 그룹을 관리할 수 있습니다.** 에서 스위치를 **예**로 설정합니다.
+3. **Azure 리소스에 대한 액세스 관리**에서 스위치를 **예**로 설정합니다.
 
    ![전역 관리자는 Azure 구독 및 관리 그룹을 관리할 수 있습니다. - 스크린샷](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
-   - 스위치를 **예**로 설정하면 전역 관리자 계정(현재 로그인한 사용자)이 루트 범위(`/`)에서 Azure RBAC의 사용자 액세스 관리자 역할에 추가됩니다. 여기에서는 Azure AD 테넌트와 연결된 모든 Azure 구독에서 보고 보고할 액세스할 수 있는 권한을 부여합니다.
+   - 스위치를 예로 설정하면 Azure RBAC의 루트 범위(/)에서 사용자 액세스 관리자 역할이 할당됩니다. 그러면 이 Azure AD 디렉터리와 연결된 모든 Azure 구독 및 관리 그룹의 역할을 할당할 수 있는 권한이 부여됩니다. 이 스위치는 Azure AD에서 글로벌 관리자 역할이 할당된 사용자만 사용할 수 있습니다.
 
-   - 스위치를 **아니요**로 설정하면 전역 관리자 계정(현재 로그인한 사용자)이 Azure RBAC의 사용자 액세스 관리자 역할에서 제거됩니다. Azure AD 테넌트와 연결된 모든 Azure 구독을 볼 수 없습니다. 또한 액세스 권한이 부여된 Azure 구독만을 보고 관리할 수 있습니다.
+  - 스위치를 아니요로 설정하면 Azure RBAC의 사용자 액세스 관리자 역할이 사용자 계정에서 제거됩니다. 그러면 이 Azure AD 디렉터리와 연결된 모든 Azure 구독 및 관리 그룹의 역할을 더 이상 할당할 수 없습니다. 액세스 권한이 부여된 Azure 구독 및 관리 그룹만 살펴보고 관리할 수 있습니다.
 
 4. **Save**를 클릭하여 설정을 저장합니다.
 

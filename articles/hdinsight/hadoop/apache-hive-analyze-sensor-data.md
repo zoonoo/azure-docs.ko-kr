@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/14/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c3e4ab9dc03afe1c4a19e738804e6400b0830291
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b9c8f1af612c220534e45c5c66651f0ad8600826
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634416"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628189"
 ---
 # <a name="analyze-sensor-data-using-the-apache-hive-query-console-on-apache-hadoop-in-hdinsight"></a>HDInsight의 Apache Hadoop에서 Apache Hive 쿼리 콘솔을 사용하여 센서 데이터 분석
 
-HDInsight(Apache Hadoop)에서 Hive 쿼리 콘솔을 사용하여 센서 데이터를 분석한 다음, Microsoft Excel에서 파워 뷰를 사용하여 데이터를 시각화하는 방법에 대해 알아봅니다.
+HDInsight(Apache Hadoop)에서 Apache Hive 쿼리 콘솔을 사용하여 센서 데이터를 분석한 다음, Microsoft Excel에서 파워 뷰를 사용하여 데이터를 시각화하는 방법에 대해 알아봅니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 
@@ -35,10 +35,10 @@ HDInsight(Apache Hadoop)에서 Hive 쿼리 콘솔을 사용하여 센서 데이�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* HDInsight(Hadoop) 클러스터: 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
+* HDInsight(Hadoop) 클러스터: 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 * Microsoft Excel 2013
 
-  > [!NOTE]
+  > [!NOTE]  
   > Microsoft Excel은 [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US)를 통한 데이터 시각화에 사용됩니다.
 
 * [Microsoft Hive ODBC 드라이버](https://www.microsoft.com/download/details.aspx?id=40886)

@@ -6,13 +6,13 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 11/08/2018
-ms.openlocfilehash: ad23599d1df5d07e912f634435f8b44b441d87e6
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 12/17/2018
+ms.openlocfilehash: 08faef2eaf5c9cd09172d455c464531e293d5f3e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298535"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554591"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>이벤트 도메인을 사용하여 토픽을 관리하고 이벤트를 게시하는 방법
 
@@ -139,7 +139,7 @@ New-AzureRmEventGridSubscription `
 
 ## <a name="publish-events-to-an-event-grid-domain"></a>Event Grid 도메인에 이벤트 게시
 
-도메인에 이벤트를 게시하는 방법은 [사용자 지정 토픽에 게시](./post-to-custom-topic.md)하는 방법과 동일합니다. 유일한 차이점은 각 이벤트가 이동할 토픽을 지정해야 한다는 점입니다. 다음 이벤트 배열을 게시하면 `"id": "1111"`인 이벤트는 `foo` 토픽으로 전송되고 `"id": "2222"`인 이벤트는 `bar` 토픽으로 전송됩니다.
+도메인에 이벤트를 게시하는 방법은 [사용자 지정 토픽에 게시](./post-to-custom-topic.md)하는 방법과 동일합니다. 그러나 사용자 지정 항목에 게시하는 대신 모든 이벤트를 도메인 엔드포인트에 게시합니다. JSON 이벤트 데이터에서 이벤트를 이동할 항목을 지정합니다. 다음 이벤트 배열을 게시하면 `"id": "1111"`인 이벤트는 `demotopic1` 토픽으로 전송되고 `"id": "2222"`인 이벤트는 `demotopic2` 토픽으로 전송됩니다.
 
 ```json
 [{
@@ -168,7 +168,15 @@ New-AzureRmEventGridSubscription `
 }]
 ```
 
-Azure CLI를 사용하여 도메인에 사용할 키를 가져오려면 다음을 사용합니다.
+Azure CLI로 도메인 엔드포인트를 가져오려면 다음을 사용합니다.
+
+```azurecli-interactive
+az eventgrid domain show \
+  -g <my-resource-group> \
+  -n <my-domain>
+```
+
+도메인에 사용할 키를 가져오려면 다음을 사용합니다.
 
 ```azurecli-interactive
 az eventgrid domain key list \
@@ -176,7 +184,15 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
-PowerShell의 경우 다음을 사용합니다.
+PowerShell로 도메인 엔드포인트를 가져오려면 다음을 사용합니다.
+
+```azurepowershell-interactive
+Get-AzureRmEventGridDomain `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain>
+```
+
+도메인에 사용할 키를 가져오려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
 Get-AzureRmEventGridDomainKey `

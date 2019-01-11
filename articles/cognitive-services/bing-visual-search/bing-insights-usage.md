@@ -10,20 +10,20 @@ ms.component: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: 40b9685c56dd494e82c05bff9ed75f425a3006ff
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 39468a4a143d184fcc964ae88f82ad7254e4f3b0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886630"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741745"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Bing 인사이트 사용 예
 
-이 섹션에는 Bing이 Bing.com에 인사이트를 표시할 수 있는 방법의 예가 포함되어 있습니다.
+이 문서에는 Bing이 사용하고 Bing.com에 이미지 인사이트를 표시할 수 있는 방법의 예제가 포함되어 있습니다.
 
 ## <a name="pagesincluding-insight-example"></a>PagesIncluding 인사이트 예제
 
-다음은 Bing이 이미지가 포함된 웹 페이지를 표시할 수 있는 방법을 보여 줍니다. 예제는 첫 번째 웹 페이지에 대한 링크를 표시하고, 사용자가 이미지를 포함하는 다른 웹 페이지 목록을 확장하고 축소할 수 있게 합니다.
+다음은 첫 번째 웹 페이지에 대한 링크를 표시하고, 사용자가 이미지를 포함하는 다른 웹 페이지 목록을 확장하고 축소할 수 있게 합니다.
 
 ![다음과 같은 확장된 페이지](./media/pages-including.PNG)
 
@@ -83,9 +83,7 @@ ms.locfileid: "48886630"
 
 ## <a name="next-steps"></a>다음 단계
 
-이러한 예제의 숨은 JSON을 확인하려면 [기본 인사이트](default-insights-tag.md) 및 [JSON 응답](overview.md#the-response)을 참조하세요.
-
-첫 번째 요청을 빠르게 시작하려면 [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md) 빠른 시작을 참조하세요.
+첫 번째 요청으로 신속하게 시작하려면 빠른 시작: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)을 참조하세요.
 
 
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 35813573be9b069cc920f5ede813503ab1b99b4a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0db6cc02be385ab82d41ecef214c5b158892c415
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227217"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628137"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage와 함께 Azure PowerShell 사용
 
@@ -34,7 +34,9 @@ PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-이 연습에는 Azure PowerShell 모듈 버전 4.4 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+이 연습에는 Azure PowerShell 모듈 Az 버전 0.7 이상이 필요합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 
 
 이 연습에서는 일반 PowerShell 창에 명령을 입력하거나, [Windows PowerShell ISE(Integrated Scripting Environment)](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-)를 사용하여 예제를 진행하면서 편집기에 명령을 입력한 다음 한 번에 하나 이상의 명령을 테스트할 수 있습니다. 실행하려는 행을 강조 표시한 다음 선택 항목 실행을 클릭하여 해당 명령만 실행할 수 있습니다.
 
@@ -42,18 +44,18 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-`Connect-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+`Connect-AzAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## <a name="list-the-storage-accounts-in-the-subscription"></a>구독의 저장소 계정 나열
 
-[Get-AzureRMStorageAccount](/powershell/module/azurerm.storage/Get-AzureRmStorageAccount) cmdlet를 실행하여 현재 구독의 저장소 계정 목록을 검색합니다. 
+[Get-AzStorageAccount](/powershell/module/az.storage/Get-azStorageAccount) cmdlet을 실행하여 현재 구독의 스토리지 계정 목록을 검색합니다. 
 
 ```powershell
-Get-AzureRMStorageAccount | Select StorageAccountName, Location
+Get-AzStorageAccount | Select StorageAccountName, Location
 ```
 
 ## <a name="get-a-reference-to-a-storage-account"></a>저장소 계정에 대한 참조 가져오기
@@ -62,13 +64,13 @@ Get-AzureRMStorageAccount | Select StorageAccountName, Location
 
 ### <a name="use-an-existing-storage-account"></a>기존 저장소 계정 사용 
 
-기존 저장소 계정을 검색하려면 리소스 그룹의 이름 및 저장소 계정의 이름이 필요합니다. 이 두 필드에 대해 변수를 설정한 다음 [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/Get-AzureRmStorageAccount) cmdlet를 사용합니다. 
+기존 저장소 계정을 검색하려면 리소스 그룹의 이름 및 저장소 계정의 이름이 필요합니다. 이 두 필드의 변수를 설정하고 [Get-AzStorageAccount](/powershell/module/az.storage/Get-azStorageAccount) cmdlet을 사용합니다. 
 
 ```powershell
 $resourceGroup = "myexistingresourcegroup"
 $storageAccountName = "myexistingstorageaccount"
 
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName 
 ```
 
@@ -76,23 +78,23 @@ $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 
 ### <a name="create-a-storage-account"></a>저장소 계정 만들기 
 
-다음 스크립트는 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount)를 사용하여 범용 저장소 계정을 만드는 방법을 보여 줍니다. 계정을 만든 후 이후의 명령에서 각각의 호출에 대한 인증을 지정하는 대신 사용할 수 있는 컨텍스트를 검색합니다.
+다음 스크립트는 [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount)를 사용하여 범용 스토리지 계정을 만드는 방법을 보여 줍니다. 계정을 만든 후 이후의 명령에서 각각의 호출에 대한 인증을 지정하는 대신 사용할 수 있는 컨텍스트를 검색합니다.
 
 ```powershell
 # Get list of locations and select one.
-Get-AzureRmLocation | select Location 
+Get-AzLocation | select Location 
 $location = "eastus"
 
 # Create a new resource group.
 $resourceGroup = "teststoragerg"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
+New-AzResourceGroup -Name $resourceGroup -Location $location 
 
 # Set the name of the storage account and the SKU name. 
 $storageAccountName = "testpshstorage"
 $skuName = "Standard_LRS"
     
 # Create the storage account.
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
   -SkuName $skuName
@@ -101,13 +103,13 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 $ctx = $storageAccount.Context
 ```
 
-이 스크립트는 다음 PowerShell cmdlet를 사용합니다. 
+이 스크립트는 다음 PowerShell cmdlet을 사용합니다. 
 
-*   [Get AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) -유효한 위치 목록을 검색합니다. 이 예제에서는 위치에 `eastus`를 사용합니다.
+*   [Get-AzLocation](/powershell/module/az.resources/get-azlocation) - 유효한 위치 목록을 검색합니다. 이 예제에서는 위치에 `eastus`를 사용합니다.
 
-*   [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) - 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 여기서는 `teststoragerg`입니다. 
+*   [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) - 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 여기서는 `teststoragerg`입니다. 
 
-*   [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) -- 저장소 계정을 만듭니다. 이 예제에서는 `testpshstorage`를 사용합니다.
+*   [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) - 스토리지 계정을 만듭니다. 이 예제에서는 `testpshstorage`를 사용합니다.
 
 SKU 이름은 LRS(로컬 중복 저장소)처럼 저장소 계정에 대한 복제 유형을 나타냅니다. 복제에 대한 자세한 내용은 [Azure Storage 복제](storage-redundancy.md)를 참조하세요.
 
@@ -123,7 +125,7 @@ SKU 이름은 LRS(로컬 중복 저장소)처럼 저장소 계정에 대한 복�
 
 ### <a name="storage-account-properties"></a>저장소 계정 속성
 
-저장소 계정에 대한 설정을 변경하려면 [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount)를 사용합니다. 저장소 계정 위치 또는 속하는 리소스 그룹은 변경할 수 없지만 다른 여러 속성은 변경할 수 있습니다. 다음은 PowerShell을 사용하여 변경할 수 있는 몇 가지 속성의 목록입니다.
+스토리지 계정에 대한 설정을 변경하려면 [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount)를 사용합니다. 저장소 계정 위치 또는 속하는 리소스 그룹은 변경할 수 없지만 다른 여러 속성은 변경할 수 있습니다. 다음은 PowerShell을 사용하여 변경할 수 있는 몇 가지 속성의 목록입니다.
 
 * 저장소 계정에 할당된 **사용자 지정 도메인**
 
@@ -137,19 +139,19 @@ SKU 이름은 LRS(로컬 중복 저장소)처럼 저장소 계정에 대한 복�
 
 ### <a name="manage-the-access-keys"></a>액세스 키 관리
 
-Azure Storage 계정과 두 계정 키를 함께 제공합니다. 키를 검색하려면 [Get-AzureRmStorageAccountKey](/powershell/module/AzureRM.Storage/Get-AzureRmStorageAccountKey)를 사용합니다. 이 예에서는 첫 번째 키를 검색합니다. 다른 항목을 검색하려면 `Value[0]` 대신 `Value[1]`을 사용합니다.
+Azure Storage 계정과 두 계정 키를 함께 제공합니다. 키를 검색하려면 [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey)를 사용합니다. 이 예에서는 첫 번째 키를 검색합니다. 다른 항목을 검색하려면 `Value[0]` 대신 `Value[1]`을 사용합니다.
 
 ```powershell
 $storageAccountKey = `
-    (Get-AzureRmStorageAccountKey `
+    (Get-AzStorageAccountKey `
     -ResourceGroupName $resourceGroup `
     -Name $storageAccountName).Value[0]
 ```
 
-키를 다시 생성하려면 [New-AzureRmStorageAccountKey](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccountKey)를 사용합니다. 
+키를 다시 생성하려면 [New-AzStorageAccountKey](/powershell/module/az.Storage/New-azStorageAccountKey)를 사용합니다. 
 
 ```powershell
-New-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup `
+New-AzStorageAccountKey -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -KeyName key1 
 ```
@@ -164,10 +166,10 @@ New-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup `
 
 ### <a name="delete-a-storage-account"></a>저장소 계정 삭제 
 
-저장소 계정을 삭제하려면[Remove-AzureRmStorageAccount](/powershell/module/azurerm.storage/Remove-AzureRmStorageAccount)를 사용합니다.
+스토리지 계정을 삭제하려면[Remove-AzStorageAccount](/powershell/module/az.storage/Remove-azStorageAccount)를 사용합니다.
 
 ```powershell
-Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccountName
+Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccountName
 ```
 
 > [!IMPORTANT]
@@ -179,15 +181,15 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 기본적으로 모든 저장소 계정은 인터넷에 액세스할 수 있는 네트워크를 통해 액세스 가능합니다. 그러나 특정 가상 네트워크의 애플리케이션만 스토리지 계정에 액세스하도록 허용하는 네트워크 규칙을 구성할 수 있습니다. 자세한 내용은 [Azure Storage 방화벽 및 Virtual Networks 구성](storage-network-security.md)을 참조하세요. 
 
 이 문서에서는 PowerShell cmdlet를 사용하여 이러한 설정을 관리하는 방법을 보여 줍니다.
-* [Add-AzureRmStorageAccountNetworkRule](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)
-* [Update-AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
-* [Remove-AzureRmStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.storage/remove-azurermstorageaccountnetworkrule?view=azurermps-6.8.1)
+* [Add-AzStorageAccountNetworkRule](/powershell/module/az.Storage/Add-azStorageAccountNetworkRule)
+* [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
+* [Remove-AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccountnetworkrule)
 
 ## <a name="use-storage-analytics"></a>저장소 분석 사용  
 
 [Azure Storage Analytics](storage-analytics.md)는[Storage Analytics 메트릭](/rest/api/storageservices/about-storage-analytics-metrics)과 [Storage Analytics 로깅](/rest/api/storageservices/about-storage-analytics-logging)으로 구성됩니다. 
 
-**Storage Analytics 메트릭**은 저장소 계정의 상태를 모니터링하는 데 사용할 수 있는 Azure Storage 계정의 메트릭을 수집하는 데 사용됩니다. Blob, 파일, 테이블 및 큐에 대해 메트릭을 사용할 수 있습니다.
+**Storage Analytics 메트릭**은 저장소 계정의 상태를 모니터링하는 데 사용할 수 있는 Azure Storage 게정의 메트릭을 수집하는 데 사용됩니다. Blob, 파일, 테이블 및 큐에 대해 메트릭을 사용할 수 있습니다.
 
 **Storage Analytics 로깅**은 서버 쪽에서 발생하며, 이를 통해 Storage 계정의 성공한 요청 및 실패한 요청에 대한 세부 정보를 기록할 수 있습니다. 이러한 로그를 사용하여 테이블, 큐 및 Blob에 대한 읽기, 쓰기 및 삭제 작업뿐만 아니라 실패한 요청의 이유에 대한 세부 정보를 볼 수 있습니다. 로깅은 Azure Files에 사용할 수 없습니다.
 
@@ -231,7 +233,7 @@ PowerShell을 사용하여 이러한 클라우드와 저장소에 액세스하�
 이 연습에 대해 새 리소스 그룹과 저장소 계정을 만든 후에는 리소스 그룹을 제거하여 만든 모든 자산을 제거할 수 있습니다. 이렇게 하면 그룹 내에 포함된 모든 리소스가 삭제됩니다. 이 사례에서는 만든 저장소 계정 및 리소스 그룹 자체가 제거됩니다.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 ## <a name="next-steps"></a>다음 단계
 
@@ -248,6 +250,6 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 또한 이 문서에서는 데이터 개체를 관리하는 방법, 저장소 분석을 사용하도록 설정하는 방법, China 클라우드, German 클라우드 및 Government 클라우드 같은 Azure 독립 클라우드에 액세스하는 방법 등, 몇 가지 다른 문서에 대한 참조도 제공합니다. 다음은 참조를 위한 몇 가지 관련 문서와 리소스입니다.
 
-* [Azure Storage 제어 평면 PowerShell cmdles](/powershell/module/AzureRM.Storage/)
+* [Azure Storage 제어 평면 PowerShell cmdles](/powershell/module/az.storage/)
 * [Azure Storage 데이터 평면 PowerShell cmdles](/powershell/module/azure.storage/)
 * [Windows PowerShell 참조](https://msdn.microsoft.com/library/ms714469.aspx)

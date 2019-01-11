@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights 이벤트 보내기 - Azure Time Series Insights 환경으로 이벤트 보내기 | Microsoft Docs
+title: Azure Time Series Insights 환경으로 이벤트 보내기 | Microsoft Docs
 description: Azure Time Series Insights에서 볼 수 있는 이벤트를 푸시하기 위해 이벤트 허브를 구성하고 샘플 애플리케이션을 실행하는 방법을 알아봅니다.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 69d16292f5b71179ee66fb5f7d6c4a6f11cbb9de
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 424476b91537c60a6d7f0f9a854453353bf98633
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276148"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557022"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>이벤트 허브를 사용하여 Time Series Insights 환경으로 이벤트 보내기
 

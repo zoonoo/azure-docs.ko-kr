@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 65c89e337d62ccb7ce58a1ea4e7414527bf9af19
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 27b952fb1a901ff716f25cc7d512f860f639fb02
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342100"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632621"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Speech Service API에 대한 언어 및 지역 지원
 
@@ -28,35 +28,35 @@ Microsoft Speech Recognition API는 다음 언어를 지원합니다. 서로 다
 
   코드 | 언어 | [음향 적응](how-to-customize-acoustic-models.md) | [언어 적응](how-to-customize-language-model.md) | [발음 적응](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
- ar-EG | 아랍어(이집트), 현대 표준 | 아니요 | yes | 아니요
+ ar-EG | 아랍어(이집트), 현대 표준 | 아니요 | 예 | 아니요
  ca-ES | 카탈로니아어(스페인) | 아니요 | 아니요 | 아니요
  da-DK | 덴마크어(덴마크) | 아니요 | 아니요 | 아니요
- de-DE | 독일어(독일) | yes | yes | 아니요
- en-AU | 영어(오스트레일리아) | 아니요 | 예 | yes
- en-CA | 영어(캐나다) | 아니요 | 예 | yes
- en-GB | 영어(영국) | 아니요 | 예 | yes
- en-IN | 영어(인도) | yes | 예 | yes
- en-NZ | 영어(뉴질랜드) | 아니요 | 예 | yes  
- en-US | 영어(미국) | yes | 예 | yes
- es-ES | 스페인어(스페인) | yes | yes | 아니요
- es-MX | 스페인어(멕시코) | 아니요 | yes | 아니요
+ de-DE | 독일어(독일) | 예 | 예 | 아니요
+ en-AU | 영어(오스트레일리아) | 아니요 | 예 | 예
+ en-CA | 영어(캐나다) | 아니요 | 예 | 예
+ en-GB | 영어(영국) | 아니요 | 예 | 예
+ en-IN | 영어(인도) | 예 | 예 | 예
+ en-NZ | 영어(뉴질랜드) | 아니요 | 예 | 예  
+ en-US | 영어(미국) | 예 | 예 | 예
+ es-ES | 스페인어(스페인) | 예 | 예 | 아니요
+ es-MX | 스페인어(멕시코) | 아니요 | 예 | 아니요
  fi-FI | 핀란드어(핀란드) | 아니요 | 아니요 | 아니요
- fr-CA | 프랑스어(캐나다) | 아니요 | yes | 아니요
- fr-FR | 프랑스어(프랑스) | yes | yes | 아니요
- hi-IN | 힌디어(인도) | 아니요 | yes | 아니요
- it-IT | 이탈리아어(이탈리아) | yes | yes | 아니요
- ja-JP | 일본어(일본) | 아니요 | yes | 아니요
- en-US | 한국어(한국) | 아니요 | yes | 아니요
+ fr-CA | 프랑스어(캐나다) | 아니요 | 예 | 아니요
+ fr-FR | 프랑스어(프랑스) | 예 | 예 | 아니요
+ hi-IN | 힌디어(인도) | 아니요 | 예 | 아니요
+ it-IT | 이탈리아어(이탈리아) | 예 | 예 | 아니요
+ ja-JP | 일본어(일본) | 아니요 | 예 | 아니요
+ en-US | 한국어(한국) | 아니요 | 예 | 아니요
  nb-NO | 노르웨이어(복말)(노르웨이) | 아니요 | 아니요 | 아니요
- nl-NL | 네덜란드어(네덜란드) | 아니요 | yes | 아니요
+ nl-NL | 네덜란드어(네덜란드) | 아니요 | 예 | 아니요
  pl-PL | 폴란드어(폴란드) | 아니요 | 아니요 | 아니요
- pt-BR | 포르투갈어(브라질) | yes | yes | 아니요
- pt-PT | 포르투갈어(포르투갈) | 아니요 | yes | 아니요
- ru-RU | 러시아어(러시아) | yes | yes | 아니요
+ pt-BR | 포르투갈어(브라질) | 예 | 예 | 아니요
+ pt-PT | 포르투갈어(포르투갈) | 아니요 | 예 | 아니요
+ ru-RU | 러시아어(러시아) | 예 | 예 | 아니요
  sv-SE | 스웨덴어(스웨덴) | 아니요 | 아니요 | 아니요
- zh-CN | 중국어(북경어, 간체) | yes | yes | 아니요
- zh-HK | 중국어(북경어, 번체) | 아니요 | yes | 아니요
- zh-TW | 중국어(대만어) | 아니요 | yes | 아니요
+ zh-CN | 중국어(북경어, 간체) | 예 | 예 | 아니요
+ zh-HK | 중국어(북경어, 번체) | 아니요 | 예 | 아니요
+ zh-TW | 중국어(대만어) | 아니요 | 예 | 아니요
  th-TH | 태국어(태국) | 아니요 | 아니요 | 아니요
 
 
@@ -176,22 +176,7 @@ zh-TW | 중국어(대만)|Female | “Microsoft Server Speech Text to Speech Voi
 
 ## <a name="speech-translation"></a>음성 번역
 
-**Speech Translation** API는 음성 간 음성 및 음성을 텍스트로 번역에 대해 다른 언어를 지원합니다. 원본 언어는 다음과 같은 음성 언어 테이블 중 하나여야 합니다. 사용 가능한 대상 언어는 번역 대상이 음성인지 또는 텍스트인지에 따라 달라집니다. 들어오는 음성을 [60개 언어](https://www.microsoft.com/translator/business/languages/) 이상으로 변환할 수 있습니다. 이러한 언어의 하위 집합을 [음성 합성](language-support.md#text-languages)에 사용할 수 있습니다.
-
-### <a name="speech-languages"></a>음성 언어
-
-| 음성 언어   | 언어 코드 |
-|:----------- |-|
-| 아랍어(최신 표준)      | `ar` |
-| 중국어(북경어)      | `zh` |
-| 영어      | `en` |
-| 프랑스어      | `fr` |
-| 독일어      | `de` |
-| 이탈리아어      | `it` |
-| 일본어      | `jp` |
-| 포르투갈어(브라질어)     | `pt` |
-| 러시아어      | `ru` |
-| 스페인어      |  `es` |
+**Speech Translation** API는 음성 간 음성 및 음성을 텍스트로 번역에 대해 다른 언어를 지원합니다. 원본 언어는 항상 음성 텍스트 변환 언어 테이블에 나와 있는 것이어야 합니다. 사용 가능한 대상 언어는 번역 대상이 음성인지 또는 텍스트인지에 따라 달라집니다. 들어오는 음성을 [60개 언어](https://www.microsoft.com/translator/business/languages/) 이상으로 변환할 수 있습니다. 이러한 언어의 하위 집합을 [음성 합성](language-support.md#text-languages)에 사용할 수 있습니다.
 
 ### <a name="text-languages"></a>텍스트 언어
 

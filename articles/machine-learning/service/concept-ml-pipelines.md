@@ -1,5 +1,5 @@
 ---
-title: '파이프라인: 속도, 이식성 및 재사용에 대해 ML 최적화'
+title: '파이프라인: 기계 학습 워크플로 최적화'
 titleSuffix: Azure Machine Learning service
 description: 이 문서에서는 Python용 Azure Machine Learning SDK로 빌드할 수 있는 기계 학습 파이프라인 및 파이프라인 사용의 장점에 대해 알아보겠습니다. ML(Machine Learning) 파이프라인은 데이터 과학자가 기계 학습 워크플로를 빌드, 최적화 및 관리하는 데 사용됩니다.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 11/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: e2874c4a40a2347fd47e93c99fdec7ff5e81aec1
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: e8532e9821501c7b10fbb47c531228e439a8b289
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308212"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556886"
 ---
 # <a name="build-machine-learning-pipelines-with-the-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용하여 기계 학습 파이프라인 빌드
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: f50767ad4fc979962968c32bbe972e28d93cce88
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d6897e35aa60be11cf556335d211c5ea616295b6
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166407"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652698"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive를 사용하여 JSON 문서 처리 및 분석
 
@@ -57,9 +57,9 @@ Azure HDInsight에서 Apache Hive를 사용하여 JSON(JavaScript Object Notatio
 }
 ```
 
-이 파일은 **wasb://processjson@hditutorialdata.blob.core.windows.net/** 에 있습니다. HDInsight에서 Azure Blob 저장소를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop을 사용하여 HDFS 호환 Azure Blob 저장소 사용](../hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 클러스터의 기본 컨테이너에 파일을 복사할 수 있습니다.
+이 파일은 **wasb://processjson@hditutorialdata.blob.core.windows.net/** 에 있습니다. HDInsight에서 Azure Blob Storage를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop을 사용하여 HDFS 호환 Azure Blob Storage 사용](../hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 클러스터의 기본 컨테이너에 파일을 복사할 수 있습니다.
 
-이 자습서에서는 Hive 콘솔을 사용합니다. Hive 콘솔을 여는 방법에 대한 지침은 [원격 데스크톱을 사용하여 HDInsight에서 Hadoop과 Hive 사용](apache-hadoop-use-hive-remote-desktop.md)을 참조하세요.
+이 자습서에서는 Apache Hive 콘솔을 사용합니다. Hive 콘솔을 여는 방법에 대한 지침은 [원격 데스크톱을 사용하여 HDInsight에서 Apache Hadoop과 Apache Hive 사용](apache-hadoop-use-hive-remote-desktop.md)을 참조하세요.
 
 ## <a name="flatten-json-documents"></a>JSON 문서 평면화
 다음 섹션에 나열된 메서드에서는 JSON 문서가 단일 행으로 구성되어야 합니다. 따라서 JSON 문서를 문자열로 평면화해야 합니다. JSON 문서가 이미 평면화되어 있으면 이 단계를 건너뛰고 다음 섹션인 JSON 데이터 분석으로 바로 이동할 수 있습니다. JSON 문서를 평면화하려면 다음 스크립트를 실행합니다.
@@ -101,7 +101,7 @@ Hive는 JSON 문서에서 쿼리를 실행할 수 있는 서로 다른 세 가�
 * get_json_object UDF(사용자 정의 함수) 사용
 * json_tuple UDF 사용
 * 사용자 지정 Serializer/Deserializer(SerDe) 사용
-* Python 또는 다른 언어를 사용하여 사용자 고유의 UDF 작성 Hive를 사용하여 사용자 고유의 Python 코드를 실행하는 방법에 대한 자세한 내용은 [Apache Hive와 Pig에서 Python UDF 사용][hdinsight-python]을 참조하세요.
+* Python 또는 다른 언어를 사용하여 사용자 고유의 UDF 작성 Hive를 사용하여 사용자 고유의 Python 코드를 실행하는 방법에 대한 자세한 내용은 [Apache Hive와 Apache Pig에서 Python UDF 사용][hdinsight-python]을 참조하세요.
 
 ### <a name="use-the-getjsonobject-udf"></a>get_json_object UDF 사용
 Hive는 런타임에 JSON 쿼리를 수행할 수 있는 [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object)라는 기본 제공 UDF를 제공합니다. 이 메서드에는 평면화된 JSON 문서와 구문 분석해야 하는 JSON 필드가 있는 두 개의 인수, 즉 테이블 이름 및 메서드 이름이 사용됩니다. 이 UDF의 작동 방식에 대한 예를 살펴보겠습니다.
@@ -152,9 +152,9 @@ SerDe는 중첩된 JSON 문서를 구문 분석하기 위한 최상의 선택입
 
 관련 문서는 다음을 참조하세요.
 
-* [샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Hadoop과 함께 Hive 및 HiveQL 사용](../hdinsight-use-hive.md)
-* [HDInsight의 Hive를 사용하여 비행 지연 데이터 분석](../hdinsight-analyze-flight-delay-data.md)
-* [HDInsight에서 Hive를 사용하여 Twitter 데이터 분석](../hdinsight-analyze-twitter-data.md)
+* [샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Apache Hadoop과 함께 Apache Hive 및 HiveQL 사용](../hdinsight-use-hive.md)
+* [HDInsight의 Apache Hive를 사용하여 비행 지연 데이터 분석](../hdinsight-analyze-flight-delay-data.md)
+* [HDInsight에서 Apache Hive를 사용하여 Twitter 데이터 분석](../hdinsight-analyze-twitter-data.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

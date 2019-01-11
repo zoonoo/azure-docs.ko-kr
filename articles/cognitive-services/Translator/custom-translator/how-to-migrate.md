@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 6572a9b72554691441cb258a87a5db4ba7845087
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a02be1ba29ad43b90c99a5d1e275b96b3b4023d6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077123"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718727"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>허브 작업 영역 및 프로젝트를 Custom Translator로 마이그레이션
 
@@ -130,7 +130,7 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 * 프로젝트당 한 번만 마이그레이션할 수 있습니다.  프로젝트에서 마이그레이션을 반복해야 하는 경우 당사에 연락하세요.
 * 현재 Custom Translator는 영어에서 및 영어로 번역되는 36개 언어를 지원하며 추가적인 언어를 추가하기 위해 많은 노력을 하고 있습니다.  허브는 기준 모델이 필요하지 않으므로 수천 개의 언어를 지원합니다.  지원되지 않는 언어 쌍을 마이그레이션할 수 있지만 문서 및 프로젝트 정의만 마이그레이션합니다.  새 모델을 학습할 수 없습니다.  또한 이러한 문서와 프로젝트를 지금은 사용할 수 없는 것으로 나타내려면 해당 문서와 프로젝트를 비활성으로 표시합니다. 이러한 프로젝트 및/또는 문서에 대한 지원이 추가되면 활성화되고 학습이 가능해집니다.
 * Custom Translator는 현재 단일어 학습 데이터를 지원하지 않습니다.  지원되지 않는 언어 쌍처럼 단일어 문서를 마이그레이션할 수 있지만 단일어 데이터가 지원될 때까지는 비활성으로 표시합니다.  
-* 학습하려면 Custom Translator에는 10,000개의 병렬 문장이 필요합니다.  Microsoft Hub는 더 작은 데이터 세트에 대해 학습할 수 있습니다.  이 요구 사항을 충족하지 않는 학습이 마이그레이션되는 경우 해당 요구 사항은 학습됩니다.
+* 학습하려면 Custom Translator에는 10,000개의 병렬 문장이 필요합니다.  Microsoft Hub는 더 작은 데이터 세트에 대해 학습할 수 있습니다. 이 요구 사항을 충족하지 않는 학습이 마이그레이션되는 경우 해당 요구 사항은 학습되지 않습니다.
 
 
 ## <a name="custom-translator-versus-hub"></a>Custom Translator 및 허브
@@ -141,10 +141,10 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 |:-----|:----:|:----:|
 |사용자 지정 기능 상태   | 일반 공급  | 일반 공급 |
 | Text API 버전  | V2    | V3  |
-| SMT 사용자 지정 | yes   | 아니요 |
-| NMT 사용자 지정 | 아니요    | yes |
-| 새로운 통합 Speech Service 사용자 지정 | 아니요    | yes |
-| 추적 없음 | yes | yes |
+| SMT 사용자 지정 | 예   | 아니요 |
+| NMT 사용자 지정 | 아니요    | 예 |
+| 새로운 통합 Speech Service 사용자 지정 | 아니요    | 예 |
+| 추적 없음 | 예 | 예 |
 
 ## <a name="next-steps"></a>다음 단계
 

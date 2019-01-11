@@ -1,5 +1,5 @@
 ---
-Title: Synonyms for query expansion over a search index  - Azure Search
+title: 검색 인덱스에 대한 쿼리 확장을 위한 동의어 - Azure Search
 description: Azure Search 인덱스에 대한 검색 쿼리 범위를 확장하기 위한 동의어 맵을 만듭니다. 범위는 목록으로 제공하는 동급 용어를 포함하도록 확장됩니다.
 author: brjohnstmsft
 services: search
@@ -10,12 +10,12 @@ ms.date: 04/20/2018
 manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: ce9eb8ed099a232128ba924da1466917df542fbb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: cea95756f115e9efd6dc184fc85a0485ab49d1b9
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315667"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634663"
 ---
 # <a name="synonyms-in-azure-search"></a>Azure Search의 동의어
 
@@ -33,7 +33,7 @@ Azure Search에서 동의어 지원은 사용자가 정의하고 서비스에 �
 
 동의어 맵과 인덱스는 독립적으로 유지됩니다. 동의어 맵을 정의하고 서비스에 업로드하면 필드 정의에서 **synonymMaps**라는 새 속성을 추가하여 필드에서 동의어 기능을 사용할 수 있습니다. 동의어 맵 만들기, 업데이트 및 삭제는 항상 전체 문서 작업이므로 증분식으로 동의어 맵의 일부분을 만들거나 업데이트하거나 삭제할 수 없습니다. 단일 항목을 업데이트하는 경우에도 다시 로드해야 합니다.
 
-동의어를 검색 응용 프로그램에 통합하는 과정은 다음의 두 단계 프로세스로 이루어집니다.
+동의어를 검색 애플리케이션에 통합하는 과정은 다음의 두 단계 프로세스로 이루어집니다.
 
 1.  아래 API를 통해 동의어 맵을 검색 서비스에 추가합니다.  
 
@@ -158,7 +158,7 @@ Washington, Wash., WA => WA
 
 - 예비 연습 및 유효성 검사 연습 모두에서 이 보고서를 설정 후 사용하여 동의어 일치의 이점이 되는 용어를 정확하게 결정한 다음 동의어 맵이 더 나은 결과를 산출하는지에 대한 유효성 검증으로 계속 사용합니다. 미리 정의된 보고서에서 타일 "가장 일반적인 검색 쿼리" 및 "결과가 0인 검색 쿼리"는 필요한 정보를 제공합니다.
 
-- 검색 응용 프로그램에 대한 여러 동의어 맵(예: 응용 프로그램이 다국어 고객 기반을 지원하는 언어별 맵)을 만들 수 있습니다. 현재 필드에서는 그중 하나만 사용할 수 있습니다. 언제든지 필드의 synonymMaps 속성을 업데이트할 수 있습니다.
+- 검색 애플리케이션에 대한 여러 동의어 맵(예: 애플리케이션이 다국어 고객 기반을 지원하는 언어별 맵)을 만들 수 있습니다. 현재 필드에서는 그중 하나만 사용할 수 있습니다. 언제든지 필드의 synonymMaps 속성을 업데이트할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

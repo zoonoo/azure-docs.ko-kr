@@ -1,5 +1,5 @@
 ---
-title: Azure Batch의 컨테이너 워크로드 | Microsoft Docs
+title: 컨테이너 워크로드 - Azure Batch | Microsoft Docs
 description: Azure Batch에서 컨테이너 이미지의 애플리케이션을 실행하는 방법을 알아봅니다.
 services: batch
 author: dlepow
@@ -10,12 +10,13 @@ ms.topic: article
 ms.workload: na
 ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 1d915482a3a8b1f6416b50ab52de997a9d33294f
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.custom: seodec18
+ms.openlocfilehash: 4d4dc5d01959406e71859fcbde6de1e36b5871aa
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262434"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540999"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch에서 컨테이너 애플리케이션 실행
 
@@ -36,7 +37,7 @@ Azure Batch를 사용하면 Azure에서 많은 수의 일괄 처리 계산 작�
     * Batch Java SDK 버전 3.0
     * Batch Node.js SDK 버전 3.0
 
-* **계정**: Azure 구독에서 Batch 계정을 만들고, 필요에 따라 Azure Storage 계정도 만들어야 합니다.
+* **계정**: Azure 구독에서 배치 계정을 만들고, 필요에 따라 Azure Storage 계정도 만들어야 합니다.
 
 * **지원되는 VM 이미지**: 컨테이너는 다음 섹션, “지원되는 가상 머신 이미지”에 자세히 설명된 이미지의 Virtual Machine 구성으로 만든 풀에서만 지원됩니다. 사용자 지정 이미지를 제공하는 경우 다음 섹션의 고려 사항 및 [관리되는 사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](batch-custom-images.md)의 요구 사항을 참조하세요. 
 

@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.openlocfilehash: 1b6a77e78d3385c9dfd4e43e0e4242c870eb8c57
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d7df1c65b8588b97a6beb0a4c2428b3c6430c3b2
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012558"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635700"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>Apache Sqoop을 사용하여 HDInsight의 Hadoop과 SQL Database 간에 데이터 가져오기 및 내보내기
 
@@ -23,10 +23,10 @@ ms.locfileid: "53012558"
 
 Apache Sqoop을 사용하여 Azure HDInsight의 Hadoop 클러스터와 Azure SQL Database 또는 Microsoft SQL Server Database 사이에서 가져오기 및 내보내기를 수행하는 방법을 알아봅니다. 이 문서의 단계에서는 Hadoop 클러스터의 헤드에서 직접 `sqoop` 명령을 사용합니다. SSH를 사용하여 헤드 노드에 연결하고 이 문서의 명령을 실행합니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이 문서의 단계는 Linux를 사용하는 HDInsight 클러스터에만 적용됩니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
-> [!WARNING]
+> [!WARNING]  
 > 이 문서의 단계에서는 `sqooptest`라는 Azure SQL Database를 이미 만들었다고 가정합니다.
 >
 > 이 문서에서는 SQL Database에서 테이블을 만들고 쿼리하는 데 사용되는 T-SQL 문을 제공합니다. SQL Database에 이러한 문을 사용할 수 있는 많은 클라이언트가 있습니다. 다음 클라이언트가 권장됩니다.
@@ -37,7 +37,7 @@ Apache Sqoop을 사용하여 Azure HDInsight의 Hadoop 클러스터와 Azure SQL
 
 ## <a name="create-the-table-in-sql-database"></a>SQL Database에 테이블 만들기
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > [클러스터 및 SQL Database 만들기](hdinsight-use-sqoop.md)에서 만든 HDInsight 클러스터 및 SQL Database를 사용하고 있는 경우 이 섹션의 단계를 무시하십시오. 데이터베이스 테이블은 [클러스터 및 SQL Database 만들기](hdinsight-use-sqoop.md)의 단계 중에 생성된 것입니다.
 
 SQL 클라이언트를 사용하여 SQL Database의 `sqooptest` 데이터베이스에 연결합니다. 그런 후 다음 T-SQL을 사용하여 `mobiledata`라는 테이블을 만듭니다.
@@ -104,8 +104,8 @@ GO
 
     데이터의 필드는 탭 문자로 구분되어 있으며 줄은 줄 바꿈 문자로 종료됩니다.
 
-    > [!IMPORTANT]
-    > `wasb:///` 경로는 Azure Storage를 기본 클러스터 저장소로 사용하는 클러스터에 작동합니다. Azure Data Lake Store를 사용하는 클러스터에서는 `adl:///`을 대신 사용합니다.
+    > [!IMPORTANT]  
+    > `wasb:///` 경로는 Azure Storage를 기본 클러스터 저장소로 사용하는 클러스터에 작동합니다. Azure Data Lake Storage를 사용하는 클러스터에서는 `adl:///`을 대신 사용합니다.
 
 2. 가져오기가 완료되면 다음 명령을 사용하여 새로운 디렉터리에 데이터를 나열합니다.
 
@@ -160,8 +160,8 @@ GO
 
 이제 Sqoop을 사용하는 방법에 대해 알아봤습니다. 자세한 내용은 다음을 참조하세요.
 
-* [HDInsight와 함께 Oozie 사용](../hdinsight-use-oozie.md): Oozie 워크플로에서 Sqoop 작업을 사용합니다.
-* [HDInsight를 사용하여 비행 지연 데이터 분석](../hdinsight-analyze-flight-delay-data.md): Hive를 사용하여 비행 지연 데이터를 분석한 후 Sqoop을 사용하여 데이터를 Azure SQL Database로 내보냅니다.
+* [HDInsight에서 Apache Oozie 사용](../hdinsight-use-oozie.md): Oozie 워크플로에서 Sqoop 작업을 사용합니다.
+* [HDInsight를 사용하여 비행 지연 데이터 분석](../hdinsight-analyze-flight-delay-data.md): Apache Hive를 사용하여 비행 지연 데이터를 분석한 후 Sqoop을 사용하여 데이터를 Azure SQL 데이터베이스로 내보냅니다.
 * [HDInsight에 데이터 업로드](../hdinsight-upload-data.md): HDInsight/Azure Blob Storage에 데이터를 업로드하는 다른 방법을 찾습니다.
 
 [hdinsight-versions]:  ../hdinsight-component-versioning.md

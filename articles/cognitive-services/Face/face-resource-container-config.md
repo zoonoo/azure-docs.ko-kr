@@ -11,12 +11,12 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 30546d31e96d7d7fa1009f16a50fe8fda12ead67
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 18c9eace306522f9ac9f04e19b9571db67561ae0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105107"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725061"
 ---
 # <a name="configure-containers"></a>컨테이너 구성
 
@@ -113,10 +113,10 @@ Face 컨테이너는 저장되는 콘텐츠에 따라 Blob, 캐시, 메타데이
   네 가지 형식의 데이터는 모두 메모리에 저장됩니다. 이러한 데이터는 배포되지도 않고 유지되지도 않습니다. Face 컨테이너가 중지되거나 제거되면 해당 컨테이너에 대한 스토리지에 있는 모든 데이터가 삭제됩니다.  
   이는 Face 컨테이너에 대한 기본 스토리지 시나리오입니다.
 * Azure  
-  Face 컨테이너는 Azure Storage와 Azure Cosmos DB를 사용하여 이러한 네 가지 형식의 데이터를 영구 스토리지에 배포합니다. Blob 및 큐 데이터는 Azure Storage에서 처리됩니다. 메타데이터 및 캐시 데이터는 MongoDB API를 사용하여 Azure Cosmos DB에서 처리됩니다. Face 컨테이너가 중지되거나 제거되면 해당 컨테이너에 대한 스토리지에 있는 모든 데이터가 Azure Storage 및 Azure Cosmos DB에 저장되어 유지됩니다.  
+  Face 컨테이너는 Azure Storage와 Azure Cosmos DB를 사용하여 이러한 네 가지 형식의 데이터를 영구 스토리지에 배포합니다. Blob 및 큐 데이터는 Azure Storage에서 처리됩니다. 메타데이터 및 캐시 데이터는 Azure Cosmos DB에서 처리됩니다. Face 컨테이너가 중지되거나 제거되면 해당 컨테이너에 대한 스토리지에 있는 모든 데이터가 Azure Storage 및 Azure Cosmos DB에 저장되어 유지됩니다.  
   Azure Storage 시나리오에서 사용되는 리소스에는 다음과 같은 추가 요구 사항이 있습니다.
   * Azure Storage 리소스는 StorageV2 계정 종류를 사용해야 합니다.
-  * Azure Cosmos DB 리소스는 MongoDB API를 사용해야 합니다.
+  * Azure Cosmos DB 리소스는 Azure Cosmos DB for MongoDB API를 사용해야 합니다.
 
 스토리지 시나리오 및 관련 구성 설정은 `CloudAI` 구성 섹션의 `Storage` 개체에서 관리됩니다. `Storage` 개체에서 사용할 수 있는 구성 설정은 다음과 같습니다.
 

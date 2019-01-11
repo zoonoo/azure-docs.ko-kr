@@ -1,17 +1,17 @@
 ---
-title: Batch 렌더링 기능
+title: 렌더링 기능 - Azure Batch
 description: Azure Batch의 특정 렌더링 기능
 services: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6d79cdf279022320f654fbbeadb870f82db88cab
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: a1408720a5387d044416ded377189e4539f782a7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392788"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543039"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 렌더링 기능
 
@@ -38,7 +38,7 @@ Windows 2016 이미지 및 CentOS 이미지가 있습니다.  [Azure Marketplace
 
 * 표준 Marketplace 이미지 기반 사용자 지정 이미지.
   * 이 옵션을 사용하여 정확한 애플리케이션 및 필요한 특정 버전으로 VM을 구성할 수 있습니다. 자세한 내용은 [사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](https://docs.microsoft.com/azure/batch/batch-custom-images)를 참조하세요. Autodesk 및 Chaos Group은 Azure Batch 라이선스 서비스에 대한 유효성을 검사하기 위해 Arnold 및 V-Ray를 각각 수정하였습니다. 이 지원이 포함된 이러한 애플리케이션 버전이 있는지 확인해야 합니다. 그렇지 않으면 사용량 과금 라이선스가 적용되지 않습니다. 현재 버전의 Maya 또는 3ds Max는 헤드리스를 실행하는 경우(배치/명령줄 모드로) 라이선스 서버가 필요하지 않습니다. 이 옵션을 진행하는 방법을 잘 모르는 경우 Azure 지원 담당자에게 문의하세요.
-* [응용 프로그램 패키지](https://docs.microsoft.com/azure/batch/batch-application-packages).
+* [애플리케이션 패키지](https://docs.microsoft.com/azure/batch/batch-application-packages).
   * 하나 이상의 ZIP 파일을 사용하여 애플리케이션 파일을 패키지 처리하고, Azure Portal을 통해 업로드하고, 풀 구성에서 패키지를 지정합니다. 풀 VM이 생성되면 ZIP 파일이 다운로드되고 파일이 추출됩니다.
 * 리소스 파일.
   * Azure blob 저장소에 애플리케이션 파일이 업로드되면, [풀 시작 태스크](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask)에서 파일 참조를 지정합니다. 풀 VM을 만들면 리소스 파일이 각 VM에 다운로드됩니다.
@@ -51,11 +51,11 @@ Windows 2016 이미지 및 CentOS 이미지가 있습니다.  [Azure Marketplace
 * 하나 이상의 애플리케이션을 지정하면 해당 애플리케이션의 비용은 VM 비용에 추가됩니다.  애플리케이션 가격은 [Azure Batch 가격 책정 페이지](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering)에 나열되어 있습니다.
 
 > [!NOTE]
-> 대신 라이선스 서버에 연결하여 렌더링 애플리케이션을 사용하는 경우에는 `applicationLicenses` 속성을 지정하지 마세요.
+> 대신 라이선스 서버에 연결하여 렌더링 응용 프로그램을 사용하는 경우에는 `applicationLicenses` 속성을 지정하지 마세요.
 
 애플리케이션을 선택하고 애플리케이션 가격을 표시하려면 Azure Portal 또는 Batch Explorer를 사용할 수 있습니다.
 
-애플리케이션을 사용하려고 하는데 애플리케이션이 풀 구성의 `applicationLicenses` 속성에 지정되지 않았거나 라이선스 서버에 연결하지 않는 경우 애플리케이션 실행이 실패하며 라이선스 오류와 0이 아닌 종료 코드가 표시됩니다.
+응용 프로그램을 사용하려고 하는데 응용 프로그램이 풀 구성의 `applicationLicenses` 속성에 지정되지 않았거나 라이선스 서버에 연결하지 않는 경우 응용 프로그램 실행이 실패하며 라이선스 오류와 0이 아닌 종료 코드가 표시됩니다.
 
 ### <a name="environment-variables-for-pre-installed-applications"></a>미리 설치된 애플리케이션에 대한 환경 변수
 

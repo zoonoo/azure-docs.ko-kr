@@ -1,20 +1,18 @@
 ---
 title: Azure CLI를 사용하여 Azure Database for MariaDB VNet 서비스 엔드포인트 및 규칙 만들기 및 관리 | Microsoft Docs
 description: 이 문서에서는 Azure CLI 명령줄을 사용하여 Azure Database for MariaDB VNet 서비스 엔드포인트 및 규칙을 만들고 관리하는 방법을 설명합니다.
-services: mariaDB
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 11/20/2018
-ms.openlocfilehash: 7f39eb2b3020016d1fb14e8c611ae00dfab07c11
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: bfa55c0a91473a4adc6b9fb02ac9697208ef39f9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336573"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540064"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB VNet 서비스 엔드포인트 만들기 및 관리
 

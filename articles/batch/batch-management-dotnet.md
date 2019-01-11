@@ -1,9 +1,9 @@
 ---
-title: .NET용 클라이언트 라이브러리를 사용하여 일괄 처리 계정 리소스 관리 - Azure | Microsoft Docs
+title: .NET용 클라이언트 라이브러리를 사용하여 계정 리소스 관리 - Azure Batch | Microsoft Docs
 description: Batch 관리 .NET 라이브러리로 Azure Batch 계정 리소스를 만들고, 삭제하며, 수정합니다.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/24/2017
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fd511a8a9d17bf79f1237bbfe2dc2ddbc5ec1b2e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: c65a71d9e64a1ea3f60abbe2e420652c12ba030e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867429"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549554"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>.NET용 Batch 관리 클라이언트 라이브러리를 사용하여 Batch 계정 및 할당량 관리
 
@@ -31,12 +31,12 @@ ms.locfileid: "52867429"
 > 
 > 
 
-[Batch 관리 .NET][api_mgmt_net] 라이브러리를 사용하여 Batch 계정 만들기, 삭제, 키 관리 및 할당량 검색을 자동화하므로 Azure Batch 응용 프로그램에서 유지 관리 오버헤드를 낮출 수 있습니다.
+[Batch 관리 .NET][api_mgmt_net] 라이브러리를 사용하여 Batch 계정 만들기, 삭제, 키 관리 및 할당량 검색을 자동화하므로 Azure Batch 애플리케이션에서 유지 관리 오버헤드를 낮출 수 있습니다.
 
 * **Batch 계정을 만들고 삭제** 합니다. 예를 들어 ISV(독립 소프트웨어 공급업체)가 대금 청구를 위해 각각 별도의 Batch 계정에 할당되는 클라이언트용 서비스를 제공하는 경우 고객 포털에 계정 만들기 및 삭제 기능을 추가할 수 있습니다.
 * **계정 키를 검색하고 다시 생성** 합니다. 이렇게 하면 주기적인 롤오버 또는 계정 키 만료를 적용하는 보안 정책을 준수할 수 있습니다. 다양한 Azure 영역에 여러 Batch 계정이 있는 경우 롤오버 프로세스를 자동화하면 솔루션의 효율성이 높아집니다.
 * **계정 할당량을 확인** 하고 어떤 Batch 계정에 어떤 제한이 있는지를 확인하는 데 시행 착오 추측을 배제합니다. 작업을 시작하기 전에 계정 할당량을 확인하거나 풀을 만들거나 계산 노드를 추가함으로써 이러한 계산 리소스가 만들어지는 위치 또는 시기를 능동적으로 조정할 수 있습니다. 해당 계정에 추가 리소스를 할당하기 전에 할당량 증가가 필요한 계정을 확인할 수 있습니다.
-* Batch 관리 .NET, [Azure Active Directory][aad_about] 및 [Azure Resource Manager][resman_overview]를 동일한 응용 프로그램에서 함께 사용하고 **다른 Azure 서비스의 기능을 결합**하여 모든 기능을 갖춘 관리 환경을 제공합니다. 이러한 기능과 해당 API를 사용하여 원활한 인증 환경, 리소스 그룹을 만들고 삭제하는 기능 및 종단 간 관리 솔루션에 대해 위에 설명된 기능을 제공할 수 있습니다.
+* Batch 관리 .NET, [Azure Active Directory][aad_about] 및 [Azure Resource Manager][resman_overview]를 동일한 애플리케이션에서 함께 사용하고 **다른 Azure 서비스의 기능을 결합**하여 모든 기능을 갖춘 관리 환경을 제공합니다. 이러한 기능과 해당 API를 사용하여 원활한 인증 환경, 리소스 그룹을 만들고 삭제하는 기능 및 종단 간 관리 솔루션에 대해 위에 설명된 기능을 제공할 수 있습니다.
 
 > [!NOTE]
 > 이 문서에서 Batch 계정, 키 및 할당량을 프로그래밍 방식으로 관리하는 방법에 대해 주로 설명하는 동안 [Azure Portal][azure_portal]을 사용하여 이러한 다양한 작업을 수행할 수 있습니다. 자세한 내용은 [Azure Portal에서 Azure Batch 계정 만들기](batch-account-create-portal.md) 및 [Azure Batch 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
@@ -173,17 +173,17 @@ Batch Management .NET 라이브러리는 Azure 리소스 공급자 클라이언�
 
 새로 만든 Batch 계정 및 리소스 그룹을 삭제하기 전에 [Azure Portal][azure_portal]에서 볼 수 있습니다.
 
-샘플 응용 프로그램을 실행하려면 먼저 Azure Portal의 Azure AD 테넌트에 응용 프로그램을 등록하고 Azure Resource Manager API에 권한을 부여해야 합니다. [Active Directory를 사용하여 Batch Management 솔루션 인증](batch-aad-auth-management.md)에 제공된 단계를 수행합니다.
+샘플 애플리케이션을 실행하려면 먼저 Azure Portal의 Azure AD 테넌트에 애플리케이션을 등록하고 Azure Resource Manager API에 권한을 부여해야 합니다. [Active Directory를 사용하여 Batch Management 솔루션 인증](batch-aad-auth-management.md)에 제공된 단계를 수행합니다.
 
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Azure Active Directory란?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
 [aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Azure AD의 인증 시나리오"
-[aad_integrate]:../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md "Azure Active Directory와 응용 프로그램 통합"
+[aad_integrate]:../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md "Azure Active Directory와 애플리케이션 통합"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
-[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_mgmt_net]: https://msdn.microsoft.com/library/azure/mt463120.aspx
-[azure_portal]: http://portal.azure.com
+[azure_portal]: https://portal.azure.com
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [azure_tokencreds]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.tokencloudcredentials.aspx
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: genemi,ayolubek
+ms.reviewer: genemi,ayolubek, jrasnick
 manager: craigg
 ms.date: 02/05/2018
-ms.openlocfilehash: 290414ca07014d5f3bfbe160b0f571397fb13948
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 96627d96acee76516c9dc3db1b58d6e4b7b6ff15
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467132"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601043"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL Database의 DNS 별칭
 
@@ -55,12 +55,12 @@ Azure SQL Database의 DNS 별칭 기능은 다음과 같은 시나리오에서 �
 
 SQL Database 서버에 대한 각 DNS 별칭에는 다음 속성이 적용됩니다.
 
-- *고유 이름:* 만드는 각 별칭 이름은 서버 이름과 마찬가지로, 모든 Azure SQL Database 서버에서 고유합니다.
-- *서버 필수:* 정확히 한 서버를 참조하지 않는 한, DNS 별칭을 만들 수 없으며, 서버가 미리 존재해야 합니다. 업데이트된 별칭은 항상 정확히 하나의 기존 서버를 참조해야 합니다.
+- 고유 이름: 만드는 각 별칭 이름은 서버 이름과 마찬가지로, 모든 Azure SQL Database 서버에서 고유합니다.
+- 서버 필수: 정확히 한 서버를 참조하지 않는 한, DNS 별칭을 만들 수 없으며, 서버가 미리 존재해야 합니다. 업데이트된 별칭은 항상 정확히 하나의 기존 서버를 참조해야 합니다.
   - SQL Database 서버를 삭제하면 Azure 시스템에서도 해당 서버를 참조하는 모든 DNS 별칭을 삭제합니다.
-- *어떤 지역에도 바인딩되지 않음:* DNS 별칭은 지역에 바인딩되지 않습니다. DNS 별칭을 지리적 지역에 있는 Azure SQL Database 서버를 참조하도록 업데이트할 수 있습니다.
+- 어떤 지역에도 바인딩되지 않음: DNS 별칭은 지역에 바인딩되지 않습니다. DNS 별칭을 지리적 지역에 있는 Azure SQL Database 서버를 참조하도록 업데이트할 수 있습니다.
   - 그러나 다른 서버를 참조하도록 별칭을 업데이트할 경우 두 서버 모두 동일한 Azure *구독*에 있어야 합니다.
-- *사용 권한:* DNS 별칭을 관리하려면 *서버 참가자* 권한 이상이 있어야 합니다. 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](../role-based-access-control/overview.md)을 참조하세요.
+- 사용 권한: DNS 별칭을 관리하려면 ‘Server Contributor’ 권한 이상이 있어야 합니다. 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](../role-based-access-control/overview.md)을 참조하세요.
 
 ## <a name="manage-your-dns-aliases"></a>DNS 별칭 관리
 
@@ -106,10 +106,10 @@ DNS 별칭을 관리하는 데 사용되는 PowerShell cmdlet의 코드 예제�
 
 현재, DNS 별칭에는 다음과 같은 제한이 있습니다.
 
-- *최대 2분 간 지연:* DNS 별칭을 업데이트하거나 제거하는 데는 최대 2분이 소요됩니다.
+- 최대 2분 간 지연: DNS 별칭을 업데이트하거나 제거하는 데는 최대 2분이 소요됩니다.
   - 지연 시간이 길어지든, 짧아지든, 별칭은 레거시 서버에 대한 클라이언트 연결 참조를 즉시 중지합니다.
-- *DNS 조회:* 현재, DNS 별칭이 지정된 서버를 확인하는 신뢰할 수 있는 유일한 방법은 [DNS 조회](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup)를 수행하는 것입니다.
-- *[테이블 감사는 지원되지 않음](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md):* 데이터베이스에 대해 *테이블 감사*가 사용되도록 설정된 Azure SQL Database 서버에 대해 DNS 별칭을 사용할 수 없습니다.
+- DNS 조회: 현재, DNS 별칭이 지정된 서버를 확인하는 신뢰할 수 있는 유일한 방법은 [DNS 조회](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup)를 수행하는 것입니다.
+- *[테이블 감사는 지원되지 않음](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md):* 데이터베이스에 대해 ‘테이블 감사’가 사용되도록 설정된 Azure SQL Database 서버에 대해 DNS 별칭을 사용할 수 없습니다.
   - 테이블 감사는 더 이상 사용되지 않습니다.
   - 따라서 [Blob 감사](sql-database-auditing.md)로 전환하는 것이 좋습니다.
 

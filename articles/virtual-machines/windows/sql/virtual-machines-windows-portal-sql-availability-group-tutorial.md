@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
+ms.lasthandoff: 12/21/2018
 ms.locfileid: "51238078"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>수동으로 Azure VM에서 Always On 가용성 그룹 구성
@@ -45,7 +45,7 @@ ms.locfileid: "51238078"
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | 클러스터 감시를 위한 파일 공유 |  
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server 서비스 계정 | 도메인 계정 |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server 에이전트 서비스 계정 | 도메인 계정 |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|방화벽 포트 열기 | - SQL Server: 기본 인스턴스에 대해 **1433** <br/> - 데이터베이스 미러링 엔드포인트: **5022** 또는 사용 가능한 포트 <br/> - 가용성 그룹 부하 분산 장치 IP 주소 상태 프로브: **59999** 또는 사용 가능한 포트 <br/> - 클러스터 코어 부하 분산 장치 IP 주소 상태 프로브: **58888** 또는 사용 가능한 포트 |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|방화벽 포트 열기 | - SQL Server: 기본 인스턴스의 경우 **1433** <br/> - 데이터베이스 미러링 엔드포인트: **5022** 또는 사용 가능한 모든 포트 <br/> - 가용성 그룹 부하 분산 장치 IP 주소 상태 프로브: **59999** 또는 사용 가능한 모든 포트 <br/> - 클러스터 코어 부하 분산 장치 IP 주소 상태 프로브: **58888** 또는 사용 가능한 모든 포트 |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|장애 조치(Failover) 클러스터링 기능 추가 | 이 기능을 필요로 하는 SQL Server 2개 |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|설치 도메인 계정 | - 각 SQL Server의 로컬 관리자 <br/> - SQL Server의 각 인스턴스에 대해 SQL Server sysadmin 고정 서버 역할의 멤버  |
 

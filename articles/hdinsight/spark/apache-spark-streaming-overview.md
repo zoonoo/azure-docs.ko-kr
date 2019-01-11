@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 86d64ef0e9abab4368569c2f7c5ccd633660085c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 796cbcfc7ab905c54b878a5ccc866efbf9242fb6
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583216"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652084"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Apache Spark Streaming 개요
 
@@ -38,7 +38,7 @@ DStream은 원시 이벤트 데이터를 기반으로 하는 추상화 계층을
 
 ## <a name="structure-of-a-spark-streaming-application"></a>Spark 스트리밍 애플리케이션의 구조
 
-Spark 스트리밍 애플리케이션은 수집 원본에서 데이터를 받고 데이터 처리를 위해 변환을 적용한 다음, 하나 이상의 대상으로 데이터를 푸시하는 장기 실행 애플리케이션입니다. Spark Streaming 애플리케이션의 구조에는 정적 부분과 동적 부분이 있습니다. 정적 부분은 데이터의 원본 위치, 데이터에서 수행할 처리 및 결과를 이동해야 할 위치를 정의합니다. 동적 부분은 정지 신호를 기다리며 애플리케이션을 무기한으로 실행합니다.
+Spark 스트리밍 애플리케이션은 수집 원본에서 데이터를 받고 데이터 처리를 위해 변환을 적용한 다음 하나 이상의 대상으로 데이터를 푸시하는 장기 실행 애플리케이션입니다. Spark Streaming 애플리케이션의 구조에는 정적 부분과 동적 부분이 있습니다. 정적 부분은 데이터의 원본 위치, 데이터에서 수행할 처리 및 결과를 이동해야 할 위치를 정의합니다. 동적 부분은 정지 신호를 기다리며 애플리케이션을 무기한으로 실행합니다.
 
 예를 들어, 다음과 같은 간단한 애플리케이션은 TCP 소켓을 통해 한 줄의 텍스트를 수신하여 각 단어가 나타나는 횟수를 계산합니다.
 
@@ -203,11 +203,11 @@ DummySource는 5초마다 하나의 값을 만들고 애플리케이션이 30초
 
 ## <a name="checkpointing"></a>검사점 설정
 
-복원력 및 내결함성을 제공하기 위해 Spark Streaming은 노드 오류가 발생하는 경우에도 중단 없이 스트림 처리를 계속할 수 있도록 보장하는 검사점에 의존합니다. HDInsight에서 Spark는 영구 저장소(Azure Storage 또는 Data Lake Store)에 대한 검사점을 만듭니다. 이러한 검사점은 구성, 애플리케이션에 의해 정의된 작업 및 대기 중이었지만 아직 처리되지 않은 모든 일괄 처리와 같은 스트리밍 애플리케이션에 대한 메타데이터를 저장합니다. 또한 일부 경우에 검사점은 Spark에서 관리하는 RDD에 있는 것에서 데이터의 상태를 더 빠르게 다시 작성하도록 RDD에 데이터를 저장하는 것을 포함합니다.
+복원력 및 내결함성을 제공하기 위해 Spark Streaming은 노드 오류가 발생하는 경우에도 중단 없이 스트림 처리를 계속할 수 있도록 보장하는 검사점에 의존합니다. HDInsight에서 Spark는 영구 스토리지(Azure Storage 또는 Data Lake Storage)에 대한 검사점을 만듭니다. 이러한 검사점은 구성, 애플리케이션에 의해 정의된 작업 및 대기 중이었지만 아직 처리되지 않은 모든 일괄 처리와 같은 스트리밍 애플리케이션에 대한 메타데이터를 저장합니다. 또한 일부 경우에 검사점은 Spark에서 관리하는 RDD에 있는 것에서 데이터의 상태를 더 빠르게 다시 작성하도록 RDD에 데이터를 저장하는 것을 포함합니다.
 
 ## <a name="deploying-spark-streaming-applications"></a>Spark 스트리밍 애플리케이션 배포
 
-일반적으로 Spark 스트리밍 애플리케이션을 JAR 파일에 로컬로 빌드한 다음, JAR 파일을 HDInsight 클러스터에 연결된 기본 스토리지로 복사하여 HDInsight의 Spark에 배포합니다. POST 작업을 사용하여 클러스터에서 사용할 수 있는 LIVY REST API를 통해 애플리케이션을 시작할 수 있습니다. POST의 본문에는 JAR에 대한 경로, main 메서드에서 스트리밍 애플리케이션을 정의하고 실행하는 클래스의 이름, 그리고 필요에 따라 작업의 리소스 요구 사항(예: 실행기, 메모리 및 코어의 수)과 애플리케이션 코드에 필요한 모든 구성 설정을 제공하는 JSON 문서가 포함되어 있습니다.
+일반적으로 Spark Streaming 애플리케이션을 JAR 파일에 로컬로 빌드한 다음, JAR 파일을 HDInsight 클러스터에 연결된 기본 저장소로 복사하여 HDInsight의 Spark에 배포합니다. POST 작업을 사용하여 클러스터에서 사용할 수 있는 LIVY REST API를 통해 애플리케이션을 시작할 수 있습니다. POST의 본문에는 JAR에 대한 경로, main 메서드에서 스트리밍 애플리케이션을 정의하고 실행하는 클래스의 이름, 그리고 필요에 따라 작업의 리소스 요구 사항(예: 실행기, 메모리 및 코어의 수)과 애플리케이션 코드에 필요한 모든 구성 설정을 제공하는 JSON 문서가 포함되어 있습니다.
 
 ![Spark Streaming 애플리케이션 배포](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 

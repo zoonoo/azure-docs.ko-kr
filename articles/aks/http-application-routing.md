@@ -8,21 +8,21 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: c2f68afb685cb04d456e06cadf378bd1c3ebb1fb
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0bca7281c390388bd860219fb6f2eacb96b99df0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384984"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742391"
 ---
 # <a name="http-application-routing"></a>HTTP 애플리케이션 라우팅
 
-HTTP 애플리케이션 라우팅 솔루션을 사용하면 AKS(Azure Kubernetes Service) 클러스터에 배포된 애플리케이션에 쉽게 액세스할 수 있습니다. 솔루션이 사용하도록 설정되면 AKS 클러스터에 수신 컨트롤러를 구성합니다. 애플리케이션이 배포되면 솔루션에서 애플리케이션 엔드포인트에 대해 공개적으로 액세스할 수 있는 DNS 이름도 만듭니다.
+HTTP 애플리케이션 라우팅 솔루션을 사용하면 AKS(Azure Kubernetes Service) 클러스터에 배포된 애플리케이션에 쉽게 액세스할 수 있습니다. 솔루션이 사용하도록 설정되면 AKS 클러스터에 수신 컨트롤러를 구성합니다. 응용 프로그램이 배포되면 솔루션에서 응용 프로그램 엔드포인트에 대해 공개적으로 액세스할 수 있는 DNS 이름도 만듭니다.
 
 추가 기능이 사용하도록 설정되면 구독에 DNS 영역을 만듭니다. DNS 비용에 대한 자세한 내용은 [DNS 가격 책정][dns-pricing]을 참조하세요.
 
 > [!CAUTION]
-> HTTP 애플리케이션 라우팅 추가 기능은 수신 컨트롤러를 빠르게 만들고 애플리케이션에 액세스할 수 있도록 설계되었습니다. 이 추가 기능은 프로덕션 용도로 사용하지 않는 것이 좋습니다. 여러 복제본 및 TLS 지원을 포함하는 프로덕션 준비 수신 배포에 대해서는 [HTTPS 수신 컨트롤러 만들기](https://docs.microsoft.com/azure/aks/ingress-tls)를 참조하세요.
+> HTTP 응용 프로그램 라우팅 추가 기능은 수신 컨트롤러를 빠르게 만들고 응용 프로그램에 액세스할 수 있도록 설계되었습니다. 이 추가 기능은 프로덕션 용도로 사용하지 않는 것이 좋습니다. 여러 복제본 및 TLS 지원을 포함하는 프로덕션 준비 수신 배포에 대해서는 [HTTPS 수신 컨트롤러 만들기](https://docs.microsoft.com/azure/aks/ingress-tls)를 참조하세요.
 
 ## <a name="http-routing-solution-overview"></a>HTTP 라우팅 솔루션 개요
 
@@ -55,7 +55,7 @@ Result
 9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
 ```
 
-## <a name="deploy-http-routing-portal"></a>HTTP 라우팅 배포: Portal
+## <a name="deploy-http-routing-portal"></a>HTTP 라우팅 배포: 포털
 
 AKS 클러스터를 배포할 때 Azure Portal을 통해 HTTP 애플리케이션 라우팅 추가 기능을 사용하도록 설정할 수 있습니다.
 
@@ -174,6 +174,36 @@ Azure CLI를 사용하여 HTTP 라우팅 솔루션을 제거할 수 있습니다
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
+HTTP 애플리케이션 라우팅 추가 기능을 비활성화하면 일부 Kubernetes 리소스는 클러스터에서 남아 있을 수 있습니다. 이러한 리소스는 *configMaps* 및 *secrets*를 포함하며 *kube 시스템* 네임스페이스에서 만들어집니다. 정리 클러스터를 유지하려면 이러한 리소스를 제거하는 것이 좋습니다.
+
+다음 [kubectl get][kubectl-get] 명령을 사용하여 *addon-http-application-routing* 리소스를 찾습니다.
+
+```console
+kubectl get deployments --namespace kube-system
+kubectl get services --namespace kube-system
+kubectl get configmaps --namespace kube-system
+kubectl get secrets --namespace kube-system
+```
+
+다음 예제 출력은 삭제되어야 하는 configMaps를 보여줍니다.
+
+```
+$ kubectl get configmaps --namespace kube-system
+
+NAMESPACE     NAME                                                       DATA   AGE
+kube-system   addon-http-application-routing-nginx-configuration         0      9m7s
+kube-system   addon-http-application-routing-tcp-services                0      9m7s
+kube-system   addon-http-application-routing-udp-services                0      9m7s
+```
+
+리소스를 삭제하려면 [kubectl delete][kubectl-delete] 명령을 사용합니다. 리소스 종류, 리소스 이름 및 네임스페이스를 지정합니다. 다음 예제에서는 이전 configmaps 중 하나를 삭제합니다.
+
+```console
+kubectl delete configmaps addon-http-application-routing-nginx-configuration --namespace kube-system
+```
+
+클러스터에 남아 있던 모든 *addon-http-application-routing* 리소스에 대해 이전 `kubectl delete` 단계를 반복합니다.
+
 ## <a name="troubleshoot"></a>문제 해결
 
 외부 DNS 애플리케이션의 애플리케이션 로그를 보려면 [kubectl logs][kubectl-logs] 명령을 사용합니다. 로그에서 A 및 TXT DNS 레코드가 성공적으로 만들어졌음을 확인합니다.
@@ -189,7 +219,7 @@ Azure Portal의 DNS 영역 리소스에서 이러한 레코드를 볼 수도 있
 
 ![DNS 레코드 가져오기](media/http-routing/clippy.png)
 
-[kubectl logs][kubectl-logs] 명령을 사용하여 Nginx 수신 컨트롤러에 대한 응용 프로그램 로그를 봅니다. 로그에서 수신 리소스 `CREATE` 및 컨트롤러 다시 로드를 확인합니다. 모든 HTTP 작업이 기록됩니다.
+[kubectl logs][kubectl-logs] 명령을 사용하여 Nginx 수신 컨트롤러에 대한 애플리케이션 로그를 봅니다. 로그에서 수신 리소스 `CREATE` 및 컨트롤러 다시 로드를 확인합니다. 모든 HTTP 작업이 기록됩니다.
 
 ```bash
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system
@@ -256,6 +286,7 @@ AKS에 HTTPS 보안 수신 컨트롤러를 설치하는 방법에 대한 자세�
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
 [ingress-resource]: https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource

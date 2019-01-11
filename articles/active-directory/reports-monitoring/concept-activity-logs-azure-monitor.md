@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 760110d0ac359f6b7f135bf869e2520b8028ba6e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 298d4a7a003963e3466b595243c294679f581346
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625439"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582194"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure Monitor의 Azure AD 활동 로그(미리 보기)
 
@@ -38,8 +38,8 @@ ms.locfileid: "51625439"
 
 이 기능을 사용하여 Azure AD 감사 로그 및 로그인 로그를 Azure 스토리지 계정, 이벤트 허브, Log Analytics 또는 사용자 지정 솔루션으로 라우팅할 수 있습니다. 
 
-* **감사 로그**: [감사 로그 활동 보고서](concept-audit-logs.md)는 테넌트에서 수행된 모든 작업 기록에 대한 액세스를 제공합니다.
-* **로그인 로그**: [로그인 활동 보고서](concept-sign-ins.md)를 사용하면 감사 로그에 보고된 작업을 누가 수행했는지 확인할 수 있습니다.
+* **감사 로그**: [감사 로그 활동 보고서](concept-audit-logs.md)를 통해 테넌트에서 수행된 모든 작업의 기록에 액세스할 수 있습니다.
+* **로그인 로그**: [로그인 활동 보고서](concept-sign-ins.md)를 통해 감사 로그에 보고된 작업을 수행한 사용자를 확인할 수 있습니다.
 
 > [!NOTE]
 > B2C 관련 감사 및 로그인 활동 로그는 현재 지원되지 않습니다.
@@ -101,33 +101,33 @@ Log Analytics 작업 영역 관리와 관련된 비용을 검토하려면 [Log A
 
 이 섹션에서는 Azure Monitor의 Azure AD 로그에 대해 자주 묻는 질문에 대답하고 알려진 문제에 대해 토론합니다.
 
-**Q: 어떤 로그가 포함됩니까?**
+**Q: 어떤 로그가 포함되나요?**
 
-**A:** 현재 B2C 관련 감사 이벤트가 포함되지 않지만, 이 기능을 라우팅하는 데 로그인 활동 로그와 감사 로그를 모두 사용할 수 있습니다. 현재 지원되는 로그 유형 및 기능 기반 로그를 알아보려면 [감사 로그 스키마](reference-azure-monitor-audit-log-schema.md) 및 [로그인 로그 스키마](reference-azure-monitor-sign-ins-log-schema.md)를 참조하세요. 
-
----
-
-**Q: 작업 수행 후 해당 로그가 내 이벤트 허브에 표시되려면 얼마나 걸립니까?**
-
-**A**: 작업이 수행된 후 2~5분 내에 이벤트 허브에 로그가 나타나야 합니다. Event Hubs에 대한 자세한 내용은 [Azure Event Hubs란?](../../event-hubs/event-hubs-about.md)을 참조하세요.
+**A**: 현재 B2C 관련 감사 이벤트가 포함되지 않지만, 이 기능을 라우팅하는 데 로그인 활동 로그와 감사 로그를 모두 사용할 수 있습니다. 현재 지원되는 로그 유형 및 기능 기반 로그를 알아보려면 [감사 로그 스키마](reference-azure-monitor-audit-log-schema.md) 및 [로그인 로그 스키마](reference-azure-monitor-sign-ins-log-schema.md)를 참조하세요. 
 
 ---
 
-**Q: 작업 수행 후 해당 로그가 내 스토리지 계정에 표시되려면 얼마나 걸립니까?**
+**Q: 작업 수행 후 해당 로그가 내 이벤트 허브에 표시되려면 얼마나 걸리나요?**
 
-**A:** Azure 저장소 계정의 경우 대기 시간은 어디서나 작업 수행 후 5~15분입니다.
+**A**: 작업이 수행된 후 2~5분 이내에 이벤트 허브에 로그가 나타나야 합니다. Event Hubs에 대한 자세한 내용은 [Azure Event Hubs란?](../../event-hubs/event-hubs-about.md)을 참조하세요.
+
+---
+
+**Q: 작업 수행 후 해당 로그가 내 스토리지 계정에 표시되려면 얼마나 걸리나요?**
+
+**A**: Azure Storage 계정의 경우 대기 시간은 어디서나 작업 수행 후 5~15분입니다.
 
 ---
 
 **Q: 데이터를 저장하는 데 비용이 얼마나 들까요?**
 
-**A:** 저장소 비용은 로그의 크기와 사용자가 선택한 보존 기간에 따라 달라집니다. 생성된 로그 볼륨에 따라 달라지는 예상 테넌트 비용 목록을 보려면 [활동 로그에 대한 Storage 크기](#storage-size-for-activity-logs) 섹션을 참조하세요.
+**A**: 스토리지 비용은 로그의 크기와 사용자가 선택한 보존 기간에 따라 달라집니다. 생성된 로그 볼륨에 따라 달라지는 예상 테넌트 비용 목록을 보려면 [활동 로그에 대한 Storage 크기](#storage-size-for-activity-logs) 섹션을 참조하세요.
 
 ---
 
 **Q: 이벤트 허브에 데이터를 스트리밍하는 데 비용이 얼마나 들까요?**
 
-**A:** 스트리밍 비용은 분당 수신 메시지 수에 따라 다릅니다. 이 문서에서는 메시지 수를 기반으로 비용을 계산하고 예상 비용을 나열하는 방법을 설명합니다. 
+**A**: 스트리밍 비용은 분당 수신 메시지 수에 따라 다릅니다. 이 문서에서는 메시지 수를 기반으로 비용을 계산하고 예상 비용을 나열하는 방법을 설명합니다. 
 
 ---
 
@@ -141,9 +141,9 @@ Log Analytics 작업 영역 관리와 관련된 비용을 검토하려면 [Log A
 
 ---
 
-**Q: 현재 지원되는 SIEM 도구는 무엇입니까?** 
+**Q: 현재 지원되는 SIEM 도구는 무엇인가요?** 
 
-**A:** Azure Monitor는 현재 [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar 및 [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory)에서 지원됩니다. 커넥터의 작동 원리에 대한 자세한 내용은 [Azure 모니터링 데이터를 이벤트 허브로 스트리밍하여 외부 도구에서 사용](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)을 참조하세요.
+**A**: Azure Monitor는 현재 [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar 및 [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory)에서 지원됩니다. 커넥터의 작동 원리에 대한 자세한 내용은 [Azure 모니터링 데이터를 이벤트 허브로 스트리밍하여 외부 도구에서 사용](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md)을 참조하세요.
 
 ---
 
@@ -155,7 +155,7 @@ Log Analytics 작업 영역 관리와 관련된 비용을 검토하려면 [Log A
 
 **Q: Azure AD 활동 로그를 Sumo Logic과 통합하려면 어떻게 할까요?** 
 
-**A**: 먼저 [Azure AD 활동 로그를 이벤트 허브로 라우팅](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory)한 다음, [SumoLogic에서 Azure AD 응용 프로그램 설치 및 대시보드 보기](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards) 단계를 수행합니다.
+**A**: 먼저 [Azure AD 활동 로그를 이벤트 허브로 라우팅](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory)한 다음, [SumoLogic에서 Azure AD 애플리케이션 설치 및 대시보드 보기](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards) 단계를 수행합니다.
 
 ---
 

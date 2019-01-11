@@ -1,20 +1,17 @@
 ---
-title: Azure Database for PostgreSQL 서버 VNet 서비스 엔드포인트 개요 | Microsoft Docs
-description: Azure Database for PostgreSQL 서버에서 VNet 서비스 엔드포인트가 작동하는 방법을 설명합니다.
-services: postgresql
+title: Azure Database for PostgreSQL 서버 VNet 서비스 엔드포인트 개요
+description: Azure Database for PostgreSQL 서버에서 VNET 서비스 엔드포인트가 작동하는 방법을 알아봅니다.
 author: mbolz
 ms.author: mbolz
-manager: jhubbard
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: 5a0181a1430e9de690fe4b4a48aa298db4c024e0
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 2f26c4ae352ea5385886abcaecba5f50d30c530a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433668"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537225"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에서 Virtual Network 서비스 엔드포인트 및 규칙 사용
 

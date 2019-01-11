@@ -1,5 +1,5 @@
 ---
-title: 마이크로 서비스 변경 및 다시 배포 | Microsoft 문서 도구
+title: 마이크로 서비스 변경 및 다시 배포 - Azure | Microsoft Docs
 description: 이 자습서에서는 Remote Monitoring에서 마이크로 서비스를 변경하고 다시 배포하는 방법을 보여줍니다.
 author: dominicbetts
 ms.author: dobett
@@ -7,16 +7,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 20e86220fffe95fc38b5fa15dd5603db4331203f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 563de3d062b2c49d6b7ba23ae405e75283270815
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315760"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631904"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>마이크로 서비스 사용자 지정 및 다시 배포
 
-이 자습서에서는 원격 모니터링 솔루션에서 하나의 [마이크로 서비스](http://azure.com/microservices)를 편집하고, 마이크로 서비스의 이미지를 빌드하고, 이미지를 도커 허브에 배포한 다음, 원격 모니터링 솔루션에서 사용하는 방법을 보여줍니다. 이 개념을 소개하기 위해 자습서는 마이크로 서비스 API를 호출하고 상태 메시지를 "Alive and Well"에서 "New Edits Made Here!"로 변경하는 기본 시나리오를 사용합니다.
+이 자습서에서는 원격 모니터링 솔루션에서 하나의 [마이크로 서비스](https://azure.com/microservices)를 편집하고, 마이크로 서비스의 이미지를 빌드하고, 이미지를 도커 허브에 배포한 다음, 원격 모니터링 솔루션에서 사용하는 방법을 보여줍니다. 이 개념을 소개하기 위해 자습서는 마이크로 서비스 API를 호출하고 상태 메시지를 "Alive and Well"에서 "New Edits Made Here!"로 변경하는 기본 시나리오를 사용합니다.
 
 원격 모니터링 솔루션은 도커 허브에서 가져온 도커 이미지를 사용하여 빌드된 마이크로 서비스를 사용합니다. 
 
@@ -77,7 +77,7 @@ ms.locfileid: "53315760"
     
     또는 Windows에서 다음을 수행합니다.
     
-    ```
+    ```cmd
     ./build.cmd
     ```
 

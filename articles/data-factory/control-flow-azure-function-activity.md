@@ -11,20 +11,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 12/20/2018
 ms.author: douglasl
-ms.openlocfilehash: ef93c62a2e2084a43eeda578c889a568d04db4f1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4b185236e5925152acb5f8a733e117186a2318cf
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52855214"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53740895"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Data Factory의 Azure 함수 작업
 
 Azure 함수 작업을 사용하면 Data Factory 파이프라인에서 [Azure Functions](../azure-functions/functions-overview.md)를 실행할 수 있습니다. Azure 함수를 실행하려면 연결된 서비스 연결과 실행하려는 Azure 함수를 지정하는 작업을 만들어야 합니다.
 
 ## <a name="azure-function-linked-service"></a>Azure 함수의 연결된 서비스
+
+Azure 함수의 반환 형식은 유효한 JObject여야 합니다. 다른 작업이 실패하고 일반 사용자 오류 *엔드포인트를 호출하는 오류*가 발생합니다.
 
 | **속성** | **설명** | **필수** |
 | --- | --- | --- |
@@ -43,10 +45,16 @@ Azure 함수 작업을 사용하면 Data Factory 파이프라인에서 [Azure Fu
 | 함수 이름  | Azure 함수 앱에서 이 작업이 호출하는 함수의 이름입니다. | 문자열 | 예 |
 | 메서드  | 함수 호출에 대한 REST API 메서드입니다. | 문자열 지원 형식: "GET", "POST", "PUT"   | 예 |
 | 머리글  | 요청에 전송되는 헤더입니다. 예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 씁니다. "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | 문자열(또는 resultType 문자열이 있는 식) | 아니요 |
-| 본문  | 함수 API 메서드에 대한 요청과 함께 전송되는 본문입니다.  | 문자열(또는 resultType 문자열이 있는 식).   | PUT/POST 메서드에 필요합니다. |
+| 본문  | 함수 API 메서드에 대한 요청과 함께 전송되는 본문입니다.  | 문자열(또는 resultType 문자열이 있는 식) 또는 개체   | PUT/POST 메서드에 필요합니다. |
 |   |   |   | |
 
  [요청 페이로드 스키마](control-flow-web-activity.md#request-payload-schema) 섹션에서 요청 페이로드의 스키마를 참조하세요.
+
+## <a name="more-info"></a>자세한 정보
+
+Azure 함수 작업은 **라우팅**을 지원합니다. 예를 들어 앱에서 다음 라우팅(`https://functionAPP.azurewebsites.net/api/functionName/{value}?code=<secret>`)을 사용하는 경우 `functionName`은 `functionName/{value}`이며, 런타임 시 원하는 `functionName`을 제공하도록 변수화할 수 있습니다.
+
+또한 Azure 함수 작업은 **쿼리**를 지원합니다. 쿼리는 `functionName`의 일부여야 합니다(예: `HttpTriggerCSharp2?name=hello` - 여기서 `function name`은 `HttpTriggerCSharp2`).
 
 ## <a name="next-steps"></a>다음 단계
 

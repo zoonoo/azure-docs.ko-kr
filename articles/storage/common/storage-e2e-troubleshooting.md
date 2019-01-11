@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: cf183b0a78ff3f7e442ea8052f37fc2df58aac54
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 80a2ed779fa65c669be81fdf8212b7d018325ee5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262321"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634510"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure Storage 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -75,7 +75,7 @@ Blob 또는 컨테이너를 찾을 수 없어서 컨테이너 또는 Blob에 대
 이 자습서에서는 Message Analyzer를 사용하여 세 가지 유형의 로그 파일로 작업할 수 있지만, 다음과 같이 해당 로그 중 하나를 선택하여 사용할 수 있습니다.
 
 * **서버 로그**, Azure Storage 로깅을 사용하도록 설정한 경우 생성됩니다. 서버 로그에는 Blob, 큐, 테이블, 파일 등의 Azure Storage 서비스 중 하나에 대해 호출된 각 작업에 관한 데이터가 포함됩니다. 서버 로그는 요청 및 응답에 대한 기타 세부 정보뿐만 아니라 어떤 작업이 호출되었는지와 어떤 상태 코드가 반환되었는지도 나타냅니다.
-* **.NET 클라이언트 로그**, .NET 응용 프로그램 내에서 클라이언트 쪽 로깅을 사용하도록 설정한 경우 생성됩니다. 클라이언트 로그에는 클라이언트가 요청을 준비하고 응답을 받아 처리하는 방법에 대한 자세한 정보가 포함됩니다.
+* **.NET 클라이언트 로그**, .NET 애플리케이션 내에서 클라이언트 쪽 로깅을 사용하도록 설정한 경우 생성됩니다. 클라이언트 로그에는 클라이언트가 요청을 준비하고 응답을 받아 처리하는 방법에 대한 자세한 정보가 포함됩니다.
 * **HTTP 네트워크 추적 로그**, Azure Storage에 대한 작업을 비롯하여 HTTP/HTTPS 요청 및 응답 데이터에 대한 데이터를 수집합니다. 이 자습서에서는 Message Analyzer를 통해 네트워크 추적을 생성합니다.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>서버 쪽 로깅 및 메트릭 구성
@@ -93,6 +93,8 @@ Blob 또는 컨테이너를 찾을 수 없어서 컨테이너 또는 Blob에 대
 > 
 
 **PowerShell을 통해**
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
 
@@ -114,13 +116,13 @@ Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하
 4. 다음과 같이 Blob service에 대한 저장소 로깅을 사용하도록 설정합니다.
    
     ```powershell
-    Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
+    Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
     ```
 
 5. 다음과 같이 Blob service의 저장소 메트릭을 사용하도록 설정하고 **-MetricsType**을 `Minute`으로 설정했는지 확인합니다.
    
     ```powershell
-    Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
+    Set-AzStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
     ```
 
 ### <a name="configure-net-client-side-logging"></a>.NET 클라이언트 쪽 로깅 구성
@@ -198,7 +200,7 @@ Message Analyzer에는 서버, 클라이언트 및 네트워크 로그를 분석
 2. Message Analyzer를 시작합니다.
 3. **도구** 메뉴에서 **자산 관리자**를 선택합니다. **자산 관리자** 대화 상자에서 **다운로드**를 선택한 다음 **Azure Storage**에 필터링합니다. 아래 그림에 표시된 대로 Azure Storage 자산이 표시됩니다.
 4. **Sync All Displayed Items(표시된 모든 항목 동기화)** 를 클릭하여 Azure Storage 자산을 설치합니다. 사용 가능한 자산은 다음과 같습니다.
-   * **Azure Storage Color Rules(Azure 저장소 색 규칙):** Azure 저장소 색 규칙을 통해 색상, 텍스트 및 글꼴 스타일을 사용하여 추적에 특정 정보를 포함하는 메시지를 강조 표시하는 특수 필터를 정의할 수 있습니다.
+   * **Azure Storage 색 규칙:** Azure Storage 색 규칙을 통해 색, 텍스트 및 글꼴 스타일을 사용하여 추적에 특정 정보를 포함하는 메시지를 강조 표시하는 특수 필터를 정의할 수 있습니다.
    * **Azure Storage 차트:** Azure Storage 차트는 서버 로그 데이터를 그래프로 표시하는 미리 정의된 차트입니다. 이번에 Azure Storage 차트를 사용하려면 서버 로그를 분석 격자로 로드하기만 하면 됩니다.
    * **Azure Storage 파서:** Azure Storage 파서는 Azure Storage 클라이언트, 서버 및 HTTP 로그를 분석 그리드에 표시하기 위해 구문 분석합니다.
    * **Azure Storage 필터:** Azure Storage 필터는 분석 그리드의 데이터를 쿼리하는 데 사용할 수 있는 미리 정의된 조건입니다.

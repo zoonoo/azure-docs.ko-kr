@@ -8,18 +8,18 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 12/18/2018
 ms.author: tulasim88
-ms.openlocfilehash: 97fb59a9a483753c6c2b5a4ae027bb358f7050e1
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 004f09eb77d1bc32e44e1940186e8a631c45846d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166594"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608480"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>메타데이터 및 GenerateAnswer API 사용
 
-QnA Maker는 메타데이터를 키/값 쌍의 형태로 질문/응답 집합에 추가할 수 있습니다. 이 정보는 사용자 쿼리에 대한 결과를 필터링하고 후속 대화에 사용할 수 있는 추가 정보를 저장하는 데 사용할 수 있습니다. 자세한 내용은 [기술 자료](../Concepts/knowledge-base.md)를 참조하세요.
+QnA Maker는 메타데이터를 키 및 값 쌍의 형태로 질문/응답 집합에 추가할 수 있습니다. 이 정보는 사용자 쿼리에 대한 결과를 필터링하고 후속 대화에 사용할 수 있는 추가 정보를 저장하는 데 사용할 수 있습니다. 자세한 내용은 [기술 자료](../Concepts/knowledge-base.md)를 참조하세요.
 
 ## <a name="qna-entity"></a>QnA 엔터티
 
@@ -31,7 +31,7 @@ QnA 엔터티마다 고유한 영구 ID가 있습니다. 이 ID는 특정 QnA �
 
 ## <a name="generateanswer-api"></a>GenerateAnswer API
 
-봇 또는 응용 프로그램에서 GenerateAnswer API를 사용하여 사용자 질문으로 기술 자료를 쿼리하면 질문/응답 집합에서 최적의 일치 항목을 가져올 수 있습니다.
+봇 또는 애플리케이션에서 GenerateAnswer API를 사용하여 사용자 질문으로 기술 자료를 쿼리하면 질문/응답 집합에서 최적의 일치 항목을 가져올 수 있습니다.
 
 ### <a name="generateanswer-endpoint"></a>GenerateAnswer 엔드포인트
 
@@ -113,11 +113,11 @@ HTTP POST 요청을 사용하여 GenerateAnswer를 호출합니다. GenerateAnsw
 
 ## <a name="metadata-example"></a>메타데이터 예제
 
-하이데라바드의 레스토랑에 대한 아래 FAQ 데이터를 잘 살펴봅니다. 기어 아이콘을 클릭하여 기술 자료에 메타데이터를 추가합니다.
+아래 FAQ 데이터를 고려하세요. 메타데이터 아이콘을 클릭하여 기술 자료에 메타데이터를 추가합니다.
 
 ![메타데이터 추가](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
-### <a name="filter-results-with-strictfilters"></a>strictFilters를 사용하여 결과 필터링
+### <a name="filter-results-with-strictfilters-for-metadata-tags"></a>메타데이터 태그에 대한 strictFilters로 결과 필터링
 
 "이 호텔의 영업 종료 시간은 언제입니까?"라는 사용자 질문을 음미합니다. 이 질문의 의도는 "Paradise" 레스토랑입니다.
 

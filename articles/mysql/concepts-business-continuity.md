@@ -1,20 +1,17 @@
 ---
 title: Azure Database for MySQL의 비즈니스 연속성 개요
 description: Azure Database for MySQL의 비즈니스 연속성 개요입니다.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 8d0a8ac1aedcac26f6ac67e0e1f2a9d265a9b576
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9b9e2362553eb93cbb111b70cf29a1cc1524e77e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714347"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554540"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>Azure Database for MySQL의 비즈니스 연속성 개요
 
@@ -49,7 +46,7 @@ Azure Database for MySQL에는 자동화된 백업 및 사용자가 지역 복�
 다른 옵션은 지역 중복 백업을 사용하여 서버를 복원하는 Azure Database for MySQL의 지역 복원을 사용하는 것입니다. 이러한 백업은 서버를 호스트하는 지역이 오프라인인 경우에도 액세스가 가능합니다. 이러한 백업에서 다른 지역으로 복원하여 서버를 다시 온라인 상태로 만들 수 있습니다.
 
 > [!IMPORTANT]
-> 지역 복원은 지역 중복 백업 저장소로 서버를 프로비전한 경우에만 가능합니다. 기존 서버에 대한 로컬 중복 백업을 지역 중복 백업으로 전환하려는 경우 pg_dump를 사용하여 기존 서버를 덤프한 후 지역 중복 백업으로 구성된 새로 만든 서버로 복원해야 합니다.
+> 지역 복원은 지역 중복 백업 저장소로 서버를 프로비전한 경우에만 가능합니다. 기존 서버에 대한 로컬 중복 백업을 지역 중복 백업으로 전환하려는 경우 mysqldump를 사용하여 기존 서버를 덤프한 후 지역 중복 백업으로 구성된 새로 만든 서버로 복원해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

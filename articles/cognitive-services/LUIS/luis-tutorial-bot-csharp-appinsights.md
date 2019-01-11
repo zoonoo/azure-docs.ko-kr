@@ -1,7 +1,7 @@
 ---
 title: C#을 사용하는 Application Insights
 titleSuffix: Azure Cognitive Services
-description: C#을 사용하여 LUIS 응용 프로그램 및 Application Insights와 통합된 봇을 빌드합니다.
+description: C#을 사용하여 LUIS 애플리케이션 및 Application Insights와 통합된 봇을 빌드합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: a5150d3f318fce2f66adfa4bdc43ae8aec651223
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 46065a742afd08585707f4f4fdf6ad2e32cd89b2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251150"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719458"
 ---
 # <a name="add-luis-results-to-application-insights-with-a-bot-in-c"></a>C#에서 봇을 사용하여 Application Insights에 LUIS 결과 추가
 
@@ -39,7 +39,7 @@ ms.locfileid: "53251150"
 > [!Tip]
 > 아직 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)으로 등록할 수 있습니다.
 
-이 자습서의 모든 코드는 [LUIS-Samples GitHub 리포지토리](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp)에서 사용할 수 있으며 이 자습서와 연결된 각 줄은 `//LUIS Tutorial:`를 사용하여 주석으로 처리됩니다.
+이 자습서의 모든 코드는 [Azure-Samples GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp)에서 사용할 수 있으며 이 자습서와 연결된 각 줄은 `//LUIS Tutorial:`을 사용하여 주석으로 처리됩니다.
 
 ## <a name="review-luis-web-app-bot"></a>LUIS 웹앱 봇 검토
 
@@ -127,11 +127,11 @@ Visual Studio에서 Application Insights를 설치하고 구성합니다.
 
 2. **게시** 창에서 **새 프로필 만들기**를 선택합니다.
 
-    ![포털에 프로젝트 게시](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-1.png)
+    ![게시의 일부로 새 프로필을 만듭니다.](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-1.png)
 
 3. **프로필 가져오기**를 선택하고 **확인**을 선택합니다.
 
-    ![포털에 프로젝트 게시](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-2.png)
+    ![게시의 일부로 프로필을 가져옵니다.](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-2.png)
 
 4. **게시 설정 파일 가져오기** 창에서 프로젝트 폴더로 이동하고, `PostDeployScripts` 폴더로 이동한 다음, `.PublishSettings`로 끝나는 파일을 선택하고, `Open`을 선택합니다. 이제 이 프로젝트에 대한 게시를 구성했습니다.
 
@@ -157,7 +157,7 @@ Azure Portal에서 웹앱 봇을 찾아서 엽니다. 다음 단계에서는 웹
 
    [!code-csharp[Add the LogToApplicationInsights function](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/BasicLuisDialog.cs?range=61-92 "Add the LogToApplicationInsights function")]
 
-    Application Insights 계측 키가 이미 `BotDevInsightsKey`라는 웹앱 봇의 응용 프로그램 설정에 있습니다.
+    Application Insights 계측 키가 이미 `BotDevInsightsKey`라는 웹앱 봇의 애플리케이션 설정에 있습니다.
 
     함수의 마지막 줄은 Application Insights에 데이터를 추가합니다. 추적 이름은 `LUIS`로, 이 웹앱 봇에서 수집한 다른 원격 분석 데이터와 분리된 고유 이름입니다. 또한 모든 속성에 `LUIS_`이 접두사로 지정되므로 이 자습서에서 추가하는 데이터를 웹앱 봇에서 제공하는 정보와 비교할 수 있습니다.
 
@@ -204,7 +204,7 @@ Application Insights를 열어 LUIS 항목을 확인합니다.
 
 1. 포털에서 **모든 리소스**를 선택한 후 웹앱 봇 이름으로 필터링합니다. **Application Insights** 유형의 리소스를 클릭합니다. Application Insights의 아이콘은 전구입니다.
 
-    ![App Insights 검색](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
+    ![Azure Portal에서 App Insights 검색](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
 
 2. 리소스가 열리면 맨 오른쪽 패널에서 돋보기의 **검색** 아이콘을 클릭합니다. 오른쪽에 새 패널이 표시됩니다. 발견된 원격 분석 데이터의 양에 따라 패널을 표시하는 데 다소 시간이 걸릴 수 있습니다. `LUIS`를 검색합니다. 이 자습서에서 추가된 LUIS 쿼리 결과로만 목록 범위가 좁혀집니다.
 

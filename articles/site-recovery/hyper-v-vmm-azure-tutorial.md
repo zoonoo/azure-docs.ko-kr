@@ -1,20 +1,7 @@
 ---
-title: Azure Site Recovery를 통한 VMM 클라우드의 온-프레미스 Hyper-V VM에서 Azure로의 재해 복구 설정 | Microsoft Docs
-description: Azure Site Recovery 서비스를 통한 System Center VMM 클라우드의 온-프레미스 Hyper-V VM에서 Azure로의 재해 복구를 설정하는 방법을 알아봅니다.
-services: site-recovery
-author: rayne-wiselman
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: raynew
-ms.custom: MVC
-ms.openlocfilehash: c4b5a200780761decfdd98289f7e7332244e5645
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846433"
----
+제목: Azure Site Recovery를 통한 VMM 클라우드의 온-프레미스 Hyper-V VM의 Azure로의 재해 복구 설정 | Microsoft Docs 설명: Azure Site Recovery 서비스를 통한 System Center VMM 클라우드의 온-프레미스 Hyper-V VM에서 Azure로의 재해 복구를 설정하는 방법을 알아봅니다.
+서비스: site-recovery 작성자: Rayne-Wiselman ms.service: site-recovery ms.topic: conceptual ms.date: 2018년 12월 27일 ms.author: raynew ms.custom: MVC
+
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>VMM 클라우드의 온-프레미스 Hyper-V VM에서 Azure로의 재해 복구 설정
 
 [Azure Site Recovery](site-recovery-overview.md) 서비스는 온-프레미스 컴퓨터와 Azure VM(Virtual Machines)의 복제, 장애 조치(failover), 장애 복구(failback)를 관리 및 오케스트레이션하여 재해 복구 전략에 기여합니다.
@@ -119,7 +106,7 @@ Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 
 
 ## <a name="enable-replication"></a>복제 사용
 
-1. **응용 프로그램 복제**에서 **원본**을 클릭합니다. 
+1. **애플리케이션 복제**에서 **원본**을 클릭합니다. 
 2. **원본**에서 VMM 클라우드를 선택합니다. 그런 후 **OK**를 클릭합니다.
 3. **대상**에서 대상(Azure) 및 자격 증명 모음 구독을 확인하고 **Resource Manager** 모델을 선택합니다.
 4. **contosovmsacct1910171607** 저장소 계정과 **ContosoASRnet** Azure 네트워크를 선택합니다.

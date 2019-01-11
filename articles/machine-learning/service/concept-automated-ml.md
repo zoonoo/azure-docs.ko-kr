@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nacharya1
 ms.author: nilesha
-ms.date: 12/04/2018
+ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7e55304fb02078c71b91b2904475a4bee4bcc018
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 9e3297b2493ea12f9da50556e4fc9e72d625fd25
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436962"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583462"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
@@ -65,9 +65,10 @@ Azure Machine Learning에서 모델 설명을 실험해 보려면 이 [샘플 �
 ## <a name="next-steps"></a>다음 단계
 
 예제를 통해 자동화된 Machine Learning을 사용하는 모델을 작성하는 방법을 알아봅니다.
++ [샘플: Jupyter Notebook을 사용하여 Azure Machine Learning Service 검색](samples-notebooks.md#automated-ml-setup)
 
 + [자습서: Azure 자동화된 Machine Learning을 사용하여 자동으로 분류 모델 학습시키기](tutorial-auto-train-models.md)
 
-+ [자동 학습용 설정 구성](how-to-configure-auto-train.md)
++ [원격 리소스에 대한 자동 학습 사용](how-to-auto-train-remote.md)
 
-+ [원격 리소스에 대한 자동 학습 사용](how-to-auto-train-remote.md) 
++ [자동 학습용 설정 구성](how-to-configure-auto-train.md)

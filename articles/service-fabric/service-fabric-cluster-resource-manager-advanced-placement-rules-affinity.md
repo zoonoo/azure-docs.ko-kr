@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 57abea79a620aa83e16ad4cc2fd78a4294f2b278
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bda70a6854dc6d94d3d4b37e6f587e4dcd045126
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204858"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543842"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>서비스 패브릭에서 서비스 선호도 구성 및 사용
 선호도는 주로 더 큰 모놀리식 애플리케이션을 클라우드 및 마이크로 서비스 환경으로 쉽게 전환하도록 해주는 컨트롤입니다. 또한 서비스의 성능 향상을 위한 최적화로 사용되지만 이 경우 부작용이 있을 수 있습니다.
@@ -72,7 +72,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ![선호도 관계의 컨텍스트에서 체인 모양과 별 모양의 비교][Image2]
 </center>
 
-또 다른 사항으로 현재의 선호도 관계에는 방향성이 있다는 점입니다. 즉 선호도 규칙은 자식이 부모와 함께 배치되도록 합니다. 부모가 자식과 함께 있도록 보장하지는 않습니다. 또한 서로 다른 서비스에서 별도의 수명 주기를 가지고 있고 독립적으로 실패하고 이동할 수 있기 때문에 선호도 관계가 완벽하거나 즉시 적용될 수 없다는 점에 유의해야 합니다. 예를 들어 크래시로 인해 부모가 갑자기 다른 노드로 장애 조치되었다고 가정해 보겠습니다. 서비스를 계속, 일관성 있게, 사용할 수 있도록 유지하는 것이 우선 순위이므로 클러스터 리소스 관리자와 장애 조치(Failover) 관리자는 장애 조치를 먼저 처리합니다. 장애 조치가 완료되면 선호도 관계는 끊어지지만 클러스터 리소스 관리자에서는 자식이 부모와 함께 있지 않다는 알기 전까지 모든 것이 문제가 없다고 간주합니다. 이러한 종류의 검사는 정기적으로 수행됩니다. 클러스터 리소스 관리자에서 제약 조건을 평가하는 방법에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-management-integration.md#constraint-types)에서 설명하고 있으며, [이 문서](service-fabric-cluster-resource-manager-balancing.md)에서는 이러한 제약 조건을 평가하는 빈도를 구성하는 방법에 대해 자세히 설명합니다.   
+또 다른 사항으로 현재의 선호도 관계에는 기본적으로 방향성이 있다는 점입니다. 즉 선호도 규칙은 자식이 부모와 함께 배치되도록 합니다. 부모가 자식과 함께 있도록 보장하지는 않습니다. 따라서 선호도 위반이 있고 어떤 이유로 위반을 정정하기 위해 자식을 부모 노드로 이동할 수 없는 경우에는, 부모를 자식 노드로 이동하면 위반이 정정되더라도, 부모는 자식 노드로 이동되지 않습니다. [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) 구성을 true로설정 하면 방향성이 제거됩니다. 또한 서로 다른 서비스에서 별도의 수명 주기를 가지고 있고 독립적으로 실패하고 이동할 수 있기 때문에 선호도 관계가 완벽하거나 즉시 적용될 수 없다는 점에 유의해야 합니다. 예를 들어 크래시로 인해 부모가 갑자기 다른 노드로 장애 조치되었다고 가정해 보겠습니다. 서비스를 계속, 일관성 있게, 사용할 수 있도록 유지하는 것이 우선 순위이므로 클러스터 리소스 관리자와 장애 조치(Failover) 관리자는 장애 조치를 먼저 처리합니다. 장애 조치가 완료되면 선호도 관계는 끊어지지만 클러스터 리소스 관리자에서는 자식이 부모와 함께 있지 않다는 알기 전까지 모든 것이 문제가 없다고 간주합니다. 이러한 종류의 검사는 정기적으로 수행됩니다. 클러스터 리소스 관리자에서 제약 조건을 평가하는 방법에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-management-integration.md#constraint-types)에서 설명하고 있으며, [이 문서](service-fabric-cluster-resource-manager-balancing.md)에서는 이러한 제약 조건을 평가하는 빈도를 구성하는 방법에 대해 자세히 설명합니다.   
 
 
 ### <a name="partitioning-support"></a>분할 지원

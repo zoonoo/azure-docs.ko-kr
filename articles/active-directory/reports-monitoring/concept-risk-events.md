@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6c1b9fabe89d254524006a21e3a422221791022d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4bca7ed2f10ce6b0231a260a9cf5b7468476343f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625269"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652152"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 위험 이벤트
 
@@ -31,13 +31,15 @@ ms.locfileid: "51625269"
  - **Azure AD 보고** - 위험 이벤트는 Azure AD의 보안 보고서의 일부입니다. 자세한 내용은 [위험에 노출된 사용자 보안 보고서](concept-user-at-risk.md) 및 [위험한 로그인 보안 보고서](concept-risky-sign-ins.md)를 참조하세요.
 
  - **Azure AD ID 보호** - 위험 이벤트는 [Azure Active Directory ID 보호](../active-directory-identityprotection.md) 보고 기능의 일부입니다.
-    
+
+또한 [ID 보호 위험 이벤트 API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent)를 사용하여 Microsoft Graph를 통해 보안 검색에 프로그래밍 방식으로 액세스할 수 있습니다. 자세한 내용은 [Azure Active Directory ID 보호 및 Microsoft Graph 시작](../identity-protection/graph-get-started.md)을 참조하세요. 
+
 현재, Azure Active Directory는 6가지 유형의 위험 이벤트를 검색합니다.
 
 - [자격 증명이 손실된 사용자](#leaked-credentials) 
 - [익명 IP 주소에서 로그인](#sign-ins-from-anonymous-ip-addresses) 
 - [비정상적 위치로 불가능한 이동](#impossible-travel-to-atypical-locations) 
-- [감염된 장치에서 로그인](#sign-ins-from-infected-devices) 
+- [감염된 디바이스에서 로그인](#sign-ins-from-infected-devices) 
 - [의심스러운 작업이 있는 IP 주소에서 로그인](#sign-ins-from-ip-addresses-with-suspicious-activity) 
 - [알 수 없는 위치에서 로그인](#sign-in-from-unfamiliar-locations) 
 
@@ -113,7 +115,7 @@ Azure Active Directory가 검색하는 위험 이벤트 유형의 경우 검색 
 | [익명 IP 주소에서 로그인](#sign-ins-from-anonymous-ip-addresses) | 실시간 |
 | [비정상적 위치로 불가능한 이동](#impossible-travel-to-atypical-locations) | 오프라인 |
 | [알 수 없는 위치에서 로그인](#sign-in-from-unfamiliar-locations) | 실시간 |
-| [감염된 장치에서 로그인](#sign-ins-from-infected-devices) | 오프라인 |
+| [감염된 디바이스에서 로그인](#sign-ins-from-infected-devices) | 오프라인 |
 | [의심스러운 작업이 있는 IP 주소에서 로그인](#sign-ins-from-ip-addresses-with-suspicious-activity) | 오프라인|
 
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: eca6f7996b05e58614c8f15067dacabb13730396
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c332b20650bef2e341a935dacae835403dc56c9b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274720"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630668"
 ---
 # <a name="use-an-app-service-environment"></a>App Service Environment 사용 #
 
@@ -39,22 +39,22 @@ Azure App Service Environment는 Azure App Service를 고객의 Azure Virtual Ne
 
 앱 액세스를 위한 외부 또는 내부 VIP로 ASE(ASEv1 및 ASEv2)를 배포할 수 있습니다. 외부 VIP를 사용하는 배포를 대개 외부 ASE라고 합니다. 내부 버전은 내부 ILB(부하 분산 장치)를 사용하므로 ILB ASE라고 합니다. ILB ASE에 대해 자세히 알아보려면 [ILB ASE 만들기 및 사용][MakeILBASE]을 참조하세요.
 
-## <a name="create-a-web-app-in-an-ase"></a>ASE에서 웹앱 만들기 ##
+## <a name="create-an-app-in-an-ase"></a>ASE에서 앱 만들기 ##
 
-ASE에서 웹앱을 만들려는 경우 일반적으로 웹앱을 만들 때 사용하는 것과 같은 프로세스를 사용합니다. 그러나 두 프로세스 간에는 몇 가지 세부적인 차이점이 있습니다. 새 App Service 계획을 만들 때는 다음을 수행합니다.
+ASE에서 앱을 만들려는 경우 일반적으로 앱을 만들 때 사용하는 것과 같은 프로세스를 사용합니다. 그러나 두 프로세스 간에는 몇 가지 세부적인 차이점이 있습니다. 새 App Service 계획을 만들 때는 다음을 수행합니다.
 
 - 앱을 배포하기 위한 지리적 위치를 선택하는 대신 ASE를 위치로 선택합니다.
 - ASE에서 만들어진 모든 App Service 계획은 격리 가격 책정 계층에 있어야 합니다.
 
 ASE가 없는 경우 [App Service Environment 만들기][MakeExternalASE]의 지침에 따라 만들 수 있습니다.
 
-ASE에서 웹앱을 만들려면:
+ASE에서 앱을 만들려면
 
 1. **리소스 만들기** > **웹 + 모바일** > **웹앱**을 선택합니다.
 
-2. 웹앱의 이름을 입력합니다. ASE에서 이미 App Service 계획을 선택한 경우 앱의 도메인 이름에 ASE의 도메인 이름이 반영됩니다.
+2. 앱의 이름을 입력합니다. ASE에서 이미 App Service 계획을 선택한 경우 앱의 도메인 이름에 ASE의 도메인 이름이 반영됩니다.
 
-    ![웹앱 이름 선택][1]
+    ![앱 이름 선택][1]
 
 1. 구독을 선택합니다.
 
@@ -80,10 +80,10 @@ ASE에서 웹앱을 만들려면:
     ![격리 가격 책정 계층][2]
 
     > [!NOTE]
-    > Linux 웹앱 및 Windows 웹앱은 동일한 App Service 계획에는 있을 수 없지만 동일한 App Service 환경에는 있을 수 있습니다. 
+    > Linux 앱과 Windows 앱이 동일한 App Service 계획에는 있을 수 없지만 동일한 App Service Environment에는 있을 수 있습니다. 
     >
 
-1. **만들기**를 선택합니다.
+2. **만들기**를 선택합니다.
 
 ## <a name="how-scale-works"></a>확장이 작동하는 방식 ##
 
@@ -97,7 +97,7 @@ ASE는 최대 100개의 인스턴스를 포함하도록 확장할 수 있습니�
 
 ## <a name="ip-addresses"></a>IP 주소 ##
 
-App Service에는 앱에 전용 IP 주소를 할당하는 기능이 있습니다. [Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩][ConfigureSSL]에 설명된 대로 IP 기반 SSL을 구성하고 나면 이 기능을 사용할 수 있습니다. 그러나 ASE에는 중요한 예외 사항이 있습니다. 즉, ILB ASE에서 IP 기반 SSL용으로 사용할 IP 주소를 더 추가할 수는 없습니다.
+App Service에는 앱에 전용 IP 주소를 할당하는 기능이 있습니다. [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩][ConfigureSSL]에 설명된 대로 IP 기반 SSL을 구성하고 나면 이 기능을 사용할 수 있습니다. 그러나 ASE에는 중요한 예외 사항이 있습니다. 즉, ILB ASE에서 IP 기반 SSL용으로 사용할 IP 주소를 더 추가할 수는 없습니다.
 
 ASEv1에서는 IP 주소를 사용하기 전에 IP 주소를 리소스로 할당해야 합니다. ASEv2에서는 다중 테넌트 App Service에서와 마찬가지로 앱에서 IP 주소를 사용합니다. ASEv2에는 항상 여분의 주소가 하나 있습니다(최대 IP 주소 30개). IP 주소를 사용할 때마다 다른 주소가 추가되므로 주소 하나를 항상 즉시 사용할 수 있습니다. 다른 IP 주소를 할당할 때는 시간이 지연되므로, IP 주소를 연속해서 빠르게 추가할 수는 없습니다.
 
@@ -187,6 +187,6 @@ ASE를 삭제하려면 다음을 수행합니다.
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
-[AppDeploy]: ../app-service-deploy-local-git.md
+[AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

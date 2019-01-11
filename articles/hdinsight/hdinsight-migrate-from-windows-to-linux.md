@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: bcaf59e1d9b36dfbb17f1e0b8089cd88e626e2b9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: ea808609add942c5cac36e7f0306e4a27ac3bb3a
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437132"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743649"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Windows 기반 HDInsight 클러스터에서 Linux 기반 클러스터로 마이그레이션
 
@@ -119,7 +119,7 @@ Windows 기반 HDInsight가 클라우드에서 Apache Hadoop을 사용하는 쉬
 
 ### <a name="ssh-user"></a>SSH 사용자
 
-Linux 기반 HDInsight 클러스터는 클러스터 노드에 원격 액세스를 제공하기 위해 **SSH(Secure Shell)** 프로토콜을 사용합니다. Window 기반 클러스터용 원격 데스크톱과 달리, 대부분의 SSH 클라이언트는 그래픽 사용자 경험을 제공하지 않습니다. 대신, SSH 클라이언트가 클러스터에서 명령을 실행할 수 있는 명령줄을 제공합니다. 일부 클라이언트(예: [MobaXterm](http://mobaxterm.mobatek.net/))는 원격 명령줄 외에 그래픽 파일 시스템 브라우저를 제공합니다.
+Linux 기반 HDInsight 클러스터는 클러스터 노드에 원격 액세스를 제공하기 위해 **SSH(Secure Shell)** 프로토콜을 사용합니다. Window 기반 클러스터용 원격 데스크톱과 달리, 대부분의 SSH 클라이언트는 그래픽 사용자 경험을 제공하지 않습니다. 대신, SSH 클라이언트가 클러스터에서 명령을 실행할 수 있는 명령줄을 제공합니다. 일부 클라이언트(예: [MobaXterm](https://mobaxterm.mobatek.net/))는 원격 명령줄 외에 그래픽 파일 시스템 브라우저를 제공합니다.
 
 클러스터를 생성하는 동안 인증을 위해 SSH 사용자와 더불어 **암호** 또는 **공개 키 인증서** 중 하나를 제공해야 합니다.
 
@@ -199,7 +199,7 @@ Linux 기반 HDInsight는 원격 데스크톱 기능을 제공하지 않습니�
 | `set hive.execution.engine=tez;` - Tez 사용 설정 |Apache Tez는 Linux 기반 클러스터에 대한 기본 실행 엔진이므로 SET 문이 더 이상 필요하지 않습니다. |
 | C# 사용자 정의 함수 | Linux 기반 HDInsight로 C# 구성 요소를 검증하는 방법에 대한 자세한 내용은 [.NET 솔루션을 Linux 기반 HDInsight로 마이그레이션](hdinsight-hadoop-migrate-dotnet-to-linux.md)을 참조하세요. |
 | Hive 작업의 일부로 호출된 서버의 CMD 파일 또는 스크립트 |Bash 스크립트 사용 |
-| `hive` 명령 |[SSH 세션에서 Apache Hive](hdinsight-hadoop-use-hive-ssh.md) 또는 [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) 사용 |
+| `hive` 명령 |SSH 세션에서 [Apache Hive Beeline](hadoop/apache-hadoop-use-hive-beeline.md) 또는 [Apache Hive](hdinsight-hadoop-use-hive-ssh.md) 사용 |
 
 ### <a name="pig"></a>Pig
 
@@ -220,7 +220,7 @@ Linux 기반 HDInsight는 원격 데스크톱 기능을 제공하지 않습니�
 > [!IMPORTANT]  
 > 외부 Oozie 메타스토어를 사용하는 경우 Linux 기반 HDInsight와 함께 사용하기 전에 메타스토어를 백업해야 합니다. Linux 기반 HDInsight는 최신 버전의 Oozie에서 사용할 수 있으며, 이 경우 이전 버전에서 만든 메타스토어와 호환되지 않을 수 있습니다.
 
-Oozie 워크플로에서는 셸 작업이 가능합니다. 셸 작업은 운영 체제의 기본 셸을 사용하여 명령줄 명령을 실행합니다. Windows 셸에 의존하는 Oozie 워크플로가 있는 경우 Linux 셸 환경(Bash)에 의존하도록 워크플로를 다시 작성해야 합니다. Oozie와 함께 셸 작업을 사용하는 방법에 대한 자세한 내용은 [Oozie 셸 작업 확장](http://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html)을 참조하세요.
+Oozie 워크플로에서는 셸 작업이 가능합니다. 셸 작업은 운영 체제의 기본 셸을 사용하여 명령줄 명령을 실행합니다. Windows 셸에 의존하는 Oozie 워크플로가 있는 경우 Linux 셸 환경(Bash)에 의존하도록 워크플로를 다시 작성해야 합니다. Oozie와 함께 셸 작업을 사용하는 방법에 대한 자세한 내용은 [Oozie 셸 작업 확장](https://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html)을 참조하세요.
 
 C# 애플리케이션을 사용하는 워크플로가 있는 경우 Linux 환경에서 해당 애플리케이션의 유효성을 검사하세요. 자세한 내용은 [.NET 솔루션을 Linux 기반 HDInsight로 마이그레이션](hdinsight-hadoop-migrate-dotnet-to-linux.md)을 참조하세요.
 
@@ -234,7 +234,7 @@ C# 애플리케이션을 사용하는 워크플로가 있는 경우 Linux 환경
 
 ## <a name="apache-hbase"></a>Apache HBase
 
-Linux 기반 클러스터에서 HBase에 대한 znode 상위는 `/hbase-unsecure`입니다. 기본 HBase Java API를 사용하는 모든 Java 클라이언트 응용 프로그램 구성에서 이 값을 설정합니다.
+Linux 기반 클러스터에서 HBase에 대한 znode 상위는 `/hbase-unsecure`입니다. 기본 HBase Java API를 사용하는 모든 Java 클라이언트 애플리케이션 구성에서 이 값을 설정합니다.
 
 이 값을 설정하는 예제 클라이언트에 대한 내용은 [Java 기반 Apache HBase 애플리케이션 빌드](hdinsight-hbase-build-java-maven.md)를 참조하세요.
 

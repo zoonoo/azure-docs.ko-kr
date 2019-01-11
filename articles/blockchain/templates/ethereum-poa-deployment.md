@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 12fab05ef7c459419c8aaf319098fddaae1416e6
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 145dd36629286980c0f0e1692df3afb227764285
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242125"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974049"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum 인증 증명 컨소시엄
 
@@ -198,7 +198,7 @@ __후보__ 탭을 선택하면 현재 관리자 후보 집합이 표시됩니다
 
 구독이 보호된 후 Azure Portal로 이동합니다. '+', Marketplace('모두 보기')를 선택하고 Ethereum PoA 컨소시엄을 검색합니다.
 
-다음 섹션에서는 네트워크에서 첫 번째 멤버의 공간을 구성하는 과정을 안내합니다. 배포 흐름은 기본 사항, 배포 지역, 네트워크 크기 및 성능, Ethereum 설정, Azure Monitor의 5단계로 구분됩니다.
+다음 섹션에서는 네트워크에서 첫 번째 멤버의 공간을 구성하는 과정을 안내합니다. 배포 흐름은 다음 5단계로 구분됩니다. 기본 사항, 배포 지역, 네트워크 크기 및 성능, Ethereum 설정, Azure Monitor.
 
 #### <a name="basics"></a>기본 사항
 
@@ -211,11 +211,11 @@ __후보__ 탭을 선택하면 현재 관리자 후보 집합이 표시됩니다
 새 네트워크를 만드시겠습니까, 아니면 기존 네트워크를 조인하시겠습니까?|새 네트워크를 만들거나 기존 컨소시엄 네트워크를 조인합니다.|새로 만들기 기존 조인|새로 만들기
 이메일 주소(선택 사항)|배포에 대한 정보를 사용하여 배포가 완료되면 이메일 알림을 받게 됩니다.|유효한 이메일 주소|해당 없음
 VM 사용자 이름|각 배포된 VM의 관리자 사용자 이름(영숫자 문자만)|1-64자|해당 없음
-인증 유형|가상 머신을 인증하는 방법.|암호 또는 SSH 공개 키|암호
-암호(인증 형식 = 암호)|배포된 각 가상 머신의 관리자 계정 암호.  암호에는 대문자 1자, 소문자 1자, 숫자 1개 및 특수 문자 1자 중 3가지가 포함되어야 합니다. 처음에는 모든 VM의 암호가 동일하지만, 프로비전 후 암호를 변경할 수 있습니다.|12-72자|해당 없음
+인증 유형|가상 머신에 인증하는 메서드입니다.|암호 또는 SSH 공개 키|암호
+암호(인증 형식 = 암호)|배포된 각 가상 머신의 관리자 계정 암호.  암호에는 다음 중 3가지가 반드시 포함되어야 합니다. 대문자 1개, 소문자 1개, 숫자 1개, 특수 문자 1개. 처음에는 모든 VM의 암호가 동일하지만, 프로비전 후 암호를 변경할 수 있습니다.|12-72자|해당 없음
 SSH 키(인증 유형 = 공개 키)|원격 로그인에 사용하는 보안 셸 키.||해당 없음
 구독|컨소시엄 네트워크를 배포하는 구독||해당 없음
-리소스 그룹|컨소시엄 네트워크를 배포하는 리소스 그룹.||해당 없음
+리소스 그룹|컨소시엄 네트워크를 배포하는 리소스 그룹입니다.||해당 없음
 위치|리소스 그룹에 대한 Azure 지역입니다.||해당 없음
 
 샘플 배포는 다음과 같습니다. ![기본 사항 블레이드](./media/ethereum-poa-deployment/basic-blade.png)
@@ -744,7 +744,7 @@ $ truffle migrate --network poa
 
 ### <a name="debug-smart-contract-with-truffle"></a>Truffle을 사용하여 스마트 계약 디버그
 
-Truffle은 스마트 계약을 디버그하는 데 사용할 수 있는 로컬 개발 네트워크를 보유하고 있습니다. 전체 자습서는 [여기서](http://truffleframework.com/tutorials/debugging-a-smart-contract) 찾을 수 있습니다.
+Truffle은 스마트 계약을 디버그하는 데 사용할 수 있는 로컬 개발 네트워크를 보유하고 있습니다. 전체 자습서는 [여기서](https://truffleframework.com/tutorials/debugging-a-smart-contract) 찾을 수 있습니다.
 
 ### <a name="webassembly-wasm-support"></a>WebAssembly(WASM) 지원
 

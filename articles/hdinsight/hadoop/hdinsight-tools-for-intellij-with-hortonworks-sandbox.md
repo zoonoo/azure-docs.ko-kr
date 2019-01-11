@@ -10,24 +10,24 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 56747179c69e6495e9a764f81e0827e29cb077e6
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: aaebad004e5d426ca1c593941b15a2515c4476de
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017409"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635666"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Hortonworks 샌드박스에서 IntelliJ용 HDInsight Tools 사용
 
-IntelliJ용 HDInsight 도구를 사용하여 컴퓨터에서 실행되는 [Hortonworks 샌드박스](https://hortonworks.com/products/sandbox/)에서 Apache Scala 응용 프로그램을 개발한 다음 응용 프로그램을 테스트하는 방법을 알아봅니다. 
+IntelliJ용 HDInsight 도구를 사용하여 컴퓨터에서 실행되는 [Hortonworks 샌드박스](https://hortonworks.com/products/sandbox/)에서 Apache Scala 애플리케이션을 개발한 다음, 애플리케이션을 테스트하는 방법을 알아봅니다. 
 
-[IntelliJ IDEA](https://www.jetbrains.com/idea/)는 컴퓨터 소프트웨어를 개발하기 위한 Java IDE(통합 개발 환경)입니다. Hortonworks 샌드박스에서 응용 프로그램을 개발하고 테스트한 후에 [Azure HDInsight](apache-hadoop-introduction.md)로 응용 프로그램을 이동할 수 있습니다.
+[IntelliJ IDEA](https://www.jetbrains.com/idea/)는 컴퓨터 소프트웨어를 개발하기 위한 Java IDE(통합 개발 환경)입니다. Hortonworks 샌드박스에서 애플리케이션을 개발하고 테스트한 후에 [Azure HDInsight](apache-hadoop-introduction.md)로 애플리케이션을 이동할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에 다음 항목이 있어야 합니다.
 
-- 로컬 컴퓨터에서 실행되는 Hortonworks 샌드박스의 HDP(Hortonworks Data Platform) 2.4. HDP를 설정하려면 [가상 컴퓨터에서 Hadoop 샌드박스를 사용하여 Hadoop 에코 시스템 시작](apache-hadoop-emulator-get-started.md)을 참조하세요. 
+- 로컬 컴퓨터에서 실행되는 Hortonworks 샌드박스의 HDP(Hortonworks Data Platform) 2.4. HDP를 설정하려면 [가상 머신에서 Hadoop 샌드박스를 사용하여 Apache Hadoop 에코시스템 시작](apache-hadoop-emulator-get-started.md)을 참조하세요. 
     > [!NOTE]
     > IntelliJ용 HDInsight Tools는 HDP 2.4에서만 테스트되었습니다. HDP 2.4를 가져오려면 [Hortonworks 샌드박스 다운로드 사이트](https://hortonworks.com/downloads/#sandbox)에서 **Hortonworks 샌드박스 보관**을 확장합니다.
 
@@ -44,7 +44,7 @@ IntelliJ용 HDInsight 도구를 사용하여 컴퓨터에서 실행되는 [Horto
   5. 설치를 완료하려면 **IntelliJ IDEA 다시 시작**을 선택합니다.
   6. 4~5단계를 반복하여 **IntelliJ용 Azure 도구 키트**를 설치합니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트 설치](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation)를 참조하세요.
 
-## <a name="create-a-spark-scala-application"></a>Spark Scala 애플리케이션 만들기
+## <a name="create-an-apache-spark-scala-application"></a>Apache Spark Scala 애플리케이션 만들기
 
 이 섹션에서는 IntelliJ IDEA를 사용하여 샘플 Scala 프로젝트를 만듭니다. 다음 섹션에서는 프로젝트를 제출하기 전에 Hortonworks 샌드박스(에뮬레이터)에 IntelliJ IDEA를 연결합니다.
 
@@ -118,7 +118,7 @@ IntelliJ용 HDInsight 도구를 사용하여 컴퓨터에서 실행되는 [Horto
 
 ## <a name="link-to-the-hortonworks-sandbox"></a>Hortonworks 샌드박스에 연결
 
-Hortonworks 샌드박스(에뮬레이터)에 연결하려면 기존 IntelliJ 응용 프로그램이 있어야 합니다.
+Hortonworks 샌드박스(에뮬레이터)에 연결하려면 기존 IntelliJ 애플리케이션이 있어야 합니다.
 
 에뮬레이터에 연결하려면:
 
@@ -133,13 +133,13 @@ Hortonworks 샌드박스(에뮬레이터)에 연결하려면 기존 IntelliJ 응
 
 에뮬레이터가 성공적으로 연결되면 HDInsight 노드에 에뮬레이터(Hortonworks 샌드박스)가 나열됩니다.
 
-## <a name="submit-the-spark-scala-application-to-the-hortonworks-sandbox"></a>Hortonworks 샌드박스에 Spark Scala 응용 프로그램 제출
+## <a name="submit-the-spark-scala-application-to-the-hortonworks-sandbox"></a>Hortonworks 샌드박스에 Spark Scala 애플리케이션 제출
 
 IntelliJ IDEA를 에뮬레이터에 연결한 후에는 프로젝트를 제출할 수 있습니다.
 
 에뮬레이터에 프로젝트를 제출하려면:
 
-1. **프로젝트 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **HDInsight에 Spark 응용 프로그램 제출**을 선택합니다.
+1. **프로젝트 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **HDInsight에 Spark 애플리케이션 제출**을 선택합니다.
 2. 다음 단계를 완료합니다.
 
     1. **Spark 클러스터(Linux만 해당)** 드롭다운 목록에서 로컬 Hortonworks 샌드박스를 선택합니다.
@@ -149,14 +149,14 @@ IntelliJ IDEA를 에뮬레이터에 연결한 후에는 프로젝트를 제출�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여 HDInsight Spark Linux 클러스터용 Spark 응용 프로그램을 만드는](../spark/apache-spark-intellij-tool-plugin.md) 방법을 알아봅니다.
+- [Azure Toolkit for IntelliJ의 HDInsight 도구를 사용하여 HDInsight Spark Linux 클러스터용 Apache Spark 애플리케이션을 만드는](../spark/apache-spark-intellij-tool-plugin.md) 방법을 알아봅니다.
 
-- IntelliJ용 HDInsight 도구에 대한 비디오는 [Spark 개발을 위한 IntelliJ용 HDInsight 도구 소개](https://www.youtube.com/watch?v=YTZzYVgut6c)를 참조하세요.
+- IntelliJ용 HDInsight 도구에 대한 비디오는 [Apache Spark 개발을 위한 IntelliJ용 HDInsight 도구 소개](https://www.youtube.com/watch?v=YTZzYVgut6c)를 참조하세요.
 
-- [IntelliJ용 Azure 도구 키트를 사용하여 SSH를 통해 HDInsight 클러스터에서 원격으로 Spark 응용 프로그램을 디버그](../spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)하는 방법을 알아봅니다.
+- [Azure Toolkit for IntelliJ를 사용하여 SSH를 통해 HDInsight 클러스터에서 원격으로 Apache Spark 애플리케이션을 디버그](../spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)하는 방법을 알아봅니다.
 
-- [HDInsight Spark Linux 클러스터에서 IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여 Spark 응용 프로그램을 원격으로 디버그](../spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)하는 방법을 알아봅니다.
+- [HDInsight Spark Linux 클러스터에서 Azure Toolkit for IntelliJ의 HDInsight 도구를 사용하여 Apache Spark 애플리케이션을 원격으로 디버그](../spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)하는 방법을 알아봅니다.
 
-- [Eclipse용 Azure 도구 키트의 HDInsight 도구를 사용하여 Spark 응용 프로그램을 만드는](../spark/apache-spark-eclipse-tool-plugin.md) 방법을 알아봅니다.
+- [Azure Toolkit for Eclipse의 HDInsight 도구를 사용하여 Apache Spark 애플리케이션을 만드는](../spark/apache-spark-eclipse-tool-plugin.md) 방법을 알아봅니다.
 
-- Eclipse용 HDInsight 도구에 대한 비디오는 [Eclipse용 HDInsight 도구를 사용하여 Spark 응용 프로그램 만들기](https://mix.office.com/watch/1rau2mopb6fha)를 참조하세요.
+- Eclipse용 HDInsight 도구에 대한 비디오는 [Eclipse용 HDInsight 도구를 사용하여 Spark 애플리케이션 만들기](https://mix.office.com/watch/1rau2mopb6fha)를 참조하세요.

@@ -1,6 +1,6 @@
 ---
 title: C로 Windows 디바이스를 원격 모니터링에 프로비전 - Azure | Microsoft Docs
-description: Windows에서 실행 중인 C로 작성한 응용 프로그램을 Linux에서 실행하여 원격 모니터링 솔루션 가속기에 디바이스를 연결하는 방법을 설명합니다.
+description: Windows에서 실행 중인 C로 작성한 애플리케이션을 Linux에서 실행하여 원격 모니터링 솔루션 가속기에 장치를 연결하는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,20 +8,22 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: 55c8ff799ba3ff7fe9691d46dc90a00d5182d390
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 729ba19153eeb9767961d099e7a37c10a38b1286
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829413"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634716"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>디바이스를 원격 모니터링 솔루션 가속기에 연결(Windows)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-이 자습서에서는 원격 모니터링 솔루션 가속기에 물리적 디바이스를 연결하는 방법을 보여줍니다.
+이 자습서는 원격 모니터링 솔루션 가속기에 실제 디바이스를 연결하는 방법을 보여 줍니다.
 
-제한된 디바이스에서 실행되는 대부분의 임베디드 애플리케이션과 마찬가지로, 디바이스 애플리케이션의 클라이언트 코드는 C로 작성됩니다. 이 자습서에서는 Windows를 실행하는 머신에서 디바이스 클라이언트 애플리케이션을 빌드합니다.
+제한된 장치에서 실행되는 대부분의 임베디드 애플리케이션과 마찬가지로, 장치 애플리케이션의 클라이언트 코드는 C로 작성됩니다. 이 자습서에서는 Windows를 실행하는 머신에서 장치 클라이언트 애플리케이션을 빌드합니다.
+
+디바이스를 시뮬레이션하려면 [새 시뮬레이션된 디바이스 만들기 및 테스트](iot-accelerators-remote-monitoring-create-simulated-device.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -33,7 +35,7 @@ ms.locfileid: "48829413"
 
 ### <a name="download-the-source-code-and-prepare-the-project"></a>소스 코드 다운로드 및 프로젝트 준비
 
-프로젝트를 준비하려면 GitHub에서 [Azure IoT C SDK 리포지토리](https://github.com/Azure/azure-iot-sdk-c)를 복제하거나 다운로드합니다.
+프로젝트를 준비하려면 GitHub에서 [Azure IoT C SDK 리포지토리를 복제](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#set-up-a-windows-development-environment)합니다.
 
 샘플은 **samples/solutions/remote_monitoring_client** 폴더에 있습니다.
 
@@ -45,7 +47,7 @@ ms.locfileid: "48829413"
 
 1. **remote_monitoring.c** 파일을 편집하여 `<connectionstring>`을 이 방법 가이드 시작 부분에서 솔루션 가속기에 장치를 추가할 때 적어 둔 장치 연결 문자열로 바꿉니다.
 
-1. [Windows에서 C SDK 빌드](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#build-the-c-sdk-in-windows)의 단계에 따라 SDK 및 원격 모니터링 클라이언트 응용 프로그램을 빌드합니다.
+1. [Windows에서 C SDK 빌드](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#build-the-c-sdk-in-windows)의 단계에 따라 SDK 및 원격 모니터링 클라이언트 애플리케이션을 빌드합니다.
 
 1. 솔루션을 빌드하는 데 사용한 명령 프롬프트에서 다음을 실행합니다.
 

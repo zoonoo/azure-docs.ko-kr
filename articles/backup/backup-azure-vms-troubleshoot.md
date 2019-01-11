@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/7/2018
 ms.author: trinadhk
-ms.openlocfilehash: b751fe4feab48e6ed706a2e28bba8406f4f4891c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9bbaf23999c04eba5157ebe7dff73ed47418c99a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185701"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634187"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 가상 머신 백업 문제 해결
 다음 테이블에 나열된 정보를 참조하여 Azure Backup을 사용하는 동안 발생하는 오류를 해결할 수 있습니다.
@@ -69,11 +69,11 @@ ms.locfileid: "53185701"
 | 복원 작업에 지정된 스토리지 계정의 유형이 온라인 상태에 있지 않습니다. <br>복원 작업에 지정된 스토리지 계정이 온라인 상태에 있는지 확인합니다. |이 오류는 Azure Storage의 일시적인 오류 또는 가동 중지로 인해 발생할 수 있습니다. 다른 저장소 계정을 선택하세요. |
 | 리소스 그룹 할당량에 도달했습니다. <br>Azure Portal의 일부 리소스 그룹을 삭제하거나 Azure 지원에 문의하여 제한을 늘립니다. |없음 |
 | 선택한 서브넷이 존재하지 않습니다. <br>존재하는 서브넷을 선택합니다. |없음 |
-| Backup 서비스에 구독의 리소스에 액세스할 수 있는 권한이 없습니다. |이 오류를 해결하려면 먼저 [백업된 디스크 복원](backup-azure-arm-restore-vms.md#restore-backed-up-disks)의 단계를 사용하여 디스크를 복원합니다. 그런 다음, [복원된 디스크에서 VM 만들기](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)의 PowerShell 단계를 사용하여 복원된 디스크에서 전체 VM을 만듭니다. |
+| Backup 서비스에 구독의 리소스에 액세스할 수 있는 권한이 없습니다. |이 오류를 해결하려면 먼저 [백업된 디스크 복원](backup-azure-arm-restore-vms.md#create-new-restore-disks)의 단계를 사용하여 디스크를 복원합니다. 그런 다음, [복원된 디스크에서 VM 만들기](backup-azure-vms-automation.md#restore-an-azure-vm)의 PowerShell 단계를 사용합니다. |
 
 ## <a name="backup-or-restore-takes-time"></a>백업 또는 복원에 시간이 걸림
 백업이 12시간 넘게 걸리거나 복원이 6시간 넘게 걸리는 경우:
-* [백업 시간에 영향을 주는 요인](backup-azure-vms-introduction.md#total-vm-backup-time) 및 [복원 시간에 영향을 주는 요인](backup-azure-vms-introduction.md#total-restore-time)을 파악합니다.
+* [백업 시간에 영향을 주는 요인](backup-azure-vms-introduction.md#time-considerations) 및 [복원 시간에 영향을 주는 요인](backup-azure-vms-introduction.md#restore-considerations)을 파악합니다.
 * [백업 모범 사례](backup-azure-vms-introduction.md#best-practices)를 따라야 합니다.
 
 ## <a name="vm-agent"></a>VM 에이전트

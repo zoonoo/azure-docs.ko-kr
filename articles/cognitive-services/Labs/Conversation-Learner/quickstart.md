@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: b98b528d2d78d2285977dec49da18081df47e9d6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 3d029c91debfc8ed3ac24e831224426a2780b763
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166135"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791075"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Node.js를 사용하여 Conversation Learner 모델 만들기
 
@@ -112,14 +112,11 @@ Project Conversation Learner는 봇에 추가하는 SDK와 SDK가 기계 학습�
   npm run demo-password
   npm run demo-pizza
   npm run demo-storage
-  npm run demo-vrapp
   ```
 
 4. Chrome에서 Conversation Learner 웹 UI로 아직 전환하지 않은 경우 http://localhost:5050/home을 로드하여 전환합니다. 
 
-5. "자습서 가져오기"를 클릭합니다(한 번만 필요).  이 작업에는 약 1분이 소요되며, 모든 자습서에 대한 Conversation Learner 모델이 사용자의 Conversation Learner 계정으로 복사됩니다.
-
-6. Conversation Learner UI에서 시작한 데모에 해당하는 데모 모델을 클릭합니다.
+5. “자습서 가져오기”를 클릭하고 Conversation Learner UI에서 시작한 데모에 해당하는 데모 모델을 선택합니다.
 
 데모의 원본 파일은 `cl-bot-01/src/demos`에 있습니다.
 
@@ -181,4 +178,4 @@ cp .env.example .env
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Hello world](./tutorials/1-hello-world.md)
+> [Hello world](./tutorials/01-hello-world.md)

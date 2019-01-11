@@ -2,20 +2,17 @@
 title: Azure Database for MariaDB에 대한 연결 문제 해결 | Microsoft Docs
 description: Azure Database for MariaDB에 대한 연결 문제를 해결하는 방법을 알아봅니다.
 keywords: MariaDB 연결, 연결 문자열, 연결 문제, 일시적 오류, 연결 오류
-services: mariadb
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 0100fa6d9691c864de9ac4aaea04b647e1705872
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c7e1ff10f9698bf57ce86a7e9686ef13e5248db7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565142"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545912"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대한 연결 문제 해결
 
@@ -43,7 +40,7 @@ ms.locfileid: "51565142"
 1. [Microsoft Azure 서비스 대시보드](https://azure.microsoft.com/status)에서 애플리케이션이 오류를 보고한 시간 동안 발생한 알려진 중단을 모두 확인합니다.
 2. Azure Database for MariaDB와 같은 클라우드 서비스에 연결하는 애플리케이션은 일시적 오류를 예상하고 이러한 이벤트를 사용자에게 애플리케이션 오류로 표시하는 대신 해당 오류를 처리하는 재시도 논리를 구현해야 합니다. 일시적 오류 처리를 위한 모범 사례 및 설계 지침은 [Handling of transient connectivity errors for Azure Database for MariaDB](concepts-connectivity.md)(Azure Database for MariaDB에 대한 일시적 연결 오류 처리)를 검토하세요.
 3. 서버에서 리소스 제한에 도달하면 오류가 일시적 연결 문제로 보일 수 있습니다. [Azure Database for MariaDB의 제한 사항](concepts-limits.md)을 참조하세요.
-4. 연결 문제가 계속 발생하거나 애플리케이션에서 오류가 발생하는 기간이 60초를 초과하는 경우 또는 특정일에 오류가 여러 번 발생하는 경우에는 **Azure 지원** 사이트에서 [지원 받기](https://azure.microsoft.com/support/options) 를 선택하여 Azure 지원 요청을 접수합니다.
+4. 연결 문제가 계속 발생하거나 애플리케이션에서 오류가 발생하는 기간이 60초를 초과하는 경우 또는 특정일에 오류가 여러 번 발생하는 경우에는 **Azure 지원** 사이트에서 [지원 받기](https://azure.microsoft.com/support/options)를 선택하여 Azure 지원 요청을 접수합니다.
 
 ## <a name="troubleshoot-persistent-errors"></a>영구 오류 문제 해결
 

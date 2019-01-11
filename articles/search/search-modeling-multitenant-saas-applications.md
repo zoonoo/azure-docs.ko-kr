@@ -1,6 +1,6 @@
 ---
-title: Azure Search의 다중 테넌트 모델링 | Microsoft Docs
-description: Azure Search를 사용할 때의 다중 테넌트 SaaS 응용 프로그램에 대한 일반적인 디자인 패턴에 대해 알아봅니다.
+title: 하나의 서비스에서 콘텐츠 격리를 위한 다중 테넌트 지원 모델링 - Azure Search
+description: Azure Search를 사용할 때의 다중 테넌트 SaaS 애플리케이션에 대한 일반적인 디자인 패턴에 대해 알아봅니다.
 manager: jlembicz
 author: LiamCavanagh
 services: search
@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 1da9756df4fa05b367665a5fe024528939f22578
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 58d7ca65a14f9f774b19796c9beae2a7c84102ad
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313040"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632928"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>다중 테넌트 SaaS 애플리케이션 및 Azure Search에 대한 디자인 패턴
 다중 테넌트 애플리케이션은 다른 테넌트의 데이터를 보거나 공유할 수 없는 임의 개수의 테넌트에 동일한 서비스와 기능을 제공하는 애플리케이션입니다. 이 문서에서는 Azure Search를 사용하여 작성된 다중 테넌트 애플리케이션에 대한 테넌트 격리 전략에 대해 설명합니다.
 
 ## <a name="azure-search-concepts"></a>Azure Search 개념
-Search-as-a-Service 솔루션인 Azure Search는 개발자가 인프라를 관리하거나 정보 검색 전문가가 아니더라도 응용 프로그램에 다양한 검색 환경을 추가할 수 있도록 합니다. 데이터는 서비스에 업로드된 후 클라우드에 저장됩니다. Azure Search API에 대한 간단한 요청을 사용하여 데이터를 수정 및 검색할 수 있습니다. 서비스의 개요는 [이 문서](https://aka.ms/whatisazsearch)에서 확인할 수 있습니다. 디자인 패턴에 대해 논의하기 전에 Azure Search의 일부 개념을 이해해야 합니다.
+Search-as-a-Service 솔루션인 Azure Search는 개발자가 인프라를 관리하거나 정보 검색 전문가가 아니더라도 애플리케이션에 다양한 검색 환경을 추가할 수 있도록 합니다. 데이터는 서비스에 업로드된 후 클라우드에 저장됩니다. Azure Search API에 대한 간단한 요청을 사용하여 데이터를 수정 및 검색할 수 있습니다. 서비스의 개요는 [이 문서](https://aka.ms/whatisazsearch)에서 확인할 수 있습니다. 디자인 패턴에 대해 논의하기 전에 Azure Search의 일부 개념을 이해해야 합니다.
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Search 서비스, 인덱스, 필드 및 문서
 Azure Search를 사용하는 경우 *Search 서비스*를 구독하게 됩니다. 데이터가 Azure Search에 업로드되면 Search 서비스 내의 *인덱스* 에 저장됩니다. 하나의 서비스 내에 많은 수의 인덱스가 있을 수 있습니다. 데이터베이스의 익숙한 개념을 사용하기 위해 검색 서비스를 데이터베이스에, 서비스 내의 인덱스를 데이터베이스 내의 테이블에 비유할 수 있습니다.
@@ -55,7 +55,7 @@ S3 HD는 파티션을 사용하여 인덱스를 확장할 수 있는 기능을 �
 
 구체적으로, S3 서비스는 1~200개의 인덱스를 함께 사용하여 최대 14억 개의 문서를 호스트할 수 있습니다. 반면, S3 HD는 개별 인덱스에 대해 최대 100만 개의 문서만 허용하지만 파티션당 최대 1000개(서비스당 최대 3000개)의 인덱스를 처리할 수 있으며, 파티션당 총 문서 수는 2억 개(서비스당 최대 6억 개)입니다.
 
-## <a name="considerations-for-multitenant-applications"></a>다중 테넌트 응용 프로그램에 대한 고려 사항
+## <a name="considerations-for-multitenant-applications"></a>다중 테넌트 애플리케이션에 대한 고려 사항
 다중 테넌트 애플리케이션은 다양한 테넌트 간에 일정 수준의 개인 정보를 유지하면서 테넌트 간에 리소스를 효과적으로 배포해야 합니다. 이러한 애플리케이션에 대한 아키텍처를 디자인할 때 다음과 같은 사항을 고려해야 합니다.
 
 * *테넌트 격리:* 애플리케이션 개발자는 다른 테넌트의 데이터에 무단으로 또는 동의 없이 액세스하는 테넌트가 없도록 하기 위해 적절한 조치를 수행해야 합니다. 테넌트 격리 전략은 데이터 개인 정보 보호 측면 외에도, 공유 리소스를 효과적으로 관리하고 노이즈 환경으로부터 보호할 수 있어야 합니다.
@@ -84,7 +84,7 @@ Azure Search에서는 테넌트의 데이터 및 작업 부하를 격리하는 �
 
 테넌트당 인덱스 모델은 가변 비용 모델의 토대를 제공합니다. 이러한 모델에서는 전체 Azure Search 서비스가 사전 구매된 후 이후에 테넌트로 채워집니다. 따라서 평가판 및 무료 계정을 위해 미사용 용량을 디자인할 수 있습니다.
 
-전역 공간이 있는 응용 프로그램의 경우 테넌트당 인덱스 모델이 가장 효율적이 아닐 수도 있습니다. 애플리케이션의 테넌트가 전 세계에 걸쳐 분산되어 있으면 각 지역에 대해 별도 서비스가 필요할 수 있으므로 각각에 대해 비용이 중복될 수 있습니다.
+전역 공간이 있는 애플리케이션의 경우 테넌트당 인덱스 모델이 가장 효율적이 아닐 수도 있습니다. 애플리케이션의 테넌트가 전 세계에 걸쳐 분산되어 있으면 각 지역에 대해 별도 서비스가 필요할 수 있으므로 각각에 대해 비용이 중복될 수 있습니다.
 
 Azure Search를 사용하면 개별 인덱스와 총 인덱스 수가 모두 커져도 됩니다. 적절한 가격 계층을 선택한 경우 서비스 내의 개별 인덱스가 저장소 또는 트래픽 측면에서 너무 커질 때 전체 검색 서비스에 파티션 및 복제본을 추가할 수 있습니다.
 

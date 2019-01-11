@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights 미리 보기 탐색기 - Azure Time Series Insights 미리 보기 탐색기에서 데이터 시각화 | Microsoft Docs
+title: Azure Time Series Insights 미리 보기 탐색기에서 데이터 시각화 | Microsoft Docs
 description: 이 문서에서는 Azure Time Series Insights 미리 보기 탐색기 웹앱에서 사용할 수 있는 기능 및 옵션에 대해 설명합니다.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5372a36291ee13966d497bdae83a6e214dce99b9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: d5c18521f39b1b57b5f94a54bb3131e05abba745
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272340"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556648"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>탐색기 미리 보기에서 데이터 시각화
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: ce0c51a3b97c57095a336128919c5e27f860905b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1e35513d5a5a799b1f5e45cf9a5aa97c083e2087
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38676473"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725204"
 ---
 # <a name="devtest-labs-concepts"></a>DevTest Lab 개념
 ## <a name="overview"></a>개요
@@ -29,7 +29,7 @@ ms.locfileid: "38676473"
 랩은 VM(Virtual Machines)과 같은 리소스 그룹을 포함하는 인프라로서, 이를 통해 한도 및 할당량을 지정하여 해당 리소스를 더 잘 관리할 수 있습니다.
 
 ## <a name="virtual-machine"></a>가상 컴퓨터
-Azure VM은 Azure에서 제공하는 여러 유형의 [확장성 있는 주문형 컴퓨팅 리소스](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm) 중 하나입니다. Azure VM은 VM을 실행하는 실제 하드웨어를 구입 및 유지 관리할 필요가 없는 가상화의 유연성을 제공합니다. 하지만 VM에서 실행하는 소프트웨어의 구성, 패치 및 설치와 같은 특정 작업을 수행하여 VM을 계속 유지 관리할 필요가 있습니다.
+Azure VM은 Azure에서 제공하는 여러 유형의 [확장성 있는 주문형 컴퓨팅 리소스](https://docs.microsoft.com/azure/app-service/overview-compare) 중 하나입니다. Azure VM은 VM을 실행하는 실제 하드웨어를 구입 및 유지 관리할 필요가 없는 가상화의 유연성을 제공합니다. 하지만 VM에서 실행하는 소프트웨어의 구성, 패치 및 설치와 같은 특정 작업을 수행하여 VM을 계속 유지 관리할 필요가 있습니다.
 
 [Azure에서의 Windows 가상 머신 개요](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview)에서는 VM을 만들기 전에 고려해야 하는 요구 사항, 만드는 방법 및 관리하는 방법을 설명합니다.
 

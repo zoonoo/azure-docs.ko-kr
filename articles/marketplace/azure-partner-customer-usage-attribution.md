@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 1ae10fb749e671f7a8b5ca48e652711d7dcf98c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: fad023b7593b0e13b05d081a11333f5e92c8ecef
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262604"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602174"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
@@ -270,15 +270,11 @@ Microsoft는 고객의 템플릿 배포 및 영향을 받는 사용량에 대한
 
 **템플릿에 GUID를 추가할 수 있는 사람은 누구인가요?**
 
-추적 리소스는 파트너 솔루션을 고객의 Azure 사용량에 연결하기 위한 것입니다. 사용량 데이터는 파트너의 MPN ID(Microsoft 파트너 네트워크 ID)와 연결됩니다. 보고는 CPP의 파트너가 사용할 수 있습니다.
+추적 리소스는 파트너 솔루션을 고객의 Azure 사용량에 연결하기 위한 것입니다. 사용량 데이터는 파트너의 MPN ID(Microsoft 파트너 네트워크 ID)와 연결됩니다. 
 
 **GUID는 추가된 후에 변경할 수 있나요?**
  
 예, 고객 또는 구현 파트너는 템플릿을 사용자 지정할 수 있으며 GUID를 변경하거나 제거할 수 있습니다. 파트너가 리소스 및 GUID의 역할을 사전에 고객과 파트너에게 설명하여 추적 GUID를 제거하거나 편집하지 못하게 하는 것이 좋습니다. GUID가 변경되면 기존이 아닌 새 배포 및 리소스에만 영향을 줍니다.
-
-**언제 보고를 사용할 수 있나요?**
-
-보고의 베타 버전이 곧 제공될 예정입니다. 보고는 CPP에 통합됩니다.
 
 **GitHub 등의 타사 리포지토리에서 배포된 템플릿을 추적할 수 있나요?**
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 18398326e21ac6f3d64e43a577cf7d57cfb23438
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 413decee89e99b8120d271e2e87e703d4d362c33
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139523"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999291"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
 
@@ -34,7 +34,7 @@ ms.locfileid: "53139523"
 2. 왼쪽 창에서 **새 프록시**를 선택합니다.
 3. 프록시의 이름을 제공합니다.
 4. **경로 템플릿** 및 **HTTP 메서드**를 지정하여 이 함수 앱에 노출되는 엔드포인트를 구성합니다. 이러한 매개 변수는 [HTTP 트리거]에 대한 규칙에 따라 동작합니다.
-5. **백 엔드 URL**을 다른 엔드포인트로 설정합니다. 이러한 엔드포인트는 다른 함수 앱의 함수이거나 다른 API일 수 있습니다. 정적 값이 아니어도 되며 [응용 프로그램 설정] 및 [원래 클라이언트 요청의 매개 변수]를 참조할 수 있습니다.
+5. **백 엔드 URL**을 다른 엔드포인트로 설정합니다. 이러한 엔드포인트는 다른 함수 앱의 함수이거나 다른 API일 수 있습니다. 정적 값이 아니어도 되며 [애플리케이션 설정] 및 [원래 클라이언트 요청의 매개 변수]를 참조할 수 있습니다.
 6. **만들기**를 클릭합니다.
 
 이제 프록시는 함수 앱에서 새 엔드포인트로 존재합니다. 클라이언트 관점에서 Azure Functions의 HttpTrigger에 같습니다. 프록시 URL을 복사하고 자주 사용하는 HTTP 클라이언트에서 테스트하여 새 프록시를 시험해볼 수 있습니다.
@@ -45,19 +45,19 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 ### <a name="modify-backend-request"></a>백 엔드 요청 수정
 
-기본적으로 백 엔드 요청은 원래 요청의 복사본으로 초기화됩니다. 백 엔드 URL을 설정하는 것 외에도 HTTP 메서드, 헤더 및 쿼리 문자열 매개 변수를 변경할 수 있습니다. 수정된 값은 [응용 프로그램 설정] 및 [원래 클라이언트 요청의 매개 변수]를 참조할 수 있습니다.
+기본적으로 백 엔드 요청은 원래 요청의 복사본으로 초기화됩니다. 백 엔드 URL을 설정하는 것 외에도 HTTP 메서드, 헤더 및 쿼리 문자열 매개 변수를 변경할 수 있습니다. 수정된 값은 [애플리케이션 설정] 및 [원래 클라이언트 요청의 매개 변수]를 참조할 수 있습니다.
 
 프록시 세부 정보 페이지의 *요청 재정의* 섹션을 확장하여 포털에서 백 엔드 요청을 수정할 수 있습니다. 
 
 ### <a name="modify-response"></a>응답 수정
 
-기본적으로 클라이언트 요청은 원래 응답의 복사본으로 초기화됩니다. 응답의 상태 코드, 이유 구문, 헤더 및 본문을 변경할 수 있습니다. 수정된 값은 [응용 프로그램 설정], [원래 클라이언트 요청의 매개 변수] 및 [백 엔드 응답의 매개 변수]를 참조할 수 있습니다.
+기본적으로 클라이언트 요청은 원래 응답의 복사본으로 초기화됩니다. 응답의 상태 코드, 이유 구문, 헤더 및 본문을 변경할 수 있습니다. 수정된 값은 [애플리케이션 설정], [원래 클라이언트 요청의 매개 변수] 및 [백 엔드 응답의 매개 변수]를 참조할 수 있습니다.
 
 프록시 세부 정보 페이지의 *응답 재정의* 섹션을 확장하여 포털에서 백 엔드 요청을 수정할 수 있습니다. 
 
 ## <a name="using-variables"></a>변수 사용
 
-프록시에 대한 구성은 정적일 필요가 없습니다. 원래 클라이언트 요청, 백 엔드 응답 또는 응용 프로그램 설정의 변수를 사용하도록 조건을 지정할 수 있습니다.
+프록시에 대한 구성은 정적일 필요가 없습니다. 원래 클라이언트 요청, 백 엔드 응답 또는 애플리케이션 설정의 변수를 사용하도록 조건을 지정할 수 있습니다.
 
 ### <a name="reference-localhost"></a>로컬 함수 참조
 `localhost`를 사용하면 왕복 프록시 요청없이 동일한 함수 앱 내에 있는 함수를 직접 참조할 수 있습니다.
@@ -92,14 +92,14 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 * **{backend.response.statusReason}**: 백 엔드 응답에 반환되는 HTTP 이유 구문입니다.
 * **{backend.response.headers.\<HeaderName\>}**: 백 엔드 응답에서 읽어올 수 있는 헤더입니다. *\<HeaderName\>* 을 읽으려는 헤더 이름으로 바꿉니다. 헤더가 응답에 포함되지 않으면 값은 비어 있는 문자열이 됩니다.
 
-### <a name="use-appsettings"></a>응용 프로그램 설정 참조
+### <a name="use-appsettings"></a>애플리케이션 설정 참조
 
-설정 이름을 백분율 기호(%)로 묶어 [함수 앱에 대해 정의된 응용 프로그램 설정](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#develop)을 참조할 수도 있습니다.
+설정 이름을 백분율 기호(%)로 묶어 [함수 앱에 대해 정의된 애플리케이션 설정](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#develop)을 참조할 수도 있습니다.
 
 예를 들어 *https://%ORDER_PROCESSING_HOST%/api/orders*의 백 엔드 URL에서 "%ORDER_PROCESSING_HOST%"는 ORDER_PROCESSING_HOS 설정 값으로 바뀝니다.
 
 > [!TIP] 
-> 배포 또는 테스트 환경이 여러 개 있는 경우 백 엔드 호스트에 대해 응용 프로그램 설정을 사용하세요. 이러한 방식으로 항상 해당 환경에 적합한 백 엔드에 정보를 전달할 수 있습니다.
+> 배포 또는 테스트 환경이 여러 개 있는 경우 백 엔드 호스트에 대해 애플리케이션 설정을 사용하세요. 이러한 방식으로 항상 해당 환경에 적합한 백 엔드에 정보를 전달할 수 있습니다.
 
 ## <a name="debugProxies"></a>프록시 문제 해결
 
@@ -142,7 +142,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 * **matchCondition**: 필수--이 프록시의 실행을 트리거하는 요청을 정의하는 개체입니다. [HTTP 트리거]와 공유되는 두 가지 속성이 포함되어 있습니다.
     * _methods_: 프록시가 응답하는 HTTP 메서드의 배열입니다. 이 속성을 지정하지 않으면 프록시는 경로의 모든 HTTP 메서드에 응답합니다.
     * _route_: 필수--경로 템플릿을 정의하여 프록시에서 응답할 요청 URL을 제어합니다. HTTP 트리거와 달리 기본값이 없습니다.
-* **backendUri**: 요청이 프록시되어야 하는 백 엔드 리소스의 URL입니다. 이 값은 응용 프로그램 설정 및 원래 클라이언트 요청의 매개 변수를 참조할 수 있습니다. 이 속성을 포함하지 않으면 Azure Functions는 HTTP 200 OK로 응답합니다.
+* **backendUri**: 요청이 프록시되어야 하는 백 엔드 리소스의 URL입니다. 이 값은 애플리케이션 설정 및 원래 클라이언트 요청의 매개 변수를 참조할 수 있습니다. 이 속성을 포함하지 않으면 Azure Functions는 HTTP 200 OK로 응답합니다.
 * **requestOverrides**: 변환을 백 엔드 요청으로 정의하는 개체입니다. [requestOverrides 개체 정의]를 참조하세요.
 * **responseOverrides**: 클라이언트 응답으로 변환을 정의하는 개체입니다. [responseOverrides 개체 정의]를 참조하세요.
 
@@ -161,7 +161,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
             "matchCondition": {
                 "route": "/example"
             },
-            "backendUri": "www.example.com"
+            "backendUri": "https://<AnotherApp>.azurewebsites.net/api/<FunctionName>"
         }
     }
 }
@@ -176,12 +176,13 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 ### <a name="reservedChars"></a> 예약된 문자(문자열 형식)
 
-프록시는 중괄호 및 슬래시를 제외하고 해석 없이 모든 문자열을 읽습니다.
+프록시는 \\\\\\를 이스케이프 기호로 사용하여 C# 문자열 표기법인 모든 문자열을 읽습니다. 또한 프록시는 중괄호를 해석합니다. 아래 예제 전체를 참조하세요.
 
 |문자|이스케이프된 문자|예|
 |-|-|-|
 |{ 또는 }|{{ 또는 }}|`{{ example }}` --> `{ example }`
-|/|///| `example.com///text.html` --> `example.com/text.html`
+| \ | \\\\\\\\ | `example.com\\\text.html` --> `example.com\text.html`
+|"|\\\\\\"| `\\\"example\\\"` --> `"example"`
 
 ### <a name="requestOverrides"></a>requestOverrides 개체 정의
 
@@ -223,7 +224,7 @@ requestOverrides 개체는 클라이언트에 다시 전달된 응답에 대한 
 * **response.body**: 클라이언트에 반환할 본문의 문자열 표현입니다.
 * **response.headers.\<HeaderName\>**: 클라이언트에 대한 응답에 설정할 수 있는 헤더입니다. *\<HeaderName\>* 을 설정하려는 헤더 이름으로 바꿉니다. 빈 문자열을 제공하면 헤더는 응답에 포함되지 않습니다.
 
-값은 응용 프로그램 설정, 원래 클라이언트 요청의 매개 변수 및 백 엔드 응답의 매개 변수를 참조할 수 있습니다.
+값은 애플리케이션 설정, 원래 클라이언트 요청의 매개 변수 및 백 엔드 응답의 매개 변수를 참조할 수 있습니다.
 
 예제 구성은 다음과 유사할 수 있습니다.
 
@@ -253,7 +254,7 @@ requestOverrides 개체는 클라이언트에 다시 전달된 응답에 대한 
 [Modify the response]: #modify-response
 [requestOverrides 개체 정의]: #requestOverrides
 [responseOverrides 개체 정의]: #responseOverrides
-[응용 프로그램 설정]: #use-appsettings
+[애플리케이션 설정]: #use-appsettings
 [변수 사용]: #using-variables
 [원래 클라이언트 요청의 매개 변수]: #request-parameters
 [백 엔드 응답의 매개 변수]: #response-parameters

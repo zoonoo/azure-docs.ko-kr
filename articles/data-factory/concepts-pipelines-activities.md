@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: ca64c87a0211ae00218493fe7bfddcbbb81a032a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ac72de799ce7cd00e939e9b67f1ef5574ce3eed3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109442"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972569"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory의 파이프라인 및 작업
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -55,7 +55,7 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop 스트리밍](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Machine Learning 작업: Batch 실행 및 업데이트 리소스](transform-data-using-machine-learning.md) | Azure VM
+[Machine Learning 작업: 일괄 처리 실행 및 리소스 업데이트](transform-data-using-machine-learning.md) | Azure VM
 [저장 프로시저](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL Data Warehouse 또는 SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure 데이터 레이크 분석
 [사용자 지정 코드](transform-data-using-dotnet-custom-activity.md) | Azure Batch
@@ -97,13 +97,13 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 
 태그 | 설명 | type | 필수
 --- | ----------- | ---- | --------
-이름 | 파이프라인의 이름입니다. 파이프라인이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 140개</li><li>문자, 숫자 또는 밑줄(_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | 문자열 | yes
+이름 | 파이프라인의 이름입니다. 파이프라인이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 140</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | 문자열 | 예
 description | 파이프라인의 용도를 설명하는 텍스트를 지정합니다. | 문자열 | 아니요
-작업 | **활동** 섹션에는 내부에서 정의된 하나 이상의 활동이 있을 수 있습니다. JSON 작업 요소에 대한 자세한 내용은 [JSON 작업](#activity-json) 섹션을 참조하세요. | 배열 | yes
+작업 | **활동** 섹션에는 내부에서 정의된 하나 이상의 활동이 있을 수 있습니다. JSON 작업 요소에 대한 자세한 내용은 [JSON 작업](#activity-json) 섹션을 참조하세요. | 배열 | 예
 매개 변수 | **매개 변수** 섹션은 파이프라인 내에 정의된 매개 변수 한 개 이상을 포함할 수 있으므로 파이프라인을 유연하게 다시 사용할 수 있습니다. | 나열 | 아니요
 
 ## <a name="activity-json"></a>활동 JSON
-**활동** 섹션에는 내부에서 정의된 하나 이상의 활동이 있을 수 있습니다. 작업에는 실행 및 제어 작업의 두 가지 주요 유형이 있습니다.
+**활동** 섹션에는 내부에서 정의된 하나 이상의 활동이 있을 수 있습니다. 작업에는 두 가지 주요 유형이 있습니다. 그것은 바로 실행 및 제어 작업입니다.
 
 ### <a name="execution-activities"></a>실행 작업
 실행 작업은 [데이터 이동](#data-movement-activities) 및 [데이터 변환 작업](#data-transformation-activities)을 포함합니다. 각 작업에 다음과 같은 최상위 수준 구조가 있습니다.
@@ -130,9 +130,9 @@ description | 파이프라인의 용도를 설명하는 텍스트를 지정합�
 
 태그 | 설명 | 필수
 --- | ----------- | ---------
-이름 | 활동의 이름입니다. 활동이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 55개</li><li>문자, 숫자 또는 밑줄(_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | yes</li></ul>
-description | 활동의 용도를 설명하는 텍스트입니다. | yes
-형식 | 활동의 형식입니다. 작업의 여러 가지 유형에 대해서는 [데이터 이동 작업](#data-movement-activities), [데이터 변환 작업](#data-transformation-activities) 및 [제어 작업](#control-activities) 섹션을 참조하세요. | yes
+이름 | 활동의 이름입니다. 활동이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 55</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | 예</li></ul>
+description | 활동의 용도를 설명하는 텍스트입니다. | 예
+형식 | 활동의 형식입니다. 작업의 여러 가지 유형에 대해서는 [데이터 이동 작업](#data-movement-activities), [데이터 변환 작업](#data-transformation-activities) 및 [제어 작업](#control-activities) 섹션을 참조하세요. | 예
 linkedServiceName | 작업에서 사용하는 연결된 서비스의 이름입니다.<br/><br/>작업은 필요한 계산 환경에 연결하는 연결된 서비스를 지정해야 할 수 있습니다. | HDInsight 작업, Azure Machine Learning 일괄 처리 점수 매기기 작업, 저장 프로시저 작업의 경우 예입니다. <br/><br/>다른 모든 사용자의 경우 아니요
 typeProperties | typeProperties 섹션의 속성은 각 작업 유형에 따라 달라집니다. 활동의 형식 속성을 보려면 이전 섹션의 활동 링크를 클릭합니다. | 아니요
 policy | 작업의 런타임 동작에 영향을 주는 정책입니다. 이 속성은 시간 제한 및 다시 시도 동작을 포함합니다. 지정하지 않으면 기본값을 사용합니다. 자세한 내용은 [작업 정책](#activity-policy)을 참조하세요. | 아니요
@@ -194,25 +194,25 @@ secureOutput | true로 설정된 경우 작업의 출력은 안전하다고 여�
 
 태그 | 설명 | 필수
 --- | ----------- | --------
-이름 | 활동의 이름입니다. 활동이 수행하는 작업을 나타내는 이름을 지정합니다.<br/><ul><li>최대 문자 수: 55개</li><li>문자, 숫자 또는 밑줄(_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | yes</li><ul>
-description | 활동의 용도를 설명하는 텍스트입니다. | yes
-형식 | 활동의 형식입니다. 작업의 여러 가지 유형에 대해서는 [데이터 이동 작업](#data-movement-activities), [데이터 변환 작업](#data-transformation-activities) 및 [제어 작업](#control-activities) 섹션을 참조하세요. | yes
+이름 | 활동의 이름입니다. 활동이 수행하는 작업을 나타내는 이름을 지정합니다.<br/><ul><li>최대 문자 수: 55</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | 예</li><ul>
+description | 활동의 용도를 설명하는 텍스트입니다. | 예
+형식 | 활동의 형식입니다. 작업의 여러 가지 유형에 대해서는 [데이터 이동 작업](#data-movement-activities), [데이터 변환 작업](#data-transformation-activities) 및 [제어 작업](#control-activities) 섹션을 참조하세요. | 예
 typeProperties | typeProperties 섹션의 속성은 각 작업 유형에 따라 달라집니다. 활동의 형식 속성을 보려면 이전 섹션의 활동 링크를 클릭합니다. | 아니요
 dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이전 작업에 따라 달라지는 방법을 정의합니다. 자세한 내용은 [작업 종속성](#activity-dependency)을 참조하세요. | 아니요
 
 ### <a name="activity-dependency"></a>작업 종속성
 작업 종속성은 이후 작업이 이전 작업에 따라 달라지는 방법을 정의하여 다음 작업의 실행을 계속할지 여부에 대한 조건을 결정합니다. 작업은 서로 다른 종속성 조건을 포함하는 한 개 또는 여러 이전 작업에 따라 달라질 수 있습니다.
 
-서 로다른 종속성 조건: 성공, 실패, 건너뜀, 완료됨.
+종속성 조건으로는 성공, 실패, 건너뜀, 완료가 있습니다.
 
 예를 들어 파이프라인이 작업 A -> 작업 B라는 조건을 포함한 경우 일어날 수 있는 서로 다른 시나리오는 다음과 같습니다.
 
-- 작업 B가 작업 A에 대해 **성공** 종속성 조건을 가지면 작업 B는 작업 A의 최종 상태가 성공인 경우에만 실행
-- 작업 B가 작업 A에 대해 **실패** 종속성 조건을 가지면 작업 B는 작업 A의 최종 상태가 실패인 경우에만 실행
-- 작업 B가 작업 A에 대해 **완료됨** 종속성 조건을 가지면 작업 B는 작업 A의 최종 상태가 성공 또는 실패인 경우에만 실행
-- 작업 B가 작업 A에 대해 **건너뜀** 종속성 조건을 가지면 작업 B는 작업 A의 최종 상태가 건너뜀인 경우에만 실행합니다. 건너뜀은 각 작업이 이전 작업이 성공한 경우에만 실행하는 작업 X -> 작업 Y -> 작업 Z의 시나리오에서 발생합니다. 작업 X가 실패하면 작업 Y는 실행하지 않기 때문에 "건너뜀" 상태를 가집니다. 마찬가지로 작업 Z도 "건너뜀" 상태를 가집니다.
+- 작업 B가 작업 A에 대해 갖고 있는 종속성 조건이 **성공**이면: 작업 A의 최종 상태가 성공인 경우에만 작업 B가 실행됩니다.
+- 작업 B가 작업 A에 대해 갖고 있는 종속성 조건이 **실패**이면: 작업 A의 최종 상태가 실패인 경우에만 작업 B가 실행됩니다.
+- 작업 B가 작업 A에 대해 갖고 있는 종속성 조건이 **완료**이면: 작업 A의 최종 상태가 실패인 경우에만 작업 B가 실행됩니다.
+- 작업 B가 작업 A에 대해 갖고 있는 종속성 조건이 **건너뜀**이면: 작업 A의 최종 상태가 건너뜀인 경우에만 작업 B가 실행됩니다. 건너뜀은 각 작업이 이전 작업이 성공한 경우에만 실행하는 작업 X -> 작업 Y -> 작업 Z의 시나리오에서 발생합니다. 작업 X가 실패하면 작업 Y는 실행하지 않기 때문에 "건너뜀" 상태를 가집니다. 마찬가지로 작업 Z도 "건너뜀" 상태를 가집니다.
 
-#### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>예: 작업 2는 작업 1의 성공에 따라 달라짐
+#### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>예제: 작업 2는 작업 1의 성공에 따라 달라짐
 
 ```json
 {

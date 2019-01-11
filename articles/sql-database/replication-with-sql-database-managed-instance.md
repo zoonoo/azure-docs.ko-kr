@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 3b979a9a7e93992ba593697fa9465fdadc1e58b9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4a272b028e1e3ef2778227f259c0b1b980af885d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240395"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547598"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>SQL Database Managed Instance를 사용한 복제
 
@@ -63,6 +63,8 @@ Azure SQL Database에서 게시자 및 배포자는 다음이 필요합니다.
 - 연결은 복제 참가자 간에 SQL 인증을 사용합니다.
 
 - 복제 작업 디렉터리에 대한 Azure Storage 계정 공유
+
+- Azure 파일 공유에 액세스하려면 관리되는 Managed Instance 서브넷의 보안 규칙에서 포트 445(TCP 아웃바운드)를 열어야 합니다.
 
 ## <a name="features"></a>기능
 

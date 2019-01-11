@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4c2cebe2225e475ccd40460e7b10a6ba3ed428d5
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: beb0c1f9d6b54c029af48684fd81b38699dd2720
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44723863"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630651"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Analysis Services 리소스 및 개체 제한
 
@@ -23,7 +23,7 @@ ms.locfileid: "44723863"
 
 ### <a name="developer-tier"></a>개발자 계층
 
-이 계층은 평가, 개발 및 테스트 시나리오에 권장됩니다. 단일 계획에는 표준 계층과 동일한 기능이 포함되지만, 처리 능력, QPU 및 메모리 크기가 제한됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 *사용할 수 없습니다*. 이 계층은 SLA를 제공하지 않습니다.
+이 계층은 평가, 개발 및 테스트 시나리오에 권장됩니다. 단일 계획에는 표준 계층과 동일한 기능이 포함되지만, 처리 능력, QPU 및 메모리 크기가 제한됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 사용할 수 없습니다. 이 계층은 SLA를 제공하지 않습니다.
 
 |계획  |QPU  |메모리(GB)  |
 |---------|---------|---------|
@@ -32,7 +32,7 @@ ms.locfileid: "44723863"
 
 ### <a name="basic-tier"></a>기본 계층
 
-해당 계층은 소규모 테이블 형식 모델, 제한된 사용자 동시성 및 단순한 데이터 새로 고침 요구 사항이 있는 프로덕션 솔루션에 권장됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 *사용할 수 없습니다*. 큐브 뷰, 여러 파티션 및 DirectQuery 테이블 형식 모델 기능은 이 계층에서 *지원되지 않습니다*.  
+해당 계층은 소규모 테이블 형식 모델, 제한된 사용자 동시성 및 단순한 데이터 새로 고침 요구 사항이 있는 프로덕션 솔루션에 권장됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 ‘사용할 수 없습니다’. 큐브 뷰, 여러 파티션 및 DirectQuery 테이블 형식 모델 기능은 이 계층에서 지원되지 않습니다.  
 
 |계획  |QPU  |메모리(GB)  |
 |---------|---------|---------|
@@ -56,7 +56,7 @@ ms.locfileid: "44723863"
 
 ## <a name="object-limits"></a>개체 제한
 
-다음은 이론적 제한입니다. 이보다 낮은 수치일 때는 성능이 저하됩니다.
+이러한 제한은 이론적입니다. 이보다 낮은 수치일 때는 성능이 저하됩니다.
 
 |Object|최대 크기/숫자|  
 |------------|----------------------------|  

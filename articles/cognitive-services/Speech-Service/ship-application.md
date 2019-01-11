@@ -8,21 +8,21 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 4999639356fd440b6358983f1e4859fb3c505fc7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8c230143a4b3ab15e5a43d8b565d1973bc47ec29
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106501"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599023"
 ---
 # <a name="ship-an-application"></a>애플리케이션 배송
 
 [Speech SDK 라이선스](https://aka.ms/csspeech/license201809)를 준수하고 Azure Cognitive Services Speech SDK를 배포할 경우 [타사 소프트웨어 공지 사항](https://csspeechstorage.blob.core.windows.net/drop/1.0.0/ThirdPartyNotices.html)도 준수합니다. 또한 [Microsoft 개인정보처리방침](https://aka.ms/csspeech/privacy)을 검토합니다.
 
-플랫폼에 따라 응용 프로그램을 실행하기 위한 다양한 종속성이 존재합니다.
+플랫폼에 따라 애플리케이션을 실행하기 위한 다양한 종속성이 존재합니다.
 
 ## <a name="windows"></a> Windows
 
@@ -37,7 +37,7 @@ Cognitive Services Speech SDK에는 [Visual Studio 2017용 Microsoft Visual C++ 
 
 마이크 입력을 위해 미디어 파운데이션 라이브러리를 설치해야 합니다. 이러한 라이브러리는 Windows 10 및 Windows Server 2016에 포함됩니다. 마이크를 오디오 입력 디바이스로 사용하지 않는 경우에는 이러한 라이브러리 없이 Speech SDK를 사용할 수 있습니다.
 
-필요한 Speech SDK 파일은 응용 프로그램과 동일한 디렉터리에 배포할 수 있습니다. 이렇게 하면 응용 프로그램이 라이브러리에 직접 액세스할 수 있습니다. 애플리케이션과 일치하는 올바른 버전(Win32/x64)을 선택해야 합니다.
+필요한 Speech SDK 파일은 애플리케이션과 동일한 디렉터리에 배포할 수 있습니다. 이렇게 하면 애플리케이션이 라이브러리에 직접 액세스할 수 있습니다. 애플리케이션과 일치하는 올바른 버전(Win32/x64)을 선택해야 합니다.
 
 | 이름 | 함수
 |:-----|:----|
@@ -53,9 +53,9 @@ Cognitive Services Speech SDK에는 [Visual Studio 2017용 Microsoft Visual C++ 
 * GNU C 라이브러리의 공유 라이브러리(POSIX Threads Programming 라이브러리, `libpthreads` 포함)
 * OpenSSL 라이브러리(`libssl.so.1.0.0`)
 * cURL 라이브러리(`libcurl.so.4`)
-* ALSA 응용 프로그램의 공유 라이브러리(`libasound.so.2`)
+* ALSA 애플리케이션의 공유 라이브러리(`libasound.so.2`)
 
-예를 들어, Ubuntu 16.04에서는 기본적으로 GNU C 라이브러리가 설치되어 있어야 합니다. 마지막 세 가지는 다음 명령을 사용하여 설치할 수 있습니다.
+예를 들어, Ubuntu 16.04 또는 18.04에서는 기본적으로 GNU C 라이브러리가 설치되어 있어야 합니다. 마지막 세 가지는 다음 명령을 사용하여 설치할 수 있습니다.
 
 ```sh
 sudo apt-get update

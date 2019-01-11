@@ -11,22 +11,60 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/15/2018
+ms.date: 12/14/2018
 ms.author: raiye
-ms.openlocfilehash: c2ff5d79c59a08c6ed808312027dc69aee910224
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 94cf90dbc41533b8f5d41a0bdb18e5cdcb7be474
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854274"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541033"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
 
-## <a name="november-2018-guest-os"></a>2018년 11월 게스트 OS
+## <a name="december-2018-guest-os"></a>2018년 12월 게스트 OS
 
 >[!NOTE]
->11월 게스트 OS는 자동 업데이트용으로 구성된 클라우드 서비스 VM으로 롤아웃 중입니다. 롤아웃이 완료되면 이 버전은 Azure Portal 및 구성 파일을 통해 수동으로 업데이트할 수 있습니다. 다음과 같은 패치가 11월 게스트 OS에 포함됩니다. 이 목록은 변경될 수 있습니다.
+>12월 게스트 OS는 자동 업데이트용으로 구성된 클라우드 서비스 VM으로 롤아웃 중입니다. 롤아웃이 완료되면 이 버전은 Azure Portal 및 구성 파일을 통해 수동으로 업데이트할 수 있습니다. 다음과 같은 패치가 12월 게스트 OS에 포함됩니다. 이 목록은 변경될 수 있습니다.
+
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| Rel 18-12 | [4471321] | Windows 10 보안 | 5.26 | 2018년 12월 11일 |
+| Rel 18-12 | [4471328] | Windows 보안   | 2.81 | 2018년 12월 11일 |
+| Rel 18-12 | [4471326] | Windows 보안   | 3.68 | 2018년 12월 11일 |
+| Rel 18-12 | [4471322] | Windows 보안   | 4.61 | 2018년 12월 11일 |
+| Rel 18-12 | [4470600] | .NET 3.x 보안  | 2.81 | 2018년 12월 11일 |
+| Rel 18-12 | [4470601] | .NET 3.x 보안  | 3.68 | 2018년 12월 11일|
+| Rel 18-12 | [4470602] | .NET 3.x 보안  | 4.61 | 2018년 12월 11일 |
+| Rel 18-12 | [4470493] | .NET 4.x 보안  | 2.81 | 2018년 12월 11일 |
+| Rel 18-12 | [4470492] | .NET 4.x 보안  | 3.68 | 2018년 12월 11일 |
+| Rel 18-12 | [4470491] | .NET 4.x 보안  | 4.61| 2018년 12월 11일 |
+| Rel 18-12 | [4471331] | 깜박임  | 3.68, 4.61, 5.26 | 2018년 12월 5일  |
+| Rel 18-12 | [4470199] | Internet Explorer  | 2.81, 3.68, 4.61 | 2018년 12월 11일 |
+| 해당 없음 | [4468323] | 표준 시간대 업데이트    | 2.81, 3.68, 4.61 | 2018년 12월 13일 |
+| 해당 없음 | [4467107] | 11월 비보안 롤업   | 2.81 | 2018년 11월 13일 |
+| 해당 없음 | [4467701] | 11월 비보안 롤업     | 3.68 | 2018년 11월 13일 |
+| 해당 없음 | [4467697] | 11월 비보안 롤업     | 4.61 | 2018년 11월 13일 |
+
+[4471321]: http://support.microsoft.com/kb/4471321
+[4471328]: http://support.microsoft.com/kb/4471328
+[4471326]: http://support.microsoft.com/kb/4471326
+[4471322]: http://support.microsoft.com/kb/4471322
+[4470600]: http://support.microsoft.com/kb/4470600
+[4470601]: http://support.microsoft.com/kb/4470601
+[4470602]: http://support.microsoft.com/kb/4470602
+[4470493]: http://support.microsoft.com/kb/4470493
+[4470492]: http://support.microsoft.com/kb/4470492
+[4470491]: http://support.microsoft.com/kb/4470491
+[4471331]: http://support.microsoft.com/kb/4471331
+[4470199]: http://support.microsoft.com/kb/4470199
+[4468323]: http://support.microsoft.com/kb/4468323
+[4467107]: http://support.microsoft.com/kb/4467107
+[4467701]: http://support.microsoft.com/kb/4467701
+[4467697]: http://support.microsoft.com/kb/4467697
+
+## <a name="november-2018-guest-os"></a>2018년 11월 게스트 OS
 
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
@@ -427,7 +465,7 @@ ms.locfileid: "51854274"
 | 해당 없음 |  [3212646] |2017년 1월 Windows 7 SP1 및 Windows Server 2008 R2 SP1용 보안 월별 품질 롤업 |2.60 |2017년 3월 14일 |
 | 해당 없음 |  [3205409] |2016년 12월 Windows Server 2012용 보안 월별 품질 롤업 |3.47 |2017년 3월 14일 |
 | 해당 없음 |  [3205401] |2016년 12월 Windows 8.1 및 Windows Server 2012 R2용 보안 월별 품질 롤업 |4.40 |2017년 3월 14일 |
-| 해당 없음 |  [3211320] |Windows 10 버전 1607 및 Windows Server 2016용 누적 업데이트 제공: 2017년 1월 24일 |5.5 |2017년 3월 14일 |
+| 해당 없음 |  [3211320] |Windows 10 버전 1607 및 Windows Server 2016용 스택 업데이트 제공: 2017년 1월 24일 |5.5 |2017년 3월 14일 |
 
 ## <a name="january-2017-guest-os"></a>2017년 1월 게스트 OS
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
@@ -630,7 +668,7 @@ ms.locfileid: "51854274"
 | MS16-005 |[3124584] |원격 코드 실행 문제를 해결하기 위한 Windows 커널 모드 드라이버용 보안 업데이트 |4.28, 3.35, 2.47 |2016년 1월 12일 |
 | MS16-007 |[3124901] |원격 코드 실행 문제를 해결하기 위해 Microsoft Windows용 보안 업데이트 |4.28, 3.35, 2.47 |2016년 1월 12일 |
 | MS16-008 |[3124605] |권한 상승 문제점을 해결하기 위한 커널용 보안 업데이트 |4.28, 3.35, 2.47 |2016년 1월 12일 |
-| Microsoft 보안 권고 수정 버전 |[2755801] |Internet Explorer의 Adobe Flash Player의 취약점에 대한 업데이트(패키지 KB: TBD) - 자문 자리 표시자 |4.28, 3.35 |2016년 1월 12일 |
+| Microsoft 보안 권고 수정 버전 |[2755801] |Internet Explorer의 Adobe Flash Player의 취약점에 대한 업데이트(패키지 KB: TBD) - 공지 자리 표시자 |4.28, 3.35 |2016년 1월 12일 |
 | Microsoft 보안 권고 |[3109853] |TLS 상호 운용성을 향상시키는 업데이트 |4.28, 3.35 |2016년 1월 12일 |
 | Microsoft 보안 권고 |[3123479] |Microsoft 루트 인증서 프로그램용 SHA-1 해시 알고리즘의 사용 중단 |4.28, 3.35, 2.47 |2016년 1월 12일 |
 | Microsoft 보안 권고 |[2736233] |ActiveX 킬 비트에 대한 업데이트 |4.28, 3.35, 2.47 |2016년 1월 12일 |

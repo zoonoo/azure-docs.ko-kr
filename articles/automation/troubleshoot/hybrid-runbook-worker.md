@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: ''
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a95c9f1edd6983c915316f2900885a8131245860
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 57897060e79ffbd750b47b21e97bb16d651f835c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437836"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583513"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Hybrid Runbook Worker 문제 해결
 
@@ -34,7 +34,7 @@ Runbook 실행에 실패하고 다음 오류가 발생합니다.
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
-Runbook이 3회 실행 시도 직후 일시 중단됩니다. Runbook이 성공적으로 완료되는 것을 막을 수 있고 관련된 오류 메시지에 이유를 알리는 추가 정보가 포함되어 있지 않은 조건이 있습니다.
+Runbook이 3회 실행 시도 직후 일시 중단됩니다. Runbook 완료를 중단할 수 있는 조건이 있습니다. 이 경우 관련 오류 메시지에 이유를 알려 주는 추가 정보가 포함되지 않을 수 있습니다.
 
 #### <a name="cause"></a>원인
 
@@ -46,23 +46,47 @@ Runbook이 3회 실행 시도 직후 일시 중단됩니다. Runbook이 성공�
 
 * 로컬 리소스를 사용하여 Runbook을 인증할 수 없습니다.
 
-* Hybrid Runbook Worker 기능을 실행하도록 지정된 컴퓨터가 최소 하드웨어 요구 사항을 충족합니다.
+* Hybrid Runbook Worker 기능을 실행하도록 구성된 컴퓨터가 최소 하드웨어 요구 사항을 충족합니다.
 
 #### <a name="resolution"></a>해결 방법
 
 *.azure-automation.net에 대한 아웃바운드 액세스 권한이 컴퓨터의 443 포트에 있는지 확인합니다.
 
-Hybrid Runbook Worker가 실행되는 컴퓨터는 이 기능을 호스트하도록 지정하기 전에, 최소 하드웨어 요구 사항을 충족해야 합니다. 그렇지 않으면, 다른 백그라운드 프로세스의 리소스 사용률과 Runbook 실행으로 인한 경합에 따라, 컴퓨터가 과도하게 사용되거나 Runbook 작업이 지연되거나 시간이 초과될 수 있습니다.
+Hybrid Runbook Worker가 실행되는 컴퓨터는 이 기능을 호스트하도록 구성하기 전에, 최소 하드웨어 요구 사항을 충족해야 합니다. 컴퓨터에서 사용하는 Runbook 및 백그라운드 프로세스로 인해 시스템이 지나치게 사용되고 Runbook 작업이 지연되거나 시간이 초과될 수 있습니다.
 
-Hybrid Runbook Worker 기능을 실행하도록 지정된 컴퓨터가 최소 하드웨어 요구 사항을 충족하는지 확인합니다. 그렇다면, CPU 및 메모리 사용률을 모니터링하여 Hybrid Runbook Worker 프로세스와 Windows 사이에 어떠한 상관 관계가 있는지 확인합니다. 메모리 또는 CPU가 과도하게 사용된다면, 리소스 디스크 병목 현상에 대처하고 오류를 해결하기 위해 메모리를 증가시키거나 프로세서를 업그레이드 또는 추가해야 한다는 것을 나타냅니다. 아니면, 최소 요구 사항을 지원할 수 있는 다른 계산 리소스를 선택하고 필요한 워크로드에 증가가 필요하다는 것이 나타나면 규모를 확장합니다.
+Hybrid Runbook Worker 기능을 실행할 컴퓨터가 최소 하드웨어 요구 사항을 충족하는지 확인합니다. 충족하는 경우 CPU 및 메모리 사용을 모니터링하여 Hybrid Runbook Worker 프로세스의 성능과 Windows 사이에 어떠한 상관 관계가 있는지 확인합니다. 메모리 또는 CPU 압력이 있는 경우 리소스를 업그레이드해야 하는지 여부가 이 상관 관계에 나타날 수 있습니다. 최소 요구 사항을 지원할 수 있는 다른 컴퓨팅 리소스를 선택하고 워크로드 수요가 증가의 필요성을 나타낼 경우 규모를 확장할 수도 있습니다.
 
 **Microsoft-SMA** 이벤트 로그에 *Win32 프로세스가[4294967295] 코드와 함께 종료되었습니다.* 라고 설명하는 이벤트가 있는지 확인합니다. 이 오류의 원인은 Runbook에 인증을 구성하지 않았거나 Hybrid Worker 그룹에 대해 실행 자격 증명을 지정하지 않았기 때문일 수 있습니다. [Runbook 권한](../automation-hrw-run-runbooks.md#runbook-permissions)을 검토하여 Runbook에 대한 인증을 올바르게 구성했는지 확인합니다.
+
+### <a name="no-cert-found"></a>시나리오: Hybrid Runbook Worker의 인증서 저장소에서 인증서를 찾을 수 없음
+
+#### <a name="issue"></a>문제
+
+Hybrid Runbook Worker에서 실행되는 Runbook이 실패하고 다음 오류 메시지가 표시됩니다.
+
+```error
+Connect-AzureRmAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
+At line:3 char:1
++ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : CloseError: (:) [Connect-AzureRmAccount], ArgumentException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzureRmAccountCommand
+```
+
+#### <a name="cause"></a>원인
+
+이 오류는 실행 계정 인증서가 없는 Hybrid Runbook Worker에서 실행되는 Runbook에서 [실행 계정](../manage-runas-account.md)을 사용하려고 시도할 때 발생합니다. Hybrid Runbook Worker의 경우 제대로 작동하기 위해 실행 계정에 필요한 인증서 자산이 기본적으로 로컬에 없습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+Hybrid Runbook Worker가 Azure VM인 경우 [Azure 리소스의 관리 ID](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)를 대신 사용할 수 있습니다. 이 시나리오를 사용하면 실행 계정 대신 Azure VM의 관리 ID를 사용하여 Azure 리소스에 인증할 수 있어서 인증이 간소화됩니다. Hybrid Runbook Worker가 온-프레미스 머신인 경우 머신에 실행 계정 인증서를 설치해야 합니다. 인증서를 설치하는 방법을 알아보려면 [Export-RunAsCertificateToHybridWorker](../automation-hrw-run-runbooks.md#runas-script) Runbook을 실행하는 단계를 참조하세요.
 
 ## <a name="linux"></a>Linux
 
 Linux Hybrid Runbook Worker는 Automation 계정과 통신하여 작업자를 등록하고, Runbook 작업을 수신하고, 상태를 보고하는 Linux용 OMS 에이전트에 따라 달라집니다. 작업자 등록이 실패하는 경우 다음과 같은 몇 가지 오류 원인이 있을 수 있습니다.
 
 ### <a name="oms-agent-not-running"></a>시나리오: Linux용 OMS 에이전트가 실행되고 있지 않습니다.
+
 
 Linux용 OMS 에이전트가 실행되고 있지 않으면 Linux Hybrid Runbook Worker가 Azure Automation과 통신할 수 없습니다. `ps -ef | grep python` 명령을 입력하여 에이전트가 실행 중인지 확인하세요. 다음과 비슷한 출력, 즉 **nxautomation** 사용자 계정을 사용하는 python 프로세스가 표시됩니다. 업데이트 관리 또는 Azure Automation 솔루션을 사용하도록 설정하지 않은 경우 다음 프로세스 중 어떤 것도 실행되지 않습니다.
 
@@ -74,11 +98,12 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 다음 목록은 Linux Hybrid Runbook Worker에 대해 시작된 프로세스를 보여줍니다. 모두 `/var/opt/microsoft/omsagent/state/automationworker/` 디렉터리에 있습니다.
 
-* **oms.conf** - 이 프로세스는 작업자 관리자 프로세스로, DSC에서 바로 시작됩니다.
+
+* **oms.conf** - 이 값은 작업자 관리자 프로세스입니다. DSC에서 직접 시작됩니다.
 
 * **worker.conf** - 이 프로세스는 자동 등록 Hybrid Worker 프로세스로, 작업자 관리자가 시작합니다. 이 프로세스는 업데이트 관리에서 사용되며 사용자에게 투명합니다. 컴퓨터에서 업데이트 관리 솔루션을 사용하도록 설정하지 않으면 이 프로세스가 없습니다.
 
-* **diy/worker.conf** - 이 프로세스는 DIY 하이브리드 작업자 프로세스입니다. DIY 하이브리드 작업자 프로세스는 Hybrid Runbook Worker에서 사용자 Runbook을 실행하는 데 사용됩니다. 다른 구성을 사용한다는 점 외에는 자동 등록 하이브리드 작업자 프로세스와 차이가 없습니다. Azure Automation 솔루션을 사용하도록 설정하지 않고 DIY Linux Hybrid Worker가 등록되지 않으면 이 프로세스가 없습니다.
+* **diy/worker.conf** - 이 프로세스는 DIY 하이브리드 작업자 프로세스입니다. DIY 하이브리드 작업자 프로세스는 Hybrid Runbook Worker에서 사용자 Runbook을 실행하는 데 사용됩니다. 다른 구성을 사용한다는 점 외에는 자동 등록 하이브리드 작업자 프로세스와 차이가 없습니다. Azure Automation 솔루션을 사용하지 않도록 설정하고 DIY Linux Hybrid Worker가 등록되지 않으면 이 프로세스가 없습니다.
 
 Linux용 OMS 에이전트가 실행되고 있지 않으면 `sudo /opt/microsoft/omsagent/bin/service_control restart` 명령을 실행하여 서비스를 시작합니다.
 
@@ -94,7 +119,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 Windows Hybrid Runbook Worker는 Automation 계정과 통신하여 작업자를 등록하고, Runbook 작업을 수신하고, 상태를 보고하는 Microsoft Monitoring Agent에 따라 달라집니다. 작업자 등록이 실패하는 경우 다음과 같은 몇 가지 오류 원인이 있을 수 있습니다.
 
-### <a name="mma-not-running"></a>시나리오: Microsoft Monitoring Agent가 실행되고 있지 않습니다.
+### <a name="mma-not-running"></a>시나리오: Microsoft Monitoring Agent가 실행되고 있지 않음
 
 #### <a name="issue"></a>문제
 
@@ -102,7 +127,7 @@ Windows Hybrid Runbook Worker는 Automation 계정과 통신하여 작업자를 
 
 #### <a name="cause"></a>원인
 
-Microsoft Monitoring Agent Windows 서비스가 실행되고 있지 않으면 이 시나리오로 인해 Hybrid Runbook Worker가 Azure Automation과 통신할 수 없습니다.
+Microsoft Monitoring Agent Windows 서비스가 실행되고 있지 않으면 이 상태로 인해 Hybrid Runbook Worker가 Azure Automation과 통신할 수 없습니다.
 
 #### <a name="resolution"></a>해결 방법
 

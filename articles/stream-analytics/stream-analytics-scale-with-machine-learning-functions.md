@@ -4,26 +4,25 @@ description: 이 아티클에서는 분할 및 스트림 단위를 구성하여 
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 115273086eeb88064c4b179f67d2d400d9f84692
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 216ce32997a4114f4f2684b14338b4e36d9afd03
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696101"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558008"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Azure Machine Learning 함수를 사용하여 Stream Analytics 작업의 크기 조정
 Stream Analytics 작업을 설정하고 이를 통해 몇 가지 샘플 데이터를 실행하는 작업은 간단합니다. 더 큰 데이터 볼륨으로 같은 작업을 실행해야 할 때 어떻게 해야 할까요? 크기를 조정할 수 있도록 Stream Analytics 작업을 구성하는 방법을 이해해야 합니다. 이 문서에서는 Machine Learning 함수를 사용하여 Stream Analytics 작업의 크기를 조정하는 방법을 집중적으로 다루겠습니다. Stream Analytics 작업의 크기를 조정하는 일반적인 방법은 [작업 크기 조정](stream-analytics-scale-jobs.md)을 참조하세요.
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>Stream Analytics의 Azure Machine Learning 함수란 무엇입니까?
-Stream Analytics의 Machine Learning 함수는 Stream Analytics 쿼리 언어에 일반 함수 호출처럼 사용할 수 있습니다. 그러나 내부를 들여다보면, 함수 호출이 실제로는 Azure Machine Learning 웹 서비스 요청입니다. Machine Learning 웹 서비스는 같은 웹 서비스 API 호출의 여러 행을 “일괄로 처리”하여 전체적인 처리량을 개선할 수 있으며, 이러한 일괄 처리를 미니 일괄 처리라고 부릅니다. 자세한 내용은 [Stream Analytics의 Azure Machine Learning 함수](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) 및 [Azure Machine Learning 웹 서비스](../machine-learning/studio/consume-web-services.md)를 참조하세요.
+Stream Analytics의 Machine Learning 함수는 Stream Analytics 쿼리 언어에 일반 함수 호출처럼 사용할 수 있습니다. 그러나 내부를 들여다보면, 함수 호출이 실제로는 Azure Machine Learning 웹 서비스 요청입니다. Machine Learning 웹 서비스는 같은 웹 서비스 API 호출의 여러 행을 “일괄로 처리”하여 전체적인 처리량을 개선할 수 있으며, 이러한 일괄 처리를 미니 배치라고 부릅니다. 자세한 내용은 [Stream Analytics의 Azure Machine Learning 함수](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) 및 [Azure Machine Learning 웹 서비스](../machine-learning/studio/consume-web-services.md)를 참조하세요.
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Machine Learning 함수를 사용하여 Stream Analytics 작업 구성
-Stream Analytics 작업에 대한 Machine Learning 함수를 구성할 때 두 가지 매개 변수를 고려해야 합니다. 하나는 Machine Learning 함수 호출의 배치 크기이고, 다른 하나는 Stream Analytics 작업에 프로비전된 SU(스트리밍 단위)입니다. 이러한 개매 변수의 적절한 값을 결정하려면 먼저 대기 시간과 처리량, 즉, Stream Analytics 작업의 대기 시간과 각 SU의 처리량을 결정해야 합니다. SU를 추가하면 작업 실행 비용이 증가하기는 하지만 언제나 SU를 작업에 추가하여 적절하게 분할된 Stream Analytics 쿼리의 처리량을 높일 수 있습니다.
+Stream Analytics 작업에 대한 Machine Learning 함수를 구성할 때 두 가지 매개 변수를 고려해야 합니다. 하나는 Machine Learning 함수 호출의 배치 크기이고, 다른 하나는 Stream Analytics 작업에 프로비전된 SU(스트리밍 단위)입니다. SU의 적절한 값을 결정하려면 먼저 대기 시간과 처리량, 즉, Stream Analytics 작업의 대기 시간과 각 SU의 처리량을 결정해야 합니다. SU를 추가하면 작업 실행 비용이 증가하기는 하지만 언제나 SU를 작업에 추가하여 적절하게 분할된 Stream Analytics 쿼리의 처리량을 높일 수 있습니다.
 
 따라서 Stream Analytics 작업을 실행할 때 대기 시간 *허용 오차*를 결정하는 것이 중요합니다. Azure Machine Learning 서비스 요청의 실행 대기 시간이 길어지면 당연히 배치 크기가 커지고, 결과적으로 Stream Analytics 작업의 대기 시간이 더욱 길어집니다. 반면, 배치 크기를 늘리면 Stream Analytics 작업이 *같은 수*의 Machine Learning 웹 서비스 요청으로 더 많은 이벤트*를 처리할 수 있습니다. Machine Learning 웹 서비스의 대기 시간이 배치 크기에 비례해서 거의 선형적으로 증가하는 경우가 종종 있기 때문에 주어진 상황에서 Machine Learning 웹 서비스에 가장 경제적인 배치 크기를 고려해야 합니다. 웹 서비스 요청의 기본 배치 크기는 1000이며 [Stream Analytics REST API](https://msdn.microsoft.com/library/mt653706.aspx "Stream Analytics REST API") 또는 [Stream Analytics용 PowerShell 클라이언트](stream-analytics-monitor-and-manage-jobs-use-powershell.md "Stream Analytics용 PowerShell 클라이언트")를 사용하여 수정할 수 있습니다.
 
@@ -44,8 +43,9 @@ Machine Learning 웹 서비스 쪽의 '최대 동시 호출'도 고려해야 합
 ## <a name="example--sentiment-analysis"></a>예 – 정서 분석
 다음 예제는 [Stream Analytics Machine Learning 통합 자습서](stream-analytics-machine-learning-integration-tutorial.md)에 설명된 대로 정서 분석 Machine Learning 함수를 사용하는 Stream Analytics 작업을 포함하고 있습니다.
 
-다음과 같이 완전히 분할된 간단한 쿼리 다음에 **sentiment** 함수가 옵니다.
+다음 예제에 표시된 대로 완전히 분할된 간단한 쿼리 다음에 **sentiment** 함수가 옵니다.
 
+```SQL
     WITH subquery AS (
         SELECT text, sentiment(text) as result from input
     )
@@ -53,7 +53,7 @@ Machine Learning 웹 서비스 쪽의 '최대 동시 호출'도 고려해야 합
     Select text, result.[Score]
     Into output
     From subquery
-
+```
 처리량이 초당 10,000 트윗인 Stream Analytics 작업을 만들어서 트윗(이벤트) 정서 분석을 수행해야 하는 시나리오를 가정해 보겠습니다. 1SU를 사용하면 이 Stream Analytics 작업에서 트래픽을 처리할 수 있을까요? 기본 배치 크기인 1000을 사용하면 작업에서 입력을 처리할 수 있습니다. 뿐만 아니라 추가된 Machine Learning 함수가 생성하는 대기 시간이 정서 분석 Machine Learning 웹 서비스(배치 크기는 기본값인 1000)의 일반적인 기본 대기 시간인 1초를 초과하면 안 됩니다. Stream Analytics 작업의 **전체적인** 또는 종단 간 대기 시간은 일반적으로 몇 초입니다. 이 Stream Analytics 작업, *특히* Machine Learning 함수 호출에 대해 좀 더 자세히 살펴보겠습니다. 배치 크기가 1000이면 10,000 이벤트를 처리하기 위해 웹 서버로 약 10개의 요청을 보내야 합니다. 1SU를 사용하더라도 이 입력 트래픽을 처리하기에 충분한 동시 연결이 있습니다.
 
 입력 이벤트 속도가 100배 증가하면 Stream Analytics 작업은 초당 1,000,000 트윗을 처리해야 합니다. 크기 증가를 위해 다음 두 가지 옵션을 사용할 수 있습니다.
@@ -85,7 +85,7 @@ Machine Learning 웹 서비스 쪽의 '최대 동시 호출'도 고려해야 합
 
 이제 Stream Analytics 작업에서 Machine Learning 함수가 어떻게 작동하는지 충분히 이해하셨을 것입니다. 또한 Stream Analytics 작업이 데이터 원본에서 데이터를 “끌어오며” 각 “끌어오기”는 Stream Analytics 작업에서 처리할 이벤트 일괄 처리를 반환한다는 내용도 이해하셨을 것입니다. 이 끌어오기 모델이 Machine Learning 웹 서비스 요청에 어떤 영향을 미칠까요?
 
-일반적으로 Machine Learning 함수에 대해 설정하는 일괄 처리 크기를 각 Stream Analytics 작업의 “끌어오기”에서 반환하는 이벤트 수로 나누어서 딱 떨어지는 경우는 별로 없습니다. 이와 같은 경우 Machine Learning 웹 서비스가 “부분” 일괄 처리를 통해 호출됩니다. 이는 끌어오기 간에 이벤트를 병합할 때 추가 작업 대기 시간 오버헤드를 유발하지 않기 위한 조치입니다.
+일반적으로 Machine Learning 함수에 대해 설정하는 일괄 처리 크기를 각 Stream Analytics 작업의 “끌어오기”에서 반환하는 이벤트 수로 나누어서 딱 떨어지는 경우는 별로 없습니다. 이와 같은 경우 Machine Learning 웹 서비스가 “부분” 배치를 통해 호출됩니다. 이는 끌어오기 간에 이벤트를 병합할 때 추가 작업 대기 시간 오버헤드를 유발하지 않기 위한 조치입니다.
 
 ## <a name="new-function-related-monitoring-metrics"></a>새 함수 관련 모니터링 메트릭
 Stream Analytics 작업의 모니터링 영역에 함수 관련 메트릭 세 개가 추가되었습니다. 이 세 개 함수는 아래 그림에 나와 있는 것처럼 FUNCTION REQUESTS, FUNCTION EVENTS 및 FAILED FUNCTION REQUESTS입니다.
@@ -98,7 +98,7 @@ Stream Analytics 작업의 모니터링 영역에 함수 관련 메트릭 세 �
 
 **FUNCTION EVENTS**: 함수 요청의 이벤트 수
 
-**FAILED FUNCTION REQUESTS**: 실패한 함수 요청의 수.
+**FAILED FUNCTION REQUESTS**: 실패한 함수 요청의 수
 
 ## <a name="key-takeaways"></a>핵심 내용
 핵심을 요약하자면, Machine Learning 함수를 사용하여 Stream Analytics 작업의 크기를 조정하려면 다음 사항을 고려해야 합니다.
@@ -107,7 +107,7 @@ Stream Analytics 작업의 모니터링 영역에 함수 관련 메트릭 세 �
 2. 실행 중인 Stream Analytics 작업에 허용되는 대기 시간(따라서 Machine Learning 웹 서비스 요청의 배치 크기)
 3. 프로비전된 Stream Analytics SU 및 Machine Learning 웹 서비스 요청 수(추가 함수 관련 비용)
 
-이 예에서는 완전하게 분할된 Stream Analytics 쿼리가 사용되었습니다. 보다 복잡한 쿼리가 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) 에서 Stream Analytics 팀에게 추가 도움을 받을 수 있습니다.
+이 예에서는 완전하게 분할된 Stream Analytics 쿼리가 사용되었습니다. 보다 복잡한 쿼리가 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)에서 Stream Analytics 팀에게 추가 도움을 받을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Stream Analytics에 대한 자세한 내용은 다음 항목을 참조하세요.

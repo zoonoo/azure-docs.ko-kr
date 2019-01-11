@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 71285ce3b1fb3cc592fc65b4ad96c6783de0c408
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 1e62495de35c8df4f446d371a0bbbcdc80c7118d
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499293"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650106"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Apache HBase 클러스터를 최신 버전으로 마이그레이션
 
@@ -26,16 +26,16 @@ ms.locfileid: "52499293"
 4. 임시 데이터를 가져옵니다.
 5. 새 클러스터에서 작업을 시작하고 계속 처리합니다.
 
-[Apache HBase](http://hbase.apache.org/) 클러스터를 업그레이드하려면 이 문서에서 설명한 대로 몇 가지 추가 단계가 필요합니다.
+[Apache HBase](https://hbase.apache.org/) 클러스터를 업그레이드하려면 이 문서에서 설명한 대로 몇 가지 추가 단계가 필요합니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 업그레이드하는 동안 가동 중지 시간은 몇 분 정도로 최소이어야 합니다. 이 가동 중지 시간은 모든 메모리 내 데이터를 플러시하는 단계로 인해 발생하며, 그런 후에 새 클러스터에서 서비스를 구성하고 다시 시작합니다. 결과는 노드 수, 데이터 양 및 기타 변수에 따라 달라집니다.
 
 ## <a name="review-apache-hbase-compatibility"></a>Apache HBase 호환성 검토
 
-Apache HBase를 업그레이드하기 전에 원본 및 대상 클러스터의 HBase 버전이 호환되는지 확인합니다. 자세한 내용은 [HDInsight에서 사용할 수 있는 Hadoop 구성 요소 및 버전](../hdinsight-component-versioning.md)을 참조하세요.
+Apache HBase를 업그레이드하기 전에 원본 및 대상 클러스터의 HBase 버전이 호환되는지 확인합니다. 자세한 내용은 [HDInsight에서 사용할 수 있는 Apache Hadoop 구성 요소 및 버전](../hdinsight-component-versioning.md)을 참조하세요.
 
-> [!NOTE]
+> [!NOTE]  
 > [HBase 도서](https://hbase.apache.org/book.html#upgrading)에서 버전 호환성 매트릭스를 검토하는 것이 좋습니다.
 
 다음은 버전 호환성 매트릭스 예제입니다. 여기서 Y는 호환성을 나타내고, N은 잠재적 비호환성을 나타냅니다.
@@ -54,7 +54,7 @@ Apache HBase를 업그레이드하기 전에 원본 및 대상 클러스터의 H
 | 종속성 호환성 | N | Y | Y |
 | 운영 호환성 | N | N | Y |
 
-> [!NOTE]
+> [!NOTE]  
 > 모든 주요 비호환성은 HBase 버전 릴리스 정보에 설명되어 있습니다.
 
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>동일한 Apache HBase 주 버전으로 업그레이드
@@ -203,7 +203,7 @@ Apache HBase를 업그레이드하기 전에 원본 및 대상 클러스터의 H
 9. Ambari에서 표시한 대로 필요한 모든 서비스를 다시 시작합니다.
 10. 애플리케이션이 새 클러스터를 가리키도록 합니다.
 
-    > [!NOTE]
+    > [!NOTE]  
     > 업그레이드할 때 애플리케이션에 대한 고정 DNS가 변경됩니다. 이 DNS를 하드 코딩하는 대신, 도메인 이름의 DNS 설정에서 클러스터 이름을 가리키는 CNAME을 구성할 수 있습니다. 또 다른 옵션은 다시 배포하지 않고 업데이트할 수 있는 애플리케이션에 대한 구성 파일을 사용하는 것입니다.
 
 11. 수집을 시작하여 모든 항목이 예상대로 작동하는지 확인합니다.
@@ -211,7 +211,7 @@ Apache HBase를 업그레이드하기 전에 원본 및 대상 클러스터의 H
 
 ## <a name="next-steps"></a>다음 단계
 
-[Apache HBase](http://hbase.apache.org/) 및 HDInsight 클러스터 업그레이드에 대한 자세한 내용은 다음 문서를 참조하세요.
+[Apache HBase](https://hbase.apache.org/) 및 HDInsight 클러스터 업그레이드에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight 클러스터를 최신 버전으로 업그레이드](../hdinsight-upgrade-cluster.md)
 * [Apache Ambari Web UI를 사용하여 Azure HDInsight 모니터링 및 관리](../hdinsight-hadoop-manage-ambari.md)

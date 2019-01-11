@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights 미리 보기- 시계열 ID 선택 모범 사례 | Microsoft Docs
+title: Azure Time Series Insights 미리 보기의 시계열 ID 선택 모범 사례 | Microsoft Docs
 description: Azure Time Series Insights 미리 보기에서 시계열 ID를 선택할 때의 모범 사례를 이해합니다.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 766bd0c838ead707e5af3f43bf7be9f1ffd9658e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 44c6c8a55bbcbf76cf48fd17a6e52d188a5e99fc
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272544"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556614"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>시계열 ID 선택 모범 사례
 

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 995bf4586b88671c65077d965b0588de8de74e5c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3e62dbc31976187f4bd37a3567169da2ffa0909b
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048937"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807655"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 웹 테이블의 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,11 +27,17 @@ ms.locfileid: "37048937"
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 웹 테이블 데이터베이스에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
+이 웹 테이블 커넥터인 [REST 커넥터](connector-rest.md)와 [HTTP 커넥터](connector-http.md) 간의 차이점은 다음과 같습니다.
+
+- **웹 테이블 커넥터**는 HTML 웹 페이지에서 테이블 콘텐츠를 추출합니다.
+- **REST 커넥터**는 특히 RESTful API에서 데이터를 복사하는 것을 지원합니다.
+- **HTTP 커넥터**는 일반적으로 모든 HTTP 엔드포인트에서 데이터를 검색합니다(예: 파일 다운로드). 
+
 ## <a name="supported-capabilities"></a>지원되는 기능
 
 웹 테이블 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
-특히 이 웹 테이블 커넥터는 **HTML 페이지에서 테이블 콘텐츠를 추출**하도록 지원합니다. HTTP/s 끝점에서 데이터를 검색하려면 [HTTP 커넥터](connector-http.md)를 대신 사용합니다.
+특히 이 웹 테이블 커넥터는 **HTML 페이지에서 테이블 콘텐츠를 추출**하도록 지원합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -49,9 +55,9 @@ ms.locfileid: "37048937"
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **웹** |예 |
+| 형식 | type 속성을 다음으로 설정해야 합니다. **웹** |예 |
 | URL | 웹 원본에 대한 URL입니다. |예 |
-| authenticationType | 허용되는 값은 **Anonymous**입니다. |예 |
+| authenticationType | 허용되는 값은 **익명**입니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
 
 **예제:**
@@ -79,9 +85,9 @@ ms.locfileid: "37048937"
 
 웹 테이블에서 데이터를 복사하려면 데이터 세트의 type 속성을 **WebTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 type 속성을 **WebTable**로 설정해야 합니다. | 예 |
+| 형식 | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **WebTable** | 예 |
 | 경로 |테이블을 포함하는 리소스에 대한 상대 URL입니다. | 아니요. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. |
 | index |리소스에 있는 테이블의 인덱스입니다. HTML 페이지에서 테이블의 인덱스를 가져오는 단계는 [HTML 페이지에서 테이블의 인덱스 가져오기](#get-index-of-a-table-in-an-html-page) 섹션을 참조하세요. |예 |
 
@@ -145,13 +151,13 @@ ms.locfileid: "37048937"
 
 ## <a name="get-index-of-a-table-in-an-html-page"></a>HTML 페이지에서 테이블의 인덱스 가져오기
 
-[데이터 집합 속성](#dataset-properties)에서 구성해야 하는 테이블의 인덱스를 가져오려면 다음과 같은 도구(예: Excel 2016)를 사용할 수 있습니다.
+[데이터 세트 속성](#dataset-properties)에서 구성해야 하는 테이블의 인덱스를 가져오려면 다음과 같은 도구(예: Excel 2016)를 사용할 수 있습니다.
 
 1. **Excel 2016**을 시작하고 **데이터** 탭으로 전환합니다.
 2. 도구 모음에서 **새 쿼리**를 클릭하고 **기타 원본에서**를 가리킨 다음 **웹에서**를 클릭합니다.
 
     ![파워 쿼리 메뉴](./media/copy-data-from-web-table/PowerQuery-Menu.png)
-3. **웹에서** 대화 상자에서 연결된 서비스 JSON에 사용할 **URL**(예: https://en.wikipedia.org/wiki/))과 데이터 집합에 대해 지정할 경로(예: AFI%27s_100_Years...100_Movies)를 입력하고 **확인**을 클릭합니다.
+3. **웹에서** 대화 상자에서 연결된 서비스 JSON에 사용할 **URL**(예: https://en.wikipedia.org/wiki/))과 데이터 세트에 대해 지정할 경로(예: AFI%27s_100_Years...100_Movies)를 입력하고 **확인**을 클릭합니다.
 
     ![웹 대화 상자](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
 

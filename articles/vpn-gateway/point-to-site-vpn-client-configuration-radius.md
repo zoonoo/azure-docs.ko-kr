@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/07/2018
 ms.author: cherylmc
 ms.openlocfilehash: 52c7734c2af80d29433c20191d8b5b7c0ee0fe48
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
+ms.lasthandoff: 12/21/2018
 ms.locfileid: "51252011"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>P2S RADIUS 인증용 VPN 클라이언트 구성 파일 만들기 및 설치
@@ -62,7 +62,7 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
  
 명령을 실행하면 링크가 반환됩니다. 링크를 복사하여 웹 브라우저에 붙여넣고 **VpnClientConfiguration.zip**을 다운로드합니다. 파일의 압축을 풀어 다음 폴더를 확인합니다. 
  
-* **WindowsAmd64** 및 **WindowsX86**: 이 폴더에는 Windows 64비트 및 32비트 설치 관리자 패키지가 각각 포함되어 있습니다. 
+* **WindowsAmd64** 및 **WindowsX86**: 이 폴더에는 각각 Windows 64비트 및 32비트 설치 관리자가 포함되어 있습니다. 
 * **Generic**: 이 폴더는 자체 VPN 클라이언트 구성을 만드는 데 사용하는 일반 정보를 포함합니다. 사용자 이름/암호 인증 구성에는 이 폴더가 필요하지 않습니다.
 * **Mac**: 가상 네트워크 게이트웨이를 만들 때 IKEv2를 구성한 경우, **mobileconfig** 파일을 포함하는 **Mac**이라는 폴더가 보입니다. 이 파일을 사용하여 Mac 클라이언트를 구성합니다.
 
@@ -193,7 +193,7 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
 
 명령을 실행하면 링크가 반환됩니다. 링크를 복사하여 웹 브라우저에 붙여넣고 VpnClientConfiguration.zip을 다운로드합니다. 파일의 압축을 풀어 다음 폴더를 확인합니다.
 
-* **WindowsAmd64** 및 **WindowsX86**: 이 폴더에는 Windows 64비트 및 32비트 설치 관리자 패키지가 각각 포함되어 있습니다. 
+* **WindowsAmd64** 및 **WindowsX86**: 이 폴더에는 각각 Windows 64비트 및 32비트 설치 관리자가 포함되어 있습니다. 
 * **GenericDevice**: 이 폴더에는 자체 VPN 클라이언트 구성을 만드는 데 사용되는 일반 정보가 포함되어 있습니다.
 
 클라이언트 구성 파일을 이미 만든 경우 `Get-AzureRmVpnClientConfiguration` cmdlet을 사용하여 검색할 수 있습니다. 단, VPN 프로토콜 유형 또는 인증 유형 등 P2S VPN 구성을 변경하면 구성이 자동으로 업데이트되지 않습니다.  `New-AzureRmVpnClientConfiguration` cmdlet을 실행하여 새 구성 다운로드를 만들어야 합니다.
@@ -266,7 +266,7 @@ Azure 가상 네트워크에 연결하는 모든 Mac 디바이스에 별도의 �
  
 3. **GenenericDevice** 폴더는 **VpnSettings**라는 XML 파일을 포함합니다. 이 파일은 모든 필요한 정보를 포함합니다.
 
-   * **VpnServer**: Azure VPN 게이트웨이의 FQDN입니다. 이는 클라이언트가 연결하는 대상 주소입니다.
+   * **VpnServer**: Azure VPN Gateway의 FQDN입니다. 이는 클라이언트가 연결하는 대상 주소입니다.
    * **VpnType**: 연결하는 데 사용하는 터널 유형입니다.
    * **Routes**: P2S 터널을 통해 Azure 가상 네트워크에 바인딩된 트래픽만 전송되도록 프로필에 구성해야 하는 경로입니다.
    

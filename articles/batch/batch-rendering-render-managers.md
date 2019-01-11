@@ -1,17 +1,17 @@
 ---
-title: Azure Batch 렌더링 관리자 지원
+title: 렌더링 관리자 지원 - Azure Batch
 description: Azure Batch 렌더링 관리자 통합을 통해 렌더링에 Azure 사용
 services: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 066aab598628701bf7a60b0f4f20d996348fa5ce
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4eeece4946b4f957d9f864da7c46d77d119863b5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406724"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539925"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>렌더링 팜 관리자로 Azure Batch 사용
 

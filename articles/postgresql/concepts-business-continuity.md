@@ -1,20 +1,17 @@
 ---
 title: Azure Database for PostgreSQL의 비즈니스 연속성 개요
 description: Azure Database for PostgreSQL의 비즈니스 연속성 개요입니다.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: a0ff57037d6639f5778e27d6cf697b90038ab3b3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: c8c62f6a80cf06e3444c4c3efd9979e723dcf488
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717066"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53559045"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 비즈니스 연속성 개요
 
@@ -49,7 +46,7 @@ Azure Database for PostgreSQL에는 자동화된 백업 및 사용자가 지역 
 다른 옵션은 지역 중복 백업을 사용하여 서버를 복원하는 Azure Database for PostgreSQL의 지역 복원을 사용하는 것입니다. 이러한 백업은 서버를 호스트하는 지역이 오프라인인 경우에도 액세스가 가능합니다. 이러한 백업에서 다른 지역으로 복원하여 서버를 다시 온라인 상태로 만들 수 있습니다.
 
 > [!IMPORTANT]
-> 지역 복원은 지역 중복 백업 저장소로 서버를 프로비전한 경우에만 가능합니다. 기존 서버에 대한 로컬 중복 백업을 지역 중복 백업으로 전환하려는 경우 mysqldump를 사용하여 기존 서버를 덤프한 후 지역 중복 백업으로 구성된 새로 만든 서버로 복원해야 합니다.
+> 지역 복원은 지역 중복 백업 저장소로 서버를 프로비전한 경우에만 가능합니다. 기존 서버에 대한 로컬 중복 백업을 지역 중복 백업으로 전환하려는 경우 pg_dump를 사용하여 기존 서버를 덤프한 후 지역 중복 백업으로 구성된 새로 만든 서버로 복원해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - 자동화된 백업에 대해 자세히 알아보려면 [Azure Database for PostgreSQL의 백업](concepts-backup.md)을 참조하세요. 

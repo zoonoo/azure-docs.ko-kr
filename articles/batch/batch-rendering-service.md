@@ -1,17 +1,17 @@
 ---
-title: Azure Batch 렌더링 개요
+title: 렌더링 개요 - Azure Batch
 description: 렌더링에 Azure 사용 및 Azure Batch 렌더링 기능 개요 소개
 services: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: fc26e1d32332bb0ed9624b7442e38ea79b7bfb1d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: bc8c96345aeb1886696326edd230666ac8b6c41d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393556"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542213"
 ---
 # <a name="rendering-using-azure"></a>Azure를 사용한 렌더링
 
@@ -101,4 +101,4 @@ Azure Batch 렌더링을 사용해 보려면 다음 소개 자습서를 참조�
 
 ## <a name="next-steps"></a>다음 단계
 
-[이 문서에서](https://docs.microsoft.com/azure/batch/batch-rendering-applications) Azure Marketplace VM 이미지에 포함된 렌더링 응용 프로그램 및 버전 목록을 결정합니다.
+[이 문서에서](https://docs.microsoft.com/azure/batch/batch-rendering-applications) Azure Marketplace VM 이미지에 포함된 렌더링 애플리케이션 및 버전 목록을 결정합니다.

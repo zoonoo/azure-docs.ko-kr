@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8b0f1cfe56923cbd8a5b1c517cfdc3b174088715
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5634d812b3fbd4e904516767b008f63104b3d7b7
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086142"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632741"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Storm 문제 해결
 
@@ -54,7 +54,7 @@ lib 폴더에는 가져오기/내보내기 작업에 대한 구현이 포함된 
 
 데이터를 내보낸 후 가져오려면 ZooKeeper 노드에서 [stormmeta.sh](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/tools/zkdatatool-1.0/bash/stormmeta.sh) 스크립트를 실행합니다. 올바른 HDP(Hortonworks Data Platform) 버전으로 스크립트를 업데이트합니다. (이러한 스크립트를 HDInsight에서 제네릭으로 만들기 위해 작업 중입니다. 제네릭 스크립트는 사용자가 수정하지 않고 클러스터의 모든 노드에서 실행할 수 있습니다.)
 
-내보내기 명령은 설정한 Azure Blob Storage 또는 Azure Data Lake Store 저장소의 Apache HDFS(Hadoop 분산 파일 시스템) 경로에 메타데이터를 씁니다.
+내보내기 명령은 설정한 Azure Blob Storage 또는 Azure Data Lake Storage의 Apache HDFS(Hadoop 분산 파일 시스템) 경로에 메타데이터를 씁니다.
 
 ### <a name="examples"></a>예
 
@@ -87,7 +87,7 @@ lib 폴더에는 가져오기/내보내기 작업에 대한 구현이 포함된 
  
 /usr/hdp에 특정 HDP 버전에 대한 이진 파일이 여러 개 있을 수 있습니다(예: /usr/hdp/2.5.0.1233/storm). /usr/hdp/current/storm-client 폴더는 클러스터에서 실행되는 최신 버전과 기호화된 링크로 연결되어 있습니다.
 
-자세한 내용은 [SSH를 사용하여 HDInsight 클러스터에 연결](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) 및 [Storm](http://storm.apache.org/)을 참조하세요.
+자세한 내용은 [SSH를 사용하여 HDInsight 클러스터에 연결](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) 및 [Apache Storm](https://storm.apache.org/)을 참조하세요.
  
 ## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Storm 클러스터의 배포 토폴로지를 확인하는 방법
 먼저 HDInsight Storm과 함께 설치된 모든 구성 요소를 식별합니다. Storm 클러스터는 다음 4가지 노드 범주로 구성됩니다.

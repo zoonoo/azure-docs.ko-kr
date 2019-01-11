@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 36b4fbac13e012de2fbef137c6637fd7e2daea8f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 933fcbfc21c69d02f1093e0ea2519d76f4130b29
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161296"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598893"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
 Azure Storage GPv2 계정을 사용하면 *$web*이라는 저장소 컨테이너에서 직접 정적 콘텐츠(HTML, CSS, JavaScript 및 이미지 파일)를 서비스할 수 있습니다. Azure Storage에 호스팅하면 [Azure Functions](/azure/azure-functions/functions-overview) 및 기타 PaaS 서비스를 포함한 서버리스 아키텍처를 사용할 수 있습니다.
 
-정적 웹 사이트 호스팅과는 반대로, 서버 쪽 코드에 의존하는 동적 사이트는 [Azure Web Apps](/azure/app-service/app-service-web-overview)를 사용하여 호스팅하는 것이 가장 좋습니다.
+정적 웹 사이트 호스팅과는 반대로, 서버 쪽 코드에 의존하는 동적 사이트는 [Azure App Service](/azure/app-service/overview)를 사용하여 호스팅하는 것이 가장 좋습니다.
 
 ## <a name="how-does-it-work"></a>작동 원리
 저장소 계정에서 정적 웹 사이트를 호스팅하도록 설정하는 경우 기본 파일의 이름을 선택하고 필요에 따라 사용자 지정 404 페이지의 경로를 제공합니다. 기능이 활성화되면 *$web*이라는 컨테이너가 생성됩니다(아직 없는 경우). 
@@ -161,6 +161,6 @@ az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NA
 * [Azure CDN을 사용하여 HTTPS를 통한 사용자 지정 도메인으로 Blob 액세스](storage-https-custom-domain-cdn.md)
 * [Blob 또는 웹 엔드포인트에 대한 사용자 지정 도메인 이름 구성](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
-* [Azure Web Apps](/azure/app-service/app-service-web-overview)
+* [Azure App Service](/azure/app-service/overview)
 * [첫 번째 서버 없는 웹앱 빌드](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [자습서: Azure DNS에 도메인 호스트](../../dns/dns-delegate-domain-azure-dns.md)
+* [자습서: Azure DNS에서 도메인 호스트](../../dns/dns-delegate-domain-azure-dns.md)

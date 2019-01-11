@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 8e152bc96293d5e6e801fd23657d0de303093eb6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: c792881b02eba7207b20c4b4807d8afbc1adb87f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166611"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543991"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>네트워크 성능 모니터 솔루션 FAQ
 
@@ -70,6 +70,9 @@ NPM에서 모니터링을 위해 사용하는 TCP 포트는 [EnableRules.ps1](ht
 
 ### <a name="how-many-agents-should-i-use"></a>에이전트를 얼마나 많이 사용해야 하나요?
 모니터링하려는 각 서브넷에 대해 최소 한 개의 에이전트를 사용해야 합니다.
+
+### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--you-have-reached-your-configuration-limit"></a>사용할 수 있거나 “.... 구성 한도에 도달했습니다”라는 오류가 표시되는 최대 에이전트 수는 몇 개인가요?
+NPM은 작업 영역당 IP 수를 5000개로 제한합니다. 노드에 IPv4 및 IPv6 주소가 모두 있는 경우 이 값은 해당 노드의 2개 IP로 계산됩니다. 또한 이 5000개 한도에 따라 에이전트 수의 상한이 결정됩니다. NPM >> [구성]의 [노드] 탭에서 비활성 에이전트를 삭제할 수 있습니다. 또한 NPM은 에이전트를 호스트하는 VM에 할당된 적이 있는 모든 IP의 기록을 유지 관리하고 이러한 IP도 5000개 IP 상한에 개별 IP로 계산됩니다. 작업 영역의 IP를 해제하기 위해 노드 페이지를 사용하여 사용 중이 아닌 IP를 삭제할 수 있습니다.
 
 ## <a name="monitoring"></a>모니터링
 
@@ -205,7 +208,7 @@ NPM 프로세스는 호스트 CPU 리소스의 5%를 초과하여 이용하는 �
 NPM은 에이전트들이 지정된 포트에서 서로 TCP 연결을 만들 수 있도록 EnableRules.ps1 Powershell 스크립트를 실행하는 노드에 대해서만 로컬 Windows 방화벽 규칙을 만듭니다. 솔루션은 네트워크 방화벽 규칙 또는 NSG(네트워크 보안 그룹) 규칙을 수정하지 않습니다.
 
 ### <a name="how-can-i-check-the-health-of-the-nodes-being-used-for-monitoring"></a>모니터링에 사용하는 노드의 상태를 어떻게 확인할 수 있나요?
-네트워크 성능 모니터 -> 구성 -> 노드 보기에서  모니터링에 사용되는 노드의 상태를 볼 수 있습니다. 노드가 비정상인 경우 오류 세부 정보를 보고 권장 작업을 실행할 수 있습니다.
+다음 보기에서 모니터링에 사용되는 노드의 상태를 볼 수 있습니다. 네트워크 성능 모니터 -> 구성 -> 노드 보기에서 원본 및 대상 노드의 상태를 봅니다. 노드가 비정상인 경우 오류 세부 정보를 보고 권장 작업을 실행할 수 있습니다.
 
 ### <a name="can-npm-report-latency-numbers-in-microseconds"></a>NPM은 대기 시간 숫자를 마이크로초 단위로 보고할 수 있습니까?
 NPM은 UI 및 밀리초 단위의 대기 시간 숫자를 반올림합니다. 동일한 데이터를 더 높은 세분성(가끔 최대 소수 네 자리)으로 저장됩니다.

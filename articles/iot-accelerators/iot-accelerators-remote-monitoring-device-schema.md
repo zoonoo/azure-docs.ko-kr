@@ -2,29 +2,32 @@
 title: 원격 모니터링 솔루션의 디바이스 스키마 - Azure | Microsoft Docs
 description: 이 문서에서는 원격 모니터링 솔루션에서 시뮬레이션된 디바이스를 정의하는 JSON 스키마에 대해 설명합니다.
 author: dominicbetts
-manager: timlt
+manager: philmea
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 01/29/2018
+ms.date: 12/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: f312f29e14c371e7b500f3eee6471151e3544513
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 54e21e0b5f522b226ec1abb71a1c5ab5b245df05
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338858"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635530"
 ---
 # <a name="understand-the-device-model-schema"></a>디바이스 모델 스키마 이해
 
-원격 모니터링 솔루션에서 시뮬레이션된 디바이스를 사용하여 해당 동작을 테스트할 수 있습니다. 원격 모니터링 솔루션을 배포하면 시뮬레이션된 디바이스 컬렉션이 자동으로 프로비전됩니다. 기존 시뮬레이션된 디바이스를 사용자 지정하거나 고유한 시뮬레이션된 디바이스를 만들 수 있습니다.
+원격 모니터링 솔루션에서 시뮬레이션된 디바이스를 사용하여 해당 동작을 테스트할 수 있습니다. 원격 모니터링 솔루션은 시뮬레이션된 디바이스를 실행하는 디바이스 시뮬레이션 서비스를 포함합니다. 원격 모니터링 솔루션을 배포하면 시뮬레이션된 디바이스 컬렉션이 자동으로 프로비전됩니다. 기존 시뮬레이션된 디바이스를 사용자 지정하거나 고유한 시뮬레이션된 디바이스를 만들 수 있습니다.
 
 이 문서에서는 시뮬레이션된 디바이스의 기능 및 동작을 지정하는 디바이스 모델 스키마에 대해 설명합니다. 디바이스 모델은 JSON 파일에 저장됩니다.
 
+> [!NOTE]
+> 이 디바이스 모델 스키마는 디바이스 시뮬레이션 서비스에 호스트된 시뮬레이션된 디바이스에만 해당합니다. 물리적 디바이스를 만들려는 경우 [원격 모니터링 솔루션 가속기에 디바이스 연결](iot-accelerators-connecting-devices.md)을 참조하세요.
+
 다음 문서는 현재 문서와 관련이 있습니다.
 
-* [장치 모델 동작 구현](iot-accelerators-remote-monitoring-device-behavior.md)에서는 시뮬레이션된 장치의 동작을 구현하는 데 사용하는 JavaScript 파일에 대해 설명합니다.
-* [새 시뮬레이션된 장치 만들기](iot-accelerators-remote-monitoring-create-simulated-device.md)에서는 장치를 만들고 새 시뮬레이션된 장치 유형을 솔루션에 배포하는 방법을 보여 줍니다.
+* [디바이스 모델 동작 구현](iot-accelerators-remote-monitoring-device-behavior.md)에서는 시뮬레이션된 디바이스의 동작을 구현하는 데 사용하는 JavaScript 파일에 대해 설명합니다.
+* [새 시뮬레이션된 디바이스 만들기](iot-accelerators-remote-monitoring-create-simulated-device.md)에서는 디바이스를 만들고 새 시뮬레이션된 디바이스 유형을 솔루션에 배포하는 방법을 보여줍니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 

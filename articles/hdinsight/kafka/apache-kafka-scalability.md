@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 1df23a35e16d4ba3562ebbc9d89a7a8003afc784
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: ab80dd86e544127fc3f40f5459ef9a587c7cd511
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498948"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581507"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>HDInsight에서 Apache Kafka에 대한 확장성 및 저장소 구성
 
@@ -26,13 +26,13 @@ HDInsight의 Kafka는 HDInsight 클러스터에서 가상 머신의 로컬 디�
 
 ![vm당 하나의 vhd를 사용하는 HDInsight의 Kafka와 vm당 여러 관리 디스크가 있는 Kafka를 보여주는 다이어그램](./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
 
-## <a name="configure-managed-disks-azure-portal"></a>관리 디스크 구성: Azure Portal
+## <a name="configure-managed-disks-azure-portal"></a>관리 디스크 구성: Azure portal
 
 1. [HDInsight 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)의 단계에 따라 포털을 사용하여 클러스터를 만드는 일반적인 단계를 이해합니다. 포털 생성 프로세스를 완료하지 마세요.
 
 2. __클러스터 크기__ 섹션에서 __작업자 노드당 디스크__ 필드를 사용하여 디스크 수를 구성합니다.
 
-    > [!NOTE]
+    > [!NOTE]  
     > 관리 디스크 유형은 __표준__(HDD) 또는 __프리미엄__(SSD)일 수 있습니다. 프리미엄 디스크는 DS 및 GS 시리즈 VM에 사용됩니다. 다른 모든 VM 유형은 표준을 사용합니다.
 
     ![작업자 노드당 디스크가 강조 표시된 클러스터 크기 섹션의 이미지](./media/apache-kafka-scalability/set-managed-disks-portal.png)

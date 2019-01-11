@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 12/17/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 5f747d90368b636cb2ab8cf0e20ef5e676f99af6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 066c9189e0c3cea409a99217e0ab4b46002df1f9
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080506"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556784"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Azure Active Directory를 사용하여 최근에 삭제된 사용자를 복원하거나 제거
 사용자를 삭제하면 30일 동안 계정이 일시 중단된 상태로 유지됩니다. 30일이라는 기간 동안 사용자는 모든 속성과 함께 계정을 복원할 수 있습니다. 30일이라는 기간이 지나면 사용자가 자동으로 영구적으로 삭제됩니다.
@@ -59,6 +59,9 @@ Azure Portal에서 Azure AD(Azure Active Directory)를 사용하여 복원 가�
 2. **사용자 복원**을 선택합니다.
 
     ![사용자 - 사용자 복원 옵션이 강조 표시된 삭제된 사용자 페이지](media/active-directory-users-restore/users-deleted-users-restore-user.png)
+
+>[!NOTE]
+>이전에는 사용자가 온-프레미스 동기화 범위에서 제거되고 클라우드에서 삭제된 경우 계정의 DirSyncEnabled 상태가 “False”로 잘못 설정되었습니다. 나중에 Azure AD 휴지통에서 해당 사용자가 수동으로 복원된 경우 “클라우드 전용” 계정의 잘못된 상태가 표시되었습니다. 이제 이 문제는 수정되었고 사용자가 동기화 범위에서 제거된 다음, 일시 삭제되고, 수동으로 Azure AD 휴지통에서 복원된 경우 DirSyncEnabled 상태 값은 항상 “True”로 유지됩니다.
 
 ## <a name="permanently-delete-a-user"></a>사용자 영구 삭제
 30일 동안 자동 삭제되기를 기다리지 않고 디렉터리에서 사용자를 영구적으로 삭제할 수 있습니다. 사용자나 다른 관리자 또는 Microsoft 고객 지원에서 영구적으로 삭제된 사용자를 복원할 수 없습니다.

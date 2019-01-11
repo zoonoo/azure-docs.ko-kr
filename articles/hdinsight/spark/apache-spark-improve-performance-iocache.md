@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 724e6c57f10fb85b4b91c2236d17a64899953d67
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 204a3230c782279b0cad4194e97aa4014c940635
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581938"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608497"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Azure HDInsight IO 캐시를 사용하여 Apache Spark 워크로드의 성능 개선(미리 보기)
 
@@ -20,7 +20,7 @@ IO 캐시는 Apache Spark 작업의 성능을 개선하는 Azure HDInsight에 �
 
 대부분의 SSD는 초당 1 GB를 초과하는 대역폭을 제공합니다. 이 대역폭은 운영 체제 메모리 내 파일 캐시에 의해 보완되며 Apache Spark 같은 빅 데이터 계산 처리 엔진을 로드하기에 충분한 대역폭을 제공합니다. 작동 메모리는 Apache Spark가 메모리에 크게 의존하는 셔플과 같은 작업을 처리하는 데 사용할 수 있도록 남아 있습니다. 작동 메모리를 독점적으로 사용하면 Apache Spark가 최적의 리소스 사용을 달성할 수 있습니다.  
 
->[!Note]
+>[!Note]  
 >IO 캐시는 현재 캐싱 구성 요소로 RubiX를 사용하지만 이는 서비스의 미래 버전에서 변경될 수 있습니다. IO 캐시 인터페이스를 사용하고 RubiX 구현에 직접 의존하지 마세요.
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Azure HDInsight IO 캐시의 이점
@@ -45,7 +45,7 @@ Azure HDInsight IO 캐시는 기본적으로 미리 보기에서 비활성화됩
 
 1. 클러스터에 영향을 주는 모든 서비스를 다시 시작하는지 확인합니다.
 
->[!NOTE] 
+>[!NOTE]  
 > 진행률 표시줄에 활성화된 것으로 나타나지만 IO 캐시는 영향을 받는 다른 서비스를 다시 시작할 때까지 실제로 활성화되지 않습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
@@ -78,4 +78,4 @@ IO 캐시를 사용하도록 설정한 후 Spark 작업을 실행하는 디스�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 이 블로그 게시물의 성능 벤치마크를 포함하여 IO 캐시에 대해 더 자세히 읽기: [HDInsight IO 캐시를 사용할 경우 Apache Spark 작업의 속도가 최대 9배 향상](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/)
+- 다음 블로그 게시물에서 성능 벤치마크를 포함한 IO 캐시에 대해 자세히 알아보세요. [Apache Spark jobs gain up to 9x speed up with HDInsight IO Cache](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/)(HDInsight IO 캐시로 Apache Spark 작업 속도 9배 높이기)

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: maxluk
-ms.openlocfilehash: b2bf79d90c741e09c683e4520b05b31ba2fee1da
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 621d41c5c9558b5cb17d2a1e5a03d68f8af0df19
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582771"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600644"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
@@ -26,7 +26,7 @@ Azure Toolkit for IntelliJ 플러그 인을 사용하여 [Scala](https://www.sca
 
 프로젝트를 만들려면 [Azure Toolkit for IntelliJ를 사용하여 Apache Spark 애플리케이션 만들기](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) 비디오를 시청하세요.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이 플러그 인을 사용하면 Linux의 HDInsight Spark 클러스터용 애플리케이션만 만들고 제출할 수 있습니다.
 > 
 
@@ -176,26 +176,26 @@ Scala 애플리케이션을 작성한 후 이를 클러스터에 제출할 수 �
 
       ![Spark 제출 대화 상자](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-2.png)
       
-    * **Spark 클러스터(Linux만 해당)** 의 경우 응용 프로그램을 실행하려는 HDInsight Spark 클러스터를 선택합니다.
+    * **Spark 클러스터(Linux만 해당)** 의 경우 애플리케이션을 실행하려는 HDInsight Spark 클러스터를 선택합니다.
 
     * IntelliJ 프로젝트에서 아티팩트를 선택하거나 하드 드라이브에서 아티팩트를 선택합니다.
 
     * **Main class name**(기본 클래스 이름) 필드: 기본값은 선택한 파일의 기본 클래스입니다. 줄임표(**...**)를 선택하고 다른 클래스를 선택하여 클래스를 변경할 수 있습니다.   
 
-    * **작업 구성** 필드: 기본값은 위에 표시된 그림으로 설정됩니다. 값을 변경하거나 작업 제출에 대한 새 키/값을 추가할 수 있습니다. 자세한 내용은 [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html)를 참조하세요.
+    * **작업 구성** 필드:  기본값은 위에 표시된 그림으로 설정됩니다. 값을 변경하거나 작업 제출에 대한 새 키/값을 추가할 수 있습니다. 자세한 내용은 다음을 참조하세요. [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html)
 
       ![Spark 제출 대화 상자 작업 구성 의미](./media/apache-spark-intellij-tool-plugin/submit-job-configurations.png)
 
     * **명령줄 인수** 필드: 필요한 경우 기본 클래스에 대해 공백으로 분할된 인수 값을 입력할 수 있습니다.
 
-    * **Jar 참조** 및 **참조 파일** 필드: 참조되는 Jar 및 파일(있는 경우)의 경로를 입력할 수 있습니다. 자세한 내용은 [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)(Apache Spark 구성)을 참조하세요. 
+    * **Jar 참조** 및 **참조 파일** 필드: 참조되는 Jar 및 파일(있는 경우)의 경로를 입력할 수 있습니다. 자세한 내용은 다음을 참조하세요. [Apache Spark 구성](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) 
 
       ![Spark 제출 대화 상자 jar 파일 의미](./media/apache-spark-intellij-tool-plugin/jar-files-meaning.png)
 
-       > [!NOTE]
+       > [!NOTE]  
        > 참조된 JAR 및 참조 파일을 업로드하려면 [How to upload resources to cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)(클러스터에 리소스를 업로드하는 방법)를 참조하세요.
                          
-    * **Upload Path**(업로드 경로): Jar 또는 Scala 프로젝트 리소스 제출을 위한 저장소 위치를 표시할 수 있습니다. 지원되는 스토리지 유형은 **Azure Blob**, **Use Spark interactive session to upload artifacts**(Spark 대화형 세션을 사용하여 아티팩트 업로드), **Use cluster default storage account**(클러스터 기본 스토리지 계정 사용), **ADLS Gen1** 등 네 가지입니다. 아래 스크린샷은 Azure Blob의 예입니다.
+    * **Upload Path**(업로드 경로): Jar 또는 Scala 프로젝트 리소스 제출을 위한 스토리지 위치를 표시할 수 있습니다. 지원되는 스토리지 유형은 **Azure Blob**, **Use Spark interactive session to upload artifacts**(Spark 대화형 세션을 사용하여 아티팩트 업로드), **Use cluster default storage account**(클러스터 기본 스토리지 계정 사용), **ADLS Gen1** 등입니다. 아래 스크린샷은 Azure Blob의 예입니다.
 
         ![Spark 제출 대화 상자](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-upload-storage-types.png)
 
@@ -310,7 +310,7 @@ IntelliJ IDEA에서 만든 기존 Spark Scala 애플리케이션을 Azure Toolki
 
 ## <a name="troubleshooting"></a>문제 해결
 
-### <a name="error-in-local-run-please-use-a-larger-heap-size"></a>로컬 실행에서 *더 큰 힙 크기를 사용하세요.* 오류 발생
+### <a name="error-in-local-run-please-use-a-larger-heap-size"></a>로컬 실행의 오류: *더 큰 힙 크기를 사용하세요.*
 Spark 1.6에서 로컬 실행 동안 32비트 Java SDK를 사용하는 경우 다음과 같은 오류가 발생할 수 있습니다.
 
     Exception in thread "main" java.lang.IllegalArgumentException: System memory 259522560 must be at least 4.718592E8. Please use a larger heap size.
@@ -347,21 +347,21 @@ Spark 1.6에서 로컬 실행 동안 32비트 Java SDK를 사용하는 경우 �
 제안 또는 피드백이 있거나 이 플러그 인을 사용할 때 문제가 발생하는 경우 hdivstool@microsoft.com으로 메일을 보내 주시기 바랍니다.
 
 ## <a name="seealso"></a>다음 단계
-* [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
+* [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
 
 ### <a name="demo"></a>데모
-* Scala 프로젝트 만들기(비디오): [Apache Spark Scala 애플리케이션 만들기](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
+* Scala 프로젝트(비디오) 작성: [Apache Spark Scala 애플리케이션 만들기](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
 * 원격 디버그(비디오): [Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터에서 원격으로 Apache Spark 애플리케이션 디버그](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
 
 ### <a name="scenarios"></a>시나리오
 * [BI와 Apache Spark: BI 도구와 함께 HDInsight의 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning과 Apache Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 및 Machine Learning: HDInsight의 Spark를 사용하여 HVAC 데이터로 건물 온도 분석](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 및 Machine Learning: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="creating-and-running-applications"></a>애플리케이션 만들기 및 실행
-* [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](apache-spark-create-standalone-application.md)
-* [Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
+* [Scala를 사용하여 독립 실행형 애플리케이션 만들기](apache-spark-create-standalone-application.md)
+* [Apache Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>도구 및 확장
 * [Azure Toolkit for IntelliJ를 사용하여 VPN을 통해 원격으로 Apache Spark 애플리케이션 디버그](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)

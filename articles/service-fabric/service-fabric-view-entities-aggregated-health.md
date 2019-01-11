@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: c6d5954ed3547666236130753dfd53d10475df43
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 09696c606fdf57f5ac55fc50eb06c2c5eea55dfe
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308991"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555254"
 ---
 # <a name="view-service-fabric-health-reports"></a>서비스 패브릭 상태 보고서 보기
 Azure Service Fabric은 시스템 구성 요소와 워치독이 모니터링하는 로컬 조건을 보고할 수 있는 상태 엔터티가 있는 [상태 모델](service-fabric-health-introduction.md)을 사용합니다. [상태 저장소](service-fabric-health-introduction.md#health-store) 는 모든 상태 데이터를 집계하여 엔터티가 정상인지 여부를 판단합니다.
@@ -32,7 +32,7 @@ Azure Service Fabric은 시스템 구성 요소와 워치독이 모니터링하�
 * 상태 쿼리(PowerShell, API 또는 REST를 통해)
 * 속성 중 하나로 상태를 가지고 있는 엔터티 목록을 반환하는 일반 쿼리(PowerShell, API 또는 REST를 통해)
 
-이러한 옵션을 설명하기 위해 5개의 노드와 [fabric:/WordCount application](https://aka.ms/servicefabric-wordcountapp)이 있는 로컬 클러스터를 사용하겠습니다. **fabric:/WordCount** 응용 프로그램에는 상태 저장 서비스 유형 `WordCountServiceType` 및 상태 비저장 서비스 유형 `WordCountWebServiceType` 등, 두 기본 서비스가 포함됩니다. `ApplicationManifest.xml`을 상태 저장 서비스에 대해 7개의 대상 복제본과 1개의 파티션을 요구하도록 변경했습니다. 클러스터에는 노드가 5개뿐이라 목표 수에 미달하므로 시스템 구성 요소는 서비스 파티션에 대해 경고를 보고합니다.
+이러한 옵션을 설명하기 위해 5개의 노드와 [fabric:/WordCount application](https://aka.ms/servicefabric-wordcountapp)이 있는 로컬 클러스터를 사용하겠습니다. **fabric:/WordCount** 애플리케이션에는 상태 저장 서비스 유형 `WordCountServiceType` 및 상태 비저장 서비스 유형 `WordCountWebServiceType` 등, 두 기본 서비스가 포함됩니다. `ApplicationManifest.xml`을 상태 저장 서비스에 대해 7개의 대상 복제본과 1개의 파티션을 요구하도록 변경했습니다. 클러스터에는 노드가 5개뿐이라 목표 수에 미달하므로 시스템 구성 요소는 서비스 파티션에 대해 경고를 보고합니다.
 
 ```xml
 <Service Name="WordCountService">
@@ -464,7 +464,7 @@ API를 통해 서비스 상태를 가져오려면 HealthManager에서 `FabricCli
 
 다음 예제는 지정된 서비스 이름(URI)을 가진 서비스 상태를 가져옵니다.
 
-```charp
+```csharp
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 
@@ -1038,7 +1038,7 @@ ApplicationHealthStateChunks :
   * PowerShell: Get-ServiceFabricApplication
 * 서비스 목록: 애플리케이션의 서비스 목록(페이징)을 반환합니다.
   * API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
-  * PowerShell: Get-ServiceFabricService
+  * PowerShell: -ServiceFabricService
 * 파티션 목록: 서비스의 파티션 목록(페이징)을 반환합니다.
   * API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
   * PowerShell: Get-ServiceFabricPartition
@@ -1162,7 +1162,7 @@ ForceRestart                  : False
 UpgradeReplicaSetCheckTimeout : 00:15:00
 ```
 
-[Service Fabric 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)에 대해 자세히 알아봅니다.
+[Service Fabric 애플리케이션 업그레이드](service-fabric-application-upgrade.md)에 대해 자세히 알아봅니다.
 
 ## <a name="use-health-evaluations-to-troubleshoot"></a>상태 평가를 사용하여 문제 해결
 클러스터 또는 애플리케이션에 문제가 있을 때마다 클러스터나 애플리케이션 상태를 확인하여 무엇이 잘못인지 식별합니다. 비정상 평가는 현재 비정상 상태를 무엇이 트리거했는지에 대한 세부 정보를 제공합니다. 필요한 경우 비정상 자녀 엔터티로 드릴다운하여 근본 원인을 식별할 수 있습니다.
@@ -1247,4 +1247,4 @@ HealthEvents          :
 
 [로컬로 서비스 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
+[Service Fabric 애플리케이션 업그레이드](service-fabric-application-upgrade.md)

@@ -1,6 +1,6 @@
 ---
 title: 도메인 및 SSL 인증서 문제 해결 - Azure App Service | Microsoft Docs
-description: Azure 웹앱에서 도메인 및 SSL 인증서 문제 해결
+description: Azure App Service에서 도메인 및 SSL 인증서 문제 해결
 services: app-service\web
 documentationcenter: ''
 author: genlin
@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 726bc78532cfe621eb3f3787aa05a7a54571a8c3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 6f88079c5baac8cef677fd3afc5696cec5c00d92
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388746"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653665"
 ---
-# <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>Azure 웹앱에서 도메인 및 SSL 인증서 문제 해결
+# <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Azure App Service에서 도메인 및 SSL 인증서 문제 해결
 
-이 문서는 Azure 웹앱에 대한 도메인 또는 SSL 인증서를 구성할 때 발생할 수 있는 일반적인 문제를 나열합니다. 또한 이러한 문제에 대한 가능한 원인 및 해결 방법을 설명합니다.
+이 문서는 Azure App Service의 웹앱에 대한 도메인 또는 SSL 인증서를 구성할 때 발생할 수 있는 일반적인 문제를 나열합니다. 또한 이러한 문제에 대한 가능한 원인 및 해결 방법을 설명합니다.
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 **지원 받기**를 선택합니다.
 
 ## <a name="certificate-problems"></a>인증서 문제
 
-### <a name="you-cant-add-an-ssl-certificate-binding-to-a-web-app"></a>웹앱에 SSL 인증서 바인딩을 추가할 수 없음 
+### <a name="you-cant-add-an-ssl-certificate-binding-to-an-app"></a>앱에 SSL 인증서 바인딩을 추가할 수 없음 
 
 #### <a name="symptom"></a>증상
 
@@ -40,13 +40,13 @@ SSL 바인딩을 추가하면 다음과 같은 오류 메시지가 나타납니�
 
 #### <a name="cause"></a>원인
 
-여러 웹앱에서 동일한 IP 주소에 대한 IP 기반 SSL 바인딩이 여러 개 있는 경우 이 문제가 발생할 수 있습니다. 예를 들어 웹앱 A는 IP 기반 SSL과 기존 인증서를 사용합니다. 웹앱 B는 동일한 IP 주소에 IP 기반 SSL과 새 인증서를 사용합니다. 웹앱 SSL 바인딩을 새 인증서로 업데이트하면 또 다른 앱에 동일한 IP 주소가 사용되므로 이 오류와 함께 작업이 실패합니다. 
+여러 앱에서 동일한 IP 주소에 대한 IP 기반 SSL 바인딩이 여러 개 있는 경우 이 문제가 발생할 수 있습니다. 예를 들어 앱 A는 IP 기반 SSL과 기존 인증서를 사용합니다. 앱 B는 동일한 IP 주소에 IP 기반 SSL과 새 인증서를 사용합니다. 앱 SSL 바인딩을 새 인증서로 업데이트하면 또 다른 앱에 동일한 IP 주소가 사용되므로 이 오류와 함께 작업이 실패합니다. 
 
 #### <a name="solution"></a>해결 방법 
 
 이 문제를 해결하려면 다음 방법 중 하나를 사용합니다.
 
-- 기존 인증서를 사용하는 웹앱에서 IP 기반 SSL 바인딩을 삭제합니다. 
+- 기존 인증서를 사용하는 앱에서 IP 기반 SSL 바인딩을 삭제합니다. 
 - 새 인증서를 사용하는 새 IP 기반 SSL 바인딩을 만듭니다.
 
 ### <a name="you-cant-delete-a-certificate"></a>인증서를 삭제할 수 없음 
@@ -59,11 +59,11 @@ SSL 바인딩을 추가하면 다음과 같은 오류 메시지가 나타납니�
 
 #### <a name="cause"></a>원인
 
-다른 웹앱에서 인증서를 사용하는 경우 이 문제가 발생할 수 있습니다.
+다른 앱에서 인증서를 사용하는 경우 이 문제가 발생할 수 있습니다.
 
 #### <a name="solution"></a>해결 방법
 
-웹앱에서 해당 인증서에 대한 SSL 바인딩을 제거합니다. 그 후 인증서를 삭제해 봅니다. 여전히 인증서를 삭제할 수 없으면 인터넷 브라우저 캐시를 지우고, 새 브라우저 창에서 Azure Portal을 다시 엽니다. 그 후 인증서를 삭제해 봅니다.
+앱에서 해당 인증서에 대한 SSL 바인딩을 제거합니다. 그 후 인증서를 삭제해 봅니다. 여전히 인증서를 삭제할 수 없으면 인터넷 브라우저 캐시를 지우고, 새 브라우저 창에서 Azure Portal을 다시 엽니다. 그 후 인증서를 삭제해 봅니다.
 
 ### <a name="you-cant-purchase-an-app-service-certificate"></a>App Service 인증서를 구입할 수 없음 
 
@@ -75,7 +75,7 @@ Azure Portal에서 [Azure App Service 인증서](./web-sites-purchase-ssl-web-si
 
 - App Service 계획이 무료 또는 공유입니다. 이러한 가격 책정 계층은 SSL을 지원하지 않습니다. 
 
-    **솔루션**: 웹앱의 App Service 계획을 Standard로 업그레이드합니다.
+    **솔루션**: 앱의 App Service 계획을 Standard로 업그레이드합니다.
 
 - 구독에 유효한 신용 카드가 없습니다.
 
@@ -88,7 +88,7 @@ Azure Portal에서 [Azure App Service 인증서](./web-sites-purchase-ssl-web-si
 - 구독에서 허용되는 구매 한도에 도달했습니다.
 
     **솔루션**: App Service 인증서의 종량제 및 EA 구독 유형에 대한 인증서 구매 한도는 10개입니다. 다른 구독 유형의 한도는 3개입니다. 한도를 늘리려면 [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하세요.
-- App Service 인증서가 사기로 표시되었습니다. 다음과 같은 오류 메시지를 받았습니다. “인증서가 사기성이 있을 수 있다고 플래그 지정되었습니다. 요청을 현재 검토하는 중입니다. 24시간 내에 인증서를 사용할 수 있게 되지 않으면 Azure 지원에 문의하세요.”
+- App Service 인증서가 사기로 표시되었습니다. 다음과 같은 오류 메시지를 받았습니다. “인증서가 사기성이 있을 수 있다고 플래그 지정되었습니다. 요청을 현재 검토하는 중입니다. 24시간 내에 인증서를 사용할 수 있게 되지 않으면 Azure 지원에 문의하세요."
 
     **솔루션**: 인증서가 사기로 표시되고 24시간 후에도 해결되지 않으면 다음 단계를 수행합니다.
 
@@ -110,14 +110,14 @@ Azure Portal에서 [Azure App Service 인증서](./web-sites-purchase-ssl-web-si
 
 잘못된 도메인을 사용하는 현재 인증서의 상태가 "발급됨"이면 해당 인증서에 대한 요금도 청구됩니다. App Service 인증서는 환불이 불가능하지만, [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)으로 문의하여 다른 옵션이 있는지 확인할 수 있습니다. 
 
-### <a name="an-app-service-certificate-was-renewed-but-the-web-app-shows-the-old-certificate"></a>App Service 인증서가 갱신되었지만 웹앱이 기존 인증서를 표시 
+### <a name="an-app-service-certificate-was-renewed-but-the-app-shows-the-old-certificate"></a>App Service 인증서가 갱신되었지만 앱이 기존 인증서를 표시 
 
 #### <a name="symptom"></a>증상
 
-App Service 인증서가 갱신되었지만 App Service 인증서를 사용하는 웹앱에서 여전히 기존 인증서를 사용합니다. 또한 HTTPS 프로토콜이 필요하다는 경고를 받았습니다.
+App Service 인증서가 갱신되었지만 App Service 인증서를 사용하는 앱에서 여전히 기존 인증서를 사용합니다. 또한 HTTPS 프로토콜이 필요하다는 경고를 받았습니다.
 
 #### <a name="cause"></a>원인 
-Azure App Service의 Web Apps 기능은 8시간마다 백그라운드 작업을 실행하고 변경 사항이 있는 경우 인증서 리소스를 동기화합니다. 인증서를 회전하거나 업데이트해도 애플리케이션이 새로 업데이트된 인증서가 아닌 기존 인증서를 검색하는 경우가 가끔 있습니다. 인증서 리소스를 동기화하는 작업이 아직 실행되지 않았기 때문입니다. 
+Azure App Service는 8시간마다 백그라운드 작업을 실행하고 변경 사항이 있는 경우 인증서 리소스를 동기화합니다. 인증서를 회전하거나 업데이트해도 애플리케이션이 새로 업데이트된 인증서가 아닌 기존 인증서를 검색하는 경우가 가끔 있습니다. 인증서 리소스를 동기화하는 작업이 아직 실행되지 않았기 때문입니다. 
  
 #### <a name="solution"></a>해결 방법
 
@@ -156,7 +156,7 @@ DNS 전파가 실행될 때까지 잠시 기다린 다음, **새고 고침** 단
 ### <a name="you-cant-purchase-a-domain"></a>도메인을 구입할 수 없음
 
 #### <a name="symptom"></a>증상
-Azure Portal의 Web Apps 또는 App Service 도메인에서 도메인을 구입할 수 없습니다.
+Azure Portal에서 App Service 도메인을 구입할 수 없습니다.
 
 #### <a name="cause-and-solution"></a>원인 및 해결 방법
 
@@ -176,7 +176,7 @@ Azure Portal의 Web Apps 또는 App Service 도메인에서 도메인을 구입�
 
     **솔루션**: Azure 구독을 종량제 구독 등의 다른 구독 유형으로 업그레이드합니다.
 
-### <a name="you-cant-add-a-host-name-to-a-web-app"></a>웹앱에 호스트 이름을 추가할 수 없음 
+### <a name="you-cant-add-a-host-name-to-an-app"></a>앱에 호스트 이름을 추가할 수 없음 
 
 #### <a name="symptom"></a>증상
 
@@ -191,11 +191,11 @@ Azure Portal의 Web Apps 또는 App Service 도메인에서 도메인을 구입�
     **솔루션**: 구독 관리자에게 호스트 이름을 추가할 수 있는 권한을 요청합니다.
 - 도메인 소유권을 확인할 수 없습니다.
 
-    **솔루션**: CNAME 또는 A 레코드가 올바르게 구성되었는지 확인합니다. 사용자 지정 도메인을 웹앱에 매핑하려면 CNAME 레코드 또는 A 레코드를 만듭니다. 루트 도메인을 사용하려면 A 및 TXT 레코드를 사용해야 합니다.
+    **솔루션**: CNAME 또는 A 레코드가 올바르게 구성되었는지 확인합니다. 사용자 지정 도메인을 앱에 매핑하려면 CNAME 레코드 또는 A 레코드를 만듭니다. 루트 도메인을 사용하려면 A 및 TXT 레코드를 사용해야 합니다.
 
     |레코드 형식|호스트|대상|
     |------|------|-----|
-    |A|@|웹앱의 IP 주소|
+    |A|@|앱의 IP 주소|
     |TXT|@|<app-name>.azurewebsites.net|
     |CNAME|www|<app-name>.azurewebsites.net|
 
@@ -216,7 +216,7 @@ Azure Portal의 Web Apps 또는 App Service 도메인에서 도메인을 구입�
 #### <a name="solution"></a>해결 방법
 - 이 문제가 스스로 해결될 때까지 48시간 동안 기다립니다.
 - DNS 구성에서 TTL 설정을 변경할 수 있는 경우 값을 5분으로 변경하고 문제가 해결되는지 확인합니다.
-- [WhatsmyDNS.net](https://www.whatsmydns.net/)을 사용하여 도메인이 웹앱의 IP 주소를 가리키는지 확인합니다. 가리키지 않으면 A 레코드를 웹앱의 올바른 IP 주소로 구성합니다.
+- [WhatsmyDNS.net](https://www.whatsmydns.net/)을 사용하여 도메인이 앱의 IP 주소를 가리키는지 확인합니다. 가리키지 않으면 A 레코드를 앱의 올바른 IP 주소로 구성합니다.
 
 ### <a name="you-need-to-restore-a-deleted-domain"></a>삭제된 도메인을 복원해야 함 
 
@@ -247,7 +247,7 @@ Azure Portal의 Web Apps 또는 App Service 도메인에서 도메인을 구입�
 **원인 1의 해결 방법**
 
 - A 레코드를 추가한 경우 TXT 레코드도 추가해야 합니다. 자세한 내용은 [A 레코드 만들기](./app-service-web-tutorial-custom-domain.md#create-the-a-record)를 참조하세요.
-- 웹앱에 루트 도메인을 사용하지 않아도 되는 경우 A 레코드 대신 CNAME 레코드를 사용하는 것이 좋습니다.
+- 앱에 루트 도메인을 사용하지 않아도 되는 경우 A 레코드 대신 CNAME 레코드를 사용하는 것이 좋습니다.
 - CNAME 및 A 레코드를 동일한 도메인에 사용하지 마세요. 충돌이 발생하고 도메인을 확인하지 못하게 될 수 있습니다. 
 
 **원인 2** 
@@ -256,18 +256,18 @@ Azure Portal의 Web Apps 또는 App Service 도메인에서 도메인을 구입�
 
 **원인 2의 해결 방법**
 
-브라우저를 지웁니다. Windows 디바이스의 경우 `ipconfig /flushdns` 명령을 실행하면 됩니다. [WhatsmyDNS.net](https://www.whatsmydns.net/)을 사용하여 도메인이 웹앱의 IP 주소를 가리키는지 확인합니다. 
+브라우저를 지웁니다. Windows 디바이스의 경우 `ipconfig /flushdns` 명령을 실행하면 됩니다. [WhatsmyDNS.net](https://www.whatsmydns.net/)을 사용하여 도메인이 앱의 IP 주소를 가리키는지 확인합니다. 
 
 ### <a name="you-cant-add-a-subdomain"></a>하위 도메인을 추가할 수 없음 
 
 #### <a name="symptom"></a>증상
 
-웹앱에 새 호스트 이름을 추가하여 하위 도메인을 할당할 수 없습니다.
+앱에 새 호스트 이름을 추가하여 하위 도메인을 할당할 수 없습니다.
 
 #### <a name="solution"></a>해결 방법
 
-- 구독 관리자에게 문의하여 웹앱에 호스트 이름을 추가할 권한을 갖고 있는지 확인합니다.
-- 더 많은 하위 도메인이 필요한 경우 도메인 호스팅을 Azure DNS로 변경하는 것이 좋습니다. Azure DNS를 사용하여 웹앱에 호스트 이름 500개를 추가할 수 있습니다. 자세한 내용은 [하위 도메인 추가](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/)를 참조하세요.
+- 구독 관리자에게 문의하여 앱에 호스트 이름을 추가할 권한을 갖고 있는지 확인합니다.
+- 더 많은 하위 도메인이 필요한 경우 도메인 호스팅을 Azure DNS로 변경하는 것이 좋습니다. Azure DNS를 사용하여 앱에 호스트 이름 500개를 추가할 수 있습니다. 자세한 내용은 [하위 도메인 추가](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/)를 참조하세요.
 
 
 

@@ -4,12 +4,12 @@ ms.service: application-insights
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3986b77cfad167134bf8ada1e3cbb73ad64dd3ca
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 91141e314bf276d9138157c8a9d85d5262ac5907
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572433"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728985"
 ---
 사용자 지정 측정값 컬렉션입니다. 이 컬렉션을 사용하여 원격 분석 항목에 연결된 이름이 지정된 측정값을 보고합니다. 일반적인 사용 사례는 다음과 같습니다.
 - 종속성 원격 분석 페이로드의 크기
@@ -25,6 +25,6 @@ customEvents
 ```
 
  > [!NOTE]
- > 사용자 지정 측정값은 현재 소속된 원격 분석 항목과 연결됩니다. 이들은 이러한 측정값이 포함된 원격 분석 항목을 사용하여 샘플링됩니다. 다른 원격 분석 유형과 독립적 관계에 있는 측정값을 추적하려면 [메트릭 원격 분석](../articles/application-insights/app-insights-api-custom-events-metrics.md)을 사용하세요.
+ > 사용자 지정 측정값은 현재 소속된 원격 분석 항목과 연결됩니다. 이들은 이러한 측정값이 포함된 원격 분석 항목을 사용하여 샘플링됩니다. 다른 원격 분석 유형과 독립적 관계에 있는 측정값을 추적하려면 [메트릭 원격 분석](../articles/azure-monitor/app/api-custom-events-metrics.md)을 사용하세요.
 
 최대 키 길이: 150

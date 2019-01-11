@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 8b14550adf89f866cf3b736db049cc671db5b765
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 04a923a8bc022aefb667489702c0e74493df94a8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314510"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652764"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>psql을 사용하여 Apache Phoenix로 데이터 대량 로드
 
-[Apache Phoenix](http://phoenix.apache.org/)는 [Apache HBase](../hbase/apache-hbase-overview.md)에서 구축되는 오픈 소스 대규모 병렬 관계형 데이터베이스입니다. Phoenix는 HBase보다는 SQL과 비슷한 쿼리를 제공합니다. Phoenix는 JDBC 드라이버를 사용하여 사용자가 개별적으로 및 대량으로 SQL 테이블, 인덱스, 뷰 및 시퀀스를 생성, 삭제 및 변경하고, 행을 Upsert할 수 있도록 합니다. Phoenix는 MapReduce를 사용하여 쿼리를 컴파일하는 대신, noSQL 네이티브 컴파일을 사용하여 HBase 위에 대기 시간이 짧은 애플리케이션을 만듭니다. Phoenix는 서버의 주소 공간에서 클라이언트 제공 코드를 실행하도록 지원하는 보조 프로세서를 추가하고, 데이터와 함께 있는 코드를 실행합니다. 따라서 클라이언트/서버 데이터 전송이 최소화됩니다.  HDInsight에서 Phoenix를 사용하여 데이터로 작업하려면 먼저 테이블을 만든 다음, 데이터를 로드합니다.
+[Apache Phoenix](https://phoenix.apache.org/)는 [Apache HBase](../hbase/apache-hbase-overview.md)에서 구축되는 오픈 소스 대규모 병렬 관계형 데이터베이스입니다. Phoenix는 HBase보다는 SQL과 비슷한 쿼리를 제공합니다. Phoenix는 JDBC 드라이버를 사용하여 사용자가 개별적으로 및 대량으로 SQL 테이블, 인덱스, 뷰 및 시퀀스를 생성, 삭제 및 변경하고, 행을 Upsert할 수 있도록 합니다. Phoenix는 MapReduce를 사용하여 쿼리를 컴파일하는 대신, noSQL 네이티브 컴파일을 사용하여 HBase 위에 대기 시간이 짧은 애플리케이션을 만듭니다. Phoenix는 서버의 주소 공간에서 클라이언트 제공 코드를 실행하도록 지원하는 보조 프로세서를 추가하고, 데이터와 함께 있는 코드를 실행합니다. 따라서 클라이언트/서버 데이터 전송이 최소화됩니다.  HDInsight에서 Phoenix를 사용하여 데이터로 작업하려면 먼저 테이블을 만든 다음, 데이터를 로드합니다.
 
 ## <a name="bulk-loading-with-apache-phoenix"></a>Apache Phoenix를 사용하여 대량 로드
 
@@ -73,7 +73,7 @@ MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 �
     python psql.py ZookeeperQuorum createCustomersTable.sql /tmp/customers.csv listCustomers.sql
     ```
 
-    > [!NOTE] 
+    > [!NOTE]   
     > `ZookeeperQuorum` 이름을 확인하려면 속성 이름으로 `hbase.zookeeper.quorum`을 사용하여 `/etc/hbase/conf/hbase-site.xml` 파일에서 [Apache ZooKeeper](https://zookeeper.apache.org/) 쿼럼 문자열을 찾습니다.
 
 5. `psql` 작업이 완료된 후에 명령 창에 메시지가 표시됩니다.
@@ -141,7 +141,7 @@ MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Apache Phoenix로 데이터 대량 로드](http://phoenix.apache.org/bulk_dataload.html)
+* [Apache Phoenix로 데이터 대량 로드](https://phoenix.apache.org/bulk_dataload.html)
 * [HDInsight에서 Linux 기반 Apache HBase 클러스터와 함께 Apache Phoenix 사용](../hbase/apache-hbase-phoenix-squirrel-linux.md)
 * [솔트된 테이블](https://phoenix.apache.org/salted.html)
-* [Phoenix 문법](http://phoenix.apache.org/language/index.html)
+* [Apache Phoenix 문법](https://phoenix.apache.org/language/index.html)

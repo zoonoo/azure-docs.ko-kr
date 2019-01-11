@@ -9,26 +9,25 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: da105be19f7d546e530298f87974fe7f3f78989f
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7326cf6a1153d5dc1f7e5f910a376a21b05db606
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012218"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725443"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-windows-based-hdinsight"></a>Windows 기반 HDInsight에서 Apache Hadoop YARN 애플리케이션 로그에 액세스
 이 문서에서는 Azure HDInsight의 Windows 기반 Apache Hadoop 클러스터에서 완료된 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) 애플리케이션에 대한 로그에 액세스하는 방법에 대해 설명합니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이 문서의 정보는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요. Linux 기반 HDInsight 클러스터에서 YARN 로그에 액세스하는 방법에 대한 자세한 내용은 [HDInsight의 Linux 기반 Apache Hadoop에서 Apache Hadoop YARN 애플리케이션 로그에 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)를 참조하세요.
->
 
 
 ### <a name="prerequisites"></a>필수 조건
 * Windows 기반 HDInsight 클러스터입니다.  [HDInsight에서 Windows 기반 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
 ## <a name="yarn-timeline-server"></a>YARN Timeline Server
-<a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">Apache Hadoop YARN Timeline Server</a>는 두 가지 다른 인터페이스를 통해 완료된 애플리케이션에 대한 제네릭 정보 및 프레임워크별 애플리케이션 정보를 제공합니다. 구체적으로 살펴보면 다음과 같습니다.
+<a href="https://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">Apache Hadoop YARN Timeline Server</a>는 두 가지 다른 인터페이스를 통해 완료된 애플리케이션에 대한 제네릭 정보 및 프레임워크별 애플리케이션 정보를 제공합니다. 구체적으로 살펴보면 다음과 같습니다.
 
 * 3.1.1.374 이상 버전에서는 HDInsight 클러스터에서 제네릭 애플리케이션 정보를 저장하고 검색할 수 있습니다.
 * Timeline Server의 프레임워크별 애플리케이션 정보 구성 요소는 HDInsight 클러스터에서 현재 사용할 수 없습니다.
@@ -75,7 +74,7 @@ YARN ResourceManager UI 클러스터 헤드 노드에서 실행되며 Azure 포�
 3. 위쪽 메뉴에서 **대시보드**를 클릭합니다. **HDInsight 쿼리 콘솔**이라는 새 브라우저 탭에 페이지가 열립니다.
 4. **HDInsight 쿼리 콘솔**에서 **Yarn UI**를 클릭합니다.
 
-[YARN-timeline-server]:http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
+[YARN-timeline-server]:https://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
 [log-aggregation]:https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/
 [T-file]:https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]:https://issues.apache.org/jira/browse/HADOOP-3315

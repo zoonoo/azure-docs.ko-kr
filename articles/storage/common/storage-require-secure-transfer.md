@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 72e0937e91a7287d240bbdb25996865f934d432d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6f17cb4540feea6400c60c8032d071d6a922c871
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876505"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633064"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Azure Storage에서 보안 전송 필요
 
@@ -50,7 +50,7 @@ SDK로 스토리지 계정을 만들면 기본적으로 "보안 전송 필요" �
 보안 전송을 프로그래밍 방식으로 요구하려면 REST API, 도구 또는 라이브러리를 사용하여 저장소 계정 속성에서 설정 _supportsHttpsTrafficOnly_를 사용합니다.
 
 * [REST API](https://docs.microsoft.com/rest/api/storagerp/storageaccounts)(버전: 2016-12-01)
-* [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0)(버전: 4.1.0)
+* [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount)(버전: 0.7)
 * [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11)(버전: 2.0.11)
 * [NodeJS](https://www.npmjs.com/package/azure-arm-storage/)(버전: 1.1.0)
 * [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview)(버전: 6.3.0)
@@ -59,14 +59,16 @@ SDK로 스토리지 계정을 만들면 기본적으로 "보안 전송 필요" �
 
 ### <a name="enable-secure-transfer-required-setting-with-powershell"></a>PowerShell을 사용하여 "보안 전송 필요" 설정 사용
 
-이 샘플에는 Azure PowerShell 모듈 버전 4.1 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-`Connect-AzureRmAccount`를 실행하여 Azure와 연결합니다.
+이 샘플에는 Azure PowerShell 모듈 Az 버전 0.7 이상이 필요합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요.
+
+`Connect-AzAccount`를 실행하여 Azure와 연결합니다.
 
  다음 명령줄을 사용하여 설정을 확인합니다.
 
 ```powershell
-> Get-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
+> Get-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
 StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : False
@@ -77,7 +79,7 @@ EnableHttpsTrafficOnly : False
 다음 명령줄을 사용하여 설정을 사용하도록 설정합니다.
 
 ```powershell
-> Set-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
+> Set-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
 StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : True
@@ -118,4 +120,4 @@ EnableHttpsTrafficOnly : True
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Azure Storage는 여러 개발자가 보안 응용 프로그램을 함께 빌드할 수 있도록 하는 포괄적인 보안 기능을 제공합니다. 자세한 내용은 [저장소 보안 가이드](storage-security-guide.md)를 참조하세요.
+Azure Storage는 여러 개발자가 보안 애플리케이션을 함께 빌드할 수 있도록 하는 포괄적인 보안 기능을 제공합니다. 자세한 내용은 [저장소 보안 가이드](storage-security-guide.md)를 참조하세요.

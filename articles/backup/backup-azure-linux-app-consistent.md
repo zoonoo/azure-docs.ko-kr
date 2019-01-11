@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/12/2018
 ms.author: anuragm
-ms.openlocfilehash: 027fc4098e7760de276a8548453bb83599ed0521
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a81c0b9c87db85771fcecab87c6b9ac88dcbd472
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605215"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581860"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Azure Linux VM의 애플리케이션 일치 백업
 
@@ -36,10 +36,10 @@ VM의 백업 스냅숏을 만들 때 애플리케이션 일관성이란 복원 �
 
 4. 다음 파일에 대해 다음과 같은 권한이 있는지 확인합니다.
 
-   - **VMSnapshotScriptPluginConfig.json**: 권한 "600" 예를 들어 "루트" 사용자만 이 파일에 대한 "읽기" 및 "쓰기" 권한을 가져야 하며 사용자는 "실행" 권한을 가져서는 안됩니다.
+   - **VMSnapshotScriptPluginConfig.json**: 사용 권한 “600” 예를 들어 "루트" 사용자만 이 파일에 대한 "읽기" 및 "쓰기" 권한을 가져야 하며 사용자는 "실행" 권한을 가져서는 안됩니다.
 
-   - **사전 스크립트 파일**: 권한 “700”  예를 들어 "루트" 사용자만 이 파일에 대한 "읽기", "쓰기" 및 "실행" 권한을 가져야 합니다.
-  
+   - **사전 스크립트 파일**: 사용 권한 “700”  예를 들어 "루트" 사용자만 이 파일에 대한 "읽기", "쓰기" 및 "실행" 권한을 가져야 합니다.
+
    - **사후 스크립트**: 권한 “700” 예를 들어 "루트" 사용자만 이 파일에 대한 "읽기", "쓰기" 및 "실행" 권한을 가져야 합니다.
 
    > [!Important]
@@ -60,9 +60,9 @@ VM의 백업 스냅숏을 만들 때 애플리케이션 일관성이란 복원 �
 
     - **preScriptNoOfRetries**: 종료하기 전에 모든 오류에서 사전 스크립트가 다시 시도되어야 하는 횟수를 설정합니다. 0은 한 번의 시도를 의미하고 실패의 경우 시도 없음을 의미합니다.
 
-    - **postScriptNoOfRetries**: 종료하기 전에 모든 오류에서 사후 스크립트가 다시 시도되어야 하는 횟수를 설정합니다. 0은 한 번의 시도를 의미하고 실패의 경우 시도 없음을 의미합니다.
-    
-    - **timeoutInSeconds**: 사전 스크립트 및 사후 스크립트에 대한 개별 시간 제한을 지정합니다.
+    - **postScriptNoOfRetries**:  종료하기 전에 모든 오류에서 사후 스크립트가 다시 시도되어야 하는 횟수를 설정합니다. 0은 한 번의 시도를 의미하고 실패의 경우 시도 없음을 의미합니다.
+
+    - **timeoutInSeconds**: 사전 스크립트 및 사후 스크립트에 대한 개별 시간 제한을 지정합니다(최댓값은 1800).
 
     - **continueBackupOnFailure**: Azure Backup을 사전 스크립트 또는 사후 스크립트가 실패하는 경우 파일 시스템 일관성/충돌 일관성 백업으로 대체하려는 경우 이 값을 **true**로 설정합니다. 이 값을 **false**로 설정하면 스크립트 오류가 발생하는 경우 백업에 실패합니다(이 설정과 관련 없는 충돌 일관성 백업으로 대체하는 단일 디스크 VM의 경우 제외).
 
@@ -81,7 +81,7 @@ VM의 백업 스냅숏을 만들 때 애플리케이션 일관성이란 복원 �
 | Pre-ScriptNotFound |  **VMSnapshotScriptPluginConfig.json** 구성 파일에 지정된 위치에서 사전 스크립트를 찾지 못했습니다. |   애플리케이션 일관성 백업을 위해 사전 스크립트가 구성 파일에 지정된 경로에 있는지 확인하세요.|
 | Post-ScriptNotFound | **VMSnapshotScriptPluginConfig.json** 구성 파일에 지정된 위치에서 사후 스크립트를 찾지 못했습니다. |   애플리케이션 일관성 백업을 위해 사후 스크립트가 구성 파일에 지정된 경로에 있는지 확인하세요.|
 | IncorrectPluginhostFile | VmSnapshotLinux 확장과 함께 제공되는 **Pluginhost** 파일이 손상되어서 사전 스크립트 및 사후 스크립트를 실행할 수 없으며 백업이 애플리케이션에 일관되지 않습니다. | **VmSnapshotLinux** 확장을 제거하세요. 문제를 해결하기 위해 다음 백업과 함께 자동으로 다시 설치됩니다. |
-| IncorrectJSONConfigFile | **VMSnapshotScriptPluginConfig.json** 파일이 잘못되어서 사전 스크립트 및 사후 스크립트를 실행할 수 없으며 백업이 응용 프로그램에 일관되지 않습니다. | [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig)에서 복사본을 다운로드하고 다시 구성하세요. |
+| IncorrectJSONConfigFile | **VMSnapshotScriptPluginConfig.json** 파일이 잘못되어서 사전 스크립트 및 사후 스크립트를 실행할 수 없으며 백업이 애플리케이션에 일관되지 않습니다. | [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig)에서 복사본을 다운로드하고 다시 구성하세요. |
 | InsufficientPermissionforPre-Script | 스크립트 실행을 위해 “루트” 사용자는 파일의 소유자여야 하며 파일은 "700" 권한을 가져야 합니다. 즉, “소유자”만이 "읽기", "쓰기" 및 "실행" 권한을 가져야 합니다. | "루트" 사용자가 스크립트 파일의 "소유자"이고 “소유자”만이 "읽기", "쓰기" 및 "실행" 권한을 갖는지 확인합니다. |
 | InsufficientPermissionforPost-Script | 스크립트 실행을 위해 루트 사용자는 파일의 소유자여야 하며 파일은 "700" 권한을 가져야 합니다. 즉, “소유자”만이 "읽기", "쓰기" 및 "실행" 권한을 가져야 합니다. | "루트" 사용자가 스크립트 파일의 "소유자"이고 “소유자”만이 "읽기", "쓰기" 및 "실행" 권한을 갖는지 확인합니다. |
 | Pre-ScriptTimeout | 애플리케이션 일치 백업 사전 스크립트의 실행이 시간 초과되었습니다. | 스크립트를 확인하고 **/etc/azure**에 있는 **VMSnapshotScriptPluginConfig.json** 파일에서 시간 제한을 늘립니다. |

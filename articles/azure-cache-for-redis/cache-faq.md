@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 311a576381927536386f5852336c3713fca5c3bf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: aee91f6d9b8d16db7f14bbc2372d7c465377ce28
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260755"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971531"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Azure Cache for Redis FAQ
 Azure Cache for Redis에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다.
@@ -83,7 +83,7 @@ Azure Cache for Redis에 대한 일반적인 질문과 대답, 패턴 및 모범
 * [내게 적합한 Azure 캐시 기능](#which-azure-cache-offering-is-right-for-me)
 
 ### <a name="what-is-azure-cache-for-redis"></a>Azure Cache for Redis란?
-Azure Cache for Redis는 인기 있는 오픈 소스 [Azure Cache for Redis](http://redis.io)를 기반으로 합니다. Microsoft에서 관리하여 Azure 내의 모든 애플리케이션에서 액세스할 수 있는 안전한 전용 Azure Cache for Redis에 대한 액세스를 제공합니다. 자세한 개요는 Azure.com의 [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) 제품 페이지를 참조하세요.
+Azure Cache for Redis는 널리 사용되는 오픈 소스 소프트웨어 [Redis](https://redis.io/)를 기반으로 합니다. Microsoft에서 관리하여 Azure 내의 모든 애플리케이션에서 액세스할 수 있는 안전한 전용 Azure Cache for Redis에 대한 액세스를 제공합니다. 자세한 개요는 Azure.com의 [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) 제품 페이지를 참조하세요.
 
 ### <a name="how-can-i-get-started-with-azure-cache-for-redis"></a>Azure Cache for Redis를 시작하려면 어떻게 해야 하나요?
 Azure Cache for Redis는 몇 가지 방법으로 시작할 수 있습니다.
@@ -123,7 +123,7 @@ Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 다음 표에서는 Azure Cache for Redis 엔드포인트에 대해 Iaas VM에서 `redis-benchmark.exe`를 사용하여 다양한 크기의 표준 및 프리미엄 캐시를 테스트하는 동안 관찰되는 최대 대역폭 값을 보여 줍니다. SSL 처리량의 경우 redis-benchmark를 stunnel과 함께 사용하여 Azure Cache for Redis 엔드포인트에 연결합니다.
 
 >[!NOTE] 
->이러한 값은 보장되지 않으며 해당 수치에 대한 SLA는 없지만 일반적인 수치입니다. 응용 프로그램에 적합한 캐시 크기를 확인하려면 사용자 고유의 응용 프로그램을 부하 테스트해야 합니다.
+>이러한 값은 보장되지 않으며 해당 수치에 대한 SLA는 없지만 일반적인 수치입니다. 애플리케이션에 적합한 캐시 크기를 확인하려면 사용자 고유의 애플리케이션을 부하 테스트해야 합니다.
 >이러한 수치는 새 결과가 주기적으로 게시됨에 따라 변경될 수 있습니다.
 >
 
@@ -174,7 +174,7 @@ Azure Cache for Redis 가격은 [여기](https://azure.microsoft.com/pricing/det
 다른 클라우드에서 Azure Cache for Redis를 사용할 때 고려해야 할 사항에 대한 자세한 내용은 다음 링크를 참조하세요.
 
 - [Azure Government 데이터베이스 - Azure Cache for Redis](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
-- [Azure 중국 클라우드 - Azure Cache for Redis](https://www.azure.cn/documentation/services/azure-cache-for-redis/)
+- [Azure 중국 클라우드 - Azure Cache for Redis](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
 
 Azure Government 클라우드, Azure 중국 클라우드 및 Microsoft Azure 독일에서 PowerShell을 통해 Azure Cache for Redis를 사용하는 방법에 대한 자세한 내용은 [다른 클라우드에 연결하는 방법 - Azure Cache for Redis PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds)을 참조하세요.
@@ -199,10 +199,10 @@ StackExchange.Redis에는 많은 옵션이 있습니다. 이 섹션에서는 몇
 * **시간 제한 값**
   * 작업을 고려하여 적절하게 값을 설정합니다. 큰 값을 저장하는 경우 시간 제한을 더 큰 값으로 설정합니다.
   * `AbortOnConnectFail`을 false로 설정하여 StackExchange.Redis가 다시 연결하도록 합니다.
-  * 응용 프로그램에 단일 ConnectionMultiplexer 인스턴스를 사용합니다. [ConnectionMultiplexer 클래스를 사용하여 캐시에 연결](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)에 표시된 대로, LazyConnection을 사용하여 Connection 속성에 의해 반환되는 단일 인스턴스를 만들 수 있습니다.
+  * 애플리케이션에 단일 ConnectionMultiplexer 인스턴스를 사용합니다. [ConnectionMultiplexer 클래스를 사용하여 캐시에 연결](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)에 표시된 대로, LazyConnection을 사용하여 Connection 속성에 의해 반환되는 단일 인스턴스를 만들 수 있습니다.
   * 진단 목적으로 `ConnectionMultiplexer.ClientName` 속성을 앱 인스턴스 고유 이름으로 설정합니다.
   * 사용자 지정 작업에 여러 개의 `ConnectionMultiplexer` 인스턴스를 사용합니다.
-      * 응용 프로그램에 다양한 부하가 있는 경우 이 모델을 따를 수 있습니다. 예: 
+      * 애플리케이션에 다양한 부하가 있는 경우 이 모델을 따를 수 있습니다. 예: 
       * 큰 키를 처리하기 위한 멀티플렉서 1개가 있습니다.
       * 작은 키를 처리하기 위한 멀티플렉서 1개가 있습니다.
       * 사용하는 각 ConnectionMultiplexer의 연결 시간 제한 및 다시 시도 논리에 대해 다른 값을 설정할 수 있습니다.
@@ -368,7 +368,7 @@ CLR ThreadPool에는 두 가지 유형의 스레드 - "작업자" 및 "I/O 완�
 1. 기존 스레드는 작업을 처리할 수 있는 상태가 됩니다.
 2. 500ms에 대해 기존 스레드를 사용할 수 없으므로 새 스레드가 만들어집니다.
 
-기본적으로 사용 중인 스레드의 수가 최소 스레드보다 큰 경우 네트워크 트래픽이 응용 프로그램에서 처리되기 전에 500ms 지연을 지불할 가능성이 있음을 의미합니다. 또한 기존 스레드가 15초보다 오랫동안 유휴 상태로 유지되는 경우(기억에 기반) 정리되고 증가 및 감소의 주기를 반복할 수 있다는 것에 유의해야 합니다.
+기본적으로 사용 중인 스레드의 수가 최소 스레드보다 큰 경우 네트워크 트래픽이 애플리케이션에서 처리되기 전에 500ms 지연을 지불할 가능성이 있음을 의미합니다. 또한 기존 스레드가 15초보다 오랫동안 유휴 상태로 유지되는 경우(기억에 기반) 정리되고 증가 및 감소의 주기를 반복할 수 있다는 것에 유의해야 합니다.
 
 StackExchange.Redis(빌드 1.0.450 이상)의 예제 오류 메시지를 살펴보는 경우 ThreadPool 통계를 인쇄하는 것을 볼 수 있습니다(아래 IOCP 및 작업자 세부 정보 참조).
 
@@ -382,7 +382,7 @@ StackExchange.Redis(빌드 1.0.450 이상)의 예제 오류 메시지를 살펴�
 IOCP 또는 작업자 스레드의 증가에 제한이 있는 경우 StackExchange.Redis는 시간 제한에 도달할 수 있습니다.
 
 ### <a name="recommendation"></a>권장 사항
-주어진 이 정보로 고객은 IOCP 및 작업자 스레드에 대해 기본값보다 큰 값으로 최소 구성 값을 설정하는 것이 좋습니다. 하나의 응용 프로그램에 대한 올바른 값은 다른 응용 프로그램에 대해 너무 높거나/낮을 수 있으므로 이 값에 대해 모든 지침에 맞는 하나의 크기를 제공할 수 없습니다. 이 설정은 복잡한 응용 프로그램의 다른 부분의 성능에 영향을 미칠 수 있으므로 각 고객은 특정 요구에 맞게 이 설정을 미세 조정해야 합니다. 좋은 시작 지점은 200 또는 300이며 필요에 따라 테스트 및 조정합니다.
+주어진 이 정보로 고객은 IOCP 및 작업자 스레드에 대해 기본값보다 큰 값으로 최소 구성 값을 설정하는 것이 좋습니다. 하나의 애플리케이션에 대한 올바른 값은 다른 애플리케이션에 대해 너무 높거나/낮을 수 있으므로 이 값에 대해 모든 지침에 맞는 하나의 크기를 제공할 수 없습니다. 이 설정은 복잡한 애플리케이션의 다른 부분의 성능에 영향을 미칠 수 있으므로 각 고객은 특정 요구에 맞게 이 설정을 미세 조정해야 합니다. 좋은 시작 지점은 200 또는 300이며 필요에 따라 테스트 및 조정합니다.
 
 이 설정을 구성하는 방법
 
@@ -437,8 +437,8 @@ Microsoft Azure Cache for Redis 인스턴스는 [Azure Portal](https://portal.az
 캐시 연결 끊김의 몇 가지 일반적인 이유는 다음과 같습니다.
 
 * 클라이언트 쪽 원인
-  * 클라이언트 응용 프로그램이 다시 배포되었습니다.
-  * 클라이언트 응용 프로그램이 크기 조정 작업을 수행했습니다.
+  * 클라이언트 애플리케이션이 다시 배포되었습니다.
+  * 클라이언트 애플리케이션이 크기 조정 작업을 수행했습니다.
     * Cloud Services나 Web Apps의 경우 자동 크기 조정 때문일 수 있습니다.
   * 클라이언트 쪽의 네트워킹 계층이 변경되었습니다.
   * 클라이언트 또는 클라이언트와 서버 간의 네트워크 노드에서 일시적인 오류가 발생했습니다.

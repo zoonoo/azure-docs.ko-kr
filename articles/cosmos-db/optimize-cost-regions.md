@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: d5e10e04ea9567e2656f592407855a53a70d7b0f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 0ec603df7005b9151f1cf760df80de9aaffc78b3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263358"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539707"
 ---
 # <a name="optimize-the-cost-for-multi-region-deployments-in-azure-cosmos-db"></a>Azure Cosmos DB에서 다중 지역 배포에 대해 비용 최적화
 
@@ -21,7 +21,7 @@ ms.locfileid: "53263358"
 
 1. Azure Cosmos 계정이 쓰기를 처리할 수 있는 모든 지역으로 구성된 경우 `T x (N+1) RU/s` 
 
-단일 쓰기 지역으로 프로비전된 처리량 비용은 100RU당 $0.008/시간이며, 여러 쓰기 가능 지역으로 프로비전된 처리량 비용은 100RU당 $0.016/시간입니다. 자세한 내용은 Cosmos DB [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.
+단일 쓰기 지역으로 프로비전된 처리량 비용은 100RU당 $0.008/시간이며, 여러 쓰기 가능 지역으로 프로비전된 처리량 비용은 100RU당 $0.016/시간입니다. 자세한 내용은 Azure Cosmos DB [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.
 
 ## <a name="costs-for-multiple-write-regions"></a>여러 쓰기 지역에 대한 비용
 

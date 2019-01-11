@@ -10,23 +10,23 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2e515ee61144dfe56d2b5a4fac97da81b0fa8c84
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 43da5b32fe3ad8891f89544d0f9bdbd1d4d127d0
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834847"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606185"
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Windows 데스크톱 앱 빌드
 Azure AD(Azure Active Directory) B2C를 사용하여 몇 가지 간단한 단계에서 강력한 셀프 서비스 ID 관리 기능을 데스크톱 앱에 추가할 수 있습니다. 이 문서에서는 사용자 등록, 로그인 및 프로필 관리를 포함하는 .NET WPF(Windows Presentation Foundation) "할 일 모음" 앱을 만드는 방법을 보여 줍니다. 이 앱에서는 사용자 이름 또는 전자 메일을 사용하여 등록 및 로그인할 수 있습니다. 또한 Facebook 및 Google과 같은 소셜 계정을 사용하여 등록 및 로그인하는 기능도 지원합니다.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Azure AD B2C 디렉터리 가져오기
-Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어야 합니다.  디렉터리는 모든 사용자, 앱, 그룹 등을 위한 컨테이너입니다. 아직 없는 경우 [B2C 디렉터리를 만든](active-directory-b2c-get-started.md) 후에 이 가이드를 계속 진행합니다.
+Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어야 합니다. 디렉터리는 모든 사용자, 앱, 그룹 등을 위한 컨테이너입니다. 아직 없는 경우 [B2C 디렉터리를 만든](active-directory-b2c-get-started.md) 후에 이 가이드를 계속 진행합니다.
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
-다음으로 B2C 디렉터리에서 앱을 만들어야 합니다. 앱과 안전하게 통신하는 데 필요한 Azure AD 정보를 제공합니다. 앱을 만들려면 [다음 지침](active-directory-b2c-app-registration.md)에 따릅니다.  다음을 수행해야 합니다.
+다음으로 B2C 디렉터리에서 앱을 만들어야 합니다. 앱과 안전하게 통신하는 데 필요한 Azure AD 정보를 제공합니다. 앱을 만들려면 [다음 지침](active-directory-b2c-app-registration.md)에 따릅니다. 다음을 수행해야 합니다.
 
-* 애플리케이션에 **네이티브 클라이언트**를 포함합니다.
+* 애플리케이션에 **네이티브 클라이언트** 를 포함합니다.
 * **리디렉션 URI** `urn:ietf:wg:oauth:2.0:oob`를 복사합니다. 이 코드 샘플에 대한 기본 URL입니다.
 * 앱에 할당된 **애플리케이션 ID**를 복사합니다. 이 시간은 나중에 필요합니다.
 
@@ -36,7 +36,7 @@ Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-refe
 * ID 공급자 블레이드에서 **사용자 ID 등록** 또는 **메일 등록** 중 하나를 선택합니다.
 * 등록 정책에서 **표시 이름** 및 다른 등록 특성을 선택합니다.
 * 모든 정책에 대한 애플리케이션 클레임으로 **표시 이름** 및 **개체 ID** 클레임을 선택합니다. 물론 다른 클레임을 선택할 수 있습니다.
-* 각 정책을 만든 후에 **이름**을 복사합니다. 접두사 `b2c_1_`이 있어야 합니다.  이러한 정책 이름이 나중에 필요합니다.
+* 각 정책을 만든 후에 **이름**을 복사합니다. 접두사 `b2c_1_`이 있어야 합니다. 이러한 정책 이름이 나중에 필요합니다.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -51,7 +51,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 완성된 앱도 [.zip 파일로 다운로드](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip)하거나 동일한 리포지토리의 `complete` 분기에서 사용할 수 있습니다.
 
-샘플 코드를 다운로드한 후 Visual Studio .sln 파일을 열어 시작합니다. `TaskClient` 프로젝트는 사용자와 상호 작용하는 WPF 데스크톱 응용 프로그램입니다. 이 자습서에서는 Azure에 호스트되는 각 사용자의 할 일 목록을 저장하는 백 엔드 작업 웹 API를 호출합니다.  웹 API를 빌드할 필요가 없습니다. 이미 실행 중입니다.
+샘플 코드를 다운로드한 후 Visual Studio .sln 파일을 열어 시작합니다. `TaskClient` 프로젝트는 사용자와 상호 작용하는 WPF 데스크톱 애플리케이션입니다. 이 자습서에서는 Azure에 호스트되는 각 사용자의 할 일 목록을 저장하는 백 엔드 작업 웹 API를 호출합니다. 웹 API를 빌드할 필요가 없습니다. 이미 실행 중입니다.
 
 Web API가 Azure AD B2C를 사용하여 요청을 안전하게 인증하는 방법을 알아보려면 [Web API 시작 문서](active-directory-b2c-devquickstarts-api-dotnet.md)를 확인하세요.
 
@@ -96,7 +96,7 @@ protected async override void OnInitialized(EventArgs e)
 
     pca = new PublicClientApplication(Globals.clientId)
     {
-        // MSAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app,
+        // MSAL implements an in-memory cache by default. Since we want tokens to persist when the user closes the app,
         // we've extended the MSAL TokenCache and created a simple FileCache in this app.
         UserTokenCache = new FileCache(),
     };
@@ -115,7 +115,7 @@ private async void SignUp(object sender, RoutedEventArgs e)
     {
         // Use the app's clientId here as the scope parameter, indicating that
         // you want a token to the your app's backend web API (represented by
-        // the cloud hosted task API).  Use the UiOptions.ForceLogin flag to
+        // the cloud hosted task API). Use the UiOptions.ForceLogin flag to
         // indicate to MSAL that it should show a sign-up UI no matter what.
         result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
                 string.Empty, UiOptions.ForceLogin, null, null, Globals.authority,
@@ -187,7 +187,7 @@ private async void EditProfile(object sender, RoutedEventArgs e)
 이 모든 경우에 MSAL은 `AuthenticationResult` 에서 토큰을 반환하거나 예외를 throw합니다. MSAL에서 토큰을 가져올 때마다 `AuthenticationResult.User` 개체를 사용하여 UI와 같은 앱의 사용자 데이터를 업데이트합니다. 또한 ADAL은 애플리케이션의 다른 부분에 사용하기 위해 토큰을 캐시합니다.
 
 ### <a name="check-for-tokens-on-app-start"></a>앱 시작에서 토큰 확인
-또한 MSAL를 사용하여 사용자의 로그인 상태를 추적할 수 있습니다.  이 앱에서 사용자가 앱을 닫았다가 다시 연 후에도 로그인된 상태를 유지하게 하려 합니다.  `OnInitialized` 재정의 내부에서 MSAL의 `AcquireTokenSilent` 메서드를 사용하여 캐시된 토큰을 확인합니다.
+또한 MSAL를 사용하여 사용자의 로그인 상태를 추적할 수 있습니다. 이 앱에서 사용자가 앱을 닫았다가 다시 연 후에도 로그인된 상태를 유지하게 하려 합니다. `OnInitialized` 재정의 내부에서 MSAL의 `AcquireTokenSilent` 메서드를 사용하여 캐시된 토큰을 확인합니다.
 
 ```csharp
 AuthenticationResult result = null;
@@ -209,7 +209,7 @@ catch (MsalException ex)
 {
     if (ex.ErrorCode == "failed_to_acquire_token_silently")
     {
-        // There are no tokens in the cache.  Proceed without calling the To Do list service.
+        // There are no tokens in the cache. Proceed without calling the To Do list service.
     }
     else
     {
@@ -226,7 +226,7 @@ catch (MsalException ex)
 ```
 
 ## <a name="call-the-task-api"></a>태스크 API 호출
-MSAL을 사용하여 정책을 실행하고 토큰을 가져왔습니다.  이러한 토큰 중 하나를 사용하여 태스크 API를 호출하려는 경우 MSAL의 `AcquireTokenSilent` 메서드를 다시 사용하여 캐쉬된 토큰을 확인할 수 있습니다.
+MSAL을 사용하여 정책을 실행하고 토큰을 가져왔습니다. 이러한 토큰 중 하나를 사용하여 태스크 API를 호출하려는 경우 MSAL의 `AcquireTokenSilent` 메서드를 다시 사용하여 캐쉬된 토큰을 확인할 수 있습니다.
 
 ```csharp
 private async void GetTodoList()
@@ -284,7 +284,7 @@ private async void GetTodoList()
 ```
 
 ## <a name="sign-the-user-out"></a>사용자를 로그아웃
-마지막으로 사용자가 **로그아웃**을 선택한 경우 MSAL을 사용하여 앱에서 사용자의 세션을 종료할 수 있습니다.  MSAL을 사용하는 경우 토큰 캐시에서 모든 토큰을 삭제하는 방식으로 이 작업이 수행됩니다.
+마지막으로 사용자가 **로그아웃**을 선택한 경우 MSAL을 사용하여 앱에서 사용자의 세션을 종료할 수 있습니다. MSAL을 사용하는 경우 토큰 캐시에서 모든 토큰을 삭제하는 방식으로 이 작업이 수행됩니다.
 
 ```csharp
 private void SignOut(object sender, RoutedEventArgs e)
@@ -306,7 +306,7 @@ private void SignOut(object sender, RoutedEventArgs e)
 ```
 
 ## <a name="run-the-sample-app"></a>샘플 앱 실행
-마지막으로 샘플을 빌드하하고 실행합니다.  메일 주소 또는 사용자 이름을 사용하여 앱에 등록합니다. 로그아웃했다가 동일한 사용자로 다시 로그인합니다. 해당 사용자의 프로필을 편집합니다. 로그아웃했다가 다른 사용자로 등록합니다.
+마지막으로 샘플을 빌드하하고 실행합니다. 메일 주소 또는 사용자 이름을 사용하여 앱에 등록합니다. 로그아웃했다가 동일한 사용자로 다시 로그인합니다. 해당 사용자의 프로필을 편집합니다. 로그아웃했다가 다른 사용자로 등록합니다.
 
 ## <a name="add-social-idps"></a>소셜 IDP 추가
 현재, 앱은 **로컬 계정**을 사용하는 사용자 등록 및 로그인만 지원합니다. 이들은 사용자 이름 및 암호를 사용하는 B2C 디렉터리에 저장된 계정입니다. Azure AD B2C를 사용하면 코드를 변경하지 않고도 다른 IDP(ID 공급자)에 대한 지원을 추가할 수 있습니다.
