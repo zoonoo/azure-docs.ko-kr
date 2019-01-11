@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: f1151c845797d74bbb9a5e50feeeb288a4ab349b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 917f9a5ff2f6f9f6101b19dccee05fe5ab25c5a9
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714851"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214779"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 지역 분산 앱 솔루션 만들기
 
@@ -106,7 +106,7 @@ DNS 영역 파일 foCreate 웹 앱 및 publishr 도메인을 업데이트 합니
 하이브리드 Azure Stack 및 Azure에 웹 앱을 배포 하 고 두 클라우드 모두에 변경 내용 푸시 auto에 CI/CD를 설정 합니다.
 
 > [!Note]  
-> 신디케이티드 실행 (Windows Server 및 SQL) 및 App Service 배포에 적절 한 이미지를 사용 하 여 azure Stack가 필요 합니다. App Service 설명서를 검토 합니다. "[App Service on Azure Stack을 사용 하 여 시작 하기 전에](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" Azure Stack 운영자에 대 한 섹션입니다.
+> 신디케이티드 실행 (Windows Server 및 SQL) 및 App Service 배포에 적절 한 이미지를 사용 하 여 azure Stack가 필요 합니다. App Service 설명서를 검토 [App Service on Azure Stack을 사용 하 여 시작 하기 전에](../azure-stack-app-service-before-you-get-started.md) Azure Stack 운영자에 대 한 섹션입니다.
 
 #### <a name="add-code-to-azure-repos"></a>코드를 Azure 리포지토리 추가
 

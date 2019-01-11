@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/11/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 15f358f76504436dd6a3cf6a39b10531a9e1b376
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: f5826b2a6935bb448a7a3ef94d9a5f27f1ed9426
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055169"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214592"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 업데이트
 
@@ -82,9 +82,9 @@ Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 �
     then resume the update.
     Exception: The Certificate path does not exist: [certificate path here]` 
  
-    제대로 필수 확장 호스트 인증서를 가져온 후 관리자 포털에서 1811 업데이트를 다시 시작할 수 있습니다. Microsoft Azure Stack 운영자 배율 단위를 업데이트 과정에서 유지 관리 모드로 배치 하 게, 하는 동안 확장 호스트 인증서 누락으로 인 한 실패 영향을 주지 않아야 기존 워크 로드 또는 서비스입니다.  
+    제대로 필수 확장 호스트 인증서를 가져온 후 관리자 포털에서 1811 업데이트를 다시 시작할 수 있습니다. Microsoft Azure Stack 운영자 업데이트 과정에서 유지 관리 기간을 예약 하려면 조언, 하는 동안 확장 호스트 인증서 누락으로 인 한 실패 영향을 주지 않아야 기존 워크 로드 또는 서비스입니다.  
 
-    이 업데이트를 설치 하는 동안 Azure Stack 사용자 포털을 사용할 수 없는 경우 확장 호스트를 구성 하는 동안 확장 호스트의 구성에는 최대 5 시간까지 걸릴 수 있습니다. 이 시간 동안 업데이트의 상태를 확인 하거나 사용 하 여 실패 한 업데이트 설치를 다시 시작할 수 있습니다 [권한 있는 끝점 또는 Azure Stack 관리자 PowerShell](azure-stack-monitor-update.md)합니다.
+    이 업데이트를 설치 하는 동안 Azure Stack 사용자 포털을 사용할 수 없는 경우 확장 호스트를 구성 하는 동안 확장 호스트의 구성에는 최대 5 시간까지 걸릴 수 있습니다. 이 시간 동안 업데이트 상태를 확인하거나, [Azure Stack 관리자 PowerShell 또는 권한 있는 엔드포인트](azure-stack-monitor-update.md)를 사용하여 실패한 업데이트 설치를 다시 시작할 수 있습니다.
 
 ## <a name="new-features"></a>새로운 기능
 
@@ -195,7 +195,7 @@ Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 �
 
 - 실행 하는 경우 [테스트 AzureStack](azure-stack-diagnostic-test.md)경우는 **AzsInfraRoleSummary** 또는 **AzsPortalApiSummary** 테스트가 실패, 실행 하는 메시지가  **테스트 AzureStack** 사용 하 여는 `-Repair` 플래그입니다.  이 명령을 실행 하는 경우 다음 오류 메시지와 함께 실패 합니다.  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`  이 문제는 향후 릴리스에서 수정 될 예정입니다.
 
-- 1811 업데이트를 설치 하는 동안는 Azure Stack 포털을 사용 하 여 사용할 수 없는 경우 확장 호스트를 구성 하는 동안 확장 호스트의 구성에는 최대 5 시간까지 걸릴 수 있습니다. 이 시간 동안 업데이트의 상태를 확인 하거나 사용 하 여 실패 한 업데이트 설치를 다시 시작할 수 있습니다 [권한 있는 끝점 또는 Azure Stack 관리자 PowerShell](azure-stack-monitor-update.md)합니다. 
+- 1811 업데이트를 설치 하는 동안는 Azure Stack 포털을 사용 하 여 사용할 수 없는 경우 확장 호스트를 구성 하는 동안 확장 호스트의 구성에는 최대 5 시간까지 걸릴 수 있습니다. 이 시간 동안 업데이트 상태를 확인하거나, [Azure Stack 관리자 PowerShell 또는 권한 있는 엔드포인트](azure-stack-monitor-update.md)를 사용하여 실패한 업데이트 설치를 다시 시작할 수 있습니다. 
 
 - 1811 업데이트를 설치 하는 동안 사용자 포털 대시보드를 사용할 수 있습니다 하 고 사용자 지정이 손실 될 수 있습니다. 포털 설정을 열고 선택 하 여 업데이트가 완료 된 후 기본 설정으로 대시보드를 복원할 수 있습니다 **기본 설정 복원**합니다.
 
@@ -254,6 +254,12 @@ Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 �
 ### <a name="compute"></a>컴퓨팅
 
 - 새 Windows 가상 머신 (VM)을 만들 때 합니다 **설정을** 블레이드에서는 계속 하려면 공용 인바운드 포트를 선택 해야 합니다. 1811이이 설정은 필요한 경우 영향을 미치지 않습니다. 즉, Azure Stack에서 구현 되지 않은 Azure 방화벽에서 기능에 따라 달라 집니다. 선택할 수 있습니다 **공용 인바운드 포트 없음**, 또는 VM 만들기를 진행 하는 다른 옵션 중 하나입니다. 설정을 아무런 효과가 없습니다.
+
+- 새 Windows 가상 머신 (VM)를 만들 때 다음 오류가 표시 될 수 있습니다.
+
+   `'Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'`
+
+   오류는 VM에서 부팅 진단을 사용 하도록 설정 해도 부트 진단 저장소 계정을 삭제 하는 경우에 발생 합니다. 이 문제를 해결 하려면 이전에 사용한 동일한 이름 사용 하 여 저장소 계정을 다시 만듭니다.
 
 <!-- 3235634 – IS, ASDK -->
 - 포함 된 크기를 사용 하 여 Vm을 배포 하는 **v2** 접미사; 예를 들어 **Standard_A2_v2**,으로 접미사를 지정할 **Standard_A2_v2** (소문자 v). 사용 하지 마세요 **Standard_A2_V2** (V 대문자). 이 글로벌 Azure에서 작동 하며 Azure Stack에서 일치 하지 않습니다.

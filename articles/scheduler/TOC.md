@@ -1,7 +1,7 @@
 # [Scheduler 설명서](index.md)
 
 # 개요
-## [Azure Scheduler 정의](scheduler-intro.md)
+## [Azure Scheduler란?](scheduler-intro.md)
 
 # 시작하기
 ## [작업 만들기 및 관리 - 포털](scheduler-get-started-portal.md)
@@ -26,6 +26,7 @@
 # 참고 자료
 ## [Azure PowerShell](/powershell/module/azurerm.scheduler)
 ## [REST API](/rest/api/scheduler)
+## [Resource Manager 템플릿](/azure/templates/microsoft.scheduler/allversions)
 
 # 리소스
 ## [Azure Scheduler 로드맵](https://azure.microsoft.com/updates/?product=scheduler)

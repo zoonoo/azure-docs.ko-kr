@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: b81b9b34843974ceacf41b08a40a52418ea46d22
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 3e8e1626987f7418fee9fc36515131650d865201
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547552"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213079"
 ---
 # <a name="configure-deployment-sources"></a>배포 원본 구성
 
@@ -138,7 +138,7 @@ Azure Stack에서 app Service는 여러 소스 제어 공급자 로부터 주문
 
 ## <a name="next-steps"></a>다음 단계
 
-등에 대 한 사용자가 배포 소스를 이제 사용할 수 있습니다 [연속 배포](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment)를 [로컬 Git 배포](https://docs.microsoft.com/azure/app-service/deploy-local-git), 및 [클라우드 폴더 동기화](https://docs.microsoft.com/azure/app-service-web/deploy-content-sync)합니다.
+등에 대 한 사용자가 배포 소스를 이제 사용할 수 있습니다 [연속 배포](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment)를 [로컬 Git 배포](https://docs.microsoft.com/azure/app-service/deploy-local-git), 및 [클라우드 폴더 동기화](https://docs.microsoft.com/azure/app-service/deploy-content-sync)합니다.
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin.png
