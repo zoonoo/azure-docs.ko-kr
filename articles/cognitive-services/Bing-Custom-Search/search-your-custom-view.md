@@ -10,45 +10,44 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: 58472d535be41fdd3e1139756f867f683509d9a3
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 77a1756aba0d8473051cdf335f33ed9ca5a8fb24
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161738"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558331"
 ---
-# <a name="call-your-custom-search"></a>사용자 지정 검색 호출
+# <a name="call-your-bing-custom-search-instance-from-the-portal"></a>포털에서 Bing Custom Search 인스턴스 호출
 
-인스턴스에 대한 검색 결과를 가져오기 위해 Custom Search API를 처음으로 호출하기 전에 Cognitive Services 구독 키를 받아야 합니다. Custom Search API에 대한 키를 받으려면 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)를 참조하세요.
+사용자 지정 검색 환경을 구성한 후 Bing Custom Search [포털](https://customsearch.ai) 내에서 구성을 테스트할 수 있습니다. 
+
+![Bing Custom Search 포털 스크린샷](media/portal-search-screen.png)
+## <a name="create-a-search-query"></a>검색 쿼리 만들기 
+
+Bing Custom Search [포털](https://customsearch.ai)에 로그인한 후에는 검색 인스턴스를 선택하고 **프로덕션** 탭을 클릭합니다. **엔드포인트**에서 API 엔드포인트(예: Web API)를 선택합니다. 사용자 구독에 따라 표시되는 엔드포인트가 달라집니다.
+
+검색 쿼리를 만들려면 엔드포인트에 대한 매개 변수 값을 입력합니다. 포털에 표시되는 매개 변수는 선택한 엔드포인트에 따라 변경될 수 있습니다. 자세한 내용은 [Custom Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)를 참조하세요. 
+
+몇 가지 중요한 매개 변수는 다음과 같습니다.
 
 
-## <a name="try-it-out"></a>체험
+|매개 변수  |설명  |
+|---------|---------|
+|쿼리     | 검색할 검색어입니다. 웹, 이미지, 비디오 및 자동 제안 엔드포인트에만 사용할 수 있습니다. |
+|사용자 지정 구성 ID | 선택한 Custom Search 인스턴스의 구성 ID입니다. 이 필드는 읽기 전용입니다. |
+|시장     | 결과가 나오는 시장입니다. 웹, 이미지, 비디오 및 호스트된 UI 엔드포인트에만 사용할 수 있습니다.        |
+|구독 키 | 테스트에 사용할 구독 키입니다. 드롭다운 목록에서 키를 선택하거나 수동으로 입력할 수 있습니다.          |
 
-사용자 지정 검색 환경을 구성한 후 Custom Search 포털 내에서 구성을 테스트할 수 있습니다. 
+**추가 매개 변수**를 클릭하면 다음 매개 변수가 표시됩니다.  
 
-1. [Custom Search](https://customsearch.ai)에 로그인합니다.
-2. 인스턴스 목록에서 Custom Search 인스턴스를 클릭합니다.
-3. **프로덕션** 탭을 클릭합니다. 
-4. **엔드포인트** 탭에서 엔드포인트(예: Web API)를 선택합니다. 구독에서 어떤 엔드포인트가 표시되는지 확인합니다(구독 옵션은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) 참조). 
-5. 매개 변수의 값을 지정합니다. 
-
-    다음은 설정할 수 있는 가능한 매개 변수입니다(실제 목록은 선택한 엔드포인트에 따라 다름). 이러한 매개 변수에 대한 자세한 내용은 [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) 참조를 확인하세요.
-
-    - **쿼리**: 검색할 검색어입니다. 웹, 이미지, 비디오 및 자동 제안 엔드포인트에만 사용할 수 있습니다.
-    - **사용자 지정 구성 ID**: 선택한 Custom Search 인스턴스의 구성 ID입니다. 이 필드는 읽기 전용입니다.
-    - **지역/국가**: 결과가 나오는 지역/국가입니다. 웹, 이미지, 비디오 및 호스트된 UI 엔드포인트에만 사용할 수 있습니다.
-    - **구독 키**: 테스트에 사용할 구독 키입니다. 드롭다운 목록에서 키를 선택하거나 수동으로 입력할 수 있습니다.  
-      
-    **추가 매개 변수**를 클릭하면 다음 매개 변수가 표시됩니다.  
-      
-    - **유해 정보 차단**: 성인 콘텐츠용 웹 페이지를 필터링하는 데 사용되는 필터입니다. 웹, 이미지, 비디오 및 호스트된 UI 엔드포인트에만 사용할 수 있습니다.
-    - **사용자 인터페이스 언어**: 사용자 인터페이스 문자열에 사용되는 언어입니다. 예를 들어, 호스트된 UI에서 이미지 및 비디오를 사용하도록 설정한 경우 **이미지** 및 **비디오** 탭에서 지정된 언어를 사용합니다.
-    - **개수**: 응답에서 반환할 검색 결과 수입니다. 웹, 이미지 및 비디오 엔드포인트에서만 사용할 수 있습니다.
-    - **오프셋**: 결과를 반환하기 전에 건너뛸 검색 결과의 수입니다. 웹, 이미지 및 비디오 엔드포인트에서만 사용할 수 있습니다.
-
-6. 필수 옵션을 모두 지정한 후 **호출**을 클릭하여 오른쪽 창에서 JSON 응답을 확인합니다. 
-
-호스트된 UI 엔드포인트를 선택한 경우 아래쪽 창에서 검색 환경을 테스트할 수 있습니다.
+|매개 변수  |설명  |
+|---------|---------|
+|안전 검색     | 성인 콘텐츠용 웹 페이지를 필터링하는 데 사용되는 필터입니다. 웹, 이미지, 비디오 및 호스트된 UI 엔드포인트에만 사용할 수 있습니다.        |
+|사용자 인터페이스 언어    | 사용자 인터페이스 문자열에 사용된 언어입니다. 예를 들어, 호스트된 UI에서 이미지 및 비디오를 사용하도록 설정한 경우 **이미지** 및 **비디오** 탭에서 지정된 언어를 사용합니다.        |
+|개수     | 응답에서 반환할 검색 결과 수입니다. 웹, 이미지 및 비디오 엔드포인트에서만 사용할 수 있습니다.         |
+|Offset    | 결과를 반환하기 전에 건너뛸 검색 결과의 수입니다. 웹, 이미지 및 비디오 엔드포인트에서만 사용할 수 있습니다.        |
+    
+필수 옵션을 모두 지정한 후 **호출**을 클릭하여 오른쪽 창에서 JSON 응답을 확인합니다. 호스트된 UI 엔드포인트를 선택한 경우 아래쪽 창에서 검색 환경을 테스트할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

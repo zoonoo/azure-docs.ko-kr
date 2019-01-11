@@ -10,12 +10,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 6f88ff8ecd1aee588cb82c08ae2eda58fe2eb1e7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: f3d2276c92868bd2f9d98b119bc31aee4db13a81
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627958"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717555"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Custom Translator 작업 영역이란?
 
@@ -31,7 +31,7 @@ ms.locfileid: "51627958"
 
 범주는 프로젝트에 대해 사용자가 사용하려는 용어 및 스타일의 영역인 도메인을 식별합니다. 사용자 문서와 가장 관련성이 높은 범주를 선택합니다. 경우에 따라 선택한 범주는 Custom Translator의 동작에 직접 영향을 줍니다.
 
-일반 기준 시스템을 외에는 아직 범주에 대한 사용자 지정 모델이 없습니다. 하지만 CategoryID에서 식별자로 사용할 수 있도록 사용자가 해당 도메인에 가장 적합한 범주를 선택하는 것이 좋습니다. 기술 도메인의 프로젝트의 경우 “기술”을 선택하면 기본 모델이 사용할 수 있을 때 프로젝트가 해당 모델을 사용할 수 있습니다.
+두 세트의 기준 모델이 있습니다. 일반 및 기술입니다. 범주 **기술**을 선택한 경우 기술 기준 모델이 사용됩니다. 다른 범주 선택의 경우 일반 기준 모델이 사용됩니다. 기술 기준 모델은 기술 도메인에서도 잘 작동하지만 변환에 사용되는 문장이 기술 도메인 내에 속하지 않는 경우 낮은 품질을 보여줍니다. 문장이 기술 도메인 내에 엄격하게 속하는 경우 기술 범주를 선택하는 것이 좋습니다.
 
 동일한 작업 영역에서 다양한 범주에 있는 동일한 언어 쌍에 대한 프로젝트를 만들 수도 있습니다. Custom Translator는 동일한 언어 쌍 및 범주를 사용하여 중복된 프로젝트의 생성을 방지합니다. 프로젝트에 레이블을 적용하면 이 제한 사항을 피할 수 있습니다. 프로젝트에 고유한 레이블을 추가하면 프로젝트 CategoryID에 반영되므로 여러 클라이언트에 대한 번역 시스템을 빌드하지 않는 한 레이블을 사용하지 마십시오.
 

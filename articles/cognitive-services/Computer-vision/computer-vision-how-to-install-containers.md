@@ -1,24 +1,24 @@
 ---
-title: 컨테이너 설치 및 실행
-titlesuffix: Computer Vision - Azure Cognitive Services
+title: 컨테이너 설치 및 실행 방법 - Computer Vision
+titlesuffix: Azure Cognitive Services
 description: 이 단계별 자습서에서 Computer Vision용 컨테이너를 다운로드, 설치 및 실행하는 방법입니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 9964be07c578cd1cafd93328bffe972483123e03
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18
+ms.openlocfilehash: 6a6468cd71cf83c627f6dd72e5a1fc5564361d50
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077038"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579858"
 ---
-# <a name="install-and-run-containers"></a>컨테이너 설치 및 실행
+# <a name="install-and-run-recognize-text-containers"></a>텍스트 인식 컨테이너 설치 및 구성
 
 컨테이너화는 애플리케이션 또는 서비스를 컨테이너 이미지로 패키지하는 소프트웨어 배포 방법입니다. 애플리케이션 또는 서비스에 대한 구성 및 종속성이 컨테이너 이미지에 포함됩니다. 그런 다음, 컨테이너 이미지를 거의 또는 전혀 수정하지 않고 컨테이너 호스트에 배포할 수 있습니다. 컨테이너는 가상 머신보다 더 작은 공간을 사용하여 서로 간에 또는 기본 운영 체제로부터 격리됩니다. 컨테이너는 단기 작업을 위해 컨테이너 이미지에서 인스턴스화할 수 있으며 더 이상 필요하지 않을 때 제거할 수 있습니다.
 
@@ -32,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 텍스트 인식 컨테이너를 사용하려면 먼저 다음 필수 조건을 충족해야 합니다.
 
-**Docker 엔진**: Docker 엔진이 로컬로 설치되어 있어야 합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 및 [Windows](https://docs.docker.com/docker-for-windows/)에 Docker 환경을 구성하는 패키지를 제공합니다. Windows에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다. Docker 컨테이너는 [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/) 또는 [Azure Stack](/azure/azure-stack/)에 배포된 [Kubernetes](https://kubernetes.io/) 클러스터에 직접 배포할 수도 있습니다. Kubernets를 Azure Stack에 배포하는 방법에 대한 자세한 내용은 [Azure Stack에 Kubernet 배포](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)를 참조하세요.
+**Docker 엔진**: Docker 엔진이 로컬로 설치되어 있어야 합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 및 [Windows](https://docs.docker.com/docker-for-windows/)에 Docker 환경을 구성하는 패키지를 제공합니다. Windows에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다. Docker 컨테이너는 [Azure Kubernetes Service](../../aks/index.yml), [Azure Container Instances](../../container-instances/index.yml) 또는 [Azure Stack](../../azure-stack/index.yml)에 배포된 [Kubernetes](https://kubernetes.io/) 클러스터에 직접 배포할 수도 있습니다. Kubernets를 Azure Stack에 배포하는 방법에 대한 자세한 내용은 [Azure Stack에 Kubernet 배포](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md)를 참조하세요.
 
 Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다.
 

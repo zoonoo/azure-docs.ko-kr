@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 146ea6431516f7b78d23cd4b36aff43110639e83
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e91ca12c06a1582b9bb715031a9c379b1a47b04b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633098"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713462"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Service Fabric을 사용하여 일반적인 시나리오 진단
 
-이 문서에서는 Service Fabric을 사용하여 모니터링 및 진단 영역에서 사용자에게 발생한 일반적인 시나리오에 대해 설명합니다. 여기서 제시되는 시나리오에서는 애플리케이션, 클러스터 및 인프라의 Service Fabric 3개 계층을 모두 다룹니다. 각 솔루션에서 Application Insights, Log Analytics 및 Azure 모니터링 도구를 사용하여 각각의 시나리오를 완료합니다. 각 솔루션의 단계를 통해 Service Fabric의 컨텍스트에서 Application Insights 및 Log Analytics를 사용하는 방법을 사용자에게 소개할 수 있습니다.
+이 문서에서는 Service Fabric을 사용하여 모니터링 및 진단 영역에서 사용자에게 발생한 일반적인 시나리오에 대해 설명합니다. 제시된 시나리오는 서비스 패브릭의 모든 3계층을 설명합니다. 애플리케이션, 클러스터 및 인프라 각 솔루션에서 Application Insights, Log Analytics 및 Azure 모니터링 도구를 사용하여 각각의 시나리오를 완료합니다. 각 솔루션의 단계를 통해 Service Fabric의 컨텍스트에서 Application Insights 및 Log Analytics를 사용하는 방법을 사용자에게 소개할 수 있습니다.
 
 ## <a name="prerequisites-and-recommendations"></a>필수 조건 및 권장 사항
 
@@ -56,7 +56,7 @@ ms.locfileid: "52633098"
 
     ![AI 응용 프로그램 맵 블레이드](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![AI 응용 프로그램 맵](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
-    애플리케이션 맵에 대한 자세한 내용은 [애플리케이션 맵 설명서](../application-insights/app-insights-app-map.md)를 참조하세요.
+    애플리케이션 맵에 대한 자세한 내용은 [애플리케이션 맵 설명서](../azure-monitor/app/app-map.md)를 참조하세요.
 
 ## <a name="how-do-i-create-an-alert-when-a-node-goes-down"></a>노드가 중단될 때 경고를 만들려면 어떻게 할까요?
 
@@ -139,8 +139,8 @@ Reliable [Services](service-fabric-reliable-serviceremoting-diagnostics.md) 및 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [AI에 경고 설정](../application-insights/app-insights-alerts.md) - 성능 또는 사용 변경에 대한 알림 받기
-* [Application Insights의 스마트 감지](../application-insights/app-insights-proactive-diagnostics.md) - 잠재적인 성능 문제를 경고하기 위해 AI에 전송되는 원격 분석에 대한 사전 분석 수행
+* [AI에 경고 설정](../azure-monitor/app/alerts.md) - 성능 또는 사용 변경에 대한 알림 받기
+* [Application Insights의 스마트 검색](../application-insights/app-insights-proactive-diagnostics.md) - 잠재적인 성능 문제를 경고하기 위해 AI에 전송되는 원격 분석에 대한 사전 분석 수행
 * 검색 및 진단에 도움이 되도록 Log Analytics [경고](../log-analytics/log-analytics-alerts.md)에 대해 자세히 알아보세요.
 * 온-프레미스 클러스터의 경우 Log Analytics는 Log Analytics로 데이터를 보내는 데 사용할 수 있는 게이트웨이(HTTP 전달 프록시)를 제공합니다. 자세한 내용은 [Log Analytics 게이트웨이를 사용하여 인터넷 액세스 없이 Log Analytics에 컴퓨터 연결](../azure-monitor/platform/gateway.md)을 참조하세요.
 * Log Analytics의 일부로 제공되는 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) 기능 알아보기

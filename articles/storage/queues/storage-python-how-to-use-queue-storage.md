@@ -4,18 +4,17 @@ description: Azure 큐 서비스를 사용하여 Python에서 큐를 작성 및 
 services: storage
 author: tamram
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 12/14/2018
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 827d3ceac267c78be9740adba6c890460ca3f2e9
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 0edb90ca7324d47beaa5133d423928e615ff33a9
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162990"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742816"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Python에서 큐 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -31,7 +30,7 @@ ms.locfileid: "53162990"
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>Azure Storage SDK for Python 다운로드 및 설치
 
-Azure Storage SDK for Python은 Python 2.7, 3.3, 3.4, 3.5 또는 3.6을 요구하며 `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` 및 `azure-storage-queue` 4가지 패키지로 제공됩니다. 이 자습서에서는 `azure-storage-queue` 패키지를 사용하겠습니다.
+[Azure Storage SDK for Python](https://github.com/azure/azure-storage-python)에는 Python 2.7, 3.3, 3.4, 3.5 또는 3.6이 필요합니다.
  
 ### <a name="install-via-pypi"></a>PyPi를 통해 설치
 
@@ -41,15 +40,19 @@ PyPi(Python Package Index)를 통해 설치하려면 다음을 입력합니다.
 pip install azure-storage-queue
 ```
 
-
 > [!NOTE]
-> 앞으로는 더 이상 Storage SDK for Python을 단일 패키지로 릴리스하지 않으므로, Azure Storage SDK for Python 버전 0.36 이상에서 업그레이드하는 경우 먼저 `pip uninstall azure-storage`를 사용하여 제거해야 합니다.
-> 
-> 
+> Azure Storage SDK for Python 버전 0.36 또는 이전 버전에서 업그레이드하는 경우 최신 패키지를 설치하기 전에 `pip uninstall azure-storage`를 사용하여 이전 SDK를 제거합니다.
 
-대체 설치 방법을 확인하려면 [GitHub의 Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python/)을 방문하세요.
+대체 설치 방법은 [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python/)을 참조하세요.
+
+## <a name="view-the-sample-application"></a>샘플 애플리케이션 보기
+
+Azure Queues에서 Python을 사용하는 방법을 보여주는 샘플 애플리케이션을 보고 실행하려면 [Azure Storage: Python에서 Azure Queues 시작](https://github.com/Azure-Samples/storage-queue-python-getting-started)을 참조하세요. 
+
+샘플 애플리케이션을 실행하려면 `azure-storage-queue` 및 `azure-storage-common` 패키지를 둘 다 설치해야 합니다.
 
 ## <a name="how-to-create-a-queue"></a>방법: 큐 만들기
+
 **QueueService** 개체를 사용하면 큐로 작업할 수 있습니다. 다음 코드는 **QueueService** 개체를 만듭니다. 프로그래밍 방식으로 Azure Storage에 액세스하려는 Python 파일의 맨 위쪽에 다음을 추가합니다.
 
 ```python
@@ -129,8 +132,6 @@ queue_service.delete_queue('taskqueue')
 
 * [Python 개발자 센터](https://azure.microsoft.com/develop/python/)
 * [Azure Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355)
-* [Azure Storage 팀 블로그]
-* [Microsoft Azure Storage SDK for Python]
 
-[Azure Storage 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python

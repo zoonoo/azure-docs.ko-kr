@@ -10,18 +10,22 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 8542b1f6dfe031de58ea6eeb931027ee03bd81f2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5e5392f04b7894f0fe39a940865035d967c2d19a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030968"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629941"
 ---
 # <a name="upgrade-your-qna-maker-service"></a>QnA Maker 서비스 업그레이드
 초기 생성 이후 QnA Maker 스택의 개별 구성 요소를 업그레이드하도록 선택할 수 있습니다. [여기](https://aka.ms/qnamaker-docs-capacity)에서 종속 구성 요소 및 SKU 선택의 세부 정보를 참조하세요.
 
 ## <a name="upgrade-qna-maker-management-sku"></a>QnA Maker 관리 SKU 업그레이드
+
+기술 자료에서 현재 계층을 넘어서는 더 많은 질문과 답변이 필요한 경우 QnA Maker 서비스 가격 책정 계층을 업그레이드하세요. 
+
 QnA Maker 관리 SKU를 업그레이드하려면
+
 1. Azure Portal의 QnA Maker 리소스로 이동한 다음, **가격 책정 계층**을 선택합니다.
 
     ![QnA Maker 리소스](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource.png)
@@ -31,6 +35,9 @@ QnA Maker 관리 SKU를 업그레이드하려면
     ![QnA Maker 가격 책정](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
 
 ## <a name="upgrade-app-service"></a>App Service 업그레이드
+
+ 기술 자료에서 클라이언트 앱에서 더 많은 요청을 처리해야 하는 경우 앱 서비스 가격 책정 계층을 업그레이드하세요.
+
 App Service를 [확장](https://docs.microsoft.com/azure/app-service/web-sites-scale)하거나 축소할 수 있습니다.
 
 1. Azure Portal의 App Service 리소스로 이동한 다음, 필요에 따라 **확장** 또는 **축소** 옵션을 선택합니다.
@@ -38,6 +45,9 @@ App Service를 [확장](https://docs.microsoft.com/azure/app-service/web-sites-s
     ![QnA Maker 앱 서비스 크기 조정](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
 ## <a name="upgrade-azure-search-service"></a>Azure Search 서비스 업그레이드
+
+많은 기술 자료를 포함할 계획인 경우 Azure Search 서비스 가격 책정 계층을 업그레이드하세요. 
+
 지금은 Azure Search SKU의 현재 위치 업그레이드를 수행할 수 없습니다. 그러나 원하는 SKU로 새 Azure Search 리소스를 만들고, 데이터를 새 리소스로 복원한 다음, QnA Maker 스택에 연결할 수 있습니다.
 
 1. Azure Portal에서 새 Azure Search 리소스를 만들고 원하는 SKU를 선택합니다.
@@ -54,7 +64,7 @@ App Service를 [확장](https://docs.microsoft.com/azure/app-service/web-sites-s
 
     ![QnA Maker appservice](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource-list-appservice.png)
 
-5. **응용 프로그램 설정**을 선택하고 3단계의 **AzureSearchName** 및 **AzureSearchAdminKey** 필드를 바꿉니다.
+5. **애플리케이션 설정**을 선택하고 3단계의 **AzureSearchName** 및 **AzureSearchAdminKey** 필드를 바꿉니다.
 
     ![QnA Maker appservice 설정](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-settings.png)
 

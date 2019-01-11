@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: andrl
 ms.custom: seodec18
-ms.openlocfilehash: 5b75f620194a58aa7801fe390148a327a319c4a3
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 0197c11673f49214dc2cea09b53290993a00c6b3
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166645"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744941"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>NoSQL 데이터베이스의 문서 데이터 모델링
 
@@ -71,7 +71,7 @@ Azure Cosmos DB와 같은 문서 저장소에서 데이터 모델링을 시작�
         ] 
     }
 
-위 방법을 사용해서 우리는 연락처 세부 정보 및 주소와 같은 이 사용자와 관련된 모든 정보를 단일 JSON 문서에 **포함시킨** 사용자 레코드를 **비정규화**했습니다.
+위의 방법을 사용하여 연락처 세부 정보 및 주소와 같이 이 사용자와 관련된 모든 정보를 단일 JSON 문서에 **포함**한 사용자 레코드를 **비정규화**했습니다.
 또한 고정된 스키마로 제한되지 않기 때문에 다른 도형의 연락처 세부 정보를 완전히 포함하는 것과 같은 유연성이 있습니다. 
 
 데이터베이스에서 전체 사용자 레코드를 검색하는 작업은 이제는 단일 컬렉션에 대해 그리고 단일 문서에 대해 단일 읽기 작업을 수행하는 것과 같습니다. 연락처 세부 정보 및 주소로 사용자 레코드를 업데이트하는 작업도 단일 문서에 대해 단일 쓰기 작업을 수행하는 것과 같습니다.
@@ -172,7 +172,7 @@ Azure Cosmos DB와 같은 문서 저장소에서 데이터 모델링을 시작�
         ]
     }
 
-이 예제는 한 사용자의 주식 포트폴리오를 나타낼 수 있습니다. 여기에서는 주식 정보를 각 포트폴리오 문서에 포함하도록 선택했습니다. 주식 거래 애플리케이션과 같이 관련 데이터가 자주 변경되는 환경에서, 자주 변경되는 데이터를 포함시키면 주식이 거래될 때마다 포트폴리오 문서를 계속해서 업데이트해야 합니다.
+이 예제는 한 사용자의 주식 포트폴리오를 나타낼 수 있습니다. 여기서는 각 포트폴리오 문서에 주식 정보를 포함하도록 선택했습니다. 주식 거래 애플리케이션과 같이 관련 데이터가 자주 변경되는 환경에서, 자주 변경되는 데이터를 포함시키면 주식이 거래될 때마다 포트폴리오 문서를 계속해서 업데이트해야 합니다.
 
 *zaza* 주식은 하루에도 수백 번 거래될 수 있으며 수천 명의 사용자 포트폴리오에 *zaza* 주식이 포함되어 있을 수 있습니다. 위와 같은 데이터 모델에서는 매일 여러 번 수천 개의 포트폴리오 문서를 업데이트해야 하므로, 시스템의 확장성이 낮아질 수 있습니다. 
 
@@ -259,7 +259,7 @@ Azure Cosmos DB와 같은 문서 저장소에서 데이터 모델링을 시작�
     ...
     {"id": "100", "name": "Learn about Azure Cosmos DB" }
     ...
-    {"id": "1000", "name": "Deep Dive in to Azure Cosmos DB" }
+    {"id": "1000", "name": "Deep Dive into Azure Cosmos DB" }
 
 발행자당 책 수가 작고 제한적으로 증가할 경우, 책 참조를 해당 발행자 문서에 저장해도 좋을 수 있습니다. 하지만 발행자당 책 수가 제한적이지 않으면, 이 데이터 모델의 경우 위의 발행자 문서 예제와 같이 배열이 변하기 쉽고 계속 증가할 수 있습니다. 
 
@@ -278,7 +278,7 @@ Azure Cosmos DB와 같은 문서 저장소에서 데이터 모델링을 시작�
     ...
     {"id": "100","name": "Learn about Azure Cosmos DB", "pub-id": "mspress"}
     ...
-    {"id": "1000","name": "Deep Dive in to Azure Cosmos DB", "pub-id": "mspress"}
+    {"id": "1000","name": "Deep Dive into Azure Cosmos DB", "pub-id": "mspress"}
 
 위 예제에서는 발행자 문서에 바인딩되지 않은 컬렉션을 배치했습니다. 그리고 각 책 문서에서 발행자에 대한 참조만 두었습니다.
 
@@ -298,7 +298,7 @@ Azure Cosmos DB와 같은 문서 저장소에서 데이터 모델링을 시작�
     {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users" }
     {"id": "b3", "name": "Taking over the world one JSON doc at a time" }
     {"id": "b4", "name": "Learn about Azure Cosmos DB" }
-    {"id": "b5", "name": "Deep Dive in to Azure Cosmos DB" }
+    {"id": "b5", "name": "Deep Dive into Azure Cosmos DB" }
 
     Joining documents: 
     {"authorId": "a1", "bookId": "b1" }
@@ -319,7 +319,7 @@ Azure Cosmos DB와 같은 문서 저장소에서 데이터 모델링을 시작�
     {"id": "b1", "name": "Azure Cosmos DB 101", "authors": ["a1", "a2"]}
     {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users", "authors": ["a1"]}
     {"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
-    {"id": "b4", "name": "Deep Dive in to Azure Cosmos DB", "authors": ["a2"]}
+    {"id": "b4", "name": "Deep Dive into Azure Cosmos DB", "authors": ["a2"]}
 
 특정 저자가 있으면, 그가 작성한 책이 무엇인지 즉시 알 수 있고, 반대로, 로드된 책 문서가 있으면, 해당 저자의 ID를 알 수 있습니다. 이렇게 하면 조인 테이블에 대한 중간 쿼리를 절약해서 애플리케이션에서 수행해야 하는 서버 라운드 트립 수를 줄일 수 있습니다. 
 
@@ -381,7 +381,7 @@ Azure Cosmos DB와 같은 문서 저장소에서 데이터 모델링을 시작�
 
 위 예제에서는 읽기 작업의 고비용 처리를 줄이기 위해 **사전 계산된 집계** 값이 있습니다. 이 예제에서 저자의 문서에 포함된 일부 데이터는 런타임에 계산되는 데이터입니다. 새 책이 게시될 때마다, 책 문서가 생성됩니다. **그리고** countOfBooks 필드가 특정 저자에 대해 존재하는 책 문서 번호를 기준으로 계산된 값으로 설정됩니다. 이러한 최적화는 읽기를 최적화하기 위해 읽기 계산을 수행할 수 있는 읽기에 집중된 시스템에서 효과적일 수 있습니다.
 
-모델에 사전 계산된 필드를 포함할 수 있는 기능은 Azure Cosmos DB에서 **다중 문서 트랜잭션**이 지원되기 때문에 가능합니다. 많은 NoSQL 저장소에서는 문서 간 트랜잭션을 수행할 수 없기 때문에 이러한 제한으로 인해 "항상 모든 것으로 포함"하는 디자인을 선호합니다. Azure Cosmos DB에서는 서버 쪽 트리거 또는 저장 프로시저를 사용해서 ACID 트랜잭션 내에서 책을 삽입하고 저자를 업데이트할 수 있습니다. 이제는 단지 데이터 일관성 유지를 위해 모든 것을 하나의 문서에 포함시켜야 할 **필요가** 없습니다.
+모델에 사전 계산된 필드를 포함할 수 있는 기능은 Azure Cosmos DB에서 **다중 문서 트랜잭션**이 지원되기 때문에 가능합니다. 많은 NoSQL 저장소에서는 문서 간 트랜잭션을 수행할 수 없기 때문에 이러한 제한으로 인해 "항상 모든 것으로 포함"하는 디자인을 선호합니다. Azure Cosmos DB에서는 서버 쪽 트리거 또는 저장 프로시저를 사용해서 ACID 트랜잭션 내에서 책을 삽입하고 저자를 업데이트할 수 있습니다. 이제 데이터를 일관되게 유지하기 위해 하나의 문서에 모든 것을 포함시킬 **필요가 없습니다**.
 
 ## <a name="NextSteps"></a>다음 단계
 이 문서에서 가장 중요한 사항은 스키마가 없는 환경에서의 데이터 모델링도 이전과 같이 중요하다는 것을 이해하는 것입니다. 

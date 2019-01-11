@@ -1,7 +1,7 @@
 ---
 title: LUIS 포털에서 앱 테스트
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Language Understanding(LUIS)을 사용하여 응용 프로그램을 지속적으로 개선하고 해당 언어의 이해를 향상합니다.
+description: Language Understanding(LUIS)을 사용하여 애플리케이션을 지속적으로 개선하고 해당 언어의 이해를 향상합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 836449dad621cf6a0efe6c8534edc9f3982869b3
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d355e14d15dc6a393a6fabb90418cb3949fe0cf5
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141580"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601970"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>LUIS 포털에서 LUIS 앱 테스트
 <a name="train-your-app"></a>
@@ -30,7 +30,7 @@ ms.locfileid: "53141580"
 
 1. **내 앱** 페이지에서 해당 이름을 선택하여 앱에 액세스합니다. 
 
-2. **테스트** 슬라이드 아웃 패널에 액세스하려면 응용 프로그램의 위쪽 패널에서 **테스트**를 선택합니다.
+2. **테스트** 슬라이드 아웃 패널에 액세스하려면 애플리케이션의 위쪽 패널에서 **테스트**를 선택합니다.
 
     ![앱 학습 및 테스트 페이지](./media/luis-how-to-interactive-test/test.png)
 
@@ -51,11 +51,11 @@ ms.locfileid: "53141580"
  
 1. **테스트** 슬라이드 아웃 패널이 열려 있을 때 비교할 발화에 **검사**를 선택합니다. 
 
-    ![검사 단추](./media/luis-how-to-interactive-test/inspect.png)
+    ![테스트 결과에 대한 자세한 내용을 보려면 [검사] 단추를 선택합니다.](./media/luis-how-to-interactive-test/inspect.png)
 
 2. **검사** 패널이 나타납니다. 패널에는 식별된 엔터티뿐만 아니라 상위 채점 의도도 포함됩니다. 패널에는 선택한 발화의 결과가 표시됩니다.
 
-    ![검사 단추](./media/luis-how-to-interactive-test/inspect-panel.png)
+    ![패널에는 식별된 엔터티뿐만 아니라 상위 채점 의도도 포함됩니다. 패널에는 선택한 발화의 결과가 표시됩니다.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
 ## <a name="correct-top-scoring-intent"></a>상위 점수 의도 수정
 

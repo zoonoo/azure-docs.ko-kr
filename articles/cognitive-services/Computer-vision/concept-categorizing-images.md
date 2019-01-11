@@ -1,7 +1,7 @@
 ---
 title: 이미지 분류 - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Computer Vision API를 사용하여 이미지를 분류하는 데 관련된 개념입니다.
+description: Computer Vision API의 이미지 범주화 기능과 관련된 개념에 대해 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 7062d98d40c15f4e9e873038fc12fc1b104c996d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 40873b13407066920caec5c04751b65c01d7e209
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333482"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579501"
 ---
-# <a name="categorizing-images"></a>이미지 분류
+# <a name="image-categorization-with-computer-vision"></a>Computer Vision을 사용하여 이미지 범주화
 
 Computer Vision은 태그 지정 및 설명 외에도 이전 버전에서 정의된 분류 기반 범주를 반환합니다. 이러한 범주는 부모/자식 계층 구조를 가진 분류로 구성되어 있습니다. 모든 범주는 영어로 표시됩니다. 범주는 단독으로 사용하거나 새 태그 지정 모델에서 사용할 수 있습니다.
 
@@ -31,7 +32,7 @@ Computer Vision은 태그 지정 및 설명 외에도 이전 버전에서 정의
 
 다음 JSON 응답에서는 해당 시각적 기능에 따라 예제 이미지를 범주화할 때 Computer Vision이 반환하는 내용을 보여줍니다.
 
-![여성 지붕](./Images/woman_roof.png)
+![아파트 건물 옥상 위의 여자](./Images/woman_roof.png)
 
 ```json
 {
@@ -54,10 +55,10 @@ Computer Vision은 태그 지정 및 설명 외에도 이전 버전에서 정의
 
 | 이미지 | Category |
 |-------|----------|
-| ![가족 사진](./Images/family_photo.png) | people_group |
-| ![귀여운 개](./Images/cute_dog.png) | animal_dog |
-| ![옥외 산](./Images/mountain_vista.png) | outdoor_mountain |
-| ![비전 분석 음식 빵](./Images/bread.png) | food_bread |
+| ![가족으로 함께 포즈를 취한 4명의 사람](./Images/family_photo.png) | people_group |
+| ![잔디밭에 앉아 있는 강아지](./Images/cute_dog.png) | animal_dog |
+| ![석양이 보이는 산 바위에 서 있는 사람](./Images/mountain_vista.png) | outdoor_mountain |
+| ![테이블 위에 쌓여있는 빵](./Images/bread.png) | food_bread |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5e2b31671a8f08bae1cba66e05d6ae72f960cf9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: f7225fece81672e539858567039e1ff086d97c2c
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050934"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197728"
 documentType: LandingData
 title: Azure의 Ansible 설명서
 metadata:
@@ -53,6 +53,9 @@ sections:
     - html: <a href="./ansible-deploy-app-vmss">Azure에서 가상 머신 확장 집합에 애플리케이션을 배포합니다.</a>
     - html: <a href="./ansible-create-configure-aks">Azure Kubernetes Service 클러스터를 만들고 관리합니다.</a>
     - html: <a href="./ansible-create-configure-application-gateway">Azure 애플리케이션 게이트웨이를 사용하여 웹 트래픽을 관리합니다.</a>
+    - html: <a href="./ansible-auto-scale-vmss">Azure에서 Ansible을 사용하여 가상 머신 확장 집합의 크기를 자동으로 조정합니다.</a>
+    - html: <a href="./ansible-scale-azure-web-apps">Ansible을 사용하여 Azure App Service 웹앱 크기를 조정합니다.</a>
+    - html: <a href="./ansible-create-configure-route-table">Ansible을 사용하여 Azure 경로 테이블 만들기, 변경 또는 삭제합니다.</a>
 - title: 참고 자료
   items:
   - type: list

@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d810b8be496bbfd1c5bd88d8221e77dd5b76c889
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 16026adc2eb0179cd2b42f449494cbbc6547b946
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622971"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651455"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Azure Active Directory Power BI 콘텐츠 팩 사용 방법
 
@@ -32,7 +32,7 @@ Azure Active Directory(Azure AD)용 Power BI 콘텐츠 팩에는 사용자들이
 
 ## <a name="prerequisites"></a>필수 조건
 
-콘텐츠 팩 사용을 위한 Azure AD Premium(P1/P2) 라이선스가 있어야 합니다. 
+콘텐츠 팩 사용을 위한 Azure AD Premium(P1/P2) 라이선스가 있어야 합니다. [Azure Active Directory Premium 시작하기](../fundamentals/active-directory-get-started-premium.md)를 참조하여 Azure Active Directory 버전을 업그레이드하세요.
 
 ## <a name="install-the-content-pack"></a>콘텐츠 팩 설치
 
@@ -42,7 +42,7 @@ Azure AD Power BI 콘텐츠 팩을 설치하려면 [빠른 시작](quickstart-in
 
 Azure AD Power BI 콘텐츠 팩에는 다음과 같은 보고서가 포함되어 있습니다. 보고서에는 **지난 30일간**의 데이터가 포함됩니다.
 
-**앱 사용 및 추세 보고서**: 이 보고서는 조직에서 사용되는 애플리케이션에 대한 인사이트를 제공합니다. 가장 인기 있는 애플리케이션의 목록을 확인하거나 조직에서 최근에 롤아웃된 애플리케이션이 어떻게 사용되고 있는지 파악할 수 있습니다. 이를 통해 시간 경과에 따른 사용량을 추적하고 개선할 수 있습니다.
+**앱 사용 및 추세 보고서**:  이 보고서는 조직에서 사용되는 애플리케이션에 대한 인사이트를 제공합니다. 가장 인기 있는 애플리케이션의 목록을 확인하거나 조직에서 최근에 롤아웃된 애플리케이션이 어떻게 사용되고 있는지 파악할 수 있습니다. 이를 통해 시간 경과에 따른 사용량을 추적하고 개선할 수 있습니다.
 
 **위치 및 사용자별 로그인**: 이 보고서는 Azure ID를 사용하여 수행된 모든 로그인에 대한 데이터를 제공합니다. 이를 통해 개별 로그인을 심층 분석하고 다음과 같은 질문에 답변할 수 있습니다.
 
@@ -52,9 +52,9 @@ Azure AD Power BI 콘텐츠 팩에는 다음과 같은 보고서가 포함되어
  
 특정 날짜 또는 위치를 선택하여 결과를 필터링할 수도 있습니다.
 
-**앱당 고유 사용자**: 이 보고서는 지정된 앱을 사용하는 모든 고유 사용자를 보여 줍니다. 여기에는 애플리케이션에 “성공적으로” 로그인한 사용자만 포함됩니다.
+**앱당 고유 사용자**:  이 보고서는 지정된 앱을 사용하는 모든 고유 사용자를 보여줍니다. 여기에는 애플리케이션에 “성공적으로” 로그인한 사용자만 포함됩니다.
 
-**기기 로그인**: 이 보고서는 조직 내에서 사용된 다양한 디바이스 프로필을 이해하고 용도에 따라 디바이스 정책을 결정하는 데 도움이 됩니다. 이 보고서는 애플리케이션에 로그인할 때 사용된 OS 및 브라우저 유형과 다음과 같은 상세한 사용자 정보를 제공합니다.
+**디바이스 로그인**: 이 보고서는 조직 내에서 사용된 다양한 디바이스 프로필을 이해하고 용도에 따라 디바이스 정책을 결정하는 데 도움이 됩니다. 이 보고서는 애플리케이션에 로그인할 때 사용된 OS 및 브라우저 유형과 다음과 같은 상세한 사용자 정보를 제공합니다.
 
 - 사용자 이름
 - IP 주소
@@ -65,17 +65,17 @@ Azure AD Power BI 콘텐츠 팩에는 다음과 같은 보고서가 포함되어
 
 ## <a name="customize-azure-ad-activity-content-pack"></a>Azure AD 활동 콘텐츠 팩 사용자 지정
 
-**시각화 변경**: **보고서 편집**을 클릭하여 보고서 시각화를 변경하고 원하는 시각화를 선택할 수 있습니다.
+**시각화 변경**:  **보고서 편집**을 클릭하여 보고서 시각화를 변경하고 원하는 시각화를 선택할 수 있습니다.
  
 ![Azure Active Directory Power BI 콘텐츠 팩](./media/howto-power-bi-content-pack/09.png) 
  
 ![Azure Active Directory Power BI 콘텐츠 팩](./media/howto-power-bi-content-pack/10.png) 
 
-**추가 필드 포함**: 필드를 추가/제거하려는 시각적 개체를 선택하여 보고서에 필드를 추가하거나 제거할 수 있습니다. 예를 들어, 아래 그림과 같이 테이블 보기에 “로그인 상태” 필드를 추가할 수 있습니다. 
+**추가 필드 포함**:  필드를 추가/제거하려는 시각적 개체를 선택하여 보고서에 필드를 추가하거나 제거할 수 있습니다. 예를 들어, 아래 그림과 같이 테이블 보기에 “로그인 상태” 필드를 추가할 수 있습니다. 
  
 ![Azure Active Directory Power BI 콘텐츠 팩](./media/howto-power-bi-content-pack/11.png) 
 
-**시각화를 대시보드에 고정**: 대시보드를 사용자 지정하여 보고서에 시각화를 포함시켜 대시보드에 고정할 수 있습니다. 
+**시각화를 대시보드에 고정**:  대시보드를 사용자 지정하여 보고서에 시각화를 포함시켜 대시보드에 고정할 수 있습니다. 
 
 ![Azure Active Directory Power BI 콘텐츠 팩](./media/howto-power-bi-content-pack/13.png) 
  

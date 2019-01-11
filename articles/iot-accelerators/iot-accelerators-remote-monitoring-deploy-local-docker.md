@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 46cd16c1667d3b33501c1b5680baabf243509f67
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: cf3c30d33e618ae3fd9d4ad942c77d211a414e82
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288547"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601154"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>로컬로 원격 모니터링 솔루션 가속기 배포 - Docker
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-이 문서에서는 테스트 및 개발을 위해 원격 모니터링 솔루션 가속기를 로컬 컴퓨터에 배포하는 방법을 보여줍니다. 마이크로 서비스를 로컬 Docker 컨테이너에 배포하는 방법에 대해 알아봅니다. 로컬 마이크로 서비스 배포는 클라우드에서 IoT Hub, Cosmos DB, Azure Streaming Analytics 및 Azure Time Series Insights 서비스와 같은 클라우드 서비스를 사용합니다.
+이 문서에서는 테스트 및 개발을 위해 원격 모니터링 솔루션 가속기를 로컬 컴퓨터에 배포하는 방법을 보여줍니다. 마이크로 서비스를 로컬 Docker 컨테이너에 배포하는 방법에 대해 알아봅니다. 로컬 마이크로 서비스 배포는 클라우드에서 IoT Hub, Cosmos DB, Azure Streaming Analytics, 클라우드의 Azure Time Series Insights 서비스 등과 같은 클라우드 서비스를 사용합니다.
 
 로컬 머신의 IDE에서 원격 모니터링 솔루션 가속기를 실행하려면 [로컬로 원격 모니터링 솔루션 가속기 배포 - Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md)를 참조하세요.
 
@@ -27,7 +27,7 @@ ms.locfileid: "51288547"
 
 원격 모니터링 솔루션 가속기에 사용되는 Azure 서비스를 배포하려면 활성 Azure 구독이 필요합니다.
 
-계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 ### <a name="machine-setup"></a>머신 설치
 
@@ -72,11 +72,11 @@ docker-compose up
 > [!TIP]
 > Microsoft는 종종 새로운 기능이 포함된 새 Docker 이미지를 게시합니다. 다음 명령 세트를 사용하여 최신 Docker 컨테이너를 가져오기 전에 로컬 Docker 컨테이너와 해당 이미지를 정리할 수 있습니다.
 
-    ```cmd/sh
-    docker list
-    docker rm <list_of_containers>
-    docker rmi <list_of_images>
-    ```
+```cmd/sh
+docker list
+docker rm <list_of_containers>
+docker rmi <list_of_images>
+```
 
 별도의 셸을 사용하여 컨테이너에서 로그를 볼 수 있습니다. 먼저 `docker ps` 명령을 사용하여 컨테이너 ID를 찾습니다. 그런 다음, `docker logs {container-id} --tail 1000`을 사용하여 지정된 컨테이너에 대한 마지막 1,000개 항목을 봅니다.
 

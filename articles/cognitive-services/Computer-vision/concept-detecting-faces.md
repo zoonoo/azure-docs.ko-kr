@@ -1,7 +1,7 @@
 ---
 title: 얼굴 감지 - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Computer Vision API를 사용하여 얼굴을 감지하는 데 관련된 개념입니다.
+description: Computer Vision API의 얼굴 감지 기능과 관련된 개념입니다.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: bf358d1e8f60f989ced8db966bbf0a5179fab25b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 0c6485bff4ad11aab37139cd2aa2d3660bddac0e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342316"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580541"
 ---
-# <a name="detecting-faces"></a>얼굴 감지
+# <a name="face-detection-with-computer-vision"></a>Computer Vision으로 얼굴 감지
 
 Computer Vision은 사진에서 사람 얼굴을 감지하고 감지된 각 얼굴에 대해 연령, 성별 및 사각형을 생성합니다. Computer Vision은 [Face](/azure/cognitive-services/face/)에서 찾을 수 있는 기능의 하위 집합을 제공하며, 얼굴 식별 및 자세 감지와 같은 더 자세한 분석을 위해 Face 서비스를 사용할 수 있습니다.  
 

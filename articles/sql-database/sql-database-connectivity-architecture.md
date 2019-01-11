@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: eeb1ae2904a9b132ed1de8e66cad83d5ff5144b8
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 12/20/2018
+ms.openlocfilehash: 62e4171a6895f2f425d67b9d1143fe9d3999a9b9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435721"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715905"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 연결 아키텍처
 
@@ -26,7 +26,7 @@ ms.locfileid: "53435721"
 > [!IMPORTANT]
 > **[예정된 변경 내용] Azure SQL 서버에 대한 서비스 엔드포인트 연결에서 `Default` 연결 동작이 `Redirect`로 변경됩니다.**
 >
-> 이러한 변경 내용은 2019년 11월 10일, 브라질 남부 및 유럽 서부 지역에서 이미 적용되었습니다. 다른 모든 지역에서는 2019년 1월 2일부터 적용될 예정입니다.
+> 이러한 변경 내용은 2018년 11월 10일, 브라질 남부 및 유럽 서부 지역에서 이미 적용되었습니다. 다른 모든 지역에서는 2019년 1월 2일부터 적용될 예정입니다.
 >
 > 기존 환경에서 연결 서비스 엔드포인트를 통한 연결이 이러한 변경으로 인해 중단되지 않도록 하기 위해 원격 분석을 통해 다음을 수행할 것입니다.
 > - 변경 이전에 서비스 엔드포인트를 통해 액세스한 것으로 확인된 서버의 경우, 연결 유형을 `Proxy`로 전환합니다.

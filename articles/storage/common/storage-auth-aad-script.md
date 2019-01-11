@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 345e7c6985f03081048019912d636bba8e9a2361
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: b5a129c2a92c18b979a3b0c2eeea7fa19791551c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426484"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633768"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Azure AD ID를 사용하여 CLI 또는 PowerShell을 통해 Azure Storage에 액세스(미리 보기)
 
-Azure Storage는 로그인한 후 Azure AD(Azure Active Directory) ID에서 스크립트 명령을 실행하도록 하는 Azure CLI 및 PowerShell용 미리 보기 확장을 제공합니다. Azure AD ID는 사용자, 그룹 또는 애플리케이션 서비스 주체일 수도 있고, [Azure 리소스의 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)일 수도 있습니다. RBAC(역할 기반 액세스 제어)를 통해 저장소 리소스에 액세스하기 위한 권한을 Azure AD ID에 할당할 수 있습니다. Azure Storage의 RBAC 역할에 대한 자세한 내용은 [RBAC를 사용하여 Azure Storage 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
+Azure Storage는 로그인한 후 Azure AD(Azure Active Directory) ID에서 스크립트 명령을 실행하도록 하는 Azure CLI 및 PowerShell용 미리 보기 확장을 제공합니다. Azure AD ID는 사용자, 그룹 또는 응용 프로그램 서비스 주체일 수도 있고, [Azure 리소스의 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)일 수도 있습니다. RBAC(역할 기반 액세스 제어)를 통해 저장소 리소스에 액세스하기 위한 권한을 Azure AD ID에 할당할 수 있습니다. Azure Storage의 RBAC 역할에 대한 자세한 내용은 [RBAC를 사용하여 Azure Storage 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
 
 Azure AD ID를 사용하여 Azure CLI 또는 PowerShell에 로그인하면 해당 ID에서 Azure Storage에 액세스하기 위한 액세스 토큰이 반환됩니다. 그런 후 CLI 또는 PowerShell에서는 자동으로 해당 토큰을 사용하여 Azure Storage에 대한 작업 권한을 부여합니다. 지원되는 작업의 경우, 더 이상 명령과 함께 계정 키 또는 SAS 토큰을 전달할 필요가 없습니다.
 
@@ -56,10 +56,7 @@ az storage blob download --account-name storagesamples --container sample-contai
 
 ## <a name="call-powershell-commands-with-an-azure-ad-identity"></a>Azure AD ID를 사용하여 PowerShell 명령 호출
 
-Azure PowerShell은 다음 미리 보기 모듈 중 하나만 사용하여 Azure AD ID를 통한 로그인을 지원합니다. 
-
-- 4.4.0-preview 
-- 4.4.1-preview 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure PowerShell을 사용하여 Azure AD ID로 로그인하려면
 
@@ -78,23 +75,23 @@ Azure PowerShell을 사용하여 Azure AD ID로 로그인하려면
 1. Azure PowerShell의 최신 버전을 설치합니다.
 
     ```powershell
-    Install-Module AzureRM –Repository PSGallery –AllowClobber
+    Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Azure AD를 지원하는 Azure Storage 미리 보기 모듈 중 하나를 설치합니다.
-
-    ```powershell
-    Install-Module Azure.Storage –Repository PSGallery -RequiredVersion 4.4.1-preview  –AllowPrerelease –AllowClobber –Force 
-    ```
+1. Azure AD를 지원하는 Azure Storage 미리 보기 모듈을 설치합니다.
+   
+   ```powershell
+   Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
+   ```
 1. PowerShell 창을 닫았다가 다시 엽니다.
-1. `-UseConnectedAccount` 매개 변수를 포함하고 [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext) cmdlet을 호출하여 컨텍스트를 만듭니다. 
+1. `-UseConnectedAccount` 매개 변수를 포함하고 [New-AzStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext) cmdlet을 호출하여 컨텍스트를 만듭니다. 
 1. Azure AD ID를 사용하여 cmdlet을 호출하려면 새로 만든 컨텍스트를 cmdlet으로 전달합니다.
 
 다음 예제에서는 Azure AD ID를 사용하여 Azure PowerShell에서 컨테이너의 Blob을 나열하는 방법을 보여줍니다. 자리 표시자 계정 및 컨테이너 이름을 사용자 고유의 값으로 바꾸어야 합니다. 
 
 ```powershell
-$ctx = New-AzureStorageContext -StorageAccountName storagesamples -UseConnectedAccount 
-Get-AzureStorageBlob -Container sample-container -Context $ctx 
+$ctx = New-AzStorageContext -StorageAccountName storagesamples -UseConnectedAccount 
+Get-AzStorageBlob -Container sample-container -Context $ctx 
 ```
 
 ## <a name="next-steps"></a>다음 단계

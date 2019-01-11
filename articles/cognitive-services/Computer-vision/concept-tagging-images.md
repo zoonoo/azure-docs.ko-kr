@@ -1,7 +1,7 @@
 ---
-title: 이미지 태그 지정 - Computer Vision
+title: 이미지에 콘텐츠 태그 적용 - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Computer Vision API를 사용하여 이미지 태그를 지정하는 데 관련된 개념입니다.
+description: Computer Vision API의 이미지 태그 지정 기능과 관련된 개념에 대해 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 7e9181b6e805a768ca5dd8ed558b8feea45f22d3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: caf4d8a4ee3ccee181d233716e0a645150a201c3
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960910"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582935"
 ---
-# <a name="tagging-images"></a>이미지에 태그 지정
+# <a name="applying-content-tags-to-images"></a>이미지에 콘텐츠 태그 적용
 
 Computer Vision에서는 수천 개의 인식할 수 있는 개체, 생물, 경치 및 작업에 따라 태그를 반환합니다. 태그가 모호하거나 누구나 알 수 있는 것이 아닌 경우 API 응답은 알려진 설정의 컨텍스트에서 태그의 의미를 명확히 설명하는 ‘힌트’를 제공합니다. 태그는 분류로 구성되지 않으며 상속 계층이 없습니다. 콘텐츠 태그 컬렉션은 완전한 문장으로 작성되고, 사람이 읽을 수 있는 언어로 표시되는 이미지 ‘설명’의 토대가 됩니다. 이 시점에서 이미지 설명에 대해 지원되는 언어는 영어뿐입니다.
 
@@ -27,7 +28,7 @@ Computer Vision에서는 수천 개의 인식할 수 있는 개체, 생물, 경�
 
 다음 JSON 응답에서는 예제 이미지에서 검색된 시각적 기능의 태그를 지정할 때 Computer Vision이 반환하는 내용을 보여줍니다.
 
-![House_Yard](./Images/house_yard.png).
+![파란색 집 및 앞 마당](./Images/house_yard.png).
 
 ```json
 {

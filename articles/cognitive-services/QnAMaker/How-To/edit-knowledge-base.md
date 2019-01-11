@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/18/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: d40886f54083a1619635f31af57841138f1706d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e055d1e10ddf8c18c84af5376cf4a284d48fde6b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086609"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603330"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>QnA Maker의 기술 자료 편집
 
@@ -71,7 +71,7 @@ QnA를 삭제하려면 QnA 행의 맨 오른쪽에 있는 **삭제** 아이콘�
 ## <a name="add-metadata"></a>메타데이터 추가
 
 
-필터 아이콘을 선택하여 메타데이터 쌍을 추가합니다.
+메타데이터 아이콘을 선택하여 메타데이터 쌍을 추가합니다.
 
 ![메타데이터 추가](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
@@ -80,11 +80,17 @@ QnA를 삭제하려면 QnA 행의 맨 오른쪽에 있는 **삭제** 아이콘�
 
 ## <a name="manage-large-knowledge-bases"></a>큰 기술 자료 관리
 
-1. QnA는 추출된 데이터 원본에 따라 **그룹화**됩니다. 데이터 원본을 확장하거나 축소할 수 있습니다.
-2. 기술 자료 표의 맨 위에 있는 텍스트 상자에 입력하여 기술 자료를 **검색**할 수 있습니다. 질문, 답변 또는 메타데이터 콘텐츠를 검색하려면 Enter 키를 클릭합니다. 검색 필터를 제거하려면 X 아이콘을 클릭합니다.
-3. **페이지 매김**을 사용하면 큰 기술 자료를 관리할 수 있습니다.
+* **데이터 원본 그룹**: QnA는 추출된 데이터 원본에 따라 그룹화됩니다. 데이터 원본을 확장하거나 축소할 수 있습니다.
 
-    ![검색, 페이지 매김, 그룹화](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+    ![QnA Maker 데이터 원본 막대를 사용하여 데이터 원본 질문과 답변을 축소 및 확장합니다.](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
+
+* **기술 자료 검색**: 기술 자료 표의 맨 위에 있는 텍스트 상자에 입력하여 기술 자료를 검색할 수 있습니다. 질문, 답변 또는 메타데이터 콘텐츠를 검색하려면 Enter 키를 클릭합니다. 검색 필터를 제거하려면 X 아이콘을 클릭합니다.
+
+    ![질문과 답변 위의 QnA Maker 검색 상자를 사용하여 필터 일치 항목으로만 뷰를 줄입니다.](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+
+* **페이지 매김**: 대규모 기술 자료 관리를 위해 신속하게 데이터 원본 이동
+
+    ![질문과 답변 위의 QnA Maker 페이지 매김 기능을 사용하여 질문과 답변 페이지를 이동합니다.](../media/qnamaker-how-to-edit-kb/pagination.png)
 
 ## <a name="delete-knowledge-bases"></a>기술 자료 삭제
 

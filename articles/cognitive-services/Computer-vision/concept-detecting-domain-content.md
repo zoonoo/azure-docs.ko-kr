@@ -1,7 +1,7 @@
 ---
 title: 도메인 특정 콘텐츠 검색 - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Computer Vision API를 사용하여 이미지를 설명하는 데 관련된 개념입니다.
+description: 이미지에 대한 보다 자세한 정보를 반환하기 위해 이미지 범주화 도메인을 지정하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: a9c71fa7e5d86cfeb4fe6fab44bbce241546ccb8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 50942634bd50974453c242d1980db9fc589bd47e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342561"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579212"
 ---
 # <a name="detecting-domain-specific-content"></a>도메인 특정 콘텐츠 검색
 

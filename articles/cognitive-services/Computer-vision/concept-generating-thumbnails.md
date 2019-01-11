@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pafarley
-ms.openlocfilehash: 7d914f394ecfcf02ed26f41cd8fe2ef799cf6103
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 371fa639b2edc300e44cc495393e89c9fce9c4bf
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966741"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580861"
 ---
-# <a name="generating-thumbnails"></a>썸네일 생성
+# <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Computer Vision을 사용하여 스마트하게 자른 썸네일 생성
 
 썸네일은 이미지의 크기가 축소된 표현입니다. 썸네일은 더 경제적이고 레이아웃에 친숙한 방식으로 이미지 및 기타 데이터를 나타내는 데 사용됩니다. Computer Vision API는 이미지 크기 조정과 함께 스마트 자르기를 사용하여 지정된 이미지에 대한 직관적인 썸네일을 만듭니다.
 
@@ -42,9 +43,9 @@ Computer Vision 썸네일 생성 알고리즘은 다음과 같이 작동합니�
 
 | 이미지 | 미리 보기 |
 |-------|-----------|
-|![옥외 산](./Images/mountain_vista.png) | ![옥외 산 썸네일](./Images/mountain_vista_thumbnail.png) |
-|![비전 분석 꽃](./Images/flower.png) | ![비전 분석 꽃 썸네일](./Images/flower_thumbnail.png) |
-|![여성 지붕](./Images/woman_roof.png) | ![여성 지붕 썸네일](./Images/woman_roof_thumbnail.png) |
+|![석양이 보이는 산 바위에 서 있는 사람](./Images/mountain_vista.png) | ![옥외 산 썸네일](./Images/mountain_vista_thumbnail.png) |
+|![녹색 배경의 흰색 꽃](./Images/flower.png) | ![비전 분석 꽃 썸네일](./Images/flower_thumbnail.png) |
+|![아파트 건물 옥상 위의 여자](./Images/woman_roof.png) | ![여성 지붕 썸네일](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>다음 단계
 

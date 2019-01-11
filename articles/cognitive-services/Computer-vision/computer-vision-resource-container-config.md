@@ -1,24 +1,24 @@
 ---
-title: 컨테이너 구성
-titlesuffix: Computer Vision - Azure Cognitive Services
-description: Computer Vision의 컨테이너에 대한 구성 설정입니다.
+title: 컨테이너 구성 - Computer Vision
+titlesuffix: Azure Cognitive Services
+description: Computer Vision에서 텍스트 인식 컨테이너에 대한 다양한 설정을 구성합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: f71cbe965e70dfce1b29cf0e5f9ea44faf0a4e27
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18
+ms.openlocfilehash: 48d3bc7ecdd66565372be8347897202cae3ec158
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077021"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579790"
 ---
-# <a name="configure-containers"></a>컨테이너 구성
+# <a name="configure-recognize-text-containers"></a>텍스트 인식 컨테이너 구성
 
 Computer Vision은 공통 구성 프레임워크를 사용하는 텍스트 인식 컨테이너를 제공합니다. 따라서 사용자는 컨테이너의 스토리지, 로깅 및 원격 분석, 보안 설정을 쉽게 구성하고 관리할 수 있습니다.
 
@@ -41,7 +41,7 @@ Computer Vision 컨테이너에서 컨테이너를 인스턴스화할 때 [환�
 
 ### <a name="configuration-settings-as-environment-variables"></a>환경 변수를 사용한 구성 설정
 
-[ASP.NET Core 환경 변수 구문](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#configuration-by-environment)을 사용하여 구성 설정을 지정할 수 있습니다.
+[ASP.NET Core 환경 변수 구문](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#environment-variables-configuration-provider)을 사용하여 구성 설정을 지정할 수 있습니다.
 
 컨테이너는 컨테이너가 인스턴스화될 때 사용자 환경 변수를 읽습니다. 환경 변수가 있을 경우 환경 변수의 값은 지정된 구성 설정에 대한 기본값을 재지정합니다. 환경 변수를 사용할 경우 컨테이너를 인스턴스화하기 전에 여러 구성 설정을 지정하고 여러 컨테이너가 동일한 구성 설정 집합을 자동으로 사용할 수 있다는 이점이 있습니다.
 
@@ -133,7 +133,7 @@ Cognitive Services 컨테이너는 Azure 사용에 관한 [계약](https://go.mi
   | `Format` | 문자열 | 로그 파일에 대한 출력 형식입니다.<br/> **참고:** 이 값은 `json`으로 설정해야 로깅 공급자를 사용할 수 있습니다. 또한 컨테이너를 인스턴스화하는 동안 출력 탑재를 지정하지 않고 이 값이 지정된 경우에는 오류가 발생합니다. |
   | `MaxFileSize` | 정수  | 로그 파일의 최대 크기(MB)입니다. 현재 로그 파일의 크기가 이 값을 충족하거나 초과할 경우 로깅 공급자가 새 로그 파일을 시작합니다. -1을 지정하면 로그 파일의 크기는 출력 탑재(있는 경우)에 대한 최대 파일 크기에 의해서만 제한됩니다. 기본값은 1입니다. |
 
-ASP.NET Core 로깅 지원 구성에 대한 자세한 내용은 [설정 파일 구성](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration)을 참조하세요.
+ASP.NET Core 로깅 지원 구성에 대한 자세한 내용은 [ASP.NET Core에서 로깅](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#configuration)을 참조하세요.
 
 ## <a name="mounts-configuration-settings"></a>탑재 구성 설정
 

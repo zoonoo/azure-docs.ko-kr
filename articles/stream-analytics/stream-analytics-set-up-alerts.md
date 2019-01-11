@@ -4,17 +4,17 @@ description: 이 아티클에서는 Azure Portal을 사용하여 Azure Stream An
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/26/2017
-ms.openlocfilehash: 4c676ab3039a02a4fda27ab00312133e5de8077a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 727747d84d0db32c73fc1a200bcea7e5c149d24b
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47090969"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554914"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업에 대한 경고 설정
 메트릭이 지정한 조건에 도달하면 경고를 트리거하도록 경고를 설정할 수 있습니다. 예를 들어 다음과 같은 조건에 대한 경고를 설정할 수 있습니다.
@@ -30,7 +30,7 @@ ms.locfileid: "47090969"
 
 3. **메트릭** 블레이드에서 **경고 추가** 명령을 클릭합니다.
 
-      ![Azure Portal 설치](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
+      ![Azure Portal Stream Analytics 경고 설정](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
 
 4. 이름과 설명을 입력합니다.
 

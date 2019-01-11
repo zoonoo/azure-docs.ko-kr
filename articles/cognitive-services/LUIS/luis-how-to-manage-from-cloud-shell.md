@@ -1,7 +1,7 @@
 ---
 title: 사용 현황 데이터 - Cloud Shell
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Azure Cloud Shell에서 LUIS에 대한 사용량 정보를 가져오는 방법을 알아봅니다.
+description: Azure Cloud Shell에서 LUIS에 대한 엔드포인트 적중 횟수 사용량 정보를 가져오는 방법을 알아봅니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,21 +9,25 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: d4f1a76fe587a34448cf218dbfef10f6b0e2ea46
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 703332ece0208856bfbedb852b4b1e985d157dc9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133480"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605958"
 ---
 # <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Azure Cloud Shell의 LUIS 서비스 사용량 데이터
+
+Azure Cloud Shell에서 LUIS에 대한 엔드포인트 적중 횟수 사용량 정보를 가져오는 방법을 알아봅니다.
+
 Azure Portal에서 PowerShell cmdlet을 사용하여 LUIS 리소스 작업을 수행할 수 있습니다. 
 
 이러한 cmdlet을 사용하여 LUIS 구독을 [만들고](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/new-azurermcognitiveservicesaccount?view=azurermps-6.0.0), [사용량](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0)을 비롯한 구독 정보를 가져오고, 구독을 [제거](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/remove-azurermcognitiveservicesaccount?view=azurermps-6.0.0)할 수 있습니다. 
 
 ## <a name="cloud-shell-storage-account-and-authentication"></a>Cloud Shell 저장소 계정 및 인증
+
 Azure Portal [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell)에서 PowerShell을 사용하려면 Azure Storage 계정이 있어야 합니다. [저장소 계정](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage)이 없는 경우 계정을 만들라는 메시지가 표시됩니다. 저장소 계정을 사용하면 Cloud Shell에 PowerShell 스크립트를 저장할 수 있습니다.  
 
 또한 리소스에 액세스하려면 Cloud Shell에서 Azure에 인증해야 합니다. 
@@ -31,6 +35,7 @@ Azure Portal [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quicksta
 저장소 계정이 있고 인증되면 PowerShell cmdlet을 실행할 수 있습니다.
 
 ## <a name="open-cloud-shell"></a>Cloud Shell 열기
+
 Azure Portal Cloud Shell을 사용하는 경우 항상 최신 PowerShell 버전이 있습니다. 
 
 **Cloud Shell 시작** 단추를 사용하여 Cloud Shell을 열거나, 브라우저에서 [https://shell.azure.com](https://shell.azure.com)을 엽니다. 환경으로 Power Shell을 선택합니다. Azure Storage 계정이 없는 경우 계정을 만들어야 합니다. 

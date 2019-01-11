@@ -710,8 +710,10 @@ items:
           href: log-query/workspace-expression.md
       - name: 로그 데이터
         items:
-        - name: 응용 프로그램 데이터
+        - name: 애플리케이션 데이터
           href: app/analytics.md
+        - name: 애플리케이션 데이터 리소스 통합
+          href: log-query/unify-app-resource-data.md
         - name: 표준 속성
           href: platform/log-standard-properties.md
         - name: 텍스트 데이터 구문 분석
@@ -1005,9 +1007,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 코드 샘플
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 02748b429bf7122dd0f1531d45c8af1217ceaa43
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 18a79275cc100cddce1687451168946d2cb2b85e
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120928"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215238"

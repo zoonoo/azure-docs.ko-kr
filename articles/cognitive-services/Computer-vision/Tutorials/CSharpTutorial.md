@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: d1fa468874cdc51bad3421f700a69f3ffb268635
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 8640d89c5fb9e38fc6c982e21147361ad690964a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342656"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584448"
 ---
-# <a name="tutorial-build-an-image-processing-app---c35"></a>자습서: 이미지 처리 앱 빌드 - C#
+# <a name="tutorial-build-an-image-processing-app---c35"></a>자습서: 이미지 처리 앱 빌드 - C&#35;
 
 Computer Vision을 사용하는 기본 Windows 애플리케이션을 탐색합니다. 이 프로그램은 OCR(광학 문자 인식)을 수행하고, 스마트하게 자른 썸네일을 만들고, 이미지에서 얼굴을 비롯한 시각적 특징을 감지하고, 분류하고, 태그를 지정하고, 설명합니다. 아래 예제에서는 이미지 URL 또는 로컬로 저장된 파일을 제출할 수 있습니다. .NET Framework의 일부인 WPF(Windows Presentation Foundation) 및 Computer Vision API를 사용하여 고유한 Windows용 앱을 빌드하기 위한 템플릿으로 이 오픈 소스 예제를 사용할 수 있습니다.
 
@@ -101,7 +102,7 @@ git clone --recurse-submodules https://github.com/Microsoft/Cognitive-Face-Windo
    > Microsoft는 업로드되는 이미지를 수신하며, 해당 이미지를 사용하여 Computer Vision API 및 관련 서비스를 개선할 수 있습니다. 이미지를 제출하면 [개발자 준수 사항](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)을 따랐음을 확인하는 것입니다.
 
    다음 스크린샷은 샘플 이미지를 분석한 후 이미지 분석 시나리오에 제공된 페이지를 보여줍니다.
-   ![이미지 분석 시나리오 페이지](../Images/Analyze_Image_Example.PNG)
+   ![이미지 분석 페이지의 스크린샷](../Images/Analyze_Image_Example.PNG)
 
 ## <a name="explore-the-sample-app"></a>샘플 앱 탐색
 
