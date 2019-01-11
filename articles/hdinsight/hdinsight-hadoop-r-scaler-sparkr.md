@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: a8b0884486f86f66ae02c7e7a82fecee43d5ffed
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c92a55ec1d56b83457167fc2db0bd7897a447852
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386903"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974848"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>HDInsight에서 ScaleR과 SparkR 결합
 
@@ -21,7 +21,7 @@ ms.locfileid: "53386903"
 
 두 패키지 모두 Apache Hadoop의 Spark 실행 엔진에서 실행되지만 각각 고유한 각 Spark 세션이 필요하므로 메모리 내 데이터 공유에서 차단됩니다. ML Server의 향후 버전에서 이 문제를 해결할 때까지는 겹치지 않는 Spark 세션을 유지하고 중간 파일을 통해 데이터를 교환하는 것이 해결 방법입니다. 아래 지침은 이러한 요구 사항을 간단하게 달성할 수 있음을 보여줍니다.
 
-이 예제는 Mario Inchiosa와 Roni Burd가 Strata 2016에서 나눈 대화에서 처음 공유되었습니다. 이 대화는 [R을 사용하여 확장 가능한 데이터 과학 플랫폼 빌드](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio)에서 찾을 수 있습니다.
+이 예제는 Mario Inchiosa와 Roni Burd가 Strata 2016에서 나눈 대화에서 처음 공유되었습니다. 이 대화는 [R을 사용하여 확장 가능한 데이터 과학 플랫폼 빌드](https://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio)에서 찾을 수 있습니다.
 
 이 코드는 원래 Azure HDInsight 클러스터의 Spark에서 실행 중인 ML Server용으로 작성된 것입니다. 하지만 하나의 스크립트에서 SparkR과 ScaleR을 혼합하여 사용하는 개념도 온-프레미스 환경의 컨텍스트에서 유효합니다.
 
@@ -29,9 +29,9 @@ ms.locfileid: "53386903"
 
 ## <a name="the-airline-and-weather-datasets"></a>항공사 및 날씨 데이터 세트
 
-항공편 데이터는 [미국 정부 아카이브](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236)에서 사용할 수 있습니다. [AirOnTimeCSV.zip](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip)에서 zip 파일로도 사용 가능합니다.
+항공편 데이터는 [미국 정부 아카이브](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236)에서 사용할 수 있습니다. [AirOnTimeCSV.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip)에서 zip 파일로도 사용 가능합니다.
 
-날씨 데이터는 [National Oceanic and Atmospheric Administration(미국해양대기관리처) 리포지토리](http://www.ncdc.noaa.gov/orders/qclcd/)에서 월별로 원시 형식의 zip 파일로 다운로드할 수 있습니다. 이 예제의 경우 2007년 5월 – 2012년 12월에 대한 데이터를 다운로드하세요. 시간별 데이터 파일과 각 zip 내에 포함된 `YYYYMMMstation.txt` 파일을 사용하세요. 
+날씨 데이터는 [National Oceanic and Atmospheric Administration(미국해양대기관리처) 리포지토리](https://www.ncdc.noaa.gov/orders/qclcd/)에서 월별로 원시 형식의 zip 파일로 다운로드할 수 있습니다. 이 예제의 경우 2007년 5월 – 2012년 12월에 대한 데이터를 다운로드하세요. 시간별 데이터 파일과 각 zip 내에 포함된 `YYYYMMMstation.txt` 파일을 사용하세요. 
 
 ## <a name="setting-up-the-spark-environment"></a>Spark 환경 설정
 
@@ -41,7 +41,7 @@ ms.locfileid: "53386903"
 workDir        <- '~'  
 myNameNode     <- 'default' 
 myPort         <- 0
-inputDataDir   <- 'wasb://hdfs@myAzureAcccount.blob.core.windows.net'
+inputDataDir   <- 'wasb://hdfs@myAzureAccount.blob.core.windows.net'
 hdfsFS         <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 
 # create a persistent Spark session to reduce startup times 

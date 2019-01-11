@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: 0b1187083c14fc7c536f6a32f3a41957f53f299b
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 3d25cfd39b4b4278fedf33e042d394208fd5eafc
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679718"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713182"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Translator Text API에 대한 언어 및 지역 지원
 
@@ -39,9 +39,8 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 |:-----|:-----:|:-----|:-----|
 |아프리칸스어| `af`    |통계 전용|  신경|
 |아랍어|    `ar`    |사용 가능한 인공신경망|  신경|
-|아랍어, 레반트| `apc`   |사용 가능한 인공신경망|  신경|
 |벵골어|    `bn`    |사용 가능한 인공신경망|  신경|
-|보스니아어(라틴 문자)|   `bs`    |통계 전용|  통계|
+|보스니아어(라틴 문자)|   `bs`    |사용 가능한 인공신경망|  신경|
 |불가리아어| `bg`    |사용 가능한 인공신경망|  신경|
 |광둥어(번체)|   `yue`   |통계 전용|  통계|
 |카탈로니아어|   `ca`    |통계 전용|  통계|
@@ -109,26 +108,26 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 
 | 언어    | 언어 코드 | 스크립트 | 대상/원본 | 스크립트|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
-| 아랍어 | ar | 아랍어 | <--> | 라틴어 |
-|벵골어  | bn | 벵골어 | <--> | 라틴어 |
-| 중국어 (간체) | zh-Hans | 중국어 간체 | <--> | 라틴어 |
-| 중국어 (간체) | zh-Hans | 중국어 간체 | <--> | 중국어 번체 |
-| 중국어 (번체) | zh-Hant | 중국어 번체 | <--> | 라틴어 |
-| 중국어 (번체) | zh-Hant | 중국어 번체 | <--> | 중국어 간체 |
-| 구자라트어 | gu  | 구자라트어 | --> | 라틴어 |
-| 히브리어 | he | 히브리어 | <--> | 라틴어 |
-| 힌디어 | hi | 데바나가리어 | <--> | 라틴어 |
-| 일본어 | ja | 일본어 | <--> | 라틴어 |
-| 칸나다어 | kn | 칸나다어 | --> | 라틴어 |
-| 말라얄람어 | ml | 말라얄람어 | --> | 라틴어 |
-| 마라티어 | mr | 데바나가리어 | --> | 라틴어 |
-| 오리야어 | 또는 | 오리야어 | <--> | 라틴어 |
-| 펀잡어 | pa | 굴묵키어 | <--> | 라틴어  |
-| 세르비아어(키릴자모) | sr-Cyrl | 키릴 자모  | --> | 라틴어 |
-| 세르비아어(라틴 문자) | sr-Latn | 라틴어 | --> | 키릴 자모 |
-| 타밀어 | ta | 타밀어 | --> | 라틴어 |
-| 텔루구어 | te | 텔루구어 | --> | 라틴어 |
-| 태국어 | th | 태국어 | <--> | 라틴어 |
+| 아랍어 | `ar` | 아랍어 `Arab` | <--> | 라틴어 `Latn` |
+|벵골어  | `bn` | 벵골어 `Beng` | <--> | 라틴어 `Latn` |
+| 중국어 (간체) | `zh-Hans` | 중국어 간체 `Hans`| <--> | 라틴어 `Latn` |
+| 중국어 (간체) | `zh-Hans` | 중국어 간체 `Hans`| <--> | 중국어 번체 `Hant`|
+| 중국어 (번체) | `zh-Hant` | 중국어 번체 `Hant`| <--> | 라틴어 `Latn` |
+| 중국어 (번체) | `zh-Hant` | 중국어 번체 `Hant`| <--> | 중국어 간체 `Hans` |
+| 구자라트어 | `gu`  | 구자라트어 `Gujr` | --> | 라틴어 `Latn` |
+| 히브리어 | `he` | 히브리어 `Hebr` | <--> | 라틴어 `Latn` |
+| 힌디어 | `hi` | 데바나가리어 `Deva` | <--> | 라틴어 `Latn` |
+| 일본어 | `ja` | 일본어 `Jpan` | <--> | 라틴어 `Latn` |
+| 칸나다어 | `kn` | 칸나다어 `Knda` | --> | 라틴어 `Latn` |
+| 말라얄람어 | `ml` | 말라얄람어 `Mlym` | --> | 라틴어 `Latn` |
+| 마라티어 | `mr` | 데바나가리어 `Deva` | --> | 라틴어 `Latn` |
+| 오리야어 | `or` | 오리야어 `Orya` | <--> | 라틴어 `Latn` |
+| 펀잡어 | `pa` | 굴묵키어 `Guru`  | <--> | 라틴어 `Latn`  |
+| 세르비아어(키릴자모) | `sr-Cyrl` | 키릴 자모 `Cyrl`  | --> | 라틴어 `Latn` |
+| 세르비아어(라틴 문자) | `sr-Latn` | 라틴어 `Latn` | --> | 키릴 자모 `Cyrl`|
+| 타밀어 | `ta` | 타밀어 `Taml` | --> | 라틴어 `Latn` |
+| 텔루구어 | `te` | 텔루구어 `Telu` | --> | 라틴어 `Latn` |
+| 태국어 | `th` | 태국어 `Thai` | <--> | 라틴어 `Latn` |
 
 ## <a name="dictionary"></a>Dictionary
 
@@ -187,9 +186,9 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 | 베트남어      | `vi`          |
 | 웨일스어      | `cy`          |
 
-## <a name="languages-detected-by-the-detect-method"></a>검색 방법으로 검색되는 언어
+## <a name="detect"></a>감지
 
-다음 언어는 검색 방법으로 검색될 수 있습니다. 검색 기능은 Microsoft Translator로 번역할 수 없는 언어를 검색합니다.
+다음 언어는 검색 방법으로 지원됩니다. 검색 기능은 Microsoft Translator로 번역할 수 없는 언어를 식별합니다.
 
 | 언어    |
 |:----------- |
@@ -261,11 +260,55 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 | 웨일스어 |
 | 이디시어 |
 
-## <a name="access-the-list-programmatically"></a>목록에 프로그래밍 방식으로 액세스
+## <a name="access-the-translator-text-api-language-list-programmatically"></a>Translator Text API 언어 목록에 프로그래밍 방식으로 액세스
 
-V3.0 Text API의 언어 작업을 사용하여 지원되는 언어 목록에 프로그래밍 방식으로 액세스할 수 있습니다. 영어 또는 지원되는 다른 언어의 언어 이름 뿐만 아니라 기능, 언어 코드별로 목록을 볼 수 있습니다. 이 목록은 새 언어를 사용할 수 있을 때 Microsoft Translator 서비스에서 자동으로 업데이트됩니다.
+언어 메서드를 사용하여 Translator Text API v3.0에 대해 지원되는 언어 목록을 검색할 수 있습니다. 영어 또는 지원되는 다른 언어의 언어 이름 뿐만 아니라 기능, 언어 코드별로 목록을 볼 수 있습니다. 이 목록은 새 언어를 사용할 수 있을 때 Microsoft Translator 서비스에서 자동으로 업데이트됩니다.
 
 [언어 작업 참조 설명서 보기](reference/v3-0-languages.md)
+
+## <a name="customization"></a>사용자 지정
+
+다음 언어는 [Custom Translator](http://aka.ms/CustomTranslator)를 사용하여 사용자 지정에 사용할 수 있습니다.
+
+| 언어    | 언어 코드 |
+|:----------- |:-------------:|
+| 아랍어       | `ar`          |
+| 벵골어      | `bn`          |
+| 보스니아어(라틴 문자)      | `bs`          |
+| 불가리아어      | `bg`          |
+| 중국어 간체      | `zh-Hans`          |
+| 크로아티아어      | `hr`          |
+| 체코어      | `cs`          |
+| 덴마크어      | `da`          |
+| 네덜란드어      | `nl`          |
+| 영어    | `en`     |
+| 에스토니아어      | `et`          |
+| 핀란드어      | `fi`          |
+| 프랑스어      | `fr`          |
+| 독일어      | `de`          |
+| 그리스어      | `el`          |
+| 히브리어      | `he`          |
+| 힌디어      | `hi`          |
+| 헝가리어      | `hu`          |
+| 이탈리아어      | `it`          |
+| 일본어      | `ja`          |
+| 한국어      | `ko`          |
+| 라트비아어      | `lv`          |
+| 리투아니아어      | `lt`          |
+| 노르웨이어      | `nb`          |
+| 폴란드어      | `pl`          |
+| 포르투갈어      | `pt`          |
+| 루마니아어      | `ro`          |
+| 러시아어      | `ru`          |
+| 세르비아어(라틴 문자)      | `sr-Latn`          |
+| 슬로바키아어     | `sk`          |
+| 슬로베니아어      | `sl`          |
+| 스페인어      | `es`          |
+| 스웨덴어      | `sv`          |
+| 태국어      | `th`          |
+| 터키어      | `tr`          |
+| 우크라이나어      | `uk`          |
+| 베트남어      | `vi`          |
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>Microsoft Translator 웹 사이트에서 목록에 액세스
 

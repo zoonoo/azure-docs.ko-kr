@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 5acabc8381422b9202b041cf849af3b35809a3c0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0c12136fb0c866ceebf83f6352a33b7e2791ad0f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53111203"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717214"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 보안 및 업그레이드 모범 사례
 
@@ -54,7 +54,7 @@ Azure AD 통합 및 RBAC에 대한 자세한 내용은 [AKS의 인증 및 권한
 
 ### <a name="app-armor"></a>App Armor
 
-컨테이너에서 수행할 수 있는 작업을 제한하려는 경우 [AppAmour][k8s-apparmor] Linux 커널 보안 모듈을 사용할 수 있습니다. AppArmor는 기본 AKS 노드 OS의 일부로 사용할 수 있으며 기본적으로 사용하도록 설정됩니다. 읽기, 쓰기 또는 실행과 같은 작업이나 파일 시스템 탑재와 같은 시스템 기능을 제한하는 AppArmor 프로필을 만듭니다. 기본 AppArmor 프로필은 다양한 `/proc` 및 `/sys` 위치에 대한 액세스를 제한하며, 기본 노드에서 컨테이너를 논리적으로 격리하는 방법을 제공합니다. AppArmor는 Kubernetes pod 뿐 아니라 Linux에서 실행되는 모든 애플리케이션에 작동합니다.
+컨테이너에서 수행할 수 있는 작업을 제한하려는 경우 [AppArmor][k8s-apparmor] Linux 커널 보안 모듈을 사용할 수 있습니다. AppArmor는 기본 AKS 노드 OS의 일부로 사용할 수 있으며 기본적으로 사용하도록 설정됩니다. 읽기, 쓰기 또는 실행과 같은 작업이나 파일 시스템 탑재와 같은 시스템 기능을 제한하는 AppArmor 프로필을 만듭니다. 기본 AppArmor 프로필은 다양한 `/proc` 및 `/sys` 위치에 대한 액세스를 제한하며, 기본 노드에서 컨테이너를 논리적으로 격리하는 방법을 제공합니다. AppArmor는 Kubernetes pod 뿐 아니라 Linux에서 실행되는 모든 애플리케이션에 작동합니다.
 
 ![AKS 클러스터에서 컨테이너 작업을 제한하기 위해 사용되는 AppArmor 프로필](media/operator-best-practices-container-security/apparmor.png)
 

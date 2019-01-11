@@ -3,16 +3,15 @@ title: Azure Database for PostgreSQL 서버에서 사용자 만들기
 description: 이 문서에서는 Azure Database for PostgreSQL 서버와 상호 작용할 새로운 사용자 계정을 만드는 방법을 설명합니다.
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/16/2018
-ms.openlocfilehash: 45d1f55e60763724aeb1b1685c5c69696475a424
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 8b1bf6f1eccefb9235751c9e113c90566dfdff79
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958103"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540828"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>Azure Database for PostgreSQL 서버에서 사용자 만들기 
 이 문서에서는 Azure Database for PostgreSQL 서버에서 사용자를 만드는 방법을 설명합니다.
@@ -27,7 +26,7 @@ Azure Database for PostgreSQL 서버는 3개의 기본 역할이 정의된 상�
 
 서버 관리 사용자는 azure_pg_admin 역할의 멤버입니다. 하지만 서버 관리자 계정은 azure_superuser 역할에 속하지 않습니다. 이 서비스는 관리되는 PaaS 서비스이므로 Microsoft만 슈퍼 사용자 역할에 속합니다. 
 
-PostgreSQL 엔진은 [PostgreSQL 제품 설명서](https://www.postgresql.org/docs/current/static/sql-createrole.html)의 설명대로 권한을 사용하여 데이터베이스 개체에 대한 액세스를 제어합니다. Azure Database for PostgreSQL에서 서버 관리 사용자에게는 LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, NOREPLICATION 권한이 부여됩니다.
+PostgreSQL 엔진은 [PostgreSQL 제품 설명서](https://www.postgresql.org/docs/current/static/sql-createrole.html)의 설명대로 권한을 사용하여 데이터베이스 개체에 대한 액세스를 제어합니다. Azure Database for PostgreSQL에서 서버 관리 사용자에게는 다음 권한이 부여됩니다. LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, NOREPLICATION
 
 서버 관리 사용자 계정을 사용하여 사용자를 더 만들고 이 사용자에게 azure_pg_admin 역할을 부여할 수 있습니다. 또한 서버 관리자 계정을 사용하여 개별 데이터베이스 및 스키마에 액세스할 수 있는 낮은 권한의 사용자 및 역할을 만들 수 있습니다.
 
@@ -77,6 +76,6 @@ PostgreSQL 엔진은 [PostgreSQL 제품 설명서](https://www.postgresql.org/do
    ```
 
 ## <a name="next-steps"></a>다음 단계
-새 사용자 컴퓨터의 IP 주소에 대한 방화벽을 열어 연결을 허용합니다. [Azure CLI](howto-manage-firewall-using-cli.md) 또는 [Azure Portal을 사용하여 Azure Database for PostgreSQL 방화벽 규칙을 만들고 관리합니다](howto-manage-firewall-using-portal.md).
+새 사용자의 머신 IP 주소에 대한 방화벽을 열고 연결하도록 설정합니다. [Azure Portal](howto-manage-firewall-using-portal.md) 또는 [Azure CLI를 사용하여 Azure Database for PostgreSQL 방화벽 규칙 만들기 및 관리](howto-manage-firewall-using-cli.md).
 
 사용자 계정 관리에 대한 자세한 내용 PostgreSQL 제품 설명서에서 [데이터베이스 역할 및 권한](https://www.postgresql.org/docs/current/static/user-manag.html), [GRANT 구문](https://www.postgresql.org/docs/current/static/sql-grant.html) 및 [권한](https://www.postgresql.org/docs/current/static/ddl-priv.html)을 참조하세요.

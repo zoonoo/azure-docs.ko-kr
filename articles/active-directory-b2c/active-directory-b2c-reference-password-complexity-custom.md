@@ -1,102 +1,39 @@
 ---
-title: Azure Active Directory B2C에서 사용자 지정 정책의 암호 복잡성 | Microsoft Docs
-description: 사용자 지정 정책에서 암호에 복잡성 요구 사항을 구성하는 방법입니다.
+title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 복잡성 구성 | Microsoft Docs
+description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 복잡성 요구 사항을 구성하는 방법입니다.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 12/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6b8312a08d1d92bccf70e7d3dda5f01811b4f87
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 74542f86d5114ff57e358db7e239e307059fe5ad
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848530"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580351"
 ---
-# <a name="configure-password-complexity-in-custom-policies"></a>사용자 지정 정책에서 암호 복잡성 구성
+# <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 복잡성 구성
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-이 문서는 암호 복잡성이 작동하는 방법의 고급 설명이며 Azure AD B2C 사용자 지정 정책을 사용하여 활성화됩니다.
-
-## <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: 암호에 복잡성 요구 사항 구성
-
-Azure AD B2C(Azure Active Directory B2C)는 계정을 만들 때 최종 사용자가 제공하는 암호에 복잡성 요구 사항을 변경하도록 지원합니다.  기본적으로 Azure AD B2C는 **강력한** 암호를 사용합니다.  또한 Azure AD B2C는 고객이 사용할 수는 암호의 복잡성을 제어하는 구성 옵션을 지원합니다.  이 문서는 사용자 지정 정책에서 암호 복잡성을 구성하는 방법에 대해 설명합니다.  [기본 제공 정책에서 암호 복잡성 구성](active-directory-b2c-reference-password-complexity.md)을 사용할 수도 있습니다.
+Azure AD(Azure Active Directory) B2C에서는 계정을 만들 때 사용자가 제공한 암호의 복잡성 요구 사항을 구성할 수 있습니다. 기본적으로 Azure AD B2C는 **강력한** 암호를 사용합니다. 이 문서에서는 [사용자 지정 정책](active-directory-b2c-overview-custom.md)에서 암호 복잡성을 구성하는 방법을 보여 줍니다. [사용자 흐름](active-directory-b2c-reference-password-complexity.md)에서 암호 복잡성을 구성할 수도 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-[시작](active-directory-b2c-get-started-custom.md)에서 설명한 대로 로컬 계정 등록/로그인을 완료하도록 구성된 Azure AD B2C 테넌트
+[Active Directory B2C에서 사용자 지정 정책을 사용하여 시작하기](active-directory-b2c-get-started-custom.md)에 있는 단계를 완료합니다.
 
-## <a name="how-to-configure-password-complexity-in-custom-policy"></a>사용자 지정 정책에서 암호 복잡성을 구성하는 방법
+## <a name="add-the-elements"></a>요소 추가
 
-사용자 지정 정책에서 암호 복잡성을 구성하려면 사용자 지정 정책의 전체 구조가 `BuildingBlocks` 내에서 `ClaimsSchema`, `Predicates` 및 `InputValidations` 요소를 포함해야 합니다.
+1. 시작 팩과 함께 다운로드한 *SignUpOrSignIn.xml* 파일을 복사하고 이름을 *SingUpOrSignInPasswordComplexity.xml*로 변경합니다.
+2. *SingUpOrSignInPasswordComplexity.xml* 파일을 열고 **PolicyId** 및 **PublicPolicyUri**를 새 정책 이름으로 변경합니다. 예를 들면, *B2C_1A_signup_signin_password_complexity*입니다.
+3. `newPassword` 및 `reenterPassword`의 식별자를 사용하여 다음 **ClaimType** 요소를 추가합니다.
 
-```XML
-  <BuildingBlocks>
-    <ClaimsSchema>...</ClaimsSchema>
-    <Predicates>...</Predicates>
-    <InputValidations>...</InputValidations>
-  </BuildingBlocks>
-```
-
-이러한 요소의 용도는 다음과 같습니다.
-
-- 각 `Predicate` 요소는 true 또는 false를 반환하는 기본 문자열 유효성 검사를 정의합니다.
-- `InputValidations` 요소에는 하나 이상의 `InputValidation` 요소가 있습니다.  각 `InputValidation`은 일련의 `Predicate` 요소를 사용하여 생성됩니다. 이 요소를 사용하면 부울 집계를 수행할 수 있습니다(`and` 및 `or` 유사).
-- `ClaimsSchema`는 유효성 검사 중인 클레임을 정의합니다.  그런 다음 해당 클레임의 유효성을 검사하는 데 사용되는 `InputValidation` 규칙을 정의합니다.
-
-### <a name="defining-a-predicate-element"></a>조건자 요소 정의
-
-조건자에는 다음 두 개의 메서드 형식이 있습니다. IsLengthRange 또는 MatchesRegex 각각의 예제를 검토해 보겠습니다.  먼저 정규식을 일치시키는 데 사용되는 MatchesRegex 예제가 있습니다.  이 예제에서는 숫자가 포함된 문자열을 일치시킵니다.
-
-```XML
-      <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
-        <Parameters>
-          <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
-        </Parameters>
-      </Predicate>
-```
-
-다음으로 IsLengthRange 예제를 살펴 보겠습니다.  이 메서드는 최소 및 최대 문자열 길이를 사용합니다.
-
-```XML
-      <Predicate Id="Length" Method="IsLengthRange" HelpText="The password must be between 8 and 16 characters.">
-        <Parameters>
-          <Parameter Id="Minimum">8</Parameter>
-          <Parameter Id="Maximum">16</Parameter>
-        </Parameters>
-      </Predicate>
-```
-
-`HelpText` 특성을 사용하여 확인이 실패하는 경우 최종 사용자에게 오류 메시지를 제공합니다.  이 문자열은 [언어 사용자 지정 기능](active-directory-b2c-reference-language-customization.md)을 사용하여 지역화될 수 있습니다.
-
-### <a name="defining-an-inputvalidation-element"></a>InputValidation 요소 정의
-
-`InputValidation`은 `PredicateReferences`라는 집계를 수행합니다. `InputValidation`이 성공하기 위해 각 `PredicateReferences`는 true여야 합니다.  그러나 `PredicateReferences` 요소는 `MatchAtLeast`라는 특성을 사용하여 true를 반환해야 하는 `PredicateReference` 검사의 개수를 지정합니다.  필요에 따라 `HelpText` 특성을 정의하여 참조하는 `Predicate` 요소에 정의된 오류 메시지를 재정의합니다.
-
-```XML
-      <InputValidation Id="PasswordValidation">
-        <PredicateReferences Id="LengthGroup" MatchAtLeast="1">
-          <PredicateReference Id="Length" />
-        </PredicateReferences>
-        <PredicateReferences Id="3of4" MatchAtLeast="3" HelpText="You must have at least 3 of the following character classes:">
-          <PredicateReference Id="Lowercase" />
-          <PredicateReference Id="Uppercase" />
-          <PredicateReference Id="Number" />
-          <PredicateReference Id="Symbol" />
-        </PredicateReferences>
-      </InputValidation>
-```
-
-### <a name="defining-a-claimsschema-element"></a>ClaimsSchema 요소 정의
-
-`newPassword` 및 `reenterPassword` 클레임 형식은 특수한 것으로 간주되므로 이름을 변경하지 않습니다.  UI는 이러한 `ClaimType` 요소에 기반하여 계정을 만드는 동안 사용자가 해당 암호를 올바르게 다시 입력했는지 유효성을 검사합니다.  동일한 `ClaimType` 요소를 찾으려면 시작 팩에 있는 TrustFrameworkBase.xml에서 찾습니다.  `InputValidationReference`를 정의하는 이러한 요소를 재정의하는 것이 이 예제의 새로운 기능입니다. 새 요소의 `ID` 특성은 정의한 `InputValidation` 요소를 가리킵니다.
-
-```XML
+    ```XML
     <ClaimsSchema>
       <ClaimType Id="newPassword">
         <InputValidationReference Id="PasswordValidation" />
@@ -105,78 +42,29 @@ Azure AD B2C(Azure Active Directory B2C)는 계정을 만들 때 최종 사용�
         <InputValidationReference Id="PasswordValidation" />
       </ClaimType>
     </ClaimsSchema>
-```
+    ```
 
-### <a name="putting-it-all-together"></a>모든 항목 요약
+4. [Predicates](predicates.md)에는 `IsLengthRange` 또는 `MatchesRegex` 메서드 형식이 있습니다. `MatchesRegex` 형식은 정규식과 일치시키는 데 사용됩니다. `IsLengthRange` 형식은 최소 및 최대 문자열 길이를 사용합니다. 이 요소가 다음 **Predicate** 요소에 없는 경우 **BuildingBlocks** 요소에 **Predicates** 요소를 추가합니다.
 
-이 예에서는 모든 작업을 수행하여 작업 정책을 형성하는 방법을 표시합니다.  이 예제를 사용하려면:
-
-1. [시작](active-directory-b2c-get-started-custom.md) 필수 구성 요소의 지침에 따라 TrustFrameworkBase.xml 및 TrustFrameworkExtensions.xml을 다운로드하고, 구성하고 업로드합니다.
-1. 이 섹션에서 예제 콘텐츠를 사용하여 SignUporSignIn.xml 파일을 만듭니다.
-1. `yourtenant`를 Azure AD B2C 테넌트 이름으로 바꿔서 SignUporSignIn.xml을 업데이트합니다.
-1. 마지막으로 SignUporSignIn.xml 정책 파일을 업로드합니다.
-
-이 예제에는 PIN 암호에 대한 유효성 검사 및 강력한 암호에 대한 유효성 검사가 포함되어 있습니다.
-
-- `PINpassword`를 찾아보세요. 이 `InputValidation` 요소는 모든 길이의 PIN 유효성을 검사합니다.  `ClaimType` 내의 `InputValidationReference` 요소에서 참조되지 않기 때문에 현재 사용되지 않습니다. 
-- `PasswordValidation`를 찾아보세요. 이 `InputValidation` 요소는 암호가 8~16자이며 대문자, 소문자, 숫자, 기호라는 4개 항목 중 3가지를 포함하는지 확인합니다.  `ClaimType`에서 참조됩니다.  따라서 이 규칙은 이 정책에 적용되고 있습니다.
-
-```XML
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TrustFrameworkPolicy
-  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="https://www.w3.org/2001/XMLSchema"
-  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
-  PolicySchemaVersion="0.3.0.0"
-  TenantId="yourtenant.onmicrosoft.com"
-  PolicyId="B2C_1A_signup_signin"
-  PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_signup_signin">
- <BasePolicy>
-    <TenantId>yourtenant.onmicrosoft.com</TenantId>
-    <PolicyId>B2C_1A_TrustFrameworkExtensions</PolicyId>
-  </BasePolicy>
-  <BuildingBlocks>
-    <ClaimsSchema>
-      <ClaimType Id="newPassword">
-        <InputValidationReference Id="PasswordValidation" />
-      </ClaimType>
-      <ClaimType Id="reenterPassword">
-        <InputValidationReference Id="PasswordValidation" />
-      </ClaimType>
-    </ClaimsSchema>
+    ```XML
     <Predicates>
-      <Predicate Id="Lowercase" Method="MatchesRegex" HelpText="a lowercase">
+      <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
         <Parameters>
-          <Parameter Id="RegularExpression">[a-z]+</Parameter>
-        </Parameters>
-      </Predicate>
-      <Predicate Id="Uppercase" Method="MatchesRegex" HelpText="an uppercase">
-        <Parameters>
-          <Parameter Id="RegularExpression">[A-Z]+</Parameter>
-        </Parameters>
-      </Predicate>
-      <Predicate Id="Number" Method="MatchesRegex" HelpText="a number">
-        <Parameters>
-          <Parameter Id="RegularExpression">[0-9]+</Parameter>
-        </Parameters>
-      </Predicate>
-      <Predicate Id="Symbol" Method="MatchesRegex" HelpText="a symbol">
-        <Parameters>
-          <Parameter Id="RegularExpression">[!@#$%^*()]+</Parameter>
+          <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="Length" Method="IsLengthRange" HelpText="The password must be between 8 and 16 characters.">
         <Parameters>
           <Parameter Id="Minimum">8</Parameter>
           <Parameter Id="Maximum">16</Parameter>
-        </Parameters>
-      </Predicate>
-      <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
-        <Parameters>
-          <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
         </Parameters>
       </Predicate>
     </Predicates>
+    ```
+
+5. 각 **InputValidation** 요소는 정의된 **Predicate** 요소를 사용하여 생성됩니다. 이 요소를 사용하면 `and` 및 `or`와 비슷한 부울 집계를 수행할 수 있습니다. 이 요소가 다음 **InputValidation** 요소에 없는 경우 **BuildingBlocks** 요소에 **InputValidations** 요소를 추가합니다.
+
+    ```XML
     <InputValidations>
       <InputValidation Id="PasswordValidation">
         <PredicateReferences Id="LengthGroup" MatchAtLeast="1">
@@ -189,30 +77,57 @@ Azure AD B2C(Azure Active Directory B2C)는 계정을 만들 때 최종 사용�
           <PredicateReference Id="Symbol" />
         </PredicateReferences>
       </InputValidation>
-      <InputValidation Id="PINpassword">
-        <PredicateReferences Id="PINGroup">
-          <PredicateReference Id="PIN" />
-        </PredicateReferences>
-      </InputValidation>
     </InputValidations>
-  </BuildingBlocks>
-  <RelyingParty>
-    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
-    <TechnicalProfile Id="PolicyProfile">
-      <DisplayName>PolicyProfile</DisplayName>
-      <Protocol Name="OpenIdConnect" />
-      <InputClaims>
-        <InputClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword" />
-      </InputClaims>
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="displayName" />
-        <OutputClaim ClaimTypeReferenceId="givenName" />
-        <OutputClaim ClaimTypeReferenceId="surname" />
-        <OutputClaim ClaimTypeReferenceId="email" />
-        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-      </OutputClaims>
-      <SubjectNamingInfo ClaimType="sub" />
-    </TechnicalProfile>
-  </RelyingParty>
-</TrustFrameworkPolicy>
-```
+    ```
+
+6. **PolicyProfile** 기술 프로필에 다음 요소가 있는지 확인합니다.
+
+    ```XML
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignIn"/>
+      <TechnicalProfile Id="PolicyProfile">
+        <DisplayName>PolicyProfile</DisplayName>
+        <Protocol Name="OpenIdConnect"/>
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
+        </InputClaims>
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="displayName"/>
+          <OutputClaim ClaimTypeReferenceId="givenName"/>
+          <OutputClaim ClaimTypeReferenceId="surname"/>
+          <OutputClaim ClaimTypeReferenceId="email"/>
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="sub"/>
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
+
+7. 정책 파일을 저장합니다.
+
+## <a name="test-your-policy"></a>정책 테스트
+
+Azure AD B2C에서 애플리케이션을 테스트하는 경우 포함된 클레임을 검토할 수 있도록 Azure AD B2C 토큰이 `https://jwt.ms`에 반환되도록 하는 것이 유용할 수 있습니다.
+
+### <a name="upload-the-files"></a>파일 업로드
+
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
+3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+4. **ID 경험 프레임워크**를 선택합니다.
+5. 사용자 지정 정책 페이지에서 **정책 업로드**를 클릭합니다.
+6. **정책이 있는 경우 덮어쓰기**를 선택한 후 *SingUpOrSignInPasswordComplexity.xml* 파일을 검색하여 선택합니다.
+7. **업로드**를 클릭합니다.
+
+### <a name="run-the-policy"></a>정책 실행
+
+1. 변경한 정책을 엽니다. 예를 들면, *B2C_1A_signup_signin_password_complexity*입니다.
+2. **애플리케이션**은 이전에 등록한 애플리케이션을 선택합니다. 토큰을 보려면 **회신 URL**에 `https://jwt.ms`가 표시되어야 합니다.
+3. **지금 실행**을 클릭합니다.
+4. **지금 등록**을 선택하고, 메일 주소를 입력한 다음, 새 암호를 입력합니다. 지침은 암호 제한 사항에서 제공됩니다. 사용자 정보 입력을 완료한 후 **만들기**를 클릭합니다. 반환된 토큰의 콘텐츠가 표시됩니다.
+
+## <a name="next-steps"></a>다음 단계
+
+- [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 변경을 구성](active-directory-b2c-reference-password-change-custom.md)하는 방법을 알아봅니다.
+
+

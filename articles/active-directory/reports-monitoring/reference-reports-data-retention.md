@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: abd64b7d2fa7930f5b6177c7ac037840da34dc18
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 6188b141ec1a514d999f290366cd9ffbafc1d96c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333584"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753135"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Azure Active Directory 보고서 보존 정책
 
@@ -53,17 +53,19 @@ ms.locfileid: "52333584"
 
 **작업 보고서**    
 
-| 보고서                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--                    | :--           | :--                 | :--                 |
-| 디렉터리 감사        | 7 일        | 30일             | 30일             |
-| 로그인 작업       | 해당 없음           | 30일             | 30일             |
-| Azure MFA 사용        | 30일       | 30일             | 30일             |
+| 보고서                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--                    | :--           | :--            | :--                 | :--                 |
+| 디렉터리 감사        | 7 일        |  7 일        | 30일             | 30일             |
+| 로그인 작업       | 해당 없음           |  해당 없음           | 30일             | 30일             |
+| Azure MFA 사용        | 30일       |  30일       | 30일             | 30일             |
+
+Azure Monitor를 사용하여 스토리지 계정으로 라우팅하여 위에서 설명한 기본 보존 기간보다 오랫동안 감사 및 로그인 활동 데이터를 유지할 수 있습니다. 자세한 내용은 [Azure 스토리지 계정에 Azure AD 로그 보관](quickstart-azure-monitor-route-logs-to-storage-account.md)을 참조하세요.
 
 **보안 신호**
 
-| 보고서         | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--            | :--           | :--                 | :--                 |
-| 위험에 노출된 사용자  | 7 일        | 30일             | 90일             |
-| 위험한 로그인 | 7 일        | 30일             | 90일             |
+| 보고서         | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--            | :--           | :--            | :--                 | :--                 |
+| 위험에 노출된 사용자  | 7 일        | 7 일         | 30일             | 90일             |
+| 위험한 로그인 | 7 일        | 7 일         |  30일            | 90일             |
 
 ---

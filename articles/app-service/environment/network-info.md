@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d9a0ab84e133863092f68cc949c2b7933bc5da31
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3939d8dce641d066a2470612068df7102b317a70
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271014"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630464"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
 
@@ -151,7 +151,7 @@ ASE에는 알고 있어야 할 몇 가지 IP 주소가 있습니다. 아래에 �
 
 ### <a name="app-assigned-ip-addresses"></a>앱에 할당된 IP 주소 ###
 
-외부 ASE를 사용하면 IP 주소를 개별 앱에 할당할 수 있습니다. ILB ASE에서는 IP 주소를 할당할 수 없습니다. 앱용으로 고유한 IP 주소를 구성하는 방법에 대한 자세한 내용은 [Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩](../app-service-web-tutorial-custom-ssl.md)을 참조하세요.
+외부 ASE를 사용하면 IP 주소를 개별 앱에 할당할 수 있습니다. ILB ASE에서는 IP 주소를 할당할 수 없습니다. 앱용으로 고유한 IP 주소를 구성하는 방법에 대한 자세한 내용은 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](../app-service-web-tutorial-custom-ssl.md)을 참조하세요.
 
 앱에 고유한 IP 기반 SSL 주소가 있는 경우 ASE는 해당 IP 주소에 매핑하도록 두 개의 포트를 예약합니다. 한 포트는 HTTP 트래픽용이고, 다른 포트는 HTTPS용입니다. 이러한 포트는 IP 주소 섹션의 ASE UI에 나열됩니다. 트래픽은 VIP에서 해당 포트에 연결할 수 있어야 합니다. 그렇지 않으면 앱에 액세스할 수 없습니다. NSG(네트워크 보안 그룹)를 구성할 때는 이 요구 사항을 고려해야 합니다.
 
@@ -165,7 +165,7 @@ NSG는 Azure Portal 또는 PowerShell을 통해 구성할 수 있습니다. 이 
 
 인바운드 및 아웃바운드 요구 사항을 고려할 때, NSG는 이 예제에 나와 있는 NSG와 비슷하게 표시되어야 합니다. VNet 주소 범위는 _192.168.250.0/23_이고 ASE가 있는 서브넷은 _192.168.251.128/25_입니다.
 
-ASE가 작동하기 위한 가장 우선적인 인바운드 요구 사항 두 가지가 이 예제의 목록 맨 위에 나와 있습니다. 이는 ASE 관리를 가능케 하고 ASE가 자체적으로 통신할 수 있도록 합니다. 다른 항목은 모두 테넌트에서 구성할 수 있으며, ASE에서 호스트되는 응용 프로그램에 대한 네트워크 액세스를 관리하는 데 사용할 수 있습니다. 
+ASE가 작동하기 위한 가장 우선적인 인바운드 요구 사항 두 가지가 이 예제의 목록 맨 위에 나와 있습니다. 이는 ASE 관리를 가능케 하고 ASE가 자체적으로 통신할 수 있도록 합니다. 다른 항목은 모두 테넌트에서 구성할 수 있으며, ASE에서 호스트되는 애플리케이션에 대한 네트워크 액세스를 관리하는 데 사용할 수 있습니다. 
 
 ![인바운드 보안 규칙][4]
 

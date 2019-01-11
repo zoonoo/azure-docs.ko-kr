@@ -11,31 +11,31 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: fc1f472cec1b1da26456924885d7905ab2458e14
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: efa24fcb624c7613ce16028d7ba06af4d4d2153c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251133"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753390"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
 Azure Machine Learning 모델을 웹 서비스로 배포하면 REST API가 생성됩니다. 이 API로 데이터를 보내고 모델에서 반환된 예측을 받을 수 있습니다. 이 문서에서는 C#, Go, Java 및 Python을 사용하여 웹 서비스용 클라이언트를 만드는 방법에 대해 알아봅니다.
 
-Azure Container 인스턴스, Azure Kubernetes Service 또는 Project Brainwave(필드 프로그래밍 가능 게이트 배열)에 이미지를 배포할 때 웹 서비스가 생성됩니다. 이미지는 등록된 모델과 채점 파일에서 생성됩니다. 웹 서비스에 액세스하는 데 사용되는 URI는 [Azure Machine Learning SDK](https://aka.ms/aml-sdk)를 사용하여 검색할 수 있습니다. 인증이 사용 가능한 경우 SDK를 사용하여 인증 키를 가져올 수도 있습니다.
+Azure Container 인스턴스, Azure Kubernetes Service 또는 Project Brainwave(필드 프로그래밍 가능 게이트 배열)에 이미지를 배포할 때 웹 서비스를 만듭니다. 등록된 모델과 채점 파일에서 이미지를 만듭니다. [Azure Machine Learning SDK](https://aka.ms/aml-sdk)를 사용하여 웹 서비스에 액세스하는 데 사용되는 URI를 검색합니다. 인증이 사용 가능한 경우 SDK를 사용하여 인증 키를 가져올 수도 있습니다.
 
-ML 웹 서비스를 사용하는 클라이언트를 만들 때 일반적인 워크플로는 다음과 같습니다.
+기계 학습 웹 서비스를 사용하는 클라이언트를 만들기 위한 일반적인 워크플로는 다음과 같습니다.
 
-1. SDK를 사용하여 연결 정보 가져오기
-1. 모델에서 사용하는 요청 데이터 형식 결정
-1. 웹 서비스를 호출하는 애플리케이션 만들기
+1. SDK를 사용하여 연결 정보를 가져옵니다.
+1. 모델에서 사용하는 요청 데이터의 형식을 결정합니다.
+1. 웹 서비스를 호출하는 애플리케이션을 만듭니다.
 
 ## <a name="connection-information"></a>연결 정보
 
 > [!NOTE]
-> Azure Machine Learning SDK는 웹 서비스 정보를 가져오는 데 사용됩니다. 이는 Python SDK입니다. 웹 서비스에 대한 정보를 검색하는 데 사용되는 동안 모든 언어를 사용하여 서비스용 클라이언트를 만들 수 있습니다.
+> Azure Machine Learning SDK를 사용하여 웹 서비스 정보를 가져옵니다. 이는 Python SDK입니다. 모든 언어를 사용하여 서비스용 클라이언트를 만들 수 있습니다.
 
-웹 서비스 연결 정보는 Azure Machine Learning SDK를 사용하여 검색할 수 있습니다. [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) 클래스는 클라이언트를 만드는 데 필요한 정보를 제공합니다. 다음 `Webservice` 속성은 클라이언트 애플리케이션을 만들 때 유용합니다.
+[azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) 클래스는 클라이언트를 만드는 데 필요한 정보를 제공합니다. 다음 `Webservice` 속성은 클라이언트 애플리케이션을 만드는 데 유용합니다.
 
 * `auth_enabled` - 인증을 사용하도록 설정한 경우 `True`이고, 그렇지 않으면 `False`입니다.
 * `scoring_uri` - REST API 주소입니다.
@@ -69,10 +69,10 @@ ML 웹 서비스를 사용하는 클라이언트를 만들 때 일반적인 워�
 
 ### <a name="authentication-key"></a>인증 키
 
-인증 키는 배포에 대해 인증이 활성화될 때 자동으로 생성됩니다.
+배포에 대해 인증을 사용하도록 설정하면 자동으로 인증 키를 만듭니다.
 
-* __Azure Kubernetes Service__에 배포할 때 인증은 __기본적으로 활성화__되어 있습니다.
-* __Azure 컨테이너 인스턴스__에 배포할 때 인증은 __기본적으로 비활성화__되어 있습니다.
+* Azure Kubernetes Service에 배포할 때 인증은 기본적으로 활성화되어 있습니다.
+* Azure 컨테이너 인스턴스에 배포할 때 인증은 기본적으로 비활성화되어 있습니다.
 
 인증을 제어하려면 배포를 만들거나 업데이트할 때 `auth_enabled` 매개 변수를 사용합니다.
 
@@ -155,9 +155,9 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> 서비스를 개선하려 노력하므로 `azureml.contrib` 네임스페이스의 사물은 자주 변경됩니다. 따라서 이 네임 스페이스의 모든 것을 미리 보기로 간주하므로 Microsoft에서 완벽히 지원하지 않아도 됩니다.
+> 서비스를 개선을 위해 노력하므로 `azureml.contrib` 네임스페이스는 자주 변경됩니다. 따라서 이 네임 스페이스의 모든 것을 미리 보기로 간주하므로 Microsoft에서 완벽히 지원하지 않아도 됩니다.
 >
-> 로컬 개발 환경에서 이를 테스트해야 하는 경우 다음 명령을 사용하여 contrib 네임스페이스의 구성 요소를 설치할 수 있습니다.
+> 로컬 개발 환경에서 이를 테스트해야 하는 경우 다음 명령을 사용하여 `contrib` 네임스페이스에 구성 요소를 설치할 수 있습니다.
 > 
 > ```shell
 > pip install azureml-contrib-services

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 01/02/2019
 ms.author: yushwang
-ms.openlocfilehash: a232ac111974444848aec82f3c7ab6236f82ac03
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 7545000e0dda959195d3669da877a77c5bedea40
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037102"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002062"
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
 
@@ -30,6 +30,10 @@ ms.locfileid: "51037102"
 
 Windows PowerShell 및 Azure REST API를 사용하여 여러 사이트에 연결할 수 있습니다. [다중 사이트 및 VNet 간 연결](#V2VMulti) FAQ 섹션을 참조하세요.
 
+### <a name="is-there-an-additional-cost-for-setting-up-a-vpn-gateway-as-active-active"></a>VPN 게이트웨이를 활성-활성으로 설정기 위한 추가 비용이 있나요?
+
+ 아니요. 
+
 ### <a name="what-are-my-cross-premises-connection-options"></a>내 프레미스 간 연결 옵션은 무엇입니까?
 
 다음 프레미스 간 연결을 지원합니다.
@@ -38,7 +42,7 @@ Windows PowerShell 및 Azure REST API를 사용하여 여러 사이트에 연결
 * 지점 및 사이트 간 - SSTP(Secure Socket Tunneling Protocol) 또는 IKE v2를 통한 VPN 연결. 이 연결에는 VPN 디바이스가 필요하지 않습니다. 자세한 내용은 [지점 및 사이트 간](vpn-gateway-howto-point-to-site-resource-manager-portal.md)을 참조하세요.
 * VNet 간 - 이 유형의 연결은 사이트 간 구성과 동일합니다. VNet 간 연결은 IPsec를 통한 VPN 연결(IKE v1 및 IKE v2)입니다. VPN 디바이스가 필요하지 않습니다. 자세한 내용은 [VNet 간](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)을 참조하세요.
 * 다중 사이트 - 가상 네트워크에 여러 온-프레미스 사이트를 연결할 수 있는 사이트 간 구성의 변형입니다. 자세한 내용은 [다중 사이트](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)를 참조하세요.
-* ExpressRoute - ExpressRoute는 공용 인터넷을 통한 VPN 연결을 사용하지 않고 WAN에서 Azure에 직접 연결합니다. 자세한 내용은 [ExpressRoute 기술 개요](../expressroute/expressroute-introduction.md) 및 [ExpressRoute FAQ](../expressroute/expressroute-faqs.md)를 참조하세요.
+* ExpressRoute - ExpressRoute는 공용 인터넷을 통한 VPN 연결이 아닌 WAN에서 Azure에 대한 비공개 연결입니다. 자세한 내용은 [ExpressRoute 기술 개요](../expressroute/expressroute-introduction.md) 및 [ExpressRoute FAQ](../expressroute/expressroute-faqs.md)를 참조하세요.
 
 VPN Gateway 연결에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
 
@@ -132,7 +136,7 @@ Azure 인프라 통신을 위해 필요합니다. Azure 인증서에 의해 보�
 
 자세한 내용은 [VPN Gateway 구성 설정 정보](vpn-gateway-about-vpn-gateway-settings.md)를 참조하세요.
 
-## <a name="s2s"></a>사이트 간 연결 및 VPN 장치
+## <a name="s2s"></a>사이트 간 연결 및 VPN 디바이스
 
 ### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>VPN 디바이스를 선택할 때 고려할 사항은 무엇입니까?
 
@@ -144,7 +148,7 @@ Azure 인프라 통신을 위해 필요합니다. Azure 인증서에 의해 보�
 
 ### <a name="how-do-i-edit-vpn-device-configuration-samples"></a>VPN 디바이스 구성 샘플을 편집하려면 어떻게 하나요?
 
-장치 구성 샘플을 편집하는 방법에 대한 정보는 [샘플 편집](vpn-gateway-about-vpn-devices.md#editing)을 참조하세요.
+디바이스 구성 샘플을 편집하는 방법에 대한 정보는 [샘플 편집](vpn-gateway-about-vpn-devices.md#editing)을 참조하세요.
 
 ### <a name="where-do-i-find-ipsec-and-ike-parameters"></a>IPsec 및 IKE 매개 변수를 어디서 찾을 수 있나요?
 

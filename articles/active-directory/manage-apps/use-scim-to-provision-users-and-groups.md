@@ -16,31 +16,34 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 87f5153ef71f74a0fa1a6be3c527fba03b65bf83
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 04287d286aed872a2b951c47e0f67a93bd19c7b3
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095570"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583479"
 ---
-# <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>SCIM(System for Cross-Domain Identity Management)을 사용하여 사용자 및 그룹을 Azure Active Directory에서 응용 프로그램으로 자동 프로비전
+# <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>SCIM(System for Cross-Domain Identity Management)을 사용하여 사용자 및 그룹을 Azure Active Directory에서 애플리케이션으로 자동 프로비전
 
 ## <a name="overview"></a>개요
 Azure AD(Active Directory)는 [SCIM(System for Cross-Domain Identity Management) 2.0 프로토콜 사양](https://tools.ietf.org/html/draft-ietf-scim-api-19)에 정의된 인터페이스를 가진 웹 서비스가 향하는 애플리케이션 또는 ID 저장소에 사용자 및 그룹을 자동으로 프로비전할 수 있습니다. Azure Active Directory는 웹 서비스에 할당된 사용자 및 그룹을 만들고 수정하고 삭제하는 요청을 보낼 수 있습니다. 그러면 웹 서비스에서 이러한 요청을 대상 ID 저장소의 작업으로 변환할 수 있습니다. 
 
+>[!IMPORTANT]
+>Azure AD SCIM 구현 동작이 2018년 12월 18일에 마지막으로 업데이트되었습니다. 변경된 내용에 대한 자세한 내용은 [Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 규정 준수](application-provisioning-config-problem-scim-compatibility.md)를 참조하세요.
+
 ![][0]
 *그림 1: 웹 서비스를 통해 Azure Active Directory에서 ID 저장소에 프로비전*
 
-이 기능은 Azure AD의 "자신의 앱 가져오기" 기능과 함께 사용할 수 있습니다. 이 기능을 사용하면 SCIM 웹 서비스에서 수행하는 응용 프로그램에 대한 Single Sign-On 및 자동 사용자 프로비저닝이 가능합니다.
+이 기능은 Azure AD의 "자신의 앱 가져오기" 기능과 함께 사용할 수 있습니다. 이 기능을 사용하면 SCIM 웹 서비스에서 수행하는 애플리케이션에 대한 Single Sign-On 및 자동 사용자 프로비저닝이 가능합니다.
 
 Azure Active Directory에서 SCIM을 사용하는 방법에 대한 두 가지 사용 사례가 있습니다.
 
-* **SCIM을 지원하는 응용 프로그램에 사용자 및 그룹 프로비전** - SCIM 2.0을 지원하고 인증에 OAuth 전달자 토큰을 사용하는 응용 프로그램은 별도의 구성 없이 Azure AD에서 작동합니다.
+* **SCIM을 지원하는 애플리케이션에 사용자 및 그룹 프로비전** - SCIM 2.0을 지원하고 인증에 OAuth 전달자 토큰을 사용하는 애플리케이션은 별도의 구성 없이 Azure AD에서 작동합니다.
   
-* **다른 API 기반 프로비전을 지원하는 응용 프로그램에 대한 프로비전 솔루션 빌드** - 비SCIM 응용 프로그램의 경우 Azure AD SCIM 엔드포인트와 응용 프로그램에서 사용자 프로비저닝을 지원하는 API 간에 변환하는 SCIM 엔드포인트를 만들 수 있습니다. SCIM 엔드포인트 개발을 지원하기 위해 SCIM 엔드포인트를 제공하고 SCIM 메시지를 변환하는 방법을 보여주는 코드 샘플과 함께 CLI(공용 언어 인프라) 라이브러리가 있습니다.  
+* **다른 API 기반 프로비전을 지원하는 애플리케이션에 대한 프로비전 솔루션 빌드** - 비SCIM 애플리케이션의 경우 Azure AD SCIM 엔드포인트와 애플리케이션에서 사용자 프로비저닝을 지원하는 API 간에 변환하는 SCIM 엔드포인트를 만들 수 있습니다. SCIM 엔드포인트 개발을 지원하기 위해 SCIM 엔드포인트를 제공하고 SCIM 메시지를 변환하는 방법을 보여주는 코드 샘플과 함께 CLI(공용 언어 인프라) 라이브러리가 있습니다.  
 
 ## <a name="provisioning-users-and-groups-to-applications-that-support-scim"></a>SCIM을 지원하는 애플리케이션에 사용자 및 그룹 프로비전
-Azure AD는 할당된 사용자 및 그룹을 [SCIM(System for Cross-domain Identity Management) 2](https://tools.ietf.org/html/draft-ietf-scim-api-19) 웹 서비스를 구현하는 응용 프로그램에 자동으로 프로비전하고, 인증에 대한 OAuth 전달자 토큰을 수락하도록 구성할 수 있습니다. SCIM 2.0 사양 내에서 응용 프로그램은 다음의 요구 사항을 충족해야 합니다.
+Azure AD는 할당된 사용자 및 그룹을 [SCIM(System for Cross-domain Identity Management) 2](https://tools.ietf.org/html/draft-ietf-scim-api-19) 웹 서비스를 구현하는 애플리케이션에 자동으로 프로비전하고, 인증에 대한 OAuth 전달자 토큰을 수락하도록 구성할 수 있습니다. SCIM 2.0 사양 내에서 애플리케이션은 다음의 요구 사항을 충족해야 합니다.
 
 * SCIM 프로토콜의 섹션 3.3에 따라 사용자 및/또는 그룹 만들기를 지원합니다.  
 * SCIM 프로토콜의 섹션 3.5.2에 따라 패치를 사용하여 사용자 및/또는 그룹 수정을 지원합니다.  
@@ -50,12 +53,12 @@ Azure AD는 할당된 사용자 및 그룹을 [SCIM(System for Cross-domain Iden
 * SCIM 프로토콜의 섹션 3.4.2에 따라 ID 및 멤버에 의한 그룹 쿼리를 지원합니다.  
 * SCIM 프로토콜의 섹션 2.1에 따라 권한 부여에 대한 OAuth 전달자 토큰을 수락합니다.
 
-응용 프로그램 공급자 또는 응용 프로그램 공급자의 설명서를 통해 이러한 요구 사항과의 호환성을 확인합니다.
+애플리케이션 공급자 또는 애플리케이션 공급자의 설명서를 통해 이러한 요구 사항과의 호환성을 확인합니다.
 
 ### <a name="getting-started"></a>시작
-Azure AD 응용 프로그램 갤러리에 있는 "비-갤러리 응용 프로그램" 기능을 사용하여 이 문서에서 설명한 SCIM 프로필을 지원하는 응용 프로그램을 Azure Active Directory에 연결할 수 있습니다. 일단 연결되면 Azure AD는 할당된 사용자 및 그룹에 대해 응용 프로그램의 SCIM 엔드포인트를 쿼리하고, 할당 세부 정보에 따라 이러한 사용자 및 그룹을 만들거나 수정하는 동기화 프로세스를 40분마다 실행합니다.
+Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이션" 기능을 사용하여 이 문서에서 설명한 SCIM 프로필을 지원하는 애플리케이션을 Azure Active Directory에 연결할 수 있습니다. 일단 연결되면 Azure AD는 할당된 사용자 및 그룹에 대해 애플리케이션의 SCIM 엔드포인트를 쿼리하고, 할당 세부 정보에 따라 이러한 사용자 및 그룹을 만들거나 수정하는 동기화 프로세스를 40분마다 실행합니다.
 
-**SCIM을 지원하는 응용 프로그램을 연결하려면:**
+**SCIM을 지원하는 애플리케이션을 연결하려면:**
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 2. **Azure Active Directory > Enterprise 응용 프로그램**을 찾아서 **새 응용 프로그램 > 모두 > 비-갤러리 응용 프로그램**을 선택합니다.
@@ -70,9 +73,13 @@ Azure AD 응용 프로그램 갤러리에 있는 "비-갤러리 응용 프로그
    ![][2]
    *그림 3: Azure Portal에서 프로비전 구성*
     
-6. **테넌트 URL** 필드에 응용 프로그램의 SCIM 엔드포인트 URL을 입력합니다. 예제: https://api.contoso.com/scim/v2/
+6. **테넌트 URL** 필드에 애플리케이션의 SCIM 엔드포인트 URL을 입력합니다. 예제: https://api.contoso.com/scim/v2/
 7. SCIM 엔드포인트에 Azure AD가 아닌 다른 발급자의 OAuth 전달자 토큰이 필요한 경우 필요한 OAuth 전달자 토큰을 **비밀 토큰** 필드(선택 사항)에 복사합니다. 이 필드를 비워 두면 Azure AD에 각 요청에 따라 Azure AD에서 발급한 OAuth 전달자 토큰이 포함됩니다. ID 공급자로 Azure AD를 사용하는 앱은 Azure AD에서 발급한 토큰의 유효성을 검사할 수 있습니다.
 8. **연결 테스트** 단추를 클릭하여 Azure Active Directory에서 SCIM 엔드포인트에 연결을 시도합니다. 시도가 실패하면 오류 정보가 표시됩니다.  
+
+    >[!NOTE]
+    >**테스트 연결**은 Azure AD 구성에서 선택된 일치하는 속성으로 임의 GUID를 사용하여 존재하지 않는 사용자의 SCIM 엔드포인트를 쿼리합니다. 예상되는 올바른 응답은 SCIM ListResponse 메시지가 비어 있는 HTTP 200 OK입니다. 
+
 9. 애플리케이션에 연결 시도가 성공하면 **저장**을 클릭하여 관리자 자격 증명을 저장합니다.
 10. **매핑** 섹션에는 선택 가능한 특성 매핑 집합이 두 개 있는데, 하나는 사용자 개체용이고 다른 하나는 그룹 개체용입니다. 각 특성 매핑을 선택하여 Azure Active Directory에서 앱으로 동기화되는 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 앱의 사용자와 그룹을 일치시키는 데 사용됩니다. 저장 단추를 선택하여 변경 내용을 커밋합니다.
 
@@ -90,15 +97,15 @@ Azure AD 응용 프로그램 갤러리에 있는 "비-갤러리 응용 프로그
 > 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. 
 
 
-## <a name="building-your-own-provisioning-solution-for-any-application"></a>응용 프로그램에 대한 고유한 프로비전 솔루션 구축
-Azure Active Directory와 상호 작용하는 SCIM 웹 서비스를 만들어서 REST 또는 SOAP 사용자 프로비전 API를 제공하는 거의 모든 응용 프로그램에 대한 Single Sign-On 및 자동 사용자 프로비전을 사용하도록 설정할 수 있습니다.
+## <a name="building-your-own-provisioning-solution-for-any-application"></a>애플리케이션에 대한 고유한 프로비전 솔루션 구축
+Azure Active Directory와 상호 작용하는 SCIM 웹 서비스를 만들어서 REST 또는 SOAP 사용자 프로비전 API를 제공하는 거의 모든 애플리케이션에 대한 Single Sign-On 및 자동 사용자 프로비전을 사용하도록 설정할 수 있습니다.
 
 방법은 다음과 같습니다.
 
-1. Azure AD는 [Microsoft.SystemForCrossDomainIdentityManagement](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/)로 명명된 공용 언어 인프라 라이브러리를 제공합니다. 시스템 통합 업체 및 개발자는 이 라이브러리를 사용하여 응용 프로그램 ID 저장소에 Azure AD를 연결할 수 있는 SCIM 기반 웹 서비스 엔드포인트를 만들고 배포할 수 있습니다.
-2. 매핑은 웹 서비스에서 구현되어 스키마에 응용 프로그램에서 필요한 사용자 스키마 및 프로토콜에 표준화된 사용자 스키마를 매핑합니다.
-3. 엔드포인트 URL은 응용 프로그램 갤러리에서 사용자 지정 응용 프로그램의 일부로 Azure AD에 등록됩니다.
-4. 사용자 및 그룹은 Azure AD에서 이 응용 프로그램에 할당됩니다. 할당 시 큐에 저장하여 대상 응용 프로그램에 동기화됩니다. 큐를 처리하는 동기화 프로세스는 40분마다 실행됩니다.
+1. Azure AD는 [Microsoft.SystemForCrossDomainIdentityManagement](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/)로 명명된 공용 언어 인프라 라이브러리를 제공합니다. 시스템 통합 업체 및 개발자는 이 라이브러리를 사용하여 애플리케이션 ID 저장소에 Azure AD를 연결할 수 있는 SCIM 기반 웹 서비스 엔드포인트를 만들고 배포할 수 있습니다.
+2. 매핑은 웹 서비스에서 구현되어 스키마에 애플리케이션에서 필요한 사용자 스키마 및 프로토콜에 표준화된 사용자 스키마를 매핑합니다.
+3. 엔드포인트 URL은 애플리케이션 갤러리에서 사용자 지정 애플리케이션의 일부로 Azure AD에 등록됩니다.
+4. 사용자 및 그룹은 Azure AD에서 이 애플리케이션에 할당됩니다. 할당 시 큐에 저장하여 대상 애플리케이션에 동기화됩니다. 큐를 처리하는 동기화 프로세스는 40분마다 실행됩니다.
 
 ### <a name="code-samples"></a>코드 샘플
 이 프로세스를 더 쉽게 수행하기 위해 SCIM 웹 서비스 엔드포인트를 만들고 자동 프로비전을 시연하는 [코드 샘플](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)이 제공됩니다. 한 가지 샘플은 사용자 및 그룹을 나타내는 쉼표로 구분된 값의 행이 있는 파일을 유지 관리하는 공급자입니다.  다른 샘플은 Amazon 웹 서비스 ID 및 액세스 관리 서비스에서 작동하는 공급자입니다.  
@@ -125,7 +132,7 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 엔드포인트�
    ```
 
 5. FileProvisioningService 프로젝트를 빌드합니다.
-6. Windows에서 명령 프롬프트 응용 프로그램을 관리자 권한으로 시작하고, **cd** 명령을 사용하여 디렉터리를 **\AzureAD-BYOA-Provisioning-Samples\FileProvisioning\Host\bin\Debug** 폴더로 변경합니다.
+6. Windows에서 명령 프롬프트 애플리케이션을 관리자 권한으로 시작하고, **cd** 명령을 사용하여 디렉터리를 **\AzureAD-BYOA-Provisioning-Samples\FileProvisioning\Host\bin\Debug** 폴더로 변경합니다.
 7. 다음 명령을 실행하고, <ip-address>를 Windows 컴퓨터의 IP 주소 또는 도메인 이름으로 바꿉니다.
 
    ```
@@ -139,7 +146,7 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 엔드포인트�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 2. **Azure Active Directory > Enterprise 응용 프로그램**을 찾아서 **새 응용 프로그램 > 모두 > 비-갤러리 응용 프로그램**을 선택합니다.
-3. 애플리케이션의 이름을 입력하고 **추가** 아이콘을 클릭하여 앱 개체를 만듭니다. 만든 응용 프로그램 개체는 SCIM 엔드포인트뿐 아니라 Single Sign-On을 프로비전하고 구현하려는 대상 앱을 나타내는 데 사용됩니다.
+3. 애플리케이션의 이름을 입력하고 **추가** 아이콘을 클릭하여 앱 개체를 만듭니다. 만든 애플리케이션 개체는 SCIM 엔드포인트뿐 아니라 Single Sign-On을 프로비전하고 구현하려는 대상 앱을 나타내는 데 사용됩니다.
 4. 결과 화면에서 왼쪽 열의 **프로비전** 탭을 선택합니다.
 5. **프로비전 모드** 메뉴에서 **자동**을 선택합니다.
     
@@ -149,6 +156,10 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 엔드포인트�
 6. **테넌트 URL** 필드에 인터넷에 노출된 URL 및 SCIM 엔드포인트의 포트를 입력합니다. 이 항목은 http://testmachine.contoso.com:9000 또는 http://<ip-address>:9000/과 유사합니다. 여기서 <ip-address>는 인터넷에 노출된 IP 주소입니다.  
 7. SCIM 엔드포인트에 Azure AD가 아닌 다른 발급자의 OAuth 전달자 토큰이 필요한 경우 필요한 OAuth 전달자 토큰을 **비밀 토큰** 필드(선택 사항)에 복사합니다. 이 필드를 비워 두면 Azure AD에 각 요청에 따라 Azure AD에서 발급한 OAuth 전달자 토큰이 포함됩니다. ID 공급자로 Azure AD를 사용하는 앱은 Azure AD에서 발급한 토큰의 유효성을 검사할 수 있습니다.
 8. **연결 테스트** 단추를 클릭하여 Azure Active Directory에서 SCIM 엔드포인트에 연결을 시도합니다. 시도가 실패하면 오류 정보가 표시됩니다.  
+
+    >[!NOTE]
+    >**테스트 연결**은 Azure AD 구성에서 선택된 일치하는 속성으로 임의 GUID를 사용하여 존재하지 않는 사용자의 SCIM 엔드포인트를 쿼리합니다. 예상되는 올바른 응답은 SCIM ListResponse 메시지가 비어 있는 HTTP 200 OK입니다.
+
 9. 애플리케이션에 연결 시도가 성공하면 **저장**을 클릭하여 관리자 자격 증명을 저장합니다.
 10. **매핑** 섹션에는 선택 가능한 특성 매핑 집합이 두 개 있는데, 하나는 사용자 개체용이고 다른 하나는 그룹 개체용입니다. 각 특성 매핑을 선택하여 Azure Active Directory에서 앱으로 동기화되는 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 앱의 사용자와 그룹을 일치시키는 데 사용됩니다. 저장 단추를 선택하여 변경 내용을 커밋합니다.
 11. **설정** 아래의 **범위** 필드는 동기화되는 사용자 및 그룹을 정의합니다. "할당된 사용자 및 그룹만 동기화"(권장)를 선택하면 **사용자 및 그룹** 탭에서 할당된 사용자 및 그룹만 동기화됩니다.

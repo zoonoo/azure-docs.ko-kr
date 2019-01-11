@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 2f97a2e8ad38bb3c78333cc2c8eedad8f520e68a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: a6bbc61afcc1ed25d5eac8673b9abfa59e72dba9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036805"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602191"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure 진단 로깅 및 Windows 이벤트 전달과의 Azure Log Integration
 
@@ -151,9 +151,9 @@ Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격
 이 단계에서는 로그 파일이 포함된 저장소 계정에 연결하도록 Azure Log Integration 서비스를 실행하는 컴퓨터를 구성합니다.
 
 이 단계를 완료하려면 다음과 같은 몇 가지 항목이 필요합니다.  
-* **FriendlyNameForSource**: Azure 진단의 정보를 저장하도록 가상 머신을 구성한 저장소 계정에 적용할 수 있는 친숙한 이름입니다.
-* **StorageAccountName**: Azure 진단을 구성할 때 지정한 저장소 계정의 이름입니다.  
-* **StorageKey**: Azure 진단 정보가 이 가상 머신에 저장되는 저장소 계정의 저장소 키입니다.  
+* **FriendlyNameForSource**: Azure 진단의 정보를 저장하도록 가상 머신을 구성한 스토리지 계정에 적용할 수 있는 친숙한 이름입니다.
+* **StorageAccountName**: Azure 진단을 구성할 때 지정한 스토리지 계정의 이름입니다.  
+* **StorageKey**: Azure 진단 정보가 이 가상 머신에 저장되는 스토리지 계정의 스토리지 키입니다.  
 
 저장소 키를 가져오려면 다음 단계를 수행합니다.
 1. [Azure 포털](http://portal.azure.com)로 이동합니다.
@@ -198,7 +198,7 @@ Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격
 ## <a name="if-data-isnt-showing-up-in-the-forwarded-events-folder"></a>전달된 이벤트 폴더에 데이터가 나타나지 않는 경우
 1시간이 지난 후에도 전달된 이벤트 폴더에 데이터가 나타나지 않으면 다음 단계를 완료합니다.
 
-1. Azure Log Integration 서비스를 실행하는 컴퓨터를 확인합니다. Azure에 액세스할 수 있는지 확인합니다. 연결을 테스트하려면 브라우저에서 [Azure Portal](http://portal.azure.com)로 이동합니다.
+1. Azure Log Integration 서비스를 실행하는 컴퓨터를 확인합니다. Azure에 액세스할 수 있는지 확인합니다. 연결을 테스트하려면 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 사용자 계정 AzLog에 users\Azlog 폴더에 대한 쓰기 권한이 있는지 확인합니다.
   1. 파일 탐색기를 엽니다.
   2. C:\users로 이동합니다.

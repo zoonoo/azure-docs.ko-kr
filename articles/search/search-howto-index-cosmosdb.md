@@ -11,12 +11,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
 ms.custom: seodec2018
-ms.openlocfilehash: 80759394ac920907c74f67cf9ee6dfcb52bfd9a8
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 99f19f6595f2e3105c4b30a7c2e7ef1e296fad6e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311816"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724867"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>인덱서를 사용해서 Cosmos DB를 Azure Search에 연결
 
@@ -38,7 +38,7 @@ ms.locfileid: "53311816"
 <a name="supportedAPIs"></a>
 ## <a name="supported-api-types"></a>지원되는 API 유형
 
-Azure Cosmos DB는 다양한 데이터 모델과 API를 지원하지만 Azure Search 인덱서 프로덕션 지원은 SQL API에만 확장됩니다. MongoDB API 지원은 현재 공개 미리 보기로 제공됩니다.  
+Azure Cosmos DB는 다양한 데이터 모델과 API를 지원하지만 Azure Search 인덱서 프로덕션 지원은 SQL API에만 확장됩니다. Azure Cosmos DB for MongoDB API 지원은 현재 공개 미리 보기로 제공됩니다.  
 
 추가 API 지원이 제공될 예정입니다. 먼저 지원할 API의 우선 순위 결정에 도움이 되도록 사용자 의견 웹 사이트에서 투표해 주세요.
 

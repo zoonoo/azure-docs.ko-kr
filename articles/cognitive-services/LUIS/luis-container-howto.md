@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: a6170d51e1a8756020b4f2caa733c388b2ce4060
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 1398db59199c62e90f8cf5654586bda1c24f2541
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013819"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055050"
 ---
-# <a name="install-and-run-containers"></a>컨테이너 설치 및 실행
+# <a name="install-and-run-luis-docker-containers"></a>LUIS docker 컨테이너 설치 및 실행
  
 LUIS(Language Understanding) 컨테이너는 [LUIS 앱](https://www.luis.ai)으로 알려진 학습된 또는 게시된 Language Understanding 모델을 Docker 컨테이너로 로드하고 컨테이너의 API 엔드포인트에서 쿼리 예측에 대한 액세스를 제공합니다. 컨테이너에서 쿼리 로그를 수집하고 이 로그를Azure Language Understanding 모델로 다시 업로드하여 앱의 예측 정확도를 개선할 수 있습니다.
 
@@ -34,7 +34,7 @@ LUIS 컨테이너를 실행하려면 다음이 필요 합니다.
 
 |필수|목적|
 |--|--|
-|Docker 엔진| 이 미리 보기를 완료하려면 [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
+|Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
 |LUIS(Language Understanding) 리소스 및 연결 된 앱 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>* 연결된 엔드포인트 키 및 엔드포인트 URI(청구 엔드포인트로 사용됨)와 함께 [_Language Understanding_ Azure 리소스](luis-how-to-azure-subscription.md) <br>* 연결된 앱 ID와 함께 컨테이너에 대한 탑재된 입력으로 패키징된 학습된 또는 게시된 앱<br>* API에서 사용하는 경우 앱 패키지를 다운로드하는 작성 키<br><br>이러한 요구 사항은 아래 변수에 대한 명령줄 인수를 전달하는데 사용됩니다.<br><br>**{AUTHORING_KEY}**: 이 키는 클라우드에서 LUIS 서비스에서 패키징된 앱을 가져오는 데 사용되고 클라우드로 다시 쿼리 로그를 업로드하는 데 사용됩니다. 형식은 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`입니다.<br><br>**{APPLICATION_ID}**: 이 ID는 앱을 선택하는 데 사용됩니다. 형식은 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`입니다.<br><br>**{ENDPOINT_KEY}**: 이 키는 컨테이너를 시작하는 데 사용됩니다. 두 위치에서 엔드포인트 키를 찾을 수 있습니다. 첫 번째는 _Language Understanding_ 리소스의 키 목록에 있는 Azure Portal입니다. 엔드포인트 키는 키와 엔드포인트 설정 페이지에서 LUIS 포털을 사용할 수도 있습니다. 시작 키를 사용하지 마세요.<br><br>**{BILLING_ENDPOINT}**: 청구 엔드포인트 값은 Azure Portal의 Language Understanding 개요 페이지에서 사용할 수 있습니다. 예는 `https://westus.api.cognitive.microsoft.com/luis/v2.0`입니다.<br><br>[작성 키 및 엔드포인트 키](luis-boundaries.md#key-limits)는 용도가 서로 다릅니다. 서로 교환하여 사용하지 마세요. |
 
@@ -42,9 +42,9 @@ LUIS 컨테이너를 실행하려면 다음이 필요 합니다.
 
 **호스트**는 Docker 컨테이너를 실행하는 컴퓨터입니다. 다음을 포함하여 Azure에서 컴퓨터 온-프레미스 또Docker 호스팅 서비스일 수 있습니다.
 
-* [Azure Kubernetes Service](/azure/aks/)
-* [Azure Container Instances](/azure/container-instances/)
-* [Kubernetes](https://kubernetes.io/) 클러스터는 [Azure Stack](/azure/azure-stack/)에 배포됩니다. 자세한 내용은 [Azure Stack에 Kubernetes 배포](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)를 참조하세요.
+* [Azure Kubernetes Service](../../aks/index.yml)
+* [Azure Container Instances](../../container-instances/index.yml)
+* [Kubernetes](https://kubernetes.io/) 클러스터는 [Azure Stack](../../azure-stack/index.yml)에 배포됩니다. 자세한 내용은 [Azure Stack에 Kubernetes 배포](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md)를 참조하세요.
 
 ### <a name="container-requirements-and-recommendations"></a>컨테이너 요구 사항 및 추천
 
@@ -66,7 +66,7 @@ LUIS 컨테이너를 실행하려면 다음이 필요 합니다.
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
-사용 가능한 태그에 대한 전체 설명은 이전 명령에서 사용되는 `latest`처럼 Docker 허브에서 [LUIS](https://hub.docker.com/r/microsoft/azure-cognitive-services-luis/)를 참조하세요.
+사용 가능한 태그에 대한 전체 설명은 이전 명령에서 사용되는 `latest`처럼 Docker 허브에서 [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204)를 참조하세요.
 
 > [!TIP]
 > [docker images](https://docs.docker.com/engine/reference/commandline/images/) 명령을 사용하여 다운로드한 컨테이너 이미지를 나열할 수 있습니다. 예를 들어 다음 명령은 다운로드한 각 컨테이너 이미지의 ID, 리포지토리 및 태그를 테이블 형식으로 나열합니다.

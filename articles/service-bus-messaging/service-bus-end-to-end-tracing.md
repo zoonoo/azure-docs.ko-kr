@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 4584104e9c9833b5f3f586581dd5a58f420fe0bd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 12f9f55544f46bc9c88cab7234f78ad7ee7de2d2
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165342"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790897"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Service Bus 메시징을 통한 분산 추적 및 상관관계
 
@@ -45,9 +45,9 @@ Microsoft Azure Service Bus 메시징에는 생산자와 소비자가 이러한 
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/)는 자동 요청 및 종속성 추적을 포함하여 다양한 성능 모니터링 기능을 제공합니다.
 
 프로젝트 유형에 따라 Application Insights SDK를 설치합니다.
-- [ASP.NET](../application-insights/app-insights-asp-net.md) - 버전 2.5-beta2 이상 설치
-- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) - 버전 2.2.0-beta2 이상 설치
-이러한 링크는 SDK 설치, 리소스 만들기 및 SDK 구성(필요한 경우)에 대한 세부 정보를 제공합니다. 비 ASP.NET 애플리케이션의 경우 [콘솔 애플리케이션용 Azure Application Insights](../application-insights/application-insights-console.md) 문서를 참조하세요.
+- [ASP.NET](../azure-monitor/app/asp-net.md) - 버전 2.5-beta2 이상 설치
+- [ASP.NET Core](../azure-monitor/app/asp-net-core.md) - 버전 2.2.0-beta2 이상 설치
+이러한 링크는 SDK 설치, 리소스 만들기 및 SDK 구성(필요한 경우)에 대한 세부 정보를 제공합니다. 비 ASP.NET 애플리케이션의 경우 [콘솔 애플리케이션용 Azure Application Insights](../azure-monitor/app/console.md) 문서를 참조하세요.
 
 [메시지 처리기 패턴](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler)을 사용하여 메시지를 처리하는 경우 특별히 수행할 작업이 없습니다. 서비스에서 수행하는 모든 Service Bus 호출이 자동으로 추적되고 다른 원격 분석 항목과 상호 연결됩니다. 또는 수동 메시지 처리 추적은 다음 예제를 참조하세요.
 
@@ -83,7 +83,7 @@ async Task ProcessAsync(Message message)
 이 예제에서는 처리된 각 메시지에 대해 `RequestTelemetry`가 보고되며 타임스탬프, 지속 기간 및 결과(성공)를 포함합니다. 원격 분석에는 상관관계 속성 집합도 있습니다.
 또한 메시지 처리 중에 보고된 중첩된 추적 및 예외에 `RequestTelemetry`의 ‘하위’로 표시되는 상관관계 속성을 사용하여 스탬프가 지정됩니다.
 
-메시지 처리 중에 지원되는 외부 구성 요소를 호출하는 경우 해당 구성 요소도 자동으로 추적되고 상호 연결됩니다. 수동 추적 및 상관관계는 [Application Insights .NET SDK를 사용하여 사용자 지정 작업 추적](../application-insights/application-insights-custom-operations-tracking.md)을 참조하세요.
+메시지 처리 중에 지원되는 외부 구성 요소를 호출하는 경우 해당 구성 요소도 자동으로 추적되고 상호 연결됩니다. 수동 추적 및 상관관계는 [Application Insights .NET SDK를 사용하여 사용자 지정 작업 추적](../azure-monitor/app/custom-operations-tracking.md)을 참조하세요.
 
 ### <a name="tracking-without-tracing-system"></a>추적 시스템 없이 추적
 추적 시스템이 자동 Service Bus 호출 추적을 지원하지 않는 경우 추적 시스템 또는 애플리케이션에 해당 지원을 추가하는 것이 좋습니다. 이 섹션에서는 Service Bus .NET 클라이언트가 보내는 진단 이벤트에 대해 설명합니다.  
@@ -227,6 +227,6 @@ serviceBusLogger.LogInformation($"{currentActivity.OperationName} is finished, D
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Application Insights 상관관계](../application-insights/application-insights-correlation.md)
-* [Application Insights 종속성 모니터링](../application-insights/app-insights-asp-net-dependencies.md) - REST, SQL 또는 다른 외부 리소스의 속도가 느려지는지 확인합니다.
-* [Application Insights .NET SDK를 통한 사용자 지정 작업 추적](../application-insights/application-insights-custom-operations-tracking.md)
+* [Application Insights 상관관계](../azure-monitor/app/correlation.md)
+* [Application Insights 종속성 모니터링](../azure-monitor/app/asp-net-dependencies.md) - REST, SQL 또는 다른 외부 리소스의 속도가 느려지는지 확인합니다.
+* [Application Insights .NET SDK를 통한 사용자 지정 작업 추적](../azure-monitor/app/custom-operations-tracking.md)

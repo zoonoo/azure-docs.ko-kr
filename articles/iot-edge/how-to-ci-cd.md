@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a714cec5ce05473887f9f06d47c75563bf878081
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3c4f5d6888d581cb44702a8d76e1ebbb13845091
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386828"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582918"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Azure IoT Edge 연속 통합 및 지속적인 배포
 
@@ -40,7 +40,7 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업 또는 Jenkins 서버의 
 
 3. 이제 샘플 IoT Edge 솔루션이 준비되었습니다. 기본 C# 모듈은 파이프 메시지 모듈로 작동합니다. `deployment.template.json`에서 이 솔루션에 두 개의 모듈이 포함된 것을 확인할 수 있습니다. `tempSensor` 모듈에서 메시지가 생성되어 `FilterModule`을 통해 직접 파이프된 다음, IoT 허브로 전송됩니다.
 
-4. 이 프로젝트를 저장한 후 Azure Repos에 커밋합니다.
+4. 이 프로젝트를 저장한 후 Azure Repos 리포지토리에 커밋합니다.
     
 > [!NOTE]
 > Azure Repos를 사용하는 방법에 대한 자세한 내용은 [Share your code with Visual Studio and Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts)(Visual Studio 및 Azure Repos와 코드 공유)를 참조하세요.
@@ -69,11 +69,11 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업 또는 Jenkins 서버의 
     
     * Linux 컨테이너용 플랫폼 amd64에서 모듈을 빌드하려는 경우 **호스트된 Ubuntu 1604**를 선택합니다.
     * Windows 컨테이너용 플랫폼 amd64에서 모듈을 빌드하려는 경우 **호스트된 VS2017**을 선택합니다. 
-    * Linux 컨테이너용 플랫폼 arm32v7에서 모듈을 빌드하려는 경우 **관리** 단추를 클릭하여 사용자 고유의 빌드 에이전트를 설정해야 합니다.
+    * Linux 컨테이너용 플랫폼 arm32v7에서 모듈을 빌드하려는 경우 **관리** 단추를 방문하여 사용자 고유의 빌드 에이전트를 설정해야 합니다.
     
     ![빌드 에이전트 풀 구성](./media/how-to-ci-cd/configure-env.png)
 
-1. 에이전트 작업에서 “+”를 클릭하여 빌드 파이프라인에 세 가지 작업을 추가합니다. 처음 두 작업은 **Azure IoT Edge**에서 가져온 것입니다. 세 번째 작업은 **빌드 아티팩트 게시**에서 가져온 것입니다.
+1. 에이전트 작업에서 “+”를 열어 빌드 파이프라인에 세 가지 작업을 추가합니다. 처음 두 작업은 **Azure IoT Edge**에서 가져온 것입니다. 세 번째 작업은 **빌드 아티팩트 게시**에서 가져온 것입니다.
     
     ![빌드 파이프라인에 작업 추가](./media/how-to-ci-cd/add-tasks.png)
 
@@ -93,13 +93,13 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업 또는 Jenkins 서버의 
 
     ![연속 통합 트리거 켜기](./media/how-to-ci-cd/configure-trigger.png)
 
-    새 빌드 파이프라인을 저장합니다. **저장** 단추를 클릭합니다.
+    **저장** 단추로 새 빌드 파이프라인을 저장합니다.
 
 
 ## <a name="configure-azure-pipelines-for-continuous-deployment"></a>지속적인 배포를 위한 Azure Pipelines 구성
 이 섹션에서는 빌드 파이프라인이 아티팩트를 드롭하면 자동으로 실행되도록 구성된 릴리스 파이프라인을 만들고 Azure Pipelines에 배포 로그를 표시합니다.
 
-1. **릴리스** 탭에서 **+ 새 파이프라인**을 선택합니다. 또는 이미 릴리스 파이프라인이 있는 경우 **+ 새로 만들기** 단추를 선택하고 **+ 새 릴리스 파이프라인**을 클릭합니다.  
+1. **릴리스** 탭에서 **+ 새 파이프라인**을 선택합니다. 또는 이미 릴리스 파이프라인이 있는 경우 **+ 새로 만들기** 단추를 선택하고 **+ 새 릴리스 파이프라인**을 선택합니다.  
 
     ![릴리스 파이프라인 추가](./media/how-to-ci-cd/add-release-pipeline.png)
 
@@ -115,7 +115,7 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업 또는 Jenkins 서버의 
 
     ![아티팩트 추가](./media/how-to-ci-cd/add-artifacts.png)  
     
-    **아티팩트 페이지 추가**에서 소스 형식 선택 **빌드**를 선택합니다. 그런 다음, 만든 프로젝트 및 빌드 파이프라인을 선택합니다. 그런 다음, **추가**를 클릭합니다.
+    **아티팩트 페이지 추가**에서 소스 형식 선택 **빌드**를 선택합니다. 그런 다음, 만든 프로젝트 및 빌드 파이프라인을 선택합니다. 그런 다음, **추가**를 선택합니다.
 
     ![빌드 아티팩트 추가](./media/how-to-ci-cd/add-an-artifact.png)
 
@@ -127,7 +127,7 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업 또는 Jenkins 서버의 
 
     ![QA 작업 구성](./media/how-to-ci-cd/view-stage-tasks.png)
 
-   배포 작업은 플랫폼에 구애 받지 않으므로 **에이전트 풀**(또는 사용자가 관리하는 다른 에이전트에서)의 **호스트된 VS2017** 또는 **호스트된 Ubuntu 1604** 중에서 선택할 수 있습니다. “+”를 클릭하고 작업을 하나 추가합니다.
+   배포 작업은 플랫폼에 구애 받지 않으므로 **에이전트 풀**(또는 사용자가 관리하는 다른 에이전트에서)의 **호스트된 VS2017** 또는 **호스트된 Ubuntu 1604** 중에서 선택할 수 있습니다. “+”를 선택하고 작업을 하나 추가합니다.
 
     ![QA에 대한 작업 추가](./media/how-to-ci-cd/add-task-qa.png)
 
@@ -135,13 +135,13 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업 또는 Jenkins 서버의 
 
     ![QA에 배포](./media/how-to-ci-cd/deploy-to-qa.png)
 
-    새 릴리스 파이프라인을 저장합니다. **저장** 단추를 클릭합니다. 그런 다음, **파이프라인**을 클릭하여 파이프라인으로 다시 돌아갑니다.
+    **저장** 단추로 새 릴리스 파이프라인을 저장합니다. 그런 다음, **파이프라인**을 선택하여 파이프라인으로 다시 돌아갑니다.
 
 6. 두 번째 단계는 프로덕션 환경입니다. 새 단계 “PROD”를 추가하려면 단계 “QA”를 복제하고 복제된 단계의 이름을 **PROD**로 바꾸면 됩니다.
 
     ![복제 단계](./media/how-to-ci-cd/clone-stage.png)
 
-7. 프로덕션 환경을 위한 작업을 구성합니다. IoT Edge 디바이스가 ‘prod’로 태그가 지정되었다고 가정하고, 작업 구성에서 대상 조건을 “prod”로 업데이트한 다음, 고급 설정에서 배포 ID를 “deploy-prod”로 설정합니다. **저장** 단추를 클릭합니다. 그런 다음, **파이프라인**을 클릭하여 파이프라인으로 다시 돌아갑니다.
+7. 프로덕션 환경을 위한 작업을 구성합니다. IoT Edge 디바이스가 ‘prod’로 태그가 지정되었다고 가정하고, 작업 구성에서 대상 조건을 “prod”로 업데이트한 다음, 고급 설정에서 배포 ID를 “deploy-prod”로 설정합니다. **저장** 단추로 저장합니다. 그런 다음, **파이프라인**을 선택하여 파이프라인으로 다시 돌아갑니다.
     
     ![프로덕션에 배포](./media/how-to-ci-cd/deploy-to-prod.png)
 
@@ -151,7 +151,7 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업 또는 Jenkins 서버의 
 
         ![배포 전 조건 열기](./media/how-to-ci-cd/pre-deploy-conditions.png)    
 
-    2. **배포 전 승인**에서 **사용**을 설정합니다. 또한 **승인자** 입력을 채웁니다. 그런 다음 **Save**를 클릭합니다.
+    2. **배포 전 승인**에서 **사용**을 설정합니다. 또한 **승인자** 입력을 채웁니다. **저장** 단추로 저장합니다.
     
         ![조건 설정](./media/how-to-ci-cd/set-pre-deployment-conditions.png)
 
@@ -165,7 +165,7 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업 또는 Jenkins 서버의 
 
 이 섹션에서는 CI/CD 파이프라인 작업을 만들도록 빌드를 트리거합니다. 그런 다음, 배포에 성공했는지 확인합니다.
 
-1. 빌드 작업을 트리거하려면 소스 코드 리포지토리에 커밋을 푸시하거나 수동으로 트리거할 수 있습니다. 다음 스크린샷과 같이 **큐** 단추를 클릭하여 빌드 파이프라인에서 빌드 작업을 트리거할 수 있습니다.
+1. 빌드 작업을 트리거하려면 소스 코드 리포지토리에 커밋을 푸시하거나 수동으로 트리거할 수 있습니다. 다음 스크린샷과 같이 **큐** 단추를 선택하여 빌드 파이프라인에서 빌드 작업을 트리거할 수 있습니다.
 
     ![수동 트리거](./media/how-to-ci-cd/manual-trigger.png)
 

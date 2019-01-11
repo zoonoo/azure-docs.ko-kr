@@ -1,19 +1,18 @@
 ---
 title: 일관성 수준 및 Azure Cosmos DB API
 description: Azure Cosmos DB에서 API에 대한 일관성 수준 이해
-keywords: 일관성, azure cosmos db, azure, 모델, mongodb, cassandra, 그래프, 테이블, Microsoft azure
-services: cosmos-db
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.openlocfilehash: 277a064d93e2ebcea82f3909b3fd16328a775105
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: 76ebbc8cc8dbea4b7f8f8226cf1d8570a421e8cf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832499"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034338"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>일관성 수준 및 Azure Cosmos DB API
 
@@ -50,5 +49,5 @@ Azure Cosmos DB는 인기 있는 데이터베이스에 대한 와이어 프로�
 오픈 소스 API 및 Cosmos DB API 간의 일관성 수준 및 호환성에 대해 자세히 알아봅니다. 다음 문서를 참조하세요.
 
 * [다양한 일관성 수준의 가용성 및 성능 절충](consistency-levels-tradeoffs.md)
-* [Azure Cosmos DB MongoDB API에서 지원된 MongoDB 기능](mongodb-feature-support.md)
+* [Azure Cosmos DB의 API for MongoDB에서 지원되는 MongoDB 기능](mongodb-feature-support.md)
 * [Azure Cosmos DB Cassandra API에서 지원된 Apache Cassandra 기능](cassandra-support.md)

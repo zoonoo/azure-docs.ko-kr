@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 3e664fc83fde937b26a4726f997da4c0cb4d8f8a
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 30f96c54dd916188296ca0245d4095a32ae0bbe4
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407884"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742884"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight 클러스터 크기 조정
 
@@ -63,9 +63,9 @@ HDInsight는 클러스터의 작업자 노드 수를 증가 및 감소하는 옵
 
 현재 상태와 함께 작업 목록이 표시됩니다. 스크린샷에는 현재 실행 중인 하나의 작업만 나와 있습니다.
 
-![ResourceManager UI 응용 프로그램](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
+![ResourceManager UI 애플리케이션](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
 
-실행 중인 해당 응용 프로그램을 수동으로 종료하려면 SSH 셸에서 다음 명령을 실행합니다.
+실행 중인 해당 애플리케이션을 수동으로 종료하려면 SSH 셸에서 다음 명령을 실행합니다.
 
 ```bash
 yarn application -kill <application_id>
@@ -117,13 +117,13 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 
 ### <a name="example-errors-when-safe-mode-is-turned-on"></a>안전 모드가 켜지는 오류 예제
 
-* H070 Hive 세션을 열 수 없습니다. org.apache.Apache Hadoop.ipc.RemoteException(org.apache.Apache Hadoop.ipc.RetriableException): org.apache.Apache Hadoop.hdfs.server.namenode.SafeModeException: /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0 **디렉터리를 만들 수 없습니다**. **이름 노드가 안전 모드 상태입니다**. 보고된 블록 75는 총 블록 87의 임계값 0.9900에 도달하려면 추가로 12개의 블록이 필요합니다. 라이브 데이터 노드의 수 10이 최소 수인 0에 도달했습니다. 이 임계값에 도달하면 안전 모드가 자동으로 해제됩니다.
+* H070 Hive 세션을 열 수 없습니다. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0 **디렉터리를 만들 수 없습니다**. **이름 노드가 안전 모드 상태입니다**. 보고된 블록 75는 총 블록 87의 임계값 0.9900에 도달하려면 추가로 12개의 블록이 필요합니다. 라이브 데이터 노드의 수 10이 최소 수인 0에 도달했습니다. 이 임계값에 도달하면 안전 모드가 자동으로 해제됩니다.
 
 * H100 show databases 문을 제출할 수 없습니다. org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1]에 대한 연결이 실패했습니다. **연결이 거부되었습니다.**
 
 * H020 hn0-hdisrv.servername.bx.internal.cloudapp.net:10001에 대한 연결을 설정할 수 없습니다. org.apache.thrift.transport.TTransportException: http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/에 대한 HTTP 연결을 만들 수 없습니다. org.apache.http.conn.HttpHostConnectException: hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28]에 대한 연결이 실패했습니다. 연결이 거부되었습니다. org.apache.thrift.transport.TTransportException: http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/에 대한 HTTP 연결을 만들 수 없습니다. org.apache.http.conn.HttpHostConnectException: hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28]에 대한 연결이 실패했습니다. **연결이 거부되었습니다.**
 
-* Hive 로그에서: WARN [main]: server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – 시도 21에서 HiveServer2를 시작하는 중 오류가 발생했습니다. 60초 이내에 다시 시도합니다. java.lang.RuntimeException: Hive 구성에서 권한 부여 정책을 적용하는 중 오류가 발생했습니다. org.apache.Apache Hadoop.ipc.RemoteException(org.apache.Apache Hadoop.ipc.RetriableException): org.apache.Apache Hadoop.hdfs.server.namenode.SafeModeException: /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374 **디렉터리를 만들 수 없습니다**. **이름 노드가 안전 모드 상태입니다**.
+* Hive 로그에서: WARN [main]: server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – 시도 21에서 HiveServer2를 시작하는 중 오류가 발생했습니다. 60초 이내에 다시 시도합니다. java.lang.RuntimeException: Hive 구성에서 권한 부여 정책을 적용하는 중 오류가 발생했습니다. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374 **디렉터리를 만들 수 없습니다**. **이름 노드가 안전 모드 상태입니다**.
     보고된 블록 0은 총 블록 9의 임계값 0.9900에 도달하려면 추가로 9개의 블록이 필요합니다.
     라이브 데이터 노드의 수 10이 최소 수인 0에 도달했습니다. **이 임계값에 도달하면 안전 모드가 자동으로 해제됩니다**.
     at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
@@ -152,7 +152,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 ![안전 모드 해제](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
 > [!NOTE]  
-> `-D` 스위치는 HDInsight의 기본 파일 시스템이 Azure Storage 또는 Azure Data Lake Store 중 하나이므로 필요합니다. `-D`는 명령이 로컬 HDFS 파일 시스템에 대해 실행되도록 지정합니다.
+> `-D` 스위치는 HDInsight의 기본 파일 시스템이 Azure Storage 또는 Azure Data Lake Storage 중 하나이므로 필요합니다. `-D`는 명령이 로컬 HDFS 파일 시스템에 대해 실행되도록 지정합니다.
 
 다음으로, HDFS 상태의 세부 정보를 표시하는 보고서를 볼 수 있습니다.
 

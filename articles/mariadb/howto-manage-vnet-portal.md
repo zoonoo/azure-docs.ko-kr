@@ -3,17 +3,15 @@ title: Azure Portal을 사용한 Azure Database for MariaDB VNet 서비스 엔�
 description: Azure Portal을 사용한 Azure Database for MariaDB VNet 서비스 엔드포인트와 규칙 만들기 및 관리
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 078c4253f990e3ad2759afb9f5b55832c78d9e73
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 77602898df7d783367ffd78328082c3edcaac83e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334094"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542342"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB VNet 서비스 엔드포인트와 VNet 규칙 만들기 및 관리
 
@@ -27,7 +25,7 @@ VNet(Virtual Network) 서비스 엔드포인트 및 규칙이 Virtual Network의
 
 ## <a name="create-a-vnet-rule-and-enable-service-endpoints"></a>VNet 규칙을 만들고 서비스 엔드포인트를 사용하도록 설정
 
-1. MariaDB 서버 페이지의 설정 제목에서 **연결 보안**을 클릭하여 Azure Database for MariaDB의 연결 보안 창을 엽니다. 다음으로, **+ 기존 가상 네트워크 추가**를 클릭합니다. 기존 VNet이 없는 경우 **+ 새 가상 네트워크 만들기**를 클릭할 수 있습니다. [빠른 시작: Azure Portal을 사용하여 가상 네트워크 만들기](../virtual-network/quick-create-portal.md) 참조
+1. MariaDB 서버 페이지의 설정 제목에서 **연결 보안**을 클릭하여 Azure Database for MariaDB의 연결 보안 창을 엽니다. 다음으로, **+ 기존 가상 네트워크 추가**를 클릭합니다. 기존 VNet이 없는 경우 **+ 새 가상 네트워크 만들기**를 클릭할 수 있습니다. [빠른 시작: Azure Portal을 사용하여 가상 네트워크 만들기](../virtual-network/quick-create-portal.md)
 
    ![Azure Portal - 보안 연결 클릭](./media/howto-manage-vnet-portal/1-connection-security.png)
 

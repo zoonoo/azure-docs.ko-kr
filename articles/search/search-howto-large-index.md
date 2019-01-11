@@ -1,55 +1,81 @@
 ---
-title: 기본 제공 인덱서를 사용하여 인덱싱 스케일 아웃 - Azure Search
-description: 전체 다시 빌드 또는 부분 증분 인덱싱에서 새 요소를 추가하거나 기존 요소 또는 문서를 업데이트하거나 오래된 문서를 삭제하여 Azure Search 인덱스를 새로 고칩니다.
+title: 기본 제공 인덱서를 사용하여 대용량 데이터 세트 인덱싱 - Azure Search
+description: 일괄 처리 모드, 리소싱 및 예약, 병렬 및 분산된 인덱싱의 기술을 통해 큰 데이터 인덱싱 또는 계산 집약적 인덱싱에 대한 전략을 알아봅니다.
 services: search
 author: HeidiSteen
 manager: cgronlun
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f268de43f4f860458c062cb80e5bea0134b4407
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2f3d08a32384cea815f096f51b24eea596d0d118
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316687"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742238"
 ---
-# <a name="how-to-scale-out-indexing-in-azure-search"></a>Azure Search에서 인덱싱을 스케일 아웃하는 방법
+# <a name="how-to-index-large-data-sets-in-azure-search"></a>Azure Search에서 대용량 데이터 세트를 인덱싱하는 방법
 
-데이터 볼륨이 커지거나 처리 요구 사항이 변경되면 간단한 [다시 빌드 및 다시 인덱싱 작업](search-howto-reindex.md)만으로는 충분하지 않을 수 있습니다. 
+데이터 볼륨이 커지거나 처리 요구 사항이 변경되면 기본 인덱싱 전략은 더 이상 유용하지 않을 수 있습니다. Azure Search의 경우 예약 및 분산된 워크로드에 대한 소스 관련 인덱서 사용에 대해 큰 데이터 세트 수용, 데이터 업로드 요청을 구성하는 방법의 범위에 대한 여러 가지 방법이 있습니다.
 
-늘어나는 수요를 충족시키기 위한 첫 번째 단계로 기존 서비스의 한도 내에서 [규모와 용량](search-capacity-planning.md)을 증가시키는 것이 좋습니다. 
+큰 데이터에 대한 동일한 기술은 장기 실행 프로세스에도 적용됩니다. 특히 [병렬 인덱싱](#parallel-indexing)에서 설명된 단계는 [인식 검색 파이프라인](cognitive-search-concept-intro.md)에서 이미지 분석 또는 자연어 처리와 같은 계산 집약적 인덱싱에 유용합니다.
 
-두 번째 단계에서는 [인덱서](search-indexer-overview.md)를 사용할 수 있는 경우 확장 가능한 인덱싱에 대한 메커니즘을 추가합니다. 인덱서에는 일정한 간격으로 인덱싱을 처리하거나 24시간 범위를 초과하여 처리를 확장할 수 있는 기본 제공 스케줄러가 함께 제공됩니다. 또한 데이터 원본 정의와 쌍을 이루어 인덱서를 사용하여 데이터를 분할하고 병렬로 실행하는 일정을 사용하여 병렬 처리를 구현할 수 있습니다.
+## <a name="batch-indexing"></a>일괄 처리 인덱싱
 
-### <a name="scheduled-indexing-for-large-data-sets"></a>큰 데이터 집합에 대한 인덱싱 예약
+대용량 데이터 세트를 인덱싱하기 위한 가장 간단한 메커니즘 중 하나는 단일 요청에서 여러 문서 또는 레코드를 제출하는 것입니다. 전체 페이로드가 16MB 미만인 한 요청은 대량 업로드 작업에서 최대 1000개의 문서를 처리할 수 있습니다. [추가 또는 업데이트 문서 REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)를 가정하면 요청 본문에서 1000개의 문서를 패키징합니다.
 
-일정 예약은 큰 데이터 집합을 처리하고 Cognitive Search 파이프라인에서 이미지 분석과 같이 느리게 실행되는 분석을 처리하는 중요한 메커니즘입니다. 인덱서 처리는 24시간 범위 내에 실행됩니다. 24시간 내에 처리가 완료되지 않으면 인덱서 일정 예약의 동작이 사용자에게 유리하게 작용할 수 있습니다. 
+일괄 처리 인덱싱은 REST 또는 .NET을 사용하여 또는 인덱서를 통해 개별 요청에 대해 구현됩니다. 몇 가지 인덱서는 다른 제한에서 작동합니다. 특히 Azure Blob 인덱싱은 큰 평균 문서 크기의 인식으로 10개의 문서에서 일괄 처리 크기를 설정합니다. [만들기 인덱서 REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer )에 따른 인덱서의 경우 `BatchSize` 인수를 설정하여 데이터의 특징에 더 잘 일치하도록 이 설정을 사용자 지정할 수 있습니다. 
+
+> [!NOTE]
+> 문서 크기를 줄이려면 요청에서 쿼리할 수 없는 데이터를 제외해야 합니다. 이미지 및 기타 이진 데이터는 직접 검색할 수 없으므로 인덱스에 저장하지 않아야 합니다. 쿼리할 수 없는 데이터를 검색 결과에 통합하려면 리소스에 대한 URL 참조를 저장하는 검색할 수 없는 필드를 정의해야 합니다.
+
+## <a name="add-resources"></a>리소스 추가
+
+[표준 가격 책정 계층](search-sku-tier.md) 중 하나에서 프로비전되는 서비스는 종종 스토리지 및 워크로드(쿼리 또는 인덱싱) 모두에 대해 활용도 낮은 용량을 갖습니다. 이는 [파티션 및 복제본 수를 늘려](search-capacity-planning.md) 더 큰 데이터 세트를 수용하기 위한 확실한 솔루션이 됩니다. 최상의 결과를 위해 스토리지에 대한 파티션 및 데이터 수집 작업에 대한 복제본의 리소스가 필요합니다.
+
+복제본 및 파티션을 증가시키는 것은 비용을 증가시키는 청구 가능한 이벤트이지만 최대 부하에서 지속적으로 인덱싱하지 않는 한 인덱싱 프로세스의 기간에 대한 확장을 추가한 다음, 인덱싱이 완료된 후 리소스 수준을 아래로 조정할 수 있습니다.
+
+## <a name="use-indexers"></a>인덱서 사용
+
+[인덱서](search-indexer-overview.md)는 검색 가능한 콘텐츠에 대한 외부 데이터 원본을 크롤링하는 데 사용됩니다. 대규모 인덱싱에 대해 명시적으로 의도하지 않으므로 여러 인덱서 기능은 더 큰 데이터 세트를 수용하는 데 특히 유용합니다.
+
++ 스케줄러를 통해 시간이 지남에 따라 분배할 수 있도록 정기적으로 인덱싱을 분배할 수 있습니다.
++ 예약된 인덱싱은 마지막으로 알려진 중지 지점에서 다시 시작할 수 있습니다. 데이터 원본이 24시간 기간 내에 완벽하게 크롤링되지 않는 경우 인덱서는 중단 위치에서 두 번째 날에 인덱싱을 다시 시작합니다.
++ 데이터를 작은 개별 데이터 원본으로 분할하면 병렬 처리가 가능합니다. 큰 데이터 세트를 더 작은 데이터 세트로 분할한 다음, 병렬로 인덱싱할 수 있는 여러 데이터 원본 정의를 만들 수 있습니다.
+
+> [!NOTE]
+> 인덱서는 데이터 원본에 따르므로 인덱서 방법을 사용하는 것은 Azure에서 선택한 데이터 원본에 대해서만 실행 가능합니다. [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Blob 스토리지](search-howto-indexing-azure-blob-storage.md), [Table 스토리지](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md)
+
+## <a name="scheduled-indexing"></a>예약된 인덱싱
+
+인덱서 예약은 큰 데이터 세트를 처리하고 인식 검색 파이프라인에서 이미지 분석과 같이 느리게 처리되는 분석을 처리하는 중요한 메커니즘입니다. 인덱서 처리는 24시간 범위 내에 실행됩니다. 24시간 내에 처리가 완료되지 않으면 인덱서 일정 예약의 동작이 사용자에게 유리하게 작용할 수 있습니다. 
 
 기본적으로 예약된 인덱싱은 특정 간격으로 시작되며, 대개 다음으로 예약된 간격에서 다시 시작되기 전에 작업이 완료됩니다. 하지만 간격 내에 처리가 완료되지 않으면 인덱서가 중지됩니다(시간이 초과되기 때문임). 다음 번 간격이 시작되면, 마지막으로 중단된 위치에서 처리가 다시 시작되며, 시스템은 해당 위치를 추적합니다. 
 
-실제 여러 날에 걸쳐 수행되는 인덱스 로드의 경우 24시간 일정으로 인덱서를 배치할 수 있습니다. 다음 번 24시간 범위에서 인덱싱이 재개되면 마지막으로 성공한 문서에서 다시 시작됩니다. 이러한 방식으로 인덱서는 처리되지 않은 모든 문서가 처리될 때까지 여러 날에 걸쳐 문서 백로그를 통해 작업을 수행할 수 있습니다. 이러한 방식에 대한 자세한 내용은 [큰 데이터 세트 인덱싱](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)을 참조하세요.
+실제 여러 날에 걸쳐 수행되는 인덱스 로드의 경우 24시간 일정으로 인덱서를 배치할 수 있습니다. 다음 번 24시간 주기에서 인덱싱이 다시 시작되면 마지막으로 성공한 문서에서 다시 시작됩니다. 이러한 방식으로 인덱서는 처리되지 않은 모든 문서가 처리될 때까지 여러 날에 걸쳐 문서 백로그를 통해 작업을 수행할 수 있습니다. 이러한 방식에 대한 자세한 내용은 [Azure Blob 스토리지에서 큰 데이터 세트 인덱싱](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)을 참조하세요. 일반적으로 일정을 설정하는 방법에 대한 자세한 내용은 [만들기 인덱서 REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax)를 참조하세요.
 
 <a name="parallel-indexing"></a>
 
 ## <a name="parallel-indexing"></a>병렬 인덱싱
 
-두 번째 방법은 병렬 인덱싱 전략을 설정하는 것입니다. 일상적이지 않고 계산 집약적인 인덱싱 요구 사항(예: Cognitive Search 파이프라인에서 검색된 문서의 OCR)의 경우, 병렬 인덱싱 전략이 이러한 특정 목적에 적합한 방법일 수 있습니다. Cognitive Search 보강 파이프라인에서 이미지 분석과 자연어 처리가 장기간 실행됩니다. 쿼리 요청을 동시에 처리하지 않는 서비스에 대한 병렬 인덱싱은 처리 속도가 느린 대량의 콘텐츠에 적절한 옵션이 될 수 있습니다. 
+병렬 인덱싱 전략은 여러 데이터 원본을 한 번에 인덱싱하는 데 기반하며 여기에서 각 데이터 원본 정의는 데이터의 하위 세트를 지정합니다. 
 
-병렬 처리 전략에는 다음과 같은 요소가 있습니다.
+비 루틴, 계산 집약적 인덱싱 요구 사항의 경우(예제: 인식 검색 파이프라인에서 스캔된 문서의 OCR, 이미지 분석 또는 자연어 처리) 병렬 인덱싱 전략은 종종 짧은 시간에 장기 실행 프로세스를 완료하기 위한 적합한 방법입니다. 쿼리 요청을 제거하거나 줄일 수 있는 경우 쿼리를 동시에 처리하지 않는 서비스에 대한 병렬 인덱싱은 처리 속도가 느린 대량의 콘텐츠를 통한 작업에 최상의 전략 옵션입니다. 
 
-+ 원본 데이터를 동일한 컨테이너 내의 여러 컨테이너 또는 여러 가상 폴더로 나눕니다. 
-+ 각각의 미니 데이터 집합을 [데이터 원본](https://docs.microsoft.com/rest/api/searchservice/create-data-source)에 매핑하고, 자체 [인덱서](https://docs.microsoft.com/rest/api/searchservice/create-indexer)와 쌍을 이루도록 합니다.
+병렬 처리에는 다음과 같은 요소가 있습니다.
+
++ 원본 데이터를 동일한 컨테이너 내의 여러 컨테이너 또는 여러 가상 폴더로 세분화합니다. 
++ 각각의 미니 데이터 세트를 자체 [데이터 원본](https://docs.microsoft.com/rest/api/searchservice/create-data-source)에 매핑하고, 자체 [인덱서](https://docs.microsoft.com/rest/api/searchservice/create-indexer)와 쌍을 이루도록 합니다.
 + Cognitive Search의 경우 각 인덱서 정의에 동일한 [기술 집합](https://docs.microsoft.com/rest/api/searchservice/create-skillset)을 참조합니다.
 + 동일한 대상 검색 인덱스에 기록합니다. 
 + 모든 인덱서가 동시에 실행되도록 예약합니다.
 
-> [!Note]
+> [!NOTE]
 > Azure Search는 복제본이나 파티션을 특정 워크로드 전용으로 지원하지 않습니다. 동시 인덱싱이 과도할 경우 발생할 수 있는 문제는 시스템에 과부하가 발생하여 쿼리 성능이 저하되는 것입니다. 테스트 환경이 있는 경우, 먼저 장단점을 파악할 수 있도록 병렬 인덱싱을 구현하십시오.
 
-## <a name="configure-parallel-indexing"></a>병렬 인덱싱 구성
+### <a name="how-to-configure-parallel-indexing"></a>병렬 인덱싱을 구성하는 방법
 
 인덱서의 경우 처리 용량은 검색 서비스에 사용되는 각 SU(서비스 단위)에 대해 하나의 인덱서 하위 시스템을 기반으로 합니다. 다수의 동시 인덱서는 복제본이 2개 이상 있는 기본 또는 표준 계층에 프로비전된 Azure Search 서비스에서 가능합니다. 
 

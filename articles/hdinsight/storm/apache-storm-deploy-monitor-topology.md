@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.date: 03/01/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ce39e3ffce0b7721bde84254c7e5a35ec28465dc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 322c7164c0ecda550bf1bfe6a55075759bf95735
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583162"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630519"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Windows 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리
 
-[Apache Storm](http://storm.apache.org/) 대시보드를 사용하면 웹 브라우저를 통해 HDInsight 클러스터에 Apache Storm 토폴로지를 쉽게 배포하고 실행할 수 있습니다. 실행 중인 토폴로지를 모니터링 및 관리하기 위해 대시보드를 사용할 수도 있습니다. Visual Studio를 사용하는 경우 Visual Studio용 HDInsight 도구는 Visual Studio에서 유사한 기능을 제공합니다.
+[Apache Storm](https://storm.apache.org/) 대시보드를 사용하면 웹 브라우저를 통해 HDInsight 클러스터에 Apache Storm 토폴로지를 쉽게 배포하고 실행할 수 있습니다. 실행 중인 토폴로지를 모니터링 및 관리하기 위해 대시보드를 사용할 수도 있습니다. Visual Studio를 사용하는 경우 Visual Studio용 HDInsight 도구는 Visual Studio에서 유사한 기능을 제공합니다.
 
 Storm 대시보드와 HDInsight 도구의 Storm 기능은 사용자 고유의 모니터링 및 관리 솔루션을 만들기 위해 사용할 수 있는 Storm REST API를 필요로 합니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이 문서의 단계에는 운영 체제로 Windows를 사용하는 HDInsight 클러스터에 Storm이 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 >
 > Linux를 사용하는 HDInsight 클러스터에서 Storm 토폴로지 배포 및 관리에 대한 자세한 내용은 [Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](apache-storm-deploy-monitor-topology-linux.md)를 참조하세요.
@@ -31,7 +31,7 @@ Storm 대시보드와 HDInsight 도구의 Storm 기능은 사용자 고유의 �
 
 * **HDInsight의 Apache Storm** - 클러스터를 만드는 단계는 [HDInsight에서 Apache Storm 시작](apache-storm-tutorial-get-started-linux.md)을 참조하세요.
 
-* **Storm 대시보드** - HTML5를 지원하는 최신 웹 브라우저
+* **Storm 대시보드**의 경우: HTML5를 지원하는 최신 웹 브라우저
 
 * **Visual Studio** - Azure SDK 2.5.1 이상 및 Visual Studio용 HDInsight 도구 Visual Studio용 HDInsight 도구를 설치하고 구성하려면 [Visual Studio용 HDInsight 도구 사용 시작](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
@@ -59,7 +59,7 @@ Storm 대시보드에서 **Storm UI** 링크를 선택합니다. 실행 중인 �
 
 ![Storm UI][storm-dashboard-ui]
 
-> [!NOTE]
+> [!NOTE]  
 > 일부 버전의 Internet Explorer에서는 처음으로 방문한 후 rm UI가 새로 고쳐지지 않습니다. 예를 들어 제출한 새 토폴로지가 표시되지 않거나 이전에 비활성화한 토폴로지가 활성 상태로 표시될 수 있습니다. Microsoft는 이 문제를 알고 있으며 해결 방법을 찾기 위해 노력하고 있습니다.
 
 #### <a name="main-page"></a>기본 페이지
@@ -82,15 +82,15 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 
 * **토폴로지 동작**: 토폴로지에 대해 수행할 수 있는 관리 작업입니다.
 
-  * **활성화**- 비활성화된 토폴로지 처리를 다시 시작합니다.
+  * **활성화**: 비활성화된 토폴로지 처리를 다시 시작합니다.
 
-  * **비활성화**- 실행 중인 토폴로지를 일시 중지합니다.
+  * **비활성화**: 실행 중인 토폴로지를 일시 중지합니다.
 
-  * **균형 다시 맞추기**- 토폴로지의 병렬 처리를 조정합니다. 클러스터에서 노드 수를 변경한 후 실행 중인 토폴로지의 균형을 다시 맞추어야 합니다. 이렇게 하면 토폴로지가 병렬 처리를 조정하여 클러스터에서 증가하거나 감소한 노드 수를 보충할 수 있습니다.
+  * **균형 다시 맞추기**: 토폴로지의 병렬 처리를 조정합니다. 클러스터에서 노드 수를 변경한 후 실행 중인 토폴로지의 균형을 다시 맞추어야 합니다. 이렇게 하면 토폴로지가 병렬 처리를 조정하여 클러스터에서 증가하거나 감소한 노드 수를 보충할 수 있습니다.
 
-      자세한 내용은 [Apache Storm 토폴로지의 병렬 처리 이해](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)를 참조하세요.
+      자세한 내용은 [Apache Storm 토폴로지의 병렬 처리 이해](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)를 참조하세요.
 
-  * **중단**- 지정된 시간 제한 후 Storm 토폴로지를 종료합니다.
+  * **종료**: 지정된 시간 제한 후 Storm 토폴로지를 종료합니다.
 
 * **토폴로지 통계**: 토폴로지에 대한 통계입니다. **창** 열에 있는 링크를 사용하여 페이지에서 나머지 항목에 대한 시간 프레임을 설정할 수 있습니다.
 
@@ -108,13 +108,13 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 
 * **Spout/Bolt 통계**: Spout 또는 Bolt에 대한 통계입니다. **창** 열에 있는 링크를 사용하여 페이지에서 나머지 항목에 대한 시간 프레임을 설정할 수 있습니다.
 
-* **입력 통계** (Bolt에만 해당): Bolt에서 사용하는 입력 스트림에 대한 정보입니다.
+* **입력 통계**(Bolt에만 해당): Bolt에서 사용하는 입력 스트림에 대한 정보입니다.
 
 * **출력 통계**: 이 Spout 또는 Bolt가 내보낸 스트림에 대한 정보입니다.
 
 * **실행자**: Spout 또는 Bolt의 인스턴스에 대한 정보입니다. 특정 실행자에 대한 **Port** 항목을 선택하면 이 인스턴스에 대해 처리된 진단 정보의 로그를 볼 수 있습니다.
 
-* **오류**: 이 Spout 또는 Bolt에 대한 오류 정보입니다.
+* **Errors**: 이 Spout 또는 Bolt에 대한 오류 정보입니다.
 
 ## <a name="hdinsight-tools-for-visual-studio"></a>Visual Studio용 HDInsight 도구
 
@@ -132,7 +132,7 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 
 4. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **HDInsight에서 Storm에 제출**을 선택합니다.
 
-   > [!NOTE]
+   > [!NOTE]  
    > 메시지가 표시되면 Azure 구독에 대한 로그인 자격 증명을 입력합니다. 하나 이상의 구독이 있는 경우 HDInsight 클러스터의 Storm을 포함하는 자격 증명으로 로그인합니다.
 
 5. **Storm 클러스터** 드롭다운 목록에서 HDInsight의 Storm 클러스터를 선택한 다음 **제출**을 선택합니다. **출력** 창을 사용하여 제출 성공 여부를 모니터링할 수 있습니다.
@@ -141,17 +141,17 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 
     ![VISUAL STUDIO 모니터](./media/apache-storm-deploy-monitor-topology/vsmonitor.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > **Azure** > **HDInsight**를 확장한 다음 HDInsight의 Storm 클러스터를 마우스 오른쪽 단추로 클릭하고 **Storm 토폴로지 보기**를 선택하여 **서버 탐색기**에서 **Storm 토폴로지**를 볼 수도 있습니다.
 
     이러한 구성 요소에 대한 정보를 보려면 Spout 또는 Bolt에 대한 셰이프를 선택합니다. 선택한 각 항목에 대해 새 창이 열립니다.
 
-   > [!NOTE]
+   > [!NOTE]  
    > 토폴로지 이름은 추가된 타임 스탬프가 있는 토폴로지의 클래스 이름입니다(이 경우 `HelloWord`).
 
 7. 토폴로지를 중단하려면 **토폴로지 요약** 보기에서 **중단**을 선택합니다.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Storm 토폴로지는 중지되거나 클러스터가 삭제될 때까지 계속 실행됩니다.
 
 
@@ -169,7 +169,7 @@ HDInsight 클러스터에서 REST API의 기본 URI는 **https://&lt;clustername
 
 REST API 요청에서는 **기본 인증**을 사용해야 하므로 HDInsight 클러스터 관리자 이름 및 암호를 사용합니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 기본 인증은 일반 텍스트로 전송되기 때문에 클러스터와의 안전한 통신을 위해서는 **항상** HTTPS를 사용해야 합니다.
 
 ### <a name="return-values"></a>반환 값

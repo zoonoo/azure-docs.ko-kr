@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c226eb19dbd2049c486acfb1ffb9423fdb1dad43
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: cad368cb968b94d1327cc99ed4dfa6df0aedd2cd
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410264"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555101"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-ad"></a>Azure AD에 대해 페더레이션에서 암호 해시 동기화로 마이그레이션
 다음 문서에서는 AD FS에서 암호 해시 동기화로 전환하는 방법에 대한 지침을 제공합니다.
@@ -295,7 +295,7 @@ Azure AD에 디바이스를 조인하면 보안 및 규정 준수를 위한 액�
    > 이때 모든 페더레이션 도메인은 이제 인증 방법으로 암호 해시 동기화를 이용할 관리형 인증으로 변경됩니다.
        
    7. [Azure AD 포털]을 열고 Azure Active Directory를 선택한 다음, Azure AD Connect를 선택합니다.
-   8. Seamless Single Sign-On 및 암호 동기화는 사용이지만 페더레이션은 사용 안 함인지 확인합니다.  
+   8. 원활한 Single Sign-On 및 암호 동기화는 사용이지만 페더레이션은 사용 안 함인지 확인합니다.  
   ![그림 37](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)</br>
    9. [테스트 및 다음 단계](#testing-and-next-steps)로 이동합니다.
    
@@ -336,7 +336,7 @@ Azure AD에 디바이스를 조인하면 보안 및 규정 준수를 위한 액�
    > [!IMPORTANT]
    > 이때 사용자가 로그인하는 방법은 변경되지 않습니다.  
    
-   7. Azure AD 포털에서 해당 페더레이션이 계속 사용으로 설정되고 이제 Seamless Single Sign-On이 사용으로 설정되었는지 확인합니다.
+   7. Azure AD 포털에서 해당 페더레이션이 계속 사용으로 설정되고 이제 원활한 Single Sign-On이 사용으로 설정되었는지 확인합니다.
    ![그림 42](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image16.png)
 
 #### <a name="convert-domains-from-federated-to-managed"></a>페더레인션에서 관리형으로 도메인 변환

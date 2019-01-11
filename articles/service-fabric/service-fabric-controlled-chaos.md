@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 3774ae0572a87129fb089064cec9bb7957a98c22
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: a1b334b34e8e234d9ce5cc5ad5cd77bf5ba7118c
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113242"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555526"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Service Fabric 클러스터에서 제어되는 비정상 상황 유도
 클라우드 인프라와 같은 대규모 분산 시스템은 기본적으로 안정적이지 않습니다. Azure Service Fabric을 사용하면 개발자들은 불안정한 인프라 위에 안정적인 분산 서비스를 작성할 수 있습니다. 불안정한 인프라 위에 강력한 분산 서비스를 작성하려는 경우 기반이 되는 불안정한 인프라가 결함으로 인해 복잡한 상태 전환을 겪을 때 개발자는 서비스의 안정성을 테스트할 수 있어야 합니다.
@@ -34,7 +34,7 @@ ms.locfileid: "39113242"
 > 현재 양식에서, 비정상 상황은 안전 오류만 유도합니다. 즉, 외부 오류가 없으면 쿼럼 손실 또는 데이터 손실이 발생하지 않습니다.
 >
 
-비정상 상황이 실행되는 동안 현재 실행의 상태를 캡처하는 다양한 이벤트가 생성됩니다. 예를 들어 ExecutingFaultsEvent에는 비정상 상황이 해당 반복에서 실행하기로 결정한 모든 오류가 포함됩니다. ValidationFailedEvent에는 클러스터 유효성 검사 동안 발견된 유효성 검사 오류(상태 또는 안정성 문제)의 세부 정보가 포함됩니다. GetChaosReport API(C#, PowerShell 또는 REST)를 호출하여 비정상 상황 실행 보고서를 가져올 수 있습니다. 이러한 이벤트는 두 가지 구성 **MaxStoredChaosEventCount**(기본값 25000) 및 **StoredActionCleanupIntervalInSeconds**(기본값 3600)에 따라 잘림 정책이 적용되는 [신뢰할 수 있는 사전](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections)에 유지됩니다. 가장 최근의 *MaxStoredChaosEventCount* 이벤트를 제외하고 비정상 상황이 확인하는 모든 *StoredActionCleanupIntervalInSeconds* 이벤트는 신뢰할 수 있는 사전에서 제거됩니다.
+비정상 상황이 실행되는 동안 현재 실행의 상태를 캡처하는 다양한 이벤트가 생성됩니다. 예를 들어 ExecutingFaultsEvent에는 비정상 상황이 해당 반복에서 실행하기로 결정한 모든 오류가 포함됩니다. ValidationFailedEvent에는 클러스터 유효성 검사 동안 발견된 유효성 검사 오류(상태 또는 안정성 문제)의 세부 정보가 포함됩니다. GetChaosReport API(C#, PowerShell 또는 REST)를 호출하여 비정상 상황 실행 보고서를 가져올 수 있습니다. 이러한 이벤트는 다음 두 가지 구성에 따라 잘림 정책이 적용되는 [신뢰할 수 있는 사전](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections)에 유지됩니다. **MaxStoredChaosEventCount**(기본값 25000) 및 **StoredActionCleanupIntervalInSeconds**(기본값 3600). 가장 최근의 *MaxStoredChaosEventCount* 이벤트를 제외하고 비정상 상황이 확인하는 모든 *StoredActionCleanupIntervalInSeconds* 이벤트는 신뢰할 수 있는 사전에서 제거됩니다.
 
 ## <a name="faults-induced-in-chaos"></a>비정상 상황에서 유도되는 오류
 비정상 상황에서는 전체 Service Fabric 클러스터에서 오류가 생성되며 수개월 또는 수년에 걸쳐 확인된 오류가 몇 시간으로 압축됩니다. 인터리브 오류를 높은 오류 비율과 결합하면 놓치기 쉬운 특이한 사례를 발견할 수 있습니다. 이러한 비정상 상황에 대처하는 연습을 통해 서비스 코드 품질을 대폭 개선할 수 있습니다.
@@ -71,9 +71,9 @@ ms.locfileid: "39113242"
 * **WaitTimeBetweenFaults**: 단일 반복에서 두 개의 연속 오류 사이에 대기하는 시간입니다. 이 값이 높을수록 오류의 동시성(또는 오류 간 중복)이 낮아집니다.
 * **ClusterHealthPolicy**: 클러스터 상태 정책은 비정상 상황 반복 간에 클러스터의 상태를 확인하는 데 사용됩니다. 클러스터 상태에 오류가 있거나 오류 실행 중에 예기치 않은 예외가 발생하면 비정상 상황은 클러스터에 다시 복구할 시간을 제공하기 위해 30분 동안 대기했다가 다음 상태 검사를 수행합니다.
 * **Context**: (string, string) 형식의 키-값 쌍 컬렉션입니다. 비정상 상황 실행에 대한 정보를 기록하기 위해 맵이 사용될 수 있습니다. 이러한 쌍은 100개 이하로만 존재할 수 있으며 각 문자열(키 또는 값)은 4095자 이하로만 설정할 수 있습니다. 비정상 상황 실행 시작 기능이 특정 실행에 대한 컨텍스트를 선택적으로 저장할 수 있게 이러한 맵을 설정합니다.
-* **ChaosTargetFilter**: 이 필터는 비정상 상황의 대상을 특정 노드 유형 또는 특정 응용 프로그램 인스턴스로만 지정하는 데 사용할 수 있습니다. ChaosTargetFilter를 사용하지 않으면 비정상 상황으로 인해 모든 클러스터 엔터티에 오류가 발생합니다. ChaosTargetFilter를 사용하면 비정상 상황으로 인해 Chaos ChaosTargetFilter 사양을 충족하는 엔터티에만 오류가 발생합니다. NodeTypeInclusionList 및 ApplicationInclusionList는 합집합 의미 체계만 허용합니다. 즉, NodeTypeInclusionList 및 ApplicationInclusionList의 교집합은 지정할 수 없습니다. 예를 들어, "해당 노드 유형에 해당할 경우에만 이 애플리케이션에 오류가 있다"고 지정할 수 없습니다. 엔터티가 NodeTypeInclusionList 또는 ApplicationInclusionList 중 하나에 포함되면 해당 엔터티는 ChaosTargetFilter를 사용하여 제외할 수 없습니다. applicationX가 ApplicationInclusionList에 표시되지 않더라도 일부 비정상 상황 반복에서 applicationX가 NodeTypeInclusionList에 포함된 nodeTypeY 노드에 있을 수 있으므로 오류가 있는 것으로 지정될 수 있습니다. NodeTypeInclusionList 및 ApplicationInclusionList 둘 다 null이거나 비어 있으면 ArgumentException이 발생합니다.
+* **ChaosTargetFilter**: 이 필터는 비정상 상황의 대상을 특정 노드 유형 또는 특정 애플리케이션 인스턴스로만 지정하는 데 사용할 수 있습니다. ChaosTargetFilter를 사용하지 않으면 비정상 상황으로 인해 모든 클러스터 엔터티에 오류가 발생합니다. ChaosTargetFilter를 사용하면 비정상 상황으로 인해 Chaos ChaosTargetFilter 사양을 충족하는 엔터티에만 오류가 발생합니다. NodeTypeInclusionList 및 ApplicationInclusionList는 합집합 의미 체계만 허용합니다. 즉, NodeTypeInclusionList 및 ApplicationInclusionList의 교집합은 지정할 수 없습니다. 예를 들어, "해당 노드 유형에 해당할 경우에만 이 애플리케이션에 오류가 있다"고 지정할 수 없습니다. 엔터티가 NodeTypeInclusionList 또는 ApplicationInclusionList 중 하나에 포함되면 해당 엔터티는 ChaosTargetFilter를 사용하여 제외할 수 없습니다. applicationX가 ApplicationInclusionList에 표시되지 않더라도 일부 비정상 상황 반복에서 applicationX가 NodeTypeInclusionList에 포함된 nodeTypeY 노드에 있을 수 있으므로 오류가 있는 것으로 지정될 수 있습니다. NodeTypeInclusionList 및 ApplicationInclusionList 둘 다 null이거나 비어 있으면 ArgumentException이 발생합니다.
     * **NodeTypeInclusionList**: 비정상 상황 오류에 포함할 노드 유형의 목록입니다. 모든 유형의 오류(노드 다시 시작, 코드 패키지 다시 시작, 복제본 제거, 복제본 다시 시작, 주 복제본 이동 및 보조 복제본 이동)가 이러한 노드 유형의 노드에 대해 사용 가능으로 설정됩니다. nodetype(NodeTypeX)이 NodeTypeInclusionList에 표시되지 않으면 NodeTypeX의 노드에 대해 노드 수준 오류(예: NodeRestart)가 사용 가능으로 설정되지 않지만, ApplicationInclusionList의 애플리케이션이 NodeTypeX의 노드에 상주하게 될 경우 코드 패키지 및 복제본 오류는 NodeTypeX에 대해 여전히 사용될 수 있습니다. 최대 100개의 노드 유형 이름을 이 목록에 포함할 수 있으며, 이 수를 늘리려면 MaxNumberOfNodeTypesInChaosTargetFilter 구성에 대해 구성 업그레이드가 필요합니다.
-    * **ApplicationInclusionList**: 비정상 상황 오류에 포함할 응용 프로그램 URI의 목록입니다. 이러한 애플리케이션의 서비스에 속하는 모든 복제본은 비정상 상황에 의해 복제본 오류(복제본 다시 시작, 복제본 제거, 주 복제본 이동 및 보조 복제본 이동)로 수정될 수 있습니다. 비정상 상황은 코드 패키지가 이러한 애플리케이션의 복제본만 호스트하는 경우에만 코드 패키지를 다시 시작할 수 있습니다. 애플리케이션이 이 목록에 나타나지 않을 경우, 애플리케이션이 NodeTypeInclusionList에 포함된 노드 유형의 노드에 배치되면 일부 비정상 상황 반복에서 여전히 오류가 있는 것으로 지정될 수 있습니다. 그러나 applicationX가 배치 제약 조건을 통해 nodeTypeY에 연결되며 applicationX가 ApplicationInclusionList에 없고, nodeTypeY가 NodeTypeInclusionList에 없으면 applicationX는 절대 오류가 있는 것으로 지정되지 않습니다. 최대 1,000개의 애플리케이션 이름을 이 목록에 포함할 수 있으며, 이 수를 늘리려면 MaxNumberOfApplicationsInChaosTargetFilter 구성에 대해 구성 업그레이드가 필요합니다.
+    * **ApplicationInclusionList**: 비정상 상황 오류에 포함할 애플리케이션 URI의 목록입니다. 이러한 애플리케이션의 서비스에 속하는 모든 복제본은 비정상 상황에 의해 복제본 오류(복제본 다시 시작, 복제본 제거, 주 복제본 이동 및 보조 복제본 이동)로 수정될 수 있습니다. 비정상 상황은 코드 패키지가 이러한 애플리케이션의 복제본만 호스트하는 경우에만 코드 패키지를 다시 시작할 수 있습니다. 애플리케이션이 이 목록에 나타나지 않을 경우, 애플리케이션이 NodeTypeInclusionList에 포함된 노드 유형의 노드에 배치되면 일부 Chaos 반복에서 여전히 오류가 있는 것으로 지정될 수 있습니다. 그러나 applicationX가 배치 제약 조건을 통해 nodeTypeY에 연결되며 applicationX가 ApplicationInclusionList에 없고, nodeTypeY가 NodeTypeInclusionList에 없으면 applicationX는 절대 오류가 있는 것으로 지정되지 않습니다. 최대 1,000개의 애플리케이션 이름을 이 목록에 포함할 수 있으며, 이 수를 늘리려면 MaxNumberOfApplicationsInChaosTargetFilter 구성에 대해 구성 업그레이드가 필요합니다.
 
 ## <a name="how-to-run-chaos"></a>비정상 상황을 실행하는 방법
 

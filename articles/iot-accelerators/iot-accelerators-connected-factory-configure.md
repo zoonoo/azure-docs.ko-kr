@@ -1,5 +1,5 @@
 ---
-title: 연결된 팩터리 토폴로지 구성 | Microsoft Docs
+title: 연결된 팩터리 토폴로지 구성 - Azure | Microsoft Docs
 description: 연결된 팩터리 솔루션 가속기의 토폴로지를 구성하는 방법입니다.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 8cb3cae396016545c5d78a2ff7ccde4a053c4cf1
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746982"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602276"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기 구성
 
@@ -85,7 +85,7 @@ ms.locfileid: "42746982"
 }
 ```
 
-`<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>` 및 `<station_configuration>`의 공통 속성은 다음과 같습니다.
+ `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>` 및 `<station_configuration>`의 공통 속성은 다음과 같습니다.
 
 * **Name**(문자열 형식)
 
@@ -264,7 +264,7 @@ ms.locfileid: "42746982"
 
 이 범주의 속성이 연결된 팩터리 대시보드의 시각적 모양을 정의합니다. 다음은 이러한 템플릿의 예입니다.
 
-* Name
+* 이름
 * 설명
 * 이미지
 * 위치
@@ -282,7 +282,7 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 * OPC UA 노드 값은 계산에 포함되어야 합니다.
 * 수치가 원격 분석 값에서 계산되는 방식입니다.
 
-연결된 팩터리는 http://www.oeefoundation.org에서 게시하는 대로 OEE 수식을 사용합니다.
+연결된 팩터리는 https://www.oeefoundation.org에서 게시하는 대로 OEE 수식을 사용합니다.
 
 스테이션의 OPC UA 노드 개체를 사용하여 OEE/KPI 계산용으로 태그를 지정할 수 있습니다. **Relevance** 속성은 OPC UA 노드 값을 사용해야 하는 OEE/KPI 수치를 나타냅니다. **OpCode** 속성은 값을 계산에 사용할 방식을 정의합니다.
 

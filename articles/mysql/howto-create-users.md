@@ -1,27 +1,24 @@
 ---
 title: Azure Database for MySQL 서버에서 사용자 만들기
 description: 이 문서에서는 Azure Database for MySQL 서버와 상호 작용할 새로운 사용자 계정을 만드는 방법을 설명합니다.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
-manager: kfile
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: ee74ea9e114f6401bfcafe44ca3caedfcd0005c5
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e8714777b1f9f08de4d02fcb44c25197cdc48899
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265621"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546014"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버에서 사용자 만들기 
 이 문서에서는 Azure Database for MySQL 서버에서 사용자를 만드는 방법을 설명합니다.
 
 Azure Database for MySQL을 처음으로 만들면 서버 관리자 로그인 사용자 이름과 암호가 제공됩니다. 자세한 내용은 [빠른 시작](quickstart-create-mysql-server-database-using-azure-portal.md)을 참조하세요. Azure Portal에서 서버 관리자 로그인 사용자 이름을 찾을 수 있습니다.
 
-서버 관리 사용자자는 서버에 대한 SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER 권한을 갖습니다.
+서버 관리 사용자는 서버에 대한 다음 권한을 가집니다. SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER
 
 Azure Database for MySQL 서버가 생성되면 첫 번째 서버 관리자 계정을 사용하여 추가 사용자를 만들고 관리 사용자 권한을 부여할 수 있습니다. 또한 서버 관리자 계정은 개별 데이터베이스 스키마에 액세스할 수 있는 권한의 사용자가 만드는 데 사용할 수 있습니다.
 
@@ -85,6 +82,6 @@ Azure Database for MySQL 서버가 생성되면 첫 번째 서버 관리자 계�
    ```
 
 ## <a name="next-steps"></a>다음 단계
-새 사용자의 컴퓨터 IP 주소에 대한 방화벽을 열고 연결 설정: [Azure Portal](howto-manage-firewall-using-portal.md) 또는 [Azure CLI](howto-manage-firewall-using-cli.md)를 사용하여 Azure Database for MySQL 방화벽 규칙을 만들고 관리합니다.
+새 사용자의 머신 IP 주소에 대한 방화벽을 열고 연결하도록 설정합니다. [Azure Portal](howto-manage-firewall-using-portal.md) 또는 [Azure CLI를 사용하여 Azure Database for MySQL 방화벽 규칙 만들기 및 관리](howto-manage-firewall-using-cli.md).
 
 사용자 계정 관리에 대한 자세한 내용은 [사용자 계정 관리](https://dev.mysql.com/doc/refman/5.7/en/user-account-management.html), [GRANT 구문](https://dev.mysql.com/doc/refman/5.7/en/grant.html) 및 [권한](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html)에 대한 MySQL 제품 설명서를 참조하세요.

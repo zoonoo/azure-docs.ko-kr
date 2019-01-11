@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 62827054a14930cd49f7d80d6c305e60060c0fe6
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2d6f7e2fd332e1687db1564befeb6f531045c5dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271388"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993068"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>LUIS 앱의 구문 목록 기능
 
@@ -29,6 +29,10 @@ ms.locfileid: "53271388"
 
 구문 목록은 해당 단어와 관련된 LUIS에 대한 두 번째 신호로 앱 도메인의 어휘에 추가됩니다.
 
+## <a name="phrase-lists-help-all-models"></a>구문 목록은 모든 모델에 도움이 됩니다.
+
+구문 목록은 특정 의도 또는 엔터티에 연결되어 있지 않지만 모든 모델에 도움을 주기 위해 추가됩니다. 의도 검색과 엔터티 분류를 향상시키는 것이 목적입니다.
+
 ## <a name="how-to-use-phrase-lists"></a>구문 목록 사용 방법
 Human Resource 앱의 [단순 엔터티 자습서](luis-quickstart-primary-and-secondary-data.md)에서 이 앱은 직업 형식(예: 프로그래머, 지붕 수리인 및 비서)의 **Job** 구 목록을 사용합니다. 이러한 값 중 하나에 기계 학습 엔터티로 레이블을 지정하면 LUIS는 다른 값을 인식하기 위해 학습합니다. 
 
@@ -40,6 +44,7 @@ Human Resource 앱의 [단순 엔터티 자습서](luis-quickstart-primary-and-s
 |서로 교환 불가능|일반적으로 해당 언어의 다른 단어에 비해 더 앱에 특화된 앱 어휘입니다.|
 
 구 목록은 엔터티 검색뿐 아니라 의도 분류에도 유용합니다. 서로 교환 불가능한 어휘는 영어로 알려지지 않은 어휘 단어를 추가하는 것과 같습니다.
+
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 

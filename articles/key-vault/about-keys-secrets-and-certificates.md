@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault 키, 비밀 및 인증서 정보
+title: Azure Key Vault 키, 비밀 및 인증서 정보 - Azure Key Vault
 description: 키, 비밀 및 인증서에 대한 Azure Key Vault REST 인터페이스 및 개발자 정보의 개요입니다.
 services: key-vault
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: 6d158f14afa305dd547392722abb5f81380de31f
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 464574716971388f3785879ba40ad3e8a624fc7f
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384788"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002623"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>키, 비밀 및 인증서 정보
 
@@ -36,7 +36,7 @@ Key Vault에 대한 일반적 내용은 [Azure Key Vault란?](/azure/key-vault/k
 
 다음 섹션에서는 Key Vault 서비스의 구현에 적용할 수 있는 일반 정보를 제공합니다.
 
-###  <a name="supporting-standards"></a>지원 표준
+### <a name="supporting-standards"></a>지원 표준
 
 JSON(JavaScript Object Notation) 및 JOSE(JavaScript Object Signing and Encryption) 사양은 중요한 배경 정보입니다.  
 
@@ -60,7 +60,7 @@ JSON(JavaScript Object Notation) 및 JOSE(JavaScript Object Signing and Encrypti
 -   **ID** - AAD(Azure Active Directory)의 ID  
 -   **IntDate** - 1970-01-01T0:0:0Z UTC에서 지정된 UTC 날짜/시간까지의 초 수를 나타내는 JSON 10진수 값입니다. 일반적 날짜/시간, 특히 UTC에 대한 자세한 내용은 RFC3339를 참조하세요.  
 
-###  <a name="objects-identifiers-and-versioning"></a>개체, 식별자 및 버전 관리
+### <a name="objects-identifiers-and-versioning"></a>개체, 식별자 및 버전 관리
 
 Key Vault에 저장된 개체는 개체의 새 인스턴스가 만들어질 때마다 버전 관리됩니다. 각 버전에는 고유 식별자 및 URL이 할당됩니다. 개체가 처음으로 만들어지면 고유한 버전 식별자가 지정되고 개체의 현재 버전으로 표시됩니다. 개체 이름이 동일한 새 인스턴스를 만들면 새 개체에 고유한 버전 식별자가 제공되어 현재 버전이 됩니다.  
 
@@ -85,7 +85,7 @@ Key Vault의 개체는 현재 식별자 또는 버전별 식별자를 사용하�
 
 ## <a name="key-vault-keys"></a>Key Vault 키
 
-###  <a name="keys-and-key-types"></a>키 및 키 유형
+### <a name="keys-and-key-types"></a>키 및 키 유형
 
 Key Vault의 암호화 키는 JWK[JSON 웹 키] 개체로 표현됩니다. 또한 기본 JWK/JWA 사양을 확장하여 Key Vault 구현에 고유한 키 유형을 지원할 수 있습니다. 예를 들어 HSM 공급업체별 패키징을 사용하여 키를 가져오면 Key Vault HSM에서만 사용할 수 있는 키를 안전하게 전송할 수 있습니다.  
 

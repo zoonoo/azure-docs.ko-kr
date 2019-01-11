@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 8a67327497c96cba570d2ddb8c525bf5a60be790
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: da227151dd056dd5e852ae8790b6f20ac3c0c790
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308220"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653308"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Apache Phoenix 성능 모범 사례
 
-[Apache Phoenix](https://phoenix.apache.org/) 성능의 가장 중요한 측면은 기본 [Apache HBase](http://hbase.apache.org/)를 최적화하는 것입니다. Phoenix는 SQL 쿼리를 검색과 같은 HBase 작업으로 변환하는 HBase 위에 관계형 데이터 모델을 만듭니다. 테이블 스키마 디자인, 기본 키의 필드 선택 및 순서 지정 그리고 인덱스 사용은 모두 Phoenix 성능에 영향을 줍니다.
+[Apache Phoenix](https://phoenix.apache.org/) 성능의 가장 중요한 측면은 기본 [Apache HBase](https://hbase.apache.org/)를 최적화하는 것입니다. Phoenix는 SQL 쿼리를 검색과 같은 HBase 작업으로 변환하는 HBase 위에 관계형 데이터 모델을 만듭니다. 테이블 스키마 디자인, 기본 키의 필드 선택 및 순서 지정 그리고 인덱스 사용은 모두 Phoenix 성능에 영향을 줍니다.
 
 ## <a name="table-schema-design"></a>테이블 스키마 디자인
 
@@ -225,9 +225,9 @@ explain 계획 결과에 나타날 수 있는 항목의 전체 목록은 [Apache
 
     CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
 
-이 옵션 및 다른 옵션에 대한 자세한 내용은 [Phoenix 문법](http://phoenix.apache.org/language/index.html#options)을 참조하세요.
+이 옵션 및 다른 옵션에 대한 자세한 내용은 [Apache Phoenix 문법](https://phoenix.apache.org/language/index.html#options)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Apache Phoenix 튜닝 가이드](https://phoenix.apache.org/tuning_guide.html)
-* [보조 인덱스](http://phoenix.apache.org/secondary_indexing.html)
+* [보조 인덱스](https://phoenix.apache.org/secondary_indexing.html)

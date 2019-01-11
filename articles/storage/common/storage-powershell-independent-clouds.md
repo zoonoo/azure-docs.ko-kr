@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 75a3dcb5aeb3e30da570eb57d0d1495710624e54
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 842a9354cf20648393c3262736c0a1e9654a3c70
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42146469"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628343"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>PowerShell을 사용하여 Azure 독립 클라우드에서 Storage 관리
 
@@ -23,6 +23,8 @@ ms.locfileid: "42146469"
 * [중국 21Vianet이 운영하는 Azure China Cloud](http://www.windowsazure.cn/)
 * [Azure German Cloud](../../germany/germany-welcome.md)
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="using-an-independent-cloud"></a>독립 클라우드 사용 
 
 독립 클라우드 중 한 곳에서 Azure Storage를 사용하려면 Azure Public이 아닌 해당 클라우드에 연결합니다. Azure Public이 아닌 독립 클라우드 중 하나를 사용하려면
@@ -31,28 +33,28 @@ ms.locfileid: "42146469"
 * 사용 가능한 지역을 결정하여 사용합니다.
 * Azure Public과 달리 정확한 엔드포인트 접미사를 사용합니다.
 
-이 예제에는 Azure PowerShell 모듈 버전 4.4.0 이상이 필요합니다. PowerShell 창에서 `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 확인합니다. 나타나는 항목이 없거나 업그레이드가 필요한 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 
+이 예제에는 Azure PowerShell 모듈 Az 버전 0.7 이상이 필요합니다. PowerShell 창에서 `Get-Module -ListAvailable Az`을 실행하여 버전을 확인합니다. 나타나는 항목이 없거나 업그레이드가 필요한 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-[Get-AzureRmEnvironment](/powershell/module/servicemanagement/azurerm.profile/get-azurermenvironment) cmdlet을 실행하여 사용 가능한 Azure 환경을 확인합니다.
+[Get-AzEnvironment](/powershell/module/az.profile/get-Azenvironment) cmdlet을 실행하여 사용 가능한 Azure 환경을 확인합니다.
    
 ```powershell
-Get-AzureRmEnvironment
+Get-AzEnvironment
 ```
 
 연결하려는 클라우드에 대한 액세스 권한이 있는 계정에 로그인하고 환경을 설정합니다. 이 예제에서는 Azure Government Cloud를 사용하는 계정에 로그인하는 방법을 보여 줍니다.   
 
 ```powershell
-Connect-AzureRmAccount –Environment AzureUSGovernment
+Connect-AzAccount –Environment AzureUSGovernment
 ```
 
 중국 클라우드에 액세스하려면 **AzureChinaCloud** 환경을 사용합니다. 독일 클라우드에 액세스하려면 **AzureGermanCloud**를 사용합니다.
 
-이 시점에서 저장소 계정을 만들 위치나 다른 리소스 목록이 필요한 경우 [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation)을 사용하여 선택한 클라우드에 사용 가능한 위치를 쿼리할 수 있습니다.
+이 시점에서 스토리지 계정을 만들 위치나 다른 리소스 목록이 필요한 경우 [Get-AzLocation](/powershell/module/az.resources/get-azlocation)을 사용하여 선택한 클라우드에 사용 가능한 위치를 쿼리할 수 있습니다.
 
 ```powershell
-Get-AzureRmLocation | select Location, DisplayName
+Get-AzLocation | select Location, DisplayName
 ```
 
 다음 표에서는 독일 클라우드에 대해 반환되는 위치를 보여 줍니다.
@@ -67,36 +69,36 @@ Get-AzureRmLocation | select Location, DisplayName
 
 이러한 각각의 환경에 대한 엔드포인트 접미사는 Azure Public 엔드포인트와 다릅니다. 예를 들어 Azure Public의 Blob 엔드포인트 접미사는 **blob.core.windows.net**입니다. 독일 클라우드의 Blob 엔드포인트 접미사는 **blob.core.usgovcloudapi.net**합니다. 
 
-### <a name="get-endpoint-using-get-azurermenvironment"></a>Get-AzureRMEnvironment를 사용하여 엔드포인트 가져오기 
+### <a name="get-endpoint-using-get-azenvironment"></a>Get-AzEnvironment를 사용하여 엔드포인트 가져오기 
 
-[Get-AzureRMEnvironment](/powershell/module/azurerm.profile/get-azurermenvironment)를 사용하여 엔드포인트 접미사를 검색합니다. 엔드포인트는 환경의 *StorageEndpointSuffix* 속성입니다. 다음 코드 조각에서는 이 방법을 보여 줍니다. 이 명령은 모두 "core.cloudapp.net" 또는 "core.cloudapi.de" 등과 유사한 항목을 반환합니다. 해당 서비스에 액세스하는 저장소 서비스에 이 항목을 추가합니다. 예를 들어 "queue.core.cloudapi.de"는 독일 클라우드의 큐 서비스에 액세스하게 됩니다.
+[Get-AzEnvironment](/powershell/module/az.profile/get-azenvironment)를 사용하여 엔드포인트 접미사를 검색합니다. 엔드포인트는 환경의 *StorageEndpointSuffix* 속성입니다. 다음 코드 조각에서는 이 방법을 보여 줍니다. 이 명령은 모두 "core.cloudapp.net" 또는 "core.cloudapi.de" 등과 유사한 항목을 반환합니다. 해당 서비스에 액세스하는 저장소 서비스에 이 항목을 추가합니다. 예를 들어 "queue.core.cloudapi.de"는 독일 클라우드의 큐 서비스에 액세스하게 됩니다.
 
 이 코드 조각은 각각에 대한 모든 환경과 엔드포인트 접미사를 검색합니다.
 
 ```powershell
-Get-AzureRmEnvironment | select Name, StorageEndpointSuffix 
+Get-AzEnvironment | select Name, StorageEndpointSuffix 
 ```
 
 이 명령은 다음 결과를 반환합니다.
 
-| Name| StorageEndpointSuffix|
+| 이름| StorageEndpointSuffix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
 | AzureGermanCloud | core.cloudapi.de|
 | AzureUSGovernment | core.usgovcloudapi.net |
 
-지정된 환경에 대해 모든 속성을 검색하려면 **Get-AzureRmEnvironment**를 호출하고 클라우드 이름을 지정합니다. 이 코드 조각은 속성 목록을 반환합니다. 목록에서 **StorageEndpointSuffix**를 찾습니다. 다음은 독일 클라우드에 대한 예제입니다.
+지정된 환경에 대해 모든 속성을 검색하려면 **Get-AzEnvironment**를 호출하고 클라우드 이름을 지정합니다. 이 코드 조각은 속성 목록을 반환합니다. 목록에서 **StorageEndpointSuffix**를 찾습니다. 다음은 독일 클라우드에 대한 예제입니다.
 
 ```powershell
-Get-AzureRmEnvironment -Name AzureGermanCloud 
+Get-AzEnvironment -Name AzureGermanCloud 
 ```
 
 결과는 다음과 유사합니다.
 
 |속성 이름|값|
 |----|----|
-| Name | AzureGermanCloud |
+| 이름 | AzureGermanCloud |
 | EnableAdfsAuthentication | False |
 | ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
 | GalleryURL | https://gallery.cloudapi.de/ |
@@ -111,7 +113,7 @@ Get-AzureRmEnvironment -Name AzureGermanCloud
 저장소 엔드포인트 접미사 속성만 검색하려면 특정 클라우드를 검색하고 해당 속성 하나만 요청합니다.
 
 ```powershell
-$environment = Get-AzureRmEnvironment -Name AzureGermanCloud
+$environment = Get-AzEnvironment -Name AzureGermanCloud
 Write-Host "Storage EndPoint Suffix = " $environment.StorageEndpointSuffix 
 ```
 
@@ -129,7 +131,7 @@ Storage Endpoint Suffix = core.cloudapi.de
 # Get a reference to the storage account.
 $resourceGroup = "myexistingresourcegroup"
 $storageAccountName = "myexistingstorageaccount"
-$storageAccount = Get-AzureRmStorageAccount `
+$storageAccount = Get-AzStorageAccount `
   -ResourceGroupName $resourceGroup `
   -Name $storageAccountName 
   # Output the endpoints.
@@ -157,7 +159,7 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 이 연습에 대해 새 리소스 그룹과 저장소 계정을 만든 후에는 리소스 그룹을 제거하여 모든 자산을 제거할 수 있습니다. 이렇게 하면 그룹 내에 포함된 모든 리소스가 삭제됩니다. 이 사례에서는 만든 저장소 계정 및 리소스 그룹 자체가 제거됩니다.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>다음 단계

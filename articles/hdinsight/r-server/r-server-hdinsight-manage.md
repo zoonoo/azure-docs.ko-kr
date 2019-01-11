@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: bdb2e355b29306c8a78a3a773269baeee13fc9d1
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 7e135432ce8490c505e7d3a1022407dd5d9b9776
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497554"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584397"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 관리
 
@@ -22,9 +22,9 @@ ms.locfileid: "52497554"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **HDInsight의 ML 서비스 클러스터**: 지침은 [HDInsight에서 ML 서비스 시작](r-server-get-started.md)을 참조하세요.
+* **HDInsight의 ML 서비스 클러스터**: 자세한 내용은 [HDInsight에서 ML 서비스 시작](r-server-get-started.md)을 참조하세요.
 
-* **SSH(보안 셸) 클라이언트**: SSH 클라이언트는 HDInsight 클러스터에 원격으로 연결하여 클러스터에서 직접 명령을 실행하는 데 사용됩니다. 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+* **SSH(Secure Shell) 클라이언트**: SSH 클라이언트는 HDInsight 클러스터에 원격으로 연결하여 클러스터에서 직접 명령을 실행하는 데 사용됩니다. 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 
 ## <a name="enable-multiple-concurrent-users"></a>여러 동시 사용자 사용
@@ -80,7 +80,7 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/에서 RStudio에 액세스합니
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Microsoft ML 서비스에 원격으로 연결
 
-데스크톱에서 실행되는 ML 클라이언트의 원격 인스턴스에서 HDInsight Spark 계산 컨텍스트에 대한 액세스를 설정할 수 있습니다. 이렇게 하려면 데스크톱 컴퓨터에서 RxSpark 계산 컨텍스트를 정의할 때 hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches 및 sshProfileScript와 같은 옵션을 지정해야 합니다.
+데스크톱에서 실행되는 ML 클라이언트의 원격 인스턴스에서 HDInsight Spark 계산 컨텍스트에 대한 액세스를 설정할 수 있습니다. 이렇게 하려면 데스크톱 컴퓨터에서 RxSpark 컴퓨팅 컨텍스트를 정의할 때 옵션(hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches 및 sshProfileScript)을 지정해야 합니다. 예: 
 
     myNameNode <- "default"
     myPort <- 0
@@ -299,10 +299,8 @@ HDInsight ML 서비스를 사용하면 Spark 계산 컨텍스트의 ScaleR 함�
 
 클러스터의 작업자 노드에 R 패키지를 설치하려면 스크립트 작업을 사용해야 합니다. 스크립트 동작은 HDInsight 클러스터의 구성을 변경하거나 추가 소프트웨어(예: 추가 R 패키지)를 설치하는 데 사용되는 Bash 스크립트입니다. 
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 추가 R 패키지를 설치하는 데 스크립트 작업을 사용하려는 경우 클러스터가 만들어진 후에만 사용할 수 있습니다. 클러스터를 만드는 동안 이 프로시저를 사용하지 마세요. 스크립트는 완전히 구성된 ML 서비스를 사용하기 때문입니다.
->
->
 
 1. [스크립트 작업을 사용하여 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md)의 단계를 따르세요.
 
@@ -312,11 +310,11 @@ HDInsight ML 서비스를 사용하면 Spark 계산 컨텍스트의 ScaleR 함�
 
    * **이름**에서 스크립트 작업의 이름을 지정합니다.
 
-    * **Bash 스크립트 URI**에서 `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`를 입력합니다. 이 스크립트는 작업자 노드에 추가 R 패키지를 설치하는 스크립트입니다.
+    * **Bash 스크립트 URI**에서 `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`를 입력합니다. 이 스크립트는 작업자 노드에 추가 R 패키지를 설치하는 스크립트입니다.
 
    * **작업자** 확인란만 선택합니다.
 
-   * **매개 변수**: 설치할 R 패키지 예를 들어 `bitops stringr arules`
+   * **매개 변수**: 설치할 R 패키지. 예를 들어 `bitops stringr arules`
 
    * **이 스크립트 작업 유지** 확인란을 선택합니다.  
 

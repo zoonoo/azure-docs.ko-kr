@@ -3,16 +3,15 @@ title: Azure Database for PostgreSQL 서버에서 자동 진공 최적화
 description: 이 문서에서는 Azure Database for PostgreSQL 서버에서 자동 진공을 최적화하는 방법을 설명합니다.
 author: dianaputnam
 ms.author: dianas
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 3f35779337082b7280398bd13ef870c74f3ec082
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 0f8db7dd3a90e06587a7e0e05f33cb6fba5c72e1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685993"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539792"
 ---
 # <a name="optimizing-autovacuum-on-azure-database-for-postgresql-server"></a>Azure Database for PostgreSQL 서버에서 자동 진공 최적화 
 이 문서에서는 Azure Database for PostgreSQL에서 자동 진공을 효과적으로 최적화하는 방법에 대해 설명합니다.
@@ -34,7 +33,7 @@ PostgreSQL은 MVCC를 사용하여 데이터베이스 동시성을 높일 수 �
 - I/O 증가
 
 ## <a name="monitoring-bloat-with-autovacuum-queries"></a>자동 진공 쿼리를 사용하여 블로트 모니터링
-"XYZ"라는 이름의 테이블에 있는 데드 및 라이브 튜플의 수를 식별하도록 설계된 샘플 쿼리는 다음과 같습니다. 'SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = 'XYZ' order by n_dead_tup DESC;'
+“XYZ”라는 테이블에 있는 데드 및 라이브 튜플의 수를 식별하도록 설계된 샘플 쿼리는 다음과 같습니다. 'SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = 'XYZ' order by n_dead_tup DESC;'
 
 ## <a name="autovacuum-configurations"></a>자동 진공 구성
 자동 진공을 제어하는 구성 매개 변수는 다음 두 가지 주요 질문을 중심으로 이루어집니다.

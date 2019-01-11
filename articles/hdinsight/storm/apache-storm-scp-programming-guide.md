@@ -9,15 +9,15 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 420a1c2ee09f84586f99864878e226df59606f2d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 9b3fc80d129a42e68e877f4d1210e3ab10e0664a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496860"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631824"
 ---
 # <a name="scp-programming-guide"></a>SCP 프로그래밍 가이드
-SCP는 안정적이며 일관성 있는 실시간 고성능 데이터 처리 애플리케이션을 빌드하기 위한 플랫폼입니다. 이 플랫폼은 OSS 커뮤니티에서 디자인한 스트림 처리 시스템인 [Apache Storm](http://storm.incubator.apache.org/)을 기반으로 구축되었습니다. Nathan Marz가 디자인한 Storm은 Twitter에서 오픈 소스 방식으로 제공되며, 매우 안정적인 분산 방식 조정과 상태 관리를 수행하는 데 사용할 수 있는 또 다른 Apache 프로젝트인 [Apache ZooKeeper](http://zookeeper.apache.org/)를 활용합니다. 
+SCP는 안정적이며 일관성 있는 실시간 고성능 데이터 처리 애플리케이션을 빌드하기 위한 플랫폼입니다. 이 플랫폼은 OSS 커뮤니티에서 디자인한 스트림 처리 시스템인 [Apache Storm](https://storm.incubator.apache.org/)을 기반으로 구축되었습니다. Nathan Marz가 디자인한 Storm은 Twitter에서 오픈 소스 방식으로 제공되며, 매우 안정적인 분산 방식 조정과 상태 관리를 수행하는 데 사용할 수 있는 또 다른 Apache 프로젝트인 [Apache ZooKeeper](https://zookeeper.apache.org/)를 활용합니다. 
 
 SCP 프로젝트를 통해 Windows에서 Storm을 포팅할 수 있을 뿐 아니라 Windows 에코시스템용 확장 및 사용자 지정도 추가할 수 있습니다. 이 확장에는 .NET 개발자 환경과 라이브러리가 포함되고 사용자 지정에는 Windows 기반 배포가 포함됩니다. 
 
@@ -30,9 +30,9 @@ SCP의 데이터는 튜플의 연속 스트림으로 모델링됩니다. 일반�
 
 Storm에서는 애플리케이션 토폴로지에 따라 계산 그래프가 정의됩니다. 토폴로지의 각 노드에는 처리 논리가 포함되며 노드 간의 링크는 데이터 흐름을 나타냅니다. 토폴로지에 입력 데이터를 삽입하는 노드인 _spout_는 데이터 순서를 지정하는 데 사용할 수 있습니다. 입력 데이터는 파일 로그, 트랜잭션 데이터베이스, 시스템 성능 카운터 등에 있을 수 있습니다. 입력 및 출력 데이터 흐름을 포함하는 노드는 실제 데이터 필터링과 선택 및 집계를 하는 _bolt_라고 합니다.
 
-SCP는 최상의 노력, 최소한 한 번 및 정확히 한 번 방식의 데이터 처리를 지원합니다. 분산된 스트리밍 처리 애플리케이션에서 네트워크 중단, 머신 오류 또는 사용자 코드 오류 등과 같은 데이터 처리 중 다양한 오류가 발생할 수 있습니다. 최소한 한 번 방식의 처리는 오류 발생 시 동일한 데이터를 자동으로 재생하여 모든 데이터를 한 번 이상 처리되도록 합니다. 최소한 한 번 방식의 처리는 간단하고 안정적이며 대부분의 응용 프로그램에 적합합니다. 그러나 응용 프로그램에서 정확한 계산을 수행해야 하는 등의 경우에는 응용 프로그램 토폴로지에서 같은 데이터가 재생될 가능성이 있으므로 최소한 한 번 방식의 처리로는 부족합니다. 이러한 경우에는 데이터가 여러 번 재생 및 처리되어도 올바른 결과를 계산하는 정확히 한 번 방식의 처리 방식을 사용해야 합니다.
+SCP는 최상의 노력, 최소한 한 번 및 정확히 한 번 방식의 데이터 처리를 지원합니다. 분산된 스트리밍 처리 애플리케이션에서 네트워크 중단, 머신 오류 또는 사용자 코드 오류 등과 같은 데이터 처리 중 다양한 오류가 발생할 수 있습니다. 최소한 한 번 방식의 처리는 오류 발생 시 동일한 데이터를 자동으로 재생하여 모든 데이터를 한 번 이상 처리되도록 합니다. 최소한 한 번 방식의 처리는 간단하고 안정적이며 대부분의 애플리케이션에 적합합니다. 그러나 애플리케이션에서 정확한 계산을 수행해야 하는 경우에는 애플리케이션 토폴로지에서 같은 데이터가 재생될 가능성이 있으므로 최소한 한 번 방식의 처리로는 부족합니다. 이러한 경우에는 데이터가 여러 번 재생 및 처리되어도 올바른 결과를 계산하는 정확히 한 번 방식의 처리 방식을 사용해야 합니다.
 
-.NET 개발자는 SCP를 통해 JVM(Java Virtual Machine)에서 Storm을 백그라운드에서 활용하면서 실시간 데이터 프로세스 응용 프로그램을 개발할 수 있습니다. .NET과 JVM은 TCP 로컬 소켓을 통해 통신합니다. 기본적으로 각 Spout/Bolt는 .NET/Java 프로세스 쌍이며 사용자 논리는 .NET 프로세스에서 플러그 인으로 실행됩니다.
+.NET 개발자는 SCP를 통해 JVM(Java Virtual Machine)에서 Storm을 백그라운드에서 활용하면서 실시간 데이터 프로세스 애플리케이션을 개발할 수 있습니다. .NET과 JVM은 TCP 로컬 소켓을 통해 통신합니다. 기본적으로 각 Spout/Bolt는 .NET/Java 프로세스 쌍이며 사용자 논리는 .NET 프로세스에서 플러그 인으로 실행됩니다.
 
 SCP를 기반으로 데이터 처리 애플리케이션을 빌드하려면 몇 가지 단계를 수행해야 합니다.
 
@@ -124,7 +124,7 @@ ISCPBatchBolt는 트랜잭션 Bolt용 인터페이스입니다.
 SCP.NET에서는 개발자가 프로그래밍에 사용할 수 있는 주요 개체의 간단한 집합도 제공합니다. 이러한 개체는 **Context**, **StateStore** 및 **SCPRuntime**입니다. 이 섹션의 나머지 부분에서 각 개체에 대해 설명합니다.
 
 ### <a name="context"></a>Context
-Context는 애플리케이션에 실행 환경을 제공합니다. 각 ISCPPlugin 인스턴스(ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt)에는 해당하는 Context 인스턴스가 있습니다. Context에서 제공하는 기능은 두 부분, 즉 (1) 전체 C\# 프로세스에서 사용할 수 있는 정적 부분과 (2) 특정 Context 인스턴스에서만 사용할 수 있는 동적 부분으로 구분할 수 있습니다.
+Context는 애플리케이션에 실행 환경을 제공합니다. 각 ISCPPlugin 인스턴스(ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt)에는 해당하는 Context 인스턴스가 있습니다. Context에서 제공하는 기능은 두 부분 즉 (1) 전체 C\# 프로세스에서 사용할 수 있는 정적 부분과 (2) 특정 Context 인스턴스에서만 사용할 수 있는 동적 부분으로 구분할 수 있습니다.
 
 ### <a name="static-part"></a>정적 부분
     public static ILogger Logger = null;
@@ -346,7 +346,7 @@ ISCPBatchBolt의 경우 `parms`에서 `StormTxAttempt`을(를) 가져와 해당 
         }
 
 ## <a name="topology-specification-language"></a>토폴로지 사양 언어
-SCP 토폴로지 사양은 SCP 토폴로지를 설명하고 구성하기 위한 도메인별 언어로, Storm의 Clojure DSL(<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>)를 기준으로 하며 SCP에 의해 확장됩니다.
+SCP 토폴로지 사양은 SCP 토폴로지를 설명하고 구성하기 위한 도메인별 언어로, Storm의 Clojure DSL(<https://storm.incubator.apache.org/documentation/Clojure-DSL.html>)를 기준으로 하며 SCP에 의해 확장됩니다.
 
 ***runspec*** 명령을 통해 토폴로지 사양을 실행용으로 Storm 클러스터에 직접 제출할 수 있습니다.
 
@@ -356,7 +356,7 @@ SCP.NET에는 트랜잭션 토폴로지를 정의하는 다음 함수가 추가�
 | --- | --- | --- |
 | **tx-topolopy** |topology-name<br />spout-map<br />bolt-map |토폴로지 이름, &nbsp;Spout 정의 맵 및 Bolt 정의 맵으로 트랜잭션 토폴로지를 정의합니다. |
 | **scp-tx-spout** |exec-name<br />args<br />fields |트랜잭션 Spout를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />***fields*** 는 Spout의 출력 필드입니다. |
-| **scp-tx-batch-bolt** |exec-name<br />args<br />fields |트랜잭션 Batch Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />Fields는 Bolt의 출력 필드입니다. |
+| **scp-tx-batch-bolt** |exec-name<br />args<br />fields |트랜잭션 Batch Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 애플리케이션을 실행합니다.<br /><br />Fields는 Bolt의 출력 필드입니다. |
 | **scp-tx-commit-bolt** |exec-name<br />args<br />fields |트랜잭션 커밋 Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />***fields*** 는 Bolt의 출력 필드입니다. |
 | **nontx-topolopy** |topology-name<br />spout-map<br />bolt-map |토폴로지 이름, &nbsp; Spout 정의 맵 및 Bolt 정의 맵으로 비트랜잭션 토폴로지를 정의합니다. |
 | **scp-spout** |exec-name<br />args<br />fields<br />매개 변수 |비트랜잭션 Spout를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />***fields*** 는 Spout의 출력 필드입니다.<br /><br />***parameters***는 선택적 항목으로, "nontransactional.ack.enabled"와 같은 일부 매개 변수를 지정하는 데 사용됩니다. |
@@ -387,7 +387,7 @@ runspec 명령은 비트와 함께 배포되며 사용 방법은 다음과 같�
     usage: runSpec [spec-file target-dir [resource-dir] [-cp classpath]]
     ex: runSpec examples\HelloWorld\HelloWorld.spec specs examples\HelloWorld\Target
 
-***resource-dir*** 매개 변수는 선택 사항입니다. C\# 응용 프로그램을 연결하려는 경우 이 매개 변수를 지정해야 합니다. 이 디렉터리에는 응용 프로그램, 종속성 및 구성이 포함됩니다.
+***resource-dir*** 매개 변수는 선택 사항입니다. C\# 애플리케이션을 연결하려는 경우 이 매개 변수를 지정해야 합니다. 이 디렉터리에는 애플리케이션, 종속성 및 구성이 포함됩니다.
 
 ***classpath*** 매개 변수도 선택 사항으로, 사양 파일에 Java Spout 또는 Bolt가 포함되는 경우 Java 클래스 경로를 지정하는 데 사용됩니다.
 
@@ -594,7 +594,7 @@ SCP 구성 요소는 Java 쪽과 C\# 쪽을 포함합니다. 네이티브 Java S
     }
 
 ### <a name="helloworldtx"></a>HelloWorldTx
-**HelloWorldTx** 예제에서는 트랜잭션 토폴로지 구현 방법을 보여 줍니다. 이 예제에는 **generator** Spout, **partial-count** Batch Bolt 및 **count-sum** Commit Bolt가 있습니다. 또한 미리 작성된 3개의 txt 파일 **DataSource0.txt**, **DataSource1.txt** 및 **DataSource2.txt**가 있습니다.
+**HelloWorldTx** 예제에서는 트랜잭션 토폴로지 구현 방법을 보여 줍니다. 이 예제에는 **generator** Spout, **partial-count** Batch Bolt 및 **count-sum** Commit Bolt가 있습니다. 다음 세 개의 미리 작성된 txt 파일이 있습니다. **DataSource0.txt**, **DataSource1.txt** 및 **DataSource2.txt**.
 
 각 트랜잭션에서 **generator** Spout는 미리 작성된 3개 파일 중 2개를 임의로 선택하여 이 두 파일 이름을 **partial-count** Bolt로 내보냅니다. 그러면 **partial-count** Batch Bolt는 수신된 튜플에서 파일 이름을 가져온 다음 파일을 열고 해당 파일의 단어 수를 계산합니다. 그리고 마지막으로 단어 수를 **count-sum** Bolt로 내보냅니다. **count-sum** Bolt는 총 단어 개수의 요약을 표시합니다.
 

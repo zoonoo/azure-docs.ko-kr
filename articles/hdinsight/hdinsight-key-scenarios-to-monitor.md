@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: arindamc
-ms.openlocfilehash: 22b9a63ab595b4d0b003d999bcd0f131e50aeabf
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 83cbb2a54ed712f8aa5084408ab852432470b73c
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383938"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742476"
 ---
 # <a name="monitor-cluster-performance"></a>클러스터 성능 모니터링
 
@@ -67,7 +67,7 @@ YARN 큐 관리자 페이지의 왼쪽에는 큐 목록과 각 큐에 할당된 
 
 ![Resource Manager UI 메뉴 연결](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
-Resource Manager UI의 왼쪽 메뉴에서 **스케줄러**를 선택합니다. *응용 프로그램 큐* 아래에 큐 목록이 보입니다. 여기서 각 큐에 사용되는 용량, 작업이 큐 간에 얼마나 잘 분산되었는지 여부, 리소스가 제한된 작업이 있는지 여부를 볼 수 있습니다.
+Resource Manager UI의 왼쪽 메뉴에서 **스케줄러**를 선택합니다. *애플리케이션 큐* 아래에 큐 목록이 보입니다. 여기서 각 큐에 사용되는 용량, 작업이 큐 간에 얼마나 잘 분산되었는지 여부, 리소스가 제한된 작업이 있는지 여부를 볼 수 있습니다.
 
 ![Resource Manager UI 메뉴 연결](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
 
@@ -77,11 +77,11 @@ Resource Manager UI의 왼쪽 메뉴에서 **스케줄러**를 선택합니다. 
 
 Azure Storage를 사용하는 경우 제한을 포함하여 저장소 관련 문제 모니터링에 대한 자세한 내용은 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting)을 참조하세요.
 
-클러스터의 백업 저장소가 ADLS(Azure Data Lake Store)인 경우 제한이 발생하는 주요 원인은 대역폭 제한입니다. 이 경우 작업 로그에서 제한 오류를 확인하여 제한을 파악할 수 있습니다. ADLS에 대한 내용은 다음 문서에서 해당 서비스에 대한 제한 섹션을 참조하세요.
+클러스터의 백업 저장소가 ADLS(Azure Data Lake Storage)인 경우 제한이 발생하는 주요 원인은 대역폭 제한입니다. 이 경우 작업 로그에서 제한 오류를 확인하여 제한을 파악할 수 있습니다. ADLS에 대한 내용은 다음 문서에서 해당 서비스에 대한 제한 섹션을 참조하세요.
 
-* [HDInsight의 Apache Hive 및 Azure Data Lake Store에 대한 성능 조정 지침](../data-lake-store/data-lake-store-performance-tuning-hive.md)
-* [HDInsight의 MapReduce 및 Azure Data Lake Store에 대한 성능 조정 지침](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
-* [HDInsight의 Apache Storm 및 Azure Data Lake Store에 대한 성능 조정 지침](../data-lake-store/data-lake-store-performance-tuning-storm.md)
+* [HDInsight의 Apache Hive 및 Azure Data Lake Storage에 대한 성능 조정 지침](../data-lake-store/data-lake-store-performance-tuning-hive.md)
+* [HDInsight의 MapReduce 및 Azure Data Lake Storage에 대한 성능 조정 지침](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
+* [HDInsight의 Apache Storm 및 Azure Data Lake Storage에 대한 성능 조정 지침](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
 ## <a name="next-steps"></a>다음 단계
 

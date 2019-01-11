@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7bf7add75f60bf64f64119979e5eee81be0f6e7b
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 89663db23962cbc82ead331f05cb39c0ef5d2e87
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344968"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722569"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>클라이언트 인증서를 사용하여 RESTful 서비스 보호
 
@@ -41,7 +41,7 @@ ms.locfileid: "43344968"
 **Azure App Service**가 클라이언트 인증서를 요구하도록 설정하려면 웹앱 `clientCertEnabled` 사이트를 *true*로 설정합니다. 이 변경 내용을 적용하려면 Azure Portal에서 웹앱 페이지를 엽니다. 왼쪽 탐색 메뉴의 **설정** 아래에서 **SSL 설정**을 선택합니다. **클라이언트 인증서** 섹션에서 **들어오는 클라이언트 인증서** 옵션을 설정합니다.
 
 >[!NOTE]
->Azure App Service 계획이 표준 이상이어야 합니다. 자세한 내용은 [Azure App Service 계획 심층 개요](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)를 참조하세요.
+>Azure App Service 계획이 표준 이상이어야 합니다. 자세한 내용은 [Azure App Service 계획 심층 개요](https://docs.microsoft.com/azure/app-service/overview-hosting-plans)를 참조하세요.
 
 >[!NOTE]
 >**clientCertEnabled** 속성을 설정하는 방법에 대한 자세한 내용은 [웹앱에 TLS 상호 인증 구성](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)을 참조하세요.
@@ -152,7 +152,7 @@ ms.locfileid: "43344968"
    >*이름이 유효하지 않습니다. 유효한 이름을 입력하세요.* 라는 오류 메시지가 표시되면 Azure AD B2C에서 클라이언트 인증서를 제공하는 동안 성공적으로 RESTful 서비스를 호출했음을 의미합니다. 다음 단계에서는 인증서의 유효성을 검사합니다.
 
 ## <a name="step-6-add-certificate-validation"></a>6단계: 인증서 유효성 검사 추가
-Azure AD B2C에서 RESTful 서비스에 전송한 클라이언트 인증서는 인증서가 있는지를 확인하는 것을 제외하고 Azure Web Apps 플랫폼에 의한 유효성 검사를 거치지 않습니다. 인증서의 유효성을 검사하는 작업은 웹앱에서 담당합니다. 
+Azure AD B2C에서 RESTful 서비스에 전송한 클라이언트 인증서는 인증서가 있는지를 확인하는 것을 제외하고 Azure App Service 플랫폼에 의한 유효성 검사를 거치지 않습니다. 인증서의 유효성을 검사하는 작업은 웹앱에서 담당합니다. 
 
 이 섹션에서는 인증을 위해 인증서 속성의 유효성을 검사하는 샘플 ASP.NET 코드를 추가합니다.
 

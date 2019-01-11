@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/18/2018
 ms.author: adgera
-ms.openlocfilehash: b22bf34a06966f917cdcdd07c28ead2d042061c1
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 92ff8cb732c7c10c525d8a8ec76180cb435bd466
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163999"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975018"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Azure Digital Twins용 Postman을 구성하는 방법
 
@@ -31,7 +31,7 @@ OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure AD 앱을 구성합�
 
 1. [이 빠른 시작](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad)의 단계에 따라 Native 형식의 Azure AD 애플리케이션을 만듭니다. 또는 기존 Native 앱 등록을 다시 사용할 수 있습니다.
 
-1. **필수 사용 권한** 아래에서 `Azure Digital Twins`를 입력하고 **위임된 권한**을 선택합니다. 그런 다음, **사용 권한 부여**를 선택합니다.
+1. **필수 권한** 아래에서 **추가**를 선택하고 **API 액세스 추가** 아래에 **Azure Digital Twins**를 입력합니다. 검색에서 API를 찾을 수 없는 경우 **Azure Smart Spaces**을 대신 검색합니다. 그런 다음, **사용 권한 부여 > 위임된 권한**과 **완료**를 차례로 선택합니다.
 
     ![Azure AD 앱 등록 api 추가](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
 
@@ -65,7 +65,7 @@ OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure AD 앱을 구성합�
     | 필드  | 값 |
     |---------|---------|
     | 권한 부여 유형 | `Implicit` |
-    | 콜백 URL | [`https://www.getpostman.com/oauth2/callback`](https://www.getpostman.com/oauth2/callback) |
+    | 콜백 URL | `https://www.getpostman.com/oauth2/callback` |
     | 인증 URL | 위의 2단계에서 **권한 부여 URL**을 사용합니다. |
     | 클라이언트 ID | 이전 섹션에서 생성되거나 다른 용도로 사용된 Azure AD 앱에 대해 **애플리케이션 ID**를 사용합니다. |
     | 범위 | 비워 둠 |

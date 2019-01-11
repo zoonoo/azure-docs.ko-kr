@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 9e5b132a7946bdc648e051c9f7327cc7159f291e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 9a8bfa2e89e6bc0cbbd5af2efdff60aa406b3f1d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163636"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714205"
 ---
-# <a name="language-understanding-faq"></a>Language Understanding FAQ
+# <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
 이 문서에서는 LUIS(Language Understanding)에 대한 FAQ(질문과 대답)에 대해 알아봅니다.
 
@@ -147,13 +147,13 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 ## <a name="app-management"></a>앱 관리
 
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>LUIS 앱의 소유권을 양도하려면 어떻게 해야 하나요?
-LUIS 앱을 다른 Azure 구독으로 이전하려면 LUIS 앱을 내보낸 후 새 계정을 사용하여 가져옵니다. LUIS 앱을 호출하는 클라이언트 응용 프로그램에서 해당 앱 ID를 업데이트합니다. 새 앱은 원래 앱과는 약간 다른 LUIS 점수를 반환할 수 있습니다.
+LUIS 앱을 다른 Azure 구독으로 이전하려면 LUIS 앱을 내보낸 후 새 계정을 사용하여 가져옵니다. LUIS 앱을 호출하는 클라이언트 애플리케이션에서 해당 앱 ID를 업데이트합니다. 새 앱은 원래 앱과는 약간 다른 LUIS 점수를 반환할 수 있습니다.
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>사용자 발언의 로그를 다운로드하려면 어떻게 해야 하나요?
 기본적으로 LUIS 앱은 사용자의 발언을 로깅합니다. 사용자가 LUIS 앱으로 전송하는 발언 로그를 다운로드하려면 **내 앱**으로 이동한 후 앱을 선택합니다. 상황에 맞는 도구 모음에서 **엔드포인트 로그 내보내기**를 선택합니다. 로그 형식은 쉼표로 구분된 값(CSV) 파일로 지정됩니다.
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>발언 로깅을 사용하지 않도록 설정하려면 어떻게 해야 하나요?
-클라이언트 응용 프로그램이 LUIS를 쿼리하는 사용하는 엔드포인트 URL에서 `log=false`를 설정하여 사용자 발언의 로깅을 해제할 수 있습니다. 그렇지만 로깅을 해제하면 [활성 학습](luis-concept-review-endpoint-utterances.md#what-is-active-learning)에 따라 발언을 제안하거나 성능을 향상시키는 LUIS 앱 기능을 사용할 수 없게 됩니다. 데이터 개인 정보 문제 때문에 `log=false`를 설정하는 경우 LUIS에서 해당 사용자 발언의 기록을 다운로드하거나 해당 발언을 사용하여 앱을 향상시킬 수 없습니다.
+클라이언트 애플리케이션이 LUIS를 쿼리하는 사용하는 엔드포인트 URL에서 `log=false`를 설정하여 사용자 발언의 로깅을 해제할 수 있습니다. 그렇지만 로깅을 해제하면 [활성 학습](luis-concept-review-endpoint-utterances.md#what-is-active-learning)에 따라 발언을 제안하거나 성능을 향상시키는 LUIS 앱 기능을 사용할 수 없게 됩니다. 데이터 개인 정보 문제 때문에 `log=false`를 설정하는 경우 LUIS에서 해당 사용자 발언의 기록을 다운로드하거나 해당 발언을 사용하여 앱을 향상시킬 수 없습니다.
 
 로깅은 발언의 유일한 저장소입니다.
 
@@ -183,7 +183,7 @@ LUIS 앱을 다른 Azure 구독으로 이전하려면 LUIS 앱을 내보낸 후 
 ## <a name="app-notification"></a>앱 알림
 
 ### <a name="why-did-i-get-an-email-saying-im-almost-out-of-quota"></a>할당량이 거의 초과되려고 한다는 전자 메일이 수신되는 이유는 무엇인가요?
-작성/시작 키는 매월 1,000개의 엔드포인트 쿼리만 허용합니다. LUIS 끝점 키(무료 또는 유료)를 만들고 끝점 쿼리를 만들 때 해당 키를 사용합니다. 봇이나 다른 클라이언트 응용 프로그램에서 엔드포인트 쿼리를 만드는 경우 해당 위치에서 LUIS 엔드포인트를 변경해야 합니다.
+작성/시작 키는 매월 1,000개의 엔드포인트 쿼리만 허용합니다. LUIS 끝점 키(무료 또는 유료)를 만들고 끝점 쿼리를 만들 때 해당 키를 사용합니다. 봇이나 다른 클라이언트 애플리케이션에서 엔드포인트 쿼리를 만드는 경우 해당 위치에서 LUIS 엔드포인트를 변경해야 합니다.
 
 ## <a name="integrating-luis"></a>LUIS 통합
 
@@ -212,7 +212,7 @@ Build 2018 Conference에서는 다음 기능이 발표되었습니다.
 |통합|[텍스트 분석](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)과 [감정 분석](luis-how-to-publish-app.md#enable-sentiment-analysis) 통합<br>[Speech](https://docs.microsoft.com/azure/cognitive-services/speech)에 [Speech SDK](https://aka.ms/SpeechSDK)와 음성 초기화 통합|
 |Dispatch 도구|[BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools)의 일부로서, 봇에서의 더 나은 의도 인식을 위해 여러 LUIS 및 QnA Maker 앱을 단일 LUIS 앱에 결합하기 위한 Dispatch 명령줄 [도구](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps)
 
-추가적인 작성 [API 경로](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md)가 포함되었습니다.
+추가적인 작성 [API 경로](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md)가 포함되었습니다.
 
 비디오:
 * [Azure Friday(빌드 2018): Cognitive Services - 언어(LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)

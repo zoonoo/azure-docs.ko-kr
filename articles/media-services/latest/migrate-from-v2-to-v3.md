@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/21/2018
+ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 73d4ecec2665e238236de4a778d6cdd43642c87b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8a680f1c745bed7745691ad337ed887cc4fc05c5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310398"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716619"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침
 
@@ -83,11 +83,11 @@ v3 API는 v2 API와 관련하여 다음과 같은 기능 격차가 있습니다.
     * 오버레이
     * 자르기
     * 썸네일 스프라이트
-* 코드 변환을 사용하는 LiveEvents는 현재 슬레이트 삽입 중간 스트림, 사용자 지정 프리셋 또는 API 호출을 통한 광고 표시기 삽입을 지원하지 않습니다. 
+* 코드 변환을 사용하는 LiveEvents는 현재 슬레이트 삽입 중간 스트림 및 API 호출을 통한 광고 표시기 삽입을 지원하지 않습니다. 
 
 > [!NOTE]
 > 이 문서에 책갈피를 지정하고 업데이트를 계속 확인하세요.
-
+ 
 ## <a name="code-differences"></a>코드 차이점
 
 다음 표는 일반적인 시나리오에서 v2와 v3의 코드가 어떻게 다른지 보여줍니다.
@@ -108,7 +108,7 @@ v3 API는 v2 API와 관련하여 다음과 같은 기능 격차가 있습니다.
     * v2로 만든 채널 및 프로그램(v3에서는 LiveEvents 및 LiveOutput으로 매핑)은 v3를 사용하여 계속 관리할 수 없습니다. 편리한 채널 중지점에서 v3 LiveEvents 및 LiveOutputs으로 전환하는 것이 좋습니다.<br/>현재는 지속적으로 실행 중인 채널을 마이그레이션할 수 없습니다.  
 
 > [!NOTE]
-> 이 문서에 책갈피를 지정하고 업데이트를 계속 확인하세요.
+> Media Services 팀이 지속적으로 v3 API를 개선하고 버전 간 차이를 해결하고 있으므로 이 페이지는 계속 유지됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a251eb3915ee3043ab4b69e0cd4cef8fa2170486
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1ad8435626b35859968bdf93589f22dc81e74e02
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101605"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557702"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Windows에서 시뮬레이션된 TPM 에지 디바이스 만들기 및 프로비전
 
@@ -61,14 +61,13 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
 이전 섹션을 완료한 후 새 디바이스가 IoT Hub에 IoT Edge 디바이스로 표시됩니다. 이제 IoT Edge 런타임을 디바이스에 설치해야 합니다. 
 
-IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 해당 구성 요소는 컨테이너에서 실행되며, Edge에서 코드를 실행할 수 있도록 디바이스에 추가 컨테이너의 배포를 허용합니다. Windows를 실행하는 디바이스에서 Windows 컨테이너 또는 Linux 컨테이너를 사용하도록 선택할 수 있습니다. 사용하려는 컨테이너의 유형을 선택하고 단계를 수행합니다. 수동이 아닌 자동 프로비전에 대한 IoT Edge 런타임을 구성해야 합니다. 
+IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 해당 구성 요소는 컨테이너에서 실행되며, Edge에서 코드를 실행할 수 있도록 디바이스에 추가 컨테이너의 배포를 허용합니다.  
 
-지침에 따라 이전 섹션에서 시뮬레이션된 TPM이 실행되는 디바이스에서 IoT Edge 런타임을 설치합니다. 
+지침에 따라 이전 섹션에서 시뮬레이션된 TPM이 실행되는 디바이스에서 IoT Edge 런타임을 설치합니다. 수동이 아닌 자동 프로비전에 대한 IoT Edge 런타임을 구성해야 합니다.
 
-이러한 문서를 시작하기 전에 DPS **ID 범위** 및 디바이스 **등록 ID**를 알아야 합니다. 
+디바이스에 IoT Edge를 설치하기 전에 DPS **ID 범위** 및 디바이스 **등록 ID**를 확인합니다. 
 
-* [Windows 컨테이너](how-to-install-iot-edge-windows-with-windows.md)
-* [Linux 컨테이너](how-to-install-iot-edge-windows-with-linux.md)
+[IoT Edge 설치 및 자동으로 프로비전](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## <a name="verify-successful-installation"></a>성공적인 설치 확인
 

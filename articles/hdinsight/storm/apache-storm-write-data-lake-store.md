@@ -1,5 +1,5 @@
 ---
-title: Apache Storm에서 Storage/Data Lake Store에 쓰기 - Azure HDInsight
+title: Apache Storm에서 Storage/Data Lake Storage에 쓰기 - Azure HDInsight
 description: Apache Storm을 사용하여 HDInsight용 HDFS 호환 저장소에 쓰는 방법을 알아봅니다.
 services: hdinsight
 ms.service: hdinsight
@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 524195372abde91b302ee03c13152f234ef56406
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: b11e1f35578eef07acb823081f0bbfdbaf467f9c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498253"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632470"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에서 Apache Hadoop HDFS에 쓰기
 
-[Apache Storm](http://storm.apache.org/)을 사용하여 HDInsight의 Apache Storm에서 사용하는 HDFS 호환 스토리지에 데이터를 쓰는 방법에 대해 알아봅니다. HDInsight는 Azure Storage 및 Azure Data Lake Store를 모두 HDFS 호환 저장소로 사용할 수 있습니다. Storm은 HDFS에 데이터를 쓰는 [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 구성 요소를 제공합니다. 이 문서는 HdfsBolt에서 두 가지 유형의 저장소에 쓰는 방법에 대한 정보를 제공합니다. 
+[Apache Storm](https://storm.apache.org/)을 사용하여 HDInsight의 Apache Storm에서 사용하는 HDFS 호환 스토리지에 데이터를 쓰는 방법에 대해 알아봅니다. HDInsight는 Azure Storage 및 Azure Data Lake Storage를 모두 HDFS 호환 스토리지로 사용할 수 있습니다. Storm은 HDFS에 데이터를 쓰는 [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 구성 요소를 제공합니다. 이 문서는 HdfsBolt에서 두 가지 유형의 저장소에 쓰는 방법에 대한 정보를 제공합니다. 
 
-> [!IMPORTANT]
-> 이 문서에서 사용되는 예제 토폴로지는 HDInsight의 Storm에 포함된 구성 요소를 사용합니다. 다른 Apache Storm 클러스터와 함께 Azure Data Lake Store를 사용하려면 수정해야 할 수도 있습니다.
+> [!IMPORTANT]  
+> 이 문서에서 사용되는 예제 토폴로지는 HDInsight의 Storm에 포함된 구성 요소를 사용합니다. 다른 Apache Storm 클러스터와 함께 Azure Data Lake Storage를 사용하려면 수정해야 할 수도 있습니다.
 
 ## <a name="get-the-code"></a>코드 가져오기
 
@@ -44,24 +44,24 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 
 ## <a name="how-to-use-the-hdfsbolt-with-hdinsight"></a>HDInsight에서 HdfsBolt를 사용하는 방법
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > HDInsight의 Storm에서 HdfsBolt를 사용하려면 먼저 스크립트 동작을 사용하여 필요한 jar 파일에 Storm에 대한 `extpath`를 복사해야 합니다. 자세한 내용은 [클러스터 구성](#configure)을 참조하세요.
 
 HdfsBolt는 사용자가 제공하는 파일 구성표를 사용하여 HDFS에 쓰는 방법을 인식합니다. HDInsight를 사용하는 경우 다음 구성표 중 하나를 사용합니다.
 
 * `wasb://`: Azure Storage 계정과 함께 사용
-* `adl://`: Azure Data Lake Store와 함께 사용
+* `adl://`: Azure Data Lake Storage와 함께 사용
 
 다음 표에서는 여러 시나리오에 대한 파일 구성표를 사용하는 경우의 예를 제공합니다.
 
 | 구성표 | 메모 |
 | ----- | ----- |
 | `wasb:///` | 기본 저장소 계정은 Azure Storage 계정의 Blob 컨테이너입니다. |
-| `adl:///` | 기본 저장소 계정은 Azure Data Lake Store의 디렉터리입니다. 클러스터를 만드는 동안 클러스터의 HDFS 루트인 Data Lake Store의 디렉터리를 지정합니다. 예를 들어 `/clusters/myclustername/` 디렉터리가 있습니다. |
+| `adl:///` | 기본 스토리지 계정은 Azure Data Lake Storage의 디렉터리입니다. 클러스터를 만드는 동안 클러스터의 HDFS 루트인 Data Lake Storage의 디렉터리를 지정합니다. 예를 들어 `/clusters/myclustername/` 디렉터리가 있습니다. |
 | `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | 클러스터와 연결된 기본이 아닌 추가 Azure Storage 계정입니다. |
-| `adl://STORENAME/` | 클러스터에서 사용하는 Data Lake Store의 루트입니다. 이 구성표를 사용하면 클러스터 파일 시스템이 포함된 디렉터리 외부에 있는 데이터에 액세스할 수 있습니다. |
+| `adl://STORENAME/` | 클러스터에서 사용하는 Data Lake Storage의 루트입니다. 이 구성표를 사용하면 클러스터 파일 시스템이 포함된 디렉터리 외부에 있는 데이터에 액세스할 수 있습니다. |
 
-자세한 내용은 Apache.org의 [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 참조를 참조하세요.
+자세한 내용은 Apache.org의 [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 참조를 참조하세요.
 
 ### <a name="example-configuration"></a>예제 구성
 
@@ -133,11 +133,11 @@ Flux 프레임워크에 대한 자세한 내용은 [https://storm.apache.org/rel
 
 ## <a name="configure-the-cluster"></a>클러스터 구성
 
-기본적으로 HDInsight의 Storm에는 HdfsBolt에서 Storm의 클래스 경로에 있는 Azure Storage 또는 Data Lake Store와 통신하는 데 사용하는 구성 요소가 포함되지 않습니다. 다음 스크립트 동작을 사용하여 클러스터의 Storm에 대한 `extlib` 디렉터리에 이러한 구성 요소를 추가합니다.
+기본적으로 HDInsight의 Storm에는 HdfsBolt에서 Storm의 클래스 경로에 있는 Azure Storage 또는 Data Lake Storage와 통신하는 데 사용하는 구성 요소가 포함되지 않습니다. 다음 스크립트 동작을 사용하여 클러스터의 Storm에 대한 `extlib` 디렉터리에 이러한 구성 요소를 추가합니다.
 
 * 스크립트 URI: `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
-* 다음에 적용할 노드: Nimbus, Supervisor
-* 매개 변수: 없음
+* 다음 적용할 노드: Nimbus, Supervisor
+* 매개 변수 없음
 
 HDInsight에서 이 스크립트를 사용하는 방법에 대한 자세한 내용은 [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](./../hdinsight-hadoop-customize-cluster-linux.md) 문서를 참조하세요.
 
@@ -159,7 +159,7 @@ HDInsight에서 이 스크립트를 사용하는 방법에 대한 자세한 내�
    
     메시지가 표시되면 클러스터에 대한 SSH 사용자를 만들 때 사용한 암호를 입력합니다. 암호 대신 공용 키를 사용하는 경우 `-i` 매개 변수를 사용하여 개인 키와 일치하는 경로를 지정합니다.
    
-   > [!NOTE]
+   > [!NOTE]  
    > HDInsight에서의 `scp` 사용에 대한 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 2. 업로드가 완료되면 SSH를 사용하여 HDInsight 클러스터에 연결하도록 다음을 사용합니다. **USER** 를 클러스터를 만들 때 사용한 SSH 사용자 이름으로 대체합니다. **CLUSTERNAME** 을 클러스터 이름으로 바꿉니다.
@@ -179,10 +179,10 @@ HDInsight에서 이 스크립트를 사용하는 방법에 대한 자세한 내�
         hdfs.write.dir: /stormdata/
         hdfs.url: wasb:///
 
-    > [!IMPORTANT]
-    > 이 예제에서는 클러스터에서 Azure Storage 계정을 기본 저장소로 사용한다고 가정합니다. 클러스터에서 Azure Data Lake Store를 사용하는 경우 `hdfs.url: adl:///`을 대신 사용합니다.
+    > [!IMPORTANT]  
+    > 이 예제에서는 클러스터에서 Azure Storage 계정을 기본 저장소로 사용한다고 가정합니다. 클러스터에서 Azure Data Lake Storage를 사용하는 경우 `hdfs.url: adl:///`을 대신 사용합니다.
     
-    파일을 저장하려면 __Ctrl + X__를 사용한 다음 __Y__를 입력하고 마지막으로 __Enter__ 키를 누릅니다. 이 파일의 값은 데이터가 기록되는 Data Lake store URL 및 디렉터리 이름을 설정합니다.
+    파일을 저장하려면 __Ctrl + X__를 사용한 다음 __Y__를 입력하고 마지막으로 __Enter__ 키를 누릅니다. 이 파일의 값은 데이터가 기록되는 Data Lake Storage URL 및 디렉터리 이름을 설정합니다.
 
 3. 다음 명령을 사용하여 토폴로지를 시작합니다.
    
@@ -219,5 +219,5 @@ Storm 토폴로지가 중지될 때까지 실행되거나 클러스터가 삭제
 
 ## <a name="next-steps"></a>다음 단계
 
-Apache Storm을 사용하여 Azure Storage 및 Azure Data Lake Store에 쓰는 방법을 알아보았으면, 다른 [HDInsight용 Apache Storm 예제](apache-storm-example-topology.md)를 알아보세요.
+Apache Storm을 사용하여 Azure Storage 및 Azure Data Lake Storage에 쓰는 방법을 알아보았으면, 다른 [HDInsight용 Apache Storm 예제](apache-storm-example-topology.md)를 알아보세요.
 

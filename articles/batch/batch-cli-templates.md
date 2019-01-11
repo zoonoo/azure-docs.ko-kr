@@ -1,22 +1,23 @@
 ---
-title: 템플릿을 사용하여 통합형 Azure Batch 작업 실행 | Microsoft Docs
+title: 템플릿을 사용하여 엔드투엔드 작업 실행 - Azure Batch | Microsoft Docs
 description: 템플릿 파일 및 Azure CLI를 사용하여 Batch 풀, 작업 및 태스크를 만듭니다.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 08/02/2018
-ms.author: danlep
-ms.openlocfilehash: 753a36eb6fb7a0c007c62bbab7fe7390e706b1f5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/07/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 5e592845f96cb0734daf3c9e07d60005de260386
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964295"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547680"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Azure Batch CLI 템플릿 및 파일 전송 사용
 
@@ -37,7 +38,7 @@ Batch 템플릿은 풀, 작업, 태스크 및 기타 항목을 생성할 때 속
 
 작업은 일반적으로 입력 데이터 파일을 사용하고 출력 데이터 파일을 생성합니다. 저장소 계정은 기본적으로 각 Bach 계정을 사용하여 연결됩니다. 코딩 및 저장소 자격 증명 없이 CLI를 사용하여 이 저장소 계정 간 파일을 전송합니다.
 
-예를 들어 [ffmpeg](http://ffmpeg.org/)는 오디오 및 비디오 파일을 처리하는 인기 있는 애플리케이션입니다. 다음은 Azure Batch CLI를 사용하여 원본 비디오 파일을 다른 해상도로 코드 변환하기 위해 ffmpeg를 호출하는 단계입니다.
+예를 들어 [ffmpeg](https://ffmpeg.org/)는 오디오 및 비디오 파일을 처리하는 인기 있는 애플리케이션입니다. 다음은 Azure Batch CLI를 사용하여 원본 비디오 파일을 다른 해상도로 코드 변환하기 위해 ffmpeg를 호출하는 단계입니다.
 
 -   풀 템플릿을 만듭니다. 템플릿을 만드는 사용자는 ffmpeg 애플리케이션 및 요구 사항을 호출하는 방법을 알고 있습니다. 적절한 OS, VM 크기, ffmpeg 설치 방법(예: 애플리케이션 패키지에서 또는 패키지 관리자를 사용하여) 및 기타 풀 속성 값을 지정하면 됩니다. 매개 변수를 만들었으므로 템플릿이 사용될 경우 풀 ID와 VM의 수만을 지정하면 됩니다.
 

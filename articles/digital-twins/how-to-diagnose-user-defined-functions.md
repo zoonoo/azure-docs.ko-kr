@@ -1,23 +1,27 @@
 ---
 title: Azure Digital Twins에서 UDF를 디버그하는 방법 | Microsoft Docs
-description: Azure Digital Twins에서 UDF를 디버그하는 방법에 대한 지침
+description: Azure Digital Twins에서 UDF를 디버그하는 방법에 대한 지침입니다.
 author: stefanmsft
 manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/27/2018
 ms.author: stefanmsft
-ms.openlocfilehash: 9476db888a4bfae2d43ae4eec340972d4c2eb714
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.custom: seodec18
+ms.openlocfilehash: e373e7c3ca83a0200cd1b6b945c5e4cb43b77a51
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413016"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974865"
 ---
-# <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Azure Digital Twins에서 사용자 정의 함수를 사용하여 문제를 디버그하는 방법
+# <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Azure Digital Twins에서 사용자 정의 함수를 디버그하는 방법
 
-이 문서에서는 사용자 정의 함수를 진단하는 방법을 요약합니다. 그런 다음, 해당 함수를 사용하여 작업할 때 발생하는 가장 일반적인 시나리오를 식별합니다.
+이 문서에서는 사용자 정의 함수를 진단하는 방법을 요약합니다. 그런 다음, 해당 함수를 사용하여 작업할 때 발생할 수 있는 가장 일반적인 시나리오를 식별합니다.
+
+>[!TIP]
+> Activity Logs, Diagnostic Logs 및 Azure Monitor를 사용하여 Azure Digital Twins에서 디버깅 도구를 설정하는 방법에 대해 자세히 알아보려면 [모니터링 및 로깅을 구성하는 방법](./how-to-configure-monitoring.md)을 참조하세요.
 
 ## <a name="debug-issues"></a>문제 디버그
 
@@ -28,9 +32,14 @@ Azure Digital Twins 인스턴스 내에서 발생하는 문제를 진단하는 �
 Azure Digital Twins 인스턴스에 대한 로그 및 메트릭은 Azure Monitor를 통해 표시됩니다. 다음 설명서에서는 [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md) 또는 [PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md)을 통해 [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) 작업 영역을 만들었다고 가정합니다.
 
 > [!NOTE]
-> **Log Analytics**에 이벤트를 처음 보낼 때 5분 지연을 경험할 수 있습니다.
+> Azure Log Analytics에 이벤트를 처음으로 보낼 때 5분 지연이 발생할 수 있습니다.
 
-Azure Portal, Azure CLI 또는 PowerShell을 통해 Azure Digital Twins 인스턴스에 진단 설정을 사용하려면 ["Azure 리소스에서 로그 데이터 수집 및 사용"](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 문서를 읽으세요. 모든 로그 범주, 메트릭 및 Azure Log Analytics 작업 영역을 선택해야 합니다.
+Azure Digital Twins 리소스에 대한 모니터링 및 로깅을 구성하려면 [모니터링 및 로깅을 구성하는 방법](./how-to-configure-monitoring.md)을 참조하세요.
+
+Azure Portal, Azure CLI 또는 PowerShell을 통한 Azure Digital Twins 인스턴스의 진단 로그 설정에 대한 포괄적 인 개요를 보려면 [Azure 리소스에서 로그 데이터 수집 및 사용](../azure-monitor/platform/diagnostic-logs-overview.md) 문서를 참조하세요.
+
+>[!IMPORTANT]
+> 모든 로그 범주, 메트릭 및 Azure Log Analytics 작업 영역을 선택해야 합니다.
 
 ### <a name="trace-sensor-telemetry"></a>센서 원격 분석 추적
 
@@ -56,11 +65,11 @@ AzureDiagnostics
 | where Category == 'UserDefinedFunction'
 ```
 
-강력한 쿼리 작업에 대한 자세한 내용은 [쿼리 시작하기](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)를 참조하세요.
+강력한 쿼리 작업에 대한 자세한 내용은 [쿼리 시작](../azure-monitor/log-query/get-started-queries.md)을 참조하세요.
 
 ## <a name="identify-common-issues"></a>일반적인 문제 식별
 
-솔루션 문제를 해결할 때 일반적인 문제의 진단과 식별이 모두 중요합니다. 사용자 정의 함수를 개발할 때 발생하는 여러 가지 일반적인 문제를 아래에 요약합니다.
+솔루션 문제를 해결할 때 일반적인 문제의 진단과 식별이 모두 중요합니다. 사용자 정의 함수를 개발할 때 일반적으로 발생하는 몇 가지 문제가 아래에 요약되어 있습니다.
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
@@ -74,11 +83,11 @@ AzureDiagnostics
 GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| 매개 변수 | 다음 항목으로 교체 |
+| 매개 변수 값 | 다음 항목으로 교체 |
 | --- | --- |
-| *YOUR_USER_DEFINED_FUNCTION_ID* | 역할 할당을 검색할 사용자 정의 함수의 ID|
+| YOUR_USER_DEFINED_FUNCTION_ID | 역할 할당을 검색할 사용자 정의 함수의 ID|
 
-역할 할당이 검색되지 않은 경우 [사용자 정의 함수에 대한 역할 함수를 만드는 방법](./how-to-user-defined-functions.md)에 관한 이 문서를 따르십시오.
+역할 할당이 없는 경우 [사용자 정의 함수에 대한 역할 할당을 만드는 방법](./how-to-user-defined-functions.md)을 알아보세요.
 
 ### <a name="check-if-the-matcher-will-work-for-a-sensors-telemetry"></a>선택기가 센서의 원격 분석에 대해 작동할지 확인
 
@@ -159,7 +168,7 @@ var customNotification = {
 sendNotification(telemetry.SensorId, "Space", JSON.stringify(customNotification));
 ```
 
-이 시나리오는 지정된 토폴로지 개체 형식이 '공간'일 때 사용한 ID가 센서를 참조하기 때문에 발생합니다.
+이 시나리오는 사용된 식별자가 지정된 토폴로지 개체 형식이 `Space`일 때 센서를 참조하기 때문에 발생합니다.
 
 **올바른** 예제:
 
@@ -200,4 +209,4 @@ function process(telemetry, executionContext) {
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Digital Twins에서 [모니터링 및 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)를 사용하도록 설정하는 방법을 알아봅니다.
+Azure Digital Twins에서 [모니터링 및 로그](../azure-monitor/platform/activity-logs-overview.md)를 사용하도록 설정하는 방법을 알아봅니다.

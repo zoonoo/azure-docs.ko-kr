@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 8285632d8dea76763c65dd06e8be2d7494a47188
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 02e6d6407a515314d99ea747dac3646d665c47ae
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838994"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976582"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure에 Azure Stack VM 복제
 
@@ -229,15 +229,15 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 
 [1단계: 머신 준비](#step-1-prepare-azure-stack-vms)의 모든 태스크를 완료했는지 확인합니다. 그런 후 다음과 같이 복제를 사용하도록 설정합니다.
 
-1. **응용 프로그램 복제** > **원본**을 선택합니다.
+1. **애플리케이션 복제** > **원본**을 선택합니다.
 2. **원본**에서 구성 서버를 선택합니다.
 3. **컴퓨터 형식**에서 **물리적 컴퓨터**를 선택합니다.
 4. 프로세스 서버(구성 서버)를 선택합니다. 그런 후 **OK**를 클릭합니다.
 5. **대상**에서 장애 조치(failover) 후 VM을 만들 구독 및 리소스 그룹을 선택합니다. 장애 조치(Failover)된 VM에 사용할 배포 모델을 선택합니다.
-6. 복제된 데이터를 저장하려는 Azure Storage 계정을 선택합니다.
+6. 복제된 데이터를 저장할 Azure Storage 계정을 선택합니다.
 7. 장애 조치(failover) 후 Azure VM이 생성될 때 연결될 Azure 네트워크 및 서브넷을 선택합니다.
 8. 컴퓨터마다 Azure 네트워크를 선택하려면 **나중에 구성** 을 선택합니다. 각 컴퓨터에 대해 별도로 Azure 네트워크를 선택하려는 경우 **나중에 구성**을 선택합니다.
-9. **물리적 컴퓨터**에서 **+물리적 컴퓨터**를 클릭합니다. 복제하려는 각 컴퓨터의 IP 주소 이름과 운영 체제를 지정합니다.
+9. **물리적 컴퓨터**에서 **+물리적 컴퓨터**를 클릭합니다. 복제하려는 각 머신의 이름, IP 주소 및 OS 종류를 지정합니다.
 
     - 컴퓨터의 내부 IP 주소를 사용합니다.
     - 공용 IP 주소를 지정하는 경우 복제가 예상대로 작동하지 않을 수 있습니다.
@@ -279,8 +279,8 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 1. 필수 구성 요소 확인은 장애 조치(failover)에 필요한 모든 조건이 충족되었는지 확인하기 위해 실행합니다.
 2. 장애 조치(Failover)는 지정된 복구 지점을 사용하여 데이터를 처리합니다.
     - **가장 최근에 처리됨**: 머신은 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치(Failover)됩니다. 타임스탬프가 표시됩니다. 이 옵션을 사용하면 데이터를 처리하는 데 시간을 소비하지 않으므로 낮은 RTO(복구 시간 목표)가 제공됩니다.
-    - **최신 앱 일치**: 컴퓨터는 최신 앱 일치 복구 지점으로 장애 조치(Failover)됩니다.
-    - **사용자 지정**. 장애 조치(Failover)에 사용되는 복구 지점을 선택합니다.
+    - **최신 앱 일치**: 최신 앱 일치 복구 지점으로 머신이 장애 조치(Failover)됩니다.
+    - **사용자 지정**: 장애 조치(Failover)에 사용되는 복구 지점을 선택합니다.
 
 3. Azure VM은 처리된 데이터를 사용하여 생성됩니다.
 4. 테스트 장애 조치(Failover)는 훈련 동안 만든 Azure VM을 자동으로 정리할 수 있습니다.
@@ -319,7 +319,7 @@ VM에 대해 테스트 장애 조치(Failover)를 다음과 같이 실행합니�
 
 ### <a name="fail-back-to-azure-stack"></a>Azure Stack으로 장애 복구(Failback)
 
-기본 사이트가 다시 작동되고 실행되면 Azure에서 Azure Stack으로 장애 복구(Failback)할 수 있습니다. 이렇게 하려면 Azure VM VHD를 다운로드하고 Azure Stack에 업로드해야 합니다.
+기본 사이트가 다시 작동되고 실행되면 Azure에서 Azure Stack으로 장애 복구(failback)할 수 있습니다. 이렇게 하려면 Azure VM VHD를 다운로드하고 Azure Stack에 업로드해야 합니다.
 
 1. VHD를 다운로드할 수 있도록 Azure VM을 종료합니다. 
 2. VHD 다운로드를 시작하려면 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 설치합니다.

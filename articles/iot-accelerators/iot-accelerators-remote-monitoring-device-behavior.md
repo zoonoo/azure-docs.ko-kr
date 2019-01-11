@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 70f9ccbbe737bad4d6f88365e804d4421c418d28
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: edd5da35d33aa7e79fc3e972f3ea1cfe2ef40973
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164010"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631416"
 ---
 # <a name="implement-the-device-model-behavior"></a>디바이스 모델 동작 구현
 
@@ -21,6 +21,9 @@ ms.locfileid: "53164010"
 
 - 디바이스의 내부 상태를 업데이트하기 위해 고정 간격으로 실행되는 **상태** JavaScript 파일
 - 솔루션이 디바이스에서 메서드를 호출할 때 실행되는 **메서드** JavaScript 파일
+
+> [!NOTE]
+> 디바이스 모델 동작은 디바이스 시뮬레이션 서비스에 호스트된 시뮬레이션된 디바이스에만 해당합니다. 물리적 디바이스를 만들려는 경우 [원격 모니터링 솔루션 가속기에 디바이스 연결](iot-accelerators-connecting-devices.md)을 참조하세요.
 
 이 문서에서는 다음 방법을 설명합니다.
 

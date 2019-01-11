@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: 3f7cfbea414561a50152f88ac9061d7f62c89e2a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bc8688e06b430522d2aeb1bcc67f72dae2e9ac6a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192415"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728410"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Log Analytics 로그 검색의 컴퓨터 그룹 
 
@@ -31,7 +31,7 @@ Log Analytics에서 다음 표의 방법 중 하나를 통해 컴퓨터 그룹�
 |:--- |:--- |
 | 로그 검색 |컴퓨터 목록을 반환하는 로그 검색 만듭니다. |
 | 로그 검색 API |로그 검색 API를 사용하여 프로그래밍 방식으로 로그 검색 결과에 따라 컴퓨터 그룹을 만듭니다. |
-| Active Directory |Active Directory 도메인의 구성원인 에이전트 컴퓨터의 그룹 구성원을 자동으로 검색하고 각 보안 그룹에 대해 Log Analytics에 그룹을 만듭니다. |
+| Active Directory |Active Directory 도메인의 구성원인 에이전트 컴퓨터의 그룹 구성원을 자동으로 검색하고 각 보안 그룹에 대해 Log Analytics에 그룹을 만듭니다. (Windows 머신에만 해당)|
 | 구성 관리자 | System Center Configuration Manager에서 컬렉션을 가져오고 Log Analytics에서 각 컬렉션에 대한 그룹을 만듭니다. |
 | Windows Server 업데이트 서비스 |대상 그룹에 대해 자동으로 WSUS 서버나 클라이언트를 검색하고 각각에 대해 Log Analytics에 그룹을 만듭니다. |
 
@@ -60,7 +60,10 @@ Log Search에서 생성된 컴퓨터 그룹은 사용자가 정의한 검색 쿼
 
 
 ### <a name="active-directory"></a>Active Directory
-Active Directory 그룹 멤버 자격을 가져오도록 Log Analytics를 구성하면 Log Analytics 에이전트가 있는 도메인 연결 컴퓨터의 그룹 멤버 자격을 분석합니다.  컴퓨터 그룹은 Log Analytics에서 Active Directory의 각 보안 그룹에 대해 만들어지며 각 컴퓨터는 자신이 속산 보안 그룹에 해당하는 컴퓨터 그룹에 추가됩니다.  이 멤버 자격은 4시간 간격으로 계속 업데이트됩니다.  
+Active Directory 그룹 멤버 자격을 가져오도록 Log Analytics를 구성하면 Log Analytics 에이전트가 있는 Windows 도메인 가입 컴퓨터의 그룹 멤버 자격을 분석합니다.  컴퓨터 그룹은 Log Analytics에서 Active Directory의 각 보안 그룹에 대해 만들어지며 각 Windows 컴퓨터는 자신이 속한 보안 그룹에 해당하는 컴퓨터 그룹에 추가됩니다.  이 멤버 자격은 4시간 간격으로 계속 업데이트됩니다.  
+
+> [!NOTE]
+> 가져온 Active Directory 그룹에는 Windows 머신만 포함됩니다.
 
 Azure Portal의 Log Analytics **고급 설정**에서 Active Directory 보안 그룹을 가져오도록 Log Analytics를 구성합니다.  **컴퓨터 그룹**, **Active Directory**, 및 **컴퓨터에서 Active Directory 그룹 멤버 자격을 가져오기**를 차례로 선택합니다.  추가 구성은 필요 없습니다.
 

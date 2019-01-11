@@ -6,17 +6,17 @@ services: cognitive-services
 author: tulasim88
 manager: pchoudh
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 8fe4ecfe241422c03a2de8d0634ef1e1395aa050
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9f5aedfc28c8aa0835c865cc2041f66abef39d5f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081322"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724694"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료의 신뢰도 점수
 사용자 쿼리가 기술 자료와 일치하면 QnA Maker는 신뢰도 점수와 함께 관련 응답을 반환합니다. 이 점수는 응답이 지정된 사용자 쿼리에 올바르게 일치한다는 신뢰도를 나타냅니다. 
@@ -38,7 +38,7 @@ ms.locfileid: "53081322"
 
 |점수 값|점수 의미|예제 쿼리|
 |--|--|--|
-|90 - 100|사용자 쿼리와 KB 질문이 거의 정확히 일치합니다.|“내 변경 내용이 게시 후에 기술 자료에서 업데이트되지 않았습니다.”|
+|90 - 100|사용자 쿼리와 KB 질문이 거의 정확히 일치합니다.|“내 변경 내용이 게시 후에 KB에서 업데이트되지 않았습니다.”|
 |> 70|높은 신뢰도 - 일반적으로 사용자의 쿼리에 완벽하게 좋은 응답|“내 기술 자료를 게시했지만 업데이트되지 않았습니다.”|
 |50 - 70|중간 신뢰도 - 일반적으로 사용자 쿼리의 기본 의도에 적절하게 맞는 응답|“내 기술 자료를 게시하기 전에 업데이트를 저장해야 하나요?”|
 |30 - 50|낮은 신뢰도 - 일반적으로 사용자의 의도에 부분적으로 부합되는 관련된 응답|“저장 및 학습이란 무엇인가요?”|
@@ -58,7 +58,7 @@ ms.locfileid: "53081322"
 > QnA Maker의 최신 버전에는 점수 매기기 논리에 대한 개선 사항이 포함되며 임계값에 영향을 줄 수 있습니다. 언제든지 서비스를 업데이트하여 필요한 경우 임계값을 테스트하고 조정해야 합니다. [여기](https://www.qnamaker.ai/UserSettings)에서 QnA 서비스 버전을 확인할 수 있습니다. 최신 업데이트를 가져오는 방법은 [여기](../How-To/troubleshooting-runtime.md)를 참조하세요.
 
 ## <a name="improve-confidence-scores"></a>신뢰도 점수 개선
-사용자 쿼리에 대한 특정 응답의 신뢰도 점수를 향상하기 위해 사용자 쿼리를 해당 응답의 대체 질문으로 기술 자료에 추가할 수 있습니다.
+사용자 쿼리에 대한 특정 응답의 신뢰도 점수를 향상하기 위해 사용자 쿼리를 해당 응답의 대체 질문으로 기술 자료에 추가할 수 있습니다. [단어 변경](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd)을 사용하여 KB의 키워드에 동의어를 추가할 수도 있습니다.
 
 
 ## <a name="similar-confidence-scores"></a>유사한 신뢰도 점수
@@ -71,7 +71,7 @@ ms.locfileid: "53081322"
 
 
 ## <a name="no-match-found"></a>일치하는 항목 없음
-순위 지정에서 적절한 일치 항목을 찾지 못하면 신뢰도 점수 0.0 또는 “없음”이 반환되고 기본 응답은 “No good match found in the KB”(KB에 적절한 일치 항목이 없습니다.)입니다. 엔드포인트를 호출하는 봇 또는 응용 프로그램 코드에서 이 기본 응답을 재정의할 수 있습니다. 또는 Azure에서 재정의 응답을 설정할 수도 있으며, 이 경우 특정 QnA Maker 서비스에 배포된 모든 기술 자료의 기본값이 변경됩니다.
+순위 지정에서 적절한 일치 항목을 찾지 못하면 신뢰도 점수 0.0 또는 “없음”이 반환되고 기본 응답은 “No good match found in the KB”(KB에 적절한 일치 항목이 없습니다.)입니다. 엔드포인트를 호출하는 봇 또는 애플리케이션 코드에서 이 기본 응답을 재정의할 수 있습니다. 또는 Azure에서 재정의 응답을 설정할 수도 있으며, 이 경우 특정 QnA Maker 서비스에 배포된 모든 기술 자료의 기본값이 변경됩니다.
 
 ### <a name="change-default-answer"></a>기본 답변 변경
 
@@ -81,7 +81,7 @@ ms.locfileid: "53081322"
 
     ![Azure Portal에서 QnA Maker에 대한 App service에 액세스](../media/qnamaker-concepts-confidencescore/set-default-response.png)
 
-3. **응용 프로그램 설정**을 클릭하고 **DefaultAnswer** 필드를 원하는 기본 응답으로 편집합니다. **저장**을 클릭합니다.
+3. **애플리케이션 설정**을 클릭하고 **DefaultAnswer** 필드를 원하는 기본 응답으로 편집합니다. **저장**을 클릭합니다.
 
     ![애플리케이션 설정을 선택한 다음, QnA Maker에 대한 DefaultAnswer 편집](../media/qnamaker-concepts-confidencescore/change-response.png)
 

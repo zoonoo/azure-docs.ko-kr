@@ -1,5 +1,5 @@
 ---
-title: 웹 애플리케이션의 비밀 애플리케이션 설정을 안전하게 저장 | Microsoft Docs
+title: 웹 애플리케이션의 비밀 애플리케이션 설정을 안전하게 저장 - Azure Key Vault | Microsoft Docs
 description: ASP.NET Core Key Vault Provider, 사용자 비밀 또는 .NET 4.7.1을 사용하여 Azure 자격 증명 또는 타사 API와 같은 비밀 애플리케이션 설정을 안전하게 저장하는 방법
 services: visualstudio
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/09/2017
+ms.date: 01/02/2019
 ms.author: cawa
-ms.openlocfilehash: 4c54fe7c9ae5555ad1b8ba6919c70c8f7fa49125
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5ed0f861e17c646a66d9fa636e17ce0ba9c7c91a
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252111"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999155"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>웹 애플리케이션의 비밀 애플리케이션 설정을 안전하게 저장
 

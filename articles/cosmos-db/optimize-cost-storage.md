@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 78c840efebd2e451747e2490fc4d2f363afa9a09
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6a6f8b47044d36d767721e2d3503d11518dbf5a6
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263258"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036123"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Azure Cosmos DB의 스토리지 비용 최적화
 
@@ -27,7 +27,7 @@ Azure Cosmos DB에서 최적 성능과 비용 혜택을 얻으려면 항목 크�
 
 ## <a name="optimize-cost-with-indexing"></a>인덱싱을 통해 비용 최적화
 
-기본적으로 데이터는 자동으로 인덱싱되므로 사용되는 총 스토리지가 증가할 수 있습니다. 그러나 사용자 지정 인덱스 정책을 적용하여 이 오버헤드를 줄일 수 있습니다. 정책을 통해 튜닝되지 않은 자동 인덱싱은 항목 크기의 약 10-20%입니다. 인덱스 정책을 제거하거나 사용자 지정하면 쓰기에 대한 추가 비용을 지불하지 않으며 추가 처리량 용량도 필요하지 않습니다. 사용자 지정 인덱싱 정책을 구성하려면 [Cosmos DB의 인덱싱](indexing-policies.md)을 참조하세요. 이전에 관계형 데이터베이스를 사용한 경우 “모든 항목 인덱싱”이 두 배 이상의 스토리지를 의미한다고 생각할 수 있습니다. 그러나 Azure Cosmos DB에서는 보통의 경우 사용되는 스토리지가 훨씬 더 적습니다. Azure Cosmos DB의 인덱스는 스토리지 공간을 적게 사용하도록 설계되었으므로 스토리지 오버헤드가 일반적으로 자동 인덱싱에서도 낮습니다(10-20%). 인덱싱 정책을 관리하면 더 세분화된 방식으로 인덱스 공간과 쿼리 성능의 절충을 제어할 수 있습니다.
+기본적으로 데이터는 자동으로 인덱싱되므로 사용되는 총 스토리지가 증가할 수 있습니다. 그러나 사용자 지정 인덱스 정책을 적용하여 이 오버헤드를 줄일 수 있습니다. 정책을 통해 튜닝되지 않은 자동 인덱싱은 항목 크기의 약 10-20%입니다. 인덱스 정책을 제거하거나 사용자 지정하면 쓰기에 대한 추가 비용을 지불하지 않으며 추가 처리량 용량도 필요하지 않습니다. 사용자 지정 인덱싱 정책을 구성하려면 [Azure Cosmos DB의 인덱싱](indexing-policies.md)을 참조하세요. 이전에 관계형 데이터베이스를 사용한 경우 “모든 항목 인덱싱”이 두 배 이상의 스토리지를 의미한다고 생각할 수 있습니다. 그러나 Azure Cosmos DB에서는 보통의 경우 사용되는 스토리지가 훨씬 더 적습니다. Azure Cosmos DB의 인덱스는 스토리지 공간을 적게 사용하도록 설계되었으므로 스토리지 오버헤드가 일반적으로 자동 인덱싱에서도 낮습니다(10-20%). 인덱싱 정책을 관리하면 더 세분화된 방식으로 인덱스 공간과 쿼리 성능의 절충을 제어할 수 있습니다.
 
 ## <a name="optimize-cost-with-time-to-live-and-change-feed"></a>TTL(Time to Live) 및 변경 피드를 사용한 비용 최적화
 

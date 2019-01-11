@@ -8,21 +8,21 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: c63e2e3ec922d2cf26603fe19606008b1e8d3f45
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: eba66d4abf84603f1fdb5761d3ea1987983908de
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498171"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607033"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용
 
 
 ## <a name="introduction"></a>소개
 
-심층 학습은 의료, 교통, 제조 등에 이르는 모든 분야에 영향을 줍니다. 기업은 [이미지 분류](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [음성 인식](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), 개체 인식 및 기계 번역과 같은 어려운 문제를 해결하기 위해 딥 러닝으로 전환하고 있습니다. 
+심층 학습은 의료, 교통, 제조 등에 이르는 모든 분야에 영향을 줍니다. 기업은 [이미지 분류](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [음성 인식](https://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), 개체 인식 및 기계 번역과 같은 어려운 문제를 해결하기 위해 딥 러닝으로 전환하고 있습니다. 
 
-[Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), [Apache MXNet](https://mxnet.apache.org/), Theano 등 [널리 사용되는 수많은 프레임워크](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software)가 있습니다. [Caffe](http://caffe.berkeleyvision.org/)는 가장 많이 사용되는 비기호(명령적) 신경망 프레임워크 중 하나로, Computer Vision을 비롯한 많은 영역에서 널리 사용 됩니다. 또한 [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep)는 Caffe를 Apache Spark와 결합하여 기존 Hadoop 클러스터에서 심층 학습을 쉽게 사용하도록 할 수 있습니다. Spark ETL 파이프라인과 함께 심층 학습을 사용하여 시스템 복잡성을 줄이고 완전한 솔루션 학습에 따른 대기 시간을 줄일 수 있습니다.
+[Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), [Apache MXNet](https://mxnet.apache.org/), Theano 등 [널리 사용되는 수많은 프레임워크](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software)가 있습니다. [Caffe](https://caffe.berkeleyvision.org/)는 가장 많이 사용되는 비기호(명령적) 신경망 프레임워크 중 하나로, Computer Vision을 비롯한 많은 영역에서 널리 사용 됩니다. 또한 [CaffeOnSpark](https://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep)는 Caffe를 Apache Spark와 결합하여 기존 Hadoop 클러스터에서 심층 학습을 쉽게 사용하도록 할 수 있습니다. Spark ETL 파이프라인과 함께 심층 학습을 사용하여 시스템 복잡성을 줄이고 완전한 솔루션 학습에 따른 대기 시간을 줄일 수 있습니다.
 
 [HDInsight](https://azure.microsoft.com/services/hdinsight/)는 Apache Spark, Apache Hive, Apache Hadoop, Apache HBase, Apache Storm, Apache Kafka 및 ML Services에 최적화된 오픈 소스 분석 클러스터를 제공하는 클라우드 Apache Hadoop 솔루션입니다. HDInsight는 99.9% SLA를 보장합니다. 이러한 각 빅 데이터 기술과 ISV 애플리케이션은 엔터프라이즈용 보안과 모니터링으로 관리 클러스터 형태로 쉽게 배포 가능합니다.
 
@@ -37,13 +37,13 @@ ms.locfileid: "52498171"
 
 HDInsight는 PaaS 솔루션으로, 뛰어난 플랫폼 기능을 제공하므로 일부 작업을 쉽게 수행할 수 있습니다. 이 블로그 게시물에서 사용하는 기능 중 하나는 [스크립트 작업](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)이라고 하며 셸 명령을 실행하여 클러스터 노드(헤드 노드, 작업자 노드 또는 가장자리 노드)를 사용자 지정할 수 있습니다.
 
-## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>1단계: 모든 노드에 필요한 종속성 설치
+## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>1단계:  모든 노드에 필요한 종속성 설치
 
 시작하려면 종속성을 설치해야 합니다. Caffe 사이트 및 [CaffeOnSpark 사이트](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn)는 YARN 모드에서 Spark에 대한 종속성을 설치하기 위한 몇 가지 유용한 wiki를 제공합니다. 또한 HDInsight는 YARN 모드에서 Spark를 사용합니다. 그러나 HDInsight 플랫폼에 대한 몇 가지 종속성을 추가해야 합니다. 이렇게 하려면 스크립트 동작을 사용하고 모든 헤드 노드 및 작업자 노드에서 실행합니다. 해당 종속성은 다른 패키지에도 종속되므로 이 스크립트 동작은 약 20분이 소요됩니다. HDInsight 클러스터에 액세스할 수 있는 일부 위치(예: GitHub 위치 또는 기본 Blob Storage 계정)에 배치해야 합니다.
 
     #!/bin/bash
     #Please be aware that installing the below will add additional 20 mins to cluster creation because of the dependencies
-    #installing all dependencies, including the ones mentioned in http://caffe.berkeleyvision.org/install_apt.html, as well a few packages that are not included in HDInsight, such as gflags, glog, lmdb, numpy
+    #installing all dependencies, including the ones mentioned in https://caffe.berkeleyvision.org/install_apt.html, as well a few packages that are not included in HDInsight, such as gflags, glog, lmdb, numpy
     #It seems numpy will only needed during compilation time, but for safety purpose you install them on all the nodes
 
     sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler maven libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev build-essential  libboost-all-dev python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
@@ -62,7 +62,7 @@ HDInsight는 PaaS 솔루션으로, 뛰어난 플랫폼 기능을 제공하므로
 
 스크립트 동작에는 두 단계가 있습니다. 첫 번째 단계는 필요한 모든 라이브러리를 설치하는 것입니다. 이러한 라이브러리로는 Caffe를 컴파일(예: gflags, glog)하고 Caffe를 실행(예: numpy)하는 데 필요한 라이브러리가 포함됩니다. CPU 최적화를 위한 libatlas를 사용 중이지만 MKL 또는 CUDA(GPU용)와 같은 다른 최적화 라이브러리를 설치하는 데는 항상 CaffeOnSpark wiki를 따를 수 있습니다.
 
-두 번째 단계는 런타임 중에 Caffe용 protobuf 2.5.0을 다운로드, 컴파일 및 설치하는 것입니다. Protobuf 2.5.0이 [필요](https://github.com/yahoo/CaffeOnSpark/issues/87)하지만 이 버전은 Ubuntu 16에서 패키지로 제공되지 않으므로 소스 코드에서 컴파일해야 합니다. 컴파일하는 방법에 대한 몇 가지 리소스가 인터넷에 제공됩니다. 자세한 내용은 [여기](http://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html)를 참조하세요.
+두 번째 단계는 런타임 중에 Caffe용 protobuf 2.5.0을 다운로드, 컴파일 및 설치하는 것입니다. Protobuf 2.5.0이 [필요](https://github.com/yahoo/CaffeOnSpark/issues/87)하지만 이 버전은 Ubuntu 16에서 패키지로 제공되지 않으므로 소스 코드에서 컴파일해야 합니다. 컴파일하는 방법에 대한 몇 가지 리소스가 인터넷에 제공됩니다. 자세한 내용은 [여기](https://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html)를 참조하세요.
 
 시작하기 위해 모든 작업자 노드 및 헤드 노드 (HDInsight 3.5용)에 대한 클러스터에 대해 이 스크립트 동작을 실행할 수 있습니다. 기존 클러스터에 대해 스크립트 동작을 실행하거나 클러스터 생성 동안 스크립트 동작을 사용할 수 있습니다. 스크립트 동작에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions) 설명서를 참조하세요.
 
@@ -169,7 +169,7 @@ Caffe는 "표현 아키텍처"를 사용 중이며 여기서는 모델을 구성
 
 CaffeOnSpark는 MNIST 학습을 위한 몇 가지 네트워크 토폴로지를 제공합니다. 네트워크 아키텍처(네트워크의 토폴로지)를 분할하고 최적화하기 위한 훌륭한 설계를 포함합니다. 이 경우 다음 두 파일이 필요합니다. 
 
-"Solver" 파일(${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt)은 최적화를 감독하고 매개 변수 업데이트를 생성하는 데 사용됩니다. 예를 들어 CPU 또는 GPU를 사용할지 여부, 모멘텀, 반복 횟수 등을 정의합니다. 또한 프로그램에서 사용하는 신경망 토폴로지도 정의합니다(필요한 두 번째 파일). Solver에 대한 자세한 내용은 [Caffe 설명서](http://caffe.berkeleyvision.org/tutorial/solver.html)를 참조하세요.
+"Solver" 파일(${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt)은 최적화를 감독하고 매개 변수 업데이트를 생성하는 데 사용됩니다. 예를 들어 CPU 또는 GPU를 사용할지 여부, 모멘텀, 반복 횟수 등을 정의합니다. 또한 프로그램에서 사용하는 신경망 토폴로지도 정의합니다(필요한 두 번째 파일). Solver에 대한 자세한 내용은 [Caffe 설명서](https://caffe.berkeleyvision.org/tutorial/solver.html)를 참조하세요.
 
 이 예제의 경우 GPU보다는 CPU를 사용하므로 마지막 줄을 다음으로 변경해야 합니다.
 
@@ -187,7 +187,7 @@ CaffeOnSpark는 MNIST 학습을 위한 몇 가지 네트워크 토폴로지를 �
 
 ![Caffe 구성](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
 
-네트워크를 정의하는 방법에 대한 자세한 내용은 [MNIST 데이터 세트에 대한 Caffe 설명서](http://caffe.berkeleyvision.org/gathered/examples/mnist.html)를 확인하세요.
+네트워크를 정의하는 방법에 대한 자세한 내용은 [MNIST 데이터 세트에 대한 Caffe 설명서](https://caffe.berkeleyvision.org/gathered/examples/mnist.html)를 확인하세요.
 
 이 문서의 목적에 맞게 다음 MNIST 예제를 사용합니다. 헤드 노드에서 다음 명령을 실행합니다.
 
@@ -291,11 +291,11 @@ SampleID는 MNIST 데이터 세트에서 ID를 나타내며 레이블은 모델�
 
 
 ## <a name="seealso"></a>참고 항목
-* [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
+* [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
-* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 HVAC 데이터로 건물 온도 분석](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="manage-resources"></a>리소스 관리
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](apache-spark-resource-manager.md)

@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: victorh
-ms.openlocfilehash: b0bde770e33a08832e7d3a93a745bbba44b04f87
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 99a4dd25539db754a893ddda7480c64e5a13a5bd
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353342"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631518"
 ---
-# <a name="configure-app-service-web-apps-with-application-gateway"></a>Application Gateway를 사용하여 App Service Web Apps 구성
+# <a name="configure-app-service-with-application-gateway"></a>Application Gateway를 사용하여 App Service 구성
 
-애플리케이션 게이트웨이를 사용하면 Azure 웹앱 또는 다른 다중 테넌트 서비스를 백 엔드 풀 멤버로 사용할 수 있습니다. 이 문서에서는 Application Gateway를 사용하여 Azure 웹앱을 구성하는 방법을 배웁니다. 첫 번째 예에서는 웹앱을 백 엔드 풀 멤버로 사용하도록 기존 애플리케이션 게이트웨이를 구성하는 방법을 보여 줍니다. 두 번째 예에서는 웹앱을 백 엔드 풀 멤버로 사용하여 새 애플리케이션 게이트웨이를 만드는 방법을 보여 줍니다.
+Application Gateway를 통해 App Service 앱 또는 다른 다중 테넌트 서비스를 백 엔드 풀 멤버로 사용할 수 있습니다. 이 문서에서는 Application Gateway를 사용하여 App Service 앱을 구성하는 방법을 알아봅니다. 첫 번째 예에서는 웹앱을 백 엔드 풀 멤버로 사용하도록 기존 애플리케이션 게이트웨이를 구성하는 방법을 보여 줍니다. 두 번째 예에서는 웹앱을 백 엔드 풀 멤버로 사용하여 새 애플리케이션 게이트웨이를 만드는 방법을 보여 줍니다.
 
 ## <a name="configure-a-web-app-behind-an-existing-application-gateway"></a>기존 애플리케이션 게이트웨이 뒤에 웹앱 구성
 
@@ -159,8 +159,8 @@ DnsSettings              : {
 
 이 예제에서 배포된 웹앱은 인터넷에서 직접 액세스할 수 있는 공용 IP 주소를 사용합니다. 따라서 새로운 기능을 배우고 새로운 것을 시도할 때 문제를 해결하는 데 도움이 됩니다. 하지만 프로덕션 환경에 기능을 배포하려는 경우 더 많은 제한을 추가해야 합니다.
 
-웹앱에 대한 액세스를 제한할 수 있는 한 가지 방법은 [Azure App Service 고정 IP 제한](../app-service/app-service-ip-restrictions.md)을 사용하는 것입니다. 웹앱이 애플리케이션 게이트웨이의 트래픽만 수신하도록 웹앱을 제한할 수 있습니다. 앱 서비스 IP 제한 기능을 사용하여 액세스할 수 있는 유일한 주소로 애플리케이션 게이트웨이 VIP를 나열할 수 있습니다.
+웹앱에 대한 액세스를 제한할 수 있는 한 가지 방법은 [Azure App Service 고정 IP 제한](../app-service/app-service-ip-restrictions.md)을 사용하는 것입니다. 웹앱이 애플리케이션 게이트웨이의 트래픽만 수신하도록 웹앱을 제한할 수 있습니다. 앱 서비스 IP 제한 기능을 사용하여 액세스할 수 있는 유일한 주소로 응용 프로그램 게이트웨이 VIP를 나열할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[PowerShell을 사용하여 Application Gateway에서 리디렉션 구성](redirect-overview.md)을 방문하여 리디렉션 구성 방법을 알아봅니다.
+다음을 방문하여 리디렉션을 구성하는 방법을 알아봅니다. [PowerShell을 사용하여 Application Gateway에서 리디렉션 구성](redirect-overview.md)

@@ -1,21 +1,21 @@
 ---
 ms.assetid: ''
-title: Azure Key Vault의 가상 네트워크 서비스 엔드포인트 | Microsoft Docs
+title: Azure Key Vault의 가상 네트워크 서비스 엔드포인트 - Azure Key Vault | Microsoft Docs
 description: Key Vault의 가상 네트워크 서비스 엔드포인트 개요
 services: key-vault
 author: amitbapat
 ms.author: ambapat
 manager: mbaldwin
-ms.date: 08/31/2018
+ms.date: 01/02/2019
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 656007268dcf57910e4a655d85285da4fbd37425
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 1d53fc6cef022f627bb1cd1f832ebf65698207a9
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681520"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002429"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault의 가상 네트워크 서비스 엔드포인트
 
@@ -31,6 +31,7 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 > Key Vault 방화벽 및 가상 네트워크 규칙은 Key Vault의 [데이터 평면](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control)에만 적용됩니다. Key Vault 제어 평면 작업(예: 작업 만들기, 삭제 및 수정 그리고 액세스 정책 설정, 방화벽 및 가상 네트워크 규칙 설정)은 방화벽 및 가상 네트워크 규칙의 영향을 받지 않습니다.
 
 서비스 엔드포인트를 사용할 수 있는 방법의 몇 가지 예는 다음과 같습니다.
+
 * Key Vault를 사용하여 암호화 키, 애플리케이션 비밀 및 인증서를 저장하고, 공용 인터넷에서 키 자격 증명 모음에 대한 액세스를 차단하려고 합니다.
 * 사용자 애플리케이션 또는 지정된 호스트의 간단한 목록만 키 자격 증명 모음에 연결할 수 있도록 키 자격 증명 모음에 대한 액세스를 잠그려고 합니다.
 * Azure 가상 네트워크에서 실행되는 애플리케이션이 있으며, 이 가상 네트워크는 모든 인바운드 및 아웃바운드 트래픽에 대해 잠겨 있습니다. 애플리케이션은 비밀 또는 인증서를 가져오거나 암호화 키를 사용하려면 여전히 Key Vault에 연결해야 합니다.
@@ -38,6 +39,7 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 ## <a name="configure-key-vault-firewalls-and-virtual-networks"></a>Key Vault 방화벽 및 가상 네트워크 구성
 
 방화벽 및 가상 네트워크를 구성하는 데 필요한 단계는 다음과 같습니다. 이러한 단계는 PowerShell, Azure CLI 또는 Azure Portal을 사용하든 관계없이 적용됩니다.
+
 1. [Key Vault 로깅](key-vault-logging.md)을 사용하도록 설정하여 자세한 액세스 로그를 확인합니다. 이렇게 하면 방화벽 및 가상 네트워크 규칙이 키 자격 증명 모음에 대한 액세스를 막는 경우 진단하는 데 도움이 됩니다. (이 단계는 선택 사항이지만 강력 권장됩니다.)
 2. 대상 가상 네트워크 및 서브넷에 대한 **키 자격 증명 모음의 서비스 엔드포인트**를 사용하도록 설정합니다.
 3. 특정 가상 네트워크, 서브넷 및 IPv4 주소 범위에서 해당 키 자격 증명 모음에 대한 액세스를 제한하려면 키 자격 증명 모음에 대한 방화벽 및 가상 네트워크 규칙을 설정합니다.
@@ -57,6 +59,7 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 > * 현재 IPv4 주소만 지원됩니다.
 
 ## <a name="trusted-services"></a>신뢰할 수 있는 서비스
+
 **신뢰할 수 있는 서비스 허용** 옵션을 사용하도록 설정하는 경우 키 자격 증명 모음에 액세스하도록 허용되는 신뢰할 수 있는 서비스 목록은 다음과 같습니다.
 
 |신뢰할 수 있는 서비스|사용 시나리오|

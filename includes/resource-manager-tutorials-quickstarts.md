@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 12/05/2018
 ms.author: jgao
 ms.custom: include file
-ms.openlocfilehash: 46618b76f43247199e85c2023a5391c5566f3394
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 711688b5b414e7b9a931190de3f7e6321d97ba3e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978783"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53729342"
 ---
 ## <a name="quickstarts-and-tutorials"></a>빠른 시작 및 자습서
 
@@ -39,6 +39,7 @@ Resource Manager 템플릿을 개발하는 방법을 알아보려면 다음 빠�
     |------|-----|
     |[템플릿 참조 활용](../articles/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)|템플릿 참조 설명서를 활용하여 템플릿을 개발합니다. 이 자습서에서는 저장소 계정 스키마를 찾고 해당 정보를 사용하여 암호화된 저장소 계정을 만듭니다.|
     |[여러 인스턴스 만들기](../articles/azure-resource-manager/resource-manager-tutorial-create-multiple-instances.md)|Azure 리소스의 여러 인스턴스를 만듭니다. 이 자습서에서는 저장소 계정의 여러 인스턴스를 만듭니다.|
+    |[리소스 이동](../articles/azure-resource-manager/resource-manager-tutorial-move-resources.md)|한 리소스 그룹에서 다른 리소스 그룹으로 리소스를 이동합니다. 자습서에서 기존 템플릿을 실행하여 리소스 그룹 두 개와 스토리지 계정 하나를 만든 다음, Azure PowerShell cmdlet을 실행하여 스토리지 계정을 다른 리소스 그룹으로 이동합니다.|
     |[리소스 배포 순서 설정](../articles/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources.md)|리소스 종속성을 정의합니다. 이 자습서에서는 가상 네트워크, 가상 머신 및 종속 Azure 리소스를 만듭니다. 종속성을 정의하는 방법을 알아봅니다.|
     |[조건 사용](../articles/azure-resource-manager/resource-manager-tutorial-use-conditions.md)|일부 매개 변수 값에 따라 리소스를 배포합니다. 이 자습서에서는 새 저장소 계정을 만드는 템플릿을 정의하거나 매개 변수 값을 기준으로 기존 저장소 계정을 사용합니다.|
     |[Key Vault 통합](../articles/azure-resource-manager/resource-manager-tutorial-use-key-vault.md)|Azure Key Vault에서 비밀/암호를 검색합니다. 이 자습서에서는 가상 머신을 만듭니다.  가상 머신 관리자 암호는 Key Vault에서 검색됩니다.|

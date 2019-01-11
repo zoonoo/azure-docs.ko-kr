@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 7af15e2e2ca6698f9d8ba1629f13804ce6457b8d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: f6191ba2f6ca86e07842030c0fca0a65b8c9d09a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315641"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584499"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database Managed Instance 리소스 제한 사항에 대한 개요
 
@@ -48,16 +48,20 @@ Managed Instance에는 범용 및 중요 비즈니스용의 두 가지 서비스
 | **기능** | **범용** | **중요 비즈니스** |
 | --- | --- | --- |
 | vCore 수\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
-| 메모리 | Gen4: 56GB~156GB<br/>Gen5: 44GB~440GB<br/>\*vCore 수에 정비례 | Gen4: 56GB~156GB <br/> Gen5: 44GB~440GB<br/>\*vCore 수에 정비례 |
+| 메모리 | Gen4: 56GB~156GB<br/>Gen5: 44GB~440GB<br/>\*vCore 수에 정비례 | Gen4: 56GB~156GB <br/> Gen5: 41GB-408GB<br/>\*vCore 수에 정비례 |
 | 최대 저장소 크기 | 8 TB | Gen 4: 1TB <br/> 5세대: <br/>- 1TB(8, 16개 vCore용)<br/>- 2TB(24개 vCore용)<br/>- 4TB(32, 40, 64, 80개 vCore용) |
 | 데이터베이스당 최대 저장소 | 인스턴스당 최대 저장소 크기에 따라 결정됨 | 인스턴스당 최대 저장소 크기에 따라 결정됨 |
 | 인스턴스당 최대 데이터베이스 수 | 100 | 100 |
 | 인스턴스당 최대 데이터베이스 파일 수 | 최대 280개 | 데이터베이스당 32,767개 파일 |
-| IOPS(대략적인 크기) | 파일당 500~7,500개<br/>\*[파일 크기에 따라 다름](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K~110K(vCore당 1375) |
+| 데이터/로그 IOPS(근사치) | 파일당 500~7,500개<br/>\*[파일 크기에 따라 다름](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K~110K(vCore당 1375) |
+| 인스턴스 로그 처리량 | 인스턴스당 22MB/초 | vCore당 3MB/초<br/>최대 48MB/초 |
+| 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>\*[파일 크기에 따라 다름](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | vCore당 24~48MB/초 |
 | IO 대기 시간(근사치) | 5~10ms | 1~2ms |
-| 최대 tempDB 크기 | 192~1920GB(vCore당 24GB) | 인스턴스당 최대 저장소 크기에 따라 결정됨 |
+| 최대 tempDB 크기 | 192~1920GB(vCore당 24GB) | 제약 조건 없음 - 최대 인스턴스 스토리지 크기로 제한됨 |
 
-- 사용자 및 시스템 데이터베이스는 최대 스토리지 크기 제한과 비교되는 인스턴스 스토리지 크기에 포함됩니다. <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> 시스템 뷰를 사용하여 데이터베이스에서 사용되는 총 공간을 확인합니다. 오류 로그는 영구적이지 않으며 크기에 포함되지 않습니다. 백업은 스토리지 크기에 포함되지 않습니다.
+**참고**:
+- 사용자 및 시스템 데이터베이스의 데이터 및 로그 파일 크기는 최대 스토리지 크기 제한과 비교되는 인스턴스 스토리지 크기에 포함됩니다. <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> 시스템 뷰를 사용하여 데이터베이스에서 사용되는 총 공간을 확인합니다. 오류 로그는 영구적이지 않으며 크기에 포함되지 않습니다. 백업은 스토리지 크기에 포함되지 않습니다.
+- 처리량 및 IOPS도 Managed Instance에 의해 명시적으로 제한되지 않은 페이지 크기에 따라 다릅니다.
 
 ## <a name="supported-regions"></a>지원되는 지역
 

@@ -1,5 +1,5 @@
 ---
-title: Active Directory ID를 사용하여 결과를 자르는 보안 필터 - Azure Search
+title: Active Directory를 사용하여 결과를 자르는 보안 필터 - Azure Search
 description: 보안 필터 및 AAD(Azure Active Directory) ID를 사용하는 Azure Search 콘텐츠에 대한 액세스 제어입니다.
 author: brjohnstmsft
 manager: jlembicz
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 2d1ac36341ef47ac95317c583005b675f31f1265
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 1cd862c59154f9da766b5df1ab8fb8d61e15d054
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308829"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628292"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Active Directory ID를 사용하여 Azure Search 결과를 자르는 보안 필터
 
@@ -43,11 +43,11 @@ Azure Search의 인덱스에는 문서에 대한 읽기 권한이 있는 그룹 
 
 이 단계에서는 사용자 및 그룹 계정 로그인을 수락하기 위해 애플리케이션을 AAD와 통합합니다. 조직의 AAD 관리자가 아닌 경우 다음 단계를 수행할 [새 테넌트를 만들어야](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) 할 수도 있습니다.
 
-1. [**응용 프로그램 등록 포털**](https://apps.dev.microsoft.com) >  **수렴형 앱** > **앱 추가**로 이동합니다.
+1. [**애플리케이션 등록 포털**](https://apps.dev.microsoft.com) >  **수렴형 앱** > **앱 추가**로 이동합니다.
 2. 애플리케이션의 이름을 입력한 다음, **만들기**를 클릭합니다. 
 3. [내 애플리케이션] 페이지에서 새로 등록한 애플리케이션을 선택합니다.
-4. [응용 프로그램 등록] 페이지 > **플랫폼** > **플랫폼 추가**에서 **웹 API**를 선택합니다.
-5. 계속해서 [응용 프로그램 등록] 페이지에서 **Microsoft Graph 권한** > **추가**로 이동합니다.
+4. [애플리케이션 등록] 페이지 &gt; **플랫폼** > **플랫폼 추가**에서 **웹 API**를 선택합니다.
+5. 계속해서 [애플리케이션 등록] 페이지에서 **Microsoft Graph 권한** > **추가**로 이동합니다.
 6. [권한 선택]에서 다음 위임된 권한을 추가하고 **확인**을 클릭합니다.
 
    + **Directory.ReadWrite.All**

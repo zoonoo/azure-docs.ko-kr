@@ -3,17 +3,17 @@ title: Azure Maps에 적절한 가격 책정 계층 선택 | Microsoft Docs
 description: Azure Maps에서 제공하는 가격 책정 계층 알아보기
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ee277867f449afddeb89c3fd73b5b577a68a4497
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 028a227eefb319d19c9274082626a007bd9161de
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998373"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993963"
 ---
 # <a name="choosing-the-right-pricing-tier-in-azure-maps"></a>Azure Maps에서 적절한 가격 책정 계층 선택
 
@@ -53,9 +53,8 @@ S0 및 S1 가격 책정 계층이 처리할 수 있는 데이터 처리량은 �
 
 | 가격 책정 계층   |        대상 고객                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
-| S0            |    <p>S0 가격 책정 계층의 대상 고객은 소규모 또는 중간 규모 기업입니다. 예상하는 동시 사용자 수가 많지 않고 아래 표에 표시된 것처럼 핵심 지리 공간적 API가 서비스 요구 사항을 충족하는 경우에 적합한 가격 책정 계층입니다. 이 계층은 일반 공급되며 개념 증명 개발 및 초기 단계 테스트부터 애플리케이션 프로덕션 및 배포까지 모든 프로덕션 단계에 적용됩니다.<p>|
+| S0            |    <p>S0 가격 책정 계층의 대상 고객은 소규모 또는 중간 규모 기업입니다. 예상하는 동시 사용자 수가 많지 않고 위의 표에 표시된 것처럼 핵심 지리 공간적 API가 서비스 요구 사항을 충족하는 경우에 적합한 가격 책정 계층입니다. 이 계층은 일반 공급되며 개념 증명 개발 및 초기 단계 테스트부터 애플리케이션 프로덕션 및 배포까지 모든 프로덕션 단계에 적용됩니다.<p>|
 | S1            |    <p>S1 가격 책정 계층은 대기업, 중요 업무용 애플리케이션, 많은 동시 사용자를 지원해야 하거나 고급 지리 공간적 서비스가 필요한 고객에게 적합합니다.</p>|
-
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 964f91f412645e141ca003d511480f6f6eb438a3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: e69f6869911555730fe723b340e224c0d5a1e4bb
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343305"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536052"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL Database Managed Instance 연결 아키텍처
 
@@ -113,7 +113,10 @@ Azure SQL Database Managed Instance 가상 클러스터에는 Microsoft에서 Ma
 
   > [!Note]
   > 필수 인바운드 보안 규칙은 포트 9000, 9003, 1438, 1440, 1452의 ‘모든’ 원본의 트래픽을 허용하지만 이러한 포트는 기본 제공 방화벽으로 보호됩니다. 이 [문서](sql-database-managed-instance-find-management-endpoint-ip-address.md)에서는 관리 엔드포인트 IP 주소를 검색하고 방화벽 규칙을 확인하는 방법을 보여 줍니다. 
-
+  
+  > [!Note]
+  > Managed Instance에서 트랜잭션 복제를 사용 중이고 Managed Instance의 데이터베이스가 게시자 또는 배포자로 사용되는 경우 Azure 파일 공유에 액세스하려면 서브넷의 보안 규칙에서 포트 445(TCP 아웃바운드)도 열어야 합니다.
+  
 ## <a name="next-steps"></a>다음 단계
 
 - 개요는  [Managed Instance란?](sql-database-managed-instance.md)을 참조하세요.

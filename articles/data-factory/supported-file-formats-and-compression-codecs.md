@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b3498deb85b84c9c47544be1d8c3709c9fc78ae1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4c8fcc403b274d161893194109dee4bc8d0cb369
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100259"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974367"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory에서 지원되는 파일 형식 및 압축 코덱
 
@@ -24,9 +24,9 @@ ms.locfileid: "53100259"
 
 * [텍스트 형식](#text-format)
 * [JSON 형식](#json-format)
-* [Avro 형식](#avro-format)
-* [ORC 형식](#orc-format)
 * [Parquet 형식](#parquet-format)
+* [ORC 형식](#orc-format)
+* [Avro 형식](#avro-format)
 
 > [!TIP]
 > 파일 형식 설정에 따라 메타데이터가 결정되는 방법과 [dataset `structure`](concepts-datasets-linked-services.md#dataset-structure) 섹션을 지정해야 하는 경우에 대한 팁을 비롯하여 복사 작업이 [복사 작업의 스키마 매핑](copy-activity-schema-and-type-mapping.md)에서 싱크로 원본 데이터를 매핑하는 방법을 알아봅니다.
@@ -91,8 +91,8 @@ JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | filePattern |각 JSON 파일에 저장된 데이터의 패턴을 나타냅니다. 사용 가능한 값은 **setOfObjects** 및 **arrayOfObjects**이고 **기본값**은 **setOfObjects**입니다. 이러한 패턴에 대한 자세한 내용은 [JSON 파일 패턴](#json-file-patterns) 섹션을 참조하세요. |아니요 |
-| jsonNodeReference | 동일한 패턴으로 배열 필드 내부의 개체에서 데이터를 반복하고 추출하려면 해당 배열의 JSON 경로를 지정합니다. 이 속성은 JSON 파일에서 데이터를 복사할 때만 지원됩니다. | 아니요 |
-| jsonPathDefinition | 사용자 지정된 열 이름(소문자로 시작)으로 각 열 매핑에 대한 JSON 경로 식을 지정합니다. 이 속성은 JSON 파일에서 데이터를 복사할 때만 지원되며 개체 또는 배열에서 데이터를 추출할 수 있습니다. <br/><br/> 루트 개체 아래의 필드는 root $로 시작하며, `jsonNodeReference` 속성으로 선택된 배열 내부의 필드는 배열 요소에서 시작합니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요. | 아니요 |
+| jsonNodeReference | 동일한 패턴으로 배열 필드 내부의 개체에서 데이터를 반복하고 추출하려면 해당 배열의 JSON 경로를 지정합니다. 이 속성은 JSON 파일**에서** 데이터를 복사할 때만 지원됩니다. | 아니요 |
+| jsonPathDefinition | 사용자 지정된 열 이름(소문자로 시작)으로 각 열 매핑에 대한 JSON 경로 식을 지정합니다. 이 속성은 JSON 파일**에서** 데이터를 복사할 때만 지원되며 개체 또는 배열에서 데이터를 추출할 수 있습니다. <br/><br/> 루트 개체 아래의 필드는 root $로 시작하며, `jsonNodeReference` 속성으로 선택된 배열 내부의 필드는 배열 요소에서 시작합니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요. | 아니요 |
 | encodingName |인코딩 이름을 지정합니다. 유효한 인코딩 이름 목록은 [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) 속성을 참조하세요. 예: windows-1250 또는 shift_jis **기본값**은 **UTF-8**입니다. |아니요 |
 | nestingSeparator |중첩 수준을 구분하는데 사용되는 문자입니다. 기본값은 '.'(점)입니다. |아니요 |
 
@@ -190,8 +190,6 @@ JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `
 ### <a name="jsonformat-example"></a>JsonFormat 예제
 
 **사례 1: JSON 파일에서 데이터 복사**
-
-JSON 파일에서 데이터를 복사할 때에는 다음 두 샘플을 참조하세요. 일반 주의 사항:
 
 **샘플 1: 개체 및 배열에서 데이터 추출**
 
@@ -405,22 +403,51 @@ SQL Database에 다음 테이블이 있는 경우:
 }
 ```
 
-## <a name="avro-format"></a>AVRO 형식
+## <a name="parquet-format"></a>Parquet 형식
 
-Avro 파일을 구문 분석하거나 데이터를 Avro 형식으로 쓰려면 `format` `type` 속성을 **AvroFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:
+Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰려면 `format` `type` 속성을 **ParquetFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:
 
 ```json
 "format":
 {
-    "type": "AvroFormat",
+    "type": "ParquetFormat"
 }
 ```
 
-Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자습서](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe)를 참조하세요.
+> [!IMPORTANT]
+> 온-프레미스 및 클라우드 데이터 저장소 간에 자체 호스티드 통합 런타임을 통한 복사 작업에서 Parquet 파일을 **있는 그대로** 복사하지 않는 경우, IR 컴퓨터에 JRE 8(Java Runtime Environment)을 설치해야 합니다. 64비트 IR에는 64비트 JRE가 필요합니다. [여기서](https://go.microsoft.com/fwlink/?LinkId=808605)두 버전이 모두 제공됩니다.
+>
 
 다음 사항에 유의하세요.
 
-* [복합 데이터 형식](http://avro.apache.org/docs/current/spec.html#schema_complex)은 지원되지 않습니다(레코드, 열거형, 배열, 매핑, 공용 구조체 및 고정).
+* 복합 데이터 형식(MAP, LIST)은 지원되지 않습니다.
+* 열 이름에는 공백이 지원되지 않습니다.
+* Parquet 파일에는 압축 관련 옵션인 NONE, SNAPPY, GZIP 및 LZO가 포함되어 있습니다. Data Factory는 LZO를 제외한 압축 형식의 Parquet 파일에서 데이터 읽기를 지원합니다. 메타데이터에 있는 압축 코덱을 사용하여 데이터를 읽습니다. 그러나 Parquet 파일에 쓸 때 Data Factory는 Parquet 서식에 대한 기본값인 SNAPPY를 선택합니다. 현재 이 동작을 재정의할 수 있는 옵션은 없습니다.
+
+### <a name="data-type-mapping-for-parquet-files"></a>Parquet 파일에 대한 데이터 형식 매핑
+
+| Data Factory 중간 데이터 형식 | Parquet 기본 형식 | Parquet 원본 형식(Deserialize) | Parquet 원본 형식(Serialize) |
+|:--- |:--- |:--- |:--- |
+| BOOLEAN | BOOLEAN | 해당 없음 | 해당 없음 |
+| SByte | Int32 | Int8 | Int8 |
+| Byte | Int32 | UInt8 | Int16 |
+| Int16 | Int32 | Int16 | Int16 |
+| UInt16 | Int32 | UInt16 | Int32 |
+| Int32 | Int32 | Int32 | Int32 |
+| UInt32 | Int64 | UInt32 | Int64 |
+| Int64 | Int64 | Int64 | Int64 |
+| UInt64 | Int64/이진 | UInt64 | 10진수 |
+| 단일 | Float | 해당 없음 | 해당 없음 |
+| Double | Double | 해당 없음 | 해당 없음 |
+| 10진수 | 이진 | 10진수 | 10진수 |
+| 문자열 | 이진 | Utf8 | Utf8 |
+| Datetime | Int96 | 해당 없음 | 해당 없음 |
+| timespan | Int96 | 해당 없음 | 해당 없음 |
+| DateTimeOffset | Int96 | 해당 없음 | 해당 없음 |
+| ByteArray | 이진 | 해당 없음 | 해당 없음 |
+| Guid | 이진 | Utf8 | Utf8 |
+| Char | 이진 | Utf8 | Utf8 |
+| CharArray | 지원되지 않음 | 해당 없음 | 해당 없음 |
 
 ## <a name="orc-format"></a>ORC 형식
 
@@ -439,7 +466,8 @@ ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `fo
 
 다음 사항에 유의하세요.
 
-* 복합 데이터 형식(구조체, 맵, 목록, 공용 구조체)은 지원되지 않습니다.
+* 복합 데이터 형식(구조체, 매핑, 목록, 공용 구조체)은 지원되지 않습니다.
+* 열 이름에는 공백이 지원되지 않습니다.
 * ORC 파일에는 3개의 [압축 관련 옵션](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/) (NONE, ZLIB, SNAPPY)이 있습니다. Data Factory에서는 이러한 압축 형식으로 된 데이터를 ORC 파일에서 읽을 수 있습니다. 메타데이터에 있는 압축 코덱을 사용하여 데이터를 읽습니다. 그러나 ORC 파일에 쓸 때 Data Factory는 ORC에 대한 기본값인 ZLIB를 선택합니다. 현재 이 동작을 재정의할 수 있는 옵션은 없습니다.
 
 ### <a name="data-type-mapping-for-orc-files"></a>ORC 파일에 대한 데이터 형식 매핑
@@ -466,50 +494,22 @@ ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `fo
 | Guid | 문자열 |
 | Char | Char(1) |
 
-## <a name="parquet-format"></a>Parquet 형식
+## <a name="avro-format"></a>AVRO 형식
 
-Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰려면 `format` `type` 속성을 **ParquetFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:
+Avro 파일을 구문 분석하거나 데이터를 Avro 형식으로 쓰려면 `format` `type` 속성을 **AvroFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:
 
 ```json
 "format":
 {
-    "type": "ParquetFormat"
+    "type": "AvroFormat",
 }
 ```
 
-> [!IMPORTANT]
-> 온-프레미스 및 클라우드 데이터 저장소 간에 자체 호스티드 통합 런타임을 통한 복사 작업에서 Parquet 파일을 **있는 그대로** 복사하지 않는 경우, IR 컴퓨터에 JRE 8(Java Runtime Environment)을 설치해야 합니다. 64비트 IR에는 64비트 JRE가 필요합니다. [여기서](https://go.microsoft.com/fwlink/?LinkId=808605)두 버전이 모두 제공됩니다.
->
+Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자습서](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe)를 참조하세요.
 
 다음 사항에 유의하세요.
 
-* 복합 데이터 형식(MAP, LIST)은 지원되지 않습니다.
-* Parquet 파일에는 압축 관련 옵션인 NONE, SNAPPY, GZIP 및 LZO가 포함되어 있습니다. Data Factory에서는 이러한 압축 형식으로 된 데이터를 Parquet 파일에서 읽을 수 있습니다. 메타데이터에 있는 압축 코덱을 사용하여 데이터를 읽습니다. 그러나 Parquet 파일에 쓸 때 Data Factory는 Parquet 서식에 대한 기본값인 SNAPPY를 선택합니다. 현재 이 동작을 재정의할 수 있는 옵션은 없습니다.
-
-### <a name="data-type-mapping-for-parquet-files"></a>Parquet 파일에 대한 데이터 형식 매핑
-
-| Data Factory 중간 데이터 형식 | Parquet 기본 형식 | Parquet 원본 형식(Deserialize) | Parquet 원본 형식(Serialize) |
-|:--- |:--- |:--- |:--- |
-| BOOLEAN | BOOLEAN | 해당 없음 | 해당 없음 |
-| SByte | Int32 | Int8 | Int8 |
-| Byte | Int32 | UInt8 | Int16 |
-| Int16 | Int32 | Int16 | Int16 |
-| UInt16 | Int32 | UInt16 | Int32 |
-| Int32 | Int32 | Int32 | Int32 |
-| UInt32 | Int64 | UInt32 | Int64 |
-| Int64 | Int64 | Int64 | Int64 |
-| UInt64 | Int64/이진 | UInt64 | 10진수 |
-| 단일 | Float | 해당 없음 | 해당 없음 |
-| Double | Double | 해당 없음 | 해당 없음 |
-| 10진수 | 이진 | 10진수 | 10진수 |
-| 문자열 | 이진 | Utf8 | Utf8 |
-| Datetime | Int96 | 해당 없음 | 해당 없음 |
-| timespan | Int96 | 해당 없음 | 해당 없음 |
-| DateTimeOffset | Int96 | 해당 없음 | 해당 없음 |
-| ByteArray | 이진 | 해당 없음 | 해당 없음 |
-| Guid | 이진 | Utf8 | Utf8 |
-| Char | 이진 | Utf8 | Utf8 |
-| CharArray | 지원되지 않음 | 해당 없음 | 해당 없음 |
+* [복합 데이터 형식](http://avro.apache.org/docs/current/spec.html#schema_complex)은 지원되지 않습니다(레코드, 열거형, 배열, 매핑, 공용 구조체 및 고정).
 
 ## <a name="compression-support"></a>압축 지원
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights 미리 보기 보안 - Azure Time Series Insights 미리 보기 액세스 및 관리를 위한 보안 구성 | Microsoft Docs
+title: Azure Time Series Insights 미리 보기 액세스 및 관리를 위한 보안 구성 | Microsoft Docs
 description: 이 문서에서는 Azure Time Series Insights 미리 보기를 보호하기 위해 관리 액세스 정책 및 데이터 액세스 정책으로 보안 및 권한을 구성하는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7f8eb66feecd58b766b3414b1bbc6bd4e27bf4f7
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 9aea7a9c9dd96bf30ebb3def9354df9e4bd30114
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275468"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558525"
 ---
 # <a name="grant-data-access-to-an-environment"></a>환경에 대한 데이터 액세스 권한 부여
 

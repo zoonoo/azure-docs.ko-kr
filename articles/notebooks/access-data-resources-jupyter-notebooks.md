@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 425c1019a9c67ac726d03955d60d1389bef7cae2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a034e41f5b12ffb8f043f14d90284617316f18d2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084943"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723045"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Notebook에서 클라우드 데이터 액세스
 
@@ -69,7 +69,7 @@ Azure Storage는 데이터 형식 및 액세스해야 하는 방법에 따라 �
 Azure Cosmos DB는 JSON 문서에 대해 완벽하게 인덱싱된 NoSQL 스토리지를 제공합니다.) 다음 문서에서는 Python에서 Cosmos DB를 사용하는 다양한 방법을 제공합니다.
 
 - [Python 사용하여 SQL API 앱 빌드](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
-- [MongoDB API를 사용하여 Flask 앱 빌드](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
+- [Azure Cosmos DB for MongoDB API를 사용하여 Flask 앱 빌드](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
 - [Python 및 Gremlin API를 사용하여 그래프 데이터베이스 만들기](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
 - [Python 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
 - [Python 및 Azure Cosmos DB를 사용하여 Table API 앱 빌드](https://docs.microsoft.com/azure/cosmos-db/create-table-python)

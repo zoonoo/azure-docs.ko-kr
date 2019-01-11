@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d39a271f33cb86bf870c3a7692c38d780093efa2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86b33bfa0f5383ac68080e2f8f7f9a004a1364a0
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100041"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652623"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>프로덕션에 IoT Edge 솔루션 배포 준비
 
@@ -162,6 +162,17 @@ Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구�
 세 가지 경우 모두, DNS 이름이 \*.azure-devices.net 패턴과 일치합니다. 
 
 또한 **컨테이너 엔진**은 HTTPS를 통해 컨테이너 레지스트리를 호출합니다. IoT Edge 런타임 컨테이너 이미지를 검색하려면 DNS 이름이 mcr.microsoft.com입니다. 컨테이너 엔진은 배포에 구성된 대로 다른 레지스트리에 연결합니다. 
+
+다음 검사 목록은 방화벽 규칙의 시작점입니다.
+
+   | URL(\* = 와일드카드) | 아웃바운드 TCP 포트 | 사용 현황 |
+   | ----- | ----- | ----- |
+   | mcr.microsoft.com  | 443 | Microsoft 컨테이너 레지스트리 |
+   | global.azure-devices-provisioning.net  | 443 | DPS 액세스(선택 사항) |
+   | \*.azurecr.io | 443 | 개인 및 타사 컨테이너 레지스트리 |
+   | \*.blob.core.windows.net | 443 | 이미지 델타 다운로드 | 
+   | \*.azure-devices.net | 5671, 8883, 443 | IoT Hub 액세스 |
+   | \*.docker.io  | 443 | Docker 액세스(선택 사항) |
 
 ### <a name="configure-communication-through-a-proxy"></a>프록시를 통한 통신 구성
 

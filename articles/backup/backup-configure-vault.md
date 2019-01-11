@@ -4,17 +4,16 @@ description: Microsoft Azure Backup 에이전트를 사용하여 Windows 파일�
 services: backup
 author: rayne-wiselman
 manager: carmonm
-keywords: 백업 자격 증명 모음, Windows 서버 백업, Windows 백업
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: 4e138311b58d56f3a188347d43ed12287d43e1bd
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ff1aaadd77df9cb7678ad71141d15c96f2f12dc0
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874008"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788398"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Resource Manager 배포 모델을 사용하여 Azure로 Windows Server 또는 클라이언트 백업
 이 문서는 Resource Manager 배포 모델을 사용하여 Azure Backup이 포함된 Azure에 Windows 서버(또는 Windows 클라이언트) 파일 및 폴더를 백업하는 방법을 설명합니다.
@@ -183,6 +182,8 @@ Recovery Services 자격 증명 모음은 시간이 경과되면서 만든 모�
 백업 정책은 복구 지점이 만들어지는 일정이고 복구 지점이 유지되는 시간입니다. Microsoft Azure Backup 에이전트를 사용하여 파일과 폴더에 대한 백업 정책을 만듭니다.
 
 ### <a name="to-create-a-backup-schedule"></a>백업 일정을 만들려면
+
+백업할 머신에 백업 일정을 설정합니다. Azure Backup은 DST(일광 절약 시간)를 고려하지 않으므로 백업에 설정된 시간이 로컬 컴퓨터 시간과 다를 수 있습니다. 
 1. Microsoft Azure Backup 에이전트를 엽니다. **Microsoft Azure Backup**에 대한 컴퓨터를 검색하여 찾을 수 있습니다.
 
     ![Azure Backup 에이전트 시작](./media/backup-configure-vault/snap-in-search.png)

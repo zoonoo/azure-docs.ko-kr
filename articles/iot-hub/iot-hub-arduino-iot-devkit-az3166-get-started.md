@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 08/27/2018
+ms.date: 12/19/2018
 ms.author: wesmc
-ms.openlocfilehash: c838bdc8857595e55c53c0a10700c48aab988297
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f7eea6e9fdbe69003a93e34f9107d279f2105d7f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337753"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720342"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Azure IoT Hub에 IoT DevKit AZ3166 연결
 
@@ -24,7 +24,7 @@ Microsoft Azure 서비스를 활용하는 IoT(사물 인터넷) 솔루션을 개
 
 ## <a name="what-you-do"></a>수행할 작업
 
-사용자가 만드는 Azure IoT Hub에 [DevKit](https://microsoft.github.io/azure-iot-developer-kit/)을 연결하고 센서에서 온도 및 습도 데이터를 수집하고 데이터를 IoT Hub로 보냅니다.
+사용자가 만드는 Azure IoT Hub에 DevKit를 연결합니다. 그런 다음, 센서에서 온도 및 습도 데이터를 수집하고 데이터를 IoT Hub로 보냅니다.
 
 DevKit가 아직 없으세요? [DevKit 시뮬레이터](https://azure-samples.github.io/iot-devkit-web-simulator/)를 시도하거나 [DevKit를 구매](https://aka.ms/iot-devkit-purchase)합니다.
 
@@ -69,6 +69,8 @@ IoT 프로젝트는 인터넷 연결을 사용합니다. 다음 지침을 사용
 단추 B를 길게 누른 다음 다시 설정 단추를 눌러서 놓고 단추 B를 놓습니다. DevKit은 Wi-Fi 구성을 위해 AP 모드로 전환합니다. 화면은 DevKit의 SSID(서비스 설정 식별자) 및 구성 포털 IP 주소를 표시합니다.
 
 ![단추, 단추 B 및 SSID 다시 설정](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/wifi-ap.jpg)
+
+![AP 모드 설정](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/set-ap-mode.gif)
 
 ### <a name="connect-to-devkit-ap"></a>DevKit AP에 연결
 
@@ -115,27 +117,33 @@ DevKit에서 실행 중인 기본 앱은 최신 버전의 펌웨어를 확인하
 
 ## <a name="prepare-the-development-environment"></a>개발 환경 준비
 
-### <a name="install-azure-iot-workbench"></a>Azure IoT Workbench 설치
+### <a name="install-azure-iot-tools"></a>Azure IoT Tools 설치
 
-DevKit에서 개발하려면 Visual Studio Code용 [Azure IoT Workbench](https://aka.ms/iot-workbench) 확장을 사용하는 것이 좋습니다.
+DevKit에서 개발하려면 Visual Studio Code용 [Azure IoT Tools](https://aka.ms/azure-iot-tools) 확장 팩을 사용하는 것이 좋습니다. Azure IoT Tools는 IoT devkit 디바이스에서 개발하고 디버그하는 [Azure IoT Device Workbench](https://aka.ms/iot-workbench) 및 Azure IoT Hub와 상호 작용하는 [Azure IoT Hub Toolkit](https://aka.ms/iot-toolkit)를 포함합니다.
 
-Azure IoT Workbench는 IoT 솔루션을 개발하는 통합 환경을 제공합니다. Azure IoT와 기타 서비스를 사용하는 디바이스 및 클라우드 개발에 도움이 됩니다. 이 [Channel9 비디오](https://channel9.msdn.com/Shows/Internet-of-Things-Show/IoT-Workbench-extension-for-VS-Code)를 통해 기능의 개요를 알아볼 수 있습니다.
+수행하는 작업에 대한 개요를 보려면 다음의 [Channel 9](https://channel9.msdn.com/) 비디오를 볼 수 있습니다.
+* [VS Code에 대한 새 IoT Workbench 확장 소개](https://channel9.msdn.com/Shows/Internet-of-Things-Show/IoT-Workbench-extension-for-VS-Code)
+* [VS Code에 대한 IoT Toolkit 확장의 새로운 기능](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Whats-new-in-the-IoT-Toolkit-extension-for-VS-Code)
 
 다음 단계를 따라 DevKit에서 개발 환경을 준비하세요.
 
-1. [Arduino IDE](https://www.arduino.cc/en/Main/Software)를 다운로드하여 설치합니다. Arduino 코드를 컴파일 및 업로드하는 데 필요한 도구 체인을 제공합니다.
+1. [Arduino IDE](https://www.arduino.cc/en/Main/Software)를 설치합니다. Arduino 코드를 컴파일 및 업로드하는 데 필요한 도구 체인을 제공합니다.
     * **Windows**: Windows Installer 버전을 사용합니다. App Store에서 설치하지 마세요.
     * **macOS**: 추출된 **Arduino.app**을 `/Applications` 폴더로 끌어다 놓습니다.
-    * **Ubuntu**: `$HOME/Downloads/arduino-1.8.5` 같은 폴더에 압축을 풉니다.
+    * **Ubuntu**: `$HOME/Downloads/arduino-1.8.8` 같은 폴더에 압축을 풉니다.
 
 2. IntelliSense 코드 완성 및 디버깅 같은 강력한 개발자 도구를 제공하는 플랫폼 간 소스 코드 편집기인 [Visual Studio Code](https://code.visualstudio.com/)를 설치합니다.
 
-3. 확장 마켓플레이스에서 **Azure IoT Workbench**를 검색하여 설치합니다.
-    ![Azure IoT Workbench 설치](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-workbench.png) IoT Workbench와 함께 다른 종속 확장이 설치됩니다.
+3. VS Code를 실행하고, 확장 마켓플레이스에서 **Arduino**를 검색하여 설치합니다. 이 확장은 Arduino 플랫폼에서 개발에 대한 향상된 환경을 제공합니다.
+    ![Arduino 설치](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-arduino.png)
 
-4. Arduino 설정을 사용하여 Visual Studio Code를 구성합니다. 
+4. 확장 마켓플레이스에서 **Azure IoT Tools**를 검색하여 설치합니다.
+    ![Azure IoT Tools 설치](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
 
-    Visual Studio Code에서 **파일 > 기본 설정 > 설정**을 클릭합니다. 그런 후 **...** 를 클릭하고 **settings.json을 엽니다**. 
+5. Arduino 설정을 사용하여 VS Code를 구성합니다.
+
+    Visual Studio Code에서 **파일 > 기본 설정 > 설정**을 클릭합니다. 그런 후 **...** 를 클릭하고 **settings.json을 엽니다**.
+    ![Azure IoT Tools 설치](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/user-settings-arduino.png)
     
     플랫폼에 따라 다음 줄을 추가하여 Arduino를 구성합니다. 
 
@@ -158,12 +166,12 @@ Azure IoT Workbench는 IoT 솔루션을 개발하는 통합 환경을 제공합�
         **{username}** 을 사용자 이름 아래의 자리 표시자로 바꿉니다.
 
         ```json
-        "arduino.path": "/home/{username}/Downloads/arduino-1.8.5",
+        "arduino.path": "/home/{username}/Downloads/arduino-1.8.8",
         "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
         ```
 
-5. `F1` 키를 클릭하여 명령 팔레트를 연 다음, **Arduino: 보드 관리자**를 입력하고 선택합니다. **AZ3166**을 검색하고 최신 버전을 설치합니다.
-    ![DevKit SDK 설치](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-sdk.png)
+6. `F1` 키를 클릭하여 명령 팔레트를 연 다음, **Arduino: 보드 관리자**를 입력하고 선택합니다. **AZ3166**을 검색하고 최신 버전을 설치합니다.
+    ![DevKit SDK 설치](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-az3166-sdk.png)
 
 ### <a name="install-st-link-drivers"></a>ST-Link 드라이버 설치
 
@@ -188,26 +196,24 @@ Azure IoT Workbench는 IoT 솔루션을 개발하는 통합 환경을 제공합�
 
 1. IoT DevKit가 컴퓨터에 연결되어 있지 **않은지** 확인합니다. VS Code를 시작하고 DevKit를 컴퓨터에 연결합니다.
 
-1. 오른쪽 아래의 상태 표시줄에서 **MXCHIP AZ3166**이 보드로 선택되고 **STMicroelectronics**가 있는 직렬 포트가 사용되는지 확인합니다.
-    ![보드 및 COM 선택](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-board.png)
 
-1. `F1` 키를 클릭하여 명령 팔레트를 연 다음, **IoT Workbench: 예제**를 입력하고 선택합니다. 보드로 **IoT DevKit**를 선택합니다.
+1. `F1` 키를 클릭하여 명령 팔레트를 열고, **Azure IoT Device Workbench: 예제 열기...** 를 입력하고 선택합니다. 보드로 **IoT DevKit**를 선택합니다.
 
 1. IoT Workbench 예제 페이지에서 **시작**을 찾아서 **샘플 열기**를 클릭합니다. 기본 경로를 선택하여 샘플 코드를 다운로드합니다.
     ![샘플 열기](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/open-sample.png)
 
-1. VS Code에서 Arduino 확장을 설치하지 않은 경우 알림 창에서 **설치**를 클릭합니다.
-    ![Arduino 확장 설치](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-arduino-ext.png)
-
-1. 새로 열린 프로젝트 창에서 `F1` 키를 클릭하여 명령 팔레트를 열고, **IoT Workbench: 클라우드**를 입력하여 선택하고, **Azure 프로비전**을 선택합니다. 단계별 지침에 따라 Azure IoT Hub 프로비전을 완료하고 디바이스를 만듭니다.
+1. 새로 열린 프로젝트 창에서 `F1` 키를 클릭하여 명령 팔레트를 열고, **Azure IoT Device Workbench: Azure 서비스 프로비전...** 을 입력하고 선택합니다. 단계별 지침에 따라 Azure IoT Hub 프로비전을 완료하고 IoT Hub 디바이스를 만듭니다.
     ![클라우드 프로비전](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/cloud-provision.png)
 
-1. `F1` 키를 클릭하여 명령 팔레트를 연 다음, **IoT Workbench: 디바이스**를 입력하여 선택한 다음, **디바이스 설정 구성 > 디바이스 연결 문자열 구성 > IoT Hub 디바이스 연결 문자열 선택**을 선택합니다.
+1. 오른쪽 아래의 상태 표시줄에서 **MXCHIP AZ3166**이 보드로 선택되고 **STMicroelectronics**가 있는 직렬 포트가 사용되는지 확인합니다.
+    ![보드 및 COM 선택](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-com.png)
+
+1. `F1` 키를 클릭하여 명령 팔레트를 열고, **Azure IoT Device Workbench: 디바이스 설정 구성...** 을 입력하여 선택한 다음, **디바이스 연결 문자열 구성 > IoT Hub 디바이스 연결 문자열 선택**을 선택합니다.
 
 1. DevKit에서 **A 단추**를 누른 상태로 **다시 설정** 단추를 눌렀다 떼고, **A 단추**를 뗍니다. DevKit가 구성 모드로 전환되고 연결 문자열이 저장됩니다.
     ![연결 문자열](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connection-string.png)
 
-1. `F1` 키를 다시 클릭하고 **IoT Workbench: 디바이스**를 입력하여 선택하고 **디바이스 업로드**를 선택합니다.
+1. `F1` 키를 다시 클릭하고, **Azure IoT Device Workbench: 디바이스 코드 업로드**를 입력하고 선택합니다. 컴파일을 시작하고 코드를 DevKit로 업로드합니다.
     ![Arduino 업로드](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/arduino-upload.png)
 
 DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
@@ -240,13 +246,14 @@ DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 1. **공유 액세스 정책** 창에서 **iothubowner** 정책을 클릭하고, IoT Hub의 연결 문자열을 기록해 둡니다.
     ![Azure IoT Hub 연결 문자열](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-portal-conn-string.png)
 
-1. Visual Studio Code의 왼쪽 하단 모서리에서 **AZURE IOT HUB 디바이스**를 확장하고, **IoT Hub 연결 문자열 설정**을 클릭합니다.
-    ![Azure IoT Hub 연결 문자열 설정](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-toolkit-conn-string.png)
+1. VS Code에서 `F1` 키를 클릭하고, **Azure IoT Hub: IoT Hub 연결 문자열 설정**을 입력하고 선택합니다. 연결 문자열을 복사합니다.
+    ![Azure IoT Hub 연결 문자열 설정](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/set-iothub-connection-string.png)
 
-1. 상황에 맞는 메뉴에서 **IoT: D2C 메시지 모니터링 시작**을 클릭합니다.
+1. 오른쪽의 **AZURE IOT HUB 디바이스** 창을 확장하고, 만든 디바이스 이름을 마우스 오른쪽 단추로 클릭하고 **D2C 메시지 모니터링 시작**을 선택합니다.
+    ![D2C 메시지 모니터링](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/monitor-d2c.png)
 
 1. **출력** 창에서, IoT Hub로 들어오는 D2C 메시지를 볼 수 있습니다.
-    ![D2C 메시지](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-toolkit-console.png)
+    ![D2C 메시지](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/d2c-output.png)
 
 ## <a name="problems-and-feedback"></a>문제 및 피드백
 

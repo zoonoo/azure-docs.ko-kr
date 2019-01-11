@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4285c633062386657cbea478f327c9a1b088f16a
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 785223f7da1f59288f4fca6e7a3955a6b3af41c0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383819"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975001"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에 Presto 설치 및 사용
 
@@ -31,9 +31,7 @@ HDInsight는 또한 Apache Hadoop 클러스터에 대한 Starburst Presto 애플
 > [!WARNING]  
 > HDInsight 클러스터와 함께 제공된 구성 요소는 완전히 지원되며 Microsoft 지원에서 이러한 구성 요소와 관련된 문제를 해결하는 데 도움을 드릴 것입니다.
 > 
-> Presto와 같은 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. 지원을 통해 문제를 해결하거나 해당 기술에 대한 전문 지식이 있는, 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요구할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [http://apache.org](http://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](http://hadoop.apache.org/)).
-> 
-> 
+> Presto와 같은 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. 지원을 통해 문제를 해결하거나 해당 기술에 대한 전문 지식이 있는, 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요구할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [https://apache.org](https://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](https://hadoop.apache.org/)).
 
 
 ## <a name="install-presto-using-script-action"></a>스크립트 작업을 사용하여 Presto 설치
@@ -44,7 +42,7 @@ HDInsight는 또한 Apache Hadoop 클러스터에 대한 Starburst Presto 애플
 
     * HDInsight 버전 3.6을 사용하는 Hadoop 클러스터여야 합니다.
 
-    * 데이터 저장소로 Azure Storage를 사용해야 합니다. 스토리지 옵션으로 Azure Data Lake Store를 사용하는 클러스터에서 Presto 사용은 아직 옵션이 아닙니다.
+    * 데이터 저장소로 Azure Storage를 사용해야 합니다. 스토리지 옵션으로 Azure Data Lake Storage를 사용하는 클러스터에서는 Presto를 아직 사용할 수 없습니다.
 
     ![사용자 지정 옵션을 사용하여 HDInsight 클러스터 만들기](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
@@ -123,17 +121,23 @@ HDInsight 클러스터에서 Presto를 사용하려면 다음 단계를 사용�
 
 5. **구매**를 클릭합니다.
 
-6. 변경 내용이 클러스터 구성에 적용되면 다음 단계를 사용하여 Airpal 웹 인터페이스에 액세스할 수 있습니다.
+6. 변경 내용이 클러스터 구성에 적용되면 [Azure Portal](https://portal.azure.com)의 다음 단계를 사용하여 Airpal 웹 인터페이스에 액세스할 수 있습니다.
 
-    1. 클러스터 대화 상자에서 **애플리케이션**을 클릭합니다.
+    1. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다.
+
+    1. **ANALYTICS** 아래에서 **HDInsight 클러스터**를 선택합니다.
+
+    1. 목록에서 클러스터를 선택합니다. 그러면 기본 보기가 열립니다.
+
+    1. 기본 보기의 **설정** 아래에서 **애플리케이션**을 선택합니다.
 
         ![HDInsight에서 Presto 클러스터에 Airpal 시작](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal.png)
 
-    2. **설치된 앱** 영역에서 airpal에 대한 **포털**을 클릭합니다.
+    1. **설치된 앱** 페이지에서 **airpal**에 대한 테이블 항목을 찾고 **포털**을 선택합니다.
 
         ![HDInsight에서 Presto 클러스터에 Airpal 시작](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal-1.png)
 
-    3. 대화 상자가 나타나면 HDInsight Hadoop 클러스터를 만들 때 지정한 관리자 자격 증명을 입력합니다.
+    1. 대화 상자가 나타나면 HDInsight Hadoop 클러스터를 만들 때 지정한 관리자 자격 증명을 입력합니다.
 
 ## <a name="customize-a-presto-installation-on-hdinsight-cluster"></a>HDInsight 클러스터에서 Presto 설치 사용자 지정
 

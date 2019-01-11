@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 4502f7232d2bcfaf4a32a384d24556cd668dc50b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e7676213f9eee781fa7b8c19a30c6505ca5bf2ac
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283379"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720308"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
 [Azure에서 로그 경고를 생성](alerts-log.md)할 때 하나 이상의 작업을 수행하도록 선택적으로 [작업 그룹 사용을 구성](action-groups.md)할 수 있습니다.  이 문서에서는 사용 가능한 다양한 웹후크 작업 및 사용자 지정 JSON 기반 웹후크 구성에 대해 설명합니다.
@@ -73,13 +73,13 @@ ms.locfileid: "53283379"
 ```
 사용자 지정 웹후크의 모든 변수는 "#searchinterval"처럼 JSON 엔클로저 내에 지정되어야 하므로 그 결과로 생기는 웹후크 역시 "00:05:00"처럼 엔클로저 내의 변수 데이터를 갖습니다.
 
-사용자 지정 페이로드에 검색 결과를 포함하려면 **IncudeSearchResults**가 json 페이로드에 최상위 속성으로 설정되어 있는지 확인합니다. 
+사용자 지정 페이로드에 검색 결과를 포함하려면 **IncludeSearchResults**가 json 페이로드에 최상위 속성으로 설정되어 있는지 확인합니다. 
 
 ## <a name="sample-payloads"></a>샘플 페이로드
 이 섹션에서는 페이로드가 표준인 경우와 사용자 지정인 경우를 포함하여 로그 경고에 대한 웹후크의 샘플 페이로드를 보여 줍니다.
 
 > [!NOTE]
-> 이전 버전과의 호환성을 보장하기 위해 Azure Log Analytics를 사용하는 경고에 대한 표준 웹후크 페이로드는 [Log Analytics 경고 관리](alerts-metric.md)와 같습니다. 그러나 [Application Insights](../../application-insights/app-insights-analytics.md)를 사용하는 로그 경고에 대한 표준 웹후크 페이로드는 작업 그룹 스키마를 기반으로 합니다.
+> 이전 버전과의 호환성을 보장하기 위해 Azure Log Analytics를 사용하는 경고에 대한 표준 웹후크 페이로드는 [Log Analytics 경고 관리](alerts-metric.md)와 같습니다. 그러나 [Application Insights](../../azure-monitor/app/analytics.md)를 사용하는 로그 경고에 대한 표준 웹후크 페이로드는 작업 그룹 스키마를 기반으로 합니다.
 
 ### <a name="standard-webhook-for-log-alerts"></a>로그 경고에 대한 표준 웹후크 
 이 두 가지 예제에서 모두, 열과 행이 각각 두 개만 포함된 더미 페이로드를 언급했습니다.
@@ -200,5 +200,5 @@ ms.locfileid: "53283379"
 - [Azure Alerts의 로그 경고](alerts-unified-log.md)에 대해 알아봅니다.
 - [Azure에서 로그 경고 관리](alerts-log.md)를 이해합니다.
 - [Azure에서 작업 그룹](action-groups.md) 만들기 및 관리
-- [Application Insights](../../application-insights/app-insights-analytics.md)에 대해 자세히 알아보기
+- [Application Insights](../../azure-monitor/app/analytics.md)에 대해 자세히 알아보기
 - [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)에 대해 자세히 알아보기 

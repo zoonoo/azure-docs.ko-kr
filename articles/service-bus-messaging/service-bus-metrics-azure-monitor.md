@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 1627e6bc5290277329633aa086d0fdbbbb12d971
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 5175d768f4aa62365e4151b4c8fed372038f1d95
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821296"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548802"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Monitor에서 Azure Service Bus 메트릭(미리 보기)
 
@@ -29,7 +29,7 @@ Azure Monitor는 다양한 Azure 서비스를 모니터링하기 위한 통합�
 
 Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합니다. [Azure Portal](https://portal.azure.com)을 통해 메트릭에 액세스하거나 Azure Monitor API(REST 및 .NET) 및 Log Analytics 및 Event Hubs 같은 분석 솔루션을 사용할 수 있습니다. 자세한 내용은 [Azure Monitor에서 수집된 데이터 모니터링](../azure-monitor/platform/data-collection.md)을 참조하세요.
 
-메트릭은 기본적으로 활성화되며 최근 30일분 데이터에 액세스할 수 있습니다. 더 오랜 기간에 대한 데이터를 보존해야 하는 경우 메트릭 데이터를 Azure Storage 계정에 보관할 수 있습니다. 이 값은 Azure Monitor의 [진단 설정](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)에서 구성합니다.
+메트릭은 기본적으로 활성화되며 최근 30일분 데이터에 액세스할 수 있습니다. 더 오랜 기간에 대한 데이터를 보존해야 하는 경우 메트릭 데이터를 Azure Storage 계정에 보관할 수 있습니다. 이 값은 Azure Monitor의 [진단 설정](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)에서 구성합니다.
 
 ## <a name="access-metrics-in-the-portal"></a>포털에서 메트릭에 액세스
 
@@ -60,11 +60,11 @@ Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 무료입
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-| 들어오는 요청(미리 보기) | 지정된 기간 동안 Service Bus 서비스에 대한 요청 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|성공한 요청(미리 보기)|지정된 기간 동안 Service Bus 서비스에 대한 성공한 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|서버 오류(미리 보기)|지정된 기간 동안 Service Bus 서비스에서 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|사용자 오류(미리 보기 - 다음 하위 섹션 참조)|지정된 기간 동안 사용자 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|제한된 요청(미리 보기)|사용 초과로 인해 제한된 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+| 들어오는 요청(미리 보기) | 지정된 기간 동안 Service Bus 서비스에 대한 요청 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|성공한 요청(미리 보기)|지정된 기간 동안 Service Bus 서비스에 대한 성공한 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|서버 오류(미리 보기)|지정된 기간 동안 Service Bus 서비스에서 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|사용자 오류(미리 보기 - 다음 하위 섹션 참조)|지정된 기간 동안 사용자 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|제한된 요청(미리 보기)|사용 초과로 인해 제한된 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
 
 ### <a name="user-errors"></a>사용자 오류
 
@@ -78,18 +78,18 @@ Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 무료입
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-|들어오는 메시지 (미리 보기)|지정된 기간 동안 Service Bus에 전송된 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|보내는 메시지(미리 보기)|지정된 기간 동안 Service Bus에서 수신한 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-| 메시지(미리 보기) | 큐/토픽에 있는 메시지 수 <br/><br/> 단위: 개수 <br/> 집계 형식: 평균 <br/> 차원: EntityName |
-| ActiveMessages(미리 보기) | 큐/토픽에 있는 활성 메시지 수 <br/><br/> 단위: 개수 <br/> 집계 형식: 평균 <br/> 차원: EntityName |
+|들어오는 메시지 (미리 보기)|지정된 기간 동안 Service Bus에 전송된 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|보내는 메시지(미리 보기)|지정된 기간 동안 Service Bus에서 수신한 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+| 메시지(미리 보기) | 큐/토픽에 있는 메시지 수 <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 차원: EntityName |
+| ActiveMessages(미리 보기) | 큐/토픽에 있는 활성 메시지 수 <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 차원: EntityName |
 
 ## <a name="connection-metrics"></a>연결 메트릭
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-|ActiveConnections(미리 보기)|네임스페이스와 엔터티의 활성 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|열린 연결(미리 보기)|열린 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|닫힌 연결(미리 보기)|닫힌 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName |
+|ActiveConnections(미리 보기)|네임스페이스와 엔터티의 활성 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|열린 연결(미리 보기)|열린 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|닫힌 연결(미리 보기)|닫힌 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: EntityName |
 
 ## <a name="resource-usage-metrics"></a>리소스 사용량 메트릭
 
@@ -98,8 +98,8 @@ Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 무료입
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-|네임스페이스당 CPU 사용량(미리 보기)|네임스페이스의 CPU 사용량 비율입니다.<br/><br/> 단위: % <br/> 집계 형식: 최대 <br/> 차원: EntityName|
-|네임스페이스당 메모리 크기 사용량(미리 보기)|네임스페이스의 메모리 사용량 비율입니다.<br/><br/> 단위: % <br/> 집계 형식: 최대 <br/> 차원: EntityName|
+|네임스페이스당 CPU 사용량(미리 보기)|네임스페이스의 CPU 사용량 비율입니다.<br/><br/> 단위: 백분율 <br/> 집계 유형: 최대 <br/> 차원: EntityName|
+|네임스페이스당 메모리 크기 사용량(미리 보기)|네임스페이스의 메모리 사용량 비율입니다.<br/><br/> 단위: 백분율 <br/> 집계 유형: 최대 <br/> 차원: EntityName|
 
 ## <a name="metrics-dimensions"></a>메트릭 차원
 
@@ -123,7 +123,7 @@ Azure Service Bus는 Azure Monitor의 메트릭에 대해 다음과 같은 차�
         ![네임스페이스 선택](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. **조건 추가**를 선택하고, **신호 논리 구성** 페이지에서 다음 작업을 수행합니다.
     1. **신호 형식**으로 **메트릭**을 선택합니다. 
-    2. 신호를 선택합니다. 예: **서비스 오류(미리 보기)**. 
+    2. 신호를 선택합니다. 예:  **서비스 오류(미리 보기)**. 
 
         ![서버 오류 선택](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
     1. **조건**으로 **다음보다 큼**을 선택합니다.

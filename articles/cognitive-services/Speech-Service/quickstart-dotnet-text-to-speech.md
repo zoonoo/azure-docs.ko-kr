@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 3a0304a69cdff15cddf325be8abe336a42ea4fc1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6d463ca73fb533b8a44c2019a478f2df0162cb23
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089873"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791448"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>빠른 시작: .NET Core를 사용하여 텍스트 음성 변환
 
@@ -27,7 +27,7 @@ ms.locfileid: "53089873"
 
 이 빠른 시작에는 다음이 필요합니다.
 
-* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) 또는 즐겨 사용하는 텍스트 편집기
 * Speech Service에 대한 Azure 구독 키
 
@@ -109,7 +109,7 @@ public class Authentication
 ```
 
 > [!NOTE]
-> 인증에 대한 자세한 내용은 [액세스 토큰을 가져오는 방법](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#how-to-get-an-access-token)을 참조하세요.
+> 인증에 대한 자세한 내용은 [액세스 토큰으로 인증](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token)을 참조하세요.
 
 ## <a name="get-an-access-token-and-set-the-host-url"></a>액세스 토큰 가져오기 및 호스트 URL 설정
 
@@ -162,7 +162,7 @@ string body = @"<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis'
 ```
 
 > [!NOTE]
-> 이 샘플에서는 `ZiraRUS` 음성 글꼴을 사용합니다. Microsoft 제공 음성/언어의 전체 목록은 [언어 지원](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/language-support)을 참조하세요. 브랜드의 고유하고 인식 가능한 음성을 만들려면 [사용자 지정 음성 글꼴 만들기](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font)를 참조하세요.
+> 이 샘플에서는 `ZiraRUS` 음성 글꼴을 사용합니다. Microsoft 제공 음성/언어의 전체 목록은 [언어 지원](language-support.md)을 참조하세요. 브랜드의 고유하고 인식 가능한 음성을 만들려면 [사용자 지정 음성 글꼴 만들기](how-to-customize-voice-font.md)를 참조하세요.
 
 ## <a name="instantiate-the-client-make-a-request-and-save-synthesized-audio-to-a-file"></a>클라이언트 인스턴스화, 요청하기, 합성 오디오를 파일에 저장
 

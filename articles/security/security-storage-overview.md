@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 63967face89c12f6769d397bd5be78c23bc9f851
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 55686972979c5ac3015802c340cef7dffebdb9bd
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259142"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973131"
 ---
 # <a name="azure-storage-security-overview"></a>Azure Storage 보안 개요
 
@@ -67,11 +67,11 @@ SAS는 저장소 리소스에 인증된 액세스를 수행하는 데 필요한 
 클라이언트 쪽 암호화에 대해 자세히 알아봅니다.
 
 * [Microsoft Azure Storage용 클라이언트 쪽 암호화](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
-* [클라우드 보안 컨트롤 시리즈: 전송 중인 데이터 암호화](https://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
+* [클라우드 보안 컨트롤 시리즈: 전송 중 데이터 암호화](https://cloudblogs.microsoft.com/microsoftsecure/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
 
 ## <a name="encryption-at-rest"></a>휴지 상태의 암호화
 
-여러 조직에서 [미사용 데이터 암호화](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/)는 데이터 프라이버시, 규정 준수 및 데이터 주권을 위한 필수 단계입니다. 휴지 상태의 데이터 암호화를 제공하는 세 가지 Azure 기능이 있습니다.
+여러 조직에서 [미사용 데이터 암호화](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/)는 데이터 프라이버시, 규정 준수 및 데이터 주권을 위한 필수 단계입니다. 휴지 상태의 데이터 암호화를 제공하는 세 가지 Azure 기능이 있습니다.
 
 * [저장소 서비스 암호화](../storage/common/storage-security-guide.md#encryption-at-rest)를 사용하면 저장소 서비스가 Azure Storage에 데이터를 쓸 때 데이터를 자동으로 암호화하도록 요청할 수 있습니다.
 * [클라이언트측 암호화](../storage/common/storage-security-guide.md#client-side-encryption)는 휴지 상태의 암호화 기능을 제공합니다.

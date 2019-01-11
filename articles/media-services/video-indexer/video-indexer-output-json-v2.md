@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 8acb1c70dc21efc87e13e0e5e94d9a61acfe01e9
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 666be9c2ebba9dc9607e4188b2390fff49fd59b9
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292086"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554659"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>v2 API에서 생성된 Video Indexer 출력 검사
 
@@ -78,8 +78,8 @@ ms.locfileid: "52292086"
 |특성 | 설명|
 |---|---|
 |이름|비디오의 이름입니다. 예: Azure Monitor|
-|shortId|비디오의 ID입니다. 예: 63c6d532ff|
-|privacyMode|분석에는 **Private**, **Public** 모드 중 하나가 있을 수 있습니다. **Public** - 비디오가 계정의 모든 사용자와 비디오에 대한 링크가 있는 모든 사용자에게 표시됩니다. **Private** - 비디오가 계정의 모든 사용자에게 표시됩니다.|
+|id|비디오의 ID입니다. 예: 63c6d532ff|
+|privacyMode|분석에는 다음 모드 중 하나가 있을 수 있습니다. **Private**, **Public**. **Public** - 비디오가 계정의 모든 사용자와 비디오에 대한 링크가 있는 모든 사용자에게 표시됩니다. **Private** - 비디오가 계정의 모든 사용자에게 표시됩니다.|
 |duration|인사이트가 발생한 시간을 설명하는 하나의 기간이 포함됩니다. 기간은 초 단위입니다.|
 |thumbnailVideoId|썸네일을 가져온 비디오의 ID입니다.
 |thumbnailId|비디오의 썸네일 ID입니다. 실제 썸네일을 가져오려면 Get-Thumbnail(https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail)을 호출하고 thumbnailVideoId 및 thumbnailId를 전달합니다.|
@@ -553,7 +553,7 @@ id|블록의 ID입니다.|
 |이름|설명|
 |---|---|
 |CorrespondenceCount|동영상의 해당 항목 수입니다.|
-|WordCount|화자별 단어 수입니다.|
+|SpeakerWordCount|화자별 단어 수입니다.|
 |SpeakerNumberOfFragments|비디오에서 화자가 있는 조각의 양입니다.|
 |SpeakerLongestMonolog|화자의 가장 긴 단독 발언입니다. 가장 긴 단독 발언 내에 화자의 침묵이 있으면 포함됩니다. 단독 발언의 시작과 끝 부분에 있는 침묵은 제거됩니다.| 
 |SpeakerTalkToListenRatio|화자의 단독 발언에 소요된 시간(그 사이 침묵 제외)을 비디오의 총 시간으로 나눈 값을 기반으로 계산됩니다. 시간은 소수점 이하 세 자리에서 반올림됩니다.|
@@ -767,8 +767,8 @@ Video Indexer는 전사에서 주요 주제를 추정합니다. 가능한 경우
 |이름|설명|
 |---|---|
 |id|주제 ID입니다.|
-|이름|주제 이름입니다(예: "제약").|
-|referenceId|주제 계층 구조를 반영하는 이동 경로입니다. 예: "보건 및 복지 / 의료 및 건강 / 제약"|
+|이름|주제 이름입니다. 예: "제약"|
+|referenceId|주제 계층 구조를 반영하는 이동 경로입니다. 예:  "보건 및 복지 / 의료 및 건강 / 제약"|
 |신뢰도|범위의 신뢰도 점수[0,1]입니다. 점수가 높을수록 더 신뢰할 수 있습니다.|
 |언어|주제에 사용된 언어입니다.|
 |iptcName|IPTC 미디어 코드 이름입니다(검색된 경우).|

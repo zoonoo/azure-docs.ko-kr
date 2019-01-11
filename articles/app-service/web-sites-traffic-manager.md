@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 85405a96d141188203ddc88410c96654667fa83a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 11e5a654f2bfcb497eec3a4dfea81f3684f5b551
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270113"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599811"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용하여 Azure App Service 트래픽 제어
 > [!NOTE]
@@ -52,7 +52,7 @@ Azure에서 Azure Traffic Manager를 사용할 경우 다음 사항에 유의하
 * 프로필에서 지역당 하나의 App Service 엔드포인트만 지정할 수 있습니다. 한 지역의 엔드포인트로 하나의 앱을 선택한 경우 해당 지역의 나머지 앱은 해당 프로필에 대해 선택할 수 없게 됩니다.
 * Azure Traffic Manager 프로필에서 지정한 App Service 엔드포인트는 프로필에서 앱에 대한 구성 페이지의 **도메인 이름** 섹션에 표시되지만 이 섹션에서 구성할 수 없습니다.
 * 프로필에 앱을 추가한 후 사이트를 설정한 경우 앱의 포털 페이지의 대시보드에 있는 **사이트 URL**은 해당 앱의 사용자 지정 도메인 URL을 표시합니다. 그렇지 않으면 Traffic Manager 프로필 URL(예: `contoso.trafficmanager.net`)을 표시합니다. 앱의 직접적인 도메인 이름과 Traffic Manager URL은 모두 앱 구성 페이지의 **도메인 이름** 섹션에 표시됩니다.
-* 사용자 지정 도메인 이름이 예상대로 작동하지만 앱에 해당 이름을 추가하는 작업 외에도 DNS 맵이 Traffic Manager URL을 가리키도록 구성해야 합니다. App Service 앱에 대해 사용자 지정 도메인을 설정하는 방법에 대한 정보는 [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)을 참조하세요.
+* 사용자 지정 도메인 이름이 예상대로 작동하지만 앱에 해당 이름을 추가하는 작업 외에도 DNS 맵이 Traffic Manager URL을 가리키도록 구성해야 합니다. App Service 앱에 대해 사용자 지정 도메인을 설정하는 방법에 대한 정보는 [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)을 참조하세요.
 * Standard 또는 Premium 모드의 앱만 Azure Traffic Manager 프로필에 추가할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

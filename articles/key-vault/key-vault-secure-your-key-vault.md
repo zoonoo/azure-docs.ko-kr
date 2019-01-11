@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault 보안 | Microsoft Docs
+title: Azure Key Vault 보호 - Azure Key Vault | Microsoft Docs
 description: Azure Key Vault, 키 및 비밀에 대한 액세스 권한을 관리합니다. Key Vault의 인증 및 권한 부여 모델과 키 자격 증명 모음을 보호하는 방법을 설명합니다.
 services: key-vault
 documentationcenter: ''
@@ -10,21 +10,22 @@ ms.assetid: e5b4e083-4a39-4410-8e3a-2832ad6db405
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 67f24bbccdd2dcf5cca09e09557d7ebebd0a5c2d
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 9877698c8c6af68c5ffd88dab37150274ce87b37
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891081"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077337"
 ---
 # <a name="secure-your-key-vault"></a>키 자격 증명 모음 보안
+
 Azure Key Vault는 암호화 키와 비밀(예: 인증서, 연결 문자열 및 암호)을 보호하는 클라우드 서비스입니다. 이 데이터는 민감하고 업무상 중요하기 때문에 권한이 부여된 애플리케이션과 사용자만 허용하여 키 자격 증명 모음에 대한 액세스를 보호해야 합니다. 이 문서에서는 Key Vault 액세스 모델에 대한 개요를 제공합니다. 여기서는 인증 및 권한 부여에 대해 설명하고 액세스의 보안을 유지하는 방법을 설명합니다.
 
 ## <a name="overview"></a>개요
+
 키 자격 증명 모음에 대한 액세스는 별도의 두 인터페이스, 즉 관리 평면 및 데이터 평면을 통해 제어됩니다. 
 **관리 평면**은 자격 증명 모음 관리(예: 자격 증명 모음 만들기, 자격 증명 모음 업데이트, 자격 증명 모음 삭제)를 다룹니다. 
 **데이터 평면**은 자격 증명 내의 비밀 만들기, 업데이트, 삭제 및 읽기인 자격 증명 모음 내의 비밀을 다룹니다. 두 평면에서 적절한 인증 및 권한 부여를 갖추고 있어야 호출자(사용자 또는 애플리케이션)에서 키 자격 증명 모음에 액세스할 수 있습니다. 인증은 호출자의 ID를 확인하는 반면, 권한 부여는 호출자에서 수행할 수 있는 작업을 결정합니다.
@@ -38,13 +39,15 @@ Azure Key Vault는 암호화 키와 비밀(예: 인증서, 연결 문자열 및 
 인증의 경우 두 평면은 Azure AD(Azure Active Directory)를 사용합니다. 권한 부여를 위해서는 관리 평면에서 RBAC(역할 기반 액세스 제어)를 사용하는 반면 데이터 평면에서는 Key Vault 액세스 정책을 사용합니다.
 
 ## <a name="authenticate-by-using-azure-active-directory"></a>Azure Active Directory를 사용하여 인증
+
 Azure 구독에 키 자격 증명 모음을 만들 때 해당 구독의 Azure AD 테넌트에 자동으로 연결됩니다. 모든 호출자가 이 테넌트에 등록되어 있어야 하고, 해당 키 자격 증명 모음에 액세스하기 위해 인증을 받아야 합니다. 이 요구 사항은 관리 평면과 데이터 평면 액세스에 모두 적용됩니다. 두 경우 모두 애플리케이션에서 다음과 같은 두 가지 방법으로 Key Vault에 액세스할 수 있습니다.
 
-* **사용자+앱 액세스**: 로그인한 사용자를 대신하여 Key Vault에 액세스하는 애플리케이션에서 사용합니다. Azure PowerShell과 Azure Portal이 이러한 액세스 유형의 예제입니다. 사용자에게 액세스 권한을 부여하는 방법에는 다음 두 가지가 있습니다. 
+* **사용자+앱 액세스**: 로그인한 사용자를 대신하여 Key Vault에 액세스하는 애플리케이션에서 사용합니다. Azure PowerShell과 Azure Portal이 이러한 액세스 유형의 예제입니다. 사용자에게 액세스 권한을 부여하는 방법에는 다음 두 가지가 있습니다.
+
   - 애플리케이션에서 Key Vault에 액세스합니다.
   - 특정 애플리케이션을 사용하는 경우에만 Key Vault에 액세스합니다(복합 ID라고도 함).
 
-* **앱 전용 액세스**: 디먼 서비스 또는 백그라운드 작업 등을 실행하는 애플리케이션에서 사용합니다. 키 자격 증명 모음에 대한 액세스 권한이 응용 프로그램의 ID에 부여됩니다.
+* **앱 전용 액세스**: 디먼 서비스 또는 백그라운드 작업 등을 실행하는 애플리케이션에서 사용합니다. 키 자격 증명 모음에 대한 액세스 권한이 애플리케이션의 ID에 부여됩니다.
 
 두 유형의 애플리케이션 모두에서 [지원되는 인증 방법](../active-directory/develop/authentication-scenarios.md) 중 하나를 사용하여 Azure AD를 통해 인증하고 토큰을 가져옵니다. 애플리케이션 유형에 따라 사용되는 인증 방법이 다릅니다. 그런 다음, 애플리케이션에서 이 토큰을 사용하고 REST API 요청을 Key Vault에 보냅니다. 관리 평면 요청은 Azure Resource Manager 엔드포인트를 통해 라우팅됩니다. 데이터 평면에 액세스하는 경우 애플리케이션에서 Key Vault 엔드포인트에 직접 통신합니다. 자세한 내용은 [전체 인증 흐름](../active-directory/develop/v1-protocols-oauth-code.md)을 참조하세요. 
 
@@ -57,6 +60,7 @@ Azure 구독에 키 자격 증명 모음을 만들 때 해당 구독의 Azure AD
 * 조직은 Azure AD에 있는 옵션(예: 추가 보안을 위해 다단계 인증 사용)을 통해 인증을 사용자 지정할 수 있습니다.
 
 ## <a name="the-management-plane-and-the-data-plane"></a>관리 평면 및 데이터 평면
+
 관리 평면을 사용하여 Key Vault 자체를 관리합니다. 여기에는 특성 관리 및 데이터 평면 액세스 정책 설정과 같은 작업이 포함됩니다. 데이터 평면을 사용하여 Key Vault에 저장된 키, 비밀 및 인증서를 추가, 삭제, 수정 및 사용합니다.
 
 다음 테이블에 나열된 서로 다른 엔드포인트를 통해 관리 평면 및 데이터 평면 인터페이스에 액세스합니다. 테이블의 두 번째 열에서는 다양한 Azure 환경에서 이러한 엔드포인트에 대한 DNS 이름을 설명합니다. 세 번째 열에서는 각 액세스 평면에서 수행할 수 있는 작업을 설명합니다. 각 액세스 평면에는 자체 액세스 제어 메커니즘도 있습니다. 관리 평면 액세스 제어는 Azure Resource Manager RBAC(역할 기반 액세스 제어)를 사용하여 설정됩니다. 데이터 평면 액세스 제어는 Key Vault 액세스 정책을 사용하여 설정됩니다.
@@ -69,6 +73,7 @@ Azure 구독에 키 자격 증명 모음을 만들 때 해당 구독의 Azure AD
 관리 평면과 데이터 평면 액세스 제어는 독립적으로 작동합니다. 예를 들어, 애플리케이션에 키 자격 증명 모음의 키를 사용하기 위한 액세스 권한을 부여하려면 데이터 평면 액세스 권한만 부여하면 됩니다. Key Vault 액세스 정책을 통해 액세스 권한을 부여합니다. 반대로, Key Vault 속성 및 태그를 읽어야 하지만 데이터(키, 비밀 또는 인증서)에 액세스할 수 없는 사용자는 관리 평면 액세스 권한만 있으면 됩니다. RBAC를 사용하여 사용자에게 읽기 액세스 권한을 할당하여 액세스 권한을 부여합니다.
 
 ## <a name="management-plane-access-control"></a>관리 평면 액세스 제어
+
 관리 평면은 키 자격 증명 모음 자체에 영향을 주는 다음과 같은 작업으로 구성됩니다.
 
 - 키 자격 증명 모음 만들기 또는 삭제
@@ -79,6 +84,7 @@ Azure 구독에 키 자격 증명 모음을 만들 때 해당 구독의 Azure AD
 관리 평면 액세스 제어는 RBAC를 사용합니다.  
 
 ### <a name="role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)
+
 각 Azure 구독에는 Azure AD 인스턴스가 있습니다. 이 디렉터리의 사용자, 그룹 및 애플리케이션에 Azure Resource Manager 배포 모델을 사용하는 Azure 구독의 리소스를 관리할 수 있는 액세스 권한을 부여합니다. 이러한 유형의 액세스 제어를 RBAC라고 합니다. 이 액세스를 관리하기 위해 [Azure 포털](https://portal.azure.com/), [Azure CLI 도구](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) 또는 [Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn906885.aspx)를 사용할 수 있습니다.
 
 리소스 그룹에 키 자격 증명 모음을 만들고, Azure AD를 사용하여 관리 평면에 대한 액세스를 제어합니다. 예를 들어, 리소스 그룹의 키 자격 증명 모음을 관리할 수 있는 권한을 사용자 또는 그룹에게 부여할 수 있습니다.
@@ -87,15 +93,16 @@ Azure 구독에 키 자격 증명 모음을 만들 때 해당 구독의 Azure AD
 
 > [!IMPORTANT]
 > 사용자에게 Key Vault 관리 평면에 대한 기여자 사용 권한이 있는 경우 이 사용자는 Key Vault 액세스 정책을 설정하여 스스로 데이터 평면에 대한 액세스 권한을 부여할 수 있습니다. 따라서 키 자격 증명 모음에 대한 기여자 액세스 권한이 있는 사용자를 긴밀하게 제어해야 합니다. 권한이 있는 사람만 키 자격 증명 모음, 키, 비밀 및 인증서에 액세스하고 관리할 수 있는지 확인합니다.
-> 
-> 
+>
 
 ## <a name="data-plane-access-control"></a>데이터 평면 액세스 제어
+
 Key Vault 데이터 평면 작업은 키, 비밀 및 인증서와 같은 저장된 개체에 적용됩니다. 키 작업에는 키 만들기, 가져오기, 업데이트, 나열, 백업 및 복원이 포함됩니다. 암호화 작업에는 서명, 확인, 암호화, 암호 해독, 래핑, 래핑 해제, 태그 및 기타 키 특성 설정이 포함됩니다. 마찬가지로 비밀 관련 작업에는 가져오기, 설정, 나열, 삭제가 포함됩니다.
 
 키 자격 증명 모음에 대한 액세스 정책을 설정하여 데이터 평면 액세스 권한을 부여합니다. 사용자, 그룹 또는 애플리케이션은 키 자격 증명 모음의 관리 평면에 대해 기여자 권한이 있어야 해당 키 자격 증명 모음에 대한 액세스 정책을 설정할 수 있습니다. 키 자격 증명 모음의 키 또는 비밀에 대해 특정 작업을 수행하기 위해 사용자, 그룹 또는 애플리케이션에 액세스 권한을 부여할 수 있습니다. 각 Key Vault는 최대 1024개 액세스 정책 항목을 지원합니다. 여러 사용자에게 데이터 평면 액세스 권한을 부여하려면 Azure AD 보안 그룹을 만들고, 해당 그룹에 사용자를 추가합니다.
 
 ### <a name="key-vault-access-policies"></a>Key Vault 액세스 정책
+
 Key Vault 액세스 정책은 키, 비밀 및 인증서에 대한 권한을 별도로 부여합니다. 예를 들어, 사용자에게 키에 대한 액세스 권한만 부여하고 비밀에 대해서는 권한을 부여하지 않을 수 있습니다. 키, 비밀 또는 인증서에 대한 액세스 권한은 자격 증명 모음 수준에서 지정됩니다. Key Vault 액세스 정책은 특정 키, 비밀 또는 인증서와 같은 세분화된 개체 수준 권한을 지원하지 않습니다. [Azure Portal](https://portal.azure.com/), [Azure CLI 도구](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) 또는 [Key Vault 관리 REST API](https://msdn.microsoft.com/library/azure/mt620024.aspx)를 사용하여 키 자격 증명 모음에 대한 액세스 정책을 설정할 수 있습니다.
 
 > [!IMPORTANT]
@@ -104,6 +111,7 @@ Key Vault 액세스 정책은 키, 비밀 및 인증서에 대한 권한을 별�
 액세스 정책을 사용하는 것 외에도 [Azure Key Vault에 대한 가상 네트워크 서비스 엔드포인트](key-vault-overview-vnet-service-endpoints.md)를 사용하여 데이터 평면 액세스를 제어할 수도 있습니다. 추가 보안 계층에 대한 [방화벽 및 가상 네트워크 규칙](key-vault-network-security.md)을 구성합니다.
 
 ## <a name="example"></a>예
+
 SSL에는 인증서를, 데이터 저장에는 Azure Storage를, 로그인 작업에는 RSA 2048비트 키를 사용하는 애플리케이션을 개발하고, 이 애플리케이션을 Azure 가상 머신(또는 가상 머신 확장 집합)에서 실행한다고 가정합니다. 이 경우 키 자격 증명 모음을 사용하여 모든 애플리케이션 비밀을 저장하고, 애플리케이션에서 Azure AD에서 인증을 받는 데 사용하는 부트스트랩 인증서를 저장할 수 있습니다.
 
 다음은 저장된 키 및 비밀 유형에 대한 요약입니다.
@@ -121,7 +129,7 @@ SSL에는 인증서를, 데이터 저장에는 Azure Storage를, 로그인 작�
 
 여기서는 이 애플리케이션 범위를 벗어나지만 관련이 있는 추가 역할에 대해 설명합니다. 해당 역할은 구독(또는 리소스 그룹) 관리자입니다. 구독 관리자는 보안 팀의 초기 액세스 권한을 설정합니다. 구독 관리자는 이 애플리케이션에 필요한 리소스를 포함하는 리소스 그룹을 사용하여 보안 팀에 액세스 권한을 부여합니다.
 
-이제 이 응용 프로그램의 상황에서 각 역할이 수행하는 작업을 살펴 보겠습니다.
+이제 이 애플리케이션의 상황에서 각 역할이 수행하는 작업을 살펴 보겠습니다.
 
 * **보안 팀**
   * 키 자격 증명 모음을 만듭니다.
@@ -143,7 +151,7 @@ SSL에는 인증서를, 데이터 저장에는 Azure Storage를, 로그인 작�
 | 보안 팀 |Key Vault 참가자 |키: 백업, 만들기, 삭제, 권한 가져오기, 가져오기, 목록 표시, 복원 <br> 암호: 모두 |
 | 개발자/운영자 |배포하는 가상 머신에서 키 자격 증명 모음의 비밀을 가져올 수 있게 하는 Key Vault 배포 권한 |없음 |
 | 감사자 |없음 |키: 목록 표시<br>암호: 목록 표시 |
-| 응용 프로그램 |없음 |키: 로그인<br>암호: 권한 가져오기 |
+| 애플리케이션 |없음 |키: 로그인<br>암호: 권한 가져오기 |
 
 > [!NOTE]
 > 감사자에게는 키와 비밀에 대한 목록 사용 권한이 필요하므로 로그에서 내보내지 않은 키와 비밀의 특성을 검사할 수 있습니다. 이러한 특성에는 태그, 활성화 및 만료 날짜가 포함됩니다.
@@ -167,14 +175,14 @@ Azure Portal을 사용하여 대부분의 액세스 권한을 부여할 수 있�
 
 먼저 구독 관리자는 보안 팀에 `key vault Contributor` 및 `User Access Administrator` 역할을 할당합니다. 이러한 역할을 사용하여 보안 팀에서 다른 리소스에 대한 액세스를 관리하고, ContosoAppRG 리소스 그룹의 키 자격 증명 모음을 관리할 수 있습니다.
 
-```
+```PowerShell
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
 ```
 
 다음 스크립트는 보안 팀이 키 자격 증명 모음을 만들고, 로깅 및 액세스 권한을 설정하는 방법을 보여 줍니다. Key Vault 액세스 정책 권한에 대한 자세한 내용은 [Azure Key Vault 키, 비밀 및 인증서 정보](about-keys-secrets-and-certificates.md)를 참조하세요.
 
-```
+```PowerShell
 # Create key vault and enable logging
 $sa = Get-AzureRmStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
 $kv = New-AzureRmKeyVault -Name ContosoKeyVault -ResourceGroup ContosoAppRG -SKU premium -Location 'westus' -EnabledForDeployment
@@ -214,6 +222,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 [Key Vault 방화벽 및 가상 네트워크를 구성](key-vault-network-security.md)하여 키 자격 증명 모음에 대한 액세스를 더 보호하는 것이 좋습니다.
 
 ## <a name="resources"></a>리소스
+
 * [Azure Active Directory 역할 기반 액세스 제어](../role-based-access-control/role-assignments-portal.md)
   
 * [RBAC: 기본 제공 역할](../role-based-access-control/built-in-roles.md)
@@ -241,6 +250,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 * PowerShell을 사용하여 Key Vault 액세스 정책 [설정](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) 및 [제거](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Remove-AzureRmKeyVaultAccessPolicy)
   
 ## <a name="next-steps"></a>다음 단계
+
 [키 자격 증명 모음 방화벽 및 가상 네트워크 구성](key-vault-network-security.md)
 
 관리자에 대한 시작 자습서의 경우 [Azure Key Vault 시작](key-vault-get-started.md)을 참조하세요.

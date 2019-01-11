@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 2e8c5b3d9624d3a622f16d770f68bc8614993d36
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 99cca60fe13b9757b3328d00cf66b673c95f66ea
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387485"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558433"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Azure Monitor를 사용하여 데이터 팩터리 경고 및 모니터링
 클라우드 애플리케이션은 이동하는 부분이 많아 복잡합니다. 모니터링은 애플리케이션을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다. 또한 애플리케이션에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 사용하면 애플리케이션 성능 또는 유지 관리 편의성을 향상시키거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화할 수 있습니다.
@@ -26,12 +26,12 @@ ms.locfileid: "49387485"
 Azure Monitor는 대부분의 Microsoft Azure 서비스에 대한 기본 수준의 인프라 메트릭과 로그를 제공합니다. 자세한 내용은 [모니터링 개요](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor)를 참조하세요. Azure 진단 로그는 해당 리소스의 작업에 대한 풍부하고 빈번한 데이터를 제공하는 리소스에서 내보낸 로그입니다. Data Factory는 Azure Monitor에서 진단 로그를 출력합니다.
 
 ## <a name="persist-data-factory-data"></a>Data Factory 데이터 저장
-Data Factory는 45일 동안 파이프라인 실행 데이터를 저장하기만 합니다. 45일을 초과하는 동안 파이프라인 실행 데이터를 저장하려는 경우 Azure Monitor를 사용하여 분석할 진단 로그를 라우팅할 뿐만 아니라 저장소 계정에 저장할 수 있습니다. 그러면 선택한 기간 동안 팩터리 정보를 유지하게 됩니다.
+Data Factory는 45일 동안 파이프라인 실행 데이터를 저장하기만 합니다. 45일 넘게 파이프라인 실행 데이터를 저장하려는 경우, Azure Monitor를 사용하여 분석할 진단 로그를 라우팅할 뿐만 아니라 스토리지 계정에 저장하여 선택한 기간의 팩터리 정보를 유지할 수 있습니다.
 
 ## <a name="diagnostic-logs"></a>진단 로그
 
 * 감사 또는 수동 검사를 위해 **Storage 계정** 에 저장합니다. 진단 설정을 사용하여 보존 기간(일)을 지정할 수 있습니다.
-* 진단 로그를 **Event Hubs**로 스트림하여 타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)에서 수집합니다.
+* 타사 서비스 또는 사용자 지정 분석 솔루션(예: Power BI)에서 수집할 수 있도록 진단 로그를 **Event Hubs**로 스트리밍합니다.
 * **Log Analytics**를 사용하여 분석
 
 로그를 내보내는 리소스와 동일한 구독에 있지 않은 저장소 계정 또는 이벤트 허브 네임스페이스를 사용할 수 있습니다. 설정을 구성하는 사용자는 두 구독 모두에 대해 적절한 RBAC(역할 기반 액세스 제어) 액세스 권한을 가지고 있어야 합니다.
@@ -41,9 +41,9 @@ Data Factory는 45일 동안 파이프라인 실행 데이터를 저장하기만
 ### <a name="diagnostic-settings"></a>진단 설정
 진단 설정을 사용하여 비계산 리소스에 대한 진단 로그를 구성합니다. 리소스 제어에 대한 진단 설정은 다음과 같습니다.
 
-* 진단 로그를 보낼 위치(Storage 계정, Event Hubs 및/또는 Log Analytics).
+* 진단 로그를 보낼 위치(스토리지 계정, Event Hubs 또는 Log Analytics).
 * 보낼 로그 범주.
-* 각 로그 항목을 저장소 계정에 유지해야 하는 기간.
+* 각 로그 범주를 스토리지 계정에 보존해야 하는 기간.
 * 보존이 0일이라는 것은 로그가 영원히 보관된다는 의미입니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다.
 * 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예: Event Hubs 또는 Log Analytics 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
 * 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다.
@@ -465,15 +465,7 @@ Azure Monitor와 Azure Data Factory 통합을 사용하여 Azure Monitor로 데�
 
 ## <a name="alerts"></a>경고
 
-Data Factory의 지원되는 메트릭에 대해 경고를 발생시킬 수 있습니다. Data Factory **모니터** 페이지에서 **경고** 단추를 클릭합니다.
-
-![경고 옵션](media/monitor-using-azure-monitor/alerts_image1.png)
-
-그러면 **경고** 페이지로 이동됩니다.
-
-![경고 페이지](media/monitor-using-azure-monitor/alerts_image2.png)
-
-Azure Portal에 로그인하여 **모니터 -&gt; 경고**를 클릭하여 **경고** 페이지로 직접 이동할 수도 있습니다.
+Azure Portal에 로그인하고 **모니터 -&gt; 경고**를 클릭하여 경고를 만듭니다.
 
 ![포털 메뉴의 경고](media/monitor-using-azure-monitor/alerts_image3.png)
 
@@ -509,4 +501,5 @@ Azure Portal에 로그인하여 **모니터 -&gt; 경고**를 클릭하여 **경
     ![작업 그룹, 4/4 화면](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>다음 단계
-실행 중인 파이프라인 모니터링 및 관리에 대한 자세한 내용은 [프로그래밍 방식으로 파이프라인 모니터링 및 관리](monitor-programmatically.md) 문서를 참조하세요.
+
+코드를 사용한 파이프라인 모니터링 및 관리에 대한 자세한 내용은 [프로그래밍 방식으로 파이프라인 모니터링 및 관리](monitor-programmatically.md) 문서를 참조하세요.

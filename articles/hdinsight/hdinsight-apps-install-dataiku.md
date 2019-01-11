@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 4ba1e325ec978114016682aaee35be35a20ec028
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 5d2f803414db3bd118f57d317cfc32c8f22fcd5a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499134"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653258"
 ---
 # <a name="install-published-application---dataiku-dds"></a>게시된 애플리케이션 설치 - Dataiku DDS
 
@@ -28,7 +28,7 @@ DSS를 사용하여 데이터를 수집, 준비, 처리하는 완전한 분석 �
 
 [Apache Hadoop](https://hadoop.apache.org/) 또는 [Apache Spark](https://spark.apache.org/) 클러스터를 사용하여 HDInsight에 DSS를 설치할 수 있습니다. 실행 중인 기존 클러스터에 또는 새 클러스터를 만들 때 DSS를 설치할 수 있습니다. 또한 DSS는 Azure Blob 저장소를 커넥터로 사용하여 데이터를 읽을 수 있습니다.
 
-DSS를 사용하여 프로젝트를 빌드한 다음, [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 또는 Spark 작업을 생성할 수 있습니다. 이러한 작업은 HDInsight에서 기본 MapReduce 또는 Spark 작업으로 실행되므로, 필요 시 클러스터 크기를 조정할 수 있습니다.
+DSS를 사용하여 프로젝트를 빌드한 다음, [MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 또는 Spark 작업을 생성할 수 있습니다. 이러한 작업은 HDInsight에서 기본 MapReduce 또는 Spark 작업으로 실행되므로, 필요 시 클러스터 크기를 조정할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -70,7 +70,7 @@ DSS를 사용하여 프로젝트를 빌드한 다음, [Apache Hadoop MapReduce](
 
     ![파일 업로드](./media/hdinsight-apps-install-dataiku/import-dataset.png)
 
-5. **파일** 데이터 집합 목록 아래에서 **파일 업로드**를 선택합니다. 업로드 대화 상자가 표시됩니다. [파일 추가]를 클릭하고, 다운로드한 `haiku_shirt_sales.csv` 파일을 선택하고, 유효성을 검사합니다.
+5. **파일** 데이터 세트 목록 아래에서 **파일 업로드**를 선택합니다. 업로드 대화 상자가 표시됩니다. [파일 추가]를 클릭하고, 다운로드한 `haiku_shirt_sales.csv` 파일을 선택하고, 유효성을 검사합니다.
 
 6. 이 파일은 DSS에 업로드됩니다. [미리 보기] 단추를 클릭하여 DSS가 CSV 형식을 올바르게 검색하는지 확인합니다.
 
@@ -113,8 +113,8 @@ DSS를 사용하여 프로젝트를 빌드한 다음, [Apache Hadoop MapReduce](
 ## <a name="next-steps"></a>다음 단계
 
 * [Dataiku DSS 설명서](https://doc.dataiku.com/dss/latest/).
-* [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md): HDInsight에 게시되지 않은 HDInsight 응용 프로그램을 배포하는 방법을 알아봅니다.
-* [HDInsight 응용 프로그램 게시](hdinsight-apps-publish-applications.md): 사용자 지정 HDInsight 응용 프로그램을 Azure Marketplace에 게시하는 방법을 알아봅니다.
-* [MSDN: HDInsight 응용 프로그램 설치](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight 응용 프로그램을 정의하는 방법을 알아봅니다.
-* [스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md): 스크립트 동작을 사용하여 추가 응용 프로그램을 설치하는 방법을 알아봅니다.
-* [HDInsight에서 빈 에지 노드 사용](hdinsight-apps-use-edge-node.md): 빈 에지 노드를 사용하여 HDInsight 클러스터에 액세스하고 HDInsight 응용 프로그램을 테스트 및 호스팅하는 방법을 알아봅니다.
+* [사용자 지정 HDInsight 애플리케이션 설치](hdinsight-apps-install-custom-applications.md): 게시 취소된 HDInsight 애플리케이션을 HDInsight에 배포하는 방법을 알아봅니다.
+* [HDInsight 애플리케이션 게시](hdinsight-apps-publish-applications.md): 사용자 지정 HDInsight 애플리케이션을 Azure Marketplace에 게시하는 방법을 알아봅니다.
+* [MSDN: HDInsight 애플리케이션 설치](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight 애플리케이션을 정의하는 방법을 알아봅니다.
+* [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md): 스크립트 작업을 사용하여 추가 애플리케이션을 설치하는 방법을 알아봅니다.
+* [HDInsight에서 빈 에지 노드 사용](hdinsight-apps-use-edge-node.md): 빈 에지 노드를 사용하여 HDInsight 클러스터에 액세스하고 HDInsight 애플리케이션을 테스트 및 호스팅하는 방법을 알아봅니다.

@@ -1,7 +1,7 @@
 ---
 title: Application Insights, Node.js
 titleSuffix: Azure Cognitive Services
-description: Node.js를 사용하여 LUIS 응용 프로그램 및 Application Insights와 통합된 봇을 빌드합니다.
+description: Node.js를 사용하여 LUIS 애플리케이션 및 Application Insights와 통합된 봇을 빌드합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 4f1372f8b15670472146efc1c4f3a341f4a97c71
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 0ab9e4a3d129243ec069031c5e7233f341b545e4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255604"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713967"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>Application Insights 및 Azure 함수에 LUIS 결과 추가
 이 자습서에서는 [Application Insights](https://azure.microsoft.com/services/application-insights/) 원격 분석 데이터 저장소에 LUIS 요청 및 응답 정보를 추가합니다. 해당 데이터가 있으면 Kusto 언어 또는 PowerBi로 데이터를 쿼리하여 발화의 의도 및 엔터티를 실시간으로 분석, 집계 및 보고할 수 있습니다. 이 분석을 통해 LUIS 앱의 의도와 엔터티를 추가하거나 편집해야 할지 결정할 수 있습니다.
@@ -37,7 +37,7 @@ ms.locfileid: "53255604"
 > [!Tip]
 > 아직 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)으로 등록할 수 있습니다.
 
-이 자습서의 모든 코드는 [LUIS-Samples GitHub 리포지토리](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs)에서 사용할 수 있으며 이 자습서와 연결된 각 줄은 `//APPINSIGHT:`를 사용하여 주석으로 처리됩니다. 
+이 자습서의 모든 코드는 [Azure-Samples GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs)에서 사용할 수 있으며 이 자습서와 연결된 각 줄은 `//APPINSIGHT:`를 사용하여 주석으로 처리됩니다. 
 
 ## <a name="web-app-bot-with-luis"></a>LUIS와 웹앱 봇
 이 자습서에서는 다음과 같은 코드가 있거나 [다른 자습서](luis-nodejs-tutorial-build-bot-framework-sample.md)를 완료했다고 가정합니다. 
@@ -51,11 +51,11 @@ LUIS 요청 및 응답을 캡처하려면 웹앱 봇에 **[Application Insights]
 
 1. Azure Portal의 웹앱 봇 서비스에서 **봇 관리** 섹션 아래의 **빌드**를 선택합니다. 
 
-    ![App Insights 검색](./media/luis-tutorial-appinsights/build.png)
+    ![Azure Portal의 웹앱 봇 서비스에서 "봇 관리" 섹션 아래의 "빌드"를 선택합니다. ](./media/luis-tutorial-appinsights/build.png)
 
 2. 새 웹 브라우저 탭에서 App Service 편집기가 열립니다. 위쪽 막대에서 앱 이름을 선택하고 **Kudu 콘솔 열기**를 선택합니다. 
 
-    ![App Insights 검색](./media/luis-tutorial-appinsights/kudu-console.png)
+    ![위쪽 막대에서 앱 이름을 선택한 다음, "Kudu 콘솔 열기"를 선택합니다. ](./media/luis-tutorial-appinsights/kudu-console.png)
 
 3. 콘솔에서 다음 명령을 입력하여 Application Insights 및 Underscore 패키지를 설치합니다.
 
@@ -63,7 +63,7 @@ LUIS 요청 및 응답을 캡처하려면 웹앱 봇에 **[Application Insights]
     cd site\wwwroot && npm install applicationinsights && npm install underscore
     ```
 
-    ![App Insights 검색](./media/luis-tutorial-appinsights/npm-install.png)
+    ![npm 명령을 사용하여 Application Insights 및 Underscore 패키지를 설치합니다.](./media/luis-tutorial-appinsights/npm-install.png)
 
     패키지가 설치될 때까지 기다립니다.
 
@@ -91,7 +91,7 @@ LUIS 요청 및 응답을 캡처하려면 웹앱 봇에 **[Application Insights]
 
    [!code-javascript[Add NPM packages to app.js](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/nodejs/app.js?range=12-16 "Add NPM packages to app.js")]
 
-3. Application Insights 개체를 만들고 웹앱 봇 응용 프로그램 설정 **BotDevInsightsKey**를 사용합니다. 
+3. Application Insights 개체를 만들고 웹앱 봇 애플리케이션 설정 **BotDevInsightsKey**를 사용합니다. 
 
    [!code-javascript[Create the Application Insights object](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/nodejs/app.js?range=68-80 "Create the Application Insights object")]
 
@@ -112,9 +112,7 @@ Application Insights를 열어 LUIS 항목을 확인합니다.
 
 1. 포털에서 **모든 리소스**를 선택한 후 웹앱 봇 이름으로 필터링합니다. **Application Insights** 유형의 리소스를 클릭합니다. Application Insights의 아이콘은 전구입니다. 
 
-    ![App Insights 검색](./media/luis-tutorial-appinsights/search-for-app-insights.png)
-
-
+    ![[Azure Portal에서 App Insights 검색](./media/luis-tutorial-appinsights/search-for-app-insights.png)
 
 2. 리소스가 열리면 맨 오른쪽 패널에서 돋보기의 **검색** 아이콘을 클릭합니다. 오른쪽에 새 패널이 표시됩니다. 발견된 원격 분석 데이터의 양에 따라 패널을 표시하는 데 다소 시간이 걸릴 수 있습니다. `LUIS-results`를 검색하고 키보드에서 Enter 키를 누릅니다. 이 자습서에서 추가된 LUIS 쿼리 결과로만 목록 범위가 좁혀집니다.
 

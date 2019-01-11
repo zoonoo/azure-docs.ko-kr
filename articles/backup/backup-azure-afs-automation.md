@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pullabhk
 ms.assetid: 80da8ece-2cce-40dd-8dce-79960b6ae073
-ms.openlocfilehash: 90623981f67bbed15ade743192525676e58a0a83
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 30fc36f29a7602e2bc3f192b445474bfc50e9434
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318429"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632638"
 ---
 # <a name="use-powershell-to-back-up-and-restore-azure-file-shares"></a>PowerShell을 사용하여 Azure 파일 공유 백업 및 복원
 
@@ -34,11 +34,11 @@ AzureRm.RecoveryServices.Backup PowerShell cmdlet 참조를 보려면 Azure 라�
 ## <a name="setup-and-registration"></a>설정 및 등록
 
 > [!NOTE]
-> [여기](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0)에 언급된 대로 AzureRM 모듈의 새로운 기능 지원은 2018년 11월에 종료됩니다. 따라서 새 ‘Az’ PS 모듈을 통해 Azure 파일 공유 백업을 지원하고 있습니다. 또한 Az 모듈의 GA 릴리스에 등록되도록 계획하고 있습니다.
+> [여기](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0)에 언급된 대로 AzureRM 모듈의 새로운 기능 지원은 2018년 11월에 종료됩니다. 따라서 현재 GA로 제공되고 있는 새 ‘Az’ PS 모듈을 통해 Azure 파일 공유 백업을 지원합니다.
 
 시작하려면
 
-1. [‘Az’ PowerShell 최신 버전 다운로드](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0)(필요한 최소 버전: 0.7.0)
+1. [‘Az’ PowerShell 최신 버전 다운로드](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0)(필요한 최소 버전: 1.0.0)
 
 2. 다음 명령을 입력하여 사용할 수 있는 Azure Backup PowerShell cmdlet을 찾습니다.
 
@@ -158,6 +158,8 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 ----                 ------------       -------------------- ----------                ----------
 NewAFSPolicy           AzureFiles            AzureStorage              10/24/2017 1:30:00 AM
 ```
+
+‘NewAFSPolicy’는 매일 백업을 생성하고 30일 동안 보존합니다.
 
 ### <a name="enable-protection"></a>보호 사용
 

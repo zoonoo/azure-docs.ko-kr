@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
-ms.reviewer: MightyPen
+ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 034fd2434d3b824c4356e640a1c1665dff542de6
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4b2c9f17bc9c6e9bbc280116d074bd0f1e3d3e38
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056599"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606047"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Azure SQL Database, SQL Data Warehouse, Data Factory 및 Power BI를 사용한 SaaS 분석 탐색
 
@@ -111,7 +111,7 @@ Wingtip Tickets 앱에서 테넌트의 트랜잭션 데이터는 많은 데이�
 ![DWtables](media/saas-tenancy-tenant-analytics/DWtables.JPG)
 
 #### <a name="blob-storage"></a>Blob 저장소
-1. [Azure Portal](https://ms.portal.azure.com)에서 응용 프로그램을 배포하는 데 사용한 리소스 그룹으로 이동합니다. **wingtipstaging\<user\>** 이라는 저장소 계정이 추가되었는지 확인합니다.
+1. [Azure Portal](https://ms.portal.azure.com)에서 애플리케이션을 배포하는 데 사용한 리소스 그룹으로 이동합니다. **wingtipstaging\<user\>** 이라는 저장소 계정이 추가되었는지 확인합니다.
 
   ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
 
@@ -142,11 +142,11 @@ Azure Data Factory는 데이터의 추출, 로드 및 변환을 오케스트레�
 개요 페이지에서 왼쪽 패널의 **작성자** 탭으로 전환하고 세 [파이프라인](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) 및 세 [데이터 세트](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)가 있는지 확인합니다.
 ![adf_author](media/saas-tenancy-tenant-analytics/adf_author_tab.JPG)
 
-중첩된 세 파이프라인은 SQLDBToDW, DBCopy 및 TableCopy입니다.
+세 개의 중첩 파이프라인은 SQLDBToDW, DBCopy 및 TableCopy입니다.
 
 **파이프라인 1 - SQLDBToDW**는 카탈로그 데이터베이스에 저장된 테넌트 데이터베이스의 이름을 조회하고(테이블 이름: [__ShardManagement].[ShardsGlobal]) 각 테넌트 데이터베이스에 대해 **DBCopy** 파이프라인을 실행합니다. 완료하면 제공된 **sp_TransformExtractedData** 저장 프로시저 스키마가 실행됩니다. 이 저장 프로시저는 준비 테이블에서 로드된 데이터를 변환하고 스타 스키마 테이블을 채웁니다.
 
-**파이프라인 2 - DBCopy**는 BLOB 저장소에 저장된 구성 파일에서 열과 원본 테이블의 이름을 조회합니다.  **TableCopy** 파이프라인은 TicketFacts, CustomerFacts, EventFacts 및 VenueFacts의 4개 테이블 각각에 대해 실행됩니다. **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** 활동은 20개 데이터베이스 모두에 대해 병렬로 실행됩니다. ADF를 사용하면 최대 20회 루프 반복을 병렬로 실행할 수 있습니다. 더 많은 데이터베이스에 대한 여러 파이프라인을 만듭니다.    
+**파이프라인 2 - DBCopy**는 BLOB 저장소에 저장된 구성 파일에서 열과 원본 테이블의 이름을 조회합니다.  그런 다음, **TableCopy** 파이프라인이 4개의 각 테이블, 즉 TicketFacts, CustomerFacts, EventFacts 및 VenueFacts별로 실행됩니다. **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** 활동은 20개 데이터베이스 모두에 대해 병렬로 실행됩니다. ADF를 사용하면 최대 20회 루프 반복을 병렬로 실행할 수 있습니다. 더 많은 데이터베이스에 대한 여러 파이프라인을 만듭니다.    
 
 **파이프라인 3 - TableCopy**는 SQL Database(_rowversion_)에서 행 버전 번호를 사용하여 변경되거나 업데이트된 행을 식별합니다. 이 작업은 원본 테이블에서 행을 추출하기 위해 시작 및 마지막 행 버전을 찾습니다. 각 테넌트 데이터베이스에 저장된 **CopyTracker** 테이블은 각각 실행되는 각 원본 테이블에서 추출된 마지막 행을 추적합니다. 새로운 또는 변경된 행은 데이터 웨어하우스에서 **raw_Tickets**, **raw_Customers**, **raw_Venues** 및 **raw_Events**의 해당 준비 테이블로 복사됩니다. 마지막으로 마지막 행 버전은 **CopyTracker** 테이블에 저장되어 다음 추출에 대한 초기 행 버전으로 사용됩니다. 
 
@@ -262,4 +262,4 @@ Wingtip Tickets 예제에서는 일찌기 티켓 판매량이 예측 가능한 �
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Wingtip SaaS 응용 프로그램을 사용하는 또 다른 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
+- [Wingtip SaaS 애플리케이션을 사용하는 또 다른 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).

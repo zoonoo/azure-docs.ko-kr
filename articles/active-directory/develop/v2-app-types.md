@@ -1,5 +1,5 @@
 ---
-title: v2.0에 대한 애플리케이션 유형 | Azure
+title: v2.0에 대한 응용 프로그램 유형 | Azure
 description: Azure Active Directory v2.0 엔드포인트에서 지원되는 앱 형식 및 시나리오입니다.
 services: active-directory
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 12/18/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 24a9b014028bf99673881904e17ec0911d0b5063
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 94a072d3c8bde9e4fb16342db1e0705bfc22cf77
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952055"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539588"
 ---
-# <a name="application-types-for-v20"></a>v2.0에 대한 애플리케이션 유형
+# <a name="application-types-for-v20"></a>v2.0에 대한 응용 프로그램 유형
 
 Azure AD(Azure Active Directory) v2.0 엔드포인트는 모두 업계 표준 프로토콜 [OAuth 2.0 또는 OpenID Connect](active-directory-v2-protocols.md)를 기반으로 하는 다양한 최신 앱 아키텍처에 대한 인증을 지원합니다. 이 문서에서는 기본 설정 언어 또는 플랫폼에 관계없이 Azure AD v2.0을 사용하여 빌드할 수 있는 앱 형식을 설명합니다. 이 문서의 정보는 [코드 작업을 시작](v2-overview.md#getting-started)하기 전에 개략적인 시나리오를 이해하는 데 도움이 됩니다.
 
@@ -121,7 +121,7 @@ OAuth2 액세스 토큰을 사용하여 Web API 보안을 유지하는 방법을
 
 ## <a name="daemons-and-server-side-apps"></a>디먼 및 서버 쪽 앱
 
-장기 실행 프로세스가 있거나 사용자와의 상호 작용 없이 작동하는 앱은 Web API와 같은 보안 리소스에 액세스하는 방법도 필요로 합니다. 이러한 앱은 OAuth 2.0 클라이언트 자격 증명 흐름을 사용하여 사용자의 위임된 ID 대신 앱 ID로 인증하고 토큰을 가져올 수 있습니다.
+장기 실행 프로세스가 있거나 사용자와의 상호 작용 없이 작동하는 앱은 Web API와 같은 보안 리소스에 액세스하는 방법도 필요로 합니다. 이러한 앱은 OAuth 2.0 클라이언트 자격 증명 흐름을 사용하여 사용자의 위임된 ID 대신 앱 ID로 인증하고 토큰을 가져올 수 있습니다. 클라이언트 암호 또는 인증서를 사용하여 앱 ID를 증명할 수 있습니다. 자세한 내용은 [인증서로 디먼 앱에서 Azure AD에 인증](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/)을 참조하세요.
 
 이 흐름에서 앱은 `/token` 엔드포인트와 직접 상호 작용하여 엔드포인트를 가져옵니다.
 

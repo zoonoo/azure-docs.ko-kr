@@ -8,16 +8,16 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: danlep
-ms.openlocfilehash: d02ae48bab6a17cbf5568996b30ccb39ccb81c59
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2cbfb21469df45f29a70b5d10d8c99ecd894c30c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994008"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755022"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>GPU 리소스를 사용하는 컨테이너 인스턴스 배포
 
-Azure Container Instances에서 특정 컴퓨팅 집약적 워크로드를 실행하려면 *GPU 리소스*를 사용하여 컨테이너 그룹을 배포하세요. 컨테이너 인스턴스는 CUDA 같은 컨테이너 워크로드와 딥러닝 애플리케이션을 실행하는 동안 하나 이상의 NVIDIA Tesla GPU에 액세스할 수 있습니다.
+Azure Container Instances에서 컴퓨팅 작업이 많은 특정한 워크로드를 실행하려면 *GPU 리소스*를 사용하여 [컨테이너 그룹](container-instances-container-groups.md)을 배포합니다. 그룹의 컨테이너 인스턴스는 CUDA 및 딥 러닝 애플리케이션과 같은 컨테이너 워크로드를 실행하는 동안 하나 이상의 NVIDIA Tesla GPU에 액세스할 수 있습니다.
 
 이 문서에서 볼 수 있듯이, 컨테이너 그룹을 배포할 때 [YAML 파일](container-instances-multi-container-yaml.md) 또는 [Resource Manager 템플릿](container-instances-multi-container-group.md)을 사용하여 GPU 리소스를 추가할 수 있습니다.
 
@@ -87,7 +87,7 @@ GPU 리소스를 배포할 때 다음 표에 표시된 최댓값 이내에서 �
 
 ## <a name="yaml-example"></a>YAML 예제
 
-다음 YAML을 *gpu-deploy-aci.yaml*이라는 새 파일에 복사하고 파일을 저장합니다. 이 YAML은 K80 GPU가 있는 컨테이너 인스턴스를 지정하는 *gpucontainergroup*이라는 컨테이너 그룹을 만듭니다. 이 인스턴스는 샘플 CUDA 벡터 추가 애플리케이션을 실행합니다. 리소스 요청은 워크로드를 실행하기에 충분합니다.
+GPU 리소스를 추가하는 한 가지 방법은 [YAML 파일](container-instances-multi-container-yaml.md)을 사용하여 컨테이너 그룹을 배포하는 것입니다. 다음 YAML을 *gpu-deploy-aci.yaml*이라는 새 파일에 복사하고 파일을 저장합니다. 이 YAML은 K80 GPU가 있는 컨테이너 인스턴스를 지정하는 *gpucontainergroup*이라는 컨테이너 그룹을 만듭니다. 이 인스턴스는 샘플 CUDA 벡터 추가 애플리케이션을 실행합니다. 리소스 요청은 워크로드를 실행하기에 충분합니다.
 
 ```YAML
 additional_properties: {}
@@ -134,7 +134,7 @@ Done
 
 ## <a name="resource-manager-template-example"></a>Resource Manager 템플릿 예제
 
-먼저 `gpudeploy.json` 파일을 만든 후, 다음 JSON을 이 파일에 복사합니다. 이 예제에서는 [MNIST 데이터 세트](http://yann.lecun.com/exdb/mnist/)를 대상으로 [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) 교육 작업을 실행하는 V100 GPU가 있는 컨테이너 인스턴스를 배포합니다. 리소스 요청은 워크로드를 실행하기에 충분합니다.
+GPU 리소스가 있는 컨테이너 그룹을 배포하는 또 다른 방법은 [Resource Manager 템플릿](container-instances-multi-container-group.md)을 사용하는 것입니다. 먼저 `gpudeploy.json` 파일을 만든 후, 다음 JSON을 이 파일에 복사합니다. 이 예제에서는 [MNIST 데이터 세트](http://yann.lecun.com/exdb/mnist/)를 대상으로 [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) 교육 작업을 실행하는 V100 GPU가 있는 컨테이너 인스턴스를 배포합니다. 리소스 요청은 워크로드를 실행하기에 충분합니다.
 
 ```JSON
 {

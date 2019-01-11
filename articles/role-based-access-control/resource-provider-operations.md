@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 22af5b4b757fed83e5c9b23426283d2fb4c4867f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: fb72de7e9a61c874d4449a5b9c0422c787a7bdc0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410536"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728451"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 리소스 공급자 작업
 
@@ -1867,13 +1867,13 @@ ms.locfileid: "53410536"
 > | 액션(Action) | Microsoft.Devices/provisioningServices/certificates/verify/Action | 인증서 리소스를 확인합니다. |
 > | 액션(Action) | Microsoft.Devices/provisioningServices/certificates/Write | 인증서를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.Devices/provisioningServices/Delete | IotDps 리소스를 삭제합니다. |
-> | 액션(Action) | Microsoft.Devices/provisioningServices/diagnosticSettings/read | 리소스에 대한 진단 설정을 가져옵니다. |
-> | 액션(Action) | Microsoft.Devices/provisioningServices/diagnosticSettings/write | 리소스에 대한 진단 설정을 만들거나 업데이트합니다. |
+> | 액션(Action) | Microsoft.Devices/provisioningServices/diagnosticSettings/read | 리소스에 대한 진단 설정을 가져옵니다. 참고: `Microsoft.Insights/diagnosticSettings/read`도 필요할 수 있습니다.  |
+> | 조치 | Microsoft.Devices/provisioningServices/diagnosticSettings/write | 리소스에 대한 진단 설정을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.Devices/provisioningServices/keys/listkeys/Action | 키 이름에 대 한 IotDps 키를 가져옵니다. |
 > | 액션(Action) | Microsoft.Devices/provisioningServices/listkeys/Action | 모든 IotDps 키를 가져옵니다. |
-> | 액션(Action) | Microsoft.Devices/provisioningServices/logDefinitions/read | 서비스를 프로비전하는 데 사용할 수 있는 로그 정의를 가져옵니다. |
-> | 액션(Action) | Microsoft.Devices/provisioningServices/metricDefinitions/read | 서비스를 프로비전하는 데 사용할 수 있는 메트릭을 가져옵니다. |
-> | 액션(Action) | Microsoft.Devices/provisioningServices/operationresults/Read | DPS 작업 결과를 가져옵니다. |
+> | 액션(Action) | Microsoft.Devices/provisioningServices/logDefinitions/read | 서비스를 프로비전하는 데 사용할 수 있는 로그 정의를 가져옵니다. 참고: `Microsoft.Insights/logDefinitions/read`도 필요할 수 있습니다. |
+> | 조치 | Microsoft.Devices/provisioningServices/metricDefinitions/read | 서비스를 프로비전하는 데 사용할 수 있는 메트릭을 가져옵니다. 참고: `Microsoft.Insights/metricDefinitions/read`도 필요할 수 있습니다. |
+> | 조치 | Microsoft.Devices/provisioningServices/operationresults/Read | DPS 작업 결과를 가져옵니다. |
 > | 액션(Action) | Microsoft.Devices/provisioningServices/Read | IotDps 리소스를 가져옵니다. |
 > | 액션(Action) | Microsoft.Devices/provisioningServices/skus/Read | 유효한 IotDps Sku를 가져옵니다. |
 > | 액션(Action) | Microsoft.Devices/provisioningServices/Write | IotDps 리소스를 만듭니다. |
@@ -3037,7 +3037,7 @@ ms.locfileid: "53410536"
 > | 액션(Action) | Microsoft.Management/managementGroups/subscriptions/delete | 관리 그룹에서 구독의 연결을 해제합니다. |
 > | 액션(Action) | Microsoft.Management/managementGroups/subscriptions/write | 기존 구독을 관리 그룹과 연결합니다. |
 > | 액션(Action) | Microsoft.Management/managementGroups/write | 관리 그룹을 만들거나 업데이트합니다. |
-> | 액션(Action) | Microsoft.Management/register/action | 지정된 구독을 Microsoft.Management에 등록합니다. |
+> | 조치 | Microsoft.Management/register/action | 지정된 구독을 Microsoft.Management에 등록합니다. |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 
@@ -3206,7 +3206,7 @@ ms.locfileid: "53410536"
 > | 액션(Action) | Microsoft.Network/applicationGatewayAvailableSslOptions/predefinedPolicies/read | Application Gateway Ssl 미리 정의된 정책 |
 > | 액션(Action) | Microsoft.Network/applicationGatewayAvailableSslOptions/read | Application Gateway에서 사용 가능한 Ssl 옵션 |
 > | 액션(Action) | Microsoft.Network/applicationGatewayAvailableWafRuleSets/read | Application Gateway 사용 가능 WAF 규칙 집합을 가져옵니다. |
-> | 액션(Action) | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Application Gateway 백 엔드 주소 풀을 연결합니다. |
+> | 액션(Action) | Microsoft.Network/applicationGateways/backendAddressPools/join/action | 애플리케이션 게이트웨이 백 엔드 주소 풀을 연결합니다. |
 > | 액션(Action) | Microsoft.Network/applicationGateways/backendhealth/action | Application Gateway 백 엔드 상태를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/applicationGateways/delete | Application Gateway를 삭제합니다. |
 > | 조치 | Microsoft.Network/applicationGateways/read | Application Gateway를 가져옵니다. |
@@ -3566,8 +3566,8 @@ ms.locfileid: "53410536"
 > | 액션(Action) | microsoft.network/vpnGateways/vpnConnections/delete | VpnConnection을 삭제합니다. |
 > | 액션(Action) | microsoft.network/vpnGateways/vpnConnections/read | VpnConnection을 가져옵니다. |
 > | 액션(Action) | microsoft.network/vpnGateways/vpnConnections/write | VpnConnection을 씁니다. |
-> | 액션(Action) | Microsoft.Network/vpnGateways/write | VpnGateway를 씁니다. |
-> | 조치 | Microsoft.Network/vpnsites/delete | Vpn 사이트 리소스를 삭제합니다. |
+> | 조치 | Microsoft.Network/vpnGateways/write | VpnGateway를 씁니다. |
+> | 액션(Action) | Microsoft.Network/vpnsites/delete | Vpn 사이트 리소스를 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/vpnsites/read | Vpn 사이트 리소스를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/vpnsites/write | Vpn 사이트 리소스를 만들거나 업데이트합니다. |
 
@@ -3743,8 +3743,8 @@ ms.locfileid: "53410536"
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/Event/read | Event 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/ExchangeAssessmentRecommendation/read | ExchangeAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/ExchangeOnlineAssessmentRecommendation/read | ExchangeOnlineAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
-> | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/Heartbeat/read | Heartbeat 테이블에서 데이터를 읽습니다. |
-> | 조치 | Microsoft.OperationalInsights/workspaces/query/IISAssessmentRecommendation/read | IISAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
+> | 조치 | Microsoft.OperationalInsights/workspaces/query/Heartbeat/read | Heartbeat 테이블에서 데이터를 읽습니다. |
+> | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/IISAssessmentRecommendation/read | IISAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/InboundConnection/read | InboundConnection 테이블에서 데이터를 읽습니다. |
 > | 조치 | Microsoft.OperationalInsights/workspaces/query/KubeEvents/read | KubeEvents 테이블에서 데이터를 읽습니다. |
 > | 조치 | Microsoft.OperationalInsights/workspaces/query/KubeNodeInventory/read | KubeNodeInventory 테이블에서 데이터를 읽습니다. |
@@ -4286,8 +4286,8 @@ ms.locfileid: "53410536"
 > | 액션(Action) | Microsoft.Security/pricings/delete | 범위에 대한 가격 책정 설정을 삭제합니다. |
 > | 액션(Action) | Microsoft.Security/pricings/read | 범위에 대한 가격 책정 설정을 가져옵니다. |
 > | 액션(Action) | Microsoft.Security/pricings/write | 범위에 대한 가격 책정 설정을 업데이트합니다. |
-> | 액션(Action) | Microsoft.Security/register/action | Azure Security Center에 대한 구독을 등록합니다. |
-> | 조치 | Microsoft.Security/securityContacts/delete | 보안 연락처를 삭제합니다. |
+> | 조치 | Microsoft.Security/register/action | Azure Security Center에 대한 구독을 등록합니다. |
+> | 액션(Action) | Microsoft.Security/securityContacts/delete | 보안 연락처를 삭제합니다. |
 > | 액션(Action) | Microsoft.Security/securityContacts/read | 보안 연락처를 가져옵니다. |
 > | 액션(Action) | Microsoft.Security/securityContacts/write | 보안 연락처를 업데이트합니다. |
 > | 액션(Action) | Microsoft.Security/securitySolutions/delete | 보안 솔루션을 삭제합니다. |
@@ -4987,8 +4987,8 @@ ms.locfileid: "53410536"
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/timeSettings/read | 시간 설정을 나열하거나 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/timeSettings/write | 새 시간 설정을 만들거나 시간 설정을 업데이트합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/updates/operationResults/read | 작업 결과를 나열하거나 가져옵니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/devices/updateSummary/read | 업데이트 요약을 나열하거나 가져옵니다. |
-> | 조치 | Microsoft.StorSimple/managers/devices/volumeContainers/delete | 기존 볼륨 컨테이너를 삭제합니다(8000 시리즈만 해당). |
+> | 조치 | Microsoft.StorSimple/managers/devices/updateSummary/read | 업데이트 요약을 나열하거나 가져옵니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/devices/volumeContainers/delete | 기존 볼륨 컨테이너를 삭제합니다(8000 시리즈만 해당). |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/volumeContainers/metrics/read | 메트릭을 나열합니다 |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/volumeContainers/metricsDefinitions/read | 메트릭 정의를 나열합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/volumeContainers/operationResults/read | 작업 결과를 나열합니다. |

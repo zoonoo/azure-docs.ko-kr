@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0ac9b98a9dfe06492775481cd590bfb4d0db4b55
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 8af8e4b7844feb785600ef683891642ea89bccaf
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542585"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556903"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력에 대한 유효성 검사로 통합
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -41,7 +41,7 @@ IEF는 클레임으로 데이터를 보내고 다시 클레임으로 데이터�
 - [시작](active-directory-b2c-get-started-custom.md)에서 설명한 대로 로컬 계정 등록/로그인을 완료하도록 구성된 Azure AD B2C 테넌트
 - 상호 작용할 REST API 엔드포인트 이 연습에서는 REST API 서비스를 사용하여 [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/)라는 데모 사이트를 설정했습니다.
 
-## <a name="step-1-prepare-the-rest-api-function"></a>1단계 - REST API 함수 준비
+## <a name="step-1-prepare-the-rest-api-function"></a>1단계: REST API 함수 준비
 
 > [!NOTE]
 > REST API 함수 설정은 이 문서의 범위를 벗어납니다. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference)는 클라우드에서 RESTful 서비스를 만들 수 있는 뛰어난 도구 키트를 제공합니다.
@@ -75,7 +75,7 @@ return request.CreateResponse(HttpStatusCode.OK);
 
 IEF는 Azure 함수에서 반환하는 `userMessage` 클레임을 예상합니다. 위의 예제에서는 409 충돌 상태가 반환된 경우와 같이 유효성 검사에 실패하면 이 클레임이 사용자에게 문자열로 표시됩니다.
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>2단계 - TrustFrameworkExtensions.xml 파일에서 RESTful API 클레임 교환을 기술 프로필로 구성
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>2단계: TrustFrameworkExtensions.xml 파일에서 RESTful API 클레임 교환을 기술 프로필로 구성
 
 기술적 프로필은 RESTful 서비스에서 원하는 교환의 전체 구성입니다. TrustFrameworkExtensions.xml 파일을 열고 `<ClaimsProviders>` 요소 내에 다음 XML 코드 조각을 추가합니다.
 
@@ -93,6 +93,7 @@ IEF는 Azure 함수에서 반환하는 `userMessage` 클레임을 예상합니�
                 <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/CheckPlayerTagWebHook?code=L/05YRSpojU0nECzM4Tp3LjBiA2ZGh3kTwwp1OVV7m0SelnvlRVLCg==</Item>
                 <Item Key="AuthenticationType">None</Item>
                 <Item Key="SendClaimsIn">Body</Item>
+                <Item Key="AllowInsecureAuthInProduction">true</Item>
             </Metadata>
             <InputClaims>
                 <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="playerTag" />
@@ -110,7 +111,7 @@ IEF는 Azure 함수에서 반환하는 `userMessage` 클레임을 예상합니�
 
 `InputClaims` 요소는 IEF에서 REST 서비스로 전송할 클레임을 정의합니다. 이 예제에서는 REST 서비스에 `givenName` 클레임의 내용을 `playerTag`로 보냅니다. 그리고 IEF에서 클레임을 다시 예상하지 않습니다. 대신 REST 서비스의 응답을 기다리고, 받는 상태 코드에 따라 작동합니다.
 
-## <a name="step-3-include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-to-validate-the-user-input"></a>3단계 - 사용자 입력의 유효성을 검사하려는 자체 어설션된 기술 프로필에 RESTful 서비스 클레임 교환을 포함
+## <a name="step-3-include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-to-validate-the-user-input"></a>3단계: 사용자 입력의 유효성을 검사하려는 자체 어설션된 기술 프로필에 RESTful 서비스 클레임 교환을 포함
 
 유효성 검사의 가장 일반적인 용도는 사용자와의 상호 작용입니다. 사용자가 입력을 제공해야 하는 모든 상호 작용은 *자체 어설션된 기술 프로필*입니다. 이 예제에서는 Self-Asserted-ProfileUpdate 기술 프로필에 유효성 검사를 추가합니다. 이는 `Profile Edit` RP(신뢰 당사자) 정책 파일에서 사용하는 기술 프로필입니다.
 
@@ -120,7 +121,7 @@ IEF는 Azure 함수에서 반환하는 `userMessage` 클레임을 예상합니�
 2. 이 기술 프로필의 구성을 검토합니다. 사용자와의 교환이 사용자에게 요청할 클레임(입력 클레임) 및 자체 어설션된 공급자에서 반환될 클레임(출력 클레임)으로 정의되는 방식을 검토합니다.
 3. `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`를 검색합니다. 이 프로필이 `<UserJourney Id="ProfileEdit">`의 오케스트레이션 5단계로 호출된다는 것을 확인합니다.
 
-## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>4단계 - 프로필 편집 RP 정책 파일 업로드 및 테스트
+## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>4단계: 프로필 편집 RP 정책 파일 업로드 및 테스트
 
 1. 새 버전의 TrustFrameworkExtensions.xml 정책 파일을 업로드합니다.
 2. **지금 실행**을 사용하여 프로필 편집 RP 정책 파일을 테스트합니다.

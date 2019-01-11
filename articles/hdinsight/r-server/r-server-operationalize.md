@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ce701c029c63256714452aa13f646af77991cb67
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d0cae4210fa313c5d6e1f33987422e7b0d53e76a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496914"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579960"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 운영
 
@@ -22,13 +22,13 @@ HDInsight에서 ML 서비스 클러스터를 사용하여 데이터 모델링을
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **HDInsight의 ML 서비스 클러스터**: 지침은 [HDInsight에서 ML 서비스 시작](r-server-get-started.md)을 참조하세요.
+* **HDInsight의 ML 서비스 클러스터**: 자세한 내용은 [HDInsight에서 ML 서비스 시작](r-server-get-started.md)을 참조하세요.
 
-* **SSH(보안 셸) 클라이언트**: SSH 클라이언트는 HDInsight 클러스터에 원격으로 연결하여 클러스터에서 직접 명령을 실행하는 데 사용됩니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+* **SSH(Secure Shell) 클라이언트**: SSH 클라이언트는 HDInsight 클러스터에 원격으로 연결하여 클러스터에서 직접 명령을 실행하는 데 사용됩니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>원 박스 구성을 사용하여 ML 서비스 클러스터 운영
 
-> [!NOTE]
+> [!NOTE]  
 > 아래 단계는 R Server 9.0 및 ML Server 9.1에 적용할 수 있습니다. ML Server 9.3의 경우 [관리 도구를 사용하여 운영 구성 관리](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch)를 참조하세요.
 
 1. SSH를 에지 노드로 실행합니다.
@@ -137,7 +137,7 @@ SSH 세션이 활성화되면 로컬 머신의 12800 포트에서 발생한 트�
 
 계산 노드를 확장하려면 먼저 작업자 노드 서비스를 해제한 다음, 서비스 해제된 작업자 노드에서 계산 노드를 구성합니다.
 
-### <a name="step-1-decommission-the-worker-nodes"></a>1단계: 작업자 노드 서비스 해제
+### <a name="step-1-decommission-the-worker-nodes"></a>1단계: 작업자 노드 해제
 
 ML 서비스 클러스터는 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)을 통해 관리되지 않습니다. 작업자 노드 서비스를 해제하지 않으면 YARN 리소스 관리자가 서버에서 사용하는 리소스를 인식하지 못하기 때문에 예상대로 작동하지 않습니다. 이 상황을 피하려면 계산 노드의 크기를 조정하기 전에 작업자 노드의 서비스를 해제하는 것이 좋습니다.
 
@@ -159,7 +159,7 @@ ML 서비스 클러스터는 [Apache Hadoop YARN](https://hadoop.apache.org/docs
 * 작업자 노드를 선택 취소하고 헤드 노드를 선택합니다.
 * **작업** > **선택한 호스트** > **호스트** > **모든 구성 요소 다시 시작**을 선택합니다.
 
-### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>2단계: 서비스 해제된 작업자 노드 각각에 계산 노드 구성
+### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>2단계: 서비스 해제된 작업자 노드 각각에 컴퓨팅 노드 구성
 
 1. SSH를 서비스 해제된 각 작업자 노드로 실행합니다.
 
@@ -173,7 +173,7 @@ ML 서비스 클러스터는 [Apache Hadoop YARN](https://hadoop.apache.org/docs
 
 1. 관리 유틸리티를 종료합니다.
 
-### <a name="step-3-add-compute-nodes-details-on-web-node"></a>3단계: 웹 노드에 계산 노드 세부 정보 추가
+### <a name="step-3-add-compute-nodes-details-on-web-node"></a>3단계: 웹 노드에 컴퓨팅 노드 세부 정보 추가
 
 서비스가 해제된 모든 작업자 노드에서 계산 노드를 실행하도록 구성한 후에 에지 노드로 돌아가서 ML Server 웹 노드의 구성에 서비스가 해제된 작업자 노드의 IP 주소를 추가합니다.
 

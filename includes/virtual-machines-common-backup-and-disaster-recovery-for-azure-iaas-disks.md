@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 7f093a1878bc3cf7e91cc14ec7a68b1a84764a49
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5c7c9938b6a0b3d2e6050940154a8dc3f114341e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39485603"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53638850"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Azure IaaS 디스크에 대한 백업 및 재해 복구
 
@@ -53,7 +53,7 @@ IaaS 디스크의 경우 데이터의 내구성이 영구 저장소 플랫폼에
 
 이러한 별도의 장애 도메인 때문에 지역화된 하드웨어 오류는 일반적으로 집합에 있는 여러 VM에 동시에 영향을 주지 않습니다. 별도의 오류 도메인이 있으면 애플리케이션에 대한 고가용성을 제공합니다. 고가용성이 필요한 경우에는 가용성 집합을 사용하는 것이 좋습니다. 다음 섹션에서는 재해 복구 측면을 다룹니다.
 
-### <a name="backup-and-disaster-recovery"></a>Backup 및 재해 복구
+### <a name="backup-and-disaster-recovery"></a>백업 및 재해 복구
 
 재해 복구는 드물지만 주요한 인시던트로부터 복구하는 기능입니다. 이러한 인시던트에는 전체 지역에 영향을 주는 서비스 중단과 같이 일시적이지 않은 대규모 오류가 포함됩니다. 재해 복구에는 데이터 백업 및 보관이 포함되며, 백업에서 데이터베이스를 복원하는 것과 같은 수동 작업이 포함될 수 있습니다.
 
@@ -63,9 +63,9 @@ IaaS 디스크의 경우 데이터의 내구성이 영구 저장소 플랫폼에
 
 DR 고려 사항에는 다음과 같은 측면이 포함될 수 있습니다.
 
-- 고가용성: 애플리케이션에서 상당한 가동 중지 없이 정상 상태로 계속 실행할 수 있는 기능입니다. *정상 상태*는 응용 프로그램에서 응답하고 사용자가 응용 프로그램에 연결하여 응용 프로그램과 상호 작용할 수 있음을 의미합니다. 특정 중요 업무용 애플리케이션 및 데이터베이스는 플랫폼에 오류가 발생하더라도 항상 사용할 수 있어야 합니다. 이러한 작업의 경우 애플리케이션과 데이터에 대한 중복성을 계획해야 합니다.
+- 고가용성: 애플리케이션에서 상당한 가동 중지 시간 없이 정상 상태로 계속 실행할 수 있는 기능입니다. *정상 상태*는 애플리케이션에서 응답하고 사용자가 애플리케이션에 연결하여 애플리케이션과 상호 작용할 수 있음을 의미합니다. 특정 중요 업무용 애플리케이션 및 데이터베이스는 플랫폼에 오류가 발생하더라도 항상 사용할 수 있어야 합니다. 이러한 작업의 경우 애플리케이션과 데이터에 대한 중복성을 계획해야 합니다.
 
-- 데이터 내구성: 어떤 경우에 주요 고려 사항은 재해가 발생하는 경우 데이터가 보존되도록 하는 것입니다. 따라서 다른 사이트에 데이터를 백업해야 할 수 있습니다. 이러한 작업의 경우 애플리케이션에 대한 전체 중복성이 필요하지는 않지만 디스크를 정기적으로 백업해야 합니다.
+- 데이터 내구성: 어떤 경우에 주요 고려 사항은 재해가 발생하더라도 데이터가 보존되도록 하는 것입니다. 따라서 다른 사이트에 데이터를 백업해야 할 수 있습니다. 이러한 작업의 경우 애플리케이션에 대한 전체 중복성이 필요하지는 않지만 디스크를 정기적으로 백업해야 합니다.
 
 ## <a name="backup-and-dr-scenarios"></a>백업 및 DR 시나리오
 
@@ -152,7 +152,7 @@ Azure Backup은 예약된 시간에 백업 작업을 시작할 때 VM에 설치�
 
 1.  백업 정책을 구성하고 동일한 UI에서 VM을 선택합니다.
 
-1.  Backup 에이전트가 VM에 설치되어 있는지 확인합니다. Azure 갤러리 이미지를 사용하여 VM을 만든 경우 백업 에이전트가 이미 설치되어 있습니다. 그렇지 않은 경우(즉, 사용자 지정 이미지를 사용하는 경우) [가상 머신에 VM 에이전트 설치](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine)에 대한 지침을 사용합니다.
+1.  Backup 에이전트가 VM에 설치되어 있는지 확인합니다. Azure 갤러리 이미지를 사용하여 VM을 만든 경우 백업 에이전트가 이미 설치되어 있습니다. 그렇지 않은 경우(즉, 사용자 지정 이미지를 사용하는 경우) [가상 머신에 VM 에이전트 설치](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent)에 대한 지침을 사용합니다.
 
 1.  VM에서 백업 서비스가 작동할 수 있도록 네트워크 연결을 허용하는지 확인합니다. [네트워크 연결](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity)을 위한 지침을 따릅니다.
 
@@ -248,7 +248,7 @@ VM에서 실행되는 SQL Server에는 SQL Server 데이터베이스를 Azure Bl
 
 선택한 백업 옵션에 따라 데이터와 구성의 백업을 처리해야 할 수도 있고, 백업 서비스에서 모든 백업을 처리할 수도 있습니다.
 
-## <a name="appendix-understanding-the-impact-of-data-redundancy"></a>부록: 데이터 중복의 영향 이해
+## <a name="appendix-understanding-the-impact-of-data-redundancy"></a>부록: 데이터 중복성의 영향 이해
 
 Azure에 있는 저장소 계정의 경우 재해 복구와 관련하여 세 가지 유형의 데이터 중복성, 즉 로컬 중복, 지역 중복 또는 읽기 액세스 지역 중복를 고려해야 합니다. 
 

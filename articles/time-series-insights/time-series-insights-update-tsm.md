@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights - 시계열 모델 | Microsoft Docs
+title: Azure Time Series Insights 미리 보기의 시계열 모델 | Microsoft Docs
 description: Azure Time Series Insights 시계열 모델을 이해합니다.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2ead7a9a71c0afe72736bef8796107cae42009f1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a6eb142cf607c286ccce1282bb5c67a30c040c62
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278188"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716585"
 ---
 # <a name="time-series-model"></a>시계열 모델
 
@@ -136,7 +136,7 @@ Time Series Insights 형식에는 변수가 있으며, 이러한 변수는 이�
  H1 = [“building”, “floor”, “room”]
 ```
 
-*인스턴스 필드*에 따라 계층 구조 특성 및 값이 다음 표에 나와 있는 것처럼 표시됩니다. 
+*인스턴스 필드*에 따라 계층 구조 특성 및 값이 다음 표에 나와 있는 것처럼 표시됩니다.
 
 | Time Series ID | 인스턴스 필드 |
 | --- | --- |
@@ -144,9 +144,9 @@ Time Series Insights 형식에는 변수가 있으며, 이러한 변수는 이�
 | ID2 | “building” = “1000”, “room” = “55” |
 | ID3 | “floor” = “10” |
 | ID4 | “building” = “1000”, “floor” = “10”  |
-| ID5 | |
+| ID5 | “building”, “floor” 또는 “room”이 설정되지 않습니다. |
 
-앞의 예제에서 ID1은 UI/UX에 H1 계층 구조의 일부로 표시되고, 나머지는 지정된 데이터 계층 구조를 준수하지 않기 때문에 *부모가 없는 인스턴스*로 분류됩니다.
+앞의 예제에서 ID1과 ID4는 Azure Time Series Insights 탐색기에서 H1 계층 구조의 일부로 표시되고, 나머지는 지정된 데이터 계층 구조를 준수하지 않기 때문에 ‘부모가 없는 인스턴스’로 분류됩니다.
 
 ## <a name="time-series-model-instances"></a>시계열 모델 인스턴스
 

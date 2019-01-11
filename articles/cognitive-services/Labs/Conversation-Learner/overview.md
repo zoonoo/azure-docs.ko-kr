@@ -10,20 +10,20 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9cbf0e60382ef17d68aab47cf5f24ea9b8434f13
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0d2cca335206ee59b922a31ed3cf3ba24ef4ecd7
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376215"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790778"
 ---
 # <a name="what-is-conversation-learner"></a>Conversation Learner란?
 
 Conversation Learner를 통해 예제 상호 작용에서 배운 대화형 인터페이스를 빌드하고 학습할 수 있습니다. 
 
-기존 방법과 달리 Conversation Learner는 대화의 종단 간 컨텍스트를 고려하여 응답을 개선하고 보다 매력적인 사용자 경험을 제공합니다. 광범위한 작업 지향 사용 사례에서 Conversation Learner는 Machine Learning을 백그라운드로 적용하여 봇과 지능형 에이전트가 사용자 불만 및 추가적인 고객 서비스 비용을 초래할 가능성을 줄이고 더 직관적인 조작이 가능하도록 합니다.
+기존 방법과 달리 Conversation Learner는 대화의 종단 간 컨텍스트를 고려하여 응답을 개선하고 보다 매력적인 사용자 경험을 제공합니다. 광범위한 작업 지향 사용 사례에서 Conversation Learner는 Machine Learning을 백그라운드로 적용하여 봇과 지능형 에이전트가 사용자 불만 및 추가적인 고객 서비스 비용을 초래할 가능성을 줄이고 더 직관적인 조작을 촉진할 수 있도록 합니다.
 
-먼저 개발자가 모방하려는 모범 대화를 입력합니다. 대화를 추가로 입력함에 따라 모델이 지속적으로 업데이트되며, 개발자는 모델이 얼마나 잘 일반화되는지 확인할 수 있습니다. 모델이 제대로 작동하면 최종 사용자에게 봇을 배포할 수 있습니다. Conversation Learner가 사용자와의 대화를 기록하고, 개발자는 대화를 검토할 수 있습니다. 실수가 발견될 경우 개발자가 즉석에서 수정할 수 있으며, 모델이 다시 학습되고 즉시 사용할 수 있게 됩니다.
+개발자가 모방하려는 모범 대화를 입력하는 것으로 시작합니다. 모델은 더 많은 대화가 입력되면서 학습됩니다. 모델이 제대로 작동하면 최종 사용자에게 봇을 배포할 수 있습니다. Conversation Learner가 사용자와의 대화를 기록하고, 개발자는 대화를 검토할 수 있습니다. 실수가 발견될 경우 개발자가 즉석에서 수정할 수 있으며, 모델이 다시 학습되고 즉시 사용할 수 있게 됩니다.
 
 이 접근 방법을 사용하면 대화 제어 논리의 수동 코딩이 감소하며, 비즈니스 소유자나 도메인 전문가가 사전 Machine Learning 지식 없이도 대화형 인터페이스에 참여할 수 있습니다. 봇, 스마트 디바이스 또는 지능형 에이전트의 일부로 배포하든 간에 Conversation Learner는 새로운 기술, 동작 또는 역량을 신속하게 반복하고 품질을 빠르게 개선할 수 있습니다. 
 

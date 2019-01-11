@@ -8,19 +8,60 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: c99f1691618765e8997ef442a506c83b9a7bd4fa
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7485ca1e4b1143ed46c9b3bef9ca66af0638b4f8
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088309"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599419"
 ---
 # <a name="release-notes"></a>릴리스 정보
 
-## <a name="speech-service-sdk-110"></a>Speech Service SDK 1.1.0
+## <a name="speech-sdk-120-2018-december-release"></a>Speech SDK 1.2.0: 2018년 12월 릴리스
+
+**새로운 기능**
+
+* Python
+  * 이 릴리스에서는 베타 버전의 Python(3.5 이상)이 지원됩니다. 자세한 내용은 [여기를 참조](quickstart-python.md)하세요.
+* JavaScript
+  * JavaScript용 Speech SDK가 오픈 소스로 제공됩니다. 소스 코드는 [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js)에서 사용할 수 있습니다.
+  * 이제 Node.js를 지원합니다. 자세한 정보는 [여기](quickstart-js-node.md)에서 확인할 수 있습니다.
+  * 오디오 세션에 대한 길이 제한이 제거되었으므로 백그라운드에서 자동으로 다시 연결됩니다.
+* 연결 개체
+  * 인식기에서 연결 개체에 액세스할 수 있습니다. 이 개체를 사용하면 명시적으로 서비스 연결을 시작하고 연결 및 연결 끊기 이벤트를 구독할 수 있습니다.
+    (아직 JavaScript 및 Python에서는 사용 불가)
+* Ubuntu 18.04 지원
+* Android
+  * APK 생성 중에 ProGuard 지원이 설정되었습니다.
+
+**향상된 기능**
+
+* 스레드, 잠금, 뮤텍스 수를 줄이면서 내부 스레드 사용이 개선되었습니다.
+* 오류 보고/정보가 개선되었습니다. 여러 사례에서 오류 메시지가 완전히 전파되지 않았습니다.
+* 최신 모듈을 사용하도록 JavaScript의 개발 종속성을 업데이트했습니다.
+
+**버그 수정**
+
+* RecognizeAsync의 형식 불일치로 인한 메모리 누수가 수정되었습니다.
+* 어떤 경우에는 예외가 유출되었습니다.
+* 번역 이벤트 인수에서 메모리 누수가 수정되었습니다.
+* 장기 실행 세션에서 다시 연결 시 잠금 문제가 해결되었습니다.
+* 번역 실패로 인해 최종 결과가 누락될 수 있는 문제가 해결되었습니다.
+* C#: 주 스레드에서 비동기 작업을 기다리지 않는 경우 비동기 작업이 완료되기 전에 인식기가 삭제될 수 있었습니다.
+* Java: Java VM 충돌 문제가 해결되었습니다.
+* Objective-C: 고정 열거형 매핑. RecognizingIntent 대신 RecognizedIntent가 반환되었습니다.
+* JavaScript: SpeechConfig에서 기본 출력 형식을 'simple'로 설정합니다.
+* JavaScript: JavaScript 및 다른 언어에서 구성 개체 속성 간 불일치를 제거합니다.
+
+**샘플**
+
+* 여러 샘플을 업데이트하고 수정했습니다(예: 번역을 위한 출력 음성 등).
+* Node.js 샘플을 [샘플 리포지토리](https://aka.ms/csspeech/samples)에 추가했습니다.
+
+## <a name="speech-sdk-110"></a>Speech SDK 1.1.0
 
 **새로운 기능**
 
@@ -51,7 +92,7 @@ ms.locfileid: "53088309"
 
 * [샘플 리포지토리](https://aka.ms/csspeech/samples)에 끌어오기 및 밀어넣기 스트리밍 사용에 대한 C++ 및 C# 샘플을 추가했습니다.
 
-## <a name="speech-service-sdk-101"></a>Speech Service SDK 1.0.1
+## <a name="speech-sdk-101"></a>Speech SDK 1.0.1
 
 안정성 향상 및 버그 수정:
 

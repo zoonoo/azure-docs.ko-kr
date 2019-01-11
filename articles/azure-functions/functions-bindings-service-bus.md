@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 0a4d5cf4731932ed72e0dc38c13a5f855a937864
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 21f8d8ad63e8ea7c134477a6171155c40a2b4dc8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317511"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792019"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
@@ -331,6 +331,9 @@ Service Bus 트리거는 몇 가지 [메타데이터 속성](functions-triggers-
 |`Label`|`string`|애플리케이션별 레이블입니다.|
 |`CorrelationId`|`string`|상관관계 ID입니다.|
 |`UserProperties`|`IDictionary<String,Object>`|애플리케이션별 메시지 속성입니다.|
+
+> [!NOTE]
+> 현재 트리거는 세션을 사용하지 않는 큐 및 구독에 대해서만 작동합니다. 이 기능에 대한 추가 업데이트는 [이 기능 항목](https://github.com/Azure/azure-functions-host/issues/563)을 추적하세요. 
 
 이 아티클의 앞부분에서 이러한 속성을 사용하는 [코드 예제](#trigger---example)를 참조하세요.
 

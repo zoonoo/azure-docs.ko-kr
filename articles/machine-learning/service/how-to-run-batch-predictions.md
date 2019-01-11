@@ -11,27 +11,27 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a711b80471da0677c5e2d0dd0ee5e371e5a16f75
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: adac498b2f1e3331497c08f41558575c06b5823c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268652"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102944"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Azure Machine Learning Service를 사용하여 대용량 데이터 세트에서 일괄 예측을 실행합니다.
 
-이 문서에서는 Azure Machine Learning Service를 사용하여 대용량 데이터에서 비동기적으로 일괄 예측을 빠르고 효과적으로 수행하는 방법을 알아봅니다.
+이 문서에서는 Azure Machine Learning 서비스를 사용하여 대용량 데이터를 비동기적으로 예측하는 방법을 알아봅니다.
 
 일괄 예측(또는 일괄 채점)은 비동기 애플리케이션에 대한 최상의 처리량으로 비용 효율적인 유추를 제공합니다. 일괄 예측 파이프라인은 프로덕션 데이터의 테라바이트에 대한 유추를 수행하도록 확장할 수 있습니다. 일괄 예측은 데이터의 대규모 컬렉션에 대한 높은 처리량, fire-and-forget(실행 후 망각) 예측에 맞게 최적화되었습니다.
 
->[!NOTE]
+>[!TIP]
 > 시스템에서 짧은 대기 시간 처리(단일 문서 또는 소규모 문서를 빨리 처리)를 요구하는 경우 일괄 예측 대신 [실시간 채점](how-to-consume-web-service.md)을 사용합니다.
 
-다음 단계에서는 [기계 학습 파이프라인](concept-ml-pipelines.md)을 만들어 미리 학습된 컴퓨터 비전 모델([Inception-V3](https://arxiv.org/abs/1512.00567))을 등록한 다음 미리 학습된 모델을 사용하여 Azure Blob 계정에서 사용할 수 있는 이미지에 대해 일괄 채점을 수행합니다. 채점에 사용되는 이 이미지는 [ImageNet](http://image-net.org/) 데이터 세트에서 레이블되지 않은 이미지입니다.
+다음 단계에서는 [기계 학습 파이프라인](concept-ml-pipelines.md)을 만들어 미리 학습된 컴퓨터 비전 모델([Inception-V3](https://arxiv.org/abs/1512.00567))을 등록합니다. 그런 다음, 미리 학습된 모델을 사용하여 Azure Blob 스토리지 계정에서 사용 가능한 이미지에 일괄 채점을 합니다. 채점에 사용되는 이 이미지는 [ImageNet](http://image-net.org/) 데이터 세트에서 레이블되지 않은 이미지입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning Service의 평가판 또는 유료 버전](http://aka.ms/AMLFree)을 사용해 보세요.
+- Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 서비스의 평가판 또는 유료 버전](http://aka.ms/AMLFree)을 사용해 보세요.
 
 - 개발 환경을 구성하여 Azure Machine Learning SDK를 설치합니다. 자세한 내용은 [Azure Machine Learning에 대한 개발 환경 구성](how-to-configure-environment.md)을 참조하세요.
 
@@ -52,14 +52,14 @@ ms.locfileid: "53268652"
 
 - 이미 미리 학습된 모델, 입력 레이블 및 이미지가 있는 데이터 저장소에 액세스하여 채점합니다(이미 설정되어 있음).
 - 데이터 저장소를 설정하여 출력을 저장합니다
-- DataReference 개체를 구성하여 이전 데이터 저장소에서 이 데이터를 가리킵니다.
+-  `DataReference`  개체를 구성하여 이전 데이터 저장소에서 이 데이터를 가리킵니다.
 - 파이프라인 단계를 실행할 컴퓨팅 머신 또는 클러스터를 설정합니다.
 
 ### <a name="access-the-datastores"></a>데이터 저장소에 액세스
 
 먼저 모델, 레이블 및 이미지가 있는 데이터 저장소에 액세스합니다.
 
-ImageNet 평가 집합에서 이미지 *pipelinedata* 계정의 *sampledata*로 명명된 공용 Blob 컨테이너를 사용합니다. 이 공용 컨테이너에 대한 데이터 저장소 이름은 *images_datastore*입니다. 작업 영역을 사용하여 이 데이터 저장소를 등록 합니다.
+ImageNet 평가 집합의 이미지를 보유하고 있는 *pipelinedata* 계정에서 *sampledata*라는 공용 Blob 컨테이너를 사용합니다. 이 공용 컨테이너에 대한 데이터 저장소 이름은 *images_datastore*입니다. 작업 영역을 사용하여 이 데이터 저장소를 등록 합니다.
 
 ```python
 # Public blob container details
@@ -74,9 +74,9 @@ batchscore_blob = Datastore.register_azure_blob_container(ws,
                       overwrite=True)
 ```
 
-다음으로 출력에 대한 기본값 데이터 저장소를 사용하여 설정합니다.
+다음으로, 출력에 대한 기본 데이터 저장소를 사용하도록 설정합니다.
 
-작업 영역을 만들 경우  [Azure File Storage](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)  및  [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) 는 기본적으로 작업 영역에 연결됩니다. Azure File Storage는 작업 영역에 대한 "기본 데이터 스토리지"이지만 데이터 스토리지로 Blob Storage를 사용할 수도 있습니다.  [Azure Storage 옵션](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)에 대해 자세히 알아보세요.
+작업 영역을 만들 때 [Azure File](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)  및 [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) 는 기본적으로 작업 영역에 연결됩니다. Azure Files는 작업 영역의 기본 데이터 저장소이지만, Blob Storage를 데이터 저장소로 사용할 수도 있습니다. 자세한 내용은 [Azure 스토리지 옵션](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)을 참조하세요.
 
 ```python
 def_data_store = ws.get_default_datastore()
@@ -86,7 +86,7 @@ def_data_store = ws.get_default_datastore()
 
 이제 파이프라인 단계에 대해 파이프라인의 데이터를 참조합니다.
 
-파이프라인에서 데이터 원본은 [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) 개체로 표시됩니다. DataReference 개체는 데이터 저장소 내에 있는 데이터 또는 데이터 저장소에서 액세스할 수 있는 데이터를 가리킵니다. 입력 이미지에 사용되는 디렉터리, 미리 학습된 모델이 저장되는 디렉터리, 레이블 디렉터리 및 출력 디렉터리에 대한 DataReference 개체가 필요합니다.
+파이프라인에서 데이터 원본은 [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) 개체로 표시됩니다.  `DataReference`  개체는 데이터 저장소에 상주하고 있거나 데이터 저장소에서 액세스할 수 있는 데이터를 가리킵니다. 입력 이미지에 사용되는 디렉터리, 미리 학습된 모델이 저장되는 디렉터리, 레이블 디렉터리 및 출력 디렉터리에 대한 `DataReference`  개체가 필요합니다.
 
 ```python
 input_images = DataReference(datastore=batchscore_blob, 
@@ -111,7 +111,7 @@ output_dir = PipelineData(name="scores",
 
 ### <a name="set-up-compute-target"></a>컴퓨팅 대상 설정
 
-Azure Machine Learning에서 컴퓨팅(또는 컴퓨팅 대상)은 Machine Learning 파이프라인에서 컴퓨팅 단계를 수행하는 머신 또는 클러스터를 말합니다. 예를 들어 `Azure Machine Learning compute`을 만들 수 있습니다.
+Azure Machine Learning에서 *컴퓨팅*(또는 *컴퓨팅* 대상)은 기계 학습 파이프라인에서 계산 단계를 수행하는 머신 또는 클러스터를 가리킵니다. 예를 들어 `Azure Machine Learning compute`을 만들 수 있습니다.
 
 ```python
 compute_name = "gpucluster"
@@ -148,7 +148,7 @@ else:
 
 ### <a name="download-the-pretrained-model"></a>미리 학습된 모델 다운로드
 
-<http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz>에서 미리 학습된 Computer Vision 모델(InceptionV3)을 다운로드합니다. 다운로드되면 `models` 하위 폴더에 추출합니다.
+<http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz>에서 미리 학습된 Computer Vision 모델(InceptionV3)을 다운로드합니다. 그런 다음, `models` 하위 폴더에 추출합니다.
 
 ```python
 import os
@@ -167,6 +167,8 @@ tar.extractall(model_dir)
 
 ### <a name="register-the-model"></a>모델 등록
 
+모델을 등록하는 방법은 다음과 같습니다.
+
 ```python
 import shutil
 from azureml.core.model import Model
@@ -183,7 +185,7 @@ model = Model.register(
 ## <a name="write-your-scoring-script"></a>채점 스크립트 작성
 
 >[!Warning]
->다음 코드는 [샘플 Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-batch-scoring.ipynb)에서 사용되는 [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/batch_score.py)에 포함된 예제입니다. 시나리오에 대한 사용자 채점 스크립트를 만들어야 합니다.
+>다음 코드는 [샘플 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/pipeline-batch-scoring.ipynb)에서 사용되는 [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/batch_scoring.py)에 포함된 샘플일 뿐입니다. 시나리오에 대한 고유의 채점 스크립트를 만들어야 합니다.
 
 `batch_score.py` 스크립트를 실행하면  *dataset_path*의 입력 이미지,  *model_dir의 미리 학습된 모델*을 가져와서 *results-label.txt* 을  *output_dir*로 출력합니다.
 
@@ -290,14 +292,14 @@ batch_score_step = PythonScriptStep(
 
 ### <a name="run-the-pipeline"></a>파이프라인 실행
 
-이제 파이프라인을 실행하고 생성된 출력을 검사 합니다. 출력에는 각 입력 이미지에 해당하는 채점이 포함됩니다.
+이제 파이프라인을 실행하고 생성된 출력을 검사합니다. 출력에는 각 입력 이미지에 해당하는 점수가 포함됩니다.
 
 ```python
 # Run the pipeline
 pipeline = Pipeline(workspace=ws, steps=[batch_score_step])
 pipeline_run = Experiment(ws, 'batch_scoring').submit(pipeline, pipeline_params={"param_batch_size": 20})
 
-# Wait for the run to finish (this may take several minutes)
+# Wait for the run to finish (this might take several minutes)
 pipeline_run.wait_for_completion(show_output=True)
 
 # Download and review the output
@@ -312,7 +314,7 @@ df.head()
 
 ## <a name="publish-the-pipeline"></a>파이프라인 게시
 
-실행의 결과에 만족했으면 파이프라인을 게시합니다. 나중에 다른 입력 값을 사용해서 실행할 수 있습니다. 파이프라인을 게시할 경우 [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py)를 사용하여 이미 통합된 매개 변수 집합과 함께 파이프라인의 호출을 승인하는 REST 엔드포인트를 가져옵니다.
+실행 결과에 만족하면 나중에 다른 입력 값으로 실행할 수 있도록 파이프라인을 게시합니다. 파이프라인을 게시할 때 REST 엔드포인트를 가져옵니다. 이 엔드포인트는 [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py)를 사용하여 이미 통합된 매개 변수 집합과 함께 파이프라인의 호출을 허용합니다.
 
 ```python
 published_pipeline = pipeline_run.publish_pipeline(
@@ -321,7 +323,7 @@ published_pipeline = pipeline_run.publish_pipeline(
     version="1.0")
 ```
 
-## <a name="rerun-the-pipeline-using-the-rest-endpoint"></a>REST 엔드포인트를 사용하여 파이프라인 다시 실행
+## <a name="rerun-the-pipeline-by-using-the-rest-endpoint"></a>REST 엔드포인트를 사용하여 파이프라인 다시 실행
 
 파이프라인을 다시 실행하려면 [AzureCliAuthentication 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py)에서 설명한 대로 Azure Active Directory 인증 헤더 토큰이 필요합니다.
 
@@ -344,7 +346,7 @@ RunDetails(published_pipeline_run).show()
 
 ## <a name="next-steps"></a>다음 단계
 
-이 실행 중인 엔드투엔드를 보려면 ([how-to-use-azureml/machine-learning-pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines))에서 일괄 채점 Notebook을 사용해 보세요. 
+이 작업을 전체적으로 보려면 [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines)에서 일괄 채점 notebook을 사용해 보세요. 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

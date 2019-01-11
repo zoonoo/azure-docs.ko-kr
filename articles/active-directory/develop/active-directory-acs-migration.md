@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: e68099609e5a4a27dfae7956fa43634d38311a22
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 01781725e3224e2cab49a5e7cc7dcc33030ce9fb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015775"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971555"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
@@ -50,7 +50,7 @@ Access Control의 구성 요소는 다음과 같습니다.
 - 관리 서비스: 포털의 기능을 자동화하는 데 사용할 수 있습니다.
 - 토큰 변환 규칙 엔진: Access Control에서 발행하는 토큰의 출력 형식을 조작하는 복잡한 로직을 정의하는 데 사용할 수 있습니다.
 
-이러한 구성 요소를 사용하려면 하나 이상의 Access Control 네임스페이스를 만들어야 합니다. *네임스페이스*는 응용 프로그램 및 서비스가 통신하는 Access Control의 전용 인스턴스입니다. 네임스페이스는 다른 모든 Access Control 고객으로부터 격리됩니다. 다른 Access Control 고객은 자신의 네임스페이스를 사용합니다. Access Control의 네임스페이스에는 다음과 같은 전용 URL이 있습니다.
+이러한 구성 요소를 사용하려면 하나 이상의 Access Control 네임스페이스를 만들어야 합니다. *네임스페이스*는 애플리케이션 및 서비스가 통신하는 Access Control의 전용 인스턴스입니다. 네임스페이스는 다른 모든 Access Control 고객으로부터 격리됩니다. 다른 Access Control 고객은 자신의 네임스페이스를 사용합니다. Access Control의 네임스페이스에는 다음과 같은 전용 URL이 있습니다.
 
 ```HTTP
 https://<mynamespace>.accesscontrol.windows.net
@@ -104,7 +104,7 @@ Access Control에 대한 자세한 내용은 [Access Control Service 2.0(보관)
 
     예를 들어, 네임스페이스 중 하나가 contoso-test이면 `https://contoso-test.accesscontrol.windows.net`으로 이동합니다.
 
-1. **신뢰 관계**에서 **신뢰 당사자 응용 프로그램**을 선택하여 ACS 사용 중지에 의해 영향을 받는 응용 프로그램 목록을 확인합니다.
+1. **신뢰 관계**에서 **신뢰 당사자 애플리케이션**을 선택하여 ACS 사용 중지에 의해 영향을 받는 애플리케이션 목록을 확인합니다.
 1. 가지고 있는 다른 모든 ACS 네임스페이스에 대해 1-2 단계를 반복합니다.
 
 ## <a name="retirement-schedule"></a>사용 중지 일정
@@ -227,7 +227,7 @@ WS-Federation 또는 WIF를 사용하여 Azure AD와 통합하려면 [비갤러�
 
 이 방법을 선택한 경우에는 [Azure AD의 서명 키 롤오버](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover)에 대해 이해해야 합니다. 이 방법에서는 Azure AD 글로벌 서명 키를 사용하여 토큰을 발행합니다. 기본적으로 WIF는 자동으로 서명 키를 업데이트하지 않습니다. Azure AD가 글로벌 서명 키를 교대시킬 때 변화된 사항이 적용될 수 있도록 WIF 구현이 준비가 되어 있어야 합니다. 자세한 내용은 [Azure AD의 서명 키 롤오버에 대한 중요 정보](https://msdn.microsoft.com/library/azure/dn641920.aspx)를 참조하세요.
 
-OpenID Connect 또는 OAuth 프로토콜을 통해 Azure AD와 통합할 수 있다면 그렇게 하는 것이 좋습니다. [Azure AD 개발자 가이드](https://aka.ms/aaddev)에서 웹 응용 프로그램에 Azure AD를 통합하는 방법에 대한 방대한 설명서와 자료를 확인할 수 있습니다.
+OpenID Connect 또는 OAuth 프로토콜을 통해 Azure AD와 통합할 수 있다면 그렇게 하는 것이 좋습니다. [Azure AD 개발자 가이드](https://aka.ms/aaddev)에서 웹 애플리케이션에 Azure AD를 통합하는 방법에 대한 방대한 설명서와 자료를 확인할 수 있습니다.
 
 #### <a name="migrate-to-azure-active-directory-b2c"></a>Azure Active Directory B2C로 마이그레이션
 
@@ -237,7 +237,7 @@ Azure AD B2C는 Access Control과 마찬가지로 다양한 계정 유형을 지
 
 그러나 Azure AD B2C는 Access Control 고객에게 필요할 수도 있는 다양한 인증 프로토콜과 토큰 형식을 지원하지 않습니다. 또한 ID 공급자, Microsoft 등으로부터 토큰을 받고 사용자에 관한 추가 정보를 쿼리하는 데도 Azure AD B2C를 사용할 수 없습니다.
 
-다음 표에서는 웹 애플리케이션과 관련 있는 Access Control의 기능과 Azure AD B2C에서 제공되는 기능을 비교합니다. 대략적으로 봤을 때 *응용 프로그램이 소비자용이거나 다양한 계정 유형을 지원하는 경우 Azure AD B2C를 선택하는 것이 좋습니다.*
+다음 표에서는 웹 애플리케이션과 관련 있는 Access Control의 기능과 Azure AD B2C에서 제공되는 기능을 비교합니다. 대략적으로 봤을 때 *애플리케이션이 소비자용이거나 다양한 계정 유형을 지원하는 경우 Azure AD B2C를 선택하는 것이 좋습니다.*
 
 | 기능 | Access Control 지원 | Azure AD B2C 지원 |
 | ---------- | ----------- | ---------------- |

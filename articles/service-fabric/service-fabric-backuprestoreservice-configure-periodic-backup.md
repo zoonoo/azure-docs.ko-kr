@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 1a9034d7cbc276f35c5f01b06f6973553222d1c4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f2a1cd79a99e16460c96d28ebeb0a2bd68975361
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722380"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794246"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Azure Service Fabric의 정기 백업 구성 이해
 
@@ -138,23 +138,26 @@ Reliable Stateful 서비스 또는 Reliable Actors에 대한 주기적인 백업
         }
         ```
 
+> [!IMPORTANT]
+> 런타임의 문제로 인해 보존 정책의 보존 기간을 24일 이내로 구성해야 합니다. 그렇지 않으면 백업 복원 서비스가 복제본 장애 조치(Failover) 후 쿼럼 손실 상태가 될 수 있습니다.
+
 ## <a name="enable-periodic-backup"></a>정기적 백업 사용
-데이터 백업 요구 사항을 충족하도록 백업 정책을 정의한 후에는 백업 정책이 응용 프로그램이나 서비스 또는 파티션과 적절하게 연결되어야 합니다.
+데이터 백업 요구 사항을 충족하도록 백업 정책을 정의한 후에는 백업 정책이 애플리케이션이나 서비스 또는 파티션과 적절하게 연결되어야 합니다.
 
 ### <a name="hierarchical-propagation-of-backup-policy"></a>백업 정책의 계층적 전파
-Service Fabric에서 응용 프로그램, 서비스 및 파티션 간의 관계는 [응용 프로그램 모델](./service-fabric-application-model.md).에서 설명한대로 계층적입니다. 백업 정책은 계층 구조의 응용 프로그램, 서비스 또는 파티션과 연결될 수 있습니다. 백업 정책은 다음 수준에 계층적으로 전파됩니다. 백업 정책이 하나만 생성되어 응용 프로그램과 연결된다고 가정하면 모든 _Reliable Stateful_  서비스에 속하는 모든 상태 저장 파티션과 해당 응용 프로그램의 _Reliable Actors_는 백업 정책을 사용하여 백업됩니다. 또는 백업 정책이 Reliable Stateful 서비스와 연결되어 있으면 모든 파티션이 백업 정책을 사용하여 백업됩니다.
+Service Fabric에서 애플리케이션, 서비스 및 파티션 간의 관계는 [애플리케이션 모델](./service-fabric-application-model.md).에서 설명한대로 계층적입니다. 백업 정책은 계층 구조의 애플리케이션, 서비스 또는 파티션과 연결될 수 있습니다. 백업 정책은 다음 수준에 계층적으로 전파됩니다. 백업 정책이 하나만 생성되어 애플리케이션과 연결된다고 가정하면 모든 _Reliable Stateful_  서비스에 속하는 모든 상태 저장 파티션과 해당 애플리케이션의 _Reliable Actors_는 백업 정책을 사용하여 백업됩니다. 또는 백업 정책이 Reliable Stateful 서비스와 연결되어 있으면 모든 파티션이 백업 정책을 사용하여 백업됩니다.
 
 ### <a name="overriding-backup-policy"></a>백업 정책 재정의
 높은 빈도의 일정으로 데이터를 백업해야 하거나 다른 저장소 계정 또는 파일 공유에 백업을 보관해야 하는 경우, 특정 서비스를 제외하고 애플리케이션의 모든 서비스에 대해 백업 일정이 동일한 데이터 백업이 필요한 시나리오가 있을 수 있습니다. 백업 복원 서비스는 서비스 및 파티션 범위에서 전파된 정책을 재정의하는 기능을 제공합니다. 백업 정책이 서비스 또는 파티션에 연결되면 전파된 백업 정책이 있는 경우 이 정책을 재정의합니다.
 
 ### <a name="example"></a>예
 
-이 예제에서는 _MyApp_A_와 _MyApp_B_라는 두 개의 응용 프로그램을 사용한 설치를 사용합니다. _MyApp_A_ 응용 프로그램은 _SvcA1_ & _SvcA3_라는 두 개의 Reliable Stateful 서비스와 _ActorA2_라는 Reliable Actor 서비스를 포함합니다. _SvcA1_은 세 개의 파티션을 포함하지만 _ActorA2_와 _SvcA3_은 각각 두 개의 파티션을 포함합니다.  _MyApp_B_ 응용 프로그램은 _SvcB1_, _SvcB2_, _SvcB3_라는 세 개의 Reliable Stateful 서비스를 포함합니다. _SvcB1_과 _SvcB2_는 각각 두 개의 파티션을 포함하고 _SvcB3_은 세 개의 파티션을 포함합니다.
+이 예제에서는 _MyApp_A_와 _MyApp_B_라는 두 개의 애플리케이션을 사용한 설치를 사용합니다. _MyApp_A_ 응용 프로그램은 _SvcA1_ & _SvcA3_라는 두 개의 Reliable Stateful 서비스와 _ActorA2_라는 Reliable Actor 서비스를 포함합니다. _SvcA1_은 세 개의 파티션을 포함하지만 _ActorA2_와 _SvcA3_은 각각 두 개의 파티션을 포함합니다.  _MyApp_B_ 응용 프로그램은 _SvcB1_, _SvcB2_, _SvcB3_라는 세 개의 Reliable Stateful 서비스를 포함합니다. _SvcB1_과 _SvcB2_는 각각 두 개의 파티션을 포함하고 _SvcB3_은 세 개의 파티션을 포함합니다.
 
 이러한 애플리케이션의 데이터 백업 요구 사항은 다음과 같다고 가정합니다.
 
 1. MyApp_A
-    1. 응용 프로그램에 속하는 모든 _Reliable Stateful_ 서비스와 _Reliable Actors_의 모든 파티션에 대해 매일 백업을 만듭니다. 백업 데이터는 _BackupStore1_ 위치에 업로드합니다.
+    1. 애플리케이션에 속하는 모든 _Reliable Stateful_ 서비스와 _Reliable Actors_의 모든 파티션에 대해 매일 백업을 만듭니다. 백업 데이터는 _BackupStore1_ 위치에 업로드합니다.
 
     2. 서비스 중 하나인 _SvcA3_은 매시간 데이터 백업이 필요합니다.
 
@@ -167,7 +170,7 @@ Service Fabric에서 응용 프로그램, 서비스 및 파티션 간의 관계�
 
 이러한 데이터 백업 요구 사항을 해결하기 위해 백업 정책 BP_1~BP_5가 만들어지고 다음과 같이 백업을 사용하도록 설정합니다.
 1. MyApp_A
-    1. 백업 정책 _BP_1_을 빈도 기반 백업 일정으로 만들고 빈도를 24시간으로 설정합니다. 백업 저장소는 저장소 위치 _BackupStore1_을 사용하도록 구성합니다. [Enable Application Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableapplicationbackup)(응용 프로그램 백업 사용) API를 사용하여 _MyApp_A_ 응용 프로그램에 이 정책을 사용하도록 설정합니다. 이 작업을 수행하면 _MyApp_A_ 응용 프로그램에 속하는 _Reliable Stateful_ 서비스 및 _Reliable Actors_의 모든 파티션에 대해 백업 정책 _BP_1_을 사용하여 데이터를 백업하도록 설정됩니다.
+    1. 백업 정책 _BP_1_을 빈도 기반 백업 일정으로 만들고 빈도를 24시간으로 설정합니다. 백업 저장소는 저장소 위치 _BackupStore1_을 사용하도록 구성합니다. [Enable Application Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableapplicationbackup)(응용 프로그램 백업 사용) API를 사용하여 _MyApp_A_ 응용 프로그램에 이 정책을 사용하도록 설정합니다. 이 작업을 수행하면 _MyApp_A_ 애플리케이션에 속하는 _Reliable Stateful_ 서비스 및 _Reliable Actors_의 모든 파티션에 대해 백업 정책 _BP_1_을 사용하여 데이터를 백업하도록 설정됩니다.
 
     2. 백업 정책 _BP_2_를 빈도 기반 백업 일정으로 만들고 빈도를 1시간으로 설정합니다. 백업 저장소는 저장소 위치 _BackupStore1_을 사용하도록 구성합니다. [Enable Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup)(서비스 백업 사용) API를 사용하여 _SvcA3_ 서비스에 이 정책을 사용하도록 설정합니다. 이 작업은 _SvcA3_ 서비스의 모든 파티션에 대해 전파된 정책 _BP_1_을 명시적으로 활성화된 백업 정책 _BP_2_로 재정의하여, 해당 파티션에 대해 백업 정책 _BP_2_를 사용하여 데이터가 백업되도록 합니다.
 
@@ -183,9 +186,9 @@ Service Fabric에서 응용 프로그램, 서비스 및 파티션 간의 관계�
 ![Service Fabric 애플리케이션 계층 구조][0]
 
 ## <a name="disable-backup"></a>백업 사용 안 함
-데이터를 백업할 필요가 없으면 백업 정책을 사용하지 않도록 설정할 수 있습니다. 응용 프로그램에 사용하도록 설정된 백업 정책은 [Disable Application Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableapplicationbackup)(응용 프로그램 백업 사용 안 함) API를 사용하여 동일한 응용 프로그램에서만 사용하지 않도록 설정할 수 있고, 서비스에 사용하도록 설정된 백업 정책은 [Disable Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableservicebackup)(서비스 백업 사용 안 함) API를 사용하여 동일한 서비스에서 사용하지 않도록 설정할 수 있으며 파티션에 사용하도록 설정된 백업 정책은 [Disable Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disablepartitionbackup)(파티션 백업 사용 안 함) API를 사용하여 동일한 파티션에서 사용하지 않도록 설정할 수 있습니다.
+데이터를 백업할 필요가 없으면 백업 정책을 사용하지 않도록 설정할 수 있습니다. 애플리케이션에 사용하도록 설정된 백업 정책은 [Disable Application Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableapplicationbackup)(애플리케이션 백업 사용 안 함) API를 사용하여 동일한 애플리케이션에서만 사용하지 않도록 설정할 수 있고, 서비스에 사용하도록 설정된 백업 정책은 [Disable Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableservicebackup)(서비스 백업 사용 안 함) API를 사용하여 동일한 서비스에서 사용하지 않도록 설정할 수 있으며 파티션에 사용하도록 설정된 백업 정책은 [Disable Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disablepartitionbackup)(파티션 백업 사용 안 함) API를 사용하여 동일한 파티션에서 사용하지 않도록 설정할 수 있습니다.
 
-* 응용 프로그램에 대한 백업 정책을 사용하지 않도록 설정하면 Reliable Stateful 서비스 파티션이나 Reliable Actor 파티션에 백업 정책을 전파한 결과로 발생하는 정기적인 데이터 백업을 모두 중지합니다.
+* 애플리케이션에 대한 백업 정책을 사용하지 않도록 설정하면 Reliable Stateful 서비스 파티션이나 Reliable Actor 파티션에 백업 정책을 전파한 결과로 발생하는 정기적인 데이터 백업을 모두 중지합니다.
 
 * 응용 프로그램에 대한 백업 정책을 사용하지 않도록 설정하면 Reliable Stateful 서비스 파티션이나 Reliable Actor 파티션에 백업 정책을 전파한 결과로 발생하는 정기적인 데이터 백업이 모두 중지됩니다.
 
@@ -199,7 +202,7 @@ Service Fabric에서 응용 프로그램, 서비스 및 파티션 간의 관계�
     ```
 
 ## <a name="suspend--resume-backup"></a>백업 일시 중단 및 다시 시작
-데이터에 대한 정기적인 백업을 일시 중단해야 하는 특정한 상황이 있을 수 있습니다. 이런 경우 요구 사항에 따라 응용 프로그램, 서비스 또는 파티션에 백업 일시 중단 API를 사용할 수 있습니다. 정기적인 백업 일시 중단은 적용되는 시점부터 애플리케이션 계층 구조의 하위 트리로 전이됩니다. 
+데이터에 대한 정기적인 백업을 일시 중단해야 하는 특정한 상황이 있을 수 있습니다. 이런 경우 요구 사항에 따라 애플리케이션, 서비스 또는 파티션에 백업 일시 중단 API를 사용할 수 있습니다. 정기적인 백업 일시 중단은 적용되는 시점부터 애플리케이션 계층 구조의 하위 트리로 전이됩니다. 
 
 * [Suspend Application Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendapplicationbackup)(응용 프로그램 백업 일시 중단) API를 사용하여 응용 프로그램에 일시 중단이 적용되면 이 응용 프로그램의 모든 하위 서비스와 파티션에 대한 정기적인 데이터 백업이 일시 중단됩니다.
 
@@ -207,13 +210,18 @@ Service Fabric에서 응용 프로그램, 서비스 및 파티션 간의 관계�
 
 * [Suspend Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendpartitionbackup)(파티션 백업 일시 중단) API를 사용하여 파티션에 일시 중단이 적용되면 이 서비스의 모든 하위 파티션에 대한 정기적인 데이터 백업이 일시 중단됩니다.
 
-일시 중단할 필요가 없어지면 각각의 백업 다시 시작 API를 사용하여 정기적인 데이터 백업을 복원할 수 있습니다. 정기적인 백업이 일시 중단된 바로 그 응용 프로그램, 서비스 및 파티션에서 정기적인 백업이 다시 시작되어야 합니다.
+일시 중단할 필요가 없어지면 각각의 백업 다시 시작 API를 사용하여 정기적인 데이터 백업을 복원할 수 있습니다. 정기적인 백업이 일시 중단된 바로 그 애플리케이션, 서비스 및 파티션에서 정기적인 백업이 다시 시작되어야 합니다.
 
-* 일시 중단이 응용 프로그램에서 적용된 경우에는 [Resume Application Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeapplicationbackup)(응용 프로그램 백업 다시 시작) API를 사용하여 다시 시작해야 합니다. 
+* 일시 중단이 애플리케이션에서 적용된 경우에는 [Resume Application Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeapplicationbackup)(애플리케이션 백업 다시 시작) API를 사용하여 다시 시작해야 합니다. 
 
 * 일시 중단이 서비스에서 적용된 경우에는 [Resume Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup)(서비스 백업 다시 시작) API를 사용하여 다시 시작해야 합니다.
 
 * 일시 중단이 파티션에서 적용된 경우에는 [Resume Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup)(파티션 백업 다시 시작) API를 사용하여 다시 시작해야 합니다.
+
+### <a name="difference-between-suspend-and-disable-backups"></a>일시 중단 및 백업 사용 안 함 간의 차이
+백업 사용 안 함은 백업이 특정 애플리케이션, 서비스 또는 파티션에 더이상 필요하지 않는 경우 사용되어야 합니다. 실제로 기존 백업도 모두 삭제된다는 것을 의미하는 클린 백업 매개 변수와 함께 백업 사용 안 함 요청을 호출할 수 있습니다. 단, 로컬 디스크가 가득 차거나 알려진 네트워크 문제 등으로 인해 백업 업로드가 실패하는 경우와 같이 일시적으로 백업을 끄려는 시나리오에서는 일시 중단이 사용됩니다. 
+
+사용 안 함은 명시적으로 이전에 백업에 대해 사용하도록 설정되었던 수준에서만 호출할 수 있는 반면, 일시 중단은 직접 또는 상속/계층 구조를 통해 현재 백업에 대해 사용하도록 설정된 모든 수준에서 적용될 수 있습니다. 예를 들어, 애플리케이션 수준에서 백업이 사용하도록 설정된 경우 사용 안 함은 애플리케이션 수준에서만 호출될 수 있지만, 일시 중단은 해당 애플리케이션 아래의 서비스 또는 파티션에서 호출될 수 있습니다. 
 
 ## <a name="auto-restore-on-data-loss"></a>데이터 손실 시 자동 복원
 예기치 않은 오류로 인해 서비스 파티션의 데이터가 손실될 수 있습니다. 예를 들어, 파티션에 대한 세 복제본 중 두 복제본(주 복제본 포함)에 대한 디스크가 손상되거나 초기화되었습니다.
@@ -221,7 +229,7 @@ Service Fabric에서 응용 프로그램, 서비스 및 파티션 간의 관계�
 파티션에서 데이터 손실이 발생한 것을 Service Fabric이 감지하면, 해당 파티션에 `OnDataLossAsync` 인터페이스 메서드를 호출하여 데이터 손실 문제를 해결하는 데 필요한 조치가 파티션에서 취해지기를 요구합니다. 이런 경우 파티션의 유효 백업 정책에 `AutoRestoreOnDataLoss` 플래그가 `true`로 설정되어 있으면, 이 파티션에 사용 가능한 최신 백업을 사용하여 복원이 자동으로 트리거됩니다.
 
 ## <a name="get-backup-configuration"></a>백업 구성 정보 가져오기
-응용 프로그램, 서비스 및 파티션 범위에서 백업 구성 정보를 가져올 수 있는 별도의 API가 있습니다. [Get Application Backup Configuration Info](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo)(응용 프로그램 백업 구성 정보 가져오기), [Get Service Backup Configuration Info](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo)(서비스 백업 구성 정보 가져오기) 및 [Get Partition Backup Configuration Info](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo)(파티션 백업 구성 정보 가져오기)가 각각 여기에 해당하는 입니다. 대개, 이러한 API는 적용 가능한 백업 정책, 백업 정책이 적용되는 범위 및 백업 일시 중단 세부 정보를 반환합니다. 다음은 이러한 API가 반환한 결과에 대한 간략한 설명입니다.
+애플리케이션, 서비스 및 파티션 범위에서 백업 구성 정보를 가져올 수 있는 별도의 API가 있습니다. [Get Application Backup Configuration Info](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo)(응용 프로그램 백업 구성 정보 가져오기), [Get Service Backup Configuration Info](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo)(서비스 백업 구성 정보 가져오기) 및 [Get Partition Backup Configuration Info](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo)(파티션 백업 구성 정보 가져오기)가 각각 여기에 해당하는 입니다. 대개, 이러한 API는 적용 가능한 백업 정책, 백업 정책이 적용되는 범위 및 백업 일시 중단 세부 정보를 반환합니다. 다음은 이러한 API가 반환한 결과에 대한 간략한 설명입니다.
 
 - 애플리케이션 백업 구성 정보: 애플리케이션에 적용된 백업 정책과 애플리케이션에 속하는 서비스 및 파티션에서 재정의된 모든 정책에 대한 세부 정보를 제공합니다. 애플리케이션과 애플리케이션의 서비스 및 파티션에 대한 일시 중단 정보도 포함됩니다.
 

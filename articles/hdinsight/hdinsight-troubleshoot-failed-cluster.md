@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 5f85d01b20466fd72b802b4daaf001a7928717c4
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: b298836070a511421f9df25155ff1ee4422e61dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410281"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994371"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
 
@@ -88,7 +88,7 @@ Apache Ambari는 웹 UI와 REST API를 사용하여 HDInsight 클러스터를 �
 
 #### <a name="check-for-azure-service-outages"></a>Azure 서비스 중단 확인
 
-HDInsight는 여러 Azure 서비스를 사용합니다. Azure HDInsight에서 가상 서버를 실행하고, Azure Blob Storage 또는 Azure DataLake Store에 데이터와 스크립트를 저장하고, Azure Table Storage에 로그 파일을 인덱싱합니다. 매우 드물기는 하지만 이러한 서비스가 중단되면 HDInsight에서 문제가 발생할 수 있습니다. 클러스터가 예기치 않게 느려지거나 실패할 경우 [Azure 상태 대시보드](https://azure.microsoft.com/status/)를 확인하세요. 각 서비스의 상태는 지역별로 나열됩니다. 클러스터가 있는 지역 및 관련 서비스가 있는 지역을 확인하세요.
+HDInsight는 여러 Azure 서비스를 사용합니다. Azure HDInsight에서 가상 서버를 실행하고 Azure Blob Storage 또는 Azure Data Lake Store에서 데이터와 스크립트를 저장하고 Azure Table Storage의 로그 파일을 인덱싱합니다. 매우 드물기는 하지만 이러한 서비스가 중단되면 HDInsight에서 문제가 발생할 수 있습니다. 클러스터가 예기치 않게 느려지거나 실패할 경우 [Azure 상태 대시보드](https://azure.microsoft.com/status/)를 확인하세요. 각 서비스의 상태는 지역별로 나열됩니다. 클러스터가 있는 지역 및 관련 서비스가 있는 지역을 확인하세요.
 
 #### <a name="check-azure-service-usage-limits"></a>Azure 서비스 사용 제한 확인
 
@@ -97,7 +97,7 @@ HDInsight는 여러 Azure 서비스를 사용합니다. Azure HDInsight에서 �
 
 #### <a name="check-the-release-version"></a>릴리스 버전 확인
 
-클러스터 버전을 최신 HDInsight 릴리스와 비교합니다. 각 HDInsight 릴리스는 새로운 응용 프로그램, 기능, 패치, 버그 수정 등의 개선 사항을 포함하고 있습니다. 클러스터에 영향을 미치는 문제가 최신 릴리스 버전에서는 해결되었을 수 있습니다. 가능하다면 최신 버전의 HDInsight와 Apache HBase, Apache Spark 같은 관련 라이브러리를 사용하여 클러스터를 다시 실행해 봅니다.
+클러스터 버전을 최신 HDInsight 릴리스와 비교합니다. 각 HDInsight 릴리스는 새로운 애플리케이션, 기능, 패치, 버그 수정 등의 개선 사항을 포함하고 있습니다. 클러스터에 영향을 미치는 문제가 최신 릴리스 버전에서는 해결되었을 수 있습니다. 가능하다면 최신 버전의 HDInsight와 Apache HBase, Apache Spark 같은 관련 라이브러리를 사용하여 클러스터를 다시 실행해 봅니다.
 
 #### <a name="restart-your-cluster-services"></a>클러스터 서비스 다시 시작
 
@@ -184,7 +184,7 @@ YARN 수준에서 발생할 수 있는 시간 제한은 두 가지입니다.
 
 2. YARN 처리 시간이 오래 걸릴 수 있고, 이로 인해 시간 제한이 발생할 수 있습니다.
 
-    * 모든 작업 나열: 이것은 시간이 오래 걸리는 호출입니다. 이 호출은 YARN ResourceManager의 응용 프로그램을 열거하고, 완료된 각 응용 프로그램에 대해 YARN JobHistoryServer에서 상태를 가져옵니다. 작업 수가 많으면 이 호출이 시간 초과될 수 있습니다.
+    * 모든 작업 나열: 이것은 시간이 오래 걸리는 호출입니다. 이 호출은 YARN ResourceManager의 애플리케이션을 열거하고, 완료된 각 애플리케이션에 대해 YARN JobHistoryServer에서 상태를 가져옵니다. 작업 수가 많으면 이 호출이 시간 초과될 수 있습니다.
 
     * 7일 초과 작업 나열: HDInsight YARN JobHistoryServer는 완료된 작업 정보를 7일간 보관하도록 구성됩니다(`mapreduce.jobhistory.max-age-ms` 값). 제거된 작업 결과를 열거하려고 시도하면 시간 제한이 발생합니다.
 
@@ -204,7 +204,7 @@ YARN 수준에서 발생할 수 있는 시간 제한은 두 가지입니다.
 
     WebHCat와의 상호 작용은 성공하지만 작업이 실패하는 경우가 있습니다.
 
-    Templeton은 작업 콘솔 출력을 `statusdir`에 `stderr`로 수집하며, 이 정보는 종종 문제 해결에 유용하게 활용됩니다. `stderr`에는 실제 쿼리의 YARN 응용 프로그램 식별자가 포함됩니다.
+    Templeton은 작업 콘솔 출력을 `statusdir`에 `stderr`로 수집하며, 이 정보는 종종 문제 해결에 유용하게 활용됩니다. `stderr`에는 실제 쿼리의 YARN 애플리케이션 식별자가 포함됩니다.
 
 ## <a name="step-4-review-the-environment-stack-and-versions"></a>4단계: 환경 스택 및 버전 검토
 
@@ -244,7 +244,7 @@ HDInsight 클러스터는 Azure 테이블 및 Azure Blob Storage에 기록된 �
 
 ### <a name="review-heap-dumps"></a>힙 덤프 검토
 
-힙 덤프는 응용 프로그램의 메모리 스냅숏과 해당 시점의 변수 값을 포함하고 있으며, 이 정보는 런타임에 발생하는 문제를 진단하는 데 유용합니다. 자세한 내용은 [Linux 기반 HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)을 참조하세요.
+힙 덤프는 애플리케이션의 메모리 스냅숏과 해당 시점의 변수 값을 포함하고 있으며, 이 정보는 런타임에 발생하는 문제를 진단하는 데 유용합니다. 자세한 내용은 [Linux 기반 HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)을 참조하세요.
 
 ## <a name="step-6-check-configuration-settings"></a>6단계: 구성 설정 확인
 

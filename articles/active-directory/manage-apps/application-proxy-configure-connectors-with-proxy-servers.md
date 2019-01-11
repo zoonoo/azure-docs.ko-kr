@@ -2,25 +2,21 @@
 title: 기존 온-프레미스 프록시 서버 및 Azure AD 작업 | Microsoft Docs
 description: 기존 온-프레미스 프록시 서버로 작업하는 방법을 다룹니다.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.custom: it-pro
-ms.openlocfilehash: 06df705aabce06c37f04de3fb5046d822f9f981e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6409b9313aa9b036e24ea50435659b3653ac01e0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404956"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720104"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>기존 온-프레미스 프록시 서버 작업
 
@@ -107,15 +103,16 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 * SSL 조사
 
 #### <a name="proxy-outbound-rules"></a>프록시 아웃바운드 규칙
-커넥터 서비스 액세스를 위해 다음 엔드포인트에 대한 액세스를 허용합니다.
+다음 URL에 대한 액세스를 허용합니다.
 
-* * .msappproxy.net
-* \*.servicebus.windows.net
+| URL | 사용 방법 |
+| --- | --- |
+| \*.msappproxy.net<br>\*.servicebus.windows.net | 커넥터와 애플리케이션 프록시 클라우드 서비스 간의 통신 |
+| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure에서는 다음과 같은 URL을 사용하여 인증서를 확인합니다. |
+| login.windows.net<br>login.microsoftonline.com | 커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
 
-초기 등록을 위해 다음 엔드포인트에 대한 액세스를 허용합니다.
+방화벽이나 프록시에서 DNS 허용 목록을 허용하면 \*.msappproxy.net 및 \*.servicebus.windows.net에 대한 연결을 허용 목록에 추가할 수 있습니다. 그렇지 않으면 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대한 액세스를 허용해야 합니다. IP 범위는 매주 업데이트됩니다.
 
-* login.windows.net
-* login.microsoftonline.com
 
 FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 하는 경우 다음 옵션을 사용합니다.
 
@@ -185,6 +182,6 @@ SYN 패킷은 TCP 연결을 설정하기 위해 전송된 첫 번째 패킷입�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-connectors.md)
+- [Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)
 
 - 커넥터 연결 문제가 있는 경우 [Azure Active Directory 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD)에 질문하거나 지원 팀을 사용하여 티켓을 만드세요.
