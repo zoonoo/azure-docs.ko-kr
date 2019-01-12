@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 3445974cf832b7ed594f704615482e1d9b0e351c
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 78cb969aa96378dd84243545be1678ae4eaf0e0e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159369"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232535"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack의 Managed Disks: 차이점 및 고려 사항
 
@@ -65,14 +65,14 @@ Azure Stack Managed Disks는 다음과 같은 API 버전을 지원합니다.
 
 - 2017-03-30
 
-## <a name="known-issues"></a>알려진 문제
+## <a name="configuration"></a>구성
 
-1808 후 업데이트를 적용 한 후에 Managed Disks를 사용 하 여 Vm을 배포 하는 경우 다음과 같은 문제가 발생할 수 있습니다.
+1808를 적용 한 후 업데이트 또는 나중에 Managed Disks를 사용 하기 전에 다음 구성을 수행 해야 합니다.
 
-- Managed Disks를 사용 하 여 VM 배포 1808 업데이트 하기 전에 구독을 만든 경우 내부 오류 메시지와 함께 실패할 수 있습니다. 오류를 해결 하려면 각 구독에 대해 다음이 단계를 수행 합니다.
+- 구독을 만든 경우 1808 업데이트 하기 전에 구독을 업데이트 하려면 다음 단계에 따릅니다. 그렇지 않은 경우 "디스크 관리자에 내부 오류가 있습니다." 오류 메시지와 함께 실패할 수 있습니다이 구독에서 Vm을 배포 합니다.
    1. 테 넌 트 포털에서로 이동 **구독** 구독을 찾습니다. 클릭 **리소스 공급자**, 클릭 **Microsoft.Compute**를 클릭 하 고 **re-register**합니다.
    2. 로 동일한 구독에 따라 **액세스 제어 (IAM)**, 되어 있는지 확인 하 고 **Azure Stack – Managed Disk** 나열 됩니다.
-- 다중 테 넌 트 환경에 구성한 게스트 디렉터리와 연결 된 구독에서 Vm을 배포할 내부 오류 메시지와 함께 실패할 수 있습니다. 오류를 해결 하려면에서 다음이 단계를 수행 [이 문서에서는](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) 각 게스트 디렉터리를 다시 구성 합니다.
+- 사용 하는 경우 다중 테 넌 트 환경에 클라우드 운영자 (사용자 고유의 조직 또는 서비스 공급자에서 5 월) 요청 각 게스트 디렉터리를 다시 구성 하려면 다음이 단계를 수행 [이 문서에서는](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)합니다. 그렇지 않은 경우 "디스크 관리자에 내부 오류가 있습니다." 오류 메시지와 함께 실패할 수 있습니다 게스트 디렉터리와 연결 된 구독에서 Vm을 배포
 
 
 ## <a name="next-steps"></a>다음 단계

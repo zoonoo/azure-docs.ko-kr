@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: 360661402289ab9b06eb01be447dc98942c93302
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.reviewer: jiahan
+ms.openlocfilehash: 68665cc588f8a6340de393330c7a248503b07125
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364098"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244990"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 리소스 공급자 유지 관리 작업
 
@@ -32,16 +32,6 @@ SQL 리소스 공급자는 추가 기능 구성 요소 이기 때문에 Azure St
 ### <a name="provider-virtual-machine"></a>공급자 가상 컴퓨터
 
 리소스 공급자에서 실행 되므로 한 *사용자* 릴리스되는 경우 필요한 패치 및 업데이트를 적용 해야 하는 가상 머신. VM에 업데이트를 적용할 패치 및 업데이트 주기의 일환으로 제공 되는 Windows 업데이트 패키지를 사용할 수 있습니다.
-
-## <a name="backuprestoredisaster-recovery"></a>백업/복원/장애 복구
-
- 추가 구성 요소 이기 때문에 SQL 리소스 공급자는 Azure Stack 비즈니스 연속성 재해 복구 (BCDR) 프로세스의 일부로 백업 되지 않습니다. 다음 작업을 위한 스크립트를 제공 합니다.
-
-- 백업 상태 정보 (Azure Stack 저장소 계정에 저장 합니다.)
-- 전체 스택 복구 해야 하는 경우 리소스 공급자를 복원 합니다.
-
->[!NOTE]
->복구를 수행 해야 할 경우에 리소스 공급자 복원 되기 전에 데이터베이스 서버 복구 되어야 합니다.
 
 ## <a name="updating-sql-credentials"></a>SQL 자격 증명 업데이트
 
@@ -122,7 +112,7 @@ SQL 및 MySQL 리소스 공급자를 사용 하 여 Azure Stack을 사용 하 �
 
 ### <a name="known-issues"></a>알려진 문제
 
-**문제**: 비밀 회전 로그 합니다.<br>
+**문제**: 암호 순환 로그입니다.<br>
 비밀 회전에 대 한 로그 되지 비밀 회전 사용자 지정 스크립트를 실행할 때 실패 하는 경우 자동으로 수집 됩니다.
 
 **해결 방법**:<br>

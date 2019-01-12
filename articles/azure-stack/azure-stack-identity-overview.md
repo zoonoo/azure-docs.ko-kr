@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/09/2018
 ms.author: patricka
-ms.reviewer: ''
-ms.openlocfilehash: 1bc4fcda360a899fb2f58e2ac26270d160227a65
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.reviewer: unknown
+ms.openlocfilehash: 53c739c17007b99d90cd146e6bf01ea4a120cabd
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902844"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245687"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure Stack에 대 한 id 개요
 
@@ -80,12 +80,12 @@ Azure stack에서 사용자 계정:
 
 응용 프로그램에는 다음이 포함 됩니다.
 
-- **웹 응용 프로그램**: Azure portal 및 Azure Resource Manager 예제를 포함 합니다. 웹 API 호출을 지원합니다.
-- **네이티브 클라이언트**: Azure PowerShell, Visual Studio 및 Azure CLI 예제를 포함 합니다.
+- **웹 응용 프로그램**: Azure portal 및 Azure Resource Manager을 예로 들 수 있습니다. 웹 API 호출을 지원합니다.
+- **네이티브 클라이언트**: Azure PowerShell, Visual Studio 및 Azure CLI을 예로 들 수 있습니다.
 
 응용 프로그램 두 가지 유형의 테 넌 트를 지원할 수 있습니다.
 
-- **단일 테 넌 트**: 사용자 및 서비스 응용 프로그램 등록 되어 있는 동일한 디렉터리 에서만에서 지원 됩니다.
+- **단일 테 넌 트**: 사용자 및 응용 프로그램 등록 되어 있는 동일한 디렉터리에서 서비스를 지원 합니다.
 
   > [!NOTE]
   > AD FS에서 단일 디렉터리를 지원 하므로 AD FS 토폴로지를에서 만든 응용 프로그램은 기본적으로 단일 테 넌 트 응용 프로그램.
@@ -98,7 +98,7 @@ Azure stack에서 사용자 계정:
 
 응용 프로그램을 등록 하는 경우 두 개체를 만듭니다.
 
-- **응용 프로그램 개체**: 모든 테 넌 트에서 응용 프로그램에 대 한 글로벌 표현입니다. 이 관계는 소프트웨어 응용 프로그램을 사용 하 여 한 일 및 응용 프로그램이 처음으로 등록 되어 있는 디렉터리에만 존재 합니다.
+- **응용 프로그램 개체**: 모든 테 넌 트에서 응용 프로그램의 글로벌 표현입니다. 이 관계는 소프트웨어 응용 프로그램을 사용 하 여 한 일 및 응용 프로그램이 처음으로 등록 되어 있는 디렉터리에만 존재 합니다.
 
 - **서비스 주체 개체**: 응용 프로그램이 처음으로 등록 되어 있는 디렉터리에 응용 프로그램에 대해 만든 자격 증명입니다. 서비스 주체는 응용 프로그램 사용 되는 각 추가 테 넌 트의 디렉터리에 만들어집니다. 이 관계는 일대다 소프트웨어 응용 프로그램을 사용 하 여 될 수 있습니다.
 
@@ -155,10 +155,10 @@ Azure Stack의 아키텍처는 사용자와 응용 프로그램에 대 한 네 �
 
 Id 공급자를 사용 하 여 인증 및 JSON 웹 토큰을 받기는 다음 정보가 있어야 합니다.
 
-1. **Id 시스템 (인증 기관)에 대 한 URL**: URL에 id 공급자를 연결할 수 있습니다. 예를 들어 *https://login.windows.net*입니다.
-2. **Azure Resource Manager에 대 한 앱 ID URI**: 고유 식별자에 대 한 Azure Resource Manager id 공급자를 사용 하 여 등록 합니다. 각 Azure Stack 설치에 고유한 이기도합니다.
-3. **자격 증명**: id 공급자를 사용 하 여 인증에 사용할 자격 증명입니다.
-4. **Azure Resource Manager에 대 한 URL**: URL은 Azure Resource Manager 서비스의 위치입니다. 예를 들어 *https://management.azure.com* 하거나 *https://management.local.azurestack.external*합니다.
+1. **Id 시스템 (인증 기관)에 대 한 URL**: Id 공급자를 연결할 수 있는 URL입니다. 예를 들어 *https://login.windows.net*입니다.
+2. **Azure Resource Manager에 대 한 앱 ID URI**: 고유 식별자에 대 한 Azure Resource Manager에 등록 된 id 공급자입니다. 각 Azure Stack 설치에 고유한 이기도합니다.
+3. **자격 증명**: Id 공급자를 사용 하 여 인증에 사용할 자격 증명입니다.
+4. **Azure Resource Manager에 대 한 URL**: URL에는 Azure Resource Manager 서비스의 위치입니다. 예를 들어 *https://management.azure.com* 하거나 *https://management.local.azurestack.external*합니다.
 
 보안 주체 (클라이언트, 응용 프로그램 또는 사용자)의 리소스 액세스에 인증을 요청 하면 요청 포함 해야 합니다.
 

@@ -13,12 +13,13 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 3c3e064ea229db97c59cc5b49107b568a2fdaa98
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ROBOTS: NOINDEX
+ms.openlocfilehash: ce276b5fcedecc53c379d41de55080bf61e2386e
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334451"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243664"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>PowerShell 사용 하 여 Azure Stack 유효성 검사 자동화
 
@@ -76,7 +77,7 @@ ms.locfileid: "52334451"
     | VaaSAccountTenantId | 프로그램 VaaS 테 넌 트 GUID입니다. |
     | VaaSSolutionName | 테스트에 통과 중인 VaaS 솔루션의 이름을 실행 됩니다. |
     | VaaSTestPassName | 이름이 VaaS 테스트 워크플로 만들기를 전달 합니다. |
-    | VaaSTestCategories | `Integration``Functional`, 또는 합니다. `Reliability` 여러 값을 사용 하면 각 값을 쉼표로 구분 합니다.  |
+    | VaaSTestCategories | `Integration``Functional`, 또는 합니다. `Reliability`. 여러 값을 사용 하면 각 값을 쉼표로 구분 합니다.  |
     | ServiceAdminUserName | Azure Stack 서비스 관리자 계정입니다.  |
     | ServiceAdminPassword | Azure Stack 서비스 문의 하십시오입니다.  |
     | TenantAdminUserName | 기본 테 넌 트 관리자입니다.  |

@@ -74,6 +74,7 @@
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](https://docs.microsoft.com/python/api/overview/azure/data-lake-analytics?view=azure-python)
 ## [REST (영문)](/rest/api/datalakeanalytics/)
+## [Resource Manager 템플릿](/azure/templates/microsoft.datalakeanalytics/allversions)
 ## [CLI](https://docs.microsoft.com/cli/azure/dla)
 
 # 리소스

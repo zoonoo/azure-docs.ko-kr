@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.reviewer: ''
-ms.openlocfilehash: 80948b973e6d20b4760e97311c5a65886cf91f8f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.reviewer: anwestg
+ms.openlocfilehash: b721545f27135e36b2999de5acc61e77539a94b2
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51617012"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247319"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>App Service에서 Azure Stack 업데이트 4 릴리스 정보
 
@@ -204,7 +204,7 @@ Azure Stack 배포의 기존 Azure App Service에 대 한 포함 된 데이터�
 - 작업자는 App Service는 기존 가상 네트워크에 배포 되 고 파일 서버 에서만 사용 가능 개인 네트워크에서 Azure Stack 배포 설명서에서 Azure App Service에 표시 될 때 파일 서버에 연결할 수 없습니다.
 
 기존 가상 네트워크와 파일 서버에 연결할 내부 IP 주소에 배포 하기로 선택한 경우 아웃 바운드 보안 규칙을 추가 하 있습니다 작업자 서브넷과 파일 서버 간에 SMB 트래픽을 사용 하도록 설정 해야 합니다. 관리 포털에서 WorkersNsg로 이동한 후 다음 속성을 사용 하 여 아웃 바운드 보안 규칙을 추가 합니다.
- * 원본: 모든
+ * 원본: 모두
  * 원본 포트 범위: *
  * 대상: IP 주소
  * 대상 IP 주소 범위: 파일 서버에 대 한 Ip의 범위

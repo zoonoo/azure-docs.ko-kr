@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 86f4e99401278d13a17f40c4c021060e8bd15f8a
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 8d477997e71843307f6c756a6974a23267842015
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754546"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244973"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 업데이트
 
@@ -99,7 +99,7 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 <!--  TBD – IS, ASDK --> 
 - *기본 A* 가상 머신 크기에 대 한 현재 퇴직 [virtual machine scale sets 만들기](azure-stack-compute-add-scalesets.md) (VMSS) 포털을 통해. 이 크기를 사용 하 여 VMSS를 만들려면, PowerShell 또는 템플릿을 사용 합니다.  
 
-### <a name="common-vulnerabilities-and-exposures"></a>Common Vulnerabilities and Exposures
+### <a name="common-vulnerabilities-and-exposures"></a>일반적인 취약점 및 exposures
 
 이 업데이트에는 다음 업데이트를 설치합니다.  
 
@@ -254,6 +254,8 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 - 메모리 부족 경고를 받게 테 넌 트 가상 머신을 사용 하 여 배포 하는 데 실패 한 경우 Azure Stack 운영자를 **패브릭 VM 만들기 오류**, 사용 가능한 메모리가 부족 합니다. Azure Stack 스탬프는 불가능 합니다. 사용 된 [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) 워크 로드에 대 한 사용 가능한 용량을 가장 잘 알아야 합니다.
 
 ### <a name="compute"></a>컴퓨팅
+
+- 만들 때를 [Dv2 시리즈 VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11 14v2 Vm 4, 8, 16 및 32 데이터 디스크를 각각 만들 수 있습니다. 단, 8, 16, 32 및 64 개의 데이터 디스크 만들기 VM 창을 보여 줍니다.
 
 <!-- 3164607 – IS, ASDK -->
 - 와 같은 오류로 인해 실패 때도 동일한 이름 및 LUN을 사용 하 여 동일한 가상 컴퓨터 (VM) 디스크를 분리 **datadisk' 데이터 디스크' 'vm1' VM에 연결할 수 없습니다**합니다. 디스크가 현재 분리 됨 또는 마지막 분리 작업 실패 오류가 발생 합니다. 하세요 디스크가 완전히 분리 될 때까지 대기 하 고 다시 시도 하거나 삭제/분리 디스크 명시적으로 다시 합니다. 이를 해결 하려면 다른 이름으로 또는 다른 LUN에 다시 연결 합니다. 

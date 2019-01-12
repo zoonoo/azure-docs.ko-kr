@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: f5826b2a6935bb448a7a3ef94d9a5f27f1ed9426
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 4f5558d17e2f290ed7255350f304ed2057a6d783
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214592"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247625"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 업데이트
 
@@ -40,9 +40,9 @@ Azure Stack 1811 업데이트 빌드 번호는 **1.1811.0.101**합니다.
 Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 합니다 [최신 Azure Stack 핫픽스](#azure-stack-hotfixes) 1811로 Azure Stack을 업데이트 하기 전에 1809에 대 한 합니다.
 
 > [!TIP]  
-> 다음을 구독할 *RRS* 또는 *Atom* Azure Stack 핫픽스를 피드 합니다.
-> - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss ... 
-> - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom ...
+> 다음을 구독할 *RSS* 또는 *Atom* Azure Stack 핫픽스를 피드 합니다.
+> - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
+> - [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ### <a name="azure-stack-hotfixes"></a>Azure Stack 핫픽스
 
@@ -162,7 +162,7 @@ Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 �
 
 - Get-AzsCsvsRecoveryKeys Get AzsRecoveryKeys 하에서 1811의 BitLocker 복구 키를 검색 하려면 기존 PEP cmdlet 이름이 바뀝니다. BitLocker 복구 키를 검색 하는 방법에 대 한 자세한 내용은 참조 하세요. [키를 검색 하는 방법에 대 한 지침](azure-stack-security-bitlocker.md)합니다.
 
-## <a name="common-vulnerabilities-and-exposures"></a>Common Vulnerabilities and Exposures
+## <a name="common-vulnerabilities-and-exposures"></a>일반적인 취약점 및 exposures
 
 이 업데이트에는 다음 보안 업데이트를 설치합니다.  
 
@@ -260,6 +260,8 @@ Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 �
    `'Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'`
 
    오류는 VM에서 부팅 진단을 사용 하도록 설정 해도 부트 진단 저장소 계정을 삭제 하는 경우에 발생 합니다. 이 문제를 해결 하려면 이전에 사용한 동일한 이름 사용 하 여 저장소 계정을 다시 만듭니다.
+
+- 만들 때를 [Dv2 시리즈 VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11 14v2 Vm 4, 8, 16 및 32 데이터 디스크를 각각 만들 수 있습니다. 단, 8, 16, 32 및 64 개의 데이터 디스크 만들기 VM 창을 보여 줍니다.
 
 <!-- 3235634 – IS, ASDK -->
 - 포함 된 크기를 사용 하 여 Vm을 배포 하는 **v2** 접미사; 예를 들어 **Standard_A2_v2**,으로 접미사를 지정할 **Standard_A2_v2** (소문자 v). 사용 하지 마세요 **Standard_A2_V2** (V 대문자). 이 글로벌 Azure에서 작동 하며 Azure Stack에서 일치 하지 않습니다.

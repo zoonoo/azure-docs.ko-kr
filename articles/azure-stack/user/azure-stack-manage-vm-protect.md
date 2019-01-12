@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/10/2018
 ms.author: jeffgilb
-ms.reviewer: hector.linares
-ms.openlocfilehash: ab55ed73c7364b48f3159672ebee5d934365c92c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.reviewer: hectorl
+ms.openlocfilehash: 45e22f19c6e2da26105615da6a775eed4f8676f0
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191532"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243643"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Azure Stack에 배포 된 가상 컴퓨터를 보호 합니다.
 
@@ -53,7 +53,7 @@ Azure Stack 클라우드 운영자는 기본 Azure Stack 인프라 및 서비스
 
 각 응용 프로그램에 대 한 대상을 결정 하도록 각 응용 프로그램에 대 한 백업 복구 및 재해 복구 전략을 계획 합니다. 복구 계획에는 제대로 크기 저장소 용량이 필요한 온-프레미스 및 공용 클라우드에서 소비 프로젝트 조직 데 도움이 됩니다.
 
-|  | 전역 Azure | Azure Stack CSP 데이터 센터에 배포 된 후 CSP에서 작동 | Azure Stack 고객 데이터 센터에 배포 하 여 고객이 운영 |
+|  | 글로벌 Azure | Azure Stack CSP 데이터 센터에 배포 된 후 CSP에서 작동 | Azure Stack 고객 데이터 센터에 배포 하 여 고객이 운영 |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
 | **Azure Stack CSP 데이터 센터에 배포 된 후 CSP에서 작동** | 사용자 Vm 작업을 수행할 CSP Azure Stack에 배포 됩니다.<br><br>사용자 Vm 백업에서 복원 기능은 직접 Azure로 장애 조치 합니다. | CSP는 자체 데이터 센터에서 Azure Stack의 기본 및 보조 인스턴스를 작동합니다.<br><br>사용자 Vm 복원 기능은 두 Azure Stack 인스턴스 간의 장애 조치 합니다. | CSP의 Azure Stack 기본 사이트에서 작동합니다.<br><br>고객의 데이터 센터는 복원 또는 장애 조치 대상입니다. |
 | **Azure Stack 고객 데이터 센터에 배포 하 여 고객이 운영** | 사용자 Vm에 배포 된 Azure Stack을 운영 하는 고객.<br><br>사용자 Vm 백업에서 복원 기능은 직접 Azure로 장애 조치 합니다. | 고객의 Azure Stack 기본 사이트에서 작동합니다.<br><br>CSP의 데이터 센터는 복원 또는 장애 조치 대상입니다. | 고객은 자체 데이터 센터에서 Azure Stack의 기본 및 보조 인스턴스를 작동합니다.<br><br>사용자 Vm 복원 기능은 두 Azure Stack 인스턴스 간의 장애 조치 합니다. |

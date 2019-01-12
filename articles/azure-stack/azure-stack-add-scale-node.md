@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: 3ce74cdb610f2902133459b913f53bb7809cb4b7
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: ff068ff5aa4401a80f2220df79fdac93db21cfb3
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983000"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232875"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Azure Stack에서 확장할 단위 노드를 추가 합니다.
 
@@ -105,6 +105,7 @@ Azure Stack 1807 이상을 추가 하려면 추가 확장 단위 노드에서 �
 
 ### <a name="status-for-the-add-node-operation"></a>노드 추가 작업에 대 한 상태 
 **배율 단위:**
+
 |상태               |설명  |
 |---------------------|---------|
 |실행 중              |배율 단위에 모든 노드 적극적으로 참여 하 합니다.|
@@ -115,6 +116,7 @@ Azure Stack 1807 이상을 추가 하려면 추가 확장 단위 노드에서 �
 
 
 **배율 단위 노드:**
+
 |상태                |설명  |
 |----------------------|---------|
 |실행 중               |노드 배율 단위에 적극적으로 참여 합니다.|
@@ -128,17 +130,17 @@ Azure Stack 1807 이상을 추가 하려면 추가 확장 단위 노드에서 �
 ## <a name="troubleshooting"></a>문제 해결
 노드를 추가할 때 나타나는 일반적인 문제는 다음과 같습니다. 
 
-**시나리오 1:** 배율 단위 노드 추가 작업이 실패 하지만 하나 이상의 노드가 중지 됨 상태로 나열 됩니다.  
+**시나리오 1:**  배율 단위 노드 추가 작업이 실패 하지만 하나 이상의 노드가 중지 됨 상태로 나열 됩니다.  
 - 업데이트 관리: 하나 이상의 노드를 복구 하려면 복구 작업을 사용 합니다. 작업을 단일 복구만 한 번에 실행할 수 있습니다.
 
 **시나리오 2:** 하나 이상의 배율 단위 노드 추가 되었지만 저장소 확장에 실패 했습니다. 이 시나리오에서는 배율 단위 노드 개체 실행의 상태를 보고 하지만 구성 저장소 작업이 시작 되지 않습니다.  
-- 다음 PowerShell cmdlet을 실행 하 여 저장소 상태를 검토 하려면 권한 있는 끝점을 사용 하는 업데이트 관리::
+- 업데이트 관리: 다음 PowerShell cmdlet을 실행 하 여 저장소 상태를 검토 하려면 권한 있는 끝점을 사용 합니다.
   ```powershell
      Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
   ```
  
-**시나리오 3:** 실패 한 저장소 스케일 아웃 작업을 나타내는 경고를 수신 합니다.  
-- 업데이트 관리:이 경우에 저장소 구성 작업이 실패 했습니다. 이 문제는 지원에 문의 해야 합니다.
+**시나리오 3:** 실패 한 저장소 스케일 아웃 작업을 나타내는 경고를 받았습니다.  
+- 업데이트 관리: 이 경우 저장소 구성 작업에 실패 했습니다. 이 문제는 지원에 문의 해야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계 

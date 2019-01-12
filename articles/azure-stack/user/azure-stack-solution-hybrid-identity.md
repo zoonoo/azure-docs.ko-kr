@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/28/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: e1ace09ba293cf80b2dbbe8f746eb7fd5bc8d7cb
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.reviewer: anajod
+ms.openlocfilehash: e5c119effe65f5289a2d8f1b323b5d8a36294c79
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036396"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244311"
 ---
-# <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>자습서: Azure 및 Azure Stack 응용 프로그램에 대 한 하이브리드 클라우드 id 구성
+# <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>자습서: Azure 및 Azure Stack 응용 프로그램에 대 한 하이브리드 클라우드 id를 구성 합니다.
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 

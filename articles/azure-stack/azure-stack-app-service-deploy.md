@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 01/11/2019
 ms.author: anwestg
-ms.openlocfilehash: 504cd5a0bfbae1ff91f7914abe12aa35b699ee80
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: bbb8e39e60500a2d8310159cfbac5659964fc387
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104763"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230019"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure Stack에 App Service 리소스 공급자 추가
 
@@ -46,6 +46,9 @@ Azure Stack에서 App Service를 배포 하려면이 문서의 지침을 사용 
  - App Service에 대 한 DNS 영역 및 항목을 만듭니다.
  - App Service 리소스 공급자를 등록 합니다.
  - App Service 갤러리 항목을 등록 합니다.
+
+ > [!IMPORTANT]
+ > 리소스 공급자를 배포 하기 전에 새로운 기능, 수정 및 배포에 영향을 줄 수 있는 알려진된 문제에 대 한 자세한 릴리스 정보를 검토 합니다.
 
 App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 합니다.
 

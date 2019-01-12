@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 01/11/2019
 ms.author: anwestg
-ms.openlocfilehash: a3703133e5dc5f0525638562fab98f9416bcf26e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: db4c0f2d1197a190b33bd297bb597fd19057d875
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104661"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230342"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS에서 보안이 유지 되는 연결이 끊긴된 Azure Stack 환경에는 App Service 리소스 공급자 추가
 
@@ -27,14 +27,15 @@ ms.locfileid: "54104661"
 
 > [!IMPORTANT]
 > Azure Stack 통합 시스템 1809 업데이트를 적용 하거나 Azure 앱 서비스 1.4를 배포 하기 전에 최신 Azure Stack 개발 키트를 배포 합니다.
->
->
 
 이 문서의 지침에 따라 설치할 수 있습니다 합니다 [App Service 리소스 공급자](azure-stack-app-service-overview.md) 는 Azure Stack 환경:
 
 - 인터넷에 연결 되어 있지
 - Active Directory Federation Services (AD FS)로 보호 됩니다.
 
+ > [!IMPORTANT]
+ > 리소스 공급자를 배포 하기 전에 새로운 기능, 수정 및 배포에 영향을 줄 수 있는 알려진된 문제에 대 한 자세한 릴리스 정보를 검토 합니다.
+ 
 App Service 리소스 공급자에 오프 라인 Azure Stack 배포를 추가 하려면 이러한 최상위 작업을 완료 해야 합니다.
 
 1. 완료 합니다 [필수 조건 단계](azure-stack-app-service-before-you-get-started.md) (같은 인증서를 구입 하는 소요 될 수 수신 하는 데 며칠이).

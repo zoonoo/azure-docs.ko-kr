@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 97b7defded39e572a1fecae3e93d389014b15a6b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 4cbbc482a05e125f92efd98b0824ec38ae1ddefd
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077966"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244701"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 업데이트
 
@@ -81,7 +81,7 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 > [!IMPORTANT]  
 > 파일 서버에 공용 VIP 네트워크에서 연결을 허용 하지 않는 방화벽이 있는 경우 이러한 변경으로 인해 실패 "오류 53 네트워크 경로 찾을 수 없습니다."를 사용 하 여 인프라 백업 이 주요 변경 내용에 적절 한 해결 방법은 없습니다. Microsoft는 고객 피드백에 따라 핫픽스에서이 변경 내용 되돌리기 됩니다. 살펴보시기 합니다 [업데이트 단계 섹션 게시](#post-update-steps) 1809에 사용할 수 있는 핫픽스에 대 한 자세한 정보에 대 한 합니다. 핫픽스를 사용할 수 있는 네트워크 정책에는 공용 VIP 네트워크에 인프라 리소스에 액세스를 허용 하지 않는 경우에 1809로 업데이트 한 후 적용 해야 합니다. 이 변경 1811의 모든 시스템에 적용 됩니다. 추가 작업이 필요 하지 않습니다. 있는지 1809에서 핫픽스를 적용 합니다.  
 
-### <a name="common-vulnerabilities-and-exposures"></a>Common Vulnerabilities and Exposures
+### <a name="common-vulnerabilities-and-exposures"></a>일반적인 취약점 및 exposures
 
 이 업데이트에는 다음 보안 업데이트를 설치합니다.  
 
@@ -251,6 +251,8 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 - 메모리 부족 경고를 받게 테 넌 트 가상 머신을 사용 하 여 배포 하는 데 실패 한 경우 Azure Stack 운영자를 **패브릭 VM 만들기 오류**, 사용 가능한 메모리가 부족 합니다. Azure Stack 스탬프는 불가능 합니다. 사용 된 [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) 워크 로드에 대 한 사용 가능한 용량을 가장 잘 알아야 합니다.
 
 ### <a name="compute"></a>컴퓨팅
+
+- 만들 때를 [Dv2 시리즈 VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11 14v2 Vm 4, 8, 16 및 32 데이터 디스크를 각각 만들 수 있습니다. 단, 8, 16, 32 및 64 개의 데이터 디스크 만들기 VM 창을 보여 줍니다.
 
 <!-- 3235634 – IS, ASDK -->
 - 포함 된 크기를 사용 하 여 Vm을 배포 하는 **v2** 접미사; 예를 들어 **Standard_A2_v2**,으로 접미사를 지정 하세요 **Standard_A2_v2** (소문자 v). 사용 하지 마세요 **Standard_A2_V2** (V 대문자). 이 글로벌 Azure에서 작동 하며 Azure Stack에서 일치 하지 않습니다.

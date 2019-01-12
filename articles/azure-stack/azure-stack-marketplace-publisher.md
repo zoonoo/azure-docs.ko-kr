@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 9f1c433be7e8adc0779860c3ec3bfb5d7174fca5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: unknown
+ms.openlocfilehash: 920d06a84f82db00b5161d2b3152c7db6f8314a6
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970725"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247455"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Marketplace 항목 게시 도구를 사용 하 여 추가
 

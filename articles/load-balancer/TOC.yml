@@ -39,7 +39,7 @@ items:
     href: powershell-samples.md
 - name: 개념
   items:
-  - name: 부하 분산 장치 표준이란?
+  - name: 표준 Load Balancer란?
     href: load-balancer-standard-overview.md
   - name: 상태 프로브
     href: load-balancer-custom-probe-overview.md
@@ -192,9 +192,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: 서비스 업데이트
     href: https://azure.microsoft.com/updates/?product=load-balancer
-ms.openlocfilehash: 5f4eb7c783e4e4260935dcd065743788b12e97bf
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 592ebadf6b356486cb8fac7d517d509874d0533b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269212"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229798"

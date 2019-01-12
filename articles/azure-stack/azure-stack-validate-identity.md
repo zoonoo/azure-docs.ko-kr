@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 61562450d484f34385b4e6e111bf62326eaca159
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.reviewer: unknown
+ms.openlocfilehash: 2cfa789b9817562eba5224257a365f8552cdf833
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888378"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245943"
 ---
 # <a name="validate-azure-identity"></a>Azure id의 유효성을 검사합니다 
 Azure Active Directory (Azure AD) Azure Stack과 함께 사용할 준비가 되었는지 유효성을 검사 하려면 (AzsReadinessChecker) Azure Stack 준비 검사기 도구를 사용 합니다. Azure Stack 배포를 시작 하기 전에 Azure id 솔루션의 유효성을 검사 합니다.  
@@ -137,7 +137,7 @@ Invoke-AzsAzureIdentityValidation Completed
 ````
 **원인** -계정이 지정된 된 Azure Active Directory (AADDirectoryTenantName)에 로그온 할 수 있습니다. 이 예에서 *AzureChinaCloud* 로 지정 합니다 *AzureEnvironment*합니다.
 
-**해상도** -지정 된 Azure 환경에 대 한 유효한 계정 인지 확인 합니다. 실행 계정은 특정 환경에 올바른지 확인 하려면 다음 PowerShell에서: Login-azurermaccount-EnvironmentName AzureChinaCloud 
+**해상도** -지정 된 Azure 환경에 대 한 유효한 계정 인지 확인 합니다. PowerShell에서 특정 환경에 대 한 계정이 올바른지 확인 하려면 다음을 실행 합니다.   Login-azurermaccount-EnvironmentName AzureChinaCloud 
 ### <a name="account-is-not-an-administrator"></a>계정은 관리자가 아닙니다. 
  
 ````PowerShell

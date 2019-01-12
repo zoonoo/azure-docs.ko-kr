@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/12/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: ee336fb5a60998aaac1518a85b8b92f63d9d4b64
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.reviewer: unknown
+ms.openlocfilehash: 61afc8a736025763f950307fdbb78bb21577b22f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318132"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244208"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>계획, 제안, 할당량 및 구독 개요
 
@@ -59,11 +59,11 @@ ms.locfileid: "49318132"
 
 에 대해 자세히 알아보세요 [Azure Stack에서 할당량 유형은](azure-stack-quota-types.md)합니다.
 
-### <a name="base-plan"></a>기본 플랜
+### <a name="base-plan"></a>기본 계획
 
 제품을 만들면, 서비스 관리자는 기본 계획을 포함할 수 있습니다. 이러한 기본 요금제는 사용자가 해당 제품을 구독 하는 경우 기본적으로 포함 됩니다. 사용자가 구독 하는 경우 (해당 할당량)와 해당 기본 계획에 지정 된 모든 리소스 공급자에 액세스할을 수 있습니다.
 
-### <a name="add-on-plans"></a>추가 플랜
+### <a name="add-on-plans"></a>추가 요금제
 
 추가 기능 계획은 제품에 추가 하는 선택적 계획입니다. 추가 기능 계획은 구독에서 기본적으로 포함되지 않습니다. 추가 기능 계획은 추가 계획 (할당량) 구독자가 구독에 추가할 수 있는 제품에서 사용할 수 있습니다. 예를 들어, 고객에 게 서비스를 채택 하려는 평가판에 대 한 제한 된 리소스를 사용 하 여 기본 계획 하 고 더 많은 리소스를 사용 하 여 추가 기능 계획을 제공할 수 있습니다.
 

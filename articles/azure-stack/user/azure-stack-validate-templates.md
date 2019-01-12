@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/27/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: f6ef1dfdef68136ae129faced7443302e738d5b9
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.reviewer: unknown
+ms.openlocfilehash: 4ec617fe49a3b55ba0608b77a8d1226fae025e6c
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810376"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246452"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>템플릿 유효성 검사 도구를 사용 하 여 Azure Stack에 대 한 템플릿을 확인합니다
 
@@ -83,7 +83,7 @@ ms.locfileid: "53810376"
 
 템플릿 유효성 검사기는 다음 매개 변수를 지원합니다.
 
-| 매개 변수 | 설명 | 필수 |
+| 매개 변수 | Description | 필수 |
 | ----- | -----| ----- |
 | TemplatePath | 재귀적으로 경로 Azure Resource Manager 템플릿의 찾을 지정합니다 | 예 | 
 | TemplatePattern | 와 일치 하도록 템플릿 파일의 이름을 지정 합니다. | 아닙니다. |
