@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: d63faf63012360d4448166ac5d69eba6ede9d0ed
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: anajod
+ms.openlocfilehash: 88c72994ec0c6cfc6222ccb31cabae7e354412eb
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969535"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245534"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 준비 된 데이터 분석 솔루션 만들기 
 
@@ -49,7 +49,7 @@ ms.locfileid: "52969535"
 
 이 솔루션을 빌드하려면 몇 가지 준비 해야 합니다.
 
--   설치 및 작동 Azure Stack (자세한 내용은 여기에서 찾을 수 있습니다: [Azure Stack 개요](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-storage-overview))
+-   설치 및 작동 Azure Stack (자세한 내용은 여기에서 찾을 수 있습니다. [Azure Stack 개요](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-storage-overview))
 
 -   Azure 구독. (만듭니다는 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 
@@ -81,25 +81,25 @@ Azure functions 및 저장소 솔루션에는 데이터 볼륨 및 처리 요구
 
 3.  계정에 대해 다음 정보를 사용 합니다.
 
-    a.  이름: **세요**
+    a.  이름: **사용자 선택**
 
-    b.  배포 모델: **Resource Manager**
+    b.  배포 모델: **리소스 관리자**
 
     다.  계정 종류: **저장소 (범용 V1)**
 
     d.  위치: **미국 서부**
 
-    e.  복제: **로컬 중복 저장소 (LRS)**
+    e.  복제: **LRS(로컬 중복 저장소)**
 
-    f.  성능: **표준**
+    f.  성능: **Standard**
 
-    g.  보안 전송 필요: **사용 안 함**
+    g.  보안 전송 필요 합니다. **사용 안 함**
 
-    h.  구독: 하나를 선택 합니다.
+    h.  구독: 하나를 선택
 
     i.  리소스 그룹: 새 리소스 그룹을 지정 하거나 기존 리소스 그룹을 선택 합니다.
 
-    j.  가상 네트워크 구성: **사용 안 함**
+    j.  가상 네트워크를 구성 합니다. **사용 안 함**
 
 4.  선택 **storage 계정을 만들려면 만들기**합니다.
 
@@ -113,7 +113,7 @@ Azure functions 및 저장소 솔루션에는 데이터 볼륨 및 처리 요구
 
     ![대체 텍스트](media/azure-stack-solution-staged-data-analytics/image2.png)
 
-8.  이름: **세요**
+8.  이름: **사용자가 선택한**
 
 9.  공용 액세스 수준: **컨테이너** (컨테이너 및 blob에 대 한 익명 읽기 액세스)
 
@@ -168,7 +168,7 @@ Azure Stack에서 데이터 정리를 Azure로 이동 하는 새 Azure Stack 함
 
     ![대체 텍스트](media/azure-stack-solution-staged-data-analytics/image4.png)
 
-3.  선택 **C\#**  언어 및 함수 이름: `upload-to-azure` 일정을 설정 `0 0 * * * *`는 CRON에서 표기법은 한 번 한 시간입니다.
+3.  선택 **C\#**  언어 및 함수 이름: `upload-to-azure`  일정 설정 `0 0 * * * *`는 CRON에서 표기법은 한 번 한 시간입니다.
 
     ![대체 텍스트](media/azure-stack-solution-staged-data-analytics/image5.png)
 
@@ -186,7 +186,7 @@ Azure Stack에서 데이터 정리를 Azure로 이동 하는 새 Azure Stack 함
     | ------- | ------- | ------- |
     | 이름 | 함수 앱에서 고유 | 이 Blob 트리거 함수의 이름입니다. |
     | path | \<위의 저장소 위치의 경로 > | 모니터링되는 Blob Storage의 위치입니다. Blob의 파일 이름 바인딩의 이름 매개 변수로 전달 됩니다. |
-    | 저장소 계정 연결 | 함수 앱 연결 | 함수 앱에서 이미 사용 중인 저장소 계정 연결을 사용 하거나 새로 만들 수 있습니다. |
+    | 스토리지 계정 연결 | 함수 앱 연결 | 함수 앱에서 이미 사용 중인 저장소 계정 연결을 사용 하거나 새로 만들 수 있습니다. |
 
     **예제:**
 
@@ -246,7 +246,7 @@ Blob 및 큐를 포함 하는 Azure Stack 저장소 계정을 만듭니다.
     | ------- | ------- | ------- |
     | 이름 | 함수 앱에서 고유 | 큐 트리거 함수의 이름입니다. |
     | path | \<위의 저장소 위치의 경로 > | 모니터링 되는 저장소 위치입니다. 큐의 파일 이름 바인딩의 이름 매개 변수로 전달 됩니다. |
-    | 저장소 계정 연결 | 함수 앱 연결 | 함수 앱에서 이미 사용 중인 저장소 계정 연결을 사용 하거나 새로 만들 수 있습니다. |
+    | 스토리지 계정 연결 | 함수 앱 연결 | 함수 앱에서 이미 사용 중인 저장소 계정 연결을 사용 하거나 새로 만들 수 있습니다. |
 
 3.  **만들기**를 선택하여 함수를 만듭니다.
 

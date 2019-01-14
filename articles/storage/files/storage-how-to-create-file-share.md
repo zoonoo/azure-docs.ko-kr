@@ -45,7 +45,7 @@ Azure 파일 공유를 만들려면 이미 존재하는 저장소 계정을 사�
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-PowerShell 사용을 준비하려면 Azure PowerShell cmdlet을 다운로드하여 설치합니다. 설치 지점 및 설치 지침에 대해서는  [Azure PowerShell 설치 및 구성 방법](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)을 참조하세요.
+PowerShell을 사용하려면 Azure PowerShell cmdlet을 다운로드하여 설치합니다. 설치 포인트와 설치 지침에 대해서는  [Azure PowerShell 설치 및 구성 방법](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) 을 참조하세요.
 
 > [!Note]  
 > 최신 Azure PowerShell 모듈을 다운로드하여 설치하거나 최신 모듈로 업그레이드하는 것이 좋습니다.
