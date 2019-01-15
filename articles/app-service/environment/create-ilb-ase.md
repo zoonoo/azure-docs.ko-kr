@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9c44e2564c26a16d632a16195d3e53b8ce83d735
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: edea614065d67bab23de29e5cef3b56c69905a90
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629886"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188612"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>App Service Environment에서 내부 부하 분산 장치 만들기 및 사용 #
 
@@ -188,7 +188,7 @@ SSL 인증서를 .pfx 파일로 변환/저장합니다. .pfx 파일에는 모든
 
 ILB ASE에서 Azure Functions를 사용할 경우 다음과 같은 오류 메시지가 발생할 수 있습니다. "함수를 지금 바로 검색할 수 없습니다. 나중에 다시 시도하십시오." 이 오류는 Functions UI가 HTTPS를 통해 SCM 사이트를 사용하며 루트 인증서가 브라우저의 신뢰 체인에 없기 때문에 발생합니다. 웹 작업에도 비슷한 문제가 있습니다. 이 문제를 방지하기 위해 다음 중 하나를 수행할 수 있습니다.
 
-- 신뢰할 수 있는 인증서 저장소에 인증서를 추가합니다. 그러면 Edge 및 Internet Explorer가 차단 해제됩니다.
+- 신뢰할 수 있는 인증서 저장소에 인증서를 추가합니다. 그러면 Microsoft Edge 및 Internet Explorer가 잠금 해제됩니다.
 - Chrome을 사용하고 먼저 SCM 사이트로 이동한 후 신뢰할 수 없는 인증서를 수락한 다음 포털로 이동합니다.
 - 브라우저의 신뢰 체인에 있는 상용 인증서를 사용합니다.  이것이 최상의 옵션입니다.  
 
