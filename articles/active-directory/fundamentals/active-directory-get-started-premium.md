@@ -12,12 +12,12 @@ ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 23778a56cfa6440442bd7aab67c5441094a633ae
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fd5f9567c92201b4dfa08c74574df97fa8c91ae2
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073995"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065565"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Azure Active Directory Premium Edition에 가입
 Azure AD(Azure Active Directory) Premium Edition을 구매하고 Azure 구독에 연결할 수 있습니다. 새로운 Azure 구독을 만들어야 하는 경우 라이선싱 계획 및 Azure AD 서비스 액세스도 활성화해야 합니다.
@@ -66,7 +66,7 @@ Microsoft 볼륨 라이선싱 플랜을 통해 가져오려는 라이선스 수�
    
     ![로그인](media/active-directory-get-started-premium/MOLSEmail.png)
 
-    - **로그인.** 기존 테넌트가 있는 경우 이 링크를 선택한 후 기존 관리자 계정을 사용하여 로그인합니다. 라이선스가 활성화되는 테넌트에서 전역 관리자여야 합니다.
+    - **로그인.** 기존 테넌트가 있는 경우 이 링크를 선택한 후 기존 관리자 계정을 사용하여 로그인합니다. 라이선스가 활성화되는 테넌트의 글로벌 관리자여야 합니다.
 
     - **등록.** **계정 프로필 만들기** 페이지를 열려면 이 링크를 선택하고 라이선싱 플랜을 위한 새 Azure AD 테넌트를 만듭니다.
 

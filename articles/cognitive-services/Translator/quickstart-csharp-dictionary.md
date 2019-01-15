@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 대체 번역 찾기, C# - Translator Text API'
+title: '빠른 시작: 이중 언어 사전이 있는 단어 조회, C# - Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 .NET Core 및 Translator Text API를 사용하여 용어의 대체 번역과 대체 번역의 사용 예제를 가져오는 방법을 알아봅니다.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: d0921d67867e412ed1862c597297e27c2c56ae3b
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 3460c1c62f26e2bb0a4a14238e110cdd363a7a87
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334536"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159573"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-c"></a>빠른 시작: Translator Text REST API(C#)로 대체 번역 찾기
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>빠른 시작: C#을 사용하여 이중 언어 사전이 있는 단어 조회
 
 이 빠른 시작에서는 .NET Core 및 Translator Text API를 사용하여 용어의 대체 번역과 대체 번역의 사용 예제를 가져오는 방법을 알아봅니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "52334536"
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Json.NET NuGet 패키지](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) 또는 즐겨 사용하는 텍스트 편집기
-* Speech Service에 대한 Azure 구독 키
+* Translator Text에 대한 Azure 구독 키
 
 ## <a name="create-a-net-core-project"></a>.NET Core 프로젝트 만들기
 
@@ -138,7 +138,7 @@ Console.WriteLine("Press any key to continue.");
 
 ## <a name="put-it-all-together"></a>모든 요소 결합
 
-마지막 단계는 `Main` 함수에서 `AltTranslation()`을 호출하는 것입니다. `static void Main(string[] args)`을 찾고 이러한 줄을 추가하세요.
+마지막 단계는 `Main` 함수에서 `AltTranslation()`를 호출하는 것입니다. `static void Main(string[] args)`을 찾고 이러한 줄을 추가하세요.
 
 ```csharp
 AltTranslation();

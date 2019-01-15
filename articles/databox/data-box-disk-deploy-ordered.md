@@ -6,41 +6,46 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/05/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 961352dc99a164b8537fb588e038ad1b385941cc
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: db10361707d83fcda20f0e4bf2adc2abc4176808
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567454"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156174"
 ---
-# <a name="tutorial-order-an-azure-data-box-disk-preview"></a>자습서: Azure Data Box Disk 주문(미리 보기)
+# <a name="tutorial-order-an-azure-data-box-disk"></a>자습서: Azure Data Box Disk 주문
 
 Azure Data Box Disk는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레미스 데이터를 Azure로 가져올 수 있는 하이브리드 클라우드 솔루션입니다. 데이터를 Microsoft에서 제공하는 SSD(반도체 디스크)로 전송하고 이 디스크를 반송합니다. 그런 다음, 이 데이터는 Azure에 업로드됩니다.
 
 이 자습서에서는 Azure Data Box Disk를 주문하는 방법에 대해 설명합니다. 이 자습서에서는 다음에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Data Box Disk에 등록
 > * Data Box Disk 주문
 > * 주문 추적
 > * 주문 취소
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+## <a name="prerequisites"></a>필수 조건
 
-> [!IMPORTANT]
-> - Data Box Disk는 미리 보기로 제공됩니다. 이 솔루션을 주문하고 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요. 
-> - Data Box Disk는 미리 보기 상태로 제공되며 미국, 서유럽, 북유럽, 캐나다 및 오스트레일리아의 고객에게 제공될 수 있습니다. 자세한 내용은 [지역 가용성](data-box-disk-overview.md#region-availability)을 참조하세요.
+디바이스를 배포하기 전에, Data Box 서비스 및 Data Box Disk에 대한 구성 필수 조건을 완료해야 합니다.
 
-## <a name="sign-up"></a>등록
+### <a name="for-service"></a>서비스의 경우
 
-Data Box Disk가 미리 보기로 있으며 서비스에 등록해야 합니다. Data Box 서비스에 등록하려면 다음 단계를 수행합니다.
+시작하기 전에 다음 사항을 확인합니다.
+- 액세스 자격 증명이 있는 Microsoft Azure 저장소 계정이 있습니다.
+- Data Box 서비스에 사용할 구독이 다음 형식 중 하나인지 확인합니다.
+    - Microsoft EA(기업계약). [EA 구독](https://azure.microsoft.com/pricing/enterprise-agreement/)에 대해 자세히 알아보세요.
+    - CSP(클라우드 솔루션 공급자). [CSP 프로그램](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)에 대해 자세히 알아보세요.
+- Data Box 주문을 작성할 구독에 대한 소유자 또는 참가자 권한이 있는지 확인합니다.
 
-1. [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs)에 있는 Azure Portal에 로그인합니다.
-2. 미리 보기에서 사용하려는 구독을 선택합니다. 데이터 크기, 데이터 상주 국가, 시간 프레임 및 데이터 전송 빈도에 관한 질문에 대답합니다. **등록!** 을 클릭합니다.
-3. 일단 등록되고 미리 보기를 사용할 수 있게 되면 Data Box Disk를 주문할 수 있습니다.
+### <a name="for-device"></a>디바이스의 경우
+
+시작하기 전에 다음 사항을 확인합니다.
+- 데이터를 복사할 수 있는 클라이언트 컴퓨터가 있습니다. 클라이언트 컴퓨터는 다음 작업을 수행해야 합니다.
+    - [지원되는 운영 체제](data-box-disk-system-requirements.md#supported-operating-systems-for-clients)를 실행합니다.
+    - Windows 클라이언트인 경우 다른 [필수 소프트웨어](data-box-disk-system-requirements.md#other-required-software-for-windows-clients)를 설치합니다.  
 
 ## <a name="order-data-box-disk"></a>Data Box Disk 주문
 
@@ -97,7 +102,7 @@ Data Box Disk를 주문하려면 [Azure Portal](https://aka.ms/azuredataboxfromd
  
 ## <a name="track-the-order"></a>주문 추적
 
-주문이 완료되면 Azure 미리 보기 포털에서 주문 상태를 추적할 수 있습니다. 해당 주문, **개요**로 차례로 이동하여 상태를 확인합니다. 포털에서 해당 작업을 **주문됨** 상태로 표시합니다. 
+주문이 완료되면 Azure Portal에서 주문 상태를 추적할 수 있습니다. 해당 주문, **개요**로 차례로 이동하여 상태를 확인합니다. 포털에서 해당 작업을 **주문됨** 상태로 표시합니다. 
 
 ![Data Box Disk 주문됨 상태](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
@@ -111,17 +116,15 @@ Data Box Disk를 주문하려면 [Azure Portal](https://aka.ms/azuredataboxfromd
 
 그런 다음, Microsoft에서 디스크를 준비하고 지역 배송업체를 통해 발송합니다. 디스크가 배송되면 추적 번호를 받게 됩니다. 포털에서 해당 작업을 **발송됨** 상태로 표시합니다.
 
-
-
 ## <a name="cancel-the-order"></a>주문 취소
 
-이 주문을 취소하려면 Azure 미리 보기 포털에서 **개요**로 이동하고, 명령 모음에서 **취소**를 클릭합니다. 
+이 주문을 취소하려면 Azure Portal에서 **개요**로 이동하고, 명령 모음에서 **취소**를 클릭합니다. 
 
 디스크가 주문되고 출하를 위해 주문이 배송으로 처리되는 경우에만 취소할 수 있습니다. 주문이 처리되면 더 이상 주문을 취소할 수 없습니다. 
 
 ![주문 취소](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
-취소된 주문을 삭제하려면 **개요**로 이동하고, 명령 모음에서 **삭제**를 클릭합니다. 
+취소된 주문을 삭제하려면 **개요**로 이동하고, 명령 모음에서 **삭제**를 클릭합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -129,7 +132,6 @@ Data Box Disk를 주문하려면 [Azure Portal](https://aka.ms/azuredataboxfromd
 이 자습서에서는 Azure Data Box 항목에 대해 다음과 같은 내용을 알아보았습니다.
 
 > [!div class="checklist"]
-> * Data Box Disk에 등록
 > * Data Box Disk 주문
 > * 주문 추적
 > * 주문 취소

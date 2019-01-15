@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: d116f2553ce35c2d4041f37cc3fe4567e1595adc
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5b3e68765fbcff12dcb5337aec38623b8994882c
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258766"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156802"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>빠른 시작: C#용 Bing News Search SDK로 뉴스 검색 수행
 
@@ -35,14 +35,14 @@ Bing News Search SDK를 사용하여 콘솔 애플리케이션을 설정하려�
 * Newtonsoft.Json
 
 ## <a name="news-search-client"></a>News Search 클라이언트
-`NewsSearchAPI` 클라이언트의 인스턴스를 만들려면 Using 지시문을 추가합니다.
+`NewsSearchClient` 인스턴스를 만들려면 using 지시문을 추가합니다.
 ```
 using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
 
 ```
 그런 다음, 클라이언트를 인스턴스화합니다.
 ```
-var client = new NewsSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+var client = new NewsSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
 
 ```
@@ -56,7 +56,7 @@ Console.WriteLine("Search news for query \"Quantum  Computing\" with market and 
 ```
 if (newsResults.Value.Count > 0)
 {
-    var firstNewsResult = newsResults.Value.First();
+    var firstNewsResult = newsResults.Value[0];
 
     Console.WriteLine($"TotalEstimatedMatches value: {newsResults.TotalEstimatedMatches}");
     Console.WriteLine($"News result count: {newsResults.Value.Count}");
@@ -64,7 +64,7 @@ if (newsResults.Value.Count > 0)
     Console.WriteLine($"First news url: {firstNewsResult.Url}");
     Console.WriteLine($"First news description: {firstNewsResult.Description}");
     Console.WriteLine($"First news published time: {firstNewsResult.DatePublished}");
-    Console.WriteLine($"First news provider: {firstNewsResult.Provider.First().Name}");
+    Console.WriteLine($"First news provider: {firstNewsResult.Provider[0].Name}");
 }
 
 else
@@ -88,7 +88,7 @@ namespace NewsSrchSDK
     {
         static void Main(string[] args)
         {
-            var client = new NewsSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+            var client = new NewsSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
             try
             {
@@ -141,7 +141,7 @@ namespace NewsSrchSDK
 ## <a name="recent-news-freshness-and-sortby-parameters"></a>Recent news, freshness 및 sortBy 매개 변수
 다음 코드에서는 `freshness` 및 `sortBy` 매개 변수를 사용하여 "Artificial Intelligence"에 대한 최신 뉴스를 검색합니다. 이 코드는 결과의 수를 확인하고 첫 번째 뉴스 결과의 `totalEstimatedMatches`, `name`, `url`, `description`, `published time` 및 공급자 `name`을 출력합니다.
 ```
-        public static void NewsSearchWithFilters(NewsSearchAPI client)
+        public static void NewsSearchWithFilters(NewsSearchClient client)
         {
             try
             {
@@ -184,7 +184,7 @@ namespace NewsSrchSDK
 ## <a name="category-news-safe-search"></a>범주 뉴스, 안전 검색
 다음 코드에서는 안전 검색을 사용하여 동영상 및 TV 엔터테인먼트에 대한 범주 뉴스를 검색합니다.  이 코드는 결과의 수를 확인하고 첫 번째 뉴스 결과의 `category`, `name`, `url`, `description`, `published time` 및 공급자 `name`을 출력합니다.
 ```
-        public static void NewsCategory(NewsSearchAPI client)
+        public static void NewsCategory(NewsSearchClient client)
         {
             try
             {
@@ -226,7 +226,7 @@ namespace NewsSrchSDK
 ## <a name="trending-topics"></a>최신 항목
 다음 코드에서는 Bing에서 최신 뉴스 항목을 검색합니다. 이 코드는 결과의 수를 확인하고 첫 번째 뉴스 결과의 `name`, `text of query`, `webSearchUrl`, `newsSearchUrl` 및 `image.Url`을 출력합니다.
 ```
-        public static void TrendingTopics(NewsSearchAPI client)
+        public static void TrendingTopics(NewsSearchClient client)
         {
             try
             {

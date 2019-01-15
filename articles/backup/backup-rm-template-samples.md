@@ -9,16 +9,16 @@ ms.topic: sample
 ms.date: 04/18/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bf6bca668ff97b30789a99dab2f1f3d409ab0624
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ffd153490938c232bdf8b5d4e40a2d43ced9f57b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867918"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063271"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Azure Backup용 Azure Resource Manager 템플릿
 
-다음 표에는 Recovery Services 자격 증명 모음 및 Azure Backup 기능과 함께 사용할 수 있는 Azure Resource Manager 템플릿에 대한 링크가 포함되어 있습니다.
+다음 표에는 Recovery Services 자격 증명 모음 및 Azure Backup 기능과 함께 사용할 수 있는 Azure Resource Manager 템플릿에 대한 링크가 포함되어 있습니다. JSON 구문 및 속성에 대한 자세한 내용은 [Microsoft.RecoveryServices 리소스 종류](/azure/templates/microsoft.recoveryservices/allversions)를 참조하세요.
 
 |   |   |
 |---|---|

@@ -10,19 +10,18 @@ ms.assetid: eb9e70b9-a13a-4a27-8256-2759496be470
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a04e91cea4ce1670fcc0a7be2d7591d5856b738f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c0bb15dceed7bc4d0c335e129f810c88622ebadd
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106865"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043705"
 ---
-# <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>자습서: Azure 리소스 관리자 템플릿을 사용하여 첫 번째 Azure Data Factory 빌드
+# <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
 > * [개요 및 필수 구성 요소](data-factory-build-your-first-pipeline.md)
 > * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
@@ -33,7 +32,7 @@ ms.locfileid: "43106865"
 > 
  
 > [!NOTE]
-> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용하는 경우 [빠른 시작: Azure Data Factory를 사용하여 데이터 팩터리 만들기](../quickstart-create-data-factory-dot-net.md)를 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [빠른 시작: Azure Data Factory를 사용하여 데이터 팩터리 만들기](../quickstart-create-data-factory-dot-net.md)를 참조하세요.
 
 이 문서에서는 Azure Resource Manager 템플릿을 사용하여 첫 번째 Azure Data Factory를 만듭니다. 다른 도구/SDK를 사용하여 이 자습서를 수행하려면 드롭다운 목록에서 옵션 중 하나를 선택합니다.
 
@@ -54,13 +53,13 @@ ms.locfileid: "43106865"
 | --- | --- |
 | Azure Storage 연결된 서비스 |Azure Storage 계정을 데이터 팩터리에 연결합니다. Azure Storage 계정은 이 샘플의 파이프라인에 대한 입력 및 출력 데이터를 가집니다. |
 | HDInsight 주문형 연결된 서비스 |주문형 HDInsight 클러스터를 데이터 팩터리에 연결합니다. 이 클러스터는 사용자가 데이터를 처리할 수 있도록 자동으로 생성되며 처리 작업이 완료되면 삭제됩니다. |
-| Azure Blob 입력 데이터 세트 |Azure Storage 연결된 서비스를 참조하세요. 연결된 서비스는 Azure Storage 계정을 말하며 Azure Blob 데이터 세트는 입력 데이터를 가진 저장소의 컨테이너, 폴더, 파일 이름을 지정합니다. |
-| Azure Blob 출력 데이터 세트 |Azure Storage 연결된 서비스 연결된 서비스는 Azure Storage 계정을 말하며 Azure Blob 데이터 세트는 출력 데이터를 가진 저장소의 컨테이너, 폴더, 파일 이름을 지정합니다. |
+| Azure Blob 입력 데이터 세트 |Azure Storage 연결된 서비스를 참조하세요. 연결된 서비스는 Azure Storage 계정을 말하며 Azure Blob 데이터 집합은 입력 데이터를 가진 스토리지의 컨테이너, 폴더, 파일 이름을 지정합니다. |
+| Azure Blob 출력 데이터 세트 |Azure Storage 연결된 서비스 연결된 서비스는 Azure Storage 계정을 말하며 Azure Blob 데이터 집합은 출력 데이터를 가진 스토리지의 컨테이너, 폴더, 파일 이름을 지정합니다. |
 | 데이터 파이프라인 |파이프라인에는 HDInsightHive가 입력 데이터 세트를 사용하여 출력 데이터 세트를 생성하는 활동 유형이 하나 있습니다. |
 
 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인에는 하나 이상의 작업이 있을 수 있습니다. 이러한 두 가지 유형의 활동은 [데이터 이동 활동](data-factory-data-movement-activities.md) 및 [데이터 변환 활동](data-factory-data-transformation-activities.md)입니다. 이 자습서에는 한 가지 활동(Hive 활동)이 있는 파이프라인을 만듭니다.
 
-다음 섹션에서는 신속하게 자습서를 살펴보고 템플릿을 테스트할 수 있도록 데이터 팩터리 엔터티를 정의하기 위한 완전한 Resource Manager 템플릿을 제공합니다. 각 데이터 팩터리 엔터티를 정의하는 방법을 알아보려면 [템플릿의 데이터 팩터리 엔터티](#data-factory-entities-in-the-template) 섹션을 참조하세요.
+다음 섹션에서는 신속하게 자습서를 살펴보고 템플릿을 테스트할 수 있도록 데이터 팩터리 엔터티를 정의하기 위한 완전한 Resource Manager 템플릿을 제공합니다. 각 데이터 팩터리 엔터티를 정의하는 방법을 알아보려면 [템플릿의 데이터 팩터리 엔터티](#data-factory-entities-in-the-template) 섹션을 참조하세요. 템플릿에서 Data Factory 리소스의 JSON 구문 및 속성에 대해 알아보려면 [Microsoft.DataFactory 리소스 종류](/azure/templates/microsoft.datafactory/allversions)를 참조하세요.
 
 ## <a name="data-factory-json-template"></a>데이터 팩터리 JSON 템플릿
 데이터 팩터리 정의를 위한 최상위 Resource Manager 템플릿은 다음과 같습니다. 
@@ -262,7 +261,7 @@ ms.locfileid: "43106865"
 ```
 
 > [!NOTE]
-> [자습서: Azure Resource Manager 템플릿을 사용하여 복사 활동이 있는 파이프라인 만들기](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)에서 Azure 데이터 팩터리를 만들기 위한 또 다른 Resource Manager 템플릿 예를 찾을 수 있습니다.  
+> 다음 위치에서 Azure Data Factory를 만드는 Resource Manager 템플릿의 또 다른 예를 찾을 수 있습니다. [자습서: Azure Resource Manager 템플릿을 사용하여 복사 작업이 있는 파이프라인 만들기](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)  
 > 
 > 
 
@@ -339,7 +338,7 @@ Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFTu
 3. 데이터 팩터리의 **데이터 팩터리** 블레이드에서 **다이어그램**을 클릭합니다.
 
      ![다이어그램 타일](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
-4. **다이어그램 보기**에 파이프라인의 개요와 이 자습서에 사용된 데이터 집합이 표시됩니다.
+4. **다이어그램 보기**에 파이프라인의 개요와 이 자습서에 사용된 데이터 세트가 표시됩니다.
    
    ![다이어그램 보기](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
 5. 다이어그램 보기에서 **AzureBlobOutput**데이터 세트를 두 번 클릭합니다. 현재 처리 중인 조각이 표시됩니다.
@@ -352,7 +351,7 @@ Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFTu
 
 Azure 포털 블레이드를 사용하여 이 자습서에서 만든 파이프라인 및 데이터 세트를 모니터링하는 방법에 대한 지침은 [데이터 세트 및 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md) 을 참조하세요.
 
-앱 모니터링 및 관리를 사용하여 데이터 파이프라인을 모니터링할 수도 있습니다. 애플리케이션을 사용하는 방법에 대한 자세한 내용은 [앱 모니터링을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 를 참조하세요. 
+앱 모니터링 및 관리를 사용하여 데이터 파이프라인을 모니터링할 수도 있습니다. 애플리케이션을 사용하는 방법에 대한 자세한 내용은 [앱 모니터링을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요. 
 
 > [!IMPORTANT]
 > 조각이 성공적으로 처리될 때 입력된 파일이 삭제됩니다. 따라서 조각을 다시 실행하거나 자습서를 다시 수행하려는 경우 adfgetstarted 컨테이너의 inputdata 폴더에 입력 파일(input.log)을 업로드합니다.
@@ -384,8 +383,8 @@ dataFactoryName은 다음과 같이 정의됩니다.
 
 * [Azure Storage 연결된 서비스](#azure-storage-linked-service)
 * [HDInsight 주문형 연결된 서비스](#hdinsight-on-demand-linked-service)
-* [Azure Blob 입력 데이터 집합](#azure-blob-input-dataset)
-* [Azure Blob 출력 데이터 집합:](#azure-blob-output-dataset)
+* [Azure Blob 입력 데이터 세트](#azure-blob-input-dataset)
+* [Azure Blob 출력 데이터 세트:](#azure-blob-output-dataset)
 * [복사 작업을 포함하는 데이터 파이프라인](#data-pipeline)
 
 #### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
@@ -622,7 +621,7 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 | 항목 | 설명 |
 |:--- |:--- |
 | [파이프라인](data-factory-create-pipelines.md) |이 문서는 Azure Data Factory의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 종단 간 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다. |
-| [데이터 집합](data-factory-create-datasets.md) |이 문서는 Azure Data Factory의 데이터 세트를 이해하는 데 도움이 됩니다. |
+| [데이터 세트](data-factory-create-datasets.md) |이 문서는 Azure Data Factory의 데이터 세트를 이해하는 데 도움이 됩니다. |
 | [예약 및 실행](data-factory-scheduling-and-execution.md) |이 문서에서는 Azure Data Factory 애플리케이션 모델의 예약 및 실행에 대한 내용을 설명합니다. |
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) |이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. |
 

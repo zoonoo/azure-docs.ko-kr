@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a9794c25bd5f0acd48362611d13bac17fc502450
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2a0cee1ad750144f30b9ab6732e0bbdf8138db28
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341051"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038160"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>C\#으로 첫 번째 지속성 함수 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "53341051"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [Visual Studio 2017](https://azure.microsoft.com/downloads/)을 설치하고 **Azure 개발** 워크로드도 설치되어 있어야 합니다.
+* [Visual Studio 2017](https://azure.microsoft.com/downloads/)을 설치합니다. **Azure 개발** 워크로드도 설치되어 있어야 합니다.
 
 * [최신 Azure Functions 도구](../functions-develop-vs.md#check-your-tools-version)가 있어야 합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "53341051"
 
 ## <a name="create-a-function-app-project"></a>함수 앱 프로젝트 만들기
 
-Visual Studio의 Azure Functions 프로젝트 템플릿은 Azure에서 함수 앱에 게시할 수 있는 프로젝트를 만듭니다. 함수 앱을 통해 함수를 논리적 단위로 그룹화하여 관리, 배포 및 리소스를 공유할 수 있습니다.
+Azure Functions 템플릿은 Azure에서 함수 앱에 게시할 수 있는 프로젝트를 만듭니다. 함수 앱을 통해 함수를 논리적 단위로 그룹화하여 관리, 배포 및 리소스를 공유할 수 있습니다.
 
 1. Visual Studio의 **파일** 메뉴에서 **새로 만들기** > **프로젝트**를 선택합니다.
 
@@ -55,14 +55,14 @@ Visual Studio의 Azure Functions 프로젝트 템플릿은 Azure에서 함수 �
     | 설정      | 제안 값  | 설명                      |
     | ------------ |  ------- |----------------------------------------- |
     | **버전** | Azure Functions 2.x <br />(.NET Core) | .NET Core를 지원하는 Azure Functions의 버전 2.x 런타임을 사용하는 함수 프로젝트를 만듭니다. Azure Functions 1.x는 .NET Framework를 지원합니다. 자세한 내용은 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](../functions-versions.md)을 참조하세요.   |
-    | **템플릿** | Empty | 이는 빈 함수 앱을 만듭니다. |
+    | **템플릿** | Empty | 빈 함수 앱을 만듭니다. |
     | **Storage 계정**  | 저장소 에뮬레이터 | 스토리지 계정은 지속성 함수 상태 관리에 필요합니다. |
 
-4. **확인**을 클릭하여 빈 함수 프로젝트를 만듭니다.
+4. **확인**을 클릭하여 빈 함수 프로젝트를 만듭니다. 이 프로젝트에는 함수를 실행하는 데 필요한 기본 구성 파일이 있습니다.
 
 ## <a name="add-functions-to-the-app"></a>함수를 앱에 추가
 
-Visual Studio는 빈 함수 앱 프로젝트를 만듭니다.  앱에 필요한 기본 구성 파일이 포함되어 있지만 아직 모든 함수를 포함하지는 않습니다.  지속성 함수 템플릿을 프로젝트에 추가해야 합니다.
+다음 단계에서는 템플릿을 사용하여 프로젝트에 지속성 함수 코드를 만듭니다.
 
 1. Visual Studio에서 프로젝트를 마우스 오른쪽 단추로 누르고 **추가** > **새 Azure Function**을 선택합니다.
 
@@ -74,11 +74,13 @@ Visual Studio는 빈 함수 앱 프로젝트를 만듭니다.  앱에 필요한 
 
     ![지속성 템플릿 선택](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 
-새 지속성 함수가 앱에 추가됩니다.  새 파일을 열어 콘텐츠를 봅니다.  이 지속성 함수는 간단한 함수 체이닝 예제입니다.  
+새 지속성 함수가 앱에 추가됩니다.  새 .cs 파일을 열어 콘텐츠를 봅니다. 이 지속성 함수는 다음 메서드를 포함하는 간단한 함수 체이닝 예제입니다.  
 
-* `RunOrchestrator` 메서드는 오케스트레이터 함수를 사용하여 연결됩니다.  이 함수가 시작되면 목록을 만들고 세 개의 함수 호출의 결과를 목록에 추가합니다.  세 가지 함수 호출이 완료되면 목록이 반환됩니다.  호출하는 함수는 `SayHello` 메서드(기본적으로 `<NameOfFile>_Hello`라고 함)입니다.
-* `SayHello` 함수는 hello를 반환합니다.
-* `HttpStart` 메서드는 오케스트레이션의 인스턴스를 시작하는 함수를 설명합니다.  오케스트레이터의 새 인스턴스를 시작하고 확인 상태 응답을 반환하는 [HTTP 트리거](../functions-bindings-http-webhook.md)와 연결됩니다.
+| 방법 | FunctionName | 설명 |
+| -----  | ------------ | ----------- |
+| **`RunOrchestrator`** | `<file-name>` | 지속성 오케스트레이션을 관리합니다. 이 경우 오케스트레이션이 시작되고, 목록을 만들며 세 가지 함수 호출의 결과를 목록에 추가합니다.  세 가지 함수 호출이 완료되면 목록이 반환됩니다. |
+| **`SayHello`** | `<file-name>_Hello` | 함수는 hello를 반환합니다. 이것은 오케스트레이션되고 있는 비즈니스 논리를 포함하는 함수입니다. |
+| **`HttpStart`** | `<file-name>_HttpStart` | 오케스트레이션 인스턴스를 시작하고 상태 확인 응답을 반환하는 [HTTP 트리거 함수](../functions-bindings-http-webhook.md)입니다. |
 
 함수 프로젝트 및 지속성 함수를 만들었으니, 이제 로컬 컴퓨터에서 이 함수를 테스트할 수 있습니다.
 
@@ -143,4 +145,4 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
 Visual Studio를 사용하여 C# 지속성 함수 앱을 만들고 게시했습니다.
 
 > [!div class="nextstepaction"]
-> [일반적인 지속성 함수 패턴에 대해 알아보기](durable-functions-overview.md)
+> [일반적인 지속성 함수 패턴에 대해 알아보기](durable-functions-concepts.md)

@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/19/2018
-ms.openlocfilehash: 316d2b4ebf0a9b0799e2bdcdfda1d517713f413f
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 21eb28611c1e40695356d502c262c23013591986
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52277105"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117370"
 ---
 # <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>빠른 시작: Kafka에서 Azure Data Explorer로 데이터 수집
  
@@ -133,7 +133,7 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
 ## <a name="query-and-review-the-data"></a>데이터 쿼리 및 검토 
 
-1. 수집하는 동안 오류가 발생하지 않도록 하려면
+1. 수집하는 동안 오류가 발생하지 않도록 하려면:
 
     ```Kusto
     .show ingestion failures
@@ -159,4 +159,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
 ## <a name="next-steps"></a>다음 단계
  
 > [!div class="nextstepaction"]
-> [빠른 시작: Azure 데이터 탐색기에서 데이터 쿼리](web-query-data.md)
+> [빠른 시작: Azure Data Explorer에서 데이터 쿼리](web-query-data.md)

@@ -3,17 +3,17 @@ title: Azure에서 Ansible을 사용하여 가상 머신 확장 집합의 크기
 description: Azure에서 Ansible을 사용하여 자동 크기 조정으로 가상 머신 확장 집합의 크기를 조정하는 방법 알아보기
 ms.service: ansible
 keywords: Ansible, Azure, DevOps, bash, 플레이북, 크기 조정, 자동 크기 조정, 가상 머신, 가상 머신 확장 집합, VMSS
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
-ms.author: yuwzho, kyliel
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.openlocfilehash: c6678d6df3a695d3a0471e5779bc3af4b6ba6c84
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 7721dba37131616122f8a5a902e3c63de5c7157f
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411165"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157057"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-azure-using-ansible"></a>Azure에서 Ansible을 사용하여 가상 머신 확장 집합의 크기를 자동으로 조정
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 다른 Azure 리소스와 동일한 방식으로 Azure에서 가상 머신 확장 집합(VMSS)을 관리할 수 있습니다. 
@@ -72,7 +72,7 @@ ansible-playbook vmss-auto-scale.yml
 ```
 
 ## <a name="auto-scale-based-on-performance-data"></a>성능 데이터에 따라 자동 크기 조정
-애플리케이션 수요가 증가하면 확장 집합의 VM 인스턴스 부하가 증가합니다. 증가된 로드가 단순한 요구가 아닌 일관된 요구인 경우 확장 집합의 VM 인스턴스 수를 늘리도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이러한 VM 인스턴스를 만들고 애플리케이션을 배포하면 확장 집합이 부하 분산 장치를 통해 트래픽을 분산하기 시작합니다. 사용자는 모니터링할 메트릭(예: CPU 또는 디스크), 지정된 임계값을 애플리케이션 로드가 충족해야 하는 기간, 확장 집합에 추가할 VM 인스턴스 수를 제어할 수 있습니다.
+애플리케이션 수요가 증가하면 확장 집합의 VM 인스턴스 부하가 증가합니다. 증가된 로드가 단순한 요구가 아닌 일관된 요구인 경우 확장 집합의 VM 인스턴스 수를 늘리도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이러한 VM 인스턴스를 만들고 애플리케이션을 배포하면 확장 집합이 부하 분산 장치를 통해 트래픽을 분산하기 시작합니다. 모니터링할 메트릭(예: CPU 또는 디스크), 애플리케이션 로드가 지정된 임계값을 충족해야 하는 기간, 확장 집합에 추가할 VM 인스턴스 수를 제어합니다.
 
 되풀이 일정 또는 특정 날짜별로 성능 메트릭 임계값에 따라 Virtual Machine Scale Sets의 규모를 확장하고 감축할 수 있습니다. 이 섹션에서는 태평양 표준 시간대로 매주 월요일 18시 10분에 워크로드를 검사하고, CPU 비율 메트릭에 따라 확장 집합에 있는 VM 인스턴스 수를 4개로 확장하거나 1개로 감축하는 샘플 Ansible 플레이북을 나타냅니다. 
 

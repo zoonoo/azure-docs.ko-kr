@@ -1,33 +1,35 @@
 ---
 title: Azure Blockchain Workbench에서 블록체인 애플리케이션 만들기
-description: Azure Blockchain Workbench에서 블록체인 애플리케이션을 만드는 방법
+description: Azure Blockchain Workbench에서 블록체인 애플리케이션을 만드는 방법에 대한 자습서
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
-ms.topic: article
+ms.date: 1/8/2019
+ms.topic: tutorial
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: a7ca3f42874bc844bc0036e37a790ffebdc5f8d8
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 570d7a51bd6796a6360a4e52e637e1621a29deea
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242080"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104389"
 ---
-# <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>Azure Blockchain Workbench에서 블록체인 애플리케이션 만들기
+# <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>자습서: Azure Blockchain Workbench에서 블록체인 애플리케이션 만들기
 
 Azure Blockchain Workbench를 사용하여 구성 및 스마트 계약 코드로 정의된 다자간 워크플로를 나타내는 블록체인 애플리케이션을 만들 수 있습니다.
 
-다음 방법에 대해 알아봅니다.
+이 문서에서 배울 내용은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * 블록체인 애플리케이션 구성
 > * 스마트 계약 코드 파일 만들기
 > * Blockchain Workbench에 블록체인 애플리케이션 추가
 > * 블록체인 애플리케이션에 구성원 추가
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -236,56 +238,17 @@ Solidity의 스마트 계약은 개체 지향 언어의 클래스와 유사합�
   pragma solidity ^0.4.20;
   ```
 
-### <a name="base-class"></a>기본 클래스
-
-**WorkbenchBase** 기본 클래스를 통해 Blockchain Workbench가 계약을 만들고 업데이트할 수 있습니다. 기본 클래스는 Blockchain Workbench 특정 스마트 계약 코드에 필요합니다. 계약은 **WorkbenchBase** 기본 클래스에서 상속받아야 합니다.
-
-`HelloBlockchain.sol` 스마트 계약 코드 파일에서 파일 시작 부분에 **WorkbenchBase** 클래스를 추가합니다. 
-
-```
-contract WorkbenchBase {
-    event WorkbenchContractCreated(string applicationName, string workflowName, address originatingAddress);
-    event WorkbenchContractUpdated(string applicationName, string workflowName, string action, address originatingAddress);
-
-    string internal ApplicationName;
-    string internal WorkflowName;
-
-    function WorkbenchBase(string applicationName, string workflowName) internal {
-        ApplicationName = applicationName;
-        WorkflowName = workflowName;
-    }
-
-    function ContractCreated() internal {
-        WorkbenchContractCreated(ApplicationName, WorkflowName, msg.sender);
-    }
-
-    function ContractUpdated(string action) internal {
-        WorkbenchContractUpdated(ApplicationName, WorkflowName, action, msg.sender);
-    }
-}
-```
-기본 클래스는 두 가지 중요한 함수를 포함합니다.
-
-|기본 클래스 함수  | 목적  | 호출 시기  |
-|---------|---------|---------|
-| ContractCreated() | 계약이 생성되었다는 것을 Blockchain Workbench에 알립니다. | 계약 생성자 종료 전 |
-| ContractUpdated() | 계약 상태가 업데이트되었다는 것을 Blockchain Workbench에 알립니다. | 계약 함수 종료 전 |
-
 ### <a name="configuration-and-smart-contract-code-relationship"></a>구성 및 스마트 계약 코드 관계
 
 Blockchain Workbench는 구성 파일과 스마트 계약 코드 파일을 사용하여 블록체인 애플리케이션을 만듭니다. 구성에 정의된 것과 스마트 계약의 코드 사이에는 관계가 있습니다. 계약 세부 정보, 함수, 매개 변수 및 유형이 일치해야 애플리케이션을 만들 수 있습니다. 애플리케이션을 만들기 전에 Blockchain Workbench에서 파일을 확인합니다. 
 
 ### <a name="contract"></a>계약
 
-Blockchain Workbench의 경우 계약은 **WorkbenchBase** 기본 클래스에서 상속받아야 합니다. 계약을 선언할 때는 애플리케이션 이름과 워크플로 이름을 인수로 전달해야 합니다.
-
-**contract** 헤더를 `HelloBlockchain.sol` 스마트 계약 코드 파일에 추가합니다. 
+**contract** 헤더를 `HelloBlockchain.sol` 스마트 계약 코드 파일에 추가합니다.
 
 ```
-contract HelloBlockchain is WorkbenchBase('HelloBlockchain', 'HelloBlockchain') {
+contract HelloBlockchain {
 ```
-
-계약은 **WorkbenchBase** 기본 클래스에서 상속받고 구성 파일에 정의된 대로 매개 변수 **ApplicationName** 및 워크플로 **Name**을 전달해야 합니다. 이 경우 애플리케이션 이름과 워크플로 이름은 동일합니다.
 
 ### <a name="state-variables"></a>상태 변수
 
@@ -312,8 +275,6 @@ contract HelloBlockchain is WorkbenchBase('HelloBlockchain', 'HelloBlockchain') 
 
 생성자 함수에서 계약을 생성하기 전에 수행하려는 비즈니스 논리를 작성합니다. 예를 들어 시작 값으로 상태 변수를 초기화합니다.
 
-생성자 함수를 종료하기 전에 `ContractCreated()` 함수를 호출합니다. 이 함수는 계약이 생성되었다는 것을 Blockchain Workbench에 알립니다.
-
 계약자 함수를 `HelloBlockchain.sol` 스마트 계약 코드 파일의 계약에 추가합니다. 
 
 ```
@@ -323,9 +284,6 @@ contract HelloBlockchain is WorkbenchBase('HelloBlockchain', 'HelloBlockchain') 
         Requestor = msg.sender;
         RequestMessage = message;
         State = StateType.Request;
-    
-        // call ContractCreated() to create an instance of this workflow
-        ContractCreated();
     }
 ```
 
@@ -334,8 +292,6 @@ contract HelloBlockchain is WorkbenchBase('HelloBlockchain', 'HelloBlockchain') 
 함수는 계약 내 비즈니스 논리의 실행 가능한 단위입니다. 함수의 필수 매개 변수는 구성 파일의 함수 매개 변수로 정의됩니다. 매개 변수의 수, 순서 및 유형은 두 파일에서 일치해야 합니다. 함수는 구성 파일의 Blockchain Workbench 워크플로에서 전환과 관련이 있습니다. 전환은 계약에서 결정한 대로 애플리케이션 워크플로의 다음 단계로 이동하기 위해 수행되는 작업입니다.
 
 함수에서 수행하려는 비즈니스 논리를 작성합니다. 예를 들어 상태 변수의 값을 수정합니다.
-
-함수를 종료하기 전에 `ContractUpdated()` 함수를 호출합니다. 이 함수는 계약 상태가 업데이트되었다는 것을 Blockchain Workbench에 ​​알립니다. 함수의 상태 변경을 취소하려면 revert()를 호출합니다. 되돌리기는 ContractUpdated()에 대한 마지막 호출 이후 변경된 상태를 취소합니다.
 
 1. `HelloBlockchain.sol` 스마트 계약 코드 파일의 계약에 다음 함수를 추가합니다. 
 
@@ -347,12 +303,8 @@ contract HelloBlockchain is WorkbenchBase('HelloBlockchain', 'HelloBlockchain') 
             {
                 revert();
             }
-    
             RequestMessage = requestMessage;
             State = StateType.Request;
-    
-            // call ContractUpdated() to record this action
-            ContractUpdated('SendRequest');
         }
     
         // call this function to send a response
@@ -360,10 +312,8 @@ contract HelloBlockchain is WorkbenchBase('HelloBlockchain', 'HelloBlockchain') 
         {
             Responder = msg.sender;
     
-            // call ContractUpdated() to record this action
             ResponseMessage = responseMessage;
             State = StateType.Respond;
-            ContractUpdated('SendResponse');
         }
     }
     ```
@@ -376,28 +326,28 @@ Blockchain Workbench에 블록체인 애플리케이션을 추가하려면 구�
 
 1. 웹 브라우저에서 Blockchain Workbench 웹 주소로 이동합니다. 예를 들어 `https://{workbench URL}.azurewebsites.net/`입니다. Blockchain Workbench를 배포하면 웹 애플리케이션이 생성됩니다. Blockchain Workbench 웹 주소를 찾는 방법에 대한 내용은 [Blockchain Workbench 웹 URL](deploy.md#blockchain-workbench-web-url)을 참조하세요.
 2. [Blockchain Workbench 관리자](manage-users.md#manage-blockchain-workbench-administrators)로 로그인합니다.
-3. **응용 프로그램** > **새로 만들기**를 선택합니다. **새 응용 프로그램** 창이 표시됩니다.
+3. **애플리케이션** > **새로 만들기**를 선택합니다. **새 애플리케이션** 창이 표시됩니다.
 4. **계약 구성 업로드** > **찾아보기**를 선택하여 생성한 **HelloBlockchain.json** 구성 파일을 찾습니다. 구성 파일의 유효성이 자동으로 검사됩니다. 유효성 검사 오류를 표시하려면 **표시** 링크를 선택합니다. 애플리케이션을 배포하기 전에 유효성 검사 오류를 수정합니다.
 5. **계약 코드 업로드** > **찾아보기**를 선택하여 **HelloBlockchain.sol** 스마트 계약 코드 파일을 찾습니다. 코드 파일의 유효성이 자동으로 검사됩니다. 유효성 검사 오류를 표시하려면 **표시** 링크를 선택합니다. 애플리케이션을 배포하기 전에 유효성 검사 오류를 수정합니다.
-6. **배포**를 선택하여 구성 및 스마트 계약 파일을 기반으로 블록체인 응용 프로그램을 만듭니다.
+6. **배포**를 선택하여 구성 및 스마트 계약 파일을 기반으로 블록체인 애플리케이션을 만듭니다.
 
 블록체인 애플리케이션을 배포하는 데 몇 분이 걸립니다. 배포가 완료되면 새 애플리케이션이 **애플리케이션**에 표시됩니다. 
 
 > [!NOTE]
-> [Azure Blockchain Workbench REST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)를 사용하여 블록체인 응용 프로그램을 만들 수도 있습니다. 
+> [Azure Blockchain Workbench REST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)를 사용하여 블록체인 애플리케이션을 만들 수도 있습니다. 
 
 ## <a name="add-blockchain-application-members"></a>블록체인 애플리케이션 구성원 추가
 
 애플리케이션 구성원을 애플리케이션에 추가하여 계약을 시작하고 작업을 수행합니다. 애플리케이션 구성원을 추가하려면 [ Blockchain Workbench 관리자](manage-users.md#manage-blockchain-workbench-administrators)여야 합니다.
 
-1. **응용 프로그램** > **Hello, Blockchain!** 을 선택합니다.
+1. **애플리케이션** > **Hello, Blockchain!** 을 선택합니다.
 2. 애플리케이션과 연관된 구성원의 수는 페이지의 오른쪽 위에 표시됩니다. 새로운 애플리케이션의 경우 구성원 수가 0입니다.
 3. 페이지의 오른쪽 위에 있는 **구성원** 링크를 선택합니다. 애플리케이션의 현재 구성원 목록이 표시됩니다.
 4. 구성원 목록에서 **구성원 추가**를 선택합니다.
 5. 추가하려는 구성원 이름을 선택하거나 입력합니다. Blockchain Workbench 테넌트에 있는 Azure AD 사용자만 나열됩니다. 사용자를 찾을 수 없는 경우 [Azure AD 사용자를 추가](manage-users.md#add-azure-ad-users)해야 합니다.
 6. 구성원에 대해 **역할**을 선택합니다. 첫 번째 구성원의 경우 **요청자**를 역할로 선택합니다.
-7. **추가**를 선택하여 관련된 역할이 있는 구성원을 응용 프로그램에 추가합니다.
-8. **응답자** 역할을 사용하여 다른 구성원을 응용 프로그램에 추가합니다.
+7. **추가**를 선택하여 관련된 역할이 있는 구성원을 애플리케이션에 추가합니다.
+8. **응답자** 역할을 사용하여 다른 구성원을 애플리케이션에 추가합니다.
 
 Blockchain Workbench에서 사용자를 관리하는 방법에 대한 자세한 내용은 [Azure Blockchain Workbench에서 사용자 관리](manage-users.md)를 참조하세요.
 
@@ -406,4 +356,4 @@ Blockchain Workbench에서 사용자를 관리하는 방법에 대한 자세한 
 이 방법 도움말 문서에서는 기본 요청 및 응답 애플리케이션을 만들어 보았습니다. 애플리케이션을 사용하는 방법을 알려면 다음의 방법 도움말 문서를 계속 사용합니다.
 
 > [!div class="nextstepaction"]
-> [블록체인 응용 프로그램 사용](use.md)
+> [블록체인 애플리케이션 사용](use.md)

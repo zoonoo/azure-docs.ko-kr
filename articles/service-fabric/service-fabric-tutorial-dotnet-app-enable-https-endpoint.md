@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4333a234efe96f32541254819c9c5f21bb031757
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2e631a0605385f8d55c652a26739b23a0945674f
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115079"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077253"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>자습서: Kestrel을 사용하여 ASP.NET Core Web API 프런트 엔드 서비스에 HTTPS 엔드포인트 추가
 
-이 자습서는 시리즈의 3부입니다.  Service Fabric에서 실행되는 ASP.NET Core 서비스에서 HTTPS를 사용하는 방법을 알아봅니다. 완료되면 포트 443에서 수신 대기하는 HTTPS 사용 ASP.NET Core 웹 프런트 엔드를 사용하는 투표 애플리케이션이 생성됩니다. [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-deploy-app-to-party-cluster.md)에서 수동으로 투표 응용 프로그램을 만들지 않으려면 완성된 응용 프로그램의 [소스 코드를 다운로드](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)할 수 있습니다.
+이 자습서는 시리즈의 3부입니다.  Service Fabric에서 실행되는 ASP.NET Core 서비스에서 HTTPS를 사용하는 방법을 알아봅니다. 완료되면 포트 443에서 수신 대기하는 HTTPS 사용 ASP.NET Core 웹 프런트 엔드를 사용하는 투표 애플리케이션이 생성됩니다. [.NET Service Fabric 애플리케이션 빌드](service-fabric-tutorial-deploy-app-to-party-cluster.md)에서 수동으로 투표 애플리케이션을 만들지 않으려면 완성된 애플리케이션의 [소스 코드를 다운로드](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)할 수 있습니다.
 
 시리즈 3부에서는 다음 방법에 대해 알아봅니다.
 
@@ -38,26 +38,26 @@ ms.locfileid: "49115079"
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-deploy-app-to-party-cluster.md)
-> * [응용 프로그램을 원격 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [.NET Service Fabric 애플리케이션 빌드](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [애플리케이션을 원격 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * ASP.NET Core 프런트 엔드 서비스에 HTTPS 엔드포인트 추가
 > * [Azure Pipelines를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-> * [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
+> * [애플리케이션에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에:
 
-* Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드가 포함된 [Visual Studio 2017 버전 15.5 이상을 설치](https://www.visualstudio.com/)합니다.
 * [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>인증서를 받거나 자체 서명된 개발 인증서 만들기
 
-프로덕션 애플리케이션의 경우 [CA(인증 기관)](https://wikipedia.org/wiki/Certificate_authority)의 인증서를 사용합니다. 개발 및 테스트 목적으로 자체 서명된 인증서를 만들어 사용할 수 있습니다. Service Fabric SDK는 *CertSetup.ps1* 스크립트를 제공하며, 자체 서명된 인증서를 만들어 `Cert:\LocalMachine\My` 인증서 저장소로 가져옵니다. 관리자 권한으로 명령 프롬프트를 열고 "CN=localhost"라는 주체를 사용하여 인증서를 만들려면 다음 명령을 실행합니다.
+프로덕션 애플리케이션의 경우 [CA(인증 기관)](https://wikipedia.org/wiki/Certificate_authority)의 인증서를 사용합니다. 개발 및 테스트 목적으로 자체 서명된 인증서를 만들어 사용할 수 있습니다. Service Fabric SDK는 *CertSetup.ps1* 스크립트를 제공하며, 자체 서명된 인증서를 만들어 `Cert:\LocalMachine\My` 인증서 저장소로 가져옵니다. 관리자 권한으로 명령 프롬프트를 열고 다음 명령을 실행하여 주체가 "CN=mytestcert"인 인증서를 만듭니다.
 
 ```powershell
-PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=localhost
+PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=mytestcert
 ```
 
 인증서 PFX 파일이 이미 있는 경우 다음을 실행하여 인증서를 `Cert:\LocalMachine\My` 인증서 저장소로 가져옵니다.
@@ -158,7 +158,7 @@ serviceContext =>
         }))
 ```
 
-또한 Kestrel이 해당 주체를 사용하여 `Cert:\LocalMachine\My` 저장소에서 인증서를 찾을 수 있도록 다음 메서드를 추가합니다.  이전 PowerShell 명령으로 자체 서명된 인증서를 만든 경우 "&lt;your_CN_value&gt;"를 "localhost"로 바꾸거나 인증서의 CN을 사용합니다.
+또한 Kestrel이 해당 주체를 사용하여 `Cert:\LocalMachine\My` 저장소에서 인증서를 찾을 수 있도록 다음 메서드를 추가합니다.  이전 PowerShell 명령으로 자체 서명된 인증서를 만든 경우 "&lt;your_CN_value&gt;"를 "mytestcert"로 바꾸거나 인증서의 CN을 사용합니다.
 
 ```csharp
 private X509Certificate2 GetCertificateFromStore()
@@ -238,7 +238,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 솔루션 탐색기에서 **VotingWeb**을 마우스 오른쪽 단추로 클릭하고 **추가**->**새 항목**을 선택하여 "SetCertAccess.ps1" 이라는 새 파일을 추가합니다.  *SetCertAccess.ps1* 파일을 편집하고 다음 스크립트를 추가합니다.
 
 ```powershell
-$subject="localhost"
+$subject="mytestcert"
 $userGroup="NETWORK SERVICE"
 
 Write-Host "Checking permissions to certificate $subject.." -ForegroundColor DarkCyan
@@ -339,7 +339,7 @@ if ($cert -eq $null)
 
 ## <a name="run-the-application-locally"></a>로컬에서 애플리케이션 실행
 
-솔루션 탐색기에서 **투표** 애플리케이션을 선택하고 **애플리케이션 URL** 속성을 " https://localhost:443 " 으로 설정합니다.
+솔루션 탐색기에서 **투표** 애플리케이션을 선택하고 **애플리케이션 URL** 속성을 "https://localhost:443"으로 설정합니다.
 
 모든 파일을 저장하고 F5 키를 눌러 로컬에서 애플리케이션을 실행합니다.  애플리케이션이 배포되면 웹 브라우저에 [https://localhost:443](https://localhost:443)이 열립니다. 자체 서명된 인증서를 사용하는 경우 PC가 이 웹 사이트의 보안을 신뢰하지 않는다는 경고가 표시됩니다.  웹 페이지로 계속 이동합니다.
 
@@ -349,7 +349,7 @@ if ($cert -eq $null)
 
 Azure에 애플리케이션을 배포하기 전에 원격 클러스터 노드의 `Cert:\LocalMachine\My` 저장소에 인증서를 설치합니다.  클러스터 노드에서 프런트 엔드 웹 서비스가 시작되면 시작 스크립트는 인증서를 조회하고 액세스 권한을 구성합니다.
 
-먼저 인증서를 PFX 파일로 내보냅니다. certlm.msc 애플리케이션을 열고 **개인**>**인증서**로 이동합니다.  *localhost* 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**>**내보내기**를 선택합니다.
+먼저 인증서를 PFX 파일로 내보냅니다. certlm.msc 애플리케이션을 열고 **개인**>**인증서**로 이동합니다.  *mytestcert* 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**>**내보내기**를 선택합니다.
 
 ![인증서 내보내기][image4]
 
@@ -424,7 +424,7 @@ $slb | Set-AzureRmLoadBalancer
 
 ## <a name="deploy-the-application-to-azure"></a>Azure에 애플리케이션 배포
 
-모든 파일을 저장하고 디버그에서 릴리스로 전환한 다음, F6 키를 눌러 다시 빌드합니다.  솔루션 탐색기에서 **투표**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. [클러스터에 응용 프로그램 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)에서 만든 클러스터의 연결 엔드포인트를 선택하거나, 다른 클러스터를 선택합니다.  애플리케이션을 원격 클러스터에 게시하려면 **게시**를 클릭합니다.
+모든 파일을 저장하고 디버그에서 릴리스로 전환한 다음, F6 키를 눌러 다시 빌드합니다.  솔루션 탐색기에서 **투표**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. [클러스터에 애플리케이션 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)에서 만든 클러스터의 연결 엔드포인트를 선택하거나, 다른 클러스터를 선택합니다.  애플리케이션을 원격 클러스터에 게시하려면 **게시**를 클릭합니다.
 
 애플리케이션이 배포되면 웹 브라우저를 열고 [https://mycluster.region.cloudapp.azure.com:443](https://mycluster.region.cloudapp.azure.com:443)(클러스터의 연결 엔드포인트로 URL 업데이트)으로 이동합니다. 자체 서명된 인증서를 사용하는 경우 PC가 이 웹 사이트의 보안을 신뢰하지 않는다는 경고가 표시됩니다.  웹 페이지로 계속 이동합니다.
 

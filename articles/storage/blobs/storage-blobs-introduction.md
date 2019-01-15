@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 11/19/2018
+ms.date: 01/03/2019
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 7628260efff34b52ca7d4bd4c35cce279d5474b3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 516ce9d9a6fcc73b543c7db584afebf71c2293ca
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965413"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065000"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Azure Blob 저장소 소개
 
@@ -33,7 +33,7 @@ Blob Storage는 다음 세 가지 유형의 리소스를 제공합니다.
 
 ### <a name="storage-accounts"></a>Storage 계정
 
-저장소 계정은 데이터에 대해 Azure에서 고유의 네임스페이스를 제공합니다. Azure Storage 계정에 저장한 모든 개체는 고유 계정 이름을 포함하는 주소를 갖습니다. 계정 이름과 Azure Storage 서비스 엔드포인트의 조합이 스토리지 계정의 엔드포인트가 됩니다.
+저장소 계정은 데이터에 대해 Azure에서 고유의 네임스페이스를 제공합니다. Azure Storage 계정에 저장한 모든 개체는 고유 계정 이름을 포함하는 주소를 갖습니다. 계정 이름과 Azure Storage Blob 엔드포인트의 조합은 스토리지 계정에 있는 개체의 기본 주소를 구성합니다.
 
 예를 들어 스토리지 계정의 이름이 *mystorageaccount*일 경우 Blob Storage의 기본 엔드포인트는 다음과 같습니다.
 
@@ -56,7 +56,7 @@ Azure Storage는 다음 세 가지 유형의 Blob을 지원합니다.
 
 * **블록 Blob**은 최대 4.7TB 정도의 텍스트 및 이진 데이터를 저장합니다. 블록 Blob은 개별적으로 관리할 수 있는 데이터 블록으로 구성됩니다.
 * **추가 Blob**은 블록 Blob과 같이 블록으로 구성되지만 추가 작업에 최적화되어 있습니다. 추가 Blob은 가상 머신의 데이터 로깅 같은 시나리오에 적합합니다.
-* **페이지 Blob**은 최대 8TB 크기의 임의 액세스 파일을 저장합니다. 페이지 Blob은 Azure Virtual Machines의 디스크로 사용되는 VHD(가상 하드 드라이브) 파일을 저장합니다. 페이지 Blob에 대한 자세한 내용은 (../articles/storage/blobs/storage-blob-pageblob-overview.md)를 참조하세요.
+* **페이지 Blob**은 최대 8TB 크기의 임의 액세스 파일을 저장합니다. 페이지 Blob은 Azure Virtual Machines의 디스크로 사용되는 VHD(가상 하드 드라이브) 파일을 저장합니다. 페이지 Blob에 대한 자세한 내용은 [Azure 페이지 Blob 개요](storage-blob-pageblob-overview.md)를 참조하세요.
 
 다양한 유형의 Blob에 대한 자세한 내용은 [블록 Blob, 추가 Blob 및 페이지 Blob 이해](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)를 참조하세요.
 

@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: overview
-ms.date: 12/10/2018
+ms.date: 01/09/2018
 ms.author: diberry
-ms.openlocfilehash: ca92a6a2eb92e3b7fed9452d135c0a6bce55a57c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f587791dd1b864d0088408c377001c23546654c5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273241"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191278"
 ---
 # <a name="what-is-language-understanding-luis"></a>LUIS(Language Understanding)란?
 
@@ -22,7 +22,7 @@ LUIS(Language Understanding)는 사용자 지정 기계 학습 인텔리전스�
 
 LUIS용 클라이언트 애플리케이션은 자연어로 사용자와 통신하여 작업을 완료하는 대화형 애플리케이션입니다. 클라이언트 애플리케이션의 예로는 소셜 미디어 앱, 챗봇 및 음성 지원 데스크톱 애플리케이션을 들 수 있습니다.  
 
-![Cognitive Services LUIS(Language Understanding)와 함께 작동하는 3개 클라이언트 응용 프로그램의 개념 이미지](./media/luis-overview/luis-entry-point.png "Cognitive Services LUIS(Language Understanding)와 함께 작동하는 3개 클라이언트 응용 프로그램의 개념 이미지")
+![Cognitive Services LUIS(Language Understanding)와 함께 작동하는 3개 클라이언트 애플리케이션의 개념 이미지](./media/luis-overview/luis-entry-point.png "Cognitive Services LUIS(Language Understanding)와 함께 작동하는 3개 클라이언트 애플리케이션의 개념 이미지")
 
 ## <a name="use-luis-in-a-chat-bot"></a>채팅 봇에서 LUIS 사용
 
@@ -115,6 +115,10 @@ LUIS에 사용되는 다른 Cognitive Services:
 * [음성 서비스](../Speech-Service/overview.md)는 음성 언어 요청을 텍스트로 변환합니다. 
 * [대화 학습자](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview)를 사용하면 LUIS를 사용하여 보다 빠르게 봇 대화를 빌드할 수 있습니다.
 * [프로젝트 개인 정보 채팅](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview)은 봇 짧은 대화를 처리합니다.
+
+LUIS를 사용하는 샘플:
+* [대화형 AI](https://github.com/Microsoft/AI) GitHub 리포지토리.
+* [Language Understanding](https://github.com/Azure-Samples/cognitive-services-language-understanding) Azure 샘플
 
 ## <a name="next-steps"></a>다음 단계
 

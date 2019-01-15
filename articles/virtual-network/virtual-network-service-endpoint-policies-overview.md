@@ -3,24 +3,20 @@ title: Azure 가상 네트워크 서비스 엔드포인트 정책 | Microsoft Do
 description: 서비스 엔드포인트 정책을 사용하여 Virtual Network 트래픽을 Azure 서비스 리소스로 필터링하는 방법 알아보기
 services: virtual-network
 documentationcenter: na
-author: anithaa
-manager: narayan
-editor: ''
-ms.assetid: ''
+author: sumeetmittal
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: anithaa
-ms.custom: ''
-ms.openlocfilehash: 425bbc9eac112a4b999bd08940abb8b875aca61c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: sumeet.mittal
+ms.openlocfilehash: 7a3a94e9759dfb3c525ffcf1e840d5bec18f4808
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433296"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051314"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Virtual Network 서비스 엔드포인트 정책(미리 보기)
 
@@ -148,7 +144,7 @@ Virtual Network 서비스 엔드포인트 정책은 다음과 같은 이점을 �
 
 - **피어링, 연결 또는 다중 가상 네트워크**: 피어링된 가상 네트워크에서 트래픽을 필터링하려면 엔드포인트 정책을 개별적으로 해당 가상 네트워크에 적용해야 합니다.
 - **네트워크 어플라이언스 또는 Azure Firewall을 사용하여 인터넷 트래픽 필터링**: 엔드포인트에서 정책을 통해 Azure 서비스 트래픽을 필터링하고, 나머지 인터넷 또는 Azure 트래픽을 어플라이언스나 Azure Firewall을 통해 필터링합니다. 
-- **가상 네트워크에 배포된 Azure 서비스에서 트래픽 필터링**: 미리 보기 중에는 가상 네트워크에 배포된 관리 Azure 서비스에 대해 서비스 엔드포인트 정책이 지원되지 않습니다. 
+- **Virtual Network에 배포된 Azure 서비스에서 트래픽 필터링**: 미리 보기 중에는 가상 네트워크에 배포된 관리되는 Azure 서비스에 대해 서비스 엔드포인트 정책이 지원되지 않습니다. 
  특정 서비스는 [제한 사항](#Limitations)을 참조하세요.
 - **온-프레미스에서 Azure 서비스로 트래픽 필터링**: 서비스 엔드포인트 정책은 정책과 연결된 서브넷으로부터의 트래픽에만 적용됩니다. 온-프레미스로부터의 특정 Azure 서비스 액세스를 허용하려면 트래픽을 네트워크 가상 어플라이언스나 방화벽을 통해 필터링해야 합니다.
 

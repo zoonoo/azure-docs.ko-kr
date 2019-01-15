@@ -3,17 +3,17 @@ title: Jenkins와 파란색/녹색 배포 패턴을 사용하여 AKS(Azure Kuber
 description: Jenkins와 파란색/녹색 배포 패턴을 사용하여 AKS(Azure Kubernetes Service) 배포하는 방법에 대해 알아봅니다.
 ms.service: jenkins
 keywords: Jenkins, Azure, DevOps, Kubernetes, k8s, AKS, 파란색/녹색 배포, 지속적인 업데이트, CD
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/11/2018
-ms.openlocfilehash: 6cd3938844d7f6977c7b0912acffbfb1679dc42e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 9bd601aee87ab0776069c80bfdeffb70b06c3c86
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387389"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073886"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Jenkins와 파란색/녹색 배포 패턴을 사용하여 AKS(Azure Kubernetes Service) 배포
 
@@ -259,7 +259,7 @@ GitHub의 Microsoft 리포지토리에서 Jenkins와 파란색/녹색 배포 패
 
 ## <a name="run-the-job"></a>작업 실행
 
-1. 로컬 환경에서 프로젝트를 성공적으로 실행할 수 있는지 확인합니다. 방법은 다음과 같습니다: [로컬 머신에서 프로젝트를 실행합니다](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
+1. 로컬 환경에서 프로젝트를 성공적으로 실행할 수 있는지 확인합니다. 방법은 다음과 같습니다. [로컬 머신에서 프로젝트를 실행합니다](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
 
 1. Jenkins 작업을 실행합니다. 작업을 처음 실행할 때 Jenkins는 기본적으로 비활성 환경인 파란색 환경에 할 일 앱을 배포합니다. 
 

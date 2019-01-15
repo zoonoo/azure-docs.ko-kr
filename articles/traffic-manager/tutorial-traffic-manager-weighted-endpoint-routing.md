@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure Traffic Manager를 사용하여 가중 엔드포인트로 트래픽 라우팅
+title: 자습서 -가중 엔드포인트로 트래픽 라우팅 - Azure Traffic Manager
 description: 이 자습서 문서에서는 Traffic Manager를 사용하여 가중 엔드포인트로 트래픽을 라우팅하는 방법에 대해 설명합니다.
 services: traffic-manager
 author: KumudD
@@ -8,14 +8,14 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: kumud
-ms.openlocfilehash: 0f5b1f3525ab75f8c14f7921e23b30a1c58e8c73
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f70f3804bb1c6f385081b56fe6139b1b680a95cf
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158825"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055016"
 ---
-# <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>자습서: Traffic Manager를 사용하여 가중 트래픽 라우팅 제어 
+# <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>자습서: Traffic Manager를 사용하여 가중 엔드포인트에서 트래픽 라우팅 제어 
 
 이 자습서는 Azure Traffic Manager를 사용하여 가중 라우팅 방법으로 엔드포인트 간에 사용자 트래픽 라우팅을 제어하는 방법을 설명합니다. 이 라우팅 메서드에서는 Traffic Manager 프로필 구성에서 각 엔드포인트에 가중치를 할당합니다. 그런 다음, 각 엔드포인트에 할당된 가중치에 따라 사용자 트래픽이 라우팅됩니다. 가중치는 1에서 1000 사이의 정수입니다. 엔드포인트에 할당된 가중치 값이 높을수록 우선 순위가 높습니다.
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 실행 중인 Traffic Manager를 보려면 이 자습서에서 다음을 배포하세요.
-- 서로 다른 Azure 지역(미국 동부 및 유럽 서부)에서 실행되는 기본 웹 사이트의 두 인스턴스.
+- 다른 Azure 지역, 즉 미국 동부 및 유럽 서부에서 실행되는 기본 웹 사이트의 두 인스턴스
 - Traffic Manager를 테스트하기 위한 두 개의 테스트 VM: 미국 동부에 VM 하나 및 유럽 서부에 두 번째 VM. 테스트 VM을 사용하여 Traffic Manager가 엔드포인트에 더 높은 가중치가 할당된 웹 사이트로 사용자 트래픽을 라우팅하는 방법을 자세히 보여줍니다.
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인 

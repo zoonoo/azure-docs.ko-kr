@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: da84d6361d80db8aea797827ed3d7bc612e2eda3
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 2c8edd73a287d5bca2f3deb68448ba951b7a3367
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999053"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106565"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>빠른 시작: Python SDK를 사용하여 Azure Machine Learning 시작
 
@@ -76,7 +76,7 @@ SDK를 설치하기 전에, 격리된 Python 환경을 만드는 것이 좋습�
 
 활성화된 conda 환경에 SDK를 설치합니다. 이 코드는 Machine Learning SDK의 핵심 구성 요소를 설치합니다. 또한 conda 환경에 Jupyter Notebook 서버를 설치합니다. 머신 구성에 따라 설치를 완료하는 데 몇 분이 걸립니다.
 
-```sh
+```shell
 # Install Jupyter
 conda install nb_conda
 
@@ -86,7 +86,7 @@ pip install azureml-sdk[notebooks]
 
 추가 키워드를 사용하여 SDK의 다른 구성 요소를 설치할 수 있습니다.
 
-```sh
+```shell
 # Install the base SDK and auto ml components
 pip install azureml-sdk[automl]
 
@@ -97,13 +97,8 @@ pip install azureml-sdk[explain]
 pip install azureml-sdk[contrib]
 ```
 
-Azure Databricks 환경에서 대신에 다음 설치 명령을 사용합니다.
-
-```
-# Install the base SDK and automl components in the Azure Databricks environment.
-# For more information, see https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks.
-pip install azureml-sdk[databricks]
-```
+Azure Databricks 환경에서 [Databricks 설치 단계](how-to-configure-environment.md#azure-databricks
+)를 대신 사용합니다.
 
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
@@ -143,11 +138,7 @@ pip install azureml-sdk[databricks]
 
 구성 파일에 있는 작업 영역의 세부 정보를 현재 디렉터리에 저장합니다. 이 파일의 이름은 *aml_config\config.json*입니다.  
 
-나중에 이 작업 영역 구성 파일을 사용하여 동일한 작업 영역을 간편하게 로드할 수 있습니다. 다른 노트북 및 스크립트를 사용하여 동일한 디렉터리 또는 하위 디렉터리에 로드할 수 있습니다. 
-
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
-
-`write_config()` API 호출은 현재 디렉터리에 구성 파일을 만듭니다. *config.json* 파일에는 다음 스크립트가 포함됩니다.
+`write_config()` API 호출은 현재 디렉터리에 구성 파일을 만듭니다. *config.json* 파일에는 다음 항목이 포함되어 있습니다.
 
 ```json
 {
@@ -156,6 +147,12 @@ pip install azureml-sdk[databricks]
     "workspace_name": "myworkspace"
 }
 ```
+
+나중에 이 작업 영역 구성 파일을 사용하여 동일한 작업 영역을 간편하게 로드할 수 있습니다. 다른 노트북 및 스크립트를 사용하여 동일한 디렉터리 또는 하위 디렉터리에 로드할 수 있습니다. 
+
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
+
+
 
 ## <a name="use-the-workspace"></a>작업 영역 사용
 
@@ -190,7 +187,7 @@ Machine Learning 자습서에서 코드를 사용하려면 사용자 환경에 �
 
 1. 브라우저에서 노트북을 닫습니다.
 1. 명령줄 창에서 Ctrl+C를 선택하여 Jupyter Notebook 서버를 중지합니다.
-1. 추가로 패키지를 설치합니다.
+1. 추가로 패키지를 설치합니다.  위의 `azureml-sdk[automl]`를 설치하지 않은 경우 지금 설치합니다.
 
     ```shell
     conda install -y cython matplotlib scikit-learn pandas numpy

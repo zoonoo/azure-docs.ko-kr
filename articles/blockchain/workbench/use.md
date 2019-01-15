@@ -1,30 +1,38 @@
 ---
 title: Azure Blockchain Workbench에서 애플리케이션 사용
-description: Azure Blockchain Workbench에서 애플리케이션 계약을 사용하는 방법.
+description: Azure Blockchain Workbench에서 애플리케이션 계약을 사용하는 방법에 대한 자습서입니다.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
-ms.topic: article
+ms.date: 1/8/2019
+ms.topic: tutorial
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 4fe6f164882ffce7bf22ec0c0b94107abcf6a20e
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b43b125f7e96ac58a9094fc1e0e18b38f10d3e2f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242090"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107075"
 ---
-# <a name="using-applications-in-azure-blockchain-workbench"></a>Azure Blockchain Workbench에서 애플리케이션 사용
+# <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>자습서: Azure Blockchain Workbench에서 애플리케이션 사용
 
 Blockchain Workbench를 사용하여 계약에서 만들고 작업을 수행할 수 있습니다. 또한 상태와 트랜잭션 기록 같은 계약 세부 정보를 볼 수 있습니다.
+
+이 문서에서 배울 내용은 다음과 같습니다.
+
+> [!div class="checklist"]
+> * 새 계약 만들기
+> * 계약에 따라 작업 수행
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
 * Blockchain Workbench 배포. 자세한 내용은 배포에 대한 세부 사항을 위한 [Azure Blockchain Workbench 배포](deploy.md)를 참조하세요.
-* Blockchain Workbench에 배포된 블록체인 애플리케이션. [Azure Blockchain Workbench에서 블록체인 응용 프로그램 만들기](create-app.md)를 참조하세요.
+* Blockchain Workbench에 배포된 블록체인 애플리케이션. [Azure Blockchain Workbench에서 블록체인 애플리케이션 만들기](create-app.md)를 참조하세요.
 
 브라우저에서 [Blockchain Workbench를 엽니다](deploy.md#blockchain-workbench-web-url).
 
@@ -82,4 +90,4 @@ Blockchain Workbench의 구성원으로 로그인해야 합니다. 나열된 애
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure Blockchain Workbench 문제 해결 방법](troubleshooting.md)
+> [Azure Blockchain Workbench 애플리케이션 버전 관리](version-app.md)

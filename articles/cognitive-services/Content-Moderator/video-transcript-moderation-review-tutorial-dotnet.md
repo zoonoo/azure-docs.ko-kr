@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 1/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: d156c481e3c16105ad85cbc793d93306a310d5ef
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: e5958eeb4aca4cdc41bbc263a4cc38378927874b
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567114"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118577"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>자습서: 비디오 및 대본 조정
 
@@ -43,7 +43,7 @@ Content Moderator의 비디오 API를 사용하면 사용자 검토 도구에서
 
 ## <a name="prerequisites"></a>필수 조건
 
-1. [Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/) 웹 사이트에 등록하고 C# 콘솔 응용 프로그램이 코드 내에서 할당하는 [사용자 지정 태그를 만듭니다](Review-Tool-User-Guide/tags.md). 다음 스크린샷에서는 사용자 지정 태그를 보여 줍니다.
+1. [Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/) 웹 사이트에 등록하고 C# 콘솔 애플리케이션이 코드 내에서 할당하는 [사용자 지정 태그를 만듭니다](Review-Tool-User-Guide/tags.md). 다음 스크린샷에서는 사용자 지정 태그를 보여 줍니다.
 
   ![비디오 조정 사용자 지정 태그](images/video-tutorial-custom-tags.png)
 
@@ -63,7 +63,7 @@ Content Moderator의 비디오 API를 사용하면 사용자 검토 도구에서
 
 ## <a name="getting-started"></a>시작
 
-`Program.cs`의 클래스 `Program`은 비디오 조정 응용 프로그램에 대한 기본 진입점입니다.
+`Program.cs`의 클래스 `Program`은 비디오 조정 애플리케이션에 대한 기본 진입점입니다.
 
 ### <a name="methods-of-class-program"></a>클래스 메서드 프로그램
 
@@ -135,7 +135,7 @@ Content Moderator의 비디오 API를 사용하면 사용자 검토 도구에서
 |클래스|설명|
 |-|-|
 |`AMSComponent`|조정을 위해 제출하기 전에 비디오 파일을 압축합니다.|
-|`AMSconfigurations`|`App.config`에 있는 응용 프로그램의 구성 데이터에 대한 인터페이스입니다.|
+|`AMSconfigurations`|`App.config`에 있는 애플리케이션의 구성 데이터에 대한 인터페이스입니다.|
 |`VideoModerator`| AMS SDK를 사용하여 업로드, 인코딩, 암호화 및 조정|
 |`VideoReviewApi`|Content Moderator 서비스에서 비디오 검토 관리|
 
@@ -530,7 +530,7 @@ Content Moderator의 비디오 API를 사용하면 사용자 검토 도구에서
         }
         catch
         {   //TODO:  Logging
-            Console.WriteLine("Exception occured while generating index for video.");
+            Console.WriteLine("Exception occurred while generating index for video.");
             throw;
         }
     }

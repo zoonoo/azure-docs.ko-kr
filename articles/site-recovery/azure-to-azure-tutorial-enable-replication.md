@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 60ecf08d7f0c40a04472b3e2bf5ef739e51c32e8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2af1ad35ee5f7548352180026f1d613d27b6af46
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794433"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103522"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>보조 Azure 지역에 Azure VM의 재해 복구 설정
 
@@ -43,7 +43,7 @@ ms.locfileid: "53794433"
 원본 지역을 제외한 모든 지역에 자격 증명 모음을 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com) > **Recovery Services**에 로그인합니다.
-2. **리소스 만들기** > **모니터링 및 관리** > **Backup 및 Site Recovery**를 클릭합니다.
+2. **리소스 만들기** > **관리 도구** > **Backup 및 Site Recovery**를 클릭합니다.
 3. **이름**에 자격 증명 모음을 식별하기 위한 이름을 지정합니다. 구독이 두 개 이상인 경우 적절한 구독을 선택합니다.
 4. 리소스 그룹을 만들거나 기존 그룹을 선택합니다. Azure 지역을 지정합니다. 지원되는 지역을 확인하려면 [Azure Site Recovery 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하세요.
 5. 대시보드에서 자격 증명 모음에 빠르게 액세스하려면 **대시보드에 고정**을 클릭하고 **만들기**를 클릭합니다.
@@ -172,7 +172,8 @@ Site Recovery는 대상 지역에 대한 기본 설정 및 복제 정책을 만�
 
 5. 새 또는 기존 복제 그룹에 VM을 추가하려는 경우  **사용자 지정**에서 다중 VM 일관성에 대해 **예**를 선택합니다. VM을 복제 그룹의 일부로 만듭니다. 그런 후 **OK**를 클릭합니다.
 
-    - 복제 그룹의 모든 컴퓨터는 장애 조치(failover) 시에 충돌 일치/앱 일치 복구 지점을 공유합니다. 다중 VM 일관성을 사용하도록 설정하면 워크로드 성능에 영향을 줄 수 있습니다. 따라서 컴퓨터가 동일한 워크로드를 실행하며 여러 컴퓨터에서 일관성을 지켜야 하는 경우에만 다중 VM 일관성을 사용해야 합니다.
+    - 복제 그룹의 모든 컴퓨터는 장애 조치(failover) 시에 충돌 일치/앱 일치 복구 지점을 공유합니다. 다중 VM 일관성을 사용하도록 설정하면 워크로드 성능에 영향을 줄 수 있으며(CPU 집약적이므로), 머신에서 동일한 워크로드를 실행하며 여러 머신에서 일관성이 필요한 경우에만 사용해야 합니다.
+    - 복제 그룹에 최대 16개의 가상 머신이 포함되도록 선택할 수 있습니다.
     - 다중 VM 일관성을 사용하도록 설정하면 복제 그룹의 컴퓨터는 20004 포트를 통해 서로 통신하게 됩니다. 20004 포트를 통한 VM 간의 내부 통신을 차단하는 방화벽 어플라이언스가 없는지 확인합니다. Linux VM을 복제 그룹에 포함하고 싶다면 특정 Linux 버전의 지침에 따라 20004 포트의 아웃바운드 트래픽을 수동으로 열어야 합니다.
 
 ### <a name="configure-encryption-settings"></a>암호화 설정 구성

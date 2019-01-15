@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7c7891d8a73142c78b1ca80027d685b93a062d06
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6a9b8e25b8c64d39606ee5c2582098839e349630
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317911"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189765"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Azure Maps를 사용하여 매장 로케이터 만들기
 
@@ -109,7 +109,7 @@ ms.locfileid: "52317911"
 
 사용자 인터페이스를 만들려면 *index.html*에 코드를 추가합니다.
 
-1. 다음 `meta` 태그를 *index.html*의 `head`에 추가합니다. 태그는 문자 세트(UTF-8)를 정의하고, Internet Explorer 및 Edge에 최신 브라우저 버전을 사용하도록 지시하고, 반응형 레이아웃에 잘 작동하는 뷰포트를 지정합니다.
+1. 다음 `meta` 태그를 *index.html*의 `head`에 추가합니다. 태그는 문자 세트(UTF-8)를 정의하고, Internet Explorer 및 Microsoft Edge에 최신 브라우저 버전을 사용하도록 지시하고, 반응형 레이아웃에 잘 작동하는 뷰포트를 지정합니다.
 
     ```HTML
     <meta charset="utf-8" /> 

@@ -4,17 +4,17 @@ description: Yeoman을 사용하여 Azure에서 Terraform 기본 템플릿을 �
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, 가상 머신, azure, yeoman
-author: v-mavick
+author: tomarchermsft
 manager: jeconnoc
-ms.author: v-mavick
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 15ef4795544044427805e21f7a8e98646c9cf9bd
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 36e4b424cdb961920fccdf7f050e28447ccbd6cf
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284338"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074530"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Yeoman을 사용하여 Azure에 Terraform 기본 템플릿 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "52284338"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
 - **Visual Studio Code**: [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US)를 사용하여 Yeoman 생성기에서 만든 파일을 검사합니다. 그러나 선택한 모든 코드 편집기를 사용할 수 있습니다.
 - **Terraform**: Yeoman에서 만든 모듈을 실행하려면 [Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure )을 설치해야 합니다.
 - **Docker**: [Docker](https://www.docker.com/get-started)를 사용하여 Yeoman 생성기에서 만든 모듈을 실행합니다. (원하는 경우 Docker 대신 Ruby를 사용하여 샘플 모듈을 실행할 수도 있습니다.)
@@ -142,7 +142,7 @@ Yeoman 모듈 생성기에서 생성된 일부 파일을 살펴보겠습니다.
 
 - **빌드**: main.tf 파일의 서식 지정의 유효성을 검사합니다.
 - **단위**: 생성된 모듈 구조는 단위 테스트에 대한 코드를 포함하지 않습니다. 단위 테스트 시나리오를 지정하려는 경우 여기에서 해당 코드를 추가합니다.
-- **e2e**: 모듈의 종단 간 테스트를 실행합니다.
+- **e2e**: 모듈의 엔드투엔드 테스트를 실행합니다.
 
 ### <a name="test"></a>test
 
@@ -172,7 +172,7 @@ Yeoman 모듈 생성기에서 생성된 일부 파일을 살펴보겠습니다.
 
 1. 명령 프롬프트에서 다음을 입력합니다.
 
-    `docker build --build-arg BUILD_ARM_SUBSCRIPTION_ID= --build-arg BUILD_ARM_CLIENT_ID= --build-arg BUILD_ARM_CLIENT_SECRET= --build-arg BUILD_ARM_TENANT_ID= -t terra-mod-example .`
+    `docker build --build-arg BUILD_ARM_SUBSCRIPTION_ID= --build-arg BUILD_ARM_CLIENT_ID= --build-arg BUILD_ARM_CLIENT_SECRET= --build-arg BUILD_ARM_TENANT_ID= -t terra-mod-example .`.
 
     **성공적으로 빌드됨** 메시지가 표시됩니다.
 
@@ -248,16 +248,16 @@ Docker 파일을 사용하는 대신 Cloud Shell을 사용하면 프로세스가
 
 1. 이 시점에서 Cloud Shell은 이미 환경 변수에서 GOPATH를 구성했습니다. 경로를 확인하려면 `go env`를 입력합니다.
 
-1. 아직 없는 경우 `mkdir ~/go`를 입력하여 $GOPATH 폴더를 만듭니다.
+1. 아직 없는 경우 $GOPATH 폴더를 만듭니다. `mkdir ~/go` 을 입력합니다.
 
-1. `mkdir ~/go/src`를 입력하여 $GOPATH 폴더 내에 폴더를 만듭니다. 합니다. 이 폴더는 다음 단계에서 만들 <your-module-name> 폴더와 같이 만들 수 있는 여러 프로젝트 폴더를 보관하고 구성하는 데 사용됩니다.
+1. $GOPATH 폴더 내에 폴더를 만듭니다. `mkdir ~/go/src` 을 입력합니다. 이 폴더는 다음 단계에서 만들 <your-module-name> 폴더와 같이 만들 수 있는 여러 프로젝트 폴더를 보관하고 구성하는 데 사용됩니다.
 
-1. `mkdir ~/go/src/<your-module-name>`을 입력하여 Terraform 모듈을 보관할 폴더를 만듭니다.
+1. Terraform 모듈을 보관할 폴더를 만듭니다. `mkdir ~/go/src/<your-module-name>` 을 입력합니다.
 
     >[!NOTE]
     >이 예제에서는 폴더 이름에 대해 `my-module-name`을 선택했습니다.
 
-1. `cd ~/go/src/<your-module-name>`을 입력하여 모듈 폴더로 이동합니다.
+1. 모듈 폴더로 이동합니다. `cd ~/go/src/<your-module-name>`을 입력합니다.
 
 ### <a name="create-and-test-your-terraform-module"></a>Terraform 모듈 만들기 및 테스트
 

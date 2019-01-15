@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/29/2018
+ms.date: 01/07/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e3d1a79dc7dd775cea71df2f36a5f34d85f3e240
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d5533932ef9ab521b623c18a0c3a27b663c56f8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261811"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077405"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>자습서: Azure Virtual WAN을 사용하여 지점 및 사이트 간 연결 만들기(미리 보기)
 
@@ -42,7 +42,7 @@ ms.locfileid: "51261811"
 
 ## <a name="register"></a>이 기능 등록
 
-**TryIt**을 클릭하고 Azure Cloud Shell을 사용하여 간편하게 이 기능을 등록하세요.
+**TryIt**을 클릭하고 Azure Cloud Shell을 사용하여 간편하게 이 기능을 등록하세요. PowerShell을 로컬로 실행하려면 최신 버전인지 확인하고 **Connect-AzureRmAccount** 및 **Select-AzureRmSubscription** 명령을 사용하여 로그인합니다.
 
 >[!NOTE]
 >이 기능을 등록하지 않으면 사용할 수 없거나 포털에서 표시되지 않습니다.

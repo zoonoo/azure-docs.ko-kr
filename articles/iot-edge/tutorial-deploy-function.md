@@ -4,17 +4,17 @@ description: 이 자습서에서는 Azure 함수를 IoT Edge 모듈로 개발한
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/19/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1488f6aff202f8b307b883d8a795d7df20066661
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d8912b67656cb9862f31b03eb9a899dfc650f377
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081883"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053368"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>자습서: IoT Edge 모듈로 Azure 함수 배포
 
@@ -51,13 +51,13 @@ Azure IoT Edge 디바이스:
 
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
-* [Visual Studio Code용 Azure IoT Edge 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
+* [Visual Studio Code용 Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 * [Docker CE](https://docs.docker.com/install/). 
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
-이 자습서에서는 Visual Studio Code용 Azure IoT Edge 확장을 사용하여 모듈을 빌드하고 파일에서 **컨테이너 이미지**를 만듭니다. 그런 후 이미지를 저장하고 관리하는 **레지스트리**에 이 이미지를 푸시합니다. 마지막으로 IoT Edge 장치에서 실행되도록 레지스트리의 이미지를 배포합니다.  
+이 자습서에서는 Visual Studio Code용 Azure IoT Tools를 사용하여 모듈을 빌드하고 파일에서 **컨테이너 이미지**를 만듭니다. 그런 후 이미지를 저장하고 관리하는 **레지스트리**에 이 이미지를 푸시합니다. 마지막으로 IoT Edge 장치에서 실행되도록 레지스트리의 이미지를 배포합니다.  
 
 임의 Docker 호환 레지스트리를 사용하여 컨테이너 이미지를 유지할 수 있습니다. 두 개의 인기 있는 Docker 레지스트리 서비스는 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 및 [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)입니다. 이 자습서에서는 Azure Container Registry를 사용합니다. 
 
@@ -84,7 +84,7 @@ Azure IoT Edge 디바이스:
 
 ## <a name="create-a-function-project"></a>함수 프로젝트 만들기
 
-필수 구성 요소에서 설치한 Visual Studio Code용 Azure IoT Edge 확장은 관리 기능뿐 아니라 일부 코드 템플릿도 제공합니다. 이 섹션에서는 Visual Studio Code를 사용하여 Azure 함수를 포함하는 IoT Edge 솔루션을 만듭니다. 
+필수 조건에서 설치한 Visual Studio Code용 Azure IoT Tools는 관리 기능뿐만 아니라 일부 코드 템플릿도 제공합니다. 이 섹션에서는 Visual Studio Code를 사용하여 Azure 함수를 포함하는 IoT Edge 솔루션을 만듭니다. 
 
 1. 개발 머신에서 Visual Studio Code를 엽니다.
 
@@ -221,13 +221,13 @@ Azure IoT Edge 디바이스:
 
 ## <a name="deploy-and-run-the-solution"></a>솔루션 배포 및 실행
 
-Azure Portal을 사용하여 빠른 시작에서 수행한 것처럼 IoT Edge 디바이스에 함수 모듈을 배포할 수 있습니다. 또한 Visual Studio Code 내에서 모듈을 배포하고 모니터링할 수 있습니다. 다음 섹션에서는 필수 조건에 나열된 VS Code용 Azure IoT Edge 확장을 사용합니다. 아직 설치하지 않은 경우 확장을 설치합니다. 
+Azure Portal을 사용하여 빠른 시작에서 수행한 것처럼 IoT Edge 디바이스에 함수 모듈을 배포할 수 있습니다. 또한 Visual Studio Code 내에서 모듈을 배포하고 모니터링할 수 있습니다. 다음 섹션에서는 필수 조건에 나와 있는 VS Code용 Azure IoT Tools를 사용합니다. 아직 설치하지 않은 경우 확장을 설치합니다. 
 
 1. **보기** > **명령 팔레트**를 차례로 선택하여 VS Code 명령 팔레트를 엽니다.
 
 2. **Azure: 로그인** 명령을 검색하여 실행합니다. 지침에 따라 Azure 계정에 로그인합니다. 
 
-3. 명령 팔레트에서 **Azure IoT Hub:  IoT Hub 선택** 명령을 검색하여 실행합니다. 
+3. 명령 팔레트에서 **Azure IoT Hub: IoT Hub 선택** 명령을 검색하여 실행합니다. 
 
 4. IoT Hub가 있는 구독을 선택한 다음, 액세스하려는 IoT 허브를 선택합니다.
 

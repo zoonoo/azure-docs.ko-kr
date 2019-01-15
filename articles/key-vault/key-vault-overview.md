@@ -9,17 +9,16 @@ ms.assetid: 34af20ee-3fa7-4f28-9d98-6168b1759764
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 80a740e13f5c3a13b7533d75e386a9afa2855085
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c96899fc46cd9cf6377894de773785dac14f3345
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002249"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121569"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Key Vault란?
 
@@ -70,7 +69,7 @@ Key Vault를 두 개 만들었으면 키와 비밀이 액세스되는 방법 및
 - Azure CLI 및 PowerShell을 통해 표준 Azure 관리 옵션을 제공합니다.
 - 공용 CA에서 구입한 인증서에 대한 등록 및 갱신과 같은 특정 작업을 자동화합니다.
 
-또한 Azure Key Vault를 통해 애플리케이션 비밀을 격리할 수 있습니다. 애플리케이션은 액세스가 허용되는 자격 증명 모음에만 액세스할 수 있으며 특정 작업만 수행하도록 제한됩니다. 애플리케이션당 Azure Key Vault를 만들고 Key Vault에 저장된 비밀을 특정 애플리케이션 및 개발자 팀으로 제한할 수 있습니다.
+또한 Azure Key Vault를 통해 애플리케이션 비밀을 격리할 수 있습니다. 애플리케이션은 액세스가 허용된 자격 증명 모음에만 액세스할 수 있으며, 특정 작업만 수행하도록 제한할 수 있습니다. 애플리케이션당 Azure Key Vault를 만들고 Key Vault에 저장된 비밀을 특정 애플리케이션 및 개발자 팀으로 제한할 수 있습니다.
 
 ### <a name="integrate-with-other-azure-services"></a>다른 Azure 서비스와 통합
 

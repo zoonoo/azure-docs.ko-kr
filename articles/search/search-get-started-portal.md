@@ -7,15 +7,15 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3f75cd61d948f3f6df34124a9b16b333f6c5e6d5
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 9bdc2e197b4d7aea270c954305a96a01a1371945
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001790"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121552"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>빠른 시작: Azure Search 가져오기, 인덱싱 및 쿼리에 기본 제공 포털 도구 사용
 
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 서비스 대시보드의 섹션에서는 현재 보유 중인 인덱스, 인덱서 및 데이터 원본 수를 보여줍니다. 
 
-![Lists of indexes, indexers, and datasources][media/search-get-started-portal/tiles-indexers-datasources2.png]
+![인덱스, 인덱서 및 데이터 원본 목록](media/search-get-started-portal/tiles-indexers-datasources2.png)
 
 ## <a name="create-index"></a> 인덱스 및 부하 데이터 만들기
 
@@ -124,9 +124,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="view-the-index"></a>인덱스 보기
 
-**인덱스** 목록은 마법사에서 만든 *realestate-us-sample* 인덱스를 포함하여 기존 인덱스를 보여줍니다.
+기본 서비스 페이지에서는 Azure Search 서비스에서 만든 리소스의 링크를 제공합니다.  방금 만든 인덱스를 보려면 링크 목록에서 **인덱스**를 클릭합니다. 
 
-이 목록에서 인덱스 스키마를 확인하고 필요에 따라 새 필드를 추가할 수 있지만 기존 필드를 변경할 수는 없습니다. 기존 필드는 Azure Search에서 물리적 표현이 있으므로 코드에서 조차 수정할 수 없습니다. 기존 필드를 근본적으로 변경하려면 새 인덱스를 만들고 기존 인덱스를 삭제합니다.
+   ![서비스 대시보드의 인덱스 목록](media/search-get-started-portal/indexes-list.png)
+
+이 목록에서 방금 만든 *realestate-us-sample* 인덱스를 클릭하고, 인덱스 스키마를 볼 수 있습니다. 그리고 필요하다면 새 필드를 추가합니다. 
+
+**필드** 탭에는 인덱스 스키마가 표시됩니다. 목록 맨 아래로 스크롤하여 새 필드를 입력합니다. 대부분의 경우 기존 필드를 변경할 수 없습니다. 기존 필드는 Azure Search에서 물리적 표현이 있으므로 코드에서 조차 수정할 수 없습니다. 기존 필드를 근본적으로 변경하려면 새 인덱스를 만들고 기존 인덱스를 삭제합니다.
 
    ![샘플 인덱스 정의](media/search-get-started-portal/sample-index-def.png)
 
@@ -137,6 +141,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="query-index"></a> 검색 탐색기를 사용하여 쿼리
 
 앞으로 기본 제공 [**검색 탐색기**](search-explorer.md) 쿼리 페이지를 사용하여 쿼리할 준비가 된 검색 인덱스가 있어야 합니다. 임의의 쿼리 문자열을 테스트할 수 있도록 검색 상자를 제공합니다.
+
+**검색 탐색기**는 [REST API 요청](https://docs.microsoft.com/rest/api/searchservice/search-documents)만 처리할 수 있지만, [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 및 [완전한 Lucene 쿼리 파서](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)에 대한 구문과 [문서 REST API 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) 작업에 제공되는 모든 검색 매개 변수를 허용합니다.
 
 > [!TIP]
 > [Azure Search 개요 비디오](https://channel9.msdn.com/Events/Connect/2016/138)의 6분 8초에 다음 단계가 설명되어 있습니다.
@@ -150,11 +156,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    ![인덱스 및 API 명령](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 
-3. 검색 창에 아래의 쿼리 문자열을 입력하고 **검색**을 클릭합니다.
+3. 검색 창에 아래의 쿼리 문자열을 붙여넣고 **검색**을 클릭합니다.
 
-    > [!NOTE]
-    > **검색 탐색기**는 [REST API 요청](https://docs.microsoft.com/rest/api/searchservice/search-documents)을 처리하도록 탑재되어 있습니다. [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 및 [완전한 Lucene 쿼리 파서](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)에 대한 구문과 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) 작업에 제공되는 모든 검색 매개 변수를 허용합니다.
-    >
+   ![쿼리 문자열 및 검색 단추](media/search-get-started-portal/search-explorer-query-string-example.png)
 
 ## <a name="example-queries"></a>쿼리 예
 

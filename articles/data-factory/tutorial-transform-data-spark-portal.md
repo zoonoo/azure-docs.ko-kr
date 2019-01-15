@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/10/2018
 ms.author: douglasl
-ms.openlocfilehash: 64dacb33a8cd235e155a640d57d868f384f93d76
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 34580687c047e842bfbfa12730c7c2d9868187b0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959012"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014151"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 클라우드의 데이터 변환
 이 자습서에서는 Azure Portal을 사용하여 Azure Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Spark 활동 및 주문형 HDInsight 연결된 서비스를 사용하여 데이터를 변환합니다. 
@@ -102,11 +101,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **버전**에서 **V2**를 선택합니다.
 1. **위치**에 데이터 팩터리의 위치를 선택합니다. 
 
-   Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용하는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+   현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용하는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
 1. **만들기**를 선택합니다.
 
-1. 만들기가 완료되면 **데이터 팩터리** 페이지가 표시됩니다. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 Data Factory UI 응용 프로그램을 시작합니다.
+1. 만들기가 완료되면 **데이터 팩터리** 페이지가 표시됩니다. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 Data Factory UI 애플리케이션을 시작합니다.
 
     !["작성 및 모니터링" 타일이 있는 데이터 팩터리에 대한 홈페이지](./media/tutorial-transform-data-spark-portal/data-factory-home-page.png)
 
@@ -125,7 +124,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 창의 아래쪽에서 **연결**, **+ 새로 만들기**를 차례로 클릭합니다. 
 
    ![새 연결 만들기에 대한 단추](./media/tutorial-transform-data-spark-portal/new-connection.png)
-1. **새 연결된 서비스** 창에서 **데이터 저장소** > **Azure Blob Storage**를 선택한 다음 **계속**을 선택합니다. 
+1. **새 연결된 서비스** 창에서 **데이터 저장소** > **Azure Blob Storage**를 선택한 다음, **계속**을 선택합니다. 
 
    !["Azure Blob Storage" 타일 선택](./media/tutorial-transform-data-spark-portal/select-azure-storage.png)
 1. **저장소 계정 이름**의 목록에서 이름을 선택한 후 **저장**을 선택합니다. 
@@ -251,7 +250,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 가상 네트워크에 있는 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하여 데이터를 변환하는 방법을 알아보려면 다음 자습서로 진행하세요. 
 
 > [!div class="nextstepaction"]
-> [자습서: Azure Virtual Network에서 Hive를 사용하여 데이터 변환](tutorial-transform-data-hive-virtual-network-portal.md).
+> [자습서: Azure Virtual Network에서 Hive를 사용하여 데이터 변환](tutorial-transform-data-hive-virtual-network-portal.md)
 
 
 

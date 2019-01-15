@@ -10,19 +10,21 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
-ms.date: 10/15/2018
+ms.date: 01/04/2019
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: d2b7e7a29838fd14292e3498c8db3a496d7d9434
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 842ec98245522095334b9f17e8c12292b7c1dda8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717809"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035443"
 ---
 # <a name="azure-resource-manager-templates-for-app-service"></a>App Service에 대한 Azure Resource Manager 템플릿
 
 다음 표는 Azure App Service를 위한 Azure Resource Manager 템플릿 링크를 포함합니다. 앱 템플릿을 만들 때 발생하는 일반적인 오류 방지에 대한 권장 사항은 [Azure Resource Manager 템플릿으로 앱을 배포하는 지침](deploy-resource-manager-template.md)을 참조하세요.
+
+App Services 리소스의 JSON 구문 및 속성에 대해 알아보려면 [Microsoft.Web 리소스 종류](/azure/templates/microsoft.web/allversions)를 참조하세요.
 
 | | |
 |-|-|

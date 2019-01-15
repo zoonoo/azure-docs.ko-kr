@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: e25cdd0677efce0ea8d40ad1c8ae07a5d071a67f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 65dae64a43fb145f34c6933f0b74f8e798f5e373
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969792"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016327"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
 이 자습서에서는 델타 데이터를 온-프레미스 SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
@@ -277,7 +276,7 @@ END
 1. **이름**에 대해 **MySelfHostedIR**을 입력하고 **다음**을 클릭합니다. 
 
    ![자체 호스팅 IR 이름](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
-1. **옵션 1: 기본 설치** 섹션에서  **이 컴퓨터에 대한 기본 설치를 시작하려면 여기를 클릭하세요**를 클릭합니다. 
+1. 다음 위치에서 **이 컴퓨터에 대한 기본 설치를 시작하려면 여기를 클릭하세요**를 클릭합니다. **옵션 1: 빠른 설치** 섹션 
 
    ![빠른 설치 링크 클릭](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. **Integration Runtime(자체 호스팅) 빠른 설치** 창에서 **닫기**를 클릭합니다. 

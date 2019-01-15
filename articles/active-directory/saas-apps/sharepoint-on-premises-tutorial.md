@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 2fc81cc06063c0fee0a4f875b4b0f8bd1343cf85
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 789f58699f39f4b7eac453f4cf79ea55a5bfc8d3
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810460"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159505"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>자습서: SharePoint 온-프레미스와 Azure Active Directory 통합
 
@@ -118,7 +118,7 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하려면 다
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
     > [!Note]
-    > 구성을 위해 PowerShell 스크립트에서 나중에 사용해야 하므로 인증서 파일을 다운로드한 파일 경로를 적어 두세요.
+    > 인증서 파일을 다운로드한 파일 경로를 기록해 둡니다. 나중에 PowerShell 스크립트에서 구성할 때 필요합니다.
 
 6. **SharePoint 온-프레미스 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다. **Single Sign-On 서비스 URL**의 경우 다음 패턴의 값을 사용합니다. `https://login.microsoftonline.com/_my_directory_id_/wsfed` 
 
@@ -134,7 +134,7 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하려면 다
     다. 로그아웃 URL
 
     > [!NOTE]
-    > Sharepoint On-Premises 애플리케이션은 SAML 1.1 토큰을 사용하므로, Azure AD는 SharePoint 서버로부터 WS Fed 요청을 기대하고 인증 후 SAML 1.1 토큰을 발급합니다.
+    > SharePoint On-Premises 애플리케이션은 SAML 1.1 토큰을 사용하므로, Azure AD는 SharePoint 서버로부터 WS Fed 요청을 기대하고 인증 후 SAML 1.1 토큰을 발급합니다.
 
 ### <a name="configure-sharepoint-on-premises-single-sign-on"></a>SharePoint 온-프레미스 Single Sign-On 구성
 
@@ -175,7 +175,7 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하려면 다
     ![인증 공급자 구성](./media/sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
 
     > [!NOTE]
-    > 일부 외부 사용자는 해당 UPN이 `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`과 같은 손상된 값을 가지므로 이 Single Sign-On 통합을 사용할 수 없습니다. 곧 사용자 유형에 따라 UPN을 처리하는 방법에 대한 고객 앱 구성을 허용할 계획입니다. 그런 다음, 모든 게스트 사용자는 조직의 직원으로 SSO를 원활하게 사용할 수 있어야 합니다.
+    > 일부 외부 사용자는 해당 UPN이 `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`처럼 손상된 값을 갖게 되므로 이 Single Sign-On 통합을 사용할 수 없습니다. 조만간 사용자 유형에 따라 사용자 앱 구성에서 UPN을 처리할 수 있도록 허용할 계획입니다. 그런 다음, 모든 게스트 사용자는 조직의 직원으로 SSO를 원활하게 사용할 수 있어야 합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

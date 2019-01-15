@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: f6f804ea9121d1728e31f1e694280e841f4b7f4e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9683eb8cbfcabb946f8b364ac9cc8aeeb167d023
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946547"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120294"
 ---
 # <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>빠른 시작: Azure Active Directory를 사용하여 Web API 보안 유지
 
@@ -38,7 +38,7 @@ ms.locfileid: "46946547"
 
 ### <a name="create-the-sample-project"></a>샘플 프로젝트 만들기
 
-이 서버 애플리케이션에는 Azure AD에 전달되는 계정 정보뿐만 아니라 Restify 및 Passport를 지원하기 위한 몇 가지 패키지 종속성이 필요합니다.
+이 서버 응용 프로그램에는 Azure AD에 전달되는 계정 정보뿐만 아니라 Restify 및 Passport를 지원하기 위한 몇 가지 패키지 종속성이 필요합니다.
 
 먼저 `package.json` 파일에 다음 코드를 추가합니다.
 
@@ -110,7 +110,7 @@ module.exports.credentials = {
 
 ### <a name="step-1-import-dependencies"></a>1단계: 종속성 가져오기
 
-`app.js`라는 새 파일을 만들고 다음 텍스트를 붙여넣습니다.
+`app.js`라는 새 파일을 만들고 다음 텍스트를 붙여 넣습니다.
 
 ```JavaScript
 const
@@ -166,7 +166,7 @@ passport.use(authenticationStrategy);
 인증 전략이 정의되었으므로 이제 몇 가지 기본적인 설정을 사용하여 Restify 서버를 설정하고 보안을 위해 Passport를 사용하도록 설정할 수 있습니다.
 
 ```JavaScript
-const server = restify.createServer({ name: 'Azure Active Directroy with Node.js Demo' });
+const server = restify.createServer({ name: 'Azure Active Directory with Node.js Demo' });
 server.use(restifyPlugins.authorizationParser());
 server.use(passport.initialize());
 server.use(passport.session());
@@ -221,7 +221,7 @@ curl -isS -X GET http://127.0.0.1:3000/
 
 ```shell
 HTTP/1.1 200 OK
-Server: Azure Active Directroy with Node.js Demo
+Server: Azure Active Directory with Node.js Demo
 Content-Type: application/json
 Content-Length: 49
 Date: Tue, 10 Oct 2017 18:35:13 GMT
@@ -240,7 +240,7 @@ curl -isS -X GET http://127.0.0.1:3000/api
 
 ```shell
 HTTP/1.1 401 Unauthorized
-Server: Azure Active Directroy with Node.js Demo
+Server: Azure Active Directory with Node.js Demo
 WWW-Authenticate: token is not found
 Date: Tue, 10 Oct 2017 16:22:03 GMT
 Connection: keep-alive

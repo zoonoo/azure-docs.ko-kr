@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ff862dcee77fb874511ea1b9bcc907a5e4b60dcc
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 50b2973f2b245cfb42ed7212e443fec1c66217cf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998985"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015275"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>빠른 시작: 기술 및 샘플 데이터를 사용하여 Cognitive Search 파이프라인 만들기
 
@@ -26,9 +26,9 @@ ms.locfileid: "53998985"
 
 > [!div class="checklist"]
 > * Azure Blob Storage에서 샘플 데이터로 시작
-> * 인식 인덱싱 및 보강에 대해 [데이터 가져오기 마법사](search-import-data-portal.md) 구성 
+> * 인식 인덱싱 및 보강에 대해 [**데이터 가져오기**](search-import-data-portal.md) 마법사 구성 
 > * 마법사 실행(엔터티 기술이 사람, 위치 및 조직을 감지)
-> * [검색 탐색기](search-explorer.md)를 사용하여 보강된 데이터 쿼리
+> * [**검색 탐색기**](search-explorer.md)를 사용하여 보강된 데이터 쿼리
 
 ## <a name="supported-regions"></a> 지원되는 지역
 
@@ -98,9 +98,9 @@ Azure 서비스는 이 시나리오에 단독으로 사용됩니다. 준비 과�
 
 1. 여러 종류의 작은 파일 집합으로 구성된 [샘플 데이터를 다운로드](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)하세요. 
 
-1. Azure Blob 저장소에 등록하고, 저장소 계정을 만들고, Storage 탐색기에 로그인하고, 컨테이너를 만드세요. 공용 액세스 수준을 **컨테이너**로 설정합니다. 자세한 내용은 Search 비정형 데이터 자습서에서 ["컨테이너 만들기" 섹션](../storage/blobs/storage-unstructured-search.md#create-a-container)을 참조하세요.
+1. Azure Blob 스토리지에 가입하고, 스토리지 계정을 만들며, Blob 서비스 페이지를 열고 컨테이너를 만듭니다. 컨테이너에서 공용 액세스 수준을 **컨테이너**로 설정합니다. 자세한 내용은 *Search 비정형 데이터* 자습서에서 [“컨테이너 만들기” 섹션](../storage/blobs/storage-unstructured-search.md#create-a-container)을 참조하세요.
 
-1. 만든 컨테이너에서 **업로드**를 클릭하여 샘플 파일을 업로드합니다.
+1. 만든 컨테이너에서 **업로드**를 클릭하여 이전 단계에서 다운로드한 샘플 파일을 업로드합니다.
 
   ![Azure Blob 저장소의 원본 파일](./media/cognitive-search-quickstart-blob/sample-data.png)
 

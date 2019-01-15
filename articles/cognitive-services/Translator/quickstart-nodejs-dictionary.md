@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 대체 번역 가져오기, Node.js - Translator Text API'
+title: '빠른 시작: 이중 언어 사전이 있는 단어 조회, Node.js - Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Node.js 및 Translator Text REST API를 사용하여 지정된 텍스트에 대한 대체 번역 및 사용 예제를 찾는 방법을 알아봅니다.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 191afcdfb7a401755fffc028ce4119526f1e693d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: f7f779ccd10eeffc9ddfcba5dbb9abde00e1f735
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035631"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160015"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-with-nodejs"></a>빠른 시작: Node.js를 사용하여 Translator Text API로 대체 번역 가져오기
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>빠른 시작: Node.js를 사용하여 이중 언어 사전이 있는 단어 조회
 
 이 빠른 시작에서는 Node.js 및 Translator Text REST API를 사용하여 지정된 텍스트에 대한 대체 번역 및 사용 예제를 찾는 방법을 알아봅니다.
 

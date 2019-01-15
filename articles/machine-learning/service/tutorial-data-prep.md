@@ -1,7 +1,7 @@
 ---
 title: '회귀 모델 자습서: 데이터 준비'
 titleSuffix: Azure Machine Learning service
-description: 이 자습서의 제1부에서는 Azure ML SDK를 사용하여 회귀 모델링을 위해 Python으로 데이터를 준비하는 방법을 배웁니다.
+description: 이 자습서의 1부에서는 Azure Machine Learning SDK를 사용하여 회귀 모델링을 위해 Python으로 데이터를 준비하는 방법을 배웁니다.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,37 +11,39 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: d20ff1fabfb73c899153cf42bb6f2d7a8f233e21
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8f7e414d2aa4962534a90a295e104f8e8ebabbd9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314689"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079241"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>자습서: 회귀 모델링을 위한 데이터 준비
 
-이 자습서에서는 Azure Machine Learning Data Prep SDK를 사용하여 회귀 모델링을 위해 데이터를 준비하는 방법을 배웁니다. 다양한 변환을 수행하여 두 개의 서로 다른 NYC 택시 데이터를 필터링하고 결합합니다. 이 자습서 세트의 최종 목표는 픽업 시간, 요일, 승객 수 및 좌표 등 데이터 기능에 대한 모델을 교육하여 택시 여정 비용을 예측하는 것입니다. 이 자습서는 2부로 구성된 자습서 시리즈 중 제1부입니다.
+이 자습서에서는 Azure Machine Learning Data Prep SDK를 사용하여 회귀 모델링을 위해 데이터를 준비하는 방법을 배웁니다. 다양한 변환을 실행하여 두 개의 서로 다른 NYC 택시 데이터 세트를 필터링하고 결합합니다.  
+
+이 자습서는 2부로 구성된 자습서 시리즈 중 제1부입니다. 이 자습서 시리즈를 마치면 데이터 기능에 대해 모델을 학습하여 택시 운행 비용을 예측할 수 있습니다. 이러한 기능으로는 날짜 및 시간, 승객 수, 위치 선택이 포함됩니다.
 
 이 자습서에서는 다음을 수행했습니다.
 
 > [!div class="checklist"]
-> * Python 환경 설정 및 패키지 가져오기
-> * 다양한 필드 이름을 포함하는 두 개의 데이터 세트 로드
-> * 잘못된 부분을 제거하는 데이터 정리
-> * 새 기능을 만들기 위해 인텔리전트 변환을 사용하여 데이터 변환
-> * 회귀 모델에서 사용할 데이터 흐름 개체 저장
+> * Python 환경을 설정하고 패키지를 가져옵니다.
+> * 필드 이름이 다른 두 개의 데이터 세트를 로드합니다.
+> * 데이터를 정리하여 잘못된 부분을 제거합니다.
+> * 새 기능을 만드는 인텔리전트 변환을 사용하여 데이터를 변환합니다.
+> * 회귀 모델에서 사용할 데이터 흐름 개체를 저장합니다.
 
-[Azure Machine Learning 데이터 준비 SDK](https://aka.ms/data-prep-sdk)를 사용하여 Python에서 데이터를 준비할 수 있습니다.
+[Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)를 사용하여 Python에서 데이터를 준비할 수 있습니다.
 
 ## <a name="get-the-notebook"></a>Notebook 가져오기
 
-사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb)으로 제공됩니다. Azure Notebooks 또는 자체 Jupyter 노트북 서버에서 `regression-part1-data-prep.ipynb` 노트북을 실행할 수 있습니다.
+사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb)으로 제공됩니다. Azure Notebooks 또는 사용자 고유의 Jupyter Notebook 서버에서 **regression-part1-data-prep.ipynb** Notebook을 실행합니다.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 ## <a name="import-packages"></a>패키지 가져오기
 
-SDK를 가져오는 것으로 시작합니다.
+SDK를 가져오는 것부터 시작합니다.
 
 
 ```python
@@ -50,7 +52,7 @@ import azureml.dataprep as dprep
 
 ## <a name="load-data"></a>데이터 로드
 
-두 개의 서로 다른 NYC 택시 데이터 세트를 데이터 흐름 개체에 다운로드합니다.  이러한 데이터 세트에는 약간 다른 필드가 포함되어 있습니다. `auto_read_file()` 메서드는 입력 파일 형식을 자동으로 인식합니다.
+두 개의 서로 다른 NYC 택시 데이터 세트를 데이터 흐름 개체에 다운로드합니다. 두 데이터 세트의 필드는 서로 조금씩 다릅니다. `auto_read_file()` 메서드는 입력 파일 형식을 자동으로 인식합니다.
 
 
 ```python
@@ -60,7 +62,7 @@ green_path = "/".join([dataset_root, "green-small/*"])
 yellow_path = "/".join([dataset_root, "yellow-small/*"])
 
 green_df = dprep.read_csv(path=green_path, header=dprep.PromoteHeadersMode.GROUPED)
-# auto_read_file will automatically identify and parse the file type, and is useful if you don't know the file type
+# auto_read_file automatically identifies and parses the file type, which is useful when you don't know the file type.
 yellow_df = dprep.auto_read_file(path=yellow_path)
 
 display(green_df.head(5))
@@ -80,7 +82,7 @@ useful_columns = [
 ]
 ```
 
-먼저 녹색 택시 데이터로 작업하고 노란색 택시 데이터와 결합할 수 있는 유효한 모양으로 가져옵니다. 임시 데이터 흐름 `tmp_df`를 만듭니다. 만들어둔 바로 가기 변환 변수를 사용하여 `replace_na()`, `drop_nulls()` 및 `keep_columns()` 함수를 호출합니다. 또한 데이터 프레임의 모든 열 이름을 `useful_columns`의 이름과 일치하도록 바꿉니다.
+먼저 녹색 택시 데이터를 작업하여 노란색 택시 데이터와 결합할 수 있는 유효한 모양으로 가져옵니다. `tmp_df`라는 임시 데이터 흐름을 만듭니다. 만들어 둔 바로 가기 변환 변수를 사용하여 `replace_na()`, `drop_nulls()` 및 `keep_columns()` 함수를 호출합니다. 또한 데이터 프레임의 모든 열 이름을 `useful_columns` 변수의 이름과 일치하도록 바꿉니다.
 
 
 ```python
@@ -209,13 +211,13 @@ tmp_df.head(5)
 </table>
 </div>
 
-`green_df` 변수를 이전 단계에서 `tmp_df`에 대해 수행한 변환으로 덮어씁니다.
+`green_df` 변수를 이전 단계에서 `tmp_df` 데이터 흐름에 대해 수행한 변환으로 덮어씁니다.
 
 ```python
 green_df = tmp_df
 ```
 
-노란색 택시 데이터에 대해 동일한 변환 단계를 수행합니다.
+노란색 택시 데이터에 대해 동일한 변환 단계를 실행합니다.
 
 
 ```python
@@ -247,7 +249,7 @@ tmp_df = (yellow_df
 tmp_df.head(5)
 ```
 
-다시, `yellow_df`를 `tmp_df`로 덮어쓴 다음, 녹색 택시 데이터의 `append_rows()` 함수를 호출하여 노란색 택시 데이터를 추가하고 결합된 새로운 데이터 프레임을 만듭니다.
+다시 `yellow_df` 데이터 흐름을 `tmp_df` 데이터 흐름으로 덮어씁니다. 그런 다음, 녹색 택시 데이터에서 `append_rows()` 함수를 호출하여 노란색 택시 데이터를 추가합니다. 새로 조합된 데이터 프레임이 생성됩니다.
 
 
 ```python
@@ -257,7 +259,7 @@ combined_df = green_df.append_rows([yellow_df])
 
 ### <a name="convert-types-and-filter"></a>형식 및 필터 변환 
 
-승차 및 하차 좌표 요약 통계를 조사하여 데이터가 어떤 식으로 분산되는지 확인합니다. 먼저, lat/long 필드를 10진 형식으로 변경하는 `TypeConverter` 개체를 정의합니다. 그런 다음, 출력을 lat/long 필드로만 제한하는 `keep_columns()` 함수를 호출한 후 `get_profile()`을 호출합니다.
+승차 및 하차 좌표 요약 통계를 조사하여 데이터가 어떤 식으로 분산되는지 확인합니다. 먼저 위도 및 경도 필드를 10진 형식으로 변경하는 `TypeConverter` 개체를 정의합니다. 다음으로, 출력을 위도 및 경도 필드로만 제한하는 `keep_columns()` 함수를 호출한 다음, `get_profile()` 함수를 호출합니다.
 
 
 ```python
@@ -401,7 +403,7 @@ combined_df.keep_columns(columns=[
 
 
 
-요약 통계 출력에서 누락된 좌표와 뉴욕 시가 아닌 좌표가 있음을 알 수 있습니다. `filter()` 함수 내에서 열 필터 명령을 연결하고 각 필드의 최소 및 최대 경계를 정의하여 도시 경계에 없는 좌표를 필터링합니다. 그런 다음, `get_profile()`을 다시 호출하여 변환을 확인합니다.
+요약 통계 출력을 보면 누락된 좌표와 뉴욕시가 아닌 좌표가 있습니다. 도시 경계 밖에 있는 위치의 좌표를 필터링합니다. `filter()` 함수 내에서 열 필터 명령을 연결하고 각 필드의 최소 및 최대 경계를 정의합니다. 그런 다음, `get_profile()` 함수를 다시 호출하여 변환을 확인합니다.
 
 
 ```python
@@ -553,7 +555,7 @@ tmp_df.keep_columns(columns=[
 
 
 
-`combined_df`를 `tmp_df`에 수행한 변환으로 덮어씁니다.
+`combined_df` 데이터 흐름을 `tmp_df` 데이터 흐름에 수행한 변환으로 덮어씁니다.
 
 
 ```python
@@ -627,14 +629,14 @@ combined_df.keep_columns(columns='store_forward').get_profile()
 
 
 
-`store_forward`의 데이터 프로필 출력에서 데이터가 일치하지 않으며 누락되거나 Null 값이 있음을 알 수 있습니다. 이러한 값을 `replace()` 및 `fill_nulls()` 함수를 사용하여 바꾸고 두 경우 모두 "N" 문자열로 변경합니다.
+`store_forward` 열의 데이터 프로필 출력을 보면 데이터가 일치하지 않으며 값이 누락되거나 Null 값이 있음을 알 수 있습니다. `replace()` 및 `fill_nulls()` 함수를 사용하여 이러한 값을 문자열 "N"으로 바꿉니다.
 
 
 ```python
 combined_df = combined_df.replace(columns="store_forward", find="0", replace_with="N").fill_nulls("store_forward", "N")
 ```
 
-이번에는 `distance` 필드에서 다른 `replace` 함수를 실행합니다. 그러면 레이블이 `.00`으로 잘못 지정된 거리 값의 형식이 다시 지정되고 null이 0으로 채워집니다. `distance` 필드를 숫자 형식으로 변환합니다.
+`distance` 필드에서 `replace` 함수를 실행합니다. 그러면 이 함수는 레이블이 `.00`으로 잘못 지정된 거리 값의 형식을 다시 지정하고 Null을 0으로 채웁니다. `distance` 필드를 숫자 형식으로 변환합니다.
 
 
 ```python
@@ -642,7 +644,7 @@ combined_df = combined_df.replace(columns="distance", find=".00", replace_with=0
 combined_df = combined_df.to_number(["distance"])
 ```
 
-승차 및 하차 날짜/시간을 각각 날짜 및 시간 열로 분할합니다. `split_column_by_example()`을 사용하여 분할을 수행합니다. 이 경우 `example`의 선택적 `split_column_by_example()` 매개 변수는 생략됩니다. 따라서 함수는 데이터를 기반으로 분할할 위치를 자동으로 결정합니다.
+승차 및 하차 날짜/시간 값을 각각 날짜 및 시간 열로 분할합니다. `split_column_by_example()` 함수를 사용하여 분할합니다. 이 예에서는 `split_column_by_example()` 함수의 선택적 매개 변수 `example`이 생략되었습니다. 따라서 함수가 데이터를 기반으로 분할 위치를 자동으로 결정합니다.
 
 
 ```python
@@ -780,7 +782,7 @@ tmp_df.head(5)
 </div>
 
 
-`split_column_by_example()`에 의해 생성된 열 이름을 의미 있는 이름으로 바꿉니다.
+`split_column_by_example()` 함수에서 생성한 열 이름을 의미 있는 이름으로 바꿉니다.
 
 
 ```python
@@ -794,7 +796,7 @@ tmp_df_renamed = (tmp_df
 tmp_df_renamed.head(5)
 ```
 
-`combined_df`를 실행된 변환으로 덮어쓴 다음, `get_profile()`을 호출하여 모든 변환 후 전체 요약 통계를 확인합니다.
+`combined_df` 데이터 흐름을 실행된 변환으로 덮어씁니다. 모든 변환이 끝난 후 `get_profile()` 함수를 호출하여 전체 요약 통계를 봅니다.
 
 
 ```python
@@ -804,9 +806,9 @@ combined_df.get_profile()
 
 ## <a name="transform-data"></a>데이터 변환
 
-승차 및 하차 날짜를 요일, 월간 일자, 월로 추가 분할합니다. 요일을 얻으려면 `derive_column_by_example()` 함수를 사용합니다. 이 함수는 입력 데이터와 원하는 출력을 정의하는 예제 개체 배열을 매개 변수로 사용합니다. 그런 다음, 함수는 원하는 변환을 자동으로 결정합니다. 승차 및 하차 시간 열에 대해서는 예제 매개 변수 없이 `split_column_by_example()` 함수를 사용하여 시, 분, 초로 분할합니다.
+승차 및 하차 날짜를 요일, 월간 일자, 월 값으로 추가 분할합니다. 요일 값을 가져오려면 `derive_column_by_example()` 함수를 사용합니다. 이 함수는 입력 데이터와 원하는 출력을 정의하는 예제 개체의 배열 매개 변수를 사용합니다. 이 함수는 사용자가 원하는 변환을 자동으로 확인합니다. 승차 및 하차 시간 열의 경우 예제 매개 변수 없이 `split_column_by_example()` 함수를 사용하여 시간을 시, 분, 초로 분할합니다.
 
-이러한 새 기능을 생성했으면 `drop_columns()`를 사용하여 새로 생성된 기능을 사용하도록 원래 필드를 삭제합니다. 나머지 필드는 모두 정확한 설명으로 이름을 바꿉니다.
+새 기능을 생성한 후에는 새로 생성된 기능이 기본 기능이 되므로 `drop_columns()` 함수를 사용하여 원래 필드를 삭제합니다. 의미 있는 설명을 사용하도록 나머지 필드의 이름을 바꿉니다.
 
 
 ```python
@@ -824,7 +826,7 @@ tmp_df = (combined_df
           
     .split_column_by_example(source_column="pickup_time")
     .split_column_by_example(source_column="dropoff_time")
-    # the following two split_column_by_example calls reference the generated column names from the above two calls
+    # The following two calls to split_column_by_example reference the column names generated from the previous two calls.
     .split_column_by_example(source_column="pickup_time_1")
     .split_column_by_example(source_column="dropoff_time_1")
     .drop_columns(columns=[
@@ -999,7 +1001,7 @@ tmp_df.head(5)
 </table>
 </div>
 
-위의 데이터에서 파생된 변환에서 생성된 승/하차 날짜 및 시간 구성 요소가 정확한 것을 알 수 있습니다. 더 이상 필요하지 않으므로 `pickup_datetime` 및 `dropoff_datetime` 열을 삭제합니다.
+데이터를 보면 파생된 변환에서 생성된 승/하차 날짜 및 시간 구성 요소가 정확한 것을 알 수 있습니다. `pickup_datetime` 및 `dropoff_datetime` 열은 더 이상 필요하지 않으므로 삭제합니다.
 
 
 ```python
@@ -1034,7 +1036,7 @@ type_infer
     'dropoff_latitude': [FieldType.DECIMAL],
     'cost': [FieldType.DECIMAL]
 
-추론 결과는 데이터를 기반으로 올바르게 표시됩니다. 이제 형식 변환을 데이터 흐름에 적용합니다.
+데이터와 비교해 보면 유추 결과가 올바른 것 같습니다. 이제 형식 변환을 데이터 흐름에 적용합니다.
 
 
 ```python
@@ -1042,14 +1044,14 @@ tmp_df = type_infer.to_dataflow()
 tmp_df.get_profile()
 ```
 
-데이터 흐름을 패키징하기 전에 데이터 세트에서 두 개의 최종 필터를 수행합니다. 잘못된 데이터 요소를 제거하려면 `cost` 및 `distance`가 둘 다 0보다 큰 레코드를 기준으로 데이터 흐름을 필터링합니다.
+데이터 흐름을 패키징하기 전에 데이터 세트에서 두 개의 최종 필터를 실행합니다. 잘못된 데이터 요소를 제거하려면 `cost` 및 `distance` 변수 값이 모두 0보다 큰 레코드에서 데이터 흐름을 필터링합니다.
 
 ```python
 tmp_df = tmp_df.filter(dprep.col("distance") > 0)
 tmp_df = tmp_df.filter(dprep.col("cost") > 0)
 ```
 
-이 시점에서 기계 학습 모델에 사용할 완전히 변환되어 준비된 데이터 흐름 개체가 만들어 집니다. SDK에는 다음과 같이 사용되는 개체 serialization 기능이 포함됩니다.
+기계 학습 모델에 사용할 수 있도록 완전히 변환 및 준비된 데이터 흐름 개체가 생겼습니다. SDK에는 다음 코드 조각처럼 사용되는 개체 serialization 기능이 포함되어 있습니다.
 
 ```python
 import os
@@ -1062,7 +1064,9 @@ package.save(file_path)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-자습서의 2부를 진행하지 않으려면 현재 디렉터리에서 `dflows.dprep` 파일(로컬 또는 Azure Notebooks 중 어디에서 실행되든지)을 삭제합니다. 2부를 진행하려면 현재 디렉터리에 `dflows.dprep` 파일이 필요합니다.
+자습서의 2부를 계속 진행하려면 현재 디렉터리에 **dflows.dprep** 파일이 있어야 합니다.
+
+2부를 진행하지 않으려면 현재 디렉터리에서 **dflows.dprep** 파일을 삭제하세요. 로컬로 실행하든 Azure Notebooks에서 실행하든, 이 파일을 삭제하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -1074,7 +1078,7 @@ package.save(file_path)
 > * 스마트 변환을 사용하여 예제를 기반으로 논리 예측
 > * 기계 학습 교육을 위해 데이터 세트 병합 및 패키징
 
-자습서 시리즈의 다음 부분에서 이 학습 데이터를 사용할 준비가 되었습니다.
+자습서의 2부에서 학습 데이터를 사용할 준비가 완료되었습니다.
 
 > [!div class="nextstepaction"]
-> [자습서 #2: 회귀 모델 학습시키기](tutorial-auto-train-models.md)
+> [자습서(2부): 회귀 모델 학습](tutorial-auto-train-models.md)

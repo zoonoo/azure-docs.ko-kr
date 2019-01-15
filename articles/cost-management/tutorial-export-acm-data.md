@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 4614a1417213ed8b4d57c3b7ab21ac7424d75949
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4ad93dad2044526f5825823540325b73f2d0d7ae
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087936"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053537"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>자습서: 내보낸 데이터 만들기 및 관리
 
@@ -61,6 +61,22 @@ Azure 저장소 계정에 대한 구독을 지정하고 저장소 계정을 선�
 새 내보내기는 내보내기 목록에 표시됩니다. 기본적으로 새 내보내기가 사용되도록 설정됩니다. 예정된 내보내기를 해제 또는 삭제하려면 목록에서 항목을 클릭하고 **사용 안 함** 또는 **삭제**를 클릭합니다.
 
 처음에는 내보내기가 실행될 때까지 1~2시간이 걸릴 수 있습니다. 그러나 내보낸 파일에 데이터가 표시될 때까지는 최대 4시간이 걸릴 수 있습니다.
+
+### <a name="export-schedule"></a>내보내기 예약
+
+예약된 내보내기는 처음에 내보내기를 만든 요일과 시간의 영향을 받습니다. 예약된 내보내기를 만들면 이후의 각 내보내기 발생에 대해 같은 시간에 내보내기가 실행됩니다. 예를 들어 오후 1시의 매일 내보내기를 만듭니다. 다음 내보내기는 다음날 오후 1시에 실행됩니다. 현재 시간은 다른 모든 내보내기 유형에 동일한 방식으로 적용됩니다. 즉, 항상 내보내기를 처음에 만든 때와 같은 시간에 실행됩니다. 다른 예로, 월요일 오후 4시의 주간 내보내기를 만듭니다. 이 경우 다음 보고서는 다음 주 월요일 오후 4시에 실행됩니다. *내보낸 데이터는 실행 시간으로부터 4시간 이내에 사용할 수 있습니다.*
+
+각 내보내기는 새 파일을 만들므로 이전의 내보내기를 덮어쓰지 않습니다.
+
+내보내기 옵션에는 다음 세 가지 유형이 있습니다.
+
+**월간 누계 비용 매일 내보내기** – 초기 내보내기가 즉시 실행됩니다. 후속 내보내기는 다음 날의 초기 내보내기와 같은 시간에 실행됩니다. 최신 데이터는 이전의 매일 내보내기에서 집계됩니다.
+
+**지난 7일간 비용의 주간 내보내기** – 초기 내보내기가 즉시 실행됩니다. 후속 내보내기는 초기 내보내기와 같은 요일과 시간에 실행됩니다. 비용은 지난 7일간의 비용입니다.
+
+**사용자 지정** – 주별 누계 및 월간 누계 옵션을 사용하여 주간 및 월간 내보내기를 예약할 수 있습니다. *초기 내보내기는 즉시 실행됩니다.*
+
+![새 내보내기 - 사용자 지정 주별 누계 선택 항목을 보여 주는 기본 사항 탭](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
 
 ## <a name="verify-that-data-is-collected"></a>데이터가 수집되는지 확인
 

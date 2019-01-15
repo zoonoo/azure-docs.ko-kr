@@ -6,26 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: fbe286313bce9b735665b134a5ea18ba4995548b
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 3b158e0743a811f0d8f478c15b64c2b8b99a748a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712265"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156003"
 ---
-# <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>빠른 시작: Azure Portal(미리 보기)을 사용하여 Azure Data Box Disk 배포
+# <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Data Box Disk 배포
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Data Box Disk를 배포하는 방법을 설명합니다. 단계는 신속하게 주문을 만들고, 디스크를 수신하고, 압축을 풀고, 연결하고 Azure에 업로드하도록 디스크에 데이터를 복사하는 방법을 포함합니다. 
 
-자세한 단계별 배포 및 지침 추적은 [자습서: Azure Data Box Disk 주문](data-box-disk-deploy-ordered.md)으로 이동합니다. 
+자세한 단계별 배포 및 추적 지침은 [자습서: Azure Data Box Disk 주문](data-box-disk-deploy-ordered.md)을 참조하세요. 
 
 Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-
-> [!IMPORTANT]
-> Data Box Disk는 미리 보기로 제공됩니다. 이 솔루션을 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -65,7 +62,7 @@ Data Box Disk는 UPS Express 상자에 배송됩니다. 상자를 열고 상자�
 1. 포함된 케이블을 사용하여 지원되는 버전을 실행하는 Windows/Linux 컴퓨터에 디스크를 연결합니다. 지원되는 OS 버전에 대한 자세한 내용은 [Azure Data Box Disk 시스템 요구 사항](data-box-disk-system-requirements.md)으로 이동합니다. 
 2. 디스크의 잠금을 해제하려면:
 
-    1. Azure Portal에서 **일반 > 장치 세부 정보**로 이동하여 암호를 가져옵니다.
+    1. Azure Portal에서 **일반 &gt; 디바이스 세부 정보**로 이동하여 암호를 가져옵니다.
     2. 디스크에 데이터 디스크를 복사하는 데 사용되는 컴퓨터에서 운영 체제별 Data Box Disk 잠금 해제 도구를 다운로드하고 추출합니다. 
     3. Data Box Disk 잠금 해제 도구를 실행하고 지원 암호를 제공합니다. 디스크를 다시 삽입하려면 잠금 해제 도구를 다시 실행하고 암호를 제공합니다. **BitLocker 대화 상자 또는 BitLocker 키를 사용하여 디스크를 잠금 해제하지 마세요.** 디스크 잠금 해제 방법에 대한 자세한 내용은 [Windows 클라이언트에서 디스크 잠금 해제](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) 또는 [Linux 클라이언트에서 디스크 잠금 해제](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client)로 이동하세요.
     4. 디스크에 할당한 드라이브 문자가 도구에 의해 표시됩니다. 디스크 드라이브 문자를 기록해 둡니다. 이후 단계에서 사용됩니다.

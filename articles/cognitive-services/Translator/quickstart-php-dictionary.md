@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 대체 번역 찾기, PHP - Translator Text API'
+title: 이중 언어 사전이 있는 단어 조회, PHP - Translator Text API
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 PHP와 함께 Translator Text API를 사용하여 컨텍스트의 용어를 대체하는 번역과 예제를 찾아봅니다.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: 4d48ab8d0178b2d3fbcba2ee631ee97b30518f88
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ff1f0a97667260fa19c46bec6901113ff696aaab
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649771"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156887"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-php"></a>빠른 시작: Translator Text REST API(PHP)로 대체 번역 찾기
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-php"></a>빠른 시작: PHP를 사용하여 이중 언어 사전이 있는 단어 조회
 
 이 빠른 시작에서는 Translator Text API를 사용하여 용어를 대신할 수 있는 대체 번역의 상세 정보와 대체 번역의 사용 예제를 찾아봅니다.
 

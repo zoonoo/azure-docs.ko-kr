@@ -1,12 +1,10 @@
 ---
-title: Azure 가상 네트워크 서비스 엔드포인트 | Microsoft Docs
+title: Azure 가상 네트워크 서비스 엔드포인트
+titlesuffix: Azure Virtual Network
 description: 서비스 엔드포인트를 사용하여 가상 네트워크에서 Azure 리소스에 대한 직접 액세스를 사용하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: sumeetmittal
-manager: narayan
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -15,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: acb5897825a2a7762869d3ad961dfcdcb87071b4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 77d21a9db54a34d3f9981929bb90dfd3b54e23dd
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540557"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190598"
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
@@ -60,7 +58,7 @@ VNet(Virtual Network) 서비스 엔드포인트는 직접 연결을 통해 가�
 
 - 이 기능은 Azure Resource Manager 배포 모델을 통해 배포된 가상 네트워크에만 사용할 수 있습니다.
 - 엔드포인트는 Azure 가상 네트워크에서 구성된 서브넷에서 활성화됩니다. 프레미스에서 Azure 서비스로의 트래픽에 엔드포인트를 사용할 수 없습니다. 자세한 내용은 [온-프레미스에서 Azure 서비스 액세스 보호](#securing-azure-services-to-virtual-networks)를 참조하세요.
-- Azure SQL의 경우 서비스 엔드포인트는 가상 네트워크의 지역 내에서 Azure 서비스 트래픽에만 적용됩니다. Azure Storage의 경우 RA-GRS 및 GRS 트래픽을 지원하기 위해 가상 네트워크가 배포된 쌍을 이루는 지역을 포함하도록 엔드포인트가 확장됩니다. [Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)에 대해 자세히 알아보세요.
+- Azure SQL의 경우 서비스 엔드포인트는 가상 네트워크의 지역 내에서 Azure 서비스 트래픽에만 적용됩니다. Azure Storage 및 ADLS Gen 1의 경우 RA-GRS 및 GRS 트래픽을 지원하기 위해 가상 네트워크가 배포된 쌍을 이루는 지역을 포함하도록 엔드포인트가 확장됩니다. [Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)에 대해 자세히 알아보세요.
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Virtual Network에 대한 Azure 서비스 보호
 

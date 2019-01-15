@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2295ed6d3d1b22d70f95d0c9ac4542b59c7ddc09
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e0ad51bd2370cd8b7569d76e5d91b606928eea6d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972093"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189357"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>빠른 시작: Azure Portal에서 Windows 디바이스로 첫 번째 IoT Edge 모듈 배포 - 미리 보기
 
@@ -63,7 +63,7 @@ IoT Edge 디바이스:
   * Windows Server 2019
 * 디바이스가 컨테이너를 호스팅할 수 있도록 가상화 사용
    * Windows 컴퓨터인 경우 컨테이너 기능을 사용하도록 설정합니다. 시작 표시줄에서 **Windows 기능 켜기/끄기**로 이동하여 **컨테이너** 옆에 있는 확인란을 선택합니다.
-   * 가상 머신인 경우 [중첩된 가상화](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)를 사용하도록 설정하고 최소 2GB 메모리를 할당하세요.
+   * 가상 머신인 경우 [중첩된 가상화](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)를 사용하도록 설정하고 최소 2GB 메모리를 할당합니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -113,7 +113,7 @@ IoT Edge 디바이스는 일반적인 IoT 디바이스와 다르게 작동하며
 IoT Edge 디바이스에 Azure IoT Edge 런타임을 설치하고 디바이스 연결 문자열을 사용하여 구성합니다.
 ![다이어그램 - 디바이스에서 런타임 시작](./media/quickstart/start-runtime.png)
 
-IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 구성 요소가 있습니다. **IoT Edge 보안 디먼**은 Edge 장치가 부팅되고 IoT Edge 에이전트를 시작하여 장치를 부트스트랩할 때마다 시작됩니다. **IoT Edge 에이전트**는 IoT Edge 허브를 포함하여 IoT Edge 장치에서 모듈을 쉽게 배포하고 모니터링할 수 있습니다. **IoT Edge 허브**는 IoT Edge 디바이스의 모듈 간 통신과 디바이스와 IoT Hub 간의 통신을 관리합니다.
+IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 구성 요소가 있습니다. **IoT Edge 보안 디먼**은 IoT Edge 디바이스가 부팅되고 IoT Edge 에이전트를 시작하여 디바이스를 부트스트랩할 때마다 시작됩니다. **IoT Edge 에이전트**는 IoT Edge 허브를 포함하여 IoT Edge 디바이스에 모듈을 배포하고 모니터링하는 작업을 관리합니다. **IoT Edge 허브**는 IoT Edge 디바이스의 모듈 간 통신, 그리고 디바이스와 IoT Hub 간의 통신을 처리합니다.
 
 설치 스크립트에는 IoT Edge 디바이스의 컨테이너 이미지를 관리하는 Moby라는 컨테이너 엔진도 포함됩니다. 
 
@@ -175,14 +175,16 @@ IoT Edge 장치가 구성되었습니다. 클라우드 배포 모듈을 실행�
 
 ## <a name="deploy-a-module"></a>모듈 배포
 
-클라우드에서 Azure IoT Edge 디바이스를 관리하여 원격 분석 데이터를 IoT Hub로 보낼 모듈을 배포합니다.
+클라우드에서 Azure IoT Edge 디바이스를 관리하여 원격 분석 데이터를 IoT Hub로 보내는 모듈을 배포합니다.
 ![다이어그램 - 클라우드에서 디바이스로 모듈 배포](./media/quickstart/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
 ## <a name="view-generated-data"></a>생성된 데이터 보기
 
-이 빠른 시작에서는 새 IoT Edge 디바이스를 만들고 여기에 IoT Edge 런타임을 설치했습니다. 그런 다음, 디바이스 자체를 변경하지 않고도 디바이스에서 실행할 IoT Edge 모듈을 푸시할 수 있도록 Azure Portal을 사용했습니다. 이 경우 푸시한 모듈에서는 자습서에 대해 사용할 수 있는 환경 데이터를 만듭니다.
+이 빠른 시작에서는 새 IoT Edge 디바이스를 등록하고 IoT Edge 런타임을 설치했습니다. 그런 다음, 디바이스 자체를 변경하지 않고도 디바이스에서 실행할 수 있도록 Azure Portal을 사용하여 IoT Edge 모듈을 배포했습니다. 
+
+이 예에서 푸시한 모듈은 테스트에 사용할 수 있는 샘플 데이터를 만듭니다. 시뮬레이션된 온도 센서 모듈은 나중에 테스트에 사용할 수 있는 환경 데이터를 생성합니다. 시뮬레이션된 센서는 머신과 머신 주변의 환경을 모니터링합니다. 예를 들어 이 센서가 서버실, 공장 또는 풍력 터빈에 장착될 수 있습니다. 메시지에는 주변 온도 및 습도, 머신 온도 및 압력, 타임스탬프가 포함됩니다. IoT Edge 자습서는 이 모듈에서 만든 데이터를 분석용 테스트 데이터로 사용합니다.
 
 클라우드에서 배포된 모듈을 IoT Edge 디바이스에서 실행 중인지 확인합니다.
 
@@ -204,6 +206,7 @@ iotedge logs SimulatedTemperatureSensor -f
    ![모듈의 데이터 보기](./media/quickstart/iotedge-logs.png)
 
 [Visual Studio Code용 Azure IoT Hub Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)(이전의 Azure IoT Toolkit 확장)을 사용하여 IoT 허브에 메시지가 도착하는 것을 확인할 수도 있습니다. 
+
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -230,23 +233,6 @@ IoT Edge 런타임을 제거합니다. IoT Edge를 다시 설치할 계획이 �
    Uninstall-SecurityDaemon -DeleteConfig -DeleteMobyDataRoot
    ```
 
-IoT Edge 런타임을 제거하면 만든 컨테이너는 중지되지만 디바이스에는 계속 남아 있습니다. 모든 컨테이너를 봅니다.
-
-   ```powershell
-   docker -H npipe:////./pipe/iotedge_moby_engine ps -a
-   ```
-
-   >[!TIP]
-   >Docker 명령의 **-H**(호스트) 플래그는 IoT Edge 런타임과 함께 설치된 Moby 엔진을 가리킵니다. 동일한 머신에 Docker와 Moby를 모두 사용하면 호스트 플래그를 통해 지정된 명령에 대해 어떤 엔진을 사용 중인지 지정할 수 있습니다. Moby만 사용하려면 **DOCKER_HOST** 환경 변수를 npipe:////./pipe/iotedge_moby_engine을 가리키도록 설정하면 됩니다.
-
-IoT Edge 런타임에 의해 디바이스에서 만들어진 컨테이너를 삭제합니다. 
-
-   ```powershell
-   docker -H npipe:////./pipe/iotedge_moby_engine rm -f SimulatedTemperatureSensor
-   docker -H npipe:////./pipe/iotedge_moby_engine rm -f edgeHub
-   docker -H npipe:////./pipe/iotedge_moby_engine rm -f edgeAgent
-   ```
-   
 ## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서는 새 IoT Edge 디바이스를 만들고 Azure IoT Edge 클라우드 인터페이스를 사용하여 디바이스에 코드를 배포했습니다. 이제 해당 환경에 대한 원시 데이터를 생성하는 테스트 디바이스가 준비되었습니다.

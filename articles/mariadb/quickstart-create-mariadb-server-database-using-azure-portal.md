@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: fb02cfd2419d1c98a92d1eae8b59256499d017a8
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/09/2019
+ms.openlocfilehash: 076a29de227447c75644bd3b59bda1053794d739
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541390"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191890"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB 서버 만들기
 
@@ -53,9 +53,9 @@ Azure Database for MariaDB 서버를 만들려면
     버전 | *최신 버전*| 최신 버전입니다(다른 버전을 사용하는 특정 요구 사항이 없는 경우).
     가격 책정 계층  | 설명을 참조하세요. | 새 서버에 대한 계산, 저장소 및 백업 구성입니다. **가격 책정 계층** > **범용**을 선택합니다. 다음 설정에 대해 기본값을 그대로 유지합니다.<br><ul><li>**세대 계산**(Gen 5)</li><li>**vCore**(vCore 2개)</li><li>**저장소**(5GB)</li><li>**백업 보존 기간**(7일)</li></ul><br>지역 중복 저장소에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션**에서 **지역 중복**을 선택합니다. <br><br>이 가격 책정 계층 선택을 저장하려면 **확인**을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
   
-    > [!IMPORTANT]
-    > 여기에 지정하는 서버 관리자 로그인 및 암호는 이 빠른 시작의 뒷부분에서 서버 및 해당 데이터베이스에 로그인하는 데 필요합니다. 나중에 사용하기 위해 이 정보를 기억하거나 기록합니다.
-    > 
+   > [!NOTE]
+   > 워크로드에 가벼운 컴퓨팅 및 I/O가 적합한 경우 기본 가격 책정 계층을 고려합니다. 기본 가격 책정 계층에서 만든 서버는 나중에 범용으로 또는 메모리 최적화되도록 확장할 수 없습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/mariadb/)를 참조하세요.
+   > 
 
    ![서버 만들기 - 가격 책정 계층 창](./media/quickstart-create-mariadb-server-database-using-azure-portal/3-pricing-tier.png)
 

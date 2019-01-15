@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 7f7ae858f633a910b796f544ed69a582e749beaf
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d5d284e8f7756e3e9bff5b08d28a8ed911a60572
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311068"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158876"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>빠른 시작: Android 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -78,16 +78,16 @@ mAuthResult.getAccessToken()
 
 ## <a name="step-1-register-and-configure-your-app"></a>1단계: 앱 등록 및 구성
 
-[Azure Portal](https://portal.azure.com)을 사용하여 네이티브 클라이언트 응용 프로그램을 Microsoft에 등록해야 합니다.
+[Azure Portal](https://portal.azure.com)을 사용하여 네이티브 클라이언트 애플리케이션을 Microsoft에 등록해야 합니다.
 
 1. 앱 등록
     - [Azure Portal](https://aad.portal.azure.com)로 이동합니다.
     - ***Azure Active Directory*** > ***앱 등록***을 선택합니다.
 
 2. 앱 만들기
-    - **새 응용 프로그램 등록**을 선택합니다.
+    - **새 애플리케이션 등록**을 선택합니다.
     - **이름** 필드에 앱 이름을 입력합니다.
-    - **응용 프로그램 유형**에서 **네이티브**를 선택합니다.
+    - **애플리케이션 유형**에서 **네이티브**를 선택합니다.
     - **리디렉션 URI**로 `http://localhost`를 입력합니다.
 
 3. Microsoft Graph 구성
@@ -127,7 +127,7 @@ mAuthResult.getAccessToken()
 
 1. [ADAL Android Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki)에서 라이브러리 메커니즘과 새로운 시나리오 및 기능을 구성하는 방법에 대한 자세한 내용을 확인하세요.
 2. 네이티브 시나리오에서는 앱이 Webview를 사용하므로 앱에서 나가지 않습니다. `Redirect URI`는 임의로 지정될 수 있습니다.
-3. 문제가 있거나 궁금한 점이 있나요? Stackoverflow에서 `azure-active-directory` 태그를 사용하여 문제를 작성하거나 게시할 수 있습니다.
+3. 문제가 있거나 궁금한 점이 있나요? Stack Overflow에서 `azure-active-directory` 태그를 사용하여 문제를 작성하거나 게시할 수 있습니다.
 
 ### <a name="cross-app-sso"></a>앱 간 SSO
 

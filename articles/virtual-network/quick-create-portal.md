@@ -1,14 +1,12 @@
 ---
-title: 가상 네트워크 만들기 - 빠른 시작 - Azure Portal | Microsoft Docs
+title: 가상 네트워크 만들기 - 빠른 시작 - Azure Portal
+titlesuffix: Azure Virtual Network
 description: 이 빠른 시작에서 Azure Portal을 사용하여 가상 네트워크를 만드는 방법에 대해 알아봅니다. 가상 네트워크를 사용하면 가상 머신과 같은 Azure 리소스가 서로 인터넷을 통해 비공개로 통신할 수 있습니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: quickstart
@@ -16,13 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: jdial
-ms.custom: mvc
-ms.openlocfilehash: d627d54686cb40714e9e8574ceae56a8900cb45e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 346299dff8354bfca56a1f348c8f66e90da89632
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269468"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020832"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>빠른 시작: Azure 포털을 사용하여 가상 네트워크 만들기
 
@@ -36,7 +33,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-1. 화면의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 선택합니다.
+1. 화면의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택합니다.
 
 1. **가상 네트워크 만들기**에서 다음 정보를 입력하거나 선택합니다.
 
@@ -70,17 +67,17 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
     | **인스턴스 정보** |  |
     | 가상 머신 이름 | *myVm1*을 입력합니다. |
     | 지역 | **미국 동부**를 선택합니다. |
-    | 가용성 옵션 | 기본값 **인프라 중복은 필요하지 않습니다.** 를 그대로 둡니다. |
-    | 이미지 | 기본값 **Windows Server 2016 Datacenter**를 그대로 둡니다. |
-    | 크기 | 기본값 **표준 DS1 v2**를 그대로 둡니다. |
+    | 가용성 옵션 | 기본값인 **인프라 중복이 필요하지 않습니다**를 그대로 둡니다. |
+    | 이미지 | 기본값인 **Windows Server 2016 Datacenter**를 그대로 둡니다. |
+    | 크기 | 기본값인 **표준 DS1 v2**를 그대로 둡니다. |
     | **관리자 계정** |  |
     | 사용자 이름 | 선택한 사용자 이름을 입력합니다. |
     | 암호 | 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     | 암호 확인 | 암호를 다시 입력합니다. |
     | **인바운드 포트 규칙** |  |
-    | 공용 인바운드 포트 | 기본값 **없음**을 그대로 둡니다. |
+    | 공용 인바운드 포트 | 기본값인 **없음**을 그대로 둡니다. |
     | **비용 절감** |  |
-    | 이미 Windows 라이선스가 있나요? | 기본값 **아니요**를 그대로 둡니다. |
+    | 이미 Windows 라이선스가 있나요? | 기본값인 **아니요**를 그대로 둡니다. |
 
 1. **다음: 디스크**를 선택합니다.
 
@@ -90,7 +87,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 가상 네트워크 | 기본값 **myVirtualNetwork**를 그대로 둡니다. |
+    | 가상 네트워크 | 기본값인 **myVirtualNetwork**를 그대로 둡니다. |
     | 서브넷 | 기본값 **myVirtualSubnet(10.1.0.0/24)** 을 그대로 둡니다. |
     | 공용 IP | 기본값 **(신규) myVm-ip**를 그대로 둡니다. |
     | 네트워크 보안 포트 | **선택한 포트 허용**을 선택합니다. |
@@ -105,9 +102,9 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
     | 설정 | 값 |
     | ------- | ----- |
     | 이름 | *myvmstorageaccount*를 입력합니다. |
-    | 계정 종류 | 기본값 **스토리지(범용 v1)** 를 그대로 둡니다. |
-    | 성능 | 기본값 **표준**을 그대로 둡니다. |
-    | 복제 | 기본값 **LRS(로컬 중복 스토리지)** 를 그대로 둡니다. |
+    | 계정 종류 | 기본값인 **스토리지(범용 v1)** 를 그대로 둡니다. |
+    | 성능 | 기본값인 **표준**을 그대로 둡니다. |
+    | 복제 | 기본값인 **LRS(로컬 중복 스토리지)** 를 그대로 둡니다. |
 
 1. **확인**을 선택합니다.
 

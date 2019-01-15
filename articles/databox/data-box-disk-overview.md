@@ -6,27 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 10/30/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: f965d455b3ada48caabb80458d44e841329cf787
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 874142df31d96de36b2b5be81a863c2f31317c52
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229614"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158043"
 ---
-# <a name="what-is-azure-data-box-disk-preview"></a>Azure Data Box Disk란? (미리 보기)
+# <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk란?
 
 Microsoft Azure Data Box Disk 솔루션을 사용하면 테라바이트 단위의 온-프레미스 데이터를 빠르고 저렴하게 신뢰할 수 있는 방식으로 Azure로 보낼 수 있습니다. 1-5개의 SSD(반도체 디스크)를 배송함으로써 안전한 데이터 전송이 빨라집니다. 이러한 8TB 암호화된 디스크는 지역 배송업체를 통해 데이터 센터로 보내집니다. 
 
 Azure Portal에서 Data Box 서비스를 통해 디스크를 빠르게 구성, 연결 및 잠금 해제할 수 있습니다. 데이터를 디스크에 복사하고, 이 디스크를 Azure로 반송합니다. Azure 데이터 센터에서 고속 사설망 업로드 링크를 사용하여 데이터를 드라이브에서 클라우드로 자동으로 업로드합니다.
-
-
-> [!IMPORTANT]
-> - Data Box Disk는 미리 보기로 있습니다. 이 솔루션을 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요. 
-> - 이 서비스에 등록해야 합니다. 등록하려면 [미리 보기 포털](https://aka.ms/azuredataboxfromdiskdocs)로 이동하세요.
-> - 미리 보기 동안 Data Box Disk는 미국 및 유럽 연합의 고객에게 배송될 수 있습니다. 자세한 내용은 [지역 가용성](#region-availability)을 참조하세요.
 
 ## <a name="use-cases"></a>사용 사례
 
@@ -95,7 +89,7 @@ Data Box Disk는 네트워크에 아무런 영향을 주지 않고 대량의 데
 
 ## <a name="region-availability"></a>지역 가용성
 
-미리 보기 동안 Data Box Disk에서 데이터를 전송할 수 있는 Azure 지역은 다음과 같습니다.
+현재 Data Box Disk에서 데이터를 전송할 수 있는 Azure 지역은 다음과 같습니다.
 
 
 |Azure 지역  |Azure 지역  |
@@ -112,7 +106,7 @@ Data Box Disk는 네트워크에 아무런 영향을 주지 않고 대량의 데
 
 ## <a name="pricing"></a>가격
 
-가격 책정에 대한 자세한 내용은 [미리 보기 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/databox/disk/)를 참조하세요.
+가격 책정에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/databox/disk/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

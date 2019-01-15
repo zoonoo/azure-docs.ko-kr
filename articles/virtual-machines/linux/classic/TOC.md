@@ -1,4 +1,4 @@
-# [개요](../overview.md)
+# 개요
 ## [VM 확장](agents-and-extensions-classic.md)
 ## [가용성](configure-availability-classic.md)
 ## [FAQ](faq-classic.md)
@@ -30,7 +30,7 @@
 ### [MySQL 성능 최적화](optimize-mysql.md)
 
 ## 애플리케이션 실행
-### [Ruby on Rails 웹 응용 프로그램](ruby-rails-web-app.md)
+### [Ruby on Rails 웹 애플리케이션](ruby-rails-web-app.md)
 ### [Cassandra 및 Node.js 클라이언트](cassandra-nodejs.md)
 ### [Tomcat](setup-tomcat.md)
 ### HPC 팩
@@ -49,7 +49,6 @@
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
-## [Resource Manager 템플릿 작성](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [커뮤니티 템플릿](https://azure.microsoft.com/documentation/templates)
 ## [Compute REST](https://msdn.microsoft.com/library/jj157206.aspx)
 ## [네트워크 REST](https://msdn.microsoft.com/library/jj157182.aspx)

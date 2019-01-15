@@ -85,8 +85,6 @@ items:
       href: gallery-collections.md
     - name: 사용자 지정 모듈
       href: gallery-custom-modules.md
-    - name: 계정 데이터 보기 및 삭제
-      href: ai-gallery-control-personal-data-dsr.md
 - name: 개념
   items:
   - name: 모델 관리
@@ -214,18 +212,20 @@ items:
       href: consume-web-service-with-web-app-template.md
     - name: Batch 풀 사용
       href: dedicated-capacity-for-bes-jobs.md
+  - name: 계정 데이터 보기 및 삭제
+    href: ai-gallery-control-personal-data-dsr.md
 - name: 참고 자료
   items:
+  - name: 알고리즘 및 모듈 참조
+    href: https://msdn.microsoft.com/library/azure/dn905974.aspx
   - name: Azure PowerShell 모듈(신규)
     href: https://docs.microsoft.com/powershell/module/azurerm.machinelearning
   - name: Azure PowerShell 모듈(클래식)
     href: powershell-module.md
-  - name: 알고리즘 및 모듈 참조
-    href: https://msdn.microsoft.com/library/azure/dn905974.aspx
-  - name: REST 관리 API
-    href: /rest/api/machinelearning
   - name: 웹 서비스 오류 코드
     href: web-service-error-codes.md
+  - name: REST 관리 API
+    href: /rest/api/machinelearning
 - name: 리소스
   items:
   - name: 가격
@@ -240,9 +240,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-machine-learning
   - name: R 개발자 가이드
     href: ../r-developers-guide.md
-ms.openlocfilehash: 16c610345c063be9149d841c71d27f73e22d143d
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c7b407e7db087992a2b667162aaf4572d657f380
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974118"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303500"

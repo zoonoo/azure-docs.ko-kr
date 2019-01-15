@@ -8,18 +8,18 @@ ms.service: event-grid
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
-ms.date: 09/18/2018
+ms.date: 01/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: c462334597b41b914b6a0a0e3c8a67ad97e2bd7a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 788d23c7bddd90c1e12a118742c651eb9759529c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295583"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062964"
 ---
 # <a name="azure-resource-manager-templates-for-event-grid"></a>Event Grid를 위한 Azure Resource Manager 템플릿
 
-다음 표는 Event Grid를 위한 Azure Resource Manager 템플릿 링크를 포함합니다.
+템플릿에서 사용할 JSON 구문 및 속성은 [Microsoft.EventGrid 리소스 종류](/azure/templates/microsoft.eventgrid/allversions)를 참조하세요. 다음 표는 Event Grid를 위한 Azure Resource Manager 템플릿 링크를 포함합니다.
 
 | | |
 |-|-|

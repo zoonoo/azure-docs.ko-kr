@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 07/11/2018
+ms.date: 01/02/2019
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: e483997140efc1d75466d887e42383d887f8a6f4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dc7932f197931a0fbf1dde924eb70ca18f6f9748
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963252"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065548"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Storage 소개
 
@@ -21,8 +21,8 @@ Azure Storage는 최신 데이터 스토리지 시나리오를 위한 Microsoft�
 
 - **내구성 및 고가용성** 중복성을 통해 일시적인 하드웨어 오류가 발생할 경우 데이터를 안전하게 보호합니다. 또한 로컬 재해 또는 자연 재해로부터 추가 보호를 위해 데이터 센터 또는 지리적 영역에서 데이터를 복제하도록 선택할 수도 있습니다. 이러한 방식으로 복제된 데이터는 예기치 않은 중단이 발생할 경우 항상 사용 가능한 상태로 유지됩니다. 
 - **보안** Azure Storage에 기록된 모든 데이터는 서비스에 의해 암호화됩니다. Azure Storage는 데이터에 액세스할 수 있는 사용자에 대한 세분화된 제어를 제공합니다.
-- **확장성** Azure Storage는 오늘날의 애플리케이션의 데이터 저장소 및 성능 요구 사항을 충족하기 위해 확장성이 매우 뛰어나도록 설계되었습니다. 
-- **관리** Microsoft Azure는 유지 관리 및 사용자에 대한 중요한 문제를 처리합니다.
+- **확장성** Azure Storage는 오늘날의 응용 프로그램의 데이터 스토리지 및 성능 요구 사항을 충족하기 위해 확장성이 매우 뛰어나도록 설계되었습니다. 
+- **관리** Microsoft Azure에서 하드웨어 유지 관리, 업데이트 및 중요한 문제를 처리합니다.
 - **액세스 가능** Azure Storage의 데이터는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. Microsoft는 완성도 높은 REST API 뿐만 아니라 .NET, Java, Node.js, Python, PHP, Ruby, Go 및 기타 다양한 언어로 Azure Storage용 SDK를 제공합니다. Azure Storage는 Azure PowerShell 또는 Azure CLI에서 스크립트를 지원합니다. 또한 Azure Portal 및 Azure Storage 탐색기는 데이터 작업을 위한 쉬운 시각적 솔루션을 제공합니다.  
 
 ## <a name="azure-storage-services"></a>Azure Storage 서비스
@@ -89,30 +89,9 @@ Table 저장소에 대한 자세한 내용은 [Azure Table 저장소 개요](../
 
 ## <a name="types-of-storage-accounts"></a>저장소 계정 유형
 
-이 표에서는 개체에서 사용할 수 있는 다양한 종류의 저장소 계정을 보여줍니다.
+[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
-|**저장소 계정의 유형**|**범용 표준**|**범용 프리미엄**|**Blob Storage, 핫 및 쿨 액세스 계층**|
-|-----|-----|-----|-----|
-|**지원되는 서비스**| Blob, File, Queue 및 Table 서비스 | Blob Service | Blob Service|
-|**지원되는 Blob 유형**|블록 Blob, 페이지 Blob 및 추가 Blob | 페이지 Blob | 블록 Blob 및 추가 Blob|
-
-### <a name="general-purpose-storage-accounts"></a>범용 저장소 계정
-
-범용 저장소 계정에는 두 가지가 있습니다.
-
-#### <a name="standard-storage"></a>Standard Storage
-
-가장 널리 사용되는 저장소 계정은 모든 유형의 데이터에 사용할 수 있는 표준 저장소 계정입니다. 표준 저장소 계정은 자기 미디어를 사용하여 데이터를 저장합니다.
-
-#### <a name="premium-storage"></a>Premium Storage
-
-프리미엄 저장소는 VHD 파일에 주로 사용되는 페이지 Blob에 고성능 저장소를 제공합니다. 프리미엄 저장소 계정은 SSD를 사용하여 데이터를 저장합니다. 모든 VM에 Premium Storage를 사용하는 것이 좋습니다.
-
-### <a name="blob-storage-accounts"></a>Blob Storage 계정
-
-Blob Storage 계정은 블록 Blob 및 추가 Blob을 저장하는 데 사용되는 특별한 스토리지 계정입니다. 이러한 계정에 페이지 Blob을 저장할 수 없습니다. 따라서 VHD 파일을 저장할 수 없습니다. 이러한 계정을 사용하면 액세스 계층을 핫 또는 쿨로 설정할 수 있습니다. 계층은 언제든지 변경할 수 있습니다.
-
-핫 액세스 계층은 자주 액세스 하는 파일에 대해 사용합니다. 저장소의 경우 비용이 많이 들지만 Blob에 액세스하는 비용이 훨씬 낮습니다. 쿨 액세스 계층에 저장된 Blob의 경우 Blob에 액세스하기 위한 비용이 많이 들지만 저장소 비용이 훨씬 낮습니다.
+애플리케이션 계정 유형에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요. 
 
 ## <a name="accessing-your-blobs-files-and-queues"></a>Blob, 파일 및 큐에 액세스
 
@@ -161,16 +140,7 @@ SSE는 모든 성능 계층(표준 및 프리미엄), 모든 배포 모델(Azure
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>Azure Storage 간에 데이터 전송
 
-AzCopy 명령줄 유틸리티를 사용하여 저장소 계정 내에서 또는 저장소 계정 간에 Blob 및 파일 데이터를 복사할 수 있습니다. 도움말은 다음 문서 중 하나를 참조하세요.
-
-* [Windows에서 AzCopy를 사용하여 데이터 전송](storage-use-azcopy.md)
-* [Linux에서 AzCopy를 사용하여 데이터 전송](storage-use-azcopy-linux.md)
-
-AzCopy는 [Azure 데이터 이동 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)를 기반으로 구축되며 현재 미리 보기에서 사용할 수 있습니다.
-
-Azure Import/Export 서비스는 저장소 계정 간에 대량의 Blob 데이터를 가져오거나 내보내는 데 사용할 수 있습니다. 여러 하드 드라이브를 준비하고 Azure 데이터 센터에 전자 메일로 보내면 여기에서 하드 드라이브 간에 데이터를 전송하고 하드 드라이브를 다시 사용자에게 보냅니다. Import/Export 서비스에 대한 자세한 내용은 [Microsoft Azure Import/Export 서비스를 사용하여 Blob Storage에 데이터 전송](../storage-import-export-service.md)을 참조하세요.
-
-빠르고 저렴하고 신뢰할 수 있는 방법으로 저장소 계정에 대량의 Blob 데이터를 가져오려면 Azure Data Box 디스크를 사용할 수도 있습니다. Microsoft는 40TB 용량의 암호화된 SSD(solid-state disk)를 5개까지 지역 이동 통신 사업자를 통해 데이터 센터에 제공합니다. 신속하게 디스크를 구성하고, USB 연결을 통해 디스크에 데이터를 복사하고, Azure에 다시 디스크를 제공합니다. Azure 데이터 센터에서 데이터는 자동으로 드라이브에서 클라우드로 업로드됩니다. 이 솔루션에 대한 자세한 내용은 [Azure Data Box 디스크 개요](https://docs.microsoft.com/azure/databox/data-box-disk-overview)로 이동합니다.
+Azure Storage에서 데이터를 이동하는 몇 가지 옵션이 있습니다. 선택하는 옵션은 데이터 세트의 크기와 네트워크 대역폭에 따라 달라집니다. 자세한 내용은 [데이터 전송을 위한 Azure 솔루션 선택](storage-choose-data-transfer-solution.md)을 참조하세요.
 
 ## <a name="pricing"></a>가격
 

@@ -1,30 +1,32 @@
 ---
-title: Java 응용 프로그램을 사용하여 Azure Cosmos DB Cassandra API 테이블에 샘플 데이터 로드 | Microsoft Docs
-description: 이 문서에서는 Java 응용 프로그램을 사용하여 Azure Cosmos DB Cassandra API 계정의 테이블로 샘플 사용자 데이터를 로드하는 방법을 보여 줍니다.
-services: cosmos-db
+title: '자습서: Java 애플리케이션을 사용하여 Azure Cosmos DB에서 Cassandra API 테이블에 샘플 데이터 로드'
+description: 이 자습서에서는 Java 애플리케이션을 사용하여 Azure Cosmos DB에서 Cassandra API 테이블로 샘플 사용자 데이터를 로드하는 방법을 보여줍니다.
 author: kanshiG
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
+ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 12/03/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e116dbf1d49fed1a47b830f9a57cd77a33b7ea9c
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+Customer intent: As a developer, I want to build a Java application to load data to a Cassandra API table in Azure Cosmos DB so that customers can store and manage the key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
+ms.openlocfilehash: 68baffea86ce5c877217ec05d477288b71830a42
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740723"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037432"
 ---
-# <a name="tutorial-load-sample-data-into-an-azure-cosmos-db-cassandra-api-table"></a>자습서: Azure Cosmos DB Cassandra API 테이블에 샘플 데이터 로드
+# <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>자습서: Azure Cosmos DB에서 Cassandra API 테이블에 샘플 데이터 로드
 
-이 자습서에서는 Java 응용 프로그램을 사용하여 Azure Cosmos DB Cassandra API 계정의 테이블로 샘플 사용자 데이터를 로드하는 방법을 보여줍니다. Java 응용 프로그램은 [Java 드라이버](https://github.com/datastax/java-driver)를 사용하며 사용자 ID, 사용자 이름, 사용자 도시와 같은 사용자 데이터를 로드합니다. 
+개발자는 키/값 쌍을 사용하는 애플리케이션을 가질 수도 있습니다. Azure Cosmos DB에서 Cassandra API 계정을 사용하여 키/값 데이터를 저장 및 관리할 수 있습니다. 이 자습서에서는 Java 애플리케이션을 사용하여 Azure Cosmos DB에서 Cassandra API 계정의 테이블로 샘플 사용자 데이터를 로드하는 방법을 보여줍니다. Java 애플리케이션은 [Java 드라이버](https://github.com/datastax/java-driver)를 사용하며 사용자 ID, 사용자 이름 및 사용자 도시와 같은 사용자 데이터를 로드합니다. 
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * Cassandra 테이블로 데이터 로드
 > * 앱 실행
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -74,7 +76,7 @@ ms.locfileid: "50740723"
 
 ## <a name="run-the-app"></a>앱 실행
 
-명령 프롬프트 또는 터미널 창을 열고 프로젝트를 만든 위치로 폴더 경로를 변경합니다. “mvn clean install” 명령을 실행하여 대상 폴더 내에 cosmosdb-cassandra-examples.jar 파일을 생성하고 응용 프로그램을 실행합니다. 
+명령 프롬프트 또는 터미널 창을 열고 프로젝트를 만든 위치로 폴더 경로를 변경합니다. “mvn clean install” 명령을 실행하여 대상 폴더 내에 cosmosdb-cassandra-examples.jar 파일을 생성하고 애플리케이션을 실행합니다. 
 
 ```bash
 cd "cassandra-demo"
@@ -88,7 +90,7 @@ java -cp target/cosmosdb-cassandra-examples.jar com.azure.cosmosdb.cassandra.exa
     
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Cosmos DB Cassandra API 계정으로 샘플 데이터를 로드하는 방법을 알아보았습니다. 이제 다음 문서로 진행할 수 있습니다.
+이 자습서에서는 Azure Cosmos DB에서 Cassandra API 계정으로 샘플 데이터를 로드하는 방법을 알아보았습니다. 이제 다음 문서로 진행할 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [Cassandra API 계정에서 데이터 쿼리](cassandra-api-query-data.md)

@@ -9,14 +9,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 113e5769ee6a58785a46182064684bea5825c12c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d233f1df40d9580edfaaeb6b819c014952ad3b0c
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138937"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189278"
 ---
 # <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>자습서: Bot Framework 4.x 및 Azure 웹앱 봇을 사용하는 C#의 LUIS 봇
 C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드할 수 있습니다. 이 봇은 HomeAutomation 앱을 사용하여 봇 솔루션을 구현합니다. 봇은 [Bot Framework 버전](https://github.com/Microsoft/botbuilder-js) v4 및 Azure [웹앱 봇](https://docs.microsoft.com/azure/bot-service/)을 사용하여 빌드되었습니다.
@@ -207,7 +207,7 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드할
 
     [ ![봇 에뮬레이터 v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png) ](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
 
-3. **[웹앱 봇 다운로드](#download-the-web-app-bot)** 섹션 1 단계의 Azure 봇 서비스 [응용 프로그램 설정]에서 복사한 봇 비밀을 입력합니다. 이렇게 하면 에뮬레이터에서 `.bot` 파일의 암호화된 필드에 액세스할 수 있습니다.
+3. **[웹앱 봇 다운로드](#download-the-web-app-bot)** 섹션 1 단계의 Azure 봇 서비스 [애플리케이션 설정]에서 복사한 봇 비밀을 입력합니다. 이렇게 하면 에뮬레이터에서 `.bot` 파일의 암호화된 필드에 액세스할 수 있습니다.
 
     ![봇 에뮬레이터 비밀 v4](../../../includes/media/cognitive-services-luis/bfv4/bot-secret.png)
 
@@ -301,6 +301,7 @@ Azure Bot Service는 Bot Framework SDK를 사용합니다. SDK 및 봇 프레임
 
 Azure 봇 서비스를 만들고, 봇 비밀 및 `.bot` 파일 경로를 복사하고, 코드의 Zip 파일을 다운로드했습니다. 미리 빌드된 HomeAutomation 도메인을 새 Azure 봇 서비스의 일환으로 만든 LUIS 앱에 추가한 다음, 앱을 다시 학습하고 게시했습니다. 코드 프로젝트를 추출하고, 환경 파일(`.env`)을 만들고, 봇 비밀과 `.bot` 파일 경로를 설정했습니다. 두 개의 새 의도를 처리하는 코드가 bot.js 파일에 추가되었습니다. 그런 다음, 봇 에뮬레이터에서 봇을 테스트하여 새 의도 중 하나의 발화에 대한 LUIS 응답을 확인했습니다. 
 
+대화형 봇을 사용하는 추가 [샘플](https://github.com/Microsoft/AI)을 참조하세요. 
 
 > [!div class="nextstepaction"]
 > [LUIS에서 사용자 지정 도메인 빌드](luis-quickstart-intents-only.md)

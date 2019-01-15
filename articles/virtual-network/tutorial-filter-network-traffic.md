@@ -1,14 +1,12 @@
 ---
-title: 네트워크 트래픽 필터링 - 자습서 - Azure Portal | Microsoft Docs
+title: 네트워크 트래픽 필터링 - 자습서 - Azure Portal
+titlesuffix: Azure Virtual Network
 description: 이 자습서에서는 Azure Portal을 사용하여 네트워크 보안 그룹을 통해 서브넷에 네트워크 트래픽을 필터링하는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
 ms.topic: tutorial
@@ -16,13 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: jdial
-ms.custom: ''
-ms.openlocfilehash: 68fdb158a7d4c723bffb54f33203120afb72a8ef
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: caf9b91d5b98d028d7c9e971df30ad1f6ec448ad
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385400"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019030"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링
 
@@ -63,7 +60,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 애플리케이션 보안 그룹을 사용하면 웹 서버와 같은 유사한 기능을 갖는 서버를 함께 그룹화할 수 있습니다.
 
 1. Azure Portal의 왼쪽 위에서 **+ 리소스 만들기**를 선택합니다.
-2. **Marketplace 검색** 상자에 *응용 프로그램 보안 그룹*을 입력합니다. 검색 결과에 표시되는 **애플리케이션 보안 그룹**을 선택하고 **모든 항목** 아래에서 **애플리케이션 보안 그룹**을 다시 선택한 다음, **만들기**를 선택합니다.
+2. **Marketplace 검색** 상자에서 *애플리케이션 보안 그룹*을 입력합니다. 검색 결과에 표시되는 **애플리케이션 보안 그룹**을 선택하고 **모든 항목** 아래에서 **애플리케이션 보안 그룹**을 다시 선택한 다음, **만들기**를 선택합니다.
 3. 다음 정보를 입력하거나 선택하고 **만들기**를 선택합니다.
 
     | 설정        | 값                                                         |
@@ -110,11 +107,11 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
     ![인바운드 보안 규칙 추가](./media/tutorial-filter-network-traffic/add-inbound-rule.png)
 
-2. **myAsgWebServers** 응용 프로그램 보안 그룹에 포트 80 및 443을 허용하는 보안 규칙을 만듭니다. **인바운드 보안 규칙 추가**에서 다음 값을 직접 입력 또는 선택하고 나머지 기본값을 적용한 다음, **추가**를 선택합니다.
+2. **myAsgWebServers** 애플리케이션 보안 그룹에 포트 80 및 443을 허용하는 보안 규칙을 만듭니다. **인바운드 보안 규칙 추가**에서 다음 값을 직접 입력 또는 선택하고 나머지 기본값을 적용한 다음, **추가**를 선택합니다.
 
     | 설정                 | 값                                                                                                           |
     | ---------               | ---------                                                                                                       |
-    | 대상             | **응용 프로그램 보안 그룹**을 선택한 다음, **응용 프로그램 보안 그룹**에 **myAsgWebServers**를 선택합니다.  |
+    | 대상             | **애플리케이션 보안 그룹**을 선택한 다음, **애플리케이션 보안 그룹**에 **myAsgWebServers**를 선택합니다.  |
     | 대상 포트 범위 | 80,443 입력                                                                                                    |
     | 프로토콜                | TCP 선택                                                                                                      |
     | 이름                    | Allow-Web-All                                                                                                   |
@@ -123,7 +120,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
     | 설정                 | 값                                                                                                           |
     | ---------               | ---------                                                                                                       |
-    | 대상             | **응용 프로그램 보안 그룹**을 선택한 다음, **응용 프로그램 보안 그룹**에 **myAsgMgmtServers**를 선택합니다. |
+    | 대상             | **애플리케이션 보안 그룹**을 선택한 다음, **애플리케이션 보안 그룹**에 **myAsgMgmtServers**를 선택합니다. |
     | 대상 포트 범위 | 3389 입력                                                                                                      |
     | 프로토콜                | TCP 선택                                                                                                      |
     | 우선 순위                | 110 입력                                                                                                       |

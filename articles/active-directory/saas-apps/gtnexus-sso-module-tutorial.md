@@ -1,33 +1,33 @@
 ---
-title: '자습서: Cherwell과 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory 및 Cherwell 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: '자습서: Flex Global View와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory와 Flex Global View 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: ad891f99-179e-4487-834d-35f3bc01c1ec
+ms.assetid: e677a161-1662-4eb3-b48a-b2835470b59e
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/25/2018
+ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 1713e2c46c18c92330872ebf82d7e033af1c38e1
+ms.openlocfilehash: ae466dc4bce6ab7068622272651c22d70fc84fff
 ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063950"
+ms.locfileid: "54067500"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cherwell"></a>자습서: Cherwell와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-flex-global-view"></a>자습서: Flex Global View와 Azure Active Directory 통합
 
-이 자습서에서는 Azure AD(Azure Active Directory)와 Cherwell을 통합하는 방법에 대해 알아봅니다.
-Azure AD와 Cherwell을 통합하면 다음과 같은 이점이 제공됩니다.
+이 자습서에서는 Azure AD(Azure Active Directory)와 Flex Global View를 통합하는 방법에 대해 알아봅니다.
+Flex Global View를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
-* Cherwell에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
-* 사용자가 해당 Azure AD 계정으로 Cherwell에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
+* Flex Global View에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
+* 사용자가 해당 Azure AD 계정으로 Flex Global View에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
@@ -35,22 +35,22 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure AD와 Cherwell 통합을 구성하려면 다음 항목이 필요합니다.
+Flex Global View와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
-* Cherwell Single Sign-On을 사용하도록 설정된 구독
+* Flex Global View Single Sign-On을 사용하도록 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-* Cherwell에서 **SP** 시작 SSO를 지원합니다.
+* Flex Global View에서 **IDP** 시작 SSO를 지원합니다.
 
-## <a name="adding-cherwell-from-the-gallery"></a>갤러리에서 Cherwell 추가
+## <a name="adding-flex-global-view-from-the-gallery"></a>갤러리에서 Flex Global View 추가
 
-Azure AD으로 Cherwell 통합을 구성하려면 갤러리의 Cherwell을 관리되는 SaaS 앱 목록에 추가해야 합니다.
+Flex Global View의 Azure AD 통합을 구성하려면 갤러리의 Flex Global View를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
-**갤러리에서 Cherwell을 추가하려면 다음 단계를 수행합니다.**
+**갤러리에서 Flex Global View를 추가하려면 다음 단계를 수행합니다.**
 
 1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
@@ -64,31 +64,31 @@ Azure AD으로 Cherwell 통합을 구성하려면 갤러리의 Cherwell을 관�
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에서 **Cherwell**을 입력하고, 결과 패널에서 **Cherwell**을 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **Flex Global View**를 입력하고, 결과 패널에서 **Flex Global View**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 Cherwell](common/search-new-app.png)
+     ![결과 목록의 Flex Global View](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 하여 Cherwell에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
-Single Sign-On이 작동하려면 Azure AD 사용자와 Cherwell의 관련 사용자 간에 연결 관계를 설정해야 합니다.
+이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 Flex Global View에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+Single Sign-On이 작동하려면 Azure AD 사용자와 Flex Global View의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
-Cherwell에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
+Flex Global View에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Cherwell Single Sign-On 구성](#configure-cherwell-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+2. **[Flex Global View Single Sign-On 구성](#configure-flex-global-view-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Cherwell 테스트 사용자 만들기](#create-cherwell-test-user)** - Azure AD 표현과 연결된 Britta Simon에 해당하는 사용자를 Cherwell에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Flex Global View 테스트 사용자 만들기](#create-flex-global-view-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Flex Global View에 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
 이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정합니다.
 
-Cherwell에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+Flex Global View에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Cherwell** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **Flex Global View** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
     ![Single Sign-On 구성 링크](common/select-sso.png)
 
@@ -100,35 +100,30 @@ Cherwell에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![기본 SAML 구성 편집](common/edit-urls.png)
 
-4. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+4. **서비스 공급자 메타데이터 파일**이 있으면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Cherwell 도메인 및 URL Single Sign-On 정보](common/sp-signonurl.png)
+    a. **메타데이터 파일 업로드**를 클릭합니다.
 
-    **로그인 URL** 텍스트 상자에서 `https://<companyname>.cherwellondemand.com/cherwellclient` 패턴을 사용하여 URL을 입력합니다.
+    ![이미지](common/upload-metadata.png)
 
-    > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 얻으려면 [Cherwell 클라이언트 지원 팀](https://csm.cherwell.com/contact)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    b. **폴더 로고**를 클릭하여 메타데이터 파일을 선택하고 **업로드**를 클릭합니다.
 
-4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
+    ![이미지](common/browse-upload-metadata.png)
 
-    ![인증서 다운로드 링크](common/certificatebase64.png)
+    다. 메타데이터 파일이 정상적으로 업로드되면 Flex Global View 섹션 텍스트 상자에서 **식별자** 및 **회신 URL** 값이 자동으로 입력됩니다.
 
-6. **Cherwell 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+    ![이미지](common/idp-intiated.png)
 
-    ![구성 URL 복사](common/copy-configuration-urls.png)
+    > [!Note]
+    > **식별자** 및 **회신 URL** 값이 자동으로 입력되지 않으면 요구 사항에 따라 수동으로 값을 입력합니다.
 
-    a. 로그인 URL
+5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 
-    b. Azure AD 식별자
+    ![인증서 다운로드 링크](common/metadataxml.png)
 
-    다. 로그아웃 URL
+### <a name="configure-flex-global-view-single-sign-on"></a>Flex Global View Single Sign-On 구성
 
-### <a name="configure-cherwell-single-sign-on"></a>Cherwell Single Sign-On 구성
-
-**Cherwell** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [Cherwell 지원 팀](https://csm.cherwell.com/contact)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
-
-> [!NOTE]
-> Cherwell 지원팀은 실제 SSO 구성을 수행해야 합니다. 구독에 SSO를 사용하도록 설정하면 알림을 받을 수 있습니다.
+**Flex Global View** 쪽에서 Single Sign-On을 구성하려면 **페더레이션 메타데이터 XML**을 [Flex Global View 지원 팀](mailto:support@gtnexus.com)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -157,15 +152,15 @@ Cherwell에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
-이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Cherwell에 대한 액세스 권한을 부여합니다.
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Flex Global View에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Cherwell**을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Flex Global View**를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **Cherwell**을 선택합니다.
+2. 애플리케이션 목록에서 **Flex Global View**를 선택합니다.
 
-    ![애플리케이션 목록의 Cherwell 링크](common/all-applications.png)
+    ![애플리케이션 목록의 Flex Global View 링크](common/all-applications.png)
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
 
@@ -181,18 +176,15 @@ Cherwell에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="create-cherwell-test-user"></a>Cherwell 테스트 사용자 만들기
+### <a name="create-flex-global-view-test-user"></a>Flex Global View 테스트 사용자 만들기
 
-Azure AD 사용자가 Cherwell에 로그인할 수 있도록 하려면 Cherwell로 프로비전되어야 합니다. Cherwell의 경우 사용자 계정을 [Cherwell 지원팀](https://csm.cherwell.com/contact)에서 작성해야 합니다.
-
-> [!NOTE]
-> Cherwell에서 제공하는 다른 Cherwell 사용자 계정 만들기 도구 또는 API를 사용하여 Azure Active Directory 사용자 계정을 프로비전합니다.
+이 섹션에서는 Flex Global View에서 Britta Simon이라는 사용자를 만듭니다.  [Flex Global View 지원 팀](mailto:support@gtnexus.com) 과 협력하여 Flex Global View 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Cherwell 타일을 클릭하면 SSO를 설정한 Cherwell 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+액세스 패널에서 Flex Global View 타일을 클릭하면 SSO를 설정한 Flex Global View에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
@@ -201,4 +193,3 @@ Azure AD 사용자가 Cherwell에 로그인할 수 있도록 하려면 Cherwell�
 - [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
