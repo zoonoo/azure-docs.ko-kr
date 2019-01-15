@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: ab5dad550e590cd70f54ad5c8d4727d0f6370190
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 5a9859fda2c6cac6acf08c8dcca3a0ce205d2e15
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379715"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302734"
 ---
 # <a name="tenant-resource-usage-api"></a>테 넌 트 리소스 사용량 API
 
@@ -82,7 +82,7 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedSta
 | *subscriptionId* |Azure 사용자의 구독 id |
 | *usageStartTime* |UTC 시간인이 사용 현황 집계가 속하는 사용 현황 버킷의 시작 |
 | *usageEndTime* |이 사용 현황 집계가 속하는 사용 현황 버킷의 UTC 종료 시간 |
-| *instanceData* |키-값 쌍을 새 형식으로 인스턴스 세부 정보:<br>  *resourceUri*: 정규화 된 리소스 그룹 및 인스턴스 이름을 비롯 한 리소스 ID <br>  *위치*:이 서비스를 실행 하는 지역 <br>  *태그*: 사용자 지정 하는 리소스 태그 <br>  *additionalInfo*: OS 버전 또는 이미지 형식을 예를 들어, 사용 된 리소스에 대 한 자세한 내용은 |
+| *instanceData* |키-값 쌍을 새 형식으로 인스턴스 세부 정보:<br>  *resourceUri*: 정규화 된 리소스 ID, 리소스 그룹 및 인스턴스 이름을 포함 하 여 <br>  *location*: 이 서비스를 실행 하는 지역 <br>  *tags*: 사용자 지정 하는 리소스 태그 <br>  *additionalInfo*: 리소스 사용 된 예를 들어, OS 버전 또는 이미지에 대 한 자세한 세부 정보 입력 |
 | *quantity* |이 시간 내에 발생 한 리소스 소비 |
 | *meterId* |사용 된 리소스에 대 한 고유 ID (라고도 *ResourceID*) |
 

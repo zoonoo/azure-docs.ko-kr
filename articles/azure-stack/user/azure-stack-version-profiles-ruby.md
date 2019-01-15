@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: df3222c361e4a8f6451326d967d574b1eb8eed1b
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0e7d624c77447f537e6d47ea19d9054c1117d742
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157448"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263663"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Azure Stack에서 Ruby를 사용 하 여 API 버전 프로필 사용
 
@@ -90,7 +90,7 @@ Azure Stack을 사용 하 여 Ruby Azure SDK를 사용 하려면 다음 값을 �
 | 클라이언트 ID | AZURE_CLIENT_ID | 주 응용 프로그램 ID 저장이 문서의 이전 섹션에서 서비스 주체를 만들 때 서비스입니다.  |
 | 구독 ID | AZURE_SUBSCRIPTION_ID | 합니다 [구독 ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) 제품을 액세스 하는 방법에 Azure Stack에서. |
 | 클라이언트 암호 | AZURE_CLIENT_SECRET | 서비스 주체 응용 프로그램 서비스 주체를 만들 때 암호 저장 합니다. |
-| Resource Manager 끝점 | ARM_ENDPOINT | 참조 [The Azure Stack resource manager endpoin](#The-azure-stack-resource-manager-endpoint)합니다.  |
+| Resource Manager 끝점 | ARM_ENDPOINT | 참조 [The Azure Stack 리소스 관리자 끝점](#The-azure-stack-resource-manager-endpoint)합니다.  |
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack resource manager 끝점
 

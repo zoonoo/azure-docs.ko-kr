@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 00fa1a78155e1add547b8b165f52cf3c1fba2dfe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6d4a40b07ef70d8dd43eb410ba396057551cd483
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249900"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304401"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Azure Stack에 대 한 저장소 용량 관리 
 
@@ -79,7 +79,7 @@ VM 디스크는 테 넌 트에서 컨테이너에 추가 됩니다 및 운영 �
 
 ### <a name="use-powershell"></a>PowerShell 사용
 클라우드 운영자로 서는 PowerShell을 사용 하 여 공유의 저장소 용량을 모니터링할 수 있습니다 **Get AzsStorageShare** cmdlet. AzsStorageShare Get cmdlet 공유의 각 바이트의 총, 할당 및 사용 가능한 공간을 반환합니다.   
-![예: 공유에 대 한 사용 가능한 공간 반환](media/azure-stack-manage-storage-shares/free-space.png)
+![예제: 공유에 대 한 사용 가능한 공간 반환](media/azure-stack-manage-storage-shares/free-space.png)
 
 - **총 용량** 공유에 사용할 수 있는 바이트의 총 공간입니다. 이 공간 데이터 및 저장소 서비스에서 유지 되는 메타 데이터에 사용 됩니다.
 - **사용 된 용량** 테 넌 트 데이터와 연결 된 메타 데이터를 저장 하는 파일의 모든 범위에서 사용 되는 바이트의 데이터 양입니다.
@@ -90,7 +90,7 @@ VM 디스크는 테 넌 트에서 컨테이너에 추가 됩니다 및 운영 �
 1. 에 로그인 합니다 [관리자 포털](https://adminportal.local.azurestack.external)합니다.
 2. 선택 **모든 서비스** > **저장소** 사용량 정보를 볼 수 있는 파일 공유 목록을 엽니다. 
 
-  ![예: 저장소 파일 공유](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+  ![예제: 저장소 파일 공유](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
   - **총** 공유에 사용할 수 있는 바이트의 총 공간입니다. 이 공간 데이터 및 저장소 서비스에서 유지 되는 메타 데이터에 사용 됩니다.
   - **사용 되는** 테 넌 트 데이터와 연결 된 메타 데이터를 저장 하는 파일의 모든 범위에서 사용 되는 바이트의 데이터 양입니다.
@@ -101,12 +101,12 @@ VM 디스크는 테 넌 트에서 컨테이너에 추가 됩니다 및 운영 �
 > [!IMPORTANT]
 > 클라우드 운영자로 서 전체 사용량에 도달 하지 못하도록 공유를 유지 합니다. 공유 경우 100% 사용, 저장소 서비스 더 이상 해당 공유에 대 한 함수입니다. 사용 가능한 공간을 복구 하 고 100%를 사용 하는 공유에 대 한 작업을 복원 하려면 Microsoft 지원에 문의 해야 합니다.
 
-**경고**: 파일 공유를 사용 하는 80%를 초과, 받게를 *경고* 관리 포털에서 경고: ![예: 경고](media/azure-stack-manage-storage-shares/alert-warning.png)
+**경고**: 파일 공유를 사용 하는 80%를 초과, 수신 된 *경고* 관리 포털에서 경고: ![예: 경고](media/azure-stack-manage-storage-shares/alert-warning.png)
 
 
-**중요**: 수신 파일 공유 사용 90%를 넘는 경우는 *중요 한* 관리 포털에서 경고: ![예제: 중요 한 경고](media/azure-stack-manage-storage-shares/alert-critical.png)
+**높음**: 파일 공유 사용 90%를 초과 하는 경우 수신 된 *위험* 관리 포털에서 경고: ![예: 중요 한 경고](media/azure-stack-manage-storage-shares/alert-critical.png)
 
-**세부 정보를 볼**: 관리 포털에서 완화 옵션을 보려면 경고에 대 한 세부 정보를 열 수 있습니다: ![예제: 경고 세부 정보 보기](media/azure-stack-manage-storage-shares/alert-details.png)
+**세부 정보를 보려면**: 관리 포털에서 완화 옵션을 보려면 경고에 대 한 세부 정보를 열 수 있습니다. ![예: 경고 세부 정보 보기](media/azure-stack-manage-storage-shares/alert-details.png)
 
 
 ## <a name="manage-available-space"></a>사용 가능한 공간 관리
@@ -188,7 +188,7 @@ VM 디스크는 테 넌 트에서 컨테이너에 추가 됩니다 및 운영 �
   Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
   ````
 
-  ![예: 마이그레이션 상태](media/azure-stack-manage-storage-shares/migration-status1.png)
+  ![예제: 마이그레이션 상태](media/azure-stack-manage-storage-shares/migration-status1.png)
 
 6.  진행 중인 마이그레이션 작업을 취소할 수 있습니다. 마이그레이션 작업은 비동기적으로 처리를 취소 합니다. $Jobid를 사용 하 여 취소를 추적할 수 있습니다.
 
@@ -196,11 +196,11 @@ VM 디스크는 테 넌 트에서 컨테이너에 추가 됩니다 및 운영 �
   Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
   ````
 
-  ![예: 롤백 상태](media/azure-stack-manage-storage-shares/rollback.png)
+  ![예제: 롤백 상태](media/azure-stack-manage-storage-shares/rollback.png)
 
 7. 명령을 실행할 수 있습니다는 6 단계에서 다시 마이그레이션 작업은 상태를 확인할 때까지 **Canceled**:  
 
-    ![예: 취소 됨된 상태](media/azure-stack-manage-storage-shares/cancelled.png)
+    ![예제: 취소 된 상태](media/azure-stack-manage-storage-shares/cancelled.png)
 
 ### <a name="move-vm-disks"></a>VM 디스크를 이동 합니다.
 *이 옵션은 다중 노드 배포에만 적용 됩니다.*

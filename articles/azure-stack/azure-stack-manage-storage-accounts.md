@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: af7500d6bf12ef34e6919aa255185a87525310b3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8eed0b4f2d14d22bdd9eddac9dbb4c0e02404975
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240718"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302717"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Azure Stack의 storage 계정 관리
 찾기, 복구 및 비즈니스 요구에 따라 저장소 용량을 회수 하는 Azure Stack에서 저장소 계정을 관리 하는 방법에 알아봅니다.
@@ -148,7 +148,7 @@ Azure Stack에서 작업을 수행 하는 간단한 방법이 있습니다.
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
 ````
 
-자세한 내용은 참조 하세요. [Azure Stack PowerShell 설명서.](https://docs.microsoft.com/powershell/module/azurerm.azurestackstorage)
+자세한 내용은 [Azure Stack PowerShell 설명서](https://docs.microsoft.com/powershell/azure/azure-stack/overview)합니다.
  
 
 ## <a name="next-steps"></a>다음 단계

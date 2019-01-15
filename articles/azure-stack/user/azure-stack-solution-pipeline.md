@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 49f1d7e1fac1125984f7376cffdcaf2e60f5611b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 984f6713445b53429758d616945a6e64245b42bc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247880"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263223"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack에 앱 배포
 
@@ -283,12 +283,12 @@ Azure 역할 기반 Access Control (RBAC)는 Azure에 대 한 세분화 된 액�
 | 이름 | 예 | 설명 |
 | --- | --- | --- |
 | 연결 이름 | Azure Stack Azure AD | 연결의 이름입니다. |
-| Environment | Azurestack의 경우 | 환경의 이름입니다. |
+| Environment | AzureStack | 환경의 이름입니다. |
 | 환경 URL | `https://management.local.azurestack.external` | 관리 끝점입니다. |
 | 범위 수준 | 구독 | 연결의 범위입니다. |
 | 구독 ID | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Azure Stack에서 사용자 구독 ID |
 | 구독 이름 | name@contoso.com | Azure Stack에서 사용자 구독 이름입니다. |
-| 서비스 주체 클라이언트 ID | FF74AACF-XXXX-4776-93 FC-C63E6E021D59 | 보안 주체 ID [이](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) 이 문서의 섹션입니다. |
+| 서비스 주체 클라이언트 ID | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | 보안 주체 ID [이](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) 이 문서의 섹션입니다. |
 | 서비스 주체 키 | THESCRETGOESHERE = | 동일한 문서 (또는 스크립트를 사용 하는 경우 암호) 키입니다. |
 | 테넌트 ID | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | 명령에 다음 검색 하는 테 넌 트 ID [테 넌 트 ID 가져오기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id)합니다.  |
 | 연결: | 확인되지 않음 | 서비스 주체에 연결 설정을 확인 합니다. |
@@ -308,12 +308,12 @@ Azure DevOps에 대 한 최신 업데이트는 인증용 인증서를 사용 하
 | 이름 | 예 | 설명 |
 | --- | --- | --- |
 | 연결 이름 | Azure Stack ADFS | 연결의 이름입니다. |
-| Environment | Azurestack의 경우 | 환경의 이름입니다. |
+| Environment | AzureStack | 환경의 이름입니다. |
 | 환경 URL | `https://management.local.azurestack.external` | 관리 끝점입니다. |
 | 범위 수준 | 구독 | 연결의 범위입니다. |
 | 구독 ID | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Azure Stack에서 사용자 구독 ID |
 | 구독 이름 | name@contoso.com | Azure Stack에서 사용자 구독 이름입니다. |
-| 서비스 주체 클라이언트 ID | FF74AACF-XXXX-4776-93 FC-C63E6E021D59 | AD FS에 대해 만든 서비스 주체에서 클라이언트 ID입니다. |
+| 서비스 주체 클라이언트 ID | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | AD FS에 대해 만든 서비스 주체에서 클라이언트 ID입니다. |
 | 인증서 | `<certificate>` |  PFX에서 PEM 인증서 파일을 변환 합니다. 이 필드에 인증서 PEM 파일 콘텐츠를 붙여 넣습니다. <br> PFX에서 PEM으로 변환:<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
 | 테넌트 ID | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | 명령에 다음 검색 하는 테 넌 트 ID [테 넌 트 ID 가져오기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id)합니다. |
 | 연결: | 확인되지 않음 | 서비스 주체에 연결 설정을 확인 합니다. |

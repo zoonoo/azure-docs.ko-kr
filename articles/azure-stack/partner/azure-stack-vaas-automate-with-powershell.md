@@ -14,12 +14,12 @@ ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 ROBOTS: NOINDEX
-ms.openlocfilehash: ce276b5fcedecc53c379d41de55080bf61e2386e
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 9d22bb288bafb5e9984c357d0bf9139973f5d262
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243664"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263003"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>PowerShell 사용 하 여 Azure Stack 유효성 검사 자동화
 
@@ -72,7 +72,7 @@ ms.locfileid: "54243664"
 
     | 매개 변수 | 설명 |
     | --- | --- |
-    | VaaSUserld | VaaS 사용자 id입니다. |
+    | VaaSUserId | VaaS 사용자 id입니다. |
     | VaaSUserPassword | VaaS 암호입니다. |
     | VaaSAccountTenantId | 프로그램 VaaS 테 넌 트 GUID입니다. |
     | VaaSSolutionName | 테스트에 통과 중인 VaaS 솔루션의 이름을 실행 됩니다. |

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2019
+ms.date: 01/15/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 4f5558d17e2f290ed7255350f304ed2057a6d783
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 2d5c658dabd03eb706c24fbe5e8adb0c46fc65cd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247625"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267320"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 업데이트
 
@@ -96,7 +96,7 @@ Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 �
 
 - 클라이언트 암호를 사용 하 여 Active Directory Federated Services (AD FS)를 사용 하 여 서비스 주체에 대 한 지원이 추가 되었습니다. 자세한 내용은 [AD FS에 대 한 서비스 주체 만들기](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs)합니다.
 
-- 이 릴리스에서 다음 Azure Storage 서비스 API 버전에 대 한 지원이 추가 되었습니다. **2017-07-29**하십시오 **2017-11-09**합니다. 다음 Azure Storage 리소스 공급자 API 버전에 대 한 지원도 추가 됩니다. **2016-05-01**, **2016-12-01**합니다 **2017-06-01**, 및 **2017-10-01**합니다. 자세한 내용은 참조 하세요. [Azure Stack 저장소: 차이점 및 고려 사항](./user/azure-stack-acs-differences.md)합니다.
+- 이 릴리스에서 다음 Azure Storage 서비스 API 버전에 대 한 지원이 추가 되었습니다. **2017-07-29**, **2017-11-09**. 다음 Azure Storage 리소스 공급자 API 버전에 대 한 지원도 추가 됩니다. **2016-05-01**, **2016-12-01**합니다 **2017-06-01**, 및 **2017-10-01**합니다. 자세한 내용은 참조 하세요. [Azure Stack 저장소: 차이점 및 고려 사항](./user/azure-stack-acs-differences.md)합니다.
 
 - 새 privileged 끝점 명령 추가 업데이트 하 고 ADFS에 대 한 서비스 주체를 제거 합니다. 자세한 내용은 [AD FS에 대 한 서비스 주체 만들기](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs)합니다.
 
@@ -262,6 +262,14 @@ Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 �
    오류는 VM에서 부팅 진단을 사용 하도록 설정 해도 부트 진단 저장소 계정을 삭제 하는 경우에 발생 합니다. 이 문제를 해결 하려면 이전에 사용한 동일한 이름 사용 하 여 저장소 계정을 다시 만듭니다.
 
 - 만들 때를 [Dv2 시리즈 VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11 14v2 Vm 4, 8, 16 및 32 데이터 디스크를 각각 만들 수 있습니다. 단, 8, 16, 32 및 64 개의 데이터 디스크 만들기 VM 창을 보여 줍니다.
+
+- Azure Stack에서 사용량 레코드 첫 글자를 대문자로; 예기치 않은 포함 될 수 있습니다. 예를 들어:
+
+   `{"Microsoft.Resources":{"resourceUri":"/subscriptions/<subid>/resourceGroups/ANDREWRG/providers/Microsoft.Compute/
+   virtualMachines/andrewVM0002","location":"twm","tags":"null","additionalInfo":
+   "{\"ServiceType\":\"Standard_DS3_v2\",\"ImageType\":\"Windows_Server\"}"}}`
+
+   이 예제에서는 리소스 그룹의 이름 이어야 합니다 **AndrewRG**합니다. 이러한 불일치를 안전 하 게 무시할 수 있습니다.
 
 <!-- 3235634 – IS, ASDK -->
 - 포함 된 크기를 사용 하 여 Vm을 배포 하는 **v2** 접미사; 예를 들어 **Standard_A2_v2**,으로 접미사를 지정할 **Standard_A2_v2** (소문자 v). 사용 하지 마세요 **Standard_A2_V2** (V 대문자). 이 글로벌 Azure에서 작동 하며 Azure Stack에서 일치 하지 않습니다.

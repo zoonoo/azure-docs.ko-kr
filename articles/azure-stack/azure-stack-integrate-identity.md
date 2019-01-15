@@ -10,12 +10,12 @@ ms.date: 01/08/19
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: ff7fb909e3f6e26846114c4b7bfdddccd07526ec
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 63ac30728cceae76f869f5529905cd6d3dde9ae2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188899"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263799"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 데이터 센터 통합-Identity
 Id 공급자로 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)를 사용 하 여 Azure Stack을 배포할 수 있습니다. Azure Stack을 배포 하기 전에 선택을 해야 합니다. AD FS를 사용 하 여 배포를 오프 라인된 모드에서 Azure Stack 배포는 라고도 합니다.
@@ -120,7 +120,7 @@ Azure Stack에서 그래프 서비스 대상 Active Directory와 통신 하는 �
 
 |type|포트|프로토콜|
 |---------|---------|---------|
-|LDAP|389|TCP 및 UDP|
+|LDAP|389|TCP & UDP|
 |LDAP SSL|636|TCP|
 |LDAP GC|3268|TCP|
 |LDAP GC SSL|3269|TCP|
@@ -171,7 +171,7 @@ Azure Stack에서 그래프 서비스 대상 Active Directory와 통신 하는 �
 |매개 변수|설명|예|
 |---------|---------|---------|
 |CustomAdfsName|클레임 공급자의 이름입니다. 이런 방식으로 AD FS 방문 페이지에 표시 됩니다.|Contoso|
-|CustomADFSFederationMetadataFileContent|메타 데이터 콘텐츠|$using: federationMetadataFileContent|
+|CustomADFSFederationMetadataFileContent|메타 데이터 콘텐츠|$using:federationMetadataFileContent|
 
 ### <a name="create-federation-metadata-file"></a>페더레이션 메타 데이터 파일 만들기
 
@@ -269,7 +269,7 @@ Microsoft는 클레임 변환 규칙을 포함 하 여 신뢰 당사자 트러�
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone" -TokenLifeTime 1440
    ```
 
-   **AD FS 2012/2012 R2에 대 한**
+   **For AD FS 2012/2012 R2**
 
    ```PowerShell  
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -TokenLifeTime 1440
@@ -319,7 +319,7 @@ SPN을 만드는 방법에 대 한 자세한 내용은 참조 하세요. [AD FS�
 2. 다음 cmdlet을 실행 합니다.
 
    ```PowerShell  
-   Reset-DatacenterIntegationConfiguration
+   Reset-DatacenterIntegrationConfiguration
    ```
 
    롤백 작업을 실행 한 후 모든 구성 변경 내용이 롤백됩니다. 기본 제공 인증만 **CloudAdmin** 사용자가 가능 합니다.

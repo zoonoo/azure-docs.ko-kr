@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 11/6/2018
 ms.author: patricka
 ms.reviewer: bryanr
-ms.openlocfilehash: fbf62e53ffe3fc3540086137955417bec56e7825
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 28bd314e2dd179d83d2880e3acbf39805b54d333
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240174"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263969"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Azure Stack의 다중 테 넌 트
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-Azure Stack에서 서비스를 사용 하도록 여러 Azure Active Directory (Azure AD) 테 넌 트에서 사용자를 지 원하는 Azure Stack을 구성할 수 있습니다. 예를 들어, 다음 시나리오를 고려 합니다.
+Azure Stack에서 서비스를 사용 하도록 여러 Azure Active Directory (Azure AD) 테 넌 트에서 사용자를 지 원하는 Azure Stack을 구성할 수 있습니다. 예를 들어 다음 시나리오를 고려할 수 있습니다.
 
 - Azure Stack이 설치 되어 있는 서비스 관리자 contoso.onmicrosoft.com 것입니다.
 - Mary가 게스트 사용자가 있는 fabrikam.onmicrosoft.com, 디렉터리 관리자입니다.
@@ -133,7 +133,7 @@ Azure Stack에서 여러 테 넌 트를 하지 않으려는 경우 다음 단계
 2. 실행 (사용자이 시나리오에서), Azure Stack의 서비스 관리자로 *등록 취소 AzSGuestDirectoryTenant*합니다. 
 
     ``` PowerShell  
-    ## The following Azure Resource Manaager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
+    ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
     $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
     
     ## Replace the value below with the Azure Stack directory

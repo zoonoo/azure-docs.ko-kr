@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 01/14/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: d4c5def3cc61c1920ae99d5aa9f97b46cbda0045
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1b533c945fdcfc3d1072a7d8a513126ca3f1f72a
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244497"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303587"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Azure Stack의 주요 기능 및 개념
 Microsoft Azure Stack을 처음 접하는 경우 이러한 용어와 기능 설명은 도움이 될 수 있습니다.
@@ -129,23 +129,13 @@ Azure Queue storage는 애플리케이션 구성 요소 간에 클라우드 메�
 KeyVault RP 관리 및 암호, 암호, 인증서 등의 감사를 제공 합니다. 예를 들어 테 넌 트 VM 배포 중 관리자 암호 또는 키를 제공 하는 KeyVault RP를 사용할 수 있습니다.
 
 ## <a name="high-availability-for-azure-stack"></a>Azure Stack에 대 한 고가용성
-*적용 대상: Azure Stack 1802 이상 버전*
+Azure에서 다중 VM 프로덕션 시스템의 고가용성을 달성 하려면 Vm에 배치 되는 [가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) 여러 장애 도메인과 업데이트 도메인 간에 분산 하는 합니다. Azure Stack의 소규모 배율 단위의 단일 노드로 가용성 집합의 장애 도메인 정의 됩니다.  
 
-Azure에서 다중 VM 프로덕션 시스템의 고가용성을 달성 하려면 Vm은 여러 장애 도메인과 업데이트 도메인을 분산 하는 가용성 집합에 배치 됩니다. 이렇게에서 [가용성 집합에 배포 된 Vm](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) 다음 다이어그램에 나와 있는 것 처럼 실패 복원 력을 위한 수 있도록 별도 서버 랙에 서로 물리적으로 격리 됩니다.
-
-  ![Azure Stack 고가용성](media/azure-stack-key-features/high-availability.png)
-
-### <a name="availability-sets-in-azure-stack"></a>Azure Stack에서 가용성 집합
 Azure stack 인프라 장애에 복원 력이 이미 상태인 (장애 조치 클러스터링) 기술의 여전히 일부 가동 중지 시간이 발생 Vm에 대 한 영향을 받는 실제 서버의 하드웨어 오류가 발생 하는 경우. Azure Stack 있는 가용성 Azure를 사용 하 여 일치 하는 최대 3 개의 장애 도메인을 사용 하 여 집합을 지원 합니다.
 
 - **장애 도메인**합니다. Vm 가용성 집합에 배치는 여러 장애 도메인 (Azure Stack 노드)에 해당 작업을 최대한 균등 하 게 분산 하 여 물리적으로 서로 격리 됩니다. 하드웨어 오류가 있으면 실패 한 장애 도메인에서 Vm는 다른 장애 도메인에 다시 시작 되지만, 동일한 가용성 집합의 다른 Vm에서 별도 장애 도메인에서 유지 가능한 경우. 하드웨어 상태가 다시 온라인 상태가 되 면 고가용성을 유지 하기 위해 Vm 부하가 다시 분산 됩니다. 
  
 - **업데이트 도메인**합니다. 업데이트 도메인은 가용성 집합의 고가용성을 제공 하는 다른 Azure 개념입니다. 업데이트 도메인은 동시에 유지 관리를 거칠 수 있습니다 기본 하드웨어의 논리적 그룹입니다. 동일한 업데이트 도메인에 있는 Vm 계획 된 유지 관리 동안 함께 다시 시작 됩니다. 테 넌 트 Vm 가용성 집합 내의 만들 때 Azure 플랫폼에 자동으로 분산 Vm이 도메인을 업데이트 합니다. Azure Stack에서 Vm은 라이브 클러스터에 있는 다른 온라인 호스트 간에 마이그레이션되는 해당 기본 호스트를 업데이트 하기 전에 합니다. 호스트 업데이트 중에 가동 중지 시간 없이 테 넌 트 이므로 Azure Stack의 업데이트 도메인 기능 Azure 사용 하 여 템플릿 호환성을 위해서만 존재 합니다. 
-
-### <a name="upgrade-scenarios"></a>업그레이드 시나리오 
-1802 버전부터 Azure Stack 장애 및 업그레이드 도메인의 기본 숫자로 된 전에 생성 된 가용성 집합의 Vm (1과 1 각각). 이러한 기존 가용성 집합에서 Vm에 대 한 고가용성을 달성을 하려면 먼저 기존 Vm을 삭제 한 다음에 설명 된 대로 올바른 장애 및 업그레이드 도메인 개수를 사용 하 여 설정 하는 새 가용성에 다시 배포 해야 [변경 합니다 Windows VM에 대 한 가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set)합니다. 
-
-Virtual machine scale sets에 대 한 가용성 집합은 내부적으로 사용 하 여 만든 기본 장애 도메인과 업데이트 도메인 수 (3 및 5 각각). 1802 업데이트는 가용성 집합에 배치 될 이전에 만든 모든 가상 머신 확장 집합 기본 장애 및 업그레이드 도메인 개수 (1과 1 각각). 최신 분산을 달성 하기 위해 이러한 가상 머신 확장 집합 인스턴스를 업데이트 하려면 1802 업데이트 전에 있었던 인스턴스 수가 하 여 가상 머신 확장 집합을 확장 하 고 가상 머신 확장 집합의 이전 인스턴스를 삭제 합니다. 
 
 ## <a name="role-based-access-control-rbac"></a>역할 기반 Access Control(RBAC)
 구독, 리소스 그룹 또는 개별 리소스 수준에서 역할을 할당하여 시스템 액세스에 권한이 있는 사용자, 그룹 및 서비스를 허용하도록 RBAC를 사용할 수 있습니다. 각 역할은 사용자, 그룹 또는 서비스가 Microsoft Azure Stack 리소스에 가진 액세스 수준을 정의합니다.

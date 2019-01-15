@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 472dfc04cea65cab39d177bb214c417d229b71d2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e9eb3cc029e60acd18fc6611ca14817488a2d983
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956723"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266556"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Azure Stack에 Kubernetes에 배포 문제 해결
 
@@ -46,9 +46,9 @@ ms.locfileid: "52956723"
 
     Kubernetes 클러스터를 설정 해야 하는 값을 입력 포함:
     -  **사용자 이름**: Kubernetes 클러스터 및 dvm이 포함 된 Linux 가상 머신에 대 한 사용자 이름입니다.
-    -  **SSH 공개 키**: dvm이 고 Kubernetes 클러스터의 일부로 생성 된 모든 Linux 컴퓨터의 권한 부여에 사용 되는 키입니다.
+    -  **SSH 공개 키**: Dvm이 고 Kubernetes 클러스터의 일부로 생성 된 모든 Linux 컴퓨터의 권한 부여에 사용 되는 키입니다.
     -  **서비스 원칙**: Kubernetes Azure 클라우드 공급자에서 사용 되는 ID입니다. 서비스 주체를 만들 때 응용 프로그램 ID로 식별 된 클라이언트 ID입니다. 
-    -  **클라이언트 암호**: 키 서비스 주체를 만들 때 만든 것입니다.
+    -  **클라이언트 암호**: 서비스 주체를 만들 때 만든 키입니다.
 
 2. VM 배포 만들기 및 사용자 지정 스크립트 확장 합니다.
     -  Marketplace의 Linux 이미지를 사용 하 여 Linux VM 배포를 만듭니다 **Ubuntu Server 16.04-LTS**합니다.
@@ -90,7 +90,7 @@ Kubernetes 클러스터를 지 원하는 Vm에서 로그를 수집할 수 있습
 3.  VM 생성 파일을 검토 합니다. 다음과 같은 문제를 미쳤을 수 있습니다.:  
     - 공개 키 잘못 되었을 수 있습니다. 사용자가 만든 키를 검토 합니다.  
     - VM 만드는 내부 오류가 트리거될가 있습니다 또는 생성 오류를 발생 합니다. 다양 한 요인에는 Azure Stack 구독에 대 한 용량 제한은 포함 하 여 오류를 발생할 수 있습니다.
-    - VM에 대 한 정규화 된 도메인 이름 (FDQN) 중복 된 접두사로 시작 하는지 확인 합니다.
+    - VM에 대 한 정규화 된 도메인 이름 (FQDN) 중복 된 접두사로 시작 하는지 확인 합니다.
 4.  VM이 있는 경우 **확인**는 dvm이 평가 합니다. dvm이 오류 메시지가 있으면:
 
     - 공개 키 잘못 되었을 수 있습니다. 사용자가 만든 키를 검토 합니다.  
@@ -153,10 +153,10 @@ Bash 해야 Azure Stack을 관리 하는 데 사용할 수 있는 컴퓨터에�
 4. 매개 변수를 검토 하 고 사용자 환경에 따라 값을 설정 합니다.
     | 매개 변수           | 설명                                                                                                      | 예                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -i,-id-파일 | RSA 개인 키 파일 Kubernetes 마스터 VM에 연결 합니다. 키는로 시작 해야 합니다. `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.pem                                                        |
-    | -h,--호스트          | 공용 IP 또는 Kubernetes 클러스터 마스터 VM의 정규화 된 도메인 이름 (FQDN). VM 이름은 시작 `k8s-master-`합니다.                       | IP: 192.168.102.37<br><br>FQDN: k8s 12345.local.cloudapp.azurestack.external      |
-    | -u,--사용자          | Kubernetes 클러스터 마스터 VM의 사용자 이름입니다. 마켓플레이스 항목을 구성할 때이 이름을 설정 합니다.                                                                    | azureuser                                                                     |
-    | -d,-vmdhost       | 공용 IP 또는 FQDN을 dvm이을 합니다. VM 이름은 시작 `vmd-`합니다.                                                       | IP: 192.168.102.38<br><br>DNS: vmd dnsk8 frog.local.cloudapp.azurestack.external |
+    | -i, --identity-file | RSA 개인 키 파일 Kubernetes 마스터 VM에 연결 합니다. 키는로 시작 해야 합니다. `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.pem                                                        |
+    | -h, --host          | 공용 IP 또는 Kubernetes 클러스터 마스터 VM의 정규화 된 도메인 이름 (FQDN). VM 이름은 시작 `k8s-master-`합니다.                       | IP: 192.168.102.37<br><br>FQDN: k8s 12345.local.cloudapp.azurestack.external      |
+    | -u, --user          | Kubernetes 클러스터 마스터 VM의 사용자 이름입니다. 마켓플레이스 항목을 구성할 때이 이름을 설정 합니다.                                                                    | azureuser                                                                     |
+    | -d, --vmdhost       | 공용 IP 또는 FQDN을 dvm이을 합니다. VM 이름은 시작 `vmd-`합니다.                                                       | IP: 192.168.102.38<br><br>DNS: vmd dnsk8 frog.local.cloudapp.azurestack.external |
 
    매개 변수 값에 추가 하면 것 다음 코드와 같이 보일 수 있습니다.
 

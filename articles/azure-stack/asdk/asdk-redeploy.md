@@ -16,12 +16,12 @@ ms.custom: ''
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: ecdfb0f062ebad903d35401a2f5303d3e6d04b5d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 91ac75f3cb41f73ea18595138969dfb7b1444173
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037382"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263514"
 ---
 # <a name="redeploy-the-asdk"></a>ASDK를 다시 배포
 이 문서는 Azure Stack 개발 키트 ASDK () 비-프로덕션 환경에서 다시 배포 하는 방법을 알아봅니다. 에서는 지원 되지 않습니다는 ASDK 업그레이드 때문에 완전히 최신 버전으로 이동 하 고 다시 배포 해야 합니다. 또한는 ASDK 처음부터 다시 시작 하려는 언제 든 다시 배포할 수 있습니다.
@@ -32,7 +32,7 @@ ms.locfileid: "51037382"
 ## <a name="remove-azure-registration"></a>Azure 등록 제거 
 Azure를 사용 하 여 이전에 ASDK 설치를 등록 하는 경우 등록 리소스는 ASDK 재배포 하려면 먼저 제거 해야 합니다. ASDK를 재배포 하는 경우 marketplace에서 항목의 가용성을 사용 하도록 설정 하려면 ASDK 다시 등록 합니다. Azure 구독에 ASDK를 이전에 등록 하지 않은 경우에이 섹션을 건너뛸 수 있습니다.
 
-등록 리소스를 제거 하려면 사용 합니다 **제거 AzsRegistration** Azure Stack 등록을 취소 하는 cmdlet입니다. 그런 다음 사용 합니다 **제거 AzureRMRsourceGroup** Azure 구독에서 Azure Stack 리소스 그룹을 삭제 하는 cmdlet:
+등록 리소스를 제거 하려면 사용 합니다 **제거 AzsRegistration** Azure Stack 등록을 취소 하는 cmdlet입니다. 그런 다음 사용 합니다 **Remove-azurermresourcegroup** Azure 구독에서 Azure Stack 리소스 그룹을 삭제 하는 cmdlet:
 
 1. 권한 있는 끝점에 액세스할 수 있는 컴퓨터에서 관리자 권한으로 PowerShell 콘솔을 엽니다. ASDK에 대 한 개발 키트 호스트 컴퓨터입니다.
 

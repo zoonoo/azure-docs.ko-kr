@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: bdf31c72fbcd8941161e6b9df0a490df7f6a16e0
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 473fb95de5da4a14c81d0fa3a5aafa33302d9ab2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026521"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258682"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Azure Stack에서 virtual machine 디스크 저장소를 프로 비전
 
@@ -65,31 +64,31 @@ VM을 만든 후 포털을 사용할 수 있습니다.
 
 별도 컨테이너에서 추가한 각 관리 되지 않는 디스크를 배치 해야 합니다.
 
->[!NOTE]
+>[!NOTE]  
 >Azure에서 만들고 관리 디스크 라고 [관리 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)합니다.
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>포털을 사용 하 여 만들고 새 데이터 디스크를 연결 하려면
 
 1.  포털에서 선택 **가상 머신**합니다.    
-    ![예: VM 대시보드](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+    ![예제: VM 대시보드](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 2.  이전에 프로 비전 된 가상 컴퓨터를 선택 합니다.   
-    ![대시보드에서 VM을 선택 하는 다음과 같습니다.](media/azure-stack-manage-vm-disks/select-a-vm.png)
+    ![예제: 대시보드에서 VM을 선택 합니다.](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
 3.  가상 컴퓨터를 선택 **Disks** > **새 연결**합니다.       
-    ![예: vm에 새 디스크 연결](media/azure-stack-manage-vm-disks/Attach-disks.png)    
+    ![예제: Vm에 새 디스크 연결](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
 4.  에 **새 디스크 연결** 창 **위치**합니다. 기본적으로 위치는 OS 디스크를 보유 하는 동일한 컨테이너에 설정 됩니다.      
-    ![예: 디스크 위치를 설정 합니다.](media/azure-stack-manage-vm-disks/disk-location.png)
+    ![예제: 디스크 위치를 설정 합니다.](media/azure-stack-manage-vm-disks/disk-location.png)
 
 5.  선택 된 **저장소 계정** 사용 하도록 합니다. 다음을 선택 합니다 **컨테이너** 데이터 디스크를 배치 하려는 위치. **컨테이너** 페이지를 원하는 경우 새 컨테이너를을 만들 수 있습니다. 그런 다음 고유한 컨테이너에 새 디스크의 위치를 변경할 수 있습니다. 각 디스크에 대 한 별도 컨테이너를 사용 하는 경우 성능을 향상 시킬 수 있는 데이터 디스크의 배치를 배포 합니다. 선택할 **선택** 하 여 선택 내용을 저장 합니다.     
-    ![예: 컨테이너를 선택 합니다.](media/azure-stack-manage-vm-disks/select-container.png)
+    ![예제: 컨테이너를 선택 합니다.](media/azure-stack-manage-vm-disks/select-container.png)
 
 6.  에 **새 디스크 연결** 페이지에서 업데이트를 **이름**를 **형식**를 **크기**, 및 **호스트 캐싱** 설정 디스크. 선택한 **확인** VM에 대 한 새 디스크 구성을 저장 합니다.  
-    ![예: 전체 디스크 연결](media/azure-stack-manage-vm-disks/complete-disk-attach.png)  
+    ![예제: 전체 디스크 연결](media/azure-stack-manage-vm-disks/complete-disk-attach.png)  
 
 7.  Azure Stack 디스크를 만들고이 가상 컴퓨터에 연결을 새 디스크에서 가상 머신의 디스크 설정에 나열 됩니다 **데이터 디스크**합니다.   
-    ![예: 디스크 보기](media/azure-stack-manage-vm-disks/view-data-disk.png)
+    ![예제: 디스크 보기](media/azure-stack-manage-vm-disks/view-data-disk.png)
 
 
 ### <a name="attach-an-existing-data-disk-to-a-vm"></a>VM에 기존 데이터 디스크 추가
@@ -97,28 +96,28 @@ VM을 만든 후 포털을 사용할 수 있습니다.
 1.  [.Vhd 파일을 준비](https://docs.microsoft.com/azure/virtual-machines/windows/classic/createupload-vhd) VM에 대 한 데이터 디스크로 사용 합니다. .Vhd 파일을 연결 하려는 VM과 함께 사용 하는 저장소 계정에 해당.vhd 파일을 업로드 합니다.
 
   OS 디스크를 포함 하는 컨테이너 보다.vhd 파일을 저장할 다른 컨테이너를 사용 하도록 계획 합니다.   
-  ![예: VHD 파일 업로드](media/azure-stack-manage-vm-disks/upload-vhd.png)
+  ![예제: VHD 파일 업로드](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
 2.  .Vhd 파일을 업로드 한 후 VM에 VHD를 연결할 수 있습니다. 왼쪽 메뉴에서 선택 **가상 머신**합니다.  
- ![대시보드에서 VM을 선택 하는 다음과 같습니다.](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+ ![예제: 대시보드에서 VM을 선택 합니다.](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 3.  목록에서 가상 컴퓨터를 선택 합니다.    
-  ![대시보드에서 VM을 선택 하는 다음과 같습니다.](media/azure-stack-manage-vm-disks/select-a-vm.png)
+  ![예제: 대시보드에서 VM을 선택 합니다.](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
 4.  가상 컴퓨터에 대 한 페이지에서 선택 **Disks** > **기존 연결**합니다.   
-  ![예: 기존 디스크 연결](media/azure-stack-manage-vm-disks/attach-disks2.png)
+  ![예제: 기존 디스크 연결](media/azure-stack-manage-vm-disks/attach-disks2.png)
 
 5.  에 **기존 디스크 연결** 페이지에서 **VHD 파일**합니다. 합니다 **저장소 계정** 페이지가 열립니다.    
-  ![VHD 파일을 선택 하는 다음과 같습니다.](media/azure-stack-manage-vm-disks/select-vhd.png)
+  ![예제: VHD 파일을 선택 합니다.](media/azure-stack-manage-vm-disks/select-vhd.png)
 
 6.  아래 **저장소 계정**를 사용 하려면 계정을 선택 하 고 이전에 업로드 한.vhd 파일을 보관 하는 컨테이너를 선택 합니다. .Vhd 파일을 선택 하 고 선택한 **선택** 하 여 선택 내용을 저장 합니다.    
-  ![예: 컨테이너를 선택 합니다.](media/azure-stack-manage-vm-disks/select-container2.png)
+  ![예제: 컨테이너를 선택 합니다.](media/azure-stack-manage-vm-disks/select-container2.png)
 
 7.  아래 **기존 디스크 연결**, 선택한 파일 아래에 나열 됩니다 **VHD 파일**합니다. 업데이트를 **호스트 캐싱** 디스크의 설정을 선택한 후 **확인** VM에 대 한 새 디스크 구성을 저장 합니다.    
-  ![VHD 파일을 첨부 하는 다음과 같습니다.](media/azure-stack-manage-vm-disks/attach-vhd.png)
+  ![예제: VHD 파일 첨부](media/azure-stack-manage-vm-disks/attach-vhd.png)
 
 8.  Azure Stack 디스크를 만들고이 가상 컴퓨터에 연결을 새 디스크에서 가상 머신의 디스크 설정에 나열 됩니다 **데이터 디스크**합니다.   
-  ![예: 완료 디스크 연결](media/azure-stack-manage-vm-disks/complete-disk-attach.png)
+  ![예제: 전체 디스크 연결](media/azure-stack-manage-vm-disks/complete-disk-attach.png)
 
 
 ## <a name="use-powershell-to-add-multiple-unmanaged-disks-to-a-vm"></a>PowerShell을 사용 하 여 VM에 여러 관리 되지 않는 디스크를 추가 하려면
@@ -130,45 +129,45 @@ PowerShell을 사용 하 여 VM을 프로 비전 하 고 새 데이터 디스크
 다음 예제에서는 세 개의 데이터 디스크를 사용 하 여 VM을 만들려면 PowerShell 명령을 사용, 각각 서로 다른 컨테이너에 배치 합니다.
 
 첫 번째 명령은 가상 컴퓨터 개체를 만들고 저장 합니다 *$VirtualMachine* 변수입니다. 명령이 가상 컴퓨터에 이름 및 크기를 할당합니다.
-  ```
+  ```powershell
   $VirtualMachine = New-AzureRmVMConfig -VMName "VirtualMachine" `
                                       -VMSize "Standard_A2"
   ```
 
 다음의 세 명령은 세 개의 데이터 디스크의 경로 할당 합니다 *$DataDiskVhdUri01*, *$DataDiskVhdUri02*, 및 *$DataDiskVhdUri03* 변수. 디스크를 다른 컨테이너를 배포 하려면 URL에 다른 경로 이름을 정의 합니다.     
-  ```
+  ```powershell
   $DataDiskVhdUri01 = "https://contoso.blob.local.azurestack.external/test1/data1.vhd"
   ```
 
-  ```
+  ```powershell
   $DataDiskVhdUri02 = "https://contoso.blob.local.azurestack.external/test2/data2.vhd"
   ```
 
-  ```
+  ```powershell
   $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.vhd"
   ```
 
 에 저장 된 가상 머신에 데이터 디스크를 추가 하는 마지막 3 개 명령을 *$VirtualMachine*합니다. 각 명령 이름, 위치 및 디스크의 추가 속성을 지정합니다. 각 디스크의 URI에 저장 됩니다 *$DataDiskVhdUri01*를 *$DataDiskVhdUri02*, 및 *$DataDiskVhdUri03*합니다.
-  ```
+  ```powershell
   $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk1' `
                   -Caching 'ReadOnly' -DiskSizeInGB 10 -Lun 0 `
                   -VhdUri $DataDiskVhdUri01 -CreateOption Empty
   ```
 
-  ```
+  ```powershell
   $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk2' `
                  -Caching 'ReadOnly' -DiskSizeInGB 11 -Lun 1 `
                  -VhdUri $DataDiskVhdUri02 -CreateOption Empty
   ```
 
-  ```
+  ```powershell
   $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
                   -Caching 'ReadOnly' -DiskSizeInGB 12 -Lun 2 `
                   -VhdUri $DataDiskVhdUri03 -CreateOption Empty
   ```
 
 다음 PowerShell 명령을 사용 하 여 VM에 OS 디스크 및 네트워크 구성을 추가 하 고 새 VM을 시작 합니다.
-  ```
+  ```powershell
   #set variables
   $rgName = "myResourceGroup"
   $location = "local"
@@ -193,7 +192,7 @@ PowerShell을 사용 하 여 VM을 프로 비전 하 고 새 데이터 디스크
   $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
       -AllocationMethod Dynamic
 
-  # Create a network security group cnfiguration
+  # Create a network security group configuration
   $nsgName = "myNsg"
   $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
       -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
@@ -219,34 +218,34 @@ PowerShell을 사용 하 여 VM을 프로 비전 하 고 새 데이터 디스크
 ### <a name="add-data-disks-to-an-existing-virtual-machine"></a>기존 가상 머신에 데이터 디스크를 추가 합니다.
 다음 예제에서는 기존 VM에 3 개의 데이터 디스크를 추가 하려면 PowerShell 명령을 사용 합니다.
 첫 번째 명령은 VirtualMachine를 사용 하 여 명명 된 가상 컴퓨터를 **Get-azurermvm** cmdlet. 이 명령은 가상 머신을 *$VirtualMachine* 변수에 저장합니다.
-  ```
+  ```powershell
   $VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" `
                                   -Name "VirtualMachine"
   ```
 다음의 세 명령은 $DataDiskVhdUri01, $DataDiskVhdUri02, 및 $DataDiskVhdUri03 변수에 세 개의 데이터 디스크의 경로 할당합니다.  vhduri에서 서로 다른 경로 이름을 디스크 배치에 대 한 다른 컨테이너를 나타냅니다.
-  ```
+  ```powershell
   $DataDiskVhdUri01 = "https://contoso.blob.local.azurestack.external/test1/data1.vhd"
   ```
-  ```
+  ```powershell
   $DataDiskVhdUri02 = "https://contoso.blob.local.azurestack.external/test2/data2.vhd"
   ```
-  ```
+  ```powershell
   $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.vhd"
   ```
 
 
   다음의 세 명령은에 저장 된 가상 머신에 데이터 디스크를 추가 합니다 *$VirtualMachine* 변수입니다. 각 명령 이름, 위치 및 디스크의 추가 속성을 지정합니다. 각 디스크의 URI에 저장 됩니다 *$DataDiskVhdUri01*를 *$DataDiskVhdUri02*, 및 *$DataDiskVhdUri03*합니다.
-  ```
+  ```powershell
   Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk1" `
                         -VhdUri $DataDiskVhdUri01 -LUN 0 `
                         -Caching ReadOnly -DiskSizeinGB 10 -CreateOption Empty
   ```
-  ```
+  ```powershell
   Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk2" `
                         -VhdUri $DataDiskVhdUri02 -LUN 1 `
                         -Caching ReadOnly -DiskSizeinGB 11 -CreateOption Empty
   ```
-  ```
+  ```powershell
   Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk3" `
                         -VhdUri $DataDiskVhdUri03 -LUN 2 `
                         -Caching ReadOnly -DiskSizeinGB 12 -CreateOption Empty
@@ -254,7 +253,7 @@ PowerShell을 사용 하 여 VM을 프로 비전 하 고 새 데이터 디스크
 
 
   마지막 명령은 가상 컴퓨터에 저장 된 상태를 업데이트 *$VirtualMachine* 에서*ResourceGroupName*합니다.
-  ```
+  ```powershell
   Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
   ```
 <!-- Pending scripts  

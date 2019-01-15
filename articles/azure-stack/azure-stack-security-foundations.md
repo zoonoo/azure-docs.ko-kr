@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/9/2018
+ms.date: 01/14/2019
 ms.author: patricka
-ms.openlocfilehash: 8b478c1ba60df679d69d5fced660836c16079e6a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.reviewer: fiseraci
+ms.openlocfilehash: cd3aa913bd17498ddc58994196bc8faa96c4de51
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727092"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306457"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack 인프라의 보안 상태
 
@@ -70,7 +71,7 @@ Azure Stack (Hyper-v 호스트 및 가상 머신)에서 모든 구성 요소는 
 연결 된 시나리오에서 바이러스 백신 정 및 엔진 업데이트에는 하루에 여러 번 적용 됩니다. 연결이 끊긴된 시나리오에서 맬웨어 방지 업데이트는 월별 Azure Stack 업데이트의 일부로 적용 됩니다. 자세한 내용은 [Azure Stack에 Windows Defender 바이러스 백신 업데이트](azure-stack-security-av.md)합니다.
 
 ## <a name="constrained-administration-model"></a>제한 된 관리 모델
-Azure Stack의 관리는 세 가지 진입점, 특정 목적을 사용 하 여 각각 사용 하 여 제어 됩니다. 
+진입점을 통해 세 가지, 특정 목적으로 각 Azure Stack에 대 한 관리 제어 됩니다. 
 1. 합니다 [관리자 포털](azure-stack-manage-portals.md) 일상적인 관리 작업에 대 한 포인트 클릭 환경을 제공 합니다.
 2. Azure Resource Manager PowerShell 및 Azure CLI에서 사용 하는 REST API를 통해 관리자 포털의 모든 관리 작업을 노출 합니다. 
 3. 특정 하위 수준 작업에 대 한 데이터 센터 통합 또는 시나리오를 지원 합니다. 예를 들어, 라는 PowerShell 끝점을 노출 하는 Azure Stack [Privileged 끝점](azure-stack-privileged-endpoint.md)합니다. 이 끝점 집합에만 허용 목록에 cmdlet 노출 하 고 감사할 과도 하 게 합니다.

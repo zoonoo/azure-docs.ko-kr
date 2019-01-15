@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: comartin
-ms.openlocfilehash: 6b73cf04d768381bcc0e27cc76b6c2a25d4d9a2c
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 190a80d5807dcc8ad9666d3ba450691bc6453b41
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341058"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265620"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack 원격 분석
 
@@ -33,7 +33,7 @@ Azure Stack 운영자에 대 한 원격 분석 엔터프라이즈 배포에 대 
 > [!NOTE]
 > Azure Stack 청구에 대 한 azure 사용량 정보를 전달 하도록 구성할 수도 있습니다. 이것이-수-종 청구를 선택 하는 다중 노드 Azure Stack 고객에 대 한 필요 합니다. 사용 현황 보고 원격 분석에서 독립적으로 제어 됩니다 및 용량 모델을 선택 하는 다중 노드 고객 또는 Azure Stack Development Kit 사용자에 대해 필요 하지 않습니다. 이러한 시나리오에 대 한 사용 보고 설정 해제할 수 있습니다 [등록 스크립트를 사용 하 여](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting)입니다.
 
-Azure Stack 원격 분석을 Windows Server 2016 연결 된 사용자 환경 및 원격 분석 구성 요소를 사용 하는 기반으로 합니다 [이벤트 추적에 대 한 Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging 기술 수집 하 고 이벤트 및 데이터를 저장 합니다. Azure Stack 구성 요소에서는 동일한 기술을 사용 하 여 이벤트 및 공용 운영 체제 이벤트 로깅 및 추적 Api를 사용 하 여 수집 된 데이터를 게시 합니다. 이러한 Azure Stack 구성 요소의 예로 이러한 공급자: 네트워크 리소스, 저장소 리소스, 리소스 모니터링 및 업데이트 리소스입니다. 연결 된 사용자 환경 및 원격 분석 구성 요소는 SSL을 사용 하 여 데이터를 암호화 하 고 인증서 고정을 사용 하 여 Microsoft 데이터 관리 서비스에 HTTPS를 통한 데이터 전송.
+Azure Stack 원격 분석을 Windows Server 2016 연결 된 사용자 환경 및 원격 분석 구성 요소를 사용 하는 기반으로 합니다 [이벤트 추적에 대 한 Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging 기술 수집 하 고 이벤트 및 데이터를 저장 합니다. Azure Stack 구성 요소에서는 동일한 기술을 사용 하 여 이벤트 및 공용 운영 체제 이벤트 로깅 및 추적 Api를 사용 하 여 수집 된 데이터를 게시 합니다. 이러한 Azure Stack 구성 요소의 예로 이러한 공급자: 네트워크 리소스, 저장소 리소스, 리소스 모니터링 하 고 리소스를 업데이트할 키를 누릅니다. 연결 된 사용자 환경 및 원격 분석 구성 요소는 SSL을 사용 하 여 데이터를 암호화 하 고 인증서 고정을 사용 하 여 Microsoft 데이터 관리 서비스에 HTTPS를 통한 데이터 전송.
 
 > [!IMPORTANT]
 > 원격 분석 데이터 흐름을 사용 하려면 포트 443(https)은 네트워크에 열려 있어야 합니다. 연결 된 사용자 환경 및 원격 분석 구성 요소에서 Microsoft 데이터 관리 서비스에 연결 https://v10.vortex-win.data.microsoft.com합니다. 연결 된 사용자 환경 및 원격 분석 구성 요소에도 연결 https://settings-win.data.microsoft.com 구성 정보를 다운로드 합니다.
@@ -112,7 +112,7 @@ Azure Stack을 배포 하기 전에 원격 분석 수준 물리적 호스트 컴
 Azure Stack 개발 키트 호스트를 배포 하기 전에 CloudBuilder.vhdx 부팅할 하 고 관리자 권한 PowerShell 창에서 다음 스크립트를 실행 합니다.
 
 ```powershell
-### Get current AllowTelmetry value on DVM Host
+### Get current AllowTelemetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
 ### Set & Get updated AllowTelemetry value for ASDK-Host

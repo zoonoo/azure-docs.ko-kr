@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: e784185cfc7f2c588db354bab1cfb36934b9c417
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 8e577a95fc3cda3aafe1273cbc6b4e3c4fbb0317
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585869"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304364"
 ---
 # <a name="optimize-sql-server-performance"></a>SQL Server 성능 최적화
 
@@ -29,7 +29,7 @@ ms.locfileid: "47585869"
 SQL Server 이미지를 만들 때 [Azure Stack 포털에 가상 컴퓨터를 프로 비전 하는 것이 좋습니다.](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision)합니다. Azure Stack 관리 포털에서 관리 Marketplace에서에서 SQL IaaS 확장을 다운로드 하 고 여러분이 SQL 가상 머신 가상 하드 드라이브 (Vhd)를 다운로드 합니다. 여기에 SQL2014SP2, SQL2016SP1, SQL2017 포함 됩니다.
 
 > [!NOTE]  
-> 문서에서 설명 하는 전역 Azure portal을 사용 하 여 SQL Server 가상 컴퓨터를 프로 비전 하는 동안 제공 된 지침에도 적용 됩니다 Azure Stack 같은 차이점이: SSD를 사용할 수 없는 운영 체제 디스크에 대 한 관리 디스크를 사용할 수 없는 및 저장소 구성에서 약간의 차이가 있습니다.
+> 문서에서 설명 하는 전역 Azure portal을 사용 하 여 SQL Server 가상 컴퓨터를 프로 비전 하는 동안 제공 된 지침에도 적용 됩니다 Azure Stack 다음과 같은 차이점을 사용 하 여: SSD는 운영 체제 디스크를 사용할 수 없습니다 하 고 관리 디스크를 사용할 수 없는 저장소 구성에서 사소한 차이가 있습니다.
 
 시작 합니다 *최상의* Azure Stack virtual machines에서 SQL Server에 대 한 성능에는이 문서에서는의 초점 이기도 합니다. 워크 로드가 덜 까다롭기 경우 권장 되는 모든 최적화가 필요 하지 않을 수도 있습니다. 이러한 권장 사항을 평가할 때 성능 요구 사항 및 작업 패턴을 고려하세요.
 
@@ -57,7 +57,7 @@ Azure Stack virtual machines에서 SQL Server 성능을 최적화 하기 위한 
 
 - **SQL Server Enterprise edition:** DS3 이상
 
-- **SQL Server Standard edition 및 Web edition:** DS2 이상
+- **SQL Server Standard edition 및 Web edition.** DS2 이상
 
 Azure Stack DS 및 DS_v2 가상 머신 제품군 시리즈 간에 성능 차이점이 없음이 있습니다.
 
@@ -78,7 +78,7 @@ Azure Stack virtual machine에서 세 가지 기본 디스크 유형에
 
 - **운영 체제 디스크:** 플랫폼 하나 이상의 디스크를 연결 하는 Azure Stack virtual machine을 만들면 (로 레이블이 지정 된 합니다 **C** 드라이브) 운영 체제 디스크에 대 한 가상 컴퓨터에 있습니다. 이 디스크는 저장소에 페이지 Blob으로 저장된 VHD입니다.
 
-- **임시 디스크:** 는 임시 디스크 라는 다른 디스크를 포함 하는 Azure Stack virtual machines (로 레이블이 지정 된 **D** 드라이브). 이는 스크래치 공간에 사용할 수 있는 노드의 디스크입니다.
+- **임시 디스크:** 임시 디스크 라는 다른 디스크를 포함 하는 azure Stack virtual machines (로 레이블이 지정 된 **D** 드라이브). 이는 스크래치 공간에 사용할 수 있는 노드의 디스크입니다.
 
 - **데이터 디스크:** 데이터 디스크로 가상 컴퓨터에 추가 디스크를 연결할 수 있습니다 하 고 이러한 디스크는 저장소에 페이지 blob으로 저장 됩니다.
 
@@ -101,7 +101,7 @@ Azure Stack virtual machine에서 세 가지 기본 디스크 유형에
 > [!NOTE]  
 > 포털에서 SQL Server 가상 컴퓨터를 프로 비전 하는 경우 저장소 구성을 편집 옵션이 있습니다. Azure Stack 구성에 따라 하나 이상의 디스크를 구성합니다. 여러 디스크를 단일 저장소 풀으로 결합 됩니다. 이 구성에서는 데이터 및 로그 파일이 함께 배치됩니다.
 
-- **디스크 스트라이프:** 더 많은 처리량에 대 한 추가 데이터 디스크를 추가 고 디스크 스트라이프를 사용할 수 있습니다. 데이터 및 TempDB 파일 및 로그 파일에 대해 필요한 IOPS 및 대역폭 수를 분석 해야 하는 데이터 디스크 수를 결정 합니다. 가상 머신 시리즈 제품군을 기반으로 하며 가상 머신 크기를 기반으로 하지 데이터 디스크당 IOPS 한도 알 수 있습니다. 그러나 네트워크 대역폭 제한, 가상 머신 크기에 기반한 합니다. 테이블을 참조 하세요 [Azure Stack에서 가상 머신 크기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) 자세한 세부 정보에 대 한 합니다. 다음 지침을 사용하세요.
+- **디스크 스트라이프:** 더 많은 처리량에 대 한 추가 데이터 디스크를 추가할 수 있으며 디스크 스트라이프를 사용할 수 있습니다. 데이터 및 TempDB 파일 및 로그 파일에 대해 필요한 IOPS 및 대역폭 수를 분석 해야 하는 데이터 디스크 수를 결정 합니다. 가상 머신 시리즈 제품군을 기반으로 하며 가상 머신 크기를 기반으로 하지 데이터 디스크당 IOPS 한도 알 수 있습니다. 그러나 네트워크 대역폭 제한, 가상 머신 크기에 기반한 합니다. 테이블을 참조 하세요 [Azure Stack에서 가상 머신 크기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) 자세한 세부 정보에 대 한 합니다. 다음 지침을 사용하세요.
 
     - Windows Server 2012 이상에서는 사용할 [저장소 공간](https://technet.microsoft.com/library/hh831739.aspx) 다음 지침을 사용 하 여:
 
@@ -120,7 +120,7 @@ Azure Stack virtual machine에서 세 가지 기본 디스크 유형에
 
 - 예상되는 부하에 따라 저장소 풀에 연결되는 디스크 수를 결정합니다. 연결 된 데이터 디스크를 다른 가상 머신 크기의 다른 숫자를 허용 하는 것에 유의 합니다. 자세한 내용은 [Azure Stack에서 지원 되는 가상 머신 크기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes)합니다.
 - 지 원하는 데이터 디스크의 최대 수를 추가 하는 것이 좋습니다 데이터 디스크에 대 한 최대 가능한 IOPS를 얻으려면 하 [가상 머신 크기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) 하 고 디스크 스트라이프를 사용 합니다.
-- **NTFS 할당 단위 크기:** 데이터 디스크를 포맷할 때 64KB 할당 단위 크기를 사용 하 여 TempDB 뿐만 아니라 데이터 및 로그 파일에 대 한 권장는 것입니다.
+- **NTFS 할당 단위 크기:** 데이터 디스크를 포맷할 때 TempDB 뿐만 아니라 데이터 및 로그 파일에 대해 64KB 할당 단위 크기를 사용 하는 하는 것이 좋습니다.
 - **디스크 관리 사례:** 데이터 디스크를 제거 하는 경우 변경 하는 동안 SQL Server 서비스를 중지 합니다. 또한 변경 되지 않습니다 디스크에서 캐시 설정을 모든 성능 향상을 제공 하지 마십시오.
 
 > [!WARNING]  

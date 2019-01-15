@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/09/2018
+ms.date: 01/14/2019
 ms.author: patricka
-ms.reviewer: unknown
-ms.openlocfilehash: 53c739c17007b99d90cd146e6bf01ea4a120cabd
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.reviewer: fiseraci
+ms.openlocfilehash: 4ffbf552b2c35039ceadfdf6940873a22cb194aa
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245687"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306542"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure Stack에 대 한 id 개요
 
 Azure Stack에는 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)를 id 공급자로 Active Directory에서 지원 해야 합니다. 공급자의 선택은 Azure Stack을 처음 배포할 때를 확인 하는 한 번만 결정 합니다. 개념 및이 문서에서 권한 부여 정보 도움이 id 공급자 중에서 선택 됩니다.
 
-Azure AD 또는 AD FS 여러분이 Azure Stack을 배포 하는 모드를 결정할 수 있습니다:
+Azure AD 또는 AD FS 여러분이 Azure Stack을 배포 하는 모드에 의해 결정 됩니다.
 
 - 연결된 된 모드에서 배포할 때 Azure AD 또는 AD FS 사용할 수 있습니다.
 - 인터넷에 연결 하지 않고 연결이 끊어진된 모드에서 배포 하는 경우에 AD FS는 지원 됩니다.

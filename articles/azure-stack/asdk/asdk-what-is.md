@@ -16,12 +16,12 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 345d62f4045e7b9279d52acf70cc340d088f5db0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d2e849b4a6101cd10ce17e52056efdfe2f903381
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961334"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267116"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>Azure Stack 개발 키트 란?
 [Microsoft Azure Stack 통합 시스템](../azure-stack-poc.md) 4-16 노드에서 크기 및 하드웨어 파트너와 Microsoft에서 지원 됩니다. Azure Stack 통합 시스템을 사용 하 여 프로덕션 워크 로드에 대 한 새로운 시나리오를 사용 하도록 설정 합니다. 통합된 시스템 인프라를 관리 하 고 서비스를 제공 하는 Azure Stack 운영자 인 경우 참조 우리의 [연산자 설명서](https://docs.microsoft.com/azure/azure-stack)합니다.

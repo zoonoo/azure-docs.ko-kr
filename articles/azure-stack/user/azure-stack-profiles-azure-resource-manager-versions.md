@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: d1b15e634cae0758f1f872750ffd9dd569e83a8e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2769b78632e1a7f776359f2a4d768154c224aab5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036242"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264617"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack의 프로필에서 지 원하는 리소스 공급자 API 버전
 
@@ -92,7 +92,7 @@ API 프로필에서 공급자에 대 한 각 리소스 종류의 버전 목록�
 | 권한 | 2015-07-01 |
 | 정책 할당 | 2016-12-01 (2017-06-01-미리 보기) |
 | 정책 정의 | 2016-12-01 |
-| 공급자 작업 | 2015-07-01-미리 보기 |
+| 공급자 작업 | 2015-07-01-preview |
 | 역할 할당 | 2015-07-01 |
 | 역할 정의 | 2015-07-01 |
 
@@ -118,7 +118,7 @@ Azure Compute Api 가상 컴퓨터 및 해당 지원 리소스에 프로그래�
 | 위치/작업 | 2016-03-30 |
 | Locations/publishers | 2016-03-30 |
 | 위치/사용 | 2016-03-30 |
-| 위치/vmSizes | 2016-03-30 |
+| Locations/vmSizes | 2016-03-30 |
 | 작업 | 2016-03-30 |
 | Virtual Machines | 2016-03-30 |
 | Virtual Machines/확장 | 2016-03-30 |
@@ -216,7 +216,7 @@ Azure Resource Manager를 사용하면 Azure 솔루션 인프라를 배포하고
 | Subscriptions/resourceGroups/resources | 2016-09-01 |
 | 구독/리소스 | 2016-09-01 |
 | Subscriptions/tagNames | 2016-09-01 |
-| 구독/tagNames/tagValues | 2016-09-01 |
+| Subscriptions/tagNames/tagValues | 2016-09-01 |
 | 테 넌 트 | 2017-08-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage 
@@ -243,7 +243,7 @@ Azure Resource Manager를 사용하면 Azure 솔루션 인프라를 배포하고
 | 권한 | 2015-07-01 |
 | 정책 할당 | 2016-12-01 (2017-06-01-미리 보기) |
 | 정책 정의 | 2016-12-01 |
-| 공급자 작업 | 2015-07-01-미리 보기 |
+| 공급자 작업 | 2015-07-01-preview |
 | 역할 할당 | 2015-07-01 |
 | 역할 정의 | 2015-07-01 |
 
@@ -256,7 +256,7 @@ Azure Resource Manager를 사용하면 Azure 솔루션 인프라를 배포하고
 | 위치/작업 | 2016-03-30 |
 | Locations/publishers | 2016-03-30 |
 | 위치/사용 | 2016-03-30 |
-| 위치/vmSizes | 2016-03-30 |
+| Locations/vmSizes | 2016-03-30 |
 | 작업 | 2016-03-30 |
 | Virtual Machines | 2016-03-30 |
 | Virtual Machines/확장 | 2016-03-30 |
@@ -312,8 +312,8 @@ Azure Resource Manager를 사용하면 Azure 솔루션 인프라를 배포하고
 | 구독/리소스 그룹 | 2016-09-01 |
 | Subscriptions/resourceGroups/resources | 2016-09-01 |
 | 구독/리소스 | 2016-09-01 |
-| Subscriptiosn/tagNames | 2016-09-01 |
-| 구독/tagNames/tagValues | 2016-09-01 |
+| Subscriptions/tagNames | 2016-09-01 |
+| Subscriptions/tagNames/tagValues | 2016-09-01 |
 | 테 넌 트 | 2017-08-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage

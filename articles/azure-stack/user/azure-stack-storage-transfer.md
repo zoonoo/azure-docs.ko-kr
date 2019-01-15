@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 40df81d496e04ab2d549923cc0645afb8eddaf57
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b907098f9d6471a7df5ca43f76cd9109ee4dea8e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724456"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263959"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Azure Stack 저장소에 대 한 데이터 전송 도구를 사용 합니다.
 
@@ -160,7 +160,7 @@ Azure Stack 호환 가능한 Azure PowerShell 모듈은 Azure Stack을 사용 �
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name
 $ARMEndPoint = "https://management.local.azurestack.external" 
-$GraphAudiance = "https://graph.windows.net/" 
+$GraphAudience = "https://graph.windows.net/" 
 $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com" 
 
 $SubscriptionName = "basic" # Update with the name of your subscription.
@@ -169,7 +169,7 @@ $StorageAccountName = "azsblobcontainer" # Give a name to your new storage accou
 $Location = "Local" # Choose "Local" as an example.
 $ContainerName = "photo" # Give a name to your new container.
 $ImageToUpload = "C:\temp\Hello.jpg" # Prepare an image file and a source directory in your local computer.
-$DestinationFolder = "C:\temp\downlaod" # A destination directory in your local computer.
+$DestinationFolder = "C:\temp\download" # A destination directory in your local computer.
 
 # Import the Connect PowerShell module"
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
@@ -307,7 +307,7 @@ Microsoft Azure storage 탐색기는 Microsoft의 독립 실행형 앱입니다.
 
 ## <a name="blobfuse"></a>Blobfuse 
 
-[blobfuse](https://github.com/Azure/azure-storage-fuse)는 Azure Blob Storage용 가상 파일 시스템 드라이버로, Linux 파일 시스템을 통해 Storage 계정의 기존 블록 Blob 데이터에 액세스할 수 있습니다. Azure Blob Storage는 개체 스토리지 서비스이므로 계층 구조 네임스페이스가 없습니다. Blobfuse는 슬래시를 사용 하 여 가상 direcectory 체계를 사용 하 여이 네임 스페이스를 제공 `/` 를 구분 합니다. Blobfuse는 Azure 및 Azure Stack에서 작동합니다. 
+[blobfuse](https://github.com/Azure/azure-storage-fuse)는 Azure Blob Storage용 가상 파일 시스템 드라이버로, Linux 파일 시스템을 통해 Storage 계정의 기존 블록 Blob 데이터에 액세스할 수 있습니다. Azure Blob Storage는 개체 스토리지 서비스이므로 계층 구조 네임스페이스가 없습니다. Blobfuse는 슬래시를 사용 하 여 가상 디렉터리 체계를 사용 하 여이 네임 스페이스를 제공 `/` 를 구분 합니다. Blobfuse는 Azure 및 Azure Stack에서 작동합니다. 
 
 Linux에 Blobfuse 사용 하 여 파일 시스템으로 Blob storage를 탑재 하는 방법에 대 한 자세한 내용은 참조 하세요 [Blobfuse 사용 하 여 Blob 저장소 파일 시스템으로 탑재 하는 방법을](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)합니다. 
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/18/2018
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 95fcb98e9ca6ff85e37ee88d5a5122ffa6887bb4
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1629c4b62fb04e057c38261a33fd3bc759b279c1
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245211"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267405"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 하이브리드 클라우드 솔루션 배포
 
@@ -77,7 +77,7 @@ ms.locfileid: "54245211"
 
 2. 에 **대시보드**를 선택 **Marketplace**합니다.
 
-    ![Auzure Stack Marketplace](media/azure-stack-solution-hybrid-cloud/image1.png)
+    ![Azure Stack Marketplace](media/azure-stack-solution-hybrid-cloud/image1.png)
 
 3. **Marketplace**를 선택 **Compute**를 선택한 후 **자세한**합니다. 아래 **자세한**를 선택 합니다 **체험 용 SQL Server 라이선스: Windows Server에서 SQL Server 2017 Developer** 이미지입니다.
 
@@ -308,7 +308,7 @@ App Service environment에서 웹 앱을 만들 때 인스턴스 하나를 사�
 
     ![자동 크기 조정 사용](media/azure-stack-solution-hybrid-cloud/image17.png)
 
-3. 에 대 한 이름을 입력 **자동 크기 조정 설정 이름**합니다. 에 대 한 합니다 **기본** 자동 크기 조정 규칙을 선택 **메트릭에 따라 크기 조정**합니다. 설정 된 **인스턴스 제한** 에 **최소: 1**, **최대: 10**, 및 **기본: 1**합니다.
+3. 에 대 한 이름을 입력 **자동 크기 조정 설정 이름**합니다. 에 대 한 합니다 **기본** 자동 크기 조정 규칙을 선택 **메트릭에 따라 크기 조정**합니다. 설정 된 **인스턴스 제한** 에 **최소: 1**, **최대: 10**, 및 **기본: 1**.
 
     ![자동 크기 조정 구성](media/azure-stack-solution-hybrid-cloud/image18.png)
 

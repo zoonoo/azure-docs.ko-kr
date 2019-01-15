@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 2cfa789b9817562eba5224257a365f8552cdf833
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 9ca777275aa4aa09a16c0248f6e3b1ecc76ac5b2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245943"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267337"
 ---
 # <a name="validate-azure-identity"></a>Azure id의 유효성을 검사합니다 
 Azure Active Directory (Azure AD) Azure Stack과 함께 사용할 준비가 되었는지 유효성을 검사 하려면 (AzsReadinessChecker) Azure Stack 준비 검사기 도구를 사용 합니다. Azure Stack 배포를 시작 하기 전에 Azure id 솔루션의 유효성을 검사 합니다.  
@@ -48,7 +48,7 @@ Azure Active Directory (Azure AD) Azure Stack과 함께 사용할 준비가 되�
 **Azure Active Directory 환경:**
  - Azure Stack에 대 한 사용 되며, Azure Active Directory 전역 관리자가 Azure AD 계정을 식별 합니다.
  - Azure AD 테 넌 트 이름을 식별 합니다. 테 넌 트 이름 이어야 합니다는 *기본* Azure Active Directory에 대 한 도메인 이름입니다. 예를 들어 *contoso.onmicrosoft.com*합니다. 
- - 사용 하 여 AzureEnvironement를 식별 합니다. 환경 이름 매개 변수에 대해 지원 되는 값 AzureCloud, AzureChinaCloud, AzureUSGovernment를 사용 하는 Azure 구독에 따라 됩니다.
+ - 사용 하 여 AzureEnvironment를 식별 합니다. 환경 이름 매개 변수에 대해 지원 되는 값 AzureCloud, AzureChinaCloud, AzureUSGovernment를 사용 하는 Azure 구독에 따라 됩니다.
 
 ## <a name="validate-azure-identity"></a>Azure id의 유효성을 검사합니다 
 1. 필수 구성 요소를 충족 하는 컴퓨터에서 관리자 PowerShell 프롬프트를 열고 AzsReadinessChecker를 설치 하려면 다음 명령을 실행:  

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 85400269be13295161aaff5936a6ae8c7d503b34
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: da6c9fa416d19916243860178d15619306aaf3c0
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245874"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305318"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 지역 분산 앱 솔루션 만들기
 
@@ -41,7 +41,7 @@ ms.locfileid: "54245874"
 
 #### <a name="scalability-considerations"></a>확장성 고려 사항
 
-이 자습서를 사용 하 여 빌드됩니다 해결책은 확장성을 수용 합니다. 그러나 다른 Azure 및 온-프레미스 기술과 솔루션을 함께 사용 하는 경우 확장성 요구를 수용할 수 있습니다. 관리자 트래픽을 통해 자동 크기 조정을 통해 hyrbid 솔루션을 만드는 방법은 [Azure를 사용 하 여 클라우드 간 크기 조정 솔루션을 만드는](azure-stack-solution-cloud-burst.md)합니다.
+이 자습서를 사용 하 여 빌드됩니다 해결책은 확장성을 수용 합니다. 그러나 다른 Azure 및 온-프레미스 기술과 솔루션을 함께 사용 하는 경우 확장성 요구를 수용할 수 있습니다. 관리자 트래픽을 통해 자동 크기 조정을 사용 하 여 하이브리드 솔루션을 만드는 방법은 [Azure를 사용 하 여 클라우드 간 크기 조정 솔루션을 만드는](azure-stack-solution-cloud-burst.md)합니다.
 
 #### <a name="availability-considerations"></a>가용성 고려 사항
 
@@ -93,7 +93,7 @@ Azure 구독 및 Azure Stack 설치는 필요 합니다.
 
 ### <a name="obtain-a-custom-domain-and-configure-dns"></a>사용자 지정 도메인을 가져오고 DNS 구성
 
-DNS 영역 파일 foCreate 웹 앱 및 publishr 도메인을 업데이트 합니다. Azure AD는 사용자 지정 도메인 이름의 소유권을 확인할 수 있습니다. 사용 하 여 [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) Azure 내에서 Azure/Office 365/외부 DNS 레코드에서 DNS 항목을 추가 하거나 [다른 DNS 등록 기관](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)합니다.
+도메인에 대 한 DNS 영역 파일을 업데이트 합니다. Azure AD는 사용자 지정 도메인 이름의 소유권을 확인할 수 있습니다. 사용 하 여 [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) Azure 내에서 Azure/Office 365/외부 DNS 레코드에서 DNS 항목을 추가 하거나 [다른 DNS 등록 기관](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)합니다.
 
 1. 공용 등록을 사용 하 여 사용자 지정 도메인을 등록 합니다.
 
@@ -273,7 +273,7 @@ Azure DevOps 및 Azure DevOps 서버 제공 항상 구성 및 관리 가능한 �
 
 -   Azure AD가 제공한 DNS 항목을 추가 하 여 도메인에 대 한 DNS 영역 파일을 업데이트 합니다.
 
-예를 들어, DNS 항목 fornorthwindcloud.comand www.northwindcloud.com 추가할 thenorthwindcloud.com 루트 도메인에 대 한 DNS 설정을 구성 합니다.
+예를 들어 northwindcloud.com 및 www.northwindcloud.com에 대 한 DNS 항목을 추가 하려면 northwindcloud.com 루트 도메인에 대 한 DNS 설정을 구성 합니다.
 
 > [!Note]  
 >  사용 하 여 도메인 이름을 구입할 수는 [Azure portal](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain)합니다.  
@@ -302,7 +302,7 @@ DNS 레코드 페이지를 볼 수 있습니다 **내 도메인**합니다. 명�
 
 2.  하위 도메인을 앱의 기본 호스트 이름에 매핑할 CNAME 레코드를 추가 합니다.
 
-  namewwwto 매핑하는 CNAME 레코드를 추가 www.northwindcloud.comdomain 예를 들어 < 앱\_이름 >. azurewebsites.net입니다.
+  Www.northwindcloud.com 도메인 예제의 경우 이름을 매핑하는 CNAME 레코드를 추가 < 앱\_이름 >. azurewebsites.net입니다.
 
 CNAME을 추가한 후 DNS 레코드 페이지가 다음 예제와 같이 표시 됩니다.
 

@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 0cac5658d5f6f32795b5988008b3b895024ecc06
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e89575323b87ba28ef4f062da098fea4f0e27035
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960537"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264057"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes Azure Stack Marketplace에 추가
 
@@ -46,7 +46,7 @@ ms.locfileid: "52960537"
 
 1. 선택 **개요** 제품 블레이드에서 합니다.
 
-1. 선택 **상태 변경**합니다. 선택 **공용**합니다.
+1. 선택 **상태 변경**합니다. **공용**을 선택합니다.
 
 1. 선택 **+ 리소스 만들기** > **제공 하 고 계획** > **구독** 새 구독을 만듭니다.
 
@@ -74,8 +74,8 @@ Marketplace에는 다음 Ubuntu Server 이미지를 추가 합니다.
 
 1. 최신 버전의 서버를 선택 합니다. 정식 버전을 확인 하 고 최신 버전이 있는지 확인 합니다.
     - **게시자**: Canonical
-    - **제공**: UbuntuServer
-    - **버전**: 16.04.201806120
+    - **제품**: UbuntuServer
+    - **버전**: 16.04.201806120 (또는 이상)
     - **SKU**: 16.04-LTS
 
 1. 선택 **다운로드 합니다.**
@@ -93,12 +93,12 @@ Marketplace에서 Kubernetes를 추가 합니다.
 1. `Custom Script for Linux` 을 입력합니다.
 
 1. 다음 프로필을 사용 하 여 스크립트를 선택 합니다.
-    - **제공**: Linux 2.0에 대 한 사용자 지정 스크립트
-    - **버전**: 2.0.6
+    - **제품**: Linux 2.0에 대 한 사용자 지정 스크립트
+    - **버전**: 2.0.6 (이상)
     - **게시자**: Microsoft Corp
 
     > [!Note]  
-    > Linux 용 사용자 지정 스크립트의 버전이 둘 이상 나타날 수 있습니다. 일치 하는 버전을 추가 해야 합니다. Kubernetes에는 항목의 정확한 버전에 필요합니다.
+    > Linux 용 사용자 지정 스크립트의 버전이 둘 이상 나타날 수 있습니다. 항목의 최신 버전을 추가 해야 합니다.
 
 1. 선택 **다운로드 합니다.**
 
@@ -149,7 +149,5 @@ Kubernetes 항목 제거 하려면:
 ## <a name="next-steps"></a>다음 단계
 
 [Azure Stack에 Kubernetes 배포](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
-
-
 
 [Azure Stack에서 서비스 제공 개요](azure-stack-offer-services-overview.md)
