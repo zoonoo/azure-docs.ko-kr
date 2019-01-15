@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 12/17/2018
 ms.author: danlep
-ms.openlocfilehash: 86c169c84e905362e8fdb069e8ceadcb5e19fe67
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 647890517e6f08a4602ebed8ee1057cb45f10cbe
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602395"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075501"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Azure Container Instances에 대한 할당량 및 지역 가용성
 
@@ -24,7 +24,7 @@ ms.locfileid: "53602395"
 
 ## <a name="region-availability"></a>지역 가용성
 
-Azure Container Instances를 지정된 CPU 및 메모리 제한을 사용하여 다음 지역에서 사용할 수 있습니다. 값은 게시 시점에 제공됩니다. 최신 정보의 경우 [목록 기능](/rest/api/container-instances/listcapabilities/listcapabilities) API를 사용합니다.
+Azure Container Instances를 지정된 CPU 및 메모리 제한을 사용하여 다음 지역에서 사용할 수 있습니다. 값은 게시 시점에 제공됩니다. 최신 정보의 경우 [목록 기능](/rest/api/container-instances/listcapabilities/listcapabilities) API를 사용합니다. [가상 네트워크](container-instances-vnet.md)(미리 보기) 또는 [GPU 리소스](container-instances-gpu.md)(미리 보기)에 Azure Container Instances를 사용할 때 가용성 및 리소스 제한이 달라질 수 있습니다.
 
 | 위치 | OS | CPU | 메모리(GB) |
 | -------- | -- | :---: | :-----------: |
