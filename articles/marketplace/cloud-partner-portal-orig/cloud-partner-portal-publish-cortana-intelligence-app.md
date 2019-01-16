@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 74cde720af012b3355b813cf6da2b2bdf10b9b8e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a6357640ceeb7c5f1bde4eea85aa5265990935f4
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257210"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157159"
 ---
 # <a name="publish-a-cortana-intelligence-offer-using-the-cloud-partner-portal"></a>클라우드 파트너 포털을 사용하여 Cortana Intelligence 제품 게시
 
@@ -126,7 +126,7 @@ ms.locfileid: "51257210"
 3. [기록 시작](https://support.office.com/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232)
 4. 기록을 중단한 후 [기록 관리자를 사용하여 기록을 게시](https://support.office.com/article/Recording-Manager-save-and-publish-59a3beb7-c700-40cf-ab21-bc82a2b06351)합니다.
 
-기록된 비디오를 공유 URL 생성이 가능한 서비스에 업로드합니다. 예를 들어 [OneDrive 또는 Sharepoint의 게스트 링크](https://support.office.com/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232)를 사용할 수 있습니다.
+기록된 비디오를 공유 URL 생성이 가능한 서비스에 업로드합니다. 예를 들어 [OneDrive 또는 SharePoint의 게스트 링크](https://support.office.com/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232)를 사용할 수 있습니다.
 
 ### <a name="supported-regions"></a>지원되는 지역
 
@@ -154,7 +154,7 @@ ms.locfileid: "51257210"
 ### <a name="trial-info"></a>평가판 정보
 
 -   **SaaS 평가판 URL:** 앱의 평가판 환경 URL을 입력합니다.
--   **시험 사용 평가판 URL:** 앱의 시험 사용 환경 URL을 입력합니다.
+-   **테스트 드라이브 평가판 URL:** 앱의 테스트 드라이브 환경 URL을 입력합니다.
 
 평가판에 대한 자세한 내용은 이 문서의 다음 섹션에서 **앱 유형**을 참조하세요.
 
@@ -292,7 +292,7 @@ ms.locfileid: "51257210"
 
 잠재 고객을 저장할 CRM 시스템을 선택합니다. 
 
-사용 중인 CRM 시스템이 Salesforce, Marketo, Microsoft Dynamics CRM 중 하나라면 **Azure 테이블**을 선택합니다. 
+다음 CRM 시스템 중 하나를 사용하는 경우 **Azure Table**을 선택합니다. Salesforce, Marketo 또는 Microsoft Dynamics CRM. 
 
 사용하려는 CRM 시스템에 대한 추가 정보를 확인하려면 지원되는 시스템에 해당하는 다음 링크 중 하나를 선택합니다.
 
