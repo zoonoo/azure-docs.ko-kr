@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: 62235c0c06621169997cc4ad16816c0a4d638e78
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: e5c5d1a3e0316c96a6df7e01e6d6796d6a72506a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853832"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159029"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -85,10 +85,10 @@ ms.locfileid: "51853832"
 
 | 이름 | 제한 | 메모 | 
 | ---- | ----- | ----- | 
-| 트리거 동시성 | 50 | 기본 제한은 20입니다. 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 논리 앱 인스턴스 수를 나타냅니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 [트리거 동시성 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) 또는 [순차적으로 인스턴스 트리거](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)를 참조하세요. | 
-| 최대 대기 중인 실행 | 100 | 기본 제한은 10입니다. 이 제한은 논리 앱에서 최대 동시 인스턴스를 이미 실행 중인 경우 실행되기 까지 기다릴 수 있는 논리 앱 인스턴스의 최대 수를 설명합니다. <p><p>기본 제한을 0에서 100 사이의 값으로 변경하려면 [대기 중인 실행 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)을 참조하세요. | 
-| Foreach 항목 | 100,000 | 이 제한은 "for each" 루프가 처리할 수 있는 배열 항목의 최대 수를 설명합니다. <p><p>더 큰 배열을 필터링하려면 [쿼리 작업](../connectors/connectors-native-query.md)을 사용하면 됩니다. | 
-| Foreach 반복 | 50 | 기본 제한은 20입니다. 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 "for each" 루프 반복 수를 나타냅니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 ["for each" 동시성 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) 또는 [순차적으로 "for each" 루프 실행](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each)을 참조하세요. | 
+| 트리거 동시성 | 동시성을 제한하는 경우 50 | 트리거에 대한 동시성 제어를 설정하면 기본 제한은 25입니다. 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 논리 앱 인스턴스 수를 나타냅니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 [트리거 동시성 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) 또는 [순차적으로 인스턴스 트리거](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)를 참조하세요. | 
+| 최대 대기 중인 실행 | 동시성을 제한하는 경우 100 | 트리거에 대한 동시성 제어를 설정하면 기본 제한은 10입니다. 이 제한은 논리 앱에서 최대 동시 인스턴스를 이미 실행 중인 경우 실행되기 까지 기다릴 수 있는 논리 앱 인스턴스의 최대 수를 설명합니다. <p><p>기본 제한을 0에서 100 사이의 값으로 변경하려면 [대기 중인 실행 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)을 참조하세요. | 
+| Foreach 배열 항목 | 100,000 | 이 제한은 "for each" 루프가 처리할 수 있는 배열 항목의 최대 수를 설명합니다. <p><p>더 큰 배열을 필터링하려면 [쿼리 작업](../connectors/connectors-native-query.md)을 사용하면 됩니다. | 
+| Foreach 동시성 | 동시성을 제한하는 경우 50 | 이 루프에 대한 동시성 제어를 설정하면 기본 제한은 20입니다. 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 "for each" 루프 반복 수를 나타냅니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 ["for each" 동시성 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) 또는 [순차적으로 "for each" 루프 실행](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each)을 참조하세요. | 
 | SplitOn 항목 | 100,000 | | 
 | Until 반복 | 5,000 | | 
 |||| 
@@ -104,8 +104,8 @@ ms.locfileid: "51853832"
 | 작업: 5분당 실행 | 300,000 | 기본 제한은 100,000입니다. 기본 제한을 변경하려면 미리 보기 상태인 ["높은 처리량" 모드에서 논리 앱 실행](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode)을 참조하세요. 또는 필요에 따라 둘 이상의 논리 앱에 워크로드를 배포할 수 있습니다. | 
 | 작업: 나가는 동시 호출 | ~2,500 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축할 수 있습니다. | 
 | 런타임 엔드포인트: 들어오는 동시 호출 | ~1,000 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축할 수 있습니다. | 
-| 런타임 엔드포인트: 5분마다 호출을 읽습니다.  | 60,000 | 필요에 따라 둘 이상의 앱에 워크로드를 배포할 수 있습니다. | 
-| 런타임 엔드포인트: 5분마다 호출을 수행합니다. | 45,000 | 필요에 따라 둘 이상의 앱에 워크로드를 배포할 수 있습니다. | 
+| 런타임 엔드포인트: 5분당 읽기 호출  | 60,000 | 필요에 따라 둘 이상의 앱에 워크로드를 배포할 수 있습니다. | 
+| 런타임 엔드포인트: 5분당 Invoke 호출 | 45,000 | 필요에 따라 둘 이상의 앱에 워크로드를 배포할 수 있습니다. | 
 | 5분당 콘텐츠 처리량 | 600MB | 필요에 따라 둘 이상의 앱에 워크로드를 배포할 수 있습니다. | 
 |||| 
 
@@ -119,9 +119,9 @@ ms.locfileid: "51853832"
 
 | 이름 | 제한 | 메모 |
 |------|-------|-------|
-| FTP | 50MB | 이 제한을 해결하려면 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. 그러나 일부 커넥터 및 API는 청킹 또는 기본 제한을 지원하지 않을 수 있습니다. | 
-| SFTP | 50MB | 이 제한을 해결하려면 [SFTP-SSH 커넥터](../connectors/connectors-sftp-ssh.md)를 사용하거나 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. 그러나 일부 커넥터 및 API는 청킹 또는 기본 제한을 지원하지 않을 수 있습니다. | 
-| SFTP-SSH | 1 GB | 이 제한을 해결하려면 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. 그러나 일부 커넥터 및 API는 청킹 또는 기본 제한을 지원하지 않을 수 있습니다. | 
+| FTP | 50MB | 이 제한을 초과하려면 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. 그러나 일부 커넥터 및 API는 청킹 또는 기본 제한을 지원하지 않을 수 있습니다. | 
+| SFTP | 50MB | 이 제한을 초과하려면 [SFTP-SSH 커넥터](../connectors/connectors-sftp-ssh.md)를 사용하거나 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. 그러나 일부 커넥터 및 API는 청킹 또는 기본 제한을 지원하지 않을 수 있습니다. | 
+| SFTP-SSH | 1 GB | 이 제한을 초과하려면 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. 그러나 일부 커넥터 및 API는 청킹 또는 기본 제한을 지원하지 않을 수 있습니다. | 
 |||| 
 
 <a name="request-limits"></a>
@@ -238,10 +238,10 @@ ms.locfileid: "51853832"
 | ---- | ----- | ----- | 
 | 스키마 | 8MB | 2MB보다 큰 파일을 업로드하려면 [blob URI](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 사용합니다. | 
 | 맵(XSLT 파일) | 2MB | | 
-| 런타임 엔드포인트: 5분마다 호출을 읽습니다. | 60,000 | 필요에 따라 둘 이상의 계정에 워크로드를 배포할 수 있습니다. | 
-| 런타임 엔드포인트: 5분마다 호출을 수행합니다. | 45,000 | 필요에 따라 둘 이상의 계정에 워크로드를 배포할 수 있습니다. | 
-| 런타임 엔드포인트: 5분마다 호출 추적 | 45,000 | 필요에 따라 둘 이상의 계정에 워크로드를 배포할 수 있습니다. | 
-| 런타임 엔드포인트: 동시 호출 차단 | ~1,000 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축할 수 있습니다. | 
+| 런타임 엔드포인트: 5분당 읽기 호출 | 60,000 | 필요에 따라 둘 이상의 계정에 워크로드를 배포할 수 있습니다. | 
+| 런타임 엔드포인트: 5분당 Invoke 호출 | 45,000 | 필요에 따라 둘 이상의 계정에 워크로드를 배포할 수 있습니다. | 
+| 런타임 엔드포인트: 5분당 추적 호출 | 45,000 | 필요에 따라 둘 이상의 계정에 워크로드를 배포할 수 있습니다. | 
+| 런타임 엔드포인트: 동시 차단 호출 | ~1,000 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축할 수 있습니다. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>

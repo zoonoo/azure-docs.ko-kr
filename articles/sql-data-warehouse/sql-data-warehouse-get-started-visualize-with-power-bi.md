@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 514516dcc28e99d03611c7db6ec09c7b4a48ff0e
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 0fbb389120857a167867a5804c670e181f5232b6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306666"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051444"
 ---
 # <a name="visualize-data-with-power-bi"></a>Power BI를 사용하여 데이터 시각화
 이 자습서에서는 Power BI를 사용하여 SQL Data Warehouse에 연결하고 몇 가지 기본적인 시각화를 만드는 방법을 보여줍니다.
@@ -77,7 +77,7 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 
 언제든지 **파일**을 클릭하고 **저장**을 선택하여 진행 상황을 저장할 수 있습니다.
 
-## <a name="using-direct-connnect"></a>직접 연결 사용
+## <a name="using-direct-connect"></a>직접 연결 사용
 Azure SQL Database와 함께, SQL Data Warehouse 직접 연결을 사용하면 Power BI의 분석 기능과 함께 논리 푸시 다운을 할 수 있습니다. 직접 연결을 사용하여 쿼리는 데이터를 탐색할 때 실시간으로 Azure SQL Data Warehouse로 다시 전송됩니다.  SQL Data Warehouse의 크기와 결합된 기능을 사용하면 테라바이트 규모의 데이터에 대해 동적 보고서를 몇 분 내에 만들 수 있습니다. 또한 Power BI 단추에서 열기 소개를 사용하면 사용자는 Azure의 다른 부분에서 정보를 수집하지 않고 Power BI를 직접 SQL Data Warehouse에 연결할 수 있습니다.
 
 직접 연결을 사용하는 경우:
@@ -86,7 +86,7 @@ Azure SQL Database와 함께, SQL Data Warehouse 직접 연결을 사용하면 P
 * 데이터베이스에 대한 방화벽 규칙은 Azure 서비스에 액세스를 허용하도록 구성되어야 합니다.
 * 열 선택 또는 필터 추가와 같은 모든 작업은 데이터 웨어하우스에 직접 쿼리됩니다.
 * 타일은 약 15분마다 자동으로 새로 고쳐집니다.
-* Q&A는 직접 연결 데이터 집합에 대해 사용할 수 없습니다.
+* Q&amp;A는 직접 연결 데이터 세트에 대해 사용할 수 없습니다.
 * 스키마 변경 내용은 자동으로 통합됩니다.
 * 모든 직접 연결 쿼리는 2분 후에 시간 초과됩니다.
 

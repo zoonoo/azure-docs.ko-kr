@@ -12,15 +12,15 @@ ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 53536604ed2f371d1ae7e63b286b17501b260c8c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 286c46f760dda4991fd89651bc3a01424d8a5502
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100721"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054795"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Azure Active Directory를 사용하기 위해 조직 등록
-다음 중 하나를 사용하여 Azure AD(Azure Active Directory)에 새로운 Microsoft Azure 구독을 등록합니다.
+다음 중 하나를 사용하여 Azure AD(Azure Active Directory) 또는 새로운 Microsoft Azure 구독을 가입합니다.
 
 - **Microsoft 계정** 개인, Microsoft 계정을 사용하여 Azure 및 Outlook(Hotmail), Messenger, OneDrive, MSN, Xbox LIVE 또는 Office 365와 같은 모든 소비자 지향 Microsoft 제품 및 클라우드 서비스에 액세스할 수 있습니다. Outlook.com 사서함에 등록하면 Microsoft 계정이 자동으로 만들어집니다. 자세한 내용은 [Microsoft 계정 개요](https://account.microsoft.com/account)를 참조하세요.
 

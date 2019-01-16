@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
 ms.component: metrics
-ms.openlocfilehash: a5e38f1400b99c6030799121d37721c26e16649c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ac2987b6329d85c06d78d93341fe71f5c9120fcd
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721141"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105460"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 클래식 메트릭 경고 만들기
 이 문서에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md) 을 사용하여 Azure 메트릭 경고를 구성하는 방법을 설명합니다. 이를 통해 만든 리소스에 대한 경고를 자동으로 설정하여 모든 리소스가 정확하게 모니터링되도록 할 수 있습니다.
@@ -186,7 +186,7 @@ Resource Manager 템플릿에서의 경고는 리소스를 만드는 동안 경�
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "newStorageAccountName": {
@@ -404,4 +404,4 @@ Resource Manager 템플릿에서의 경고는 리소스를 만드는 동안 경�
 ## <a name="next-steps"></a>다음 단계
 * [경고에 대해 알아보기](alerts-overview.md)
 * [진단 설정 추가](../../azure-monitor/platform/diagnostic-logs-stream-template.md) 
-
+* JSON 구문 및 속성의 경우 [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules) 템플릿 참조를 참조하세요.

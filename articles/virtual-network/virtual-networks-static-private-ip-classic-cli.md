@@ -1,13 +1,10 @@
 ---
-title: VM(클래식)에 대한 개인 IP 주소 구성 - Azure 클래식 CLI | Microsoft Docs
+title: VM(클래식)에 대한 사설 IP 주소 구성 - Azure 클래식 CLI
+titlesuffix: Azure Virtual Network
 description: Azure 클래식 CLI(명령줄 인터페이스)를 사용하여 가상 머신(클래식)에 대한 개인 IP 주소를 구성하는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 17386acf-c708-4103-9b22-ff9bf04b778d
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,13 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: abc551f796cb2d8921b6b1f67fb6a6714655ffde
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2f71dc2bcd5463f81ae286bbe3099124eb3fa539
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134678"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023892"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 가상 머신(클래식)에 대한 개인 IP 주소 구성
 
@@ -103,7 +99,7 @@ ms.locfileid: "53134678"
     info:    vm static-ip remove command OK
 
 ## <a name="how-to-add-a-static-private-ip-to-an-existing-vm"></a>기존 VM에 정적 개인 IP를 추가하는 방법
-위의 스크립트를 사용하여 만든 VM에 정적 개인 IP 주소를 추가하려면 다음 명령을 실행합니다.
+위의 스크립트를 사용하여 만든 VM에 정적 사설 IP 주소를 추가하려면 다음 명령을 실행합니다.
 
     azure vm static-ip set DNS01 192.168.1.101
 

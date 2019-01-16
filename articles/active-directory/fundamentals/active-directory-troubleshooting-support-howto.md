@@ -14,12 +14,12 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: d67b53d80b74d0a6ad3c4264a55a5e277acffd20
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ddf4763b8f5abb81c7d884d9d978c85843410ccb
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083906"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064949"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Azure Active Directory에 대한 도움말 찾기 및 지원 티켓 열기
 Microsoft는 Azure AD(Azure Active Directory)에 대한 전 세계적인 기술, 사전 판매, 대금 청구 및 구독 지원을 제공합니다. 온라인 및 전화로 Microsoft Azure 유료 및 평가판 구독에 대한 지원이 제공됩니다. 전화 지원 및 온라인 청구 지원은 여러 언어로 제공됩니다. 

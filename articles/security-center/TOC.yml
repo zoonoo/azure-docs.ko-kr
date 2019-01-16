@@ -22,16 +22,18 @@ items:
     href: tutorial-protect-resources.md
   - name: 인시던트에 대응
     href: tutorial-security-incident.md
+  - name: 규정 준수 개선
+    href: security-center-compliance-dashboard.md
 - name: 개념
   items:
   - name: 권한
     href: security-center-permissions.md
   - name: 데이터 보안
     href: security-center-data-security.md
-  - name: 사고 대응
-    href: security-center-incident-response.md
   - name: 권장 사항을 사용하여 보안 강화
     href: security-center-using-recommendations.md
+  - name: 사고 대응
+    href: security-center-incident-response.md
 - name: 방법 가이드
   items:
   - name: 보안 점수 향상
@@ -189,9 +191,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: 문제 해결
     href: security-center-troubleshooting-guide.md
-ms.openlocfilehash: e843dc5b29d441f4d1592a935bd35b295150f861
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 7aaca2a30fb130c3d7d68faf9f353539be044315
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545504"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259158"

@@ -3,7 +3,7 @@ title: Azure Marketplace에 제품 배포 | Microsoft Docs
 description: '제품(예: 가상 머신 이미지, 개발자 서비스, 데이터 서비스)을 Azure Marketplace에 배포하기 위한 지침을 알아보고 연습합니다.'
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 8f79b891-84e2-4f41-ba0d-66420e2c6b2e
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2016
 ms.author: hascipio
-ms.openlocfilehash: 12dc81642905cd9449a1032c7ab57298e6b69ba8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ROBOTS: NOINDEX
+ms.openlocfilehash: 058f50853795453617593a6a07e2951f15f28174
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714284"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076114"
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Azure Marketplace에 제품 배포
 제품에 만족(즉, 고객 시나리오, 마케팅 콘텐츠 등을 테스트)하고 시작할 준비가 되면 **게시** 탭에서 **프로덕션으로 푸시**를 요청합니다.  
@@ -43,15 +44,14 @@ ms.locfileid: "39714284"
 > * 위의 단계에서 프로덕션 환경에서 제품이 승인되면 제품의 복제가 모든 Azure 데이터 센터에서 시작됩니다. 일반적으로 복제가 완료되는 데는 24~48시간이 걸리지만 VHD의 크기에 따라 1주일까지 걸릴 수도 있습니다. 그러나 이미 등록된 제품을 업데이트하려고 하며 마케팅 변경만 포함되는 경우 복제는 더 빨라집니다.
 > * 복제가 완료되면 Azure Marketplace에서 제품을 사용할 수 있게 됩니다.
 > 
-> 
-  **초안** 상태(즉, **스테이징으로 푸시**, **프로덕션으로 푸시** 상태가 아님)에 있는 동안에는 제품을 언제든지 삭제할 수 있습니다. **기록** 탭에서 초안을 삭제하려면 페이지의 맨 아래에 있는 **초안 삭제** 단추를 클릭합니다.
+> **초안** 상태(즉, **스테이징으로 푸시**, **프로덕션으로 푸시** 상태가 아님)에 있는 동안에는 제품을 언제든지 삭제할 수 있습니다. **기록** 탭에서 초안을 삭제하려면 페이지의 맨 아래에 있는 **초안 삭제** 단추를 클릭합니다.
 > 
 > 
 
 ## <a name="production-checklist-for-all-virtual-machine-offers"></a>모든 Virtual Machine 제품에 대한 프로덕션 검사 목록
 * Microsoft Azure Certified 파트너인지 확인합니다.
 * SKU가 솔루션 템플릿의 일부인 경우에만 SKU 탭에서 "솔루션 템플릿을 통해 항상 구입되어야 하기 때문에 Marketplace에서 이 SKU를 숨깁니다." 옵션이 "예"로 표시됩니다. 다른 모든 경우에는 이 옵션이 항상 "아니요"로 표시됩니다.
-* 주의: 일단 SKU가 나열되면 SKU 표시 유형 설정을 변경하지 않아야 합니다. 이 기능은 지원되지 않습니다.
+* 기억하세요! 일단 SKU가 나열되면 SKU 표시 유형 설정을 변경하지 않아야 합니다. 이 기능은 지원되지 않습니다.
 * 로고가 아래에서 설명한 Azure Marketplace 로고 지침에 부합하는지 확인합니다.
 * 제품 및 SKU 설명은 달라야 합니다.
 * SKU의 제목 및 제품의 자세한 설명은 달라야 합니다.
@@ -63,7 +63,7 @@ ms.locfileid: "39714284"
 * Azure 디자인은 단순한 색 팔레트를 사용합니다. 로고의 기본 색상과 보조 색상 수는 적게 유지합니다.
 * Azure 포털의 테마 색은 흰색과 검은색입니다. 따라서 로고의 배경색으로 이러한 색을 사용하지 않도록 합니다. Azure 포털에서 로고가 돋보이도록 하는 색을 사용합니다. 간단한 기본 색을 사용하는 것이 좋습니다. 투명한 배경을 사용하는 경우 로고/텍스트가 흰색이나 검은색이 아닌지 확인합니다.
 * 로고의 배경에 그라데이션 효과는 사용하지 않습니다.
-* 로고에 회사 또는 브랜드 이름을 포함한 텍스트를 놓지 않습니다.
+* 로고에 회사 또는 브랜드 이름을 포함한 텍스트를 추가하지 않습니다.
 * 로고의 모양과 느낌은 평면적이어야 하며 그라데이션은 사용하지 않습니다.
 * 로고를 확장할 수 없습니다.
 
@@ -82,8 +82,7 @@ ms.locfileid: "39714284"
 제품이 작동되면 고객 시나리오를 테스트하여 모든 계약 및 기능 작업이 스테이징 환경에서 테스트되고 유효성이 검사된 것처럼 프로덕션 환경에서 제대로 작동하는지 테스트합니다.
 
 ## <a name="see-also"></a>참고 항목
-* 
-  [시작: Azure Marketplace에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
+* [시작: Azure Marketplace에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
 
 [img-pubportal-walkthru-checked]:media/marketplace-publishing-push-to-production/pubportal-walkthru-checked.png
 [img-pubportal-menu-publish]:media/marketplace-publishing-push-to-production/pubportal-menu-publish.png

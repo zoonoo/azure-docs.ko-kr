@@ -8,12 +8,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 12/01/2018
 ms.author: victorh
-ms.openlocfilehash: 86fdbbacf3e8064afe0aaaaebea1d6ef6c25f9d4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a15ffa23b64f944d8b2c088113bcc29443ce6873
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865835"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038962"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>템플릿을 사용하여 Azure Firewall 배포
 
@@ -51,6 +51,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    리소스를 만드는 데 몇 분이 걸립니다. 
    
 1. 방화벽을 통해 만들어진 리소스를 검색합니다. 
+
+템플릿에서 방화벽의 JSON 구문 및 속성에 대해 알아보려면 [Microsoft.Network/azureFirewalls](/azure/templates/microsoft.network/azurefirewalls)를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

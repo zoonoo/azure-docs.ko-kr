@@ -1,5 +1,5 @@
 ---
-title: Azure Traffic Manager 설정 확인 | Microsoft Docs
+title: Azure Traffic Manager 설정 확인
 description: 이 문서는 Traffic Manager 설정을 확인하는 데 도움이 됩니다.
 services: traffic-manager
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: ce6467f2cdb47dd7cc61897831019a34e174478f
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: b37022f79feafc2110366446752675e7c42188f3
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140454"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054030"
 ---
 # <a name="verify-traffic-manager-settings"></a>Traffic Manager 설정 확인
 

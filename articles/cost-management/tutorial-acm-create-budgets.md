@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/11/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: ab2ea762ac8cc289ff24136f3cafac2b80fa1a9f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7ffceaf761d459667e4118e3e10b733898ea2710
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268447"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053979"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -51,9 +51,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Azure Portal에서 예산 만들기
 
-월별, 분기별 또는 연간 기간에 대한 Azure 구독 예산을 만들 수 있습니다. Azure Portal의 탐색 콘텐츠는 사용자가 구독 또는 리소스 그룹에 대한 예산을 만드는지 여부를 결정합니다.
-
-Azure Portal에서 **Cost Management + 청구** &gt; **구독** &gt; 구독 선택 &gt; **예산**으로 이동합니다. 이 예제에서 사용자가 만드는 예산은 사용자가 선택한 구독에 대한 것입니다.
+월별, 분기별 또는 연간 기간에 대한 Azure 구독 예산을 만들 수 있습니다. Azure Portal의 탐색 콘텐츠는 사용자가 구독 또는 리소스 그룹에 대한 예산을 만드는지 여부를 결정합니다. 예를 들어 Azure Portal에서 **구독**으로 이동하고 &gt; 구독 &gt; **예산**을 선택합니다. 이 예제에서 사용자가 만드는 예산은 사용자가 선택한 구독에 대한 것입니다. 리소스 그룹에 대한 예산을 만들려면 **리소스 그룹**으로 이동하고 > 리소스 그룹 > **예산**을 선택합니다.
 
 예산을 만들면 예산 대비 현재 지출을 간단하게 보여 줍니다.
 

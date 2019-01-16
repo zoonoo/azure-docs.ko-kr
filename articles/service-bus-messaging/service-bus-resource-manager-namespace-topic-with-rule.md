@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 7774d67d02b2b0f0080cbff2ffc3606b99450f26
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 42be349a5f89a2057d67b5bcab5eda70c5c9e7eb
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404964"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064205"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기
 
@@ -160,6 +160,8 @@ Service Bus 네임스페이스에서 만든 규칙(필터)의 이름입니다.
         }]
     }]
 ```
+
+JSON 구문 및 속성의 경우 [네임스페이스](/azure/templates/microsoft.servicebus/namespaces), [항목](/azure/templates/microsoft.servicebus/namespaces/topics), [구독](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions) 및 [규칙](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions/rules)을 참조하세요.
 
 ## <a name="commands-to-run-deployment"></a>배포 실행 명령
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]

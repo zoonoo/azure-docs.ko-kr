@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: c616ad86e6846800d214feeaf100f63e311f78b0
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 248ac7ed2a855dd1df71e6e44d1aa7065ddd8ba4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282733"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062070"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 만들기
 이 빠른 시작에서는 **표준** SKU가 있는 **메시지** 형식의 Service Bus 네임스페이스를 만드는 Azure Resource Manager 템플릿을 만듭니다. 이 문서는 또한 배포의 실행에 대해 지정된 매개 변수도 정의합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다. 템플릿 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성하기][Authoring Azure Resource Manager templates]를 참조하세요. 전체 템플릿은 GitHub에서 [Service Bus 네임스페이스 템플릿][Service Bus namespace template]을 참조하세요.
@@ -96,7 +96,7 @@ JSON을 작성하지 않고 PowerShell/CLI 명령을 실행하지 않고 샘플�
 }
 ```
 
-이 템플릿은 표준 Service Bus 네임스페이스를 만듭니다.
+이 템플릿은 표준 Service Bus 네임스페이스를 만듭니다. JSON 구문 및 속성의 경우 [네임스페이스](/azure/templates/microsoft.servicebus/namespaces) 템플릿 참조를 참조하세요.
 
 ## <a name="create-the-parameters-json"></a>매개 변수 JSON 만들기
 이전 단계에서 만든 템플릿에는 `Parameters`라는 섹션이 있습니다. 배포하는 프로젝트 또는 대상 환경에 따라 달라지는 이러한 값에 대한 매개 변수를 정의합니다. 이 템플릿은 **serviceBusNamespaceName**, **serviceBusSku** 및 **location** 매개 변수를 정의합니다. Service Bus의 SKU에 대한 자세한 내용은 만들려는 [Service Bus SKU](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.

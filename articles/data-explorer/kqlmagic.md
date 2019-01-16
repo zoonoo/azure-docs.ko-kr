@@ -8,21 +8,22 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 7152b1d09a11d5860d52b5f73ae601422bd0f722
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 179cc133e755a317c70b84acc95aafc61f4e0e68
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654462"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078170"
 ---
 # <a name="analyze-data-using-jupyter-notebook-and-kqlmagic"></a>Jupyter Notebook 및 Kqlmagic을 사용하여 데이터 분석
+
 Jupyter Notebook은 라이브 코드, 수식, 시각화 및 내레이션 텍스트를 포함하는 문서를 만들고 공유할 수 있는 오픈 소스 웹 애플리케이션입니다. 사용에는 데이터 정리 및 변환, 숫자 시뮬레이션, 통계 모델링, 데이터 시각화 및 기계 학습이 포함됩니다.
-[Jupyter Notebook](https://jupyter.org/)은 추가 명령을 지원하여 커널의 기능을 확장하는 매직 함수를 지원합니다. Kqlmagic은 Jupyter Notebook에서 Python 커널의 기능을 확장하는 함수이므로 Kusto 쿼리 언어 쿼리를 기본적으로 실행할 수 있습니다. Python 및 Kusto 쿼리 언어를 쉽게 결합하여 `render` 명령과 통합된 서식 있는 Plot.ly 라이브러리를 통해 데이터를 쿼리하고 시각화할 수 있습니다. 쿼리 실행을 위한 데이터 원본이 지원됩니다. 이러한 데이터 원본에는 Log Analytics 및 Application Insights뿐 아니라 로그 및 원격 분석 데이터에 대한 빠르고 확장성 있는 데이터 탐색 서비스인 Azure Data Explorer가 포함됩니다.
+[Jupyter Notebook](https://jupyter.org/)은 추가 명령을 지원하여 커널의 기능을 확장하는 매직 함수를 지원합니다. Kqlmagic은 Jupyter Notebook에서 Python 커널의 기능을 확장하는 명령이므로 Kusto 언어 쿼리를 기본적으로 실행할 수 있습니다. Python 및 Kusto 쿼리 언어를 쉽게 결합하여 `render` 명령과 통합된 서식 있는 Plot.ly 라이브러리를 통해 데이터를 쿼리하고 시각화할 수 있습니다. 쿼리 실행을 위한 데이터 원본이 지원됩니다. 이러한 데이터 원본에는 Log Analytics 및 Application Insights뿐 아니라 로그 및 원격 분석 데이터에 대한 빠르고 확장성 있는 데이터 탐색 서비스인 Azure Data Explorer가 포함됩니다. Kqlmagic은 Azure Notebooks, Jupyter Lab 및 Visual Studio Code Jupyter 확장에서도 작동합니다.
 
 ## <a name="prerequisites"></a>필수 조건
+
 - AAD(Azure Active Directory)의 멤버인 조직 메일 계정
 - 로컬 머신에 설치된 Jupyter Notebook 또는 Azure Notebooks를 사용하고 샘플 [Azure Notebooks](https://kustomagicsamples-manojraheja.notebooks.azure.com/j/notebooks/Getting%20Started%20with%20kqlmagic%20on%20Azure%20Data%20Explorer.ipynb) 복제
-
 
 ## <a name="install-kqlmagic-library"></a>Kqlmagic 라이브러리 설치
 
@@ -31,8 +32,10 @@ Jupyter Notebook은 라이브 코드, 수식, 시각화 및 내레이션 텍스�
     ```python
     !pip install Kqlmagic --no-cache-dir  --upgrade
     ```
+    > [!NOTE]
+    > Azure Notebooks를 사용하는 경우 이 단계가 필요하지 않습니다.
 
-2. Kqlmagic을 로드합니다.
+1. Kqlmagic을 로드합니다.
 
     ```python
     reload_ext Kqlmagic
@@ -41,7 +44,6 @@ Jupyter Notebook은 라이브 코드, 수식, 시각화 및 내레이션 텍스�
 ## <a name="connect-to-the-azure-data-explorer-help-cluster"></a>Azure Data Explorer 도움말 클러스터에 연결
 
 다음 명령을 사용하여 ‘도움말’ 클러스터에 호스트된 ‘샘플’ 데이터베이스에 연결합니다. 타사 AAD 사용자의 경우 테넌트 이름 `Microsoft.com`을 AAD 테넌트로 바꿉니다.
-
 
 ```python
 %kql AzureDataExplorer://tenant="Microsoft.com";code;cluster='help';database='Samples'
@@ -54,8 +56,8 @@ Jupyter Notebook은 라이브 코드, 수식, 시각화 및 내레이션 텍스�
 ### <a name="query-and-render-piechart"></a>원형 차트 쿼리 및 렌더링
 
 ```python
-%%kql 
-StormEvents 
+%%kql
+StormEvents
 | summarize statecount=count() by State
 | sort by statecount 
 | limit 10
@@ -75,6 +77,7 @@ StormEvents
 > 이러한 차트는 대화형으로 작동합니다. 시간 범위를 선택하여 특정 시간을 확대합니다.
 
 ### <a name="customize-the-chart-colors"></a>차트 색 사용자 지정
+
 기본 색상표를 사용하지 않으려면 팔레트 옵션을 사용하여 차트를 사용자 지정합니다. 사용 가능한 팔레트는 다음 위치에서 확인할 수 있습니다. [Kqlmagic 쿼리 차트 결과에 대한 색상표 선택](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)
 
 1. 팔레트 목록의 경우 다음을 수행합니다.
@@ -87,16 +90,16 @@ StormEvents
 
     ```python
     %%kql -palette_name "cool"
-    StormEvents 
+    StormEvents
     | summarize statecount=count() by State
-    | sort by statecount 
+    | sort by statecount
     | limit 10
     | render piechart title="My Pie Chart by State"
     ```
 
-## <a name="parametrize-a-query-with-python"></a>Python을 사용하여 쿼리 매개 변수화
+## <a name="parameterize-a-query-with-python"></a>Python을 사용하여 쿼리를 매개 변수화
 
-Kqlmagic을 통해 Kusto 쿼리 언어와 Python을 간단하게 바꿔서 사용할 수 있습니다. 자세히 알아보려면 다음을 수행합니다. [Python을 사용하여 Kqlmagic 쿼리 매개 변수화](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) 
+Kqlmagic을 통해 Kusto 쿼리 언어와 Python을 간단하게 바꿔서 사용할 수 있습니다. 자세히 알아보려면 다음을 수행합니다. [Python을 사용하여 Kqlmagic 쿼리를 매개 변수화](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb)
 
 ### <a name="use-a-python-variable-in-your-kql-query"></a>KQL 쿼리에 Python 변수 사용
 
@@ -115,7 +118,7 @@ StormEvents
 | render timechart title = "Trend"
 ```
 
-### <a name="convert-query-results-to-pandas-dataframe"></a>쿼리 결과를 Pandas DataFrame으로 변환 
+### <a name="convert-query-results-to-pandas-dataframe"></a>쿼리 결과를 Pandas DataFrame으로 변환
 
 Pandas DataFrame에서 KQL 쿼리의 결과에 액세스할 수 있습니다. `_kql_raw_result_` 변수를 통해 마지막으로 실행된 쿼리 결과에 액세스하고 다음과 같이 결과를 Pandas DataFrame으로 쉽게 변환합니다.
 
@@ -124,7 +127,7 @@ df = _kql_raw_result_.to_dataframe()
 df.head(10)
 ```
 
-### <a name="example"></a>예 
+### <a name="example"></a>예
 
 다양한 분석 시나리오에서 많은 쿼리를 포함하고 한 쿼리의 결과를 후속 쿼리에 피드하는 재사용 가능한 Notebook을 만들 수 있습니다. 아래 예제에서는 Python 변수 `statefilter`를 사용하여 데이터를 필터링합니다.
 
@@ -132,7 +135,7 @@ df.head(10)
 
     ```python
     %%kql
-    StormEvents 
+    StormEvents
     | summarize max(DamageProperty) by State
     | order by max_DamageProperty desc
     | limit 10
@@ -152,25 +155,22 @@ df.head(10)
     %%kql
     let _state = statefilter;
     StormEvents 
-    | where State in (_state) 
+    | where State in (_state)
     | summarize statecount=count() by bin(StartTime,1d), State
     | render timechart title = "Trend"
     ```
 
-1. help 명령을 실행합니다. 
+1. help 명령을 실행합니다.
 
     ```python
     %kql --help "help"
     ```
 
 ## <a name="next-steps"></a>다음 단계
-    
+
 help 명령을 실행하여 지원되는 모든 기능을 포함하는 다음 샘플 Notebook을 탐색합니다.
 - [Azure Data Explorer용 Kqlmagic 시작](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) 
 - [Application Insights용 Kqlmagic 시작](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartAI.ipynb) 
 - [Log Analytics용 Kqlmagic 시작](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
 - [Python을 사용하여 Kqlmagic 쿼리 매개 변수화](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) 
 - [Kqlmagic 쿼리 차트 결과에 대한 색상표 선택](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)
-
-
-

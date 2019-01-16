@@ -5,15 +5,15 @@ services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 01/09/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: e12e29a5a627110ce845cd44be6dd97b717f9b26
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 21e442c7a0cdd0edcce77c862b11ae368d4a3abc
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014500"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191669"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob 스토리지: 프리미엄(미리 보기), 핫, 쿨 및 보관 스토리지 계층
 
@@ -63,7 +63,7 @@ Blob 저장소 및 GPv2 계정은 계정 수준에서 **액세스 계층** 특�
 
 - LRS(로컬 중복 저장소)로 사용 가능
 - 다음 지역에서만 제공됩니다. 미국 동부 2, 미국 중부 및 미국 서부
-- 자동 계층화 및 데이터 수명 주기 관리를 지원하지 않음
+- 데이터 수명 주기 관리를 사용한 개체 수준 계층화 또는 자동화된 계층화를 지원하지 않습니다.
 
 프리미엄 액세스 계층 미리 보기에 등록하는 방법을 알아보려면 [Azure Premium Blob Storage 소개](https://aka.ms/premiumblob)를 참조하세요.
 
@@ -86,7 +86,8 @@ Blob 저장소 및 GPv2 계정은 계정 수준에서 **액세스 계층** 특�
 
 보관 저장소는 저장소 비용이 가장 낮고 핫 및 쿨 저장소에 비해 데이터 검색 비용이 높습니다. 이 계층은 몇 시간의 검색 대기 시간을 허용할 수 있고 적어도 180일 동안 보관 계층에 남아 있는 데이터를 위한 계층입니다.
 
-Blob은 보관 저장소에 있지만 오프라인이며 읽기(온라인이며 사용 가능한 메타데이터 제외), 복사, 덮어쓰기 또는 수정이 불가능합니다. 또는 보관 저장소에서 Blob의 스냅숏을 만들 수도 없습니다. 그러나 기존 작업을 사용하여 Blob 속성/메타데이터를 삭제하고 나열하고 가져오거나 Blob의 계층을 변경할 수 있습니다.
+Blob이 보관 스토리지에 있지만 Blob 데이터는 오프라인 상태이며 읽거나, 복사하거나, 덮어쓰거나, 수정할 수 없습니다. 또는 보관 저장소에서 Blob의 스냅숏을 만들 수도 없습니다. 그러나 Blob 메타데이터는 온라인 상태로 유지되며 사용할 수 있으므로 Blob 및 해당 속성을 나열할 수 있습니다. 보관에 있는 Blob의 경우 유효한 작업은 GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier 및 DeleteBlob뿐입니다. 
+
 
 보관 저장소 계층에 대한 사용 예시 시나리오는 다음과 같습니다.
 
@@ -110,7 +111,8 @@ Blob 수준 계층화를 사용하면 [Blob 계층 설정](/rest/api/storageserv
 > [!NOTE]
 > 보관 저장소 및 Blob 수준 계층화는 블록 Blob만 지원합니다. 또한 스냅숏이 있는 블록 Blob의 계층은 변경할 수 없습니다.
 
-프리미엄 액세스 계층에 저장된 데이터는 [Blob 계층 설정](/rest/api/storageservices/set-blob-tier) 또는 Azure Blob Storage 수명 주기 관리를 사용하여 핫, 쿨 또는 보관으로 계층화될 수 없습니다. 데이터를 이동하려면 [URL에서 블록 배치 API](/rest/api/storageservices/put-block-from-url) 또는 이 API를 지원하는 AzCopy 버전을 사용하여 프리미엄 액세스 계층에서 핫 액세스 계층으로 Blob을 동기적으로 복사하면 됩니다. *URL에서 블록 배치* API는 서버에서 데이터를 동기적으로 복사합니다. 이는 모든 데이터를 원래 서버 위치에서 대상 위치로 이동하면 호출이 완료된다는 의미입니다.
+> [!NOTE]
+> 프리미엄 액세스 계층에 저장된 데이터는 현재 [Blob 계층 설정](/rest/api/storageservices/set-blob-tier) 또는 Azure Blob Storage 수명 주기 관리를 사용하여 핫, 쿨 또는 보관으로 계층화할 수 없습니다. 데이터를 이동하려면 [URL에서 블록 배치 API](/rest/api/storageservices/put-block-from-url) 또는 이 API를 지원하는 AzCopy 버전을 사용하여 프리미엄 액세스 계층에서 핫 액세스 계층으로 Blob을 동기적으로 복사하면 됩니다. *URL에서 블록 배치* API는 서버에서 데이터를 동기적으로 복사합니다. 이는 모든 데이터를 원래 서버 위치에서 대상 위치로 이동하면 호출이 완료된다는 의미입니다.
 
 ### <a name="blob-lifecycle-management"></a>Blob 수명 주기 관리
 Blob Storage 수명 주기 관리(미리 보기)는 데이터를 최적의 액세스 계층으로 전환하고 수명 주기가 끝나면 데이터를 만료할 수 있는 풍부한 규칙 기반 정책을 제공합니다. [Azure Blob Storage 수명 주기 관리](storage-lifecycle-management-concepts.md)를 참조하여 자세히 알아보세요.  
@@ -119,11 +121,17 @@ Blob Storage 수명 주기 관리(미리 보기)는 데이터를 최적의 액�
 
 Blob이 쿨 계층으로 이동하는 경우(핫->쿨, 핫->보관 또는 쿨->보관) 작업은 대상 계층 쓰기 작업으로 청구되며 대상 계층의 쓰기 작업(10,000개당) 및 데이터 쓰기(GB당) 요금이 적용됩니다. Blob이 핫 계층으로 이동하면(보관->쿨, 보관->핫 또는 쿨->핫) 작업은 원본 계층에서 읽기로 청구되며 원본 계층의 읽기 작업(10,000개당) 및 데이터 검색(GB당) 비용이 적용됩니다.
 
+| | **쓰기 요금** | **읽기 요금** 
+| ---- | ----- | ----- |
+| **SetBlobTier 방향** | 핫->쿨, 핫->보관, 쿨->보관 | 보관->쿨, 보관->핫, 쿨->핫
+
 계정 계층이 핫에서 쿨로 전환되면 GPv2 계정에서만 집합 계층 없이 모든 Blob의 경우 쓰기 작업(10,000개당)에 대한 요금이 청구됩니다. Blob 저장소 계정에서는 이 변경이 무료입니다. 쿨에서 핫으로 Blob 저장소 또는 GPv2 계정을 전환하는 경우 읽기 작업(10,000개당) 및 데이터 검색(GB당) 모두에 대한 요금이 청구됩니다. 쿨 또는 보관 계층에서 이동한 모든 Blob에 대한 초기 삭제 요금도 적용될 수 있습니다.
 
 ### <a name="cool-and-archive-early-deletion"></a>쿨 및 보관 초기 삭제
 
 GB당 요금 및 월정액 이외에도 쿨 계층으로 이동된 모든 Blob(GPv2 계정에만 해당)은 30일 동안 쿨 초기 삭제 기간이 적용되며 보관 계층으로 이동된 모든 Blob은 180일 동안 보관 초기 삭제 기간이 적용됩니다. 요금이 비례하여 배분됩니다. 예를 들어 Blob이 보관으로 이동된 다음, 45일이 지나서 삭제되거나 핫 계층으로 이동되는 경우 보관 계층에 해당 Blob을 저장한 135일(180-45)에 해당하는 초기 삭제 요금이 청구됩니다.
+
+액세스 계층 변경 내용이 없으면 Blob 속성 **creation-time**을 사용하여 초기 삭제를 계산할 수 있습니다. 그렇지 않은 경우 Blob 속성 **access-tier-change-time**을 확인하여 액세스 계층을 쿨 또는 보관으로 수정한시간을 사용할 수 있습니다. Blob 속성에 대한 자세한 내용은 [Blob 속성 가져오기](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties)를 참조하세요.
 
 ## <a name="comparison-of-the-storage-tiers"></a>저장소 계층 비교
 
@@ -140,7 +148,7 @@ GB당 요금 및 월정액 이외에도 쿨 계층으로 이동된 모든 Blob(G
 | **확장성 및 성능 대상** | 범용 저장소 계정과 동일 | 범용 저장소 계정과 동일 | 범용 저장소 계정과 동일 |
 
 > [!NOTE]
-> Blob 저장소 계정은 범용 저장소 계정과 동일한 성능 및 확장성 목표를 지원합니다. 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (영문)를 참조하십시오.
+> Blob 저장소 계정은 범용 저장소 계정과 동일한 성능 및 확장성 목표를 지원합니다. 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요. 
 
 ## <a name="quickstart-scenarios"></a>빠른 시작 시나리오
 

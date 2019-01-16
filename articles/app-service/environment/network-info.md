@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3939d8dce641d066a2470612068df7102b317a70
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d22b181baa9b9e6d01fb92a3644078ecbd6af7be
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630464"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191601"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
 
@@ -131,7 +131,7 @@ ILB ASE 도메인 이름이 *contoso.net*이고 앱 이름이 *testapp*이면 *t
 
 ## <a name="functions-and-web-jobs"></a>함수 및 웹 작업 ##
 
-함수 및 웹 작업은 SCM 사이트에 따라 다르지만, 브라우저가 SCM 사이트에 연결될 수 있는 한, 앱이 ILB ASE에 있더라도 포털에서 사용할 수 있도록 지원됩니다.  ILB ASE에 자체 서명된 인증서를 사용하는 경우 브라우저에서 해당 인증서를 신뢰하도록 설정해야 합니다.  IE와 Edge의 경우 인증서가 컴퓨터의 신뢰 저장소에 있어야 함을 의미합니다.  크롬을 사용하는 경우 브라우저에서 scm 사이트를 이미 직접 방문하여 이전에 인증서를 수락했음을 의미합니다.  가장 좋은 방법은 브라우저의 신뢰 체인에 있는 상용 인증서를 사용하는 것입니다.  
+함수 및 웹 작업은 SCM 사이트에 따라 다르지만, 브라우저가 SCM 사이트에 연결될 수 있는 한, 앱이 ILB ASE에 있더라도 포털에서 사용할 수 있도록 지원됩니다.  ILB ASE에 자체 서명된 인증서를 사용하는 경우 브라우저에서 해당 인증서를 신뢰하도록 설정해야 합니다.  IE와 Microsoft Edge의 경우 인증서가 컴퓨터의 신뢰 저장소에 있어야 함을 의미합니다.  크롬을 사용하는 경우 브라우저에서 scm 사이트를 이미 직접 방문하여 이전에 인증서를 수락했음을 의미합니다.  가장 좋은 방법은 브라우저의 신뢰 체인에 있는 상용 인증서를 사용하는 것입니다.  
 
 ## <a name="ase-ip-addresses"></a>ASE IP 주소 ##
 

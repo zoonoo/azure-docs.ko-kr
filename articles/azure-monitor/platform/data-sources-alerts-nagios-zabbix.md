@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor에서 Nagios 및 Zabbix 경고 수집 | Microsoft Docs
-description: Nagios 및 Zabbix는 오픈 소스 모니터링 도구입니다. 다른 원본의 경고와 함께 분석하기 위해 이러한 도구에서 Azure Monitor로 경고를 수집할 수 있습니다.  이 문서에서는 이러한 시스템에서 경고를 수집하도록 Linux용 Log Analytics 에이전트를 구성하는 방법을 설명합니다.
+title: Log Analytics에서 Nagios 및 Zabbix 경고 수집 | Microsoft Docs
+description: Nagios 및 Zabbix는 오픈 소스 모니터링 도구입니다. 다른 원본의 경고와 함께 분석하기 위해 이러한 도구에서 Log Analytics로 경고를 수집할 수 있습니다.  이 문서에서는 이러한 시스템에서 경고를 수집하도록 Linux용 Log Analytics 에이전트를 구성하는 방법을 설명합니다.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: cccc42cd925c123b52c0f2416599bb989ce44d8a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1ae719237cb1afee6d2340e1734d008799da8a86
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713500"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107534"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트에서 Azure Monitor에 Nagios 및 Zabbix의 경고 수집 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-[Nagios](https://www.nagios.org/) 및 [Zabbix](http://www.zabbix.com/)는 오픈 소스 모니터링 도구입니다. 다른 원본의 로그 데이터와 함께 분석하기 위해 이러한 도구에서 Azure Monitor로 경고를 수집할 수 있습니다.  이 문서에서는 이러한 시스템에서 경고를 수집하도록 Linux용 Log Analytics 에이전트를 구성하는 방법을 설명합니다.
+[Nagios](https://www.nagios.org/) 및 [Zabbix](http://www.zabbix.com/)는 오픈 소스 모니터링 도구입니다. 다른 원본의 로그 데이터와 함께 분석하기 위해 이러한 도구에서 Log Analytics로 경고를 수집할 수 있습니다.  이 문서에서는 이러한 시스템에서 경고를 수집하도록 Linux용 Log Analytics 에이전트를 구성하는 방법을 설명합니다.
+
 
 > [!NOTE]
 > [Azure Monitor에서 만든 경고](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)는 로그 데이터와 별도로 저장되며 로그 쿼리에서 액세스할 수 없습니다.
@@ -83,7 +84,7 @@ Nagios 서버에서 경고를 수집하려면 다음 단계를 수행합니다.
 
 
 ## <a name="alert-records"></a>경고 레코드
-Azure Monitor의 [로그 검색](../log-query/log-query-overview.md)을 사용하여 Nagios 및 Zabbix에서 경고 레코드를 검색할 수 있습니다.
+Log Analytics에서 [로그 쿼리](../log-query/log-query-overview.md)를 사용하여 Nagios 및 Zabbix에서 경고 레코드를 검색할 수 있습니다.
 
 ### <a name="nagios-alert-records"></a>Nagios 경고 레코드
 

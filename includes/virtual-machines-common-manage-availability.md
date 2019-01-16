@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e6c5f4623f3483dcfb0dde0f55b77161eee2c562
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: aff3f47624fe21e1d0f020e8e5732e60b4b53657
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035523"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54084058"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>VM 다시 부팅 이해 - 유지 관리 및 가동 중지
 Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 계획되지 않은 하드웨어 유지 관리, 예기치 않은 가동 중지 및 계획된 유지 관리가 있습니다.
@@ -32,8 +32,8 @@ Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 
 
 * [중복성을 위해 가용성 집합에서 여러 가상 머신 구성]
 * [가용성 집합의 VM에 Managed Disks 사용]
-* [예약된 이벤트를 사용하여 VM에 영향을 미치는 이벤트에 사전 예방적 대응](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
-* [각 응용 프로그램 계층을 별도의 가용성 집합으로 구성]
+* [예약된 이벤트를 사용하여 VM에 영향을 주는 이벤트에 사전 응답](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [각 애플리케이션 계층을 별도의 가용성 집합으로 구성]
 * [가용성 집합과 부하 분산 장치 결합]
 * [가용성 영역을 사용하여 데이터 센터 수준 오류로부터 사용자 보호]
 
@@ -63,8 +63,12 @@ Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 
 [관리되지 않는 디스크](../articles/virtual-machines/windows/about-disks-and-vhds.md#types-of-disks)에서 VM을 사용하려는 경우 VM의 VHD(가상 하드 디스크)를 [페이지 Blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs)로 저장하는 Storage 계정에 대한 아래의 유용한 모범 사례를 따릅니다.
 
 1. **동일한 저장소 계정에서 VM과 모든 디스크(OS 및 데이터) 연결 유지**
-2. 저장소 계정에 더 많은 VHD를 추가하기 전에 **Storage 계정에서 관리되지 않는 디스크의 수에 대한 [제한](../articles/storage/common/storage-scalability-targets.md) 검토**
+2. 스토리지 계정에 더 많은 VHD를 추가하기 전에 **Storage 계정에서 관리되지 않는 디스크의 수에 대한 [제한](../articles/storage/common/storage-scalability-targets.md) 검토**
 3. **가용성 집합의 각 VM마다 별도의 저장소 계정을 사용합니다.** 동일한 가용성 집합에서 여러 VM을 사용하여 Storage 계정을 공유하지 않습니다. 위의 모범 사례를 따르면 여러 가용성 집합의 VM에서 저장소 계정을 공유할 수 있습니다. ![관리되지 않는 디스크 FD](./media/virtual-machines-common-manage-availability/umd-updated.png)
+
+## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>예약된 이벤트를 사용하여 VM에 영향을 주는 이벤트에 사전 응답
+
+[예약된 이벤트](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)를 구독하면 VM에 영향을 줄 수 있는 예정된 유지 관리 이벤트에 대한 알림이 VM에 전달됩니다. 예약된 이벤트를 사용하도록 설정되면 유지 관리 작업을 수행하기 전에 가상 머신에 최소 시간을 제공할 수 있습니다. 예를 들어 VM에 영향을 줄 수 있는 호스트 OS 업데이트는 아무 작업을 수행하지 않을 경우 유지 관리가 수행되는 시간에 영향을 지정하는 이벤트로 큐에서 대기됩니다. 또한 Azure에서 VM에 영향을 줄 수 있는 임박한 하드웨어 장애를 감지하면 예약된 이벤트가 큐에 넣어지고, 이를 통해 복구를 수행할 시기를 결정할 수 있습니다. 고객은 유지 관리하기 전에 이 이벤트를 사용하여 상태 저장, 보조 스토리지로의 장애 조치 등과 같은 작업을 수행할 수 있습니다. 유지 관리 이벤트를 정상적으로 처리하기 위한 논리가 완료되면 플랫폼에서 유지 관리를 진행할 수 있도록 처리 중인 예약된 이벤트를 승인할 수 있습니다.
 
 ## <a name="configure-each-application-tier-into-separate-availability-sets"></a>각 애플리케이션 계층을 별도의 가용성 집합으로 구성
 가상 머신이 모두 거의 동일하고 애플리케이션에 같은 목적으로 사용될 경우에는 애플리케이션의 각 계층에 대해 가용성 집합을 구성하는 것이 좋습니다.  동일한 가용성 집합에 두 가지 계층을 배치하면 같은 애플리케이션 계층에 있는 모든 가상 머신이 동시에 재부팅될 수 있습니다. 각 계층에 대해 최소 두 개의 가상 머신을 가용성 집합 안에 구성하면 각 계층에서 최소한 하나의 가상 머신은 사용할 수 있습니다.
@@ -74,13 +78,13 @@ Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 
 <!--Image reference--> ![응용 프로그램 계층](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 ## <a name="combine-a-load-balancer-with-availability-sets"></a>가용성 집합과 부하 분산 장치 결합
-[Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md)를 가용성 집합과 결합하여 응용 프로그램 복원력을 극대화하십시오. Azure 부하 분산 장치는 트래픽을 여러 가상 머신에 분산시킵니다. 표준 계층 가상 머신의 경우 Azure 부하 분산 장치가 포함되어 있습니다. 모든 가상 머신 계층에 Azure Load Balancer가 포함되어 있는 것은 아닙니다. 가상 머신 부하 분산에 대한 자세한 내용은 [가상 머신 부하 분산](../articles/virtual-machines/virtual-machines-linux-load-balance.md)을 참조하세요.
+[Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) 를 가용성 집합과 결합하여 애플리케이션 복원력을 극대화하십시오. Azure 부하 분산 장치는 트래픽을 여러 가상 머신에 분산시킵니다. 표준 계층 가상 머신의 경우 Azure 부하 분산 장치가 포함되어 있습니다. 모든 가상 머신 계층에 Azure Load Balancer가 포함되어 있는 것은 아닙니다. 가상 머신 부하 분산에 대한 자세한 내용은 [가상 머신 부하 분산](../articles/virtual-machines/virtual-machines-linux-load-balance.md)을 참조하세요.
 
 부하 분산 장치가 트래픽을 여러 가상 머신에 분산시키도록 구성되지 않은 경우에는 계획된 유지 관리 이벤트가 트래픽 처리 가상 머신에만 영향을 줌으로써 애플리케이션 계층에 중단을 일으킬 수 있습니다. 같은 계층의 여러 가상 머신을 같은 부하 분산 장치와 가용성 집합 아래에 배치하면 언제든지 적어도 하나의 인스턴스에서는 트래픽을 계속 처리할 수 있습니다.
 
 ## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>가용성 영역을 사용하여 데이터 센터 수준 오류로부터 사용자를 보호합니다.
 
-[가용성 영역](../articles/availability-zones/az-overview.md)은 가용성 집합의 대안으로써 VM에 있는 응용 프로그램 및 데이터의 가용성을 유지해야 하는 컨트롤 수준을 확장합니다. 가용성 영역은 Azure 지역 내에서 물리적으로 별도 영역입니다. 지원되는 Azure 지역당 3개의 가용성 영역이 있습니다. 각 가용성 영역에는 고유한 전원, 네트워크 및 냉각이 있고 Azure 지역 내의 다른 가용성 영역에서 논리적으로 분리됩니다. 영역에 복제된 VM을 사용하는 솔루션을 설계하여 데이터 센터 손실로부터 앱과 데이터를 보호할 수 있습니다. 하나의 영역이 손상되면 다른 영역에서 복제된 앱 및 데이터를 즉시 사용할 수 있습니다. 
+[가용성 영역](../articles/availability-zones/az-overview.md)은 가용성 집합의 대안으로써 VM에 있는 애플리케이션 및 데이터의 가용성을 유지해야 하는 컨트롤 수준을 확장합니다. 가용성 영역은 Azure 지역 내에서 물리적으로 별도 영역입니다. 지원되는 Azure 지역당 3개의 가용성 영역이 있습니다. 각 가용성 영역에는 고유한 전원, 네트워크 및 냉각이 있고 Azure 지역 내의 다른 가용성 영역에서 논리적으로 분리됩니다. 영역에 복제된 VM을 사용하는 솔루션을 설계하여 데이터 센터 손실로부터 앱과 데이터를 보호할 수 있습니다. 하나의 영역이 손상되면 다른 영역에서 복제된 앱 및 데이터를 즉시 사용할 수 있습니다. 
 
 ![가용성 영역](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
 
@@ -89,7 +93,7 @@ Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 
 
 <!-- Link references -->
 [중복성을 위해 가용성 집합에서 여러 가상 머신 구성]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[각 응용 프로그램 계층을 별도의 가용성 집합으로 구성]: #configure-each-application-tier-into-separate-availability-sets
+[각 애플리케이션 계층을 별도의 가용성 집합으로 구성]: #configure-each-application-tier-into-separate-availability-sets
 [가용성 집합과 부하 분산 장치 결합]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [가용성 집합의 VM에 Managed Disks 사용]: #use-managed-disks-for-vms-in-an-availability-set

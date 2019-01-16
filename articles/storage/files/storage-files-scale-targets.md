@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: af738b655b4070da1cfe7555daff82c0e40ff91c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 05e5c0a37d2de78393048728b73d9bcf6e56c491
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138588"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159169"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 [Azure Files](storage-files-introduction.md)는 산업 표준 SMB 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. 이 문서에서는 Azure Files 및 Azure 파일 동기화의 확장성 및 성능 목표에 대해 설명합니다.
@@ -60,8 +60,8 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 | 개체 수 | 1천만 개 개체 | 
 | 데이터 세트 크기| ~4TiB |
 | 평균 파일 크기 | ~500KiB(최대 파일: 100GiB) |
-| 처리량 업로드 | 초당 15개 개체 |
-| 네임스페이스 다운로드 처리량* | 초당 350개 개체 |
+| 처리량 업로드 | 초당 20개 개체 |
+| 네임스페이스 다운로드 처리량* | 초당 개체 400개 |
  
 *새 서버 엔드포인트를 만들 때 Azure 파일 동기화 에이전트는 파일 콘텐츠를 다운로드하지 않습니다. 먼저 전체 네임스페이스를 동기화한 다음, 백그라운드 회수를 트리거하여 전체 파일을 다운로드하거나 클라우드 계층화를 사용하는 경우 서버 엔드포인트에서 설정된 클라우드 계층화 정책에 파일을 다운로드합니다.
 
@@ -70,8 +70,8 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 | 동기화된 개체 수| 125000개 개체(~1% 변동) | 
 | 데이터 세트 크기| 50GiB |
 | 평균 파일 크기 | ~500KiB |
-| 처리량 업로드 | 초당 20개 개체 |
-| 전체 다운로드 처리량* | 초당 30개 개체 |
+| 처리량 업로드 | 초당 30개 개체 |
+| 전체 다운로드 처리량* | 초당 개체 60개 |
  
 *클라우드 계층화를 사용하면 일부 파일 데이터만을 다운로드할 때 성능이 더 개선될 수도 있습니다. Azure 파일 동기화는 엔드포인트 중 하나에서 캐시된 파일의 데이터가 변경될 때에만 해당 데이터를 다운로드합니다. 계층되거나 새로 생성된 파일의 경우 에이전트는 파일 데이터를 다운로드하지 않습니다. 대신 모든 서버 엔드포인트에 네임스페이스만을 동기화합니다. 에이전트는 사용자가 액세스할 때 계층화된 파일의 부분 다운로드도 지원합니다. 
  

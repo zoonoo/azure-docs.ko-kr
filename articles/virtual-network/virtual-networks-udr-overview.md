@@ -1,26 +1,23 @@
 ---
-title: Azure 가상 네트워크 트래픽 라우팅 | Microsoft Docs
+title: Azure 가상 네트워크 트래픽 라우팅
+titlesuffix: Azure Virtual Network
 description: Azure에서 가상 네트워크 트래픽을 라우팅하는 방법과 Azure 라우팅을 사용자 지정하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.custom: ''
-ms.openlocfilehash: c0b60b523409225e93cd4849b42fb5cfb318bea9
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b2a262e6829aca75f03db41ff72ab0cc067c93be
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135732"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025796"
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
 

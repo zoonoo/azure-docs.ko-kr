@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: b528507d0f12cda72855db19aa28c7b06a4e26c1
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 776b1eb71b4f15c3376644de92205a4eeb77e4b2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345218"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020526"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SQL Server 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,8 +53,8 @@ SQL Server 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **SqlServer**로 설정해야 합니다. | yes |
-| connectionString |SQL 인증 또는 Windows 인증을 사용하여 SQL Server 데이터베이스에 연결하는 데 필요한 connectionString 정보를 지정합니다. 다음 샘플을 참조하세요. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |yes |
+| 형식 | type 속성을 다음으로 설정해야 합니다. **SqlServer** | 예 |
+| connectionString |SQL 인증 또는 Windows 인증을 사용하여 SQL Server 데이터베이스에 연결하는 데 필요한 connectionString 정보를 지정합니다. 다음 샘플을 참조하세요. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | userName |Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. 예: **domainname\\username**. |아니요 |
 | 암호 |userName에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |아니요 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
@@ -118,7 +117,7 @@ SQL Server 데이터베이스 간에 데이터를 복사하려면 데이터 세�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 type 속성을 **SqlServerTable**로 설정해야 합니다. | yes |
+| 형식 | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **SqlServerTable** | 예 |
 | tableName |연결된 서비스가 참조하는 SQL Server 데이터베이스 인스턴스에서 테이블 또는 보기의 이름입니다. | 원본에는 아니요이고 싱크에는 예입니다 |
 
 **예제:**
@@ -150,7 +149,7 @@ SQL Server의 데이터를 복사하려면 복사 작업의 원본 형식을 **S
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성을 **SqlSource**로 설정해야 합니다. | yes |
+| 형식 | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **SqlSource** | 예 |
 | SqlReaderQuery |사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. |아니오 |
 | sqlReaderStoredProcedureName |원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. |아니오 |
 | storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. |아니요 |
@@ -253,9 +252,9 @@ SQL Server에 데이터를 복사하려면 복사 작업의 싱크 형식을 **S
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 싱크의 형식 속성은 **SqlSink**로 설정해야 합니다. | yes |
+| 형식 | 복사 작업 싱크의 type 속성을 다음으로 설정해야 합니다. **SqlSink** | 예 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입<br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 10000) |
-| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예: “00:30:00”(30분). |아니오 |
+| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예제: “00:30:00”(30분) |아니요 |
 | preCopyScript |SQL Server에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |아니요 |
 | sqlWriterStoredProcedureName |원본 데이터를 대상 테이블에 적용하는 방법(예: 사용자 고유의 비즈니스 논리를 사용하여 upsert 또는 transform 수행)을 정의하는 저장 프로시저의 이름입니다. <br/><br/>이 저장 프로시저는 **배치마다 호출**됩니다. 한 번만 실행되고 원본 데이터와 아무런 관련이 없는 작업(예: 삭제/자르기)을 수행하려는 경우 `preCopyScript` 속성을 사용합니다. |아니요 |
 | storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. |아니요 |
@@ -362,7 +361,7 @@ create table dbo.TargetTbl
 
 대상 테이블에 ID 열이 있는지 확인합니다.
 
-**원본 데이터 집합 JSON 정의**
+**원본 데이터 세트 JSON 정의**
 
 ```json
 {
@@ -380,7 +379,7 @@ create table dbo.TargetTbl
 }
 ```
 
-**대상 데이터 집합 JSON 정의**
+**대상 데이터 세트 JSON 정의**
 
 ```json
 {
@@ -410,9 +409,9 @@ SQL Server 데이터베이스로 데이터를 복사할 때 사용자 지정 저
 
 기본 제공 메커니즘이 용도에 적합하지 않을 때는 저장 프로시저를 사용할 수 있습니다. 보통은 대상 테이블에서 원본 데이터의 최종 삽입 전에 upsert(insert + update, 삽입 + 업데이트) 또는 추가 처리(열 합병, 추가 값 검색, 여러 테이블에 삽입 등)를 수행해야 할 때 저장 프로시저를 사용합니다.
 
-다음 샘플에서는 저장 프로시저를 사용하여 SQL Server 데이터베이스 내 테이블에 간단한 삽입을 수행하는 방법을 보여줍니다. 각기 ProfileID, State, Category 등의 세 개 열을 갖는 입력 데이터와 싱크 "Marketing" 테이블을 가정해 보겠습니다. “ProfileID” 열을 기준으로 upsert를 수행하고 특정 범주에 대해서만 적용합니다.
+다음 샘플에서는 저장 프로시저를 사용하여 SQL Server 데이터베이스 내 테이블에 간단한 삽입을 수행하는 방법을 보여줍니다. 각기 다음과 같은 세 개 열을 갖는 입력 데이터와 싱크 "Marketing" 테이블을 가정해 보겠습니다. ProfileID, State 및 Category. “ProfileID” 열을 기준으로 upsert를 수행하고 특정 범주에 대해서만 적용합니다.
 
-**출력 데이터 집합:**
+**출력 데이터 세트**
 
 ```json
 {
@@ -534,7 +533,7 @@ SQL Server 간에 데이터를 복사하는 경우 SQL Server 데이터 형식�
 3. 같은 창에서 **TCP/IP**를 두 번 클릭하여 **TCP/IP 속성** 창을 시작합니다.
 4. **IP 주소** 탭으로 전환합니다. 아래로 스크롤하여 **IPAll** 섹션을 확인합니다. **TCP 포트**(기본값은 **1433**)를 기록해 둡니다.
 5. 컴퓨터에 **Windows 방화벽에 대한 규칙** 을 만들어 이 포트를 통해 들어오는 트래픽을 허용합니다.  
-6. **연결 확인**: 정규화된 이름을 사용하여 SQL Server에 연결하려면 다른 컴퓨터의 SQL Server Management Studio를 사용합니다. 예: `"<machine>.<domain>.corp.<company>.com,1433"`
+6. **연결 확인**: 정규화된 이름을 사용하여 SQL Server에 연결하려면 다른 머신의 SQL Server Management Studio를 사용합니다. 예: `"<machine>.<domain>.corp.<company>.com,1433"`
 
 
 ## <a name="next-steps"></a>다음 단계

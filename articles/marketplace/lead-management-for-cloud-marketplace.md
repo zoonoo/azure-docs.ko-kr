@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 8bb964308e11d238def4eed3f194ffc9ef8ab086
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: abaad7eabf92b6f3f53d7807af132959533552b9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840166"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076963"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>클라우드 마켓플레이스의 리드 관리
 
@@ -91,7 +91,7 @@ ms.locfileid: "52840166"
 
 **리드를 Dynamics CRM에 저장할 수 없습니다. LastCRMError: 00:02:00 이후 응답을 기다리는 중 요청 채널의 시간이 초과되었습니다. 요청 호출에 전달된 제한 시간 값을 늘리거나 Binding의 SendTimeout 값을 늘리세요. 이 작업에 할당된 시간이 보다 긴 시간 제한의 일부일 수 있습니다.**  
 
-> 해결 방법: Cloud 파트너 포털에 로그인한 다음, Storefront 세부 정보 >> 리드 대상 >> URL을 선택하고 Dynamic CRM 인스턴스가 유효한지 확인
+> 해결 방법: Cloud 파트너 포털에 로그인하고, Storefront 세부 정보 >> 리드 대상 >> URL을 선택한 후, Dynamic CRM 인스턴스가 유효한지 확인합니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 

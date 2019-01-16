@@ -1,23 +1,23 @@
 ---
-title: Azure 페이지 Blob의 고유 기능 | Microsoft Docs
-description: Azure 페이지 Blob와 해당 이점의 개요, 샘플 스크립트를 통한 사용 사례
+title: Azure 페이지 Blob의 개요 | Microsoft Docs
+description: 샘플 스크립트를 통한 사용 사례를 포함한 Azure 페이지 Blob의 개요 및 해당 이점
 services: storage
 author: anasouma
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 01/03/2019
 ms.author: wielriac
 ms.component: blobs
-ms.openlocfilehash: dc15dcb9f7b342d2d5140199ecf34c1a4781fa25
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 6d1c443cfe3454d1b1e50a7270bd78598f69f6de
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022691"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063935"
 ---
-# <a name="unique-features-of-azure-page-blobs"></a>Azure 페이지 Blob의 고유 기능
+# <a name="overview-of-azure-page-blobs"></a>Azure 페이지 Blob의 개요
 
-Azure Storage에는 블록 Blob, 추가 Blob 및 페이지 Blob의 세 가지 유형의 Blob Storage가 제공됩니다. 블록 Blob은 블록으로 구성되며 텍스트 또는 이진 파일을 저장하고 큰 파일을 효율적으로 업로드하는 데 적합합니다. 추가 Blob도 블록으로 구성되지만 추가 작업에 최적화되어 있으므로 로깅 시나리오에 적합합니다. 페이지 Blob의 전체 크기는 512바이트 페이지(최대 8TB)로 구성되고 빈번한 임의의 읽기/쓰기 작업에 맞게 고안되었습니다. 페이지 Blob은 Azure IaaS 디스크의 기반이 됩니다. 이 문서에서는 페이지 Blob의 기능 및 이점을 중점적으로 설명합니다.
+Azure Storage는 다음 세 가지 유형의 Blob Storage를 제공합니다. 블록 Blob, 추가 Blob, 페이지 Blob 블록 Blob은 블록으로 구성되며 텍스트 또는 이진 파일을 저장하고 큰 파일을 효율적으로 업로드하는 데 적합합니다. 추가 Blob도 블록으로 구성되지만 추가 작업에 최적화되어 있으므로 로깅 시나리오에 적합합니다. 페이지 Blob의 전체 크기는 512바이트 페이지(최대 8TB)로 구성되고 빈번한 임의의 읽기/쓰기 작업에 맞게 고안되었습니다. 페이지 Blob은 Azure IaaS 디스크의 기반이 됩니다. 이 문서에서는 페이지 Blob의 기능 및 이점을 중점적으로 설명합니다.
 
 페이지 Blob은 임의의 바이트 범위에 대한 읽기/쓰기 기능을 제공하는 512바이트 페이지의 컬렉션입니다. 따라서 페이지 Blob은 가상 머신과 데이터베이스의 OS 및 데이터 디스크와 같은 인덱스 기반 및 스파스 데이터 구조를 저장하는 데 적합합니다. 예를 들어 Azure SQL DB는 해당 데이터베이스에 대한 기본 영구적 저장소로 페이지 Blob을 사용합니다. 또한 페이지 Blob은 범위 기반 업데이트가 포함된 파일에도 자주 사용됩니다.  
 
@@ -29,7 +29,7 @@ Azure IaaS 디스크로 시작하는 페이지 Blob에 대한 몇 가지 사용 
 
 Azure Site Recovery, Azure Backup과 같은 자사의 Microsoft 서비스뿐만 아니라 많은 타사 개발자는 페이지 Blob의 REST 인터페이스를 사용하여 업계를 주도하는 혁신을 구현했습니다. 다음은 Azure에서 구현되는 몇 가지 고유한 시나리오입니다. 
 * 애플리케이션 지향 증분 스냅숏 관리: 애플리케이션은 페이지 Blob 스냅숏 및 REST API를 활용하여 데이터의 비용이 중복되지 않게 애플리케이션 검사점을 저장할 수 있습니다. Azure Storage는 전체 Blob을 복사할 필요가 없는 페이지 Blob에 대한 로컬 스냅숏을 지원합니다. 또한 이러한 공용 스냅숏 API를 사용하면 스냅숏 간 델타 액세스 및 복사가 가능합니다.
-* 온-프레미스에서 클라우드로 애플리케이션 및 데이터 실시간 마이그레이션: 온-프레미스 VM을 계속 실행하면서 온-프레미스 데이터를 복사하고 REST API를 사용하여 Azure 페이지 Blob에 직접 쓸 수 있습니다. 대상을 따라잡으면 해당 데이터를 사용하여 신속하게 Azure VM에 장애 조치(failover)할 수 있습니다. 이렇게 하면 VM을 계속 사용하면서 데이터 마이그레이션이 백그라운드에서 수행되고 장애 조치에 필요한 가동 중지 시간(분)이 짧아지므로, VM 및 가상 디스크를 최소한의 가동 중지 시간으로 온-프레미스에서 클라우드로 마이그레이션할 수 있습니다.
+* 온-프레미스에서 클라우드로 애플리케이션 및 데이터의 실시간 마이그레이션: 온-프레미스 VM이 계속 실행되는 동안 온-프레미스 데이터를 복사하고 REST API를 사용하여 Azure 페이지 Blob에 직접 쓸 수 있습니다. 대상을 따라잡으면 해당 데이터를 사용하여 신속하게 Azure VM에 장애 조치(failover)할 수 있습니다. 이렇게 하면 VM을 계속 사용하면서 데이터 마이그레이션이 백그라운드에서 수행되고 장애 조치에 필요한 가동 중지 시간(분)이 짧아지므로, VM 및 가상 디스크를 최소한의 가동 중지 시간으로 온-프레미스에서 클라우드로 마이그레이션할 수 있습니다.
 * [SAS 기반](../common/storage-dotnet-shared-access-signature-part-1.md) 공유 액세스: 동시성 제어를 지원하는 다중 판독기 및 단일 작성기와 같은 시나리오를 사용할 수 있습니다.
 
 ## <a name="page-blob-features"></a>페이지 Blob 기능

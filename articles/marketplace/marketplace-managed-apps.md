@@ -12,16 +12,16 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: c8ead3dc34faefce0f113dee2074960fddfa11a1
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: ae50562a9354b9c1e5b2711e5bbeec7b1e0fbbb8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144594"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078799"
 ---
-# <a name="azure-applications-managed-application-offer-publishing-guide"></a>Azure 애플리케이션: 관리되는 애플리케이션 제품 게시 가이드
+# <a name="azure-applications-managed-application-offer-publishing-guide"></a>Azure 애플리케이션: 관리형 애플리케이션 제품 게시 가이드
 
 관리되는 애플리케이션은 Marketplace에서 솔루션을 게시하는 주요 방법 중 하나입니다. 이 가이드를 사용하여 이 제품에 대한 요구 사항을 이해합니다. 
 
@@ -41,7 +41,7 @@ Marketplace를 통해 배포되고 청구되는 트랜잭션 제품은 다음과
 |고객의 Azure 구독에 배포 | 관리되는 앱은 고객의 구독에 배포되어야 하고 타사에서 관리될 수 있습니다. | 
 |청구 및 계량    |  고객의 Azure 구독에서 리소스를 프로비전합니다. 종량제(PAYGO) 가상 머신은 Microsoft를 통해 고객과 거래되고 고객의 Azure 구독(PAYGO)을 통해 청구됩니다. 
 BYOL(사용자 라이선스 필요)의 경우 Microsoft가 고객 구독에서 발생하는 인프라 비용을 청구하는 동안 소프트웨어 라이선스 요금을 고객과 직접 거래합니다.        |
-|Azure 호환 VHD(가상 하드 디스크)    |   VM은 Windows 또는 Linux에서 빌드해야 합니다.<ul> <li>Linux VHD를 만드는 방법에 대한 자세한 내용은 [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based)에 있는 Azure 호환 VHD(Linux 기반) 만들기 섹션을 참조하세요.</li> <li>Windows VHD를 만드는 방법에 대한 자세한 내용은 [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based)에 있는 Azure 호환 VHD(Windows 기반) 만들기 섹션을 참조하세요.</li> </ul>      |
+|Azure 호환 VHD(가상 하드 디스크)    |   VM은 Windows 또는 Linux에서 빌드해야 합니다.<ul> <ul> <li>Linux VHD를 만드는 방법에 대한 자세한 내용은 [Azure 보증 Linux 배포판](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)을 참조하세요.</li> <li>Windows VHD를 만드는 방법에 대한 자세한 내용은 [Azure 호환 VHD 만들기](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)를 참조하세요.</li> </ul> |
 
 >[!NOTE]
 > 관리되는 앱은 마켓플레이스를 통해 배포 가능해야 합니다. 고객 커뮤니케이션이 중요한 경우, 잠재 고객 공유를 사용하도록 설정한 후 관심 있는 고객에게 연결해야 합니다.  
@@ -50,8 +50,8 @@ BYOL(사용자 라이선스 필요)의 경우 Microsoft가 고객 구독에서 �
 ## <a name="next-steps"></a>다음 단계
 아직 수행하지 않았다면 
 
-- Marketplace에서 [등록](https://azuremarketplace.microsoft.com/sell)
+- Marketplace에 [등록](https://azuremarketplace.microsoft.com/sell).
 
 새 제품을 등록하고 만들거나 기존에서 작업하는 경우
 
-- 제품을 만들거나 완료하기 위해 [Cloud 파트너 포털에 로그인](https://cloudpartner.azure.com)
+- 제품을 만들거나 완료하기 위해 [Cloud 파트너 포털에 로그인](https://cloudpartner.azure.com).

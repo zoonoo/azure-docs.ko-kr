@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: fad023b7593b0e13b05d081a11333f5e92c8ecef
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: da8fd886afa6028959247caa0c6e007df20fdd1b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602174"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077745"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
@@ -36,10 +36,8 @@ Microsoft 파트너는 고객을 대신하여 프로비전하는 Azure 리소스
 
 ## <a name="use-resource-manager-templates"></a>Resource Manager 템플릿 사용
 
-많은 파트너 솔루션은 Resource Manager 템플릿을 사용하여 고객의 구독에 배포됩니다. Azure Marketplace, GitHub 또는 빠른 시작에서 사용할 수 있는 Resource Manager 템플릿이 있는 경우, 새 추적 메서드를 사용하도록 템플릿을 수정하는 프로세스가 간단해야 합니다. Azure Resource Manager 템플릿을 사용하지 않는 경우, Resource Manager 템플릿 및 이러한 템플릿을 만드는 방법을 더 잘 이해하는 데 도움이 되는 몇 가지 링크는 다음과 같습니다. 
+많은 파트너 솔루션은 Resource Manager 템플릿을 사용하여 고객의 구독에 배포됩니다. Azure Marketplace, GitHub 또는 빠른 시작에서 사용할 수 있는 Resource Manager 템플릿이 있는 경우, 새 추적 메서드를 사용하도록 템플릿을 수정하는 프로세스가 간단해야 합니다. 자세한 내용은 [첫 번째 Resource Manager 템플릿을 만들고 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)를 참조하세요.
 
-*   [첫 번째 Resource Manager 템플릿 만들기 및 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
-*   [Azure Marketplace용 솔루션 템플릿 만들기](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-solution-template-creation)
 
 ## <a name="add-a-guid-to-your-template"></a>템플릿에 GUID 추가
 
@@ -270,11 +268,15 @@ Microsoft는 고객의 템플릿 배포 및 영향을 받는 사용량에 대한
 
 **템플릿에 GUID를 추가할 수 있는 사람은 누구인가요?**
 
-추적 리소스는 파트너 솔루션을 고객의 Azure 사용량에 연결하기 위한 것입니다. 사용량 데이터는 파트너의 MPN ID(Microsoft 파트너 네트워크 ID)와 연결됩니다. 
+추적 리소스는 파트너 솔루션을 고객의 Azure 사용량에 연결하기 위한 것입니다. 사용량 데이터는 파트너의 MPN ID(Microsoft 파트너 네트워크 ID)와 연결됩니다. 보고는 CPP의 파트너가 사용할 수 있습니다.
 
 **GUID는 추가된 후에 변경할 수 있나요?**
  
 예, 고객 또는 구현 파트너는 템플릿을 사용자 지정할 수 있으며 GUID를 변경하거나 제거할 수 있습니다. 파트너가 리소스 및 GUID의 역할을 사전에 고객과 파트너에게 설명하여 추적 GUID를 제거하거나 편집하지 못하게 하는 것이 좋습니다. GUID가 변경되면 기존이 아닌 새 배포 및 리소스에만 영향을 줍니다.
+
+**언제 보고를 사용할 수 있나요?**
+
+보고의 베타 버전이 곧 제공될 예정입니다. 보고는 CPP에 통합됩니다.
 
 **GitHub 등의 타사 리포지토리에서 배포된 템플릿을 추적할 수 있나요?**
 

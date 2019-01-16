@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: c0f2802bae366637fd93d47e33619746b7142f53
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: bb84c7d5e483b0a2abc3b7d1a37de8760513d203
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231630"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063219"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Azure Logic Apps에서 값을 저장 및 관리하기 위한 변수 만들기
 
@@ -28,7 +28,10 @@ ms.locfileid: "50231630"
 * 변수에 다른 값을 할당합니다.
 * 변수 값을 문자열 또는 배열의 마지막 항목으로 삽입하거나 추가합니다.
 
-변수는 해당 변수를 만드는 논리 앱 인스턴스 내에서만 존재하고 전역입니다. 또한 논리 앱 인스턴스 내의 모든 루프 반복에서 지속됩니다. 변수를 참조하는 경우, 작업의 출력을 참조하는 일반적인 방법인 작업 이름이 아니라 변수 이름을 토큰으로 사용합니다.
+변수는 해당 변수를 만드는 논리 앱 인스턴스 내에서만 존재하고 전역입니다. 또한 논리 앱 인스턴스 내의 모든 루프 반복에서 지속됩니다. 변수를 참조하는 경우, 작업의 출력을 참조하는 일반적인 방법인 작업 이름이 아니라 변수 이름을 토큰으로 사용합니다. 
+
+> [!IMPORTANT]
+> 기본적으로 “Foreach” 루프의 주기는 병렬로 실행됩니다. 루프에서 변수를 사용하는 경우 루프를 [순차적으로](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) 실행하므로 변수가 예측 가능한 결과를 반환합니다. 
 
 아직 Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
 
@@ -38,7 +41,7 @@ ms.locfileid: "50231630"
 
 * 변수를 만들려는 논리 앱 
 
-  논리 앱을 처음 사용하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토합니다.
+  논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
 
 * 논리 앱의 첫 번째 단계인 [트리거](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 
@@ -71,8 +74,8 @@ ms.locfileid: "50231630"
 
    | 자산 | 필수 | 값 |  설명 |
    |----------|----------|-------|--------------|
-   | 이름 | yes | <*variable-name*> | 증가할 변수의 이름입니다. | 
-   | type | yes | <*variable-type*> | 변수의 데이터 형식입니다. | 
+   | 이름 | 예 | <*variable-name*> | 증가할 변수의 이름입니다. | 
+   | type | 예 | <*variable-type*> | 변수의 데이터 형식입니다. | 
    | 값 | 아니요 | <*start-value*> | 변수의 초기 값 <p><p>**팁**: 선택 사항이지만, 변수의 시작 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. | 
    ||||| 
 
@@ -207,7 +210,7 @@ ms.locfileid: "50231630"
 
    | 자산 | 필수 | 값 |  설명 |
    |----------|----------|-------|--------------|
-   | 이름 | yes | <*variable-name*> | 증가할 변수의 이름입니다. | 
+   | 이름 | 예 | <*variable-name*> | 증가할 변수의 이름입니다. | 
    | 값 | 아니요 | <*increment-value*> | 변수를 증가하는 데 사용되는 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 증가하기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. | 
    |||| 
 
@@ -327,8 +330,8 @@ ms.locfileid: "50231630"
 
 | 자산 | 필수 | 값 |  설명 |
 |----------|----------|-------|--------------|
-| 이름 | yes | <*variable-name*> | 감소할 변수의 이름입니다. | 
-| 값 | 아니요 | <*increment-value*> | 변수를 감소하기 위한 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 감소하기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. | 
+| 이름 | 예 | <*variable-name*> | 감소할 변수의 이름입니다. | 
+| 값 | 아니요 | <*increment-value*> | 변수를 감소하기 위한 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 감소시키기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. | 
 ||||| 
 
 디자이너에서 코드 보기 편집기로 전환하는 경우, **변수 감소** 작업은 논리 앱 정의 내에서 다음과 같이 JSON 형식으로 표시됩니다.
@@ -362,8 +365,8 @@ ms.locfileid: "50231630"
 
 | 자산 | 필수 | 값 |  설명 | 
 |----------|----------|-------|--------------| 
-| 이름 | yes | <*variable-name*> | 변경할 변수의 이름입니다. | 
-| 값 | yes | <*new-value*> | 변수에 할당할 값입니다. 둘 다 데이터 형식이 같아야 합니다. | 
+| 이름 | 예 | <*variable-name*> | 변경할 변수의 이름입니다. | 
+| 값 | 예 | <*new-value*> | 변수에 할당할 값입니다. 둘 다 데이터 형식이 같아야 합니다. | 
 ||||| 
 
 > [!NOTE]
@@ -420,8 +423,8 @@ ms.locfileid: "50231630"
 
 | 자산 | 필수 | 값 |  설명 | 
 |----------|----------|-------|--------------| 
-| 이름 | yes | <*variable-name*> | 변경할 변수의 이름입니다. | 
-| 값 | yes | <*append-value*> | 추가하려는 값으로, 임의 형식일 수 있습니다. | 
+| 이름 | 예 | <*variable-name*> | 변경할 변수의 이름입니다. | 
+| 값 | 예 | <*append-value*> | 추가하려는 값으로, 임의 형식일 수 있습니다. | 
 |||||  
 
 디자이너에서 코드 보기 편집기로 전환하는 경우, **배열 변수에 추가** 작업은 논리 앱 정의 내에서 다음과 같이 JSON 형식으로 표시됩니다.

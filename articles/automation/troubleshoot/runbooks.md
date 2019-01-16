@@ -4,16 +4,16 @@ description: Azure Automation Runbook을 사용하여 문제를 해결하는 방
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/04/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 41eb31ecabb20ec9eec3db13d5eda9f9cfbe6c69
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f5663842a4d861ed6eb76de859b870aa7114cb04
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015469"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063644"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
@@ -94,13 +94,15 @@ The subscription named <subscription name> cannot be found.
 Azure에 올바르게 인증되고 선택하려는 구독에 대한 액세스 권한이 있는지 확인하기 위해 다음 단계를 수행하세요  
 
 1. Azure Automation 외부에서 스크립트를 테스트하여 독립 실행형으로 작동하는지 확인합니다.
-2. **Add-AzureAccount** cmdlet을 실행한 후에 **Select-AzureSubscription** cmdlet을 실행합니다.  
-3. 이 오류 메시지가 계속 나타나면 **Add-AzureAccount** cmdlet 뒤에 **-AzureRmContext** 매개 변수를 추가하여 코드를 수정한 다음, 해당 코드를 실행합니다.
+2. `Select-AzureSubscription` cmdlet을 실행하기 전에 `Add-AzureAccount` cmdlet을 실행하고 있는지 확인합니다. 
+3. Runbook의 시작 부분에 `Disable-AzureRmContextAutosave –Scope Process`를 추가합니다. 이렇게 하면 현재 Runbook의 실행에만 자격 증명이 적용됩니다.
+4. 이 오류 메시지가 계속 나타나면 `Add-AzureAccount` cmdlet 뒤에 **AzureRmContext** 매개 변수를 추가하여 코드를 수정한 다음, 해당 코드를 실행합니다.
 
    ```powershell
+   Disable-AzureRmContextAutosave –Scope Process
+
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
--ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
    $context = Get-AzureRmContext
 
@@ -147,21 +149,24 @@ Exception: A task was canceled.
 
 Automation 계정에서 **모듈**을 클릭하고 **Azure 모듈 업데이트**를 클릭합니다. 업데이트에는 약 15분이 소요되며 완료되면 실패한 Runbook을 다시 실행합니다. 모듈 업데이트에 대해 자세히 알아 보려면 [Azure Automation에서 Azure 모듈 업데이트](../automation-update-azure-modules.md)를 참조하세요.
 
-### <a name="child-runbook-auth-failure"></a>시나리오: 여러 구독으로 처리하는 경우 자식 Runbook 실패
+### <a name="runbook-auth-failure"></a>시나리오: 여러 구독으로 처리하는 경우 Runbook 실패
 
 #### <a name="issue"></a>문제
 
-`Start-AzureRmRunbook`으로 자식 Runbook을 실행하는 경우 자식 Runbook이 Azure 리소스를 관리하지 못합니다.
+`Start-AzureRmAutomationRunbook`으로 Runbook을 실행하는 경우 Runbook이 Azure 리소스를 관리하지 못합니다.
 
 #### <a name="cause"></a>원인
 
-자식 Runbook을 실행할 때 올바른 컨텍스트를 사용하지 않습니다.
+Runbook이 실행 시 올바른 컨텍스트를 사용하지 않습니다.
 
 #### <a name="resolution"></a>해결 방법
 
-여러 구독으로 작업할 때 자식 Runbook 호출 시 구독 컨텍스트가 손실될 수 있습니다. 구독 컨텍스트가 자식 Runbook에 전달되도록 하려면 cmdlet에 `AzureRmContext` 매개 변수를 추가하여 컨텍스트를 전달합니다.
+여러 구독으로 작업할 때 Runbook 호출 시 구독 컨텍스트가 손실될 수 있습니다. 구독 컨텍스트가 Runbook에 전달되도록 하려면 cmdlet에 `AzureRmContext` 매개 변수를 추가하여 컨텍스트를 전달합니다. 사용 중인 자격 증명이 현재 Runbook에 대해서만 사용되도록 하려면 **프로세스** 범위와 함께 `Disable-AzureRmContextAutosave` cmdlet을 사용하는 것이 좋습니다.
 
 ```azurepowershell-interactive
+# Ensures that any credentials apply only to the execution of this runbook
+Disable-AzureRmContextAutosave –Scope Process
+
 # Connect to Azure with RunAs account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
@@ -222,11 +227,11 @@ The job was tried three times but it failed
 
 이 오류는 다음과 같은 원인으로 인해 발생할 수 있습니다.
 
-1. 메모리 제한. [Automation 서비스 제한](../../azure-subscription-service-limits.md#automation-limits) 샌드박스에 할당된 메모리 양에 대해 문서화된 제한 사항이 있으므로 400MB 초과의 메모리를 사용하는 경우 작업이 실패할 수 있습니다.
+1. 메모리 제한. 샌드박스에 대한 메모리 할당량의 문서화된 제한은 [Automation 서비스 제한](../../azure-subscription-service-limits.md#automation-limits)에서 확인할 수 있습니다. 400MB를 초과하는 메모리를 사용하는 경우 작업에 실패할 수 있습니다.
 
-1. 네트워크 소켓입니다. [Automation 서비스 제한](../../azure-subscription-service-limits.md#automation-limits)에 설명된 대로 Azure 샌드박스에서는 동시 네트워크 소켓이 1000개로 제한됩니다.
+2. 네트워크 소켓입니다. [Automation 서비스 제한](../../azure-subscription-service-limits.md#automation-limits)에 설명된 대로 Azure 샌드박스에서는 동시 네트워크 소켓이 1000개로 제한됩니다.
 
-1. 모듈이 호환되지 않음. 모듈 종속성이 올바르지 않은 경우에 이 오류가 발생할 수 있습니다. 일반적으로 Runbook에서 "명령을 찾을 수 없습니다." 또는 "매개 변수를 바인딩할 수 없습니다."라는 메시지를 반환합니다.
+3. 모듈이 호환되지 않음. 모듈 종속성이 올바르지 않은 경우에 이 오류가 발생할 수 있습니다. 일반적으로 Runbook에서 "명령을 찾을 수 없습니다." 또는 "매개 변수를 바인딩할 수 없습니다."라는 메시지를 반환합니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -330,7 +335,7 @@ Runbook이 Azure 샌드박스의 공평 분배에 허용된 3시간 제한을 �
 
 Hybrid Worker는 Azure 샌드박스의 [공평 분배](../automation-runbook-execution.md#fair-share)에 허용된 3시간 Runbook 제한 사항에 따라 제한되지 않습니다. Hybrid Runbook Workers는 3시간의 공평 분배 제한에 따라 제한되지 않지만 예기치 않은 로컬 인프라 문제가 발생하는 경우에도 Hybrid Runbook Worker에서 실행된 Runbook에서 여전히 다시 시작 동작을 지원하도록 개발되어야 합니다.
 
-또 다른 옵션은 [자식 Runbook](../automation-child-runbooks.md)을 만들어 Runbook을 최적화하는 것입니다. Runbook이 여러 데이터베이스의 데이터베이스 작업과 같이 많은 리소스에서 동일한 함수를 반복하는 경우 해당 함수를 자식 Runbook으로 이동할 수 있습니다. 이러한 자식 Runbook은 각각 별도 프로세스에서 병렬로 실행되어 부모 Runbook을 완료하는 데 걸리는 전체 시간을 줄입니다.
+또 다른 옵션은 [자식 Runbook](../automation-child-runbooks.md)을 만들어 Runbook을 최적화하는 것입니다. Runbook이 여러 데이터베이스의 데이터베이스 작업과 같이 많은 리소스에서 동일한 함수를 반복하는 경우 해당 함수를 자식 Runbook으로 이동할 수 있습니다. 이러한 자식 Runbook은 각각 개별 프로세스에서 병렬로 실행됩니다. 이 동작은 부모 Runbook이 완료되는 총 기간을 감소시킵니다.
 
 자식 Runbook 시나리오를 사용하도록 설정하는 PowerShell cmdlet은 다음과 같습니다.
 
@@ -375,7 +380,7 @@ webhook가 비활성화된 경우Azure Portal을 통해 webhook를 다시 활성
 이 오류를 해결하는 방법은 두 가지가 있습니다.
 
 * Runbook을 편집하고 내보내는 작업 스트림 수를 줄입니다.
-* cmdlet을 실행할 때 검색할 스트림 수를 줄입니다. 이렇게 하려면 `Get-AzureRmAutomationJobOutput` cmdlet에 대해 `-Stream Output` 매개 변수를 지정하여 출력 스트림만 검색하면 됩니다. 
+* cmdlet을 실행할 때 검색할 스트림 수를 줄입니다. 이 동작을 수행하려면 `Get-AzureRmAutomationJobOutput` cmdlet에 대해 `-Stream Output` 매개 변수를 지정하여 출력 스트림만 검색할 수 있습니다. 
 
 ## <a name="common-errors-when-importing-modules"></a>모듈을 가져올 때 발생하는 일반적인 오류
 

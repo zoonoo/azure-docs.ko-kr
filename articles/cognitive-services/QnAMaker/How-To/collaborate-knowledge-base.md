@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/08/2018
 ms.author: tulasim
-ms.openlocfilehash: bb074b1f256275c26889a30435dff28c86060a7b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ec26e7ab535084fa5d8f52c11c671212eeab0f13
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035235"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119836"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>기술 자료에 대한 공동 작업
 
@@ -35,7 +35,7 @@ QnA Maker 서비스를 다른 사람과 공유하려면 다음 단계를 수행�
 
     ![QnA Maker IAM 추가](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.PNG)
 
-4. **소유자** 또는 **참가자** 역할을 선택합니다.
+4. **소유자** 또는 **참가자** 역할을 선택합니다. 역할 기반 액세스 제어를 통해 읽기 전용 액세스를 부여할 수 없습니다. 소유자 및 기여자 역할에는 QnA Maker 서비스에 대한 읽기/쓰기 액세스 권한이 있습니다.
 
     ![QnA Maker IAM 역할 추가](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-role.PNG)
 

@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: e682b3780c26da9cf2398e93adc32cb107127d9c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: bc695bf8398a39460eff9bbe4f791ba92b0fa7e0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426794"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019318"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory에서 조회 작업
 
@@ -56,14 +55,14 @@ ms.locfileid: "52426794"
 ## <a name="type-properties"></a>형식 속성
 이름 | 설명 | type | Required?
 ---- | ----------- | ---- | --------
-dataset | 조회를 위한 데이터 세트 참조를 제공합니다. 자세한 내용은 해당하는 각 커넥터 문서의 **데이터 세트 속성** 섹션에서 확인하세요. | 키/값 쌍 | yes
-원본 | 복사 작업 원본과 동일한 데이터 세트 관련 원본 속성을 포함하고 있습니다. 자세한 내용은 해당하는 각 커넥터 문서의 **복사 작업 속성** 섹션에서 확인하세요. | 키/값 쌍 | yes
+데이터 세트 | 조회를 위한 데이터 세트 참조를 제공합니다. 자세한 내용은 해당하는 각 커넥터 문서의 **데이터 세트 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예
+원본 | 복사 작업 원본과 동일한 데이터 세트 관련 원본 속성을 포함하고 있습니다. 자세한 내용은 해당하는 각 커넥터 문서의 **복사 작업 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예
 firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반환할 것인지 여부를 나타냅니다. | BOOLEAN |  아니요. 기본값은 `true`입니다.
 
 > [!NOTE]
 
 > * **ByteArray** 형식의 원본 열은 지원되지 않습니다.
-> * **구조체**는 데이터 집합 정의에서 지원되지 않습니다. 텍스트 서식 파일의 경우 헤더 행을 사용하여 열 이름을 입력합니다.
+> * **구조체**는 데이터 세트 정의에서 지원되지 않습니다. 텍스트 서식 파일의 경우 헤더 행을 사용하여 열 이름을 입력합니다.
 > * 조회 원본이 JSON 파일인 경우 JSON 개체의 모양을 변경하는 `jsonPathDefinition` 설정이 지원되지 않습니다. 전체 개체가 검색됩니다.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>조회 작업 결과를 후속 작업에 사용
@@ -106,7 +105,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 이 예제는 첫 번째 행만 조회합니다. 모든 행을 조회하고 결과를 ForEach 작업과 연결하려면 [Azure Data Factory를 사용하여 여러 테이블 대량 복사](tutorial-bulk-copy.md)의 샘플을 참조하세요.
 
 ### <a name="pipeline"></a>파이프라인
-이 파이프라인은 조회 및 복사 작업을 포함하고 있습니다. 
+이 파이프라인은 조회 및 복사 작업을 포함합니다. 
 
 - 조회 작업은 Azure Blob Storage의 위치를 참조하는 **LookupDataset**를 사용하도록 구성됩니다. 조회 작업은 이 위치에 있는 JSON 파일에서 SQL 테이블의 이름을 읽습니다. 
 - 복사 작업은 SQL 테이블의 이름인 조회 작업의 출력을 사용합니다. **SourceDataset**의 **tableName** 속성은 조회 작업의 출력을 사용하도록 구성됩니다. 복사 작업은 SQL 테이블의 데이터를 Azure Blob 저장소의 위치로 복사합니다. 위치는 **SinkDataset** 속성을 통해 지정합니다. 
@@ -166,7 +165,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 ```
 
 ### <a name="lookup-dataset"></a>조회 데이터 세트
-**lookup** 데이터 집합은 **AzureStorageLinkedService** 형식으로 지정된 Azure Storage 조회 폴더의 **sourcetable.json** 파일입니다. 
+**lookup** 데이터 세트는 **AzureStorageLinkedService** 형식으로 지정된 Azure Storage 조회 폴더의 **sourcetable.json** 파일입니다. 
 
 ```json
 {
@@ -189,8 +188,8 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 }
 ```
 
-### <a name="source-dataset-for-copy-activity"></a>복사 작업의 **원본** 데이터 집합
-**원본** 데이터 집합은 SQL 테이블의 이름인 조회 작업의 출력을 사용합니다. 복사 작업은 이 SQL 테이블의 데이터를 Azure Blob 저장소의 위치로 복사합니다. 위치는 **sink** 속성을 통해 지정합니다. 
+### <a name="source-dataset-for-copy-activity"></a>복사 작업의 **원본** 데이터 세트
+**원본** 데이터 세트는 SQL 테이블의 이름인 조회 작업의 출력을 사용합니다. 복사 작업은 이 SQL 테이블의 데이터를 Azure Blob 저장소의 위치로 복사합니다. 위치는 **sink** 속성을 통해 지정합니다. 
 
 ```json
 {
@@ -208,7 +207,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 }
 ```
 
-### <a name="sink-dataset-for-copy-activity"></a>복사 작업의 **Sink** 데이터 집합
+### <a name="sink-dataset-for-copy-activity"></a>복사 작업의 **Sink** 데이터 세트
 복사 작업은 SQL 테이블의 데이터를 Azure Storage에 있는 **csv** 폴더의 **filebylookup.csv** 파일에 복사합니다. 이 파일은 **AzureStorageLinkedService** 속성을 통해 지정합니다. 
 
 ```json

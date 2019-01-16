@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: dbd97ba8faacdc387a6e0b78c206f65a201ca246
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 85f88d9234acbb1831ea76188d06ef47199703ca
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261550"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074090"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Marketplace 및 AppSource 컨설팅 서비스
 Azure Marketplace 및 AppSource의 컨설팅 서비스는 Microsoft 파트너에게 고객과 서비스를 연결하여 고객의 Azure 사용을 지원하고 확대한다는 목표와 비즈니스 목표를 제공합니다. 
@@ -66,8 +66,8 @@ Microsoft Dynamics 365, Office 365 및 Power BI를 기반으로 하는 서비스
 |기본 제품 |적합성 요구 사항 |
 |---------|---------|
 | Dynamics 365 for Customer Engagement    |   실버 또는 골드 [클라우드 고객 관계 관리](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency) 역량을 갖습니다.    | 
-|Dynamics 365 for Operations, Enterprise Edition  |  실버 또는 골드 [엔터프라이즈 리소스 플랜](https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) 역량을 갖고, 최근 12개월 동안 클라우드 운영에서 최소 $25,000 수익을 달성합니다.       |
-|Dynamics 365 for Finance and Operations, Business Edition  |  한 명 이상의 고객에 대해 [CSP(클라우드 서비스 공급자)](https://partner.microsoft.com/en-us/cloud-solution-provider) 또는 [DPOR(디지털 공식 파트너)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) 역할을 수행합니다.      |
+|Dynamics 365 for Operations, Enterprise Edition  |  실버 또는 골드 [엔터프라이즈 리소스 플랜](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) 역량을 갖고, 최근 12개월 동안 클라우드 운영에서 최소 $25,000 수익을 달성합니다.       |
+|Dynamics 365 for Finance and Operations, Business Edition  |  한 명 이상의 고객에 대해 [CSP(클라우드 서비스 공급자)](https://partner.microsoft.com/cloud-solution-provider) 또는 [DPOR(디지털 공식 파트너)](https://partner.microsoft.com/membership/digital-partner-of-record) 역할을 수행합니다.      |
 |Power BI, Power BI 사용자 지정 시각적 개체 | [솔루션 파트너 기준](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf)을 충족합니다.|
 |PowerApps | 게시된 [파트너 쇼케이스]() 솔루션이 있습니다.
 
@@ -87,7 +87,7 @@ Microsoft Dynamics 365, Office 365 및 Power BI를 기반으로 하는 서비스
 컨설팅 서비스의 시작은 특정한 지리적 지역에서 진행됩니다. 첫 번째 시작 지역은 미국, 캐나다, 영국 및 오스트레일리아입니다. 그 외 국가의 카탈로그는 파트너가 유의미한 수의 경쟁력 있는 엄선된 서비스 제품을 제출하여 Microsoft의 승인을 받은 후에 게시됩니다.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Azure Marketplace 및 AppSource에서 컨설팅 서비스를 등록하는 방법
-먼저 Marketplace에서 회사 정보를 [등록](https://azuremarketplace.microsoft.com/en-us/sell/signup)합니다. 게시자는 [Marketplace에서 게시자 되기](https://docs.microsoft.com/azure/marketplace/become-publisher)에서 등록 요구 사항의 전체 검사 목록을 참조할 수 있습니다. 
+먼저 Marketplace에서 회사 정보를 [등록](https://azuremarketplace.microsoft.com/sell/signup)합니다. 게시자는 [Marketplace에서 게시자 되기](https://docs.microsoft.com/azure/marketplace/become-publisher)에서 등록 요구 사항의 전체 검사 목록을 참조할 수 있습니다. 
 
 **등록 후 예상 결과** 온보딩 팀이 영업일 기준 1~3일 이내에 CPP(Cloud 파트너 포털) 로그인 정보를 포함하는 환영 이메일로 연락을 드립니다. [Cloud 파트너 포털](https://cloudpartner.azure.com)은 게시자가 목록 정보 및 제안을 제출하는 제품 목록 포털입니다. 
 
@@ -121,7 +121,7 @@ Azure Marketplace 및 AppSource에 컨설팅 서비스 제품을 나열하려면
 
 1. **나열**: [Cloud 파트너 포털](https://cloudpartner.azure.com) 계정에 로그인하여 새 제품 목록의 초안을 작성합니다. 드롭다운 메뉴에서 '새 제품' 및 '컨설팅 서비스'를 선택합니다. 목록 아티팩트를 입력하고 게시합니다.
 2. **유효성 검사**: 요청을 검토하여 자격 기준을 충족하는지 확인합니다. 그런 후 컨설팅 서비스 제품을 나열하기 위한 지침을 보내드립니다. 
-3. **제출**: 지침에 나열된 필수 정보를 제공합니다. 모든 콘텐츠 및 지원 자료는 영어로 제출해야 합니다. 
+3. **제출**: 지침에 나열된 필수 정보를 입력합니다. 모든 콘텐츠 및 지원 자료는 영어로 제출해야 합니다. 
 4. **검토**: 마케팅 및 편집 팀에서 제출을 검토하고 가독성, 문법 및 효율성에 최적화합니다. 
 5. **준비**: 제출이 검토를 위해 준비됩니다. 
 6. **게시**: 제출자와 Microsoft가 준비된 콘텐츠에 만족하면 목록이 Marketplace에 게시될 준비가 끝난 것입니다. 목록의 게시 날짜는 제품에 지정된 국가에 따라 다릅니다. 선택한 국가의 카탈로그가 Azure Marketplace 또는 AppSource에 이미 있는 경우 몇 시간 내에 목록이 표시됩니다. 그렇지 않으면 카탈로그가 게시되는 즉시 목록이 표시됩니다.
@@ -129,10 +129,10 @@ Azure Marketplace 및 AppSource에 컨설팅 서비스 제품을 나열하려면
 ## <a name="offer-listings-and-content-review-criteria"></a>솔루션 목록 및 콘텐츠 검토 기준
 제품은 다음 5개 서비스 형식 중 하나여야 합니다(둘 이상을 나열할 수 있음). 
 
-* **평가:** 솔루션의 적용 가능성을 확인하고 예상 비용 및 타이밍을 제공하기 위한 고객 환경 평가입니다. 
-* **브리핑:** 프레임워크, 데모 및 고객 예제를 사용하여 고객의 관심을 끌기 위한 솔루션 또는 컨설팅 서비스 소개입니다. 
-* **구현:** 완벽하게 작동하는 솔루션으로 이어지는 완전한 설치입니다. 2주 이내에 구현할 수 있는 솔루션으로 제한하는 것이 좋습니다. 
-* **개념 증명:** 솔루션이 고객의 요구 사항을 충족하는지 확인하기 위한 제한된 범위 구현입니다. 
+* **평가**: 솔루션의 적용 가능성을 확인하고 예상 비용 및 타이밍을 제공하기 위한 고객 환경 평가입니다. 
+* **브리핑**: 프레임워크, 데모 및 고객 예제를 사용하여 고객의 관심을 끌기 위한 솔루션 또는 컨설팅 서비스를 소개합니다. 
+* **구현**: 완벽하게 작동하는 솔루션으로 이어지는 완전한 설치입니다. 2주 이내에 구현할 수 있는 솔루션으로 제한하는 것이 좋습니다. 
+* **개념 증명**: 솔루션이 고객의 요구 사항을 충족하는지 확인하기 위한 제한된 범위 구현입니다. 
 * **워크샵**: 고객의 시설에서 수행되는 대화형 참여입니다. 고객의 데이터 또는 환경을 기반으로 하는 교육, 브리핑, 평가 또는 데모가 포함될 수 있습니다. 
 
 **참고:** *브리핑* 서비스 유형을 제외한 컨설팅 서비스는 직접(고객의 위치 또는 파트너의 시설에서 온사이트로) 또는 가상으로(전화 회의, 웹 회의 또는 원격 구현을 통해) 제공할 수 있습니다. 브리핑은 직접 제공해야 합니다.
@@ -141,7 +141,7 @@ Azure Marketplace 및 AppSource에 컨설팅 서비스 제품을 나열하려면
 
 #### <a name="listing-title"></a>목록 제목
 
-제목 필드는 50자로 제한되며, 검색 엔진 최적화를 극대화하기 위한 제품의 기간과 서비스 유형을 전달해야 합니다. 필요한 형식은 NAME: DURATION TYPE입니다.
+제목 필드는 50자로 제한되며, 검색 엔진 최적화를 극대화하기 위한 제품의 기간과 서비스 유형을 전달해야 합니다. 필요한 형식은 다음과 같습니다. 이름: 기간 형식
 
 예제:
 
@@ -149,8 +149,8 @@ Azure Marketplace 및 AppSource에 컨설팅 서비스 제품을 나열하려면
 |샘플 제목  |올바른 형식  |
 |---------|---------|
 |제조에서 Azure IoT 시작    |   제조 IoT: 2일 평가      |
-|스마트 토스터에 대한 워크샵        |  스마트 토스터: 1-Wk 워크샵       |
-|  SQL Server 마이그레이션 PoC    | SQL 마이그레이션: 3Wk 개념 증명        |
+|스마트 토스터에 대한 워크샵        |  스마트 토스터: 1주 워크샵       |
+|  SQL Server 마이그레이션 PoC    | SQL 마이그레이션: 3주 개념 증명        |
 
 #### <a name="listing-summaries-and-descriptions"></a>목록 요약 및 설명
 
@@ -180,8 +180,9 @@ Cloud 파트너 포털 내에서 [Markdown](https://docs.microsoft.com/contribut
 
 아직 수행하지 않았다면 
 
-- Marketplace에서 [등록](https://azuremarketplace.microsoft.com/sell)
+- Marketplace에 [등록](https://azuremarketplace.microsoft.com/sell).
 
 등록하고 Cloud 파트너 포털에서 작업 중이라면 
 
-- 제품을 만들거나 완료하기 위해 [Cloud 파트너 포털에 로그인](https://cloudpartner.azure.com)
+- 제품을 만들거나 완료하기 위해 [Cloud 파트너 포털에 로그인](https://cloudpartner.azure.com).
+- 자세한 내용은 [Azure 및 Dynamics 365 컨설팅 서비스 제품](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer)을 참조하세요.

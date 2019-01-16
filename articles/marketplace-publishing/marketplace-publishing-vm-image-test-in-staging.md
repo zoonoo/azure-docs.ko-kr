@@ -3,7 +3,7 @@ title: Marketplace용 VM 제품 테스트 | Microsoft Docs
 description: Azure Marketplace용 VM 이미지를 테스트하는 방법을 이해합니다.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 7a41c3c6-625c-4478-b804-e124dee89040
@@ -14,22 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: hascipio
-ms.openlocfilehash: bf41953300c3042853118c815dbf64e4474106fa
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ROBOTS: NOINDEX
+ms.openlocfilehash: b90353dbbc5d019897735cfc05caa3ee094dfedc
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194116"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078816"
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>스테이징에서 Azure Marketplace용 VM 제품 테스트
-스테이징이란 SKU를 Marketplace에 배포하기 전에 기능을 테스트하고 확인할 수 있는 사설 "샌드박스"에 배포하는 것을 의미합니다. 그러면 SKU는 배포한 고객에게 표시되는 것처럼 스테이징으로 표시됩니다. VM 이미지는 인증되어야만 스테이징으로 푸시될 수 있습니다.
+스테이징이란 SKU를 Marketplace에 배포하기 전에 기능을 테스트하고 확인할 수 있는 사설 "샌드박스"에 배포하는 것을 의미합니다. 그러면 SKU는 배포한 고객에게 표시되는 것처럼 스테이징으로 표시됩니다. 스테이징에 푸쉬되기 전에 VM 이미지를 인증해야 합니다.
 
 ## <a name="step-1-push-your-offer-to-staging"></a>1단계: 제품을 스테이징으로 푸시
 1. **게시** 탭에서 **스테이징으로 푸시**를 클릭합니다.
    
     ![drawing](media/marketplace-publishing-vm-image-test-in-staging/vm-image-push-to-staging.png)
 2. 게시 포털에서 오류에 대한 알림이 표시되는 경우 오류를 해결합니다.
-3. **스테이징된 제안에 액세스할 수 있는 사람** 대화 상자에서 [Azure Preview 포털](https://portal.azure.com)에서 제안을 미리 보는 데 사용할 Azure 구독 목록을 입력합니다.
+3. **스테이징된 제안에 액세스할 수 있는 사람** 대화 상자에 [Azure Portal](https://portal.azure.com)에서 제안을 미리 보는 데 사용할 Azure 구독 목록을 입력합니다.
    
    > [!NOTE]
    > Virtual Machines 및 솔루션 템플릿의 경우 CSP, DreamSpark 또는 Azure in Open 형식의 구독을 허용 목록에 **추가하지 마세요** .
@@ -42,7 +43,7 @@ ms.locfileid: "53194116"
    > - 인증이 완료되면 제품의 복제가 모든 Azure 데이터 센터에서 시작됩니다. 일반적으로 복제가 완료되는 데는 24~48시간이 걸리지만 VHD의 크기에 따라 1주일까지 걸릴 수도 있습니다. 그러나 요청에 마케팅 변경만 포함되는 경우 복제가 더 빨라집니다.
    > - 복제가 완료되면 [Azure Portal](http:/portal.azure.com)에서 제품을 사용할 수 있게 됩니다. 이때 상태는 게시 포털에서 "스테이징됨"이 됩니다. 스테이징된 제안은 제안이 스테이징되는 구독과 연결된 이메일 ID를 사용할 때만 [Azure Portal](http:/portal.azure.com)에 표시됩니다.
 
-1. 이전 단계에서 나열된 Azure 구독 중 하나를 사용하여 [Azure Preview 포털](https://portal.azure.com) 에 로그인합니다.
+1. 이전 단계에서 나열된 Azure 구독 중 하나를 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 제품을 찾고 VM 이미지 지점의 유효성을 검사합니다.
    
    * 마케팅 콘텐츠가 Marketplace에 올바르게 표시되는지 확인합니다.

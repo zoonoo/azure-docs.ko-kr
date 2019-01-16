@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d84596b586ea54dd4a64faf46b32226862d83198
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: edbb953111fb4589539369bd9b2519b48b9b70eb
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584624"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121314"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>사전 및 사후 스크립트 관리(미리 보기)
 
@@ -100,10 +100,7 @@ Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 Autom
    }
 ```
 
-모든 속성이 포함된 전체 예제는 [소프트웨어 업데이트 구성 - 이름으로 가져오기](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)에서 찾을 수 있습니다.
-
-> [!NOTE]
-> [동적 그룹(미리 보기)](automation-update-management.md#using-dynamic-groups)을 사용하여 배포에 추가된 컴퓨터는 현재 **SoftwareUpdateConfigurationRunContext** 매개 변수의 일부가 아닙니다.
+모든 속성을 포함하는 전체 예제는 다음에서 확인할 수 있습니다. [소프트웨어 업데이트 구성 - 이름으로 가져오기](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
 
 ## <a name="samples"></a>샘플
 

@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e16506773e38f1732a55161cdd58ffb7523602d4
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: bbe843f3481c6cd15f2c14386088cbb8d2d355d6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277287"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053128"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스용 CLI 확장 사용
 
@@ -52,7 +52,7 @@ CLI는 Azure Machine Learning SDK를 대체하는 것이 아닙니다. 다음과
 Machine Learning CLI 확장을 설치하려면 다음 명령을 사용합니다.
 
 ```azurecli-interactive
-az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-1.0.2-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
+az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-1.0.6-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
 ```
 
 메시지가 표시되면 `y`를 선택하여 확장을 설치합니다.
@@ -119,11 +119,15 @@ az extension remove -n azure-cli-ml
     az ml project attach --experiment-name myhistory
     ```
 
-* 실험 실행을 시작합니다. 이 명령을 사용하는 경우 컴퓨팅 대상을 지정합니다. 이 예제에서는 `local`이 로컬 컴퓨터를 사용하여 `train.py` 스크립트를 사용하는 모델을 학습합니다.
+* 실험 실행을 시작합니다. 이 명령을 사용할 때는 실행 구성이 포함된 `.runconfig` 파일의 이름을 지정합니다. 컴퓨팅 대상은 실행 구성을 사용하여 모델에 대한 학습 환경을 만듭니다. 이 예제에서는 `./aml_config/myrunconfig.runconfig` 파일에서 실행 구성이 로드됩니다.
 
     ```azurecli-interactive
-    az ml run submit -c local train.py
+    az ml run submit -c myrunconfig train.py
     ```
+
+    `az ml project attach` 명령을 사용하여 프로젝트를 연결할 때 `docker.runconfig` 및 `local.runconfig`라는 기본 `.runconfig` 파일이 생성됩니다. 모델 학습에 사용하기 전에 이러한 파일을 수정해야 할 수 있습니다. 
+
+    [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) 클래스를 사용하여 프로그래밍 방식으로 실행 구성을 만들 수도 있습니다. 만든 후에는 `save()` 메서드를 사용하여 `.runconfig` 파일을 만들 수 있습니다.
 
 * 제출된 실험 목록을 확인합니다.
 

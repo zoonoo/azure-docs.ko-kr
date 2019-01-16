@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 6d1abedf7186aaef4a13c7c958609c9de50299b8
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2b851e7f2ebdbff08fa09002765fbd7d7927deba
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53968845"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051172"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-visual-studio-code"></a>Visual Studio Code에서 새 Azure IoT Edge 디바이스 등록
 
@@ -26,7 +26,7 @@ Azure IoT Edge에서 IoT 디바이스를 사용하려면 먼저 IoT Hub에 등�
 
 * Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* Visual Studio Code에 대한 [Azure IoT Edge 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)
+* Visual Studio Code용 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>로그인하여 IoT Hub에 액세스
 

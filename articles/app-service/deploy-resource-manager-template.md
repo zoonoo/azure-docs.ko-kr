@@ -9,15 +9,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 8c3eac208a4e1b0fd55e56956035b3fb5a23fc00
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1431ba658a6eb898553804f0c81b3babb23f4fe2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730278"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015205"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 웹앱을 배포하는 방법에 대한 지침
 
@@ -138,3 +138,4 @@ Key Vault에서 **인증서** 및 **생성/가져오기**를 선택하여 인증
 ## <a name="next-steps"></a>다음 단계
 
 * 템플릿으로 웹앱을 배포하는 방법에 대한 자습서를 보려면 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](deploy-complex-application-predictably.md)를 참조하세요.
+* 템플릿의 JSON 구문 및 리소스 종류의 속성에 대해 알아보려면 [Azure Resource Manager 템플릿 참조](/azure/templates/)를 확인하세요.

@@ -3,7 +3,7 @@ title: Marketplace용 제품을 만드는 데 필요한 다양한 포털의 개�
 description: Marketplace용 제품을 만드는 데 필요한 다양한 포털의 개요
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 89ce82b3-c28a-4b0d-b37a-db3112160a4e
@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: hascipio
-ms.openlocfilehash: 093d3ee3ecce89c86a12e7e216072ece57f82f9d
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ROBOTS: NOINDEX
+ms.openlocfilehash: d1cc0efa1da90d90bd035eaa495a1336b6ff96c2
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715916"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074192"
 ---
 # <a name="portals-you-will-need"></a>필요한 포털
+
 제품 게시 프로세스를 시작하기 전에 필요한 다양한 포털을 소개하겠습니다. 아래에 포털에 대한 간략한 요약이 있습니다. 이용하는 순서대로 개발자 센터, Azure 게시 포털 및 Azure Portal이 나와 있습니다.                                                                            
 
 ## <a name="developer-center"></a>개발자 센터
@@ -36,7 +38,7 @@ Microsoft 개발자 센터 계정 만들기는 일회성 작업입니다. 계정
 > 
 
 ### <a name="identityaccount-used"></a>사용되는 ID/계정
-이상적으로 이것은 메일 그룹 또는 보안 그룹(예: azurepublishing@*partnercompany*.com)입니다. 메일 그룹이나 보안 그룹은 **반드시** Microsoft 계정으로 등록되어야 합니다.
+이상적으로 이 값은 배포 목록 또는 보안 그룹(예: azurepublishing@*partnercompany*.com)입니다. 메일 그룹이나 보안 그룹은 **반드시** Microsoft 계정으로 등록되어야 합니다.
 
 > [!TIP]
 > 개인 계정도 사용되지만 개인에 대한 종속성을 제거하는 메일 그룹이나 보안 그룹을 사용하는 것이 좋습니다.
@@ -47,21 +49,21 @@ Microsoft 개발자 센터 계정 만들기는 일회성 작업입니다. 계정
 [https://publish.windowsazure.com](https://publish.windowsazure.com)
 
 ### <a name="description"></a>설명
-제품 관련 작업을 수행하고 제품을 게시하는 데 사용되는 포털입니다(마케팅, 가격 책정, 게시, 해당하는 경우 인증 등).
+
+이 값은 제품 관련 작업을 수행하고 제품을 게시하는 데 사용되는 포털입니다(마케팅, 가격 책정, 게시, 해당하는 경우 인증 등).
 
 ### <a name="identityaccount-used"></a>사용되는 ID/계정
-게시 포털에 처음 로그인할 때 위 메일 그룹 또는 보안 그룹을 사용해야 합니다. 이후에 다른 사용자를 공동 관리자로 추가할 수 있습니다. 이는 개발자 센터 등록 데이터에 매핑되는 방식입니다.
+게시 포털에 처음 로그인할 때 위 메일 그룹 또는 보안 그룹을 사용해야 합니다. 이후에 다른 사용자를 공동 관리자로 추가할 수 있습니다. 이 목록은 개발자 센터 등록 데이터에 매핑되는 방식입니다.
 
-## <a name="azure-portal"></a>Azure Portal
-[https://portal.azure.com](https://portal.azure.com)
+## <a name="azure-portal"></a>Azure portal
+[Azure Portal](https://portal.azure.com)
 
 ### <a name="description"></a>설명
-Azure Marketplace에서 스테이징 및 게시된 제품을 볼 수 있는 포털입니다(VM, 솔루션 템플릿 및 Azure Resource Manager 기반 개발자 서비스에 해당).
+이 값은 Azure Marketplace에서 스테이징 및 게시된 제품을 볼 수 있는 포털입니다(VM, 솔루션 템플릿 및 Azure Resource Manager 기반 개발자 서비스에 해당).
 
 ### <a name="identityaccount-used"></a>사용되는 ID/계정
 게시 포털에서 제안을 스테이징하는 동안 구독 ID가 허용 목록에 포함되어야 합니다. 이 포털에 로그인하여 스테이징된 제안을 테스트할 때 동일한 구독(연결된 사용자 이름 및 암호가 있음)을 사용해야 합니다.
 
 ## <a name="see-also"></a>참고 항목
-* 
-  [시작: Azure Marketplace에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
+* [시작: Azure Marketplace에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
 

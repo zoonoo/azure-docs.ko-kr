@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: db1d2f16c6497ce3c14d162a9c354dda995058f6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d6e70048f5c86ad18962237d7ffcc442c82bf035
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974785"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107653"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>ADAL(Azure Active Directory 인증 라이브러리) 클라이언트에 대한 오류 처리 모범 사례
 
@@ -44,8 +44,8 @@ AcquireTokenSilent는 최종 사용자가 UI(사용자 인터페이스)를 보�
 
 ### <a name="application-scenarios"></a>애플리케이션 시나리오
 
-- [네이티브 클라이언트](developer-glossary.md#native-client) 응용 프로그램(iOS, Android, .NET 데스크톱 또는 Xamarin)
-- [리소스](developer-glossary.md#resource-server)(.NET)를 호출하는 [웹 클라이언트](developer-glossary.md#web-client) 응용 프로그램
+- [네이티브 클라이언트](developer-glossary.md#native-client) 애플리케이션(iOS, Android, .NET 데스크톱 또는 Xamarin)
+- [리소스](developer-glossary.md#resource-server)(.NET)를 호출하는 [웹 클라이언트](developer-glossary.md#web-client) 애플리케이션
 
 ### <a name="error-cases-and-actionable-steps"></a>오류 사례 및 실행 가능한 단계
 
@@ -182,7 +182,7 @@ AcquireToken 오류를 처리하는 경우 애플리케이션이 달성하려고
 
 - 네이티브 클라이언트 애플리케이션(iOS, Android, .NET Desktop 또는 Xamarin)
 - 리소스 API를 호출하는 웹 애플리케이션(.NET)
-- 단일 페이지 애플리케이션(JavaScript)
+- 단일 페이지 응용 프로그램(JavaScript)
 - 서비스 간 애플리케이션(.NET, Java)
   - On-behalf-of를 포함한 모든 시나리오
   - On-Behalf-of 특정 시나리오
@@ -439,7 +439,7 @@ catch (AdalException e) {
 
 #### <a name="on-behalf-of-scenarios"></a>On-behalf-of 시나리오
 
-*on-behalf-of* 서비스 간 응용 프로그램 시나리오의 경우입니다.
+*on-behalf-of* 서비스 간 애플리케이션 시나리오의 경우입니다.
 
 다음 지침에서는 ADAL 메서드 사용과 관련된 오류 처리 예를 제공합니다. 
 
@@ -586,7 +586,13 @@ window.Logging = {
 아래의 의견 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
 
 [![로그인 단추][AAD-Sign-In]][AAD-Sign-In]
-<!--Reference style links --> [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md [AAD-Auth-Scenarios]:authentication-scenarios.md [AAD-Dev-Guide]:azure-ad-developers-guide.md [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md [AZURE-portal]: https://portal.azure.com
+<!--Reference style links -->
+
+[AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
+[AAD-Auth-Scenarios]:authentication-scenarios.md
+[AAD-Dev-Guide]:azure-ad-developers-guide.md
+[AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
+[AZURE-portal]: https://portal.azure.com
 
 <!--Image references-->
 [AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

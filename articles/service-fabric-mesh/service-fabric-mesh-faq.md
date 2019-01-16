@@ -9,12 +9,12 @@ ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 2f9800deedb2e8d55362920fed2493a42290e764
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 8d6dcdd4de8fb56935d2f66bfff045b2115d4004
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555849"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063576"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Service Fabric Mesh에 대한 일반적인 질문
 
@@ -93,9 +93,9 @@ Windows 10 2018년 4월 업데이트(버전 1803) 머신에서 개발하는 경�
 
 ## <a name="developer-experience-issues"></a>개발자 환경 문제
 
-### <a name="dns-resolution-from-an-outbound-container-doesnt-work"></a>아웃바운드 컨테이너의 DNS 확인이 작동하지 않음
+### <a name="dns-resolution-from-a-container-doesnt-work"></a>컨테이너의 DNS 확인이 작동하지 않음
 
-특정 상황에서는 서비스 간 통신이 실패할 수 있습니다. 이 문제는 조사 중입니다. 문제를 완화하려면 다음을 수행합니다.
+컨테이너에서 Service Fabric DNS 서비스로 보내는 DNS 쿼리는 특정 상황에서 실패할 수 있습니다. 이 문제는 조사 중입니다. 문제를 완화하려면 다음을 수행합니다.
 
 - 기본 컨테이너 이미지로 Windows Fall Creators 업데이트(버전 1709) 이상을 사용합니다.
 - 서비스 이름만으로 작동하지 않는 경우 정규화된 이름인 ServiceName.ApplicationName을 사용합니다.

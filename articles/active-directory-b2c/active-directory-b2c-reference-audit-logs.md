@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 67e57faf37697697bee74597a40db39149699fe5
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 31f0517cd4d61fa324072eae954404c899451cc3
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320240"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117404"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C 감사 로그 액세스
 
@@ -39,7 +39,7 @@ Azure AD B2C(Azure Active Directory B2C)는 B2C 리소스, 발행된 토큰 및 
 > 사용자 개체 CRUD 활동의 경우 **핵심 디렉터리** 범주를 참조하세요.
 
 ## <a name="example-activity"></a>예제 활동
-아래 예는 사용자가 외부 ID 공급자로 로그인할 때 캡처된 데이터를 보여 줍니다. ![감사 로그 - 예제](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+아래 예제는 사용자가 외부 ID 공급 기업으로 로그인할 때 캡처된 데이터를 보여줍니다. ![감사 로그 - 예제](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>Azure Portal을 통해 감사 로그 액세스
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. B2C 디렉터리에 있는지 확인합니다.
@@ -68,7 +68,7 @@ Azure AD B2C(Azure Active Directory B2C)는 B2C 리소스, 발행된 토큰 및 
 ### <a name="prerequisites"></a>필수 조건
 Azure AD 보고 API를 인증하려면 먼저 애플리케이션을 등록해야 합니다. [Azure AD Reporting API에 액세스하기 위한 필수 구성 요소](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)의 단계를 완료해야 합니다.
 
-### <a name="accesing-the-api"></a>API 액세스
+### <a name="accessing-the-api"></a>API에 액세스
 API를 통해 Azure AD B2C 감사 로그를 다운로드하려면 로그를 **B2C** 범주로 필터링합니다. 범주별로 필터링하려면 Azure AD 보고 API 엔드포인트를 호출할 때 아래와 같이 쿼리 문자열 매개 변수를 사용합니다.
 
 `https://graph.windows.net/your-b2c-tentant.onmicrosoft.com/activities/audit?api-version=beta&$filter=category eq 'B2C'`

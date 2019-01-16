@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: eb88501c5daf0b79d22f4407a372c4606a173db1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5856824ba4aec2998ad38ac73cc5acc0840584cd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987699"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023841"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 가상 머신
 
@@ -260,7 +260,7 @@ ms.locfileid: "46987699"
 ],
 ```
 
-리소스 관리자는 배포되는 다른 리소스에 종속되지 않는 모든 리소스를 동시에 배포합니다. 불필요한 종속성을 지정하여 실수로 배포 속도를 늦출 수 있으므로 종속성을 설정할 때 주의해야 합니다. 종속성은 여러 리소스를 통해 연결할 수 있습니다. 예를 들어 네트워크 인터페이스는 공용 IP 주소 및 가상 네트워크 리소스에 따라 다릅니다.
+Resource Manager는 배포되는 다른 리소스에 종속되지 않는 모든 리소스를 동시에 배포합니다. 불필요한 종속성을 지정하여 실수로 배포 속도를 늦출 수 있으므로 종속성을 설정할 때 주의해야 합니다. 종속성은 여러 리소스를 통해 연결할 수 있습니다. 예를 들어 네트워크 인터페이스는 공용 IP 주소 및 가상 네트워크 리소스에 따라 다릅니다.
 
 종속성이 필수인지 어떻게 알 수 있을까요? 템플릿에서 설정한 값을 살펴봅니다. 가상 머신 리소스 정의의 요소가 동일한 템플릿에 배포된 다른 리소스를 가리키는 경우 종속성이 필요합니다. 예를 들어 예제 가상 머신은 네트워크 프로필을 정의합니다.
 
@@ -448,14 +448,15 @@ start.ps1 스크립트는 여러 구성 작업을 수행할 수 있습니다. �
 
 템플릿을 배포하는 경우 Azure는 그룹으로 배포한 리소스를 추적하고 이 배포된 그룹에 이름을 자동으로 할당합니다. 배포의 이름은 템플릿의 이름과 같습니다.
 
-배포의 리소스 상태를 알고 싶은 경우 Azure Portal에서 리소스 그룹 블레이드를 사용할 수 있습니다.
+배포의 리소스 상태를 알고 싶은 경우 Azure Portal에서 리소스 그룹을 보면 됩니다.
 
 ![배포 정보 가져오기](./media/template-description/virtual-machines-deployment-info.png)
     
-리소스를 만들거나 기존 리소스를 업데이트하는 데 동일한 템플릿을 사용하는 것은 문제가 아닙니다. 명령을 사용하여 템플릿을 배포할 때 사용하려는 [모드](../../resource-group-template-deploy.md)를 말할 수 있는 기회가 있습니다. 모드는 **전체** 또는 **증분** 중 하나로 설정될 수 있습니다. 기본 값은 증분 업데이트를 수행하는 것입니다. 리소스를 실수로 삭제할 수 있으므로 **전체** 모드를 사용할 때 주의해야 합니다. 모드를 **전체**로 설정하면 리소스 관리자는 템플릿에 없는 리소스 그룹의 모든 리소스를 삭제합니다.
+리소스를 만들거나 기존 리소스를 업데이트하는 데 동일한 템플릿을 사용하는 것은 문제가 아닙니다. 명령을 사용하여 템플릿을 배포할 때 사용하려는 [모드](../../resource-group-template-deploy.md)를 말할 수 있는 기회가 있습니다. 모드는 **전체** 또는 **증분** 중 하나로 설정될 수 있습니다. 기본 값은 증분 업데이트를 수행하는 것입니다. 리소스를 실수로 삭제할 수 있으므로 **전체** 모드를 사용할 때 주의해야 합니다. 모드를 **전체**로 설정하면 Resource Manager는 템플릿에 없는 리소스 그룹의 모든 리소스를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md)을 사용하여 고유의 템플릿을 만듭니다.
 - [Resource Manager 템플릿을 사용하여 Windows 가상 머신 만들기](ps-template.md)를 사용하여 자신이 만든 템플릿을 배포합니다.
 - [Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 검토하여 만든 VM을 관리하는 방법을 알아봅니다.
+- 템플릿에서 리소스 종류의 JSON 구문 및 속성은 [Azure Resource Manager 템플릿 참조](/azure/templates/)에서 확인하세요.

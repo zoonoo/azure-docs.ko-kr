@@ -17,12 +17,12 @@ ms.date: 12/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: a971806b453d34aa8459cb30090024bfca96d342
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d89a80ac6d6e81fd9cc68e1dc04d4461691994fd
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631191"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157975"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 앱 매니페스트
 
@@ -47,12 +47,9 @@ Azure Portal을 통해 또는 프로그래밍 방식으로 Microsoft Graph를 �
 > [!NOTE]
 > **설명** 다음에 **예제 값** 열이 표시되지 않는 경우 브라우저 창을 최대화하고 **예제 값** 열이 표시될 때까지 스크롤/살짝 밉니다.
 
->[!div class="mx-tdBreakAll"]
->[!div class="mx-tdCol2BreakAll"]
-
 | 키  | 값 형식 | 설명  | 예제 값 |
 |---------|---------|---------|---------|
-| `accessTokenAcceptedVersion` | Nullable Int32 | 현재 API 리소스에 대해 승인된 액세스 토큰 버전을 지정합니다. 가능한 값은 1, 2, Null입니다. 기본값은 Null이며, 2로 처리됩니다. | `2` |
+| `accessTokenAcceptedVersion` | Nullable Int32 | 리소스에서 필요한 액세스 토큰 버전을 지정합니다. 이렇게 하면 엔드포인트 또는 액세스 토큰을 요청하는 데 사용되는 클라이언트와는 독립적으로 만들어진 JWT의 버전과 형식을 변경합니다.<br/><br/>사용된 엔드포인트, v1.0 또는 v2.0은 클라이언트에서 선택되고 id_token의 버전에만 영향을 줍니다. 리소스는 `accesstokenAcceptedVersion`을 명시적으로 구성해서 지원되는 액세스 토큰 형식을 지정해야 합니다.<br/><br/>`accesstokenAcceptedVersion`에 가능한 값은 1, 2 또는 null입니다. 값이 null인 경우 기본값은 1이며 v1.0 엔드포인트에 해당합니다. | `2` |
 | `allowPublicClient` | 부울 | 대체 애플리케이션 유형을 지정합니다. Azure AD는 기본적으로 replyUrlsWithType에서 애플리케이션 유형을 유추합니다. Azure AD에서 클라이언트 앱 유형을 확인할 수 없는 특정 시나리오(예: HTTP 요청이 URL 리디렉션 없이 발생하는 [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) 흐름)가 있습니다. 이러한 경우 Azure AD는 이 속성 값을 기반으로 해서 애플리케이션 유형을 해석합니다. 이 값을 true로 설정하면 대체 애플리케이션 유형이 모바일 장치에서 실행 중인 설치된 애플리케이션과 같은 공용 클라이언트로 설정됩니다. 기본값은 false이며, 대체 애플리케이션 유형이 웹앱과 같은 기밀 클라이언트임을 의미합니다. | `false` |
 | `appId` | 식별자 문자열 | Azure AD가 할당한 앱의 고유 식별자를 지정합니다. | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
 | `appRoles` | 배열 형식 | 앱에서 선언할 수 있는 역할의 컬렉션을 지정합니다. 이러한 역할은 사용자, 그룹 또는 서비스 주체에게 할당될 수 있습니다. 더 많은 예제 및 정보는 [애플리케이션에서 앱 역할을 추가하고 토큰에서 수신하기](howto-add-app-roles-in-azure-ad-apps.md)를 참조하세요. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |

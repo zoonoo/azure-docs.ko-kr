@@ -15,11 +15,11 @@ items:
       href: management-groups/create.md
     - name: 관리
       href: management-groups/manage.md
-  - name: 리소스 그래프
+  - name: Resource Graph
     href: resource-graph/overview.md
   - name: 정책
     href: policy/overview.md
-  - name: 청사진
+  - name: Blueprints
     href: blueprints/overview.md
   expanded: true
 - name: 구현
@@ -51,9 +51,11 @@ items:
     href: https://feedback.azure.com/forums/915958-azure-governance
   - name: 거버넌스 비디오
     href: https://www.youtube.com/watch?v=MhGbKjlmuRs
-ms.openlocfilehash: dcf421089adeb43cb11760a248f212fdafd5eeca
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+  - name: 거버넌스 YouTube 채널
+    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+ms.openlocfilehash: 73aa088f5b661766caab46f15b443e2a8331cf5f
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031718"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321695"

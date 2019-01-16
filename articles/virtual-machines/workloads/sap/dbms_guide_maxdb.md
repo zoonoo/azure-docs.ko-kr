@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 408d43f07179f9f18c05f22fdd4ea36a3a90cb49
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c5f71e104e97ab886483d50760f0a42936a16717
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075620"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157312"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Azure VM에서 SAP MaxDB, liveCache 및 Content Server 배포
 
@@ -331,7 +331,7 @@ SAP Note [767598]
 
 ### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Azure VM의 SAP 설치에 대한 SAP MaxDB 구성 지침
 #### <a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>저장소 구성
-SAP MaxDB에 대한 Azure Storage 모범 사례는 [RDBMS 배포 구조][dbms-guide-2] 챕터에서 설명한 일반 권장 사항을 따릅니다.
+SAP MaxDB에 대한 Azure 스토리지 모범 사례는 [RDBMS 배포를 위한 VM의 스토리지 구조](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64) 챕터에서 설명한 일반 추천을 따릅니다.
 
 > [!IMPORTANT]
 > 다른 데이터베이스처럼 SAP MaxDB에도 데이터 및 로그 파일이 있습니다. 그러나 SAP MaxDB 용어에서 올바른 용어는 "볼륨"("파일" 아님)입니다. 예를 들어 SAP MaxDB 데이터 볼륨 및 로그 볼륨이 있습니다. 운영 체제 디스크 볼륨과 혼동하지 마세요. 
@@ -340,7 +340,7 @@ SAP MaxDB에 대한 Azure Storage 모범 사례는 [RDBMS 배포 구조][dbms-gu
 
 한마디로 다음을 수행해야 합니다.
 
-* Azure Storage 계정을 사용하는 경우 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 지정한 대로 SAP MaxDB 데이터 및 로그 볼륨(데이터 및 로그 파일)을 유지하는 Azure Storage 계정을 **LRS(로컬 중복 스토리지)** 로 설정합니다.
+* Azure Storage 계정을 사용하는 경우 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 지정한 대로 SAP MaxDB 데이터 및 로그 볼륨(데이터 및 로그 파일)을 유지하는 Azure Storage 계정을 **LRS(로컬 중복 저장소)** 로 설정합니다.
 * 로그 볼륨(로그 파일)에 대한 IO 경로에서 SAP MaxDB 데이터 볼륨(데이터 파일)에 대한 IO 경로를 분리합니다. 즉, 하나의 논리 드라이브에 SAP MaxDB 데이터 볼륨(데이터 파일)을 설치하고, 다른 논리 드라이브에 SAP MaxDB 로그 볼륨(로그 파일)을 설치해야 합니다.
 * [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 설명한 대로, SAP MaxDB 데이터 또는 로그 볼륨(데이터 및 로그 파일)을 사용하는지와 Azure Standard 또는 Azure Premium Storage를 사용하는지 여부에 따라 각 디스크에 적절한 캐싱 유형을 설정합니다.
 * 디스크당 현재 IOPS 할당량이 요구 사항을 충족하는 경우 탑재된 단일 디스크의 모든 데이터 볼륨을 저장하고 다른 탑재된 단일 디스크에 모든 데이터베이스 로그 볼륨을 저장할 수 있습니다.
@@ -458,7 +458,7 @@ SAP Cache Server는 로컬에 있는 (캐시된) 문서에 대한 액세스를 �
 
 1. **클라이언트가 백 엔드 SAP 시스템인 경우** SAP Content Server에 액세스하도록 백 엔드 SAP 시스템이 구성된 경우 해당 SAP 시스템은 클라이언트입니다. SAP 시스템과 SAP Content Server는 모두 같은 Azure 지역, 즉 동일한 Azure 데이터 센터에 배포되므로 물리적으로 서로 가깝습니다. 따라서 전용 SAP Cache Server를 사용할 필요가 없습니다. SAP UI 클라이언트(SAP GUI 또는 웹 브라우저)는 SAP 시스템에 직접 액세스하고 SAP 시스템은 SAP Content Server에서 문서를 검색합니다.
 2. **클라이언트가 온-프레미스 웹 브라우저인 경우** 웹 브라우저에서 직접 액세스하도록 SAP Content Server를 구성할 수 있습니다. 이 경우 온-프레미스에서 실행하는 웹 브라우저는 SAP Content Server의 클라이언트입니다. 온-프레미스 데이터 센터와 Azure 데이터 센터는 서로 다른 물리적 위치에 있습니다(이상적으로는 서로 가까워야 함). 온-프레미스 데이터 센터는 Azure 사이트 간 VPN 또는 ExpressRoute를 통해 Azure에 연결됩니다. 두 옵션 모두 Azure에 대한 보안 VPN 네트워크 연결을 제공하지만 사이트 간 네트워크 연결은 온-프레미스 데이터 센터와 Azure 데이터 센터 간의 네트워크 대역폭 및 대기 시간 SLA를 제공하지 않습니다. 문서에 대한 액세스 속도를 향상시키기 위해 다음 중 하나를 수행할 수 있습니다.
-   1. 온-프레미스 웹 브라우저 근처에 온-프레미스 SAP Cache Server를 설치합니다([이][dbms-guide-900-sap-cache-server-on-premises] 그림의 옵션).
+   1. 온-프레미스 웹 브라우저 근처에 온-프레미스 SAP Cache Server를 설치합니다(아래 그림의 옵션).
    2. 빠른 속도와 짧은 대기 시간의 온-프레미스 데이터 센터와 Azure 데이터 센터 간 전용 네트워크 연결을 제공하는 Azure ExpressRoute를 구성합니다.
 
 ![SAP Cache Server 온-프레미스 설치 옵션](./media/dbms_maxdb_deployment_guide/900-sap-cache-server-on-premises.png)

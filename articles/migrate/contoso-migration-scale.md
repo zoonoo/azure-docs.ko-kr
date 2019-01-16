@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: 37f0ba800cca4b096691a8bb6b43eb33a636d833
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c36572230387ffc33a46913dbcc1259ea65f84f5
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284866"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104236"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - Azure 대상 마이그레이션 크기 조정
 
@@ -26,9 +26,9 @@ ms.locfileid: "52284866"
 --- | --- | ---
 [문서 1: 개요](contoso-migration-overview.md) | 문서 시리즈, Contoso의 마이그레이션 전략 및 시리즈에서 사용되는 샘플 앱에 대해 간략히 설명합니다. | 사용 가능
 [문서 2: Azure 인프라 배포](contoso-migration-infrastructure.md) | Contoso에서 마이그레이션을 위해 온-프레미스 인프라와 Azure 인프라를 준비합니다. 이 시리즈의 모든 마이그레이션 관련 문서에서 동일한 인프라가 사용됩니다. | 사용 가능.
-[문서 3: Azure로 마이그레이션할 온-프레미스 리소스 평가](contoso-migration-assessment.md)  | Contoso가 VMware에서 실행되는 온-프레미스 SmartHotel360 앱의 평가를 실행합니다. Contoso에서 Azure Migrate 서비스를 사용하여 앱 VM을 평가하고, Database Migration Assistant를 사용하여 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
+[문서 3: Azure로 마이그레이션하기 위한 온-프레미스 리소스 평가](contoso-migration-assessment.md)  | Contoso가 VMware에서 실행되는 온-프레미스 SmartHotel360 앱의 평가를 실행합니다. Contoso에서 Azure Migrate 서비스를 사용하여 앱 VM을 평가하고, Database Migration Assistant를 사용하여 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
 [문서 4: Azure VM 및 SQL Database Managed Instance에서 앱 다시 호스트](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso가 온-프레미스 SmartHotel360 앱을 Azure로 리프트 앤 시프트 방식으로 마이그레이션합니다. Contoso에서 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 앱 프런트 엔드 VM을 마이그레이션하고, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)를 사용하여 앱 데이터베이스를 Azure SQL Database Managed Instance로 마이그레이션합니다. | 사용 가능   
-[문서 5: 앱을 Azure VM에 다시 호스트](contoso-migration-rehost-vm.md) | Contoso에서 Site Recovery 서비스를 사용하여 SmartHotel360 앱 VM을 Azure VM으로 마이그레이션합니다. | 사용 가능
+[문서 5: Azure VM에서 앱 다시 호스트](contoso-migration-rehost-vm.md) | Contoso에서 Site Recovery 서비스를 사용하여 SmartHotel360 앱 VM을 Azure VM으로 마이그레이션합니다. | 사용 가능
 [문서 6: Azure VM 및 SQL Server AlwaysOn 가용성 그룹에서 앱 다시 호스트](contoso-migration-rehost-vm-sql-ag.md) | Contoso에서 Site Recovery를 사용하여 앱을 마이그레이션하여 앱 VM을 마이그레이션하고, Database Migration Service를 사용하여 앱 데이터베이스를 AlwaysOn 가용성 그룹에서 보호되는 SQL Server 클러스터로 마이그레이션합니다. | 사용 가능
 [문서 7: Azure VM에서 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm.md) | Contoso에서 Site Recovery 서비스를 사용하여 Linux osTicket 앱을 Azure VM으로 리프트 앤 시프트 방식으로 마이그레이션합니다. | 사용 가능
 [문서 8: Azure VM 및 Azure Database for MySQL에서 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm-mysql.md) | Contoso에서 Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 마이그레이션하고, MySQL Workbench를 사용하여 앱 데이터베이스를 Azure Database for MySQL로 마이그레이션합니다. | 사용 가능
@@ -37,16 +37,16 @@ ms.locfileid: "52284866"
 [문서 11: Azure DevOps Services에서 Team Foundation Server 리팩터링](contoso-migration-tfs-vsts.md) | Contoso에서 온-프레미스 Team Foundation Server 배포를 Azure의 Azure DevOps Services로 마이그레이션합니다. | 사용 가능
 [문서 12: Azure 컨테이너 및 Azure SQL Database에서 앱 재설계](contoso-migration-rearchitect-container-sql.md) | Contoso에서 SmartHotel 앱을 Azure로 마이그레이션합니다. 그런 다음, 웹앱 계층을 Azure Service Fabric에서 실행되는 Windows 컨테이너로 재설계하고, Azure SQL Database를 사용하여 앱 데이터베이스를 재설계합니다. | 사용 가능    
 [문서 13: Azure에서 앱 다시 빌드](contoso-migration-rebuild.md) | Contoso에서 다양한 Azure 기능과 서비스(Azure App Service, AKS(Azure Kubernetes Service), Azure Functions, Azure Cognitive Services 및 Azure Cosmos DB 포함)를 사용하여 SmartHotel 앱을 다시 빌드합니다. | 사용 가능 
-문서 14: Azure 대상 마이그레이션 크기 조정 | 마이그레이션 조합을 시도한 후 Contoso는 Azure로 전체 마이그레이션을 확장할 준비를 합니다. | 이 문서의 내용
+문서 14: Azure로의 마이그레이션 확장 | 마이그레이션 조합을 시도한 후 Contoso는 Azure로 전체 마이그레이션을 확장할 준비를 합니다. | 이 문서의 내용
 
 ## <a name="business-drivers"></a>비즈니스 영향 요소
 
 IT 리더십 팀은 비즈니스 파트너와의 긴밀한 협력을 통해 다음과 같이 기업이 이러한 마이그레이션으로 달성하고자 하는 바를 잘 이해하고 있습니다.
 
-- **비즈니스 성장 대응**: Contoso는 성장하고 있으며, 이로 인해 온-프레미스 시스템과 인프라에 부담을 주고 있습니다.
-- **효율성 증가**: Contoso는 불필요한 프로시저를 제거하고 개발자와 사용자가 사용할 프로세스를 간소화해야 합니다. 회사에서 IT 속도를 높이고 시간이나 비용을 낭비하지 않도록 하여 고객 요구 사항을 더 빠르게 제공해야 합니다.
-- **민첩성 향상**: Contoso IT에서 비즈니스 요구 사항에 대해 더 빠르게 대응해야 합니다. 글로벌 경제에서 성공할 수 있으려면 시장의 변화에 더 빠르게 대응할 수 있어야 합니다. 사업상의 걸림돌이 되지 않아야 합니다.
-- **크기 조정**: 사업이 정상적으로 확장되면 Contoso IT 팀은 그와 동일한 속도로 확장 가능한 시스템을 제공해야 합니다.
+- **비즈니스 성장 해결**: Contoso는 성장하고 있으며 온-프레미스 시스템과 인프라에 부담을 주고 있습니다.
+- **효율성 증대**: Contoso는 불필요한 절차를 제거하고 개발자와 사용자를 위한 프로세스를 간소화해야 합니다. 이 회사는 IT를 빠른 상태로 유지하고 시간이나 비용을 낭비하지 않도록 하여 고객 요구 사항을 더 빠르게 제공해야 합니다.
+- **민첩성 향상**: Contoso IT는 비즈니스 요구 사항에 대해 더 빠르게 대응해야 합니다. 글로벌 경제에서 성공할 수 있으려면 시장의 변화에 더 빠르게 대응할 수 있어야 합니다. 사업상의 걸림돌이 되지 않아야 합니다.
+- **크기 조정**: 비즈니스가 성공적으로 성장하면 Contoso IT 팀은 그와 동일한 속도로 확장 가능한 시스템을 제공해야 합니다.
 - **비용 모델 개선**: Contoso는 IT 예산에서 자본 요구 사항을 줄이려고 합니다.  Contoso는 클라우드 기능을 사용하여 비용이 많이 드는 하드웨어의 필요성을 줄이려고 합니다.
 - **저렴한 라이선스 비용**: Contoso는 클라우드 비용을 최소화하려고 합니다.
 
@@ -174,8 +174,8 @@ Azure Migrate 서비스를 사용하여 Azure로 마이그레이션을 준비할
     - Azure Migrate는 Migrate Collector를 실행하는 VMware VM을 통해 검색을 수행합니다. 동일한 수집기가 다른 vCenter 서버에서 VM을 검색하고 데이터를 다른 프로젝트로 보낼 수 있습니다.
 1. 준비 상태 평가: 온-프레미스 머신이 Azure에서 실행하기에 적합한지 여부를 평가합니다. 평가에는 다음이 포함됩니다.
     - 크기 권장 사항: 온-프레미스 VM의 성능 기록을 기반으로 Azure VM에 대한 권장 크기를 확인합니다.
-    - 예측된 월간 비용: Azure에서 온-프레미스 머신을 실행하는 데 드는 예상 비용을 확인합니다.
-2. 종속성 식별: 온-프레미스 머신의 종속성을 시각화하여 평가 및 마이그레이션을 위한 최적의 머신 그룹을 만듭니다.
+    - 월별 예상 비용: Azure에서 온-프레미스 머신을 실행하는 데 드는 예상 비용을 확인합니다.
+2. 종속성 식별:  온-프레미스 머신의 종속성을 시각화하여 평가 및 마이그레이션을 위한 최적의 머신 그룹을 만듭니다.
 
 
 ![Azure Migrate](./media/contoso-migration-scale/azure-migrate.png)
@@ -289,8 +289,8 @@ Contoso는 용량 고려 사항에 따라 이러한 구성 요소를 배포하�
 --- | ---
 **최대 일일 변동률** | 단일 프로세스 서버는 최대 2TB의 일일 변동률을 처리할 수 있습니다. VM은 하나의 프로세스 서버만 사용할 수 있으므로 복제된 VM에 지원되는 최대 일일 데이터 변동률은 2TB입니다.
 **최대 처리량** | 표준 Azure 저장소 계정은 초당 최대 20,000개의 요청을 처리할 수 있고 전체 복제 VM에서 IOPS(초당 입출력 작업 수)는 이 한도 내로 유지되어야 합니다. 예를 들어, VM의 디스크가 5개이고 각 디스크가 VM에서 120 IOPS(8K 크기)를 생성할 경우 Azure 내에서 디스크당 IOPS 한도인 500을 초과하지 않습니다.<br/><br/> 필요한 저장소 계정 수는 총 원본 머신 IOPS를 20,000으로 나눈 값입니다. 복제된 머신은 Azure에서 단일 저장소 계정에만 속할 수 있습니다.
-**구성 서버** | 100~200개 VM을 함께 복제하는 작업에 대한 Contoso의 예상과 [구성 서버 크기 요구 사항](../site-recovery/site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server)에 따라 다음과 같은 구성 서버 머신이 필요합니다.<br/><br/> CPU: 16개 vCPU(2개 소켓 * 8코어 @ 2.5GHz)<br/><br/> 메모리: 32GB<br/><br/> 캐시 디스크: 1TB<br/><br/> 데이터 변동률: 1TB~2TB.<br/><br/> 크기 요구사항 외에도 Contoso는 구성 서버가 마이그레이션할 VM과 동일한 네트워크 및 LAN 세그먼트에서 최적의 위치에 있는지 확인해야 합니다.
-**프로세스 서버** | Contoso는100~200개 VM을 복제하는 기능을 사용하여 독립 실행형 전용 프로세스 서버를 배포합니다.<br/><br/> CPU: 16개 vCPU(2개 소켓 * 8코어 @ 2.5GHz)<br/><br/> 메모리: 32GB<br/><br/> 캐시 디스크: 1TB<br/><br/> 데이터 변동률: 1TB~2TB.<br/><br/> 프로세스 서버는 사용량이 매우 많으므로 복제에 필요한 디스크 I/O, 네트워크 트래픽 및 CPU를 처리할 수 있는 ESXi 호스트에 있어야 합니다. Contoso는 이 목적으로 전용 호스트를 고려합니다. 
+**구성 서버** | 100~200개 VM을 함께 복제하는 작업에 대한 Contoso의 예상과 [구성 서버 크기 요구 사항](../site-recovery/site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server)에 따라 다음과 같은 구성 서버 머신이 필요합니다.<br/><br/> CPU: 16개 vCPU(2개 소켓 * 8코어 @ 2.5GHz)<br/><br/> 메모리: 32GB<br/><br/> 캐시 디스크: 1TB<br/><br/> 데이터 변경률: 1TB ~ 2TB<br/><br/> 크기 요구사항 외에도 Contoso는 구성 서버가 마이그레이션할 VM과 동일한 네트워크 및 LAN 세그먼트에서 최적의 위치에 있는지 확인해야 합니다.
+**프로세스 서버** | Contoso는100~200개 VM을 복제하는 기능을 사용하여 독립 실행형 전용 프로세스 서버를 배포합니다.<br/><br/> CPU: 16개 vCPU(2개 소켓 * 8코어 @ 2.5GHz)<br/><br/> 메모리: 32GB<br/><br/> 캐시 디스크: 1TB<br/><br/> 데이터 변경률: 1TB ~ 2TB<br/><br/> 프로세스 서버는 사용량이 매우 많으므로 복제에 필요한 디스크 I/O, 네트워크 트래픽 및 CPU를 처리할 수 있는 ESXi 호스트에 있어야 합니다. Contoso는 이 목적으로 전용 호스트를 고려합니다. 
 **네트워킹** | Contoso는 현재 사이트 간 VPN 인프라를 검토했고 Azure ExpressRoute를 구현하기로 결정했습니다. 이 구현은 대기 시간을 줄이고 대역폭을 Contoso의 기본 미국 동부 2 Azure 지역으로 개선하므로 중요합니다.<br/><br/> **모니터링**: Contoso는 프로세스 서버에서 데이터 흐름을 주의 깊게 모니터링해야 합니다. 데이터가 네트워크 대역폭을 오버로드하는 경우 Contoso는 [프로세스 서버 대역폭의 제한](../site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth)을 고려합니다.
 **Azure 저장소** | 마이그레이션을 위해 Contoso는 대상 Azure Storage 계정의 적합한 유형 및 개수를 식별해야 합니다.  Site Recovery는 VM 데이터를 Azure 저장소에 복제합니다.<br/><br/> Site Recovery는 표준 또는 프리미엄(SSD) 저장소 계정으로 복제할 수 있습니다.<br/><br/> Contoso는 저장소를 결정하기 위해 [저장소 한도](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)를 검토하고 시간에 따른 예상 성장률 및 사용량 증가를 고려해야 합니다. 마이그레이션의 속도 및 우선 순위에 따라 Contoso는 프리미엄 저장소 계정을 사용하기로 결정했습니다.<br/><br/> 마이그레이션 프로세스 중에 여러 저장소 계정을 만들고 다시 사용합니다.
 Contoso는 Azure에 배포된 모든 VM에 관리 디스크를 사용하도록 결정했습니다.  필요한 IOPS에 따라 디스크가 표준(HDD) 또는 프리미엄(SSD)인지 여부가 결정됩니다.<br/>.<br/>

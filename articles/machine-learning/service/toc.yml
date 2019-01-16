@@ -112,14 +112,14 @@ items:
       href: how-to-build-deploy-onnx.md
   - name: 모델 배포
     items:
-    - name: 모델 배포 위치
+    - name: 배포 위치 및 방법
       displayName: publish azure kubernetes azure container instances
       href: how-to-deploy-and-where.md
     - name: FPGA
       href: how-to-deploy-fpga-web-service.md
     - name: 문제 해결
       href: how-to-troubleshoot-deployment.md
-    - name: SSL을 통한 보안
+    - name: SSL로 웹 서비스 보호
       href: how-to-secure-web-service.md
   - name: 웹 서비스 사용
     items:
@@ -139,7 +139,7 @@ items:
   - name: 리소스 할당량 관리
     displayName: limits
     href: how-to-manage-quotas.md
-  - name: Virtual Network와 함께 사용
+  - name: Virtual Network로 보호
     displayName: vnet
     href: how-to-enable-virtual-network.md
   - name: Machine Learning CLI 사용
@@ -174,9 +174,9 @@ items:
     href: support-for-aml-services.md
   - name: Microsoft의 ML 제품 비교
     href: overview-more-machine-learning.md
-ms.openlocfilehash: 84f4c2ec1d9f361cdf030b724860aea89f5c9cc3
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 098c8a9f9bc8d0458490adf4d80e2eaf69dd9f7f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247370"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266079"

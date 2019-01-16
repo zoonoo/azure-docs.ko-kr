@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 61b804b876c91b5fcd12ce15bd7e2438f5d897a0
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 923ba21574cce201c7b073b3078145239dd8c0ec
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617420"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121603"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Linux에서 첫 번째 Java Service Fabric Reliable Actors 애플리케이션 만들기
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ Reliable Actors를 시작하려면 몇 가지 기본 개념만 이해하면 됩�
 * **ActorProxy 클래스**. ActorProxy 클래스는 클라이언트 애플리케이션에서 행위자 인터페이스를 통해 노출되는 메서드를 호출하는 데 사용됩니다. ActorProxy 클래스는 다음 두 가지 중요한 기능을 제공합니다.
   
   * 이름 확인: 클러스터에서 행위자를 찾을 수 있습니다(호스트되는 클러스터의 노드 찾기).
-  * 오류 처리: 메서드 호출을 다시 시도하고 행위자를 클러스터의 다른 노드로 재배치해야 하는 경우 등의 오류가 발생한 후 행위자의 위치를 다시 파악할 수 있습니다.
+  * 오류 처리: 메서드 호출을 다시 시도하고 행위자를 클러스터의 다른 노드로 재배치해야 하는 경우 등의 오류가 발생한 후 행위자의 위치를 다시 확인할 수 있습니다.
 
 행위자 인터페이스와 관련된 다음 규칙을 확인하면 도움이 됩니다.
 
@@ -61,7 +61,7 @@ Reliable Actors를 시작하려면 몇 가지 기본 개념만 이해하면 됩�
 * 제네릭 인터페이스는 지원되지 않습니다.
 
 ## <a name="create-the-application"></a>애플리케이션 만들기
-Service Fabric 애플리케이션은 애플리케이션의 기능을 제공하는 특정 역할이 있는 하나 이상의 서비스를 포함합니다. 마지막 섹션에는 설치한 생성기는 쉽게 첫 번째 서비스를 만들고 나중에 더 추가할 수 있습니다.  Eclipse용 플러그 인을 사용하여 Service Fabric Java 애플리케이션을 만들고 빌드하고 배포할 수 있습니다. [Eclipse를 사용하여 첫 번째 Java 응용 프로그램 만들기 및 배포](service-fabric-get-started-eclipse.md)를 참조하세요. 빠른 시작에서 Yeoman을 사용하여 카운터 값을 저장하고 가져오는 단일 서비스를 포함한 애플리케이션을 만듭니다.
+Service Fabric 애플리케이션은 애플리케이션의 기능을 제공하는 특정 역할이 있는 하나 이상의 서비스를 포함합니다. 마지막 섹션에는 설치한 생성기는 쉽게 첫 번째 서비스를 만들고 나중에 더 추가할 수 있습니다.  Eclipse용 플러그 인을 사용하여 Service Fabric Java 애플리케이션을 만들고 빌드하고 배포할 수 있습니다. [Eclipse를 사용하여 첫 번째 Java 애플리케이션 만들기 및 배포](service-fabric-get-started-eclipse.md)를 참조하세요. 빠른 시작에서 Yeoman을 사용하여 카운터 값을 저장하고 가져오는 단일 서비스를 포함한 애플리케이션을 만듭니다.
 
 1. 터미널에서 ``yo azuresfjava``을 입력합니다.
 2. 애플리케이션의 이름을 지정합니다.
@@ -179,7 +179,7 @@ public static void main(String[] args) throws Exception {
             ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new FabricActorService(context, actorType, (a,b)-> new HelloWorldActorImpl(a,b)), Duration.ofSeconds(10));
             Thread.sleep(Long.MAX_VALUE);
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Exception occured", e);
+            logger.log(Level.SEVERE, "Exception occurred", e);
             throw e;
         }
     }
@@ -349,7 +349,7 @@ Service Fabric에 대한 시스템 수준 지원이며 네이티브 Service Fabr
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Eclipse를 사용하여 Linux에서 첫 번째 Service Fabric Java 응용 프로그램 만들기](service-fabric-get-started-eclipse.md)
+* [Eclipse를 사용하여 Linux에서 첫 번째 Service Fabric Java 애플리케이션 만들기](service-fabric-get-started-eclipse.md)
 * [Reliable Actors에 대해 자세히 알아보기](service-fabric-reliable-actors-introduction.md)
 * [Service Fabric CLI를 사용하여 Service Fabric 클러스터와 상호 작용](service-fabric-cli.md)
 * [Service Fabric 지원 옵션](service-fabric-support.md) 알아보기

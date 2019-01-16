@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: b7919a86c5f0b6b6990b465ed0c563fb42ea8bbc
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: d3b039c30557499233eec72d7c560ad4bf49a776
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747918"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157210"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>디바이스 및 모듈 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
 
@@ -25,7 +25,7 @@ IoT Hub는 [디바이스 쌍](iot-hub-devguide-device-twins.md) 및 [작업](iot
 
 ## <a name="device-and-module-twin-queries"></a>디바이스 및 모듈 쌍 쿼리
 
-[장치 쌍](iot-hub-devguide-device-twins.md) 및 모듈 쌍은 임의의 JSON 개체를 태그와 속성으로 포함할 수 있습니다. IoT Hub를 사용하면 모든 쌍 정보를 포함하는 단일 JSON 문서로 디바이스 쌍 및 모듈 쌍을 쿼리할 수 있습니다.
+[디바이스 쌍](iot-hub-devguide-device-twins.md) 및 모듈 쌍은 임의의 JSON 개체를 태그와 속성으로 포함할 수 있습니다. IoT Hub를 사용하면 모든 쌍 정보를 포함하는 단일 JSON 문서로 디바이스 쌍 및 모듈 쌍을 쿼리할 수 있습니다.
 
 예를 들어 IoT 허브 디바이스 쌍에 다음 구조가 있다고 가정합니다(모듈 쌍은 추가 moduleId와 유사함).
 
@@ -168,15 +168,15 @@ SELECT * FROM devices.modules
 디바이스 및 devices.modules 컬렉션 간의 조인을 허용하지 않습니다. 디바이스 간에 모듈 쌍을 쿼리하려는 경우 태그에 따라 수행합니다. 이 쿼리는 검색 상태와 함께 모든 디바이스에서 모든 모듈 쌍을 반환합니다.
 
 ```sql
-Select * from devices.modules where properties.reported.status = 'scanning'
+SELECT * FROM devices.modules WHERE properties.reported.status = 'scanning'
 ```
 
 이 쿼리는 검색 상태와 함께 모든 모듈 쌍을 반환하지만, 지정된 하위 집합의 디바이스에서만 반환합니다.
 
 ```sql
-Select * from devices.modules 
-  where properties.reported.status = 'scanning' 
-  and deviceId IN ['device1', 'device2']
+SELECT * FROM devices.modules 
+  WHERE properties.reported.status = 'scanning' 
+  AND deviceId IN ['device1', 'device2']
 ```
 
 ### <a name="c-example"></a>C# 예제
@@ -239,7 +239,7 @@ query 개체는 쿼리에 필요한 역직렬화 옵션에 따라 여러 개의 
 
 ## <a name="get-started-with-jobs-queries"></a>작업 쿼리 시작
 
-[작업](iot-hub-devguide-jobs.md)은 장치 집합에 대해 작업을 실행하는 방법을 제공합니다. 각 디바이스 쌍은 작업에 대한 정보를 포함하며 이것은 **jobs**라는 컬렉션에 속합니다.
+[작업](iot-hub-devguide-jobs.md)은 디바이스 집합에 대해 작업을 실행하는 방법을 제공합니다. 각 디바이스 쌍은 작업에 대한 정보를 포함하며 이것은 **jobs**라는 컬렉션에 속합니다.
 
 ```json
 {
@@ -326,7 +326,7 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>FROM 절
 
-**FROM <from_specification>** 절은 두 가지 값만 가정할 수 있습니다. **FROM devices**는 장치 쌍을 쿼리하기 위해 **FROM devices.jobs**는 장치별 작업 세부 정보를 쿼리하기 위해 가정합니다.
+**FROM <from_specification>** 절은 두 가지 값, 즉, 디바이스 쌍을 쿼리하는 **FROM devices** 또는 디바이스별 세부 정보를 쿼리하는 **FROM devices.jobs**만 가정할 수 있습니다.
 
 
 ## <a name="where-clause"></a>WHERE 절
@@ -363,7 +363,7 @@ SELECT [TOP <max number>] <projection list>
 
 **Attribute_name**은 FROM 컬렉션에 있는 JSON 문서의 속성을 참조합니다. SELECT 절에 대한 예제는 [디바이스 쌍 쿼리 시작](iot-hub-devguide-query-language.md#get-started-with-device-twin-queries) 섹션에서 찾을 수 있습니다.
 
-현재 **SELECT** \*와 다른 선택 절은 디바이스 쌍에 대한 집계 쿼리에서만 지원됩니다.
+현재 **SELECT***와 다른 선택 절은 디바이스 쌍에 대한 집계 쿼리에서만 지원됩니다.
 
 ## <a name="group-by-clause"></a>GROUP BY 절
 **GROUP BY <group_specification>** 절은 WHERE 절에 지정된 필터 뒤에서, 그리고 SELECT에 지정된 프로젝션 앞에서 실행되는 선택적 단계입니다. 특성의 값을 기반으로 문서를 그룹화합니다. 이러한 그룹은 SELECT 절에 지정된 대로 집계된 값을 생성하는 데 사용됩니다.

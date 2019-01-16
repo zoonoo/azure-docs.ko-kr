@@ -6,23 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 1a4fe30881f06d8af851a67f389a6faafbe3dfef
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 412727d79c194172f2855d014d1eaf18f44167f6
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389465"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159352"
 ---
-# <a name="azure-data-box-disk-limits-preview"></a>Azure Data Box Disk 제한(미리 보기)
+# <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk 제한
 
 
 Microsoft Azure Data Box Disk 솔루션을 배포 및 운영하면서 이러한 제한을 고려합니다. 
-
-> [!IMPORTANT] 
-> Azure Data Box Disk는 미리 보기로 제공됩니다. 이 솔루션을 배포하기 전에 [미리 보기에 대한 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요. 
-
 
 ## <a name="data-box-service-limits"></a>Data Box 서비스 제한
 

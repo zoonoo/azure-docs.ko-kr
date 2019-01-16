@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 11/11/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: b702d375f7a66843918a960ca3783c078eac541e
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: a4737f4308f49547178bb216b90589c596f604c9
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51579313"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118441"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL Data Warehouse 릴리스 정보
 
@@ -23,6 +23,7 @@ Azure SQL Data Warehouse는 MPP(대규모 병렬 처리)를 활용하여 페타�
 
 최신 버전의 Azure SQL Data Warehouse에서 기대할 수 있는 새로운 기능과 향상된 기능에 대해 더 자세히 알아보려면 아래 링크를 클릭하세요. 이러한 서비스 업데이트는 식별된 유지 관리 일정 중에 받으실 수 있습니다.
 
+- [2018년 12월](./release-notes-december-2018.md)
 - [2018년 10월](./release-notes-october-2018.md)
 - [2018년 9월](./release-notes-september-2018.md)
 - [2018년 8월](./release-notes-august-2018.md)
@@ -38,7 +39,7 @@ Azure SQL Data Warehouse는 MPP(대규모 병렬 처리)를 활용하여 페타�
 SELECT @@VERSION AS 'SQL Data Warehouse';
 ```
 
-출력 예는 다음과 같습니다. ![SQL Data Warehouse 버전](./media/release-notes/sql_data_warehouse_version.png)
+예제 출력: ![SQL Data Warehouse 버전](./media/release-notes/sql_data_warehouse_version.png)
 
 식별된 날짜를 사용하여 Azure SQL Data Warehouse에 적용된 릴리스를 확인하세요. 
 

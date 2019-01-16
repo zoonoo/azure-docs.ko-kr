@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 01/08/2019
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 062308622e3170a4eb8f75a96300f04f683a90e7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 609d52f9f2c5dce1bbfd668e94db25aca3d52f69
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820361"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119053"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container Instances에서 일반적인 문제 해결
 
@@ -48,7 +48,7 @@ Azure Container Instances에서 지원되지 않는 이미지를 지정하면 `O
 
 이 오류는 SAC(반기 채널) 릴리스 기반의 Windows 이미지를 배포할 때 가장 자주 발생합니다. 예를 들어 Windows 1709 및 1803 버전은 SAC 릴리스이고, 배포 시 이 오류를 생성합니다.
 
-Azure Container Instances는 LTSC(장기 서비스 채널) 버전 기반의 Windows 이미지만 지원합니다. Windows 컨테이너를 배포할 때 항상 LTSC 기반 이미지를 배포하면 이 문제를 완화할 수 있습니다.
+Azure Container Instances는 현재 **Windows Server 2016 LTSC(장기 서비스 채널)** 릴리스 기반의 Windows 이미지만 지원합니다. Windows 컨테이너를 배포할 때 항상 Windows Server 2016(LTSC) 기반 이미지를 배포하면 이 문제를 완화할 수 있습니다. Windows Server 2019(LTSC) 기반 이미지는 지원되지 않습니다.
 
 Windows LTSC 및 SAC 버전에 대한 자세한 내용은 [Windows Server 반기 채널 개요][windows-sac-overview]를 참조하세요.
 
@@ -91,7 +91,7 @@ Azure Container Instances는 초기에 이미지를 풀링할 수 없는 경우 
 
 ## <a name="container-continually-exits-and-restarts-no-long-running-process"></a>컨테이너가 계속 종료되고 다시 시작함(장기 실행 프로세스가 없음)
 
-컨테이너 그룹의 기본 [재시작 정책](container-instances-restart-policy.md)이 **항상**이므로, 실행 완료 후 컨테이너 그룹의 컨테이너는 항상 다시 시작합니다. 작업 기반 컨테이너를 실행하려면 이를 **실패 시**(OnFailure) 또는 **Never**(안 함)로 변경해야 합니다. **OnFailure**를 지정해도 컨테이너가 계속 다시 시작되면 컨테이너에서 실행된 응용 프로그램이나 스크립트에 문제가 있을 수 있습니다.
+컨테이너 그룹의 기본 [재시작 정책](container-instances-restart-policy.md)이 **항상**이므로, 실행 완료 후 컨테이너 그룹의 컨테이너는 항상 다시 시작합니다. 작업 기반 컨테이너를 실행하려면 이를 **실패 시**(OnFailure) 또는 **Never**(안 함)로 변경해야 합니다. **OnFailure**를 지정해도 컨테이너가 계속 다시 시작되면 컨테이너에서 실행된 애플리케이션이나 스크립트에 문제가 있을 수 있습니다.
 
 장기 실행 프로세스가 없는 컨테이너 그룹을 실행하면 Ubuntu 또는 Alpine과 같은 이미지와 함께 종료와 재시작이 반복될 수 있습니다. [EXEC](container-instances-exec.md)을 통해 연결하는 작업은 컨테이너에서 활성 상태로 유지되지 않으므로 작동하지 않습니다. 이를 해결하려면 컨테이너가 실행되도록 컨테이너 그룹 배치에 다음과 같은 시작 명령을 사용하세요.
 

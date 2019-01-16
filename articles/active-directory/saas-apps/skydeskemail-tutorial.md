@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 058aad72ea8e5741bc632b3c27c032613683ae78
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4dc34a390303ffe5e4bafc6b71d77a19e554374c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444085"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052192"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>자습서: SkyDesk Email과 Azure Active Directory 통합
 
@@ -115,7 +115,7 @@ SkyDesk Email에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://mail.skydesk.jp/portal/<companyname>`
 
     > [!NOTE] 
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 얻으려면 [SkyDesk Email 클라이언트 지원 팀](https://www.skydesk.sg/support/)에 문의하세요. 
+    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 얻으려면 [SkyDesk Email 클라이언트 지원 팀](https://www.skydesk.jp/apps/support/)에 문의하세요. 
  
 1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -133,7 +133,7 @@ SkyDesk Email에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     a. SkyDesk Email 계정에 관리자 권한으로 로그온합니다.
 
-    나. 위쪽 메뉴에서 **설정**을 클릭한 다음 **조직**을 클릭합니다. 
+    b. 위쪽 메뉴에서 **설정**을 클릭한 다음 **조직**을 클릭합니다. 
     
       ![Configure Single Sign-On](./media/skydeskemail-tutorial/tutorial_skydeskemail_51.png)
   
@@ -166,7 +166,7 @@ SkyDesk Email에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     a. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **로그인 URL** 텍스트 상자에 붙여 넣습니다.
    
-    나. Azure Portal에서 복사한 **로그아웃 URL** 값을 **로그아웃 URL** 텍스트 상자에 붙여 넣습니다.
+    b. Azure Portal에서 복사한 **로그아웃 URL** 값을 **로그아웃 URL** 텍스트 상자에 붙여 넣습니다.
 
     다. **암호 변경 URL** 은 선택 사항이므로 비워 둡니다.
 
@@ -177,7 +177,7 @@ SkyDesk Email에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     f. **확인** 을 클릭하여 변경 내용을 저장합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -205,7 +205,7 @@ SkyDesk Email에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -220,7 +220,7 @@ SkyDesk Email에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     ![Configure Single Sign-On](./media/skydeskemail-tutorial/tutorial_skydeskemail_58.png)
 
 >[!NOTE] 
->일괄 사용자를 만들어야 하는 경우에는 [SkyDesk Email 클라이언트 지원 팀](https://www.skydesk.sg/support/)에 문의해야 합니다.
+>일괄 사용자를 만들어야 하는 경우에는 [SkyDesk Email 클라이언트 지원 팀](https://www.skydesk.jp/apps/support/)에 문의해야 합니다.
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
@@ -262,7 +262,7 @@ SkyDesk Email에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

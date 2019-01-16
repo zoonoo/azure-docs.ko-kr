@@ -6,22 +6,22 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: f3c5d7bc1907e94ff2e590fe77cc531ac4b01f4c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 44fe262dc28a016af9eb01f28278b2c3d81d9034
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628557"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034090"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱스 유형
 
 경로에 대한 인덱싱 정책을 구성할 때는 몇 가지 옵션을 사용할 수 있습니다. 모든 경로에 대해 하나 이상의 인덱싱 정의를 지정할 수 있습니다.
 
-- **데이터 형식**: 문자열, 숫자, 점, 다각형 또는 LineString(경로별로 데이터 형식당 하나만 포함할 수 있음).
+- **데이터 형식:** 문자열, 숫자, 점, 다각형 또는 LineString(경로별로 데이터 형식당 하나만 포함할 수 있음).
 
-- **인덱스 종류**: 해시(같음 쿼리), 범위(같음, 범위 또는 Order By 쿼리) 또는 공간(공간 쿼리).
+- **인덱스 종류:** 해시(같음 쿼리), 범위(같음, 범위 또는 Order By 쿼리) 또는 공간(공간 쿼리).
 
-- **전체 자릿수**: 해시 인덱스의 경우 문자열 및 숫자 둘 다에서 1~8 범위로 다양하며, 기본값은 3입니다. 범위 인덱스의 경우 최대 전체 자릿수 값은 -1입니다. 문자열 또는 숫자 값의 경우 1에서 100(최대 전체 자릿수)까지 다양할 수 있습니다.
+- **전체 자릿수:** 해시 인덱스의 경우 문자열 및 숫자 둘 다에서 1~8 범위로 다양하며, 기본값은 3입니다. 범위 인덱스의 경우 최대 전체 자릿수 값은 -1입니다. 문자열 또는 숫자 값의 경우 1에서 100(최대 전체 자릿수)까지 다양할 수 있습니다.
 
 ## <a name="index-kind"></a>인덱스 종류
 
@@ -31,7 +31,7 @@ Azure Cosmos DB는 모든 경로에 대해 문자열, 숫자 데이터 형식 �
 
 - **범위 인덱스**는 효율적인 같음 쿼리, 범위 쿼리(>, <, >=, <=, != 사용) 및 ORDER BY 쿼리를 지원합니다. 또한 ORDER BY 쿼리에는 기본적으로 최대 인덱스 전체 자릿수(-1)가 필요합니다. 데이터 형식은 문자열 또는 숫자일 수 있습니다.
 
-- **공간 인덱스**는 효율적인 공간(이내 및 거리) 쿼리를 지원합니다. 데이터 형식은 점, 다각형 또는 LineString일 수 있습니다. Azure Cosmos DB는 모든 경로에 대해 점, 다각형 또는 LineString 데이터 형식으로 지정할 수 있는 공간 인덱스 종류도 지원합니다. 지정된 경로에 있는 값은 {“type”: “Point”, “coordinates”: [0.0, 10.0]}과 같은 유효한 GeoJSON 조각이어야 합니다. Azure Cosmos DB는 점, 다각형 및 LineString 데이터 형식의 자동 인덱싱을 지원합니다.
+- **공간 인덱스**는 효율적인 공간(이내 및 거리) 쿼리를 지원합니다. 데이터 형식은 점, 다각형 또는 LineString일 수 있습니다. Azure Cosmos DB는 모든 경로에 대해 점, 다각형 또는 LineString 데이터 형식으로 지정할 수 있는 공간 인덱스 종류도 지원합니다. 지정된 경로에 있는 값은 다음과 같은 유효한 GeoJSON 조각이어야 합니다. {"type": "Point", "coordinates": [0.0, 10.0]}. Azure Cosmos DB는 점, 다각형 및 LineString 데이터 형식의 자동 인덱싱을 지원합니다.
 
 다음은 해시, 범위, 공간 인덱스를 사용하여 처리할 수 있는 쿼리의 예입니다.
 
@@ -39,7 +39,7 @@ Azure Cosmos DB는 모든 경로에 대해 문자열, 숫자 데이터 형식 �
 | ---------- | ---------------- |
 | 해시  | Hash over/prop/? (또는 /)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash over /props/[]/? (또는 /나 /props/)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5  |
 | 범위  | /prop/? (또는 /)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop   |
-| 공간     | /prop/? (또는 /)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --with indexing on points enabled<br><br>SELECT FROM collection c WHERE ST_WITHIN({“type”: “Point”, ... }, c.prop) --with indexing on polygons enabled.     |
+| 공간     | /prop/? (또는 /)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --with indexing on points enabled<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --with indexing on polygons enabled.     |
 
 ## <a name="default-behavior-of-index-kinds"></a>인덱스 종류의 기본 동작
 

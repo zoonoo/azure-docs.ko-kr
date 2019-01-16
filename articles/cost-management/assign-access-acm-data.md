@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: ab5f334b1c830ea5e9c0164b8e75ef0f4fab8e1b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 50f048dc36b0248cdbbd85d91c00b7947f9ddc1f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075644"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052141"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Cost Management 데이터에 대한 액세스 할당
 
@@ -39,6 +39,10 @@ ms.locfileid: "53075644"
 <sup>1</sup> 청구 계정은 기업 계약 또는 등록이라고도 합니다.
 
 <sup>2</sup> 등록 계정은 계정 소유자라고도 합니다.
+
+다음 다이어그램에서는 역할 및 EA 포털 설정을 사용하여 Cost Management 범위 간의 관계를 보여줍니다.
+
+![역할 및 EA 포털 설정을 사용하여 Cost Management 범위 간의 관계를 보여주는 다이어그램](./media/assign-access-acm-data/scope-access-relationship-diagram.png)
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>EA 포털에서 비용에 대한 액세스를 사용하도록 설정
 

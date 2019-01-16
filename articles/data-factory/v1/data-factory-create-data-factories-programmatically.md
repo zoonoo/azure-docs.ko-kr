@@ -9,17 +9,16 @@ ms.assetid: b0a357be-3040-4789-831e-0d0a32a0bda5
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: afee3254ebdd325d756bfc5027cca531442c5689
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d05661c131d981538dada988131c39d4fd956ee9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257371"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016741"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Azure Data Factory .NET SDK를 사용하여 Azure Data Factory 만들기, 모니터링 및 관리
 > [!NOTE]
@@ -218,7 +217,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
         }
     );
     ```
-9. **입력 및 출력 데이터 집합**을 만드는 다음 코드를 **Main** 메서드에 추가합니다.
+9. **입력 및 출력 데이터 세트**를 만드는 다음 코드를 **Main** 메서드에 추가합니다.
 
     입력 Blob의 **FolderPath**는 **adftutorial/** 로 설정됩니다. 여기서 **adftutorial**은 Blob 저장소에 있는 컨테이너의 이름입니다. Azure Blob 저장소에 이 컨테이너가 없는 경우 이름이 **adftutorial**인 컨테이너를 만들고 텍스트 파일을 컨테이너로 업로드합니다.
 
@@ -358,7 +357,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
         }
     });
     ```
-12. **Main** 메서드에 다음 코드를 추가하여 출력 데이터 집합의 데이터 조각 상태를 가져옵니다. 이 샘플에서는 한 개의 조각만 필요합니다.
+12. **Main** 메서드에 다음 코드를 추가하여 출력 데이터 세트의 데이터 조각 상태를 가져옵니다. 이 샘플에서는 한 개의 조각만 필요합니다.
 
     ```csharp
     // Pulling status within a timeout threshold
@@ -445,7 +444,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
     }
     ```
 
-15. 솔루션 탐색기에서 프로젝트 **DataFactoryAPITestApp**을 확장하고 **참조**를 마우스 오른쪽 단추로 클릭한 다음 **참조 추가**를 클릭합니다. `System.Configuration` 어셈블리에 대한 확인란을 선택하고 **확인**을 클릭합니다.
+15. 솔루션 탐색기에서 솔루션 탐색기에서 **DataFactoryAPITestApp** 프로젝트를 확장하고 **참조**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 클릭합니다. `System.Configuration` 어셈블리에 대한 확인란을 선택하고 **확인**을 클릭합니다.
 15. 콘솔 애플리케이션을 빌드합니다. 메뉴에서 **빌드**를 클릭하고 **솔루션 빌드**를 클릭합니다.
 16. Azure Blob 저장소의 adftutorial 컨테이너에 하나 이상의 파일이 있는지 확인합니다. 그렇지 않은 경우 메모장에서 다음 내용이 포함된 Emp.txt 파일을 만들어 adftutorial 컨테이너에 업로드합니다.
 
@@ -456,7 +455,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
 17. 메뉴에서 **디버그** -> **디버깅 시작**을 클릭하여 샘플을 실행합니다. **데이터 조각의 실행 정보 가져오기**가 표시되면 몇 분 동안 기다린 다음 **ENTER** 키를 누릅니다.
 18. Azure 포털을 사용하여 데이터 팩터리 **APITutorialFactory** 가 다음 아티팩트로 생성되었는지 확인합니다.
     * 연결된 서비스: **AzureStorageLinkedService**
-    * 데이터 세트: **DatasetBlobSource** 및 **DatasetBlobDestination**
+    * 데이터 세트: **DatasetBlobSource** 및 **DatasetBlobDestination**.
     * 파이프라인: **PipelineBlobSample**
 19. 출력 파일이 **adftutorial** 컨테이너의 "**apifactoryoutput**" 폴더에 만들어졌는지 확인합니다.
 

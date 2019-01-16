@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 898fd7d0416d1e1b27a25cabf524e72a7de44fde
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 902c659d2c51d69f2e9d0ef3a7401326e0e530eb
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269595"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013148"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Visual Studio Code용 Azure Machine Learning 시작
 
@@ -80,7 +80,8 @@ VS Code를 사용하여 기계 학습 모델 학습 및 배포를 시작하려�
 
 1. Visual Studio Code 작업 막대에서 Azure 아이콘을 클릭합니다. Azure: Machine Learning 사이드바가 나타납니다.
 
-   [![사이드바](./media/vscode-tools-for-ai/CreateNewWorkspace.gif)](./media/vscode-tools-for-ai/CreateNewWorkspace.gif#lightbox)
+   [![설치](./media/vscode-tools-for-ai/CreateaWorkspace.gif)](./media/vscode-tools-for-ai/CreateaWorkspace.gif#lightbox)
+
 
 1. Azure 구독을 마우스 오른쪽 단추로 클릭하고 **작업 영역 만들기**를 선택합니다. 목록이 표시됩니다. 애니메이션 이미지에서 구독 이름은 ‘평가판’이고 작업 영역은 ‘TeamWorkspace’입니다. 
 
@@ -96,11 +97,11 @@ VS Code를 사용하여 기계 학습 모델 학습 및 배포를 시작하려�
  
 1. Enter 키를 누르면 새 실험이 생성됩니다. 이 실험은 트리에서 작업 영역 이름 아래에 표시됩니다.
 
-1. 실험 이름을 마우스 오른쪽 단추로 클릭하고 **실험할 폴더 첨부**를 선택합니다. 이 폴더에는 로컬 Python 스크립트가 포함됩니다. 해당 폴더는 클라우드의 실험에 연결됩니다. 
+1. 작업 영역에서 실험을 마우스 오른쪽 단추로 클릭하고 '활성 실험으로 설정'을 선택할 수 있습니다. **'활성'** 실험은 현재 사용 중인 실험이며, VS Code의 열린 폴더가 클라우드의 이 실험에 연결됩니다. 이 폴더에는 로컬 Python 스크립트가 포함됩니다.
 
    이제 각 실험이 실행되어 모든 주요 메트릭이 실험 기록에 저장되며, 학습시키는 모델이 Azure Machine Learning에 자동으로 업로드되어 실험 메트릭 및 로그와 함께 저장됩니다.
 
-   [![VS Code에서 폴더 연결](./media/vscode-tools-for-ai/CreateNewExperimentandFolder.gif)](./media/vscode-tools-for-ai/CreateNewExperimentandFolder.gif#lightbox)
+   [![VS Code에서 폴더 연결](./media/vscode-tools-for-ai/CreateAnExperiment.gif)](./media/vscode-tools-for-ai/CreateAnExperiment.gif#lightbox)
 
 ### <a name="use-keyboard-shortcuts"></a>바로 가기 키 사용
 

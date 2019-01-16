@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: c4aa5786ea1dfbef32c40306de6291ebeb2fe6f8
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: c30e18c42f310172b07995e0ad88a505a01c4218
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036141"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159607"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - 경고 문제 해결
 이 문서에서는 관리되는 도메인에서 발생할 수 있는 경고에 대한 문제 해결 가이드를 제공합니다.
@@ -36,10 +36,10 @@ ms.locfileid: "51036141"
 | AADDS102 | *Azure AD Domain Services가 제대로 작동하는 데 필요한 서비스 주체가 Azure AD 디렉터리에서 삭제되었습니다. 이 구성은 관리되는 도메인을 모니터링, 관리, 패치, 동기화하는 Microsoft의 기능에 영향을 줍니다.* | [누락된 서비스 주체](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *Azure AD Domain Services를 사용하도록 설정한 가상 네트워크의 IP 주소 범위가 공용 IP 범위에 있습니다. Azure AD Domain Services는 개인 IP 주소 범위를 갖는 가상 네트워크에서 사용되도록 설정해야 합니다. 이 구성은 관리되는 도메인을 모니터링, 관리, 패치, 동기화하는 Microsoft의 기능에 영향을 줍니다.* | [주소가 공용 IP 범위에 있습니다.](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Microsoft는 이 관리되는 도메인에 대한 도메인 컨트롤러에 연결할 수 없습니다. 가상 네트워크에 구성된 NSG(네트워크 보안 그룹)가 관리되는 도메인에 대한 액세스를 차단하려고 할 때 이 문제가 발생할 수 있습니다. 다른 가능한 이유는 인터넷에서 들어오는 트래픽을 차단하는 사용자 정의 경로가 있는 경우입니다.* | [네트워크 오류](active-directory-ds-troubleshoot-nsg.md) |
-| AADDS105 | *응용 프로그램 ID가 “d87dcbc6-a371-462e-88e3-28ad15ec4e64”인 서비스 주체가 삭제된 다음, 다시 생성됩니다. 다시 만들기를 수행할 경우 관리되는 도메인을 서비스하는 데 필요한 Azure AD Domain Services 리소스에 일치하지 않는 권한이 남게 됩니다. 관리되는 도메인에서 암호 동기화에 영향이 있을 수 있습니다.* | [암호 동기화 응용 프로그램이 만료됨](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
+| AADDS105 | *애플리케이션 ID가 “d87dcbc6-a371-462e-88e3-28ad15ec4e64”인 서비스 주체가 삭제된 다음, 다시 생성됩니다. 다시 만들기를 수행할 경우 관리되는 도메인을 서비스하는 데 필요한 Azure AD Domain Services 리소스에 일치하지 않는 권한이 남게 됩니다. 관리되는 도메인에서 암호 동기화에 영향이 있을 수 있습니다.* | [암호 동기화 애플리케이션이 만료됨](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS106 | *관리되는 도메인에 연결된 Azure 구독이 삭제되었습니다.  제대로 계속 작동하려면 Azure AD Domain Services에 활성 구독이 있어야 합니다.* | [Azure 구독을 찾을 수 없음](#aadds106-your-azure-subscription-is-not-found) |
 | AADDS107 | *관리되는 도메인에 연결된 Azure 구독이 활성화되지 않았습니다.  제대로 계속 작동하려면 Azure AD Domain Services에 활성 구독이 있어야 합니다.* | [Azure 구독이 비활성화됨](#aadds107-your-azure-subscription-is-disabled) |
-| AADDS108 | *Azure AD Domain Services에서 사용 하는 구독을 다른 디렉터리로 이동했습니다. Azure AD Domain Services는 제대로 작동하려면 같은 디렉터리에 활성 구독을 포함해야 합니다.* | [구독 이동 디렉터리](#aadds108-subscription-moved-directories) |
+| AADDS108 |  *Azure AD Domain Services에서 사용 하는 구독을 다른 디렉터리로 이동했습니다. Azure AD Domain Services는 제대로 작동하려면 같은 디렉터리에 활성 구독을 포함해야 합니다.* | [구독 이동 디렉터리](#aadds108-subscription-moved-directories) |
 | AADDS109 | *관리되는 도메인에 사용되는 리소스가 삭제되었습니다. 이 리소스는 Azure AD Domain Services가 제대로 작동하기 위해 필요합니다.* | [리소스가 삭제됨](#aadds109-resources-for-your-managed-domain-cannot-be-found) |
 | AADDS110 | *Azure AD Domain Services의 배포에 선택된 서브넷이 꽉 차서 만들어야 하는 추가 도메인 컨트롤러에 사용할 수 있는 공간이 없습니다.* | [서브넷이 꽉 참](#aadds110-the-subnet-associated-with-your-managed-domain-is-full) |
 | AADDS111 | *Azure AD Domain Services가 도메인을 서비스하는 데 사용하는 서비스 주체는 Azure 구독에서 리소스를 관리할 권한이 없습니다. 서비스 주체는 관리되는 도메인을 서비스하기 위한 사용 권한을 획득해야 합니다. * | [권한 없는 서비스 주체](#aadds111-service-principal-unauthorized) |
@@ -67,7 +67,7 @@ ms.locfileid: "51036141"
 
 이 오류는 복구할 수 없습니다. 이 문제를 해결하려면 [기존의 관리되는 도메인을 삭제](active-directory-ds-disable-aadds.md)하고 새 디렉터리에 다시 만듭니다. 삭제하는 데 문제가 있으면 Azure Active Directory Domain Services 제품 팀에 문의하여 [지원](active-directory-ds-contact-us.md)을 요청하세요.
 
-## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101: Azure AD B2C가 이 디렉터리에서 실행 중임
+## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101: Azure AD B2C가 이 디렉터리에서 실행되고 있음
 **경고 메시지:**
 
 *Azure AD Domain Services를 Azure AD B2B 디렉터리에서 사용 가능하게 설정할 수 없습니다.*
@@ -128,7 +128,7 @@ Azure AD Domain Services는 함수에 대한 구독이 필요하며 다른 구�
 2. 기존 Azure AD 디렉터리에서 [관리되는 도메인을 삭제](active-directory-ds-disable-aadds.md)합니다.
 3. [시작](active-directory-ds-getting-started.md) 가이드에 따라 관리되는 도메인을 다시 만듭니다.
 
-## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107: Azure 구독이 비활성화됨
+## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107: Azure 구독이 사용하지 않도록 설정됨
 
 **경고 메시지:**
 
@@ -144,13 +144,13 @@ Azure AD Domain Services는 함수에 대한 구독이 필요하며 다른 구�
 
 **경고 메시지:**
 
-*Azure AD Domain Services에서 사용 하는 구독을 다른 디렉터리로 이동했습니다. Azure AD Domain Services는 제대로 작동하려면 같은 디렉터리에 활성 구독을 포함해야 합니다.*
+ *Azure AD Domain Services에서 사용 하는 구독을 다른 디렉터리로 이동했습니다. Azure AD Domain Services는 제대로 작동하려면 같은 디렉터리에 활성 구독을 포함해야 합니다.*
 
 **해결 방법:**
 
 Azure AD Domain Services와 연결된 구독을 이전 디렉터리로 다시 이동할 수 있거나, 기존 디렉터리에서 [관리되는 도메인을 삭제](active-directory-ds-disable-aadds.md)하고 선택한 디렉터리에서 도메인을 다시 만들어야 합니다(새 구독을 사용하거나 Azure AD Domain Services 인스턴스가 있는 디렉터리를 변경하여).
 
-## <a name="aadds109-resources-for-your-managed-domain-cannot-be-found"></a>AADDS109: 관리되는 도메인에 대한 리소스를 찾을 수 없음
+## <a name="aadds109-resources-for-your-managed-domain-cannot-be-found"></a>AADDS109: 관리되는 도메인의 리소스를 찾을 수 없음
 
 **경고 메시지:**
 
@@ -179,11 +179,11 @@ Azure AD Domain Services는 제대로 작동하기 위해 배포하는 동안 �
 
 이 오류는 복구할 수 없습니다. 이 문제를 해결하려면 [기존의 관리되는 도메인을 삭제](active-directory-ds-disable-aadds.md)하고 [관리되는 도메인을 다시 만듭니다.](active-directory-ds-getting-started.md)
 
-## <a name="aaddds111-service-principal-unauthorized"></a>AADDDS111: 권한 없는 서비스 주체
+## <a name="aadds111-service-principal-unauthorized"></a>AADDS111: 권한 없는 서비스 주체
 
 **경고 메시지:**
 
-*Azure AD Domain Services가 도메인을 서비스하는 데 사용하는 서비스 주체는 Azure 구독에서 리소스를 관리할 권한이 없습니다. 서비스 주체는 관리되는 도메인을 서비스하기 위한 사용 권한을 획득해야 합니다.*
+ *Azure AD Domain Services가 도메인을 서비스하는 데 사용하는 서비스 주체는 Azure 구독에서 리소스를 관리할 권한이 없습니다. 서비스 주체는 관리되는 도메인을 서비스하기 위한 사용 권한을 획득해야 합니다.*
 
 **해결 방법:**
 
@@ -193,7 +193,7 @@ Azure AD Domain Services는 제대로 작동하기 위해 배포하는 동안 �
 2. ```abba844e-bc0e-44b0-947a-dc74e5d09022``` ID가 있는 서비스 주체에 대한 액세스를 검토하고 전에 거부된 액세스 권한을 부여합니다.
 
 
-## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: 관리되는 도메인에 IP 주소가 충분하지 않음
+## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: 관리되는 도메인의 IP 주소가 부족함
 
 **경고 메시지:**
 
@@ -258,7 +258,7 @@ Azure AD Domain Services는 제대로 작동하기 위해 배포하는 동안 �
 
 
 
-## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: 잠시 후에 동기화가 완료되지 않았습니다.
+## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: 한 동안 동기화가 완료되지 않음
 
 **경고 메시지:**
 
@@ -272,7 +272,7 @@ Azure AD Domain Services는 제대로 작동하기 위해 배포하는 동안 �
 - 관리되는 도메인에서 네트워크 연결이 차단된 경우. 네트워크의 문제를 확인하는 방법에 대한 자세한 내용은 [네트워크 보안 그룹 문제 해결](active-directory-ds-troubleshoot-nsg.md) 방법과 [Azure AD Domain Services의 네트워크 요구 사항](active-directory-ds-networking.md)을 읽어보세요.
 -  암호 동기화가 설정되지 않았거나 완료되지 않은 경우. 암호 동기화를 설정하려면 [이 문서](active-directory-ds-getting-started-password-sync.md)를 읽어보세요.
 
-## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: 잠시 후에 백업이 수행되지 않았습니다.
+## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: 한 동안 백업이 수행되지 않음
 
 **경고 메시지:**
 

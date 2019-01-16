@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d77dad52e75253de02fd079d791861356c4c5e1f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 519867b1e0607a769948c86af263c172e810d107
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247078"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078119"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>Azure Marketplace에 가상 머신 게시
 
@@ -31,35 +31,23 @@ Azure Marketplace에 가상 머신을 게시하는 데 적용되는 기술 및 �
 
 ### <a name="technical"></a>기술
 
--   [Azure Marketplace용 가상 머신 이미지를 만들기 위한 기술 필수 조건](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites)
-
+-   [Azure Marketplace용 가상 머신 이미지를 만들기 위한 기술 필수 조건](../cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md)
 -   [Linux VHD 만들기 및 업로드](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 -   [이미지에서 Linux VM 만들기 및 시험](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
-
 -   [Windows VHD 만들기 및 업로드 ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
-
 -   [이미지에서 Windows VM 만들기 및 시험](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
-
--   [VHD를 만드는 동안 발생하는 일반적인 문제 해결 방법](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting)
-
+-   [VHD를 만드는 동안 발생하는 일반적인 문제 해결 방법](../cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
 -   [Azure Marketplace의 보안 권장 사항 이미지](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images)
 
 
 ### <a name="non-technical-business-requirements"></a>비기술(비즈니스 요구 사항)
 
  -   회사(또는 해당 자회사)는 Azure Marketplace에서 지원되는 판매 국가에 있습니다.
-
 -   제품은 Azure Marketplace에서 지원되는 청구 모델과 호환되는 방식으로 허가를 받아야 합니다.
-
 -   상업적이고 합리적인 방식으로 고객이 이용할 수 있는 기술 지원을 담당합니다. 이러한 지원은 체험, 유료 또는 커뮤니티 지원을 통해 제공될 수 있습니다.
-
 -   소프트웨어 및 타사 소프트웨어 종속성에 대해 사용 허가를 받을 책임이 있습니다.
-
--   Azure Marketplace 및 Azure 관리 포털에 등재할 제안에 대한 기준에 맞는 콘텐츠를 제공합니다.
-
+-   Azure Marketplace 및 Azure Portal에 나열할 제품에 대한 기준을 충족하는 콘텐츠를 제공합니다.
 -   Azure Marketplace 참가 정책 및 게시자 계약의 조건에 동의합니다.
-
 -   [사용 약관](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft 개인정보처리방침](https://www.microsoft.com/privacystatement/default.aspx) 및 [Microsoft Azure Certified 프로그램 계약](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/)을 준수한다는 데 동의합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
@@ -140,7 +128,7 @@ SKU가 추가되면 SKU 보기의 SKU 목록에 표시됩니다. SKU 세부 정�
 
 ### <a name="hide-this-sku"></a>이 SKU 숨기기
 
-이 설정을 사용하여 SKU 가시성을 관리합니다. "이 SKU 숨기기"가 해제되어 있으면 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Azure Portal](https://portal.azure.com/)에서 SKU가 고객에게 표시됩니다. 구입에 대해 개별적으로 보지 않고 솔루션 템플릿을 통해서만 사용할 수 있도록 하려면 SKU를 숨기는 것이 좋습니다.
+이 설정을 사용하여 SKU 가시성을 관리합니다. “이 SKU 숨기기”가 해제되어 있으면 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Azure Portal](https://portal.azure.com/)에서 SKU가 고객에게 표시됩니다. 구입에 대해 개별적으로 보지 않고 솔루션 템플릿을 통해서만 사용할 수 있도록 하려면 SKU를 숨기는 것이 좋습니다.
 
 ### <a name="cloud-availability"></a>클라우드 가용성
 
@@ -177,9 +165,9 @@ VM에서 실행 중인 소프트웨어에 대한 라이선스를 관리합니다
 
 #### <a name="usage-based-monthly-billed-sku"></a>사용량 기준 월별 청구 SKU
 
-고객은 VM 크기에 대해 게시자가 설정한 비율에 따라 시간당 단위로 요금이 청구됩니다. SKU의 **시간별 청구** 모델에서 총 가격은 게시자가 청구한 소프트웨어 비용에 Microsoft가 청구한 인프라 비용을 합한 값입니다. 이 총 가격은 고객이 구입을 고려할 때 시간별 및 월별 가격으로 표시됩니다. 이 경우 청구는 월별 기준으로 이루어집니다.
+고객은 VM 크기에 대해 게시자가 설정한 비율에 따라 시간당 단위로 요금이 청구됩니다. **시간당 청구** 모델이 사용되는 경우 총 가격은 게시자가 청구한 소프트웨어 비용에 Microsoft가 청구한 인프라 비용을 합한 값입니다. 이 총 가격은 고객이 구입을 고려할 때 시간별 및 월별 가격으로 표시됩니다. 이 경우 청구는 월별 기준으로 이루어집니다.
 
-사용량 기반 모델 내에 고객이 지정해야 하는 추가 설정이 있습니다.
+사용량 기반 모델 내에는 직접 지정해야 하는 추가 설정이 있습니다.
 
 **평가판**
 
@@ -188,21 +176,21 @@ VM에서 실행 중인 소프트웨어에 대한 라이선스를 관리합니다
 
 **코어당 가격**
 
-SKU에 대해 코어당 가격을 설정할 수 있습니다. 이를 위해 고객은 단일 코어에 대한 기준 가격만 입력하면 되며 나머지 코어에 대한 가격은 당사가 자동 계산합니다. 포털에서 USD 단위로 가격을 입력하면 다른 하위 지역에 대한 가격은 자동 계산됩니다. **가격 데이터 내보내기**를 사용하여 다른 하위 지역의 가격을 확인할 수 있습니다.
+SKU에 대해 코어당 가격을 설정할 수 있습니다. 이 옵션의 경우 단일 코어에 대한 기준 가격만 입력하면 되고, 나머지 코어에 대한 가격은 자동 계산됩니다. 포털에서 USD 단위로 가격을 입력하면 다른 하위 지역에 대한 가격은 자동 계산됩니다. **가격 데이터 내보내기**를 사용하여 다른 하위 지역의 가격을 확인할 수 있습니다.
 
 ![코어당 가격](./media/cloud-partner-portal-publish-virtual-machine/publishvm6.png)
 
 
 **불연속 가격**
 
-각 코어의 가격을 별도로 책정하려는 경우 각 코어 집합에 대해 개별적으로 가격을 설정할 수 있습니다.
+각 코어의 가격을 별도로 책정하려는 경우 각 코어 세트에 대해 개별적으로 가격을 설정할 수 있습니다.
 
 ![불연속 가격](./media/cloud-partner-portal-publish-virtual-machine/publishvm7.png)
 
 **가격 내보내기-가져오기**
 
-포털을 통해 구성한 가격을 내보내고 Excel 인터페이스를 통해 변경하는 유연성이 있습니다. 이 방법을 사용하면 하위 지역당 가격 및 현지 통화 단위의 가격을 확인할 수도 있습니다.
-**내보내기-가격**을 클릭하면 가격 정보가 미리 채워진 Excel 파일이 다운로드됩니다. Excel 내에서 이 정보를 편집한 다음 **가져오기-가격**을 사용하여 실행한 변경 내용을 가져올 수 있습니다.
+포털을 통해 구성한 가격을 내보내고 Excel 인터페이스를 통해 변경하는 유연성이 있습니다. 이 옵션을 사용하면 하위 지역당 가격 및 현지 통화 단위의 가격을 확인할 수 있습니다.
+**내보내기-가격**을 클릭하면 가격 책정 세부 정보가 미리 채워진 Excel 파일이 다운로드됩니다. 스프레드시트 내에서 이러한 세부 정보를 편집한 다음, **가져오기-가격**을 사용하여 실행한 변경 내용을 가져올 수 있습니다.
 가져온 가격은 포털에도 반영됩니다.
 
 이 가격 Excel 내에서 서로 다른 하위 지역에 대한 가격은 현지 통화로 나열됩니다. 당사가 사용하는 환율은 매일 새로 고쳐집니다.
@@ -219,24 +207,18 @@ SKU에 대해 코어당 가격을 설정할 수 있습니다. 이를 위해 고�
 
 다음에 수행할 섹션은 VM 이미지 섹션입니다. 이 섹션으로 이동하기 전에 게시할 VHD를 준비 완료해야 합니다. 다음은 VHD를 만드는 데 도움이 되는 몇몇 링크입니다.
 
--   [Azure Marketplace용 가상 머신 이미지를 만들기 위한 기술 필수 조건](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites)
-
+-   [Azure Marketplace용 가상 머신 이미지를 만들기 위한 기술 필수 조건](../cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
 -   [Linux VHD 만들기 및 업로드](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 -   [이미지에서 Linux VM 만들기 및 시험](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
-
 -   [Windows VHD 만들기 및 업로드 ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
-
 -   [이미지에서 Windows VM 만들기 및 시험](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
+-   [VHD를 만드는 동안 발생하는 일반적인 문제 해결 방법](../cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
 
--   [VHD를 만드는 동안 발생하는 일반적인 문제 해결 방법](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting)
-
-VHD를 포함할 준비가 완료되면 이 섹션의 작성을 시작할 수 있습니다.
-다음은 몇몇 필드에 대한 일부 정보입니다.
+VHD를 포함할 준비가 완료되면 이 섹션의 작성을 시작할 수 있습니다.  다음은 몇몇 필드에 대한 일부 정보입니다.
 
 ### <a name="recommended-vm-sizes"></a>권장되는 VM 크기
 
-권장된 가상 머신 크기를 최대 6개까지 선택합니다. 이는 이미지를 구입하여 배포하려는 경우에 Azure Marketplace의 고객 및 Azure Portal의 가격 책정 계층 블레이드에 표시되는 권장 사항입니다. **이는 유일한 권장 사항입니다. 고객은 이미지에 지정된 디스크에 적용되는 VM 크기를 선택할 수 있습니다.**  다음 화면 캡처에서는 고객이 Azure Portal에서 볼 수 있는 권장되는 VM 크기를 보여 줍니다.
+권장된 가상 머신 크기를 최대 6개까지 선택합니다. 이러한 권장 사항은 이미지를 구입하여 배포하려는 경우에 Azure Marketplace 및 Azure Portal의 가격 책정 계층 블레이드에서 고객에게 표시됩니다. *이러한 크기는 권장 사항일 뿐입니다. 고객은 이미지에 지정된 디스크에 적용되는 VM 크기를 선택할 수 있습니다.*  다음 화면 캡처에는 고객이 Azure Portal에서 볼 수 있는 권장되는 VM 크기가 나와 있습니다.
 
 
 ![권장되는 VM 크기](./media/cloud-partner-portal-publish-virtual-machine/publishvm9.png)
@@ -250,7 +232,7 @@ VHD를 포함할 준비가 완료되면 이 섹션의 작성을 시작할 수 �
 
 다음 단계는 SKU에 대한 VM 이미지를 추가하는 것입니다. SKU당 디스크 버전을 최대 8개까지 추가할 수 있습니다. 특정 SKU에 대해 가장 높은 디스크 버전 번호만 Azure Marketplace에 표시됩니다. 다른 번호는 API를 통해 볼 수 있습니다.
 
-**디스크 버전** 아래에서 **+ 새 버전**을 선택합니다. 그러면 작성해야 하는 다음과 같은 필드가 표시됩니다.
+**디스크 버전** 아래에서 **+ 새 버전**을 선택합니다. 이 옵션은 작성해야 하는 다음과 같은 필드를 표시합니다.
 
 #### <a name="vm-image-version"></a>VM 이미지 버전
 
@@ -258,13 +240,13 @@ VM 이미지 버전은 [의미 체계 버전](http://semver.org/) 형식을 따�
 
 #### <a name="os-vhd-url"></a>OS VHD URL
 
-운영 체제 VHD에 대해 만들어진 [공유 액세스 서명 URI](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#52-get-the-shared-access-signature-uri-for-your-vm-images)를 입력합니다.
+운영 체제 VHD에 대해 만들어진 [공유 액세스 서명 URI](../cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)를 입력합니다.
 
 이 SKU와 연결된 데이터 디스크가 있는 경우 **+ 새 데이터 디스크** 링크를 선택하여 이러한 디스크를 추가하도록 선택할 수 있습니다. 이 작업을 수행하면 작성할 추가 필드가 표시됩니다.
 
 #### <a name="lun-vhd-url"></a>LUN VHD URL
 
-데이터 디스크에 대한 [공유 액세스 서명 URI](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#52-get-the-shared-access-signature-uri-for-your-vm-images)를 입력합니다.
+데이터 디스크에 대한 [공유 액세스 서명 URI](../cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)를 입력합니다.
 
 #### <a name="lun-number"></a>LUN 번호
 
@@ -277,16 +259,16 @@ VM 이미지 버전은 [의미 체계 버전](http://semver.org/) 형식을 따�
 
 | 문제                                                                 | Message                                                                           | 해결                                                           |  설명서 링크                                                                                |
 |---------------------------------------------------------------------  |-------------------------------------------------------------------------------    |-----------------------------------------------------------    |---------------------------------------------------------------------------------------------------    |
-| 이미지 복사 중 오류 - "?"가 SAS URL에 없습니다                | 오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.       | 권장 도구를 사용하여 SAS URL 업데이트                    | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
-| 이미지 복사 중 오류 - "st" 및 "se" 매개 변수가 SAS URL에 없습니다   | 오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.        | 시작 및 종료 날짜로 SAS URL 업데이트             | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
-| 이미지 복사 중 오류 - “sp=rl”이 SAS URL에 없습니다                    | 오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.         | "읽기" 및 "나열"로 설정된 사용 권한으로 SAS URL 업데이트     | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
-| 이미지 복사 중 오류 - SAS URL은 VHD 이름에 공백을 포함합니다     | 오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.        | 공백 없이 SAS URL 업데이트                       | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
-| 이미지 복사 중 오류 – SAS URL 권한 부여 오류               | 오류: 이미지 복사 권한 부여 오류로 인해 Blob을 다운로드할 수 없습니다.     | SAS URL 다시 생성                                        | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| 이미지 복사 중 오류 - "?"가 SAS URL에 없습니다                | 실패: 이미지를 복사하는 중. 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.       | 권장 도구를 사용하여 SAS URL 업데이트                    | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| 이미지 복사 중 오류 - "st" 및 "se" 매개 변수가 SAS URL에 없습니다   | 실패: 이미지를 복사하는 중. 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.        | 시작 및 종료 날짜로 SAS URL 업데이트             | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| 이미지 복사 중 오류 - “sp=rl”이 SAS URL에 없습니다                    | 실패: 이미지를 복사하는 중. 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.         | "읽기" 및 "나열"로 설정된 사용 권한으로 SAS URL 업데이트     | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| 이미지 복사 중 오류 - SAS URL은 VHD 이름에 공백을 포함합니다     | 실패: 이미지를 복사하는 중. 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.        | 공백 없이 SAS URL 업데이트                       | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| 이미지 복사 중 오류 – SAS URL 권한 부여 오류               | 실패: 이미지를 복사하는 중. 권한 부여 오류로 인해 Blob을 다운로드할 수 없습니다.     | SAS URL 다시 생성                                        | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
 
 
 ## <a name="to-configure-the-marketplace"></a>Marketplace를 구성하려면
 
-Marketplace 보기를 사용하여 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Azure Portal](https://portal.azure.com/)에서 제안에 대해 표시되는 필드를 구성합니다.
+Marketplace 보기를 사용하여 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Azure Portal](https://portal.azure.com/)에서 제품에 대해 표시되는 필드를 구성합니다.
 
 ### <a name="preview-subscription-ids"></a>미리 보기 구독 ID
 
@@ -294,9 +276,9 @@ Marketplace 보기를 사용하여 [Azure Marketplace](https://azuremarketplace.
 
 ### <a name="suggested-categories"></a>권장 범주
 
-제공된 목록에서 제품이 가장 잘 연결할 수 있는 범주를 5개까지 선택합니다. 선택한 범주는 고객의 제품을 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Azure Portal](https://portal.azure.com/)에서 사용할 수 있는 제품 범주에 매핑하는 데 사용됩니다.
+제공된 목록에서 제품이 가장 잘 연결될 수 있는 범주를 5개까지 선택합니다. 선택한 범주는 제품을 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Azure Portal](https://portal.azure.com/)에서 사용할 수 있는 제품 범주에 매핑하는 데 사용됩니다.
 
-다음 예제에서는 Azure Marketplace 및 Azure Portal에서 마켓플레이스 정보를 보여 줍니다.
+다음 예제에서는 Azure Marketplace 및 Azure Portal에서 Marketplace 정보를 보여줍니다.
 
 **Azure Marketplace**
 
@@ -316,7 +298,6 @@ Marketplace 보기를 사용하여 [Azure Marketplace](https://azuremarketplace.
 ![publishvm12](./media/cloud-partner-portal-publish-virtual-machine/publishvm12.png)
 
 
-
 ![publishvm13](./media/cloud-partner-portal-publish-virtual-machine/publishvm13.png)
 
 
@@ -333,7 +314,7 @@ Cloud 파트너 포털에 업로드되는 로고에 대해 다음 지침을 따�
 
 -   로고의 배경에 그라데이션 효과를 사용하지 마십시오.
 
--   텍스트를 로고 위에 배치하지 않습니다. 여기에는 회사 또는 브랜드 이름이 포함됩니다. 로고의 모양과 느낌은 *평면적*이어야 하며 그라데이션은 사용하지 않습니다.
+-   로고에 회사 또는 브랜드 이름을 포함한 텍스트를 배치하지 않습니다.  로고의 모양과 느낌은 *평면적*이어야 하며 그라데이션은 사용하지 않습니다.
 
 -   로고는 늘릴 수 없습니다.
 
@@ -343,9 +324,9 @@ Cloud 파트너 포털에 업로드되는 로고에 대해 다음 지침을 따�
 
 #### <a name="guidelines-for-the-hero-logo-icon"></a>대표 로고 아이콘에 대한 지침
 
--   게시자 표시 이름, 계획 제목 및 자세한 제안 요약은 흰색 글꼴로 표시됩니다. 밝은색 배경은 사용하지 않습니다. 대표 아이콘에는 검은색, 흰색 및 투명한 배경이 허용되지 않습니다.
+-   게시자 표시 이름, 계획 제목 및 제품의 긴 요약은 흰색 글꼴로 표시됩니다. 밝은색 배경은 사용하지 않습니다. 대표 아이콘에는 검은색, 흰색 및 투명한 배경이 허용되지 않습니다.
 
--   제안이 나열되면 게시자 표시 이름, 계획 제목, 자세한 제안 요약 및 [만들기] 단추가 대표 로고 내에 프로그래밍 방식으로 포함됩니다. 대표 로고를 디자인할 때 텍스트는 입력하지 않습니다. 로고의 오른쪽에 빈 공간을 남겨 둡니다. 이 공간은 415 x 100픽셀이어야 하며 왼쪽에서 370픽셀만큼 오프셋됩니다.
+-   제품이 나열되면 게시자 표시 이름, 계획 제목, 제품의 자세한 요약 및 만들기 단추가 대표 로고 내에 프로그래밍 방식으로 포함됩니다. 대표 로고를 디자인할 때 텍스트는 입력하지 않습니다. 로고의 오른쪽에 빈 공간을 남겨 둡니다. 이 공간은 415 x 100픽셀이어야 하며 왼쪽에서 370픽셀만큼 오프셋됩니다.
 
 ![대표 로고 예제](./media/cloud-partner-portal-publish-virtual-machine/publishvm14.png)
 

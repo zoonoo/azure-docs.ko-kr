@@ -9,17 +9,16 @@ ms.assetid: 9b0fdc59-5bbe-44d1-9ebc-8be14d44def9
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 843b92c20b2ec930ce67659802a4287328a08650
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 77c55657f57af655b5b8154dbcf58472434396a6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618872"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015495"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Azure Portal 및 PowerShell을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -32,7 +31,7 @@ ms.locfileid: "39618872"
 이 문서는 Azure Portal 및 PowerShell을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다.
 
 > [!IMPORTANT]
-> 모니터링 및 관리 응용 프로그램은 데이터 파이프라인 모니터링 및 관리와 문제 해결에 대한 더 나은 지원을 제공합니다. 애플리케이션 사용에 대한 자세한 내용은 [모니터링 및 관리 앱을 사용하여 데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요. 
+> 모니터링 및 관리 애플리케이션은 데이터 파이프라인 모니터링 및 관리와 문제 해결에 대한 더 나은 지원을 제공합니다. 애플리케이션 사용에 대한 자세한 내용은 [모니터링 및 관리 앱을 사용하여 데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요. 
 
 > [!IMPORTANT]
 > Azure Data Factory 버전 1은 이제 새로운 [Azure Monitor 경고 인프라](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)를 사용합니다. 이전의 경고 인프라는 사용되지 않습니다. 따라서 버전 1 데이터 팩터리용으로 구성된 기존의 경고는 더 이상 작동하지 않습니다. v1 데이터 팩터리에 대한 기존의 경고는 자동으로 마이그레이션되지 않습니다. 새 경고 인프라에서 이러한 경고를 다시 만들어야 합니다. Azure Portal에 로그인하고 **모니터**를 선택하여 버전 1 데이터 팩터리의 메트릭(예: 실패한 실행 또는 성공한 실행)에 대한 새 경고를 만듭니다.
@@ -162,7 +161,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 
 ![상태 다이어그램](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-데이터 팩터리의 데이터 집합 상태 전환 흐름에는 Waiting(대기)-> In-Progress/In-Progress (Validating)(진행 중/진행 중(확인 중)) -> Ready/Failed(준비/실패)가 포함됩니다.
+데이터 팩터리의 데이터 세트 상태 전환 흐름은 대기 중 -> 진행 중/진행 중(유효성 검사 중) -> 준비/실패입니다.
 
 조각은 **Waiting**(대기) 상태로 시작하여 실행 전에 사전 조건이 충족되기를 기다립니다. 그런 다음 작업은 실행을 시작하고 조각은 **In-Progress**(진행 중) 상태가 됩니다. 작업 실행이 성공 또는 실패할 수 있습니다. 조각은 실행 결과에 따라 **Ready**(준비) 또는 **Failed**(실패)로 표시됩니다.
 

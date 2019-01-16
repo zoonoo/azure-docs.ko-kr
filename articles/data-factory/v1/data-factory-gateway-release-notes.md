@@ -8,17 +8,16 @@ ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: ac0e1945e75ee7aea346c103a671b4a47b9e5994
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 865bfdae199bca7ebee888be527db239d34511d1
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048617"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017619"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>데이터 관리 게이트웨이에 대한 릴리스 정보
 > [!NOTE]
@@ -43,32 +42,32 @@ ms.locfileid: "37048617"
 ### <a name="enhancements-"></a>향상된 기능
 - 필요한 경우 방화벽의 모든 Azure IP 주소를 허용 목록에 포함하는 대신 DNS 항목을 추가하여 서비스 버스를 허용 목록에 포함할 수 있습니다. Azure Portal에서 각각의 DNS 항목을 찾을 수 있습니다(Data Factory -> '작성자 및 배포' -> '게이트웨이' -> JSON의 “serviceUrls”).
 - 이제 HDFS 커넥터는 SSL 유효성 검사를 건너뛸 수 있도록 하여 자체 서명된 공용 인증서를 지원합니다.
-- 업데이트 중에 클록 오차(clock skew)로 인해 발생하는 게이트웨이 오프라인 문제가 수정되었습니다.
+- 수정됨: 업데이트 중에 클록 오차(clock skew)로 인해 발생하는 게이트웨이 오프라인 문제
 
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>향상된 기능
 -   (필요한 경우) 방화벽의 모든 Azure IP 주소를 허용 목록에 포함하는 대신 DNS 항목을 추가해 Service Bus를 허용 목록에 추가할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 -   이제, 단일 블록 Blob에/에서 데이터를 최대 4.75TB까지 복사할 수 있습니다. 이 크기는 단일 블록 Blob에 대해 지원되는 최대값입니다. 이전에는 195GB까지로 제한되었습니다.
--   복사 작업 중 작은 파일 여러 개의 압축을 푸는 동안 발생하는 메모리 부족 문제가 수정되었습니다.
--   멱등 기능을 사용하여 DocumentDB에서 온-프레미스 SQL Server로 복사하는 중에 범위를 벗어나는 인덱스 문제가 수정되었습니다.
--   SQL 정리 스크립트가 복사 마법사에서 온-프레미스 SQL Server와 작동하지 않는 문제가 수정되었습니다.
--   끝에 공백이 있는 열 이름이 복사되지 않는 문제가 수정되었습니다.
+-   수정됨: 복사 작업 중 작은 파일 여러 개의 압축을 푸는 동안 발생하는 메모리 부족 문제.
+-   수정됨: 멱등 기능을 사용하여 DocumentDB에서 온-프레미스 SQL Server로 복사하는 중에 범위를 벗어나는 인덱스 문제.
+-   수정됨: SQL 정리 스크립트가 복사 마법사에서 온-프레미스 SQL Server와 작동하지 않는 문제.
+-   수정됨: 끝에 공백이 있는 열 이름이 복사되지 않는 문제.
 
 ## <a name="28662833"></a>2.8.66283.3
 ### <a name="enhancements-"></a>향상된 기능
-- 게이트웨이 컴퓨터를 다시 부팅할 때 자격 증명이 누락되는 문제가 수정되었습니다.
-- 백업 파일을 사용하여 게이트웨이를 복원하는 중에 발생하는 등록 문제가 수정되었습니다.
+- 수정됨: 게이트웨이 머신을 다시 부팅할 때 자격 증명이 누락되는 문제.
+- 수정됨: 백업 파일을 사용하여 게이트웨이를 복원하는 중에 발생하는 등록 문제.
 
 
 ## <a name="2762401"></a>2.7.6240.1
 ### <a name="enhancements-"></a>향상된 기능
-- Oracle에서 10진수 null 값을 원본으로 잘못 읽는 문제가 수정되었습니다.
+- 수정됨: Oracle에서 10진수 null 값을 원본으로 잘못 읽는 문제.
 
 ## <a name="2661922"></a>2.6.6192.2
 ### <a name="whats-new"></a>새로운 기능
 - 고객이 게이트웨이 등록 경험에 대한 피드백을 제공할 수 있습니다.
-- 새 압축 형식 지원: ZIP (Deflate)
+- 새 압축 형식 지원: ZIP(Deflate)
 
 ### <a name="enhancements-"></a>향상된 기능
 - Oracle Sink, HDFS 원본에 대한 성능 개선

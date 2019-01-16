@@ -12,15 +12,15 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 01/07/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: a1d733e918d4b53ea9dd220f5e379e0c8133c03a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 787c10ab75a3534a73e04f1bd60462ea02fcf42a
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540659"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191720"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 계산 노드에 대한 VM 크기 선택
 
@@ -42,6 +42,16 @@ Virtual Machine 구성의 Batch 풀은 다음을 *제외한* 모든 VM 크기([L
 | 기본 A 시리즈 | Basic_A0(A0) |
 | A 시리즈 | Standard_A0 |
 | B 시리즈 | 모두 |
+| DC 시리즈 | 모두 | 
+| 익스트림 메모리 최적화 | 모두 |
+| Hb 시리즈<sup>1</sup> | 모두 | 
+| Hc 시리즈<sup>1</sup> | 모두 |
+| Lsv2 시리즈 | 모두 |
+| NDv2 시리즈<sup>1</sup> | 모두 |
+| NVv2 시리즈<sup>1</sup> | 모두 |
+| SAP HANA | 모두 |
+
+<sup>1</sup>현재는 지원하지 않지만 향후 지원할 예정입니다.
 
 다음 VM 시리즈는 낮은 우선 순위 노드에서만 지원됩니다.
 

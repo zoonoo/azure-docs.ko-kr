@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 797cef2d3a0e2cfeb28411c30a7da8a5b6f2d953
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 79ad4b3598c227ad2c2e3b76562cf95a30e82ad3
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834522"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101550"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>다른 Azure 지역으로 Azure 가상 머신 복제
 
@@ -49,7 +49,7 @@ ms.locfileid: "52834522"
     - **대상 위치**: 원본 가상 머신 데이터가 복제될 위치입니다. 선택한 컴퓨터 위치에 따라 Site Recovery에서 적합한 대상 지역 목록을 제공합니다. 대상 위치를 Recovery Services 자격 증명 모음 위치와 동일하게 유지하는 것이 좋습니다.
     - **대상 구독**: 재해 복구에 사용되는 대상 구독입니다. 기본적으로 대상 구독은 원본 구독과 동일합니다.
     - **대상 리소스 그룹**: 모든 복제된 가상 머신이 속하는 리소스 그룹입니다. 기본적으로 Azure Site Recovery는 "asr" 접미사를 사용하여 대상 지역에 새 리소스 그룹을 만듭니다. Azure Site Recovery에서 만든 리소스 그룹이 이미 있는 경우 해당 리소스 그룹이 재사용 됩니다. 아래 섹션처럼 리소스 그룹을 사용자 지정할 수도 있습니다. 원본 가상 머신이 호스트되는 지역을 제외한 모든 Azure 지역이 대상 리소스 그룹의 위치가 될 수 있습니다.
-    - **대상 가상 네트워크**: 기본적으로 Site Recovery는 “asr” 접미사를 사용하여 대상 지역에 새 가상 네트워크를 만듭니다. 이 가상 네트워크는 원본 네트워크에 매핑되고 이후의 모든 보호를 위해 사용됩니다. [자세히 알아봅니다](site-recovery-network-mapping-azure-to-azure.md) 를 확인해 보세요.
+    - **대상 가상 네트워크**: 기본적으로 Site Recovery는 "asr" 접미사를 사용하여 대상 지역에 새 가상 네트워크를 만듭니다. 이 가상 네트워크는 원본 네트워크에 매핑되고 이후의 모든 보호를 위해 사용됩니다. [자세히 알아봅니다](site-recovery-network-mapping-azure-to-azure.md) 를 확인해 보세요.
     - **대상 스토리지 계정(원본 VM이 관리 디스크를 사용하지 않는 경우)**: 기본적으로 Site Recovery는 원본 VM 스토리지 구성을 모방하는 새 대상 스토리지 계정을 만듭니다. 저장소 계정이 이미 있는 경우 다시 사용됩니다.
     - **복제본 관리 디스크(원본 VM이 관리 디스크를 사용하는 경우)**: Site Recovery는 대상 지역에 새로운 복제본 관리 디스크를 만들어서 원본 VM의 관리 디스크와 동일한 스토리지 유형(표준 또는 프리미엄)을 원본 VM의 관리 디스크로 미러링합니다.
     - **캐시 스토리지 계정**: Site Recovery는 원본 지역에 캐시 스토리지로 불리는 추가 스토리지 계정이 필요합니다. 원본 VM에서 발생하는 모든 변경 내용이 대상 위치로 복제되기 전에 추적되고 캐시 저장소 계정으로 전송됩니다.
@@ -65,7 +65,7 @@ ms.locfileid: "52834522"
     - **복제 정책**: 복구 지점 보존 기록 및 앱 일치 스냅숏 빈도에 대한 설정을 정의합니다. 기본적으로 Azure Site Recovery는 복구 지점 보존의 경우 '24시간', 앱 일치 스냅숏 빈도의 경우 '60분'인 기본 설정으로 새 복제 정책을 만듭니다.
 
     ![복제 사용](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
-
+  
 ## <a name="customize-target-resources"></a>대상 리소스 사용자 지정
 
 Site Recovery에서 사용되는 기본 대상 설정을 수정할 수 있습니다.
@@ -79,7 +79,13 @@ Site Recovery에서 사용되는 기본 대상 설정을 수정할 수 있습니
     - **대상 저장소 계정**에서 사용할 계정을 선택합니다.
 
         ![복제 사용](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
-
+1. **사용자 지정**을 클릭하여 복제 설정을 수정합니다.
+   - **다중 VM 일관성**에서 함께 복제하려는 VM을 선택합니다. 
+   - 복제 그룹의 모든 컴퓨터는 장애 조치(failover) 시에 충돌 일치/앱 일치 복구 지점을 공유합니다. 다중 VM 일관성을 사용하도록 설정하면 워크로드 성능에 영향을 줄 수 있으며(CPU 집약적이므로), 머신에서 동일한 워크로드를 실행하며 여러 머신에서 일관성이 필요한 경우에만 사용해야 합니다. 예를 들어 애플리케이션에 두 개의 SQL 가상 머신과 두 개의 웹 서버가 있는 경우 SQL 가상 머신만 복제 그룹의 일부로 추가해야 합니다.
+   - 복제 그룹에 최대 16개의 가상 머신이 포함되도록 선택할 수 있습니다.
+   - 다중 VM 일관성을 사용하도록 설정하면 복제 그룹의 컴퓨터는 20004 포트를 통해 서로 통신하게 됩니다. 20004 포트를 통한 VM 간의 내부 통신을 차단하는 방화벽 어플라이언스가 없는지 확인합니다. Linux VM을 복제 그룹에 포함하고 싶다면 특정 Linux 버전의 지침에 따라 20004 포트의 아웃바운드 트래픽을 수동으로 열어야 합니다.
+![복제 활성화](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
+    
 2. **대상 리소스 만들기** > **복제 사용**을 클릭합니다.
 3. VM이 복제에 대해 사용하도록 설정된 후 **복제된 항목**에서 VM 상태를 확인할 수 있습니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 2374df3a457e0f4730dcaa6d69ea3f2e0fa6e9cc
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 4a8c7309a07238ef3410e42c3d631ad525f023cc
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163211"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039795"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>템플릿을 사용하여 IPv6로 인터넷 연결 부하 분산 장치 솔루션을 배포합니다.
 
@@ -133,3 +133,7 @@ Azure Resource Manager 템플릿은 요구에 맞게 사용자 지정할 수 있
 | lbName |부하 분산 장치의 이름을 지정합니다. 이 이름은 포털에 표시되거나 CLI 또는 PowerShell 명령을 사용하여 참조할 때 사용됩니다. |
 
 템플릿의 나머지 변수는 Azure가 리소스를 만들 때 할당되는 파생 값을 포함합니다. 이러한 변수를 변경하지 마십시오.
+
+## <a name="next-steps"></a>다음 단계
+
+템플릿에서 부하 분산 장치의 JSON 구문 및 속성은 [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers)를 참조하세요.

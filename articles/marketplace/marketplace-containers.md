@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5eb30c65032332825d05097f86d0275b015a8929
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6b02714c3a62e8d11512c1cc2dfc7a75a422441d
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057585"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076385"
 ---
 # <a name="containers-offer-publishing-guide"></a>컨테이너 제품 게시 가이드
 
@@ -40,16 +40,17 @@ Microsoft는 현재 무료 및 BYOL(사용자 라이선스 필요) 라이선스 
 |:--- |:--- |  
 | 청구 및 계량 | 무료 또는 BYOL 청구 모델을 지원합니다. |  
 | Dockerfile에서 작성된 이미지 | 컨테이너 이미지는 Docker 이미지 사양을 기반으로 해야 하며 Dockerfile에서 작성해야 합니다.<ul> <li>Docker 이미지를 빌드하는 방법에 대한 자세한 내용은 [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage)에 있는 사용법 섹션으로 이동합니다.</li> </ul> |  
-| ACR에서 호스팅 | 컨테이너 이미지는 Azure Container Registry(ACR) 리포지토리에서 호스팅되어야 합니다.<ul> <li>ACR을 사용하는 방법에 대한 자세한 내용은 [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)에 있는 빠른 시작: Azure Portal을 사용하여 컨테이너 레지스트리 만들기로 이동합니다.</li> </ul> |  
-| 이미지 태그 지정 | 컨테이너 이미지는 최소 1개 이상의 태그를 포함해야 합니다(최대 태그: 16).<ul> <li>이미지를 태그하는 방법에 대한 자세한 내용은 [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag)에 있는 Docker 태그 페이지로 이동합니다.</li> </ul> |  
+| ACR에서 호스팅 | 컨테이너 이미지는 Azure Container Registry(ACR) 리포지토리에서 호스팅되어야 합니다.<ul> <li>ACR을 사용하는 방법에 대한 자세한 내용은 [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)에 있는 빠른 시작: Azure Portal 페이지를 사용하여 컨테이너 레지스트리 만들기로 이동합니다.</li> </ul> |  
+| 이미지 태그 지정 | 컨테이너 이미지는 최소 1개 태그를 포함해야 합니다(최대 태그: 16).<ul> <li>이미지를 태그하는 방법에 대한 자세한 내용은 [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag)에 있는 Docker 태그 페이지로 이동합니다.</li> </ul> |  
 
 
 ## <a name="next-steps"></a>다음 단계
 
 아직 수행하지 않았다면 
 
-- Marketplace에서 [등록](https://azuremarketplace.microsoft.com/sell)
+- Marketplace에 [등록](https://azuremarketplace.microsoft.com/sell).
 
 새 제품을 등록하고 만들거나 기존에서 작업하는 경우
 
-- 제품을 만들거나 완료하기 위해 [Cloud 파트너 포털에 로그인](https://cloudpartner.azure.com)
+- 제품을 만들거나 완료하기 위해 [Cloud 파트너 포털에 로그인](https://cloudpartner.azure.com).
+- 자세한 내용은 [컨테이너](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer)를 참조하세요.

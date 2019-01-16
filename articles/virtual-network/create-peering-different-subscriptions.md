@@ -1,13 +1,10 @@
 ---
-title: Azure 가상 네트워크 피어링 만들기 - 리소스 관리자 - 서로 다른 구독 | Microsoft Docs
+title: Azure 가상 네트워크 피어링 만들기 - Resource Manager, 서로 다른 구독
+titlesuffix: Azure Virtual Network
 description: 리소스 관리자를 통해 서로 다른 Azure 구독에 존재하는 가상 네트워크 간에 가상 네트워크 피어링을 만드는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 04ed8e0e99f0aba4ca067700f8a651b6d6c52423
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f06f0b5392ebb60cd852d3c2eb201478b31ae167
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727480"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014969"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>가상 네트워크 피어링 만들기 - 리소스 관리자, 서로 다른 구독
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: f58d08629fcde791186d27ae09e7417453faf8ad
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0276ccdec19e130da59cd215769d2ea17273f1c2
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52585768"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54084041"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>지원되는 운영 체제 및 드라이버
 
@@ -36,5 +36,5 @@ Microsoft는 가상 워크스테이션으로 사용되는 NV 및 NVv2 시리즈 
 
 | OS | 드라이버 |
 | -------- |------------- |
-| Windows Server 2016<br/><br/>윈도우 10 | [GRID 7(411.81)](https://go.microsoft.com/fwlink/?linkid=874181)(.exe) |
+| Windows Server 2016<br/><br/>Windows 10(1803 버전까지) | [GRID 7(411.81)](https://go.microsoft.com/fwlink/?linkid=874181)(.exe) |
 | Windows Server 2012 R2 | [GRID 7(411.81)](https://go.microsoft.com/fwlink/?linkid=874184)(.exe)  |

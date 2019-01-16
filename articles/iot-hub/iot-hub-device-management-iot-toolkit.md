@@ -1,25 +1,24 @@
 ---
-title: Visual Studio Code용 Azure IoT Hub Toolkit 확장을 사용한 Azure IoT 디바이스 관리 | Microsoft Docs
-description: Direct 메서드와 Twin의 desired 속성 관리 옵션을 제공하는 Visual Studio Code용 Azure IoT Hub Toolkit 확장을 사용하여 Azure IoT Hub 디바이스를 관리합니다.
+title: Visual Studio Code용 Azure IoT Tools를 사용한 Azure IoT 디바이스 관리 | Microsoft Docs
+description: Direct 메서드와 Twin의 desired 속성 관리 옵션을 제공하는 Visual Studio Code용 Azure IoT Tools를 사용하여 Azure IoT Hub 디바이스를 관리합니다.
 author: formulahendry
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: arduino
-ms.date: 8/3/2018
+ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 4b7de0652172de5120e88e7c597fc31037ddbbb3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: ec19045892b975fed7611c7747fa7b2bb4b1515c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339572"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051139"
 ---
-# <a name="use-azure-iot-hub-toolkit-extension-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Visual Studio Code용 Azure IoT Hub Toolkit 확장을 사용하여 Azure IoT Hub 디바이스 관리
+# <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Visual Studio Code용 Azure IoT Tools를 사용한 Azure IoT Hub 디바이스 관리
 
 ![종단 간 다이어그램](media/iot-hub-get-started-e2e-diagram/2.png)
 
-[Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)(이전의 Azure IoT Toolkit)은 IoT Hub 관리를 쉽게 해주는 유용한 Visual Studio Code 확장입니다. 다양한 작업을 수행하는 데 사용할 수 있는 관리 옵션이 제공됩니다.
+[Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)는 IoT Hub 관리 및 IoT 애플리케이션 개발을 더욱 용이하게 해주는 유용한 Visual Studio Code 확장입니다. 다양한 작업을 수행하는 데 사용할 수 있는 관리 옵션이 제공됩니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -36,18 +35,18 @@ ms.locfileid: "53339572"
 
 ## <a name="what-you-learn"></a>학습 내용
 
-배포 머신에서 다양한 관리 옵션으로 Visual Studio Code용 Azure IoT Hub Toolkit 확장을 사용하는 방법에 대해 알아봅니다.
+배포 머신에서 다양한 관리 옵션으로 Visual Studio Code용 Azure IoT Tools를 사용하는 방법에 대해 알아봅니다.
 
 ## <a name="what-you-do"></a>수행할 작업
 
-다양한 관리 옵션으로 Visual Studio Code용 Azure IoT Hub Toolkit 확장을 실행합니다.
+다양한 관리 옵션으로 Visual Studio Code용 Azure IoT Tools를 실행합니다.
 
 ## <a name="what-you-need"></a>필요한 항목
 
 * 활성 Azure 구독.
 * 구독 중인 Azure IoT Hub
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
+* [VS Code용 Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>로그인하여 IoT Hub에 액세스
 
@@ -98,6 +97,6 @@ IoT Hub에서 디바이스로 메시지를 보내려면 다음 단계를 수행�
 
 ## <a name="next-steps"></a>다음 단계
 
-다양한 관리 옵션으로 Visual Studio Code용 Azure IoT Hub Toolkit 확장을 사용하는 방법에 대해 알아보았습니다.
+다양한 관리 옵션으로 Visual Studio Code용 Azure IoT Tools 확장을 사용하는 방법에 대해 알아보았습니다.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

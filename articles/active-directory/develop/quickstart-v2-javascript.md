@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: d044b1ad18df6eee1235e881038bbb9734a999ff
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 99ea7e7db9d0cc80bfd37a256fc1be388feaa530
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317350"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043892"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>빠른 시작: JavaScript 애플리케이션에서 사용자 로그인 및 액세스 토큰 획득
 
@@ -31,14 +31,25 @@ ms.locfileid: "52317350"
 ![이 빠른 시작에서 생성된 샘플 앱의 작동 방식](media/quickstart-v2-javascript/javascriptspa-intro.png)
 
 > [!div renderon="docs"]
-> ## <a name="register-your-application-and-download-your-quickstart-app"></a>애플리케이션을 등록 및 빠른 시작 앱 다운로드
+> ## <a name="register-and-download-your-quickstart-application"></a>빠른 시작 애플리케이션 등록 및 다운로드
+> 빠른 시작 애플리케이션을 시작하는 옵션은 두 가지가 있습니다.
+> * [기본] [옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [수동] [옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성](#option-2-register-and-manually-configure-your-application-and-code-sample)
+>
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
+>
+> 1. [Azure Portal - 애플리케이션 등록(미리 보기)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs)으로 이동합니다.
+> 1. 애플리케이션 이름을 입력하고 **등록**을 클릭합니다.
+> 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
+>
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성
 >
 > #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 >
-> 1. [Azure Portal](https://portal.azure.com/)에 로그인하여 응용 프로그램을 등록합니다.
+> 1. [Azure Portal](https://portal.azure.com/)에 로그인하여 애플리케이션을 등록합니다.
 > 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 > 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록(미리 보기) > 새 등록**을 차례로 선택합니다.
-> 1. **응용 프로그램 등록** 페이지가 나타나면 응용 프로그램의 이름을 입력합니다.
+> 1. **애플리케이션 등록** 페이지가 나타나면 애플리케이션의 이름을 입력합니다.
 > 1. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 선택합니다.
 > 1. **리디렉션 URI** 섹션 아래에서 **웹** 플랫폼을 선택하고 해당 값을 `http://localhost:30662/`로 설정합니다.
 > 1. 작업을 마쳤으면 **등록**을 선택합니다.  앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
@@ -53,9 +64,9 @@ ms.locfileid: "52317350"
 > > [이러한 변경 내용 적용]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![이미 구성됨](media/quickstart-v2-javascript/green-check.png) 이러한 특성을 사용하여 응용 프로그램을 구성합니다.
+> > ![이미 구성됨](media/quickstart-v2-javascript/green-check.png) 이러한 특성을 사용하여 애플리케이션을 구성합니다.
 
-#### <a name="step-2-download-the-project"></a>2단계: 프로젝트 다운로드
+#### <a name="step-2-download-the-project"></a>2단계: 프로젝트를 다운로드합니다.
 
 개발 환경에 적합한 이러한 옵션 중 하나를 선택할 수 있습니다.
 * [웹 서버(예: Node.js)에 대한 주요 프로젝트 파일 다운로드](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
@@ -82,14 +93,14 @@ var applicationConfig = {
 > [!div renderon="docs"]
 >
 > 위치:
-> - `Enter_the_Application_Id_here` - 등록한 응용 프로그램의 **응용 프로그램(클라이언트) ID**입니다.
+> - `Enter_the_Application_Id_here` - 등록한 애플리케이션의 **애플리케이션(클라이언트) ID**입니다.
 > - `Enter_the_Tenant_Info_Here` - 다음 옵션 중 하나로 설정됩니다.
 >   - 애플리케이션이 **이 조직 디렉터리의 계정**을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
 >   - 애플리케이션이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
 >   - 애플리케이션이 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 지원하는 경우 이 값을 `common`으로 바꿉니다.
 >
 > > [!TIP]
-> > **응용 프로그램(클라이언트) ID**, **디렉터리(테넌트) ID** 및 **지원되는 계정 유형**의 값을 찾아보려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다.
+> > **애플리케이션(클라이언트) ID**, **디렉터리(테넌트) ID** 및 **지원되는 계정 유형**의 값을 찾아보려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다.
 
 > [!NOTE]
 > 서버는 [Node.js](https://nodejs.org/en/download/) 프로젝트의 *server.js* 파일 및 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 프로젝트의 *.csproj* 파일에서 30662 포트를 수신 대기하도록 구성됩니다.

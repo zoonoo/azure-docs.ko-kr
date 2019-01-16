@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: spelluru
-ms.openlocfilehash: 9c88ea7433232b62c006c908cd2768d318d36d43
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 292f8ae1821cdcc4fd6274808b53454ec51eaea0
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854051"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157402"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Azure Service Bus 메시지 프리페치
 
-*프리페치*를 공식적인 Service Bus 클라이언트에서 사용하도록 설정하면 수신기는 응용 프로그램이 처음에 요청한 수준을 넘어 [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) 제한까지 더 많은 메시지를 자동으로 획득합니다.
+*프리페치*를 공식적인 Service Bus 클라이언트에서 사용하도록 설정하면 수신기는 애플리케이션이 처음에 요청한 수준을 넘어 [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) 제한까지 더 많은 메시지를 자동으로 획득합니다.
 
 따라서 단일 초기 [Receive](/dotnet/api/microsoft.servicebus.messaging.queueclient.receive) 또는 [ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) 호출은 가능한 한 빠르게 반환되는 메시지를 즉시 사용하기 위해 획득합니다. 그런 후 클라이언트는 백그라운드에서 추가 메시지를 획득하여 프리페치 버퍼를 채웁니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "48854051"
 
 프리페치는 애플리케이션을 요청할 때 및 그 전에 메시지를 로컬로 쉽게 검색할 수 있도록 하여 메시지 흐름 속도를 높입니다. 이러한 처리량 혜택은 애플리케이션 작성자가 명시적으로 수행해야 하는 절충의 결과입니다.
 
-[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) 수신 모드를 사용할 경우 프리페치 버퍼로 획득되는 모든 메시지는 큐에서 더 이상 사용할 수 없으며 **Receive**/**ReceiveAsync** 또는 **OnMessage**/**OnMessageAsync** API를 통해 응용 프로그램에 수신될 때까지 메모리 내 프리페치 버퍼에만 상주합니다. 메시지가 애플리케이션에 수신되기 전에 애플리케이션이 종료되면 해당 메시지는 복구할 수 없게 손실됩니다.
+[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) 수신 모드를 사용할 경우 프리페치 버퍼로 획득되는 모든 메시지는 큐에서 더 이상 사용할 수 없으며 **Receive**/**ReceiveAsync** 또는 **OnMessage**/**OnMessageAsync** API를 통해 애플리케이션에 수신될 때까지 메모리 내 프리페치 버퍼에만 상주합니다. 메시지가 애플리케이션에 수신되기 전에 애플리케이션이 종료되면 해당 메시지는 복구할 수 없게 손실됩니다.
 
 [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) 수신 모드에서 프리페치 버퍼로 가져온 메시지는 잠금 상태에서 버퍼로 인출되며 시간 제한 클럭이 잠금 시간을 계산합니다. 프리페치 버퍼가 크고 처리하는 데 너무 오래 걸려서 메시지가 프리페치 버퍼에 상주하는 동안 또는 심지어 애플리케이션이 메시지를 처리하는 동안에도 메시지 잠금이 만료되는 경우 애플리케이션이 처리할 이벤트에 혼동이 발생할 수 있습니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Logic Apps용 온-프레미스 데이터 원본에 액세스 | Microsoft Docs
-description: 논리 앱에서 온-프레미스 데이터 원본에 액세스할 수 있도록 온-프레미스 데이터 게이트웨이를 만들고 설정합니다.
+title: Azure Logic Apps에서 온-프레미스 데이터 원본에 액세스 | Microsoft Docs
+description: 온-프레미스 데이터 게이트웨이를 만들어 논리 앱에서 온-프레미스 데이터 원본에 연결
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,16 +9,19 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: e8e8d85d2c95c1dda7271de72491594562b7d3c1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 2b9e1c153c3fa9b17145eb6c3c8f3ed02e3bf40f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413709"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064069"
 ---
-# <a name="connect-to-data-sources-on-premises-from-azure-logic-apps-with-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이를 사용하여 Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
+# <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 
-논리 앱에서 온-프레미스 데이터 원본에 액세스하려는 경우 논리 앱에서 [온-프레미스 커넥터](../logic-apps/logic-apps-gateway-install.md#supported-connections)를 사용할 수 있도록 Azure에서 데이터 게이트웨이 리소스를 만들 수 있습니다. 이 문서에서는 [로컬 컴퓨터에서 게이트웨이를 다운로드하여 설치](../logic-apps/logic-apps-gateway-install.md)한 *후* Azure 게이트웨이 리소스를 만드는 방법을 보여 줍니다. 
+논리 앱에서 온-프레미스 데이터 원본에 액세스하려면 Azure Portal에서 온-프레미스 데이터 게이트웨이 리소스를 만듭니다. 그러면 논리 앱은 [온-프레미스 커넥터](../logic-apps/logic-apps-gateway-install.md#supported-connections)를 사용할 수 있습니다. 이 문서에서는 [로컬 컴퓨터에서 게이트웨이를 다운로드하여 설치](../logic-apps/logic-apps-gateway-install.md)한 *후* Azure 게이트웨이 리소스를 만드는 방법을 보여 줍니다. 
+
+> [!TIP]
+> Azure Virtual Network에 연결하려면 대신 [*통합 서비스 환경*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만드는 것을 고려합니다. 
 
 다른 서비스에서 게이트웨이를 사용하는 방법에 대한 내용은 다음 문서를 참조하세요.
 
@@ -65,7 +68,7 @@ ms.locfileid: "50413709"
    | **Name** | 게이트웨이 리소스의 이름입니다. | 
    | **구독** | 논리 앱과 동일한 구독이어야 하는 Azure 구독의 이름입니다. 기본 구독은 로그인하는 데 사용한 Azure 계정을 기준으로 합니다. | 
    | **리소스 그룹** | 관련 리소스를 구성하기 위한 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름입니다. | 
-   | **위치**: | Azure에서는 이 위치를 [게이트웨이 설치](../logic-apps/logic-apps-gateway-install.md) 중에 게이트웨이 클라우드 서비스에 대해 선택한 동일한 지역으로 제한합니다. <p>**참고**: 게이트웨이 리소스 위치가 게이트웨이 클라우드 서비스 위치와 일치하는지 확인합니다. 그렇지 않은 경우 게이트웨이 설치는 다음 단계에서 선택하도록 설치된 게이트웨이 목록에 나타나지 않을 수 있습니다. 게이트웨이 리소스 및 논리 앱에 서로 다른 지역을 사용할 수 있습니다. | 
+   | **위치**: | Azure에서는 이 위치를 [게이트웨이 설치](../logic-apps/logic-apps-gateway-install.md) 중에 게이트웨이 클라우드 서비스에 대해 선택한 동일한 지역으로 제한합니다. <p>**참고**: 이 게이트웨이 리소스 위치가 게이트웨이 클라우드 서비스 위치와 일치하는지 확인합니다. 그렇지 않은 경우 게이트웨이 설치는 다음 단계에서 선택하도록 설치된 게이트웨이 목록에 나타나지 않을 수 있습니다. 게이트웨이 리소스 및 논리 앱에 서로 다른 지역을 사용할 수 있습니다. | 
    | **설치 이름** | 게이트웨이 설치가 선택되어 있지 않으면 이전에 설치한 게이트웨이를 선택합니다. | 
    | | | 
 

@@ -10,16 +10,15 @@ ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: c7cd9dfa019ca0d8560833b10a3e8a1a37a1e1ac
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4d897512e5c53222cb77906200e1a33e2eeec78e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296553"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074056"
 ---
 # <a name="authentication-requests-and-responses"></a>인증, 요청 및 응답
 
@@ -69,7 +68,7 @@ Azure Key Vault는 JSON 형식 요청과 응답을 지원합니다. Azure Key Va
 
 -   3xx – 리디렉션: 조건부 GET을 충족하기 위해 304 “수정되지 않음”이 반환될 수 있습니다. 나중에 DNS 및 경로 변경을 나타내기 위해 다른 3xx 코드가 사용될 수 있습니다.  
 
--   4xx - 클라이언트 오류: 잘못된 요청, 누락된 키, 구문 오류, 잘못된 매개 변수, 인증 오류 등에 사용됩니다. 응답 본문에는 자세한 오류 설명이 포함됩니다.  
+-   4xx – 클라이언트 오류: 잘못된 요청, 누락된 키, 구문 오류, 잘못된 매개 변수, 인증 오류 등에 사용됩니다. 응답 본문에는 자세한 오류 설명이 포함됩니다.  
 
 -   5xx – 서버 오류: 내부 서버 오류에 사용됩니다. 응답 본문에는 요약된 오류 정보가 포함됩니다.  
 

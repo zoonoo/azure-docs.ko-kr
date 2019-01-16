@@ -16,12 +16,12 @@ ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 18de5ce2f47b6593d4c8556af045f14ade957fb9
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 164fc42d905c9354a58ea6f66a739ea05f12e601
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979236"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157771"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory 액세스 토큰
 
@@ -38,7 +38,7 @@ ms.locfileid: "50979236"
 
 ## <a name="sample-tokens"></a>샘플 토큰
 
-v1.0 및 v2.0 토큰은 매우 유사하며 많은 동일한 클레임을 포함합니다. 각각의 예는 다음과 같습니다.
+v1.0 및 v2.0 토큰은 유사하며 많은 동일한 클레임을 포함합니다. 각각의 예는 다음과 같습니다.
 
 ### <a name="v10"></a>v1.0
 
@@ -79,7 +79,7 @@ JWT는 세 부분으로 분할됩니다.
 | `nonce` | 문자열 | 토큰 재생 공격으로부터 보호하기 위해 사용되는 고유 식별자입니다. 리소스에서 이 값을 기록하면 재생을 방지할 수 있습니다. |
 | `alg` | 문자열 | 토큰에 서명하는 데 사용된 알고리즘을 나타냅니다(예: "RS256"). |
 | `kid` | 문자열 | 이 토큰에 서명하는 데 사용되는 공개 키의 지문을 지정합니다. v1.0 및 v2.0 액세스 토큰으로 내보냅니다. |
-| `x5t` | 문자열 | 사용 및 값에서 `kid`와 동일하게 작동합니다. 호환성을 위해 v1.0 액세스 토큰으로만 내보내는 레거시 클레임입니다. |
+| `x5t` | 문자열 | 사용 및 값에서 `kid`와 동일하게 작동합니다. `x5t`는 호환성을 위해 v1.0 액세스 토큰으로만 내보내는 레거시 클레임입니다. |
 
 ### <a name="payload-claims"></a>페이로드 클레임
 
@@ -121,7 +121,7 @@ JWT는 세 부분으로 분할됩니다.
 | 클레임 | 형식 | 설명 |
 |-----|--------|-------------|
 | `ipaddr`| 문자열 | 사용자가 인증된 IP 주소입니다. |
-| `onprem_sid`| 문자열, [SID 형식](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | 사용자에게 온-프레미스 인증이 있는 경우 이 클레임이 해당 SID를 제공합니다. 레거시 애플리케이션에서 권한 부여에 사용할 수 있습니다. |
+| `onprem_sid`| 문자열, [SID 형식](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | 사용자에게 온-프레미스 인증이 있는 경우 이 클레임이 해당 SID를 제공합니다. 레거시 애플리케이션에서 권한 부여에 `onprem_sid`를 사용할 수 있습니다. |
 | `pwd_exp`| int, UNIX 타임스탬프 | 사용자의 암호가 만료되는 시기를 나타냅니다. |
 | `pwd_url`| 문자열 | 암호를 재설정하도록 사용자에게 보낼 수 있는 URL입니다. |
 | `in_corp`|부울 | 클라이언트가 회사 네트워크에서 로그인하는 경우 알립니다. 아닌 경우, 클레임은 포함되지 않습니다. |

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 02c2b7560a0a609f6d902af78877d5f0236615d3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5774af4e0550ceb7a51e399fcab203a503a7f23f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011496"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033607"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>미리 보기: Azure AD 암호 보호 배포
 
@@ -86,6 +86,9 @@ Azure AD 암호 보호에 필요한 두 가지 설치 관리자가 있으며, [M
 2. AzureADPasswordProtectionProxy.msi MSI 패키지를 사용하여 암호 정책 프록시 서비스 소프트웨어를 설치합니다.
    * 소프트웨어가 설치되면 다시 부팅할 필요가 없습니다. 소프트웨어 설치는 표준 MSI 절차(예: `msiexec.exe /i AzureADPasswordProtectionProxy.msi /quiet /qn`)를 사용하여 자동화할 수 있습니다.
 
+      > [!NOTE]
+      > AzureADPasswordProtectionProxy.msi MSI 패키지를 설치하기 전에 Windows 방화벽 서비스가 실행 중이어야 합니다. 그렇지 않으면 설치 오류가 발생합니다. Windows 방화벽이 실행되지 않도록 구성된 경우 해결 방법은 설치 프로세스 중에 Windows 방화벽 서비스를 일시적으로 사용하도록 설정하고 시작하는 것입니다. 프록시 소프트웨어는 설치 후 Windows 방화벽 소프트웨어에 특별히 의존하지 않습니다. 타사 방화벽을 사용 중인 경우에도 배포 요구 사항에 맞게 구성되어 있어야 합니다(포트 135 및 프록시 RPC 서버 포트에 대한 동적 또는 정적 인바운드 액세스 허용). [배포 요구 사항 참조](howto-password-ban-bad-on-premises-deploy.md#deployment-requirements)
+
 3. 관리자 권한으로 PowerShell 창을 엽니다.
    * Azure AD 암호 보호 프록시 소프트웨어에는 AzureADPasswordProtection이라는 새 PowerShell 모듈이 포함되어 있습니다. 다음 단계는 이 PowerShell 모듈에서 다양한 cmdlet을 실행하는 것을 기반으로 하며, 새 PowerShell 창을 열고 다음과 같이 새 모듈을 가져왔다고 가정합니다.
       * `Import-Module AzureADPasswordProtection`
@@ -142,7 +145,7 @@ Azure AD 암호 보호에 필요한 두 가지 설치 관리자가 있으며, [M
    > [!NOTE]
    > `Register-AzureADPasswordProtectionForest`가 최소 Windows Server 2012 이상에서 성공하려면 도메인 컨트롤러를 프록시 서버의 도메인에서 사용할 수 있어야 합니다. 그러나 이 단계 전에 DC 에이전트 소프트웨어가 모든 도메인 컨트롤러에 설치돼야 한다는 요구 사항은 없습니다.
 
-6. 옵션: Azure AD 암호 보호 프록시 서비스가 특정 포트에서 수신 대기하도록 구성합니다.
+6. 선택 사항: Azure AD 암호 보호 프록시 서비스가 특정 포트에서 수신 대기하도록 구성합니다.
    * TCP를 통한 RPC는 도메인 컨트롤러의 Azure AD 암호 보호 DC 에이전트 소프트웨어에서 Azure AD 암호 보호 프록시 서비스와 통신하는 데 사용됩니다. 기본적으로 Azure AD 암호 보호 암호 정책 프록시 서비스는 사용 가능한 모든 동적 RPC 엔드포인트에서 수신 대기합니다. 네트워킹 토폴로지 또는 방화벽 요구 사항에 따라 필요한 경우 특정 TCP 포트에서 수신 대기하도록 서비스를 대신 구성할 수 있습니다.
       * 정적 포트에서 실행되도록 서비스를 구성하려면 `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet을 사용합니다.
          ```

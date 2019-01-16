@@ -8,12 +8,12 @@ ms.subservice: blob
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: 61d3bcf8fd046ec1b68637bfdcc9827bb5b5d084
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 271be60bc26cf6bc9a64c459d030818d9e493a22
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263248"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158451"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>정기적 데이터 전송을 위한 솔루션
  
@@ -58,9 +58,9 @@ ms.locfileid: "53263248"
 | 하드웨어                                      | 하이퍼바이저            | Microsoft 제공    | 해당 없음                                                            |
 | 초기 설치 작업                          | 작음(30분 미만)            | 보통(~몇 시간) | 큼(~며칠)                                                 |
 | 데이터 형식                                   | Azure Blob, Azure Files   | Azure Blob, Azure Files | [데이터 저장소 및 형식을 위해 70개 이상의 데이터 커넥터 지원](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
-| 데이터 사전 처리                           | 아니요                         | 예, Edge 컴퓨팅 사용    | yes                                                           |
-| 로컬 캐시<br>(온-프레미스 데이터 저장)    | yes                        | yes                      | 아니요                                                            |
-| 다른 클라우드에서 전송                    | 아니요                         | 아니요                       | yes                                                           |
+| 데이터 사전 처리                           | 아니요                         | 예, Edge 컴퓨팅 사용    | 예                                                           |
+| 로컬 캐시<br>(온-프레미스 데이터 저장)    | 예                        | 예                      | 아니요                                                            |
+| 다른 클라우드에서 전송                    | 아니요                         | 아니요                       | 예                                                           |
 | 가격                                       | [가격](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [가격](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [가격](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>다음 단계

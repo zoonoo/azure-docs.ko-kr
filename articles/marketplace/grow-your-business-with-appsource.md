@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: f39392518f89ac51afd9a18fe59bcef46840478d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2a4343b036716e6c49f7a05a8a480c6e74463760
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054178"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078000"
 ---
 # <a name="grow-your-business-with-appsource"></a>AppSource를 사용하여 비즈니스 확장  
 AppSource를 사용하여 비즈니스 사용자가 비즈니스 결과를 추진하고 투자 비용 회수 기간을 줄이는 데 도움이 되는 기간 업무 SaaS 앱과 구현 서비스를 찾고 체험 및 다운로드하도록 유도합니다.  
@@ -67,7 +67,7 @@ AppSource에 대한 귀하의 제안을 마케팅하는 모범 사례를 따르�
 AppSource에 게시할 제품을 만들 때 고려해야 하는 마케팅 모범 사례 및 리소스를 제공하는 검사 목록은 다음과 같습니다.  
 *   **Microsoft 상표 및 브랜드 지침을 알고 있어야 합니다.**  
     앱 이름을 지정하고 Microsoft 상표와 Microsoft 소프트웨어, 제품 및 서비스의 이름을 언급하는 경우 Microsoft 상표 및 브랜드 지침 및 관련 제품별 지침을 따릅니다.  
-    *   Microsoft 상표 및 브랜드 지침에 대한 자세한 내용은 [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)에 있는 Microsoft 상표 및 브랜드 지침 페이지를 방문하세요.  
+    *   Microsoft 상표 및 브랜드 지침에 대한 자세한 내용은 [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx)에 있는 Microsoft 상표 및 브랜드 지침 페이지를 방문하세요.  
 *   **앱에 대한 환경, 평가판 제품 또는 시험 사용 환경을 바로 획득할 수 있도록 합니다.**  
     비즈니스 사용자는 앱을 직접 경험해 보려고 합니다.  
 *   **강력한 가치 제안을 작성합니다.**  
@@ -104,7 +104,7 @@ AppSource 목록은 잠재 고객과의 첫 번째 상호 작용이 될 수 있�
 
 | 제품 설정 | 모범 사례 | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Name** | **제품 이름 지정**<br />앱의 이름을 선택하는 것이 중요한 결정입니다. 혜택 기반 이름은 설명이 포함된 이름보다 더 효과적입니다. 앱 이름은 고객이 받는 핵심 가치를 전달해야 합니다. 앱 제목에 검색 키워드가 포함되면 검색 엔진 결과에서 앱의 순위를 높일 수도 있습니다. Microsoft 상표와 Microsoft, 소프트웨어, 제품 및 서비스의 이름을 언급하는 경우 Microsoft 상표 및 브랜드 지침 및 관련 제품별 지침을 따릅니다.<ul> <li>Microsoft 상표 및 브랜드 지침에 대한 자세한 내용은 [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)에 있는 Microsoft 상표 및 브랜드 지침 페이지를 방문하세요.</li> </ul> |
+| **Name** | **제품 이름 지정**<br />앱의 이름을 선택하는 것이 중요한 결정입니다. 혜택 기반 이름은 설명이 포함된 이름보다 더 효과적입니다. 앱 이름은 고객이 받는 핵심 가치를 전달해야 합니다. 앱 제목에 검색 키워드가 포함되면 검색 엔진 결과에서 앱의 순위를 높일 수도 있습니다. Microsoft 상표와 Microsoft, 소프트웨어, 제품 및 서비스의 이름을 언급하는 경우 Microsoft 상표 및 브랜드 지침 및 관련 제품별 지침을 따릅니다.<ul> <li>Microsoft 상표 및 브랜드 지침에 대한 자세한 내용은 [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx)에 있는 Microsoft 상표 및 브랜드 지침 페이지를 방문하세요.</li> </ul> |
 
 **상점 세부 정보 - 제품 세부 정보**  
 
@@ -153,7 +153,7 @@ https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-87
 ```  
 
 >[!Important]  
->URL을 준비할 때 `/en-us/`와 같은 언어 코드는 포함하지 마세요.  
+>URL을 준비할 때 ``와 같은 언어 코드는 포함하지 마세요.  
 
 
 #### <a name="link-to-gtm-benefits"></a>GTM 혜택 링크

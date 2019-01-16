@@ -1,25 +1,24 @@
 ---
 title: Azure Cosmos DB에서 처리량 크기 조정
 description: 이 문서에서는 Azure Cosmos DB에서 처리량을 탄력적으로 크기 조정하는 방법을 설명합니다.
-services: cosmos-db
-author: dharmas
+author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 7e3f6d053e9466f07e15b0c2c1092fece76c98a4
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: c5e4720a6b830158581d17bbdcb9aba49e13183b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160667"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064494"
 ---
 # <a name="scaling-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB에서 처리량 크기 조정
 
 Azure Cosmos DB에서 프로비전된 처리량은 요청 단위/초(RU/s, 복수: RUs)로 표시됩니다. RU는 다음 이미지에서 표시된 대로 Cosmos 컨테이너에 대한 읽기 및 쓰기 작업의 비용을 모두 측정합니다.
 
-![요청 단위](./media/scale-throughput/figure1.png)
+![요청 단위](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
 
 Cosmos 컨테이너 또는 Cosmos 데이터베이스에서 RU를 프로비전할 수 있습니다. 컨테이너에서 프로비전된 RU는 해당 컨테이너에서 수행된 작업에 대해 단독으로 사용할 수 있습니다. 데이터베이스에서 프로비전된 RU는 데이터베이스 내의 모든 컨테이너에서 공유됩니다(독점적으로 할당된 RU가 있는 모든 컨테이너 제외).
 

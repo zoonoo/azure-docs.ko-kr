@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure StorSimple 데이터 관리자 UI | Microsoft Docs
-description: StorSimple 데이터 관리자 서비스 UI를 사용하는 방법 설명
+description: StorSimple Data Manager 서비스 UI를 사용하는 방법 설명
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: d704cf8e6840c6a7b0a637c404d421f9f1497c46
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e773986d11a11c6cc84df367aa48ac1b01a9183e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
-ms.locfileid: "27862260"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157125"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Azure Portal에서 StorSimple 데이터 관리자 서비스 관리
 
@@ -94,7 +94,7 @@ StorSimple 데이터 관리자 서비스 내에서 데이터 변환 작업 정�
     
     3. 드롭다운 목록에서 StorSimple 디바이스 관리자 서비스와 연결된 구독을 선택합니다.
     
-    4. **리소스**에 대한 StorSimple 장치 관리자의 이름을 제공합니다.
+    4. **리소스**에 대한 StorSimple 디바이스 관리자의 이름을 제공합니다.
 
     5. StorSimple 디바이스 관리자 서비스에 대한 **서비스 데이터 암호화** 키를 입력합니다. 
 

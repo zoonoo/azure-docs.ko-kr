@@ -9,17 +9,16 @@ ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: cbd51c48ec5b1801062e7aaf0b77e7b347018b31
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c41f03494720c9283bb3ce91fda6e3981f305084
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051868"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023025"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>데이터 팩터리 문제 해결
 > [!NOTE]
@@ -43,14 +42,14 @@ ms.locfileid: "37051868"
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
-### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>문제: 데이터 팩터리 cmdlet을 실행할 때 권한 없음 오류 발생
+### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>문제: Data Factory cmdlet을 실행할 때 권한 없음 오류 발생
 Azure PowerShell에서 올바른 Azure 계정 또는 구독을 사용하고 있지 않습니다. 다음 cmdlet을 사용하여 Azure PowerShell에서 사용할 올바른 Azure 계정 및 구독을 선택합니다.
 
 1. Connect-AzureRmAccount - 올바른 사용자 ID 및 암호 사용
 2. Get-AzureRmSubscription - 계정의 모든 구독을 확인합니다.
 3. Select-AzureRmSubscription &lt;구독 이름&gt; - 올바른 구독을 선택합니다. Azure 포털에서 데이터 팩터리를 만드는 데 사용한 것과 동일한 구독을 사용합니다.
 
-### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>문제: Azure 포털에서 데이터 관리 게이트웨이 빠른 설치를 시작하지 못함
+### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>문제: Azure Portal에서 데이터 관리 게이트웨이 빠른 설치를 시작하지 못함
 데이터 관리 게이트웨이 빠른 설치를 수행하려면 Internet Explorer 또는 Microsoft ClickOnce 호환 웹 브라우저가 필요합니다. 빠른 설치를 시작할 수 없는 경우 다음 중 하나를 수행합니다.
 
 * Internet Explorer 또는 Microsoft ClickOnce 호환 웹 브라우저를 사용합니다.
@@ -63,7 +62,7 @@ Azure PowerShell에서 올바른 Azure 계정 또는 구독을 사용하고 있�
 ### <a name="problem-fail-to-connect-to-on-premises-sql-server"></a>문제: 온-프레미스 SQL Server에 연결하지 못함
 게이트웨이 컴퓨터에서 **데이터 관리 게이트웨이 구성 관리자**를 시작하고 **문제 해결** 탭을 사용하여 게이트웨이 컴퓨터에서 SQL Server에 대한 연결을 테스트합니다. 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 을 참조하세요.   
 
-### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>문제: 입력 조각이 무기한 대기 상태임
+### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>문제: 입력 조각이 무기한 대기 상태입니다.
 이 조각은 다양한 이유로 인해 **대기 중** 상태일 수 있습니다. 일반적으로는 **external** 속성이 **true**로 설정되어 있지 않으면 이러한 상태가 설정됩니다. Azure Data Factory 범위 외에서 생성된 데이터 세트는 **external** 속성으로 표시되어야 합니다. 이 속성은 데이터가 외부에 있으며 데이터 팩터리 내의 파이프라인에서 지원되지 않음을 나타냅니다. 해당 저장소에서 데이터를 사용할 수 있으면 데이터 조각이 **Ready** 로 표시됩니다.
 
 **external** 속성의 사용 방법은 다음 예제를 참조하세요. external을 true로 설정할 경우 선택적으로 **externalData**\*를 지정할 수 있습니다.
@@ -112,7 +111,7 @@ Failed to create cluster. Exception: Unable to complete the cluster create opera
 
 또한 주문형 HDInsight에서 추가 저장소 계정을 지정할 수 있는 두 번째 JSON 속성 additionalLinkedServiceNames가 있습니다. 이러한 추가 연결된 저장소 계정은 HDInsight 클러스터와 동일한 위치에 있어야 합니다. 그렇지 않으면 동일한 오류가 발생하여 프로비저닝이 실패합니다.
 
-### <a name="problem-custom-net-activity-fails"></a>문제: 사용자 지정 .NET 작업 실패
+### <a name="problem-custom-net-activity-fails"></a>문제: 사용자 지정 .NET 작업 오류
 자세한 단계는 [사용자 지정 작업을 사용하여 파이프라인 디버그](data-factory-use-custom-activities.md#troubleshoot-failures) 를 참조하세요.
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Azure 포털을 사용하여 문제 해결

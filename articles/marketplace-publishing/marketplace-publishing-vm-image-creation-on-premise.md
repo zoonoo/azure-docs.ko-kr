@@ -3,7 +3,7 @@ title: Azure Marketplace용 온-프레미스 가상 머신 이미지 만들기 |
 description: 온-프레미스 VM 이미지를 만들어 Azure Marketplace에 배포하여 다른 사용자가 구입할 수 있도록 하는 단계를 이해하고 실행합니다.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 26dfbd5a-8685-4b19-987e-c20ca60540ec
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: e5571a0933284a52d5567db0505ecaced6c6c336
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ROBOTS: NOINDEX
+ms.openlocfilehash: b9fbb2f50905b1b80a092ba13f860f30cb9423a9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253502"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077796"
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Azure Marketplace를 위해 온-프레미스 가상 컴퓨터 이미지 개발
 원격 데스크톱 프로토콜을 사용하여 Azure VHD(가상 하드 디스크)를 클라우드에서 직접 개발하는 것이 좋습니다. 그러나 꼭 필요한 경우 VHD를 다운로드하고 온-프레미스 인프라를 사용하여 개발할 수 있습니다.  
@@ -144,7 +145,7 @@ PowerShell을 사용하여 [New-AzureStorageAccount](https://docs.microsoft.com/
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 
 ### <a name="upload-a-vhd-by-using-the-command-line-tool-for-mac-and-linux"></a>Mac 및 Linux용 명령줄 도구를 사용하여 VHD 업로드
-[Linux 명령줄 도구](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)에서 azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>를 사용합니다.
+[Linux 명령줄 도구](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 통해 다음 명령을 사용합니다. `azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>`
 
 ## <a name="see-also"></a>참고 항목
 * [Marketplace에 대한 가상 머신 이미지 만들기](marketplace-publishing-vm-image-creation.md)

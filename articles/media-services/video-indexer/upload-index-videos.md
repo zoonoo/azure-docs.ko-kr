@@ -9,16 +9,16 @@ ms.service: media-services
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: juliako
-ms.openlocfilehash: f29adb500401c9f5d6e177a0740ce54719c36a34
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 2af3e75e3810284d9740a3d87d681d9ee31f14d3
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253207"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052839"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
-Video Indexer API를 사용하여 비디오를 업로드할 때 두 가지 업로드 옵션이 있습니다. 
+Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은 업로드 옵션이 있습니다. 
 
 * URL에서 비디오를 업로드합니다(기본 설정).
 * 비디오 파일을 요청 본문의 바이트 배열로 보냅니다.

@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: 1c850b16492f725114fb23a8503f6345e1509212
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 3cd0766fa4308df41172c323aa933e1c048f1e9d
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868670"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074005"
 ---
 # <a name="requirements-by-listing-type"></a>등록 형식별 요구 사항  
 마케팅 및 기술 콘텐츠 요구 사항은 상점, 제품 유형 및 열거 유형에 따라 달라집니다. 준수 여부를 확인하기 위해 다음 사양을 검토합니다.  
@@ -34,13 +34,13 @@ ms.locfileid: "52868670"
 
 | 요구 사항 | 세부 정보 | 필수 또는 권장 |  
 |:--- |:--- |:--- |  
-| ***Azure AD(Azure Active Directory)*** | 앱은 동의가 이루어질 경우 Azure Active Directory 페더레이션 Single Sign-On(Azure AD 페더레이션 SSO)을 허용해야 합니다.<ul> <li>Azure AD 페더레이션 SSO 사용에 대한 자세한 내용은 [docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)에 있는 Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성 페이지를 참조하세요.</li> </ul> | 필수 |   
+| ***Azure AD(Azure Active Directory)*** | 앱은 동의가 이루어질 경우 Azure Active Directory 페더레이션 Single Sign-On(Azure AD 페더레이션 SSO)을 허용해야 합니다.<ul> <li>Azure AD 페더레이션 SSO 사용에 대한 자세한 내용은 [docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)에 있는 Azure Active Directory 애플리케이션 갤러리에 있지 않은 애플리케이션에 Single Sign-On 구성 페이지를 참조하세요.</li> </ul> | 필수 |   
 | ***Microsoft Cloud Services와의 통합*** | 앱은 Microsoft Power BI와 같은 Microsoft 클라우드 서비스, Cortana Intelligence 또는 Microsoft Azure 서비스와 통합되어야 합니다.<ul> <li>Microsoft 클라우드 서비스의 예로는 사물 인터넷이 있습니다.</li> </ul> | 권장 |  
 | ***대상*** | 앱은 기간 업무 사용자 및 비즈니스 소유자에 대한 것이어야 합니다. | 필수 | 
 | ***비즈니스용 SaaS(Software as a Service) 앱*** | 앱은 다음 요구 사항을 충족해야 합니다.<ul> <li>기간 업무 SaaS 앱</li> <li>비즈니스 프로세스 중점</li> <li>비즈니스 고객 대상</li> <li>사용자가 사용자 이름 및 암호와 같은 회사 자격 증명을 사용하여 로그인 가능</li> </ul> | 필수 |  
 | ***무료 평가 기간 및 체험 환경*** | 고객이 제한된 시간 동안 앱을 체험할 수 있도록 앱에 다음 옵션을 포함해야 합니다.<ul> <li>`try` 메서드를 제공하면 고객이 AppSource 내에서 앱 체험을 시작할 수 있습니다.</li> <li>AppSource에 `request trial` 옵션을 제공하면 고객이 앱 평가판을 요청할 수 있습니다.</li> </ul>제공하는 평가판에는 고객이 추가 비용 부담 없이 앱을 사용해 볼 수 있는 기간이 미리 설정되어야 합니다. | 필수 |  
 | ***쉽게 구성 가능하고 즉시 사용할 수 있는 솔루션*** | 앱은 사용자 지정 없이도 구성 및 설정이 빠르고 쉬워야 합니다. | 필수 |  
-| ***잠재 고객 관리*** | 상점의 잠재 고객을 받기 전에 CRM에서 잠재 고객 데이터를 허용하도록 설정해야 합니다.<ul> <li>CRM의 예로 Marketo, Microsoft Dynamics 또는 Salesforce가 있습니다.</li> </ul> | 필수 |  
+| ***잠재 고객 관리*** | 상점의 잠재 고객을 받기 전에 CRM에서 잠재 고객 데이터를 허용하도록 설정합니다.<ul> <li>CRM의 예로 Marketo, Microsoft Dynamics 또는 Salesforce가 있습니다.</li> </ul> | 필수 |  
 | ***개인 정보 취급 방침 및 사용 약관*** | 앱은 공용 URL을 사용하여 개인정보처리방침 방침 페이지의 링크를 제공해야 합니다. 텍스트로 게시하는 동안 사용 약관을 제공해야 합니다. | 필수 |  
 | ***지원*** | 앱은 공용 URL을 사용하여 고객 지원 페이지의 링크를 제공해야 합니다. 앱이 평가판인 경우, 평가 기간 중에는 추가 비용 없이 지원해야 합니다. | 필수 |  
 
@@ -52,7 +52,7 @@ ms.locfileid: "52868670"
 | ***참가 정책*** | 앱은 Azure Marketplace 참가 정책을 따라야 합니다.<ul> <li>참가 정책에 대한 자세한 내용은 [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies)에 있는 Azure Marketplace 참가 정책 페이지를 참조하세요.</li></ul> | list<br />거래<br />체험 |  
 | ***Microsoft와의 통합*** | 제품은 계산, 네트워킹 또는 저장소 등 Microsoft Azure 서비스 유형을 사용하거나 확장해야 합니다. 또한 데이터베이스, 보안 및 네트워킹 등 기존 Azure Marketplace 범주에 맞추어야 합니다.<ul> <li>Marketplace 제품에 대한 자세한 내용은 [azuremarketplace.microsoft.com/marketplace/apps](https://azuremarketplace.microsoft.com/marketplace/apps)에 있는 Marketplace 앱 페이지를 참조하세요.</li> </ul> | list<br />거래<br />체험 |  
 | ***대상*** | 제품은 IT 전문가, 클라우드 개발자 또는 기타 고객 기술 역할에 대한 것이어야 합니다. | list<br />거래<br />체험 |  
-| ***잠재 고객 관리*** | 상점의 잠재 고객을 받기 전에 CRM(Marketo, Microsoft Dynamics 또는 Salesforce)에서 잠재 고객 데이터를 허용하도록 설정해야 합니다. | list<br />거래<br />체험 |  
+| ***잠재 고객 관리*** | 상점의 잠재 고객을 받기 전에 CRM(Marketo, Microsoft Dynamics 또는 Salesforce)에서 잠재 고객 데이터를 허용하도록 설정합니다. | list<br />거래<br />체험 |  
 | ***개인 정보 취급 방침 및 사용 약관*** | 앱은 공용 URL을 사용하여 개인정보처리방침 방침 페이지의 링크를 제공해야 합니다. 텍스트로 게시하는 동안 사용 약관을 제공해야 합니다. | list<br />거래<br />체험 |  
 | ***지원*** | 제품은 공용 URL을 사용하여 고객 지원 페이지의 링크를 제공해야 합니다. 제품이 평가판인 경우 평가 기간 중에는 추가 비용 없이 지원해야 합니다. | 거래<br />체험 |    
 
@@ -81,7 +81,7 @@ ms.locfileid: "52868670"
 | 요구 사항 | 세부 정보 |  
 |:--- |:--- |  
 | 서비스 제안 특성 | 컨설팅 서비스는 다음 기준을 충족해야 합니다.<ul> <li>고정 범위, 고정 기간, 고정 가격(또는 무료) 약정을 제공합니다.</li> <li>주로 판매 전 지원을 지향합니다.</li> <li>단일 고객으로 제한합니다.</li> <li>사이트에서 수행합니다.</li> </ul> |  
-| 컨설팅 서비스에 대한 파트너 요구 사항 | 서비스의 관련 영역에서 다음 역량 중 하나에 실버 또는 골드가 있어야 합니다. <table><tr><th>솔루션 영역</th><th>역량</th></tr><td>클라우드 플랫폼 및 인프라</td><td>클라우드 플랫폼<br />데이터 센터</td><tr><td>응용 프로그램 개발 및 ISV</td><td>응용 프로그램 개발<br />응용 프로그램 통합<br />DevOps</td></tr><tr><td>데이터 관리 및 분석</td><td>데이터 분석<br />데이터 플랫폼</td></tr></table><ul> <li>역량에 대한 자세한 내용은 [partner.microsoft.com/membership/competencies](https://partner.microsoft.com/membership/competencies)에 있는 Microsoft 파트너 네트워크를 통한 역량 페이지를 참조하세요.</li> <li>열거에 대한 자세한 내용은 [docs.microsoft.com/azure/marketplace/consulting-services](https://docs.microsoft.com/azure/marketplace/consulting-services)에 있는 Azure Marketplace 컨설팅 서비스 페이지를 참조하세요.</li></ul> |  
+| 컨설팅 서비스에 대한 파트너 요구 사항 | 서비스의 관련 영역에서 다음 역량 중 하나에 실버 또는 골드가 있어야 합니다. <table><tr><th>솔루션 영역</th><th>역량</th></tr><td>클라우드 플랫폼 및 인프라</td><td>클라우드 플랫폼<br />데이터 센터</td><tr><td>애플리케이션 개발 및 ISV</td><td>애플리케이션 개발<br />애플리케이션 통합<br />DevOps</td></tr><tr><td>데이터 관리 및 분석</td><td>데이터 분석<br />데이터 플랫폼</td></tr></table><ul> <li>역량에 대한 자세한 내용은 [partner.microsoft.com/membership/competencies](https://partner.microsoft.com/membership/competencies)에 있는 Microsoft 파트너 네트워크를 통한 역량 페이지를 참조하세요.</li> <li>열거에 대한 자세한 내용은 [docs.microsoft.com/azure/marketplace/consulting-services](https://docs.microsoft.com/azure/marketplace/consulting-services)에 있는 Azure Marketplace 컨설팅 서비스 페이지를 참조하세요.</li></ul> |  
 
 <!-- #### Requirements: Azure Marketplace: List: Contact Me -->
 
@@ -164,9 +164,8 @@ ms.locfileid: "52868670"
 | 요구 사항 | 세부 정보 |  
 |:--- |:--- | 
 | 청구 및 계량 | VM은 BYOL 또는 종량제 월간 청구를 지원해야 합니다. |  
-| Azure 호환 VHD(가상 하드 디스크) | VM은 Windows 또는 Linux에서 빌드해야 합니다.<ul> <li>Linux VHD를 만드는 방법에 대한 자세한 내용은 [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based)에 있는 Azure 호환 VHD(Linux 기반) 만들기 섹션을 참조하세요.</li> <li>Windows VHD를 만드는 방법에 대한 자세한 내용은 [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based)에 있는 Azure 호환 VHD(Windows 기반) 만들기 섹션을 참조하세요.</li> </ul> |  
+| Azure 호환 VHD(가상 하드 디스크) | VM은 Windows 또는 Linux에서 빌드해야 합니다.<ul> <li>Linux VHD를 만드는 방법에 대한 자세한 내용은 [Azure 보증 Linux 배포판](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)을 참조하세요.</li> <li>Windows VHD를 만드는 방법에 대한 자세한 내용은 [Azure 호환 VHD 만들기](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)를 참조하세요.</li> </ul> |  
 
 ## <a name="next-steps"></a>다음 단계
 *   [Azure Marketplace 및 AppSource 게시자 가이드](./marketplace-publishers-guide.md) 페이지를 방문합니다.  
- 
----  
+

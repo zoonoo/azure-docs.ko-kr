@@ -3,8 +3,8 @@ title: Microsoft Azure SUSE Linux VM에서 SAP NetWeaver 테스트 | Microsoft D
 description: Microsoft Azure SUSE Linux VM에서 SAP NetWeaver 테스트
 services: virtual-machines-linux
 documentationcenter: ''
-author: hermanndms
-manager: jeconnoc
+author: msjuergent
+manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,13 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
-ms.author: hermannd
-ms.openlocfilehash: 8a16fa9f639a6a4a17d6904d6bc9a0e31f774e0c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: juergent
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 032ab2a221f64d01af25056a4eff3ee3384de0c3
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950049"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157227"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Microsoft Azure SUSE Linux VM에서 SAP NetWeaver 실행
 이 문서에서는 Microsoft Azure SUSE Linux VM(가상 머신)에서 SAP NetWeaver를 실행할 때 고려해야 할 다양한 항목을 설명합니다. 2016년 5월 19일을 기준으로 SAP NetWeaver는 Azure의 SUSE Linux VM에서 공식적으로 지원됩니다. Linux 버전, SAP 커널 버전 및 기타 필수 조건과 관련된 모든 세부 정보는 SAP 정보 1928533, "Azure의 SAP 애플리케이션: 지원 제품 및 Azure VM 유형"에서 찾을 수 있습니다.
@@ -75,7 +76,7 @@ WALinuxAgent라고 하는 이 에이전트는 Azure Marketplace 내 SLES 이미�
 * [SUSE](https://www.suse.com/communities/blog/suse-linux-enterprise-server-configuration-for-windows-azure/)
 
 ## <a name="sap-enhanced-monitoring"></a>SAP "향상된 모니터링"
-SAP "향상된 모니터링"은 Azure에서 SAP를 실행하기 위한 필수 구성 요소입니다. SAP 정보 2191498 “Azure와 Linux의 SAP: 향상된 모니터링”에서 자세한 내용을 확인하세요.
+SAP "향상된 모니터링"은 Azure에서 SAP를 실행하기 위한 필수 구성 요소입니다. 자세한 내용은 SAP 정보 2191498 "Azure를 사용하는 Linux의 SAP: 고급 모니터링"을 참조하세요.
 
 ## <a name="attaching-azure-data-disks-to-an-azure-linux-vm"></a>Azure Linux VM에 Azure 데이터 디스크 연결
 디바이스 ID를 사용하여 Azure 데이터 디스크를 Azure Linux VM에 탑재해서는 안됩니다. 대신 UUID(Universally Unique Identifier)를 사용합니다. 예를 들어 Azure 데이터 디스크를 탑재하기 위해 그래픽 도구를 사용하는 경우 주의해야 합니다. /etc/fstab의 항목을 재차 확인하세요.
@@ -125,7 +126,7 @@ Azure 클래식 CLI 및 Azure Resource Manager에 대한 자세한 내용은 [Az
 공식적인 SAP-Azure 인증을 위해, SAP 라이선스에 사용되는 SAP 하드웨어 키 계산을 위한 새로운 메커니즘이 도입되었습니다. 새 알고리즘을 사용하려면 SAP 커널이 적용되어야 합니다. 이전 Linux용 SAP 커널 버전에는 이 코드 변경이 포함되어 있지 않습니다. 따라서 특정한 상황(예: Azure VM 크기 조정)에서 SAP 하드웨어 키가 변경되고 SAP 라이선스가 더 이상 유효하지 않을 수 있습니다. 해결책은 최신 SAP Linux 커널과 함께 제공됩니다.  자세한 SAP 커널 패치는 SAP 정보 1928533에 설명되어 있습니다.
 
 ## <a name="suse-sapconf-package--tuned-adm"></a>SUSE sapconf 패키지 / tuned-adm
-SUSE는 일련의 SAP 관련 설정을 관리하는 "sapconf"라는 패키지를 제공합니다. 이 패키지의 용도 및 설치하고 사용하는 방법에 대한 자세한 내용은 [sapconf를 사용하여 SAP 시스템을 실행하는 SUSE Linux Enterprise Server 준비](https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/) 및 [sapconf 정의 또는 SAP 시스템을 실행하기 위한 SUSE Linux Enterprise Server를 준비하는 방법](http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems)을 참조하세요.
+SUSE는 일련의 SAP 관련 설정을 관리하는 "sapconf"라는 패키지를 제공합니다. 이 패키지의 용도와 설치 및 사용 방법에 대한 자세한 내용은  [sapconf를 사용하여 SAP 시스템을 실행하는 SUSE Linux Enterprise Server 준비](https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/) 및 [sapconf 정의 또는 SAP 시스템을 실행하기 위한 SUSE Linux Enterprise Server를 준비하는 방법](http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems)을 참조하세요.
 
 그동안 ‘sapconf - tuned-adm’을 대체하는 새로운 도구가 있습니다. 이 도구에 대한 자세한 내용은 아래의 두 링크를 참조하세요.
 

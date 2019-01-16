@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 12/25/2018
+ms.date: 1/9/2019
 ms.author: douglasl
-ms.openlocfilehash: be14eb59cb89676b0d69b94246f35ad6dfc7eed9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 5cc625e07f1c92c53491e83f4049bad12cd9d1a1
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792650"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158264"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime을 위한 Azure Active Directory 인증 활성화
 
@@ -114,10 +114,28 @@ Azure SQL Database 서버는 Azure AD 사용자로 데이터베이스 만들기�
 9.  쿼리 창을 지우고 다음 T-SQL 명령을 입력한 후, 도구 모음에서 **실행**을 선택합니다.
 
     ```sql
+    ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
+    ```
+
+    명령이 성공적으로 완료되면 포함된 사용자에게 데이터베이스(SSISDB)를 만들 수 있는 기능이 부여됩니다.
+
+10.  SSISDB가 SQL 인증을 사용하여 생성되었고 액세스하기 위해 Azure-SSIS IR에 Azure AD 인증을 사용하도록 전환하려는 경우 마우스 오른쪽 단추로 **SSISDB** 데이터베이스를 클릭하고  **새 쿼리**를 선택합니다.
+
+11.  쿼리 창에서 다음 T-SQL 명령을 입력하고, 도구 모음에서  **실행** 을 선택합니다.
+
+    ```sql
+    CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
+    ```
+
+    명령이 성공적으로 완료되고 그룹을 나타내는 포함된 사용자가 만들어집니다.
+
+12.  쿼리 창을 지우고 다음 T-SQL 명령을 입력한 후, 도구 모음에서 **실행**을 선택합니다.
+
+    ```sql
     ALTER ROLE db_owner ADD MEMBER [SSISIrGroup]
     ```
 
-    명령이 성공적으로 완료되고 포함된 사용자에게 데이터베이스를 만들 수 있는 기능이 부여됩니다.
+    명령이 성공적으로 완료되면 포함된 사용자에게 SSISDB에 액세스할 수 있는 기능이 부여됩니다.
 
 ## <a name="enable-azure-ad-on-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance에서 Azure AD 활성화
 
@@ -127,15 +145,15 @@ Azure SQL Database Managed Instance는 직접 ADF에 대한 관리 ID로 데이�
 
 1.   Azure Portal의 왼쪽 탐색 영역에서 **모든 서비스** -> **SQL 서버**를 선택합니다.
 
-1.   Azure AD 인증을 사용하여 구성할 Managed Instance를 선택합니다.
+2.   Azure AD 인증을 사용하여 구성할 Managed Instance를 선택합니다.
 
-1.   블레이드의 **설정** 섹션에서 **Active Directory 관리자**를 선택합니다.
+3.   블레이드의 **설정** 섹션에서 **Active Directory 관리자**를 선택합니다.
 
-1.   명령 모음에서 **관리자 설정**을 선택합니다.
+4.   명령 모음에서 **관리자 설정**을 선택합니다.
 
-1.   서버 관리자로 만들 Azure AD 사용자 계정을 선택한 다음, **선택**을 선택합니다.
+5.   서버 관리자로 만들 Azure AD 사용자 계정을 선택한 다음, **선택**을 선택합니다.
 
-1.   명령 모음에서 **저장**을 선택합니다.
+6.   명령 모음에서 **저장**을 선택합니다.
 
 ### <a name="add-the-managed-identity-for-your-adf-as-a-user-in-azure-sql-database-managed-instance"></a>ADF에 대한 관리 ID를 Azure SQL Database Managed Instance의 사용자로 추가
 
@@ -168,7 +186,18 @@ Azure SQL Database Managed Instance는 직접 ADF에 대한 관리 ID로 데이�
     ALTER SERVER ROLE [securityadmin] ADD MEMBER [{the managed identity name}]
     ```
     
-    명령이 성공적으로 완료되고 ADF에 대한 관리 ID에 데이터베이스를 만들 수 있는 기능이 부여됩니다.
+    명령이 성공적으로 완료되면 ADF에 대한 관리 ID에 데이터베이스(SSISDB)를 만들 수 있는 기능이 부여됩니다.
+
+8.  SSISDB가 SQL 인증을 사용하여 생성되었고 액세스하기 위해 Azure-SSIS IR에 Azure AD 인증을 사용하도록 전환하려는 경우 마우스 오른쪽 단추로 **SSISDB** 데이터베이스를 클릭하고  **새 쿼리**를 선택합니다.
+
+9.  쿼리 창에서 다음 T-SQL 명령을 입력하고, 도구 모음에서  **실행** 을 선택합니다.
+
+    ```sql
+    CREATE USER [{the managed identity name}] FOR LOGIN [{the managed identity name}] WITH DEFAULT_SCHEMA = dbo
+    ALTER ROLE db_owner ADD MEMBER [{the managed identity name}]
+    ```
+
+    명령이 성공적으로 완료되면 ADF에 대한 관리 ID에 SSISDB에 액세스할 있는 기능이 부여됩니다.
 
 ## <a name="provision-azure-ssis-ir-in-azure-portaladf-app"></a>Azure Portal/ADF 앱에서 Azure-SSIS IR 프로비전
 

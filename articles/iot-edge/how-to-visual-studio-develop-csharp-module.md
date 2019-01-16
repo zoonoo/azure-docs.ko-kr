@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 12/21/2018
+ms.date: 01/04/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 954fb0fd4c8b9773edad904fa82a0a90111a66fa
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 9a6c892a71c452a0c6c0dcd43509e345280a810e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754597"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054926"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Visual Studio 2017을 사용하여 Azure IoT Edge용 C# 모듈 개발 및 디버그(미리 보기)
 
@@ -37,7 +37,7 @@ Visual Studio 용 Azure IoT Edge 도구는 다음과 같은 이점을 제공합�
 
 Visual Studio 2017이 준비되면 다음 도구와 구성 요소도 필요합니다.
 
-- Visual Studio 마켓플레이스에서 [Azure IoT Edge 확장](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)을 다운로드 및 설치하여 Visual Studio 2017에서 IoT Edge 프로젝트를 만듭니다.
+- Visual Studio 마켓플레이스에서 [Azure IoT Edge 확장(미리 보기)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)을 다운로드 및 설치하여 Visual Studio 2017에서 IoT Edge 프로젝트를 만듭니다.
 
 - [Docker Community Edition](https://docs.docker.com/install/)을 개발 머신에 다운로드 및 설치하여 모듈 이미지를 빌드하고 실행합니다. Linux 컨테이너 모드 또는 Windows 컨테이너 모드에서 실행할 Docker CE를 설정해야 합니다.
 

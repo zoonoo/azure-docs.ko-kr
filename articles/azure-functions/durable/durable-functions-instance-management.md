@@ -10,14 +10,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1ab2e35c916c6bd6f2d73a328f71710378fac890
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8dbf7b6f6741998972070234d90e87baca1154a4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343941"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042464"
 ---
-# <a name="manage-instances-in-durable-functions-azure-functions"></a>지속성 함수의 인스턴스 관리(Azure Functions)
+# <a name="manage-instances-in-durable-functions-in-azure"></a>Azure에서 Durable Functions의 인스턴스 관리
 
 [지속성 함수](durable-functions-overview.md) 오케스트레이션 인스턴스는 알림 이벤트를 시작, 종료, 쿼리 및 전송할 수 있습니다. 모든 인스턴스 관리는 [오케스트레이션 클라이언트 바인딩](durable-functions-bindings.md)을 사용하여 수행됩니다. 이 문서에서는 각 인스턴스 관리 작업에 대해 자세히 설명합니다.
 
@@ -520,7 +520,7 @@ modules.exports = async function(context, ctx) {
 > [!NOTE]
 > 이 API로 적절한 오류 처리 및 재시도 정책을 대체할 수 없습니다. 예기치 않은 이유로 오케스트레이션 인스턴스가 실패하는 경우에만 사용할 수 있습니다. 오류 처리 및 재시도 정책에 대한 자세한 내용은 [오류 처리](durable-functions-error-handling.md) 문서를 참조하세요.
 
-*되감기*에 대한 한 가지 사용 사례는 [사람의 승인](durable-functions-overview.md#pattern-5-human-interaction)이 포함된 워크플로입니다. 누군가에게 승인이 필요하다고 알리고 실시간 응답을 기다리는 일련의 작업 함수가 있다고 가정하겠습니다. 모든 승인 작업이 응답을 수신하거나 시간이 초과된 후에는 애플리케이션의 잘못된 구성(예: 잘못된 데이터베이스 연결 문자열)으로 인해 다른 작업이 실패합니다. 결과적으로 워크플로에 대한 오케스트레이션 실패가 발생합니다. `RewindAsync`(.NET) 또는 `rewindAsync`(JavaScript) API를 사용하면 애플리케이션 관리자가 구성 오류를 수정하고 실패한 오케스트레이션을 실패 직전의 상태로 ‘되감기’할 수 있습니다. 인간 상호 작용 단계를 다시 승인할 필요가 없기 때문에 오케스트레이션을 성공적으로 완료할 수 있습니다.
+*되감기*에 대한 한 가지 사용 사례는 [사람의 승인](durable-functions-concepts.md#human)이 포함된 워크플로입니다. 누군가에게 승인이 필요하다고 알리고 실시간 응답을 기다리는 일련의 작업 함수가 있다고 가정하겠습니다. 모든 승인 작업이 응답을 수신하거나 시간이 초과된 후에는 애플리케이션의 잘못된 구성(예: 잘못된 데이터베이스 연결 문자열)으로 인해 다른 작업이 실패합니다. 결과적으로 워크플로에 대한 오케스트레이션 실패가 발생합니다. `RewindAsync`(.NET) 또는 `rewindAsync`(JavaScript) API를 사용하면 애플리케이션 관리자가 구성 오류를 수정하고 실패한 오케스트레이션을 실패 직전의 상태로 ‘되감기’할 수 있습니다. 인간 상호 작용 단계를 다시 승인할 필요가 없기 때문에 오케스트레이션을 성공적으로 완료할 수 있습니다.
 
 > [!NOTE]
 > *되감기* 기능은 지속형 타이머를 사용하는 오케스트레이션 인스턴스 되감기를 지원하지 않습니다.

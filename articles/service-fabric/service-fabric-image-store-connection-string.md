@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: 8a11f9c9ebc2dd0b0eabf7a34d5ef38ae4e29309
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5f69de9ba9a3226209a339c6f6fa778d9ded9755
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719076"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050991"
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>ImageStoreConnectionString 설정 이해
 
-일부 문서에서 의미를 설명하지 않고 "ImageStoreConnectionString"라는 매개 변수가 있는지 간단하게 언급합니다. 그리고 [PowerShell을 사용하여 애플리케이션 배포 및 제거][10]와 같은 문서를 살펴본 후에 대상 클러스터의 클러스터 매니페스트에 표시된 대로 값을 복사/붙여넣기만 하면 됩니다. 따라서 설정은 클러스터당 구성될 수 있지만 [Azure Portal][11]을 통해 클러스터를 만드는 경우 이 설정을 구성하는 옵션이 없고 "fabric:ImageStore"은 항상 있습니다. 이 설정의 용도는 무엇인가요?
+일부 문서에서 의미를 설명하지 않고 "ImageStoreConnectionString"라는 매개 변수가 있는지 간단하게 언급합니다. 그리고 [PowerShell을 사용하여 응용 프로그램 배포 및 제거][10]와 같은 문서를 살펴본 후에 대상 클러스터의 클러스터 매니페스트에 표시된 대로 값을 복사/붙여넣기만 하면 됩니다. 따라서 설정은 클러스터당 구성될 수 있지만 [Azure Portal][11]을 통해 클러스터를 만드는 경우 이 설정을 구성하는 옵션이 없고 "fabric:ImageStore"은 항상 있습니다. 이 설정의 용도는 무엇인가요?
 
 ![클러스터 매니페스트][img_cm]
 
@@ -50,7 +50,7 @@ Service Fabric은 다양한 팀에서 내부 Microsoft 사용을 위한 플랫�
 따라서 ImageStoreConnectionString은 구성할 수 있지만 기본 설정만 사용하면 됩니다. Visual Studio를 통해 Azure에 게시할 경우 매개 변수가 적절하게 자동으로 설정됩니다. Azure에서 호스트된 클러스터에 프로그래밍 방식으로 배포하는 경우 연결 문자열은 항상 "fabric:ImageStore"입니다. 확실하지 않은 경우에도 [PowerShell](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) 또는 [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest)에서 클러스터 매니페스트를 검색하여 해당 값을 언제든지 확인할 수 있습니다. 온-프레미스 테스트 및 프로덕션 클러스터는 모두 항상 이미지 저장소 서비스 공급자를 사용하도록 구성되어야 합니다.
 
 ### <a name="next-steps"></a>다음 단계
-[PowerShell을 사용하여 응용 프로그램 배포 및 제거][10]
+[PowerShell을 사용하여 애플리케이션 배포 및 제거][10]
 
 <!--Image references-->
 [img_is]: ./media/service-fabric-image-store-connection-string/image_store_service.png

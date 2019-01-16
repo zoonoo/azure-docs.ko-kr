@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 3505d65b55807010904494079532fe5741e6df77
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 8fd3725a5f3cd45da261aca17bf0f89a3e5a5aa0
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601171"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055186"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure 보안 및 규정 준수 청사진 - Australia PROTECTED용 PaaS 웹 애플리케이션
 
@@ -34,7 +34,7 @@ ASD 규정 준수를 구현하려면 정보 보안 등록 평가자가 시스템
 
 사용자가 온-프레미스 자격 증명을 사용하여 인증하고, 온-프레미스 Active Directory Federation Services 인프라를 사용하여 클라우드의 모든 리소스에 액세스하도록 하려면 Azure Active Directory와의 페더레이션을 사용해야 합니다. Active Directory Federation Services는 이러한 하이브리드 환경에 간소화된 보안 ID 페더레이션 및 웹 Single Sign-On 기능을 제공할 수 있습니다. Azure Active Directory 설정에 대한 자세한 내용은 [지침 및 권장 사항](#guidance-and-recommendations) 섹션을 참조하세요.
 
-솔루션은 고객이 미사용 데이터의 기밀성을 유지하려면 저장소 서비스 암호화를 사용하도록 구성할 수 있는 Azure Storage 계정을 사용합니다. Azure는 데이터 복원력을 위해 고객이 선택한 지역 내에 데이터 복사본 3부를 저장합니다. Azure 지역은 탄력적인 지역 쌍에 배포되며, 지리적 중복 저장소는 복사본 3부와 함께 두 번째 지역에 복제됩니다. 따라서 고객의 주 데이터 위치에서 데이터 손실을 유발하는 부정적인 이벤트를 방지합니다.
+솔루션은 고객이 미사용 데이터의 기밀성을 유지하려면 스토리지 서비스 암호화를 사용하도록 구성할 수 있는 Azure Storage 계정을 사용합니다. Azure는 데이터 복원력을 위해 고객이 선택한 지역 내에 데이터 복사본 3부를 저장합니다. Azure 지역은 탄력적인 지역 쌍에 배포되며, 지리적 중복 저장소는 복사본 3부와 함께 두 번째 지역에 복제됩니다. 따라서 고객의 주 데이터 위치에서 데이터 손실을 유발하는 부정적인 이벤트를 방지합니다.
 
 보안 향상을 위해 이 솔루션의 모든 Azure 리소스는 Azure Resource Manager를 통해 리소스 그룹으로 관리됩니다. Azure Active Directory 역할 기반 액세스 제어는 Azure Key Vault의 키 및 배포된 리소스에 대한 액세스를 제어하는 데 사용됩니다. 시스템 상태는 Azure Security Center 및 Azure Monitor를 통해 모니터링됩니다. 고객은 로그를 캡처하고 쉽게 탐색할 수 있는 단일 대시보드에 시스템 상태를 표시하도록 두 모니터링 서비스를 구성합니다. Azure Application Gateway는 방지 모드에서 방화벽으로 구성되고 TLS v1.2 이상이 아닌 트래픽을 허용하지 않습니다. 솔루션은 비다중 테넌트 환경에서 웹 계층을 격리하기 위해 Azure Application Service Environment v2를 사용합니다.
 
@@ -201,7 +201,7 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 
 **Azure Monitor**: [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)를 사용하면 사용자의 Azure 리소스에서 API 호출을 추적하는 것을 포함하여 조직에서 감사, 경고 만들기 및 데이터 보관을 수행할 수 있도록 하여 사용자가 성능을 추적하고, 보안을 유지하고, 추세를 식별할 수 있습니다.
 
-Azure Network Watcher: [Azure Network Watcher]9 https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) 는 Azure 가상 네트워크의 리소스를 모니터링 및 진단하고 메트릭을 보고 그에 대한 로그를 활성화 또는 비활성화하는 도구를 제공합니다.  연방 엔터티는 NSG 및 Virtual Machines에 대한 Network Watcher 흐름 로그를 구현해야 합니다. 이러한 로그는 보안 로그만 저장되는 전용 저장소 계정에 저장되어야 하며, 저장소 계정에 대한 액세스는 역할 기반 액세스 제어로 보호되어야 합니다.
+Azure Network Watcher: [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)는 Azure 가상 네트워크의 리소스를 모니터링 및 진단하고 메트릭을 확인하고 로그를 활성화 또는 비활성화할 수 있는 도구를 제공합니다.  연방 엔터티는 NSG 및 Virtual Machines에 대한 Network Watcher 흐름 로그를 구현해야 합니다. 이러한 로그는 보안 로그만 저장되는 전용 저장소 계정에 저장되어야 하며, 저장소 계정에 대한 액세스는 역할 기반 액세스 제어로 보호되어야 합니다.
 
 ## <a name="threat-model"></a>위협 모델
 

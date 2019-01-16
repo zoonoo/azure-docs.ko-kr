@@ -11,16 +11,23 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8a67a20beff306cd23b08e1d651ab5dc4c779fd2
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 157591897adb7495382b540dc1517c4c652a2632
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742765"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190733"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 서비스의 릴리스에 대해 알아봅니다. 
+
+### <a name="azure-machine-learning-data-prep-sdk-v106"></a>Azure Machine Learning Data Prep SDK v1.0.6
+
++ **SDK 참조 문서**: https://aka.ms/data-prep-sdk
+
++ **버그 수정**
+  + Spark의 공용 읽기 가능 Azure Blob 컨테이너에서 읽기 관련 버그를 수정했습니다.
 
 ## <a name="2018-12-20"></a>2018-12-20: 
 
@@ -271,85 +278,7 @@ Azure Machine Learning 서비스에 대한 Azure Portal은 다음과 같이 업�
 
 새로 고친 Azure Machine Learning 릴리스: 이 릴리스에 대한 자세한 내용: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
-## <a name="older-notes-sept-2017---jun-2018"></a>이전 릴리스 정보: 2017년 9월~2018년 6월
-### <a name="2018-05-sprint-5"></a>2018-05(스프린트 5)
-
-이 릴리스의 Azure Machine Learning에서 수행할 수 있는 작업은 다음과 같습니다.
-+ ResNet 50의 양자화된 버전으로 이미지를 기능화하고, 이러한 기능에 따라 분류자를 학습하고, 초단기 대기 시간 추론을 위해 [Azure에서 FPGA에 해당 모델을 배포](../service/how-to-deploy-fpga-web-service.md)합니다.
-
-+ [사용자 지정 Azure Machine Learning 패키지](../desktop-workbench/reference-python-package-overview.md)를 사용하여 고정밀 기계 학습 및 딥 러닝 모델을 빠르게 빌드하고 배포합니다.
-
-### <a name="2018-03-sprint-4"></a>2018-03(스프린트 4)
-**버전 번호**: 0.1.1801.24353 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 찾기](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-다음 업데이트 중 많은 부분이 여러분이 보내 주신 피드백에 따른 직접적인 결과입니다. 앞으로도 이러한 결과를 얻을 수 있도록 여러분의 피드백을 계속 보내주십시오!
-
-**주목할 만한 새로운 기능 및 변경 사항**
-
-- 기본적으로 원격 Docker 기반 실행 외에도 고유한 환경의 원격 Ubuntu VM에서 스크립트를 실행하도록 지원합니다.
-- 워크벤치 앱에서 새로운 환경을 사용하면 계산 대상을 만들고 CLI 기반 환경 외에도 구성을 실행할 수 있습니다.
-![환경 탭](media/azure-machine-learning-release-notes/environment-page.png)
-- 사용자 지정 가능한 실행 기록 보고서 ![새로운 실행 기록 보고서의 이미지](media/azure-machine-learning-release-notes/new-run-history-reports.png)
-
-**자세한 업데이트**
-
-다음은 이 스프린트의 Azure Machine Learning 구성 요소 영역 각각에 대한 자세한 업데이트 목록입니다.
-
-#### <a name="workbench-ui"></a>워크벤치 UI
-- 사용자 지정 가능한 실행 기록 보고서
-  - 실행 기록 보고서에 대한 향상된 차트 구성
-    - 사용되는 진입점을 변경할 수 있습니다.
-    - 최상위 필터를 추가하고 수정할 수 있습니다. ![필터 추가](media/azure-machine-learning-release-notes/add-filters.jpg)
-    - 차트 및 통계를 추가하거나 수정(및 끌어서 놓기를 다시 정렬)할 수 있습니다.
-    ![새 차트 만들기](media/azure-machine-learning-release-notes/configure-charts.png)
-
-  - 실행 기록 보고서의 CRUD
-  - 선택한 진입점에서 실행 시 파이프라인과 같은 역할을 담당하는 서버 쪽 보고서로 모든 기존 실행 기록 목록 보기 구성 파일을 이동합니다.
-
-- 환경 탭
-  - 프로젝트에 새로운 계산 대상 및 실행 구성 파일을 쉽게 추가합니다. ![새 계산 대상](media/azure-machine-learning-release-notes/add-new-environments.png)
-  - 간단한 양식 기반 UX를 사용하여 구성 파일을 관리하고 업데이트합니다.
-  - 실행할 환경을 준비하기 위한 새 단추입니다.
-
-- 세로 막대에 있는 파일 목록에 대한 성능 향상
-
-#### <a name="data-preparation"></a>데이터 준비 
-- 이제 Azure Machine Learning Workbench를 사용하면 알려진 열의 이름을 사용하여 열을 검색할 수 있습니다.
-
-
-#### <a name="experimentation"></a>실험
-- 이제 Azure Machine Learning Workbench는 기본적으로 고유한 Python 또는 PySpark 환경에서 스크립트를 실행하도록 지원합니다. 이 기능으로 사용자는 원격 VM에서 고유한 환경을 만들고 관리하고, Azure Machine Learning Workbench를 사용하여 해당 대상에서 해당 스크립트를 실행합니다. [Azure Machine Learning 실험 서비스 구성](../desktop-workbench/experimentation-service-configuration.md)을 참조하세요. 
-
-#### <a name="model-management"></a>모델 관리
-- 배포된 컨테이너를 사용자 지정하도록 지원: apt-get 등을 사용하는 외부 라이브러리를 설치하도록 허용하여 컨테이너 이미지를 사용자 지정할 수 있습니다. 더 이상 pip 설치 가능 라이브러리로 제한되지 않습니다. 자세한 내용은 [문서](../desktop-workbench/model-management-custom-container.md)를 참조하세요.
-  - 매니페스트, 이미지 또는 서비스 생성 명령이 포함된 `--docker-file myDockerStepsFilename` 플래그 및 파일 이름을 사용합니다.
-  - 기본 이미지가 Ubuntu이며 수정할 수 없습니다.
-  - 예제 명령: 
-  
-    ```shell
-    $ az ml image create -n myimage -m mymodel.pkl -f score.py --docker-file mydockerstepsfile
-    ```
-
-### <a name="2018-01-sprint-3"></a>2018-01(스프린트 3) 
-**버전 번호**: 0.1.1712.18263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 찾기](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-다음은 이번 스프린트의 업데이트 및 개선 사항입니다. 아래 업데이트 중 많은 부분은 사용자가 보내 주신 피드백에 따른 직접적인 결과입니다. 
-
-### <a name="2017-12-sprint-2"></a>2017-12(스프린트 2)
-**버전 번호**: 0.1.1711.15263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 찾기](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-이 릴리스는 세 번째 Azure Machine Learning 업데이트입니다. 이 업데이트는 Workbench 앱, CLI(명령줄 인터페이스) 및 백 엔드 서비스의 향상된 기능을 포함합니다. 웃는 얼굴과 찡그린 얼굴을 보내 주시어 대단히 감사합니다. 다음 업데이트 중 많은 부분이 여러분이 보내 주신 피드백에 따른 직접적인 결과입니다. 
-
-### <a name="2017-11-sprint-1"></a>2017-11(스프린트 1) 
-**버전 번호**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 찾기](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-이 릴리스에서는 워크벤치 앱, CLI 및 백 엔드 서비스 계층에서 보안, 안정성 및 유지 관리 기능이 향상되었습니다. 
-
-### <a name="2017-10-sprint-0"></a>2017-10(스프린트 0) 
-**버전 번호**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([버전 찾기](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-이 릴리스는 Microsoft Ignite 2017 컨퍼런스에서 최초 공용 미리 보기를 선보인 후에 출시된 Azure Machine Learning Workbench 최초 업데이트입니다. 이 릴리스에서는 주로 안정성이 개선되고 안정화 문제가 수정되었습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Machine Learning](../service/overview-what-is-azure-ml.md)에 대한 개요를 참조하세요.
+[Azure Machine Learning Service](../service/overview-what-is-azure-ml.md)에 대한 개요를 참조하세요.

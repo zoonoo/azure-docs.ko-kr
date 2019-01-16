@@ -6,12 +6,12 @@ description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: af59a3f4d631992c2319a79f40a721c45535bb91
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 32500e4c7319411555e028889d6ec94150776250
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581065"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306593"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -211,6 +211,7 @@ Go</a>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/machine-learning/">Machine Learning </a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/">Cognitive Services</a></li>
+                                                    <li><a class="barLink" href="/azure/notebooks/">Azure 노트</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -780,6 +781,11 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/notebooks">
+                                                <img src="media/index/notebooks.svg" alt="" />
+                                                <p>Azure Notebooks</p>
+                                            </a>
+                                        </li>                                        <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
                                                 <p>Azure Search</p>
@@ -1750,7 +1756,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                         <li>
                                             <a href="/azure/managed-applications">
                                                 <img src="media/index/i_managed-application.svg" alt="" />
-                                                <p>Azure Managed Applications</p>
+                                                <p>Azure 관리되는 응용 프로그램</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1956,7 +1962,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cloud Services</h3>
-                                                    <p>가용성과 확장성이 뛰어난 클라우드 애플리케이션 및 API 만들기</p>
+                                                    <p>가용성과 확장성이 뛰어난 클라우드 응용 프로그램 및 API 만들기</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2151,7 +2157,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Load Balancer</h3>
-                                                    <p>애플리케이션에 고가용성 및 네트워크 성능 제공</p>
+                                                    <p>응용 프로그램에 고가용성 및 네트워크 성능 제공</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2208,7 +2214,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure DDoS Protection</h3>
-                                                    <p>DDoS(배포된 서비스 거부) 공격으로부터 애플리케이션 보호</p>
+                                                    <p>DDoS(배포된 서비스 거부) 공격으로부터 응용 프로그램 보호</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2774,7 +2780,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Visual Studio App Center</h3>
-                                                    <p>애플리케이션 수명 주기를 자동화하여 더 빠르게 앱 제공</p>
+                                                    <p>응용 프로그램 수명 주기를 자동화하여 더 빠르게 앱 제공</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3069,7 +3075,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Cache for Redis</h3>
-                                                    <p>높은 처리량과 짧은 대기 시간으로 애플리케이션에 강력한 성능 부여</p>
+                                                    <p>높은 처리량과 짧은 대기 시간으로 응용 프로그램에 강력한 성능 부여</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3378,7 +3384,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Power BI Embedded</h3>
-                                                    <p>애플리케이션에 완벽하고 뛰어난 대화형 데이터 시각화를 포함</p>
+                                                    <p>응용 프로그램에 완벽하고 뛰어난 대화형 데이터 시각화를 포함</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3562,7 +3568,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                         <a href="#ai">AI + Machine Learning</a>
                         <ul id="ai" class="cardsA">
                             <li class="fullSpan">
-                                <h2>인공 지능</h2>
+                                <h2>AI + Machine Learning</h2>
                             </li>
                             <li>
                                 <a href="/azure/azure-databricks/">
@@ -3672,6 +3678,25 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 <div class="cardText">
                                                     <h3>Cognitive Services</h3>
                                                     <p>보고, 듣고, 말하고, 해석하도록 지능형 앱, 웹 사이트 및 봇에 정보 제공</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/notebooks/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/notebooks.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Notebooks</h3>
+                                                    <p>미리 구성된 클라우드 환경에서 Jupyter Notebook 호스트 및 실행</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4550,7 +4575,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure DDoS Protection</h3>
-                                                    <p>DDoS(배포된 서비스 거부) 공격으로부터 애플리케이션 보호</p>
+                                                    <p>DDoS(배포된 서비스 거부) 공격으로부터 응용 프로그램 보호</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4764,7 +4789,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Visual Studio App Center</h3>
-                                                    <p>애플리케이션 수명 주기를 자동화하여 더 빠르게 앱 제공</p>
+                                                    <p>응용 프로그램 수명 주기를 자동화하여 더 빠르게 앱 제공</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5381,7 +5406,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Managed Applications</h3>
+                                                    <h3>Azure 관리되는 응용 프로그램</h3>
                                                     <p>클라우드 제품 관리 간소화</p>
                                                 </div>
                                             </div>

@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 83054c505689768c14d168841764a4557c3e1f8b
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6da0bddc3f6c90d0ecd3a554988f510e1063caac
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159001"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043042"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Azure AD 셀프 서비스 암호 재설정의 라이선스 요구 사항
 
-Azure AD(Azure Active Directory)는 Free, Basic, Premium P1, Premium P2의 네 가지 버전으로 제공됩니다. 변경, 재설정, 잠금 해제, 쓰기 저장 등 여러 Azure AD 버전에서 제공되는 여러 기능이 모여서 셀프 서비스 암호 재설정을 구성합니다. 이 문서에서는 차이점을 설명하려고 합니다. 각 Azure AD 버전에 포함된 기능에 대한 자세한 내용은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
+Azure AD(Azure Active Directory)는 다음과 같은 네 가지 버전으로 제공됩니다. 무료, 기본, 프리미엄 P1 및 프리미엄 P2. 변경, 재설정, 잠금 해제, 쓰기 저장 등 여러 Azure AD 버전에서 제공되는 여러 기능이 모여서 셀프 서비스 암호 재설정을 구성합니다. 이 문서에서는 차이점을 설명하려고 합니다. 각 Azure AD 버전에 포함된 기능에 대한 자세한 내용은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
 
 ## <a name="compare-editions-and-features"></a>버전 및 기능 비교
 
@@ -41,7 +41,7 @@ Azure AD 셀프 서비스 암호 재설정은 사용자 단위로 라이선스�
    * 이 기능은 Azure AD Premium P1 또는 Premium P2 버전에 포함되어 있습니다.
 
 > [!WARNING]
-> 독립 실행형 Office 365 라이선스 요금제는 **비밀번호 쓰기 저장을 지원하지 않으며**, 이 기능을 사용하려면 Azure AD Premium P1 또는 Premium P2 버전이 필요합니다.
+> 독립 실행형 Office 365 라이선스 요금제는 *"셀프 서비스 암호 재설정/변경/온-프레미스 쓰기 저장으로 잠금 해제"를 지원하지 않습니다*. 이 기능을 사용하려면 Azure AD 프리미엄 P1 또는 프리미엄 P2 버전을 포함한 요금제 중 하나가 필요합니다.
 >
 
 아래와 같은 페이지에서 라이선스와 요금에 대한 자세한 정보를 확인할 수 있습니다.

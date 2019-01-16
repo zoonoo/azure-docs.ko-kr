@@ -1,8 +1,7 @@
 ---
-title: Azure Traffic Manager - 트래픽 라우팅 메서드 | Microsoft Docs
+title: Azure Traffic Manager - 트래픽 라우팅 방법
 description: 이 문서는 Traffic Manager에서 사용하는 다양한 트래픽 라우팅 방법을 이해하는 데 도움이 됩니다.
 services: traffic-manager
-documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: 57ae9f3a747ef3fde1a21de8a56ec4059becf392
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3cabfeda458011c5d3006642085f78dc74f3451e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139345"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054727"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager 라우팅 방법
 
@@ -58,8 +57,8 @@ Traffic Manager는 수신한 각 DNS 쿼리에 대해 사용 가능한 엔드포
 가중 메서드를 사용하면 다음과 같은 몇 가지 유용한 시나리오를 사용할 수 있습니다.
 
 * 점진적 애플리케이션 업그레이드: 새 엔드포인트로 라우팅할 트래픽의 백분율을 할당하고 시간 경과에 따라 점진적으로 트래픽을 100%까지 늘립니다.
-* Azure에 애플리케이션 마이그레이션: Azure 엔드포인트 및 외부 엔드포인트로 프로필을 만듭니다. 새 엔드포인트를 선호하도록 엔드포인트의 가중치를 조정합니다.
-* 추가 용량을 위한 클라우드 버스트: Traffic Manager 프로필을 통해 온-프레미스 배포를 클라우드로 신속하게 확장합니다. 클라우드에 추가 용량이 필요한 경우 엔드포인트를 더 추가하거나 사용하도록 설정하고 각 엔드포인트로 전송되는 트래픽 양을 지정할 수 있습니다.
+* Azure에 애플리케이션 마이그레이션: Azure 및 외부 엔드포인트로 프로필을 만듭니다. 새 엔드포인트를 선호하도록 엔드포인트의 가중치를 조정합니다.
+* 추가 용량을 위한 클라우드 버스트: Traffic Manager 프로필 뒤에 배치하여 온-프레미스 배포를 클라우드로 신속하게 확장합니다. 클라우드에 추가 용량이 필요한 경우 엔드포인트를 더 추가하거나 사용하도록 설정하고 각 엔드포인트로 전송되는 트래픽 양을 지정할 수 있습니다.
 
 Azure Portal을 사용하는 것 외에도 Azure PowerShell, CLI 및 REST API를 사용하여 가중치를 구성할 수 있습니다.
 
@@ -137,7 +136,7 @@ Traffic Manager는 DNS 쿼리의 원본 IP 주소를 읽고 해당 사항이 발
 
 ## <a name="next-steps"></a>다음 단계
 
- [Traffic Manager endpoint monitoring](traffic-manager-monitoring.md)
+[Traffic Manager 엔드포인트 모니터링](traffic-manager-monitoring.md)을 사용하여 고가용성 애플리케이션을 개발하는 방법을 알아봅니다.
 
 
 

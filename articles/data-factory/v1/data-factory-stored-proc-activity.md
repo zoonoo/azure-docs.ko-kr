@@ -9,17 +9,16 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: b10fbd953eb9ca904043973ebc1f7c6adb9f9abc
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e1c563f33030795d52cc686bf52497f927ace6bc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047391"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017704"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server 저장 프로시저 작업
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -47,9 +46,9 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 - SQL Server 데이터베이스.  SQL Server를 사용 중인 경우 데이터베이스를 호스트하는 동일한 컴퓨터 또는 데이터베이스에 대한 액세스 권한이 있는 별도 컴퓨터에서 데이터 관리 게이트웨이를 설치합니다. 데이터 관리 게이트웨이는 온-프레미스/Azure VM에서 데이터 원본을 Cloud Services에 안전하고 관리되는 방식으로 연결하는 구성 요소입니다. 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요.
 
 > [!IMPORTANT]
-> Azure SQL Database 또는 SQL Server로 데이터를 복사할 때 **sqlWriterStoredProcedureName** 속성을 사용하여 복사 작업에 저장 프로시저를 호출하도록 **SqlSink**를 구성할 수 있습니다. 자세한 내용은 [복사 작업에서 저장 프로시저 호출](data-factory-invoke-stored-procedure-from-copy-activity.md)을 참조하세요. 이 속성에 대한 자세한 내용은 커넥터 문서 [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties)를 참조하세요. 복사 작업을 사용하여 Azure SQL Data Warehouse로 데이터를 복사하는 동안 저장 프로시저를 호출하는 것은 지원되지 않습니다. 그러나 저장 프로시저 작업을 사용하여 SQL Data Warehouse의 저장 프로시저를 호출할 수 있습니다. 
+> Azure SQL Database 또는 SQL Server로 데이터를 복사할 때 **sqlWriterStoredProcedureName** 속성을 사용하여 복사 작업에 저장 프로시저를 호출하도록 **SqlSink**를 구성할 수 있습니다. 자세한 내용은 [복사 작업에서 저장 프로시저 호출](data-factory-invoke-stored-procedure-from-copy-activity.md)을 참조하세요. 이 속성에 대한 자세한 내용은 다음 커넥터 문서를 참조하세요. [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties). 복사 작업을 사용하여 Azure SQL Data Warehouse로 데이터를 복사하는 동안 저장 프로시저를 호출하는 것은 지원되지 않습니다. 그러나 저장 프로시저 작업을 사용하여 SQL Data Warehouse의 저장 프로시저를 호출할 수 있습니다. 
 >  
-> Azure SQL Database, SQL Server 또는 Azure SQL Data Warehouse에서 데이터를 복사하는 경우 복사 작업에서 **sqlReaderStoredProcedureName** 속성을 사용하여 원본 데이터베이스에서 데이터를 읽는 저장 프로시저를 호출하도록 **SqlSource**를 구성할 수 있습니다. 자세한 내용은 커넥터 문서 [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)를 참조하세요.          
+> Azure SQL Database, SQL Server 또는 Azure SQL Data Warehouse에서 데이터를 복사하는 경우 복사 작업에서 **sqlReaderStoredProcedureName** 속성을 사용하여 원본 데이터베이스에서 데이터를 읽는 저장 프로시저를 호출하도록 **SqlSource**를 구성할 수 있습니다. 자세한 내용은 다음 커넥터 문서를 참조하세요. [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)          
 
 
 다음 연습에서는 파이프라인에서 저장 프로시저 활동을 사용하여 Azure SQL Database에서 저장 프로시저를 호출합니다. 
@@ -130,7 +129,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 ### <a name="create-an-output-dataset"></a>출력 데이터 세트 만들기
 저장 프로시저가 어떠한 데이터도 생성하지 않는 경우에도 저장 프로시저 작업의 출력 데이터 세트를 지정해야 합니다. 이는 출력 데이터 세트가 작업의 일정(작업 실행 빈도 즉, 매시간, 매일 등)을 지정하기 때문입니다. 출력 데이터 세트는 Azure SQL Database 또는 Azure SQL Data Warehouse나 저장 프로시저를 실행하려는 SQL Server 데이터베이스를 참조하는 **연결된 서비스** 를 사용해야 합니다. 출력 데이터 세트는 파이프라인에서 다른 활동을 통한 후속 처리([활동 체이닝](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline))를 위해 저장 프로시저의 결과를 전달하는 방법으로 사용할 수 있습니다. 그러나 Data Factory는 저장 프로시저의 출력을 이 데이터 세트에 자동으로 쓰지 않습니다. 출력 데이터 세트가 가리키는 SQL 테이블에 기록하는 저장 프로시저입니다. 경우에 따라 출력 데이터 세트는 **더미 데이터 세트**(저장 프로시저의 출력을 실제로 보관하고 있지 않은 테이블을 가리키는 데이터 세트)일 수 있습니다. 더미 데이터 세트는 저장 프로시저 작업의 실행 일정을 지정하는 데에만 사용됩니다. 
 
-1. 단추가 표시되지 않는 경우 도구 모음에서 **... 추가**, **새 데이터 세트**, **Azure SQL**을 차례로 클릭합니다. 명령 모음에서 **새 데이터 집합**을 클릭하고 **Azure SQL**을 선택합니다.
+1. 단추가 표시되지 않는 경우 도구 모음에서 **... 추가**, **새 데이터 세트**, **Azure SQL**을 차례로 클릭합니다. 명령 모음에서 **새 데이터 세트**를 클릭하고 **Azure SQL**을 선택합니다.
 
     ![연결된 서비스와 트리 뷰](media/data-factory-stored-proc-activity/new-dataset.png)
 2. 다음 JSON 스크립트를 복사하여 JSON 편집기에 붙여 넣습니다.
@@ -204,7 +203,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 1. **X**를 클릭하여 Data Factory 편집기 블레이드를 닫고 Data Factory 블레이드로 돌아가서 **다이어그램**을 클릭합니다.
 
     ![다이어그램 타일](media/data-factory-stored-proc-activity/data-factory-diagram-tile.png)
-2. **다이어그램 보기**에 파이프라인의 개요와 이 자습서에 사용된 데이터 집합이 표시됩니다.
+2. **다이어그램 보기**에 파이프라인의 개요와 이 자습서에 사용된 데이터 세트가 표시됩니다.
 
     ![다이어그램 타일](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
 3. [다이어그램 보기]에서 `sprocsampleout` 데이터 세트를 두 번 클릭합니다. 준비 상태의 조각이 표시됩니다. 조각은 JSON에서 시작 시간 및 종료 시간 사이의 매시간 생성되므로 5개 조각입니다.
@@ -223,7 +222,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 ## <a name="chaining-with-other-activities"></a>다른 작업과 연결
 업스트림 작업을 이 작업과 연결하려는 경우 업스트림 작업의 출력을 이 작업의 입력으로 지정합니다. 이렇게 하면 업스트림 작업이 완료되고 업스트림 작업의 출력 데이터 세트를 사용할 수 있을 때까지(준비 상태) 저장 프로시저 작업이 실행되지 않습니다. 여러 업스트림 작업의 출력 데이터 세트를 저장 프로시저 작업의 입력 데이터 세트로 지정할 수 있습니다. 이렇게 하면 모든 입력 데이터 세트 조각을 사용할 수 있는 경우에만 저장 프로시저 작업이 실행됩니다.  
 
-다음 예제에서 복사 작업의 출력은 OutputDataset으로, 저장 프로시저 작업의 입력입니다. 따라서 복사 작업이 완료되고 OutputDataset 조각이 사용할 수 있을 때까지(준비 상태) 저장 프로시저 작업이 실행되지 않습니다. 여러 입력 데이터 세트를 지정하면 입력 데이터 세트의 모든 조각을 사용할 수 있을 때까지(준비 상태) 저장 프로시저 작업이 실행되지 않습니다. 입력 데이터 세트는 저장 프로시저 작업에 대한 매개 변수로 직접 사용할 수 없습니다. 
+다음 예제에서 복사 작업의 출력은 OutputDataset이며, 이는 저장 프로시저 작업의 입력입니다. 따라서 복사 작업이 완료되고 OutputDataset 조각이 사용할 수 있을 때까지(준비 상태) 저장 프로시저 작업이 실행되지 않습니다. 여러 입력 데이터 세트를 지정하면 입력 데이터 세트의 모든 조각을 사용할 수 있을 때까지(준비 상태) 저장 프로시저 작업이 실행되지 않습니다. 입력 데이터 세트는 저장 프로시저 작업에 대한 매개 변수로 직접 사용할 수 없습니다. 
 
 연결 작업에 대한 자세한 내용은 [파이프라인의 여러 작업](data-factory-create-pipelines.md#multiple-activities-in-a-pipeline)을 참조하세요.
 
@@ -281,9 +280,9 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 마찬가지로 저장 프로시저 작업을 **다운스트림 작업**(저장 프로시저 작업이 완료된 후 실행되는 작업)과 연결시키려면 저장 프로시저 작업의 출력 데이터 세트를 파이프라인 내 다운스트림 작업의 입력으로 지정합니다.
 
 > [!IMPORTANT]
-> Azure SQL Database 또는 SQL Server로 데이터를 복사할 때 **sqlWriterStoredProcedureName** 속성을 사용하여 복사 작업에 저장 프로시저를 호출하도록 **SqlSink**를 구성할 수 있습니다. 자세한 내용은 [복사 작업에서 저장 프로시저 호출](data-factory-invoke-stored-procedure-from-copy-activity.md)을 참조하세요. 이 속성에 대한 자세한 내용은 커넥터 문서 [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties)를 참조하세요.
+> Azure SQL Database 또는 SQL Server로 데이터를 복사할 때 **sqlWriterStoredProcedureName** 속성을 사용하여 복사 작업에 저장 프로시저를 호출하도록 **SqlSink**를 구성할 수 있습니다. 자세한 내용은 [복사 작업에서 저장 프로시저 호출](data-factory-invoke-stored-procedure-from-copy-activity.md)을 참조하세요. 이 속성에 대한 자세한 내용은 다음 커넥터 문서를 참조하세요. [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties).
 >  
-> Azure SQL Database, SQL Server 또는 Azure SQL Data Warehouse에서 데이터를 복사하는 경우 복사 작업에서 **sqlReaderStoredProcedureName** 속성을 사용하여 원본 데이터베이스에서 데이터를 읽는 저장 프로시저를 호출하도록 **SqlSource**를 구성할 수 있습니다. 자세한 내용은 커넥터 문서 [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)를 참조하세요.          
+> Azure SQL Database, SQL Server 또는 Azure SQL Data Warehouse에서 데이터를 복사하는 경우 복사 작업에서 **sqlReaderStoredProcedureName** 속성을 사용하여 원본 데이터베이스에서 데이터를 읽는 저장 프로시저를 호출하도록 **SqlSource**를 구성할 수 있습니다. 자세한 내용은 다음 커넥터 문서를 참조하세요. [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)          
 
 ## <a name="json-format"></a>JSON 형식
 다음은 저장 프로시저 작업을 정의하기 위한 JSON 형식입니다.
@@ -312,12 +311,12 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | 이름 | 작업의 이름 |예 |
-| description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아니오 |
-| 형식 | **SqlServerStoredProcedure**로 설정되어야 합니다. | 예 |
-| inputs | 선택 사항입니다. 입력 데이터 세트를 지정하는 경우 실행할 저장 프로시저 작업에 사용할 수 있어야 합니다('Ready' 상태). 저장 프로시저에서 입력 데이터 세트를 매개 변수로 사용할 수 없습니다. 저장 프로시저 작업을 시작하기 전에 종속성을 확인하는 데만 사용됩니다. |아니오 |
+| description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아니요 |
+| 형식 | 다음으로 설정되어야 합니다. **SqlServerStoredProcedure** | 예 |
+| inputs | 선택 사항입니다. 입력 데이터 세트를 지정하는 경우 실행할 저장 프로시저 작업에 사용할 수 있어야 합니다('Ready' 상태). 저장 프로시저에서 입력 데이터 세트를 매개 변수로 사용할 수 없습니다. 저장 프로시저 작업을 시작하기 전에 종속성을 확인하는 데만 사용됩니다. |아니요 |
 | outputs | 저장 프로시저 작업에 대한 출력 데이터 세트를 지정해야 합니다. 출력 데이터 세트는 저장 프로시저 작업에 대한 **일정** (매시간, 매주, 매월 등)을 지정합니다. <br/><br/>출력 데이터 세트는 Azure SQL Database 또는 Azure SQL Data Warehouse나 저장 프로시저를 실행하려는 SQL Server 데이터베이스를 참조하는 **연결된 서비스** 를 사용해야 합니다. <br/><br/>출력 데이터 세트는 파이프라인에서 다른 활동을 통한 후속 처리([활동 체이닝](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline))를 위해 저장 프로시저의 결과를 전달하는 방법으로 사용할 수 있습니다. 그러나 Data Factory는 저장 프로시저의 출력을 이 데이터 세트에 자동으로 쓰지 않습니다. 출력 데이터 세트가 가리키는 SQL 테이블에 기록하는 저장 프로시저입니다. <br/><br/>경우에 따라 출력 데이터 세트는 저장 프로시저 작업을 실행하는 일정을 지정하기 위해서만 사용되는 **더미 데이터 세트**일 수 있습니다. |예 |
 | storedProcedureName |출력 테이블에서 사용하는 연결된 서비스로 표시되는 Azure SQL Database, Azure SQL Data Warehouse 또는 SQL Server Database의 저장 프로시저 이름을 지정합니다. |예 |
-| storedProcedureParameters |저장 프로시저 매개 변수의 값을 지정합니다. 매개 변수에 대해 null을 전달해야 하는 경우 구문: "param1": null(모두 소문자)을 사용합니다. 이 속성을 사용하는 방법에 대한 자세한 내용은 다음 샘플을 참조하세요. |아니오 |
+| storedProcedureParameters |저장 프로시저 매개 변수의 값을 지정합니다. 매개 변수에 대해 null을 전달해야 하는 경우 구문: "param1": null(모두 소문자)을 사용합니다. 이 속성을 사용하는 방법에 대한 자세한 내용은 다음 샘플을 참조하세요. |아니요 |
 
 ## <a name="passing-a-static-value"></a>정적 값 전달
 'Document sample'라는 정적 값이 포함된 테이블에 'Scenario'라는 다른 열을 추가해보겠습니다.
@@ -365,7 +364,7 @@ END
 }
 ```
 
-**Data Factory 데이터 집합:**
+**Data Factory 데이터 세트:**
 
 ```JSON
 {

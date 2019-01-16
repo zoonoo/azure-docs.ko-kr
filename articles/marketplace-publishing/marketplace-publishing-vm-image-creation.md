@@ -3,7 +3,7 @@ title: Azure Marketplace에 대한 가상 컴퓨터 이미지 만들기 | Micros
 description: Azure Marketplace에서 다른 사용자가 구입할 수 있도록 가상 머신 이미지를 만드는 방법에 대한 자세한 지침입니다.
 services: Azure Marketplace
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 5c937b8e-e28d-4007-9fef-624046bca2ae
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 0dc33c669a73dd92926eef6a9c4a476160ce60a4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6737e16efa93370b5b5d2b46026fce3bbc22d38f
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686367"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075161"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Marketplace에 대한 가상 머신 이미지 만들기 가이드
 이 문서의 **2단계**에서는 Azure Marketplace에 배포할 VHD(가상 하드 디스크)를 준비하는 과정을 안내합니다. VHD는 SKU의 기반입니다. Linux 기반 SKU를 제공할지 Windows 기반 SKU를 제공할지 여부에 따라 프로세스는 다릅니다. 이 문서에서는 두 시나리오를 모두 다룹니다. 이 프로세스는 [계정 만들기 및 등록][link-acct-creation]과 함께 병렬로 수행할 수 있습니다.
@@ -30,14 +31,14 @@ ms.locfileid: "51686367"
 제품은 모든 SKU의 "부모"입니다. 제품을 여러 개 보유할 수 있습니다. 제품을 구성하는 방법은 게시자가 결정합니다. 제품은 스테이징으로 푸시될 때 모든 SKU와 함께 푸시됩니다. SKU 식별자는 URL에 표시되므로 신중하게 고려하세요.
 
 * Azure.com: http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
-* Azure 미리 보기 포털: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
+* Azure Portal: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
 
 SKU는 VM 이미지에 대한 상업용 이름입니다. VM 이미지에는 운영 체제 디스크 하나와 0개 이상의 데이터 디스크가 포함되어 있습니다. 가상 머신에 대한 완벽한 저장소 프로필입니다. 디스크당 VHD 하나가 필요합니다. 데이터 디스크가 비어 있는 경우에도 VHD를 만들어야 합니다.
 
 사용 중인 운영 체제에 상관없이 SKU에 필요한 최소 개수의 데이터 디스크만 추가합니다. 고객은 배포 시 이미지의 일부인 디스크를 제거할 수 없지만, 필요한 경우 배포 중이나 이후에 언제든지 디스크를 추가할 수 있습니다.
 
 > [!IMPORTANT]
-> **새 이미지 버전에서 디스크 수를 변경하지 마세요.**  이미지에서 데이터 디스크를 다시 구성해야 하는 경우 새 SKU를 정의합니다. 디스크 수가 다른 새 이미지 버전을 게시하면 자동 확장, ARM 템플릿을 통한 솔루션의 자동 배포 및 기타 시나리오에서 새 이미지 버전을 기반으로 새로운 배포를 포함할 가능성이 있습니다.
+> *새 이미지 버전에서 디스크 수를 변경하지 마세요.*  이미지에서 데이터 디스크를 다시 구성해야 하는 경우 새 SKU를 정의합니다. 디스크 수가 다른 새 이미지 버전을 게시하면 자동 확장, ARM 템플릿을 통한 솔루션의 자동 배포 및 기타 시나리오에서 새 이미지 버전을 기반으로 새로운 배포를 포함할 가능성이 있습니다.
 >
 >
 
@@ -87,7 +88,7 @@ Microsoft Azure 포털에서 승인된 기본 이미지를 기반으로 VM을 �
 
     ![drawing][img-acom-1]
 2. 사용할 Azure 구독에 대한 Microsoft 계정 및 암호를 사용하여 포털에 로그인합니다.
-3. 프롬프트에 따라 선택한 기본 이미지를 사용하여 VM을 만듭니다. VM에 대한 호스트 이름(컴퓨터 이름), 사용자 이름(관리자로 등록됨) 및 암호를 제공해야 합니다.
+3. 프롬프트에 따라 선택한 기본 이미지를 사용하여 VM을 만듭니다. VM에 대한 호스트 이름(컴퓨터 이름), 사용자 이름(관리자로 등록됨) 및 암호를 제공합니다.
 
     ![drawing][img-portal-vm-create]
 4. 배포할 VM의 크기를 선택합니다.
@@ -110,7 +111,7 @@ Microsoft Azure 포털에서 승인된 기본 이미지를 기반으로 VM을 �
 
     a.    온-프레미스에서 VHD를 개발하려면 나중에 이미지를 Azure에 업로드할 것이므로 위치는 중요하지 않습니다.
 
-    b.    Azure에서 이미지를 개발하려면 처음부터 미국 기반 Microsoft Azure 지역 중 하나를 사용하는 것이 좋습니다. 그러면 개발자가 인증을 위해 이미지를 제출할 때 Microsoft에서 자동으로 수행되는 VHD 복사 프로세스가 단축됩니다.
+    b.    Azure에서 이미지를 개발하려면 처음부터 미국 기반 Microsoft Azure 지역 중 하나를 사용하는 것이 좋습니다. 그러면 개발자가 인증을 위해 이미지를 제출할 때 Microsoft에서 사용자를 대신하여 수행하는 VHD 복사 프로세스가 단축됩니다.
 
     ![drawing][img-portal-vm-location]
 7. **만들기**를 클릭합니다. VM 배포를 시작합니다. 몇 분 이내에 배포되고 SKU에 대한 이미지 만들기를 시작할 수 있습니다.
@@ -152,7 +153,7 @@ RDP에 대한 자세한 내용은 MSDN의 [RDP 또는 SSH를 사용하여 Azure 
 
 **VM 구성 및 SKU 만들기**
 
-운영 체제 VHD를 다운로드한 후 Hyper-V를 사용하고 SKU 만들기를 시작하도록 VM을 구성합니다. 세부 단계는 TechNet 링크([Hyper-V 설치 및 VM 구성](https://technet.microsoft.com/library/hh846766.aspx))에서 확인할 수 있습니다.
+운영 체제 VHD를 다운로드한 후 Hyper-V를 사용하고 VM을 구성하여 SKU 만들기를 시작합니다. 세부 단계는 TechNet 링크: [Hyper-V 설치 및 VM 구성](https://technet.microsoft.com/library/hh846766.aspx)에서 확인할 수 있습니다.
 
 ### <a name="34-choose-the-correct-vhd-size"></a>3.4 올바른 VHD 크기 선택
 VM 이미지의 Windows 운영 체제 VHD는 128GB 고정 형식 VHD로 만들어져야 합니다.  
@@ -178,7 +179,7 @@ Azure Marketplace의 모든 이미지는 일반적으로 다시 사용할 수 �
 
         sysprep.exe /generalize /oobe /shutdown
 
-  운영 체제에 sysprep를 실행하는 방법은 MSDN 문서, [Windows Server VHD를 만들어서 Azure에 업로드](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)의 단계를 참조하세요.
+  운영 체제에 sysprep를 실행하는 방법은 MSDN 문서: [Windows Server VHD를 만들어서 Azure에 업로드](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)에 나온 단계를 참조하세요.
 
 ## <a name="4-deploy-a-vm-from-your-vhds"></a>4. VHD에서 VM 배포
 VHD(일반화된 운영 체제 VHD 및 0개 이상의 데이터 디스크 VHD)가 Azure 저장소 계정에 업로드된 후에는 사용자 VM 이미지로 등록할 수 있습니다. 그런 다음 해당 이미지를 테스트할 수 있습니다. 운영 체제 VHD는 일반화되므로 VHD URL을 제공하여 VM을 직접 배포할 수 없습니다.
@@ -225,7 +226,7 @@ API/PowerShell/Azure CLI를 사용하여 VM을 캡처하는 방법에 대한 지
 
 **PowerShell에서 VM 배포**
 
-대형 VM을 배포하려면 방금 만든 일반화된 VM 이미지에서 다음 cmdlet을 사용할 수 있습니다.
+새로 생성된 일반화된 VM 이미지에서 대형 VM을 배포하려면 다음 cmdlet을 사용할 수 있습니다.
 
     $img = Get-AzureVMImage -ImageName "myVMImage"
     $user = "user123"
@@ -276,7 +277,7 @@ Linux 또는 Windows 기반 VM 이미지에 대해 올바른 옵션을 선택한
 
 ![Windows VM 이미지에 대한 테스트 사례][img-cert-vm-test-win]
 
-테스트 중 하나라도 실패하면 이미지가 인증되지 않습니다. 이 경우 요구 사항을 검토하고 필요한 변경 내용을 확인하세요.
+테스트 중 하나라도 실패하면 이미지가 인증되지 않습니다. 이 문제가 발생하는 경우 요구 사항을 검토하고 필요한 변경 내용을 확인하세요.
 
 자동화된 테스트 후에 질문서 화면을 통해 VM 이미지에 추가 입력을 제공하라는 메시지가 표시됩니다.  질문을 작성한 후 **다음**을 선택합니다.
 
@@ -293,7 +294,7 @@ Linux 또는 Windows 기반 VM 이미지에 대해 올바른 옵션을 선택한
 
 만든 공유 액세스 서명 URI는 다음 요구 사항을 준수해야 합니다.
 
-참고: 다음 지침은 지원되는 비관리 디스크 종류에만 적용됩니다.
+다음 지침은 지원되는 비관리 디스크 유형에만 적용됩니다.
 
 * VHD에 대한 공유 액세스 서명 URI를 생성할 때 나열 및 읽기 권한이면 충분합니다. 쓰기 또는 삭제 권한을 제공하지 마세요.
 * 액세스 기간은 공유 액세스 서명 URI가 만들어진 날로부터 3주 이상이어야 합니다.
@@ -323,7 +324,7 @@ Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계는 다음�
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_03.png)
 
-5. 저장소 계정 이름, 저장소 계정 키 및 저장소 엔드포인트 도메인을 지정합니다. Azure Portal에 대한 VHD를 보관하는 Azure 구독의 저장소 계정입니다.
+5. 저장소 계정 이름, 저장소 계정 키 및 저장소 엔드포인트 도메인을 지정합니다. Azure Portal에서 VHD를 보관하는 Azure 구독의 스토리지 계정입니다.
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_04.png)
 
@@ -347,11 +348,11 @@ Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계는 다음�
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_09.png)
 
-    a. **액세스 허용 시작**: UTC 시간에 대한 보호를 위해 현재 날짜 이전으로 선택합니다. 예를 들어, 현재 날짜가 2014년 10월 6일이면 2014년 10월 5일을 선택합니다.
+    a. **액세스 허용 시작:** UTC 시간을 보호하려면 현재 이전 날짜를 선택합니다. 예를 들어, 현재 날짜가 2014년 10월 6일이면 2014년 10월 5일을 선택합니다.
 
-    b. **액세스 허용 종료**: **액세스 허용 시작** 날짜로부터 3주 이상 지난 날짜를 선택합니다.
+    b. **액세스 허용 종료:** **액세스 허용 시작** 날짜로부터 최소한 3주가 지난 날짜를 선택합니다.
 
-    다. **허용 동작**: **나열** 및 **읽기** 권한을 선택합니다.
+    다. **허용된 작업:** **나열** 및 **읽기** 권한을 선택합니다.
 
     d. vhd 파일을 올바르게 선택한 경우 **액세스할 Blob 이름** 에 확장명이 .vhd인 파일이 표시됩니다.
 
@@ -360,12 +361,12 @@ Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계는 다음�
     f. **이 컨테이너의 생성된 공유 액세스 서명 URI**에서 위에 강조 표시된 대로 다음을 확인합니다.
 
        - 이미지 파일 이름과 **".vhd"** 가 URI에 있는지 확인합니다.
-       - 서명 끝에 **"=rl"** 이 표시되는지 확인합니다. 이는 읽기 및 나열 액세스가 성공적으로 제공되었음을 나타냅니다.
-       - 서명 중간에 **"sr=c"** 가 표시되는지 확인합니다. 컨테이너 수준 액세스 권한이 있는지 보여 줍니다.
+       - 서명 끝에 **"=rl"** 이 표시되는지 확인합니다. 이 값은 읽기 및 나열 권한이 성공적으로 제공되었음을 나타냅니다.
+       - 서명 중간에 **"sr=c"** 가 표시되는지 확인합니다. 이 값은 컨테이너 수준 액세스 권한이 있음을 보여줍니다.
 
 11. 생성된 공유 액세스 서명 URI가 작동하는지 확인하려면 **Test in Browser(브라우저에서 테스트)** 를 클릭합니다. 다운로드 프로세스가 시작됩니다.
 
-12. 공유 액세스 서명 URI를 복사합니다. 이 URI는 게시 포털에 붙여넣을 URI입니다.
+12. 공유 액세스 서명 URI를 복사합니다. 게시 포털에 이 URI를 붙여넣습니다.
 
 13. SKU에서 각 VHD에 대해 6~10단계를 반복합니다.
 
@@ -381,7 +382,7 @@ Microsoft Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계�
 
 3.  **계정 추가**를 클릭합니다.
 
-4.  계정에 로그인하여 구독에 Microsoft Azure Storage Explorer를 구성합니다.
+4.  계정에 로그인하여 구독에 Microsoft Azure Storage 탐색기를 구성합니다.
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_11.png)
 
@@ -397,9 +398,9 @@ Microsoft Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계�
 
     a.  **시작 시간:** UTC 시간을 보호하려면 현재 이전 날짜를 선택합니다. 예를 들어, 현재 날짜가 2014년 10월 6일이면 2014년 10월 5일을 선택합니다.
 
-    b.  **만료 시간:** **시작 시간** 날짜 이후 3주 이상 지난 날짜를 선택합니다.
+    b.  **만료 시간:** **시작 시간** 날짜 이후 최소한 3주가 지난 날짜를 선택합니다.
 
-    다.  **사용 권한**: **나열** 및 **읽기** 권한을 선택합니다.
+    다.  **사용 권한:** **나열** 및 **읽기** 권한을 선택합니다.
 
 8.  컨테이너 공유 액세스 서명 URI를 복사합니다.
 
@@ -418,12 +419,12 @@ Microsoft Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계�
     TestRGVM201631920152.vhd는 VHD 이름이고 VHD SAS URL은 `https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`입니다.
 
     - 이미지 파일 이름과 **".vhd"** 가 URI에 있는지 확인합니다.
-    - 서명 중간에 **"sp=rl"** 이 표시되는지 확인합니다. 이는 읽기 및 나열 액세스가 성공적으로 제공되었음을 나타냅니다.
-    - 서명 중간에 **"sr=c"** 가 표시되는지 확인합니다. 컨테이너 수준 액세스 권한이 있는지 보여 줍니다.
+    - 서명 중간에 **"sp=rl"** 이 표시되는지 확인합니다. 이 값은 읽기 및 나열 권한이 성공적으로 제공되었음을 나타냅니다.
+    - 서명 중간에 **"sr=c"** 가 표시되는지 확인합니다. 이 값은 컨테이너 수준 액세스 권한이 있음을 보여줍니다.
 
 9.  생성된 공유 액세스 서명 URI가 작동하는지 확인하려면 브라우저에서 테스트합니다. 다운로드 프로세스가 시작됩니다.
 
-10. 공유 액세스 서명 URI를 복사합니다. 이 URI는 게시 포털에 붙여넣을 URI입니다.
+10. 공유 액세스 서명 URI를 복사합니다. 게시 포털에 이 URI를 붙여넣습니다.
 
 11. SKU에서 각 VHD에 대해 이 단계를 반복합니다.
 
@@ -435,7 +436,7 @@ Azure 클래식 CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 
 
 1.  Microsoft Azure CLI를 [여기](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)에서 다운로드합니다. **[Windows](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest)** 및 **[MAC OS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos?view=azure-cli-latest)** 에 대한 다양한 링크를 찾을 수도 있습니다.
 
-2.  다운로드되면 설치하세요.
+2.  다운로드되면 이 도구를 설치합니다.
 
 3.  다음 코드를 사용하여 Bash 파일(또는 다른 동등한 스크립트 실행 파일)을 만들고 로컬로 저장합니다.
 
@@ -447,20 +448,20 @@ Azure 클래식 CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 
 
     위에 있는 다음 매개 변수를 업데이트합니다.
 
-    a. **`<Storage Account Name>`**: 저장소 계정 이름을 제공합니다.
+    a. **`<Storage Account Name>`**: 스토리지 계정 이름을 제공합니다.
 
     b. **`<VHD Blob Name>`**: VHD Blob의 이름을 입력합니다.
 
-    시작 날짜 이후 3주 이상 지난 날짜를 선택합니다(기본값은 sas-token 생성 시간임). 값의 예는 **2018-10-11T23:56Z**입니다.
+    시작 날짜 이후 최소한 3주가 지난 날짜를 선택합니다(기본값은 sas-token 생성 시간임). 예제 값은 `2018-10-11T23:56Z`입니다.
 
-    적절한 매개 변수를 업데이트한 후의 예제 코드는 다음과 같습니다. export AZURE_STORAGE_ACCOUNT=vhdstorage1ba78dfb6bc2d8     EXPIRY=$(date -d "3 weeks" '+%Y-%m-%dT%H:%MZ')     CONTAINER_SAS=$(az storage container generate-sas -n vhds --permissions rl --expiry $EXPIRY -otsv)     BLOB_URL=$(az storage blob url -c vhds -n osdisk_1ba78dfb6b.vhd -otsv)     echo $BLOB_URL\?$CONTAINER_SAS
+    적절한 매개 변수를 업데이트한 후의 예제 코드는 다음과 같습니다. export AZURE_STORAGE_ACCOUNT=vhdstorage1ba78dfb6bc2d8     EXPIRY=$(date -d "three weeks" '+%Y-%m-%dT%H:%MZ')     CONTAINER_SAS=$(az storage container generate-sas -n vhds --permissions rl --expiry $EXPIRY -otsv)     BLOB_URL=$(az storage blob url -c vhds -n osdisk_1ba78dfb6b.vhd -otsv)     echo $BLOB_URL\?$CONTAINER_SAS
 
 4.  스크립트를 실행합니다. 그러면 컨테이너 수준 액세스에 대한 SAS URL이 제공됩니다.
 
 5.  SAS URL을 확인합니다.
 
     - 이미지 파일 이름과 ".vhd"가 URI에 있는지 확인합니다.
-    -   서명 중간에 "sp=rl"이 표시되는지 확인합니다. 이는 읽기 및 나열 액세스가 성공적으로 제공되었음을 나타냅니다.
+    -   서명 중간에 "sp=rl"이 표시되는지 확인합니다. 이 값은 읽기 및 나열 권한이 성공적으로 제공되었음을 나타냅니다.
     -   서명 중간에 "sr=c"가 표시되는지 확인합니다. 컨테이너 수준 액세스 권한이 있는지 보여 줍니다.
 
     예제:
@@ -469,7 +470,7 @@ Azure 클래식 CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 
 
 8.  생성된 공유 액세스 서명 URI가 작동하는지 확인하려면 브라우저에서 테스트합니다. 다운로드 프로세스가 시작됩니다.
 
-9.  공유 액세스 서명 URI를 복사합니다. 이 URI는 게시 포털에 붙여넣을 URI입니다.
+9.  공유 액세스 서명 URI를 복사합니다. 게시 포털에 이 URI를 붙여넣습니다.
 
 10. SKU에서 각 VHD에 대해 이 단계를 반복합니다.
 
@@ -483,7 +484,7 @@ Azure 클래식 CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 
 4. **SKU** 섹션에 속성을 입력합니다.
 5. **운영 체제 제품군**에서 운영 체제 VHD에 연결된 운영 체제 유형을 클릭합니다.
 6. **운영 체제** 상자에서 운영 체제에 대해 설명합니다. 운영 체제 제품군, 유형, 버전, 업데이트 등과 같은 형식을 고려하세요. 예를 들어 "Windows Server Datacenter 2014 R2"를 고려합니다.
-7. 권장된 가상 머신 크기를 최대 6개까지 선택합니다. 이는 이미지를 구입하여 배포하려는 경우에 Azure Portal에서 고객의 가격 책정 계층 블레이드에 표시되는 권장 사항입니다. **이는 유일한 권장 사항입니다. 고객은 이미지에 지정된 디스크에 적용되는 VM 크기를 선택할 수 있습니다.**
+7. 권장된 가상 머신 크기를 최대 6개까지 선택합니다. 이러한 크기는 이미지를 구입하여 배포하려는 경우에 Azure Portal에서 고객의 가격 책정 계층 블레이드에 표시되는 권장 사항입니다. **이는 유일한 권장 사항입니다. 고객은 이미지에 지정된 디스크에 적용되는 VM 크기를 선택할 수 있습니다.**
 8. 버전을 입력합니다. 버전 필드는 제품 및 해당 업데이트를 식별하는 의미 체계 버전을 캡슐화합니다.
    * 버전은 X.Y.Z 형식이며, X, Y 및 Z는 정수여야 합니다.
    * 다른 SKU에서 이미지는 다른 주 버전과 부 버전을 가질 수 있습니다.
@@ -499,15 +500,15 @@ Azure 클래식 CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 
 
 |문제|오류 메시지|해결|문서 링크|
 |---|---|---|---|
-|이미지 복사 중 오류 - "?"가 SAS URL에 없습니다|오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|권장 도구를 사용하여 SAS URL 업데이트|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|이미지 복사 중 오류 - "st" 및 "se" 매개 변수가 SAS URL에 없습니다|오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|시작 및 종료 날짜로 SAS URL 업데이트|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|이미지 복사 중 오류 - “sp=rl”이 SAS URL에 없습니다|오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|"읽기" 및 "나열"로 설정된 사용 권한으로 SAS URL 업데이트|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|이미지 복사 중 오류 - SAS URL은 VHD 이름에 공백을 포함합니다|오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|공백 없이 SAS URL 업데이트|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|이미지 복사 중 오류 – SAS URL 권한 부여 오류|오류: 이미지 복사 권한 부여 오류로 인해 Blob을 다운로드할 수 없습니다.|SAS URL 다시 생성|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|이미지 복사 실패 – SAS Url "st" 및 "se" 매개 변수에 전체 날짜/시간 사양이 없습니다.|오류: 이미지 복사 잘못된 SAS URL로 인해 Blob을 다운로드할 수 없습니다. |SAS Url 시작 및 종료 날짜 매개 변수("st", "se")에는 날짜만 지정하거나 약식 시간 버전을 지정하면 안 되며 전체 날짜/시간 사양(예: 11-02-2017T00:00:00Z)을 지정해야 합니다. Azure CLI 버전 2.0 이상을 사용하는 경우 이러한 시나리오가 발생하기 쉽습니다. 전체 날짜/시간 사양을 제공하고 SAS Url을 다시 생성해야 합니다.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|이미지 복사 중 오류 - "?"가 SAS URL에 없습니다|실패: 이미지를 복사하는 중. 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|권장 도구를 사용하여 SAS URL 업데이트|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|이미지 복사 중 오류 - "st" 및 "se" 매개 변수가 SAS URL에 없습니다|실패: 이미지를 복사하는 중. 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|시작 및 종료 날짜로 SAS URL 업데이트|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|이미지 복사 중 오류 - “sp=rl”이 SAS URL에 없습니다|실패: 이미지를 복사하는 중. 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|"읽기" 및 "나열"로 설정된 사용 권한으로 SAS URL 업데이트|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|이미지 복사 중 오류 - SAS URL은 VHD 이름에 공백을 포함합니다|실패: 이미지를 복사하는 중. 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|공백 없이 SAS URL 업데이트|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|이미지 복사 중 오류 – SAS URL 권한 부여 오류|실패: 이미지를 복사하는 중. 권한 부여 오류로 인해 Blob을 다운로드할 수 없습니다.|SAS URL 다시 생성|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|이미지 복사 실패 – SAS Url "st" 및 "se" 매개 변수에 전체 날짜/시간 사양이 없습니다.|실패: 이미지를 복사하는 중. 잘못된 SAS URL로 인해 Blob을 다운로드할 수 없습니다. |SAS Url 시작 및 종료 날짜 매개 변수("st", "se")에는 날짜만 지정하거나 약식 시간 버전을 지정하면 안 되며 전체 날짜/시간 사양(예: 11-02-2017T00:00:00Z)을 지정해야 합니다. Azure CLI 버전 2.0 이상을 사용하는 경우 이러한 시나리오가 발생하기 쉽습니다. 전체 날짜/시간 사양을 제공하고 SAS Url을 다시 생성해야 합니다.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>다음 단계
-SKU 세부 정보를 완료하면 [Azure Marketplace 마케팅 콘텐츠 가이드][link-pushstaging]를 진행할 수 있습니다. 게시 프로세스의 해당 단계에서는 **3단계: 스테이징에서 VM 제품 테스트** 이전에 필요한 마케팅 콘텐츠, 가격 책정 및 기타 정보를 제공합니다. 여기에서 제품을 Azure Marketplace에 배포하여 일반에게 공개하고 판매하기 전에 다양한 사용 사례 시나리오를 테스트합니다.  
+SKU 세부 정보를 완료하면 [Azure Marketplace 마케팅 콘텐츠 가이드][link-pushstaging]를 진행할 수 있습니다. 게시 프로세스의 해당 단계에서 마케팅 콘텐츠, 가격 책정 및 **3단계: 스테이징에서 VM 제품 테스트**에 앞서 필요한 정보를 입력합니다. 이 단계에서는 공개 표시 및 구매할 수 있도록 제품을 Azure Marketplace에 배포하기 전에 다양한 사용 사례 시나리오를 테스트합니다.  
 
 ## <a name="see-also"></a>참고 항목
 * [시작: Azure Marketplace에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)

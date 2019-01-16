@@ -1,28 +1,31 @@
 ---
-title: Azure Portal을 사용하여 SQL Database 경고 만들기| Microsoft Docs
+title: Azure Portal을 사용하여 경고 및 알림 설정 | Microsoft Docs
 description: Azure Portal을 사용하여 사용자가 지정한 조건에 부합하면 알림이나 자동 작업을 트리거할 수 있는 SQL Database 경고를 만듭니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: ddd704b41e6d1463bc635f13135cc9a388e677fe
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 64e743010b3ae615817639d9b2531b2f99979498
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634612"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156905"
 ---
-# <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Azure Portal을 사용하여 Azure SQL Database 및 Data Warehouse에 대한 경고 만들기
+# <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Azure Portal을 사용하여 Azure SQL Database 및 Data Warehouse에 대한 경고 만들기
 
 ## <a name="overview"></a>개요
-이 문서에서는 Azure Portal을 사용하여 Azure SQL Database 및 Data Warehouse 경고를 설정하는 방법을 보여 줍니다. 이 문서는 또한 경고 기간 설정에 대한 모범 사례를 제공합니다.    
+이 문서에서는 Azure Portal을 사용하여 Azure SQL Database 및 Data Warehouse 경고를 설정하는 방법을 보여 줍니다. 메트릭(예: 데이터베이스 크기 또는 CPU 사용량)이 임계값에 도달하면 경고에서 이메일을 보내거나 webhook를 호출할 수 있습니다. 이 문서는 또한 경고 기간 설정에 대한 모범 사례를 제공합니다.    
+
+> [!IMPORTANT]
+> Managed Instance에서는 아직 이 기능을 사용할 수 없습니다. 대안으로 SQL Agent를 사용하여 [동적 관리 뷰](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)를 기반으로 메트릭에 대한 이메일 경고를 보낼 수 있습니다.
 
 Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메트릭을 기반으로 경고를 받을 수 있습니다.
 

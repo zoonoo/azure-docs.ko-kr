@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a0cfd65aa2444956336e5363d20acab61a404c68
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8d1e44eae7e87a450ac5f36e621d559fca92ca74
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309181"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016157"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 디바이스 관리 FAQ
 
@@ -140,7 +140,7 @@ Azure Portal에서 모든 디바이스 보기를 사용해야 합니다. PowerSh
 
 **Q: 일부 사용자가 Azure AD 조인 디바이스에서 MFA 프롬프트를 확인하지 못하는 이유는 무엇인가요?**
 
-**A:** 사용자가 다단계 인증을 사용하여 Azure AD에 디바이스를 조인하거나 등록하는 경우, 디바이스 자체는 해당 특정 사용자에 대한 신뢰할 수 있는 두 번째 요소가 됩니다. 이후에 동일한 사용자가 디바이스에 로그인하고 응용 프로그램에 액세스할 때마다 Azure AD는 디바이스를 두 번째 요소로 간주하고 사용자가 추가 MFA 프롬프트 없이 응용 프로그램에 원활하게 액세스할 수 있도록 합니다. 이 동작은 해당 디바이스에 로그인하는 다른 사용자에게 적용되지 않으므로, 해당 디바이스에 액세스하는 다른 모든 사용자에게 MFA가 필요한 응용 프로그램에 액세스하기 전에 MFA 인증 질문이 표시됩니다.
+**A:** 사용자가 다단계 인증을 사용하여 Azure AD에 디바이스를 조인하거나 등록하는 경우, 디바이스 자체는 해당 특정 사용자에 대한 신뢰할 수 있는 두 번째 요소가 됩니다. 이후에 동일한 사용자가 장치에 로그인하고 애플리케이션에 액세스할 때마다 Azure AD는 장치를 두 번째 요소로 간주하고 사용자가 추가 MFA 프롬프트 없이 애플리케이션에 원활하게 액세스할 수 있도록 합니다. 이 동작은 해당 장치에 로그인하는 다른 사용자에게 적용되지 않으므로, 해당 장치에 액세스하는 다른 모든 사용자에게 MFA가 필요한 애플리케이션에 액세스하기 전에 MFA 인증 질문이 표시됩니다.
 
 ---
 
@@ -180,6 +180,9 @@ Azure Portal에서 모든 디바이스 보기를 사용해야 합니다. PowerSh
 
 - [Windows 하위 수준 클라이언트에 대한 Azure AD 도메인 조인 컴퓨터의 자동 등록 문제 해결](troubleshoot-hybrid-join-windows-legacy.md)
  
+**Q: Azure AD 디바이스 목록에서 내 Windows 10 하이브리드 Azure AD 가입 디바이스에 대한 Azure AD 등록 레코드가 중복해서 표시되는 이유는 무엇입니까?**
+
+**A:** 사용자가 도메인 가입 디바이스의 앱에 계정을 추가하면 "Windows에 계정을 추가하시겠습니까?"라는 메시지가 표시될 수 있습니다. 메시지에서 "예"를 클릭하면 디바이스가 Azure AD에 등록되고, 신뢰 유형이 Azure AD 등록으로 표시될 수 있습니다. 조직에서 하이브리드 Azure AD 가입을 사용하도록 설정하면 디바이스도 하이브리드 Azure AD에 가입됩니다. 따라서 동일한 디바이스에 두 가지 디바이스 상태가 표시됩니다. 그러나 하이브리드 Azure AD 가입이 Azure AD 등록 상태보다 우선합니다. 따라서 모든 인증 및 조건부 액세스 평가에서 디바이스가 하이브리드 Azure AD 가입 상태로 간주됩니다. 그러므로 Azure AD 포털에서 Azure AD 등록 디바이스 레코드를 삭제해도 무방합니다. Windows 10 머신에서 이러한 이중 상태를 방지하거나 정리하는 방법을 이해하려면 하이브리드 Azure AD 가입 문서의 [이 섹션](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know)을 살펴보세요. 
 
 ---
 

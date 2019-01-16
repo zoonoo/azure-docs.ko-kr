@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 01/03/2019
+ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: a66917f1ab4e554dbb5a8cd1fb9013e111970714
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: b6713eabec62b1658b54dcb29231ddbfb2faceb7
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999818"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107501"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -169,7 +169,7 @@ Azure Virtual Network 서비스 엔드포인트<br/> (Azure Storage 방화벽 �
 게스트/서버 NFS | 아니요
 게스트/서버 SMB 3.0 | 아니요
 게스트/서버 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음
-게스트/서버 디스크 > 1 TB | 예<br/><br/>최대 4,095GB
+게스트/서버 디스크 > 1 TB | 예<br/><br/>최대 4,095GB<br/><br/> 디스크는 1024MB보다 커야 합니다.
 4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 예
 4K 논리적 및 512바이트 물리적 섹터 크기 포함 게스트/서버 디스크 | 예
 스트라이프 디스크 포함 게스트/서버 볼륨 4TB 이상 <br/><br/>논리 볼륨 관리(LVM)| 예
@@ -198,7 +198,7 @@ Azure Virtual Network 서비스 엔드포인트<br/> (Azure Storage 방화벽 �
 휴지 상태의 암호화(Storage 서비스 암호화)| 예
 Premium Storage | 예
 Import/Export 서비스 | 아니요
-대상 저장소/캐시 저장소(복제 데이터 저장에 사용됨) 계정에 구성된 가상 네트워크용 Azure Storage 방화벽 | 아니요
+대상 스토리지/캐시 스토리지(복제 데이터 저장에 사용됨) 계정에 구성된 가상 네트워크용 Azure Storage 방화벽 | 아니요
 범용 v2 저장소 계정(핫 및 쿨 계층 모두) | 아니요
 
 ## <a name="azure-compute"></a>Azure Compute

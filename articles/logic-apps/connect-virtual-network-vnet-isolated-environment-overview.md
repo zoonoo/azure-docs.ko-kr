@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 12/03/2018
-ms.openlocfilehash: 5046b1012e0074e9548cad050c16eef25c00cee0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2b11d74436907380811acda3b7427ebe8011afb4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845198"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061026"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스
 
@@ -33,7 +33,7 @@ ISE를 만들면 격리된 개인 Logic Apps 인스턴스가 Azure 가상 네트
 
 ## <a name="isolated-versus-global"></a>격리 방식과 전역 방식 비교
 
-Azure에서 ISE(통합 서비스 환경)를 만드는 경우 환경을 *삽입*하는 Azure 가상 네트워크를 선택합니다. Azure에서는 가상 네트워크에 Logic Apps 서비스의 비공개 인스턴스를 배포합니다. 이 작업을 통해 격리된 환경이 만들어지면 전용 리소스에서 논리 앱을 만들고 실행할 수 있습니다. 논리 앱을 만드는 경우 이 환경을 앱의 위치로 선택하면 논리 앱이 가상 네트워크의 리소스에 직접 액세스할 수 있습니다. 
+Azure에서 ISE(통합 서비스 환경)를 만드는 경우 ISE를 *삽입*하는 Azure 가상 네트워크를 선택합니다. Azure에서는 가상 네트워크에 Logic Apps 서비스의 비공개 인스턴스를 배포합니다. 이 작업을 통해 격리된 환경이 만들어지면 전용 리소스에서 논리 앱을 만들고 실행할 수 있습니다. 논리 앱을 만드는 경우 이 환경을 앱의 위치로 선택하면 논리 앱이 가상 네트워크의 리소스에 직접 액세스할 수 있습니다. 
 
 ISE의 논리 앱은 전역 Logic Apps 서비스와 같은 사용자 환경과 비슷한 기능을 제공합니다. 글로벌 Logic Apps 서비스에서 동일한 기본 제공 작업 및 커넥터를 사용할 수 있을 뿐 아니라 ISE 관련 커넥터를 사용할 수도 있습니다. 예를 들어 ISE에서 실행되는 버전을 제공하는 몇 가지 표준 커넥터는 다음과 같습니다.
  

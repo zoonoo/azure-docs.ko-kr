@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 23cbdb4d72a6b88563d9d2c2bd0e4e3c8223377f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c86fd2affa08999ae574f55315c6a0b32fa58fca
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723674"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076793"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure HDInsight Tools for Visual Studio Code 사용
 
@@ -127,7 +127,7 @@ VS Code에서 HDInsight 클러스터에 스크립트를 제출하려면 먼저 A
 
 1. **CTRL+SHIFT+P**를 선택하여 명령 팔레트를 연 다음, **HDInsight: Link a Cluster**를 입력합니다.
 2. **일반 Livy 엔드포인트**를 선택합니다.
-3. 일반 Livy 엔드포인트(예: http://10.172.41.42:18080)를 입력합니다.
+3. 일반 Livy 엔드포인트(예: http\://10.172.41.42:18080)를 입력합니다.
 4. 일반 Livy 엔드포인트에 대한 권한 부여가 필요한 경우 **기본**을 선택하고, 그렇지 않으면 **없음**을 선택합니다.
 5. 4단계에서 **기본**을 선택할 때 사용자 이름을 입력합니다.
 6. 4단계에서 **기본**을 선택할 때 암호를 입력합니다.

@@ -15,12 +15,12 @@ ms.workload8: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: bec62b8c6b70706fa6519cbc2fd59bf69f119e9d
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: eb81e5202b5705c59bae8e07cbf2ade43b03f075
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236266"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064477"
 ---
 # <a name="azure-log-integration-faq"></a>Azure 로그 통합 FAQ
 
@@ -31,11 +31,11 @@ ms.locfileid: "35236266"
 
 Azure 로그 통합은 Azure 리소스의 원시 로그를 온-프레미스 SIEM(보안 정보 및 이벤트 관리) 시스템에 통합하는 데 사용할 수 있는 Windows 운영 체제 서비스입니다. 이 통합은 모든 자산, 온-프레미스 또는 클라우드에 대한 통합 대시보드를 제공합니다. 그런 다음, 애플리케이션과 관련된 보안 이벤트를 집계, 상관 관계 설정, 분석 및 경고할 수 있습니다.
 
-Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure Monitor 커넥터를 사용하고 다음 [지침](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)을 따르는 것입니다. 하지만, SIEM 공급업체에서 Azure Monitor에 대한 커넥터를 제공하지 않은 경우에는 해당 커넥터를 사용할 수 있을 때까지 임시 해결책으로 Azure Log Integration을 사용할 수 있습니다(Azure Log Integration에서 해당 SIEM이 지원되는 경우).
+Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure Monitor 커넥터를 사용하고 다음 [지침](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)을 따르는 것입니다. 하지만, SIEM 공급업체에서 Azure Monitor에 대한 커넥터를 제공하지 않는 경우에는 해당 커넥터를 사용할 수 있을 때까지 임시 해결책으로 Azure Log Integration을 사용할 수 있습니다(Azure Log Integration에서 해당 SIEM이 지원되는 경우).
 
 ## <a name="is-the-azure-log-integration-software-free"></a>Azure 로그 통합 소프트웨어는 무료입니까?
 
- 예. Azure 로그 통합 소프트웨어는 무료입니다.
+예. Azure 로그 통합 소프트웨어는 무료입니다.
 
 ## <a name="where-is-azure-log-integration-available"></a>Azure 로그 통합은 어디에서 사용할 수 있나요?
 
@@ -89,7 +89,7 @@ Azure Active Directory 감사 로그에는 테넌트 ID가 이름의 일부로 �
 
 오류:
 
-  *AAD 응용 프로그램을 만들 수 없음 - 테넌트 72f988bf-86f1-41af-91ab-2d7cd011db37 - 이유 = '금지됨' - 메시지 = '권한이 부족하여 작업을 완료할 수 없습니다.'*
+  *AAD 애플리케이션을 만들 수 없음 - 테넌트 72f988bf-86f1-41af-91ab-2d7cd011db37 - 이유 = '금지됨' - 메시지 = '권한이 부족하여 작업을 완료할 수 없습니다.'*
 
 **azlog createazureid** 명령은 Azure 로그인이 액세스 권한을 갖고 있는 구독에 대한 모든 Azure AD 테넌트에 서비스 주체를 만들려고 시도합니다. 사용자의 Azure 로그인이 해당 Azure AD 테넌트의 유일한 게스트 사용자인 경우 “권한이 부족하여 작업을 완료할 수 없습니다” 오류와 함께 명령이 실패합니다. 계정을 테넌트에 사용자로 추가해 달라고 테넌트 관리자에게 요청하세요.
 
@@ -97,7 +97,7 @@ Azure Active Directory 감사 로그에는 테넌트 ID가 이름의 일부로 �
 
 오류:
 
-  *역할 할당 만들기 경고 - AuthorizationFailed: 개체 ID가 'fe9e03e4-4dad-4328-910f-fd24a9660bd2'인 janedo@microsoft.com 클라이언트에는 '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000' 범위에 대해 'Microsoft.Authorization/roleAssignments/write' 작업을 수행할 권한이 없습니다.*
+  ‘역할 할당 만들기 경고 - AuthorizationFailed: 개체 ID가 ‘fe9e03e4-4dad-4328-910f-fd24a9660bd2’인 janedo@microsoft.com 클라이언트에는 ‘/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000’ 범위에 대해 ‘Microsoft.Authorization/roleAssignments/write’ 작업을 수행할 권한이 없습니다.’
 
 **azlog authorize** 명령을 사용하면 제공되는 구독에 **azlog createazureid** 명령으로 만들어진 Azure AD 서비스 주체의 읽기 권한자 역할을 할당합니다. Azure 로그인이 구독의 공동 관리자 또는 소유자가 아닌 경우 “권한 부여 실패” 오류 메시지와 오류가 발생합니다. 이 작업을 완료하려면 공동 관리자 또는 소유자의 Azure RBAC(역할 기반 Access Control)가 필요합니다.
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 359594ab91b903033ecc303eccd270988be19810
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: fbfee92343bfecfbe8395f95775ae1f107b99299
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336530"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037279"
 ---
 # <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>지속형 함수의 함수 유형 및 기능에 대한 개요(Azure Functions)
 
@@ -37,7 +37,7 @@ Durable Functions는 함수 실행의 상태 저장 오케스트레이션을 제
 
 ### <a name="orchestrator-functions"></a>오케스트레이터 함수
 
-오케스트레이터 함수는 지속형 함수의 핵심입니다.  오케스트레이터 함수는 작업이 실행되는 방식과 순서를 설명합니다.  오케스트레이터 함수는 [지속형 함수 개요](durable-functions-overview.md)에 표시된 대로, 코드(C# 또는 JavaScript)에서 오케스트레이션을 설명합니다.  오케스트레이션에는 [활동 함수](#activity-functions), [하위 오케스트레이션](#sub-orchestrations), [외부 이벤트 대기](#external-events) 및 [타이머](#durable-timers)와 같은 다양한 유형의 작업이 포함될 수 있습니다.  
+오케스트레이터 함수는 지속형 함수의 핵심입니다.  오케스트레이터 함수는 작업이 실행되는 방식과 순서를 설명합니다.  오케스트레이터 함수는 [Durable Functions 패턴 및 기술 개념](durable-functions-concepts.md)에 표시된 대로, 코드(C# 또는 JavaScript)에서 오케스트레이션을 설명합니다.  오케스트레이션에는 [활동 함수](#activity-functions), [하위 오케스트레이션](#sub-orchestrations), [외부 이벤트 대기](#external-events) 및 [타이머](#durable-timers)와 같은 다양한 유형의 작업이 포함될 수 있습니다.  
 
 오케스트레이터 함수는 [오케스트레이션 트리거](durable-functions-bindings.md#orchestration-triggers)로 트리거되어야 합니다.
 

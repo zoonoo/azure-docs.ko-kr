@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 9f0a4369d794eda047185844d5fafa49bc8a2e0d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 24644faab85305f18fe4b657d3e982a306a41c16
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337923"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157078"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스에 대한 개발자 지침
 
@@ -92,11 +92,11 @@ Azure AD 조건부 액세스는 [Azure AD Premium](https://docs.microsoft.com/az
 
 ## <a name="scenario-app-accessing-microsoft-graph"></a>시나리오: Microsoft Graph에 액세스하는 앱
 
-이 시나리오에서는 웹앱에서 Microsoft Graph에 대한 액세스를 요청하는 방법을 알아봅니다. 이 경우 조건부 액세스 정책은 SharePoint, Exchange 또는 Microsoft Graph를 통해 작업으로 액세스되는 다른 일부 서비스에 할당할 수 있습니다. 이 예제에서는 Sharepoint Online에 조건부 액세스 정책이 있다고 가정해 보겠습니다.
+이 시나리오에서는 웹앱에서 Microsoft Graph에 대한 액세스를 요청하는 방법을 알아봅니다. 이 경우 조건부 액세스 정책은 SharePoint, Exchange 또는 Microsoft Graph를 통해 작업으로 액세스되는 다른 일부 서비스에 할당할 수 있습니다. 이 예제에서는 SharePoint Online에 조건부 액세스 정책이 있다고 가정해 보겠습니다.
 
 ![Microsoft Graph 흐름 다이어그램에 액세스하는 앱](./media/conditional-access-dev-guide/app-accessing-microsoft-graph-scenario.png)
 
-앱에서 먼저 조건부 액세스 없이 다운스트림 작업에 액세스해야 하는 Microsoft Graph에 대한 권한 부여를 요청합니다. 어떠한 정책도 호출하지 않고 요청이 성공하며 앱은 Microsoft Graph에 대한 토큰을 받습니다. 이 시점에서 앱은 요청된 엔드포인트에 대한 전달자 요청에 액세스 토큰을 사용할 수 있습니다. 이제 앱은 Microsoft Graph의 Sharepoint Online 엔드포인트에 액세스해야 합니다(예: `https://graph.microsoft.com/v1.0/me/mySite`).
+앱에서 먼저 조건부 액세스 없이 다운스트림 작업에 액세스해야 하는 Microsoft Graph에 대한 권한 부여를 요청합니다. 어떠한 정책도 호출하지 않고 요청이 성공하며 앱은 Microsoft Graph에 대한 토큰을 받습니다. 이 시점에서 앱은 요청된 엔드포인트에 대한 전달자 요청에 액세스 토큰을 사용할 수 있습니다. 이제 앱은 Microsoft Graph의 SharePoint Online 엔드포인트에 액세스해야 합니다(예: `https://graph.microsoft.com/v1.0/me/mySite`).
 
 앱에 Microsoft Graph에 유효한 토큰이 이미 있으므로 새 토큰을 발급하지 않고 새 요청을 수행할 수 있습니다. 이 요청은 실패하고 Microsoft Graph에서 ```WWW-Authenticate``` 챌린지와 함께 HTTP 403 사용할 수 없음 형태로 클레임 챌린지가 발급됩니다.
 
@@ -108,7 +108,7 @@ error=insufficient_claims
 www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/common/oauth2/authorize", client_id="<GUID>", error=insufficient_claims, claims={"access_token":{"polids":{"essential":true,"values":["<GUID>"]}}}"
 ```
 
-클레임 챌린지는 ```WWW-Authenticate``` 헤더 내부에 있으며 구문 분석을 통해 다음 요청에 대한 클레임 매개 변수를 추출할 수 있습니다. 새 요청에 추가되면, Azure AD는 사용자가 로그인할 때 조건부 액세스 정책을 평가할 것을 알고 있으며 앱은 조건부 액세스 정책을 준수합니다. Sharepoint Online 엔드포인트에 요청을 반복하면 성공합니다.
+클레임 챌린지는 ```WWW-Authenticate``` 헤더 내부에 있으며 구문 분석을 통해 다음 요청에 대한 클레임 매개 변수를 추출할 수 있습니다. 새 요청에 추가되면, Azure AD는 사용자가 로그인할 때 조건부 액세스 정책을 평가할 것을 알고 있으며 앱은 조건부 액세스 정책을 준수합니다. SharePoint Online 엔드포인트에 요청을 반복하면 성공합니다.
 
 ```WWW-Authenticate``` 헤더는 고유한 구조를 가지며 여기서 값을 추출하기 위해 구문 분석을 수행하는 것이 간단하지 않습니다. 도움이 되는 짧은 방법은 다음과 같습니다.
 

@@ -3,7 +3,7 @@ title: VHD를 만드는 동안 일반적인 문제 해결 방법 | Microsoft Doc
 description: VHD 만드는 동안 문제를 해결하는 일반적인 질문 및 문제에 대답합니다.
 services: Azure Marketplace
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: ''
 editor: ''
 ms.assetid: e39563d8-8646-4cb7-b078-8b10ac35b494
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: c4e88a9fbb15dd90d619b159ae1065dfacc1907f
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ROBOTS: NOINDEX
+ms.openlocfilehash: e58a5f8901b2ab53d47095e1d5fd232783e3b1ba
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713400"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079139"
 ---
 # <a name="how-to-troubleshoot-common-issues-encountered-during-vhd-creation"></a>VHD를 만드는 동안 발생하는 일반적인 문제 해결 방법
 이 문서는 가상 머신 솔루션을 게시하거나 관리하는 동안 문제가 발생하거나 관련된 일반적인 질문이 있는 Azure Marketplace 게시자 및/또는 공동 관리자를 돕기 위해 제공됩니다.
@@ -52,6 +53,6 @@ ms.locfileid: "39713400"
 9. 32비트 앱은 Azure Marketplace에서 지원되나요?
    
    지원 정책에 대한 자세한 내용은 [https://support.microsoft.com/kb/2721672](https://support.microsoft.com/kb/2721672) 링크를 참조하세요.
-10. 내 VHD에서 이미지를 만들려고 할 때마다 PowerShell에서 "리소스인 이미지 리포지토리로 VHD를 이미 등록했습니다." 오류가 표시됩니다. 이미지를 만들지 않았거나 Azure에서 이 이름을 가진 이미지를 찾지 못했습니다. 이 문제를 해결하려면 어떻게 해야 하나요?
+10. 내 VHD에서 이미지를 만들려고 할 때마다 PowerShell에서 "리소스인 이미지 리포지토리로 VHD를 이미 등록했습니다." 오류가 표시됩니다. 이미지를 만들지 않았거나 Azure에서 이 이름을 가진 이미지를 찾지 못했습니다. 이 문제를 해결하려면 어떻게 할까요?
     
-    이 문제는 일반적으로 사용자가 이 VHD에서 VM을 프로비전하고 해당 VHD에 대한 잠금이 있는 경우에 발생합니다. 이 VHD에서 할당된 VM이 없는지 확인합니다. 오류가 계속되는 경우 이 링크를 사용하거나 관련된 게시 포털에서 지원 티켓을 제기합니다.(질문 11의 답변에서 세부 정보를 제공).
+    이 문제는 일반적으로 사용자가 이 VHD에서 VM을 프로비전하고 해당 VHD에 대한 잠금이 있는 경우에 발생합니다. 이 VHD에서 할당된 VM이 없어야 합니다. 오류가 계속되는 경우 이 링크를 사용하거나 게시 포털에서 지원 티켓을 제기합니다(질문 11의 답변에서 세부 정보를 제공).

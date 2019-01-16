@@ -12,12 +12,12 @@ ms.date: 10/19/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 12f557e9453db0d8bff2ab91fe8453e026e0320c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c13be8cbe9c05b9dcf513588825a22722c66e529
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104274"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061898"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Azure Active Directory를 사용하여 다른 그룹에서 그룹 추가 또는 제거
 이 문서는 Azure Active Directory를 사용하여 다른 그룹에서 그룹을 추가 및 제거하는 데 도움이 됩니다.
@@ -84,6 +84,6 @@ ms.locfileid: "53104274"
 
 - [그룹 설정 편집](active-directory-groups-settings-azure-portal.md)
 
-- [SaaS 응용 프로그램에 대한 액세스를 관리할 그룹 사용](../users-groups-roles/groups-saasapps.md)
+- [SaaS 애플리케이션에 대한 액세스를 관리할 그룹 사용](../users-groups-roles/groups-saasapps.md)
 
 - [Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하는 경우 시나리오, 제한 사항 및 알려진 문제](../users-groups-roles/licensing-group-advanced.md#limitations-and-known-issues)

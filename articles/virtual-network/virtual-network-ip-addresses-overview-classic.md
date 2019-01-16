@@ -1,13 +1,10 @@
 ---
-title: Azure의 IP 주소 유형(클래식) | Microsoft Docs
+title: Azure의 IP 주소 유형(클래식)
+titlesuffix: Azure Virtual Network
 description: Azure에서 공용 및 개인 IP 주소(기본)에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 2f8664ab-2daf-43fa-bbeb-be9773efc978
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 81699764952e50cb18c1f299c9c4f7c524b0a332
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f96ac14d68d98937cf230b04b45503e21c5e0187
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011698"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024572"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure의 IP 주소 유형 및 할당 방법
 다른 Azure 리소스, 온-프레미스 네트워크 및 인터넷과 통신하기 위해 Azure 리소스에 IP 주소를 할당할 수 있습니다. Azure에서 사용할 수 있는 IP 주소는 공용 및 개인의 두 종류가 있습니다.
@@ -44,7 +41,7 @@ ms.locfileid: "53011698"
 * 애플리케이션 게이트웨이
 
 ### <a name="allocation-method"></a>할당 방법
-공용 IP 주소를 Azure 리소스에 할당해야 하는 경우 리소스가 생성된 위치 내 사용 가능한 공용 IP 주소 풀에서 *동적으로* 할당됩니다. 이 IP 주소는 리소스가 중지되면 해제됩니다. 클라우드 서비스의 경우 모든 역할 인스턴스가 중지되면 이러한 상황이 발생하며, *정적* (예약된) IP 주소를 사용하면 이를 방지할 수 있습니다.( [Cloud Services](#Cloud-services)참조)
+공용 IP 주소를 Azure 리소스에 할당해야 하는 경우 리소스가 생성된 위치 내 사용 가능한 공용 IP 주소 풀에서 *동적으로* 할당됩니다. 이 IP 주소는 리소스가 중지되면 해제됩니다. 클라우드 서비스의 경우 모든 역할 인스턴스가 중지되면 이러한 상황이 발생하며, *정적* (예약된) IP 주소를 사용하면 이를 방지할 수 있습니다([Cloud Services](#Cloud-services)참조).
 
 > [!NOTE]
 > 공용 IP 주소를 Azure 리소스에 할당할 때 사용되는 IP 범위 목록은 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 게시되어 있습니다.
@@ -85,17 +82,17 @@ ms.locfileid: "53011698"
 [VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md) 는 Azure VNet를 다른 Azure VNet 또는 온-프레미스 네트워크에 연결하는 데 사용할 수 있습니다. VPN 게이트웨이는 공용 IP 주소가 *동적으로*할당되며, 원격 네트워크와의 통신을 지원합니다.
 
 ### <a name="application-gateways"></a>애플리케이션 게이트웨이
-Azure [애플리케이션 게이트웨이](../application-gateway/application-gateway-introduction.md) 는 HTTP 기반 네트워크 트래픽을 라우팅하는 Layer7 부하 분산에 사용할 수 있습니다. 애플리케이션 게이트웨이에는 부하 분산된 VIP 역할을 하는 공용 IP 주소가 *동적으로*할당됩니다.
+Azure [애플리케이션 게이트웨이](../application-gateway/application-gateway-introduction.md)는 HTTP 기반 네트워크 트래픽을 라우팅하는 Layer7 부하 분산에 사용할 수 있습니다. 애플리케이션 게이트웨이에는 부하 분산된 VIP 역할을 하는 공용 IP 주소가 *동적으로*할당됩니다.
 
 ### <a name="at-a-glance"></a>개요
 아래 테이블에서는 각 리소스 유형과 사용 가능한 할당 방법(동적/정적), 그리고 여러 공용 IP 주소를 할당할 수 있는지 여부를 보여 줍니다.
 
 | 리소스 | 동적 | 공용 | 여러 IP 주소 |
 | --- | --- | --- | --- |
-| 클라우드 서비스 |yes |예 |yes |
-| IaaS VM 또는 PaaS 역할 인스턴스 |yes |아니요 |아니요 |
-| VPN 게이트웨이 |yes |아니요 |아니요 |
-| 애플리케이션 게이트웨이 |yes |아니요 |아니요 |
+| 클라우드 서비스 |예 |예 |예 |
+| IaaS VM 또는 PaaS 역할 인스턴스 |예 |아니요 |아니요 |
+| VPN 게이트웨이 |예 |아니요 |아니요 |
+| 애플리케이션 게이트웨이 |예 |아니요 |아니요 |
 
 ## <a name="private-ip-addresses"></a>개인 IP 주소
 개인 IP 주소를 사용하면 Azure 리소스가 인터넷 연결이 가능한 IP 주소를 사용하지 않고 VPN 게이트웨이 또는 ExpressRoute 회로를 통해 클라우드 서비스 또는 [가상 네트워크](virtual-networks-overview.md)(VNet) 또는 온-프레미스 네트워크의 다른 리소스와 통신할 수 있습니다.
@@ -107,7 +104,7 @@ Azure 클래식 배포 모델에서 개인 IP 주소는 다음의 Azure 리소�
 * 애플리케이션 게이트웨이
 
 ### <a name="iaas-vms-and-paas-role-instances"></a>IaaS VM 및 PaaS 역할 인스턴스
-클래식 배포 모델을 사용하여 만든 가상 머신(VM)는 항상 PaaS 역할 인스턴스와 유사한 클라우드 서비스에 배치됩니다. 따라서 개인 IP 주소의 동작은 이러한 리소스와 비슷합니다.
+클래식 배포 모델을 사용하여 만든 가상 머신(VM)는 항상 PaaS 역할 인스턴스와 유사한 클라우드 서비스에 배치됩니다. 따라서 사설 IP 주소의 동작은 이러한 리소스와 비슷합니다.
 
 클라우드 서비스를 배포할 수 있는 방법이 두 가지라는 점을 알아두는 것이 중요합니다.
 
@@ -130,22 +127,22 @@ Azure 클래식 배포 모델에서 개인 IP 주소는 다음의 Azure 리소�
 #### <a name="internal-dns-hostname-resolution"></a>내부 DNS 호스트 이름 확인
 모든 Azure VM 및 PaaS 역할 인스턴스는 명시적으로 사용자 지정 DNS 서버를 구성하지 않으면 기본적으로 [Azure 관리 DNS 서버](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) 로 구성됩니다. 이러한 DNS 서버는 동일한 VNet 또는 클라우드 서비스 내에 있는 VM 및 역할 인스턴스에 대한 내부 이름 확인을 제공합니다.
 
-VM을 만들 때 개인 IP 주소에 대한 호스트 이름 매핑이 Azure 관리 DNS 서버에 추가됩니다. 다중 NIC VM의 경우 기본 NIC의 개인 IP 주소에 호스트 이름이 매핑됩니다. 그러나 이 매핑 정보는 동일한 클라우드 서비스 또는 VNet 내에 있는 리소스로 제한됩니다.
+VM을 만들 때 개인 IP 주소에 대한 호스트 이름 매핑이 Azure 관리 DNS 서버에 추가됩니다. 다중 NIC VM의 경우 기본 NIC의 사설 IP 주소에 호스트 이름이 매핑됩니다. 그러나 이 매핑 정보는 동일한 클라우드 서비스 또는 VNet 내에 있는 리소스로 제한됩니다.
 
 *독립 실행형* 클라우드 서비스의 경우 동일한 클라우드 서비스 내에 있는 모든 VM/역할 인스턴스의 호스트 이름만 확인할 수 있습니다. VNet 내에 있는 클라우드 서비스의 경우 VNet 내에 있는 모든 VM/역할 인스턴스의 호스트 이름을 확인할 수 있습니다.
 
-### <a name="internal-load-balancers-ilb--application-gateways"></a>ILB(내부 부하 분산 장치) 및 응용 프로그램 게이트웨이
-[Azure 내부 부하 분산 장치](../load-balancer/load-balancer-internal-overview.md)(ILB) 또는 [Azure Application Gateway](../application-gateway/application-gateway-introduction.md)의 **프런트 엔드** 구성에 개인 IP 주소를 할당할 수 있습니다. 이 개인 IP 주소는 가상 네트워크(VNet) 내 리소스와 VNet에 연결된 원격 네트워크에만 액세스할 수 있는 내부 엔드포인트로 사용됩니다. 프런트 엔드 구성에 동적 또는 정적 개인 IP 주소를 할당할 수 있습니다. 또한 여러 개인 IP 주소를 할당하여 다중 vip 시나리오를 구현할 수도 있습니다.
+### <a name="internal-load-balancers-ilb--application-gateways"></a>ILB(내부 부하 분산 장치) 및 애플리케이션 게이트웨이
+[Azure 내부 부하 분산 디바이스](../load-balancer/load-balancer-internal-overview.md)(ILB) 또는 [Azure Application Gateway](../application-gateway/application-gateway-introduction.md)의 **프런트 엔드** 구성에 사설 IP 주소를 할당할 수 있습니다. 이 개인 IP 주소는 가상 네트워크(VNet) 내 리소스와 VNet에 연결된 원격 네트워크에만 액세스할 수 있는 내부 엔드포인트로 사용됩니다. 프런트 엔드 구성에 동적 또는 정적 개인 IP 주소를 할당할 수 있습니다. 또한 여러 개인 IP 주소를 할당하여 다중 vip 시나리오를 구현할 수도 있습니다.
 
 ### <a name="at-a-glance"></a>개요
 아래 테이블에서는 각 리소스 유형과 사용 가능한 할당 방법(동적/정적), 그리고 여러 개인 IP 주소를 할당할 수 있는지 여부를 보여 줍니다.
 
 | 리소스 | 동적 | 공용 | 여러 IP 주소 |
 | --- | --- | --- | --- |
-| VM(*독립 실행형* 클라우드 서비스 또는 VNet에서) |yes |예 |yes |
-| PaaS 역할 인스턴스(*독립 실행형* 클라우드 서비스 또는 VNet에서) |yes |아니요 |아니요 |
-| 내부 부하 분산 장치 프런트 엔드 |yes |예 |yes |
-| 애플리케이션 게이트웨이 프런트 엔드 |yes |예 |yes |
+| VM(*독립 실행형* 클라우드 서비스 또는 VNet에서) |예 |예 |예 |
+| PaaS 역할 인스턴스(*독립 실행형* 클라우드 서비스 또는 VNet에서) |예 |아니요 |아니요 |
+| 내부 부하 분산 장치 프런트 엔드 |예 |예 |예 |
+| 애플리케이션 게이트웨이 프런트 엔드 |예 |예 |예 |
 
 ## <a name="limits"></a>제한
 아래 테이블은 구독 당 Azure에서 IP 주소에 적용된 제한을 보여줍니다. 비즈니스에 따라 최대 한도까지 기본 제한을 증가시키려면 [지원에 문의](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 하세요.

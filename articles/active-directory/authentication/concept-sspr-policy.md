@@ -5,21 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 01/08/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3a16977f2d3bc7321de2d2a1538276f182e7fa10
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1d7f364ac5863c70cd0034d9c458e94cfb164cba
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190995"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116962"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory에서 암호 정책 및 제한
 
-이 문서에서는 Azure AD(Azure Active Directory) 테넌트에 저장된 사용자 계정과 관련된 암호 정책 및 복잡성 요구 사항에 대해 설명합니다.
+이 문서에서는 Azure AD(Azure Active Directory) 테넌트의 사용자 계정과 관련된 암호 정책 및 복잡성 요구 사항에 대해 설명합니다.
 
 ## <a name="administrator-reset-policy-differences"></a>관리자 재설정 정책의 차이점
 
@@ -42,7 +42,7 @@ ms.locfileid: "53190995"
   * 전역 관리자 또는 회사 관리자
   * SharePoint 서비스 관리자
   * 규정 준수 관리자
-  * 응용 프로그램 관리자
+  * 애플리케이션 관리자
   * 보안 관리자
   * 권한 있는 역할 관리자
   * Microsoft Intune 서비스 관리자
@@ -79,7 +79,7 @@ Azure AD에 로그인해야 하는 모든 사용자 계정에는 해당 계정�
 | 자산 | 요구 사항 |
 | --- | --- |
 | 허용되는 문자 |<ul><li>A-Z</li><li>a-z</li><li>0-9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
-| 허용되지 않는 문자 |<ul><li>유니코드 문자</li><li>공백</li><li> 강력한 암호만 가능</li></ul> |
+| 허용되지 않는 문자 |<ul><li>유니코드 문자</li><li>공백</li><li> 강력한 암호만: 점 문자 "."를 포함할 수 없습니다. 바로 앞에 "\@\" 기호"가 옵니다.</li></ul> |
 | 암호 제한 |<ul><li>최소 8자, 최대 16자</li><li>강력한 암호만: 다음 4개 중 3개가 필요합니다.<ul><li>소문자</li><li>대문자</li><li>숫자(0-9)</li><li>기호(이전 암호 제한 참조)</li></ul></li></ul> |
 | 암호 만료 기간 |<ul><li>기본값: **90**일.</li><li>값은 Windows PowerShell용 Azure Active Directory 모듈에서 `Set-MsolPasswordPolicy` cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |
 | 암호 만료 알림 |<ul><li>기본값: **14**일(암호 만료 이전).</li><li>값은 `Set-MsolPasswordPolicy` cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |

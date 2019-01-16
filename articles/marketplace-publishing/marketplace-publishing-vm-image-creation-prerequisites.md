@@ -3,7 +3,7 @@ title: Azure Marketplace용 가상 머신 이미지를 만들기 위한 기술 �
 description: 가상 머신 이미지를 만들고 다른 사람이 구입할 수 있도록 Azure Marketplace에 배포하기 위한 요구 사항을 이해합니다.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 63c16966-0304-4b17-a715-368a0a5ccb2c
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 79fb9869b37e82df3f41a50e4425e7c0cd08c841
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1fdf945645b2d5c89d7f3750ec836595adb90b06
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255271"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077082"
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Marketplace용 가상 컴퓨터 이미지를 만들기 위한 기술 필수 조건
 시작하기 전에 프로세스를 자세히 읽고 각 단계를 어디에서, 왜 수행하는지를 이해해야 합니다. 제품 만들기 프로세스를 시작하기 전에 회사 정보와 기타 데이터를 최대한 많이 준비하고 필요한 도구를 다운로드하고 기술 구성 요소를 만들어야 합니다. 이 문서를 검토하여 이러한 항목에 대해 명확히 알아야 합니다.  
 
-## <a name="download-needed-tools--applications"></a>필요한 도구 및 응용 프로그램 다운로드
+## <a name="download-needed-tools--applications"></a>필요한 도구 및 애플리케이션 다운로드
 프로세스를 시작하기 전에 다음 항목이 준비되어 있어야 합니다.
 
 * 대상으로 하는 운영 체제에 따라 [Azure 다운로드](https://azure.microsoft.com/downloads/) 페이지에서 [Azure PowerShell cmdlet](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) 또는 [Linux 명령줄 인터페이스 도구](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409)를 설치합니다.

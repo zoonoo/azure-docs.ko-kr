@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure StorSimple 데이터 관리자 개요 | Microsoft Docs
-description: StorSimple 데이터 관리자 서비스 개요 제공
+description: StorSimple Data Manager 서비스 개요 제공
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 5845fd246b20d29739eb6d60bbc8621489ccc0d6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fe4d332859b3ec0ba03e64f9a830b7710586aa17
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011941"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158820"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple 데이터 관리자 솔루션 개요
 

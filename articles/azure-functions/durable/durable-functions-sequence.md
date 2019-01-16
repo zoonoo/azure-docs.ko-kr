@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 14d50a17cf7816cb8e792128f8dd3965781657e5
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4657bd136592c66b5dab9a712f5f1d6df898876c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339589"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043960"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>지속성 함수의 함수 체이닝 - Hello 시퀀스 샘플
 
-함수 체이닝은 특정 순서로 일련의 함수를 실행하는 패턴을 나타냅니다. 종종 한 함수의 출력을 다른 함수의 입력에 적용해야 합니다. 이 문서에서는 Durable Functions 빠른 시작([C#](durable-functions-create-first-csharp.md) 또는 [JavaScript](quickstart-js-vscode.md))를 완료할 때 생성되는 체이닝 시퀀스에 대해 설명합니다. Durable Functions에 대한 자세한 내용은 [Durable Functions 개요](durable-functions-overview.md)를 참조하세요.
+함수 체이닝은 특정 순서로 일련의 함수를 실행하는 패턴을 나타냅니다. 종종 한 함수의 출력을 다른 함수의 입력에 적용해야 합니다. 이 문서에서는 Durable Functions 빠른 시작([C#](durable-functions-create-first-csharp.md) 또는 [JavaScript](quickstart-js-vscode.md))를 완료할 때 생성되는 체이닝 시퀀스에 대해 설명합니다. Durable Functions에 대한 자세한 내용은 [Durable Functions 패턴 및 기술 개념](durable-functions-concepts.md)을 참조하세요.
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -142,7 +142,7 @@ Content-Type: application/json; charset=utf-8
 > [!NOTE]
 > 오케스트레이터 함수를 시작한 HTTP POST 엔드포인트는 샘플 앱에서 "HttpStart"라는 HTTP 트리거 함수로 구현됩니다. `queueTrigger`, `eventHubTrigger` 또는 `timerTrigger`와 같은 다른 트리거 형식에 대해 비슷한 시작 논리를 구현할 수 있습니다.
 
-함수 실행 로그를 검토합니다. `E1_HelloSequence` 함수는 [개요](durable-functions-overview.md)에서 설명한 재생 동작으로 인해 여러 번 시작되고 완료되었습니다. 반면에 이러한 함수 실행이 재생되지 않으므로 `E1_SayHello`는 3회만 실행되었습니다.
+함수 실행 로그를 검토합니다. `E1_HelloSequence` 함수는 [개요](durable-functions-concepts.md)에서 설명한 재생 동작으로 인해 여러 번 시작되고 완료되었습니다. 반면에 이러한 함수 실행이 재생되지 않으므로 `E1_SayHello`는 3회만 실행되었습니다.
 
 ## <a name="visual-studio-sample-code"></a>Visual Studio 샘플 코드
 

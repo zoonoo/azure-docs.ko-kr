@@ -1,13 +1,10 @@
 ---
-title: Azure Virtual Network 만들기, 변경 또는 삭제 | Microsoft Docs
+title: Azure Virtual Network 만들기, 변경 또는 삭제
+titlesuffix: Azure Virtual Network
 description: Azure에서 가상 네트워크를 만들고 변경하거나 삭제하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 1c39100007d3b993031aa06cd106dfa2bf8419a2
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 3f158d040654b251faebceaa2e89d0462f13c217
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538092"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016032"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>가상 네트워크 만들기, 변경 또는 삭제
 

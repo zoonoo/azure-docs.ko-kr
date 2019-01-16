@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: bc6e77643783e1e9f124bc98ea1eb910304a5f32
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 33edfdc58d82530bc1a5d0245b5e18e94b0a6dc1
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846473"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077558"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>클라우드 Marketplace 게시자 되기
 
@@ -97,7 +97,7 @@ Marketplace 온보딩 팀은 3단계에서 제공된 Marketplace 등록 세부 �
 [개발자 센터](https://developer.microsoft.com/store/register) 등록을 완료한 후 [개발자 센터](https://developer.microsoft.com/store/register) 계정으로 Cloud 파트너 프로필을 연결합니다(여기에서 자세한 단계 참조). 이 단계는 거래 제품을 게시하기 전에 완료되어야 합니다. 
 
 >[!Note]
->$99의 개발자 센터 등록 요금을 면제받으려면 [마켓플레이스 등록 양식](https://azuremarketplace.microsoft.com/en-us/sell/signup)을 작성하세요. 그러면, 프로모션 코드가 포함된 메일을 받게 됩니다. 
+>$99의 개발자 센터 등록 요금을 면제받으려면 [마켓플레이스 등록 양식](https://azuremarketplace.microsoft.com/sell/signup)을 작성하세요. 그러면, 프로모션 코드가 포함된 메일을 받게 됩니다. 
 
 >[!Important]
 >Microsoft 개발자 센터 계정을 만들기 전에 중복 계정을 방지하도록 조직에 개발자 센터 계정이 없는지 확인합니다. 자세한 내용은 [개발자 센터에 등록하는 방법](https://docs.microsoft.com/azure/marketplace/register-dev-center) 섹션을 참조하세요.

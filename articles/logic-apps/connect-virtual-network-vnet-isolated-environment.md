@@ -9,19 +9,19 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 12/06/2018
-ms.openlocfilehash: b0fd2466d72b1aae65a54b9e9813a5af51bf1672
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 31f3cf9bd8f83c5da32569ed370de1ed35299749
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997526"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062386"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-through-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 통해 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
 > [!NOTE]
 > 이 기능은 *비공개 미리 보기* 상태입니다. 액세스를 요청하려면 [여기서 참여 요청을 작성](https://aka.ms/iseprivatepreview)하세요.
 
-논리 앱 및 통합 계정이 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)에 액세스해야 하는 시나리오의 경우 [*ISE*(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. ISE는 공용 또는 *글로벌* Logic Apps 서비스와 분리된 상태를 유지하는 전용 스토리지 및 기타 리소스를 사용하는 개인 및 격리된 환경입니다. 이러한 격리로 인해 다른 Azure 테넌트가 앱 성능에 줄 수 있는 영향이 감소됩니다. ISE를 Azure 가상 네트워크에 *삽입*한 다음, Logic Apps 서비스를 사용자의 가상 네트워크에 배포합니다. 논리 앱 또는 통합 계정을 만들 때 해당 위치로 이 ISE를 선택합니다. 그러면 논리 앱 및 통합 계정은 가상 네트워크에서 VM(가상 머신), 서버, 시스템 및 서비스와 같은 리소스에 직접 액세스할 수 있습니다. 
+논리 앱 및 통합 계정이 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)에 액세스해야 하는 시나리오의 경우 [*ISE*(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. ISE는 공용 또는 “글로벌” Logic Apps 서비스와 분리된 상태를 유지하는 전용 스토리지 및 기타 리소스를 사용하는 개인 및 격리된 환경입니다. 이러한 격리로 인해 다른 Azure 테넌트가 앱 성능에 줄 수 있는 영향이 감소됩니다. ISE를 Azure 가상 네트워크에 *삽입*한 다음, Logic Apps 서비스를 사용자의 가상 네트워크에 배포합니다. 논리 앱 또는 통합 계정을 만들 때 해당 위치로 이 ISE를 선택합니다. 그러면 논리 앱 및 통합 계정은 가상 네트워크에서 VM(가상 머신), 서버, 시스템 및 서비스와 같은 리소스에 직접 액세스할 수 있습니다. 
 
 ![통합 서비스 환경 선택](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
 
@@ -40,6 +40,9 @@ ms.locfileid: "52997526"
 ## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
+
+  > [!IMPORTANT]
+  > ISE에서 실행되는 논리 앱, 기본 제공 작업 및 커넥터의 경우 사용량 기반 가격 책정 플랜이 아닌 다른 가격 책정 플랜을 사용합니다. 자세한 내용은 [Logic Apps 가격 책정](../logic-apps/logic-apps-pricing.md)을 참조하세요.
 
 * [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)입니다. 가상 네트워크가 없는 경우 [Azure 가상 네트워크를 만드는](../virtual-network/quick-create-portal.md) 방법을 알아봅니다. 
 
@@ -105,13 +108,13 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
 
    | 자산 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
-   | **구독** | yes | <*Azure-subscription-name*> | 환경에 사용할 Azure 구독 | 
-   | **리소스 그룹** | yes | <*Azure-resource-group-name*> | 환경을 만들려는 Azure 리소스 그룹 |
-   | **통합 서비스 환경 이름** | yes | <*environment-name*> | 환경에 부여할 이름 | 
-   | **위치**: | yes | <*Azure-datacenter-region*> | 환경을 배포할 Azure 데이터 센터 지역 | 
-   | **용량** | yes | 0, 1, 2, 3 | 이 ISE 리소스에 대해 사용할 처리 단위 수 | 
-   | **가상 네트워크** | yes | <*Azure-virtual-network-name*> | 해당 환경의 논리 앱이 가상 네트워크에 액세스할 수 있도록 환경을 삽입하려는 Azure 가상 네트워크입니다. 네트워크가 없는 경우 여기서 만들 수 있습니다. <p>**중요**: ISE를 만들 때*만* 이 삽입을 수행할 수 있습니다. 그러나 이 관계를 만들려면 먼저 [Azure Logic Apps에 대한 가상 네트워크에서 역할 기반 액세스 제어를 설정](#vnet-access)했는지 확인합니다. | 
-   | **서브넷** | yes | <*IP-address-range*> | ISE는 네 개의 *빈* 서브넷이 필요합니다. 이러한 서브넷은 어떤 서비스에도 위임되지 않으며 사용자 환경에서 리소스를 만드는 데 사용됩니다. 환경을 만든 후 이러한 IP 범위를 *변경할 수 없습니다*. <p><p>각 서브넷을 만들려면 [이 테이블 아래의 단계를 따릅니다](#create-subnet). 각 서브넷은 이러한 조건을 충족해야 합니다. <p>- 선택한 가상 네트워크의 동일한 주소 범위나 가상 네트워크가 연결된 다른 모든 개인 IP 주소에도 존재해서는 안 됩니다. <br>- 숫자 또는 하이픈으로 시작하지 않는 이름을 사용합니다. <br>- [CIDR(Classless Inter-Domain Routin) 형식](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)을 사용합니다. <br>- 클래스 B 주소 공간이 필요합니다. <br>- `/27`을 포함합니다. 예를 들어 여기에서 각 서브넷은 32비트 주소 범위인 `10.0.0.0/27`, `10.0.0.32/27`, `10.0.0.64/27` 및 `10.0.0.96/27`를 지정합니다. <br>- 비어 있어야 합니다. |
+   | **구독** | 예 | <*Azure-subscription-name*> | 환경에 사용할 Azure 구독 | 
+   | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 환경을 만들려는 Azure 리소스 그룹 |
+   | **통합 서비스 환경 이름** | 예 | <*environment-name*> | 환경에 부여할 이름 | 
+   | **위치**: | 예 | <*Azure-datacenter-region*> | 환경을 배포할 Azure 데이터 센터 지역 | 
+   | **추가 용량** | 예 | 0, 1, 2, 3 | 이 ISE 리소스에 대해 사용할 처리 단위 수 | 
+   | **가상 네트워크** | 예 | <*Azure-virtual-network-name*> | 해당 환경의 논리 앱이 가상 네트워크에 액세스할 수 있도록 환경을 삽입하려는 Azure 가상 네트워크입니다. 네트워크가 없는 경우 여기서 만들 수 있습니다. <p>**중요**: ISE를 만들 때*만* 이 삽입을 수행할 수 있습니다. 그러나 이 관계를 만들려면 먼저 [Azure Logic Apps에 대한 가상 네트워크에서 역할 기반 액세스 제어를 설정](#vnet-access)했는지 확인합니다. | 
+   | **서브넷** | 예 | <*subnet-resource-list*> | ISE에는 사용자 환경에서 리소스를 만들기 위해 4개의 *빈* 서브넷이 필요합니다. 따라서 이러한 서브넷은 어떤 서비스에도 *위임되지 않아야* 합니다. 환경을 만든 후 이러한 서브넷 주소를 *변경할 수 없습니다*. <p><p>각 서브넷을 만들려면 [이 테이블 아래의 단계를 따릅니다](#create-subnet). 각 서브넷은 이러한 조건을 충족해야 합니다. <p>- 비어 있어야 합니다. <br>- 숫자 또는 하이픈으로 시작하지 않는 이름을 사용합니다. <br>- [CIDR(Classless Inter-Domain Routing) 형식](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 및 클래스 B 주소 공간을 사용합니다. <br>- 서브넷이 32개 이상의 주소를 가져오도록 주소 공간에 `/27` 이상을 포함합니다. 주소 수를 계산에 대해 자세히 알아보려면 [IPv4 CIDR 블록](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks)을 참조하세요. 예:  <p>- 2<sup>(32-24)</sup>은 2<sup>8</sup> 또는 256이므로 `10.0.0.0/24`는 256개의 주소를 포함합니다. <br>- 2<sup>(32-27)</sup>은 2<sup>5</sup> 또는 32이므로 `10.0.0.0/27`는 32개의 주소를 포함합니다. <br>- 2<sup>(32-28)</sup>은 2<sup>4</sup> 또는 16이므로 `10.0.0.0/28`는 16개의 주소만 포함합니다. |
    |||||
 
    <a name="create-subnet"></a>

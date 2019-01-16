@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: fac22508e679c1e1c93ec62a5b120ba9c7c52317
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 607d05818966e62407795640d223f1aed2f59bbb
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162384"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156751"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>자습서: SAP NetWeaver와 Azure Active Directory 통합
 
@@ -68,7 +68,7 @@ SAP NetWeaver의 Azure AD 통합을 구성하려면 갤러리의 SAP NetWeaver�
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
 
@@ -142,7 +142,7 @@ SAP NetWeaver에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![인증서 다운로드 링크](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_userpwd.png)
 
-6. T01122에서 **http://T01122**로 **공급자 이름**을 바꾸고 **저장**을 클릭합니다.
+6. **공급자 이름**을 T01122에서 `http://T01122`로 바꾸고 **저장**을 클릭합니다.
 
     > [!NOTE]
     > 기본적으로 공급자 이름은 <sid><client> 형식이지만 Azure AD는 <protocol>://<name>의 형식으로 이름을 예상합니다. 공급자 이름을 https://<sid><client>로 유지하기 위해 Azure AD에서 여러 SAP NetWeaver ABAP 엔진을 구성하도록 허용하는 것이 좋습니다.
@@ -187,7 +187,7 @@ SAP NetWeaver에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     d. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<your company instance of SAP NetWeaver>`
 
-12. SAP NetWeaver 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
+12. SAP NetWeaver 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
     ![특성 섹션](./media/sapnetweaver-tutorial/edit_attribute.png)
 
@@ -275,7 +275,7 @@ SAP NetWeaver에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 29. **사용자 ID 원본** 및 **사용자 ID 매핑 모드** 값은 SAP 사용자와 Azure AD 클레임 간의 링크를 결정합니다.  
 
-    ####<a name="scenario-sap-user-to-azure-ad-user-mapping"></a>시나리오: Azure AD 사용자 매핑으로 SAP 사용자
+    ####<a name="scenario-sap-user-to-azure-ad-user-mapping"></a>시나리오: 사용자를 Azure AD 사용자 매핑으로 SAP합니다.
 
     a. SAP의 NameID 세부 정보 스크린샷
 
@@ -380,7 +380,7 @@ SAP NetWeaver에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

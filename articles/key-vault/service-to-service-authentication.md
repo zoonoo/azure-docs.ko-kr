@@ -6,18 +6,18 @@ author: bryanla
 manager: mbaldwin
 services: key-vault
 ms.author: bryanla
-ms.date: 11/27/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: 54449e26279e6c6d83a57daa9c8f40819fab4993
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e3239d57b34af396ee4b23f3b9b01b367eb3daa6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715766"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050118"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
@@ -29,14 +29,14 @@ Azure Key Vault에 인증하려면 Azure AD(Active Directory) 자격 증명, 공
 
 `Microsoft.Azure.Services.AppAuthentication` 라이브러리는 자동으로 인증을 관리하므로 순서대로 수행하면 자격 증명 대신 솔루션에 다시 초점을 맞출 수 있습니다.
 
-`Microsoft.Azure.Services.AppAuthentication` 라이브러리는 Microsoft Visual Studio, Azure CLI 또는 Azure AD 통합 인증을 사용한 로컬 개발을 지원합니다. Azure App Services 또는 Azure VM(Virtual Machine)에 배포하는 경우 라이브러리는 자동으로 [Azure 서비스에 대한 관리 ID](/azure/active-directory/msi-overview)를 사용합니다. 코드 또는 구성을 변경할 필요가 없습니다. 또한 라이브러리를 사용하면 관리 ID를 사용할 수 없거나 로컬 개발 동안 개발자의 보안 컨텍스트를 확인할 수 없는 경우 Azure AD [클라이언트 자격 증명](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)을 직접 사용할 수도 있습니다.
+`Microsoft.Azure.Services.AppAuthentication` 라이브러리는 Microsoft Visual Studio, Azure CLI 또는 Azure AD 통합 인증을 사용한 로컬 개발을 지원합니다. 관리 ID를 지원하는 Azure 리소스에 배포된 라이브러리는 [Azure 리소스용 관리 ID](/azure/active-directory/msi-overview)를 자동으로 사용합니다. 코드 또는 구성을 변경할 필요가 없습니다. 또한 라이브러리를 사용하면 관리 ID를 사용할 수 없거나 로컬 개발 동안 개발자의 보안 컨텍스트를 확인할 수 없는 경우 Azure AD [클라이언트 자격 증명](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)을 직접 사용할 수도 있습니다.
 
 <a name="asal"></a>
 ## <a name="using-the-library"></a>라이브러리 사용
 
 .NET 애플리케이션의 경우 `Microsoft.Azure.Services.AppAuthentication` 패키지를 통해 관리 ID를 사용하는 것이 가장 간단한 방법입니다. 시작 방법은 다음과 같습니다.
 
-1. 애플리케이션에 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet 패키지의 참조를 추가합니다.
+1. 애플리케이션에 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 및 [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet 패키지의 참조를 추가합니다. 
 
 2. 다음 코드를 추가합니다.
 
@@ -44,16 +44,13 @@ Azure Key Vault에 인증하려면 Azure AD(Active Directory) 자격 증명, 공
     using Microsoft.Azure.Services.AppAuthentication;
     using Microsoft.Azure.KeyVault;
 
-    // ...
+    // Instantiate a new KeyVaultClient object, with an access token to Key Vault
+    var azureServiceTokenProvider1 = new AzureServiceTokenProvider();
+    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider1.KeyVaultTokenCallback));
 
-    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(
-    azureServiceTokenProvider.KeyVaultTokenCallback));
-
-    // or
-
-    var azureServiceTokenProvider = new AzureServiceTokenProvider();
-    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync(
-       "https://management.azure.com/").ConfigureAwait(false);
+    // Optional: Request an access token to other Azure services
+    var azureServiceTokenProvider2 = new AzureServiceTokenProvider();
+    string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/").ConfigureAwait(false);
     ```
 
 `AzureServiceTokenProvider` 클래스는 메모리에서 토큰을 캐시하여 만료 직전에 Azure AD에서 검색합니다. 따라서 더 이상 `GetAccessTokenAsync` 메서드를 호출하기 전에 만료를 확인할 필요가 없습니다. 토큰을 사용하려면 메서드를 호출하기만 하면 됩니다. 
@@ -234,8 +231,5 @@ Azure AD 공유 암호 자격 증명을 사용하여 로그인하려면:
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 리소스에 대한 관리 ID](/azure/app-service/overview-managed-identity)에 대해 자세히 알아보세요.
-
-- [앱 인증 및 권한 부여](/azure/app-service/overview-authentication-authorization)에 대한 다양한 방법을 알아봅니다.
-
-- Azure AD [인증 시나리오](/azure/active-directory/develop/active-directory-authentication-scenarios#web-browser-to-web-application)에 대해 자세히 알아봅니다.
+- [Azure 리소스에 대한 관리 ID](/azure/active-directory/managed-identities-azure-resources/)에 대해 자세히 알아보세요.
+- [Azure AD 인증 시나리오](/azure/active-directory/develop/active-directory-authentication-scenarios#web-browser-to-web-application)에 대해 자세히 알아보기.

@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell 스크립트: Azure Data Factory를 사용하여 대용량 데이터 복사 | Microsoft Docs'
+title: 'PowerShell 스크립트: Azure Data Factory를 사용하여 데이터 대량 복사 | Microsoft Docs'
 description: 이 PowerShell 스크립트는 Azure Data Factory를 사용하여 원본 데이터 저장소에서 대상 데이터 저장소로 데이터를 대량으로 복사하는 방법을 보여줍니다.
 services: data-factory
 author: linda33wj
@@ -8,16 +8,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: jingwang
-ms.openlocfilehash: dc1bf394a34c097caa68c029e11c141dbae32aab
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2fc34afc2121eec88a0640b6dea22699243195b7
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125142"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021597"
 ---
 # <a name="powershell-script---copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>PowerShell 스크립트 - Azure Data Factory를 사용하여 여러 테이블 대량 복사
 

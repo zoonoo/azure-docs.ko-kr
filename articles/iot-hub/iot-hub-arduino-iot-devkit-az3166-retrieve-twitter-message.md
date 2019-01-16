@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 722f350c4f11648753465e302e84949fc340e281
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: f488f8aa991b3d4baae05097af9b6e2f2db481cc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42143683"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158927"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>흔들기, 흔들어서 트윗 찾기 -- Azure Functions를 사용하여 Twitter 메시지 검색
 
@@ -52,7 +52,7 @@ ms.locfileid: "42143683"
 왼쪽의 **ARDUINO 예제** 섹션을 확장하고 **MXCHIP AZ3166에 대한 예제 > AzureIoT**로 이동하여 **ShakeShake**를 선택합니다. 프로젝트 폴더를 표시하는 새 VS Code 창이 열립니다. MXCHIP AZ3166 섹션을 볼 수 없다면 디바이스가 제대로 연결되었는지 확인하고 Visual Studio Code를 다시 시작합니다.  
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
-명령 팔레트에서 샘플 프로젝트를 열 수도 있습니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 클릭하여 명령 팔레트를 열고, **Arduino**를 입력한 다음, **Arduino: 예제**를 찾아서 선택합니다.
+명령 팔레트에서 샘플 프로젝트를 열 수도 있습니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 클릭하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음, **Arduino: 예제**를 찾아서 선택합니다.
 
 ## <a name="provision-azure-services"></a>Azure 서비스 프로비전
 
@@ -155,7 +155,7 @@ static const char* iot_event = "{\"topic\":\"iot\"}";
 
 ![다이어그램](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
 
-Arduino 스케치가 Azure IoT Hub에 이벤트를 보냅니다. 이 이벤트는 Azure Functions 앱을 트리거합니다. Azure Functions 앱은 Twitter의 API에 연결하여 트윗을 검색하는 논리를 포함하고 있습니다. 그런 후 트윗 텍스트를 C2D(클라우드-장치) 메시지에 래핑하고 다시 장치로 보냅니다.
+Arduino 스케치가 Azure IoT Hub에 이벤트를 보냅니다. 이 이벤트는 Azure Functions 앱을 트리거합니다. Azure Functions 앱은 Twitter의 API에 연결하여 트윗을 검색하는 논리를 포함하고 있습니다. 그런 후 트윗 텍스트를 C2D(클라우드-디바이스) 메시지에 래핑하고 다시 디바이스로 보냅니다.
 
 ## <a name="optional-use-your-own-twitter-bearer-token"></a>선택 사항: 사용자 고유의 Twitter 전달자 토큰 사용
 
@@ -189,9 +189,9 @@ Arduino 스케치가 Azure IoT Hub에 이벤트를 보냅니다. 이 이벤트�
 
 모든 단계가 성공적으로 실행되었지만 화면에 '트윗 없음'이 표시되는지 확인할 수 있는 한 가지 문제입니다. 이 조건은 샘플을 처음으로 배포하고 실행할 때 주로 발생합니다. 함수 앱이 앱을 콜드 시작할 때까지 수초에서 1분이 걸리기 때문입니다. 
 
-또는 코드를 실행하면 앱이 다시 시작되는 일시적인 문제가 있는 경우도 있습니다. 이 조건이 발생하면 장치 앱이 트윗을 가져오는 시간이 제한될 수 있습니다. 이 경우 다음 두 가지 방법 중 하나 또는 둘 다 사용하여 문제 해결을 시도할 수 있습니다.
+또는 코드를 실행하면 앱이 다시 시작되는 일시적인 문제가 있는 경우도 있습니다. 이 조건이 발생하면 디바이스 앱이 트윗을 가져오는 시간이 제한될 수 있습니다. 이 경우 다음 두 가지 방법 중 하나 또는 둘 다 사용하여 문제 해결을 시도할 수 있습니다.
 
-1. DevKit의 재설정 단추를 클릭하여 장치 앱을 다시 실행합니다.
+1. DevKit의 재설정 단추를 클릭하여 디바이스 앱을 다시 실행합니다.
 
 2. [Azure Portal](https://portal.azure.com/)에서 사용자가 만든 Azure Functions 앱을 찾아 다시 시작합니다.
 
@@ -202,7 +202,7 @@ Arduino 스케치가 Azure IoT Hub에 이벤트를 보냅니다. 이 이벤트�
 다른 문제가 발생하면 [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)를 참조하거나 다음 지원 채널을 사용하여 문의해주세요.
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [스택 오버플로](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>다음 단계
 
