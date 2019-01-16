@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 413decee89e99b8120d271e2e87e703d4d362c33
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 81f76b31f7af3643e2b654e8e26c70d0481d60b8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999291"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017109"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
 
@@ -53,7 +53,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 기본적으로 클라이언트 요청은 원래 응답의 복사본으로 초기화됩니다. 응답의 상태 코드, 이유 구문, 헤더 및 본문을 변경할 수 있습니다. 수정된 값은 [애플리케이션 설정], [원래 클라이언트 요청의 매개 변수] 및 [백 엔드 응답의 매개 변수]를 참조할 수 있습니다.
 
-프록시 세부 정보 페이지의 *응답 재정의* 섹션을 확장하여 포털에서 백 엔드 요청을 수정할 수 있습니다. 
+프록시 세부 정보 페이지의 *응답 재정의* 섹션을 확장하여 포털에서 백 엔드 응답을 수정할 수 있습니다. 
 
 ## <a name="using-variables"></a>변수 사용
 
@@ -176,13 +176,13 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 ### <a name="reservedChars"></a> 예약된 문자(문자열 형식)
 
-프록시는 \\\\\\를 이스케이프 기호로 사용하여 C# 문자열 표기법인 모든 문자열을 읽습니다. 또한 프록시는 중괄호를 해석합니다. 아래 예제 전체를 참조하세요.
+프록시는 \를 이스케이프 기호로 사용하여 JSON 파일에서 모든 문자열을 읽습니다. 프록시는 또한 중괄호를 해석합니다. 아래 예제 전체를 참조하세요.
 
 |문자|이스케이프된 문자|예|
 |-|-|-|
 |{ 또는 }|{{ 또는 }}|`{{ example }}` --> `{ example }`
-| \ | \\\\\\\\ | `example.com\\\text.html` --> `example.com\text.html`
-|"|\\\\\\"| `\\\"example\\\"` --> `"example"`
+| \ | \\\\ | `example.com\\text.html` --> `example.com\text.html`
+|"|\\\"| `\"example\"` --> `"example"`
 
 ### <a name="requestOverrides"></a>requestOverrides 개체 정의
 

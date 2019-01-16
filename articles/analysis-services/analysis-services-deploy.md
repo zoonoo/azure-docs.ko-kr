@@ -1,24 +1,26 @@
 ---
-title: SSDT를 사용하여 Azure Analysis Services에 배포 | Microsoft Docs
+title: Visual Studio(SSDT)를 사용하여 Azure Analysis Services에 배포 | Microsoft Docs
 description: SSDT를 사용하여 Azure Analysis Services 서버에 테이블 형식 모델을 배포하는 방법에 대해 알아봅니다.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5f56ee65cd2ec5dfb39929f6985c26ebc339953e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: a9f3dfba4c79b2369e99b95c13557557ed930c24
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429051"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188592"
 ---
-# <a name="deploy-a-model-from-ssdt"></a>SSDT에서 모델 배포
+# <a name="deploy-a-model-from-visual-studio"></a>Visual Studio에서 모델 배포
+
 Azure 구독에서 서버를 만들면 여기에 테이블 형식 모델 데이터베이스를 배포할 준비가 되었습니다. SSDT(SQL Server 데이터 도구)를 사용하여 작업하는 테이블 형식 모델 프로젝트를 빌드하고 배포할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
+
 시작하려면 다음이 필요합니다.
 
 * Azure의 **Analysis Services 서버** - 자세한 내용은 [Azure Analysis Services 서버 만들기](analysis-services-create-server.md)를 참조하세요.
@@ -53,10 +55,12 @@ Azure 구독에서 서버를 만들면 여기에 테이블 형식 모델 데이�
 
 
 ## <a name="troubleshooting"></a>문제 해결
+
 메타데이터를 배포하는 데 실패한 경우 SSDT가 서버에 연결할 수 없기 때문일 수 있습니다. SSMS를 사용하여 서버에 연결할 수 있는지 확인합니다. 프로젝트에 대한 배포 서버 속성이 정확한지 확인합니다.
 
 테이블에서 배포에 실패한 경우 서버가 데이터 원본에 연결할 수 없기 때문일 수 있습니다. 데이터 원본이 조직의 온-프레미스에 있는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 설치해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 테이블 형식 모델을 서버에 배포했으므로 연결할 준비가 되었습니다. [SSMS과 연결](analysis-services-manage.md)하여 관리할 수 있습니다. 그리고 Power BI, Power BI Desktop 또는 Excel과 같은 [클라이언트 도구를 사용하여 연결](analysis-services-connect.md)하고 보고서를 만들기 시작할 수 있습니다.
 

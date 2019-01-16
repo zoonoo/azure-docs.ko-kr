@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: d1214df922e8e656ba2ff566571d878b0031fea9
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a50fca059331b28c46adb65903be4e7ba018a36c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000260"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052039"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -81,9 +81,9 @@ MQTT 프로토콜을 지원하는 [디바이스 SDK][lnk-device-sdks]는 Java, N
 
   SAS 토큰을 생성하는 방법에 대한 자세한 내용은 [IoT Hub 보안 토큰 사용][lnk-sas-tokens]의 디바이스 섹션을 참조하세요.
 
-  테스트할 때 플랫폼 간 [Visual Studio Code용 Azure IoT Hub Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)(이전 Azure IoT Toolkit 확장) 또는 [Device Explorer][lnk-device-explorer]를 사용하여 복사한 후 자체 코드에 붙여넣을 수 있는 SAS 토큰을 빠르게 생성할 수도 있습니다.
+  테스트할 때 플랫폼 간 [Visual Studio Code용 Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 또는 [Device Explorer][lnk-device-explorer]를 사용하여 복사한 후 자체 코드에 붙여넣을 수 있는 SAS 토큰을 빠르게 생성할 수도 있습니다.
 
-Azure IoT Hub Toolkit의 경우
+Azure IoT Tools:
 
   1. Visual Studio Code의 왼쪽 아래 모퉁이에 있는 **AZURE IOT HUB 디바이스** 탭을 확장합니다.
   2. 디바이스를 마우스 오른쪽 단추로 클릭하고 **디바이스에 대한 SAS 토큰 생성**을 선택합니다.

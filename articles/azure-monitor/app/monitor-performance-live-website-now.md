@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights로 라이브 ASP.NET 웹앱 모니터링 | Microsoft Docs
-description: 다시 배포하지 않고 웹 사이트의 성능을 모니터링합니다. VM 또는 Azure의 온-프레미스에서 호스트되는 ASP.NET 웹앱으로 작업합니다.
+description: 다시 배포하지 않고 웹 사이트의 성능을 모니터링합니다. 온-프레미스 또는 VM에서 호스트되는 ASP.NET 웹앱으로 작업합니다.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -12,16 +12,23 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2eacff55197e203e79043ed225a4495eb85988a0
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 1558d8e8392ff49e2661e9f8bc41e41c5bbc6dd5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999801"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189851"
 ---
-# <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Application Insights를 사용한 런타임 시 웹앱 계측
+# <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Application Insights 상태 모니터를 사용한 런타임 시 웹앱 계측
 
-코드를 수정하거나 다시 배포할 필요 없이 Azure Application Insights를 사용하여 라이브 웹앱을 계측할 수 있습니다. 앱이 온-프레미스 IIS 서버에서 호스트되는 경우 상태 모니터를 설치합니다. Azure 웹앱이거나 Azure VM에서 실행되는 경우 Azure 제어판의 Application Insights 모니터링에서 전환할 수 있습니다. ([라이브 J2EE 웹앱](../../azure-monitor/app/java-live.md) 및 [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)를 계측하는 방법을 설명하는 별도의 문서도 있습니다.) [Microsoft Azure](https://azure.com) 구독이 필요합니다.
+코드를 수정하거나 다시 배포할 필요 없이 Azure Application Insights를 사용하여 라이브 웹앱을 계측할 수 있습니다. [Microsoft Azure](https://azure.com) 구독이 필요합니다.
+
+상태 모니터는 온-프레미스 또는 VM의 IIS에서 호스트되는 .NET 애플리케이션을 계측하는 데 사용합니다.
+
+- 앱을 Azure App Services에 배포하는 경우 [이러한 지침](azure-web-apps.md)을 따릅니다.
+- 앱을 Azure VM에 배포하는 경우 Azure 제어판에서 Application Insights 모니터링을 켤 수 있습니다.
+- ([라이브 J2EE 웹앱](java-live.md) 및 [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)를 계측하는 방법을 설명하는 별도의 문서도 있습니다.)
+
 
 ![실패한 요청, 서버 응답 시간 및 서버 요청에 대한 정보를 포함하는 App Insights 개요 그래프 스크린샷](./media/monitor-performance-live-website-now/overview-graphs.png)
 
@@ -45,39 +52,13 @@ Application Insights를 .NET 웹 애플리케이션에 적용하는 세 가지 �
 | 코드를 다시 빌드해야 함 |예 | 아니요 |
 
 
-## <a name="monitor-a-live-azure-web-app"></a>라이브 Azure 웹앱 모니터링
-
-애플리케이션을 Azure 웹 서비스로 실행 중인 경우 모니터링을 켜는 방법은 다음과 같습니다.
-
-* Azure에서 앱 제어판에서 Application Insights를 선택합니다.
-
-    ![Azure 웹앱의 Application Insights 설정](./media/monitor-performance-live-website-now/azure-web-setup.png)
-* Application Insights 요약 페이지가 열리면 맨 아래쪽에 있는 링크를 클릭하여 전체 Application Insights 리소스를 엽니다.
-
-    ![Application Insights를 클릭해 갑니다.](./media/monitor-performance-live-website-now/azure-web-view-more.png)
-
-[클라우드 및 VM 앱 모니터링](../../application-insights/app-insights-overview.md).
-
-### <a name="enable-client-side-monitoring-in-azure"></a>Azure에서 클라이언트 쪽 모니터링 사용
-
-Azure에서 Application Insights를 사용하도록 설정한 경우 페이지 보기 및 사용자 원격 분석을 추가할 수 있습니다.
-
-1. 설정 &gt; 애플리케이션 설정 선택
-2.  앱 설정 아래에서 새로운 키 값 쌍을 추가합니다. 
-   
-    키: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
-    
-    값: `true`
-3. 설정을 **저장**하고 앱을 **다시 시작**합니다.
-
-Application Insights JavaScript SDK가 이제 각 웹 페이지에 삽입됩니다.
 
 ## <a name="monitor-a-live-iis-web-app"></a>라이브 IIS 웹앱 모니터링
 
 IIS 서버에서 앱이 호스트되는 경우 상태 모니터를 사용하여 Application Insights를 사용하도록 설정합니다.
 
 1. IIS 웹 서버에서 관리자 자격 증명으로 로그인합니다.
-2. Application Insights 상태 모니터가 설치되어 있지 않으면 [상태 모니터 설치 관리자](https://go.microsoft.com/fwlink/?LinkId=506648)를 다운로드하고 실행합니다.(또는 [웹 플랫폼 설치 관리자](https://www.microsoft.com/web/downloads/platform.aspx)를 실행하고 Application Insights 상태 모니터를 검색합니다.)
+2. Application Insights 상태 모니터가 설치되어 있지 않으면 [설치 관리자를 다운로드하여 실행](#download)합니다.
 3. 상태 모니터에서 모니터링할 설치된 웹 애플리케이션 또는 웹 사이트를 선택합니다. Azure 자격 증명으로 로그인합니다.
 
     Application Insights 포털에서 결과를 표시할 리소스를 구성합니다. (일반적으로 새 리소스를 만드는 것이 좋습니다. 이 앱에 대해 [웹 테스트][availability] 또는 [클라이언트 모니터링][client]이 이미 있으면 기존 리소스를 선택합니다.) 
@@ -106,21 +87,90 @@ Application Insights를 코드에 추가하지 않고 다시 게시하려는 경
 4. .config 파일에 수행했던 편집 내용을 복구합니다.
 
 
-## <a name="troubleshooting-runtime-configuration-of-application-insights"></a>Application Insights의 런타임 구성 문제 해결
+## <a name="troubleshoot"></a>문제 해결
+
+### <a name="confirm-a-valid-installation"></a>유효한 설치 확인 
+
+다음은 설치가 성공적으로 수행되었는지 확인하기 위해 수행할 수 있는 몇 가지 단계입니다.
+
+- applicationInsights.config 파일이 대상 앱 디렉터리에 있으며 ikey를 포함하는지 확인합니다.
+
+- 데이터 누락이 의심되면 [Analytics](../log-query/get-started-portal.md)에서 간단한 쿼리를 실행하여 현재 원격 분석을 보내는 모든 클라우드 역할을 나열합니다.
+
+```Kusto
+union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+```
+
+- Application Insights에 연결되었는지 확인해야 할 경우 명령 창에서 [Sysinternals 핸들](https://docs.microsoft.com/sysinternals/downloads/handle)을 실행하여 IIS에서 applicationinsights.dll을 로드했는지 확인할 수 있습니다.
+
+`handle.exe /p w3wp.exe`
+
 
 ### <a name="cant-connect-no-telemetry"></a>연결할 수 없나요? 원격 분석이 없나요?
 
 * 상태 모니터가 작동할 수 있도록 서버 방화벽에서 [필요한 송신 포트](../../azure-monitor/app/ip-addresses.md#outgoing-ports)를 엽니다.
 
+### <a name="unable-to-login"></a>로그인할 수 없음
+
+* 상태 모니터가 로그인할 수 없는 경우 대신, 명령줄 설치를 수행합니다. 상태 모니터는 로그인하여 ikey를 수집하려고 하지만 다음 명령을 사용하여 이 키를 수동으로 제공할 수 있습니다. 
+```
+Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll
+Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000
+```
+
+### <a name="could-not-load-file-or-assembly-systemdiagnosticsdiagnosticsource"></a>파일 또는 어셈블리 'System.Diagnostics.DiagnosticSource'를 로드할 수 없음
+
+Application Insights를 사용하도록 설정하면 이 오류가 발생할 수 있습니다. 설치 관리자가 bin 디렉터리에서 이 dll을 바꾸기 때문입니다.
+문제를 해결하려면 다음과 같이 web.config를 업데이트합니다.
+
+```
+<dependentAssembly>
+    <assemblyIdentity name="System.Diagnostics.DiagnosticSource" publicKeyToken="cc7b13ffcd2ddd51"/>
+    <bindingRedirect oldVersion="0.0.0.0-4.*.*.*" newVersion="4.0.2.1"/>
+</dependentAssembly>
+```
+
+[여기](https://github.com/Microsoft/ApplicationInsights-Home/issues/301)에서 이 문제를 추적하고 있습니다.
+
+
+### <a name="application-diagnostic-messages"></a>애플리케이션 진단 메시지
+
 * 상태 모니터를 열고 왼쪽 창에서 애플리케이션을 선택합니다. "구성 알림" 섹션에 이 애플리케이션에 대한 진단 메시지가 있는지 확인합니다.
 
   ![성능 블레이드를 열어 요청, 응답 시간, 종속성 및 기타 데이터를 확인합니다.](./media/monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
+  
+### <a name="detailed-logs"></a>자세한 로그
+
+* 기본적으로 상태 모니터는 `C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log`에서 진단 로그를 출력합니다.
+
+* 자세한 정보 표시 로그를 출력하려면 구성 파일 `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config`를 수정하고 `<add key="TraceLevel" value="All" />`을 `appsettings`에 추가합니다.
+그런 후 상태 모니터를 다시 시작합니다.
+
+### <a name="insufficient-permissions"></a>권한 부족
+  
 * 서버에서 "권한 부족"에 대한 메시지가 표시되는 경우 다음을 시도합니다.
   * IIS 관리자에서 애플리케이션 풀을 선택하고 **고급 설정**을 연 다음 **프로세스 모델**에서 ID를 확인합니다.
   * 컴퓨터 관리 제어판에서 성능 모니터 사용자 그룹에 이 ID를 추가합니다.
+
+### <a name="conflict-with-systems-center-operations-manager"></a>Systems Center Operations Manager와 충돌
+
 * 서버에 MMA/SCOM(Systems Center Operations Manager)이 설치된 경우 일부 버전이 충돌할 수 있습니다. SCOm과 상태 모니터를 제거한 다음 최신 버전을 다시 설치하세요.
-* 기본적으로 이 위치에서 상태 모니터 로그를 찾을 수 있습니다. "C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log"
-* [문제 해결][qna]을 참조하세요.
+
+### <a name="failed-or-incomplete-installation"></a>설치 실패 또는 불완전
+
+중간에 상태 모니터 설치가 실패하면 상태 모니터를 복구할 수 없는 불완전한 설치 상태가 될 수 있습니다. 이 경우 수동 다시 설정이 필요합니다.
+
+애플리케이션 디렉터리에서 다음 파일을 삭제합니다.
+- "Microsoft.AI" 또는 "Microsoft.ApplicationInsights"로 시작하는 bin 디렉터리의 모든 DLL
+- bin 디렉터리에 있는 "Microsoft.Web.Infrastructure.dll"
+- bin 디렉터리에 있는 "System.Diagnostics.DiagnosticSource.dll"
+- application 디렉터리에서 "App_Data\packages"를 제거합니다.
+- application 디렉터리에서 "applicationinsights.config"를 제거합니다.
+
+
+### <a name="additional-troubleshooting"></a>추가적인 문제 해결
+
+* 추가적인 [문제 해결][qna] 참조
 
 ## <a name="system-requirements"></a>시스템 요구 사항
 Server에서 Application Insights 상태 모니터에 대한 OS 지원:
@@ -252,6 +302,11 @@ IIS 웹 서버에 설치한 데스크톱 애플리케이션입니다. 웹앱을 
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
+## <a name="download"></a>상태 모니터 다운로드
+
+- [상태 모니터 설치 관리자](https://go.microsoft.com/fwlink/?LinkId=506648)를 다운로드하고 실행합니다.
+- 또는 [웹 플랫폼 설치 관리자](https://www.microsoft.com/web/downloads/platform.aspx)를 실행하고 Application Insights 상태 모니터를 검색합니다.
+
 ## <a name="next"></a>다음 단계
 
 원격 분석 보기:
@@ -274,6 +329,6 @@ IIS 웹 서버에 설치한 데스크톱 애플리케이션입니다. 웹앱을 
 [client]: ../../azure-monitor/app/javascript.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
-[qna]: ../../application-insights/app-insights-troubleshoot-faq.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md
 [usage]: ../../azure-monitor/app/javascript.md

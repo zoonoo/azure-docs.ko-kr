@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 627bd114504de20517abcd05f45dc6c58fe80117
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: b7e75753f8d7a9316dd1cc644dc22c42ef284736
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322707"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190087"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션에 대한 Single Sign-On
 Azure AD(Azure Active Directory)에서 애플리케이션을 구성하는 경우 가장 적합한 Single Sign-On 방법을 선택하는 방법에 대해 알아봅니다. 
@@ -79,7 +79,7 @@ SAML 프로토콜의 작동 방식에 대한 자세한 정보는 [Single Sign-On
 HTML 기반 로그인 페이지가 있는 클라우드 기반 애플리케이션에 암호 기반 Single Sign-On이 지원됩니다. 사용자는 다음 브라우저를 사용할 수 있습니다.
 
 - Windows 7 이상의 Internet Explorer 11
-- Windows 10 Anniversary Edition 이상 Edge 
+- Windows 10 Anniversary Edition 이상의 Microsoft Edge 
 - Windows 7 이상 및 Mac OS X 이상 Chrome
 - Windows XP SP2 이상 및 Mac OS X 10.6 이상 Firefox 26.0 이상
 
@@ -125,7 +125,7 @@ Azure AD 관리자가 자격 증명을 관리하는 경우:
 
 - Azure AD Single Sign-On을 사용하여 이 애플리케이션을 통합할 준비가 되지 않은 경우 또는
 - 애플리케이션의 다른 측면을 테스트하는 경우 또는
-- 사용자가 인증할 필요가 없는 온-프레미스 애플리케이션에 대한 보안 계층 사용 안 함을 사용하는 사용자는 인증해야 합니다. 
+- 사용자가 인증할 필요가 없는 온-프레미스 애플리케이션에 대한 보안 계층입니다. 사용 안 함을 사용하는 사용자는 인증해야 합니다. 
 
 ## <a name="integrated-windows-authentication-iwa-sso"></a>IWA(Windows 통합 인증) SSO
 
@@ -142,9 +142,9 @@ IWA에 대해 온-프레미스 앱을 구성하려면 [애플리케이션 프록
 
 ![Microsoft AAD 인증 흐름 다이어그램](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. 사용자가 응용 프로그램 프록시를 통해 온-프레미스 응용 프로그램에 액세스하기 위한 URL을 입력합니다.
-2. 응용 프로그램 프록시는 사전 인증을 위해 Azure AD 인증 서비스에 요청을 리디렉션합니다. 이 시점에서 Azure AD는 다단계 인증 등, 모든 적용 가능한 인증 및 권한 부여 정책을 적용합니다. 사용자가 확인되면 Azure AD에서 토큰을 만들어서 사용자에게 보냅니다.
-3. 사용자는 토큰을 응용 프로그램 프록시로 전달합니다.
+1. 사용자가 애플리케이션 프록시를 통해 온-프레미스 애플리케이션에 액세스하기 위한 URL을 입력합니다.
+2. 애플리케이션 프록시는 사전 인증을 위해 Azure AD 인증 서비스에 요청을 리디렉션합니다. 이 시점에서 Azure AD는 다단계 인증 등, 모든 적용 가능한 인증 및 권한 부여 정책을 적용합니다. 사용자가 확인되면 Azure AD에서 토큰을 만들어서 사용자에게 보냅니다.
+3. 사용자는 토큰을 애플리케이션 프록시로 전달합니다.
 4. 애플리케이션 프록시는 토큰의 유효성을 검사하고 토큰에서 UPN(사용자 주체 이름)을 검색합니다. 그런 다음, 이중으로 인증된 보안 채널을 통해 커넥터에 요청, UPN 및 SPN(서비스 주체 이름)을 보냅니다.
 5. 커넥터는 온-프레미스 AD와 함께 KCD(Kerberos 제한 위임) 협상을 사용하여 사용자를 가장하여 Kerberos 토큰을 애플리케이션에 가져옵니다.
 6. Active Directory는 애플리케이션에 대한 Kerberos 토큰을 커넥터로 보냅니다.
@@ -169,7 +169,7 @@ Azure AD에 PingAccess를 사용하면 사용자는 인증에 헤더를 사용�
 
 ### <a name="how-do-i-get-a-license-for-pingaccess"></a>PingAccess에 대한 라이선스를 가져오려면 어떻게 해야 하나요?
 
-이 시나리오는 Azure Active Directory 및 PingAccess 간의 파트너 관계를 통해 제공되므로 두 서비스에 대한 라이선스가 필요합니다. 그러나 Azure Active Directory Premium 구독에는 최대 20개의 응용 프로그램을 보장하는 기본 PingAccess 라이선스가 포함되어 있습니다. 헤더 기반 애플리케이션을 20개 넘게 게시해야 하는 경우 PingAccess에서 라이선스를 추가로 구입할 수 있습니다. 
+이 시나리오는 Azure Active Directory 및 PingAccess 간의 파트너 관계를 통해 제공되므로 두 서비스에 대한 라이선스가 필요합니다. 그러나 Azure Active Directory Premium 구독에는 최대 20개의 애플리케이션을 보장하는 기본 PingAccess 라이선스가 포함되어 있습니다. 헤더 기반 애플리케이션을 20개 넘게 게시해야 하는 경우 PingAccess에서 라이선스를 추가로 구입할 수 있습니다. 
 
 자세한 내용은 [Azure Active Directory 버전](../fundamentals/active-directory-whatis.md)을 참조하세요.
 

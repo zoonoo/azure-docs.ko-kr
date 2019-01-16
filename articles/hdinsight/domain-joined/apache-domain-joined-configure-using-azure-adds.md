@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: ced7964fc96138ad7b18ab72d6c479e8db7eab8a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 115604d9b2aa21018742bbedbc737405b52599e4
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436231"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188949"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services를 사용하여 Enterprise Security Package로 HDInsight 클러스터 구성
 
@@ -82,6 +82,8 @@ Azure AD-DS 인스턴스와 HDInsight 클러스터를 동일한 Azure Virtual Ne
 VNET이 피어링된 후에는 사용자 지정 DNS 서버를 사용하도록 HDInsight VNET을 구성하고 Azure AD-DS 개인 IP를 DNS 서버 주소로 입력합니다. 두 VNET이 동일한 DNS 서버를 사용하는 경우 사용자 지정 도메인 이름이 올바른 IP로 확인되고 HDInsight에서 연결할 수 있게 됩니다. 예를 들어 도메인 이름이 "contoso.com"인 경우 이 단계를 완료하고 "contoso.com"을 ping하면 올바른 Azure AD-DS IP로 확인되어야 합니다. 
 
 ![피어링된 VNET에 대한 사용자 지정 DNS 서버 구성](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
+
+HDInsight 서브넷에서 NSG(네트워크 보안 그룹) 규칙을 사용하는 경우 인바운드 및 아웃바운드 트래픽에 대해 [필수 IP](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1)를 허용해야 합니다. 
 
 네트워킹이 올바르게 설정되었는지 **테스트**하려면 Windows VM을 HDInsight VNET/서브넷에 조인하고 도메인 이름을 ping한 다음(IP로 확인되어야 함), **ldp.exe**를 실행하여 Azure AD-DS 도메인에 액세스합니다. 그런 다음, **이 Windows VM을 도메인에 조인**하여 클라이언트와 서버 간에 필요한 모든 RPC 호출이 성공했는지 확인합니다. **nslookup**을 사용하여 저장소 계정 또는 외부 DB(예: 외부 Hive metastore 또는 Ranger DB)에 대한 네트워킹 액세스를 확인할 수도 있습니다.
 AAD-DS가 NSG로 보호되는 경우 [필요한 모든 포트](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers)가 AAD-DS 서브넷 네트워크 보안 그룹 규칙의 허용 목록에 추가되어야 합니다. 이 Windows VM의 도메인 가입이 성공하면 다음 단계로 넘어가서 ESP 클러스터를 만들 수 있습니다.

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 3154d5401389d46eb1b9fad335aa18362c5f21f7
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: cb604bec1860da25e18c1c3a56a012882e5ea58e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310375"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189516"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
 
@@ -113,7 +113,7 @@ ID 공급자가 이러한 프로토콜을 지원하지 않는 경우 Azure AD �
 
 - **Azure AD** - 추가 설치가 필요 없습니다.
 
-[대체 로그인 ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) - Azure AD 조인 디바이스에서 지원되지 않습니다. 사용자가 대체 로그인 ID를 사용하는 경우 Azure AD에서 사용자의 기본 UPN을 사용하도록 전환할 계획을 세워야 합니다.
+Azure AD UPN과는 다른 온-프레미스 UPN은 Azure AD 가입 디바이스에서 지원되지 않습니다. 사용자가 온-프레미스 UPN을 사용하는 경우 Azure AD에서 사용자의 기본 UPN을 사용하도록 전환할 계획을 세워야 합니다.
 
 
 
@@ -167,7 +167,7 @@ Azure AD 앱 갤러리를 통해 MDM 솔루션을 사용할 수 없는 경우 [M
 
 ### <a name="cloud-based-applications"></a>클라우드 기반 애플리케이션
 
-Azure AD 앱 갤러리에 애플리케이션이 추가되면 사용자는 Azure AD 조인 디바이스를 통해 SSO를 얻습니다. 추가 구성이 필요 없습니다. 사용자는 Edge 및 Chrome 브라우저 둘 다에서 SSO를 얻습니다. Chrome의 경우 [Windows 10 계정 확장](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji)을 배포해야 합니다. 
+Azure AD 앱 갤러리에 애플리케이션이 추가되면 사용자는 Azure AD 조인 디바이스를 통해 SSO를 얻습니다. 추가 구성이 필요 없습니다. 사용자는 Microsoft Edge 및 Chrome 브라우저 둘 다에서 SSO를 얻습니다. Chrome의 경우 [Windows 10 계정 확장](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji)을 배포해야 합니다. 
 
 다음에 해당하는 모든 Win32 애플리케이션:
 
@@ -234,11 +234,11 @@ Azure AD 조인 디바이스에 원격 데스크톱 연결을 설정하려면 �
  
 ||셀프 서비스 설정|Windows Autopilot|대량 등록|
 |---|---|---|---|
-|설정에서 사용자 상호 작용이 필요|yes|yes|아니요|
-|IT 활동이 필요|아니요|예|yes|
+|설정에서 사용자 상호 작용이 필요|예|예|아니요|
+|IT 활동이 필요|아니요|예|예|
 |적용 흐름|OOBE 및 설정|OOBE만|OOBE만|
 |기본 사용자에 대한 로컬 관리자 권한|기본적으로 예|구성 가능 여부|아니요|
-|디바이스 OEM 지원 필요|아니요|yes|아니요|
+|디바이스 OEM 지원 필요|아니요|예|아니요|
 |지원되는 버전|1511+|1709+|1703+|
  
 위의 표를 검토하고 방법 채택에 대한 다음 고려 사항을 검토하여 배포 접근 방식을 선택합니다.  
@@ -298,7 +298,7 @@ Azure Portal에서 조직의 Azure AD 조인 디바이스 배포를 제어할 �
 
 3. 목록에서 MDM 공급자를 선택합니다.
 
-    ![응용 프로그램 추가](./media/azureadjoin-plan/04.png)
+    ![애플리케이션 추가](./media/azureadjoin-plan/04.png)
 
 MDM 공급자를 선택하여 관련 설정을 구성합니다. 
 
@@ -326,7 +326,7 @@ MDM 구성과 관련된 세 가지 URL이 있습니다.
 - MDM 규정 준수 URL
 
 
-![응용 프로그램 추가](./media/azureadjoin-plan/06.png)
+![애플리케이션 추가](./media/azureadjoin-plan/06.png)
 
 
 각 URL에는 미리 정의된 기본값이 있습니다. 이러한 필드가 비어 있으면 MDM 공급자에게 자세한 정보를 문의하세요.

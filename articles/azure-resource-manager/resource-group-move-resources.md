@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7734ff6c5992ebb27ff63c0329afa03e5bf96a2a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 5266959e3c08721b79af8c11eb50b7a659e70ffc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995085"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158859"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
-이 문서에서는 Azure 리소스를 다른 Azure 구독 또는 동일한 구독의 다른 리소스 그룹으로 이동하는 방법을 보여 줍니다. Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용하여 리소스를 이동할 수 있습니다. 
+이 문서에서는 Azure 리소스를 다른 Azure 구독 또는 동일한 구독의 다른 리소스 그룹으로 이동하는 방법을 보여 줍니다. Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용하여 리소스를 이동할 수 있습니다.
 
 이동 작업 동안 원본 그룹과 대상 그룹 모두 잠겨 있습니다. 쓰기 및 삭제 작업은 이동이 완료될 때까지 리소스 그룹에서 차단됩니다. 이 잠금은 리소스 그룹에서 리소스를 추가, 업데이트, 삭제할 수 없음을 의미하지만 리소스가 고정되었음을 의미하지는 않습니다. 예를 들어, SQL Server와 해당 데이터베이스를 새 리소스 그룹으로 이동하는 경우 해당 데이터베이스를 사용하는 애플리케이션에는 가동 중지 시간이 발생하지 않습니다. 데이터베이스에 계속해서 읽고 쓸 수 있습니다.
 
@@ -98,7 +98,7 @@ ms.locfileid: "53995085"
 * 포털 대시보드
 * Power BI - Power BI Embedded 및 Power BI Workspace Collection 모두
 * 공용 IP - 기본 SKU 공용 IP는 이동할 수 있습니다. 표준 SKU 공용 IP는 이동할 수 없습니다.
-* Recovery Services 자격 증명 모음 - 비공개 미리 보기에 등록해야 합니다. [Recovery Services 제한 사항](#recovery-services-limitations)을 참조하세요.
+* Recovery Services 자격 증명 모음 - [제한된 공개 미리 보기](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault)에 등록해야 합니다.
 * Azure Cache for Redis - 가상 네트워크를 사용하여 Azure Cache for Redis 인스턴스를 구성하는 경우 다른 구독으로 인스턴스를 이동할 수 없습니다. [가상 네트워크 제한 사항](#virtual-networks-limitations)을 참조하십시오.
 * Scheduler
 * Search - 서로 다른 지역의 여러 Search 리소스를 하나의 작업으로 모두 이동할 수는 없습니다. 대신 별도 작업으로 이동합니다.
@@ -135,7 +135,7 @@ ms.locfileid: "53995085"
 * Data Box
 * Dev Spaces
 * Dynamics LCS
-* Express 경로
+* ExpressRoute
 * Kubernetes 서비스
 * Lab Services - 동일한 구독에서 새 리소스 그룹으로 이동은 가능하지만, 구독 간 이동은 가능하지 않습니다.
 * Managed Applications
@@ -305,9 +305,9 @@ App Service Certificate를 새 리소스 그룹 또는 구독으로 이동할 �
 
 ### <a name="recovery-services-limitations"></a>Recovery Services 제한 사항
 
-Recovery Services 자격 증명 모음을 이동하려면 비공개 미리 보기에 등록해야 합니다. 체험해 보려면 AskAzureBackupTeam@microsoft.com에 메일을 보내세요.
+Recovery Services 자격 증명 모음을 이동하려면 [제한된 공개 미리 보기](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault)에 등록해야 합니다.
 
-현재 지역별로 한 번에 하나의 Recovery Services 자격 증명 모음을 이동할 수 있습니다. Azure Files, Azure 파일 동기화 또는 IaaS 가상 머신의 SQL을 백업하는 자격 증명 모음은 이동할 수 없습니다. 
+현재 지역별로 한 번에 하나의 Recovery Services 자격 증명 모음을 이동할 수 있습니다. Azure Files, Azure 파일 동기화 또는 IaaS 가상 머신의 SQL을 백업하는 자격 증명 모음은 이동할 수 없습니다.
 
 가상 머신을 자격 증명 모음과 함께 이동하지 않으면 현재 가상 머신 복구 지점은 만료될 때까지 자격 증명 모음에 남아 있습니다. 가상 머신을 자격 증명 모음과 함께 이동했는지 여부에 관계없이 자격 증명 모음의 백업 기록에서 가상 머신을 복원할 수 있습니다.
 
@@ -322,7 +322,7 @@ Recovery Services 자격 증명 모음을 이동하지 않고 가상 머신을 �
  1. 가상 머신을 새 구독으로 이동
  1. 해당 구독의 새 자격 증명 모음으로 다시 보호
 
-Azure Site Recovery로 재해 복구를 설정하는 데 사용된 Storage, Network 또는 Compute 리소스에 대해서는 이동이 사용되지 않습니다. 예를 들어, 온-프레미스 컴퓨터에서 저장소 계정(Storage1)으로 복제를 설정했고 Azure에 장애 조치(failover) 후 가상 네트워크(Network1)에 연결된 가상 머신(VM1)로 보호되는 컴퓨터를 실행하려고 한다고 가정합니다. 같은 구독 내에 있거나 여러 구독에 있는 리소스 그룹에 대해 이러한 Azure 리소스(Storage1, VM1, Network1) 작업 중 어떠한 것도 이동할 수 없습니다.
+Azure Site Recovery로 재해 복구를 설정하는 데 사용된 Storage, Network 또는 Compute 리소스에 대해서는 이동이 사용되지 않습니다. 예를 들어, 온-프레미스 컴퓨터에서 스토리지 계정(Storage1)으로 복제를 설정했고 Azure에 장애 조치(failover) 후 가상 네트워크(Network1)에 연결된 가상 머신(VM1)로 보호되는 컴퓨터를 실행하려고 한다고 가정합니다. 같은 구독 내에 있거나 여러 구독에 있는 리소스 그룹에 대해 이러한 Azure 리소스(Storage1, VM1, Network1) 작업 중 어떠한 것도 이동할 수 없습니다.
 
 ### <a name="hdinsight-limitations"></a>HDInsight 제한 사항
 

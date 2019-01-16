@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: 범위 동기화 | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: 범위가 지정된 동기화 | Microsoft Docs'
 description: Azure AD에서 관리되는 도메인으로 범위 동기화 구성
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1df9b07d5a0a9e5018fc024038e65723c606ef71
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ae51151bd20d2c715d868e916f7bc633040efa40
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442984"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121533"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Azure AD에서 관리되는 도메인으로 범위 동기화 구성
 이 문서에서는 Azure AD 디렉터리에서 Azure AD Domain Services 관리되는 도메인으로 특정 사용자 계정만 동기화하도록 구성하는 방법을 보여 줍니다.
@@ -58,12 +58,12 @@ PowerShell을 사용하여 이 단계 집합을 완료합니다. [PowerShell을 
 다음 단계를 완료하여 관리되는 도메인에 대한 그룹 기반 범위 동기화를 구성합니다.
 
 1. 다음 작업을 완료합니다.
-  * [작업 1: 필요한 PowerShell 모듈 설치](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules).
-  * [작업 2: Azure AD 디렉터리에서 필요한 서비스 주체 만들기](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
-  * [작업 3: ‘AAD DC Administrators’ 그룹 만들기 및 구성](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group).
-  * [작업 4: Azure AD Domain Services 리소스 공급자 등록](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider).
-  * [작업 5: 리소스 그룹 만들기](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group).
-  * [작업 6: 가상 네트워크 만들기 및 구성](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network).
+  * [작업 1: 필수 PowerShell 모듈 설치](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules)
+  * [작업 2: Azure AD 디렉터리에서 필요한 서비스 주체 만들기](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory)
+  * [작업 3: ‘AAD DC Administrators’ 그룹 만들기 및 구성](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group)
+  * [작업 4: Azure AD Domain Services 리소스 공급자 등록](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider)
+  * [작업 5: 리소스 그룹 만들기](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group)
+  * [작업 6: 가상 네트워크 만들기 및 구성](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network)
 
 2. 동기화할 그룹을 선택하고 관리되는 도메인에 동기화할 그룹의 표시 이름을 제공합니다.
 
@@ -79,7 +79,7 @@ PowerShell을 사용하여 이 단계 집합을 완료합니다. [PowerShell을 
   > 범위 동기화를 위해 구성된 그룹 목록에 ‘AAD DC 관리자’ 그룹을 포함해야 합니다. 이 그룹을 포함하지 않으면 관리되는 도메인을 사용할 수 없습니다.
   >
 
-4. 이제 관리되는 도메인을 만들고 관리되는 도메인의 그룹 기반 범위 동기화를 사용하도록 설정합니다. ```Properties``` 매개 변수에 ```"filteredSync" = "Enabled"``` 속성을 포함합니다. 예를 들어, [작업 7: Azure AD Domain Services 관리되는 도메인 프로비전](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain)에서 복사된 다음 스크립트 조각을 참조하세요.
+4. 이제 관리되는 도메인을 만들고 관리되는 도메인의 그룹 기반 범위 동기화를 사용하도록 설정합니다. ```Properties``` 매개 변수에 ```"filteredSync" = "Enabled"``` 속성을 포함합니다. 예를 들어, [작업 7: Azure AD Domain Services 관리되는 도메인 프로비전](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain)에서 복사한 다음 스크립트 조각을 참조하세요.
 
   ```powershell
   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
@@ -173,7 +173,7 @@ foreach ($id in $newGroupIds)
     }
     catch
     {
-        Write-Error "Exception occured assigning Object-ID: $id. Exception: $($_.Exception)."
+        Write-Error "Exception occurred assigning Object-ID: $id. Exception: $($_.Exception)."
     }
 }
 

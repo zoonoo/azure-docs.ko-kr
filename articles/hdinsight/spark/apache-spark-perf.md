@@ -8,13 +8,13 @@ ms.author: maxluk
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.openlocfilehash: a6ab4d751be74b66d9e75a37f88bc8d441f9b003
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/08/2019
+ms.openlocfilehash: d1eeedfd91dfe1d4a174a3cbed2c0db826a8d5ab
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653733"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117863"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Apache Spark 작업 최적화
 
@@ -24,7 +24,7 @@ ms.locfileid: "53653733"
 
 ## <a name="choose-the-data-abstraction"></a>데이터 추상화 선택
 
-Spark 1.x는 RDD를 사용하여 데이터를 추상화한 다음, Spark 2.x에서 데이터 프레임 및 데이터 세트를 도입했습니다. 다음 상대적인 장점을 고려합니다.
+초기 Spark 버전에서는 RDD를 사용하여 데이터를 추상화하며, Spark 1.3과 1.6에서는 각각 데이터 프레임과 데이터 세트가 도입되었습니다. 다음 상대적인 장점을 고려합니다.
 
 * **데이터 프레임**
     * 대부분의 상황에서 최선의 선택
@@ -42,7 +42,7 @@ Spark 1.x는 RDD를 사용하여 데이터를 추상화한 다음, Spark 2.x에�
     * 높은 GC 오버헤드
     * 전체 단계 코드 생성 중단
 * **RDD**
-    * Spark 2.x에서는 새 사용자 지정 RDD를 빌드할 필요가 없는 경우 RDD를 사용할 필요가 없습니다.
+    * 새 사용자 지정 RDD를 빌드할 필요가 없는 경우 RDD를 사용할 필요가 없습니다.
     * Catalyst를 통해 쿼리 최적화 안 함
     * 전체 단계 코드 생성 안 함
     * 높은 GC 오버헤드

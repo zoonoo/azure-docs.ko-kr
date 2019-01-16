@@ -10,16 +10,15 @@ ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 8e3076f2176739f5b9df5776f27d7483c9fd2692
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 2a36993e9406613ad9182d01c3681056114dca18
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000413"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159964"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault 로깅
 
@@ -39,7 +38,7 @@ Azure Key Vault는 대부분 지역에서 사용할 수 있습니다. 자세한 
 > [!NOTE]
 > 이 자습서는 키 자격 증명 모음, 키 또는 암호를 만드는 방법에 대한 지침을 다루지 않습니다. 이에 대한 설명은 [Azure Key Vault 시작](key-vault-get-started.md)을 참조하세요. 또는 플랫폼 간 명령줄 인터페이스 지침에 대한 참조는 [이 해당 자습서](key-vault-manage-with-cli2.md)를 참조하세요.
 >
-> 현재는 Azure Portal에서 Azure Key Vault를 구성할 수 없습니다. 대신, 이 Azure PowerShell 지침을 사용합니다.
+> 이 문서에서는 진단 로깅을 업데이트하기 위한 Azure PowerShell 지침을 제공합니다. 그러나 **진단 로그** 섹션에서 Azure Portal의 Azure Monitor를 사용하여 동일한 기능을 사용하도록 설정할 수 있습니다. 
 >
 >
 
@@ -113,7 +112,7 @@ $kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
 ```
 
-이에 대한 출력에는 다음이 포함됩니다.
+출력은 다음과 같습니다.
 
     StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccounts/ContosoKeyVaultLogs
     ServiceBusRuleId   :
@@ -230,6 +229,7 @@ Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
 
 아래에 표시된 것과 비슷한 로그 항목을 반환합니다.
 
+```json
     {
         "records":
         [
@@ -250,6 +250,7 @@ Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
             }
         ]
     }
+```
 
 다음 표는 필드 이름 및 설명을 나열합니다.
 

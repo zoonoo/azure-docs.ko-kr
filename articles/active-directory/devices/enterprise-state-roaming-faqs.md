@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 24c7ddff1eea16fc2be3f99d04abd90ee0791f4c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f3d171a8f0e353d5860f410a8c32149f8872338
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247299"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189391"
 ---
 # <a name="settings-and-data-roaming-faq"></a>설정 및 데이터 로밍 FAQ
 이 문서에서는 설정 및 앱 데이터 동기화에 대한 IT 관리자의 질문에 답변합니다.
@@ -31,13 +31,13 @@ ms.locfileid: "51247299"
 
 * *테마*- 바탕 화면 테마 및 작업 표시줄 설정과 같은 기능 포함
 * *Internet Explorer 설정*- 최근에 열어본 탭 및 즐겨찾기 포함
-* *Edge 브라우저 설정*- 즐겨찾기, 읽기 목록 등
+* *Microsoft Edge 브라우저 설정*- 즐겨찾기, 읽기 목록 등
 * *암호*- 인터넷 암호, Wi-Fi 프로필 등 포함
 * *언어 기본 설정*- 키보드 레이아웃, 시스템 언어, 날짜 및 시간 등에 대한 설정 포함
 * *접근성 기능*- 고대비 테마, 내레이터, 돋보기 등
 * 마우스 설정과 같은 *기타 Windows 설정*입니다.
 
-**응용 프로그램 데이터**- 범용 Windows 앱은 “로밍” 폴더에 설정 데이터를 쓸 수 있으며, 이 폴더에 쓰여진 모든 데이터는 자동으로 동기화됩니다. 이 기능을 활용하는 앱 디자인 여부는 개별 앱 개발자의 결정에 달렸습니다. 로밍을 사용하는 범용 Windows 앱을 개발하는 방법에 대한 자세한 내용은 [앱 데이터 저장소 API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) 및 [Windows 8 앱 데이터 로밍 개발자 블로그](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx)를 참조하세요.
+**애플리케이션 데이터**: 범용 Windows 앱은 “로밍” 폴더에 설정 데이터를 쓸 수 있으며, 이 폴더에 쓰여진 모든 데이터는 자동으로 동기화됩니다. 이 기능을 활용하는 앱 디자인 여부는 개별 앱 개발자의 결정에 달렸습니다. 로밍을 사용하는 범용 Windows 앱을 개발하는 방법에 대한 자세한 내용은 [앱 데이터 저장소 API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) 및 [Windows 8 앱 데이터 로밍 개발자 블로그](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx)를 참조하세요.
 
 ## <a name="what-account-is-used-for-settings-sync"></a>설정 동기화에 어떤 계정이 사용됩니까?
 Windows 8.1에서는 설정 동기화에 항상 소비자 Microsoft 계정이 사용되었습니다. 엔터프라이즈 사용자가 Microsoft 계정을 Active Directory 도메인 계정에 연결하여 설정 동기화에 대한 액세스 권한을 얻을 수 있었습니다. Windows 10에서는 이 연결된 Microsoft 계정 기능이 기본/보조 계정 프레임워크로 대체됩니다.
@@ -63,7 +63,7 @@ Microsoft 계정이 연결된 Windows 8.1을 실행하는 Active Directory 도�
 
 온-프레미스 Active Directory 도메인이 Azure AD와 연결되면 디바이스에서 연결된 Azure AD 계정을 사용하여 설정을 동기화하려고 시도합니다. Azure AD 관리자가 엔터프라이즈 상태 로밍을 활성화하지 않으면 연결된 Azure AD 계정이 설정 동기화를 중지하게 됩니다. Windows 10 사용자인 경우 Azure AD ID로 로그인하면 관리자가 Azure AD를 통한 설정 동기화를 활성화하는 즉시 Windows 설정 동기화가 시작됩니다.
 
-회사 디바이스에 개인 데이터를 저장한 경우 Windows OS 및 애플리케이션 데이터가 Azure AD와 동기화된다는 사실에 주의해야 합니다. 이 값은 다음과 같은 의미를 갖습니다.
+회사 장치에 개인 데이터를 저장한 경우 Windows OS 및 애플리케이션 데이터가 Azure AD와 동기화된다는 사실에 주의해야 합니다. 이 값은 다음과 같은 의미를 갖습니다.
 
 * 개인 Microsoft 계정 사용자는 설정이 회사 또는 학교 Azure AD 계정과 점점 "달라지게" 됩니다. 이는 이제 Microsoft 계정 및 Azure AD 설정 동기화에서 별도 계정을 사용하고 있기 때문입니다.
 * 연결된 Microsoft 계정을 통해 이미 동기화된 Wi-Fi 암호, 웹 자격 증명 및 Internet Explorer 즐겨찾기 등 개인 데이터는 Azure AD를 통해 동기화됩니다.

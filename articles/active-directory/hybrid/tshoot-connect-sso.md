@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a020f0f22f16d8aaa959c41a912ca5839be05312
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 308623b4643724d95777d7e21d1138f808e9c1c9
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055903"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190428"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On 문제 해결
 
@@ -36,7 +36,7 @@ ms.locfileid: "47055903"
 - 사용자가 Active Directory에 있는 여러 그룹의 일부인 경우 사용자의 Kerberos 티켓은 처리하기에 너무 크기 때문에 원활한 SSO에 실패하게 됩니다. Azure AD HTTPS 요청에는 최대 50KB 크기인 헤더가 포함될 수 있습니다. Kerberos 티켓은 쿠키 등 다른 Azure AD 아티팩트(일반적으로 2~5KB)를 수용하는 제한보다 작아야 합니다. 사용자의 그룹 멤버 자격 수를 줄이고 다시 시도하는 것이 좋습니다.
 - 30개 이상의 Active Directory 포리스트를 동기화하는 경우 Azure AD Connect를 통해 Seamless SSO를 활성화할 수 없습니다. 이 경우 테넌트에서 이 기능을 [수동으로 활성화](#manual-reset-of-the-feature)하여 해결할 수 있습니다.
 - 로컬 인트라넷 영역 대신 신뢰할 수 있는 사이트 영역에 Azure AD 서비스 URL( https://autologon.microsoftazuread-sso.com) )을 추가하면 *사용자가 로그인하지 못하도록 차단됩니다*.
-- Seamless SSO는 Kerberos에 대해 **RC4_HMAC_MD5** 암호화 형식을 사용합니다. Active Directory 설정에서 **RC4_HMAC_MD5** 암호화 형식의 사용을 해제하면 Seamless SSO가 차단됩니다. 그룹 정책 관리 편집기 도구에서 **컴퓨터 구성 > Windows 설정 > 보안 설정 > 로컬 정책 > 보안 옵션 > 네트워크 보안: Kerberos에 허용된 암호화 유형 구성**에서 **RC4_HMAC_MD5**에 대한 정책 값이 **설정됨**인지 확인합니다. 또한 Seamless SSO는 다른 암호화 형식을 사용할 수 없으므로 **해제됨**인지 확인해야 합니다.
+- Seamless SSO는 Kerberos에 대해 **RC4_HMAC_MD5** 암호화 형식을 사용합니다. Active Directory 설정에서 **RC4_HMAC_MD5** 암호화 형식의 사용을 해제하면 Seamless SSO가 차단됩니다. 그룹 정책 관리 편집기 도구에서 **컴퓨터 구성 > Windows 설정 > 보안 설정 > 로컬 정책 > 보안 옵션 > 네트워크 보안: Kerberos에 허용된 암호화 유형 구성**에서 **RC4_HMAC_MD5** 에 대한 정책 값이 **사용**인지 확인합니다. 또한 Seamless SSO는 다른 암호화 형식을 사용할 수 없으므로 **해제됨**인지 확인해야 합니다.
 
 ## <a name="check-status-of-feature"></a>기능의 상태 확인
 
@@ -84,7 +84,7 @@ ms.locfileid: "47055903"
 - `AZUREADSSOACCT` 컴퓨터 계정이 있으며, Seamless SSO를 설정하려는 각 AD 포리스트에서 사용되도록 설정되어 있는지 확인합니다. 컴퓨터 계정이 삭제되었거나 누락된 경우 [PowerShell cmdlet](#manual-reset-of-the-feature)을 사용하여 다시 만들 수 있습니다.
 - 명령 프롬프트에서 `klist` 명령을 사용하여 디바이스의 기존 Kerberos 티켓을 나열합니다. `AZUREADSSOACCT` 컴퓨터 계정에 대해 발급된 티켓이 있는지 확인합니다. 사용자의 Kerberos 티켓은 일반적으로 10시간 동안 유효합니다. Active Directory에 다른 설정이 있을 수 있습니다.
 - 테넌트에서 Seamless SSO를 사용하지 않도록 설정했다가 다시 사용하도록 설정하면, 캐시된 Kerberos 티켓이 만료될 때까지 Single Sign-On 환경을 사용할 수 없게 됩니다.
-- `klist purge` 명령을 사용하여 장치에서 기존 Kerberos 티켓을 제거한 다음 다시 시도합니다.
+- `klist purge` 명령을 사용하여 디바이스에서 기존 Kerberos 티켓을 제거한 다음 다시 시도합니다.
 - JavaScript 관련 문제가 있는지 확인하려면 브라우저의 콘솔 로그(**개발자 도구** 아래)를 검토합니다.
 - [도메인 컨트롤러 로그](#domain-controller-logs)를 검토합니다.
 

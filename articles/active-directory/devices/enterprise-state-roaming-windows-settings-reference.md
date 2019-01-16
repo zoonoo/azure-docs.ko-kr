@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: c225761f18a89539ea4966fab620104a25d1270e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 45bf554e457e48704684fe8ac3b32c29f3f646b2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50129214"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189287"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 로밍 설정 참조
 다음은 Windows 10에서 로밍 또는 백업되는 모든 설정의 전체 목록입니다. 
@@ -31,13 +31,13 @@ Windows 10의 동기화, 백업 및 복원 프레임워크에서 지원되는 �
 
 | 계정 유형 및 작업 | 데스크톱 | 모바일 |
 | --- | --- | --- |
-| Azure Active Directory: 동기화 |yes |아니요 |
+| Azure Active Directory: 동기화 |예 |아니요 |
 | Azure Active Directory: 백업/복원 |아니요 |아니요 |
-| Microsoft 계정: 동기화 |yes |yes |
-| Microsoft 계정: 백업/복원 |아니요 |yes |
+| Microsoft 계정: 동기화 |예 |예 |
+| Microsoft 계정: 백업/복원 |아니요 |예 |
 
 ## <a name="what-is-backup"></a>백업이란?
-Windows 설정은 동기화가 기본이지만 디바이스에 설치된 응용 프로그램 목록 같은 일부 설정은 백업되기만 합니다. Backup은 모바일 디바이스에 대해서만 사용할 수 있으며 현재 엔터프라이즈 상태 로밍 사용자를 위해서는 사용할 수 없습니다. Backup은 Microsoft 계정을 사용하고 설정 및 애플리케이션 데이터를 OneDrive에 저장합니다. 사용자가 설정 앱을 사용하여 디바이스의 동기화를 비활성화하면 평소에는 동기화되는 응용 프로그램 데이터가 백업되기만 합니다. Backup 데이터는 새 디바이스를 처음으로 실행하는 동안 복원 작업을 통해서만 액세스할 수 있습니다. Backup은 디바이스 설정을 통해 비활성화할 수 있으며 사용자의 OneDrive 계정을 통해 관리 및 삭제됩니다.
+Windows 설정은 동기화가 기본이지만 장치에 설치된 애플리케이션 목록 같은 일부 설정은 백업되기만 합니다. Backup은 모바일 디바이스에 대해서만 사용할 수 있으며 현재 엔터프라이즈 상태 로밍 사용자를 위해서는 사용할 수 없습니다. Backup은 Microsoft 계정을 사용하고 설정 및 애플리케이션 데이터를 OneDrive에 저장합니다. 사용자가 설정 앱을 사용하여 장치의 동기화를 비활성화하면 평소에는 동기화되는 애플리케이션 데이터가 백업되기만 합니다. Backup 데이터는 새 디바이스를 처음으로 실행하는 동안 복원 작업을 통해서만 액세스할 수 있습니다. Backup은 디바이스 설정을 통해 비활성화할 수 있으며 사용자의 OneDrive 계정을 통해 관리 및 삭제됩니다.
 
 ## <a name="windows-settings-overview"></a>Windows 설정 개요
 다음 설정 그룹은 Windows 10 디바이스에서 최종 사용자가 설정 동기화를 활성화/비활성화하는 데 사용할 수 있습니다.
@@ -48,7 +48,7 @@ Windows 설정은 동기화가 기본이지만 디바이스에 설치된 응용 
 * 언어 기본 설정: 맞춤법 사전, 시스템 언어 설정 
 * 간편한 액세스: 내레이터, 화상 키보드, 돋보기 
 * 기타 Windows 설정: Windows 설정 세부 정보를 참조하세요.
-* Edge 브라우저 설정: Microsoft Edge 즐겨찾기, 읽기 목록 및 기타 설정
+* Microsoft Edge 브라우저 설정: Microsoft Edge 즐겨찾기, 읽기 목록 및 기타 설정
 
 ![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
@@ -77,7 +77,7 @@ Windows 10 버전 1803 이상의 경우 Internet Explorer 설정 그룹(즐겨�
 | **명령 프롬프트**: 명령 프롬프트 "기본값" 설정 |sync |X |내부 |
 | **자격 증명**: 자격 증명 보관 |sync |sync |암호 |
 | **날짜, 시간 및 지역**: 자동 시간(인터넷 시간 동기화) |sync |sync |언어 |
-| **날짜, 시간 및 지역**: 24시간 |sync |X |언어 |
+| **날짜, 시간 및 지역**: 24시간제 |sync |X |언어 |
 | **날짜, 시간 및 지역**: 날짜 및 시간 |sync |X |언어 |
 | **날짜, 시간 및 지역**: 시간대 | |X |언어 |
 | **날짜, 시간 및 지역**: 일광 절약 시간제 |sync |X |언어 |
@@ -92,23 +92,23 @@ Windows 10 버전 1803 이상의 경우 Internet Explorer 설정 그룹(즐겨�
 | **바탕 화면 개인 설정**: 슬라이드 쇼 배경 화면 |sync |X |테마 |
 | **바탕 화면 개인 설정**: 작업 표시줄 설정(위치, 자동 숨김 등) |sync |X |테마 |
 | **바탕 화면 개인 설정**: 시작 화면 레이아웃 |X |backup | |
-| **장치**: 연결된 공유 프린터 |X |X |기타 |
-| **Edge 브라우저**: 읽기 목록 |sync |sync |내부 |
-| **Edge 브라우저**: 즐겨찾기 |sync |sync |내부 |
-| **Edge 브라우저**: 상위 사이트 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 형식이 지정된 URL <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 즐겨찾기 표시줄 설정 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 홈 단추 표시 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 팝업 차단 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 각 다운로드에서 수행할 작업 확인 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 암호 저장 제안 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 보내기 시 요청 추적 안 함 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 양식 항목 저장 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 입력할 때 검색 및 사이트 추천 단어 표시 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 쿠키 기본 설정 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 사이트에서 내 장치에 보호된 미디어 라이선스를 저장하도록 허용 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **Edge 브라우저**: 화면 판독기 설정 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
-| **고대비**: 켜기 또는 끄기 |sync |X |간편한 액세스 |
+| **디바이스**: 연결된 공유 프린터 |X |X |기타 |
+| **Microsoft Edge 브라우저**: 읽기 목록 |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 즐겨찾기 |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 상위 사이트<sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 형식이 지정된 URL<sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 즐겨찾기 표시줄 설정<sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 홈 단추 표시<sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 팝업 차단<sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 각 다운로드에서 수행할 작업 확인<sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 암호 저장 제안<sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 보내기 시 요청 추적 안 함<sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 양식 항목 저장<sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 입력할 때 검색 및 사이트 추천 단어 표시<sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 쿠키 기본 설정<sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 사이트에서 내 디바이스에 보호된 미디어 라이선스를 저장하도록 허용<sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Microsoft Edge 브라우저**: 화면 판독기 설정<sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **고대비**: 설정 또는 해제 |sync |X |간편한 액세스 |
 | **고대비**: 테마 설정 |sync |X |간편한 액세스 |
 | **Internet Explorer**: 탭 열기(URL 및 제목) |sync |sync |Internet Explorer |
 | **Internet Explorer**: 읽기 목록 |sync |sync |Internet Explorer |
@@ -122,7 +122,7 @@ Windows 10 버전 1803 이상의 경우 Internet Explorer 설정 그룹(즐겨�
 | **키보드**: 스티커 켜기(기본적으로 꺼져 있음) |sync |X |간편한 액세스 |
 | **키보드**: 필터 키 켜기(기본적으로 꺼져 있음) |sync |X |간편한 액세스 |
 | **키보드**: 토글 키 켜기(기본적으로 꺼져 있음) |sync |X |간편한 액세스 |
-| **Internet Explorer**: 도메인 언어: 중국어(간체) QWERTY - 자체 학습 활성화 |sync |X |언어 |
+| **Internet Explorer**: 도메인 언어: 중국어(CHS) QWERTY - 자체 학습 사용 |sync |X |언어 |
 | **언어**: CHS QWERTY - 동적 후보 순위 활성화 |sync |X |언어 |
 | **언어**: CHS QWERTY - 문자 집합 중국어 간체 |sync |X |언어 |
 | **언어**: CHS QWERTY - 문자 집합 중국어 번체 |sync |X |언어 |
@@ -134,11 +134,11 @@ Windows 10 버전 1803 이상의 경우 Internet Explorer 설정 그룹(즐겨�
 | **언어**: CHS QWERTY - C/E 전환 키, Shift |sync |X |언어 |
 | **언어**: CHS QWERTY - C/E 전환 키, Ctrl |sync |X |언어 |
 | **언어**: CHS WUBI - 단일 문자 입력 모드 |sync |X |언어 |
-| **언어**: CHS WUBI - 나머지 후보 코딩 표시 |sync |X |language |
+| **언어**: CHS WUBI - 나머지 후보 코딩 표시 |sync |X |언어 |
 | **언어**: CHS WUBI - 4 코딩이 유효하지 않을 때 경고음 |sync |X |언어 |
 | **언어**: CHS 보포모포 - CJK Ext-A 포함 |sync |X |언어 |
 | **언어**: 일본어 IME - 예측 입력 및 사용자 지정 단어 |sync |sync |언어 |
-| **언어**: 한국어(KOR) IME |X |X |언어 |
+| **언어**: 한국어(대한민국) IME |X |X |언어 |
 | **언어**: 필기 인식 |X |X |언어 |
 | **언어**: 언어 프로필 |sync |backup |언어 |
 | **언어**: 맞춤법 검사 - 맞춤법 오류 자동 수정 및 강조 표시 |sync |backup |언어 |

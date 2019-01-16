@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: c9e31bdc2b526c442b4ac62d98725254a38e5967
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 852ffdafefeef7f4b8fd6bf3a9c5d175d872e077
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794552"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157635"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -145,11 +145,13 @@ Set-AzureRmStorageSyncServerEndpoint `
 
 서버 엔드포인트에서 동기화 활동을 기록할 수 없는 이유는 다음과 같습니다.
 
-- 서버에서 최대 동시 동기화 세션 수에 도달했습니다. Azure 파일 동기화는 현재 프로세서당 2개의 활성 동기화 세션 또는 서버당 최대 8개의 활성 동기화 세션을 지원합니다.
+- 서버에 활성 VSS 동기화 세션(SnapshotSync)이 있습니다. VSS 동기화 세션이 서버 엔드포인트에 대해 활성 상태이면 VSS 동기화 세션이 완료될 때까지 동일한 볼륨의 다른 서버 엔드포인트에서 동기화 시작 세션을 시작할 수 없습니다.
 
-- 서버에 활성 VSS 동기화 세션(SnapshotSync)이 있습니다. VSS 동기화 세션이 서버 엔드포인트에 대해 활성 상태이면 VSS 동기화 세션이 완료될 때까지 서버의 다른 서버 엔드포인트에서 동기화 시작 세션을 시작할 수 없습니다.
+    서버의 현재 동기화 활동을 확인하려면 [현재 동기화 세션의 진행률을 모니터링 하려면 어떻게 해야 하나요?](#how-do-i-monitor-the-progress-of-a-current-sync-session)를 참조하세요.
 
-서버의 현재 동기화 활동을 확인하려면 [현재 동기화 세션의 진행률을 모니터링 하려면 어떻게 해야 하나요?](#how-do-i-monitor-the-progress-of-a-current-sync-session)를 참조하세요.
+- 서버에서 최대 동시 동기화 세션 수에 도달했습니다. 
+    - 에이전트 버전이 4.x 이상: 제한은 사용할 수 있는 시스템 리소스에 따라 달라집니다.
+    - 에이전트 버전 3.x: 프로세서당 2개의 활성 동기화 세션 또는 서버당 최대 8개의 활성 동기화 세션.
 
 > [!Note]  
 > 등록된 서버 블레이드의 서버 상태가 "오프라인으로 나타남"인 경우 [서버 엔드포인트가 "활동 없음" 또는 "보류 중" 상태이며, 등록된 서버 블레이드의 서버 상태가 "오프라인으로 나타남"](#server-endpoint-noactivity) 섹션에서 설명하는 단계를 수행하세요.
@@ -244,13 +246,14 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 **ItemResults 로그 - 항목별 동기화 오류**  
 | HRESULT | HRESULT(10진) | 오류 문자열 | 문제 | 재구성 |
 |---------|-------------------|--------------|-------|-------------|
-| 0x80c80065 | -2134376347 | ECS_E_DATA_TRANSFER_BLOCKED | 동기화 중에 파일에서 영구 오류를 생성했으며 따라서 하루에 한 번만 동기화를 시도합니다. 기본 오류는 이전 이벤트 로그에서 찾을 수 있습니다. | 에이전트 R2(2.0) 이상에서는 이 오류 대신 원래 오류가 표시됩니다. 기본 오류를 보거나 이전 이벤트 로그를 살펴보고 원래 오류의 원인을 찾으려면 최신 에이전트로 업그레이드하세요. |
-| 0x7b | 123 | ERROR_INVALID_NAME | 파일 또는 디렉터리 이름이 잘못되었습니다. | 의심스러운 파일 또는 디렉터리 이름을 변경하세요. 아래에서 [Azure 파일 이름 지정 지침](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) 및 지원되지 않는 문자 목록을 참조하세요. |
-| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | 파일 또는 디렉터리 이름이 잘못되었습니다. | 의심스러운 파일 또는 디렉터리 이름을 변경하세요. 아래에서 [Azure 파일 이름 지정 지침](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) 및 지원되지 않는 문자 목록을 참조하세요. |
-| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | 파일이 변경되었지만 아직 동기화에서 변경 내용을 발견하지 못했습니다. 이 변경 내용이 발견되면 동기화가 복구됩니다. | 아무 조치도 취할 필요가 없습니다. |
-| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | 파일이 사용 중이므로 동기화할 수 없습니다. 파일이 더 이상 사용되지 않을 때 동기화됩니다. | 아무 조치도 취할 필요가 없습니다. Azure 파일 동기화는 핸들이 열려 있는 파일을 동기화하기 위해 하루 한 번 서버에 임시 VSS 스냅숏을 만듭니다. |
-| 0x20 | 32 | ERROR_SHARING_VIOLATION | 파일이 사용 중이므로 동기화할 수 없습니다. 파일이 더 이상 사용되지 않을 때 동기화됩니다. | 아무 조치도 취할 필요가 없습니다. |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | 종속 폴더가 아직 동기화되지 않아 파일 또는 디렉터리 변경 내용을 동기화할 수 없습니다. 이 항목은 종속 변경 내용이 동기화된 후 동기화됩니다. | 아무 조치도 취할 필요가 없습니다. |
+| 0x7b | 123 | ERROR_INVALID_NAME | 파일 또는 디렉터리 이름이 잘못되었습니다. | 의심스러운 파일 또는 디렉터리 이름을 변경하세요. 자세한 내용은 [지원되지 않는 문자 처리](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters)를 참조하세요. |
+| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | 파일 또는 디렉터리 이름이 잘못되었습니다. | 의심스러운 파일 또는 디렉터리 이름을 변경하세요. 자세한 내용은 [지원되지 않는 문자 처리](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters)를 참조하세요. |
+| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | 파일이 사용 중이므로 동기화할 수 없습니다. 파일이 더 이상 사용되지 않을 때 동기화됩니다. | 아무 조치도 취할 필요가 없습니다. Azure 파일 동기화는 핸들이 열려 있는 파일을 동기화하기 위해 하루 한 번 서버에 임시 VSS 스냅숏을 만듭니다. |
+| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | 파일이 변경되었지만 아직 동기화에서 변경 내용을 발견하지 못했습니다. 이 변경 내용이 발견되면 동기화가 복구됩니다. | 아무 조치도 취할 필요가 없습니다. |
+| 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Azure 파일 공유 제한에 도달하여 파일을 동기화할 수 없습니다. | 이 문제를 해결하려면 문제 해결 가이드의 [Azure 파일 공유 스토리지 용량 한도에 도달했습니다](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) 섹션을 참조하세요. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | 파일이 지원되지 않는 솔루션(예: NTFS EFS)으로 암호화되어 있거나 파일이 삭제 보류 중 상태인 경우 이 오류가 발생할 수 있습니다. | 파일이 지원되지 않는 솔루션으로 암호화되어 있는 경우 파일의 암호를 해독하고 지원되는 암호화 솔루션을 사용합니다. 지원 솔루션의 목록은 계획 가이드의 [암호화 솔루션](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning#encryption-solutions)을 참조하세요. 파일이 삭제 보류 중 상태인 경우 열린 파일 핸들이 모두 닫히면 파일이 삭제됩니다. |
+| 0x20 | 32 | ERROR_SHARING_VIOLATION | 파일이 사용 중이므로 동기화할 수 없습니다. 파일이 더 이상 사용되지 않을 때 동기화됩니다. | 아무 조치도 취할 필요가 없습니다. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | 동기화 중에 파일이 변경되었으므로 다시 동기화해야 합니다. | 아무 조치도 취할 필요가 없습니다. |
 
 #### <a name="handling-unsupported-characters"></a>지원되지 않는 처리 문자
@@ -549,6 +552,16 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 | **재구성 필요** | 예 |
 
 경로가 존재하는지, 로컬 NTFS 볼륨에 있는지, 그리고 재분석 지점이나 기존 서버 엔드포인트가 아닌지 확인하세요.
+
+<a id="-2134375817"></a>**필터 드라이버 버전이 에이전트 버전과 호환되지 않아 동기화에 실패했습니다.**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C80277 |
+| **HRESULT(10진)** | -2134375817 |
+| **오류 문자열** | ECS_E_INCOMPATIBLE_FILTER_VERSION |
+| **재구성 필요** | 예 |
+
+로드된 클라우드 계층화 필터 드라이버(StorageSync.sys) 버전이 스토리지 동기화 에이전트(FileSyncSvc) 서비스와 호환되지 않아 이 오류가 발생합니다. Azure 파일 동기화 에이전트가 업그레이드된 경우 서버를 다시 시작하여 설치를 완료합니다. 오류가 계속 발생하면 에이전트를 제거하고 서버를 다시 시작한 후 Azure 파일 동기화 에이전트를 다시 설치합니다.
 
 <a id="-2134376373"></a>**서비스를 현재 사용할 수 없습니다.**  
 | | |

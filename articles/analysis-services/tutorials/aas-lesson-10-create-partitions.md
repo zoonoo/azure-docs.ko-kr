@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5aaaee6f9a69f9cb619935f18f614d7572a755d7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 11be6d10589d981335d1f63d06933dba5265348a
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429700"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191839"
 ---
 # <a name="create-partitions"></a>파티션 만들기
 
@@ -40,7 +40,7 @@ ms.locfileid: "49429700"
 
     ![aas-lesson10-query-editor](../tutorials/media/aas-lesson10-query-editor.png)
 
-6.  행 필터 대화 상자의 **찾을 조건: OrderDate**에서 **이후 또는 같음**을 그대로 두고 날짜 필드에서 **1/1/2010**을 입력합니다. **And** 연산자를 선택한 상태로 **이전**을 선택하고 날짜 필드에서 **1/1/2011**을 입력한 후 **확인**을 클릭합니다.
+6.  행 필터링 대화 상자에서 **다음 조건인 행 표시: OrderDate**에서 **이후 또는 같음**을 그대로 두고, 날짜 필드에 **1/1/2010**을 입력합니다. **And** 연산자를 선택한 상태로 **이전**을 선택하고 날짜 필드에서 **1/1/2011**을 입력한 후 **확인**을 클릭합니다.
 
     ![aas-lesson10-filter-rows](../tutorials/media/aas-lesson10-filter-rows.png)
     
@@ -109,4 +109,4 @@ ms.locfileid: "49429700"
     ![aas-lesson10-process-complete](../tutorials/media/aas-lesson10-process-complete.png)
   
  ## <a name="whats-next"></a>다음 작업
-다음 단원 [단원 11: 역할 만들기](../tutorials/aas-lesson-11-create-roles.md)로 이동합니다. 
+다음 단원: [단원 11: 역할 만들기](../tutorials/aas-lesson-11-create-roles.md)로 이동합니다. 

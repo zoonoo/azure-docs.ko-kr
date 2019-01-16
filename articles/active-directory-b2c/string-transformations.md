@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ce2ad3e699b930f801ad47083d6cfcf6a7937a5c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: f2823ec32b6658aa22c38294c09c9738c9121c39
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433449"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121586"
 ---
 # <a name="string-claims-transformations"></a>문자열 클레임 변환
 
@@ -31,7 +31,7 @@ ms.locfileid: "47433449"
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim1 | string | 비교할 첫 번째 클레임의 형식입니다. |
 | inputClaim | inputClaim2 | string | 비교할 두 번째 클레임의 형식입니다. |
-| InputParameter | stringComparison | string | Ordinal 또는 OrdinalIgnoreCase 값 중 하나로 문자열을 비교합니다. |
+| InputParameter | stringComparison | string | 문자열 비교, 다음 값 중 하나: Ordinal, OrdinalIgnoreCase |
 
 **AssertStringClaimsAreEqual** 클레임 변환은 항상 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)을 통해 호출되는 [유효성 검사 기술 프로필](validation-technical-profile.md)에서 실행됩니다. **UserMessageIfClaimsTransformationStringsAreNotEqual** 자체 어설션된 기술 프로필 메타데이터는 사용자에게 표시되는 오류 메시지를 제어합니다.
 
@@ -197,7 +197,7 @@ ms.locfileid: "47433449"
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim1 | string | 비교할 클레임의 형식입니다. |
 | InputParameter | operator | string | 가능한 값은 `EQUAL` 또는 `NOT EQUAL`입니다. |
-| InputParameter | compareTo | string | Ordinal 또는 OrdinalIgnoreCase 값 중 하나로 문자열을 비교합니다. |
+| InputParameter | compareTo | string | 문자열 비교, 다음 값 중 하나: Ordinal, OrdinalIgnoreCase |
 | InputParameter | ignoreCase | 부울 | 이 비교에서 비교할 문자열의 대/소문자를 무시해야 하는지 여부를 지정합니다. |
 | OutputClaim | outputClaim | 부울 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
@@ -392,7 +392,7 @@ ms.locfileid: "47433449"
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
   </InputClaims>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />         
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />         
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -415,7 +415,7 @@ ms.locfileid: "47433449"
 | InputParameter | errorOnFailedLookup | 부울 | 조회에서 일치하는 항목이 없으면 오류가 반환되는지 여부를 제어합니다. |
 | OutputClaim | inputParameterId | string | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. 일치하는 ID의 값입니다. |
 
-다음 예제에서는 inpuParameters 컬렉션 중 하나에서 도메인 이름을 조회합니다. 클레임 변환은 식별자에서 도메인 이름을 조회한 다음, 해당 값(애플리케이션 ID)을 반환합니다.
+다음 예제에서는 inputParameters 컬렉션 중 하나에서 도메인 이름을 조회합니다. 클레임 변환은 식별자에서 도메인 이름을 조회한 다음, 해당 값(애플리케이션 ID)을 반환합니다.
 
 ```XML
  <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
@@ -465,7 +465,7 @@ ms.locfileid: "47433449"
 ```
 
 - 입력 클레임:
-    - **outputClaim**: Contoso 앱을 시작합니다. 이 웹 사이트를 계속 검색 및 사용하는 경우 다음 사용 약관을 준수하며 해당 약관에 구속됨에 동의하게 됩니다.
+    - **outputClaim**: Welcome to Contoso App. 이 웹 사이트를 계속 검색 및 사용하는 경우 다음 사용 약관을 준수하며 해당 약관에 구속됨에 동의하게 됩니다.
 - 출력 클레임:
     - **outputClaim**: NULL
 
@@ -540,8 +540,8 @@ ms.locfileid: "47433449"
 - 입력 매개 변수:
     - **matchTo**: V1
     - **stringComparison**: ordinalIgnoreCase 
-    - **stringMatchMsg**: B2C_V1_90005
-    - **stringMatchMsgCode**: The TOS is upgraded to v2
+    - **stringMatchMsg**:  B2C_V1_90005
+    - **stringMatchMsgCode**:  The TOS is upgraded to v2
 - 출력 클레임:
     - **outputClaim1**: B2C_V1_90005
     - **outputClaim2**: The TOS is upgraded to v2
@@ -586,7 +586,7 @@ ms.locfileid: "47433449"
 - 입력 매개 변수:
     - **matchTo**: Minor
     - **stringComparison**: ordinalIgnoreCase 
-    - **outputClaimIfMatched**: B2C_V1_90001
+    - **outputClaimIfMatched**:  B2C_V1_90001
 - 출력 클레임:
     - **isMinorResponseCode**: B2C_V1_90001
     - **isMinor**: true

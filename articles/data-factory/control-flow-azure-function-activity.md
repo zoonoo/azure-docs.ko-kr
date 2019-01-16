@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 01/09/2019
 ms.author: douglasl
-ms.openlocfilehash: 4b185236e5925152acb5f8a733e117186a2318cf
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0fd9b679411dd06336fd65bcb400b152316146fa
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53740895"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188643"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Data Factory의 Azure 함수 작업
 
@@ -26,7 +25,7 @@ Azure 함수 작업을 사용하면 Data Factory 파이프라인에서 [Azure Fu
 
 ## <a name="azure-function-linked-service"></a>Azure 함수의 연결된 서비스
 
-Azure 함수의 반환 형식은 유효한 JObject여야 합니다. 다른 작업이 실패하고 일반 사용자 오류 *엔드포인트를 호출하는 오류*가 발생합니다.
+Azure 함수의 반환 형식은 유효한 `JObject`여야 합니다. ([JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm)는 `JObject`가 *아님*에 유의) `JObject` 이외의 반환 형식은 실패하고 일반 사용자 오류 *엔드포인트를 호출하는 오류*가 발생합니다.
 
 | **속성** | **설명** | **필수** |
 | --- | --- | --- |

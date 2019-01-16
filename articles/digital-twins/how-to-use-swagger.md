@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 7d079f543f8b564c396560c97225897c12f3cd24
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9a1d328f79405b14ffd84e07cb915566bd686c8e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975647"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120957"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure Digital Twins Swagger 참조 설명서
 
@@ -55,7 +55,7 @@ Swagger는 Azure Digital Twins 관리 API에 대한 호출 테스트와 개발�
 
 ![Swagger 모델][3]
 
-생성된 Swagger 개체 모델은 사용 가능한 모든 Azure Digital Twins [개체 및 API](./concepts-objectmodel-spatialgraph.md)를 보는 데 편리합니다. 개발자는 Azure Digital Twins에서 솔루션을 빌드할 때 이 리소스를 활용합니다.
+생성된 Swagger 개체 모델은 사용 가능한 모든 Azure Digital Twins [개체 및 API](./concepts-objectmodel-spatialgraph.md)를 보는 데 편리합니다. 개발자는 Azure Digital Twins에서 솔루션을 빌드할 때 이 리소스를 사용할 수 있습니다.
 
 ## <a name="endpoint-summary"></a>엔드포인트 요약
 
@@ -79,7 +79,7 @@ Swagger의 강력한 기능 중 하나는 문서 UI를 통해 직접 API 엔드�
 
 ![Swagger 사용][5]
 
-해당 섹션을 확장하면 각 필수 및 선택적 매개 변수에 대한 입력 필드가 표시됩니다. 값을 적절하게 입력하고 **실행**을 선택합니다.
+해당 섹션을 확장하면 각 필수 및 선택적 매개 변수에 대한 입력 필드가 표시됩니다. 올바른 값을 입력하고 **실행**을 선택합니다.
 
 ![Swagger 사용됨][6]
 
@@ -102,9 +102,9 @@ OAuth 2.0으로 보호되는 요청을 대화형으로 테스트하는 방법에
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Digital Twins 개체 모델 및 공간 인텔리전스 그래프에 대해 자세히 알아보려면 [Azure Digital Twins 개체 모델 이해](./concepts-objectmodel-spatialgraph.md)를 읽어보세요.
+- Azure Digital Twins 개체 모델 및 공간 인텔리전스 그래프에 대해 자세히 알아보려면 [Azure Digital Twins 개체 모델 이해](./concepts-objectmodel-spatialgraph.md)를 읽어보세요.
 
-관리 API를 사용하여 인증하는 방법을 알아보려면 [API를 사용하여 인증](./security-authenticating-apis.md)을 읽어보세요.
+- 관리 API를 사용하여 인증하는 방법을 알아보려면 [API를 사용하여 인증](./security-authenticating-apis.md)을 읽어보세요.
 
 <!-- Images -->
 [1]: media/how-to-use-swagger/swagger_management_top.PNG

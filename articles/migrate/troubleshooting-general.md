@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 4ebd6eb860a6b102d1a3b12642510c429c18baa7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 9a6b40aa86d4d81482d9c3724f0e230e0b811276
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259157"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189499"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -23,7 +23,7 @@ ms.locfileid: "53259157"
 
 지속적인 검색 어플라이언스는 성능 데이터만 지속적으로 수집하고, 온-프레미스 환경의 구성 변경(예: VM 추가, 삭제, 디스크 추가 등)은 검색하지 않습니다. 온-프레미스 환경에서 구성 변경이 있으면 다음을 통해 포털에 변경 내용을 반영할 수 있습니다.
 
-- 항목 추가(VM, 디스크, 코어 등): 이러한 변경을 Azure Portal에 반영하려면 어플라이언스의 검색을 중지했다가 다시 시작하면 됩니다. 이렇게 하면 Azure Migrate 프로젝트에서 변경 내용이 업데이트됩니다.
+- 항목 추가(VM, 디스크, 코어 등): 이러한 변경을 Azure Portal에 반영하려면 어플라이언스에서 검색을 중지했다가 다시 시작합니다. 이렇게 하면 Azure Migrate 프로젝트에서 변경 내용이 업데이트됩니다.
 
    ![검색 중지](./media/troubleshooting-general/stop-discovery.png)
 
@@ -136,7 +136,7 @@ Azure Migrate 수집기는 PowerCLI를 다운로드하여 어플라이언스에 
 2. C:\ProgramFiles\ProfilerService\VMWare\Scripts\ 디렉터리로 이동합니다.
 3. InstallPowerCLI.ps1 스크립트를 실행합니다.
 
-### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>오류 UnhandledException 내부 오류가 발생했습니다. System.IO.FileNotFoundException
+### <a name="error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception"></a>오류 UnhandledException 내부 오류가 발생했습니다. System.IO.FileNotFoundException
 
 이 문제는 VMware PowerCLI 설치 문제로 인해 발생할 수 있습니다. 문제를 해결하려면 아래 단계를 수행합니다.
 
@@ -245,14 +245,14 @@ Windows용 이벤트 추적을 수집하려면 다음 단계를 수행합니다.
 2. F12 키를 눌러 개발자 도구를 시작합니다. 필요한 경우 **탐색에 대한 항목 지우기** 설정을 선택 취소합니다.
 3. **네트워크** 탭을 클릭하고 네트워크 트래픽 캡처를 시작합니다.
  - 크롬에서 **Preserve log**를 클릭합니다. 자동으로 기록이 시작됩니다. 빨간색 원은 트래픽을 캡처하고 있다는 뜻입니다. 빨간색 원이 나타나지 않으면 검은색 원을 클릭하여 시작합니다.
- - Edge/IE에서는 자동으로 기록이 시작됩니다. 자동으로 시작되지 않으면 녹색 재생 단추를 클릭합니다.
+ - Microsoft Edge/IE에서는 자동으로 기록이 시작됩니다. 자동으로 시작되지 않으면 녹색 재생 단추를 클릭합니다.
 4. 오류를 재현해 봅니다.
 5. 기록하는 동안 오류가 발생하면 기록을 중지하고 기록된 활동의 복사본을 저장합니다.
  - 크롬에서는 마우스 오른쪽 단추로 클릭하고 **Save as HAR with content**를 클릭합니다. 그러면 로그가 .har 파일로 압축되어 내보내집니다.
- - Edge/IE에서는 **캡처된 트래픽 내보내기** 아이콘을 클릭합니다. 그러면 로그가 압축되어 내보내집니다.
+ - Microsoft Edge/IE에서는 **캡처된 트래픽 내보내기** 아이콘을 클릭합니다. 그러면 로그가 압축되어 내보내집니다.
 6. **콘솔** 탭으로 이동하여 경고 또는 오류를 확인합니다. 콘솔 로그를 저장하려면:
  - 크롬의 경우 콘솔 로그에서 아무 위치를 마우스 오른쪽 단추로 클릭합니다. **다른 이름으로 저장**을 선택하여 로그를 내보내고 압축합니다.
- - Edge/IE의 경우 오류를 마우스 오른쪽 단추로 클릭하고 **모두 복사**를 선택합니다.
+ - Microsoft Edge/IE의 경우 오류를 마우스 오른쪽 단추로 클릭하고 **모두 복사**를 선택합니다.
 7. 개발자 도구를 닫습니다.
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>수집기 오류 코드 및 권장 작업

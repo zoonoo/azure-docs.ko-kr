@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 6750276cf31d0c804b38cdf3ea6e41a4505c93f1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ccdfbc38cb39f2c0aa839dc56022192e9e389d95
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971821"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187420"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Azure Application Gateway의 HTTP 헤더 다시 쓰기(공개 미리 보기)
 
 HTTP 헤더를 통해 클라이언트와 서버는 요청 또는 응답을 사용하여 추가 정보를 전달할 수 있습니다. 이러한 HTTP 헤더를 다시 쓰면 HSTS/ X-XSS-보호와 같은 보안 관련 헤더 필드 추가 또는 백 엔드 서버 이름과 같은 중요한 정보를 표시할 수 있는 응답 헤더 필드 제거와 같은 여러 중요한 시나리오를 수행할 수 있습니다.
 
-Application Gateway는 이제 들어오는 HTTP 요청뿐 아니라 나가는 HTTP 응답의 헤더를 다시 쓰는 기능도 지원합니다. 요청/응답 패킷이 클라이언트와 백 엔드 풀 사이를 이동하는 동안 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트할 수 있습니다. 표준([RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)에 정의됨) 및 비표준 헤더 필드를 모두 다시 쓸 수 있습니다.
+Application Gateway는 이제 들어오는 HTTP 요청뿐 아니라 나가는 HTTP 응답의 헤더를 다시 쓰는 기능도 지원합니다. 요청/응답 패킷이 클라이언트와 백 엔드 풀 사이를 이동하는 동안 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트할 수 있습니다. 표준 및 비표준 헤더 필드를 모두 다시 쓸 수 있습니다.
 
 > [!NOTE] 
 >
@@ -84,7 +84,11 @@ Application Gateway 헤더 다시 쓰기 지원은 다음 기능을 제공합니
 
 - 위의 조합.
 
-위에서 언급한 서버 변수는 서버, 클라이언트 연결 및 현재 연결 요청에 대한 정보를 제공하는 변수입니다. 이 기능은 헤더를 다음 서버 변수로 다시 쓰는 것을 지원합니다.
+## <a name="server-variables"></a>서버 변수
+
+서버 변수는 웹 서버에 대한 유용한 정보를 저장합니다. 이러한 변수는 연결에서의 현재 요청, 클라이언트와의 연결, 서버에 대한 정보(IP 주소 또는 웹 브라우저 종류 등)를 제공합니다. 이러한 변수는 새 페이지가 로드될 때나 양식이 게시될 때 등에 동적으로 변경됩니다.  사용자는 이러한 변수를 사용하여 요청 헤더뿐 아니라 응답 헤더도 설정할 수 있습니다. 
+
+이 기능은 헤더를 다음 서버 변수로 다시 쓰는 것을 지원합니다.
 
 | 지원되는 서버 변수 | 설명                                                  |
 | -------------------------- | :----------------------------------------------------------- |
@@ -100,7 +104,7 @@ Application Gateway 헤더 다시 쓰기 지원은 다음 기능을 제공합니
 | http_status                | 세션 상태. 예: 200, 400, 403 등                       |
 | http_version               | 요청 프로토콜. 일반적으로 "HTTP/1.0", "HTTP/1.1" 또는 "HTTP/2.0" |
 | query_string               | 요청된 URL에서 "?" 뒤에 오는 변수-값 쌍 목록. |
-| received_byte              | 요청 길이(요청 줄, 헤더 및 요청 본문 포함) |
+| received_bytes             | 요청 길이(요청 줄, 헤더 및 요청 본문 포함) |
 | request_query              | 요청 줄의 인수                                |
 | request_scheme             | 요청 스키마. "http" 또는 "https"                            |
 | request_uri                | 원래 요청 전체 URI(인수 포함)                   |

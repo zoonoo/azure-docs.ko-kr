@@ -1,20 +1,20 @@
 ---
 title: Azure Digital Twins에서 사용자 정의 함수를 만드는 방법 | Microsoft Docs
-description: Azure Digital Twins를 사용하여 사용자 정의 함수, 검사기 및 역할 할당을 만드는 방법에 대한 지침입니다.
+description: Azure Digital Twins를 사용하여 사용자 정의 함수, 검사기 및 역할 할당을 만드는 방법입니다.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 01/02/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 91c0b5700fbc648f1fcd1355a438694cecc07a04
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 7208f96d99127247b51510e0c43c1733bb327dfb
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993408"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076249"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Azure Digital Twins에서 사용자 정의 함수를 만드는 방법
 
@@ -73,21 +73,17 @@ JSON 본문:
 
 ## <a name="create-a-user-defined-function"></a>사용자 정의 함수 만들기
 
-검사기를 만든 후 다음 인증된 HTTP **POST** 요청을 사용하여 함수 코드 조각을 업로드합니다.
+사용자 정의 함수 만들기에는 Azure Digital Twins 관리 API에 대한 다중 파트 HTTP 요청이 수반됩니다.
+
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
+
+검사기를 만든 후 다음 인증된 다중 파트 HTTP POST 요청을 사용하여 함수 코드 조각을 업로드합니다.
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
 
-> [!IMPORTANT]
-> - 헤더에 `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`가 포함되어 있는지 확인합니다.
-> - 본문이 다중 파트인지 확인합니다.
->   - 첫 번째 파트에는 요청된 UDF 메타데이터를 포함합니다.
->   - 두 번째 파트에는 JavaScript 계산 논리를 포함합니다.
-> - **USER_DEFINED_BOUNDARY** 섹션에서 **spaceId**(`YOUR_SPACE_IDENTIFIER`) 및 **검사기**(`YOUR_MATCHER_IDENTIFIER`) 값을 바꿉니다.
-> - `Content-Type: text/javascript`과 함께 제공되는 JavaScript UDF를 참조합니다.
-
-다음 JSON 본문을 사용합니다.
+다음 본문을 사용합니다.
 
 ```plaintext
 --USER_DEFINED_BOUNDARY
@@ -116,6 +112,15 @@ function process(telemetry, executionContext) {
 | USER_DEFINED_BOUNDARY | 다중 파트 콘텐츠 경계 이름 |
 | YOUR_SPACE_IDENTIFIER | 공간 식별자  |
 | YOUR_MATCHER_IDENTIFIER | 사용하려는 검사기의 ID |
+
+1. 헤더에 `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`가 포함되어 있는지 확인합니다.
+1. 본문이 다중 파트인지 확인합니다.
+
+   - 첫 번째 파트에는 필요한 사용자 정의 함수 메타데이터를 포함합니다.
+   - 두 번째 파트에는 JavaScript 계산 논리를 포함합니다.
+
+1. **USER_DEFINED_BOUNDARY** 섹션에서 **spaceId**(`YOUR_SPACE_IDENTIFIER`) 및 **검사기**(`YOUR_MATCHER_IDENTIFIER`) 값을 바꿉니다.
+1. JavaScript 사용자 정의 함수가 `Content-Type: text/javascript`로 제공되었는지 확인합니다.
 
 ### <a name="example-functions"></a>예제 함수
 
@@ -190,16 +195,16 @@ function process(telemetry, executionContext) {
 
 ## <a name="create-a-role-assignment"></a>역할 할당 만들기
 
-실행할 사용자 정의 함수에 대한 역할 할당을 만듭니다. 사용자 정의 함수에 대한 역할 할당이 없는 경우 적절한 권한을 관리 API와 상호 작용하거나 그래프 개체에서 동작을 수행할 권한이 없습니다. Azure Digital Twins Management API 내에서 역할 기반 액세스 제어를 통해 사용자 정의 함수를 수행할 수 있는 동작이 지정되고 정의됩니다. 예를 들어 사용자 정의 함수는 특정 역할 또는 특정 액세스 제어 경로를 지정하여 범위를 제한할 수 있습니다. 자세한 내용은 [역할 기반 액세스 제어](./security-role-based-access-control.md) 설명서를 참조하세요.
+실행할 사용자 정의 함수에 대한 역할 할당을 만듭니다. 사용자 정의 함수에 대한 역할 할당이 없으면 관리 API와 상호 작용할 수 있는 적절한 권한을 갖지 못하거나 그래프 개체에서 작업을 수행할 수 있는 액세스 권한을 갖지 못합니다. 사용자 정의 함수를 통해 수행할 수 있는 작업은 Azure Digital Twins 관리 API 내 역할 기반 액세스 제어를 통해 지정 및 정의됩니다. 예를 들어 사용자 정의 함수는 특정 역할 또는 특정 액세스 제어 경로를 지정하여 범위를 제한할 수 있습니다. 자세한 내용은 [역할 기반 액세스 제어](./security-role-based-access-control.md) 설명서를 참조하세요.
 
-1. 모든 역할에 대한 [시스템 API를 쿼리](./security-create-manage-role-assignments.md#all)하여 UDF에 할당할 역할 ID를 가져옵니다. 인증된 HTTP GET 요청을 수행함으로써 할 수 있습니다.
+1. 모든 역할에 대한 [시스템 API를 쿼리](./security-create-manage-role-assignments.md#all)하여 사용자 정의 함수에 할당할 역할 ID를 가져옵니다. 인증된 HTTP GET 요청을 수행함으로써 할 수 있습니다.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
    원하는 역할 ID를 유지합니다. 아래와 같이 JSON 본문 특성 **roleId**(`YOUR_DESIRED_ROLE_IDENTIFIER`)로 전달됩니다.
 
-1. **objectId**(`YOUR_USER_DEFINED_FUNCTION_ID`)는 이전에 만들었던 UDF ID입니다.
+1. **objectId**(`YOUR_USER_DEFINED_FUNCTION_ID`)는 앞서 만든 사용자 정의 함수 ID가 됩니다.
 1. `fullpath`로 공백을 쿼리하여 **path**(`YOUR_ACCESS_CONTROL_PATH`) 값을 찾습니다.
 1. 반환된 `spacePaths` 값을 복사합니다. 아래와 같이 이 값을 사용합니다. 인증된 HTTP GET 요청을 확인합니다.
 
@@ -211,7 +216,7 @@ function process(telemetry, executionContext) {
     | --- | --- |
     | YOUR_SPACE_NAME | 사용할 공간의 이름 |
 
-1. 인증된 HTTP POST 요청을 수행하여 반환된 `spacePaths` 값을 **경로**에 붙여넣고 UDF 역할 할당을 만듭니다.
+1. 인증된 HTTP POST 요청을 수행하여 반환된 `spacePaths` 값을 **경로**에 붙여넣고 사용자 정의 함수 역할 할당을 만듭니다.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/roleassignments
@@ -230,12 +235,12 @@ function process(telemetry, executionContext) {
     | 값 | 다음 항목으로 교체 |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | 원하는 역할의 식별자 |
-    | YOUR_USER_DEFINED_FUNCTION_ID | 사용할 UDF의 ID |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | UDF 형식을 지정하는 ID |
+    | YOUR_USER_DEFINED_FUNCTION_ID | 사용하려는 사용자 정의 함수에 대한 ID |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | 사용자 정의 함수 유형을 지정하는 ID |
     | YOUR_ACCESS_CONTROL_PATH | 액세스 제어 경로 |
 
 >[!TIP]
-> UDF-관련 관리 API 조작 및 엔드포인트에 대한 자세한 내용은 [역할 할당을 만들고 관리하는 방법](./security-create-manage-role-assignments.md) 문서를 확인합니다.
+> 사용자 정의 함수 관리 API 조작 및 엔드포인트에 대한 자세한 내용은 [역할 할당을 만들고 관리하는 방법](./security-create-manage-role-assignments.md) 문서를 읽어보세요.
 
 ## <a name="send-telemetry-to-be-processed"></a>처리될 원격 분석 전송
 

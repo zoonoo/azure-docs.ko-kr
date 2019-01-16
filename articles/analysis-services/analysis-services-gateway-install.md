@@ -5,20 +5,22 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fa089db385995f6c44ea2238c91a3ac59946daae
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 01af5052d8b092d10609769f211d6ffcde03cf8e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407659"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190377"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이 설치 및 구성
+
 동일한 지역에 하나 이상의 Azure Analysis Services 서버를 온-프레미스 데이터 원본에 연결하는 경우 온-프레미스 데이터 게이트웨이가 필요합니다. 게이트웨이에 대한 자세한 내용은 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
+
 **최소 요구 사항:**
 
 * .NET 4.5 Framework
@@ -44,6 +46,7 @@ ms.locfileid: "49407659"
 
 
 ## <a name="download"></a>다운로드
+
  [게이트웨이 다운로드](https://aka.ms/azureasgateway)
 
 ## <a name="install"></a>설치
@@ -62,6 +65,7 @@ ms.locfileid: "49407659"
    > 도메인 계정으로 로그인하는 경우 Azure AD의 조직 계정에 매핑됩니다. 조직 계정은 게이트웨이 관리자로 사용됩니다.
 
 ## <a name="register"></a>등록
+
 Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라우드 서비스와 함께 설치한 로컬 인스턴스를 등록해야 합니다. 
 
 1.  **이 컴퓨터에 새 게이트웨이 등록**을 선택합니다.
@@ -77,6 +81,7 @@ Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라
 
 
 ## <a name="create-resource"></a>Azure 게이트웨이 리소스 만들기
+
 게이트웨이를 설치 및 등록한 후 Azure 구독에 게이트웨이 리소스를 만들어야 합니다. 게이트웨이를 등록할 때 사용했던 동일한 계정으로 Azure에 로그인합니다.
 
 1. Azure Portal에서 **리소스 만들기** > **통합** > **온-프레미스 데이터 게이트웨이**를 클릭합니다.
@@ -115,6 +120,7 @@ Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라
 이것으로 끝입니다. 포트를 열거나 문제 해결을 수행해야 하는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 * [Analysis Services 관리](analysis-services-manage.md)   
 * [Azure Analysis Services에서 데이터 가져오기](analysis-services-connect.md)   
 * [Azure Virtual Network에서 데이터 원본에 게이트웨이 사용](analysis-services-vnet-gateway.md)

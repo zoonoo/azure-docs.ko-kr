@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ef981686143299b41960e81cf827459493c868f6
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: ca41f209cab6d2f8d3b4930d3a464fb6a9421132
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356196"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191856"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>암호 Single Sign-On에 대해 구성된 Azure AD 갤러리 애플리케이션에 로그인하는 문제
 
@@ -41,7 +41,7 @@ ms.locfileid: "44356196"
 -   Firefox 26.0 이상 - Windows XP SP2 이상 및 Mac OS X 10.6 이상
 
 >[!NOTE]
->브라우저 확장이 Edge에서 지원되는 경우 Windows 10의 Edge에 암호 기반 SSO 확장을 사용할 수 있습니다.
+>브라우저 확장이 Microsoft Edge에서 지원되는 경우 Windows 10의 Microsoft Edge에 암호 기반 SSO 확장을 사용할 수 있습니다.
 >
 >
 
@@ -77,7 +77,7 @@ ms.locfileid: "44356196"
 
 -   [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)를 설정하고, 사용자 컴퓨터를 도메인에 가입시킨 상태여야 합니다.
 
--   그룹 정책 개체(GPO)를 편집하는 "설정 편집" 사용 권한이 있어야 합니다. 기본적으로 도메인 관리자, 엔터프라이즈 관리자 및 그룹 정책 작성자/소유자 보안 그룹의 멤버에게 이 권한이 있습니다. [자세히 알아보기](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
+-   그룹 정책 개체(GPO)를 편집하는 "설정 편집" 사용 권한이 있어야 합니다. 기본적으로 다음 보안 그룹의 구성원에게는 이 권한이 있습니다: 도메인 관리자, 엔터프라이즈 관리자 및 그룹 정책 작성 소유자. [자세히 알아보기](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
 
 자습서에 따라 그룹 정책을 구성하고 사용자에게 배포하는 방법에 대한 단계별 지침은 [그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy)을 따릅니다.
 
@@ -85,15 +85,15 @@ ms.locfileid: "44356196"
 
 진단 도구 및 IE용 확장을 구성하는 방법에 대한 단계별 지침에 액세스하려면 [Internet Explorer의 액세스 패널 확장 문제 해결](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) 가이드를 따릅니다.
 
-## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>비갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성하는 방법
+## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>비-갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성하는 방법
 
 Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행해야 합니다.
 
--   [비갤러리 응용 프로그램 추가](#add-a-non-gallery-application)
+-   [비갤러리 애플리케이션 추가](#add-a-non-gallery-application)
 
--   [암호 Single Sign-On에 대한 응용 프로그램 구성](#configure-the-application-for-password-single-sign-on)
+-   [암호 Single Sign-On에 대한 애플리케이션 구성](#configure-the-application-for-password-single-sign-on)
 
--   [응용 프로그램에 사용자 할당](#assign-users-to-the-application)
+-   [애플리케이션에 사용자 할당](#assign-users-to-the-application)
 
 ### <a name="add-a-non-gallery-application"></a>비갤러리 애플리케이션 추가
 
@@ -107,11 +107,11 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **엔터프라이즈 응용 프로그램** 창의 오른쪽 위 모서리에서 **추가** 단추를 클릭합니다.
+5.  **엔터프라이즈 애플리케이션** 창의 오른쪽 위 모서리에서 **추가** 단추를 클릭합니다.
 
-6.  **비갤러리 응용 프로그램**을 클릭합니다.
+6.  **비갤러리 애플리케이션**을 클릭합니다.
 
-7.  **이름** 텍스트 상자에 응용 프로그램의 이름을 입력합니다. **추가**를 선택합니다.
+7.  **이름** 텍스트 상자에 애플리케이션의 이름을 입력합니다. **추가**를 선택합니다.
 
 짧은 시간 후에 애플리케이션의 구성 창을 볼 수 있습니다.
 
@@ -127,7 +127,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
+5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
    * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
@@ -155,7 +155,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
+5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
    * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
@@ -171,13 +171,13 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 11. 목록의 **사용자** 위로 마우스를 이동하여 **확인란**을 표시합니다. 사용자의 프로필 사진이나 로고 옆의 확인란을 클릭하여 사용자를 **선택됨** 목록에 추가합니다.
 
-12. **선택 사항:** **둘 이상의 사용자를 추가**하려는 경우 **이름 또는 전자 메일 주소로 검색** 검색 상자에 다른 **전체 이름** 또는 **전자 메일 주소**를 입력하고 확인란을 클릭하여 이 사용자를 **선택됨** 목록에 추가합니다.
+12. **선택 사항:** **하나를 초과하는 사용자를 추가**하려는 경우 **이름 또는 이메일 주소로 검색** 검색 상자에 다른 **전체 이름** 또는 **이메일 주소**를 입력하고 확인란을 클릭하여 이 사용자를 **선택됨** 목록에 추가합니다.
 
 13. 사용자 선택이 완료되면 **선택** 단추를 클릭하여 애플리케이션에 할당되도록 사용자 및 그룹의 목록에 추가합니다.
 
 14. **선택 사항:** **할당 추가** 창에서 **역할 선택** 선택기를 클릭하여 선택한 사용자에게 할당할 역할을 선택합니다.
 
-15. **할당** 단추를 클릭하여 선택한 사용자에게 응용 프로그램을 할당합니다.
+15. **할당** 단추를 클릭하여 선택한 사용자에게 애플리케이션을 할당합니다.
 
 짧은 시간 후에 선택한 사용자는 액세스 패널에서 이러한 애플리케이션을 시작할 수 있습니다.
 
@@ -198,5 +198,5 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 -   Fiddler 추적
 
 ## <a name="next-steps"></a>다음 단계
-[응용 프로그램 프록시를 사용하여 앱에 Single Sign-On 제공](application-proxy-configure-single-sign-on-with-kcd.md)
+[애플리케이션 프록시를 사용하여 앱에 Single Sign-On 제공](application-proxy-configure-single-sign-on-with-kcd.md)
 

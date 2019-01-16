@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/13/2018
+ms.date: 12/13/2018
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 79f6a15bd4b56d9d7ee8b7ee741c0a4460231dfe
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: a750992cade95f9a2719d89c7ff587daf6bfe34d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023171"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191057"
 ---
 # <a name="shared-image-galleries-overview"></a>공유 이미지 갤러리 개요
 
@@ -31,4 +31,4 @@ ms.locfileid: "50023171"
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure CLI](shared-images-cli.md)를 사용하여 공유 이미지를 배포하는 방법 알아보기
+[Azure CLI](shared-images-cli.md) 및 [Azure PowerShell](shared-images-powershell.md)을 사용하여 공유 이미지를 배포하는 방법을 알아봅니다.

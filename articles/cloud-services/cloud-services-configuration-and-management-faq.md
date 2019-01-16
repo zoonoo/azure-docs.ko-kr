@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: ce171aa32e4f17e974a6d8a9752189ac78bf73fe
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: dd7351d2948526905c91f2eac52e48b25cf063ac
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386998"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191431"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
 
@@ -39,7 +39,7 @@ ms.locfileid: "53386998"
 
 **모니터링 및 로깅**
 
-- [응용 프로그램 관리 및 모니터링에 도움이 될 수 있는 Azure Portal의 예정된 클라우드 서비스 기능은 무엇인가요?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
+- [애플리케이션 관리 및 모니터링에 도움이 될 수 있는 Azure Portal의 예정된 클라우드 서비스 기능은 무엇인가요?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
 - [IIS에서 로그 디렉터리에 작성을 중지하는 이유는 무엇인가요?](#why-does-iis-stop-writing-to-the-log-directory)
 - [Cloud Services에 대해 WAD 로깅을 활성화하려면 어떻게 할까요?](#how-do-i-enable-wad-logging-for-cloud-services)
 
@@ -117,7 +117,7 @@ CSR은 텍스트 파일일 뿐입니다. 인증서를 궁극적으로 사용하�
 
 ## <a name="monitoring-and-logging"></a>모니터링 및 로깅
 
-### <a name="what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications"></a>응용 프로그램 관리 및 모니터링에 도움이 될 수 있는 Azure Portal의 예정된 클라우드 서비스 기능은 무엇인가요?
+### <a name="what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications"></a>애플리케이션 관리 및 모니터링에 도움이 될 수 있는 Azure Portal의 예정된 클라우드 서비스 기능은 무엇인가요?
 
 RDP(Remote Desktop Protocol)에 대한 새 인증서를 생성하는 기능이 곧 제공됩니다. 또는 다음 스크립트를 실행할 수 있습니다.
 
@@ -181,9 +181,9 @@ Cloud Services의 현재 WAD 설정을 가져오기 위해 [Get-AzureServiceDiag
 * [서비스 구성 파일을 사용하여 클라우드 서비스에 예약된 IP 연결](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
 ### <a name="what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides"></a>Azure 기본 IPS/IDS와 DDoS에서 제공하는 기능이란?
-Azure에는 위협으로부터 보호하기 위해 데이터 센터 실제 서버에 있는 IP/ID가 있습니다. 또한 고객은 웹 응용 프로그램 방화벽, 네트워크 방화벽, 맬웨어 방지 프로그램, 침입 감지 및 방지 시스템(IDS/IPS) 등과 같은 타사 보안 솔루션을 배포할 수 있습니다. 자세한 내용은 [데이터 및 자산 보호 및 글로벌 보안 표준 준수](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity)를 참조하세요.
+Azure에는 위협으로부터 보호하기 위해 데이터 센터 실제 서버에 있는 IP/ID가 있습니다. 또한 고객은 웹 애플리케이션 방화벽, 네트워크 방화벽, 맬웨어 방지 프로그램, 침입 감지 및 방지 시스템(IDS/IPS) 등과 같은 타사 보안 솔루션을 배포할 수 있습니다. 자세한 내용은 [데이터 및 자산 보호 및 글로벌 보안 표준 준수](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity)를 참조하세요.
 
-Microsoft에서는 서버, 네트워크 및 응용 프로그램을 지속적으로 모니터링하여 위협을 감지합니다. Azure의 다면적 위협 관리 접근 방식은 침입 감지, DDoS(Distributed Denial-of-Service) 공격 방지, 침투 테스트, 동작 분석, 이상 감지 및 Machine Learning을 사용하여 방어를 지속적으로 강화하고 위험을 줄입니다. Azure용 Microsoft 맬웨어 방지 프로그램은 Azure Cloud Services 및 가상 머신을 보호합니다. 웹 애플리케이션 방화벽, 네트워크 방화벽, 맬웨어 방지 프로그램, 침입 감지 및 방지 시스템(IDS/IPS) 등과 같은 타사 보안 솔루션을 배포하는 옵션이 있습니다.
+Microsoft에서는 서버, 네트워크 및 애플리케이션을 지속적으로 모니터링하여 위협을 감지합니다. Azure의 다면적 위협 관리 접근 방식은 침입 감지, DDoS(Distributed Denial-of-Service) 공격 방지, 침투 테스트, 동작 분석, 이상 감지 및 Machine Learning을 사용하여 방어를 지속적으로 강화하고 위험을 줄입니다. Azure용 Microsoft 맬웨어 방지 프로그램은 Azure Cloud Services 및 가상 머신을 보호합니다. 웹 애플리케이션 방화벽, 네트워크 방화벽, 맬웨어 방지 프로그램, 침입 감지 및 방지 시스템(IDS/IPS) 등과 같은 타사 보안 솔루션을 배포하는 옵션이 있습니다.
 
 ### <a name="how-to-enable-http2-on-cloud-services-vm"></a>Cloud Services VM에서 HTTP/2를 사용하려면 어떻게 해야 하나요?
 
@@ -208,7 +208,7 @@ Windows 10 및 Windows Server 2016은 클라이언트와 서버 쪽 모두에서
 이 작업이 끝난 후에 다음 방법 중 하나를 사용하여 HTTP/2가 사용하도록 설정되어 있는지 여부를 확인할 수 있습니다.
 
 - IIS 로그의 프로토콜 버전을 사용하도록 설정하고 IIS 로그를 확인합니다. 로그에 HTTP/2가 표시됩니다. 
-- Internet Explorer/Edge에서 F12 개발자 도구 사용을 설정하고 네트워크 탭으로 전환하여 프로토콜을 확인합니다. 
+- Internet Explorer/Microsoft Edge에서 F12 개발자 도구 사용을 설정하고 네트워크 탭으로 전환하여 프로토콜을 확인합니다. 
 
 자세한 내용은 [IIS에서 HTTP/2](https://blogs.iis.net/davidso/http2)를 참조하세요.
 
@@ -284,9 +284,9 @@ IIS에서 설정으로도 추가할 수 있습니다. [일반적인 시작 작�
 
 %approot% 드라이브 크기는 <.cspkg 크기 + 최대 저널 크기 + 여유 공간의 여백> 또는 1.5GB 중 더 큰 값으로 계산됩니다. VM의 크기는 이 계산과 관련이 없습니다. (VM 크기는 임시 C: 드라이브의 크기에 영향을 줍니다.) 
 
-%approot% 드라이브에 작성하도록 지원되지 않습니다. Azure VM에 작성하는 경우 임시 LocalStorage 리소스에서 수행해야 합니다(또는 Blob Storage, Azure Files 등과 같은 다른 옵션). 따라서 %approot% 폴더에서 사용 가능한 공간의 크기는 의미가 없습니다. 응용 프로그램을 %approot% 드라이브에 작성하는지 확실하지 않은 경우 몇 일 동안 서비스를 실행한 다음 "이전" 및 "이후" 크기를 비교할 수 있습니다. 
+%approot% 드라이브에 작성하도록 지원되지 않습니다. Azure VM에 작성하는 경우 임시 LocalStorage 리소스에서 수행해야 합니다(또는 Blob Storage, Azure Files 등과 같은 다른 옵션). 따라서 %approot% 폴더에서 사용 가능한 공간의 크기는 의미가 없습니다. 애플리케이션을 %approot% 드라이브에 작성하는지 확실하지 않은 경우 몇 일 동안 서비스를 실행한 다음, "이전" 및 "이후" 크기를 비교할 수 있습니다. 
 
-Azure에서는 %approot% 드라이브에 아무 것도 작성하지 않습니다. .cspkg에서 VHD가 생성되고 Azure VM에 탑재되면 이 드라이브에 작성될 수 있는 유일한 항목은 사용자의 응용 프로그램입니다. 
+Azure에서는 %approot% 드라이브에 아무 것도 작성하지 않습니다. .cspkg에서 VHD가 생성되고 Azure VM에 탑재되면 이 드라이브에 작성될 수 있는 유일한 항목은 사용자의 애플리케이션입니다. 
 
 저널 설정을 구성할 수 없으므로 끌 수 없습니다.
 

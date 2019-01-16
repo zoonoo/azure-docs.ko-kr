@@ -9,28 +9,29 @@ ms.devlang: ''
 ms.topic: conceptual
 f1_keywords:
 - mi.azure.sqlaudit.general.f1
-author: ronitr
-ms.author: ronitr
+author: vainolo
+ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: b295f7a2a454e3987e8639814f785b7457dd452b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 045314980d0051e8b5ef71bdf95023084eff1880
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973097"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063880"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL Database Managed Instance 감사 시작
 
 [Azure SQL Database Managed Instance](sql-database-managed-instance.md) 감사는 데이터베이스 이벤트를 추적하고 Azure Storage 계정의 감사 로그에 이벤트를 기록합니다. 또한
+
 - 감사는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다.
 - 감사를 사용하면 규정을 완전히 준수한다고 보장할 수는 없지만 규정 표준을 보다 쉽게 준수할 수 있습니다. 표준 규정 준수를 지원하는 Azure 프로그램에 대한 자세한 내용은 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center/compliance/)를 참조하세요.
 
-
-## <a name="set-up-auditing-for-your-server"></a>서버에 대한 감사 설정
+## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Azure Storage로 서버에 대한 감사 설정 
 
 다음 섹션에서는 Managed Instance에 대한 감사 구성을 설명합니다.
+
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. 다음 단계에서는 감사 로그가 저장되는 Azure Storage **컨테이너**를 만듭니다.
 
@@ -59,7 +60,7 @@ ms.locfileid: "53973097"
 
      ![탐색 창][5]
 
-3. 다음 단계에서는 저장소 계정에 Managed Instance 감사 액세스 권한을 부여하는 데 사용되는 Azure Storage **SAS 토큰**을 생성합니다.
+3. 다음 단계에서는 스토리지 계정에 Managed Instance 감사 액세스 권한을 부여하는 데 사용되는 Azure Storage **SAS 토큰**을 생성합니다.
 
    - 이전 단계에서 컨테이너를 만든 Azure Storage 계정으로 이동합니다.
 
@@ -124,15 +125,69 @@ ms.locfileid: "53973097"
     GO
     ```
 
-## <a name="analyze-audit-logs"></a>감사 로그 분석
+## <a name="set-up-auditing-for-your-server-to-event-hub-or-log-analytics"></a>Even Hubs 또는 Log Analytics로 서버에 대한 감사 설정
+
+Managed Instance의 감사 로그를 Azure Monitor를 사용하여 Even Hubs 또는 Log Analytics로 보낼 수 있습니다. 이 섹션에서는 이렇게 구성하는 방법을 설명합니다.
+
+1. [Azure Portal](https://portal.azure.com/)에서 SQL Managed Instance로 이동합니다.
+
+2. **진단 설정**을 클릭합니다.
+
+3. **진단 켜기**를 클릭합니다. 진단을 이미 사용하도록 설정한 경우 *+진단 설정 추가*가 대신 표시됩니다.
+
+4. 로그 목록에서 **SQLSecurityAuditEvents**를 선택합니다.
+
+5. 감사 이벤트의 대상으로 Event Hubs 또는 Log Analytics 중 하나 또는 둘 다를 선택합니다. 각 대상에 대해 필수 매개 변수(예: Log Analytics 작업 영역)를 구성합니다.
+
+6. **저장**을 클릭합니다.
+
+  ![탐색 창][9]
+
+7. **SSMS(SQL Server Management Studio)** 또는 기타 지원되는 클라이언트를 사용하여 Managed Instance에 연결합니다.
+
+8. 다음 T-SQL 문을 실행하여 서버 감사를 만듭니다.
+
+    ```SQL
+    CREATE SERVER AUDIT [<your_audit_name>] TO EXTERNAL_MONITOR;
+    GO
+    ```
+
+9. SQL Server의 경우와 마찬가지로, 서버 감사 사양 또는 데이터베이스 감사 사양을 만듭니다.
+
+   - [서버 감사 사양 만들기 T-SQL 가이드](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [데이터베이스 감사 사양 만들기 T-SQL 가이드](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+
+10. 7단계에서 만든 서버 감사를 사용하도록 설정합니다.
+ 
+    ```SQL
+    ALTER SERVER AUDIT [<your_audit_name>] WITH (STATE=ON);
+    GO
+    ```
+
+## <a name="consume-audit-logs"></a>감사 로그 사용
+
+### <a name="consume-logs-stored-in-azure-storage"></a>Azure Storage에 저장된 로그 사용
+
 여러 방법으로 Blob 감사 로그를 볼 수 있습니다.
 
 - 시스템 함수 `sys.fn_get_audit_file`(T-SQL)을 사용하여 테이블 형식의 감사 로그 데이터를 반환할 수 있습니다. 이 함수 사용에 대한 자세한 내용은 [sys.fn_get_audit_file 설명서](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql)를 참조하세요.
 
+- Azure Storage 탐색기 등의 도구를 사용하여 감사 로그를 탐색할 수 있습니다. Azure Storage에서 감사 로그는 sqldbauditlogs라는 컨테이너 내부에 Blob 파일 컬렉션으로 저장됩니다. 스토리지 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대한 자세한 내용은 BLOB 감사 로그 형식 참조를 참조하세요.
+
 - 감사 로그 사용 방법의 전체 목록은 [SQL 데이터베이스 감사 시작](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing)을 참조하세요.
 
 > [!IMPORTANT]
-> Azure Portal(‘감사 레코드’ 창)에서 감사 레코드를 보는 방법은 현재 Managed Instance에 사용할 수 없습니다.
+> 현재, Managed Instance의 경우는 Azure Portal(‘감사 레코드’ 창)에서 감사 레코드를 볼 수 없습니다.
+
+### <a name="consume-logs-stored-in-event-hub"></a>Event Hubs에 저장된 로그 사용
+
+이벤트 허브에서 감사 로그 데이터를 사용하려면 이벤트를 사용하고 이벤트를 대상에 작성하도록 스트림을 설정해야 합니다. 자세한 내용은 Azure Event Hubs 설명서를 참조하세요.
+
+### <a name="consume-and-analyze-logs-stored-in-log-analytics"></a>Log Analytics에 저장된 로그 사용 및 분석
+
+감사 로그를 Log Analytics에 쓴 경우 Log Analytics 작업 영역에서 사용할 수 있으며 감사 데이터에 대해 고급 검색도 실행할 수 있습니다. 처음에는 Log Analytics로 이동한 후 *일반* 섹션에서 *로그*를 클릭하고 간단한 쿼리(예: `search "SQLSecurityAuditEvents"`)를 입력하여 감사 로그를 봅니다.  
+
+Log Analytics는 통합 검색 및 사용자 지정 대시보드를 사용하여 모든 워크로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 수 있는 실시간 운영 정보를 제공합니다. Log Analytics 검색 언어 및 명령에 대한 유용한 추가 정보는 [Log Analytics 검색 참조](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)를 참조하세요.
 
 ## <a name="auditing-differences-between-managed-instance-azure-sql-database-and-sql-server"></a>Managed Instance, Azure SQL Database 및 SQL Server 간의 감사 차이점
 
@@ -145,22 +200,17 @@ Managed Instance, Azure SQL Database 및 SQL Server 온-프레미스의 SQL Audi
 Managed Instance의 XEvent 감사는 Azure Blob Storage 대상을 지원합니다. 파일 및 Windows 로그는 **지원되지 않습니다**.
 
 Azure Blob 저장소에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이점은 다음과 같습니다.
+
 - 새 `TO URL` 구문이 제공되고 `.xel` 파일이 배치되는 Azure Blob Storage 컨테이너의 URL을 지정할 수 있습니다.
+- Event Hubs 및 Log Analytics 대상을 사용하도록 설정하기 위해 새로운 구문 `TO EXTERNAL MONITOR`가 제공됩니다.
 - Managed Instance에서 Windows 파일 공유에 액세스할 수 없으므로 `TO FILE` 구문은 **지원되지 않습니다**.
 - 종료 옵션은 **지원되지 않습니다**.
 - `queue_delay` 0은 **지원되지 않습니다**.
-
 
 ## <a name="next-steps"></a>다음 단계
 
 - 감사 로그 사용 방법의 전체 목록은 [SQL 데이터베이스 감사 시작](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)을 참조하세요.
 - 표준 규정 준수를 지원하는 Azure 프로그램에 대한 자세한 내용은 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center/compliance/)를 참조하세요.
-
-
-<!--Anchors-->
-[Set up auditing for your server]: #subheading-1
-[Analyze audit logs]: #subheading-2
-[Auditing differences between Managed Instance, Azure SQL DB and SQL Server]: #subheading-3
 
 <!--Image references-->
 [1]: ./media/sql-managed-instance-auditing/1_blobs_widget.png
@@ -171,3 +221,4 @@ Azure Blob 저장소에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차�
 [6]: ./media/sql-managed-instance-auditing/6_storage_settings_menu.png
 [7]: ./media/sql-managed-instance-auditing/7_sas_configure.png
 [8]: ./media/sql-managed-instance-auditing/8_sas_copy.png
+[9]: ./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png

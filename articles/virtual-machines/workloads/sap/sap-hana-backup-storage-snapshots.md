@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 031cb10e476ba068f7e3d7baf3b19f7703caf170
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 74f47344afff630a8633b340ea4ce21db28db7ca
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580048"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159930"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>저장소 스냅숏에 기반한 SAP HANA 백업
 
@@ -52,7 +52,7 @@ SAP HANA에는 저장소 스냅숏 만들기를 지원하는 기능이 있습니
 
 SAP HANA가 스냅숏 준비 모드에 있는 동안 저장소 스냅숏을 실행하기 전에 파일 시스템 일관성도 보장되는지 확인해야 합니다. [Azure Virtual Machines의 SAP HANA Backup 가이드](sap-hana-backup-guide.md) 관련 문서의 _저장소 스냅숏을 만들 때의 SAP HANA 데이터 일관성_을 참조하세요.
 
-저장소 스냅숏이 완료되면 SAP HANA 스냅숏을 확인하는 것이 중요합니다. 실행할 SQL 문은 BACKUP DATA CLOSE SNAPSHOT입니다([BACKUP DATA CLOSE SNAPSHOT 문(Backup 및 복구)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/9739966f7f4bd5818769ad4ce6a7f8/content.htm)(영문) 참조).
+저장소 스냅숏이 완료되면 SAP HANA 스냅숏을 확인하는 것이 중요합니다. 실행할 SQL 문은 BACKUP DATA CLOSE SNAPSHOT입니다([BACKUP DATA CLOSE SNAPSHOT 문(백업 및 복구)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/9739966f7f4bd5818769ad4ce6a7f8/content.htm) 참조).
 
 > [!IMPORTANT]
 > HANA 스냅숏을 확인합니다. &quot;Copy-on-Write&quot;로 인해 SAP HANA에는 스냅숏 준비 모드에서 추가 디스크 공간이 필요할 수 있으며, 먼저 SAP HANA 스냅숏이 확인되어야 새 백업을 시작할 수 있습니다.
@@ -69,7 +69,7 @@ Azure Backup 서비스는 VM을 백업하고 복원하는 옵션을 제공합니
 
 _&quot;Linux 가상 컴퓨터의 경우 VSS에 해당하는 플랫폼이 Linux에 없기 때문에 파일 일치 백업만 가능합니다.&quot;_
 
-_&quot;응용 프로그램은 복원된 데이터에 대해 고유한 &quot;수정&quot; 메커니즘을 구현해야 합니다.&quot;_
+_&quot;애플리케이션은 복원된 데이터에 대해 고유한 &quot;수정&quot; 메커니즘을 구현해야 합니다.&quot;_
 
 따라서 백업이 시작될 때 SAP HANA가 일관된 디스크 상태에 있는지 확인해야 합니다. 이 문서의 앞부분에서 설명한 _SAP HANA 스냅숏_을 참조하세요. 그러나 SAP HANA에서 이 스냅숏 준비 모드를 유지할 때 잠재적인 문제가 있습니다. 자세한 내용은 [저장소 스냅숏 만들기(SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm)(영문)을 참조하세요.
 
@@ -89,7 +89,7 @@ Azure Backup에는 다음 네 가지 주요 단계가 있습니다.
 이러한 스크립트를 복사할 위치 및 Azure Backup의 정확한 작동 방식에 대한 자세한 내용은 다음 문서를 확인하세요.
 
 - [Azure에서 VM 백업 인프라 계획](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
-- [Azure Linux VM의 응용 프로그램 일치 백업](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
+- [Azure Linux VM의 애플리케이션 일치 백업](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 81247863eb86752113989f6e48e79f5c8bc75505
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d269818e82261c51b63379bb41f69efdc21de18a
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061157"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191261"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Axinom을 사용하여 Azure Media Services에 Widevine 라이선스 제공
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "37061157"
 ## <a name="overview"></a>개요
 Azure Media Services(AMS)에 Google Widevine 동적 보호가 추가되었습니다(자세한 내용은 [Mingfei의 블로그](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) 참조). 또한 Azure Media Player(AMP)에도 Widevine 지원이 추가되었습니다(자세한 내용은 [AMP 문서](http://amp.azure.net/libs/amp/latest/docs/) 참조). 이는 MSE 및 EME가 포함된 현대식 브라우저에 대한 다중 원시 DRM(PlayReady 및 Widevine)를 가진 CENC로 보호되는 DASH 콘텐츠 합리화의 주요 성과입니다.
 
-Media Services .NET SDK 버전 3.5.2부터는 Media Services를 사용하여 Widevine 라이선스 템플릿을 구성하고 Widevine 라이선스를 얻을 수 있습니다. 또한 다음 AMS 파트너를 사용하여 Widevine 라이선스를 배달할 수 있습니다. [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+Media Services .NET SDK 버전 3.5.2부터는 Media Services를 사용하여 Widevine 라이선스 템플릿을 구성하고 Widevine 라이선스를 얻을 수 있습니다. 또한 다음 AMS 파트너를 사용하여 Widevine 라이선스를 배달할 수 있습니다. 파트너([Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/))를 사용하여 Widevine 라이선스를 배달할 수 있습니다.
 
 이 문서에서는 Axinom에서 관리하는 Widevine 라이선스 서버를 통합하고 테스트하는 방법을 설명합니다. 구체적으로 다음 사항을 다룹니다.  
 
@@ -44,11 +44,11 @@ Media Services .NET SDK 버전 3.5.2부터는 Media Services를 사용하여 Wid
 ![대시 및 CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
 ## <a name="content-protection"></a>Content Protection
-동적 보호 및 키 배달 정책을 구성하려면 Mingfei의 블로그: [Azure Media Services로 Widevine 패키징을 구성하는 방법](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)을 참조하세요.
+동적 보호 및 키 배달 정책을 구성하려면 Mingfei의 블로그 [Media Services를 사용하여 Widevine 패키징 구성](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)을 참조하세요.
 
 다음 두 가지가 모두 있는 DASH 스트리밍용 다중 DRM으로 동적 CENC 보호를 구성할 수 있습니다.
 
-1. 토큰 인증 제한이 포함될 수 있는 MS Edge 및 IE11에 대한 PlayReady 보호. 토큰 제한 정책은 Azure Active Directory 등과 같은 보안 토큰 서비스(STS)에 의해 발급된 토큰이 수반되어야 합니다.
+1. 토큰 인증 제한이 포함될 수 있는 Microsoft Edge 및 IE11에 대한 PlayReady 보호. 토큰 제한 정책은 Azure Active Directory 등과 같은 보안 토큰 서비스(STS)에 의해 발급된 토큰이 수반되어야 합니다.
 2. Chrome에 대한 Widevine 보호의 경우 다른 STS가 발급한 토큰을 이용한 토큰 인증이 필요할 수 있습니다. 
 
 Azure Active Directory를 Axinom의 Widevine 라이선스 서버에 대한 STS로 사용할 수 없는 이유는 [JWT 토큰 생성](media-services-axinom-integration.md#jwt-token-generation)을 참조하세요.
@@ -59,7 +59,7 @@ Azure Active Directory를 Axinom의 Widevine 라이선스 서버에 대한 STS�
 
 ## <a name="azure-media-player-preparation"></a>Azure Media Player 준비
 AMP v1.4.0은 PlayReady와 Widevine DRM 둘 다를 사용하여 동적으로 패키징된 AMS 콘텐츠의 재생을 지원합니다.
-Widevine 라이선스 서브에 토큰 인증이 필요하지 않은 경우 Widevine에서 보호하는 DASH 콘텐츠를 테스트하기 위해 추가로 수행해야 하는 일은 없습니다. 예를 들어 AMP 팀에는 PlayReady를 지원하는 Edge 및 IE11과 Widevine을 지원하는 Chrome에서 작동 모습을 볼 수 있는 간단한 [샘플](https://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevineFairPlay_notoken.html)을 제공합니다.
+Widevine 라이선스 서브에 토큰 인증이 필요하지 않은 경우 Widevine에서 보호하는 DASH 콘텐츠를 테스트하기 위해 추가로 수행해야 하는 일은 없습니다. 예를 들어 AMP 팀에는 PlayReady를 지원하는 Microsoft Edge 및 IE11과 Widevine을 지원하는 Chrome에서 작동 모습을 볼 수 있는 간단한 [샘플](https://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevineFairPlay_notoken.html)을 제공합니다.
 Axinom 제공한 Widevine 라이선스 서버에는 JWT 토큰 인증이 필요합니다. HTTP 헤더 “X-AxDRM-Message”를 통해 라이선스 요청과 함께 JWT 토큰을 전송해야 합니다. 이 목적을 위해 원본을 설정하기 전에 웹 페이지 호스팅 AMP에서 다음과 같은 javascript를 추가해야 합니다.
 
     <script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>

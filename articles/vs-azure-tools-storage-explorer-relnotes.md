@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 94c1f255d7aae63d6faf44cc500c48c68bf6d3fc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bd6384dcd132ffb53e3531707c600465e8d0b649
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608956"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190020"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Storage 탐색기 릴리스 정보
 
@@ -27,15 +27,18 @@ ms.locfileid: "53608956"
 
 [Microsoft Azure Storage 탐색기](./vs-azure-tools-storage-manage-with-storage-explorer.md) 는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 쉽게 사용할 수 있게 하는 독립 실행형 앱입니다.
 
-## <a name="version-161"></a>버전 1.6.1
-12/18/2018
+## <a name="version-162"></a>버전 1.6.2
+1/9/2019
 
-### <a name="download-azure-storage-explorer-161"></a>Azure Storage 탐색기 1.6.1 다운로드
-- [Windows용 Azure Storage 탐색기 1.6.1](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac용 Azure Storage 탐색기 1.6.1](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Linux용 Azure Storage 탐색기 1.6.1](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-162"></a>Azure Storage 탐색기 1.6.2 다운로드
+- [Windows용 Azure Storage 탐색기 1.6.2](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac용 Azure Storage 탐색기 1.6.2](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Linux용 Azure Storage 탐색기 1.6.2](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>핫픽스
+* 1.6.1에서 사용자가 아닌 ObjectId에 따라 ADLS Gen2 ACL에 추가된 엔터티는 항상 그룹으로 추가되었습니다. 이제, 그룹만 그룹으로 추가되고, 엔터프라이즈 애플리케이션 및 서비스 주체와 같은 엔터티는 사용자로 추가됩니다. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
+* ADLS Gen2 스토리지 계정에 컨테이너가 없고 이름 및 키를 사용하여 연결된 경우 Storage 탐색기는 스토리지 계정이 ADLS Gen2임을 감지하지 못합니다. 이 문제가 해결되었습니다. [#1048](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1048)
+* 1.6.0에서는 복사 및 붙여넣기 동안 발생한 충돌을 해결할 필요가 없습니다. 대신, 충돌한 복사가 단순히 실패합니다. 이제 첫 번째 충돌 시 해결 방법을 묻는 메시지가 표시됩니다. [#1014](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1014)
 * API 제한으로 인해 액세스 관리 대화 상자의 모든 ObjectId 유효성 검사를 사용할 수 없습니다. 이제 사용자 UPN에 대해서만 유효성 검사가 수행됩니다. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
 * ADLS Gen2 액세스 관리 대화 상자에서 그룹에 대한 권한을 수정할 수 없습니다. 이 문제가 해결되었습니다. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
 * 끌어서 놓기 업로드 지원이 ADLS Gen2 편집기에 추가되었습니다. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
@@ -103,6 +106,7 @@ ms.locfileid: "53608956"
 
 ## <a name="previous-releases"></a>이전 릴리스
 
+* [버전 1.6.1](#version-161)
 * [버전 1.6.0](#version-160)
 * [버전 1.5.0](#version-150)
 * [버전 1.4.4](#version-144)
@@ -135,6 +139,75 @@ ms.locfileid: "53608956"
 * [버전 0.7.20160129.1](#version-07201601291)
 * [버전 0.7.20160105.0](#version-07201601050)
 * [버전 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-161"></a>버전 1.6.1
+12/18/2018
+
+### <a name="hotfixes"></a>핫픽스
+* API 제한으로 인해 액세스 관리 대화 상자의 모든 ObjectId 유효성 검사를 사용할 수 없습니다. 이제 사용자 UPN에 대해서만 유효성 검사가 수행됩니다. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
+* ADLS Gen2 액세스 관리 대화 상자에서 그룹에 대한 권한을 수정할 수 없습니다. 이 문제가 해결되었습니다. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
+* 끌어서 놓기 업로드 지원이 ADLS Gen2 편집기에 추가되었습니다. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
+* ADLS Gen2 파일 및 폴더의 속성 대화 상자에 포함된 URL 속성에서 가끔 '/'가 누락되었습니다. 이 문제가 해결되었습니다. [#960](https://www.github.com/Microsoft/AzureStorageExplorer/issues/960)
+* ADLS Gen2 컨테이너, 파일 또는 폴더의 현재 사용 권한을 가져오지 못할 경우 이제 활동 로그에 오류가 제대로 표시됩니다. [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
+* Windows에서 MAX_PATH보다 긴 경로 만들 가능성을 줄이기 위해 파일을 열 때 만드는 임시 경로를 단축했습니다. [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
+* 이제 로그인한 사용자가 없고 연결된 리소스가 없는 경우 연결 대화 상자가 올바르게 표시됩니다. [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
+* 1.6.0에서는 비 HNS Blob 및 파일의 속성을 저장하면 모든 속성의 값이 인코딩되었습니다. 이로 인해 ASCII 문자만 포함하는 값이 불필요하게 인코딩되었습니다. 이제 비 ASCII 문자를 포함하는 값만 인코딩됩니다. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
+* SAS가 사용되고 SAS에 읽기 권한이 없으면 HNS가 아닌 Blob 컨테이너에 폴더를 업로드하지 못했습니다. 이 문제가 해결되었습니다. [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
+* AzCopy 전송을 취소할 수 없었습니다. 이 문제가 해결되었습니다. [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
+* 폴더 이름에 공백이 있을 때 ADLS Gen2 Blob 컨테이너에서 폴더를 다운로드하려고 하면 AzCopy가 실패합니다. 이 문제가 해결되었습니다. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
+* 1.6.0에서는 CosmosDB 편집기가 제대로 작동되지 않았습니다. 이제 이 문제가 해결되었습니다. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
+        
+### <a name="new"></a>새로 만들기
+
+* 이제 Storage 탐색기를 사용하여 [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409)를 통해 Blob 데이터에 액세스할 수 있습니다. 로그인했으며 Storage 탐색기가 사용자의 Storage 계정용 키를 검색할 수 없으면 데이터와 상호 작용하면서 인증 작업에 OAuth 토큰이 사용됩니다.
+* Storage 탐색기는 이제 ADLS Gen2 Storage 계정을 지원합니다. Storage 탐색기가 Storage 계정에 대해 계층적 네임스페이스가 사용하도록 설정되어 있음을 감지하면 Storage 계정 이름 옆에 "(ADLS Gen2 미리 보기)"가 표시됩니다. Storage 탐색기는 사용자가 로그인될 때 또는 Storage 계정에 이름과 키를 첨부한 경우 계층 구조 네임스페이스가 사용하도록 설정되는지 여부를 검색할 수 있습니다. ADLS Gen2 Storage 계정의 경우 Storage 탐색기를 사용하여 다음 작업을 수행할 수 있습니다.
+    * 컨테이너 만들기 및 삭제
+    * 컨테이너 속성 및 사용 권한 관리(왼쪽)
+    * 컨테이너 내 데이터 보기 및 탐색
+    * 새 폴더 만들기
+    * 파일 및 폴더 업로드, 다운로드, 이름 바꾸기 및 삭제
+    * 파일 및 폴더 속성과 사용 권한 관리(오른쪽)
+    
+    일시 삭제, 스냅숏 등의 기타 일반적인 Blob 기능은 현재 사용할 수 없습니다. 권한 관리는 로그인한 경우에만 사용할 수 있습니다. 또한 ADLS Gen2 Storage 계정에서 작업하는 경우 Storage 탐색기는 모든 업로드 및 다운로드에 AzCopy를 사용하고, 사용 가능한 경우 모든 작업에 기본적으로 이름 및 키 자격 증명을 사용합니다.
+* 강력한 사용자 의견이 제공된 후에는 임대 차단을 한 번 더 사용하여 여러 Blob의 임대를 한꺼번에 차단할 수 있습니다.
+
+### <a name="known-issues"></a>알려진 문제
+
+* ADLS Gen2 Storage 계정에서 다운로드하는 경우 전송 중인 파일 중 하나라도 이미 있는 경우 AzCopy가 때때로 충돌합니다. 이 문제는 향후 핫픽스에서 수정될 예정입니다.
+* Blob 컨테이너와 같은 SAS URI를 통해 연결된 리소스에서 분리하면 다른 첨부 파일이 올바르게 표시되지 않도록 하는 오류가 발생할 수 있습니다. 이 문제를 해결하려면 그룹 노드를 새로 고칩니다. 자세한 내용은 #537을 참조하세요.
+* Mac용 VS를 사용하고 사용자 지정 AAD 구성을 만든 적이 있으면 로그인이 불가능할 수 있습니다. 이 문제를 해결하려면 ~/.IdentityService/AadConfigurations의 내용을 삭제합니다. 이렇게 해도 차단이 해제되지 않으면 이 문제에 의견을 남겨주세요.
+* Azurite는 모든 저장소 API에 아직 완전히 구현되지 않았습니다. 그래서 개발 저장소에 Azurite를 사용하는 경우 예상치 못한 오류나 동작이 발생할 수 있습니다.
+* 드물지만, 트리 포커스가 빠른 액세스에 고정될 수 있습니다. 모두 새로 고침을 사용하여 고정을 풀 수 있습니다.
+* NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다. Blob 컨테이너 간에 업로드하거나 다운로드하는 경우 이 문제를 해결하기 위해 경우 실험적 AzCopy 기능을 사용할 수 있습니다.
+* Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
+* 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* Azure Stack에서는 다음과 같은 기능을 지원하지 않습니다. Azure Stack 리소스를 사용하는 동안 이러한 기능을 사용하려고 시도하면 예기치 않은 오류가 발생할 수 있습니다.
+   * 파일 공유
+   * 액세스 계층
+   * 일시 삭제
+* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
+* Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Ubuntu 17.04 사용자의 경우에는 GConf를 설치해야 합니다. 이렇게 하려면 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-160"></a>버전 1.6.0
 12/5/2018
@@ -277,7 +350,7 @@ ms.locfileid: "53608956"
 * Premium Storage 계정이 CORS를 지원하지 않으므로 "CORS 설정 구성" 작업은 Premium Storage 계정에서 더 이상 사용할 수 없습니다. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
 * 이제 SAS 연결 서비스에 대한 공유 액세스 서명 속성이 있습니다. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
 * "기본 액세스 계층 설정" 작업은 이제 빠른 액세스에 고정된 Blob 및 GPV2 저장소 계정에 대해 사용할 수 있습니다. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
-* 경우에 따라 Storage 탐색기에서 클래식 저장소 계정을 표시하지 못할 수도 있습니다. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+* 경우에 따라 Storage 탐색기에서 클래식 스토리지 계정을 표시하지 못할 수도 있습니다. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
 ### <a name="known-issues"></a>알려진 문제
 * Azure Storage 에뮬레이터 또는 Azurite와 같은 에뮬레이터를 사용하는 경우 해당 기본 포트에 대한 연결을 수신하도록 해야 합니다. 그렇지 않으면 Storage 탐색기에서 연결할 수 없습니다.
@@ -333,7 +406,7 @@ ms.locfileid: "53608956"
 * Premium Storage 계정이 CORS를 지원하지 않으므로 "CORS 설정 구성" 작업은 Premium Storage 계정에서 더 이상 사용할 수 없습니다. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
 * 이제 SAS 연결 서비스에 대한 공유 액세스 서명 속성이 있습니다. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
 * "기본 액세스 계층 설정" 작업은 이제 빠른 액세스에 고정된 Blob 및 GPV2 저장소 계정에 대해 사용할 수 있습니다. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
-* 경우에 따라 Storage 탐색기에서 클래식 저장소 계정을 표시하지 못할 수도 있습니다. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+* 경우에 따라 Storage 탐색기에서 클래식 스토리지 계정을 표시하지 못할 수도 있습니다. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
 ### <a name="known-issues"></a>알려진 문제
 * Azure Storage 에뮬레이터 또는 Azurite와 같은 에뮬레이터를 사용하는 경우 해당 기본 포트에 대한 연결을 수신하도록 해야 합니다. 그렇지 않으면 Storage 탐색기에서 연결할 수 없습니다.
@@ -388,7 +461,7 @@ ms.locfileid: "53608956"
 * Premium Storage 계정이 CORS를 지원하지 않으므로 "CORS 설정 구성" 작업은 Premium Storage 계정에서 더 이상 사용할 수 없습니다. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
 * 이제 SAS 연결 서비스에 대한 공유 액세스 서명 속성이 있습니다. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
 * "기본 액세스 계층 설정" 작업은 이제 빠른 액세스에 고정된 Blob 및 GPV2 저장소 계정에 대해 사용할 수 있습니다. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
-* 경우에 따라 Storage 탐색기에서 클래식 저장소 계정을 표시하지 못할 수도 있습니다. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+* 경우에 따라 Storage 탐색기에서 클래식 스토리지 계정을 표시하지 못할 수도 있습니다. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
 ### <a name="known-issues"></a>알려진 문제
 * Azure Storage 에뮬레이터 또는 Azurite와 같은 에뮬레이터를 사용하는 경우 해당 기본 포트에 대한 연결을 수신하도록 해야 합니다. 그렇지 않으면 Storage 탐색기에서 연결할 수 없습니다.
@@ -448,7 +521,7 @@ ms.locfileid: "53608956"
 * Premium Storage 계정이 CORS를 지원하지 않으므로 "CORS 설정 구성" 작업은 Premium Storage 계정에서 더 이상 사용할 수 없습니다. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
 * 이제 SAS 연결 서비스에 대한 공유 액세스 서명 속성이 있습니다. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
 * "기본 액세스 계층 설정" 작업은 이제 빠른 액세스에 고정된 Blob 및 GPV2 저장소 계정에 대해 사용할 수 있습니다. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
-* 경우에 따라 Storage 탐색기에서 클래식 저장소 계정을 표시하지 못할 수도 있습니다. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+* 경우에 따라 Storage 탐색기에서 클래식 스토리지 계정을 표시하지 못할 수도 있습니다. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
 ### <a name="known-issues"></a>알려진 문제
 * Azure Storage 에뮬레이터 또는 Azurite와 같은 에뮬레이터를 사용하는 경우 해당 기본 포트에 대한 연결을 수신하도록 해야 합니다. 그렇지 않으면 Storage 탐색기에서 연결할 수 없습니다.
@@ -602,7 +675,7 @@ ms.locfileid: "53608956"
 
 ### <a name="new"></a>새로 만들기
 * Storage 탐색기에서 Azurite 사용이 지원됩니다. 참고: Azurite에 대한 연결은 기본 개발 엔드포인트로 하드코드됩니다.
-* Storage 탐색기에서 Blob 전용 및 GPV2 저장소 계정에 대한 액세스 계층이 지원됩니다. 액세스 계층에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)를 참조하세요.
+* Storage 탐색기에서 Blob 전용 및 GPV2 스토리지 계정에 대한 액세스 계층이 지원됩니다. 액세스 계층에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)를 참조하세요.
 * SAS를 생성할 때 시작 시간이 더 이상 필요하지 않습니다.
 
 ### <a name="fixes"></a>수정 프로그램
@@ -1423,7 +1496,7 @@ ms.locfileid: "53608956"
 
 * macOS 및 Windows 버전이 지원됩니다.
 * 조직 계정, Microsoft 계정, 2FA 등을 사용하여 로그인해 Storage 계정을 확인할 수 있습니다.
-* 로컬 개발 저장소가 제공됩니다(Storage 에뮬레이터 사용, Windows 전용).
+* 로컬 개발 스토리지가 제공됩니다(Storage 에뮬레이터 사용, Windows 전용).
 * Azure Resource Manager 및 클래식 리소스가 지원됩니다.
 * Blob, 큐 또는 테이블을 만들고 삭제할 수 있습니다.
 * 특정 Blob, 큐 또는 테이블을 검색할 수 있습니다.

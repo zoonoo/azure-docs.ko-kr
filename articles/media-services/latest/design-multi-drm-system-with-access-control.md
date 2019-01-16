@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 7b3f6410e65e9a43578d50d6aacaec0ea4ec4684
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 3e9909de5ec05710214279357134112804ab4ceb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753492"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191244"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계 
 
@@ -51,7 +51,7 @@ OTT(Over-the-Top) 또는 온라인 스트리밍 솔루션을 위한 DRM(디지�
 | **클라이언트 플랫폼** | **기본 DRM** | **EME** |
 | --- | --- | --- | --- |
 | **스마트 TV, STB** | PlayReady, Widevine 및/또는 기타 | 포함된 브라우저/PlayReady용 EME 및/또는 Widevine|
-| **Windows 10** | PlayReady | MS Edge/PlayReady용 IE11|
+| **Windows 10** | PlayReady | Microsoft Edge/PlayReady용 IE11|
 | **Android 디바이스(전화, 태블릿, TV)** |Widevine |Widevine용 Chrome |
 | **iOS** | FairPlay | FairPlay용 Safari(iOS 11.2 이후) |
 | **macOS** | FairPlay | FairPlay용 Safari(Safari 9 이후+Mac OS X 10.11에서+El Capitan)|

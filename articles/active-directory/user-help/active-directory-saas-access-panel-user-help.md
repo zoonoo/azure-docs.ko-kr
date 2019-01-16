@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: b4229ca7ff96a9806ac82cf9452de496d858f6b4
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: a761e6a42e478aafca75709689a022edec2a64db
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705687"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191040"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>MyApps 포털 액세스 및 사용과 관련된 문제 해결
 
@@ -49,7 +49,7 @@ MyApps 포털에는 JavaScript를 지원하고 CSS를 사용하도록 설정된 
 
 다음 브라우저 요구 사항을 충족하는지 확인합니다.
 
-- **Edge**: Windows 10 Anniversary Edition 이상
+- **Microsoft Edge**: Windows 10 Anniversary Edition 이상
 - **Chrome**: Windows 7 이상 및 Mac OS X 이상
 - **Firefox 26.0 이상**: Windows XP SP2 이상 및 Mac OS X 10.6 이상
 - **Internet Explorer 11**: Windows 7 이상(제한적 지원)
@@ -90,7 +90,7 @@ MyApps 포털에는 JavaScript를 지원하고 CSS를 사용하도록 설정된 
        마지막으로 사용한 세 개의 앱이 **최근에 사용한 항목** 바로 가기 목록에 표시됩니다.
 
 > [!NOTE]
-> 이러한 옵션은 Edge, Chrome 및 Firefox에서만 사용할 수 있습니다.
+> 이러한 옵션은 Microsoft Edge, Chrome 및 Firefox에서만 사용할 수 있습니다.
 
 ## <a name="how-do-i-add-a-new-app"></a>새 앱을 추가하려면 어떻게 할까요?
 

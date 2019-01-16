@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: f460c063ded489c8ec0ef23b35ab304c62943a98
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 73c94b79bb315c317d39ade704e2ee70a241a348
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337073"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187748"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>VM용 Azure Monitor(미리 보기) 맵을 사용하여 애플리케이션 구성 요소 이해
 Azure에서 실행 중인 Windows 및 Linux 가상 머신에서 검색된 애플리케이션 구성 요소를 보고 VM용 Azure Monitor를 사용하여 가상 머신에서 직접 또는 Azure Monitor에서 VM 그룹을 통해서와 같이 두 가지 방법으로 환경을 관찰할 수 있습니다. 

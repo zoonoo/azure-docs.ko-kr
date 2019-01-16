@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB의 분할 및 수평적 크기 조정
 description: Azure Cosmos DB에서 분할 작동 방법, 분할 및 파티션 키를 구성하는 방법 및 애플리케이션에 대한 올바른 파티션 키를 선택하는 방법을 알아봅니다.
-author: aliuy
+ms.author: mjbrown
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.author: andrl
-ms.openlocfilehash: 38f587fc24478beff3ab236207de3ed8a892c915
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: dd62e0f4ff110ec8454031f1b66b56025328c33c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998951"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101482"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Azure Cosmos DB의 분할 및 수평적 크기 조정
 
@@ -23,13 +23,11 @@ ms.locfileid: "53998951"
 
 Azure Cosmos DB에서 컨테이너는 확장성의 기본 단위입니다. 컨테이너에 추가된 데이터와 컨테이너에 프로비전한 처리량은 논리 파티션 세트에서 자동(수평)으로 분할됩니다. Cosmos 컨테이너에 대해 지정한 파티션 키에 따라 분할됩니다. 자세한 내용은 [Cosmos 컨테이너에 대한 파티션 키를 지정하는 방법](how-to-create-container.md) 문서를 참조하세요.
 
-논리 파티션은 데이터베이스 트랜잭션의 범위를 정의합니다. 스냅숏 격리가 있는 트랜잭션을 사용하여 논리 파티션 내의 항목을 업데이트할 수 있습니다.
-
-새 항목이 컨테이너에 추가되거나 컨테이너에 프로비전된 처리량이 증가하면 시스템에서 새 논리 파티션이 투명하게 만들어집니다.
+논리 파티션은 데이터베이스 트랜잭션의 범위를 정의합니다. 스냅숏 격리가 있는 트랜잭션을 사용하여 논리 파티션 내의 항목을 업데이트할 수 있습니다. 컨테이너에 새 항목이 추가되면 시스템에서 새 논리 파티션이 투명하게 만들어집니다.
 
 ## <a name="physical-partitions"></a>실제 파티션
 
-Cosmos 컨테이너는 많은 수의 논리 파티션에 데이터와 처리량을 분산하여 크기를 조정합니다. 내부적으로 하나 이상의 논리 파티션이 복제본 세트라고도 하는 일단의 복제본으로 구성된 **실제 파티션**에 매핑됩니다. 각 복제본 세트는 Cosmos 데이터베이스 엔진의 인스턴스를 호스팅합니다. 복제본 세트는 실제 파티션 내에 저장된 데이터를 내구성과 가용성이 높고 일관되게 만듭니다. 실제 파티션은 고정된 최대 스토리지 및 RU 크기를 지원합니다. 실제 파티션을 구성하는 각 복제본은 스토리지 할당량을 상속합니다. 그리고 실제 파티션의 모든 복제본은 실제 파티션에 할당된 처리량을 전체적으로 지원합니다. 다음 이미지에서는 논리 파티션이 전역적으로 배포된 실제 파티션에 매핑되는 방법을 보여 줍니다.
+Azure Cosmos 컨테이너는 많은 수의 논리 파티션에 데이터와 처리량을 분산하여 크기를 조정합니다. 내부적으로 하나 이상의 논리 파티션이 복제본 세트라고도 하는 일단의 복제본으로 구성된 **실제 파티션**에 매핑됩니다. 각 복제본 세트는 Azure Cosmos 데이터베이스 엔진의 인스턴스를 호스팅합니다. 복제본 세트는 실제 파티션 내에 저장된 데이터를 내구성과 가용성이 높고 일관되게 만듭니다. 실제 파티션은 고정된 최대 스토리지 및 RU 크기를 지원합니다. 실제 파티션을 구성하는 각 복제본은 스토리지 할당량을 상속합니다. 그리고 실제 파티션의 모든 복제본은 실제 파티션에 할당된 처리량을 전체적으로 지원합니다. 다음 이미지에서는 논리 파티션이 전역적으로 배포된 실제 파티션에 매핑되는 방법을 보여 줍니다.
 
 ![Azure Cosmos DB 분할](./media/partition-data/logical-partitions.png)
 

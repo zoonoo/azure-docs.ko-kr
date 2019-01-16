@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 4cd6b375385326889226f6d4284815dfa0f47c49
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 14f74c26822ac1dc9e781ada82809bf3a4166f18
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971310"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190904"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -188,7 +188,7 @@ F12 추적을 캡처할 수 있는 두 가지 옵션이 있습니다.
 3. **네트워크** 탭이 선택되어 있는지 확인하고 녹색 **재생** 단추를 선택합니다.
 4. 문제를 재현하는 단계를 수행합니다.
 5. 빨간색 **중지** 단추를 선택합니다.
-6. **저장** 단추(디스크 아이콘)를 선택하고 HAR 파일을 저장합니다(Internet Explorer 및 Edge의 경우). *또는* HAR 파일을 마우스 오른쪽 단추로 클릭하고 **Save as HAR with content**(콘텐츠와 함께 HAR 파일로 저장)(Chrome의 경우)를 선택합니다.
+6. **저장** 단추(디스크 아이콘)를 선택하고 HAR 파일을 저장합니다(Internet Explorer 및 Microsoft Edge의 경우). *또는* HAR 파일을 마우스 오른쪽 단추로 클릭하고 **콘텐츠와 함께 HAR 파일로 저장**(Chrome의 경우)을 선택합니다.
 
 ### <a name="f12-console-output"></a>F12 콘솔 출력
 

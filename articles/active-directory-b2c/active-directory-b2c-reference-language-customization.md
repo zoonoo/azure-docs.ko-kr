@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e5bf7cc199fc8a439b5071faa89cce2e3ed47a75
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e115db18770ef304d823ff9c35d7d2cf302d5ccf
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724318"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187765"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 언어 사용자 지정
 
 Azure AD B2C(Azure Active Directory B2C)의 언어 사용자 지정을 사용하면 고객 요구에 적합하도록 사용자 흐름을 다른 언어로 맞출 수 있습니다.  Microsoft는 [36개 언어](#supported-languages)에 대한 번역을 제공하지만 사용자가 언어에 대한 고유한 번역을 제공할 수 있습니다. 단일 언어로만 환경이 제공되더라도 페이지에 있는 텍스트를 사용자 지정할 수 있습니다.  
 
 ## <a name="how-language-customization-works"></a>언어 사용자 지정이 작동하는 방식
-언어 사용자 지정을 사용하여 사용자 흐름이 제공되는 언어를 선택할 수 있습니다. 기능을 사용하도록 설정하면 사용자 응용 프로그램에서 쿼리 문자열 매개 변수 `ui_locales`를 제공할 수 있습니다. Azure AD B2C를 호출하면 페이지가 사용자가 표시한 로캘로 번역됩니다. 이 구성 형식을 통해 사용자 흐름의 언어를 완전히 제어하고 고객의 브라우저 언어 설정을 무시합니다. 
+언어 사용자 지정을 사용하여 사용자 흐름이 제공되는 언어를 선택할 수 있습니다. 기능을 사용하도록 설정하면 사용자 애플리케이션에서 쿼리 문자열 매개 변수 `ui_locales`를 제공할 수 있습니다. Azure AD B2C를 호출하면 페이지가 사용자가 표시한 로캘로 번역됩니다. 이 구성 형식을 통해 사용자 흐름의 언어를 완전히 제어하고 고객의 브라우저 언어 설정을 무시합니다. 
 
 고객이 볼 수 있는 언어에 대한 제어 수준이 필요하지 않을 수 있습니다. `ui_locales` 매개 변수를 제공하지 않으면 고객의 환경이 브라우저 설정으로 결정됩니다.  언어를 지원 언어로 추가하여 사용자 흐름이 번역된 언어를 계속 제어할 수 있습니다. 고객의 브라우저가 지원하지 않으려는 언어를 표시하도록 설정된 경우 지원되는 문화에서 기본값으로 선택한 언어가 대신 표시됩니다.
 
@@ -175,7 +175,7 @@ Microsoft는 사용자가 사용할 수 있는 가장 최신의 번역을 제공
 ### <a name="social-identity-provider-translations"></a>소셜 ID 공급자 변환
 Microsoft는 소셜 로그인에 대한 `ui_locales` OIDC 매개 변수를 제공합니다. 하지만 Facebook과 Google을 포함한 일부 소셜 ID 공급자는 이러한 매개 변수를 인식하지 않습니다. 
 ### <a name="browser-behavior"></a>브라우저 동작
-Chrome과 Firefox는 설정된 언어를 요청합니다. 이 언어가 지원되는 언어이면 기본 언어보다 먼저 표시됩니다. 에지에서는 현재 언어를 요청하지 않으며 기본 언어로 바로 이동합니다.
+Chrome과 Firefox는 설정된 언어를 요청합니다. 이 언어가 지원되는 언어이면 기본 언어보다 먼저 표시됩니다. Microsoft Edge에서는 현재 언어를 요청하지 않으며 기본 언어로 바로 이동합니다.
 
 ### <a name="supported-languages"></a>지원되는 언어
 

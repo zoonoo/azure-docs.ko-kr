@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 4b124b79eeacf0df5f1b9dff798ebeea20d82090
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 27c074b12d2b151015e6946c483302387726dfc5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044776"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190830"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로 정의 언어에 대한 트리거 및 작업 형식 참조
 
@@ -339,7 +339,7 @@ ms.locfileid: "48044776"
   
 | response | 필수 | 설명 | 
 |----------|----------|-------------| 
-| 상태 코드 | yes | “200 확인” 상태 코드가 실행을 시작합니다. 다른 상태 코드는 실행을 시작하지 않습니다. | 
+| 상태 코드 | 예 | “200 확인” 상태 코드가 실행을 시작합니다. 다른 상태 코드는 실행을 시작하지 않습니다. | 
 | Retry-after 헤더 | 아니요 | 논리 앱이 엔드포인트를 다시 폴링할 때까지의 시간(초) | 
 | 위치 헤더 | 아니요 | 다음 폴링 간격에서 호출할 URL입니다. 지정하지 않으면 원래 URL이 사용됩니다. | 
 |||| 
@@ -892,7 +892,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 |-------|------|-------------| 
 | <*action-name*> | 문자열 | 커넥터에서 제공하는 작업의 이름입니다. | 
 | <*api-name*> | 문자열 | 연결에 사용되는 Microsoft 관리 API의 이름입니다. | 
-| <*method-type*> | 문자열 | API 호출을 위한 HTTP 메서드: "GET", "PUT", "POST", "PATCH" 또는 "DELETE" | 
+| <*method-type*> | 문자열 | API를 호출하기 위한 HTTP 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” | 
 | <*api-operation*> | 문자열 | 호출할 API 작업입니다. | 
 |||| 
 
@@ -971,7 +971,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 | 값 | type | 설명 | 
 |-------|------|-------------| 
 | <*action-name*> | 문자열 | 커넥터에서 제공하는 작업의 이름입니다. | 
-| <*method-type*> | 문자열 | 끝점을 구독하거나 끝점에서 구독 취소하는 데 사용하는 HTTP 메서드: "GET", "PUT", "POST", "PATCH" 또는 "DELETE" | 
+| <*method-type*> | 문자열 | 끝점을 구독하거나 끝점에서 구독 취소하는 데 사용하는 HTTP 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” | 
 | <*api-subscribe-URL*> | 문자열 | API를 구독하는 데 사용할 URI입니다. | 
 |||| 
 
@@ -1072,7 +1072,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 | 값 | type | 설명 | 
 |-------|------|-------------|  
 | <*Azure-function-ID*> | 문자열 | 호출하려는 Azure 함수의 리소스 ID입니다. 이 값의 형식은 다음과 같습니다.<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
-| <*method-type*> | 문자열 | 함수 호출에 사용되는 HTTP 메서드: "GET", "PUT", "POST", "PATCH" 또는 "DELETE" <p>지정하지 않으면 기본값은 "POST" 메서드입니다. | 
+| <*method-type*> | 문자열 | 함수 호출에 사용하는 HTTP 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” <p>지정하지 않으면 기본값은 "POST" 메서드입니다. | 
 ||||
 
 *선택 사항*
@@ -1142,7 +1142,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 | 값 | type | 설명 | 
 |-------|------|-------------| 
-| <*method-type*> | 문자열 | 요청을 전송하는 데 사용하는 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” | 
+| <*method-type*> | 문자열 | 요청을 보내는 데 사용하는 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” | 
 | <*HTTP-or-HTTPS-endpoint-URL*> | 문자열 | 호출할 HTTP 또는 HTTPS 끝점입니다. 최대 문자열 크기: 2KB | 
 |||| 
 
@@ -1666,7 +1666,7 @@ ID,Product_Name
 
 | 값 | type | 설명 | 
 |-------|------|-------------| 
-| <*status*> | 문자열 | 실행에 대해 반환할 상태: "Failed", "Cancelled" 또는 "Succeded" |
+| <*status*> | 문자열 | 실행에 대해 반환하는 상태: "Failed", "Cancelled" 또는 "Succeeded" |
 |||| 
 
 *선택 사항*
@@ -1737,7 +1737,7 @@ ID,Product_Name
 | 값 | type | 설명 | 
 |-------|------|-------------| 
 | <*number-of-units*> | 정수  | **Delay** 작업에 대해 대기할 단위 수입니다. | 
-| <*interval*> | 문자열 | **Delay** 작업에 대해 대기할 간격: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
+| <*interval*> | 문자열 | **Delay** 작업의 경우 대기하는 간격: “초”, “분”, “시간”, “일”, “주” 또는 “월” | 
 | <*date-time-stamp*> | 문자열 | **Delay Until** 작업에 대해 실행을 다시 시작할 날짜 및 시간입니다. 이 값은 [UTC 날짜/시간 형식](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)을 사용해야 합니다. | 
 |||| 
 
@@ -2350,9 +2350,9 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 1. 트리거의 오른쪽 위 모서리에서 줄임표 단추 (...)를 선택한 다음, **설정**을 선택합니다..
 
-2. **동시성 제어** 아래에서 **기본값 재정의**를 **설정**으로 지정합니다. 
+2. **동시성 제어** 아래에서 **제한**을 **켜기**로 설정합니다. 
 
-3. **병렬도** 슬라이더를 원하는 값으로 끕니다. 
+3. **병렬도** 슬라이더를 원하는 값으로 끕니다. 논리 앱을 순차적으로 실행하려면 슬라이더 값을 **1**로 끕니다.
 
 <a name="change-for-each-concurrency"></a>
 
@@ -2387,9 +2387,9 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 1. **For each** 작업의 오른쪽 위 모서리에서 줄임표(...) 단추를 선택하고 **설정**을 선택합니다.
 
-2. **동시성 제어** 아래에서 **기본값 재정의**를 **설정**으로 지정합니다. 
+2. **동시성 제어** 아래에서 **동시성 제어**를 **켜기**로 설정합니다. 
 
-3. **병렬도** 슬라이더를 원하는 값으로 끕니다. 
+3. **병렬도** 슬라이더를 원하는 값으로 끕니다. 논리 앱을 순차적으로 실행하려면 슬라이더 값을 **1**로 끕니다.
 
 <a name="change-waiting-runs"></a>
 
@@ -2465,7 +2465,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 1. 트리거의 오른쪽 위 모서리에서 줄임표 단추 (...)를 선택한 다음, **설정**을 선택합니다..
 
-2. **동시성 제어** 아래에서 **기본값 재정의**를 **설정**으로 지정합니다. 
+2. **동시성 제어** 아래에서 **제한**을 **켜기**로 설정합니다. 
 
 3. **병렬도** 슬라이더를 숫자 `1`로 끕니다. 
 
@@ -2516,7 +2516,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 1. **For each** 작업의 오른쪽 위 모서리에서 줄임표 단추 (...)를 선택한 다음, **설정**을 선택합니다.
 
-2. **동시성 제어** 아래에서 **기본값 재정의**를 **설정**으로 지정합니다. 
+2. **동시성 제어** 아래에서 **동시성 제어**를 **켜기**로 설정합니다. 
 
 3. **병렬도** 슬라이더를 숫자 `1`로 끕니다. 
 
@@ -2579,9 +2579,9 @@ HTTP 엔드포인트는 다양한 종류의 인증을 지원합니다. 이러한
 
 | 자산 | 필수 | 값 | 설명 | 
 |----------|----------|-------|-------------| 
-| **type** | yes | "Basic" | 사용할 인증 유형입니다. 여기에서는 "Basic"입니다. | 
-| **사용자 이름** | yes | "@parameters('userNameParam')" | 대상 서비스 엔드포인트 액세스를 위해 인증할 사용자 이름을 전달하는 매개 변수 |
-| **암호** | yes | "@parameters('passwordParam')" | 대상 서비스 엔드포인트 액세스를 위해 인증할 암호를 전달하는 매개 변수 |
+| **type** | 예 | "Basic" | 사용할 인증 유형입니다. 여기에서는 "Basic"입니다. | 
+| **사용자 이름** | 예 | "@parameters('userNameParam')" | 대상 서비스 엔드포인트 액세스를 위해 인증할 사용자 이름을 전달하는 매개 변수 |
+| **암호** | 예 | "@parameters('passwordParam')" | 대상 서비스 엔드포인트 액세스를 위해 인증할 암호를 전달하는 매개 변수 |
 ||||| 
 
 예를 들어 트리거 또는 작업 정의에서 `authentication` 개체에 대한 형식은 다음과 같습니다. 매개 변수 보호에 대한 자세한 내용은 [중요한 정보 보호](#secure-info)를 참조하세요. 
@@ -2610,9 +2610,9 @@ HTTP 엔드포인트는 다양한 종류의 인증을 지원합니다. 이러한
 
 | 자산 | 필수 | 값 | 설명 | 
 |----------|----------|-------|-------------| 
-| **type** | yes | "ClientCertificate" | SSL(Secure Sockets Layer) 클라이언트 인증서에 사용할 인증 유형 | 
-| **pfx** | yes | <*base64-encoded-pfx-file*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 |
-| **암호** | yes | "@parameters('passwordParam')" | PFX 파일에 액세스하기 위한 암호가 있는 매개 변수 |
+| **type** | 예 | "ClientCertificate" | SSL(Secure Sockets Layer) 클라이언트 인증서에 사용할 인증 유형 | 
+| **pfx** | 예 | <*base64-encoded-pfx-file*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 |
+| **암호** | 예 | "@parameters('passwordParam')" | PFX 파일에 액세스하기 위한 암호가 있는 매개 변수 |
 ||||| 
 
 예를 들어 트리거 또는 작업 정의에서 `authentication` 개체에 대한 형식은 다음과 같습니다. 매개 변수 보호에 대한 자세한 내용은 [중요한 정보 보호](#secure-info)를 참조하세요. 
@@ -2633,18 +2633,18 @@ HTTP 엔드포인트는 다양한 종류의 인증을 지원합니다. 이러한
 
 | 자산 | 필수 | 값 | 설명 | 
 |----------|----------|-------|-------------| 
-| **type** | yes | `ActiveDirectoryOAuth` | 사용할 인증 유형, Azure AD OAuth의 경우 "ActiveDirectoryOAuth" | 
+| **type** | 예 | `ActiveDirectoryOAuth` | 사용할 인증 유형, Azure AD OAuth의 경우 "ActiveDirectoryOAuth" | 
 | **authority** | 아니요 | <*URL-for-authority-token-issuer*> | 인증 토큰을 제공하는 기관의 URL |  
-| **테넌트** | yes | <*tenant-ID*> | Azure AD 테넌트의 테넌트 ID | 
-| **대상** | yes | <*resource-to-authorize*> | 사용하도록 권한을 부여하려는 리소스(예: `https://management.core.windows.net/`) | 
-| **clientId** | yes | <*client-ID*> | 권한 부여를 요청하는 앱에 대한 클라이언트 ID | 
-| **credentialType** | yes | "Secret" 또는 "Certificate" | 클라이언트에서 권한 부여 요청에 대해 사용하는 자격 증명 유형 이 속성 및 값은 기본 정의에 표시되지 않지만 자격 증명 형식에 대한 필수 매개 변수를 결정합니다. | 
+| **테넌트** | 예 | <*tenant-ID*> | Azure AD 테넌트의 테넌트 ID | 
+| **대상** | 예 | <*resource-to-authorize*> | 사용하도록 권한을 부여하려는 리소스(예: `https://management.core.windows.net/`) | 
+| **clientId** | 예 | <*client-ID*> | 권한 부여를 요청하는 앱에 대한 클라이언트 ID | 
+| **credentialType** | 예 | "Secret" 또는 "Certificate" | 클라이언트에서 권한 부여 요청에 대해 사용하는 자격 증명 유형 이 속성 및 값은 기본 정의에 표시되지 않지만 자격 증명 형식에 대한 필수 매개 변수를 결정합니다. | 
 | **암호** | 예, "Certificate" 자격 증명 유형의 경우 | "@parameters('passwordParam')" | PFX 파일에 액세스하기 위한 암호가 있는 매개 변수 | 
 | **pfx** | 예, "Certificate" 자격 증명 유형의 경우 | <*base64-encoded-pfx-file*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 |
 | **암호** | 예, "Secret" 자격 증명 유형의 경우 | <*secret-for-authentication*> | 클라이언트에서 권한 부여 요청에 대해 사용하는 base64로 인코딩된 비밀 |
 ||||| 
 
-예를 들어 다음은 트리거 또는 작업 정의에서 "Secret" 자격 증명 유형을 사용하는 경우 `authentication` 개체에 대한 양식입니다. 매개 변수 보호에 대한 자세한 내용은 [중요한 정보 보호](#secure-info)를 참조하세요. 
+예를 들어 트리거 또는 작업 정의가 “Secret” 자격 증명 유형을 사용하는 경우 `authentication` 개체에 대한 형식은 다음과 같습니다. 매개 변수 보호에 대한 자세한 내용은 [중요한 정보 보호](#secure-info)를 참조하세요. 
 
 ```javascript
 "authentication": {
@@ -2706,7 +2706,7 @@ HTTP 엔드포인트는 다양한 종류의 인증을 지원합니다. 이러한
 },
 ```
 
-Azure Resource Manager 배포 템플릿을 만들거나 사용하는 경우 템플릿 정의에 대해 외부 `parameters` 섹션도 포함해야 합니다. 매개 변수 보호에 대한 자세한 내용은 [논리 앱에 대한 액세스 보호](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow)를 참조하세요. 
+Azure Resource Manager 배포 템플릿을 만들거나 사용하는 경우 템플릿 정의에 대해 외부 `parameters` 섹션도 포함해야 합니다. 매개 변수 보호에 대한 자세한 내용은 [논리 앱에 대한 액세스 보호](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

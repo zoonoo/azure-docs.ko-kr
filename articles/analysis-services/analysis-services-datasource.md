@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7d8bde6beeb4bd0c6234d7c5aa63be9e150953f5
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e1a001a60151136be6bde9de38f971807cf0c288
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427249"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188405"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -23,14 +23,14 @@ Visual Studio에서 데이터 가져오기 또는 마법사 가져오기에 표�
 
 |데이터 원본  |메모리 내  |DirectQuery  |
 |---------|---------|---------|
-|Azure SQL Database     |   yes      |    yes      |
-|Azure SQL Data Warehouse     |   yes      |   yes       |
-|Azure Blob Storage*     |   yes       |    아니요      |
-|Azure Table Storage*    |   yes       |    아니요      |
-|Azure Cosmos DB*     |  yes        |  아니요        |
-|Azure Data Lake Store*     |   yes       |    아니요      |
-|Azure HDInsight HDFS*     |     yes     |   아니요       |
-|Azure HDInsight Spark*     |   yes       |   아니요       |
+|Azure SQL Database     |   예      |    예      |
+|Azure SQL Data Warehouse     |   예      |   예       |
+|Azure Blob Storage*     |   예       |    아니요      |
+|Azure Table Storage*    |   예       |    아니요      |
+|Azure Cosmos DB*     |  예        |  아니요        |
+|Azure Data Lake Store*     |   예       |    아니요      |
+|Azure HDInsight HDFS*     |     예     |   아니요       |
+|Azure HDInsight Spark*     |   예       |   아니요       |
 ||||
 
 \* 테이블 형식 1400 모델에만 해당합니다.

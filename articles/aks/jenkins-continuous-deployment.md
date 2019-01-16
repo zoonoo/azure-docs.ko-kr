@@ -6,13 +6,13 @@ ms.service: container-service
 author: iainfoulds
 ms.author: iainfou
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: d252e275280ed2a5c2129f6b228e9989a33b37fd
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.date: 01/09/2019
+ms.openlocfilehash: 470ba6df76741dd5c9e9eed055cd7848d341082f
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853634"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188456"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>자습서: Jenkins 지속적인 통합 및 배포를 사용하여 GitHub에서 AKS(Azure Kubernetes Service)로 배포
 
@@ -69,7 +69,7 @@ cd azure-voting-app-redis
 docker-compose up -d
 ```
 
-필요한 기본 이미지가 풀되고 애플리케이션 컨테이너가 빌드됩니다. 그러면 [docker images][docker-images] 명령을 사용하여 만든 이미지를 확인할 수 있습니다. 3개 이미지가 다운로드되거나 생성되었는지 확인합니다. `azure-vote-front` 이미지는 응용 프로그램을 포함하며 `nginx-flask` 이미지를 기준으로 사용합니다. `redis` 이미지는 Redis 인스턴스를 시작하는 데 사용됩니다.
+필요한 기본 이미지가 풀되고 애플리케이션 컨테이너가 빌드됩니다. 그러면 [docker images][docker-images] 명령을 사용하여 만든 이미지를 확인할 수 있습니다. 3개 이미지가 다운로드되거나 생성되었는지 확인합니다. `azure-vote-front` 이미지는 애플리케이션을 포함하며 `nginx-flask` 이미지를 기준으로 사용합니다. `redis` 이미지는 Redis 인스턴스를 시작하는 데 사용됩니다.
 
 ```
 $ docker images
@@ -229,11 +229,6 @@ Jenkins 포털 홈페이지의 왼쪽에 있는 **새 항목**을 선택합니�
 1. *azure-vote*를 작업 이름으로 입력합니다. **프리스타일 프로젝트**를 선택한 후 **확인**을 선택합니다.
 1. **일반** 섹션에서 **GitHub 프로젝트**를 선택하고 *https://github.com/\<your-github-account\>/azure-voting-app-redis*와 같은 포크된 리포지토리 URL을 입력합니다.
 1. **소스 코드 관리** 섹션에서 **Git**을 선택하고 *https://github.com/\<your-github-account\>/azure-voting-app-redis.git*과 같은 포크된 리포지토리 *.git* URL을 입력합니다.
-    - 자격 증명의 경우 **추가** > **Jenkins**를 클릭합니다.
-    - **종류** 아래에서 **비밀 텍스트**를 선택하고 [GitHub 개인용 액세스 토큰][git-access-token]을 비밀로 입력합니다.
-    - 완료되면 **추가**를 선택합니다.
-
-    ![GitHub 자격 증명](media/aks-jenkins/github-creds.png)
 
 1. **빌드 트리거** 섹션에서 **GITscm 폴링에 대한 GitHub 후크 트리거**를 선택합니다.
 1. **빌드 환경**에서 **비밀 텍스트 또는 파일 사용**을 선택합니다.

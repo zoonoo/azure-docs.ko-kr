@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 09c8b63cddde547b0dc42cf1f15a8ac5002d0a3e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2a5383952f64edb08717b1a100c74352c9b4246f
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725141"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187980"
 ---
 # <a name="content-protection-overview"></a>콘텐츠 보호 개요
 
@@ -60,7 +60,7 @@ Azure Media Services를 사용하여 컴퓨터를 떠날 때부터 저장, 처�
 
     AES 또는 CENC(Widevine 및/또는 PlayReady) 암호화된 콘텐츠를 테스트하려면 [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html)를 사용할 수 있습니다. “고급 옵션”을 클릭하고 암호화 옵션을 확인합니다.
 
-    FairPlay 암호화된 콘텐츠를 테스트하려는 경우 [이 테스트 플레이어](https://aka.ms/amtest)를 사용합니다. 플레이어는 Widevine, PlayReady, FairPlay DRMs 및 AES-128 암호화되지 않은 키 암호화를 지원합니다. 다양한 DRM을 테스트하기 위해 적절한 브라우저 즉, Widevine의 경우 Chrome/Opera/Firefox, PlayReady의 경우 MS Edge/IE11, FairPlay의 경우 macOS의 Safari를 선택해야 합니다.
+    FairPlay 암호화된 콘텐츠를 테스트하려는 경우 [이 테스트 플레이어](https://aka.ms/amtest)를 사용합니다. 플레이어는 Widevine, PlayReady, FairPlay DRMs 및 AES-128 암호화되지 않은 키 암호화를 지원합니다. 다양한 DRM을 테스트하기 위해 적절한 브라우저 즉, Widevine의 경우 Chrome/Opera/Firefox, PlayReady의 경우 Microsoft Edge/IE11, FairPlay의 경우 macOS에서 Safari를 선택해야 합니다.
 
 3. 백 엔드 리소스 액세스에 대한 액세스 토큰으로 JWT(JSON Web Token)를 발급하는 STS(보안 토큰 서비스). AMS 라이선스 배달 서비스를 백 엔드 리소스로 사용할 수 있습니다. STS는 다음을 정의해야 합니다.
 

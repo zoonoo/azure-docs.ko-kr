@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: ac80cd5ee1c530736666338e8bc3763b110c688c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 07912dab52cb0569428d070282551eebbdb1c7bc
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388429"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191448"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure Web Apps에 대한 오픈 소스 기술 FAQ
 
@@ -46,7 +46,7 @@ PHP 로깅을 켜려면:
 11. 텍스트를 다음 코드로 변경합니다.
    ```php
    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
+   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
    ```
 12. Azure Portal의 웹앱 메뉴에서 웹앱을 다시 시작합니다.
 
@@ -61,7 +61,7 @@ Node.js 애플리케이션의 버전을 변경하려면 다음 옵션 중 하나
 
 *   Azure Portal에서 **앱 설정**을 사용합니다.
     1. Azure Portal에서 웹앱으로 이동합니다.
-    2. **설정** 블레이드에서 **응용 프로그램 설정**을 선택합니다.
+    2. **설정** 블레이드에서 **애플리케이션 설정**을 선택합니다.
     3. **앱 설정**에서 WEBSITE_NODE_DEFAULT_VERSION을 키로 포함하고 원하는 Node.js 버전을 값으로 포함할 수 있습니다.
     4. [Kudu 콘솔](https://*yourwebsitename*.scm.azurewebsites.net)로 이동합니다.
     5. Node.js 버전을 확인하려면 다음 명령을 입력합니다.  
@@ -219,4 +219,4 @@ MySQL 앱 내 기능이 실행 중인지 확인한 후 PHPMyAdmin을 사용해 �
 
 ## <a name="i-get-an-http-403-error-when-i-try-to-import-or-export-my-mysql-in-app-database-by-using-phpmyadmin-how-do-i-resolve-this"></a>PHPMyadmin을 사용하여 내 MySQL 앱 내 데이터베이스를 가져오거나 내보낼 때 HTTP 403 오류가 발생합니다. 이 문제를 해결하려면 어떻게 해야 하나요?
 
-이전 버전의 Chrome을 사용하고 있으면 알려진 버그가 발생할 수 있습니다. 문제를 해결하려면 최신 버전의 Chrome으로 업그레이드합니다. 또한 Internet Explorer 또는 Edge와 같이 문제가 발생하지 않는 다른 브라우저를 사용해 보세요.
+이전 버전의 Chrome을 사용하고 있으면 알려진 버그가 발생할 수 있습니다. 문제를 해결하려면 최신 버전의 Chrome으로 업그레이드합니다. 또한 Internet Explorer 또는 Microsoft Edge와 같이 문제가 발생하지 않는 다른 브라우저를 사용해 보세요.

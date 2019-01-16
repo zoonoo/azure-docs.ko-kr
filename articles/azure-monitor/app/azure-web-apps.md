@@ -1,6 +1,6 @@
 ---
-title: Azure App Service 성능 모니터링 | Microsoft Docs
-description: Azure 웹앱에 대한 애플리케이션 성능 모니터링입니다. 차트 부하 및 응답 시간, 종속성 정보 및 성능에 대한 경고를 설정합니다.
+title: Azure App Services 성능 모니터링 | Microsoft Docs
+description: Azure App Services에 대한 애플리케이션 성능 모니터링입니다. 차트 부하 및 응답 시간, 종속성 정보 및 성능에 대한 경고를 설정합니다.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -12,33 +12,33 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: a5aea15c2563a81f4e915baa1b332beda64a1a70
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 17d8eff39eabb2f7b4968bf74d2482b980fe8060
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970970"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116622"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
-[Azure Portal](https://portal.azure.com)에서 웹앱, 모바일 백 엔드, [Azure App Service](../../app-service/overview.md)의 API 앱에 대한 애플리케이션 성능 모니터링을 설정할 수 있습니다. [Azure Application Insights](../../application-insights/app-insights-overview.md)는 해당 작업에 대한 원격 분석을 저장하고 분석하는 Application Insights 서비스에 보내는 앱을 계측합니다. 여기서 메트릭 차트 및 검색 도구를 사용하여 문제를 진단하고 성능을 개선하며 사용량 평가할 수 있습니다.
+[Azure Portal](https://portal.azure.com)에서 웹앱, 모바일 백 엔드, [Azure App Service](../../app-service/overview.md)의 API 앱에 대한 애플리케이션 성능 모니터링을 설정할 수 있습니다. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)는 해당 작업에 대한 원격 분석을 저장하고 분석하는 Application Insights 서비스에 보내는 앱을 계측합니다. 여기서 메트릭 차트 및 검색 도구를 사용하여 문제를 진단하고 성능을 개선하며 사용량 평가할 수 있습니다.
 
 ## <a name="run-time-or-build-time"></a>실행 시간 또는 빌드 시간
 다음과 같은 두 가지 방법 중 하나로 앱을 계측하여 모니터링을 구성할 수 있습니다.
 
-* **런타임** - 웹앱이 이미 라이브 상태인 경우 성능 모니터링 확장을 선택할 수 있습니다. 앱을 다시 빌드하거나 설치할 필요는 없습니다. 응답 시간, 성공률, 예외, 종속성 등을 모니터링하는 패키지의 표준 집합을 얻게 됩니다. 
+* **런타임** - App Service가 이미 라이브 상태인 경우 성능 모니터링 확장을 선택할 수 있습니다. 앱을 다시 빌드하거나 설치할 필요는 없습니다. 응답 시간, 성공률, 예외, 종속성 등을 모니터링하는 패키지의 표준 집합을 얻게 됩니다. 
 * **빌드 시간** - 개발 중인 앱에서 패키지를 설치할 수 있습니다. 이 옵션은 융통성이 뛰어납니다. 동일한 표준 패키지 외에도 원격 분석 데이터를 사용자 지정하거나 고유한 원격 분석을 보내는 코드를 작성할 수 있습니다. 앱 도메인의 의미 체계에 따라 특정 작업 또는 레코드 이벤트를 기록할 수 있습니다. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Application Insights를 사용하여 시간 계측 실행
-Azure에서 웹앱을 이미 실행 중인 경우 이미 일부 요청 및 오류 비율을 모니터링하고 있습니다. Application Insights를 추가하여 응답 시간, 종속성 호출 모니터링, 스마트 검색, 강력한 Log Analytics 쿼리 언어 등 더 많은 것을 얻을 수 있습니다. 
+Azure에서 App Service를 이미 실행 중인 경우 이미 일부 요청 및 오류 비율을 모니터링하고 있습니다. Application Insights를 추가하여 응답 시간, 종속성 호출 모니터링, 스마트 검색, 강력한 Log Analytics 쿼리 언어 등 더 많은 것을 얻을 수 있습니다. 
 
-1. 웹앱의 Azure 제어판에서 **Application Insights를 선택**합니다.
+1. App Service의 Azure 제어판에서 **Application Insights를 선택**합니다.
 
     ![설정에서 Application Insights 선택](./media/azure-web-apps/settings-app-insights.png)
 
    * 이 애플리케이션에 대한 Application Insights 리소스를 설정하지 않은 경우 새 리소스 만들기를 선택합니다. 
 
     > [!NOTE]
-    > **확인**을 클릭하여 새 리소스를 만들 경우 **모니터링 설정을 적용**할지 묻는 메시지가 표시됩니다. **계속**을 선택하면 새 Application Insights 리소스가 웹앱에 연결됩니다. 또한 이로 인해 **웹앱 다시 시작이 트리거**됩니다. 
+    > **확인**을 클릭하여 새 리소스를 만들 경우 **모니터링 설정을 적용**할지 묻는 메시지가 표시됩니다. **계속**을 선택하면 새 Application Insights 리소스가 App Service에 연결됩니다. 또한 이로 인해 **App Service 다시 시작이 트리거**됩니다. 
 
     ![웹앱 계측](./media/azure-web-apps/create-resource.png)
 
@@ -46,7 +46,7 @@ Azure에서 웹앱을 이미 실행 중인 경우 이미 일부 요청 및 오�
 
     ![플랫폼별 옵션 선택](./media/azure-web-apps/choose-options.png)
 
-3. Application Insights를 설치한 후 **웹앱을 계측**합니다.
+3. Application Insights가 설치된 후 **App Service를 계측**합니다.
 
    페이지 보기 및 사용자 원격 분석을 위해 **클라이언트 쪽 모니터링을 사용하도록 설정**합니다.
 
@@ -96,8 +96,19 @@ Application Insights는 앱에 SDK를 설치하여 더 자세한 원격 분석�
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
+## <a name="troubleshooting"></a>문제 해결
+
+### <a name="appinsightsjavascriptenabled-causes-incomplete-html-response-in-net-core-web-applications"></a>APPINSIGHTS_JAVASCRIPT_ENABLED는.NET CORE 웹 애플리케이션에서 불완전한 HTML 응답을 야기합니다.
+
+App Services를 통해 Javascript를 사용하면 html 응답이 차단될 수 있습니다.
+
+- 해결 방법 1: APPINSIGHTS_JAVASCRIPT_ENABLED 애플리케이션 설정을 false로 설정하거나 완전히 제거한 후 다시 시작
+- 해결 방법 2: 코드를 통해 sdk를 추가하고 확장 제거(이 구성에서는 프로파일러 및 스냅숏 디버거가 작동하지 않음)
+
+[여기](https://github.com/Microsoft/ApplicationInsights-Home/issues/277)에서 이 문제 추적
+
 ## <a name="next-steps"></a>다음 단계
-* [라이브 앱에서 프로파일러를 실행합니다](../../application-insights/app-insights-profiler.md).
+* [라이브 앱에서 프로파일러를 실행합니다](../../azure-monitor/app/profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - Application Insights로 Azure Functions 모니터링
 * [Azure 진단을 사용](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)하여 Application Insights에 보냅니다.
 * [서비스 상태 메트릭을 모니터링](../../azure-monitor/platform/data-collection.md)하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.

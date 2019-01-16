@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 데이터베이스, 컨테이너 및 항목 작업
 description: 이 문서에서는 Azure Cosmos DB 데이터베이스, 컨테이너 및 항목을 만들고 사용하는 방법을 설명합니다.
-author: dharmas
+author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 6757f887376e1b399d6af18f114e203991c16a67
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: d5714e43c9ba58cdec33ca5fd1eae31eb6a88f51
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807689"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107738"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Azure Cosmos 데이터베이스, 컨테이너 및 항목 작업
 
@@ -45,7 +45,7 @@ Azure 구독 아래에 [Azure Cosmos DB 계정](account-overview.md)을 생성�
 
 ## <a name="azure-cosmos-containers"></a>Azure Cosmos 컨테이너
 
-Azure Cosmos 컨테이너는 프로비전된 처리량과 항목의 스토리지 둘 다에 대한 확장성 단위입니다. 컨테이너는 가로로 분할된 다음, 여러 지역에 걸쳐 복제됩니다. 컨테이너에 추가하는 항목과 컨테이너에 프로비저닝하는 처리량은 모두 파티션 키에 따라 논리 파티션 집합에 자동으로 분산됩니다. 분할 및 파티션 키에 대한 자세한 내용은 [논리 파티션](partition-data.md) 문서를 참조하세요. 
+Azure Cosmos 컨테이너는 프로비전된 처리량과 항목의 스토리지 둘 다에 대한 확장성 단위입니다. 컨테이너는 가로로 분할된 다음, 여러 지역에 걸쳐 복제됩니다. 컨테이너에 추가하는 항목과 컨테이너에 프로비저닝하는 처리량은 파티션 키에 따라 논리 파티션 세트에 자동으로 분산됩니다. 분할 및 파티션 키에 대한 자세한 내용은 [논리 파티션](partition-data.md) 문서를 참조하세요. 
 
 Azure Cosmos 컨테이너를 만들 때 다음 모드 중 하나로 처리량을 구성합니다.
 
@@ -77,10 +77,10 @@ Azure Cosmos 컨테이너에는 시스템 정의 속성 집합이 있습니다. 
 
 | **시스템 정의 속성** | **시스템 생성 또는 사용자 설정 가능** | **목적** | **SQL API** | **Cassandra API** | **Azure Cosmos DB의 MongoDB API** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|__rid | 시스템 생성 | 컨테이너의 고유 식별자 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
-|__etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
-|__ts | 시스템 생성 | 컨테이너의 마지막 업데이트 타임스탬프 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
-|__self | 시스템 생성 | 컨테이너의 주소 지정 가능 URI | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
+|_rid | 시스템 생성 | 컨테이너의 고유 식별자 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
+|_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
+|_ts | 시스템 생성 | 컨테이너의 마지막 업데이트 타임스탬프 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
+|_self | 시스템 생성 | 컨테이너의 주소 지정 가능 URI | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
 |id | 사용자 구성 가능 | 컨테이너의 사용자 정의 고유 이름 | 예 | 예 | 예 | 예 | 예 |
 |indexingPolicy | 사용자 구성 가능 | 인덱스 경로, 정밀도 및 일관성 모델을 변경하는 기능을 제공합니다. | 예 | 아니요 | 아니요 | 아니요 | 예 |
 |TimeToLive | 사용자 구성 가능 | 일정 기간이 지난 후 컨테이너에서 항목을 자동으로 삭제하는 기능을 제공합니다. 자세한 내용은 [Time To Live](time-to-live.md) 문서를 참조하세요. | 예 | 아니요 | 아니요 | 아니요 | 예 |
@@ -113,10 +113,10 @@ API 선택에 따라 Azure Cosmos 항목은 컬렉션의 문서, 테이블의 �
 
 |**시스템 정의 속성** | **시스템 생성 또는 사용자 설정 가능**| **목적** | **SQL API** | **Cassandra API** | **Azure Cosmos DB의 MongoDB API** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|__id | 시스템 생성 | 항목의 고유 식별자 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
-|__etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
-|__ts | 시스템 생성 | 항목의 마지막 업데이트 타임스탬프 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
-|__self | 시스템 생성 | 항목의 주소 지정 가능 URI | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
+|_id | 시스템 생성 | 항목의 고유 식별자 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
+|_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
+|_ts | 시스템 생성 | 항목의 마지막 업데이트 타임스탬프 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
+|_self | 시스템 생성 | 항목의 주소 지정 가능 URI | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
 |id | 여기서는 | 논리 파티션 내의 사용자 정의 고유 이름. 사용자가 id를 지정하지 않으면 시스템이 자동으로 생성합니다. | 예 | 예 | 예 | 예 | 예 |
 |임의의 사용자 정의 속성 | 사용자 정의 | API 네이티브 표현에 표시되는 사용자 정의 속성(JSON, BSON, CQL 등) | 예 | 예 | 예 | 예 | 예 |
 

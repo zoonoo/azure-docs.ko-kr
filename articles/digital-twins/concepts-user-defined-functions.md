@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: alinast
-ms.openlocfilehash: 915c57033209ff982946163c408cf8557515e2f5
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 897a350c345e6e284f30040c0d4fcf07d5a6f466
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999206"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106844"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>데이터 처리 및 사용자 정의 함수
 
@@ -102,6 +102,15 @@ Azure Digital Twins의 데이터 처리는 *검사기*, *사용자 정의 함수
 - 알림을 전송하기 전에 센서 값에 그래프 메타데이터를 첨부합니다.
 
 자세한 내용은 [사용자 정의 함수를 사용하는 방법](./how-to-user-defined-functions.md)을 참조하세요.
+
+
+#### <a name="examples"></a>예
+
+[Digital Twins C# 샘플에 대한 GitHub 리포지토리](https://github.com/Azure-Samples/digital-twins-samples-csharp/)에는 사용자 정의 함수의 몇 가지 예가 포함되어 있습니다.
+- [이 함수](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js)는 이산화탄소, 동작 및 온도 값을 찾아 범위 내에서 이러한 값으로 객실을 사용할 수 있는지 여부를 결정합니다. [Digital Twins 자습서](tutorial-facilities-udf.md)에 이 함수에 대해 보다 자세히 나와 있습니다. 
+- [이 함수](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js)는 여러 동작 센서에서 데이터를 찾은 후 어떤 동작 센서로도 동작이 검색되지 않는 경우 공간을 사용할 수 있음을 결정합니다. 파일의 주석 섹션에 설명된 변경을 수행하여 [빠른 시작](quickstart-view-occupancy-dotnet.md) 또는 [자습서](tutorial-facilities-setup.md)에 사용된 사용자 정의 함수를 쉽게 바꿀 수 있습니다. 
+
+
 
 ### <a name="role-assignment"></a>역할 할당
 

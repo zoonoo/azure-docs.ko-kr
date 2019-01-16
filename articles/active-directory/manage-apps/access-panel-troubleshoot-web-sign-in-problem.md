@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviwer: japere,asteen
-ms.openlocfilehash: ac07a0aa9c324c7e44d68ea2674d0fa2af5dbba5
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d2670d8f018fc26b7017fba40b5aff4310900dab
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355985"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188694"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>액세스 패널 웹 사이트에 로그인할 때 발생하는 문제
 
@@ -64,7 +64,7 @@ ms.locfileid: "44355985"
 
 -   Internet Explorer 8, 9, 10, 11 - Windows 7 이상
 
--   Windows 10 Anniversary Edition 이상 Edge 
+-   Windows 10 Anniversary Edition 이상의 Microsoft Edge 
 
 -   Chrome - Windows 7 이상 및 Mac OS X 이상
 
@@ -291,4 +291,4 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 -   Fiddler 추적
 
 ## <a name="next-steps"></a>다음 단계
-[응용 프로그램 프록시를 사용하여 앱에 Single Sign-On 제공](application-proxy-configure-single-sign-on-with-kcd.md)
+[애플리케이션 프록시를 사용하여 앱에 Single Sign-On 제공](application-proxy-configure-single-sign-on-with-kcd.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 02e6d6407a515314d99ea747dac3646d665c47ae
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c353c40cc838dc4082d3d4b843a48a5fedb6e1f5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976582"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039472"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure에 Azure Stack VM 복제
 
@@ -142,7 +142,7 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>2단계: 자격 증명 모음을 만들기 및 복제 목표 선택
 
-1. Azure Portal에서 **리소스 만들기** > **모니터링 + 관리** > **Backup 및 Site Recovery**를 선택합니다.
+1. Azure Portal에서 **리소스 만들기** > **관리 도구** > **Backup 및 Site Recovery**를 선택합니다.
 2. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 
 3. **리소스 그룹**에서 리소스 그룹을 만들거나 선택합니다. **contosoRG**를 사용합니다.
 4. **위치**에서 Azure 지역을 입력합니다. **유럽 서부**를 사용합니다.

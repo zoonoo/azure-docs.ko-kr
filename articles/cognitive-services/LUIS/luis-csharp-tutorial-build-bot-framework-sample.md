@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 951a202f8d57c736af8c17af91859ce89e9efc7d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 4e2feb1f5b0cad9a05f796d160a0a641622d6b59
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717962"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189222"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot Framework 3.x 및 Azure 웹앱 봇을 사용하는 C#의 LUIS 봇
 
@@ -161,6 +161,8 @@ Azure Portal에서 **웹 채팅에서 테스트**를 클릭하여 봇을 테스�
 ## <a name="next-steps"></a>다음 단계
 
 **Help**, **Cancel** 및 **Greeting** 의도를 처리하기 위한 LUIS 의도 및 Bot Service 대화 상자를 추가합니다. 웹앱 봇을 학습시키고 게시 및 [빌드](#build-the-bot)해야 합니다. LUIS 및 봇에 둘 다 동일한 의도가 있어야 합니다.
+
+대화형 봇을 사용하는 추가 [샘플](https://github.com/Microsoft/AI)을 참조하세요. 
 
 > [!div class="nextstepaction"]
 > [의도 추가](./luis-how-to-add-intents.md)

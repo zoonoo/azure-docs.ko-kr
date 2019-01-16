@@ -11,17 +11,17 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 01/09/2019
 ms.author: magoedte
-ms.openlocfilehash: da11bb0669bf6bde2c65b2a7a0badaa1ae35abda
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1a51e9b636e15f178de072af8372404af1dc47e2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189129"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187997"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Azure Monitor에서 컨테이너 로그를 실시간으로 보는 방법(미리 보기)
-현재 미리 보기로 있는 이 기능은 Kubectl 명령을 실행하지 않고도 AKS(Azure Kubernetes Service) 컨테이너 로그(stdout/stderr)에 대한 실시간 보기를 제공합니다. 이 옵션을 선택하면 **컨테이너**  보기의 컨테이너 성능 데이터 테이블 아래에 새 창이 표시됩니다. 여기서는 문제를 실시간으로 해결하는 데 도움이 되도록 컨테이너 엔진에서 생성된 라이브 로깅을 보여 줍니다.  
+현재 미리 보기로 있는 이 기능은 Kubectl 명령을 실행하지 않고도 AKS(Azure Kubernetes Service) 컨테이너 로그(stdout/stderr)에 대한 실시간 보기를 제공합니다. 이 옵션을 선택하면 **컨테이너** 보기에서 컨테이너 성능 데이터 테이블 아래에 새 창이 나타납니다.  여기에는 실시간으로 문제를 해결하는 데 더 많은 도움을 주기 위해 컨테이너 엔진에서 생성하는 라이브 로깅이 표시됩니다.  
 
 로그에 대한 액세스를 제어하기 위해 라이브 로그에서 지원하는 세 가지 방법은 다음과 같습니다.
 
@@ -39,33 +39,33 @@ Kubernetes RBAC 권한 부여를 사용하도록 설정한 경우 클러스터 �
 1. yaml 파일을 복사하여 붙여넣고, LogReaderRBAC.yaml로 저장합니다.  
 
    ```
-   kind: ClusterRole 
    apiVersion: rbac.authorization.k8s.io/v1 
-   metadata:   
+   kind: ClusterRole 
+   metadata: 
       name: containerHealth-log-reader 
    rules: 
-      - apiGroups: [""]   
-        resources: ["pods/log"]   
+      - apiGroups: [""] 
+        resources: ["pods/log"] 
         verbs: ["get"] 
    --- 
-   kind: ClusterRoleBinding 
    apiVersion: rbac.authorization.k8s.io/v1 
-   metadata:   
+   kind: ClusterRoleBinding 
+   metadata: 
       name: containerHealth-read-logs-global 
-   subjects:   
-      - kind: User     
-        name: clusterUser
-        apiGroup: rbac.authorization.k8s.io 
-    roleRef:   
-       kind: ClusterRole
-       name: containerHealth-log-reader
+   roleRef: 
+       kind: ClusterRole 
+       name: containerHealth-log-reader 
        apiGroup: rbac.authorization.k8s.io 
+   subjects: 
+      - kind: User 
+        name: clusterUser 
+        apiGroup: rbac.authorization.k8s.io 
    ```
 
 2. `kubectl create -f LogReaderRBAC.yaml` 명령을 실행하여 클러스터 규칙 바인딩을 만듭니다. 
 
 ## <a name="configure-aks-with-azure-active-directory"></a>Azure Active Directory를 사용하여 AKS 구성
-사용자 인증에 Azure AD(Active Directory)를 사용하도록 AKS를 구성할 수 있습니다. 처음 구성하는 경우 [Azure Kubernetes Service와 Azure Active Directory 통합](../../aks/aad-integration.md)을 참조하세요. [클라이언트 애플리케이션](../../aks/aad-integration.md#create-client-application)을 만들고 **리디렉션 URI**를 지정하는 단계를 수행하는 동안 ** https://ininprodeusuxbase.microsoft.com/*** 목록에 다른 URI를 추가해야 합니다.  
+사용자 인증에 Azure AD(Active Directory)를 사용하도록 AKS를 구성할 수 있습니다. 처음 구성하는 경우 [Azure Kubernetes Service와 Azure Active Directory 통합](../../aks/aad-integration.md)을 참조하세요. [클라이언트 애플리케이션](../../aks/aad-integration.md#create-client-application)을 만들고 **리디렉션 URI**를 지정하는 단계를 수행하는 동안 `https://ininprodeusuxbase.microsoft.com/*` 목록에 다른 URI를 추가해야 합니다.  
 
 >[!NOTE]
 >Single Sign-On을 위해 Azure Active Directory를 사용하여 인증을 구성하는 작업은 새 AKS 클러스터의 초기 배포 중에만 수행할 수 있습니다. 이미 배포된 AKS 클러스터에는 Single Sign-On을 구성할 수 없습니다.  

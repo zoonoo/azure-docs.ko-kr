@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
-ms.openlocfilehash: 850919f8ca8bb68af544ae528a779e16068424b1
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 0dbdf2261b851b303a0c606e5de70354578c6d2e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752540"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078782"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증
 
@@ -44,7 +44,7 @@ az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
 
 ## <a name="access-with-kubernetes-secret"></a>Kubernetes 비밀을 사용하여 액세스
 
-일부 경우에 자동 생성된 AKS 서비스 주체에 필요한 역할을 할당하여 ACR에 대한 액세스 권한을 부여하지 못할 수 있습니다. 예를 들어, 조직의 보안 모델로 인해 AKS에서 생성된 서비스 주체에 역할을 할당하기 위한 충분한 권한이 Azure AD 디렉터리에 없을 수 있습니다. 이러한 경우 새 서비스 주체를 만든 다음, Kubernetes 이미지 끌어오기 비밀을 사용하여 컨테이너 레지스트리에 대한 액세스 권한을 부여할 수 있습니다.
+일부 경우에 자동 생성된 AKS 서비스 주체에 필요한 역할을 할당하여 ACR에 대한 액세스 권한을 부여하지 못할 수 있습니다. 예를 들어, 조직의 보안 모델로 인해 AKS에서 생성된 서비스 주체에 역할을 할당하기 위한 충분한 권한이 Azure Active Directory 테넌트에 없을 수 있습니다. 서비스 주체에 역할을 할당하려면 Azure AD 계정에 Azure AD 테넌트에 대한 쓰기 권한이 있어야 합니다. 권한이 없는 경우 새 서비스 주체를 만든 다음, Kubernetes 이미지 끌어오기 비밀을 사용하여 컨테이너 레지스트리에 대한 액세스 권한을 부여할 수 있습니다.
 
 다음 스크립트를 사용하여 새 서비스 주체를 만듭니다(Kubernetes 이미지 끌어오기 비밀로 해당 자격 증명 사용). 스크립트를 실행하기 전에 사용자 환경에 맞게 `ACR_NAME` 변수를 수정합니다.
 

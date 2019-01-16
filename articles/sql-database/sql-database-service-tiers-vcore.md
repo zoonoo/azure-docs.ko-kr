@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/02/2019
-ms.openlocfilehash: f756f043a7ab3c9086b21b8bdb88a5a6a7ed60df
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.date: 01/08/2019
+ms.openlocfilehash: 9d5a1493316fbfa9a703655f37a40276ee3ffaf7
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001603"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156819"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore 서비스 계층, Azure 하이브리드 혜택 및 마이그레이션
 
@@ -66,6 +66,29 @@ vCore 모델은 범용, 하이퍼스케일 및 중요 비즈니스용이라는 �
 vCore 기반 구매 모델에서 [SQL Server에 대한 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 기존 라이선스를 SQL Database의 할인된 가격으로 교환할 수 있습니다. 이 Azure 혜택에서는 온-프레미스 SQL Server 라이선스를 통해 Software Assurance가 있는 온-프레미스 SQL Server 라이선스를 사용하여 Azure SQL Database에서 최대 30%까지 절약할 수 있습니다.
 
 ![가격 책정](./media/sql-database-service-tiers/pricing.png)
+
+Azure 하이브리드 혜택을 사용하여 SQL Database 엔진 자체에 대해 기존 SQL Server 라이선스(**BasePrice**)를 사용하여 기존 Azure 인프라에 대해서만 비용을 지불하거나 기본 인프라 및 SQL Server 라이선스(**LicenseIncluded**) 둘 다에 대해 비용을 지불할지를 선택할 수 있습니다. Azure Portal을 사용하거나 다음 API 중 하나를 사용하여 라이선스 모델을 선택하거나 변경할 수 있습니다.
+
+- PowerShell을 사용하여 라이선스 형식을 설정하거나 업데이트하려면
+
+  - [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase):
+  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql)
+  - [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
+  - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql)
+
+- Azure CLI를 사용하여 라이선스 형식을 설정하거나 업데이트하려면
+
+  - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
+  - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
+  - [az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
+  - [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
+
+- REST API를 사용하여 라이선스 형식을 설정하거나 업데이트하려면
+
+  - [데이터베이스 - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
+  - [데이터베이스 - Update](https://docs.microsoft.com/rest/api/sql/databases/update)
+  - [Managed Instances - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
+  - [Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
 
 ## <a name="migration-from-dtu-model-to-vcore-model"></a>DTU 모델에서 vCore 모델로 마이그레이션
 

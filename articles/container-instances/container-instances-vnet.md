@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 172ddd11cb956ab6d74e1ce870e2378205dd1613
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 73c61c62a84642b93ed96cdd80e258a1128fef6a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993296"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077474"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure Virtual Network에 컨테이너 인스턴스 배포
 
@@ -33,26 +33,28 @@ Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 �
 
 가상 네트워크에 컨테이너 그룹을 배포할 때는 특정 제한 사항이 적용됩니다.
 
-* Windows 컨테이너는 지원되지 않습니다.
 * 컨테이너 그룹을 배포하려는 서브넷에는 다른 리소스 종류가 포함되어 있지 않아야 합니다. 컨테이너 그룹을 배포하기 전에 기존 서브넷에서 기존 리소스를 모두 제거하거나 새 서브넷을 만들어야 합니다.
 * 가상 네트워크에 배포되는 컨테이너 그룹은 현재 공용 IP 주소 또는 DNS 이름 레이블을 지원하지 않습니다.
 * 가상 네트워크에 컨테이너 그룹을 배포할 때는 네트워킹 리소스가 추가로 사용되므로 대개 표준 컨테이너 인스턴스를 배포할 때보다 속도가 다소 느립니다.
 
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
 
-이 기능은 미리 보기 상태이므로 가상 네트워크에 컨테이너 인스턴스를 배포할 때는 다음 제한 사항이 적용됩니다.
+이 기능은 미리 보기 상태이므로 가상 네트워크에 컨테이너 인스턴스를 배포할 때는 다음 제한 사항이 적용됩니다. 
 
-**지원되는** 지역:
+**지원되는 지역 및 리소스 제한**
 
-* 북유럽(northeurope)
-* 유럽 서부(westeurope)
-* 미국 서부(westus)
-* 미국 동부(eastus)
+| 위치 | OS | CPU | 메모리(GB) |
+| -------- | :---: | :---: | :-----------: |
+| 서유럽 | Linux | 4 | 14 |
+| 미국 동부, 미국 서부 | Linux | 2 | 3.5 |
+| 오스트레일리아 동부, 북유럽 | Linux | 1 | 1.5 |
 
-**지원되지 않는** 네트워크 리소스:
+컨테이너 리소스 제한은 이러한 지역의 비네트워크 컨테이너 인스턴스에 대한 제한과 다를 수 있습니다. 현재 Linux 컨테이너만 이 기능이 지원됩니다. Windows 지원이 예정되어 있습니다.
 
-* 네트워크 보안 그룹
+**지원되지 않는 네트워크 리소스 및 기능**
+
 * Azure Load Balancer
+* 가상 네트워크 피어링
 
 **네트워크 리소스 삭제** 시에는 가상 네트워크에 컨테이너 그룹을 배포한 후 [추가 단계](#delete-network-resources)를 수행해야 합니다.
 

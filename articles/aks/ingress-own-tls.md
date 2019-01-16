@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/23/2018
 ms.author: iainfou
-ms.openlocfilehash: 4e3f2f33cfffeacbcbeccc4f17f55b7d0e1a985c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: c4a79571d22276f4874d6b8bb5fda3d86ca5f929
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50129164"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54154983"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러를 만들고 고유한 TLS 인증서 사용
 
@@ -23,13 +23,13 @@ ms.locfileid: "50129164"
 또한 다음을 수행할 수 있습니다.
 
 - [외부 네트워크 연결을 사용하여 기본적인 수신 컨트롤러 만들기][aks-ingress-basic]
-- [HTTP 응용 프로그램 라우팅 추가 기능 사용][aks-http-app-routing]
+- [HTTP 애플리케이션 라우팅 추가 기능 사용][aks-http-app-routing]
 - [내부 개인 네트워크 및 IP 주소를 사용하는 수신 컨트롤러 만들기][aks-ingress-internal]
 - Let’s Encrypt를 사용하여 [동적 공용 IP 주소][aks-ingress-tls] 또는 [고정 공용 IP 주소][aks-ingress-static-tls]로 TLS 인증서를 자동으로 생성하는 수신 컨트롤러 만들기
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 Helm을 사용하여 NGINX 수신 컨트롤러 및 샘플 웹앱을 설치합니다. AKS 클러스터 내에서, Tiller의 서비스 계정을 사용하여 Helm이 초기화되어 있어야 합니다. Helm의 최신 릴리스를 사용 중이어야 합니다. 업그레이드 지침은 [Helm 설치 문서][helm-install]를 참조하세요. Helm을 구성하고 사용하는 방법에 대한 자세한 내용은 [Helm을 사용하여 AKS(Azure Kubernetes Service)에 응용 프로그램 설치][use-helm]를 참조하세요.
+이 문서에서는 Helm을 사용하여 NGINX 수신 컨트롤러 및 샘플 웹앱을 설치합니다. AKS 클러스터 내에서, Tiller의 서비스 계정을 사용하여 Helm이 초기화되어 있어야 합니다. Helm의 최신 릴리스를 사용 중이어야 합니다. 업그레이드 지침은 [Helm 설치 문서][helm-install]를 참조하세요. Helm을 구성하고 사용하는 방법에 대한 자세한 내용은 [Helm을 사용하여 AKS(Azure Kubernetes Service)에 애플리케이션 설치][use-helm]를 참조하세요.
 
 또한 이 문서에서는 Azure CLI 버전 2.0.41 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
@@ -179,7 +179,7 @@ $ curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
 [...]
 ```
 
-`curl` 명령의 *-v* 매개 변수는 수신된 TLS 인증서를 비롯한 자세한 정보를 출력합니다. curl 출력을 따라 절반 부분까지 이동하면 고유한 TLS 인증서를 사용했는지 확인할 수 있습니다. *-k* 매개 변수는 자체 서명된 인증서를 사용하더라도 페이지를 계속 로드합니다. 다음 예제에서는 *발급자: CN=demo.azure.com; O = CN=demo.azure.com; O=aks-ingress-tls* 인증서가 사용되었음을 보여 줍니다.
+`curl` 명령의 *-v* 매개 변수는 수신된 TLS 인증서를 비롯한 자세한 정보를 출력합니다. curl 출력을 따라 절반 부분까지 이동하면 고유한 TLS 인증서를 사용했는지 확인할 수 있습니다. *-k* 매개 변수는 자체 서명된 인증서를 사용하더라도 페이지를 계속 로드합니다. 다음 예제에서는 *issuer: CN=demo.azure.com; O=aks-ingress-tls* 인증서가 사용되었음을 보여 줍니다.
 
 ```
 [...]
@@ -192,7 +192,7 @@ $ curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
 [...]
 ```
 
-이제 *https://demo.azure.com/hello-world-two*와 같은 주소에 */hello-world-two* 경로를 추가합니다. 사용자 지정 제목이 있는 두 번째 데모 애플리케이션은 다음 축소된 예제 출력에 표시된 대로 반환됩니다.
+이제 `https://demo.azure.com/hello-world-two`와 같은 주소에 */hello-world-two* 경로를 추가합니다. 사용자 지정 제목이 있는 두 번째 데모 애플리케이션은 다음 축소된 예제 출력에 표시된 대로 반환됩니다.
 
 ```
 $ curl -v -k --resolve demo.azure.com:443:137.117.36.18 https://demo.azure.com/hello-world-two
@@ -257,7 +257,7 @@ kubectl delete secret aks-ingress-tls
 또한 다음을 수행할 수 있습니다.
 
 - [외부 네트워크 연결을 사용하여 기본적인 수신 컨트롤러 만들기][aks-ingress-basic]
-- [HTTP 응용 프로그램 라우팅 추가 기능 사용][aks-http-app-routing]
+- [HTTP 애플리케이션 라우팅 추가 기능 사용][aks-http-app-routing]
 - [내부 개인 네트워크 및 IP 주소를 사용하는 수신 컨트롤러 만들기][aks-ingress-internal]
 - Let’s Encrypt를 사용하여 [동적 공용 IP 주소][aks-ingress-tls] 또는 [고정 공용 IP 주소][aks-ingress-static-tls]로 TLS 인증서를 자동으로 생성하는 수신 컨트롤러 만들기
 

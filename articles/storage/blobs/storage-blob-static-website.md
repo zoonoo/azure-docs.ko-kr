@@ -8,29 +8,29 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 933fcbfc21c69d02f1093e0ea2519d76f4130b29
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 2bae07643407e8672ef26fb59da588661eb9f0d1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598893"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191822"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
-Azure Storage GPv2 계정을 사용하면 *$web*이라는 저장소 컨테이너에서 직접 정적 콘텐츠(HTML, CSS, JavaScript 및 이미지 파일)를 서비스할 수 있습니다. Azure Storage에 호스팅하면 [Azure Functions](/azure/azure-functions/functions-overview) 및 기타 PaaS 서비스를 포함한 서버리스 아키텍처를 사용할 수 있습니다.
+Azure Storage GPv2 계정을 사용하면 *$web*이라는 스토리지 컨테이너에서 직접 정적 콘텐츠(HTML, CSS, JavaScript 및 이미지 파일)를 서비스할 수 있습니다. Azure Storage에 호스팅하면 [Azure Functions](/azure/azure-functions/functions-overview) 및 기타 PaaS 서비스를 포함한 서버리스 아키텍처를 사용할 수 있습니다.
 
 정적 웹 사이트 호스팅과는 반대로, 서버 쪽 코드에 의존하는 동적 사이트는 [Azure App Service](/azure/app-service/overview)를 사용하여 호스팅하는 것이 가장 좋습니다.
 
 ## <a name="how-does-it-work"></a>작동 원리
-저장소 계정에서 정적 웹 사이트를 호스팅하도록 설정하는 경우 기본 파일의 이름을 선택하고 필요에 따라 사용자 지정 404 페이지의 경로를 제공합니다. 기능이 활성화되면 *$web*이라는 컨테이너가 생성됩니다(아직 없는 경우). 
+저장소 계정에서 정적 웹 사이트를 호스팅하도록 설정하는 경우 기본 파일의 이름을 선택하고 필요에 따라 사용자 지정 404 페이지의 경로를 제공합니다. 기능이 활성화되면 *$web*이라는 컨테이너가 생성됩니다(아직 없는 경우).
 
 *$web* 컨테이너에 포함된 파일은 다음과 같은 특징이 있습니다.
 
 - 익명 액세스 요청을 통해 제공
 - 개체 읽기 작업을 통해서만 사용 가능
 - 대/소문자 구분
-- 다음 패턴을 따르는 공용 웹에서 사용 가능: 
+- 다음 패턴을 따르는 공용 웹에서 사용 가능:
     - `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
-- 다음 패턴을 따르는 Blob 저장소 엔드포인트를 통해 사용 가능: 
+- 다음 패턴을 따르는 Blob 저장소 엔드포인트를 통해 사용 가능:
     - `https://<ACCOUNT_NAME>.blob.core.windows.net/$web/<FILE_NAME>`
 
 Blob 저장소 엔드포인트를 사용하여 파일을 업로드합니다. 예를 들어 이 위치에 업로드된 파일은 다음과 같은 특징이 있습니다.
@@ -97,10 +97,10 @@ az storage blob service-properties update --account-name <ACCOUNT_NAME> --static
 az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEndpoints.web" --output tsv
 ```
 
-소스 디렉터리의 *$web* 컨테이너에 개체를 업로드합니다.
+소스 디렉터리의 *$web* 컨테이너에 개체를 업로드합니다. 명령에서 *$web* 컨테이너에 대한 참조를 올바르게 이스케이프해야 합니다. 예를 들어, Azure Portal의 CloudShell에서 Azure CLI를 사용하는 경우 다음에 표시된 대로 *$web* 컨테이너를 이스케이프합니다.
 
 ```azurecli-interactive
-az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NAME>
+az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_NAME>
 ```
 
 ## <a name="deployment"></a>배포
@@ -120,7 +120,7 @@ az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NA
 
 여러 메트릭 API에 연결하여 메트릭 데이터가 생성됩니다. 데이터를 반환하는 멤버에만 집중하기 위해 특정 시간 프레임에 사용된 API 멤버만 포털에 표시됩니다. 필요한 API 멤버를 선택할 수 있도록 가장 먼저 할 일은 시간 프레임을 확장하는 것입니다.
 
-시간 프레임 단추를 클릭하고 **지난 24시간**을 선택한 다음, **적용**을 클릭합니다. 
+시간 프레임 단추를 클릭하고 **지난 24시간**을 선택한 다음, **적용**을 클릭합니다.
 
 ![Azure Storage 정적 웹 사이트 메트릭 시간 범위](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 

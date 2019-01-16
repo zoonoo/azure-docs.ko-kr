@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: dfbce1afcefe7f03636d42ffa363fe29b47259e8
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: a174ae5eb31620646167f36a6f3e13605db5eac6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742561"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052771"
 ---
 # <a name="use-data-lake-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Data Lake Storage 사용
 
-HDInsight 클러스터에서 데이터를 분석하기 위해 [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage](../data-lake-store/data-lake-store-overview.md) 또는 양 쪽 모두에 데이터를 저장할 수 있습니다. 두 가지 저장소 옵션을 사용하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
+HDInsight 클러스터에서 데이터를 분석하기 위해 [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md) 중 하나 또는 모두에 데이터를 저장할 수 있습니다. 두 가지 저장소 옵션을 사용하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
 
 이 문서에서는 Data Lake Storage가 HDInsight 클러스터에서 작동하는 방식에 대해 알아봅니다. Azure Storage가 HDInsight 클러스터에서 작동하는 방식에 대해 알아보려면 [Azure HDInsight 클러스터에서 Azure Storage 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
@@ -33,7 +33,7 @@ Apache Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 �
 HDInsight 클러스터는 Data Lake Storage를 두 가지 방식으로 사용할 수 있습니다.
 
 * 기본 저장소로
-* 추가 저장소로, Azure Storage Blob을 기본 저장소로.
+* 추가 스토리지로, Azure Storage Blob을 기본 스토리지로.
 
 현재는 일부 HDInsight 클러스터 유형/버전에서만 Data Lake Storage를 기본 스토리지 및 추가 스토리지 계정으로 사용하도록 지원합니다.
 

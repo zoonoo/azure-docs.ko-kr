@@ -6,21 +6,21 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 01/02/2019
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 604093dcec048b0991bbc9beac3ef998cc47e351
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 36f4caac38f2f4891af6f61b78b55c7eff15eae4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974521"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116741"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Azure Digital Twins에서 개체에 Blob 추가
 
 Blob은 그림 및 로그 같은 일반적인 파일 형식의 비정형 표현입니다. Blob은 MIME 형식(예: "image/jpeg") 및 메타데이터(이름, 설명, 형식 등)를 사용하여 표현하는 데이터의 종류를 추적합니다.
 
-Azure Digital Twins는 Blobs를 디바이스, 공간 및 사용자에 연결할 수 있습니다. Blob은 사용자, 디바이스 사진, 비디오, 맵 또는 로그에 대한 프로필 사진을 나타낼 수 있습니다.
+Azure Digital Twins는 Blobs를 디바이스, 공간 및 사용자에 연결할 수 있습니다. Blob은 사용자, 디바이스 사진, 비디오, 맵, 펌웨어 zip, JSON 데이터, 로그 등에 대한 프로필 사진을 나타낼 수 있습니다.
 
 [!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
@@ -28,27 +28,11 @@ Azure Digital Twins는 Blobs를 디바이스, 공간 및 사용자에 연결할 
 
 다중 파트 요청을 사용하여 Blob을 특정 엔드포인트 및 해당 기능에 업로드할 수 있습니다.
 
-> [!IMPORTANT]
-> 다중 파트 요청에는 세 가지 정보가 필요합니다.
-> * **Content-Type** 헤더:
->   * `application/json; charset=utf-8`
->   * `multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`
-> * **Content-Disposition**: `form-data; name="metadata"`
-> * 업로드할 파일 콘텐츠
->
-> **Content-Type** 및 **Content-Disposition** 정보는 사용 시나리오에 따라 달라질 수 있습니다.
-
-Azure Digital Twins 관리 API에 대한 다중 파트 요청은 다음과 같은 두 파트로 구성됩니다.
-
-* **Content-Type** 및 **Content-Disposition** 정보에서 본 것처럼, 연결된 MIME 형식 같은 Blob 메타데이터
-
-* Blob 콘텐츠(파일의 비정형 콘텐츠)  
-
-**PATCH** 요청에는 두 파트 중 어떤 것도 필요하지 않습니다. 두 파트는 모두 **POST** 또는 만들기 작업에 필요합니다.
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
 ### <a name="blob-metadata"></a>Blob 메타데이터
 
-**Content-Type** 및 **Content-Disposition** 외에도, 다중 파트 요청은 올바른 JSON 본문을 지정해야 합니다. 제출할 JSON 본문은 수행되는 HTTP 요청 작업의 종류에 따라 달라집니다.
+**Content-Type** 및 **Content-Disposition** 외에도, Azure Digital Twins Blob 다중 파트 요청은 올바른 JSON 본문을 지정해야 합니다. 제출할 JSON 본문은 수행되는 HTTP 요청 작업의 종류에 따라 달라집니다.
 
 네 가지 주요 JSON 스키마는 다음과 같습니다.
 
@@ -64,12 +48,15 @@ Swagger 설명서는 이러한 모델 스키마에 대해 매우 자세하게 �
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-텍스트 파일을 Blob으로 업로드하고 공간과 연결하는 **POST** 요청을 만들려면:
+텍스트 파일을 blob으로 업로드하고 공백을 삽입하려면 다음에 대해 인증된 HTTP POST 요청을 수행합니다.
 
 ```plaintext
-POST YOUR_MANAGEMENT_API_URL/spaces/blobs HTTP/1.1
-Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
+YOUR_MANAGEMENT_API_URL/spaces/blobs
+```
 
+다음 본문을 포함합니다.
+
+```plaintext
 --USER_DEFINED_BOUNDARY
 Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
@@ -112,6 +99,16 @@ multipartContent.Add(fileContents, "contents");
 var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 ```
 
+두 예제:
+
+1. 헤더에 `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`가 포함되어 있는지 확인합니다.
+1. 본문이 다중 파트인지 확인합니다.
+
+   - 첫 번째 파트에는 요청된 Blob 메타데이터를 포함합니다.
+   - 두 번째 부분은 텍스트 파일을 포함합니다.
+
+1. 텍스트 파일이 `Content-Type: text/plain`으로 제공되는지 확인합니다.
+
 ## <a name="api-endpoints"></a>API 엔드포인트
 
 다음 섹션에서는 핵심 Blob 관련 API 엔드포인트 및 해당 기능에 대해 설명합니다.
@@ -122,7 +119,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 ![디바이스 Blob][2]
 
-예를 들어 Blob을 업데이트하거나 만들고 디바이스에 Blob을 연결하려면 다음에 대한 **PATCH** 요청을 만듭니다.
+예를 들어 Blob을 업데이트하거나 만들고 디바이스에 Blob을 연결하려면 다음에 대해 인증된 HTTP PATCH 요청을 만듭니다.
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
@@ -148,7 +145,7 @@ Blob을 공간에 연결할 수도 있습니다. 다음 이미지는 Blob 처리
 
 ![공간 Blob][3]
 
-예를 들어 공간에 연결된 Blob을 반환하려면 다음에 대한 **GET** 요청을 만듭니다.
+예를 들어 공간에 연결된 Blob을 반환하려면 다음에 대한 인증된 HTTP GET 요청을 만듭니다.
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
@@ -158,7 +155,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | 원하는 Blob ID |
 
-동일한 엔드포인트에 대한 **PATCH** 요청을 만들면 메타데이터 설명을 업데이트하고 새 버전의 Blob을 만들 수 있습니다. HTTP 요청은 필요한 메타 및 다중 파트 양식 데이터와 함께 **PATCH** 메서드를 통해 수행됩니다.
+동일한 엔드포인트로의 PATCH 요청은 메타데이터 설명을 업데이트하고 새 버전의 Blob을 만듭니다. HTTP 요청은 필요한 메타 및 다중 파트 양식 데이터와 함께 PATCH 메서드를 통해 수행됩니다.
 
 성공한 작업은 다음 스키마를 준수하는 **SpaceBlob** 개체를 반환합니다. 이 개체를 사용하여 반환된 데이터를 사용할 수 있습니다.
 
@@ -173,7 +170,7 @@ Blob을 사용자 모델에 연결할 수 있습니다(예: 프로필 사진 연
 
 ![사용자 Blob][4]
 
-예를 들어 사용자에게 연결된 Blob을 가져오려면 필요한 양식 데이터를 사용하여 **GET** 요청을 수행합니다.
+예를 들어 사용자에게 연결된 Blob을 가져오려면 필요한 양식 데이터를 사용하여 인증된 HTTP GET 요청을 수행합니다.
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
@@ -205,7 +202,7 @@ YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Digital Twins에 대한 Swagger 참조 설명서의 자세한 내용은 [Azure Digital Twins Swagger 사용](how-to-use-swagger.md)을 참조하세요.
+- Azure Digital Twins에 대한 Swagger 참조 설명서의 자세한 내용은 [Azure Digital Twins Swagger 사용](how-to-use-swagger.md)을 참조하세요.
 
 <!-- Images -->
 [1]: media/how-to-add-blobs/blob-models.PNG

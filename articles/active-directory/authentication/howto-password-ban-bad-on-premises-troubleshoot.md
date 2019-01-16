@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 1e5782ce3421cc5f0d2e0e51484d4bbe6b9eb6ab
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: d9f3ba642a5d00594aa6bdef597d5db43c2fc121
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978641"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188983"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>미리 보기: Azure AD 암호 보호 모니터링, 보고 및 문제 해결
 
@@ -62,7 +62,7 @@ Azure AD 암호 보호의 배포 후 모니터링 및 보고는 필수 작업입
 |감사 전용 합격(Microsoft 암호 정책 실패)| 10024, 30010| 10025, 30009|
 
 > [!TIP]
-> 들어오는 암호는 먼저 Microsoft 전역 암호 목록에 대해 유효성 검사를 수행합니다. 검사를 통과하지 못할 경우 더 이상 처리를 수행하지 않습니다. Azure에서 암호 변경에 수행된 것과 동일한 동작입니다.
+> 들어오는 암호는 먼저 Microsoft 전역 암호 목록에 대해 유효성 검사를 수행합니다. 검사를 통과하지 못할 경우 더이상 처리를 수행하지 않습니다. Azure에서 암호 변경에 수행된 것과 동일한 동작입니다.
 
 #### <a name="sample-event-log-message-for-event-id-10014-successful-password-set"></a>이벤트 ID 10014에 대한 샘플 이벤트 로그 메시지(성공적인 암호 집합)
 
@@ -274,7 +274,7 @@ DC 에이전트 서비스 소프트웨어는 **Azure AD 암호 보호**라는 �
 
    ```Powershell
    $passwordProtectonConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
-   Remove-ADObject $passwordProtectonConfigContainer
+   Remove-ADObject -Recursive $passwordProtectonConfigContainer
    ```
 
 6. 수동으로 다음 폴더와 해당 내용 모두를 삭제하여 모든 sysvol 관련 상태를 수동으로 제거합니다.

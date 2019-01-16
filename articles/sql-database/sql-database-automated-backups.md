@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 21f6331276155ec926b47a5db8310486835cb3ae
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 0be1ddea4d5eaa253850ae640152b2538b39d0ca
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001280"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035426"
 ---
 # <a name="automated-backups"></a>자동화된 백업
 
@@ -42,7 +42,7 @@ SQL Database는 SQL Server 기술을 사용하여 PITR(지정 시간 복원)의 
 
 ## <a name="how-long-are-backups-kept"></a>백업은 얼마 동안 유지되나요?
 
-각 SQL Database에는 [구매 모델 및 서비스 계층](#pitr-retention-period)에 따라 달라지는 7-35일의 기본 백업 보존 기간이 있습니다. Azure 논리 서버에서 데이터베이스의 백업 보존 기간을 업데이트할 수 있습니다. 자세한 내용은 [백업 보존 기간 변경](#how-to-change-the-pitr-backup-retention-period)을 참조하세요.
+각 SQL Database에는 구매 모델 및 서비스 계층에 따라 달라지는 7-35일의 기본 백업 보존 기간이 있습니다. Azure 논리 서버에서 데이터베이스의 백업 보존 기간을 업데이트할 수 있습니다. 자세한 내용은 [백업 보존 기간 변경](#how-to-change-the-pitr-backup-retention-period)을 참조하세요.
 
 데이터베이스를 삭제하면 SQL Database는 온라인 데이터베이스에 하는 것과 동일한 방식으로 백업을 유지합니다. 예를 들어, 보존 기간이 7일인 기본 데이터베이스를 삭제하는 경우, 4일 된 백업은 앞으로 3일 동안 더 저장됩니다.
 
@@ -109,7 +109,7 @@ Azure Portal, PowerShell 또는 REST API를 사용하여 기본 PITR 백업 보�
 
 ### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Azure Portal을 사용하여 PITR 백업 보존 기간 변경
 
-Azure Portal을 사용하여 PITR 백업 보존 기간을 변경하려면 Portal 내에서 보존 기간을 변경하려는 서버 개체로 이동한 후, 수정할 서버 개체에 따라 적절한 옵션을 선택합니다. 
+Azure Portal을 사용하여 PITR 백업 보존 기간을 변경하려면 Portal 내에서 보존 기간을 변경하려는 서버 개체로 이동한 후, 수정할 서버 개체에 따라 적절한 옵션을 선택합니다.
 
 #### <a name="change-pitr-for-a-logical-server"></a>논리 서버의 PITR 변경
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 419160ea8a91672d9c948c57b9c3ffd70180ab66
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9502c0b5c3ea4b25b7a49448b75fdd43ff28762a
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187724"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186991"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)를 사용하여 성능을 차트로 표시하는 방법
 VM용 Azure Monitor는 가상 머신이 얼마나 잘 실행되고 있는지 확인하기 위한 여러 가지 KPI(핵심 성과 지표)를 대상으로 하는 성능 차트 집합을 포함하고 있습니다. 이러한 차트는 시간에 따른 리소스 사용률을 표시하므로 병목 상태 및 이상 현상을 식별하거나 각 머신을 나열하는 큐브 뷰로 전환하여 선택한 메트릭을 기반으로 리소스 사용률을 볼 수 있습니다. 성능을 다룰 때 고려해야 하는 여러 요소가 있지만, VM용 Azure Monitor는 프로세서, 메모리, 네트워크 어댑터 및 디스크를 통해 표시되는 운영 체제에 집중합니다. 성능은 상태 모니터링 기능을 보완하며 시스템 구성 요소 오류를 나타내는 문제를 공개하고, 효율성 향상을 위한 튜닝 및 최적화를 지원하고, 용량 계획을 지원하는 데 도움이 됩니다.  
