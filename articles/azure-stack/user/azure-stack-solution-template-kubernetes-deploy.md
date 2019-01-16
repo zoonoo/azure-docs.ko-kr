@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 07cacc4a127c333e4c19c4979b7520226919c14b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 064a9fc48ae60e530a11633b0823764a2f862811
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722399"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320024"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Azure Stack에 Kubernetes 배포
 
@@ -139,7 +139,7 @@ Kubernetes에서 사용할 수 있습니다.
 
 1. 입력 된 **SSH 공개 키** dvm이 고 Kubernetes 클러스터의 일부로 생성 하는 모든 Linux 컴퓨터에 대 한 인증에 사용 합니다.
 
-1. 입력 된 **마스터 프로필 DNS 접두사** 지역에 고유한 합니다. 같은 지역 고유 이름 이어야 합니다 `k8s-12345`합니다. 하려고 선택 리소스 그룹과 동일한 이름을 모범 사례로 좋습니다.
+1. 입력 된 **마스터 프로필 DNS 접두사** 지역에 고유한 합니다. 같은 지역 고유 이름 이어야 합니다 `k8s-12345`합니다. 가장 좋은 방법은 리소스 그룹 이름과 동일한 확인 하려고 합니다.
 
     > [!Note]  
     > 각 클러스터에 대 한 마스터 프로필 새롭고 고유한 DNS 접두사를 사용 합니다.
@@ -150,9 +150,9 @@ Kubernetes에서 사용할 수 있습니다.
 
 1. 선택 된 **Kubernetes 노드 풀 프로필 수**입니다. 수는 클러스터의 에이전트 수를 포함합니다. 
 
-1. 선택 된 **저장소 프로필**합니다. 선택할 수 있습니다 **Blob 디스크** 하거나 **Managed Disk**합니다. 이 VM 크기의 Kubernetes 노드 Vm을 지정합니다. 
+1. 선택 된 **저장소 프로필**합니다. 선택할 수 있습니다 **Blob 디스크** 하거나 **Managed Disk**합니다. 
 
-1. 입력 된 **서비스 주체 ClientId** Kubernetes Azure 클라우드 공급자가 사용 됩니다. 응용 프로그램 ID로 식별 된 클라이언트 ID 경우에 서비스 주체를 생성 합니다.
+1. 입력 된 **서비스 주체 ClientId** Kubernetes Azure 클라우드 공급자가 사용 됩니다. 클라이언트 ID는 응용 프로그램 ID로 식별 된 경우에 서비스 주체를 생성 합니다.
 
 1. 입력 된 **서비스 주체 클라이언트 비밀** 서비스 주체를 만들 때 만든 합니다.
 
@@ -160,7 +160,7 @@ Kubernetes에서 사용할 수 있습니다.
 
 ### <a name="3-summary"></a>3. 요약
 
-1. 요약을 선택 합니다. 블레이드는 Kubernetes 클러스터 구성 설정에 대해 유효성 검사 메시지를 표시합니다.
+1. 요약을 선택 합니다. 블레이드는 Kubernetes 클러스터 구성 설정에 대 한 유효성 검사 메시지를 표시합니다.
 
     ![솔루션 템플릿 배포](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 01/16/2019
 ms.author: sethm
-ms.openlocfilehash: 570c1adc2f4615e78cbe5656c13b0e22b863baf7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 3fcbf2b3160d57e56a59ba9c374c9b1b2a75a159
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192521"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330248"
 ---
 # <a name="store-service-principal-credentials-in-key-vault"></a>Key Vault에 서비스 주체 자격 증명 저장
 
@@ -83,7 +83,7 @@ Key vault를 만들려면 다음이 단계를 수행 합니다.
 
 2. 에 **비밀** 창 **생성/가져오기**합니다.
 
-3. 에 **암호를 만듭니다** 창의 옵션 선택 목록에서 **수동**합니다.
+3. 에 **암호를 만듭니다** 창의 옵션 선택 목록에서 **수동**합니다. 만든 경우 서비스 주체 인증서를 사용 하 여 드롭다운 목록에서에서 인증서를 선택 하 고 파일을 업로드 합니다.
 
 4. 입력 **응용 프로그램 ID** 넌 트 키에 대 한 이름으로 서비스 주체에서 복사 합니다. 키 이름에는 영숫자 및 하이픈 (-) 문자만 포함할 수 있습니다.
 

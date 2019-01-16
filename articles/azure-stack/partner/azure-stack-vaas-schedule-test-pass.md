@@ -13,14 +13,14 @@ ms.topic: How to
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 3021fafe7d74f71450eec9b3720c974b04ada224
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0e9ad89e504ce1cb86daad48bec9ffe9423e2cf1
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426930"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319548"
 ---
-# <a name="schedule-your-first-test"></a>첫 번째 테스트를 예약 합니다.
+# <a name="scheduling-a-test"></a>테스트를 예약합니다.
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -35,8 +35,8 @@ Azure Stack 솔루션에 대 한 유효성 검사 서비스 (VaaS) 포털에서 
 이 빠른 시작을 수행 하기 전에 다음 항목이 완료 해야 합니다.
 
 - [서비스 리소스와 유효성 검사 설정](azure-stack-vaas-set-up-resources.md)
-- [로컬 에이전트를 배포](azure-stack-vaas-local-agent.md) (권장)
-- [서비스 키 개념으로 유효성 검사](azure-stack-vaas-key-concepts.md) (권장)
+- [로컬 에이전트를 배포](azure-stack-vaas-local-agent.md) (필수)
+- [서비스 키 개념으로 유효성 검사](azure-stack-vaas-key-concepts.md) (필수)
 
 ## <a name="start-a-workflow"></a>워크플로 시작
 
