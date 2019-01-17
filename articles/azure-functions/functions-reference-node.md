@@ -366,7 +366,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 | _body_    | 응답의 본문을 포함하는 개체입니다.         |
 | _headers_ | 응답 헤더를 포함하는 개체입니다.             |
 | _isRaw_   | 응답에 대한 서식 지정을 건너뜀을 나타냅니다.    |
-| _상태_  | 응답의 HTTP 상태 코드입니다.                     |
+| _status_  | 응답의 HTTP 상태 코드입니다.                     |
 
 ### <a name="accessing-the-request-and-response"></a>요청 및 응답 액세스 
 
