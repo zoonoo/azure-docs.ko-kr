@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: b5a129c2a92c18b979a3b0c2eeea7fa19791551c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 29b44e4b281ded635359148e251527c44efaa6d4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633768"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214048"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Azure AD ID를 사용하여 CLI 또는 PowerShell을 통해 Azure Storage에 액세스(미리 보기)
 
@@ -84,7 +84,7 @@ Azure PowerShell을 사용하여 Azure AD ID로 로그인하려면
    Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
    ```
 1. PowerShell 창을 닫았다가 다시 엽니다.
-1. `-UseConnectedAccount` 매개 변수를 포함하고 [New-AzStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext) cmdlet을 호출하여 컨텍스트를 만듭니다. 
+1. `-UseConnectedAccount` 매개 변수를 포함하고 [New-AzStorageContext](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontext) cmdlet을 호출하여 컨텍스트를 만듭니다. 
 1. Azure AD ID를 사용하여 cmdlet을 호출하려면 새로 만든 컨텍스트를 cmdlet으로 전달합니다.
 
 다음 예제에서는 Azure AD ID를 사용하여 Azure PowerShell에서 컨테이너의 Blob을 나열하는 방법을 보여줍니다. 자리 표시자 계정 및 컨테이너 이름을 사용자 고유의 값으로 바꾸어야 합니다. 
@@ -96,7 +96,7 @@ Get-AzStorageBlob -Container sample-container -Context $ctx
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Storage의 RBAC 역할에 대한 자세한 내용은 [RBAC를 사용하여 저장소 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
+- Azure Storage의 RBAC 역할에 대한 자세한 내용은 [RBAC를 사용하여 스토리지 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
 - Azure Storage를 통해 Azure 리소스에 대한 관리되는 ID 사용에 관한 자세한 내용은 [Azure 리소스에 대한 관리 ID를 통한 blob 및 쿼리 액세스 인증(미리 보기)](storage-auth-aad-msi.md)을 참조하세요.
 - 저장소 애플리케이션 내에서 컨테이너와 큐에 대한 액세스 권한을 부여하는 방법을 알아보려면 [저장소 애플리케이션에서 Azure AD 사용](storage-auth-aad-app.md)을 참조하세요.
 - Azure Blob 및 큐의 Azure AD 통합에 대한 자세한 내용은 Azure Storage 팀 블로그 게시물 [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/)(Azure Storage에 대한 Azure AD 인증 미리 보기 발표)를 참조하세요.

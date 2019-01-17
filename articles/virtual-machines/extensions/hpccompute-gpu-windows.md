@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/5/2018
+ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 2a29cae6e7f391dfee75e89ea91525268db3fa62
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4bb27959bb57f3d59621e5bbbfaba9aa0c331432
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971966"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200686"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Windows용 NVIDIA GPU 드라이버 확장
 
@@ -37,7 +37,7 @@ ms.locfileid: "52971966"
 
 | 배포 | 버전 |
 |---|---|
-| 윈도우 10 | 코어 |
+| Windows 10(1803 버전까지)| 코어 |
 | Windows Server 2016 | 코어 |
 | Windows Server 2012R2 | 코어 |
 

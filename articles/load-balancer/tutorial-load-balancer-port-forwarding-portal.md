@@ -5,6 +5,7 @@ description: 이 자습서에서는 Azure Load Balancer를 사용하여 Azure �
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/11/18
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: e3431ff7ee6991e5af3ecab0e734cc587009dcde
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: da41b33f3e5d24c0391c8486d9c0b372877eff21
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273530"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232195"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>자습서: 포털을 사용하여 Azure Load Balancer에서 포트 전달 구성
 
@@ -73,7 +74,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **가상 네트워크 만들기** 창에서 다음 값을 입력하거나 선택합니다.
    
    - **이름**: *MyVNet*을 입력합니다.
-   - **ResourceGroup**: **기존 항목 선택**을 드롭다운하고 **MyResourceGroupLB**를 선택합니다. 
+   - **ResourceGroup**: **기존 항목 선택**을 드롭다운하고, **MyResourceGroupLB**를 선택합니다. 
    - **서브넷** > **이름**: *MyBackendSubnet*을 입력합니다.
    
 1. **만들기**를 선택합니다.
@@ -146,7 +147,7 @@ VM에 대해 인바운드 인터넷(HTTP) 연결을 허용하는 NSG(네트워�
    - **대상 포트 범위**: *80*을 입력합니다.
    - **프로토콜**: **TCP**를 선택합니다. 
    - **작업**: **허용**을 선택합니다.  
-   - **우선 순위**: *100* 
+   - **우선 순위**: *100*을 입력합니다. 
    - **이름**: *MyHTTPRule*을 입력합니다. 
    - **설명**: ‘HTTP 허용’을 입력합니다. 
    
@@ -238,7 +239,7 @@ VM을 만들 때 부하 분산 장치 백 엔드 풀을 만들고 VM을 풀에 �
    
 1. **확인**을 선택합니다.
    
-1. 단계를 반복해서 **포트**: *4222* 및 **대상 가상 머신**: **MyVM2**를 사용하여 *MyNATRuleVM2*라는 인바운드 NAT 규칙을 추가합니다.
+1. 단계를 반복해서 **포트**: *4222* 및 **대상 가상 머신**: **MyVM2**를 사용하여 MyNATRuleVM2라는 인바운드 NAT 규칙을 추가합니다.
 
 ## <a name="test-the-load-balancer"></a>부하 분산 장치 테스트
 

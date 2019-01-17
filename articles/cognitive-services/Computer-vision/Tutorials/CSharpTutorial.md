@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8640d89c5fb9e38fc6c982e21147361ad690964a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: f4f588ad9123ec98cbae9f9bf03c08ec551a31a5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584448"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232756"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>자습서: 이미지 처리 앱 빌드 - C&#35;
 
@@ -97,9 +97,6 @@ git clone --recurse-submodules https://github.com/Microsoft/Cognitive-Face-Windo
    |텍스트 인식(OCR) | [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 작업을 사용하여 이미지에서 인쇄된 텍스트를 인식 및 추출합니다. 사용할 언어를 사용자가 선택하거나 Computer Vision에서 자동으로 언어를 검색하도록 할 수 있습니다. |
    |텍스트 인식 V2(영어) | [텍스트 인식](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) 및 [텍스트 인식 작업 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) 작업을 사용하여 이미지에서 인쇄되거나 필기한 텍스트를 비동기적으로 인식하고 추출합니다. |
    |썸네일 가져오기 | [썸네일 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) 작업을 사용하여 로컬 또는 원격 이미지에 대한 썸네일을 생성합니다. |
-
-   > [!IMPORTANT]
-   > Microsoft는 업로드되는 이미지를 수신하며, 해당 이미지를 사용하여 Computer Vision API 및 관련 서비스를 개선할 수 있습니다. 이미지를 제출하면 [개발자 준수 사항](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)을 따랐음을 확인하는 것입니다.
 
    다음 스크린샷은 샘플 이미지를 분석한 후 이미지 분석 시나리오에 제공된 페이지를 보여줍니다.
    ![이미지 분석 페이지의 스크린샷](../Images/Analyze_Image_Example.PNG)

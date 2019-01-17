@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: alkohli
-ms.openlocfilehash: 88880fbfe0f6020a0a982c42b6df0e9eb71b2fc9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: fa0883c18e0d586e6e9b35fb19dbe304388045b5
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550449"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215289"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>자습서: REST API를 통해 Azure Data Box Blob 스토리지에 데이터 복사  
 
@@ -154,7 +154,7 @@ Blob은 항상 컨테이너에 업로드하므로 첫 번째 단계는 컨테이
 
    ![Blob 컨테이너 상황에 맞는 메뉴 만들기](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
 
-4. 텍스트 상자가 **Blob 컨테이너** 폴더 아래에 표시됩니다. Blob 컨테이너에 대한 이름을 입력합니다. Blob 컨테이너 이름 명명 규칙 및 제한 사항에 대한 정보는 [컨테이너 만들기 및 사용 권한 설정](/articles/storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions)을 참조하세요.
+4. 텍스트 상자가 **Blob 컨테이너** 폴더 아래에 표시됩니다. Blob 컨테이너에 대한 이름을 입력합니다. Blob 컨테이너 이름 명명 규칙 및 제한 사항에 대한 정보는 [컨테이너 만들기 및 사용 권한 설정](../storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions)을 참조하세요.
 5. Blob 컨테이너 만들기가 끝나면 **Enter** 키를 누르거나 **Esc** 키를 눌러 취소합니다. Blob 컨테이너가 성공적으로 만들어졌다면 선택한 스토리지 계정에 대해 **Blob 컨테이너** 폴더 아래에 표시됩니다.
 
    ![만든 Blob 컨테이너](media/data-box-deploy-copy-data-via-rest/create-blob-container-2.png)
@@ -171,7 +171,7 @@ AzCopy를 사용하여 폴더의 모든 파일을 Windows 또는 Linux의 Blob �
         --dest-key <key> \
         --recursive
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
 
@@ -180,7 +180,7 @@ AzCopy를 사용하여 폴더의 모든 파일을 Windows 또는 Linux의 Blob �
 
 지정된 대상 컨테이너가 존재하지 않을 경우 AzCopy는 컨테이너를 만든 후 여기에 파일을 업로드합니다. 원본 경로를 데이터 디렉터리로 업데이트하고 대상 URL의 `data-box-storage-account-name`을 사용자의 Data Box와 연결된 스토리지 계정 이름으로 바꿉니다.
 
-지정된 디렉터리의 콘텐츠를 Blob 저장소로 재귀적으로 업로드하려면 `--recursive`(Linux) 또는 `/S`(Windows) 옵션을 지정합니다. 이러한 옵션 중 하나로 AzCopy를 실행하면 모든 하위 폴더 및 해당 파일도 업로드됩니다.
+지정된 디렉터리의 콘텐츠를 Blob Storage로 재귀적으로 업로드하려면 `--recursive`(Linux) 또는 `/S`(Windows) 옵션을 지정합니다. 이러한 옵션 중 하나로 AzCopy를 실행하면 모든 하위 폴더 및 해당 파일도 업로드됩니다.
 
 ### <a name="upload-modified-files-to-data-box-blob-storage"></a>Data Box Blob 스토리지에 수정된 파일 업로드
 
@@ -196,7 +196,7 @@ AzCopy를 사용하여 마지막 수정 시간을 기반으로 파일을 업로�
     --recursive \
     --exclude-older
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
 

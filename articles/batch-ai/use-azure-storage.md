@@ -12,12 +12,12 @@ ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1e9a4c6355c60b18bb78aae362c1e2f142e2d864
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c1ebcae04b51fbf18da22872e3e4160a37a7e2fe
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408003"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201162"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>Azure Storage를 사용하여 Batch AI 작업 입출력 저장
 
@@ -38,7 +38,7 @@ Azure Storage를 사용하기 전에 [Azure Storage 계정을 만들](../storage
 Blob 컨테이너를 만들고 Azure Blob 컨테이너에 데이터 세트를 업로드하려면 다음 방법 중 하나를 선택합니다.
 - [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) - 웹 기반 GUI를 통해 업로드합니다. 적은 수의 파일을 업로드하기 위해 Azure Portal은 가장 간단한 작업을 제공합니다.
 - [Azure Storage CLI](../storage/blobs/storage-quickstart-blobs-cli.md) - 명령줄을 통해 업로드(디렉터리 업로드 지원)합니다. 파일의 디렉터리를 업로드하려면 `az storage blob upload-batch`를 사용합니다.
-- [기타 기술](../storage/common/storage-moving-data.md) - 응용 프로그램 SDK를 사용하는 것이 포함됩니다.
+- [기타 기술](../storage/common/storage-moving-data.md) - 애플리케이션 SDK를 사용하는 것이 포함됩니다.
 
 마찬가지로, Azure 파일 공유를 만들려면 다음 방법 중 하나를 선택합니다.
 - [Azure Portal](../storage/files/storage-how-to-use-files-portal.md)
@@ -79,7 +79,7 @@ Azure CLI를 사용하여 만든 작업에 Azure Storage 볼륨을 탑재하려�
 - <FILE_SHARE_NAME> - 파일 공유의 이름
 - <BLOB_CONTAINER_NAME> - Blob 컨테이너의 이름
 
-Azure Batch AI SDK를 사용하여 Azure Storage 볼륨을 탑재하려면 `JobCreateParameters`에서 `mount_volumes`(Python) 또는 `MountVolumes`(C#, Java) 속성을 설정합니다. Azure Batch AI SDK를 사용하여 볼륨을 탑재하는 경우에는 저장소 계정 자격 증명을 제공해야 합니다. [Python](https://docs.microsoft.com/python/api/azure-mgmt-batchai/azure.mgmt.batchai.models.MountVolumes?view=azure-python), [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.batchai.models.mountvolumes?view=azure-dotnet) 및 [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.batchai._mount_volumes?view=azure-java-stable)에서 볼륨 탑재를 위한 스키마를 확인합니다.
+Azure Batch AI SDK를 사용하여 Azure Storage 볼륨을 탑재하려면 `JobCreateParameters`에서 `mount_volumes`(Python) 또는 `MountVolumes`(C#, Java) 속성을 설정합니다. Azure Batch AI SDK를 사용하여 볼륨을 탑재하는 경우에는 저장소 계정 자격 증명을 제공해야 합니다. [Python](https://docs.microsoft.com/python/api/azure-mgmt-batchai/azure.mgmt.batchai.models.MountVolumes?view=azure-python), [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.batchai.models.mountvolumes?view=azure-dotnet) 및 [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.batchai.mountvolumes?view=azure-java-stable)에서 볼륨 탑재를 위한 스키마를 확인합니다.
 
 ### <a name="mount-volumes-to-a-cluster"></a>클러스터에 볼륨 탑재
 

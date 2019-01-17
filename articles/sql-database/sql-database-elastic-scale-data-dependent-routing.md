@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 2a862a6f1165b0cdd4dfe46e638dc6b10eae9ee5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 46febbeb2675c38bf68c6ba0b911f799b268e208
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191329"
+ms.locfileid: "54201111"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>데이터 의존 라우팅을 사용하여 적절한 데이터베이스로 쿼리 라우팅
 
@@ -68,7 +68,7 @@ public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionStrin
 
 * **key** 매개 변수는 요청에 대한 적합한 데이터베이스를 결정하는 분할된 데이터베이스 맵의 조회 키로 사용됩니다.
 * **connectionString** 은 원하는 연결에 대한 사용자 자격 증명만 전달하는 데 사용됩니다. 메서드에서 **ShardMap**을 사용하여 데이터베이스와 서버를 결정하므로 이 *connectionString*에는 데이터베이스 이름 또는 서버 이름이 포함되지 않습니다.
-* 분할된 데이터베이스 맵이 변경되고 분할 또는 병합 작업의 결과에 따라 다른 데이터베이스로 행이 이동할 수 있는 환경인 경우 **connectionOptions**([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._connection_options), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions))를 **ConnectionOptions.Validate**로 설정해야 합니다. 이 유효성 검사에는 연결이 애플리케이션에 전달되기 전 대상 데이터베이스의 로컬 분할된 데이터베이스 맵(글로벌하게 분할된 데이터베이스 맵이 아님)에 대한 간략한 쿼리가 포함됩니다.
+* 분할된 데이터베이스 맵이 변경되고 분할 또는 병합 작업의 결과에 따라 다른 데이터베이스로 행이 이동할 수 있는 환경인 경우 **connectionOptions**([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.connectionoptions), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions))를 **ConnectionOptions.Validate**로 설정해야 합니다. 이 유효성 검사에는 연결이 애플리케이션에 전달되기 전 대상 데이터베이스의 로컬 분할된 데이터베이스 맵(글로벌하게 분할된 데이터베이스 맵이 아님)에 대한 간략한 쿼리가 포함됩니다.
 
 로컬 분할된 데이터베이스 맵에 대한 유효성 검사가 실패하면(캐시가 올바르지 않음을 나타냄) 분할된 데이터베이스 맵 관리자에서 전역 분할된 데이터베이스 맵을 쿼리하여 올바른 새 값을 가져오고, 캐시를 업데이트하고, 적절한 데이터베이스 연결을 가져오고 반환합니다.
 

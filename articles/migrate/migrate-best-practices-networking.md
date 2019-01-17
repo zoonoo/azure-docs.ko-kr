@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: c6a995c20beefb3a939aa1421eed537137037922
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 6d679cc3d24e2f0f2cb79eb2c9f02422d0818c80
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994966"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215272"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>Azure로 마이그레이션된 워크로드에 대한 네트워킹 설정 모범 사례
 
@@ -185,7 +185,7 @@ VNet을 배포하는 경우 Azure에서 기본적으로 DNS 서버를 추가합�
 **자세한 정보:**
 
 - 호환되는 온-프레미스 VPN 디바이스 [검토](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)
-- VPN 게이트웨이 [개요 살펴보기](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateway)
+- VPN 게이트웨이 [개요 살펴보기](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 - 고가용성 VPN 연결 정보에 대해 [알아보기](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable)
 - VPN 게이트웨이 계획 및 설계에 대해 [알아보기](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design)
 - VPN 게이트웨이 설정 [검토](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku)

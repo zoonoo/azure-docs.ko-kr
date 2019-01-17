@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 85f88d9234acbb1831ea76188d06ef47199703ca
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 53281af4cf3ce49272ffe9fc48ab0f85cea276b2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074090"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213624"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Marketplace 및 AppSource 컨설팅 서비스
 Azure Marketplace 및 AppSource의 컨설팅 서비스는 Microsoft 파트너에게 고객과 서비스를 연결하여 고객의 Azure 사용을 지원하고 확대한다는 목표와 비즈니스 목표를 제공합니다. 
@@ -69,7 +69,7 @@ Microsoft Dynamics 365, Office 365 및 Power BI를 기반으로 하는 서비스
 |Dynamics 365 for Operations, Enterprise Edition  |  실버 또는 골드 [엔터프라이즈 리소스 플랜](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) 역량을 갖고, 최근 12개월 동안 클라우드 운영에서 최소 $25,000 수익을 달성합니다.       |
 |Dynamics 365 for Finance and Operations, Business Edition  |  한 명 이상의 고객에 대해 [CSP(클라우드 서비스 공급자)](https://partner.microsoft.com/cloud-solution-provider) 또는 [DPOR(디지털 공식 파트너)](https://partner.microsoft.com/membership/digital-partner-of-record) 역할을 수행합니다.      |
 |Power BI, Power BI 사용자 지정 시각적 개체 | [솔루션 파트너 기준](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf)을 충족합니다.|
-|PowerApps | 게시된 [파트너 쇼케이스]() 솔루션이 있습니다.
+|PowerApps | 게시된 [파트너 쇼케이스](https://appsource.microsoft.com/partners) 솔루션이 있습니다.
 
 <b> 자세한 내용은 [Microsoft 파트너 네트워크를 통한 역량](https://partner.microsoft.com/membership/competencies)을 참조하세요. </b>
  

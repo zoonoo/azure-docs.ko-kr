@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 30efbcd5ba36ea912a7238eef9e300085cb1d3d1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/11/2019
+ms.openlocfilehash: 43ee1cb33d5d747671cde7463c8f2fcb6e020662
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040203"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246520"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Azure SQL Database Managed Instance에 대한 관리 API 참조
 
@@ -62,7 +62,6 @@ Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화
 |[az sql midb create](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |관리되는 데이터베이스를 만듭니다.|
 |[az sql midb list](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|사용 가능한 관리되는 데이터베이스를 나열합니다.|
 |[az sql midb restore](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|관리되는 데이터베이스를 복원합니다.|
-|[az sql midb update](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-update)|관리되는 데이터베이스를 업데이트합니다.|
 |[az sql midb delete](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|관리되는 데이터베이스를 제거합니다.|
 
 ## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL: 논리 서버 및 데이터베이스 관리

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 878ff5901df80398afff7f429c41f102da3edba4
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 3dd5005312e1c59fa53a0d917951c89033374192
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793600"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200635"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>사용자 고유의 IoT Edge 모듈 개발
 
@@ -60,7 +60,7 @@ IoT Edge는 경로 만들기를 간소화하기 위해 모듈 *입력* 및 *출�
 1. 애플리케이션에서 ModuleClient 인스턴스를 만듭니다.
 2. 애플리케이션이 해당 디바이스의 IoT Edge 허브에서 제공한 인증서를 허용하는지 확인합니다.
 
-DeviceClient 인스턴스가 IoT Hub에 IoT 디바이스를 연결하는 방법과 비슷하게 디바이스에서 실행 중인 IoT Edge 허브에 모듈을 연결하는 ModuleClient 인스턴스를 만듭니다. ModuleClient 클래스 및 해당 통신 메서드에 대한 자세한 내용은 원하는 SDK 언어에 대한 API 참조를 참조하세요. (예: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C 및 Python](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable) 또는 [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).)
+DeviceClient 인스턴스가 IoT Hub에 IoT 디바이스를 연결하는 방법과 비슷하게 디바이스에서 실행 중인 IoT Edge 허브에 모듈을 연결하는 ModuleClient 인스턴스를 만듭니다. ModuleClient 클래스 및 해당 통신 메서드에 대한 자세한 내용은 원하는 SDK 언어에 대한 API 참조를 참조하세요. (예: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C 및 Python](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable) 또는 [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).)
 
 
 ## <a name="next-steps"></a>다음 단계

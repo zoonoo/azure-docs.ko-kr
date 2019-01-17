@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 6d15715379b06f55e1e190ebf5410995e3703d70
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3b49d568b1ca19a99359314bb181712f56ca5615
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053333"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201060"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub에 대한 액세스 제어
 
@@ -418,7 +418,7 @@ IoT Hub [ID 레지스트리](iot-hub-devguide-identity-registry.md)를 사용하
 4. 디바이스/모듈은 IoT Hub에서 직접 토큰을 사용합니다.
 
 > [!NOTE]
-> .NET 클래스 [SharedAccessSignatureBuilder](https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx) 또는 Java 클래스 [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth._iot_hub_service_sas_token)을 사용하여 토큰 서비스에서 토큰을 만들 수 있습니다.
+> .NET 클래스 [SharedAccessSignatureBuilder](https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx) 또는 Java 클래스 [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth.iothubservicesastoken)을 사용하여 토큰 서비스에서 토큰을 만들 수 있습니다.
 
 토큰 서비스는 토큰 만료를 원하는 대로 설정할 수 있습니다. 토큰이 만료되면 IoT Hub가 디바이스/모듈 연결을 끊습니다. 이렇게 되면 디바이스/모듈이 토큰 서비스에 새 토큰을 요청해야 합니다. 만료 시간이 짧으면 디바이스/모듈 및 토큰 서비스에 대한 부하가 증가합니다.
 

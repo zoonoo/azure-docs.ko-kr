@@ -8,12 +8,12 @@ ms.subservice: blob
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: alkohli
-ms.openlocfilehash: 7243edbe0b51a3cca69bec018d6cbb15e9aa1674
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: bc5668d826395fb71ee70907f095303a43f1ec7f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263508"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214320"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>보통-높은 네트워크 대역폭에서 대용량 데이터 세트의 데이터 전송
  
@@ -40,7 +40,7 @@ ms.locfileid: "53263508"
 - 네트워크 전송이 너무 느릴 것으로 예상되는 경우 물리적 디바이스를 사용해야 합니다. 이 경우 권장되는 옵션은 Azure Data Box 제품군의 오프라인 전송 디바이스 또는 사용자 고유의 디스크를 사용한 Azure Import/Export입니다.
 
     - **오프라인 전송을 위한 Azure Data Box 제품군** - 시간, 네트워크 가용성 또는 비용으로 제한되는 경우 Microsoft에서 제공하는 Data Box 디바이스를 사용하여 대량 데이터를 Azure로 이동할 수 있습니다. Robocopy와 같은 도구를 사용하여 온-프레미스 데이터를 복사합니다. 전송하려는 데이터 크기에 따라 Data Box Disk, Data Box 또는 Data Box Heavy 중에서 선택할 수 있습니다.
-    - **Azure Import/Export** – 사용자 고유의 디스크 드라이브를 배송하여 Azure Import/Export 서비스를 사용하면 대량 데이터를 Azure Blob Storage 및 Azure Files로 안전하게 가져올 수 있습니다. 이 서비스를 사용하여 데이터를 Azure Blob 저장소에서 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다.
+    - **Azure Import/Export** – 사용자 고유의 디스크 드라이브를 배송하여 Azure Import/Export 서비스를 사용하면 대량 데이터를 Azure Blob Storage 및 Azure Files로 안전하게 가져올 수 있습니다. 이 서비스를 사용하여 데이터를 Azure Blob Storage에서 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다.
 
 - 네트워크 전송이 적절한 것으로 예상되는 경우 [높은 네트워크 대역폭](#high-network-bandwidth)에서 자세히 설명하는 다음 도구를 사용할 수 있습니다.
 
@@ -68,8 +68,8 @@ ms.locfileid: "53263508"
 |    데이터 형식                        |    Azure Blob                  |    Azure Blob<br>Azure 파일                    |    Azure Blob<br>Azure 파일            |    Azure Blob<br>Azure 파일          |
 |    폼 팩터                      |    주문당 5개 SSD             |    1 X 50lbs 주문당 데스크톱 크기 디바이스    |    1 X ~500lbs 주문당 대형 디바이스    |    주문당 최대 10개 HDD/SSD        |
 |    초기 설치 시간               |    낮음 <br>(15분)            |    낮음-보통 <br> (30분 미만)               |    보통<br>(1~2시간)               |    보통-어려움<br>(가변적) |
-|    Azure에 데이터 보내기               |    yes                          |    예                                           |    예                                   |    yes                                 |
-|    Azure에서 데이터 가져오기           |    아니요                           |    아니요                                            |    아니요                                    |    yes                                 |
+|    Azure에 데이터 보내기               |    예                          |    예                                           |    예                                   |    예                                 |
+|    Azure에서 데이터 가져오기           |    아니요                           |    아니요                                            |    아니요                                    |    예                                 |
 |    암호화                       |    AES 128비트                  |    AES 256비트                                   |    AES 256비트                           |    AES 128비트                         |
 |    하드웨어                         |     Microsoft 제공          |    Microsoft 제공                            |    Microsoft 제공                    |    고객 제공                   |
 |    Linux                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
@@ -88,8 +88,8 @@ ms.locfileid: "53263508"
 |    데이터 형식                  |    Azure Blob, Azure Files, Azure 테이블    |    Azure Blob, Azure Files, Azure 테이블    |    Azure Blob, Azure Files                           |   데이터 저장소 및 형식을 위해 70개 이상의 데이터 커넥터 지원    |
 |    폼 팩터                |    명령줄 도구                        |    프로그래밍 인터페이스                    |    Microsoft에서 가상 <br>또는 물리적 디바이스 제공     |    Azure Portal의 서비스                                            |
 |    초기 일회성 설치     |    쉬움               |    보통                       |    쉬움(30분 미만)~보통(1~2시간)            |    광범위                                                          |
-|    데이터 사전 처리              |    아니요                                        |    아니요                                        |    예(Edge 컴퓨팅 사용)                               |    yes                                                                |
-|    다른 클라우드에서 전송       |    아니요                                        |    아니요                                        |    아니요                                                    |    yes                                                                |
+|    데이터 사전 처리              |    아니요                                        |    아니요                                        |    예(Edge 컴퓨팅 사용)                               |    예                                                                |
+|    다른 클라우드에서 전송       |    아니요                                        |    아니요                                        |    아니요                                                    |    예                                                                |
 |    사용자 유형                        |    IT 전문가 또는 개발자                                       |    개발                                       |    IT 전문가                                                |    IT 전문가                                                             |
 |    가격                          |    무료, 데이터 송신 요금 적용         |    무료, 데이터 송신 요금 적용         |    [가격](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [가격](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
 
@@ -102,7 +102,7 @@ ms.locfileid: "53263508"
     - [Data Box를 사용하여 데이터 전송](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal)
 - [AzCopy를 사용하여 데이터 전송](/azure/storage/common/storage-use-azcopy-v10)
 - 다음 작업을 수행하는 방법을 이해합니다.
-    - [Data Box Gateway를 통해 데이터 전송](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares.md).
+    - [Data Box Gateway를 통해 데이터 전송](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
     - [Azure로 보내기 전에 Data Box Edge를 사용하여 데이터 변환](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute)
 - [Azure Data Factory를 사용하여 데이터를 전송하는 방법 알아보기](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal)
 - REST API를 사용하여 데이터 전송

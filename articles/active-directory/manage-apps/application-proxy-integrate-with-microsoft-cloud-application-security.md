@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 33da0b09339460d66650c492ec125461bc0980b0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3be75f2fe004939eff6bf6cc960759db69bfb93a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730580"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215102"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Microsoft Cloud App Security와 Azure Active Directory를 사용하여 실시간 애플리케이션 액세스 모니터링 구성
 실시간 모니터링을 위해 MCAS(Microsoft Cloud App Security)를 사용하도록 Azure AD(Azure Active Directory)에서 온-프레미스 애플리케이션을 구성합니다. MCAS는 조건부 액세스 앱 제어를 사용하여 조건부 액세스 정책에 따라 실시간으로 세션을 모니터링 및 제어합니다. Azure AD(Azure Active Directory)에서 애플리케이션 프록시를 사용하는 온-프레미스 애플리케이션에 이러한 정책을 적용할 수 있습니다.
@@ -27,7 +27,7 @@ MCAS를 사용하여 만들 수 있는 몇 가지 정책 유형의 예제는 다
 - 클라이언트 인증서 또는 디바이스의 규정 준수를 사용하여 관리되지 않는 디바이스에서 특정 애플리케이션에 대한 액세스를 차단합니다.
 - 비 회사 네트워크에서 사용자 세션을 제한합니다. 회사 네트워크 외부에서 애플리케이션에 액세스하는 사용자에게 제한된 액세스를 제공할 수 있습니다. 예를 들어 이 제한된 액세스는 사용자가 중요한 문서를 다운로드하는 것을 차단할 수 있습니다.
 
-자세한 내용은 [Microsoft Cloud App Security 조건부 액세스 앱 제어를 사용하여 앱 보호](/cloud-app-security/proxy-intro-aad.md)를 참조하세요.
+자세한 내용은 [Microsoft Cloud App Security 조건부 액세스 앱 제어를 사용하여 앱 보호](/cloud-app-security/proxy-intro-aad)를 참조하세요.
 
 ## <a name="requirements"></a>요구 사항
 

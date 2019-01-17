@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: 84ab63d145d9726fad83b7b2337542fef5c8743d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b96a00fb5dbf96a7b57adbaaacf24af319d86950
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718965"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215391"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Azure Monitor에서 수집된 데이터 모니터링
 [Azure Monitor](../overview.md)는 사용하는 애플리케이션 및 리소스를 모니터링하는 데 도움이 되는 서비스입니다. 이 기능의 중심은 원격 분석의 저장소 및 모니터링된 리소스의 기타 데이터입니다. 이 문서에서는 이 데이터가 저장되고 Azure Monitor에서 사용되는 방법에 대한 전체 설명을 제공합니다.
@@ -156,7 +156,7 @@ Azure Monitor는 Azure 내와 온-프레미스 리소스의 다양한 원본에�
 Azure Monitor의 모든 로그 데이터는 [Data Explorer 쿼리 언어](../log-query/get-started-queries.md)로 작성된 [로그 쿼리](../log-query/log-query-overview.md)를 사용하여 검색되므로 수집된 데이터를 신속하게 검색하고 통합하고 분석할 수 있습니다. [Log Analytics](../log-query/portals.md)를 사용하여 Azure Portal에서 쿼리를 기록하고 테스트합니다. 대화형으로 결과를 사용하거나 다른 시각화 요소를 사용하여 보려는 대시보드에 고정할 수 있습니다. [Azure 모니터링 REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)를 사용하여 로그를 검색할 수도 있습니다.
 
 > [!IMPORTANT]
-> Application Insights의 데이터는 Azure Monitor의 다른 로그 데이터와 별도의 파티션에 저장됩니다. 다른 로그 데이터와 동일한 기능을 지원하지만 이 데이터에 액세스하려면 [Application Insights 콘솔](/azure-monitor/app/analytics.md) 또는 [Application Insights API](https://dev.applicationinsights.io/)를 사용해야 합니다. [리소스 간 쿼리](../log-query/cross-workspace-query.md)를 사용하여 다른 로그 데이터와 함께 애플리케이션 데이터를 분석할 수 있습니다.
+> Application Insights의 데이터는 Azure Monitor의 다른 로그 데이터와 별도의 파티션에 저장됩니다. 다른 로그 데이터와 동일한 기능을 지원하지만 이 데이터에 액세스하려면 [Application Insights 콘솔](../app/analytics.md) 또는 [Application Insights API](https://dev.applicationinsights.io/)를 사용해야 합니다. [리소스 간 쿼리](../log-query/cross-workspace-query.md)를 사용하여 다른 로그 데이터와 함께 애플리케이션 데이터를 분석할 수 있습니다.
 
 ![로그](media/data-collection/logs.png)
 

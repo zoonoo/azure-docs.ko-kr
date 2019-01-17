@@ -1,9 +1,10 @@
 ---
-title: Azure Traffic Manager를 사용한 서브넷 트래픽 라우팅 방법 구성 | Microsoft Docs
+title: Azure Traffic Manager를 사용하여 서브넷 트래픽을 라우팅하는 방법 구성
 description: 이 문서에서는 특정 서브넷의 트래픽을 라우팅하도록 Traffic Manager를 구성하는 방법을 설명합니다.
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -11,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: 624bbb9fa8841b0c43800f318e83c54d6d408a09
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: e3a3a9fdc2ab7f03db2d3a646eaeec7a02f88692
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987443"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231549"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Traffic Manager를 사용하여 사용자 서브넷을 기반으로 특정 엔드포인트로 트래픽 전송
 
@@ -35,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인 
 
-https://portal.azure.com에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ### <a name="create-websites"></a>웹 사이트 만들기
 

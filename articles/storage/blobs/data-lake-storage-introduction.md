@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: ac36499475ffe02ae4d5140f35507530e6cf089e
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 898080f445c54c93543a481bdd0487c70e772160
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994337"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214401"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake Storage Gen2 미리 보기 소개
 
@@ -51,7 +51,7 @@ Azure Storage는 Data Lake Storage Gen2 또는 Blob Storage 인터페이스를 �
 
 ### <a name="cost-effectiveness"></a>비용 효과
 
-Azure Blob 스토리지에 기반하여 Data Lake Storage Gen2를 구축하는 경우 얻을 수 있는 많은 이점 중 하나는 스토리지 용량 및 트랜잭션의 비용이 저렴하다는 것입니다. 다른 클라우드 스토리지 서비스와 달리 Data Lake Storage Gen2에 저장된 데이터는 분석하기 전에 이동하거나 변환할 필요가 없습니다. 가격 책정에 대한 자세한 내용은 [Azure Storage 가격]((https://azure.microsoft.com/pricing/details/storage))을 참조하세요.
+Azure Blob 스토리지에 기반하여 Data Lake Storage Gen2를 구축하는 경우 얻을 수 있는 많은 이점 중 하나는 스토리지 용량 및 트랜잭션의 비용이 저렴하다는 것입니다. 다른 클라우드 스토리지 서비스와 달리 Data Lake Storage Gen2에 저장된 데이터는 분석하기 전에 이동하거나 변환할 필요가 없습니다. 가격 책정에 대한 자세한 내용은 [Azure Storage 가격](https://azure.microsoft.com/pricing/details/storage)을 참조하세요.
 
 또한 [계층 구조 네임스페이스](data-lake-storage-namespace.md)와 같은 기능은 많은 분석 작업의 전반적인 성능을 크게 개선합니다. 이 성능 개선은 동일한 양의 데이터를 처리하는 데 필요한 계산 성능이 감소하므로 종단 간 분석 작업에 대한 TCO(총 소유 비용)가 낮아짐을 의미합니다.
 

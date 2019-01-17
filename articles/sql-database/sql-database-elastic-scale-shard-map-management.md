@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: cb39426e68b87a314336724a2e40cf78f888010d
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 77ef1fed7bbdb53898a688f14944b9b6b16773c7
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191584"
+ms.locfileid: "54200975"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>분할된 데이터베이스 맵 관리자를 사용하여 데이터베이스 확장
 
@@ -240,7 +240,7 @@ public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shard
 * 분할된 데이터베이스를 추가하거나 제거하려면 shardmap([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap)) 클래스의 **CreateShard**([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)) 및 **DeleteShard**([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.deleteshard), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard))를 사용합니다.
   
     이러한 작업을 실행하려면 대상 분할된 데이터베이스를 나타내는 서버 및 데이터베이스가 이미 있어야 합니다. 이러한 메서드는 데이터베이스 자체가 아닌 분할된 데이터베이스 맵의 메타데이터에만 적용됩니다.
-* 분할된 데이터베이스에 매핑되는 지점 또는 범위를 만들거나 제거하려면 RangeShardMapping([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) 클래스의 **CreateRangeMapping**([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._rangeshardmap.createrangemapping), [.NET](https://docs.microsoft.com/previous-versions/azure/dn841993(v=azure.100))), **DeleteMapping**([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.deletemapping), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) 및 ListShardMap([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) 클래스의 **CreatePointMapping**([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap.createpointmapping), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1))을 사용합니다.
+* 분할된 데이터베이스에 매핑되는 지점 또는 범위를 만들거나 제거하려면 RangeShardMapping([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) 클래스의 **CreateRangeMapping**([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [.NET](https://docs.microsoft.com/previous-versions/azure/dn841993(v=azure.100))), **DeleteMapping**([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.deletemapping), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) 및 ListShardMap([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) 클래스의 **CreatePointMapping**([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap.createpointmapping), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1))을 사용합니다.
   
     여러 많은 지점 또는 범위를 동일한 분할된 데이터베이스에 매핑할 수 있습니다. 이러한 메서드는 메타데이터에만 영향을 주며, 분할된 데이터베이스에 이미 존재하는 데이터에는 영향을 주지 않습니다. **DeleteMapping** 작업과의 일관성을 위해 데이터베이스에서 데이터를 제거해야 하는 경우 이러한 메서드를 사용하면서 해당 작업을 개별적으로 수행합니다.  
 * 기존 범위를 둘로 분할하거나 인접한 범위를 하나로 병합하려면 **SplitMapping**([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.splitmapping), [.NET](https://msdn.microsoft.com/library/azure/dn824205.aspx)) 및 **MergeMappings**([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.mergemappings), [.NET](https://msdn.microsoft.com/library/azure/dn824201.aspx))를 사용합니다.  

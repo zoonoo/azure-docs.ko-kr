@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d36179685e2098455e00186827d35e6de18bf975
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 5396fefca3a60dea7a503f8b4e84cc575753ea30
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52893314"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229118"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>맵에 이미지 계층 추가
 
@@ -31,7 +31,7 @@ ms.locfileid: "52893314"
 
 ## <a name="add-an-image-layer"></a>이미지 계층 추가
 
-이 샘플에서는 맵에 [1922년 뉴어크 뉴저지 맵]((https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg))의 이미지를 오버레이하는 방법을 보여줍니다.
+이 샘플에서는 맵에 [1922년 뉴어크 뉴저지 맵](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg)의 이미지를 오버레이하는 방법을 보여줍니다.
 
 <br/>
 
@@ -40,7 +40,7 @@ ms.locfileid: "52893314"
 
 위의 코드에서 첫 번째 코드 블록은 지도 개체를 만듭니다. 지침은 [지도 만들기](./map-create.md)를 참조하세요.
 
-두 번째 코드 블록에서 `[Top Left Corner, Top Right Corner, Bottom Right Conter, Bottom Left Corner]`에서 4개의 모서리의 이미지 및 좌표에 대한 URL을 전달하면 [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest)가 만들어집니다.
+두 번째 코드 블록에서 `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`에서 4개의 모서리의 이미지 및 좌표에 대한 URL을 전달하면 [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest)가 만들어집니다.
 
 ## <a name="import-a-kml-ground-overlay"></a>KML 지면 오버레이 가져오기
 

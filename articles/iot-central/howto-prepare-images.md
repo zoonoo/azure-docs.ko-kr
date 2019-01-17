@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Central 애플리케이션에 이미지 업로드 | Microsoft Docs
 description: 작성자로서 이미지를 준비하여 Azure IoT Central 애플리케이션에 업로드하는 방법을 알아봅니다.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: peterpr
-ms.openlocfilehash: b55b9929129b882f893b1fea58b7061131daffb8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+manager: philmea
+ms.openlocfilehash: 9d4de2a8be13718f7989f064b76b586407ca3a48
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005141"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198612"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>이미지를 준비하여 Azure IoT Central 애플리케이션에 업로드
 
@@ -30,7 +30,7 @@ ms.locfileid: "51005141"
 
 Azure IoT Central 애플리케이션에서 다음 위치에 사용자 지정 이미지를 추가할 수 있습니다.
 
-* **응용 프로그램 관리자** 페이지
+* **애플리케이션 관리자** 페이지
 
     ![애플리케이션 관리자 페이지의 이미지](media/howto-prepare-images/applicationmanager.png)
 
@@ -119,4 +119,4 @@ Azure IoT Central 애플리케이션에서 다음 위치에 사용자 지정 이
 이미지를 준비하여 Azure IoT Central 애플리케이션에 업로드하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
 
 > [!div class="nextstepaction"]
-> [Azure IoT Central 응용 프로그램에서 장치 관리](howto-manage-devices.md)
+> [Azure IoT Central 애플리케이션에서 장치 관리](howto-manage-devices.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: f4456200d6f497a87424f12a23034dbff00c75aa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d9c428e3fa8d9fe964b83ae345bb70fd49a6ce1a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26373944"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215306"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Azure Resource Manager SDK 기반 스크립트를 사용하여 StorSimple 디바이스 관리
 
@@ -63,7 +63,7 @@ ms.locfileid: "26373944"
 
 *   Azure PowerShell을 설치되어 있습니다. Azure PowerShell 모듈을 설치하려면
     * Windows 환경에서 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0)의 단계를 따릅니다. StorSimple용 Windows Server 호스트를 사용하는 경우 여기에 Azure PowerShell을 설치할 수 있습니다.
-    * Linux 또는 MacOS 환경에서는 [MacOS 또는 Linux에서 Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-azurermps-maclinux?view=azurermps-4.4.0)의 단계를 따릅니다.
+    * Linux 또는 MacOS 환경에서는 [MacOS 또는 Linux에서 Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux?view=azurermps-4.4.0)의 단계를 따릅니다.
 
 Azure PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 사용 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.4.0)을 참조하세요.
 
@@ -176,4 +176,4 @@ PS C:\Scripts\StorSimpleSDKTools>
 
 ## <a name="next-steps"></a>다음 단계
 
-[StorSimple 장치 관리자 서비스](storsimple-8000-manager-service-administration.md)를 사용하여 StorSimple 장치를 관리합니다.
+[StorSimple 디바이스 관리자 서비스](storsimple-8000-manager-service-administration.md)를 사용하여 StorSimple 디바이스를 관리합니다.

@@ -2,18 +2,18 @@
 title: Azure Digital Twins API 탐색 | Microsoft Docs
 description: Azure Digital Twins 관리 API를 쿼리하는 일반적인 패턴에 대해 알아봅니다.
 author: dsk-2015
-manager: bertvanhoof
+manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 1/7/2019
 ms.author: dkshir
-ms.openlocfilehash: 2221e8b22450a353da42564e5b93342a11e59f71
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9cfcdc879e36b93e21bff6f91886536d799553bb
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54109398"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200958"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Azure Digital Twins 관리 API를 사용하는 방법
 
@@ -25,11 +25,11 @@ Azure Digital Twins 관리 API는 IoT 앱에 대한 강력한 기능을 제공�
 
 * [/spaces](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Spaces): 이러한 API는 설정에서 물리적 위치와 상호 작용합니다. [공간 그래프](concepts-objectmodel-spatialgraph.md#spatial-intelligence-graph)의 양식으로 물리적 위치의 디지털 매핑을 만들고, 삭제 및 관리할 수 있도록 돕습니다.
 
-* [/resources](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Resources): 이러한 API는 Digital Twins 인스턴스에 대한 IoT Hub와 같은 리소스를 설정하는 데 도움이 됩니다.
-
 * [/devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices): 이러한 API는 설정에서 디바이스와 상호 작용합니다. 이러한 디바이스는 하나 이상의 센서를 관리할 수 있습니다. 예를 들어 사용자의 휴대폰 또는 Raspberry Pi 센서 Pod 또는 Lora 게이트웨이 등을 디바이스로 사용할 수 있습니다.
 
 * [/sensors](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Sensors): 이러한 API는 디바이스와 연결된 센서 및 물리적 위치와 통신하는 데 도움이 됩니다. 센서는 공간 환경을 조작하는 데 사용할 수 있는 앰비언트 값을 기록하고 보냅니다.  
+
+* [/resources](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Resources): 이러한 API는 Digital Twins 인스턴스에 대한 IoT Hub와 같은 리소스를 설정하는 데 도움이 됩니다.
 
 * [/types](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Types): 이러한 API를 사용하면 Digital Twins 개체와 확장된 유형을 연결하여 해당 개체에 특정 특성을 추가할 수 있습니다. 이러한 형식은 UI에서 개체의 쉬운 필터링 및 그룹화를 허용하고 원격 분석 데이터를 처리하는 사용자 지정 함수를 허용합니다. 확장된 유형의 예제는 *DeviceType*, *SensorType*, *SensorDataType*, *SpaceType*, *SpaceSubType*, *SpaceBlobType*, *SpaceResourceType* 등입니다.
 

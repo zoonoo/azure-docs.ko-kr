@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.component: queues
-ms.openlocfilehash: fef6858383028d62a16472bd530bf456d01ee7d3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 016d6b1991085e3ed881deb68317dbde0ee46326
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634425"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213232"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Queue Storage 작업 수행
 
-Azure 큐 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 자세한 내용은 [Azure 큐 소개](storage-queues-introduction.md)를 참조하세요. 이 방법 문서에서는 일반 큐 저장소 작업을 설명합니다. 다음 방법에 대해 알아봅니다.
+Azure Queue Storage는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 자세한 내용은 [Azure 큐 소개](storage-queues-introduction.md)를 참조하세요. 이 방법 문서에서는 일반 Queue Storage 작업을 설명합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 큐 만들기
@@ -77,7 +77,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-queue"></a>큐 만들기
 
-다음 예제는 먼저 Storage 계정 이름 및 해당 액세스 키를 포함하는 Storage 계정 컨텍스트를 사용하여 Azure Storage에 대한 연결을 설정합니다. 그런 다음, [New-AzStorageQueue](/powershell/module/azure.storage/new-AzStoragequeue) cmdlet을 호출하여 ‘queuename’이라는 큐를 만듭니다.
+다음 예제는 먼저 Storage 계정 이름 및 해당 액세스 키를 포함하는 Storage 계정 컨텍스트를 사용하여 Azure Storage에 대한 연결을 설정합니다. 그런 다음, [New-AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) cmdlet을 호출하여 ‘queuename’이라는 큐를 만듭니다.
 
 ```powershell
 $queueName = "howtoqueue"
@@ -88,7 +88,7 @@ Azure 큐 서비스에 대한 명명 규칙에 대해서는 [큐 및 메타데�
 
 ## <a name="retrieve-a-queue"></a>큐 검색
 
-Storage 계정의 특정 큐 또는 모든 큐의 목록을 쿼리하고 검색할 수 있습니다. 다음 예제에서는 스토리지 계정의 모든 큐 및 특정 큐를 검색하는 방법을 보여 줍니다. 두 명령 모두 [Get-AzStorageQueue](/powershell/module/azure.storage/get-AzStoragequeue) cmdlet을 사용합니다.
+Storage 계정의 특정 큐 또는 모든 큐의 목록을 쿼리하고 검색할 수 있습니다. 다음 예제에서는 스토리지 계정의 모든 큐 및 특정 큐를 검색하는 방법을 보여 줍니다. 두 명령 모두 [Get-AzStorageQueue](/powershell/module/az.storage/Get-AzStorageQueue) cmdlet을 사용합니다.
 
 ```powershell
 # Retrieve a specific queue
@@ -122,7 +122,7 @@ $queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQ
 $queue.CloudQueue.AddMessage($QueueMessage)
 ```
 
-[Azure Storage 탐색기](http://storageexplorer.com)를 사용하는 경우 Azure 계정에 연결하여 저장소 계정에서 큐를 확인하고, 큐에서 메시지를 보도록 하나로 드릴 다운할 수 있습니다. 
+[Azure Storage 탐색기](http://storageexplorer.com)를 사용하는 경우 Azure 계정에 연결하여 스토리지 계정에서 큐를 확인하고, 큐에서 메시지를 보도록 하나로 드릴 다운할 수 있습니다. 
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>큐에서 메시지를 읽은 다음, 삭제합니다.
 
@@ -176,7 +176,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 방법 문서에서는 다음 방법을 포함하여 PowerShell과 함께 기본 큐 저장소 관리에 대해 알아봅니다.
+이 방법 문서에서는 다음 방법을 포함하여 PowerShell과 함께 기본 Queue Storage 관리에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 큐 만들기

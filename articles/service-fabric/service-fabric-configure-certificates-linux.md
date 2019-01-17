@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2018
 ms.author: v-jamebr
-ms.openlocfilehash: aa84dc4cb23a0fa2fa854e1f3d6da1234ec00bd6
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 503b0dffa00c6cba973f4bc51d8e3b2f3a7b8c57
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386640"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200414"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Linux 클러스터의 인증서 및 보안
 
@@ -43,7 +43,7 @@ Linux 클러스터의 경우 Service Fabric은 인증서가 인증서와 개인 
 
 ### <a name="using-x509-securitycredentialstype"></a>X509 SecurityCredentialsType 사용
 
-.NET 또는 Java SDK를 사용하여 **SecurityCredentialsType**에 대해 **X509**를 지정할 수 있습니다. 이는 `SecurityCredentials`([.NET](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric._security_credentials))의 `X509Credentials`([.NET](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric._x509_credentials)) 형식에 해당합니다.
+.NET 또는 Java SDK를 사용하여 **SecurityCredentialsType**에 대해 **X509**를 지정할 수 있습니다. 이는 `SecurityCredentials`([.NET](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials))의 `X509Credentials`([.NET](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials)) 형식에 해당합니다.
 
 **X509** 참조는 인증서 저장소에서 인증서를 찾습니다. 다음 XML은 인증서의 위치를 지정하는 데 사용되는 매개 변수를 보여줍니다.
 
@@ -74,7 +74,7 @@ Linux에서 실행되는 서비스의 경우 **LocalMachine**/**My**는 인증�
 
 ### <a name="using-x5092-securitycredentialstype"></a>X509_2 SecurityCredentialsType 사용
 
-Java SDK를 사용하여 **SecurityCredentialsType**에 대해 **X509_2**를 지정할 수 있습니다. 이는 `SecurityCredentials`([Java](https://docs.microsoft.com/java/api/system.fabric._security_credentials))의 `X509Credentials2`([Java](https://docs.microsoft.com/java/api/system.fabric._x509_credentials2)) 형식에 해당합니다. 
+Java SDK를 사용하여 **SecurityCredentialsType**에 대해 **X509_2**를 지정할 수 있습니다. 이는 `SecurityCredentials`([Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials))의 `X509Credentials2`([Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials2)) 형식에 해당합니다. 
 
 **X509_2** 참조를 사용하여 경로 매개 변수를 지정하므로 */var/lib/sfcerts* 이외의 디렉터리에서 인증서를 찾을 수 있습니다.  다음 XML은 인증서의 위치를 지정하는 데 사용되는 매개 변수를 보여줍니다. 
 

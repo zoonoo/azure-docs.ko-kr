@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: a2213ac9b31623aed18855ce87e7e00870b05247
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c3aef8c0c05c8f018a3218e15fd102163b89084f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107230"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214745"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics FAQ
 Microsoft FAQ는 Microsoft Azure의 Log Analytics에 대해 자주 묻는 질문의 목록입니다. Log Analytics에 대한 추가 질문이 있으면 [토론 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
@@ -63,7 +63,7 @@ A: VM 로그를 보려면 VM 로그를 저장하는 작업 영역에 대한 읽�
 
 ### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>Q. OMS 포털에서 내 작업 영역에 액세스할 수 있는데 Azure Portal에서 “액세스할 수 없습니다” 오류가 표시되는 이유가 무언인가요?  
 
-A: Azure에서 작업 영역에 액세스하려면 Azure 권한을 할당 받아야 합니다. 적절한 액세스 권한이 없는 경우가 몇 가지 있습니다. 이런 경우에는 관리자가 Azure에서 내게 권한을 부여해야 합니다. 자세한 내용은 [Azure로 이동하는 OMS 포털](/../../azure-monitor/platform/oms-portal-transition.md)을 참조하세요.
+A: Azure에서 작업 영역에 액세스하려면 Azure 권한을 할당 받아야 합니다. 적절한 액세스 권한이 없는 경우가 몇 가지 있습니다. 이런 경우에는 관리자가 Azure에서 내게 권한을 부여해야 합니다. 자세한 내용은 [Azure로 이동하는 OMS 포털](oms-portal-transition.md)을 참조하세요.
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>Q. 로그에서 뷰 디자이너 항목을 볼 수 없는 이유는 무엇인가요? 
 A: 보기 디자이너는 로그에서 기여자 권한 이상이 할당된 사용자만 사용할 수 있습니다.

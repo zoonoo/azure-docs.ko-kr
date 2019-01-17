@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
 ms.component: common
-ms.openlocfilehash: af45081df280f5542b5ba70892ee74c05b3e99cc
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 2d0f3292a12505249ebc8594c58234a0c6e81a8a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808120"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212501"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>AzCopy v10(미리 보기)을 사용하여 데이터 전송
 
-AzCopy v10(미리 보기)은 Microsoft Azure Blob 및 파일 저장소와 데이터를 복사하는 데 사용되는 차세대 명령줄 유틸리티로, 안정적인 고성능 데이터 전송을 위해 다시 디자인된 명령줄 인터페이스와 새 아키텍처를 제공합니다. AzCopy를 사용하여 파일 시스템과 저장소 계정 간 또는 저장소 계정 간에 데이터를 복사할 수 있습니다.
+AzCopy v10(미리 보기)은 Microsoft Azure Blob 및 File Storage와 데이터를 복사하는 데 사용되는 차세대 명령줄 유틸리티로, 안정적인 고성능 데이터 전송을 위해 다시 디자인된 명령줄 인터페이스와 새 아키텍처를 제공합니다. AzCopy를 사용하여 파일 시스템과 저장소 계정 간 또는 저장소 계정 간에 데이터를 복사할 수 있습니다.
 
 ## <a name="whats-new-in-azcopy-v10"></a>AzCopy v10의 새로운 기능
 
@@ -43,9 +43,9 @@ AzCopy의 최신 미리 보기 버전을 다운로드합니다.
 
 [Windows용 AzCopy의 최신 프로덕션 버전](https://aka.ms/downloadazcopy)을 다운로드합니다.
 
-### <a name="azcopy-supporting-table-storage-service-v73"></a>테이블 저장소 서비스(v7.3)를 지원하는 AzCopy
+### <a name="azcopy-supporting-table-storage-service-v73"></a>Table Storage 서비스(v7.3)를 지원하는 AzCopy
 
-[Microsoft Azure 테이블 저장소 서비스와 데이터 복사를 지원하는 AzCopy v7.3](https://aka.ms/downloadazcopynet)을 다운로드합니다.
+[Microsoft Azure Table Storage 서비스와 데이터 복사를 지원하는 AzCopy v7.3](https://aka.ms/downloadazcopynet)을 다운로드합니다.
 
 ## <a name="post-installation-steps"></a>설치 후 단계
 
@@ -54,8 +54,8 @@ AzCopy v10은 설치가 필요하지 않습니다. 선호하는 명령줄 애플
 ## <a name="authentication-options"></a>인증 옵션
 
 AzCopy v10을 사용하면 Azure Storage로 인증할 때 다음 옵션을 사용할 수 있습니다.
-- **Azure Active Directory[Blob 및 ADLS Gen2에서 지원됨]**. Azure Active Directory를 사용하여 ```.\azcopy login```으로 로그인합니다.  사용자가 Azure Active Directory 인증을 사용하여 Blob 저장소에 데이터를 쓰려면 ["Storage Blob 데이터 기여자" 역할이 할당](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac)되어야 합니다.
-- **SAS 토큰[Blob 및 파일 서비스에서 지원됨]**. 명령줄에서 Blob 경로에 SAS 토큰을 추가하여 사용합니다. Azure Portal, [Storage 탐색기](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStorageblobsastoken) 또는 원하는 다른 도구를 사용하여 SAS 토큰을 생성할 수 있습니다. 자세한 내용은 [예제](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)를 참조하세요.
+- **Azure Active Directory[Blob 및 ADLS Gen2에서 지원됨]**. Azure Active Directory를 사용하여 ```.\azcopy login```으로 로그인합니다.  사용자가 Azure Active Directory 인증을 사용하여 Blob 스토리지에 데이터를 쓰려면 ["Storage Blob 데이터 기여자" 역할이 할당](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac)되어야 합니다.
+- **SAS 토큰[Blob 및 파일 서비스에서 지원됨]**. 명령줄에서 Blob 경로에 SAS 토큰을 추가하여 사용합니다. Azure Portal, [Storage 탐색기](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) 또는 원하는 다른 도구를 사용하여 SAS 토큰을 생성할 수 있습니다. 자세한 내용은 [예제](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)를 참조하세요.
 
 ## <a name="getting-started"></a>시작
 

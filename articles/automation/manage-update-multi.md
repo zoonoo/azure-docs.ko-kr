@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2ba34a6d1ecc33e8a4d355aeacb0da8a764a784d
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 3897225ef6ed7fcc0db75e82058e5b5b273ccbd4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679532"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214031"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>여러 컴퓨터의 업데이트 관리
 
@@ -106,14 +106,18 @@ Azure Portal에서 Automation 계정을 연 후 **업데이트 관리**를 선�
 
 | 연결된 원본 | 지원됨 | 설명 |
 | --- | --- | --- |
-| Windows 에이전트 |yes |업데이트 관리에서 Windows 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 필요한 업데이트를 설치하기 시작합니다. |
-| Linux 에이전트 |yes |업데이트 관리에서 Linux 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필요한 업데이트를 설치하기 시작합니다. |
-| Operations Manager 관리 그룹 |yes |업데이트 관리에서 연결된 관리 그룹의 에이전트로부터 시스템 업데이트에 대한 정보를 수집합니다. |
+| Windows 에이전트 |예 |업데이트 관리에서 Windows 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 필요한 업데이트를 설치하기 시작합니다. |
+| Linux 에이전트 |예 |업데이트 관리에서 Linux 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필요한 업데이트를 설치하기 시작합니다. |
+| Operations Manager 관리 그룹 |예 |업데이트 관리에서 연결된 관리 그룹의 에이전트로부터 시스템 업데이트에 대한 정보를 수집합니다. |
 | Azure Storage 계정 |아니요 |Azure Storage는 시스템 업데이트에 대한 정보를 포함하지 않습니다. |
 
 ### <a name="collection-frequency"></a>수집 빈도
 
-관리되는 Windows 컴퓨터 각각의 경우 하루에 두 번 검사가 실행됩니다. 15분마다 Windows API가 호출되어 마지막 업데이트 시간을 쿼리하고 상태가 변경되었는지 확인합니다. 상태가 변경되었으면 준수 검사가 시작됩니다. 관리되는 Linux 컴퓨터 각각의 경우 검사가 3시간마다 실행됩니다.
+컴퓨터에서 업데이트 준수 검사를 완료하면 에이전트가 Azure Log Analytics에 정보를 대량으로 전달합니다. Windows 컴퓨터는 기본적으로 12시간마다 준수 검사가 실행됩니다.
+
+검사 일정 외에도, MMA가 다시 시작되면 업데이트 설치 전과 업데이트 설치 후 15분 이내에 업데이트 준수 검사가 시작됩니다.
+
+Linux 컴퓨터에서 준수 검사는 기본적으로 3시간마다 수행됩니다. MMA 에이전트가 다시 시작되면 15분 이내에 준수 검사가 시작됩니다.
 
 관리되는 컴퓨터의 업데이트 데이터를 대시보드에 표시하는 데 30분에서 6시간이 걸릴 수 있습니다.
 

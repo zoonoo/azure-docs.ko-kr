@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Central 애플리케이션의 홈 페이지 구성 | Microsoft Docs
 description: 빌더로서 Azure IoT Central 애플리케이션의 홈 페이지를 구성하는 방법을 알아봅니다.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 07/10/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: peterpr
-ms.openlocfilehash: 6a86b5db5e5c79916325ebb547d65c9a30bf3e6a
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+manager: philmea
+ms.openlocfilehash: a03ac0ef66f4ffdce53d0bd2a35839bbe1615d0b
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410145"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199088"
 ---
 # <a name="configuring-homepage"></a>홈 페이지 구성
 

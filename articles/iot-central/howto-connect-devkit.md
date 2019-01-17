@@ -1,35 +1,35 @@
 ---
-title: Azure IoT Central 응용 프로그램에 DevKit 디바이스 연결 | Microsoft Docs
-description: 디바이스 개발자로서 Azure IoT Central 응용 프로그램에 MXChip IoT DevKit 디바이스를 연결하는 방법을 알아봅니다.
-author: tbhagwat3
-ms.author: tanmayb
+title: Azure IoT Central 애플리케이션에 DevKit 장치 연결 | Microsoft Docs
+description: 장치 개발자로서 Azure IoT Central 애플리케이션에 MXChip IoT DevKit 장치를 연결하는 방법을 알아봅니다.
+author: dominicbetts
+ms.author: dobett
 ms.date: 04/16/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: peterpr
-ms.openlocfilehash: dccbd2d87b5a5616c25caed070a337eff9fa753e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+manager: philmea
+ms.openlocfilehash: 6d2cb95efbff223aecf1f0525dbb93698639d41a
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956655"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198731"
 ---
-# <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에 MXChip IoT DevKit 디바이스 연결
+# <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 MXChip IoT DevKit 장치 연결
 
-이 문서에서는 디바이스 개발자로서 MXChip IoT DevKit(DevKit) 디바이스를 Microsoft Azure IoT Central 응용 프로그램에 연결하는 방법을 설명합니다.
+이 문서에서는 장치 개발자로서 MXChip IoT DevKit(DevKit) 장치를 Microsoft Azure IoT Central 애플리케이션에 연결하는 방법을 설명합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
-1. **샘플 Devkits** 응용 프로그램 템플릿으로 만든 Azure IoT Central 응용 프로그램. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
+1. **샘플 Devkits** 애플리케이션 템플릿으로 만든 Azure IoT Central 애플리케이션. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
 1. DevKit 디바이스. DevKit 디바이스를 구매하려면 [MXChip IoT DevKit](http://mxchip.com/az3166)를 방문하세요.
 
 
-## <a name="sample-devkits-application"></a>**샘플 Devkits** 응용 프로그램
+## <a name="sample-devkits-application"></a>**샘플 Devkits** 애플리케이션
 
-**샘플 Devkits** 응용 프로그램 템플릿으로 만든 응용 프로그램에는 다음과 같은 특징을 가진 **MXChip** 디바이스가 포함됩니다. 
+**샘플 Devkits** 애플리케이션 템플릿으로 만든 애플리케이션에는 다음과 같은 특징을 가진 **MXChip** 장치가 포함됩니다. 
 
 - 디바이스에 대한 측정값 **습도**, **온도**, **압력**, **Magnometer**(X, Y, Z 축을 따라 측정됨), **Accelorometer**(X, Y, Z 축을 따라 측정됨) 및 **Gyroscope**(X, Y, Z 축을 따라 측정됨)를 포함하는 원격 분석입니다.
 - **디바이스 상태**에 대한 예제 측정을 포함하는 상태입니다.
@@ -43,7 +43,7 @@ ms.locfileid: "52956655"
 
 ## <a name="add-a-real-device"></a>실제 디바이스 추가
 
-Azure IoT Central 애플리케이션에서 **MXChip** 디바이스 템플릿으로 실제 디바이스를 추가하고 디바이스 연결 정보(**범위 ID, 디바이스 ID 및 기본 키**)를 기록해 둡니다.
+Azure IoT Central 애플리케이션에서 **MXChip** 장치 템플릿으로 실제 장치를 추가하고 장치 연결 정보(**범위 ID, 장치 ID 및 기본 키**)를 기록해 둡니다.
 
 1. Device Explorer에서 **실제 디바이스**를 추가하고 **+새로 만들기 &gt; 실제 디바이스**를 클릭하여 실제 디바이스를 추가합니다.
     * 디바이스 ID**<span style="color:Red">(소문자여야 함)</span>** 를 입력하거나 제안된 디바이스 ID를 사용합니다.
@@ -168,7 +168,7 @@ Azure IoT Central 애플리케이션으로 원격 분석 데이터가 전송되�
 
 `buildTelemetryPayload` 함수는 디바이스의 센서 데이터를 사용하여 JSON 원격 분석 페이로드를 만듭니다.
 
-`sendTelemetryPayload` 함수는 **iotHubClient.cpp**에서 Azure IoT Central 응용 프로그램이 사용하는 IoT Hub에 JSON 페이로드를 보내는 `sendTelemetry`를 호출합니다.
+`sendTelemetryPayload` 함수는 **iotHubClient.cpp**에서 Azure IoT Central 애플리케이션이 사용하는 IoT Hub에 JSON 페이로드를 보내는 `sendTelemetry`를 호출합니다.
 
 Azure IoT Central 애플리케이션으로 속성 값이 보고되는 원리를 살펴보려면 원본 폴더의 **main_telemetry.cpp** 파일을 여세요.
 
@@ -180,7 +180,7 @@ Azure IoT Central 애플리케이션으로 속성 값이 보고되는 원리를 
 
 ## <a name="mxchip-device-template-details"></a>MXChip 디바이스 템플릿 세부 정보 
 
-샘플 Devkits 응용 프로그램 템플릿으로 만든 응용 프로그램에는 다음과 같은 특징을 가진 MXChip 디바이스가 포함됩니다.
+샘플 Devkits 애플리케이션 템플릿으로 만든 애플리케이션에는 다음과 같은 특징을 가진 MXChip 장치가 포함됩니다.
 
 ### <a name="measurements"></a>측정값
 
@@ -240,6 +240,6 @@ Azure IoT Central 애플리케이션으로 속성 값이 보고되는 원리를 
 
 ## <a name="next-steps"></a>다음 단계
 
-DevKit 디바이스를 Azure IoT Central 응용 프로그램에 연결하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
+DevKit 장치를 Azure IoT Central 애플리케이션에 연결하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
 
 * [Raspberry Pi 준비 및 연결](howto-connect-raspberry-pi-python.md)

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 03268981bcfe90f14f35c74effe5799dd31e4ac0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0d589156824c7b9f3f6a8c31591d69479d11780a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185786"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214133"
 ---
 # <a name="parse-text-data-in-log-analytics"></a>Log Analytics에서 텍스트 데이터 구문 분석
 Log Analytics에서 수집된 일부 데이터에는 하나의 속성에 여러 개의 정보 부분이 포함되어 있습니다. 이 데이터를 여러 속성으로 구문 분석하면 쿼리에서 더 쉽게 사용할 수 있습니다. 일반적인 예로, 여러 값이 있는 전체 로그 항목을 단일 속성으로 수집하는 [사용자 지정 로그](../../log-analytics/log-analytics-data-sources-custom-logs.md)가 있습니다. 서로 다른 값에 대해 별도의 속성을 만들면 각각을 검색하고 집계할 수 있습니다.
@@ -98,7 +98,7 @@ AzureActivity
 
 
 ### <a name="regular-expressions"></a>정규식
-정규식을 사용하여 데이터를 식별할 수 있는 경우 [정규식을 사용하는 함수](/azure/kusto/query/re2)를 통해 개별 값을 추출할 수 있습니다. 다음 예제에서는 [extract](/kusto/query/extractfunction)를 사용하여 _AzureActivity_ 레코드에서 _UPN_ 필드를 분리한 다음, 고유한 사용자를 반환합니다.
+정규식을 사용하여 데이터를 식별할 수 있는 경우 [정규식을 사용하는 함수](/azure/kusto/query/re2)를 통해 개별 값을 추출할 수 있습니다. 다음 예제에서는 [extract](/azure/kusto/query/extractfunction)를 사용하여 _AzureActivity_ 레코드에서 _UPN_ 필드를 분리한 다음, 고유한 사용자를 반환합니다.
 
 ```Kusto
 AzureActivity

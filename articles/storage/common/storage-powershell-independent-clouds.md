@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 842a9354cf20648393c3262736c0a1e9654a3c70
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f7d5fcf1905200bc214a3ff42db9b7b511768dd0
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628343"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214898"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>PowerShell을 사용하여 Azure 독립 클라우드에서 Storage 관리
 
@@ -37,7 +37,7 @@ ms.locfileid: "53628343"
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-[Get-AzEnvironment](/powershell/module/az.profile/get-Azenvironment) cmdlet을 실행하여 사용 가능한 Azure 환경을 확인합니다.
+[Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) cmdlet을 실행하여 사용 가능한 Azure 환경을 확인합니다.
    
 ```powershell
 Get-AzEnvironment
@@ -71,7 +71,7 @@ Get-AzLocation | select Location, DisplayName
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>Get-AzEnvironment를 사용하여 엔드포인트 가져오기 
 
-[Get-AzEnvironment](/powershell/module/az.profile/get-azenvironment)를 사용하여 엔드포인트 접미사를 검색합니다. 엔드포인트는 환경의 *StorageEndpointSuffix* 속성입니다. 다음 코드 조각에서는 이 방법을 보여 줍니다. 이 명령은 모두 "core.cloudapp.net" 또는 "core.cloudapi.de" 등과 유사한 항목을 반환합니다. 해당 서비스에 액세스하는 저장소 서비스에 이 항목을 추가합니다. 예를 들어 "queue.core.cloudapi.de"는 독일 클라우드의 큐 서비스에 액세스하게 됩니다.
+[Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment)를 사용하여 엔드포인트 접미사를 검색합니다. 엔드포인트는 환경의 *StorageEndpointSuffix* 속성입니다. 다음 코드 조각에서는 이 방법을 보여 줍니다. 이 명령은 모두 "core.cloudapp.net" 또는 "core.cloudapi.de" 등과 유사한 항목을 반환합니다. 해당 서비스에 액세스하는 저장소 서비스에 이 항목을 추가합니다. 예를 들어 "queue.core.cloudapi.de"는 독일 클라우드의 큐 서비스에 액세스하게 됩니다.
 
 이 코드 조각은 각각에 대한 모든 환경과 엔드포인트 접미사를 검색합니다.
 
@@ -152,7 +152,7 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 
 ## <a name="after-setting-the-environment"></a>환경 설정 후
 
-이제 [Azure Storage에서 Azure PowerShell 사용](storage-powershell-guide-full.md)에서 설명된 것처럼 저장소 계정 관리 및 데이터 평면 액세스에 사용하는 것과 같은 PowerShell을 사용할 수 있습니다.
+이제 [Azure Storage에서 Azure PowerShell 사용](storage-powershell-guide-full.md)에서 설명된 것처럼 스토리지 계정 관리 및 데이터 평면 액세스에 사용하는 것과 같은 PowerShell을 사용할 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

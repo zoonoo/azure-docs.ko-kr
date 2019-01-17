@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: a7b91bfdc616e19fde9f74246d05cf14ecbd335e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5ba596a85abbb529990efdf7b15ac50515de011b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117268"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214456"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Azure Monitor를 사용하여 연속 모니터링
 
@@ -47,7 +47,7 @@ ms.locfileid: "54117268"
 - 환경에 있는 다양한 애플리케이션 및 서비스를 위한 [모니터링 솔루션](insights/solutions-inventory.md)을 추가합니다.
 
 
-[코드로서의 인프라](/devops/learn/what-is-infrastructure-as-code)는 DevOps 팀이 원본 코드에 사용하는 것과 동일한 버전 관리를 사용하여 설명 모델에서 인프라를 관리하는 기능입니다. 이 기능을 통해 환경에 안정성과 확장성이 추가되고 애플리케이션을 관리하는 데 사용되는 유사한 프로세스를 활용할 수 있습니다.
+[코드로서의 인프라](/azure/devops/learn/what-is-infrastructure-as-code)는 DevOps 팀이 원본 코드에 사용하는 것과 동일한 버전 관리를 사용하여 설명 모델에서 인프라를 관리하는 기능입니다. 이 기능을 통해 환경에 안정성과 확장성이 추가되고 애플리케이션을 관리하는 데 사용되는 유사한 프로세스를 활용할 수 있습니다.
 
 -  [Resource Manager 템플릿](platform/template-workspace-configuration.md)을 사용하여 모니터링을 사용하도록 설정하고 대규모 리소스 세트에 대한 경고를 구성합니다.
 - [Azure Policy](../governance/policy/overview.md)를 사용하여 리소스에 다양한 규칙을 적용합니다. 이렇게 하면 해당 리소스는 회사 표준 및 서비스 수준 계약을 계속 준수합니다. 
@@ -63,7 +63,7 @@ ms.locfileid: "54117268"
 
 
 - [Azure Pipelines](/azure/devops/pipelines)를 사용하여 지속적인 배포를 구현하고 CI/CD 테스트를 기반으로 코드 커밋에서 프로덕션으로 전체 프로세스를 자동화합니다.
-- [품질 게이트](/devops/pipelines/release/approvals/gates)를 사용하여 모니터링을 사전 배포 또는 사후 배포에 통합합니다. 이렇게 하면 애플리케이션이 개발 환경에서 프로덕션 환경으로 이동하고 인프라 환경 또는 규모의 차이가 KPI에 부정적인 영향을 주지 않으므로 핵심 상태/성과 지표(KPI)가 충족됩니다.
+- [품질 게이트](/azure/devops/pipelines/release/approvals/gates)를 사용하여 모니터링을 사전 배포 또는 사후 배포에 통합합니다. 이렇게 하면 애플리케이션이 개발 환경에서 프로덕션 환경으로 이동하고 인프라 환경 또는 규모의 차이가 KPI에 부정적인 영향을 주지 않으므로 핵심 상태/성과 지표(KPI)가 충족됩니다.
 - 개발, 테스트, 카나리아 및 프로덕션과 같은 다양한 배포 환경 간에 [개별 모니터링 인스턴스를 유지 관리](../azure-monitor/app/separate-resources.md)합니다. 이렇게 하면 수집된 데이터가 연결된 애플리케이션 및 인프라 간에 관련됩니다. 환경 간에 데이터를 상호 연결해야 하면 [메트릭 탐색기에서 다중 리소스 차트](../azure-monitor/platform/metrics-charts.md)를 사용하거나 [Log Analytics에서 리소스 간 쿼리](log-query/cross-workspace-query.md)를 만들 수 있습니다.
 
 

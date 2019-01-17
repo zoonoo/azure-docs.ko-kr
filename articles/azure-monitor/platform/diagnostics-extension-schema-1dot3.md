@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 1d092d0afcb4c9689a55f9af2940884867a17089
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b5f1247c43dcbd836c684dbf41bafd0d319e5f7c
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104593"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230478"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 진단 1.3 이상 구성 스키마
 > [!NOTE]
@@ -613,7 +613,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |특성|type|설명|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
-|**scheduledTransferLogLevelFilterr**|**string**|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
+|**scheduledTransferLogLevelFilter**|**string**|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
 |**scheduledTransferPeriod**|**duration**|선택 사항입니다. 예약된 데이터 전송 사이의 간격(가장 가까운 시간(분)으로 반올림)을 지정합니다.<br /><br /> 기본값은 PT0S입니다.|  
 |**sinks** |**string**| 1.5에 추가되었습니다. 선택 사항입니다. 또한 진단 데이터를 보내는 싱크 위치를 가리킵니다. Application Insights 또는 Event Hubs를 예로 들 수 있습니다.|  
 

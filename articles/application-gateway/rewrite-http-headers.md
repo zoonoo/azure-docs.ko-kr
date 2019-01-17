@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: ccdfbc38cb39f2c0aa839dc56022192e9e389d95
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 3e40dbb96b27df4b228c52e7a8f70d047a556c31
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187420"
+ms.locfileid: "54198528"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Azure Application Gateway의 HTTP 헤더 다시 쓰기(공개 미리 보기)
 
@@ -116,8 +116,6 @@ Application Gateway 헤더 다시 쓰기 지원은 다음 기능을 제공합니
 ## <a name="limitations"></a>제한 사항
 
 - HTTP 헤더 다시 쓰기 기능은 현재 Azure PowerShell, Azure API 및 Azure SDK를 통해서만 사용할 수 있습니다. 포털 및 Azure CLI를 통한 지원은 곧 제공될 예정입니다.
-
-- Application Gateway에서 헤더 다시 쓰기를 적용한 후에는 포털에서 기능이 지원될 때까지 포털을 사용하여 해당 Application Gateway를 변경하면 안 됩니다. 다시 쓰기 규칙을 적용한 후 포털을 사용하여 Application Gateway를 변경하면 헤더 다시 쓰기 규칙. Azure PowerShell, Azure API 또는 Azure SDK를 사용하여 계속 변경할 수 있습니다.
 
 - HTTP 헤더 다시 쓰기 지원은 새 SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)에만 제공됩니다. 이전 SKU에서는 이 기능이 지원되지 않습니다.
 

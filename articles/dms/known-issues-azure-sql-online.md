@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: 816b67488acc567d81bf1916735d13c0e480fe5d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/11/2019
+ms.openlocfilehash: b066c7f6c32b6e9fe1c1f63b5db88b4deaa2edae
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719560"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231821"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Azure SQL DB로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항
 
@@ -84,7 +84,7 @@ SQL Server에서 Azure SQL Database로의 온라인 마이그레이션과 관련
 LOB(Large Object) 열의 길이가 32KB보다 큰 경우 데이터는 대상에서 잘릴 수 있습니다. 아래 쿼리를 사용하여 LOB 열의 길이를 확인할 수 있습니다. 
 
 ``` 
-SELECT max(len(ColumnName)) as LEN from TableName
+SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 ```
 
 **해결 방법**

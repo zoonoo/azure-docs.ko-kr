@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 7e90fb6bcfa1bfab59177cbc6c717fefc163a67a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3671f6a3e3832a384e968fbf38128aff6bfb2252
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960099"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247676"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IoT Central의 디바이스 연결 | Microsoft Docs
 
@@ -54,14 +54,13 @@ SAS를 사용하여 IoT Central에 단일 디바이스 연결하기는 간단하
 
     다음은 사용하려는 다른 언어에 대한 참조입니다.
 
-    *   **C 언어:** C를 사용하는 경우 [이 C 샘플 디바이스 클라이언트](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)를 따라 샘플 디바이스를 연결합니다. 샘플에서 다음 설정을 사용합니다.   
+    *   **C 언어:** C를 사용하는 경우 [이 C 샘플 디바이스 클라이언트](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)를 따라 샘플 디바이스를 연결합니다. 샘플에서 다음 설정을 사용합니다.   
 
          ```
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
-         
-         static const char* const SYMMETRIC_KEY_VALUE = "Enter Primary Symmetric key here";
 
-         static const char* const REGISTRATION_NAME = "Enter Device Id here";
+         ## Enter the Device Id and Symmetric keys 
+         prov_dev_set_symmetric_key_info("<Device Id>", "<Enter Primary Symmetric key here>");
         ```
 
     *   **Node.js:**  Node.js를 사용하려는 경우 [여기의 단계별 지침을 사용하여](tutorial-add-device.md#prepare-the-client-code) **클라이언트 코드 준비** 섹션부터 시작합니다.
@@ -79,7 +78,7 @@ SAS를 사용하여 IoT Central에서 대규모로 디바이스를 연결하려�
 
 **디바이스 등록**
 
-대량의 디바이스를 응용 프로그램에 연결할 수 있도록 Azure IoT Central은 CSV 파일을 통해 디바이스 대량 가져오기 기능을 제공합니다. 
+대량의 장치를 애플리케이션에 연결할 수 있도록 Azure IoT Central은 CSV 파일을 통해 장치 대량 가져오기 기능을 제공합니다. 
 
 CSV 파일 요구 사항: CSV 파일에는 다음 열 및 헤더가 있어야 합니다.
 1.  IOTC_DeviceID**<span style="color:Red">(소문자여야 함)</span>**
@@ -87,7 +86,7 @@ CSV 파일 요구 사항: CSV 파일에는 다음 열 및 헤더가 있어야 �
 
 
 
-애플리케이션에 등록하려면 디바이스를 가져오기
+애플리케이션에 등록하려면 장치를 가져오기
 1.  왼쪽 탐색 메뉴에서 **Explorer**를 선택합니다.
 1.  왼쪽 패널에서 디바이스를 대량으로 만들 디바이스 템플릿을 선택합니다. 
 1.  **가져오기**를 클릭하고, 가져올 디바이스 ID 목록이 들어 있는 CSV 파일을 선택합니다.
@@ -97,7 +96,7 @@ CSV 파일에는 다음 열(및 헤더)가 있어야 합니다.
 1.  가져오기가 완료되면 디바이스 그리드에 성공 메시지가 표시됩니다.
 
 디바이스 연결 세부 정보를 가져오기 위해 디바이스를 내보냅니다. [내보내기]는 디바이스 ID, 디바이스 이름 및 디바이스 키를 사용하여 CSV 파일을 만듭니다. 이러한 정보를 사용하여 IoT Central에 디바이스를 연결합니다.
-응용 프로그램에서 디바이스를 대량으로 내보내려면 다음을 수행합니다.
+애플리케이션에서 장치를 대량으로 내보내려면 다음을 수행합니다.
 1.  왼쪽 탐색 메뉴에서 **Explorer**를 선택합니다.
 1.  내보낼 디바이스를 선택한 다음, **내보내기** 동작을 클릭합니다.
 1.  내보내기가 완료되면 성공 메시지가 생성된 파일을 다운로드할 수 있는 링크와 함께 표시됩니다.
@@ -118,12 +117,12 @@ CSV 파일에는 다음 열(및 헤더)가 있어야 합니다.
 
 다음은 사용하려는 다른 언어에 대한 참조입니다.
 
-   *   **C 언어:** C를 사용하는 경우 [이 C 샘플 디바이스 클라이언트](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)를 따라 샘플 디바이스를 연결합니다. 샘플에서 다음 설정을 사용합니다.   
+   *   **C 언어:** C를 사용하는 경우 [이 C 샘플 디바이스 클라이언트](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)를 따라 샘플 디바이스를 연결합니다. 샘플에서 다음 설정을 사용합니다.   
          ```
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
-         static const char* const SYMMETRIC_KEY_VALUE = "Enter Primary Symmetric key here";
-         static const char* const REGISTRATION_NAME = "Enter Device Id here";
+         ## Enter the Device Id and Symmetric keys 
+         prov_dev_set_symmetric_key_info("<Device Id>", "<Enter Primary Symmetric key here>");
         ```
     * **Node.js:**  Node.js를 사용하려는 경우 [여기의 단계별 지침을 사용하여](tutorial-add-device.md#prepare-the-client-code) **클라이언트 코드 준비** 섹션부터 시작합니다.
 
@@ -250,7 +249,7 @@ IoT Central이 사용하는 주요 시나리오 중 하나는 OEM이 디바이�
 
 ## <a name="sdk-support"></a>SDK 지원
 
-Azure 디바이스 SDK는 디바이스에서 Azure IoT Central 응용 프로그램에 연결하는 코드를 구현하는 가장 쉬운 방법을 제공합니다. 현재 다음과 같은 디바이스 SDK를 사용할 수 있습니다.
+Azure 장치 SDK는 장치에서 Azure IoT Central 애플리케이션에 연결하는 코드를 구현하는 가장 쉬운 방법을 제공합니다. 현재 다음과 같은 디바이스 SDK를 사용할 수 있습니다.
 
 - [C용 Azure IoT SDK](https://github.com/azure/azure-iot-sdk-c)
 - [Python용 Azure IoT SDK](https://github.com/azure/azure-iot-sdk-python)
@@ -277,9 +276,9 @@ IoT Hub와의 모든 디바이스 통신에 다음 IoT Hub 연결 옵션이 사�
 
 디바이스 SDK 사용에 대해 자세히 알아보려면 다음 문서 중 하나에서 코드 예제를 참조하세요.
 
-- [Azure IoT Central 응용 프로그램에 일반 Node.js 클라이언트 연결](howto-connect-nodejs.md)
-- [Azure IoT Central 응용 프로그램에 Raspberry Pi 디바이스 연결](howto-connect-raspberry-pi-python.md)
-- [Azure IoT Central 응용 프로그램에 DevDiv 키트 디바이스 연결](howto-connect-devkit.md)
+- [Azure IoT Central 애플리케이션에 일반 Node.js 클라이언트 연결](howto-connect-nodejs.md)
+- [Azure IoT Central 애플리케이션에 Raspberry Pi 장치 연결](howto-connect-raspberry-pi-python.md)
+- [Azure IoT Central 애플리케이션에 DevDiv 키트 장치 연결](howto-connect-devkit.md)
 
 
 ## <a name="protocols"></a>프로토콜
@@ -292,7 +291,7 @@ IoT Hub와의 모든 디바이스 통신에 다음 IoT Hub 연결 옵션이 사�
 
 프로토콜 간 차이점 및 프로토콜 선택 방법에 대한 지침은 [통신 프로토콜 선택](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols)을 참조하세요.
 
-지원되는 프로토콜을 디바이스에서 사용할 수 없는 경우 Azure IoT Edge를 사용하여 프로토콜을 변환하면 됩니다. IoT Edge는 Azure IoT Central 응용 프로그램의 에지로 프로세싱을 오프로드하는 에지의 인텔리전스 시나리오를 지원합니다.
+지원되는 프로토콜을 디바이스에서 사용할 수 없는 경우 Azure IoT Edge를 사용하여 프로토콜을 변환하면 됩니다. IoT Edge는 Azure IoT Central 애플리케이션의 에지로 프로세싱을 오프로드하는 에지의 인텔리전스 시나리오를 지원합니다.
 
 ## <a name="security"></a>보안
 
@@ -307,4 +306,4 @@ Azure IoT Central의 디바이스 연결에 대해 알아보았으니, 다음과
 
 - [DevKit 디바이스 준비 및 연결](howto-connect-devkit.md)
 - [Raspberry Pi 준비 및 연결](howto-connect-raspberry-pi-python.md)
-- [Azure IoT Central 응용 프로그램에 일반 Node.js 클라이언트 연결](howto-connect-nodejs.md)
+- [Azure IoT Central 애플리케이션에 일반 Node.js 클라이언트 연결](howto-connect-nodejs.md)

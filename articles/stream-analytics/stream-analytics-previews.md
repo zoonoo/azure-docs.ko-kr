@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.openlocfilehash: 9b721ab614bf1797604fe342de117c78ba703f96
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 01/10/2019
+ms.openlocfilehash: c84b814ddc06c583fc2f07288c7aa5cd65cc70a0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557600"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232127"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics 미리 보기 기능
 
@@ -26,10 +26,6 @@ ms.locfileid: "53557600"
 ### <a name="integration-with-azure-machine-learning"></a>Azure Machine Learning과 통합
 
 ML(Machine Learning) 함수로 Stream Analytics 작업을 확장할 수 있습니다. Stream Analytics 작업에서 ML 함수를 사용하는 방법에 대한 자세한 내용은 [Azure Machine Learning 함수를 사용하여 Stream Analytics 작업의 크기 조정](stream-analytics-scale-with-machine-learning-functions.md)을 참조하세요. [Azure Stream Analytics 및 Azure Machine Learning을 사용한 감정 분석 수행](stream-analytics-machine-learning-integration-tutorial.md)을 통해 실제 시나리오를 확인하세요.
-
-### <a name="session-windows"></a>세션 창
-
-Stream Analytics에는 개발자가 최소한의 노력으로 복잡한 스트림 처리 작업을 작성할 수 있도록 창 함수에 대한 네이티브 지원이 있습니다. [세션 창](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics)은 데이터가 없는 기간을 필터링하여 비슷한 시간에 도착하는 이벤트를 그룹화합니다. 창 함수에 대한 자세한 내용은 [Stream Analytics 창 함수 소개](stream-analytics-window-functions.md)를 참조하세요.
 
 ### <a name="blob-output-partitioning-by-custom-time"></a>사용자 지정 시간별 Blob 출력 분할
 

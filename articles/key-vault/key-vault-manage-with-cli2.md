@@ -11,14 +11,14 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 3d97ce7588642462920e98eb90c5c6b5d3748067
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 9ebfb01071257c8879531c1879b6f8b3ba4493ef
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076366"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198901"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Azure CLI를 사용하여 Key Vault 관리 
 
@@ -103,7 +103,7 @@ Azure 플랫폼 간 명령줄 인터페이스를 구성하는 방법에 대한 �
 Azure 리소스 관리자를 사용하면 관련된 모든 리소스는 리소스 그룹의 내부에 만들어집니다. 기존 리소스 그룹에 키 자격 증명 모음을 만들 수 있습니다. 새 리소스 그룹을 사용하려는 경우 새 리소스 그룹을 만들 수 있습니다.
 
 ```azurecli
-az group create -n 'ContosoResourceGroup' -l 'East Asia'
+az group create -n "ContosoResourceGroup" -l "East Asia"
 ```
 
 첫 번째 매개 변수는 리소스 그룹 이름이고, 두 번째 매개 변수 위치입니다. 가능한 위치 형식의 전체 목록을 가져오려면:
@@ -127,7 +127,7 @@ az provider register -n Microsoft.KeyVault
 **동아시아 지역**에 있는 **ContosoResourceGroup** 리소스 그룹에 이름이 **ContosoKeyVault**인 새 자격 증명 모음을 만들려면 다음을 입력합니다. 
 
 ```azurecli
-az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --location 'East Asia'
+az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
 ```
 
 이 명령의 출력에는 만든 자격 증명 모음의 속성이 표시됩니다. 가장 중요한 두 개의 속성은 다음과 같습니다.
@@ -142,13 +142,13 @@ Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수�
 Azure Key Vault에서 소프트웨어 보호 키를 만들도록 하려면 `az key create` 명령을 사용합니다.
 
 ```azurecli
-az keyvault key create --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' --protection software
+az keyvault key create --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --protection software
 ```
 
 .pem 파일에 기존 키가 있는 경우 Azure Key Vault에 업로드할 수 있습니다. 소프트웨어 또는 HSM을 사용하여 키를 보호하도록 선택할 수 있습니다. 다음을 사용하여 .pem 파일에서 키를 가져와서 소프트웨어를 통해 보호합니다.
 
 ```azurecli
-az keyvault key import --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' --pem-file './softkey.pem' --pem-password 'Pa$$w0rd' --protection software
+az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "Pa$$w0rd" --protection software
 ```
 
 이제 해당 URI를 사용하여 Azure Key Vault를 만들거나 업로드하는 이 키를 참조할 수 있습니다. 항상 현재 버전을 가져오려면 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**를 사용합니다. 이 특정 버전을 가져오려면 https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id]를 사용합니다. 예를 들어 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**입니다. 
@@ -156,7 +156,7 @@ az keyvault key import --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' -
 자격 증명 모음에 암호가 SQLPassword이고 Azure Key Vault에 대한 Pa$$w0rd 값이 있는 비밀을 추가합니다. 
 
 ```azurecli
-az keyvault secret set --vault-name 'ContosoKeyVault' --name 'SQLPassword' --value 'Pa$$w0rd'
+az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "Pa$$w0rd"
 ```
 
 해당 URI를 사용하여 이 암호를 참조합니다. **https://ContosoVault.vault.azure.net/secrets/SQLPassword**를 사용하여 항상 현재 버전을 가져오고, https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id]를 사용하여 이 특정 버전을 가져옵니다. 예를 들어 **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**입니다.
@@ -164,7 +164,7 @@ az keyvault secret set --vault-name 'ContosoKeyVault' --name 'SQLPassword' --val
 .pem 또는 .pfx를 사용하여 인증서를 자격 증명 모음으로 가져옵니다.
 
 ```azurecli
-az keyvault certificate import --vault-name 'ContosoKeyVault' --file 'c:\cert\cert.pfx' --name 'ContosoCert' --password 'Pa$$w0rd'
+az keyvault certificate import --vault-name "ContosoKeyVault" --file "c:\cert\cert.pfx" --name "ContosoCert" --password "Pa$$w0rd"
 ```
 
 만든 키, 암호 또는 인증서를 살펴보겠습니다.
@@ -172,19 +172,19 @@ az keyvault certificate import --vault-name 'ContosoKeyVault' --file 'c:\cert\ce
 * 키를 보려면 다음을 입력합니다. 
 
 ```azurecli
-az keyvault key list --vault-name 'ContosoKeyVault'
+az keyvault key list --vault-name "ContosoKeyVault"
 ```
 
 * 비밀을 보려면 다음을 입력합니다. 
 
 ```azurecli
-az keyvault secret list --vault-name 'ContosoKeyVault'
+az keyvault secret list --vault-name "ContosoKeyVault"
 ```
 
 * 인증서를 보려면 다음을 입력합니다. 
 
 ```azurecli
-az keyvault certificate list --vault-name 'ContosoKeyVault'
+az keyvault certificate list --vault-name "ContosoKeyVault"
 ```
 
 ## <a name="registering-an-application-with-azure-active-directory"></a>Azure Active Directory에 애플리케이션 등록
@@ -203,7 +203,7 @@ Azure Active Directory에 애플리케이션을 등록하는 방법에 대한 �
 Azure Active Directory에서 애플리케이션을 등록하려면 다음을 수행합니다.
 
 ```azurecli
-az ad sp create-for-rbac -n "MyApp" --password 'Pa$$w0rd' --skip-assignment
+az ad sp create-for-rbac -n "MyApp" --password "Pa$$w0rd" --skip-assignment
 # If you don't specify a password, one will be created for you.
 ```
 
@@ -214,33 +214,35 @@ az ad sp create-for-rbac -n "MyApp" --password 'Pa$$w0rd' --skip-assignment
 예를 들어 자격 증명 모음 이름이 ContosoKeyVault이고, 애플리케이션의 appID가 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed이며, 자격 증명 모음의 키를 사용하여 암호를 해독하고 서명하도록 애플리케이션에 권한을 부여하려면 다음 명령을 사용합니다.
 
 ```azurecli
-az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --key-permissions decrypt sign
+az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --key-permissions decrypt sign
 ```
 
 자격 증명 모음에서 비밀을 읽도록 동일한 애플리케이션에 권한을 부여하려면 다음을 실행합니다.
 
 ```azurecli
-az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
+az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
 
 ## <a name="bkmk_KVperCLI"></a> 키 자격 증명 모음 고급 액세스 정책 설정
 
-키 자격 증명 모음에 대해 고급 정책을 사용하도록 설정하려면 [az keyvault update](/cli/azure/keyvault#az-keyvault-update)를 사용합니다. 
+키 자격 증명 모음에 대해 고급 정책을 사용하도록 설정하려면 [az keyvault update](/cli/azure/keyvault#az-keyvault-update)를 사용합니다.
 
  배포에 Key Vault 사용: Virtual Machines에서 자격 증명 모음으로부터 비밀로 저장된 인증서를 검색할 수 있도록 허용합니다.
+
  ```azurecli
- az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-deployment 'true'
- ``` 
+ az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
+ ```
 
 디스크 암호화에 Key Vault 사용: Azure Disk Encryption에 대해 자격 증명 모음을 사용하는 경우에 필요합니다.
 
  ```azurecli
- az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-disk-encryption 'true'
+ az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-disk-encryption "true"
  ```  
 
 템플릿 배포에 Key Vault 사용: Resource Manager가 자격 증명 모음에서 비밀을 검색할 수 있습니다.
- ```azurecli 
- az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-template-deployment 'true'
+
+```azurecli 
+ az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-template-deployment "true"
  ```
 
 ## <a name="working-with-hardware-security-modules-hsms"></a>HSM(하드웨어 보안 모듈) 작업
@@ -252,25 +254,25 @@ az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec
 keyvault를 만들 때 'sku' 매개 변수를 추가합니다.
 
 ```azurecli
-az keyvault create --name 'ContosoKeyVaultHSM' --resource-group 'ContosoResourceGroup' --location 'East Asia' --sku 'Premium'
+az keyvault create --name "ContosoKeyVaultHSM" --resource-group "ContosoResourceGroup" --location "East Asia" --sku "Premium"
 ```
 
 이 자격 증명이 모음에 소프트웨어 보호 키(이전에 표시된 대로)와 HSM 보호되는 키를 추가할 수 있습니다. HSM으로 보호되는 키를 만들려면, 대상 매개 변수를 'HSM'으로 설정합니다.
 
 ```azurecli
-az keyvault key create --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --protection 'hsm'
+az keyvault key create --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --protection "hsm"
 ```
 
 다음 명령을 사용하여 사용자 컴퓨터의 .pem 파일에서 키를 가져올 수 있습니다. 이 명령은 키 자격 증명 모음 서비스에서 HSM으로 키를 가져옵니다.
 
 ```azurecli
-az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --protection 'hsm' --pem-password 'PaSSWORD'
+az keyvault key import --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --pem-file "/.softkey.pem" --protection "hsm" --pem-password "PaSSWORD"
 ```
 
 다음 명령은 "bring your own key"(BYOK) 패키지를 가져옵니다. 이렇게 하면 로컬 HSM에 키를 생성하고 키가 HSM 경계를 벗어나지 않고 이를 키 자격 증명 모음 서비스의 HSM에 전달합니다.
 
 ```azurecli
-az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --byok-file './ITByok.byok' --protection 'hsm'
+az keyvault key import --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --byok-file "./ITByok.byok" --protection "hsm"
 ```
 
 이 BYOK 패키지를 생성하는 방법에 대한 자세한 내용은 [Azure Key Vault와 HSM-보호된 키를 사용하는 방법](key-vault-hsm-protected-keys.md)을 참조하세요.
@@ -280,13 +282,13 @@ az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSM
 키 자격 증명 모음 및 해당 키 또는 비밀이 더 이상 필요하지 않은 경우, `az keyvault delete` 명령을 사용하여 키 자격 증명 모음을 삭제할 수 있습니다.
 
 ```azurecli
-az keyvault delete --name 'ContosoKeyVault'
+az keyvault delete --name "ContosoKeyVault"
 ```
 
 또는 키 자격 증명 모음 및 해당 그룹에 포함된 다른 모든 리소스 및 키를 포함하는 전체 Azure 리소스 그룹을 삭제할 수 있습니다.
 
 ```azurecli
-az group delete --name 'ContosoResourceGroup'
+az group delete --name "ContosoResourceGroup"
 ```
 
 ## <a name="miscellaneous-azure-cross-platform-command-line-interface-commands"></a>다양한 Azure 플랫폼 간 명령줄 인터페이스 명령
@@ -296,31 +298,31 @@ Azure Key Vault를 관리하는 데 유용한 다른 명령도 다음과 같습�
 이 명령은 모든 키와 선택한 속성을 테이블 형식으로 나열합니다.
 
 ```azurecli
-az keyvault key list --vault-name 'ContosoKeyVault'
+az keyvault key list --vault-name "ContosoKeyVault"
 ```
 
 이 명령은 지정된 키에 대한 속성의 전체 목록을 표시합니다.
 
 ```azurecli
-az keyvault key show --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey'
+az keyvault key show --vault-name "ContosoKeyVault" --name "ContosoFirstKey"
 ```
 
 이 명령은 모든 비밀 이름과 선택한 속성을 테이블 형식으로 표시합니다.
 
 ```azurecli
-az keyvault secret list --vault-name 'ContosoKeyVault'
+az keyvault secret list --vault-name "ContosoKeyVault"
 ```
 
 다음은 특정 키를 제거하는 방법에 대한 예제입니다.
 
 ```azurecli
-az keyvault key delete --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey'
+az keyvault key delete --vault-name "ContosoKeyVault" --name "ContosoFirstKey"
 ```
 
 다음은 특정 암호를 제거하는 방법에 대한 예제입니다.
 
 ```azurecli
-az keyvault secret delete --vault-name 'ContosoKeyVault' --name 'SQLPassword'
+az keyvault secret delete --vault-name "ContosoKeyVault" --name "SQLPassword"
 ```
 
 ## <a name="next-steps"></a>다음 단계

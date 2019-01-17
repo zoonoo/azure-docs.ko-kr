@@ -3,17 +3,17 @@ title: Azure IoT Central 애플리케이션을 CSP로 만들기 및 관리 | Mic
 description: CSP로서 고객을 대신하여 Azure IoT Central 애플리케이션을 만드는 방법.
 services: iot-central
 ms.service: iot-central
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/29/2018
 ms.topic: conceptual
-manager: peterpr
-ms.openlocfilehash: b72b2183cb796602f05a0a6858d4de108d3cc2c7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+manager: philmea
+ms.openlocfilehash: 73c3c57df215a66d914f5ea75475f74eff05a1f0
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964801"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200295"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>CSP로서 고객을 대신하여 Azure IoT Central 애플리케이션 만들기 및 관리 
 
@@ -78,7 +78,7 @@ Azure IoT Central 애플리케이션을 만들 지역을 선택합니다. 일반
 Azure IoT Central을 사용할 수 있는 지역은 [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/) 페이지에서 확인할 수 있습니다.
 
 > [!Note]
-> 일단 지역을 선택하면 애플리케이션을 다른 지역으로 이동할 수 없습니다.
+> 일단 지역을 선택하면 응용 프로그램을 다른 지역으로 이동할 수 없습니다.
 
 ## <a name="application-template"></a>애플리케이션 템플릿
 
@@ -86,13 +86,13 @@ Azure IoT Central을 사용할 수 있는 지역은 [지역별 사용 가능한 
 
 | 애플리케이션 템플릿 | 설명 |
 | -------------------- | ----------- |
-| 사용자 지정 애플리케이션   | 사용자 고유의 디바이스 템플릿 및 디바이스로 채울 빈 응용 프로그램을 만듭니다. |
-| 샘플 Contoso       | 간단한 연결된 디바이스를 만들 수 있는 디바이스 템플릿이 포함된 응용 프로그램을 만듭니다. 이 템플릿을 사용하여 Azure IoT Central 탐색을 시작하세요. |
-| 샘플 Devkits       | MXChip 또는 Raspberry Pi 디바이스를 연결할 수 있는 디바이스 템플릿을 사용하여 응용 프로그램을 만듭니다. 다음 디바이스 중 하나에서 코드를 실험하는 디바이스 개발자인 경우 이 템플릿을 사용하세요. |
+| 사용자 지정 애플리케이션   | 사용자 고유의 장치 템플릿 및 장치로 채울 빈 애플리케이션을 만듭니다. |
+| 샘플 Contoso       | 간단한 연결된 장치를 만들 수 있는 장치 템플릿이 포함된 애플리케이션을 만듭니다. 이 템플릿을 사용하여 Azure IoT Central 탐색을 시작하세요. |
+| 샘플 Devkits       | MXChip 또는 Raspberry Pi 장치를 연결할 수 있는 장치 템플릿을 사용하여 애플리케이션을 만듭니다. 다음 디바이스 중 하나에서 코드를 실험하는 디바이스 개발자인 경우 이 템플릿을 사용하세요. |
 
 ## <a name="next-steps"></a>다음 단계
 
 CSP로서 Azure IoT Central 애플리케이션을 만드는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
 
 > [!div class="nextstepaction"]
-> [응용 프로그램 관리](howto-administer.md)
+> [애플리케이션 관리](howto-administer.md)
