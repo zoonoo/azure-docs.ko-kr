@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/10/2018
-ms.openlocfilehash: 3760e2a5ccae1d21574412ec223cade03bebda1e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/15/2019
+ms.openlocfilehash: 49c9d908970425165fcdd76171c20ab65454f42a
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548938"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318581"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database for PostgreSQL 가격 책정 계층
 
@@ -53,14 +53,14 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 | 미국 중남부 | X | X |
 | 미국 서부 | X | X |
 | 미국 서부 2 |  | X |
+| 브라질 남부 | X | X |
 | 캐나다 중부 | X | X |
 | 캐나다 동부 | X | X |
-| 브라질 남부 | X | X |
 | 북유럽 | X | X |
 | 서유럽 |  | X |
 | 프랑스 중부 |  | X |
-| 영국 서부 |  | X |
 | 영국 남부 |  | X |
+| 영국 서부 |  | X |
 | 동아시아 | X | X |
 | 동남아시아 | X | X |
 | 오스트레일리아 동부 |  | X |
@@ -68,17 +68,22 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 | 오스트레일리아 중부 2 |  | X |
 | 오스트레일리아 남동부 |  | X |
 | 인도 중부 | X | X |
-| 인도 서부 | X | X |
 | 인도 남부 |  | X |
+| 인도 서부 | X | X |
 | 일본 동부 | X | X |
 | 일본 서부 | X | X |
 | 한국 중부 |  | X |
 | 한국 남부 |  | X |
+| 중국 동부 1 | X |  |
+| 중국 동부 2 |  | X |
+| 중국 북부 1 | X |  |
+| 중국 북부 2 |  | X |
 | 독일 중부 |  | X |
 | 미국 국방부 중부  | X |  |
 | 미국 국방부 동부  | X |  |
 | 미국 정부 애리조나 |  | X |
 | 미국 정부 텍사스 |  | X |
+| 미국 정부 버지니아 |  | X |
 
 ## <a name="storage"></a>Storage
 

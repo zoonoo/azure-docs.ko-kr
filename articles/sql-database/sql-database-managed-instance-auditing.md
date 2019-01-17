@@ -13,13 +13,13 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 045314980d0051e8b5ef71bdf95023084eff1880
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.date: 01/12/2019
+ms.openlocfilehash: 716c4caa1b28cc40470d366e5fc6901de9462f9a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063880"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267269"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL Database Managed Instance 감사 시작
 
@@ -172,9 +172,9 @@ Managed Instance의 감사 로그를 Azure Monitor를 사용하여 Even Hubs 또
 
 - 시스템 함수 `sys.fn_get_audit_file`(T-SQL)을 사용하여 테이블 형식의 감사 로그 데이터를 반환할 수 있습니다. 이 함수 사용에 대한 자세한 내용은 [sys.fn_get_audit_file 설명서](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql)를 참조하세요.
 
-- Azure Storage 탐색기 등의 도구를 사용하여 감사 로그를 탐색할 수 있습니다. Azure Storage에서 감사 로그는 sqldbauditlogs라는 컨테이너 내부에 Blob 파일 컬렉션으로 저장됩니다. 스토리지 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대한 자세한 내용은 BLOB 감사 로그 형식 참조를 참조하세요.
+- [Azure Storage 탐색기](https://azure.microsoft.com/en-us/features/storage-explorer/) 등의 도구를 사용하여 감사 로그를 탐색할 수 있습니다. Azure Storage에서 감사 로그는 sqldbauditlogs라는 컨테이너 내부에 Blob 파일 컬렉션으로 저장됩니다. 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대한 자세한 내용은 [BLOB 감사 로그 형식 참조](https://go.microsoft.com/fwlink/?linkid=829599)를 참조하세요.
 
-- 감사 로그 사용 방법의 전체 목록은 [SQL 데이터베이스 감사 시작](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing)을 참조하세요.
+- 감사 로그 사용 방법의 전체 목록은 [SQL 데이터베이스 감사 시작](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)을 참조하세요.
 
 > [!IMPORTANT]
 > 현재, Managed Instance의 경우는 Azure Portal(‘감사 레코드’ 창)에서 감사 레코드를 볼 수 없습니다.
@@ -199,7 +199,7 @@ Managed Instance, Azure SQL Database 및 SQL Server 온-프레미스의 SQL Audi
 
 Managed Instance의 XEvent 감사는 Azure Blob Storage 대상을 지원합니다. 파일 및 Windows 로그는 **지원되지 않습니다**.
 
-Azure Blob 저장소에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이점은 다음과 같습니다.
+Azure Blob Storage에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이점은 다음과 같습니다.
 
 - 새 `TO URL` 구문이 제공되고 `.xel` 파일이 배치되는 Azure Blob Storage 컨테이너의 URL을 지정할 수 있습니다.
 - Event Hubs 및 Log Analytics 대상을 사용하도록 설정하기 위해 새로운 구문 `TO EXTERNAL MONITOR`가 제공됩니다.

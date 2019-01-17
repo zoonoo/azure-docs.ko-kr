@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 17/07/2018
 ms.author: sedusch
-ms.openlocfilehash: 2a0934fa3bb46eebba02029a8292b9bee6b12c62
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: d5d344f47fa46e9fe0adea048db200ec67a3fadc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728228"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262586"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Azure용 SAP LaMa 커넥터
 
@@ -92,14 +92,14 @@ Azure 커넥터는 SAP LaMa 3.0 SP05부터 제공됩니다. SAP LaMa 3.0용 최�
 1. 액세스 제어(IAM) 클릭
 1. [역할 할당 추가]를 클릭합니다.
 1. 기여자 역할을 선택합니다.
-1. 위에서 만든 응용 프로그램의 이름 입력
+1. 위에서 만든 애플리케이션의 이름 입력
 1. 저장을 클릭합니다.
 1. SAP LaMa에서 사용하려는 모든 리소스 그룹에 대해 3~8 단계를 반복합니다.
 
 SAP LaMa 웹 사이트를 열고 Infrastructure(인프라)로 이동합니다. Cloud Managers(클라우드 관리자) 탭으로 이동하여 Add(추가)를 클릭합니다. Microsoft Azure 클라우드 어댑터를 선택하고 다음을 클릭합니다. 다음 정보를 입력합니다.
 
 * 레이블: 커넥터 인스턴스의 이름 선택
-* 사용자 이름: 서비스 사용자 응용 프로그램 ID
+* 사용자 이름: 서비스 사용자 애플리케이션 ID
 * 암호: 서비스 주체 키/암호
 * URL: 기본값 https://management.azure.com/ 유지
 * 모니터링 간격(초): 300 이상이어야 함
@@ -116,7 +116,7 @@ SAP LaMa 웹 사이트를 열고 Infrastructure(인프라)로 이동합니다. C
 
 ## <a name="provision-a-new-adaptive-sap-system"></a>새 적응형 SAP 시스템 프로비전
 
-새 가상 머신을 수동으로 배포하거나 [빠른 시작 리포지토리](https://github.com/Azure/azure-quickstart-templates)에 있는 Azure 템플릿 중 하나를 사용할 수 있습니다. [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs), [SAP NetWeaver Application Server](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps) 및 [데이터베이스](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-db)에 대한 템플릿을 포함합니다. 이 템플릿을 사용하여 시스템 복사/복제 등의 일환으로 새 호스트를 프로비전할 수 있습니다.
+새 가상 머신을 수동으로 배포하거나 [빠른 시작 리포지토리](https://github.com/Azure/azure-quickstart-templates)에 있는 Azure 템플릿 중 하나를 사용할 수 있습니다. [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs), [SAP NetWeaver Application Server](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps) 및 [데이터베이스](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-database)에 대한 템플릿을 포함합니다. 이 템플릿을 사용하여 시스템 복사/복제 등의 일환으로 새 호스트를 프로비전할 수 있습니다.
 
 SAP LaMa로 관리하려는 모든 가상 머신에 대해 별도의 서브넷을 사용하는 것이 좋으며 새 가상 머신을 배포할 때 및 SAP 인스턴스가 준비가 되지 않은 경우에는 IP 주소가 "도용"되지 않도록 동적 IP 주소를 사용하지 마십시오.
 
@@ -300,7 +300,7 @@ SAP NetWeaver 프로필 매개 변수 dbs/hdb/hdb_use_ident를 사용하여 HDB 
 /usr/sap/AH1/hdbclient/hdbuserstore SET DEFAULT ah1-db:35041@AH1 SAPABAP1 <password>
 ```
 
-*Primary Application Server Instance*(기본 응용 프로그램 서버 인스턴스) 대화 상자의 *PAS 인스턴스 호스트 이름*에 대해 *ah1-di-0*을 사용합니다.
+*Primary Application Server Instance*(기본 애플리케이션 서버 인스턴스) 대화 상자의 *PAS 인스턴스 호스트 이름*에 대해 *ah1-di-0*을 사용합니다.
 
 #### <a name="post-installation-steps-for-sap-hana"></a>SAP HANA의 설치 후 단계
 
@@ -343,7 +343,7 @@ SAP SWPM(Software Provisioning Manager)을 시작하기 전에 애플리케이�
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di-0 -n 255.255.255.128
 ```
 
-*Primary Application Server Instance*(기본 응용 프로그램 서버 인스턴스) 대화 상자의 *PAS 인스턴스 호스트 이름*에 대해 *as1-di-0*을 사용합니다.
+*Primary Application Server Instance*(기본 애플리케이션 서버 인스턴스) 대화 상자의 *PAS 인스턴스 호스트 이름*에 대해 *as1-di-0*을 사용합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

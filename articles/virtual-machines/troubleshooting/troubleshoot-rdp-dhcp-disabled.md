@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 2299dd6c723aa3059c293170c655918e5236ca0e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 5842c5edd0402d61f564ab15e34e8f69c0e718d7
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138163"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213453"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>DHCP 클라이언트 서비스가 해제되어 Azure Virtual Machines에 RDP로 연결할 수 없음
 
@@ -62,8 +62,8 @@ VM에서 DHCP 클라이언트 서비스가 실행되고 있지 않습니다.
 
 ### <a name="use-serial-control"></a>직렬 콘솔 사용
 
-1. [직렬 콘솔에 연결하고 CMD 인스턴스를 엽니다](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). VM에서 직렬 콘솔을 사용할 수 없는 경우 [네트워크 인터페이스 다시 설정](reset-network-interface.md)을 참조하세요.
+1. [직렬 콘솔에 연결하고 CMD 인스턴스를 엽니다](serial-console-windows.md#use-cmd-or-powershell-in-serial-console).
+)을 참조하세요. VM에서 직렬 콘솔을 사용할 수 없는 경우 [네트워크 인터페이스 다시 설정](reset-network-interface.md)을 참조하세요.
 2. 네트워크 인터페이스에서 DHCP를 사용할 수 없는지 확인합니다.
 
         sc query DHCP
@@ -95,7 +95,7 @@ VM에서 DHCP 클라이언트 서비스가 실행되고 있지 않습니다.
 
 #### <a name="dhcp-client-service-is-stopped-because-of-an-access-denied-error"></a>액세스 거부 오류로 인해 DHCP 클라이언트 서비스가 중지됨
 
-1. [직렬 콘솔](serial-console-windows.md#)에 연결하고 PowerShell 인스턴스를 엽니다.
+1. [직렬 콘솔](serial-console-windows.md)에 연결하고 PowerShell 인스턴스를 엽니다.
 2. 다음 스크립트를 실행하여 프로세스 모니터 도구를 다운로드합니다.
 
    ```

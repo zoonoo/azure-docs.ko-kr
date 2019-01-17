@@ -11,12 +11,12 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 10/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: bc08025f070fb31d83fed26bfec00cec11cee061
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 3aa98026d7293f1486f5450cc9ab17057807c031
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313635"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306125"
 ---
 # <a name="what-are-fpgas-and-project-brainwave"></a>FPGA 및 Project Brainwave란?
 
@@ -39,12 +39,12 @@ FPGA는 프로그래밍 가능한 논리 블록 배열과 재구성 가능한 �
 
 ## <a name="project-brainwave-on-azure"></a>Azure의 Project Brainwave
 
-[Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/)는 Microsoft의 하드웨어 아키텍처입니다. 데이터 과학자 및 개발자가 실시간 AI 계산을 가속화하는 데 사용하는 Intel FPGA 디바이스를 기반으로 합니다. 이 FPGA 지원 아키텍처는 강력한 성능, 유연성 및 확장성을 제공하며 Azure에서 사용할 수 있습니다.
+[Project Brainwave](https://www.microsoft.com/en-us/research/project/project-brainwave/)는 Microsoft의 하드웨어 아키텍처입니다. 데이터 과학자 및 개발자가 실시간 AI 계산을 가속화하는 데 사용하는 Intel FPGA 디바이스를 기반으로 합니다. 이 FPGA 지원 아키텍처는 강력한 성능, 유연성 및 확장성을 제공하며 Azure에서 사용할 수 있습니다.
 
 FPGA를 사용하면 실시간 유추 요청을 위한 짧은 대기 시간을 달성할 수 있습니다. 비동기 요청(일괄 처리)이 필요하지 않습니다. 일괄 처리를 사용하면 더 많은 데이터를 처리해야 하므로 대기 시간이 길어질 수 있습니다. Project Brainwave 인공신경망 장치 구현에는 일괄 처리가 필요 없으며, 따라서 CPU 및 GPU 프로세서에 비해 대기 시간을 몇 배나 줄일 수 있습니다.
 
 ### <a name="reconfigurable-power"></a>재구성 가능한 전원
-여러 형식의 기계 학습 모델에 대해 FPGA를 다시 구성할 수 있습니다. 이러한 유연성 덕분에 사용되는 최적의 숫자 정밀도 및 메모리 모델에 따라 응용 프로그램을 가속화할 수 있습니다. FPGA는 다시 구성할 수 있으므로 빠르게 변화하는 AI 알고리즘의 요구 사항에 맞게 최신 상태를 유지할 수 있습니다.
+여러 형식의 기계 학습 모델에 대해 FPGA를 다시 구성할 수 있습니다. 이러한 유연성 덕분에 사용되는 최적의 숫자 정밀도 및 메모리 모델에 따라 애플리케이션을 가속화할 수 있습니다. FPGA는 다시 구성할 수 있으므로 빠르게 변화하는 AI 알고리즘의 요구 사항에 맞게 최신 상태를 유지할 수 있습니다.
 
 ### <a name="whats-supported-on-azure"></a>Azure에서 지원되는 내용
 Microsoft Azure는 FPGA 부문에서 세계 최대의 클라우드 투자 규모를 자랑합니다. Azure의 확장 인프라에서 Project Brainwave를 실행할 수 있습니다.

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 01/09/2018
 ms.author: diberry
-ms.openlocfilehash: 6f3f1ba47ec4dbdd09f6c9e3962b2102fc366136
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a075e266a9b7b1537876237438743462ab85f3da
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099123"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260945"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>예측 이전 또는 도중에 발언 데이터 변경
 LUIS는 예측 전이나 예측 중에 발화를 조작할 수 있는 방법을 제공합니다. 여기에는 미리 빌드된 datetimeV2에 대한 맞춤법 검사 및 표준 시간대 문제 해결이 포함됩니다. 
@@ -53,7 +53,7 @@ LUIS는 [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive
 LUIS에 사용된 Bing Spell Check API에서는 맞춤법 변경 동안 무시되는 단어의 허용 목록을 지원하지 않습니다. 단어 또는 축약어의 허용 목록을 지정해야 하는 경우 의도를 예측하기 위해 LUIS에 발화를 보내기 전에 허용 목록을 사용하여 클라이언트 애플리케이션의 발화를 처리합니다.
 
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>미리 빌드된 datetimeV2 엔터티의 표준 시간대 변경
-LUIS 앱에서 미리 빌드된 datetimeV2 엔터티를 사용하는 경우, datetime 값이 예측 응답으로 반환될 수 있습니다. 요청의 표준 시간대는 반환할 올바른 datetime을 확인하는 데 사용됩니다. LUIS에 연결하기 전에 봇이나 다른 중앙 집중식 응용 프로그램에서 요청을 가져오는 경우, LUIS에서 사용하는 표준 시간대를 수정하세요. 
+LUIS 앱에서 미리 빌드된 datetimeV2 엔터티를 사용하는 경우, datetime 값이 예측 응답으로 반환될 수 있습니다. 요청의 표준 시간대는 반환할 올바른 datetime을 확인하는 데 사용됩니다. LUIS에 연결하기 전에 봇이나 다른 중앙 집중식 애플리케이션에서 요청을 가져오는 경우, LUIS에서 사용하는 표준 시간대를 수정하세요. 
 
 ### <a name="endpoint-querystring-parameter"></a>엔드포인트 쿼리 문자열 매개 변수
 표준 시간대는 `timezoneOffset` 매개 변수를 사용하여 사용자의 표준 시간대를 [엔드포인트](https://aka.ms/luis-endpoint-apis)에 추가하여 수정합니다. 시간을 변경하려면 `timezoneOffset` 값이 분 단위의 양수 또는 음수여야 합니다.  

@@ -6,14 +6,14 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/20/2018
-ms.author: vitaly.gorbenko
+ms.author: vitalyg
 ms.component: metrics
-ms.openlocfilehash: 8932f8aa1dd950693378e9fc58c79838fad6166b
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 457c7e8904797955854c4c3e16a631cf6537e2b8
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53741762"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330078"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor 메트릭 탐색기
 
@@ -39,7 +39,7 @@ Microsoft Azure의 메트릭은 지남에 따라 수집되고 저장된 일련�
 
 4. 저장소 계정 및 가상 머신과 같은 일부 리소스 종류의 경우에는 메트릭을 선택하기 전에 **네임스페이스**를 선택해야 합니다. 각 네임스페이스는 이 네임스페이스에만 관련이 있고 다른 네임스페이스에는 관련이 없는 고유한 메트릭 집합을 포함합니다.
 
-   예를 들어 각 Azure Storage에는 저장소 계정의 모든 부분인 하위 서비스 "Blob", "파일", "큐" 및 "테이블"에 대한 메트릭이 있습니다. 그러나 "큐 메시지 수" 메트릭은 다른 저장소 계정 하위 서비스가 아닌 "큐" 하위 서비스에 자연스럽 게 적용됩니다.
+   예를 들어 각 Azure Storage에는 스토리지 계정의 모든 부분인 하위 서비스 "Blob", "파일", "큐" 및 "테이블"에 대한 메트릭이 있습니다. 그러나 "큐 메시지 수" 메트릭은 다른 저장소 계정 하위 서비스가 아닌 "큐" 하위 서비스에 자연스럽 게 적용됩니다.
 
    ![메트릭 이미지](./media/metrics-charts/00003.png)
 

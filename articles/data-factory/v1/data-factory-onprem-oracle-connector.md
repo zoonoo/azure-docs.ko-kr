@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1ccf66da14bbbd4993f29da2e40d996cb564864e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: aa6f891cc68d19e638bb2b7281f4b332de26bd26
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024912"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332645"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 다른 곳에서 Oracle 온-프레미스로 또는 그 반대로 데이터 복사
 
@@ -73,7 +73,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 
     **XCopy 설치**를 선택하는 경우 readme.htm 파일에 설명된 단계를 완료합니다. UI가 있는 설치 관리자를 선택하는 것이 좋습니다(XCopy 설치 관리자 제외).
 
-    공급자를 설치한 후 서비스 애플릿 또는 데이터 관리 게이트웨이 구성 관리자를 사용하여 머신에서 데이터 관리 게이트웨이 호스트 서비스를 다시 시작합니다.  
+    공급자를 설치한 후 서비스 애플릿 또는 데이터 관리 게이트웨이 구성 관리자를 사용하여 머신에서 데이터 관리 게이트웨이 호스트 서비스를 다시 시작합니다.
 
 복사 마법사를 사용하여 복사 파이프라인을 작성하는 경우 드라이버 형식은 자동으로 결정됩니다. 게이트웨이 버전이 2.7 이전이거나 싱크로 Oracle을 선택한 경우 외에는 Microsoft 드라이버가 기본적으로 사용됩니다.
 
@@ -87,12 +87,12 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만듭니다.
 
-1. **데이터 팩터리**를 만듭니다. 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 
+1. **데이터 팩터리**를 만듭니다. 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다.
 2. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결하는 **연결된 서비스**를 만듭니다. 예를 들어 Oracle 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 경우 Oracle 데이터베이스 및 Azure 스토리지 계정을 데이터 팩터리에 연결하는 두 개의 연결된 서비스를 만듭니다. Oracle과 관련된 연결된 서비스 속성은 [연결된 서비스 속성](#linked-service-properties)을 참조하세요.
 3. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 세트**를 만듭니다. 이전 단계의 예제에서 입력 데이터가 포함된 Oracle 데이터베이스의 테이블을 지정하는 데이터 세트를 만듭니다. Oracle 데이터베이스에서 복사된 데이터가 저장되는 폴더 및 Blob 컨테이너를 지정하는 또 다른 데이터 세트를 만듭니다. Oracle과 관련된 데이터 세트 속성은 [데이터 세트 속성](#dataset-properties)을 참조하세요.
-4. 입력과 출력으로 각각의 데이터 세트를 사용하는 복사 작업이 포함된 **파이프라인**을 만듭니다. 이전 예제에서는 **OracleSource**를 원본으로, **BlobSink**를 복사 작업의 싱크로 사용합니다. 마찬가지로, Azure Blob Storage에서 Oracle 데이터베이스로 복사하는 경우 복사 작업에 **BlobSource** 및 **OracleSink**를 사용합니다. Oracle 데이터베이스와 관련된 복사 작업 속성은 [복사 작업 속성](#copy-activity-properties)을 참조하세요. 원본 또는 싱크로 데이터 저장소를 사용하는 방법에 대한 자세한 내용은 이전 섹션의 데이터 저장소에 대한 링크를 선택하세요. 
+4. 입력과 출력으로 각각의 데이터 세트를 사용하는 복사 작업이 포함된 **파이프라인**을 만듭니다. 이전 예제에서는 **OracleSource**를 원본으로, **BlobSink**를 복사 작업의 싱크로 사용합니다. 마찬가지로, Azure Blob Storage에서 Oracle 데이터베이스로 복사하는 경우 복사 작업에 **BlobSource** 및 **OracleSink**를 사용합니다. Oracle 데이터베이스와 관련된 복사 작업 속성은 [복사 작업 속성](#copy-activity-properties)을 참조하세요. 원본 또는 싱크로 데이터 저장소를 사용하는 방법에 대한 자세한 내용은 이전 섹션의 데이터 저장소에 대한 링크를 선택하세요.
 
-마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구 또는 API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  다른 곳에서 온-프레미스 Oracle 데이터베이스로 또는 그 반대로 데이터를 복사하는 데 사용하는 Data Factory 엔터티에 대한 JSON 정의가 포함된 샘플은 [JSON 예제](#json-examples-for-copying-data-to-and-from-oracle-database)를 참조하세요.
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구 또는 API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다. 다른 곳에서 온-프레미스 Oracle 데이터베이스로 또는 그 반대로 데이터를 복사하는 데 사용하는 Data Factory 엔터티에 대한 JSON 정의가 포함된 샘플은 [JSON 예제](#json-examples-for-copying-data-to-and-from-oracle-database)를 참조하세요.
 
 다음 섹션에서는 Data Factory 엔터티를 정의하는 데 사용하는 JSON 속성에 대해 자세히 설명합니다.
 
@@ -136,8 +136,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
     "properties": {
         "type": "OnPremisesOracle",
         "typeProperties": {
-            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<host name>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<service ID>)));
-User Id=<user name>;Password=<password>;",
+            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<host name>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<service ID>))); User Id=<user name>;Password=<password>;",
             "gatewayName": "<gateway name>"
         }
     }
@@ -146,7 +145,7 @@ User Id=<user name>;Password=<password>;",
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md)를 참조하세요. 
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md)를 참조하세요.
 
 구조, 가용성 및 정책과 같은 데이터 세트 JSON 파일의 섹션은 모든 데이터 세트 형식(예: Oracle, Azure Blob Storage 및 Azure Table Storage)에 대해 유사합니다.
 
@@ -158,7 +157,7 @@ User Id=<user name>;Password=<password>;",
 
 ## <a name="copy-activity-properties"></a>복사 활동 속성
 
-작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md)를 참조하세요. 
+작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md)를 참조하세요.
 
 이름, 설명, 입력 및 출력 테이블, 정책과 같은 속성은 모든 형식의 작업에 사용할 수 있습니다.
 
@@ -188,7 +187,7 @@ User Id=<user name>;Password=<password>;",
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>다른 곳에서 Oracle 데이터베이스로 또는 그 반대로 데이터를 복사하는 JSON 예제
 
-다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공하며, 샘플은 Oracle 데이터베이스에서 다른 곳으로 또는 그 반대로, 다른 곳에서 Azure Blob Storage로 또는 그 반대로 데이터를 복사하는 방법을 보여줍니다. 단, 데이터는 Azure Data Factory의 복사 작업을 사용하여 [지원되는 데이터 저장소 및 형식](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 나열된 싱크로 직접 복사할 수 있습니다.   
+다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공하며, 샘플은 Oracle 데이터베이스에서 다른 곳으로 또는 그 반대로, 다른 곳에서 Azure Blob Storage로 또는 그 반대로 데이터를 복사하는 방법을 보여줍니다. 단, 데이터는 Azure Data Factory의 복사 작업을 사용하여 [지원되는 데이터 저장소 및 형식](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 나열된 싱크로 직접 복사할 수 있습니다.
 
 **예제: Oracle에서 Azure Blob Storage로 데이터 복사**
 
@@ -218,7 +217,7 @@ User Id=<user name>;Password=<password>;",
 }
 ```
 
-**Azure Blob 저장소 연결된 서비스**
+비디오: Linux에서 Azure File Storage 사용
 
 ```json
 {
@@ -254,12 +253,12 @@ User Id=<user name>;Password=<password>;",
             "anchorDateTime": "2014-02-27T12:00:00",
             "frequency": "Hour"
         },
-        "policy": {     
-            "externalData": {        
-                "retryInterval": "00:01:00",    
-                "retryTimeout": "00:10:00",       
-                "maximumRetry": 3       
-            }     
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
         }
     }
 }
@@ -327,16 +326,16 @@ User Id=<user name>;Password=<password>;",
 
 **복사 작업이 포함된 파이프라인**
 
-파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성되고 매시간 실행하도록 예약된 복사 작업을 포함합니다. 파이프라인 JSON 정의에서 **원본** 형식은 **OracleSource**로 설정되고 **싱크** 형식은 **BlobSink**로 설정됩니다.  **oracleReaderQuery** 속성을 사용하여 지정한 SQL 쿼리는 과거 시간에서 복사할 데이터를 선택합니다.
+파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성되고 매시간 실행하도록 예약된 복사 작업을 포함합니다. 파이프라인 JSON 정의에서 **원본** 형식은 **OracleSource**로 설정되고 **싱크** 형식은 **BlobSink**로 설정됩니다. **oracleReaderQuery** 속성을 사용하여 지정한 SQL 쿼리는 과거 시간에서 복사할 데이터를 선택합니다.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-01T19:00:00",
         "description":"pipeline for a copy activity",
-        "activities":[  
+        "activities":[
             {
                 "name": "OracletoBlob",
                 "description": "copy activity",
@@ -378,7 +377,7 @@ User Id=<user name>;Password=<password>;",
 
 **예제: Azure Blob Storage에서 Oracle로 데이터 복사**
 
-이 샘플은 Azure Blob Storage에서 온-프레미스 Oracle 데이터베이스로 데이터를 복사하는 방법을 보여줍니다. 하지만 Azure Data Factory의 복사 작업을 사용하면 데이터를 [지원되는 데이터 저장소 및 형식](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 나열된 원본 중 하나에서 *직접* 복사할 수 있습니다.  
+이 샘플은 Azure Blob Storage에서 온-프레미스 Oracle 데이터베이스로 데이터를 복사하는 방법을 보여줍니다. 하지만 Azure Data Factory의 복사 작업을 사용하면 데이터를 [지원되는 데이터 저장소 및 형식](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 나열된 원본 중 하나에서 *직접* 복사할 수 있습니다.
 
 샘플에 포함된 Data Factory 엔터티는 다음과 같습니다.
 
@@ -406,7 +405,7 @@ User Id=<user name>;Password=<password>;",
 }
 ```
 
-**Azure Blob 저장소 연결된 서비스**
+비디오: Linux에서 Azure File Storage 사용
 
 ```json
 {
@@ -503,16 +502,16 @@ User Id=<user name>;Password=<password>;",
 
 **복사 작업이 포함된 파이프라인**
 
-파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성되고 매시간 실행하도록 예약된 복사 작업을 포함합니다. 파이프라인 JSON 정의에서 **원본** 형식은 **BlobSource**로 설정되고 **싱크** 형식은 **OracleSink**로 설정됩니다.  
+파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성되고 매시간 실행하도록 예약된 복사 작업을 포함합니다. 파이프라인 JSON 정의에서 **원본** 형식은 **BlobSource**로 설정되고 **싱크** 형식은 **OracleSink**로 설정됩니다.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-05T19:00:00",
         "description":"pipeline with a copy activity",
-        "activities":[  
+        "activities":[
             {
                 "name": "AzureBlobtoOracle",
                 "description": "Copy Activity",
@@ -558,7 +557,7 @@ User Id=<user name>;Password=<password>;",
 
 **오류 메시지**
 
-    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.  
+    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.
 
 **가능한 원인**
 
@@ -584,7 +583,7 @@ User Id=<user name>;Password=<password>;",
 
 Oracle 데이터베이스에서 날짜가 구성된 방식에 따라 복사 작업의 쿼리 문자열을 조정해야 합니다. 다음은 **to_date** 함수를 사용한 예입니다.
 
-    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
 
 
 ## <a name="type-mapping-for-oracle"></a>Oracle에 대한 형식 매핑

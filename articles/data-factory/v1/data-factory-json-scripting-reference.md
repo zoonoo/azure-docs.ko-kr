@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7b38bc8a2cdb740363dbf2c797738fc5277ff2bc
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 32e0be682d5d216df6741fa38bb0a16e4b323ef6
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036436"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354198"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 스크립팅 참조
 > [!NOTE]
@@ -114,7 +114,7 @@ typeProperties 섹션은 각 활동마다 다릅니다. 변환 활동에는 type
 **복사 활동**(Copy activity)의 typeProperties 섹션에는 두 하위 섹션, 즉 **source** 및 **sink**가 있습니다. 데이터 저장소를 소스 및/또는 싱크로 사용하는 방법을 보여 주는 JSON 샘플은 이 문서의 [데이터 저장소](#data-stores) 섹션을 참조하세요.
 
 ### <a name="sample-copy-pipeline"></a>샘플 복사 파이프라인
-다음 샘플 파이프라인에는 **Copy** in the **활동** 유형의 하나의 활동이 있습니다. 샘플에서 [복사 작업](data-factory-data-movement-activities.md)은 Azure Blob 저장소의 데이터를 Azure SQL 데이터베이스에 복사합니다.
+다음 샘플 파이프라인에는 **Copy** in the **활동** 유형의 하나의 활동이 있습니다. [Windows에서 Azure File Storage 시작](data-factory-data-movement-activities.md)
 
 ```json
 {
@@ -170,7 +170,7 @@ typeProperties 섹션은 각 활동마다 다릅니다. 변환 활동에는 type
 이 파이프라인을 만드는 전체 연습은 [자습서: Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 ### <a name="sample-transformation-pipeline"></a>샘플 변환 파이프라인
-다음 샘플 파이프라인에는 **HDInsightHive** in the **활동** 유형의 하나의 활동이 있습니다. 이 샘플에서 [HDInsight Hive 활동](data-factory-hive-activity.md) 은 Azure HDInsight Hadoop 클러스터에서 Hive 스크립트 파일을 실행하여 Azure Blob 저장소에서 데이터를 변환합니다.
+다음 샘플 파이프라인에는 **HDInsightHive** in the **활동** 유형의 하나의 활동이 있습니다. 이 샘플에서 [HDInsight Hive 활동](data-factory-hive-activity.md) 은 Azure HDInsight Hadoop 클러스터에서 Hive 스크립트 파일을 실행하여 Azure Blob Storage에서 데이터를 변환합니다.
 
 ```json
 {
@@ -373,7 +373,7 @@ structure:
 
 | Category | 데이터 저장소
 |:--- |:--- |
-| **Azure** |[Azure Blob 저장소](#azure-blob-storage) |
+| **Azure** |[Azure Blob Storage](#azure-blob-storage) |
 | &nbsp; |[Azure Data Lake Storage](#azure-datalake-store) |
 | &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Azure SQL Database](#azure-sql-database) |
@@ -457,7 +457,7 @@ Azure Blob 데이터 세트를 정의하려면 데이터 세트의 **type**을 *
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| folderPath |blob 저장소에서 컨테이너 및 폴더에 대한 경로입니다. 예제: myblobcontainer\myblobfolder\ |예 |
+| folderPath |Blob Storage에서 컨테이너 및 폴더에 대한 경로입니다. 예제: myblobcontainer\myblobfolder\ |예 |
 | fileName |Blob의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다.<br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 Blob에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 세트에 대한 folderPath에 모든 Blob을 포함합니다.<br/><br/>출력 데이터 세트에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. Data<Guid>.txt (예: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아니요 |
 | partitionedBy |partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. |아니요 |
 | format | 다음 포맷 형식이 지원됩니다. **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**입니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
@@ -5126,7 +5126,7 @@ Hive 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | script |Hive 스크립트 인라인 지정 |아니요 |
-| script path |Hive 스크립트를 Azure blob 저장소에 저장하고 파일에 대한 경로를 제공합니다. 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아니요 |
+| script path |.NET용 File Storage 시작 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아니요 |
 | defines |'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |아니요 |
 
 이러한 type 속성은 Hive 활동에만 적용됩니다. typeProperties 섹션 외부의 다른 속성은 모든 활동에서 지원됩니다.
@@ -5172,7 +5172,7 @@ Pig 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | script |Pig 스크립트 인라인 지정 |아니요 |
-| script path |Pig 스크립트를 Azure blob 저장소에 저장하고 파일에 대한 경로를 제공합니다. 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아니요 |
+| script path |Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아니요 |
 | defines |Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |아니요 |
 
 이러한 type 속성은 Pig 활동에만 적용됩니다. typeProperties 섹션 외부의 다른 속성은 모든 활동에서 지원됩니다.
@@ -5613,7 +5613,7 @@ U-SQL 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
             {
                 "type": "SqlServerStoredProcedure",
                 "typeProperties": {
-                    "storedProcedureName": "sp_sample",
+                    "storedProcedureName": "usp_sample",
                     "storedProcedureParameters": {
                         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
                     }

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: 727c1ce79fbd20252f7455f95ad00a6c44d67c65
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f22a4c4d0159efa2ac42d15ff6afdadc2d6755d0
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090519"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215051"
 ---
 # <a name="implement-cicd-for-stream-analytics-using-apis"></a>API를 사용하여 Stream Analytics에 대한 CI/CD 구현
 
@@ -253,7 +253,7 @@ curl -d –X GET https://management.azure.com/subscriptions/{subscriptionid}/res
 } 
 ```
 
-배포 매니페스트의 구성 후 배포에 대한 [Azure CLI를 사용하여 Azure IoT Edge 모듈 배포](/iot-edge/how-to-deploy-modules-cli.md)를 참조하세요.
+배포 매니페스트의 구성 후 배포에 대한 [Azure CLI를 사용하여 Azure IoT Edge 모듈 배포](../iot-edge/how-to-deploy-modules-cli.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계 
