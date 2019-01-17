@@ -215,8 +215,8 @@ module.exports = function (context, req) {
 |**type**||필수 - `token`으로 설정해야 합니다.|
 |**direction**||필수 - `in`으로 설정해야 합니다.|
 |**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나입니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
-|**userId**|**UserId**  |_identity_가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
-|**userToken**|**UserToken**|_identity_가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
+|**userId**|**UserId**  |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
+|**userToken**|**UserToken**|_identity_ 가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
 |**리소스**|**resource**|필수 - 토큰이 요청되는 Azure AD 리소스 URL입니다.|
 
 <a name="token-input-code"></a>
@@ -350,8 +350,8 @@ module.exports = function (context, req) {
 |**type**||필수 - `excel`으로 설정해야 합니다.|
 |**direction**||필수 - `in`으로 설정해야 합니다.|
 |**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나입니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
-|**userId**|**UserId**  |_identity_가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
-|**userToken**|**UserToken**|_identity_가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
+|**userId**|**UserId**  |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
+|**userToken**|**UserToken**|_identity_ 가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
 |**path**|**Path**|필수 - OneDrive에서 Excel 통합 문서의 경로입니다.|
 |**worksheetName**|**WorksheetName**|테이블이 검색되는 워크시트입니다.|
 |**tableName**|**TableName**|테이블의 이름입니다. 지정하지 않으면 워크시트의 콘텐츠가 사용됩니다.|
@@ -511,8 +511,8 @@ module.exports = function (context, req) {
 |**type**||필수 - `excel`으로 설정해야 합니다.|
 |**direction**||필수 - `out`으로 설정해야 합니다.|
 |**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나입니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
-|**UserId** |**userId** |_identity_가 `userFromId`로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
-|**userToken**|**UserToken**|_identity_가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
+|**UserId** |**userId** |_identity_ 가 `userFromId`로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
+|**userToken**|**UserToken**|_identity_ 가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
 |**path**|**Path**|필수 - OneDrive에서 Excel 통합 문서의 경로입니다.|
 |**worksheetName**|**WorksheetName**|테이블이 검색되는 워크시트입니다.|
 |**tableName**|**TableName**|테이블의 이름입니다. 지정하지 않으면 워크시트의 콘텐츠가 사용됩니다.|
@@ -656,8 +656,8 @@ module.exports = function (context, req) {
 |**type**||필수 - `onedrive`으로 설정해야 합니다.|
 |**direction**||필수 - `in`으로 설정해야 합니다.|
 |**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나입니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
-|**userId**|**UserId**  |_identity_가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
-|**userToken**|**UserToken**|_identity_가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
+|**userId**|**UserId**  |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
+|**userToken**|**UserToken**|_identity_ 가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
 |**path**|**Path**|필수 - OneDrive에서 파일의 경로입니다.|
 
 <a name="onedrive-input-code"></a>
@@ -803,8 +803,8 @@ module.exports = function (context, req) {
 |**type**||필수 - `onedrive`으로 설정해야 합니다.|
 |**direction**||필수 - `out`으로 설정해야 합니다.|
 |**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나입니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
-|**UserId** |**userId** |_identity_가 `userFromId`로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
-|**userToken**|**UserToken**|_identity_가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
+|**UserId** |**userId** |_identity_ 가 `userFromId`로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
+|**userToken**|**UserToken**|_identity_ 가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
 |**path**|**Path**|필수 - OneDrive에서 파일의 경로입니다.|
 
 <a name="onedrive-output-code"></a>
@@ -953,8 +953,8 @@ module.exports = function (context, req) {
 |**type**||필수 - `outlook`으로 설정해야 합니다.|
 |**direction**||필수 - `out`으로 설정해야 합니다.|
 |**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나입니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
-|**userId**|**UserId**  |_identity_가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
-|**userToken**|**UserToken**|_identity_가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
+|**userId**|**UserId**  |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
+|**userToken**|**UserToken**|_identity_ 가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
 
 <a name="outlook-output-code"></a>
 ### <a name="outlook-output---usage"></a>Outlook 출력 - 사용
@@ -1388,11 +1388,11 @@ module.exports = function (context, req) {
 |**type**||필수 - `graphWebhookSubscription`으로 설정해야 합니다.|
 |**direction**||필수 - `out`으로 설정해야 합니다.|
 |**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나입니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
-|**userId**|**UserId**  |_identity_가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
-|**userToken**|**UserToken**|_identity_가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
+|**userId**|**UserId**  |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
+|**userToken**|**UserToken**|_identity_ 가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
 |**action**|**작업**|필수 - 바인딩이 수행해야 하는 작업을 지정합니다. 다음 값 중 하나입니다.<ul><li><code>create</code> - 새 구독을 등록합니다.</li><li><code>delete</code> - 지정된 구독을 삭제합니다.</li><li><code>refresh</code> - 구독이 만료되지 않도록 지정된 구독을 새로 고칩니다.</li></ul>|
-|**subscriptionResource**|**SubscriptionResource**|_action_이 `create`로 설정된 경우에만 필요합니다. 변경 내용이 모니터링될 Microsoft Graph 리소스를 지정합니다. [Microsoft Graph에서 웹후크 작업]을 참조하세요. |
-|**changeType**|**ChangeType**|_action_이 `create`로 설정된 경우에만 필요합니다. 구독하는 리소스에서 알림을 발생시키는 변경 형식을 나타냅니다. 지원되는 값은 `created`, `updated`, `deleted`입니다. 쉼표로 구분된 목록을 사용하여 여러 값을 조합할 수 있습니다.|
+|**subscriptionResource**|**SubscriptionResource**|_action_ 이 `create`로 설정된 경우에만 필요합니다. 변경 내용이 모니터링될 Microsoft Graph 리소스를 지정합니다. [Microsoft Graph에서 웹후크 작업]을 참조하세요. |
+|**changeType**|**ChangeType**|_action_ 이 `create`로 설정된 경우에만 필요합니다. 구독하는 리소스에서 알림을 발생시키는 변경 형식을 나타냅니다. 지원되는 값은 `created`, `updated`, `deleted`입니다. 쉼표로 구분된 목록을 사용하여 여러 값을 조합할 수 있습니다.|
 
 ### <a name="webhook-output---usage"></a>웹후크 출력 - 사용
 
