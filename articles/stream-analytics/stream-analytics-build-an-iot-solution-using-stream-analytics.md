@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 820a918b9ab5dd7a399dc43bcfed29fb3b94e99b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971106"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321571"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Stream Analytics를 사용하여 IoT 솔루션 빌드
 
@@ -36,7 +36,7 @@ ms.locfileid: "53971106"
 ## <a name="scenario-introduction-hello-toll"></a>시나리오 소개: “Hello, Toll!”
 톨게이트 요금소는 일반적인 현상입니다. 전 세계의 많은 고속도로, 다리 및 터널에서 이러한 요금소를 만날 수 있습니다. 각 요금소에는 여러 개의 요금 창구가 있습니다. 유인 창구에서는 직원에게 요금을 지불하기 위해 멈춰야 합니다. 무인 창구에서는 차량이 톨게이트 창구를 통과할 때 각 창구 상단의 센서가 차량의 윈드쉴드에 부착된 RFID 카드를 검색합니다. 이러한 요금소를 통과하는 차량 흐름을 흥미로운 작업을 수행할 수 있는 이벤트 스트림으로 쉽게 시각화할 수 있습니다.
 
-![요금 창구에 서 있는 자동차 사진](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth .jpg)
+![요금 창구에 서 있는 자동차 사진](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth.jpg)
 
 ## <a name="incoming-data"></a>들어오는 데이터
 이 솔루션에서는 두 가지 데이터 스트림을 사용합니다. 톨게이트 요금소의 입구 및 출구에 설치된 센서가 첫 번째 스트림을 생성합니다. 두 번째 스트림은 차량 등록 데이터가 포함된 정적 조회 데이터 세트입니다.

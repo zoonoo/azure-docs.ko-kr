@@ -9,17 +9,16 @@ ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 326f0e21582c1aee03c8a44adcd709f3ddf59b0b
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: ec0211c71b8be66262ef0f19dcd1f952051c97b8
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119631"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332679"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -49,7 +48,7 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 
 ## <a name="review-usage-and-estimate-costs"></a>사용량 검토 및 비용 예상
 
-Application Insights를 사용하면 최근 사용 패턴에 따른 가능한 비용을 쉽게 파악할 수 있습니다. 시작하려면 Azure Portal에서 Application Insights 리소스의 경우 **사용량 및 예상 비용** 페이지로 이동합니다.
+Application Insights를 사용하면 최근 사용 패턴에 따른 예상 비용을 쉽게 파악할 수 있습니다. 시작하려면 Application Insights 리소스의 경우 Azure Portal에서 **사용량 및 예상 비용** 페이지로 이동합니다.
 
 ![가격 책정 선택](./media/pricing/pricing-001.png)
 
@@ -59,7 +58,7 @@ C. 지난 달의 데이터 볼륨 추세를 봅니다.
 D. 데이터 수집 [샘플링](../../azure-monitor/app/sampling.md)을 사용합니다.   
 E. 일일 데이터 볼륨 한도를 설정합니다.  
 
-Application Insights 사용량을 보다 자세히 조사하려면 **메트릭** 페이지를 열고 "데이터 요소 볼륨"이라는 메트릭을 추가한 후 *분할 적용* 옵션을 선택하여 데이터를 "원격 분석 항목 유형"에 따라 분할합니다. 
+Application Insights 사용량을 보다 자세히 조사하려면 **메트릭** 페이지를 열고, "데이터 요소 볼륨"이라는 메트릭을 추가한 다음, *분할 적용* 옵션을 선택하여 데이터를 "원격 분석 항목 유형"에 따라 분할합니다. 
 
 Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구서의 자세한 내용은 Azure Portal의 **청구** 섹션 또는 [Azure 청구 포털](https://account.windowsazure.com/Subscriptions)에서 참고할 수 있습니다. 
 
@@ -145,7 +144,7 @@ Azure Resource Management를 사용하여 가격 계획을 설정하는 스크�
 
 일일 볼륨 상한 이메일을 사용하지 않도록 설정하려면 Application Insights 리소스의 **구성** 섹션 아래에 있는 **사용량 및 예상 비용** 창에서 **일일 상한**을 선택합니다. 상한에 도달할 때, 그리고 조정 가능한 경고 수준에 도달할 때 이메일을 보내는 설정이 있습니다. 일일 상한 볼륨과 관련된 모든 이메일을 사용하지 않도록 설정하려면 확인란 선택을 취소합니다.
 
-## <a name="legacy-enterprise-pricing-plan"></a>레거시 엔터프라이즈 가격 책정 계획
+## <a name="legacy-enterprise-pricing-plan"></a>레거시 엔터프라이즈 가격 책정 요금제
 
 초기에 Azure Application Insights를 도입한 경우 Basic 및 Enterprise의 두 가지 가격 책정 요금제가 있습니다. Basic 가격 책정 요금제는 위에 설명한 것과 동일한 기본 요금제입니다. 여기에는 추가 비용 없이 모든 Enterprise 계획 기능이 포함됩니다. Basic 계획에서는 기본적으로 수집된 데이터의 볼륨에 따라 비용이 청구됩니다. 
 

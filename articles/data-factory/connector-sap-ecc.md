@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: ab9d28212e471a9fe3d59ff30a8225b7440655d7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d6a6d9b352db61d98e85c840a3ebc5cb6a832a3f
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022498"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352464"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP ECC에서 데이터 복사
 
@@ -99,7 +99,7 @@ SAP ECC에서 데이터를 복사하려면 데이터 세트의 type 속성을 **
     "name": "SapEccDataset",
     "properties": {
         "type": "SapEccResource",
-        "typePoperties": {
+        "typeProperties": {
             "path": "<entity path e.g. dd04tentitySet>"
         },
         "linkedServiceName": {

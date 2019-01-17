@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 45baa709e715cb94c8c9c6ac7548b89813c8194b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 3ec4e0b047e94dc7481c51390c6e4370fdea5efa
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195928"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258804"
 ---
 # <a name="deploy-a-virtual-machine-from-the-azure-marketplace"></a>Azure Marketplace에서 가상 머신 배포
 
@@ -43,7 +43,7 @@ ms.locfileid: "53195928"
 | vmName                | VM의 이름                                    |
 | vaultName             | Key Vault의 이름입니다.                             |
 | vaultResourceGroup    | Key Vault의 리소스 그룹입니다.                   |
-| certificateUrl        | KeyVault의 버전을 포함하는 인증서의 URL(예: https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7)입니다. |
+| certificateUrl        | KeyVault의 버전을 포함하는 인증서의 URL(예: `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7`)입니다. |
 |  |  |
 
 

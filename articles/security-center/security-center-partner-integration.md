@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
+ms.date: 1/3/2019
 ms.author: rkarlin
-ms.openlocfilehash: 97153f4e11f9346083718a83dc7bcd292dc503c7
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 25975739f7992a8e7a5318775b99d05715863ed1
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580742"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260121"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
@@ -33,29 +33,12 @@ Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게
 
 현재 통합 보안 솔루션에는 다음이 포함됩니다.
 
-- 엔드포인트 보호([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) 및 [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection))
 - 웹 애플리케이션 방화벽([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/products.html) 및 [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
 - 차세대 방화벽([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) 및 [Palo Alto Networks](https://www.paloaltonetworks.com/products))
 - 취약점 평가([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) 및 [Rapid7](https://www.rapid7.com/products/insightvm/))
 
 > [!NOTE]
 > 대부분의 보안 공급업체가 자신들의 어플라이언스에서 외부 에이전트를 실행하는 것을 금지하고 있기 때문에 Security Center는 파트너 가상 어플라이언스에 Microsoft Monitoring Agent를 설치하지 않습니다.
->
->
-
-
-| 엔드포인트 보호               | 플랫폼                             | Security Center 설치 | Security Center 검색 |
-|-----------------------------------|---------------------------------------|------------------------------|---------------------------|
-| Windows Defender(Microsoft 맬웨어 방지 프로그램)                  | Windows Server 2016                   | 아니오, OS에 기본 제공           | 예                       |
-| System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2(아래 참고 참조) | 확장을 통해                | 예                       |
-| Trend Micro - 모든 버전         | Windows Server 제품군                 | 아니요                           | 예                       |
-| Symantec v12.1.1100+              | Windows Server 제품군                 | 아니요                           | 예                       |
-| McAfee v10+                       | Windows Server 제품군                 | 아니요                           | 예                       |
-| Kaspersky                         | Windows Server 제품군                 | 아니요                           | 아니요                        |
-| Sophos                            | Windows Server 제품군                 | 아니요                           | 아니요                        |
-
-> [!NOTE]
-> Windows Server 2008 R2 가상 머신에서 SCEP(System Center Endpoint Protection)의 검색을 위해서는 PowerShell 3.0(또는 상위 버전)이 설치된 후 SCEP가 설치되어야 합니다.
 >
 >
 

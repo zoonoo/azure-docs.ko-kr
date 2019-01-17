@@ -8,24 +8,23 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 566ab8d14ebce04a2cba208dd72efc3782d5ad41
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6bfcb17d0a81c6e23c4bfa3dd4f4dd8cc3079379
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256301"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331473"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>컨테이너용 Azure Monitor 에이전트를 관리하는 방법
 컨테이너용 Azure Monitor는 Log Analytics 에이전트가 Linux용으로 컨테이너화된 버전을 사용합니다. 초기 배치 후에 수명 주기 동안 수행해야 하는 루틴 또는 선택적 작업이 있습니다. 이 문서에서는 에이전트를 수동으로 업그레이드하고 특정 컨테이너에서 환경 변수 수집을 사용하지 않도록 설정하는 방법을 자세히 설명합니다. 
 
 ## <a name="how-to-upgrade-the-azure-monitor-for-containers-agent"></a>컨테이너용 Azure Monitor 에이전트를 업그레이드하는 방법
-컨테이너용 Azure Monitor는 Log Analytics 에이전트가 Linux용으로 컨테이너화된 버전을 사용합니다. 새로운 버전의 에이전트가 릴리스되면, AKS(Azure Kubernetes Service)에 호스트된 관리되는 Kubernetes 클러스터에서 에이전트가 자동으로 업그레이드됩니다.  
+컨테이너용 Azure Monitor는 Log Analytics 에이전트가 Linux용으로 컨테이너화된 버전을 사용합니다. 새로운 버전의 에이전트가 릴리스되면 AKS(Azure Kubernetes Service)에 호스트된 관리형 Kubernetes 클러스터에서 에이전트가 자동으로 업그레이드됩니다.  
 
 에이전트 업그레이드에 실패할 경우 이 문서에서 에이전트를 수동으로 업그레이드하는 프로세스에 대해 설명합니다. 릴리스된 버전을 따르려면 [에이전트 릴리스 알림](https://github.com/microsoft/docker-provider/tree/ci_feature_prod)을 참조하세요.   
 

@@ -10,18 +10,19 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c9d6a66a9d54c75fbb20775f0ae4de4d22a7d599
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3d2019101abf1086a58d0224ab31f2aa27afe8de
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840871"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54350594"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>고객을 위해 셀프 서비스 암호 재설정 구성
+
 셀프 서비스 암호 재설정 기능을 사용하면 로컬 계정에 등록된 고객은 자체적으로 암호를 재설정할 수 있습니다. 특히 정기적으로 애플리케이션을 사용하는 수백 만 명의 고객 있는 경우 지원 담당자의 부담을 크게 줄여줍니다. 현재는 검증된 이메일 주소만 복구 방법으로 지원됩니다.
 
 > [!NOTE]
-> 이 문서는 ID 공급자로 **로컬 계정 로그인**을 사용하는 V1 **로그인** 사용자 흐름의 컨텍스트에서 사용되는 셀프 서비스 암호 재설정에 적용됩니다. 완전히 사용자 지정 가능한 암호 재설정 사용자 흐름이 앱에서 호출되어야 하는 경우 [이 문서](active-directory-b2c-reference-policies.md#create-a-password-reset-user-flow)를 참조하세요.
+> 이 문서는 ID 공급자로 **로컬 계정 로그인**을 사용하는 V1 **로그인** 사용자 흐름의 컨텍스트에서 사용되는 셀프 서비스 암호 재설정에 적용됩니다. 완전히 사용자 지정 가능한 암호 재설정 사용자 흐름이 앱에서 호출되어야 하는 경우 [이 문서](active-directory-b2c-reference-policies.md)를 참조하세요.
 > 
 > 
 

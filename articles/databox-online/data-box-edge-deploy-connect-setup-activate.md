@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e5f2ecd2cdff0ae5f3f5f086bde0741f7f6d2dbb
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: e5477807e4cff6dc745ccfd0383fd216719a7aa5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121620"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259616"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge-preview"></a>자습서: Azure Data Box Edge(미리 보기)에 연결, 설정, 활성화 
 
@@ -87,7 +87,7 @@ Data Box Edge 디바이스를 구성하고 설정하기 전에 다음 사항을 
     - 네트워크 인터페이스를 IPv4로 구성할 수 있습니다.
 
     >[!NOTE] 
-    > 디바이스에 연결할 다른 IP 주소를 없다면 네트워크 인터페이스의 로컬 IP 주소를 정적에서 DCHP로 전환하지 않는 것이 좋습니다. 하나의 네트워크 인터페이스를 사용하며 DHCP로 전환하는 경우 DHCP 주소를 확인할 방법이 없습니다. DHCP 주소로 변경하려는 경우 디바이스가 서비스에 등록될 때까지 기다렸다가 변경합니다. 서비스의 Azure Portal에 있는 **디바이스 속성**에서 모든 주소의 IP를 볼 수 있습니다.
+    > 디바이스에 연결할 다른 IP 주소가 없다면 네트워크 인터페이스의 로컬 IP 주소를 정적에서 DCHP로 전환하지 않는 것이 좋습니다. 하나의 네트워크 인터페이스를 사용하며 DHCP로 전환하는 경우 DHCP 주소를 확인할 방법이 없습니다. DHCP 주소로 변경하려는 경우 디바이스가 서비스에 등록될 때까지 기다렸다가 변경합니다. 서비스의 Azure Portal에 있는 **디바이스 속성**에서 모든 주소의 IP를 볼 수 있습니다.
 
 1. (선택 사항) 왼쪽 창에서 **웹 프록시 설정**을 선택하고 웹 프록시 서버를 구성합니다. 웹 프록시 구성은 선택 사항이지만 웹 프록시를 사용할 경우 이 페이지에서만 구성할 수 있습니다.
    
@@ -95,7 +95,7 @@ Data Box Edge 디바이스를 구성하고 설정하기 전에 다음 사항을 
    
    **웹 프록시 설정** 페이지에서 다음을 수행합니다.
    
-   a. **웹 프록시 URL** 상자에 `http://host-IP address or FDQN:Port number` 형식으로 URL을 입력합니다. HTTPS URL은 지원되지 않습니다.
+   a. **웹 프록시 URL** 상자에 `http://host-IP address or FQDN:Port number` 형식으로 URL을 입력합니다. HTTPS URL은 지원되지 않습니다.
 
    b. **인증** 아래에서 **없음** 또는 **NTLM**을 선택합니다.
 

@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 529a79fbc7b70ba6ea6a07a0ab6c523a193387a2
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 1513ea1c212d526b7fe2659855d4a80eabc9949b
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325444"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261709"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Windows 가상 머신 확장 집합에 대해 Azure Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
 
@@ -89,7 +89,7 @@ Resource Manager 템플릿에서 저장소 계정 정보를 보유하는 변수�
           "extensionProfile": { 
             "extensions": [ 
             // BEGINNING of added code  
-            // Managed identites for Azure resources   
+            // Managed identities for Azure resources   
                 { 
                  "name": "VMSS-WAD-extension", 
                  "properties": { 

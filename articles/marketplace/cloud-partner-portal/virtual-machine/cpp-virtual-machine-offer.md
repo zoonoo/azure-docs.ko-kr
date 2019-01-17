@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d51fffad897ba2658c7bee51c26e7e3be9f10e88
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bbe757ccd1d6a37cbcf04f3ecd6dd088ef1ff211
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188761"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353024"
 ---
 # <a name="virtual-machine-offer"></a>가상 머신 제안
 
@@ -32,7 +32,7 @@ ms.locfileid: "53188761"
 
 다음 [Azure Marketplace 제품 최적화](https://channel9.msdn.com/Events/Build/2017/P4026?ocid=player) 비디오에서는 이 마켓플레이스에 게시하는 방법(가상 머신 솔루션 사용), 제품 페이지 및 선택적 시험 사용 환경을 사용하여 사용자 경험을 최적화하는 방법, 사용자 잠재 고객이 생성되는 방법, 잠재 고객을 사용하고 고객 참여를 최적화하는 방법을 포함하여 Azure Marketplace에 대한 광범위한 개요를 제공합니다.
 
-> [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4026]
+> [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4026/player]
 
 
 ## <a name="vm-publishing-process-flow"></a>VM 게시 프로세스 흐름

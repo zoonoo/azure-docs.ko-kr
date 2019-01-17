@@ -2,18 +2,18 @@
 title: Hyper-V VM과 Azure 간 재해 복구를 위한 Azure Site Recovery Deployment Planner 보고서 분석 | Microsoft Docs
 description: 이 문서에서는 Hyper-V VM과 Azure 간 재해 복구를 위해 Azure Site Recovery Deployment Planner에서 생성된 보고서를 분석하는 방법을 설명합니다.
 services: site-recovery
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 4c857afb6fbec8501c1f5836935dd6e78f89e67d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: 5fbcfd102518dc231ad61c54e626c14381bf5a02
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847748"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321622"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery Deployment Planner 보고서 분석
 이 문서는 Hyper-V에서 Azure로의 복제 시나리오에 대해 Azure Site Recovery Deployment Planner에서 생성한 Excel 보고서에 포함된 시트에 대해 설명합니다.
@@ -90,7 +90,7 @@ Hyper-V에서 Azure로 보고서의 권장 사항 시트에는 선택된 원하�
 
 ### <a name="additional-on-premises-storage-requirement"></a>추가적인 온-프레미스 저장소 요구 사항
 
-성공적인 초기 복제 및 델타 복제를 위해 Hyper-V 서버에 필요한 전체 사용 가능한 저장소이며, VM 복제로 인해 프로덕션 응용 프로그램에 바람직하지 않은 가동 중지 시간이 발생하지 않도록 합니다. 각 볼륨 요구 사항에 대한 자세한 내용은 [온-프레미스 저장소 요구 사항](#on-premises-storage-requirement)을 참조하세요. 
+성공적인 초기 복제 및 델타 복제를 위해 Hyper-V 서버에 필요한 전체 사용 가능한 저장소이며, VM 복제로 인해 프로덕션 애플리케이션에 바람직하지 않은 가동 중지 시간이 발생하지 않도록 합니다. 각 볼륨 요구 사항에 대한 자세한 내용은 [온-프레미스 저장소 요구 사항](#on-premises-storage-requirement)을 참조하세요. 
 
 사용 가능한 공간이 복제에 필요한 이유를 이해하려면 [온-프레미스 저장소 요구 사항](#why-do-i-need-free-space-on-the-hyper-v-server-for-the-replication) 섹션을 참조하세요.
 
@@ -158,7 +158,7 @@ Site Recovery 복제를 위해 xMbps 이상의 대역폭을 설정할 수 없다
 
 **제안된 계정 이름**: 제안된 접두사 다음에 포함시킬 스토리지 계정 이름입니다. 꺾쇠 괄호(< 및 >) 안의 이름을 사용자 지정 입력으로 바꿉니다.
 
-**로그 스토리지 계정**: 모든 복제 로그는 표준 스토리지 계정에 저장됩니다. 프리미엄 저장소 계정에 복제하는 VM의 경우 로그 저장소에 대한 추가 표준 저장소 계정을 설정합니다. 여러 프리미엄 복제 저장소 계정에서 단일 표준 로그 저장소 계정을 사용할 수 있습니다. 표준 저장소 계정에 복제된 VM은 로그에 대해 동일한 저장소 계정을 사용합니다.
+**로그 스토리지 계정**: 모든 복제 로그는 표준 스토리지 계정에 저장됩니다. Premium Storage 계정에 복제하는 VM의 경우 로그 스토리지에 대한 추가 표준 스토리지 계정을 설정합니다. 여러 프리미엄 복제 저장소 계정에서 단일 표준 로그 저장소 계정을 사용할 수 있습니다. 표준 저장소 계정에 복제된 VM은 로그에 대해 동일한 저장소 계정을 사용합니다.
 
 **제안된 로그 계정 이름**: 제안된 접두사 다음에 포함시킬 스토리지 로그 계정 이름입니다. 꺾쇠 괄호(< 및 >) 안의 이름을 사용자 지정 입력으로 바꿉니다.
 
@@ -179,7 +179,7 @@ Site Recovery Deployment Planner에서 생성된 Excel 보고서의 "호환되�
 
 **VM 이름**: 보고서가 생성될 때 VMListFile에 사용되는 VM 이름입니다. 또한 이 열에는 VM에 연결된 디스크(VHD)가 나열됩니다. 이 이름에는 프로파일링 기간 동안 VM이 도구를 검색했을 때 VM이 있었던 Hyper-V 호스트 이름이 포함됩니다.
 
-**VM 호환성**: 값은 **예** 및 **예**\*입니다. **예**\*는 VM이 [Azure 프리미엄 저장소](https://aka.ms/premium-storage-workload)에 적합한 인스턴스에 대한 값입니다. 여기서 프로파일링된 높은 변동 또는 IOPS 디스크는 디스크에 매핑된 크기 보다 높은 프리미엄 디스크 크기에 적합합니다. 저장소 계정은 크기에 따라 디스크를 매핑할 프리미엄 저장소 디스크 유형을 결정합니다. 
+**VM 호환성**: 값은 **예** 및 **예**\*입니다. **예**\*는 VM이 [Azure Premium Storage](https://aka.ms/premium-storage-workload)에 적합한 인스턴스에 대한 값입니다. 여기서 프로파일링된 높은 변동 또는 IOPS 디스크는 디스크에 매핑된 크기 보다 높은 프리미엄 디스크 크기에 적합합니다. 저장소 계정은 크기에 따라 디스크를 매핑할 프리미엄 저장소 디스크 유형을 결정합니다. 
 * 128GB 미만은 P10입니다.
 * 128~256GB는 P15입니다.
 * 256GB ~ 512GB는 P20입니다.
@@ -187,7 +187,7 @@ Site Recovery Deployment Planner에서 생성된 Excel 보고서의 "호환되�
 * 1,025~2,048GB는 P40입니다.
 * 2,049~4,095GB는 P50입니다.
 
-예를 들어, 디스크의 워크로드 특성이 P20 또는 P30 범주에 속하지만 크기가 더 낮은 프리미엄 저장소 디스크 유형에 낮게 매핑되는 경우 도구에서 해당 VM이 **예**\*로 표시됩니다. 또한 도구에서는 원본 디스크 크기를 권장 프리미엄 저장소 디스크 유형에 맞게 변경하거나 대상 디스크 유형 사후 장애 조치를 변경할 것을 권장합니다.
+예를 들어, 디스크의 워크로드 특성이 P20 또는 P30 범주에 속하지만 크기가 더 낮은 Premium Storage 디스크 유형에 낮게 매핑되는 경우 도구에서 해당 VM이 **예**\*로 표시됩니다. 또한 도구에서는 원본 디스크 크기를 권장 Premium Storage 디스크 유형에 맞게 변경하거나 대상 디스크 유형 사후 장애 조치를 변경할 것을 권장합니다.
 
 **스토리지 유형**: 표준 또는 프리미엄입니다.
 
@@ -238,7 +238,7 @@ Site Recovery Deployment Planner에서 생성된 Excel 보고서의 "호환되�
 
 * VM은 고가용성이 아닙니다. Site Recovery는 클러스터 디스크가 아닌 로컬 디스크에 VHD가 저장된 Hyper-V 클러스터 노드의 VM을 지원하지 않습니다. 
 
-* 총 VM 크기(복제 + 테스트 장애 조치)가 지원되는 프리미엄 저장소 계정의 크기 한도(35TB)를 초과합니다. 이러한 비호환성은 일반적으로 VM의 단일 디스크가 표준 저장소에 대해 지원되는 최대 Azure 또는 Site Recovery 한도를 초과하는 성능 특성을 가지고 있는 경우에 발생합니다. 이러한 인스턴스는 VM을 프리미엄 저장소 영역에 푸시합니다. 그러나 프리미엄 저장소 계정의 최대 지원 크기는 35TB입니다. 보호된 단일 VM은 여러 저장소 계정에서 보호할 수 없습니다. 
+* 총 VM 크기(복제 + 테스트 장애 조치)가 지원되는 프리미엄 저장소 계정의 크기 한도(35TB)를 초과합니다. 이러한 비호환성은 일반적으로 VM의 단일 디스크가 표준 저장소에 대해 지원되는 최대 Azure 또는 Site Recovery 한도를 초과하는 성능 특성을 가지고 있는 경우에 발생합니다. 이러한 인스턴스는 VM을 Premium Storage 영역에 푸시합니다. 그러나 프리미엄 저장소 계정의 최대 지원 크기는 35TB입니다. 보호된 단일 VM은 여러 저장소 계정에서 보호할 수 없습니다. 
 
     보호된 VM에서 테스트 장애 조치가 실행되고 관리되지 않는 디스크가 테스트 장애 조치용으로 구성된 경우, 복제가 진행되는 동일한 저장소 계정에서 실행됩니다. 이 경우 복제와 동일한 양의 저장소 공간이 추가로 필요합니다. 그러면 병렬로 복제가 진행되고 테스트 장애 조치(failover)가 성공할 수 있습니다. 관리 디스크가 테스트 장애 조치용으로 구성된 경우, 테스트 장애 조치 VM에 대해 추가 공간을 고려할 필요가 없습니다.
 
@@ -269,7 +269,7 @@ Site Recovery Deployment Planner에서 생성된 Excel 보고서의 "호환되�
 **부팅 유형**: VM의 부팅 유형입니다. BIOS 또는 EFI일 수 있습니다.
 
 ## <a name="azure-site-recovery-limits"></a>Azure Site Recovery 제한
-다음 표에는 Site Recovery 제한이 나와 있습니다. 이러한 제한은 테스트를 기반으로 하지만 가능한 응용 프로그램 I/O 조합을 모두 다룰 수는 없습니다. 실제 결과는 응용 프로그램 I/O 조합에 따라 달라질 수 있습니다. 최상의 결과를 얻으려면 배포를 계획한 후에도 테스트 장애 조치를 실행하여 응용 프로그램의 실제 성능 그림을 가져옴으로써 광범위한 응용 프로그램 테스트를 수행합니다.
+다음 표에는 Site Recovery 제한이 나와 있습니다. 이러한 제한은 테스트를 기반으로 하지만 가능한 애플리케이션 I/O 조합을 모두 다룰 수는 없습니다. 실제 결과는 애플리케이션 I/O 조합에 따라 달라질 수 있습니다. 최상의 결과를 얻으려면 배포를 계획한 후에도 테스트 장애 조치를 실행하여 애플리케이션의 실제 성능 그림을 가져옴으로써 광범위한 애플리케이션 테스트를 수행합니다.
  
 **복제 저장소 대상** | **원본 VM 평균 I/O 크기** |**원본 VM 평균 데이터 변동** | **일일 총 원본 VM 데이터 변동**
 ---|---|---|---
@@ -281,7 +281,7 @@ Premium Storage | 16KB 이상| VM당 10MB/s | VM당 842GB
 
 ## <a name="on-premises-storage-requirement"></a>온-프레미스 저장소 요구 사항
 
-워크시트에 성공적인 초기 복제 및 델타 복제를 위해 Hyper-V 서버(VHD가 상주하는)의 각 볼륨에 대해 사용 가능한 총 저장소 공간 요구 사항이 제공됩니다. 복제를 사용하도록 설정하기 전에 볼륨에 필요한 저장소 공간을 추가하여 복제로 인해 프로덕션 응용 프로그램에 바람직하지 않은 가동 중지 시간이 발생하지 않도록 합니다. 
+워크시트에 성공적인 초기 복제 및 델타 복제를 위해 Hyper-V 서버(VHD가 상주하는)의 각 볼륨에 대해 사용 가능한 총 저장소 공간 요구 사항이 제공됩니다. 복제를 사용하도록 설정하기 전에 볼륨에 필요한 저장소 공간을 추가하여 복제로 인해 프로덕션 애플리케이션에 바람직하지 않은 가동 중지 시간이 발생하지 않도록 합니다. 
 
   Site Recovery Deployment Planner는 복제에 사용되는 VHD 크기 및 네트워크 대역폭에 따라 최적의 저장소 공간 요구 사항을 식별합니다.
 

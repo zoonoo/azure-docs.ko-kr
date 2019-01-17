@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d95534cceb11f7bf20f6966e0205694fc1db021d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: af528f210f4464c973d88fab7eeb1572effc87bc
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017602"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330401"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cosmos DB 간 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,9 +28,9 @@ ms.locfileid: "54017602"
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우 [V2의 Azure Cosmos DB 커넥터](../connector-azure-cosmos-db.md)를 참조하세요.
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure Cosmos DB(SQL API) 간에 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다. 
+이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure Cosmos DB(SQL API) 간에 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
-모든 지원되는 원본 데이터 저장소에서 Azure Cosmos DB로 또는 Azure Cosmos DB에서 모든 지원되는 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본 또는 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요. 
+모든 지원되는 원본 데이터 저장소에서 Azure Cosmos DB로 또는 Azure Cosmos DB에서 모든 지원되는 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본 또는 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요.
 
 > [!IMPORTANT]
 > Azure Cosmos DB 커넥터만 SQL API를 지원합니다.
@@ -42,17 +42,17 @@ JSON 파일 또는 다른 Cosmos DB 컬렉션으로/에서 있는 그대로 데�
 
 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 단계별 지침은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습을 볼 수 있습니다.
 
-또한 다음 도구를 사용하여 파이프라인을 만들 수 있습니다. **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager 템플릿**, **.NET API** 및 **REST API** 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요. 
+또한 다음 도구를 사용하여 파이프라인을 만들 수 있습니다. **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager 템플릿**, **.NET API** 및 **REST API** 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
-도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다. 
+도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
 1. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결하는 **연결된 서비스**를 만듭니다.
-2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 세트**를 만듭니다. 
-3. 입력으로 데이터 세트를, 출력으로 데이터 세트를 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다. 
+2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 세트**를 만듭니다.
+3. 입력으로 데이터 세트를, 출력으로 데이터 세트를 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다.
 
-마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  다른 곳에서 Cosmos DB로 또는 그 반대로 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의가 포함된 샘플은 이 문서의 [JSON 예제](#json-examples) 섹션을 참조하세요. 
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다. 다른 곳에서 Cosmos DB로 또는 그 반대로 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의가 포함된 샘플은 이 문서의 [JSON 예제](#json-examples) 섹션을 참조하세요.
 
-다음 섹션에서는 Cosmos DB에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다. 
+다음 섹션에서는 Cosmos DB에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 Azure Cosmos DB 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
@@ -105,7 +105,7 @@ typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데�
 }
 ```
 ### <a name="schema-by-data-factory"></a>Data Factory에서의 스키마
-Azure Cosmos DB와 같은 스키마 없는 데이터 저장소의 경우 Data Factory 서비스는 다음 방법 중 하나로 스키마를 유추합니다.  
+Azure Cosmos DB와 같은 스키마 없는 데이터 저장소의 경우 Data Factory 서비스는 다음 방법 중 하나로 스키마를 유추합니다.
 
 1. 데이터 세트 정의에서 **구조** 속성을 사용하여 데이터의 구조를 지정하는 경우 Data Factory 서비스는 이 구조를 스키마로 인식합니다. 이 경우 행에 열의 값이 포함되어 있지 않으면 null 값이 제공됩니다.
 2. 데이터 세트 정의에서 **구조** 속성을 사용하여 데이터의 구조를 지정하지 않는 경우 Data Factory 서비스는 데이터의 첫 번째 행을 사용하여 스키마를 유추합니다. 이 경우 첫 번째 행에 전체 스키마가 포함되어 있지 않으면 일부 열이 복사 작업의 결과에서 누락됩니다.
@@ -142,7 +142,7 @@ Azure Cosmos DB와 같은 스키마 없는 데이터 저장소의 경우 Data Fa
 * Cosmos DB 컬렉션에서 다양한 파일 기반 저장소로 JSON 문서 내보내기
 * 두 Cosmos DB 컬렉션 간에 데이터를 있는 그대로 마이그레이션
 
-이러한 스키마 독립적 복사를 수행하려면 
+이러한 스키마 독립적 복사를 수행하려면
 * 복사 마법사를 사용할 경우 **"JSON 파일 또는 Cosmos DB 컬렉션으로 있는 그대로 내보내기"** 옵션을 선택합니다.
 * JSON 편집을 사용할 때 복사 작업에서 Cosmos DB 데이터 세트에서 "structure" 섹션을 지정하지 않고 Cosmos DB 원본/싱크에 대한 "nestingSeparator" 속성도 지정하지 않아야 합니다. JSON 파일에서 가져오거나 이 파일로 내보내려면 파일 저장소 데이터 세트에서 형식을 "JsonFormat"으로, 구성을 "filePattern"으로 지정한 후 나머지 형식 설정을 건너뜁니다. 자세한 내용은 [JSON 형식](data-factory-supported-file-and-compression-formats.md#json-format) 섹션을 참조하세요.
 
@@ -173,7 +173,7 @@ Azure Cosmos DB와 같은 스키마 없는 데이터 저장소의 경우 Data Fa
   }
 }
 ```
-**Azure Blob 저장소 연결된 서비스:**
+**Azure Blob Storage 연결된 서비스:**
 
 ```JSON
 {
@@ -249,13 +249,13 @@ Cosmos DB 데이터베이스의 사용자 컬렉션에서 샘플 JSON 문서:
 ```
 Cosmos DB는 계층적 JSON 문서에 대한 구문과 같이 SQL을 사용하여 쿼리 문서를 지원합니다.
 
-예제: 
+예제:
 
 ```sql
 SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person
 ```
 
-다음 파이프라인은 Azure Cosmos DB 데이터베이스의 Person 컬렉션에서 Azure blob에 데이터를 복사합니다. 복사 작업의 부분인 입력 및 출력 데이터 세트가 지정되었습니다.  
+다음 파이프라인은 Azure Cosmos DB 데이터베이스의 Person 컬렉션에서 Azure blob에 데이터를 복사합니다. 복사 작업의 부분인 입력 및 출력 데이터 세트가 지정되었습니다.
 
 ```JSON
 {
@@ -298,7 +298,7 @@ SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as Mi
   }
 }
 ```
-## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>예제: Azure Blob에서 Azure Cosmos DB로 데이터 복사 
+## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>예제: Azure Blob에서 Azure Cosmos DB로 데이터 복사
 아래 샘플은 다음을 보여줍니다.
 
 1. [DocumentDb](#azure-documentdb-linked-service-properties)형식의 연결된 서비스입니다.
@@ -309,7 +309,7 @@ SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as Mi
 
 이 샘플은 Azure Blob에서 Azure Cosmos DB로 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
-**Azure Blob 저장소 연결된 서비스:**
+**Azure Blob Storage 연결된 서비스:**
 
 ```JSON
 {
@@ -434,7 +434,7 @@ SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as Mi
             "nestingSeparator": ".",
             "writeBatchSize": 2,
             "writeBatchTimeout": "00:00:00"
-          }
+          },
           "translator": {
               "type": "TabularTranslator",
               "ColumnMappings": "FirstName: Name.First, MiddleName: Name.Middle, LastName: Name.Last, BusinessEntityID: BusinessEntityID, PersonType: PersonType, NameStyle: NameStyle, Title: Title, Suffix: Suffix, EmailPromotion: EmailPromotion, rowguid: rowguid, ModifiedDate: ModifiedDate"
@@ -487,7 +487,7 @@ Azure Cosmos DB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장�
     **답변:**  아니요.
 2. **질문:** Azure Cosmos DB로 복사 재시도는 이미 복사된 레코드를 어떻게 처리하나요?
 
-    **답변:** 레코드에 "ID" 필드가 있고 복사 작업이 동일한 ID를 가진 레코드를 삽입하려고 시도하는 경우 복사 작업에서 오류가 발생합니다.  
+    **답변:** 레코드에 "ID" 필드가 있고 복사 작업이 동일한 ID를 가진 레코드를 삽입하려고 시도하는 경우 복사 작업에서 오류가 발생합니다.
 3. **질문:** Data Factory는 [범위 또는 해시 기반 데이터 분할](../../cosmos-db/sql-api-partition-data.md)을 지원합니까?
 
     **답변:**  아니요.

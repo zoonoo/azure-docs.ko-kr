@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/08/2019
-ms.openlocfilehash: 9e153cca321e94233cfda2a03cf52ba85a0f6b02
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.date: 01/15/2019
+ms.openlocfilehash: e9f1b1a3df92c08b913a56aadc8eb8a9e80c7fdf
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102808"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320058"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Azure Database Migration Service에서 지원하는 마이그레이션 시나리오 상태
 Azure Database Migration Service는 오프라인(일회성) 및 온라인(연속 동기화) 마이그레이션 둘 다에 대한 다양한 마이그레이션 시나리오(원본/대상 쌍)를 지원하도록 디자인되었습니다. Azure Database Migration Service가 제공하는 시나리오 범위는 시간에 따라 확장되고 있습니다. 새로운 시나리오를 정기적으로 추가되고 있습니다. 이 문서는 현재 Azure Database Migration Service에서 지원하는 마이그레이션 시나리오와 상태(비공개[또는 제한된] 미리 보기, 공개 미리 보기 또는 일반 공급)를 설명합니다.
@@ -45,10 +45,10 @@ Azure Database Migration Service에서 지원하는 각 마이그레이션 시�
 | **Azure SQL DB MI**  | SQL Server  | ✔ |
 |   | RDS SQL  | ✔ |
 |   | Oracle  | ✔  |
-| **Azure SQL VM**  | SQL Server  | ✔ |
+| **Azure SQL VM**  | SQL Server | ✔ |
 |   | Oracle  |   |
-| **Cosmos DB**  | MongoDB  | ✔ |
-| **Azure DB for MySQL**  | MySLQ  |  |
+| **Cosmos DB**  | MongoDB | ✔ |
+| **Azure DB for MySQL**  | MySQL |  |
 |   | RDS MySQL  |  |
 | **Azure DB for PostgresSQL**  | PostgreSQL |  |
 |  | RDS PostgreSQL  |  |
@@ -67,7 +67,7 @@ Azure Database Migration Service에서 지원하는 각 마이그레이션 시�
 | **Azure SQL VM**  | SQL Server  |   |
 |   | Oracle  | ✔  |
 | **Cosmos DB**  | MongoDB  | ✔ |
-| **Azure DB for MySQL**  | MySLQ  | ✔ |
+| **Azure DB for MySQL**  | MySQL | ✔ |
 |   | RDS MySQL  | ✔ |
 | **Azure DB for PostgresSQL**  | PostgreSQL | ✔ |
 |  | RDS PostgreSQL  | ✔ |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 08ad8964fee2d94677832fa664ed2e18cb9f772c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 88cd6bac85a8f255c33c1834485b8f90a04b8ee4
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104984"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305386"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Azure 리소스에서 로그 데이터 수집 및 소비
 
@@ -234,5 +234,5 @@ Azure Monitor REST API를 사용하여 진단 설정을 변경하려면 [이 문
 ## <a name="next-steps"></a>다음 단계
 
 * [**Event Hubs**로 리소스 진단 로그 스트림](diagnostic-logs-stream-event-hubs.md)
-* [Azure Monitor REST API를 사용하여 리소스 진단 설정 변경](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+* [Azure Monitor REST API를 사용하여 리소스 진단 설정 변경](https://docs.microsoft.com/rest/api/monitor/)
 * [Azure Storage에서 Log Analytics를 사용하여 로그 분석](../../azure-monitor/platform/collect-azure-metrics-logs.md)

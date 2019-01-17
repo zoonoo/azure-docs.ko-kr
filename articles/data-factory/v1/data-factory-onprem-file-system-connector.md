@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1cd7e504a614203218cb06b337becf36b992cf1d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 2d586f28b426732433c027c950f8193e7503c72b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018231"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330809"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Azure Data Factory를 통한 온-프레미스 파일 시스템에서의 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ ms.locfileid: "54018231"
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 > [!NOTE]
-> 복사 작업 시 원본 파일이 대상에 성공적으로 복사된 후 원본 파일이 삭제되지 않습니다. 성공적 복사 후 원본 파일을 삭제해야 할 경우 파일을 삭제하는 사용자 지정 작업을 만들고 파이프라인에서 해당 작업을 사용합니다. 
+> 복사 작업 시 원본 파일이 대상에 성공적으로 복사된 후 원본 파일이 삭제되지 않습니다. 성공적 복사 후 원본 파일을 삭제해야 할 경우 파일을 삭제하는 사용자 지정 작업을 만들고 파이프라인에서 해당 작업을 사용합니다.
 
 ## <a name="enabling-connectivity"></a>연결 사용
 Data Factory는 **데이터 관리 게이트웨이**를 통해 온-프레미스 파일 시스템 간의 연결을 지원합니다. Data Factory 서비스에서 파일 시스템을 비롯한 지원되는 온-프레미스 데이터 저장소에 연결하도록 허용하려면 온-프레미스 환경에 데이터 관리 게이트웨이를 설치해야 합니다. 데이터 관리 게이트웨이 및 단계별 게이트웨이 설정 지침을 알아보려면 [온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요. 데이터 관리 게이트웨이와 달리 온-프레미스 파일 시스템과 통신하기 위해 다른 이진 파일을 설치할 필요가 없습니다. 파일 시스템이 Azure IaaS VM인 경우에도 데이터 관리 게이트웨이를 설치하여 사용해야 합니다. 게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 참조하세요.
@@ -57,7 +57,7 @@ Linux 파일 공유를 사용하려면 Linux 서버에 [Samba](https://www.samba
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
-1. **데이터 팩터리**를 만듭니다. 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 
+1. **데이터 팩터리**를 만듭니다. 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다.
 2. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결하는 **연결된 서비스**를 만듭니다. 예를 들어 Azure Blob Storage에서 온-프레미스 파일 시스템으로 데이터를 복사하는 경우 온-프레미스 파일 시스템 및 Azure Storage 계정을 데이터 팩터리에 연결하는 두 개의 연결된 서비스를 만듭니다. 온-프레미스 파일 시스템과 관련된 연결된 서비스 속성은 [연결된 서비스 속성](#linked-service-properties) 섹션을 참조하세요.
 3. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 세트**를 만듭니다. 마지막 단계에서 설명한 예제에서는 입력 데이터가 포함된 BLOB 컨테이너 및 폴더를 지정하는 데이터 세트를 만듭니다. 또한 파일 시스템의 폴더 및 파일 이름(선택 사항)을 지정하는 다른 데이터 세트를 만듭니다. 온-프레미스 파일 시스템과 관련된 데이터 세트 속성은 [데이터 세트 속성](#dataset-properties) 섹션을 참조하세요.
 4. 입력으로 데이터 세트를, 출력으로 데이터 세트를 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다. 앞에서 언급한 예에서는 BlobSource를 원본으로, FileSystemSink를 복사 작업의 싱크로 사용합니다. 마찬가지로, 온-프레미스 파일 시스템에서 Azure Blob Storage로 복사하는 경우 복사 작업에 FileSystemSource 및 BlobSink를 사용합니다. 온-프레미스 파일 시스템과 관련된 복사 작업 속성은 [복사 작업 속성](#copy-activity-properties) 섹션을 참조하세요. 원본 또는 싱크로 데이터 저장소를 사용하는 방법에 대 한 자세한 내용을 보려면 데이터 저장소에 대한 이전 섹션의 링크를 클릭하세요.
@@ -161,7 +161,7 @@ typeProperties 섹션은 데이터 세트의 각 형식마다 다릅니다. 데�
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
 "partitionedBy":
- [
+[
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
     { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
@@ -204,10 +204,10 @@ typeProperties 섹션은 데이터 세트의 각 형식마다 다릅니다. 데�
 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md) 문서를 참조하세요.
 
 ## <a name="json-examples-for-copying-data-to-and-from-file-system"></a>파일 시스템으로/에서 데이터를 복사하는 JSON 예제
-다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공하며, 온-프레미스 파일 시스템과 Azure Blob 저장소 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하면 데이터를 원본에서 [지원되는 원본 및 싱크](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 나열된 싱크 중 하나로 *직접* 복사할 수 있습니다.
+다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공하며, 온-프레미스 파일 시스템과 Azure Blob Storage 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하면 데이터를 원본에서 [지원되는 원본 및 싱크](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 나열된 싱크 중 하나로 *직접* 복사할 수 있습니다.
 
 ### <a name="example-copy-data-from-an-on-premises-file-system-to-azure-blob-storage"></a>예제: 온-프레미스 파일 시스템에서 Azure Blob Storage로 데이터 복사
-이 샘플에서는 온-프레미스 파일 시스템에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 샘플에 포함된 Data Factory 엔터티는 다음과 같습니다.
+이 샘플에서는 온-프레미스 파일 시스템에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 샘플에 포함된 Data Factory 엔터티는 다음과 같습니다.
 
 * [OnPremisesFileServer](#linked-service-properties)형식의 연결된 서비스
 * [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
@@ -215,7 +215,7 @@ typeProperties 섹션은 데이터 세트의 각 형식마다 다릅니다. 데�
 * [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
 * [FileSystemSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
-여기서는 매시간 시계열 데이터를 온-프레미스 파일 시스템에서 Azure Blob 저장소로 복사합니다. 샘플에 사용된 JSON 속성은 샘플 뒤에 나오는 섹션에서 설명합니다.
+여기서는 매시간 시계열 데이터를 온-프레미스 파일 시스템에서 Azure Blob Storage로 복사합니다. 샘플에 사용된 JSON 속성은 샘플 뒤에 나오는 섹션에서 설명합니다.
 
 첫 단계로 [온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)의 지침에 따라 데이터 관리 게이트웨이를 설정해야 합니다.
 
@@ -254,7 +254,7 @@ typeProperties 섹션은 데이터 세트의 각 형식마다 다릅니다. 데�
 
 **온-프레미스 파일 시스템 입력 데이터 세트:**
 
-데이터는 매시간 새 파일에서 선택됩니다. folderPath 및 fileName 속성은 조각의 시작 시간에 따라 결정됩니다.  
+데이터는 매시간 새 파일에서 선택됩니다. folderPath 및 fileName 속성은 조각의 시작 시간에 따라 결정됩니다.
 
 `"external": "true"`로 설정하면 데이터 세트가 Data Factory의 외부에 있고 Data Factory의 활동으로 생성되지 않는다고 Data Factory에 전달됩니다.
 
@@ -318,7 +318,7 @@ typeProperties 섹션은 데이터 세트의 각 형식마다 다릅니다. 데�
 }
 ```
 
-**Azure Blob 저장소 출력 데이터 세트:**
+**Azure Blob Storage 출력 데이터 집합:**
 
 데이터는 1시간마다 새 blob에 기록됩니다(frequency: hour, interval: 1). Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간의 년, 월, 일 및 시 부분을 사용합니다.
 
@@ -383,13 +383,13 @@ typeProperties 섹션은 데이터 세트의 각 형식마다 다릅니다. 데�
 파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **FileSystemSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2015-06-01T18:00:00",
     "end":"2015-06-01T19:00:00",
     "description":"Pipeline for copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "OnpremisesFileSystemtoBlob",
         "description": "copy activity",
@@ -423,8 +423,8 @@ typeProperties 섹션은 데이터 세트의 각 형식마다 다릅니다. 데�
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
 
@@ -572,13 +572,13 @@ typeProperties 섹션은 데이터 세트의 각 형식마다 다릅니다. 데�
 파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **SqlSource**로 설정되고 **sink** 형식은 **FileSystemSink**로 설정됩니다. **SqlReaderQuery** 속성에 지정된 SQL 쿼리는 복사할 과거 한 시간의 데이터를 선택합니다.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2015-06-01T18:00:00",
     "end":"2015-06-01T20:00:00",
     "description":"pipeline for copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "AzureSQLtoOnPremisesFile",
         "description": "copy activity",
@@ -613,11 +613,10 @@ typeProperties 섹션은 데이터 세트의 각 형식마다 다릅니다. 데�
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
-
 
 복사 작업 정의에서 원본 데이터 세트의 열을 싱크 데이터 세트의 열로 매핑할 수 있습니다. 자세한 내용은 [Azure Data Factory에서 데이터 세트 열 매핑](data-factory-map-columns.md)을 참조하세요.
 

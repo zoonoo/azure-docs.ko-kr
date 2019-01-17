@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 48c6fb178b61fd65e0fbf6122d541bef5e3e9830
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: adc006e4c247713aa7d5cbca6a25023fd5a1b50c
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014389"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352668"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Dynamics AX에서 데이터 복사(미리 보기)
 
@@ -110,7 +110,7 @@ Dynamics AX에서 데이터를 복사하려면 데이터 세트의 **type** 속�
     "name": "DynamicsAXResourceDataset",
     "properties": {
         "type": "DynamicsAXResource",
-        "typePoperties": {     
+        "typeProperties": {     
             "path": "<entity path e.g. dd04tentitySet>"
         },
         "linkedServiceName": {

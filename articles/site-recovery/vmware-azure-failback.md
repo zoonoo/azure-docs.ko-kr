@@ -1,17 +1,18 @@
 ---
 title: Azure Site Recovery를 사용하여 Azure로 VMware VM 재해 복구 중에 Azure에서 장애 복구(Failback) | Microsoft Docs
 description: Azure로 VMware VM 및 물리적 서버의 재해 복구 중에 Azure로 장애 조치(Failover)한 후 온-프레미스 사이트로 장애 복구(Failback)하는 방법을 알아봅니다.
-author: nsoneji
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
-ms.author: nisoneji
-ms.openlocfilehash: 1c5d5b97465c6747e5f766a1ce8272579d37993d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: 7773a2f43eb076075be484d92fde31094a2b584b
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850281"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320041"
 ---
 # <a name="fail-back-vmware-vms-and-physical-servers-from-azure-to-an-on-premises-site"></a>Azure에서 온-프레미스 사이트로 VMWare VM 및 물리적 서버 장애 복구(Failback)
 

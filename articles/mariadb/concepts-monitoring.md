@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: 476e74a4d167fb3e9158f07cc5c073f129a74daa
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2ad641ae054f9542ec1ef42f5ebbe724ba4ecf87
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545895"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354028"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 모니터링
 서버에 대한 데이터를 모니터링하면 워크로드에 대한 문제를 해결하고 최적화할 수 있습니다. Azure Database for MariaDB는 서버의 동작에 대한 인사이트를 제공하는 다양한 메트릭을 제공합니다.
@@ -19,7 +19,7 @@ ms.locfileid: "53545895"
 ## <a name="metrics"></a>메트릭
 모든 Azure 메트릭의 빈도는 1분이고 각 메트릭은 30일의 기록을 제공합니다. 메트릭에 대한 경고를 구성할 수 있습니다. 다른 작업에는 자동화된 작업 설정, 고급 분석 수행 및 기록 보관이 포함됩니다. 자세한 내용은 [Azure 메트릭 개요] (../monitoring-and-diagnostics/monitoring-overview-metrics.md)를 참조하세요.
 
-<!--For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). -->
+단계별 지침은 [How to set up alerts](howto-alert-metric.md)(경고를 설정하는 방법)를 참조하세요.
 
 ### <a name="list-of-metrics"></a>메트릭 목록
 Azure Database for MariaDB에서는 다음 메트릭을 사용할 수 있습니다.
@@ -45,5 +45,4 @@ Azure Database for MariaDB에서는 다음 메트릭을 사용할 수 있습니�
 
 ## <a name="next-steps"></a>다음 단계
 - Azure Portal, REST API 또는 CLI를 사용하여 메트릭에 액세스하고 내보내는 방법에 대한 자세한 내용은 [Azure 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)를 참조하세요.
-
-<!-- - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.-->
+ - 메트릭에 대한 경고 생성에 대한 지침은 [경고를 설정하는 방법](howto-alert-metric.md)을 참조하세요.

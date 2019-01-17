@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/17/2018
-ms.openlocfilehash: bc4e27f45b905e00c1c809a781a5cf034a0da8ca
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/15/2019
+ms.openlocfilehash: 7e688abbe1b8188cb85e5762086009522b5b7d39
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543810"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332084"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Azure SQL Database의 JSON 기능 시작
 Azure SQL Database를 사용하면 [JSON](http://www.json.org/) (JavaScript Object Notation) 형식으로 표현된 데이터를 구문 분석 및 쿼리하고 관계형 데이터를 JSON 텍스트로 내보낼 수 있습니다. 다음 JSON 시나리오는 Azure SQL Database에서 사용할 수 있습니다.
@@ -175,7 +175,7 @@ AS BEGIN
 
     insert into Orders(Number, Date, Customer, Quantity)
     select Number, Date, Customer, Quantity
-    OPENJSON (@orders)
+    FROM OPENJSON (@orders)
      WITH (
             Number varchar(200),
             Date datetime,

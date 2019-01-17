@@ -3,7 +3,7 @@ title: SQL VM에서 관리 작업 자동화(클래식) | Microsoft 문서
 description: 이 항목에서는 특정 SQL Server 관리 작업을 자동화하는 SQL Server 에이전트 확장을 관리하는 방법을 설명합니다. 여기에는 자동화된 Backup, 자동화된 패치 적용 및 Azure Key Vault 통합이 포함됩니다. 이 항목에서는 클래식 배포 모드를 사용합니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
-ms.author: jroth
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 55a31d7a0ab603dd7fe7de514d11d003e044240a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 2b719185aabd39cd70b9cb890a9599aa06ca4ff4
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008334"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330537"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>SQL Server 에이전트 확장을 사용하여 Azure Virtual Machines에서 관리 작업 자동화(클래식)
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "39008334"
 관리 작업을 자동화하기 위해 Azure 가상 머신에서 SQL Server IaaS 에이전트 확장(SQLIaaSAgent)을 실행합니다. 이 항목에서는 설치, 상태 및 제거에 대한 지침뿐만 아니라 확장에 의해 지원되는 서비스의 개요를 제공합니다.
 
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. 이 문서의 Resource Manager 버전을 보려면 [SQL Server VM Resource Manager에 대한 SQL Server 에이전트 확장](../sql/virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
+> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. 이 문서의 Resource Manager 버전을 보려면 [SQL Server VM Resource Manager에 대한 SQL Server 에이전트 확장](../sql/virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
 
 ## <a name="supported-services"></a>지원되는 서비스
 SQL Server IaaS 에이전트 확장은 다음 관리 작업을 지원합니다.

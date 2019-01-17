@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.component: ''
-ms.openlocfilehash: c11bd2cc5f660ec72aa35ea21a378e6afb7d604a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0f08101c7948d7f3e211f8764458c2eaeacb0859
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53439770"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330622"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API 연습
 이 문서에서는 [Microsoft Azure Monitor REST API 참조](https://msdn.microsoft.com/library/azure/dn931943.aspx)를 사용할 수 있도록 인증을 수행하는 방법을 살펴봅니다.         
@@ -54,7 +54,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-Azure Monitor API를 쿼리하려면 클라이언트 응용 프로그램이 이전에 만든 서비스 주체를 인증에 사용해야 합니다. 다음 예제 PowerShell 스크립트에서는 JWT 인증 토큰을 가져오기 위해 ADAL([Active Directory 인증 라이브러리](../../active-directory/develop/active-directory-authentication-libraries.md))을 사용하는 방법을 보여줍니다. JWT 토큰은 Azure Monitor REST API에 대한 요청에서 HTTP 권한 부여 매개 변수의 일부로 전달됩니다.
+Azure Monitor API를 쿼리하려면 클라이언트 애플리케이션이 이전에 만든 서비스 주체를 인증에 사용해야 합니다. 다음 예제 PowerShell 스크립트에서는 JWT 인증 토큰을 가져오기 위해 ADAL([Active Directory 인증 라이브러리](../../active-directory/develop/active-directory-authentication-libraries.md))을 사용하는 방법을 보여줍니다. JWT 토큰은 Azure Monitor REST API에 대한 요청에서 HTTP 권한 부여 매개 변수의 일부로 전달됩니다.
 
 ```PowerShell
 $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://localhost/azure-monitor"
@@ -389,7 +389,7 @@ $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-x
 Invoke-RestMethod -Uri $request `
                   -Headers $authHeader `
                   -Method Get `
-                  -OutFile ".\contostweets-metricdef-results.json" `
+                  -OutFile ".\contosotweets-metricdef-results.json" `
                   -Verbose
 ```
 > [!NOTE]
@@ -459,7 +459,7 @@ $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-x
 Invoke-RestMethod -Uri $request `
     -Headers $authHeader `
     -Method Get `
-    -OutFile ".\contostweets-metrics-results.json" `
+    -OutFile ".\contosotweets-metrics-results.json" `
     -Verbose
 ```
 
@@ -507,7 +507,7 @@ $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-x
 Invoke-RestMethod -Uri $request `
     -Headers $authHeader `
     -Method Get `
-    -OutFile ".\contostweets-metrics-multiple-results.json" `
+    -OutFile ".\contosotweets-metrics-multiple-results.json" `
     -Verbose
 ```
 결과 JSON 응답 본문은 다음 예제와 유사합니다.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 1d4760eb6490ce458e699ad9bc59a57cb473ef6d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 8ccd2bfe78ca7b0fabac2b8c9bfd6ba002782a41
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104125"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352821"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결
 
@@ -100,7 +100,7 @@ Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](https
 |OPINSIGHTS_PROXY_USERNAME               | 인증된 프록시에 액세스할 사용자 이름 |
 |OPINSIGHTS_PROXY_PASSWORD               | 인증된 프록시에 액세스할 암호 |
 
-1. 에이전트 설치 파일을 추출하려면 관리자 권한 명령 프롬프트에서 `MMASetup-<platform>.exe /c`를 실행합니다. 그러면 파일을 추출할 경로를 묻은 메시지가 표시됩니다.  `MMASetup-<platform>.exe /c /t:<Path>` 인수를 전달하여 경로를 지정할 수도 있습니다.  
+1. 에이전트 설치 파일을 추출하려면 관리자 권한 명령 프롬프트에서 `MMASetup-<platform>.exe /c`를 실행합니다. 그러면 파일을 추출할 경로를 묻은 메시지가 표시됩니다.  `MMASetup-<platform>.exe /c /t:<Full Path>` 인수를 전달하여 경로를 지정할 수도 있습니다.  
 2. 에이전트를 자동으로 설치하고 Azure 상용 클라우드에 보고하도록 구성하려면 설치 프로그램 파일을 추출한 폴더에서 다음을 입력합니다. 
    
      ```dos

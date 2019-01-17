@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9c163ddf7859246fcdaa28edfd4b598a24a32be2
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 48be60a7ba5770f8c329cb6323a5caa8fcf7f961
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195799"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265059"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>사용자 VHD에서 Azure VM 배포
 
@@ -41,7 +41,7 @@ ms.locfileid: "53195799"
 | vmName                     | 가상 머신의 이름입니다.                                                    |
 | vaultName                  | Key Vault의 이름입니다.                                                          |
 | vaultResourceGroup         | Key Vault의 리소스 그룹입니다.
-| certificateUrl             | Key Vault에 저장된 버전을 포함하는 인증서의 URL(예: https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7) |
+| certificateUrl             | Key Vault에 저장된 버전을 포함하는 인증서의 URL(예: `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7`) |
 | vhdUrl                     | 가상 하드 디스크의 URL입니다.                                                   |
 | vmSize                     | 가상 머신 인스턴스의 크기입니다.                                           |
 | publicIPAddressName        | 공용 IP 주소의 이름입니다.                                                  |

@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: fb1ac992f174327d08a606549da7b2b094a7a88e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 62be7412c93b846980ffab00b9964585e3644140
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157992"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319203"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -326,11 +326,11 @@ pipeline_run.wait_for_completion()
 
 3. 이 파이프라인을 게시하면 호출 시 매개 변수를 허용합니다.
 
-```python
-published_pipeline1 = pipeline1.publish(
-    name="My_Published_Pipeline", 
-    description="My Published Pipeline Description")
-```
+   ```python
+   published_pipeline1 = pipeline1.publish(
+       name="My_Published_Pipeline", 
+       description="My Published Pipeline Description")
+   ```
 
 ## <a name="run-a-published-pipeline"></a>게시된 파이프라인 실행
 

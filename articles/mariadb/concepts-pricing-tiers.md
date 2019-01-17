@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b85737adb8f1c9481fb4b7b2005d2856d2bce9f5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: bb6e27f92f60712cce71ba6fca53b40af00ee714
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544586"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354453"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB 가격 책정 계층
 
@@ -53,8 +53,7 @@ Azure Database for MariaDB 서버는 기본, 범용 및 메모리 최적화의 �
 
 추가 저장소 용량은 서버를 만드는 동안 및 그 후에 추가할 수 있습니다. 기본 계층에서는 IOPS 보장을 제공하지 않습니다. 범용 및 메모리 최적화 가격 책정 계층에서 IOPS의 크기는 프로비전된 저장소 크기와 3:1 비율로 조정됩니다.
 
-Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터링할 수 있습니다. 모니터링할 관련 메트릭은 저장소 용량 한도, 저장소 비율, 사용된 저장소 및 IO 백분율입니다.
-<!--[storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md)-->
+Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터링할 수 있습니다. 모니터링할 관련 메트릭은 [저장소 제한, 저장소 비율, 저장소 사용됨 및 IO 백분율](concepts-monitoring.md)입니다.
 
 ### <a name="reaching-the-storage-limit"></a>저장소 제한에 도달
 
@@ -64,7 +63,7 @@ Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터�
 
 서버 저장소가 임계값에 근접하는 경우 읽기 전용 상태로 들어가는 것을 방지할 수 있도록 알림 경고를 설정하는 것이 좋습니다. 
 
-<!--For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).-->
+자세한 내용은 [경고 설정 방법](howto-alert-metric.md)에 관한 설명서를 참조하세요.
 
 ## <a name="backup"></a>Backup
 

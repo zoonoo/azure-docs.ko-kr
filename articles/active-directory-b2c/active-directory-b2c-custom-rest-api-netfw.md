@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b8718e02bc0306db1ac8cd4f5b133ebdb17a4ec3
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: fb0ad8efcd73b304ea5c68f0d3c45a38ce1b80e8
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557294"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304910"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합
 
@@ -50,7 +50,7 @@ Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험�
 * 사용자 경험에서 RESTful 서비스 사용
 * 입력 클레임 보내기 및 사용자 코드로 읽기
 * 사용자 이름의 유효성 검사
-* 전용 번호 다시 보내기 
+* 전용 번호 다시 보내기
 * JWT(JSON Web Token)에 전용 번호 추가
 
 ## <a name="prerequisites"></a>필수 조건
@@ -77,11 +77,11 @@ Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험�
 ## <a name="step-2-prepare-the-rest-api-endpoint"></a>2단계: REST API 엔드포인트 준비
 
 ### <a name="step-21-add-data-models"></a>2.1단계: 데이터 모델 추가
-모델은 RESTful 서비스에서 입력 클레임 및 출력 클레임 데이터를 나타냅니다. 코드에서는 입력 클레임 모델을 JSON 문자열에서 C# 개체(모델)로 역직렬화하여 입력 데이터를 읽습니다. ASP.NET Web API는 자동으로 출력 클레임 모델을 다시 JSON으로 역직렬화하고 HTTP 응답 메시지의 본문에 직렬화된 데이터를 기록합니다. 
+모델은 RESTful 서비스에서 입력 클레임 및 출력 클레임 데이터를 나타냅니다. 코드에서는 입력 클레임 모델을 JSON 문자열에서 C# 개체(모델)로 역직렬화하여 입력 데이터를 읽습니다. ASP.NET Web API는 자동으로 출력 클레임 모델을 다시 JSON으로 역직렬화하고 HTTP 응답 메시지의 본문에 직렬화된 데이터를 기록합니다.
 
 다음을 수행하여 입력 클레임을 나타내는 모델을 만듭니다.
 
-1. 솔루션 탐색기가 열려 있지 않으면 **보기** > **솔루션 탐색기**를 선택합니다. 
+1. 솔루션 탐색기가 열려 있지 않으면 **보기** > **솔루션 탐색기**를 선택합니다.
 2. 솔루션 탐색기에서 **Models** 폴더를 마우스 오른쪽 단추로 클릭한 후 **추가**, **클래스**를 차례로 선택합니다.
 
     ![모델 추가](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
@@ -128,13 +128,13 @@ Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험�
                 this.userMessage = message;
                 this.status = (int)status;
                 this.version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            }    
+            }
         }
     }
     ```
 
 ### <a name="step-22-add-a-controller"></a>2.2단계: 컨트롤러 추가
-Web API에서 _컨트롤러_ 는 HTTP 요청을 처리하는 개체입니다. 컨트롤러는 출력 클레임을 반환하거나 이름이 유효하지 않은 경우 충돌 HTTP 오류 메시지를 throw합니다.
+Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨트롤러는 출력 클레임을 반환하거나 이름이 유효하지 않은 경우 충돌 HTTP 오류 메시지를 throw합니다.
 
 1. 솔루션 탐색기에서 **Controllers** 폴더를 마우스 오른쪽 단추로 클릭한 후 **추가**, **컨트롤러**를 차례로 선택합니다.
 
@@ -241,20 +241,20 @@ Web API에서 _컨트롤러_ 는 HTTP 요청을 처리하는 개체입니다. �
 </BuildingBlocks>
 ```
 
-## <a name="step-5-add-a-claims-provider"></a>5단계: 클레임 공급자 추가 
-모든 클레임 공급자에는 엔드포인트를 지정하는 하나 이상의 기술 프로필 및 클레임 공급자와 통신하는 데 필요한 프로토콜이 있어야 합니다. 
+## <a name="step-5-add-a-claims-provider"></a>5단계: 클레임 공급자 추가
+모든 클레임 공급자에는 엔드포인트를 지정하는 하나 이상의 기술 프로필 및 클레임 공급자와 통신하는 데 필요한 프로토콜이 있어야 합니다.
 
-클레임 공급자에는 다양한 이유로 여러 기술 프로필이 있을 수 있습니다. 예를 들어 클레임 공급자가 여러 프로토콜을 지원하거나, 엔드포인트가 다른 기능을 가질 수 있거나 릴리스가 다양한 보증 수준을 가진 클레임을 포함할 수 있기 때문에 여러 기술 프로필을 정의할 수 있습니다. 다른 사용자 경험이 아닌 하나의 사용자 경험에서 중요한 클레임을 해제하기 위해 허용할 수도 있습니다. 
+클레임 공급자에는 다양한 이유로 여러 기술 프로필이 있을 수 있습니다. 예를 들어 클레임 공급자가 여러 프로토콜을 지원하거나, 엔드포인트가 다른 기능을 가질 수 있거나 릴리스가 다양한 보증 수준을 가진 클레임을 포함할 수 있기 때문에 여러 기술 프로필을 정의할 수 있습니다. 다른 사용자 경험이 아닌 하나의 사용자 경험에서 중요한 클레임을 해제하기 위해 허용할 수도 있습니다.
 
 다음 XML 코드 조각에는 두 가지 기술 프로필을 포함하는 클레임 공급자 노드가 포함됩니다.
 
-* **TechnicalProfile Id="REST-API-SignUp"**: RESTful 서비스를 정의합니다. 
-   * `Proprietary`은 RESTful 기반 공급자의 프로토콜로 설명되어 있습니다. 
-   * `InputClaims`는 Azure AD B2C에서 REST 서비스로 전송할 클레임을 정의합니다. 
+* **TechnicalProfile Id="REST-API-SignUp"**: RESTful 서비스를 정의합니다.
+   * `Proprietary`은 RESTful 기반 공급자의 프로토콜로 설명되어 있습니다.
+   * `InputClaims`는 Azure AD B2C에서 REST 서비스로 전송할 클레임을 정의합니다.
 
    이 예제에서 `givenName` 클레임의 콘텐츠는 `firstName`으로 REST 서비스에 보내고, `surname` 클레임의 콘텐츠 `lastName`으로 REST 서비스에 보내고, `email`은 그대로 보냅니다. `OutputClaims` 요소는 RESTful 서비스에서 Azure AD B2C로 다시 검색하는 클레임을 정의합니다.
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: 기존 기술 프로필에 유효성 검사 기술 프로필을 추가합니다(기본 정책에 정의됨). 경험을 등록하는 동안 유효성 검사 기술 프로필은 이전 기술 프로필을 호출합니다. RESTful 서비스가 HTTP 오류 409(충돌 오류)를 반환하는 경우 사용자에게 오류 메시지가 표시됩니다. 
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: 기존 기술 프로필에 유효성 검사 기술 프로필을 추가합니다(기본 정책에 정의됨). 경험을 등록하는 동안 유효성 검사 기술 프로필은 이전 기술 프로필을 호출합니다. RESTful 서비스가 HTTP 오류 409(충돌 오류)를 반환하는 경우 사용자에게 오류 메시지가 표시됩니다.
 
 `<ClaimsProviders>` 노드를 찾은 후 `<ClaimsProviders>` 노드 아래에서 다음 XML 코드 조각을 추가합니다.
 
@@ -329,7 +329,7 @@ Web API에서 _컨트롤러_ 는 HTTP 요청을 처리하는 개체입니다. �
 
 2. **ID 경험 프레임워크**를 선택합니다.
 
-3. **모든 정책**을 엽니다. 
+3. **모든 정책**을 엽니다.
 
 4. **정책 업로드**를 선택합니다.
 
@@ -354,7 +354,7 @@ Web API에서 _컨트롤러_ 는 HTTP 요청을 처리하는 개체입니다. �
 
     ![정책 테스트](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
-4.  **지정된 이름** 상자에서 ("Test" 이외의) 이름을 입력합니다.  
+4. **지정된 이름** 상자에서 ("Test" 이외의) 이름을 입력합니다.  
     Azure AD B2C는 사용자를 등록한 후 전용 번호를 애플리케이션에 보냅니다. 이 JWT의 번호를 적어둡니다.
 
 ```
@@ -381,7 +381,7 @@ Web API에서 _컨트롤러_ 는 HTTP 요청을 처리하는 개체입니다. �
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(선택 사항)완성 정책 파일 및 코드 다운로드
 * [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md) 연습을 완료한 후에 고유한 사용자 지정 정책 파일을 사용하여 시나리오를 빌드하는 것이 좋습니다. 참조를 위해 [샘플 정책 파일](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw)을 제공했습니다.
 * [참조를 위한 Visual Studio 솔루션 샘플](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/)에서 전체 코드를 다운로드할 수 있습니다.
-    
+
 ## <a name="next-steps"></a>다음 단계
 * [기본 인증(사용자 이름 및 암호)을 사용하여 RESTful API 보호](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 * [클라이언트 인증서를 사용하여 RESTful API 보호](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

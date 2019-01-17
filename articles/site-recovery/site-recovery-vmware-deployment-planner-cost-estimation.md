@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery Deployment Planner에서 비용 예측 보고서 검토 | Microsoft Docs
 description: 이 문서에서는 Azure로 VMware 재해 복구를 위해 Azure Site Recovery Deployment Planner에서 비용 예측 보고서를 검토하는 방법을 설명합니다.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 46ec116b357df8cc5de889f64d4620544c062979
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: d1e406567b5f56f6ad08e4d276202ebf43d92534
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848343"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321492"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위해 Site Recovery Deployment Planner에서 비용 예측 보고서 검토
 

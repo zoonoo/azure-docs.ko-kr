@@ -3,7 +3,7 @@ title: Azure의 SQL Server에 대한 보안 고려 사항 | Microsoft Docs
 description: 이 항목에서는 Azure Virtual Machine에서 실행되는 SQL Server 보안에 대한 일반적인 지침을 제공합니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/23/2018
-ms.author: jroth
-ms.openlocfilehash: bba9f62a78dea4db1d88f877029796739b023e46
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 61cfc458ed965fd4f1446ff8cfb5e9a6e244f246
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365205"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332390"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 보안 고려 사항
 
@@ -53,7 +54,7 @@ SQL Server 가상 컴퓨터를 만들 때는 컴퓨터 및 SQL Server에 대한 
 
 네트워크 트래픽을 제한하기 위한 NSG 규칙 외에 가상 컴퓨터에서 Windows 방화벽을 사용할 수도 있습니다.
 
-클래식 배포 모델이 적용된 끝점을 사용하는 경우 사용하지 않는 모든 끝점을 가상 머신에서 제거합니다. 끝점에서 ACL을 사용하는 방법에 대한 지침은 [끝점에 대한 ACL 관리](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint)를 참조하세요. Resource Manager를 사용하는 VM에는 이렇게 할 필요가 없습니다.
+클래식 배포 모델이 적용된 엔드포인트를 사용하는 경우 사용하지 않는 모든 엔드포인트를 가상 머신에서 제거합니다. 엔드포인트에서 ACL을 사용하는 방법에 대한 지침은 [엔드포인트에 대한 ACL 관리](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint)를 참조하세요. Resource Manager를 사용하는 VM에는 이렇게 할 필요가 없습니다.
 
 마지막으로, Azure Virtual Machine에서 SQL Server 데이터베이스 엔진의 인스턴스에 대해 암호화된 연결 사용을 고려합니다. 서명된 인증서로 SQL server 인스턴스를 구성합니다. 자세한 내용은 [데이터베이스 엔진에 암호화된 연결 사용](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) 및 [연결 문자열 구문](https://msdn.microsoft.com/library/ms254500.aspx)을 참조하세요.
 

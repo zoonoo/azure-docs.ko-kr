@@ -2,18 +2,18 @@
 title: Hyper-V VM과 Azure 간 재해 복구를 위한 Azure Site Recovery Deployment Planner 비용 예측 보고서 검토 | Microsoft Docs
 description: 이 문서에서는 Hyper-V와 Azure 간 재해 복구를 위해 Azure Site Recovery Deployment Planner에서 생성된 비용 예측 보고서를 검토하는 방법을 설명합니다.
 services: site-recovery
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: eaccbc93fa1e78132527798dcef27babc8a2cc09
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: 03f71e4e10b65d9f295e13cdd8bc6881622c523d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845028"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320284"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner의 비용 예측 보고서 
 
@@ -137,7 +137,7 @@ VM을 수동으로 추가하려면:
 
 **IaaS 크기(선택)**: 기본적으로 권장되는 VM 역할 크기와 같습니다. 요구 사항에 따라 역할을 변경할 수 있습니다. 계산 비용은 사용자가 선택한 VM 역할 크기를 기반으로 합니다.
 
-**스토리지 유형**: VM에 사용되는 스토리지 유형입니다. 표준 또는 프리미엄 저장소입니다.
+**스토리지 유형**: VM에 사용되는 스토리지 유형입니다. 표준 또는 Premium Storage입니다.
 
 **VM 총 스토리지 크기(GB)**: VM의 총 스토리지입니다.
 

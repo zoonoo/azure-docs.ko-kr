@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 68fcc8b324bebfc7ca4fa94b2633b475137ea580
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3fa6709292c0e099285014f11872008756f2c5f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075597"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263257"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>QnA Maker의 기술 자료 수명 주기
 QnA Maker는 모델 변경, 발언 예제, 게시, 엔드포인트 쿼리의 데이터 수집으로 구성된 반복 주기에서 가장 잘 학습합니다. 
@@ -32,9 +32,9 @@ QnA Maker KB(기술 자료) 엔드포인트는 KB의 콘텐츠를 기반으로 �
 큰 KB의 경우 generateAnswer API를 사용하여 테스트를 자동화할 수 있습니다. 
 
 ## <a name="publish-the-knowledge-base"></a>기술 자료 게시
-기술 자료 테스트를 마쳤으면 기술 자료를 게시할 수 있습니다. 게시는 테스트를 마친 최신 버전의 기술 자료를 **게시된** 기술 자료를 나타내는 전용 Azure Search 인덱스에 푸시합니다. 또한 응용 프로그램 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
+기술 자료 테스트를 마쳤으면 기술 자료를 게시할 수 있습니다. 게시는 테스트를 마친 최신 버전의 기술 자료를 **게시된** 기술 자료를 나타내는 전용 Azure Search 인덱스에 푸시합니다. 또한 애플리케이션 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
 
-이러한 방식으로, 테스트 버전의 기술 자료 변경 내용은 프로덕션 응용 프로그램에 있을지도 모르는 게시된 버전에 영향을 주지 않습니다.
+이러한 방식으로, 테스트 버전의 기술 자료 변경 내용은 프로덕션 애플리케이션에 있을지도 모르는 게시된 버전에 영향을 주지 않습니다.
 
 각각의 기술 자료를 테스트 대상으로 지정할 수 있습니다. API를 사용하면 generateAnswer 호출에서 `isTest=true` 플래그가 있는 테스트 버전의 기술 자료를 대상으로 지정할 수 있습니다.
 

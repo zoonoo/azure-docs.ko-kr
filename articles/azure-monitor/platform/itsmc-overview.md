@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: e910a953743e8b43f51add5a1e74b3d612b62ba8
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: cd27a4d43333674ec1928fbd873e873afe84d26d
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190070"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262883"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -155,7 +155,7 @@ Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작�
 
 또한 서비스 맵 솔루션 내에서 영향 받는 컴퓨터에 대해 동기화된 인시던트를 시각화할 수 있습니다.
 
-서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 따라서 생각처럼 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다. [자세히 알아보기](../../azure-monitor/insights/service-map.md).
+서비스 맵은 Windows 및 Linux 시스템에서 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 따라서 생각처럼 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다. [자세히 알아보기](../../azure-monitor/insights/service-map.md).
 
 서비스 맵 솔루션을 사용하는 경우 다음 예와 같이 ITSM 솔루션에서 만들어진 서비스 데스크 항목을 볼 수 있습니다.
 
@@ -259,7 +259,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>ServiceNow 변경 요청에 대한 출력 데이터
 
-| Log Analytics | ServieNow 필드 |
+| Log Analytics | ServiceNow 필드 |
 |:--- |:--- |
 | ServiceDeskId_s| Number |
 | CreatedBy_s | 요청자 |

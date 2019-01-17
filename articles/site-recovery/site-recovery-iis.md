@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery를 사용하여 다중 계층 IIS 기반 웹 애플리케이션에 대한 재해 복구 설정 | Microsoft Docs
 description: Azure Site Recovery를 사용하여 IIS 웹 팜 가상 머신을 복제하는 방법을 알아봅니다.
-author: nsoneji
-manager: gauravd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 49435665ae1e99dd2b9696e5e5bb048e438dcc4c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: aa42371692cd5d0dc96835db5b66fe0877b90665
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832959"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320500"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>다중 계층 IIS 기반 웹 애플리케이션에 대한 재해 복구 설정
 
@@ -60,10 +60,10 @@ ARR, IIS 서버, 애플리케이션 서버 및 SQL Server가 있는 IIS 기반 �
 
 시나리오 | 보조 사이트 대상 | Azure 대상
 --- | --- | ---
-Hyper-V | yes | yes
-VMware | yes | yes
-물리적 서버 | 아니요 | yes
-Azure|해당 없음|yes
+Hyper-V | 예 | 예
+VMware | 예 | 예
+물리적 서버 | 아니요 | 예
+Azure|해당 없음|예
 
 ## <a name="replicate-virtual-machines"></a>가상 머신 복제
 

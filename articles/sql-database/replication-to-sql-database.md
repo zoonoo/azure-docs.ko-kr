@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: a4b1b4a7e106ad9dcd1746030daac562d7f123bc
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6fbfaaa82095fbf093560e65076b40a392356da8
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041529"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330163"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>SQL Database 단일 및 풀링된 데이터베이스에 복제
 
@@ -111,6 +111,7 @@ SQL Server 복제는 Azure SQL Database에서 [논리 서버](sql-database-logic
 
 ## <a name="see-also"></a>참고 항목  
 
+- [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md)
 - [게시 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [밀어넣기 구독 만들기](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
 - [복제 유형](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3cd0766fa4308df41172c323aa933e1c048f1e9d
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: c02bc75a978325f8cb0dc8733fb8d296e8710975
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074005"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264685"
 ---
 # <a name="requirements-by-listing-type"></a>등록 형식별 요구 사항  
 마케팅 및 기술 콘텐츠 요구 사항은 상점, 제품 유형 및 열거 유형에 따라 달라집니다. 준수 여부를 확인하기 위해 다음 사양을 검토합니다.  

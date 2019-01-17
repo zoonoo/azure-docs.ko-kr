@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 065b6551098a39fb737b7eface17d78b111d31b6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 23216df139ba3bc4023d3a01c8e7b9914cccfba5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074148"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261528"
 ---
 # <a name="troubleshooting-tips-to-support-the-qna-maker-service-and-runtime"></a>QnA Maker 서비스 및 런타임을 지원하기 위한 문제 해결 팁
 QnAMaker는 사용자의 Azure 계정에 호스트된 구성 요소로 구성됩니다. 디버깅 과정에서 사용자가 QnAMaker Azure 리소스를 조작하거나 QnAMaker 지원 팀에 설치에 대한 추가 정보를 제공해야 할 수도 있습니다.
@@ -31,7 +31,7 @@ QnAMaker 런타임은 Azure Portal에서 [QnAMaker 서비스를 만들 때](./se
 
      ![QnAMaker App Service](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
 
-3. App Service를 다시 시작합니다. 몇 초 이내에 완료될 것입니다. 다시 시작되는 시간에는 이 QnAMaker 서비스의 다운스트림 응용 프로그램/봇 빌드를 최종 사용자가 사용할 수 없습니다.
+3. App Service를 다시 시작합니다. 몇 초 이내에 완료될 것입니다. 다시 시작되는 시간에는 이 QnAMaker 서비스의 다운스트림 애플리케이션/봇 빌드를 최종 사용자가 사용할 수 없습니다.
 
     ![QnAMaker appservice 다시 시작](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 

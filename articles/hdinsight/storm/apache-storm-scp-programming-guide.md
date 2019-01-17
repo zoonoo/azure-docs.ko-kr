@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 9b3fc80d129a42e68e877f4d1210e3ab10e0664a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d017a2758ccd1530c4558f3dc92559f807df36b9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631824"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332101"
 ---
 # <a name="scp-programming-guide"></a>SCP 프로그래밍 가이드
 SCP는 안정적이며 일관성 있는 실시간 고성능 데이터 처리 애플리케이션을 빌드하기 위한 플랫폼입니다. 이 플랫폼은 OSS 커뮤니티에서 디자인한 스트림 처리 시스템인 [Apache Storm](https://storm.incubator.apache.org/)을 기반으로 구축되었습니다. Nathan Marz가 디자인한 Storm은 Twitter에서 오픈 소스 방식으로 제공되며, 매우 안정적인 분산 방식 조정과 상태 관리를 수행하는 데 사용할 수 있는 또 다른 Apache 프로젝트인 [Apache ZooKeeper](https://zookeeper.apache.org/)를 활용합니다. 
@@ -228,7 +228,7 @@ SCP 애플리케이션은 `State` 개체를 사용하여 [Apache ZooKeeper](http
     /// <summary>
     /// Retrieve all states that were previously uncommitted, excluding all aborted states 
     /// </summary>
-    /// <returns>Uncommited States</returns>
+    /// <returns>Uncommitted States</returns>
     public IEnumerable<State> GetUnCommitted();
 
     /// <summary>
@@ -249,7 +249,7 @@ SCP 애플리케이션은 `State` 개체를 사용하여 [Apache ZooKeeper](http
     /// List all the committed states
     /// </summary>
     /// <returns>Registries contain the Committed State </returns> 
-    public IEnumerable<Registry> Commited();
+    public IEnumerable<Registry> Committed();
 
     /// <summary>
     /// List all the Aborted State in the StateStore
