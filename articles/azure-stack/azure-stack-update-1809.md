@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: d47a90851777b3256474a88e5881afd8f52547f2
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f4a1bf9e2fee9278713315c98f25dbc820a553a1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263325"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352413"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 업데이트
 
@@ -134,7 +134,7 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 
 ### <a name="prerequisites"></a>필수 조건
 
-- 1809 적용 하기 전에 1808에 대 한 최신 Azure Stack 핫픽스를 설치 합니다. 자세한 내용은 [KB 4481066 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1808.9.117](https://support.microsoft.com/help/4481066/)합니다.
+- 1809 적용 하기 전에 1808에 대 한 최신 Azure Stack 핫픽스를 설치 합니다. 자세한 내용은 [KB 4481066 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1808.9.117](https://support.microsoft.com/help/4481066/)합니다. 최신 핫픽스 사용 가능한 사용 하는 것이 좋습니다, 있지만 1809를 설치 하는 데 필요한 최소 버전 1.1808.5.110 됩니다.
 
   > [!TIP]  
   > 다음을 구독할 *RRS* 또는 *Atom* Azure Stack 핫픽스를 피드 합니다.

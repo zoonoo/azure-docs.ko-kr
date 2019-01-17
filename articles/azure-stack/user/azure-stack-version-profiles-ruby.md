@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 0e7d624c77447f537e6d47ea19d9054c1117d742
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: aafeeab50a60116ac93cbfa8acb0375224453b03
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263663"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353994"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Azure Stack에서 Ruby를 사용 하 여 API 버전 프로필 사용
 
@@ -33,7 +33,7 @@ Ruby SDK는 Azure Stack Resource Manager에 대 한 빌드 및 인프라를 관�
 프로필을 API에는 리소스 공급자 및 서비스 버전의 조합입니다. 다른 리소스 유형을 결합 하는 API 프로필을 사용할 수 있습니다.
 
 - 모든 서비스의 최신 버전을 사용 하려면 사용 합니다 **최신** Azure SDK 롤업 gem의 프로필입니다.
-- Azure Stack 호환 서비스를 사용 하려면 사용 합니다 **V2017_03_09** Azure SDK 롤업 gem의 프로필입니다.
+- Azure Stack 호환 서비스를 사용 하려면 사용 합니다 **V2018_03_01** Azure SDK 롤업 gem의 프로필입니다.
 - 최신을 사용 하 **api 버전** 서비스를 사용 합니다 **최신** 특정 gem의 프로필입니다. 예를 들어 최신 사용 하려는 **api 버전** 만 계산 서비스를 사용 하 여를 **최신** 의 프로필을 **계산** gem 합니다.
 - 특정 사용 하도록 **api-version은** 서비스의 경우는 gem 내에 정의 된 특정 API 버전을 사용 합니다.
 
@@ -72,12 +72,12 @@ Azure Resource Manager Ruby SDK 미리 보기로 제공 되며 이후 릴리스�
 
 ## <a name="use-the-azuresdk-gem"></a>Azure_sdk gem을 사용 하 여
 
-gem **azure_sdk**는 Ruby SDK에서 지원 되는 모든 gem 합계입니다. 이 입력 하 여이 gem으로 이루어져를 **최신** 프로필을 지 원하는 모든 서비스의 최신 버전입니다. 버전이 지정 된 프로필 소개 **V2017_03_09** 프로필 Azure Stack 용 기본 제공 됩니다.
+gem **azure_sdk**는 Ruby SDK에서 지원 되는 모든 gem 합계입니다. 이 입력 하 여이 gem으로 이루어져를 **최신** 프로필을 지 원하는 모든 서비스의 최신 버전입니다. 두 버전 프로필 소개 **V2017_03_09** 하 고 **V2018_03_01** Azure Stack 용 기본 제공 되는 프로필입니다.
 
 다음 명령을 사용 하 여 azure_sdk 롤업 gem을 설치할 수 있습니다.  
 
 ```Ruby  
-gem install 'azure_sdk
+gem install 'azure_sdk'
 ```
 
 ## <a name="prerequisites"></a>필수 조건
@@ -127,11 +127,12 @@ Windows 명령 프롬프트에서 환경 변수를 설정 하려면 다음 형�
 
 ## <a name="existing-api-profiles"></a>기존 API 프로필
 
-Azure_sdk 롤업 gem에는 다음 두 프로필에 있습니다.
+Azure_sdk 롤업 gem에는 다음 세 개의 프로필에 있습니다.
 
-1. **V2017_03_09**  
+1. **V2018_03_01** Azure Stack 용으로 작성 된 프로필입니다. 모든 최신 버전의 Azure Stack에서 사용할 수 있는 서비스를 활용 하기 위해이 프로필을 사용 합니다.
+2. **V2017_03_09**  
   Azure Stack 용으로 작성 된 프로필입니다. Azure Stack을 사용 하 여 가장 호환 되도록 서비스에 대 한이 프로필을 사용 합니다.
-2. **최신**  
+3. **최신**  
   프로필의 모든 서비스의 최신 버전으로 구성 됩니다. 모든 서비스의 최신 버전을 사용 합니다.
 
 API 및 Azure Stack 프로필에 대 한 자세한 내용은 참조는 [API의 요약 프로필](azure-stack-version-profiles.md#summary-of-api-profiles)합니다.
@@ -158,7 +159,7 @@ options = {
 }
 
 # Target profile built for Azure Stack
-client = Azure::Resources::Profiles::V2017_03_09::Mgmt::Client.new(options)
+client = Azure::Resources::Profiles::V2018_03_01::Mgmt::Client.new(options)
 ```
 
 계산, 저장소 및 네트워크와 같은 개별 리소스 공급자에 액세스 하는 프로필 클라이언트를 사용할 수 있습니다.
@@ -172,7 +173,7 @@ purchase_plan_obj = profile_client.compute.model_classes.purchase_plan.new
 
 # Option 2: To access the models associated with Compute
 # Notice Namespace: Azure::Profiles::<Profile Name>::<Service Name>::Mgmt::Models::<Model Name>
-purchase_plan_obj = Azure::Profiles::V2017_03_09::Compute::Mgmt::Models::PurchasePlan.new
+purchase_plan_obj = Azure::Profiles::V2018_03_01::Compute::Mgmt::Models::PurchasePlan.new
 ```
 
 ## <a name="define-azure-stack-environment-setting-functions"></a>Azure Stack 환경 설정 함수를 정의 합니다.
@@ -201,27 +202,27 @@ end
 
 Ruby 및 Azure Stack API 프로필을 사용 하 여 솔루션을 만들기 위한 참조로 GitHub에 다음 샘플을 사용할 수 있습니다.
 
-- [Ruby를 사용하여 Azure 리소스 및 리소스 그룹 관리](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)
-- [Ruby를 사용 하 여 virtual machines 관리](https://github.com/Azure-Samples/compute-ruby-manage-vm/tree/master/Hybrid)
-- [Ruby에서 템플릿을 사용하여 SSH 사용 VM 배포](https://github.com/Azure-Samples/resource-manager-ruby-template-deployment/tree/master/Hybrid)
+- [Ruby를 사용하여 Azure 리소스 및 리소스 그룹 관리](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups)
+- [Ruby를 사용 하 여 virtual machines 관리](https://github.com/Azure-Samples/Hybrid-Compute-Ruby-Manage-VM)
+- [Ruby에서 템플릿을 사용하여 SSH 사용 VM 배포](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Template-Deployment)
 
 ### <a name="sample-resource-manager-and-groups"></a>샘플 Resource Manager 및 그룹
 
 샘플을 실행 하려면 Ruby 설치를 확인 합니다. Visual Studio Code를 사용 하는 경우에 Ruby SDK 확장도 다운로드 합니다.
 
 > [!NOTE]  
-> 샘플 리포지토리를 가져올 수 있습니다 "[Ruby 사용 하 여 리소스 그룹과 Azure 리소스 관리](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)"입니다.
+> 샘플 리포지토리를 가져올 수 있습니다 "[Ruby 사용 하 여 리소스 그룹과 Azure 리소스 관리](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups)"입니다.
 
 1. 리포지토리를 복제 합니다.
 
    ```bash
-   git clone https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups.git
+   git clone https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups.git
    ```
 
 2. 번들을 사용 하 여 종속성을 설치 합니다.
 
    ```Bash
-   cd resource-manager-ruby-resources-and-groups\Hybrid\
+   cd Hybrid-Resource-Manager-Ruby-Resources-And-Groups
    bundle install
    ```
 
@@ -269,7 +270,7 @@ Ruby 및 Azure Stack API 프로필을 사용 하 여 솔루션을 만들기 위�
 7. Azure Stack 프로필을 대상으로 하는 프로필 클라이언트 만들기:
 
    ```ruby  
-   client = Azure::Resources::Profiles::V2017_03_09::Mgmt::Client.new(options)
+   client = Azure::Resources::Profiles::V2018_03_01::Mgmt::Client.new(options)
    ```
 
 8. Azure Stack을 사용 하 여 서비스 주체를 인증 하려면 끝점 정의 되어야 합니다 **get_active_directory_settings()** 합니다. 이 메서드를 사용 합니다 **ARM_Endpoint** 환경 변수를 설정할 때 설정 하는 환경 변수:

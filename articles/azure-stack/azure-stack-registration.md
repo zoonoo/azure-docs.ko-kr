@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 15c86d1d5af3ba4d373f8dfb199d9ea56edb60b4
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7413ebac82adce9f034d5ceec16ec76b9ad53f82
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002487"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359547"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
@@ -52,9 +52,9 @@ Azure Stack에 Azure를 등록 하기 전에 다음이 필요 합니다.
 
 - 사용자 이름 및 구독에 대 한 소유자가 계정에 대 한 암호입니다.
 
-- 사용자 계정에 Azure 구독에 액세스할 수 있으며 해당 구독과 연결 된 디렉터리에 id 응용 프로그램 및 서비스 주체를 만들 수 있는 권한이 필요 합니다.
+- 사용자 계정에 Azure 구독에 액세스할 수 있으며 해당 구독과 연결 된 디렉터리에 id 응용 프로그램 및 서비스 주체를 만들 수 있는 권한이 필요 합니다. 권장 Azure를 사용 하 여 Azure Stack 등록 하는 최소 권한 관리를 사용 하 여 [등록에 사용할 서비스 계정을 만드는](azure-stack-registration-role.md) 전역 관리자 자격 증명을 사용 하는 대신 합니다.
 
-- Azure Stack 리소스 공급자 등록 (아래 세부 정보에 대 한 Azure Stack 리소스 공급자 등록 섹션 참조).
+- Azure Stack 리소스 공급자 등록 (세부 정보에 대 한 다음 Azure Stack 리소스 공급자 등록 섹션 참조).
 
 등록이 완료 되 면 Azure Active Directory 전역 관리자 권한이 필요 하지 않습니다. 그러나 일부 작업에는 전역 관리자 자격 증명을 필요할 수 있습니다. 예를 들어, 리소스 공급자 설치 관리자 스크립트 또는 권한 부여 요청을 새로운 기능. 일시적으로 계정의 전역 관리자 권한이 다시 시작 하거나의 소유자가 별도 전역 관리자 계정을 사용 합니다 *공급자 구독을 기본*입니다.
 
@@ -68,11 +68,11 @@ Azure Stack을 성공적으로 등록 하려면 PowerShell 언어 모드 설정 
 $ExecutionContext.SessionState.LanguageMode
 ```
 
-출력 반환 **FullLanguageMode**합니다. 다른 언어 모드 반환, 다른 컴퓨터에서 실행 되도록 등록 해야 되거나 언어 모드 설정 해야 합니다 **FullLanguageMode** 계속 하기 전에 합니다.
+출력 반환 **FullLanguageMode**합니다. 다른 언어 모드 반환, 다른 컴퓨터에서 실행 해야 하는 등록 되거나 언어 모드 설정 해야 **FullLanguageMode** 계속 하기 전에 합니다.
 
 ### <a name="install-powershell-for-azure-stack"></a>Azure Stack 용 PowerShell 설치
 
-Azure Stack에 대 한 최신 PowerShell을 사용 하 여 Azure를 사용 하 여 등록 해야 합니다.
+Azure Stack에 대 한 최신 PowerShell을 사용 하 여 Azure를 사용 하 여 등록 합니다.
 
 최신 버전이 아니라 이미 설치 되어 있지 않으면 참조 [Azure Stack 용 PowerShell 설치](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install)합니다.
 
@@ -101,7 +101,7 @@ Azure를 사용 하 여 Azure Stack을 등록할 때 등록 고유 이름을 제
 > [!NOTE]
 > 용량 기반 청구 모델을 사용 하 여 azure Stack 등록 하지 않는 한 해당 하는 연간 구독이 만료 된 후 다시 등록 하는 경우 고유 이름을 변경 해야 하면 [만료 된 등록을 삭제](azure-stack-registration.md#change-the-subscription-you-use) 하 고 다시 등록 Azure입니다.
 
-컴퓨터에서 관리자 권한 있는 끝점에 액세스할 수 있는 보다 실행 하 여 다음 명령을 Azure Stack 배포를 위한 클라우드 ID를 확인 하려면 PowerShell을 엽니다 하 고 기록 합니다 **CloudID** 값: 
+Azure Stack 배포를 위한 클라우드 ID를 확인 하려면 권한 있는 끝점에 액세스할 수 있습니다, 다음 명령을 실행 하는 컴퓨터에서 관리자 권한으로 PowerShell을 열고 하 고 기록 합니다 **CloudID** 값: 
 
 ```powershell
 Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
@@ -147,7 +147,7 @@ Run: get-azurestackstampinformation
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-6. 다음으로, 동일한 PowerShell 세션에서 올바른 Azure PowerShell 컨텍스트에 로그인를 확인 합니다. 이 위의 Azure Stack 리소스 공급자를 등록 하는 데 사용 된 Azure 계정입니다. Powershell 실행:
+6. 다음으로, 동일한 PowerShell 세션에서 올바른 Azure PowerShell 컨텍스트에 로그인를 확인 합니다. 이 이전에 Azure Stack 리소스 공급자를 등록 하는 데 사용 된 Azure 계정입니다. Powershell 실행:
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<environment name>"
@@ -170,7 +170,7 @@ Run: get-azurestackstampinformation
    ```
    집합 AzsRegistration cmdlet에 대 한 자세한 내용은 참조 하세요. [등록 참조](#registration-reference)합니다.
 
-  프로세스는 10 ~ 15 분 걸립니다. 메시지가 표시는 명령에는 다음이 완료 되 면 **"환경의 이제 등록 되 고 제공된 된 매개 변수를 사용 하 여 활성화 합니다."**
+  프로세스는 10 ~ 15 분이 걸립니다. 메시지를 참조 하 여 명령이 완료 되 면 **"환경의 이제 등록 되 고 제공된 된 매개 변수를 사용 하 여 활성화 합니다."**
 
 ## <a name="register-connected-with-capacity-billing"></a>용량 요금 청구를 사용 하 여 연결 된 등록
 
@@ -284,7 +284,7 @@ Azure Stack 환경에서 등록 토큰 가져오기 및 다음 해당 토큰을 
 
 ### <a name="create-an-activation-resource-in-azure-stack"></a>Azure Stack에서 정품 인증 리소스 만들기
 
-Get-AzsActivationKey에서 만든 정품 인증 키에서 파일 또는 텍스트를 사용 하 여 Azure Stack 환경에 반환 합니다. 그런 다음 해당 정품 인증 키를 사용 하 여 Azure Stack에서 정품 인증 리소스를 만들어집니다. 정품 인증 리소스를 만들려면 다음 PowerShell cmdlet을 실행 합니다.  
+Get-AzsActivationKey에서 만든 정품 인증 키에서 파일 또는 텍스트를 사용 하 여 Azure Stack 환경에 반환 합니다. 다음 해당 정품 인증 키를 사용 하 여 Azure Stack에서 정품 인증 리소스를 만듭니다. 정품 인증 리소스를 만들려면 다음 PowerShell cmdlet을 실행 합니다.  
 
   ```Powershell
   $ActivationKey = "<activation key>"
@@ -306,9 +306,21 @@ Get-AzsActivationKey에서 만든 정품 인증 키에서 파일 또는 텍스�
 
 2. 대시보드에서 선택 **하위 지역 관리**합니다.
 
+3. **속성**을 선택합니다. 이 블레이드는 상태 및 사용자 환경의 세부 정보를 보여 줍니다. 상태 수 있습니다 **Registered** 또는 **등록 되지 않은**합니다.
+
     [ ![지역 관리 타일](media/azure-stack-registration/admin1sm.png "지역 관리 타일") ](media/azure-stack-registration/admin1.png#lightbox)
 
-3. **속성**을 선택합니다. 이 블레이드는 상태 및 사용자 환경의 세부 정보를 보여 줍니다. 상태 수 있습니다 **Registered** 또는 **등록 되지 않은**합니다. 등록 하는 경우 또한 보여줍니다 Azure 구독 ID를 사용 하 여 Azure Stack에 등록 리소스 그룹 및 이름과 함께 등록를.
+    등록 하는 경우 속성을 다음과 같습니다.
+    
+    - **구독 ID 등록**: Azure 구독 ID를 등록 하 고 Azure Stack에 연결
+    - **리소스 그룹 등록**: Azure Stack 리소스를 포함 하는 연결된 된 구독에서 Azure 리소스 그룹입니다.
+
+4. Azure Stack 앱 등록을 보려면 Azure portal을 사용 합니다. Azure Stack 등록에 사용한 구독에 연결 된 계정을 사용 하 여 Azure portal에 로그인 합니다. Azure Stack과 사용 하 여 연결 하는 테 넌 트로 전환 합니다.
+5. 이동할 **Azure Active Directory > 앱 등록 > 모든 응용 프로그램 보기**합니다.
+
+    ![앱 등록](media/azure-stack-registration/app-registrations.png)
+
+    Azure Stack 앱 등록 붙습니다 **Azure Stack**합니다.
 
 또는 Marketplace 관리 기능을 사용 하 여 등록에 성공 했는지 여부를 확인할 수 있습니다. Marketplace 관리 블레이드에서 marketplace 항목 목록에 표시 되 면 등록에 성공 했습니다. 그러나 연결이 끊어진 환경에서 있습니다 됩니다 Marketplace 관리에서 마켓플레이스 항목을 볼 수 있습니다. 그러나 등록을 확인 하려면 오프 라인 도구를 사용할 수 있습니다.
 
@@ -417,7 +429,7 @@ Azure Stack에서 정품 인증 리소스를 제거 하려면 Azure Stack 환경
 
 ## <a name="registration-reference"></a>등록 참조
 
-### <a name="set-azsregistration"></a>집합 AzsRegistration
+### <a name="set-azsregistration"></a>Set-AzsRegistration
 
 Azure를 사용 하 여 Azure Stack 등록 및 사용 또는 marketplace 및 사용 보고 있는 항목의 제품을 사용 하지 않도록 설정 하려면 AzsRegistration 집합을 사용할 수 있습니다.
 
@@ -443,11 +455,11 @@ Cmdlet을 실행 하려면 다음을 수행 해야 합니다.
 | MarketplaceSyndicationEnabled | True/False | Marketplace 관리 기능은 포털에서 사용할 수 있는지 여부를 결정 합니다. 인터넷 연결을 사용 하 여 등록 하는 경우 true로 설정 합니다. 연결이 끊어진 환경에 등록 하는 경우 false로 설정 합니다. 연결이 끊긴 등록 합니다 [오프 라인 배포 도구](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) marketplace 항목 다운로드에 사용할 수 있습니다. |
 | UsageReportingEnabled | True/False | Azure Stack 기본적으로 사용 메트릭을 보고합니다. 연산자를 사용 하 여 용량 또는 연결이 끊어진된 환경 지원 사용 보고를 해제 해야 합니다. 이 매개 변수에 대해 허용 된 값은: True, False |
 | AgreementNumber | 문자열 |  |
-| registrationName | 문자열 | Id입니다. 동일한 Azure 구독을 사용 하 여 Azure Stack의 둘 이상의 인스턴스에서 등록 스크립트를 실행 하는 경우 등록에 대 한 고유 이름 설정 매개 변수 중에서 기본값이 **AzureStackRegistration**합니다. 그러나 Azure Stack의 둘 이상의 인스턴스에서 같은 이름을 사용할 경우 스크립트가 실패 합니다. |
+| RegistrationName | 문자열 | Id입니다. 동일한 Azure 구독을 사용 하 여 Azure Stack의 둘 이상의 인스턴스에서 등록 스크립트를 실행 하는 경우 등록에 대 한 고유 이름 설정 매개 변수 중에서 기본값이 **AzureStackRegistration**합니다. 그러나 Azure Stack의 둘 이상의 인스턴스에서 같은 이름을 사용할 경우 스크립트가 실패 합니다. |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 
-Get-AzsRegistrationToken 입력된 매개 변수에서 등록 토큰을 생성 합니다.
+Get-AzsRegistrationToken 입력된 매개 변수에서 등록 토큰을 생성합니다.
 
 ```PowerShell  
     Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String>

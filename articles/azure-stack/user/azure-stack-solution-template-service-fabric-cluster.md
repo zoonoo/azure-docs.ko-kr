@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: abb77f59e49a98c1195dcd2e7b622b2b8e3fd7b8
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 151f6fa7880db03909c522147d9c1f74508f51a1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087287"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351852"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Azure Stack에서 Service Fabric 클러스터 배포
 
@@ -118,7 +118,7 @@ Service Fabric 클러스터를 배포 하려면 올바른 KeyVault를 지정 해
    ``` 
 
 
-자세한 내용은 [PowerShell 사용 하 여 Azure Stack에 KeyVault 관리](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-kv-manage-powershell)합니다.
+자세한 내용은 [PowerShell 사용 하 여 Azure Stack에 KeyVault 관리](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-key-vault-manage-powershell)합니다.
 
 ## <a name="deploy-the-marketplace-item"></a>Marketplace 항목 배포
 
@@ -138,10 +138,10 @@ Service Fabric 클러스터를 배포 하려면 올바른 KeyVault를 지정 해
 
    에 대 한는 *관리 클라이언트 인증서 지문이*, 지문을 입력 합니다 *관리 클라이언트 인증서*합니다. (참조를 [필수 구성 요소](#prerequisites).)
    
-   - 원본 키 자격 증명 모음: 전체 지정할 *keyVault id* 스크립트 결과 문자열입니다. 
+   - 원본 주요 자격 증명 모음:  전체 지정할 *keyVault id* 스크립트 결과 문자열입니다. 
    - 클러스터 인증서 URL: 전체 URL을 지정 합니다 *비밀 Id* 스크립트 결과에서. 
    - 클러스터 인증서 지문: 지정 된 *클러스터 인증서 지문과* 스크립트 결과에서.
-   - 관리자 클라이언트 인증서 지문: 지정 된 *관리 클라이언트 인증서 지문이* 필수 구성 요소에서 만든 합니다. 
+   - 관리 클라이언트 인증서 지문: 지정 된 *관리 클라이언트 인증서 지문이* 필수 구성 요소에서 만든 합니다. 
 
    ![스크립트 출력](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
