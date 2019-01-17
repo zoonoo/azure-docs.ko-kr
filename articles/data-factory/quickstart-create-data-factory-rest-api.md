@@ -1,6 +1,6 @@
 ---
 title: REST API를 사용하여 Azure Data Factory 만들기 | Microsoft Docs
-description: Azure Blob 저장소의 한 위치에서 다른 위치로 데이터를 복사하는 Azure 데이터 팩터리를 만듭니다.
+description: Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사하는 Azure 데이터 팩터리를 만듭니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,19 +13,19 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 4fd7d47313b67a0014919b14546926f5d78972a0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3fc09255c38b4bbe8d416b97ea14a77a4b3014a0
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240327"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305590"
 ---
 # <a name="create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>REST API를 사용하여 Azure Data Factory 및 파이프라인 만들기
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [버전 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [현재 버전](quickstart-create-data-factory-rest-api.md)
 
-Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스입니다. Azure Data Factory를 사용하여 서로 다른 데이터 저장소에서 데이터를 수집할 수 있는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 일정을 조정하며, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics 및 Azure Machine Learning과 같은 계산 서비스를 사용하여 데이터를 처리/변환하고, 사용할 BI(비즈니스 인텔리전스) 애플리케이션의 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시할 수 있습니다. 
+Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스입니다. Azure Data Factory를 사용하여 서로 다른 데이터 저장소에서 데이터를 수집할 수 있는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 일정을 조정하며, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics 및 Azure Machine Learning과 같은 계산 서비스를 사용하여 데이터를 처리/변환하고, 사용할 BI(비즈니스 인텔리전스) 애플리케이션의 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시할 수 있습니다.
 
 이 빠른 시작에서는 REST API를 사용하여 Azure Data Factory를 만드는 방법을 설명합니다. 이 데이터 팩터리의 파이프라인은 Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사합니다.
 
@@ -37,17 +37,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 * **Azure Storage 계정**. Blob Storage를 **원본** 및 **싱크** 데이터 저장소 모두로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
 * Blob Storage에 **Blob 컨테이너**를 만들고 컨테이너에 입력 **폴더**를 만들고 폴더에 일부 파일을 업로드합니다. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용하여 Azure Blob Storage에 연결, Blob 컨테이너 만들기, 입력 파일 업로드 및 출력 파일 확인을 수행할 수 있습니다.
 * **Azure PowerShell**을 설치합니다. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps)의 지침을 따르세요. 이 빠른 시작은 PowerShell을 사용하여 REST API 호출을 호출합니다.
-* [이 지침](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)에 따라 **Azure Active Directory에 응용 프로그램을 만듭니다**. 나중에 나오는 단계에서 사용하는 다음 값을 기록해 둡니다. **애플리케이션 ID**, **인증 키** 및 **테넌트 ID**. 애플리케이션을 "**참가자**" 역할에 할당합니다.
+* [이 지침](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)에 따라 **Azure Active Directory에 애플리케이션을 만듭니다**. 나중에 나오는 단계에서 사용하는 다음 값을 기록해 둡니다. **애플리케이션 ID**, **인증 키** 및 **테넌트 ID**. 애플리케이션을 "**참가자**" 역할에 할당합니다.
 
 ## <a name="set-global-variables"></a>전역 변수 설정
 
 1. **PowerShell**을 시작합니다. 이 빠른 시작을 완료할 때까지 Azure PowerShell을 열어 둡니다. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다.
 
     다음 명령을 실행하고 Azure Portal에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
-        
+    
     ```powershell
     Connect-AzureRmAccount
-    ```        
+    ```
     다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
 
     ```powershell
@@ -56,7 +56,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     다음 명령을 실행하여 사용하려는 구독을 선택합니다. **SubscriptionId**를 Azure 구독의 ID로 바꿉니다.
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
+    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"
     ```
 2. 자리 표시자를 사용자의 고유한 값으로 바꾼 후 다음 명령을 실행하여 이후 단계에서 사용할 전역 변수를 설정합니다.
 
@@ -82,7 +82,7 @@ $authHeader = @{
 'Content-Type'='application/json'
 'Accept'='application/json'
 'Authorization'=$result.CreateAuthorizationHeader()
-} 
+}
 ```
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
@@ -112,17 +112,15 @@ $response | ConvertTo-Json
     ```
     Data factory name "ADFv2QuickStartDataFactory" is not available.
     ```
-* Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+* 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
 샘플 응답은 다음과 같습니다.
 
 ```json
-
 {
-    "name":  "<dataFactoryName>",
+    "name": "<dataFactoryName>",
     "tags": {
-
-            },
+    },
     "properties":  {
         "provisioningState":  "Succeeded",
         "loggingStorageAccountKey":  "**********",
@@ -137,8 +135,7 @@ $response | ConvertTo-Json
     "id":  "dataFactoryName",
     "type":  "Microsoft.DataFactory/factories",
     "location":  "East US"
-} 
-
+}
 ```
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
@@ -176,11 +173,11 @@ $response | ConvertTo-Json
     "id":  "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/linkedservices/AzureStorageLinkedService",
     "name":  "AzureStorageLinkedService",
     "properties":  {
-                       "type":  "AzureStorage",
-                       "typeProperties":  {
-                                              "connectionString":  "@{value=**********; type=SecureString}"
-                                          }
-                   },
+        "type":  "AzureStorage",
+        "typeProperties":  {
+            "connectionString":  "@{value=**********; type=SecureString}"
+        }
+    },
     "etag":  "0000c552-0000-0000-0000-59b1459c0000"
 }
 ```
@@ -225,25 +222,25 @@ $response | ConvertTo-Json
     "id":  "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/datasets/BlobDataset",
     "name":  "BlobDataset",
     "properties":  {
-                       "type":  "AzureBlob",
-                       "typeProperties":  {
-                                              "folderPath":  "@{value=@{dataset().path}; type=Expression}"
-                                          },
-                       "linkedServiceName":  {
-                                                 "referenceName":  "AzureStorageLinkedService",
-                                                 "type":  "LinkedServiceReference"
-                                             },
-                       "parameters":  {
-                                          "path":  "@{type=String}"
-                                      }
-                   },
+        "type":  "AzureBlob",
+        "typeProperties":  {
+            "folderPath":  "@{value=@{dataset().path}; type=Expression}"
+        },
+        "linkedServiceName":  {
+            "referenceName":  "AzureStorageLinkedService",
+            "type":  "LinkedServiceReference"
+        },
+        "parameters":  {
+            "path":  "@{type=String}"
+        }
+    },
     "etag":  "0000c752-0000-0000-0000-59b1459d0000"
 }
 ```
 
 ## <a name="create-pipeline"></a>파이프라인 만들기
 
-이 예제에서 이 파이프라인은 하나의 활동을 포함하고 입력 Blob 경로 및 출력 Blob 경로의 두 매개 변수를 사용합니다. 이러한 매개 변수의 값은 파이프라인이 트리거/실행될 때 설정됩니다. 복사 활동은 입력 및 출력 시 이전 단계에서 만든 동일한 Blob 데이터 세트를 참조합니다. 데이터 세트를 입력된 데이터 세트로 사용하는 경우 입력된 경로가 지정됩니다. 또한 데이터 세트를 출력된 데이터 세트로 사용하는 경우 출력된 경로가 지정됩니다. 
+이 예제에서 이 파이프라인은 하나의 활동을 포함하고 입력 Blob 경로 및 출력 Blob 경로의 두 매개 변수를 사용합니다. 이러한 매개 변수의 값은 파이프라인이 트리거/실행될 때 설정됩니다. 복사 활동은 입력 및 출력 시 이전 단계에서 만든 동일한 Blob 데이터 세트를 참조합니다. 데이터 세트를 입력된 데이터 세트로 사용하는 경우 입력된 경로가 지정됩니다. 또한 데이터 세트를 출력된 데이터 세트로 사용하는 경우 출력된 경로가 지정됩니다.
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelines/Adfv2QuickStartPipeline?api-version=${apiVersion}"
@@ -305,14 +302,14 @@ $response | ConvertTo-Json
     "id":  "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/pipelines/Adfv2QuickStartPipeline",
     "name":  "Adfv2QuickStartPipeline",
     "properties":  {
-                       "activities":  [
-                                          "@{name=CopyFromBlobToBlob; type=Copy; inputs=System.Object[]; outputs=System.Object[]; typeProperties=}"
-                                      ],
-                       "parameters":  {
-                                          "inputPath":  "@{type=String}",
-                                          "outputPath":  "@{type=String}"
-                                      }
-                   },
+        "activities":  [
+            "@{name=CopyFromBlobToBlob; type=Copy; inputs=System.Object[]; outputs=System.Object[]; typeProperties=}"
+        ],
+        "parameters":  {
+            "inputPath":  "@{type=String}",
+            "outputPath":  "@{type=String}"
+        }
+    },
     "etag":  "0000c852-0000-0000-0000-59b1459e0000"
 }
 ```
@@ -375,19 +372,19 @@ $runId = $response.runId
         "dataFactoryName":  "<dataFactoryName>",
         "pipelineName":  "Adfv2QuickStartPipeline",
         "parameters":  [
-                        "inputPath: <inputBlobPath>",
-                        "outputPath: <outputBlobPath>"
-                    ],
+            "inputPath: <inputBlobPath>",
+            "outputPath: <outputBlobPath>"
+        ],
         "parametersCount":  2,
         "parameterNames":  [
-                            "inputPath",
-                            "outputPath"
-                        ],
+            "inputPath",
+            "outputPath"
+        ],
         "parameterNamesCount":  2,
         "parameterValues":  [
-                                "<inputBlobPath>",
-                                "<outputBlobPath>"
-                            ],
+            "<inputBlobPath>",
+            "<outputBlobPath>"
+        ],
         "parameterValuesCount":  2,
         "runStart":  "2017-09-07T13:12:00.3710792Z",
         "runEnd":  "2017-09-07T13:12:39.5561795Z",
@@ -410,24 +407,24 @@ $runId = $response.runId
     ```json
     {
         "value":  [
-                    {
-                        "id":  "000000000-0000-0000-0000-00000000000",
-                        "timestamp":  "2017-09-07T13:12:38.4780542Z",
-                        "pipelineRunId":  "000000000-0000-00000-0000-0000000000000",
-                        "pipelineName":  "Adfv2QuickStartPipeline",
-                        "status":  "Succeeded",
-                        "failureType":  "",
-                        "linkedServiceName":  "",
-                        "activityName":  "CopyFromBlobToBlob",
-                        "activityType":  "Copy",
-                        "activityStart":  "2017-09-07T13:12:02.3299261Z",
-                        "activityEnd":  "2017-09-07T13:12:38.4780542Z",
-                        "duration":  36148,
-                        "input":  "@{source=; sink=}",
-                        "output":  "@{dataRead=331452208; dataWritten=331452208; copyDuration=22; throughput=14712.9; errors=System.Object[]; effectiveIntegrationRuntime=DefaultIntegrationRuntime (West US); usedDataIntegrationUnits=2; billedDuration=22}",
-                        "error":  "@{errorCode=; message=; failureType=; target=CopyFromBlobToBlob}"
-                    }
-                ]
+            {
+                "id":  "000000000-0000-0000-0000-00000000000",
+                "timestamp":  "2017-09-07T13:12:38.4780542Z",
+                "pipelineRunId":  "000000000-0000-00000-0000-0000000000000",
+                "pipelineName":  "Adfv2QuickStartPipeline",
+                "status":  "Succeeded",
+                "failureType":  "",
+                "linkedServiceName":  "",
+                "activityName":  "CopyFromBlobToBlob",
+                "activityType":  "Copy",
+                "activityStart":  "2017-09-07T13:12:02.3299261Z",
+                "activityEnd":  "2017-09-07T13:12:38.4780542Z",
+                "duration":  36148,
+                "input":  "@{source=; sink=}",
+                "output":  "@{dataRead=331452208; dataWritten=331452208; copyDuration=22; throughput=14712.9; errors=System.Object[]; effectiveIntegrationRuntime=DefaultIntegrationRuntime (West US); usedDataIntegrationUnits=2; billedDuration=22}",
+                "error":  "@{errorCode=; message=; failureType=; target=CopyFromBlobToBlob}"
+            }
+        ]
     }
     ```
 
@@ -438,16 +435,16 @@ Azure Storage 탐색기를 사용하여 파이프라인 실행을 만들 때 지
 ## <a name="clean-up-resources"></a>리소스 정리
 빠른 시작에서 만든 리소스는 두 가지 방법으로 정리할 수 있습니다. 리소스 그룹의 모든 리소스를 포함하고 있는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 삭제할 수 있습니다. 다른 리소스를 그대로 유지하려면 이 자습서에서 만든 데이터 팩터리만 삭제합니다.
 
-다음 명령을 실행하여 전체 리소스 그룹을 삭제합니다. 
+다음 명령을 실행하여 전체 리소스 그룹을 삭제합니다.
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
-다음 명령을 실행하여 데이터 팩터리만 삭제합니다. 
+다음 명령을 실행하여 데이터 팩터리만 삭제합니다.
 
 ```powershell
 Remove-AzureRmDataFactoryV2 -Name "<NameOfYourDataFactory>" -ResourceGroupName "<NameOfResourceGroup>"
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이 샘플의 파이프라인은 Azure Blob 저장소의 한 위치에서 다른 위치로 데이터를 복사합니다. [자습서](tutorial-copy-data-dot-net.md)를 통해 더 많은 시나리오에서의 데이터 팩터리 사용에 관해 알아보세요. 
+이 샘플의 파이프라인은 Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사합니다. [자습서](tutorial-copy-data-dot-net.md)를 통해 더 많은 시나리오에서의 데이터 팩터리 사용에 관해 알아보세요.

@@ -3,7 +3,7 @@ title: Azure Windows Virtual Machines에서 SQL Server 개요 | Microsoft Docs
 description: Azure Virtual Machines에서 SQL Server의 전체 버전을 실행하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
@@ -13,13 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2018
-ms.author: jroth
-ms.openlocfilehash: 416d1c7d45902735f58e397dd9195185ba0867df
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: e9edf4cd9a1dd0a110e89187b2fca3f85745fe56
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315250"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330487"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure Virtual Machines의 SQL Server란? (Windows)
 
@@ -37,7 +38,7 @@ SQL Server Azure VM은 [자동화된 패치](virtual-machines-windows-sql-automa
 
 ## <a name="automated-backups"></a>자동화된 백업
 
-SQL Server Azure VM은 정기적으로 Blob 저장소에 데이터베이스의 백업을 만드는 [자동화된 Backup](virtual-machines-windows-sql-automated-backup-v2.md)을 활용할 수 있습니다. 수동으로 이 기술을 사용할 수 있습니다. 자세한 내용은 [SQL Server Backup 및 복원에 Azure Storage 사용](virtual-machines-windows-use-storage-sql-server-backup-restore.md)을 참조하세요.
+SQL Server Azure VM은 정기적으로 Blob Storage에 데이터베이스의 백업을 만드는 [자동화된 Backup](virtual-machines-windows-sql-automated-backup-v2.md)을 활용할 수 있습니다. 수동으로 이 기술을 사용할 수 있습니다. 자세한 내용은 [SQL Server Backup 및 복원에 Azure Storage 사용](virtual-machines-windows-use-storage-sql-server-backup-restore.md)을 참조하세요.
 
 ## <a name="high-availability"></a>고가용성
 

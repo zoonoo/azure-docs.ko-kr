@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2cf73607f0cb286f06a5aa043fd8b30816e6a80f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 05afbd9a621752b8b665c7d2f68cd8cfcc8a1d1a
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729699"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322030"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, Virtual Machines, Service Fabric 및 Cloud Services 비교
 
@@ -53,7 +53,7 @@ App Service 또는 Service Fabric에서 실행하려면 기존 애플리케이�
 | 다시 배포하지 않고 여러 인스턴스로 규모 확장 |X |X |X |X |Virtual Machines는 여러 인스턴스로 규모 확장될 수 있지만 이러한 컴퓨터에서 실행되는 서비스가 이 규모 확장을 처리하도록 작성되어야 합니다. 부하 분산 장치에서 머신의 요청을 라우팅하도록 구성해야 하며, [가용성 집합](../virtual-machines/windows/manage-availability.md)에 둘 이상의 VM 인스턴스가 있는지 확인합니다. |
 | SSL 지원 |X |X |X |X |App Service 웹앱의 경우 사용자 지정 도메인 이름에 대한 SSL은 기본 및 표준 모드에서만 지원됩니다. 웹앱에 SSL을 사용하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 SSL 인증서 구성](app-service-web-tutorial-custom-ssl.md)을 참조하세요. |
 | Visual Studio 통합 |X |X |X |X | |
-| 원격 디버깅 |X |X |X | | |
+| 원격 디버깅 |X |X |X |X | |
 | TFS를 사용하여 코드 배포 |X |X |X |X | |
 | [Azure Virtual Network](/azure/virtual-network/)를 사용한 네트워크 격리 |X |X |X |X |[Azure Websites Virtual Network 통합](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) |
 | [Azure Traffic Manager](/azure/traffic-manager/) 지원 |X |X |X |X | |

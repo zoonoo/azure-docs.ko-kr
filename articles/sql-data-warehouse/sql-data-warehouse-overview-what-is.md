@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: igorstan
 ms.reviewer: igorstan
-ms.openlocfilehash: 7ba1cb75b7e7c5a93438ea4f17bb563477837099
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d9fdbb1a13c2184809c1d6548e5d878ed7080b13
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301936"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318602"
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse란?
 
@@ -68,9 +68,9 @@ SQL 데이터 웨어하우스에 대한 내용을 파악했으므로 [SQL Data W
 [고객 자문 팀 블로그]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [기능 요청]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [MSDN 포럼]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse
-[Stack Overflow 포럼]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow 포럼]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [비디오]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [SLA for SQL Data Warehouse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
-[Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
+[Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/

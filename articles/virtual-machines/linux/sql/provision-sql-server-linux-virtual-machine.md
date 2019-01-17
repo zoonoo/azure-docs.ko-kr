@@ -2,9 +2,8 @@
 title: Azure에서 Linux SQL Server 2017 VM 만들기 | Microsoft Docs
 description: 이 자습서는 Azure Portal에서 Linux SQL Server 2017 가상 머신을 만드는 방법을 보여줍니다.
 services: virtual-machines-linux
-author: rothja
-ms.author: jroth
-manager: jhubbard
+author: MashaMSFT
+manager: craigg
 ms.date: 12/5/2018
 ms.topic: hero-article
 tags: azure-service-management
@@ -12,12 +11,14 @@ ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: cc2f094417d8710a1fdabaf850a8ced185de1ad7
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 4087cd93b7342958717a20a08832daba1123417f
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632758"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330741"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Linux SQL Server 가상 컴퓨터 프로비전
 

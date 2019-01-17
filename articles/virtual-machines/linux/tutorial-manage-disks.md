@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 69ffd2dd4df8ca0a64036f7a96c88d5c83353211
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 2716838b28bc6dc5155ab7fbb6e1b4966b63f4dc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685381"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266113"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>자습서 - Azure CLI를 사용하여 Azure 디스크 관리
 
@@ -126,7 +126,7 @@ az vm disk attach \
 가상 머신과 SSH 연결 만들기 예제 IP 주소를 가상 머신의 공용 IP로 바꿉니다.
 
 ```azurecli-interactive
-ssh azureuser@52.174.34.95
+ssh 10.101.10.10
 ```
 
 `fdisk`를 사용하여 디스크를 분할합니다.
@@ -196,12 +196,16 @@ exit
 가상 머신 디스크 스냅숏을 만들려면 디스크의 ID 또는 이름이 필요합니다. [az vm show](/cli/azure/vm#az-vm-show) 명령을 사용하여 디스크 ID를 가져옵니다. 이 예제에서는 디스크 ID가 변수에 저장되고 이후 단계에서 사용될 수 있습니다.
 
 ```azurecli-interactive
-osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+osdiskid=$(az vm show \
+   -g myResourceGroupDisk \
+   -n myVM \
+   --query "storageProfile.osDisk.managedDisk.id" \
+   -o tsv)
 ```
 
 이제 가상 머신의 ID를 알고 있으므로 다음 명령을 실행하여 디스크 스냅숏을 만듭니다.
 
-```azurcli
+```azurecli-interactive
 az snapshot create \
     --resource-group myResourceGroupDisk \
     --source "$osdiskid" \
@@ -213,7 +217,10 @@ az snapshot create \
 그런 다음 스냅숏을 디스크로 복원하여 가상 머신을 다시 만드는 데 사용할 수 있습니다.
 
 ```azurecli-interactive
-az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --source osDisk-backup
+az disk create \
+   --resource-group myResourceGroupDisk \
+   --name mySnapshotDisk \
+   --source osDisk-backup
 ```
 
 ### <a name="restore-virtual-machine-from-snapshot"></a>스냅숏에서 가상 머신 복원
@@ -221,7 +228,9 @@ az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --sour
 가상 머신 복구를 보여 주기 위해 기존 가상 머신을 삭제합니다.
 
 ```azurecli-interactive
-az vm delete --resource-group myResourceGroupDisk --name myVM
+az vm delete \
+--resource-group myResourceGroupDisk \
+--name myVM
 ```
 
 스냅숏 디스크에서 새 가상 머신을 만듭니다.
@@ -241,13 +250,19 @@ az vm create \
 먼저 [az disk list](/cli/azure/disk#az-disk-list) 명령을 사용하여 데이터 디스크 이름을 찾습니다. 이 예제에서는 *datadisk*라는 변수에 디스크의 이름을 추가합니다. 이 변수는 다음 단계에서 사용됩니다.
 
 ```azurecli-interactive
-datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
+datadisk=$(az disk list \
+   -g myResourceGroupDisk \
+   --query "[?contains(name,'myVM')].[id]" \
+   -o tsv)
 ```
 
 [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach) 명령을 사용하여 디스크를 연결합니다.
 
 ```azurecli-interactive
-az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
+az vm disk attach \
+   –g myResourceGroupDisk \
+   --vm-name myVM \
+   --disk $datadisk
 ```
 
 ## <a name="next-steps"></a>다음 단계

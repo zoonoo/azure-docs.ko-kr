@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.author: kefre
 ms.custom: seodec18
 ms.date: 09/21/2017
-ms.openlocfilehash: ef1180a8e8c833648e3b61705abf354cb4dfaed3
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: d0bc4f5877a09380a2c7053134ae0505b31ae685
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117489"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330945"
 ---
 # <a name="tutorial-computer-vision-api-java"></a>자습서: Computer Vision API Java
 
@@ -456,7 +456,7 @@ Computer Vision의 [유명 인사] 기능은 유명 인사에 대한 이미지�
 
 ### <a name="intelligently-generate-a-thumbnail"></a>지능적으로 썸네일 생성
 
-Computer Vision의 썸네일 기능은 이미지에서 썸네일을 생성합니다. **스마트 자르기** 기능을 사용하면 썸네일 기능에서 이미지의 관심 영역을 식별하고 이 영역에서 썸네일을 가운데에 맞춰 미적으로 더욱 만족스러운 썸네일 이미지를 생성할 수 있습니다.
+Computer Vision의 [썸네일] 기능은 이미지에서 썸네일을 생성합니다. **스마트 자르기** 기능을 사용하면 [썸네일] 기능에서 이미지의 관심 영역을 식별하고 이 영역에서 썸네일을 가운데에 맞춰 미적으로 더욱 만족스러운 썸네일 이미지를 생성할 수 있습니다.
 
 자습서 애플리케이션의 [썸네일] 기능을 완성하려면 다음 단계를 수행합니다.
 
