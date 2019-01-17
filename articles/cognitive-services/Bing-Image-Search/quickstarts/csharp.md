@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: 67dd91d7555ebd1e72cea168fc8b841bf4ed9175
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 53dc9b90fd06cf4b6feb1e394f5fbfc5f257be4d
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249518"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215255"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>빠른 시작: Bing Image Search REST API 및 C#을 사용하여 이미지 검색
 
@@ -101,12 +101,12 @@ namespace BingSearchApisQuickstart
 
 `BingImageSearch` 메서드에서 다음 단계를 수행합니다.
 
-1. 검색 요청의 URI를 생성합니다. 검색 용어 `toSearch`는 문자열에 추가되기 전에 형식이 지정되어야 합니다.
+1. 검색 요청의 URI를 생성합니다. 검색 용어 `SearchTerm`는 문자열에 추가되기 전에 형식이 지정되어야 합니다.
 
     ```csharp
-    static SearchResult BingImageSearch(string toSearch){
+    static SearchResult BingImageSearch(string SearchTerm){
 
-        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
+        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(SearchTerm);
     //...
     ```
 
@@ -156,7 +156,6 @@ namespace BingSearchApisQuickstart
     Console.WriteLine("URL for the first image result: " + firstJsonObj["webSearchUrl"]+"\n");
     ```  
 
-3. 애플리케이션의 코드에서 구독 키를 제거해야 합니다.
 
 ## <a name="json-response"></a>JSON 응답
 

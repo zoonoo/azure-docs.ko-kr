@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: tamram
-ms.openlocfilehash: b41366b89a0598d52ae973e2a6d27e60ed548765
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 03a0f8885d51e6d45fabda86714afdeefc01f992
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634459"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213487"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>Blob Storage 컨테이너 크기 계산
 
@@ -52,7 +52,7 @@ Remove-AzResourceGroup -Name bloblisttestrg
 | 명령 | 메모 |
 |---|---|
 | [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | 리소스 그룹 또는 구독의 지정된 저장소 계정 또는 모든 저장소 계정을 가져옵니다. |
-| [Get-AzStorageBlob](/powershell/module/azure.storage/get-AzStorageblob) | 컨테이너의 Blob을 나열합니다. ||
+| [Get-AzStorageBlob](/powershell/module/az.storage/Get-AzStorageBlob) | 컨테이너의 Blob을 나열합니다. ||
 
 ## <a name="next-steps"></a>다음 단계
 

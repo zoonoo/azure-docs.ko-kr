@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a8ac01850c090b36a5b9d896f6de6c122edfbcaa
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 64e041d61c628a54b7a55b11fceba0973f3f427b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628428"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214966"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure 파일 공유 만들기 및 관리 
 이 가이드에서는 PowerShell을 사용하여 [Azure 파일 공유](storage-files-introduction.md)로 작업하는 기본 사항을 설명합니다. Azure 파일 공유는 다른 파일 공유와 유사하지만, 클라우드에 저장되고 Azure Platform에서 지원합니다. Azure 파일 공유는 산업 표준 SMB 프로토콜을 지원하며 여러 머신, 애플리케이션 및 인스턴스 전반에서 파일 공유를 활성화합니다. 
@@ -40,7 +40,7 @@ New-AzResourceGroup `
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 저장소 계정은 Azure 파일 공유 또는 Blob나 큐와 같은 다른 저장소 리소스를 배포하는 데 사용할 수 있는 저장소의 공유 풀입니다. 저장소 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다.
 
-이 예제에서는 [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 스토리지 계정을 만듭니다. 저장소 계정의 이름은 *mystorageaccount<random number>* 이며 이 저장소 계정에 대한 참조는 **$storageAcct** 변수에 저장됩니다. 저장소 계정 이름은 고유해야 합니다. 따라서 `Get-Random`를 사용하여 고유하게 만들 이름에 숫자를 추가합니다. 
+이 예제에서는 [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 스토리지 계정을 만듭니다. 스토리지 계정의 이름은 *mystorageaccount<random number>* 이며 이 스토리지 계정에 대한 참조는 **$storageAcct** 변수에 저장됩니다. 저장소 계정 이름은 고유해야 합니다. 따라서 `Get-Random`를 사용하여 고유하게 만들 이름에 숫자를 추가합니다. 
 
 ```azurepowershell-interactive 
 $storageAcct = New-AzStorageAccount `
@@ -51,7 +51,7 @@ $storageAcct = New-AzStorageAccount `
 ```
 
 ## <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
-이제 첫 번째 Azure 파일 공유를 만들 수 있습니다. [New-AzStorageShare](/powershell/module/azure.storage/new-AzStorageshare) cmdlet을 사용하여 파일 공유를 만들 수 있습니다. 이 예제에서는 `myshare`라는 공유를 만듭니다.
+이제 첫 번째 Azure 파일 공유를 만들 수 있습니다. [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet을 사용하여 파일 공유를 만들 수 있습니다. 이 예제에서는 `myshare`라는 공유를 만듭니다.
 
 ```azurepowershell-interactive
 New-AzStorageShare `
@@ -81,7 +81,7 @@ File REST 프로토콜을 직접 작업하는 것이 가능하지만(즉, REST H
 다음 예제에서는 Azure PowerShell 모듈을 사용하여 File REST 프로토콜로 Azure 파일 공유를 조작하는 방법을 보여줍니다. 
 
 #### <a name="create-directory"></a>디렉터리 만들기
-Azure 파일 공유의 루트에 *myDirectory*라는 새 디렉터리를 만들려면 [New-AzStorageDirectory](/powershell/module/azure.storage/new-AzStoragedirectory) cmdlet을 사용합니다.
+Azure 파일 공유의 루트에 *myDirectory*라는 새 디렉터리를 만들려면 [New-AzStorageDirectory](/powershell/module/az.storage/New-AzStorageDirectory) cmdlet을 사용합니다.
 
 ```azurepowershell-interactive
 New-AzStorageDirectory `
@@ -91,7 +91,7 @@ New-AzStorageDirectory `
 ```
 
 #### <a name="upload-a-file"></a>파일 업로드
-[Set-AzStorageFileContent](/powershell/module/azure.storage/set-AzStoragefilecontent) cmdlet을 사용하여 파일을 업로드하는 방법을 설명하려면 먼저 업로드할 PowerShell Cloud Shell의 임시 드라이브 내에 파일을 만들어야 합니다. 
+[Set-AzStorageFileContent](/powershell/module/az.storage/Set-AzStorageFileContent) cmdlet을 사용하여 파일을 업로드하는 방법을 설명하려면 먼저 업로드할 PowerShell Cloud Shell의 임시 드라이브 내에 파일을 만들어야 합니다. 
 
 이 예제에서는 임시 드라이브의 새 파일에 현재 날짜 및 시간을 저장한 다음, 파일 공유에 파일을 업로드합니다.
 
@@ -109,14 +109,14 @@ Set-AzStorageFileContent `
 
 PowerShell을 로컬로 실행 중인 경우 `C:\Users\ContainerAdministrator\CloudDrive\`를 컴퓨터에 있는 경로로 대체해야 합니다.
 
-파일을 업로드한 후에 [Get-AzStorageFile](/powershell/module/Azure.Storage/Get-AzStorageFile) cmdlet을 사용하여 파일이 Azure 파일 공유에 업로드되었는지 확인할 수 있습니다. 
+파일을 업로드한 후에 [Get-AzStorageFile](/powershell/module/Az.Storage/Get-AzStorageFile) cmdlet을 사용하여 파일이 Azure 파일 공유에 업로드되었는지 확인할 수 있습니다. 
 
 ```azurepowershell-interactive
 Get-AzStorageFile -Context $storageAcct.Context -ShareName "myshare" -Path "myDirectory" 
 ```
 
 #### <a name="download-a-file"></a>파일 다운로드
-[Get-AzStorageFileContent](/powershell/module/azure.storage/get-AzStoragefilecontent) cmdlet을 사용하여 Cloud Shell의 임시 드라이브에 업로드된 파일의 복사본을 다운로드할 수 있습니다.
+[Get-AzStorageFileContent](/powershell/module/az.storage/Get-AzStorageFilecontent) cmdlet을 사용하여 Cloud Shell의 임시 드라이브에 업로드된 파일의 복사본을 다운로드할 수 있습니다.
 
 ```azurepowershell-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists because you've run this example before.
@@ -139,7 +139,7 @@ Get-ChildItem -Path "C:\Users\ContainerAdministrator\CloudDrive"
 ``` 
 
 #### <a name="copy-files"></a>파일 복사
-일반적인 작업은 하나의 파일 공유에서 다른 파일 공유로 파일을 복사하거나 Azure Blob Storage 컨테이너 간에 파일을 복사하는 것입니다. 이 기능을 보여주기 위해 [Start-AzStorageFileCopy](/powershell/module/azure.storage/start-AzStoragefilecopy) cmdlet을 사용하여 새 공유를 만들고, 이러한 새 공유에 업로드한 파일을 복사할 수 있습니다. 
+일반적인 작업은 하나의 파일 공유에서 다른 파일 공유로 파일을 복사하거나 Azure Blob Storage 컨테이너 간에 파일을 복사하는 것입니다. 이 기능을 보여주기 위해 [Start-AzStorageFileCopy](/powershell/module/az.storage/Start-AzStorageFileCopy) cmdlet을 사용하여 새 공유를 만들고, 이러한 새 공유에 업로드한 파일을 복사할 수 있습니다. 
 
 ```azurepowershell-interactive
 New-AzStorageShare `
@@ -173,7 +173,7 @@ Azure 파일 공유를 사용하여 수행할 수 있는 유용한 한 가지 �
 - NTFS 및 ReFS와 같은 Windows 파일 시스템용 [VSS(볼륨 섀도 복사본 서비스)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal)
 - Linux 시스템용 [LVM(논리 볼륨 관리자)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) 스냅숏
 - macOS용 [APFS(Apple 파일 시스템)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) 스냅숏 
- 파일 공유에 대한 PowerShell 개체에서 `Snapshot` 메서드를 사용하여 공유에 대한 공유 스냅숏을 만들 수 있습니다. 이 항목은 [Get-AzStorageShare](/powershell/module/azure.storage/get-AzStorageshare) cmdlet을 사용하여 검색됩니다. 
+ 파일 공유에 대한 PowerShell 개체에서 `Snapshot` 메서드를 사용하여 공유에 대한 공유 스냅숏을 만들 수 있습니다. 이 항목은 [Get-AzStorageShare](/powershell/module/az.storage/Get-AzStorageShare) cmdlet을 사용하여 검색됩니다. 
 
 ```azurepowershell-interactive
 $share = Get-AzStorageShare -Context $storageAcct.Context -Name "myshare"
@@ -213,7 +213,7 @@ Start-AzStorageFileCopy `
 ```
 
 ### <a name="delete-a-share-snapshot"></a>공유 스냅숏 삭제
-`-Share` 매개 변수에 대한 `$snapshot` 참조를 포함하는 변수와 함께 [Remove-AzStorageShare](/powershell/module/azure.storage/remove-AzStorageshare) cmdlet을 사용하여 공유 스냅숏을 삭제할 수 있습니다.
+`-Share` 매개 변수에 대한 `$snapshot` 참조를 포함하는 변수와 함께 [Remove-AzStorageShare](/powershell/module/az.storage/Remove-AzStorageShare) cmdlet을 사용하여 공유 스냅숏을 삭제할 수 있습니다.
 
 ```azurepowershell-interactive
 Remove-AzStorageShare -Share $snapshot
@@ -236,7 +236,7 @@ Remove-AzResourceGroup -Name myResourceGroup
     }
     ```
 
-- 저장소 계정 자체를 제거하려면: (그러면 암시적으로 만든 Azure 파일 공유뿐만 아니라 Azure Blob Storage 컨테이너와 같이 만든 다른 저장소 리소스도 제거합니다.)
+- 스토리지 계정 자체를 제거하려면: (그러면 암시적으로 만든 Azure 파일 공유뿐만 아니라 Azure Blob Storage 컨테이너와 같이 만든 다른 스토리지 리소스도 제거합니다.)
 
     ```azurepowershell-interactive
     Remove-AzStorageAccount -ResourceGroupName $storageAcct.ResourceGroupName -Name $storageAcct.StorageAccountName

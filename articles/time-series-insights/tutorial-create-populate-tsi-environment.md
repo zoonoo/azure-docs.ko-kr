@@ -9,12 +9,12 @@ ms.date: 12/05/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: c2aeab6888cf93be75742028b0354c45a1834d51
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 58b19a039bb6aebcd2687ab80cdd29c5f378645e
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537285"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200210"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>자습서: Azure Time Series Insights 환경 만들기
 
@@ -41,7 +41,7 @@ Azure 로그인 계정도 구독에서 소유자 역할의 멤버여야 합니�
 
 ## <a name="overview"></a>개요
 
-TSI 환경에서 디바이스 데이터가 수집되어 저장됩니다. TSI 환경에 저장되면 [TSI 탐색기](time-series-quickstart.md) 및 [TSI 쿼리 API](/rest/api/time-series-insights/time-series-insights-reference-queryapi)를 사용하여 쿼리하고 데이터를 분석할 수 있습니다.
+TSI 환경에서 디바이스 데이터가 수집되어 저장됩니다. TSI 환경에 저장되면 [TSI 탐색기](time-series-quickstart.md) 및 [TSI 쿼리 API](/rest/api/time-series-insights/ga-query-api)를 사용하여 쿼리하고 데이터를 분석할 수 있습니다.
 
 시뮬레이션되거나 물리적인 모든 디바이스와 마찬가지로, IoT Hub는 디바이스가 Azure 클라우드에 안전하게 연결하고 데이터를 전송하기 위해 사용하는 연결 지점입니다. [TSI 개요](time-series-insights-overview.md)에 설명된 대로, IoT Hub는 TSI 환경으로 데이터를 스트리밍하기 위한 이벤트 원본으로도 제공됩니다. 
 

@@ -5,6 +5,7 @@ description: 이 빠른 시작에서는 Azure Portal을 사용하여 공용 기�
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: e7055e016abd06d20206d25cb1d7b9eac35142f0
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 64c0a42ac3cc074e5fd9e2824180009431b11e1e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260228"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231974"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 공용 기본 부하 분산 장치 만들기
 
@@ -78,7 +79,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
      1. 드롭다운하고 **가용성 세트**를 선택합니다. 
      2. **새로 만들기**를 선택하고, *MyAvailabilitySet*를 입력한 후, **확인**을 선택합니다.
   
-1. **네트워크 연결** 탭을 선택하거나 **다음: 디스크**, **다음: 네트워킹**을 차례로 선택합니다. 
+1. **네트워킹** 탭을 선택하거나 **다음: 디스크**, **다음: 네트워킹**을 차례로 선택합니다. 
    
    다음 항목이 선택되어 있는지 확인합니다.
    - **가상 네트워크**: **MyVnet**
@@ -114,7 +115,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    - **작업**: **허용**을 선택합니다.  
    - **우선 순위**: *100*을 입력합니다. 
    - **이름**: *MyHTTPRule*을 입력합니다. 
-   - **설명**: *HTTP 허용*을 입력합니다. 
+   - **설명**: ‘HTTP 허용’을 입력합니다. 
    
 1. **추가**를 선택합니다. 
    
@@ -144,7 +145,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    
    - **이름**: *MyBackEndPool*을 입력합니다.
    - **다음에 연결됨**: 드롭다운하고 **가용성 세트**를 선택합니다.
-   - **가용성 세트**: **MyAvailabilitySet**를 선택합니다.
+   - **가용성 집합**: **MyAvailabilitySet**를 선택합니다.
    
 1. **대상 네트워크 IP 구성 추가**를 선택합니다. 
    1. 백 엔드 풀에 만든 각각의 가상 머신(**MyVM1** 및 **MyVM2**)을 추가합니다.

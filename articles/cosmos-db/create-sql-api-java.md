@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: sngun
-ms.openlocfilehash: 70aa5c62afb6706fa9084d1ed081f70517d8d89e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 8fd99b1c68be08ca7c2f4b7cdeaaa8b5b64859e4
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039438"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197423"
 ---
 # <a name="create-and-manage-resources-of-an-azure-cosmos-db-sql-api-account-using-a-java-application"></a>Java 응용 프로그램을 사용하여 Azure Cosmos DB SQL API 계정 리소스 만들기 및 관리
 
@@ -75,7 +75,7 @@ ms.locfileid: "54039438"
 
 이 단계는 선택 사항입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [앱 실행](#run-the-app)으로 넘어갈 수 있습니다. 
 
-* `AsyncDocumentClient` 초기화 [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client)에서는 Azure Cosmos DB 데이터베이스 서비스에 대한 클라이언트 쪽 논리적 표현을 제공합니다. 이 클라이언트는 서비스에 대한 요청을 구성하고 실행하는 데 사용됩니다.
+* `AsyncDocumentClient` 초기화 [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient)에서는 Azure Cosmos DB 데이터베이스 서비스에 대한 클라이언트 쪽 논리적 표현을 제공합니다. 이 클라이언트는 서비스에 대한 요청을 구성하고 실행하는 데 사용됩니다.
 
     ```java
     client = new AsyncDocumentClient.Builder()
@@ -86,7 +86,7 @@ ms.locfileid: "54039438"
              .build();
     ```
 
-* [데이터베이스](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._database) 생성
+* [데이터베이스](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.database) 생성
 
     ```java
     Database databaseDefinition = new Database();
@@ -97,7 +97,7 @@ ms.locfileid: "54039438"
             .await();
     ```
 
-* [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._document_collection) 생성
+* [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.documentcollection) 생성
 
     ```java
     DocumentCollection collectionDefinition = new DocumentCollection();
@@ -110,7 +110,7 @@ ms.locfileid: "54039438"
             .await();
     ```
 
-* [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._document) 메서드를 사용하여 문서 생성
+* [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.document) 메서드를 사용하여 문서 생성
 
     ```java
     // Any Java object within your code
@@ -127,7 +127,7 @@ ms.locfileid: "54039438"
 
     ```
 
-* JSON에 대한 SQL 쿼리는 [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.querydocuments?view=azure-java-stable) 메서드를 사용하여 수행됩니다.
+* JSON에 대한 SQL 쿼리는 [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient.querydocuments?view=azure-java-stable) 메서드를 사용하여 수행됩니다.
 
     ```java
     FeedOptions queryOptions = new FeedOptions();

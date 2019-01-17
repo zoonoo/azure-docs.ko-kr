@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell 스크립트 샘플 - Windows에서 AzCopy를 사용하여 저장소 계정 간에 Blob 마이그레이션 | Microsoft Docs
-description: AzCopy를 사용하여 한 Azure Storage 계정의 Blob 내용을 다른 저장소 계정에 복사합니다.
+description: AzCopy를 사용하여 한 Azure Storage 계정의 Blob 내용을 다른 스토리지 계정에 복사합니다.
 services: storage
 documentationcenter: na
 author: roygara
@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/01/2018
 ms.author: rogarana
-ms.openlocfilehash: 2c83526ac5fd6fb6c757bffab08414d940694998
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: eddf85df3f9efb6a742e226e9582e2e284cbd4cf
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635428"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215136"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Windows에서 AzCopy를 사용하여 저장소 계정 간에 Blob 마이그레이션
 
@@ -68,11 +68,11 @@ AzCopyPath: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe
 
 | 명령 | 메모 |
 |---|---|
-| [Get-AzStorageContainer](/powershell/module/azure.storage/Get-AzStorageContainer) | 이 Storage 계정에 연결된 컨테이너를 반환합니다. |
-| [New-AzStorageContext](/powershell/module/azure.storage/New-AzStorageContext) | Azure Storage 컨텍스트를 만듭니다. |
+| [Get-AzStorageContainer](/powershell/module/az.storage/Get-AzStorageContainer) | 이 Storage 계정에 연결된 컨테이너를 반환합니다. |
+| [New-AzStorageContext](/powershell/module/az.storage/New-AzStorageContext) | Azure Storage 컨텍스트를 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
 
-추가 저장소 PowerShell 스크립트 샘플은 [Azure Blob Storage에 대한 PowerShell 샘플](../blobs/storage-samples-blobs-powershell.md)에서 찾을 수 있습니다.
+추가 스토리지 PowerShell 스크립트 샘플은 [Azure Blob Storage에 대한 PowerShell 샘플](../blobs/storage-samples-blobs-powershell.md)에서 찾을 수 있습니다.

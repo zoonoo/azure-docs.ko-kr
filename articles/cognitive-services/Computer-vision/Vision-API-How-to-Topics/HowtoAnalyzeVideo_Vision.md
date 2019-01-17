@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 140e45270cf29eec48df260efa29b8aacac2d855
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: cb8964bdbdfe575630f6e65a79d53aac76a76d45
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580470"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232110"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>실시간으로 비디오를 분석하는 방법
 이 가이드에서는 라이브 비디오 스트림에서 가져온 프레임을 거의 실시간으로 분석하는 방법을 보여 줍니다. 이러한 시스템의 기본 구성 요소는 다음과 같습니다.
@@ -195,12 +195,6 @@ namespace VideoFrameConsoleApplication
         
 
 통합할 준비가 되면, **해당 프로젝트에서 VideoFrameAnalyzer 라이브러리를 참조하면 됩니다.** 
-
-
-
-## <a name="developer-code-of-conduct"></a>개발자 준수 사항
-모든 Cognitive Services와 마찬가지로 Microsoft API 및 샘플을 사용하여 개발하는 개발자는 “[Microsoft Cognitive Services에 대한 개발자 준수 사항](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)”을 따라야 합니다. 
-
 
 VideoFrameAnalyzer의 이미지, 음성, 비디오 또는 텍스트 해석 기능은 Azure Cognitive Services를 사용합니다. Microsoft는 이 앱을 통해 업로드하는 이미지, 오디오, 비디오 및 기타 데이터를 수신하며, 서비스 개선 목적으로 사용할 수 있습니다. 앱이 개인 데이터를 Azure Cognitive Services에 전송하는 사용자를 보호할 수 있도록 도와주시기 바랍니다. 
 
