@@ -141,7 +141,7 @@ http://<front_end_app_name>.azurewebsites.net
 
 ### <a name="modify-front-end-code"></a>프런트 엔드 코드 수정
 
-로컬 리포지토리에서 _Controllers/TodoController.cs_를 엽니다. `TodoController` 클래스의 시작 부분에 다음 줄을 추가하고 _&lt;back\_end\_app\_name>_ 을 백 엔드 앱의 이름으로 바꿉니다.
+로컬 리포지토리에서 _Controllers/TodoController.cs_ 를 엽니다. `TodoController` 클래스의 시작 부분에 다음 줄을 추가하고 _&lt;back\_end\_app\_name>_ 을 백 엔드 앱의 이름으로 바꿉니다.
 
 ```cs
 private static readonly HttpClient _client = new HttpClient();
@@ -257,7 +257,7 @@ AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메
 
 ### <a name="grant-front-end-app-access-to-back-end"></a>백 엔드에 프런트 엔드 앱 액세스 부여
 
-두 앱에 대해 인증 및 권한 부여를 사용하도록 설정했으므로 각 앱은 AD 애플리케이션으로 지원됩니다. 이 단계에서는 프런트 엔드 앱에 사용자 대신 백 엔드 액세스 권한을 부여합니다. (기술적으로 프런트 엔드의 _AD 애플리케이션_에 사용자를 대신하여 백 엔드의 _AD 애플리케이션_에 액세스할 수 있는 권한을 부여합니다.)
+두 앱에 대해 인증 및 권한 부여를 사용하도록 설정했으므로 각 앱은 AD 애플리케이션으로 지원됩니다. 이 단계에서는 프런트 엔드 앱에 사용자 대신 백 엔드 액세스 권한을 부여합니다. (기술적으로 프런트 엔드의 _AD 애플리케이션_ 에 사용자를 대신하여 백 엔드의 _AD 애플리케이션_ 에 액세스할 수 있는 권한을 부여합니다.)
 
 이 시점에서 프런트 엔드 앱의 **Azure Active Directory 설정** 페이지에 있어야 합니다. 그렇지 않은 경우 해당 페이지로 돌아갑니다. 
 
