@@ -47,7 +47,7 @@ Azure Maps에는 지리적 특징의 안팎을 검색할 수 있는 강력한 AP
    >원의 `radius`는 `GeoJSON Feature`의 속성을 사용하여 표현됩니다. 반지름 값은 미터(_meters_) 단위이고 `double` 형식이어야 합니다.
 
 3. 하위 유형
-   >원 기하 도형에는 `subType` 속성도 포함되어야 합니다. 이 속성은 `GeoJSON Feature`의 속성에 속해야 하며 값은 _Circle_이어야 합니다.
+   >원 기하 도형에는 `subType` 속성도 포함되어야 합니다. 이 속성은 `GeoJSON Feature`의 속성에 속해야 하며 값은 _Circle_ 이어야 합니다.
 
 
 #### <a name="example"></a>예
