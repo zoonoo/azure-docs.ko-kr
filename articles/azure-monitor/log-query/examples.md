@@ -28,7 +28,7 @@ ms.locfileid: "52885811"
 ## <a name="events"></a>이벤트
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>"cryptographic"으로 기술되는 애플리케이션 수준 이벤트 검색
-이 예제에서는 **Events** 테이블에서 **EventLog**가 _Application_이며 **RenderedDescription**에 _cryptographic_이 포함된 레코드를 검색합니다. 검색 결과에는 지난 24시간 동안의 레코드가 포함됩니다.
+이 예제에서는 **Events** 테이블에서 **EventLog**가 _Application_이며 **RenderedDescription**에 _cryptographic_ 이 포함된 레코드를 검색합니다. 검색 결과에는 지난 24시간 동안의 레코드가 포함됩니다.
 
 ```Kusto
 Event
@@ -38,7 +38,7 @@ Event
 ```
 
 ### <a name="search-events-related-to-unmarshaling"></a>unmarshaling 관련 이벤트 검색
-**Event** 및 **SecurityEvents** 테이블에서 _unmashaling_이 언급된 레코드를 검색합니다.
+**Event** 및 **SecurityEvents** 테이블에서 _unmashaling_ 이 언급된 레코드를 검색합니다.
 
 ```Kusto
 search in (Event, SecurityEvent) "unmarshaling"
@@ -208,7 +208,7 @@ Perf
 ## <a name="protection-status"></a>보호 상태
 
 ### <a name="computers-with-non-reporting-protection-status-duration"></a>보고하지 않는 보호 상태의 컴퓨터 및 해당 기간
-이 예제에서는 보호 상태가 _Not Reporting_이었던 컴퓨터 및 해당 상태가 지속되었던 기간의 목록을 생성합니다.
+이 예제에서는 보호 상태가 _Not Reporting_ 이었던 컴퓨터 및 해당 상태가 지속되었던 기간의 목록을 생성합니다.
 
 ```Kusto
 ProtectionStatus
@@ -249,7 +249,7 @@ SecurityEvent
 ```
 
 ### <a name="count-security-events-related-to-permissions"></a>권한 관련 보안 이벤트 개수 계산
-이 예제에서는 **Activity** 열에 _Permissions_라는 용어 전체가 포함된 **securityEvent** 레코드의 수를 표시합니다. 쿼리는 지난 30분 동안 생성된 레코드에 적용됩니다.
+이 예제에서는 **Activity** 열에 _Permissions_ 라는 용어 전체가 포함된 **securityEvent** 레코드의 수를 표시합니다. 쿼리는 지난 30분 동안 생성된 레코드에 적용됩니다.
 
 ```Kusto
 SecurityEvent
