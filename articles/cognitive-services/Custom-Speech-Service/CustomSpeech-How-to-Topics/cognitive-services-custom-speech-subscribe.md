@@ -25,7 +25,7 @@ Azure Custom Speech Service를 사용하려면 먼저 사용자 계정을 Azure 
 ## <a name="get-a-subscription-key"></a>구독 키 가져오기
 1. 다음 두 가지 방법 중 하나로 Azure Portal에서 구독 키를 가져올 수 있습니다.
 
-    * [Azure Portal](https://ms.portal.azure.com)로 이동하고, _Cognitive Services API_를 검색하여 새 Cognitive Services API를 추가한 다음, **Cognitive Services API**를 선택합니다.
+    * [Azure Portal](https://ms.portal.azure.com)로 이동하고, _Cognitive Services_ 를 검색하여 새 Cognitive Services API를 추가한 다음, **Cognitive Services APIs**를 선택합니다.
 
       ![Cognitive Services 검색](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-subscription.png)
 
