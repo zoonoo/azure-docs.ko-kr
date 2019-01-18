@@ -18,7 +18,7 @@ ms.locfileid: "34600632"
 # <a name="consumption-model"></a>소비 모델
 
 온라인 라우팅은 차량 관련 소비 모델에 대한 자세한 설명을 위한 매개 변수 집합을 제공합니다.
-**vehicleEngineType**의 값에 따라 _연소식_ 및 _일렉트릭_의 두 가지 주요 소비 모델이 지원됩니다. 같은 요청에서 서로 다른 모델에 속해 있는 매개 변수를 지정하면 오류가 발생합니다.
+**vehicleEngineType**의 값에 따라 _Combustion_ 및 _Electric_ 의 두 가지 주요 소비 모델이 지원됩니다. 같은 요청에서 서로 다른 모델에 속해 있는 매개 변수를 지정하면 오류가 발생합니다.
 소비 모델은 **travelMode** 값 _bicycle_ 및 _pedestrian_과 함께 사용할 수 없습니다.
 
 ## <a name="parameter-constraints-for-consumption-model"></a>소비 모델에 대한 매개 변수 제약 조건
@@ -38,7 +38,7 @@ ms.locfileid: "34600632"
 
 ## <a name="combustion-consumption-model"></a>연소식 소비 모델
 
-연소식 소비 모델은 **vehicleEngineType**이 _combustion_으로 설정된 경우에 사용됩니다.
+연소식 소비 모델은 **vehicleEngineType**이 _combustion_ 으로 설정된 경우에 사용됩니다.
 이 모델에 속해 있는 매개 변수 목록은 다음과 같습니다. 자세한 설명은 매개 변수 섹션을 참조하세요.
 
 * constantSpeedConsumptionInLitersPerHundredkm
@@ -53,7 +53,7 @@ ms.locfileid: "34600632"
 
 ## <a name="electric-consumption-model"></a>일렉트릭 소비 모델
 
-일렉트릭 소비 모델은 **vehicleEngineType**이 _electric_으로 설정된 경우에 사용됩니다.
+일렉트릭 소비 모델은 **vehicleEngineType**이 _electric_ 으로 설정된 경우에 사용됩니다.
 이 모델에 속해 있는 매개 변수 목록은 다음과 같습니다. 자세한 설명은 매개 변수 섹션을 참조하세요.
 
 * constantSpeedConsumptionInkWhPerHundredkm
