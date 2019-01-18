@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 050eb5e51ec4f589d160ac20322ffc02f77efc61
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358612"
+---
 # 개요
 ## [Windows SQL Server VM 정보](virtual-machines-windows-sql-server-iaas-overview.md) 
 ## [릴리스 정보](virtual-machines-windows-sql-server-iaas-release-notes.md) 
@@ -10,7 +18,13 @@
 ## 모범 사례
 ### [성능 모범 사례](virtual-machines-windows-sql-performance.md)
 ### [보안 고려 사항](virtual-machines-windows-sql-security.md)
-### [응용 프로그램 패턴](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
+### [애플리케이션 패턴](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
+## 비즈니스 연속성
+### [고가용성 옵션](virtual-machines-windows-sql-high-availability-dr.md) 
+### [Always On 가용성 그룹](virtual-machines-windows-portal-sql-availability-group-overview.md)
+### [Backup 및 복원](virtual-machines-windows-sql-backup-recovery.md)
+### [SQL Server 2014의 자동화된 백업](virtual-machines-windows-sql-automated-backup.md)
+### [SQL Server 2016+의 자동화된 백업](virtual-machines-windows-sql-automated-backup-v2.md)
 ## 관리
 ### [VM에 연결](virtual-machines-windows-sql-connect.md)
 ### [저장소 구성](virtual-machines-windows-sql-server-storage-configuration.md)
@@ -18,22 +32,19 @@
 #### [SQL Server IaaS 에이전트 확장 사용](virtual-machines-windows-sql-server-agent-extension.md)
 #### [자동화된 패치](virtual-machines-windows-sql-automated-patching.md)
 #### [Azure Key Vault 통합 구성](virtual-machines-windows-ps-sql-keyvault.md)
-## Backup 및 복원
-### [Backup 및 복원](virtual-machines-windows-sql-backup-recovery.md)
-### [SQL Server 2014의 자동화된 백업](virtual-machines-windows-sql-automated-backup.md)
-### [SQL Server 2016+의 자동화된 백업](virtual-machines-windows-sql-automated-backup-v2.md)
-### [백업 및 복원에 Azure Storage 사용](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 
 # 방법 가이드
 ## SQL VM 만들기
 ### [포털 사용](virtual-machines-windows-portal-sql-server-provision.md)
 ### [Azure PowerShell 사용](virtual-machines-windows-ps-sql-create.md)
+## [SQL VM의 라이선스 모델 변경](virtual-machines-windows-sql-ahb.md)
 ## 마이그레이션
 ### [SQL Server 데이터베이스 마이그레이션](virtual-machines-windows-migrate-sql.md)
 ## 고가용성 구성
-### [고가용성 옵션](virtual-machines-windows-sql-high-availability-dr.md) 
-### [Always On 가용성 그룹](virtual-machines-windows-portal-sql-availability-group-overview.md)
-#### [자동 - 템플릿 사용](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+### [백업 및 복원에 Azure Storage 사용](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
+### Always On 가용성 그룹
+#### [Azure Portal 템플릿 사용](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [빠른 시작 템플릿 사용](virtual-machines-windows-sql-availability-group-quickstart-template.md)
 #### [수동 - 필수 조건](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [수동 - 자습서](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 #### [부하 분산 장치 - Azure Portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
@@ -41,7 +52,7 @@
 #### [여러 영역](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### 장애 조치 클러스터 인스턴스
 #### [구성](virtual-machines-windows-portal-sql-create-failover-cluster.md)
-## [SQL VM의 라이선스 모델 변경](virtual-machines-windows-sql-ahb.md)
+
 
 # 참고 자료
 ## [Azure PowerShell](/powershell/azure/overview)
