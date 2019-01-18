@@ -13,8 +13,6 @@ items:
     href: cloud-services-dotnet-get-started.md
   - name: Visual Studio 클라우드 서비스용 Python 예
     href: cloud-services-python-ptvs.md
-  - name: Microsoft HPC 팩을 사용하여 하이브리드 HPC 클러스터 설정
-    href: cloud-services-setup-hybrid-hpcpack-cluster.md
 - name: 방법
   items:
   - name: 계획
@@ -33,11 +31,11 @@ items:
       href: cloud-services-nodejs-develop-deploy-express-app.md
     - name: 저장소 및 Visual Studio
       items:
-      - name: Blob 저장소 및 연결된 서비스
+      - name: Blob Storage 및 연결된 서비스
         href: ../visual-studio/vs-storage-cloud-services-getting-started-blobs.md
-      - name: 큐 저장소 및 연결된 서비스
+      - name: Queue Storage 및 연결된 서비스
         href: ../visual-studio/vs-storage-cloud-services-getting-started-queues.md
-      - name: 테이블 저장소 및 연결된 서비스
+      - name: Table Storage 및 연결된 서비스
         href: ../visual-studio/vs-storage-cloud-services-getting-started-tables.md
     - name: 역할에 대한 트래픽 규칙 구성
       href: cloud-services-enable-communication-role-instances.md
@@ -200,9 +198,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=cloud-services
-ms.openlocfilehash: 0bd6d1123bce29fae377dca41d9084094597c3fa
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 426de5d59de97e949996a1484d44276f8cf6e9aa
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320815"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390523"

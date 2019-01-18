@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 1/14/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 7e01feff1344557c90f23bb006520111f58e437a
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 170cf458496d91a28260296e2aba803d76fbc06b
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302683"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388824"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack에서 크기 조정 단위 노드 작업
 
@@ -154,4 +154,4 @@ Azure Stack PowerShell 모듈을 설치 해야 합니다. 이러한 cmdlet에는
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Stack 패브릭 관리자 모듈에 대 한 자세한 내용은 참조 하세요 [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.5.0)합니다.
+Azure Stack 패브릭 관리자 모듈에 대 한 자세한 내용은 참조 하세요 [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)합니다.

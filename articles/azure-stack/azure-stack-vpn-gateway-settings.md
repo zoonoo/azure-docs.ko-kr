@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: 05f198aa869bbff121d438688aaee89a292516c1
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: d5538ce94428f189fc83cfa1107c52b9d57a3d13
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807976"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381550"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack에 대 한 VPN gateway 구성 설정
 
@@ -51,9 +51,9 @@ Azure Stack은 VPN gateway Sku는 다음 표에 표시 된 것을 제공 합니�
 
 |   | VPN gateway 처리량 |VPN gateway 최대 IPsec 터널 |
 |-------|-------|-------|
-|**기본 SKU**  | 100Mbps  | 10    |
-|**표준 SKU**           | 100Mbps  | 10    |
-|**고성능 SKU** | 200Mbps    | 5 |
+|**기본 SKU**  | 100Mbps  | 20    |
+|**표준 SKU**           | 100Mbps  | 20    |
+|**고성능 SKU** | 200Mbps    | 10    |
 
 ### <a name="resizing-gateway-skus"></a>게이트웨이 Sku 크기 조정
 
@@ -123,7 +123,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 |--|--|--|--|--|
 | **사이트 간 연결 (S2S 연결)** | 지원되지 않음 | RouteBased VPN 구성 | RouteBased VPN 구성 | RouteBased VPN 구성 |
 | **인증 방법**  | 지원되지 않음 | S2S 연결에 대 한 사전 공유 키  | S2S 연결에 대 한 사전 공유 키  | S2S 연결에 대 한 사전 공유 키  |   
-| **S2S 연결의 최대 수**  | 지원되지 않음 | 10 | 10| 5|
+| **S2S 연결의 최대 수**  | 지원되지 않음 | 20 | 20| 10|
 |**활성 라우팅 지원(BGP)** | 지원되지 않음 | 지원되지 않음 | 지원됨 | 지원됨 |
 
 ### <a name="gateway-subnet"></a>게이트웨이 서브넷 

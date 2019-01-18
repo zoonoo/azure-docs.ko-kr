@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
-ms.openlocfilehash: 68665cc588f8a6340de393330c7a248503b07125
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: fa2e834b142d5df4751b46f6dac2db9b3a10a463
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244990"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391319"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 리소스 공급자 유지 관리 작업
 
@@ -97,7 +97,7 @@ SQL 및 MySQL 리소스 공급자를 사용 하 여 Azure Stack을 사용 하 �
     -DefaultSSLCertificatePassword $certPasswd
 ```
 
-### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider.ps1 매개 변수
+### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider.ps1 parameters
 
 |매개 변수|설명|
 |-----|-----|
@@ -181,8 +181,8 @@ $session | Remove-PSSession
 
 잠긴된 가상 컴퓨터에서 로그를 수집 하려면 PowerShell 관리 JEA (Just Enough) 끝점을 사용할 수 있습니다 *DBAdapterDiagnostics*합니다. 이 끝점에는 다음 명령을 제공합니다.
 
-- **Get-AzsDBAdapterLog**합니다. 이 명령은 리소스 공급자 진단 로그의 zip 패키지를 만들고 세션의 사용자 드라이브에 파일을 저장 합니다. 매개 변수 없이이 명령을 실행할 수 있습니다 하 고 로그의 마지막 4 시간 수집 됩니다.
-- **제거-AzsDBAdapterLog**합니다. 이 명령은 리소스 공급자 VM에서 기존 로그 패키지를 제거합니다.
+- **Get-AzsDBAdapterLog**. 이 명령은 리소스 공급자 진단 로그의 zip 패키지를 만들고 세션의 사용자 드라이브에 파일을 저장 합니다. 매개 변수 없이이 명령을 실행할 수 있습니다 하 고 로그의 마지막 4 시간 수집 됩니다.
+- **Remove-AzsDBAdapterLog**. 이 명령은 리소스 공급자 VM에서 기존 로그 패키지를 제거합니다.
 
 ### <a name="endpoint-requirements-and-process"></a>끝점의 요구 사항 및 프로세스
 

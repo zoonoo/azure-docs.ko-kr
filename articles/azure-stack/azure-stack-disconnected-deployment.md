@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 33512b47eff75421ce07b02f9c17ae3028152568
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3262720f52bc75ba5d430e941da25568a105fe0d
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276254"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391258"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure Stack에 대 한 결정을 계획 하는 azure 연결이 끊긴된 배포 통합 시스템
 결정 한 다음 [하이브리드 클라우드 환경에 Azure Stack에서는 통합 하는 방법을](azure-stack-connection-models.md), Azure Stack 배포 관련 결정 사항을 완료 후 수 있습니다.
@@ -51,14 +51,14 @@ Azure Stack 기능 중 일부를 손상 또는 연결이 끊어진된 모드에�
 |App Services|장애가 있는-WebApps 업데이트 된 콘텐츠에 대 한 인터넷 액세스가 필요할 수 있습니다.|
 |CLI(Command Line Interface)|장애가 있는-CLI의 인증 및 서비스 주체를 프로 비전 기능이 감소 되었습니다.|
 |Visual Studio – Cloud discovery|장애가 있는 – Cloud Discovery에서 다른 클라우드를 검색 하거나 또는 전혀 작동 하지 않습니다.|
-|Visual Studio-AD FS|장애가 있는 – Visual Studio Enterprise에는 AD FS 지원 전용
+|Visual Studio – AD FS|장애가 있는 – Visual Studio Enterprise에는 AD FS 지원 전용
 원격 분석|사용할 수 없음 – 원격 분석 데이터에 의존 하는 타사 갤러리 패키지 뿐 아니라 Azure Stack에 대 한 원격 분석 데이터.|
 |인증서|사용할 수 없음 – 인터넷 연결이 HTTPS의 컨텍스트에서 인증서 해지 목록 (CRL) 및 온라인 인증서 상태 프로토콜 (OSCP) 서비스에 대 한 필요합니다.|
-|Key Vault|Key Vault에 대 한 일반적인 사용 사례는 응용 프로그램 런타임 시 암호를 읽기 방법은 손상 –입니다. 이 응용 프로그램 디렉터리에 서비스 주체가 필요합니다. Azure Active Directory에서 서비스 주체를 추가할 수는 기본적으로 일반 사용자 (비관리자) 됩니다. (ADFS를 사용 하 여) ad에서 되지 않습니다. 이 모든 응용 프로그램을 추가 하는 디렉터리 관리자를 항상 통과 해야 하나 때문에 종단 간 환경에 장애물이 배치 합니다.| 
+|Key-Vault|Key Vault에 대 한 일반적인 사용 사례는 응용 프로그램 런타임 시 암호를 읽기 방법은 손상 –입니다. 이 응용 프로그램 디렉터리에 서비스 주체가 필요합니다. Azure Active Directory에서 서비스 주체를 추가할 수는 기본적으로 일반 사용자 (비관리자) 됩니다. (ADFS를 사용 하 여) ad에서 되지 않습니다. 이 모든 응용 프로그램을 추가 하는 디렉터리 관리자를 항상 통과 해야 하나 때문에 종단 간 환경에 장애물이 배치 합니다.| 
 
 ## <a name="learn-more"></a>자세한 정보
 - 사용 사례, 구매, 파트너 및 OEM 하드웨어 공급 업체에 대 한 내용은 참조는 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) 제품 페이지입니다.
-- 통합된 시스템, Azure Stack에 대 한 로드맵 및 지역 가용성에 대 한 자세한 백서를 참조 합니다. [Azure 스택: Azure의 확장](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)합니다. 
+- 통합된 시스템, Azure Stack에 대 한 로드맵 및 지역 가용성에 대 한 자세한 백서를 참조 합니다. [Azure Stack: Azure의 확장](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)합니다. 
 - Microsoft Azure Stack 패키징 및 가격 책정에 대해 자세히 알아보려면 [는.pdf 다운로드](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)합니다. 
 
 ## <a name="next-steps"></a>다음 단계

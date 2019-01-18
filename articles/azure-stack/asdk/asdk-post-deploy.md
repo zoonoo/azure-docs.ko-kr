@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 756d07562503fa94ea2ea737a5f610d8bf3101aa
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 5c379e0bc6789950b05f75731937ed9bc1b44565
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260365"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391219"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK 설치 후 구성 작업
 
@@ -44,6 +44,19 @@ ASDK 호스트 컴퓨터에 인터넷 연결 없이 최신 Azure Stack PowerShel
 > 필요한 버전을 설치 하기 전에 확인 하면 [기존 Azure PowerShell 모듈을 제거](../azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules)합니다.
 
 - **인터넷에 연결 된** ASDK 호스트 컴퓨터에서. 개발 키트 설치에서 이러한 모듈을 설치 하려면 다음 PowerShell 스크립트를 실행 합니다.
+
+  - Azure Stack 1811 이상:
+
+    ``` PowerShell
+    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
+    Install-Module -Name AzureRm.BootStrapper
+
+    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
+
+    # Install Azure Stack Module Version 1.6.0.
+    Install-Module -Name AzureStack -RequiredVersion 1.6.0
+    ```
 
   - Azure Stack 1808 이상:
 

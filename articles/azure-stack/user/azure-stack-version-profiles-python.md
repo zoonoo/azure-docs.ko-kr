@@ -14,12 +14,12 @@ ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: cafae6d71401bc44813b2e366f8e72f7b806236b
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 8049db848e34b0aa9bc23f08169a8c63f765791a
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062778"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389745"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>API 버전 프로필을 사용 하 여 Azure Stack에서 Python 사용
 
@@ -29,11 +29,12 @@ ms.locfileid: "54062778"
 
 Python SDK는 Azure Stack 및 전역 Azure와 같은 다른 클라우드 플랫폼을 대상으로 하는 API 버전 프로필을 지원 합니다. 하이브리드 클라우드를 위한 솔루션을 만드는 API 프로필을 사용할 수 있습니다. Python SDK에는 다음 API 프로필을 지원합니다.
 
-1. **latest**  
-    프로필에는 Azure 플랫폼에서 모든 서비스 공급자에 대 한 최신 API 버전을 대상 으로합니다.
-2. **2017-03-09-프로필**  
-   **2017-03-09-프로필**  
-   Azure Stack에서 지 원하는 리소스 공급자의 API 버전을 대상으로 하는 프로필입니다.
+- **latest**  
+    이 프로필에는 Azure 플랫폼에서 모든 서비스 공급자에 대 한 최신 API 버전을 대상 으로합니다.
+- **2018-03-01-hybrid**     
+    이 프로필에는 Azure Stack 플랫폼에서 모든 리소스 공급자에 대 한 최신 API 버전을 대상 으로합니다.
+- **2017-03-09-profile**  
+    이 프로필에는 Azure Stack에서 지 원하는 리소스 공급자의 가장 호환 API 버전을 대상으로 합니다.
 
    프로필 API 및 Azure Stack에 대 한 자세한 내용은 참조 하세요. [Azure Stack에서 관리 하는 API 버전 프로필](azure-stack-version-profiles.md)합니다.
 
@@ -56,8 +57,17 @@ Azure Stack을 사용 하 여 Python Azure SDK를 사용 하려면 다음 값을
 | 구독 ID | AZURE_SUBSCRIPTION_ID | 합니다 [구독 ID](../azure-stack-plan-offer-quota-overview.md#subscriptions) 제품을 액세스 하는 방법에 Azure Stack에서. |
 | 클라이언트 암호 | AZURE_CLIENT_SECRET | 서비스 주체를 만들 때 저장 서비스 주 응용 프로그램 암호입니다. |
 | Resource Manager 끝점 | ARM_ENDPOINT | 참조 된 [Azure Stack 리소스 관리자 끝점](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)합니다. |
+| 리소스 위치 | AZURE_RESOURCE_LOCATION | Azure Stack 환경 리소스 위치입니다.
 
 ## <a name="python-samples-for-azure-stack"></a>Azure Stack에 대 한 Python 샘플
+
+Python SDK를 사용 하 여 Azure Stack에 사용할 수 있는 코드 샘플은 다음과 같습니다.
+
+- [리소스 및 리소스 그룹 관리](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/)합니다.
+- [저장소 계정 관리](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/)합니다.
+- [Virtual Machines 관리](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/)합니다.
+
+## <a name="python-manage-virtual-machine-sample"></a>Python 관리 가상 머신 샘플
 
 Azure Stack 사용자의 가상 머신에 대 한 일반적인 관리 작업을 수행 하려면 다음 코드 샘플을 사용할 수 있습니다. 코드 샘플을 보여 줍니다.
 
@@ -76,7 +86,7 @@ Azure Stack 사용자의 가상 머신에 대 한 일반적인 관리 작업을 
 - 가상 머신 나열
 - 가상 머신 삭제
 
-이러한 작업을 수행 하는 코드를 검토 하려면 참조는 **run_example()** Python 스크립트에서 함수 **Hybrid/unmanaged-disks/example.py** GitHub 리포지토리에서 [ virtual machines-python-관리](https://github.com/Azure-Samples/virtual-machines-python-manage)합니다.
+이러한 작업을 수행 하는 코드를 검토 하려면 참조는 **run_example()** Python 스크립트에서 함수 **example.py** GitHub 리포지토리에서 [하이브리드 계산-Python-관리-VM](https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM).
 
 각 작업 주석 및 인쇄 기능을 사용 하 여 레이블이 지정 명확 하 게 됩니다. 예는 반드시이 목록에 표시 된 순서 대로 되지 않습니다.
 
@@ -99,13 +109,13 @@ Azure Stack 사용자의 가상 머신에 대 한 일반적인 관리 작업을 
 4. 리포지토리를 복제 합니다.
 
     ```bash
-    git clone https://github.com/Azure-Samples/virtual-machines-python-manage.git
+    git clone https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM.git
     ```
 
 5. Pip를 사용 하 여 종속성을 설치 합니다.
 
     ```bash
-    cd virtual-machines-python-manage\Hybrid
+    cd Hybrid-Compute-Python-Manage-VM
     pip install -r requirements.txt
     ```
 
@@ -119,6 +129,7 @@ Azure Stack 사용자의 가상 머신에 대 한 일반적인 관리 작업을 
     export AZURE_CLIENT_SECRET={your client secret}
     export AZURE_SUBSCRIPTION_ID={your subscription id}
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
+    export AZURE_RESOURCE_LOCATION={your AzureStack Resource location}
     ```
 
 8. 이 샘플을 실행 하려면 Ubuntu 16.04-LTS 및 windows Server 2012-R2-Datacenter 이미지는 Azure Stack marketplace에 있는 이어야 합니다. 일 수 있습니다 이러한 [Azure에서 다운로드](../azure-stack-download-azure-marketplace-item.md)에 추가 합니다 [플랫폼 이미지 리포지토리에](../azure-stack-add-vm-image.md)합니다.
@@ -126,21 +137,13 @@ Azure Stack 사용자의 가상 머신에 대 한 일반적인 관리 작업을 
 9. 샘플을 실행합니다.
 
     ```python
-    python unmanaged-disks\example.py
+    python example.py
     ```
 
-## <a name="notes"></a>메모
-
-사용 하 여 VM의 OS 디스크를 검색 하려고 하 고 싶을 수도 있습니다 `virtual_machine.storage_profile.os_disk`합니다. 경우에 따라이 수행할 수 있습니다 원하는 하지만 것 주의 **OSDisk** 개체입니다. OS 디스크 크기를 업데이트 하기 위해 `example.py` 는 수를 **디스크** 개체가 아니라는 **OSDisk** 개체입니다. `example.py` 가져옵니다 합니다 **디스크** 다음 속성이 있는 개체:
-
-```python
-os_disk_name = virtual_machine.storage_profile.os_disk.name
-os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
-```
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Python 개발자 센터](https://azure.microsoft.com/develop/python/)
+- [Azure Python Development Center](https://azure.microsoft.com/develop/python/)
 - [Azure Virtual Machines 설명서](https://azure.microsoft.com/services/virtual-machines/)
 - [Virtual Machines에 대 한 학습 경로](/learn/paths/deploy-a-website-with-azure-virtual-machines/)
 - Microsoft Azure 구독이 없는, 하는 경우 무료 평가판 계정을 얻을 수 있습니다 [여기](https://go.microsoft.com/fwlink/?LinkId=330212)합니다.

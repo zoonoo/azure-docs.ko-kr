@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 890ca3abf08e280dcf0a48355ab1dea87331805b
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f6fd560d6ecb9feaa3df14b288cee5d98ce55aee
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063462"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391089"
 ---
 # <a name="use-api-version-profiles-for-powershell-in-azure-stack"></a>Azure Stack에서 PowerShell에 대 한 API 버전 프로필 사용
 
@@ -42,9 +42,10 @@ Install-Module -Name AzureRm.BootStrapper
 
 | 버전 번호 | API 버전 프로필 | PS 관리자 모듈 모니커 |
 | --- | --- | --- |
-| 1808 이상 | 2018-03-01-하이브리드 | 1.5.0 |
-| 1804 이상 | 2017-03-09-프로필 | 1.4.0 |
-| 1804 이전 버전 | 2017-03-09-프로필 | 1.2.11 |
+| 1811 이상 | 2018-03-01-hybrid | 1.6.0 |
+| 1808 이상 | 2018-03-01-hybrid | 1.5.0 |
+| 1804 이상 | 2017-03-09-profile | 1.4.0 |
+| 1804 이전 버전 | 2017-03-09-profile | 1.2.11 |
 
 > [!NOTE]  
 > 1.2.11 업그레이드할 버전 참조는 [마이그레이션 가이드](https://aka.ms/azpsh130migration)합니다.
