@@ -129,16 +129,8 @@ items:
       href: azure-stack-registration.md
     - name: 지역 관리
       href: azure-stack-region-management.md
-    - name: Azure에 연결
-      items:
-      - name: VPN을 사용하여 연결
-        href: azure-stack-connect-vpn.md
-      - name: VPN gateway 정보
-        href: azure-stack-vpn-gateway-about-vpn-gateways.md
-      - name: VPN gateway 설정
-        href: azure-stack-vpn-gateway-settings.md
-      - name: ExpressRoute를 사용하여 연결
-        href: azure-stack-connect-expressroute.md
+    - name: ExpressRoute를 사용 하 여 Azure에 연결
+      href: azure-stack-connect-expressroute.md
     - name: 사용자용 CLI 사용
       href: azure-stack-cli-admin.md
     - name: 관리 환경 설정
@@ -403,9 +395,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: 교육 및 인증
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 03f8d00216ee555e0e7fddd946382577bb0c1904
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 91c476e8e65642e490c3a42de7d5a340964f3ae5
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382155"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411716"
