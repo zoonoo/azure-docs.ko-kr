@@ -23,7 +23,7 @@ URL 경로 기반 라우팅을 사용하여 요청의 URL 경로에 따라 트�
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-http://contoso.com/video/ *에 대한 요청은 VideoServerPool로 라우팅되고, http://contoso.com/images/ *에 대한 요청은 ImageServerPool로 라우팅됩니다. 경로 패턴과 일치하는 항목이 없는 경우 DefaultServerPool이 선택됩니다.
+http://contoso.com/video/* 에 대한 요청은 VideoServerPool로 라우팅되고, http://contoso.com/images/* 에 대한 요청은 ImageServerPool로 라우팅됩니다. 경로 패턴과 일치하는 항목이 없는 경우 DefaultServerPool이 선택됩니다.
 
 > [!IMPORTANT]
 > 규칙은 포털에 나열된 순서대로 처리됩니다. 기본 수신기를 구성하기 전에 먼저 다중 사이트 수신기를 구성하는 것이 좋습니다.  그러면 트래픽이 올바른 백 엔드로 라우팅됩니다. 기본 수신기가 먼저 나열되고 들어오는 요청과 일치하면 해당 수신기에서 처리합니다.

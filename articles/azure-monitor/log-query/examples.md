@@ -249,7 +249,7 @@ SecurityEvent
 ```
 
 ### <a name="count-security-events-related-to-permissions"></a>권한 관련 보안 이벤트 개수 계산
-이 예제에서는 **Activity** 열에 _Permissions_라는 용어 전체가 포함된 **securityEvent** 레코드의 수를 표시합니다. 쿼리는 지난 30분 동안 생성된 레코드에 적용됩니다.
+이 예제에서는 **Activity** 열에 _Permissions_ 라는 용어 전체가 포함된 **securityEvent** 레코드의 수를 표시합니다. 쿼리는 지난 30분 동안 생성된 레코드에 적용됩니다.
 
 ```Kusto
 SecurityEvent
