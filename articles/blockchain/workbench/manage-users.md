@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: adb4b57ce304a3c6e369d6cc68dbb7c5857fb9fe
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a481f5b073b7e8db9135d7b10cf602168290738a
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241580"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331370"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Azure Blockchain Workbench의 사용자 관리
 
@@ -44,13 +44,13 @@ Blockchain Workbench 사용자는 Azure AD 테넌트에 존재해야 애플리�
 
 ## <a name="manage-blockchain-workbench-administrators"></a>Blockchain Workbench 관리자 관리
 
-사용자가 디렉터리에 추가되면 다음 단계에서는 Blockchain Workbench 관리자가 될 사용자를 선택합니다. **관리자** 그룹의 사용자는 Blockchain Workbench의 **관리자 응용 프로그램 역할**에 연결됩니다. 관리자는 사용자를 추가 또는 제거하고, 특정 시나리오에 사용자를 할당하며, 새 애플리케이션을 만들 수 있습니다.
+사용자가 디렉터리에 추가되면 다음 단계에서는 Blockchain Workbench 관리자가 될 사용자를 선택합니다. **관리자** 그룹의 사용자는 Blockchain Workbench의 **관리자 애플리케이션 역할**에 연결됩니다. 관리자는 사용자를 추가 또는 제거하고, 특정 시나리오에 사용자를 할당하며, 새 애플리케이션을 만들 수 있습니다.
 
 Azure AD 디렉터리에서 **관리자** 그룹에 사용자를 추가하려면 다음을 수행합니다.
 
 1.  [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2.  오른쪽 위 모서리에서 사용자의 계정을 선택하여 사용자가 Blockchain Workbench에 연결된 Azure AD 테넌트에 있는지 확인합니다.
-3.  **Azure Active Directory > 엔터프라이즈 응용 프로그램**을 선택합니다.
+3.  **Azure Active Directory &gt; 엔터프라이즈 애플리케이션**을 선택합니다.
 4.  Blockchain Workbench에 대한 Azure AD 클라이언트 애플리케이션 선택
     
     ![모든 엔터프라이즈 애플리케이션 등록](./media/manage-users/select-blockchain-client-app.png)
@@ -97,7 +97,7 @@ Blockchain Workbench 애플리케이션을 사용하여 사용자 컨소시엄�
 
     ![역할 구성원 선택](./media/manage-users/application-select-role.png)
 
-5. **추가**를 선택하여 관련된 역할이 있는 구성원을 응용 프로그램에 추가합니다.
+5. **추가**를 선택하여 관련된 역할이 있는 구성원을 애플리케이션에 추가합니다.
 
 #### <a name="remove-member-from-application"></a>애플리케이션에서 구성원 제거
 
@@ -118,4 +118,4 @@ Blockchain Workbench 애플리케이션을 사용하여 사용자 컨소시엄�
 이 사용법 문서에서는 Azure Blockchain Workbench에 대한 사용자 관리 방법을 배웠습니다. 블록 체인 애플리케이션을 만드는 방법을 알아보려면 다음 사용법 문서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Azure Blockchain Workbench에서 블록체인 응용 프로그램 만들기](create-app.md)
+> [Azure Blockchain Workbench에서 블록체인 애플리케이션 만들기](create-app.md)

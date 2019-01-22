@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: c0f4af863162d004b6a557f8c7a04e31ee66d9b7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 749a599936825f5f69ae18affad0fa89a4f1118f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713559"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259634"
 ---
 # <a name="install-and-use-apache-solr-on-windows-based-hdinsight-clusters"></a>Windows 기반 HDInsight 클러스터에서 Apache Solr 설치 및 사용
 
@@ -137,7 +137,7 @@ ms.locfileid: "53713559"
                  }
                ]
              }
-4. **권장: Solr에서 인덱싱된 데이터를 HDInsight 클러스터와 연결된 Azure Blob Storage에 백업합니다**. Solr 클러스터 노드에서 인덱싱된 데이터를 Azure Blob 저장소에 백업하는 것이 좋습니다. 이렇게 하려면 다음 단계를 수행합니다.
+4. **권장: Solr에서 인덱싱된 데이터를 HDInsight 클러스터와 연결된 Azure Blob Storage에 백업합니다**. 최신 버전의 Azure 스토리지 에뮬레이터는 File Storage를 지원하지 않습니다. 이렇게 하려면 다음 단계를 수행합니다.
 
    1. RDP 세션에서 Internet Explorer를 열고 다음 URL을 가리킵니다.
 
@@ -158,7 +158,7 @@ ms.locfileid: "53713559"
       
    2. 원격 세션에서 {SOLR_HOME}\{Collection}\data로 이동합니다. 샘플 스크립트를 통해 생성된 클러스터의 경우, `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`여야 합니다. 이 위치에서 **snapshot.\*timestamp**\*와 비슷한 이름으로 만든 스냅숏 폴더가 표시됩니다.
    
-   3. 스냅숏 폴더를 압축하고 Azure Blob 저장소에 업로드합니다. Hadoop 명령줄에서 다음 명령을 사용하여 스냅숏 폴더의 위치로 이동합니다.
+   3. 스냅숏 폴더를 압축하고 Azure Blob Storage에 업로드합니다. Hadoop 명령줄에서 다음 명령을 사용하여 스냅숏 폴더의 위치로 이동합니다.
 
       ```
       hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
@@ -166,7 +166,7 @@ ms.locfileid: "53713559"
 
    이 명령은 스냅숏을 클러스터와 연결된 기본 Storage 계정 내의 컨테이너 아래에 있는 /example/data/에 복사합니다.
 
-## <a name="install-solr-using-aure-powershell"></a>Aure PowerShell을 사용하여 Solr 설치
+## <a name="install-solr-using-azure-powershell"></a>Azure PowerShell을 사용하여 Solr 설치
 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)을 참조하세요.  샘플은 Azure PowerShell을 사용하여 Apache Spark를 설치하는 방법을 보여 줍니다. [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1)을 사용하도록 스크립트를 사용자 지정해야 합니다.
 
 ## <a name="install-solr-using-net-sdk"></a>.NET SDK를 사용하여 Solr 설치

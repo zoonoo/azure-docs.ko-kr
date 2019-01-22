@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 5a40e215c6dd5bf4dc1178595716f95ae21adcb4
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: dececc961e40d83cf44442dc61054bc8833208f0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438203"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265032"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure 모니터링 에이전트 개요 
 Microsoft Azure는 Azure, 데이터 센터 또는 기타 클라우드 공급자에 호스팅되는 Microsoft Windows 및 Linux를 실행하는 가상 머신에서 다양한 형식의 데이터를 수집하는 여러 방법을 제공합니다. VM을 모니터링하는 데 사용할 수 있는 세 가지 에이전트 유형은 다음과 같습니다.
@@ -76,5 +76,5 @@ VM을 모니터링하기 위해 이러한 에이전트의 몇 가지 조합이 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- Auzre, 데이터 센터 또는 기타 클라우드 환경에서 호스팅되는 머신에 에이전트를 배포하기 위한 요구 사항 및 지원되는 메서드를 검토하려면 [Log Analytics 에이전트 개요](../../azure-monitor/platform/log-analytics-agent.md)를 참조하세요.
+- Azure, 데이터 센터 또는 기타 클라우드 환경에서 호스팅되는 컴퓨터에 에이전트를 배포하기 위한 요구 사항 및 지원되는 방법을 검토하려면 [Log Analytics 에이전트 개요](../../azure-monitor/platform/log-analytics-agent.md)를 참조하세요.
 

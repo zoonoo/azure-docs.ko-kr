@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/26/2017
+ms.date: 01/10/2019
 ms.author: ergreenl
-ms.openlocfilehash: c424ae1865a710593e509372dc2424c0b8b516a0
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: ed89954836fe262ba60f7401bd7b040e87b60101
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155170"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215187"
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Azure AD(Active Directory) Domain Services
 ## <a name="overview"></a>개요
@@ -65,10 +65,10 @@ Azure AD 도메인 서비스에서 프로비전되는 관리된 도메인의 두
 ### <a name="azure-ad-domain-services-for-hybrid-organizations"></a>하이브리드 조직을 위한 Azure AD 도메인 서비스
 하이브리드 IT 인프라를 가진 조직은 클라우드 리소스 및 온-프레미스 리소스를 혼합하여 사용합니다. 이러한 조직에서는 해당 온-프레미스 디렉터리에서 Azure AD 테넌트에 ID 정보를 동기화합니다. 하이브리드 조직에서는 온-프레미스 애플리케이션, 특히 레거시 디렉터리 인식 애플리케이션을 클라우드에 더 마이그레이션할 방법을 찾기 때문에 Azure AD 도메인 서비스는 유용할 수 있습니다.
 
-Litware Corporation은 해당 온-프레미스 디렉터리에서 Azure AD 테넌트에 ID 정보를 동기화하기 위해 [Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md)를 배포했습니다. 동기화되는 ID 정보는 사용자 계정, 인증을 위한 자격 증명 해시 및 그룹 멤버 자격을 포함합니다.
+Litware Corporation은 해당 온-프레미스 디렉터리에서 Azure AD 테넌트에 ID 정보를 동기화하기 위해 [Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md)를 배포했습니다. 동기화되는 ID 정보에는 사용자 계정, 인증을 위한 자격 증명 해시(암호 해시 동기화) 및 그룹 멤버 자격이 포함됩니다.
 
 > [!NOTE]
-> **암호 동기화는 Azure AD 도메인 서비스를 사용하려는 하이브리드 조직에 필수입니다**. 이러한 요구 사항은 NTLM 또는 Kerberos 인증 방법을 통해 이러한 사용자를 인증하기 위해 Azure AD 도메인 서비스에서 제공하는 관리된 도메인에서 사용자의 자격 증명이 필요하기 때문입니다.
+> **Azure AD Domain Services를 사용하려는 하이브리드 조직은 암호 해시 동기화를 반드시 수행해야 합니다**. 이러한 요구 사항은 NTLM 또는 Kerberos 인증 방법을 통해 이러한 사용자를 인증하기 위해 Azure AD 도메인 서비스에서 제공하는 관리된 도메인에서 사용자의 자격 증명이 필요하기 때문입니다.
 >
 >
 
@@ -89,7 +89,7 @@ Azure AD 도메인 서비스를 사용하여 다음과 같은 이점을 누릴 �
 * **간편함** – 몇 번 간단히 클릭하여 Azure 인프라 서비스에 배포된 가상 머신의 ID 요구를 충족할 수 있습니다. Azure에서 ID 인프라를 배포하고 관리하거나 온-프레미스 ID 인프라에 다시 연결을 설치할 필요가 없습니다.
 * **통합됨** – Azure AD 도메인 서비스는 Azure AD 테넌트와 밀접하게 통합됩니다. 이제 최신 애플리케이션 및 기존의 디렉터리 인식 애플리케이션의 요구를 충족하는 통합된 클라우드 기반 엔터프라이즈 디렉터리로 Azure AD을 사용할 수 있습니다.
 * **호환 가능** – Azure AD 도메인 서비스는 Windows Server Active Directory의 입증된 엔터프라이즈 등급 인프라에서 빌드되었습니다. 따라서 애플리케이션은 Windows Server Active Directory 기능과 높은 수준으로 호환될 수 있습니다. Windows Server AD에서 사용할 수 있는 모든 기능을 현재 Azure AD 도메인 서비스에서 사용할 수 있습니다. 그러나 사용할 수 있는 기능은 온-프레미스 인프라에 의존하는 해당 Windows Server AD 기능과 호환 가능합니다. LDAP, Kerberos, NTLM, 그룹 정책 및 도메인 가입 기능은 다양한 Windows Server 릴리스에 대해 테스트되고 구체화되는 완성도 높은 제품을 구성합니다.
-* **비용 효율적** – Azure AD 도메인 서비스를 사용하면 기존의 디렉터리 인식 응용 프로그램을 지원하기 위해 ID 인프라를 관리와 연관된 인프라 및 관리 부담을 방지할 수 있습니다. 이러한 애플리케이션을 Azure 인프라 서비스로 이동할 수 있으며 운영 비용 절감의 이점을 얻을 수 있습니다.
+* **비용 효율적** – Azure AD 도메인 서비스를 사용하면 기존의 디렉터리 인식 애플리케이션을 지원하기 위해 ID 인프라를 관리와 연관된 인프라 및 관리 부담을 방지할 수 있습니다. 이러한 애플리케이션을 Azure 인프라 서비스로 이동할 수 있으며 운영 비용 절감의 이점을 얻을 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

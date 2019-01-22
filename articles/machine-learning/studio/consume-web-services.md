@@ -1,26 +1,8 @@
 ---
-title: 웹 서비스 사용 - Azure Machine Learning Studio | Microsoft Docs
-description: Azure Machine Learning Studio에서 기계 학습 서비스가 배포된 후에는 RESTFul 웹 서비스를 실시간 요청-응답 서비스 또는 일괄 처리 실행 서비스로 사용할 수 있습니다.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 06/02/2017
-ms.openlocfilehash: d7a48dcb56d2bed0e84714087bb9fda3fae65fc1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273785"
+제목: 웹 서비스 사용 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning Studio에서 기계 학습 서비스가 배포된 후에는 RESTFul 웹 서비스를 실시간 요청-응답 서비스 또는 일괄 처리 실행 서비스로 사용할 수 있습니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 2017/06/02
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Azure Machine Learning Studio 웹 서비스 사용 방법
 
@@ -35,7 +17,7 @@ Azure Machine Learning 예측 모델을 웹 서비스로 배포하고 나면 RES
 
 
 ## <a name="overview"></a>개요
-Azure Machine Learning 웹 서비스를 통해 외부 응용 프로그램에서 Machine Learning 워크플로 점수 매기기 모델과 실시간으로 통신할 수 있습니다. Machine Learning 웹 서비스 호출은 외부 애플리케이션에 예측 결과를 반환합니다. Machine Learning 웹 서비스를 호출하려면 예측을 배포할 때 만들어진 API 키를 전달합니다. Machine Learning 웹 서비스는 웹 프로그래밍 프로젝트에 일반적으로 사용되는 아키텍처인 REST를 기반으로 합니다.
+Azure Machine Learning 웹 서비스를 통해 외부 애플리케이션에서 Machine Learning 워크플로 점수 매기기 모델과 실시간으로 통신할 수 있습니다. Machine Learning 웹 서비스 호출은 외부 애플리케이션에 예측 결과를 반환합니다. Machine Learning 웹 서비스를 호출하려면 예측을 배포할 때 만들어진 API 키를 전달합니다. Machine Learning 웹 서비스는 웹 프로그래밍 프로젝트에 일반적으로 사용되는 아키텍처인 REST를 기반으로 합니다.
 
 Azure Machine Learning에는 다음 두 가지 유형의 서비스가 있습니다.
 
@@ -107,7 +89,7 @@ Machine Learning 웹 서비스에 연결하려면 **Microsoft.AspNet.WebApi.Clie
 
 **코드 샘플을 실행하려면**
 
-1. Machine Learning 샘플 컬렉션의 일부인 “샘플 1: UCI: 성인 2 클래스 데이터 세트에서 데이터 세트 다운로드” 실험을 게시합니다.
+1. Machine Learning 샘플 컬렉션의 일부인 “샘플 1: UCI: 성인 2 클래스 데이터 세트에서 데이터 세트 다운로드” 실험을 배포합니다.
 2. 웹 서비스에서 가져온 키로 apiKey를 할당합니다. 위의 **Azure Machine Learning 권한 부여 키 가져오기** 를 참조하세요.
 3. 요청 URI로 serviceUri를 할당합니다.
 

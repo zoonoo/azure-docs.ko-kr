@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: c792881b02eba7207b20c4b4807d8afbc1adb87f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 554d837d9fa70c2af581f9b582001c7f32d442e7
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543991"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232345"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>네트워크 성능 모니터 솔루션 FAQ
 
@@ -72,7 +72,7 @@ NPM에서 모니터링을 위해 사용하는 TCP 포트는 [EnableRules.ps1](ht
 모니터링하려는 각 서브넷에 대해 최소 한 개의 에이전트를 사용해야 합니다.
 
 ### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--you-have-reached-your-configuration-limit"></a>사용할 수 있거나 “.... 구성 한도에 도달했습니다”라는 오류가 표시되는 최대 에이전트 수는 몇 개인가요?
-NPM은 작업 영역당 IP 수를 5000개로 제한합니다. 노드에 IPv4 및 IPv6 주소가 모두 있는 경우 이 값은 해당 노드의 2개 IP로 계산됩니다. 또한 이 5000개 한도에 따라 에이전트 수의 상한이 결정됩니다. NPM >> [구성]의 [노드] 탭에서 비활성 에이전트를 삭제할 수 있습니다. 또한 NPM은 에이전트를 호스트하는 VM에 할당된 적이 있는 모든 IP의 기록을 유지 관리하고 이러한 IP도 5000개 IP 상한에 개별 IP로 계산됩니다. 작업 영역의 IP를 해제하기 위해 노드 페이지를 사용하여 사용 중이 아닌 IP를 삭제할 수 있습니다.
+NPM은 작업 영역당 IP 수를 5000개로 제한합니다. 노드에 IPv4 및 IPv6 주소가 모두 있는 경우 이 값은 해당 노드의 2개 IP로 계산됩니다. 또한 이 5000개 한도에 따라 에이전트 수의 상한이 결정됩니다. NPM >> [구성]의 [노드] 탭에서 비활성 에이전트를 삭제할 수 있습니다. 또한 NPM은 에이전트를 호스트하는 VM에 할당된 적이 있는 모든 IP의 기록을 유지 관리합니다. 이러한 IP도 5000개 IP 상한 계산에 개별 IP로 합산됩니다. 작업 영역의 IP를 해제하기 위해 노드 페이지를 사용하여 사용 중이 아닌 IP를 삭제할 수 있습니다.
 
 ## <a name="monitoring"></a>모니터링
 

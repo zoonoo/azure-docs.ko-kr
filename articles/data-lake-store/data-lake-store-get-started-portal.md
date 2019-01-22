@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: fba62a7838ad4b8f349e233eef5e8d82450f1453
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 91c069f845ef6291f867099e59e79fd059d8caf1
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949022"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320228"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작
 
@@ -76,9 +76,9 @@ Azure Key Vault의 키를 사용하여 Data Lake Storage Gen1 계정의 암호�
 
 > [!NOTE]
 > Azure Resource Manager 템플릿을 사용하여 Data Lake Storage Gen1 계정을 만들 수도 있습니다. 이러한 템플릿은에서 [Azure QuickStart 템플릿](https://azure.microsoft.com/resources/templates/?term=data+lake+store)에서 액세스할 수 있습니다.
-    - 데이터 암호화 미지원: [데이터 암호화 없이 Azure Data Lake Storage Gen1 계정을 배포합니다](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
-    - Data Lake Storage Gen1을 사용하여 데이터 암호화 지원: [암호화로 Data Lake Storage Gen1 계정을 배포합니다(Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
-    - Azure Key Vault를 사용하여 데이터 암호화 지원: [암호화로 Data Lake Storage Gen1 계정을 배포합니다(Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
+    - 데이터 암호화 미포함 [데이터 암호화 기능을 포함하지 않고 Azure Data Lake Storage Gen1 계정을 배포합니다](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
+    - Data Lake Storage Gen1을 사용하는 데이터 암호화 포함 [암호화 기능(Data Lake)을 포함하여 Data Lake Storage Gen1 계정을 배포합니다](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
+    - Azure Key Vault를 사용하는 데이터 암호화 포함: [암호화 기능(Key Vault)을 포함하여 Data Lake Storage Gen1 계정을 배포합니다](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
 > 
 > 
 
@@ -95,7 +95,7 @@ Data Lake Storage Gen1 계정에서 폴더를 만들어 데이터를 관리하�
    
     ![Data Lake Storage Gen1 계정에 폴더 만들기](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Data Lake Storage Gen1 계정에 폴더 만들기")
    
-    새로 만든 폴더가 **데이터 탐색기** 블레이드에 나열되어 있습니다. 모든 수준까지 중첩된 폴더를 만들 수 있습니다.
+    새로 만든 폴더가 **데이터 탐색기** 블레이드에 나열되어 있습니다. 원하는 수준으로 중첩된 폴더를 만들 수 있습니다.
    
     ![Data Lake 계정에 폴더 만들기](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Data Lake 계정에 폴더 만들기")
 

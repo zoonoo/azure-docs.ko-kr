@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 9b160c011a8a9507698443446ad5fe908b32fb9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: cea5cb924914cff1195520d6bd28a8b62fce8698
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049965"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264413"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure Monitor의 데이터 시각화
 이 문서에서는 Azure Monitor에 저장된 로그 및 메트릭 데이터를 시각화하는 데 사용할 수 있는 방법을 요약해서 보여 줍니다.
@@ -32,7 +32,7 @@ ms.locfileid: "54049965"
 ### <a name="advantages"></a>장점
 - Azure에 긴밀하게 통합됩니다. 시각화는 메트릭 분석, Log Analytics, Application Insights 등 여러 Azure 페이지의 대시보드에 고정될 수 있습니다.
 - 메트릭 및 로그를 둘 다 지원합니다.
-- [메트릭 탐색기](../azure-monitor/platform/metrics-charts.md), [Log Analytics 쿼리](../azure-monitor/log-query/log-query-overview.md), Application Insights의 [맵](../azure-monitor/app/app-map.md)과 [가용성]() 출력을 비롯한 여러 출처의 데이터를 결합할 수 있습니다.
+- [메트릭 탐색기](../azure-monitor/platform/metrics-charts.md), [Log Analytics 쿼리](../azure-monitor/log-query/log-query-overview.md), Application Insights의 [맵](../azure-monitor/app/app-map.md)과 가용성 출력을 비롯한 여러 출처의 데이터를 결합할 수 있습니다.
 - 개인 또는 공유 대시보드 옵션을 제공합니다. Azure [역할 기반 인증(RBAC)](../role-based-access-control/overview.md)과 통합됩니다.
 - 자동으로 새로 고침됩니다. 메트릭 새로 고침은 시간 범위에 따라 달라지며, 시간 범위는 최소 5분입니다. 로그는 1분마다 새로 고침됩니다.
 - 타임스탬프 및 사용자 지정 매개 변수로 메트릭 대시보드가 매개 변수화됩니다.

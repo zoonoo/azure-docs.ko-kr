@@ -1,10 +1,10 @@
 ---
-title: Azure Active Directory에서 그룹 기반 라이선스를 사용하여 제품 라이선스 간에 사용자를 안전하게 마이그레이션하는 방법 | Microsoft Docs
-description: '그룹 기반 라이선스를 사용하여 서로 다른 제품 라이선스(예: Office 365 Enterprise E1 및 E3) 간에 사용자를 마이그레이션하는 데 권장되는 프로세스에 대해 설명합니다.'
+title: 제품 라이선스 간에 사용자를 마이그레이션하는 방법 - Azure Active Directory | Microsoft Docs
+description: 그룹 기반 라이선스를 사용하여 서로 다른 제품 라이선스(Office 365 Enterprise E1 및 E3) 간에 사용자를 마이그레이션하는 데 권장되는 프로세스에 대해 설명합니다.
 services: active-directory
 keywords: Azure AD 라이선스
 documentationcenter: ''
-author: piotrci
+author: curtand
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/29/2018
-ms.author: piotrci
-ms.openlocfilehash: 643339545dac6ec35ab44f2a05fbe417dea2bb71
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 01/14/2019
+ms.author: curtand
+ms.reviewer: sumitp
+ms.openlocfilehash: 68d4cdf3c7ba08f7cf37132936c6769c99c177cc
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211794"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319421"
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>그룹 기반 라이선스를 사용하여 제품 라이선스 간에 사용자를 안전하게 마이그레이션하는 방법
 
@@ -47,7 +48,7 @@ ms.locfileid: "50211794"
 -   사용자 환경에서 그룹이 관리되는 방식을 이해합니다. 예를 들어, 온-프레미스에서 그룹을 관리하고 Azure AD Connect 통해 Azure AD(Azure Active Directory)와 동기화할 경우, 온-프레미스 시스템을 사용하여 사용자를 추가/제거합니다. 그룹 기반 라이선스에 의해 변경 내용이 Azure AD와 동기화되고 선택되는 데 시간이 소요됩니다. Azure AD 동적 그룹 멤버 자격을 사용하는 경우 대신 해당 특성을 수정하여 사용자를 추가/제거합니다. 그러나 전체 마이그레이션 프로세스는 동일합니다. 유일한 차이점은 그룹 구성원 자격에 대해 사용자를 추가/제거하는 방법입니다.
 
 ## <a name="migrate-users-between-products-that-dont-have-conflicting-service-plans"></a>충돌하는 서비스 계획이 없는 제품 간 사용자 마이그레이션
-마이그레이션 목표는 그룹 기반 라이선스를 사용하여 사용자 라이선스를 *소스 라이선스*(이 예제에서는 Office 365 Enterprise E3)에서 *대상 라이선스*(이 예제에서는 Office 365 Enterprise E5)로 변경하는 것입니다. 이 시나리오의 두 제품에는 충돌하는 서비스 계획이 포함되어 있지 않으므로 충돌 없이 동시에 완전히 할당할 수 있습니다. 마이그레이션 중에 사용자가 서비스 또는 데이터에 대한 액세스 권한을 잃지 않습니다. 마이그레이션은 소규모 "일괄 처리"로 수행됩니다. 각 일괄 처리에 대한 결과가 유효한지 확인하고, 프로세스 동안 발생할 수 있는 모든 문제의 범위를 최소화할 수 있습니다. 전반적인 프로세스는 다음과 같습니다.
+이 마이그레이션에서는 그룹 기반 라이선스를 사용하여 사용자 라이선스를 *원본 라이선스*(이 예제에서는 Office 365 Enterprise E3)에서 *대상 라이선스*(이 예제에서는 Office 365 Enterprise E5)로 변경해야 합니다. 이 시나리오의 두 제품에는 충돌하는 서비스 계획이 포함되어 있지 않으므로 충돌 없이 동시에 완전히 할당할 수 있습니다. 마이그레이션 중에 사용자가 서비스 또는 데이터에 대한 액세스 권한을 잃지 않습니다. 마이그레이션은 소규모 "일괄 처리"로 수행됩니다. 각 일괄 처리에 대한 결과가 유효한지 확인하고, 프로세스 동안 발생할 수 있는 모든 문제의 범위를 최소화할 수 있습니다. 전반적인 프로세스는 다음과 같습니다.
 
 1.  사용자가 소스 그룹의 멤버이며 해당 그룹에서 *소스 라이선스*를 상속합니다.
 
@@ -66,7 +67,7 @@ ms.locfileid: "50211794"
 ### <a name="migrate-a-single-user-by-using-the-azure-portal"></a>Azure Portal을 사용하여 단일 사용자 마이그레이션
 단일 사용자를 마이그레이션하는 방법에 대한 간단한 연습입니다.
 
-**1단계**: 사용자에게 그룹에서 상속된 *소스 라이선스*가 있습니다. 라이선스에 대한 직접 할당은 없습니다.
+**1단계**: 사용자에게 그룹에서 상속된 *원본 라이선스*가 있습니다. 라이선스에 대한 직접 할당은 없습니다.
 
 ![그룹에서 상속된 소스 라이선스가 있는 사용자](./media/licensing-groups-change-licenses/UserWithSourceLicenseInherited.png)
 
@@ -74,7 +75,7 @@ ms.locfileid: "50211794"
 
 ![그룹에서 상속된 소스 및 대상 라이선스가 모두 있는 사용자](./media/licensing-groups-change-licenses/UserWithBothSourceAndTargetLicense.png)
 
-**3단계**: 사용자가 소스 그룹에서 추가되고, 그룹 기반 라이선스가 변경을 처리합니다. 이제 사용자에게는 *대상 라이선스*만 있습니다.
+**3단계**: 사용자가 원본 그룹에서 제거되고, 그룹 기반 라이선스가 변경을 처리합니다. 이제 사용자에게는 *대상 라이선스*만 있습니다.
 
 ![그룹에서 상속된 대상 라이선스가 있는 사용자](./media/licensing-groups-change-licenses/UserWithTargetLicenseAssigned.png)
 
@@ -176,7 +177,7 @@ Check passed for all users. Exiting check loop.
 ```
 
 ## <a name="migrate-users-between-products-that-have-conflicting-service-plans"></a>충돌하는 서비스 계획이 있는 제품 간 사용자 마이그레이션
-마이그레이션 목표는 그룹 기반 라이선스를 사용하여 사용자 라이선스를 *소스 라이선스*(이 예제에서는 Office 365 Enterprise E1)에서 *대상 라이선스*(이 예제에서는 Office 365 Enterprise E3)로 변경하는 것입니다. 이 시나리오의 두 제품에 충돌하는 서비스 계획이 포함되어 있으므로 사용자를 원활하게 마이그레이션하기 위해 충돌을 해결해야 합니다. 이러한 충돌에 대한 자세한 내용은 [Active Directory 라이선스 그룹 문제 해결: 충돌하는 서비스 계획](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans)을 참조하세요. 마이그레이션 중에 사용자가 서비스 또는 데이터에 대한 액세스 권한을 잃지 않습니다. 마이그레이션은 소규모 "일괄 처리"로 수행됩니다. 각 일괄 처리에 대한 결과가 유효한지 확인하고, 프로세스 동안 발생할 수 있는 모든 문제의 범위를 최소화할 수 있습니다. 전반적인 프로세스는 다음과 같습니다.
+이 마이그레이션에서는 그룹 기반 라이선스를 사용하여 사용자 라이선스를 *원본 라이선스*(이 예제에서는 Office 365 Enterprise E1)에서 *대상 라이선스*(이 예제에서는 Office 365 Enterprise E3)로 변경해야 합니다. 이 시나리오의 두 제품에 충돌하는 서비스 계획이 포함되어 있으므로 사용자를 원활하게 마이그레이션하기 위해 충돌을 해결해야 합니다. 이러한 충돌에 대한 자세한 내용은 [Active Directory 라이선스 그룹 문제 해결: 서비스 플랜 충돌](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans)을 참조하세요. 마이그레이션 중에 사용자가 서비스 또는 데이터에 대한 액세스 권한을 잃지 않습니다. 마이그레이션은 소규모 "일괄 처리"로 수행됩니다. 각 일괄 처리에 대한 결과가 유효한지 확인하고, 프로세스 동안 발생할 수 있는 모든 문제의 범위를 최소화할 수 있습니다. 전반적인 프로세스는 다음과 같습니다.
 
 1.  사용자가 소스 그룹의 멤버이며 해당 그룹에서 *소스 라이선스*를 상속합니다.
 
@@ -195,7 +196,7 @@ Check passed for all users. Exiting check loop.
 ### <a name="migrate-a-single-user-by-using-the-azure-portal"></a>Azure Portal을 사용하여 단일 사용자 마이그레이션
 단일 사용자를 마이그레이션하는 방법에 대한 간단한 연습입니다.
 
-**1단계**: 사용자에게 그룹에서 상속된 *소스 라이선스*가 있습니다. 라이선스에 대한 직접 할당은 없습니다.
+**1단계**: 사용자에게 그룹에서 상속된 *원본 라이선스*가 있습니다. 라이선스에 대한 직접 할당은 없습니다.
 
 ![그룹에서 상속된 소스 라이선스가 있는 사용자](./media/licensing-groups-change-licenses/UserWithSourceLicenseInheritedConflictScenario.png)
 
@@ -203,7 +204,7 @@ Check passed for all users. Exiting check loop.
 
 ![그룹에서 상속된 소스 라이선스 및 오류 상태인 대상 라이선스가 있는 사용자](./media/licensing-groups-change-licenses/UserWithSourceLicenseAndTargetLicenseInConflict.png)
 
-**3단계**: 사용자가 소스 그룹에서 추가되고, 그룹 기반 라이선스가 변경을 처리합니다. *대상 라이선스*가 사용자에게 적용됩니다.
+**3단계**: 사용자가 원본 그룹에서 제거되고, 그룹 기반 라이선스가 변경을 처리합니다. *대상 라이선스*가 사용자에게 적용됩니다.
 
 ![그룹에서 상속된 대상 라이선스가 있는 사용자](./media/licensing-groups-change-licenses/UserWithTargetLicenseAssignedConflictScenario.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Data Factory를 사용하여 Azure Cosmos DB(MongoDB API) 간 데이터 복사 | Microsoft Docs
-description: Data Factory를 사용하여 지원되는 원본 데이터 저장소에서 Azure Cosmos DB 또는 Azure Cosmos DB(MongoDB API)에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
+title: Data Factory를 사용하여 MongoDB용 Azure Cosmos DB API에서/API로 데이터 복사 | Microsoft Docs
+description: Data Factory를 사용하여 지원되는 원본 데이터 저장소에서 MongoDB용 Azure Cosmos DB API로, 또는 이러한 데이터 저장소나 API에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory, cosmosdb
 documentationcenter: ''
 author: linda33wj
@@ -12,27 +12,27 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: a28d0e819243810486179e7219ad3cb48487a299
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 5d45e4cc8781f4c235c641c4c99f1720871d57fb
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107177"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359003"
 ---
-# <a name="copy-data-to-or-from-azure-cosmos-db-mongodb-api-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cosmos DB(MongoDB API) 간 데이터 복사
+# <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB용 Azure Cosmos DB API에서/API로 데이터 복사
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure Cosmos DB(MongoDB API) 간에 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 기반으로 합니다.
+이 문서에서는 Azure Data Factory의 복사 활동을 사용하여 MongoDB용 Azure Cosmos DB API에서/API로 데이터를 복사하는 방법을 간략하게 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 기반으로 합니다.
 
 >[!NOTE]
->이 커넥터는 Cosmos DB MongoDB API 간의 데이터 복사만을 지원합니다. SQL API는 [Cosmos DB SQL API 커넥터](connector-azure-cosmos-db.md)를 참조하세요. 기타 API 형식은 이제 지원되지 않습니다.
+>이 커넥터는 MongoDB용 Azure Cosmos DB API에서/API로 데이터를 복사하는 작업만 지원합니다. SQL API는 [Cosmos DB SQL API 커넥터](connector-azure-cosmos-db.md)를 참조하세요. 기타 API 형식은 이제 지원되지 않습니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-Azure Cosmos DB(MongoDB API)에서 모든 지원되는 싱크 데이터 저장소로 또는 모든 지원되는 원본 데이터 저장소에서 Azure Cosmos DB(MongoDB API)로 데이터를 복사할 수 있습니다. 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조하세요.
+MongoDB용 Azure Cosmos DB API에서 지원되는 싱크 데이터 저장소로 데이터를 복사할 수도 있고, 지원되는 원본 데이터 저장소에서 MongoDB용 Azure Cosmos DB API로 데이터를 복사할 수도 있습니다. 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조하세요.
 
-Azure Cosmos DB(MongoDB API) 커넥터를 사용하여 다음을 수행할 수 있습니다.
+MongoDB용 Azure Cosmos DB API 커넥터를 사용하여 다음을 수행할 수 있습니다.
 
-- Azure Cosmos DB [MongoDB API](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) 간에 데이터를 복사합니다.
+- [MongoDB용 Azure Cosmos DB API](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)에서/API로 데이터를 복사합니다.
 - **insert** 또는 **upsert**로 Azure Cosmos DB에 씁니다.
 - JSON 문서를 있는 그대로 가져오고 내보내거나 데이터를 테이블 형식 데이터 세트 간에 복사합니다. 예로는 SQL 데이터베이스 및 CSV 파일이 있습니다. JSON 파일 간 또는 다른 Azure Cosmos DB 컬렉션 간에 문서를 있는 그대로 복사하려면 [JSON 문서 가져오기 또는 내보내기](#importexport-json-documents)를 참조하세요.
 
@@ -40,16 +40,16 @@ Azure Cosmos DB(MongoDB API) 커넥터를 사용하여 다음을 수행할 수 �
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-다음 섹션에서는 Azure Cosmos DB(MongoDB API)에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
+다음 섹션에서는 MongoDB용 Azure Cosmos DB API 전용 Data Factory 엔터티를 정의하는 데 사용할 수 있는 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
-Azure Cosmos DB(MongoDB API) 연결된 서비스에 다음 속성이 지원됩니다.
+MongoDB용 Azure Cosmos DB API 연결된 서비스에서 지원되는 속성은 다음과 같습니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | **type** 속성을 **CosmosDbMongoDbApi**로 설정해야 합니다. | 예 |
-| connectionString |Azure Cosmos DB MongoDB API에 대한 연결 문자열을 지정합니다. Azure Portal -> Cosmos DB 블레이드 -> `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb` 패턴의 기본 또는 보조 연결 문자열에서 찾을 수 있습니다. <br/><br />이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. |예 |
+| connectionString |MongoDB용 Azure Cosmos DB API의 연결 문자열을 지정합니다. Azure Portal -> Cosmos DB 블레이드 -> `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb` 패턴의 기본 또는 보조 연결 문자열에서 찾을 수 있습니다. <br/><br />이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. |예 |
 | 데이터베이스 | 액세스하려는 데이터베이스 이름입니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 개인 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 사용할 수 있습니다. 이 속성을 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |아니요 |
 
@@ -77,7 +77,7 @@ Azure Cosmos DB(MongoDB API) 연결된 서비스에 다음 속성이 지원됩�
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 및 연결된 서비스](concepts-datasets-linked-services.md)를 참조하세요. Azure Cosmos DB(MongoDB API) 데이터 세트에 다음 속성이 지원됩니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 및 연결된 서비스](concepts-datasets-linked-services.md)를 참조하세요. MongoDB용 Azure Cosmos DB API 데이터 세트에서 지원되는 속성은 다음과 같습니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
@@ -92,7 +92,7 @@ Azure Cosmos DB(MongoDB API) 연결된 서비스에 다음 속성이 지원됩�
     "properties": {
         "type": "CosmosDbMongoDbApiCollection",
         "linkedServiceName":{
-            "referenceName": "<Azure Cosmos DB MongoDB API linked service name>",
+            "referenceName": "<Azure Cosmos DB's API for MongoDB linked service name>",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -104,11 +104,11 @@ Azure Cosmos DB(MongoDB API) 연결된 서비스에 다음 속성이 지원됩�
 
 ## <a name="copy-activity-properties"></a>복사 활동 속성
 
-이 섹션에서는 Azure Cosmos DB(MongoDB API) 원본 및 싱크에서 지원하는 속성 목록을 제공합니다.
+이 섹션에서는 MongoDB용 Azure Cosmos DB API 원본 및 싱크에서 지원하는 속성 목록을 제공합니다.
 
 작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인](concepts-pipelines-activities.md)을 참조하세요.
 
-### <a name="azure-cosmos-db-mongodb-api-as-source"></a>원본 Azure Cosmos DB(MongoDB API)
+### <a name="azure-cosmos-dbs-api-for-mongodb-as-source"></a>MongoDB용 Azure Cosmos DB API(원본)
 
 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
@@ -134,7 +134,7 @@ Azure Cosmos DB(MongoDB API) 연결된 서비스에 다음 속성이 지원됩�
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Cosmos DB MongoDB API input dataset name>",
+                "referenceName": "<Azure Cosmos DB's API for MongoDB input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -163,7 +163,7 @@ Azure Cosmos DB(MongoDB API) 연결된 서비스에 다음 속성이 지원됩�
 ]
 ```
 
-### <a name="azure-cosmos-db-mongodb-api-as-sink"></a>싱크 Azure Cosmos DB(MongoDB API)
+### <a name="azure-cosmos-dbs-api-for-mongodb-as-sink"></a>MongoDB용 Azure Cosmos DB API(싱크)
 
 복사 작업 **sink** 섹션에서 지원되는 속성은 다음과 같습니다.
 
@@ -221,7 +221,7 @@ Azure Cosmos DB(MongoDB API) 연결된 서비스에 다음 속성이 지원됩�
 
 ## <a name="schema-mapping"></a>스키마 매핑
 
-Cosmos DB MongoDB API에서 테이블 형식 싱크 또는 반대로 데이터를 복사하려면 [스키마 매핑](copy-activity-schema-and-type-mapping.md#schema-mapping)을 참조하세요.
+MongoDB용 Azure Cosmos DB API에서 테이블 형식 싱크로 또는 싱크에서 API로 데이터를 복사하려면 [스키마 매핑](copy-activity-schema-and-type-mapping.md#schema-mapping)을 참조하세요.
 
 Cosmos DB에 대한 쓰기 작업을 위해 특별히 원본 데이터에서 올바른 개체 ID로 Cosmos DB를 채울 수 있도록 하려면(예: SQL 데이터베이스 테이블에 "ID" 열이 있고 삽입/upsert하기 위해 MongoDB에서 문서 ID로 해당 값을 사용함) MongoDB strict 모드 정의(`_id.$oid`)에 따라 적절한 스키마 매핑을 다음과 같이 설정해야 합니다.
 

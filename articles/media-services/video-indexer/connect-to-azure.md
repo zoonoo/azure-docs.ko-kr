@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/12/2019
 ms.author: juliako
-ms.openlocfilehash: f220aee3fa0d9a79723383fc31fec0eed2554bb4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 55828ea2235e42920a5179846d81711b1ada5dc2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833689"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261556"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure에 연결되는 Video Indexer 계정 만들기
 
@@ -98,6 +98,9 @@ Azure Portal을 사용하여 EventGrid 리소스 공급자를 등록합니다.
 
 Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 수 있습니다.
 
+> [!NOTE]
+> Media Services 계정과 연결하는 Video Indexer 계정, 그리고 같은 Media Services 계정에 연결된 Azure 저장소 계정의 3개 계정은 같은 지역에 있는 것이 좋습니다.
+
 ### <a name="create-and-configure-a-media-services-account"></a>Media Services 계정을 만들고 구성
 
 1. [Azure](https://portal.azure.com/) Portal을 사용하여 [계정 만들기](../previous/media-services-portal-create-account.md)에 설명된 대로 Azure Media Services 계정을 만듭니다.
@@ -143,7 +146,7 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 |Azure Media Services 리소스 그룹 이름|Media Services 계정을 만든 리소스 그룹의 이름입니다.|
 |Media Services 리소스 이름|이전 섹션에서 만든 Azure Media Services 계정의 이름입니다.|
 |애플리케이션 UI|이전 섹션에서 만든 Azure AD 애플리케이션 ID(지정된 Media Services 계정에 대한 권한이 있는)입니다.|
-|응용 프로그램 키|이전 섹션에서 만든 Azure AD 애플리케이션 키입니다. |
+|애플리케이션 키|이전 섹션에서 만든 Azure AD 애플리케이션 키입니다. |
 
 ## <a name="considerations"></a>고려 사항
 

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a9b44ed56774466bae2f0f5d48b5e012382721b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 40e925fff9d87d8590ea3a83be9e7d93a84d6e26
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865236"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266657"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>작업 의존 관계를 만들어 다른 작업에 종속된 작업 실행
 
@@ -79,7 +79,7 @@ Azure Batch에서 사용할 수 있는 세 가지 기본 태스크 종속성 시
 |:---:| --- | --- |
 |  [일대일](#one-to-one) |*taskB*가 *taskA*에 종속됨 <p/> *taskB*는 *taskA*가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 |![다이어그램: 일대일 태스크 종속성][1] |
 |  [일대다](#one-to-many) |*taskC*는 *taskA* 및 *taskB*에 종속됨 <p/> *taskC*는 *taskA* 및 *taskB*가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 |![다이어그램: 일대다 태스크 종속성][2] |
-|  [태스크 ID 범위](#task-id-range) |*taskD*가 태스크의 범위에 종속됨 <p/> *taskD*는 ID *1*-*10*을 가진 태스크가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 |![다이어그램: 태스크 ID 범위 종속성][3] |
+|  [태스크 ID 범위](#task-id-range) |*taskD*가 태스크의 범위에 종속됨 <p/> *taskD*는 ID *1*-*10*을 가진 태스크가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 |![다이어그램: 작업 ID 범위 종속성][3] |
 
 > [!TIP]
 > 태스크 C, D, E 및 F는 각각 태스크 A 및 B에 종속되는 경우 **다대다** 관계를 만들 수 있습니다. 예를 들어, 다운스트림 태스크가 여러 업스트림 태스크의 출력에 따라 달라지는 병렬화된 전처리 시나리오에서 유용합니다.
@@ -123,7 +123,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 > [!IMPORTANT]
 > 종속성에 대해 태스크 ID 범위를 사용할 경우 ID가 정수 값을 나타내는 태스크만 범위에 따라 선택됩니다. 따라서 범위 `1..10`에서 태스크 `3` 및 `7`이 선택되지만 `5flamingoes`는 선택되지 않습니다. 
 > 
-> 범위 종속성을 평가할 때 선행 0은 의미가 없으므로 문자열 식별자 `4`, `04` 및 `004`는 해당 범위 *내에* 있게 되고, 모두 태스크 `4`로 취급되므로 첫 번째로 완료되는 태스크가 종속성을 충족합니다.
+> 범위 종속성을 평가할 때 앞에 오는 0은 의미가 없으므로 문자열 식별자가 `4`, `04` 및 `004`인 작업은 모두 범위 *내*에 포함되며 `4` 작업으로 처리됩니다. 따라서 처음 완료되는 작업에서 종속성이 충족됩니다.
 > 
 > **충족**으로 설정된 종속성 작업에 매핑되는 오류를 성공적으로 완료하거나 해결하여 범위에 있는 모든 태스크가 종속성을 충족해야 합니다. 자세한 내용은 [종속성 작업](#dependency-actions) 섹션을 참조하세요.
 >

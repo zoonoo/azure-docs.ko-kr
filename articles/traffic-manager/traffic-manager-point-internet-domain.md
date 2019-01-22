@@ -1,22 +1,21 @@
 ---
-title: 회사 인터넷 도메인을 Azure Traffic Manager 도메인 이름으로 지정 | Microsoft Docs
+title: 회사 인터넷 도메인이 Traffic Manager 도메인 이름을 가리키도록 설정
 description: 이 문서에서는 사용자의 회사 도메인 이름이 Traffic Manager 도메인 이름을 가리킵니다.
 services: traffic-manager
-documentationcenter: ''
 author: kumudd
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
-ms.openlocfilehash: 2b9b718a61d13790de38ea82f9b479e372e9de63
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: c11d8ddcd9a1c1f051ab779a66710ab3d968acab
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052686"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200584"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>회사 인터넷 도메인이 Azure Traffic Manager 도메인을 가리키도록 설정
 

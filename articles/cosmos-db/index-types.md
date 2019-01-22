@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: 44fe262dc28a016af9eb01f28278b2c3d81d9034
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 50e8e63c9508aa9e81222f242ca330637075e42d
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034090"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199071"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱스 유형
 
@@ -29,6 +29,9 @@ Azure Cosmos DB는 모든 경로에 대해 문자열, 숫자 데이터 형식 �
 
 - **해시 인덱스**는 효율적인 같음 및 JOIN 쿼리를 지원합니다. 대부분의 사용 사례에서는 해시 인덱스의 전체 자릿수가 기본값 3바이트보다 높을 필요가 없습니다. 데이터 형식은 문자열 또는 숫자일 수 있습니다.
 
+  > [!NOTE]
+  > Azure Cosmos 컨테이너는 해시 인덱스 종류를 더 이상 사용하지 않는 새로운 인덱스 레이아웃을 지원합니다. 인덱싱 정책에서 해시 인덱스 종류를 지정하면 컨테이너에 대한 CRUD 요청에서는 인덱스 종류를 자동으로 무시하며 컨테이너의 응답에는 범위 인덱스 종류만 포함됩니다. 새 Cosmos 컨테이너는 모두 기본적으로 새 인덱스 레이아웃을 사용합니다. 
+  
 - **범위 인덱스**는 효율적인 같음 쿼리, 범위 쿼리(>, <, >=, <=, != 사용) 및 ORDER BY 쿼리를 지원합니다. 또한 ORDER BY 쿼리에는 기본적으로 최대 인덱스 전체 자릿수(-1)가 필요합니다. 데이터 형식은 문자열 또는 숫자일 수 있습니다.
 
 - **공간 인덱스**는 효율적인 공간(이내 및 거리) 쿼리를 지원합니다. 데이터 형식은 점, 다각형 또는 LineString일 수 있습니다. Azure Cosmos DB는 모든 경로에 대해 점, 다각형 또는 LineString 데이터 형식으로 지정할 수 있는 공간 인덱스 종류도 지원합니다. 지정된 경로에 있는 값은 다음과 같은 유효한 GeoJSON 조각이어야 합니다. {"type": "Point", "coordinates": [0.0, 10.0]}. Azure Cosmos DB는 점, 다각형 및 LineString 데이터 형식의 자동 인덱싱을 지원합니다.
@@ -58,6 +61,9 @@ Azure Cosmos DB는 모든 경로에 대해 문자열, 숫자 데이터 형식 �
 - 공간 인덱스는 항상 모든 형식(점, LineString 및 다각형)에 대한 기본 인덱스 전체 자릿수를 사용하며, 공간 인덱스의 기본 인덱스 전체 자릿수는 재정의할 수 없습니다.
 
 Azure Cosmos DB는 쿼리가 ORDER BY를 사용하지만 최대 전체 자릿수로 쿼리된 경로에 대한 범위 인덱스가 없는 경우 오류를 반환합니다.
+
+> [!NOTE]
+> Azure Cosmos 컨테이너는 최대 전체 자릿수 값(-1) 이외의 사용자 지정 인덱스 전체 자릿수가 더 이상 필요하지 않은 새로운 인덱스 레이아웃을 지원합니다. 이 방법을 사용하는 경우에는 경로가 항상 최대 전체 자릿수를 사용하여 인덱싱됩니다. 인덱싱 정책에서 전체 자릿수 값을 지정하면 컨테이너에 대한 CRUD 요청에서는 전체 자릿수 값을 자동으로 무시하며 컨테이너의 응답에는 최대 전체 자릿수 값(-1)만 포함됩니다.  새 Cosmos 컨테이너는 모두 기본적으로 새 인덱스 레이아웃을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

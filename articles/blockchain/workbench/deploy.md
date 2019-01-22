@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 2c5e3664a9ef26319eb8a51d03ddef6a5392ffa9
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: fcba3aef29e1566f9dfb2b151c15fe683be94fdb
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102995"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266590"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench 배포
 
@@ -240,7 +240,7 @@ Blockchain Workbench 배포에는 Azure AD 애플리케이션의 등록이 필�
     > [!IMPORTANT]
     > 값 **관리자**는 Blockchain Workbench 관리자를 식별하는 데 필요합니다.
 
-4. 매니페스트에서 **Oauth2AllowImplictFlow** 값을 **true**로 변경합니다.
+4. 매니페스트에서 **Oauth2AllowImplicitFlow** 값도 **true**로 변경합니다.
 
     ``` json
     "oauth2AllowImplicitFlow": true,

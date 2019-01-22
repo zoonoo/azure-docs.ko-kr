@@ -1,26 +1,8 @@
 ---
-title: 프로그래밍 방식으로 Machine Learning Studio 모델 보존 - Azure | Microsoft Docs
-description: C# 및 Machine Learning Batch Execution 서비스를 사용하여 모델을 프로그래밍 방식으로 다시 학습하는 방법을 알아봅니다.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2017
-ms.openlocfilehash: 7a1381ce43056607486a27710cd6ee6181b9a5c1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257396"
+제목: 프로그래밍 방식으로 Machine Learning Studio 모델 다시 학습 titleSuffix: Azure Machine Learning Studio 설명: C# 및 Machine Learning Batch Execution 서비스를 사용하여 모델을 프로그래밍 방식으로 다시 학습하는 방법을 알아봅니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 2017/04/19
 ---
 # <a name="retrain-azure-machine-learning-studio-models-programmatically"></a>프로그래밍 방식으로 Azure Machine Learning Studio 모델 다시 학습
 이 연습에서는 C# 및 Machine Learning Batch Execution 서비스를 사용하여 Azure Machine Learning Studio 웹 서비스를 프로그래밍 방식으로 다시 학습하는 방법을 배웁니다.

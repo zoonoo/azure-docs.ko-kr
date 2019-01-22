@@ -97,7 +97,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-reviews-for-review-tool"></a>검토 도구용 검토 만들기
 
-이전 섹션에서 들어오는 이미지를 성인 및 외설 콘텐츠(Content Moderator), 유명인(Computer Vision) 및 다양한 기타 개체(Computer Vision)에 대해 검사하는 메서드를 살펴보았습니다. 다음으로, 적용된 모든 태그(_메타데이터_로 전달됨)와 함께 이미지를 Content Moderator 도구에 업로드하여 사용자 검토용으로 제공하는 **CreateReview** 메서드를 살펴봅니다. 
+이전 섹션에서 들어오는 이미지를 성인 및 외설 콘텐츠(Content Moderator), 유명인(Computer Vision) 및 다양한 기타 개체(Computer Vision)에 대해 검사하는 메서드를 살펴보았습니다. 다음으로, 적용된 모든 태그(_Metadata_로 전달됨)와 함께 이미지를 Content Moderator 도구에 업로드하여 사용자 검토용으로 제공하는 **CreateReview** 메서드를 살펴봅니다. 
 
 [!code-csharp[define CreateReview method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=173-196)]
 

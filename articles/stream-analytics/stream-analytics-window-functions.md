@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 2650058e277bc0338c779655ce381be046fb120a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 04c19e7e51777db4c59bfab3d5a8a7598560556a
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33893653"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231651"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Stream Analytics 창 함수 소개
 실시간 스트리밍 시나리오에서 임시 창에 포함된 데이터에서 작업을 수행하는 것은 일반적인 패턴입니다. Stream Analytics에는 개발자가 최소한의 노력으로 복잡한 스트림 처리 작업을 작성할 수 있도록 창 함수에 대한 네이티브 지원이 있습니다.
 
-다음과 같은 선택할 수 있는 네 종류의 임시 창이 있습니다. [**연속**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [**도약**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [**슬라이딩**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) 및 [**세션**](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) 창  Stream Analytics 작업에서 쿼리 구문의 [**GROUP BY**](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) 절에서 창 함수를 사용합니다.
+선택 가능한 임시 창의 종류에는 [**연속**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [**도약**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [**슬라이딩**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics), [**세션**](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics)의 네 가지가 있습니다.  Stream Analytics 작업에서 쿼리 구문의 [**GROUP BY**](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) 절에서 창 함수를 사용합니다.
 
 모든 [창](https://msdn.microsoft.com/azure/stream-analytics/reference/windowing-azure-stream-analytics) 작업 결과는 창의 **끝**에 출력됩니다. 창의 출력은 사용된 집계 함수를 기반으로 하는 단일 이벤트입니다. 출력 이벤트에는 창 끝의 타임스탬프가 있고 모든 창 함수는 고정된 길이로 정의됩니다. 
 
@@ -40,7 +40,7 @@ ms.locfileid: "33893653"
 
 ![Stream Analytics 슬라이딩 윈도우](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
-## <a name="session-window-preview"></a>세션 창(미리 보기)
+## <a name="session-window"></a>세션 창
 세션 창 함수는 데이터가 없는 기간을 필터링하여 비슷한 시간에 도착하는 이벤트를 그룹화합니다. 세 가지 주요 매개 변수인 시간 제한, 최대 지속 시간 및 분할 키(선택 사항)가 있습니다.
 
 ![Stream Analytics 세션 창](media/stream-analytics-window-functions/stream-analytics-window-functions-session-intro.png)

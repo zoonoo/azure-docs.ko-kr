@@ -1,26 +1,8 @@
 ---
-title: 샘플 데이터 세트 사용 - Azure Machine Learning Studio | Microsoft Docs
-description: Machine Learning Studio에 포함된 샘플 모델에서 사용되는 데이터 세트를 설명합니다. 실험에 대해 이 샘플 데이터 세트를 사용할 수 있습니다.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
-ms.openlocfilehash: 2fde43417ffc907a93b4e568b90ebbda228c4cfe
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270487"
+제목: 샘플 데이터 세트 사용 titleSuffix: Azure Machine Learning Studio 설명: Machine Learning Studio에 포함된 샘플 모델에서 사용되는 데이터 세트를 설명합니다. 실험에 대해 이 샘플 데이터 세트를 사용할 수 있습니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 2018/01/19
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 샘플 데이터 세트 사용
 [top]: #machine-learning-sample-datasets
@@ -103,7 +85,7 @@ CSV 데이터로 변환된 공개 사용 가능한 이미지 파일.
 <p></p>
 <b>관련 조사:</b> Yeh, I.C.,(2008). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
-Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
+Yeh, I-Cheng, Yang, King-Jang, 및 Ting, Tao-Ming, "Bernoulli 시퀀스를 사용한 RFM 모델에 대한 정보 검색 "2008 년 애플리케이션을 이용한 전문가 시스템 <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
 </tr>
 
@@ -405,7 +387,7 @@ RCV1-V2 Reuters 뉴스 데이터 세트의 뉴스 기사에 대한 토픽 할당
   <td>
 이 데이터는 KDD Cup 2010 학생 성취도 평가 챌린지(<a href="http://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">학생 성취도 평가</a>)에서 가져옵니다. 사용된 데이터는 Algebra_2008_2009 학습 집합(Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010)입니다. Algebra I 2008-2009. KDD Cup 2010 교육 데이터 마이닝 챌린지의 챌린지 데이터 세트. <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>에서 찾아보세요.
 <p></p>
-데이터 세트가 다운로드되어 Azure Blob Store(<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>)에 저장되었고 학생 교육 시스템의 로그 파일을 포함합니다. 제공된 기능에는 문제 ID 및 간략한 설명, 학생 ID, 타임스탬프, 올바른 방법으로 문제를 해결하기 전에 학생이 시도한 횟수가 포함됩니다. 원본 데이터 세트에는 8,900,000개 레코드가 있고 이 데이터 세트는 처음 100,000개 행으로 샘플을 줄였습니다. 데이터 세트에는 숫자, 범주, 타임스탬프 형식의 탭으로 구분된 23개 열이 있습니다.
+데이터 집합이 다운로드되어 Azure Blob Storage(<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>)에 저장되었고 학생 교육 시스템의 로그 파일을 포함합니다. 제공된 기능에는 문제 ID 및 간략한 설명, 학생 ID, 타임스탬프, 올바른 방법으로 문제를 해결하기 전에 학생이 시도한 횟수가 포함됩니다. 원본 데이터 세트에는 8,900,000개 레코드가 있고 이 데이터 세트는 처음 100,000개 행으로 샘플을 줄였습니다. 데이터 세트에는 숫자, 범주, 타임스탬프 형식의 탭으로 구분된 23개 열이 있습니다.
   </td>
 </tr>
 

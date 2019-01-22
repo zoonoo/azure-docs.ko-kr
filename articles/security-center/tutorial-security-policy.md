@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/4/2018
+ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: f9cc6f5c35b528d3a545293b9a946bc3eda3d7ac
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 52af6051b4534ba65b4822205cb5395a59ef9d6a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339335"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259967"
 ---
 # <a name="working-with-security-policies"></a>보안 정책 작업
 
@@ -28,12 +28,15 @@ ms.locfileid: "53339335"
 
 PowerShell을 사용하여 정책을 설정하는 방법에 대한 지침은 [빠른 시작: Azure RM PowerShell 모듈을 사용하여 비준수 리소스를 식별하는 정책 할당 만들기](../azure-policy/assign-policy-definition-ps.md)를 참조하세요.
 
+>[!NOTE]
+> Security Center와 Azure Policy의 통합이 시작되었습니다. 기존 고객의 경우 Security Center의 이전 보안 정책이 더 이상 사용되지 않으며 새로운 기본 제공 이니셔티브로 자동 마이그레이션됩니다. 새로운 이니셔티브가 Azure Policy에 포함되어 있다는 점을 제외하면 이러한 변경은 리소스나 환경에 영향을 주지 않습니다.
+
 ## <a name="what-are-security-policies"></a>보안 정책이란?
-보안 정책은 워크로드에서 원하는 구성을 정의하고 회사 또는 규정 보안 요구 사항을 준수하는 데 도움이 됩니다. Azure Policy에서 Azure 구독에 대한 정책을 정의하고 워크로드의 유형 또는 데이터의 민감도에 맞게 정책을 조정할 수 있습니다. 예를 들어 개인 식별 정보와 같이 규제된 데이터를 사용하는 응용 프로그램은 다른 작업보다 높은 수준의 보안이 필요할 수 있습니다. 여러 구독이나 관리 그룹에 걸쳐 정책을 설정하려면 [Azure Policy](../azure-policy/azure-policy-introduction.md)에서 정책을 설정합니다.
-
-
+보안 정책은 워크로드에서 원하는 구성을 정의하고 회사 또는 규정 보안 요구 사항을 준수하는 데 도움이 됩니다. Azure Policy에서 Azure 구독에 대한 정책을 정의하고 워크로드의 유형 또는 데이터의 민감도에 맞게 정책을 조정할 수 있습니다. 예를 들어 개인 식별 정보와 같이 규제된 데이터를 사용하는 애플리케이션은 다른 작업보다 높은 수준의 보안이 필요할 수 있습니다. 여러 구독이나 관리 그룹에 걸쳐 정책을 설정하려면 [Azure Policy](../azure-policy/azure-policy-introduction.md)에서 정책을 설정합니다.
 
 보안 정책에 따라 Azure Security Center에서 얻는 보안 권장 사항이 결정됩니다. 잠재적인 취약성을 식별하고 위협을 완화하는 데 도움이 되려면 보안 권장 사항 규정 준수를 모니터링할 수 있습니다. 적절한 옵션을 결정하는 방법에 대한 자세한 내용은 [기본 제공 보안 정책](security-center-policy-definitions.md) 목록을 참조하세요.
+
+Security Center를 사용하도록 설정하면 Security Center의 기본 제공 보안 정책이 Security Center 범주의 기본 제공 이니셔티브로 Azure Policy에 반영됩니다. 기본 제공 이니셔티브는 Security Center에 등록된 모든 구독(무료 또는 표준 계층)에 자동으로 할당됩니다. 기본 제공 이니셔티브에는 감사 정책만 포함되어 있습니다. 
 
 
 ### <a name="management-groups"></a>관리 그룹
@@ -57,8 +60,6 @@ Azure 정책은 다음 구성 요소로 구성됩니다.
 - **이니셔티브**는 정책 컬렉션입니다.
 - **할당**은 특정 범위(관리 그룹, 구독 또는 리소스 그룹)에 이니셔티브 또는 정책을 적용하는 것입니다.
 
-리소스는 할당되는 정책으로 계산되고 해당 리소스가 준수하는 정책 수에 따라 규정 준수 비율을 받습니다.
-
 ## <a name="view-security-policies"></a>보안 정책 보기
 
 Security Center에서 보안 정책을 보려면
@@ -76,12 +77,9 @@ Security Center에서 보안 정책을 보려면
   테이블의 열은 다음과 같이 표시됩니다.
 
  - **정책 이니셔티브 할당** – 구독 또는 관리 그룹에 할당되는 Security Center [기본 제공 정책](security-center-policy-definitions.md) 및 이니셔티브입니다.
- - **규정 준수** - 관리 그룹, 구독 또는 작업 영역에 대한 전반적인 규정 준수 점수입니다. 점수는 할당의 가중치 평균입니다. 단일 할당의 정책 수 및 할당이 적용되는 리소스 수에서 가중치 평균 비율입니다.
-
- 예를 들어 사용자 구독에 할당된 5개의 정책이 포함된 두 개의 VM 및 한 개의 이니셔티브가 있으면 구독에 10개의 평가가 있습니다. VM 중 하나가 두 개의 정책을 준수하지 않는 경우 구독 할당의 전반적인 준수 점수는 80%입니다.
-
  - **적용 범위** – 관리 그룹, 구독 또는 작업 영역이 실행되고 있는 무료 또는 평균의 가격 책정 계층을 식별합니다.  Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요.
  - **설정** - 구독에는 **설정 편집** 링크가 있습니다. **설정 편집**을 선택하면 각 구독 또는 관리 그룹에 대한 [Security Center 설정](security-center-policies-overview.md)을 업데이트할 수 있습니다.
+ - **보안 점수** - 워크로드 보안 태세의 안정성 척도를 제공하는 [보안 점수](security-center-secure-score.md)를 활용하면 보안 개선을 위한 권장 사항의 우선 순위를 지정할 수 있습니다.
 
 2. 확인하려는 구독 또는 관리 그룹의 정책을 선택합니다.
 
@@ -209,13 +207,13 @@ Security Center에는 모든 보안 정책을 포함하는 기본 제공 이니�
 |시스템 업데이트 |Azure Security Center에서 누락된 시스템 업데이트 모니터링 |systemUpdatesMonitoringEffect|
 |저장소 암호화 |스토리지 계정에 대해 누락된 Blob 암호화 감사 |storageEncryptionMonitoringEffect|
 |JIT 네트워크 액세스 |Azure Security Center에서 가능한 네트워크 JIT(Just-In-time) 액세스 모니터링 |jitNetworkAccessMonitoringEffect |
-|적응 응용 프로그램 컨트롤 |Azure Security Center에서 가능한 앱 허용 목록 모니터링 |adaptiveApplicationControlsMonitoringEffect|
+|적응형 애플리케이션 제어 |Azure Security Center에서 가능한 앱 허용 목록 모니터링 |adaptiveApplicationControlsMonitoringEffect|
 |네트워크 보안 그룹 |Azure Security Center에서 관대한 네트워크 액세스 모니터링 |networkSecurityGroupsMonitoringEffect| 
 |보안 구성 |Azure Security Center에서 OS 취약성 모니터링 |systemConfigurationsMonitoringEffect| 
 |Endpoint Protection |Azure Security Center에서 누락된 Endpoint Protection 모니터링 |endpointProtectionMonitoringEffect |
 |디스크 암호화 |Azure Security Center에서 암호화되지 않은 VM 디스크 모니터링 |diskEncryptionMonitoringEffect|
 |취약점 평가 |Azure Security Center에서 VM 취약성 모니터링 |vulnerabilityAssesmentMonitoringEffect|
-|웹 응용 프로그램 방화벽 |Azure Security Center에서 보호되지 않은 웹 애플리케이션 모니터링 |webApplicationFirewallMonitoringEffect |
+|웹 애플리케이션 방화벽 |Azure Security Center에서 보호되지 않은 웹 애플리케이션 모니터링 |webApplicationFirewallMonitoringEffect |
 |차세대 방화벽 |Azure Security Center에서 보호되지 않은 네트워크 엔드포인트 모니터링| |
 
 

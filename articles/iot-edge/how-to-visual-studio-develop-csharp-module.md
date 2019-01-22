@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 01/10/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9a6c892a71c452a0c6c0dcd43509e345280a810e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3091e53b47d85e3e58c32b255dc9dcebd54ab2c5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054926"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264940"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Visual Studio 2017을 사용하여 Azure IoT Edge용 C# 모듈 개발 및 디버그(미리 보기)
 
@@ -27,8 +27,11 @@ Visual Studio 용 Azure IoT Edge 도구는 다음과 같은 이점을 제공합�
 - C#으로 Azure IoT 모듈을 코딩하면서 Visual Studio 개발 환경의 모든 이점을 활용할 수 있습니다.
 - Azure IoT Edge 디바이스 및 모듈을 UI로 관리합니다.
 
-이 문서에서는 Visual Studio 2017용 Azure IoT Edge 도구를 사용하여 C#에서 IoT Edge 모듈을 개발하는 방법을 설명합니다. Azure IoT Edge 디바이스에 프로젝트를 배포하는 방법도 알아봅니다.
+이 문서에서는 Visual Studio 2017용 Azure IoT Edge 도구를 사용하여 C#에서 IoT Edge 모듈을 개발하는 방법을 설명합니다. Azure IoT Edge 디바이스에 프로젝트를 배포하는 방법도 알아봅니다. 
 
+  > [!TIP]
+  > Visual Studio에서 만든 IoT Edge 프로젝트 구조는 Visual Studio Code의 구조와는 다릅니다.
+  
 ## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 Windows를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용한다고 가정합니다. IoT Edge 디바이스는 다른 물리적 디바이스일 수 있습니다.
@@ -58,7 +61,7 @@ Visual Studio 2017이 준비되면 다음 도구와 구성 요소도 필요합�
 
 1. **도구** 메뉴에서 **확장 및 업데이트**를 선택합니다. **설치됨 > 도구**를 펼치면 **Azure IoT Edge**와 **Visual Studio용 클라우드 탐색기**가 보입니다.
 
-1. 설치된 버전을 적어둡니다. 이 버전을 Visual Studio Marketplace([클라우드 탐색기](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS), [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge))의 최신 버전과 비교할 수 있습니다.
+1. 설치된 버전을 적어둡니다. 이 버전을 Visual Studio Marketplace([클라우드 탐색기](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS), [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools))의 최신 버전과 비교할 수 있습니다.
 
 1. Visual Studio Marketplace에서 제공되는 것보다 버전이 낮을 경우, 다음 섹션에 나오는 대로 Visual Studio에서 도구를 업데이트합니다.
 

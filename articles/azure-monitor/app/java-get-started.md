@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 01/10/2019
 ms.author: lagayhar
-ms.openlocfilehash: b662f5c4baa9c4c6e7689f3f463761dbd456f33f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: e16432022c8c8525c95fab46bc61197f67fb8f37
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074180"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260060"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작하기
 
@@ -359,6 +359,14 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>메서드 호출 및 외부 종속성 모니터링
 [Java 에이전트를 설치](java-agent.md) 하여 지정된 내부 메서드 및 JDBC를 통해 수행한 호출을 타이밍 데이터와 함께 기록합니다.
 
+## <a name="w3c-distributed-tracing"></a>W3C 분산 추적
+
+Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.io/trace-context/)을 지원합니다.
+
+수신 SDK 구성은 [상관 관계](correlation.md#w3c-distributed-tracing) 관련 문서에 자세히 설명되어 있습니다.
+
+발신 SDK 구성은 [Ai-agent.xml](java-agent.md) 파일에서 정의됩니다.
+
 ## <a name="performance-counters"></a>성능 카운터
 **설정**, **서버**를 열고 다양한 성능 카운터를 확인합니다.
 
@@ -433,7 +441,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 </Channel>
 ```
 
-SpringBoot 스타터를 사용하는 경우 구성 파일(application.properies)에 다음을 추가합니다.
+SpringBoot 스타터를 사용하는 경우 구성 파일(application.properties)에 다음을 추가합니다.
 
 ```yml
 azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: fd5e62138d47622417bde658bf0d05308594d64e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 154f5200872dbc06550f396717cb215f3db4f7dd
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104151"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199581"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Azure Cache for Redis 문제를 해결하는 방법
 이 문서에서는 다음 범주의 Azure Cache for Redis 문제를 해결하는 방법에 대한 지침을 제공합니다.
@@ -231,9 +231,9 @@ StackExchange.Redis는 기본값이 1000ms인 동기 작업에 대해 `synctimeo
    
     redis-cli 및 stunnel를 사용하여 Azure Cache for Redis SSL 엔드포인트에 연결하는 방법에 대한 자세한 내용은 [Redis용 ASP.NET 세션 상태 제공자 미리 보기 릴리스 발표](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) 블로그 게시물을 참조하세요. 자세한 내용은 [SlowLog](https://redis.io/commands/slowlog)를 참조하세요.
 6. 높은 Redis 서버 부하로 시간 초과가 발생할 수 있습니다. `Redis Server Load` [캐시 성능 메트릭](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)을 모니터링함으로써 서버 부하를 모니터링할 수 있습니다. 100(최대 값)이란 서버 부하는 redis 서버가 요청을 처리하느라 유휴 시간이 전혀 없이 사용 중이었음을 나타냅니다. 특정 요청이 서버 기능의 전부를 차지하는지 확인하려면 이전 단락에서 설명한 대로 SlowLog 명령을 실행합니다. 자세한 내용은 [높은 CPU 사용량/서버 로드](#high-cpu-usage-server-load)를 참조하세요.
-7. 클라이언트 쪽에서 네트워크 문제를 일으킬 만한 이벤트가 있었습니까? 클라이언트 인스턴스 수를 위아래로 조정하거나, 클라이언트 새 버전을 배포하거나, 자동 크기 조정을 사용하도록 설정되었는지 클라이언트(웹, 작업자 역할 또는 Iaas VM)를 확인합니다.우리 테스트에서 자동 크기 조정이나 위/아래 크기 조정을 하면 아웃바운드 네트워크 연결이 몇초간 끊어진다는 점이 밝혀졌습니다. StackExchange.Redis 코드는 이러한 이벤트에 복원력이 있어 다시 연결합니다. 다시 연결되는 이 시간 동안 큐에 있는 모든 요청은 시간 초과될 수 있습니다.
+7. 클라이언트 쪽에서 네트워크 문제를 일으킬 만한 이벤트가 있었습니까? 클라이언트 인스턴스 수 증가/감소, 새 클라이언트 버전 배포, 자동 크기 조정 활성화 등의 이벤트가 발생한 경우 클라이언트(웹, 작업자 역할, IaaS VM)를 확인합니다. 이 테스트에서는 자동 크기 조정 또는 확장/축소로 인해 아웃바운드 네트워크 연결이 몇 초 동안 끊길 수 있음이 확인되었습니다. StackExchange.Redis 코드는 이러한 이벤트에 복원력이 있어 다시 연결합니다. 다시 연결되는 이 시간 동안 큐에 있는 모든 요청은 시간 초과될 수 있습니다.
 8. 시간이 초과된 Azure Cache for Redis에 대한 몇 가지 작은 요청에 앞서 큰 요청이 있었습니까? 오류 메시지에 있는 매개 변수 `qs`는 클라이언트에서 서버로 요청은 보내졌으나 아직 응답 처리가 되지 않은 경우가 얼마나 많은지 알려줍니다. StackExchange.Redis는 하나의 TCP 연결을 사용하고 한 번에 하나의 응답만 읽을 수 있기 때문에 이 값은 계속 증가할 수 있습니다. 첫 번째 작업이 시간 초과하더라도, 서버와 데이터를 주고 받는 일이 중단되지 않으며, 다른 요청은 큰 요청이 끝날 때까지 차단되기 때문에 시간 초과가 일어납니다. 하나의 솔루션은 워크로드를 감당할 수 있게 캐시를 충분히 크게 하고 큰 값을 작은 청크로 분할하여 시간 초과의 가능성을 최소화하는 것입니다. 또 다른 가능한 솔루션은 클라이언트에서 `ConnectionMultiplexer` 개체 풀을 사용하고, 새 요청을 보낼 때 부하가 최소인 `ConnectionMultiplexer`을 선택합니다, 이렇게 하면 단일 시간 초과가 다른 요청들도 또한 시간 초과되게 하는 것을 막습니다.
-9. `RedisSessionStateprovider`보다 높아야 합니다. `retrytimeoutInMilliseconds`는 `operationTimeoutinMilliseonds`보다 높아야 합니다. 그렇지 않으면 재시도가 발생하지 않습니다. 다음 예제에서 `retrytimeoutInMilliseconds` 가 3000으로 설정됩니다. 자세한 내용은 [Azure Cache for Redis에 대한 ASP.NET 세션 상태 제공자](cache-aspnet-session-state-provider.md) 및 [세션 상태 제공자 및 출력 캐시 공급자의 구성 매개 변수를 사용하는 방법](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration)을 참조하세요.
+9. `RedisSessionStateProvider`보다 높아야 합니다. `retryTimeoutInMilliseconds`는 `operationTimeoutInMilliseconds`보다 높아야 합니다. 그렇지 않으면 재시도가 발생하지 않습니다. 다음 예제에서 `retryTimeoutInMilliseconds` 가 3000으로 설정됩니다. 자세한 내용은 [Azure Cache for Redis에 대한 ASP.NET 세션 상태 제공자](cache-aspnet-session-state-provider.md) 및 [세션 상태 제공자 및 출력 캐시 공급자의 구성 매개 변수를 사용하는 방법](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration)을 참조하세요.
 
     <add
       name="AFRedisCacheSessionStateProvider"

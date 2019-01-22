@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2018
 ms.author: diberry
-ms.openlocfilehash: 9a8bfa2e89e6bc0cbbd5af2efdff60aa406b3f1d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e75fa6560feb01ae912ad2040df7a8748ed0077b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714205"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246554"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -84,6 +84,14 @@ Azure에서 [서비스](https://azure.microsoft.com/pricing/details/cognitive-se
 앱의 대시보드에 표시되는 총 끝점 적중은 주기적으로 업데이트되지만 Azure Portal의 LUIS 끝점 키와 연결된 메트릭은 좀 더 자주 업데이트됩니다.
 
 대시보드에서 업데이트된 끝점 적중이 표시되지 않으면 Azure Portal에 로그인하고 LUIS 끝점 키와 연결된 리소스를 찾은 후 **메트릭**을 열어 **총 호출** 메트릭을 선택합니다. 끝점 키가 둘 이상의 LUIS 앱에 사용되는 경우 Azure Portal의 메트릭은 해당 메트릭을 사용하는 모든 LUIS 앱의 집계된 호출 수를 나타냅니다.
+
+### <a name="is-there-a-powershell-command-to-the-endpoint-quota"></a>엔드포인트 할당량을 확인할 수 있는 PowerShell 명령이 있나요?
+
+다음 PowerShell 명령을 사용해 엔드포인트 할당량을 확인할 수 있습니다.
+
+```powershell
+Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
+``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>내 LUIS 앱이 어제도 작동했으나 오늘 403 오류가 발생하고 있습니다. 앱을 변경한 적도 없었습니다. 이 문제를 어떻게 해결하나요?
 다음은 LUIS 엔드포인트 키 만들고 앱에 할당하기 위한 다음 FAQ의 [지침](#how-do-i-create-and-assign-a-luis-endpoint-key)입니다. 그런 후 엔드포인트에 대한 HTTP 요청을 [새 엔드포인트 키를 사용하도록](luis-concept-keys.md#use-endpoint-key-in-query) 변경해야 합니다.
@@ -194,6 +202,12 @@ LUIS 템플릿을 선택하고 템플릿 창에서 **선택** 단추를 선택�
 
 ### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>어떤 LUIS 지역에서 Bot Framework 음성 초기화를 지원하나요?
 [음성 초기화](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)는 미국 중부 인스턴스의 LUIS 앱에서만 지원됩니다.
+
+## <a name="api-programming-strategies"></a>API 프로그래밍 전략
+
+### <a name="how-do-i-programmatically-get-the-luis-region-of-a-resource"></a>리소스의 LUIS 지역을 프로그래밍 방식으로 가져오려면 어떻게 해야 하나요? 
+
+LUIS 샘플을 사용하여 C# 또는 Node.Js를 통해 프로그래밍 방식으로 [지역을 찾을 수 있습니다](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region). 
 
 ## <a name="luis-service"></a>LUIS 서비스
 

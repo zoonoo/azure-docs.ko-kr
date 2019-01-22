@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: mbullwin
-ms.openlocfilehash: e1575afde326875558cea437de775515b8606f01
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: d3f8e5ac1f85483d04da99744809f4bc72295024
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981910"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266197"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Application Insights에서 Java 추적 로그 탐색
 추적에 Logback 또는 Log4J(v1.2 또는 v2.0)를 사용하는 경우 추적 로그를 탐색 및 검색할 수 있는 Application Insights에 추적 로그를 자동으로 전송할 수 있습니다.
@@ -98,7 +98,7 @@ ms.locfileid: "53981910"
 ```
 
 #### <a name="otherwise-"></a>기타...
-지침을 따라 Application Insights Java SDK를 수동으로 설치하고, 적절한 어펜더를 위한 jar를 다운로드하고(Maven Central 페이지에 가서 다운로드 섹션의 'jar' 링크 클릭), 다운로드한 어펜더 jar을 프로젝트에 추가합니다.
+지침에 따라 Application Insights Java SDK를 수동으로 설치하고 적절한 어펜더에 해당하는 jar을 다운로드한 다음 프로젝트에 추가합니다. jar을 다운로드하려면 Maven Central 페이지로 이동하여 다운로드 섹션에서 'jar' 링크를 클릭합니다.
 
 | 로거 | 다운로드 | 라이브러리 |
 | --- | --- | --- |
