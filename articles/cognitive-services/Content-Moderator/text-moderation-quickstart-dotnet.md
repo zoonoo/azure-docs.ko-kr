@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: C#에서 불쾌한 자료에 대한 텍스트 콘텐츠 분석'
+title: '빠른 시작: C#에서 텍스트 콘텐츠 분석 - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: .NET용 Content Moderator SDK를 사용하여 다양하고 불쾌한 자료에 대한 텍스트 콘텐츠를 분석하는 방법
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: quickstart
-ms.date: 10/31/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 74c2142e8f6839422446767cd0c70b34daa3f1ad
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1502b3b33d8ab9af7509a7b63e87f80927c528ce
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103250"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266674"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>빠른 시작: C#에서 불쾌한 자료에 대한 텍스트 콘텐츠 분석 
 

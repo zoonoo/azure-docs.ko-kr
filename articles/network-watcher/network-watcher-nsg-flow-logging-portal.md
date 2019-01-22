@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 2ec2ac6508dfbf0c1a42f72dc393fa8b841ab877
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ce2d69e26909231383f3538d51387f27d8202a43
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822469"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332475"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 머신 간에 네트워크 트래픽 기록
 
@@ -38,7 +38,7 @@ NSG(네트워크 보안 그룹)를 사용하면 VM(가상 머신)에 대한 인�
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 > [!NOTE] 
-> 미국 중서부 지역에서 흐름 로그 버전 2만 사용할 수 있습니다. 구성은 Azure Portal 및 REST API를 통해 사용할 수 있습니다. 지원되지 않는 지역에서 버전 2를 사용하도록 설정하면 버전 1 로그가 저장소 계정에 저장됩니다.
+> 미국 중서부 지역에서 흐름 로그 버전 2만 사용할 수 있습니다. 지원되지 않는 지역에서 버전 2를 사용하도록 설정하면 버전 1 로그가 스토리지 계정에 출력됩니다.
 
 ## <a name="create-a-vm"></a>VM 만들기
 

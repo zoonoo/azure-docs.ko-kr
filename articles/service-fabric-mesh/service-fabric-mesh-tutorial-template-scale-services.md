@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: af733b75780787f07ec28ff45bda6810c3d96baa
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 70620b5ec57f6bf4403ac959c4c69026ae80b887
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888123"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261403"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>자습서: Service Fabric Mesh에서 실행 중인 애플리케이션 크기 조정
 
-이 자습서는 시리즈의 2부입니다. [이전에 Service Fabric Mesh에 배포된](service-fabric-mesh-tutorial-template-deploy-app.md) 응용 프로그램의 서비스 인스턴스 수를 수동으로 조정하는 방법을 알아봅니다. 조정이 완료되면 3개 인스턴스를 실행하는 프런트 엔드 서비스와 2개 인스턴스를 실행하는 데이터 서비스가 생깁니다.
+이 자습서는 시리즈의 2부입니다. [이전에 Service Fabric Mesh에 배포된](service-fabric-mesh-tutorial-template-deploy-app.md) 애플리케이션의 서비스 인스턴스 수를 수동으로 조정하는 방법을 알아봅니다. 조정이 완료되면 3개 인스턴스를 실행하는 프런트 엔드 서비스와 2개 인스턴스를 실행하는 데이터 서비스가 생깁니다.
 
 시리즈 2부에서는 다음 방법에 대해 알아봅니다.
 
@@ -34,9 +34,9 @@ ms.locfileid: "52888123"
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * [템플릿을 사용하여 Service Fabric Mesh에 응용 프로그램 배포](service-fabric-mesh-tutorial-template-deploy-app.md)
+> * [템플릿을 사용하여 Service Fabric Mesh에 애플리케이션 배포](service-fabric-mesh-tutorial-template-deploy-app.md)
 > * Service Fabric Mesh에서 실행 중인 애플리케이션 크기 조정
-> * [Service Fabric Mesh에서 실행 중인 응용 프로그램 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)
+> * [Service Fabric Mesh에서 실행되는 애플리케이션 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)
 > * [응용 프로그램 제거](service-fabric-mesh-tutorial-template-remove-app.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
@@ -53,7 +53,7 @@ ms.locfileid: "52888123"
 
 Service Fabric Mesh에 애플리케이션을 배포하여 얻을 수 있는 주요 이점 중 하나는 서비스를 쉽게 확장 또는 축소하는 기능입니다. 이 기능을 사용하여 서비스에서 다양한 크기의 부하를 처리하거나 가용성을 향상할 수 있습니다.
 
-이 자습서에서는 [이전에 배포되었고](service-fabric-mesh-tutorial-template-deploy-app.md) 이제 실행해야 하는 할 일 목록 샘플을 예제로 사용합니다. 애플리케이션에는 WebFrontEnd 및 ToDoService의 두 가지 서비스가 있습니다. 각 서비스는 처음에 복제본 1개로 배포되었습니다.  WebFrontEnd 서비스에 대해 실행 중인 복제본 수를 보려면 다음을 실행합니다.
+이 자습서에서는 [이전에 배포되어](service-fabric-mesh-tutorial-template-deploy-app.md) 현재 실행 중인 할 일 목록 샘플을 예제로 사용합니다. 애플리케이션에 두 개의 서비스가 있습니다. WebFrontEnd 및 ToDoService 각 서비스는 처음에 복제본 1개로 배포되었습니다.  WebFrontEnd 서비스에 대해 실행 중인 복제본 수를 보려면 다음을 실행합니다.
 
 ```azurecli
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp --query "replicaCount"
@@ -71,7 +71,7 @@ az mesh service show --resource-group myResourceGroup --name ToDoService --app-n
 
 애플리케이션을 배포한 후에 템플릿의 값이 변경될 것으로 예상되거나 배포별로 값을 변경하는 옵션을 포함하려는 경우(다른 배포에 이 템플릿을 다시 사용하려는 경우) 가장 좋은 방법은 값을 매개 변수화하는 것입니다.
 
-이전에 [mesh_rp.windows.json 배포 템플릿](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json)과 [mesh_rp.windows.parameter.json 매개 변수](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) 파일을 사용하여 애플리케이션을 배포했습니다.
+앞에서 [mesh_rp.windows.json 배포 템플릿](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) 및 [mesh_rp.windows.parameter.json 매개 변수](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) 파일을 사용하여 애플리케이션을 배포했습니다.
 
 로컬로 [mesh_rp.windows.parameter.json 매개 변수](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) 파일을 열고 *frontEndReplicaCount* 값을 3으로, *serviceReplicaCount* 값을 2로 설정합니다.
 
@@ -172,4 +172,4 @@ az mesh service show --resource-group myResourceGroup --name ToDoService --app-n
 
 다음 자습서를 진행합니다.
 > [!div class="nextstepaction"]
-> [Service Fabric Mesh에서 실행 중인 응용 프로그램 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)
+> [Service Fabric Mesh에서 실행되는 애플리케이션 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)

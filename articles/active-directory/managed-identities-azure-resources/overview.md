@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: 3b9c8ea3dba5fdbd3e25293873ab1ae6854b3b83
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5397ab76afa8c28623f1522ffa773b0895e19f02
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728111"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303941"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID란?
 
@@ -40,7 +40,7 @@ Azure 리소스에 대한 관리 ID 기능은 Azure 구독용 Azure AD에 무료
 
 - **클라이언트 ID** - 초기 프로비저닝 중에 애플리케이션과 서비스 주체에 연결된, Azure AD에서 생성된 고유 식별자입니다.
 - **보안 주체 ID** - Azure 리소스에 대한 역할 기반 액세스 권한을 부여하는 데 사용되는 관리 ID에 대한 서비스 주체 개체의 개체 ID입니다.
-- **IMDS(Azure Instance Metadata Service)** 는 Azure Resource Manager를 통해 생성된 모든 IaaS VM에서 액세스할 수 있는 REST 엔드포인트입니다. 이 엔드포인트는 VM 내에서만 액세스할 수 있는, 라우팅이 불가능한 잘 알려진 IP 주소(169.254.169.254)에서 사용할 수 있습니다.
+- **IMDS(Azure Instance Metadata Service)** - Azure Resource Manager를 통해 생성된 모든 IaaS VM에서 액세스할 수 있는 REST 엔드포인트입니다. 이 엔드포인트는 VM 내에서만 액세스할 수 있는, 라우팅이 불가능한 잘 알려진 IP 주소(169.254.169.254)에서 사용할 수 있습니다.
 
 ## Azure 리소스에 대한 관리 ID는 어떻게 작동하나요?<a name="how-does-it-work"></a>
 

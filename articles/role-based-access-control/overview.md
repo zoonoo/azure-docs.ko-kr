@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9ddad471236877977fec620565d8f110e265ff72
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c614ae9d157c6e4121701cb22213706020ee20a7
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867901"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303325"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)란?
 
@@ -34,7 +34,7 @@ RBAC로 다음과 같은 일을 할 수 있습니다.
 - 한 사용자는 구독의 가상 머신을 관리하고 다른 사용자는 가상 네트워크를 관리하도록 허용
 - DBA 그룹이 구독의 SQL 데이터베이스를 관리하도록 허용
 - 사용자가 가상 머신, 웹 사이트, 서브넷 등 리소스 그룹의 모든 리소스를 관리하도록 허용
-- 애플리케이션이 리소스 그룹의 모든 리소스에 액세스하도록 허용
+- 응용 프로그램이 리소스 그룹의 모든 리소스에 액세스하도록 허용
 
 ## <a name="best-practice-for-using-rbac"></a>RBAC 사용 모범 사례
 
@@ -56,7 +56,7 @@ RBAC를 사용하여 리소스에 대한 액세스를 제어하는 방법은 역
 
 - 사용자 - Azure Active Directory에 프로필이 있는 개인. 다른 테넌트의 사용자에게 역할을 할당할 수도 있습니다. 다른 조직의 사용자에 대한 내용은 [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md)를 참조하세요.
 - 그룹 - Azure Active Directory에서 만든 사용자 집합. 그룹에 역할을 할당하면 해당 그룹의 모든 사용자가 같은 역할을 갖습니다. 
-- 서비스 주체 - 애플리케이션 또는 서비스에서 특정 Azure 리소스에 액세스하기 위해 사용하는 보안 ID. 애플리케이션의 *사용자 ID*(사용자 이름과 암호 또는 인증서)로 생각하시면 됩니다.
+- 서비스 주체 - 애플리케이션 또는 서비스에서 특정 Azure 리소스에 액세스하기 위해 사용하는 보안 ID. 응용 프로그램의 *사용자 ID*(사용자 이름과 암호 또는 인증서)로 생각하시면 됩니다.
 - 관리 ID - Azure에서 자동으로 관리되는 Azure Active Directory의 ID입니다. 일반적으로 Azure 서비스에 인증하기 위한 자격 증명을 관리하는 클라우드 애플리케이션을 개발하는 경우 [ID 관리](../active-directory/managed-identities-azure-resources/overview.md)를 사용합니다.
 
 ### <a name="role-definition"></a>역할 정의
@@ -78,7 +78,7 @@ Azure에는 개체 내 데이터에 대한 액세스 권한을 부여할 수 있
 
 ### <a name="scope"></a>범위
 
-*범위*는 액세스가 적용되는 경계입니다. 역할에 할당할 때 범위를 정의하여 허용되는 작업을 추가로 제한할 수 있습니다. 이러한 기능은 누군가를 단일 리소스 그룹에 대해서만 [웹 사이트 기여자](built-in-roles.md#website-contributor)로 지정하려는 경우에 유용합니다.
+*범위*는 액세스가 적용되는 리소스의 세트입니다. 역할에 할당할 때 범위를 정의하여 허용되는 작업을 추가로 제한할 수 있습니다. 이러한 기능은 누군가를 단일 리소스 그룹에 대해서만 [웹 사이트 기여자](built-in-roles.md#website-contributor)로 지정하려는 경우에 유용합니다.
 
 Azure는 여러 수준([관리 그룹](../azure-resource-manager/management-groups-overview.md), 구독, 리소스 그룹 또는 리소스)에서 구독을 지정할 수 있습니다. 범위는 부모-자식 관계로 구조화되어 있습니다.
 
@@ -88,7 +88,7 @@ Azure는 여러 수준([관리 그룹](../azure-resource-manager/management-grou
 
 - 관리 그룹 범위에서 [소유자](built-in-roles.md#owner) 역할을 사용자에게 할당하는 경우 해당 사용자는 모든 관리 그룹의 모든 구독에서 모든 항목을 관리할 수 있습니다.
 - 구독 범위에서 그룹에 [읽기 권한자](built-in-roles.md#reader) 역할을 할당하면 해당 그룹의 멤버가 구독의 모든 리소스 그룹 및 리소스를 볼 수 있습니다.
-- 리소스 그룹 범위에서 애플리케이션에 [기여자](built-in-roles.md#contributor) 역할을 할당하면 해당 애플리케이션은 해당 리소스 그룹의 모든 리소스 종류를 관리할 수 있지만, 구독의 다른 리소스 그룹을 관리할 수 없습니다.
+- 리소스 그룹 범위에서 응용 프로그램에 [기여자](built-in-roles.md#contributor) 역할을 할당하면 해당 응용 프로그램은 해당 리소스 그룹의 모든 리소스 종류를 관리할 수 있지만, 구독의 다른 리소스 그룹을 관리할 수 없습니다.
 
 ### <a name="role-assignments"></a>역할 할당
 
@@ -99,6 +99,12 @@ Azure는 여러 수준([관리 그룹](../azure-resource-manager/management-grou
 ![액세스를 제어하는 역할 할당](./media/overview/rbac-overview.png)
 
 Azure Portal, Azure CLI, Azure PowerShell, Azure SDK 또는 REST API를 사용하여 역할 할당을 만들 수 있습니다. 각 구독에서 최대 2000개의 역할 할당을 유지할 수 있습니다. 역할 할당을 만들거나 제거하려면 `Microsoft.Authorization/roleAssignments/*` 권한이 필요합니다. 이 권한은 [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 역할을 통해 부여됩니다.
+
+## <a name="multiple-role-assignments"></a>여러 역할 할당
+
+따라서 여러 겹치는 역할 할당이 있는 경우 어떻게 되나요? RBAC는 가법 모델이므로 유효 권한은 역할 할당의 추가입니다. 사용자가 구독 범위에서 기여자 역할에 부여되고 리소스 그룹에서 읽기 권한자 역할에 부여되는 다음 예제를 고려해 봅니다. 기여자 권한 및 읽기 권한자 권한의 추가는 사실상 리소스 그룹에 대한 기여자 역할입니다. 따라서 이 경우 판독기 역할 할당은 영향을 주지 않습니다.
+
+![여러 역할 할당](./media/overview/rbac-multiple-roles.png)
 
 ## <a name="deny-assignments"></a>거부 할당
 
@@ -129,4 +135,4 @@ Azure Portal, Azure CLI, Azure PowerShell, Azure SDK 또는 REST API를 사용�
 - [빠른 시작: RBAC 및 Azure Portal을 사용하여 사용자에게 액세스 권한 부여](quickstart-assign-role-user-portal.md)
 - [RBAC 및 Azure Portal을 사용하여 액세스 관리](role-assignments-portal.md)
 - [Azure의 다양한 역할 이해](rbac-and-directory-admin-roles.md)
-- [엔터프라이즈 클라우드 채택: Azure의 리소스 액세스 관리](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)
+- [엔터프라이즈 클라우드 채택: Azure에서 리소스 액세스 관리](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Content Moderator SDK for .NET 도우미 메서드'
+title: '빠른 시작: .NET용 조정 클라이언트 만들기 - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Azure Content Moderator SDK for .NET을 사용하여 Content Moderator 클라이언트를 반환하는 방법
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: quickstart
-ms.date: 01/04/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 0c167de3af8aea6820962e7cc8d0c21f5ba61807
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: aa3c2d5c408969aa3127562607ca8d4e89f44f2e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223273"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262271"
 ---
 # <a name="quickstart-helper-code-to-return-a-content-moderator-client"></a>빠른 시작: Content Moderator 클라이언트를 반환하는 도우미 코드
 
@@ -32,7 +32,7 @@ ms.locfileid: "47223273"
 ## <a name="sign-up-for-content-moderator-services"></a>Content Moderator 서비스 등록
 
 REST API 또는 SDK를 통해 Content Moderator 서비스를 사용하려면 먼저 구독 키가 필요합니다.
-키를 획득하는 방법은 [빠른 시작](quick-start.md)을 참조하세요.
+[웹에서 Content Moderator 사용해 보기](quick-start.md) 빠른 시작을 참조하여 키를 가져오는 방법을 배웁니다.
 
 ## <a name="create-your-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 

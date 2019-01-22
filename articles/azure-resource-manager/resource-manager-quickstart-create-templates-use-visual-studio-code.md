@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 01/11/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 6a52355360ef2c892cb45af77366e09864cd7837
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: f4657209dfda2b515e29b4d462368ae6b5c1eae7
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51611797"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302496"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기
 
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="open-a-quickstart-template"></a>빠른 시작 템플릿 열기
 
-템플릿을 처음부터 만드는 대신 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에서 템플릿을 엽니다. Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니다.
+템플릿을 처음부터 만드는 대신 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에서 템플릿을 엽니다. Azure 빠른 시작 템플릿은 Resource Manager 템플릿용 저장소입니다.
 
 이 빠른 시작에서 사용되는 템플릿은 [표준 저장소 계정 만들기](https://azure.microsoft.com/resources/templates/101-storage-account-create/)라고 합니다. 이 템플릿은 Azure Storage 계정 리소스를 정의합니다.
 
@@ -55,7 +55,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="edit-the-template"></a>템플릿 편집
 
-Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보려면 `outputs` 섹션에 하나 이상의 요소를 추가합니다.
+Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 경험하려면 `outputs` 섹션에 하나 이상의 요소를 추가하여 스토리지 URI를 표시합니다.
 
 1. 내보낸 템플릿에 하나 이상의 출력을 추가합니다.
 
@@ -89,12 +89,12 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-템플릿을 배포하는 방법에는 여러 가지가 있습니다.  이 빠른 시작에서는 Azure Cloud Shell을 사용합니다. Cloud Shell은 Azure CLI와 Azure PowerShell을 모두 지원합니다.
+템플릿을 배포하는 방법에는 여러 가지가 있습니다.  이 빠른 시작에서는 Azure Cloud Shell을 사용합니다. Cloud Shell은 구성이 필요하지 않은 웹 애플리케이션입니다. Azure CLI와 Azure PowerShell을 모두 지원합니다.
 
 1. [Azure Cloud Shell](https://shell.azure.com)에 로그인
 
     ![Azure Portal - Cloud Shell에서 CLI로 전환](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
-2. Cloud Shell의 왼쪽 위 모서리에는 **PowerShell** 또는 **Bash**가 표시됩니다. CLI를 사용하려면 Bash 세션을 열어야 합니다. PowerShell을 실행하려면 PowerShell 세션을 열어야 합니다. 아래쪽 화살표를 선택하여 Bash와 PowerShell 간에 전환합니다. 이전 스크린샷을 참조하세요. 전환하는 경우 셸을 다시 시작해야 합니다.
+2. 왼쪽 위 모퉁이에서 **PowerShell** 또는 **Bash**를 선택하여 기본 환경을 선택합니다. CLI를 사용하려면 Bash 세션을 열어야 합니다. Azure PowerShell을 실행하려면 PowerShell 세션을 열어야 합니다. 아래쪽 화살표를 선택하여 Bash와 PowerShell 간에 전환합니다. 이전 스크린샷을 참조하세요. 전환하는 경우 셸을 다시 시작해야 합니다.
 3. **파일 업로드/다운로드**를 선택한 다음, **업로드**를 선택합니다.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
@@ -107,9 +107,9 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보
     
     ---
 
-    셸에서 템플릿 파일을 배포하려면 먼저 업로드해야 합니다.
-5. 이전 섹션에서 저장한 파일을 선택합니다. 기본 이름은 **azuredeploy.json**입니다.
-6. Cloud Shell에서 **ls** 명령을 실행하여 파일이 성공적으로 업로드되었는지 확인합니다. **cat** 명령을 사용하여 템플릿 내용을 확인할 수도 있습니다. 다음 이미지에서는 Bash에서 명령을 실행하는 것을 보여 줍니다.  PowerShell 세션에서 동일한 명령을 사용합니다.
+    이전 섹션에서 저장한 파일을 선택합니다. 기본 이름은 **azuredeploy.json**입니다. 템플릿 파일은 셸에서 액세스할 수 있어야 합니다.
+
+    필요에 따라 **ls** 명령 및 **cat** 명령을 사용하여 파일이 성공적으로 업로드되었는지 확인할 수 있습니다. 
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
 
@@ -120,7 +120,7 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보
     ![Azure Portal - Cloud Shell 파일 나열](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file-powershell.png)
     
     ---
-7. Cloud Shell에서 다음 명령을 실행합니다. 탭을 선택하여 PowerShell 코드 또는 CLI 코드를 표시합니다.
+4. Cloud Shell에서 다음 명령을 실행합니다. 탭을 선택하여 PowerShell 코드 또는 CLI 코드를 표시합니다.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```azurecli
@@ -163,7 +163,7 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보
 
     스크린샷에는 출력 섹션의 저장소 계정 이름과 저장소 URL이 강조 표시되었습니다. 그 다음 단계에서 저장소 계정 이름이 필요합니다.
 
-7. 다음 CLI 또는 PowerShell 명령을 실행하여 새로 만든 저장소 계정을 나열합니다.
+5. 다음 CLI 또는 PowerShell 명령을 실행하여 새로 만든 저장소 계정을 나열합니다.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```azurecli
@@ -183,6 +183,8 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보
     ```
     
     ---
+
+스토리지 계정 사용에 대한 자세한 내용은 [빠른 시작: Azure Portal을 사용하여 Blob 업로드, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-portal.md)을 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

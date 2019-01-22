@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
-ms.date: 11/28/2018
-ms.openlocfilehash: 4b8c67cfff89b54b4776ebc8b4586cd8f52950b3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 01/15/2019
+ms.openlocfilehash: 201ba431a4382741815536db2bb4d08f0068be80
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342615"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329544"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database Managed Instance 만들기
 
@@ -47,6 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    |**관리되는 인스턴스 이름**|모든 유효한 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|
    |**Managed Instance 관리자 로그인**|모든 유효한 사용자 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. "serveradmin"을 예약된 서버 수준 역할로 사용하지 않습니다.|
    |**암호**|유효한 암호|암호는 16자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
+   |**데이터 정렬**|Managed Instance에 사용할 데이터 정렬|데이터 정렬에 대한 자세한 내용은 [데이터 정렬](https://docs.microsoft.com/sql/t-sql/statements/collations)을 참조하세요.|
    |**위치**:|Managed Instance를 만들 위치|지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.|
    |**가상 네트워크**|**새 가상 네트워크 만들기** 또는 유효한 가상 네트워크 및 서브넷을 선택합니다.| 네트워크/서브넷이 회색으로 표시되는 경우 새 Managed Instance의 대상으로 선택하기 전에 [네트워크 요구 사항을 충족하도록 수정](sql-database-managed-instance-configure-vnet-subnet.md)해야 합니다. Managed Instance의 네트워크 환경을 구성하기 위한 요구 사항 관련 정보는 [Azure SQL Database Managed Instance에 대한 VNet 구성](sql-database-managed-instance-connectivity-architecture.md)을 참조하세요. |
    |**리소스 그룹**|새 리소스 그룹 또는 기존 리소스 그룹|유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|

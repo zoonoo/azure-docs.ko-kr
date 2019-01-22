@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/5/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 88aa9a9003363f86db9214c62adff962bbd345cf
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d1c948527c919ed8f81f16cf30a986591b414662
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344162"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263566"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Security Center란?
 
@@ -52,9 +52,11 @@ Security Center는 기본적으로 Azure의 일부이므로 배포하지 않고�
 
 에이전트 및 Azure에서 수집한 이벤트는 보안 분석 엔진에서 상관 관계가 파악되어, 워크로드 보안을 위해 따라야 하는 맞춤화된 권장 사항(강화 작업) 및 위협 탐지 경고를 제공합니다. 이러한 경고를 가능한 한 빨리 조사하여 워크로드가 악의적인 공격을 받지 않도록 해야 합니다.
 
+Security Center를 사용하도록 설정하면 Security Center의 기본 제공 보안 정책이 Security Center 범주의 기본 제공 이니셔티브로 Azure Policy에 반영됩니다. 기본 제공 이니셔티브는 Security Center에 등록된 모든 구독(무료 또는 표준 계층)에 자동으로 할당됩니다. 기본 제공 이니셔티브에는 감사 정책만 포함되어 있습니다. Azure Policy의 Security Center 정책에 대한 자세한 내용은 [보안 정책 작업](tutorial-security-policy.md)을 참조하세요.
+
 ## <a name="strengthen-security-posture"></a>보안 상태 강화
 
-Azure Security Center를 사용하여 보안 상태를 강화할 수 있습니다. 즉, 보안 모범 사례로 권장되는 강화 작업을 확인 및 수행하고 머신, 데이터 서비스 및 앱 전체에 구현하는 데 도움이 됩니다. 여기에는 보안 정책을 관리 및 적용하고 Azure 가상 머신, 비 Azure 서버 및 Azure PaaS 서비스가 규정을 준수하는지 확인하는 작업이 포함됩니다. Security Center에서는 네트워크 보안 영역에 대해 집중적인 가시성을 통해 워크로드를 자세히 조사하는 데 필요한 도구를 제공합니다.
+Azure Security Center를 사용하여 보안 상태를 강화할 수 있습니다. 즉, 보안 모범 사례로 권장되는 강화 작업을 확인 및 수행하고 머신, 데이터 서비스 및 앱 전체에 구현하는 데 도움이 됩니다. 여기에는 보안 정책을 관리 및 적용하고 Azure 가상 머신, 비 Azure 서버 및 Azure PaaS 서비스가 규정을 준수하는지 확인하는 작업이 포함됩니다. Security Center에서는 네트워크 보안 영역에 대해 집중적인 가시성을 통해 워크로드를 자세히 조사하는 데 필요한 도구를 제공합니다. 
 
 ### <a name="manage-organization-security-policy-and-compliance"></a>조직 보안 정책 및 준수 관리
 

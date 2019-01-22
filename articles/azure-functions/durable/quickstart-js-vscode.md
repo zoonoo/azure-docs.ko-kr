@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 0db76e80b2ff7400e7c2914efbd2bbcb24d9b005
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4ee1c9edf8cb10cae1a8a6e1c15f9bcf6e9a8ff8
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034321"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359462"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>JavaScript로 첫 번째 지속성 함수 만들기
 
@@ -94,7 +94,7 @@ ms.locfileid: "54034321"
 
 ## <a name="create-an-activity-function"></a>작업 함수 만들기
 
-1. HTTP 트리거 템플릿을 사용하여 세 번째 함수를 만들려면 이전 섹션의 단계를 반복합니다. 단, 이번에는 함수의 이름을 `SayHello`라고 지정합니다.
+1. HTTP 트리거 템플릿을 사용하여 세 번째 함수를 만들려면 이전 섹션의 단계를 반복합니다. 단, 이번에는 함수의 이름을 `E1_SayHello`라고 지정합니다.
 
 2. 새 함수에 대한 index.js 파일을 열고 콘텐츠를 다음 코드로 바꿉니다.
 
@@ -121,9 +121,11 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
 
     ![Azure 로컬 출력](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-4. HTTP 요청에 대한 URL을 브라우저의 주소 표시줄에 붙여넣고 오케스트레이션의 상태를 확인합니다.
+4. `{functionName}`을 `OrchestratorFunction`로 바꿉니다.
 
-5. 디버깅을 중지하려면 Shift+F1을 누릅니다.
+5. [Postman](https://www.getpostman.com/) 또는 [cURL](https://curl.haxx.se/)과 같은 도구를 사용하여 HTTP POST 요청을 URL 엔드포인트로 보냅니다.
+
+6. 디버깅을 중지하려면 VS Code에서 Shift+F1을 누릅니다.
 
 함수가 로컬 컴퓨터에서 제대로 실행되는지 확인한 후에 해당 프로젝트를 Azure에 게시해야 합니다.
 

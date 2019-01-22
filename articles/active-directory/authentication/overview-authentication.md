@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 0b232ed8bacfeb896fd5ee6ff9e2a58b71dc1517
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 92c493a59cc14d61b09e59bdf0fa23be72b7137a
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162974"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232552"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>어떤 인증 방법을 사용할 수 있을까요?
 
 암호가 도난되고 ID가 유출되었다는 뉴스를 종종 접하게 됩니다. 암호 외에도 두 번째 요소를 요구하면 조직의 보안이 즉시 향상됩니다. Microsoft Azure AD(Azure Active Directory)에는 관리자가 추가 인증 방법을 통해 조직과 사용자를 보호할 수 있는 Azure MFA(Azure Multi-Factor Authentication) 및 Azure AD SSPR(셀프 서비스 암호 재설정) 같은 기능이 포함되어 있습니다.
 
-사용자가 중요한 애플리케이션에 액세스하고, 암호를 재설정하거나 Windows Hello를 사용하도록 설정해야 하는 경우 사용자의 신분을 확인하기 위해 추가 확인을 요구할 수 있습니다.
+애플리케이션에 로그인, 암호 재설정, Windows Hello 사용 등을 포함한 여러 시나리오가 있습니다. 사용자는 자신이 말하는 사람이란 것을 추가로 확인하도록 요청받을 수 있습니다.
 
 추가 확인은 다음과 같은 인증 방법의 형태로 진행될 수 있습니다.
 
@@ -58,4 +58,4 @@ Azure Multi-factor Authentication(MFA)은 Microsoft의 2단계 인증 솔루션�
 
 셀프 서비스 암호 재설정에 대한 자세한 내용은 [작동 방식: Azure AD 셀프 서비스 암호 재설정](concept-sspr-howitworks.md) 문서를 참조하세요.
 
-[작동 방식: Azure Multi-Factor Authentication](concept-mfa-howitworks.md) 문서에서 Azure Multi-Factor Authentication에 대해 자세히 알아보세요.
+Azure Multi-Factor Authentication에 대한 자세한 내용은 [작동 방식: Azure Multi-Factor Authentication](concept-mfa-howitworks.md) 문서를 참조하세요

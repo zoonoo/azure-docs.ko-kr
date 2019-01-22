@@ -11,19 +11,19 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/21/2018
-ms.openlocfilehash: b8ff482f2aec406ef4c1c545db7844a861317518
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 1/9/2019
+ms.openlocfilehash: b11eb08a960e81ab938a9b15a1153c44706231c5
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994422"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198290"
 ---
 # <a name="quickstart-create-an-azure-sql-database-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure SQL Database 만들기
 
 Azure SQL Database는 클라우드에서 사용 가능성이 높은 SQL Server Database를 실행하고 크기를 조정할 수 있는 *Database-as-a-Service*입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Azure SQL 데이터베이스를 만들고 쿼리하여 시작하는 방법을 보여 줍니다. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/).
 
 이 빠른 시작에서 모든 단계의 경우 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -35,21 +35,21 @@ AdventureWorksLT 샘플 데이터를 포함하는 SQL Database를 만들려면
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
    
-1. **데이터베이스** 및 **SQL Database**를 차례로 선택합니다.
+1. **데이터베이스**를 선택한 다음, **SQL Database**를 선택합니다.
    
-1. **SQL Database** 형식으로 다음 값을 입력하거나 선택합니다. 
+1. **SQL Database 만들기** 형식에서 다음 값을 입력하거나 선택합니다. 
    
    - **데이터베이스 이름**: *mySampleDatabase*를 입력합니다.
-   - **구독**: 표시되지 않는 경우 올바른 구독을 드롭다운하고 선택합니다.  
+   - **구독**: 표시되지 않는 경우 올바른 구독을 드롭다운하고 선택합니다.
    - **리소스 그룹**: **새로 만들기**를 선택하고, *myResourceGroup*을 입력하고, **확인**을 선택합니다. 
-   - **원본 선택**: **샘플(AdventureWorksLT)** 을 드롭다운하고 선택합니다. 
-   
-   >[!IMPORTANT]
-   >이 데이터를 사용하는 Azure SQL Database 빠른 시작을 따를 수 있도록 **샘플(AdventureWorksLT)** 데이터를 선택해야 합니다. 
-   
+   - **원본 선택**: **샘플(AdventureWorksLT)** 을 드롭다운하고 선택합니다.
+    
+    >[!IMPORTANT]
+    >이 데이터를 사용하는 Azure SQL Database 빠른 시작을 따를 수 있도록 **샘플(AdventureWorksLT)** 데이터를 선택해야 합니다.
+  
    ![Azure SQL Database 만들기](./media/sql-database-get-started-portal/create-database-1.png)
    
-1. **Server**를 선택한 다음, **새 서버 만들기**를 선택합니다. 
+1. **서버**에서 **새로 만들기**를 선택합니다. 
    
 1. **새 서버** 형식으로 다음 값을 입력하거나 선택합니다. 
    
@@ -60,11 +60,11 @@ AdventureWorksLT 샘플 데이터를 포함하는 SQL Database를 만들려면
    - **위치**: 모든 유효한 위치를 드롭다운하고 선택합니다.  
    
    >[!IMPORTANT]
-   >빠른 시작을 위해 서버 및 데이터베이스에 로그인할 수 있도록 서버 관리자 로그인 및 암호를 기억 하거나 기록합니다. 로그인 또는 암호를 잊은 경우 **SQL 서버** 페이지에서 로그인 이름을 얻거나 암호를 다시 설정할 수 있습니다. **SQL 서버** 페이지를 열려면 데이터베이스를 만든 후 데이터베이스 **개요** 페이지에서 서버 이름을 선택합니다.
+   >빠른 시작을 위해 서버 및 데이터베이스에 로그인할 수 있도록 서버 관리자 로그인 및 암호를 적어 둡니다. 로그인 또는 암호를 잊은 경우 **SQL 서버** 페이지에서 로그인 이름을 얻거나 암호를 다시 설정할 수 있습니다. **SQL 서버** 페이지를 열려면 데이터베이스를 만든 후 데이터베이스 **개요** 페이지에서 서버 이름을 선택합니다.
    
+    ![서버 만들기](./media/sql-database-get-started-portal/create-database-server.png)
+
 1. **선택**을 선택합니다.
-   
-   ![서버 만들기](./media/sql-database-get-started-portal/create-database-server.png)
    
 1. **SQL Database** 양식의 **가격 책정 계층**을 선택합니다. 각 서비스 계층에 대해 사용할 수 있는 DTU 수 및 스토리지 크기를 살펴봅니다.
    
@@ -113,7 +113,7 @@ AdventureWorksLT 샘플 데이터를 포함하는 SQL Database를 만들려면
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-[다음 단계](#next-steps)로 이동하여 다양한 방법으로 데이터베이스에 연결하고 쿼리하는 방법을 알아보려면 이 리소스 그룹, SQL 서버 및 SQL 데이터베이스를 보관합니다. 
+[다음 단계](#next-steps)로 이동하려는 경우 이 리소스 그룹, SQL Server 및 SQL Database를 유지합니다. 다음 단계에서는 다른 메서드를 사용하여 데이터베이스를 연결하고 쿼리하는 방법을 보여줍니다. 
 
 이러한 리소스 사용을 완료한 경우 다음과 같이 해당 리소스를 삭제할 수 있습니다.
 
@@ -123,8 +123,8 @@ AdventureWorksLT 샘플 데이터를 포함하는 SQL Database를 만들려면
 
 ## <a name="next-steps"></a>다음 단계
 
-- 온-프레미스 또는 원격 도구에서 Azure SQL Database에 연결하려면 서버 수준 방화벽 규칙을 만들어야 합니다. 자세한 내용은 [서버 수준 방화벽 규칙 만들기](sql-database-get-started-portal-firewall.md)를 참조하세요.
-- 서버 수준 방화벽 규칙을 만들면 여러 다양한 도구 및 언어를 사용하여 데이터베이스를 [연결 및 쿼리](sql-database-connect-query.md)할 수 있습니다. 
+- 온-프레미스 또는 원격 도구에서 Azure SQL Database에 연결하기 위해 서버 수준 방화벽 규칙을 만듭니다. 자세한 내용은 [서버 수준 방화벽 규칙 만들기](sql-database-get-started-portal-firewall.md)를 참조하세요.
+- 서버 수준 방화벽 규칙을 만든 후 여러 다양한 도구 및 언어를 사용하여 데이터베이스를 [연결 및 쿼리](sql-database-connect-query.md)할 수 있습니다. 
   - [SQL Server Management Studio를 사용하여 연결 및 쿼리](sql-database-connect-query-ssms.md)
   - [Azure Data Studio를 사용하여 연결 및 쿼리](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Azure CLI를 사용하여 Azure SQL Database를 만들려면 [Azure CLI 샘플](sql-database-cli-samples.md)을 참조하세요.

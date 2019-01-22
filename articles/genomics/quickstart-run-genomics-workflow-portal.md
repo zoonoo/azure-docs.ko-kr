@@ -7,13 +7,13 @@ manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
-ms.date: 12/07/2017
-ms.openlocfilehash: 152aa51c6dee12216dc9e5fac70f43f638c2c8da
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/11/2019
+ms.openlocfilehash: 4c8d488021ca12a704a5c0a06bb0c491588bcaed
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242860"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261692"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>빠른 시작: Microsoft Genomics 서비스를 통해 워크플로 실행
 
@@ -21,8 +21,8 @@ ms.locfileid: "51242860"
 
 몇 단계만 거치면 시작할 수 있습니다. 
 1.  설정: Azure Portal을 통해 Microsoft Genomics 계정을 만들고 로컬 환경에 Microsoft Genomics Python 클라이언트를 설치합니다. 
-2.  입력 데이터 업로드: Azure Portal을 통해 Microsoft Azure Storage 계정을 만들고 입력 파일을 업로드합니다. 입력 파일은 페어드 엔드 리드(paired-end reads)이어야 합니다(fastq 또는 bam 파일).
-3.  실행: Microsoft Genomics 명령줄 인터페이스를 사용하여 Microsoft Genomics 서비스를 통해 워크플로를 실행합니다. 
+2.  입력 데이터 업로드: Azure Portal을 통해 Microsoft Azure 스토리지 계정을 만들고 입력 파일을 업로드합니다. 입력 파일은 페어드 엔드 리드(paired-end reads)이어야 합니다(fastq 또는 bam 파일).
+3.  다음을 실행합니다. Microsoft Genomics 명령줄 인터페이스를 사용하여 Microsoft Genomics 서비스를 통해 워크플로를 실행합니다. 
 
 Microsoft Genomics에 대한 자세한 내용은 [Microsoft Genomics란 무엇입니까?](overview-what-is-genomics.md)를 참조하세요.
 
@@ -38,9 +38,9 @@ Microsoft Genomics 계정을 만들려면 [Azure Portal](https://portal.azure.co
 
  |**설정**          |  **제안 값**  | **필드 설명** |
  |:-------------       |:-------------         |:----------            |
- |계정 이름         | MyGenomicsAccount     |고유한 계정 식별자를 선택합니다. 유효한 이름은 [이름 지정 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
  |구독         | 구독 이름|귀하의 Azure 서비스에 대한 청구 단위입니다. 구독에 대한 자세한 내용은 [구독](https://account.azure.com/Subscriptions)을 참조하세요. |      
  |리소스 그룹       | MyResourceGroup       |  리소스 그룹을 사용하여 여러 Azure 리소스(저장소 계정, 게놈 계정 등)를 단일 그룹으로 그룹화하여 간단히 관리할 수 있습니다. 자세한 내용은 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)을 참조하세요. 유효한 리소스 그룹 이름은 [이름 지정 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
+ |계정 이름         | MyGenomicsAccount     |고유한 계정 식별자를 선택합니다. 유효한 이름은 [이름 지정 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
  |위치                   | 미국 서부 2                    |    미국 서부 2, 유럽 서부 및 동남 아시아에서 서비스를 사용할 수 있습니다. |
 
 
@@ -59,7 +59,7 @@ Microsoft Genomics 계정을 만들려면 [Azure Portal](https://portal.azure.co
 
 Microsoft Genomics Python 클라이언트는 Python 2.7과 호환됩니다. 12 또는 2.7.xx 이상 버전; 2.7.15는 이 작성 시 최신 버전이며 2.7.14는 권장된 버전입니다. [여기](https://www.python.org/downloads/)에서 다운로드를 찾을 수 있습니다. 
 
-참고: Python 3.x는 Python 2.7.xx와 호환되지 않습니다.  MSGen은 Python 2.7 애플리케이션입니다. MSGen를 실행하는 경우 활성 Python 환경에서 Python 2.7.xx 버전을 사용하는지 확인합니다. Python 3.x 버전에서 MSGen 사용하려고 할 때 오류가 발생할 수 있습니다.
+참고:  Python 3.x는 Python 2.7.xx와 호환되지 않습니다.  MSGen은 Python 2.7 애플리케이션입니다. MSGen를 실행하는 경우 활성 Python 환경에서 Python 2.7.xx 버전을 사용하는지 확인합니다. Python 3.x 버전에서 MSGen 사용하려고 할 때 오류가 발생할 수 있습니다.
 
 
 ### <a name="install-the-microsoft-genomics-client"></a>Microsoft Genomics 클라이언트 설치
@@ -112,28 +112,22 @@ Azure Storage 계정에 이미 데이터가 있다면 Genomics 계정과 동일�
 
 ![Storage 만들기 블레이드](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Storage 만들기 블레이드")
 
-앞의 이미지와 같이 다음 정보를 사용하여 Storage 계정을 구성합니다. 스토리지 계정에 대한 대부분의 표준 옵션을 사용하되, 계정은 일반적인 용도가 아닌 Blob Storage 전용으로 지정합니다. Blob Storage 용량은 다운로드 및 업로드 시 2-5배 빨라질 수 있습니다. 
+앞의 이미지와 같이 다음 정보를 사용하여 Storage 계정을 구성합니다. 스토리지 계정에 대한 대부분의 표준 옵션을 사용하되, 계정은 일반적인 용도가 아닌 Blob Storage 전용으로 지정합니다. Blob Storage 용량은 다운로드 및 업로드 시 2-5배 빨라질 수 있습니다.  기본 배포 모델, 리소스 관리자를 권장합니다.  
 
 
  |**설정**          |  **제안 값**  | **필드 설명** |
  |:-------------------------       |:-------------         |:----------            |
- |이름         | MyStorageAccount     |고유한 계정 식별자를 선택합니다. 유효한 이름은 [이름 지정 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
- |배포 모델         | 리소스 관리자| 리소스 관리자는 권장되는 배포 모델입니다. 자세한 내용은 [리소스 관리자 배포 이해](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model)를 참조하세요. |      
- |계정 종류       | Blob 저장소       |  Blob Storage는 다운로드 및 업로드 시 범용보다 2-5배 빨라질 수 있습니다. |
- |성능                  | Standard                   | 기본값은 표준입니다. 표준 및 프리미엄 스토리지 계정에 대한 자세한 내용은 [Microsoft Azure Storage 소개 ](https://docs.microsoft.com/azure/storage/common/storage-introduction)를 참조하세요.    |
- |복제                  | 로컬 중복 저장소                  | 로컬 중복 저장소는 저장소 계정을 만든 지역의 데이터 센터 내에서 데이터를 복제합니다. 자세한 내용은 [ Azure Storage 복제 ](https://docs.microsoft.com/azure/storage/common/storage-redundancy)를 참조하세요.    |
- |보안 전송 필요                  | 사용 안 함                 | 기본적으로 이 옵션은 사용하지 않도록 설정됩니다. 데이터 전송 보안에 대한 자세한 내용은 [보안 전송 필요](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)를 참조하세요.    |
- |액세스 계층                  | 핫                   | 핫 액세스는 저장소 계정의 개체가 더 자주 액세스됨을 나타냅니다.    |
  |구독         | Azure 구독 |구독에 대한 자세한 내용은 [구독](https://account.azure.com/Subscriptions)을 참조하세요. |      
  |리소스 그룹       | MyResourceGroup       |  Genomics 계정과 동일한 리소스 그룹을 선택할 수 있습니다. 유효한 리소스 그룹 이름은 [이름 지정 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
- |위치                  | 미국 서부 2                  | Genomics 계정의 위치와 동일한 위치를 사용하여 송신 비용을 낮추고 대기 시간을 줄입니다. Genomics 서비스는 미국 서부2, 미국 서부 2, 유럽 서부 및 동남 아시아에서 사용할 수 있습니다.    |
- |가상 네트워크                | 사용 안 함                   | 기본적으로 이 옵션은 사용하지 않도록 설정됩니다. 자세한 내용은 [Azure Virtual Network](https://docs.microsoft.com/azure/storage/common/storage-network-security)를 참조하세요.    |
+ |Storage 계정 이름         | MyStorageAccount     |고유한 계정 식별자를 선택합니다. 유효한 이름은 [이름 지정 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
+ |위치                  | 미국 서부 2                  | Genomics 계정의 위치와 동일한 위치를 사용하여 송신 비용을 낮추고 대기 시간을 줄입니다.  | 
+ |성능                  | Standard                   | 기본값은 표준입니다. 표준 및 프리미엄 스토리지 계정에 대한 자세한 내용은 [Microsoft Azure Storage 소개 ](https://docs.microsoft.com/azure/storage/common/storage-introduction)를 참조하세요.    |
+ |계정 종류       | Blob Storage       |  Blob Storage는 다운로드 및 업로드 시 범용보다 2-5배 빨라질 수 있습니다. |
+ |복제                  | 로컬 중복 저장소                  | 로컬 중복 저장소는 저장소 계정을 만든 지역의 데이터 센터 내에서 데이터를 복제합니다. 자세한 내용은 [ Azure Storage 복제 ](https://docs.microsoft.com/azure/storage/common/storage-redundancy)를 참조하세요.    |
+ |액세스 계층                  | 핫                   | 핫 액세스는 저장소 계정의 개체가 더 자주 액세스됨을 나타냅니다.    |
 
 
-
-
-
-그런 다음 만들기를 클릭하여 저장소 계정을 만듭니다. Genomics 계정 만들 때처럼 상단 메뉴 표시줄에서 알림을 클릭하여 배포 프로세스를 모니터링할 수 있습니다. 
+그런 다음, `Review + create`를 클릭하여 스토리지 계정을 만듭니다. Genomics 계정 만들 때처럼 상단 메뉴 표시줄에서 알림을 클릭하여 배포 프로세스를 모니터링할 수 있습니다. 
 
 
 ## <a name="upload-input-data-to-your-storage-account"></a>저장소 계정에 입력 데이터 업로드
@@ -156,6 +150,11 @@ Genomics 계정에서 다운로드한 config.txt 파일을 엽니다. 지정해�
 
 
 ![Genomics 구성](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Genomics 구성")
+
+
+GATK4를 실행하려는 경우 `process_name` 매개 변수를 gatk4 또는 gatk4-프로모션으로 설정합니다. GATK4 승격에 대한 자세한 내용은 [이 페이지](https://aka.ms/msgatk4)를 방문하세요.
+
+기본적으로 Genomics 서비스는 VCF 파일을 출력합니다. VCF 출력 대신 gVCF 출력을 원하는 경우(GATK 3.x에서 `-emitRefConfidence` 및 GATK 4.x에서 `emit-ref-confidence`와 같음) `config.txt`에 `emit_ref_confidence` 매개 변수를 추가하고 위의 그림에서 표시된 것처럼 `gvcf`로 설정합니다.  다시 VCF 출력으로 변경하려면 `config.txt` 파일에서 제거하거나 `emit_ref_confidence` 매개 변수를 `none`으로 설정합니다. 
 
 ### <a name="submit-your-workflow-to-the-microsoft-genomics-service-the-microsoft-genomics-client"></a>워크플로를 Microsoft Genomics 서비스 Microsoft Genomics 클라이언트에 제출합니다.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 9d9f9d1e9a87802960fd2f004f3e19f47fdd3fe0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 5be86017926e09b5db5fd08f1c33d316b9031bc4
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971804"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264294"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>자습서: Salesforce와 Azure Active Directory 통합
 
@@ -180,7 +180,7 @@ Salesforce에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-11. **인증 구성** 섹션에서, SAML SSO 구성의 **인증 서비스**로 **AzureSSO**를 선택하고 **저장**을 클릭합니다.
+11. **인증 구성** 섹션에서 SAML SSO 구성의 **인증 서비스**로 **AzureSSO**를 선택한 다음, **저장**을 클릭합니다.
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-auth-config.png)
 

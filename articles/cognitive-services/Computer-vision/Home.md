@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4c952c847aa56b385065a878b664b3d1d98763f4
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: cd4eca669936a206241069f1f8a8d9440f45be33
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584023"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229781"
 ---
 # <a name="what-is-computer-vision"></a>Computer Vision이란?
 
@@ -69,6 +69,10 @@ Computer Vision에서 이미지를 분석하는 데 충족되어야 하는 요�
 - 이미지의 파일 크기가 4MB보다 작아야 합니다.
 - 이미지의 크기가 50 x 50 픽셀보다 커야 합니다.  
   OCR의 경우 이미지의 크기는 50 x 50 픽셀 및 4,200 x 4,200 픽셀 사이여야 합니다.
+
+## <a name="data-privacy-and-security"></a>데이터 개인 정보 보호 및 보안
+
+모든 Cognitive Services와 마찬가지로 Computer Vision 서비스를 사용하는 개발자는 고객 데이터에 대한 Microsoft의 정책에 대해 알고 있어야 합니다. Microsoft Trust Center의 [Cognitive Services 페이지](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices)에서 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

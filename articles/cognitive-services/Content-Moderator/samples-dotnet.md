@@ -1,22 +1,22 @@
 ---
 title: 코드 샘플 - Content Moderator, .NET
-description: 애플리케이션에서 Content Moderator 사용
+description: SDK를 통해 .NET 애플리케이션에서 Content Moderator를 사용합니다.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: sample
-ms.date: 01/10/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: c5465a2de0924037eb93b9de652e93e85f166737
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6911b9b718edfc84a7c219be448dee06f4a0f835
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223154"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259193"
 ---
-# <a name="net-sdk-samples"></a>.NET SDK 샘플
+# <a name="content-moderator-net-sdk-samples"></a>Content Moderator .NET SDK 샘플
 
 다음 목록에는 .NET용 Azure Content Moderator SDK를 사용하여 빌드된 코드 샘플에 대한 링크가 포함되어 있습니다.
 
@@ -47,4 +47,4 @@ ms.locfileid: "47223154"
 - **비디오 검토**: [사람이 참여하는 비디오 검토를 만듭니다](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoReviews/Program.cs). [빠른 시작](video-reviews-quickstart-dotnet.md)을 참조하세요.
 - **비디오 대본 검토**: [사람이 참여하는 비디오 대본 검토를 만듭니다](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoTranscriptReviews/Program.cs). [빠른 시작](video-reviews-quickstart-dotnet.md)을 참조하세요.
 
-[GitHub의 Content Moderator .NET 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)에서 모든 .NET 샘플을 참조합니다.
+[GitHub의 Content Moderator .NET 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)에서 모든 .NET 샘플을 참조하세요.

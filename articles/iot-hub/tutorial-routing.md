@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 6f1cd08e3c786a1d163a22b5da5150fde5f45b95
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 22678a44cda38b52982e977281d3310efde15831
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135341"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247284"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>자습서: IoT Hub로 메시지 라우팅 구성
 
 [메시지 라우팅](iot-hub-devguide-messages-d2c.md)을 사용하면 원격 분석 데이터를 IoT 디바이스에서 기본 제공된 Event Hub 호환 엔드포인트 또는 Blob Storage, Service Bus 큐, Service Bus 토픽 및 Event Hubs와 같은 사용자 지정 엔드포인트에 전송할 수 있습니다. 사용자는 메시지 라우팅을 구성하는 동안 특정 조건에 일치하는 경로를 사용자 지정할 수 있도록 [라우팅 쿼리](iot-hub-devguide-routing-query-syntax.md)를 만들 수 있습니다. 한 번 설정하면 들어오는 데이터가 자동으로 IoT Hub에 의해 엔드포인트로 라우팅됩니다. 
 
-이 자습서에서는 IoT Hub로 라우팅 쿼리를 설정하고 사용하는 방법에 대해 알아봅니다. IoT 디바이스에서 Blob 저장소 및 Service Bus 큐를 포함한 여러 서비스 중 하나로 메시지를 라우팅합니다. Service Bus 큐로 보내는 메시지는 Logic App에 의해 선택되며 이메일을 통해 전송됩니다. 특별히 설정된 라우팅이 없는 메시지는 기본 엔드포인트에 전송되고 Power BI 시각화에 표시됩니다.
+이 자습서에서는 IoT Hub로 라우팅 쿼리를 설정하고 사용하는 방법에 대해 알아봅니다. IoT 장치에서 Blob Storage 및 Service Bus 큐를 포함한 여러 서비스 중 하나로 메시지를 라우팅합니다. Service Bus 큐로 보내는 메시지는 Logic App에 의해 선택되며 이메일을 통해 전송됩니다. 특별히 설정된 라우팅이 없는 메시지는 기본 엔드포인트에 전송되고 Power BI 시각화에 표시됩니다.
 
 이 자습서에서는 다음 작업을 수행합니다.
 
@@ -244,7 +244,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 ```
 
-다음으로 디바이스 ID를 만들고 나중에 사용할 키를 저장합니다. 이 디바이스 ID는 IoT Hub에 메시지를 보내는 시뮬레이션 응용 프로그램에서 사용됩니다. 이 기능은 PowerShell에서는 사용할 수 없지만, [Azure Portal](https://portal.azure.com)에서 디바이스를 만들 수는 있습니다.
+다음으로 디바이스 ID를 만들고 나중에 사용할 키를 저장합니다. 이 장치 ID는 IoT Hub에 메시지를 보내는 시뮬레이션 애플리케이션에서 사용됩니다. 이 기능은 PowerShell에서는 사용할 수 없지만, [Azure Portal](https://portal.azure.com)에서 디바이스를 만들 수는 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)을 열고 사용자의 Azure 계정에 로그인합니다.
 
@@ -500,7 +500,7 @@ Power BI 시각화에서 데이터를 보려면 먼저 데이터를 검색하는
 
 Stream Analytics 작업에서 **시작** > **지금 시작** > **시작**을 차례로 클릭합니다. 작업이 성공적으로 시작되면 작업 상태가 **중지됨**에서 **실행 중**으로 변경됩니다.
 
-Power BI 보고서를 설정하려면 디바이스를 만들고 디바이스 시뮬레이션 응용 프로그램을 실행한 후 Power BI를 설정하기 위한 데이터가 필요합니다.
+Power BI 보고서를 설정하려면 장치를 만들고 장치 시뮬레이션 애플리케이션을 실행한 후 Power BI를 설정하기 위한 데이터가 필요합니다.
 
 ## <a name="run-simulated-device-app"></a>시뮬레이션된 디바이스 앱 실행
 
@@ -629,4 +629,4 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 IoT 디바이스의 상태를 관리하는 방법에 대해 알아보려면 다음 자습서로 이동합니다. 
 
 > [!div class="nextstepaction"]
-[백 엔드 서비스에서 디바이스 구성](tutorial-device-twins.md)
+[IoT Hub를 사용하여 메트릭 및 진단 로그의 설정 및 사용](tutorial-use-metrics-and-diags.md)

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 58829bcd1b3c38b70929167beae5d8866483d616
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 0e1c5e4c3e4b40fd04ca9d48aba9b1e5194d4261
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716500"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330928"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>자습서: Front Door에 사용자 지정 도메인 추가
 이 자습서에서는 사용자 지정 도메인을 Front Door에 추가하는 방법을 알아봅니다. 애플리케이션 전송에 Azure Front Door Service를 사용하는 경우 고유한 도메인 이름을 최종 사용자 요청에 표시하려면 사용자 지정 도메인이 필요합니다. 볼 수 있는 도메인 이름이 있다면 고객에게 편리하고 브랜딩 목적상 유용합니다.
@@ -43,7 +43,7 @@ Azure를 사용하여 [DNS 도메인](https://docs.microsoft.com/azure/dns/dns-o
 
 ## <a name="create-a-cname-dns-record"></a>CNAME DNS 레코드 만들기
 
-Front Door에 사용자 지정 도메인을 사용하려면 먼저 도메인 공급자를 사용하여 Front Door의 기본 프런트 엔드 호스트(contose.azurefd.net으로 가정)를 가리키는 CNAME(정식 이름) 레코드를 만들어야 합니다. CNAME 레코드는 원본 도메인을 대상 도메인 이름에 매핑하는 DNS 레코드의 형식입니다. Azure Front Door Service의 경우 원본 도메인 이름은 사용자 지정 도메인 이름이고, 대상 도메인 이름은 Front Door 기본 호스트 이름입니다. Front Door가 사용자가 만든 CNAME 레코드를 확인하면, 원본 사용자 지정 도메인(예: www.contoso.com)에 전달되는 트래픽은 지정된 대상 Front Door 기본 프런트 엔드 호스트(예: contoso.azurefd.net)로 라우팅됩니다. 
+Front Door에 사용자 지정 도메인을 사용하려면 먼저 도메인 공급 기업을 사용하여 Front Door의 기본 프런트 엔드 호스트(contoso.azurefd.net으로 가정)를 가리키는 CNAME(정식 이름) 레코드를 만들어야 합니다. CNAME 레코드는 원본 도메인을 대상 도메인 이름에 매핑하는 DNS 레코드의 형식입니다. Azure Front Door Service의 경우 원본 도메인 이름은 사용자 지정 도메인 이름이고, 대상 도메인 이름은 Front Door 기본 호스트 이름입니다. Front Door가 사용자가 만든 CNAME 레코드를 확인하면, 원본 사용자 지정 도메인(예: www.contoso.com)에 전달되는 트래픽은 지정된 대상 Front Door 기본 프런트 엔드 호스트(예: contoso.azurefd.net)로 라우팅됩니다. 
 
 사용자 지정 도메인 및 해당 하위 도메인은 한 번에 한 Front Door에만 연결할 수 있습니다. 그러나 여러 CNAME 레코드를 사용하면 동일한 사용자 지정 도메인의 여러 하위 도메인을 여러 Front Door에 사용할 수 있습니다. 여러 하위 도메인이 있는 사용자 지정 도메인을 동일한 Front Door에 매핑할 수도 있습니다.
 

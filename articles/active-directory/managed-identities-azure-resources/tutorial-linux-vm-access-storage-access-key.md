@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: f00de9095e45901f92fcf3004a5f51cfdd709da2
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ee26db80e3219c170c77a2bd90f7d1416676333e
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724777"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352753"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>자습서: Linux VM 시스템 할당 관리 ID를 사용하여 액세스 키를 통해 Azure Storage에 액세스
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 Linux VM(가상 머신)에 대한 시스템 할당 관리 ID를 사용하여 저장소 계정 액세스 키를 검색하는 방법을 보여줍니다. Storage SDK를 사용하는 등의 스토리지 작업을 수행할 때 일반적인 방식으로 스토리지 액세스 키를 사용할 수 있습니다. 이 자습서의 경우 Azure CLI를 사용하여 Blob을 업로드하고 다운로드합니다. 다음 방법을 알게 됩니다.
+이 자습서에서는 Linux VM(가상 머신)에 대한 시스템 할당 관리 ID를 사용하여 저장소 계정 액세스 키를 검색하는 방법을 보여줍니다. Storage SDK를 사용하는 등의 저장소 작업을 수행할 때 일반적인 방식으로 저장소 액세스 키를 사용할 수 있습니다. 이 자습서의 경우 Azure CLI를 사용하여 Blob을 업로드하고 다운로드합니다. 다음 방법을 알게 됩니다.
 
 > [!div class="checklist"]
 > * 리소스 관리자의 저장소 계정 액세스 키에 대한 VM 액세스 권한 부여 
@@ -61,7 +61,7 @@ ms.locfileid: "52724777"
 
 ## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-storage-account-access-keys"></a>저장소 계정 액세스 키를 사용하도록 VM의 시스템 할당 관리 ID 액세스 부여
 
-Azure Storage는 Azure AD 인증을 기본적으로 지원하지 않습니다.  그러나 Azure 리소스에 대한 관리 ID를 사용하여 Resource Manager에서 저장소 계정 액세스 키를 검색하고, 해당 키를 사용하여 저장소에 액세스할 수 있습니다.  이 단계에서 저장소 계정의 키에 대한 VM의 시스템 할당 관리 ID 액세스 권한을 부여합니다.   
+이 단계에서 저장소 계정의 키에 대한 VM의 시스템 할당 관리 ID 액세스 권한을 부여합니다.   
 
 1. 새로 만든 저장소 계정으로 다시 이동합니다.
 2. 왼쪽 패널의 **액세스 제어(IAM)** 링크를 클릭합니다.  

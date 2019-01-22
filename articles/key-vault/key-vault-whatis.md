@@ -1,6 +1,6 @@
 ---
 title: Azure Key Vault란? - Azure Key Vault | Microsoft Docs
-description: 'Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. Azure Key Vault를 사용하여, 고객은 키와 비밀(예: 인증 키, 저장소 계정 키, 데이터 암호화 키, PFX 파일 및 암호)을 암호화하여 하드웨어 보안 모듈(HSM)로 보호된 키를 사용합니다.'
+description: Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호합니다. 고객은 HSM(하드웨어 보안 모듈)을 통해 보호되는 키를 사용하여 인증 키, 저장소 계정 키, 데이터 암호화 키, .PFX 파일 및 암호를 암호화할 수 있습니다.
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -11,14 +11,14 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: f3c198ab8a17df019f1735a9b62e27f1051f64c5
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 889f12b935eaad72eb7637524ab578f28fbc412f
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076334"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198493"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Key Vault란?
 
@@ -35,7 +35,7 @@ Azure Key Vault는 비밀을 안전하게 저장하고 액세스하기 위한 �
 
 기본적으로 Key Vault에 인증하는 방법에는 다음 세 가지가 있습니다.
 
-1.  **[Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)** 사용(**권장 및 모범 사례**): Azure에서 Virtual Machine에 앱을 배포하는 경우 Key Vault에 액세스할 수 있는 Virtual Machine에 ID를 할당할 수 있습니다. [여기](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)에 나열된 다른 Azure 리소스에 ID를 할당할 수도 있습니다. 이런 방식의 이점은 앱/서비스에서 첫 번째 비밀의 회전을 관리하지 않는다는 점입니다. ID가 Azure에서 자동으로 회전됩니다. 
+1. **[Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)** 사용(**권장 및 모범 사례**): Azure에서 Virtual Machine에 앱을 배포하는 경우 Key Vault에 액세스할 수 있는 Virtual Machine에 ID를 할당할 수 있습니다. [여기](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)에 나열된 다른 Azure 리소스에 ID를 할당할 수도 있습니다. 이런 방식의 이점은 앱/서비스에서 첫 번째 비밀의 회전을 관리하지 않는다는 점입니다. ID가 Azure에서 자동으로 회전됩니다. 
 2. **서비스 사용자 및 인증서 사용:** 두 번째 옵션은 Key Vault에 액세스할 수 있는 서비스 사용자 및 연결된 인증서를 사용하는 것입니다. 인증서를 회전하는 부담이 애플리케이션 소유자나 개발자에게 가기 때문에 권장되지 않습니다.
 3. **서비스 사용자 및 비밀 사용:** 세 번째 옵션(비선호 옵션)은 서비스 주체와 비밀을 사용하여 Key Vault에 인증하는 것입니다.
 
@@ -76,7 +76,7 @@ Azure를 구독하는 사용자는 주요 자격 증명 모음을 만들고 사�
 
 그런 다음 이 관리자는 개발자에게 URI를 제공하여 자신의 애플리케이션에서 호출 하고 보안 관리자에게 해당 키 사용 현황 로깅 정보를 제공합니다. 
 
-![Azure Key Vault 개요][1]
+![Azure Key Vault의 작동 방식 개요][1]
 
 개발자는 API를 사용하여 직접 키를 관리할 수도 있습니다. 자세한 내용은 [키 자격 증명 모음 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
 

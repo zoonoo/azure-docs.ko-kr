@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 59354b7f4a1a82d1fa2fd105bd743ecb73526434
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 966536b7129a91f4c6fd8dd7bf0270be660bdf81
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716109"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332067"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services 및 ASP.NET 시작
 
@@ -238,7 +238,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 3. **StorageConnectionString** 항목을 선택하면 줄 오른쪽 끝에 줄임표(**...**) 단추가 표시됩니다. 줄임표 단추를 클릭하여 **Storage 계정 연결 문자열 만들기** 대화 상자를 엽니다.
 
     ![열린 연결 문자열 만들기 상자](./media/cloud-services-dotnet-get-started/opencscreate.png)
-4. **저장소 연결 문자열 만들기** 대화 상자에서 **내 구독**을 클릭하고, 앞에서 만든 Storage 계정을 선택한 다음 **확인**을 클릭합니다. 아직 로그인하지 않은 경우 Azure 계정 자격 증명을 요구하는 메시지가 나타납니다.
+4. **스토리지 연결 문자열 만들기** 대화 상자에서 **내 구독**을 클릭하고, 앞에서 만든 Storage 계정을 선택한 다음 **확인**을 클릭합니다. 아직 로그인하지 않은 경우 Azure 계정 자격 증명을 요구하는 메시지가 나타납니다.
 
     ![저장소 연결 문자열 만들기](./media/cloud-services-dotnet-get-started/createstoragecs.png)
 5. 변경 내용을 저장합니다.
@@ -357,7 +357,7 @@ Contoso Ads 애플리케이션을 만드는 데는 다음 단계가 필요합니
 
 ### <a name="set-project-references"></a>프로젝트 참조 설정
 1. ContosoAdsWeb 프로젝트에서 ContosoAdsCommon 프로젝트에 대한 참조를 설정합니다. ContosoAdsWeb 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **참조** - **참조 추가**를 클릭합니다. **참조 관리자** 대화 상자의 왼쪽 창에서 **솔루션 – 프로젝트**를 선택하고 **ContosoAdsCommon**을 선택한 다음 **확인**을 클릭합니다.
-2. ContosoAdsWorker 프로젝트에서 ContosAdsCommon 프로젝트에 대한 참조를 설정합니다.
+2. ContosoAdsWorker 프로젝트에서 ContosoAdsCommon 프로젝트에 대한 참조를 설정합니다.
 
     ContosoAdsCommon에는 Entity Framework 데이터 모델 및 컨텍스트 클래스가 포함되며, 이는 프런트 엔드 및 백 엔드 모두에서 사용됩니다.
 3. ContosoAdsWorker 프로젝트에서 `System.Drawing`에 대한 참조를 설정합니다.
@@ -380,7 +380,7 @@ Contoso Ads 애플리케이션을 만드는 데는 다음 단계가 필요합니
 3. ContosoAdsCloudService 프로젝트에서 **역할**아래의 ContosoAdsWeb을 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다.
 
     ![역할 속성](./media/cloud-services-dotnet-get-started/roleproperties.png)
-4. **ContosAdsWeb [Role]** 속성 창에서 **설정** 탭을 클릭한 다음 **설정 추가**를 클릭합니다.
+4. **ContosoAdsWeb [Role]** 속성 창에서 **설정** 탭을 클릭한 다음, **설정 추가**를 클릭합니다.
 
     **서비스 구성**을 **모든 구성**으로 설정해 둡니다.
 5. 이름이 *StorageConnectionString*인 설정을 추가합니다. **형식**을 *ConnectionString*으로 설정하고 **값**을 *UseDevelopmentStorage=true*로 설정합니다.
@@ -549,7 +549,7 @@ queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSec
 imagesQueue = queueClient.GetQueueReference("images");
 ```
 
-대부분의 컨트롤러 코드는 DbContext 클래스를 사용한 Entity Framework 데이터 모델 작업에 일반적입니다. 예외는 HttpPost `Create` 서드이며, 이 메서드는 파일을 업로드하고 Blob 저장소에 저장합니다. 모델 바인더는 메서드에 [HttpPostedFileBase](https://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) 개체를 제공합니다.
+대부분의 컨트롤러 코드는 DbContext 클래스를 사용한 Entity Framework 데이터 모델 작업에 일반적입니다. 예외는 HttpPost `Create` 서드이며, 이 메서드는 파일을 업로드하고 Blob Storage에 저장합니다. 모델 바인더는 메서드에 [HttpPostedFileBase](https://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) 개체를 제공합니다.
 
 ```csharp
 [HttpPost]

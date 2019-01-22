@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/19/2018
-ms.openlocfilehash: 21eb28611c1e40695356d502c262c23013591986
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: b53c26f265cc5d944c8e15ae5bf436e8f71dcc2f
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117370"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352736"
 ---
 # <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>빠른 시작: Kafka에서 Azure Data Explorer로 데이터 수집
  
-Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure Data Explorer는 Kafka에서의 수집(데이터 로드)을 제공합니다. Kafka는 시스템 또는 애플리케이션 간에 데이터를 안정적으로 이동하는 실시간 스트리밍 데이터 파이프라인을 빌드할 수 있도록 하는 분산 스트리밍 플랫폼입니다. 
+Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure Data Explorer는 Kafka에서의 수집(데이터 로드)을 제공합니다. Kafka는 시스템 또는 애플리케이션 간에 데이터를 안정적으로 이동하는 실시간 스트리밍 데이터 파이프라인을 빌드할 수 있도록 하는 분산 스트리밍 플랫폼입니다.
  
 ## <a name="prerequisites"></a>필수 조건
  
@@ -30,9 +30,11 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 * 샘플 앱을 실행할 [Visual Studio 2017 버전 15.3.2 이상](https://www.visualstudio.com/vs/)
  
 ## <a name="kafka-connector-setup"></a>Kafka 커넥터 설치
+
 Kafka Connect는 Apache Kafka와 기타 시스템 간에 측정 가능하면서 안정적으로 데이터를 스트리밍하기 위한 도구입니다. 이 도구를 사용하면 Kafka와 대규모 데이터 컬렉션을 주고 받는 커넥터를 신속하고 간단하게 정의할 수 있습니다. ADX Kafka Sink는 Kafka의 커넥터 역할을 합니다.
  
-### <a name="bundle"></a>번들 
+### <a name="bundle"></a>번들
+
 Kafka는 `.jar`을 사용자 지정 커넥터로 작동할 플러그 인으로 로드할 수 있습니다. 이러한 `.jar`을 생성하기 위해 코드를 로컬로 복제하고 Maven을 사용하여 빌드합니다. 
 
 #### <a name="clone"></a>복제
@@ -41,7 +43,7 @@ Kafka는 `.jar`을 사용자 지정 커넥터로 작동할 플러그 인으로 �
 git clone git://github.com:Azure/kafka-sink-azure-kusto.git
 cd ./kafka-sink-azure-kusto/kafka/
 ```
- 
+
 #### <a name="build"></a>빌드
 
 Maven으로 로컬로 빌드하여 종속성을 갖춘 `.jar`을 생성합니다.
@@ -55,9 +57,9 @@ Maven으로 로컬로 빌드하여 종속성을 갖춘 `.jar`을 생성합니다
 ```bash
 mvn clean compile assembly:single
 ```
- 
+
 ### <a name="deploy"></a>배포 
- 
+
 Kafka에 플러그 인을 로드합니다. docker를 사용하는 배포 예제는 [kafka-sink-azure-kusto](https://github.com/Azure/kafka-sink-azure-kusto#deploy)에서 확인할 수 있습니다.
  
 
@@ -112,13 +114,16 @@ Kafka가 데이터를 보낼 수 있는 ADX의 테이블을 만듭니다. **필�
 Kafka 클러스터가 ADX에 연결되었으므로 다운로드한 [샘플 앱](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)을 사용하여 데이터를 생성합니다.
 
 ### <a name="clone"></a>복제
+
 로컬로 샘플 앱을 복제합니다.
 
 ```cmd
 git clone git://github.com:Azure/azure-kusto-samples-dotnet.git
 cd ./azure-kusto-samples-dotnet/kafka/
 ```
+
 ### <a name="run-the-app"></a>앱 실행
+
 1. Visual Studio에서 샘플 앱 솔루션을 엽니다.
 
 1. `Program.cs` 파일에서 `connectionString` 상수를 Kafka 연결 문자열로 업데이트합니다.
@@ -131,7 +136,7 @@ cd ./azure-kusto-samples-dotnet/kafka/
 
 1. 앱이 몇 개의 메시지를 보내면 다음 단계로 이동합니다.
  
-## <a name="query-and-review-the-data"></a>데이터 쿼리 및 검토 
+## <a name="query-and-review-the-data"></a>데이터 쿼리 및 검토
 
 1. 수집하는 동안 오류가 발생하지 않도록 하려면:
 

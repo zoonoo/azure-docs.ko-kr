@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: e148165afd91d76917e06577198950ee7552995f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: a0a07a78d36e4c0d11132d0c7d5ff947f7073029
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107709"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353569"
 ---
 # <a name="tutorial-build-a-java-web-app-using-spring-and-azure-cosmos-db"></a>자습서: Spring 및 Azure Cosmos DB를 사용하여 Java 웹앱 빌드
 
@@ -331,20 +331,16 @@ az appservice plan update --number-of-workers 2 \
   
 ```bash
 az group delete --name your-azure-group-name
-``` 
+```
 
 <a name="next"></a>
 
-## Next steps
+## <a name="next-steps"></a>다음 단계
 
-[Azure for Java Developers](/java/azure/)
-[Spring Boot](https://spring.io/projects/spring-boot), 
-[Spring Data for Cosmos DB](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable), 
-[Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction)
-and
-[App Service Linux](/azure/app-service/containers/app-service-linux-intro).
+[Java 개발자용 Azure](/java/azure/)
+[Spring Boot](https://spring.io/projects/spring-boot), [Cosmos DB용 Spring Data](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable), [Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction) 및 [App Service Linux](/azure/app-service/containers/app-service-linux-intro)
 
-Learn more about running Java apps on App Service on Linux in the developer guide.
+개발자 가이드에서 App Service on Linux의 Java 앱을 실행하는 방법에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"] 
-> [Java in App Service Linux dev guide](/azure/app-service/containers/app-service-linux-java)
+> [App Service Linux 개발자 가이드의 Java](/azure/app-service/containers/app-service-linux-java)

@@ -3,7 +3,7 @@ title: Azure PowerShell을 사용하여 SQL Server Windows VM 만들기 | Micros
 description: 이 자습서는 Azure PowerShell을 사용하여 Windows SQL Server 2017 가상 머신을 만드는 방법을 보여줍니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
@@ -11,14 +11,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/15/2018
-ms.author: jroth
-ms.openlocfilehash: bebb153d5ff840a0eed7d6afffccd03a5236592d
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.date: 12/21/2018
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: aa4ea4e724ec383fc9f22bd56572d2fd0e844abc
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42022760"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332441"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 SQL Server Windows 가상 머신 만들기
 
@@ -47,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    Connect-AzureRmAccount
    ```
 
-1. 자격 증명을 입력할 수 있는 로그인 화면이 표시됩니다. Azure 포털에 로그인할 때 사용한 것과 동일한 메일과 암호를 사용합니다.
+1. 자격 증명을 입력할 수 있는 화면이 표시됩니다. Azure 포털에 로그인할 때 사용한 것과 동일한 메일과 암호를 사용합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -122,11 +123,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-the-sql-vm"></a>SQL VM 만들기
 
-1. 자격 증명을 정의하여 VM에 로그인합니다. 사용자 이름은 "azureadmin"입니다. 명령을 실행하기 전에 암호를 변경했는지 확인합니다.
+1. 자격 증명을 정의하여 VM에 로그인합니다. 사용자 이름은 "azureadmin"입니다. 명령을 실행하기 전에 \<암호>를 변경했는지 확인합니다.
 
    ``` PowerShell
    # Define a credential object
-   $SecurePassword = ConvertTo-SecureString 'Change.This!000' `
+   $SecurePassword = ConvertTo-SecureString '<password>' `
       -AsPlainText -Force
    $Cred = New-Object System.Management.Automation.PSCredential ("azureadmin", $securePassword)
    ```
@@ -136,7 +137,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    ```PowerShell
    # Create a virtual machine configuration
    $VMName = $ResourceGroupName + "VM"
-   $VMConfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_DS13 | `
+   $VMConfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_DS13_V2 | `
       Set-AzureRmVMOperatingSystem -Windows -ComputerName $VMName -Credential $Cred -ProvisionVMAgent -EnableAutoUpdate | `
       Set-AzureRmVMSourceImage -PublisherName "MicrosoftSQLServer" -Offer "SQL2017-WS2016" -Skus "SQLDEV" -Version "latest" | `
       Add-AzureRmVMNetworkInterface -Id $Interface.Id
@@ -148,7 +149,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    > [!TIP]
    > VM을 만드는 데 몇 분이 걸립니다.
 
-## <a name="install-the-sql-iaas-agent"></a>SQL Iaas 에이전트 설치
+## <a name="install-the-sql-iaas-agent"></a>SQL IaaS 에이전트 설치
 
 포털 통합 및 SQL VM 기능을 가져오려면 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 설치해야 합니다. 새 VM에 에이전트를 설치하려면 VM을 만든 후 다음 명령을 실행하세요.
 
@@ -164,7 +165,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    Get-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
    ```
 
-1. 그런 다음 반환된 IP 주소를 가져와 명령줄 매개 변수로서 **mstsc**에 전달하여 원격 데스크톱 세션을 새 VM에서 시작합니다.
+1. 반환된 IP 주소를 명령줄 매개 변수로서 **mstsc**에 전달하여 원격 데스크톱 세션을 새 VM에서 시작합니다.
 
    ```
    mstsc /v:<publicIpAddress>
@@ -174,9 +175,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="connect-to-sql-server"></a>SQL Server에 연결
 
-1. 원격 데스크톱 세션에 로그인한 다음 시작 메뉴에서 **SQL Server Management Studio 2017**을 시작합니다.
+1. 원격 데스크톱 세션에 로그인한 다음, 시작 메뉴에서 **SQL Server Management Studio 2017**을 시작합니다.
 
-1. **서버에 연결** 대화 상자에서 기본값을 유지합니다. 서버 이름은 VM 이름입니다. 인증은 **Windows 인증**으로 설정됩니다. **Connect**를 클릭합니다.
+1. **서버에 연결** 대화 상자에서 기본값을 유지합니다. 서버 이름은 VM 이름입니다. 인증은 **Windows 인증**으로 설정됩니다. **연결**을 선택합니다.
 
 이제 SQL Server에 로컬로 연결됩니다. 원격으로 연결하려면 포털에서 또는 수동으로 [연결을 구성](virtual-machines-windows-sql-connect.md)해야 합니다.
 

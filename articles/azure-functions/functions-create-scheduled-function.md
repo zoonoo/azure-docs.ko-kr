@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 4809c09b5aa7b8212981cc13589602a365a23a37
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: d82e80530d375a9d0f0a6d3f491d3070942ca02f
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113617"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331914"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Azure에서 타이머에 따라 트리거되는 함수 만들기
 
@@ -43,15 +43,15 @@ Azure Functions를 사용하여 정의한 일정에 따라 실행되는 [서버�
 
 ## <a name="create-a-timer-triggered-function"></a>타이머 트리거 함수 만들기
 
-1. 함수 앱을 확장한 후 **함수** 옆의 **+** 단추를 클릭합니다. 함수 앱에서 첫 번째 함수이면 **사용자 지정 함수**를 선택합니다. 그러면 함수 템플릿의 전체 집합이 표시됩니다.
+1. 함수 앱을 확장한 후 **함수** 옆의 **+** 단추를 클릭합니다. 함수 앱의 첫 번째 함수인 경우 **포털 내**를 선택한 다음, **계속**을 선택합니다. 그렇지 않으면 3단계로 이동합니다.
 
-    ![Azure Portal에서 함수 빨리 시작하기 페이지](./media/functions-create-scheduled-function/add-first-function.png)
+   ![Azure Portal에서 함수 빨리 시작하기 페이지](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
 
-2. 검색 필드에 `timer`를 입력한 다음 타이머 트리거 템플릿에서 원하는 언어를 선택합니다. 
+2. **추가 템플릿**, **템플릿 마침 및 보기**를 차례로 선택합니다.
 
-    ![타이머 트리거 함수 템플릿을 선택합니다.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+    ![Functions 빠른 시작 - 추가 템플릿 선택](./media/functions-create-scheduled-function/add-first-function.png)
 
-3. 이미지 아래의 테이블에 지정된 설정을 사용하여 새 트리거를 구성합니다.
+3. 검색 필드에서 `timer`를 입력하고 이미지 아래의 테이블에 지정된 설정을 사용하여 새 트리거를 구성합니다.
 
     ![Azure Portal에서 타이머 트리거 함수를 만듭니다.](./media/functions-create-scheduled-function/functions-create-timer-trigger-2.png)
 
@@ -60,13 +60,13 @@ Azure Functions를 사용하여 정의한 일정에 따라 실행되는 [서버�
     | **Name** | 기본값 | 타이머 트리거 함수의 이름을 정의합니다. |
     | **일정** | 0 \*/1 \* \* \* \* | 1분마다 함수가 실행되도록 예약하는 6개 필드의 [CRON 식](functions-bindings-timer.md#cron-expressions)입니다. |
 
-2. **만들기**를 클릭합니다. 함수는 1분마다 실행되는 선택한 언어로 생성됩니다.
+4. **만들기**를 클릭합니다. 함수는 1분마다 실행되는 선택한 언어로 생성됩니다.
 
-3. 로그에 기록된 추적 정보를 확인하여 실행을 확인합니다.
+5. 로그에 기록된 추적 정보를 확인하여 실행을 확인합니다.
 
     ![Azure Portal에서 함수 로그 뷰어.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
-이제 함수의 일정을 변경하여 1분이 아니라 1시간에 한 번 실행되도록 합니다. 
+이제 함수의 일정을 변경하여 1분이 아니라 1시간에 한 번 실행되도록 합니다.
 
 ## <a name="update-the-timer-schedule"></a>타이머 일정 업데이트
 

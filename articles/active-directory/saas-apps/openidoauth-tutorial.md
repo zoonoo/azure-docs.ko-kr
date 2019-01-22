@@ -4,22 +4,22 @@ description: Azure AD 앱 갤러리에서 OpenID/OAuth 애플리케이션을 구
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: eedebb76-e78c-428f-9cf0-5891852e79fb
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/25/2018
+ms.topic: tutorial
+ms.date: 01/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 04639e6d27854d9c25b97936b163cfaaa25fc375
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 1215e0060662e0d5261d3aeac4874e5833131ba3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287441"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260842"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에서 OpenID/OAuth 애플리케이션 구성
 
@@ -27,19 +27,19 @@ ms.locfileid: "51287441"
 
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 창에서 **Azure Active Directory**를 선택합니다. 
 
-    ![Azure Active Directory 단추](./media/openidoauth-tutorial/tutorial_general_01.png)
+    ![Azure Active Directory 단추](common/select-azuread.png))
 
-2. **Enterprise 응용 프로그램** > **모든 응용 프로그램**으로 이동합니다.
+2. **Enterprise 애플리케이션** > **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 애플리케이션 블레이드](./media/openidoauth-tutorial/tutorial_general_02.png)
+    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
 3. 대화 상자 맨 위 있는 **새 애플리케이션**을 선택합니다.
 
-    ![새 애플리케이션 단추](./media/openidoauth-tutorial/tutorial_general_03.png)
+    ![새 애플리케이션 단추](common/add-new-app.png)
 
 4. 검색 상자에 애플리케이션 이름을 입력합니다. 결과 패널에서 원하는 애플리케이션을 선택하고, 애플리케이션에 로그인합니다.
 
-    ![애플리케이션 추가](./media/openidoauth-tutorial/addfromgallery.png)
+    ![결과 목록의 Openid](common/search-new-app.png)
 
     > [!NOTE]
     > OpenID Connect 및 OAuth 앱의 경우 **추가** 단추가 기본적으로 비활성화됩니다. 여기에서 테넌트 관리자는 등록 단추를 선택하고 애플리케이션에 대한 동의를 제공해야 합니다. 그러면 구성을 수행할 수 있는 고객 테넌트에 애플리케이션이 추가됩니다. 애플리케이션을 명시적으로 추가할 필요가 없습니다.
@@ -122,7 +122,7 @@ Graph API는 또한 더 많은 Microsoft 클라우드 서비스에서 사용자 
 ![권한 부여 단추](./media/openidoauth-tutorial/grantpermission.png)
 
 > [!NOTE]
-> **권한 부여** 단추를 사용하는 명시적 동의 부여는 현재 ADAL.js를 사용하는 SPA(단일 페이지 응용 프로그램)에 필요합니다. 그렇지 않고 액세스 토큰을 요청하는 경우 애플리케이션이 실패합니다.
+> **권한 부여** 단추를 사용하는 명시적 동의 부여는 현재 ADAL.js를 사용하는 SPA(단일 페이지 애플리케이션)에 필요합니다. 그렇지 않고 액세스 토큰을 요청하는 경우 애플리케이션이 실패합니다.
 
 응용 프로그램 전용 권한은 테넌트 관리자의 동의를 항상 필요로 합니다. 애플리케이션이 애플리케이션 전용 사용 권한을 요청하고 사용자가 애플리케이션에 로그인을 시도하는 경우 오류 메시지가 나타납니다. 메시지는 사용자가 동의할 수 없음을 알립니다.
 
@@ -130,7 +130,7 @@ Graph API는 또한 더 많은 Microsoft 클라우드 서비스에서 사용자 
 
 관리자가 동의하고 서비스 주체가 고객 테넌트에 만들어진 후 이후의 로그인 요청은 *prompt=admin_consent* 매개 변수를 필요로 하지 않습니다. 관리자가 요청된 권한이 허용된다고 결정했다면 테넌트의 다른 사용자들에게 그 시점 이후로 동의하라는 메시지가 표시되지 않습니다.
 
-테넌트 관리자는 일반 사용자가 애플리케이션에 동의하는 기능을 사용하지 않도록 설정할 수 있습니다. 이 기능이 사용되지 않는 경우 테넌트에서 애플리케이션을 사용하려면 항상 관리자 동의가 필요합니다. 최종 사용자 동의를 사용하지 않도록 설정된 애플리케이션을 테스트하려면 [Azure Portal](https://portal.azure.com/)에서 구성 스위치를 찾을 수 있습니다. **엔터프라이즈 응용 프로그램** 아래의 [사용자 설정](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) 섹션에 있습니다.
+테넌트 관리자는 일반 사용자가 애플리케이션에 동의하는 기능을 사용하지 않도록 설정할 수 있습니다. 이 기능이 사용되지 않는 경우 테넌트에서 애플리케이션을 사용하려면 항상 관리자 동의가 필요합니다. 최종 사용자 동의를 사용하지 않도록 설정된 애플리케이션을 테스트하려면 [Azure Portal](https://portal.azure.com/)에서 구성 스위치를 찾을 수 있습니다. **엔터프라이즈 애플리케이션** 아래의 [사용자 설정](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) 섹션에 있습니다.
 
 관리 동의가 필요하지 않은 사용 권한을 요청하는 애플리케이션에서 *prompt=admin_consent* 매개 변수를 사용할 수도 있습니다. 예제는 테넌트 관리자가 한 번 "등록"한 환경이 필요하고, 다른 사용자에게 해당 지점에서 동의를 확인하는 메시지가 표시되지 않는 애플리케이션입니다.
 

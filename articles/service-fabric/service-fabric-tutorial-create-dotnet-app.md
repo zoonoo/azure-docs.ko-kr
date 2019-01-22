@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2018
+ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 1af74cc44391c95fba781cbce14e9118ca36c14b
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 038a70f5cce5b78f6c0e95316e66de42fa529954
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078497"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321741"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>자습서: ASP.NET Core Web API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 애플리케이션 만들기 및 배포
 
@@ -38,15 +38,15 @@ ms.locfileid: "49078497"
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * .NET Service Fabric 애플리케이션 빌드
-> * [응용 프로그램을 원격 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [애플리케이션을 원격 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [ASP.NET Core 프런트 엔드 서비스에 HTTPS 엔드포인트 추가](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * [Azure Pipelines를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-> * [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
+> * [애플리케이션에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에:
-* Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드가 포함된 [Visual Studio 2017 버전 15.5 이상을 설치](https://www.visualstudio.com/)합니다.
 * [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "49078497"
 
 2. **파일**->**새로 만들기**->**프로젝트**로 프로젝트를 만듭니다.
 
-3. **새 프로젝트** 대화 상자에서 **클라우드 > Service Fabric 응용 프로그램**을 선택합니다.
+3. **새 프로젝트** 대화 상자에서 **클라우드 &gt; Service Fabric 애플리케이션**을 선택합니다.
 
 4. 애플리케이션의 이름을 **Voting**으로 지정하고 **확인**을 클릭합니다.
 
@@ -326,8 +326,6 @@ VotingWeb 프런트 엔드 서비스를 만들면 Visual Studio에서는 수신�
 
 애플리케이션을 디버그할 때 올바른 포트에 웹 브라우저가 열리도록 투표 프로젝트에서 애플리케이션 URL 속성 값도 업데이트합니다.  솔루션 탐색기에서 **투표** 프로젝트를 선택하고 **애플리케이션 URL** 속성을 **8080**으로 업데이트합니다.
 
-![애플리케이션 URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
-
 ### <a name="deploy-and-run-the-voting-application-locally"></a>Voting 애플리케이션을 로컬로 배포하고 실행
 이제 Voting 애플리케이션을 실행하고 디버깅할 수 있습니다. Visual Studio에서 **F5** 키를 눌러 디버그 모드에서 애플리케이션을 로컬 Service Fabric 클러스터에 배포합니다. 이전에 **관리자** 권한으로 Visual Studio를 열지 않은 경우 애플리케이션이 실패합니다.
 
@@ -348,7 +346,7 @@ Service Fabric을 통해 신뢰할 수 있는 컬렉션을 사용하여 일관�
 
 이 자습서에서는 신뢰할 수 있는 컬렉션에 카운터 값을 저장하는 서비스를 만듭니다.
 
-1. 솔루션 탐색기에서 Voting 응용 프로그램 프로젝트 내부의 **서비스**를 마우스 오른쪽 단추로 클릭하고 **추가 -> 새 Service Fabric 서비스...** 를 선택합니다.
+1. 솔루션 탐색기에서 Voting 애플리케이션 프로젝트 내부의 **서비스**를 마우스 오른쪽 단추로 클릭하고 **추가 -&gt; 새 Service Fabric 서비스...** 를 선택합니다.
     
 2. **새 Service Fabric 서비스** 대화 상자에서 **상태 저장 ASP.NET Core**를 선택하고, 서비스 이름을 **VotingData**로 지정한 다음, **확인**을 누릅니다.
 
@@ -454,12 +452,7 @@ namespace VotingData.Controllers
 
 서비스 패브릭은 신뢰할 수 있는 서비스와 유연하게 통신할 수 있는 방법을 제공합니다. 단일 애플리케이션 내에는 TCP를 통해 액세스할 수 있는 서비스가 있을 수 있습니다. HTTP REST API 및 다른 서비스를 통해 액세스할 수 있는 기타 서비스는 웹 소켓을 통해 액세스할 수 있습니다. 제공되는 옵션 및 관련 장단점에 대한 배경 정보는 [서비스와의 통신](service-fabric-connect-and-communicate-with-services.md)을 참조하세요.
 
-VotingWeb 프런트 엔드 웹 서비스가 VotingData 백 엔드 데이터 서비스와 통신할 수 있도록 이 자습서에서는 [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) 및 [Service Fabric 역방향 프록시](service-fabric-reverseproxy.md)를 사용합니다. 역방향 프록시는 기본적으로 19081 포트를 사용하도록 구성되며 이 자습서에서 정상적으로 작동합니다. 이 포트는 클러스터 설정에 사용되도록 ARM 템플릿에서 설정됩니다. 사용되는 포트를 찾으려면 **Microsoft.ServiceFabric/clusters** 리소스에서 클러스터 템플릿을 확인하거나 클러스터 매니페스트에서 HttpApplicationGatewayEndpoint 요소를 확인합니다.
-
-> [!NOTE]
-> 역방향 프록시는 Windows 8 이상 또는 Windows Server 2012 이상을 실행하는 클러스터에서만 지원됩니다.
-
-<u>Microsoft.ServiceFabric/clusters reverseProxyEndpointPort 리소스</u>
+VotingWeb 프런트 엔드 웹 서비스가 VotingData 백 엔드 데이터 서비스와 통신할 수 있도록 이 자습서에서는 [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) 및 [Service Fabric 역방향 프록시](service-fabric-reverseproxy.md)를 사용합니다. 역방향 프록시는 기본적으로 19081 포트를 사용하도록 구성되며 이 자습서에서 정상적으로 작동합니다. 역방향 프록시 포트는 클러스터를 설정하는 데 사용되는 Azure Resource Manager 템플릿에서 설정됩니다. 어떤 포트가 사용되는지 찾아보려면 **Microsoft.ServiceFabric/clusters** 리소스에서 클러스터 템플릿을 살펴보세요. 
 
 ```json
 "nodeTypes": [
@@ -472,13 +465,10 @@ VotingWeb 프런트 엔드 웹 서비스가 VotingData 백 엔드 데이터 서�
           }
         ],
 ```
-로컬 Service Fabric 클러스터 매니페스트에서 HttpApplicationGatewayEndpoint 요소를 보려면:
-1. 브라우저 창을 열고 http://localhost:19080으로 이동합니다.
-2. **매니페스트**를 클릭합니다.
+로컬 개발 클러스터에서 사용되는 역방향 프록시 포트를 찾아보려면 로컬 Service Fabric 클러스터 매니페스트에서 **HttpApplicationGatewayEndpoint** 요소를 확인하세요.
+1. 브라우저 창을 열고 http://localhost:19080으로 이동하여 Service Fabric Explorer 도구를 엽니다.
+2. **클러스터 -> 매니페스트**를 선택합니다.
 3. HttpApplicationGatewayEndpoint 요소 포트를 기록해 둡니다. 기본적으로 19081이어야 합니다. 19081이 아닌 경우 다음 VotesController.cs 코드의 GetProxyAddress 메서드에서 포트를 변경해야 합니다.
-
-
-
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
@@ -622,11 +612,11 @@ Visual Studio에서 애플리케이션을 디버깅할 때 로컬 Service Fabric
 
 코드에서 수행되는 작업을 살펴보려면 다음 단계를 완료합니다.
 
-1. **VotingWeb\VotesController.cs** 파일을 열고 Web API의 **Put** 메서드(63줄)에서 중단점을 설정합니다.
+1. **VotingWeb\VotesController.cs** 파일을 열고 Web API의 **Put** 메서드(72줄)에서 중단점을 설정합니다.
 
-2. **VotingData\VoteDataController.cs** 파일을 열고 Web API의 **Put** 메서드(53줄)에서 중단점을 설정합니다.
+2. **VotingData\VoteDataController.cs** 파일을 열고 Web API의 **Put** 메서드(54줄)에서 중단점을 설정합니다.
 
-3. **F5** 키를 눌러 디버그 모드에서 응용 프로그램을 시작합니다.
+3. **F5** 키를 눌러 디버그 모드에서 애플리케이션을 시작합니다.
 
 4. 브라우저로 돌아가서 투표 옵션을 클릭하거나 새 투표 옵션을 추가합니다. 웹 프런트 엔드의 api 컨트롤러에서 첫 번째 중단점에 도달합니다.
     
@@ -662,4 +652,4 @@ Visual Studio에서 애플리케이션을 디버깅할 때 로컬 Service Fabric
 
 다음 자습서를 진행합니다.
 > [!div class="nextstepaction"]
-> [Azure에 응용 프로그램 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> [Azure에 애플리케이션 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)

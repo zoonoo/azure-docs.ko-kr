@@ -1,19 +1,19 @@
 ---
 title: NFS를 통해 Microsoft Azure Data Box에 데이터 복사 | Microsoft Docs
-description: Azure Data Box에 데이터를 복사하는 방법 알아보기
+description: NFS를 통해 Azure Data Box에 데이터를 복사하는 방법을 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/20/2018
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 7ba6bc2cf3cf5286719bc6da519aabb364302af3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 1cd88e24b945bc6ce627b25b0645bf961039037b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550362"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359819"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>자습서: NFS를 통해 Azure Data Box에 데이터 복사 
 
@@ -38,18 +38,19 @@ ms.locfileid: "53550362"
 
 ## <a name="connect-to-data-box"></a>Data Box에 연결
 
-선택한 저장소 계정에 따라, Data Box가 다음 항목을 만듭니다.
+선택한 스토리지 계정에 따라 Data Box에서 만드는 항목은 다음과 같습니다.
 - GPv1 및 GPv2에서 연결된 각 저장소에 대한 공유 3개.
-- 프리미엄 또는 Blob 저장소 계정에 대한 공유 1개. 
+- 프리미엄 또는 Blob Storage 계정에 대한 공유 1개. 
 
 블록 Blob 및 페이지 Blob 공유에서는 첫 번째 수준 엔터티가 컨테이너, 두 번째 수준 엔터티가 Blob입니다. Azure Files 공유에서 첫 번째 수준 엔터티는 공유, 두 번째 수준 엔터티는 파일입니다.
 
-아래 예제를 고려해 보세요. 
-
-- 저장소 계정: *Mystoracct*
-- 블록 Blob 공유: *Mystoracct_BlockBlob/my-container/blob*
-- 페이지 Blob 공유: *Mystoracct_PageBlob/my-container/blob*
-- 파일 공유: *Mystoracct_AzFile/my-share*
+다음 표에서는 데이터가 업로드되는 Data Box 및 Azure Storage 경로 URL의 공유에 대한 UNC 경로를 보여줍니다. 최종 Azure Storage 경로 URL은 UNC 공유 경로에서 파생될 수 있습니다.
+ 
+|                   |                                                            |
+|-------------------|--------------------------------------------------------------------------------|
+| Azure 블록 Blob | <li>공유 UNC 경로: `//<DeviceIPAddress>/<StorageAccountName_BlockBlob>/<ContainerName>/files/a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
+| Azure 페이지 Blob  | <li>공유 UNC 경로: `//<DeviceIPAddres>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
+| Azure 파일       |<li>공유 UNC 경로: `//<DeviceIPAddres>/<StorageAccountName_AzFile>/<ShareName>/files/a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |
 
 Linux 호스트 컴퓨터를 사용하는 경우 다음 단계에 따라 NFS 클라이언트에 대한 액세스를 허용하도록 Data Box를 구성합니다.
 
@@ -71,14 +72,17 @@ Linux 호스트 컴퓨터를 사용하는 경우 다음 단계에 따라 NFS 클
 
     `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
 
+    **복사하려는 파일에 대한 폴더는 항상 공유 아래에 만든 다음 이 폴더에 파일을 복사합니다**. 블록 Blob 및 페이지 Blob 공유 아래에 만들어진 폴더는 데이터가 Blob으로 업로드되는 컨테이너를 나타냅니다. 스토리지 계정의 *$root* 폴더에 파일을 직접 복사할 수 없습니다.
+
 ## <a name="copy-data-to-data-box"></a>Data Box에 데이터 복사
 
-Data Box 공유에 연결된 후에는 데이터를 복사합니다. 데이터를 복사하기 전에, 다음 사항을 검토합니다.
+Data Box 공유에 연결된 후에는 데이터를 복사합니다. 데이터 복사를 시작하기 전에 다음 고려 사항을 검토합니다.
 
 - 적절한 데이터 형식에 해당하는 공유에 데이터를 복사해야 합니다. 예를 들어 블록 Blob에 대한 공유에 블록 Blob 데이터를 복사합니다. 데이터 형식이 적절한 공유 형식과 일치하지 않는 경우 이후 단계에서 Azure에 데이터를 업로드하는 작업이 실패합니다.
 -  데이터를 복사하는 동안 데이터 크기가 [Azure 저장소 및 Data Box 제한](data-box-limits.md)에 설명된 크기 제한을 준수해야 합니다. 
 - Data Box에 의해 업로드되는 데이터가 Data Box 외부의 다른 애플리케이션에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
 - SMB 및 NFS를 동시에 사용하거나 Azure의 동일한 최종 대상에 동일한 데이터를 복사하지 않는 것이 좋습니다. 이 경우 최종 결과를 확인할 수 없습니다.
+- **복사하려는 파일에 대한 폴더는 항상 공유 아래에 만든 다음 이 폴더에 파일을 복사합니다**. 블록 Blob 및 페이지 Blob 공유 아래에 만들어진 폴더는 데이터가 Blob으로 업로드되는 컨테이너를 나타냅니다. 스토리지 계정의 *$root* 폴더에 파일을 직접 복사할 수 없습니다.
 
 Linux 호스트 컴퓨터를 사용하는 경우 Robocopy와 비슷한 복사 유틸리티를 사용합니다. Linux에서 사용할 수 있는 대안 중 일부는 [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) 또는 [Ultracopier](https://ultracopier.first-world.info/)입니다.  
 
@@ -117,6 +121,10 @@ Linux 호스트 컴퓨터를 사용하는 경우 Robocopy와 비슷한 복사 �
      여기서 j는 병렬 처리의 수를 지정하고, X는 병렬 복사본의 수
 
      병렬 복사본 16개로 시작하여 가용 리소스에 따라 스레드 수를 늘리는 것이 좋습니다.
+
+- 데이터 무결성을 보장하기 위해, 데이터가 복사될 때 체크섬이 인라인으로 계산됩니다. 복사가 완료되면 디바이스에서 사용 중인 공간과 여유 공간을 확인합니다.
+    
+   ![대시보드에서 여유 공간 및 사용 중인 공간 확인](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 ## <a name="prepare-to-ship"></a>배송 준비
 

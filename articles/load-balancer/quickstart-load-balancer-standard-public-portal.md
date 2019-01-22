@@ -1,10 +1,11 @@
 ---
-title: '빠른 시작: 표준 부하 분산 장치 만들기 - Azure Portal | Microsoft Docs'
+title: '빠른 시작: 표준 Load Balancer 만들기 - Azure Portal'
+titlesuffix: Azure Load Balancer
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 표준 부하 분산 장치를 만드는 방법을 보여줍니다.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
@@ -17,12 +18,12 @@ ms.workload: infrastructure-services
 ms.date: 08/21/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: df79581f4ad6af3dc420e7c7895acf46b5e3d997
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 1395c79b9c39d7376f39446eac6da8ee80b2ef18
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615231"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232671"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 표준 부하 분산 장치 만들기
 

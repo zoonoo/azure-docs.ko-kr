@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: overview
-ms.date: 10/26/2018
+ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: 5e8e675b32bfd4c741b82b1ab341a80adbb0529d
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: d9b5473e87d83912dd2f33c00e983e346226e4aa
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741643"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54242950"
 ---
 # <a name="what-is-azure-custom-vision"></a>Azure Custom Vision이란?
 
@@ -27,7 +27,7 @@ Custom Vision Service는 기계 학습 알고리즘을 사용하여 이미지를
 
 ### <a name="classification-and-object-detection"></a>분류 및 개체 검색
 
-Custom Vision 기능을 두 가지로 나눌 수 있습니다. **이미지 분류**는 각 이미지에 분류 분포를 할당합니다. **개체 검색**은 이와 비슷하지만, 이미지에서 적용된 태그를 찾을 수 있는 좌표를 반환합니다.
+Custom Vision 기능을 두 가지로 나눌 수 있습니다. **이미지 분류**는 각 이미지에 분류 분포를 할당합니다. 다중 클래스(이미지당 태그 하나) 및 다중 레이블(이미지당 태그의 수) 분류 모델이 모두 지원됩니다. **개체 감지**는 다중 레이블 분류와 비슷하지만, 이미지에서 적용된 레이블을 찾을 수 있는 좌표를 반환합니다.
 
 ### <a name="optimization"></a>최적화
 
@@ -39,6 +39,10 @@ Custom Vision 기능을 두 가지로 나눌 수 있습니다. **이미지 분�
 Custom Vision Service는 네이티브 SDK 집합뿐 아니라 [Custom Vision 홈페이지](https://customvision.ai/)의 웹 기반 인터페이스를 통해 제공됩니다. 인터페이스를 통해 또는 둘 다 사용하여 모델을 만들고, 테스트하고, 학습할 수 있습니다.
 
 ![Chrome 브라우저 창의 Custom Vision 홈페이지](media/browser-home.png)
+
+## <a name="data-privacy-and-security"></a>데이터 개인 정보 보호 및 보안
+
+모든 Cognitive Services와 마찬가지로 Custom Vision 서비스를 사용하는 개발자는 고객 데이터에 대한 Microsoft의 정책에 대해 알고 있어야 합니다. Microsoft Trust Center의 [Cognitive Services 페이지](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices)에서 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

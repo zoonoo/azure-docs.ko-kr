@@ -9,22 +9,22 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5165dd16b77a242ca83d3e5864b6e60f3e12a567
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: dfb6ccac01933ea114694de361c2f1d4d5a649b0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002640"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230529"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>포털에서 Azure Search서비스 만들기
 
-Azure Search는 사용자 지정 앱에 검색 환경을 추가하는 데 사용되는 독립 실행형 리소스입니다. Azure Search는 다른 여러 Azure 서비스와 쉽게 통합되지만 네트워크 서버에서 호스트되는 앱 또는 다른 클라우드 플랫폼에서 실행되는 소프트웨어를 통해 단독으로 Azure Search를 사용할 수 있습니다. 
+Azure Search는 사용자 지정 앱에 검색 환경을 추가하는 데 사용되는 독립 실행형 리소스입니다. Azure Search는 다른 여러 Azure 서비스와 쉽게 통합되지만 네트워크 서버의 앱 또는 다른 클라우드 플랫폼에서 실행되는 소프트웨어를 통해 단독으로 실행할 수도 있습니다. 
 
 이 문서에서는 [Azure Portal](https://portal.azure.com/)에서 Azure Search 리소스를 만드는 방법을 알아봅니다. 
 
 ![포털의 Azure Search 리소스](media/search-create-service-portal/azure-search-resource-label.png)
 
-PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](https://azure.microsoft.com/resources/templates/101-azure-search-create/)을 사용합니다. 시작하기 도움말은 배경에 대한 [PowerShell로 Azure Search 관리](search-manage-powershell.md)를 참조하세요.
+PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](https://azure.microsoft.com/resources/templates/101-azure-search-create/)을 사용합니다. 시작하기 도움말은 [PowerShell로 Azure Search 관리](search-manage-powershell.md)를 참조하세요.
 
 ## <a name="subscribe-free-or-paid"></a>구독(무료 또는 유료)
 

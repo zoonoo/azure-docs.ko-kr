@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/15/2018
+ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 9b72ca2a166e805d960eab47835f449e0f5b991e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: d3ac0f6f8f6811117a515236de81eca1dc3d0e4d
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889517"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264141"
 ---
 # <a name="tutorial-remove-an-application-and-resources"></a>자습서: 애플리케이션 및 리소스 제거
 
-이 자습서는 시리즈의 4부입니다. [이전에 Service Fabric Mesh에 배포된](service-fabric-mesh-tutorial-template-deploy-app.md) 실행 중인 응용 프로그램을 제거하는 방법을 알아보겠습니다. 
+이 자습서는 시리즈의 4부입니다. [이전에 Service Fabric Mesh에 배포된](service-fabric-mesh-tutorial-template-deploy-app.md) 실행 중인 애플리케이션을 제거하는 방법을 알아보겠습니다. 
 
 시리즈 4부에서는 다음 방법에 대해 알아봅니다.
 
@@ -35,8 +35,8 @@ ms.locfileid: "52889517"
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * [템플릿을 사용하여 Service Fabric Mesh에 응용 프로그램 배포](service-fabric-mesh-tutorial-template-deploy-app.md)
-> * [Service Fabric Mesh에서 실행 중인 응용 프로그램 확장](service-fabric-mesh-tutorial-template-scale-services.md)
-> * [Service Fabric Mesh에서 실행 중인 응용 프로그램 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)
+> * [Service Fabric Mesh에서 실행 중인 애플리케이션 확장](service-fabric-mesh-tutorial-template-scale-services.md)
+> * [Service Fabric Mesh에서 실행되는 애플리케이션 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)
 > * 애플리케이션 제거
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]

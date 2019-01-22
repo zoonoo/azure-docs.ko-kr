@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: e30ede3e69711fefcf5026202ed7b004d00cb02e
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: ebd9f2115116e8f9cf976c86e4914f0b7f6beb39
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810817"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322115"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>자습서: Azure Active Directory와 Jamf Pro 통합
 
@@ -149,13 +149,13 @@ Jamf Pro에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     b. **모든 사용자에 바이패스 허용**을 선택하면 사용자가 인증을 위한 ID 공급자 로그인 페이지로 리디렉션되지 않지만, 대신 Jamf Pro에 직접 로그인할 수 있습니다. 사용자가 ID 공급자를 통해 Jamf Pro에 액세스하려고 시도하는 경우 IdP에서 시작한 SSO 인증 및 권한 부여가 발생합니다.
 
-    다. **사용자 매핑: SAML**에 대해  **NameID** 옵션을 선택합니다. 기본적으로 이 설정은 **NameID**로 설정되어 있지만 사용자 지정 특성을 정의할 수도 있습니다.
+    다. **사용자 매핑: SAML**에 대해 **NameID** 옵션을 선택합니다. 기본적으로 이 설정은 **NameID**로 설정되어 있지만 사용자 지정 특성을 정의할 수도 있습니다.
 
-    d. **사용자 매핑: JAMF PRO**에 대해  **이메일**을 선택합니다. Jamf Pro는 사용자 및 그룹에 의한 방법으로 IdP에서 보낸 SAML 특성을 매핑합니다. 사용자가 Jamf Pro에 액세스하려고 시도할 때 Jamf Pro는 기본적으로 ID 공급자로부터 사용자에 대한 정보를 가져와서 Jamf Pro 사용자 계정과 대조해 봅니다. 들어오는 사용자 계정이 Jamf Pro에 존재하지 않으면 그룹 이름 일치가 발생합니다.
+    d. **사용자 매핑: JAMF PRO**에 대해 **이메일**을 선택합니다. Jamf Pro는 사용자 및 그룹에 의한 방법으로 IdP에서 보낸 SAML 특성을 매핑합니다. 사용자가 Jamf Pro에 액세스하려고 시도할 때 Jamf Pro는 기본적으로 ID 공급자로부터 사용자에 대한 정보를 가져와서 Jamf Pro 사용자 계정과 대조해 봅니다. 들어오는 사용자 계정이 Jamf Pro에 존재하지 않으면 그룹 이름 일치가 발생합니다.
 
     e. `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` 값을 **그룹 특성 이름** 텍스트 상자에 붙여넣습니다.
 
-7. 같은 페이지에서 **Single Sign-On** 섹션의 **ID 공급자**까지 아래로 스크롤하여 다음 단계를 수행합니다.
+7. 같은 페이지에서 **Single Sign-On** 섹션의 **ID 공급 기업**까지 스크롤하여 다음 단계를 수행합니다.
 
     ![Jamf Pro 구성](./media/jamfprosamlconnector-tutorial/configure3.png)
 
