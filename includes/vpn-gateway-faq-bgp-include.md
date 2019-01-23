@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 01/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c6c67f6f1500ee90a1e0e4a04309f3f7aa2f6d05
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.openlocfilehash: 894724b08876e96119bf72ce65e22c6ae884d8da
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "36338325"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306882"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>BGP가 모든 Azure VPN Gateway SKU를 지원하나요?
 아니요. BGP는 Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** 및 **HighPerformance** VPN 게이트웨이에서 지원됩니다. **기본** SKU는 지원되지 않습니다.
@@ -68,7 +68,7 @@ Azure VPN 게이트웨이는 온-프레미스 BGP 디바이스에 다음 경로�
 예. BGP와 비 BGP 연결을 동일한 Azure VPN 게이트웨이에 혼합 사용할 수 있습니다.
 
 ### <a name="does-azure-vpn-gateway-support-bgp-transit-routing"></a>Azure VPN 게이트웨이가 BGP 전송 라우팅을 지원하나요?
-예. BGP 전송 라우팅이 지원됩니다. 단 Azure VPN 게이트웨이가 기본 경로를 타 BGP 피어에 알리지 **않는다**는 점이 다릅니다. 여러 Azure VPN 게이트웨이 간 전송 라우팅을 활성화하려면 모든 중간 VNet-VNet 연결에서 BGP를 활성화해야 합니다. 
+예. BGP 전송 라우팅이 지원됩니다. 단 Azure VPN 게이트웨이가 기본 경로를 타 BGP 피어에 알리지 **않는다**는 점이 다릅니다. 여러 Azure VPN 게이트웨이 간 전송 라우팅을 활성화하려면 모든 중간 VNet-VNet 연결에서 BGP를 활성화해야 합니다.  자세한 내용은 [BGP 정보](../articles/vpn-gateway/vpn-gateway-bgp-overview.md)를 참조하세요.
 
 ### <a name="can-i-have-more-than-one-tunnel-between-azure-vpn-gateway-and-my-on-premises-network"></a>Azure VPN 게이트웨이와 내 온-프레미스 네트워크 간에 터널이 여러 개 있을 수 있나요?
 예, Azure VPN 게이트웨이와 내 온-프레미스 네트워크 간에 S2S VPN 터널을 여러 개 구축할 수 있습니다. 이러한 모든 터널은 Azure VPN 게이트웨이의 총 터널 수와 비교하여 계산되며 두 터널 모두에서 BGP를 활성화해야 합니다.

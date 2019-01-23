@@ -1,7 +1,7 @@
 ---
 title: Python 개발 환경 설정
 titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning Service 작업 시 개발 환경을 구성하는 방법을 알아봅니다. 이 문서에서는 Conda 환경을 사용하고, 구성 파일을 만들고, Jupyter Notebooks, Azure Notebooks, IDE, 코드 편집기 및 Data Science Virtual Machine을 구성하는 방법을 알아봅니다.
+description: Azure Machine Learning Service 작업 시 개발 환경을 구성하는 방법을 알아봅니다. 이 문서에서는 Conda 환경을 사용하고, 구성 파일을 만들고, Jupyter Notebooks, Azure Notebooks, Azure Databricks, IDE, 코드 편집기 및 Data Science Virtual Machine을 구성하는 방법을 알아봅니다.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -10,14 +10,14 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/14/2018
 ms.custom: seodec18
-ms.openlocfilehash: 46a1872d2ac5d1670620148edf7ee273580826d3
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 4ef62157644e55ed291562f581389228b5776f51
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811276"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353229"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -242,12 +242,55 @@ Visual Studio Code는 크로스 플랫폼 코드 편집기입니다. 로컬 Pyth
 
 Databricks 클러스터를 준비하고 샘플 노트북을 가져오려면:
 
-1. Python 3를 사용하여 4.x(높은 동시성 기본 설정)의 Databricks 런타임 버전의 [Databricks 클러스터](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)를 만듭니다. 
+1. 다음 설정을 사용하여 [Databricks 클러스터](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)를 만듭니다.
 
-1. Python `azureml-sdk[databricks]` PyPi 패키지용 Azure Machine Learning SDK를 클러스터에 설치하고 연결하려면 [라이브러리를 만듭니다](https://docs.databricks.com/user-guide/libraries.html#create-a-library).  
+    | 설정 | 값 |
+    |----|---|
+    | 클러스터 이름 | yourclustername |
+    | Databricks 런타임 | 모든 비 ML 런타임(비 ML 4.x, 5.x) |
+    | Python 버전 | 3 |
+    | 작업자 | 2 이상 |
+
+    Databricks에서 자동화된 기계 학습을 사용하는 경우에만 이러한 설정을 사용합니다.
+    
+    |   설정 | 값 |
+    |----|---|
+    | 작업자 노드 VM 유형 | 메모리 최적화 VM 기본 설정 |
+    | 자동 크기 조정 사용 | 선택 취소 |
+    
+    Databricks 클러스터의 작업자 노드 수는 자동화된 ML 설정의 최대 동시 반복 수를 결정합니다.  
+
+    클러스터를 만드는 데 몇 분이 걸립니다. 계속 진행하기 전에 클러스터가 실행될 때까지 기다립니다.
+
+1. Azure Machine Learning SDK 패키지를 클러스터에 설치 및 연결합니다.  
+
+    * 다음 설정 중 하나를 사용하여(_이러한 옵션 중 하나만 선택_) [라이브러리를 만듭니다](https://docs.databricks.com/user-guide/libraries.html#create-a-library).
+    
+        * 자동화된 기계 학습 기능 _없이_ Azure Machine Learning SDK를 설치하려면
+            | 설정 | 값 |
+            |----|---|
+            |원본 | Python 업로드 Egg 또는 PyPI
+            |PyPi 이름 | azureml-sdk[databricks]
+    
+        * 자동화된 기계 학습 기능과 _함께_ Azure Machine Learning SDK를 설치하려면
+            | 설정 | 값 |
+            |----|---|
+            |원본 | Python 업로드 Egg 또는 PyPI
+            |PyPi 이름 | azureml-sdk[automl_databricks]
+    
+    * **모든 클러스터에 자동으로 연결**을 선택하지 않습니다.
+
+    * 클러스터 이름 옆에 있는 **연결**을 선택합니다.
+
+    * 상태가 **연결됨**으로 변경될 때까지 오류가 없는지 확인합니다. 이 작업에 몇 분 정도가 소요됩니다.
+
+    이전 SDK 버전이 있는 경우 클러스터의 설치된 라이브러리에서 선택을 취소하고 휴지통으로 이동합니다. 새 SDK 버전을 설치하고 클러스터를 다시 시작합니다. 그래도 문제가 있으면 클러스트를 분리했다가 다시 연결합니다.
+
     작업이 완료되면 다음 이미지처럼 라이브러리가 연결됩니다. 이러한 [일반적인 Databricks 문제](resource-known-issues.md#databricks)를 인식합니다.
 
-   ![Databricks에 설치된 SDK ](./media/how-to-azure-machine-learning-on-databricks/sdk-installed-on-databricks.jpg)
+    * 자동화된 기계 학습 _없이_ Azure Machine Learning SDK를 설치한 경우 ![Databricks에 자동화된 기계 학습이 설치되지 않은 SDK](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+
+    * 자동화된 기계 학습과 _함께_ Azure Machine Learning SDK를 설치한 경우 ![Databricks에 자동화된 기계 학습이 설치된 SDK](./media/how-to-configure-environment/automlonadb.jpg)
 
    이 단계가 실패하면 다음을 수행하여 클러스터를 다시 시작합니다.
 
@@ -257,13 +300,12 @@ Databricks 클러스터를 준비하고 샘플 노트북을 가져오려면:
 
    다. **라이브러리** 탭에서 **다시 시작**을 선택합니다.
 
-1. [Azure Databricks/Azure Machine Learning SDK Notebook 보관 파일](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/Databricks_AMLSDK_github.dbc)을 다운로드합니다.
+1. [Azure Databricks/Azure Machine Learning SDK Notebook 보관 파일](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc)을 다운로드합니다.
 
    >[!Warning]
    > 여러 샘플 Notebooks는 Azure Machine Learning Service에서 사용할 수 있습니다. 이러한 [샘플 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks)만 Azure Databricks에서 작동합니다.
-   > 
 
-1.  Databricks 클러스터로 [이 보관 파일을 가져오고](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) [Machine Learning Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks)에 설명된 대로 검색을 시작합니다.
+1.  Databricks 클러스터로 [보관 파일을 가져오고](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) [Machine Learning Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) 페이지에 설명된 대로 검색을 시작합니다.
 
 
 ## <a id="workspace"></a>작업 영역 구성 파일 만들기
@@ -312,5 +354,5 @@ Databricks 클러스터를 준비하고 샘플 노트북을 가져오려면:
 ## <a name="next-steps"></a>다음 단계
 
 - [ MNIST 데이터 세트로 Azure Machine Learning에서 모델 교육](tutorial-train-models-with-aml.md)
-- [Python용 Azure Machine Learning SDK](https://aka.ms/aml-sdk)
-- [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)
+- [Python용 Azure Machine Learning SDK](https://aka.ms/aml-sdk) 참조 보기
+- [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)에 대해 알아보기

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: a0f002266764ace07482023a0412366b90acec63
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c779344f4cb0544009952423b6771b75482c3061
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789860"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353965"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -52,7 +52,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 * 하루에 여러 개의 백업이 트리거되는 경우에도 이 문제가 발생할 수 있습니다. 현재, 인스턴트 RP가 7일간 보존되고 항상 18개의 인스턴트 RP만 VM에 연결될 수 있으므로 하루에 하나의 백업만 사용하는 것이 좋습니다. <br>
 
 권장 작업:<br>
-이 문제를 해결하려면 VM의 리소스 그룹에 대한 잠금을 제거하고 정리를 트리거하는 작업을 다시 시도합니다. 
+이 문제를 해결하려면 VM의 리소스 그룹에 대한 잠금을 제거하고 정리를 트리거하는 작업을 다시 시도합니다.
 > [!NOTE]
     > 백업 서비스는 VM의 리소스 그룹과 별개의 리소스 그룹을 만들어 복원 지점 컬렉션을 저장합니다. 고객은 백업 서비스에서 사용하기 위해 생성된 리소스 그룹을 잠그지 않는 것이 좋습니다. 백업 서비스가 만드는 리소스 그룹의 명명 형식은 AzureBackupRG_`<Geo>`_`<number>`입니다. 예: AzureBackupRG_northeurope_1
 
@@ -105,14 +105,14 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 **오류 코드**: UserErrorUnsupportedDiskSize <br>
 **오류 메시지**: 현재 Azure Backup은 1,023GB보다 큰 디스크 크기를 지원하지 않습니다. <br>
 
-자격 증명 모음이 Azure VM Backup 스택 V2로 업그레이드되지 않아 디스크 크기가 1023GB를 초과하는 VM을 백업할 때 백업 작업이 실패할 수 있습니다. Azure VM Backup 스택 V2로 업그레이드하면 최대 4TB까지 지원됩니다. 이러한 [혜택](backup-upgrade-to-vm-backup-stack-v2.md) 및 [고려 사항](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)을 검토한 후 다음 [지침](backup-upgrade-to-vm-backup-stack-v2.md#upgrade)에 따라 업그레이드를 계속 진행하세요.  
+자격 증명 모음이 즉시 복원으로 업그레이드되지 않아 디스크 크기가 1023GB를 초과하는 VM을 백업할 때 백업 작업이 실패할 수 있습니다. 즉시 복원으로 업그레이드하면 최대 4TB가 지원됩니다. 이 [문서](backup-instant-restore-capability.md)를 참조하세요.  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - 현재 Azure Backup은 표준 SSD 디스크를 지원하지 않습니다.
 
 **오류 코드**: UserErrorStandardSSDNotSupported <br>
 **오류 메시지**: 현재 Azure Backup은 표준 SSD 디스크를 지원하지 않습니다. <br>
 
-현재 Azure Backup은 Azure VM Backup 스택 V2로 업그레이드된 자격 증명 모음에만 표준 SSD 디스크를 지원합니다. 이러한 [혜택](backup-upgrade-to-vm-backup-stack-v2.md) 및 [고려 사항](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)을 검토한 후 다음 [지침](backup-upgrade-to-vm-backup-stack-v2.md#upgrade)에 따라 업그레이드를 계속 진행하세요.
+현재 Azure Backup은 [즉시 복원](backup-instant-restore-capability.md)으로 업그레이드된 자격 증명 모음에만 표준 SSD 디스크를 지원합니다.
 
 
 ## <a name="causes-and-solutions"></a>원인 및 해결 방법
@@ -122,33 +122,8 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 제대로 작동하려면 Backup 확장이 Azure 공용 IP 주소에 연결되어야 합니다. 확장이 Azure Storage 엔드포인트(HTTP URL)에 명령을 보내 VM의 스냅숏을 관리합니다. 확장이 공용 인터넷에 액세스할 수 없는 경우 백업은 결국 실패합니다.
 
-프록시 서버를 배포하여 VM 트래픽을 라우팅할 수 있습니다.
-##### <a name="create-a-path-for-https-traffic"></a>HTTP 트래픽에 대한 경로 만들기
-
-1. 네트워크 제한이 있는 경우(예를 들어 네트워크 보안 그룹) 트래픽을 라우팅하도록 HTTP 프록시 서버를 배포합니다.
-2. HTTP 프록시 서버에서 인터넷에 액세스하도록 허용하려면 네트워크 보안 그룹이 있는 경우 규칙을 추가합니다.
-
-VM 백업에 대한 HTTP 프록시를 설정하는 방법을 알아보려면 [Azure Virtual Machines를 백업하기 위한 환경 준비](backup-azure-arm-vms-prepare.md#establish-network-connectivity)를 참조하세요.
-
-백업된 VM 또는 트래픽을 라우팅하는 프록시 서버에서 Azure 공용 IP 주소에 액세스할 수 있어야 합니다.
-
 ####  <a name="solution"></a>해결 방법
-이 문제를 해결하려면 다음 방법 중 하나를 사용해 보세요.
-
-##### <a name="allow-access-to-azure-storage-that-corresponds-to-the-region"></a>지역에 해당하는 Azure Storage에 대한 액세스 허용
-
-[서비스 태그](../virtual-network/security-overview.md#service-tags)를 사용하는 특정 지역의 저장소에 대한 연결을 허용할 수 있습니다. 인터넷 액세스를 차단하는 규칙보다 저장소 계정에 대한 액세스를 허용하는 규칙에 높은 우선 순위가 있는지 확인합니다.
-
-![지역에 대한 저장소 태그가 있는 네트워크 보안 그룹](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
-
-서비스 태그를 구성하는 단계별 절차를 이해하려면 [이 비디오](https://youtu.be/1EjLQtbKm1M)를 시청합니다.
-
-> [!WARNING]
-> 저장소 서비스 태그는 미리 보기 상태입니다. 따라서 특정 지역에서만 사용할 수 있습니다. 지역 목록은 [저장소의 서비스 태그](../virtual-network/security-overview.md#service-tags)를 참조하세요.
-
-Azure Managed Disks를 사용하는 경우 방화벽에서 열려 있는 추가 포트(포트 8443)가 필요할 수 있습니다.
-
-또한 서브넷에 인터넷 아웃바운드 트래픽에 대한 경로가 없는 경우 서비스 태그가 “Microsoft.Storage”인 서비스 엔드포인트를 서브넷에 추가해야 합니다.
+네트워크 문제를 해결하려면 [네트워크 연결 설정](backup-azure-arm-vms-prepare.md#establish-network-connectivity)을 참조하세요.
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).
 

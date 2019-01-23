@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 10/6/2018
+ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 9cb14e5076379e5095ca88dc749a954e9e5d5aa4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: d80e1394d4c4159c17eabff93ff44fdefbaf21b7
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994861"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247506"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway에 대한 질문과 대답
 
@@ -53,7 +53,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ### <a name="what-regions-is-the-service-available-in"></a>어떤 지역에서 서비스를 사용할 수 있습니까?
 
-Application Gateway는 Azure 전체의 모든 지역에서 사용할 수 있습니다. [Azure China](https://www.azure.cn/) 및 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)에서도 사용할 수 있습니다.
+Application Gateway는 Azure 전체의 모든 지역에서 사용할 수 있습니다. [Azure China 21Vianet](https://www.azure.cn/) 및 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)에서도 사용할 수 있습니다.
 
 ### <a name="is-this-a-dedicated-deployment-for-my-subscription-or-is-it-shared-across-customers"></a>내 구독에 대한 전용 배포인가요? 아니면 고객 간에 공유되나요?
 
@@ -138,6 +138,8 @@ UDR(사용자 정의 경로)은 종단 간 요청/응답 통신을 변경하지 
 
 예를 들어 패킷 검사를 위한 방화벽 장비를 가리키도록 애플리케이션 게이트웨이 서브넷에서 UDR을 설정할 수 있지만 패킷이 원하는 대상 사후 검사에 도달할 수 있는지 확인해야 합니다. 이렇게 하지 않으면 잘못된 상태 프로브 또는 트래픽 라우팅 동작을 초래할 수 있습니다. 여기에는 가상 네트워크에서 ExpressRoute 또는 VPN 게이트웨이를 통해 전파된 학습한 경로 또는 기본 0.0.0.0/0 경로가 포함됩니다.
 
+애플리케이션 게이트웨이 서브넷의 UDR은 v2 SKU에서 지원되지 **않습니다**. 자세한 내용은 [자동 크기 조정 및 영역 중복 Application Gateway(공개 미리 보기)](application-gateway-autoscaling-zone-redundant.md#known-issues-and-limitations)를 참조하세요.
+
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Application Gateway에서 한도는 어떻게 되나요? 이러한 한도를 늘릴 수 있나요?
 
 한도를 보려면 [Application Gateway 한도](../azure-subscription-service-limits.md#application-gateway-limits)를 참조하세요.
@@ -206,7 +208,7 @@ v2 SKU의 경우에는 여러 장애 도메인과 업데이트 도메인에 새 
 
 ### <a name="does-manual-scale-updown-cause-downtime"></a>수동 강화/규모 축소 시 가동 중지 시간이 발생하나요?
 
-가동 중지 시간 없이 인스턴스가 업그레이드 도메인 및 장애 도메인 간에 배포됩니다.
+가동 중지 시간은 발생하지 않습니다. 인스턴스가 업그레이드 도메인 및 장애 도메인 간에 배포됩니다.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>Application Gateway는 연결 드레이닝을 지원하나요?
 
@@ -292,7 +294,7 @@ Application Gateway에서 현재 지원되는 현재 암호 그룹은 다음과 
 
 ### <a name="how-many-ssl-certificates-are-supported"></a>몇 개의 SSL 인증서가 지원되나요?
 
-최대 20개의 SSL 인증서가 지원됩니다.
+최대 100개의 SSL 인증서가 지원됩니다.
 
 ### <a name="how-many-authentication-certificates-for-backend-re-encryption-are-supported"></a>백 엔드 재암호화에 몇 개의 인증 인증서가 지원되나요?
 
@@ -374,7 +376,7 @@ Application Gateway에 대해 감사 로그를 사용할 수 있습니다. 포�
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Application Gateway에 대한 트래픽 통계를 분석하려면 어떻게 해야 하나요?
 
-Azure Log Analytics, Excel, Power BI 등 다양한 메커니즘을 통해 액세스 로그를 보고 분석할 수 있습니다.
+Azure Log Analytics, Excel, Power BI 등 여러 메커니즘을 통해 액세스 로그를 보고 분석할 수 있습니다.
 
 또한 Application Gateway 액세스 로그에 대해 널리 사용되는 [GoAccess](https://goaccess.io/) 로그 분석기를 설치하고 실행하는 Resource Manager 템플릿을 게시했습니다. GoAccess는 고유 방문자, 요청한 파일, 호스트, 운영 체제, 브라우저, HTTP 상태 코드 및 기타 유용한 HTTP 트래픽 통계를 제공 합니다. 자세한 내용은 [GitHub의 Resource Manager 템플릿 폴더에 대한 추가 정보 파일](https://aka.ms/appgwgoaccessreadme)을 참조하세요.
 

@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: de0ddbc041d6f177e5bfcd24d593b8d63a8e1e23
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 86fa7fab6897802fd4f18936f2d7bb0700829837
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248730"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231141"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream Analytics에서 실시간 Twitter 감정 분석
 
@@ -36,7 +36,7 @@ Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 
 * Azure 구독
 * Twitter 계정 
 * Twitter 애플리케이션 및 해당 애플리케이션에 대한 [OAuth 액세스 토큰](https://dev.twitter.com/oauth/overview/application-owner-access-tokens). 나중에 Twitter 애플리케이션을 만드는 방법에 대한 대략적인 지침을 제공합니다.
-* Twitter 피드를 읽어 오는 TwitterWPFClient 애플리케이션. 이 애플리케이션을 가져오려면 GitHub에서 [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) 파일을 다운로드한 후 컴퓨터의 폴더로 패키지의 압축을 풉니다. 소스 코드를 확인하고 디버거에서 애플리케이션을 실행하려면 [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator)에서 소스 코드를 가져올 수 있습니다. 
+* Twitter 피드를 읽어 오는 TwitterWPFClient 애플리케이션. 이 애플리케이션을 가져오려면 GitHub에서 [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) 파일을 다운로드한 후 컴퓨터의 폴더로 패키지의 압축을 풉니다. 소스 코드를 확인하고 디버거에서 애플리케이션을 실행하려면 [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TwitterClient)에서 소스 코드를 가져올 수 있습니다. 
 
 ## <a name="create-an-event-hub-for-streaming-analytics-input"></a>Streaming Analytics 입력을 위한 이벤트 허브 만들기
 
@@ -115,7 +115,7 @@ Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 
 > [!NOTE]
 > Twitter에서 애플리케이션을 만들고 키, 비밀 및 토큰을 가져오는 정확한 프로세스는 변경될 수 있습니다. 이러한 지침이 Twitter 사이트에 표시되는 내용과 일치하지 않으면 Twitter 개발자 설명서를 참조하세요.
 
-1. [Twitter 응용 프로그램 관리 페이지](https://apps.twitter.com/)로 이동합니다. 
+1. [Twitter 애플리케이션 관리 페이지](https://apps.twitter.com/)로 이동합니다. 
 
 2. 새 애플리케이션을 만듭니다. 
 
@@ -214,13 +214,13 @@ Microsoft에서는 특정 항목 집합에 대한 트윗 이벤트를 수집하�
 
 2. **입력** 블레이드에서 **+&nbsp;추가**를 클릭한 후 블레이드를 다음 값으로 채웁니다.
 
-    * **입력 별칭**: 이름으로 `TwitterStream`을 사용합니다. 다른 이름을 사용하는 경우 나중에 필요하므로 기록해 둡니다.
-    * **원본 형식**: **데이터 스트림**을 선택합니다.
+    * **입력 별칭**: 이름 `TwitterStream`을 사용합니다. 다른 이름을 사용하는 경우 나중에 필요하므로 기록해 둡니다.
+    * **원본 유형**: **데이터 스트림**을 선택합니다.
     * **원본**: **이벤트 허브**를 선택합니다.
-    * **가져오기 옵션**: **현재 구독의 이벤트 허브 사용**을 선택합니다. 
-    * **서비스 버스 네임스페이스**: 이전에 만든 이벤트 허브 네임스페이스를 선택합니다(`<yourname>-socialtwitter-eh-ns`).
+    * **가져오기 옵션**: **현재 구독에서 이벤트 허브 사용**을 선택합니다. 
+    * **Service Bus 네임스페이스**: 이전에 만든 이벤트 허브 네임스페이스(`<yourname>-socialtwitter-eh-ns`)를 선택합니다.
     * **이벤트 허브**: 이전에 만든 이벤트 허브를 선택합니다(`socialtwitter-eh`).
-    * **이벤트 허브 정책 이름**: 앞부분에서 만든 액세스 정책을 선택합니다(`socialtwitter-access`).
+    * **이벤트 허브 정책 이름**: 이전에 만든 액세스 정책을 선택합니다(`socialtwitter-access`).
 
     ![Streaming Analytics 작업에 대한 새 입력 만들기](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
@@ -297,12 +297,12 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 
 2. **출력** 블레이드에서 **+&nbsp;추가**를 클릭한 후 블레이드를 다음 값으로 채웁니다.
 
-    * **출력 별칭**: 이름으로 `TwitterStream-Output`를 사용합니다. 
+    * **출력 별칭**: 이름 `TwitterStream-Output`을 사용합니다. 
     * **싱크**: **Blob Storage**를 선택합니다.
     * **가져오기 옵션**: **현재 구독의 Blob Storage 사용**을 선택합니다.
     * **Storage 계정**. **새 저장소 계정 만들기**를 선택합니다.
     * **Storage 계정**(두 번째 상자). `YOURNAMEsa`를 입력합니다. 여기서 `YOURNAME`은 사용자 이름 또는 다른 고유 문자열입니다. 이름으로 소문자 및 숫자만 사용할 수 있으며 Azure 전체에서 고유해야 합니다. 
-    * **컨테이너**. `socialtwitter`을 입력합니다.
+    * **컨테이너**. `socialtwitter` 을 입력합니다.
     스토리지 계정 이름 및 컨테이너 이름을 다음과 같이 함께 사용하여 Blob Storage에 대한 URI를 제공해야 합니다. 
 
     `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`

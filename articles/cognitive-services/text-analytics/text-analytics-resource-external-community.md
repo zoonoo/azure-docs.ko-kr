@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 01/14/2019
 ms.author: heidist
-ms.openlocfilehash: fbea686ba0f67cdab79f1553344bd99dd105fc00
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 139699fac1a84273174f2c3bd30da2a911de46b8
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605252"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302260"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Text Analytics Cognitive Service에 대한 외부 및 커뮤니티 콘텐츠
 
@@ -25,7 +25,7 @@ ms.locfileid: "45605252"
 
 + [Text Analytics API의 초기 발표(Azure 블로그)](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/)
 
-+ [PowerShell에서 Text Analytics 핵심 구 Cognitive Services API 사용(MSDN 블로그)](https://blogs.msdn.microsoft.com/riteshmodi/2017/03/24/text-analytics-key-phrase-cognitive-services-powershell/)
++ [PowerShell에서 Text Analytics 핵심 구 Cognitive Services API 사용(AutomationNext 블로그)](https://automationnext.wordpress.com/tag/text-analytics/)
 
 + [R 간단 팁: Microsoft Cognitive Services의 Text Analytics API(R 블로거)](https://www.r-bloggers.com/r-quick-tip-microsoft-cognitive-services-text-analytics-api/)
 

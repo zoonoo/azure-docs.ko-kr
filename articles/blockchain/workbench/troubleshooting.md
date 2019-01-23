@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e205fce8b718e68200face33447e37cd3317298f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9f0f32bc1fb6b88dc85f09e13aebc60ff74ec723
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405487"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329738"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Azure Blockchain Workbench 문제 해결
 
@@ -26,7 +26,7 @@ ms.locfileid: "49405487"
 * Application Insights
 * Azure 모니터링(Log Analytics)
 
-다음 단계를 확인하고 문제의 근본 원인을 확인하는 데 정보를 사용할 수 있습니다. 
+다음 단계를 확인하고 문제의 근본 원인을 확인하는 데 정보를 사용할 수 있습니다.
 
 ## <a name="troubleshooting-script"></a>문제 해결 스크립트
 
@@ -48,8 +48,8 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 
 | 매개 변수  | 설명 | 필수 |
 |---------|---------|----|
-| 구독 ID | 모든 리소스를 만들거나 찾는 SubscriptionID입니다. | yes |
-| ResourceGroupName | Blockchain Workbench가 배포된 Azure 리소스 그룹의 이름입니다. | yes |
+| 구독 ID | 모든 리소스를 만들거나 찾는 SubscriptionID입니다. | 예 |
+| ResourceGroupName | Blockchain Workbench가 배포된 Azure 리소스 그룹의 이름입니다. | 예 |
 | OutputDirectory | 출력 ZIP 파일을 생성하는 경로입니다. 지정하지 않으면 기본값은 현재 디렉터리입니다. | 아니요 |
 | LookbackHours | 원격 분석을 끌어올 때 사용할 시간 수입니다. 기본값은 24시간입니다. 최댓값은 90시간입니다. | 아니요 |
 | OmsSubscriptionId | Log Analytics가 배포되는 구독 ID입니다. 블록체인 네트워크에 대한 Log Analytics가 Blockchain Workbench의 리소스 그룹 외부로 배포되는 경우에만 이 매개 변수를 전달합니다.| 아니요 |
@@ -75,4 +75,4 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure Blockchain Workbench 아키텍처](architecture.md)
+> [Azure Blockchain Workbench Application Insights 문제 해결 가이드](https://aka.ms/workbenchtroubleshooting)

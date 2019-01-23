@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: a476af9ceb1b664a458f7f07a5a7b3945b1ad881
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 601c23bbcddeaeff89e1d1b1a4be8cb6b0256e51
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036565"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258784"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>가상 머신 확장 집합 템플릿에 대해 알아보기
 [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)은 관련된 리소스 그룹을 배포하는 유용한 방법입니다. 이 자습서 시리즈에서는 실행 가능한 최소 확장 집합 템플릿을 만드는 방법과 이러한 템플릿을 다양한 시나리오에 맞게 수정하는 방법을 보여 줍니다. 모든 예제는 [GitHub 리포지토리](https://github.com/gatneil/mvss)에서 가져온 것입니다. 
@@ -70,7 +70,7 @@ Resource Manager 템플릿을 사용하여 나중에 템플릿에 사용할 변�
    "resources": [
 ```
 
-모든 리소스에는 `type`, `name`, `apiVersion` 및 `location` 속성이 필요합니다. 이 예제의 첫 번째 리소스는 형식이 [Microsft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks)이고, 이름은 `myVnet`이며, apiVersion은 `2016-03-30`입니다. (리소스 형식에 대한 최신 API 버전을 찾으려면 [Azure Resource Manager 템플릿 참조](/azure/templates/)를 확인하세요.)
+모든 리소스에는 `type`, `name`, `apiVersion` 및 `location` 속성이 필요합니다. 이 예제의 첫 번째 리소스는 형식이 [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks)이고, 이름은 `myVnet`이며, apiVersion은 `2016-03-30`입니다. (리소스 형식에 대한 최신 API 버전을 찾으려면 [Azure Resource Manager 템플릿 참조](/azure/templates/)를 확인하세요.)
 
 ```json
      {

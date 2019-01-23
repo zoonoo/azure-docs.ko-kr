@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: dwalthermsft
-ms.openlocfilehash: 1e7b6ed7c401bed741142dfc02efc7990cf67f6e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: cc873ad441c93a7fce54c275e9f7d52f0b044319
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118819"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302428"
 ---
 # <a name="public-preview-service-limits"></a>공개 미리 보기 서비스 제한
 
@@ -35,7 +35,7 @@ ms.locfileid: "54118819"
 
 차례로 각 Azure Digital Twins 인스턴스에는 다음이 포함될 수 있습니다.
 
-- 정확히 하나의 **IoTHub** 리소스
+- 서비스 프로비전 중에 자동으로 생성된 포함된 정확히 하나의 **IoTHub** 리소스
 - 이벤트 유형 **DeviceMessage**에 대해 정확히 하나의 **EventHub** 엔드포인트
 - 이벤트 유형 **SensorChange**, **SpaceChange**, **TopologyOperation** 또는 **UdfCustom**의 최대 3개의 **EventHub**, **ServiceBus** 또는 **EventGrid** 엔드포인트.
 

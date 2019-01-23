@@ -1,21 +1,21 @@
 ---
 title: .NET을 사용하여 비디오 검토 만들기 - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: .NET용 Content Moderator SDK를 사용하여 비디오 검토를 만드는 방법
+description: 이 문서에서 제공하는 정보 및 코드 샘플을 통해 C#과 함께 Content Moderator SDK 사용을 빠르게 시작하여 비디오 검토를 만들 수 있습니다.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/18/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 284ee24bbb0a15d107acf85e2d58072a0ecbbc6e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e9fb82c864c721a9df2e3b31d04e68c824404f81
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219043"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262514"
 ---
 # <a name="create-video-reviews-using-net"></a>.NET을 사용하여 비디오 검토 만들기
 
@@ -35,8 +35,7 @@ ms.locfileid: "47219043"
 
 ## <a name="sign-up-for-content-moderator"></a>Content Moderator 등록
 
-REST API 또는 SDK를 통해 Content Moderator 서비스를 사용하려면 먼저 구독 키가 필요합니다.
-키를 획득하는 방법은 [빠른 시작](quick-start.md)을 참조하세요.
+REST API 또는 SDK를 통해 Content Moderator 서비스를 사용하려면 먼저 구독 키가 필요합니다. [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Content Moderator를 구독하고 키를 가져옵니다.
 
 ## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>이전 단계에서 완료되지 않은 경우 검토 도구 계정에 등록
 

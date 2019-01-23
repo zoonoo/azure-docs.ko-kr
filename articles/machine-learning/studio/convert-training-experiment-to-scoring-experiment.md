@@ -1,26 +1,8 @@
 ---
-title: 배포를 위한 모델 준비 - Azure Machine Learning Studio | Microsoft Docs
-description: Machine Learning Studio 학습 실험을 예측 실험으로 변환하여 학습된 모델을 웹 서비스로 배포하기 위해 준비하는 방법
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: eb943c45-541a-401d-844a-c3337de82da6
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/28/2017
-ms.openlocfilehash: ef54281b91147060e9c00bcc6e45e0db0fb8933a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273105"
+제목: 배포 모델 준비 titleSuffix: Azure Machine Learning Studio 설명: Machine Learning Studio 학습 실험을 예측 실험으로 변환하여 학습된 모델을 웹 서비스로 배포하기 위해 준비하는 방법
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.date: 03/28/2017
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 배포하기 위한 모델을 준비하는 방법
 

@@ -1,5 +1,5 @@
 ---
-title: 새로운 기능 릴리스 정보 - Azure Media Services v3 | Microsoft Docs
+title: Azure Media Services v3 릴리스 정보 | Microsoft 문서
 description: 최신 개발 정보를 확인할 수 있도록 이 문서에서는 Azure Media Services v3의 최신 업데이트에 대한 정보를 제공합니다.
 services: media-services
 documentationcenter: ''
@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 11/21/2018
+ms.date: 01/09/2019
 ms.author: juliako
-ms.openlocfilehash: 4db84deb344921d329e81e0f0c9c3a97923430f3
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: bf80f78cc464fe274e83eca2f8afa420c2a8c453
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156496"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229959"
 ---
-# <a name="whats-new-in-azure-media-services-v3"></a>Azure Media Services v3의 새 기능
+# <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
 최신 개발 정보를 확인할 수 있도록 이 문서에서는 다음과 같은 정보를 제공합니다.
 
@@ -33,6 +33,15 @@ ms.locfileid: "54156496"
 > 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-sdk), CLI 또는 지원되는 SDK 중 하나를 사용하세요.
 
 자세한 내용은 [Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침](migrate-from-v2-to-v3.md#known-issues)을 참조하세요.
+
+## <a name="december-2018"></a>2018년 12월
+
+V3 API의 GA 릴리스업데이트에는 다음이 포함됩니다.
+       
+* **PresentationTimeRange** 속성은 **Assetfilter** 및 **AccountFilters**에 대해 더 이상 '필수'가 아닙니다. 
+* **작업** 및 **변환**의 $top 및 $skip 쿼리 옵션이 제거되었으며 $orderby가 추가되었습니다. 새 순서 지정 기능을 추가되면서, $top 및 $skip 옵션을 이전에 구현하지 않았어도 실수로 노출되는 것으로 확인되었습니다.
+* 열거형 확장성을 다시 사용하도록 설정했습니다. 이 기능은 미리 보기 버전의 SDK에서 사용하도록 설정되며 GA 버전에서는 실수로 사용하지 않도록 설정되었습니다.
+* 두 개의 미리 정의된 스트리밍 정책 이름이 바뀌었습니다. **SecureStreaming**은 이제 **MultiDrmCencStreaming**입니다. **SecureStreamingWithFairPlay**는 이제 **Predefined_MultiDrmStreaming**입니다.
 
 ## <a name="november-2018"></a>2018년 11월
 

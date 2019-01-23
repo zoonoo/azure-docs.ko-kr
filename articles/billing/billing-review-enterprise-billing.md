@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: erikre
-ms.openlocfilehash: f4b5fccefb08597a13fcc91eda11bbf3eb122914
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 994f321a0bfcb6b8e9b7abc6f4b1f61abed618e0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394849"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262016"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>REST API를 사용하여 기업 등록 청구 검토
 
 Azure Reporting API는 Azure 비용의 검토 및 관리를 지원합니다.
 
-이 문서에서는 Azure REST API를 사용하여 청구 계정, 부서 또는 기업 계약(EA) 등록 계정과 연결된 청구 정보를 검색하는 방법을 알아봅니다. 
+이 문서에서는 Azure REST API를 사용하여 청구 계정, 부서 또는 EA(기업 계약) 등록 계정과 연결된 청구 정보를 검색하는 방법을 알아봅니다. 
 
 ## <a name="individual-account-billing"></a>개별 계정 청구
 

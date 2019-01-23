@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/31/2018
+ms.date: 01/15/2019
 ms.author: douglasl
-ms.openlocfilehash: 110005469d5ff42af10b29fcee97c2f130ecdc2d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5e620b03f5588369fc73a62f2019d857766596fd
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873830"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321945"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 Compute 환경
 이 문서는 프로세스 또는 변환 데이터에 사용할 수 있는 다양한 계산 환경을 설명합니다. 또한 이러한 계산 환경을 Azure 데이터 팩터리에 연결하는 연결된 서비스를 구성하는 경우 데이터 팩터리에서 지원하는 다른 구성(주문형 vs. 사용자 고유)에 대한 자세한 내용을 제공합니다.
@@ -34,11 +34,11 @@ ms.locfileid: "52873830"
 
 >  
 
-## <a name="on-demand-compute-environment"></a>주문형 계산 환경
+## <a name="on-demand-hdinsight-compute-environment"></a>주문형 HDInsight 컴퓨팅 환경
 이 구성의 형식에서는 컴퓨팅 환경은 Azure 데이터 팩터리 서비스에 의해 완벽하게 관리됩니다. 데이터를 처리하기 위한 작업을 제출하기 전에 데이터 팩터리 서비스에서 자동으로 컴퓨팅 환경을 만들고 작업이 완료되면 제거합니다. 사용자는 주문형 계산 환경에 대한 연결된 서비스를 만들고 구성하며 작업 실행, 클러스터 관리, 부트스트래핑 작업에 대한 세부적인 설정을 제어할 수 있습니다.
 
 > [!NOTE]
-> 주문형 구성은 현재 Azure HDInsight 클러스터에 대해서만 지원됩니다.
+> 주문형 구성은 현재 Azure HDInsight 클러스터에 대해서만 지원됩니다. Azure Databricks는 작업 클러스터를 사용하는 주문형 작업도 지원합니다. 자세한 내용은 [Azure Databricks 연결된 서비스](#azure-databricks-linked-service)를 참조하세요.
 
 ## <a name="azure-hdinsight-on-demand-linked-service"></a>Azure HDInsight 주문형 연결된 서비스
 Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight 클러스터를 자동으로 만들 수 있습니다. 클러스터는 클러스터와 연결된 저장소 계정(JSON에서 linkedServiceName 속성)과 동일한 하위 지역에 만들어집니다. 스토리지 계정은 범용 표준 Azure Storage 계정이어야 합니다. 
@@ -48,7 +48,7 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 * 주문형 HDInsight 클러스터는 Azure 구독에 따라 생성됩니다. 클러스터가 실행 중인 경우 Azure Portal에서 클러스터를 볼 수 있습니다. 
 * 주문형 HDInsight 클러스터에서 실행하는 작업에 대한 로그는 HDInsight 클러스터와 연결된 저장소 계정에 복사됩니다. 연결된 서비스 정의에 정의된 clusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword는 클러스터의 수명 주기 동안 자세한 문제 해결을 위해 클러스터에 로그인하는 데 사용됩니다. 
 * HDInsight 클러스터가 작업을 실행 중인 경우에 대해서만 청구됩니다.
-* 이제 Azure HDInsight 주문형 연결된 서비스와 함께 스크립트 동작이 지원됩니다.  
+* Azure HDInsight 주문형 연결된 서비스와 함께 **스크립트 동작**을 사용할 수 없습니다.  
 
 > [!IMPORTANT]
 > 주문형 Azure HDInsight 클러스터를 프로비전하는 데 일반적으로 **20분** 이상이 걸립니다.
@@ -91,19 +91,19 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 > [!IMPORTANT]
 > HDInsight 클러스터는 JSON(**linkedServiceName**)에서 지정한 Blob Storage에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리해야 할 때마다 HDInsight 클러스터가 만들어지며 처리가 완료되면 삭제됩니다. 
 >
-> 더 많은 작업이 실행될수록 Azure Blob Storage에 컨테이너가 많아집니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 저장소 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp` 패턴을 따릅니다. [Microsoft 저장소 탐색기](http://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob Storage에서 컨테이너를 삭제합니다.
+> 더 많은 작업이 실행될수록 Azure Blob Storage에 컨테이너가 많아집니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 저장소 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp` 패턴을 따릅니다. [Microsoft 스토리지 탐색기](http://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob Storage에서 컨테이너를 삭제합니다.
 >
 > 
 
 ### <a name="properties"></a>properties
 | 자산                     | 설명                              | 필수 |
 | ---------------------------- | ---------------------------------------- | -------- |
-| 형식                         | 형식 속성은 **HDInsightOnDemand**로 설정해야 합니다. | yes      |
-| clusterSize                  | 클러스터의 작업자/데이터 노드 수 HDInsight 클러스터는 속성에 지정한 작업자 노드의 수와 함께 2개의 헤드 노드로 생성됩니다. 노드의 크기는 4개 코어를 포함한 Standard_D3이므로, 4개 작업자 노드 클러스터에서 24개 코어(작업자 노드용 4\*4 = 16코어 및 헤드 노드용 2\*4 = 8코어)를 사용합니다. 자세한 내용은 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요. | yes      |
-| linkedServiceName            | 데이터를 저장 및 처리하기 위해 주문형 클러스터에서 사용하는 Azure Storage 연결 서비스입니다. HDInsight 클러스터는 Azure Storage 계정과 동일한 지역에 생성됩니다. Azure HDInsight에는 지원하는 각 Azure 지역에서 사용할 수 있는 총 코어 수에 대한 제한이 있습니다. 필요한 clustersize를 충족하기에 해당 Azure 지역의 코어 할당량이 충분한지 확인합니다. 자세한 내용은 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.<p>현재 Azure Data Lake Store를 저장소로 사용하는 주문형 HDInsight 클러스터를 만들 수 없습니다. HDInsight 처리의 결과 데이터를 Azure Data Lake Store에 저장하려면 복사 작업을 사용하여 Azure Blob Storage의 데이터를 Azure Data Lake Store로 복사합니다. </p> | yes      |
-| clusterResourceGroup         | HDInsight 클러스터는 이 리소스 그룹에 생성됩니다. | yes      |
-| timetolive                   | 주문형 HDInsight 클러스터에 대한 허용된 유휴 시간입니다. 클러스터에 다른 활성 작업이 없으면 작업이 완료된 후에 주문형 HDInsight 클러스터가 유지될 기간을 지정합니다. 최소 허용 값은 5분(00:05:00)입니다.<br/><br/>예를 들어 활동 실행에 6분이 걸리고 timetolive이 5분으로 설정된 경우 클러스터는 활동을 처리하는 6분 동안 실행된 후에 5분 동안 유지됩니다. 다른 활동 실행이 6분 창을 실행하는 경우 동일한 클러스터에 의해 처리됩니다.<br/><br/>주문형 HDInsight 클러스터를 만드는 데는 많은 시간이 걸려 값 비싼 작업이 되므로 필요할 때마다 이 설정을 사용하여 주문형 HDInsight 클러스터를 다시 사용함으로써 데이터 팩터리의 성능을 향상시킵니다.<br/><br/>timetolive 값을 0으로 설정한 경우 클러스터는 작업 실행이 완료되는 즉시 삭제됩니다. 반면 높은 값을 설정하는 경우 몇 가지 문제 해결 목적으로 로그온하려는 사용자를 위해 클러스터는 많은 비용이 발생하는 유휴 상태에 머무를 수 있습니다. 따라서 필요에 따라 적절한 값을 설정하는 것이 중요합니다.<br/><br/>timetolive 속성 값이 적절하게 설정되는 경우 여러 파이프라인은 주문형 HDInsight 클러스터의 인스턴스를 공유할 수 있습니다. | yes      |
-| clusterType                  | 만들 HDInsight 클러스터의 형식입니다. 허용되는 값은 "hadoop" 및 "spark"입니다. 지정하지 않으면 기본값은 hadoop입니다. Enterprise Security Package 사용 클러스터는 현재 지원되지 않습니다. | 아니요       |
+| 형식                         | 형식 속성은 **HDInsightOnDemand**로 설정해야 합니다. | 예      |
+| clusterSize                  | 클러스터의 작업자/데이터 노드 수 HDInsight 클러스터는 속성에 지정한 작업자 노드의 수와 함께 2개의 헤드 노드로 생성됩니다. 노드의 크기는 4개 코어를 포함한 Standard_D3이므로, 4개 작업자 노드 클러스터에서 24개 코어(작업자 노드용 4\*4 = 16코어 및 헤드 노드용 2\*4 = 8코어)를 사용합니다. 자세한 내용은 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요. | 예      |
+| linkedServiceName            | 데이터를 저장 및 처리하기 위해 주문형 클러스터에서 사용하는 Azure Storage 연결 서비스입니다. HDInsight 클러스터는 Azure Storage 계정과 동일한 지역에 생성됩니다. Azure HDInsight에는 지원하는 각 Azure 지역에서 사용할 수 있는 총 코어 수에 대한 제한이 있습니다. 필요한 clustersize를 충족하기에 해당 Azure 지역의 코어 할당량이 충분한지 확인합니다. 자세한 내용은 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.<p>현재 Azure Data Lake Store를 저장소로 사용하는 주문형 HDInsight 클러스터를 만들 수 없습니다. HDInsight 처리의 결과 데이터를 Azure Data Lake Store에 저장하려면 복사 작업을 사용하여 Azure Blob Storage의 데이터를 Azure Data Lake Store로 복사합니다. </p> | 예      |
+| clusterResourceGroup         | HDInsight 클러스터는 이 리소스 그룹에 생성됩니다. | 예      |
+| timetolive                   | 주문형 HDInsight 클러스터에 대한 허용된 유휴 시간입니다. 클러스터에 다른 활성 작업이 없으면 작업이 완료된 후에 주문형 HDInsight 클러스터가 유지될 기간을 지정합니다. 최소 허용 값은 5분(00:05:00)입니다.<br/><br/>예를 들어 활동 실행에 6분이 걸리고 timetolive이 5분으로 설정된 경우 클러스터는 활동을 처리하는 6분 동안 실행된 후에 5분 동안 유지됩니다. 다른 활동 실행이 6분 창을 실행하는 경우 동일한 클러스터에 의해 처리됩니다.<br/><br/>주문형 HDInsight 클러스터를 만드는 데는 많은 시간이 걸려 값 비싼 작업이 되므로 필요할 때마다 이 설정을 사용하여 주문형 HDInsight 클러스터를 다시 사용함으로써 데이터 팩터리의 성능을 향상시킵니다.<br/><br/>timetolive 값을 0으로 설정한 경우 클러스터는 작업 실행이 완료되는 즉시 삭제됩니다. 반면 높은 값을 설정하는 경우 몇 가지 문제 해결 목적으로 로그온하려는 사용자를 위해 클러스터는 많은 비용이 발생하는 유휴 상태에 머무를 수 있습니다. 따라서 필요에 따라 적절한 값을 설정하는 것이 중요합니다.<br/><br/>timetolive 속성 값이 적절하게 설정되는 경우 여러 파이프라인은 주문형 HDInsight 클러스터의 인스턴스를 공유할 수 있습니다. | 예      |
+| clusterType                  | 만들 HDInsight 클러스터의 형식입니다. 허용되는 값은 "hadoop" 및 "spark"입니다. 지정하지 않으면 기본값은 hadoop입니다. Enterprise Security Package 지원 클러스터는 주문형으로 만들 수 없으며, 대신 [기존 클러스터/Bbring Your Own Compute](#azure-hdinsight-linked-service)를 사용합니다. | 아니요       |
 | 버전                      | HDInsight 클러스터의 버전입니다. 지정하지 않으면 현재 HDInsight에 정의된 기본 버전을 사용하는 것입니다. | 아니요       |
 | hostSubscriptionId           | HDInsight 클러스터를 만드는 데 사용되는 Azure 구독 ID입니다. 지정하지 않으면 Azure 로그인 컨텍스트의 구독 ID를 사용합니다. | 아니요       |
 | clusterNamePrefix           | HDI 클러스터 이름의 접두사로, 클러스터 이름 끝에 타임스탬프가 자동으로 추가됩니다.| 아니요       |
@@ -116,14 +116,14 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 | clusterPassword                   | 클러스터에 액세스하기 위한 보안 문자열 형식의 암호입니다. | 아니요       |
 | clusterSshUserName         | SSH을 통해 클러스터 노드에 원격으로 연결하기 위한 사용자 이름입니다(Linux용). | 아니요       |
 | clusterSshPassword         | SSH를 통해 클러스터 노드에 원격으로 연결하기 위한 보안 문자열 형식의 암호입니다(Linux용). | 아니요       |
+| scriptActions | 주문형 클러스터를 만드는 동안 [HDInsight 클러스터 사용자 지정](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)을 위한 스크립트를 지정합니다. <br />현재 Azure Data Factory의 사용자 인터페이스 제작 도구는 1개의 스크립트 동작만 지정하도록 지원하지만 JSON에서는 이 제한을 무시할 수 있습니다(JSON에서 여러 스크립트 동작 지정). | 아니요 |
 
 
 > [!IMPORTANT]
 > HDInsight는 배포할 수 있는 여러 Hadoop 클러스터 버전을 지원합니다. 각 버전을 선택하면 특정 버전의 HDP(Hortonworks Data Platform) 배포 및 배포에 포함된 구성 요소 집합이 만들어집니다. 지원되는 HDInsight 버전 목록을 계속 업데이트하여 최신 Hadoop 에코시스템 구성 요소 및 수정 프로그램을 제공합니다. [지원되는 HDInsight 버전 및 OS 형식](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)의 최신 정보를 항상 참조하여 지원되는 HDInsight 버전을 사용 중인지 확인합니다. 
 >
-> 
 > [!IMPORTANT]
-> 현재 HDInsight 연결된 서비스에서는 HBase, 대화형 쿼리(Hive LLAP), Storm 및 엔터프라이즈 보안 사용(도메인 가입) 클러스터를 지원하지 않습니다. 
+> 현재 HDInsight 연결된 서비스에서는 HBase, 대화형 쿼리(Hive LLAP), Storm을 지원하지 않습니다. 
 >
 > 
 
@@ -138,7 +138,7 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 
 ### <a name="service-principal-authentication"></a>서비스 주체 인증
 
-주문형 HDInsight 연결된 서비스가 사용자를 대신해 HDInsight 클러스터를 만들려면 서비스 주체 인증이 필요합니다. 서비스 주체 인증을 사용하려면 Azure AD(Azure Active Directory)에 응용 프로그램 엔터티를 등록하고 HDInsight 클러스터가 만들어진 리소스 그룹 또는 구독의 **참가자** 역할을 응용 프로그램 엔터티에 부여합니다. 자세한 단계는 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)를 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
+주문형 HDInsight 연결된 서비스가 사용자를 대신해 HDInsight 클러스터를 만들려면 서비스 주체 인증이 필요합니다. 서비스 주체 인증을 사용하려면 Azure AD(Azure Active Directory)에 애플리케이션 엔터티를 등록하고 HDInsight 클러스터가 만들어진 리소스 그룹 또는 구독의 **참가자** 역할을 애플리케이션 엔터티에 부여합니다. 자세한 단계는 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)를 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
 
 - 애플리케이션 UI
 - 애플리케이션 키 
@@ -148,9 +148,9 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 
 | 자산                | 설명                              | 필수 |
 | :---------------------- | :--------------------------------------- | :------- |
-| **servicePrincipalId**  | 애플리케이션의 클라이언트 ID를 지정합니다.     | yes      |
-| **servicePrincipalKey** | 애플리케이션의 키를 지정합니다.           | yes      |
-| **테넌트**              | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | yes      |
+| **servicePrincipalId**  | 애플리케이션의 클라이언트 ID를 지정합니다.     | 예      |
+| **servicePrincipalKey** | 애플리케이션의 키를 지정합니다.           | 예      |
+| **테넌트**              | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 예      |
 
 ### <a name="advanced-properties"></a>고급 속성
 
@@ -284,20 +284,21 @@ Azure HDInsight 연결된 서비스를 만들어서 데이터 팩터리를 사�
 ```
 
 ### <a name="properties"></a>properties
-| 자산          | 설명                              | 필수 |
-| ----------------- | ---------------------------------------- | -------- |
-| 형식              | 형식 속성은 **HDInsight**로 설정해야 합니다. | yes      |
-| clusterUri        | HDInsight 클러스터의 URI입니다.        | yes      |
-| 사용자 이름          | 기존 HDInsight 클러스터에 연결하는데 사용할 사용자의 이름을 지정합니다. | yes      |
-| 암호          | 사용자 계정으로 password를 지정합니다.   | yes      |
-| linkedServiceName | HDInsight 클러스터에서 사용하는 Azure Blob Storage를 참조하는 Azure Storage 연결된 서비스의 이름입니다. <p>현재 이 속성에 대한 Azure Data Lake Store 연결된 서비스를 지정할 수 없습니다. HDInsight 클러스터가 Data Lake Store에 액세스할 경우 Hive/Pig 스크립트의 Azure Data Lake Store에 있는 데이터에 액세스할 수 있습니다. </p> | yes      |
-| connectVia        | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니요       |
+| 자산          | 설명                                                  | 필수 |
+| ----------------- | ------------------------------------------------------------ | -------- |
+| 형식              | 형식 속성은 **HDInsight**로 설정해야 합니다.            | 예      |
+| clusterUri        | HDInsight 클러스터의 URI입니다.                            | 예      |
+| 사용자 이름          | 기존 HDInsight 클러스터에 연결하는데 사용할 사용자의 이름을 지정합니다. | 예      |
+| 암호          | 사용자 계정으로 password를 지정합니다.                       | 예      |
+| linkedServiceName | HDInsight 클러스터에서 사용하는 Azure Blob Storage를 참조하는 Azure Storage 연결된 서비스의 이름입니다. <p>현재 이 속성에 대한 Azure Data Lake Store 연결된 서비스를 지정할 수 없습니다. HDInsight 클러스터가 Data Lake Store에 액세스할 경우 Hive/Pig 스크립트의 Azure Data Lake Store에 있는 데이터에 액세스할 수 있습니다. </p> | 예      |
+| isEspEnabled      | HDInsight 클러스터에서 [Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)가 사용하도록 설정되어 있으면 '*true*'를 지정합니다. 기본값은 ‘*false*’입니다. | 아니요       |
+| connectVia        | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. <br />ESP(Enterprise Security Package) 지원 HDInsight 클러스터는 클러스터가 표시되는 자체 호스팅 통합 런타임을 사용하거나, ESP HDInsight 클러스터와 동일한 가상 네트워크 내에서 배포해야 합니다. | 아니요       |
 
 > [!IMPORTANT]
 > HDInsight는 배포할 수 있는 여러 Hadoop 클러스터 버전을 지원합니다. 각 버전을 선택하면 특정 버전의 HDP(Hortonworks Data Platform) 배포 및 배포에 포함된 구성 요소 집합이 만들어집니다. 지원되는 HDInsight 버전 목록을 계속 업데이트하여 최신 Hadoop 에코시스템 구성 요소 및 수정 프로그램을 제공합니다. [지원되는 HDInsight 버전 및 OS 형식](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)의 최신 정보를 항상 참조하여 지원되는 HDInsight 버전을 사용 중인지 확인합니다. 
 >
 > [!IMPORTANT]
-> 현재 HDInsight 연결된 서비스에서는 HBase, 대화형 쿼리(Hive LLAP), Storm 및 엔터프라이즈 보안 사용(도메인 가입) 클러스터를 지원하지 않습니다. 
+> 현재 HDInsight 연결된 서비스에서는 HBase, 대화형 쿼리(Hive LLAP), Storm을 지원하지 않습니다. 
 >
 > 
 
@@ -343,12 +344,12 @@ Azure Batch 서비스가 처음이라면 다음 항목을 참조하십시오.
 ### <a name="properties"></a>properties
 | 자산          | 설명                              | 필수 |
 | ----------------- | ---------------------------------------- | -------- |
-| 형식              | 형식 속성은 **AzureBatch**로 설정해야 합니다. | yes      |
-| accountName       | Azure Batch 계정의 이름         | yes      |
-| accessKey         | Azure Batch 계정에 대한 선택키  | yes      |
-| batchUri          | Azure 배치 계정에 대한 URL로, https://*batchaccountname.region*.batch.azure.com 형식을 사용합니다. | yes      |
-| poolName          | 가상 머신의 풀 이름입니다.    | yes      |
-| linkedServiceName | Azure Batch 연결된 서비스와 관련된 Azure Storage 연결된 서비스의 이름입니다. 이 연결된 서비스는 작업을 실행하는 데 필요한 파일을 준비하는 데 사용됩니다. | yes      |
+| 형식              | 형식 속성은 **AzureBatch**로 설정해야 합니다. | 예      |
+| accountName       | Azure Batch 계정의 이름         | 예      |
+| accessKey         | Azure Batch 계정에 대한 선택키  | 예      |
+| batchUri          | Azure 배치 계정에 대한 URL로, https://*batchaccountname.region*.batch.azure.com 형식을 사용합니다. | 예      |
+| poolName          | 가상 머신의 풀 이름입니다.    | 예      |
+| linkedServiceName | Azure Batch 연결된 서비스와 관련된 Azure Storage 연결된 서비스의 이름입니다. 이 연결된 서비스는 작업을 실행하는 데 필요한 파일을 준비하는 데 사용됩니다. | 예      |
 | connectVia        | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니요       |
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning 연결된 서비스
@@ -379,9 +380,9 @@ Azure Machine Learning 연결된 서비스를 만들어 데이터 팩토리에 �
 ### <a name="properties"></a>properties
 | 자산               | 설명                              | 필수                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
-| type                   | 형식 속성은 **AzureML**로 설정해야 합니다. | yes                                      |
-| mlEndpoint             | 일괄 처리 점수 매기기 URL입니다.                   | yes                                      |
-| apiKey                 | 게시된 작업 영역 모델의 API입니다.     | yes                                      |
+| type                   | 형식 속성은 **AzureML**로 설정해야 합니다. | 예                                      |
+| mlEndpoint             | 일괄 처리 점수 매기기 URL입니다.                   | 예                                      |
+| apiKey                 | 게시된 작업 영역 모델의 API입니다.     | 예                                      |
 | updateResourceEndpoint | 학습된 모델 파일이 있는 예측 웹 서비스를 업데이트하는 데 사용되는 Azure ML Web Service 엔드포인트에 대한 업데이트 리소스 URL입니다. | 아니요                                       |
 | servicePrincipalId     | 애플리케이션의 클라이언트 ID를 지정합니다.     | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
 | servicePrincipalKey    | 애플리케이션의 키를 지정합니다.           | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
@@ -422,14 +423,14 @@ Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연�
 
 | 자산             | 설명                              | 필수                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
-| 형식                 | 형식 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. | yes                                      |
-| accountName          | Azure 데이터 레이크 분석 계정 이름입니다.  | yes                                      |
+| 형식                 | 형식 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. | 예                                      |
+| accountName          | Azure 데이터 레이크 분석 계정 이름입니다.  | 예                                      |
 | dataLakeAnalyticsUri | Azure 데이터 레이크 분석 URI입니다.           | 아니요                                       |
 | subscriptionId       | Azure 구독 ID                    | 아니요                                       |
 | resourceGroupName    | Azure 리소스 그룹 이름                | 아니요                                       |
-| servicePrincipalId   | 애플리케이션의 클라이언트 ID를 지정합니다.     | yes                                      |
-| servicePrincipalKey  | 애플리케이션의 키를 지정합니다.           | yes                                      |
-| tenant               | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | yes                                      |
+| servicePrincipalId   | 애플리케이션의 클라이언트 ID를 지정합니다.     | 예                                      |
+| servicePrincipalKey  | 애플리케이션의 키를 지정합니다.           | 예                                      |
+| tenant               | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 예                                      |
 | connectVia           | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니요                                       |
 
 
@@ -482,10 +483,10 @@ Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연�
 
 | 자산             | 설명                              | 필수                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
-| 이름                 | 연결된 서비스의 이름입니다.               | yes   |
-| 형식                 | 형식 속성은 **AzureDatabricks**로 설정해야 합니다. | yes                                      |
-| 도메인               | Databricks 작업 영역의 지역을 기준으로 Azure 지역을 적절히 지정합니다. 예제: https://eastus.azuredatabricks.net | yes                                 |
-| accessToken          | 데이터 팩터리가 Azure Databricks에서 인증을 받으려면 액세스 토큰이 필요합니다. 액세스 토큰은 Databricks 작업 영역에서 생성해야 합니다. 액세스 토큰을 찾는 보다 자세한 단계는 [여기](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)에서 확인할 수 있습니다.  | yes                                       |
+| 이름                 | 연결된 서비스의 이름입니다.               | 예   |
+| 형식                 | 형식 속성은 **AzureDatabricks**로 설정해야 합니다. | 예                                      |
+| 도메인               | Databricks 작업 영역의 지역을 기준으로 Azure 지역을 적절히 지정합니다. 예제: https://eastus.azuredatabricks.net | 예                                 |
+| accessToken          | 데이터 팩터리가 Azure Databricks에서 인증을 받으려면 액세스 토큰이 필요합니다. 액세스 토큰은 Databricks 작업 영역에서 생성해야 합니다. 액세스 토큰을 찾는 보다 자세한 단계는 [여기](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)에서 확인할 수 있습니다.  | 예                                       |
 | existingClusterId    | 해당하는 모든 작업을 실행할 기존 클러스터의 클러스터 ID입니다. 이미 만들어진 대화형 클러스터여야 합니다. 클러스터가 응답을 중지하는 경우 수동으로 다시 시작해야 합니다. 안정성을 높이기 위해서는 새 클러스터에서 작업을 실행하는 것이 좋습니다. Databricks 작업 영역 -> 대화형 클러스터 이름 -> 구성 -> 태그에서 대화형 클러스터의 클러스터 ID를 찾을 수 있습니다. [자세한 내용](https://docs.databricks.com/user-guide/clusters/tags.html). | 아니요 
 | newClusterVersion    | 클러스터의 Spark 버전입니다. Databricks에서 작업 클러스터를 만듭니다. | 아니요  |
 | newClusterNumOfWorker| 이 클러스터에 있어야 하는 작업자 노드의 수입니다. 하나의 클러스터에 총 num_workers + 1개의 Spark 노드에 대해 하나의 Spark 드라이버와 num_workers개의 실행기가 있습니다. "1"과 같은 Int32 형식의 문자열에서 numOfWorker는 1을 의미하고, "1:10"은 최소 1~최대 10 범위의 자동 크기 조정을 의미합니다.  | 아니요                |

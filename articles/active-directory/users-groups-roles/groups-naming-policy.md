@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory에서 Office 365 그룹에 대한 그룹 이름 정책 설정 (미리 보기) | Microsoft Docs
-description: Azure Active Directory에서 Office 365 그룹에 대한 만료를 설정하는 방법(미리 보기)
+title: 그룹 이름 정책(미리 보기) - Office 365 그룹 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory에서 Office 365 그룹에 대한 명명 정책 설정 방법(미리 보기)
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 01/14/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 3368133dec82d946318a755dc98b068a048b9e83
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1118be1c335d8f88171b359c9cd273cdd2923021
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275111"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321724"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Azure Active Directory에서 Office 365 그룹에 대한 명명 정책 적용(미리 보기)
 

@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/10/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: a6937b5b6b3b85dd51d80a928de02a00c361cc0e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 8b31a85abf1c6034aaff511f23d96fae9ee64561
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117608"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230053"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -101,6 +101,43 @@ public void ConfigureServices(IServiceCollection services)
     // ....
 }
 ```
+
+#### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Java 앱에 W3C 분산 추적 지원을 사용하도록 설정
+
+수신:
+
+**J2EE 앱**은 ApplicationInsights.xml 내의 `<TelemetryModules>` 태그에 다음을 추가합니다.
+
+```xml
+<Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule>
+   <Param name = "W3CEnabled" value ="true"/>
+   <Param name ="enableW3CBackCompat" value = "true" />
+</Add>
+```
+
+**Spring Boot 앱**은 다음 속성을 추가합니다.
+
+`azure.application-insights.web.enable-W3C=true`
+`azure.application-insights.web.enable-W3C-backcompat-mode=true`
+
+발신:
+
+AI-Agent.xml에 다음을 추가합니다.
+
+```xml
+<Instrumentation>
+        <BuiltIn enabled="true">
+            <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
+        </BuiltIn>
+    </Instrumentation>
+```
+
+> [!NOTE]
+> 이전 버전과의 호환성 모드는 기본적으로 사용하도록 설정되어 있으며 enableW3CBackCompat 매개 변수는 선택 사항이므로, 해제하려는 경우에만 사용해야 합니다. 
+
+이상적으로는 모든 서비스 W3C 프로토콜을 지원하는 최신 버전의 SDK로 업데이트된 경우입니다. 가능한 한 빨리 W3C를 지원하는 최신 버전의 SDK로 전환하는 것이 좋습니다. 
+
+**수신 및 발신 구성이 정확히 동일**한지 확인합니다.
 
 ## <a name="open-tracing-and-application-insights"></a>Open Tracing 및 Application Insights
 

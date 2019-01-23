@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/11/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 1e51d55fcc20230dff20ca18d58a13e6ed32905b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ecac7216582fa07e9c25492ddeb25e9f155da563
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192735"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305165"
 ---
 # <a name="preview-create-a-shared-image-gallery-with-azure-powershell"></a>미리 보기: Azure PowerShell을 사용하여 공유 이미지 갤러리 만들기 
 
@@ -49,7 +49,7 @@ ms.locfileid: "54192735"
  
 ## <a name="create-vms-from-an-image"></a>이미지에서 VM 만들기
 
-이미지 버전이 완료되면 하나 이상의 새 VM을 만들 수 있습니다. [New-AzureRMVM]() cmdlet에 대해 설정된 간소화된 매개 변수 세트를 사용하면 이미지 버전의 이미지 ID만 제공하면 됩니다. 
+이미지 버전이 완료되면 하나 이상의 새 VM을 만들 수 있습니다. [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) cmdlet에 대해 설정된 간소화된 매개 변수 세트를 사용하면 이미지 버전의 이미지 ID만 제공하면 됩니다. 
 
 이 예제에서는 *미국 동부* 데이터 센터에서 *myResourceGroup*에 *myVMfromImage*라는 VM을 만듭니다.
 

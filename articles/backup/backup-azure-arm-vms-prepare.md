@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: raynew
-ms.openlocfilehash: ee7a9c407a26f9334a854c98793db8fc01244e2a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 65e4c6d66e410e8cd761128028b7a47e21db86eb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994677"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354504"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Azure VM 백업 준비
 
@@ -61,8 +61,6 @@ ms.locfileid: "53994677"
     - 백업 데이터를 저장할 스토리지 계정을 지정하지 않아도 됩니다. 자격 증명 모음 및 Azure Backup 서비스는 이를 자동으로 처리합니다.
 - 백업하려는 Azure VM에서 VM 에이전트가 설치되어 있는지 확인합니다.
 
-
-
 ### <a name="install-the-vm-agent"></a>VM 에이전트 설치
 
 백업을 활성화하려면 Azure Backup을 사용하여 백업 확장(VM 스냅숏 또는 VM 스냅숏 Linux)을 Azure VM에서 실행되는 VM 에이전트에 설치합니다.
@@ -79,10 +77,12 @@ Azure VM을 백업하는 데 문제가 있는 경우 다음 표를 사용하여 
 
 ### <a name="establish-network-connectivity"></a>네트워크 연결 설정
 
-VM에서 실행 중인 백업 확장은 Azure 공용 IP 주소에 아웃바운드 액세스 권한이 있어야 합니다. 액세스하려면 다음 작업을 수행할 수 있습니다.
+VM에서 실행 중인 백업 확장은 Azure 공용 IP 주소에 아웃바운드 액세스 권한이 있어야 합니다.
 
+> [!NOTE]
+> Azure VM에서 Azure Backup 서비스와 통신하기 위해 명시적 아웃바운드 네트워크 액세스 권한이 필요하지 않습니다. 하지만 특정 이전 가상 머신에 문제가 발생하고 **ExtensionSnapshotFailedNoNetwork** 오류를 나타내며 실패할 수 있습니다. 이 오류를 극복하려면 다음 옵션 중 하나를 선택하여 백업 확장이 Azure 공용 IP 주소와 통신하면서 백업 트래픽의 명확한 경로를 제공하도록 합니다.
 
-- **NSG 규칙**: [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 허용합니다. 개별적으로 모든 주소 범위를 허용하고 지속적으로 관리하는 대신 [서비스 태그](../virtual-network/security-overview.md#service-tags)를 사용하여 Azure Backup 서비스에 액세스를 허용하는 규칙을 추가할 수 있습니다.
+- **NSG 규칙**: [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 허용합니다. 개별적으로 모든 주소 범위를 허용하고 지속적으로 관리하는 대신 [서비스 태그](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure)를 사용하여 Azure Backup 서비스에 액세스를 허용하는 규칙을 추가할 수 있습니다. 서비스 태그에 대한 자세한 내용은 이 [문서](../virtual-network/security-overview.md#service-tags)를 참조하세요.
 - **프록시**: 트래픽 라우팅을 위해 HTTP 프록시 서버를 배포합니다.
 - **Azure Firewall**: Azure Backup 서비스에 대한 FQDN 태그를 사용하여 VM에서 Azure Firewall을 통해 트래픽을 허용합니다.
 
@@ -94,22 +94,17 @@ VM에서 실행 중인 백업 확장은 Azure 공용 IP 주소에 아웃바운�
 **HTTP 프록시** | 스토리지 URL에 대한 세분화된 제어가 허용됩니다.<br/><br/> VM에 대한 인터넷 액세스의 단일 지점입니다.<br/><br/> 프록시에 대한 추가 비용이 없습니다.
 **FQDN 태그** | VNet 서브넷에서 Azure Firewall 설정이 있는 경우 간편하게 사용합니다. | 태그에 사용자 고유의 FQDN을 만들거나 FQDN 태그를 수정할 수 없습니다.
 
-
-
 Azure Managed Disks를 사용하는 경우 방화벽에서 열려 있는 추가 포트(포트 8443)가 필요할 수 있습니다.
-
-
 
 ### <a name="set-up-an-nsg-rule-to-allow-outbound-access-to-azure"></a>Azure에 아웃바운드 액세스를 허용하도록 NSG 규칙 설정
 
 Azure VM에 NSG가 관리하는 액세스 권한이 있는 경우 필요한 범위 및 포트에 백업 스토리지에 대한 아웃바운드 액세스를 허용합니다.
 
-
-
 1. VM > **네트워킹**에서 **아웃바운드 포트 규칙 추가**를 클릭합니다.
-- 액세스를 거부하는 규칙이 있는 경우 새 허용 규칙은 더 높아야 합니다. 예를 들어 우선 순위 1000에서 **Deny_All** 규칙이 있는 경우 새 규칙은 1000 미만으로 설정해야 합니다.
+
+  - 액세스를 거부하는 규칙이 있는 경우 새 허용 규칙은 더 높아야 합니다. 예를 들어 우선 순위 1000에서 **Deny_All** 규칙이 있는 경우 새 규칙은 1000 미만으로 설정해야 합니다.
 2. **아웃바운드 보안 규칙 추가**에서 **고급**을 클릭합니다.
-3. 원본에서 **VirtualNetwork**를 선택합니다.
+3. **원본**에서 **VirtualNetwork**를 선택합니다.
 4. **원본 포트 범위**에서 별표(*)를 입력하여 모든 포트에 아웃바운드 액세스를 허용합니다.
 5. **대상**에서 **서비스 태그**를 선택합니다. 목록에서 Storage.<region>를 선택합니다. 지역은 자격 증명 모음이 있고 백업하려는 VM이 위치하는 지역입니다.
 6. **대상 포트 범위**에서 포트를 선택합니다.
@@ -117,9 +112,9 @@ Azure VM에 NSG가 관리하는 액세스 권한이 있는 경우 필요한 범�
     - 관리되지 않은 디스크와 암호화되지 않은 스토리지 계정을 사용하는 VM: 80
     - 관리되지 않은 디스크와 암호화된 스토리지 계정을 사용하는 VM: 443(기본 설정)
     - 관리형 VM: 8443
-1. **프로토콜**에서 **TCP**를 선택합니다.
-2. **우선 순위**에서 모든 거부 규칙보다 더 작은 우선 순위 값을 부여합니다.
-3. 규칙에 대한 이름과 설명을 입력하고 **OK**를 클릭합니다.
+7. **프로토콜**에서 **TCP**를 선택합니다.
+8. **우선 순위**에서 모든 거부 규칙보다 더 작은 우선 순위 값을 부여합니다.
+9. 규칙에 대한 이름과 설명을 입력하고 **OK**를 클릭합니다.
 
 Azure Backup에 대한 Azure에 아웃바운드 액세스를 허용하는 여러 VM에 NSG 규칙을 적용할 수 있습니다.
 
@@ -127,12 +122,12 @@ Azure Backup에 대한 Azure에 아웃바운드 액세스를 허용하는 여러
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
-
+> [!WARNING]
+> 저장소 서비스 태그는 미리 보기 상태입니다. 따라서 특정 지역에서만 사용할 수 있습니다. 지역 목록은 [저장소의 서비스 태그](../virtual-network/security-overview.md#service-tags)를 참조하세요.
 
 ### <a name="route-backup-traffic-through-a-proxy"></a>프록시를 통해 백업 트래픽 라우팅
 
 프록시를 통해 백업 트래픽을 라우팅한 다음, 필요한 Azure 범위에 액세스할 수 있는 권한을 프록시에 부여할 수 있습니다.
-
 다음과 같이 허용하도록 VM을 구성해야 합니다.
 
 - Azure VM은 프록시를 통해 공용 인터넷으로 향하는 모든 HTTP 트래픽을 라우팅해야 합니다.
@@ -167,8 +162,9 @@ Azure Backup에 대한 Azure에 아웃바운드 액세스를 허용하는 여러
 
 #### <a name="allow-incoming-connections-on-the-proxy"></a>프록시에서 들어오는 연결 허용
 
-1. 프록시 설정에서 들어오는 연결을 허용합니다.
-2. 예를 들어 **고급 보안을 사용하는 Windows Firewall**을 엽니다.
+프록시 설정에서 들어오는 연결을 허용합니다.
+
+- 예를 들어 **고급 보안을 사용하는 Windows Firewall**을 엽니다.
     - 마우스 오른쪽 단추로 **인바운드 규칙** > **새 규칙**을 클릭합니다.
     - **규칙 유형**에서 **사용자 지정** > **다음**을 선택합니다.
     - **프로그램**에서 **모든 프로그램** > **다음**을 선택합니다.
@@ -186,13 +182,13 @@ NSG **NSF-lockdown**에서 10.0.0.5의 모든 포트에서 오는 트래픽을 �
     Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
     Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
     ```
+
 ### <a name="allow-firewall-access-with-fqdn-tag"></a>FQDN 태그를 사용하여 방화벽 액세스 허용
 
 Azure Backup에 대한 네트워크 트래픽의 아웃바운드 액세스를 허용하도록 Azure Firewall을 설정할 수 있습니다.
 
 - Azure Firewall 배포에 대해 [알아보기](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
 - FQDN 태그에 대해 [읽어보기](https://docs.microsoft.com/azure/firewall/fqdn-tags)
-
 
 ## <a name="create-a-vault"></a>자격 증명 모음 만들기
 
@@ -227,7 +223,7 @@ Azure Backup에 대한 네트워크 트래픽의 아웃바운드 액세스를 �
 
 ## <a name="set-up-storage-replication"></a>스토리지 복제 설정
 
-기본적으로 자격 증명 모음에는 [GRS(지역 중복 스토리지)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)가 있습니다. 기본 백업용으로 GRS를 권장하지만 저렴한 옵션으로 [로컬 중복 스토리지](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 사용할 수 있습니다. 
+기본적으로 자격 증명 모음에는 [GRS(지역 중복 스토리지)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)가 있습니다. 기본 백업용으로 GRS를 권장하지만 저렴한 옵션으로 [로컬 중복 스토리지](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 사용할 수 있습니다.
 
 다음과 같이 스토리지 복제를 수정합니다.
 
@@ -285,5 +281,5 @@ Azure Backup에 대한 네트워크 트래픽의 아웃바운드 액세스를 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure VM 에이전트](/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) 또는 [Azure VM 백업](backup-azure-vms-troubleshoot.md)에서 발생하는 문제를 해결합니다.
+- [Azure VM 에이전트](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) 또는 [Azure VM 백업](backup-azure-vms-troubleshoot.md)에서 발생하는 문제를 해결합니다.
 - [Azure VM 백업](backup-azure-vms-first-look-arm.md)

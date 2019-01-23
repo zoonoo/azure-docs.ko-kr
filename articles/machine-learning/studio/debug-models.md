@@ -1,34 +1,17 @@
 ---
-title: 모델 디버그 - Azure Machine Learning Studio | Microsoft Docs
-description: Azure Machine Learning Studio에서 모델 학습 및 모델 점수 매기기 모듈에 의해 생성된 오류를 디버그하는 방법을 설명합니다.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 629dc45e-ac1e-4b7d-b120-08813dc448be
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2017
-ms.openlocfilehash: 0464dec9e747e57e4b95a691aeb5a0992cf8d9cc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268889"
+제목: 모델 디버그 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning Studio에서 모델 학습 및 모델 점수 매기기 모듈에 의해 생성된 오류를 디버그하는 방법을 설명합니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/14/2017
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 모델 디버그
 
-이 문서에서는 모델을 실행할 때 다음 두 가지 오류 중 하나가 발생할 수 있는 잠재적 원인을 설명합니다.
+모델을 실행할 때 다음 오류가 발생할 수 있습니다.
 
 * [모델 학습] [train-model] 모듈에서 오류 발생 
 * [모델 점수 매기기][score-model] 모듈에서 잘못된 결과 생성 
 
+이 문서에서는 이러한 오류에 대한 잠재적 원인을 설명합니다.
 
 
 ## <a name="train-model-module-produces-an-error"></a>모델 학습 모듈에서 오류 발생
@@ -59,11 +42,11 @@ ms.locfileid: "53268889"
 1. [모델 학습][train-model] 모듈의 학습된 모델 출력
 2. 모델 학습에 사용되는 데이터 세트와는 다른 점수 매기기 데이터 세트
 
-실험에 성공한 경우에도 [모델 점수 매기기][score-model] 모듈에서 잘못된 결과가 생성될 수 있습니다. 다음과 같은 여러 시나리오에서 이러한 상황이 발생할 수 있습니다.
+실험에 성공한 경우에도 [모델 점수 매기기][score-model] 모듈에서 잘못된 결과가 생성될 수 있습니다. 다음과 같은 여러 시나리오에서 이러한 문제가 발생할 수 있습니다.
 
 1. 지정된 레이블이 범주인 경우 데이터에 대해 회귀 모델이 학습되면 [모델 점수 매기기][score-model] 모듈에서 잘못된 출력이 생성됩니다. 회귀에는 연속 응답 변수가 필요하기 때문입니다. 이 경우 분류 모델을 사용하는 것이 보다 적합합니다. 
 
-2. 마찬가지로 레이블 열에 부동 소수점 숫자가 있는 데이터 세트에 대해 분류 모델이 학습된 경우 바람직하지 않은 결과가 생성될 수 있습니다. 분류에는 범위가 유한하고 일반적으로 클래스 집합이 작은 값만 허용하는 불연속 응답 변수가 필요하기 때문입니다.
+2. 마찬가지로 레이블 열에 부동 소수점 숫자가 있는 데이터 세트에 대해 분류 모델이 학습된 경우 바람직하지 않은 결과가 생성될 수 있습니다. 분류에는 범위가 유한하고 클래스 집합이 작은 값만 허용하는 불연속 응답 변수가 필요하기 때문입니다.
 
 3. 점수 매기기 데이터 세트에 모델을 학습하는 데 사용되는 일부 기능이 포함되지 않은 경우 [모델 점수 매기기][score-model]에서 오류가 생성됩니다.
 

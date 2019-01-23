@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/05/2018
+ms.date: 01/15/2019
 ms.author: jgao
 ms.custom: include file
-ms.openlocfilehash: 711688b5b414e7b9a931190de3f7e6321d97ba3e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 11bcfa1b4719d6def5bfc4a6a189bd2b58896b5b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729342"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334360"
 ---
 ## <a name="quickstarts-and-tutorials"></a>빠른 시작 및 자습서
 
@@ -48,5 +48,6 @@ Resource Manager 템플릿을 개발하는 방법을 알아보려면 다음 빠�
     |[SQL 확장 배포](../articles/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac.md)|확장을 사용하여 배포 후 작업을 수행합니다. 자습서에서 고객 스크립트 확장을 배포하여 가상 머신에서 웹 서버를 설치합니다. |
     |[아티팩트 보호](../articles/azure-resource-manager/resource-manager-tutorial-secure-artifacts.md)|배포를 완료하는 데 필요한 아티팩트를 보호합니다. 이 자습서에서는 SQL 확장 배포 자습서에서 사용된 아티팩트를 보호하는 방법을 알아봅니다. |
     |[안전한 배포 사례 사용](../articles/azure-resource-manager/deployment-manager-tutorial.md)|Azure Deployment Manager 사용 |
+    |[자습서: Resource Manager 템플릿 배포 문제 해결](../articles/azure-resource-manager/resource-manager-tutorial-troubleshoot.md)|템플릿 배포 문제를 해결합니다.|
 
 이 자습서는 주요 Resource Manager 템플릿 개발 개념을 알아보기 위해 개별적으로 또는 계열로 사용할 수 있습니다.

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29ec56f3b360a4a19269555c1504ae7ff6446f8e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 901dfc502470e52600e3a0fafe3f6b91b7686197
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189153"
+ms.locfileid: "54201332"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크로드 계획 및 배포 검사 목록 
 
@@ -83,7 +83,7 @@ ms.locfileid: "54189153"
 파일럿은 프로젝트 계획 및 준비 이전에 또는 동시에 실행할 수 있습니다. 이 단계에서 계획 및 준비 단계 동안 수행한 접근 방법 및 디자인을 테스트할 수도 있습니다. 파일럿 단계를 실제 개념 증명으로 늘릴 수 있습니다. 파일럿 배포 동안 전체 HA/DR 솔루션 뿐만 아니라 보안 디자인을 설정하고 유효한지 검사하는 것이 좋습니다. 일부 고객의 경우 이 단계에서 확장성 테스트도 수행할 수 있습니다. 다른 고객은 SAP 샌드박스 시스템의 배포를 파일럿 단계로 사용합니다. 파일럿 실행을 위해 Azure로 마이그레이션하려는 시스템을 식별했다고 가정하겠습니다.
 
 1.  Azure로의 데이터 전송을 최적화합니다. Express 회로에 대역폭이 충분한 경우 주로 온-프레미스에서 [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)를 통해 고객 사례를 전송하는 것이 가장 빨랐습니다. 다른 고객의 경우는 인터넷을 통해 진행하는 것이 더 빠른 것으로 확인되었습니다.
-2.  SAP의 유형이 다른 플랫폼 마이그레이션에서는 데이터베이스 데이터의 내보내기 및 가져오기, 내보내기 및 가져오기 단계 테스트와 최적화가 여기에 해당합니다. SQL Server를 대상 플랫폼으로 포함하는 대규모 마이그레이션의 경우 [여기](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/)에서 권장 사항을 찾을 수 있습니다. 마이그레이션을 SAP 릴리스 업그레이드와 결합하고 설명서[예: [SUM 2.0 SP04의 DMO(데이터베이스 마이그레이션 옵션)](https://launchpad.support.sap.com/#/notes/2644872)]에 나와 있는 것처럼 특정 원본 및 대상 DBMS 플랫폼 조합을 이행할 때 조합된 릴리스 업그레이드 또는 [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) 프로세스가 필요하지 않은 경우 마이그레이션 모니터/SWPM 접근 방법을 수행할 수 있습니다. 
+2.  SAP의 유형이 다른 플랫폼 마이그레이션에서는 데이터베이스 데이터의 내보내기 및 가져오기, 내보내기 및 가져오기 단계 테스트와 최적화가 여기에 해당합니다. SQL Server를 대상 플랫폼으로 포함하는 대규모 마이그레이션의 경우 [여기](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/)에서 권장 사항을 찾을 수 있습니다. 마이그레이션을 SAP 릴리스 업그레이드와 결합하고 설명서[예: [SUM 2.0 SP03의 DMO(데이터베이스 마이그레이션 옵션)](https://launchpad.support.sap.com/#/notes/2631152)]에 나와 있는 것처럼 특정 원본 및 대상 DBMS 플랫폼 조합을 이행할 때 조합된 릴리스 업그레이드 또는 [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) 프로세스가 필요하지 않은 경우 마이그레이션 모니터/SWPM 접근 방법을 수행할 수 있습니다. 
     1.  원본으로 내보내기, Azure로 파일 업로드 내보내기, 성능 가져오기.  내보내기와 가져오기 간의 중복을 최대화합니다.
     2.  인프라 크기 조정에 반영하기 위해 목표 및 대상 플랫폼 간의 데이터베이스 볼륨 평가    
     3.  유효성 검사 및 타이밍 최적화 

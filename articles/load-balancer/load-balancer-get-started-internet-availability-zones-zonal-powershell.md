@@ -1,10 +1,11 @@
 ---
-title: 영역별 프런트 엔드 IP가 있는 공용 Load Balancer Standard 만들기 - Azure PowerShell
+title: 영역별 프런트 엔드가 있는 Load Balancer 만들기 - Azure PowerShell
 titlesuffix: Azure Load Balancer
-description: 'Azure PowerShell을 사용하여 영역별 공용 IP 주소 프런트 엔드가 있는 공용 Load Balancer Standard를 만드는 방법 알아보기 '
+description: Azure PowerShell을 사용하여 영역별 프런트 엔드가 있는 표준 Load Balancer를 만드는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: da30bce34425d3537f9610c6e1f64ded4a836fd7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 861759eec266f0ab66d30a466c06e7d2ee14bf06
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100687"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247160"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-powershell"></a>Azure PowerShell을 사용하여 영역별 공용 IP 주소 프런트 엔드가 있는 공용 Load Balancer Standard 만들기
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-powershell"></a>Azure PowerShell을 사용하여 영역별 프런트 엔드가 있는 표준 Load Balancer 만들기
 
-이 문서에서는 공용 IP 표준 주소를 사용하여 영역별 프런트 엔드가 있는 공용 [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard)를 만드는 단계를 안내합니다. Standard Load Balancer에서 가용성 영역이 작동하는 방법에 대한 내용은 [Standard Load Balancer 및 가용성 영역](load-balancer-standard-availability-zones.md)을 참조하세요. 
+이 문서에서는 공용 IP 표준 주소를 사용하여 영역별 프런트 엔드가 있는 공용 [표준 Load Balancer](https://aka.ms/azureloadbalancerstandard)를 만드는 단계를 안내합니다. Standard Load Balancer에서 가용성 영역이 작동하는 방법에 대한 내용은 [Standard Load Balancer 및 가용성 영역](load-balancer-standard-availability-zones.md)을 참조하세요. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -86,7 +87,7 @@ $probe = New-AzureRmLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http
 ```
 
 ## <a name="create-a-load-balancer"></a>부하 분산 장치 만들기
-다음 명령을 사용하여 부하 분산 장치 표준을 만듭니다.
+다음 명령을 사용하여 표준 Load Balancer를 만듭니다.
 
 ```powershell
 $lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroupZLB -Name 'MyLoadBalancer' -Location westeurope `

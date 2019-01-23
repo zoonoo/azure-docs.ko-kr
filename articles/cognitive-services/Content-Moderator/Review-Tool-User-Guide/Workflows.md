@@ -1,20 +1,21 @@
 ---
-title: Azure Content Moderator에서 워크플로 정의 및 사용 | Microsoft Docs
-description: 콘텐츠 정책에 따라 사용자 지정 워크플로를 만드는 방법을 알아봅니다.
+title: 콘텐츠 조정 워크플로 정의 및 사용 - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Azure Content Moderator 워크플로 디자이너 및 API를 사용하여 콘텐츠 정책에 따라 사용자 지정 워크플로 및 임계값을 정의할 수 있습니다.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 01/07/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: dfe3ba8a2ef1bcbc69ef585b504a9367d9420bf0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 265d5a2bd6a256d287e6ae164e883ade783f960f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373023"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262407"
 ---
 # <a name="define-test-and-use-workflows"></a>워크플로 정의, 테스트 및 사용
 

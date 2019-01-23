@@ -8,12 +8,12 @@ ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 86c8e8c10811b1478ae2c853f1efef5b6b5caa83
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 782f68c52285e787b9dfc6d21352ab2d53876085
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406331"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353144"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure 데이터 카탈로그의 새로운 기능
 **Azure Data Catalog**에 대한 업데이트는 정기적으로 릴리스됩니다. 일부 릴리스에서 백 엔드 서비스 기능에 초점을 맞추므로 모든 릴리스는 새로운 사용자용 기능을 포함하지 않습니다. 이 페이지는 Azure Data Catalog 서비스에 추가된 새로운 사용자용 기능을 강조 표시합니다.
@@ -153,7 +153,7 @@ ms.locfileid: "47406331"
 
 * Azure Data Catalog 데이터 원본 등록 도구의 데이터 소스 선택 환경이 새로 디자인되었습니다. 사용자가 Azure Data Catalog에서 지원하는 데이터 원본을 더욱 쉽게 찾아서 선택할 수 있도록 데이터 원본 등록 도구가 업데이트되었습니다.
 * Azure Data Catalog 포털 및 데이터 원본 등록 도구에서 추가 언어 10개가 지원됩니다. 이제 Azure Data Catalog 환경이 영어 외에도 독일어, 스페인어, 프랑스어, 이탈리아어, 일본어, 한국어, 포르투갈어(브라질), 러시아어, 중국어 간체 및 중국어 번체로 제공됩니다. Azure Data Catalog 사용자 환경이 Windows 또는 사용자의 웹 브라우저에 설정된 언어 기본 설정에 따라 지역화됩니다.
-* 비즈니스 연속성 및 재해 복구를 위해 Azure Data Catalog 데이터에 대한 지역에서 복제가 지원됩니다. 이제 데이터 원본 메타데이터 및 크라우드소싱 주석을 비롯한 모든 Azure Data Catalog 내용이 두 Azure 지역 간에 무료로 복제됩니다. Azure 지역은 500마일 이상 떨어진 지역이 사전에 쌍으로 연결되며, [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍으로 연결된 지역](../best-practices-availability-paired-regions.md)에 설명된 대로 매핑을 따릅니다.
+* 비즈니스 연속성 및 재해 복구를 위해 Azure Data Catalog 데이터에 대한 지역에서 복제가 지원됩니다. 이제 데이터 원본 메타데이터 및 크라우드소싱 주석을 비롯한 모든 Azure Data Catalog 내용이 두 Azure 지역 간에 무료로 복제됩니다. Azure 지역은 500마일 이상 떨어진 지역이 사전에 쌍으로 연결되며, [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)을 참조하세요.
 * Azure Data Catalog에서 사용하는 Azure 구독을 변경할 수 있습니다. Azure Data Catalog 관리자가 Azure Data Catalog 포털의 설정 페이지에서 청구용으로 다른 Azure 구독을 선택할 수 있습니다.
 
 ## <a name="whats-new-for-january-2016"></a>2016년 1월의 새로운 기능

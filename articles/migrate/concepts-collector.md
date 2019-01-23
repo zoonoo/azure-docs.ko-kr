@@ -4,15 +4,15 @@ description: Azure Migrate의 Collector 어플라이언스에 대한 정보를 �
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/14/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 6f843fedafd68d4e04d181af2c6d7542baaf0144
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b9387814b8bdab56117dec27de1e3d5b44ce39b4
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104213"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262611"
 ---
 # <a name="about-the-collector-appliance"></a>Collector 어플라이언스 정보
 
@@ -126,12 +126,9 @@ Collector는 몇 가지 필수 구성 요소 확인을 통과해야 인터넷을
 
 Collector는 vCenter Server에 연결하여 VM 메타데이터 및 성능 카운터를 쿼리합니다. 해당 연결을 위해 필요한 사항은 다음과 같습니다.
 
-- vCenter Server 버전 5.5, 6.0 및 6.5만 지원됩니다.
+- vCenter Server 버전 5.5, 6.0, 6.5 및 6.7만 지원됩니다.
 - 검색용으로 아래에 요약되어 있는 권한이 있는 읽기 전용 계정이 필요합니다. 해당 계정을 통해 액세스 가능한 데이터 센터만 검색을 위해 액세스할 수 있습니다.
 - 기본적으로는 FQDN 또는 IP 주소를 사용하여 vCenter Server에 연결합니다. vCenter Server가 다른 포트에서 수신 대기하는 경우에는 *IPAddress:Port_Number* 또는 *FQDN:Port_Number* 형식을 사용하여 해당 포트에 연결합니다.
-- 저장 및 네트워킹용으로 성능 데이터를 수집하려면 vCenter Server의 통계 설정을 수준 3으로 설정해야 합니다.
-- 수준이 3보다 낮으면 검색은 작동하지만 성능 데이터는 수집되지 않습니다. 데이터가 수집되는 카운터도 있지만, 그 외의 카운터는 0으로 설정됩니다.
-- 저장 및 네트워킹용 성능 데이터가 수집되지 않는 경우에 권장되는 평가 크기는 CPU 및 메모리의 성능 데이터와 디스크 및 네트워크 어댑터의 구성 데이터를 기준으로 합니다.
 - Collector에는 vCenter Server에 대한 네트워크 시야가 있어야 합니다.
 
 #### <a name="account-permissions"></a>계정 권한

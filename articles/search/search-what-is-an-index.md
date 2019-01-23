@@ -9,25 +9,18 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/08/2017
 ms.custom: seodec2018
-ms.openlocfilehash: 40291b105eb39b44da0b0697f5808d819291e457
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 5a39021367c2f51125876081e9174eb372d7b9c9
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630216"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353161"
 ---
-# <a name="indexes-in-azure-search"></a>Azure Search의 인덱스
-> [!div class="op_single_selector"]
-> * [개요](search-what-is-an-index.md)
-> * [포털](search-create-index-portal.md)
-> * [.NET](search-create-index-dotnet.md)
-> * [REST (영문)](search-create-index-rest-api.md)
-> 
-> 
+# <a name="indexes-and-indexing-overview-in-azure-search"></a>Azure Search의 인덱스 및 인덱싱 개요
 
-Azure Search에서 *인덱스*는 Azure Search 서비스에서 사용되는 *문서* 및 기타 구조의 지속형 저장소입니다. 문서는 인덱스에서 검색 가능한 데이터의 단일 단위입니다. 예를 들어 전자 상거래 소매점은 판매하는 각 항목에 대한 문서를 포함할 수 있으며 뉴스 조직은 각 기사에 대한 문서를 포함할 수 있습니다. 이러한 개념을 익숙한 데이터베이스와 동일하게 매핑: *인덱스*는 *테이블*과 개념적으로 유사하며 *문서*는 테이블의 *행*과 거의 비슷합니다.
+Azure Search에서 *인덱스*는 Azure Search 서비스의 필터링된 검색 및 전체 텍스트 검색에서 사용되는 *문서* 및 기타 구조의 지속형 저장소입니다. 문서는 인덱스에서 검색 가능한 데이터의 단일 단위입니다. 예를 들어 전자 상거래 소매점은 판매하는 각 항목에 대한 문서를 포함할 수 있으며 뉴스 조직은 각 기사에 대한 문서를 포함할 수 있습니다. 이러한 개념을 익숙한 데이터베이스와 동일하게 매핑: *인덱스*는 *테이블*과 개념적으로 유사하며 *문서*는 테이블의 *행*과 거의 비슷합니다.
 
-문서를 추가/업로드하고 검색 쿼리를 Azure Search에 제출하는 경우 요청을 Search 서비스의 특정 인덱스에 제출합니다.
+문서를 추가 또는 업로드하고 검색 쿼리를 Azure Search에 제출하는 경우 요청을 Search 서비스의 특정 인덱스에 전송하게 됩니다. 인덱스에 문서를 추가하는 프로세스를 *인덱싱*이라고 합니다.
 
 ## <a name="field-types-and-attributes-in-an-azure-search-index"></a>Azure Search 인덱스에서 필드 형식 및 속성
 스키마를 정의할 때 인덱스에서 각 필드의 이름, 형식 및 특성을 지정해야 합니다. 필드 형식은 해당 필드에 저장된 데이터를 분류합니다. 특성은 개별 필드에 설정되어 필드를 사용하는 방법을 지정합니다. 다음 표에서는 지정할 수 있는 형식 및 특성을 열거합니다.

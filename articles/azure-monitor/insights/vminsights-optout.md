@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: f0addcc0b6220bcf877c3cac20f2d1376eb19e61
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: c6a8322998b391b9021292a3a7213ded56b67feb
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191074"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263359"
 ---
 # <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)를 사용하여 가상 머신의 모니터링을 사용하지 않도록 설정하는 방법
 
@@ -31,7 +31,7 @@ VM용 Azure Monitor는 해당 환경을 제공하기 위해 다음 구성 요소
 * VM 및 기타 원본에서 수집한 모니터링 데이터를 저장하는 Log Analytics 작업 영역.
 * 작업 영역에 연결하는 모든 VM의 모니터링 구성을 업데이트하는 작업 영역에서 구성된 성능 카운터의 컬렉션.
 * 작업 영역에서 구성된 두 개의 모니터링 솔루션 - 작업 영역에 연결된 모든 VM의 모니터링 구성을 업데이트하는 **InfrastructureInsights** 및 **ServiceMap**.
-* 데이터를 수집해 작업 영역에 전송하는 두 Azure 가상 머신 확장 **MicrosoftMonitoringAgent** 및 **DepenendencyAgent**.
+* 데이터를 수집해 작업 영역에 전송하는 두 Azure 가상 머신 확장 **MicrosoftMonitoringAgent** 및 **DependencyAgent**.
 
 VM용 Azure Monitor(미리 보기)를 사용하여 가상 머신의 모니터링을 비활성화하도록 준비하는 경우 다음을 고려합니다.
 
@@ -43,7 +43,7 @@ VM용 Azure Monitor(미리 보기)를 사용하여 가상 머신의 모니터링
 
 ## <a name="complete-removal-of-azure-monitor-for-vms"></a>VM용 Azure Monitor의 완전한 제거
 
-다음 단계에서는 Log Analytics 작업 영역이 계속 필요한 경우 VM용 Azure Monitor를 완전히 제거하는 방법을 설명합니다. 작업 영역에서 **InfastructureInsights** 및 **ServiceMap** 솔루션을 제거하도록 하겠습니다.  
+다음 단계에서는 Log Analytics 작업 영역이 계속 필요한 경우 VM용 Azure Monitor를 완전히 제거하는 방법을 설명합니다. 작업 영역에서 **InfrastructureInsights** 및 **ServiceMap** 솔루션을 제거하도록 하겠습니다.  
 
 >[!NOTE]
 >VM용 Azure Monitor를 사용하도록 설정하기 전에 서비스 맵 모니터링 솔루션을 여전히 사용하는 경우 아래 6단계에 설명된 대로 해당 솔루션을 제거하지 마세요.  

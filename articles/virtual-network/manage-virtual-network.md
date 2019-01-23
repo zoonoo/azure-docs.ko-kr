@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: 3f158d040654b251faebceaa2e89d0462f13c217
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: a43988f8d4d6ae318f409cf1e79d8ad2ff8c8af1
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016032"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247829"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>가상 네트워크 만들기, 변경 또는 삭제
 
@@ -99,7 +99,13 @@ ms.locfileid: "54016032"
 
 ## <a name="add-or-remove-an-address-range"></a>주소 범위 추가 또는 제거
 
-가상 네트워크에 대한 주소 범위를 추가 및 제거할 수 있습니다. 주소 범위는 CIDR 표기법으로 지정해야 하며, 동일한 가상 네트워크 내에서 다른 주소 범위와 겹칠 수 없습니다. 정의하는 주소 범위는 공용 또는 개인 주소가 될 수 있습니다(RFC 1918). 주소 범위를 공용으로 정의하든 개인으로 정의하든 가상 네트워크 내, 상호 연결된 가상 네트워크 및 가상 네트워크에 연결된 모든 온-프레미스 네트워크에서만 주소 범위에 연결할 수 있습니다. 다음 주소 범위는 추가할 수 없습니다.
+가상 네트워크에 대한 주소 범위를 추가 및 제거할 수 있습니다. 주소 범위는 CIDR 표기법으로 지정해야 하며, 동일한 가상 네트워크 내에서 다른 주소 범위와 겹칠 수 없습니다. 정의하는 주소 범위는 공용 또는 개인 주소가 될 수 있습니다(RFC 1918). 주소 범위를 공용으로 정의하든 개인으로 정의하든 가상 네트워크 내, 상호 연결된 가상 네트워크 및 가상 네트워크에 연결된 모든 온-프레미스 네트워크에서만 주소 범위에 연결할 수 있습니다. 
+
+연결된 서브넷이 없는 경우 가상 네트워크의 주소 범위를 줄일 수 있습니다. 그렇지 않으면, /16을 /8로 변경하는 경우처럼 주소 범위를 확장할 수만 있습니다. 작은 주소 범위로 시작한 후 나중에 확장하거나 범위를 더 추가할 수 있습니다.
+
+<!-- the last two sentences above are added per GitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
+
+다음 주소 범위는 추가할 수 없습니다.
 
 - 224.0.0.0/4(멀티캐스트)
 - 255.255.255.255/32(브로드캐스트)

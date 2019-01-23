@@ -1,27 +1,8 @@
 ---
-title: Machine Learning Studio 기능 개요 다이어그램 - Azure | Microsoft Docs
-description: Azure Machine Learning Studio 기능의 인쇄 가능한 다이어그램으로 스튜디오를 사용하여 예측 분석 실험을 개발하고 Azure 클라우드에서 운영하는 방법을 보여 줍니다.
-keywords: 기계 학습 스튜디오, 개요 다이어그램, 다운로드
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: previous-ms.author=haining, previous-author=hning86
-ms.author: garye
-editor: cgronlun
-ms.assetid: 5b302c6c-41fd-4551-a4ae-0f5b450e1e6b
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: overview
-ms.date: 04/04/2017
-ms.openlocfilehash: ce842d11d47529eca2be894a230b60417cea102f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278018"
+제목: Machine Learning Studio 기능 개요 다이어그램 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning Studio 기능의 인쇄 가능한 다이어그램으로 스튜디오를 사용하여 예측 분석 실험을 개발하고 Azure 클라우드에서 운영하는 방법을 보여 줍니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: overview
+
+author: garyericson ms.author: garye ms.custom: previous-ms.author=haining, previous-author=hning86 ms.date: 04/04/2017
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Azure Machine Learning Studio 기능 개요 다이어그램
 **Microsoft Azure Machine Learning Studio 기능 개요** 다이어그램은 Machine Learning Studio를 사용하여 예측 분석 모델을 개발하고 해당 모델을 Azure 클라우드에서 운영할 수 있는 방법을 개략적으로 설명합니다.

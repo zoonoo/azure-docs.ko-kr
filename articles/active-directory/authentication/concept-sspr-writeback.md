@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 01/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 4d311794c1c0f2dd6b9a0b2a44983b47bfeef362
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 06a3ac4520a40369c095e57f8e92978fdb280b51
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040543"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359592"
 ---
 # <a name="what-is-password-writeback"></a>비밀번호 쓰기 저장이란?
 
@@ -42,7 +42,7 @@ ms.locfileid: "54040543"
 * **인바운드 방화벽 규칙 필요 없음**: 비밀번호 쓰기 저장은 Azure Service Bus Relay를 기본 통신 채널로 사용합니다. 모든 통신은 포트 443을 통해 아웃바운드됩니다.
 
 > [!Note]
-> 온-프레미스 Active Directory의 보호 그룹 내에 있는 사용자 계정은 비밀번호 쓰기 저장에 사용할 수 없습니다. 보호 그룹에 대한 자세한 내용은 [Active Directory의 보호 계정 및 그룹](https://technet.microsoft.com/library/dn535499.aspx)을 참조하세요.
+> 온-프레미스 Active Directory의 보호 그룹 내에 있는 사용자 계정은 비밀번호 쓰기 저장에 사용할 수 없습니다. 온-프레미스 AD의 보호 그룹 내에 있는 관리자 계정은 비밀번호 쓰기 저장에 사용할 수 없습니다. 보호 그룹에 대한 자세한 내용은 [Active Directory의 보호 계정 및 그룹](https://technet.microsoft.com/library/dn535499.aspx)을 참조하세요.
 >
 
 ## <a name="licensing-requirements-for-password-writeback"></a>비밀번호 쓰기 저장에 대한 라이선스 요구 사항
@@ -58,6 +58,7 @@ ms.locfileid: "54040543"
 * Microsoft 365 E3 또는 A3
 * Microsoft 365 E5 또는 A5
 * Microsoft 365 F1
+* Microsoft 365 Business
 
 > [!WARNING]
 > 독립 실행형 Office 365 라이선스 요금제는 *"셀프 서비스 암호 재설정/변경/온-프레미스 쓰기 저장으로 잠금 해제"를 지원하지 않습니다*. 이 기능을 사용하려면 위의 요금제 중 하나가 필요합니다.

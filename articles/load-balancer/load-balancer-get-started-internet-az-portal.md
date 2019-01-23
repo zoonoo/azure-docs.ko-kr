@@ -1,10 +1,11 @@
 ---
-title: Azure Portal을 사용하여 영역 중복 프런트 엔드로 표준 Load Balancer 만들기
+title: 영역 중복 프런트 엔드로 Load Balancer 만들기 - Azure Portal
 titlesuffix: Azure Load Balancer
 description: Azure Portal을 사용하여 영역 중복 공용 IP 주소 프런트 엔드로 공용 표준 Load Balancer를 만드는 방법 알아보기
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: fc5dcd76ca8ecfb820a8d157fee9cc0a92bd2d5b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2b898a9228e251003a049b2d82c0b1039eb54114
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135693"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247438"
 ---
-#  <a name="create-a-public-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>Azure Portal을 사용하여 영역 중복 프런트 엔드로 공용 표준 Load Balancer 만들기
+#  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>Azure Portal을 사용하여 영역 중복 프런트 엔드로 표준 Load Balancer 만들기
 
-이 문서에서는 공용 IP 표준 주소를 사용하는 영역 중복 프런트 엔드로 공용 [부하 분산 장치 표준](https://aka.ms/azureloadbalancerstandard)을 만드는 단계를 안내합니다. 표준 Load Balancer의 단일 프런트 엔드 IP 주소는 기본적으로 영역 중복입니다.
+이 문서에서는 공용 IP 표준 주소를 사용하여 영역 중복 프런트 엔드로 공용 [표준 Load Balancer](https://aka.ms/azureloadbalancerstandard)를 만드는 단계를 안내합니다. 표준 Load Balancer의 단일 프런트 엔드 IP 주소는 기본적으로 영역 중복입니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

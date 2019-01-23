@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: f2a1cd79a99e16460c96d28ebeb0a2bd68975361
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 91813e31c6237cf47a744a4290e3e2d7736195f0
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794246"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322098"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Azure Service Fabric의 정기 백업 구성 이해
 
@@ -45,7 +45,7 @@ Reliable Stateful 서비스 또는 Reliable Actors에 대한 주기적인 백업
 
 * **백업 일정**: 정기적인 백업을 수행할 시간 또는 빈도입니다. 지정된 간격으로 되풀이되거나 매일/매주 정해진 시간에 되풀이되도록 백업을 예약할 수 있습니다.
 
-    1. **빈도 기반 백업 일정**: 고정된 간격으로 데이터를 백업해야 하는 경우 이 일정 유형을 사용해야 합니다. 연속적인 두 개의 백업 간에 원하는 간격은 ISO8601 형식을 사용하여 정의됩니다. 빈도 기반 백업 일정은 간격을 분 단위까지 지원합니다.
+    1. **빈도 기반 백업 일정**: 고정된 간격으로 데이터를 백업해야 하는 경우 이 일정 유형을 사용해야 합니다. 연속적인 두 개의 백업 간에 원하는 간격은 ISO8601 형식을 사용하여 정의됩니다. 빈도 기반 백업 일정은 간격을 분 단위로 지원합니다.
         ```json
         {
             "ScheduleKind": "FrequencyBased",

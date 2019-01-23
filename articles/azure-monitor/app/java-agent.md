@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/24/2016
+ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: c0478b320afca1b82a79fa43e7b60c29a2cb2e7c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: dbca662f38f13833a4b9e642a4d8f690017d999a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997931"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262135"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>종속성, 예외 포착 및 Java 웹앱에서의 메서드 실행 시간 모니터링
 
@@ -34,7 +34,7 @@ ms.locfileid: "53997931"
 Java 에이전트를 사용하려면 사용자의 서버에 설치합니다. [Application Insights Java SDK][java]를 사용하여 웹앱을 계측해야 합니다. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Java용 Application Insights 에이전트 설치
-1. Java 서버를 실행 중인 컴퓨터에서 [에이전트를 다운로드](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)합니다. Application Insights Java SDK 코어 및 웹 패키지와 동일한 버전의 Java Agent 다운로드를 확인하십시오.
+1. Java 서버를 실행 중인 컴퓨터에서 [에이전트를 다운로드](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)합니다. Application Insights Java SDK 코어 및 웹 패키지와 동일한 버전의 Java Agent 다운로드를 확인하세요.
 2. 애플리케이션 서버 시작 스크립트를 편집하여 다음 JVM을 추가합니다.
    
     `javaagent:`*에이전트 JAR 파일에 대한 전체 경로*
@@ -89,6 +89,32 @@ xml 파일의 내용을 설정합니다. 다음 예제를 편집하여 원하는
 개별 메서드에 대한 메서드 타이밍과 예외를 보고할 수 있도록 설정해야 합니다.
 
 기본적으로 `reportExecutionTime`은 true이고 `reportCaughtExceptions`는 false입니다.
+
+### <a name="spring-boot-agent-additional-config"></a>Spring Boot 에이전트 추가 구성
+
+`java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
+
+> [!NOTE]
+> AI-Agent.xml 및 에이전트 jar 파일은 동일한 폴더에 있어야 합니다. 종종 프로젝트의 `/resources` 폴더에 함께 배치됩니다. 
+
+#### <a name="enable-w3c-distributed-tracing"></a>W3C 분산 추적 사용
+
+AI-Agent.xml에 다음을 추가합니다.
+
+```xml
+<Instrumentation>
+        <BuiltIn enabled="true">
+            <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
+        </BuiltIn>
+    </Instrumentation>
+```
+
+> [!NOTE]
+> 이전 버전과의 호환성 모드는 기본적으로 사용하도록 설정되어 있으며 enableW3CBackCompat 매개 변수는 선택 사항이므로, 해제하려는 경우에만 사용해야 합니다. 
+
+이상적으로는 모든 서비스 W3C 프로토콜을 지원하는 최신 버전의 SDK로 업데이트된 경우입니다. 가능한 한 빨리 W3C를 지원하는 최신 버전의 SDK로 전환하는 것이 좋습니다.
+
+**[수신](correlation.md#w3c-distributed-tracing) 및 발신(에이전트) 구성이 둘 다 정확히 동일**한지 확인합니다.
 
 ## <a name="view-the-data"></a>데이터 보기
 Application Insights 리소스에서 원격 종속성과 메서드 실행 시간의 합계는 [성능 타일 아래][metrics]에 나타납니다.

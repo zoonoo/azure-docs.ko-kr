@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7251ec6e20dcbc9169c2dab2247386ff500760e7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 01df34025c0389a4ea8bcd5eceaa29f0351df5f7
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033879"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329708"
 documentType: LandingData
 title: Azure SQL Database Managed Instance
 metadata:
@@ -132,7 +132,7 @@ sections:
     items:
     - html: <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">하드웨어 특징 및 제한</a> 사항과 <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">Transact-SQL 언어 차이</a>에 대해 알아봅니다.
     - html: Managed Instance가 배포될 Azure VNet을 <a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">구성합니다</a>.
-    - html: 기존 Azure VNet을 Managed Instances를 배포하는 데 사용할 수 있는지 <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration.md#modify-an-existing-virtual-network-for-managed-instances">유효성을 검사합니다</a>.
+    - html: 기존 Azure VNet을 Managed Instances를 배포하는 데 사용할 수 있는지 <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">유효성을 검사합니다</a>.
     - html: <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/21/the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Azure Virtual Machine</a> 또는 <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">지점 및 사이트 간 연결</a> 또는 <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">애플리케이션</a>을 사용하여 사용자 인스턴스에 연결합니다.
     - html: <a href="https://www.microsoft.com/download/details.aspx?id=53595">데이터 마이그레이션 도우미</a> 또는 <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">데이터베이스 실험 도우미</a>를 사용하여 데이터베이스를 마이그레이션할 수 있는지 확인합니다.
     - html: <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">네이티브 복원</a> 또는 <a href="/azure/dms/tutorial-sql-server-managed-instance-online">데이터 마이그레이션 서비스</a>를 사용하여 Managed Instance로 데이터베이스를 가져옵니다.

@@ -1,27 +1,8 @@
 ---
-title: 데이터 평가 - Azure Machine Learning Studio | Microsoft Docs
-description: 데이터 과학에 사용할 수 있는 데이터가 충족해야 하는 4가지 기준입니다. 이 비디오에는 기본 데이터 평가에 도움이 되는 몇 가지 구체적인 예제가 있습니다.
-keywords: 관련 데이터,데이터 평가,데이터 준비,데이터 기준,데이터 준비
-services: machine-learning
-documentationcenter: na
-author: garyericson
-ms.custom: seodec18
-ms.author: garye
-editor: cjgronlund
-ms.assetid: d502062c-da70-4b21-9054-0bfd9902612e
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/03/2018
-ms.openlocfilehash: 2a9101ed510c617df81f422aea92ca1ef2b28cd8
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261231"
+제목: 데이터 평가 titleSuffix: Azure Machine Learning Studio 설명: 데이터 과학에 사용할 수 있는 데이터가 충족해야 하는 4가지 기준입니다. 이 비디오에는 기본 데이터 평가에 도움이 되는 몇 가지 구체적인 예제가 있습니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 01/03/2018
 ---
 # <a name="is-your-data-ready-for-data-science"></a>데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
 ## <a name="video-2-data-science-for-beginners-series"></a>비디오 2: 초급자를 위한 데이터 과학 시리즈

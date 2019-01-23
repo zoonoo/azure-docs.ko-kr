@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: a9f5f22cbd6e7cb39e1abb2ef712ffcfc27f55a4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 908b7e40c0509d7034b86985ac0775635726a6b9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406146"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329806"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Azure와 Cloud Foundry 통합
 
 [Cloud Foundry](https://docs.cloudfoundry.org/)는 클라우드 공급자의 IaaS 플랫폼에서 실행되는 PaaS 플랫폼입니다. 클라우드 공급자 간에 일관된 애플리케이션 배포 환경을 제공합니다. 또한 엔터프라이즈급 HA, 확장성 및 비용 절감을 겸비한 다양한 Azure 서비스와 통합할 수도 있습니다.
-[6개 하위 시스템의 Cloud Foundry](https://docs.cloudfoundry.org/concepts/architecture/)는 라우팅, 인증, 응용 프로그램 수명 주기 관리, 서비스 관리, 메시징 및 모니터링을 비롯하여 온라인으로 유연하게 크기를 조정할 수 있습니다. 각 하위 시스템의 경우 해당하는 Azure 서비스를 활용하도록 Cloud Foundry를 구성할 수 있습니다. 
+온라인으로 유연하게 확장될 수 있는 [Cloud Foundry의 하위 시스템](https://docs.cloudfoundry.org/concepts/architecture/)은 모두 6가지로, 라우팅, 인증, 애플리케이션 수명 주기 관리, 서비스 관리, 메시징 및 모니터링입니다. 각 하위 시스템의 경우 해당하는 Azure 서비스를 활용하도록 Cloud Foundry를 구성할 수 있습니다. 
 
 ![Azure 통합 아키텍처의 Cloud Foundry](media/CFOnAzureEcosystem-colored.png)
 
@@ -43,7 +43,7 @@ Azure 가용성 영역이 VM 집합을 2개 이상의 데이터 센터에 배치
 ## <a name="2-network-routing"></a>2. 네트워크 라우팅
 기본적으로 Azure 기본 부하 분산 장치는 들어오는 CF API/앱 요청에 사용되어 Gorouters에 전달합니다. Diego Brain, MySQL, ERT와 같은 CF는 부하 분산 장치를 사용하여 HA를 위해 트래픽을 분산할 수도 있습니다. 또한 Azure는 완전히 관리되는 부하 분산 솔루션 집합을 제공합니다. TLS 종료("SSL 오프로드") 또는 HTTP/HTTPS 요청별 애플리케이션 계층 처리를 확인하려는 경우 Application Gateway를 사용하세요. 계층 4에 대한 고가용성 및 확장성 부하 분산은 표준 부하 분산 장치를 사용하세요.
 ### <a name="azure-application-gateway-"></a>Azure Application Gateway *
-[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)에서는 SSL 오프로딩, 종단 간 SSL, 웹 응용 프로그램 방화벽, 쿠키 기반 세션 선호도 등을 비롯한 다양한 계층 7 부하 분산 기능을 제공합니다. [오픈 소스 Cloud Foundry에서 Application Gateway를 구성](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gateway)할 수 있습니다. PCF의 경우 POC 테스트에 대한 [PCF 2.1 릴리스 정보](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway)를 확인합니다.
+[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)에서는 SSL 오프로딩, 종단 간 SSL, 웹 애플리케이션 방화벽, 쿠키 기반 세션 선호도 등을 비롯한 다양한 계층 7 부하 분산 기능을 제공합니다. [오픈 소스 Cloud Foundry에서 Application Gateway를 구성](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gateway)할 수 있습니다. PCF의 경우 POC 테스트에 대한 [PCF 2.1 릴리스 정보](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway)를 확인합니다.
 
 ### <a name="azure-standard-load-balancer-"></a>Azure 표준 Load Balancer *
 Azure Load Balancer는 계층 4 부하 분산 장치입니다. 부하 분산 집합에 있는 서비스의 인스턴스 간에 트래픽을 분산하기 위해 사용됩니다. 표준 버전에서는 기본 버전을 기반으로 [고급 기능](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)을 제공합니다. 예: 1 백 엔드 풀 최대 한도는 100대에서 1000대 VM으로 증가되었습니다.  2. 이제 엔드포인트는 단일 가용성 집합 대신 여러 가용성 집합을 지원합니다.  3. HA 포트, 다양한 모니터링 데이터와 같은 추가 기능입니다. Azure 가용성 영역으로 이동하는 경우 표준 부하 분산 장치가 필요합니다. 새 배포에서 Azure 표준 Load Balancer를 시작하는 것이 좋습니다. 

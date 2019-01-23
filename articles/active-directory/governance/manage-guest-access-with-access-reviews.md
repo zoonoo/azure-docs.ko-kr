@@ -15,12 +15,12 @@ ms.component: compliance
 ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: d3cc5f5a7642ba827a46ab5cbc2b0da2cda38731
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 4d1a9696587ae128b35970414c6c8753179c3f81
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385128"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332577"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 게스트 액세스 관리
 
@@ -43,11 +43,11 @@ Azure AD(Azure Active Directory)를 사용하면 [Azure AD B2B 기능](../b2b/wh
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>게스트에 대한 액세스 검토 만들기 및 수행
 
-먼저 검토자의 액세스 패널에 표시되도록 액세스 검토를 활성화합니다. 전역 관리자 또는 사용자 계정 관리자로서 [액세스 검토 페이지](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)로 이동합니다. 
+먼저 전역 관리자 또는 사용자 계정 관리자 권한으로 [액세스 검토 페이지](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)로 이동하여 조직의 액세스 검토를 준비합니다. 
 
 Azure AD는 게스트 사용자를 검토하기 위한 몇 가지 시나리오를 지원합니다.
 
-다음 중 하나를 선택합니다.
+다음 중 하나를 검토할 수 있습니다.
 
  - Azure AD에서 하나 이상의 게스트 구성원이 있는 그룹
  - Azure AD에 연결되어 한 명 이상의 게스트 사용자가 할당된 애플리케이션 
@@ -86,7 +86,7 @@ Azure AD는 게스트 사용자를 검토하기 위한 몇 가지 시나리오�
 
 1. 애플리케이션에 대한 액세스 검토를 시작하려면 게스트만 포함하도록 검토를 선택하고, 해당 사용자가 자신의 액세스를 검토하도록 합니다. 자세한 내용은 [액세스 검토 만들기](create-access-review.md)를 참조하세요.
 
-2. 각 게스트에게 애플리케이션에 대한 자신의 액세스를 검토하도록 요청 기본적으로 초대를 수락한 각 게스트는 Azure AD에서 조직의 액세스 패널에 있는 액세스 검토에 대한 링크가 포함된 전자 메일을 받게 됩니다. Azure AD에는 게스트에게 [자신의 액세스를 검토하는 방법](perform-access-review.md)에 대한 지침을 제공합니다.
+2. 각 게스트에게 애플리케이션에 대한 자신의 액세스를 검토하도록 요청 기본적으로 초대를 수락한 각 게스트는 Azure AD에서 이메일을 받게 됩니다. 이 이메일에는 조직의 액세스 패널의 액세스 검토로 연결되는 링크가 포함되어 있습니다. Azure AD에는 게스트에게 [자신의 액세스를 검토하는 방법](perform-access-review.md)에 대한 지침을 제공합니다.
 
 3. 검토자가 입력을 제공하면 액세스 검토를 중지하고 변경 내용을 적용합니다. 자세한 내용은 [액세스 검토 완료](complete-access-review.md)를 참조하세요.
 
@@ -109,7 +109,7 @@ Azure AD는 게스트 사용자를 검토하기 위한 몇 가지 시나리오�
 > [!NOTE]
 > 이전 버전의 Azure Portal은 UserType이 Guest인 사용자의 관리 액세스를 허용하지 않았습니다. 경우에 따라 디렉터리의 관리자가 PowerShell을 사용하여 게스트의 UserType 값을 Member로 변경했을 수 있습니다. 이전에 이러한 변경 사항이 디렉터리에서 발생한 경우, 이전에 관리자 액세스 권한이 있던 모든 게스트 사용자가 이전 쿼리에 포함되지 않을 수도 있습니다. 이 경우 게스트의 UserType을 변경하거나 그룹 구성원 자격에 해당 게스트를 수동으로 포함해야 합니다.
 
-1. 적합한 그룹이 아직 없는 경우 Azure AD에 해당 게스트를 구성원으로 하는 보안 그룹을 만듭니다. 예를 들어 수동으로 유지 관리되는 게스트의 구성원 자격으로 그룹을 만들 수 있습니다. 또는 UserType 특성 값이 Guest인 Contoso 테넌트의 사용자에 대해 "Contoso 게스트"와 같은 이름으로 동적 그룹을 만들 수도 있습니다.  효율성을 위해 그룹이 영구적인 게스트인지 확인합니다. 검토할 필요가 없는 사용자가 있는 그룹은 선택하지 마십시오.
+1. 적합한 그룹이 아직 없는 경우 Azure AD에 해당 게스트를 구성원으로 하는 보안 그룹을 만듭니다. 예를 들어 수동으로 유지 관리되는 게스트의 구성원 자격으로 그룹을 만들 수 있습니다. 또는 UserType 특성 값이 Guest인 Contoso 테넌트의 사용자에 대해 "Contoso 게스트"와 같은 이름으로 동적 그룹을 만들 수도 있습니다.  효율성을 위해 그룹이 주요 게스트인지 확인합니다. 멤버 사용자는 검토할 필요가 없으므로 멤버 사용자가 있는 그룹은 선택하지 않도록 합니다.  또한 그룹의 멤버인 게스트 사용자는 그룹의 다른 멤버를 볼 수 있습니다.
 
 2. 해당 그룹에 대한 액세스 검토를 시작하려면 검토자가 직접 구성원이 되도록 선택합니다. 자세한 내용은 [액세스 검토 만들기](create-access-review.md)를 참조하세요.
 
@@ -121,7 +121,7 @@ Azure AD는 게스트 사용자를 검토하기 위한 몇 가지 시나리오�
 
 ## <a name="next-steps"></a>다음 단계
 
-[그룹의 멤버 또는 응용 프로그램에 액세스에 대한 액세스 검토 만들기](create-access-review.md)
+[그룹의 멤버 또는 애플리케이션에 액세스에 대한 액세스 검토 만들기](create-access-review.md)
 
 
 

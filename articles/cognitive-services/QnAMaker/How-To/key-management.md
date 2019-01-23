@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 3984ac84271728b9066aba15a582065ea3121c76
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 2b199e10b1a70bc44065d422d32acd3bea182721
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581762"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302054"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>QnA Maker에서 키를 관리하는 방법
 
@@ -42,7 +42,7 @@ QnA Maker 리소스를 만든 Azure Portal에서 구독 키를 보고 다시 설
 
 엔드포인트 키는 [QnA Maker 포털](https://qnamaker.ai)에서 관리할 수 있습니다.
 
-1. [QnA Maker 포털](https://qnamaker.ai)에 로그인하고 **서비스 설정**으로 이동합니다.
+1. [QnA Maker 포털](https://qnamaker.ai)에 로그인하고 프로필로 이동한 후 **서비스 설정**을 클릭합니다.
 
     ![엔드포인트 키](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 

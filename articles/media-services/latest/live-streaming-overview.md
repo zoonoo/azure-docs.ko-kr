@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/26/2018
+ms.date: 01/15/2019
 ms.author: juliako
-ms.openlocfilehash: 3a2b3752926a3a4391ae9479ba636694533c97a8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 91e24fb274c1f9895046e8e2e7d760d02d196ccd
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788211"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354181"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
@@ -29,6 +29,22 @@ Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라�
 - Media Services의 구성 요소. 이러한 구성 요소를 사용하여 라이브 이벤트를 수집, 미리 보기, 패키지화, 기록, 암호화할 수 있으며 고객 또는 CDN(추가 배포를 위해)에 브로드캐스트할 수 있습니다.
 
 이 문서에서는 Media Services의 라이브 스트리밍과 관련된 기본 구성 요소의 다이어그램과 자세한 개요 및 지침을 제공합니다.
+
+## <a name="live-streaming-workflow"></a>라이브 스트리밍 워크플로
+
+라이브 스트리밍 워크플로의 단계는 다음과 같습니다.
+
+1. **라이브 이벤트**를 만듭니다.
+2. 새 **자산** 개체를 만듭니다.
+3. **라이브 출력**을 만들고 만든 자산 이름을 사용합니다.
+4. DRM을 사용하여 콘텐츠를 암호화하려는 경우 **스트리밍 정책** 및 **콘텐츠 키**를 만듭니다.
+5. DRM을 사용하지 않는 경우에는 **스트리밍 정책** 유형이 기본 제공된 **스트리밍 로케이터**를 만듭니다.
+6. **스트리밍 정책**의 경로를 나열하여 사용할 URL(이 URL은 결정적임)을 다시 가져옵니다.
+7. 스트리밍을 내보낼 **스트리밍 엔드포인트**의 호스트 이름을 가져옵니다(스트리밍 엔드포인트가 실행되고 있는지 확인). 
+8. 6단계의 URL을 7단계의 호스트 이름과 결합하여 전체 URL을 구합니다.
+9. **라이브 이벤트**를 더 이상 표시하지 않으려면 **스트리밍 로케이터**를 삭제하여 이벤트 스트리밍을 중지해야 합니다.
+
+자세한 내용은 라이브 [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) 샘플을 기반으로 하는 [라이브 스트리밍 자습서](stream-live-tutorial-with-api.md)를 참조하세요.
 
 ## <a name="overview-of-main-components"></a>미디어 구성 요소 개요
 
@@ -89,9 +105,10 @@ H.264/AVC 비디오 코덱과 AAC(AAC-LC, HE-AACv1 또는 HE-AACv2) 오디오 �
 
 [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs)을 통해 기록되는 스트림 양(예: 클라우드 DVR의 용량), 시청자가 라이브 스트림을 보기 시작할 수 있는지 여부 등, 보내는 라이브 스트림의 속성을 제어할 수 있습니다. **LiveEvent**와 **LiveOutput** 간 관계는 채널(**LiveEvent**)이 일정한 비디오 스트림을 나타내고 기록(**LiveOutput**)이 특정 시간 구간으로 한정(예: 오후 6시 30분부터 7시까지 저녁 뉴스)된다는 점에서 기존 TV 방송과 유사합니다. 디지털 비디오 레코더(DVR)를 사용하여 TV를 기록할 수 있으며, LiveEvent에서는 이와 동등한 기능이 ArchiveWindowLength 속성을 통해 관리됩니다. 이 속성은 DVR의 용량을 지정하는 ISO-8601 타임스팬 기간(예: PTHH:MM:SS)이며, 최소 3분에서 최대 25시간까지 설정할 수 있습니다.
 
-
 > [!NOTE]
-> **LiveOutput**은 생성 시 시작하고 삭제되면 중지합니다. **LiveOutput**을 삭제할 경우 기본 **자산**과 자산의 콘텐츠는 삭제되지 않습니다.  
+> **LiveOutput**은 생성 시 시작하고 삭제되면 중지합니다. **LiveOutput**을 삭제해도 기본 **자산**과 자산의 콘텐츠는 삭제되지 않습니다. 
+>
+> **LiveOutput**용으로 자산에 **스트리밍 로케이터**를 게시한 경우 **스트리밍 로케이터**의 종료 시간이나 또는 로케이터를 삭제하는 시점까지(둘 중 먼저 도래하는 시간) DVR 기간 동안 발생한 이벤트를 계속 확인할 수 있습니다.   
 
 자세한 내용은 [클라우드 DVR 사용](live-event-cloud-dvr.md)을 참조하세요.
 
@@ -110,21 +127,6 @@ LiveEvent는 상태가 **실행 중**으로 전환되면 그 즉시 청구되기
 ## <a name="latency"></a>대기 시간
 
 LiveEvents 대기 시간에 대한 자세한 내용은 [대기 시간](live-event-latency.md)을 참조하세요.
-
-## <a name="live-streaming-workflow"></a>라이브 스트리밍 워크플로
-
-라이브 스트리밍 워크플로의 단계는 다음과 같습니다.
-
-1. LiveEvent를 만듭니다.
-2. 새 자산 개체를 만듭니다.
-3. LiveOutput을 만들고 만든 자산 이름을 사용합니다.
-4. DRM을 사용하여 콘텐츠를 암호화하려는 경우 스트리밍 정책 및 콘텐츠 키를 만듭니다.
-5. DRM을 사용하지 않는 경우에는 스트리밍 정책 유형이 내장된 스트리밍 로케이터를 만듭니다.
-6. 스트리밍 정책의 경로를 나열하여 사용할 URL(이 URL은 결정적임)을 다시 가져옵니다.
-7. 스트리밍을 내보낼 스트리밍 엔드포인트의 호스트 이름을 가져옵니다. 
-8. 6단계의 URL을 7단계의 호스트 이름과 결합하여 전체 URL을 구합니다.
-
-자세한 내용은 라이브 [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) 샘플을 기반으로 하는 [라이브 스트리밍 자습서](stream-live-tutorial-with-api.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
