@@ -29,12 +29,12 @@ Azure AD가 필요한 대상은 다음과 같습니다.
 
 - **IT 관리자.** IT 관리자는 Azure AD를 사용하여 비즈니스 요구 사항에 따라 앱 및 앱 리소스에 대한 액세스를 제어할 수 있습니다. 예를 들어 Azure AD를 사용하여 중요한 조직 리소스에 액세스할 때에는 다단계 인증을 요구할 수 있습니다. 또한 Azure AD를 사용하여 기존 Windows Server AD와 Office 365를 비롯한 클라우드 앱 간에 사용자 프로비전을 자동화할 수 있습니다. 마지막으로, Azure AD는 자동으로 사용자 ID 및 자격 증명을 보호하고 액세스 거버넌스 요구 사항을 충족하는 강력한 도구를 제공합니다. 시작하려면 [30일 Azure Active Directory Premium 평가판](https://azure.microsoft.com/trial/get-started-active-directory/)에 등록하세요.
 
-- **앱 개발자.** Azure AD는 앱에 SSO(Single Sign-On)를 추가하여 사용자의 기존 자격 증명과 함께 사용할 수 있는 표준 기반 접근 방식을 앱 개발자에게 제공합니다. Azure AD는 조직의 기존 데이터를 활용하여 개인화된 앱 환경을 구축할 수 있는 API도 제공합니다. 시작하려면 [30일 Azure Active Directory Premium 평가판](https://azure.microsoft.com/trial/get-started-active-directory/)에 등록하세요. 자세한 내용은 [개발자용 Azure Active Directory](../develop/index.yml)를 참조하세요.
+- **앱 개발자.** Azure AD는 앱에 SSO(Single Sign-On)를 추가하여 사용자의 기존 자격 증명과 함께 사용할 수 있는 표준 기반 접근 방식을 앱 개발자에게 제공합니다. Azure AD는 조직의 기존 데이터를 활용하여 개인 설정된 앱 환경을 빌드할 수 있는 API도 제공합니다. 시작하려면 [30일 Azure Active Directory Premium 평가판](https://azure.microsoft.com/trial/get-started-active-directory/)에 등록하세요. 자세한 내용은 [개발자용 Azure Active Directory](../develop/index.yml)를 참조하세요.
 
 - **Microsoft 365, Office 365, Azure 또는 Dynamics CRM Online 구독.** 여러분은 구독자로서 이미 Azure AD를 사용하고 있습니다. 각 Microsoft 365, Office 365, Azure 및 Dynamics CRM Online 테넌트는 자동으로 Azure AD 테넌트입니다. 통합 클라우드 앱에 대한 액세스를 즉시 관리할 수 있습니다.
 
 ## <a name="what-are-the-azure-ad-licenses"></a>Azure AD 라이선스란?
-Office 365 또는 Microsoft Azure 같은 Microsoft 온라인 비즈니스 서비스는 로그인 및 ID 보호를 위해 Azure AD가 필요합니다. 따라서 Microsoft Online 비즈니스 서비스를 구독하는 경우 모든 무료 기능을 사용할 수 있는 Azure AD가 자동으로 제공됩니다.
+Office 365 또는 Microsoft Azure 같은 Microsoft Online 비즈니스 서비스는 로그인 및 ID 보호를 위해 Azure AD가 필요합니다. 따라서 Microsoft Online 비즈니스 서비스를 구독하는 경우 모든 무료 기능을 사용할 수 있는 Azure AD가 자동으로 제공됩니다.
 
 Azure AD 구현을 향상하기 위해 Azure Active Directory Basic, Premium P1 또는 Premium P2 라이선스로 업그레이드하여 유료 기능을 추가할 수도 있습니다. Azure AD 유료 라이선스는 기존 무료 디렉터리 위에 구축되어 이동하며 일하는 직원에게 셀프 서비스, 향상된 모니터링, 보안 보고 및 보안 액세스를 제공합니다.
 
