@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: a9e46bdb97899957f09a847f0fef03a6fec5dc6a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452907"
+---
 # 개요
 ## [시작](get-started.md)
 ## [인증서](sap-certifications.md)
@@ -68,7 +76,6 @@
 ### [Azure 지역 간 Azure의 SAP HANA 가용성](sap-hana-availability-across-regions.md)
 ## [Azure Virtual Machines의 SAP Business One](business-one-azure.md)
 ## [Windows/SQL Server SAP CAL 배포 가이드에 SAP IDES](cal-ides-erp6-erp7-sp3-sql.md)
-## [Azure Linux VM의 SAP NetWeaver](suse-quickstart.md)
 ## [Azure용 SAP LaMa 커넥터](lama-installation.md)
 ## Windows 및 Linux의 HA(고가용성)
 ### [개요](sap-high-availability-guide-start.md)

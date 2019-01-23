@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 1/14/2019
 ms.author: mabrigg
-ms.openlocfilehash: 072702b323a41e4c4c51edc7054ad41591dde4d7
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 6d202ab9e2f6a8e96eb494d3d93caf66624f8364
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303534"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465202"
 ---
 # <a name="view-public-ip-address-consumption-in-azure-stack"></a>Azure Stack에서 공용 IP 주소 사용 보기
 
@@ -36,6 +36,7 @@ ms.locfileid: "54303534"
 합니다 **공용 IP 주소** 아래에서 메뉴 항목 **테 넌 트 리소스** 만 해당 공용 IP 주소 나열 된 *명시적으로 만든 테 넌 트에서*합니다. 메뉴 항목을 찾을 수 있습니다는 **리소스 공급자**하십시오 **네트워크** 창입니다. 수가 **사용** 에서 공용 IP 주소를 **공용 IP 풀 사용량** 타일 (보다 더 큼)와 항상 다릅니다.에서 숫자를 **공용 IP 주소** 타일 **리소스를 테 넌 트**합니다.
 
 ## <a name="view-the-public-ip-address-usage-information"></a>공용 IP 주소 사용 정보를 보려면
+
 총 지역에 소비한 공용 IP 주소를 보려면:
 
 1. Azure Stack 관리자 포털에서 선택 **모든 서비스**합니다. 그런 다음 합니다 **관리** 범주 선택 **네트워크**합니다.
@@ -46,6 +47,7 @@ ms.locfileid: "54303534"
 합니다 **사용** 번호는 공용 IP 주소 풀에서 할당 된 공용 IP 주소 수를 나타냅니다. 합니다 **무료** 주소 할당 되지 않은 한 계속 사용할 수 있는 풀 번호에서 공용 IP 주소를 공용 IP의 수를 나타냅니다. 합니다 **% 사용** 사용 하거나 해당 위치에 공용 IP 주소 풀에서 공용 IP 주소의 총 비율로 할당 된 주소가 수 수를 나타냅니다.
 
 ## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>테 넌 트 구독에 의해 생성 된 공용 IP 주소를 보려면
+
 선택 **공용 IP 주소** 아래에서 **테 넌 트 리소스**합니다. 특정 지역의 테 넌 트 구독을 명시적으로 만든 공용 IP 주소의 목록을 검토 합니다.
 
 ![테 넌 트 공용 IP 주소](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
@@ -55,6 +57,7 @@ ms.locfileid: "54303534"
 네트워크 컨트롤러 인터페이스, 네트워크 인터페이스 카드 (NIC), 부하 분산 장치 또는 가상 네트워크 게이트웨이 바인딩할 때까지 리소스에 주소를 할당 하지 않습니다. 공용 IP 주소를 인터페이스에 바인딩할 때 네트워크 컨트롤러 IP 주소를 할당 합니다. 주소에 표시 된 **주소** 필드입니다.
 
 ## <a name="view-the-public-ip-address-information-summary-table"></a>공용 IP 주소 정보 요약 테이블을 보려면
+
 다른 경우에 공용 ip 주소를 하나의 목록에 표시할지 여부를 결정 하는 할당 됩니다.
 
 | **공용 IP 주소 할당 사례** | **사용량 요약에 표시 됩니다.** | **테 넌 트 공용 IP 주소 목록에 표시 됩니다.** |
@@ -66,4 +69,5 @@ ms.locfileid: "54303534"
 | 공용 IP 주소 IaaS VM 인스턴스에 대 한 암시적으로 만들고 가상 네트워크에서 아웃 바운드 NAT에 대 한 사용 합니다. 이러한 값은 테 넌 트 Vm을 인터넷에 정보를 보낼 수 있도록 VM 인스턴스를 만들 때마다 백그라운드에서 생성 됩니다. |예 |아닙니다. |
 
 ## <a name="next-steps"></a>다음 단계
+
 [Azure Stack의 Storage 계정 관리](azure-stack-manage-storage-accounts.md)

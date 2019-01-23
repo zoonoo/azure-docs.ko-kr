@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 1/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 170cf458496d91a28260296e2aba803d76fbc06b
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 90910580fd7fc766376569de3ce43fc5ce297e8b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388824"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469205"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack에서 크기 조정 단위 노드 작업
 
@@ -148,9 +148,25 @@ Azure Stack PowerShell 모듈을 설치 해야 합니다. 이러한 cmdlet에는
 
 복구 작업을 실행 하려면 관리자 권한 PowerShell 프롬프트를 열고 다음 cmdlet을 실행 합니다.
 
-  ````PowerShell
+  ```PowerShell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
-  ````
+  ```
+
+## <a name="shutdown"></a>Shutdown
+
+합니다 **종료** 작업 첫 번째 동일한 배율 단위의 나머지 노드로 모든 활성 워크 로드를 이동 합니다. 다음 동작 확장 단위 노드를 정상적으로 종료합니다.
+
+실행 해야 하는 종료 된 노드를 시작 합니다 [다시 시작](#resume) 작업 합니다. 노드에서 실행 중이 던 이전 워크 로드가 장애 복구 수행 합니다.
+
+종료 작업이 실패 하면 합니다 [드레이닝](#drain) 종료 작업 뒤에 작업 합니다.
+
+종료 작업을 실행 하려면 관리자 권한 PowerShell 프롬프트를 열고 다음 cmdlet을 실행 합니다.
+
+  ```PowerShell
+  Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
+  ```
+
+
 
 ## <a name="next-steps"></a>다음 단계
 
