@@ -1,147 +1,142 @@
-items:
 - name: Azure IoT 기본 사항
   href: /azure/iot-fundamentals
 - name: Azure IoT Central 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: Azure IoT Central이란?
-    href: overview-iot-central.md
-  - name: IoT 솔루션 옵션
-    href: overview-iot-options.md
-  - name: UI 둘러보기
-    href: overview-iot-central-tour.md
+    - name: Azure IoT Central이란?
+      href: overview-iot-central.md
+    - name: IoT 솔루션 옵션
+      href: overview-iot-options.md
+    - name: UI 둘러보기
+      href: overview-iot-central-tour.md
 - name: 빠른 시작
-  items:
-  - name: 새 애플리케이션 만들기
-    href: quick-deploy-iot-central.md
   expanded: true
+  items:
+    - name: 새 애플리케이션 만들기
+      href: quick-deploy-iot-central.md
 - name: 자습서
   items:
-  - name: 1 - 새 디바이스 유형 정의
-    href: tutorial-define-device-type.md
-  - name: 2 - 규칙 구성
-    href: tutorial-configure-rules.md
-  - name: 3 - 연산자의 뷰 사용자 지정.
-    href: tutorial-customize-operator.md
-  - name: 4 - 디바이스 모니터링
-    href: tutorial-monitor-devices.md
-  - name: 5 - 디바이스 추가
-    href: tutorial-add-device.md
+    - name: 1 - 새 디바이스 유형 정의
+      href: tutorial-define-device-type.md
+    - name: 2 - 규칙 구성
+      href: tutorial-configure-rules.md
+    - name: 3 - 연산자의 뷰 사용자 지정.
+      href: tutorial-customize-operator.md
+    - name: 4 - 디바이스 모니터링
+      href: tutorial-monitor-devices.md
+    - name: 5 - 디바이스 추가
+      href: tutorial-add-device.md
 - name: 개념
   items:
-  - name: 아키텍처
-    href: concepts-architecture.md
-  - name: 연결
-    href: concepts-connectivity.md
+    - name: 아키텍처
+      href: concepts-architecture.md
+    - name: 연결
+      href: concepts-connectivity.md
 - name: 방법 가이드
   items:
-  - name: 디바이스 연결
-    items:
-    - name: Node.js(일반) 애플리케이션 준비 및 연결
-      href: howto-connect-nodejs.md
-    - name: MXChip IoT DevKit 준비 및 연결
-      href: howto-connect-devkit.md
-    - name: Raspberry Pi(Python) 준비 및 연결
-      href: howto-connect-raspberry-pi-python.md
-    - name: Raspberry Pi(C#) 준비 및 연결
-      href: howto-connect-raspberry-pi-csharp.md
-    - name: Windows IoT Core 디바이스 준비 및 연결
-      href: howto-connect-windowsiotcore.md
-    - name: 명령줄을 사용하여 디바이스 연결 모니터링
-      href: howto-use-iotc-explorer.md
-  - name: 디바이스 관리
-    items:
-    - name: 디바이스 템플릿 설정
-      href: howto-set-up-template.md
-    - name: 디바이스 관리
-      href: howto-manage-devices.md
-    - name: 작업 실행
-      href: howto-run-a-job.md
-    - name: 디바이스 설정 사용
-      href: howto-use-device-sets.md
-    - name: 버전 디바이스 템플릿
-      href: howto-version-devicetemplate.md
-  - name: 모니터링 및 분석
-    items:
-    - name: 원격 분석 규칙 만들기
-      href: howto-create-telemetry-rules.md
-    - name: 이벤트 규칙 만들기
-      href: howto-create-event-rules.md
-    - name: 디바이스 데이터 분석
-      href: howto-create-analytics.md
-  - name: 작업 및 확장성
-    items:
-    - name: 규칙에 웹후크 작업 만들기
-      href: howto-create-webhooks.md
-    - name: Microsoft Flow에서 워크플로 빌드
-      href: howto-add-microsoft-flow.md
-    - name: Azure Functions 트리거
-      href: howto-trigger-azure-functions.md
-    - name: 데이터 내보내기
-      href: howto-export-data.md
+    - name: 디바이스 연결
       items:
-      - name: Event Hubs 및 Service Bus 내보내기
-        href: howto-export-data-event-hubs-service-bus.md
-      - name: Blob Storage 살펴보기
-        href: howto-export-data-blob-storage.md
-    - name: Power BI에서 데이터 시각화
-      href: howto-connect-powerbi.md
-    - name: 다른 IoT 클라우드 연결
-      href: howto-build-iotc-device-bridge.md
-  - name: 관리
-    items:
-    - name: 애플리케이션 관리
-      href: howto-administer.md
-    - name: 이미지 준비 및 업로드
-      href: howto-prepare-images.md
-    - name: Azure 관리 포털에서 IoT Central 관리
-      href: howto-manage-iot-central-from-portal.md
-    - name: Azure PowerShell에서 IoT Central 관리
-      href: howto-manage-iot-central-from-powershell.md
-    - name: CSP가 애플리케이션을 만들고 관리할 때
-      href: howto-create-and-manage-applications-as-CSP.md
-    - name: 홈페이지 구성
-      href: howto-configure-homepage.md
-  - name: 개인 설정
-    items:
-    - name: 기본 설정 관리
-      href: howto-manage-preferences.md
+        - name: Node.js(일반) 애플리케이션 준비 및 연결
+          href: howto-connect-nodejs.md
+        - name: MXChip IoT DevKit 준비 및 연결
+          href: howto-connect-devkit.md
+        - name: Raspberry Pi(Python) 준비 및 연결
+          href: howto-connect-raspberry-pi-python.md
+        - name: 'Raspberry Pi(C#) 준비 및 연결'
+          href: howto-connect-raspberry-pi-csharp.md
+        - name: Windows IoT Core 디바이스 준비 및 연결
+          href: howto-connect-windowsiotcore.md
+        - name: 명령줄을 사용하여 디바이스 연결 모니터링
+          href: howto-use-iotc-explorer.md
+    - name: 디바이스 관리
+      items:
+        - name: 디바이스 템플릿 설정
+          href: howto-set-up-template.md
+        - name: 디바이스 관리
+          href: howto-manage-devices.md
+        - name: 작업 실행
+          href: howto-run-a-job.md
+        - name: 디바이스 설정 사용
+          href: howto-use-device-sets.md
+        - name: 버전 디바이스 템플릿
+          href: howto-version-devicetemplate.md
+    - name: 모니터링 및 분석
+      items:
+        - name: 원격 분석 규칙 만들기
+          href: howto-create-telemetry-rules.md
+        - name: 이벤트 규칙 만들기
+          href: howto-create-event-rules.md
+        - name: 디바이스 데이터 분석
+          href: howto-create-analytics.md
+    - name: 작업 및 확장성
+      items:
+        - name: 규칙에 웹후크 작업 만들기
+          href: howto-create-webhooks.md
+        - name: Microsoft Flow에서 워크플로 빌드
+          href: howto-add-microsoft-flow.md
+        - name: Azure Logic Apps에서 워크플로 빌드
+          href: howto-build-azure-logic-apps.md
+        - name: Azure Functions 트리거
+          href: howto-trigger-azure-functions.md
+        - name: 데이터 내보내기
+          href: howto-export-data.md
+          items:
+            - name: Event Hubs 및 Service Bus 내보내기
+              href: howto-export-data-event-hubs-service-bus.md
+            - name: Blob Storage 살펴보기
+              href: howto-export-data-blob-storage.md
+        - name: Power BI에서 데이터 시각화
+          href: howto-connect-powerbi.md
+        - name: 다른 IoT 클라우드 연결
+          href: howto-build-iotc-device-bridge.md
+    - name: 관리
+      items:
+        - name: 애플리케이션 관리
+          href: howto-administer.md
+        - name: 이미지 준비 및 업로드
+          href: howto-prepare-images.md
+        - name: Azure 관리 포털에서 IoT Central 관리
+          href: howto-manage-iot-central-from-portal.md
+        - name: Azure PowerShell에서 IoT Central 관리
+          href: howto-manage-iot-central-from-powershell.md
+        - name: CSP가 애플리케이션을 만들고 관리할 때
+          href: howto-create-and-manage-applications-as-CSP.md
+        - name: 홈페이지 구성
+          href: howto-configure-homepage.md
+    - name: 개인 설정
+      items:
+        - name: 기본 설정 관리
+          href: howto-manage-preferences.md
 - name: 관련 항목
   items:
-  - name: 솔루션
-    items:
-    - name: IoT 솔루션 가속기
-      href: /azure/iot-suite
-    - name: IoT Central
-      href: /microsoft-iot-central
-  - name: 플랫폼 서비스
-    items:
-    - name: IoT Hub
-      href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning Service
-      href: /azure/iot-dps
-    - name: 위치 기반 서비스
-      href: /azure/location-based-services
-    - name: 서비스 SDK
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: Time Series Insights
-      href: /azure/time-series-insights
-  - name: Microsoft Edge
-    items:
-    - name: IoT Edge
-      href: /azure/iot-edge
-    - name: IoT 장치 SDK
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+    - name: 솔루션
+      items:
+        - name: IoT 솔루션 가속기
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: /microsoft-iot-central
+    - name: 플랫폼 서비스
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: 위치 기반 서비스
+          href: /azure/location-based-services
+        - name: 서비스 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Microsoft Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT 장치 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: 리소스
   items:
-  - name: 고객 데이터 요청
-    href: iot-central-customer-data-requests.md
-  - name: 지원되는 브라우저
-    href: iot-central-supported-browsers.md
-ms.openlocfilehash: f25b255f441901d873e246bc7e31460b614b7c88
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354436"
+    - name: 고객 데이터 요청
+      href: iot-central-customer-data-requests.md
+    - name: 지원되는 브라우저
+      href: iot-central-supported-browsers.md

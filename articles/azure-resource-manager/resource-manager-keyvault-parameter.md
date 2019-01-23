@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 06719f3a92dae805081ea85c346df97ebed0e0dc
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: a885fda23bb76091705ebe388f40a6eae7b56416
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078073"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351512"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달
 
@@ -84,14 +84,14 @@ Add-Type -AssemblyName System.Web
 [System.Web.Security.Membership]::GeneratePassword(16,3)
 ```
 
-Resource Manager 템플릿을 사용하려면: [자습서: Resource Manager 템플릿 배포에서 Azure Key Vault 통합](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault)을 참조하세요.
+Resource Manager 템플릿 사용의 경우 단계별 지침은 [자습서: Resource Manager 템플릿 배포에 Azure Key Vault 통합](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault)을 참조하세요.
 
 > [!NOTE]
 > Azure 서비스마다 특정한 암호 요구 사항이 있습니다. 예를 들어, Azure 가상 머신 요구 사항은 [VM을 만들 때 암호 요구 사항](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)에서 확인할 수 있습니다.
 
 ## <a name="enable-access-to-the-secret"></a>비밀에 대한 액세스를 사용하도록 설정
 
-`enabledForTemplateDeployment`를 `true`로 설정하는 것 외에, 템플릿을 배포하는 사용자에게는 리소스 그룹 및 Key Vault를 포함하는 Key Vault가 있는 범위에 대한 `Microsoft.KeyVault/vaults/deploy/action` 권한이 있어야 합니다. [소유자](../role-based-access-control/built-in-roles.md#owner) 및 [참여자](../role-based-access-control/built-in-roles.md#contributor) 역할 모두 이 액세스 권한을 부여합니다. Key Vault를 만드는 경우 소유자가 되며 권한을 갖게 됩니다. Key Vault가 다른 구독에 속하는 경우 Key Vault의 소유자에게 액세스 권한을 부여해야 합니다.
+`enabledForTemplateDeployment`를 `true`로 설정하는 것 외에, 템플릿을 배포하는 사용자에게는 리소스 그룹 및 Key Vault를 포함하는 Key Vault가 있는 범위에 대한 `Microsoft.KeyVault/vaults/deploy/action` 권한이 있어야 합니다. [소유자](../role-based-access-control/built-in-roles.md#owner) 및 [참여자](../role-based-access-control/built-in-roles.md#contributor) 역할 모두 이 액세스 권한을 부여합니다. Key Vault를 만드는 경우 소유자가 되며 권한을 갖게 됩니다. Key Vault가 다른 구독에 속하는 경우 Key Vault의 소유자가 액세스 권한을 부여해야 합니다.
 
 다음 프로시저는 최소의 권한을 가진 역할을 만드는 방법과 사용자에게 할당하는 방법을 나타냅니다.
 1. 사용자 지정 역할 정의 JSON 파일 만들기
@@ -125,7 +125,7 @@ Resource Manager 템플릿을 사용하려면: [자습서: Resource Manager 템�
 
     `New-AzureRmRoleAssignment` 샘플은 리소스 그룹 수준에서 사용자에게 사용자 지정 역할을 지정합니다.  
 
-[관리되는 응용 프로그램](../managed-applications/overview.md) 템플릿과 함께 Key Vault를 사용하는 경우, **어플라이언스 리소스 공급자** 서비스 주체에 액세스를 허용해야 합니다. 자세한 내용은 [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md)(Azure Managed Applications를 배포할 때 Key Vault 비밀 액세스)를 참조하세요.
+[관리되는 애플리케이션](../managed-applications/overview.md) 템플릿과 함께 Key Vault를 사용하는 경우, **어플라이언스 리소스 공급자** 서비스 주체에 액세스를 허용해야 합니다. 자세한 내용은 [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md)(Azure Managed Applications를 배포할 때 Key Vault 비밀 액세스)를 참조하세요.
 
 ## <a name="reference-a-secret-with-static-id"></a>정적 ID로 비밀 참조
 

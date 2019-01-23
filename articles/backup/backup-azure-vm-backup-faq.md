@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: 063b13f76e2fcbe4df0b13d7e77e34718ec756d4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 31a708f3a0da76ab13e789b099f312cca1f86e08
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041291"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332254"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>질문과 대답-Azure Backup
 
@@ -30,7 +30,7 @@ ms.locfileid: "54041291"
 ## <a name="backup"></a>Backup
 
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>주문형 백업 작업은 예약된 백업과 동일한 보존 일정을 사용하나요?
- 아니요. 주문형 백업 작업의 보존 범위를 지정해야 합니다. 기본적으로 포털에서 트리거된 이후 30일 동안 유지됩니다.
+아니요. 주문형 백업 작업의 보존 범위를 지정해야 합니다. 기본적으로 포털에서 트리거된 이후 30일 동안 유지됩니다.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>최근에 일부 VM에서 Azure Disk Encryption을 사용할 수 있습니다. 내 백업이 계속 작동하나요?
 Azure Backup에 Key Vault 액세스 권한을 부여해야 합니다. [Azure Backup PowerShell](backup-azure-vms-automation.md) 설명서의 **백업 사용** 섹션에 설명된 대로 PowerShell에서 권한을 지정합니다.
@@ -54,17 +54,16 @@ Azure Backup에 Key Vault 액세스 권한을 부여해야 합니다. [Azure Bac
 - 잠금을 사용한 후 내부 오류와 함께 백업이 실패하면 [다음 단계에 따라](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) 복원 지점 컬렉션을 제거합니다.
 
 ### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>백업 정책에서 DST(일광 절약 시간)를 고려하나요?
- 아니요. 로컬 컴퓨터의 시간과 날짜는 현재 적용되는 일광 절약 시간에 로컬입니다. DST 때문에 예약된 백업에 설정이 현지 시간과 다를 수 있습니다.
+아니요. 로컬 컴퓨터의 시간과 날짜는 현재 적용되는 일광 절약 시간에 로컬입니다. DST 때문에 예약된 백업에 설정이 현지 시간과 다를 수 있습니다.
 
 ### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>Azure Backup을 통해 백업된 VM에 데이터 디스크를 몇 개까지 연결할 수 있나요?
-Azure Backup은 최대 16개 디스크가 연결된 VM을 백업할 수 있습니다. 16개 디스크 지원은 [최신 버전](backup-upgrade-to-vm-backup-stack-v2.md)의 Azure VM Backup 스택 V2에서 제공됩니다.
+Azure Backup은 최대 16개 디스크가 연결된 VM을 백업할 수 있습니다. 16개 디스크에 대한 지원이 [즉시 복원](backup-instant-restore-capability.md)에서 제공됩니다.
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Azure Backup은 표준 SSD 관리 디스크를 지원하나요?
-Azure Backup은 [표준 SSD 관리 디스크](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)를 지원합니다. SSD 관리 디스크는 Azure VM에 새로운 유형의 영구 스토리지를 제공합니다. SSD 관리 디스크 지원은 [최신 버전](backup-upgrade-to-vm-backup-stack-v2.md)의 Azure VM Backup 스택 V2에서 제공됩니다.
+Azure Backup은 [표준 SSD 관리 디스크](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)를 지원합니다. SSD 관리 디스크는 Azure VM에 새로운 유형의 영구 스토리지를 제공합니다. SSD Managed Disks에 대한 지원이 [즉시 복원](backup-instant-restore-capability.md)에서 제공됩니다.
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>WA(쓰기 가속기) 지원 디스크를 사용하여 VM을 백업할 수 있나요?
-WA 지원 디스크에는 스냅숏을 만들 수 없습니다. 그러나 Azure Backup 서비스는 백업에서 WA 지원 디스크를 제외할 수 있습니다. WA 지원 디스크를 사용하는 VM에 대한 디스크 제외 기능은 Azure VM Backup 스택 V2로 업그레이드한 구독에만 지원됩니다. Azure VM Backup 스택 V2로 업그레이드하려면 이 [문서](backup-upgrade-to-vm-backup-stack-v2.md)를 참조하세요. 이 기능은 현재 일본 동부, 북유럽, 동남 아시아, 미국 동부, 미국 서부2, 유럽 서부 및 미국 동부2에서 사용할 수 있습니다.
-
+WA 지원 디스크에는 스냅숏을 만들 수 없습니다. 그러나 Azure Backup 서비스는 백업에서 WA 지원 디스크를 제외할 수 있습니다. WA 지원 디스크를 사용하는 VM에 대한 디스크 제외 기능은 즉시 복원으로 업그레이드한 구독에만 지원됩니다.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>WA(쓰기 가속기) 디스크를 사용하고 SAP HANA가 설치된 VM을 갖고 있습니다. 어떻게 백업해야 하나요?
 Azure Backup은 WA 지원 디스크를 백업할 수 없지만 백업에서 제외할 수는 있습니다. 그러나 WA 지원 디스크의 정보가 백업되지 않으므로 백업하더라도 데이터베이스 일관성이 제공되지 않습니다. 운영 체제 디스크 백업 및 WA 미사용 디스크 백업을 원하는 경우 이 구성으로 디스크를 백업하면 됩니다.
@@ -77,7 +76,7 @@ RPO가 15분인 SAP HANA 백업의 비공개 미리 보기가 준비되어 있�
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>디스크만 복원할지 아니면 전체 VM을 복원할지 결정하는 방법은 무엇인가요?
 VM 복원은 Azure VM의 빠른 만들기 옵션이라고 생각하시면 됩니다. 이 옵션은 디스크 이름, 디스크에서 사용하는 컨테이너, 공용 IP 주소 및 네트워크 인터페이스 이름을 변경합니다. VM이 만들어지면 변경 내용이 고유한 리소스를 유지합니다. VM은 가용성 집합에 추가되지 않습니다.
 
-원하는 경우 사용할 수 있는 디스크 복원 옵션:
+원할 경우 다음과 같이 디스크 복원 옵션을 사용할 수 있습니다.
   * 생성되는 VM을 사용자 지정합니다. 예를 들어 크기를 변경할 수 있습니다.
   * 백업 당시에는 없던 구성 설정을 추가합니다.
   * 생성되는 리소스의 명명 규칙을 제어합니다.
@@ -104,7 +103,7 @@ PowerShell에서 이 작업을 수행하는 방법을 [자세히 알아보세요
 관리 디스크 Azure VM의 경우 관리 디스크로 복원하는 동안 템플릿에서 옵션을 제공하여 가용성 집합에 복원하는 기능을 설정합니다. 이 템플릿에 **가용성 집합**이라는 입력 매개 변수가 있습니다.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>복원 성능을 높이려면 어떻게 해야 하나요?
-복원 성능을 높이려면 VM 백업 스택 V2로 전환하여 [인스턴트 RP 기능](backup-upgrade-to-vm-backup-stack-v2.md)을 사용하세요.
+복원 성능 향상을 위해 [즉시 복원](backup-instant-restore-capability.md) 기능으로 전환합니다.
 
 ## <a name="manage-vm-backups"></a>VM 백업 관리
 

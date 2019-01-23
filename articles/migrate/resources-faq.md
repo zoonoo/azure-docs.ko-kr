@@ -4,14 +4,14 @@ description: Azure Migrate에 대한 질문과 대답 해결
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 787e3f53cb75b33b03c29b61b319270fdf7a63ca
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2efa450b6b0cfa299370df3941224f4f64e91b4b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975477"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230767"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - FAQ(질문과 대답)
 
@@ -53,6 +53,7 @@ Azure Migrate는 현재 유럽, 미국 및 Azure Government를 프로젝트 지�
 **지리** | **메타데이터 스토리지 위치**
 --- | ---
 Azure Government | 미국 정부 버지니아
+아시아 | 동남아시아
 유럽 | 북유럽 또는 유럽 서부
 미국 | 미국 동부 또는 미국 중서부
 
@@ -63,6 +64,17 @@ Azure Government | 미국 정부 버지니아
 ### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>OVA 템플릿으로 VM 설정을 강화할 수 있나요?
 
 Azure Migrate 어플라이언스가 작동하는 데 필요한 통신 및 방화벽 규칙이 그대로 유지되기만 하면 추가 구성 요소(예: 바이러스 백신)를 OVA 템플릿에 추가할 수 있습니다.   
+
+### <a name="to-harden-the-azure-migrate-appliance-what-are-the-recommended-antivirus-av-exclusions"></a>Azure Migrate 어플라이언스를 강화하기 위해 권장되는 AV(바이러스 백신) 예외는 무엇인가요?
+
+바이러스 백신 검사를 위해 어플라이언스에서 다음 폴더를 제외해야 합니다.
+
+- Azure Migrate 서비스용 이진 파일이 있는 폴더. 모든 하위 폴더를 제외합니다.
+  %ProgramFiles%\ProfilerService  
+- Azure Migrate 웹 애플리케이션. 모든 하위 폴더를 제외합니다.
+  %SystemDrive%\inetpub\wwwroot
+- 데이터베이스 및 로그 파일의 로컬 캐시. Azure Migrate Service에는 이 폴더에 대한 RW 권한이 필요합니다.
+  %SystemDrive%\Profiler
 
 ## <a name="discovery"></a>검색
 
@@ -108,7 +120,7 @@ Azure Migrate는 어플라이언스 기반 검색 및 에이전트 기반 검색
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>데이터는 미사용 및 전송 중에 암호화되나요?
 
-예, 수집된 데이터는 미사용 및 전송 중 모두에서 암호화됩니다. 어플라이언스에서 수집된 메타데이터는 Azure Migrate 서비스로 https를 통해 인터넷으로 안전하게 전송됩니다. 수집된 메타데이터는 [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) 및 Microsoft 구독의 [Azure blob 저장소](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)에 저장되고 미사용 암호화됩니다.
+예, 수집된 데이터는 미사용 및 전송 중 모두에서 암호화됩니다. 어플라이언스에서 수집된 메타데이터는 Azure Migrate 서비스로 https를 통해 인터넷으로 안전하게 전송됩니다. 수집된 메타데이터는 [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) 및 Microsoft 구독의 [Azure Blob Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)에 저장되고 미사용 암호화됩니다.
 
 종속성 에이전트에서 수집된 데이터도 전송 중에 암호화(보안 https 채널)되며, 사용자의 구독에서 Log Analytics 작업 영역에 저장됩니다. 또한 미사용 시에도 암호화됩니다.
 
@@ -136,6 +148,7 @@ Azure Migrate는 어플라이언스 기반 검색 및 에이전트 기반 검색
 
 단일 마이그레이션 프로젝트에서는 1500대의 가상 머신을 검색할 수 있습니다. 온-프레미스 환경에 더 많은 컴퓨터가 있는 경우 Azure Migrate에서 대규모 환경을 검색하는 방법에 대해 [자세히 알아보세요](how-to-scale-assessment.md).
 
+
 ## <a name="assessment"></a>평가
 
 ### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Azure Migrate가 EA(기업 계약) 기반 예측 비용을 지원하나요?
@@ -144,6 +157,13 @@ Azure Migrate는 현재 [기업 계약 제품](https://azure.microsoft.com/offer
 
   ![할인](./media/resources-faq/discount.png)
 
+### <a name="what-is-the-difference-between-as-on-premises-sizing-and-performance-based-sizing"></a>as-on-premises 크기 조정과 성능 기반 크기 조정의 차이점은 무엇인가요?
+
+크기 조정 기준을 as-on-premises 크기 조정으로 지정하면 Azure Migrate에서는 VM의 성능 데이터를 고려하지 않고 온-프레미스 구성을 기준으로 하여 VM의 크기를 조정합니다. 성능 기반 크기 조정 기준을 사용하는 경우에는 사용률 데이터를 기준으로 크기를 조정합니다. 예를 들어 4코어 8GB 메모리를 사용하고 CPU 사용률이 50%, 메모리 사용률이 50%인 온-프레미스 VM이 있다고 가정해 봅니다. 크기를 추천할 때 사용률을 고려하므로 크기 조정 기준이 온-프레미스 크기 조정인 경우 4코어 8GB 메모리의 Azure VM SKU를 권장하지만, 크기 조정 기준이 성능 기반인 경우 2코어 4GB의 VM SKU를 권장합니다. 마찬가지로 디스크 크기 조정 결과는 크기 조정 기준과 스토리지 유형의 두 가지 평가 속성에 따라 달라집니다. 크기 조정 기준이 성능 기반이고 스토리지 유형이 자동인 경우 디스크의 IOPS 및 처리량 값을 고려하여 대상 디스크 유형을 결정합니다(표준 또는 프리미엄). 크기 조정 기준이 성능 기반이고 스토리지 유형이 프리미엄인 경우 프리미엄 디스크를 권장하고, Azure의 프리미엄 디스크 SKU는 온-프레미스 디스크 크기를 기준으로 선택됩니다. 크기 조정 기준이 온-프레미스 크기 조정이고 스토리지 유형이 표준 또는 프리미엄인 경우 동일한 논리를 사용하여 디스크 크기가 조정됩니다.
+
+### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>성능 기록 및 백분위수 활용률이 크기 추천에 어떤 영향을 주나요?
+
+이러한 속성은 성능 기반 크기 조정에만 적용됩니다. Azure Migrate는 온-프레미스 머신의 성능 기록을 수집하여 Azure에서 VM 크기 및 디스크 유형을 추천하는 데 사용합니다. 수집기 어플라이언스는 20초마다 온-프레미스 환경을 지속적으로 프로파일링하여 실시간 사용률 데이터를 수집합니다. 이 어플라이언스는 20초 샘플을 롤업하고 15분마다 데이터 요소를 하나씩 만듭니다. 단일 데이터 요소를 만들기 위해, 이 어플라이언스는 20초 샘플에서 최고 값을 선택하여 Azure로 전송합니다. Azure에서 성능 기간 및 성능 기록 백분위 값을 기준으로 평가를 작성할 때 Azure Migrate는 효과적인 사용률 값을 계산하여 크기 조정에 사용합니다. 예를 들어 성능 기간을 1일로 설정하고 백분위 값을 95로 설정한 경우 Azure Migrate는 지난 하루 동안 수집기에서 보낸 15분 샘플 포인트를 사용하여 데이터를 오름차순으로 정렬하고, 95번째 백분위 값을 효율적인 사용률로 선택합니다. 95번째 백분위 값은 99번째 백분위 값을 선택할 때 발생할 수 있는 모든 이상값을 무시합니다. 해당 기간의 최대 사용량을 선택하고 이상값을 누락하지 않으려면 99번째 백분위 수를 선택해야 합니다.
 
 ## <a name="dependency-visualization"></a>종속성 시각화
 

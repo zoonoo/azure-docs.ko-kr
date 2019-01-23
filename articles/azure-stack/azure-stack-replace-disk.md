@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
-ms.openlocfilehash: ad1234b6a0296a2fa46fe56786bbca4aca9ed470
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: d0b455261649fad95a92f7ad75f7af26d633cf5a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305964"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476889"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Azure Stack에서 실제 디스크 교체
 
@@ -29,10 +29,10 @@ ms.locfileid: "54305964"
 
 통합된 시스템을 개발 키트를 갖는 배포는 핫 스왑 가능 디스크에 대 한이 절차를 사용할 수 있습니다.
 
-원래 장비 제조업체 (OEM) 하드웨어 공급 업체를 기반으로 실제 디스크 교체 단계는 달라질 수 합니다. 시스템에 관련 된 자세한 단계에 대 한 공급 업체의 필드 교체 장치 (FRU) 설명서를 참조 하세요. 
+원래 장비 제조업체 (OEM) 하드웨어 공급 업체를 기반으로 실제 디스크 교체 단계는 달라질 수 합니다. 시스템에 관련 된 자세한 단계에 대 한 공급 업체의 필드 교체 장치 (FRU) 설명서를 참조 하세요.
 
 ## <a name="review-disk-alert-information"></a>디스크 경고 정보를 검토 합니다.
-디스크 오류 시에 연결 되지 않은 실제 디스크에 알려 주는 경고를 나타납니다. 
+디스크 오류 시에 연결 되지 않은 실제 디스크에 알려 주는 경고를 나타납니다.
 
  ![실제 디스크 경고 표시 연결이 끊어짐](media/azure-stack-replace-disk/DiskAlert.png)
 
@@ -47,7 +47,7 @@ ms.locfileid: "54305964"
 
 통합된 시스템에서 지원 되지 않는 디스크의 사용을 방지 하려면 시스템 공급 업체에서 지원 되지 않는 디스크를 차단 합니다. 지원 되지 않는 디스크를 사용 하려고 하면 새로운 경고가 지원 되지 않는 모델 또는 펌웨어를 때문에 격리 되어 디스크에 알려 줍니다.
 
-디스크를 교체한 후 Azure Stack 자동으로 새 디스크를 검색 하 고 가상 디스크 복구 프로세스를 시작 합니다.  
+디스크를 교체한 후 Azure Stack 자동으로 새 디스크를 검색 하 고 가상 디스크 복구 프로세스를 시작 합니다.
  
  ## <a name="check-the-status-of-virtual-disk-repair"></a>가상 디스크 복구의 상태를 확인 합니다.
  
