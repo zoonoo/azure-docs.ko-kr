@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 01/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 4d6060c1774b2ad09c3b813bc107b73309dae801
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 05f6208788060459e67a787507a56adeed980e2d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020220"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318997"
 ---
 # <a name="azure-data-box-edge-system-requirements-preview"></a>Azure Data Box Edge 시스템 요구 사항(미리 보기)
 
@@ -78,6 +78,8 @@ Data Box Edge 고정 IP 주소에 따라 대부분의 경우 자유롭게 아웃
 > - 디바이스(원본) IP는 항상 클라우드를 사용하도록 설정된 네트워크 인터페이스로 설정해야 합니다.
 > - 대상 IP는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653)로 설정해야 합니다.
 
+### <a name="url-patterns-for-gateway-feature"></a>게이트웨이 기능용 URL 패턴
+
 |    URL 패턴                                                                                                                                                                                                                                                                                                                                                                                                                                                      |    구성 요소 또는 기능                                                                           |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 |    https://\*.databoxedge.azure.com/\*<br>https://\*.servicebus.windows.net/\*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                                                                           |    Azure Data Box Edge 서비스<br>Azure Service Bus<br>인증 서비스                           |
@@ -89,6 +91,15 @@ Data Box Edge 고정 IP 주소에 따라 대부분의 경우 자유롭게 아웃
 |    https://\*.partners.extranet.microsoft.com/\*                                                                                                                                                                                                                                                                                                                                                                                                                    |    지원 패키지                                                                                      |
 |    http://\*.data.microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                                     |    Windows의 원격 분석 서비스는 사용자 환경 및 진단 원격 분석 업데이트를 참조하세요.      |
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                         |
+
+
+### <a name="url-patterns-for-compute-feature"></a>컴퓨팅 기능용 URL 패턴
+
+| URL 패턴                      | 구성 요소 또는 기능                     |   |
+|----------------------------------|---------------------------------------------|---|
+| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft 컨테이너 레지스트리(필수)               |   |
+| https://\*.azurecr.io                     | 개인 및 타사 컨테이너 레지스트리(선택 사항) |   |
+| https://\*.azure-devices.net              | IoT Hub 액세스(필수)                             |   |
 
 ## <a name="internet-bandwidth"></a>인터넷 대역폭
 

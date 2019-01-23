@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 298d4a7a003963e3466b595243c294679f581346
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: b8051ea7f8e7c188e4ed287db626f2a989def619
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582194"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231754"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure Monitor의 Azure AD 활동 로그(미리 보기)
 
@@ -57,7 +57,7 @@ ms.locfileid: "53582194"
 
 감사 로그 데이터를 라우팅하려는 위치에 따라 다음 둘 중 하나가 필요합니다.
 
-* *ListKeys* 권한이 있는 Azure 저장소 계정. Blob 저장소 계정이 아닌 일반 저장소 계정을 사용하는 것이 좋습니다. 저장소 가격 책정 정보는 [Azure Storage 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=storage)를 참조하세요. 
+* *ListKeys* 권한이 있는 Azure 저장소 계정. Blob 저장소 계정이 아닌 일반 저장소 계정을 사용하는 것이 좋습니다. 스토리지 가격 책정 정보는 [Azure Storage 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=storage)를 참조하세요. 
 * 타사 솔루션과 통합할 Azure Event Hubs 네임스페이스.
 * Log Analytics에 로그를 보내는 Azure Log Analytics 작업 영역
 
@@ -116,6 +116,12 @@ Log Analytics 작업 영역 관리와 관련된 비용을 검토하려면 [Log A
 **Q: 작업 수행 후 해당 로그가 내 스토리지 계정에 표시되려면 얼마나 걸리나요?**
 
 **A**: Azure Storage 계정의 경우 대기 시간은 어디서나 작업 수행 후 5~15분입니다.
+
+---
+
+**Q: 관리자가 진단 설정의 보존 기간을 변경하면 어떻게 되나요?**
+
+**A**: 변경 이후에 수집되는 로그에는 새 보존 정책이 적용됩니다. 정책 변경 이전에 수집된 로그에는 아무런 변화가 없습니다.
 
 ---
 

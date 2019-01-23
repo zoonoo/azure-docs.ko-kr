@@ -1,23 +1,23 @@
 ---
 title: 조정 작업 및 사람이 참여하는 검토 - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: 최상의 결과를 위해 기계 지원 조정에 사람이 직접 참여하는 감독을 적용합니다.
+description: Azure Content Moderator 검토 API를 사용하여 사람이 참여하는 기능과 기계 지원 조정을 결합하면 업무를 가장 효율적으로 완료할 수 있습니다.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 1/21/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: b4a2f62b1c9cefb716cb217baf7389c3e7c790b8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a348b18d1ecc9c0e4405c54a8e554d932781ec92
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223258"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265348"
 ---
-# <a name="moderation-jobs-and-reviews"></a>조정 작업 및 검토
+# <a name="content-moderation-jobs-and-reviews"></a>콘텐츠 조정 작업 및 검토
 
 사용자 비즈니스를 위한 최상의 결과를 얻기 위해 Azure Content Moderator [검토 API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5)를 사용하여 사람이 참여하는 기능과 기계 지원 조정을 결합합니다.
 
@@ -55,12 +55,12 @@ ms.locfileid: "47223258"
 
 입력에는 다음 정보가 포함됩니다.
 
-- 검토 팀 ID: 이전 작업에서 반환된 작업 식별자
+- 검토 팀 ID: 이전 작업에서 반환된 검토 식별자
 
 응답에는 다음과 같은 정보가 포함됩니다.
 
 - 만든 검토의 식별자. (최종적 검토 결과를 얻으려면 이 ID를 사용합니다.)
-- 작업의 상태(완료 또는 진행 중): 할당된 조정 태그(키-값 쌍).
+- 작업의 상태(완료 또는 진행 중): 할당된 조정 태그(키-값 쌍)
 - 작업 실행 보고서입니다.
  
  

@@ -11,23 +11,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 7ba1c4e0f358a2168c06ab9172229525cd4c136c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4543982f731feb44a8f02581c11714dec2b206f9
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016140"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214507"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop MapReduce 활동을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [버전 1](v1/data-factory-map-reduce.md)
 > * [현재 버전](transform-data-using-hadoop-map-reduce.md)
 
-Data Factory [파이프라인](concepts-pipelines-activities.md)의 HDInsight MapReduce 작업은 [사용자 고유](compute-linked-services.md#azure-hdinsight-linked-service) 또는 [주문형](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight 클러스터에서 MapReduce 프로그램을 호출합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](transform-data.md) 문서에서 작성합니다.
+Data Factory [파이프라인](concepts-pipelines-activities.md)의 HDInsight MapReduce 활동은 [사용자 고유](compute-linked-services.md#azure-hdinsight-linked-service) 또는 [주문형](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight 클러스터에서 MapReduce 프로그램을 호출합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](transform-data.md) 문서에서 작성합니다.
 
-Azure Data Factory를 처음 접하는 경우 이 문서를 읽기 전에 [Azure Data Factory 소개](introduction.md)를 읽고 [자습서: 데이터 변환](tutorial-transform-data-spark-powershell.md)을 수행하세요. 
+Azure Data Factory를 처음 접하는 경우 이 문서를 읽기 전에 [Azure Data Factory 소개](introduction.md)를 읽고 [자습서: 데이터 변환](tutorial-transform-data-spark-powershell.md)을 수행하세요.
 
-HDInsight Pig 및 Hive를 사용하여 파이프라인에서 HDInsight 클러스터에 대해 Pig/Hive 스크립트를 실행하는 방법에 대한 자세한 내용은 [Pig](transform-data-using-hadoop-pig.md) 및 [Hive](transform-data-using-hadoop-hive.md) 문서를 참조하세요. 
+HDInsight Pig 및 Hive를 사용하여 파이프라인에서 HDInsight 클러스터에 대해 Pig/Hive 스크립트를 실행하는 방법에 대한 자세한 내용은 [Pig](transform-data-using-hadoop-pig.md) 및 [Hive](transform-data-using-hadoop-hive.md) 문서를 참조하세요.
 
 ## <a name="syntax"></a>구문
 
@@ -49,10 +49,10 @@ HDInsight Pig 및 Hive를 사용하여 파이프라인에서 HDInsight 클러스
         "jarFilePath": "MyAzureStorage/jars/sample.jar",
         "getDebugInfo": "Failure",
         "arguments": [
-          "-SampleHadoopJobArgument1"
+            "-SampleHadoopJobArgument1"
         ],
         "defines": {
-          "param1": "param1Value"
+            "param1": "param1Value"
         }
     }
 }
@@ -79,7 +79,7 @@ HDInsight Pig 및 Hive를 사용하여 파이프라인에서 HDInsight 클러스
 ## <a name="example"></a>예
 HDInsight MapReduce 작업을 사용하여 HDInsight 클러스터에서 모든 MapReduce jar 파일을 실행할 수 있습니다. 다음 파이프라인의 샘플 JSON 정의에서 HDInsight 작업은 Mahout JAR 파일을 실행하도록 구성되어 있습니다.
 
-```json   
+```json
 {
     "name": "MapReduce Activity for Mahout",
     "description": "Custom MapReduce to generate Mahout result",
@@ -113,7 +113,7 @@ HDInsight MapReduce 작업을 사용하여 HDInsight 클러스터에서 모든 M
 **arguments** 섹션에 MapReduce 프로그램의 모든 인수를 지정할 수 있습니다. 런타임에 MapReduce 프레임워크의 몇 개 인수(예: mapreduce.job.tags)가 추가로 표시됩니다. MapReduce 인수와 사용자 인수를 구분하려면 다음 예제와 같이 옵션과 값을 둘 다 인수로 사용하는 것이 좋습니다(-s, --input, --output 등은 바로 뒤에 해당 값이 있는 옵션임).
 
 ## <a name="next-steps"></a>다음 단계
-다른 방법으로 데이터를 변환하는 방법을 설명하는 다음 문서를 참조하세요. 
+다른 방법으로 데이터를 변환하는 방법을 설명하는 다음 문서를 참조하세요.
 
 * [U-SQL 작업](transform-data-using-data-lake-analytics.md)
 * [Hive 작업](transform-data-using-hadoop-hive.md)

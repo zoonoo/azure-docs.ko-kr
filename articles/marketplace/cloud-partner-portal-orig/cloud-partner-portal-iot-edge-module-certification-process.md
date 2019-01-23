@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c37ed908b61ca54957affed3f81526353bc3f53b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: c8056bd4912605a4cd3ee333b1be87d4f3a6d5ba
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389567"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198051"
 ---
 # <a name="the-iot-edge-module-certification-process"></a>IoT Edge 모듈 인증 프로세스
 
@@ -34,7 +34,7 @@ ms.locfileid: "49389567"
 
 -   **모듈 이미지**는 모듈을 정의하는 소프트웨어가 포함된 패키지입니다.
 
--   **모듈 인스턴스**는 IoT Edge 장치에서 모듈 이미지를 실행하는 특정 계산 단위입니다. 모듈 인스턴스는 IoT Edge 런타임에 의해 시작됩니다.
+-   **모듈 인스턴스**는 IoT Edge 디바이스에서 모듈 이미지를 실행하는 특정 계산 단위입니다. 모듈 인스턴스는 IoT Edge 런타임에 의해 시작됩니다.
 
 모듈에는 다음 용어를 사용하는 IoT 모듈 SDK가 포함될 수도 있습니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "49389567"
 
 -   **모듈 쌍**은 IoT Hub에 저장된 JSON 문서로, 메타데이터, 구성 및 조건 등 모듈 인스턴스의 상태 정보를 포함합니다.
 
--   **SDK**는 C\#, C, Python, Java 및 Node.JS와 같은 여러 언어로 사용자 지정 모듈을 개발하는 데 사용됩니다.
+-   **SDK**는 여러 언어로 사용자 지정 모듈을 개발하는 데 사용됩니다. 이러한 언어로는 C\#, C, Python, Java, Node.JS 등이 있습니다.
 
 ## <a name="the-onboarding-process-for-an-iot-edge-module"></a>IoT Edge 모듈의 온보딩 프로세스
 
@@ -94,7 +94,7 @@ Azure Marketplace에서 IoT Edge 모듈을 인증 및 게시하기 위해 충족
 
     -   arm32용 Raspbian-stretch(armhf)
 
-**장치 차원 지정**
+**디바이스 차원 지정**
 
 -   Raspberry Pi보다 크거나 같은 차원의 디바이스(CPU, RAM, 저장소, GPU 등)는 IoT Edge 디바이스가 될 수 있습니다. 모듈이 특정 차원 제약 조건 내에서만 작동하는 경우 해당 제약 조건을 모듈 설명에 지정해야 합니다.
 
@@ -118,7 +118,7 @@ Azure Marketplace에서 IoT Edge 모듈을 인증 및 게시하기 위해 충족
     - [C\#](https://hub.docker.com/_/mysql/)
     - [C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
     - [Python](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
-    - [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._product_info?view=azure-java-stable)
+    - [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.productinfo?view=azure-java-stable)
 
 -   IoT 모듈 SDK를 사용하지 않는 모듈의 경우 Cloud 파트너 포털을 통해 덜 정확한 인사이트를 얻을 수 있습니다. 예를 들어 다운로드 수입니다.
 

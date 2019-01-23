@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f5663842a4d861ed6eb76de859b870aa7114cb04
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 3968b05f119227552f88a50e96d3acbce6a19143
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063644"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199122"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
@@ -397,7 +397,7 @@ webhook가 비활성화된 경우Azure Portal을 통해 webhook를 다시 활성
 * 구조가 Automation에서 요구하는 구조와 일치하지 않습니다.
 * 모듈이 Automation 계정에 배포되지 않은 다른 모듈에 종속되어 있습니다.
 * 모듈 폴더에 종속성이 없습니다.
-* `New-AzureRmAutomationModule` cmdlet이 모듈을 업로드하는 데 사용되고 있으며, 전체 저장소 경로를 제공하지 않았거나 공개적으로 액세스할 수 있는 URL을 사용하여 입력하거나 모듈을 로드하지 않았습니다.
+* `New-AzureRmAutomationModule` cmdlet을 사용하여 모듈을 업로드하고 있는데 전체 스토리지 경로를 지정하지 않았거나 공개적으로 액세스 가능한 URL을 사용하여 모듈을 로드하지 않았습니다.
 
 #### <a name="resolution"></a>해결 방법
 

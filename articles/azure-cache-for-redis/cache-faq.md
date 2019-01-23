@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 444f1aaee496666745be548bcdfadf3a4f162699
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 5d70e4beb97a23212bc85d529382d8e89f09336d
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104066"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199921"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Azure Cache for Redis FAQ
 Azure Cache for Redis에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다.
@@ -120,7 +120,7 @@ Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 <a name="cache-performance"></a>
 
 ### <a name="azure-cache-for-redis-performance"></a>Azure Cache for Redis 성능
-다음 표에서는 Azure Cache for Redis 엔드포인트에 대해 Iaas VM에서 `redis-benchmark.exe`를 사용하여 다양한 크기의 표준 및 프리미엄 캐시를 테스트하는 동안 관찰되는 최대 대역폭 값을 보여 줍니다. SSL 처리량의 경우 redis-benchmark를 stunnel과 함께 사용하여 Azure Cache for Redis 엔드포인트에 연결합니다.
+다음 표에는 Azure Cache for Redis 엔드포인트에 대해 Iaas VM에서 `redis-benchmark.exe`를 사용하여 다양한 크기의 표준 및 프리미엄 캐시를 테스트하는 동안 관찰되는 최대 대역폭 값이 나와 있습니다. SSL 처리량의 경우 redis-benchmark를 stunnel과 함께 사용하여 Azure Cache for Redis 엔드포인트에 연결합니다.
 
 >[!NOTE] 
 >이러한 값은 보장되지 않으며 해당 수치에 대한 SLA는 없지만 일반적인 수치입니다. 애플리케이션에 적합한 캐시 크기를 확인하려면 사용자 고유의 애플리케이션을 부하 테스트해야 합니다.

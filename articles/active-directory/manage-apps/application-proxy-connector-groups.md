@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: e2e78eae924cf079ccc03d3f907cd64194b98921
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 52dc78b03a1be73763b5a3c494404f4d439d04ca
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139028"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198034"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 애플리케이션 게시
 
@@ -38,7 +38,7 @@ ms.locfileid: "53139028"
 이 단계를 사용하여 원하는 수 만큼 커넥터 그룹을 만듭니다. 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory** > **Enterprise 응용 프로그램** > **응용 프로그램 프록시**를 선택합니다.
+1. **Azure Active Directory** > **Enterprise 애플리케이션** > **애플리케이션 프록시**를 선택합니다.
 2. **새 커넥터 그룹**을 선택합니다. 새 커넥터 그룹 블레이드가 표시됩니다.
 
    ![새 커넥터 그룹 선택](./media/application-proxy-connector-groups/new-group.png)
@@ -49,8 +49,8 @@ ms.locfileid: "53139028"
 ## <a name="assign-applications-to-your-connector-groups"></a>커넥터 그룹에 애플리케이션 할당
 애플리케이션 프록시를 사용하여 게시한 각 애플리케이션에 대해 이 단계를 사용합니다. 처음으로 게시할 때 애플리케이션을 커넥터 그룹에 할당하거나 이 단계를 사용하여 언제든지 할당을 변경할 수 있습니다.   
 
-1. 디렉터리에 대한 관리 대시보드의 경우 **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램** > 커넥터 그룹에 할당하려는 응용 프로그램 > **응용 프로그램 프록시**를 선택합니다.
-2. **커넥터 그룹** 드롭다운 메뉴를 사용하여 응용 프로그램에서 사용할 그룹을 선택합니다.
+1. 디렉터리에 대한 관리 대시보드의 경우 **엔터프라이즈 애플리케이션** > **모든 애플리케이션** &gt; 커넥터 그룹에 할당하려는 애플리케이션 &gt; **애플리케이션 프록시**를 선택합니다.
+2. **커넥터 그룹** 드롭다운 메뉴를 사용하여 애플리케이션에서 사용할 그룹을 선택합니다.
 3. **저장** 을 선택하여 변경 내용을 적용합니다.
 
 ## <a name="use-cases-for-connector-groups"></a>커넥터 그룹의 사용 사례 
@@ -73,11 +73,11 @@ ms.locfileid: "53139028"
 
 예를 들어 IaaS 호스팅된 고유한 가상 네트워크에 연결된 가상 머신이 여러 개 있는 조직을 사용합니다. 직원들이 해당 애플리케이션을 사용할 수 있도록 하기 위해 이러한 사설망은 사이트 간 VPN을 사용하여 회사 네트워크에 연결됩니다. 이는 온-프레미스에 있는 직원들에게 좋은 경험을 제공합니다. 그러나 원격 직원에게는 아래 다이어그램과 같이 추가 온-프레미스 인프라가 액세스를 라우팅해야 하기 때문에 이상적이지 않을 수 있습니다.
 
-![Azure Ad Iaas 네트워크](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
+![AzureAD IaaS Network](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
   
 Azure AD 애플리케이션 프록시 커넥터 그룹을 사용하면 공통 서비스를 통해 회사 네트워크에 대한 추가 종속성을 만들지 않고도 모든 애플리케이션에 대한 액세스를 보호할 수 있습니다.
 
-![Azure AD Iaas - 여러 클라우드 공급 업체](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
+![Azure AD Iaas 여러 클라우드 공급업체](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
 
 ### <a name="multi-forest--different-connector-groups-for-each-forest"></a>다중 포리스트 - 포리스트마다 서로 다른 커넥터 그룹
 
@@ -124,7 +124,7 @@ Azure AD 애플리케이션 프록시 커넥터 그룹을 사용하면 공통 �
  
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-connectors.md)
+* [Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)
 * [Single Sign-On 사용](what-is-single-sign-on.md)
 
 

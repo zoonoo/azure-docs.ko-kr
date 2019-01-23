@@ -1,6 +1,6 @@
 ---
 title: Azure Portal에서 모든 청구 계정 보기 | Microsoft Docs
-description: Azure Portal에서 개인 및 엔터프라이즈 청구 계정을 모두 보는 방법을 알아봅니다.
+description: Azure Portal에서 개인 및 기업계약 청구 계정을 모두 확인하는 방법을 알아봅니다.
 services: ''
 documentationcenter: ''
 author: amberbhargava
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: f27b80a99dbe65d628453c5222ef4fcdf7e0f982
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 61eade9aa4edd3f0d6d32dc5a71d6cb97b1e4651
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580391"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261879"
 ---
 # <a name="view-all-your-billing-accounts-in-azure-portal"></a>Azure Portal에서 모든 청구 계정 보기  
 
@@ -41,6 +41,6 @@ ms.locfileid: "52580391"
 
     ![청구 계정 목록을 보여주는 스크린샷](./media/billing-view-all-accounts/billing-list-of-accounts.png)
 
-## <a name="need-help-contact-us"></a>도움 필요 시 문의처
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

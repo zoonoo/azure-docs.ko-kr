@@ -4,17 +4,17 @@ description: 청사진 만들기 및 할당과 관련된 문제를 해결하는 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 12/11/2018
 ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 40668fed2fcc2a04e39fa3a4d7e8e8923c75ae05
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 04c038eb11cc40cec3552feff183bea55b22bb57
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315530"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261930"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Azure Blueprints를 사용하여 오류 문제 해결
 
@@ -52,6 +52,20 @@ ms.locfileid: "53315530"
 #### <a name="resolution"></a>해결 방법
 
 청사진이 오류 세부 정보의 정책과 충돌하지 않도록 변경합니다. 이렇게 변경할 수 없으면 대체 옵션으로 정책 할당의 범위를 변경하여 청사진이 더 이상 정책과 충돌하지 않도록 합니다.
+
+### <a name="escape-function-parameter"></a>시나리오: 청사진 매개 변수가 함수임
+
+#### <a name="issue"></a>문제
+
+함수인 청사진 매개 변수는 아티팩트로 전달되기 전에 처리됩니다.
+
+#### <a name="cause"></a>원인
+
+`[resourceGroup().tags.myTag]` 등의 함수를 사용하는 청사진 매개 변수를 아티팩트로 전달하면 동적 함수가 아닌 아티팩트에 대해 함수의 처리된 결과가 설정됩니다.
+
+#### <a name="resolution"></a>해결 방법
+
+함수를 매개 변수로 전달하려면 청사진 매개 변수가 `[[resourceGroup().tags.myTag]`와 같이 표시되도록 `[`를 사용하여 전체 문자열을 이스케이프 처리합니다. 이스케이프 문자를 추가하면 청사진을 처리할 때 Blueprints에서 값을 문자열로 처리합니다. Blueprints는 그런 후에 함수를 아티팩트에 배치하므로 함수가 동적으로 올바르게 설정됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

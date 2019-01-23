@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7535aad95f7410d25ada232b4946fe52ebc4ba67
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5714ed552c81d28a253aa57ad6e2ba1d67e543a1
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961963"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214269"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>자습서: 인증서와 함께 Azure Active Directory Reporting API를 사용하여 데이터 가져오기
 
@@ -30,24 +30,28 @@ ms.locfileid: "52961963"
 
 ## <a name="prerequisites"></a>필수 조건
 
-1. 먼저 [Azure Active Directory Reporting API에 액세스하기 위한 필수 구성 요소](howto-configure-prerequisites-for-reporting-api.md)를 모두 준비합니다. 
+1. 로그인 데이터에 액세스하려면 Premium (P1/P2) 라이선스를 사용하는 Azure Active Directory 테넌트가 있는지 확인합니다. [Azure Active Directory Premium 시작하기](../fundamentals/active-directory-get-started-premium.md)를 참조하여 Azure Active Directory 버전을 업그레이드하세요. 업그레이드 전에 활동 데이터가 없었다면 Premium 라이선스로 업그레이드한 후 보고서에 데이터가 나타나기까지 1~2일 정도 걸립니다. 
 
-2. [Azure AD PowerShell V2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md)를 다운로드하여 설치합니다.
+2. 테넌트에 대한 **글로벌 관리자**, **보안 관리자**, **보안 읽기 권한자** 또는 **보고서 읽기 권한자** 역할의 사용자 계정을 만들거나 해당 계정으로 전환합니다. 
 
-3. [MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/)를 설치합니다. 이 모듈에서는 다음을 비롯한 몇 가지 유틸리티 cmdlet을 제공합니다.
+3. [Azure Active Directory Reporting API에 액세스하기 위한 필수 구성 요소](howto-configure-prerequisites-for-reporting-api.md)를 모두 준비합니다. 
+
+4. [Azure AD PowerShell V2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md)를 다운로드하여 설치합니다.
+
+5. [MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/)를 설치합니다. 이 모듈에서는 다음을 비롯한 몇 가지 유틸리티 cmdlet을 제공합니다.
     - 인증에 필요한 ADAL 라이브러리
-    - ADAL을 사용하는 사용자, 응용 프로그램 키 및 인증서의 액세스 토큰
+    - ADAL을 사용하는 사용자, 애플리케이션 키 및 인증서의 액세스 토큰
     - Graph API를 처리하는 페이지 단위의 결과
 
-4. 모듈을 처음 사용하는 경우 **Install-MSCloudIdUtilsModule**을 실행하고, 그렇지 않으면 **Import-Module** Powershell 명령을 사용하여 모듈을 가져옵니다. 세션은 다음 화면과 유사하게 표시됩니다. ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. 모듈을 처음 사용하는 경우 **Install-MSCloudIdUtilsModule**을 실행하고, 그렇지 않으면 **Import-Module** Powershell 명령을 사용하여 모듈을 가져옵니다. 세션은 다음 화면과 유사하게 표시됩니다. ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-5. **New-SelfSignedCertificate** Powershell commandlet을 사용하여 테스트 인증서를 만듭니다.
+7. **New-SelfSignedCertificate** Powershell commandlet을 사용하여 테스트 인증서를 만듭니다.
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
    ```
 
-6. **Export-Certificate** commandlet을 사용하여 테스트 인증서를 인증서 파일로 내보냅니다.
+8. **Export-Certificate** commandlet을 사용하여 테스트 인증서를 인증서 파일로 내보냅니다.
 
    ```
    Export-Certificate -Cert $cert -FilePath "C:\Reporting\MSGraph_ReportingAPI.cer"
@@ -56,13 +60,13 @@ ms.locfileid: "52961963"
 
 ## <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>인증서와 함께 Azure Active Directory Reporting API를 사용하여 데이터 가져오기
 
-1. [Azure Portal](https://portal.azure.com)로 이동하여 **Azure Active Directory**, **앱 등록**을 차례로 선택하고 목록에서 응용 프로그램을 선택합니다. 
+1. [Azure Portal](https://portal.azure.com)로 이동하여 **Azure Active Directory**, **앱 등록**을 차례로 선택하고 목록에서 애플리케이션을 선택합니다. 
 
 2. **설정** > **키**를 선택하고 **공개 키 업로드**를 선택합니다.
 
 3. 이전 단계의 인증서 파일을 선택하고 **저장**을 선택합니다. 
 
-4. 방금 응용 프로그램에 등록한 인증서의 지문 및 응용 프로그램 ID를 적어 둡니다. 지문을 찾으려면 포털의 응용 프로그램 페이지에서 **설정**으로 이동하고 **키**를 클릭합니다. **공개 키** 목록 아래에 지문이 표시됩니다.
+4. 방금 애플리케이션에 등록한 인증서의 지문 및 애플리케이션 ID를 적어 둡니다. 지문을 찾으려면 포털의 애플리케이션 페이지에서 **설정**으로 이동하고 **키**를 클릭합니다. **공개 키** 목록 아래에 지문이 표시됩니다.
 
 5. 인라인 매니페스트 편집기에서 애플리케이션 매니페스트를 열고 다음 스키마를 사용하여 *keyCredentials* 속성을 새 인증서 정보로 바꿉니다. 
 
@@ -92,7 +96,7 @@ ms.locfileid: "52961963"
 10. signins 엔드포인트를 쿼리하여 로그인 로그를 검색합니다.
  ![Azure Portal](./media/tutorial-access-api-with-certificates/query-signins.png)
 
-11. 이제 이 데이터를 CSV로 내보내고 SIEM 시스템에 저장하도록 선택할 수 있습니다. 예약된 태스크에서 스크립트를 래핑하여 원본 코드에서 응용 프로그램 키를 저장하지 않고 주기적으로 테넌트에서 Azure AD 데이터를 가져올 수도 있습니다. 
+11. 이제 이 데이터를 CSV로 내보내고 SIEM 시스템에 저장하도록 선택할 수 있습니다. 예약된 태스크에서 스크립트를 래핑하여 원본 코드에서 애플리케이션 키를 저장하지 않고 주기적으로 테넌트에서 Azure AD 데이터를 가져올 수도 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

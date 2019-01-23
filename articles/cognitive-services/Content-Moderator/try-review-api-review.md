@@ -1,21 +1,21 @@
 ---
 title: API 콘솔을 통한 사용자 검토를 사용하여 콘텐츠 조정 - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Content Moderator API 콘솔에서 사용자 검토를 만드는 방법을 알아봅니다.
+description: Review API의 검토 작업을 사용하여 사용자 조정을 위한 이미지 또는 텍스트 검토를 만드는 방법을 설명합니다.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/05/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: bb95341a09f09ce8020f34476e720270fd401909
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 9d2daad06ad6cb97fe562db98cab57c4ed970a60
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219756"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260212"
 ---
 # <a name="create-reviews-from-the-api-console"></a>API 콘솔에서 검토 만들기
 
@@ -27,7 +27,7 @@ Review API의 [검토 작업](https://westus.dev.cognitive.microsoft.com/docs/se
 온라인 콘솔을 사용하여 API를 테스트하려면 콘솔에 입력할 몇 가지 값이 필요합니다.
 
 - **teamName**: 검토 도구 계정을 설정할 때 만든 팀 이름입니다. 
-- **ContentId**: 이 문자열은 API로 전달되고 콜백을 통해 반환됩니다. ContentId는 내부 식별자 또는 메타데이터를 수정 작업 결과와 연결하는 데 유용합니다.
+- **ContentId**: API로 전달되고 콜백을 통해 반환되는 문자열입니다. ContentId는 내부 식별자 또는 메타데이터를 수정 작업 결과와 연결하는 데 유용합니다.
 - **메타데이터**: 콜백 중에 API 엔드포인트로 반환되는 사용자 지정 키-값 쌍입니다. 키가 검토 도구에 정의된 짧은 코드인 경우 이 키는 태그로 표시됩니다.
 - **Ocp-Apim-Subscription-Key**: **설정** 탭에 있습니다. 자세한 내용은 [개요](overview.md)를 참조하세요.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Storage Blob에 대한 일시 삭제 | Microsoft Docs
-description: Azure Storage는 이제 애플리케이션 또는 다른 저장소 계정 사용자에 의해 잘못 수정되거나 삭제될 때 데이터를 보다 쉽게 복구할 수 있도록 Blob 개체에 대한 일시 삭제를 제공합니다.
+description: Azure Storage는 이제 응용 프로그램 또는 다른 스토리지 계정 사용자에 의해 잘못 수정되거나 삭제될 때 데이터를 보다 쉽게 복구할 수 있도록 Blob 개체에 대한 일시 삭제를 제공합니다.
 services: storage
 author: MichaelHauss
 ms.service: storage
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 07/15/2018
 ms.author: mihauss
 ms.component: blobs
-ms.openlocfilehash: 7f7071c9f87528eddbfe3d541cd85624e308948f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 77e0a9fc12519615765e1846ac8808bb3fbb27f0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633388"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260654"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure Storage Blob에 대한 일시 삭제
-Azure Storage는 이제 애플리케이션 또는 다른 저장소 계정 사용자에 의해 잘못 수정되거나 삭제될 때 데이터를 보다 쉽게 복구할 수 있도록 Blob 개체에 대한 일시 삭제를 제공합니다.
+Azure Storage는 이제 응용 프로그램 또는 다른 스토리지 계정 사용자에 의해 잘못 수정되거나 삭제될 때 데이터를 보다 쉽게 복구할 수 있도록 Blob 개체에 대한 일시 삭제를 제공합니다.
 
 ## <a name="how-does-it-work"></a>작동 원리
 설정하면 일시 삭제를 통해 Blob 또는 Blob 스냅숏이 삭제되는 경우 데이터를 저장 및 복구할 수 있습니다. 이 보호는 덮어쓰기의 결과로 삭제되는 Blob 데이터로 확장합니다.
@@ -282,7 +282,7 @@ blockBlob.StartCopy(copySource);
 현재 일시 삭제는 Blob(개체) 저장소에 대해서만 사용 가능합니다.
 
 **일시 삭제는 모든 저장소 계정 형식에 사용할 수 있나요?**  
-예, 일시 삭제는 Blob 저장소 계정 및 범용(GPv1 및 GPv2 모두) 저장소 계정의 Blob에 사용할 수 있습니다. 이는 표준 및 프리미엄 계정 모두에 적용됩니다. 일시 삭제는 관리 디스크에 사용할 수 없습니다.
+예, 일시 삭제는 Blob Storage 계정 및 범용(GPv1 및 GPv2 모두) 스토리지 계정의 Blob에 사용할 수 있습니다. 이는 표준 및 프리미엄 계정 모두에 적용됩니다. 일시 삭제는 관리 디스크에 사용할 수 없습니다.
 
 **일시 삭제는 모든 저장소 계층에 사용할 수 있나요?**  
 예, 일시 삭제는 핫, 쿨 및 보관을 포함하여 모든 저장소 계층에 사용할 수 있습니다. 그러나 일시 삭제는 보관 계층의 Blob에 대한 덮어쓰기 보호를 제공하지 않습니다.
@@ -290,7 +290,7 @@ blockBlob.StartCopy(copySource);
 **Blob 계층 API 설정을 사용하여 일시 삭제된 스냅숏과 함께 Blob의 계층을 설정할 수 있습니까?**  
 예. 일시 삭제된 스냅숏은 원본 계층에 유지되지만 기본 Blob은 새 계층으로 이동합니다. 
 
-**프리미엄 저장소 계정은 Blob당 100개로 스냅숏을 제한합니다. 일시 삭제된 스냅숏은 이 제한에 포함되나요?**  
+**Premium Storage 계정은 Blob당 100개로 스냅숏을 제한합니다. 일시 삭제된 스냅숏은 이 제한에 포함되나요?**  
 아니요, 일시 삭제된 스냅숏은 이 제한에 포함되지 않습니다.
 
 **기존 저장소 계정에 대해 일시 삭제를 켤 수 있나요?**  

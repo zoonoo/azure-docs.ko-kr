@@ -1,27 +1,8 @@
 ---
-title: API Management를 사용하여 Machine Learning Studio 웹 서비스 관리 - Azure | Microsoft Docs
-description: API Management를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대한 가이드입니다. 사용자 액세스, 사용량 제한 및 대시보드 모니터링을 정의하여 REST API 엔드포인트를 관리합니다.
-keywords: 기계 학습, api 관리
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 8f82332b02d2e7bbf937a84de42714392e3fccd6
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258188"
+제목: API Management를 사용하여 Machine Learning Studio 웹 서비스 관리 titleSuffix: Azure Machine Learning Studio 설명: API Management를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대한 가이드입니다. 사용자 액세스, 사용량 제한 및 대시보드 모니터링을 정의하여 REST API 엔드포인트를 관리합니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 2017/11/03
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>API Management를 사용하여 Azure Machine Learning Studio 웹 서비스 관리
 ## <a name="overview"></a>개요
@@ -60,7 +41,7 @@ API Management 인스턴스를 사용하여 Azure Machine Learning 웹 서비스
 
 
 ## <a name="create-the-api"></a>API 만들기
-서비스 인스턴스를 만든 후 다음 단계는 API를 만드는 것입니다. API는 클라이언트 응용 프로그램에서 호출할 수 있는 작업 집합으로 구성됩니다. API 작업은 기존 웹 서비스로 프록시 처리됩니다. 이 가이드는 기존 AzureML RRS 및 BES 웹 서비스에 대한 프록시인 API를 만듭니다.
+서비스 인스턴스를 만든 후 다음 단계는 API를 만드는 것입니다. API는 클라이언트 애플리케이션에서 호출할 수 있는 작업 집합으로 구성됩니다. API 작업은 기존 웹 서비스로 프록시 처리됩니다. 이 가이드는 기존 AzureML RRS 및 BES 웹 서비스에 대한 프록시인 API를 만듭니다.
 
 API를 만들려면:
 

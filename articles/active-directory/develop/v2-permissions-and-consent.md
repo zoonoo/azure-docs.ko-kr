@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 5283782188eaebe3997b6de31b087da74cf10486
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: e118249cf2aaf07aeb4f337636a46d088102bca8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620135"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261182"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Azure Active Directory v2.0 엔드포인트의 사용 권한 및 동의
 
@@ -66,14 +66,14 @@ Microsoft ID 플랫폼은 **위임된 권한** 및 **애플리케이션 권한**
 
 * **위임된 권한**은 로그인한 사용자가 있는 앱에서 사용합니다. 이러한 앱의 경우 사용자 또는 관리자가 앱이 요청하는 사용 권한에 동의하거나, 앱이 대상 리소스를 호출할 때 로그인한 사용자로 행동할 수 있는 권한이 앱에 위임됩니다. 일부 위임된 권한은 관리자가 아닌 사용자가 동의할 수 있지만, 일부 상위 권한은 [관리자 동의](v2-permissions-and-consent.md#admin-restricted-scopes)가 필요합니다. 위임된 권한에 동의할 수 있는 관리자 역할을 알아보려면 [Azure AD의 관리자 역할 권한](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
 
-* **응용 프로그램 권한**은 로그인한 사용자 없이 실행되는 앱(예: 백그라운드 서비스 또는 디먼으로 실행한 앱)에서 사용합니다.  애플리케이션 권한은 [관리자만 승인할 수 있습니다](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
+* **애플리케이션 권한**은 로그인한 사용자 없이 실행되는 앱(예: 백그라운드 서비스 또는 디먼으로 실행한 앱)에서 사용합니다.  애플리케이션 권한은 [관리자만 승인할 수 있습니다](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
-_유효 권한_ 은 앱이 대상 리소스를 요청할 때 갖게 되는 권한입니다. 대상 리소스를 호출할 때 앱에 부여되는 위임된 권한 및 애플리케이션 권한과 유효 권한의 차이점을 정확하게 이해해야 합니다.
+_유효 권한_은 앱이 대상 리소스를 요청할 때 갖게 되는 권한입니다. 대상 리소스를 호출할 때 앱에 부여되는 위임된 권한 및 애플리케이션 권한과 유효 권한의 차이점을 정확하게 이해해야 합니다.
 
-- 위임된 권한의 경우 앱의 _유효 권한_ 은 (동의를 통해) 앱에 부여한 위임된 권한과 현재 로그인한 사용자가 가진 권한의 최소 권한 교집합입니다. 앱은 로그인한 사용자보다 더 많은 권한을 가질 수 없습니다. 조직 내에서 로그인한 사용자의 권한은 정책 또는 관리자 역할 하나 이상의 멤버 자격에 의해 결정될 수 있습니다. 위임된 권한에 동의할 수 있는 관리자 역할을 알아보려면 [Azure AD의 관리자 역할 권한](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
+- 위임된 권한의 경우 앱의 _유효 권한_은 (동의를 통해) 앱에 부여한 위임된 권한과 현재 로그인한 사용자가 가진 권한의 최소 권한 교집합입니다. 앱은 로그인한 사용자보다 더 많은 권한을 가질 수 없습니다. 조직 내에서 로그인한 사용자의 권한은 정책 또는 관리자 역할 하나 이상의 멤버 자격에 의해 결정될 수 있습니다. 위임된 권한에 동의할 수 있는 관리자 역할을 알아보려면 [Azure AD의 관리자 역할 권한](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
   예를 들어 앱에 _User.ReadWrite.All_ 위임된 권한이 부여되었다고 가정해 봅시다. 이 권한은 일반적으로 조직에 있는 모든 사용자의 프로필을 읽고 업데이트하는 앱 권한을 부여합니다. 로그인한 사용자가 전역 관리자인 경우 앱은 조직에 있는 모든 사용자의 프로필을 업데이트할 수 있게 됩니다. 그러나 로그인한 사용자가 관리자 역할이 아니면 앱은 로그인한 사용자의 프로필만 업데이트할 수 있게 됩니다. 즉, 대신 행동할 권한을 가진 사용자가 조직에 있는 다른 사용자의 프로필에 대한 권한을 가지고 있지 않으므로 해당 다른 사용자의 프로필을 업데이트할 수 없습니다.
   
-- 애플리케이션 권한의 경우 앱의 _유효 권한_ 은 사용 권한이 암시하는 권한의 전체 수준입니다. 예를 들어 _User.ReadWrite.All_ 애플리케이션 권한을 가진 앱은 조직에 있는 모든 사용자의 프로필을 업데이트할 수 있습니다. 
+- 애플리케이션 권한의 경우 앱의 _유효 권한_은 사용 권한이 암시하는 권한의 전체 수준입니다. 예를 들어 _User.ReadWrite.All_ 애플리케이션 권한을 가진 앱은 조직에 있는 모든 사용자의 프로필을 업데이트할 수 있습니다. 
 
 ## <a name="openid-connect-scopes"></a>OpenID Connect 범위
 
@@ -145,7 +145,7 @@ Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 �
 
 관리자가 상위 위임된 권한을 요청하고 관리자가 관리자 동의 엔드포인트를 통해 이러한 권한을 부여하면 테넌트의 모든 사용자에 대한 동의가 부여됩니다.
 
-애플리케이션에서 애플리케이션 사용 권한을 요청하고 관리자가 관리자 동의 엔드포인트를 통해 이러한 권한을 부여하면 특정 사용자를 대신하여 권한이 부여되지 않습니다. 그 대신 클라이언트 애플리케이션에 *직접* 권한이 부여됩니다. 이러한 종류의 권한은 일반적으로 백그라운드에서 실행되는 디먼 서비스 및 기타 비 대화형 애플리케이션에서 사용됩니다.
+애플리케이션에서 애플리케이션 사용 권한을 요청하고 관리자가 관리자 동의 엔드포인트를 통해 이러한 권한을 부여하면 특정 사용자를 대신하여 권한이 부여되지 않습니다. 그 대신 클라이언트 애플리케이션에 *직접* 권한이 부여됩니다. 이러한 유형의 권한은 일반적으로 백그라운드에서 실행되는 디먼 서비스 및 기타 비대화형 애플리케이션에서만 사용됩니다.
 
 ## <a name="using-the-admin-consent-endpoint"></a>관리 동의 엔드포인트 사용
 
@@ -160,11 +160,11 @@ Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 �
 관리자 동의는 범위 매개 변수를 인정하지 않으므로 요청되는 사용 권한을 애플리케이션 등록에서 정적으로 정의해야 합니다. 일반적으로 지정된 애플리케이션에 대해 정적으로 정의된 사용 권한이 동적으로/증분 방식으로 요청할 사용 권한의 상위 집합인 것이 가장 좋습니다.
 
 애플리케이션에 대해 정적으로 요청된 권한 목록을 구성하려면: 
-1. [응용 프로그램 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에서 응용 프로그램으로 이동하거나 응용 프로그램이 없는 경우 [응용 프로그램을 만듭니다](quickstart-v2-register-an-app.md).
+1. [애플리케이션 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에서 애플리케이션으로 이동하거나 애플리케이션이 없는 경우 [애플리케이션을 만듭니다](quickstart-v2-register-an-app.md).
 2. **Microsoft Graph 사용 권한** 섹션으로 이동하여 앱에 필요한 사용 권한을 추가합니다.
 3. 앱 등록을 **저장**합니다.
 
-### <a name="recommended-sign-the-user-in-to-your-app"></a>사용자가 앱에 로그인하는 것이 좋습니다.
+### <a name="recommended-sign-the-user-in-to-your-app"></a>권장: 앱에 사용자 로그인시키기
 
 일반적으로 관리 동의 엔드포인트를 사용하는 애플리케이션을 빌드할 때 앱에는 관리자가 앱의 사용 권한을 승인할 수 있는 페이지 또는 보기가 필요합니다. 이 페이지는 앱 로그인 흐름의 일부, 앱 설정의 일부 또는 전용 "연결" 흐름일 수 있습니다. 대부분의 경우에 사용자가 회사 또는 학교 Microsoft 계정으로 로그인한 후에 앱은 이 "연결" 보기만을 표시하게 됩니다.
 
@@ -194,7 +194,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 | 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
 | `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. GUID에서 제공한 이름이거나, 친근한 이름 형식이거나, 예제에서처럼 "common"으로 일반 참조될 수 있습니다. |
-| `client_id` | 필수 | [응용 프로그램 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에서 앱에 할당한 응용 프로그램 ID입니다. |
+| `client_id` | 필수 | [애플리케이션 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에서 앱에 할당한 애플리케이션 ID입니다. |
 | `redirect_uri` | 필수 |리디렉션 URI는 처리할 앱에 응답을 전송하려는 위치입니다. 앱 등록 포털에 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. |
 | `state` | 권장 | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태를 사용하여 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩할 수 있습니다. |
 
@@ -254,4 +254,4 @@ OAuth 2.0 프로토콜 및 액세스 토큰을 가져오는 방법에 대한 자
 
 ## <a name="troubleshooting"></a>문제 해결
 
-개발자 또는 애플리케이션의 사용자가 동의 프로세스를 진행하는 중에 예기치 않은 오류가 표시되는 경우 [애플리케이션에 대한 동의를 수행할 때 예기치 않은 오류](../manage-apps/application-sign-in-unexpected-user-consent-error.md) 문서의 문제 해결 단계를 참조하세요.
+동의 프로세스 중에 개발자나 애플리케이션 사용자에게 예기치 않은 오류가 표시되면 [애플리케이션 사용에 동의할 때 발생하는 예기치 않은 오류](../manage-apps/application-sign-in-unexpected-user-consent-error.md) 문서에서 문제 해결 단계를 참조하세요.

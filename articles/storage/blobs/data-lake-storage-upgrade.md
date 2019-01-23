@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 12/19/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 9cdad2f2e56d7c6dfdfb4a3d46a8094c8aead5ac
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: dd8f33cd64728c1a66e5de05734b05ac35a9836b
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631569"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200176"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2-preview"></a>빅 데이터 분석 솔루션을 Azure Data Lake Storage Gen1에서 Azure Data Lake Storage Gen2로 업그레이드
 
@@ -276,7 +276,7 @@ Data Lake Storage Gen2 파일에 액세스하기 위한 URI 체계는 [여기](h
 
 ##### <a name="sdks"></a>SDK
 
-*업그레이드 준비 평가* 섹션에서 설명한 대로 SDK는 현재 사용할 수 없습니다. 애플리케이션을 통해 Data Lake Storage Gen2에 포팅하려면 지원되는 SDK를 사용할 수 있을 때까지 기다리는 것이 좋습니다.
+*업그레이드 준비 평가* 섹션에서 설명한 대로 SDK는 현재 사용할 수 없습니다. Data Lake Storage Gen2로 애플리케이션을 이동하려는 경우에는 지원되는 SDK를 사용할 수 있을 때까지 기다리는 것이 좋습니다.
 
 ##### <a name="powershell"></a>PowerShell
 

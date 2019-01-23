@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: 191471d3538a9151827ee24a5887aa559383345b
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 78812f7bcce82090802672e3e232e713f0d047d1
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785667"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214116"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>지문 대신 인증서 일반 이름을 사용하는 Service Fabric 클러스터 배포
 두 인증서가 동일한 지문을 사용하면 안 됩니다. 이렇게 될 경우 클러스터 인증서가 롤오버되거나 관리에 어려움이 발생합니다. 그러나 여러 인증서가 동일한 일반 이름 또는 제목을 사용하는 것은 가능합니다.  인증서 일반 이름을 사용하는 클러스터는 인증서 관리가 훨씬 간단합니다. 이 문서에서는 인증서 지문 대신 인증서 일반 이름을 사용하는 Service Fabric 클러스터를 배포하는 방법을 설명합니다.
  
 ## <a name="get-a-certificate"></a>인증서 얻기
-먼저 [CA(인증 기관)](https://wikipedia.org/wiki/Certificate_authority)에서 인증서를 얻습니다.  인증서 일반 이름이 클러스터의 호스트 이름이어야 합니다.  예: "myclustername.southcentralus.cloudapp.azure.com".  
+먼저 [CA(인증 기관)](https://wikipedia.org/wiki/Certificate_authority)에서 인증서를 얻습니다.  인증서의 일반 이름은 도메인 등록 기관에서 구매하여 소유하고 있는 사용자 지정 도메인의 이름이어야 합니다. "azureservicefabricbestpractices.com" 등을 예로 들 수 있습니다. Microsoft 직원이 아닌 사용자는 MS 도메인용 인증서를 프로비전할 수 없으므로 인증서의 일반 이름으로 LB 또는 Traffic Manager의 DNS 이름을 사용할 수 없습니다. 그러므로 Azure에서 사용자 지정 도메인을 확인할 수 있도록 하려면 [Azure DNS 영역](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns)을 프로비전해야 합니다. 또한 포털에서 클러스터에 사용자 지정 도메인 별칭을 반영하도록 하려는 경우 자신이 소유한 사용자 지정 도메인을 클러스터의 "managementEndpoint"로 선언할 수 있습니다.
 
 테스트를 위해 무료 또는 오픈 인증 기관에서 CA 서명 인증서를 얻을 수 있습니다.
 
 > [!NOTE]
-> Azure Portal에서 Service Fabric 클러스터를 배포할 때 생성된 인증서를 포함하여 자체 서명된 인증서는 지원되지 않습니다.
+> Azure Portal에서 Service Fabric 클러스터를 배포할 때 생성된 인증서를 포함하여 자체 서명된 인증서는 지원되지 않습니다. 
 
 ## <a name="upload-the-certificate-to-a-key-vault"></a>키 자격 증명 모음에 인증서 업로드
 Azure에서 Service Fabric 클러스터는 가상 머신 확장 집합에 배포됩니다.  키 자격 증명 모음에 인증서를 업로드합니다.  클러스터가 배포되면 클러스터가 실행되고 있는 가상 머신 확장 집합에 인증서를 설치합니다.

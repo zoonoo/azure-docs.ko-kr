@@ -1,6 +1,6 @@
 ---
 title: 지속성 함수의 단일 항목 - Azure
-description: Azure Functions의 지속성 함수 확장에 단일 항목을 사용하는 방법입니다.
+description: Azure Functions의 Durable Functions 확장에서 싱글톤을 사용하는 방법을 설명합니다.
 services: functions
 author: cgillum
 manager: jeconnoc
@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3eaa5de1b1378ba78a7c57172fd0a155f72cd6c5
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: aca7aa30744c79cefd3c7704a8fde1df203b2c9d
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102519"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198986"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>지속성 함수의 단일 항목 오케스트레이터(Azure Functions)
 

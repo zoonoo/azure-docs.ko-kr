@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 5641792c058d10bba1bfd468f3c5c90b9217226e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 29b76620494fbb325f8c43bf90a07c9df0faff56
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187656"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266336"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS 분석 미리 보기 솔루션으로 DNS 인프라에 대한 정보 수집
 
@@ -42,9 +42,9 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 
 | **연결된 원본** | **지원** | **설명** |
 | --- | --- | --- |
-| [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | yes | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
+| [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | 예 | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
 | [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아니요 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
-| [System Center Operations Manager 관리 그룹](../../azure-monitor/platform/om-agents.md) | yes | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Log Analytics로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
+| [System Center Operations Manager 관리 그룹](../../azure-monitor/platform/om-agents.md) | 예 | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Log Analytics로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
 | [Azure 저장소 계정](../../azure-monitor/platform/collect-azure-metrics-logs.md) | 아니요 | Azure Storage가 솔루션에서 사용되지 않습니다. |
 
 ### <a name="data-collection-details"></a>데이터 수집 세부 정보
@@ -76,11 +76,11 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 
 Microsoft Monitoring Agent를 사용하여 Log Analytics 작업 영역에 연결하는 경우 다음 관리 팩이 설치됩니다.
 
-- Microsoft DNS 데이터 수집기 인텔리전스 팩(Microsft.IntelligencePacks.Dns)
+- Microsoft DNS 데이터 수집기 인텔리전스 팩(Microsoft.IntelligencePacks.Dns)
 
 Operations Manager 관리 그룹이 Log Analytics 작업 영역에 연결된 경우 이 솔루션을 추가할 때 다음 관리 팩이 Operations Manager에 설치됩니다. 이 관리 팩에 대한 구성 또는 유지 관리는 필요 없습니다.
 
-- Microsoft DNS 데이터 수집기 인텔리전스 팩(Microsft.IntelligencePacks.Dns)
+- Microsoft DNS 데이터 수집기 인텔리전스 팩(Microsoft.IntelligencePacks.Dns)
 - Microsoft System Center Advisor DNS 분석 구성(Microsoft.IntelligencePack.Dns.Configuration)
 
 솔루션 관리 팩이 업데이트되는 방법에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](../../azure-monitor/platform/om-agents.md)을 참조하세요.

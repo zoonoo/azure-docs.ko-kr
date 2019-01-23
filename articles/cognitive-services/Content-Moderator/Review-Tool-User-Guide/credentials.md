@@ -1,22 +1,23 @@
 ---
-title: Azure Content Moderator의 자격 증명 | Microsoft Docs
-description: API에 사용할 Content Moderator 자격 증명을 관리합니다.
+title: Azure Content Moderator에서 자격 증명 관리 - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: API를 사용하려면 필요한 Content Moderator 자격 증명을 관리하는 방법을 알아봅니다.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 06/25/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5910961ee54c953ea241baf9bce78b79b0dfeaea
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3d183870938f44cd71f1dab4105eec390ba12d94
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260094"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266148"
 ---
-# <a name="manage-credentials"></a>자격 증명 관리
+# <a name="manage-content-moderator-service-credentials"></a>Content Moderator 서비스 자격 증명 관리
 
 Content Moderator 자격 증명은 다음 위치에 만들어집니다.
 

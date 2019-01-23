@@ -1,21 +1,21 @@
 ---
 title: API 콘솔의 콘텐츠 조정 워크플로 - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: API 콘솔에서 콘텐츠 조정 워크플로를 사용하는 방법을 알아봅니다.
+description: Azure Content Moderator의 워크플로 작업을 사용하여 워크플로를 생성 또는 업데이트하거나 검토 API를 사용하여 워크플로 세부 정보를 가져오는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 02/05/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 4ef8951b30fa7aede08a1af3c834192b5ed18649
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 24c451dda398cfa65dd24a4500871c67943b79bf
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223853"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259463"
 ---
 # <a name="workflows-from-the-api-console"></a>API 콘솔의 워크플로
 
@@ -139,7 +139,7 @@ Content Moderator 대시보드에서 **검토** > **설정** > **워크플로**�
 **team**, **workflowname** 및 **Ocp-Apim-Subscription-Key**(구독 키)에 대한 값을 입력합니다.
 
 - **team**: [검토 도구 계정](https://contentmoderator.cognitive.microsoft.com/)을 설정할 때 만든 팀 ID입니다. 
-- **workflowname**: 새로운 워크플로의 이름입니다.
+- **workflowname**: 새 워크플로의 이름입니다.
 - **Ocp-Apim-Subscription-Key**: **설정** 탭에 있습니다. 자세한 내용은 [개요](overview.md)를 참조하세요.
 
   ![워크플로 - 만들기 또는 업데이트 콘솔 쿼리 매개 변수 및 헤더](images/workflow-console-parameters.PNG)

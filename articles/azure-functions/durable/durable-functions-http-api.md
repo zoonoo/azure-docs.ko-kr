@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 577147ad91c6a35a45fd40ca9e6424863ea196d6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c2ffa623ad7a6c6da5b799d2c7d5f35c9f65e503
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340784"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215408"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>지속성 함수의 HTTP API(Azure Functions)
 
@@ -96,9 +96,9 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
 | taskHub    | 쿼리 문자열    | [작업 허브](durable-functions-task-hubs.md)의 이름입니다. 지정하지 않으면 현재 함수 앱의 작업 허브 이름이 사용됩니다. |
 | connection | 쿼리 문자열    | 저장소 계정에 대한 연결 문자열의 **이름**입니다. 지정하지 않으면 함수 앱에 대한 기본 연결 문자열이 사용됩니다. |
 | systemKey  | 쿼리 문자열    | API를 호출하는 데 필요한 권한 부여 키입니다. |
-| showInput  | 쿼리 문자열    | 선택적 매개 변수. `false`로 설정하면 실행 입력이 응답 페이로드에 포함되지 않습니다.|
-| showHistory| 쿼리 문자열    | 선택적 매개 변수. `true`로 설정하면 오케스트레이션 실행 기록이 응답 페이로드에 포함됩니다.|
-| showHistoryOutput| 쿼리 문자열    | 선택적 매개 변수. `true`로 설정하면 작업 출력이 오케스트레이션 실행 기록에 포함됩니다.|
+| showInput  | 쿼리 문자열    | 단일 인스턴스 요청에서만 사용되는 선택적 매개 변수입니다. `false`로 설정하면 실행 입력이 응답 페이로드에 포함되지 않습니다.|
+| showHistory| 쿼리 문자열    | 단일 인스턴스 요청에서만 사용되는 선택적 매개 변수입니다. `true`로 설정하면 오케스트레이션 실행 기록이 응답 페이로드에 포함됩니다.|
+| showHistoryOutput| 쿼리 문자열    | 단일 인스턴스 요청에서만 사용되는 선택적 매개 변수입니다. `true`로 설정하면 작업 출력이 오케스트레이션 실행 기록에 포함됩니다.|
 | createdTimeFrom  | 쿼리 문자열    | 선택적 매개 변수. 지정하면 지정 ISO8601 타임스탬프 시 또는 이후에 생성된 반환된 인스턴스 목록을 필터링합니다.|
 | createdTimeTo    | 쿼리 문자열    | 선택적 매개 변수. 지정하면 지정 ISO8601 타임스탬프 시 또는 이전에 생성된 반환된 인스턴스 목록을 필터링합니다.|
 | runtimeStatus    | 쿼리 문자열    | 선택적 매개 변수. 지정하면 런타임 상태를 기반으로 반환된 인스턴스 목록을 필터링합니다. 가능한 런타임 상태 값의 목록을 보려면 [인스턴스 쿼리](durable-functions-instance-management.md) 항목을 참조하세요. |
@@ -146,7 +146,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}?taskHub={taskHub}&conne
 | output          | JSON      | 인스턴스의 JSON 출력입니다. 인스턴스가 완료된 상태가 아닌 경우 이 필드는 `null`입니다. |
 | createdTime     | string    | 인스턴스를 만든 시간입니다. ISO 8601 확장 표기법을 사용합니다. |
 | lastUpdatedTime | string    | 인스턴스가 마지막으로 유지된 시간입니다. ISO 8601 확장 표기법을 사용합니다. |
-| historyEvents   | JSON      | 오케스트레이션 실행 기록이 포함된 JSON 배열입니다. `showHistory` 쿼리 문자열 매개 변수가 `true`로 설정되지 않으면 이 필드는 `null`입니다.  |
+| historyEvents   | JSON      | 오케스트레이션 실행 기록이 포함된 JSON 배열입니다. `showHistory` 쿼리 문자열 매개 변수가 `true`로 설정되지 않으면 이 필드는 `null`입니다. |
 
 다음은 오케스트레이션 실행 기록 및 작업 출력을 포함하는 응답 페이로드 예제입니다(읽기 쉽게 형식이 지정됨).
 

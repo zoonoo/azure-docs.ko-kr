@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 01/09/2018
 ms.author: bwren
-ms.openlocfilehash: dc1de1bb43295d2ff9f260613ae568cdd2fbe6ae
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 624091d4b5c1e17a301d9087f56ec5f9b0fecc5c
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103505"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198782"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log Analytics의 사용자 지정 로그
 Log Analytics의 사용자 지정 로그 데이터 원본을 통해 Windows 및 Linux 컴퓨터의 텍스트 파일에서 이벤트를 수집할 수 있습니다. 많은 애플리케이션이 Windows 이벤트 로그 또는 Syslog 같은 표준 로깅 서비스 대신 텍스트 파일에 정보를 기록합니다. 수집된 데이터를 쿼리의 개별 필드로 구문 분석하거나 수집 중에 데이터를 개별 필드로 추출할 수 있습니다.
@@ -164,6 +164,18 @@ Log Analytics는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 사용자 지정 필드를 사용하여 *EventTime*, *Code*, *Status*, *Message* 필드를 정의하며, 쿼리에 의해 반환되는 레코드의 차이를 볼 수 있습니다.
 
 ![사용자 지정 필드가 있는 로그 쿼리](media/data-sources-custom-logs/query-02.png)
+
+## <a name="alternatives-to-custom-logs"></a>사용자 지정 로그 대신 사용할 수 있는 방법
+데이터가 위에 나와 있는 기준에 맞는 경우에는 사용자 지정 로그가 유용하지만, 다른 전략이 필요한 다음과 같은 경우도 있습니다.
+
+- 데이터가 다른 형식의 타임스탬프를 포함하는 등 필요한 구조에 맞지 않는 경우
+- 로그 파일이 파일 인코딩 등의 요구 사항을 충족하지 않거나 폴더 구조가 지원되지 않는 경우
+- 데이터 수집 전에 전처리 또는 필터링을 수행해야 하는 경우 
+
+사용자 지정 로그로 데이터를 수집할 수 없는 경우에는 다음과 같은 전략을 대신 사용할 수 있습니다.
+
+- 사용자 지정 스크립트나 다른 방법을 사용하여 Log Analytics에서 수집하는 [Windows 이벤트](data-sources-windows-events.md) 또는 [Syslog](data-sources-syslog.md)에 데이터를 씁니다. 
+- [HTTP 데이터 수집기 API](data-collector-api.md)를 사용하여 Log Analytics로 데이터를 직접 전송합니다. Azure Automation에서 Runbook을 사용하는 예는 [Azure Automation Runbook을 사용하여 Log Analytics에서 데이터 수집](runbook-datacollect.md)에 나와 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 가져온 각 로그 항목을 여러 속성으로 구문 분석하는 방법은 [Log Analytics에서 텍스트 데이터 구문 분석](../log-query/parse-text.md)을 참조하세요.

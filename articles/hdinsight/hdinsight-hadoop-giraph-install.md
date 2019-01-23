@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3ee1cfaa9e5eb08b2fe6ee7d210dcb84a8c39d78
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ec80be0ece3596eab418ac39507954142944e34a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715327"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260494"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>Windows 기반 HDInsight 클러스터에서 Apache Giraph 설치 및 사용
 
@@ -63,7 +63,7 @@ ms.locfileid: "53715327"
 ## <a name="use-giraph"></a>Giraph 사용
 SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 가장 짧은 경로를 찾기 위한 기본 <a href = "https://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> 구현을 보여줍니다. 다음 단계에 따라 샘플 데이터와 샘플 jar을 업로드하고, SimpleShortestPathsComputation 예제를 사용하여 작업을 실행한 후 결과를 확인합니다.
 
-1. 샘플 데이터 파일을 Azure Blob 저장소에 업로드합니다. 로컬 워크스테이션에서 **tiny_graph.txt**라는 새 파일을 만듭니다. 이 파일은 다음 줄을 포함해야 합니다.
+1. 샘플 데이터 파일을 Azure Blob Storage에 업로드합니다. 로컬 워크스테이션에서 **tiny_graph.txt**라는 새 파일을 만듭니다. 이 파일은 다음 줄을 포함해야 합니다.
 
         [0,0,[[1,1],[3,3]]]
         [1,0,[[0,1],[2,2],[3,1]]]
@@ -153,7 +153,7 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 
     ![가장 짧은 경로와 함께 원으로 그린 개체](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
-## <a name="install-giraph-using-aure-powershell"></a>Aure PowerShell을 사용하여 Giraph 설치
+## <a name="install-giraph-using-azure-powershell"></a>Azure PowerShell을 사용하여 Giraph 설치
 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)을 참조하세요.  샘플은 Azure PowerShell을 사용하여 Apache Spark를 설치하는 방법을 보여 줍니다. [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)을 사용하도록 스크립트를 사용자 지정해야 합니다.
 
 ## <a name="install-giraph-using-net-sdk"></a>.NET SDK을 사용하여 Giraph 설치

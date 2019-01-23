@@ -9,18 +9,18 @@ ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: 9c02dc386852a32814669d38df6260822a5e4f99
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 17372076f06cbaa833c437121a01f0dcaaf0e757
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308797"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243638"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Azure Marketplace의 보안 권장 사항 이미지
 
-각 솔루션이 다음 보안 구성 권장 사항을 준수하도록 하는 것이 좋습니다. 이것은 Azure Marketplace에서 파트너 솔루션 이미지에 대해 높은 수준의 보안을 유지하는 데 도움이 됩니다.
+각 솔루션이 다음 보안 구성 권장 사항을 준수하도록 하는 것이 좋습니다. 그러면 Azure Marketplace에서 파트너 솔루션 이미지의 높은 보안 수준을 유지할 수 있습니다.
 
 이 권장 사항은 Azure Marketplace에 이미지가 없는 조직에도 유용할 수 있습니다. 아래 표에 있는 지침에 따라 회사의 Windows 및 Linux 이미지 구성을 확인할 수도 있습니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "53308797"
 | **범주**                                                 | **확인**                                                                                                                                                                                                                                                                              |
 | 보안                                                     | Linux 배포에 대한 모든 최신 보안 패치가 설치됩니다.                                                                                                                                                                                                              |
 | 보안                                                     | 특정 Linux 배포에 대한 VM 이미지를 보호하기 위한 산업 지침을 준수했습니다.                                                                                                                                                                                     |
-| 보안                                                     | 필요한 Windows Server 역할, 기능, 서비스 및 네트워킹 포트만으로 공간을 최소화하여 공격 화면을 제한합니다.                                                                                                                                               |
+| 보안                                                     | 필요한 Windows Server 역할, 기능, 서비스 및 네트워킹 포트만 포함하도록 공간을 최소화하여 공격 표면을 제한합니다.                                                                                                                                               |
 | 보안                                                     | 맬웨어의 소스 코드 및 결과 VM 이미지를 검색합니다.                                                                                                                                                                                                                                   |
 | 보안                                                     | VHD 이미지에는 백도어가 아닌 대화형 로그인을 허용하는 기본 암호가 없는 필수 잠긴 계정만 포함되어 있습니다.                                                                                                                                           |
 | 보안                                                     | 애플리케이션 기능이 사용하지 않는 방화벽 어플라이언스와 같은 방화벽 규칙은 사용 불가능합니다.                                                                                                                                                                             |
@@ -56,7 +56,7 @@ ms.locfileid: "53308797"
 | 보안                                                         | 모든 최신 보안 업데이트를 설치합니다.                                                                                                                                     |
 | 보안                                                         | 애플리케이션에는 관리자, 루트 및 관리자와 같이 제한된 사용자 이름에 대한 종속성이 없어야 합니다.                                                                |
 | 보안                                                         | 운영 체제 하드 디스크에서는 BitLocker 드라이브 암호화가 지원되지 않습니다. 데이터 디스크에서 BitLocker를 사용할 수 있습니다.                                                            |
-| 보안                                                         | 필요한 Windows Server 역할, 기능, 서비스 및 네트워킹 포트만 활성화한 상태로 공간을 최소화하여 공격 화면을 제한합니다.                         |
+| 보안                                                         | 필요한 Windows Server 역할, 기능, 서비스 및 네트워킹 포트만 사용하도록 설정해 공간을 최소화함으로써 공격 표면을 제한합니다.                         |
 | 보안                                                         | 맬웨어의 소스 코드 및 결과 VM 이미지를 검색합니다.                                                                                                                     |
 | 보안                                                         | Windows Server 이미지 보안 업데이트를 자동 업데이트로 설정합니다.                                                                                                                |
 | 보안                                                         | VHD 이미지에는 백도어가 아닌 대화형 로그인을 허용하는 기본 암호가 없는 필수 잠긴 계정만 포함되어 있습니다.                             |

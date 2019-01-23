@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/26/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 95355a6d1a0aff9829d75789df86f37768d25e22
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 94d948267286ad716aa200cb5aa858acf2eb2624
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342241"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330775"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Automation에서 원본 제어 통합
 
@@ -59,6 +59,9 @@ Automation 계정 내에서 **소스 제어(미리 보기)** 를 선택하고 **
 |설명     | 추가 정보를 제공하는 텍스트 필드        |
 
 ![소스 제어 요약](./media/source-control-integration/source-control-summary.png)
+
+> [!NOTE]
+> 소스 제어를 구성할 때는 올바른 계정을 사용하여 로그인해야 합니다. 계정이 올바른지 확실치 않으면 브라우저에서 새 탭을 열고 visualstudio.com 또는 github.com에서 로그아웃한 다음 소스 제어를 다시 연결해 봅니다.
 
 ## <a name="syncing"></a>동기화 중
 

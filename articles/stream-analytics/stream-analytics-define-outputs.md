@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6d7c8aa73f72f6db93c6ef78c333c36e1d26b74e
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 805df837d5d33c5f21799e39145c62e71afdb4b5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995068"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231396"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력 이해
 이 문서에서는 Azure Stream Analytics 작업에 사용할 수 있는 다양한 유형의 출력을 설명합니다. 출력을 사용하여 Stream Analytics 작업의 결과를 저장할 수 있습니다. 출력 데이터를 사용하여 추가 비즈니스 분석 및 데이터의 데이터 웨어하우징을 수행할 수 있습니다.
@@ -33,7 +33,7 @@ Stream Analytics의 Azure Data Lake Store 출력은 현재 Azure 중국(21Vianet
 
 ### <a name="authorize-an-azure-data-lake-store-account"></a>Azure Data Lake Store 계정 권한 부여
 
-1. Azure Portal에서 출력으로 Data Lake 저장소를 선택하는 경우 기존 Data Lake Store에 대한 연결 권한을 부여하라는 메시지가 나타납니다.
+1. Azure Portal에서 출력으로 Data Lake 스토리지를 선택하는 경우 기존 Data Lake Store에 대한 연결 권한을 부여하라는 메시지가 나타납니다.
 
    ![Data Lake Store에 대한 연결 권한 부여](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)
 
@@ -73,19 +73,21 @@ Stream Analytics의 Azure Data Lake Store 출력은 현재 Azure 중국(21Vianet
 | 사용자 이름 | 데이터베이스에 쓸 수 있는 액세스 권한이 있는 사용자 이름입니다. Stream Analytics는 SQL 인증만 지원합니다. |
 | 암호 | 데이터베이스에 연결하는 암호입니다. |
 | 테이블 | 출력을 기록되는 테이블 이름입니다. 테이블 이름은 대/소문자를 구분하며 이 테이블의 스키마는 작업 출력에서 생성되는 필드의 수 및 해당 형식과 정확히 일치해야 합니다. |
+|파티션 구성표 상속| 이 옵션을 사용하면 이전 쿼리 단계의 파티션 구성표를 상속하여 테이블에 데이터를 쓰는 기록기가 여러 개인 완전 병렬 토폴로지를 설정할 수 있습니다. 자세한 내용은 [Azure SQL Database에 Azure Stream Analytics 출력](stream-analytics-sql-output-perf.md)을 참조하세요.|
+|최대 일괄 처리 수| 모든 대량 삽입 트랜잭션을 통해 전송되는 레코드 수의 권장 상한입니다.|
 
 > [!NOTE]
 > 현재, Stream Analytics의 작업 출력에 대해 Azure SQL Database 제품을 사용할 수 있습니다. 그러나 데이터베이스가 연결된 SQL Server를 실행하는 Azure Virtual Machine은 지원되지 않습니다. 후속 릴리스에서는 변경될 수 있습니다.
 >
 
-## <a name="blob-storage"></a>Blob 저장소
-클라우드에서 대량의 구조화되지 않은 데이터를 저장하는 경우 Blob 저장소는 비용 효율적이고 확장성 있는 솔루션을 제공합니다. Azure Blob 저장소 및 사용법에 대한 소개 내용은 [Blob 사용 방법](../storage/blobs/storage-dotnet-how-to-use-blobs.md)설명서를 참조하세요.
+## <a name="blob-storage"></a>Blob Storage
+클라우드에서 대량의 구조화되지 않은 데이터를 저장하는 경우 Blob Storage는 비용 효율적이고 확장성 있는 솔루션을 제공합니다. Azure Blob Storage 및 사용법에 대한 소개 내용은 [Blob 사용 방법](../storage/blobs/storage-dotnet-how-to-use-blobs.md)설명서를 참조하세요.
 
 다음 테이블은 Blob 출력을 만들기 위한 속성 이름 및 해당 설명을 나열합니다.
 
 | 속성 이름       | 설명                                                                      |
 | ------------------- | ---------------------------------------------------------------------------------|
-| 출력 별칭        | 쿼리 출력을 이 Blob 저장소로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
+| 출력 별칭        | 쿼리 출력을 이 Blob Storage로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
 | Storage 계정     | 출력을 보내는 저장소 계정의 이름               |
 | Storage 계정 키 | 저장소 계정과 연결된 비밀 키입니다.                              |
 | 저장소 컨테이너   | 컨테이너는 Microsoft Azure Blob service에 저장된 Blob에 대한 논리적 그룹화를 제공합니다. Blob service에 Blob을 업로드하는 경우 해당 Blob에 대한 컨테이너를 지정해야 합니다. |
@@ -97,7 +99,7 @@ Stream Analytics의 Azure Data Lake Store 출력은 현재 Azure 중국(21Vianet
 | 구분 기호   | CSV 직렬화에만 적용됩니다. Stream Analytics는 CSV 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다. |
 | 형식      | JSON 직렬화에만 적용됩니다. 구분된 줄은 출력이 각 JSON 개체를 새 줄로 구분된 형식이 되도록 지정합니다. 배열은 출력의 형식을 JSON 개체의 배열로 지정합니다. 이 배열은 작업이 중지되거나 Stream Analytics가 다음 시간 범위로 이동되었을 때만 닫힙니다. 일반적으로 줄로 구분된 JSON을 사용하는 것이 좋습니다. 이 경우 출력 파일에 쓰는 동안 특수한 처리가 필요하지 않기 때문입니다. |
 
-BLOB 저장소를 출력으로 사용하면 다음과 같은 경우 BLOB에 새 파일이 만들어집니다.
+Blob Storage를 출력으로 사용하면 다음과 같은 경우 BLOB에 새 파일이 만들어집니다.
 
 * 파일이 허용되는 최대 블록 수(현재 50,000)를 초과합니다. 허용된 최대 블록 수는 허용된 최대 Blob 크기에 도달하지 않고 도달할 수 있습니다. 예를 들어 출력 속도가 높으면 블록당 더 많은 바이트를 볼 수 있으며 파일 크기는 더 커집니다. 출력 속도가 낮으면 각 블록의 데이터가 줄어들고 파일 크기도 작아집니다.
 * 출력의 스키마가 변경되고 출력 형식에 고정 스키마(CSV 및 Avro)가 필요한 경우
@@ -198,13 +200,13 @@ Stream Analytics 작업을 만들거나 마지막으로 인증한 후 Power BI �
   ![출력에 대한 Power BI 권한 부여 갱신](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)
 
 ## <a name="table-storage"></a>Table Storage
-[Azure 테이블 스토리지](../storage/common/storage-introduction.md)는 가용성이 높고 확장성이 큰 스토리지를 제공하므로, 애플리케이션이 사용자 요구에 맞게 자동으로 확장할 수 있습니다. 테이블 저장소는 스키마에 대한 제약 조건이 적은 구조화된 데이터에 활용할 수 있는 Microsoft의 NoSQL 키/특성 저장소입니다. Azure 테이블 저장소는 지속적이고 효율적인 검색을 위해 데이터를 저장하는 데 사용할 수 있습니다.
+[Azure Table Storage](../storage/common/storage-introduction.md)는 가용성이 높고 확장성이 큰 스토리지를 제공하므로, 응용 프로그램이 사용자 요구에 맞게 자동으로 확장할 수 있습니다. Table Storage는 스키마에 대한 제약 조건이 적은 구조화된 데이터에 활용할 수 있는 Microsoft의 NoSQL 키/특성 스토리지입니다. Azure Table Storage는 지속적이고 효율적인 검색을 위해 데이터를 저장하는 데 사용할 수 있습니다.
 
 다음 테이블은 테이블 출력을 만들기 위한 속성 이름 및 해당 설명을 나열합니다.
 
 | 속성 이름 | description |
 | --- | --- |
-| 출력 별칭 |쿼리 출력을 이 테이블 저장소로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
+| 출력 별칭 |쿼리 출력을 이 Table Storage로 보내기 위해 쿼리에서 사용되는 이름입니다. |
 | Storage 계정 |출력을 보내는 저장소 계정의 이름 |
 | Storage 계정 키 |저장소 계정과 연결된 선택키입니다. |
 | 테이블 이름 |테이블의 이름입니다. 테이블이 존재하지 않는 경우 만들어집니다. |
@@ -298,10 +300,10 @@ Azure Stream Analytics는 Azure 함수에서 413(http 요청 엔터티가 너무
 | --- | --- | --- | --- |
 | Azure Data Lake Store | 예 | 경로 접두사 패턴에 {date} 및 {time} 토큰을 사용합니다. YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY 등과 같은 날짜 형식을 선택합니다. HH는 시간 형식에 사용됩니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
 | Azure SQL Database | 예 | 쿼리의 PARTITION BY 절에 기반합니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. SQL Azure Database에 데이터를 로드할 때 쓰기 처리량 성능을 높이는 방법에 대한 자세한 내용은 [Azure SQL Database에 Azure Stream Analytics 출력](stream-analytics-sql-output-perf.md)을 참조하세요. |
-| Azure Blob 저장소 | 예 | 경로 패턴의 사용자 이벤트 필드에서 {date} 및 {time} 토큰을 사용합니다. YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY 등과 같은 날짜 형식을 선택합니다. HH는 시간 형식에 사용됩니다. [미리 보기](https://aka.ms/ASApreview1)의 일부로 단일 사용자 지정 이벤트 특성 {fieldname} 또는 {datetime:\<specifier>}로 Blob 출력을 분할할 수 있습니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
+| Linux에서 File Storage 사용에 대한 자세한 내용은 Linux에서 Azure 파일 스토리지 사용 방법을 참조하세요. | 예 | 경로 패턴의 사용자 이벤트 필드에서 {date} 및 {time} 토큰을 사용합니다. YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY 등과 같은 날짜 형식을 선택합니다. HH는 시간 형식에 사용됩니다. [미리 보기](https://aka.ms/ASApreview1)의 일부로 단일 사용자 지정 이벤트 특성 {fieldname} 또는 {datetime:\<specifier>}로 Blob 출력을 분할할 수 있습니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
 | Azure Event Hub | 예 | 예 | 파티션 맞춤에 따라 달라집니다.<br /> 출력 이벤트 허브 파티션 키가 업스트림(이전의) 쿼리 단계로 동일하게 맞춰질 때 작성기의 수는 출력 이벤트 허브 파티션의 수와 동일합니다. 각 작성기는 이벤트 허브의 [EventHubSender 클래스](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)를 사용하여 특정 파티션에 이벤트를 전송합니다. <br /> 출력 이벤트 허브 파티션 키가 업스트림(이전의) 쿼리 단계로 맞춰지지 않는 경우 작성기의 수는 이전 단계의 파티션 수와 동일합니다. 각 작성기는 EventHubClient [SendBatchAsync 클래스](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet)를 사용하여 모든 출력 파티션에 이벤트를 전송합니다. |
 | Power BI | 아니요 | 없음 | 사용할 수 없습니다. |
-| Azure 테이블 저장소 | 예 | 모든 출력 열입니다.  | [완전히 병렬 처리된 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
+| Azure Table Storage | 예 | 모든 출력 열입니다.  | [완전히 병렬 처리된 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
 | Azure Service Bus 항목 | 예 | 자동으로 선택됩니다. 파티션 수는 [Service Bus SKU 및 크기](../service-bus-messaging/service-bus-partitioning.md)에 따라 달라집니다. 파티션 키는 각 파티션에 대한 고유 정수 값입니다.| 출력 항목의 파티션 수와 동일합니다.  |
 | Azure Service Bus 큐 | 예 | 자동으로 선택됩니다. 파티션 수는 [Service Bus SKU 및 크기](../service-bus-messaging/service-bus-partitioning.md)에 따라 달라집니다. 파티션 키는 각 파티션에 대한 고유 정수 값입니다.| 출력 큐의 파티션 수와 동일합니다. |
 | Azure Cosmos DB | 예 | 컬렉션 이름 패턴에서 {partition} 토큰을 사용합니다. {partition} 값은 쿼리의 PARTITION BY 절에 기반합니다. | [완전히 병렬 처리된 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
@@ -318,10 +320,10 @@ Azure Stream Analytics는 변수 크기 일괄 처리를 사용하여 이벤트�
 | :--- | :--- | :--- |
 | Azure Data Lake Store | [Data Lake Storage 용량 한도](../azure-subscription-service-limits.md#data-lake-store-limits) 참조 | 쓰기 작업당 최대 4MB |
 | Azure SQL Database | 단일 대량 삽입당 최대 10,000행<br />단일 대량 삽입당 최소 100행 <br />참고 항목 [Azure SQL 한도](../sql-database/sql-database-resource-limits.md) |  모든 일괄 처리는 처음에 최대 일괄 처리 크기로 대량 삽입되고 SQL에서 다시 시도 가능한 오류를 기반으로 절반(최소 일괄 처리 크기까지)으로 일괄 처리를 분할할 수 있습니다. |
-| Azure Blob 저장소 | [Azure Storage 용량 한도](../azure-subscription-service-limits.md#storage-limits) 참조 | 최대 Blob 블록 크기는 4MB입니다.<br />최대 Blob 블록 개수는 50000개입니다. |
+| Linux에서 File Storage 사용에 대한 자세한 내용은 Linux에서 Azure 파일 스토리지 사용 방법을 참조하세요. | [Azure Storage 용량 한도](../azure-subscription-service-limits.md#storage-limits) 참조 | 최대 Blob 블록 크기는 4MB입니다.<br />최대 Blob 블록 개수는 50000개입니다. |
 | Azure Event Hub   | 메시지당 256KB <br />참고 항목 [Event Hubs 제한](../event-hubs/event-hubs-quotas.md) |   입력 출력 분할이 정렬되지 않는 경우 각 이벤트는 EventData에서 개별적으로 압축되고 최대 메시지 크기(Premium SKU에 대해 1MB)의 일괄 처리로 전송됩니다. <br /><br />  입력-출력 분할이 정렬되는 경우 여러 이벤트는 최대 메시지 크기까지 단일 EventData로 압축되고 전송됩니다.  |
 | Power BI | [Power BI Rest API 제한](https://msdn.microsoft.com/library/dn950053.aspx) 참조 |
-| Azure 테이블 저장소 | [Azure Storage 용량 한도](../azure-subscription-service-limits.md#storage-limits) 참조 | 기본값은 단일 트랜잭션당 100개의 엔터티이며 필요에 따라 작은 값으로 구성할 수 있습니다. |
+| Azure Table Storage | [Azure Storage 용량 한도](../azure-subscription-service-limits.md#storage-limits) 참조 | 기본값은 단일 트랜잭션당 100개의 엔터티이며 필요에 따라 작은 값으로 구성할 수 있습니다. |
 | Azure Service Bus 큐   | 메시지당 256KB<br /> 참고 항목 [Service Bus 한도](../service-bus-messaging/service-bus-quotas.md) | 메시지당 단일 이벤트 |
 | Azure Service Bus 항목 | 메시지당 256KB<br /> 참고 항목 [Service Bus 한도](../service-bus-messaging/service-bus-quotas.md) | 메시지당 단일 이벤트 |
 | Azure Cosmos DB   | [Azure Cosmos DB 제한](../azure-subscription-service-limits.md#azure-cosmos-db-limits) 참조 | 일괄 처리 크기 및 쓰기 빈도는 CosmosDB 응답에 따라 동적으로 조정됩니다. <br /> Stream Analytics에서 미리 결정된 제한이 없습니다. |

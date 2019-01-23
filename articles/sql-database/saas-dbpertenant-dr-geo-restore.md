@@ -1,5 +1,5 @@
 ---
-title: 'SaaS 앱: 재해 복구를 위한 Azure SQL Database 지역 중복 백업 | Microsoft Docs'
+title: 'SaaS 앱: 재해 복구용 Azure SQL Database 지역 중복 백업 | Microsoft Docs'
 description: 가동 중단 시 Azure SQL Database 지역 중복 백업을 사용하여 다중 테넌트 SaaS 앱을 복구하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: a78632ed6215c467f53938569621cfb18f9e51ca
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: acc1b9e9561b9468a4638c7073a066e4cb34d911
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352943"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264753"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>데이터베이스 백업에서 지역 복원을 사용하여 다중 테넌트 SaaS 애플리케이션 복구
 
@@ -209,7 +209,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 
 1. PowerShell ISE의 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 스크립트에서 다음 속성을 설정합니다.
 
-    $DemoScenario = 3: 복구 지역에 새 테넌트를 프로비전합니다.
+    $DemoScenario = 3: 복구 지역에서 새 테넌트를 프로비전합니다.
 
 2. 스크립트를 실행하려면 F5 키를 누릅니다.
 
@@ -326,7 +326,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 
 2.  그런 다음, 송환 프로세스를 시작하려면 다음을 설정합니다.
 
-    $DemoScenario = 5: 앱을 원래 지역으로 송환합니다.
+    $DemoScenario = 5: 앱을 원래 지역으로 되돌립니다.
 
     새 PowerShell 창에서 복구 스크립트를 실행하려면 F5 키를 누릅니다. 송환에는 몇 분 정도 걸리며, PowerShell 창에서 모니터링할 수 있습니다.
 
@@ -378,4 +378,4 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-[Wingtip SaaS 응용 프로그램을 빌드하는 또 다른 자습서](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials).
+[Wingtip SaaS 애플리케이션을 빌드하는 또 다른 자습서](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials).

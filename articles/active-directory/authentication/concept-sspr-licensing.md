@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 6da0bddc3f6c90d0ecd3a554988f510e1063caac
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6a23ea08ee14efbc7850e555d9ad84daf855638f
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043042"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320738"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Azure AD 셀프 서비스 암호 재설정의 라이선스 요구 사항
 
@@ -33,15 +33,15 @@ Azure AD 셀프 서비스 암호 재설정은 사용자 단위로 라이선스�
 * 클라우드 사용자를 위한 셀프 서비스 암호 재설정
    * 저는 **클라우드 전용 사용자**이며 암호가 기억 나지 않습니다.
       * 제가 알고 있는 다른 암호로 **변경**하고 싶습니다.
-   * 이 기능은 Azure AD Basic, Premium P1 또는 Premium P2 버전에 포함되어 있습니다.
+   * 이 기능은 Azure AD Basic, Premium P1/P2 또는 Microsoft 365 Business에 포함되어 있습니다.
 
 * **온-프레미스 쓰기 저장**으로 셀프 서비스 암호 재설정/변경/잠금 해제
    * 저는 **하이브리드 사용자**이고, 저의 온-프레미스 Active Directory 사용자 계정은 Azure AD Connect를 사용하여 저의 Azure AD 계정과 동기화됩니다. 암호가 기억 나지 않아 또는 암호가 잠겨서 암호를 변경하고 싶습니다.
       * 암호를 변경하거나 알고 있는 암호로 재설정하거나 계정을 잠금 해제한 **후** 변경 내용을 온-프레미스 Active Directory와 동기화하고 싶습니다.
-   * 이 기능은 Azure AD Premium P1 또는 Premium P2 버전에 포함되어 있습니다.
+   * 이 기능은 Azure AD Premium P1/P2 또는 Microsoft 365 Business에 포함되어 있습니다.
 
 > [!WARNING]
-> 독립 실행형 Office 365 라이선스 요금제는 *"셀프 서비스 암호 재설정/변경/온-프레미스 쓰기 저장으로 잠금 해제"를 지원하지 않습니다*. 이 기능을 사용하려면 Azure AD 프리미엄 P1 또는 프리미엄 P2 버전을 포함한 요금제 중 하나가 필요합니다.
+> 독립 실행형 Office 365 라이선스 플랜은 *"온-프레미스 쓰기 저장을 사용한 셀프 서비스 암호 재설정/변경/잠금 해제"를 지원하지 않습니다*. 따라서 이 기능이 작동하려면 Azure AD Premium P1, Premium P2 또는 Microsoft 365 Business가 포함된 플랜을 선택해야 합니다.
 >
 
 아래와 같은 페이지에서 라이선스와 요금에 대한 자세한 정보를 확인할 수 있습니다.
@@ -50,6 +50,7 @@ Azure AD 셀프 서비스 암호 재설정은 사용자 단위로 라이선스�
 * [Azure Active Directory 기능 및 특성](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
+* [Microsoft 365 Business 서비스 설명](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-business-service-description)
 
 ## <a name="enable-group-or-user-based-licensing"></a>그룹 또는 사용자 기반 라이선스 사용
 

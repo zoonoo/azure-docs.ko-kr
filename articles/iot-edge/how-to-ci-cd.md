@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c4f5d6888d581cb44702a8d76e1ebbb13845091
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: aef88a4fbc7d71ee1438333afd9773d1aba3ed9c
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582918"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359156"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Azure IoT Edge 연속 통합 및 지속적인 배포
 
@@ -68,8 +68,8 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업 또는 Jenkins 서버의 
 1. 파이프라인 편집기에서 에이전트 풀을 선택합니다. 
     
     * Linux 컨테이너용 플랫폼 amd64에서 모듈을 빌드하려는 경우 **호스트된 Ubuntu 1604**를 선택합니다.
-    * Windows 컨테이너용 플랫폼 amd64에서 모듈을 빌드하려는 경우 **호스트된 VS2017**을 선택합니다. 
-    * Linux 컨테이너용 플랫폼 arm32v7에서 모듈을 빌드하려는 경우 **관리** 단추를 방문하여 사용자 고유의 빌드 에이전트를 설정해야 합니다.
+    * Windows 1809 컨테이너용 플랫폼 amd64에서 모듈을 빌드하려는 경우 [Windows에서 자체 호스팅 에이전트를 설치](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts)해야 합니다.
+    * Linux 컨테이너용 플랫폼 arm32v7에서 모듈을 빌드하려는 경우에는 [Linux에서 자체 호스팅 에이전트를 설치](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/)해야 합니다.
     
     ![빌드 에이전트 풀 구성](./media/how-to-ci-cd/configure-env.png)
 

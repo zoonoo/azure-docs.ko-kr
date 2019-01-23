@@ -1,7 +1,7 @@
 ---
 title: Azure CLI를 사용하여 영역 중복 VM 부하 분산
 titlesuffix: Azure Load Balancer
-description: Azure CLI를 사용하여 영역 중복 프런트 엔드가 있는 공용 Load Balancer Standard를 만드는 방법 알아보기
+description: Azure CLI를 사용하여 영역 중복 프런트 엔드가 있는 공용 표준 Load Balancer를 만드는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 82bb0387d8f1603b4b436bfe70d75d19b88f28b1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 7359be235135098779478eebc8a8927e34904ac1
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250810"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197796"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Azure CLI를 사용하여 모든 가용성 영역에 VM 부하 분산
 
-이 문서에서는 여러 DNS 레코드에 대한 종속성 없이 영역 중복성을 달성하기 위해 영역 중복 프런트 엔드가 있는 공용 [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard)를 만드는 단계를 안내합니다. 단일 프런트 엔드 IP 주소는 자동으로 영역 중복입니다.  한 IP 주소에서 부하 분산 장치에 대해 영역 중복 프런트 엔드를 사용하여 모든 가용성 영역을 망라하는 한 지역 내 가상 네트워크의 어느 VM에나 연결할 수 있습니다. 가용성 영역을 사용하여 가능성이 적은 실패 또는 전체 데이터 센터의 손실로부터 앱 및 데이터를 보호합니다.
+이 문서에서는 여러 DNS 레코드에 대한 종속성 없이 영역 중복성을 달성하기 위해 영역 중복 프런트 엔드가 있는 공용 [표준 Load Balancer](https://aka.ms/azureloadbalancerstandard)를 만드는 단계를 안내합니다. 단일 프런트 엔드 IP 주소는 자동으로 영역 중복입니다.  한 IP 주소에서 부하 분산 장치에 대해 영역 중복 프런트 엔드를 사용하여 모든 가용성 영역을 망라하는 한 지역 내 가상 네트워크의 어느 VM에나 연결할 수 있습니다. 가용성 영역을 사용하여 가능성이 적은 실패 또는 전체 데이터 센터의 손실로부터 앱 및 데이터를 보호합니다.
 
 Standard Load Balancer에서 가용성 영역 사용에 대한 자세한 내용은 [Standard Load Balancer 및 가용석 영역](load-balancer-standard-availability-zones.md)을 참조하세요.
 
@@ -60,7 +60,7 @@ az network public-ip create \
 --sku Standard
 ```
 
-## <a name="create-azure-load-balancer-standard"></a>Azure Load Balancer Standard 만들기
+## <a name="create-azure-standard-load-balancer"></a>Azure 표준 Load Balancer 만들기
 이 섹션에서는 다음과 같은 부하 분산 장치 구성 요소를 만들고 구성하는 방법에 대해 자세히 설명합니다.
 - 부하 분산 장치에서 들어오는 네트워크 트래픽을 수신하는 프런트 엔드 IP 풀.
 - 프런트 엔드 풀에서 부하 분산된 네트워크 트래픽을 전송하는 백 엔드 IP 풀.

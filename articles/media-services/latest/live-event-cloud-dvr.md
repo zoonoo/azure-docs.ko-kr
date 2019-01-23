@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/14/2019
 ms.author: juliako
-ms.openlocfilehash: 8df43a9b2c518e77d14dd5cb392b042b0b4846e2
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 8543f00ccaecd8fd3f46132b05c2af925e6de10a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407969"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352362"
 ---
 # <a name="using-a-cloud-dvr"></a>클라우드 DVR 사용
 
@@ -35,7 +35,10 @@ ms.locfileid: "53407969"
 **LiveEvent**는 동시 실행 **LiveOutput**을 최대 세 개까지 지원하므로 하나의 라이브 스트림에서 최대 3개의 기록/보관 파일을 만들 수 있습니다. 따라서 이벤트의 여러 부분을 필요에 따라 게시하고 보관할 수 있습니다. 연중 무휴 라이브 선형 피드를 브로드캐스트하는 것이지만, 하루 동안의 다른 프로그램 "기록"을 만들어 다시 보기 용도의 주문형 콘텐츠를 고객에게 제공하고 싶습니다. 이 시나리오에서는 먼저 시청자가 이 기본 라이브 스트림으로 튜닝할 수 있도록 1시간 이하의 짧은 보관 창을 사용하여 기본 LiveOutput을 만듭니다. 이 **LiveOutput**용 **StreamingLocator**를 만들어 애플리케이션 또는 웹 사이트에 “라이브” 피드로 게시합니다. **LiveEvent**가 실행되는 동안 쇼 시작 부분에 두 번째 동시 **LiveOutput**을 프로그래밍 방식으로 만들 수 있습니다(또는 나중에 잘라낼 핸들을 제공하기 위해 5분 일찍). 이 두 번째 **LiveOutput**은 프로그램 종료 5분 후에 삭제할 수 있습니다. 이 두 번째 **자산**을 통해 새 **StreamingLocator**를 만들어 애플리케이션의 카탈로그에서 주문형 자산으로 이 프로그램을 게시할 수 있습니다. 첫 번째 **LiveOutput**의 “라이브” 피드가 선형 피드를 계속 브로드캐스트하는 동안, 주문형 비디오로 공유하려는 다른 프로그램 경계 또는 하이라이트에 대해 이 프로세스를 여러 번 반복할 수 있습니다. 
 
 > [!NOTE]
-> **LiveOutput**은 생성 시 시작하고 삭제되면 중지합니다. **LiveOutput**을 삭제할 경우 기본 **자산**과 자산의 콘텐츠는 삭제되지 않습니다.  
+> **LiveOutput**은 생성 시 시작하고 삭제되면 중지합니다. **LiveOutput**을 삭제해도 기본 **자산**과 자산의 콘텐츠는 삭제되지 않습니다. 
+>
+> **LiveOutput**용으로 자산에 **스트리밍 로케이터**를 게시한 경우 **스트리밍 로케이터**의 종료 시간이나 또는 로케이터를 삭제하는 시점까지(둘 중 먼저 도래하는 시간) DVR 기간 동안 발생한 이벤트를 계속 확인할 수 있습니다.   
+  
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,14 +4,14 @@ description: Azure Migrate 서비스의 알려진 문제에 대한 개요와 일
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: 9a6b40aa86d4d81482d9c3724f0e230e0b811276
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: f91f6386df01050cc67968d05a1e1562e0f9ed01
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189499"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261233"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -28,6 +28,18 @@ ms.locfileid: "54189499"
    ![검색 중지](./media/troubleshooting-general/stop-discovery.png)
 
 - VM 삭제: 어플라이언스 설계 방식으로 인해 검색을 중지했다 시작해도 VM 삭제가 반영되지 않습니다. 이후 검색의 데이터는 기존 검색에 추가되는 것이지 기존 검색을 덮어쓰는 것이 아니기 때문입니다. 이 경우에는 그룹에서 VM을 제거하고 평가를 다시 계산하여 포털에서 VM을 간단히 무시하면 됩니다.
+
+### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Azure Migrate 프로젝트 및 관련 Log Analytics 작업 영역 삭제
+
+Azure Migrate 프로젝트를 삭제하면 마이그레이션 프로젝트와 모든 그룹 및 평가가 삭제됩니다. 그러나 프로젝트에 연결한 Log Analytics 작업 영역은 자동으로 삭제되지 않습니다. 같은 Log Analytics 작업 영역이 여러 사용 사례에 사용되었을 수 있기 때문입니다. Log Analytics 작업 영역도 삭제하려면 수동으로 작업 영역을 삭제해야 합니다.
+
+1. 프로젝트에 연결된 Log Analytics 작업 영역을 찾습니다.
+   a. 마이그레이션 프로젝트를 아직 삭제하지 않았다면 프로젝트 개요 페이지의 Essentials 섹션에서 작업 영역으로 이동하는 링크를 확인할 수 있습니다.
+
+   ![LA 작업 영역](./media/troubleshooting-general/LA-workspace.png)
+
+   b. 마이그레이션 프로젝트를 이미 삭제한 경우 Azure Portal의 왼쪽 창에서 **리소스 그룹**을 클릭하고 작업 영역을 만든 리소스 그룹으로 이동한 후에 작업 영역을 찾습니다.
+2. [이 문서](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace)의 지침에 따라 작업 영역을 삭제합니다.
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>*요청에 사용자 ID 헤더가 있어야 합니다* 오류 메시지와 함께 마이그레이션 프로젝트 만들기 실패
 
@@ -80,13 +92,13 @@ vCenter server의 통계 설정 수준이 3 미만으로 설정되면 이 현상
 
    ![프로젝트 위치](./media/troubleshooting-general/geography-location.png)
 
-## <a name="collector-errors"></a>수집기 오류
+## <a name="collector-issues"></a>Collector 문제
 
 ### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Azure Migrate Collector 배포가 다음 오류로 인해 실패했습니다. 제공된 매니페스트 파일이 잘못되었습니다. 잘못된 OVF 매니페스트 항목입니다.
 
 1. 해당 해시 값을 확인하여 Azure Migrate Collector OVA 파일이 올바르게 다운로드되는지 확인합니다. 해시 값을 확인하려면 [문서](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance)를 참조하세요. 해시 값이 일치하지 않는 경우 OVA 파일을 다시 다운로드하고 배포를 다시 시도합니다.
 2. 여전히 실패하고 VMware vSphere 클라이언트를 OVF 배포에 사용하는 경우 vSphere Web Client를 통해 배포를 시도합니다. 그래도 실패하는 경우 다른 웹 브라우저를 사용해 보세요.
-3. vSphere 웹 클라이언트를 사용하고 vCenter Server 6.5에서 배포하려고 하는 경우 다음 단계를 따라 ESXi 호스트에서 직접 OVA 배포를 시도합니다.
+3. vSphere 웹 클라이언트를 사용 중이며 vCenter Server 6.5 또는 6.7에서 해당 클라이언트를 배포하려는 경우 다음 단계에 따라 ESXi 호스트에서 직접 OVA 배포를 시도합니다.
   - 웹 클라이언트(https://<*host IP Address*>/ui)를 사용하여 ESXi 호스트에 직접 연결합니다(vCenter Server 대신).
   - 홈 > 인벤토리로 이동합니다.
   - 파일 > OVF 템플릿 배포 > OVA로 이동을 클릭하고 배포를 완료합니다.
@@ -156,6 +168,17 @@ Azure Migrate 수집기는 PowerCLI를 다운로드하여 어플라이언스에 
 2. 1단계가 실패하는 경우 IP 주소를 통해 vCenter Server에 연결해보세요.
 3. vCenter에 연결할 정확한 포트 번호를 식별합니다.
 4. 마지막으로 vCenter Server가 실행 중인지 확인합니다.
+
+### <a name="antivirus-exclusions"></a>바이러스 백신 제외
+
+Azure Migrate 어플라이언스를 강화하려는 경우 어플라이언스의 다음 폴더를 바이러스 백신 검사에서 제외해야 합니다.
+
+- Azure Migrate 서비스용 이진 파일이 있는 폴더. 모든 하위 폴더를 제외합니다.
+  %ProgramFiles%\ProfilerService  
+- Azure Migrate 웹 애플리케이션. 모든 하위 폴더를 제외합니다.
+  %SystemDrive%\inetpub\wwwroot
+- 데이터베이스 및 로그 파일의 로컬 캐시. Azure Migrate Service에는 이 폴더에 대한 RW 권한이 필요합니다.
+  %SystemDrive%\Profiler
 
 ## <a name="dependency-visualization-issues"></a>종속성 시각화 문제
 

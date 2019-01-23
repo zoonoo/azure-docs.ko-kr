@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: d19aaa6e486732cb1453e3299c8e598e8fd2f507
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 24df1cb5b7a9cc1209940bbaaa1217a80ea74918
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044623"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259651"
 ---
 # <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Azure Storage Explorer를 사용하여 Azure Cosmos DB 리소스 관리
 
@@ -266,7 +266,7 @@ Storage 탐색기가 이러한 “자체 서명된 인증서” 중 하나를 �
   - .extaccounts
 - SAS 연결 Storage 리소스를 제거하려면 다음을 삭제합니다.
   - Windows - %AppData%/StorageExplorer 폴더
-  - Mac - Users/<your_name>/Library/Applicaiton SUpport/StorageExplorer
+  - Mac - /Users/<your_name>/Library/Application SUpport/StorageExplorer
   - Linux - ~/.config/StorageExplorer
   - 이러한 파일을 삭제하면 **모든 자격 증명을 다시 입력해야 합니다**.
 

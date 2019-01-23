@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: alkarche
-ms.openlocfilehash: 042d41e9125e5d4fa0af04fd6edeba5f0b33123a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 1140c23a0aa5344119c35434316ec73cc3918f90
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001597"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198374"
 ---
 # <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>Azure Virtual Network에 함수 앱 통합
 이 단계별 자습서는 Azure Functions를 사용하여 Azure VNET에서 리소스에 연결하는 방법을 보여줍니다. 
@@ -117,7 +117,7 @@ VNET 내에서 배포할 수 있는 가장 저렴한 리소스 중 하나이므�
 
 ## <a name="next-steps"></a>다음 단계
 
-App Service 계획에서 실행 중인 Azure Functions는 웹앱과 동일한 서비스에서 실행 중이므로, 웹앱에 대한 모든 문서가 전용 함수에 적용됩니다.
+App Service 계획에서 실행 중인 Azure Functions는 웹앱과 동일한 서비스에서 실행되므로 모든 Web Apps용 설명서가 전용 Functions에 적용됩니다.
 
 1. [App Service와 VNET 통합/함수에 대해 여기서 자세히 알아보기](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
 1. [Azure의 VNET에 대해 자세히 알아보기](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/)

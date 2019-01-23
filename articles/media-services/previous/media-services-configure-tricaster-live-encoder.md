@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkd;anilmur
-ms.openlocfilehash: 8084f32ac8cc2184d93796468ad66fb73398e876
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e3a3a9946c3352be0409d1a773408e17302911fc
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783782"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304808"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>NewTek TriCaster 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기
 > [!div class="op_single_selector"]
@@ -40,17 +40,20 @@ ms.locfileid: "33783782"
 >
 
 ## <a name="prerequisites"></a>필수 조건
+
 * [Azure Media Services 계정 만들기](media-services-portal-create-account.md)
-* 실행 중인 스트리밍 끝점이 있는지 확인합니다. 자세한 내용은 [Media Services 계정에서 스트리밍 끝점 관리](media-services-portal-manage-streaming-endpoints.md)
+* 실행 중인 스트리밍 엔드포인트가 있는지 확인합니다. 자세한 내용은 [Media Services 계정에서 스트리밍 엔드포인트 관리](media-services-portal-manage-streaming-endpoints.md)
 * 최신 버전의 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 도구를 설치합니다.
 * 이 도구를 시작하고 AMS 계정에 연결합니다.
 
 ## <a name="tips"></a>팁
+
 * 가능하면 하드웨어에 내장된 인터넷 연결을 사용합니다.
 * 대역폭 요구 사항을 결정할 때에 가장 좋은 방법은 스트리밍 비트 전송률을 두 배로 하는 것입니다. 이는 필수 요구 사항은 아니지만 네트워크 정체로 인한 영향을 줄이는 데 도움이 됩니다.
 * 소프트웨어 기반 인코더를 사용하는 경우 불필요한 프로그램을 모두 닫습니다.
 
 ## <a name="create-a-channel"></a>채널 만들기
+
 1. AMSE 도구에서 **라이브** 탭으로 이동하고 채널 영역 안을 마우스 오른쪽 단추로 클릭합니다. 메뉴에서 **Create channel...** (채널 만들기...)을 선택합니다.
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
@@ -75,24 +78,26 @@ ms.locfileid: "33783782"
 >
 >
 
-## <a id=configure_tricaster_rtmp></a>NewTek TriCaster 인코더 구성
+## <a name="a-idconfiguretricasterrtmpconfigure-the-newtek-tricaster-encoder"></a><a id="configure_tricaster_rtmp"/>NewTek TriCaster 인코더 구성
+
 이 자습서에서는 다음 출력 설정이 사용됩니다. 이 섹션의 나머지 부분에서 구성 단계를 더 자세히 설명합니다.
 
 **비디오**:
 
 * 코덱: H.264
-* 프로필: 높음(수준 4.0)
-* 비트 전송률: 5,000kbps
+* 프로필 높음(수준 4.0)
+* Bitrate: 5000kbps
 * 키 프레임: 2초(60초)
 * 프레임 속도: 30
 
 **오디오**:
 
 * 코덱: AAC(LC)
-* 비트 전송률: 192kbps
-* 샘플 속도: 44.1khz
+* Bitrate: 192kbps
+* 샘플링 속도: 44.1kHz
 
 ### <a name="configuration-steps"></a>구성 단계
+
 1. 사용 중인 비디오 입력 원본에 따라 새 **NewTek TriCaster** 프로젝트를 만듭니다.
 2. 해당 프로젝트 내에 있는 경우 **스트림** 단추를 찾고 그 옆의 기어 아이콘을 클릭하여 스트림 구성 메뉴에 액세스합니다.
 
@@ -108,7 +113,7 @@ ms.locfileid: "33783782"
 7. 선택한 다음 **확인**을 누릅니다.
 
     프로필이 업로드되면 다음 단계를 진행합니다.
-8. Tricaster **RTMP 끝점**에 할당하기 위해 채널의 입력 URL을 가져옵니다.
+8. Tricaster **RTMP 엔드포인트**에 할당하기 위해 채널의 입력 URL을 가져옵니다.
 
     AMSE 도구로 다시 이동하여 채널 완료 상태를 확인합니다. 상태가 **시작 중**에서 **실행 중**으로 변경되었으면 입력 URL을 가져올 수 있습니다.
 
@@ -131,6 +136,7 @@ ms.locfileid: "33783782"
 >
 
 ## <a name="test-playback"></a>테스트 재생
+
 AMSE 도구로 이동하고 테스트할 채널을 마우스 오른쪽 단추로 클릭합니다. 메뉴에서 **미리 보기 재생**을 가리키고 **Azure Media Player 사용**을 선택합니다.  
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster8.png)
@@ -140,6 +146,7 @@ AMSE 도구로 이동하고 테스트할 채널을 마우스 오른쪽 단추로
 오류가 수신되면 채널을 다시 설정해서 인코더 설정을 조정해야 합니다. 지침에 대해서는 [문제 해결](media-services-troubleshooting-live-streaming.md) 문서를 참조하세요.  
 
 ## <a name="create-a-program"></a>프로그램 만들기
+
 1. 채널 재생이 확인되면 프로그램을 만듭니다. AMSE 도구의 **라이브** 탭에서 프로그램 영역 안을 마우스 오른쪽 단추로 클릭하고 **새 프로그램 만들기**를 선택합니다.  
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
@@ -156,12 +163,15 @@ AMSE 도구로 이동하고 테스트할 채널을 마우스 오른쪽 단추로
 이제 스트림을 플레이어에 포함하거나 실시간 보기를 위해 대상 그룹에게 배포할 준비가 되었습니다.  
 
 ## <a name="troubleshooting"></a>문제 해결
+
 지침에 대해서는 [문제 해결](media-services-troubleshooting-live-streaming.md) 문서를 참조하세요.
 
 ## <a name="next-step"></a>다음 단계
+
 Media Services 학습 경로를 검토합니다.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
