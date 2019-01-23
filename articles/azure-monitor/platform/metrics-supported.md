@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 1e81f165c3ab38fffae7523efc6cb2ae307a1a25
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 02678738c225742db1795a2e168b6eac1320aead
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549635"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232892"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. 다음은 현재 Azure Monitor의 메트릭 파이프라인을 통해 사용할 수 있는 모든 메트릭의 전체 목록입니다.  레거시 API를 통해서 또는 포털에서 다른 메트릭을 제공할 수 있습니다. 아래 목록에는 통합 Azure Monitor 메트릭 파이프라인을 통해 사용할 수 있는 메트릭만 포함됩니다. 이러한 메트릭을 쿼리하고 액세스하려면 [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)을 사용하세요.
@@ -119,12 +119,12 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |PoolResizeCompleteEvent|풀 크기 조정 완료 이벤트|개수|합계|완료된 총 풀 크기 조정 수|차원 없음|
 |PoolDeleteStartEvent|풀 삭제 시작 이벤트|개수|합계|시작된 총 풀 삭제 수|차원 없음|
 |PoolDeleteCompleteEvent|풀 삭제 완료 이벤트|개수|합계|완료된 총 풀 삭제 수|차원 없음|
-|JobDeleteCompleteEvent|작업 삭제 완료 이벤트|개수|합계|성공적으로 삭제된 총 작업 수입니다.|차원 없음|
+|JobDeleteCompleteEvent|작업 삭제 완료 이벤트|개수|합계|정상적으로 삭제된 총 작업 수입니다.|차원 없음|
 |JobDeleteStartEvent|작업 삭제 시작 이벤트|개수|합계|삭제되도록 요청된 총 작업 수입니다.|차원 없음|
-|JobDisableCompleteEvent|작업 비활성화 완료 이벤트|개수|합계|성공적으로 비활성화된 총 작업 수입니다.|차원 없음|
+|JobDisableCompleteEvent|작업 비활성화 완료 이벤트|개수|합계|정상적으로 사용하지 않도록 설정된 총 작업 수입니다.|차원 없음|
 |JobDisableStartEvent|작업 비활성화 시작 이벤트|개수|합계|비활성화되도록 요청된 총 작업 수입니다.|차원 없음|
-|JobStartEvent|작업 시작 이벤트|개수|합계|성공적으로 시작된 총 작업 수입니다.|차원 없음|
-|JobTerminateCompleteEvent|작업 종료 완료 이벤트|개수|합계|성공적으로 종료된 총 작업 수입니다.|차원 없음|
+|JobStartEvent|작업 시작 이벤트|개수|합계|정상적으로 시작된 총 작업 수입니다.|차원 없음|
+|JobTerminateCompleteEvent|작업 종료 완료 이벤트|개수|합계|정상적으로 종료된 총 작업 수입니다.|차원 없음|
 |JobTerminateStartEvent|작업 종료 시작 이벤트|개수|합계|종료되도록 요청된 총 작업 수입니다.|차원 없음|
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
@@ -1121,8 +1121,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |Average_Disk Read Bytes/sec|디스크 읽기 바이트/초 |개수|평균|Average_Disk Read Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Disk Reads/sec|디스크 읽기/초 |개수|평균|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Disk Transfers/sec|디스크 전송/초|개수|평균|Average_Disk Transfers/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Disk Write Bytes/sec| 디스크 쓰기 바이트/초|개수|평균|Average_Disk Write Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Disk Writes/sec| 디스크 쓰기/초|개수|평균|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Write Bytes/sec|디스크 쓰기 바이트/초|개수|평균|Average_Disk Write Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Writes/sec|디스크 쓰기/초|개수|평균|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Free Megabytes|사용 가능한 메가바이트|개수|평균|Average_Free Megabytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Logical Disk Bytes/sec|논리 디스크 바이트/초|개수|평균|Average_Logical Disk Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_% Available Memory|% 사용 가능한 메모리|개수|평균|Average_% Available Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
@@ -1172,7 +1172,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |Average_Current Disk Queue Length|현재 디스크 큐 길이|개수|평균|Average_Current Disk Queue Length|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Disk Reads/sec|디스크 읽기/초 |개수|평균|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Disk Transfers/sec|디스크 전송/초|개수|평균|Average_Disk Transfers/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Disk Writes/sec| 디스크 쓰기/초|개수|평균|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Writes/sec|디스크 쓰기/초|개수|평균|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Free Megabytes|사용 가능한 메가바이트|개수|평균|Average_Free Megabytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_% Free Space|% 사용 가능한 공간|개수|평균|Average_% Free Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Available MBytes|Available MBytes|개수|평균|Average_Available MBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|

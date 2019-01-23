@@ -1,26 +1,8 @@
 ---
-title: 모델 성능 평가 - Azure Machine Learning Studio | Microsoft Docs
-description: 이 문서에서는 Azure Machine Learning Studio에서 모델의 성능을 평가하는 방법을 살펴본 다음 이 작업에 사용할 수 있는 메트릭을 간략하게 설명합니다.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 5dc5348a-4488-4536-99eb-ff105be9b160
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: 501a9834e598fc8b1c11a86ef0ae9db1c19a66a7
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269943"
+제목: 모델 성능 평가 titleSuffix: Azure Machine Learning Studio 설명: 이 문서에서는 Azure Machine Learning Studio에서 모델의 성능을 평가하는 방법을 살펴본 다음 이 작업에 사용할 수 있는 메트릭을 간략하게 설명합니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 2017/03/20
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 모델 성능을 평가하는 방법
 
@@ -120,7 +102,7 @@ R 제곱이라고도 하는 결정 계수도 모델이 데이터에 적합한 �
 
 ![이진 분류 평가 결과](./media/evaluate-model-performance/7.png)
 
- 그림 7. 이진 분류 평가 결과
+그림 7. 이진 분류 평가 결과
 
 자주 사용되는 또 다른 관련 메트릭은 정확도와 재현율을 둘 다 고려하는 **F1 점수**입니다. 이는 이 두 메트릭의 조화 평균이며, 다음과 같이 계산됩니다. F1 = 2 (전체 자릿수 x 재현율) / (전체 자릿수 + 재현율). F1 점수는 평가를 단일 숫자로 요약하는 데 적합한 방법이지만 분류자의 동작 방식을 보다 잘 이해하려면 항상 정확도와 재현율을 함께 확인하는 것이 좋습니다.
 

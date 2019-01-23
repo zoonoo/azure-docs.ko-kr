@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 1/9/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2dcc72e0e3b9caef9ab01d9f754671cb0365a358
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 98d2d29e7822d9ca97ba488fcf67298a0b40efbf
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608837"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265467"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure Security Center에서 지원하는 기능 및 플랫폼
 
@@ -69,15 +69,15 @@ ms.locfileid: "53608837"
 > [!div class="mx-tableFixed"]
 > 
 
-|서버| Windows||Linux||
+|서버|Windows||Linux||
 |----|----|----|----|----|
 |Environment|Azure|비 Azure|Azure|비 Azure|
 |VMBA 위협 검색 경고|✔|✔|✔(지원되는 버전에서만)|✔|
 |네트워크 기반 위협 탐지 경고|✔|X|✔|X|
-|Windows Defender ATP 통합*|✔(지원되는 버전에서만)|✔|X|X|
+|Windows Defender ATP 통합|✔(지원되는 버전에서만)|✔|X|X|
 |누락된 패치|✔|✔|✔|✔|
 |보안 구성|✔|✔|✔|✔|
-|맬웨어 방지 프로그램|✔|✔|X|X|
+|Endpoint Protection|✔|✔|X|X|
 |JIT VM 액세스|✔|X|✔|X|
 |적응형 애플리케이션 제어|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
@@ -88,8 +88,27 @@ ms.locfileid: "53608837"
 |네트워크 맵|✔|X|✔|X|
 |적응형 네트워크 제어|✔|X|✔|X|
 
-\* 이러한 기능은 현재 공개 미리 보기로 지원됩니다.
 
+### <a name="supported-endpoint-protection-solutions"></a>지원되는 Endpoint Protection 솔루션
+
+아래 표에는 다음 정보의 행렬이 나와 있습니다.
+ - Azure Security Center를 사용하여 각 솔루션을 자동으로 설치할 수 있는지 여부
+ - Security Center에서 검색할 수 있는 Endpoint Protection 솔루션. 이러한 Endpoint Protection 솔루션 중 하나가 검색되더라도 Security Center에 솔루션을 설치하는 것이 좋다는 메시지가 표시되지는 않습니다.
+
+| 엔드포인트 보호| 플랫폼 | Security Center 설치 | Security Center 검색 |
+|------|------|-----|-----|
+| Windows Defender(Microsoft 맬웨어 방지 프로그램)| Windows Server 2016| 아니오, OS에 기본 제공| 예 |
+| System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2(아래 참고 참조) | 확장을 통해 | 예 |
+| Trend Micro - 모든 버전 | Windows Server 제품군  | 아니요 | 예 |
+| Symantec v12.1.1100+| Windows Server 제품군  | 아니요 | 예 |
+| McAfee v10+ | Windows Server 제품군  | 아니요 | 예 |
+| Kaspersky| Windows Server 제품군  | 아니요 | 아니요  |
+| Sophos| Windows Server 제품군  | 아니요 | 아니요  |
+
+> [!NOTE]
+> - Windows Server 2008 R2 가상 머신에서 SCEP(System Center Endpoint Protection)의 검색을 위해서는 PowerShell 3.0(또는 상위 버전)이 설치된 후 SCEP가 설치되어야 합니다.
+>
+>
 
 ## <a name="supported-paas-features"></a>지원되는 PaaS 기능 
 
@@ -109,6 +128,8 @@ ms.locfileid: "53608837"
 |구독|✔| ✔|
 
 \* 이러한 기능은 현재 공개 미리 보기로 지원됩니다. 
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

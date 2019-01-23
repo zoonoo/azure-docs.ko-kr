@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 0956d9bdbf6390f2d64f15ca267545ca15289a46
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 837c9d2b4b7dc0ce2c5ee3b25106eb5fea4ed7ea
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339402"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358986"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure의 Windows Virtual Machines에서 실행되는 SQL Server에 대한 질문과 대답
 
@@ -49,13 +49,19 @@ ms.locfileid: "53339402"
 
    예. Azure에서는 주 버전당 하나의 이미지를 유지 관리합니다. 예를 들어 새 SQL Server 서비스 팩이 출시되면 Azure에서는 해당 서비스 팩의 갤러리에 새 이미지를 추가합니다. 이전 서비스 팩의 SQL Server 이미지는 Azure Portal에서 즉시 제거됩니다. 그러나 다음 3개월 동안은 PowerShell에서 프로비전할 수 있습니다. 3개월 후에는 이전 서비스 팩 이미지를 사용할 수 없습니다. 해당 수명 끝에 도달하면 이 제거 정책이 SQL Server 버전이 지원되지 않는 경우에 적용됩니다.
 
+
+1. **Azure Portal에서 표시되지 않는 SQL Server의 이전 이미지를 배포할 수 있나요?**
+
+   예, PowerShell을 사용하면 됩니다. PowerShell을 사용하여 SQL Server VM을 배포하는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 SQL Server 가상 머신을 프로비전하는 방법](virtual-machines-windows-ps-sql-create.md)을 참조하세요.
+
 1. **SQL Server VM에서 VHD 이미지를 만들 수 있나요?**
 
    예, 그러나 몇 가지 고려 사항이 있습니다. 이 VHD를 Azure의 새 VM에 배포하는 경우 포털에서 SQL Server 구성 섹션을 가질 수 없습니다. PowerShell을 통해 SQL Server 구성 옵션을 관리해야 합니다. 또한 이미지가 원래 기반으로 했던 SQL VM의 속도에서 청구됩니다. 배포하기 전에 VHD에서 SQL Server를 제거하는 경우에도 마찬가지입니다. 
 
 1. **가상 머신 갤러리에 표시되지 않은 구성을 설정할 수 있습니까(예: Windows 2008 R2 + SQL Server 2012)?**
 
-    아니요. SQL Server가 포함된 가상 머신 갤러리 이미지의 경우 제공된 이미지 중 하나를 선택해야 합니다.
+   아니요. SQL Server가 포함된 가상 머신 갤러리 이미지의 경우 Azure Portal 또는 [PowerShell](virtual-machines-windows-ps-sql-create.md)을 통해 제공된 이미지 중 하나를 선택해야 합니다. 
+
 
 ## <a name="creation"></a>만들기
 
@@ -88,7 +94,7 @@ ms.locfileid: "53339402"
 
 1. **라이선싱 모델을 전환할 때 SQL Server 가동 중지 시간이 필요한가요?**
 
-    아니요. [라이선싱 모델을 변경](virtual-machines-windows-sql-ahb.md)해도 SQL Server 가동 중지 시간이 필요하지 않습니다. 변경 내용이 즉시 적용되기 때문에 VM을 다시 시작하지 않아도 됩니다. 
+   아니요. [라이선싱 모델을 변경](virtual-machines-windows-sql-ahb.md)해도 SQL Server 가동 중지 시간이 필요하지 않습니다. 변경 내용이 즉시 적용되기 때문에 VM을 다시 시작하지 않아도 됩니다. 
 
 1. **CSP 구독으로 Azure 하이브리드 혜택을 활성화할 수 있나요?**
 
@@ -96,7 +102,7 @@ ms.locfileid: "53339402"
 
 1. **내 VM을 새 SQL VM 리소스 공급자에 등록하면 추가 비용이 발생하나요?**
 
-    아니요. SQL VM 리소스 공급자에서는 추가 비용 없이 Azure VM에서 SQL Server에 대한 추가 관리 기능을 사용할 수 있습니다. 
+   아니요. SQL VM 리소스 공급자에서는 추가 비용 없이 Azure VM에서 SQL Server에 대한 추가 관리 기능을 사용할 수 있습니다. 
 
 1. **SQL VM 리소스 공급자를 모든 고객이 사용할 수 있나요?**
  
@@ -130,7 +136,7 @@ ms.locfileid: "53339402"
 
 1. **SQL VM에서 SQL Server를 완전히 제거할 수 있나요?**
 
-   예, 그러나 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)에 설명된 대로 SQL VM에 대한 비용 청구가 계속됩니다. SQL Server가 더 이상 필요하지 않는 경우 새 가상 컴퓨터를 배포하고 데이터와 응용 프로그램을 새 가상 컴퓨터에 마이그레이션할 수 있습니다. 그런 다음 SQL Server 가상 머신을 제거할 수 있습니다.
+   예, 그러나 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)에 설명된 대로 SQL VM에 대한 비용 청구가 계속됩니다. SQL Server가 더 이상 필요하지 않는 경우 새 가상 컴퓨터를 배포하고 데이터와 애플리케이션을 새 가상 컴퓨터에 마이그레이션할 수 있습니다. 그런 다음 SQL Server 가상 머신을 제거할 수 있습니다.
    
 ## <a name="updating-and-patching"></a>업데이트 및 패치
 
@@ -168,7 +174,7 @@ ms.locfileid: "53339402"
 * [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](virtual-machines-windows-migrate-sql.md)
 * [Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md)
 * [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)
-* [Azure Virtual Machines의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
+* [Azure Virtual Machines의 SQL Server에 대한 애플리케이션 패턴 및 개발 전략](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 **Linux VM**:
 

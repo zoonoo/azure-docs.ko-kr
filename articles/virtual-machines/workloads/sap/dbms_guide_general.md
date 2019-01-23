@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e514f35567f4be0932c7bcc591cbd0f05cd9814
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 87d3a44b01dff81242f935c7737bd170fe744536
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606761"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246877"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -133,7 +133,11 @@ Azure는 데이터 디스크 IOPS 할당량을 적용합니다. 이러한 할당
 
 > [!NOTE]
 > Azure의 고유한 [단일 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)로부터 이점을 얻으려면 연결된 모든 디스크가 기본 VHD를 포함하여 Azure Premium Storage 유형이어야 합니다.
->
+
+
+> [!NOTE]
+> Azure 데이터 센터 근처에 공동 배치된 타사 데이터 센터에 있는 스토리지 하드웨어에서 SAP 데이터베이스의 기본 데이터베이스 파일(데이터 및 로그 파일)을 호스트할 수는 없습니다. SAP 워크로드의 경우에는 기본 Azure 서비스로 표시되는 스토리지에서만 SAP 데이터베이스의 데이터 및 트랜잭션 로그 파일을 호스트할 수 있습니다.
+> 
 
 데이터베이스 파일 및 로그/다시 실행 파일의 배치와 사용되는 Azure Storage 유형은 IOPS, 대기 시간 및 처리량 요구 사항에 따라 정의되어야 합니다. IOPS가 충분하려면 여러 디스크를 활용하거나 더 큰 Premium Storage 디스크를 사용해야 할 수도 있습니다. 여러 디스크를 사용하는 경우 데이터 파일 또는 로그/다시 실행 파일이 포함된 디스크 전체에 소프트웨어 스트라이프를 빌드해야 합니다. 이러한 경우 기본 Premium Storage 디스크의 IOPS 및 디스크 처리량 SLA 또는 Azure Standard Storage 디스크의 달성 가능한 최대 IOPS가 결과 스트라이프 세트에 누적됩니다.
 
@@ -141,7 +145,7 @@ Azure는 데이터 디스크 IOPS 할당량을 적용합니다. 이러한 할당
 
 
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 > Windows 저장소 공간을 사용하여 여러 Azure VHD에 스트라이프 세트를 만드는 것이 좋습니다. 적어도 Windows Server 2012 R2 또는 Windows Server 2016을 사용하는 것이 좋습니다.
 >
@@ -163,13 +167,13 @@ Azure는 데이터 디스크 IOPS 할당량을 적용합니다. 이러한 할당
 ### <a name="managed-or-non-managed-disks"></a>관리되거나 관리되지 않는 디스크
 Azure Storage 계정은 관리 구성 요소일 뿐 아니라 제한의 대상이 됩니다. Azure Standard Storage 계정과 Azure Premium Storage 계정 간에는 제한 사항이 다릅니다. 정확한 기능 및 제한 사항은 [Azure Storage 확장성 및 성능 목표](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets) 문서에 나와 있습니다.
 
-Azure Standard Storage의 경우 저장소 계정당 IOPS에 제한([Azure Storage 확장성 및 성능 목표](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets) 문서에서 **총 요청 속도**가 포함된 행)이 있음을 알고 있어야 합니다. 또한 Azure 구독당 저장소 계정 수의 초기 제한이 있습니다. 따라서 이러한 저장소 계정의 제한에 도달하지 않도록 다른 저장소 계정에서 더 큰 SAP 자산에 맞게 VHD의 균형을 조정해야 합니다. 1,000개가 넘는 VHD가 있는 수백 개의 가상 머신에 대해 설명하는 것은 지루한 작업입니다.
+Azure Standard Storage의 경우 스토리지 계정당 IOPS에 제한([Azure Storage 확장성 및 성능 목표](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets) 문서에서 **총 요청 속도**가 포함된 행)이 있음을 알고 있어야 합니다. 또한 Azure 구독당 저장소 계정 수의 초기 제한이 있습니다. 따라서 이러한 저장소 계정의 제한에 도달하지 않도록 다른 저장소 계정에서 더 큰 SAP 자산에 맞게 VHD의 균형을 조정해야 합니다. 1,000개가 넘는 VHD가 있는 수백 개의 가상 머신에 대해 설명하는 것은 지루한 작업입니다.
 
 SAP 워크로드와 함께 DBMS 배포에 Azure Standard Storage를 사용하지 않는 것이 좋으므로 Azure Standard Storage에 대한 참조 및 권장 사항은 이 간략한 [문서](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)로 제한됩니다.
 
 Microsoft는 2017년에 서로 다른 Azure Storage 계정에서 VHD를 계획하고 배포하는 관리 작업을 방지하기 위해 [Managed Disks](https://azure.microsoft.com/services/managed-disks/)를 도입했습니다. Managed Disks는 Azure Standard Storage 및 Azure Premium Storage에 사용할 수 있습니다. Managed Disks의 주요 이점은 다음과 같은 관리되지 않는 디스크 목록과 비교됩니다.
 
-- Managed Disks의 경우 Azure는 배포 시 여러 저장소 계정에 서로 다른 VHD를 자동으로 배포하여 데이터 볼륨, I/O 처리량 및 IOPS 측면에서 Azure Storage 계정의 제한에 도달하지 않도록 방지합니다.
+- Managed Disks의 경우 Azure는 배포 시 여러 스토리지 계정에 서로 다른 VHD를 자동으로 배포하여 데이터 볼륨, I/O 처리량 및 IOPS 측면에서 Azure Storage 계정의 제한에 도달하지 않도록 방지합니다.
 - Managed Disks를 사용하는 경우 Azure Storage는 Azure 가용성 집합의 개념을 준수하여 Azure 가용성 집합에 속한 다른 장애 및 업데이트 도메인에 VM의 기본 VHD와 연결된 디스크를 배포합니다.
 
 
@@ -234,16 +238,16 @@ VM이 배포되면 Azure VM에서 비영구 디스크를 제공합니다. VM을 
 
 
 ### <a name="10b041ef-c177-498a-93ed-44b3441ab152"></a>Microsoft Azure Storage 복원력
-Microsoft Azure Storage는 최소 3개의 별도 저장소 노드에 기본 VHD(OS 포함) 및 연결된 디스크 또는 Blob을 저장합니다. 이 사실을 LRS(로컬 중복 저장소)라고 합니다. LRS는 Azure의 모든 저장소 유형에 대한 기본값입니다.
+Microsoft Azure Storage는 최소 3개의 별도 스토리지 노드에 기본 VHD(OS 포함) 및 연결된 디스크 또는 Blob을 저장합니다. 이 사실을 LRS(로컬 중복 저장소)라고 합니다. LRS는 Azure의 모든 저장소 유형에 대한 기본값입니다.
 
 [ 가지 더 많은 중복 방법이 있으며, Azure Storage 복제](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)에서 모두 설명하고 있습니다.
 
 > [!NOTE]
->데이터베이스 및 로그/다시 실행 파일을 저장하는 DBMS VM 및 디스크에 권장되는 저장소 유형인 Azure Premium Storage에서는 LRS만 사용할 수 있습니다. 결과적으로 데이터베이스 데이터를 다른 Azure 지역 또는 다른 Azure 가용성 영역으로 복제할 수 있게 하려면 SQL Server Always On, Oracle Data Guard 또는 HANA System Replication과 같은 데이터베이스 메서드를 구성해야 합니다.
+>데이터베이스 및 로그/다시 실행 파일을 저장하는 DBMS VM 및 디스크에 권장되는 스토리지 유형인 Azure Premium Storage에서는 LRS만 사용할 수 있습니다. 결과적으로 데이터베이스 데이터를 다른 Azure 지역 또는 다른 Azure 가용성 영역으로 복제할 수 있게 하려면 SQL Server Always On, Oracle Data Guard 또는 HANA System Replication과 같은 데이터베이스 메서드를 구성해야 합니다.
 
 
 > [!NOTE]
-> DBMS 배포의 경우 Azure Standard Storage에서 사용할 수 있는 지역 중복 저장소의 사용은 성능에 심각한 영향을 미치고 VM에 연결된 여러 VHD에서 쓰기 순서를 따르지 않으므로 권장되지 않습니다. 여러 VHD에서 쓰기 순서를 따르지 않으면, 데이터베이스 및 로그/다시 실행 파일이 원본 VM 쪽의 여러 VHD에 분산되어 있는 경우(대부분의 경우) 복제 대상 쪽에는 일관성 없는 데이터베이스로 끝날 가능성이 높습니다.
+> DBMS 배포의 경우 Azure Standard Storage에서 사용할 수 있는 지역 중복 스토리지의 사용은 성능에 심각한 영향을 미치고 VM에 연결된 여러 VHD에서 쓰기 순서를 따르지 않으므로 권장되지 않습니다. 여러 VHD에서 쓰기 순서를 따르지 않으면, 데이터베이스 및 로그/다시 실행 파일이 원본 VM 쪽의 여러 VHD에 분산되어 있는 경우(대부분의 경우) 복제 대상 쪽에는 일관성 없는 데이터베이스로 끝날 가능성이 높습니다.
 
 
 
@@ -311,7 +315,7 @@ Azure VM 간의 네트워크 대기 시간을 더 줄이려면 SAP 워크로드�
 >
 
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 > Windows의 경우 가속 네트워킹을 사용하여 VM을 배포하는 방법과 개념을 이해하려면 [가속 네트워킹을 사용하는 Windows 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) 문서를 참조하세요.
 >
