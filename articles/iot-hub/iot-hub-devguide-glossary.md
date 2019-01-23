@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 01/15/2019
 ms.author: dobett
-ms.openlocfilehash: 26bccc07e402288db696bce8a2371cab9ef7aff9
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3725117b90ec2574737686881e47967f3d9a9e39
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055084"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320093"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub 용어집
 이 문서에서는 IoT Hub 문서에 사용된 몇 가지 일반적인 용어를 나열합니다.
@@ -114,9 +114,6 @@ IoT의 컨텍스트에서 일반적으로 디바이스는 데이터를 수집하
 ## <a name="device-identity"></a>디바이스 ID
 디바이스 ID는 [ID 레지스트리](#identity-registry)에 등록된 모든 디바이스에 할당된 고유한 식별자입니다.
 
-## <a name="module-identity"></a>모듈 ID
-모듈 ID는 디바이스에 속해 있는 모든 모듈에 할당된 고유 식별자입니다. 또한 모듈 ID는 [ID 레지스트리](#identity-registry)에도 등록됩니다.
-
 ## <a name="device-management"></a>디바이스 관리
 디바이스 관리에는 계획, 프로비전, 구성, 모니터링 및 사용 중지를 비롯하여 IoT 솔루션에서 디바이스 관리와 관련된 전체 수명 주기가 포함됩니다.
 
@@ -131,15 +128,6 @@ IoT의 컨텍스트에서 일반적으로 디바이스는 데이터를 수집하
 
 ## <a name="device-twin"></a>디바이스 쌍
 [디바이스 쌍](iot-hub-devguide-device-twins.md)은 디바이스의 상태 정보(메타데이터, 구성 및 조건)를 저장하는 JSON 문서입니다. [IoT Hub](#iot-hub)는 IoT Hub에 프로비전하는 각 디바이스에 대해 하나의 디바이스 쌍을 유지합니다. 디바이스 쌍을 통해 디바이스 및 솔루션 백 엔드 간의 [디바이스 조건](#device-condition) 및 구성을 동기화할 수 있습니다. 디바이스 쌍을 쿼리하여 특정 디바이스를 찾고 장기 실행 중인 작업의 상태를 쿼리할 수 있습니다.
-
-## <a name="module-twin"></a>모듈 쌍
-디바이스 쌍과 유사하게 모듈 쌍은 모듈의 상태 정보(메타데이터, 구성 및 조건)를 저장하는 JSON 문서입니다. IoT Hub는 IoT 허브의 디바이스 ID에서 프로비전하는 각 모듈 ID에 대해 모듈 쌍을 유지합니다. 모듈 쌍을 통해 모듈 및 솔루션 백 엔드 간의 모듈 조건 및 구성을 동기화할 수 있습니다. 모듈 쌍을 쿼리하여 특정 모듈을 찾고 장기 실행 중인 작업의 상태를 쿼리할 수 있습니다.
-
-## <a name="twin-queries"></a>쌍 쿼리
-[디바이스 및 모듈 쌍 쿼리](iot-hub-devguide-query-language.md)에서는 SQL과 유사한 IoT Hub 쿼리 언어를 사용하여 디바이스 쌍 또는 모듈 쌍에서 정보를 검색합니다. 동일한 IoT Hub 쿼리 언어를 사용하여 IoT Hub에서 실행 중인 [](#job)에 대한 정보를 검색할 수 있습니다.
-
-## <a name="twin-synchronization"></a>쌍 동기화
-쌍 동기화는 디바이스 쌍 또는 모듈 쌍에서 [원하는 속성](#desired-properties)을 사용하여 디바이스 또는 모듈을 구성하고 쌍에 저장할 디바이스 또는 모듈의 [보고된 속성](#reported-properties)을 검색합니다.
 
 ## <a name="direct-method"></a>직접 메서드
 [직접 메서드](iot-hub-devguide-direct-methods.md)는 IoT Hub에서 API를 호출하여 디바이스에서 실행할 메서드를 트리거하는 방법입니다.
@@ -190,6 +178,17 @@ Azure IoT 솔루션 가속기는 여러 Azure 서비스를 솔루션으로 함�
 
 ## <a name="job"></a>작업
 솔루션 백 엔드에서는 IoT Hub에 등록된 디바이스 집합에서의 활동을 예약 및 추적하는 [작업](iot-hub-devguide-jobs.md)을 사용할 수 있습니다. 활동에는 디바이스 쌍 [desired 속성](#desired-properties) 업데이트, 디바이스 쌍 [태그](#tags) 업데이트 및 [직접 메서드](#direct-method) 호출이 포함됩니다. [IoT Hub](#iot-hub)는 [ID 레지스트리](#identity-registry)에서 [가져오고 내보내는](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) 작업도 사용합니다.
+
+## <a name="modules"></a>모듈
+디바이스 쪽에서 IoT Hub 디바이스 SDK를 사용하면 각각 IoT Hub에 대한 독립적 연결을 여는 [모듈](iot-hub-devguide-module-twins.md)을 만들 수 있습니다. 이 함수를 사용하면 디바이스의 여러 구성 요소에 별도의 네임스페이스를 사용할 수 있습니다.
+
+모듈 ID 및 모듈 쌍은 [디바이스 ID](#device-identity) 및 [디바이스 쌍](#device-twin)과 동일한 기능을 제공하지만 세분성이 더 높습니다. 이처럼 높은 세분성을 통해 여러 구성 요소를 관리하는 운영 체제 기반 디바이스 또는 펌웨어 디바이스와 같은 가능한 디바이스에서 이러한 각 구성 요소의 구성과 조건을 격리할 수 있습니다.
+
+## <a name="module-identity"></a>모듈 ID
+모듈 ID는 디바이스에 속해 있는 모든 모듈에 할당된 고유 식별자입니다. 또한 모듈 ID는 [ID 레지스트리](#identity-registry)에도 등록됩니다.
+
+## <a name="module-twin"></a>모듈 쌍
+디바이스 쌍과 유사하게 모듈 쌍은 모듈의 상태 정보(메타데이터, 구성 및 조건)를 저장하는 JSON 문서입니다. IoT Hub는 IoT 허브의 디바이스 ID에서 프로비전하는 각 모듈 ID에 대해 모듈 쌍을 유지합니다. 모듈 쌍을 통해 모듈 및 솔루션 백 엔드 간의 모듈 조건 및 구성을 동기화할 수 있습니다. 모듈 쌍을 쿼리하여 특정 모듈을 찾고 장기 실행 중인 작업의 상태를 쿼리할 수 있습니다.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/)는 [IoT Hub](#iot-hub)에서 디바이스와 통신을 위해 지원하는 메시징 프로토콜 중 하나입니다. IoT Hub에서 지원하는 메시징 프로토콜에 대한 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기](iot-hub-devguide-messaging.md)를 참조하세요.
@@ -256,6 +255,12 @@ Azure 구독에서는 청구가 이루어집니다. 생성한 각 Azure 서비�
 
 ## <a name="token-service"></a>토큰 서비스
 토큰 서비스를 사용하여 디바이스에 대한 인증 메커니즘을 구현합니다. **DeviceConnect** 권한으로 IoT Hub [공유 액세스 정책](#shared-access-policy)을 사용하여 *device-scoped* 토큰을 만듭니다. 이러한 토큰은 디바이스에서 IoT Hub에 연결할 수 있게 해줍니다. 디바이스는 사용자 지정 인증 메커니즘을 사용하여 토큰 서비스를 인증합니다. 디바이스가 성공적으로 인증되면 토큰 서비스는 사용할 디바이스에 대한 SAS 토큰을 발행하여 IoT Hub에 액세스합니다.
+
+## <a name="twin-queries"></a>쌍 쿼리
+[디바이스 및 모듈 쌍 쿼리](iot-hub-devguide-query-language.md)에서는 SQL과 유사한 IoT Hub 쿼리 언어를 사용하여 디바이스 쌍 또는 모듈 쌍에서 정보를 검색합니다. 동일한 IoT Hub 쿼리 언어를 사용하여 IoT Hub에서 실행 중인 [](#job)에 대한 정보를 검색할 수 있습니다.
+
+## <a name="twin-synchronization"></a>쌍 동기화
+쌍 동기화는 디바이스 쌍 또는 모듈 쌍에서 [원하는 속성](#desired-properties)을 사용하여 디바이스 또는 모듈을 구성하고 쌍에 저장할 디바이스 또는 모듈의 [보고된 속성](#reported-properties)을 검색합니다.
 
 ## <a name="x509-client-certificate"></a>X.509 클라이언트 인증서
 디바이스는 X.509 인증서를 사용하여 [IoT Hub](#iot-hub)와 인증을 수행할 수 있습니다. [SAS 토큰](#shared-access-signature)을 사용하는 대신 X.509 인증서를 사용합니다.
