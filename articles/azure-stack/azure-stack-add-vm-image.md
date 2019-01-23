@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 1/14/2019
+ms.date: 1/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 3bd86fe8708d2cbb8cbddac4ca35d5afdc68d2e3
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: bac0b2933d4b6d4a88ebbb0402bba0ffd508b395
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306083"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474373"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>가상 머신 이미지를 Azure Stack에서 사용할 수 있도록
 
@@ -42,21 +41,21 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
     > [!IMPORTANT]  
     >  Azure Stack에서 동적 디스크 Vhd를 지원 하지 않습니다. VM에 연결 된 동적 디스크 크기 조정 실패 상태의 VM 종료 됩니다. 이 문제를 완화 하려면 VM의 디스크를 저장소 계정에 VHD blob을 삭제 하지 않고 VM을 삭제 합니다. 동적 디스크에서 VHD 고정된 디스크와 가상 컴퓨터를 다시 만들를 변환 합니다.
 
-   * Azure Stack 이미지 리포지토리에 이미지를 푸시 하려면 적은 시간이 걸리기 때문에 blob storage에서 Azure로 보다 Azure Stack blob storage에 이미지를 업로드 하는 것이 효율적 이며
+   - Azure Stack 이미지 리포지토리에 이미지를 푸시 하려면 적은 시간이 걸리기 때문에 blob storage에서 Azure로 보다 Azure Stack blob storage에 이미지를 업로드 하는 것이 효율적 이며
 
-   * 업로드 하는 경우는 [Windows VM 이미지](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/),으로 대체 해야 합니다 **Azure에 로그인** 단계를 함께 [Azure Stack 운영자의 PowerShell 환경을 구성](azure-stack-powershell-configure-admin.md) 단계입니다.  
+   - 업로드 하는 경우는 [Windows VM 이미지](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/),으로 대체 해야 합니다 **Azure에 로그인** 단계를 함께 [Azure Stack 운영자의 PowerShell 환경을 구성](azure-stack-powershell-configure-admin.md) 단계입니다.  
 
-   * Blob storage URI 이미지를 업로드 하는 위치를 기록해 둡니다. Blob 저장소 URI 형식은 다음과 같습니다: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd 합니다.
+   - Blob storage URI 이미지를 업로드 하는 위치를 기록해 둡니다. Blob 저장소 URI 형식은 다음과 같습니다: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd 합니다.
 
-   * Blob에 익명으로 액세스할 수 있도록으로 저장소 계정 blob 컨테이너를 VM 이미지 VHD를 업로드 하는 위치입니다. 선택 **Blob**를 선택한 후 **액세스 정책**합니다. 필요에 따라 컨테이너에 대 한 공유 액세스 서명을 생성 하 고 blob URI의 일부로 포함 시킬 수 있습니다. 이 단계를 수행 하면 blob이 이미지를 추가 하기 위해 사용할 수 있습니다. Blob를 익명으로 액세스할 수 없는 경우 실패 한 상태의 VM 이미지에 만들어집니다.
+   - Blob에 익명으로 액세스할 수 있도록으로 저장소 계정 blob 컨테이너를 VM 이미지 VHD를 업로드 하는 위치입니다. 선택 **Blob**를 선택한 후 **액세스 정책**합니다. 필요에 따라 컨테이너에 대 한 공유 액세스 서명을 생성 하 고 blob URI의 일부로 포함 시킬 수 있습니다. 이 단계를 수행 하면 blob이 이미지를 추가 하기 위해 사용할 수 있습니다. Blob를 익명으로 액세스할 수 없는 경우 실패 한 상태의 VM 이미지에 만들어집니다.
 
-   ![저장소 계정 blob으로 이동](./media/azure-stack-add-vm-image/image1.png)
+    ![저장소 계정 blob으로 이동](./media/azure-stack-add-vm-image/image1.png)
 
-   ![Public에 대 한 집합 blob 액세스](./media/azure-stack-add-vm-image/image2.png)
+    ![Public에 대 한 집합 blob 액세스](./media/azure-stack-add-vm-image/image2.png)
 
-2. Operator 자격으로 Azure Stack에 로그인 합니다. 메뉴에서 선택 **모든 서비스**합니다. 그런 다음 합니다 **관리** 범주 선택 **Compute** > **VM 이미지** > **추가**합니다.
+2. Operator 자격으로 Azure Stack에 로그인 합니다. 메뉴에서 선택 **모든 서비스** > **이미지** 아래에서 **계산** > **추가**합니다.
 
-3. 아래 **VM 이미지를 추가**, 게시자, 제품, SKU 및 가상 머신 이미지의 버전을 입력 합니다. 이러한 이름 세그먼트 Resource Manager 템플릿에서 VM 이미지를 참조 하세요. 선택 되어 있는지 확인 합니다 **osType** 올바르게 값입니다. 에 대 한 **운영 체제 디스크 Blob URI**, 여기서 이미지 업로드 된 Blob URI를 입력 합니다. 그런 다음 선택 **만들기** VM 이미지를 만들기 시작 합니다.
+3. 아래 **이미지 만들기**OS 디스크, OS 유형, storage blob URI, 계정 형식, 이름, 구독, 리소스 그룹 위치를 입력 하 고 호스트 캐싱입니다. 그런 다음 선택 **만들기** VM 이미지를 만들기 시작 합니다.
 
    ![이미지를 만들기 시작 합니다.](./media/azure-stack-add-vm-image/image4.png)
 
@@ -154,7 +153,7 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 
 3. 운영자로 서 Azure Stack에 로그인 합니다. 자세한 내용은 [운영자로 서 Azure Stack에 로그인](azure-stack-powershell-configure-admin.md)합니다.
 
-4. 전역 Azure 또는 Azure Stack 사용자 지정 VM 이미지를 저장할 저장소 계정을 만듭니다. 자세한 내용은 [빠른 시작: Azure portal을 사용 하 여 목록 blob 업로드, 다운로드 및](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)합니다.
+4. 전역 Azure 또는 Azure Stack 사용자 지정 VM 이미지를 저장할 저장소 계정을 만듭니다. 자세한 내용은 [빠른 시작: Azure Portal을 사용하여 Blob 업로드, 다운로드 및 나열](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)을 참조하세요.
 
 5. Windows 또는 Linux 운영 체제 이미지를 VHD 형식 (VHDX 아님)를 준비, 저장소 계정에 이미지를 업로드 및 VM 이미지 PowerShell에서 검색할 수 있는 URI를 가져옵니다.  
 

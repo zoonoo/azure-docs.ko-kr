@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/14/2019
+ms.date: 1/18/2019
 ms.author: mabrigg
-ms.openlocfilehash: 66a6fa88956db40ced9ee3fd13a0f74585c528fc
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: c3b1c0e6ed0850e6346d385dc3e86afdcb78fe39
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303210"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478538"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Azure Stack의 Storage 계정
 Storage 계정에는 Blob 및 Table service, 그리고 스토리지 데이터 개체에 대한 고유한 네임스페이스가 있습니다. 기본적으로 계정에 대한 데이터는 저장소 계정 소유자에만 사용할 수 있습니다.
