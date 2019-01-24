@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: dfc1d2128e1cf3b4d6b4d9e5141116a2b2ff9c0d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 90608e95cee6b5b7231419c2c65c39741f106b0f
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000612"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412643"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(사용되지 않음) Windows 컨테이너용 Kubernetes 클러스터 배포
 
@@ -65,7 +65,7 @@ az acs create --orchestrator-type=kubernetes \
 
 클라이언트 컴퓨터에서 Kubernetes 클러스터에 연결하려면 Kubernetes 명령줄 클라이언트인 [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/)을 사용합니다. 
 
-Azure Cloud Shell을 사용하는 경우 `kubectl`이 이미 설치되어 있습니다. 로컬로 설치하려면 [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) 명령을 사용하면 됩니다.
+Azure Cloud Shell을 사용하는 경우 `kubectl`이 이미 설치되어 있습니다. 로컬로 설치하려면 [az acs kubernetes install-cli](/cli/azure/acs/kubernetes) 명령을 사용하면 됩니다.
 
 다음 Azure CLI 예제에서는 `kubectl`을 시스템에 설치합니다. Windows에서 이 명령을 관리자 권한으로 실행합니다.
 

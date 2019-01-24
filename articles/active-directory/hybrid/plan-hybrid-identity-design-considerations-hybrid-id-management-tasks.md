@@ -4,7 +4,7 @@ description: 조건부 액세스 제어를 통해 Azure Active Directory는 사�
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 65f80aea-0426-4072-83e1-faf5b76df034
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 16b09b7d4bddc24d9efa2e37c9e31f61a4333f86
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 436bb3c235c76f04e0f3d0fec1beeec3872f1dfb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305562"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475818"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>하이브리드 ID 수명 주기에 대한 계획
 ID는 엔터프라이즈 이동성 및 애플리케이션 액세스 전략의 토대 중 하나입니다. 모바일 디바이스 또는 SaaS 앱에 로그인하는지와 무관하게 ID는 모든 항목에 액세스를 얻는 키입니다. 가장 높은 수준에서 ID 관리 솔루션은 프로비전한 리소스의 프로세스를 자동화하고 중앙 집중화를 포함하는 ID 리포지토리 간의 통합 및 동기화를 포함합니다. ID 솔루션은 온-프레미스 및 클라우드 전반에서 중앙 집중화된 ID여야 하며 특정 형태의 ID 페더레이션을 사용하여 중앙 집중된 인증을 유지 관리하고 외부 사용자 및 비즈니스와 안전하게 공유하며 협력해야 합니다. 리소스의 범위는 운영 체제 및 애플리케이션에서 사용자에 걸쳐 있거나 조직에 속해 있습니다. 조직 구조는 프로비전하는 정책 및 절차를 수용하기 위해 변경될 수 있습니다.

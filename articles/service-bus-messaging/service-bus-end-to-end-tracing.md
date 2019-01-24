@@ -3,22 +3,22 @@ title: Azure Service Bus 종단 간 추적 및 진단 | Microsoft Docs
 description: Service Bus 클라이언트 진단 및 종단 간 추적 개요
 services: service-bus-messaging
 documentationcenter: ''
-author: lmolkova
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
-ms.author: lmolkova
-ms.openlocfilehash: 12f9f55544f46bc9c88cab7234f78ad7ee7de2d2
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 2330e395244f33653af415b5db896fdc2aa2024d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790897"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852986"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Service Bus 메시징을 통한 분산 추적 및 상관관계
 

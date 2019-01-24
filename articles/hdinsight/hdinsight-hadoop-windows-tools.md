@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 05/17/2017
-ms.openlocfilehash: 4b6eb0aa7011226fda667370f3e854081b795ae6
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: d336d659a15f5b4cb1cbc917a8ae10ab8224d029
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744873"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426321"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Windows PC에서 HDInsight의 Apache Hadoop 에코시스템 작업
 
@@ -30,7 +30,7 @@ PowerShell로 수행할 수 있는 작업의 예:
 * [PowerShell을 사용하여 Apache Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-powershell.md)
 * [PowerShell을 사용하여 클러스터 관리](hdinsight-administer-use-powershell.md)
 
-[Azure Powershell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) 단계에 따라 최신 버전을 가져옵니다. Azure Resource Manager용 새로운 cmdlet을 사용하도록 수정해야 하는 스크립트가 있는 경우 [HDInsight 클러스터에 대한 Azure Resource Manager 기반 개발 도구에 마이그레이션](hdinsight-hadoop-development-using-azure-resource-manager.md)을 참조하세요.
+[Azure Powershell 설치 및 구성](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 단계에 따라 최신 버전을 가져옵니다. Azure Resource Manager용 새로운 cmdlet을 사용하도록 수정해야 하는 스크립트가 있는 경우 [HDInsight 클러스터에 대한 Azure Resource Manager 기반 개발 도구에 마이그레이션](hdinsight-hadoop-development-using-azure-resource-manager.md)을 참조하세요.
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>브라우저에서 실행할 수 있는 유틸리티
 다음 유틸리티는 브라우저에서 실행되는 웹 UI가 있습니다.

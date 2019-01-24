@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: anzaman
-ms.openlocfilehash: 5591c36a13291432f2d790b4c83e98270b4bc035
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f970f535f83bc3b3c2a850ec126a7afff2af739f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283019"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827587"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Video Indexer API를 사용하여 브랜드 모델 사용자 지정
 
@@ -40,9 +40,9 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|string|yes|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|string|yes|계정의 GUID(Globally Unique Identifier)입니다.|
-|accessToken|string|yes|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
@@ -102,10 +102,10 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|string|yes|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|string|yes|계정의 GUID(Globally Unique Identifier)입니다.|
-|id|정수|yes|브랜드 ID(브랜드를 만들 때 생성됨)|
-|accessToken|string|yes|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|id|정수|예|브랜드 ID(브랜드를 만들 때 생성됨)|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
@@ -131,10 +131,10 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|string|yes|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|string|yes|계정의 GUID(Globally Unique Identifier)입니다.|
-|id|정수|yes|브랜드 ID(브랜드를 만들 때 생성됨)|
-|accessToken|string|yes|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|id|정수|예|브랜드 ID(브랜드를 만들 때 생성됨)|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
@@ -181,10 +181,10 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|string|yes|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|string|yes|계정의 GUID(Globally Unique Identifier)입니다.|
-|id|정수|yes|브랜드 ID(브랜드를 만들 때 생성됨)|
-|accessToken|string|yes|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|id|정수|예|브랜드 ID(브랜드를 만들 때 생성됨)|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
@@ -215,7 +215,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
   "referenceUrl": null,
   "id": 97974,
   "name": "Example",
-  "accountId": "SampeAccountId",
+  "accountId": "SampleAccountId",
   "lastModifierUserName": "SampleUserName",
   "Created": "2018-04-25T14:59:52.7433333",
   "lastModified": "2018-04-25T15:37:50.67",
@@ -244,9 +244,9 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|string|yes|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|string|yes|계정의 GUID(Globally Unique Identifier)입니다.|
-|accessToken|string|yes|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
@@ -304,9 +304,9 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|string|yes|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|string|yes|계정의 GUID(Globally Unique Identifier)입니다.|
-|accessToken|string|yes|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
@@ -341,9 +341,9 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|string|yes|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|string|yes|계정의 GUID(Globally Unique Identifier)입니다.|
-|accessToken|string|yes|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 

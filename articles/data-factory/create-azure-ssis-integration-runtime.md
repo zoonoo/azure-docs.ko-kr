@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: b772aa314316906a4079e3d6b8b4e0aeb0f54fba
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4339782304f1bc175f1066954f1050bc00f25005
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022991"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434243"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure-SSIS Integration Runtime 만들기
 이 문서에서는 ADF(Azure Data Factory)에서 Azure-SSIS IR(Integration Runtime)을 프로비전하는 단계를 제공합니다. 그런 다음, SSDT(SQL Server Data Tools) 또는 SSMS(SQL Server Management Studio)를 사용하여 Azure에서 이 통합 런타임에 SSIS(SQL Server Integration Services) 패키지를 배포하고 실행할 수 있습니다. 
@@ -50,7 +50,7 @@ Azure-SSIS IR을 프로비전하는 경우 Azure Feature Pack for SSIS 및 Acces
     - 가상 네트워크 내의 가상 네트워크 서비스 엔드포인트 또는 Managed Instance를 사용하여 Azure SQL Database 서버에서 SSISDB를 호스팅하고 있습니다. 
     - Azure-SSIS IR에서 실행되는 SSIS 패키지에서 온-프레미스 데이터 저장소에 연결하려고 합니다. 
 
-- **Azure PowerShell**. PowerShell 스크립트를 실행하여 Azure-SSIS IR을 프로비전하려는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/install-azurerm-ps)의 지침을 따릅니다. 
+- **Azure PowerShell**. PowerShell 스크립트를 실행하여 Azure-SSIS IR을 프로비전하려는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/azurerm/install-azurerm-ps)의 지침을 따릅니다. 
 
 ### <a name="region-support"></a>지역 지원
 ADF 및 Azure-SSIS IR이 현재 사용 가능한 Azure 지역의 목록은 [지역별 ADF + SSIS IR 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all)을 참조하세요. 
@@ -127,9 +127,9 @@ ADF 및 Azure-SSIS IR이 현재 사용 가능한 Azure 지역의 목록은 [지�
 
     e. **노드 수**로는 통합 런타임 클러스터의 노드 수를 선택합니다. 지원되는 노드 수만 표시됩니다. 여러 패키지를 동시에 실행하려는 경우 노드 수가 많은 대형 클러스터(규모 확장)를 선택합니다. 
 
-    f. **버전/라이선스**의 경우 통합 런타임의 SQL Server 버전/라이선스를 선택합니다. Standard 또는 Enterprise입니다. 통합 런타임에서 고급/프리미엄 기능을 사용하려는 경우 Enterprise를 선택합니다. 
+    f. **버전/라이선스**의 경우 통합 런타임에 대한 SQL Server 버전/라이선스, 즉 Standard 또는 Enterprise를 선택합니다. 통합 런타임에서 고급/프리미엄 기능을 사용하려는 경우 Enterprise를 선택합니다. 
 
-    g. **비용 절감**을 위해서는 통합 런타임용 AHB(Azure 하이브리드 혜택) 옵션을 선택합니다. 예 또는 아니요. Software Assurance에 사용자 고유의 SQL Server 라이선스를 사용하여 하이브리드의 비용 절감 혜택을 얻으려면 [예]를 선택합니다. 
+    g. **비용 절감**의 경우 통합 런타임에 대한 AHB(Azure 하이브리드 혜택) 옵션에서 예 또는 아니요를 선택합니다. Software Assurance에 사용자 고유의 SQL Server 라이선스를 사용하여 하이브리드의 비용 절감 혜택을 얻으려면 [예]를 선택합니다. 
 
     h. **다음**을 클릭합니다. 
 
@@ -149,7 +149,7 @@ ADF 및 Azure-SSIS IR이 현재 사용 가능한 Azure 지역의 목록은 [지�
 
     f. **관리자 암호**로는 SSISDB를 호스트하는 데이터베이스 서버의 SQL 인증 암호를 입력합니다. 
 
-    g. **카탈로그 데이터베이스 서비스 계층**의 경우 SSISDB를 호스트할 데이터베이스 서버에 대한 서비스 계층을 선택합니다. Basic/Standard/Premium 계층 또는 탄력적 풀 이름. 
+    g. **카탈로그 데이터베이스 서비스 계층**의 경우 SSISDB를 호스팅할 데이터베이스 서버에 대한 서비스 계층, 즉 기본/표준/프리미엄 계층 또는 탄력적 풀 이름을 선택합니다. 
 
     h. **연결 테스트**를 클릭하고, 테스트가 성공하면 **다음**을 클릭합니다. 
 

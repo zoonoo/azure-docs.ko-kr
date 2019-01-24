@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: f05c0469dffa074501a301802412901ead3d1e69
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 98ff96b70951cb289fe6a83ad59eb83a6522e42c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720818"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433370"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Security Center에 대한 테넌트 수준 가시성 얻기
 이 문서에서는 Azure Security Center에서 제공하는 혜택을 최대화하는 여러 작업을 수행하여 시작하도록 돕습니다. 이러한 작업을 수행하면 Azure Active Directory 테넌트에 연결된 모든 Azure 구독에 대한 가시성을 얻고 집합적 방식으로 여러 구독에 보안 정책을 적용하여 모든 규모에서 조직의 보안 상태를 효율적으로 관리할 수 있습니다.
@@ -108,7 +108,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 
 
 #### <a name="assign-rbac-roles-to-users-with-powershell"></a>PowerShell을 사용하여 사용자에게 RBAC 역할 할당: 
-1. [Azure PowerShell](/powershell/azure/install-azurerm-ps)을 설치합니다.
+1. [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)을 설치합니다.
 2. 다음 명령을 실행합니다. 
 
     ```azurepowershell

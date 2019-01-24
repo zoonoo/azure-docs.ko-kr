@@ -4,7 +4,7 @@ description: 조건부 액세스 제어를 통해 Azure Active Directory는 사�
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 9cfd3f32f6293d5760c4a4ddcf40428a2b9b70f8
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 50f2d3f3ad934668c4a243b387b56db48c3e7d35
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999095"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471806"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>하이브리드 ID 채택 전략 정의
 이 작업에서 하이브리드 ID 솔루션에 대한 하이브리드 ID 채택 전략을 정의하여 다음에서 설명한 비즈니스 요구 사항을 충족합니다.
@@ -60,7 +60,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 ### <a name="client-experience"></a>클라이언트 환경
 사용자 로그인 환경을 결정하는 데 사용하는 전략입니다.  다음 테이블에서는 어떤 사용자가 해당 로그인 환경을 예상해야 하는지에 대한 정보를 제공합니다.  페더레이션된 모든 ID 공급자가 모든 시나리오에서 SSO를 지원하는 것은 아닙니다.
 
-**도메인 가입된 개인 네트워크 응용 프로그램**:
+**도메인 가입된 개인 네트워크 애플리케이션**:
 
 |  | 동기화된 ID | 페더레이션된 ID |
 | --- | --- | --- |
@@ -184,7 +184,7 @@ Multi-Factor 설계 옵션:
 | Microsoft 앱 |예 |예 |
 | 앱 갤러리의 SaaS 앱 |예 |예 |
 | Azure AD 앱 프록시를 통해 IIS 애플리케이션 게시됨 |예 |예 |
-| Azure AD 응용 프로그램 프록시를 통해 IIS 응용 프로그램이 게시되지 않음 |no |예 |
+| Azure AD 애플리케이션 프록시를 통해 IIS 애플리케이션이 게시되지 않음 |no |예 |
 | VPN 및 RDG와 같은 원격 액세스 |no |예 |
 
 전략에 대한 솔루션에 적응했더라도 여전히 사용자가 있는 위치의 위쪽에서 평가를 사용해야 합니다.  솔루션을 변경할 수 있습니다.  아래 테이블을 사용하여 다음을 결정하는 데 도움이 됩니다.

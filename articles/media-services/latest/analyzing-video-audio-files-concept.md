@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 95d3f0aac4acdfbd70dcadd8db5c13456e83a7e7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 20aef7f971b4c4bf8dcff98c633aa0b0aa69811a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344315"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828182"
 ---
 # <a name="analyzing-video-and-audio-files"></a>비디오 및 오디오 파일 분석
 
@@ -148,7 +148,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 |이름|얼굴 이름입니다. ‘Unknown #0’, 확인된 유명인 또는 고객 교육을 받은 사람일 수 있습니다.|
 |신뢰도|얼굴 인식 신뢰도입니다.|
 |description|유명인에 대한 설명입니다. |
-|thumbnalId|얼굴 썸네일의 ID입니다.|
+|thumbnailId|얼굴 썸네일의 ID입니다.|
 |knownPersonId|알려진 사람인 경우 내부 ID입니다.|
 |referenceId|Bing 유명인인 경우 Bing ID입니다.|
 |referenceType|현재는 그냥 Bing입니다.|

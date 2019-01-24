@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d90a4272f843cc9f2b66aa202ddefe54e7b1a361
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 2a282b76805ab91215d6b34ea30a7008d8c8244b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632164"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467981"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure Search로 Azure Blob Storage에서 문서 인덱싱
 이 문서에서는 Azure Search를 사용하여 Azure Blob Storage에 저장된 문서(예: PDF, Office 파일 및 다양한 기타 일반적인 형식)를 인덱싱하는 방법을 보여줍니다. 먼저, blob 인덱서 설정 및 구성의 기본 사항을 설명합니다. 그런 다음, 동작 및 발생할 수 있는 시나리오의 심층적 탐색을 제공합니다.
@@ -34,7 +34,6 @@ BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 �
 
 > [!NOTE]
 > 일부 기능(예: 필드 매핑)은 포털에서 아직 사용할 수 없으며 프로그래밍 방식으로 사용해야 합니다.
->
 >
 
 여기에서는 REST API를 사용하여 흐름을 설명합니다.
@@ -135,7 +134,7 @@ Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 �
 * 표준 BLOB 메타데이터 속성이 다음 필드로 추출됩니다.
 
   * **metadata\_storage\_name**(Edm.String) - BLOB의 파일 이름. 예를 들어 blob /my-container/my-folder/subfolder/resume.pdf를 포함하는 경우 이 필드의 값은 `resume.pdf`입니다.
-  * **metadata\_storage\_path**(Edm.String - 저장소 계정을 포함한 BLOB의 전체 URI. 위치(예: `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+  * **metadata\_storage\_path**(Edm.String - 스토리지 계정을 포함한 BLOB의 전체 URI. 위치(예: `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
   * **metadata\_storage\_content\_type**(Edm.String) - BLOB를 업로드하기 위해 사용한 코드에 지정된 콘텐츠 형식. 예: `application/octet-stream`
   * **metadata\_storage\_last\_modified**(Edm.DateTimeOffset) - BLOB에 대해 마지막으로 수정된 타임스탬프. Azure Search는 이 타임스탬프로 변경된 BLOB을 식별하여 초기 인덱싱 후 모든 항목을 다시 인덱싱하는 것을 방지합니다.
   * **metadata\_storage\_size** (Edm.Int64) - BLOB 크기(바이트).

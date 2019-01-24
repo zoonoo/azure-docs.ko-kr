@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 9dc57876467deb24a763a3c3772209e3e2e0ca0d
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 967bd0d980bf0f9c184287c10fd531758c992247
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360040"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437861"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure에서 일반화된 VM의 관리 이미지 만들기
 
@@ -85,7 +85,7 @@ Windows VM을 일반화하려면 다음 단계를 수행합니다.
 VM에서 직접 이미지를 만들면 OS 디스크와 데이터 디스크를 포함하여 VM에 연결된 모든 디스크가 이미지에 포함됩니다. 이 예제에서는 VM에서 관리되는 디스크를 사용하는 관리되는 이미지를 만드는 방법을 보여 줍니다.
 
 
-시작하기 전에 AzureRM.Compute PowerShell 모듈이 최신 버전(버전 5.7.0 이상이어야 함)인지 확인합니다. 버전을 확인하려면 PowerShell에서 `Get-Module -ListAvailable AzureRM.Compute`를 실행합니다. 버전을 업그레이드해야 하는 경우 [PowerShellGet을 사용하여 Windows에서 Azure PowerShell 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결합니다.
+시작하기 전에 AzureRM.Compute PowerShell 모듈이 최신 버전(버전 5.7.0 이상이어야 함)인지 확인합니다. 버전을 확인하려면 PowerShell에서 `Get-Module -ListAvailable AzureRM.Compute`를 실행합니다. 버전을 업그레이드해야 하는 경우 [PowerShellGet을 사용하여 Windows에서 Azure PowerShell 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결합니다.
 
 
 > [!NOTE]

@@ -4,7 +4,7 @@ description: 하이브리드 ID 솔루션에 대한 데이터 보호 전략을 �
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e76fd1f4-340a-492a-84d9-e05f3b7cc396
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 20782679a4e73c029d6c83fd3bc57914b4d28691
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bef5671637b26f4fd0d0c27211edca946c395cdf
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865049"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468559"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 데이터 보호 전략 정의
 이 작업에서 하이브리드 ID 솔루션에 대한 데이터 보호 전략을 정의하여 다음에서 정의된 비즈니스 요구 사항을 충족합니다.
@@ -36,7 +36,7 @@ ms.locfileid: "52865049"
 
 인증되면 사용자 계정 이름(UPN)을 인증 토큰에서 읽습니다. 그런 다음 권한 부여 시스템이 사용자 도메인에 해당하는 복제된 파티션과 컨테이너를 결정합니다. 사용자의 존재, 활성화된 상태 및 역할에 대한 정보는 권한 부여 시스템에서 사용되어 대상 테넌트에 대한 액세스가 이 세션에서 사용자에 대한 권한이 있는지 확인합니다. 권한이 부여된 특정 작업(특히 사용자, 암호 재설정 만들기)은 규정 준수 또는 조사를 관리하는 테넌트 관리자가 사용할 수 있는 감사 내역을 만듭니다.
 
-인터넷 연결을 통해 온-프레미스 데이터 센터에서 Azure Storage로 데이터를 이동하는 작업은 데이터 볼륨, 대역폭 가용성 또는 기타 고려 사항으로 인해 항상 가능하지는 않습니다. [Azure Storage Import/Export 서비스](../../storage/common/storage-import-export-service.md) 는 Blob 저장소에 있는 데이터의 큰 볼륨을 배치/검색하는 하드웨어 기반 옵션을 제공합니다. 이렇게 하면 클라우드 연산자가 저장소 계정에 콘텐츠를 업로드하는 Azure 데이터 센터에 [BitLocker로 암호화된](https://technet.microsoft.com/library/dn306081#BKMK_BL2012R2) 하드 디스크 드라이브를 직접 보낼 수 있거나 반환되도록 Azure 데이터를 드라이브에 다운로드할 수 있습니다. 암호화된 디스크는(작업을 설치하는 동안 서비스 자체에서 생성된 BitLocker 키를 사용하여) 이 프로세스에 허용됩니다. BitLocker 키는 별도로 Azure에 제공되므로 공유할 밴드 키를 벗어나 제공됩니다.
+인터넷 연결을 통해 온-프레미스 데이터 센터에서 Azure Storage로 데이터를 이동하는 작업은 데이터 볼륨, 대역폭 가용성 또는 기타 고려 사항으로 인해 항상 가능하지는 않습니다. [Azure Storage Import/Export 서비스](../../storage/common/storage-import-export-service.md) 는 Blob 스토리지에 있는 데이터의 큰 볼륨을 배치/검색하는 하드웨어 기반 옵션을 제공합니다. 이렇게 하면 클라우드 연산자가 저장소 계정에 콘텐츠를 업로드하는 Azure 데이터 센터에 [BitLocker로 암호화된](https://technet.microsoft.com/library/dn306081#BKMK_BL2012R2) 하드 디스크 드라이브를 직접 보낼 수 있거나 반환되도록 Azure 데이터를 드라이브에 다운로드할 수 있습니다. 암호화된 디스크는(작업을 설치하는 동안 서비스 자체에서 생성된 BitLocker 키를 사용하여) 이 프로세스에 허용됩니다. BitLocker 키는 별도로 Azure에 제공되므로 공유할 밴드 키를 벗어나 제공됩니다.
 
 전송 중인 데이터가 다양한 시나리오에 위치할 수 있으므로 또한 Microsoft Azure가 [가상 네트워킹](https://azure.microsoft.com/documentation/services/virtual-network/)을 사용하여 서로에서 테넌트 트래픽을 격리한다는 점을 인식하며 호스트 및 게스트 수준 방화벽, IP 패킷 필터링, 포트 차단 및 HTTPS 엔드포인트와 같은 측정값을 사용합니다. 그러나 인프라간 및 인프라 및 고객(온-프레미스)을 포함하여 Azure의 내부 통신 대부분은 암호화됩니다. 다른 중요한 시나리오는 Azure 데이터 센터 내의 통신입니다. Microsoft는 VM이 다른 IP 주소를 가장하거나 가로챌 수 없도록 네트워크를 관리합니다. TLS/SSL는 Azure Storage 또는 SQL Database에 액세스할 때 또는 Cloud Services에 연결할 때 사용됩니다. 이 경우에 고객 관리자는 TLS/SSL 인증서를 취득하고 테넌트 인프라에 배포하는 일을 담당합니다. Microsoft Azure Virtual Network를 통해 동일한 배포 내의 Virtual Machines 또한 단일 배포의 테넌트 간에 이동하는 데이터 트래픽은 HTTPS, SSL/TLS 또는 다른 사용자와 같은 암호화된 통신 프로토콜을 통해 보호될 수 있습니다.
 
@@ -69,7 +69,7 @@ ms.locfileid: "52865049"
 * 역할 멤버 자격의 변경 내용(예: 전역 관리자 역할에 추가된 사용자)
 * 자격 증명 업데이트(예: 암호 변경)
 * 도메인 관리(예: 사용자 지정 도메인 확인, 도메인 제거)
-* 응용 프로그램 추가 또는 제거
+* 애플리케이션 추가 또는 제거
 * 사용자 관리(예: 사용자 추가, 제거 또는 업데이트)
 * 라이선스 추가 또는 제거
 
@@ -92,7 +92,7 @@ ms.locfileid: "52865049"
 
 다른 디렉터리르 사용하는 중앙 집중화된 관리 및 완전한 통합
 
-Azure Active Directory는 수천 개의 SaaS 응용 프로그램 및 온-프레미스 웹 응용 프로그램에 Single-Sign On을 제공합니다. Microsoft에서 테스트된 SSO 타사에 대한 자세한 내용은 [Azure Active Directory 페더레이션 호환성 목록: Single Sign-On을 구현하는 데 사용할 수 있는 타사 ID 공급자](how-to-connect-fed-compatibility.md) 문서를 참조하세요. 이 기능을 사용하면 조직은 ID 및 액세스 관리의 제어를 유지하면서 다양한 B2B 시나리오를 구현할 수 있습니다. 그러나 B2B 중에 프로세스를 설계하는 작업은 파트너에서 사용되는 인증 방법을 이해하고 이 메서드를 Azure에서 지원하는지에 대한 유효성을 검사하는 것이 중요합니다. 현재 다음 메서드가 Azure AD에서 지원됩니다.
+Azure Active Directory는 수천 개의 SaaS 애플리케이션 및 온-프레미스 웹 애플리케이션에 Single-Sign On을 제공합니다. Microsoft에서 테스트된 SSO 타사에 대한 자세한 내용은 [Azure Active Directory 페더레이션 호환성 목록: Single Sign-On을 구현하는 데 사용할 수 있는 타사 ID 공급자](how-to-connect-fed-compatibility.md) 문서를 참조하세요. 이 기능을 사용하면 조직은 ID 및 액세스 관리의 제어를 유지하면서 다양한 B2B 시나리오를 구현할 수 있습니다. 그러나 B2B 중에 프로세스를 설계하는 작업은 파트너에서 사용되는 인증 방법을 이해하고 이 메서드를 Azure에서 지원하는지에 대한 유효성을 검사하는 것이 중요합니다. 현재 다음 메서드가 Azure AD에서 지원됩니다.
 
 * SAML(Security Assertion Markup Language )
 * OAuth
@@ -105,7 +105,7 @@ Azure Active Directory는 수천 개의 SaaS 응용 프로그램 및 온-프레�
 >
 >
 
-Azure AD 지원을 사용하여 직원이 해당 회사 Active Directory 자격 증명으로 모바일 응용 프로그램에 로그인할 수 있도록 모바일 비즈니스 응용 프로그램은 동일하게 쉬운 Mobile Services 인증 환경을 사용할 수 있습니다. 이 기능을 사용하여 Azure AD는 이미 지원한 다른 ID 공급자와 함께 Mobile Services에서 ID 공급자로 지원됩니다(Microsoft 계정, Facebook ID, Google ID 및 Twitter ID 포함). 온-프레미스 앱이 회사의 AD DS에 있는 사용자의 자격 증명을 사용하는 경우 클라우드에서 들어오는 파트너 및 사용자로부터의 액세스는 투명해야 합니다. (클라우드 기반) 웹 응용 프로그램, Web API, Microsoft 클라우드 서비스, 타사 SaaS 응용 프로그램 및 네이티브(모바일) 클라이언트 응용 프로그램에 사용자의 조건부 액세스 제어를 관리할 수 있으며 한 곳에서 보안, 감사, 보고의 이점을 가질 수 있습니다. 그러나 비-프로덕션 환경에서 또는 제한된 양의 사용자로 이 구현의 유효성을 검사하는 것이 좋습니다.
+Azure AD 지원을 사용하여 직원이 해당 회사 Active Directory 자격 증명으로 모바일 애플리케이션에 로그인할 수 있도록 모바일 비즈니스 애플리케이션은 동일하게 쉬운 Mobile Services 인증 환경을 사용할 수 있습니다. 이 기능을 사용하여 Azure AD는 이미 지원한 다른 ID 공급자와 함께 Mobile Services에서 ID 공급자로 지원됩니다(Microsoft 계정, Facebook ID, Google ID 및 Twitter ID 포함). 온-프레미스 앱이 회사의 AD DS에 있는 사용자의 자격 증명을 사용하는 경우 클라우드에서 들어오는 파트너 및 사용자로부터의 액세스는 투명해야 합니다. (클라우드 기반) 웹 애플리케이션, Web API, Microsoft 클라우드 서비스, 타사 SaaS 애플리케이션 및 네이티브(모바일) 클라이언트 애플리케이션에 사용자의 조건부 액세스 제어를 관리할 수 있으며 한 곳에서 보안, 감사, 보고의 이점을 가질 수 있습니다. 그러나 비-프로덕션 환경에서 또는 제한된 양의 사용자로 이 구현의 유효성을 검사하는 것이 좋습니다.
 
 > [!TIP]
 > Azure AD에는 AD DS만큼 그룹 정책이 없다는 사실에 주목합니다. 디바이스에 정책을 적용하기 위해 [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx)과 같은 모바일 디바이스 관리 솔루션이 필요합니다.
@@ -127,12 +127,12 @@ Azure AD를 사용하여 사용자가 인증되면 사용자를 갖게 된 액�
    -  리소스에 대한 세부적인 액세스: 웹사이트 또는 데이터베이스와 같은 특정 구독, 리소스 그룹 또는 개별 Azure 리소스에 대한 사용자 및 그룹에 역할을 할당할 수 있습니다. 이러한 방식으로 사용자는 필요한 모든 리소스에 대해 액세스하고 관리할 필요가 없는 리소스에 액세스하지 않을 수 있습니다.
 
    > [!NOTE]
-   > 응용 프로그램을 빌드하고 이에 대한 액세스 제어를 사용자 지정하려는 경우 권한 부여를 위해 Azure AD 응용 프로그램 역할을 사용할 수 있습니다. 이 기능을 사용하여 앱을 개발하는 방법에 대해 [WebApp-RoleClaims-DotNet 예제](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) 를 검토합니다.
+   > 애플리케이션을 빌드하고 이에 대한 액세스 제어를 사용자 지정하려는 경우 권한 부여를 위해 Azure AD 애플리케이션 역할을 사용할 수 있습니다. 이 기능을 사용하여 앱을 개발하는 방법에 대해 [WebApp-RoleClaims-DotNet 예제](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) 를 검토합니다.
 
 
   3. Microsoft Intune을 사용하여 Office 365 애플리케이션에 대해 조건부 액세스:  IT 관리자는 조건부 액세스 디바이스 정책을 프로비전하여 회사 리소스를 보호하는 동시에 정보 작업자가 규정 준수 디바이스에서 서비스에 액세스할 수 있게 합니다. 
   
-  4. SaaS 앱에 대한 조건부 액세스: [이 기능](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/)을 사용하면 애플리케이션별 다단계 인증 액세스 규칙 및 신뢰할 수 있는 네트워크에 없는 사용자에 대한 액세스 차단 기능을 구성할 수 있습니다. 응용 프로그램에 할당된 모든 사용자 또는 지정된 보안 그룹 내의 사용자에 제한적으로 다단계 인증 규칙을 적용할 수 있습니다. 조직 네트워크 내부에 있는 IP 주소에서 응용 프로그램에 액세스하는 경우에는 다단계 인증 요구 사항에서 제외될 수도 있습니다.
+  4. SaaS 앱에 대한 조건부 액세스: [이 기능](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/)을 사용하면 애플리케이션별 다단계 인증 액세스 규칙 및 신뢰할 수 있는 네트워크에 없는 사용자에 대한 액세스 차단 기능을 구성할 수 있습니다. 애플리케이션에 할당된 모든 사용자 또는 지정된 보안 그룹 내의 사용자에 제한적으로 다단계 인증 규칙을 적용할 수 있습니다. 조직 네트워크 내부에 있는 IP 주소에서 애플리케이션에 액세스하는 경우에는 다단계 인증 요구 사항에서 제외될 수도 있습니다.
 
 액세스 제어에 대한 옵션은 다중 계층 접근 방법을 사용하기 때문에 이러한 옵션 간의 비교는 이 작업에 적용될 수 없습니다. 리소스에 대한 액세스를 제어하기 위해 필요한 각 시나리오에 사용 가능한 모든 옵션을 활용하도록 합니다.
 
@@ -161,7 +161,7 @@ Azure AD는 사용자 활동을 모니터링하여 환경의 잠재적인 보안
 * 역할 멤버 자격의 변경 내용(예: 전역 관리자 역할에 추가된 사용자)
 * 자격 증명 업데이트(예: 암호 변경)
 * 도메인 관리(예: 사용자 지정 도메인 확인, 도메인 제거)
-* 응용 프로그램 추가 또는 제거
+* 애플리케이션 추가 또는 제거
 * 사용자 관리(예: 사용자 추가, 제거 또는 업데이트)
 * 라이선스 추가 또는 제거
 

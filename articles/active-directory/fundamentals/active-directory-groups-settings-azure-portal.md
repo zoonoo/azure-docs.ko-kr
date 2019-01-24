@@ -3,7 +3,7 @@ title: 그룹 정보 편집 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory를 사용하여 그룹 정보를 편집하는 방법에 대한 지침입니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.date: 08/27/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: c63872ce19cc7076929785cc7bd150c1599c5705
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 80c7390c7df00efaf6acc9699c7433aa6e3e52f9
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063053"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447329"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Azure Active Directory를 사용하여 그룹 정보 편집
 

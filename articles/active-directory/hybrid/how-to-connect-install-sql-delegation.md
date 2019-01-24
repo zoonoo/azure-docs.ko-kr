@@ -3,7 +3,7 @@ title: SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치 | 
 description: 이 항목에서는 SQL dbo 권한만이 있는 계정을 사용하여 설치를 허용하는 Azure AD Connect에 대한 업데이트를 설명합니다.
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: jparsons
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b951f541487d70bccb8a709f79a3674ef22eba3a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e4f1e60424e058f805e89fc3291cfa9a28390c8d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309552"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474915"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치
 최신 Azure AD Connect 빌드에 앞서 SQL을 필요로 하는 구성을 배포할 때 관리 위임은 지원되지 않습니다.  Azure AD Connect를 설치하려는 사용자는 SQL server에서 SA(서버 관리자) 권한이 있어야 합니다.

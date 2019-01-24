@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: ff8afabb425f16b62b86bf6b23fd24a744d40186
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: cbb64069ab8fa3da6309ff56afc0ab36582908c0
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158417"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430367"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>AD FS 2.0과 작동하도록 Azure Multi-Factor Authentication 서버 구성
 
@@ -51,7 +51,7 @@ ms.locfileid: "39158417"
 13. 작업을 완료하면 **확인**을 클릭하여 양식 기반 웹 사이트 추가 대화 상자로 돌아갑니다.
 14. **확인**을 클릭하여 대화 상자를 닫습니다.
 15. URL 및 페이지 변수가 검색되거나 입력되면 양식 기반 패널에 웹 사이트 데이터가 표시됩니다.
-16. **네이티브 모듈** 탭을 클릭하고 서버, AD FS 프록시가 실행 중인 웹 사이트(예: "기본 웹 사이트") 또는 원하는 수준에서 IIS 플러그 인을 사용하도록 설정하기 위한 AD FS 프록시 응용 프로그램(예: "adfs" 아래의 "ls")을 선택합니다.
+16. **네이티브 모듈** 탭을 클릭하고 서버, AD FS 프록시가 실행 중인 웹 사이트(예: "기본 웹 사이트") 또는 원하는 수준에서 IIS 플러그 인을 사용하도록 설정하기 위한 AD FS 프록시 애플리케이션(예: "adfs" 아래의 "ls")을 선택합니다.
 17. 화면 위쪽에서 **IIS 인증 사용** 상자를 클릭합니다.
 
 이제 IIS 인증이 사용되도록 설정되었습니다.
@@ -96,7 +96,7 @@ AD FS 프록시를 사용하지 않는 경우 AD FS의 보안을 유지할 수 �
    <center>![설정](./media/howto-mfaserver-adfs-2/noproxy.png)</center>
 
 8. **확인**을 클릭합니다.
-9. **네이티브 모듈** 탭을 클릭하고 서버, 웹 사이트(예: "기본 웹 사이트") 또는 AD FS 응용 프로그램(예: "adfs"의 "ls")을 선택하여 원하는 수준에서 IIS 플러그 인을 사용하도록 설정합니다.
+9. **네이티브 모듈** 탭을 클릭하고 서버, 웹 사이트(예: "기본 웹 사이트") 또는 AD FS 애플리케이션(예: "adfs"의 "ls")을 선택하여 원하는 수준에서 IIS 플러그 인을 사용하도록 설정합니다.
 10. 화면 위쪽에서 **IIS 인증 사용** 상자를 클릭합니다.
 
 이제 Azure Multi-Factor Authentication을 통해 AD FS 보안이 유지됩니다.

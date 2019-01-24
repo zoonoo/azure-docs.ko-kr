@@ -3,19 +3,19 @@ title: Azure Active Directory B2C를 사용하여 Weibo 계정으로 등록 설�
 description: 고객에게 Azure Active Directory B2C를 사용하여 애플리케이션에서 Weibo 계정으로 등록 및 로그인을 제공합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b0044387698e6b7b682061d48249d6e635b32cd5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ca2b2b7303af0f713c4f21f4fac0af738e25951c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842444"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54842496"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Weibo 계정으로 등록 설정 및 로그인
 
@@ -56,5 +56,5 @@ Azure AD(Azure Active Directory) B2C에서 Weibo 계정을 ID 공급자로 사�
 4. **ID 공급자**를 선택한 다음, **추가**를 선택합니다.
 5. **이름**을 제공합니다. 예를 들어, *Weibo*를 입력합니다.
 6. **ID 공급자 형식**을 클릭하고 **Weibo(미리 보기)** 를 선택한 다음, **확인**을 클릭합니다.
-7. **이 ID 공급자 설정**을 선택하고 이전에 기록한 앱 키를 **클라이언트 ID**로 입력한 후, 기록한 앱 암호를 이전에 만든 Weibo 응용 프로그램의 **클라이언트 암호**로 입력합니다.
+7. **이 ID 공급자 설정**을 선택하고 이전에 기록한 앱 키를 **클라이언트 ID**로 입력한 후, 기록한 앱 암호를 이전에 만든 Weibo 애플리케이션의 **클라이언트 암호**로 입력합니다.
 8. **확인**을 클릭한 다음 **만들기**를 클릭하여 Weibo 구성을 저장합니다.

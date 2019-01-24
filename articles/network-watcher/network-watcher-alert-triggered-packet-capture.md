@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 2035d342a89ace6d286fc205c346591b29646c5d
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: fd7e7151d8ec676239ed810fb700149aab0fe0fa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270147"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427405"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>경고 및 Azure Functions를 통한 사전 네트워크 모니터링을 위해 패킷 캡처 사용
 
@@ -35,7 +35,7 @@ Azure 에코시스템 내에서 Network Watcher, Alerting 및 Functions를 사�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 최신 버전의 [Azure PowerShell](/powershell/azure/install-azurerm-ps)
+* 최신 버전의 [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)
 * Network Watcher의 기존 인스턴스. [Network Watcher 인스턴스](network-watcher-create.md)가 아직 없는 경우에는 새로 만듭니다.
 * [Windows 확장](../virtual-machines/windows/extensions-nwa.md) 또는 [Linux 가상 머신 확장](../virtual-machines/linux/extensions-nwa.md)이 있고 Network Watcher와 동일한 지역에 기존 가상 머신이 있음
 

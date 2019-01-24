@@ -4,7 +4,7 @@ description: Azure Active Directory와 Expensify 간에 Single Sign-On을 구성
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 1e761484-7a2f-4321-91f4-6d5d0b69344e
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 5d61ac27eb5a6e4f546d8c6db66b84f2c204b507
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 281850a1ceab71df374f9b62a93029adcf655d6b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840472"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812117"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expensify"></a>자습서: Expensify와 Azure Active Directory 통합
 
@@ -32,7 +32,7 @@ Expensify를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다
 - 사용자가 해당 Azure AD 계정으로 Expensify에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -65,7 +65,7 @@ Expensify와 Azure AD의 통합을 구성하려면 갤러리의 Expensify를 관
 
     ![이미지](./media/expensify-tutorial/selectazuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![이미지](./media/expensify-tutorial/a_select_app.png)
     
@@ -95,11 +95,11 @@ Expensify에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Expensify 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Expensify 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Expensify에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. [Azure Portal](https://portal.azure.com/)의 **Expensify** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **Expensify** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
     ![이미지](./media/expensify-tutorial/b1_b2_select_sso.png)
 
@@ -132,11 +132,11 @@ Expensify에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![이미지](./media/expensify-tutorial/certificatebase64.png)
 
-7. Expensify에서 SSO를 사용하도록 설정하려면 먼저 응용 프로그램에서 **도메인 컨트롤**을 사용하도록 설정해야 합니다. [여기에](https://help.expensify.com/domain-control) 나열된 단계를 수행하여 응용 프로그램에서 도메인 컨트롤을 사용하도록 설정할 수 있습니다. 추가 지원은 [Expensify 클라이언트 지원 팀](mailto:help@expensify.com)에 문의하세요. 도메인 컨트롤을 사용하도록 설정한 후에는 다음 단계를 따릅니다.
+7. Expensify에서 SSO를 사용하도록 설정하려면 먼저 애플리케이션에서 **도메인 컨트롤**을 사용하도록 설정해야 합니다. [여기에](https://help.expensify.com/domain-control) 나열된 단계를 수행하여 애플리케이션에서 도메인 컨트롤을 사용하도록 설정할 수 있습니다. 추가 지원은 [Expensify 클라이언트 지원 팀](mailto:help@expensify.com)에 문의하세요. 도메인 컨트롤을 사용하도록 설정한 후에는 다음 단계를 따릅니다.
    
     ![Configure Single Sign-On](./media/expensify-tutorial/tutorial_expensify_51.png)
     
-    a. Expensify 응용 프로그램에 로그인합니다.
+    a. Expensify 애플리케이션에 로그인합니다.
     
     b. 왼쪽 패널에서 **설정**을 클릭한 다음 **SAML**로 이동합니다.
     
@@ -201,13 +201,13 @@ Expensify에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Expensify 타일을 클릭하면 Expensify 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Expensify 타일을 클릭하면 Expensify 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

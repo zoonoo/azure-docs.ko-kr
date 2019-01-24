@@ -4,7 +4,7 @@ description: Azure Portal에서 Azure AD 애플리케이션을 사용하여 게�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 6ae7cff42a9b744409fa454199155796c8c06713
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 13dedf9d07b01befd4d5d6496a3e7427809e6dde
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138969"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464666"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>애플리케이션 프록시를 사용하여 Single Sign-On에 대한 암호 자격 증명 모음 설정
 
@@ -31,7 +31,7 @@ Azure Active Directory 애플리케이션 프록시는 원격 직원들이 안�
 ## <a name="set-up-password-vaulting-for-your-application"></a>애플리케이션에 대한 암호 보관 설정
 
 1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **Azure Active Directory** > **Enterprise 응용 프로그램** > **모든 응용 프로그램**을 선택합니다.
+2. **Azure Active Directory** > **Enterprise 애플리케이션** > **모든 애플리케이션**을 선택합니다.
 3. 목록에서 SSO로 설정할 앱을 선택합니다.  
 4. **Single Sign-On**을 선택합니다.
 
@@ -55,4 +55,4 @@ Azure Active Directory 애플리케이션 프록시는 원격 직원들이 안�
 ## <a name="next-steps"></a>다음 단계
 
 - [Single Sign-On](what-is-single-sign-on.md)을 구현하는 다른 방법에 대해 읽기
-- [Azure AD 응용 프로그램 프록시를 사용하여 앱에 원격으로 액세스하는 경우 보안 고려 사항](application-proxy-security.md)을 알아봅니다
+- [Azure AD 애플리케이션 프록시를 사용하여 앱에 원격으로 액세스하는 경우 보안 고려 사항](application-proxy-security.md)을 알아봅니다

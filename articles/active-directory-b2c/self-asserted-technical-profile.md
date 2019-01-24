@@ -3,19 +3,19 @@ title: Azure Active Directory B2C의 사용자 지정 정책에서 자체 어설
 description: Azure Active Directory B2C의 사용자 지정 정책에서 자체 어설션된 기술 프로필을 정의하는 방법을 설명합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 262c4e622d7ef915e59f29c8f4272e488acaeccf
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 7a783e496b7bb6fcdf2c80247baad2bfc901d857
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166914"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850997"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 자체 어설션된 기술 프로필 정의
 
@@ -132,7 +132,7 @@ Azure AD(Active Directory) B2C에서 사용자가 입력을 제공해야 하는 
 | setting.showContinueButton | 아니요 | 계속 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
 | setting.showCancelButton | 아니요 | 취소 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
 | setting.operatingMode | 아니요 | 로그인 페이지의 경우 이 속성은 입력 유효성 검사, 오류 메시지 등 username 필드의 동작을 제어합니다. 필요한 값은 `Username` 또는 `Email`입니다. |
-| ContentDefinitionReferenceId | yes | 이 기술 프로필과 연결된 [콘텐츠 정의](contentdefinitions.md)의 식별자입니다. |
+| ContentDefinitionReferenceId | 예 | 이 기술 프로필과 연결된 [콘텐츠 정의](contentdefinitions.md)의 식별자입니다. |
 | EnforceEmailVerification | 아니요 | 등록 또는 프로필 편집의 경우 전자 메일 확인을 적용합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. | 
 | setting.showSignupLink | 아니요 | 등록 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
 | setting.retryLimit | 아니요 | 사용자가 유효성 검사 기술 프로필과의 일치 여부를 확인하는 데이터의 입력을 시도할 수 있는 횟수를 제어합니다. 사용자가 이미 있는 계정으로 등록을 계속 시도할 수 있는 제한 횟수를 예로 들 수 있습니다.

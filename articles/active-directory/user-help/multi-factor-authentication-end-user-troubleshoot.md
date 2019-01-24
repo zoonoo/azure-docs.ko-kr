@@ -3,7 +3,7 @@ title: 2단계 인증 문제 해결 - Azure Active Directory | Microsoft Docs
 description: Azure Multi-Factor Authentication 및 2단계 인증에 문제가 발생할 경우, 수행할 작업에 대한 지침을 사용자에게 제공합니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.workload: identity
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: fd722da236f3e1fff18e2561756635cd95f098e0
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6cf794d36db865f553c0a4db16506305dab2f4fc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346526"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810179"
 ---
 # <a name="get-help-with-two-step-verification"></a>2단계 인증에 관한 도움말 얻기
 
@@ -32,7 +32,7 @@ ms.locfileid: "39346526"
 
 계정에 대체 인증 방법을 사용해야 하는 몇 가지 이유가 있습니다. 예: 
 
-- **휴대폰이나 장치를 기기를 잊은 경우** 전화기를 집에 두고 온 날에도, 직장에서는 여전히 로그인해야 합니다. 먼저 휴대폰이 필요하지 않은 다른 방법을 사용하여 로그인을 시도해야 합니다.
+- **휴대폰이나 디바이스를 기기를 잊은 경우** 전화기를 집에 두고 온 날에도, 직장에서는 여전히 로그인해야 합니다. 먼저 휴대폰이 필요하지 않은 다른 방법을 사용하여 로그인을 시도해야 합니다.
 
 - **휴대폰을 분실한 경우 또는 전화 번호가 바뀐 경우** 휴대폰을 분실했거나 번호가 바뀐 경우, 다른 방법으로 로그인하거나 관리자에게 요청하여 설정을 지울 수 있습니다. 휴대폰을 분실하거나 도난 당한 경우, 계정에 적절한 업데이트를 적용할 수 있도록 관리자에게 알리는 것이 좋습니다. 설정이 지워진 후 다음에 로그인할 때 [2단계 인증 등록](multi-factor-authentication-end-user-first-time.md) 메시지가 표시됩니다.
 
@@ -61,4 +61,4 @@ ms.locfileid: "39346526"
 
 * [2단계 인증을 위한 설정 관리](multi-factor-authentication-end-user-manage-settings.md)
 
-* [Microsoft Authenticator 응용 프로그램 FAQ](microsoft-authenticator-app-faq.md)
+* [Microsoft Authenticator 애플리케이션 FAQ](microsoft-authenticator-app-faq.md)

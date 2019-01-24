@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: fb9332832f46dc5c39bf932ce91cd3d3f3d7354f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 01/17/2019
+ms.openlocfilehash: 8e03aed38f75459d781d90960efc612ab962fa1d
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269620"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390842"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL Database 논리 서버 및 이 서버에 대한 관리
 
@@ -82,7 +82,7 @@ Managed Instance를 만들려면 [Managed Instance 만들기](sql-database-manag
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽 관리
 
-Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 다음 PowerShell cmdlet을 사용합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
+Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 다음 PowerShell cmdlet을 사용합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
 
 | Cmdlet | 설명 |
 | --- | --- |

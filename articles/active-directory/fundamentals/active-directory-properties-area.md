@@ -3,7 +3,7 @@ title: 조직의 개인 정보 추가 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory 속성 영역에 조직의 개인 정보를 추가하는 방법에 대한 지침입니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: lizross
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 50fcafbdef4fc09532d03ae145183dd45c381c73
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bfbb9a035c3f7a00de1610f1240448ff7b0b4abf
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083838"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452601"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Azure Active Directory를 사용하여 조직의 개인 정보 추가
 이 아티클에서는 테넌트 관리자가 Azure Portal을 통해 조직의 Azure AD(Azure Active Directory) 테넌트에 관련 개인 정보를 추가할 수 있는 방법을 설명합니다.

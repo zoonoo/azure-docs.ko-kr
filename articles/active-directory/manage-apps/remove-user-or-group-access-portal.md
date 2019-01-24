@@ -4,7 +4,7 @@ description: Azure Active Directory에서 엔터프라이즈 앱의 사용자 �
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -16,12 +16,12 @@ ms.date: 02/14/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: fde6d5fa2488d86af542f409df7c5b76d2510f08
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c04aad12e0664c48ed96d76e481f19284ede0d70
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368651"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472530"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱의 사용자 또는 그룹 할당 제거
 Azure AD(Azure Active Directory)에서 엔터프라이즈 애플리케이션 중 하나에 대해 할당된 액세스의 사용자 또는 그룹을 제거하는 것은 쉽습니다. 엔터프라이즈 앱을 관리하려면 적절한 권한이 있어야 하고 해당 디렉터리에 대한 전역 관리자여야 합니다.
@@ -32,11 +32,11 @@ Azure AD(Azure Active Directory)에서 엔터프라이즈 애플리케이션 중
 ## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-in-the-azure-portal"></a>Azure Portal에서 엔터프라이즈 앱에 대한 사용자 또는 그룹 할당을 어떻게 제거하나요?
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **더 많은 서비스**를 선택하고 텍스트 상자에서 **Azure Active Directory**를 입력한 다음 **Enter**를 선택합니다.
-3. **Azure Active Directory - directoryname** 페이지, 즉 관리 중인 디렉터리에 대한 Azure AD 페이지에서 **엔터프라이즈 응용 프로그램**을 선택합니다.
+3. **Azure Active Directory -directoryname** 페이지, 즉 관리 중인 디렉터리에 대한 Azure AD 페이지에서 **엔터프라이즈 애플리케이션**을 선택합니다.
 
     ![엔터프라이즈 앱 열기](./media/remove-user-or-group-access-portal/open-enterprise-apps.png)
-4. **엔터프라이즈 응용 프로그램** 페이지에서 **모든 응용 프로그램**을 선택합니다. 관리할 수 있는 앱의 목록이 표시됩니다.
-5. **엔터프라이즈 응용 프로그램 - 모든 응용 프로그램** 페이지에서 앱을 선택합니다.
+4. **엔터프라이즈 애플리케이션** 페이지에서 **모든 애플리케이션**을 선택합니다. 관리할 수 있는 앱의 목록이 표시됩니다.
+5. **엔터프라이즈 애플리케이션 - 모든 애플리케이션** 페이지에서 앱을 선택합니다.
 6. ***appname*** 페이지(즉, 제목에서 선택된 앱의 이름을 가진 페이지)에서 **사용자 및 그룹**을 선택합니다.
 
     ![사용자 또는 그룹 선택](./media/remove-user-or-group-access-portal/remove-app-users.png)

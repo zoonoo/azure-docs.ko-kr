@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD Connect 통과 인증, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7f4750dd527aa53624fa977115a120911511b7d5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 45f99ac99c54caab17ba7b74dc09a46c335c8fe4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185072"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476345"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 통과 인증 보안 심층 분석
 
@@ -72,8 +72,8 @@ Azure AD의 운영, 서비스 및 데이터 보안에 대한 일반적인 정보
 ### <a name="authentication-agent-installation"></a>인증 에이전트 설치
 
 오직 전역 관리자만 Azure AD Connect 또는 독립 실행형을 사용하여 온-프레미스 서버에 인증 에이전트를 설치할 수 있습니다. 설치하면 **제어판** > **프로그램** > **프로그램 및 기능** 목록에 다음과 같은 두 가지 항목이 추가됩니다.
-- 인증 에이전트 응용 프로그램 자체. 인증 에이전트 응용 프로그램은 [NetworkService](https://msdn.microsoft.com/library/windows/desktop/ms684272.aspx) 권한으로 실행됩니다.
-- 인증 에이전트를 자동으로 업데이트하는 업데이트 응용 프로그램. 업데이트 응용 프로그램은 [LocalSystem](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) 권한으로 실행됩니다.
+- 인증 에이전트 애플리케이션 자체. 인증 에이전트 애플리케이션은 [NetworkService](https://msdn.microsoft.com/library/windows/desktop/ms684272.aspx) 권한으로 실행됩니다.
+- 인증 에이전트를 자동으로 업데이트하는 업데이트 애플리케이션. 업데이트 애플리케이션은 [LocalSystem](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) 권한으로 실행됩니다.
 
 ### <a name="authentication-agent-registration"></a>인증 에이전트 등록
 
@@ -103,7 +103,7 @@ Azure AD의 운영, 서비스 및 데이터 보안에 대한 일반적인 정보
     -  다른 Azure AD 서비스는 이 CA를 사용하지 않습니다.
     - 인증서의 제목(고유 이름 또는 DN)은 테넌트 ID로 설정됩니다. DN은 테넌트를 고유하게 식별하는 GUID입니다. DN은 인증서가 해당 테넌트에만 사용되도록 범위를 지정합니다.
 6. Azure AD는 인증 에이전트의 공개 키를 Azure AD만 액세스할 수 있는 Azure SQL Database에 저장합니다.
-7. 5단계에서 발급된 인증서가 Windows 인증서 저장소([CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE) 위치)의 온-프레미스 서버에 저장됩니다. 저장소는 인증 에이전트와 업데이트 응용 프로그램이 모두 사용합니다.
+7. 5단계에서 발급된 인증서가 Windows 인증서 저장소([CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE) 위치)의 온-프레미스 서버에 저장됩니다. 저장소는 인증 에이전트와 업데이트 애플리케이션이 모두 사용합니다.
 
 ### <a name="authentication-agent-initialization"></a>인증 에이전트 초기화
 
@@ -129,8 +129,8 @@ Azure AD의 운영, 서비스 및 데이터 보안에 대한 일반적인 정보
 
 통과 인증에서 사용자 로그인 요청을 다음과 같이 처리합니다. 
 
-1. 사용자가 응용 프로그램(예: [Outlook 웹앱](https://outlook.office365.com/owa))에 대한 액세스를 시도합니다.
-2. 사용자가 아직 로그인하지 않은 경우 해당 응용 프로그램은 브라우저를 Azure AD 로그인 페이지로 리디렉션합니다.
+1. 사용자가 애플리케이션(예: [Outlook 웹앱](https://outlook.office365.com/owa))에 대한 액세스를 시도합니다.
+2. 사용자가 아직 로그인하지 않은 경우 해당 애플리케이션은 브라우저를 Azure AD 로그인 페이지로 리디렉션합니다.
 3. Azure AD STS 서비스가 **사용자 로그인 페이지**로 응답합니다.
 4. 사용자가 **사용자 로그인** 페이지에 사용자 이름을 입력하고 **다음** 단추를 선택합니다.
 5. 사용자가 **사용자 로그인** 페이지에 암호를 입력하고 **로그인** 단추를 선택합니다.
@@ -146,7 +146,7 @@ Azure AD의 운영, 서비스 및 데이터 보안에 대한 일반적인 정보
 12. 인증 에이전트가 Active Directory로부터 성공, 사용자 이름 또는 암호 불일치, 암호 만료와 같은 결과를 수신합니다.
 13. 인증 에이전트는 포트 443을 통한 아웃바운드 상호 인증 HTTPS 채널을 통해 결과를 다시 Azure AD STS로 전달합니다. 상호 인증은 이전 단계에서 등록 시 인증 에이전트로 발급된 인증서를 사용합니다.
 14. Azure AD STS는 이 결과가 테넌트의 특정 로그인 요청과 관련이 있는지 확인합니다.
-15. Azure AD STS는 구성된 대로 로그인 절차를 계속 진행합니다. 예를 들어, 암호 유효성 검사가 성공적인 경우 사용자에게 Multi-Factor Authentication을 요청하거나 사용자를 응용 프로그램으로 리디렉션합니다.
+15. Azure AD STS는 구성된 대로 로그인 절차를 계속 진행합니다. 예를 들어, 암호 유효성 검사가 성공적인 경우 사용자에게 Multi-Factor Authentication을 요청하거나 사용자를 애플리케이션으로 리디렉션합니다.
 
 ## <a name="operational-security-of-the-authentication-agents"></a>인증 에이전트의 운영 보안
 
@@ -180,7 +180,7 @@ Azure AD에서 인증 에이전트의 신뢰를 갱신하기 위해:
 
 ## <a name="auto-update-of-the-authentication-agents"></a>인증 에이전트의 자동 업데이트
 
-새 버전이 출시되는 경우 업데이트 프로그램 응용 프로그램이 인증 에이전트를 자동으로 업데이트합니다. 업데이트 응용 프로그램은 테넌트의 암호 유효성 검사 요청을 처리하지 않습니다. 
+새 버전이 출시되는 경우 업데이트 프로그램 애플리케이션이 인증 에이전트를 자동으로 업데이트합니다. 업데이트 애플리케이션은 테넌트의 암호 유효성 검사 요청을 처리하지 않습니다. 
 
 Azure AD는 새로운 소프트웨어 버전을 서명된 **Windows Installer 패키지(MSI)** 로서 호스팅합니다. MSI는 [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx)를 사용하여 서명됩니다. 이때 SHA256이 다이제스트 알고리즘으로 사용됩니다. 
 
@@ -188,7 +188,7 @@ Azure AD는 새로운 소프트웨어 버전을 서명된 **Windows Installer �
 
 인증 에이전트를 자동 업데이트하기 위해:
 
-1. 업데이트 응용 프로그램이 Azure AD를 한 시간마다 주기적으로 ping하여 새로운 버전의 인증 에이전트가 있는지 확인합니다. 
+1. 업데이트 애플리케이션이 Azure AD를 한 시간마다 주기적으로 ping하여 새로운 버전의 인증 에이전트가 있는지 확인합니다. 
     - 확인은 상호 인증된 HTTPS 채널을 통해 이루어지고, 등록 시 발급된 인증서가 사용됩니다. 인증 에이전트와 업데이트 프로그램은 서버에 저장된 인증서를 공유합니다.
 2. 새 버전이 제공되는 경우 Azure AD는 서명된 MSI를 업데이트 프로그램에 다시 반환합니다.
 3. 업데이트 프로그램은 Microsoft에서 MSI를 서명했는지 확인합니다.

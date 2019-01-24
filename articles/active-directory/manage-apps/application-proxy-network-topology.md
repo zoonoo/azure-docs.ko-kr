@@ -4,7 +4,7 @@ description: Azure AD 애플리케이션 프록시를 사용할 때 네트워크
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 07/28/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 976118514dbcb4cee9675ae357d857e7b90e8c0c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e7cfb9dffdebfc5abaaf5840a6c81af6a7e9d556
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140482"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474674"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 사용할 때 네트워크 토폴로지 고려 사항
 
@@ -34,7 +34,7 @@ Azure AD 애플리케이션 프록시를 통해 애플리케이션을 게시할 
 2. 애플리케이션 프록시 서비스에서 애플리케이션 프록시 커넥터에 연결
 3. 애플리케이션 프록시 커넥터에서 대상 애플리케이션에 연결
 
-![대상 응용 프로그램에 사용자의 트래픽 흐름을 보여 주는 다이어그램](./media/application-proxy-network-topology/application-proxy-three-hops.png)
+![대상 애플리케이션에 사용자의 트래픽 흐름을 보여 주는 다이어그램](./media/application-proxy-network-topology/application-proxy-three-hops.png)
 
 ## <a name="tenant-location-and-application-proxy-service"></a>테넌트 위치 및 애플리케이션 프록시 서비스
 
@@ -81,7 +81,7 @@ Azure 및 회사 네트워크 간에 전용 VPN 또는 ExpressRoute가 있는 �
 
 ### <a name="pattern-1-put-the-connector-close-to-the-application"></a>패턴 1: 커넥터를 애플리케이션 가까이 배치
 
-커넥터를 고객 네트워크의 대상 응용 프로그램 가까이에 배치합니다. 이 구성은 커넥터와 애플리케이션이 가까이 있기 때문에 토폴로지 다이어그램에서 3단계를 최소화합니다. 
+커넥터를 고객 네트워크의 대상 애플리케이션 가까이에 배치합니다. 이 구성은 커넥터와 애플리케이션이 가까이 있기 때문에 토폴로지 다이어그램에서 3단계를 최소화합니다. 
 
 도메인 컨트롤러에 대한 가시선이 커넥터에 필요한 경우 이 패턴이 유리합니다. 대부분의 시나리오에 적합하기 때문에 대부분의 고객이 이 패턴을 사용합니다. 이 패턴을 패턴 2와 조합하여 서비스와 커넥터 사이의 트래픽을 최적화할 수도 있습니다.
 
@@ -101,7 +101,7 @@ Azure 및 회사 네트워크 간에 개인 피어링이 있는 전용 VPN 또�
 
 이 문서에서는 커넥터 배치를 집중적으로 설명하지만 대기 시간을 개선하기 위해 애플리케이션의 배치를 변경할 수도 있습니다.
 
-조직은 더욱 더 네트워크를 호스티드 환경으로 이동하고 있습니다. 이렇게 함으로써 회사 네트워크에 포함되는 호스티드 환경에 앱을 배치할 수 있으며 계속 도메인 내에 있게 됩니다. 이 경우 이전 섹션에서 설명한 패턴을 새 응용 프로그램 위치에 적용할 수 있습니다. 이 옵션을 고려하는 경우 [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md)를 참조하세요.
+조직은 더욱 더 네트워크를 호스티드 환경으로 이동하고 있습니다. 이렇게 함으로써 회사 네트워크에 포함되는 호스티드 환경에 앱을 배치할 수 있으며 계속 도메인 내에 있게 됩니다. 이 경우 이전 섹션에서 설명한 패턴을 새 애플리케이션 위치에 적용할 수 있습니다. 이 옵션을 고려하는 경우 [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md)를 참조하세요.
 
 또한 다른 위치 및 네트워크에 있는 대상 앱에 [커넥터 그룹](application-proxy-connector-groups.md)을 사용하여 커넥터를 구성하는 것이 좋습니다. 
 
@@ -173,7 +173,7 @@ ExpressRoute 개인 피어링을 통해 회사 네트워크에 연결된 Azure �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [응용 프로그램 프록시 사용](application-proxy-add-on-premises-application.md)
+- [애플리케이션 프록시 사용](application-proxy-add-on-premises-application.md)
 - [Single Sign-On 사용](application-proxy-configure-single-sign-on-with-kcd.md)
 - [조건부 액세스 사용](application-proxy-integrate-with-sharepoint-server.md)
-- [응용 프로그램 프록시에서 발생한 문제 해결](application-proxy-troubleshoot.md)
+- [애플리케이션 프록시에서 발생한 문제 해결](application-proxy-troubleshoot.md)

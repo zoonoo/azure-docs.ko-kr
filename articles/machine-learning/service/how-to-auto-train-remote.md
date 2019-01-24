@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 18b2b3df2748392b12b60517604478b120871754
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 8ea8f225941a8b859a5cc8d9c7accbc631a75842
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256063"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447533"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>클라우드의 자동화된 기계 학습을 사용하여 모델 학습
 
@@ -89,7 +89,7 @@ DSVM 이름에는 다음과 같은 제한이 있습니다.
 from azureml.core.compute import ComputeTarget, RemoteCompute 
 
 attach_config = RemoteCompute.attach_configuration(username='<username>',
-                                                   address='<ip_adress_or_fqdn>',
+                                                   address='<ip_address_or_fqdn>',
                                                    ssh_port=22,
                                                    private_key_file='./.ssh/id_rsa')
 compute_target = ComputeTarget.attach(workspace=ws,
@@ -109,7 +109,7 @@ compute_target.wait_for_completion(show_output=True)
 + `get_data()` 함수가 포함된 get_data.py 파일 만들기 
 * 해당 파일을 절대 경로로 액세스할 수 있는 디렉터리에 배치 
 
-Blob 저장소 또는 get_data.py 파일의 로컬 디스크에서 데이터를 읽도록 코드를 캡슐화할 수 있습니다. 다음 코드 샘플의 데이터는 sklearn 패키지에서 옵니다.
+Blob Storage 또는 get_data.py 파일의 로컬 디스크에서 데이터를 읽도록 코드를 캡슐화할 수 있습니다. 다음 코드 샘플의 데이터는 sklearn 패키지에서 옵니다.
 
 >[!Warning]
 >원격 계산을 사용하는 경우 데이터 변환이 수행되는 `get_data()`를 사용해야 합니다. get_data()의 일부로 데이터 변환을 위한 추가 라이브러리를 설치해야 하는 경우 추가로 수행할 단계가 있습니다. 자세한 내용은 [auto-ml-dataprep 샘플 노트북](https://aka.ms/aml-auto-ml-data-prep )을 참조하세요.

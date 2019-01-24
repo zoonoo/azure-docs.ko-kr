@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/12/2018
 ms.author: dukek
-ms.component: logs
-ms.openlocfilehash: 2dec2b1f9bdca8c83669b753d424204218f7a9ae
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.subservice: logs
+ms.openlocfilehash: 9bd5ec3471fc3447d1e29d875c154793daf8e9e5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190700"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474033"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Azure Portal을 사용하여 서비스 상태 알림 보기
 
@@ -95,3 +95,4 @@ Properties.communicationId | 이 이벤트가 연결된 통신입니다.
 ## <a name="next-steps"></a>다음 단계
 [서비스 상태 알림이 게시될 때마다 경고 알림](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)을 수신합니다.  
 [활동 로그 경고](../../azure-monitor/platform/activity-log-alerts.md)에 대해 자세히 알아봅니다.
+

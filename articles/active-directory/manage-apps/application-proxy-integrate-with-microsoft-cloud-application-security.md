@@ -2,7 +2,7 @@
 title: Cloud App Security와 온-프레미스 앱 통합 - Azure Active Directory | Microsoft Docs
 description: MCAS(Microsoft Cloud App Security)를 사용하여 작동하도록 Azure Active Directory에서 온-프레미스 애플리케이션을 구성합니다. MCAS 조건부 액세스 앱 제어를 사용하여 조건부 액세스 정책에 따라 실시간으로 세션을 모니터링 및 제어합니다. Azure AD(Azure Active Directory)에서 애플리케이션 프록시를 사용하는 온-프레미스 애플리케이션에 이러한 정책을 적용할 수 있습니다.
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 3be75f2fe004939eff6bf6cc960759db69bfb93a
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: e5e83d928893c2937df8be55d72bb22869891492
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215102"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472486"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Microsoft Cloud App Security와 Azure Active Directory를 사용하여 실시간 애플리케이션 액세스 모니터링 구성
 실시간 모니터링을 위해 MCAS(Microsoft Cloud App Security)를 사용하도록 Azure AD(Azure Active Directory)에서 온-프레미스 애플리케이션을 구성합니다. MCAS는 조건부 액세스 앱 제어를 사용하여 조건부 액세스 정책에 따라 실시간으로 세션을 모니터링 및 제어합니다. Azure AD(Azure Active Directory)에서 애플리케이션 프록시를 사용하는 온-프레미스 애플리케이션에 이러한 정책을 적용할 수 있습니다.
@@ -64,7 +64,7 @@ Azure AD에 애플리케이션을 추가한 후 [애플리케이션 테스트](a
 
 ## <a name="test-conditional-access-app-control"></a>조건부 액세스 앱 제어 테스트
 
-조건부 액세스 애플리케이션 제어를 사용하여 Azure AD 애플리케이션의 배포를 테스트하려면 [Azure AD 앱에 대한 배포 테스트](/cloud-app-security/proxy-deployment-aad#test-the-deployment)의 지침을 따릅니다.
+조건부 액세스 애플리케이션 제어를 사용하여 Azure AD 애플리케이션의 배포를 테스트하려면 [Azure AD 앱에 대한 배포 테스트](/cloud-app-security/proxy-deployment-aad)의 지침을 따릅니다.
 
 
 

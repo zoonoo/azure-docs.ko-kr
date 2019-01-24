@@ -2,17 +2,17 @@
 title: 포털을 통해 Azure Event Grid 구독
 description: 포털을 통해 Event Grid 구독을 만드는 방법을 설명합니다.
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/08/2018
-ms.author: tomfitz
-ms.openlocfilehash: eb48e40007a25992a9a399176b6a4f93be89efc8
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.date: 01/08/2019
+ms.author: spelluru
+ms.openlocfilehash: b54bc52a2feaf4646d801265ddb273c2c86158ee
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344090"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477909"
 ---
 # <a name="subscribe-to-events-through-portal"></a>포털을 통해 이벤트 구독
 

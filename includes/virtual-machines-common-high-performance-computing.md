@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/15/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 2a2d5f9c85a881dad8f53f81a39c84d4a34b632e
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 7a136f34a7dd9fada23a4225b60223220c92c665
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360193"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440430"
 ---
 조직에는 대규모 컴퓨팅 요구 사항이 있습니다. 이러한 큰 계산 작업에는 엔지니어링 설계 및 분석, 재무 위험 계산, 이미지 렌더링, 복잡한 모델링, 몬테카를로 시뮬레이션 등이 포함됩니다. 
 
@@ -95,7 +95,7 @@ N 시리즈 VM은 AI(인공 지능) 학습 및 시각화를 포함한 계산 집
 
 * [Resource Manager 템플릿을 사용하여 CycleCloud 설치 및 설정](https://docs.microsoft.com/azure/cyclecloud/quickstart-install-cyclecloud)
 
-* [CycleCloud 수동 설정](https://docs.microsoft.com/azure/cyclecloud/quickstart-installation)
+* [CycleCloud 수동 설정](https://docs.microsoft.com/azure/cyclecloud/installation)
 
 ## <a name="azure-batch"></a>Azure Batch
 

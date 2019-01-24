@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure Active Directory ID 보호, 클라우드 검색, 애플리케이션 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
 ms.service: active-directory
 ms.component: conditional-access
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 680e52fefd8256b3ac270e8d721f27645ced49eb
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 12440a8da63f19961322f06fd2459a28119e9d59
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004262"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463204"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory ID 보호에서 검색하는 취약성
 취약점은 공격자에 의해 악용될 수 있는 환경의 단점입니다. 이러한 취약성을 해결하여 조직에서 보안 상태를 개선하고 공격자가 이러한 취약성을 악용하지 않도록 방지하는 것이 좋습니다.

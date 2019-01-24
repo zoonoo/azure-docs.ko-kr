@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 8bc0d53080d0653ae630765d8a656cbe8d50b24c
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 4784ac8ac619a1b9a00f2e869d796d05dd9658df
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971572"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434413"
 ---
 # <a name="tutorial-create-an-application-gateway-and-rewrite-http-headers"></a>자습서: 애플리케이션 게이트웨이를 만들고 HTTP 헤더 다시 쓰기
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서에서는 Azure PowerShell을 로컬로 실행해야 합니다. Az 모듈 버전 1.0.0 이상을 설치해야 합니다. `Import-Module Az`를 실행한 후 `Get-Module Az`를 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Login-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
+이 자습서에서는 Azure PowerShell을 로컬로 실행해야 합니다. Az 모듈 버전 1.0.0 이상을 설치해야 합니다. `Import-Module Az`를 실행한 후 `Get-Module Az`를 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Login-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 

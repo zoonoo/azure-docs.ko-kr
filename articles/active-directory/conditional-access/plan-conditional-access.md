@@ -3,7 +3,7 @@ title: Azure Active Directory에서 조건부 액세스 정책 계획 | Microsof
 description: 이 문서에서는 Azure Active Directory에 대한 조건부 액세스 정책을 계획하는 방법을 알아봅니다.
 services: active-directory
 author: MarkusVi
-manager: mtillman
+manager: daveba
 tags: azuread
 ms.service: active-directory
 ms.component: conditional-access
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2018
 ms.author: markvi
 ms.reviewer: martincoetzer
-ms.openlocfilehash: 1c483b7f3fcb22aa617ff55699cb8f4d4da95912
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 1911dd189e21a6d29b2bf1ba3d179b41e948f469
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355240"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450510"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>방법: Azure Active Directory에서 조건부 액세스 배포 계획
 
