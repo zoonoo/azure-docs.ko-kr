@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/08/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7dcdca594949a3b20000b31db681370ee4f9eac3
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: fa6b4de9282eec75747ca87b26058a47320f2fd3
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255288"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428140"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 개인 컨테이너 레지스트리 만들기
 
@@ -21,7 +21,7 @@ Azure Container Registry는 관리되는 Docker 컨테이너 레지스트리 서
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작에서는 Azure PowerShell 모듈 버전 5.7.0 이상이 필요합니다. 설치된 버전을 확인하려면 `Get-Module -ListAvailable AzureRM` 명령을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+이 빠른 시작에서는 Azure PowerShell 모듈 버전 5.7.0 이상이 필요합니다. 설치된 버전을 확인하려면 `Get-Module -ListAvailable AzureRM` 명령을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
 
 또한 Docker가 로컬에 설치되어 있어야 합니다. Docker는 [macOS][docker-mac], [Windows][docker-windows] 및 [Linux][docker-linux] 시스템용 패키지를 제공합니다.
 
@@ -76,7 +76,7 @@ Login Succeeded
 
 ## <a name="push-image-to-registry"></a>레지스트리에 이미지 푸시
 
-레지스트리에 로그인했으니, 이제 컨테이너 이미지를 레지스트리로 푸시할 수 있습니다. 레지스트리로 푸시할 수 있는 이미지를 가져오려면 Docker 허브에서 공용 [aci-helloworld][aci-helloworld-image] 이미지를 끌어옵니다. [aci-helloworld][aci-helloworld-github] 이미지는 Azure Container Instances 로고를 표시하는 정적 HTML 페이지를 제공하는 작은 Node.js 응용 프로그램입니다.
+레지스트리에 로그인했으니, 이제 컨테이너 이미지를 레지스트리로 푸시할 수 있습니다. 레지스트리로 푸시할 수 있는 이미지를 가져오려면 Docker 허브에서 공용 [aci-helloworld][aci-helloworld-image] 이미지를 끌어옵니다. [aci-helloworld][aci-helloworld-github] 이미지는 Azure Container Instances 로고를 표시하는 정적 HTML 페이지를 제공하는 작은 Node.js 애플리케이션입니다.
 
 ```powershell
 docker pull microsoft/aci-helloworld

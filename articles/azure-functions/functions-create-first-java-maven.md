@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fdd29bbfaf36619fd823220e5d32a48a1619679b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f0dd3b276adb815723673042060b2ad5d54a1ac7
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842070"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382640"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Java 및 Maven을 사용하여 Azure에서 첫 번째 함수 만들기(미리 보기)
 
@@ -54,7 +54,7 @@ Java 통해 함수 앱을 개발하려면 다음을 설치해야 합니다.
 npm 기반 설치를 계속 진행하려면 다음을 실행합니다.
 
 ```
-npm install -g azure-functions-core-tools@core
+npm install -g azure-functions-core-tools
 ```
 
 > [!NOTE]

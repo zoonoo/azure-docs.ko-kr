@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 847adc9f304e9da62129948616f0a3485b33ee7b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: f0a18931c037a1cf34d8a296a6330264bc8d38af
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199530"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424526"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>PowerShell을 사용하여 가상 머신 백업 및 복원
 
@@ -41,7 +41,7 @@ AzureRm.RecoveryServices.Backup PowerShell cmdlet 참조를 보려면 Azure 라�
 
 시작하려면
 
-1. [PowerShell 최신 버전 다운로드](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)(필요한 최소 버전: 1.4.0)
+1. [PowerShell 최신 버전 다운로드](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)(필요한 최소 버전: 1.4.0)
 
 2. 다음 명령을 입력하여 사용할 수 있는 Azure Backup PowerShell cmdlet을 찾습니다.
 

@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 38b7c478e3b90347086c2dd005630d239db7fd89
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/17/2019
+ms.openlocfilehash: 593388c143c31bb4736aa317522ed4c52a8a5296
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038214"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388345"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 연결 아키텍처
 
@@ -129,7 +129,7 @@ Azure SQL Database 서버에 대한 Azure SQL Database 연결 정책을 변경�
 ## <a name="script-to-change-connection-settings-via-powershell"></a>PowerShell을 통해 연결 설정을 변경하는 스크립트
 
 > [!IMPORTANT]
-> 이 스크립트에는 [Azure PowerShell 모듈](/powershell/azure/install-azurerm-ps)이 필요합니다.
+> 이 스크립트에는 [Azure PowerShell 모듈](/powershell/azure/install-az-ps)이 필요합니다.
 
 다음 PowerShell 스크립트에서는 연결 정책을 변경하는 방법을 보여줍니다.
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bd1bb1dc6222e5abdc03bb9dc5da93751c54da77
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 5459ba31d30a86efbe40239f9531298c10cf9d98
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932309"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413603"
 ---
 # <a name="troubleshoot-a-vms-operating-system-disk"></a>VM 운영 체제 디스크 문제 해결
 
@@ -43,8 +43,8 @@ ms.locfileid: "37932309"
 |---|---|
 | [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) | 가상 머신 목록을 반환합니다. 이 경우 가상 컴퓨터 운영 체제 디스크를 반환하는 데 쿼리 옵션이 사용됩니다. 그러면 이 값이 변수 이름 'uri'에 추가됩니다. |
 | [az vm delete](https://docs.microsoft.com/cli/azure/vm#az_vm_delete) | 가상 머신을 삭제합니다. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | 가상 컴퓨터를 만듭니다.  |
-| [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach) | 디스크를 가상 머신에 연결합니다. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | 가상 컴퓨터를 만듭니다.  |
+| [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk) | 디스크를 가상 머신에 연결합니다. |
 | [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list_ip_addresses) | 가상 컴퓨터의 IP 주소를 반환합니다. |
 
 ## <a name="next-steps"></a>다음 단계

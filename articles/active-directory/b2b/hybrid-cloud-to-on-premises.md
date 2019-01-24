@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 57c807b7729b58d2537ee09ddd5d05d4f2afb55e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 25decf303023e5a71faa987caf6311f6a6f52b22
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068846"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432475"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Azure AD의 B2B 사용자에게 온-프레미스 애플리케이션에 대한 액세스 권한 부여
 
@@ -27,10 +27,10 @@ Azure AD(Azure Active Directory) B2B 공동 작업 기능을 사용하여 파트
 
 다음을 모두 수행해야 합니다.
 
-- [Azure Active Directory 응용 프로그램 갤러리에 없는 응용 프로그램에 Single Sign-On 구성](../manage-apps/configure-single-sign-on-non-gallery-applications.md)에 설명된 대로 비갤러리 응용 프로그램 템플릿을 사용하여 SAML 앱을 통합합니다. **로그온 URL** 값에 사용하는 값을 알고 있어야 합니다.
+- [Azure Active Directory 애플리케이션 갤러리에 없는 애플리케이션에 Single Sign-On 구성](../manage-apps/configure-single-sign-on-non-gallery-applications.md)에 설명된 대로 비갤러리 애플리케이션 템플릿을 사용하여 SAML 앱을 통합합니다. **로그온 URL** 값에 사용하는 값을 알고 있어야 합니다.
 -  Azure AD 애플리케이션 프록시를 사용하여 인증 원본으로 구성된 **Azure Active Directory**와 함께 온-프레미스 앱을 게시합니다. 지침은 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](../manage-apps/application-proxy-publish-azure-portal.md)를 참조하세요. 
 
-   **내부 URL** 설정을 구성하는 경우 비갤러리 응용 프로그램 템플릿에 지정된 로그온 URL을 사용합니다. 이 방식으로 사용자는 조직 경계 외부에서 응용 프로그램에 액세스할 수 있습니다. 애플리케이션 프록시는 온-프레미스 앱에 대해 SAML Single Sign-On을 수행합니다.
+   **내부 URL** 설정을 구성하는 경우 비갤러리 애플리케이션 템플릿에 지정된 로그온 URL을 사용합니다. 이 방식으로 사용자는 조직 경계 외부에서 응용 프로그램에 액세스할 수 있습니다. 애플리케이션 프록시는 온-프레미스 앱에 대해 SAML Single Sign-On을 수행합니다.
  
    ![온-프레미스 앱 설정 내부 URL 및 인증 표시](media/hybrid-cloud-to-on-premises/OnPremAppSettings.PNG)
 
@@ -38,8 +38,8 @@ Azure AD(Azure Active Directory) B2B 공동 작업 기능을 사용하여 파트
 
 B2B 사용자에게 Windows 통합 인증 및 Kerberos 제한 위임을 사용하여 보호되는 온-프레미스 애플리케이션에 대한 액세스 권한을 부여하려면 다음과 같은 구성 요소가 필요합니다.
 
-- **Azure AD 응용 프로그램 프록시를 통해 인증**합니다. B2B 사용자는 온-프레미스 애플리케이션에 인증할 수 있어야 합니다. 이렇게 하려면 Azure AD 애플리케이션 프록시를 통해 온-프레미스 앱을 게시해야 합니다. 자세한 내용은 [애플리케이션 프록시를 시작하고 커넥터를 설치](../manage-apps/application-proxy-enable.md) 및 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션을 게시](../manage-apps/application-proxy-publish-azure-portal.md)를 참조하세요.
-- **온-프레미스 디렉터리에서 B2B 사용자 개체를 통해 권한을 부여**합니다. 애플리케이션은 사용자 액세스 검사를 수행하고 올바른 리소스에 대한 액세스 권한을 부여할 수 있어야 합니다. IWA 및 KCD는 이 권한 부여를 완료하기 위해 온-프레미스 Windows Server Active Directory에 있는 사용자 개체가 필요합니다. [KCD를 사용하는 Single Sign-On 작동 방식](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)에 설명된 대로 응용 프로그램 프록시는 이 사용자 개체가 사용자를 가장하고 Kerberos 토큰을 앱에 가져와야 합니다. 
+- **Azure AD 애플리케이션 프록시를 통해 인증**합니다. B2B 사용자는 온-프레미스 애플리케이션에 인증할 수 있어야 합니다. 이렇게 하려면 Azure AD 애플리케이션 프록시를 통해 온-프레미스 앱을 게시해야 합니다. 자세한 내용은 [애플리케이션 프록시를 시작하고 커넥터를 설치](../manage-apps/application-proxy-enable.md) 및 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션을 게시](../manage-apps/application-proxy-publish-azure-portal.md)를 참조하세요.
+- **온-프레미스 디렉터리에서 B2B 사용자 개체를 통해 권한을 부여**합니다. 애플리케이션은 사용자 액세스 검사를 수행하고 올바른 리소스에 대한 액세스 권한을 부여할 수 있어야 합니다. IWA 및 KCD는 이 권한 부여를 완료하기 위해 온-프레미스 Windows Server Active Directory에 있는 사용자 개체가 필요합니다. [KCD를 사용하는 Single Sign-On 작동 방식](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)에 설명된 대로 애플리케이션 프록시는 이 사용자 개체가 사용자를 가장하고 Kerberos 토큰을 앱에 가져와야 합니다. 
 
    B2B 사용자 시나리오의 경우 온-프레미스 디렉터리에서 권한 부여에 필요한 게스트 사용자 개체를 만드는 데 사용할 수 있는 두 가지 방법이 있습니다.
 
@@ -67,7 +67,7 @@ B2B 사용자에게 Windows 통합 인증 및 Kerberos 제한 위임을 사용�
 
 ### <a name="create-b2b-guest-user-objects-through-mim"></a>MIM을 통해 B2B 게스트 사용자 개체 만들기
 
-MIM 2016 서비스 팩 1 및 Microsoft Graph용 MIM 관리 에이전트를 사용하여 온-프레미스 디렉터리에 게스트 사용자 개체를 만드는 방법에 관한 자세한 내용은 [Azure 애플리케이션 프록시를 사용하여 MIM(Microsoft Identity Manager) 2016 SP1과 Azure AD B2B(Business to Business) 공동 작업](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario)을 참조하세요.
+MIM 2016 서비스 팩 1 및 Microsoft Graph용 MIM 관리 에이전트를 사용하여 온-프레미스 디렉터리에 게스트 사용자 개체를 만드는 방법에 관한 자세한 내용은 [Azure 응용 프로그램 프록시를 사용하여 MIM(Microsoft Identity Manager) 2016 SP1과 Azure AD B2B(Business to Business) 공동 작업](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario)을 참조하세요.
 
 ### <a name="create-b2b-guest-user-objects-through-a-script-preview"></a>스크립트를 통해 B2B 게스트 사용자 개체 만들기(미리 보기)
 

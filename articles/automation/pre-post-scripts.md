@@ -3,18 +3,18 @@ title: Azure에서 업데이트 관리 배포에 대한 사전 및 사후 스크
 description: 이 문서에서는 업데이트 배포를 위해 사전 및 사후 스크립트를 구성하고 관리하는 방법에 대해 설명합니다.
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: edbb953111fb4589539369bd9b2519b48b9b70eb
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 4c34c6c6e0a3f618cbd9337993aa6d176962fe6b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121314"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428242"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>사전 및 사후 스크립트 관리(미리 보기)
 
@@ -224,3 +224,4 @@ Windows 가상 머신에 대한 업데이트를 관리하는 방법을 알아보
 
 > [!div class="nextstepaction"]
 > [Azure Windows VM에 대한 업데이트 및 패치 관리](automation-tutorial-update-management.md)
+

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 31804932cd4176cd55af752a7c1d05ae0a5f0cdf
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 420b48101671c06ee1d820cd183ea0e5c2788635
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52260770"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410559"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-nodejs-sdk-v2"></a>Node.js SDK v2를 사용하여 Blob을 업로드, 다운로드 및 나열하는 방법
 
@@ -95,7 +95,7 @@ const storage = require('azure-storage');
 모듈의 용도는 다음과 같습니다. 
 
 *.env*라는 파일을 현재 실행 컨텍스트로
-- *path*는 Blob 저장소에 업로드할 파일의 절대 파일 경로를 결정하는 데 필요합니다.
+- *path*는 Blob Storage에 업로드할 파일의 절대 파일 경로를 결정하는 데 필요합니다.
 - *azure-storage*는 Node.js용 [Azure Storage SDK](https://docs.microsoft.com/javascript/api/azure-storage) 모듈입니다.
 
 다음으로, **blobService** 변수는 Azure Blob Service의 새 인스턴스로 초기화됩니다.
@@ -146,7 +146,7 @@ const createContainer = async (containerName) => {
 
 **createContainerIfNotExists**에 대한 두 번째 매개 변수(*options*)는 [publicAccessLevel](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists)에 대한 값을 수락합니다. *publicAccessLevel*에 대한 *blob* 값은 특정 Blob 데이터가 공개적으로 노출되도록 지정합니다. 이 설정은 *컨테이너* 수준 액세스와 달리 컨테이너의 내용을 나열하는 기능을 부여합니다.
 
-**createContainerIfNotExists**를 사용하면 컨테이너가 이미 있을 때 응용 프로그램에서 오류를 반환하지 않고 *createContainer* 명령을 여러 번 실행할 수 있습니다. 프로덕션 환경에서는 애플리케이션 전체에서 동일한 컨테이너가 사용되므로 **createContainerIfNotExists**만 호출하는 경우가 많습니다. 이러한 경우 포털 또는 Azure CLI를 통해 컨테이너를 미리 만들 수 있습니다.
+**createContainerIfNotExists**를 사용하면 컨테이너가 이미 있을 때 애플리케이션에서 오류를 반환하지 않고 *createContainer* 명령을 여러 번 실행할 수 있습니다. 프로덕션 환경에서는 애플리케이션 전체에서 동일한 컨테이너가 사용되므로 **createContainerIfNotExists**만 호출하는 경우가 많습니다. 이러한 경우 포털 또는 Azure CLI를 통해 컨테이너를 미리 만들 수 있습니다.
 
 ### <a name="upload-text"></a>텍스트 업로드
 
@@ -224,7 +224,7 @@ const downloadBlob = async (containerName, blobName) => {
     });
 };
 ```
-여기에 표시된 구현은 원본을 변경하고, Blob의 콘텐츠를 문자열로 반환합니다. 또한 Blob를 [스트림](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtostream) 으로 다운로드하거나 [로컬 파일](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtolocalfile)에 직접 다운로드할 수도 있습니다.
+여기에 표시된 구현은 원본을 변경하고, Blob의 콘텐츠를 문자열로 반환합니다. 또한 Blob를 [스트림](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtostream) 으로 다운로드하거나 [로컬 파일](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest)에 직접 다운로드할 수도 있습니다.
 
 ### <a name="delete-a-blob"></a>Blob 삭제
 
@@ -342,7 +342,7 @@ console.log(`Container "${containerName}" is deleted`);
 
 ## <a name="resources-for-developing-nodejs-applications-with-blobs"></a>BLOB을 사용하여 Node.js 애플리케이션을 개발하기 위한 리소스
 
-Blob 저장소를 사용하여 Node.js 응용 프로그램을 개발하기 위한 추가 리소스는 다음과 같습니다.
+Blob Storage를 사용하여 Node.js 응용 프로그램을 개발하기 위한 추가 리소스는 다음과 같습니다.
 
 ### <a name="binaries-and-source-code"></a>이진 파일 및 소스 코드
 
@@ -351,7 +351,7 @@ Blob 저장소를 사용하여 Node.js 응용 프로그램을 개발하기 위�
 ### <a name="client-library-reference-and-samples"></a>클라이언트 라이브러리 참조 및 샘플
 
 - Node.js 클라이언트 라이브러리에 대한 자세한 내용은 [Node.js API 참조](https://docs.microsoft.com/javascript/api/overview/azure/storage)를 참조하세요.
-- Node.js 클라이언트 라이브러리를 사용하여 작성된 [Blob 저장소 샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=nodejs&term=blob)을 탐색하세요.
+- Node.js 클라이언트 라이브러리를 사용하여 작성된 [Blob Storage 샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=nodejs&term=blob)을 탐색하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

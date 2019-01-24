@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 9c2ebcfc376456f63896ebae8331136aff0cdb99
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 36d6733ddc73ace2026ea838cf8f701db95469e6
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119444"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448469"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>예제 3 - 방화벽, UDR, NSG로 네트워크를 보호하는 DMZ 구축
 [보안 경계 모범 사례 페이지로 돌아가기][HOME]
@@ -76,7 +76,7 @@ VNETLocal은 항상 특정 네트워크의 VNet의 주소 접두사로 정의됩
 
 예를 들어 10.1.1.1로 보낼 트래픽의 경우 10.0.0.0/16이 적용되지 않지만 10.0.0.0/8이 가장 구체적이고 다음 홉이 Null이므로 이 트래픽은 삭제됩니다("블랙홀"). 
 
-대상이 Null 접두사 또는 VNETLocal 접두사에 적용되지 않을 경우 가장 구체적이지 않은 경로인 0.0.0.0/0을 따르며 다음 홉인 인터넷으로 라우팅되고 Azure의 인터넷 에지를 넘어 라우팅됩니다.
+대상이 Null 접두사 또는 VNETLocal 접두사에 적용되지 않을 경우 가장 구체적이지 않은 경로인  0.0.0.0/0을 따르며 다음 홉인 인터넷으로 라우팅되고 Azure의 인터넷 에지를 넘어 라우팅됩니다.
 
 경로 테이블에 두 개의 동일한 접두사가 있을 경우 경로 "source" 특성을 기준으로 하는 기본 설정 순서는 다음과 같습니다.
 
@@ -777,7 +777,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
         $FatalError = $true}
     Else { Write-Host "The network config file was found" -ForegroundColor Green
             If (-Not (Select-String -Pattern $DeploymentLocation -Path $NetworkConfigFile)) {
-                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation varible is correct and the netowrk config file matches.' -ForegroundColor Yellow
+                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation variable is correct and the network config file matches.' -ForegroundColor Yellow
                 $FatalError = $true}
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 

@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 1/11/2019
+ms.date: 1/22/2019
 ms.author: victorh
-ms.openlocfilehash: 21aac318542f9d30cb44d940392d05367f1f7b9f
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: c574e3ab82f97f5fffc7c834a53d19df93fc426f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246469"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448945"
 ---
 # <a name="what-is-azure-application-gateway"></a>Azure Application Gateway란?
 
@@ -102,7 +102,7 @@ Application Gateway 리디렉션 지원에서는 다음과 같은 기능을 제�
 
 ## <a name="websocket-and-http2-traffic"></a>Websocket 및 HTTP/2 트래픽
 
-Application Gateway는 WebSocket 및 HTTP/2 프로토콜에 대한 네이티브 지원을 제공합니다. WebSocket 지원을 선택적으로 사용하거나 사용하지 않도록 설정하는 사용자 구성 가능 설정은 없습니다. HTTP/2 지원은 Azure PowerShell을 사용하여 활성화할 수 있습니다.
+Application Gateway는 WebSocket 및 HTTP/2 프로토콜에 대한 네이티브 지원을 제공합니다. WebSocket 지원을 선택적으로 사용하거나 사용하지 않도록 설정하는 사용자 구성 가능 설정은 없습니다.
 
 WebSocket 및 HTTP/2 프로토콜을 사용하면 장기 실행 TCP 연결을 통해 서버와 클라이언트 간의 전이중 통신을 수행할 수 있습니다. 이를 사용하면 웹 서버와 클라이언트 간의 대화형 통신이 가능하며, HTTP 기반 구현에서 필요에 따라 폴링하지 않고도 양방향 통신을 수행할 수 있습니다. 프로토콜은 HTTP와 달리 오버헤드가 낮고 여러 요청/응답에 동일한 TCP 연결을 다시 사용하므로 리소스를 보다 효율적으로 사용할 수 있습니다. 이러한 프로토콜은 기존의 HTTP 포트 80 및 443을 통해 작동하도록 디자인되었습니다.
 
@@ -113,6 +113,22 @@ HTTP 헤더를 통해 클라이언트와 서버는 요청 또는 응답을 사�
 Application Gateway는 이제 들어오는 HTTP 요청 뿐만 아니라 나가는 HTTP 응답의 헤더를 다시 쓰는 기능을 지원합니다. 요청/응답 패킷이 클라이언트와 백 엔드 풀 사이를 이동하는 동안 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트할 수 있습니다. 표준([RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)에 정의됨) 및 비표준 헤더 필드 모두를 다시 쓸 수 있습니다.  
 
 이 공개 미리 보기 기능에 대한 자세한 내용은 [HTTP 헤더 다시 쓰기](rewrite-http-headers.md)를 참조하세요.
+
+## <a name="sizing"></a>크기 조정
+
+Application Gateway는 현재 **소형**, **중형** 및 **대형**의 3가지 크기를 제공합니다. 소규모 인스턴스 크기는 개발 및 테스트 시나리오를 위해 사용 됩니다.
+
+Application Gateway의 전체 목록은 [Application Gateway 서비스 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)을 참조하세요.
+
+다음 표에서는 활성화된 SSL 오프로드로 각 애플리케이션 게이트웨이 인스턴스의 평균 성능 처리량을 보여 줍니다.
+
+| 평균 백 엔드 페이지 응답 크기 | 작음 | 중간 | 큰 |
+| --- | --- | --- | --- |
+| 6KB |7.5Mbps |13Mbps |50Mbps |
+| 100KB |35Mbps |100Mbps |200Mbps |
+
+> [!NOTE]
+> 이러한 값은 애플리케이션 게이트웨이 처리량에 대한 대략적인 값입니다. 실제 처리량은 평균 페이지 크기, 백 엔드 인스턴스의 위치 및 페이지 처리 시간 등 다양한 환경 세부 사항에 따라 달라집니다. 정확한 성능 수치를 얻으려면 자체 테스트를 실행해야 합니다. 이러한 값은 용량 계획 지침에 대해서만 제공됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

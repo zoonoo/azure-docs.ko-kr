@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.openlocfilehash: 07211d7b6dccd377f94308da5c572255ba5727c6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5c5175ab03e32c167a1cbbb618157ed98e13dcda
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29849983"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54409795"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic"></a>인바운드 및 아웃바운드 VM 네트워크 트래픽 필터링
 
@@ -54,7 +54,7 @@ az group delete --name MyResourceGroup --yes
 | [az network subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | 백 엔드 서브넷을 만듭니다. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) | NSG를 서브넷에 연결합니다. |
 | [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | 인터넷에서 VM에 액세스하기 위한 공용 IP 주소를 만듭니다. |
-| [az network nic create](/cli/azure/network/nic#az_network_nic_create) | 가상 네트워크 인터페이스를 만들고 가상 네트워크의 프런트 엔드 및 백 엔드 서브넷에 연결합니다. |
+| [az network nic create](/cli/azure/network/nic) | 가상 네트워크 인터페이스를 만들고 가상 네트워크의 프런트 엔드 및 백 엔드 서브넷에 연결합니다. |
 | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | 프런트 엔드 및 백 엔드 서브넷과 연결되는 NSG(네트워크 보안 그룹)을 만듭니다. |
 | [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) |특정 포트를 특정 서브넷에 허용하거나 차단하는 NSG 규칙을 만듭니다. |
 | [az vm create](/cli/azure/vm#az_vm_create) | 가상 머신을 만들고 각 VM에 NIC를 연결합니다. 또한 이 명령은 사용할 가상 컴퓨터 이미지와 관리 자격 증명을 지정합니다. |

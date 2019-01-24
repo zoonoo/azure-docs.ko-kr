@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 773ae5aefab59e79822c0320773753b47cfefdeb
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: b22917d27498787984d27d4bcba443b08d99ba9b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983872"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424514"
 ---
 # <a name="azure-active-directory-b2b-collaboration-for-hybrid-organizations"></a>하이브리드 조직에 대한 Azure Active Directory B2B 공동 작업
 
@@ -46,7 +46,7 @@ Azure AD 이전에는 온-프레미스 ID 시스템이 있는 조직은 일반�
  
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD의 B2B 사용자에게 온-프레미스 응용 프로그램에 대한 액세스 권한 부여](hybrid-cloud-to-on-premises.md)
+- [Azure AD의 B2B 사용자에게 온-프레미스 애플리케이션에 대한 액세스 권한 부여](hybrid-cloud-to-on-premises.md)
 - [Azure AD B2B 공동 작업을 사용하여 로컬로 관리되는 파트너 계정에게 클라우드 리소스에 대한 액세스 권한 부여](hybrid-on-premises-to-cloud.md)
 
 

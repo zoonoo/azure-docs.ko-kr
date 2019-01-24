@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 10/16/2018
 ms.author: shvija
-ms.openlocfilehash: 992b27622328bab85fcfaf06ad5a941aceed446f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 39c92c870991ce2398b27efd189f1219777afdd7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051461"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425325"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 이벤트 허브 만들기
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 장치에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
@@ -32,7 +32,7 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작을 완료하려면 Azure 구독이 필요합니다. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
 
-**Azure PowerShell**을 사용하여 Resource Manager 템플릿을 배포하려면 [Azure PowerShell을 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0)합니다.
+**Azure PowerShell**을 사용하여 Resource Manager 템플릿을 배포하려면 [Azure PowerShell을 설치](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0)합니다.
 
 **Azure CLI**를 사용하여 Resource Manager 템플릿을 배포하려면 [Azure CLI를 설치]( /cli/azure/install-azure-cli)합니다.
 

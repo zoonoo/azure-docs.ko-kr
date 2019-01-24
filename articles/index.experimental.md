@@ -1,14 +1,8 @@
----
+--- 
 layout: HubPage
 hide_bc: true
 title: Microsoft Azure 설명서
-description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 애플리케이션을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다.
-ms.openlocfilehash: c8ba57b9173fbbfa4e00472972921073f32cb2f7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017790"
+description: 'Microsoft Azure 클라우드 서비스를 사용하여 강력한 애플리케이션을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다.'
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -43,7 +37,7 @@ ms.locfileid: "53017790"
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Azure 응용 프로그램 아키텍처 가이드</span>
+                                    <span class="likeAnH3">Azure 애플리케이션 아키텍처 가이드</span>
                                 </div>
                             </div>
                         </div>
@@ -3318,7 +3312,7 @@ ms.locfileid: "53017790"
                                                     <a href="/powershell/azure/get-started-azureps">시작</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/powershell/azure/install-azurerm-ps">Powershell 다운로드</a>
+                                                    <a href="/powershell/azure/azurerm/install-azurerm-ps">Powershell 다운로드</a>
                                                 </p>
                                                 <p>
                                                     <a href="/powershell/azure/overview">참조</a>

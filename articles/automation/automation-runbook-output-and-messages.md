@@ -3,18 +3,18 @@ title: Azure Automation에서 Runbook 출력 및 메시지
 description: Azure Automation의 runbook에서 출력 및 오류 메시지를 만들고 검색하는 방법을 설명합니다.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cc1ef2a3ab09ec5b86d1dc0b4c139afd43ba356d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 82382ecc3adf0d0621f51438a082f7807b031fc9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969127"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431217"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure Automation에서 Runbook 출력 및 메시지
 대부분의 Azure Automation Runbook은 일종의 출력 양식을 갖습니다. 이 출력은 사용자에 대한 오류 메시지 또는 다른 Runbook과 함께 사용하려는 복합 개체일 수 있습니다. Windows PowerShell은 [여러 스트림](/powershell/module/microsoft.powershell.core/about/about_redirection) 제공하여 스크립트 또는 워크플로에서 출력을 보냅니다. Azure Automation은 이러한 스트림에서 각각 다르게 작동합니다. 각 Runbook을 만들 때 사용하는 방법에 대한 모범 사례를 따라야 합니다.
@@ -234,4 +234,5 @@ Log Analytics와의 통합을 구성하여 작업 데이터를 수집하고, 상
 ## <a name="next-steps"></a>다음 단계
 * Runbook 실행, Runbook 작업 모니터링 방법 및 기타 기술 세부 정보를 알아보려면 [Runbook 작업 추적](automation-runbook-execution.md)
 * 자식 Runbook을 디자인하고 사용하는 방법을 이해하려면 [Azure Automation의 자식 Runbook](automation-child-runbooks.md)
+
 

@@ -3,18 +3,18 @@ title: Log Analytics에 Azure Automation 작업 데이터 전달
 description: 이 문서에서는 작업 상태 및 Runbook 작업 스트림을 Azure Log Analytics로 보내 통찰력 및 관리를 강화하는 방법을 알아봅니다.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8a1f7e367b3f8f06e33bbcd11f8090c9578c1d30
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0125c64a96929db9c8846ca7ad731fa3dc795f98
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269569"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432968"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Automation에서 Log Analytics로 작업 상태 및 작업 스트림 전달
 
@@ -183,3 +183,4 @@ Log Analytics는 Automation 작업의 작동을 보다 정확히 이해하도록
 * Runbook에서 출력 및 오류 메시지를 만들고 검색하는 방법을 이해하려면 [Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)를 참조하세요.
 * runbook 실행, runbook 작업 모니터링 방법 및 기타 기술 세부 정보를 알아보려면 [runbook 작업 추적](automation-runbook-execution.md)을 참조하세요.
 * Log Analytics 및 데이터 수집 소스에 대해 자세히 알아보려면 [Log Analytics에서 Azure Storage 데이터 수집 개요](../azure-monitor/platform/collect-azure-metrics-logs.md)를 참조하세요.
+

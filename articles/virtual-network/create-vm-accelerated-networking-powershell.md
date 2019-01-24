@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: de69cdf69f30639d048dccd7d433c86f6cb9db7b
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3ba7e8129d577faa87544f8feded51a14559eb51
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894187"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435535"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>가속화된 네트워킹을 사용하는 Windows 가상 머신 만들기
 
@@ -34,9 +34,9 @@ ms.locfileid: "33894187"
 가속화된 네트워킹의 이점은 사용하도록 설정된 VM에만 적용된다는 것입니다. 최상의 결과를 얻으려면 동일한 Azure VNet(Virtual Network)에 연결된 둘 이상의 VM에서 이 기능을 사용하도록 설정하는 것이 좋습니다. VNet에서 통신하거나 온-프레미스에 연결할 때 이 기능을 사용하면 전체 대기 시간에 미치는 영향을 최소화할 수 있습니다.
 
 ## <a name="benefits"></a>이점
-* **더 낮은 대기 시간/더 높은 초당 패킷 수(pps):** 데이터 경로에서 가상 스위치를 제거하면 패킷이 정채 처리를 위해 호스트에서 소요하는 시간이 제거되고 VM 내에서 처리될 수 있는 패킷 수가 늘어납니다.
-* **감소된 지터:** 가상 스위치 처리는 적용해야 하는 정책의 양과 처리를 수행하는 CPU의 워크로드에 따라 달라집니다. 정책 적용을 하드웨어로 오프로드하면 패킷이 VM으로 직접 전달되고, 호스트-VM 통신과 모든 소프트웨어 인터럽트 및 컨텍스트 전환이 제거되어 이러한 가변성이 해소됩니다.
-* **CPU 사용률 감소:** 호스트의 가상 스위치를 무시하면 네트워크 트래픽 처리에 사용되는 CPU가 감소됩니다.
+* **더 짧은 대기 시간/더 많은 초당 패킷 수(pps):** 데이터 경로에서 가상 스위치를 제거하면 정책 처리를 위해 패킷이 호스트에 머무는 시간이 없어지며 VM 내에서 처리할 수 있는 패킷 수가 늘어납니다.
+* **지터 감소:** 적용해야 하는 정책의 수와 처리를 수행하는 CPU의 워크로드에 따라 가상 스위치 처리 성능이 달라집니다. 정책 적용을 하드웨어로 오프로드하면 패킷이 VM으로 직접 전달되고, 호스트-VM 통신과 모든 소프트웨어 인터럽트 및 컨텍스트 전환이 제거되어 이러한 가변성이 해소됩니다.
+* **CPU 사용률 감소:** 이 기능을 사용할 때는 호스트에서 가상 스위치를 바이패스하므로 네트워크 트래픽 처리에 CPU를 더 적게 사용하게 됩니다.
 
 ## <a name="limitations-and-constraints"></a>제한 및 제약 조건
 
@@ -46,9 +46,9 @@ ms.locfileid: "33894187"
 * **Windows Server 2012 R2 Datacenter** 
 
 ### <a name="supported-vm-instances"></a>지원되는 VM 인스턴스
-가속화된 네트워킹은 가장 일반적인 용도 및 2개 이상의 vCPU가 포함된 계산 최적화 인스턴스 크기로 지원됩니다.  이러한 지원되는 계열은 D/DSv2 및 F/Fs입니다.
+가속 네트워킹은 가장 일반적인 용도로 2개 이상의 vCPU가 포함된 계산 최적화 인스턴스 크기에서 지원됩니다.  지원되는 이러한 계열은 D/DSv2 및 F/Fs입니다.
 
-하이퍼스레딩을 지원하는 인스턴스에서 가속화된 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 지원되는 계열은 D/DSv3, E/ESv3, Fsv2 및 Ms/Mms입니다.
+하이퍼스레딩을 지원하는 인스턴스에서 가속 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 지원되는 계열은 D/DSv3, E/ESv3, Fsv2 및 Ms/Mms입니다.
 
 VM 인스턴스에 대한 자세한 내용은 [Windows VM 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
@@ -56,7 +56,7 @@ VM 인스턴스에 대한 자세한 내용은 [Windows VM 크기](../virtual-mac
 모든 공용 Azure 지역 및 Azure Government 클라우드에서 사용할 수 있습니다.
 
 ### <a name="enabling-accelerated-networking-on-a-running-vm"></a>실행 중인 VM에서 가속화된 네트워킹 사용하도록 설정
-가속화된 네트워킹을 사용하지 않는 지원되는 VM 크기는 기능이 중지되고 할당이 취소될 경우 사용하도록 설정할 수 있습니다.
+가속 네트워킹을 사용하지 않고 지원되는 VM 크기에서는 기능이 중지되고 할당이 취소된 경우에만 사용하도록 설정할 수 있습니다.
 
 ### <a name="deployment-through-azure-resource-manager"></a>Azure Resource Manager를 통한 배포
 가속화된 네트워킹을 사용하여 가상 머신(클래식)을 배포할 수 없습니다.
@@ -67,7 +67,7 @@ VM 인스턴스에 대한 자세한 내용은 [Windows VM 크기](../virtual-mac
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[Azure PowerShell](/powershell/azure/install-azurerm-ps) 버전 5.1.1 이상을 설치합니다. 현재 설치된 버전을 찾으려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 설치 또는 업그레이드해야 할 경우 [PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureRM)에서 최신 버전의 AzureRM 모듈을 설치합니다. PowerShell 세션에서 [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) 명령을 사용하여 Azure 계정에 로그인합니다.
+[Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) 버전 5.1.1 이상을 설치합니다. 현재 설치된 버전을 찾으려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 설치 또는 업그레이드해야 할 경우 [PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureRM)에서 최신 버전의 AzureRM 모듈을 설치합니다. PowerShell 세션에서 [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) 명령을 사용하여 Azure 계정에 로그인합니다.
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myNic*, *myVM*이 포함됩니다.
 
@@ -214,23 +214,23 @@ Azure에서 VM을 만들면 VM에 연결하고 Windows에서 드라이버가 설
 이제 가속화된 네트워킹을 VM에 사용할 수 있습니다.
 
 ## <a name="enable-accelerated-networking-on-existing-vms"></a>기존 VM에서 가속화된 네트워킹을 사용하도록 설정
-가속화된 네트워킹을 사용하지 않고 VM을 만든 경우 기존 VM에서 이 기능을 사용하도록 설정할 수 있습니다.  VM은 위에 설명된 다음의 필수 구성 요소를 충족하여 가속화된 네트워킹을 지원해야 합니다.
+가속 네트워킹을 사용하지 않고 VM을 만든 경우 기존 VM에서 이 기능을 사용하도록 설정할 수 있습니다.  VM이 위에 설명된 다음 필수 조건을 충족하여 가속 네트워킹을 지원해야 합니다.
 
 * VM은 가속화된 네트워킹에 대해 지원되는 크기이어야 함
 * VM은 지원되는 Azure Gallery 이미지(및 Linux용 커널 버전)이어야 함
 * 가용성 집합의 모든 VM 또는 VMSS는 모든 NIC에서 가속화된 네트워킹을 사용하기 전에 중지/할당 취소되어야 함
 
-### <a name="individual-vms--vms-in-an-availability-set"></a>가용성 집합의 개별 VM 및 VM
-먼저 VM을 중지/할당 취소하거나 가용성 집합인 경우 집합에서 모든 VM을 중지/할당 취소합니다.
+### <a name="individual-vms--vms-in-an-availability-set"></a>개별 VM 및 가용성 집합의 VM
+먼저 VM을 중지/할당 취소하거나, 가용성 집합인 경우 집합에 포함된 모든 VM을 중지/할당 취소합니다.
 
 ```azurepowershell
 Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 
-중요하니 주의하십시오. VM이 가용성 집합 없이 개별적으로 만들어진 경우 가속화된 네트워킹을 사용하도록 설정하려면 개별 VM을 중지/할당 취소해야 합니다.  가용성 집합으로 VM을 만든 경우 가용성 집합에 포함된 모든 VM을 모든 NIC에서 가속화된 네트워킹을 사용하기 전에 중지/할당 취소해야 합니다. 
+중요한 사항이니 유의하세요. VM이 가용성 집합 없이 개별적으로 만들어진 경우 개별 VM을 중지/할당 취소하기만 하면 가속 네트워킹을 사용하도록 설정할 수 있습니다.  VM이 가용성 집합으로 만들어진 경우 가용성 집합에 포함된 모든 VM을 중지/할당 취소해야 NIC에서 가속 네트워킹을 사용하도록 설정할 수 있습니다. 
 
-중지되면 해당 VM의 NIC에서 가속화된 네트워킹을 사용하도록 설정합니다.
+VM이 중지되면 해당 VM의 NIC에서 가속 네트워킹을 사용하도록 설정합니다.
 
 ```azurepowershell
 $nic = Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
@@ -241,7 +241,7 @@ $nic.EnableAcceleratedNetworking = $true
 $nic | Set-AzureRmNetworkInterface
 ```
 
-VM을 다시 시작하거나, 가용성 집합인 경우 집합의 모든 VM을 다시 시작하고 가속화된 네트워킹이 사용하도록 설정되어 있는지 확인합니다. 
+VM을 다시 시작하거나, 가용성 집합인 경우 집합에 포함된 모든 VM을 다시 시작하고 가속 네트워킹이 사용되는지 확인합니다. 
 
 ```azurepowershell
 Start-AzureRmVM -ResourceGroup "myResourceGroup" `
@@ -295,7 +295,7 @@ Start-AzureRmVmss -ResourceGroupName "myResourceGroup" `
 크기 조정 작업을 통해 가속화된 네트워킹을 사용하는 VM을 가속화된 네트워킹이 지원되지 않는 VM 인스턴스로 크기 조정할 수 없습니다.  이러한 VM 중 하나의 크기를 조정하려면 다음을 수행합니다. 
 
 * VM을 중지/할당 취소하거나, 가용성 집합/VMSS인 경우 집합/VMSS에 포함된 모든 VM을 중지/할당 취소합니다.
-* VM 또는 가용성 집합/VMSS인 경우 집합/VMSS에 포함된 모든 VM의 NIC에서 가속화된 네트워킹을 사용하지 않도록 설정해야 합니다.
+* VM 또는 가용성 집합/VMSS인 경우, 집합/VMSS에 포함된 모든 VM의 NIC에서 가속 네트워킹을 사용하지 않도록 설정해야 합니다.
 * 가속화된 네트워킹이 사용되지 않으면 VM/가용성 집합/VMSS를 가속화된 네트워킹이 지원되지 않는 새 크기로 이동하고 다시 시작할 수 있습니다.  
 
 

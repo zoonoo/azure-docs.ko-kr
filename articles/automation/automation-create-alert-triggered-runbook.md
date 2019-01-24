@@ -3,18 +3,18 @@ title: 경고를 사용하여 Azure Automation Runbook 트리거
 description: Azure 경고가 발생할 경우 실행할 Runbook을 트리거하는 방법을 알아봅니다.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d35d2bfdf379d5bf02ebb4b2fd71fb85519c741a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 88fe7740170638e9e0d7398a02dcf83ab81f6ffc
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581649"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421686"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>경고를 사용하여 Azure Automation Runbook 트리거
 
@@ -232,3 +232,4 @@ Runbook은 **AzureRunAsConnection** [실행 계정](automation-create-runas-acco
 * Runbook을 시작하는 다양한 방법에 대한 자세한 내용은 [Runbook 시작](automation-starting-a-runbook.md)을 참조하세요.
 * 활동 로그 경고를 만드는 방법을 알아보려면 [활동 로그 경고 만들기](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)를 참조하세요.
 * 근 실시간 경고를 만드는 방법을 보려면 [Azure Portal에서 경고 규칙 만들기](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json)를 참조하세요.
+

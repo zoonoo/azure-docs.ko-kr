@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
-ms.component: alerts
-ms.openlocfilehash: 0ab496b884506b013c6a4abb2dff1e1feff4fc72
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.subservice: alerts
+ms.openlocfilehash: 207d1f7f5eb4db4203f2595a06f943e8ae69881e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342989"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432033"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure Monitor 경고를 사용하여 복잡한 작업을 트리거하는 방법
 
@@ -291,10 +291,11 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
 
 - 15단계는 동일합니다. 지침을 따라 논리 앱을 저장하고 작업 그룹을 업데이트합니다.
 
-## <a name="calling-other-applications-besides-microsoft-teams"></a>Microsoft Teams 외에 다른 응용 프로그램 호출
-Logic Apps는 방대한 응용 프로그램 및 데이터베이스에서 작업을 트리거할 수 있는 다양한 커넥터를 제공합니다. Slack, SQL Server, Oracle, Salesforce 등을 예로 들 수 있습니다. 커넥터에 대한 자세한 내용은 [논리 앱 커넥터](../../connectors/apis-list.md)를 참조하세요.  
+## <a name="calling-other-applications-besides-microsoft-teams"></a>Microsoft Teams 외에 다른 애플리케이션 호출
+Logic Apps는 방대한 애플리케이션 및 데이터베이스에서 작업을 트리거할 수 있는 다양한 커넥터를 제공합니다. Slack, SQL Server, Oracle, Salesforce 등을 예로 들 수 있습니다. 커넥터에 대한 자세한 내용은 [논리 앱 커넥터](../../connectors/apis-list.md)를 참조하세요.  
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 활동 로그 경고의 개요](../../azure-monitor/platform/alerts-overview.md)를 확인하고 경고를 받는 방법에 대해 알아보세요.  
 * [Azure Service Health 알림이 게시될 때 경고를 구성](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)하는 방법을 알아보세요.
 * [작업 그룹](../../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보세요.
+

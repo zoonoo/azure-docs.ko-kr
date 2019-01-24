@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 8acbb33b396aa617936eb0333bd68fea60532425
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c452341567055e0272c8e6a90c43d6b886d6a928
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404659"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425597"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>관리되는 이미지에서 VM 만들기
 
@@ -43,7 +43,7 @@ Azure Portal 또는 PowerShell을 사용하여 Azure 관리되는 VM 이미지�
 
 [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) cmdlet에 설정된 간소화된 매개 변수를 사용하여 이미지에서 VM을 만드는 데 PowerShell을 사용할 수 있습니다. 이미지는 VM을 만들 동일한 리소스 그룹에 있어야 합니다.
 
-이 예제에는 AzureRM 모듈 버전 5.6.0 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+이 예제에는 AzureRM 모듈 버전 5.6.0 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
 
 [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm)에 대해 설정된 간소화된 매개 변수를 사용하려면 이름, 리소스 그룹 및 이미지 이름을 제공하여 이미지에서 VM을 만들어야 합니다. New-AzureRmVm은 자동으로 생성하는 모든 리소스의 이름으로 **-Name** 매개 변수의 값을 사용합니다. 이 예제에서는 각 리소스에 보다 자세한 이름을 입력하지만 cmdlet을 통해 자동으로 만들 수 있습니다. 사전에 가상 네트워크와 같은 리소스를 만들고, 리소스 이름을 cmdlet에 전달할 수도 있습니다. New-AzureRmVm은 이름별로 찾을 수 있는 경우 기존 리소스를 사용합니다.
 

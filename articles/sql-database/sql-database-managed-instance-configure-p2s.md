@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova, jovanpop
 manager: craigg
-ms.date: 12/14/2018
-ms.openlocfilehash: e8d6d48461e41353057bd554b9e898d118e68ab0
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/17/2019
+ms.openlocfilehash: 9133f7f4dde080700b2b11a4c09df6d0610869f6
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545300"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388031"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>빠른 시작: 온-프레미스에서 Azure SQL Database Managed Instance로의 지점 및 사이트 간 연결 구성
 
@@ -28,7 +28,7 @@ ms.locfileid: "53545300"
 이 빠른 시작의 특징은 다음과 같습니다.
 
 - [Managed Instance 만들기](sql-database-managed-instance-get-started.md)에서 만든 리소스를 시작점으로 사용합니다.
-- 온-프레미스 클라이언트 컴퓨터에서 PowerShell 5.1 및 Azure PowerShell 5.4.2 이상이 필요합니다. 필요한 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0#install-the-azure-powershell-module) 지침을 참조하세요.
+- 온-프레미스 클라이언트 컴퓨터에서 PowerShell 5.1 및 Azure PowerShell 5.4.2 이상이 필요합니다. 필요한 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0#install-the-azure-powershell-module) 지침을 참조하세요.
 - 온-프레미스 클라이언트 컴퓨터에서 최신 버전의 [SSMS](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)(SQL Server Management Studio)가 필요합니다.
 
 ## <a name="attach-a-vpn-gateway-to-your-managed-instance-virtual-network"></a>VPN 게이트웨이를 Managed Instance 가상 네트워크에 연결

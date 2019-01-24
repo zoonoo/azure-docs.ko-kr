@@ -3,18 +3,18 @@ title: Azure Automation 데이터 관리
 description: 이 문서는 Azure Automation 환경 관리에 대한 여러 항목을 포함합니다.  현재 Azure Automation에 데이터 보존 및 Azure Automation 재해 복구 백업이 포함되어 있습니다.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 05da900e9ddf4cbb99df5c6d62ddb569059e2c4b
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: b133947a7daf1977f084ee4008599882b51d9e8b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42143677"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428480"
 ---
 # <a name="managing-azure-automation-data"></a>Azure Automation 데이터 관리
 이 문서는 Azure Automation 환경 관리에 대한 여러 항목을 포함합니다.
@@ -76,4 +76,5 @@ Azure Automation 계정의 표준인 지역에서 복제는 중복성을 위해 
 | 일본 동부 |일본 서부 |
 
 주 지역 데이터가 손실되는 예기치 않은 이벤트가 발생한  경우 Microsoft는 복구를 시도합니다. 기본 데이터를을 복원할 수 없는 경우 지역 장애 조치(failover)가 수행되고 영향을 받는 고객은 해당 구독을 통해 이에 대한 알림을 받게 됩니다.
+
 

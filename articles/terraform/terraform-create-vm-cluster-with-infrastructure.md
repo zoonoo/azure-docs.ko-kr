@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/13/2017
-ms.openlocfilehash: 9870eac87204f24993ab71e373dcab3a8ead3e89
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: a53fee8ee492de4d9eaa8b45a8d4a88e692da02d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075358"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410373"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Terraform 및 HCL을 사용하여 VM 클러스터 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "54075358"
 ## <a name="1-set-up-azure-authentication"></a>1. 인증 설정
 
 > [!NOTE]
-> [Terraform 환경 변수를 사용](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables)하거나 [Azure Cloud Shell](terraform-cloud-shell.md)에서 자습서를 실행하는 경우 이 섹션을 건너뜁니다.
+> [Terraform 환경 변수를 사용](/azure/virtual-machines/linux/terraform-install-configure)하거나 [Azure Cloud Shell](terraform-cloud-shell.md)에서 자습서를 실행하는 경우 이 섹션을 건너뜁니다.
 
 이 섹션에서는 Azure 서비스 보안 주체와, 보안 주체의 자격 증명을 포함하는 Terraform 구성 파일을 두 개를 생성합니다.
 

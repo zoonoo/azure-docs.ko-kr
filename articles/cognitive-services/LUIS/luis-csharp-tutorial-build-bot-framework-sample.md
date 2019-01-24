@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: c3e142c65cdfe00fb26694063f7733d62882cc0c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 5be96fc93a5a6636ccac6faf456458b3bcb8423a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267371"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413722"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot Framework 3.x 및 Azure 웹앱 봇을 사용하는 C#의 LUIS 봇
 
@@ -153,7 +153,7 @@ Azure Portal에서 **웹 채팅에서 테스트**를 클릭하여 봇을 테스�
 > 봇의 코드를 수정하지 않고 LUIS 앱을 다시 학습시킬 수 있습니다. [예제 발화 추가](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) 및 [LUIS 앱 학습 및 테스트](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test)를 참조하세요. 
 
 ## <a name="download-the-bot-to-debug"></a>디버그할 봇 다운로드
-봇이 작동하지 않으면 프로젝트를 로컬 머신에 다운로드하고 계속 [디버그](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-a-c-bot)합니다. 
+봇이 작동하지 않으면 프로젝트를 로컬 머신에 다운로드하고 계속 [디버그](https://docs.microsoft.com/bot-framework/bot-service-debug-bot)합니다. 
 
 ## <a name="learn-more-about-bot-framework"></a>Bot Framework에 대해 자세히 알아보기
 [Bot Framework](https://dev.botframework.com/)와 [3.x](https://github.com/Microsoft/BotBuilder) 및 [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK에 대해 자세히 알아봅니다.

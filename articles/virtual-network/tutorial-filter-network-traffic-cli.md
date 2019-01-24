@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 27102f3523749802dc16a28e28f8859d35814990
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3252395c7a511a00e8da0a31139fce3b2763decb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952752"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461844"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Azure CLI를 사용하여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링
 
@@ -54,7 +54,7 @@ az group create \
   --location eastus
 ```
 
-[az network asg create](/cli/azure/network/asg#az_network_asg_create)로 응용 프로그램 보안 그룹을 만듭니다. 애플리케이션 보안 그룹을 사용하면 유사한 포트 필터링 요구 사항을 갖는 서버를 그룹화할 수 있습니다. 다음 예제에서는 두 애플리케이션 보안 그룹을 만듭니다.
+[az network asg create](/cli/azure/network/asg#az_network_asg_create)로 애플리케이션 보안 그룹을 만듭니다. 애플리케이션 보안 그룹을 사용하면 유사한 포트 필터링 요구 사항을 갖는 서버를 그룹화할 수 있습니다. 다음 예제에서는 두 애플리케이션 보안 그룹을 만듭니다.
 
 ```azurecli-interactive
 az network asg create \
@@ -128,7 +128,7 @@ az network vnet create \
   --address-prefixes 10.0.0.0/16
 ```
 
-[az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)를 사용하여 가상 네트워크에 서브넷을 추가합니다. 다음 예에서는 *mySubnet*이라는 서브넷을 가상 네트워크에 추가하고 *myNsg* 네트워크 보안 그룹을 연결합니다.
+[az network vnet subnet create](/cli/azure/network/vnet/subnet)를 사용하여 가상 네트워크에 서브넷을 추가합니다. 다음 예에서는 *mySubnet*이라는 서브넷을 가상 네트워크에 추가하고 *myNsg* 네트워크 보안 그룹을 연결합니다.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -143,7 +143,7 @@ az network vnet subnet create \
 
 이후 단계에서 트래픽 필터링의 유효성을 검사할 수 있도록 가상 네트워크에 두 VM을 만듭니다. 
 
-[az vm create](/cli/azure/vm#az_vm_create)로 VM을 만듭니다. 다음 예제에서는 웹 서버 역할을 수행 하는 VM을 만듭니다. `--asgs myAsgWebServers` 옵션을 사용하면 Azure는 VM에 대해 만든 네트워크 인터페이스를*myAsgWebServers* 응용 프로그램 보안 그룹의 멤버로 지정할 수 있습니다.
+[az vm create](/cli/azure/vm#az_vm_create)로 VM을 만듭니다. 다음 예제에서는 웹 서버 역할을 수행 하는 VM을 만듭니다. `--asgs myAsgWebServers` 옵션을 사용하면 Azure는 VM에 대해 만든 네트워크 인터페이스를*myAsgWebServers* 애플리케이션 보안 그룹의 멤버로 지정할 수 있습니다.
 
 Azure에서 VM을 만들 때 만든 네트워크 인터페이스에 대해 Azure가 기본 네트워크 보안 그룹을 만들지 않도록 하기 위해 `--nsg ""` 옵션을 지정합니다. 이 문서를 간소화하기 위해 암호가 사용됩니다. 일반적으로 키는 프로덕션 배포에 사용됩니다. 키를 사용하는 경우 나머지 단계에 대해 SSH 에이전트 전달도 구성해야 합니다. 자세한 내용은 SSH 클라이언트를 위한 설명서를 참조하세요. 다음 명령에서 `<replace-with-your-password>`를 원하는 암호로 바꿉니다.
 

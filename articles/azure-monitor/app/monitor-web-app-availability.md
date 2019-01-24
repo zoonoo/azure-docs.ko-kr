@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 480edbb508b875d53d972e9ac93fd4d119c7e54a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: ca266df563cb7e50463548dd0e786cec8e886ec4
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119665"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359700"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>웹 사이트의 가용성 및 응답성 모니터링
 웹앱 또는 웹 사이트를 서버에 배포한 후에 가용성 및 응답성을 모니터링하도록 테스트를 설정할 수 있습니다. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)는 전세계 지점에서 정기적인 간격으로 애플리케이션에 웹 요청을 보냅니다. 애플리케이션이 응답하지 않거나 느리게 응답하는 경우 사용자에게 경고할 수 있습니다.
@@ -208,7 +208,7 @@ Y 위치에서 X 경고 규칙은 새 가용성 테스트를 만들 때 기본�
 ![환경 만들기](./media/monitor-web-app-availability/appinsights-71webtestUpload.png)
 
 > [!NOTE]
->  [새로 통합된 경고](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)를 사용하여 경고 규칙 심각도 및 **작업 그룹**이 포함된 알림 기본 설정은 경고 환경에서 구성되어야 합니다. 다음 단계 없이도 포털 내 알림을 받게 됩니다.
+>  [새로 통합된 경고](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)를 사용하여 경고 규칙 심각도 및 [작업 그룹](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)이 포함된 알림 기본 설정은 경고 환경에서 구성**되어야 합니다**. 다음 단계 없이도 포털 내 알림을 받게 됩니다.
 
 1. 가용성 테스트를 저장한 후 세부 정보 탭에서 방금 만든 테스트 옆에 있는 줄임표를 클릭합니다. "경고 편집"을 클릭합니다.
 ![저장 후 편집](./media/monitor-web-app-availability/9editalert.png)
@@ -258,7 +258,7 @@ Y 위치에서 X 경고 규칙은 새 가용성 테스트를 만들 때 기본�
 2. 응답에서 전달자 토큰을 추출합니다.
 3. 인증 헤더에서 전달자 토큰을 사용하여 API를 호출합니다.
 
-웹 테스트는 실제 클라이언트여야 합니다. 즉, AAD에 고유한 앱이 있고 clientId + appkey를 사용합니다. 테스트 대상 서비스는 AAD에 고유한 앱도 가집니다. 이 앱의 appID URI는 "리소스" 필드의 웹 테스트에 반영됩니다.
+웹 테스트는 실제 클라이언트여야 합니다. 즉, AAD에 고유한 앱이 있고 clientId + appkey를 사용합니다. 테스트 대상 서비스는 AAD에 고유한 앱을 가집니다. 이 앱의 appID URI는 리소스 필드의 웹 테스트에 반영됩니다.
 
 ### <a name="open-authentication"></a>공개 인증
 공개 인증의 예는 Microsoft 또는 Google 계정으로 로그인하는 것입니다. OAuth를 사용하는 많은 앱은 클라이언트 암호 대안을 제공하므로 첫 번째 방법으로 해당 가능성을 조사해야 합니다.
@@ -295,7 +295,7 @@ Y 위치에서 X 경고 규칙은 새 가용성 테스트를 만들 때 기본�
 
 * *사이트는 괜찮아 보이는데 테스트 실패가 표시되나요? Application Insights에서 경고하는 이유는?*
 
-    * 테스트를 통해 "종속 요청 구문 분석"이 활성화되나요? 결국 스크립트, 이미지 등과 같은 리소스에 대한 엄격한 검사가 실시됩니다. 이러한 유형의 오류는 브라우저에서 눈에 띄지 않을 수 있습니다.  모든 이미지, 스크립트, 스타일 시트 및 페이지에 의해 로드된 다른 파일을 확인합니다. 그 중 하나라도 실패하면, 기본 html 페이지가 확인을 로드하는 경우에도 테스트는 실패로 보고됩니다. 테스트가 이러한 리소스 오류에 둔감해지도록 하려면 테스트 구성에서 "종속 요청 구문 분석"을 선택 취소합니다. 
+    * 테스트를 통해 "종속 요청 구문 분석"이 활성화되나요? 결국 스크립트, 이미지 등과 같은 리소스에 대한 엄격한 검사가 실시됩니다. 이러한 유형의 오류는 브라우저에서 눈에 띄지 않을 수 있습니다. 모든 이미지, 스크립트, 스타일 시트 및 페이지에 의해 로드된 다른 파일을 확인합니다. 그 중 하나라도 실패하면, 기본 html 페이지가 확인을 로드하는 경우에도 테스트는 실패로 보고됩니다. 테스트가 이러한 리소스 오류에 둔감해지도록 하려면 테스트 구성에서 "종속 요청 구문 분석"을 선택 취소합니다. 
 
     * 일시적인 네트워크 문제 등으로 인해 노이즈가 발생할 가능성을 줄이려면 "Enable retries for test failures"(테스트 실패 시 다시 시도 사용) 구성을 선택해야 합니다. 또한 더 많은 위치에서 테스트하고 그에 따라 경고 규칙 임계값을 관리하여 과도한 경고를 유발하는 특정 위치의 문제를 방지할 수 있습니다.
 
@@ -325,7 +325,7 @@ Y 위치에서 X 경고 규칙은 새 가용성 테스트를 만들 때 기본�
 
 * *웹 테스트에서 코드를 호출할 수 있나요?*
 
-     아니요. 테스트 단계는 .webtest 파일에 포함되어야 합니다. 또한 다른 웹 테스트를 호출하거나 루프를 사용할 수 없습니다. 그러나 몇 가지 유용한 플러그 인이 있습니다.
+    아니요. 테스트 단계는 .webtest 파일에 포함되어야 합니다. 또한 다른 웹 테스트를 호출하거나 루프를 사용할 수 없습니다. 그러나 몇 가지 유용한 플러그 인이 있습니다.
 
 * *HTTPS가 지원됩니까?*
 

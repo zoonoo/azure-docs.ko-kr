@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 4ced3aa9b7d37543b4942bbfa9a5605058a614d8
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 508614d2126d95323ce3550954b4b8a7d4d9d7d8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014738"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438814"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 운영자를 위한 시작하기
 
@@ -42,7 +42,7 @@ ms.locfileid: "53014738"
 
 - 웹 기반 포털 또는 프로그래밍 방식 자동화를 통해 어디서나 액세스 가능
 
-- 대부분의 계산 및 응용 프로그램 요구 사항을 충족시키는 클라우드 기반 서비스
+- 대부분의 계산 및 애플리케이션 요구 사항을 충족시키는 클라우드 기반 서비스
 
 온-프레미스 인프라를 사용하면 배포된 하드웨어 및 소프트웨어를 완벽하게 제어할 수 있습니다. 지금까지는 하드웨어 구입 결정을 할 때 주로 하드웨어 확장에 중점을 두었습니다. 예를 들어 최대 성능 요구 사항을 충족하기 위해 더 많은 코어가 있는 서버를 구입했습니다. 그러나 이러한 인프라는 해당 수요 기간 외에는 충분히 활용되지 않을 수 있습니다. Azure를 사용하면 필요한 인프라만 배포할 수 있으며 언제든지 이를 조정할 수 있습니다. 따라서 성능 요구 사항을 충족시키기 위해 추가 계산 노드 배포를 통한 확장에 주력할 수 있습니다. 비싼 하드웨어를 통해 확장하는 것보다 클라우드 서비스를 확장하는 것이 비용 면에서 더 효율적입니다.
 
@@ -61,19 +61,19 @@ Azure는 고객에게 제공되는 서비스 범주를 기준으로 클라우드
 
 IaaS 클라우드 공급업체는 모든 물리적 계산 리소스와 컴퓨터 가상화를 구현하는 데 필요한 소프트웨어를 실행 및 관리합니다. 이 서비스의 고객은 이러한 호스트된 데이터 센터에 가상 머신을 배포합니다. 가상 머신은 오프사이트 데이터 센터에 있지만 IaaS 고객이 운영 체제의 구성 및 관리를 제어하고, 기본 인프라 작업은 클라우드 공급업체에 맡길 수 있습니다.
 
-Azure에는 가상 머신, 가상 머신 확장 집합 및 관련 네트워킹 인프라를 포함한 여러 가지 IaaS 솔루션이 포함되어 있습니다. Virtual Machines는 "리프트 앤 시프트(lift and shift)" 마이그레이션 모델을 사용할 수 있기 때문에 서비스를 Azure로 처음 마이그레이션할 때 많이 사용하는 방법입니다. 데이터 센터에서 현재 서비스를 실행 중인 인프라 등의 VM을 구성한 다음 소프트웨어를 새 VM으로 마이그레이션할 수 있습니다. 다른 서비스나 저장소에 대한 URL과 같은 구성 업데이트가 필요할 수도 있지만 이러한 방식으로 많은 응용 프로그램을 마이그레이션할 수 있습니다.
+Azure에는 가상 머신, 가상 머신 확장 집합 및 관련 네트워킹 인프라를 포함한 여러 가지 IaaS 솔루션이 포함되어 있습니다. Virtual Machines는 "리프트 앤 시프트(lift and shift)" 마이그레이션 모델을 사용할 수 있기 때문에 서비스를 Azure로 처음 마이그레이션할 때 많이 사용하는 방법입니다. 데이터 센터에서 현재 서비스를 실행 중인 인프라 등의 VM을 구성한 다음 소프트웨어를 새 VM으로 마이그레이션할 수 있습니다. 다른 서비스나 저장소에 대한 URL과 같은 구성 업데이트가 필요할 수도 있지만 이러한 방식으로 많은 애플리케이션을 마이그레이션할 수 있습니다.
 
 가상 머신 확장 집합은 Azure Virtual Machines 위에 빌드되어 동일한 VM의 클러스터를 손쉽게 배포할 수 있습니다. 또한 가상 머신 확장 집합은 자동 확장을 지원하므로 필요할 때 새 VM을 자동으로 배포할 수 있습니다. 따라서 가상 머신 확장 집합은 Azure Service Fabric 및 Azure Container Service와 같은 상위 수준의 마이크로 서비스 계산 클러스터를 호스트하는 이상적인 플랫폼입니다.
 
 #### <a name="paas-platform-as-a-service"></a>PaaS: 서비스 제공 플랫폼
 
-PaaS를 사용하면 클라우드 서비스 공급업체가 제공하는 환경에 응용 프로그램을 배포할 수 있습니다. 모든 인프라 관리는 공급업체에서 수행하므로 애플리케이션 개발 및 데이터 관리에 집중할 수 있습니다.
+PaaS를 사용하면 클라우드 서비스 공급업체가 제공하는 환경에 애플리케이션을 배포할 수 있습니다. 모든 인프라 관리는 공급업체에서 수행하므로 애플리케이션 개발 및 데이터 관리에 집중할 수 있습니다.
 
-Azure는 Azure App Service 및 Azure Cloud Services(웹 및 작업자 역할)의 Web Apps 기능을 포함한 여러 가지 PaaS 계산 제공 사항을 제공합니다. 두 경우 모두 개발자는 지원에 대한 세부적인 지식이 없어도 여러 가지 방법으로 응용 프로그램을 배포할 수 있습니다. 개발자는 VM(가상 머신)을 만들거나 RDP(원격 데스크톱 프로토콜)를 사용하여 각 응용 프로그램에 로그인하거나 응용 프로그램을 설치할 필요가 없습니다. 단추 하나만 누르면(또는 가까이 가면) Microsoft에서 제공하는 도구가 VM을 프로비저닝한 다음 VM에 응용 프로그램을 배포 및 설치합니다.
+Azure는 Azure App Service 및 Azure Cloud Services(웹 및 작업자 역할)의 Web Apps 기능을 포함한 여러 가지 PaaS 계산 제공 사항을 제공합니다. 두 경우 모두 개발자는 지원에 대한 세부적인 지식이 없어도 여러 가지 방법으로 애플리케이션을 배포할 수 있습니다. 개발자는 VM(가상 머신)을 만들거나 RDP(원격 데스크톱 프로토콜)를 사용하여 각 애플리케이션에 로그인하거나 애플리케이션을 설치할 필요가 없습니다. 단추 하나만 누르면(또는 가까이 가면) Microsoft에서 제공하는 도구가 VM을 프로비저닝한 다음 VM에 애플리케이션을 배포 및 설치합니다.
 
 #### <a name="saas-software-as-a-service"></a>SaaS: 서비스 제공 소프트웨어
 
-SaaS는 중앙에서 호스트되고 관리되는 소프트웨어입니다. 일반적으로 다중 테넌트 아키텍처를 기반으로 하고 단일 버전의 응용 프로그램이 모든 고객에게 사용됩니다. 모든 위치에서 최상의 성능을 보장하기 위해 여러 인스턴스로 확장할 수 있습니다. SaaS 소프트웨어는 일반적으로 월간 또는 연간 구독을 통해 사용이 허가됩니다. SaaS 소프트웨어는 일반적으로 월간 또는 연간 구독을 통해 사용이 허가됩니다. SaaS 소프트웨어 공급업체가 소프트웨어 스택의 모든 구성 요소를 담당하므로 사용자는 제공되는 서비스만 관리하면 됩니다.
+SaaS는 중앙에서 호스트되고 관리되는 소프트웨어입니다. 일반적으로 다중 테넌트 아키텍처를 기반으로 하고 단일 버전의 애플리케이션이 모든 고객에게 사용됩니다. 모든 위치에서 최상의 성능을 보장하기 위해 여러 인스턴스로 확장할 수 있습니다. SaaS 소프트웨어는 일반적으로 월간 또는 연간 구독을 통해 사용이 허가됩니다. SaaS 소프트웨어는 일반적으로 월간 또는 연간 구독을 통해 사용이 허가됩니다. SaaS 소프트웨어 공급업체가 소프트웨어 스택의 모든 구성 요소를 담당하므로 사용자는 제공되는 서비스만 관리하면 됩니다.
 
 Microsoft Office 365는 SaaS 제공 사항의 좋은 예입니다. 구독자는 월간 또는 연간 구독료를 지불하고 Microsoft Exchange, Microsoft OneDrive 및 나머지 Microsoft Office 제품군을 서비스로 받습니다. 구독자는 항상 최신 버전을 사용할 수 있으며 Exchange Server는 자동으로 관리됩니다. 이렇게 하면 매년 Office를 설치 및 업그레이드하는 것에 비해 필요한 비용과 노력이 줄어듭니다.
 
@@ -83,7 +83,7 @@ Azure는 클라우드 컴퓨팅 플랫폼에서 많은 서비스를 제공합니
 
 ### <a name="compute-services"></a>Compute services
 
-응용 프로그램 워크로드 호스팅 및 실행을 위한 서비스:
+애플리케이션 워크로드 호스팅 및 실행을 위한 서비스:
 
 - Azure Virtual Machines - Linux 및 Windows
 
@@ -109,9 +109,9 @@ Azure는 클라우드 컴퓨팅 플랫폼에서 많은 서비스를 제공합니
 
 - Azure Cache for Redis
 
-### <a name="application-services"></a>응용 프로그램 서비스
+### <a name="application-services"></a>애플리케이션 서비스
 
-응용 프로그램 빌드 및 운영을 위한 서비스:
+애플리케이션 빌드 및 운영을 위한 서비스:
 
 - Azure AD(Azure Active Directory)
 
@@ -143,13 +143,13 @@ Azure 서비스에 대한 자세한 내용은 [Azure 서비스 설명서](https:
 
 ### <a name="datacenters-and-regions"></a>데이터 센터 및 지역
 
-Azure는 전 세계 여러 지역에서 일반적으로 사용 가능한 글로벌 클라우드 플랫폼입니다. Azure에서 서비스, 응용 프로그램 또는 VM을 프로비저닝할 때 지역을 선택하라는 메시지가 나타납니다. 선택한 지역은 응용 프로그램이 실행되는 특정 데이터 센터를 나타냅니다. 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.
+Azure는 전 세계 여러 지역에서 일반적으로 사용 가능한 글로벌 클라우드 플랫폼입니다. Azure에서 서비스, 애플리케이션 또는 VM을 프로비저닝할 때 지역을 선택하라는 메시지가 나타납니다. 선택한 지역은 애플리케이션이 실행되는 특정 데이터 센터를 나타냅니다. 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.
 
-Azure를 사용할 때 얻을 수 있는 장점 중 하나는 전 세계의 다양한 데이터 센터에 응용 프로그램을 배포할 수 있다는 것입니다. 선택한 지역은 응용 프로그램의 성능에 영향을 줄 수 있습니다. 네트워크 요청 대기 시간을 줄이기 위해 고객에게 가장 가까운 지역을 선택하는 것이 좋습니다. 특정 국가에서 앱을 배포하기 위한 법적 요건을 충족하는 지역을 선택할 수도 있습니다.
+Azure를 사용할 때 얻을 수 있는 장점 중 하나는 전 세계의 다양한 데이터 센터에 애플리케이션을 배포할 수 있다는 것입니다. 선택한 지역은 애플리케이션의 성능에 영향을 줄 수 있습니다. 네트워크 요청 대기 시간을 줄이기 위해 고객에게 가장 가까운 지역을 선택하는 것이 좋습니다. 특정 국가에서 앱을 배포하기 위한 법적 요건을 충족하는 지역을 선택할 수도 있습니다.
 
 ### <a name="azure-portal"></a>Azure portal
 
-Azure Portal은 Azure 리소스 및 서비스를 만들고 관리하고 제거하는 데 사용할 수 있는 웹 기반 응용 프로그램입니다. Azure Portal의 주소는 [portal.azure.com](https://portal.azure.com)입니다. 여기에는 Azure 리소스 관리를 위해 사용자 지정 가능한 대시보드 및 도구가 포함되어 있습니다. 또한 청구 및 구독 정보를 제공합니다. 자세한 내용은 [Microsoft Azure Portal 개요](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) 및 [포털을 통해 Azure 리소스 관리](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)를 참조하세요.
+Azure Portal은 Azure 리소스 및 서비스를 만들고 관리하고 제거하는 데 사용할 수 있는 웹 기반 애플리케이션입니다. Azure Portal의 주소는 [portal.azure.com](https://portal.azure.com)입니다. 여기에는 Azure 리소스 관리를 위해 사용자 지정 가능한 대시보드 및 도구가 포함되어 있습니다. 또한 청구 및 구독 정보를 제공합니다. 자세한 내용은 [Microsoft Azure Portal 개요](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) 및 [포털을 통해 Azure 리소스 관리](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)를 참조하세요.
 
 ### <a name="resources"></a>리소스
 
@@ -169,7 +169,7 @@ Azure Portal을 사용하여 리소스를 만들고 관리하고 삭제하는 �
 
 #### <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell은 Azure 관리 cmdlet을 제공하는 모듈 집합입니다. 이 cmdlet을 사용하여 Azure 서비스를 만들고 관리하고 제거할 수 있습니다. cmdlet을 사용하면 일관되고 반복 가능하며 자동화된 방식으로 배포할 수 있습니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps)을 참조하세요.
+Azure PowerShell은 Azure 관리 cmdlet을 제공하는 모듈 집합입니다. 이 cmdlet을 사용하여 Azure 서비스를 만들고 관리하고 제거할 수 있습니다. cmdlet을 사용하면 일관되고 반복 가능하며 자동화된 방식으로 배포할 수 있습니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/azurerm/install-azurerm-ps)을 참조하세요.
 
 #### <a name="azure-command-line-interface"></a>Azure 명령줄 인터페이스
 
@@ -233,7 +233,7 @@ Azure의 각 서비스 가격은 다릅니다. 많은 Azure 서비스는 기본,
 
 Azure Resource Manager는 Azure 리소스를 위한 배포, 관리 및 조직 메커니즘입니다. Resource Manager를 사용하여 많은 개별 리소스를 리소스 그룹에 함께 포함할 수 있습니다.
 
-Resource Manager에는 관련 리소스의 사용자 지정 가능한 배포 및 구성을 허용하는 배포 기능도 포함되어 있습니다. 예를 들어 Resource Manager를 사용하면 여러 가상 머신, 부하 분산 장치 및 SQL Database를 단일 단위로 구성하는 응용 프로그램을 배포할 수 있습니다. Resource Manager 템플릿을 사용하여 이러한 배포를 개발합니다.
+Resource Manager에는 관련 리소스의 사용자 지정 가능한 배포 및 구성을 허용하는 배포 기능도 포함되어 있습니다. 예를 들어 Resource Manager를 사용하면 여러 가상 머신, 부하 분산 장치 및 SQL Database를 단일 단위로 구성하는 애플리케이션을 배포할 수 있습니다. Resource Manager 템플릿을 사용하여 이러한 배포를 개발합니다.
 
 리소스 관리자는 다음과 같은 여러 이점이 있습니다.
 
@@ -367,15 +367,15 @@ Azure storage 계정은 여러 수준의 중복성으로 구성할 수 있습니
 
 - **지역 중복 저장소**는 고가용성을 위해 주 지역에 있는 데이터의 동기식 복사본을 3개 만들고 재해 복구를 위해 한 쌍의 지역에 3개의 비동기식 복제본을 만듭니다.
 
-- **읽기 액세스 지역 중복 저장소**는 중복된 저장소와 보조 지역의 데이터를 읽을 수 있는 기능입니다. 이 기능은 부분 재해 복구에 적합합니다. 주 지역에 문제가 있는 경우 쌍으로 된 지역에 대한 읽기 전용 액세스 권한을 가지도록 응용 프로그램을 변경할 수 있습니다.
+- **읽기 액세스 지역 중복 저장소**는 중복된 저장소와 보조 지역의 데이터를 읽을 수 있는 기능입니다. 이 기능은 부분 재해 복구에 적합합니다. 주 지역에 문제가 있는 경우 쌍으로 된 지역에 대한 읽기 전용 액세스 권한을 가지도록 애플리케이션을 변경할 수 있습니다.
 
 ### <a name="use-cases"></a>사용 사례
 
 각 저장소 유형마다 사용 사례가 다릅니다.
 
-#### <a name="blob-storage"></a>Blob 저장소
+#### <a name="blob-storage"></a>Blob Storage
 
-*Blob*이라는 단어는 *Binary Large Object*의 머리글자어입니다. Blob은 컴퓨터에 저장한 파일과 같은 구조화되지 않은 파일입니다. Blob storage는 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob Storage를 개체 스토리지라고 합니다. Azure Blob Storage에는 Azure Virtual Machines 데이터 디스크도 저장됩니다.
+*Blob*이라는 단어는 *Binary Large Object*의 머리글자어입니다. Blob은 컴퓨터에 저장한 파일과 같은 구조화되지 않은 파일입니다. Blob storage는 문서, 미디어 파일 또는 애플리케이션 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob Storage를 개체 스토리지라고 합니다. Azure Blob Storage에는 Azure Virtual Machines 데이터 디스크도 저장됩니다.
 
 Azure Storage는 세 종류의 Blob을 지원합니다.
 
@@ -383,29 +383,29 @@ Azure Storage는 세 종류의 Blob을 지원합니다.
 
 - **페이지 Blob**은 최대 1TB 크기의 임의 액세스 파일을 저장하는 데 사용됩니다. 페이지 Blob은 주로 Azure의 IaaS 계산 서비스인 Azure Virtual Machines에 지속형 디스크를 제공하는 VHD의 백업 저장소로 사용됩니다. 이들은 512바이트 페이지에 대한 임의의 읽기/쓰기 권한을 제공하기 때문에 페이지 Blob이라고 합니다.
 
-- **추가 Blob**은 블록 Blob과 같이 블록으로 구성되지만 추가 작업에 최적화되어 있습니다. 이들은 하나 이상의 소스에서 동일한 Blob으로 정보를 기록하는 데 자주 사용됩니다. 예를 들어 여러 VM에서 실행 중인 응용 프로그램에 대한 모든 추적 로깅을 동일한 추가 Blob에 기록할 수 있습니다. 하나의 추가 Blob은 최대 195GB까지 가능합니다.
+- **추가 Blob**은 블록 Blob과 같이 블록으로 구성되지만 추가 작업에 최적화되어 있습니다. 이들은 하나 이상의 소스에서 동일한 Blob으로 정보를 기록하는 데 자주 사용됩니다. 예를 들어 여러 VM에서 실행 중인 애플리케이션에 대한 모든 추적 로깅을 동일한 추가 Blob에 기록할 수 있습니다. 하나의 추가 Blob은 최대 195GB까지 가능합니다.
 
 자세한 내용은 [.NET을 사용하여 Azure Blob Storage 시작](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요.
 
 #### <a name="file-storage"></a>File Storage
 
-Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. 이 서비스는 SMB 2.1 및 SMB 3.0을 모두 지원합니다. Azure File Storage를 사용하여 파일 공유에 의존하는 응용 프로그램을 비용이 많이 드는 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. Azure 가상 머신, 클라우드 서비스 또는 온-프레미스 클라이언트에서 실행되는 응용 프로그램은 클라우드에 파일 공유를 탑재할 수 있습니다. 이는 데스크톱 응용 프로그램이 일반적인 SMB 공유를 탑재하는 방법과 비슷합니다. File Storage 공유를 동시에 탑재하고 액세스할 수 있는 응용 프로그램 구성 요소 수에는 제한이 없습니다.
+Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. 이 서비스는 SMB 2.1 및 SMB 3.0을 모두 지원합니다. Azure File Storage를 사용하여 파일 공유에 의존하는 애플리케이션을 비용이 많이 드는 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. Azure 가상 머신, 클라우드 서비스 또는 온-프레미스 클라이언트에서 실행되는 애플리케이션은 클라우드에 파일 공유를 탑재할 수 있습니다. 이는 데스크톱 애플리케이션이 일반적인 SMB 공유를 탑재하는 방법과 비슷합니다. File Storage 공유를 동시에 탑재하고 액세스할 수 있는 애플리케이션 구성 요소 수에는 제한이 없습니다.
 
-File Storage 공유는 표준 SMB 파일 공유이므로, Azure에서 실행되는 응용 프로그램은 파일 시스템 I/O API를 통해 공유의 데이터에 액세스할 수 있습니다. 따라서 개발자는 기존의 코드와 기술을 이용하여 기존 응용 프로그램을 마이그레이션할 수 있습니다. IT 전문가는 PowerShell cmdlet을 사용하여 Azure 응용 프로그램 관리의 일부로 File Storage 공유를 만들고 탑재하고 관리할 수 있습니다.
+File Storage 공유는 표준 SMB 파일 공유이므로, Azure에서 실행되는 애플리케이션은 파일 시스템 I/O API를 통해 공유의 데이터에 액세스할 수 있습니다. 따라서 개발자는 기존의 코드와 기술을 이용하여 기존 애플리케이션을 마이그레이션할 수 있습니다. IT 전문가는 PowerShell cmdlet을 사용하여 Azure 애플리케이션 관리의 일부로 File Storage 공유를 만들고 탑재하고 관리할 수 있습니다.
 
 자세한 내용은 [Windows에서 Azure File Storage 시작](../../storage/files/storage-how-to-use-files-windows.md) 또는 [Linux에서 Azure File Storage 사용 방법](../../storage/files/storage-how-to-use-files-linux.md)을 참조하세요.
 
-#### <a name="table-storage"></a>테이블 저장소
+#### <a name="table-storage"></a>Table Storage
 
-Azure Table Storage는 클라우드에 구조화된 NoSQL 데이터를 저장하는 서비스입니다. Table Storage는 스키마 없이 디자인된 키/특성 저장소입니다. Table Storage는 스키마가 없기 때문에 응용 프로그램의 요구 사항이 변화함에 따라 데이터를 쉽게 적응시킬 수 있습니다. 모든 종류의 응용 프로그램에서 빠르고 비용 효율적으로 데이터에 액세스할 수 있습니다. 비슷한 양의 데이터일 때 Table Storage는 일반적으로 전통적인 SQL에 비해 비용이 매우 낮습니다.
+Azure Table Storage는 클라우드에 구조화된 NoSQL 데이터를 저장하는 서비스입니다. Table Storage는 스키마 없이 디자인된 키/특성 저장소입니다. Table Storage는 스키마가 없기 때문에 애플리케이션의 요구 사항이 변화함에 따라 데이터를 쉽게 적응시킬 수 있습니다. 모든 종류의 애플리케이션에서 빠르고 비용 효율적으로 데이터에 액세스할 수 있습니다. 비슷한 양의 데이터일 때 Table Storage는 일반적으로 전통적인 SQL에 비해 비용이 매우 낮습니다.
 
-Table Storage를 사용하여 웹 응용 프로그램의 사용자 데이터, 주소록, 디바이스 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 집합을 저장할 수 있습니다. 엔터티를 원하는 수만큼 테이블에 저장할 수 있습니다. 저장소 계정은 저장소 계정의 최대 용량 한도 내에서 원하는 수의 테이블을 포함할 수 있습니다.
+Table Storage를 사용하여 웹 애플리케이션의 사용자 데이터, 주소록, 장치 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 집합을 저장할 수 있습니다. 엔터티를 원하는 수만큼 테이블에 저장할 수 있습니다. 저장소 계정은 저장소 계정의 최대 용량 한도 내에서 원하는 수의 테이블을 포함할 수 있습니다.
 
 자세한 내용은 [Azure Table Storage 시작](../../cosmos-db/table-storage-how-to-use-dotnet.md)을 참조하세요.
 
-#### <a name="queue-storage"></a>큐 저장소
+#### <a name="queue-storage"></a>Queue Storage
 
-Azure Queue storage는 응용 프로그램 구성 요소 간에 클라우드 메시징을 제공합니다. 규모를 고려하여 응용 프로그램을 디자인할 때는 응용 프로그램 구성 요소를 개별적으로 확장할 수 있도록 각 구성 요소를 분리하는 경우가 많습니다. Queue storage는 클라우드, 데스크톱, 온-프레미스 서버 또는 모바일 디바이스에서 실행 중인지와 관계 없이 응용 프로그램 구성 요소 간에 통신을 위한 비동기 메시징을 제공합니다. Queue storage는 또한 비동기 작업 관리와 프로세스 워크플로 작성을 지원합니다.
+Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메시징을 제공합니다. 규모를 고려하여 애플리케이션을 디자인할 때는 애플리케이션 구성 요소를 개별적으로 확장할 수 있도록 각 구성 요소를 분리하는 경우가 많습니다. Queue storage는 클라우드, 데스크톱, 온-프레미스 서버 또는 모바일 장치에서 실행 중인지와 관계 없이 애플리케이션 구성 요소 간에 통신을 위한 비동기 메시징을 제공합니다. Queue storage는 또한 비동기 작업 관리와 프로세스 워크플로 작성을 지원합니다.
 
 자세한 내용은 [Azure Queue Storage 시작](../../storage/queues/storage-dotnet-how-to-use-queues.md)을 참조하세요.
 

@@ -3,18 +3,18 @@ title: Orchestrator에서 Azure Automation으로 마이그레이션
 description: System Center Orchestrator에서 Azure Automation으로 Runbook 및 통합 팩을 마이그레이션하는 방법에 대해 설명합니다.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 80b0523f8442e30e6af329263be454fa545933d6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: ae47cba8f8e9a7cdf914c0b3ea5dfb9fa6c259a9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275285"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432900"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Orchestrator에서 Azure Automation으로 마이그레이션(Beta)
 [System Center Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) 의 Runbook은 특별히 Orchestrator용으로 작성된 통합 팩의 활동을 기반으로 하는 반면, Azure Automation의 Runbook은 Windows PowerShell을 기반으로 합니다.  Azure Automation에서 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)은 해당 활동이 PowerShell cmdlet, 자식 Runbook 및 자산을 나타내는 Orchestrator Runbook과 모양이 유사합니다.
@@ -134,3 +134,4 @@ Orchestrator에서 Runbook은 **Runbook 호출** 을 사용하여 다른 runbook
 * [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
 * [Orchestrator Standard Activities](https://technet.microsoft.com/library/hh403832.aspx)
 * [System Center Orchestrator Migration Toolkit 다운로드](https://www.microsoft.com/en-us/download/details.aspx?id=47323)
+
