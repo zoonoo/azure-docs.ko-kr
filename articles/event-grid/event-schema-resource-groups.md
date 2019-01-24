@@ -2,21 +2,21 @@
 title: Azure Event Grid 리소스 그룹 이벤트 스키마
 description: Azure Event Grid를 사용하여 리소스 그룹 이벤트에 제공되는 속성을 설명합니다.
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 10/12/2018
-ms.author: tomfitz
-ms.openlocfilehash: ffc9eba251cbf4d9e2542791d90943ecdd1a972a
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.date: 01/12/2019
+ms.author: spelluru
+ms.openlocfilehash: 2b570fdb42c29c6ad68add32be660ef57f1eec1f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310575"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468304"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Azure Event Grid 리소스 그룹에 대한 이벤트 스키마
 
-이 문서에서는 리소스 그룹 이벤트에 대한 속성 및 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
+이 문서에서는 리소스 그룹 이벤트에 대한 속성 및 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
 
 Azure 구독 및 리소스 그룹은 동일한 이벤트 유형을 내보냅니다. 이벤트 유형은 리소스 변경 또는 작업과 관련이 있습니다. 주요 차이는 리소스 그룹이 리소스 그룹 내 리소스에 대한 이벤트를 내보내고 Azure 구독은 구독 전체에서 리소스에 대한 이벤트를 내보낸다는 것입니다.
 

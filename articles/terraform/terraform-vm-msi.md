@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 6c9bef108c2f272c678879124ae2cd4f9ae093ba
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 3f10e5dfd0a4aac859c1a946b5f0a680899e0888
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076230"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852544"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Azure Marketplace 이미지를 사용하여 관리 ID가 있는 Azure 리소스용 Terraform Linux 가상 머신 만들기
 
@@ -85,7 +85,7 @@ SSH를 사용하여 가상 머신에 연결한 후 가상 머신에서 전체 �
 
 `. ~/tfEnv.sh`
 
-이전 스크립트는 [AZ CLI v 2.0 대화형 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) 메커니즘을 사용하여 Azure에서 인증하고 전체 구독에 대한 관리 ID 기여자 권한을 가상 머신에 할당합니다. 
+이전 스크립트는 [AZ CLI v 2.0 대화형 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) 메커니즘을 사용하여 Azure에서 인증하고 전체 구독에 대한 관리 ID 기여자 권한을 가상 머신에 할당합니다. 
 
  VM에는 Terraform 원격 상태 백 엔드가 있습니다. Terraform 배포에서 이를 사용하려면 tfTemplate 디렉터리의 remoteState.tf 파일을 Terraform 스크립트의 루트에 복사합니다.  
 

@@ -3,19 +3,20 @@ title: Azure Service Bus 방화벽 규칙 | Microsoft Docs
 description: 특정 IP 주소에서 Azure Service Bus로 연결을 허용하도록 방화벽 규칙을 사용하는 방법입니다.
 services: service-bus
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
-ms.author: clemensv
-ms.openlocfilehash: b08540787fc61b9bb38ed921bd42e0f3065cf8f4
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: a8d29e7cae20c37adfeccaef01e1625b6ab3e0d0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653835"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852683"
 ---
 # <a name="use-firewall-rules"></a>방화벽 규칙 사용
 

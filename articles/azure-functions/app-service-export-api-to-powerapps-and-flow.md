@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: 53aa40c047b2b5201cd74c0409d56e97d2880eb0
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9f4bbf91b09abeb917fd9f49482881e33bf788ec
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602854"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413937"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Azure에서 호스트되는 API를 PowerApps 및 Microsoft Flow로 내보내기
 
@@ -156,7 +156,7 @@ Azure AD를 사용하는 경우 두 개의 Azure AD 애플리케이션 등록이
 
 - API에 대한 등록을 구성하려면 [App Service 인증/권한 부여](../app-service/configure-authentication-provider-aad.md) 기능을 사용합니다.
 
-- 커넥터에 대한 등록을 구성하려면 [Azure AD 애플리케이션 추가](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application)의 단계를 따릅니다. 등록에는 API 및 `https://msmanaged-na.consent.azure-apim.net/redirect`의 회신 URL에 대한 위임된 액세스가 필요합니다. 
+- 커넥터에 대한 등록을 구성하려면 [Azure AD 애플리케이션 추가](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)의 단계를 따릅니다. 등록에는 API 및 `https://msmanaged-na.consent.azure-apim.net/redirect`의 회신 URL에 대한 위임된 액세스가 필요합니다. 
 
 자세한 내용은 [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) 및 [Microsoft Flow](https://flow.microsoft.com/documentation/customapi-azure-resource-manager-tutorial/)에 대한 Azure AD 등록 예제를 참조하세요. 이러한 예제에서는 Azure Resource Manager를 API로 사용합니다. 다음 단계를 수행하는 경우 API를 대체하세요.
 

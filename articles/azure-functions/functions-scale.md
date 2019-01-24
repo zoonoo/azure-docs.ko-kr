@@ -13,19 +13,19 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1940908cc0120ed5a69ae6603ec101d020b0ef3f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 08897b2085c2a8f0eafb90b77486d60a0edce190
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722078"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359870"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 크기 조정 및 호스팅
 
 Azure Functions는 소비 계획 또는 Azure App Service 계획의 두 가지 모드로 실행됩니다. 소비 계획은 코드가 실행될 때 계산 능력을 자동으로 할당합니다. 로드를 처리해야 하는 경우 앱이 규모 확장되고 코드가 실행되지 않을 때는 규모 축소됩니다. 유휴 VM에 대한 요금을 지불하고 용량을 미리 예약할 필요가 없습니다.
 
 > [!NOTE]  
-> [Linux 호스팅](functions-create-first-azure-function-azure-cli-linux.md)은 현재 App Service 계획에서만 사용할 수 있습니다.
+> Linux용 사용량 플랜은 [이제 공개 미리 보기](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/)로 제공됩니다.
 
 Azure Functions에 익숙하지 않으면 [Azure Functions 개요](functions-overview.md)를 참조하세요.
 

@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: f09b9a93956c9d23e17c742c5f6ec4730591933b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 365b15f11409f985b71c9bba4372552321f162f2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302316"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212552"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 테이블 디자인
 
@@ -103,7 +103,7 @@ SQL Data Warehouse의 기본 기능은 60개의 [분산](massively-parallel-proc
 ## <a name="columnstore-indexes"></a>Columnstore 인덱스
 기본적으로 SQL Data Warehouse는 테이블을 클러스터형 columnstore 인덱스로 저장합니다. 이러한 형태의 데이터 저장소는 대형 테이블에서 데이터 압축률과 쿼리 성능이 높습니다.  일반적으로 클러스터형 columnstore 인덱스가 가장 좋은 옵션이지만 클러스터형 인덱스 또는 힙이 적절한 저장소 구조인 경우도 있습니다.
 
-columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/relational-databases/indexes/columnstore-indexes-whats-new)을 참조하세요. columnstore 인덱스 성능을 향상하려면 [columnstore 인덱스의 행 그룹 품질 최대화](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)를 참조하세요.
+columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/relational-databases/indexes/columnstore-indexes-what-s-new)을 참조하세요. columnstore 인덱스 성능을 향상하려면 [columnstore 인덱스의 행 그룹 품질 최대화](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)를 참조하세요.
 
 ## <a name="statistics"></a>통계
 쿼리 최적화 프로그램은 쿼리 실행 계획을 만들 때 열 수준 통계를 사용합니다. 쿼리 성능을 향상하려면 개별 열, 특히 쿼리 조인에 사용되는 열에 대한 통계를 만드는 것이 중요합니다. 통계 생성 및 업데이트는 자동으로 수행되지 않습니다. 테이블을 만든 후 [통계를 생성](/sql/t-sql/statements/create-statistics-transact-sql)합니다. 많은 행을 추가하거나 변경한 후에는 통계를 업데이트합니다. 예를 들어 로드 후 통계를 업데이트합니다. 자세한 내용은 [통계 가이드](sql-data-warehouse-tables-statistics.md)를 참조하세요.
@@ -133,7 +133,7 @@ SQL Data Warehouse는 다른 데이터베이스에서 제공하는 테이블 기
 - [인덱싱된 뷰](/sql/relational-databases/views/create-indexed-views)
 - [시퀀스](/sql/t-sql/statements/create-sequence-transact-sql)
 - [스파스 열](/sql/relational-databases/tables/use-sparse-columns)
-- [대리 키](). [ID](sql-data-warehouse-tables-identity.md)로 구현합니다.
+- 서로게이트 키. [ID](sql-data-warehouse-tables-identity.md)로 구현합니다.
 - [동의어](/sql/t-sql/statements/create-synonym-transact-sql)
 - [트리거](/sql/t-sql/statements/create-trigger-transact-sql)
 - [고유 인덱스](/sql/t-sql/statements/create-index-transact-sql)

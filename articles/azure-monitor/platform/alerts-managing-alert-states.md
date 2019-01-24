@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: 88601383df5015f9ea23184d65266974bb0f35e1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.subservice: alerts
+ms.openlocfilehash: 2aa521b0552b60e5a875a5f46ab9887c6e5b6e3e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345360"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472061"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>경고 및 스마트 그룹 상태 관리
 Azure Monitor의 경고에는 이제 [경고 상태 및 모니터 조건](https://aka.ms/azure-alerts-overview)이 있으며, 이와 유사하게 스마트 그룹에는 [스마트 그룹 상태](https://aka.ms/smart-groups)가 있습니다. 이제 상태 변경 사항은 각각의 경고 또는 스마트 그룹과 연관된 히스토리에 캡처됩니다. 이 문서에서는 경고 및 스마트 그룹 모두에 대한 상태 변경 프로세스를 단계별로 안내합니다.
@@ -47,3 +47,4 @@ Azure Monitor의 경고에는 이제 [경고 상태 및 모니터 조건](https:
 
 1. 완료되면 상태 변경이 각 스마트 그룹의 히스토리에 기록됩니다. 이 내용은 각 [세부사항] 페이지를 열고 히스토리 섹션을 확인하여 볼 수 있습니다.     
 ![모니터링](./media/alerts-managing-alert-states/state-sg-history.jpg)
+

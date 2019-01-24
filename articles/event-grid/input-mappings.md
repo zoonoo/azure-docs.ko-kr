@@ -2,18 +2,18 @@
 title: Azure Event Grid 스키마에 사용자 지정 필드 매핑
 description: 사용자 지정 스키마를 Azure Event Grid 스키마로 변환하는 방법을 설명합니다.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: tomfitz
-ms.openlocfilehash: de509ab4fa3eb4dcc647877ed6d6ee0f114fb6f4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.date: 01/07/2019
+ms.author: spelluru
+ms.openlocfilehash: 2c768790421ac74fa483877f09e66b1b4b5d5f35
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090276"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476617"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Event Grid 스키마에 사용자 지정 필드 매핑
 

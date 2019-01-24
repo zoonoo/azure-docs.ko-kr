@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 1e5fcbee664271058ac1c7fa80bb285e09b8579a
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 38852e80948f9937ce2711ee3d29d6a37e1da5c3
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
-ms.locfileid: "27862199"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428582"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Azure Automation을 사용하여 작업 트리거
 
@@ -34,7 +34,7 @@ ms.locfileid: "27862199"
 
 시작하기 전에 다음 항목이 있어야 합니다.
 
-*   클라이언트 컴퓨터에 설치된 Azure PowerShell. [Azure Powershell을 다운로드합니다](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+*   클라이언트 컴퓨터에 설치된 Azure PowerShell. [Azure Powershell을 다운로드합니다](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 *   리소스 그룹 내의 StorSimple 데이터 관리자 서비스에서 올바르게 구성된 작업 정의.
 *   Github 리포지토리에서 [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) 파일을 다운로드합니다. 
 *   Github 리포지토리에서 [`Trigger-DataTransformation-Job.ps1`스크립트](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1)를 다운로드합니다.

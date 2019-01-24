@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 84e56610cb0f9090d8cacc461a73bf41d05f2251
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2bb3665f0d0ab15f212741a6ce032fcd7ac2620d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033488"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358116"
 ---
 # <a name="ip-firewall-for-azure-cosmos-accounts"></a>Azure Cosmos 계정에 대한 IP 방화벽
 
@@ -19,7 +19,7 @@ ms.locfileid: "54033488"
 
 ## <a id="ip-access-control-overview"></a>IP 액세스 제어 개요
 
-기본적으로 요청에 유효한 권한 부여 토큰이 포함되어 있으면 인터넷에서 Azure Cosmos 계정에 액세스할 수 있습니다. IP 정책 기반 액세스 제어를 구성하려면 사용자가 지정된 Azure Cosmos 계정에 액세스하도록 허용된 클라이언트 IP 목록으로 포함할 IP 주소 또는 IP 주소 범위 집합을 CIDR(Classless Inter-Domain Routing) 형식으로 제공해야 합니다. 이 구성이 적용되면 이 허용되는 목록 이외의 머신에서 보내는 모든 요청은 404(찾을 수 없음) 응답을 받습니다. IP 방화벽을 사용하는 경우 계정에 액세스하려면 Azure Portal을 허용하는 것이 좋습니다. 데이터 탐색기를 사용하고 Azure Portal에 표시되는 계정에 대한 메트릭을 검색하려면 액세스 권한이 필요합니다.
+기본적으로 요청에 유효한 권한 부여 토큰이 포함되어 있으면 인터넷에서 Azure Cosmos 계정에 액세스할 수 있습니다. IP 정책 기반 액세스 제어를 구성하려면 사용자가 지정된 Azure Cosmos 계정에 액세스하도록 허용된 클라이언트 IP 목록으로 포함할 IP 주소 또는 IP 주소 범위 집합을 CIDR(Classless Inter-Domain Routing) 형식으로 제공해야 합니다. 이 구성이 적용되면 이 허용되는 목록 이외의 머신에서 보내는 모든 요청은 403(금지됨) 응답을 받습니다. IP 방화벽을 사용하는 경우 계정에 액세스하려면 Azure Portal을 허용하는 것이 좋습니다. 데이터 탐색기를 사용하고 Azure Portal에 표시되는 계정에 대한 메트릭을 검색하려면 액세스 권한이 필요합니다.
 
 서브넷 및 VNET 액세스 제어를 사용하여 IP 기반 방화벽을 결합할 수 있습니다. 결합하면 공용 IP가 있는 모든 원본에 대한 액세스 및/또는 VNET 내 특정 서브넷으로부터의 액세스를 제한할 수 있습니다. 서브넷 및 VNET 기반 액세스 제어 사용에 대해 자세히 알아보려면 [가상 네트워크에서 Azure Cosmos DB 리소스에 액세스](vnet-service-endpoint.md)를 참조하세요.
 

@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 2480aa92dec8d8e8879db813b1cfcddc26f77b7e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: e1cb588d68153a88d8b55b2696b376c4eb8704f5
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792529"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199283"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Azure IoT(사물 인터넷)란?
 
@@ -34,6 +34,8 @@ IoT 솔루션의 주요 구성 요소는 디바이스, 백 엔드 서비스 및 
 * 방의 감지 센서
 
 프로토타입 생성에 자주 사용되는 두 디바이스는 Microsoft와 Raspberry PI 디바이스의 기본 MX Chip IoT DevKit입니다. MX Chip DevKit에는 온도, 압력, 습도뿐만 아니라 자이로스코프, 가속도계, 자기계 및 Wi-Fi 칩에 기본 제공되는 센서가 있습니다. Raspberry PI는 다양한 종류의 센서를 부착할 수 있는 IoT 디바이스이므로 시나리오에 필요한 것을 정확히 선택할 수 있습니다. 
+
+사용 가능한 IoT 디바이스에 대한 자세한 내용은 업계 최대의 [IoT용 Certified 디바이스 카탈로그](https://catalog.azureiotsolutions.com/alldevices)를 확인하세요.
 
 [IoT 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하면 디바이스에서 실행되는 애플리케이션을 구축하여 필요한 작업을 수행할 수 있습니다. SDK를 통해 원격 분석 데이터를 IoT Hub로 보내고, IoT Hub에서 메시지 및 업데이트를 받을 수 있습니다.
 

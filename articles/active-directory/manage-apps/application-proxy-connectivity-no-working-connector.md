@@ -4,7 +4,7 @@ description: Azure AD 애플리케이션 프록시를 사용하는 애플리케�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: baaf7bbb83ff600045e95cd16206fbfff9fce1c5
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 6e4f481ccefd8f583c197fc367419a4e6aaf8a5d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356071"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464445"
 ---
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션에 대해 작동하는 커넥터 그룹 없음
 
@@ -68,6 +68,6 @@ ms.locfileid: "44356071"
 이 문제를 조사하는 방법에 대한 자세한 내용은 포트 문제 해결 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-connectors.md)
+[Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)
 
 

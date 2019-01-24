@@ -1,7 +1,7 @@
 ---
 title: Bing Image Search API v5에서 v7로 업그레이드
 titleSuffix: Azure Cognitive Services
-description: 이 업그레이드 가이드는 Bing Image Search API의 버전 5와 버전 7 사이의 변경 내용을 설명합니다. 이 가이드를 통해 버전 7을 사용하려면 업데이트해야 하는 응용 프로그램 파트를 식별할 수 있습니다.
+description: 이 업그레이드 가이드는 Bing Image Search API의 버전 5와 버전 7 사이의 변경 내용을 설명합니다. 이 가이드를 사용하면 버전 7을 사용하도록 업데이트해야 하는 애플리케이션의 부분을 식별하는 데 유용합니다.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -11,16 +11,16 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 2192e3d2a344a31717c59c813123ed0c807a2841
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c62ed151e1b09482c227f59ee5264de01d425255
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256556"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477818"
 ---
 # <a name="bing-image-search-api-upgrade-guide"></a>Bing Image Search API 업그레이드 가이드
 
-이 업그레이드 가이드는 Bing Image Search API의 버전 5와 버전 7 사이의 변경 내용을 식별합니다. 이 가이드를 통해 버전 7을 사용하려면 업데이트해야 하는 응용 프로그램 파트를 식별할 수 있습니다.
+이 업그레이드 가이드는 Bing Image Search API의 버전 5와 버전 7 사이의 변경 내용을 식별합니다. 이 가이드를 사용하면 버전 7을 사용하도록 업데이트해야 하는 애플리케이션의 부분을 식별하는 데 유용합니다.
 
 ## <a name="breaking-changes"></a>주요 변경 내용
 
@@ -74,9 +74,9 @@ Blocked|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>쿼리 매개 변수
 
-- `modulesRequested` 쿼리 매개 변수의 이름을 [모듈](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modules)로 변경했습니다.  
+- `modulesRequested` 쿼리 매개 변수의 이름을 [모듈](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)로 변경했습니다.  
 
-- Annotations의 이름을 Tags로 변경했습니다. Tags에 대한 [모듈](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modules) 쿼리 매개 변수를 참조하세요.  
+- Annotations의 이름을 Tags로 변경했습니다. Tags에 대한 [모듈](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) 쿼리 매개 변수를 참조하세요.  
 
 - ShoppingSources 필터 값의 지원되는 시장 목록을 en-US만으로 변경했습니다. [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype)을 참조하세요.  
 
@@ -98,7 +98,7 @@ Blocked|InvalidRequest.Blocked
 - 다음 쿼리 매개 변수는 이제 `/images/details` 엔드포인트와만 유효합니다.  
 
     -   [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken)  
-    -   [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modules)  
+    -   [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)  
     -   [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imgurl)  
     -   [cab](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cab)  
     -   [cal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal)  

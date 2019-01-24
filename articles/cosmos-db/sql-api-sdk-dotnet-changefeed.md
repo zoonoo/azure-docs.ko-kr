@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: f7c8313e6216f10dccdfbb298bbf02036e21c138
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 03862f88bb5debc66940ebae5308771525f51b0b
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043008"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351649"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ ms.locfileid: "54043008"
 * Microsoft.Azure.DocumentDB SDK 2.0을 지원합니다. Microsoft.Azure.DocumentDB 2.0 이상이 필요합니다.
 
 ### <a name="a-name206206"></a><a name="2.0.6"/>2.0.6
-* v1을 사용하여 호환성에 대한 ChangeFeedEventHost.HostName 공용 속성이 추가되었습니다.
+* v1과의 호환성에 대한 ChangeFeedEventHost.HostName 공용 속성이 추가되었습니다.
 
 ### <a name="a-name205205"></a><a name="2.0.5"/>2.0.5
 * 파티션 분할 동안 발생하는 경쟁 조건을 수정했습니다. 파티션을 분할하는 동안 경쟁 조건이 임대 획득으로 이어지고 즉시 손실되어 경합을 초래할 수 있습니다. 경쟁 조건 문제는 이 릴리스에서 해결되었습니다.

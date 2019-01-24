@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 5e83eb46a4d62c6aaf0862d4bb1aa046c5d64dde
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 02780a9e9702a41f677595d74b9861ea6a51b572
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120516"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260438"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>자습서: Azure Data Box Gateway(미리 보기)에 연결하고, 설정하고, 활성화 
 
@@ -94,7 +94,7 @@ Data Box Gateway를 구성하고 설정하기 전에 다음 사항을 확인합�
    
    **웹 프록시** 페이지에서:
    
-   1. 다음 형식으로 **웹 프록시 URL** 공급: *http://&lt;호스트 IP 주소 또는 FDQN&gt;:포트 번호*. HTTPS URL은 지원되지 않습니다.
+   1. **웹 프록시 URL**을 *http://&lt;호스트 IP 주소 또는 FQDN&gt;:포트 번호* 형식으로 입력합니다. HTTPS URL은 지원되지 않습니다.
    2. **인증**은 **기본** 또는 **없음**으로 지정합니다.
    3. 인증을 사용하는 경우 **사용자 이름** 및 **암호**를 입력해야 합니다.
    4. **적용**을 클릭합니다. 구성된 웹 프록시 설정의 유효성을 검사하고 적용합니다.

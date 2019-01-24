@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 사용자 인터페이스를 사용자 지정하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1c2f7b46daf7b96d3a6f47dac647d5ed90461e8e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 738e4a4f94d86fc3a1acbb2e43c5b1974d6abac2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156258"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849272"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션의 사용자 인터페이스 사용자 지정
 
@@ -53,12 +53,12 @@ ms.locfileid: "54156258"
 
 2. 복사한 코드 조각을 텍스트 편집기에 붙여넣은 다음 *customize-ui.html*이라는 파일로 저장합니다.
 
-## <a name="create-an-azure-blob-storage-account"></a>Azure Blob 저장소 계정 만들기
+## <a name="create-an-azure-blob-storage-account"></a>Azure Blob Storage 계정 만들기
 
 >[!NOTE]
-> 이 가이드에서는 Azure Blob 저장소를 사용하여 콘텐츠를 호스팅합니다. 웹 서버에서 콘텐츠를 호스팅하도록 선택할 수 있지만 [웹 서버에서 CORS를 사용하도록 설정](https://enable-cors.org/server.html)(영문)해야 합니다.
+> 이 가이드에서는 Azure Blob Storage를 사용하여 콘텐츠를 호스팅합니다. 웹 서버에서 콘텐츠를 호스팅하도록 선택할 수 있지만 [웹 서버에서 CORS를 사용하도록 설정](https://enable-cors.org/server.html)(영문)해야 합니다.
 
-Blob 저장소에서 이 HTML 콘텐츠를 호스팅하려면 다음을 수행합니다.
+Blob Storage에서 이 HTML 콘텐츠를 호스팅하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **허브** 메뉴에서 **새로 만들기** > **저장소** > **저장소 계정**을 차례로 선택합니다.
@@ -77,7 +77,7 @@ Blob 저장소에서 이 HTML 콘텐츠를 호스팅하려면 다음을 수행�
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
-Blob 저장소에 공용 컨테이너를 만들려면 다음을 수행합니다.
+Blob Storage에 공용 컨테이너를 만들려면 다음을 수행합니다.
 
 1. **개요** 탭을 클릭합니다.
 2. **컨테이너**를 클릭합니다.
@@ -94,7 +94,7 @@ Blob 저장소에 공용 컨테이너를 만들려면 다음을 수행합니다.
 
 ## <a name="configure-cors"></a>CORS 구성
 
-다음을 수행하여 CORS(원본 간 리소스 공유)에 Blob 저장소를 구성합니다.
+다음을 수행하여 CORS(원본 간 리소스 공유)에 Blob Storage를 구성합니다.
 
 1. 메뉴에서 **CORS**를 선택합니다.
 2. **허용된 원본**에 `your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예: `fabrikam.b2clogin.com` 테넌트 이름을 입력할 때는 모두 소문자를 사용해야 합니다.

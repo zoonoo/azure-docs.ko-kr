@@ -3,19 +3,19 @@ title: 'Azure AD Connect: ADConnectivityTool PowerShell 모듈이란? | Microsof
 description: 이 문서에서는 새 ADConnectivity PowerShell 모듈을 소개합니다.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e6f85d327fff1ee32dca6dfb2231b28e6dc96c61
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 537fc7a6e0a68281ae190db5ec7fef65e413bcbe
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965638"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475886"
 ---
 # <a name="what-is-the-adconnectivitytool-powershell-module"></a>ADConnectivityTool PowerShell 모듈이란?
 

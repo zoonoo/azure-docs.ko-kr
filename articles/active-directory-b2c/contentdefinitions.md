@@ -3,19 +3,19 @@ title: ContentDefinitions - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책의 ContentDefinitions 요소를 지정합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f51b058b14525cc5a4af312696330a3a39ea44e1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 1fa5688b5895ed7418161234f6af06fecace631c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44383168"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849382"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -63,11 +63,11 @@ ms.locfileid: "44383168"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Id | yes | 콘텐츠 정의의 식별자입니다. 값은 이 페이지의 뒷부분에 있는 **콘텐츠 정의 ID** 섹션에서 지정된 값입니다. |
+| Id | 예 | 콘텐츠 정의의 식별자입니다. 값은 이 페이지의 뒷부분에 있는 **콘텐츠 정의 ID** 섹션에서 지정된 값입니다. |
 
 **ContentDefinition** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | 콘텐츠 정의에 대한 HTML5 페이지의 URL을 포함하는 문자열입니다. |
 | RecoveryUri | 0:1 | 콘텐츠 정의와 관련된 오류를 표시하기 위한 HTML 페이지의 URL을 포함하는 문자열입니다. | 
@@ -93,7 +93,7 @@ ms.locfileid: "44383168"
 
 **LocalizedResourcesReferences** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | LocalizedResourcesReference | 1:n | 콘텐츠 정의에 대한 지역화된 리소스 참조 목록입니다. | 
 
@@ -101,8 +101,8 @@ ms.locfileid: "44383168"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 언어 | yes | RFC 5646 - 언어 식별 태그를 기준으로 정책에 대해 지원되는 언어를 포함하는 문자열입니다. |
-| LocalizedResourcesReferenceId | yes | **LocalizedResources** 요소의 식별자입니다. |
+| 언어 | 예 | RFC 5646 - 언어 식별 태그를 기준으로 정책에 대해 지원되는 언어를 포함하는 문자열입니다. |
+| LocalizedResourcesReferenceId | 예 | **LocalizedResources** 요소의 식별자입니다. |
 
 다음 예제는 등록 또는 로그인 콘텐츠 정의를 보여 줍니다.
 

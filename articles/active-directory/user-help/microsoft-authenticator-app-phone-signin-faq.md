@@ -3,7 +3,7 @@ title: Microsoft Authenticator 휴대폰 로그인 - Azure 및 Microsoft 계정 
 description: 암호를 입력하는 대신 휴대폰을 사용하여 Microsoft 계정에 로그인합니다. 이 문서에서는 이 기능에 대한 FAQ를 제공합니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: user-help
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/12/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 3df4be80e1a979590a05ff10601485e950de54bd
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 39ad9beeb6e562a4487588967910efaf0cbe4d84
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962220"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822538"
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>암호가 아닌 휴대폰을 사용하여 로그인
 Microsoft Authenticator 앱을 통해 암호를 입력한 후 2단계 인증을 수행하여 계정 보안을 유지할 수 있을 뿐 아니라 이제는 Microsoft 계정을 완전히 대신할 수 있습니다.

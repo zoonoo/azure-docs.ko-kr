@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 51c0fefc0d18127da1f5fc513b493407510a071b
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 4bae38b7596504d8de452e445c05e1c973aba78a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994439"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354604"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Monitor의 Azure Storage 메트릭
 
@@ -288,7 +288,7 @@ Blob, 테이블, 파일 또는 큐에 대한 메트릭 정의를 나열하려면
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 `
 
-저장소는 Azure Monitor를 통해 저장소 계정 수준 및 서비스 수준에서 모두 메트릭을 제공합니다. 예를 들어 Blob 저장소에 대해서만 메트릭을 검색할 수 있습니다. 각 수준에는 해당 수준에 대해서만 메트릭을 검색하는 데 사용하는 자체 리소스 ID가 있습니다.
+저장소는 Azure Monitor를 통해 저장소 계정 수준 및 서비스 수준에서 모두 메트릭을 제공합니다. 예를 들어 Blob Storage에 대해서만 메트릭을 검색할 수 있습니다. 각 수준에는 해당 수준에 대해서만 메트릭을 검색하는 데 사용하는 자체 리소스 ID가 있습니다.
 
 ### <a name="resource-id-for-a-storage-account"></a>저장소 계정에 대한 리소스 ID
 
@@ -332,29 +332,30 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-| UsedCapacity | 저장소 계정에서 사용한 저장소 양입니다. 표준 저장소 계정의 경우 이는 Blob, 테이블, 파일 및 큐에서 사용한 용량의 합계입니다. 프리미엄 저장소 계정 및 Blob 저장소 계정의 경우 BlobCapacity와 같습니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
+| UsedCapacity | 저장소 계정에서 사용한 저장소 양입니다. 표준 저장소 계정의 경우 이는 Blob, 테이블, 파일 및 큐에서 사용한 용량의 합계입니다. Premium Storage 계정 및 Blob Storage 계정의 경우 BlobCapacity와 같습니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 
-### <a name="blob-storage"></a>Blob 저장소
+### <a name="blob-storage"></a>Blob Storage
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-| BlobCapacity | 저장소 계정에 사용한 Blob 저장소의 총계입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 <br/> 차원: BlobType([정의](#metrics-dimensions)) |
+| BlobCapacity | 스토리지 계정에 사용한 Blob Storage의 총계입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 <br/> 차원: BlobType([정의](#metrics-dimensions)) |
 | BlobCount    | 저장소 계정에 저장된 Blob 개체 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 <br/> 차원: BlobType([정의](#metrics-dimensions)) |
 | ContainerCount    | 저장소 계정의 컨테이너 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
+| IndexCapacity     | ADLS Gen2 계층적 인덱스에 사용한 스토리지 양입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 
-### <a name="table-storage"></a>테이블 저장소
+### <a name="table-storage"></a>Table Storage
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-| TableCapacity | 저장소 계정에 사용한 테이블 저장소 양입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
+| TableCapacity | 스토리지 계정에 사용한 Table Storage 양입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 | TableCount   | 저장소 계정의 테이블 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 | TableEntityCount | 저장소 계정의 테이블 엔터티 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 
-### <a name="queue-storage"></a>큐 저장소
+### <a name="queue-storage"></a>Queue Storage
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-| QueueCapacity | 저장소 계정에 사용한 큐 저장소 양입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
+| QueueCapacity | 스토리지 계정에 사용한 Queue Storage 양입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 | QueueCount   | 저장소 계정의 큐 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 | QueueMessageCount | 저장소 계정의 만료되지 않은 큐 메시지 수입니다. <br/><br/>단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 
@@ -362,13 +363,13 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-| FileCapacity | 저장소 계정에 사용한 파일 저장소 양입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
+| FileCapacity | 스토리지 계정에 사용한 File Storage 양입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 | FileCount   | 저장소 계정의 파일 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 | FileShareCount | 저장소 계정의 파일 공유 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 
 ## <a name="transaction-metrics"></a>트랜잭션 메트릭
 
-트랜잭션 메트릭은 매 분마다 Azure Storage에서 Azure Monitor로 전송됩니다. 모든 트랜잭션 메트릭은 계정 수준과 서비스 수준에서 모두 사용할 수 있습니다(Blob 저장소, 테이블 저장소, Azure 파일 및 큐 저장소). 시간 조직은 메트릭 값이 표시되는 시간 간격을 정의합니다. 모든 트랜잭션 메트릭에 대해 지원되는 시간 조직은 PT1H 및 PT1M입니다.
+트랜잭션 메트릭은 스토리지 계정에 대한 모든 요청이 있을 때 Azure Storage에서 Azure Monitor로 내보내집니다. 스토리지 계정에 작업이 없는 경우 해당 기간에 트랜잭션 메트릭에도 데이터가 없습니다. 모든 트랜잭션 메트릭은 계정 수준과 서비스 수준에서 모두 사용할 수 있습니다(Blob Storage, Table Storage, Azure 파일 및 Queue Storage). 시간 조직은 메트릭 값이 표시되는 시간 간격을 정의합니다. 모든 트랜잭션 메트릭에 대해 지원되는 시간 조직은 PT1H 및 PT1M입니다.
 
 Azure Storage는 Azure Monitor에서 다음과 같은 트랜잭션 메트릭을 제공합니다.
 

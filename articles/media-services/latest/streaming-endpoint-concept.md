@@ -9,20 +9,26 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: 8f3bcc3c631f17880c66e482234effcc4ea6424d
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: e286617897ecc9201c3880affd0a974f7330305a
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744553"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359641"
 ---
 # <a name="streaming-endpoints"></a>스트리밍 엔드포인트
 
 Microsoft AMS(Azure Media Services)에서 [스트리밍 엔드포인트](https://docs.microsoft.com/rest/api/media/streamingendpoints) 엔터티는 추가 배포를 위해 CDN(Content Delivery Network) 또는 클라이언트 플레이어 애플리케이션에 직접 콘텐츠를 배달할 수 있는 스트리밍 서비스를 나타냅니다. 스트리밍 엔드포인트 서비스의 아웃 바운드 스트림은 라이브 스트림 또는 Media Services 계정에 주문형 비디오 자산이 될 수 있습니다. Media Services 계정을 만들 경우 **기본** 스트리밍 엔드포인트가 중지됨 상태로 만들어집니다. **기본** 스트리밍 엔드포인트는 삭제할 수 없습니다. 계정에서 추가 스트리밍 엔드포인트를 만들 수 있습니다. 비디오 스트리밍을 시작하려면 비디오를 스트리밍하려는 스트리밍 엔드포인트를 시작해야 합니다. 
 
-## <a name="streamingendpoint-types"></a>StreamingEndpoint 유형  
+## <a name="naming-convention"></a>명명 규칙
+
+기본 엔드포인트: `{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+
+추가 엔드포인트: `{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+
+## <a name="types"></a>형식  
 
 **StreamingEndpoint** 유형으로는 **표준** 및 **프리미엄** 두 가지가 있습니다. 이러한 유형은 스트리밍 엔드포인트에 할당하는 배율 단위(`scaleUnits`) 수로 정의됩니다. 
 
@@ -37,13 +43,16 @@ Microsoft AMS(Azure Media Services)에서 [스트리밍 엔드포인트](https:/
 
 대부분의 경우 CDN이 사용되도록 설정되어 있을 것입니다. 그러나 최대 동시성이 500명보다 적은 수의 독자로 예상될 경우 CDN이 동시성에 따라 가장 잘 확장되므로 CDN을 사용하지 않도록 설정하는 것이 좋습니다.
 
+> [!NOTE]
+> Streaming Endpoint `hostname` 및 스트리밍 URL은 CDN을 사용하도록 설정하는지 여부에 관계없이 동일하게 유지됩니다.
+
 ### <a name="detailed-explanation-of-how-caching-works"></a>캐싱 작동 방식에 대한 자세한 설명
 
 CDN 지원 스트리밍 엔드포인트에 필요한 대역폭 양이 다르므로 CDN을 추가할 때 구체적인 대역폭 값은 없습니다. 콘텐츠 형식, 인기 정도, 비트 전송률 및 프로토콜 유형에 따라 많은 영향을 받습니다. CDN은 요청되는 항목만 캐시합니다. 즉, 비디오 조각이 캐시되면, 인기 있는 콘텐츠가 CDN에서 직접 제공되는 것입니다. 일반적으로 많은 사람들이 정확히 동일한 것을 보게 하므로 라이브 콘텐츠는 캐시될 확률이 높습니다. 인기 있는 콘텐츠도 있고 그렇지 않은 콘텐츠도 있으므로 주문형 콘텐츠를 좀 더 까다로울 수 있습니다. 수백만 개의 비디오 자산이 있고 모두 인기가 없지만(1주일에 1명 또는 2명의 독자) 수천 명의 사람들이 모두 다른 비디오를 보는 경우 CDN이 훨씬 덜 효과적입니다. 이 캐시가 손실되면 스트리밍 엔드포인트에 대한 부하를 늘립니다.
  
 또한 적응 스트리밍의 작동 방식도 고려해야 합니다. 각 개별 비디오 조각은 자체 엔터티로 캐시됩니다. 예를 들어 특정 비디오가 처음 시청될 때 사용자가 여기저기를 이동하면서 몇 초 동안만 시청하게 되고, CDN에서 시청한 내용과 연결된 비디오 조각만 CDN에 캐시됩니다. 적응 스트리밍을 사용하면 비디오의 비트 전송률이 일반적으로 5~ 7 사이의 차이를 보입니다. 한 사람이 한 비트 전송률로 시청 중이고, 다른 사람이 다른 비트 전송률로 시청 중이면 CDN에서 각각 따로 캐시됩니다. 두 사람이 동일한 비트 전송률로 시청 중이면 다른 프로토콜을 통해 스트리밍할 수 있습니다. 각 프로토콜(HLS, MPEG DASH, 부드러운 스트리밍)은 별도로 캐시됩니다. 따라서 각 비트 전송률 및 프로토콜은 개별적으로 캐시되고, 요청된 비디오 조각만 캐시됩니다.
  
-## <a name="streamingendpoint-properties"></a>StreamingEndpoint 속성 
+## <a name="properties"></a>properties 
 
 이 섹션에서는 StreamingEndpoint의 속성 중 일부에 대한 자세히 설명합니다. 새 스트리밍 엔드포인트를 만드는 방법의 예제와 모든 속성에 대한 설명을 보려면 [스트리밍 엔드포인트](https://docs.microsoft.com/rest/api/media/streamingendpoints/create)를 참조하세요. 
 

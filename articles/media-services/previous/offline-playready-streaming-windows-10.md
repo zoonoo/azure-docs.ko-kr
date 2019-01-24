@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/30/2018
 ms.author: willzhan
-ms.openlocfilehash: 8a5aefe1bade27c2f71914b61b332d5583026081
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 75ed9a3c2a9f2c5418af5d024cfcf979e3552035
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53982009"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812049"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Windows 10에서 PlayReady 오프라인 스트리밍
 
@@ -43,7 +43,7 @@ Azure Media Services는 DRM 보호 기능을 사용하여 오프라인 다운로
  
 H264/AAC를 사용하는 부드러운 스트리밍([PIFF](http://go.microsoft.com/?linkid=9682897)) 파일 형식은 PlayReady(AES-128 CTR)와 바인딩되어 있습니다. 개별 부드러운 스트리밍 .ismv 파일(비디오에 오디오를 담은)은 그 자체가 fMP4이며 재생에 사용할 수 있습니다. 부드러운 스트리밍 콘텐츠가 PlayReady 암호화를 거칠 경우 각 .ismv 파일은 PlayReady 보호 조각난 MP4가 됩니다. 기본 비트 전송률을 사용하는 .ismv 파일을 선택하여 .mp4로 이름을 바꾸어 다운로드할 수 있습니다.
 
-점진적 다운로드 시 PlayReady 보호 MP4를 호스팅하는 데 두 가지 옵션이 있습니다.
+점진적 다운로드 시 PlayReady 보호 MP4를 호스트하는 데 두 가지 옵션이 있습니다.
 
 * 하나는 이 MP4를 동일한 컨테이너/미디어 서비스 자산에 배치하여 점진적 다운로드 시 Azure Media Services 스트리밍 엔드포인트를 활용할 수 있습니다.
 * 하나는 Azure Media Services를 바이패스하여 Azure Storage에서 바로 점진적 다운로드 시 SAS 로케이터를 사용할 수 있습니다.
@@ -57,7 +57,7 @@ H264/AAC를 사용하는 부드러운 스트리밍([PIFF](http://go.microsoft.co
 
 자산 #1:
 
-* 점진적 다운로드 URL: [http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4")
+* 점진적 다운로드 URL: [http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
 * PlayReady LA_URL(AMS): [https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
 
 자산 #2:
@@ -65,7 +65,7 @@ H264/AAC를 사용하는 부드러운 스트리밍([PIFF](http://go.microsoft.co
 * 점진적 다운로드 URL: [http://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
 * PlayReady LA_URL(온-프레미스): [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
 
-재생 테스트 시 Windows 10에서 Universal Windows Application을 사용했습니다. [Windows 10 유니버설 샘플](https://github.com/Microsoft/Windows-universal-samples)에는 [적응 스트리밍 샘플](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming)을 호출하는 기본 플레이어 샘플이 있습니다. 우리가 해야 할 일은 코드를 추가하여 다운로드한 비디오를 선택하여 적응 스트리밍 원본 대신에 해당 비디오를 원본으로 사용하는 것입니다. 변경 사항은 버튼 클릭 이벤트 처리기에 있습니다.
+재생 테스트 시 Windows 10에서 Universal Windows Application을 사용했습니다. [Windows 10 유니버설 샘플](https://github.com/Microsoft/Windows-universal-samples)에는 [적응 스트리밍 샘플](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming)을 호출하는 기본 플레이어 샘플이 있습니다. 우리가 해야 할 일은 코드를 추가하여 다운로드한 비디오를 선택하여 적응 스트리밍 원본 대신에 해당 비디오를 원본으로 사용하는 것입니다. 변경 사항은 단추 클릭 이벤트 처리기에 있습니다.
 
 ```csharp
 private async void LoadUri_Click(object sender, RoutedEventArgs e)

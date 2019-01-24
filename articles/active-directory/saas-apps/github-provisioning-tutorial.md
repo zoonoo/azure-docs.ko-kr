@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: cf66a257ef176ab6f8d58ab558d2582a811609a4
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 7d24e11a0361e5f01e688179680587131eedc01a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166560"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823813"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 GitHub 구성
 
@@ -40,7 +40,7 @@ ms.locfileid: "53166560"
 
 ## <a name="assigning-users-to-github"></a>GitHub에 사용자 할당
 
-Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 "할당된" 사용자 및 그룹만 동기화됩니다. 
+Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 “할당된” 사용자 및 그룹만 동기화됩니다. 
 
 프로비전 서비스를 구성하고 사용하도록 설정하기 전에 Azure AD에서 GitHub 앱에 액세스해야 하는 사용자를 나타내는 사용자 및/또는 그룹을 결정해야 합니다. 일단 결정되면 다음 지침에 따라 해당 사용자를 GitHub 앱에 할당할 수 있습니다.
 
@@ -64,7 +64,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 ### <a name="configure-automatic-user-account-provisioning-to-github-in-azure-ad"></a>Azure AD에서 GitHub에 자동 사용자 계정 프로비전 구성
 
 
-1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory > 엔터프라이즈 앱 > 모든 응용 프로그램** 섹션으로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; 모든 애플리케이션** 섹션으로 이동합니다.
 
 2. GitHub에 Single Sign-On을 이미 구성한 경우 검색 필드를 사용하여 GitHub 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **GitHub**를 검색합니다. 검색 결과에서 GitHub를 선택하여 애플리케이션 목록에 추가합니다.
 
@@ -104,7 +104,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 

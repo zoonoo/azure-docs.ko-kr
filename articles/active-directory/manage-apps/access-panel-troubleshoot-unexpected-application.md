@@ -4,7 +4,7 @@ description: 애플리케이션이 액세스 패널에 표시되는 문제 해�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewr: japere
-ms.openlocfilehash: 85e0eccf8ed30f5fc91bd892463fe6f1bd835d75
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: ac2bbe045e82611de927e69b6dac859460a016f1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355397"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461657"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>애플리케이션이 액세스 패널에 표시되는 방식
 
@@ -36,9 +36,9 @@ ms.locfileid: "44355397"
 
 사용자는 이전에 할당되었기 때문에 액세스 패널에 애플리케이션이 표시될 수 있습니다. 다음은 확인하는 몇 가지 방법입니다.
 
--   [사용자가 응용 프로그램에 할당되었는지 확인](#check-if-a-user-is-assigned-to-the-application)
+-   [사용자가 애플리케이션에 할당되었는지 확인](#check-if-a-user-is-assigned-to-the-application)
 
--   [사용자가 응용 프로그램과 관련된 라이센스가 있는지 확인](#check-if-a-user-is-under-a-license-related-to-the-application)
+-   [사용자가 애플리케이션과 관련된 라이센스가 있는지 확인](#check-if-a-user-is-under-a-license-related-to-the-application)
 
 
 ### <a name="check-if-a-user-is-assigned-to-the-application"></a>사용자가 애플리케이션에 할당되었는지 확인
@@ -53,9 +53,9 @@ ms.locfileid: "44355397"
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
+5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
-6.  문제의 응용 프로그램 이름을 **검색**합니다.
+6.  문제의 애플리케이션 이름을 **검색**합니다.
 
 7.  **사용자 및 그룹**을 클릭합니다.
 
@@ -153,4 +153,4 @@ ms.locfileid: "44355397"
 -   Fiddler 추적
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Active Directory로 응용 프로그램 관리](what-is-application-management.md)
+[Azure Active Directory로 애플리케이션 관리](what-is-application-management.md)

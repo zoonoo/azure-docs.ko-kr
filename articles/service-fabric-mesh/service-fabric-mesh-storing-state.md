@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric Mesh의 상태 저장소 옵션 | Microsoft Docs
-description: Azure Service Fabric Mesh에서 실행되는 Service Fabric Mesh 응용 프로그램에 상태를 안정적으로 저장하는 방법을 알아봅니다.
+description: Azure Service Fabric Mesh에서 실행되는 Service Fabric Mesh 애플리케이션에 상태를 안정적으로 저장하는 방법을 알아봅니다.
 services: service-fabric-mesh
 keywords: ''
 author: rwike77
@@ -9,18 +9,18 @@ ms.date: 11/27/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: ecdb36af786d96a5b343d11cd689642d59528445
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 81d9fc7babef7c1d14a0acc420d0c16c05b83215
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888537"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354334"
 ---
 # <a name="state-management-with-service-fabric"></a>Service Fabric을 사용한 상태 관리
 
 Service Fabric은 상태 저장소에 대한 다양한 옵션을 지원합니다. 상태 관리 패턴 및 Service Fabric의 개념적인 개요는 [Service Fabric 개념: 상태](/azure/service-fabric/service-fabric-concepts-state)를 참조하세요. 이러한 모든 동일한 개념은 Service Fabric Mesh 내부 또는 외부에서 서비스를 실행할지 여부에 관계없이 적용됩니다. 
 
-Service Fabric Mesh를 사용하면 새 응용 프로그램을 쉽게 배포하고 Azure에 호스트되는 기존 데이터 저장소에 연결할 수 있습니다. 원격 데이터베이스를 사용하는 것 외에도 서비스에 로컬 또는 원격 저장소가 필요한지 여부에 따라 다양한 데이터 저장 옵션이 있습니다. 
+Service Fabric Mesh를 사용하면 새 애플리케이션을 쉽게 배포하고 Azure에 호스트되는 기존 데이터 저장소에 연결할 수 있습니다. 원격 데이터베이스를 사용하는 것 외에도 서비스에 로컬 또는 원격 저장소가 필요한지 여부에 따라 다양한 데이터 저장 옵션이 있습니다. 
 
 ## <a name="volumes"></a>볼륨
 
@@ -30,7 +30,7 @@ Service Fabric Mesh를 사용하면 새 응용 프로그램을 쉽게 배포하�
 
 ### <a name="service-fabric-reliable-volume"></a>Service Fabric 신뢰할 수 있는 볼륨
 
-Service Fabric 신뢰할 수 있는 볼륨은 로컬 볼륨을 컨테이너에 탑재하는 데 사용된 Docker 볼륨 드라이버입니다. 읽기 및 쓰기는 로컬 작업이며 빠릅니다. 데이터는 보조 노드로 복제되어 가용성이 높습니다. 장애 조치(failover)도 빠릅니다. 컨테이너가 충돌하면 데이터의 복사본이 이미 있는 노드로 장애 조치됩니다. 예를 들어 [Service Fabric 신뢰할 수 있는 볼륨을 사용하여 앱을 배포하는 방법](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/counter)을 참조하세요.
+Service Fabric 신뢰할 수 있는 볼륨은 로컬 볼륨을 컨테이너에 탑재하는 데 사용된 Docker 볼륨 드라이버입니다. 읽기 및 쓰기는 로컬 작업이며 빠릅니다. 데이터는 보조 노드로 복제되어 가용성이 높습니다. 장애 조치(failover)도 빠릅니다. 컨테이너가 충돌하면 데이터의 복사본이 이미 있는 노드로 장애 조치됩니다. 예를 들어 [Service Fabric 신뢰할 수 있는 볼륨을 사용하여 앱을 배포하는 방법](service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md)을 참조하세요.
 
 ### <a name="azure-files-volume"></a>Azure Files 볼륨
 
@@ -38,6 +38,6 @@ Azure Files 볼륨은 Azure Files 공유를 컨테이너에 탑재하는 데 사
 
 ## <a name="next-steps"></a>다음 단계
 
-응용 프로그램 모델에 대한 자세한 내용은 [Service Fabric 리소스](service-fabric-mesh-service-fabric-resources.md)를 참조하세요.
+애플리케이션 모델에 대한 자세한 내용은 [Service Fabric 리소스](service-fabric-mesh-service-fabric-resources.md)를 참조하세요.
 
 [image3]: ./media/service-fabric-mesh-storing-state/volumes.png

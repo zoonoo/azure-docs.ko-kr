@@ -3,18 +3,18 @@ title: Azure Automation에 대한 PowerShell 워크플로 학습
 description: 이 문서는 PowerShell에 익숙한 작성자가 PowerShell과 PowerShell 워크플로 간의 중대한 차이와 Automation Runbook에 적용되는 개념을 빠르게 이해하도록 하기 위해 제공됩니다.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 12/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b60e1639a1c32763c4759720fe61b0e571fc9dd1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7ab6b387a28df06758e5e0c1ce197781fc4be3c5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437098"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436810"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Automation runbook에 대한 주요 Windows PowerShell 워크플로 개념 학습
 
@@ -296,3 +296,4 @@ workflow CreateTestVms
 ## <a name="next-steps"></a>다음 단계
 
 * PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)
+

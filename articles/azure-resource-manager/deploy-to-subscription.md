@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2018
+ms.date: 01/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5b8247533a8bf51017767aac3a04e47ce6348a60
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 542993d803282bbf62e2e401cab1968a656a8971
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435296"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352277"
 ---
 # <a name="create-resource-groups-and-resources-for-an-azure-subscription"></a>Azure 구독에 대한 리소스 그룹 및 리소스 만들기
 
@@ -289,7 +289,7 @@ New-AzureRmDeployment `
 }
 ```
 
-Azure 구독에 기본 제공 정책을 적용하려면 다음 Azure CLI 명령을 사용합니다. 이 예제에는 정책에 매개 변수가 없습니다.
+Azure 구독에 기본 제공 정책을 적용하려면 다음 Azure CLI 명령을 사용합니다.
 
 ```azurecli-interactive
 # Built-in policy that does not accept parameters
@@ -315,7 +315,7 @@ New-AzureRmDeployment `
   -policyName auditRGLocation
 ```
 
-Azure 구독에 기본 제공 정책을 적용하려면 다음 Azure CLI 명령을 사용합니다. 이 예제에는 정책에 매개 변수가 있습니다.
+Azure 구독에 기본 제공 정책을 적용하려면 다음 Azure CLI 명령을 사용합니다.
 
 ```azurecli-interactive
 # Built-in policy that accepts parameters
@@ -390,7 +390,7 @@ New-AzureRmDeployment `
 }
 ```
 
-구독에서 정책 정의를 만들고 구독에 적용하려면 다음 CLI 명령을 사용합니다.
+구독에서 정책 정의를 만들어 구독에 적용하려면 다음 CLI 명령을 사용합니다.
 
 ```azurecli-interactive
 az deployment create \
@@ -408,9 +408,9 @@ New-AzureRmDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
-## <a name="assign-role"></a>역할 할당
+## <a name="assign-role-at-subscription"></a>구독에서 역할 할당
 
-다음 예제는 사용자 또는 그룹에 역할을 할당합니다.
+다음 예에서는 구독의 사용자나 그룹에 역할을 할당합니다. 이 예에서는 할당 범위가 구독으로 자동 설정되므로 범위를 지정하지 않습니다.
 
 ```json
 {
@@ -468,6 +468,94 @@ New-AzureRmDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json `
   -roleDefinitionId $role.Id `
   -principalId $adgroup.Id
+```
+
+## <a name="assign-role-at-scope"></a>범위에서 역할 할당
+
+다음 구독 수준 템플릿은 구독 내의 리소스 그룹으로 범위가 지정된 사용자나 그룹에 역할을 할당합니다. 해당 범위는 배포 수준 이하여야 합니다. 구독에 배포를 한 다음 해당 구독 내의 리소스 그룹으로 범위가 지정된 역할 할당을 지정할 수 있습니다. 그러나 리소스 그룹에 배포를 한 다음 역할 할당 범위를 구독으로 지정할 수는 없습니다.
+
+범위에서 역할을 할당하려면 중첩 배포를 사용합니다. 리소스 그룹 이름은 배포 리소스의 속성과 역할 할당의 범위 속성에서 모두 지정됩니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "principalId": {
+            "type": "string"
+        },
+        "roleDefinitionId": {
+            "type": "string"
+        },
+        "rgName": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "assignRole",
+            "resourceGroup": "[parameters('rgName')]",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Authorization/roleAssignments",
+                            "name": "[guid(parameters('principalId'), deployment().name)]",
+                            "apiVersion": "2017-09-01",
+                            "properties": {
+                                "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
+                                "principalId": "[parameters('principalId')]",
+                                "scope": "[concat(subscription().id, '/resourceGroups/', parameters('rgName'))]"
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+구독의 역할에 Active Directory 그룹을 할당하려면 다음 Azure CLI 명령을 사용합니다.
+
+```azurecli-interactive
+# Get ID of the role you want to assign
+role=$(az role definition list --name Contributor --query [].name --output tsv)
+
+# Get ID of the AD group to assign the role to
+principalid=$(az ad group show --group demogroup --query objectId --output tsv)
+
+az deployment create \
+  -n demoRole \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json \
+  --parameters principalId=$principalid roleDefinitionId=$role rgName demoRg
+```
+
+PowerShell에서 이 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurepowershell-interactive
+$role = Get-AzureRmRoleDefinition -Name Contributor
+
+$adgroup = Get-AzureRmADGroup -DisplayName demogroup
+
+New-AzureRmDeployment `
+  -Name demoRole `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json `
+  -roleDefinitionId $role.Id `
+  -principalId $adgroup.Id `
+  -rgName demoRg
 ```
 
 ## <a name="next-steps"></a>다음 단계

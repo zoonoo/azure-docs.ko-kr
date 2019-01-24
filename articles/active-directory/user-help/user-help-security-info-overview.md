@@ -3,7 +3,7 @@ title: 보안 정보(미리 보기) 개요 - Azure Active Directory | Microsoft 
 description: 보안 정보를 설정하고 사용하는 방법을 알아봅니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 617c086ec78c84104fb2d72d34100a3130967399
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 1e55ad5c056bf76f8332ea84fa960b4482825bfe
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163297"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826159"
 ---
 # <a name="security-info-preview-overview"></a>보안 정보(미리 보기) 개요
 

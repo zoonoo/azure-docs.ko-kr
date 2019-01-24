@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 12/19/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 9cdad2f2e56d7c6dfdfb4a3d46a8094c8aead5ac
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: b78a7d0635dd1ce23f690e5bb37a1d56b5f91c09
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631569"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438935"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2-preview"></a>빅 데이터 분석 솔루션을 Azure Data Lake Storage Gen1에서 Azure Data Lake Storage Gen2로 업그레이드
 
@@ -96,7 +96,7 @@ Data Lake Storage Gen1에 있는 모든 기능을 Data Lake Storage Gen2에서 �
 | .NET SDK - 관리                  | [링크](https://docs.microsoft.com/dotnet/api/overview/azure/datalakestore/management?view=azure-dotnet)                                                                                                                                                                                                                 | *지원되지 않음*                                                      | *지금 사용 가능 -* [링크](https://docs.microsoft.com/rest/api/storageservices/operations-on-the-account--blob-service-)                                    |
 | .NET SDK - 파일 시스템                  | [링크](https://docs.microsoft.com/dotnet/api/overview/azure/datalakestore/client?view=azure-dotnet)                                                                                                                                                                                                                     | *아직 사용할 수 없음*                                                | *아직 사용할 수 없음*                                                                                                                                             |
 | Java SDK - 관리                  | [링크](https://docs.microsoft.com/java/api/overview/azure/datalakestore/management)                                                                                                                                                                                                                                     | *지원되지 않음*                                                      | *지금 사용 가능 –* [링크](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob?view=azure-java-stable)                                     |
-| Java SDK – 파일 시스템                  | [링크](https://docs.microsoft.com/java/api/overview/azure/datalakestore/client)                                                                                                                                                                                                                                         | *아직 사용할 수 없음*                                                | *아직 사용할 수 없음*                                                                                                                                             |
+| Java SDK – 파일 시스템                  | [링크](https://docs.microsoft.com/java/api/overview/azure/datalake)                                                                                                                                                                                                                                         | *아직 사용할 수 없음*                                                | *아직 사용할 수 없음*                                                                                                                                             |
 | Node.js - 관리                   | [링크](https://www.npmjs.com/package/azure-arm-datalake-store)                                                                                                                                                                                                                                                                | 지원되지 않음                                                      | *지금 사용 가능 -* [링크](http://azure.github.io/azure-storage-node/)                                                                                            |
 | Node.js - 파일 시스템                   | [링크](https://www.npmjs.com/package/azure-arm-datalake-store)                                                                                                                                                                                                                                                                | *아직 사용할 수 없음*                                                | *아직 사용할 수 없음*                                                                                                                                             |
 | Python - 관리                    | [링크](https://docs.microsoft.com/python/api/overview/azure/datalakestore/management?view=azure-python)                                                                                                                                                                                                                 | *지원되지 않음*                                                      | *지금 사용 가능 -* [링크](https://docs.microsoft.com/python/api/overview/azure/storage/management?view=azure-python)                                       |
@@ -276,7 +276,7 @@ Data Lake Storage Gen2 파일에 액세스하기 위한 URI 체계는 [여기](h
 
 ##### <a name="sdks"></a>SDK
 
-*업그레이드 준비 평가* 섹션에서 설명한 대로 SDK는 현재 사용할 수 없습니다. 애플리케이션을 통해 Data Lake Storage Gen2에 포팅하려면 지원되는 SDK를 사용할 수 있을 때까지 기다리는 것이 좋습니다.
+*업그레이드 준비 평가* 섹션에서 설명한 대로 SDK는 현재 사용할 수 없습니다. Data Lake Storage Gen2로 애플리케이션을 이동하려는 경우에는 지원되는 SDK를 사용할 수 있을 때까지 기다리는 것이 좋습니다.
 
 ##### <a name="powershell"></a>PowerShell
 

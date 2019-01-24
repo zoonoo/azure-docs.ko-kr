@@ -4,7 +4,7 @@ description: 테넌트에서 모든 애플리케이션을 보는 방법 및 엔�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: f6c18ce80e1c94ceac56bf188dcf62cc9ea94f7a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3b4d060acc60cae661af393416863b924dde26ca
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832805"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464139"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>내 애플리케이션 목록에 예기치 않은 애플리케이션
 
@@ -37,33 +37,33 @@ ms.locfileid: "52832805"
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
+5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
-6.  **모든 응용 프로그램 목록**의 맨 위에 있는 **필터** 컨트롤을 사용하도록 클릭합니다.
+6.  **모든 애플리케이션 목록**의 맨 위에 있는 **필터** 컨트롤을 사용하도록 클릭합니다.
 
-7.  **필터** 창에서 **표시** 옵션을 **모든 응용 프로그램**으로 설정합니다.
+7.  **필터** 창에서 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
 ## <a name="why-does-a-specific-application-appear-in-my-all-applications-list"></a>내 모든 애플리케이션 목록에 특정 애플리케이션이 나타나는 이유는 무엇입니까?
 
-**모든 응용 프로그램**으로 필터링한 경우 **모든 응용 프로그램** **목록**은 테넌트의 모든 서비스 주체 개체를 보여 줍니다. 서비스 주체 개체는 다양한 방법으로 이 목록에 나타날 수 있습니다.
+**모든 애플리케이션**으로 필터링한 경우 **모든 애플리케이션****목록**은 테넌트의 모든 서비스 주체 개체를 보여 줍니다. 서비스 주체 개체는 다양한 방법으로 이 목록에 나타날 수 있습니다.
 
 1.  다음을 포함하여 애플리케이션 갤러리에서 모든 애플리케이션을 추가하는 경우:
 
-   1. **Azure AD 갤러리 응용 프로그램** – Single Sign-On에 대해 Azure AD와 사전 통합된 응용 프로그램입니다.
+   1. **Azure AD 갤러리 애플리케이션** – Single Sign-On에 대해 Azure AD와 사전 통합된 애플리케이션입니다.
 
-   2. **응용 프로그램 프록시 응용 프로그램** – 외부로 보안 Single Sign-On을 제공하려는 온-프레미스 환경에서 실행 중인 응용 프로그램입니다.
+   2. **애플리케이션 프록시 애플리케이션** – 외부로 보안 Single Sign-On을 제공하려는 온-프레미스 환경에서 실행 중인 애플리케이션입니다.
 
-   3. **사용자 지정 개발된 응용 프로그램** – 조직에서 Azure AD 응용 프로그램 개발 플랫폼에서 개발하고자 하지만 아직 존재하지 않을 수 있는 응용 프로그램입니다.
+   3. **사용자 지정 개발된 애플리케이션** – 조직에서 Azure AD 애플리케이션 개발 플랫폼에서 개발하고자 하지만 아직 존재하지 않을 수 있는 애플리케이션입니다.
 
-   4. **비 갤러리 응용 프로그램** – 사용자의 응용 프로그램을 가져옵니다! 원하는 모든 웹 링크 또는 사용자 이름 및 암호 필드를 렌더링하는 모든 애플리케이션은 SAML 또는 OpenID Connect 프로토콜을 지원하거나 Single Sign-On에 대해 Azure AD와 통합하려는 SCIM을 지원합니다.
+   4. **비 갤러리 애플리케이션** – 사용자의 애플리케이션을 가져옵니다. 원하는 모든 웹 링크 또는 사용자 이름 및 암호 필드를 렌더링하는 모든 애플리케이션은 SAML 또는 OpenID Connect 프로토콜을 지원하거나 Single Sign-On에 대해 Azure AD와 통합하려는 SCIM을 지원합니다.
 
 2.  Azure Active Directory와 통합된 타<sup>사</sup> 애플리케이션에 등록하거나 로그인하는 경우. 한 가지 예로 [Smartsheet](https://app.smartsheet.com/b/home) 또는 [DocuSign](https://www.docusign.net/member/MemberLogin.aspx)이 있습니다.
 
-3.  [Microsoft Office 365](https://products.office.com/)와 같은 자사 응용 프로그램에 대한 라이선스를 사용자 또는 그룹에 등록 또는 추가하는 경우
+3.  [Microsoft Office 365](https://products.office.com/)와 같은 자사 애플리케이션에 대한 라이선스를 사용자 또는 그룹에 등록 또는 추가하는 경우
 
-4.  [응용 프로그램 레지스트리](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)를 사용하여 사용자 지정 개발된 응용 프로그램을 만들어 새 응용 프로그램 등록을 추가하는 경우
+4.  [애플리케이션 레지스트리](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)를 사용하여 사용자 지정 개발된 애플리케이션을 만들어 새 애플리케이션 등록을 추가하는 경우
 
-5.  [V2.0 응용 프로그램 레지스트리 포털](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration#visit-the-microsoft-app-registration-portal)을 사용하여 사용자 지정 개발된 응용 프로그램을 만들어 새 응용 프로그램 등록을 추가하는 경우
+5.  [V2.0 애플리케이션 레지스트리 포털](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration#visit-the-microsoft-app-registration-portal)을 사용하여 사용자 지정 개발된 애플리케이션을 만들어 새 애플리케이션 등록을 추가하는 경우
 
 6.  Visual Studio의 [ASP.net 인증 방법](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) 또는 [연결된 서비스](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)를 사용하여 개발 중인 애플리케이션을 추가하는 경우
 
@@ -87,7 +87,7 @@ ms.locfileid: "52832805"
 
 ## <a name="i-want-to-delete-an-application-entirely"></a>애플리케이션을 완전히 삭제하려는 경우
 
-**응용 프로그램을 삭제**하려면 다음 단계를 따릅니다.
+**애플리케이션을 삭제**하려면 다음 단계를 따릅니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
@@ -97,7 +97,7 @@ ms.locfileid: "52832805"
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
+5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
@@ -124,4 +124,4 @@ ms.locfileid: "52832805"
 6.  **사용자가 앱이 데이터에 액세스하도록 허용할 수 있음** 토글을 **아니요**로 설정하고 **저장** 단추를 클릭하여 모든 이후 사용자 동의 작업을 비활성화합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Active Directory로 응용 프로그램 관리](what-is-application-management.md)
+[Azure Active Directory로 애플리케이션 관리](what-is-application-management.md)

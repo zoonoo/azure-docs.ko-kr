@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 5a1883412a5285c4916c43a5c6ad81168096dd7f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 1e4c978a8767154fb6a1f9a822cb0dd8d1b8796e
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993543"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331030"
 ---
 # <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(사용되지 않음) Azure Container Service DC/OS 클러스터에서 컨테이너 부하 분산
 
@@ -97,7 +97,7 @@ az acs list --resource-group myResourceGroup --query "[0].agentPoolProfiles[0].f
 }
 ```
 
-DC/OS CLI를 사용하여 애플리케이션을 실행합니다. 기본적으로 Marathon은 개인 클러스터에 응용 프로그램을 배포합니다. 다시 말해서 위의 배포는 부하 분산 장치를 통해서만 액세스할 수 있으며, 이는 일반적으로 고객이 원하는 동작입니다.
+DC/OS CLI를 사용하여 애플리케이션을 실행합니다. 기본적으로 Marathon은 개인 클러스터에 애플리케이션을 배포합니다. 다시 말해서 위의 배포는 부하 분산 장치를 통해서만 액세스할 수 있으며, 이는 일반적으로 고객이 원하는 동작입니다.
 
 ```azurecli-interactive
 dcos marathon app add hello-web.json

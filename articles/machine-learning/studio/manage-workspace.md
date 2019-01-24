@@ -1,26 +1,7 @@
 ---
-title: Machine Learning Studio 작업 영역 관리 | Microsoft Docs
-description: Azure Machine Learning 작업 영역에 대한 액세스를 관리하고, ML API 웹 서비스를 배포 및 관리합니다.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: daf3d413-7a77-4beb-9a7a-6b4bdf717719
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/27/2017
-ms.openlocfilehash: 8c5dfd82a7bf0d1985869c8de4e3b313ef885947
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270776"
+제목: Machine Learning Studio 작업 영역 관리 titleSuffix: Azure Machine Learning Studio 설명: Azure Resource Manager 작업 영역에 대한 액세스 관리 및 ML API 웹 서비스 배포 및 관리 services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 02/27/2017
 ---
 # <a name="manage-an-azure-machine-learning-studio-workspace"></a>Azure Machine Learning Studio 작업 영역 관리
 
@@ -44,7 +25,7 @@ Azure Portal에서 작업 영역을 관리하려면:
 표준 리소스 관리 정보 및 사용할 수 있는 옵션 외에 다음을 수행할 수 있습니다.
 
 - **속성** 보기 - 이 페이지에는 작업 영역 및 리소스 정보가 표시됩니다. 이 작업 영역이 연결된 구독 및 리소스 그룹을 변경할 수 있습니다.
-- **저장소 키 다시 동기화** - 이 작업 영역은 Storage 계정에 대한 키를 유지 관리합니다. 저장소 계정이 키를 변경하면 **키 다시 동기화**를 클릭하여 작업 영역과 키를 동기화할 수 있습니다.
+- **스토리지 키 다시 동기화** - 이 작업 영역은 Storage 계정에 대한 키를 유지 관리합니다. 저장소 계정이 키를 변경하면 **키 다시 동기화**를 클릭하여 작업 영역과 키를 동기화할 수 있습니다.
 
 이 작업 영역과 연결된 웹 서비스를 관리하려면 Machine Learning 웹 서비스 포털을 사용하세요. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](manage-new-webservice.md)를 참조하세요.
 

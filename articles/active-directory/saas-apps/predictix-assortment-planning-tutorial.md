@@ -4,7 +4,7 @@ description: Azure Active Directory와 Predictix Assortment Planning 간에 Sing
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 37e686ff-f8e5-40b1-9d7e-f64b076917b7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 6040300b4cb569d0e78503d7e5a36507e79de67c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: bad26986d93aad8989265760347f14400e3dc79d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017443"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820328"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>자습서: Predictix Assortment Planning과 Azure Active Directory 통합
 
@@ -32,7 +32,7 @@ Predictix Assortment Planning을 Azure AD와 통합하면 다음과 같은 이�
 - 사용자가 해당 Azure AD 계정으로 Predictix Assortment Planning에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -64,15 +64,15 @@ Azure AD로 Predictix Assortment Planning 통합을 구성하려면 갤러리의
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
 1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
-1. 검색 상자에 **Predictix Assortment Planning**을 입력하고 결과 패널에서 **Predictix Assortment Planning**을 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에 **Predictix Assortment Planning**을 입력하고 결과 패널에서 **Predictix Assortment Planning**을 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Predictix Assortment Planning](./media/predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_addfromgallery.png)
 
@@ -94,11 +94,11 @@ Predictix Assortment Planning에서 Azure AD Single Sign-On을 구성하고 테�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Predictix Assortment Planning 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Predictix Assortment Planning 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Predictix Assortment Planning에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Predictix Assortment Planning** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Predictix Assortment Planning** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -144,7 +144,7 @@ Predictix Assortment Planning에서 Azure AD Single Sign-On을 구성하고 테�
 1. **Predictix Assortment Planning** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)**, **SAML 엔터티 ID**, **SAML Single Sign-On 서비스 URL** 및 **로그아웃 URL**을 [Predictix Assortment Planning 지원 팀](https://www.infor.com/support)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -199,7 +199,7 @@ Predictix Assortment Planning에서 Azure AD Single Sign-On을 구성하고 테�
 
 1. 애플리케이션 목록에서 **Predictix Assortment Planning**을 선택합니다.
 
-    ![응용 프로그램 목록에서 Predictix Assortment Planning 링크](./media/predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_app.png)  
+    ![애플리케이션 목록에서 Predictix Assortment Planning 링크](./media/predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_app.png)  
 
 1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -219,13 +219,13 @@ Predictix Assortment Planning에서 Azure AD Single Sign-On을 구성하고 테�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Predictix Assortment Planning 타일을 클릭하면 Predictix Assortment Planning 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Predictix Assortment Planning 타일을 클릭하면 Predictix Assortment Planning 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

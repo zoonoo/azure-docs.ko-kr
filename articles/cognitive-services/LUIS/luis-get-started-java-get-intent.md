@@ -8,14 +8,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c55721e803b85c536067a90019f75dd5aa0f7845
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3b50678691342b5b106a375e79380cb8cc1515e4
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085351"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855672"
 ---
 # <a name="quickstart-get-intent-using-java"></a>빠른 시작: Java를 사용하여 의도 가져오기
 
@@ -54,7 +54,7 @@ Java를 사용하여 이전 단계의 브라우저 창에서 본 것과 동일�
 
 3. `javac -cp ":lib/*" LuisGetRequest.java`를 사용하여 Java 프로그램을 컴파일합니다. 
 
-4. `java -cp ":lib/*" LuisGetRequest.java`키를 눌러 응용 프로그램을 실행합니다. 브라우저 창에서 앞서 본 것과 동일한 JSON을 표시합니다.
+4. `java -cp ":lib/*" LuisGetRequest.java`키를 눌러 애플리케이션을 실행합니다. 브라우저 창에서 앞서 본 것과 동일한 JSON을 표시합니다.
 
     ![콘솔 창에서는 LUIS의 JSON 결과를 표시합니다.](./media/luis-get-started-java-get-intent/console-turn-on.png)
     

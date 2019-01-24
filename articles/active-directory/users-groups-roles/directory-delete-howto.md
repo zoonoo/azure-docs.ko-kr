@@ -9,18 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 01/07/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: ab752799c9e64e47abe0200a26215f9e01c489f6
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 39682ac04b914809aec36f46889feb5c4b59af51
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139689"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243885"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Azure Active Directory 테넌트 삭제
+
 테넌트가 삭제되는 경우 테넌트에 포함된 모든 리소스도 삭제됩니다. 삭제하기 전에 연결된 리소스를 최소화하여 테넌트를 준비해야 합니다. Azure AD(Azure Active Directory) 전역 관리자만 포털에서 Azure AD 테넌트를 삭제할 수 있습니다.
 
 ## <a name="prepare-the-tenant-for-deletion"></a>삭제할 테넌트 준비
@@ -59,17 +60,17 @@ Azure Active Directory 테넌트를 구성한 경우, 조직에 대해 Azure Act
 활성(평가판의 경우 30일)  | 모두 데이터에 액세스할 수 있음    | <li>사용자는 Office 365 파일 또는 앱에 대한 일반 액세스 권한이 있음<li>관리자는 Office 365 관리 센터 및 리소스에 대한 일반 액세스 권한이 있음 
 만료됨(30일)   | 모두 데이터에 액세스할 수 있음    | <li>사용자는 Office 365 파일 또는 앱에 대한 일반 액세스 권한이 있음<li>관리자는 Office 365 관리 센터 및 리소스에 대한 일반 액세스 권한이 있음
 사용 안 함(30일) | 관리자만 데이터에 액세스할 수 있음  | <li>사용자가 Office 365 파일 또는 앱에 액세스할 수 없음<li>관리자는 Office 365 관리 센터에 액세스할 수 있지만 라이선스를 할당하거나 사용자를 업데이트할 수 없음
-프로비전 해제됨(사용 안 함으로 설정된 후 30일) | 데이터가 삭제됨(사용 중인 다른 서비스가 없는 경우 자동으로 삭제됨) | <li>사용자가 Office 365 파일 또는 앱에 액세스할 수 없음<li>관리자는 Office 365 관리 센터에 액세스하여 다른 구독을 구매하고 관리할 수 있음 
+프로비전 해제됨(사용 안 함으로 설정된 후 30일) | 데이터가 삭제됨(사용 중인 다른 서비스가 없는 경우 자동으로 삭제됨) | <li>사용자가 Office 365 파일 또는 앱에 액세스할 수 없음<li>관리자는 Office 365 관리 센터에 액세스하여 다른 구독을 구매하고 관리할 수 있음
 
 구독을 **프로비전 해제됨** 상태로 전환하면 비즈니스용 Microsoft Store 관리 센터를 사용하여 3일 내에 삭제할 수 있습니다. 이 기능은 Office 365 관리 센터에 곧 제공될 예정입니다.
 
 1. 테넌트의 전역 관리자 계정을 사용하여 [비즈니스용 Microsoft Store 관리 센터](https://businessstore.microsoft.com/manage/)에 로그인합니다. 초기 기본 도메인인 contoso.onmicrosoft.com이 있는 “Contoso” 테넌트를 삭제하려는 경우 admin@contoso.onmicrosoft.com과 같은 UPN으로 로그인합니다.
 
-2. **관리** 탭으로 이동하여 **제품 및 서비스**를 선택한 다음, 취소할 구독을 선택합니다. **취소**를 클릭한 후 페이지를 새로 고칩니다.
+2. **관리** 탭으로 이동하여 **제품 및 서비스**를 선택한 다음, 취소할 구독을 선택하고 **삭제**를 선택합니다.
   
   ![구독 삭제를 위한 삭제 링크](./media/directory-delete-howto/delete-command.png)
   
-3. **삭제**를 선택하여 구독을 삭제하고 사용 약관에 동의합니다. 모든 데이터가 3일 이내에 영구적으로 삭제됩니다. 생각이 바뀌는 경우 이 3일 동안 구독을 다시 활성화할 수 있습니다.
+3. **구독 삭제**를 선택하여 약관에 동의한 다음 구독을 삭제합니다. 모든 데이터는 3일 이내에 영구적으로 삭제됩니다. 구독 삭제를 취소하려는 경우 3일 내에 구독을 다시 활성화할 수 있습니다.
   
   ![사용 약관](./media/directory-delete-howto/delete-terms.png)
 

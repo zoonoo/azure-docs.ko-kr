@@ -4,7 +4,7 @@ description: Azure Monitor를 사용하여 Log Analytics와 Azure Active Directo
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7509081bbf43aeaf39570f84afef81b6dd5a39fe
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8b9189ef3fff75023316d5272bd93c136106cf94
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621669"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824680"
 ---
 # <a name="integrate-azure-ad-logs-with-log-analytics-using-azure-monitor-preview"></a>Azure Monitor를 사용하여 Log Analytics와 Azure AD 로그 통합(미리 보기)
 
@@ -41,8 +41,8 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 
 추가 분석을 위해 감사 활동 로그와 로그인 활동 로그를 Log Analytics로 라우팅할 수 있습니다. 
 
-* **감사 로그**: [감사 로그 활동 보고서](concept-audit-logs.md)는 테넌트에서 수행된 모든 작업 기록에 대한 액세스를 제공합니다.
-* **로그인 로그**: [로그인 활동 보고서](concept-sign-ins.md)를 사용하면 감사 로그에 보고된 작업을 누가 수행했는지 확인할 수 있습니다.
+* **감사 로그**: [감사 로그 활동 보고서](concept-audit-logs.md)를 통해 테넌트에서 수행된 모든 작업의 기록에 액세스할 수 있습니다.
+* **로그인 로그**: [로그인 활동 보고서](concept-sign-ins.md)를 통해 감사 로그에 보고된 작업을 수행한 사용자를 확인할 수 있습니다.
 
 > [!NOTE]
 > B2C 관련 감사 및 로그인 활동 로그는 현재 지원되지 않습니다.

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/17/2018
-ms.openlocfilehash: 5d7a16ebda088d0ed42021e9def20a398e914ad9
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 29672a75408e42fb9239e5d826784b46e7280805
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158129"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332271"
 ---
 # <a name="create-change-or-delete-an-azure-route-table-using-ansible"></a>Ansible을 사용하여 Azure 경로 테이블 만들기, 변경 또는 삭제
 Azure는 Azure 서브넷, 가상 네트워크 및 온-프레미스 네트워크 간에 트래픽을 자동으로 라우트합니다. Azure에서 기본 라우팅 중 하나를 변경하려면 [경로 테이블](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)을 만들어 변경합니다.
@@ -51,7 +51,7 @@ ansible-playbook route_table_create.yml
 ## <a name="associate-a-route-table-to-a-subnet"></a>서브넷에 경로 테이블 연결
 서브넷에는 0개 또는 1개의 경로 테이블이 연결될 수 있습니다. 경로 테이블은 0개 또는 여러 개의 서브넷에 연결할 수 있습니다. 경로 테이블은 가상 네트워크에 연결되지 않기 때문에 경로 테이블을 연결하려는 각 서브넷에 경로 테이블을 연결해야 합니다. 서브넷에서 나가는 모든 트래픽은 경로 테이블 내에서 만든 경로인 [기본 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#default)를 기반으로 라우트되고, 가상 네트워크가 Azure 가상 네트워크 게이트웨이에 연결된 경우에는 온-프레미스 네트워크에서 전파된 경로(ExpressRoute, VPN Gateway에서 BGP를 사용하는 경우에는 VPN)를 기반으로 라우트됩니다. 경로 테이블과 동일한 Azure 위치 및 구독에 있는 가상 네트워크의 서브넷에만 경로 테이블을 연결할 수 있습니다.
 
-이 섹션에서는 가상 네트워크와 제출을 만든 다음, 경로 테이블을 서브넷에 연결하는 Ansible 플레이북 샘플이 제공됩니다.
+이 섹션에서는 가상 네트워크와 서브넷을 만든 다음, 경로 테이블을 서브넷에 연결하는 Ansible 플레이북 샘플이 제공됩니다.
 
 ```yml
 - hosts: localhost

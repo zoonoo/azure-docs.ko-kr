@@ -8,35 +8,30 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 4847d9ce551c9acf1e4fb6325c770187b2cfd89f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2bdcd4c504822a2e60156b0ac565465e0cf23a85
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052294"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358527"
 ---
 # <a name="use-habitat-to-deploy-your-application-to-azure"></a>Habitat 사용하여 Azure에 애플리케이션 배포
-[Habitat](https://www.habitat.sh/)은 애플리케이션 관리에 전혀 새로운 접근 방식을 제공하는 이런 종류로 최초인 오픈 소스 프로젝트입니다. Habitat은 애플리케이션을 만들고 배포 단위를 자동화합니다. 애플리케이션이 경량 "habitat"으로 래핑된 경우 런타임 환경은 컨테이너, 완전 복구 또는 PaaS인지 여부에 따라 더 이상 핵심이 아니며 애플리케이션을 제한하지 않습니다. 
+[Habitat](https://www.habitat.sh/)는 애플리케이션 및 해당 자동화를 배포 단위로 번들하는 애플리케이션 패키징 및 런타임 시스템입니다. 이렇게 하면 최고의 애플리케이션 이식성이 생성되므로 애플리케이션을 다시 작성하거나 패키지하지 않고 컨테이너, 가상 머신, 완전 복구 또는 PaaS에 배포할 수 있습니다.
 
-이 문서에서는 Habitat을 사용하는 혜택을 설명합니다.
+이 문서에서는 Habitat 사용 시의 주요 혜택을 설명합니다.
 
-## <a name="support-for-the-modern-application"></a>최신 애플리케이션에 대한 지원
-Habitat 패키지에는 애플리케이션이 수명 주기 전체에서 실행해야 하는 모든 것이 포함됩니다. Habitat의 핵심 구성 요소는 다음과 같습니다.
-- 패키지 형식 - Habitat 패키지의 애플리케이션은 원자성이고 변경 불가능하며 감사 가능합니다.
-- Habitat 감독자는 패키지의 피어 관계, 업그레이드 전략 및 보안 정책을 인식하는 애플리케이션 패키지를 실행합니다. Habitat 감독자는 존재하는 모든 환경에 대해 애플리케이션을 구성하고 관리합니다.
-- Habitat 생태계는 Habitat 빌드 계획을 마련하고 Habitat 패키지를 만들고 디포에 게시하는 빌드 서비스를 제공합니다.
+## <a name="modernize-and-move-legacy-applications"></a>레거시 애플리케이션 현대화 및 이동
+레거시 애플리케이션을 Habitat로 다시 패키지하여 이전 운영 체제 및 미들웨어의 제한을 받지 않게 합니다. 그에 따른 아티팩트는 이식 가능하며 클라우드에서 실행되는 가상 머신 또는 컨테이너와 같은 최신 인프라에 쉽게 다시 배포할 수 있습니다.
+
+## <a name="accelerate-container-adoption"></a>컨테이너 채택 가속화
+Habitat는 런타임 종속성을 정확하게 표시하여 복잡한 마이크로 서비스 지향 애플리케이션의 지속적인 배포를 해결합니다. 개별 구성 요소의 단순한 파란색/녹색 배포 이상의 정교한 배포 동작을 복잡한 오케스트레이션 흐름 생성 없이 설계합니다.
 
 ## <a name="run-any-application-anywhere"></a>모든 위치에서 모든 애플리케이션 실행
-Habitat을 사용하여 애플리케이션은 모든 런타임 환경에서 수정되지 않고 실행할 수 있습니다. 완전 복구 및 가상 머신부터 컨테이너(예: Docker), 클러스터 관리 시스템(예: Mesosphere 또는 Kubernetes) 및 PaaS 시스템(예: Pivotal Cloud Foundry)에 이르는 모든 것이 해당될 수 있습니다.
-
-## <a name="easily-port-legacy-applications"></a>쉽게 레거시 애플리케이션 복사
-레거시 애플리케이션이 Habitat 패키지로 래핑될 경우 애플리케이션은 원래 설계된 목적의 환경에서 독립적입니다. 패키지는 클라우드 또는 컨테이너 같은 최신 환경으로 신속하게 이동할 수 있습니다. 또한 Habitat 패키지에는 외부 연결 표준 인터페이스가 있기 때문에 레거시 애플리케이션은 관리가 훨씬 쉬어집니다.
-
-## <a name="improve-the-container-experience"></a>컨테이너 환경 개선
-Habitat은 프로덕션 환경에서 컨테이터 관리의 복잡성을 줄여줍니다. 컨테이너 내에서 애플리케이션 구성을 자동화하여 Habitat은 컨테이너 기반 애플리케이션을 개발 환경에서 프로덕션으로 이동할 때 개발자가 직면하는 어려움을 처리합니다.
+Habitat을 사용하여 애플리케이션은 모든 런타임 환경에서 수정되지 않고 실행할 수 있습니다. 완전 복구 및 가상 머신부터 컨테이너(예: Docker), 클러스터 관리 시스템(예: Mesosphere 또는 Kubernetes) 및 PaaS 시스템(예: Pivotal Cloud Foundry)에 이르는 모든 것이 포함됩니다.
 
 ## <a name="integrate-into-the-chef-devops-workflow"></a>Chef DevOps 워크플로로 통합
-Habitat 프로젝트는 Chef에서 후원합니다. Habitat은 애플리케이션에 뛰어난 자동화 기능을 갖추려면 인프라 자동화로 Chef의 심층 경험을 활용합니다. 개발에서 배포까지의 애플리케이션 릴리스 주기를 자동화하려면 Chef는 Habitat에 상업적 지원을 제공하고 Habitat 및 Chef 배달 사이에 원활한 통합을 확인합니다.
+Habitat 프로젝트는 강력한 지원 커뮤니티가 있는 Chef 소프트웨어의 오픈 소스 프로젝트 중 하나입니다. Habitat은 애플리케이션에 뛰어난 자동화 기능을 갖추려면 인프라 자동화로 Chef의 심층 경험을 활용합니다. Chef는 Habitat에 대한 상업적 지원을 제공하고 Habitat와 Chef Automate 간에 원활한 통합을 빌드하여 개발부터 배포까지의 애플리케이션 릴리스 주기를 완전히 자동화합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure에서 Chef를 사용하여 Windows 가상 머신 만들기](/azure/virtual-machines/windows/chef-automation)
+
+* [Habitat 사용해보기](https://www.habitat.sh/learn/)

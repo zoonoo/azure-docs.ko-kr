@@ -4,7 +4,7 @@ description: Azure Active Directory와 Blackboard Learn 간에 Single Sign-On을
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 0b8ca505-61ea-487c-9a3e-fa50c936df0c
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/25/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 9aa03146608796f1a2d26d44b4e76b0331f8c5be
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 3b57bea85b76b69b1826a81aa582f5326db588cb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063559"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811573"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>자습서: Blackboard Learn과 Azure Active Directory 통합
 
@@ -79,8 +79,8 @@ Blackboard Learn에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Blackboard Learn Single Sign-On 구성](#configure-blackboard-learn-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Blackboard Learn 테스트 사용자 만들기](#create-blackboard-learn-test-user)** - Azure AD 표현과 연결된 Britta Simon에 해당하는 사용자를 Blackboard Learn에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Blackboard Learn 테스트 사용자 만들기](#create-blackboard-learn-test-user)** - Azure AD 표현과 연결된 Britta Simon에 해당하는 사용자를 Blackboard Learn에 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -117,7 +117,7 @@ Blackboard Learn에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
     ![이미지](common/edit-attribute.png)
 
 6. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 이미지와 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다. 여기서는 Userprincipalname을 고유한 사용자 특성으로 매핑했지만 조직의 사용자를 고유하게 식별하고 Blackboard Learn 사용자 이름 필드에 매핑하는 적합한 값에 매핑할 수 있습니다.
-    
+
     | 이름 | 원본 특성|
     | ---------------| --------------- |
     | urn:oid:1.3.6.1.4.1.5923.1.1.1.6 | user.userprincipalname |
@@ -140,11 +140,11 @@ Blackboard Learn에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     g. **저장**을 클릭합니다.
 
-4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
+7. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
-6. **Blackboard Learn 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+8. **Blackboard Learn 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
@@ -226,4 +226,3 @@ Blackboard Learn에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 - [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

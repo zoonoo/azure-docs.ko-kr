@@ -1,10 +1,10 @@
 ---
-title: Azure Active Directory의 라이선스에 대한 제품 이름 및 서비스 계획 식별자 | Microsoft Docs
-description: Azure Portal, Office 365 포털, PowerShell 또는 Microsoft Graph에서 Azure AD 라이선스를 관리하기 위한 식별자 맵
+title: 라이선스에 대한 제품 이름 및 서비스 계획 식별자 - Azure AD | Microsoft Docs
+description: Azure Portal, Office 365 포털, PowerShell 또는 Microsoft Graph에서 Azure Active Directory 라이선스를 관리하기 위한 식별자 맵
 services: active-directory
 keywords: Azure Active Directory 라이선싱 서비스 계획
 documentationcenter: ''
-author: piotrci
+author: curtand
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 8/17/2018
-ms.author: piotrci
-ms.openlocfilehash: 7ebf0149af9e012d3b0135c7ee9b8167c4cf76c9
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.date: 01/14/2019
+ms.author: curtand
+ms.reviewer: sumitp
+ms.openlocfilehash: 9d229dfa11a317c1f3b3121cdc7c1cdfa7df9c5e
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42144312"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321639"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>라이선스에 대한 제품 이름 및 서비스 계획 식별자
 
@@ -179,7 +180,7 @@ ms.locfileid: "42144312"
 | SHAREPOINTSTANDARD_EDU    | 0a4983bb-d3e5-4a09-95d8-b2d0127b3df5 |
 | SHAREPOINTSTANDARD_YAMMERSHADOW | 4c9efd0c-8de7-4c71-8295-9f5fdb0dd048 |
 
-### <a name="service-skype-for-business"></a>서비스: *Skype for Business*
+### <a name="service-skype-for-business"></a>서비스: *비즈니스용 Skype*
 
 다음 서비스 계획은 함께 할당할 수 없습니다.
 

@@ -4,7 +4,7 @@ description: SCIM 2.0을 지원하는 비갤러리 애플리케이션을 Azure A
 services: active-directory
 documentationcenter: ''
 author: asmalser
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
-ms.openlocfilehash: aa7169e29ec46abc1c7de2858a118745e7363411
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: d67132989910434cd6b5d178ee44425992525496
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53587473"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475954"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 준수와 관련하여 알려진 문제 및 해결 방법
 
@@ -43,7 +43,7 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 
 ## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>설명한 서비스 수정이 내 기존 SCIM 앱에 자동으로 적용되었나요?
 
- 아니요. 이전 동작에서 작동하도록 코딩된 SCIM 앱에 호환성이 손상되는 변경이 발생한 경우 변경 사항이 기존 앱에 자동으로 적용되지 않았습니다.
+아니요. 이전 동작에서 작동하도록 코딩된 SCIM 앱에 호환성이 손상되는 변경이 발생한 경우 변경 사항이 기존 앱에 자동으로 적용되지 않았습니다.
 
 Azure Portal에서 구성된 모든 신규 [비갤러리 SCIM 앱](configure-single-sign-on-non-gallery-applications.md)에 변경 사항이 수정 날짜 이후에 적용됩니다.
 

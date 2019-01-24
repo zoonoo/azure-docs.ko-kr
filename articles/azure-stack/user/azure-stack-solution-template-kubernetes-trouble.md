@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: dc6994cd682997dd00e76b57b4996ebad1f73fbb
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 844feb7999f88f63c9406c9f430d1d076cd032df
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352396"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390685"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Azure Stack에 Kubernetes에 배포 문제 해결
 
@@ -47,7 +47,7 @@ ms.locfileid: "54352396"
     Kubernetes 클러스터를 설정 해야 하는 값을 입력 포함:
     -  **사용자 이름**: Kubernetes 클러스터 및 dvm이 포함 된 Linux 가상 머신에 대 한 사용자 이름입니다.
     -  **SSH 공개 키**: Dvm이 고 Kubernetes 클러스터의 일부로 생성 된 모든 Linux 컴퓨터의 권한 부여에 사용 되는 키입니다.
-    -  **서비스 원칙**: Kubernetes Azure 클라우드 공급자에서 사용 되는 ID입니다. 서비스 주체를 만들 때 응용 프로그램 ID로 식별 된 클라이언트 ID입니다. 
+    -  **서비스 주체**: Kubernetes Azure 클라우드 공급자에서 사용 되는 ID입니다. 서비스 주체를 만들 때 응용 프로그램 ID로 식별 된 클라이언트 ID입니다. 
     -  **클라이언트 암호**: 서비스 주체를 만들 때 만든 키입니다.
 
 2. VM 배포 만들기 및 사용자 지정 스크립트 확장 합니다.

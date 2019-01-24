@@ -3,7 +3,7 @@ title: 그룹을 사용하여 앱 및 리소스 액세스 관리 - Azure Active 
 description: Azure Active Directory 그룹을 사용하여 조직의 클라우드 기반 앱, 온-프레미스 앱 및 리소스에 대한 액세스를 관리하는 방법에 대해 알아봅니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 5a706a2a879ae3b4c4adb2690faa77846474ce49
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4c014392f0626a29c0ecf5f0371a3fd52ea9d163
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087289"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447975"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Azure Active Directory 그룹을 사용하여 앱 및 리소스 액세스 관리
 Azure AD(Azure Active Directory) 그룹은 조직의 그룹을 사용하여 클라우드 기반 앱, 온-프레미스 앱 및 리소스를 관리하는 데 유용합니다. 사용자 리소스는 디렉터리에서 역할을 통해 개체를 관리하는 권한과 같은 디렉터리에 포함되거나, SaaS(Software as a Service) 앱, Azure 서비스, SharePoint 사이트 및 온-프레미스 리소스와 같은 디렉터리의 외부에 있을 수 있습니다.

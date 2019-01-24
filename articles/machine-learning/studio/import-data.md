@@ -1,27 +1,8 @@
 ---
-title: Machine Learning 스튜디오로 데이터 가져오기 - Azure | Microsoft Docs
-description: 다양한 데이터 원본에서 Azure Machine Learning Studio로 데이터를 가져오는 방법. 지원되는 데이터 형식에 대해 알아봅니다.
-keywords: 데이터 가져오기, 데이터 형식, 데이터 유형, 데이터 원본, 학습 데이터
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
-ms.openlocfilehash: 2f8c1eb43fddb21a59d4f00fd86b08d3fb3608f4
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269960"
+제목: Machine Learning Studio로 데이터 가져오기 titleSuffix: Azure Machine Learning Studio 설명: 다양한 데이터 원본에서 Azure Machine Learning Studio로 데이터를 가져오는 방법. 지원되는 데이터 형식에 대해 알아봅니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 11/29/2017
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>다양한 데이터 원본에서 Azure Machine Learning Studio로 학습 데이터를 가져오기
 

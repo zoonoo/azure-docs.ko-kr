@@ -1,5 +1,6 @@
 ---
-title: Azure Content Moderator에서 커넥터를 사용하여 다른 API에 액세스 | Microsoft Docs
+title: 콘텐츠를 조정하면서 다른 서비스에 연결 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: 커넥터를 사용하여 Content Moderator 워크플로에 대한 다른 API에 액세스하는 방법을 알아봅니다.
 services: cognitive-services
 author: sanjeev3
@@ -7,16 +8,16 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: d8114457e7079ca8772cab830bd011dcddf372f5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 99d8b3603278a9c6c432ca32a1d85e9abe34e1da
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373031"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265586"
 ---
-# <a name="connectors"></a>커넥터
+# <a name="connect-to-other-cognitive-services"></a>다른 Cognitive Services에 연결
 
 Azure Content Moderator 워크플로는 Content Moderator API 외에도 다른 API를 사용할 수 있습니다. Content Moderator에서 커넥터를 사용하여 다른 API에 액세스합니다. 커넥터는 다른 API에 대한 링크를 제공합니다.
 

@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 Application Insights의 이벤트를 사
 description: 사용자 지정 정책을 사용하여 Azure AD B2C 사용자 경험에서 Application Insights의 이벤트 로그를 사용하도록 설정하는 방법을 알아봅니다(미리 보기).
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/12/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d7097886b746c225bb420f9a96e2b7ef5c95c913
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 758b9f68349dac025cb3b848f95dd05700637a6a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684742"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849842"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Application Insights를 사용하여 Azure Active Directory B2C에서 사용자 동작 추적
 
@@ -50,7 +50,7 @@ Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 
 3. Azure Portal의 왼쪽 상단 모서리에서 **리소스 만들기**를 선택하고 **Application Insights**를 검색하여 선택합니다.
 4. **만들기**를 클릭합니다.
 5. 리소스의 **이름**을 입력합니다.
-6. **응용 프로그램 유형**에서 **ASP.NET 웹 응용 프로그램**을 선택합니다.
+6. **애플리케이션 유형**에서 **ASP.NET 웹 애플리케이션**을 선택합니다.
 7. **리소스 그룹**: 기존 그룹을 선택하거나 새 리소스 그룹의 이름을 입력합니다.
 8. **만들기**를 클릭합니다.
 4. Application Insights 리소스를 만든 후 해당 리소스를 열고 **기본 정보**를 확장하고 계측 키를 복사합니다.

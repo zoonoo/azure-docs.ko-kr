@@ -4,7 +4,7 @@ description: 페더레이션 인증서에 대한 만료 날짜를 사용자 지�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
-ms.openlocfilehash: 0f6e690bc80ae8004fba4faf53c0403b0cb7edd9
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 48f001ab0634451b1e339b346e03f5d15cdbf9c6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035339"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463850"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리
 이 문서에서는 Azure AD(Azure Active Directory)에서 SaaS 애플리케이션에 페더레이션된 SSO(Single Sign-On)를 설정하기 위해 만드는 인증서와 관련된 일반적인 질문과 정보를 다룹니다. Azure AD 앱 갤러리에서 또는 비갤러리 애플리케이션 템플릿을 사용하여 애플리케이션을 추가합니다. 페더레이션된 SSO 옵션을 사용하여 애플리케이션을 구성합니다.
@@ -38,7 +38,7 @@ ms.locfileid: "51035339"
 기본적으로 인증서는 3년 후에 만료되도록 설정됩니다. 다음 단계를 완료하여 인증서의 다른 만료 날짜를 선택할 수 있습니다.
 스크린샷에서는 예제를 위해 Salesforce를 사용하지만, 이러한 단계는 페더레이션된 모든 SaaS 앱에 적용할 수 있습니다.
 
-1. [Azure Portal](https://aad.portal.azure.com)의 왼쪽 창에서 **엔터프라이즈 응용 프로그램**을 클릭한 다음 **개요** 페이지에서 **새 응용 프로그램**을 클릭합니다.
+1. [Azure Portal](https://aad.portal.azure.com)의 왼쪽 창에서 **엔터프라이즈 애플리케이션**을 클릭한 다음 **개요** 페이지에서 **새 애플리케이션**을 클릭합니다.
 
    ![SSO 구성 마법사 열기](./media/manage-certificates-for-federated-single-sign-on/enterprise_application_new_application.png)
 
@@ -72,7 +72,7 @@ aadnotification@microsoft.com으로부터 알림 이메일을 받습니다. 이�
 ## <a name="renew-a-certificate-that-will-soon-expire"></a>곧 만료되는 인증서 갱신
 다음 갱신 단계를 수행하면 사용자에게 심각한 가동 중지가 발생하지 않습니다. 이 섹션의 스크린샷에서는 Salesforce를 예로 사용하지만, 이러한 단계는 페더레이션된 모든 SaaS 앱에 적용할 수 있습니다.
 
-1. **Azure Active Directory** 응용 프로그램 **Single Sign-On** 페이지에서 응용 프로그램에 대한 새 인증서를 생성합니다. **SAML 서명 인증서** 섹션에서 **새 인증서 만들기** 링크를 클릭하여 이 작업을 수행할 수 있습니다.
+1. **Azure Active Directory** 애플리케이션 **Single Sign-On** 페이지에서 애플리케이션에 대한 새 인증서를 생성합니다. **SAML 서명 인증서** 섹션에서 **새 인증서 만들기** 링크를 클릭하여 이 작업을 수행할 수 있습니다.
 
     ![새 인증서 생성](./media/manage-certificates-for-federated-single-sign-on/create_new_certficate.png)
 
@@ -90,6 +90,6 @@ aadnotification@microsoft.com으로부터 알림 이메일을 받습니다. 이�
 
 ## <a name="related-articles"></a>관련 문서
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
-* [Azure Active Directory의 응용 프로그램 관리](what-is-application-management.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On](what-is-single-sign-on.md)
+* [Azure Active Directory의 애플리케이션 관리](what-is-application-management.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On](what-is-single-sign-on.md)
 * [SAML 기반 Single Sign-On 문제 해결](../develop/howto-v1-debug-saml-sso-issues.md)

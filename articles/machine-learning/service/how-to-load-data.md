@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: fda0f600fa7cb130511f2bd8b53543acfbcc7759
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2478a5dd3f5d685253ef9145bec0a68ff324c6c3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054302"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263818"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Azure Machine Learning을 사용한 데이터 로드 및 읽기
 
@@ -27,7 +27,25 @@ ms.locfileid: "54054302"
 * 파일 로드 동안 유추를 사용한 형식 변환
 * MS SQL Server 및 Azure Data Lake Storage에 대한 연결 지원
 
-## <a name="load-text-line-data"></a>텍스트 줄 데이터 로드 
+## <a name="load-data-automatically"></a>자동으로 데이터 로드
+
+파일 형식을 지정하지 않고 데이터를 자동으로 로드하려면 `auto_read_file()` 함수를 사용합니다. 파일 형식 및 해당 파일 형식을 읽는 데 필요한 인수는 자동으로 유추됩니다.
+
+```python
+import azureml.dataprep as dprep
+
+dataflow = dprep.auto_read_file(path='./data/any-file.txt')
+```
+
+이 함수는 파일 형식, 인코딩 및 다른 구문 분석 인수를 모두 하나의 편리한 진입점에서 자동으로 검색하는 데 유용합니다. 또한 이 함수는 구분 기호로 분리된 데이터를 로드할 때 일반적으로 수행되는 다음 단계를 자동으로 수행합니다.
+
+* 구분 기호 유추 및 설정
+* 파일 맨 위에 있는 빈 레코드 건너뛰기
+* 머리글 행 유추 및 설정
+
+또는 파일 형식을 미리 알고 있으며 구문 분석 방식을 명시적으로 제어하려는 경우 이 문서를 계속 진행하면서 SDK가 제공하는 특수화된 함수를 확인하세요.
+
+## <a name="load-text-line-data"></a>텍스트 줄 데이터 로드
 
 간단한 텍스트 데이터를 데이터 흐름으로 읽으려면 선택적 매개 변수를 지정하지 말고 `read_lines()`를 사용합니다.
 
@@ -188,7 +206,7 @@ dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
 
 SDK는 SQL 원본에서 데이터를 로드할 수도 있습니다. 현재 Microsoft SQL Server만 지원됩니다. SQL 서버에서 데이터를 읽으려면 연결 매개 변수를 포함하는 `MSSQLDataSource` 개체를 만듭니다. 암호 매개 변수 `MSSQLDataSource`는 `Secret` 개체를 수락합니다. 다음 두 가지 방법으로 비밀 개체를 빌드할 수 있습니다.
 
-* 실행 엔진을 사용하여 비밀 및 해당 값을 등록합니다. 
+* 실행 엔진을 사용하여 비밀 및 해당 값을 등록합니다.
 * `dprep.create_secret("[SECRET-ID]")`를 사용하여 `id`만 있는 비밀을 만듭니다(비밀 값이 실행 환경에 이미 등록되어 있는 경우).
 
 ```python
@@ -232,7 +250,7 @@ az account show --query tenantId
 dataflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dataflow.head(5) head
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > 사용자 계정이 둘 이상의 Azure 테넌트의 구성원인 경우 AAD URL 호스트 이름 형식으로 테넌트를 지정해야 합니다.
 
 ### <a name="create-a-service-principal-with-the-azure-cli"></a>Azure CLI를 통해 서비스 주체 만들기
@@ -256,7 +274,7 @@ Azure Data Lake Storage 파일 시스템에 대한 ACL을 구성하려면 사용
 az ad sp show --id "8dd38f34-1fcb-4ff9-accd-7cd60b757174" --query objectId
 ```
 
-Azure Data Lake Storage 파일 시스템에 대한 `Read` 및 `Execute` 액세스를 구성하려면 폴더 및 파일에 대한 ACL을 개별적으로 구성합니다. 이는 기본 HDFS ACL 모델이 상속을 지원하지 않기 때문입니다. 
+Azure Data Lake Storage 파일 시스템에 대한 `Read` 및 `Execute` 액세스를 구성하려면 폴더 및 파일에 대한 ACL을 개별적으로 구성합니다. 이는 기본 HDFS ACL 모델이 상속을 지원하지 않기 때문입니다.
 
 ```azurecli
 az dls fs access set-entry --account dpreptestfiles --acl-spec "user:e37b9b1f-6a5e-4bee-9def-402b956f4e6f:r-x" --path /

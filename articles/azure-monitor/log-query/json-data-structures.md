@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 4262b5df4cbe9efe4b2ab1f8ef72ab175cde6f02
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 24f22d659ccfb6923ad2a038e12454716b2c5445
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52885392"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263886"
 ---
 # <a name="working-with-json-and-data-structures-in-log-analytics-queries"></a>Log Analytics 쿼리에서 JSON 및 데이터 구조 사용
 
@@ -64,7 +64,7 @@ print hosts_report
 ## <a name="working-with-objects"></a>개체 사용
 
 ### <a name="parsejson"></a>parsejson
-Json 구조에서 여러 요소에 액세스하려면 동적 개체로 액세스하는 것이 더 쉽습니다. 텍스트 데이터를 동적 개체로 캐스팅하려면 `parsejson`을 사용합니다. 동적 형식으로 변환되면 추가 함수를 사용하여 데이터를 분석할 수 있습니다.
+JSON 구조에서 여러 요소에 액세스하려면 동적 개체로 액세스하는 것이 더 쉽습니다. 텍스트 데이터를 동적 개체로 캐스팅하려면 `parsejson`을 사용합니다. 동적 형식으로 변환되면 추가 함수를 사용하여 데이터를 분석할 수 있습니다.
 
 ```Kusto
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');

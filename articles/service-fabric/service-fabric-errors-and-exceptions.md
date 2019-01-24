@@ -14,21 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/20/2018
 ms.author: ryanwi
-ms.openlocfilehash: e854ed42b6af8bc090950e8399e3229e202a2ed0
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 9e29f05c71f9dfe0bcd79135deb30d713fb3abb0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293415"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477102"
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>FabricClient API로 작업하는 경우 일반적인 예외 및 오류
-[FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) API를 사용하여 클러스터 및 응용 프로그램 관리자가 Service Fabric 응용 프로그램, 서비스 또는 클러스터에서 관리 작업을 수행할 수 있습니다. 예를 들어 애플리케이션 배포, 업그레이드 및 제거, 클러스터 상태 확인 또는 서비스를 테스트합니다. 애플리케이션 개발자 및 클러스터 관리자는 FabricClient API를 사용하여 Service Fabric 클러스터 및 애플리케이션을 관리하기 위한 도구를 개발할 수 있습니다.
+[FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) API를 사용하여 클러스터 및 애플리케이션 관리자가 Service Fabric 애플리케이션, 서비스 또는 클러스터에서 관리 작업을 수행할 수 있습니다. 예를 들어 애플리케이션 배포, 업그레이드 및 제거, 클러스터 상태 확인 또는 서비스를 테스트합니다. 애플리케이션 개발자 및 클러스터 관리자는 FabricClient API를 사용하여 Service Fabric 클러스터 및 애플리케이션을 관리하기 위한 도구를 개발할 수 있습니다.
 
-FabricClient를 사용하여 수행할 수 있는 다양한 유형의 작업이 있습니다.  각 메서드는 잘못된 입력으로 인한 오류, 런타임 오류 또는 일시적인 인프라 문제에 대한 예외를 발생시킬 수 있습니다.  특정 메서드에 의해 발생되는 예외를 확인하려면 API 참조 설명서를 참조하세요. 그러나 여러 많은 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) API에 의해 발생되는 몇몇 예외가 있습니다. 다음 테이블에는 FabricClient API에서 공통적으로 적용되는 예외가 나열되어 있습니다.
+FabricClient를 사용하여 수행할 수 있는 다양한 유형의 작업이 있습니다.  각 메서드는 잘못된 입력으로 인한 오류, 런타임 오류 또는 일시적인 인프라 문제에 대한 예외를 발생시킬 수 있습니다.  특정 메서드에 의해 발생되는 예외를 확인하려면 API 참조 설명서를 참조하세요. 그러나 여러 많은 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) API에 의해 발생되는 몇몇 예외가 있습니다. 다음 테이블에는 FabricClient API에서 공통적으로 적용되는 예외가 나열되어 있습니다.
 
 | 예외 | 발생 시점 |
 | --- |:--- |
-| [System.Fabric.FabricObjectClosedException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricobjectclosedexception#System_Fabric_FabricObjectClosedException) |[FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) 개체가 닫힌 상태입니다. 사용 중인 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) 개체를 삭제하고 새 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) 개체를 인스턴스화합니다. |
+| [System.Fabric.FabricObjectClosedException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricobjectclosedexception#System_Fabric_FabricObjectClosedException) |[FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 개체가 닫힌 상태입니다. 사용 중인 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 개체를 삭제하고 새 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 개체를 인스턴스화합니다. |
 | [System.TimeoutException](https://docs.microsoft.com/dotnet/core/api/system.timeoutexception#System_TimeoutException) |작업 시간이 초과되었습니다. 작업이 완료되는 데 MaxOperationTimeout보다 많이 걸리는 경우 [OperationTimedOut](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode#System_Fabric_FabricErrorCode)이 반환됩니다. |
 | [System.UnauthorizedAccessException](https://docs.microsoft.com/dotnet/core/api/system.unauthorizedaccessexception#System_UnauthorizedAccessException) |작업에 대한 액세스 검사에 실패했습니다. E_ACCESSDENIED가 반환됩니다. |
 | [System.Fabric.FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException) |작업을 수행하는 동안 런타임 오류가 발생했습니다. FabricClient 메서드 중 하나가 잠재적으로 [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException)을 발생시킬 수 있으며 [ErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException_ErrorCode) 속성이 예외의 정확한 원인을 나타냅니다. [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode#System_Fabric_FabricErrorCode) 열거형에 정의된 오류 코드입니다. |

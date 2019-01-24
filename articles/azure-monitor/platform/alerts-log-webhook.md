@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.component: alerts
-ms.openlocfilehash: e7676213f9eee781fa7b8c19a30c6505ca5bf2ac
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.subservice: alerts
+ms.openlocfilehash: 0765e5978f62a60b7a9b405c04c2471508947c60
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720308"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433172"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
 [Azure에서 로그 경고를 생성](alerts-log.md)할 때 하나 이상의 작업을 수행하도록 선택적으로 [작업 그룹 사용을 구성](action-groups.md)할 수 있습니다.  이 문서에서는 사용 가능한 다양한 웹후크 작업 및 사용자 지정 JSON 기반 웹후크 구성에 대해 설명합니다.
@@ -198,7 +198,8 @@ ms.locfileid: "53720308"
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Alerts의 로그 경고](alerts-unified-log.md)에 대해 알아봅니다.
-- [Azure에서 로그 경고 관리](alerts-log.md)를 이해합니다.
+- [Azure에서 로그 경고 관리](alerts-log.md)를 파악합니다.
 - [Azure에서 작업 그룹](action-groups.md) 만들기 및 관리
 - [Application Insights](../../azure-monitor/app/analytics.md)에 대해 자세히 알아보기
 - [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)에 대해 자세히 알아보기 
+

@@ -68,7 +68,6 @@
 ### [Azure 지역 간 Azure의 SAP HANA 가용성](sap-hana-availability-across-regions.md)
 ## [Azure Virtual Machines의 SAP Business One](business-one-azure.md)
 ## [Windows/SQL Server SAP CAL 배포 가이드에 SAP IDES](cal-ides-erp6-erp7-sp3-sql.md)
-## [Azure Linux VM의 SAP NetWeaver](suse-quickstart.md)
 ## [Azure용 SAP LaMa 커넥터](lama-installation.md)
 ## Windows 및 Linux의 HA(고가용성)
 ### [개요](sap-high-availability-guide-start.md)

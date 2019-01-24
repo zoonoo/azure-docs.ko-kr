@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 716ddcaf61c4d7db40821056dc759667f9376023
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 552ba28a9635cdd484ccd598726dcea0b3bcbc60
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871340"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261505"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services 자격 증명 모음 모니터링 및 관리
 
@@ -251,7 +251,7 @@ Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터�
 
 **작업 내보내기**를 사용하여 모든 작업 메뉴 정보가 포함된 스프레드시트를 만듭니다. 스프레드시트에는 모든 작업에 대한 요약과 각 작업에 대한 개별 시트가 포함된 하나의 시트가 있습니다.
 
-작업 정보를 스프레드시트로 내보내려면 **작업 내보내기**를 클릭합니다. 서비스에서 자격 증명 모음 및 날짜의 이름을 사용하여 스프레드시트를 만들지만, 이름은 변경할 수 있습니다.
+작업 정보를 스프레드시트로 내보내려면 **작업 내보내기**를 클릭합니다. 서비스에서 날짜 및 자격 증명 모음 이름을 사용하여 스프레드시트를 만들지만 이름은 변경할 수 있습니다.
 
 ## <a name="monitor-backup-usage"></a>Backup 사용 모니터링
 

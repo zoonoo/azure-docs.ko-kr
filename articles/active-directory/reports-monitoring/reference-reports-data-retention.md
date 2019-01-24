@@ -4,7 +4,7 @@ description: Azure Active Directory에서 보고서 데이터 보존 정책
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6188b141ec1a514d999f290366cd9ffbafc1d96c
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 932290c3b42b0ea55725fbc17de6b81886fe1217
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753135"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822521"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Azure Active Directory 보고서 보존 정책
 
@@ -40,6 +40,18 @@ ms.locfileid: "53753135"
 
 - **즉시** - 이미 Azure Portal에서 보고서로 작업한 적이 있는 경우
 - **2시간 이내** - Azure Portal에서 보고 기능을 설정하지 않은 경우
+
+---
+
+### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Premium 라이선스를 받은 후 활동 데이터를 확인할 수 있을 때까지는 얼마나 걸리나요?
+
+무료 라이선스를 통해 수집한 활동 데이터가 이미 있다면 업그레이드 시 해당 데이터를 즉시 확인할 수 있습니다. 데이터가 없는 경우에는 Premium 라이선스로 업그레이드한 후 보고서에 데이터가 나타나기까지 1~2일 정도 걸립니다.
+
+---
+
+### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>Azure AD Premium 라이선스를 받은 후에 지난 달의 데이터를 확인할 수 있나요?
+
+최근에 Premium 버전(평가판 버전을 포함)으로 전환한 경우 처음에는 최대 7일 동안의 데이터를 확인할 수 있습니다. 데이터가 누적되면 지난 30일간의 데이터를 볼 수 있습니다.
 
 ---
 

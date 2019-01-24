@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure Database Migration Service를 사용하여 오프라인에서 MongoDB를 Azure Cosmos DB Mongo API로 마이그레이션 | Microsoft Docs'
-description: Azure Database Migration Service를 사용하여 오프라인으로 MongoDB 온-프레미스에서 Azure Cosmos DB Mongo API로 마이그레이션하는 방법에 대해 알아봅니다.
+title: '자습서: Azure Database Migration Service를 사용하여 오프라인에서 MongoDB를 Azure Cosmos DB의 API for MongoDB로 마이그레이션 | Microsoft Docs'
+description: Azure Database Migration Service를 사용하여 오프라인으로 MongoDB 온-프레미스에서 Azure Cosmos DB의 API for MongoDB로 마이그레이션하는 방법에 대해 알아봅니다.
 services: dms
 author: pochiraju
 ms.author: rajpo
@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/11/2018
-ms.openlocfilehash: 4651c9afab99577622af71297e1fb6465a20097f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b4f8d2bdbce20fc7a932280edc26cb3ddfbe6471
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713100"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247608"
 ---
-# <a name="tutorial-migrate-mongodb-to-azure-cosmos-db-mongo-api-offline-using-dms"></a>자습서: DMS를 사용하여 Azure Cosmos DB Mongo API에 MongoDB를 오프라인으로 마이그레이션
-Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이터베이스를 MongoDB 온-프레미스 또는 클라우드 인스턴스에서 Azure Cosmos DB Mongo API로 마이그레이션할 수 있습니다.
+# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>자습서: DMS를 사용하여 오프라인에서 MongoDB를 Azure Cosmos DB의 API for MongoDB로 마이그레이션
+Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이터베이스를 MongoDB 온-프레미스 또는 클라우드 인스턴스에서 Azure Cosmos DB의 API for MongoDB로 마이그레이션할 수 있습니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -28,11 +28,11 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 > * 마이그레이션을 실행합니다.
 > * 마이그레이션을 모니터링합니다.
 
-이 자습서에서는 Azure Database Migration Service를 사용하여 Azure Virtual Machine에서 호스트되는 MongoDB의 **Wingtips** 데이터 세트를 Azure Cosmos DB for MongoDB API로 마이그레이션합니다. MongoDB 원본을 설정하지 않은 경우 [Azure의 Windows VM에서 MongoDB 설치 및 구성](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb) 문서를 참조하세요.
+이 자습서에서는 Azure Database Migration Service를 사용하여 Azure Virtual Machine에서 호스트되는 MongoDB의 데이터 세트를 Azure Cosmos DB의 API for MongoDB로 마이그레이션합니다. MongoDB 원본을 설정하지 않은 경우 [Azure의 Windows VM에서 MongoDB 설치 및 구성](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb) 문서를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음이 필요합니다.
-- [Azure Cosmos DB for MongoDB API를 만듭니다](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
+- [Azure Cosmos DB의 API for MongoDB 계정을 만듭니다](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
 - Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 VNET을 만듭니다. 이를 통해 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에서 사이트 간 연결을 제공합니다.
 - Azure VNET(Virtual Network) 네트워크 보안 그룹 규칙이 다음과 같은 통신 포트를 차단하지 않는지 확인합니다. 443, 53, 9354, 445 및 12000 Azure VNET NSG 트래픽 필터링에 대한 자세한 정보는 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
 - Azure Database Migration Service에서 기본적으로 27017 TCP 포트인 원본 MongoDB 서버에 액세스할 수 있도록 Windows 방화벽을 엽니다.
@@ -66,7 +66,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 
 5. 기존 가상 네트워크(VNET)를 선택하거나 새로 만듭니다.
 
-    VNET은 원본 SQL Server 및 대상 Azure SQL Database 인스턴스에 대한 액세스 권한이 있는 Azure Database Migration Service를 제공합니다.
+    VNET은 원본 MongoDB 인스턴스 및 대상 Azure Cosmos DB 계정에 대한 액세스 권한이 있는 Azure Database Migration Service를 제공합니다.
 
     Azure Portal에서 VNET을 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 가상 네트워크 만들기](https://aka.ms/DMSVnet) 문서를 참조하세요.
 
@@ -103,7 +103,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
    또한 마이그레이션하려는 컬렉션 데이터를 덤프한 위치에서 연결 문자열 모드를 사용하고 블로그 저장소 파일 컨테이너의 위치를 제공할 수 있습니다.
 
    > [!NOTE]
-   > Azure Database Migration Service는 bson 문서나 json 문서를 Azure Cosmos DB Mongo API 컬렉션으로 마이그레이션할 수도 있습니다.
+   > Azure Database Migration Service는 bson 문서나 json 문서를 Azure Cosmos DB의 API for MongoDB 컬렉션으로 마이그레이션할 수도 있습니다.
     
    또한 DNS 이름을 확인할 수 없는 경우에는 IP 주소를 사용할 수도 있습니다.
 
@@ -112,7 +112,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 2. **저장**을 선택합니다.
 
 ## <a name="specify-target-details"></a>대상 세부 정보 지정
-1. **마이그레이션 대상 세부 정보** 화면에서 대상 Azure Cosmos DB 계정에 대한 연결 세부 정보를 지정합니다. 이 계정은 MongoDB 데이터를 마이그레이션할 미리 프로비전된 Azure Cosmos DB MongoDB 계정입니다.
+1. **마이그레이션 대상 세부 정보** 화면에서 대상 Azure Cosmos DB 계정에 대한 연결 세부 정보를 지정합니다. 이 계정은 MongoDB 데이터를 마이그레이션할 미리 프로비전된 Azure Cosmos DB의 API for MongoDB 계정입니다.
 
     ![대상 세부 정보 지정](media/tutorial-mongodb-to-cosmosdb/dms-specify-target.png)
 
@@ -163,7 +163,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 
 ## <a name="verify-data-in-cosmos-db"></a>Cosmos DB에서 데이터 확인
 
-- 마이그레이션이 완료되면 Cosmos DB for MongoDB API 계정을 검사하여 모든 컬렉션이 성공적으로 마이그레이션되었는지 확인할 수 있습니다.
+- 마이그레이션이 완료되면 Azure Cosmos DB 계정을 검사하여 모든 컬렉션이 성공적으로 마이그레이션되었는지 확인할 수 있습니다.
 
     ![작업 상태 완료됨](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
 

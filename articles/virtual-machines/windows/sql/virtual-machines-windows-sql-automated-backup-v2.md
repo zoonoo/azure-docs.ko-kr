@@ -3,7 +3,7 @@ title: SQL Server 2016/2017 Azure VM의 자동화된 백업 v2 | Microsoft Docs
 description: Azure에서 실행되는 SQL Server 2016/2017 VM의 자동화된 백업 기능에 대해 설명합니다. 이 문서는 Resource Manager를 사용하는 VMs에만 적용됩니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
-ms.author: jroth
-ms.openlocfilehash: 664a0036b8aa753de9636688d22afff0163f031f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 432df6d73b2eaa42645fe25ad9c743b7fcef06a8
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246823"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331658"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines의 자동화된 백업 v2(Resource Manager)
 
@@ -27,7 +28,7 @@ ms.locfileid: "51246823"
 > * [SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
 > * [SQL Server 2016/2017](virtual-machines-windows-sql-automated-backup-v2.md)
 
-자동화된 백업 v2에서는 SQL Server 2016/2017 Standard, Enterprise 또는 Developer 버전을 실행하는 Azure VM에서 모든 기존 및 새 데이터베이스에 대해 [Microsoft Azure에 대한 관리되는 백업](https://msdn.microsoft.com/library/dn449496.aspx)을 자동으로 구성합니다. 이를 통해 지속형 Azure Blob 저장소를 활용하는 일반 데이터베이스 백업을 구성할 수 있습니다. 자동화된 Backup v2는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)에 따라 다릅니다.
+자동화된 백업 v2에서는 SQL Server 2016/2017 Standard, Enterprise 또는 Developer 버전을 실행하는 Azure VM에서 모든 기존 및 새 데이터베이스에 대해 [Microsoft Azure에 대한 관리되는 백업](https://msdn.microsoft.com/library/dn449496.aspx)을 자동으로 구성합니다. 이를 통해 지속형 Azure Blob Storage를 활용하는 일반 데이터베이스 백업을 구성할 수 있습니다. 자동화된 Backup v2는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)에 따라 다릅니다.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -65,7 +66,7 @@ ms.locfileid: "51246823"
 | --- | --- | --- |
 | **자동화된 Backup** | 사용/사용 안 함(사용 안 함) | SQL Server 2016/2017 Developer, Standard 또는 Enterprise를 실행하는 Azure VM에 대해 자동화된 백업을 사용하거나 사용하지 않도록 설정합니다. |
 | **보존 기간** | 1-30일(30일) | 백업 보존 기간(일 수)입니다. |
-| **Storage 계정** | Azure 저장소 계정 | Blob 저장소에 자동화된 Backup 파일을 저장하기 위해 사용하여 Azure 저장소 계정입니다. 모든 백업 파일을 저장하려면 컨테이너를 이 위치에 만듭니다. 백업 파일 명명 규칙에는 날짜, 시간 및 데이터베이스 GUID가 포함됩니다. |
+| **Storage 계정** | Azure 저장소 계정 | Cloud Shell은 Azure File Storage를 활용하여 세션 간에 파일을 유지합니다. 모든 백업 파일을 저장하려면 컨테이너를 이 위치에 만듭니다. 백업 파일 명명 규칙에는 날짜, 시간 및 데이터베이스 GUID가 포함됩니다. |
 | **암호화** |사용/사용 안 함(사용 안 함) | 암호화 사용 여부를 설정합니다. 암호화가 활성화되면 백업을 복원하는 데 사용된 인증서는 지정된 저장소 계정에 있습니다. 동일한 이름 지정 규칙을 사용하여 동일한 **automaticbackup** 컨테이너를 사용합니다. 암호가 변경되면 해당 암호를 사용하여 새 인증서가 생성되지만 이전 인증서도 이전 백업의 복원을 위해 유지됩니다. |
 | **암호** |암호 텍스트 | 암호화 키의 암호입니다. 이 암호는 암호화를 사용하는 경우에만 필요합니다. 암호화된 백업을 복원하기 위해서는 올바른 암호 및 백업을 수행할 때 사용한 인증서가 있어야 합니다. |
 
@@ -73,7 +74,7 @@ ms.locfileid: "51246823"
 
 | 설정 | 범위(기본값) | 설명 |
 | --- | --- | --- |
-| **시스템 데이터베이스 Backup** | 사용/사용 안 함(사용 안 함) | 사용하도록 설정하면 이 기능은 시스템 데이터베이스인 Master, MSDB 및 Model도 백업합니다. MSDB 및 Model 데이터베이스의 경우 로그 백업이 수행되도록 하려면 전체 복구 모드인지 확인합니다. Master의 경우에는 로그 백업이 수행되지 않습니다. 또한 TempDB에 대해서도 백업이 수행되지 않습니다. |
+| **시스템 데이터베이스 Backup** | 사용/사용 안 함(사용 안 함) | 이 기능을 사용하도록 설정하면 시스템 데이터베이스인 Master, MSDB 및 Model도 백업됩니다. MSDB 및 Model 데이터베이스의 경우 로그 백업이 수행되도록 하려면 전체 복구 모드인지 확인합니다. Master의 경우에는 로그 백업이 수행되지 않습니다. 또한 TempDB에 대해서도 백업이 수행되지 않습니다. |
 | **Backup 일정** | 수동/자동(자동) | 기본적으로 백업 일정은 로그 증가에 따라 자동으로 결정됩니다. 수동 백업 일정을 사용하면 백업에 대한 기간을 지정할 수 있습니다. 이 경우 백업은 지정된 빈도로, 지정된 날의 지정된 기간 동안에만 수행됩니다. |
 | **전체 백업 빈도** | 매일/매주 | 전체 백업의 빈도입니다. 두 경우 모두 전체 백업은 예약된 다음 기간 동안 시작됩니다. 매주 옵션을 선택하면 백업은 모든 데이터베이스가 성공적으로 백업될 때까지 여러 날에 걸쳐 수행될 수 있습니다. |
 | **전체 백업 시작 시간** | 00:00 – 23:00(01:00) | 전체 백업이 수행될 수 있는 지정된 날의 시작 시간입니다. |
@@ -83,15 +84,15 @@ ms.locfileid: "51246823"
 ## <a name="understanding-full-backup-frequency"></a>전체 백업 빈도 이해
 매일 및 매주 전체 백업 간 차이를 이해하는 것은 중요합니다. 다음 두 가지 예제 시나리오를 고려하세요.
 
-### <a name="scenario-1-weekly-backups"></a>시나리오 1: 매주 백업
+### <a name="scenario-1-weekly-backups"></a>시나리오 1: 주간 백업
 규모가 큰 데이터베이스를 많이 포함하는 SQL Server VM이 있습니다.
 
 월요일에서 다음 설정으로 자동화된 Backup v2를 사용하도록 설정합니다.
 
-- Backup 일정: **수동**
+- 백업 일정: **수동**
 - 전체 백업 빈도: **매주**
 - 전체 백업 시작 시간: **01:00**
-- 전체 백업 시간 기간: **1시간**
+- 전체 백업 기간: **1시간**
 
 즉, 사용 가능한 다음 백업 기간은 화요일 오전 1시부터 1시간 동안입니다. 해당 시간에 자동화된 Backup은 한 번에 하나씩 데이터베이스를 백업하기 시작합니다. 이 시나리오에서는 처음 두 데이터베이스에 대해 전체 백업이 완료될 정도로 데이터베이스가 큽니다. 그러나 1시간 후에 모든 데이터베이스가 백업되지는 않았습니다.
 
@@ -106,10 +107,10 @@ ms.locfileid: "51246823"
 
 월요일에서 다음 설정으로 자동화된 Backup v2를 사용하도록 설정합니다.
 
-- Backup 일정: 수동
+- 백업 일정: 설명서
 - 전체 백업 빈도: 매일
 - 전체 백업 시작 시간: 22:00
-- 전체 백업 시간 기간: 6시간
+- 전체 백업 기간: 6시간
 
 즉, 사용 가능한 다음 백업 기간은 월요일 오후 10시부터 6시간 동안입니다. 해당 시간에 자동화된 Backup은 한 번에 하나씩 데이터베이스를 백업하기 시작합니다.
 
@@ -331,7 +332,7 @@ SQL Server 2016/2017에서 자동화된 백업을 모니터링하려면 두 가�
 ## <a name="next-steps"></a>다음 단계
 자동화된 Backup v2는 Azure VM에서 관리되는 Backup을 구성합니다. 따라서 [관리되는 Backup 설명서를 검토](https://msdn.microsoft.com/library/dn449496.aspx) 하여 동작 및 의미를 이해해야 합니다.
 
-Azure VM의 SQL Server에 대한 추가적인 백업 및 복원 지침은 [Azure Virtual Machines의 SQL Server 백업 및 복원](virtual-machines-windows-sql-backup-recovery.md) 문서를 참조하세요.
+Azure VM의 SQL Server에 대한 추가적인 백업 및 복원 지침은 [Azure Virtual Machines에서 SQL Server의 백업 및 복원](virtual-machines-windows-sql-backup-recovery.md) 문서를 참조하세요.
 
 사용 가능한 다른 자동화 작업에 대한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
 

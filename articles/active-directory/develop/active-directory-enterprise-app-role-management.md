@@ -1,5 +1,5 @@
 ---
-title: Azure AD의 엔터프라이즈 애플리케이션에 대해 SAML 토큰에서 발급된 역할 클레임 구성 | Microsoft Docs
+title: Azure AD의 엔터프라이즈 응용 프로그램에 대해 SAML 토큰에서 발급된 역할 클레임 구성 | Microsoft Docs
 description: Azure Active Directory의 엔터프라이즈 애플리케이션에 SAML 토큰에서 발급된 역할 클레임을 구성하는 방법 알아보기
 services: active-directory
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 01/07/2019
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 2bb9d69487b8576cdae60a1a613a341898495f06
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a354d5d0242bfdbb618eb325c8157a7bed3d3b64
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904086"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263679"
 ---
-# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발행된 역할 클레임 구성
+# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발급된 역할 클레임 구성
 
 Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나는 응답 토큰에서 역할 클레임에 대한 클레임 유형을 지정할 수 있습니다.
 
@@ -41,7 +41,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     ![Azure Active Directory 아이콘][1]
 
-2. **Enterprise 응용 프로그램**을 선택합니다. 그런 다음, **모든 애플리케이션**을 선택합니다.
+2. **Enterprise 애플리케이션**을 선택합니다. 그런 다음, **모든 애플리케이션**을 선택합니다.
 
     ![Enterprise 애플리케이션 창][2]
 
@@ -49,7 +49,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     !["새 애플리케이션" 단추][3]
 
-4. 검색 상자에 애플리케이션 이름을 입력한 다음, 결과 패널에서 애플리케이션을 선택합니다. **추가** 단추를 선택하여 응용 프로그램을 추가합니다.
+4. 검색 상자에 애플리케이션 이름을 입력한 다음, 결과 패널에서 애플리케이션을 선택합니다. **추가** 단추를 선택하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 애플리케이션](./media/active-directory-enterprise-app-role-management/tutorial_app_addfromgallery.png)
 
@@ -151,25 +151,29 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
 8. **특성** 테이블을 업데이트하여 역할 클레임의 사용자 지정된 매핑을 정의합니다.
 
-9. **Single Sign-On** 대화 상자의 **사용자 특성** 섹션에서 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
+9. **Single Sign-On** 대화 상자의 **사용자 특성 및 클레임** 섹션에서 이미지에 표시된 대로 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
 
     | 특성 이름 | 특성 값 |
     | -------------- | ----------------|
     | 역할 이름  | user.assignedroles |
 
-    a. **특성 추가**를 선택하여 **특성 추가** 창을 엽니다.
+    a. **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
+
+      !["특성 추가" 단추](./media/active-directory-enterprise-app-role-management/editattribute.png)
+
+    b. **특성 추가**를 선택하여 **사용자 클레임 관리** 창을 엽니다.
 
       !["특성 추가" 단추](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
       !["특성 추가" 창](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    b. **이름** 상자에서 필요에 따라 특성 이름을 입력합니다. 이 예에서는 클레임 이름으로 **역할 이름**을 사용합니다.
-
-    다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
+    다. **이름** 상자에서 필요에 따라 특성 이름을 입력합니다. 이 예에서는 클레임 이름으로 **역할 이름**을 사용합니다.
 
     d. **네임스페이스** 상자를 비워 둡니다.
 
-    e. **확인**을 선택합니다.
+    e. **원본 특성** 목록에서 해당 행에 표시된 특성 값을 입력합니다.
+
+    f. **저장**을 선택합니다.
 
 10. ID 공급자로 시작한 Single Sign-On에서 애플리케이션을 테스트하려면 [액세스 패널](https://myapps.microsoft.com)에 로그인하고 애플리케이션 타일을 선택합니다. SAML 토큰에서 지정한 클레임 이름의 사용자에게 할당된 모든 역할이 표시됩니다.
 

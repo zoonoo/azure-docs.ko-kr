@@ -11,16 +11,19 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0c171ff768395540c123c4ef2a19168d926b0661
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7fc40945588c272ae0ae80ba17b7b3752cab4306
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633830"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353314"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
 SDK를 사용하여 Azure Machine Learning Services는 학습된 모델을 배포할 수 있는 몇 가지 방법을 제공합니다. 이 문서에서는 모델을 Azure 클라우드에서 또는 IoT Edge 디바이스에 웹 서비스로 배포하는 방법을 알아봅니다.
+
+> [!IMPORTANT]
+> 모델을 웹 서비스로서 배포할 때 현재, CORS(크로스-원본 자원 공유)는 지원되지 않습니다.
 
 모델은 다음과 같은 계산 대상에 배포할 수 있습니다.
 
@@ -31,41 +34,34 @@ SDK를 사용하여 Azure Machine Learning Services는 학습된 모델을 배�
 | [Azure IoT Edge](#iotedge) | IoT 모듈 | IoT 디바이스에서 모델을 배포합니다. 디바이스에서 추론이 발생합니다. |
 | [FPGA(Field-programmable Gate Array)](#fpga) | 웹 서비스 | 실시간 추론 시 대기 시간이 매우 짧습니다. |
 
+모델을 배포하는 프로세스는 모든 컴퓨팅 대상에서 유사합니다.
+
+1. 모델을 학습하고 등록합니다.
+1. 모델을 사용하는 이미지를 구성하고 등록합니다.
+1. 컴퓨팅 대상에 이미지를 배포합니다.
+1. 배포 테스트
+
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Kwk3]
+
+
+배포 워크플로에 관련된 개념에 대한 자세한 내용은 [Azure Machine Learning Service를 사용하여 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
+- Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](http://aka.ms/AMLFree)을 지금 사용해 보세요.
+
 - Azure Machine Learning 서비스 작업 영역 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. [Azure Machine Learning 빠른 시작을 통한 시작](quickstart-get-started.md)을 사용하여 이러한 필수 구성 요소를 충족하는 방법을 알아봅니다.
 
-- pickle(`.pkl`) 또는 ONNX(`.onnx`) 형식 형식의 학습된 모델. 학습된 모델이 없는 경우 [모델 학습](tutorial-train-models-with-aml.md) 자습서의 단계를 사용하여 학습을 하고 Azure Machine Learning 서비스에 등록합니다.
+- 학습된 모델. 학습된 모델이 없는 경우 [모델 학습](tutorial-train-models-with-aml.md) 자습서의 단계를 사용하여 학습을 하고 Azure Machine Learning 서비스에 등록합니다.
 
-- 코드 섹션에서는 `ws`가 Machine Learning 작업 영역을 참조한다고 가정합니다. 예: `ws = Workspace.from_config()`
+    > [!NOTE]
+    > Azure Machine Learning 서비스는 Python 3에 로드할 수 있는 모든 일반 모델에 작동할 수 있지만 이 문서의 예제에서는 pickle 형식으로 저장된 모델을 사용합니다.
+    > 
+    > ONNX 모델을 사용하는 방법에 대한 자세한 내용은 [ONNX 및 Azure Machine Learning](how-to-build-deploy-onnx.md) 문서를 참조하세요.
 
-## <a name="deployment-workflow"></a>배포 워크플로
+## <a id="registermodel"></a> 학습된 모델 등록
 
-모델을 배포하는 프로세스는 모든 컴퓨팅 대상에서 유사합니다.
-
-1. 모델을 학습합니다.
-1. 모델을 등록합니다.
-1. 이미지 구성을 만듭니다.
-1. 이미지를 만듭니다.
-1. 컴퓨팅 대상에 이미지를 배포합니다.
-1. 배포 테스트
-1. (선택 사항) 아티팩트를 정리합니다.
-
-    * **웹 서비스로 배포**할 경우 세 가지 배포 옵션은 다음과 같습니다.
-
-        * [deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-): 이 메서드를 사용하면 모델을 등록하거나 이미지를 만들 필요가 없습니다. 그러나 모델 또는 이미지 이름, 연결된 태그 및 설명을 을 제어할 수 없습니다.
-        * [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-): 이 메서드를 사용하면 이미지를 만들 필요가 없습니다. 하지만 만드는 이미지의 이름을 제어할 수 없습니다.
-        * [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-): 이 메서드를 사용하기 전에 모델을 등록하고 이미지를 만듭니다.
-
-        이 문서의 예제에서는 `deploy_from_image`를 사용합니다.
-
-    * **IoT Edge 모듈로 배포**할 경우 모델을 등록하고 이미지를 만들어야 합니다.
-
-## <a name="register-a-model"></a>모델 등록
-
-학습된 모델만 배포할 수 있습니다. Azure Machine Learning 또는 다른 서비스를 사용하여 모델을 학습할 수 있습니다. 파일에서 모델을 등록하려면 다음 코드를 사용합니다.
+모델 레지스트리는 학습된 모델을 Azure 클라우드에서 저장 및 구성하는 방법입니다. 모델은 Azure Machine Learning 서비스 작업 영역에 등록됩니다. Azure Machine Learning 또는 다른 서비스를 사용하여 모델을 학습할 수 있습니다. 파일에서 모델을 등록하려면 다음 코드를 사용합니다.
 
 ```python
 from azureml.core.model import Model
@@ -77,16 +73,15 @@ model = Model.register(model_path = "model.pkl",
                        workspace = ws)
 ```
 
-> [!NOTE]
-> 예제에서 pickle 파일로 저장된 모델을 사용하고 있는 경우 ONNX 모델을 사용할 수도 있습니다. ONNX 모델을 사용하는 방법에 대한 자세한 내용은 [ONNX 및 Azure Machine Learning](how-to-build-deploy-onnx.md) 문서를 참조하세요.
+**예상 시간**: 약 10초
 
 자세한 내용은 [Model 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py)에 대한 참조 설명서를 참조하세요.
 
-## <a id="configureimage"></a> 이미지 구성 만들기
+## <a id="configureimage"></a> 이미지 만들기 및 등록
 
 배포된 모델은 이미지로 패키지됩니다. 이미지는 모델을 실행하는 데 필요한 종속성을 포함합니다.
 
-**Azure Container Instance** **Azure Kubernetes Service** 및 **Azure IoT Edge** 배포의 경우 `azureml.core.image.ContainerImage` 클래스를 사용하여 이미지 구성을 만듭니다. 이 이미지 구성은 새 Docker 이미지를 만드는 데 사용됩니다. 
+**Azure Container Instance** **Azure Kubernetes Service** 및 **Azure IoT Edge** 배포의 경우 [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) 클래스를 사용하여 이미지 구성을 만듭니다. 이 이미지 구성은 새 Docker 이미지를 만드는 데 사용됩니다. 
 
 다음 코드는 새 이미지 구성을 만드는 방법을 보여 줍니다.
 
@@ -102,24 +97,101 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                  )
 ```
 
-이 구성에서는 `score.py` 파일을 사용하여 모델에 요청을 전달합니다. 이 파일에는 다음 두 함수가 포함되어 있습니다.
+**예상 시간**: 약 10초
 
-* `init()`: 일반적으로 이 함수는 모델을 전역 개체에 로드합니다. 이 함수는 Docker 컨테이너를 시작할 때 한 번만 실행됩니다. 
+이 예제의 중요 매개 변수를 다음 표에서 설명합니다.
 
-* `run(input_data)`: 이 함수는 모델을 사용하여 입력 데이터를 기반으로 값을 예측합니다. 실행에 대한 입력 및 출력은 일반적으로 serialization 및 deserialization용으로 JSON을 사용하지만 다른 형식도 지원됩니다.
-
-예제 `score.py` 파일에 대해서는 [이미지 분류 자습서](tutorial-deploy-models-with-aml.md#make-script)를 참조하세요. ONNX 모델을 사용하는 예제에 대해서는 [ONNX 및 Azure Machine Learning](how-to-build-deploy-onnx.md) 문서를 참조하세요.
-
-`conda_file` 매개 변수는 conda 환경 파일을 제공하는 데 사용됩니다. 이 파일은 배포된 모델에 대한 conda 환경을 정의합니다. 이 파일을 만드는 방법에 대한 자세한 내용은 [환경 파일(myenv.yml) 만들기](tutorial-deploy-models-with-aml.md#create-environment-file)를 참조하세요.
+| 매개 변수 | 설명 |
+| ----- | ----- |
+| `execution_script` | 서비스에 제출되는 요청을 수신하는 데 사용되는 Python 스크립트를 지정합니다. 이 예제에서 스크립트는 `score.py` 파일에 포함됩니다. 자세한 내용은 [실행 스크립트](#script) 섹션을 참조하세요. |
+| `runtime` | 이미지는 Python을 사용함을 나타냅니다. 다른 옵션은 `spark-py`로, Apache Spark와 함께 Python을 사용합니다. |
+| `conda_file` | conda 환경 파일을 제공하는 데 사용됩니다. 이 파일은 배포된 모델에 대한 conda 환경을 정의합니다. 이 파일을 만드는 방법에 대한 자세한 내용은 [환경 파일(myenv.yml) 만들기](tutorial-deploy-models-with-aml.md#create-environment-file)를 참조하세요. |
 
 자세한 내용은 [ContainerImage 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)에 대한 참조 설명서를 참조하세요.
 
-## <a id="createimage"></a> 이미지 만들기
+### <a id="script"></a> 실행 스크립트
 
-일단 이미지 구성을 만들면 이미지를 만들려면 사용할 수 있습니다. 이 이미지는 작업 영역에 대한 컨테이너 레지스트리에 저장됩니다. 이미지는 한 번만 만든 후 여러 서버에 배포할 수 있습니다.
+실행 스크립트는 배포된 이미지에 제출된 데이터를 수신한 후 모델에 전달합니다. 그런 후 모델이 반환한 응답을 수락한 후 클라이언트에 반환합니다. 이 스크립트는 모델마다 다르므로, 모델이 예상하고 반환하는 데이터를 이해해야 합니다. 스크립트는 일반적으로 모델을 로드하고 실행하는 2가지 함수를 포함합니다.
+
+* `init()`: 일반적으로 이 함수는 모델을 전역 개체에 로드합니다. 이 함수는 Docker 컨테이너를 시작할 때 한 번만 실행됩니다. 
+
+* `run(input_data)`: 이 함수는 모델을 사용하여 입력 데이터를 기반으로 값을 예측합니다. 실행에 대한 입력 및 출력은 일반적으로 serialization 및 deserialization용으로 JSON을 사용합니다. 원시 이진 데이터를 사용할 수도 있습니다. 모델에 보내기 전에 또는 클라이언트에 반환하기 전에 데이터를 변환할 수 있습니다. 
+
+#### <a name="working-with-json-data"></a>JSON 데이터 작업
+
+다음은 JSON 데이터를 수락하고 반환하는 예제 스크립트입니다. `run` 함수는 데이터를 모델이 예상하는 JSON으로 변환하고, 응답을 JSON으로 변환한 후 반환합니다.
 
 ```python
-# Create the image from the image configuration
+# import things required by this script
+import json
+import numpy as np
+import os
+import pickle
+from sklearn.externals import joblib
+from sklearn.linear_model import LogisticRegression
+
+from azureml.core.model import Model
+
+# load the model
+def init():
+    global model
+    # retrieve the path to the model file using the model name
+    model_path = Model.get_model_path('sklearn_mnist')
+    model = joblib.load(model_path)
+
+# Passes data to the model and returns the prediction
+def run(raw_data):
+    data = np.array(json.loads(raw_data)['data'])
+    # make prediction
+    y_hat = model.predict(data)
+    return json.dumps(y_hat.tolist())
+```
+
+#### <a name="working-with-binary-data"></a>이진 데이터 작업
+
+모델이 __이진 데이터__를 수락하는 경우 `AMLRequest`, `AMLResponse` 및 `rawhttp`를 사용합니다. 이진 데이터를 수락하고 POST 요청에 대해 반전된 바이트를 반환하는 스크립트 예제는 다음과 같습니다. GET 요청의 경우 응답 본문의 전체 URL을 반환합니다.
+
+```python
+from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+# Accept and return binary data
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    # handle GET requests
+    if request.method == 'GET':
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    # handle POST requests
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        respBody = bytearray(reqBody)
+        respBody.reverse()
+        respBody = bytes(respBody)
+        return AMLResponse(respBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> 서비스를 개선을 위해 노력하므로 `azureml.contrib` 네임스페이스는 자주 변경됩니다. 따라서 이 네임 스페이스의 모든 것을 미리 보기로 간주하므로 Microsoft에서 완벽히 지원하지 않아도 됩니다.
+>
+> 로컬 개발 환경에서 이를 테스트해야 하는 경우 다음 명령을 사용하여 `contrib` 네임스페이스에 구성 요소를 설치할 수 있습니다. 
+> ```shell
+> pip install azureml-contrib-services
+> ```
+
+### <a id="createimage"></a> 이미지 등록
+
+일단 이미지 구성을 만들면 이미지를 등록하는 데 사용할 수 있습니다. 이 이미지는 작업 영역에 대한 컨테이너 레지스트리에 저장됩니다. 이미지는 한 번만 만든 후 여러 서버에 배포할 수 있습니다.
+
+```python
+# Register the image from the image configuration
 image = ContainerImage.create(name = "myimage", 
                               models = [model], #this is the model object
                               image_config = image_config,
@@ -133,7 +205,7 @@ image = ContainerImage.create(name = "myimage",
 
 자세한 내용은 [ContainerImage 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)에 대한 참조 설명서를 참조하세요.
 
-## <a name="deploy-the-image"></a>이미지 배포
+## <a id="deploy"></a> 이미지 배포
 
 배포를 가져오는 프로세스는 배포하는 컴퓨팅 대상에 따라 약간 다릅니다. 다음 섹션의 정보를 참조하여 배포 방법을 알아보세요.
 
@@ -141,6 +213,17 @@ image = ContainerImage.create(name = "myimage",
 * [Azure Kubernetes Services](#aks)
 * [Project Brainwave(Field-programmable Gate Array)](#fpga)
 * [Azure IoT Edge 디바이스](#iotedge)
+
+> [!NOTE]
+> **웹 서비스로 배포**할 경우 사용할 수 있는 세 가지 배포 메서드는 다음과 같습니다.
+>
+> | 방법 | 메모 |
+> | ----- | ----- |
+> | [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) | 이 메서드를 사용하기 전에 모델을 등록하고 이미지를 만들어야 합니다. |
+> | [deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) | 이 메서드를 사용하면 모델을 등록하거나 이미지를 만들 필요가 없습니다. 그러나 모델 또는 이미지 이름, 연결된 태그 및 설명을 을 제어할 수 없습니다. |
+> | [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) | 이 메서드를 사용하면 이미지를 만들 필요가 없습니다. 하지만 만드는 이미지의 이름을 제어할 수 없습니다. |
+>
+> 이 문서의 예제에서는 `deploy_from_image`를 사용합니다.
 
 ### <a id="aci"></a> Azure Container Instances에 배포
 
@@ -179,75 +262,82 @@ Azure Kubernetes Service는 다음과 같은 기능을 제공합니다.
 * 모델 데이터 수집
 * 웹 서비스에 대한 빠른 응답 시간
 
-Azure Kubernetes Service에 배포하려면 다음 단계를 사용합니다.
+#### <a name="create-a-new-cluster"></a>새 클러스터 만들기
 
-1. AKS 클러스터를 만들려면 다음 코드를 사용합니다.
+새 Azure Kubernetes Service 클러스터를 만들려면 다음 코드를 사용합니다.
 
-    > [!IMPORTANT]
-    > AKS 클러스터 만들기는 작업 영역에 대한 하나의 프로세스입니다. 만든 후에는 여러 배포에 대해 이 클러스터를 재사용할 수 있습니다. 클러스터 또는 클러스터가 포함된 리소스 그룹을 삭제하면, 다음에 배포할 때 새 클러스터를 만들어야 합니다.
-    > [`provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)의 경우, agent_count 및 vm_size에 대한 사용자 지정 값을 선택하는 경우 agent_count와 vm_size를 곱한 값이 12개 가상 CPU보다 크거나 같아야 합니다. 예를 들어, 4개의 가상 CPU가 있는 "Standard_D3_v2"의 vm_size를 사용하는 경우는 3 이상의 agent_count를 선택해야 합니다.
+> [!IMPORTANT]
+> AKS 클러스터 만들기는 작업 영역에 대한 하나의 프로세스입니다. 만든 후에는 여러 배포에 대해 이 클러스터를 재사용할 수 있습니다. 클러스터 또는 클러스터가 포함된 리소스 그룹을 삭제하면, 다음에 배포할 때 새 클러스터를 만들어야 합니다.
+> [`provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)의 경우, agent_count 및 vm_size에 대한 사용자 지정 값을 선택하는 경우 agent_count와 vm_size를 곱한 값이 12개 가상 CPU보다 크거나 같아야 합니다. 예를 들어, 4개의 가상 CPU가 있는 "Standard_D3_v2"의 vm_size를 사용하는 경우는 3 이상의 agent_count를 선택해야 합니다.
 
-    ```python
-    from azureml.core.compute import AksCompute, ComputeTarget
+```python
+from azureml.core.compute import AksCompute, ComputeTarget
 
-    # Use the default configuration (you can also provide parameters to customize this)
-    prov_config = AksCompute.provisioning_configuration()
+# Use the default configuration (you can also provide parameters to customize this)
+prov_config = AksCompute.provisioning_configuration()
 
-    aks_name = 'aml-aks-1' 
-    # Create the cluster
-    aks_target = ComputeTarget.create(workspace = ws, 
-                                        name = aks_name, 
-                                        provisioning_configuration = prov_config)
+aks_name = 'aml-aks-1' 
+# Create the cluster
+aks_target = ComputeTarget.create(workspace = ws, 
+                                    name = aks_name, 
+                                    provisioning_configuration = prov_config)
 
-    # Wait for the create process to complete
-    aks_target.wait_for_completion(show_output = True)
-    print(aks_target.provisioning_state)
-    print(aks_target.provisioning_errors)
-    ```
+# Wait for the create process to complete
+aks_target.wait_for_completion(show_output = True)
+print(aks_target.provisioning_state)
+print(aks_target.provisioning_errors)
+```
 
-    **예상 시간**: 약 20분입니다.
+**예상 시간**: 약 20분입니다.
 
-    > [!TIP]
-    > AKS 클러스터가 Azure 구독에 이미 있으며 해당 버전이 1.11.*인 경우 이미지를 배포하는 데 사용할 수 있습니다. 다음 코드는 작업 영역에 기존 클러스터를 연결하는 방법을 설명합니다.
-    >
-    > ```python
-    > from azureml.core.compute import AksCompute, ComputeTarget
-    > # Set the resource group that contains the AKS cluster and the cluster name
-    > resource_group = 'myresourcegroup'
-    > cluster_name = 'mycluster'
-    > 
-    > # Attatch the cluster to your workgroup
-    > attach_config = AksCompute.attach_configuration(resource_group = resource_group,
-    >                                          cluster_name = cluster_name)
-    > aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
-    > 
-    > # Wait for the operation to complete
-    > aks_target.wait_for_completion(True)
-    > ```
+#### <a name="use-an-existing-cluster"></a>기존 클러스터 사용
 
-2. 이 문서의 [이미지 만들기](#createimage) 섹션에서 만든 이미지를 배포하려면 다음 코드를 사용합니다.
+AKS 클러스터가 Azure 구독에 이미 있으며 해당 버전이 1.11.*인 경우 이미지를 배포하는 데 사용할 수 있습니다. 다음 코드는 작업 영역에 기존 클러스터를 연결하는 방법을 설명합니다.
 
-    ```python
-    from azureml.core.webservice import Webservice, AksWebservice
+```python
+from azureml.core.compute import AksCompute, ComputeTarget
+# Set the resource group that contains the AKS cluster and the cluster name
+resource_group = 'myresourcegroup'
+cluster_name = 'mycluster'
 
-    # Set configuration and service name
-    aks_config = AksWebservice.deploy_configuration()
-    aks_service_name ='aks-service-1'
-    # Deploy from image
-    service = Webservice.deploy_from_image(workspace = ws, 
-                                                name = aks_service_name,
-                                                image = image,
-                                                deployment_config = aks_config,
-                                                deployment_target = aks_target)
-    # Wait for the deployment to complete
-    service.wait_for_deployment(show_output = True)
-    print(service.state)
-    ```
+# Attatch the cluster to your workgroup
+attach_config = AksCompute.attach_configuration(resource_group = resource_group,
+                                         cluster_name = cluster_name)
+aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 
-    > [!TIP]
-    > 배포하는 동안 오류가 있으면 `service.get_logs()`를 사용하여 AKS 서비스 로그를 확인합니다. 로깅된 정보에 오류 원인이 나타날 수 있습니다.
+# Wait for the operation to complete
+aks_target.wait_for_completion(True)
+```
 
-자세한 내용은 [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) 및 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py) 클래스에 대한 참조 설명서를 참조하세요.
+**예상 시간**: 약 3분입니다.
+
+#### <a name="deploy-the-image"></a>이미지 배포
+
+이 문서의 [이미지 만들기](#createimage) 섹션에서 만든 이미지를 Azure Kubernetes Server 클러스터에 배포하려면 다음 코드를 사용합니다.
+
+```python
+from azureml.core.webservice import Webservice, AksWebservice
+
+# Set configuration and service name
+aks_config = AksWebservice.deploy_configuration()
+aks_service_name ='aks-service-1'
+# Deploy from image
+service = Webservice.deploy_from_image(workspace = ws, 
+                                            name = aks_service_name,
+                                            image = image,
+                                            deployment_config = aks_config,
+                                            deployment_target = aks_target)
+# Wait for the deployment to complete
+service.wait_for_deployment(show_output = True)
+print(service.state)
+```
+
+**예상 시간**: 약 3분입니다.
+
+> [!TIP]
+> 배포하는 동안 오류가 있으면 `service.get_logs()`를 사용하여 AKS 서비스 로그를 확인합니다. 로깅된 정보에 오류 원인이 나타날 수 있습니다.
+
+자세한 내용은 [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) 및 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) 클래스에 대한 참조 설명서를 참조하세요.
 
 ### <a id="fpga"></a> FPGA(Field-programmable Gate Array)에서 배포
 
@@ -375,23 +465,32 @@ prediction = service.run(input_data = test_sample)
 print(prediction)
 ```
 
-## <a name="update-the-web-service"></a>웹 서비스 업데이트
+웹 서비스는 REST API이므로 다양한 프로그래밍 언어로 클라이언트 애플리케이션을 만들 수 있습니다. 자세한 내용은 [웹 서비스를 사용할 클라이언트 애플리케이션 만들기](how-to-consume-web-service.md)를 참조하세요.
+
+## <a id="update"></a> 웹 서비스 업데이트
 
 웹 서비스를 업데이트하려면 `update` 메서드를 사용합니다. 다음 코드에서는 새 이미지를 사용하도록 웹 서비스를 업데이트하는 방법을 보여줍니다.
 
 ```python
 from azureml.core.webservice import Webservice
+from azureml.core.image import Image
 
 service_name = 'aci-mnist-3'
 # Retrieve existing service
 service = Webservice(name = service_name, workspace = ws)
+
+# point to a different image
+new_image = Image(workspace = ws, id="myimage2:1")
+
 # Update the image used by the service
-service.update(image = new-image)
+service.update(image = new_image)
 print(service.state)
 ```
 
 > [!NOTE]
 > 이미지를 업데이트할 때 웹 서비스를 자동으로 업데이트되지 않습니다. 새 이미지를 사용하려는 각 서비스를 수동으로 업데이트해야 합니다.
+
+자세한 내용은 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) 클래스의 참조 설명서를 참조하세요.
 
 ## <a name="clean-up"></a>정리
 
@@ -401,8 +500,14 @@ print(service.state)
 
 등록된 모델을 삭제하려면 `model.delete()`를 사용합니다.
 
+자세한 내용은 [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--) 및 [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--)의 참조 설명서를 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
 * [SSL을 사용하여 Azure Machine Learning 웹 서비스 보호](how-to-secure-web-service.md)
 * [웹 서비스로 배포된 ML 모델 사용](how-to-consume-web-service.md)
 * [일괄 처리 예측 실행 방법](how-to-run-batch-predictions.md)
+* [Application Insights를 사용하여 Azure Machine Learning 모델 모니터링](how-to-enable-app-insights.md)
+* [프로덕션 환경에서 모델용 데이터 수집](how-to-enable-data-collection.md)
+* [Azure Machine Learning Service SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Azure Virtual Networks에서 Azure Machine Learning Service 사용](how-to-enable-virtual-network.md)

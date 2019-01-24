@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 01/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6e2621103e79e201a6f3a9d45350e3b71d15f47c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 7c3a7c4d961a5ae2fe243ced1e13087d5cdb7a6f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119614"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452924"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 및 Log Analytics에 사용된 IP 주소
 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.
@@ -28,7 +28,7 @@ ms.locfileid: "54119614"
 > 
 
 > [!TIP]
-> 즐겨 찾는 RSS/ATOM 판독기에 https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/application-insights/ip-addresses.md.atom을 추가하여 최신 변경의 알림을 받을 수 있게 이 페이지를 RSS 피드로 구독합니다.
+> 즐겨 찾는 RSS/ATOM 판독기에 https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom을 추가하여 최신 변경의 알림을 받을 수 있게 이 페이지를 RSS 피드로 구독합니다.
 > 
 > 
 
@@ -37,7 +37,7 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 
 | 목적 | URL | IP | 포트 |
 | --- | --- | --- | --- |
-| 원격 분석 |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22 | 443 |
+| 원격 분석 |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233 | 443 |
 | 라이브 메트릭 스트림 |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
 
 ## <a name="status-monitor"></a>상태 모니터

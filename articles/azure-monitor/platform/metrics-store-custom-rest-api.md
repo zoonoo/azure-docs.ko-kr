@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: metrics
-ms.openlocfilehash: 4765ea62623278b4ee125c9d7201492ec887ef7f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.subservice: metrics
+ms.openlocfilehash: ed810726a0709c80034412eba437c05e76f65758
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723768"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460382"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>REST API를 사용하여 Azure 리소스에 대한 사용자 지정 메트릭을 Azure Monitor 메트릭 저장소로 보내기
 
@@ -119,3 +119,4 @@ curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "g
  
 ## <a name="next-steps"></a>다음 단계
 - [사용자 지정 메트릭](../../azure-monitor/platform/metrics-custom-overview.md)에 대해 자세히 알아보세요.
+

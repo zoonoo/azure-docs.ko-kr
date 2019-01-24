@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: overview
-ms.date: 10/22/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 076948e7434802af7f0ad47f279335009817d40e
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f7fef00cfff9295036d7545470f86e27314e6451
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209593"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258701"
 ---
 # <a name="what-is-azure-content-moderator"></a>Azure Content Moderator란?
 
@@ -58,6 +58,9 @@ Content Moderator 서비스에는 웹 기반 [사용자 검토 도구](Review-To
 
 Review API를 사용하면 팀이 지정된 필터에 따라 텍스트, 이미지 및 비디오 콘텐츠를 검토하도록 설정할 수 있습니다. 그런 다음, 조정자 역할을 맡은 사람이 최종 조정 결정을 내릴 수 있습니다. 사용자 입력은 서비스를 학습시키지 않지만 서비스 및 사용자 검토 팀의 협업을 통해 개발자는 효율성과 정확성 사이에 적절히 균형을 이룰 수 있습니다.
 
+## <a name="data-privacy-and-security"></a>데이터 개인 정보 보호 및 보안
+모든 Cognitive Services와 마찬가지로 Content Moderator 서비스를 사용하는 개발자는 고객 데이터에 대한 Microsoft의 정책에 대해 알고 있어야 합니다. Microsoft Trust Center의 [Cognitive Services 페이지](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices)에서 자세히 알아보세요.
+
 ## <a name="next-steps"></a>다음 단계
 
-[빠른 시작](quick-start.md)을 따라 Content Moderator 사용을 시작합니다.
+[웹에서 Content Moderator 사용해 보기](quick-start.md)의 지침을 따라 Content Moderator 서비스 사용을 시작합니다.

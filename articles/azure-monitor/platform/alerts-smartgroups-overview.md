@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: 960dc8f2908a20620a84113b27e474b553cd45d4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.subservice: alerts
+ms.openlocfilehash: e0bef0fc4f4b61add24c243af0dac64933ad5bab
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345376"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466919"
 ---
 # <a name="smart-groups"></a>스마트 그룹
 경고를 처리할 때 발생하는 일반적인 문제는 노이즈를 살펴보고 실제로 중요한 사항을 찾아내는 것입니다. 스마트 그룹은 이 문제를 해결하기 위한 것입니다.  
@@ -62,4 +62,5 @@ ms.locfileid: "53345376"
 
 - [스마트 그룹 관리](https://aka.ms/managing-smart-groups)
 - [경고 및 스마트 그룹 상태 변경](https://aka.ms/managing-alert-smart-group-states)
+
 

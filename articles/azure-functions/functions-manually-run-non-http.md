@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.author: cshoe
-ms.openlocfilehash: 00a72c8c7fb42c763a8b0bad1fa3914ac27c496f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 6c77e58e626ba370a6278a0f01b09578930cba09
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406933"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247115"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>HTTP 이외 트리거 함수를 수동으로 실행
 
@@ -51,19 +51,20 @@ Azure Portal에서 해당 함수로 이동하고 **관리**를 클릭하고 **�
 
 Postman을 열고 다음 단계를 수행합니다.
 
-1. **URL 텍스트 상자에서 요청 위치**를 입력합니다. 
-2. **헤더** 탭을 **클릭**합니다.
-3. **x-functions-key**를 첫 번째 **키**로 입력하고 클립보드의 마스터 키를 **값** 상자에 붙여넣습니다.
-4. **Content-type**을 두 번째 **키**로 입력하고 **application/json**을 **값**으로 입력합니다.
+1. **URL 텍스트 상자에서 요청 위치**를 입력합니다.
+2. HTTP 메서드가 **POST**.로 설정되었는지 확인합니다.
+3. **헤더** 탭을 **클릭**합니다.
+4. **x-functions-key**를 첫 번째 **키**로 입력하고 클립보드의 마스터 키를 **값** 상자에 붙여넣습니다.
+5. **Content-type**을 두 번째 **키**로 입력하고 **application/json**을 **값**으로 입력합니다.
 
     ![Postman 헤더 설정](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
 
-5. **본문** 탭을 **클릭**합니다.
-6. **{ "input": "test" }** 를 요청의 본문으로 입력합니다.
+6. **본문** 탭을 **클릭**합니다.
+7. **{ "input": "test" }** 를 요청의 본문으로 입력합니다.
 
     ![Postman 본문 설정](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
 
-7. **보내기**를 클릭합니다.
+8. **보내기**를 클릭합니다.
 
     ![Postman을 사용하여 요청 보내기](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
 

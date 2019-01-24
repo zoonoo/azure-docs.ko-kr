@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
-ms.component: logs
-ms.openlocfilehash: 9714cb8ce1c3380ac74150148c8d84bd410e3fc4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.subservice: logs
+ms.openlocfilehash: d9abfe90296b27918594c41a207befe2b59027b9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715221"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461607"
 ---
 # <a name="archive-the-azure-activity-log"></a>Azure 활동 로그 보관
 이 문서에서는 Azure 포털, PowerShell Cmdlet 또는 플랫폼 간 CLI를 사용하여 저장소 계정에서 [**Azure 활동 로그**](../../azure-monitor/platform/activity-logs-overview.md)를 보관하는 방법을 보여 줍니다. 이 옵션은 감사, 정적 분석 또는 백업을 위해 활동 로그를 90일 이상(보존 정책에 대해 모든 권한으로) 유지하려는 경우에 유용합니다. 90일 이내로 이벤트를 보관해야 하는 경우 활동 로그는 보관 활성화 없이 Azure 플랫폼에 90일 동안 보관되므로 저장소 계정에 보관을 설정할 필요가 없습니다.
@@ -184,4 +184,5 @@ PT1H.json 파일 내에서 각 이벤트는 이 형식에 따라 "레코드" 배
 * [분석을 위한 Blob 다운로드](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [활동 로그를 Event Hubs로 스트리밍](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
 * [활동 로그에 대한 자세한 내용](../../azure-monitor/platform/activity-logs-overview.md)
+
 

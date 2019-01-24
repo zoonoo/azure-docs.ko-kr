@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: d093dbe50cb76faedc463603edc459b22dda4fba
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c32e79098cb50600e10d353392e8ceb13d5014b2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628241"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475036"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>빠른 시작: Azure Data Lake Storage Gen2 스토리지 계정 만들기
 
@@ -47,14 +47,14 @@ Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Ba
 
 Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 빠른 시작에서는 Azure CLI 버전 2.0.38 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-## <a name="create-a-storage-account-with-azure-data-lake-storage-gen2-enabled"></a>Data Lake Storage Gen2가 사용되는 저장소 계정 만들기
+## <a name="create-a-storage-account-with-azure-data-lake-storage-gen2-enabled"></a>Data Lake Storage Gen2가 사용되는 스토리지 계정 만들기
 
 계정을 만들기 전에 먼저 만드는 저장소 계정 또는 다른 Azure 리소스에 대한 논리 컨테이너 역할을 하는 리소스 그룹을 만듭니다. 이 빠른 시작에서 만든 리소스를 정리하려면 간단히 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 연결된 저장소 계정과 기타 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
 > [!NOTE]
-> Data Lake Storage Gen2 기능을 활용하려면 새 저장소 계정을 **StorageV2(범용 V2)** 유형으로 만들어야 합니다.  
+> Data Lake Storage Gen2 기능을 활용하려면 새 스토리지 계정을 **StorageV2(범용 V2)** 유형으로 만들어야 합니다.  
 
-저장소 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
+스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
 저장소 계정의 이름을 지정할 때는 다음 규칙에 유의하세요.
 
@@ -208,7 +208,7 @@ az group create `
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>범용 v2 저장소 계정 만들기
 
-Azure CLI에서 로컬 중복 저장소를 사용하여 범용 v2 저장소 계정을 만들려면 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용합니다.
+Azure CLI에서 로컬 중복 스토리지를 사용하여 범용 v2 스토리지 계정을 만들려면 [az storage account create](/cli/azure/storage/account) 명령을 사용합니다.
 
 ```azurecli-interactive
 az storage account create `
@@ -230,6 +230,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Data Lake Storage Gen2 기능이 포함된 저장소 계정을 만들었습니다. 스토리지 계정에서 Blob을 업로드 및 다운로드하는 방법을 알아보려면 다음 항목을 참조하세요.
+이 빠른 시작에서는 Data Lake Storage Gen2 기능이 포함된 스토리지 계정을 만들었습니다. 스토리지 계정에서 Blob을 업로드 및 다운로드하는 방법을 알아보려면 다음 항목을 참조하세요.
 
 * [AzCopy V10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

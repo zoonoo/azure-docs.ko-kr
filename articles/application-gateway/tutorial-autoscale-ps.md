@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 99fa5d6f0ba74b56a53f2d1af1b99c7e5c2896a7
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: dd6cc65fca98bc435a8cfea575ba10e3cff376be
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323203"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424679"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>자습서: 웹 애플리케이션 액세스를 향상시키는 애플리케이션 게이트웨이 만들기
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서에서는 Azure PowerShell을 로컬로 실행해야 합니다. Azure PowerShell 모듈 버전 6.9.0 이상이 설치되어 있어야 합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Login-AzureRmAccount`를 실행하여 Azure와의 연결을 만듭니다.
+이 자습서에서는 Azure PowerShell을 로컬로 실행해야 합니다. Azure PowerShell 모듈 버전 6.9.0 이상이 설치되어 있어야 합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Login-AzureRmAccount`를 실행하여 Azure와의 연결을 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -162,4 +162,4 @@ Get-AzureRmPublicIPAddress를 사용하여 애플리케이션 게이트웨이의
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [URL 경로 기반 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이 만들기](./tutorial-url-route-powershell.md)
+> [URL 경로 기반 회람 규칙을 사용하여 애플리케이션 게이트웨이 만들기](./tutorial-url-route-powershell.md)

@@ -3,19 +3,19 @@ title: Azure Active Directory B2C의 인증 프로토콜 | Microsoft Docs
 description: Azure Active Directory B2C에서 지원하는 프로토콜을 사용하여 앱을 직접 빌드하는 방법입니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 19f3318c8bcaf634447285cab2951a89abf13a67
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: de7c40bcf93eae357ad99613caa2274f9e77d884
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837480"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853071"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: 인증 프로토콜
 Azure AD B2C(Azure Active Directory B2C)는 두 개의 업계 표준 프로토콜인 OpenID Connect 및 OAuth 2.0을 지원하여 앱에 대한 Identity-as-a-Service를 제공합니다. 서비스는 표준을 준수하지만 이러한 프로토콜의 두 구현에는 약간의 차이가 있을 수 있습니다. 
@@ -46,7 +46,7 @@ https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 
 * **리소스 소유자** 는 일반적으로 최종 사용자입니다. 데이터를 소유하는 당사자이며 제3자가 해당 데이터 또는 리소스에 액세스하도록 허용할 권한이 있습니다.
 
-* **OAuth 클라이언트** 는 앱입니다. 응용 프로그램 ID로 식별됩니다. 일반적으로 최종 사용자가 상호 작용하는 당사자입니다. 권한 부여 서버에서 토큰도 요청합니다. 리소스 소유자가 리소스에 액세스할 수 있는 클라이언트 권한을 부여해야 합니다.
+* **OAuth 클라이언트** 는 앱입니다. 애플리케이션 ID로 식별됩니다. 일반적으로 최종 사용자가 상호 작용하는 당사자입니다. 권한 부여 서버에서 토큰도 요청합니다. 리소스 소유자가 리소스에 액세스할 수 있는 클라이언트 권한을 부여해야 합니다.
 
 * **리소스 서버** 는 리소스 또는 데이터가 있는 곳입니다. OAuth 클라이언트를 안전하게 인증하고 권한을 부여하는 권한 부여 서버를 신뢰합니다. 또한 전달자 액세스 토큰을 사용하여 리소스에 액세스 권한이 부여되어야 합니다.
 
@@ -73,7 +73,7 @@ Azure AD B2C에서 사용되는 다양한 토큰 형식에 대한 자세한 내�
 ## <a name="protocols"></a>프로토콜
 몇 가지 예제 요청을 검토할 준비가 되면 다음 자습서 중 하나를 시작할 수 있습니다. 각각 특정 인증 시나리오에 해당합니다. 사용자에게 맞는 흐름을 결정하는 데 도움이 필요하면 [Azure AD B2C를 사용하여 빌드할 수 있는 앱 형식](active-directory-b2c-apps.md)을 확인합니다.
 
-* [OAuth 2.0을 사용하여 모바일 및 네이티브 응용 프로그램 빌드](active-directory-b2c-reference-oauth-code.md)
+* [OAuth 2.0을 사용하여 모바일 및 네이티브 애플리케이션 빌드](active-directory-b2c-reference-oauth-code.md)
 * [OpenID Connect를 사용하여 웹앱 빌드](active-directory-b2c-reference-oidc.md)
 * [OAuth 2.0 암시적 흐름을 사용하여 단일 페이지 앱 구축](active-directory-b2c-reference-spa.md)
 

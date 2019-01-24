@@ -4,7 +4,7 @@ description: Azure Active Directory 및 CS Stars 간에 Single Sign-On을 구성
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 5704d151-afb8-40a4-b286-8bacd4f279ee
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 14b5f13070554328a47cd80185efb487d887a6d5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e26c89cf015cca74dab769cce6d25a7ab2e22622
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832913"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815500"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>자습서: CS Stars와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ CS Stars를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 CS Stars에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -75,7 +75,7 @@ CS Stars의 Azure AD 통합을 구성하려면 갤러리의 CS Stars를 관리�
 
     ![Azure AD 테스트 사용자 만들기](./media/cs-stars-tutorial/tutorial_csstars_search.png)
 
-1. 결과 패널에서 **CS Stars**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **CS Stars**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/cs-stars-tutorial/tutorial_csstars_addfromgallery.png)
 
@@ -96,11 +96,11 @@ CS Stars에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 CS Stars 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 CS Stars 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **CS Stars에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **CS Stars** 응용 프로그램 통합 페이지에서 **Single sign-on**을 클릭합니다.
+1. Azure Portal의 **CS Stars** 애플리케이션 통합 페이지에서 **Single sign-on**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -131,7 +131,7 @@ CS Stars에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 <CE>
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -183,7 +183,7 @@ CS Stars에서 만든 사용자를 가져오려면 [CS Stars 지원 팀](https:/
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **CS Stars**를 선택합니다.
+1. 애플리케이션 목록에서 **CS Stars**를 선택합니다.
 
     ![Configure Single Sign-On](./media/cs-stars-tutorial/tutorial_csstars_app.png) 
 
@@ -210,7 +210,7 @@ CS Stars에서 만든 사용자를 가져오려면 [CS Stars 지원 팀](https:/
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

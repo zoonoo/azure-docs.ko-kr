@@ -1,5 +1,5 @@
 ---
-title: C#에서 불쾌한 자료에 대한 텍스트 콘텐츠 분석
+title: C#에서 비디오 콘텐츠의 유해한 자료 분석 - Content Moderator
 titlesuffix: Azure Cognitive Services
 description: .NET용 Content Moderator SDK를 사용하여 다양하고 불쾌한 자료에 대한 텍스트 비디오 콘텐츠를 분석하는 방법
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 80635354b228edc1a8c1334e5d59cf530a10083e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 70fe30e53635203d80aca2406c52b2ec08d0035c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008286"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265518"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>C#에서 불쾌한 자료에 대한 텍스트 콘텐츠 분석
 

@@ -4,17 +4,17 @@ description: 이 아티클에서는 Azure Automation 업데이트 관리를 사�
 services: automation
 author: zjalexander
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 83647dfb0965b8aac8ede5f2e9669ae3d7722c41
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bd7072ce8212366bf3d8a0a9e0a30000debea2ea
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184987"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434617"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Azure Automation을 사용하여 Windows 업데이트 관리
 
@@ -215,3 +215,4 @@ VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리**�
 
 > [!div class="nextstepaction"]
 > [업데이트 관리 솔루션](../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json)
+

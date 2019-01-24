@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 5d3833d3218a4b6252c9591bb67686ddc1c3cdf9
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: e8aaf7b3d0ff17682d0288939136cc6d2f1bfd89
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298578"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437626"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>고가용성을 위한 Azure Multi-Factor Authentication 서버 구성
 
@@ -62,7 +62,7 @@ Azure MFA 서버 및 관련 구성 요소 간 부하 분산을 위해서는 다�
    ![Azure MFA 서버 - 앱 서버 HA](./media/howto-mfaserver-deploy-ha/mfaapp.png)
 
    > [!NOTE]
-   > RPC는 동적 포트를 사용하므로 RPC에서 잠재적으로 사용할 수 있는 동적 포트 범위까지 방화벽을 열어 놓는 것은 좋지 않습니다. MFA 애플리케이션 서버 **사이에** 방화벽이 있는 경우 하위 및 마스터 서버 간의 복제 트래픽에 대한 정적 포트에서 통신하고 방화벽에서 해당 포트를 열도록 MFA 서버를 구성해야 합니다. ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor```에서 ```Pfsvc_ncan_ip_tcp_port```라는 DWORD 레지스트리 값을 만들고 값을 사용 가능한 정적 포트로 설정하여 정적 포트를 강제 적용할 수 있습니다. 연결은 항상 하위 MFA 서버에 의해 마스터로 시작되고 정적 포트는 마스터에서만 필요하지만 언제든지 하위를 마스터가 되도록 수준을 올릴 수 있으므로 모든 MFA 서버에서 정적 포트를 설정해야 합니다.
+   > RPC는 동적 포트를 사용하므로 RPC에서 잠재적으로 사용할 수 있는 동적 포트 범위까지 방화벽을 열어 놓는 것은 좋지 않습니다. MFA 응용 프로그램 서버 **사이에** 방화벽이 있는 경우 하위 및 마스터 서버 간의 복제 트래픽에 대한 정적 포트에서 통신하고 방화벽에서 해당 포트를 열도록 MFA 서버를 구성해야 합니다. ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor```에서 ```Pfsvc_ncan_ip_tcp_port```라는 DWORD 레지스트리 값을 만들고 값을 사용 가능한 정적 포트로 설정하여 정적 포트를 강제 적용할 수 있습니다. 연결은 항상 하위 MFA 서버에 의해 마스터로 시작되고 정적 포트는 마스터에서만 필요하지만 언제든지 하위를 마스터가 되도록 수준을 올릴 수 있으므로 모든 MFA 서버에서 정적 포트를 설정해야 합니다.
 
 2. 두 명의 사용자 포털/MFA 모바일 앱 서버(MFA-UP-MAS1 및 MFA-UP-MAS2)는 **상태 저장** 구성으로 부하 분산됩니다(mfa.contoso.com). 고정 세션은 MFA 사용자 포털과 Mobile App Service의 부하 분산을 위한 필수 조건임에 유의하세요.
    ![Azure MFA 서버 - 사용자 포털 및 Mobile App Service HA](./media/howto-mfaserver-deploy-ha/mfaportal.png)

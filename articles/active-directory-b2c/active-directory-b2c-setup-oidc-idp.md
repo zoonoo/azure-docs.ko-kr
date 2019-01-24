@@ -3,19 +3,19 @@ title: Azure Active Directory B2C를 사용하여 OpenID Connect를 통한 등�
 description: Azure Active Directory B2C를 사용하여 OpenID Connect를 통한 등록 및 로그인을 설정하는 방법을 설명합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e6fc9ded2b3509f9505d88f0ae7ccc790e47b0f2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9f6b65a4253b9cc7c04f397dde7ecab9a64d5ae0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842767"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845982"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 OpenID Connect를 통한 등록 및 로그인 설정
 

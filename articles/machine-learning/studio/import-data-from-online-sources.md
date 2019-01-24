@@ -1,27 +1,8 @@
 ---
-title: 온라인 데이터 원본에서 Machine Learning Studio로 데이터 가져오기 - Azure | Microsoft Docs
-description: 이 문서에서는 다양한 원본에서 온라인 데이터를 가져오는 기능에 대한 지원 및 이러한 원본의 데이터를 Azure Machine Learning Studio 실험으로 이동하는 데 필요한 정보를 설명합니다.
-keywords: 데이터 가져오기, 데이터 형식, 데이터 유형, 데이터 원본, 학습 데이터
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 701b93fe-765b-4d15-a1cf-9b607f17add6
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
-ms.openlocfilehash: a81765620b31af8a23d70d35cf8f86fc4b8e0033
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256097"
+제목: 온라인 데이터 원본에서 Machine Learning Studio로 데이터 가져오기 titleSuffix: Azure Machine Learning Studio 설명: 이 문서에서는 다양한 원본에서 온라인 데이터를 가져오는 기능에 대한 지원 및 이러한 원본의 데이터를 Azure Machine Learning Studio 실험으로 이동하는 데 필요한 정보를 설명합니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 2017/11/29
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-online-data-sources"></a>온라인 데이터 원본에서 Azure Machine Learning Studio로 데이터 가져오기 
 이 문서에서는 다양한 원본에서 온라인 데이터를 가져오는 기능에 대한 지원 및 이러한 원본의 데이터를 Azure Machine Learning Studio 실험으로 이동하는 데 필요한 정보를 설명합니다.
@@ -36,7 +17,7 @@ ms.locfileid: "53256097"
 
 * HTTP을 사용하는 웹 URL
 * HiveQL을 사용하는 Hadoop
-* Azure Blob 저장소
+* Azure Blob Storage
 * Azure 테이블
 * Azure SQL 데이터베이스 또는 Azure VM의 SQL Server
 * 온-프레미스 SQL Server 데이터베이스

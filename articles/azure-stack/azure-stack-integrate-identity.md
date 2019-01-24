@@ -2,20 +2,20 @@
 title: Azure Stack 데이터 센터 통합-Identity
 description: AD FS 데이터 센터를 사용 하 여 Azure Stack AD FS를 통합 하는 방법에 알아봅니다.
 services: azure-stack
-author: jeffgilb
+author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/08/19
-ms.author: jeffgilb
-ms.reviewer: wfayed
+ms.date: 01/23/19
+ms.author: patricka
+ms.reviewer: thoroet
 keywords: ''
-ms.openlocfilehash: 63ac30728cceae76f869f5529905cd6d3dde9ae2
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4f599379de07a9628ee81425ddac2374411bdf97
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263799"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852765"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 데이터 센터 통합-Identity
 Id 공급자로 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)를 사용 하 여 Azure Stack을 배포할 수 있습니다. Azure Stack을 배포 하기 전에 선택을 해야 합니다. AD FS를 사용 하 여 배포를 오프 라인된 모드에서 Azure Stack 배포는 라고도 합니다.
@@ -193,16 +193,21 @@ Azure Stack에서 그래프 서비스 대상 Active Directory와 통신 하는 �
 
 이 절차에서는 Azure Stack에서 권한 있는 끝점과 통신 하 고 이전 단계에서 만든 메타 데이터 파일에 대 한 액세스 권한이 있는 컴퓨터를 사용 합니다.
 
-1. 관리자 권한 Windows PowerShell 세션을 엽니다.
+1. 관리자 권한 Windows PowerShell 세션을 열고 권한 있는 끝점에 연결 합니다.
 
    ```PowerShell  
    $federationMetadataFileContent = get-content c:\metadata.xml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
-   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
    ```
 
-2. 환경에 적합 한 매개 변수를 사용 하 여 기본 공급자 구독 소유자를 업데이트 하려면 다음 명령을 실행 합니다.
+2. 권한 있는 끝점에 연결 했으므로 환경에 적합 한 매개 변수를 사용 하 여 다음 명령을 실행 합니다.
+
+    ```PowerShell
+    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
+    ```
+
+3. 환경에 적합 한 매개 변수를 사용 하 여 기본 공급자 구독 소유자를 업데이트 하려면 다음 명령을 실행 합니다.
 
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"

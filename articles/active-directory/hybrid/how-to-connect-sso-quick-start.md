@@ -5,22 +5,22 @@ services: active-directory
 keywords: Azure AD Connect의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/10/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2a842646d2696c0d7d26ad7218d298d2df0be1a1
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: aea83029ea5576886ab3eefd065c3f6db62ddc5f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187641"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465576"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -192,7 +192,7 @@ macOS를 실행하는 머신이 AD에 가입되어 있는지 확인합니다. ma
 
 환경에서 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) 또는 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) 정책 설정을 재정의한 경우 Azure AD의 URL(`https://autologon.microsoftazuread-sso.com`)도 해당 정책 설정에 추가해야 합니다.
 
-#### <a name="google-chrome-macos-only"></a>Google Chrome(macOS에만 해당)
+#### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome(macOS 및 기타 Windows 이외 플랫폼)
 
 Mac OS 및 기타 Windows가 아닌 플랫폼에서 Google Chrome의 경우 통합 인증을 위해 Azure AD URL을 허용 목록에 추가하는 방법은 [Chromium 프로젝트 정책 목록](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist)을 참조하세요.
 

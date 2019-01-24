@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
 ms.author: amsriva
-ms.openlocfilehash: e6352873ea055965b433fbf3e6e46162890e5fec
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: d05d509b67fd26c958e0e2fa2bbd877db26e6521
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200708"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232212"
 ---
 # <a name="application-gateway-redirect-overview"></a>Application Gateway 리디렉션 개요
 
@@ -35,4 +35,4 @@ ms.locfileid: "33200708"
 
 ### <a name="next-steps"></a>다음 단계
 
-[응용 프로그램 게이트웨이에서 URL 리디렉션 구성](application-gateway-configure-redirect-powershell.md)
+[Application Gateway에서 HTTP->HTTPS 리디렉션 구성](redirect-http-to-https-portal.md)

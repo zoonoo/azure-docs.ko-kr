@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: ec12da6ccd5b681c85da87d53f944fc4430149b5
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 2434c04260c223fdcc03bc7f91a6fd147e1d8503
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616200"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264108"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage 탐색기 문제 해결 가이드
 
@@ -100,7 +100,7 @@ macOS 키 집합은 Storage 탐색기의 인증 라이브러리에서 문제를 
 연결된 계정이나 저장소 리소스를 UI를 통해 제거할 수 없는 경우 다음 폴더를 삭제하여 연결된 리소스를 모두 수동으로 삭제할 수 있습니다.
 
 * Windows: `%AppData%/StorageExplorer`
-* macOS: `/Users/<your_name>/Library/Applicaiton Support/StorageExplorer`
+* macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
 * Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]
@@ -164,7 +164,7 @@ SAS URL을 사용하여 서비스에 연결하고 이 오류가 발생하는 경
 
 실수로 잘못된 SAS URL을 사용하여 첨부하고 분리할 수 없는 경우 다음 단계를 따릅니다.
 1.  Storage 탐색기를 실행 하는 경우 F12 키를 눌러 개발자 도구 창을 엽니다.
-2.  [응용 프로그램] 탭을 클릭한 다음 왼쪽 트리에서 로컬 저장소 > file://을 클릭합니다.
+2.  [애플리케이션] 탭을 클릭한 다음, 왼쪽 트리에서 로컬 스토리지 &gt; file://을 클릭합니다.
 3.  문제가 있는 SAS URI의 서비스 유형과 연결된 키를 찾습니다. 예를 들어 잘못된 SAS URI가 Blob 컨테이너에 대한 것이면 `StorageExplorer_AddStorageServiceSAS_v1_blob`으로 명명된 키를 찾아봅니다.
 4.  키의 값은 JSON 배열이어야 합니다. 잘못된 URI와 연결된 개체를 찾아 제거합니다.
 5.  Storage 탐색기를 다시 로드하려면 Ctrl+R 키를 누릅니다.

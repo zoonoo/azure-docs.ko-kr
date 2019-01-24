@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: scottwhi
 ms.custom: include file
-ms.openlocfilehash: a8d588b186652ab86ee1e8152bd9be08f0f1ef04
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6016b13fe7d3e1f3b673bd2446d2f68b04878cd6
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978694"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193433"
 ---
 Bing Statistics는 Bing Search API에 대한 분석을 제공합니다. 분석에는 호출량, 주요 쿼리 문자열, 지리적 분포 등이 포함됩니다. Bing Search 유료 구독에서 Bing Statistics를 사용하도록 설정하려면 [Azure 대시보드](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7)로 이동한 후 유료 구독을 선택하고 Bing Statistics 사용을 클릭합니다. Bing Statistics를 사용하도록 설정하면 구독 속도가 약간 늘어납니다([가격 책정](https://aka.ms/bingstatisticspricing) 참조).
 
@@ -21,7 +21,7 @@ Bing Statistics는 Bing Search API에 대한 분석을 제공합니다. 분석�
 > Bing Statistics는 유료 구독에서만 사용 가능하고 평가판 구독에서는 사용할 수 없습니다.
 
 > [!NOTE]
-> 제3자에게 배포할 응용 프로그램을 만들 때는 Bing Statistics 대시보드를 통해 사용 가능한 어떤 데이터도 사용할 수 없습니다.
+> 제3자에게 배포할 애플리케이션을 만들 때는 Bing Statistics 대시보드를 통해 사용 가능한 어떤 데이터도 사용할 수 없습니다.
 
 Bing은 24시간마다 분석 데이터를 업데이트하고 최대 13개월 동안의 기록을 유지 관리합니다.
 
@@ -85,7 +85,7 @@ For example, if you don't include the User-Agent header in your calls, the dashb
 
 - **응답 코드 배포**: 보고 기간 동안 수행된 모든 호출에 대한 HTTP 상태 코드입니다.
 
-- **호출 원본 배포**: 사용자가 사용하는 브라우저 유형입니다. 예를 들면 Edge, Chrome, Safari 및 FireFox와 같습니다. 봇, Postman과 같은 외부 브라우저나 콘솔 앱의 curl을 사용하여 수행되는 호출은 라이브러리 아래에 그룹화됩니다. 원본은 요청의 사용자 에이전트 헤더 값을 사용하여 결정됩니다. 요청에 사용자 에이전트 헤더가 포함되지 않을 경우 Bing은 다른 신호에서 원본을 파생하려고 시도합니다.  
+- **호출 원본 배포**: 사용자가 사용하는 브라우저 유형입니다. Microsoft Edge, Chrome, Safari, FireFox 등을 예로 들 수 있습니다. 봇, Postman과 같은 외부 브라우저나 콘솔 앱의 curl을 사용하여 수행되는 호출은 라이브러리 아래에 그룹화됩니다. 원본은 요청의 사용자 에이전트 헤더 값을 사용하여 결정됩니다. 요청에 사용자 에이전트 헤더가 포함되지 않을 경우 Bing은 다른 신호에서 원본을 파생하려고 시도합니다.  
 
 - **안전 검색 배포**: 안전 검색 값의 배포입니다. 예를 들면 off, moderate 또는 strict입니다. `safeSearch` 쿼리 매개 변수는 값(지정된 경우)을 포함합니다. 이렇게 하지 않으면 Bing은 기본적으로 moderate 값을 사용합니다.  
 

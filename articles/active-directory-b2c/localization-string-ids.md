@@ -3,19 +3,19 @@ title: 지역화 문자열 ID - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C의 사용자 지정 정책에서 api.signuporsignin의 ID를 사용하여 콘텐츠 정의의 ID를 지정하는 방법을 설명합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7619ebf038e164c9e586118c70e34955ca7c4767
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 72ed1f7f6d9fe9958bbd78b001d727feb5f8861c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222675"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848413"
 ---
 # <a name="localization-string-ids"></a>지역화 문자열 ID
 
@@ -102,7 +102,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 | **cancel_message** | 사용자가 자체 어설션된 정보의 입력을 취소함 |
 | **preloader_alt** | 기다려 주세요. |
 | **ver_but_send** | 확인 코드 보내기 |
-| **alert_yes** | yes |
+| **alert_yes** | 예 |
 | **error_fieldIncorrect** | 하나 이상의 필드가 잘못 채워졌습니다. 항목을 확인하고 다시 시도하세요. |
 | **year** | Year |
 | **verifying_blurb** | 정보를 처리하는 동안 잠시 기다려 주세요. |

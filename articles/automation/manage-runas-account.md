@@ -3,18 +3,18 @@ title: Azure Automation 실행 계정 관리
 description: 이 문서에서는 PowerShell 또는 포털에서 실행 계정을 관리하는 방법에 대해 설명합니다.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7bd84b42cfa61d199d70e02345f9229a45fd7704
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 34c8a7d547acf023af442599708f9c183e5b9ae9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726171"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431200"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation 실행 계정 관리
 
@@ -25,8 +25,8 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 실행 계정에는 다음과 같은 두 종류가 있습니다.
 
 * **Azure 실행 계정** - 이 계정은 Resource Manager 배포 모델 리소스를 관리하는 데 사용됩니다.
-  * 자체 서명된 인증서로 Azure AD 응용 프로그램을 만들고, Azure AD에 응용 프로그램의 서비스 주체 계정을 만들며, 현재 구독에 있는 계정에 대해 참가자 역할을 할당합니다. 이 설정을 소유자 또는 다른 어떤 역할로든 변경할 수 있습니다. 자세한 내용은 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
-  * 지정된 Automation 계정에서 *AzureRunAsCertificate*라는 Automation 인증서 자산을 만듭니다. 인증서 자산은 Azure AD 응용 프로그램에서 사용되는 인증서 개인 키를 보유합니다.
+  * 자체 서명된 인증서로 Azure AD 애플리케이션을 만들고, Azure AD에 애플리케이션의 서비스 주체 계정을 만들며, 현재 구독에 있는 계정에 대해 기여자 역할을 할당합니다. 이 설정을 소유자 또는 다른 어떤 역할로든 변경할 수 있습니다. 자세한 내용은 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
+  * 지정된 Automation 계정에서 *AzureRunAsCertificate*라는 Automation 인증서 자산을 만듭니다. 인증서 자산은 Azure AD 애플리케이션에서 사용되는 인증서 개인 키를 보유합니다.
   * 지정된 Automation 계정에서 *AzureRunAsConnection*이라는 Automation 연결 자산을 만듭니다. 연결 자산은 applicationId, tenantId, subscriptionId 및 인증서 지문을 보유합니다.
 
 * **Azure Classic 실행 계정** - 이 계정은 Classic 배포 모델 리소스를 관리하는 데 사용됩니다.
@@ -371,7 +371,7 @@ Azure Portal에서 **구독**을 선택하고 Automation Account의 구독을 �
 * 인증서 자산
 * 연결 자산
 * 실행 계정이 참여자 역할에서 제거됨
-* Azure AD의 서비스 주체 또는 응용 프로그램
+* Azure AD의 서비스 주체 또는 애플리케이션
 
 잘못된 구성의 이전 및 다른 인스턴스에서 Automation 계정은 변경 사항을 감지하고 계정의 **실행 계정** 속성 창에서 *불완전*이라는 상태를 표시합니다.
 
@@ -387,5 +387,6 @@ The Run As account is incomplete. Either one of these was deleted or not created
 
 ## <a name="next-steps"></a>다음 단계
 
-* 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요.
+* 서비스 주체에 대한 자세한 내용은 [애플리케이션 개체 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요.
 * 인증서 및 Azure 서비스에 대한 자세한 내용은 [Azure Cloud Services 인증서 개요](../cloud-services/cloud-services-certs-create.md)를 참조하세요.
+

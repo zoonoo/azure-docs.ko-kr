@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/15/2019
 ms.author: abnarain
-ms.openlocfilehash: 9a3e061902de53859ea98791048453db8cf00085
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f8827f3013ee83d8f4846e7e15d34ea7c6553f24
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021121"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331812"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. IR에 대한 세부 정보는 [통합 런타임 개요](concepts-integration-runtime.md)를 참조하세요.
@@ -86,7 +86,7 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 ## <a name="install-and-register-self-hosted-ir-from-the-download-center"></a>다운로드 센터에서 자체 호스팅 IR 설치 및 등록
 
 1. [Microsoft 통합 런타임 다운로드 페이지](https://www.microsoft.com/download/details.aspx?id=39717)로 이동합니다.
-2. **다운로드**를 선택하고 적절한 버전(**32비트** 또는 **64비트**)을 선택한 후에 **다음**을 선택합니다.
+2. **다운로드**를 선택하고, 64비트 버전(32비트는 지원되지 않음)을 선택한 후 **다음**을 선택합니다.
 3. MSI 파일을 직접 실행하거나 하드 디스크에 저장한 후에 실행합니다.
 4. **시작** 페이지에서 언어를 선택하고 **다음**을 선택합니다.
 5. Microsoft 소프트웨어 사용 조건에 동의하고 **다음**을 선택합니다.

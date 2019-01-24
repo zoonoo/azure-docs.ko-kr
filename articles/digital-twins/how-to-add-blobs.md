@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 36f4caac38f2f4891af6f61b78b55c7eff15eae4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: ffd7d71c33b569b396b9f8babf8105968ee525b9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116741"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263070"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Azure Digital Twins에서 개체에 Blob 추가
 
@@ -24,7 +24,7 @@ Azure Digital Twins는 Blobs를 디바이스, 공간 및 사용자에 연결할 
 
 [!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
-## <a name="uploading-blobs-an-overview"></a>Blob 업로드: 개요
+## <a name="uploading-blobs-overview"></a>Blob 업로드 개요
 
 다중 파트 요청을 사용하여 Blob을 특정 엔드포인트 및 해당 기능에 업로드할 수 있습니다.
 
@@ -38,13 +38,94 @@ Azure Digital Twins는 Blobs를 디바이스, 공간 및 사용자에 연결할 
 
 ![JSON 스키마][1]
 
+JSON Blob 메타데이터는 다음과 같은 모델을 준수합니다.
+
+```JSON
+{
+    "parentId": "00000000-0000-0000-0000-000000000000",
+    "name": "My First Blob",
+    "type": "Map",
+    "subtype": "GenericMap",
+    "description": "A well chosen description",
+    "sharing": "None"
+  }
+```
+
+| 특성 | type | 설명 |
+| --- | --- | --- |
+| **parentId** | 문자열 | Blob을 연결할 부모 엔터티(공백, 디바이스 또는 사용자)입니다. |
+| **name** |문자열 | Blob의 이름입니다. |
+| **type** | 문자열 | Blob의 형식으로, *type* 및 *typeId*를 사용할 수 없습니다.  |
+| **typeId** | 정수  | Blob 형식 ID로, *type* 및 *typeId*를 사용할 수 없습니다. |
+| **subtype** | 문자열 | Blob 하위 형식으로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
+| **subtypeId** | 정수  | Blob의 하위 형식 ID로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
+| **description** | 문자열 | Blob의 사용자 지정 설명입니다. |
+| **sharing** | 문자열 | Blob을 공유할 수 있는지 여부로, 열거형 [`None`, `Tree`, `Global`]입니다. |
+
+Blob 메타데이터는 항상 **Content-type** `application/json`을 포함하는 첫 번째 청크 또는 `.json` 파일로 제공됩니다. 파일 데이터는 두 번째 청크에 제공되고, 지원되는 임의 MIME 형식일 수 있습니다.
+
 Swagger 설명서는 이러한 모델 스키마에 대해 매우 자세하게 설명합니다.
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 [Swagger를 사용하는 방법](./how-to-use-swagger.md)을 읽고 참조 설명서를 사용하는 방법을 알아보세요.
 
-### <a name="examples"></a>예
+<div id="blobModel"></div>
+
+### <a name="blobs-response-data"></a>Blob 응답 데이터
+
+개별적으로 반환되는 Blob은 다음 JSON 스키마를 준수합니다.
+
+```JSON
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "name": "string",
+  "parentId": "00000000-0000-0000-0000-000000000000",
+  "type": "string",
+  "subtype": "string",
+  "typeId": 0,
+  "subtypeId": 0,
+  "sharing": "None",
+  "description": "string",
+  "contentInfos": [
+    {
+      "type": "string",
+      "sizeBytes": 0,
+      "mD5": "string",
+      "version": "string",
+      "lastModifiedUtc": "2019-01-12T00:58:08.689Z",
+      "metadata": {
+        "additionalProp1": "string",
+        "additionalProp2": "string",
+        "additionalProp3": "string"
+      }
+    }
+  ],
+  "fullName": "string",
+  "spacePaths": [
+    "string"
+  ]
+}
+```
+
+| 특성 | type | 설명 |
+| --- | --- | --- |
+| **id** | 문자열 | Blob의 고유한 식별자입니다. |
+| **name** |문자열 | Blob의 이름입니다. |
+| **parentId** | 문자열 | Blob을 연결할 부모 엔터티(공백, 디바이스 또는 사용자)입니다. |
+| **type** | 문자열 | Blob의 형식으로, *type* 및 *typeId*를 사용할 수 없습니다.  |
+| **typeId** | 정수  | Blob 형식 ID로, *type* 및 *typeId*를 사용할 수 없습니다. |
+| **subtype** | 문자열 | Blob 하위 형식으로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
+| **subtypeId** | 정수  | Blob의 하위 형식 ID로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
+| **sharing** | 문자열 | Blob을 공유할 수 있는지 여부로, 열거형 [`None`, `Tree`, `Global`]입니다. |
+| **description** | 문자열 | Blob의 사용자 지정 설명입니다. |
+| **contentInfos** | 배열 | 버전을 포함하는 구조화되지 않은 메타데이터 정보를 지정합니다. |
+| **fullName** | 문자열 | Blob의 전체 이름입니다. |
+| **spacePaths** | 문자열 | 공간 경로 |
+
+Blob 메타데이터는 항상 **Content-type** `application/json`을 포함하는 첫 번째 청크 또는 `.json` 파일로 제공됩니다. 파일 데이터는 두 번째 청크에 제공되고, 지원되는 임의 MIME 형식일 수 있습니다.
+
+### <a name="blob-multipart-request-examples"></a>Blob 다중 파트 요청 예제
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
@@ -92,6 +173,7 @@ var metadataContent = new StringContent(JsonConvert.SerializeObject(metaData), E
 metadataContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
 multipartContent.Add(metadataContent, "metadata");
 
+//MY_BLOB.txt is the String representation of your text file
 var fileContents = new StringContent("MY_BLOB.txt");
 fileContents.Headers.ContentType = MediaTypeHeaderValue.Parse("text/plain");
 multipartContent.Add(fileContents, "contents");
@@ -99,15 +181,27 @@ multipartContent.Add(fileContents, "contents");
 var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 ```
 
-두 예제:
+마지막으로, [cURL](https://curl.haxx.se/) 사용자는 다음과 같이 동일한 방식으로 다중 파트 양식 요청을 수행할 수 있습니다.
 
-1. 헤더에 `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`가 포함되어 있는지 확인합니다.
-1. 본문이 다중 파트인지 확인합니다.
+![디바이스 Blob][5]
 
-   - 첫 번째 파트에는 요청된 Blob 메타데이터를 포함합니다.
-   - 두 번째 부분은 텍스트 파일을 포함합니다.
+```bash
+curl
+ -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs"
+ -H "Authorization: Bearer YOUR_TOKEN"
+ -H "Accept: application/json"
+ -H "Content-Type: multipart/form-data"
+ -F "meta={\"ParentId\": \"YOUR_SPACE_ID\",\"Name\":\"My CURL Blob",\"Type\":\"Map\",\"SubType\":\"GenericMap\",\"Description\": \"A well chosen description\", \"Sharing\": \"None\"};type=application/json"
+ -F "text=PATH_TO_FILE;type=text/plain"
+```
 
-1. 텍스트 파일이 `Content-Type: text/plain`으로 제공되는지 확인합니다.
+| 값 | 다음 항목으로 교체 |
+| --- | --- |
+| YOUR_TOKEN | 유효한 OAuth 2.0 토큰 |
+| YOUR_SPACE_ID | Blob을 연결할 공간의 ID |
+| PATH_TO_FILE | 텍스트 파일의 경로 |
+
+성공한 POST는 새 Blob의 ID를 반환합니다(이전에 빨간색으로 강조 표시됨).
 
 ## <a name="api-endpoints"></a>API 엔드포인트
 
@@ -129,15 +223,7 @@ YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | 원하는 Blob ID |
 
-요청이 성공하면 응답에 **DeviceBlob** JSON 개체가 반환됩니다. **DeviceBlob** 개체는 다음과 같은 JSON 스키마를 준수합니다.
-
-| 특성 | type | 설명 | 예 |
-| --- | --- | --- | --- |
-| **DeviceBlobType** | 문자열 | 디바이스에 연결할 수 있는 Blob 범주입니다. | `Model` 및 `Specification` |
-| **DeviceBlobSubtype** | 문자열 | **DeviceBlobType**보다 구체적인 Blob 하위 범주입니다. | `PhysicalModel`, `LogicalModel`, `KitSpecification` 및 `FunctionalSpecification` |
-
-> [!TIP]
-> 성공적으로 반환된 요청 데이터를 처리하려면 앞의 표를 사용하세요.
+성공한 요청은 [앞에서 설명한](#blobModel) 대로 JSON 개체를 반환합니다.
 
 ### <a name="spaces"></a>공백
 
@@ -155,14 +241,9 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | 원하는 Blob ID |
 
-동일한 엔드포인트로의 PATCH 요청은 메타데이터 설명을 업데이트하고 새 버전의 Blob을 만듭니다. HTTP 요청은 필요한 메타 및 다중 파트 양식 데이터와 함께 PATCH 메서드를 통해 수행됩니다.
+성공한 요청은 [앞에서 설명한](#blobModel) 대로 JSON 개체를 반환합니다.
 
-성공한 작업은 다음 스키마를 준수하는 **SpaceBlob** 개체를 반환합니다. 이 개체를 사용하여 반환된 데이터를 사용할 수 있습니다.
-
-| 특성 | type | 설명 | 예 |
-| --- | --- | --- | --- |
-| **SpaceBlobType** | 문자열 | 공간에 연결할 수 있는 Blob 범주입니다. | `Map` 및 `Image` |
-| **SpaceBlobSubtype** | 문자열 | **SpaceBlobType**보다 구체적인 Blob 하위 범주입니다. | `GenericMap`, `ElectricalMap`, `SatelliteMap` 및 `WayfindingMap` |
+동일한 엔드포인트로의 PATCH 요청은 메타데이터 설명을 업데이트하고 Blob의 버전을 만듭니다. HTTP 요청은 필요한 메타 및 다중 파트 양식 데이터와 함께 PATCH 메서드를 통해 수행됩니다.
 
 ### <a name="users"></a>사용자
 
@@ -180,16 +261,11 @@ YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | 원하는 Blob ID |
 
-반환된 JSON(**UserBlob** 개체)은 다음 JSON 모델을 준수합니다.
-
-| 특성 | type | 설명 | 예 |
-| --- | --- | --- | --- |
-| **UserBlobType** | 문자열 | 사용자에 연결할 수 있는 Blob 범주입니다. | `Image` 및 `Video` |
-| **UserBlobSubtype** |  문자열 | **UserBlobType**보다 구체적인 Blob 하위 범주입니다. | `ProfessionalImage`, `VacationImage`, `CommercialVideo` |
+성공한 요청은 [앞에서 설명한](#blobModel) 대로 JSON 개체를 반환합니다.
 
 ## <a name="common-errors"></a>일반 오류
 
-일반 오류는 올바른 헤더 정보를 포함하고 있지 않습니다.
+일반 오류는 올바른 헤더 정보를 제공하지 않는 것과 관련됩니다.
 
 ```JSON
 {
@@ -200,12 +276,22 @@ YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 }
 ```
 
+이 오류를 해결하려면 전체 요청에 적절한 **Content-type** 헤더가 있는지 확인합니다.
+
+* `multipart/mixed`
+* `multipart/form-data`
+
+또한 필요에 따라 각 다중 파트 청크에 해당 **Content-type**이 있는지 확인합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 - Azure Digital Twins에 대한 Swagger 참조 설명서의 자세한 내용은 [Azure Digital Twins Swagger 사용](how-to-use-swagger.md)을 참조하세요.
+
+- Postman을 통해 Blob을 업로드하려면 [Postman을 구성하는 방법](./how-to-configure-postman.md)을 읽어보세요.
 
 <!-- Images -->
 [1]: media/how-to-add-blobs/blob-models.PNG
 [2]: media/how-to-add-blobs/blobs-device-api.PNG
 [3]: media/how-to-add-blobs/blobs-space-api.PNG
 [4]: media/how-to-add-blobs/blobs-users-api.PNG
+[5]: media/how-to-add-blobs/curl.PNG

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/23/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: b6ec3283121a3403afb80ccad81f313decf16c88
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a74fb749e130b565c44c637bfc16ff09e3314a05
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957643"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857168"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack 문제 해결
 
@@ -32,11 +32,31 @@ ms.locfileid: "52957643"
 이 섹션에 설명 된 문제 해결을 위한 권장 사항을 여러 원본에서 파생 된와 수도 있고 특정 문제를 해결할 수 있습니다. 코드 예제는 그대로 제공 됩니다 하 고 예상된 결과 보장할 수 없습니다. 이 섹션에서는 제품 개선 사항이 구현 된 대로 자주 편집 하 고 업데이트 적용 됩니다.
 
 ## <a name="deployment"></a>배포
-### <a name="deployment-failure"></a>배포 실패
+### <a name="general-deployment-failure"></a>일반적인 배포 오류
 를 설치 하는 동안 오류가 발생 하면 다시 시작할 수 있습니다 실패 한 단계에서 배포를 사용 하 여 배포 스크립트의 다시 실행된-옵션입니다.  
 
 ### <a name="at-the-end-of-asdk-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>ASDK 배포 끝 PowerShell 세션을 여전히 열려 있고 출력을 표시 하지 않습니다.
 이 문제를 선택한 경우에 PowerShell 명령 창의 기본 동작 하면 때문일 수 있습니다. 개발 키트 배포에 성공 하지만 스크립트 창을 선택 하는 경우 일시 중지 되었습니다. 명령 창의 제목 표시줄에 "select" 라는 단어를 검색 하 여 설치를 완료 하는 것을 확인할 수 있습니다.  ESC 키를 선택 취소를 누른 후 완료 메시지가 표시 되 합니다.
+
+### <a name="deployment-fails-due-to-lack-of-external-access"></a>외부 액세스 부족으로 인해 배포가 실패
+배포에 실패 하는 외부 액세스가 필요한 위치 단계에서 다음과 같은 예외가 반환 됩니다.
+
+```
+An error occurred while trying to test identity provider endpoints: System.Net.WebException: The operation has timed out.
+   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.GetResponse(WebRequest request)
+   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.ProcessRecord()at, <No file>: line 48 - 8/12/2018 2:40:08 AM
+```
+이 오류가 발생 하는 경우 확인 하 여 검토 하 여 모든 최소 네트워킹 요구 사항이 충족 되었는지 합니다 [배포 네트워크 트래픽 설명서](deployment-networking.md)합니다. 네트워크 검사 도구 파트너 도구 키트의 일부로 파트너용 사용할 수도 있습니다.
+
+위의 예외를 사용 하 여 배포 오류는 일반적으로 인터넷 리소스에 연결 하는 문제로 인해
+
+문제가 발생 하는이 확인 하려면 다음 단계를 수행할 수 있습니다.
+
+1. Powershell 열기
+2. Enter-pssession은 WAS01 ERCs Vm 중 하나를
+3. Commandlet을 실행 합니다. Test-NetConnection login.windows.net -port 443
+
+이 명령이 실패 하면 TOR 스위치 및 기타 네트워크 장치에 구성 된 확인 [네트워크 트래픽을 허용](azure-stack-network.md)합니다.
 
 ## <a name="virtual-machines"></a>가상 머신
 ### <a name="default-image-and-gallery-item"></a>기본 이미지 및 갤러리 항목

@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: 8c04c9fffbb85bb4db7a369b0dbbad6279f5d6f6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 5a5d052052be447ea2ccbd9231d3b03d38c7615c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420084"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266946"
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Azure를 사용하여 Linux 가상 머신에 Tomcat7 설치
 Apache Tomcat(또는 간단히 Tomcat, 이전에는 Jakarta Tomcat이라고도 함)은 ASF(Apache Software Foundation)에서 개발한 오픈 소스 웹 서버 및 서블릿 컨테이너입니다. Tomcat은 Sun Microsystems의 Java Servlet 및 JSP(JavaServer Pages) 사양을 구현합니다. Tomcat은 Java 코드를 실행할 수 있는 순수한 Java HTTP 웹 서버 환경을 제공합니다. 가장 단순한 구성의 경우 Tomcat은 단일 운영 체제 프로세스로 실행됩니다. 이 프로세스에서는 JVM(Java Virtual Machine)을 실행합니다. 브라우저에서 Tomcat으로 전송되는 모든 HTTP 요청은 Tomcat 프로세스에서 별도의 스레드로 처리됩니다.  
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델, 즉 [Azure Resource Manager 및 클래식](../../../resource-manager-deployment-model.md) 모델이 있습니다. 이 문서에서는 클래식 배포 모델을 사용하는 방법에 대해 설명합니다. 대부분의 새로운 배포에서는 Azure Resource Manager 모델을 사용하는 것이 좋습니다. Resource Manager 템플릿을 사용하여 Open JDK 및 Tomcat이 있는 Ubuntu VM을 배포하려면 [이 문서 ](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/)를 참조하세요.
+> Azure에는 리소스를 만들고 사용하기 위한 [Azure Resource Manager 및 클래식](../../../resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있다는 것을 이해해야 합니다. 이 문서에서는 클래식 배포 모델을 사용하는 방법에 대해 설명합니다. 대부분의 새로운 배포에서는 Azure Resource Manager 모델을 사용하는 것이 좋습니다. Resource Manager 템플릿을 사용하여 Open JDK 및 Tomcat이 있는 Ubuntu VM을 배포하려면 [이 문서 ](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/)를 참조하세요.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 이 문서에서는 Tomcat7을 Linux 이미지에 설치하고 이를 Azure에 배포합니다.  
@@ -75,7 +75,7 @@ SSH 인증 키를 생성하려면 다음 단계를 수행합니다.
 
 4. 필요에 따라 다른 설정을 구성한 다음 **만들기**를 클릭합니다.  
 
-## <a name="phase-2-prepare-your-virtual-machine-for-tomcat7"></a>2단계: Tomcat7에 대해 가상 컴퓨터 준비
+## <a name="phase-2-prepare-your-virtual-machine-for-tomcat7"></a>2단계: Tomcat7용 가상 머신 준비
 이 단계에서는 Tomcat 트래픽에 대한 엔드포인트를 구성한 다음 새 가상 머신에 연결합니다.
 
 ### <a name="step-1-open-the-http-port-to-allow-web-access"></a>1단계: 웹 액세스를 허용하도록 HTTP 포트 열기
@@ -91,7 +91,7 @@ Azure의 엔드포인트는 공용 및 개인 포트와 함께 TCP 또는 UDP �
 
    1. 엔드포인트의 경우 **엔드포인트**에 엔드포인트 이름을 입력한 다음 **공용 포트**에 80을 입력합니다.  
 
-      80으로 설정하면 Tomcat에 액세스하는 데 사용되는 URL에 포트 번호를 포함할 필요가 없습니다. 예: http://tomcatdemo.cloudapp.net.    
+      80으로 설정하면 Tomcat에 액세스하는 데 사용되는 URL에 포트 번호를 포함할 필요가 없습니다. 예: http://tomcatdemo.cloudapp.net    
 
       다른 값(예: 81)으로 설정하면 Tomcat에 액세스할 수 있도록 URL에 포트 번호를 추가해야 합니다. 예: http://tomcatdemo.cloudapp.net:81/
    2. **개인 포트**에 8080을 입력합니다. 기본적으로 Tomcat은 8080 TCP 포트에서 수신 대기합니다. Tomcat의 기본 수신 대기 포트를 변경한 경우 **개인 포트**를 Tomcat 수신 대기 포트와 같도록 업데이트해야 합니다.  
@@ -114,7 +114,7 @@ Azure의 엔드포인트는 공용 및 개인 포트와 함께 TCP 또는 UDP �
 4. 다운로드한 후 Putty.exe 실행 파일을 클릭합니다. PuTTY 구성에서 가상 머신의 속성에서 가져온 호스트 이름과 포트 번호로 기본 옵션을 구성합니다.   
 ![PuTTY 구성 호스트 이름 및 포트 옵션을 보여 주는 스크린샷][9]
 
-5. 왼쪽 창에서 **연결** > **SSH** > **인증**을 차례로 클릭한 다음 **찾아보기**를 클릭하여 privateKey.ppk 파일의 위치를 지정합니다. privateKey.ppk 파일에는 이미 이 문서의 "1단계: 이미지 만들기" 섹션의 PuTTYgen에서 생성한 개인 키가 있습니다.  
+5. 왼쪽 창에서 **연결** > **SSH** > **인증**을 차례로 클릭한 다음 **찾아보기**를 클릭하여 privateKey.ppk 파일의 위치를 지정합니다. privateKey.ppk 파일에는 이 문서의 "1단계: 이미지 만들기" 섹션에서 PuTTYgen을 통해 미리 생성해 둔 개인 키가 포함되어 있습니다.  
 ![연결 디렉터리 계층 구조와 찾아보기 단추를 보여 주는 스크린샷][10]
 
 6. **열기**를 클릭합니다. 메시지 상자에 경고 메시지가 표시될 수도 있습니다. DNS 이름과 포트 번호를 올바르게 구성한 경우 **예**를 클릭합니다.
@@ -141,7 +141,7 @@ Tomcat은 Java로 작성되었습니다. 완벽하게 지원되는 Java 런타�
 다음과 같은 명령을 사용하여 Java Runtime Environment가 올바르게 설치되었는지 테스트할 수 있습니다.  
     Java 버전  
 
-![OpenJDK 설치 성공 메시지][14]와 비슷한 메시지가 표시됩니다.
+다음과 같은 메시지가 표시됩니다. ![OpenJDK 설치 성공 메시지][14]
 
 
 ### <a name="install-tomcat7"></a>Tomcat7 설치
@@ -207,7 +207,7 @@ Tomcat 사용자 구성 파일을 편집하여 관리자 자격 증명을 설정
 ## <a name="common-issues"></a>일반적인 문제
 ### <a name="cant-access-the-virtual-machine-with-tomcat-and-moodle-from-the-internet"></a>인터넷에서 Tomcat 및 Moodle이 있는 가상 머신에 액세스할 수 없음
 #### <a name="symptom"></a>증상  
-   Tomcat이 실행되고 있지만 브라우저에서 Tomcat 기본 페이지를 볼 수 없습니다.
+  Tomcat이 실행되고 있지만 브라우저에서 Tomcat 기본 페이지를 볼 수 없습니다.
 #### <a name="possible-root-cause"></a>가능한 근본 원인   
 
   * Tomcat 수신 대기 포트는 Tomcat 트래픽에 대한 가상 머신 엔드포인트의 개인 포트와 다릅니다.  

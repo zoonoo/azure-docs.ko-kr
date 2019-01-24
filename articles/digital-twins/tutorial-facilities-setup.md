@@ -6,14 +6,14 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 12/17/2018
 ms.author: dkshir
-ms.openlocfilehash: b21e5a87561757e2991a7b9addce0d1f3383204f
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 28433f8f3f181c507521cb12f064df045ae21d9d
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557719"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212195"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>자습서: Azure Digital Twins 배포 및 공간 그래프 구성
 
@@ -33,9 +33,7 @@ Azure Digital Twins 서비스를 사용하여 건물의 물리적 영역 및 엔
 > * Digital Twins 샘플 앱 수정
 > * 건물 프로비전
 
-
 이러한 자습서에서는 개념을 보다 구체적으로 설명하기 위해 [빠른 시작: 사용 가능한 회의실 찾기](quickstart-view-occupancy-dotnet.md)에 사용되는 것과 동일한 샘플을 수정하여 사용합니다.
-
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -45,7 +43,7 @@ Azure Digital Twins 서비스를 사용하여 건물의 물리적 영역 및 엔
 
 - 샘플 코드를 탐색할 [Visual Studio Code](https://code.visualstudio.com/). 
 
-<a id="deploy" />
+<a id="deploy"></a>
 
 ## <a name="deploy-digital-twins"></a>Deploy Digital Twins
 
@@ -53,8 +51,7 @@ Azure Digital Twins 서비스를 사용하여 건물의 물리적 영역 및 엔
 
 [!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
-
-<a id="permissions" />
+<a id="permissions"></a>
 
 ## <a name="grant-permissions-to-your-app"></a>앱에 권한 부여
 
@@ -64,19 +61,20 @@ Digital Twins는 Azure AD([Azure Active Directory](../active-directory/fundament
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
-
 ## <a name="configure-the-digital-twins-sample"></a>Digital Twins 샘플 구성
 
 이 섹션에서는 [Digital Twins REST API](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index)와 통신하는 Azure Digital Twins 애플리케이션을 살펴봅니다. 
 
 ### <a name="download-the-sample"></a>샘플 다운로드
+
 [빠른 시작: 사용 가능한 회의실 찾기](quickstart-view-occupancy-dotnet.md)에 필요한 샘플을 이미 다운로드한 경우 이 단계를 건너뛸 수 있습니다.
 
-1. [Digital Twins .NET 샘플](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip)을 다운로드합니다. 
-2. 머신에서 ZIP 폴더의 콘텐츠를 추출합니다. 
+1. [Digital Twins .NET 샘플](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip)을 다운로드합니다.
+2. 머신에서 ZIP 폴더의 콘텐츠를 추출합니다.
 
 ### <a name="explore-the-sample"></a>샘플 탐색
-추출된 샘플 폴더의 **digital-twins-samples-csharp\digital-twins-samples.code-workspace** 파일을 Visual Studio Code에서 엽니다. 이 파일에는 다음 두 프로젝트가 포함되어 있습니다. 
+
+추출된 샘플 폴더의 **digital-twins-samples-csharp\digital-twins-samples.code-workspace** 파일을 Visual Studio Code에서 엽니다. 이 파일에는 다음 두 프로젝트가 포함되어 있습니다.
 
 * **occupancy-quickstart** 프로비전 샘플을 사용하여 [공간 인텔리전스 그래프](concepts-objectmodel-spatialgraph.md#graph)를 구성하고 프로비전할 수 있습니다. 이 그래프는 물리적 공간 및 포함된 리소스의 디지털화된 이미지입니다. 이 샘플은 스마트 건물에 대한 개체를 정의하는 [개체 모델](concepts-objectmodel-spatialgraph.md#model)을 사용합니다. Digital Twins 개체 및 REST API의 전체 목록을 보려면 [인스턴스](#deploy)에 대해 작성된 [이 REST API 설명서](https://docs.westcentralus.azuresmartspaces.net/management/swagger) 또는 관리 API URL를 방문하세요.
 
@@ -89,6 +87,7 @@ Digital Twins는 Azure AD([Azure Active Directory](../active-directory/fundament
 * 시뮬레이션 샘플 **device-connectivity**는 센서 데이터를 시뮬레이션하여 Digital Twins 인스턴스에 대해 프로비전된 IoT 허브로 보냅니다. 이 샘플은 [공간 그래프를 프로비전한 이후 다음 자습서](tutorial-facilities-udf.md#simulate)에서 사용합니다. 이 샘플을 구성하는 데 사용한 센서 및 디바이스 식별자는 그래프를 프로비전하는 데 사용할 식별자와 동일해야 합니다.
 
 ### <a name="configure-the-provisioning-sample"></a>프로비전 샘플 구성
+
 1. 명령 창을 열고, 다운로드한 샘플로 이동합니다. 다음 명령 실행:
 
     ```cmd/sh
@@ -101,10 +100,10 @@ Digital Twins는 Azure AD([Azure Active Directory](../active-directory/fundament
     dotnet restore
     ```
 
-1. Visual Studio Code의 **occupancy-quickstart** 프로젝트에서 **appSettings.json** 파일을 엽니다. 다음 값을 업데이트합니다.
+1. Visual Studio Code의 **occupancy-quickstart** 프로젝트에서 [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) 파일을 엽니다. 다음 값을 업데이트합니다.
    * **ClientId**: Azure AD 앱 등록의 애플리케이션 ID를 입력합니다. [앱 사용 권한을 설정](#permissions)하는 섹션에서 이 ID를 기록했습니다.
    * **Tenant**: [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)의 디렉터리 ID를 입력합니다. [앱 사용 권한을 설정](#permissions)하는 섹션에서 이 ID를 기록했습니다.
-   * **BaseUrl**: Digital Twins 인스턴스의 URL을 입력합니다. 이 URL을 가져오려면 이 URL의 자리 표시자를 인스턴스에 대한 값 _https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/_ 로 바꿉니다. [배포 섹션](#deploy)에서 관리 API URL을 수정하여 이 URL을 가져올 수도 있습니다. **swagger/** 를 **api/v1.0/** 로 바꿉니다.
+   * **BaseUrl**: Digital Twins 인스턴스의 URL을 입력합니다. 이 URL을 가져오려면 이 URL의 자리 표시자를 인스턴스에 대한 값(`https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`)으로 바꿉니다. [배포 섹션](#deploy)에서 관리 API URL을 수정하여 이 URL을 가져올 수도 있습니다. **swagger/** 를 **api/v1.0/** 로 바꿉니다.
 
 1. 샘플을 사용하여 탐색할 수 있는 Digital Twins 기능 목록을 확인합니다. 다음 명령 실행:
 
@@ -112,10 +111,11 @@ Digital Twins는 Azure AD([Azure Active Directory](../active-directory/fundament
     dotnet run
     ```
 
-<a id="provision-spaces" />
+<a id="provision-spaces"></a>
 
 ## <a name="understand-the-provisioning-process"></a>프로비전 프로세스 이해
-이 섹션에서는 샘플이 건물의 공간 그래프를 프로비전하는 방법을 보여줍니다. 
+
+이 섹션에서는 샘플이 건물의 공간 그래프를 프로비전하는 방법을 보여줍니다.
 
 Visual Studio Code에서 **occupancy-quickstart\src\actions** 폴더로 이동하여 **provisionSample.cs** 파일을 엽니다. 다음 함수를 봅니다.
 
@@ -137,15 +137,16 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
 ```
 
-이 함수는 같은 폴더에 있는 **provisionSample.yaml** 파일을 사용합니다. 이 파일을 열고, 사무실 건물의 계층 구조인 *구역*, *층*, *영역* 및 *방*을 살펴봅니다. 이러한 물리적 공간은 *디바이스* 및 *센서*를 포함할 수 있습니다. 각 항목에는 미리 정의된 `type`&mdash;이 있습니다(예: 층, 방). 
+이 함수는 같은 폴더에 있는 [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) 파일을 사용합니다. 이 파일을 열고, 사무실 건물의 계층 구조인 *구역*, *층*, *영역* 및 *방*을 살펴봅니다. 이러한 물리적 공간은 *디바이스* 및 *센서*를 포함할 수 있습니다. 각 항목에는 미리 정의된 `type`&mdash;이 있습니다(예: 층, 방).
 
 샘플 **yaml** 파일은 `Default` Digital Twins 개체 모델을 사용하는 공간 그래프를 보여줍니다. 이 모델에서는 대부분의 형식에 대해 일반 이름을 제공합니다. 건물에 일반 이름을 사용하면 충분합니다. 예제는 SensorDataType에 대한 온도 및 SpaceBlobType에 대한 매핑입니다. 예제 공간 형식은 FocusRoom, ConferenceRoom 등의 하위 형식을 사용하는 방입니다. 
 
 공장 같은 다른 유형의 장소에 대한 공간 그래프를 만들어야 하는 경우 다른 개체 모델이 필요합니다. 프로비전 샘플에 대한 명령줄에서 `dotnet run GetOntologies` 명령을 실행하여 사용 가능한 모델을 확인할 수 있습니다. 
 
-공간 그래프 및 개체 모델에 대한 자세한 내용은 [Digital Twins 개체 모델 및 공간 인텔리전스 그래프의 이해](concepts-objectmodel-spatialgraph.md)를 참조하세요. 
+공간 그래프 및 개체 모델에 대한 자세한 내용은 [Digital Twins 개체 모델 및 공간 인텔리전스 그래프의 이해](concepts-objectmodel-spatialgraph.md)를 참조하세요.
 
 ### <a name="modify-the-sample-spatial-graph"></a>샘플 공간 그래프 수정
+
 **provisionSample.yaml** 파일은 다음 노드를 포함합니다.
 
 - **resources**: `resources` 노드는 설치된 디바이스와 통신하는 Azure IoT Hub 리소스를 만듭니다. 그래프의 루트 노드에 있는 IoT 허브는 그래프의 모든 디바이스 및 센서와 통신할 수 있습니다.  
@@ -168,22 +169,19 @@ provisionSample.yaml 파일을 저장하고 닫습니다. 다음 자습서에서
 > [!TIP]
 > [Azure Digital Twins 그래프 뷰어](https://github.com/Azure/azure-digital-twins-graph-viewer)를 사용하여 공간 그래프를 보고 수정할 수 있습니다.
 
-
 ## <a name="clean-up-resources"></a>리소스 정리
 
 더 이상 Azure Digital Twins를 탐색할 계획이 없는 경우 이 자습서에서 만든 리소스를 자유롭게 삭제할 수 있습니다.
 
 1. [Azure Portal](http://portal.azure.com)의 왼쪽 메뉴에서 **모든 리소스**를 선택하고, Digital Twins 리소스 그룹을 선택하고, **삭제**를 선택하면 됩니다.
-   
+
     > [!TIP]
     > Digital Twins 인스턴스를 삭제하는 데 문제가 있을 경우 픽스가 포함된 서비스 업데이트가 배포된 것입니다. 인스턴스 삭제를 다시 시도해 보세요.
 
-1. 필요한 경우 작업 머신에서 샘플 애플리케이션을 삭제합니다. 
-
+1. 필요한 경우 작업 머신에서 샘플 애플리케이션을 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 샘플 건물의 조건을 모니터링하는 사용자 지정 논리를 구현하는 방법을 알아보려면 시리즈의 다음 자습서로 이동합니다. 
 > [!div class="nextstepaction"]
 > [자습서: 건물을 프로비전하고 작업 조건 모니터링](tutorial-facilities-udf.md)
-

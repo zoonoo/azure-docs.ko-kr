@@ -11,20 +11,21 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/02/2018
+ms.date: 01/15/2019
 ms.author: magoedte
-ms.openlocfilehash: 5236cff7a4afe508a8e11c6d75484fcdc9d43f91
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 551e7c0ca3b4b5e0e94aca39e19d9a35d08e4e05
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194235"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353042"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Log Analytics 게이트웨이를 사용하여 인터넷 액세스 없이 컴퓨터 연결
 이 문서에서는 직접 연결되거나 Operations Manager 모니터링 컴퓨터가 인터넷에 액세스할 수 없는 경우, Log Analytics 게이트웨이를 사용하여 Azure Automation 및 Log Analytics와의 통신을 구성하는 방법을 설명합니다.  HTTP CONNECT 명령을 사용하여 HTTP 터널링을 지원하는 HTTP 전달 프록시인 Log Analytics 게이트웨이에서 데이터를 수집하고 대신하여 Azure Automation 및 Log Analytics로 보낼 수 있습니다.  
 
 Log Analytics 게이트웨이는 다음을 지원합니다.
 
+* 구성된 최대 4개의 동일한 Log Analytics 작업 영역 에이전트에 보고  
 * Azure Automation Hybrid Runbook Worker  
 * Log Analytics 작업 영역에 직접 연결된 Microsoft Monitoring Agent가 있는 Windows 컴퓨터
 * Log Analytics 작업 영역에 직접 연결된 Linux용 Log Analytics 에이전트가 있는 Linux 컴퓨터  
@@ -36,11 +37,11 @@ Operations Manager 관리 그룹이 Log Analytics와 통합되면, Log Analytics
 
 게이트웨이를 통해 Log Analytics와 통신하는 직접 연결 또는 Operations Management 그룹에 고가용성을 제공하려면 네트워크 부하 분산을 사용하여 트래픽을 여러 게이트웨이 서버로 리디렉션하고 배포할 수 있습니다.  한 게이트웨이 서버가 다운되면 트래픽이 사용 가능한 다른 노드로 리디렉션됩니다.  
 
-Log Analytics 에이전트가 통신에 필요한 서비스 엔드포인트를 식별하고 성능 또는 이벤트 데이터 분석을 위한 Log Analytics 게이트웨이를 모니터링하기 위해 Log Analytics 게이트웨이를 실행하는 컴퓨터에 필요합니다.
+Log Analytics Windows 에이전트는 통신해야 하는 서비스 엔드포인트를 식별하는 것 뿐만 아니라 게이트웨이 뒤의 에이전트 또는 Operations Manager 관리 그룹이 구성된 동일한 작업 영역에 보고하기 위해 Log Analytics 게이트웨이를 실행하는 컴퓨터에 필요합니다. 게이트웨이가 할당된 작업 영역과 통신하는 데 필요합니다. 게이트웨이는 Windows 에이전트가 지원하는 작업 영역의 총 수인 최대 4개의 작업 영역에 다중 홈 방식으로 구성될 수 있습니다.  
 
 각 에이전트는 게이트웨이에 네트워크로 연결되어 있어야 게이트웨이와 데이터를 자동으로 송수신할 수 있습니다. 도메인 컨트롤러에 게이트웨이를 설치하는 것은 권장되지 않습니다.
 
-다음 다이어그램에서는 게이트웨이 서버를 사용하여 에이전트에서 Azure Automation 및 Log Analytics로의 직접적인 데이터 흐름을 보여 줍니다.  Log Analytics 게이트웨이가 서비스와 통신하도록 구성된 동일한 포트와 에이전트의 프록시 구성이 일치해야 합니다.  
+다음 다이어그램에서는 게이트웨이 서버를 사용하여 에이전트에서 Azure Automation 및 Log Analytics로의 직접적인 데이터 흐름을 보여 줍니다. Log Analytics 게이트웨이가 구성된 동일한 포트와 에이전트의 프록시 구성이 일치해야 합니다.  
 
 ![직접 에이전트와 서비스의 통신 다이어그램](./media/gateway/oms-omsgateway-agentdirectconnect.png)
 
@@ -56,7 +57,7 @@ Log Analytics 게이트웨이를 실행하는 컴퓨터를 지정할 때 이 컴
 * Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 * .Net Framework 4.5
 * 최소 4코어 프로세서 및 8GB 메모리 
-* Windows용 Log Analytics 에이전트 
+* [Windows용 Log Analytics 에이전트](agent-windows.md)가 설치되고 게이트웨이를 통해 통신하는 에이전트와 동일한 작업 영역에 보고하도록 구성됩니다.  
 
 ### <a name="language-availability"></a>사용 가능한 언어
 
@@ -87,8 +88,8 @@ Log Analytics 게이트웨이는 TLS(전송 계층 보안) 1.0, 1.1 및 1.2만 �
 
 |게이트웨이 |지원되는 에이전트의 근사값 수|  
 |--------|----------------------------------|  
-|- CPU: Intel XEON CPU E5-2660 v3 \@ 2.6GHz 2코어<br> - 메모리: 4GB<br> - 네트워크 대역폭: 1Gbps| 600|  
-|- CPU: Intel XEON CPU E5-2660 v3 \@ 2.6GHz 4코어<br> - 메모리: 8GB<br> - 네트워크 대역폭: 1Gbps| 1000|  
+|- CPU: Intel XEON CPU E5-2660 v3 \@ 2.6GHz 2 코어<br> - 메모리: 4GB<br> - 네트워크 대역폭: 1Gbps| 600|  
+|- CPU: Intel XEON CPU E5-2660 v3 \@ 2.6GHz 4 코어<br> - 메모리: 8GB<br> - 네트워크 대역폭: 1Gbps| 1000|  
 
 ## <a name="download-the-log-analytics-gateway"></a>Log Analytics 게이트웨이 다운로드
 
@@ -124,7 +125,8 @@ Log Analytics 게이트웨이는 TLS(전송 계층 보안) 1.0, 1.1 및 1.2만 �
 1. Microsoft 업데이트를 사용할 수 없는 경우 이를 사용하도록 설정할 수 있는 [Microsoft 업데이트] 페이지가 표시됩니다. 선택한 후에 **다음**을 클릭합니다. 그렇지 않은 경우 다음 단계를 계속 진행합니다.
 1. **대상 폴더** 페이지에서 C:\Program Files\OMS Gateway 기본 폴더를 그대로 유지하거나 게이트웨이를 설치할 위치를 입력하고 **다음**을 클릭합니다.
 1. **설치 준비 완료** 페이지에서 **설치**를 클릭합니다. 사용자 계정 컨트롤이 표시되어 설치 권한을 요청할 수 있습니다. 그런 경우에는 **예**를 클릭합니다.
-1. 설치가 완료된 후에 **마침**을 클릭합니다. services.msc 스냅인을 열어 서비스가 실행 중인지 확인하고, 서비스 목록에서 **실행 중** 상태의 **Log Analytics 게이트웨이**가 표시되는지 확인할 수 있습니다.<br><br> ![서비스 - Log Analytics 게이트웨이](./media/gateway/gateway-service.png)  
+1. 설치가 완료된 후에 **마침**을 클릭합니다. services.msc 스냅인을 열어 서비스가 실행 중인지 확인하고, 서비스 목록에서 **실행 중** 상태의 **OMS 게이트웨이**가 표시되는지 확인할 수 있습니다.<br><br> ![서비스 - Log Analytics 게이트웨이](./media/gateway/gateway-service.png)  
+
 
 ## <a name="configure-network-load-balancing"></a>네트워크 부하 분산 구성 
 Microsoft NLB(네트워크 부하 분산) 또는 하드웨어 기반 부하 분산 장치를 사용하여 고가용성 게이트웨이를 구성할 수 있습니다.  부하 분산 장치는 노드 전반에 걸쳐 Log Analytics 에이전트 또는 Operations Manager 관리 서버에서 요청된 연결을 리디렉션하여 트래픽을 관리합니다. 게이트웨이 서버가 하나 다운되면 트래픽은 다른 노드로 리디렉션됩니다.
@@ -140,7 +142,11 @@ Windows Server 2016 네트워크 부하 분산 클러스터를 설계하고 배�
 다음 섹션에는 Log Analytics 게이트웨이와 직접 연결되는 Log Analytics 에이전트, Operations Manager 관리 그룹 또는 Azure Automation Hybrid Runbook Workers를 구성하여 Azure Automation 또는 Log Analytics와 통신하는 방법에 대한 단계가 포함되어 있습니다.  
 
 ### <a name="configure-standalone-log-analytics-agent"></a>독립 실행형 Log Analytics 에이전트 구성
-Log Analytics에 직접 연결하는 Windows 컴퓨터에 Log Analytics 에이전트를 설치하는 방법에 대한 요구 사항과 단계를 이해하려면 [Log Analytics에 Windows 컴퓨터 연결](agent-windows.md) 또는 Linux 컴퓨터의 경우 [Log Analytics에 Linux 컴퓨터 연결](../../azure-monitor/learn/quick-collect-linux-computer.md)을 참조하세요. 에이전트를 구성하는 동안 프록시 서버를 지정하지 않고 Log Analytics 게이트웨이 서버와 해당 포트 번호의 IP 주소로 해당 값을 바꿉니다.  네트워크 부하 분산 장치 뒤에 여러 개의 게이트웨이 서버를 배포한 경우 Log Analytics 에이전트 프록시 구성은 NLB의 가상 IP 주소입니다.  
+Log Analytics에 직접 연결하는 게이트웨이 및 Windows 컴퓨터에 Log Analytics 에이전트를 설치하는 방법에 대한 요구 사항과 단계를 이해하려면 [Log Analytics에 Windows 컴퓨터 연결](agent-windows.md) 또는 Linux 컴퓨터의 경우 [Log Analytics에 Linux 컴퓨터 연결](../../azure-monitor/learn/quick-collect-linux-computer.md)을 참조하세요. 에이전트를 구성하는 동안 프록시 서버를 지정하지 않고 Log Analytics 게이트웨이 서버와 해당 포트 번호의 IP 주소로 해당 값을 바꿉니다. 네트워크 부하 분산 장치 뒤에 여러 개의 게이트웨이 서버를 배포한 경우 Log Analytics 에이전트 프록시 구성은 NLB의 가상 IP 주소입니다.  
+
+게이트웨이 서버에서 에이전트를 설치한 후 게이트웨이와 통신하는 작업 영역 또는 작업 영역 에이전트에 보고하도록 구성할 수 있습니다. Log Analytics Windows 에이전트가 게이트웨이에 설치되어 있지 않으면 에이전트를 설치해야 함을 나타내는 이벤트 300이 **OMS 게이트웨이 로그** 이벤트 로그에 기록됩니다. 에이전트가 설치되지만 통신하는 에이전트와 동일한 작업 영역에 보고하도록 구성되어 있지 않으면 게이트웨이의 에이전트를 게이트웨이와 통신하는 에이전트와 동일한 작업 영역에 보고하도록 구성해야 한다고 설명하는 이벤트 105가 동일한 이벤트 로그에 기록됩니다.
+
+구성을 완료한 후 변경 내용을 적용하려면 **OMS 게이트웨이** 서비스를 다시 시작해야 합니다. 그렇지 않으면, 게이트웨이는 Log Analytics와의 통신을 시도하는 에이전트를 거부하고 **OMS 게이트웨이 로그** 이벤트 로그에 이벤트 ID 105를 보고합니다. 게이트웨이 서버에의 에이전트 구성에서 작업 영역을 추가 또는 제거할 때도 마찬가지입니다.   
 
 Automation Hybrid Runbook Worker와 관련된 내용은 [Hybrid Runbook Worker 배포](../../automation/automation-hybrid-runbook-worker.md)를 참조하세요.
 
@@ -149,18 +155,20 @@ Automation Hybrid Runbook Worker와 관련된 내용은 [Hybrid Runbook Worker �
 
 게이트웨이를 사용하여 Operations Manager를 지원하려면 다음이 필요합니다.
 
-* Microsoft Monitoring Agent(에이전트 버전 – **8.0.10900.0** 이상)가 게이트웨이 서버에 설치되어 있고 통신할 Log Analytics 작업 영역에 대해 구성되어 있어야 합니다.
+* Microsoft Monitoring Agent(에이전트 버전 – **8.0.10900.0** 이상)가 게이트웨이 서버에 설치되어 있고 관리 그룹이 보고하도록 구성된 동일한 Log Analytics 작업 영역으로 구성되어 있어야 합니다.
 * 게이트웨이가 인터넷에 연결되어 있거나 인터넷에 연결되어 있는 프록시 서버에 연결되어 있어야 합니다.
 
 > [!NOTE]
 > 게이트웨이 값을 지정하지 않으면 빈 값이 모든 에이전트에 푸시됩니다.
 > 
 
-Operations Manager 관리 그룹이 Log Analytics 작업 영역에 처음으로 등록하는 경우에는 관리 그룹에 대한 프록시 구성을 지정하는 옵션을 운영 콘솔에서 사용할 수 없습니다.  이 옵션을 사용하려면 관리 그룹이 서비스에 등록되어 있어야 합니다.  운영 콘솔을 실행하는 시스템에서 Netsh를 사용하여 관리 그룹의 통합 및 모든 관리 서버를 구성하여 시스템 프록시 구성을 업데이트해야 합니다.  
+Operations Manager 관리 그룹이 Log Analytics 작업 영역에 처음으로 등록하는 경우에는 관리 그룹에 대한 프록시 구성을 지정하는 옵션을 운영 콘솔에서 사용할 수 없습니다.  이 옵션을 사용하려면 관리 그룹이 서비스에 등록되어 있어야 합니다.  운영 콘솔을 실행하는 시스템에서 Netsh를 사용하여 관리 그룹의 통합 및 모든 관리 서버를 구성하여 시스템 프록시 구성을 업데이트합니다.  
 
 1. 관리자 권한 명령 프롬프트를 엽니다.
-   a. **시작**으로 이동하여 **cmd**를 입력합니다.
-   b. **명령 프롬프트**를 마우스 오른쪽 단추로 클릭하고 관리자 권한으로 실행**을 선택합니다.
+
+    a. **시작**으로 이동하여 **cmd**를 입력합니다.  
+    b. **명령 프롬프트**를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.  
+
 1. 다음 명령을 입력하고 **Enter** 키를 누릅니다.
 
     `netsh winhttp set proxy <proxy>:<port>`
@@ -278,7 +286,7 @@ cmdlet은 Log Analytics 게이트웨이 구성 설정을 업데이트하는 데 
 
 | **ID** | **설명** |
 | --- | --- |
-| 400 |특정 ID가 없는 모든 응용 프로그램 오류 |
+| 400 |특정 ID가 없는 모든 애플리케이션 오류 |
 | 401 |잘못된 구성. 예: listenPort = 정수가 아닌 “텍스트" |
 | 402 |TLS 핸드셰이크 메시지 구문 분석 중 예외 |
 | 403 |네트워킹 오류. 예: 대상 서버에 연결 할 수 없음 |

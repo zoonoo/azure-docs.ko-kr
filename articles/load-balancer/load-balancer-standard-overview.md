@@ -5,30 +5,31 @@ description: Azure 표준 Load Balancer 기능 개요
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: feaa0058aed566b40d3f2da548da1d961d5c82f3
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 2eb2fbb1d184bf58923748278d4989a271adf434
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438764"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352583"
 ---
-# <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer 표준 개요
+# <a name="azure-standard-load-balancer-overview"></a>Azure 표준 Load Balancer 개요
 
-Azure Load Balancer를 사용하여 응용 프로그램 크기를 조정하고 서비스에 대한 고가용성을 구현할 수 있습니다. Load Balancer는 인바운드 및 아웃바운드 시나리오에 사용할 수 있으며, 짧은 대기 시간과 높은 처리량을 제공하고, 모든 TCP 및 UDP 응용 프로그램에 대해 수백만 개의 흐름으로 확장됩니다. 
+Azure Load Balancer를 사용하여 애플리케이션 크기를 조정하고 서비스에 대한 고가용성을 구현할 수 있습니다. Load Balancer는 인바운드 및 아웃바운드 시나리오에 사용할 수 있으며, 짧은 대기 시간과 높은 처리량을 제공하고, 모든 TCP 및 UDP 애플리케이션에 대해 수백만 개의 흐름으로 확장됩니다. 
 
 이 문서에서는 표준 Load Balancer에 대해 설명합니다.  Azure Load Balancer에 대한 보다 일반적인 개요를 보려면 [Load Balancer 개요](load-balancer-overview.md)도 검토하세요.
 
 ## <a name="what-is-standard-load-balancer"></a>표준 Load Balancer란?
 
-표준 Load Balancer는 기본 Load Balancer보다 확장되고 좀 더 세분화된 기능 집합을 포함하는 모든 TCP 및 UDP 응용 프로그램을 위한 새로운 Load Balancer 제품입니다.  유사성이 많지만 이 문서에 설명된 차이점을 이해하는 것이 중요합니다.
+표준 Load Balancer는 기본 Load Balancer보다 확장되고 좀 더 세분화된 기능 집합을 포함하는 모든 TCP 및 UDP 애플리케이션을 위한 새로운 Load Balancer 제품입니다.  유사성이 많지만 이 문서에 설명된 차이점을 이해하는 것이 중요합니다.
 
 표준 Load Balancer는 공용 또는 내부 Load Balancer로 사용할 수 있습니다. 또한 가상 머신을 하나의 공용 Load Balancer 및 하나의 내부 Load Balancer 리소스에 연결할 수 있습니다.
 
@@ -39,7 +40,7 @@ Load Balancer 리소스의 기능은 항상 프런트 엔드, 규칙, 상태 프
 Load Balancer 리소스는 만들려는 시나리오를 달성하기 위해 Azure에서 다중 테넌트 인프라를 프로그래밍해야 하는 방법을 표현할 수 있는 개체입니다.  Load Balancer 리소스와 실제 인프라 사이에는 직접적인 관계가 없습니다. 따라서 Load Balancer를 만들어도 인스턴스가 만들어지지 않으며 용량은 항상 사용 가능하고, 고려해야 할 시작 또는 확장 지연도 없습니다. 
 
 >[!NOTE]
-> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다.  TLS 종료("SSL 오프로드") 또는 HTTP/HTTPS 요청별 응용 프로그램 계층 처리를 확인하려는 경우 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 검토하세요.  전역 DNS 부하 분산을 확인하려는 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 검토하세요.  필요에 따라 종단 간 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
+> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다.  TLS 종료("SSL 오프로드") 또는 HTTP/HTTPS 요청별 애플리케이션 계층 처리를 확인하려는 경우 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 검토하세요.  전역 DNS 부하 분산을 확인하려는 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 검토하세요.  필요에 따라 종단 간 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
 
 ## <a name="why-use-standard-load-balancer"></a>표준 Load Balancer를 사용해야 하는 이유
 
@@ -89,12 +90,12 @@ Load Balancer 리소스는 만들려는 시나리오를 달성하기 위해 Azur
 
 | 메트릭 | 설명 |
 | --- | --- |
-| VIP 가용성 | Load Balancer 표준은 지역 내에서 Load Balancer 프런트 엔드로, 마지막으로 VM을 지원하는 SDN 스택으로 데이터 경로를 연속적으로 실행합니다. 정상 인스턴스가 남아 있는 한 측정은 응용 프로그램 부하가 분산된 트래픽과 동일한 경로를 따르고 고객이 사용하는 데이터 경로의 유효성도 검사합니다. 측정은 응용 프로그램에 표시되지 않으며 다른 작업을 방해하지 않습니다.|
-| DIP 가용성 | Load Balancer 표준은 구성 설정에 따라 응용 프로그램 엔드포인트의 상태를 모니터링하는 분산된 상태 검색 서비스를 사용합니다. 이 메트릭은 Load Balancer 풀에서 각 개별 인스턴스 엔드포인트의 집계 또는 엔드포인트당 필터링된 보기를 제공합니다.  상태 프로브 구성에 표시된 대로 Load Balancer에서 애플리케이션의 상태를 보는 방법을 확인할 수 있습니다.
-| SYN 패킷 | Load Balancer 표준은 TCP 연결을 종료하거나 TCP 또는 UDP 패킷 흐름을 조작하지 않습니다. 흐름 및 해당 핸드셰이크는 항상 원본과 VM 인스턴스 사이에 있습니다. TCP 프로토콜 시나리오의 문제를 잘 해결하기 위해 SYN 패킷 카운터를 사용하여 TCP 연결 시도 횟수를 파악할 수 있습니다. 메트릭은 수신된 TCP SYN 패킷 수를 보고합니다.|
-| SNAT 연결 | Load Balancer 표준은 공용 IP 주소 프런트 엔드로 위장되는 아웃바운드 흐름 수를 보고합니다. SNAT 포트는 소모성 리소스입니다. 이 메트릭은 응용 프로그램이 아웃바운드에서 시작된 흐름에 대해 SNAT에 얼마나 의존하는지를 나타낼 수 있습니다.  성공 및 실패한 아웃바운드 SNAT 흐름에 대한 카운터가 보고되고 아웃바운드 흐름의 상태를 이해하고 문제를 해결하는 데 사용할 수 있습니다.|
-| 바이트 카운터 | Load Balancer 표준은 프런트 엔드당 처리된 데이터를 보고합니다.|
-| 패킷 카운터 | Load Balancer 표준은 프런트 엔드당 처리된 패킷을 보고합니다.|
+| VIP 가용성 | 표준 Load Balancer는 지역 내에서 Load Balancer 프런트 엔드를 거쳐 VM을 지원하는 SDN 스택으로 이어지는 데이터 경로를 지속적으로 사용합니다. 정상 인스턴스가 남아 있는 한 측정은 애플리케이션 부하가 분산된 트래픽과 동일한 경로를 따릅니다. 고객이 사용하는 데이터 경로의 유효성도 검사합니다. 측정은 애플리케이션에 표시되지 않으며 다른 작업을 방해하지 않습니다.|
+| DIP 가용성 | 표준 Load Balancer는 구성 설정에 따라 애플리케이션 엔드포인트의 상태를 모니터링하는 분산된 상태 검색 서비스를 사용합니다. 이 메트릭은 Load Balancer 풀에서 각 개별 인스턴스 엔드포인트의 집계 또는 엔드포인트당 필터링된 보기를 제공합니다.  상태 프로브 구성에 표시된 대로 Load Balancer에서 애플리케이션의 상태를 보는 방법을 확인할 수 있습니다.
+| SYN 패킷 | 표준 Load Balancer는 TCP 연결을 종료하거나 TCP 또는 UDP 패킷 흐름을 조작하지 않습니다. 흐름 및 해당 핸드셰이크는 항상 원본과 VM 인스턴스 사이에 있습니다. TCP 프로토콜 시나리오의 문제를 잘 해결하기 위해 SYN 패킷 카운터를 사용하여 TCP 연결 시도 횟수를 파악할 수 있습니다. 메트릭은 수신된 TCP SYN 패킷 수를 보고합니다.|
+| SNAT 연결 | 표준 Load Balancer는 공용 IP 주소 프런트 엔드로 위장한 아웃바운드 흐름 수를 보고합니다. SNAT 포트는 소모성 리소스입니다. 이 메트릭은 애플리케이션이 아웃바운드에서 시작된 흐름에 대해 SNAT에 얼마나 의존하는지를 나타낼 수 있습니다.  성공 및 실패한 아웃바운드 SNAT 흐름에 대한 카운터가 보고되고 아웃바운드 흐름의 상태를 이해하고 문제를 해결하는 데 사용할 수 있습니다.|
+| 바이트 카운터 | 표준 Load Balancer는 프런트 엔드당 처리되는 데이터를 보고합니다.|
+| 패킷 카운터 | 표준 Load Balancer는 프런트 엔드당 처리되는 패킷을 보고합니다.|
 
 [표준 Load Balancer 진단에 대한 자세한 논의](load-balancer-standard-diagnostics.md)를 검토하세요.
 
@@ -202,7 +203,7 @@ SKU는 변경할 수 없습니다. 이 섹션의 단계에 따라 리소스 SKU 
 
 ## <a name="region-availability"></a>지역 가용성
 
-Load Balancer 표준은 현재 모든 공용 클라우드 지역에서 사용할 수 있습니다.
+표준 Load Balancer는 현재 모든 공용 클라우드 지역에서 사용 가능합니다.
 
 ## <a name="sla"></a>SLA
 
@@ -210,7 +211,12 @@ Load Balancer 표준은 현재 모든 공용 클라우드 지역에서 사용할
 
 ## <a name="pricing"></a>가격
 
-표준 Load Balancer는 구성된 부하 분산 규칙 수와 처리되는 모든 인바운드 및 아웃바운드 데이터를 기준으로 요금이 청구되는 제품입니다. 표준 Load Balancer 가격 정보에 대해서는 [Load Balancer 가격](https://aka.ms/lbpricing) 페이지를 참조하세요.
+표준 Load Balancer 사용량에 해당하는 요금이 청구됩니다.
+
+- 구성된 부하 분산 및 아웃바운드 규칙의 수(인바운드 NAT 규칙은 총 규칙 수에 포함되지 않음)
+- 규칙에 관계없이 인바운드/아웃바운드에서 처리된 데이터의 양 
+
+표준 Load Balancer 가격 정보에 대해서는 [Load Balancer 가격](https://azure.microsoft.com/pricing/details/load-balancer/) 페이지를 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
 

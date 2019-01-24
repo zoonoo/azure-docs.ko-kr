@@ -4,7 +4,7 @@ description: 사용자 할당 관리 ID에 역할을 만들고 나열하고 삭�
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: d54820acf8742ad2f95e8cc8527d9e252ffe3c30
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a8fd6fedb83d61541746ea4204e8fcab3d3d7bab
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720137"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428752"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Azure Portal을 사용하여 사용자 할당 관리 ID를 생성, 나열, 삭제 또는 할당
 
@@ -62,6 +62,8 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 관리 ID를
 ## <a name="delete-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID 삭제
 
 사용자 할당 관리 ID를 삭제하려면 계정에 [관리 ID 기여자](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) 역할 할당이 필요합니다.
+
+사용자 할당 ID를 삭제해도 ID가 할당된 VM이나 리소스에서는 ID가 제거되지 않습니다.  사용자 할당 ID를 VM에서 제거하려는 경우 [VM에서 사용자 할당 관리 ID 제거](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#remove-a-user-assigned-managed-identity-from-a-vm)를 참조하세요.
 
 1. 사용자 할당 관리 ID를 삭제하려면 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 사용자 할당 관리 ID를 선택하고 **삭제**를 클릭합니다.

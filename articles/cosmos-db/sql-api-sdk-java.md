@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: e62276debf121cc39fc5642ed8e5a9faf6b876ed
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cf011558ab984ecaf8181a4dc4ffcb80851f24fb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039642"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352957"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Java SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -137,7 +137,7 @@ SQL API Java SDK는 동기 작업을 지원합니다. 비동기 지원의 경우
 
 ### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
 * 직접 연결 모드에서 연결 누수를 방지하기 위해 연결 관리의 버그를 수정했습니다.
-* NullReferenece 예외가 throw 될 수 있는 상위 쿼리의 버그를 수정했습니다.
+* NullReference 예외가 throw 될 수 있는 상위 쿼리의 버그를 수정했습니다.
 * 내부 캐시에 대한 네트워크 호출의 수를 줄여 성능을 개선했습니다.
 * DocumentClientException에 상태 코드 ActivityID 및 요청 URI를 추가하여 문제 해결을 개선했습니다.
 

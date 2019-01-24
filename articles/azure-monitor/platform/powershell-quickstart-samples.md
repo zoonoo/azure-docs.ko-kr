@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
-ms.component: ''
-ms.openlocfilehash: 72c50871f0d339d5d8f173a50e03aefc72fdcb36
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: ''
+ms.openlocfilehash: d3bd4d80f167a496c9b980891f31d30bc86a0cb2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53587485"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473762"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure Monitor PowerShell 빠른 시작 샘플
 이 문서에서는 Azure Monitor 기능에 액세스할 수 있는 샘플 PowerShell 명령을 보여 줍니다.
@@ -387,3 +387,4 @@ WorkspaceId 속성은 작업 영역의 *리소스 ID*를 사용합니다. 다음
 ```
 
 이 명령은 데이터를 여러 대상으로 보내도록 결합될 수 있습니다.
+

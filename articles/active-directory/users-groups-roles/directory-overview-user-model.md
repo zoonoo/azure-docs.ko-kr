@@ -1,23 +1,23 @@
 ---
-title: Azure Active Directory에서 사용자, 그룹, 라이선싱 및 대규모 조직에 대한 역할 | Microsoft Docs
+title: 사용자, 그룹, 라이선스 및 역할 개요 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory에서 사용자와 할당된 라이선스, 관리자 역할, 그룹 멤버십 간의 관계
 keywords: ''
 author: curtand
 manager: mtillman
 ms.author: curtand
 ms.reviewer: vincesm
-ms.date: 10/01/2018
+ms.date: 01/14/2019
 ms.topic: overview
 ms.service: active-directory
 ms.workload: identity
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: 7f588766ead19f2cbca22aab596e6dc9d0210791
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 2689ec400b7d29c9f086481056e5f554d7fde95a
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48019925"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321962"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>사용자, 그룹, 라이선싱 및 대규모 조직에 대한 역할
 
@@ -46,13 +46,13 @@ Azure AD에서 사용자가 라이선스를 받은 그룹에 합류하면 해당
 
 ## <a name="delegate-administrator-roles"></a>관리자 역할 대리자
 
-많은 대규모 조직은 사용자가 강력한 글로벌 관리자 역할(예: 애플리케이션을 등록해야 하는 사용자)을 할당하지 않고 업무 작업에 충분한 사용 권한을 얻는 옵션을 원합니다. 다음은 애플리케이션 관리 작업을 더 세밀하게 분배하는 데 도움이 되는 새 Azure AD 관리자 역할의 예제입니다.
+많은 대규모 조직은 사용자가 강력한 글로벌 관리자 역할(예: 애플리케이션을 등록해야 하는 사용자)을 할당하지 않고 업무 작업에 충분한 사용 권한을 얻는 옵션을 원합니다. 다음은 응용 프로그램 관리 작업을 더 세밀하게 분배하는 데 도움이 되는 새 Azure AD 관리자 역할의 예제입니다.
 
  역할 이름 | 사용 권한 요약
  --------- | -------------------
- **응용 프로그램 관리자** | 엔터프라이즈 애플리케이션 및 애플리케이션 등록을 추가 및 관리하고 프록시 애플리케이션 설정을 구성할 수 있습니다. 애플리케이션 관리자는 조건부 액세스 정책 및 디바이스를 볼 수 있지만 이를 관리할 수 없습니다.
- **클라우드 응용 프로그램 관리자** | 엔터프라이즈 애플리케이션 및 엔터프라이즈 앱 등록을 추가 및 관리할 수 있습니다. 이 역할은 애플리케이션 프록시 설정을 관리할 수 없는 것을 제외하고 애플리케이션 관리자의 모든 사용 권한을 가집니다.
-**응용 프로그램 개발자** | 애플리케이션 등록을 추가 및 업데이트할 수 있지만 엔터프라이즈 애플리케이션을 관리하거나 애플리케이션 프록시를 구성할 수 없습니다.
+ **애플리케이션 관리자** | 엔터프라이즈 애플리케이션 및 애플리케이션 등록을 추가 및 관리하고 프록시 애플리케이션 설정을 구성할 수 있습니다. 애플리케이션 관리자는 조건부 액세스 정책 및 장치를 볼 수 있지만 이를 관리할 수 없습니다.
+ **클라우드 애플리케이션 관리자** | 엔터프라이즈 애플리케이션 및 엔터프라이즈 앱 등록을 추가 및 관리할 수 있습니다. 이 역할은 애플리케이션 프록시 설정을 관리할 수 없는 것을 제외하고 애플리케이션 관리자의 모든 사용 권한을 가집니다.
+**애플리케이션 개발자** | 애플리케이션 등록을 추가 및 업데이트할 수 있지만 엔터프라이즈 애플리케이션을 관리하거나 애플리케이션 프록시를 구성할 수 없습니다.
 
 새 Azure AD 관리자 역할이 추가되 고 있습니다. 현재 사용 가능한 역할은 Azure Portal 또는 [관리자 역할 사용 권한 참조](directory-assign-admin-roles.md)를 확인하십시오.
 
@@ -60,7 +60,7 @@ Azure AD에서 사용자가 라이선스를 받은 그룹에 합류하면 해당
 
 Azure AD를 사용하여 [Azure AD 테넌트에 배포된 엔터프라이즈 앱](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-a-group-directly-to-an-application-as-an-administrator?context=azure/active-directory/users-groups-roles/context/ugr-context)에 그룹 액세스를 할당할 수 있습니다. 동적 그룹을 앱에 대한 그룹 할당과 결합하면 조직이 성장함에 따라 사용자 앱 액세스 할당을 자동화할 수 있습니다. 엔터프라이즈 앱에 액세스를 할당하려면 Azure Active Directory Premium P1 또는 Premium P2 라이선스가 필요합니다.
 
-또한 Azure AD에서는 액세스를 할당하는 앱과 그룹 사이에 흐르는 데이터를 세밀하게 제어할 수 있습니다. [엔터프라이즈 응용 프로그램](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)에서 앱을 열고 **프로비전**을 선택합니다.
+또한 Azure AD에서는 액세스를 할당하는 앱과 그룹 사이에 흐르는 데이터를 세밀하게 제어할 수 있습니다. [엔터프라이즈 애플리케이션](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)에서 앱을 열고 **프로비전**을 선택합니다.
 
 * 지원하는 앱에 대해 자동 프로비전 설정
 * 앱의 사용자 관리 API에 연결하기 위한 자격 증명 제공

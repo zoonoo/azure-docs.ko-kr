@@ -3,19 +3,19 @@ title: Azure Active Directory B2C의 사용자 지정 정책에서 OAuth2 기술
 description: Azure Active Directory B2C의 사용자 지정 정책에서 OAuth2 기술 프로필을 정의합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cc09998a982f319cfc1d60924d2175a3c17c8465
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 972a8c6a40561a1337e401aaa7d4574bc4a3fe1a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836682"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846917"
 ---
 # <a name="define-a-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth2 기술 프로필 정의
 
@@ -78,11 +78,11 @@ Azure AD(Azure Active Directory) B2C는 OAuth2 프로토콜 ID 공급자를 지�
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| client_id | yes | ID 공급자의 애플리케이션 식별자입니다. |
+| client_id | 예 | ID 공급자의 애플리케이션 식별자입니다. |
 | IdTokenAudience | 아니요 | id_token의 대상 그룹입니다. 지정된 경우 Azure AD B2C는 토큰이 ID 공급자에서 반환된 클레임에 있고 지정된 토큰과 같은지 확인합니다. |
-| authorization_endpoint | yes | RFC 6749에 따른 권한 부여 엔드포인트의 URL입니다. |
-| AccessTokenEndpoint | yes | RFC 6749에 따른 토큰 엔드포인트의 URL입니다. |  
-| ClaimsEndpoint | yes | RFC 6749에 따른 사용자 정보 엔드포인트의 URL입니다. | 
+| authorization_endpoint | 예 | RFC 6749에 따른 권한 부여 엔드포인트의 URL입니다. |
+| AccessTokenEndpoint | 예 | RFC 6749에 따른 토큰 엔드포인트의 URL입니다. |  
+| ClaimsEndpoint | 예 | RFC 6749에 따른 사용자 정보 엔드포인트의 URL입니다. | 
 | AccessTokenResponseFormat | 아니요 | 액세스 토큰 엔드포인트 호출의 형식입니다. 예를 들어 Facebook에는 HTTP GET 메서드가 필요하지만 액세스 토큰 응답은 JSON 형식입니다. |
 | AdditionalRequestQueryParameters | 아니요 | 추가 요청 쿼리 매개 변수입니다. 예를 들어 ID 공급자에 추가 매개 변수를 보내려고 할 수 있습니다. 쉼표 구분 기호를 사용하여 여러 매개 변수를 포함할 수 있습니다. | 
 | ClaimsEndpointAccessTokenName | 아니요 | 액세스 토큰 쿼리 문자열 매개 변수의 이름입니다. 일부 ID 공급자의 클레임 엔드포인트가 GET HTTP 요청을 지원합니다. 이 경우 전달자 토큰은 권한 부여 헤더 대신 쿼리 문자열 매개 변수를 사용하여 전송됩니다. |
@@ -102,7 +102,7 @@ Azure AD(Azure Active Directory) B2C는 OAuth2 프로토콜 ID 공급자를 지�
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| client_secret | yes | ID 공급자 애플리케이션의 클라이언트 암호입니다. 암호화 키는 **response_types** 메타데이터가 `code`로 설정된 경우에만 필요합니다. 이 경우 Azure AD B2C는 액세스 토큰에 대한 인증 코드를 교환하는 다른 호출을 수행합니다. 메타데이터가 `id_token`으로 설정된 경우 암호화 키를 생략할 수 있습니다.  |  
+| client_secret | 예 | ID 공급자 애플리케이션의 클라이언트 암호입니다. 암호화 키는 **response_types** 메타데이터가 `code`로 설정된 경우에만 필요합니다. 이 경우 Azure AD B2C는 액세스 토큰에 대한 인증 코드를 교환하는 다른 호출을 수행합니다. 메타데이터가 `id_token`으로 설정된 경우 암호화 키를 생략할 수 있습니다.  |  
 
 ## <a name="redirect-uri"></a>리디렉션 URI
 

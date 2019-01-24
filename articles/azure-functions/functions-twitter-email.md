@@ -125,7 +125,7 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
     ```
     이 함수 코드는 요청에서 받은 감정 점수를 기준으로 색 범주를 반환합니다. 
 
-4. 함수를 테스트하려면 오른쪽 끝의 **테스트** 를 클릭하여 테스트 탭을 확장합니다. **요청 본문** `0.2`에 `0.2` 값을 입력한 다음 **실행** 을 클릭합니다. 응답의 본문에 **RED** 값이 반환됩니다. 
+4. 함수를 테스트하려면 오른쪽 끝의 **테스트**를 클릭하여 테스트 탭을 확장합니다. **요청 본문**에 `0.2` 값을 입력한 다음 **실행**을 클릭합니다. 응답의 본문에 **빨강** 값이 반환됩니다. 
 
     ![Azure Portal에서 함수 테스트](./media/functions-twitter-email/07-function-test.png)
 
@@ -215,7 +215,7 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
 
 ## <a name="add-email-notifications"></a>전자 메일 알림 추가
 
-워크플로의 마지막 부분은 감정이 _RED_ 으로 점수가 매겨질 때 전자 메일을 트리거하는 것입니다. 이 항목에서는 Outlook.com 커넥터를 사용합니다. 비슷한 단계를 수행하여 Gmail 또는 Office 365 Outlook 커넥터를 사용할 수 있습니다.   
+워크플로의 마지막 부분은 감정이 _RED_로 점수가 매겨질 때 전자 메일을 트리거하는 것입니다. 이 항목에서는 Outlook.com 커넥터를 사용합니다. 비슷한 단계를 수행하여 Gmail 또는 Office 365 Outlook 커넥터를 사용할 수 있습니다.   
 
 1. Logic Apps 디자이너에서 **새 단계** > **조건 추가**를 클릭합니다. 
 
@@ -260,7 +260,7 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
  
     ![함수 로그 보기](media/functions-twitter-email/sent.png)
 
-5. 잠재적으로 부정적인 감정이 검색되면 전자 메일을 수신합니다. 전자 메일을 수신하지 않은 경우 항상 RED 을 반환하도록 함수 코드를 변경할 수 있습니다.
+5. 잠재적으로 부정적인 감정이 검색되면 전자 메일을 수신합니다. 전자 메일을 수신하지 않은 경우 항상 RED를 반환하도록 함수 코드를 변경할 수 있습니다.
 
     ```csharp
     return (ActionResult)new OkObjectResult("RED");

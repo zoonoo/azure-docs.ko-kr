@@ -10,30 +10,30 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 36db91cd7c4dad3c28c0c110ee837ca6d1284959
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3b272dd1c5b12c9f171c7e8c7c346f4d6cd4b777
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575388"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413875"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 분산 테이블 디자인 지침
 Azure SQL Data Warehouse의 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대한 권장 사항입니다.
 
-이 문서에서는 사용자가 SQL Data Warehouse의 데이터 배포 및 데이터 이동 개념에 익숙하다고 가정합니다.  자세한 내용은 [Azure SQL Data Warehouse - MPP(Massively Parallel Processing) 아키텍처](massively-parallel-processing-mpp-architecture.md)를 참조하세요. 
+이 문서에서는 사용자가 SQL Data Warehouse의 데이터 배포 및 데이터 이동 개념에 익숙하다고 가정합니다.  자세한 내용은 [Azure SQL Data Warehouse - MPP(Massively Parallel Processing) 아키텍처](massively-parallel-processing-mpp-architecture.md)를 참조하세요. 
 
 ## <a name="what-is-a-distributed-table"></a>분산 테이블이란?
 분산 테이블은 단일 테이블로 나타나지만 실제로는 행이 60개의 배포에 저장됩니다. 행은 해시 또는 라운드 로빈 알고리즘으로 분산됩니다.  
 
 이 문서에서는 큰 팩트 테이블의 쿼리 성능을 향상시키는 **해시 분산 테이블**에 중점을 둡니다. **라운드 로빈 테이블**은 로드 속도를 향상시키는 데 유용합니다. 이러한 디자인 선택이 쿼리 및 로드 성능 향상에 상당한 영향을 미칩니다.
 
-또 다른 테이블 저장소 옵션은 모든 계산 노드에서 작은 테이블을 복제하는 것입니다. 자세한 내용은 [복제된 테이블에 대한 디자인 지침](design-guidance-for-replicated-tables.md)을 참조하세요. 세 가지 옵션 중 빨리 선택하려면 [테이블 개요](sql-data-warehouse-tables-overview.md)의 분산 테이블을 참조하세요. 
+또 다른 Table Storage 옵션은 모든 계산 노드에서 작은 테이블을 복제하는 것입니다. 자세한 내용은 [복제된 테이블에 대한 디자인 지침](design-guidance-for-replicated-tables.md)을 참조하세요. 세 가지 옵션 중 빨리 선택하려면 [테이블 개요](sql-data-warehouse-tables-overview.md)의 분산 테이블을 참조하세요. 
 
-테이블 디자인의 일환으로 데이터 및 데이터가 쿼리되는 방식에 대해 최대한 많이 이해하는 것이 좋습니다.  예를 들어 다음 질문을 고려합니다.
+테이블 디자인의 일환으로 데이터 및 데이터가 쿼리되는 방식에 대해 최대한 많이 이해하는 것이 좋습니다.  예를 들어 다음 질문을 고려합니다.
 
-- 테이블이 얼마나 큰가요?   
-- 테이블을 얼마나 자주 새로 고치나요?   
-- 데이터 웨어하우스에 팩트 및 차원 테이블이 있나요?   
+- 테이블이 얼마나 큰가요?   
+- 테이블을 얼마나 자주 새로 고치나요?   
+- 데이터 웨어하우스에 팩트 및 차원 테이블이 있나요?   
 
 
 ### <a name="hash-distributed"></a>해시 분산
@@ -147,7 +147,7 @@ where two_part_name in
     from dbo.vTableSizes
     where row_count > 0
     group by two_part_name
-    having min(row_count * 1.000)/max(row_count * 1.000) > .10
+    having (max(row_count * 1.000) - min(row_count * 1.000))/max(row_count * 1.000) >= .10
     )
 order by two_part_name, row_count
 ;

@@ -4,7 +4,7 @@ description: 테넌트의 애플리케이션에 사용자가 할당되는 방법
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 9e27df857d560abdf5b6a54272bb022b6ed466ee
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cb477ccba648a15c88f2e216b39d4ba1676d43c7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079367"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464615"
 ---
 # <a name="how-to-assign-users-to-applications"></a>애플리케이션에 사용자를 할당하는 방법
 
@@ -43,9 +43,9 @@ ms.locfileid: "53079367"
 
     * [모든 사용자](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-dedicated-groups) 그룹
 
-3.  관리자가 [셀프 서비스 응용 프로그램 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)를 통해 사용자가 **비즈니스 승인 없이** [응용 프로그램 액세스 패널](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **앱 추가**를 사용하여 응용 프로그램을 추가하도록 허용
+3.  관리자가 [셀프 서비스 애플리케이션 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)를 통해 사용자가 **비즈니스 승인 없이**[애플리케이션 액세스 패널](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)**앱 추가**를 사용하여 애플리케이션을 추가하도록 허용
 
-4.  관리자가 [셀프 서비스 응용 프로그램 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)를 통해 사용자가 **선택된 비즈니스 승인자 집합의 사전 승인이 있는 경우에만** [응용 프로그램 액세스 패널](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **앱 추가**를 사용하여 응용 프로그램을 추가하도록 허용
+4.  관리자가 [셀프 서비스 애플리케이션 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)를 통해 사용자가 **선택된 비즈니스 승인자 세트의 사전 승인이 있는 경우에만**[애플리케이션 액세스 패널](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)**앱 추가**를 사용하여 애플리케이션을 추가하도록 허용
 
 5.  관리자가 [셀프 서비스 그룹 관리](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management)를 통해 사용자가 **비즈니스 승인 없이** 애플리케이션이 할당된 그룹에 가입하도록 허용
 
@@ -55,9 +55,9 @@ ms.locfileid: "53079367"
 
 8.  관리자가 해당 [Microsoft Office 365](https://products.office.com/)와 같은 자사 애플리케이션의 구성원인 그룹에 라이선스 할당
 
-9.  [관리자가 모든 사용자가 사용할 수 있게 응용 프로그램에 동의](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)한 후 사용자가 응용 프로그램에 로그인
+9.  [관리자가 모든 사용자가 사용할 수 있게 애플리케이션에 동의](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)한 다음, 사용자가 애플리케이션에 로그인
 
 10. 사용자가 애플리케이션에 로그인하여 [애플리케이션에 직접 동의](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Active Directory로 응용 프로그램 관리](what-is-application-management.md)
+[Azure Active Directory로 애플리케이션 관리](what-is-application-management.md)

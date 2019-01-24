@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4b5b00da1c920d249283625e4970510ea00bafc8
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 01bd8b5d1f8ed0d78f3331b4150df37ef0a1049e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190747"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426784"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>빠른 시작: 서버 만들기 - PowerShell
 
@@ -23,7 +23,7 @@ ms.locfileid: "54190747"
 
 - **Azure 구독**: [Azure 평가판](https://azure.microsoft.com/offers/ms-azr-0044p/)으로 이동하여 계정을 만들 수 있습니다.
 - **Azure Active Directory**: 구독이 Azure Active Directory 테넌트와 연결되어 있고 해당 디렉터리에 계정이 있어야 합니다. 자세한 내용은 [인증 및 사용자 권한](analysis-services-manage-users.md)을 참조하세요.
-- **Azure PowerShell 모듈 버전 4.0 이상**. 버전을 확인하려면 ` Get-Module -ListAvailable AzureRM`을 실행합니다. 설치 또는 업그레이드하려면 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+- **Azure PowerShell 모듈 버전 4.0 이상**. 버전을 확인하려면 ` Get-Module -ListAvailable AzureRM`을 실행합니다. 설치 또는 업그레이드하려면 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
 
 ## <a name="import-azurermanalysisservices-module"></a>AzureRm.AnalysisServices 모듈 가져오기
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 728f8ddbda35f27c0f89e1d72e98fd2d7669320e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: e6651fc5988a1e1830807219cda02ab057db9a4f
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999856"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329823"
 ---
 # <a name="deprecated-create-and-mount-a-file-share-to-a-dcos-cluster"></a>(사용되지 않음) DC/OS 클러스터에 파일 공유 만들기 및 탑재
 
@@ -154,4 +154,4 @@ sh ./getNodesRunScript.sh
 다음 자습서로 넘어가서 Azure에서 DC/OS와 Azure Container Registry를 통합하는 방법을 알아봅니다.  
 
 > [!div class="nextstepaction"]
-> [부하 분산 응용 프로그램](container-service-dcos-acr.md)
+> [부하 분산 애플리케이션](container-service-dcos-acr.md)

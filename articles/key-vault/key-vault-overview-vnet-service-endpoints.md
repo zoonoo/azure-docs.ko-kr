@@ -10,12 +10,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 1d53fc6cef022f627bb1cd1f832ebf65698207a9
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 2c035b7c6bbd687ca2922d5f52e2ddaa0c96e50c
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002429"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351427"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault의 가상 네트워크 서비스 엔드포인트
 
@@ -74,6 +74,7 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 |Azure SQL Database|[Azure SQL Database 및 Data Warehouse에 대한 BYOK(Bring Your Own Key) 지원을 사용하여 투명한 데이터 암호화](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Azure Storage|[Azure Key Vault의 고객 관리 키를 사용하여 Storage 서비스 암호화](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|고객 관리 키를 사용하여 [Azure Data Lake Store의 데이터 암호화](../data-lake-store/data-lake-store-encryption.md).|
+|Azure Databricks|[빠르고 쉬우며 공동 작업이 가능한 Apache Spark 기반 분석 서비스](../azure-databricks/what-is-azure-databricks.md)|
 
 
 

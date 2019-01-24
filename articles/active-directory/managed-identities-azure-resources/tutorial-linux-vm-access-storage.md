@@ -4,7 +4,7 @@ description: Linux VM 시스템 할당 관리 ID를 사용하여 Azure Storage�
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: 3d223807d58fc03c0daabb7f800690b1b839d770
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 50db901640a53bc6004c491a2d3f8a232ee5d37d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51620803"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422527"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>자습서: Linux VM 시스템 할당 관리 ID를 사용하여 Azure Storage에 액세스 
 
@@ -82,7 +82,7 @@ VM의 관리 ID를 사용하여 Azure 저장소 Blob에서 데이터를 검색�
 
 1. 새로 만든 저장소 계정으로 다시 이동합니다.  
 2. 왼쪽 패널의 **액세스 제어(IAM)** 링크를 클릭합니다.  
-3. 페이지 위쪽에 있는 **+ 추가**를 클릭하여 VM에 대한 새 역할 할당을 추가합니다.
+3. 페이지의 위쪽에서 **+ 역할 할당 추가**를 클릭하여 VM에 대한 새 역할 할당을 추가합니다.
 4. **역할** 아래의 드롭다운에서 **Storage Blob 데이터 판독기(미리 보기)** 를 선택합니다. 
 5. 다음 드롭다운의 **다음에 대한 액세스 할당** 아래에서 **가상 머신**을 선택합니다.  
 6. 다음으로 적절한 구독이 **구독** 드롭다운에 나열되는지 확인한 다음, **리소스 그룹**을 **모든 리소스 그룹**으로 설정합니다.  

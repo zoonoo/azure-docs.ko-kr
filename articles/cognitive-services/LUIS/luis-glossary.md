@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: b0bbd3300e48e82e44a7b7fac05f89c8d25e007f
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 8ab5000f1f50e10195c02b6198fa0bcffd0408b5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603500"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844767"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>일반적인 용어 및 개념의 언어 이해 용어집
 Language Understanding(LUIS) 용어집에서는 LUIS API 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
@@ -74,7 +74,7 @@ LUIS 컨텍스트에서 **도메인**은 정보 영역입니다. 도메인은 �
 
 ## <a name="endpoint"></a>엔드포인트
 
-[LUIS 엔드포인트](https://aka.ms/luis-endpoint-apis) URL은 [LUIS 앱](#luis-app)이 작성되고 게시된 후 LUIS 쿼리를 제출하는 위치입니다. 엔드포인트 URL에는 앱 ID와 게시된 앱의 지역이 포함됩니다. 앱의 **[키 및 엔드포인트](luis-how-to-manage-keys.md)** 페이지에 있는 엔드포인트를 찾거나 [앱 정보 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API에서 엔드포인트 URL을 가져올 수 있습니다.
+[LUIS 엔드포인트](https://aka.ms/luis-endpoint-apis) URL은 [LUIS 앱](#luis-app)이 작성되고 게시된 후 LUIS 쿼리를 제출하는 위치입니다. 엔드포인트 URL에는 앱 ID와 게시된 앱의 지역이 포함됩니다. 앱의 **[키 및 엔드포인트](luis-how-to-azure-subscription.md)** 페이지에 있는 엔드포인트를 찾거나 [앱 정보 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API에서 엔드포인트 URL을 가져올 수 있습니다.
 
 예제 엔드포인트가 다음과 같이 표시됩니다.
 
@@ -177,7 +177,7 @@ Bing Spell Checker를 사용하여 예측 전에 발화에서 맞춤법이 잘�
 
 ## <a name="subscription-key"></a>구독 키
 
-구독 키는 [Azure에서 만든](luis-how-to-azure-subscription.md) LUIS 서비스와 연결된 **끝점** 키입니다. 이 키는 [작성 키](#programmatic-key)가 아닙니다. 끝점 키가 있는 경우 작성 키 대신 모든 끝점 요청에 사용해야 합니다. [LUIS](luis-reference-regions.md) 웹 사이트의 [**키 및 엔드포인트** 페이지](luis-how-to-manage-keys.md) 아래쪽에 있는 엔드포인트 URL 내부에서 현재 엔드포인트 키를 확인할 수 있습니다. 이는 **subscription-key** 이름/값 쌍의 값입니다.
+구독 키는 [Azure에서 만든](luis-how-to-azure-subscription.md) LUIS 서비스와 연결된 **끝점** 키입니다. 이 키는 [작성 키](#programmatic-key)가 아닙니다. 끝점 키가 있는 경우 작성 키 대신 모든 끝점 요청에 사용해야 합니다. [LUIS](luis-reference-regions.md) 웹 사이트의 [**키 및 엔드포인트** 페이지](luis-how-to-azure-subscription.md) 아래쪽에 있는 엔드포인트 URL 내부에서 현재 엔드포인트 키를 확인할 수 있습니다. 이는 **subscription-key** 이름/값 쌍의 값입니다.
 
 ## <a name="test"></a>테스트
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: ae21dbe675d78c663fc9d05364d91eca3288dd46
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 9130bf5c2708f7eecf6fc1b5db2ffbb3c2fffc30
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435415"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201281"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata 서비스: Windows VM의 예약된 이벤트
 
@@ -64,7 +64,7 @@ VNET 사용 VM의 경우 메타데이터 서비스를 정적 경로 조정 불�
 
 | 버전 | 릴리스 종류 | 영역 | 릴리스 정보 | 
 | - | - | - | - |
-| 2017-08-01 | 일반 공급 | 모두 | <li> Iaas VM의 리소스 이름에서 앞에 붙은 밑줄이 제거됨<br><li>모든 요청에 대해 메타데이터 헤더 요구 사항이 적용됨 | 
+| 2017-08-01 | 일반 공급 | 모두 | <li> IaaS VM의 리소스 이름에서 앞에 붙은 밑줄이 제거됨<br><li>모든 요청에 대해 메타데이터 헤더 요구 사항이 적용됨 | 
 | 2017-03-01 | 미리 보기 | 모두 |<li>최초 릴리스
 
 > [!NOTE] 

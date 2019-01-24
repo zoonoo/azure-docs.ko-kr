@@ -1,10 +1,11 @@
 ---
-title: Azure PowerShell을 사용하여 영역 중복 프런트 엔드로 표준 Load Balancer 만들기
+title: 영역 중복 프런트 엔드로 Load Balancer 만들기 - Azure PowerShell
 titlesuffix: Azure Load Balancer
-description: PowerShell을 사용하여 영역 중복 공용 IP 주소 프런트 엔드로 공용 부하 분산 장치 표준을 만드는 방법 알아보기
+description: PowerShell을 사용하여 영역 중복 공용 IP 주소 프런트 엔드로 공용 표준 Load Balancer를 만드는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: kumud
-ms.openlocfilehash: b6730b624cc0416354fecfdbe747f643540f9e89
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 1a976344fd634e78fc5009ede4954ea578aa8db7
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138748"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244597"
 ---
-#  <a name="create-a-standard-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>Azure PowerShell을 사용하여 영역 중복 프런트 엔드로 표준 분산 장치 만들기
+#  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>Azure PowerShell을 사용하여 영역 중복 프런트 엔드로 표준 Load Balancer 만들기
 
-이 문서에서는 공용 IP 표준 주소를 사용하는 영역 중복 프런트 엔드로 공용 [부하 분산 장치 표준](https://aka.ms/azureloadbalancerstandard)을 만드는 단계를 안내합니다.
+이 문서에서는 공용 IP 표준 주소를 사용하여 영역 중복 프런트 엔드로 공용 [표준 Load Balancer](https://aka.ms/azureloadbalancerstandard)를 만드는 단계를 안내합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -86,7 +87,7 @@ $probe = New-AzureRmLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http
 ```
 
 ## <a name="create-a-load-balancer"></a>부하 분산 장치 만들기
-다음 명령을 사용하여 부하 분산 장치 표준을 만듭니다.
+다음 명령을 사용하여 표준 Load Balancer를 만듭니다.
 
 ```powershell
 $lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroup -Name 'MyLoadBalancer' -Location westeurope `

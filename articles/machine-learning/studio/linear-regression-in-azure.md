@@ -1,27 +1,7 @@
 ---
-title: Machine Learning Studio에서 선형 회귀 사용 - Azure | Microsoft Docs
-description: Excel과 Azure Machine Learning Studio의 선형 회귀 모델 비교
-metakeywords: ''
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: c449e86e1ba33425212313103715b8fe48278496
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276682"
+제목: Machine Learning Studio에서 선형 회귀 사용 titleSuffix: Azure Machine Learning Studio 설명: Excel 및 Azure Machine Learning Studio에서 선형 회귀 모델 비교 services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/20/2017
 ---
 # <a name="using-linear-regression-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 선형 회귀 사용
 > *Kate Baroni*와 *Ben Boatman*은 Microsoft Data Insights Center of Excellence의 엔터프라이즈 솔루션 설계자입니다. 이 문서에서는 이 두 사람이 Azure Machine Learning을 사용하여 기존 선형 분석 모음을 클라우드 기반 솔루션으로 마이그레이션한 경험을 설명합니다. 

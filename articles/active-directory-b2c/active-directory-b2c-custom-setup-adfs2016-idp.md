@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 
 description: Azure Active Directory B2C에서 SAML 프로토콜 및 사용자 지정 정책을 사용하 여 ADFS 2016 설정
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7f74da682c72f9effb4dbac49b316ff17f03b534
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 6a371bbe34368e5373589575f367d4b352320ecd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275890"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856454"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SAML ID 공급자로 ADFS 추가
 
@@ -34,7 +34,7 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+3. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. 개요 페이지에서 **ID 경험 프레임워크 - 미리 보기**를 선택합니다.
 5. **정책 키**, **추가**를 차례로 선택합니다.
 6. **옵션**으로는 `Upload`을 선택합니다.
@@ -98,7 +98,7 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 
 이제 Azure AD B2C에서 ADFS 계정과 통신하는 방법을 알 수 있도록 정책이 구성되었습니다. 정책의 확장 파일을 업로드하여 지금까지 문제가 발생하지 않았는지 확인합니다.
 
-1. Azure AD B2C 테넌트의 **사용자 지정 정책** 페이지에서 **업로드 정책**을 선택합니다.
+1. Azure AD B2C 테넌트의 **사용자 지정 정책** 페이지에서 **정책 업로드**를 선택합니다.
 2. **정책이 있는 경우 덮어쓰기**를 사용하도록 설정하고 *TrustFrameworkExtensions.xml* 파일을 찾아서 선택합니다.
 3. **업로드**를 클릭합니다.
 
@@ -107,7 +107,7 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 이제 ID 공급자는 설정되었지만 등록 또는 로그인 화면에서 사용할 수는 없는 상태입니다. ID 공급자를 사용할 수 있게 하려면 기존 템플릿 사용자 경험의 복제본을 만든 다음 ADFS ID 공급자도 포함하도록 수정합니다.
 
 1. 시작 팩에서 *TrustFrameworkBase.xml* 파일을 엽니다.
-2. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소의 전체 콘텐츠를 찾아서 복사합니다.
+2. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소를 찾아서 전체 콘텐츠를 복사합니다.
 3. *TrustFrameworkExtensions.xml*을 열어 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
 4. 이전 단계에서 복사한 **UserJourney** 요소의 전체 콘텐츠를 **UserJourneys** 요소의 자식으로 붙여넣습니다.
 5. 사용자 경험 ID의 이름을 바꿉니다. 예: `SignUpSignInADFS`
@@ -128,7 +128,7 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 이제 단추가 준비되었으므로 동작에 연결해야 합니다. 여기서는 Azure AD B2C가 ADFS 계정과 통신하여 토큰을 수신하는 작업을 연결합니다.
 
 1. 사용자 경험에서 `Order="2"`가 포함된 **OrchestrationStep**을 찾습니다.
-2. 다음 **ClaimsExchange** 요소를 추가합니다. **Id**에는 **TargetClaimsExchangeId**에 사용한 값과 동일한 값을 사용해야 합니다.
+2. 다음 **ClaimsExchange** 요소를 추가합니다. **Id**에는 **TargetClaimsExchangeId**에 사용한 것과 같은 값을 사용해야 합니다.
 
     ```XML
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
@@ -181,14 +181,14 @@ https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idpt
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 애플리케이션 만들기
 
-Azure AD B2C와의 통신은 테넌트에서 만드는 애플리케이션을 통해 수행됩니다. 이 섹션에서는 테스트 애플리케이션을 아직 만들지 않은 경우 이를 만들기 위해 완료할 수 있는 선택적 단계를 설명합니다.
+Azure AD B2C와의 통신은 테넌트에 만드는 응용 프로그램을 통해 수행됩니다. 이 섹션에는 아직 만들지 않은 경우 테스트 응용 프로그램을 만들기 위해 완료할 수 있는 선택적 단계가 나와 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+3. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. **응용 프로그램**을 선택하고 **추가**를 선택합니다.
 5. 애플리케이션 이름(예: *testapp1*)을 입력합니다.
-6. **웹앱/웹 API**에서 `Yes`를 선택하고 **회신 URL**에는 `https://jwt.ms`를 입력합니다.
+6. **웹앱/웹 API**에서 `Yes`를 선택하고 **회신 URL**에 `https://jwt.ms`를 입력합니다.
 7. **만들기**를 클릭합니다.
 
 ### <a name="update-and-test-the-relying-party-file"></a>신뢰 당사자 파일 업데이트 및 테스트
@@ -200,5 +200,5 @@ Azure AD B2C와의 통신은 테넌트에서 만드는 애플리케이션을 통
 3. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 업데이트합니다(예:`http://contoso.com/B2C_1A_signup_signin_adfs">).
 4. 새로 만든 사용자 경험의 ID(SignUpSignInADFS)와 일치하도록 **DefaultUserJourney**의 **ReferenceId** 특성을 업데이트합니다.
 5. 변경 내용을 저장하고 파일을 업로드한 다음 목록에서 새 정책을 선택합니다.
-6. **응용 프로그램 선택** 필드에서 직접 만든 Azure AD B2C 응용 프로그램이 선택되어 있는지 확인한 다음, **지금 실행**을 클릭하여 테스트를 진행합니다.
+6. **응용 프로그램 선택** 필드에서 직접 만든 Azure AD B2C 응용 프로그램이 선택되어 있는지 확인하고 **지금 실행**을 클릭하여 테스트를 진행합니다.
 

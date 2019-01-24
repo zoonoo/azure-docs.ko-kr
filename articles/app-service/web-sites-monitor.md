@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d9f25b7a10b7a50663198120a895220b02818d7b
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 3a49b30caa087295bbdcffe8762796fdc92f154b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994949"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247265"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Azure App Service에서 앱 모니터링
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)는 [Azure Portal](https://portal.azure.com)의 웹앱, 모바일 백 엔드 및 API 앱에 대해 기본 제공 모니터링 기능을 제공합니다.
@@ -72,7 +72,7 @@ App Service 계획을 업그레이드하여 앱에서 할당량을 늘리거나 
 | 메트릭 | 설명 |
 | --- | --- |
 | **평균 응답 시간** | 앱에서 요청을 처리하는 데 소요된 평균 시간(ms)입니다. |
-| **평균 메모리 작업 집합** | 앱에 사용된 평균 메모리 양(MiB)입니다. |
+| **평균 메모리 작업 집합** | 앱에 사용된 메가바이트(MiB) 크기의 평균 메모리 양입니다. |
 | **CPU 시간** | 앱에서 사용한 CPU의 양(초)입니다. 이 메트릭에 대한 자세한 내용은 [CPU 시간 및 CPU 백분율](#cpu-time-vs-cpu-percentage)을 참조하세요. |
 | **데이터 입력** | 앱에서 사용한 들어오는 대역폭 양(MiB)입니다. |
 | **데이터 출력** | 앱에서 사용한 나가는 대역폭 양(MiB)입니다. |
@@ -141,14 +141,12 @@ CPU 사용량을 반영하는 두 가지 메트릭이 있습니다.
 ## <a name="alerts-and-autoscale"></a>경고 및 자동 크기 조정
 앱 또는 App Service 계획의 메트릭은 경고에 연결할 수 있습니다. 자세한 내용은 [경고 알림 받기](../monitoring-and-diagnostics/insights-alerts-portal.md)를 참조하세요.
 
-기본, 표준 또는 프리미엄 App Service 계획에 호스팅된 App Service 앱은 자동 크기 조정을 지원합니다. 자동 크기 조정을 사용하여 App Service 계획 메트릭을 모니터링하는 규칙을 구성할 수 있습니다. 규칙은 필요에 따라 추가 리소스를 제공할 수 있도록 인스턴스 수를 눌리거나 줄일 수 있습니다. 규칙을 사용하면 앱이 과도하게 프로비전될 때 비용을 절감할 수도 있습니다. 
+기본, 표준 또는 프리미엄 App Service 계획에 호스팅된 App Service 앱은 자동 크기 조정을 지원합니다. 자동 크기 조정을 사용하여 App Service 계획 메트릭을 모니터링하는 규칙을 구성할 수 있습니다. 규칙은 필요에 따라 추가 리소스를 제공할 수 있도록 인스턴스 수를 눌리거나 줄일 수 있습니다. 규칙을 사용하면 앱이 과도하게 프로비전될 때 비용을 절감할 수도 있습니다.
 
 자동 크기 조정에 대한 자세한 내용은 [크기 조정 방법](../monitoring-and-diagnostics/insights-how-to-scale.md) 및 [Azure Monitor 자동 크기 조정에 대한 모범 사례](../azure-monitor/platform/autoscale-best-practices.md)를 참조하세요.
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169
-
-
 
 <!-- Images. -->
 [http403]: ./media/web-sites-monitor/http403.png

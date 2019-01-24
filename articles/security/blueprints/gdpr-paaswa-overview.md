@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: 805c983c0c2db4256dade641f32363ca6514023c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1a99ffb751414d255f2aacfe514e5a8f474255bd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600814"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267218"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-gdpr"></a>Azure 보안 및 규정 준수 청사진 - GDPR 준수 PaaS 웹 애플리케이션
 
@@ -35,7 +35,7 @@ Microsoft는 GDPR에서 식별되는 개인 데이터의 범주를 포함하여 
 ## <a name="architecture-diagram-and-components"></a>아키텍처 다이어그램 및 구성 요소
 이 솔루션은 Azure SQL Database 백 엔드가 있는 PaaS 웹 애플리케이션에 대한 참조 아키텍처를 제공합니다. 웹 애플리케이션은 Azure 데이터 센터의 개인 전용 환경인 격리된 Azure App Service Environment에서 호스팅됩니다. 환경은 Azure에서 관리되는 VM 간에 웹 애플리케이션에 대한 트래픽의 부하를 분산합니다. 이 아키텍처에는 네트워크 보안 그룹, Application Gateway, Azure DNS 및 Load Balancer도 포함됩니다. 또한 Azure Monitor는 시스템 상태의 실시간 분석을 제공합니다. **Azure에서는 관리 및 참조 아키텍처 서브넷에 데이터 가져오기를 위해 VPN 또는 ExpressRoute 연결을 구성하는 것이 좋습니다**.
 
-![GDPR 준수 PaaS 웹 응용 프로그램에 대한 참조 아키텍처 다이어그램](images/gdpr-paaswa-architecture.png?raw=true "GDPR 준수 PaaS 웹 응용 프로그램에 대한 참조 아키텍처 다이어그램")
+![GDPR 준수 PaaS 웹 애플리케이션에 대한 참조 아키텍처 다이어그램](images/gdpr-paaswa-architecture.png?raw=true "GDPR 준수 PaaS 웹 애플리케이션에 대한 참조 아키텍처 다이어그램")
 
 이 솔루션에서는 다음과 같은 Azure 서비스를 사용합니다. 배포 아키텍처의 세부 정보는 [배포 아키텍처](#deployment-architecture) 섹션에 있습니다.
 
@@ -181,7 +181,7 @@ Azure Monitor는 시스템 및 사용자 활동, 시스템 상태에 대한 광�
 
 이 참조 아키텍처에 대한 데이터 흐름 다이어그램은 [다운로드](https://aka.ms/gdprPaaSdfd)에서 사용할 수 있거나 아래에 나와 있습니다. 이 모델을 사용하면 고객이 수정할 때 발생할 수 있는 시스템 인프라의 잠재적 위험 요소를 파악할 수 있습니다.
 
-![GDPR 준수 PaaS 웹 응용 프로그램 위협 모델](images/gdpr-paaswa-threat-model.png?raw=true "GDPR 준수 PaaS 웹 응용 프로그램 위협 모델")
+![GDPR 준수 PaaS 웹 애플리케이션 위협 모델](images/gdpr-paaswa-threat-model.png?raw=true "GDPR 준수 PaaS 웹 애플리케이션 위협 모델")
 
 ## <a name="compliance-documentation"></a>규정 준수 설명서
 [Azure 보안 및 규정 준수 청사진 – GDPR 고객 책임 매트릭스](https://aka.ms/gdprCRM)는 모든 GDPR 문서에 대한 컨트롤러 및 프로세서 책임을 나열합니다. Azure 서비스의 경우 일반적으로 고객이 컨트롤러이며 Microsoft는 프로세서 역할을 합니다.

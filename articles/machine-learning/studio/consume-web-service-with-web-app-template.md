@@ -1,27 +1,8 @@
 ---
-title: 웹앱 템플릿에서 Studio 웹 서비스 사용 - Azure Machine Learning Studio | Microsoft Docs
-description: Azure Marketplace에서 웹 앱을 사용하여 Azure Machine Learning의 예측 웹 서비스를 사용합니다.
-keywords: 웹 서비스, 운영, REST API, 기계 학습
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: e0d71683-61b9-4675-8df5-09ddc2f0d92d
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: 6a6da1af937338637cd875abe4e9d539b2e2b6e2
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273887"
+제목: 웹앱 템플릿에서 Studio 웹 서비스 사용 titleSuffix: Azure Machine Learning Studio 설명: Azure Marketplace에서 웹 앱을 사용하여 Azure Machine Learning의 예측 웹 서비스를 사용합니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 2017/03/20
 ---
 # <a name="consume-an-azure-machine-learning-studio-web-service-by-using-a-web-app-template"></a>웹앱 템플릿을 사용한 Azure Machine Learning Studio 웹 서비스 사용
 
@@ -31,7 +12,7 @@ ms.locfileid: "53273887"
 
 그런 후 REST API를 사용하여 조작 가능한 모델에 액세스할 수 있습니다.
 
-REST API를 사용하고 웹 서비스에 액세스하는 방법은 많습니다. 예를 들어, 웹 서비스를 배포할 때 생성된 샘플 코드를 사용하여 C#, R 또는 Python에서 응용 프로그램을 작성할 수 있습니다. (샘플 코드는 [Machine Learning 웹 서비스 포털](https://services.azureml.net/quickstart) 또는 Machine Learning Studio의 웹 서비스 대시보드에서 사용 가능합니다.) 또는 동시에 생성된 샘플 Microsoft Excel 통합 문서를 사용할 수 있습니다.
+REST API를 사용하고 웹 서비스에 액세스하는 방법은 많습니다. 예를 들어, 웹 서비스를 배포할 때 생성된 샘플 코드를 사용하여 C#, R 또는 Python에서 애플리케이션을 작성할 수 있습니다. (샘플 코드는 [Machine Learning 웹 서비스 포털](https://services.azureml.net/quickstart) 또는 Machine Learning Studio의 웹 서비스 대시보드에서 사용 가능합니다.) 또는 동시에 생성된 샘플 Microsoft Excel 통합 문서를 사용할 수 있습니다.
 
 그러나 웹 서비스를 액세스하는 가장 빠르고 쉬운 방법은 [Azure Marketplace](https://azure.microsoft.com/marketplace/web-applications/all/)에서 사용 가능한 웹앱 템플릿을 통한 것입니다.
 
@@ -45,11 +26,11 @@ Azure Marketplace에서 사용할 수 있는 웹 앱 템플릿은 웹 서비스�
 * [Azure ML 요청-응답 서비스 웹 앱 템플릿](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
 * [Azure ML 일괄 처리 실행 서비스 웹 앱 템플릿](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
 
-각 템플릿은 웹 서비스용 API URI 및 키를 사용하여 샘플 ASP.NET 응용 프로그램을 만듭니다. 그런 후 응용 프로그램을 Azure에 웹 사이트로 배포합니다. 
+각 템플릿은 웹 서비스용 API URI 및 키를 사용하여 샘플 ASP.NET 애플리케이션을 만듭니다. 그런 후 애플리케이션을 Azure에 웹 사이트로 배포합니다. 
 
 RRS(요청-응답 서비스) 템플릿은 단일 결과를 가져오기 위해 데이터의 단일 행을 웹 서비스에 보낼 수 있도록 웹앱을 만듭니다. BES(일괄 처리 실행 서비스) 템플릿은 여러 결과를 가져오기 위해 많은 데이터의 행을 보낼 수 있도록 웹앱을 만듭니다.
 
-이러한 템플릿을 사용하기 위해 코딩 작업이 필요하지 않습니다. API 키 및 URI를 제공하면 템플릿이 응용 프로그램을 빌드합니다.
+이러한 템플릿을 사용하기 위해 코딩 작업이 필요하지 않습니다. API 키 및 URI를 제공하면 템플릿이 애플리케이션을 빌드합니다.
 
 웹 서비스에 대한 API 키 및 요청 URI를 가져오려면
 
@@ -119,7 +100,7 @@ RR 템플릿과 동일한 방식으로 BES 웹앱 템플릿을 사용할 수 있
    
    ![저장소 정보][image7]
 
-웹앱은 작업 상태가 포함된 페이지를 표시합니다. 작업이 완료되면 Azure Blob 저장소에서 결과의 위치를 알게 됩니다. 또한 결과를 로컬 파일에 다운로드할 옵션이 있습니다.
+웹앱은 작업 상태가 포함된 페이지를 표시합니다. 작업이 완료되면 Azure Blob Storage에서 결과의 위치를 알게 됩니다. 또한 결과를 로컬 파일에 다운로드할 옵션이 있습니다.
 
 ## <a name="for-more-information"></a>Blob에 대한 자세한 내용은
 다음에 대한 자세한 정보:

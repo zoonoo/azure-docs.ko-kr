@@ -9,12 +9,12 @@ ms.component: face-api
 ms.topic: overview
 ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: a15b6678b15bf5d1a3078494e12da3a08c57bed3
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1916aa94dcf7528ce898ef37eac29c1017f03f15
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633464"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231889"
 ---
 # <a name="what-is-the-azure-face-api"></a>Azure Face API란?
 
@@ -74,6 +74,10 @@ Group API는 알 수 없는 얼굴 집합을 유사성에 따라 여러 그룹�
 
 - [Microsoft Face API: Windows 클라이언트 라이브러리 및 샘플](https://github.com/Microsoft/Cognitive-Face-Windows) - 얼굴 감지, 분석 및 식별에 해당하는 몇 가지 시나리오를 보여주는 WPF 앱입니다.
 - [FamilyNotes UWP 앱](https://github.com/Microsoft/Windows-appsample-familynotes) - 제품군 노트 공유 시나리오에서 음성, Cortana, 잉크 및 카메라와 함께 얼굴 인식을 사용하는 UWP(유니버설 Windows 플랫폼) 앱입니다.
+
+## <a name="data-privacy-and-security"></a>데이터 개인 정보 보호 및 보안
+
+모든 Cognitive Services와 마찬가지로 Face 서비스를 사용하는 개발자는 고객 데이터에 대한 Microsoft의 정책에 대해 알고 있어야 합니다. Microsoft Trust Center의 [Cognitive Services 페이지](https://www.microsoft.com/en-us/trustcenter/cloudservices/cognitiveservices)에서 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,23 +1,23 @@
 ---
 title: 조정 워크플로 - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: 콘텐츠 조정을 통해 워크플로를 사용합니다.
+description: 검토 API의 Job 작업에 워크플로를 사용하여 콘텐츠 정책 및 임계값에 따라 사람이 참여하는 검토를 자동화합니다.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 02/04/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 3de45c62eb208671cc2d1d4de5309d2f9d75adc9
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3a3ff5ed325205c5ae17aaff053127f4e84504bf
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226877"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262662"
 ---
-# <a name="moderation-workflows"></a>조정 워크플로
+# <a name="automate-moderation-reviews-with-workflows"></a>워크플로 사용하여 조정 검토 자동화
 
 Content Moderator는 워크플로를 관리하는 도구 및 API를 포함합니다. [검토 API의 Job 작업](review-api.md)으로 워크플로를 사용하여 콘텐츠 정책 및 임계값에 따라 사람이 참여하는 검토 만들기를 자동화합니다.
 
@@ -41,7 +41,7 @@ Content Moderator는 워크플로를 관리하는 도구 및 API를 포함합니
 
 ### <a name="open-the-default-workflow"></a>기본 워크플로 열기
 
-**편집** 옵션을 사용하여 다음 이미지에 표시된 것과 같이 워크플로 편집 페이지를 엽니다. ![Content Moderator 기본 워크플로](images/default-workflow-listed.PNG)
+**편집** 옵션을 사용하여 이미지 ![Content Moderator 기본 워크플로](images/default-workflow-listed.PNG)에 표시된 것과 같이 워크플로 편집 페이지를 엽니다.
 
 ### <a name="the-designer-view"></a>디자이너 보기
 

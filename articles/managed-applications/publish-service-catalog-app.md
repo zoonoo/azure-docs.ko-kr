@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: a2e6e78268f97136533b4f72ce28373642b6c394
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7e9db85fb91dd0c9a33cc8205bdb30a648dfd38a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801270"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438748"
 ---
-# <a name="create-and-publish-a-managed-application-definition"></a>관리되는 애플리케이션 정의 만들기 및 게시
+# <a name="create-and-publish-a-managed-application-definition"></a>관리되는 응용 프로그램 정의 만들기 및 게시
 
 조직의 구성원을 위한 Azure [관리되는 애플리케이션](overview.md)을 만들고 게시할 수 있습니다. 예를 들어 IT 부서에서는 조직 표준을 충족하는 관리되는 애플리케이션을 게시할 수 있습니다. 이러한 관리되는 애플리케이션은 Azure Marketplace가 아닌 서비스 카탈로그를 통해 사용할 수 있습니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "48801270"
 
 이 문서에서는 관리되는 애플리케이션에는 하나의 저장소 계정만이 포함됩니다. 관리되는 애플리케이션을 게시하는 단계를 설명하기 위한 것입니다. 전체 예제는 [Azure 관리되는 애플리케이션의 샘플 프로젝트](sample-projects.md)를 참조하세요.
 
-이 아티클의 PowerShell 예제에는 Azure PowerShell 6.2 이상이 필요합니다. 필요에 따라 [버전을 업데이트합니다](/powershell/azure/install-azurerm-ps).
+이 아티클의 PowerShell 예제에는 Azure PowerShell 6.2 이상이 필요합니다. 필요에 따라 [버전을 업데이트합니다](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="create-the-resource-template"></a>리소스 템플릿 만들기
 
@@ -216,5 +216,5 @@ New-AzureRmManagedApplicationDefinition `
 
 ## <a name="next-steps"></a>다음 단계
 
-* 관리되는 애플리케이션을 Azure Marketplace에 게시하려면 [Marketplace의 Azure 관리되는 애플리케이션](publish-marketplace-app.md)을 참조하세요.
+* 관리되는 응용 프로그램을 Azure Marketplace에 게시하려면 [Marketplace의 Azure 관리되는 응용 프로그램](publish-marketplace-app.md)을 참조하세요.
 * 관리되는 애플리케이션 인스턴스를 배포하려면 [Azure Portal을 통해 서비스 카탈로그 앱 배포](deploy-service-catalog-quickstart.md)를 참조하세요.

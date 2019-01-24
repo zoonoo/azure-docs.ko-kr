@@ -4,7 +4,7 @@ description: Azure AD를 사용하여 딥 링크 URL에서 애플리케이션에
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: c12e223c4e57fccd78ed773f929949c7c63efe9f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1ba34fa0bed467d1b6dedc1d5a475bdf04032d6d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355482"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465312"
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>딥 링크를 사용하여 애플리케이션에 로그인하는 문제
 
@@ -64,7 +64,7 @@ ms.locfileid: "44355482"
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
+5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "44355482"
 
 9.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-10. **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
+10. **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
    * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
@@ -112,9 +112,9 @@ ms.locfileid: "44355482"
 
 Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행해야 합니다.
 
--   [Azure AD 갤러리에서 응용 프로그램 추가](#add-an-application-from-the-Azure-AD-gallery)
+-   [Azure AD 갤러리에서 애플리케이션 추가](#add-an-application-from-the-Azure-AD-gallery)
 
--   [암호 Single Sign-On에 대한 응용 프로그램 구성](#configure-the-application-for-password-single-sign-on)
+-   [암호 Single Sign-On에 대한 애플리케이션 구성](#configure-the-application-for-password-single-sign-on)
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>Azure AD 갤러리에서 애플리케이션 추가
 
@@ -128,9 +128,9 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **엔터프라이즈 응용 프로그램** 창의 오른쪽 위 모서리에서 **추가** 단추를 클릭합니다.
+5.  **엔터프라이즈 애플리케이션** 창의 오른쪽 위 모서리에서 **추가** 단추를 클릭합니다.
 
-6.  **갤러리에서 추가** 섹션의 **이름 입력** 텍스트 상자에 응용 프로그램 이름을 입력합니다.
+6.  **갤러리에서 추가** 섹션의 **이름 입력** 텍스트 상자에 애플리케이션 이름을 입력합니다.
 
 7.  Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
 
@@ -152,7 +152,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
+5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
@@ -162,17 +162,17 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 8.  **암호 기반 로그온** 모드를 선택합니다.
 
-9.  [응용 프로그램에 사용자를 할당합니다](#how-to-assign-a-user-to-an-application-directly).
+9.  [애플리케이션에 사용자를 할당합니다](#how-to-assign-a-user-to-an-application-directly).
 
 10. 또한 사용자의 행을 선택하고 **자격 증명 업데이트**를 클릭하고 사용자를 대신하여 사용자 이름 및 암호를 입력하여 사용자를 대신하여 자격 증명을 제공할 수도 있습니다. 그렇지 않으면 사용자는 시작할 때 자격 증명을 입력하라는 메시지를 받게 됩니다.
 
-## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>비갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성하는 방법
+## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>비-갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성하는 방법
 
 Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행해야 합니다.
 
--   [비갤러리 응용 프로그램 추가](#add-a-non-gallery-application)
+-   [비갤러리 애플리케이션 추가](#add-a-non-gallery-application)
 
--   [암호 Single Sign-On에 대한 응용 프로그램 구성](#configure-the-application-for-password-single-sign-on)
+-   [암호 Single Sign-On에 대한 애플리케이션 구성](#configure-the-application-for-password-single-sign-on)
 
 ### <a name="add-a-non-gallery-application"></a>비갤러리 애플리케이션 추가
 
@@ -186,11 +186,11 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **엔터프라이즈 응용 프로그램** 창의 오른쪽 위 모서리에서 **추가** 단추를 클릭합니다.
+5.  **엔터프라이즈 애플리케이션** 창의 오른쪽 위 모서리에서 **추가** 단추를 클릭합니다.
 
-6.  **비갤러리 응용 프로그램**을 클릭합니다.
+6.  **비갤러리 애플리케이션**을 클릭합니다.
 
-7.  **이름** 텍스트 상자에 응용 프로그램의 이름을 입력합니다. **추가**를 선택합니다.
+7.  **이름** 텍스트 상자에 애플리케이션의 이름을 입력합니다. **추가**를 선택합니다.
 
 잠시 후 애플리케이션의 구성 창이 표시됩니다.
 
@@ -206,7 +206,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
+5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
     1.  여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
@@ -234,7 +234,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
+5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
@@ -250,13 +250,13 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 11. 목록의 **사용자** 위로 마우스를 이동하여 **확인란**을 표시합니다. 사용자를 **선택됨** 목록에 추가하려면 사용자의 프로필 사진이나 로고 옆의 확인란을 클릭합니다.
 
-12. **선택 사항:** **둘 이상의 사용자를 추가**하려는 경우 **이름 또는 전자 메일 주소로 검색** 검색 상자에 다른 **전체 이름** 또는 **전자 메일 주소**를 입력하고 확인란을 클릭하여 이 사용자를 **선택됨** 목록에 추가합니다.
+12. **선택 사항:** **하나를 초과하는 사용자를 추가**하려는 경우 **이름 또는 이메일 주소로 검색** 검색 상자에 다른 **전체 이름** 또는 **이메일 주소**를 입력하고 확인란을 클릭하여 이 사용자를 **선택됨** 목록에 추가합니다.
 
 13. 사용자 선택이 완료되면 **선택** 단추를 클릭하여 애플리케이션에 할당되도록 사용자 및 그룹의 목록에 추가합니다.
 
 14. **선택 사항:** **할당 추가** 창에서 **역할 선택** 선택기를 클릭하여 선택한 사용자에게 할당할 역할을 선택합니다.
 
-15. **할당** 단추를 클릭하여 선택한 사용자에게 응용 프로그램을 할당합니다.
+15. **할당** 단추를 클릭하여 선택한 사용자에게 애플리케이션을 할당합니다.
 
 짧은 시간 후에 선택한 사용자는 액세스 패널에서 이러한 애플리케이션을 시작할 수 있습니다.
 
@@ -277,4 +277,4 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 -   Fiddler 추적
 
 ## <a name="next-steps"></a>다음 단계
-[응용 프로그램 프록시를 사용하여 앱에 Single Sign-On 제공](application-proxy-configure-single-sign-on-with-kcd.md)
+[애플리케이션 프록시를 사용하여 앱에 Single Sign-On 제공](application-proxy-configure-single-sign-on-with-kcd.md)

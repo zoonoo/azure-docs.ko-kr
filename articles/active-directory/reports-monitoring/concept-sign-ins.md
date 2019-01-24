@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5607dd0f3c682915f1a64edcc5e946491bab5279
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e1b1102594e7e4470c08cb0f18068dd368c0fe7a
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653359"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245092"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
 
@@ -44,7 +44,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 * 또한 모든 사용자(비관리자)가 자신의 로그인에 액세스할 수 있습니다. 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>로그인 작업에 액세스하는 데 필요한 Azure AD 라이선스는 무엇인가요?
-* 모든 로그인 활동 보고서를 보려면 테넌트에 이와 관련된 Azure AD Premium 라이선스가 있어야 합니다. [Azure Active Directory Premium 시작하기](../fundamentals/active-directory-get-started-premium.md)를 참조하여 Azure Active Directory 버전을 업그레이드하세요.
+* 모든 로그인 활동 보고서를 보려면 테넌트에 이와 관련된 Azure AD Premium 라이선스가 있어야 합니다. [Azure Active Directory Premium 시작하기](../fundamentals/active-directory-get-started-premium.md)를 참조하여 Azure Active Directory 버전을 업그레이드하세요. 업그레이드 전에 활동 데이터가 없었다면 Premium 라이선스로 업그레이드한 후 보고서에 데이터가 나타나기까지 1~2일 정도 걸립니다.
 
 ## <a name="sign-ins-report"></a>로그인 보고서
 
@@ -54,7 +54,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 * 한 주 동안 얼마나 많은 사용자가 로그인했나요?
 * 이러한 로그인의 상태란?
 
-[Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** 블레이드의 **작업** 섹션에서 **로그인**을 선택하여 로그인 보고서에 액세스할 수 있습니다.
+[Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** 블레이드의 **작업** 섹션에서 **로그인**을 선택하여 로그인 보고서에 액세스할 수 있습니다. 일부 로그인 레코드의 경우 포털에 표시될 때까지 최대 2시간이 걸릴 수 있습니다.
 
 ![로그인 활동](./media/concept-sign-ins/61.png "로그인 활동")
 
@@ -233,6 +233,12 @@ Azure AD 외에도 Azure Portal에서는 로그인 데이터에 대한 추가 �
 **로그인** 옵션을 선택하면 애플리케이션에 대한 모든 로그인 이벤트의 전체적인 개요를 보여 줍니다.
 
 ![로그인 활동](./media/concept-sign-ins/11.png "로그인 활동")
+
+## <a name="office-365-activity-logs"></a>Office 365 활동 로그
+
+[Office 365 관리 센터](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center)에서 Office 365 활동 로그를 확인할 수 있습니다. Office 365 활동 로그와 Azure AD 활동 로그는 여러 디렉터리 리소스를 공유하지만 Office 365 관리 센터에서만 Office 365 활동 로그를 전체적으로 확인할 수 있습니다. 
+
+[Office 365 관리 API](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview)를 사용하여 프로그래밍 방식으로 Office 365 활동 로그에 액세스할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

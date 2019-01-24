@@ -4,7 +4,7 @@ description: Azure Portal을 사용하여 디바이스를 관리하는 방법을
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0497cba4cae66e63f710c9678f6d87c2f9fb8fb1
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 0ab732d49790a348fffb18d56940a7aae1a9c3e7
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515086"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451972"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Azure Portal을 사용하여 디바이스를 관리하는 방법
 
@@ -44,11 +44,11 @@ Azure Portal에서는 디바이스를 관리하는 중앙 위치를 제공합니
 
     ![디바이스 설정 구성](./media/device-management-azure-portal/01.png)
 
-3. **관리** 섹션에서 **장치**를 클릭합니다.
+3. **관리** 섹션에서 **디바이스**를 클릭합니다.
 
     ![디바이스 설정 구성](./media/device-management-azure-portal/74.png)
  
-**장치** 페이지에서 다음을 수행할 수 있습니다.
+**디바이스** 페이지에서 다음을 수행할 수 있습니다.
 
 - 디바이스 관리 설정 구성
 
@@ -70,17 +70,17 @@ Azure Portal을 사용하여 디바이스를 관리하려면 해당 디바이스
 ![Intune 디바이스 관리](./media/device-management-azure-portal/21.png)
 
 
-- **사용자가 Azure AD에 장치를 조인할 수 있습니다.** - 이 설정을 사용하여 Azure AD에 [장치를 조인](overview.md#azure-ad-joined-devices)할 수 있는 사용자를 선택할 수 있습니다. 기본값은 **모두**입니다. 이 설정은 Windows 10의 Azure AD 조인에만 적용됩니다.
+- **사용자가 Azure AD에 디바이스를 조인할 수 있습니다.** - 이 설정을 사용하여 Azure AD에 [디바이스를 조인](overview.md#azure-ad-joined-devices)할 수 있는 사용자를 선택할 수 있습니다. 기본값은 **모두**입니다. 이 설정은 Windows 10의 Azure AD 조인에만 적용됩니다.
 
-- **Azure AD 조인 장치의 추가 로컬 관리자** - 장치에서 로컬 관리자 권한이 부여된 사용자를 선택할 수 있습니다. 여기에 추가한 사용자는 Azure AD의 *디바이스 관리자* 역할에 추가됩니다. Azure AD의 전역 관리자 및 디바이스 소유자에게는 기본적으로 로컬 관리자 권한이 부여됩니다. 이 옵션은 Azure AD Premium 또는 EMS(Enterprise Mobility Suite) 등의 제품을 통해 사용할 수 있는 프리미엄 버전 기능입니다. 
+- **Azure AD 조인 디바이스의 추가 로컬 관리자** - 디바이스에서 로컬 관리자 권한이 부여된 사용자를 선택할 수 있습니다. 여기에 추가한 사용자는 Azure AD의 *디바이스 관리자* 역할에 추가됩니다. Azure AD의 전역 관리자 및 디바이스 소유자에게는 기본적으로 로컬 관리자 권한이 부여됩니다. 이 옵션은 Azure AD Premium 또는 EMS(Enterprise Mobility Suite) 등의 제품을 통해 사용할 수 있는 프리미엄 버전 기능입니다. 
 
-- **사용자가 장치를 Azure AD에 등록할 수 있습니다.** - 장치를 Azure AD에 [등록](overview.md#azure-ad-registered-devices)할 수 있게 하려면 이 설정을 구성해야 합니다. **없음**을 선택하는 경우 장치가 Azure AD 조인 또는 하이브리드 Azure AD 조인 장치가 아닌 경우 등록할 수 없습니다. Office 365용 Microsoft Intune 또는 MDM(모바일 디바이스 관리)에 등록하려면 먼저 디바이스를 등록해야 합니다. 이러한 서비스 중 하나를 구성한 경우 **모두**가 선택되고 **없음**은 사용할 수 없습니다.
+- **사용자가 디바이스를 Azure AD에 등록할 수 있습니다.** - 디바이스를 Azure AD에 [등록](overview.md#azure-ad-registered-devices)할 수 있게 하려면 이 설정을 구성해야 합니다. **없음**을 선택하는 경우 디바이스가 Azure AD 조인 또는 하이브리드 Azure AD 조인 디바이스가 아닌 경우 등록할 수 없습니다. Office 365용 Microsoft Intune 또는 MDM(모바일 디바이스 관리)에 등록하려면 먼저 디바이스를 등록해야 합니다. 이러한 서비스 중 하나를 구성한 경우 **모두**가 선택되고 **없음**은 사용할 수 없습니다.
 
-- **장치에 연결하려면 Multi-factor Auth 필요** - 사용자가 Azure AD에 장치를 [조인](overview.md#azure-ad-joined-devices)하기 위해 또 다른 인증 수단을 제공해야 하는지 여부를 선택할 수 있습니다. 기본값은 **아니요**입니다. 그러나 디바이스를 등록하는 경우 Multi-Factor Authentication을 사용하는 것이 좋습니다. 이 서비스에 대해 Multi-Factor Authentication을 사용하도록 설정하기 전에 디바이스를 등록하는 사용자에 대해 Multi-Factor Authentication을 구성해야 합니다. 다양한 Azure Multi-Factor Authentication 서비스에 대한 자세한 내용은 [Azure Multi-Factor Authentication 시작](../authentication/concept-mfa-whichversion.md)을 참조하세요. 이 설정은 Windows 10 또는 Windows 7에 대한 하이브리드 조인에는 영향을 주지 않습니다. Windows 10의 Azure AD 조인과 Windows 10, iOS 및 Android에 대한 BYO 디바이스 등록에만 적용됩니다. 
+- **디바이스에 연결하려면 Multi-factor Auth 필요** - 사용자가 Azure AD에 디바이스를 [조인](overview.md#azure-ad-joined-devices)하기 위해 또 다른 인증 수단을 제공해야 하는지 여부를 선택할 수 있습니다. 기본값은 **아니요**입니다. 그러나 디바이스를 등록하는 경우 Multi-Factor Authentication을 사용하는 것이 좋습니다. 이 서비스에 대해 Multi-Factor Authentication을 사용하도록 설정하기 전에 디바이스를 등록하는 사용자에 대해 Multi-Factor Authentication을 구성해야 합니다. 다양한 Azure Multi-Factor Authentication 서비스에 대한 자세한 내용은 [Azure Multi-Factor Authentication 시작](../authentication/concept-mfa-whichversion.md)을 참조하세요. 이 설정은 Windows 10 또는 Windows 7에 대한 하이브리드 조인에는 영향을 주지 않습니다. Windows 10의 Azure AD 조인 및 Windows 10/iOS/Android의 BYO 디바이스 등록에만 이 설정이 적용됩니다. 
 
-- **최대 장치 수** - 이 설정을 사용하여 Azure AD에서 사용자가 보유할 수 있는 장치의 최대 수를 선택할 수 있습니다. 사용자가 이 할당량에 도달하는 경우 기존 디바이스 중 하나 이상이 제거될 때까지 디바이스를 더 추가할 수 없습니다. 디바이스 견적은 현재 Azure AD에 조인되었거나 Azure AD에 등록된 모든 디바이스에 대해 계산됩니다. 기본값은 **20**입니다.
+- **최대 디바이스 수** - 이 설정을 사용하여 Azure AD에서 사용자가 보유할 수 있는 디바이스의 최대 수를 선택할 수 있습니다. 사용자가 이 할당량에 도달하는 경우 기존 디바이스 중 하나 이상이 제거될 때까지 디바이스를 더 추가할 수 없습니다. 디바이스 견적은 현재 Azure AD에 조인되었거나 Azure AD에 등록된 모든 디바이스에 대해 계산됩니다. 기본값은 **20**입니다.
 
-- **사용자자 장치 간에 설정 및 앱 데이터를 동기화할 수 있음** - 기본적으로 이 설정은 **없음**으로 지정됩니다. 특정 사용자 또는 그룹을 선택하거나 모두를 선택하면 Windows 10 디바이스 간에 사용자 설정 및 앱 데이터를 동기화할 수 있습니다. Windows 10에서 동기화가 작동되는 방식에 대해 자세히 알아봅니다.
+- **사용자자 디바이스 간에 설정 및 앱 데이터를 동기화할 수 있음** - 기본적으로 이 설정은 **없음**으로 지정됩니다. 특정 사용자 또는 그룹을 선택하거나 모두를 선택하면 Windows 10 디바이스 간에 사용자 설정 및 앱 데이터를 동기화할 수 있습니다. Windows 10에서 동기화가 작동되는 방식에 대해 자세히 알아봅니다.
 이 옵션은 Azure AD Premium 또는 EMS(Enterprise Mobility Suite) 등의 제품을 통해 사용할 수 있는 프리미엄 기능입니다.
  
 
@@ -91,12 +91,12 @@ Azure Portal을 사용하여 디바이스를 관리하려면 해당 디바이스
 
 두 가지 옵션으로 등록 및 조인된 디바이스를 찾을 수 있습니다.
 
-- **장치** 페이지의 **관리** 섹션에 있는 **모든 장치**  
+- **디바이스** 페이지의 **관리** 섹션에 있는 **모든 디바이스**  
 
     ![모든 디바이스](./media/device-management-azure-portal/41.png)
 
 
-- **사용자** 페이지의 **관리** 섹션에 있는 **장치**
+- **사용자** 페이지의 **관리** 섹션에 있는 **디바이스**
  
     ![모든 디바이스](./media/device-management-azure-portal/43.png)
 
@@ -139,11 +139,11 @@ Intune 관리자인 경우 **Microsoft Intune**으로 표시된 디바이스를 
 
 디바이스를 사용/사용 안 함으로 설정하려면 두 가지 옵션이 있습니다.
 
-- **모든 장치** 페이지의 작업 메뉴("…")
+- **모든 디바이스** 페이지의 작업 메뉴("…")
 
     ![Intune 디바이스 관리](./media/device-management-azure-portal/71.png)
 
-- **장치** 페이지의 도구 모음
+- **디바이스** 페이지의 도구 모음
 
     ![Intune 디바이스 관리](./media/device-management-azure-portal/32.png)
 
@@ -159,18 +159,18 @@ Intune 관리자인 경우 **Microsoft Intune**으로 표시된 디바이스를 
 
 디바이스를 삭제하려면 두 가지 옵션이 있습니다.
 
-- **모든 장치** 페이지의 작업 메뉴("…")
+- **모든 디바이스** 페이지의 작업 메뉴("…")
 
     ![Intune 디바이스 관리](./media/device-management-azure-portal/72.png)
 
-- **장치** 페이지의 도구 모음
+- **디바이스** 페이지의 도구 모음
 
     ![디바이스 삭제](./media/device-management-azure-portal/34.png)
 
 
 **설명**
 
-- 디바이스를 삭제하려면 Azure AD에서 글로벌 관리자 또는 Intune 관리자여야 합니다.
+- 장치를 삭제하려면 Azure AD에서 글로벌 관리자 또는 Intune 관리자여야 합니다.
 
 - 디바이스 삭제:
  
@@ -258,7 +258,7 @@ BitLocker 키를 보거나 복사하려면, 디바이스의 소유자 또는 다
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Active Directory의 장치 관리 소개](overview.md)
+* [Azure Active Directory의 디바이스 관리 소개](overview.md)
 
 
 

@@ -1,24 +1,24 @@
 ---
 title: Blob Storage 이벤트를 웹 엔드포인트에 전송 - 포털 | Microsoft Docs
-description: Azure Event Grid 및 Azure Portal을 사용하여 Blob 저장소 계정을 만들고 해당 이벤트를 구독합니다. 이벤트를 웹후크에 보냅니다.
+description: Azure Event Grid 및 Azure Portal을 사용하여 Blob Storage 계정을 만들고 해당 이벤트를 구독합니다. 이벤트를 웹후크에 보냅니다.
 services: event-grid
 keywords: ''
-author: tfitzmac
-ms.author: tomfitz
+author: spelluru
+ms.author: spelluru
 ms.date: 10/17/2018
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 6fd48ecd6def6a4fcd56751b6a137f75b16896ef
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2b8b06a540af99cad45bed4068dd55773eaf38d0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086966"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468576"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Blob Storage 이벤트를 웹 엔드포인트로 라우팅
 
-Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure Portal을 사용하여 Blob 저장소 계정을 만들고, 해당 Blob 저장소에 대한 이벤트를 구독하고, 결과를 보기 위한 이벤트를 트리거합니다. 일반적으로 이벤트 데이터를 처리하고 작업을 수행하는 엔드포인트에 이벤트를 보냅니다. 그러나 이 문서를 간소화하기 위해 메시지를 수집하고 표시하는 웹앱에 이벤트를 보냅니다.
+Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure Portal을 사용하여 Blob Storage 계정을 만들고, 해당 Blob Storage에 대한 이벤트를 구독하고, 결과를 보기 위한 이벤트를 트리거합니다. 일반적으로 이벤트 데이터를 처리하고 작업을 수행하는 엔드포인트에 이벤트를 보냅니다. 그러나 이 문서를 간소화하기 위해 메시지를 수집하고 표시하는 웹앱에 이벤트를 보냅니다.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -30,7 +30,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
-1. Blob 저장소를 만들려면 **리소스 만들기**를 선택합니다. 
+1. Blob Storage를 만들려면 **리소스 만들기**를 선택합니다. 
 
    ![리소스 만들기](./media/blob-event-quickstart-portal/create-resource.png)
 
@@ -44,7 +44,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문
 
 ## <a name="create-a-message-endpoint"></a>메시지 엔드포인트 만들기
 
-Blob 저장소 계정에 대한 이벤트를 구독하기 전에 이벤트 메시지에 대한 엔드포인트를 만들어 보겠습니다. 일반적으로 엔드포인트는 이벤트 데이터를 기반으로 작업을 수행합니다. 이 빠른 시작을 간소화하기 위해 이벤트 메시지를 표시하는 [미리 작성된 웹앱](https://github.com/Azure-Samples/azure-event-grid-viewer)을 배포합니다. 배포된 솔루션은 App Service 계획, App Service 웹앱 및 GitHub의 소스 코드를 포함합니다.
+Blob Storage 계정에 대한 이벤트를 구독하기 전에 이벤트 메시지에 대한 엔드포인트를 만들어 보겠습니다. 일반적으로 엔드포인트는 이벤트 데이터를 기반으로 작업을 수행합니다. 이 빠른 시작을 간소화하기 위해 이벤트 메시지를 표시하는 [미리 작성된 웹앱](https://github.com/Azure-Samples/azure-event-grid-viewer)을 배포합니다. 배포된 솔루션은 App Service 계획, App Service 웹앱 및 GitHub의 소스 코드를 포함합니다.
 
 1. **Azure에 배포**를 선택하여 구독에 솔루션을 배포합니다. Azure Portal에서 매개 변수에 대한 값을 제공합니다.
 
@@ -58,11 +58,11 @@ Blob 저장소 계정에 대한 이벤트를 구독하기 전에 이벤트 메�
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
-## <a name="subscribe-to-the-blob-storage"></a>Blob 저장소 구독
+## <a name="subscribe-to-the-blob-storage"></a>Blob Storage 구독
 
 항목을 구독하여 Event Grid에 추적하려는 이벤트와 이벤트를 보낼 위치를 알립니다.
 
-1. 포털에서 Blob 저장소 및 **이벤트**를 차례로 선택합니다.
+1. 포털에서 Blob Storage 및 **이벤트**를 차례로 선택합니다.
 
    ![이벤트 선택](./media/blob-event-quickstart-portal/select-events.png)
 
@@ -70,7 +70,7 @@ Blob 저장소 계정에 대한 이벤트를 구독하기 전에 이벤트 메�
 
    ![웹 후크 선택](./media/blob-event-quickstart-portal/select-web-hook.png)
 
-1. 이벤트 구독은 Blob 저장소에 대한 값으로 미리 채워집니다. 웹 후크 엔드포인트의 경우 웹앱의 URL을 제공하고 `api/updates`를 홈 페이지 URL에 추가합니다. 구독에 이름을 지정합니다. 완료되면 **만들기**를 선택합니다.
+1. 이벤트 구독은 Blob Storage에 대한 값으로 미리 채워집니다. 웹 후크 엔드포인트의 경우 웹앱의 URL을 제공하고 `api/updates`를 홈 페이지 URL에 추가합니다. 구독에 이름을 지정합니다. 완료되면 **만들기**를 선택합니다.
 
    ![로그 선택](./media/blob-event-quickstart-portal/create-subscription.png)
 
@@ -82,9 +82,9 @@ Blob 저장소 계정에 대한 이벤트를 구독하기 전에 이벤트 메�
 
 ## <a name="send-an-event-to-your-endpoint"></a>엔드포인트에 이벤트 보내기
 
-파일을 업로드하여 Blob 저장소에 대한 이벤트를 트리거합니다. 파일에는 특정 콘텐츠가 필요하지 않습니다. 문서에서는 testfile.txt라는 파일이 있다고 해도 모든 파일을 사용할 수 있다고 가정합니다.
+파일을 업로드하여 Blob Storage에 대한 이벤트를 트리거합니다. 파일에는 특정 콘텐츠가 필요하지 않습니다. 문서에서는 testfile.txt라는 파일이 있다고 해도 모든 파일을 사용할 수 있다고 가정합니다.
 
-1. Blob 저장소의 경우 **Blob**을 선택합니다.
+1. Blob Storage의 경우 **Blob**을 선택합니다.
 
    ![Blob 선택](./media/blob-event-quickstart-portal/select-blobs.png)
 

@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
-ms.component: logs
-ms.openlocfilehash: b58b7c7ebc3547153f805f762c4caf3511a5a709
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.subservice: logs
+ms.openlocfilehash: aaaec6e02c9280801fbf7e3b5a8eaa1ae4a1ff43
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717504"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429772"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Azure 활동 로그를 Event Hubs로 스트림
 다음을 수행하여 모든 애플리케이션에 거의 실시간으로 [Azure 활동 로그](../../azure-monitor/platform/activity-logs-overview.md)를 스트리밍할 수 있습니다.
@@ -102,4 +102,5 @@ Event Hubs 네임스페이스가 없는 경우 먼저 만들어야 합니다. �
 * [저장소 계정에 활동 로그 보관](../../azure-monitor/platform/archive-activity-log.md)
 * [Azure 활동 로그 개요 알아보기](../../azure-monitor/platform/activity-logs-overview.md)
 * [활동 로그 이벤트를 기반으로 경고 설정](../../azure-monitor/platform/alerts-log-webhook.md)
+
 

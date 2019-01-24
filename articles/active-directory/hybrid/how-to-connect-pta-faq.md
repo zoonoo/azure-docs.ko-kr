@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD Connect 통과 인증, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fdb316f5f5c1f67dbb92fe8847c0ffacce46ae07
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: cb36b9514d98fe32f20e740fbb578ac7daada79c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789095"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478402"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 통과 인증: 질문과 대답
 
@@ -62,7 +62,7 @@ ms.locfileid: "53789095"
 
 특정 사용자에 대해 [비밀번호 쓰기 저장](../authentication/concept-sspr-writeback.md)이 구성되었고 이 사용자가 통과 인증을 사용하여 로그인하면 암호를 변경하거나 다시 설정할 수 있습니다. 암호는 예상대로 온-프레미스 Active Directory에 쓰기 저장됩니다.
 
-특정 사용자에 대해 비밀번호 쓰기 저장이 구성되지 않았거나 이 사용자에게 유효한 Azure AD 라이선스가 할당되어 있지 않으면 해당 사용자가 클라우드에서 암호를 업데이트할 수 없습니다. 암호가 만료된 경우에도 해당 암호를 업데이트할 수 없습니다. 대신에 다음과 같은 메시지가 사용자에게 표시됩니다. “조직이 이 사이트에서 암호 업데이트를 허용하지 않습니다. 조직에서 권장하는 방법에 따라 암호를 업데이트하거나 도움이 필요한 경우 관리자에게 문의하세요.” 사용자 또는 관리자가 온-프레미스 Active Directory에서 해당 암호를 다시 설정해야 합니다.
+특정 사용자에 대해 비밀번호 쓰기 저장이 구성되지 않았거나 이 사용자에게 유효한 Azure AD 라이선스가 할당되어 있지 않으면 해당 사용자가 클라우드에서 암호를 업데이트할 수 없습니다. 암호가 만료된 경우에도 해당 암호를 업데이트할 수 없습니다. 대신에 다음과 같은 메시지가 사용자에게 표시됩니다. “조직이 이 사이트에서 암호 업데이트를 허용하지 않습니다. 조직에서 권장하는 방법에 따라 암호를 업데이트하거나 도움이 필요한 경우 관리자에게 문의하세요." 사용자 또는 관리자가 온-프레미스 Active Directory에서 해당 암호를 다시 설정해야 합니다.
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>통과 인증을 통해 무차별 암호 대입 공격으로부터 사용자를 보호하려면 어떻게 할까요?
 

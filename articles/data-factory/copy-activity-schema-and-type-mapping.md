@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 1a3855b7b95224e0f872764f6710f9fa907780a7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c2f58a3510699cdf74e3150d3ad5882929f4f05b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025456"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358714"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>복사 작업의 스키마 매핑
 이 문서에서는 Azure Data Factory 복사 작업에서 데이터 복사를 실행할 때 원본 데이터의 스키마 매핑과 데이터 형식을 싱크 데이터에 매핑하는 방법을 설명합니다.
@@ -142,7 +142,7 @@ ms.locfileid: "54025456"
 
 ## <a name="schema-mapping"></a>스키마 매핑
 
-매핑 스키마은 MongoDB/REST에서 텍스트 파일로 복사하거나 SQL에서 Azure Cosmos DB MongoDB API로 복사하는 경우처럼 계층적 데이터와 테이블 형식 데이터 간에 데이터를 복사할 때 적용됩니다. 다음 속성은 복사 작업 `translator` 섹션에서 지원됩니다.
+매핑 스키마는 MongoDB/REST에서 텍스트 파일로, 그리고 SQL에서 MongoDB용 Azure Cosmos DB API로 복사할 때와 같이 계층형 데이터와 테이블형 데이터 간에 데이터를 복사할 때 적용됩니다. 다음 속성은 복사 작업 `translator` 섹션에서 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |

@@ -5,6 +5,7 @@ description: 이 자습서는 Azure Portal을 사용하여 가용성 영역 간 
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 18b5f82a5181f0bbf7024b302b802684ef676c8f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d2e81e4f2eda730dc064699f42ba7bfb49648082
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255339"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230835"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal에서 Standard Load Balancer를 통한 가용성 영역 간 부하 분산
 
-부하 분산은 들어오는 요청을 여러 가상 머신에 분산하여 높은 수준의 가용성을 제공합니다. 이 자습서는 가용성 영역 간 VM의 부하를 분산하는 공용 Load Balancer 표준을 만드는 단계를 설명합니다. 이를 통해 가능성이 적은 실패 또는 전체 데이터 센터의 손실로부터 앱 및 데이터를 보호합니다. 영역 중복에서 하나 이상의 가용성 영역이 실패할 수 있고 지역에서 한 영역이 정상으로 유지되는 한 데이터 경로는 유효합니다. 다음 방법에 대해 알아봅니다.
+부하 분산은 들어오는 요청을 여러 가상 머신에 분산하여 높은 수준의 가용성을 제공합니다. 이 자습서는 가용성 영역 간 VM의 부하를 분산하는 공용 표준 Load Balancer를 만드는 단계를 설명합니다. 이를 통해 가능성이 적은 실패 또는 전체 데이터 센터의 손실로부터 앱 및 데이터를 보호합니다. 영역 중복에서 하나 이상의 가용성 영역이 실패할 수 있고 지역에서 한 영역이 정상으로 유지되는 한 데이터 경로는 유효합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 표준 Load Balancer 만들기

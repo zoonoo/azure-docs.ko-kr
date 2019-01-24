@@ -1,6 +1,6 @@
 ---
 title: Jenkins 및 Azure 개요
-description: Azure에서 Jenkins 빌드 및 배포 자동화 서버를 호스트하고 Azure 계산 및 저장소 리소스를 사용하여 CI/CD(지속적인 통합 및 배포) 파이프라인을 확장합니다.
+description: Azure에서 Jenkins 빌드 및 배포 자동화 서버를 호스트하고 Azure 컴퓨팅 및 스토리지 리소스를 사용하여 CI/CD(지속적인 통합 및 배포) 파이프라인을 확장합니다.
 ms.service: jenkins
 keywords: Jenkins, Azure, DevOps, 개요
 author: tomarchermsft
@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: overview
 ms.date: 07/25/2018
-ms.openlocfilehash: 1f09e1711cbbbd8f05a982e620b1e09184320d13
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 69e9a49bf83be5b58faf3e71ab0ffbfb6c6f11a1
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078969"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329721"
 ---
 # <a name="azure-and-jenkins"></a>Azure 및 Jenkins
 

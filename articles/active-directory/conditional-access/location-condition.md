@@ -5,7 +5,7 @@ services: active-directory
 keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 12/11/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 80818a7264b35b703be217f07127ab7883da339a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 998a2dac8332ea88f7cee308299ce5a1f90765a4
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271592"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449745"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 위치 조건이란? 
 
@@ -129,11 +129,11 @@ Azure AD에서는 공용 인터넷의 어디에서든지 디바이스, 앱 및 �
 
 조건부 액세스 정책은 다음 경우에 평가됩니다. 
 
-- 사용자가 웹앱, 모바일 또는 데스크톱 응용 프로그램에 처음 로그인합니다. 
+- 사용자가 웹앱, 모바일 또는 데스크톱 애플리케이션에 처음 로그인합니다. 
 
-- 최신 인증을 사용하는 모바일 또는 데스크톱 응용 프로그램에서 새로 고침 토큰을 사용하여 새 액세스 토큰을 확보합니다. 기본적으로 한 시간에 한 번 수행됩니다. 
+- 최신 인증을 사용하는 모바일 또는 데스크톱 애플리케이션에서 새로 고침 토큰을 사용하여 새 액세스 토큰을 확보합니다. 기본적으로 한 시간에 한 번 수행됩니다. 
 
-즉, 최신 인증을 사용하는 모바일 및 데스크톱 응용 프로그램의 네트워크 위치가 변경되면 1시간 이내에 위치 변경이 감지됩니다. 최신 인증을 사용하지 않는 모바일 및 데스크톱 응용 프로그램의 경우 토큰 요청마다 정책이 적용됩니다. 요청 빈도는 응용 프로그램에 따라 다를 수 있습니다. 마찬가지로 웹 응용 프로그램의 경우 정책은 처음 로그인할 때 적용되며 웹 응용 프로그램 세션 수명 기간 동안 유효합니다. 응용 프로그램 간에 세션 수명이 달라서 정책 평가 사이의 시간도 달라질 수 있습니다. 응용 프로그램이 새 로그인 토큰을 요청할 때마다 정책이 적용됩니다.
+즉, 최신 인증을 사용하는 모바일 및 데스크톱 애플리케이션의 네트워크 위치가 변경되면 1시간 이내에 위치 변경이 감지됩니다. 최신 인증을 사용하지 않는 모바일 및 데스크톱 애플리케이션의 경우 토큰 요청마다 정책이 적용됩니다. 요청 빈도는 애플리케이션에 따라 다를 수 있습니다. 마찬가지로 웹 애플리케이션의 경우 정책은 처음 로그인할 때 적용되며 웹 애플리케이션 세션 수명 기간 동안 유효합니다. 애플리케이션 간에 세션 수명이 달라서 정책 평가 사이의 시간도 달라질 수 있습니다. 애플리케이션이 새 로그인 토큰을 요청할 때마다 정책이 적용됩니다.
 
 
 기본적으로 Azure AD는 시간 단위로 토큰을 발급합니다. 회사 네트워크 외부로 이동한 후 1시간 이내에 최신 인증을 사용하는 애플리케이션에 대해 정책이 적용됩니다.

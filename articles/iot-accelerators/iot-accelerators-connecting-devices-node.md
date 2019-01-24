@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: 7881643d2b63c569cc37e0a138f3b7507ce5a787
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 13a762e9262bacc6c4d87b8be56eb286491ba75f
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632809"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197694"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>디바이스를 원격 모니터링 솔루션 가속기에 연결(Node.js)
 
@@ -43,7 +43,6 @@ ms.locfileid: "53632809"
     ```nodejs
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     var Client = require('azure-iot-device').Client;
-    var ConnectionString = require('azure-iot-device').ConnectionString;
     var Message = require('azure-iot-device').Message;
     var async = require('async');
     ```
@@ -52,7 +51,6 @@ ms.locfileid: "53632809"
 
     ```nodejs
     var connectionString = '{device connection string}';
-    var deviceId = ConnectionString.parse(connectionString).DeviceId;
     ```
 
 1. 기본 원격 분석 데이터를 정의하려면 다음 변수를 추가합니다.
@@ -69,10 +67,8 @@ ms.locfileid: "53632809"
 1. 속성 값을 정의하려면 다음 변수를 추가합니다.
 
     ```nodejs
-    var temperatureSchema = 'chiller-temperature;v1';
-    var humiditySchema = 'chiller-humidity;v1';
-    var pressureSchema = 'chiller-pressure;v1';
-    var deviceType = "Chiller";
+    var schema = "real-chiller;v1";
+    var deviceType = "RealChiller";
     var deviceFirmware = "1.0.0";
     var deviceFirmwareUpdateStatus = "";
     var deviceLocation = "Building 44";
@@ -81,43 +77,13 @@ ms.locfileid: "53632809"
     var deviceOnline = true;
     ```
 
-1. 다음 변수를 추가하여 솔루션에 보내는 reported 속성을 정의합니다. 이러한 속성은 디바이스에서 사용하는 메서드 및 원격 분석을 설명하는 메타데이터를 포함합니다.
+1. 다음 변수를 추가하여 솔루션에 보내는 reported 속성을 정의합니다. 이러한 속성에는 웹 UI에 표시할 메타데이터가 포함됩니다.
 
     ```nodejs
     var reportedProperties = {
-      "Protocol": "MQTT",
       "SupportedMethods": "Reboot,FirmwareUpdate,EmergencyValveRelease,IncreasePressure",
       "Telemetry": {
-        "TemperatureSchema": {
-          "MessageSchema": {
-            "Name": temperatureSchema,
-            "Format": "JSON",
-            "Fields": {
-              "temperature": "Double",
-              "temperature_unit": "Text"
-            }
-          }
-        },
-        "HumiditySchema": {
-          "MessageSchema": {
-            "Name": humiditySchema,
-            "Format": "JSON",
-            "Fields": {
-              "humidity": "Double",
-              "humidity_unit": "Text"
-            }
-          }
-        },
-        "PressureSchema": {
-          "MessageSchema": {
-            "Name": pressureSchema,
-            "Format": "JSON",
-            "Fields": {
-              "pressure": "Double",
-              "pressure_unit": "Text"
-            }
-          }
-        }
+        [schema]: ""
       },
       "Type": deviceType,
       "Firmware": deviceFirmware,
@@ -277,9 +243,8 @@ ms.locfileid: "53632809"
         var d = new Date();
         var payload = JSON.stringify(data);
         var message = new Message(payload);
-        message.properties.add('$$CreationTimeUtc', d.toISOString());
-        message.properties.add('$$MessageSchema', schema);
-        message.properties.add('$$ContentType', 'JSON');
+        message.properties.add('iothub-creation-time-utc', d.toISOString());
+        message.properties.add('iothub-message-schema', schema);
 
         console.log('Sending device message data:\n' + payload);
         client.sendEvent(message, printErrorFor('send event'));
@@ -337,31 +302,19 @@ ms.locfileid: "53632809"
         });
 
         // Start sending telemetry
-        var sendTemperatureInterval = setInterval(function () {
+        var sendDeviceTelemetry = setInterval(function () {
           temperature += generateRandomIncrement();
-          var data = {
-            'temperature': temperature,
-            'temperature_unit': temperatureUnit
-          };
-          sendTelemetry(data, temperatureSchema)
-        }, 5000);
-
-        var sendHumidityInterval = setInterval(function () {
+          pressure += generateRandomIncrement();
           humidity += generateRandomIncrement();
           var data = {
+            'temperature': temperature,
+            'temperature_unit': temperatureUnit,
             'humidity': humidity,
-            'humidity_unit': humidityUnit
-          };
-          sendTelemetry(data, humiditySchema)
-        }, 5000);
-
-        var sendPressureInterval = setInterval(function () {
-          pressure += generateRandomIncrement();
-          var data = {
+            'humidity_unit': humidityUnit,
             'pressure': pressure,
             'pressure_unit': pressureUnit
           };
-          sendTelemetry(data, pressureSchema)
+          sendTelemetry(data, schema)
         }, 5000);
 
         client.on('error', function (err) {

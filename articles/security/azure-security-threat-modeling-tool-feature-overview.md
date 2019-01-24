@@ -3,9 +3,9 @@ title: Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
 description: 위협 모델링 도구에서 사용할 수 있는 모든 기능에 대해 알아보기
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 76e49fc0e680acbc2b7b7c62b69fbf72d6690acf
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 601f3bf05388406c8f96a7351f7fb3aa4de2650a
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
-ms.locfileid: "26754748"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389317"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>위협 모델링 도구 기능 개요
 
@@ -119,7 +119,7 @@ ms.locfileid: "26754748"
 
 ### <a name="open-a-model"></a>모델 열기
 
-**모델 열기** 위로 마우스로 가리키면 **이 컴퓨터에서 열기**와 **OneDrive에서 열기** 등 두 가지 옵션이 표시됩니다. 첫 번째 옵션은 **파일 열기** 화면이 열립니다. 두 번째 옵션은 OneDrive에 대한 로그인 프로세스로 이동합니다. 인증이 성공하면 파일과 폴더를 선택할 수 있습니다.
+**모델 열기** 위로 마우스를 가져가 두 옵션, **이 컴퓨터에서 열기** 및 **OneDrive에서 열기**를 표시합니다. 첫 번째 옵션은 **파일 열기** 화면이 열립니다. 두 번째 옵션은 OneDrive에 대한 로그인 프로세스로 이동합니다. 인증이 성공하면 파일과 폴더를 선택할 수 있습니다.
 
 ![모델 열기](./media/azure-security-threat-modeling-tool-feature-overview/openmodel.png)
 
@@ -207,5 +207,5 @@ ms.locfileid: "26754748"
 
 ## <a name="next-steps"></a>다음 단계
 
-* 커뮤니티에 템플릿을 제공하려면 [GitHub](https://github.com/Microsoft/threat-modeling-templates) 페이지로 이동하세요. 
-* 도구를 시작하려면 [다운로드](https://aka.ms/tmtpreview) 페이지로 이동합니다.
+- 질문, 의견 및 문제를 tmtextsupport@microsoft.com에 보냅니다. 시작하려면 위협 모델링 도구를 **[다운로드](https://aka.ms/threatmodelingtool)** 하세요.
+- 커뮤니티에 템플릿을 제공하려면 [GitHub](https://github.com/Microsoft/threat-modeling-templates) 페이지로 이동하세요.

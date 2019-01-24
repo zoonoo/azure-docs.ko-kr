@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: metrics
-ms.openlocfilehash: 31cbdb2d343f4cc8d30decb587df135c3f374467
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.subservice: metrics
+ms.openlocfilehash: e971414cfcd069a4aa8a212f64927407be83ad39
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325460"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470939"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Azure Monitor 메트릭 저장소의 클래식 Cloud Services에 게스트 OS 메트릭 보내기 
 
@@ -43,7 +43,7 @@ Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여
 
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기 
 
-[포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) 지침을 사용하여 Azure Active Directory 테넌트에 서비스 주체를 만듭니다. 이 프로세스를 진행하는 동안 다음 사항에 유의하세요. 
+[포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) 지침을 사용하여 Azure Active Directory 테넌트에 서비스 주체를 만듭니다. 이 프로세스를 진행하는 동안 다음 사항에 유의하세요. 
 
 - 로그인 URL에 대해 임의 URL을 입력할 수 있습니다.  
 - 이 앱에 대한 새 클라이언트 암호를 만듭니다.  
@@ -189,3 +189,4 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 ## <a name="next-steps"></a>다음 단계
 
 - [사용자 지정 메트릭](metrics-custom-overview.md)에 대해 자세히 알아보세요.
+

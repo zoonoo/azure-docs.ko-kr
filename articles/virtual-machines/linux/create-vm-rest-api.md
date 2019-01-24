@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 3eeaee9bc6320231f10aa85227e2f43756181806
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 22a800e65c0f64dfa897433d1ea983006ed62250
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433483"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412192"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>REST API를 통해 SSH 인증을 사용하는 Linux 가상 머신 만들기
 
@@ -35,7 +35,7 @@ Azure Portal, Azure CLI 2.0, 여러 Azure SDK, Azure Resource Manager 템플릿 
 요청을 만들고 제출하기 전에 다음이 필요합니다.
 
 * 구독에 대한 `{subscription-id}`
-  * 구독이 여러 개인 경우 [여러 구독으로 작업](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions)을 참조합니다.
+  * 구독이 여러 개인 경우 [여러 구독으로 작업](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)을 참조합니다.
 * 미리 만든 `{resourceGroupName}`
 * 같은 리소스 그룹의 [가상 네트워크 인터페이스](../../virtual-network/virtual-network-network-interface.md)
 * SSH 키 쌍(없는 경우 [새로 생성할](mac-create-ssh-keys.md) 수 있음)

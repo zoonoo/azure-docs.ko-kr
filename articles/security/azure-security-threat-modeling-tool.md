@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: jegeib
-ms.openlocfilehash: 8b0700e76bbcc0913b376e607f706f540b1df2bb
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 4e08491ae898fef16af1e199a76a4c07a6c226b9
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307078"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358663"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft 위협 모델링 도구
 
@@ -33,12 +33,12 @@ ms.locfileid: "43307078"
 
 일부 도구 기능 및 혁신 기능은 다음과 같습니다.
 
-* **Automation:** 모형 그리기에 대한 지침 및 피드백
-* **요소 기준 STRIDE:** 위협 및 해결 방법에 대한 단계별 분석
-* **보고:** 확인 단계의 보안 작업 및 테스트
-* **고유한 방법:** 위협을 보다 잘 시각화하고 이해하도록 지원
+* **Automation:** 모델 그리기에 대한 지침 및 피드백
+* **요소 기준 STRIDE:** 위협 및 완화에 대한 단계별 분석
+* **보고:** 확인 단계의 보안 활동 및 테스트
+* **고유 방법론:** 사용자가 위협을 더욱 효율적으로 시각화하고 파악할 수 있도록 지원
 * **소프트웨어 중심의 개발자를 위한 설계:** 많은 접근 방식이 자산 또는 공격자에 주안점을 둡니다. Microsoft는 소프트웨어 중심 방식을 제공합니다. 소프트웨어 아키텍처에 대한 그림 그리기와 같이 모든 소프트웨어 개발자와 설계자에게 친숙한 작업을 토대로 기능을 구현하고 있습니다.
-* **설계 분석에 주력:** "위협 모델링"이라는 용어는 요구 사항 또는 설계 분석 기법을 나타낼 수 있습니다. 경우에 따라 두 가지가 복잡하게 혼합된 경우를 나타냅니다. Microsoft SDL의 위협 모델링 방법은 설계 분석 기법에 초점을 맞춥니다.
+* **설계 분석에 주력:** "위협 모델링"이라는 용어는 요구 사항 또는 설계 분석 기법을 지칭할 수 있습니다. 경우에 따라 두 가지가 복잡하게 혼합된 경우를 나타냅니다. Microsoft SDL의 위협 모델링 방법은 설계 분석 기법에 초점을 맞춥니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -46,7 +46,7 @@ ms.locfileid: "43307078"
 
 | 단계  | 설명                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
-| **1** | [위협 모델링 도구 다운로드](https://aka.ms/tmtpreview)                                |
+| **1** | [위협 모델링 도구 다운로드](https://aka.ms/threatmodelingtool)                                |
 | **2** | [시작 가이드 읽기](./azure-security-threat-modeling-tool-getting-started.md)    |
 | **3** | [기능 익히기](./azure-security-threat-modeling-tool-feature-overview.md)   |
 | **4** | [생성된 위협 범주에 대해 알아보기](./azure-security-threat-modeling-tool-threats.md)   |

@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 12/4/2018
+ms.date: 1/16/2019
 ms.author: victorh
-ms.openlocfilehash: 663ba97ce96244aa890bef45d1229c12ca170802
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1d4182f491dae9597add4b688b89faa9dd291429
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880151"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352928"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS FAQ
 
@@ -68,25 +68,25 @@ Azure DNS는 지정된 DNS 레코드에 대한 각 DNS 쿼리가 항상 동일�
 
 ### <a name="does-azure-dns-support-domain-name-registration"></a>Azure DNS는 도메인 이름 등록을 지원하나요?
 
- 아니요. 현재 Azure DNS는 도메인 이름을 구입하는 옵션을 지원하지 않습니다. 도메인을 구입하려면 타사 도메인 이름 등록자를 사용해야 합니다. 등록 기관은 일반적으로 소액의 연간 요금을 부과합니다. 그런 다음, DNS 레코드의 관리를 위해 Azure DNS에 해당 도메인을 호스트할 수 있습니다. 자세한 내용은 [Azure DNS에 도메인 위임](dns-domain-delegation.md)을 참조하세요.
+아니요. 현재 Azure DNS는 도메인 이름을 구입하는 옵션을 지원하지 않습니다. 도메인을 구입하려면 타사 도메인 이름 등록자를 사용해야 합니다. 등록 기관은 일반적으로 소액의 연간 요금을 부과합니다. 그런 다음, DNS 레코드의 관리를 위해 Azure DNS에 해당 도메인을 호스트할 수 있습니다. 자세한 내용은 [Azure DNS에 도메인 위임](dns-domain-delegation.md)을 참조하세요.
 
 도메인 이름을 구입하는 기능은 Azure 백로그에서 추적됩니다. 피드백 사이트를 사용하여 [이 기능에 대한 지원을 등록](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar)합니다.
 
 ### <a name="does-azure-dns-support-dnssec"></a>Azure DNS에서는 DNSSEC를 지원하나요?
 
- 아니요. 현재 Azure DNS는 DNSSEC(Domain Name System 보안 확장)를 지원하지 않습니다.
+아니요. 현재 Azure DNS는 DNSSEC(Domain Name System 보안 확장)를 지원하지 않습니다.
 
 DNSSEC 기능은 Azure DNS 백로그에서 추적됩니다. 피드백 사이트를 사용하여 [이 기능에 대한 지원을 등록](https://feedback.azure.com/forums/217313-networking/suggestions/13284393-azure-dns-needs-dnssec-support)합니다.
 
 ### <a name="does-azure-dns-support-zone-transfers-axfrixfr"></a>Azure DNS에서는 영역 전송(AXFR/IXFR)을 지원하나요?
 
- 아니요. Azure DNS는 현재 영역 전송을 지원하지 않습니다. DNS 영역은 [Azure CLI를 사용하여 Azure DNS로 가져올 수 있습니다](dns-import-export.md). [Azure DNS 관리 포털](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell cmdlet](dns-operations-recordsets.md) 또는 [CLI 도구](dns-operations-recordsets-cli.md)를 통해 DNS 레코드를 관리할 수 있습니다.
+아니요. Azure DNS는 현재 영역 전송을 지원하지 않습니다. DNS 영역은 [Azure CLI를 사용하여 Azure DNS로 가져올 수 있습니다](dns-import-export.md). [Azure DNS 관리 포털](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell cmdlet](dns-operations-recordsets.md) 또는 [CLI 도구](dns-operations-recordsets-cli.md)를 통해 DNS 레코드를 관리할 수 있습니다.
 
 영역 전송 기능은 Azure DNS 백로그에서 추적됩니다. 피드백 사이트를 사용하여 [이 기능에 대한 지원을 등록](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c)합니다.
 
 ### <a name="does-azure-dns-support-url-redirects"></a>Azure DNS에서는 URL 리디렉션을 지원하나요?
 
- 아니요. URL 리디렉션 서비스는 DNS 서비스가 아닙니다. DNS 수준이 아닌 HTTP 수준에서 작동합니다. URL을 번들로 묶는 일부 DNS 공급자는 서비스를 전체 제품의 일부로 리디렉션합니다. 이 서비스는 현재, Azure DNS에서 지원되지 않습니다.
+아니요. URL 리디렉션 서비스는 DNS 서비스가 아닙니다. DNS 수준이 아닌 HTTP 수준에서 작동합니다. URL을 번들로 묶는 일부 DNS 공급자는 서비스를 전체 제품의 일부로 리디렉션합니다. 이 서비스는 현재, Azure DNS에서 지원되지 않습니다.
 
 URL 리디렉션 기능은 Azure DNS 백로그에 추적됩니다. 피드백 사이트를 사용하여 [이 기능에 대한 지원을 등록](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape)합니다.
 
@@ -94,7 +94,7 @@ URL 리디렉션 기능은 Azure DNS 백로그에 추적됩니다. 피드백 사
 
 예. Azure DNS는 TXT 레코드 집합에 대해 확장된 ASCII 인코딩(8비트) 집합을 지원합니다. 하지만 최신 버전의 Azure REST API, SDK, PowerShell 및 CLI를 사용해야 합니다. 2017년 10월 1일보다 오래된 버전 또는 SDK 2.1은 확장된 ASCII 집합을 지원하지 않습니다. 
 
-예를 들어 사용자는 확장된 ASCII 문자 \128이 있는 TXT 레코드에 대한 값으로 문자열을 제공할 수 있습니다. 예를 들면 "abcd\128efgh"와 같습니다. Azure DNS는 내부 표현에 이 문자의 바이트 값 128을 사용합니다. DNS 확인 시에도 이 바이트 값이 응답에 반환됩니다. 또한 확인이 주 목적이라면 "abc"와 "\097\098\099"를 바꿔서 사용해도 됩니다. 
+예를 들어 확장된 ASCII 문자 \128이 있는 TXT 레코드에 대한 값으로 문자열을 제공할 수 있습니다. 예를 들면 "abcd\128efgh"와 같습니다. Azure DNS는 내부 표현에 이 문자의 바이트 값 128을 사용합니다. DNS 확인 시에도 이 바이트 값이 응답에 반환됩니다. 또한 확인이 주 목적이라면 "abc"와 "\097\098\099"를 바꿔서 사용해도 됩니다. 
 
 TXT 레코드에 대해 [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) 영역 파일 마스터 형식 이스케이프 규칙을 따릅니다. 예를 들어, 이제 `\`는 실제로 RFC에 대해 모든 항목을 이스케이프합니다. TXT 레코드 값으로 `A\B`를 지정하면 단지 `AB`로 표시되고 확인됩니다. 실제로 확인 시 TXT 레코드에 `A\B`가 포함되게 하려면 `\`를 다시 이스케이프해야 합니다. 예를 들어 `A\\B`를 지정합니다.
 
@@ -195,7 +195,7 @@ Azure DNS에서 IDN을 구성하려면 영역 이름 또는 레코드 집합 이
 
 개인 도메인에 대한 지원은 개인 영역 기능을 사용하여 구현됩니다. 이 기능은 현재 공개 미리 보기로 사용할 수 있습니다. 개인 영역은 인터넷 연결 Azure DNS 영역과 동일한 도구를 사용하여 관리됩니다. 이러한 영역은 지정된 가상 네트워크 내에서만 확인할 수 있습니다. 자세한 내용은 [개요](private-dns-overview.md)를 참조하세요.
 
-현재, 개인 영역은 Azure Portal에서 지원되지 않습니다. 
+현재, 개인 영역은 Azure Portal에서 지원되지 않습니다.
 
 Azure의 다른 내부 DNS 옵션에 대한 자세한 내용은 [VM 및 역할 인스턴스에 대한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
 
@@ -209,7 +209,7 @@ Azure의 다른 내부 DNS 옵션에 대한 자세한 내용은 [VM 및 역할 �
 
 ### <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>개인 영역을 위해 가상 네트워크에서 인터넷에 연결되어야 하나요?
 
- 아니요. 개인 영역은 가상 네트워크에서 작동합니다. 고객은 이러한 영역을 사용하여 가상 머신 또는 가상 네트워크 내부 및 여러 가상 네트워크 간의 다른 리소스에 대한 도메인을 관리합니다. 이름 확인을 위해 인터넷 연결이 필요하지는 않습니다. 
+아니요. 개인 영역은 가상 네트워크에서 작동합니다. 고객은 이러한 영역을 사용하여 가상 머신 또는 가상 네트워크 내부 및 여러 가상 네트워크 간의 다른 리소스에 대한 도메인을 관리합니다. 이름 확인을 위해 인터넷 연결이 필요하지는 않습니다. 
 
 ### <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>확인을 위해 여러 가상 네트워크에서 동일한 개인 영역을 사용할 수 있나요?
 
@@ -217,7 +217,7 @@ Azure의 다른 내부 DNS 옵션에 대한 자세한 내용은 [VM 및 역할 �
 
 ### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>다른 구독에 속하는 가상 네트워크를 개인 영역에 확인 가상 네트워크로 추가할 수 있나요?
 
-예. 사용자는 가상 네트워크와 개인 DNS 영역에 대해 쓰기 작업 권한이 있어야 합니다. 쓰기 권한은 여러 RBAC 역할에 부여할 수 있습니다. 예를 들어, 클래식 네트워크 참가자 RBAC 역할에는 가상 네트워크에 대한 쓰기 권한이 있습니다. RBAC 역할에 대한 자세한 내용은 [역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조하세요.
+예. 가상 네트워크와 개인 DNS 영역에 대해 쓰기 작업 권한이 있어야 합니다. 쓰기 권한은 여러 RBAC 역할에 부여할 수 있습니다. 예를 들어, 클래식 네트워크 참가자 RBAC 역할에는 가상 네트워크에 대한 쓰기 권한이 있습니다. RBAC 역할에 대한 자세한 내용은 [역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조하세요.
 
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>고객이 가상 머신을 삭제하는 경우, 개인 영역에서 자동으로 등록된 가상 컴퓨터 DNS 레코드도 자동으로 삭제되나요?
 
@@ -225,7 +225,7 @@ Azure의 다른 내부 DNS 옵션에 대한 자세한 내용은 [VM 및 역할 �
 
 ### <a name="can-an-automatically-registered-virtual-machine-record-in-a-private-zone-from-a-registration-virtual-network-be-deleted-manually"></a>등록 가상 네트워크에서 개인 영역에 자동으로 등록된 가상 머신 레코드를 수동으로 삭제할 수 있나요?
 
- 아니요. 등록 가상 네트워크에서 개인 영역에 자동으로 등록된 가상 머신 DNS 레코드를 고객은 볼 수도 없고 편집할 수도 없습니다. 이러한 자동으로 등록된 DNS 레코드를 영역에서 수동으로 만든 DNS 레코드로 덮어쓸 수 있습니다. 다음 질문과 대답이 이 항목에 대한 것입니다.
+아니요. 등록 가상 네트워크에서 개인 영역에 자동으로 등록된 가상 머신 DNS 레코드를 고객은 볼 수도 없고 편집할 수도 없습니다. 이러한 자동으로 등록된 DNS 레코드를 영역에서 수동으로 만든 DNS 레코드로 덮어쓸 수 있습니다. 다음 질문과 대답이 이 항목에 대한 것입니다.
 
 ### <a name="what-happens-when-we-try-to-manually-create-a-new-dns-record-into-a-private-zone-that-has-the-same-hostname-as-an-automatically-registered-existing-virtual-machine-in-a-registration-virtual-network"></a>등록 가상 네트워크에서 자동으로 등록된 기존 가상 머신과 동일한 호스트가 있는 개인 영역으로 새 DNS 레코드를 수동으로 만들려고 하면 어떻게 되나요?
 
@@ -245,7 +245,7 @@ Azure의 다른 내부 DNS 옵션에 대한 자세한 내용은 [VM 및 역할 �
 
 ### <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>연결된 가상 네트워크 내의 가상 머신에 사용되는 DNS 접미사가 개인 영역의 DNS 접두사로 변경되나요?
 
- 아니요. , 연결된 가상 네트워크의 가상 머신에 사용된 DNS 접미사는 기본 Azure 제공 접미사("*. internal.cloudapp.net")로 유지됩니다. 가상 머신의 이 DNS 접미사를 개인 영역의 DNS 접미사로 수동으로 변경할 수 있습니다. 
+아니요. , 연결된 가상 네트워크의 가상 머신에 사용된 DNS 접미사는 기본 Azure 제공 접미사("*. internal.cloudapp.net")로 유지됩니다. 가상 머신의 이 DNS 접미사를 개인 영역의 DNS 접미사로 수동으로 변경할 수 있습니다. 
 
 ### <a name="are-there-any-limitations-for-private-zones-during-this-preview"></a>이 미리 보기 기간 동안 개인 영역에 대한 제한 사항이 있나요?
 
@@ -257,7 +257,7 @@ Azure의 다른 내부 DNS 옵션에 대한 자세한 내용은 [VM 및 역할 �
 * 등록 가상 네트워크를 지정하는 경우 개인 영역에 등록된 해당 가상 네트워크의 VM에 대한 DNS 레코드를 PowerShell, CLI 또는 API에서 보거나 검색할 수 없습니다. VM 레코드는 성공적으로 등록되고 확인됩니다.
 * 역방향 DNS는 등록 가상 네트워크의 개인 IP 공간에 대해서만 작동합니다.
 * 개인 영역에 등록되지 않은 개인 IP에 대한 역방향 DNS는 "internal.cloudapp.net"을 DNS 접미사로 반환합니다. 이 접미사는 확인할 수 없습니다. 개인 영역에 확인 가상 네트워크로 연결된 가상 네트워크의 가상 머신에 대한 개인 IP를 예로 들 수 있습니다.
-* 가상 네트워크는 등록 또는 확인 가상 네트워크로 개인 영역에 처음으로 연결될 때 NIC가 연결된 가상 머신을 포함할 수 없습니다. 즉, 가상 네트워크는 비어 있어야 합니다. 가상 네트워크가 나중에 등록 또는 확인 가상 네트워크로 다른 개인 영역에 연결할 때는 비어 있지 않을 수 있습니다. 
+* 가상 네트워크는 등록 또는 확인 가상 네트워크로 개인 영역에 처음 연결할 때 비어 있어야 합니다. 가상 네트워크가 나중에 등록 또는 확인 가상 네트워크로 다른 개인 영역에 연결할 때는 비어 있지 않을 수 있습니다.
 * Azure와 온-프레미스 네트워크 간에 확인이 가능하도록 조건부 전달은 지원되지 않습니다. 고객이 다른 메커니즘을 통해 이 시나리오를 실현하는 방법을 알아봅니다. [VM 및 역할 인스턴스에 대한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
 
 ### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>개인 영역의 영역 또는 레코드에 대해 할당량 또는 제한이 있나요?

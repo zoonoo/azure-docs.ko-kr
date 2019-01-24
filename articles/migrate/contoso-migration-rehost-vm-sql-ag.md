@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 5ff8f5c51f17375208fdb32e521bfc85ee3f0c77
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c1fdd09023c07808226c95ed82d0c22e09d09ec4
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880219"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267388"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso 마이그레이션: 온-프레미스 앱을 Azure VM 및 SQL Server AlwaysOn 가용성 그룹에 다시 호스트
 
@@ -95,7 +95,7 @@ Contoso 클라우드 팀은 이 마이그레이션의 목표를 확실하게 정
 
 ### <a name="database-considerations"></a>데이터베이스 고려 사항
 
-Contoso는 솔루션 디자인 프로세스의 일부로 Azure SQL Database와 SQL Server의 기능을 비교했습니다. 다음 고려 사항은 SQL Server를 실행하는 Azure Iaas VM으로 결정하는 데 도움이 되었습니다.
+Contoso는 솔루션 디자인 프로세스의 일부로 Azure SQL Database와 SQL Server의 기능을 비교했습니다. 다음 고려 사항은 SQL Server를 실행하는 Azure IaaS VM으로 결정하는 데 도움이 되었습니다.
 
  - Contoso가 운영 체제 또는 데이터베이스 서버를 사용자 지정해야 하거나 타사 앱을 동일한 VM에 함께 배치하고 실행하기를 원하는 경우 SQL Server를 실행하는 Azure VM을 사용하는 것이 가장 적절한 솔루션으로 보입니다.
  - Contoso는 Data Migration Assistant를 사용하여 간단하게 평가하고 Azure SQL Database로 마이그레이션할 수 있습니다.
@@ -498,7 +498,7 @@ Contoso 관리자는 다음 단계를 수행합니다.
 2. 다음 기본 설정을 사용합니다.
     - **RPO 임계값**: 기본값은 60분입니다. 이 값은 복구 지점을 만드는 빈도를 지정합니다. 연속 복제가 이 제한을 초과하면 경고가 생성됩니다.
     - **복구 지점 보존**: 기본값은 24시간입니다. 이 값은 각 복구 지점에 대한 보존 기간을 지정합니다. 복제된 VM은 하나의 시간대에서 임의의 시점으로 복구할 수 있습니다.
-    - **앱 일치 스냅숏 빈도**: 기본값은 1시간입니다. 이 값은 응용 프로그램 일치 스냅숏이 만들어지는 빈도를 지정합니다.
+    - **앱 일치 스냅숏 빈도**: 기본값은 1시간입니다. 이 값은 애플리케이션 일치 스냅숏이 만들어지는 빈도를 지정합니다.
  
         ![복제 정책 만들기](./media/contoso-migration-rehost-vm-sql-ag/replication-policy.png)
 
@@ -512,7 +512,7 @@ Contoso 관리자는 다음 단계를 수행합니다.
 
 이제 Contoso 관리자는 WebVM 복제를 시작할 수 있습니다.
 
-1. **응용 프로그램 복제** > **원본** > **+복제**에서 원본 설정을 선택합니다.
+1. **애플리케이션 복제** > **원본** > **+복제**에서 원본 설정을 선택합니다.
 2. VM 사용을 표시하고 vCenter 서버 및 구성 서버를 선택합니다.
 
     ![복제 사용](./media/contoso-migration-rehost-vm-sql-ag/enable-replication1.png)
@@ -658,14 +658,14 @@ Contoso 관리자는 빠른 테스트 장애 조치를 실행한 다음, VM을 �
 
 ### <a name="update-the-connection-string"></a>연결 문자열 업데이트
 
-마이그레이션 프로세스의 최종 단계로, Contoso 관리자는 SHAOG 수신기에서 실행 중인 마이그레이션된 데이터베이스를 가리키도록 애플리케이션의 연결 문자열을 업데이트합니다. 현재 Azure에서 실행 중인 WEBVM에서는 이 구성이 변경됩니다.  이 구성은 ASP 응용 프로그램의 web.config에 있습니다. 
+마이그레이션 프로세스의 최종 단계로, Contoso 관리자는 SHAOG 수신기에서 실행 중인 마이그레이션된 데이터베이스를 가리키도록 애플리케이션의 연결 문자열을 업데이트합니다. 현재 Azure에서 실행 중인 WEBVM에서는 이 구성이 변경됩니다.  이 구성은 ASP 애플리케이션의 web.config에 있습니다. 
 
 1. C:\inetpub\SmartHotelWeb\web.config에서 파일을 찾습니다.  AOG FQDN(shaog.contoso.com)을 반영하도록 서버의 이름을 변경합니다.
 
     ![장애 조치(failover)](./media/contoso-migration-rehost-vm-sql-ag/failover4.png)  
 
 2. 파일이 업데이트되고 저장되면 WEBVM에서 IIS를 다시 시작합니다. 이 작업은 cmd 프롬프트에서 IISRESET/RESTART를 사용하여 수행합니다.
-2. IIS를 다시 시작한 후에는 응용 프로그램이 SQL MI에서 실행되는 데이터베이스를 사용합니다.
+2. IIS를 다시 시작한 후에는 애플리케이션이 SQL MI에서 실행되는 데이터베이스를 사용합니다.
 
 
 **도움이 더 필요하세요?**

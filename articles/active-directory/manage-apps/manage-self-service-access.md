@@ -1,10 +1,10 @@
 ---
-title: 셀프 서비스 응용 프로그램 할당을 구성하는 방법 | Microsoft Docs
+title: 셀프 서비스 애플리케이션 할당을 구성하는 방법 | Microsoft Docs
 description: 셀프 서비스 애플리케이션 액세스를 활성화하여 사용자가 자신의 애플리케이션을 찾을 수 있도록 함
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 1876ff0cea2e46f8159b9ffb24de72a6272b3a79
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cf908c3c148a2649c22392e64c17c7a80d338e4f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077084"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476668"
 ---
-# <a name="how-to-configure-self-service-application-assignment"></a>셀프 서비스 응용 프로그램 할당을 구성하는 방법
+# <a name="how-to-configure-self-service-application-assignment"></a>셀프 서비스 애플리케이션 할당을 구성하는 방법
 
 사용자가 액세스 패널에서 애플리케이션을 셀프 검색할 수 있도록 하려면 먼저 사용자가 셀프 검색을 수행하고 액세스 권한을 요청할 수 있게 하려는 모든 애플리케이션에 대해 **셀프 서비스 애플리케이션 액세스**를 사용하도록 설정해야 합니다.
 
@@ -55,9 +55,9 @@ ms.locfileid: "53077084"
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
+5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
-    * 여기에 표시하려는 응용 프로그램이 표시되지 않으면 **모든 응용 프로그램 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 응용 프로그램**으로 설정합니다.
+    * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
 6.  셀프 서비스 액세스를 활성화하려는 애플리케이션을 목록에서 선택합니다.
 
@@ -85,9 +85,9 @@ ms.locfileid: "53077084"
 
 14. 블레이드의 위쪽에서 **저장** 단추를 클릭하여 완료합니다.
 
-셀프 서비스 애플리케이션 구성을 완료한 후 사용자는 [애플리케이션 액세스 패널](https://myapps.microsoft.com/)로 이동하고 **+ 추가** 단추를 클릭하여 셀프 서비스 액세스를 활성화한 앱을 찾을 수 있습니다. 비즈니스 승인자는 [애플리케이션 액세스 패널](https://myapps.microsoft.com/)에서 알림을 볼 수도 있습니다. 사용자가 승인이 필요한 응용 프로그램에 대한 액세스를 요청한 경우 비즈니스 승인자에게 알리는 메일을 활성화할 수 있습니다. 
+셀프 서비스 애플리케이션 구성을 완료한 후 사용자는 [애플리케이션 액세스 패널](https://myapps.microsoft.com/)로 이동하고 **+ 추가** 단추를 클릭하여 셀프 서비스 액세스를 활성화한 앱을 찾을 수 있습니다. 비즈니스 승인자는 [애플리케이션 액세스 패널](https://myapps.microsoft.com/)에서 알림을 볼 수도 있습니다. 사용자가 승인이 필요한 애플리케이션에 대한 액세스를 요청한 경우 비즈니스 승인자에게 알리는 이메일을 활성화할 수 있습니다. 
 
-이러한 승인은 단일 승인 워크플로만 지원합니다. 즉, 여러 승인자를 지정하는 경우 모든 단일 승인자는 응용 프로그램에 대한 액세스를 승인합니다.
+이러한 승인은 단일 승인 워크플로만 지원합니다. 즉, 여러 승인자를 지정하는 경우 모든 단일 승인자는 애플리케이션에 대한 액세스를 승인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [셀프 서비스 그룹 관리를 위한 Azure Active Directory 설정](../users-groups-roles/groups-self-service-management.md)

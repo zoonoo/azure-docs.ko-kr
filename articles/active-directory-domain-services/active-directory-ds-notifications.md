@@ -4,7 +4,7 @@ description: Azure AD Domain Services의 알림 설정
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: b9af1792-0b7f-4f3e-827a-9426cdb33ba6
 ms.service: active-directory
@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: c6d827629850de88940f41febeeca61b812d692e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ebac78ff3912d2aafba97b020b37df16020bd7fb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958528"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853666"
 ---
 # <a name="notification-settings-in-azure-ad-domain-services"></a>Azure AD Domain Services의 알림 설정
 
-관리되는 도메인에서 상태 경고가 검색되는 즉시 Azure AD Domain Services의 알림을 업데이트할 수 있습니다.  
+관리형 도메인에서 상태 경고가 검색되는 즉시 Azure AD Domain Services의 알림을 업데이트할 수 있습니다.  
 
-이 기능은 클래식 가상 네트워크에 없는 관리되는 도메인에서만 사용할 수 있습니다.
+이 기능은 클래식 가상 네트워크에 없는 관리형 도메인에서만 사용할 수 있습니다.
 
 
 ## <a name="how-to-check-your-azure-ad-domain-services-email-notification-settings"></a>Azure AD Domain Services 이메일 알림 설정을 확인하는 방법
 
 1. Azure Portal에서 [Azure AD Domain Services 페이지](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices)로 이동합니다.
-2. 테이블에서 관리되는 도메인 선택
+2. 테이블에서 관리형 도메인 선택
 3. 왼쪽 탐색에서 **알림 설정**을 선택합니다.
 
 페이지에 Azure AD Domain Services 관련 이메일 알림의 모든 이메일 받는 사람이 표시됩니다.
@@ -41,9 +41,9 @@ ms.locfileid: "52958528"
 
 다음 그림은 이메일 알림 예제입니다.
 
-![예제 이메일 알림](./media/active-directory-domain-services-alerts/email-alert.png)
+![이메일 알림 예제](./media/active-directory-domain-services-alerts/email-alert.png)
 
-이메일은 감지 시간과 Azure Portal의 Azure AD Domain Services 상태 페이지 링크를 제공할 뿐만 아니라 경고가 발생한 관리되는 도메인을 지정합니다.
+이메일은 감지 시간과 Azure Portal의 Azure AD Domain Services 상태 페이지 링크를 제공할 뿐만 아니라 경고가 발생한 관리형 도메인을 지정합니다.
 
 > [!WARNING]
 > 항상 이메일의 링크를 클릭하기 전에 확인된 Microsoft 보낸 사람이 보낸 이메일인지 확인합니다. 이메일은 항상 이메일 azure-noreply@microsoft.com에서 제공됩니다.
@@ -52,18 +52,18 @@ ms.locfileid: "52958528"
 
 ## <a name="why-would-i-receive-email-notifications"></a>이메일 알림을 수신하는 이유
 
-Azure AD Domain Services는 도메인 관련 중요 업데이트에 대한 이메일 알림을 보냅니다.  이러한 알림은 서비스에 영향을 주는 긴급한 문제에 대해서만 제공되므로 즉시 해결해야 합니다. 각 이메일 알림은 관리되는 도메인의 경고에 의해 트리거됩니다. 이러한 경고는 Azure Portal에도 표시되며 [Azure AD Domain Services 상태 페이지](active-directory-ds-check-health.md)에서 볼 수 있습니다.
+Azure AD Domain Services는 도메인 관련 중요 업데이트에 대한 이메일 알림을 보냅니다.  이러한 알림은 서비스에 영향을 주는 긴급한 문제에 대해서만 제공되므로 즉시 해결해야 합니다. 각 이메일 알림은 관리형 도메인의 경고에 의해 트리거됩니다. 이러한 경고는 Azure Portal에도 표시되며 [Azure AD Domain Services 상태 페이지](active-directory-ds-check-health.md)에서 볼 수 있습니다.
 
 Azure AD Domain Services는 보급, 업데이트 또는 판매 목적으로는 이 목록으로 이메일을 보내지 않습니다.
 
 ## <a name="when-will-i-receive-email-notifications"></a>이메일 알림을 수신하는 경우
 
-관리되는 도메인에서 [새 경고](active-directory-ds-troubleshoot-alerts.md)가 감지되면 알림이 즉시 전송됩니다. 경고가 해결되지 않으면 4일 간격으로 이메일 미리 알림이 전송됩니다.
+관리형 도메인에서 [새 경고](active-directory-ds-troubleshoot-alerts.md)가 감지되면 알림이 즉시 전송됩니다. 경고가 해결되지 않으면 4일 간격으로 이메일 미리 알림이 전송됩니다.
 
 ## <a name="who-should-receive-the-email-notifications"></a>이메일 알림을 수신하는 대상
 
 
- Azure AD Domain Services에 대한 이메일 받는 사람 목록을 관리되는 도메인을 관리하고 변경할 수 있는 사람으로 구성하는 것이 좋습니다. 이 이메일 목록을 발견된 문제의 "첫 번째 응답자"로 간주할 수 있습니다. 추가하려는 이메일이 5개가 넘는 경우, 대신 알림 목록에 추가할 배포 목록을 만드는 것이 좋습니다.
+ Azure AD Domain Services에 대한 이메일 받는 사람 목록을 관리형 도메인을 관리하고 변경할 수 있는 사람으로 구성하는 것이 좋습니다. 이 이메일 목록을 발견된 문제의 "첫 번째 응답자"로 간주할 수 있습니다. 추가하려는 이메일이 5개가 넘는 경우, 대신 알림 목록에 추가할 배포 목록을 만드는 것이 좋습니다.
 
 Azure AD Domain Services에 대한 알림 이메일을 5개까지 추가할 수 있습니다. 또한 디렉터리의 모든 전역 관리자와 그룹 ‘AAD DC 관리자’의 모든 멤버가 Azure AD Domain Services 이메일 알림을 받도록 선택할 수도 있습니다. Azure AD Domain Services는 전역 관리자 및 AAD DC 관리자 목록을 포함하여 최대 100개의 이메일 주소로만 알림을 보냅니다.
 
@@ -71,10 +71,10 @@ Azure AD Domain Services에 대한 알림 이메일을 5개까지 추가할 수 
 ## <a name="how-to-add-an-additional-email-recipient"></a>메일 받는 사람을 더 추가하는 방법
 
 > [!WARNING]
-> 알림 설정을 변경하는 경우 자시 자신만이 아니라 관리되는 전체 도메인의 알림 설정이 변경됩니다.
+> 알림 설정을 변경하는 경우 사용자 본인만이 아닌 관리형 도메인의 전체 알림 설정이 변경됩니다.
 
 1. Azure Portal에서 [Azure AD Domain Services 페이지](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices)로 이동합니다.
-2. 관리되는 도메인을 클릭합니다.
+2. 관리형 도메인을 클릭합니다.
 3. 왼쪽 탐색에서 **알림 설정**을 클릭합니다.
 4. 이메일을 추가하려면 추가 받는 사람 테이블에 이메일 주소를 입력합니다.
 5. 위 탐색 모음에서 “저장”을 클릭합니다.
@@ -83,7 +83,7 @@ Azure AD Domain Services에 대한 알림 이메일을 5개까지 추가할 수 
 
 #### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>경고 이메일 알림을 받았지만 Azure Portal에 로그온하면 경고가 없습니다. 어떻게 된 건가요?
 
-경고가 해결되면 Azure Portal에서 경고가 사라집니다. 가장 가능성이 높은 원인은 이메일 알림을 받은 누군가가 관리되는 도메인에서 경고를 해결했거나 Azure AD Domain Services에서 자동으로 해결된 것입니다.
+경고가 해결되면 Azure Portal에서 경고가 사라집니다. 가장 가능성이 높은 원인은 이메일 알림을 받은 누군가가 관리형 도메인에서 경고를 해결했거나 Azure AD Domain Services에서 자동으로 해결된 것입니다.
 
 
 #### <a name="why-can-i-not-edit-the-notification-settings"></a>알림 설정을 편집할 수 없는 이유

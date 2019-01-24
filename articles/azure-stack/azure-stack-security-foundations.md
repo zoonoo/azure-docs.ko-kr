@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: patricka
 ms.reviewer: fiseraci
-ms.openlocfilehash: cd3aa913bd17498ddc58994196bc8faa96c4de51
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: fba4020c5e947c135d9e17cfb1d0b2a79ad8a502
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306457"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819342"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack 인프라의 보안 상태
 
@@ -41,7 +41,7 @@ Azure Stack에 대 한 보안 태세는 최신 위협 으로부터 보호 하도
 Azure Stack 통합된 시스템으로 배달 되기, 때문에 Azure Stack 인프라의 보안 태세는 Microsoft에서 정의 됩니다. Azure에서와 마찬가지로 테 넌 트는 테 넌 트 워크 로드의 보안 태세를 정의 하는 일을 담당 합니다. 이 문서는 Azure Stack 인프라의 보안 상태에 기본 기술 자료를 제공합니다.
 
 ## <a name="data-at-rest-encryption"></a>암호화 미사용 데이터
-모든 Azure Stack 인프라 및 테 넌 트 데이터는 Bitlocker를 사용 하 여 미사용 암호화 됩니다. 이 암호화에 대해 물리적 손실이 나 도난 Azure Stack 저장소 구성 요소 보호합니다. 자세한 내용은 [Azure Stack에서 암호화 된 미사용 데이터](azure-stack-security-bitlocker.md)입니다.
+모든 Azure Stack 인프라 및 테 넌 트 데이터는 BitLocker를 사용 하 여 미사용 암호화 됩니다. 이 암호화에 대해 물리적 손실이 나 도난 Azure Stack 저장소 구성 요소 보호합니다. 자세한 내용은 [Azure Stack에서 암호화 된 미사용 데이터](azure-stack-security-bitlocker.md)입니다.
 
 ## <a name="data-in-transit-encryption"></a>데이터 전송 암호화
 Azure Stack 인프라 구성 요소는 TLS 1.2를 사용 하 여 암호화 된 채널을 사용 하 여 통신 합니다. 암호화 인증서는 자체 인프라에 의해 관리 됩니다. 

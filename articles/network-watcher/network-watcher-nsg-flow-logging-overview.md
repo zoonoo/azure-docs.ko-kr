@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: addd901e1b3a9bb537278082763081a7e39b21da
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 06130a5ade63e23fdcd139902a19694a510393a3
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824288"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332305"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -33,10 +33,12 @@ NSG(네트워크 보안 그룹) 흐름 로그는 NSG를 통해 수신 및 송신
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
- 
+[트래픽 분석](traffic-analytics.md)을 사용하여 흐름 로그를 분석하고 네트워크 트래픽에 대한 인사이트를 얻을 수 있습니다.
+
 다른 로그에서 보듯이 흐름 로그에 동일한 보존 정책을 적용합니다. 1일에서 2147483647일까지 로그 보존 정책을 설정할 수 있습니다. 보존 정책을 설정하지 않으면 로그는 계속 유지됩니다.
 
-[트래픽 분석](traffic-analytics.md)을 사용하여 흐름 로그를 분석할 수도 있습니다.
+> [!NOTE] 
+> NSG 흐름 로깅과 함께 보존 정책 기능을 사용하면 대량의 스토리지 작업이 파생되고 관련 비용이 발생할 수 있습니다. 보존 정책 기능이 필요하지 않은 경우 이 값을 0으로 설정하는 것이 좋습니다.
 
 
 ## <a name="log-file"></a>로그 파일
@@ -71,7 +73,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 ## <a name="nsg-flow-logs-version-2"></a>NSG 흐름 로그 버전 2
 > [!NOTE] 
-> 미국 중서부 지역에서 흐름 로그 버전 2만 사용할 수 있습니다. 구성은 Azure Portal 및 REST API를 통해 사용할 수 있습니다. 지원되지 않는 지역에서 버전 2를 사용하도록 설정하면 버전 1 로그가 스토리지 계정에 출력됩니다.
+> 미국 중서부 지역에서 흐름 로그 버전 2만 사용할 수 있습니다. 지원되지 않는 지역에서 버전 2를 사용하도록 설정하면 버전 1 로그가 스토리지 계정에 출력됩니다.
 
 로그의 버전 2에는 흐름 상태가 도입되었습니다. 수신하는 흐름 로그 버전을 구성할 수 있습니다. 흐름 로그를 사용하도록 설정하는 방법을 알아보려면 [NSG 흐름 로깅을 사용하도록 설정](network-watcher-nsg-flow-logging-portal.md)을 참조하세요.
 
@@ -86,6 +88,12 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 연속 *C* 및 종료 *E* 흐름 상태의 경우, 바이트 및 패킷 수는 이전 흐름 튜플 레코드 시간으로부터의 집계 개수입니다. 이전 예제 대화를 참조할 때 전송된 패킷의 총 수는 1021+52+8005+47 = 9125가 됩니다. 전송된 바이트의 총 수는 588096+29952+4610880+27072 = 5256000입니다.
 
 다음 텍스트는 흐름 로그의 예제입니다. 이전 섹션에 설명된 속성 목록을 따르는 여러 레코드를 볼 수 있습니다.
+
+## <a name="nsg-flow-logging-considerations"></a>NSG 흐름 로깅 고려 사항
+
+**리소스에 연결된 모든 NSG에서 NSG 흐름 로깅 사용**: Azure의 흐름 로깅은 NSG 리소스에서 구성됩니다. 하나의 흐름은 하나의 NSG 규칙에만 연결됩니다. 모든 NSG가 활용되는 시나리오에서는 리소스의 서브넷 또는 네트워크 인터페이스가 적용된 모든 NSG에서 NSG 흐름 로깅을 사용하도록 설정하여 모든 트래픽이 기록되도록 하는 것이 좋습니다. 네트워크 보안 그룹에 대한 자세한 내용은 [트래픽 평가 방식](../virtual-network/security-overview.md#how-traffic-is-evaluated)참조하세요. 
+
+**흐름 로깅 비용**: NSG 흐름 로그는 생성된 로그 양에 따라 요금이 청구됩니다. 트래픽 볼륨이 많으면 흐름 로그 볼륨과 관련 비용도 증가할 수 있습니다. NSG 흐름 로그의 가격에는 스토리지의 기본 비용이 포함되지 않습니다. NSG 흐름 로깅과 함께 보존 정책 기능을 사용하면 대량의 스토리지 작업이 파생되고 관련 비용이 발생할 수 있습니다. 보존 정책 기능이 필요하지 않은 경우 이 값을 0으로 설정하는 것이 좋습니다. 자세한 내용은 [Network Watcher 가격 책정](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) 및 [Azure Storage 가격 책정](https://azure.microsoft.com/en-us/pricing/details/storage/)을 참조하세요.
 
 ## <a name="sample-log-records"></a>샘플 로그 레코드
 

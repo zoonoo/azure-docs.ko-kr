@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee441a8c9a0d8a70a2797f090a143189cdb6872a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 54e562cca800a19829b985e3fd529368350104a1
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211539"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329483"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결
 
@@ -118,6 +118,12 @@ Azure AD는 그룹에 지정된 모든 라이선스를 각 사용자에게 할�
 
 할당에 실패한 사용자를 확인하고 이 문제의 영향을 받는 제품을 확인할 수 있습니다.
 
+## <a name="what-happens-when-a-group-with-licenses-assigned-is-deleted"></a>라이선스가 할당된 경우 그룹을 삭제하면 어떻게 되나요?
+
+그룹을 삭제하기 전에 그룹에 할당된 모든 라이선스를 제거해야 합니다. 그러나 그룹에 있는 모든 사용자의 라이선스를 제거하는 데는 시간이 걸릴 수 있습니다. 그룹에서 라이선스 할당을 제거하는 동안 사용자에게 종속 라이선스가 할당되어 있거나 라이선스 제거를 금지하는 프록시 주소 충돌 문제가 있는 경우 오류가 발생할 수 있습니다. 사용자에게 그룹 삭제로 인해 제거되는 라이선스에 종속되는 라이선스가 있으면 해당 사용자에 대한 라이선스 할당이 상속에서 직접으로 변환됩니다.
+
+예를 들어, 비즈니스용 Skype 요금제가 사용하도록 설정된 Office 365 E3/E5가 그룹에 할당되어 있다고 가정합니다. 또한 그룹의 멤버 일부에게 Audio Conferencing 라이선스가 직접 할당되어 있다고 가정합니다. 해당 그룹을 삭제하면 그룹 기반 라이선스는 모든 사용자의 Office 365 E3/E5를 제거하려고 합니다. Audio Conferencing은 비즈니스용 Skype에 종속되므로, Audio Conferencing이 할당된 모든 사용자의 경우 그룹 기반 라이선스는 Office 365 E3/E5 라이선스를 직접 라이선스 할당으로 변환합니다.
+
 ## <a name="how-do-you-manage-licenses-for-products-with-prerequisites"></a>필수 구성 요소와 제품에 대한 라이선스를 관리하는 방법
 
 사용자가 보유한 일부 Microsoft Online 제품은 *추가 기능*일 수 있습니다. 추가 기능은 라이선스를 할당하기 전에 사용자나 그룹에 대해 필수 구성 요소 서비스 계획을 활성화해야 합니다. 그룹 기반 라이선스를 사용하는 경우 시스템에서는 필수 구성 요소와 추가 기능 서비스 계획이 동일한 그룹에 있어야 합니다. 이것은 그룹에 추가된 모든 사용자가 완전히 작동하는 제품을 받을 수 있게 하기 위한 것입니다. 다음 예제를 살펴보겠습니다.
@@ -146,8 +152,6 @@ Microsoft Workplace Analytics는 추가 기능 제품입니다. 여기에는 이
 
 > [!TIP]
 > 각 필수 구성 요소 서비스 계획에 대해 여러 그룹을 만들 수 있습니다. 예를 들어 사용자에게 Office 365 Enterprise E1 및 Office 365 Enterprise E3를 모두 사용할 경우 Microsoft Workplace Analytics에 라이선스를 부여하기 위해 두 그룹을 만들 수 있습니다. 한 그룹은 필수 구성 요소인 E1을 사용하고 다른 그룹은 E3를 사용합니다. 이렇게 하면 추가 라이선스를 사용하지 않고 E1과 E3 사용자에게 추가 기능을 배포할 수 있습니다.
-
-
 
 ## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>오류를 해결하기 위해 그룹의 라이선스를 강제로 처리하는 방법
 

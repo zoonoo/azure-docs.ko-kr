@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pullabhk
 ms.assetid: 80da8ece-2cce-40dd-8dce-79960b6ae073
-ms.openlocfilehash: 4ead84ef415dcb85682b15414380055d8799b54c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: bbeccd03fffb699c95d52d50ec5c45e38b43ef51
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051223"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430401"
 ---
 # <a name="use-powershell-to-back-up-and-restore-azure-file-shares"></a>PowerShell을 사용하여 Azure 파일 공유 백업 및 복원
 
@@ -34,7 +34,7 @@ PowerShell을 효과적으로 사용하려면 개체의 계층 구조와 시작�
 ## <a name="setup-and-registration"></a>설치 및 등록
 
 > [!NOTE]
-> [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0)에 공지했듯이 AzureRM 모듈의 새로운 기능에 대한 지원은 2018년 11월에 끝납니다. 현재 일반 공급되는 새로운 Az PowerShell 모듈을 통한 Azure 파일 공유의 백업에 대해 지원이 제공됩니다.
+> [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0)에 공지했듯이 AzureRM 모듈의 새로운 기능에 대한 지원은 2018년 11월에 끝납니다. 현재 일반 공급되는 새로운 Az PowerShell 모듈을 통한 Azure 파일 공유의 백업에 대해 지원이 제공됩니다.
 
 시작하려면 다음 단계를 따르십시오.
 

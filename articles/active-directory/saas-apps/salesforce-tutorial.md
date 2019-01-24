@@ -4,7 +4,7 @@ description: Azure Active Directory와 Salesforce 간에 Single Sign-On을 구�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 9d9f9d1e9a87802960fd2f004f3e19f47fdd3fe0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 999492b68112d3ab6a013cf02a66a5557c249157
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971804"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808792"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>자습서: Salesforce와 Azure Active Directory 통합
 
@@ -82,8 +82,8 @@ Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Salesforce Single Sign-On 구성](#configure-salesforce-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Salesforce 테스트 사용자 만들기](#create-salesforce-test-user)** - Britta Simon의 Azure AD 표현과 연결되는 대응 사용자를 Salesforce에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Salesforce 테스트 사용자 만들기](#create-salesforce-test-user)** - Britta Simon의 Azure AD 표현과 연결되는 대응 사용자를 Salesforce에 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -180,7 +180,7 @@ Salesforce에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-11. **인증 구성** 섹션에서, SAML SSO 구성의 **인증 서비스**로 **AzureSSO**를 선택하고 **저장**을 클릭합니다.
+11. **인증 구성** 섹션에서 SAML SSO 구성의 **인증 서비스**로 **AzureSSO**를 선택한 다음, **저장**을 클릭합니다.
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-auth-config.png)
 
@@ -242,7 +242,7 @@ Salesforce에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 이 섹션에서는 Salesforce에서 Britta Simon이라는 사용자를 만듭니다. Salesforce는 기본적으로 설정되는 Just-In-Time 프로비전을 지원합니다. 이 섹션에 작업 항목이 없습니다. Salesforce에 사용자가 없는 경우 Salesforce에 액세스하려고 시도하면 새 사용자가 만들어집니다. Salesforce는 자동 사용자 프로비전도 지원합니다. 자동 사용자 프로비전 구성 방법에 대한 자세한 내용은 [여기](salesforce-provisioning-tutorial.md)에서 제공합니다.
 
-### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
+### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 

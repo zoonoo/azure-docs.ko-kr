@@ -1,18 +1,18 @@
 ---
-title: 'Azure VPN Gateway에서 OpenVPN을 구성하는 방법: PowerShell| Microsoft Docs'
+title: 'Azure VPN Gateway에 대해 OpenVPN을 구성하는 방법: PowerShell| Microsoft Docs'
 description: Azure VPN Gateway에 대해 OpenVPN을 구성하는 단계
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 01/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 958f4f46ec6ba407df7c739b7c62aa1489458485
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1dad960b0877cddf3be9afc01e3e687ebe4702c0
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408279"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54357830"
 ---
 # <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway-preview"></a>Azure 지점-사이트 간 VPN Gateway(미리 보기)에 대해 OpenVPN 구성
 
@@ -47,7 +47,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="vnet"></a>1. 지점-사이트 간 VPN 만들기
 
-작동하는 지점-사이트 간 환경이 아직 없는 경우 지침에 따라 환경을 만듭니다. 기본 Azure 인증서 인증을 사용하여 지점-사이트 간 VPN 게이트웨이를 만들고 구성하려면 [지점-사이트 간 VPN 만들기](vpn-gateway-howto-point-to-site-resource-manager-portal.md)를 참조하세요.
+작동하는 지점-사이트 간 환경이 아직 없는 경우 지침에 따라 환경을 만듭니다. 기본 Azure 인증서 인증을 사용하여 지점-사이트 간 VPN 게이트웨이를 만들고 구성하려면 [지점-사이트 간 VPN 만들기](vpn-gateway-howto-point-to-site-resource-manager-portal.md)를 참조하세요. 기본 SKU는 IKEv2 지점 및 사이트 간에 대해 지원되지 않습니다.
 
 ## <a name="cmdlets"></a>2. PowerShell cmdlet 설치
 

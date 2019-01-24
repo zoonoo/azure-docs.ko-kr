@@ -1,26 +1,8 @@
 ---
-title: Machine Learning Studio FAQ(질문과 대답) - Azure | Microsoft Docs
-description: 'Azure Machine Learning Studio: 간소화된 예측 모델링에 대한 클라우드 서비스의 요금 청구, 기능 및 제한 사항을 다루는 FAQ'
-keywords: 기계 학습 소개, 예측 모델링, 기계 학습이란 무엇인가요
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 06/02/2017
-ms.openlocfilehash: 23de87bb566764540f1a7bf152d72bfdc0e3719f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091296"
+제목: Machine Learning Studio FAQ(질문과 대답) titleSuffix: Azure Machine Learning Studio 설명: 'Azure Machine Learning Studio: 간소화된 예측 모델링에 대한 클라우드 서비스의 요금 청구, 기능 및 제한 사항을 다루는 FAQ’
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: conceptual
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 06/02/2017
 ---
 # <a name="azure-machine-learning-studio-faq-billing-capabilities-limitations-and-support"></a>Azure Machine Learning Studio FAQ: 청구, 기능, 제한 사항 및 지원
 Azure Machine Learning, 예측 모델 개발을 위한 클라우드 서비스 및 웹 서비스를 통한 운용성 솔루션에 대한 질문(FAQ)과 해당하는 대답입니다. 이 FAQ는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대한 질문을 제공합니다.
@@ -38,7 +20,7 @@ Machine Learning Studio에 대한 자세한 내용은 [Machine Learning Studio�
 
 **Azure Machine Learning API 서비스란 무엇인가요?**
 
-Machine Learning API 서비스를 통해 Machine Learning Studio에 기본 제공되는 것과 같은 예측 모델을 확장성 있는 내결함성 웹 서비스로 배포할 수 있습니다. Machine Learning API 서비스로 만든 웹 서비스는, 외부 응용 프로그램과 예측 분석 모델 간의 통신용 인터페이스를 제공하는 REST API입니다.
+Machine Learning API 서비스를 통해 Machine Learning Studio에 기본 제공되는 것과 같은 예측 모델을 확장성 있는 내결함성 웹 서비스로 배포할 수 있습니다. Machine Learning API 서비스로 만든 웹 서비스는, 외부 애플리케이션과 예측 분석 모델 간의 통신용 인터페이스를 제공하는 REST API입니다.
 
 자세한 내용은 [Azure Machine Learning 웹 서비스 사용 방법](consume-web-services.md)을 참조하세요.
 
@@ -51,14 +33,14 @@ Machine Learning API 서비스를 통해 Machine Learning Studio에 기본 제�
 ## <a name="azure-machine-learning-questions"></a>Azure Machine Learning 질문
 **Azure Machine Learning 웹 서비스란?**
 
-Machine Learning 웹 서비스는 응용 프로그램과 Machine Learning 워크플로 점수 매기기 모델 간의 인터페이스를 제공합니다. 외부 응용 프로그램에서 Azure Machine Learning을 사용하여 Machine Learning 워크플로 점수 매기기 모델과 실시간으로 통신할 수 있습니다. Machine Learning 웹 서비스에 대한 호출은 외부 응용 프로그램에 예측 결과를 반환합니다. 웹 서비스를 호출하려면 웹 서비스를 배포할 때 만들어진 API 키를 전달합니다. Machine Learning 웹 서비스는 웹 프로그래밍 프로젝트에 일반적으로 사용되는 아키텍처인 REST를 기반으로 합니다.
+Machine Learning 웹 서비스는 애플리케이션과 Machine Learning 워크플로 점수 매기기 모델 간의 인터페이스를 제공합니다. 외부 애플리케이션에서 Azure Machine Learning을 사용하여 Machine Learning 워크플로 점수 매기기 모델과 실시간으로 통신할 수 있습니다. Machine Learning 웹 서비스에 대한 호출은 외부 애플리케이션에 예측 결과를 반환합니다. 웹 서비스를 호출하려면 웹 서비스를 배포할 때 만들어진 API 키를 전달합니다. Machine Learning 웹 서비스는 웹 프로그래밍 프로젝트에 일반적으로 사용되는 아키텍처인 REST를 기반으로 합니다.
 
 Azure Machine Learning에는 다음 두 가지 유형의 웹 서비스가 있습니다.
 
 * RRS(요청-응답 서비스): 대기 시간이 짧고 확장성 있는 서비스로, Machine Learning Studio를 사용하여 생성 및 배포되는 상태 비저장 모델에 대한 인터페이스를 제공합니다.
 * BES(일괄 처리 실행 서비스): 데이터 레코드의 점수를 일괄적으로 매기는 비동기 서비스입니다.
 
-REST API를 사용하고 웹 서비스에 액세스하는 여러 가지 방법이 있습니다. 예를 들어, 웹 서비스를 배포할 때 생성된 샘플 코드를 사용하여 C#, R 또는 Python에서 응용 프로그램을 작성할 수 있습니다.
+REST API를 사용하고 웹 서비스에 액세스하는 여러 가지 방법이 있습니다. 예를 들어, 웹 서비스를 배포할 때 생성된 샘플 코드를 사용하여 C#, R 또는 Python에서 애플리케이션을 작성할 수 있습니다.
 
 샘플 코드는 다음에서 제공됩니다.
 - Azure Machine Learning 웹 서비스 포털에서 웹 서비스에 대한 사용 페이지
@@ -203,7 +185,7 @@ Machine Learning Studio에서 Jupyter 노트북을 사용할 수 있습니다. �
 API 다시 학습을 사용합니다. 자세한 내용은 [프로그래밍 방식으로 Machine Learning 모델 다시 학습](retrain-models-programmatically.md)을 참조하세요. 샘플 코드는 [Microsoft Azure Machine Learning 다시 학습 데모](https://azuremlretrain.codeplex.com/)에서도 제공됩니다.
 
 ### <a name="create"></a>생성
-**모델을 로컬로 배포하거나 인터넷에 연결하지 않고 응용 프로그램에서 배포할 수 있나요?**
+**모델을 로컬로 배포하거나 인터넷에 연결하지 않고 애플리케이션에서 배포할 수 있나요?**
 
  아니요.
 

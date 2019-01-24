@@ -3,7 +3,7 @@ title: 암호 Single Sign-On에 대해 구성된 Azure AD 갤러리 애플리케
 description: 암호 Single Sign-On에 대해 구성된 Azure AD 갤러리 애플리케이션 문제를 해결하는 방법
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 0008384b53671b76e5cc0a6a405d3aa4986e73d2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: d6fa471cfefe11e0927645da80c231e8b291c33e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191771"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476243"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>암호 Single Sign-On에 대해 구성된 Azure AD 갤러리 애플리케이션에 로그인하는 문제
 

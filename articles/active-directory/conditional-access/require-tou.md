@@ -5,7 +5,7 @@ services: active-directory
 keywords: 앱에 대한 조건부 액세스, Azure AD를 통한 조건부 액세스, 회사 리소스에 대한 보안 액세스, 조건부 액세스 정책, 사용 약관
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: conditional-access
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 3cb403b7f2ac529c79af5f83a1cbe436dc670a25
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 3a628fbf7570ed6682fe2407ab8face2597c363d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413373"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450970"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>빠른 시작: 클라우드 앱에 액세스하기 전에 사용 약관에 동의하도록 요구 
 

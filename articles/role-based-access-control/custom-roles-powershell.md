@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c8e5f34bb6b38a3f187d86a1ebc0c7019c7f1046
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 6020aa0a770075526d8d07c94b847b5933a26c2a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437021"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428123"
 ---
 # <a name="create-custom-roles-using-azure-powershell"></a>Azure PowerShell을 사용하여 사용자 지정 역할 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "37437021"
 사용자 지정 역할을 만들려면 다음이 필요합니다.
 
 - [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 같은 사용자 지정 역할을 만들 수 있는 권한
-- 로컬에 설치된 [Azure PowerShell](/powershell/azure/install-azurerm-ps)
+- 로컬에 설치된 [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)
 
 ## <a name="list-custom-roles"></a>사용자 지정 역할 나열
 

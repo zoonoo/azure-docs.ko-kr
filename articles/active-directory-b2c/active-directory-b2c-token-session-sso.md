@@ -3,26 +3,26 @@ title: Azure Active Directory B2C에서 토큰, 세션 및 Single Sign-On 구성
 description: Azure Active Directory B2C에서 토큰, 세션 및 Single Sign-On 구성입니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c93bc018aea92a63adac4889d9496356543c1e52
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 55e17729894738d6b8691ce48a6934ffe46ac4ef
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842733"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845183"
 ---
 # <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 토큰, 세션 및 Single Sign-On 구성입니다.
 
 이 기능은 다음의 [사용자 흐름별](active-directory-b2c-reference-policies.md) 세분화된 제어를 제공합니다.
 
 - Azure AD(Azure Active Directory) B2C에서 내보낸 보안 토큰의 수명.
-- Azure AD B2C에서 관리하는 웹 응용 프로그램 세션의 수명.
+- Azure AD B2C에서 관리하는 웹 애플리케이션 세션의 수명.
 - Azure AD B2C에서 내보낸 보안 토큰의 중요한 클레임 형식
 - Azure AD B2C 테넌트에 있는 여러 앱 및 사용자 흐름의 SSO(Single Sign-On) 동작
 
@@ -82,11 +82,11 @@ Azure AD B2C는 웹 애플리케이션에 대한 보안 로그인을 활성화�
     - 기본값: 1440분.
     - 최소(포함) = 15분.
     - 최대(포함) = 1440분.
-- **웹앱 세션 제한 시간** - 이 스위치가 **절대**로 설정된 경우 사용자는 **웹앱 세션 수명(분)** 에서 지정한 기간이 경과된 후 강제로 다시 인증합니다. 이 스위치가 **롤링** (기본 설정)으로 설정된 경우 사용자는 웹 응용 프로그램에서 지속적으로 활성 상태인 한 로그인 상태로 유지됩니다.
+- **웹앱 세션 제한 시간** - 이 스위치가 **절대**로 설정된 경우 사용자는 **웹앱 세션 수명(분)** 에서 지정한 기간이 경과된 후 강제로 다시 인증합니다. 이 스위치가 **롤링** (기본 설정)으로 설정된 경우 사용자는 웹 애플리케이션에서 지속적으로 활성 상태인 한 로그인 상태로 유지됩니다.
 
 다음 사용 사례는 이러한 속성을 사용하여 사용하도록 설정됩니다.
 
-- 적절한 웹 응용 프로그램 세션 수명을 설정하여 업계의 보안 및 규정 준수 요구 사항을 충족합니다.
+- 적절한 웹 애플리케이션 세션 수명을 설정하여 업계의 보안 및 규정 준수 요구 사항을 충족합니다.
 - 사용자가 웹 애플리케이션의 높은 수준의 보안 일부와 상호 작용하는 동안 설정 기간 후 강제로 인증합니다. 
 
 이러한 설정을 암호 재설정 사용자 흐름에는 사용할 수 없습니다.
@@ -98,7 +98,7 @@ B2C 테넌트에 여러 애플리케이션 및 사용자 흐름이 있는 경우
 - **테넌트** - 이 설정은 기본값입니다. 이 설정을 사용하여 B2C 테넌트의 여러 애플리케이션 및 사용자 흐름이 동일한 사용자 세션을 공유할 수 있습니다. 예를 들어 사용자가 애플리케이션에 로그인하면 액세스의 관점에서 볼 때 다른 앱인 Contoso Pharmacy에도 원활하게 로그인할 수 있습니다.
 - **애플리케이션** - 이 설정을 통해 다른 애플리케이션과 독립적으로 애플리케이션에 대한 독점적인 사용자 세션을 유지할 수 있습니다. 예를 들어 동일한 B2C 테넌트에 있는 다른 애플리케이션인 Contoso Shopping에 이미 로그인한 경우라 하더라도 (동일한 자격 증명을 사용하여) 사용자가 Contoso Pharmacy에 로그인하려는 경우가 있습니다. 
 - **정책** - 이 설정을 통해 이를 사용하는 애플리케이션과 독립적으로 사용자 흐름에 대한 독점적인 사용자 세션을 유지할 수 있습니다. 예를 들어 사용자가 이미 로그인하고 MFA(다단계 인증) 단계를 완료한 경우 사용자 흐름에 연결된 세션이 만료되지 않는 한 여러 애플리케이션의 높은 수준의 보안 부분에 대한 액세스를 부여 받을 수 있습니다.
-- **사용 안 함** - 사용자가 모든 정책 실행에서 전체 사용자 흐름을 통해 강제로 실행하도록 합니다. 예를 들어 전체 시간 동안 단일 사용자가 로그인 상태로 남아 있더라도 여러 사용자가 응용 프로그램(공유 데스크톱 시나리오에서)에 로그인할 수 있습니다.
+- **사용 안 함** - 사용자가 모든 정책 실행에서 전체 사용자 흐름을 통해 강제로 실행하도록 합니다. 예를 들어 전체 시간 동안 단일 사용자가 로그인 상태로 남아 있더라도 여러 사용자가 애플리케이션(공유 데스크톱 시나리오에서)에 로그인할 수 있습니다.
 
 이러한 설정을 암호 재설정 사용자 흐름에는 사용할 수 없습니다. 
 

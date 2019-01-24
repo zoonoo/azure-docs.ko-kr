@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 543ae7cecf9edcb5997a0bae66e0722d258a4523
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: eb66e5c84542127f63b6311a887494f1e2ba394c
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135308"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448791"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark에서 만든 Machine Learning 모델 운영
 
@@ -104,7 +104,7 @@ Spark 컨텍스트를 설정하고 다음 코드를 사용하여 필요한 라�
 
 
 ### <a name="preset-spark-context-and-pyspark-magics"></a>미리 설정된 Spark 컨텍스트 및 PySpark 매직
-Jupyter Notebook과 함께 제공되는 PySpark 커널에는 사전 설정 컨텍스트가 있습니다. 따라서 개발 중인 응용 프로그램으로 작업을 시작하기 전에 Spark 또는 Hive 컨텍스트를 명시적으로 설정할 필요는 없습니다. 이러한 컨텍스트는 기본적으로 사용할 수 있습니다. 이러한 컨텍스트는 다음과 같습니다.
+Jupyter Notebook과 함께 제공되는 PySpark 커널에는 사전 설정 컨텍스트가 있습니다. 따라서 개발 중인 애플리케이션으로 작업을 시작하기 전에 Spark 또는 Hive 컨텍스트를 명시적으로 설정할 필요는 없습니다. 이러한 컨텍스트는 기본적으로 사용할 수 있습니다. 이러한 컨텍스트는 다음과 같습니다.
 
 * sc - Spark용 
 * sqlContext - Hive용
@@ -279,7 +279,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
                              line.trip_distance, line.fare_amount])
         return  features
 
-    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC RERESSION MODELS
+    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC REGRESSION MODELS
     def parseRowOneHotBinary(line):
         features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
                                             line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
@@ -364,7 +364,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 ## <a name="score-a-linear-regression-model"></a>선형 회귀 모델 점수 매기기
 [LinearRegressionWithSGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD)를 사용하여 최적화를 위해 SGD(Stochastic Gradient Descent)를 통해, 지불한 팁 금액을 예측하는 선형 회귀 모델을 학습했습니다. 
 
-이 섹션의 코드는 Azure blob 저장소에서 선형 회귀 모델을 로드하고 규모 조정된 변수를 사용하여 점수를 매긴 다음 결과를 blob에 다시 저장하는 방법을 보여 줍니다.
+이 섹션의 코드는 Azure Blob Storage에서 선형 회귀 모델을 로드하고 규모 조정된 변수를 사용하여 점수를 매긴 다음 결과를 blob에 다시 저장하는 방법을 보여 줍니다.
 
     #SCORE LINEAR REGRESSION MODEL
 
@@ -395,7 +395,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 위의 셀을 실행하는 데 걸린 시간: 16.63초
 
 ## <a name="score-classification-and-regression-random-forest-models"></a>분류 및 회귀 임의 포리스트 모델 점수 매기기
-이 섹션의 코드는 Azure blob 저장소에 저장된 분류 및 회귀 임의 포리스트 모델을 로드하고 표준 분류자 및 회귀 측정값을 사용하여 해당 성능의 점수를 매긴 다음 결과를 blob 저장소에 다시 저장하는 방법을 보여 줍니다.
+이 섹션의 코드는 Azure Blob Storage에 저장된 분류 및 회귀 임의 포리스트 모델을 로드하고 표준 분류자 및 회귀 측정값을 사용하여 해당 성능의 점수를 매긴 다음 결과를 Blob Storage에 다시 저장하는 방법을 보여 줍니다.
 
 [임의 포리스트](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) 는 결정 트리의 결합체입니다.  즉, 과잉 맞춤의 위험을 줄이기 위해 많은 결정 트리를 결합합니다. 임의 포리스트는 범주 기능을 처리하고 다중 클래스 분류 설정으로 확장하고 기능 규모 조정을 요구하지 않으며 비선형 및 기능 상호 작용을 캡처할 수 있습니다. 임의 포리스트는 분류 및 회귀를 위해 매우 성공적인 기계 학습 모델 중 하나입니다.
 
@@ -441,7 +441,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 위의 셀을 실행하는 데 걸린 시간: 31.07초
 
 ## <a name="score-classification-and-regression-gradient-boosting-tree-models"></a>분류 및 회귀 점진적 향상 트리 모델 점수 매기기
-이 섹션의 코드는 Azure blob 저장소에서 점진적 향상 트리 모델을 로드하고 표준 분류자 및 회귀 측정값을 사용하여 해당 성능의 점수를 매긴 다음 결과를 blob 저장소에 다시 저장하는 방법을 보여 줍니다. 
+이 섹션의 코드는 Azure Blob Storage에서 점진적 향상 트리 모델을 로드하고 표준 분류자 및 회귀 측정값을 사용하여 해당 성능의 점수를 매긴 다음 결과를 Blob Storage에 다시 저장하는 방법을 보여 줍니다. 
 
 **spark.mllib** 는 연속 기능과 범주 기능을 둘 다 사용하여 이진 분류 및 회귀에 대해 GBT를 지원합니다. 
 
@@ -555,7 +555,7 @@ HTTP 호출을 위한 Python 코드는 다음과 같습니다.
 
     import os
 
-    # OLDER HTTP LIBRARIES USED HERE INSTEAD OF THE REQUEST LIBRARY AS THEY ARE AVAILBLE BY DEFAULT
+    # OLDER HTTP LIBRARIES USED HERE INSTEAD OF THE REQUEST LIBRARY AS THEY ARE AVAILABLE BY DEFAULT
     import httplib, urllib, base64
 
     # REPLACE VALUE WITH ONES FOR YOUR SPARK CLUSTER

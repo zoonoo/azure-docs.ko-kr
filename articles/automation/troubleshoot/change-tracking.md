@@ -3,22 +3,22 @@ title: Azure 변경 내용 추적을 사용하여 문제 해결
 description: 이 문서에서는 변경 내용 추적 문제 해결에 대한 정보를 제공합니다.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/24/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 686a2c0ef0766176658d42d5ca53ea1ce6d3241c
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 63dc7148904089a31ff95764898a8dac72c37049
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722941"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421339"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 문제 해결
 
-## <a name="windows"></a> Windows
+## <a name="windows"></a>Windows
 
 ### <a name="records-not-showing-windows"></a>시나리오: 변경 내용 추적 레코드가 Azure Portal에 표시되지 않음
 

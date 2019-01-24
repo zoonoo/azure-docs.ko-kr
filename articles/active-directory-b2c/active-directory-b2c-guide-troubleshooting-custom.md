@@ -3,26 +3,26 @@ title: Azure Active Directory B2C에서 사용자 지정 정책 문제 해결 | 
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하는 경우 오류를 해결하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8bb95ae776c329e67e9f9936213a9f4c2a0c8f62
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: be3a3a50d3ace369964814bc7fcc0fa0d353a332
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842597"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54842905"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Azure AD B2C 사용자 지정 정책 및 Identity Experience Framework 문제 해결
 
 Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하는 경우 정책 언어 XML 형식으로 Identity Experience Framework를 설정하는 동안 문제가 발생할 수 있습니다.  사용자 지정 정책을 작성하는 방법은 새로운 언어를 배우는 것과 유사할 수 있습니다. 이 문서에서는 문제를 신속하게 검색하고 해결하는 데 유용한 도구와 팁을 설명합니다. 
 
 > [!NOTE]
-> 이 문서에서는 Azure AD B2C 사용자 지정 정책 구성의 문제 해결을 중점적으로 다룹니다. 신뢰 당사자 응용 프로그램 또는 ID 라이브러리는 다루지 않습니다.
+> 이 문서에서는 Azure AD B2C 사용자 지정 정책 구성의 문제 해결을 중점적으로 다룹니다. 신뢰 당사자 애플리케이션 또는 ID 라이브러리는 다루지 않습니다.
 
 ## <a name="xml-editing"></a>XML 편집
 
@@ -55,7 +55,7 @@ XML 규칙 검토가 도움이 될 수도 있습니다. Azure AD B2C는 검색�
 
 ## <a name="troubleshoot-the-runtime"></a>런타임 문제 해결
 
-* `Run Now` 및 `https://jwt.io`를 사용하여 웹 또는 모바일 응용 프로그램과 별도로 정책을 테스트합니다. 이 웹 사이트는 신뢰 당사자 응용 프로그램처럼 작동합니다. Azure AD B2C 정책에 의해 생성된 JWT(JSON Web Token)의 내용을 표시합니다. Identity Experience Framework에서 테스트 응용 프로그램을 만들려면 다음 값을 사용합니다.
+* `Run Now` 및 `https://jwt.io`를 사용하여 웹 또는 모바일 애플리케이션과 별도로 정책을 테스트합니다. 이 웹 사이트는 신뢰 당사자 애플리케이션처럼 작동합니다. Azure AD B2C 정책에 의해 생성된 JWT(JSON Web Token)의 내용을 표시합니다. Identity Experience Framework에서 테스트 애플리케이션을 만들려면 다음 값을 사용합니다.
     * 이름: TestApp
     * 웹앱/웹 API: 아니요
     * 네이티브 클라이언트: 아니요
@@ -66,7 +66,7 @@ XML 규칙 검토가 도움이 될 수도 있습니다. Azure AD B2C는 검색�
 
 ## <a name="recommended-practices"></a>권장 사례
 
-**여러 버전의 시나리오를 유지하고 응용 프로그램과 함께 프로젝트에 그룹화합니다.** 기본, 확장 및 신뢰 당사자 파일은 서로 직접 종속됩니다. 그룹으로 저장합니다. 새로운 기능이 정책에 추가되면 별도 작업 버전을 유지합니다. 상호 작용하는 응용 프로그램 코드를 사용하여 사용자 고유의 파일 시스템에 작업 버전을 준비합니다.  응용 프로그램은 테넌트의 여러 다른 신뢰 당사자 정책을 호출할 수 있습니다. Azure AD B2C 정책에서 예상하는 클레임에 종속될 수도 있습니다.
+**여러 버전의 시나리오를 유지하고 애플리케이션과 함께 프로젝트에 그룹화합니다.** 기본, 확장 및 신뢰 당사자 파일은 서로 직접 종속됩니다. 그룹으로 저장합니다. 새로운 기능이 정책에 추가되면 별도 작업 버전을 유지합니다. 상호 작용하는 애플리케이션 코드를 사용하여 사용자 고유의 파일 시스템에 작업 버전을 준비합니다.  애플리케이션은 테넌트의 여러 다른 신뢰 당사자 정책을 호출할 수 있습니다. Azure AD B2C 정책에서 예상하는 클레임에 종속될 수도 있습니다.
 
 **알려진 사용자 환경으로 기술 프로필을 개발 및 테스트합니다.** 테스트된 시작 팩 정책을 사용하여 기술 프로파일을 설정합니다. 고유한 사용자 환경에 통합하기 전에 개별적으로 테스트합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 인덱스를 쿼리하기 위한 Azure Portal의 검색 탐색기 - Azure Search
+title: Azure Portal의 데이터 쿼리용 검색 탐색기 도구 - Azure Search
 description: 검색 탐색기와 같은 Azure Portal 도구를 사용하여 Azure Search에서 인덱스를 쿼리합니다. 검색 용어 또는 고급 구문을 포함하는 정규화된 검색 문자열을 입력합니다.
 manager: cgronlun
 author: HeidiSteen
@@ -9,48 +9,25 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2aa372d1f917608de753007cc75ab0d608cafbba
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 85e574a56380384b10d0916385a8816fd26c2eeb
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188728"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244803"
 ---
-# <a name="how-to-use-search-explorer-to-query-indexes-in-azure-search"></a>검색 탐색기를 사용하여 Azure Search의 인덱스를 쿼리하는 방법 
+# <a name="search-explorer-for-querying-data-in-azure-search"></a>Azure Search에서 데이터를 쿼리하기 위한 검색 탐색기 
 
-이 문서에서는 Azure Portal에서 **검색 탐색기**를 사용하여 기존 Azure Search 인덱스를 쿼리하는 방법을 보여줍니다. 검색 탐색기를 사용하여 서비스에서 기존 인덱스에 단일 또는 전체 Lucene 쿼리 문자열을 제출할 수 있습니다.
-
-## <a name="start-search-explorer"></a>검색 탐색기 시작
-
-1. [Azure Portal](https://portal.azure.com)의 대시보드에서 검색 서비스 페이지를 열거나 서비스 목록에서 [서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
-
-2. 서비스 개요 페이지에서 **검색 탐색기**를 클릭합니다.
+이 문서에서는 Azure Portal에서 **검색 탐색기**를 사용하여 기존 Azure Search 인덱스를 쿼리하는 방법을 보여줍니다. 검색 탐색기를 사용하여 서비스에서 기존 인덱스에 단일 또는 전체 Lucene 쿼리 문자열을 제출할 수 있습니다. 
 
    ![포털의 검색 탐색기 명령](./media/search-explorer/search-explorer-cmd2.png "포털의 검색 탐색기 명령")
 
-3. 쿼리할 인덱스를 선택합니다.
 
-   ![쿼리할 인덱스 선택](./media/search-explorer/search-explorer-changeindex-se2.png "인덱스 선택")
-
-4. 필요에 따라 API 버전을 설정합니다. 기본적으로 현재 일반 공급 API 버전이 선택되지만, 사용하려는 구문이 버전마다 다를 경우 미리 보기 또는 이전 API를 선택할 수 있습니다.
-
-5. 인덱스 및 API 버전을 선택한 후에는 검색 표시줄에 검색 용어 또는 정규화된 쿼리 식을 입력하고 **검색**을 클릭하여 실행합니다.
-
-   ![검색 용어 입력 및 검색 클릭](./media/search-explorer/search-explorer-query-string-example.png "검색 용어 입력 및 검색 클릭")
-
-**검색 탐색기**에서 검색을 수행하기 위한 팁:
-
-+ 결과는 자세한 JSON 문서로 반환되므로 문서 생성 및 콘텐츠를 완전히 볼 수 있습니다. 예제에 표시된 쿼리 식을 사용하여 반환되는 필드를 제한할 수 있습니다.
-
-+ 문서는 인덱스에서 **검색 가능**으로 표시되는 모든 필드로 구성됩니다. 포털에서 인덱스 특성을 보려면 검색 개요 페이지의 *인덱스* 목록에서 **realestate-us-sample**을 클릭합니다.
-
-+ 상용 웹 브라우저에서 입력할 수 있는 것과 비슷한 자유 형식 쿼리는 최종 사용자 환경을 테스트하는 데 유용합니다. 예를 들어, 기본 제공 부동산 샘플 인덱스를 가정할 경우 "Seattle apartments lake washington"을 입력한 후 Ctrl+F를 사용하여 검색 결과 내에서 용어를 찾을 수 있습니다. 
-
-+ 쿼리 및 필터 식을 Azure Search에서 지원되는 구문으로 나타내야 합니다. 기본 구문은 [간단한 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)이지만 필요에 따라 보다 강력한 쿼리를 위해 [전체 Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)을 사용할 수 있습니다. [필터 식](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)은 OData 구문입니다.
+검색 탐색기 시작과 관련된 도움말은 [검색 탐색기 시작](#start-search-explorer)을 참조하세요.
 
 ## <a name="basic-search-strings"></a>기본 검색 문자열
 
-다음 예제에서는 기본 제공 부동산 샘플 인덱스를 가정합니다. 이 인덱스를 만드는 방법에 대한 자세한 내용은 [빠른 시작: Azure Portal에서 가져오기, 인덱싱 및 쿼리](search-get-started-portal.md)를 참조하세요.
+다음 예제에서는 기본 제공 부동산 샘플 인덱스를 가정합니다. 이 인덱스를 만드는 방법과 관련된 도움말은 [빠른 시작: Azure Portal에서 가져오기, 인덱싱 및 쿼리](search-get-started-portal.md)를 참조하세요.
 
 ### <a name="example-1---empty-search"></a>예제 1 - 빈 검색
 
@@ -128,6 +105,37 @@ Azure Search는 검색 순위에 따라 상위 50개의 일치 항목을 반환�
    ![Orderby 식](./media/search-explorer/search-explorer-example-ordery.png "정렬 순서 변경")
 
 **$filter** 및 **$orderby** 식 둘 다 OData 생성입니다. 자세한 내용은 [OData 필터 구문](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)을 참조하세요.
+
+<a name="start-search-explorer"></a>
+
+## <a name="how-to-start-search-explorer"></a>검색 탐색기를 시작하는 방법
+
+1. [Azure Portal](https://portal.azure.com)의 대시보드에서 검색 서비스 페이지를 열거나 서비스 목록에서 [서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+
+2. 서비스 개요 페이지에서 **검색 탐색기**를 클릭합니다.
+
+   ![포털의 검색 탐색기 명령](./media/search-explorer/search-explorer-cmd2.png "포털의 검색 탐색기 명령")
+
+3. 쿼리할 인덱스를 선택합니다.
+
+   ![쿼리할 인덱스 선택](./media/search-explorer/search-explorer-changeindex-se2.png "인덱스 선택")
+
+4. 필요에 따라 API 버전을 설정합니다. 기본적으로 현재 일반 공급 API 버전이 선택되지만, 사용하려는 구문이 버전마다 다를 경우 미리 보기 또는 이전 API를 선택할 수 있습니다.
+
+5. 인덱스 및 API 버전을 선택한 후에는 검색 표시줄에 검색 용어 또는 정규화된 쿼리 식을 입력하고 **검색**을 클릭하여 실행합니다.
+
+   ![검색 용어 입력 및 검색 클릭](./media/search-explorer/search-explorer-query-string-example.png "검색 용어 입력 및 검색 클릭")
+
+**검색 탐색기**에서 검색을 수행하기 위한 팁:
+
++ 결과는 자세한 JSON 문서로 반환되므로 문서 생성 및 콘텐츠를 완전히 볼 수 있습니다. 예제에 표시된 쿼리 식을 사용하여 반환되는 필드를 제한할 수 있습니다.
+
++ 문서는 인덱스에서 **검색 가능**으로 표시되는 모든 필드로 구성됩니다. 포털에서 인덱스 특성을 보려면 검색 개요 페이지의 *인덱스* 목록에서 **realestate-us-sample**을 클릭합니다.
+
++ 상용 웹 브라우저에서 입력할 수 있는 것과 비슷한 자유 형식 쿼리는 최종 사용자 환경을 테스트하는 데 유용합니다. 예를 들어, 기본 제공 부동산 샘플 인덱스를 가정할 경우 "Seattle apartments lake washington"을 입력한 후 Ctrl+F를 사용하여 검색 결과 내에서 용어를 찾을 수 있습니다. 
+
++ 쿼리 및 필터 식을 Azure Search에서 지원되는 구문으로 나타내야 합니다. 기본 구문은 [간단한 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)이지만 필요에 따라 보다 강력한 쿼리를 위해 [전체 Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)을 사용할 수 있습니다. [필터 식](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)은 OData 구문입니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

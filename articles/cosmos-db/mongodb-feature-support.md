@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 7bf8258524b0b5e73c1a499fb6d3578098a0821e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 08638f0b55c84a6b0e42d3782246ef5b2ce833f3
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039166"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359071"
 ---
 # <a name="use-azure-cosmos-dbs-api-for-mongodb-support-for-mongodb-features-and-syntax"></a>MongoDB 기능 및 구문에 Azure Cosmos DB의 API for MongoDB 지원 사용
 
@@ -20,13 +20,13 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 Azure Cosmos DB의 API for MongoDB를 사용하면 Cosmos DB가 제공하는 모든 엔터프라이즈 기능과 함께 익숙한 MongoDB의 이점을 누릴 수 있습니다. 이러한 기능에는 [글로벌 배포](distribute-data-globally.md), [자동 분할](partition-data.md), 가용성 및 대기 시간 보장, 모든 필드의 자동 인덱싱, 저장 데이터 암호화, 백업 등이 포함됩니다.
 
-## <a name="mongodb-protocol-support"></a>MongoDB 프로토콜 지원
+## <a name="protocol-support"></a>프로토콜 지원
 
-Azure Cosmos DB의 API for MongoDB는 기본적으로 MongoDB 서버 버전 **3.2**와 호환됩니다. 지원되는 연산자 및 제한 사항이나 예외는 다음과 같습니다. MongoDB 버전 **3.4**에 추가된 기능 또는 쿼리 연산자는 현재 미리 보기 기능으로 사용할 수 있습니다. 이러한 프로토콜을 인식하는 모든 클라이언트 드라이버는 Azure Cosmos DB의 API for MongoDB에 연결할 수 있습니다.
+Azure Cosmos DB의 MongoDB API는 기본적으로 MongoDB 서버 버전 **3.2**와 호환됩니다. 지원되는 연산자 및 제한 사항이나 예외는 다음과 같습니다. MongoDB 버전 **3.4**에 추가된 기능 또는 쿼리 연산자는 현재 미리 보기 기능으로 사용할 수 있습니다. 이러한 프로토콜을 인식하는 모든 클라이언트 드라이버는 Azure Cosmos DB의 API for MongoDB에 연결할 수 있습니다.
 
 [MongoDB 집계 파이프라인](#aggregation-pipeline)은 현재 별도의 미리 보기 기능으로 사용할 수 있습니다.
 
-## <a name="mongodb-query-language-support"></a>MongoDB 쿼리 언어 지원
+## <a name="query-language-support"></a>쿼리 언어 지원
 
 Azure Cosmos DB의 API for MongoDB는 MongoDB 쿼리 언어 구문을 포괄적으로 지원합니다. 아래에서 현재 지원되는 연산, 연산자, 단계, 명령 및 옵션에 대한 자세한 목록을 찾을 수 있습니다.
 

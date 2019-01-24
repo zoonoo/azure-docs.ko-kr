@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: e11db0cacb14ab94c40ebbf6cac356a08cc016f1
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 81a47a730978a9ecdda7a09bbad0707d436fb116
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352685"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388465"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes Azure Stack Marketplace에 추가
 
@@ -60,11 +60,11 @@ ms.locfileid: "54352685"
 
     e. 선택 **제공**합니다. 사용자가 만든 제품의 이름을 선택 합니다. 구독 id 기록
 
-## <a name="create-a-service-principle-and-credentials-in-ad-fs"></a>서비스 주체를 만들고 AD FS에서 자격 증명
+## <a name="create-a-service-principal-and-credentials-in-ad-fs"></a>서비스 주체를 만들고 AD FS에서 자격 증명
 
-사용자 id 관리 서비스에 대 한 Active Directory Federated Services (AD FS)를 사용 하는 경우에 Kubernetes 클러스터를 배포 하는 사용자에 대 한 서비스 주체를 만들 해야 합니다.
+사용자 id 관리 서비스에 대 한 Active Directory Federated Services (AD FS)를 사용 하는 경우 서비스는 Kubernetes 클러스터를 배포 하는 사용자에 대 한 주체를 만들 해야 합니다.
 
-1. 페이지를 만들고 서비스 주체를 만드는 데 사용할 인증서를 내보냅니다. 아래 다음 코드 조각에는 자체 서명 된 인증서를 만드는 방법을 보여 줍니다. 
+1. 만들고 서비스 주체 만들기에 사용할 인증서를 내보냅니다. 아래 다음 코드 조각에는 자체 서명 된 인증서를 만드는 방법을 보여 줍니다. 
 
     - 다음 가지 정보가 필요합니다.
 
@@ -104,7 +104,7 @@ ms.locfileid: "54352685"
         Export-PfxCertificate -cert $cert -FilePath $certlocation -Password $pwd
         ```
 
-2. 인증서를 사용 하 여 서비스 주체를 만듭니다.
+2. 서비스 인증서를 사용 하 여 보안 주체를 만듭니다.
 
     - 다음 가지 정보가 필요합니다.
 
@@ -117,7 +117,7 @@ ms.locfileid: "54352685"
     - PowerShell을 관리자 권한 프롬프트를 엽니다. 값으로 업데이트 하는 매개 변수를 사용 하 여 다음 스크립트를 실행 합니다.
 
         ```PowerShell  
-        #Create service principle using the certificate
+        #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
         #certificate store location. Eg. Cert:\LocalMachine\My
@@ -132,7 +132,7 @@ ms.locfileid: "54352685"
         # Creating a PSSession to the ERCS PrivilegedEndpoint
         $session = New-PSSession -ComputerName $privilegedendpoint -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-        # Get Service Principle Information
+        # Get Service principal Information
         $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name "$using:applicationName" -ClientCertificates $using:cert}
 
         # Get Stamp information
@@ -167,7 +167,7 @@ ms.locfileid: "54352685"
         $ServicePrincipal
         ```
 
-    - 아래 코드 조각과 같은 서비스 주체 세부 정보 확인
+    - 아래 코드 조각과 같이 서비스 주체 세부 사항을 표시합니다
 
         ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356

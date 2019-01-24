@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d77396cdcaa3f2f291aff52dfd1e6793aee4039c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 666e2e63b4e61f5a44fdff9175ff696e72d86138
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997852"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856533"
 ---
 # <a name="deprecated-deploy-a-kubernetes-cluster-in-azure-container-service"></a>(사용되지 않음) Azure Container Service에서 Kubernetes 클러스터 배포
 
@@ -66,7 +66,7 @@ Windows에서 기본 설치는 *c:\program files (x86)\kubectl.exe*입니다. Wi
 
 ## <a name="connect-with-kubectl"></a>Kubectl로 연결
 
-Kubernetes 클러스터에 연결하도록 kubectl을 구성하려면 [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) 명령을 실행합니다.
+Kubernetes 클러스터에 연결하도록 kubectl을 구성하려면 [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes) 명령을 실행합니다.
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group myResourceGroup --name myK8SCluster
@@ -102,4 +102,4 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.6.2
 다음 자습서로 이동하여 클러스터에서 애플리케이션 실행에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Kubernetes에서 응용 프로그램 배포](./container-service-tutorial-kubernetes-deploy-application.md)
+> [Kubernetes에서 애플리케이션 배포](./container-service-tutorial-kubernetes-deploy-application.md)

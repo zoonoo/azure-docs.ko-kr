@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 로그인 유지 | Microsoft Docs
 description: Azure Active Directory B2C에서 KMSI(로그인 유지)를 설정하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fcc81c8eb3a34b0bda5d91a1a67dd2e04e052967
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 517f476853866101cbb33103602494c11cd9e412
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967762"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852459"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 KMSI(로그인 유지) 사용
 
@@ -83,15 +83,15 @@ Azure AD(Azure Active Directory) B2C에서 웹 및 네이티브 애플리케이�
 
 ### <a name="add-the-application-identifiers-to-your-custom-policy"></a>사용자 지정 정책에 애플리케이션 식별자 추가
 
-*TrustFrameworkExtensions.xml* 파일에 응용 프로그램 식별자를 추가합니다.
+*TrustFrameworkExtensions.xml* 파일에 애플리케이션 식별자를 추가합니다.
 
-1. *TrustFrameworkExtensions.xml* 파일에서 식별자가 `login-NonInteractive`인 **TechnicalProfile** 요소와 식별자가 `login-NonInteractive-PasswordChange`인 **TechnicalProfile** 요소를 찾고, 모두 [시작](active-directory-b2c-get-started-custom.md)에서 설명한 대로 `IdentityExperienceFrameworkAppId`의 모든 값을 ID 경험 프레임워크 응용 프로그램의 응용 프로그램 식별자로 바꿉니다.
+1. *TrustFrameworkExtensions.xml* 파일에서 식별자가 `login-NonInteractive`인 **TechnicalProfile** 요소와 식별자가 `login-NonInteractive-PasswordChange`인 **TechnicalProfile** 요소를 찾고, 모두 [시작](active-directory-b2c-get-started-custom.md)에서 설명한 대로 `IdentityExperienceFrameworkAppId`의 모든 값을 ID 경험 프레임워크 애플리케이션의 애플리케이션 식별자로 바꿉니다.
 
     ```
     <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
     ```
 
-2. [시작](active-directory-b2c-get-started-custom.md)에서 설명한 대로 `ProxyIdentityExperienceFrameworkAppId`의 모든 값을 프록시 ID 경험 프레임워크의 응용 프로그램 식별자로 바꿉니다.
+2. [시작](active-directory-b2c-get-started-custom.md)에서 설명한 대로 `ProxyIdentityExperienceFrameworkAppId`의 모든 값을 프록시 ID 경험 프레임워크의 애플리케이션 식별자로 바꿉니다.
 3. 확장 파일을 저장합니다.
 
 ## <a name="create-a-kmsi-enabled-user-journey"></a>KMSI 지원 사용자 경험 만들기

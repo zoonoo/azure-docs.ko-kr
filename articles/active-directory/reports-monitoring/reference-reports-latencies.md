@@ -4,7 +4,7 @@ description: Azure Portal에 보고 이벤트를 표시하는 데 걸리는 시�
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e5ceae2959f79c677f5b89c0c3f0a487f92ad1c6
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2d2312d42a67f1596f976885a2f55054dda2aff7
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623182"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816741"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory 보고 대기 시간
 
@@ -40,10 +40,14 @@ ms.locfileid: "51623182"
 > **대기 시간(95번째 백분위수)** 은 로그의 95%가 보고되는 시간을 가리키고, **대기 시간(99번째 백분위수)** 은 로그의 99%각 보고되는 시간을 가리킵니다. 
 >
 
-| 보고서 | 대기 시간(95번째 백분위수) |대기 시간(99번째 백분위수)|
-| :-- | --- | --- | 
-| 감사 로그 | 2분  | 5분  |
-| 로그인 | 2분  | 5분 |
+| 보고서 | 대기 시간(95번째 백분위수) |대기 시간(99번째 백분위수)|로그가 보고되는 시간 범위|
+| :-- | --- | --- | --- |
+| 감사 로그 | 2분  | 5분  | 2~60분 |
+| 로그인 | 2분  | 5분 | 2~120분 |
+
+### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Premium 라이선스를 받은 후 활동 데이터를 확인할 수 있을 때까지는 얼마나 걸리나요?
+
+무료 라이선스를 통해 수집한 활동 데이터가 이미 있다면 업그레이드 시 해당 데이터를 즉시 확인할 수 있습니다. 데이터가 없는 경우에는 Premium 라이선스로 업그레이드한 후 보고서에 데이터가 나타나기까지 1~2일 정도 걸립니다.
 
 ## <a name="security-reports"></a>보안 보고서
 

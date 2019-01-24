@@ -1,59 +1,33 @@
 ---
-title: Azure SQL Database Managed Instance를 사용하여 복제 | Microsoft Docs
-description: Azure SQL Database Managed Instance로 SQL Server 복제 사용에 대해 알아보기
+title: Azure SQL Database Managed Instance에서 복제 구성 | Microsoft Docs
+description: Azure SQL Database Managed Instance에서 트랜잭션 복제를 구성하는 방법 알아보기
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: 4a272b028e1e3ef2778227f259c0b1b980af885d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/16/2019
+ms.openlocfilehash: 568b239cf41c802cc5d25b638f6d1501f58eccdf
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547598"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360091"
 ---
-# <a name="replication-with-sql-database-managed-instance"></a>SQL Database Managed Instance를 사용한 복제
+# <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance에서 복제 구성
 
-복제는 [Azure SQL Database Managed Instance](sql-database-managed-instance.md)에서 공개 미리 보기로 제공됩니다. Managed Instance는 게시자, 배포자 및 구독자 데이터베이스를 호스트할 수 있습니다.
-
-## <a name="common-configurations"></a>일반 구성
-
-일반적으로 게시자와 배포자는 모두 클라우드 또는 온-프레미스에 있어야 합니다. 현재 지원되는 구성은 다음과 같습니다.
-
-- **관리되는 인스턴스에서 로컬 배포자로 게시자**
-
-   ![Replication-with-azure-sql-db-single-managed-instance-publisher-distributor](./media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
-
-   게시자 및 배포자 데이터베이스는 단일 관리되는 인스턴스에서 구성됩니다.
-
-- **관리되는 인스턴스에서 원격 배포자로 게시자**
-
-   ![Replication-with-azure-sql-db-separate-managed-instances-publisher-distributor](./media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
-
-   게시자 및 배포자는 두 개의 관리되는 인스턴스에서 구성됩니다. 이 구성에서:
-
-  - 두 관리되는 인스턴스는 동일한 vNet에 있습니다.
-
-  - 두 관리되는 인스턴스는 동일한 위치에 있습니다.
-
-- **관리되는 인스턴스에서 구독자로 게시자 및 배포자 온-프레미스**
-
-   ![Replication-from-on-premises-to-azure-sql-db-subscriber](./media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
-
-   이 구성에서 Azure SQL 데이터베이스는 구독자입니다. 이 구성은 온-프레미스에서 Azure로의 마이그레이션을 지원합니다. 구독자 역할에서 SQL 데이터베이스는 Managed Instance가 필요하지 않지만 온-프레미스에서 Azure로 마이그레이션의 단계로 SQL Database Managed Instance를 사용할 수 있습니다. Azure SQL Database 구독자에 대한 자세한 내용은 [SQL Database에 복제](replication-to-sql-database.md)를 참조하세요.
+트랜잭션 복제를 사용하여 SQL Server 또는 Azure SQL Database Managed Instance 데이터베이스에서 Managed Instance로 데이터를 복제하거나 Managed Instance의 데이터베이스에서 변경한 내용을 다른 SQL Server, Azure Single Database 또는 다른 Managed Instance로 밀어넣을 수 있습니다. 복제는 [Azure SQL Database Managed Instance](sql-database-managed-instance.md)에서 공개 미리 보기로 제공됩니다. Managed Instance는 게시자, 배포자 및 구독자 데이터베이스를 호스트할 수 있습니다. 사용 가능한 구성에 대해서는 [트랜잭션 복제 구성](sql-database-managed-instance-transactional-replication.md#common-configurations)을 참조하세요.
 
 ## <a name="requirements"></a>요구 사항
 
 Azure SQL Database에서 게시자 및 배포자는 다음이 필요합니다.
 
-- Azure SQL Database Managed Instance
+- 지리적 DR 구성에 없는 Azure SQL Database Managed Instance.
 
    >[!NOTE]
    >Managed Instance로 구성되지 않은 Azure SQL Database는 구독자일 수만 있습니다.
@@ -74,7 +48,13 @@ Azure SQL Database에서 게시자 및 배포자는 다음이 필요합니다.
 
 - 구독자는 온-프레미스, Azure SQL Database에서 단일 데이터베이스 또는 Azure SQL Database 탄력적 풀에서 풀링된 데이터베이스일 수 있습니다.
 
-- 단방향 또는 양방향 복제
+- 단방향 또는 양방향 복제.
+
+다음 기능은 지원되지 않습니다.
+
+- 업데이트할 수 있는 구독
+
+- 활성 지역 복제
 
 ## <a name="configure-publishing-and-distribution-example"></a>게시 및 배포 예제 구성
 
@@ -87,7 +67,7 @@ Azure SQL Database에서 게시자 및 배포자는 다음이 필요합니다.
 
    아래 예제 스크립트에서 `<Publishing_DB>`를 이 데이터베이스의 이름으로 바꿉니다.
 
-4. 배포자에 대한 SQL 인증을 사용하여 데이터베이스 사용자를 만듭니다. [데이터베이스 사용자 만들기](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users)를 참조하세요. 보안 암호를 사용합니다.
+4. 배포자에 대한 SQL 인증을 사용하여 데이터베이스 사용자를 만듭니다. 보안 암호를 사용합니다.
 
    아래 예제 스크립트에서 이 SQL Server 계정 데이터베이스 사용자 및 암호로 `<SQL_USER>` 및 `<PASSWORD>`를 사용합니다.
 
@@ -188,15 +168,8 @@ Azure SQL Database에서 게시자 및 배포자는 다음이 필요합니다.
                 @job_password = N'<PASSWORD>'
    GO
    ```
-
-## <a name="limitations"></a>제한 사항
-
-다음 기능은 지원되지 않습니다.
-
-- 업데이트할 수 있는 구독
-
-- 활성 지역 복제
-
+   
 ## <a name="see-also"></a>참고 항목
 
+- [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md)
 - [Managed Instance란?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

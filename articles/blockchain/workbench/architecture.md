@@ -5,21 +5,21 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 91dd0f262d1a7e661a6f9e0c4974087503dde3e1
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 83c5e1405c402a1c6c98f9dbcaaf74891eb75e6d
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241535"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330639"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Azure Blockchain Workbench 아키텍처
 
-Azure Blockchain Workbench는 여러 Azure 구성 요소를 사용하는 솔루션을 제공함으로써 블록체인 애플리케이션 개발을 간소화합니다. Azure Marketplace에서 솔루션 템플릿을 사용하여 Blockchain Workbench를 배포할 수 있습니다. 템플릿을 사용하면 블록체인 스택, 클라이언트 애플리케이션 종류, IoT 통합을 포함하여 배포할 구성 요소 및 모듈을 선택할 수 있습니다. Blockchain Workbench가 배포되면 웹앱, iOS 앱 및 Android 앱에 액세스할 수 있습니다.
+Azure Blockchain Workbench는 여러 Azure 구성 요소를 사용하는 솔루션을 제공함으로써 블록체인 애플리케이션 개발을 간소화합니다. Azure Marketplace에서 솔루션 템플릿을 사용하여 Blockchain Workbench를 배포할 수 있습니다. 템플릿을 사용하면 블록체인 스택, 클라이언트 응용 프로그램 종류, IoT 통합을 포함하여 배포할 구성 요소 및 모듈을 선택할 수 있습니다. Blockchain Workbench가 배포되면 웹앱, iOS 앱 및 Android 앱에 액세스할 수 있습니다.
 
 ![Blockchain Workbench 아키텍처](./media/architecture/architecture.png)
 
@@ -44,6 +44,8 @@ Workbench는 자동으로 생성된 웹 및 모바일(iOS, Android)용 클라이
 * 인기 시나리오의 경우 Microsoft에서 제공하는 스마트 계약을 배포합니다. 예를 들면 자산 전송 시나리오가 있습니다.
 * 자체 스마트 계약을 업로드하고 배포합니다.
 * 특정 역할의 컨텍스트에서 스마트 계약에 대한 사용자 액세스 권한을 할당합니다.
+
+배포에 대한 자세한 내용은 [GitHub의 Azure Blockchain Workbench 샘플 클라이언트 애플리케이션](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-development-kit/connect/mobile/blockchain-workbench/workbench-client)을 참조하세요.
 
 ## <a name="gateway-service-api"></a>게이트웨이 서비스 API
 

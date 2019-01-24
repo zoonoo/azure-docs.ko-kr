@@ -3,19 +3,19 @@ title: Azure Active Directory B2C 사용자 지정 정책 | Microsoft Docs
 description: Azure Active Directory B2C 사용자 지정 정책에 대해 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a1457b2aa571b58502b7d819eb3bcf142c10dac1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ca9408c8c7103e99556cf4853c214f59ec6372b9
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725066"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853003"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책
 
@@ -41,7 +41,7 @@ ms.locfileid: "52725066"
 
 - **기본 파일** - 대부분의 정의를 포함합니다. 문제 해결 및 정책을 장기적인 유지 관리에 도움이 되도록 이 파일을 최소한으로 변경하는 것이 좋습니다.
 - **확장 파일** - 테넌트에 대한 고유한 구성 변경 내용을 보유합니다.
-- **RP(신뢰 당사자) 파일** - 응용 프로그램 또는 서비스(신뢰 당사자라고도 함)에 의해 직접 호출되는 단일 작업 중심 파일입니다. 각 고유 작업에는 고유한 RP이 필요하고 브랜딩 요구 사항에 따라 "전체 애플리케이션 x 전체 사용 사례 수"일 수 있습니다.
+- **RP(신뢰 당사자) 파일** - 애플리케이션 또는 서비스(신뢰 당사자라고도 함)에 의해 직접 호출되는 단일 작업 중심 파일입니다. 각 고유 작업에는 고유한 RP이 필요하고 브랜딩 요구 사항에 따라 "전체 애플리케이션 x 전체 사용 사례 수"일 수 있습니다.
 
 Azure AD B2C의 사용자 흐름은 위에 표시된 3개의 파일 패턴을 따르지만 개발자는 Azure Portal이 확장 파일에 대한 변경 내용을 백그라운드에서 수행하는 동안 개발자는 RP 파일만을 확인할 수 있습니다.
 

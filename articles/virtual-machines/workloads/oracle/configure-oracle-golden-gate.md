@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: f0ae48cadf2e90dc685a24aff54d89f86a11c287
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: cb5ad6f351cdeadb999b1a62c225f23937c5b92e
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494296"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413824"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Azure Linux VM에서 Oracle Golden Gate 구현 
 
@@ -59,7 +59,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포되며 관리될 수 있는 논리적 컨테이너입니다. 
+[az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포되며 관리될 수 있는 논리적 컨테이너입니다. 
 
 다음 예제는 `westus` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
@@ -126,7 +126,7 @@ VM을 만든 후 `publicIpAddress`도 기록해 둡니다.
 
 ### <a name="open-the-tcp-port-for-connectivity"></a>연결에 대한 TCP 포트 열기
 
-다음 단계에서는 Oracle 데이터베이스에 원격으로 액세스할 수 있는 외부 끝점을 구성합니다. 외부 끝점을 구성하려면 다음 명령을 실행합니다.
+다음 단계에서는 Oracle 데이터베이스에 원격으로 액세스할 수 있는 외부 엔드포인트를 구성합니다. 외부 엔드포인트를 구성하려면 다음 명령을 실행합니다.
 
 #### <a name="open-the-port-for-myvm1"></a>myVM1에 대한 포트 열기:
 

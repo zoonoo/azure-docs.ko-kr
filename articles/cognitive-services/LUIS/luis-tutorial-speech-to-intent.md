@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 8e664e26a2cafc2f0b32ebea0f019918426d956c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2d212ae8f5a12c06f40e025a7a8d786a44194a92
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714583"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438735"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Language Understanding 앱을 사용하여 음성 서비스 통합
 [Speech Service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/)를 사용하면 단일 요청을 통해 오디오를 수신하고 LUIS 예측 JSON 개체를 반환할 수 있습니다. 이 문서에서는 C# 프로젝트를 다운로드한 후 Visual Studio에서 사용하여 마이크에 말을 하고 LUIS 예측 정보를 수신합니다. 이 프로젝트에서는 이미 참조로 포함되어 있는 Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) 패키지를 사용합니다. 
@@ -24,7 +24,7 @@ ms.locfileid: "53714583"
 이 문서에서는 애플리케이션을 가져오기 위해 무료 [LUIS][LUIS] 웹 사이트 계정이 필요합니다.
 
 ## <a name="create-luis-endpoint-key"></a>LUIS 엔드포인트 키 만들기
-Azure Portal에서 LUIS(**Language Understanding**) 키를 [만듭니다](luis-how-to-azure-subscription.md#create-luis-endpoint-key). 
+Azure Portal에서 LUIS(**Language Understanding**) 키를 [만듭니다](luis-how-to-azure-subscription.md). 
 
 ## <a name="import-human-resources-luis-app"></a>Human Resources LUIS 앱 가져오기
 이 문서의 의도 및 발언은 [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding) GitHub 리포지토리에서 사용할 수 있는 Human Resources LUIS 앱에서 가져온 것입니다. [HumanResources.json](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources.json) 파일을 다운로드하고, `.json` 확장명으로 저장하고, LUIS로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 

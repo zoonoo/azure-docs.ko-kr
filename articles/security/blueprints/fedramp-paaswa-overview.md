@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jomolesk
-ms.openlocfilehash: 50a49a8bcb6bec6c177823ea61cc340da6876357
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9bfd748e6b10106587e3fce64e15d7f1f6d50e59
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602089"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261590"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Azure 보안 및 규정 준수 청사진: FedRAMP용 PaaS 웹 애플리케이션
 
@@ -165,7 +165,7 @@ Azure Monitor는 시스템 및 사용자 활동, 시스템 상태에 대한 광�
 
 이 참조 아키텍처에 대한 데이터 흐름 다이어그램은 [다운로드](https://aka.ms/fedrampPaaSWebAppDFD)에서 사용할 수 있거나 아래에 나와 있습니다. 이 모델을 사용하면 고객이 수정할 때 발생할 수 있는 시스템 인프라의 잠재적 위험 요소를 파악할 수 있습니다.
 
-![FedRAMP용 PaaS 웹 애플리케이션 위협 모델](images/fedramp-paaswa-threat-model.png?raw=true "FedRAMP용 PaaS 웹 애플리케이션 위협 모델")
+![FedRAMP 위협 모델용 PaaS 웹 애플리케이션](images/fedramp-paaswa-threat-model.png?raw=true "FedRAMP 위협 모델용 PaaS 웹 애플리케이션")
 
 ## <a name="compliance-documentation"></a>규정 준수 설명서
 [Azure 보안 및 규정 준수 청사진 - FedRAMP High 고객 책임 매트릭스](https://aka.ms/blueprinthighcrm)에는 FedRAMP High 기준에서 요구하는 모든 보안 컨트롤이 나열되어 있습니다. 매트릭스는 각 컨트롤 구현이 Microsoft의 책임인지, 고객의 책임인지 아니면 둘의 공동 책임인지 자세히 설명합니다.

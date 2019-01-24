@@ -7,14 +7,14 @@ author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 11259b99ea9d2486c8c0afde21398710ccc6ccd8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 81a902c6cf6b9b3491933e4bc14dc1e774185869
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726293"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305454"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Azure Cognitive Services에 대한 요청 인증
 
@@ -58,6 +58,8 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
+다음 비디오는 Cognitive Services 키를 사용하는 방법을 보여줍니다. 
+
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>다중 서비스 구독 키로 인증
 
 >[!WARNING]
@@ -66,6 +68,8 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 또한 이 옵션은 구독 키를 사용하여 요청을 인증합니다. 주요 차이점은 구독 키가 특정 서비스에 연결되지 않고, 오히려 단일 키를 사용하여 여러 Cognitive Services에 대한 요청을 인증할 수 있다는 것입니다. 지역별 가용성, 지원되는 기능 및 가격 책정에 대한 자세한 내용은 [Cognitive Services 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)을 참조하세요.
 
 구독 키는 각 요청에서 `Ocp-Apim-Subscription-Key` 헤더로 제공됩니다.
+
+[![Cognitive Services에 대한 다중 서비스 구독 키 데모](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
 
 ### <a name="supported-regions"></a>지원되는 지역
 

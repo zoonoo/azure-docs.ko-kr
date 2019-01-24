@@ -4,7 +4,7 @@ description: Azure Active Directory와 ScaleX Enterprise 간에 Single Sign-On�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c2379a8d-a659-45f1-87db-9ba156d83183
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 60beecc0895fbfb5d3af7817e8b76e0819c89a99
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fb01aec04af10d3e413213dc9821a27b42a0a9d2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835389"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822980"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>자습서: ScaleX Enterprise와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ ScaleX Enterprise를 Azure AD와 통합하면 다음과 같은 이점이 제공�
 - 사용자의 Azure AD 계정으로 ScaleX Enterprise에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -75,7 +75,7 @@ ScaleX Enterprise가 Azure AD에 통합되도록 구성하려면 갤러리에서
 
     ![Azure AD 테스트 사용자 만들기](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_search.png)
 
-1. 결과 창에서 **ScaleX Enterprise**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **ScaleX Enterprise**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_addfromgallery.png)
 
@@ -96,11 +96,11 @@ ScaleX Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 ScaleX Enterprise 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 ScaleX Enterprise 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **ScaleX Enterprise에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **ScaleX Enterprise** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **ScaleX Enterprise** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -108,7 +108,7 @@ ScaleX Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하려�
  
     ![Configure Single Sign-On](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_samlbase.png)
 
-1. **ScaleX Enterprise 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+1. **ScaleX Enterprise 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_url1.png)
 
@@ -116,7 +116,7 @@ ScaleX Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://platform.rescale.com/saml2/<company id>/acs/`
 
-1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 선택하세요.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 선택하세요.
 
     ![Configure Single Sign-On](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_url2.png)
 
@@ -125,7 +125,7 @@ ScaleX Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하려�
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 또는 로그온 URL을 사용하여 값을 업데이트합니다. 이러한 값을 얻으려면 [ScaleX Enterprise 클라이언트 지원 팀](https://info.rescale.com/contact_sales)에 문의하세요. 
 
-1. ScaleX 응용 프로그램에는 특정 형식의 SAML 어설션이 필요하기 때문에 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 수정해야 합니다. 사용자 지정 특성 설정을 열려면 **기타 모든 사용자 특성 보기 및 편집** 확인란을 클릭합니다.
+1. ScaleX 애플리케이션에는 특정 형식의 SAML 어설션이 필요하기 때문에 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 수정해야 합니다. 사용자 지정 특성 설정을 열려면 **기타 모든 사용자 특성 보기 및 편집** 확인란을 클릭합니다.
 
     ![Configure Single Sign-On](./media/scalexenterprise-tutorial/scalex_attributes.png)
     
@@ -183,7 +183,7 @@ ScaleX Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하려�
     h. **Update SSO Settings(SSO 설정 업데이트)** 를 클릭하여 설정을 저장합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -233,7 +233,7 @@ Azure AD 사용자가 ScaleX Enterprise에 로그인할 수 있도록 하려면 
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **ScaleX Enterprise**를 선택합니다.
+1. 애플리케이션 목록에서 **ScaleX Enterprise**를 선택합니다.
 
     ![Configure Single Sign-On](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_app.png) 
 
@@ -255,13 +255,13 @@ Azure AD 사용자가 ScaleX Enterprise에 로그인할 수 있도록 하려면 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 ScaleX Enterprise 타일을 클릭하면 ScaleX Enterprise 응용 프로그램에 자동으로 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
+액세스 패널에서 ScaleX Enterprise 타일을 클릭하면 ScaleX Enterprise 애플리케이션에 자동으로 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

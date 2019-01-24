@@ -3,18 +3,18 @@ title: Azure의 업데이트 관리 솔루션
 description: 이 문서는 Azure 업데이트 관리 솔루션을 사용하여 Windows 및 Linux 컴퓨터에 대한 업데이트를 관리하는 방법을 설명합니다.
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/11/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0066a4ea5d91369bf6724dbaea4743a10bd8db0b
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 8635d943120f0e79b8efcfe1f9be0b74d8bb4fac
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631858"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433903"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -86,7 +86,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 
 ### <a name="client-requirements"></a>클라이언트 요구 사항
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 Windows 에이전트는 WSUS 서버와 통신하도록 구성되거나 Microsoft 업데이트에 대한 액세스 권한을 가지고 있어야 합니다. System Center Configuration Manager에서 업데이트 관리를 사용할 수 있습니다. 통합 시나리오에 대한 자세한 내용은 [업데이트 관리와 System Center Configuration Manager 통합](oms-solution-updatemgmt-sccmintegration.md#configuration)을 참조하세요. [Windows 에이전트](../azure-monitor/platform/agent-windows.md)가 필요합니다. 이 에이전트는 Azure Virtual Machine을 등록하는 경우 자동으로 설치됩니다.
 
@@ -125,6 +125,15 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 > [!NOTE]
 > Operations Manger 에이전트가 있는 시스템을 업데이트 관리로 완전히 관리할 수 있으려면 에이전트를 Microsoft Monitoring Agent로 업데이트해야 합니다. 에이전트를 업데이트하는 방법을 알아보려면 [Operations Manager 에이전트를 업그레이드하는 방법](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents)을 참조하세요.
 
+## <a name="onboard"></a>업데이트 관리 사용
+
+시스템 패치를 시작하려면 업데이트 관리 솔루션을 사용하도록 설정해야 합니다. 다양한 방법으로 업데이트 관리에 컴퓨터를 등록할 수 있습니다. 아래에는 권장/지원되는 솔루션 등록 방법이 나와 있습니다.
+
+* [가상 머신에서 등록](automation-onboard-solutions-from-vm.md)
+* [여러 컴퓨터에서 찾아보기](automation-onboard-solutions-from-browse.md)
+* [Automation 계정에서 등록](automation-onboard-solutions-from-automation-account.md)
+* [Azure Automation Runbook 사용](automation-onboard-solutions.md)
+  
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>비 Azure 컴퓨터가 등록되어 있는지 확인
 
 몇 분 후에 다음 로그 검색 중 하나를 실행하여 직접 연결된 컴퓨터에서 Log Analytics와 통신하고 있는지 확인할 수 있습니다.
@@ -136,7 +145,7 @@ Heartbeat
 | where OSType == "Linux" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 ```
 Heartbeat
@@ -251,7 +260,7 @@ REST API에서 업데이트 배포를 보려면 [소프트웨어 업데이트 �
 
 다음 표에는 각 분류에 대한 정의와 함께 업데이트 관리의 업데이트 분류가 나열됩니다.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 |분류  |설명  |
 |---------|---------|
@@ -606,3 +615,4 @@ Windows 가상 머신에 대한 업데이트를 관리하는 방법을 알아보
 * 업데이트 배포 상태에 대한 [경고 만들기](automation-tutorial-update-management.md#configure-alerts).
 
 * REST API를 통해 업데이트 관리와 상호 작용하는 방법은 [소프트웨어 업데이트 구성](/rest/api/automation/softwareupdateconfigurations)을 참조하세요.
+

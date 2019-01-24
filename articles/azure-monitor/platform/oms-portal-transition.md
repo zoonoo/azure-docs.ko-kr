@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/08/2018
+ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: 3dc574b3aab3600895376c0271b5c6224a70d3b6
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: fe1f08b7b597a2e521f2b13af1d0a4a4d7d4b7a2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119219"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214004"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Azure로 이동하는 OMS 포털
 
@@ -92,7 +92,7 @@ OMS 포털을 사용하여 더 이상 새 작업 영역을 만들 수 없습니�
 OMS 모바일 앱은 OMS 포털과 함께 종료됩니다. OMS 모바일 앱 대신에 IT 인프라, 대시보드 및 저장된 쿼리에 대한 정보에 액세스하려면 모바일 디바이스의 브라우저에서 직접 Azure Portal에 액세스할 수 있습니다. 경고를 받으려면 [Azure 동작 그룹](../../azure-monitor/platform/action-groups.md)을 구성하여 음성 통화 또는 SMS 형식으로 알림을 받아야 합니다.
 
 ## <a name="application-insights-connector-and-solution"></a>Application Insights 커넥터 및 솔루션
-[Application Insights 커넥터](../../azure-monitor/platform/app-insights-connector.md)는 Application Insights 데이터를 Log Analytics 작업 영역으로 포함할 수 있는 방법을 제공합니다. 이 데이터 중복은 인프라 및 애플리케이션 데이터에서 시각화를 사용하는 데 필요했습니다. 2019년 3월의 Application Insights 확장된 데이터 보존 지원 및 [리소스 간 쿼리](../../azure-monitor/log-query/cross-workspace-query.md)를 수행하는 기능을 사용하면 Application Insights 리소스에서 데이터를 복제하고 Log Analytics로 전송하지 않아도 됩니다. 또한 커넥터는 리소스 간 쿼리에서 향상된 유연성을 제공하여 애플리케이션 속성의 하위 집합을 Log Analytics에 전송합니다.  
+[Application Insights 커넥터](../../azure-monitor/platform/app-insights-connector.md)는 Application Insights 데이터를 Log Analytics 작업 영역으로 포함할 수 있는 방법을 제공합니다. 이 데이터 중복은 인프라 및 애플리케이션 데이터에서 시각화를 사용하는 데 필요했습니다. 2019년 3월부터 지원 예정인 Application Insights 확장 데이터 보존 기능과 [리소스 간 쿼리](../../azure-monitor/log-query/cross-workspace-query.md) 수행 기능, 그리고 [여러 Azure Monitor Application Insights 리소스를 확인](../log-query/unify-app-resource-data.md)하는 기능을 사용하면 Application Insights 리소스에서 데이터를 복제하여 Log Analytics로 전송하지 않아도 됩니다. 또한 커넥터는 리소스 간 쿼리에서 향상된 유연성을 제공하여 애플리케이션 속성의 하위 집합을 Log Analytics에 전송합니다.  
 
 따라서 Application Insights 커넥터는 2019년 3월 30일의 OMS 포털 사용 중단과 함께 Azure Marketplace에서 사용 중단 및 제거되는 반면 기존 커넥터는 2019년 6월 30일까지 계속 작동합니다. OMS 포털 사용 중단으로 포털에서 기존 연결을 구성하고 제거할 방법이 없습니다. 2019년 1월에 사용할 수 있는 REST API를 사용하여 지원되며 [Azure 업데이트](https://azure.microsoft.com/updates/)에 알림이 게시됩니다. 
 

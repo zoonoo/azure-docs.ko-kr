@@ -33,7 +33,7 @@ Custom Vision을 사용하는 .NET 앱을 작성하려면 Custom Vision NuGet �
 
 [Cognitive Services .NET 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples) 프로젝트를 복제 또는 다운로드합니다. **CustomVision/ObjectDetection** 폴더로 이동하여 Visual Studio에서 _ObjectDetection.csproj_를 엽니다.
 
-이 Visual Studio 프로젝트는 [Custom Vision 웹 사이트](https://customvision.ai/)를 통해 액세스할 수 있는 __My New Project__라는 새로운 Custom Vision 프로젝트를 만듭니다. 그런 다음, 이미지를 업로드하여 개체 검색 모델을 교육하고 테스트합니다. 이 프로젝트의 모델은 이미지에서 포트와 가위를 검색하는 교육을 받습니다.
+이 Visual Studio 프로젝트는 [Custom Vision 웹 사이트](https://customvision.ai/)를 통해 액세스할 수 있는 __My New Project__ 라는 새로운 Custom Vision 프로젝트를 만듭니다. 그런 다음, 이미지를 업로드하여 개체 검색 모델을 교육하고 테스트합니다. 이 프로젝트의 모델은 이미지에서 포트와 가위를 검색하는 교육을 받습니다.
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 

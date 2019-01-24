@@ -4,7 +4,7 @@ description: Azure Active Directory와 Sansan 간에 Single Sign-On을 구성하
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: f653a0f2-c44a-4670-b936-68c136b578ea
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 9e14f923b1e25f5fbc522cd39763ac53ddf37617
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6bd84e42bf46885a9dced363724538cbd4d2066a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872257"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815007"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sansan"></a>자습서: Sansan과 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ Sansan을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 자신의 Azure AD 계정으로 Sansan에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -131,13 +131,13 @@ Sansan에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     ![Configure Single Sign-On](./media/sansan-tutorial/tutorial_general_400.png)
 
-6. Sansan 응용 프로그램에서는 PowerShell 스크립트를 사용하여 구성할 수 있는 여러 환경(PC 웹, 네이티브 모바일 앱, 모바일 브라우저 설정)을 지원하기 위해 여러 **식별자** 및 **회신 URL**이 필요합니다. 자세한 단계는 아래에 설명되어 있습니다.
+6. Sansan 애플리케이션에서는 PowerShell 스크립트를 사용하여 구성할 수 있는 여러 환경(PC 웹, 네이티브 모바일 앱, 모바일 브라우저 설정)을 지원하기 위해 여러 **식별자** 및 **회신 URL**이 필요합니다. 자세한 단계는 아래에 설명되어 있습니다.
 
-7. PowerShell 스크립트를 사용하여 Sansan 응용 프로그램에 대해 여러 **식별자** 및 **회신 URL**을 구성하려면 다음 단계를 수행합니다.
+7. PowerShell 스크립트를 사용하여 Sansan 애플리케이션에 대해 여러 **식별자** 및 **회신 URL**을 구성하려면 다음 단계를 수행합니다.
 
     ![Single Sign On 개체 구성](./media/sansan-tutorial/tutorial_sansan_objid.png)  
 
-    a. **Sansan** 응용 프로그램의 **속성** 페이지로 이동하고, **복사** 단추를 사용하여 **개체 ID**를 복사한 다음, 메모장에 붙여넣습니다.
+    a. **Sansan** 애플리케이션의 **속성** 페이지로 이동하고, **복사** 단추를 사용하여 **개체 ID**를 복사한 다음, 메모장에 붙여넣습니다.
 
     b. Azure Portal에서 복사한 **개체 ID**는 이 자습서의 뒷부분에서 사용할 PowerShell 스크립트에서 **ServicePrincipalObjectId**로 사용됩니다. 
 
@@ -148,7 +148,7 @@ Sansan에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     d. `Connect-AzureAD`를 실행하고 전역 관리자 사용자 계정으로 로그인합니다.
 
-    e. 다음 스크립트를 사용하여 응용 프로그램에서 여러 URL을 업데이트합니다.
+    e. 다음 스크립트를 사용하여 애플리케이션에서 여러 URL을 업데이트합니다.
 
     ```poweshell
      Param(
@@ -234,7 +234,7 @@ Sansan에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
  
 ### <a name="creating-a-sansan-test-user"></a>Sansan 테스트 사용자 만들기
 
-이 섹션에서는 Sansan에서 Britta Simon이라는 사용자를 만듭니다. Sansan 응용 프로그램에서 SSO를 수행하기 전에 해당 사용자를 응용 프로그램에 프로비전해야 합니다. 
+이 섹션에서는 Sansan에서 Britta Simon이라는 사용자를 만듭니다. Sansan 애플리케이션에서 SSO를 수행하기 전에 해당 사용자를 애플리케이션에 프로비전해야 합니다. 
 
 >[!NOTE]
 >한 사용자 또는 여러 사용자를 수동으로 만들려면 [Sansan 지원 팀](https://www.sansan.com/form/contact)에 문의해야 합니다. 
@@ -279,7 +279,7 @@ Sansan에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

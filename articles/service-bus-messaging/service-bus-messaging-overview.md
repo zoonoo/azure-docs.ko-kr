@@ -3,20 +3,20 @@ title: Azure Service Bus 메시지 개요 | Microsoft Docs
 description: Service Bus 메시징에 대한 설명
 services: service-bus-messaging
 documentationcenter: ''
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
-ms.author: spelluru
-ms.openlocfilehash: 55a651080c4ed1d22901681317046f0853e257f0
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.author: aschhab
+ms.openlocfilehash: ab1b68b8ca8339389a27d1c09aa8752cfdaec0d5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163109"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851796"
 ---
 # <a name="what-is-azure-service-bus"></a>Azure Service Bus란?
 
@@ -31,7 +31,7 @@ Microsoft Azure Service Bus는 완전 관리형 엔터프라이즈 [통합](http
 
 ## <a name="namespaces"></a>네임스페이스
 
-네임스페이스는 모든 메시징 구성 요소에 대한 영역 컨테이너입니다. 여러 큐 및 토픽은 단일 네임스페이스 내에 있을 수 있으며 네임스페이스는 종종 응용 프로그램 컨테이너로 사용됩니다.
+네임스페이스는 모든 메시징 구성 요소에 대한 영역 컨테이너입니다. 여러 큐 및 토픽은 단일 네임스페이스 내에 있을 수 있으며 네임스페이스는 종종 애플리케이션 컨테이너로 사용됩니다.
 
 ## <a name="queues"></a>큐
 

@@ -4,7 +4,7 @@ description: Azure Active Directory 및 AppDynamics 간에 Single Sign-On을 구
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 25fd1df0-411c-4f55-8be3-4273b543100f
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
-ms.openlocfilehash: e2620a40eb4998d8d5e97108208731d679e004d6
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: b4ef3e0b85b651e7f95d507169ba94f0fa29cf52
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973029"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812270"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>자습서: AppDynamics와 Azure Active Directory 통합
 
@@ -106,9 +106,9 @@ AppDynamics에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     ![AppDynamics 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에 `https://<companyname>.saas.appdynamics.com?accountName=<companyname>` 패턴을 사용하여 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 `https://<companyname>.saas.appdynamics.com?accountName=<companyname>` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에 `https://<companyname>.saas.appdynamics.com/controller` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<companyname>.saas.appdynamics.com/controller` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [AppDynamics 클라이언트 지원팀](https://www.appdynamics.com/support/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

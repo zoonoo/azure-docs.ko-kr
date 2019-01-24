@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 6349ced07385ede42b21c9a8401dd3e0a23bcfbe
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2b6db4977b585b50168c2fa523db9210ca031ff3
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790303"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359292"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>자습서: SMB를 통해 Azure Data Box에 데이터 복사
 
@@ -38,9 +38,9 @@ ms.locfileid: "53790303"
 
 ## <a name="connect-to-data-box"></a>Data Box에 연결
 
-선택한 저장소 계정에 따라, Data Box가 다음 항목을 만듭니다.
+선택한 스토리지 계정에 따라 Data Box에서 만드는 항목은 다음과 같습니다.
 - GPv1 및 GPv2에서 연결된 각 저장소에 대한 공유 3개.
-- 프리미엄 또는 Blob 저장소 계정에 대한 공유 1개.
+- 프리미엄 또는 Blob Storage 계정에 대한 공유 1개.
 
 블록 Blob 및 페이지 Blob 공유에서는 첫 번째 수준 엔터티가 컨테이너, 두 번째 수준 엔터티가 Blob입니다. Azure Files 공유에서 첫 번째 수준 엔터티는 공유, 두 번째 수준 엔터티는 파일입니다.
 
@@ -85,9 +85,11 @@ Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따�
 
     이제 공유가 폴더로 표시될 것입니다.
     
+    ![파일 탐색기를 통해 공유에 연결 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)    
+
     **복사하려는 파일에 대한 폴더는 항상 공유 아래에 만든 다음 이 폴더에 파일을 복사합니다**. 블록 Blob 및 페이지 Blob 공유 아래에 만들어진 폴더는 데이터가 Blob으로 업로드되는 컨테이너를 나타냅니다. 스토리지 계정의 *$root* 폴더에 파일을 직접 복사할 수 없습니다.
     
-    ![파일 탐색기를 통해 공유에 연결 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
+     
 
 ## <a name="copy-data-to-data-box"></a>Data Box에 데이터 복사
 
@@ -96,7 +98,11 @@ Data Box 공유에 연결된 후에는 데이터를 복사합니다. 데이터 �
 - 적절한 데이터 형식에 해당하는 공유에 데이터를 복사해야 합니다. 예를 들어 블록 Blob에 대한 공유에 블록 Blob 데이터를 복사합니다. 데이터 형식이 적절한 공유 형식과 일치하지 않는 경우 이후 단계에서 Azure에 데이터를 업로드하는 작업이 실패합니다.
 -  데이터를 복사하는 동안 데이터 크기가 [Azure 스토리지 및 Data Box 제한](data-box-limits.md)에 설명된 크기 제한을 준수해야 합니다.
 - Data Box에 의해 업로드되는 데이터가 Data Box 외부의 다른 애플리케이션에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
-- SMB 및 NFS를 동시에 사용하거나 Azure의 동일한 최종 대상에 동일한 데이터를 복사하지 않는 것이 좋습니다. 이 경우 최종 결과를 확인할 수 없습니다.
+- 다음이 권장됩니다.
+    - SMB와 NFS를 동시에 사용하지 않습니다.
+    - 동일한 데이터를 Azure에서 동일한 최종 대상에 복사합니다. 
+     
+  이 경우 최종 결과를 확인할 수 없습니다.
 - 복사하려는 파일의 폴더를 항상 공유 아래에 만든 다음, 해당 폴더에 파일을 복사하세요. 블록 Blob 및 페이지 Blob 공유 아래에 만들어진 폴더는 데이터가 Blob으로 업로드되는 컨테이너를 나타냅니다. 스토리지 계정의 *$root* 폴더에 파일을 직접 복사할 수 없습니다.
 
 SMB 공유에 연결한 후에는 데이터 복사를 시작합니다. Robocopy처럼 SMB 호환 파일 복사 도구를 사용하여 데이터를 복사할 수 있습니다. Robocopy 명령을 사용하여 여러 복사 작업을 시작할 수 있습니다. 다음 명령을 사용합니다.
@@ -211,7 +217,7 @@ Robocopy 명령에 대한 자세한 내용은 [Robocopy 및 몇 가지 예제](h
 > * Data Box에 데이터 복사
 > * Data Box 배송 준비
 
-Data Box를 Microsoft로 다시 배송하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
+Data Box를 Microsoft로 다시 배송하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [Microsoft로 Azure Data Box 배송](./data-box-deploy-picked-up.md)

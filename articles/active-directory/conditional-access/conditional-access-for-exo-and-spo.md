@@ -4,7 +4,7 @@ description: Azure Active Directory 조건부 액세스를 위해 SharePoint Onl
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 62349fba-3cc0-4ab5-babe-372b3389eff6
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 08/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: a5f0a17682f3481ad9a2dff5f144aa3d97f29920
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 75f1e0e1cefedb439050e9ba653a8e415e0e6887
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063849"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447166"
 ---
-# <a name="how-to-set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>방법: Azure Active Directory 조건부 액세스를 위해 SharePoint Online 및 Exchange Online 설정 
+# <a name="how-to-set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>방법: Azure Active Directory 조건부 액세스를 위한 SharePoint Online 및 Exchange Online 설정 
 
 [Azure AD(Azure Active Directory) 조건부 액세스](overview.md)를 사용하여 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있습니다. 조건부 액세스를 사용하여 SharePoint 및 Exchange Online에 대한 액세스를 제어하려는 경우 다음을 수행해야 합니다.
 

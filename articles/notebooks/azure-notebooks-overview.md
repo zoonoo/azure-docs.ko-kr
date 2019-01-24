@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 2640316ce8915018df30fc94df0e1fbb207e894b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ba06e568b3d7b0125d5868c1ad4a85e5e42f7e18
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713610"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246214"
 ---
 # <a name="overview-of-azure-notebooks"></a>Azure Notebooks 개요
 
@@ -57,7 +57,7 @@ Azure Notebooks는 일반적인 코드 작성, 실행 및 공유 플랫폼이므
 
 Azure Notebooks는 무료 서비스이지만 각 프로젝트는 남용을 방지하기 위해 4GB 메모리 및 1GB 데이터로 제한됩니다. 이러한 한도를 초과하는 합법적인 사용자는 Captcha 챌린지를 참조하여 Notebook 실행을 계속하세요.
 
-모든 한도를 해제하려면 프리미엄 컴퓨팅 계층을 선택할 수 있는 Azure 구독으로 계정을 연결합니다.
+모든 한도를 해제하려면 Azure Active Directory를 사용하는 계정(예: 회사 계정)으로 Azure Notebooks에 로그인합니다. 해당 계정이 Azure 구독과 연결된 경우 Azure Data Science Virtual Machine 컴퓨팅 계층을 사용할 수 있습니다.
 
 ## <a name="available-kernels-and-environments"></a>사용할 수 있는 커널 및 환경
 

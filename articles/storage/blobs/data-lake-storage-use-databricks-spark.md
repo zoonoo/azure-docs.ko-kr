@@ -6,14 +6,14 @@ author: dineshmurthy
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: dineshm
-ms.openlocfilehash: b0382d31f9d16228ca3447ace9c7d4f171b206f6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e72a4f71a42a892d14fad076b124426f0c32ac7d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548989"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321809"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>자습서: Azure Databricks에서 Spark를 사용하여 Data Lake Storage Gen2 미리 보기 데이터에 액세스
 
@@ -24,7 +24,7 @@ ms.locfileid: "53548989"
 > [!div class="checklist"]
 > * Databricks 클러스터 만들기
 > * 저장소 계정으로 비구조적 데이터 수집
-> * Blob 저장소의 데이터에 대한 분석 실행
+> * Blob Storage의 데이터에 대한 분석 실행
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
@@ -36,12 +36,31 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 2. **다운로드**를 선택하고 결과를 머신에 저장합니다.
 3. 파일 이름과 다운로드 경로를 적어 둡니다. 이 정보는 이후의 단계에서 필요합니다.
 
-이 자습서를 완료하려면 분석 기능이 있는 스토리지 계정이 필요합니다. 계정을 만들려면 해당 주제에 대한 [빠른 시작](data-lake-storage-quickstart-create-account.md)을 완료하는 것이 좋습니다. 만든 후에는 스토리지 계정으로 이동하여 구성 설정을 검색합니다.
+이 자습서를 완료하려면 분석 기능이 있는 스토리지 계정이 필요합니다. 계정을 만들려면 해당 주제에 대한 [빠른 시작](data-lake-storage-quickstart-create-account.md)을 완료하는 것이 좋습니다. 
 
-1. **설정** 아래에서 **액세스 키**를 선택합니다.
-2. **key1** 옆의 **복사** 단추를 선택하여 키 값을 복사합니다.
+## <a name="set-aside-storage-account-configuration"></a>저장소 계정 구성을 보관합니다.
 
-계정 이름과 키는 모두 이 자습서의 이후 단계에서 필요합니다. 텍스트 편집기를 열고 나중에 참조할 수 있도록 계정 이름과 키를 별도로 보관합니다.
+스토리지 계정의 이름과 파일 시스템 엔드포인트 URI가 필요합니다.
+
+Azure Portal에서 스토리지 계정의 이름을 가져오려면 **모든 서비스**를 선택하고 *스토리지* 용어를 기준으로 필터링합니다. 그런 다음, **스토리지 계정**을 선택하고 스토리지 계정을 찾습니다.
+
+파일 시스템 엔드포인트 URI를 가져오려면 **속성**을 선택하고 속성 창에서 **기본 ADLS 파일 시스템 엔드포인트** 필드의 값을 찾습니다.
+
+이 두 값을 모두 텍스트 파일에 붙여 넣습니다. 곧 이 두 값이 필요합니다.
+
+<a id="service-principal"/>
+
+## <a name="create-a-service-principal"></a>서비스 주체 만들기
+
+이 토픽의 지침에 따라 서비스 주체를 만듭니다. [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
+
+해당 문서의 단계를 수행할 때 해야 하는 몇 가지 항목이 있습니다.
+
+:heavy_check_mark: 문서의 [Azure Active Directory 애플리케이션 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) 섹션에서 단계를 수행하는 경우 **만들기** 대화 상자의 **로그온 URL** 필드를 방금 수집한 엔드포인트 URI로 설정해야 합니다.
+
+:heavy_check_mark: 문서의 [애플리케이션을 역할에 할당](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) 섹션에서 단계를 수행하는 경우 해당 애플리케이션을 **Blob Storage 기여자 역할**에 할당해야 합니다.
+
+:heavy_check_mark: 문서의 [로그인을 위한 값 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션에서 단계를 수행하는 경우 테넌트 ID, 애플리케이션 ID 및 인증 키 값을 텍스트 파일에 붙여 넣으십시오. 곧 이 값들이 필요합니다.
 
 ## <a name="create-a-databricks-cluster"></a>Databricks 클러스터 만들기
 
@@ -63,22 +82,24 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 14. **이름** 필드에 원하는 이름을 입력하고 **Python**을 언어로 선택합니다.
 15. 다른 모든 필드는 기본값으로 그대로 유지할 수 있습니다.
 16. **만들기**를 선택합니다.
-17. 다음 코드를 **Cmd 1** 셀에 붙여넣습니다. 샘플의 대괄호 안에 표시된 자리 표시자를 사용자 고유의 값으로 바꿉니다.
+17. 다음 코드 블록을 복사하여 첫 번째 셀에 붙여 넣습니다. 하지만 이 코드를 아직 실행하지 마십시오.
 
-    ```scala
-    %python%
+    ```Python
     configs = {"fs.azure.account.auth.type": "OAuth",
-        "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-        "fs.azure.account.oauth2.client.id": "<service-client-id>",
-        "fs.azure.account.oauth2.client.secret": "<service-credentials>",
-        "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
-        
+           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+           "fs.azure.account.oauth2.client.id": "<application-id>",
+           "fs.azure.account.oauth2.client.secret": "<authentication-id>",
+           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
+           "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
+
     dbutils.fs.mount(
-        source = "abfss://dbricks@<account-name>.dfs.core.windows.net/folder1",
-        mount_point = "/mnt/flightdata",
-        extra_configs = configs)
+    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/folder1",
+    mount_point = "/mnt/flightdata",
+    extra_configs = configs)
     ```
-18. **Shift+Enter**를 눌러 코드 셀을 실행합니다.
+18. 이 코드 블록에서 이 코드 블록의 `storage-account-name`, `application-id`, `authentication-id` 및 `tenant-id` 자리 표시자 값을 문서의 [스토리지 계정 구성을 보관하기](#config) 및 [서비스 주체 만들기](#service-principal) 섹션에서 단계를 완료했을 때 수집한 값으로 바꿉니다. `file-system-name` 자리 표시자를 파일 시스템에 지정할 이름으로 바꿉니다.
+
+19. 이 블록에서 코드를 실행하려면 **SHIFT + ENTER** 키를 누릅니다.
 
 ## <a name="ingest-data"></a>데이터 수집
 
@@ -137,7 +158,7 @@ dbutils.fs.put("/mnt/flightdata/temp/1.txt", "Hello, World!", True)
 dbutils.fs.ls("/mnt/flightdata/temp/parquet/flights")
 ```
 
-이러한 코드 샘플을 통해 Data Lake Storage Gen2가 사용되는 저장소 계정에 저장된 데이터를 사용하여 HDFS의 계층적 특성을 살펴보았습니다.
+이러한 코드 샘플을 통해 Data Lake Storage Gen2가 사용되는 스토리지 계정에 저장된 데이터를 사용하여 HDFS의 계층적 특성을 살펴보았습니다.
 
 ## <a name="query-the-data"></a>데이터 쿼리
 

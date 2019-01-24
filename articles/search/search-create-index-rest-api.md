@@ -1,6 +1,6 @@
 ---
 title: REST API를 사용하여 코드에서 인덱스 만들기 - Azure Search
-description: HTTP 요청 및 Azure Search REST API를 사용하여 코드에서 전체 텍스트 검색 인덱스를 만듭니다.
+description: HTTP 요청 및 Azure Search REST API를 사용하여 코드에서 전체 텍스트 검색 가능 인덱스를 만드는 방법을 설명합니다.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: f47aead95d7135e2528fea11c116effa93df4c4c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b4d85d3b8ee7e6a872fdd6bf07917770c4d2ee9e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309215"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265263"
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>REST API를 사용하여 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "53309215"
 REST API를 사용하여 Azure Search 인덱스를 만들려면 Azure Search 서비스의 URL 엔드포인트에 단일 HTTP 게시 요청을 발행합니다. 인덱스 정의는 올바른 형식의 JSON 콘텐츠로 요청 본문에 포함됩니다.
 
 ## <a name="identify-your-azure-search-services-admin-api-key"></a>Azure Search 서비스의 관리 API 키 식별
-Azure Search 서비스를 프로비전했다면 REST API를 사용하여 서비스의 URL 엔드포인트에 대한 HTTP 요청을 실행할 수 있습니다. *모든* API 요청은 프로비전된 Search 서비스에 대해 생성된 API 키를 포함해야 합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
+Azure Search 서비스를 프로비전했다면 REST API를 사용하여 서비스의 URL 엔드포인트에 대한 HTTP 요청을 실행할 수 있습니다. *모든* API 요청은 프로비전된 Search 서비스에 대해 생성된 API 키를 포함해야 합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
 1. 서비스의 API 키를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인해야 합니다.
 2. Azure Search 서비스의 블레이드로 이동합니다.
@@ -43,7 +43,7 @@ Azure Search 서비스를 프로비전했다면 REST API를 사용하여 서비�
 서비스에는 *관리 키* 및 *쿼리 키*가 있습니다.
 
 * 기본 및 보조 *관리 키* 는 서비스를 관리하며 인덱스, 인덱서 및 데이터 원본을 만들고 삭제하는 기능을 비롯한 모든 작업에 전체 권한을 부여합니다. 두 개의 키가 있으므로 기본 키를 다시 생성하려는 경우 보조 키를 사용하여 계속할 수 있고 반대도 가능합니다.
-* *쿼리 키* 는 인덱스 및 문서에 대한 읽기 전용 액세스를 부여하며 일반적으로 검색 요청을 실행하는 클라이언트 응용 프로그램에 배포됩니다.
+* *쿼리 키*는 인덱스 및 문서에 대한 읽기 전용 액세스를 부여하며 일반적으로 검색 요청을 실행하는 클라이언트 애플리케이션에 배포됩니다.
 
 인덱스를 만들기 위해 기본 또는 보조 관리 키를 사용할 수 있습니다.
 
@@ -77,7 +77,7 @@ Azure Search 서비스를 프로비전했다면 REST API를 사용하여 서비�
 }
 ```
 
-응용 프로그램에서 사용되는 방법에 따라 각 필드에 대한 인덱스 특성을 신중하게 선택했습니다. 예를 들어 `hotelId`는 호텔을 검색하는 사람들이 알 수 없는 고유한 키이므로 `searchable`을 `false`로 설정하여 해당 필드에 대한 전체 텍스트 검색 비활성화하여 인덱스의 공간을 절약합니다.
+애플리케이션에서 사용되는 방법에 따라 각 필드에 대한 인덱스 특성을 신중하게 선택했습니다. 예를 들어 `hotelId`는 호텔을 검색하는 사람들이 알 수 없는 고유한 키이므로 `searchable`을 `false`로 설정하여 해당 필드에 대한 전체 텍스트 검색 비활성화하여 인덱스의 공간을 절약합니다.
 
 형식 `Edm.String`의 인덱스에 정확히 하나의 필드가 '키' 필드로 지정되어야 합니다.
 

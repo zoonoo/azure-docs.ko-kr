@@ -1,27 +1,8 @@
 ---
-title: 파일에서 데이터 가져오기 - Azure Machine Learning Studio | Microsoft Docs
-description: 하드 드라이브에서 Azure Machine Learning Studio로 학습 데이터 파일을 업로드 하는 방법에 대해 알아봅니다. 이렇게 하면 작업 영역에 데이터 세트 모듈이 만들어집니다.
-keywords: 데이터 가져오기, 데이터 형식, 데이터 유형, 데이터 원본, 학습 데이터
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: c0dd9e90-23c4-4f64-8b8f-489ad79f047b
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: 096d2d4a8c1ee1727b124a5416ec77e8281c97d7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254863"
+제목: 파일에서 데이터 가져오기 titleSuffix: Azure Machine Learning Studio 설명: 하드 드라이브에서 Azure Machine Learning Studio로 학습 데이터 파일을 업로드 하는 방법에 대해 알아봅니다. 이렇게 하면 작업 영역에 데이터 세트 모듈이 만들어집니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 2017/03/20
 ---
 # <a name="import-training-data-from-a-file-on-your-hard-drive-into-azure-machine-learning-studio"></a>하드 드라이브의 파일에서 Azure Machine Learning Studio로 학습 데이터 가져오기
 

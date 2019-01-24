@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 52d20004f43b5c553a17c44f3f35d30fd5693286
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4befcbb6b2297c6f80fb577b1fe22053a8c77ada
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995065"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331081"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(사용되지 않음) Azure DevOps를 사용하여 ACS Engine 및 Docker Swarm Mode를 포함한 Azure Container Service에 있는 다중 컨테이너 애플리케이션을 배포하는 전체 CI/CD 파이프라인
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-*이 문서는 [Azure DevOps를 사용하여 Docker Swarm을 포함한 Azure Container Service에 있는 다중 컨테이너 응용 프로그램을 배포하는 전체 CI/CD 파이프라인](container-service-docker-swarm-setup-ci-cd.md) 설명서를 토대로 작성되었습니다.*
+*이 문서는 [Azure DevOps를 사용하여 Docker Swarm을 포함한 Azure Container Service에 있는 다중 컨테이너 애플리케이션을 배포하는 전체 CI/CD 파이프라인](container-service-docker-swarm-setup-ci-cd.md) 설명서를 토대로 작성되었습니다.*
 
 요즘 클라우드를 위한 최신 애플리케이션을 개발할 때 어려운 문제 중 하나는 이러한 애플리케이션을 지속적으로 전달할 수 있다는 점입니다. 이 문서에서는 다음을 사용하여 전체 CI/CD(지속적인 통합 및 배포) 파이프라인을 구현하는 방법을 알아봅니다. 
 * Docker Swarm Mode의 Azure Container Service Engine
@@ -126,12 +126,12 @@ CI/CD 파이프라인에 도달하기 전에 Azure의 Docker Swarm 클러스터�
 
 ![Azure DevOps - 코드 소스 구성](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-source-code.png)
 
-*MyShop* 응용 프로그램에 대해 빌드되는 5개의 컨테이너 이미지가 있습니다. 각 이미지는 프로젝트 폴더에 있는 Dockerfile을 사용하여 빌드됩니다.
+*MyShop* 애플리케이션에 대해 빌드되는 5개의 컨테이너 이미지가 있습니다. 각 이미지는 프로젝트 폴더에 있는 Dockerfile을 사용하여 빌드됩니다.
 
 * ProductsApi
 * Proxy
 * RatingsApi
-* RecommandationsApi
+* RecommendationsApi
 * ShopFront
 
 각 이미지에 대한 두 가지 Docker 단계가 필요합니다. 하나는 이미지를 빌드하고 다른 하나는 Azure 컨테이너 레지스트리에서 이미지를 푸시하는 것입니다. 

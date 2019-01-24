@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: d8d8e344ce9ee317a7f864492514162b1dc085f9
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5db963b1ffea656455c06092c82ac95e85d87826
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52885721"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213130"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Log Analytics의 데이터 수집 시간
 Azure Log Analytics는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 Azure Monitor의 대규모 데이터 서비스입니다. 데이터가 수집된 후 Log Analytics에서 사용할 수 있기까지 걸리는 시간에 대해 질문하는 경우가 많습니다. 이 문서에서는 이 대기 시간에 영향을 주는 여러 요인에 대해 설명합니다.
@@ -46,7 +46,7 @@ Azure Log Analytics는 점점 더 빠른 속도로 매달 테라바이트 단위
 Log Analytics 에이전트를 경량으로 유지하기 위해 에이전트는 로그를 버퍼링하고 주기적으로 Log Analytics에 업로드합니다. 업로드 빈도는 데이터 형식에 따라 30초에서 2분 사이입니다. 대부분의 데이터는 1분 이내에 업로드됩니다. 네트워크 조건 때문에 이 데이터가 Log Analytics 수집 지점에 도달하는 대기 시간이 지연될 수도 있습니다.
 
 ### <a name="azure-logs-and-metrics"></a>Azure 로그 및 메트릭 
-활동 로그 데이터는 Log Analytics에 제공되기까지 약 5분 정도 걸립니다. Azure 서비스에 따라 진단 로그 및 메트릭의 데이터는 사용할 수 있기까지 1~5분 정도 걸릴 수 있습니다. 그런 다음, 데이터가 Log Analytics 분석 지점에 전송되는 데 추가로 30~60초(로그) 및 3분(메트릭)이 걸립니다.
+활동 로그 데이터는 Log Analytics에 제공되기까지 약 5분 정도 걸립니다. Azure 서비스에 따라서는 진단 로그 및 메트릭의 데이터를 처리에 사용할 수 있게 될 때까지 1~15분이 걸릴 수 있습니다. 그리고 데이터가 처리에 사용할 수 있게 되는 시점에서 Log Analytics 수집 지점으로 전송될 때까지 추가로 30~60초(로그의 경우)/3분(메트릭의 경우)이 걸립니다.
 
 ### <a name="management-solutions-collection"></a>관리 솔루션 수집
 일부 솔루션은 에이전트에서 데이터를 수집하지 않고 추가 대기 시간을 도입하는 수집 방법을 사용할 수 있습니다. 일부 솔루션은 거의 실시간으로 수집하지 않고 주기적으로 데이터를 수집합니다. 특정 예제는 다음과 같습니다.
@@ -73,22 +73,60 @@ Log Analytics의 최우선 과제는 고객 데이터가 손실되지 않도록 
 
 
 ## <a name="checking-ingestion-time"></a>수집 시간 확인
-**하트비트** 테이블을 사용하여 에이전트 데이터의 예상 대기 시간을 얻을 수 있습니다. 하트비트는 1분마다 한 번 전송되므로, 현재 시간과 마지막 하트비트 레코드 사이의 차이는 가능한 한 1분에 가까운 것이 좋습니다.
+수집 시간은 리소스와 상황에 따라 달라질 수 있습니다. 로그 쿼리를 사용하여 현재 환경의 특정 동작을 파악할 수 있습니다.
 
-다음 쿼리를 사용하여 대기 시간이 가장 높은 컴퓨터를 나열합니다.
+### <a name="ingestion-latency-delays"></a>수집 대기 시간 지연
+[ingestion_time()](/azure/kusto/query/ingestiontimefunction) 함수의 결과를 _TimeGenerated_ 필드의 내용과 비교하면 특정 레코드의 대기 시간을 측정할 수 있습니다. 다양한 집계에서 이 데이터를 사용하여 수집 대기 시간이 발생하는 방식을 확인할 수 있습니다. 수집 시간의 백분위수 몇 개를 검사하면 대량의 데이터 수집 시간 관련 정보를 파악할 수 있습니다. 
 
-    Heartbeat 
-    | summarize IngestionTime = now() - max(TimeGenerated) by Computer 
-    | top 50 by IngestionTime asc
+예를 들어 다음 쿼리는 해당일에 수집 시간이 가장 긴 컴퓨터를 보여 줍니다. 
 
+``` Kusto
+Heartbeat
+| where TimeGenerated > ago(8h) 
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95) by Computer 
+| top 20 by percentile_E2EIngestionLatency_95 desc  
+```
  
-대규모 환경에서는 다음 쿼리를 사용하여 총 컴퓨터 중 여러 백분율의 대기 시간을 요약합니다.
+일정 기간 동안 특정 컴퓨터의 수집 시간을 드릴다운하려는 경우 다음 쿼리를 사용합니다. 이 쿼리도 데이터를 그래프에 표시합니다. 
 
-    Heartbeat 
-    | summarize IngestionTime = now() - max(TimeGenerated) by Computer 
-    | summarize percentiles(IngestionTime, 50,95,99)
+``` Kusto
+Heartbeat 
+| where TimeGenerated > ago(24h) and Computer == "ContosoWeb2-Linux"  
+| extend E2EIngestionLatencyMin = todouble(datetime_diff("Second",ingestion_time(),TimeGenerated))/60 
+| summarize percentiles(E2EIngestionLatencyMin,50,95) by bin(TimeGenerated,30m) 
+| render timechart  
+```
+ 
+컴퓨터가 있는 국가(해당 IP 국가를 기준으로 함)별 컴퓨터 수집 시간을 표시하려면 다음 쿼리를 사용합니다. 
 
+``` Kusto
+Heartbeat 
+| where TimeGenerated > ago(8h) 
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95) by RemoteIPCountry 
+```
+ 
+에이전트에서 생성되는 각 데이터 형식의 수집 대기 시간은 서로 다를 수 있으므로 위의 쿼리를 다른 형식에 사용할 수도 있습니다. 여러 Azure 서비스의 수집 시간을 검사하려면 다음 쿼리를 사용합니다. 
 
+``` Kusto
+AzureDiagnostics 
+| where TimeGenerated > ago(8h) 
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95) by ResourceProvider
+```
+
+### <a name="resources-that-stop-responding"></a>응답하지 않는 리소스 
+리소스에서 데이터 전송이 중지되는 경우도 있습니다. 리소스가 데이터를 전송하고 있는지를 파악하려면 표준 _TimeGenerated_ 필드를 통해 식별 가능한 최신 레코드를 확인하세요.  
+
+VM 가용성을 확인하려면 _Heartbeat_ 테이블을 사용합니다. 에이전트에서는 1분마다 하트비트를 전송하기 때문입니다. 최근 하트비트를 보고하지 않은 활성 컴퓨터 목록을 표시하려면 다음 쿼리를 사용합니다. 
+
+``` Kusto
+Heartbeat  
+| where TimeGenerated > ago(1d) //show only VMs that were active in the last day 
+| summarize NoHeartbeatPeriod = now() - max(TimeGenerated) by Computer  
+| top 20 by NoHeartbeatPeriod desc 
+```
 
 ## <a name="next-steps"></a>다음 단계
 * Log Analytics에 대한 [SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/)를 읽어 보세요.

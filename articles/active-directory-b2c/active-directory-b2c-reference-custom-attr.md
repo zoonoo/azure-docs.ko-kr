@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 사용자 지정 특성 정의 | Microso
 description: Azure Active Directory B2C에서 애플리케이션에 대한 사용자 지정 특성을 정의하여 고객에 대한 정보를 수집합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8b32a1eccfc90731d4c3458a0696a8e5900691aa
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 1d0ee01c83046146cc534ddaafe361948ecc047f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727820"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856352"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 특성 정의
 
@@ -48,7 +48,7 @@ ms.locfileid: "52727820"
 1. Azure AD B2C 테넌트에서 **사용자 흐름**을 선택합니다.
 2. 정책(예: "B2C_1_SignupSignin")을 선택하여 엽니다. 
 4. **사용자 특성**을 선택하고 사용자 지정 특성을 선택합니다(예: "ShoeSize"). **저장**을 클릭합니다.
-5. **응용 프로그램 클레임**을 선택하고 사용자 지정 특성을 선택합니다. 
+5. **애플리케이션 클레임**을 선택하고 사용자 지정 특성을 선택합니다. 
 6. **저장**을 클릭합니다.
 
 사용자 흐름에 대해 **사용자 흐름 실행** 기능을 사용하여 고객 환경을 확인할 수 있습니다. 이제 등록 과정 동안 수집되는 특성 목록에 **ShoeSize**가 표시되며 애플리케이션으로 다시 전송되는 토큰에도 표시됩니다.

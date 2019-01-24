@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.component: metrics
-ms.openlocfilehash: 02c444659051c60dfc0f72bae4865ffbe7e899a3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: metrics
+ms.openlocfilehash: e784b76af478f834a7d1104650da1cbd3ca2a31f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53586457"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433360"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Azure Storage를 사용하여 Azure 메트릭 보관 및 데이터 기록
 
@@ -199,3 +199,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 > [!div class="nextstepaction"]
 > [Log Analytics 시작](../../azure-monitor/log-query/log-query-overview.md)
+

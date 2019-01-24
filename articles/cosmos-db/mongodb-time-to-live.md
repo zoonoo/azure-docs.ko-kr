@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 1bfe79c502361e6cf9616c3ba61e781fb7ce92ac
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 390cd17d667785c7bf9531d86dab00bc922a2df5
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54032859"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351729"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 데이터 만료
 
@@ -55,7 +55,7 @@ TTL 값은 int32여야 합니다. 또는 int32에 맞는 int64 또는 int32에 �
 
 문서의 TTL 값은 선택 사항입니다. TTL 값이 없는 문서는 컬렉션에 삽입할 수 있습니다.  이 경우 컬렉션의 TTL 값이 적용됩니다. 
 
-다음 문서는 TTL 값이 유효합니다. 문서가 삽입되면 문서 TTL 값이 컬렉션의 TTL 값을 재정의합니다. 따라서 문서가 20초 후 제거됩니다.  
+다음 문서는 TTL 값이 유효합니다. 문서가 삽입되면 문서 TTL 값이 컬렉션의 TTL 값을 재정의합니다. 따라서 문서가 20초 후 제거됩니다.   
 
 ```JavaScript 
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: 20.0}) 

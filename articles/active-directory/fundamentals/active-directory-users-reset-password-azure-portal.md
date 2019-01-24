@@ -3,7 +3,7 @@ title: 사용자의 암호 다시 설정 - Azure Active Directory | Microsoft Do
 description: Azure Active Directory를 사용하여 사용자의 암호를 다시 설정하는 방법에 대한 지침입니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: fad5624b-2f13-4abc-b3d4-b347903a8f16
 ms.service: active-directory
 ms.component: fundamentals
@@ -13,12 +13,12 @@ ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: c8dd387104d52075425d881363dbcbaac700461a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 198b8d3a5d0ac8ea3458fd476df0894e509d3b1b
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103373"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452125"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Azure Active Directory를 사용하여 사용자의 암호 다시 설정
 암호를 잊어버린 경우, 사용자가 디바이스로부터 잠긴 경우 또는 사용자가 암호를 받지 못한 경우에는 관리자가 사용자의 암호를 다시 설정할 수 있습니다.

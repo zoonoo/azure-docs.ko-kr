@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
-ms.openlocfilehash: 2376ade49b990ff22683a14ecd4ae6b4dda356c3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.component: disks
+ms.openlocfilehash: 3627891df429745c66bb85aed5182ff934268027
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434546"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475427"
 ---
 # <a name="configure-software-raid-on-linux"></a>Linux에서 소프트웨어 RAID 구성
 Azure에서 Linux 가상 머신의 소프트웨어 RAID를 사용하여 연결된 여러 데이터 디스크를 단일 RAID 디바이스로 나타내는 것이 일반적인 시나리오입니다. 일반적으로 이 시나리오는 단일 디스크만 사용하는 경우와 비교하여 성능을 개선하고 처리량을 향상하기 위해 사용할 수 있습니다.
@@ -112,7 +113,7 @@ zypper install mdadm
     ```
 
 ## <a name="create-the-raid-array"></a>RAID 배열 만들기
-1. 다음 예는 3개의 별도 데이터 디스크(sdc1, sdd1, sde1)에 위치한 3개의 파티션을 "스트라이프"합니다(RAID 수준 0).  이 명령을 실행하면 **/dev/md127**이라는 새 RAID 디바이스가 만들어집니다. 이 데이터 디스크가 이전에 작동하지 않는 다른 RAID 배열의 일부였다면 `--force` 매개 변수를 `mdadm` 명령에 추가해야 합니다.
+1. 다음 예는 3개의 별도 데이터 디스크(sdc1, sdd1, sde1)에 위치한 3개의 파티션을 "스트라이프"합니다(RAID 수준 0).  이 명령을 실행하면 **/dev/md127** 이라는 새 RAID 디바이스가 만들어집니다. 이 데이터 디스크가 이전에 작동하지 않는 다른 RAID 배열의 일부였다면 `--force` 매개 변수를 `mdadm` 명령에 추가해야 합니다.
 
     ```bash  
     sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
@@ -127,7 +128,7 @@ zypper install mdadm
     sudo mkfs -t ext4 /dev/md127
     ```
    
-    나. **SLES 11**
+    b. **SLES 11**
 
     ```bash
     sudo mkfs -t ext3 /dev/md127

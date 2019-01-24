@@ -3,9 +3,9 @@ title: Java와 함께 Azure Service Bus 항목을 사용하는 방법 | Microsof
 description: Azure에서 Service Bus 토픽 및 구독을 사용합니다.
 services: service-bus-messaging
 documentationcenter: java
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 63d6c8bd-8a22-4292-befc-545ffb52e8eb
 ms.service: service-bus-messaging
 ms.workload: tbd
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 09/17/2018
-ms.author: spelluru
-ms.openlocfilehash: 501d15ebbb373c100dd735e97bebf2f085a9579e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.author: aschhab
+ms.openlocfilehash: cd2d5812d1b61e1d8fcc00fbc824be8ceac696de
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241322"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849960"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Java에서 Service Bus 토픽 및 구독을 사용하는 방법
 
@@ -67,7 +67,7 @@ Service Bus 메시징 네임스페이스는 [정규화된 도메인 이름](http
 1. **모든 리소스**를 클릭한 다음 새로 만든 네임스페이스 이름을 클릭합니다.
 2. 네임스페이스 창에서 **공유 액세스 정책**을 클릭합니다.
 3. **공유 액세스 정책** 화면에서 **RootManageSharedAccessKey**를 클릭합니다.
-4. **정책: RootManageSharedAccessKey** 창에서 **기본 연결 문자열** 옆의 **복사** 단추를 클릭하여 나중에 사용할 수 있도록 연결 문자열을 클립보드에 복사합니다. 메모장이나 기타 다른 위치에 임시로 이 값을 붙여 넣습니다.
+4. **정책: RootManageSharedAccessKey** 창에서 **기본 연결 문자열** 옆에 있는 **복사** 단추를 클릭하여 나중에 사용할 수 있도록 해당 연결 문자열을 클립보드에 복사합니다. 메모장이나 기타 다른 위치에 임시로 이 값을 붙여 넣습니다.
 
     ![connection-string](./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png)
 5. 이전 단계를 반복하여 나중에 사용할 수 있도록 **기본 키** 값을 복사하여 임시 위치에 붙여넣습니다.

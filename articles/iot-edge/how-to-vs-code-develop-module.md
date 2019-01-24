@@ -6,15 +6,15 @@ keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 01/12/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 463ab617051bf97bb3b1c38ed431c4b6936a9c90
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5abc13a39db3f1061e3df76857645d8075feade5
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118696"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245755"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 모듈 개발 및 디버그
 
@@ -160,7 +160,7 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
        dotnet build
        ```
 
-     - `program.cs` 파일을 열고 중단점을 추가합니다.
+     - `Program.cs` 파일을 열고 중단점을 추가합니다.
 
      - **보기 > 디버그**를 선택하여 Visual Studio Code 디버그 보기로 이동합니다. 드롭다운에서 디버그 구성 **‘&lt;모듈 이름&gt;’ 로컬 디버그(.NET Core)** 를 선택합니다.
 
@@ -222,7 +222,7 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
 
 ### <a name="build-and-run-container-for-debugging-and-debug-in-attach-mode"></a>디버깅을 위한 컨테이너 빌드/실행 및 연결 모드에서 디버그
 
-1. 모듈 파일(`program.cs`, `app.js`, `App.java` 또는 `<your module name>.cs`)을 열고 중단점을 추가합니다.
+1. 모듈 파일(`Program.cs`, `app.js`, `App.java` 또는 `<your module name>.cs`)을 열고 중단점을 추가합니다.
 
 1. Visual Studio Code Explorer 보기에서 솔루션의 `deployment.debug.template.json` 파일을 마우스 오른쪽 단추로 클릭한 후 **Build and Run IoT Edge solution in Simulator**(시뮬레이터에서 IoT Edge 솔루션 빌드 및 실행)를 선택합니다. 같은 창에서 모든 모듈 컨테이너 로그를 볼 수 있습니다. Docker 보기로 이동하여 컨테이너 상태를 확인할 수도 있습니다.
 
@@ -241,17 +241,17 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
 >
 > Azure Functions를 포함하여 C#으로 작성된 모듈의 경우 이 예제는 빌드하는 동안 컨테이너 이미지에 .NET Core 명령줄 디버거(VSDBG)를 포함하는 디버그 버전의 `Dockerfile.amd64.debug`를 기반으로 합니다. C# 모듈을 디버그한 후에 프로덕션에서 사용할 준비가 된 IoT Edge 모듈에 VSDBG를 사용하지 않고 Dockerfile을 직접 사용하는 것이 좋습니다.
 
-## <a name="debug-a-module-with-iot-edge-runtime"></a>IoT Edge 런타임을 사용하여 모듈 디버그
+## <a name="debug-a-module-with-the-iot-edge-runtime"></a>IoT Edge 런타임을 사용하여 모듈 디버그
 
 각 모듈 폴더에는 서로 다른 컨테이너 유형에 사용되는 여러 Docker 파일이 있습니다. **.debug** 확장명으로 끝나는 파일을 사용하여 테스트할 모듈을 빌드합니다.
 
-IoT Edge 런타임으로 모듈을 디버깅하는 경우에는 모듈이 IoT Edge 런타임을 기반으로 실행됩니다. IoT Edge 디바이스는 동일한 머신에 있거나, 대개는, 다른 머신에 있을 수 있습니다(VS Code는 개발 머신에 있고 IoT Edge 런타임과 모듈은 다른 실제 머신에서 실행되는 경우). VS Code에서 디버깅 세션을 수행하려면 다음 단계를 수행해야 합니다.
+이 방법을 사용하여 모듈을 디버그하는 경우에는 모듈이 IoT Edge 런타임을 기반으로 실행됩니다. IoT Edge 디바이스와 Visual Studio Code가 동일한 머신에 있는 경우도 있지만, Visual Studio Code는 개발 머신에 있고 IoT Edge 런타임과 모듈은 다른 물리적 머신에서 실행되는 경우가 보다 일반적입니다. Visual Studio Code에서 디버그하려면 다음을 수행해야 합니다.
 
-- IoT Edge 디바이스를 설정하고 **.debug** Dockerfile로 IoT Edge 모듈을 빌드하고 IoT Edge 디바이스에 배포합니다. 
-- 디버거가 연결될 수 있도록 모듈의 IP와 포트를 노출합니다.
-- VS Code가 원격 머신의 컨테이너에 있는 프로세스에 연결할 수 있도록 `launch.json` 파일을 업데이트합니다.
+- IoT Edge 디바이스를 설정하고 **.debug** Dockerfile로 IoT Edge 모듈을 빌드한 다음, IoT Edge 디바이스에 배포합니다.
+- 디버거를 연결할 수 있도록 모듈의 IP 및 포트를 노출합니다.
+- Visual Studio Code가 원격 머신의 컨테이너에 있는 프로세스에 연결할 수 있도록 `launch.json`을 업데이트합니다. 이 파일은 작업 영역의 `.vscode` 폴더에 있으며 디버깅을 지원하는 새 모듈을 추가할 때마다 업데이트됩니다.
 
-### <a name="build-and-deploy-your-module-and-deploy-to-iot-edge-device"></a>모듈을 빌드 및 배포하고 IoT Edge 디바이스에 배포
+### <a name="build-and-deploy-your-module-to-the-iot-edge-device"></a>모듈을 빌드하고 IoT Edge 디바이스에 배포
 
 1. Visual Studio Code에서 적절한 `createOptions` 값이 설정된 모듈 이미지의 디버그 버전을 포함하는 `deployment.debug.template.json` 파일을 엽니다.
 
@@ -292,36 +292,57 @@ IoT Edge 런타임으로 모듈을 디버깅하는 경우에는 모듈이 IoT Ed
    1. 솔루션의 `deployment.debug.template.json` 파일을 선택합니다.
 
 1. Visual Studio Code Explorer 보기에서 **Azure IoT Hub 디바이스** 섹션에서:
-   1. IoT Edge 디바이스 ID를 마우스 오른쪽 단추로 클릭한 후 **단일 디바이스용 배포 만들기**를 선택합니다.
+   1. IoT Edge 디바이스 ID를 마우스 오른쪽 단추로 클릭하고 **단일 디바이스용 배포 만들기**를 선택합니다.
+
+      > [!TIP]
+      > 선택한 디바이스가 IoT Edge 디바이스인지 확인하려면 선택하여 모듈 목록을 확장하고 **$edgeHub** 및 **$edgeAgent**가 있는지 확인합니다. 모든 IoT Edge 디바이스에 이러한 두 모듈이 포함됩니다.
 
    1. 솔루션의 **config** 폴더로 이동하고, `deployment.debug.amd64.json` 파일을 선택한 다음, **Edge 배포 매니페스트 선택**을 선택합니다.
 
 통합 터미널에서 배포 ID를 사용하여 생성된 배포가 표시됩니다.
 
-터미널에서 `docker ps` 명령을 실행하여 컨테이너 상태를 확인할 수 있습니다. VS Code와 IoT Edge 런타임이 동일한 머신에서 실행되는 경우에는 Visual Studio Code Docker 보기에서 상태를 확인할 수도 있습니다.
+터미널에서 `docker ps` 명령을 실행하여 컨테이너 상태를 확인할 수 있습니다. Visual Studio Code와 IoT Edge 런타임이 동일한 머신에서 실행되는 경우 Visual Studio Code Docker 보기에서 상태를 확인할 수도 있습니다.
 
-### <a name="expose-the-ip-and-port-of-the-module-for-the-debugger-to-attach"></a>디버거가 연결될 수 있도록 모듈의 IP와 포트 노출
+### <a name="expose-the-ip-and-port-of-the-module-for-the-debugger"></a>디버거에 대해 모듈의 IP 및 포트 노출
 
-모듈이 VS Code와 동일한 머신에서 실행 중인 경우 localhost를 사용하여 컨테이너를 연결 중이고, **.debug** Dockerfile, 모듈 컨테이너 CreateOptions 및 `launch.json`에 올바른 포트가 이미 설정되어 있습니다. 이 섹션을 건너뛸 수 있습니다. 모듈과 VS 코드가 별도의 머신에서 실행되는 경우 각 언어에 대해 아래 단계를 따르세요.
+이 섹션에서는 localhost를 사용하여 컨테이너에 연결하고 **.debug** Dockerfile, 모듈의 컨테이너 `createOptions` 설정 및 `launch.json` 파일에 이미 올바른 포트 설정이 있기 때문에 사용자 모듈이 Visual Studio Code와 동일한 머신에서 실행 중인 경우 이 섹션을 건너뛰어도 됩니다. 사용자 모듈과 Visual Studio Code가 별도의 컴퓨터에서 실행 중인 경우에는 개발 언어에 대한 단계를 따르세요.
 
-  - **C#, C# 함수**: [개발 머신과 IoT Edge 디바이스에 SSH 채널을 구성하고](https://github.com/OmniSharp/omnisharp-vscode/wiki/Attaching-to-remote-processes) 연결할 `launch.json` 파일을 편집합니다.
-  - **Node.js**: 모듈이 디버거를 연결할 준비가 되었는지 확인하고 디버거 머신의 9229 포트를 외부에서 액세스할 수 있는지 확인합니다. 이 상태는 디버거 머신에서 [http://%3cdebuggee-machine-IP%3e:9229/json]http://<debuggee-machine-IP>:9229/json을 열어서 확인할 수 있습니다. 이 URL은 디버깅할 Node.js에 대한 정보를 표시합니다. 그런 다음, 디버거 머신에서 VS Code를 열고 모듈이 “<module-name> 원격 디버그(Node.js)” 프로필 또는 Windows 컨테이너로 실행되는 경우 “<module-name> 원격 디버그(Windows 컨테이너의 Node.js)” 프로필의 주소 값이 디버기 머신의 IP가 되도록 `launch.json` 파일을 편집합니다.
-  - **Java**: `ssh -f <username>@<edgedevicehost> -L 5005:127.0.0.1:5005 -N`을 실행하여 Edge 디바이스에 ssh 터널을 빌드한 다음, 연결할 `launch.json` 파일을 편집합니다. 설정에 대한 자세한 내용은 [여기](https://code.visualstudio.com/docs/java/java-debugging)에서 확인할 수 있습니다. 
-  - **Python**: `ptvsd.enable_attach(('0.0.0.0', 5678))` 코드에서 0.0.0.0을 IoT Edge 디바이스의 IP 주소로 변경합니다. IoT Edge 모듈을 다시 빌드, 푸시 및 배포합니다. 개발 머신의 `launch.json`에서 `"host"` `"localhost"` change `"localhost"`를 원격 IoT Edge 디바이스의 공용 IP 주소로 업데이트합니다.
+- **Azure Functions를 포함한 C#**
 
+  [개발 머신과 IoT Edge 디바이스에서 SSH 채널을 구성](https://github.com/OmniSharp/omnisharp-vscode/wiki/Attaching-to-remote-processes)하고 연결할 `launch.json` 파일을 편집합니다.
+
+- **Node.JS**
+
+  - 디버그할 머신의 모듈이 실행 중이고 디버거에서 연결할 준비가 되었으며, 포트 9229에 외부적으로 액세스할 수 있는지 확인합니다. 디버거 머신에서 `http://<target-machine-IP>:9229/json`을 열어 이를 확인할 수 있습니다. 이 URL은 디버그할 Node.js 모듈에 대한 정보를 표시합니다.
+  
+  - 개발 머신에서 Visual Studio Code를 열고 **&lt;모듈 이름&gt; 원격 디버그(Node.js)** 프로필(또는 모듈이 Windows 컨테이너로 실행되는 경우 **&lt;모듈 이름&gt; 원격 디버그(Windows 컨테이너의 Node.js)** 프로필)의 주소 값이 디버그 중인 머신의 IP가 되도록 `launch.json`을 편집합니다.
+
+- **Java**
+
+  - `ssh -f <username>@<target-machine> -L 5005:127.0.0.1:5005 -N`을 실행하여 디버그할 머신에 대한 SSH 터널을 빌드합니다.
+  
+  - 개발 머신에서 Visual Studio Code를 열고 대상 머신에 연결할 수 있도록 `launch.json`의 **&lt;모듈 이름&gt; 원격 디버그(Java)** 프로필을 편집합니다. Visual Studio Code를 사용하여 `launch.json`을 편집하고 Java를 디버그하는 방법을 자세히 알아보려면 [디버거 구성](https://code.visualstudio.com/docs/java/java-debugging#_configuration) 섹션을 참조하세요.
+
+- **Python**
+
+  - 디버그할 머신의 포트 5678이 열려 있고 액세스 가능한지 확인합니다.
+
+  - 앞에서 `main.py`에 삽입한 코드 `ptvsd.enable_attach(('0.0.0.0', 5678))`에서 **0.0.0.0**을 디버그할 머신의 IP 주소로 변경합니다. IoT Edge 모듈을 다시 빌드, 푸시 및 배포합니다.
+
+  - 개발 머신에서 Visual Studio Code를 열고 **&lt;모듈 이름&gt; 원격 디버그(Python)** 프로필의 `host` 값이 `localhost` 대신 대상 머신의 IP 주소를 사용하도록 `launch.json`을 편집합니다.
 
 ### <a name="debug-your-module"></a>모듈 디버그
-
-Visual Studio Code는 작업 영역의 `.vscode` 폴더에 위치한 `launch.json` 파일에서 디버깅 구성 정보를 유지합니다. 이 `launch.json` 파일은 새 IoT Edge 솔루션을 만들 때 생성되었으며, 디버깅을 지원하는 새 모듈을 추가할 때마다 업데이트됩니다.
 
 1. Visual Studio Code 디버그 보기에서 모듈의 디버그 구성 파일을 선택합니다. 디버그 옵션 이름은 **‘&lt;모듈 이름&gt;’ 원격 디버그(Java)** 와 비슷해야 합니다.
 
 1. 개발 언어의 모듈 파일을 열고 중단점을 추가합니다.
-   - **C#, C# 함수**: `Program.cs` 파일을 열고 중단점을 추가합니다.
-   - **Node.js**: `app.js` 파일을 열고 중단점을 추가합니다.
-   - **Java**: `App.java` 파일을 열고 중단점을 추가합니다.
-   - **Python**: `main.py`를 열고 `ptvsd.break_into_debugger()` 줄을 추가한 콜백 메서드에 중단점을 추가합니다.
-   - **C**: `main.c` 파일을 열고 중단점을 추가합니다.
+
+   - **Azure 함수(C#)**: `<your module name>.cs` 파일에 중단점을 추가합니다.
+   - **C#**: `Program.cs` 파일에 중단점을 추가합니다.
+   - **Node.js**: `app.js` 파일에 중단점을 추가합니다.
+   - **Java**: `App.java` 파일에 중단점을 추가합니다.
+   - **Python**: `ptvsd.break_into_debugger()` 줄을 추가한 `main.py` 파일의 콜백 메서드에 중단점을 추가합니다.
+   - **C**: `main.c` 파일에 중단점을 추가합니다.
 
 1. **디버깅 시작**을 선택하거나 **F5** 키를 누릅니다. 연결할 프로세스를 선택합니다.
 

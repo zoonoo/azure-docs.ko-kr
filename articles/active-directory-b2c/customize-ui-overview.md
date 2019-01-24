@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 사용자 인터페이스 사용자 지�
 description: Azure Active Directory B2C를 사용하는 애플리케이션의 사용자 인터페이스를 사용자 지정하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 08cd16cb9edc5606a18fc5d425910185f7747179
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 44d1e5996b1f9b8ae65df9ad16c4bb543fdab1a0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187555"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844775"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정 정보
 
@@ -44,7 +44,7 @@ Azure AD B2C는 고객의 브라우저에서 코드를 실행하고 [CORS(원본
 
 ## <a name="where-do-i-store-ui-content"></a>UI 콘텐츠는 어디에 저장하나요?
 
-[Azure Blob 저장소](../storage/blobs/storage-blobs-introduction.md), 웹 서버, CDN, AWS S3 또는 파일 공유 시스템과 같이 어느 곳에나 UI 콘텐츠를 호스트할 수 있습니다. 중요한 점은 CORS를 사용하도록 설정한 상태에서 공개적으로 사용 가능한 HTTPS 엔드포인트에서 콘텐츠를 호스팅하는 것입니다. 콘텐츠에 지정하는 경우 절대 URL을 사용해야 합니다.
+[Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), 웹 서버, CDN, AWS S3 또는 파일 공유 시스템과 같이 어느 곳에나 UI 콘텐츠를 호스트할 수 있습니다. 중요한 점은 CORS를 사용하도록 설정한 상태에서 공개적으로 사용 가능한 HTTPS 엔드포인트에서 콘텐츠를 호스팅하는 것입니다. 콘텐츠에 지정하는 경우 절대 URL을 사용해야 합니다.
 
 ## <a name="how-do-i-get-started"></a>어떻게 시작하나요?
 

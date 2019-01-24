@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 01/10/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a20e4d713440ca6fe1adaf5b89bff347a8fd0bde
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 262c81dbf2c094b6a823a8320a0657f2767bc20c
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744091"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332322"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Log Analytics의 사용량 및 비용 관리
 
@@ -67,7 +66,7 @@ Log Analytics 요금은 Azure 청구서에 추가됩니다. Azure 청구서의 �
 
 1. 작업 영역의 왼쪽 창에서 **사용량 및 예상 비용**을 선택합니다.
 2. 선택한 작업 영역에 대한 **사용량 및 예상 비용** 창의 페이지의 상단에서 **데이터 볼륨 관리**를 클릭합니다. 
-5. 일일 한도는 기본으로 **OFF**이며 이를 사용하도록 설정하려면 **ON**을 클릭한 다음, 데이터 볼륨 한도를 GB/일로 설정합니다.<br><br> ![Log Analytics 데이터 제한 구성](media/manage-cost-storage/set-daily-volume-cap-01.png)
+3. 일일 한도는 기본으로 **OFF**이며 이를 사용하도록 설정하려면 **ON**을 클릭한 다음, 데이터 볼륨 한도를 GB/일로 설정합니다.<br><br> ![Log Analytics 데이터 제한 구성](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### <a name="alert-when-daily-cap-reached"></a>일일 상한에 도달한 경우 경고
 데이터 제한 임계값에 도달하는 경우 Azure Portal에 시각적 큐를 표시하는 반면, 이 동작은 즉각적인 주의가 필요한 운영 문제를 관리하는 방법에 맞출 필요는 없습니다.  경고 알림을 수신하려면 Azure Monitor에서 새 경고 규칙을 만들 수 있습니다.  자세한 내용은 [경고 만들고 보고 관리하는 방법](alerts-metric.md)을 참조합니다.      
@@ -98,6 +97,25 @@ Log Analytics 요금은 Azure 청구서에 추가됩니다. Azure 청구서의 �
 ## <a name="legacy-pricing-tiers"></a>레거시 가격 책정 계층
 
 2018년 7월 1일 이전에 기업계약을 체결했거나, 구독에서 로그 분석 작업 영역을 이미 만든 고객은 여전히 *무료* 요금제에 액세스할 수 있습니다. 구독이 기존 EA 등록에 연결되지 않은 경우에는 2018년 4월 2일 이후 새 구독에서 작업 영역을 만들 때 *무료* 계층을 사용할 수 없습니다.  *무료* 계층의 경우 데이터는 7일 보존으로 제한됩니다.  레거시 ‘독립 실행형’ 또는 ‘노드당’ 계층과 현재 2018년 단일 가격 책정 계층의 경우 최근 31일 동안 수집된 데이터를 사용할 수 있습니다. ‘무료’ 계층은 일일 수집 제한이 500MB입니다. 허용되는 양이 계속 초과될 경우 이 제한을 초과해서 데이터를 수집하도록 작업 영역을 다른 플랜으로 변경할 수 있습니다. 
+
+> [!NOTE]
+> System Center용 OMS E1 Suite, OMS E2 Suite 또는 OMS 추가 기능을 구매할 때 제공되는 자격을 사용하려면 Log Analytics의 *노드별* 가격 책정 계층을 선택합니다.
+
+## <a name="changing-pricing-tier"></a>가격 책정 계층 변경
+
+Log Analytics 작업 영역에 레거시 가격 책정 계층에 대한 액세스 권한이 있는 경우 레거시 가격 책정 계층 간을 변경하려면 다음을 수행합니다.
+
+1. Azure Portal의 Log Analytics 구독 창에서 작업 영역을 선택합니다.
+
+2. 작업 영역 창의 **일반**에서 **가격 책정 계층**을 선택합니다.  
+
+3. **가격 책정 계층**에서 가격 책정 계층을 선택하고 **선택**을 클릭합니다.  
+    ![선택된 가격 책정 계획](media/manage-cost-storage/workspace-pricing-tier-info.png)
+
+작업 영역을 현재 가격 책정 계층으로 이동하려는 경우 [Azure Monitor에서 구독의 모니터링 가격 책정 모델을 변경](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model)하여 해당 구독에 있는 모든 작업 영역의 가격 책정 계층을 변경해야 합니다.
+
+> [!NOTE]
+> 작업 영역이 Automation 계정에 연결된 경우 *독립 실행형(GB당)* 가격 책정 계층을 선택하려면 모든 **Automation 및 제어** 솔루션을 삭제하고 Automation 계정에 대한 연결을 해제해야 합니다. 작업 영역 블레이드의 **일반**에서 **솔루션**을 클릭하여 솔루션을 보고 삭제합니다. Automation 계정에 대한 연결을 해제하려면 **가격 책정 계층** 블레이드에서 Automation 계정의 이름을 클릭합니다.
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Log Analytics에서 더 이상 데이터를 수집하지 않는 문제 해결
@@ -136,22 +154,55 @@ Log Analytics 요금은 Azure 청구서에 추가됩니다. Azure 청구서의 �
 
 ### <a name="nodes-sending-data"></a>데이터를 전송하는 노드
 
-지난달에 데이터를 보고한 노드 수를 파악하려면 다음을 사용합니다.
+지난달에 매일 데이터를 보고한 컴퓨터(노드)의 수를 파악하려면 다음을 사용합니다.
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
-| summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
+| summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-컴퓨터당 수집된 이벤트 수를 보려면 다음을 사용합니다.
+**청구 데이터 형식**(일부 데이터 형식은 무료임)을 전송하는 컴퓨터의 목록을 가져오려면 [_IsBillable](log-standard-properties.md#isbillable) 속성을 활용합니다.
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
+
+다른 데이터 형식의 데이터 간을 검색할 경우 비용이 많이 들기 때문에 이러한`union withsource = tt *` 쿼리는 자주 사용하지 않도록 합니다. 
+
+비용이 청구되는 데이터 형식을 전송하는 컴퓨터의 시간당 수를 반환하도록 이 쿼리를 다음과 같이 확장할 수 있습니다.
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+
+컴퓨터당 수집된 청구 가능한 이벤트의 **크기**를 보려면 크기(바이트)를 제공하는 `_BilledSize` 속성을 사용합니다.
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
+
+이 쿼리는 이전 쿼리 방법을 사용량 데이터 형식으로 바꿉니다. 
+
+컴퓨터당 수집된 이벤트 **수**를 보려면 다음을 사용합니다.
 
 `union withsource = tt *
-| summarize count() by Computer |sort by count_ nulls last`
+| summarize count() by Computer | sort by count_ nulls last`
 
-이 쿼리는 실행하는 데 비용이 많이 들기 때문에 신중하게 사용하세요. 특정 컴퓨터로 데이터를 전송하는 데이터 형식을 확인하려면 다음을 사용합니다.
+컴퓨터당 청구 가능한 이벤트 수를 보려면 다음을 사용합니다. 
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize count() by Computer  | sort by count_ nulls last`
+
+특정 컴퓨터로 데이터를 전송하는 청구 가능 데이터 형식 수를 확인하려면 다음을 사용합니다.
 
 `union withsource = tt *
-| where Computer == "*computer name*"
-| summarize count() by tt |sort by count_ nulls last `
+| where Computer == "computer name"
+| where _IsBillable == true 
+| summarize count() by tt | sort by count_ nulls last `
 
 > [!NOTE]
 > 사용량 데이터 형식의 일부 필드가 여전히 스키마에 있지만 더 이상 사용되지 않으며 해당 값은 더 이상 채워지지 않습니다. 이는 **컴퓨터**일 뿐 아니라 수집과 관련된 필드(**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** 및 **AverageProcessingTimeMs**)이기도 합니다.

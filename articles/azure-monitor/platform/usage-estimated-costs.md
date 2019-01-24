@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
-ms.component: ''
-ms.openlocfilehash: 6b8940f62b94615b4622f60786e411b9a18b2dee
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.subservice: ''
+ms.openlocfilehash: c326c255636bac7e698a64044e9ab65c8c05d01c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001620"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460723"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>모니터링 사용량 및 예상 비용
 
@@ -112,7 +112,7 @@ Microsoft Operations Management Suite E1 및 E2를 구매한 고객은 [Log Anal
 
 ## <a name="automate-moving-to-the-new-pricing-model"></a>새 가격 책정 모델로 전환 자동화
 
-아래 스크립트는 Azure PowerShell 모듈이 필요합니다. 최신 버전이 설치되었는지 확인하려면 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.1.0)를 참조하세요.
+아래 스크립트는 Azure PowerShell 모듈이 필요합니다. 최신 버전이 설치되었는지 확인하려면 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.1.0)를 참조하세요.
 
 최신 버전의 Azure PowerShell이 설치되어 있으면 먼저 ``Connect-AzureRmAccount`` 명령을 실행합니다.
 

@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 1/7/2019
 ms.author: dkshir
-ms.openlocfilehash: 0112853bf36c6b7b594400d303234d204b2ea24a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ff8638042fa10c939ff9c5fa7af99a660fcdc753
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54109358"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198646"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>일반적인 작업에 대해 Azure Digital Twins API를 쿼리하는 방법
 
@@ -26,7 +26,7 @@ ms.locfileid: "54109358"
 
 이 섹션에서는 프로비전된 공간에 대한 자세한 정보를 가져오는 샘플 쿼리를 보여줍니다. 자리 표시자를 설치 프로그램의 값으로 대체하여 샘플 쿼리로 인증된 GET HTTP 요청을 만듭니다. 
 
-- 루트 노드를 가져옵니다.
+- 루트 노드인 공간을 가져옵니다.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?$filter=ParentSpaceId eq null
@@ -38,7 +38,7 @@ ms.locfileid: "54109358"
     YOUR_MANAGEMENT_API_URL/spaces?name=Focus Room A1&includes=fullpath,devices,sensors,values,sensorsvalues
     ```
 
-- 부모가 지정된 공간 ID인 공간을 가져오고, 종속성을 포함합니다. 
+- [지정된 공간을 기준](how-to-navigate-apis.md#api-navigation)으로 수준 2~5에 있으며 부모가 지정된 공간 ID인 공간 및 해당 디바이스/센서 정보를 가져옵니다. 
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?spaceId=YOUR_SPACE_ID&includes=fullpath,devices,sensors,values,sensorsvalues&traverse=Down&minLevel=1&minRelative=true&maxLevel=5&maxRelative=true
@@ -91,7 +91,7 @@ ms.locfileid: "54109358"
     YOUR_MANAGEMENT_API_URL/roleassignments?path=/A_SPATIAL_PATH
     ```
 
-## <a name="queries-for-device-management"></a>디바이스 관리에 대한 쿼리
+## <a name="queries-for-devices"></a>디바이스 쿼리
 
 이 섹션에서는 디바이스에 대한 특정 정보를 가져오는 관리 API를 사용하는 방법의 몇 가지 예제를 보여줍니다. 모든 API 호출은 GET HTTP 요청으로 인증되어야 합니다.
 
@@ -167,7 +167,7 @@ ms.locfileid: "54109358"
     YOUR_MANAGEMENT_API_URL/devices?spaceId=YOUR_SPACE_ID&traverse=Span&minLevel=0&minRelative=true&maxLevel=0&maxRelative=true
     ```
 
-- 특정 디바이스에 대한 IoT Hub 연결 문자열을 가져옵니다.
+- 사용 중인 디바이스의 IoT Hub 디바이스 연결 문자열을 가져옵니다.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_ID?includes=ConnectionString

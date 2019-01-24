@@ -3,19 +3,19 @@ title: Azure Active Directory B2C의 사용자 계정 개요 | Microsoft Docs
 description: Azure Active Directory B2C의 사용자 계정에 대해 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f517754a8076fc18ed29f7db49f6ff9bfc6c7b3d
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4bd3eba54d70ae065ce16845dd4fb9351c069f2d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725763"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853309"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 계정 개요
 
@@ -24,7 +24,7 @@ Azure AD(Azure Active Directory) B2C에서는 여러 유형의 계정을 사용�
 다음 유형의 계정을 사용할 수 있습니다.
 
 - **회사 계정** - 회사 계정은 테넌트의 리소스에 액세스할 수 있으며, 관리자 역할이 있는 경우 테넌트를 관리할 수 있습니다.
-- **게스트 계정** - 게스트 계정은 Microsoft 계정 또는 Azure Active Directory 사용자만 될 수 있으며, 응용 프로그램에 액세스하거나 테넌트를 관리하는 데 사용될 수 있습니다. 
+- **게스트 계정** - 게스트 계정은 Microsoft 계정 또는 Azure Active Directory 사용자만 될 수 있으며, 애플리케이션에 액세스하거나 테넌트를 관리하는 데 사용될 수 있습니다. 
 - **소비자 계정** - 소비자 계정은 Azure AD B2C 애플리케이션에서 가입 사용자 흐름을 진행하거나 Azure AD Graph API를 사용하여 생성되며, Azure AD B2C에 등록된 애플리케이션의 사용자에 의해 사용됩니다. 
 
 ## <a name="work-account"></a>회사 계정

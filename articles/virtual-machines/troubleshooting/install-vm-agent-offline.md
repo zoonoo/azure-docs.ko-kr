@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 14b108a836424e92a251f50b42ed93963038a333
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e9fc8351b5e9a4f2274f0906d4071f86dcbcff26
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192059"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259685"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>오프라인 모드에서 Azure 가상 머신 에이전트 설치 
 
@@ -35,6 +35,14 @@ Azure VM 에이전트(가상 머신 에이전트)는 로컬 관리자 암호 재
 ## <a name="how-to-install-the-vm-agent-in-offline-mode"></a>오프라인 모드에서 VM 에이전트를 설치하는 방법
 
 다음 단계에 따라 오프라인 모드에서 VM 에이전트를 설치합니다.
+
+> [!NOTE]
+> 오프라인 모드에서 VM 에이전트를 설치하는 프로세스를 자동화할 수 있습니다.
+> 이렇게 하려면 [Azure VM 복구 스크립트](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md)를 사용합니다. Azure VM 복구 스크립트를 사용하려는 경우 다음 프로세스를 사용할 수 있습니다.
+> 1. 스크립트를 사용해 관련 VM의 OS 디스크를 복구 VM에 연결하는 방식으로 1단계를 건너뜁니다.
+> 2. 2~10단계를 진행하여 완화 내용을 적용합니다.
+> 3. 스크립트를 사용해 VM을 다시 빌드하는 방식으로 11단계를 건너뜁니다.
+> 4. 12단계를 진행합니다.
 
 ### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>1단계: VM의 OS 디스크를 다른 VM에 데이터 디스크로 연결
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 123365f1aa149c0df158eedcc156280a3fe771d2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 110ba7f13b2a0d44277c881d67f0c794c8658cd1
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106680"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244587"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>자습서: Python을 사용하여 Jupyter Notebook을 만들고 실행
 
@@ -28,9 +28,9 @@ ms.locfileid: "53106680"
 
 ## <a name="create-the-project"></a>프로젝트 만들기
 
-1. [Azure Notebooks](https://notebooks.azure.com)로 이동하여 로그인합니다. (자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요).
+1. [Azure Notebooks](https://notebooks.azure.com)로 이동하여 로그인합니다. (자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요.)
 
-1. 공개 프로필 페이지에서 페이지의 맨 위에 있는 **내 프로젝트**를 선택합니다.
+1. 공개 프로필 페이지 맨 위에 있는 **내 프로젝트**를 선택합니다.
 
     ![브라우저 창 맨 위에 있는 내 프로젝트 링크](media/quickstarts/my-projects-link.png)
 
@@ -411,17 +411,13 @@ Notebook 작업을 마쳤으면 **파일** > **닫기 및 중지** 명령을 사
 
 ## <a name="debug-notebooks-using-visual-studio-code"></a>Visual Studio Code를 사용하여 Notebook 디버그
 
-Notebook의 코드 셀이 예상대로 동작하지 않는 경우 코드 버그 또는 다른 결함이 원인일 수 있습니다. 그러나 Jupyter Notebook은 `print` 문을 사용하여 변수 값을 표시하는 방법 외에는 디버깅 기능을 제공하지 않습니다.
+Notebook의 코드 셀이 예상대로 동작하지 않는 경우 코드 버그 또는 다른 결함이 원인일 수 있습니다. 그러나 일반적인 Jupyter 환경에서는 `print` 문을 사용하여 변수 값을 표시하는 방법 외에는 디버깅 기능을 제공하지 않습니다.
 
-다행스럽게도 Visual Studio Code용 Python 확장은 Jupyter Notebook을 주석에서 Markdown 셀과 함께 단일 코드 파일로 직접 가져올 수 있습니다. 그 후 Visual Studio Code 디버거를 실행하여 코드를 단계별로 실행하고, 중단점을 설정하고, 상태를 검사하는 등의 작업을 할 수 있습니다. 
+Notebook의 *.ipynb* 파일을 다운로드하여 Python 확장을 사용해 Visual Studio Code에서 열 수 있습니다. 이 확장은 Notebook을 단일 코드 파일로 직접 가져오므로 주석에서 Markdown 셀이 유지됩니다. Notebook을 가져온 후에는 Visual Studio Code 디버거를 사용하여 코드를 단계별로 실행하고 중단점을 설정하고 상태를 점검하는 등의 작업을 수행할 수 있습니다. 코드를 수정한 후에 *.ipynb* 파일을 Visual Studio Code에서 내보낸 다음 Azure Notebooks에 다시 업로드합니다.
 
-코드를 수정한 후에는 *.ipynb* 파일을 저장하고 Azure Notebooks에 업로드합니다.
+자세한 내용은 Visual Studio Code 설명서에서 [Jupyter Notebook 디버그](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook)를 참조하세요.
 
-자세한 내용은 Visual Studio Code 설명서의 다음 문서를 참조하세요.
-
-- [VS Code의 Jupyter Notebook 개요](https://code.visualstudio.com/docs/languages/python#_jupyter-notebooks)
-- [Python 자습서 - 디버거 구성 및 실행](https://code.visualstudio.com/docs/python/python-tutorial#_configure-and-run-the-debugger)
-- [편집 - Jupyter 코드 셀](https://code.visualstudio.com/docs/python/editing#_jupyter-code-cells)
+[Visual Studio Code - Jupyter 지원](https://code.visualstudio.com/docs/python/jupyter-support)에서 Visual Studio Code의 Juypter Notebook용 추가 기능도 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

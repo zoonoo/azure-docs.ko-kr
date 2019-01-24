@@ -1,26 +1,8 @@
 ---
-title: '문제 해결: Machine Learning Studio 작업 영역 만들기 및 연결 - Azure | Microsoft Docs'
-description: 이 가이드에서는 Azure Machine Learning Studio 작업 영역을 설정할 때 자주 발생하는 몇 가지 문제에 대한 해결 방법을 제공합니다.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 1a8aec4b-35f9-44e8-9570-2575b8979ab1
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: 878b26b72263ddd640e1cfa936c1e4ade1af6d68
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275281"
+제목: ‘문제 해결: Machine Learning Studio 작업 영역 만들기 및 연결' titleSuffix: Azure Machine Learning Studio 설명: 이 가이드에서는 Azure Machine Learning Studio 작업 영역을 설정할 때 자주 발생하는 몇 가지 문제에 대한 해결 방법을 제공합니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/20/2017
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-workspace"></a>문제 해결 가이드: Azure Machine Learning Studio 작업 영역 만들기 및 연결
 이 가이드에서는 Azure Machine Learning Studio 작업 영역을 설정할 때 자주 발생하는 몇 가지 문제에 대한 해결 방법을 제공합니다.

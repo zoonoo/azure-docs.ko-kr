@@ -15,12 +15,12 @@ ms.component: compliance
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 5af1d91a51b090821b5bbb314834db0d5cbe6a26
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 9ada31066b905ca4335acf78ae87534e4c359651
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45606863"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331863"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 사용자 액세스 관리
 
@@ -44,11 +44,11 @@ Azure AD(Azure Active Directory)를 사용하면 사용자에게 적절한 액�
 
 2. 각 사용자가 자신의 액세스를 검토하도록 할지 또는 하나 이상의 사용자가 모든 사용자의 액세스를 검토하도록 할지를 결정합니다.
 
-3. 액세스 검토가 검토자의 액세스 패널에 표시되도록 합니다. 전역 관리자 또는 사용자 계정 관리자로서 [액세스 검토 페이지](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)로 이동합니다.
+3. 전역 관리자 또는 사용자 계정 관리자로서 [액세스 검토 페이지](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)로 이동합니다.
 
-4. 액세스 검토를 시작합니다. 자세한 내용은 [액세스 검토 만들기](create-access-review.md)를 참조하세요.
+4. 액세스 검토를 만듭니다. 자세한 내용은 [액세스 검토 만들기](create-access-review.md)를 참조하세요.
 
-5. 입력을 제공하도록 검토자에게 요청합니다. 기본적으로 각 사용자는 Azure AD로부터 [자신의 액세스 검토를 수행](perform-access-review.md)하는 액세스 패널에 대한 링크가 포함된 전자 메일을 받습니다.
+5. 액세스 검토를 시작할 때 입력을 제공하도록 검토자에게 요청합니다. 기본적으로 각 사용자는 Azure AD로부터 [자신의 액세스 검토를 수행](perform-access-review.md)하는 액세스 패널에 대한 링크가 포함된 전자 메일을 받습니다.
 
 6. 검토자가 입력을 제공하지 않으면 미리 알림을 보내도록 Azure AD에 요청할 수 있습니다. Azure AD에서는 기본적으로 아직 응답하지 않은 검토자에게 종료일 중간에 미리 알림을 자동으로 보냅니다.
 
@@ -57,7 +57,7 @@ Azure AD(Azure Active Directory)를 사용하면 사용자에게 적절한 액�
 
 ## <a name="next-steps"></a>다음 단계
 
-[그룹의 멤버 또는 응용 프로그램에 액세스에 대한 액세스 검토 만들기](create-access-review.md)
+[그룹의 멤버 또는 애플리케이션에 액세스에 대한 액세스 검토 만들기](create-access-review.md)
 
 
 

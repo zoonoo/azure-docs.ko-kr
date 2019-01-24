@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: ff512ac3bef1ce721860172dbaf9d9b68512a518
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b33a646c52ca5ce85e0525b04e9be5009cc6f90d
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064698"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352939"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>빠른 시작: Event Hub에서 Azure Data Explorer로 데이터 수집
 
@@ -189,7 +189,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
     ![메시지 결과 집합](media/ingest-data-event-hub/message-result-set.png)
 
     > [!NOTE]
-    > ADX에는 데이터 수집을 위한 집계(일괄 처리) 정책이 있으며, 이는 수집 프로세스를 최적화하도록 설계되었습니다. 정책이 5분으로 구성되어 있으므로 대기 시간이 발생할 수 있습니다.
+    > Azure Data Explorer에는 데이터 수집을 위한 집계(일괄 처리) 정책이 있으며, 이는 수집 프로세스를 최적화하도록 설계되었습니다. 정책이 5분으로 구성되어 있으므로 대기 시간이 발생할 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Storage Gen1의 네트워크 보안 | Microsoft Docs
-description: Azure Data Lake Storage Gen1에서 IP 방화벽 및 가상 네트워크 통합이 어떻게 작동하는지 이해
+description: Azure Data Lake Storage Gen1에서 가상 네트워크 통합이 작동하는 방식을 알아봅니다.
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 703a865eca90deabcb6bbc64a75fc2bad52b43b7
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: a363b5688e5fe915bd96393c35b3f39c69052d7c
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288002"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359309"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1---preview"></a>Azure Data Lake Storage Gen1에 대한 가상 네트워크 통합 - 미리 보기
 
-이 문서에서는 미리 보기 상태인 Azure Data Lake Storage Gen1에 대한 가상 네트워크 통합을 소개합니다. 가상 네트워크 통합을 사용하여 특정 가상 네트워크 및 서브넷의 트래픽만 허용하도록 계정을 구성할 수 있습니다. 
+이 문서에서는 Azure Data Lake Storage Gen1에 대한 가상 네트워크 통합에 대해 소개합니다. 가상 네트워크 통합을 사용하여 특정 가상 네트워크 및 서브넷의 트래픽만 허용하도록 계정을 구성할 수 있습니다. 
 
 이 기능을 통해 외부 위협으로부터 Data Lake Storage 계정을 보호할 수 있습니다.
 
@@ -65,19 +65,19 @@ Data Lake Storage Gen1 가상 네트워크 통합을 사용하여 특정 가상 
 가상 네트워크에서 방화벽 솔루션을 사용하여 대상 계정 URL에 따라 아웃바운드 트래픽을 필터링합니다. 승인된 Data Lake Storage Gen1 계정에 대한 액세스만을 허용합니다.
 
 사용 가능한 옵션은 다음과 같습니다.
-- [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview): 가상 네트워크에 대해 [Azure Firewall을 배포하고 구성](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)합니다. Data Lake Storage 아웃바운드 트래픽을 보호하고 알려지고 승인된 계정 URL까지 잠급니다.
-- [네트워크 가상 어플라이언스](https://azure.microsoft.com/solutions/network-appliances/) 방화벽: 관리자는 특정 상용 방화벽 공급 업체만을 사용하도록 허용할 수 있습니다. 동일한 기능을 수행할 수 있도록 Azure Marketplace에서 지원되는 네트워크 가상 어플라이언스 방화벽 솔루션을 사용합니다.
+- [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview): 가상 네트워크에 [Azure Firewall을 배포하고 구성](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)합니다. Data Lake Storage 아웃바운드 트래픽을 보호하고 알려지고 승인된 계정 URL까지 잠급니다.
+- [네트워크 가상 어플라이언스](https://azure.microsoft.com/solutions/network-appliances/) 방화벽: 관리자는 특정 상용 방화벽 공급업체만 사용하도록 허용할 수 있습니다. 동일한 기능을 수행할 수 있도록 Azure Marketplace에서 지원되는 네트워크 가상 어플라이언스 방화벽 솔루션을 사용합니다.
 
 > [!NOTE]
 > 데이터 경로에서 방화벽을 사용하면 데이터 경로에서 추가 홉이 발생합니다. 종단 간 데이터 교환의 네트워크 성능에 영향을 줄 수 있습니다. 처리량 가용성 및 연결 대기 시간은 영향을 받을 수 있습니다. 
 
 ## <a name="limitations"></a>제한 사항
 
-- Data Lake Storage Gen1 가상 네트워크 통합 지원이 지원되기 전에 생성된 HDI 클러스터는 이 새 기능을 지원하도록 다시 만들어야 합니다.
+- Data Lake Storage Gen1 가상 네트워크 통합 지원을 사용할 수 있기 전에 만들어진 HDInsight 클러스터는 이 새 기능을 지원하기 위해 다시 만들어야 합니다.
  
-- 가상 네트워크 통합을 사용하여 새 HDInsight 클러스터를 만들고 Data Lake Storage Gen1 계정을 선택하면 프로세스가 실패합니다. 먼저, 가상 네트워크 규칙을 사용하지 않습니다. 또는 Data Lake Storage 계정의 **방화벽 및 가상 네트워크** 블레이드에서 **모든 네트워크 및 서비스로부터 액세스 허용**을 선택합니다. 자세한 내용은 [예외](##Exceptions) 섹션을 참조하세요.
+- 가상 네트워크 통합을 사용하여 새 HDInsight 클러스터를 만들고 Data Lake Storage Gen1 계정을 선택하면 프로세스가 실패합니다. 먼저, 가상 네트워크 규칙을 사용하지 않습니다. 또는 Data Lake Storage 계정의 **방화벽 및 가상 네트워크** 블레이드에서 **모든 네트워크 및 서비스로부터 액세스 허용**을 선택합니다. 그런 다음, HDInsight 클러스터를 만든 후에 최종적으로 가상 네트워크 규칙을 다시 사용하도록 설정하거나 **모든 네트워크 및 서비스에서 액세스 허용**을 선택 취소합니다. 자세한 내용은 [예외](##Exceptions) 섹션을 참조하세요.
 
-- Data Lake Storage Gen1 가상 네트워크 통합 미리 보기는 [Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)에서 작동하지 않습니다.
+- Data Lake Storage Gen1 가상 네트워크 통합은 [Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)에서 작동하지 않습니다.
   
 - 가상 네트워크에서 사용된 Data Lake Storage Gen1 계정에서 파일 및 폴더 데이터는 포털에서 액세스할 수 없습니다. 이 제한 사항에는 가상 네트워크 내부의 VM 및 데이터 탐색기를 사용하는 등의 작업으로부터의 액세스가 포함됩니다. 계정 관리 작업은 계속 작동합니다. 가상 네트워크에서 사용된 Data Lake Storage 계정에서 파일 및 폴더 데이터는 포털 이외 모든 리소스를 통해 액세스할 수 있습니다. 이러한 리소스가 포털에서 발생하지 않은 경우 SDK 액세스, PowerShell 스크립트 및 기타 Azure 서비스를 포함합니다. 
 

@@ -4,7 +4,7 @@ description: Azure Active Directory와 Cloud Service PICCO 간에 Single Sign-On
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 4808d390-a74e-4c98-8538-391a4a58aa62
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
-ms.openlocfilehash: ad6b0fd822d9b57e935a69f889e777d3292837f0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 27d7d31317d710daa1d2622c7a82a45c0bccbff3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981264"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819640"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-service-picco"></a>자습서: Cloud Service PICCO와 Azure Active Directory 통합
 
@@ -107,7 +107,7 @@ Cloud Service PICCO에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
     a. **로그인 URL** 텍스트 상자에서 `https://<SUB DOMAIN>.cloudservicepicco.com/app` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **식별자** 상자에 `<SUB DOMAIN>.cloudservicepicco.com` 패턴으로 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `<SUB DOMAIN>.cloudservicepicco.com` 패턴을 사용하는 URL을 입력합니다.
 
     다. **회신 URL** 텍스트 상자에서 `https://<SUB DOMAIN>.cloudservicepicco.com/app` 패턴을 사용하여 URL을 입력합니다.
 

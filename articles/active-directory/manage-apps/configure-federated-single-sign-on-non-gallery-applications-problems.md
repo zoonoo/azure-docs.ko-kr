@@ -4,7 +4,7 @@ description: Azure AD 애플리케이션 갤러리에 나열되지 않은 사용
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: ef020e968f88e9976651b5ea22039e42e651db28
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: ec9386b2c54e05f9308fb00ed627f74503b7dfc1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355687"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460944"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>비갤러리 애플리케이션에 대해 비갤러리 Single Sign-On 구성 문제
 
-애플리케이션을 구성할 때 문제가 발생 할 경우. [Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery) 문서에 있는 단계를 모두 수행했는지 확인합니다.
+애플리케이션을 구성할 때 문제가 발생 할 경우. [Azure Active Directory 애플리케이션 갤러리에 있지 않은 애플리케이션에 Single Sign-On 구성](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery) 문서에 있는 단계를 모두 수행했는지 확인합니다.
 
 ## <a name="cant-add-another-instance-of-the-application"></a>애플리케이션의 다른 인스턴스를 추가할 수 없음
 
@@ -53,7 +53,7 @@ Azure AD에서 애플리케이션 메타데이터 또는 인증서를 다운로�
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
+5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
    * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
@@ -70,4 +70,4 @@ Azure AD에서는 메타데이터를 가져오는 URL을 제공하지 않습니�
 애플리케이션에 전송된 SAML 특성 클레임을 사용자 지정하는 방법을 알아보려면 [Azure Active Directory의 클레임 매핑](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Active Directory로 응용 프로그램 관리](what-is-application-management.md)
+[Azure Active Directory로 애플리케이션 관리](what-is-application-management.md)

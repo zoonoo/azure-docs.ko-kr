@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: d4e3419241d44744f8a692896848edb6cebb56a0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 84a495274ffadfe816ced21cd095f7a5e18d7f89
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049697"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199547"
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services로 시작하기
 > [!div class="op_single_selector"]
@@ -40,9 +40,9 @@ ms.locfileid: "44049697"
 Reliable Services를 시작하려면 몇 가지 기본 개념만 이해하면 됩니다.
 
 * **서비스 유형**: 서비스 구현입니다. 이름 및 버전 번호와 함께 `StatelessService` 및 기타 코드 또는 여기에 사용된 종속성을 확장하도록 사용자가 작성한 클래스에 의해 정의됩니다.
-* **명명된 서비스 인스턴스**: 서비스를 실행하려면 클래스 유형의 개체 인스턴스를 만드는 것처럼 서비스 유형의 명명된 인스턴스를 만듭니다. 서비스 인스턴스는 실제로 사용자가 작성한 서비스 클래스의 개체 인스턴스화입니다.
-* **서비스 호스트**: 호스트 내에서 실행해야 하는 사용자가 만든 명명된 서비스 인스턴스입니다. 서비스 호스트는 서비스의 인스턴스에서 실행할 수 있는 프로세스일 뿐입니다.
-* **서비스 등록**: 등록은 모든 항목을 함께 모읍니다. Service Fabric에서 실행할 인스턴스를 만들 수 있도록 서비스 호스트의 Service Fabric 런타임에 서비스 유형을 등록해야 합니다.  
+* **명명된 서비스 인스턴스**: 서비스를 실행하려는 경우 클래스 유형의 개체 인스턴스를 만드는 것처럼 서비스 유형의 명명된 인스턴스를 만듭니다. 서비스 인스턴스는 실제로 사용자가 작성한 서비스 클래스의 개체 인스턴스화입니다.
+* **서비스 호스트**: 생성한 명명된 서비스 인스턴스는 호스트 내에서 실행해야 합니다. 서비스 호스트는 서비스의 인스턴스에서 실행할 수 있는 프로세스일 뿐입니다.
+* **서비스 등록**: 서비스를 등록하면 모든 요소가 통합 등록됩니다. Service Fabric에서 실행할 인스턴스를 만들 수 있도록 서비스 호스트의 Service Fabric 런타임에 서비스 유형을 등록해야 합니다.  
 
 ## <a name="create-a-stateless-service"></a>상태 비저장 서비스 만들기
 Service Fabric 애플리케이션을 만드는 것으로 시작합니다. Linux용 Service Fabric SDK는 Service Fabric 애플리케이션용 스캐폴딩에 상태 비저장 서비스를 제공하기 위해 Yeoman 생성기를 포함합니다. 다음 Yeoman 명령을 실행하여 시작합니다.
@@ -201,7 +201,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map)은 서비스에서 상태를 안정적으로 저장하는데 사용할 수 있는 사전 구현입니다. Service Fabric 및 신뢰할 수 있는 해시 맵을 사용하면 외부 영구 저장소 없이도 서비스에 데이터를 직접 저장할 수 있습니다. 신뢰할 수 있는 해시 맵은 데이터를 항상 사용할 수 있게 만듭니다. 서비스 패브릭은 서비스의 여러 *복제본* 을 만들고 관리하여 이를 달성합니다. 또한 해당 복제본 및 해당 상태 전환을 관리하는 복잡성을 추상화하는 API를 제공합니다.
+[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections.reliablehashmap)은 서비스에서 상태를 안정적으로 저장하는데 사용할 수 있는 사전 구현입니다. Service Fabric 및 신뢰할 수 있는 해시 맵을 사용하면 외부 영구 저장소 없이도 서비스에 데이터를 직접 저장할 수 있습니다. 신뢰할 수 있는 해시 맵은 데이터를 항상 사용할 수 있게 만듭니다. 서비스 패브릭은 서비스의 여러 *복제본* 을 만들고 관리하여 이를 달성합니다. 또한 해당 복제본 및 해당 상태 전환을 관리하는 복잡성을 추상화하는 API를 제공합니다.
 
 신뢰할 수 있는 컬렉션은 사용자 지정 형식을 포함하여 모든 Java 형식을 저장할 수 있습니다. 단, 몇 가지 주의 사항이 있습니다.
 

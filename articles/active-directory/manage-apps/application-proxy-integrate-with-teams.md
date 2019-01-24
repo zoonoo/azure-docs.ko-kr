@@ -4,7 +4,7 @@ description: Azure AD 애플리케이션 프록시를 사용하여 Microsoft Tea
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 09/05/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 83f32cc18f1237d5d28e8340177fd6e2fae4e173
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 91273ad2a938dce693323f0c53b571eb112d3888
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133641"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478419"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Microsoft Teams를 통해 온-프레미스 애플리케이션에 액세스
 
@@ -33,7 +33,7 @@ Azure Active Directory 애플리케이션 프록시는 장소에 관계없이 �
 
 아직 수행하지 않은 경우 [테넌트에 대해 애플리케이션 프록시를 구성하고 커넥터를 설치](application-proxy-add-on-premises-application.md)합니다. 그런 다음, 원격 액세스를 위해 [온-프레미스 애플리케이션을 게시](application-proxy-add-on-premises-application.md)합니다. Teams에 앱을 추가하는 경우 사용되므로 앱을 게시하는 경우 외부 URL을 기록해 둡니다.
 
-이미 게시된 앱이 있으나 외부 URL을 기억하지 못하는 경우 [Azure Portal](https://portal.azure.com)에서 찾아보세요. 로그인한 다음, **Azure Active Directory** > **Enterprise 응용 프로그램** > **모든 응용 프로그램** > 앱 선택 > **응용 프로그램 프록시**로 이동합니다.
+이미 게시된 앱이 있으나 외부 URL을 기억하지 못하는 경우 [Azure Portal](https://portal.azure.com)에서 찾아보세요. 로그인한 다음, **Azure Active Directory** > **Enterprise 애플리케이션** > **모든 애플리케이션** &gt; 앱 선택 &gt; **애플리케이션 프록시**로 이동합니다.
 
 ## <a name="add-your-app-to-teams"></a>Teams에 앱 추가
 

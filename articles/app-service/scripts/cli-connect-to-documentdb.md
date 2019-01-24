@@ -16,16 +16,16 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 12f7a4cb5db084d6e2c179bf8acd641c814dcbd0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 68c69413322d87fc557686701c474730d2ed8405
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719798"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358292"
 ---
 # <a name="connect-an-app-service-app-to-cosmos-db-using-cli"></a>CLI를 사용하여 Cosmos DB에 App Service 앱 연결
 
-이 샘플 스크립트는 MongoDB API용 Cosmos DB 및 App Service 앱을 사용하여 Azure Cosmos DB 계정을 만듭니다. 그런 다음, 앱 설정을 사용하여 MongoDB 연결 문자열을 웹앱에 연결합니다.
+이 샘플 스크립트는 Azure Cosmos DB의 MongoDB API 및 App Service 앱을 사용하여 Azure Cosmos DB 계정을 만듭니다. 그런 다음, 앱 설정을 사용하여 MongoDB 연결 문자열을 웹앱에 연결합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

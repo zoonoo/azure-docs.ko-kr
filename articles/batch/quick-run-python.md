@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 13ed37dddefc5e71e972248545c3e9242bd233ad
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 3a2e48697efbe0f4969a8fae20c050a38645ed6f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678203"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462082"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>빠른 시작: Python API를 사용하여 첫 번째 Batch 작업 실행
 
@@ -64,8 +64,6 @@ _BATCH_ACCOUNT_URL = 'https://mybatchaccount.mybatchregion.batch.azure.com'
 _STORAGE_ACCOUNT_NAME = 'mystorageaccount'
 _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ=='
 ```
-
-[!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
 
 ## <a name="run-the-app"></a>앱 실행
 
@@ -176,7 +174,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-batch-job"></a>Batch 작업 만들기
 
-Batch 작업은 하나 이상의 태스크에 대한 논리적 그룹입니다. 작업에는 우선 순위 및 태스크를 실행할 풀과 같은 태스크에 공통적으로 적용되는 설정이 포함됩니다. 앱에서 [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) 클래스를 사용하여 풀에 작업을 만듭니다. [job.add](/python/api/azure.batch.operations.joboperations#azure_batch_operations_JobOperations_add) 메서드는 풀을 Batch 서비스에 제출합니다. 처음에는 작업에 태스크가 없습니다.
+Batch 작업은 하나 이상의 태스크에 대한 논리적 그룹입니다. 작업에는 우선 순위 및 태스크를 실행할 풀과 같은 태스크에 공통적으로 적용되는 설정이 포함됩니다. 앱에서 [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) 클래스를 사용하여 풀에 작업을 만듭니다. [job.add](/python/api/azure.batch.operations.joboperations) 메서드는 풀을 Batch 서비스에 제출합니다. 처음에는 작업에 태스크가 없습니다.
 
 ```python
 job = batch.models.JobAddParameter(

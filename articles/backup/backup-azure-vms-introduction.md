@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: cac219414418277ace09ba3a0b442f3bf74e6025
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 09464342bd39e57f6e637ce90adc7190d08340a9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107432"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265416"
 ---
 # <a name="about-azure-vm-backup"></a>Azure VM 백업 정보
 
@@ -55,6 +55,10 @@ Azure Backup은 백업 프로세스의 일부로 데이터를 암호화하지 �
         [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
         ""USEVSSCOPYBACKUP"="TRUE"
         ```
+        - 관리자 권한 명령 프롬프트에서 아래 명령을 실행하여 위의 레지스트리 키를 설정합니다.
+          ```
+          REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f
+          ```
 - **Linux VM**: Azure Backup이 스냅숏을 만들 때 Linux VM에 앱 일관성이 있는지 확인하려면 Linux 사전 스크립트 및 사후 스크립트 프레임워크를 사용할 수 있습니다. VM 스냅숏을 만들 때 일관성을 유지하기 위해 직접 사용자 지정 스크립트를 작성할 수 있습니다.
     -  Azure Backup은 사용자가 작성한 사전 및 사후 스크립트만 호출합니다.
     - Azure Backup은 사전 스크립트 및 사후 스크립트가 성공적으로 실행되는 경우 애플리케이션 일관성이 있게 복구 지점을 표시합니다. 그러나 사용자 지정 스크립트를 사용하는 경우 애플리케이션 일관성에 대한 궁극적인 책임은 사용자에게 있습니다.
@@ -132,11 +136,10 @@ Backup은 스냅숏 만들기 및 자격 증명 모음에 스냅숏 전송의 �
 
 VM 백업을 구성하는 동안 다음 사례를 따르는 것이 좋습니다.
 
-- 자격 증명 모음을 인스턴트 RP로 업그레이드합니다. 이러한 [혜택](backup-upgrade-to-vm-backup-stack-v2.md) 및 [고려 사항](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)을 검토한 후 다음 [지침](backup-upgrade-to-vm-backup-stack-v2.md#upgrade)에 따라 업그레이드를 계속 진행하세요.  
 - 리소스가 최적으로 사용되도록 데이터 스냅숏을 작성하는 경우에는 기본 제공된 정책 시간을 수정하는 것이 좋습니다. (예: 기본 정책 시간이 오전 12시인 경우에는 분 단위로 증가시키는 것이 좋습니다.)
 - 인스턴트가 아닌 RP 기능의 프리미엄 VM 백업의 경우, 총 스토리지 계정 공간의 ~ 50 %를 할당합니다. Backup 서비스는 스냅숏을 동일한 스토리지 계정으로 복사하여 자격 증명 모음으로 전송하기 위해 이 공간이 필요합니다.
 - 단일 자격 증명 모음에서 VM을 복원하는 경우에는 다른  [v2 스토리지 계정](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) 을 사용하여 대상 스토리지 계정이 제한되지 않도록 하는 것이 좋습니다. 예를 들어 각 VM마다 다른 스토리지 계정이 있어야 합니다. (VM이 10개 복원되는 경우 10개의 다른 스토리지 계정을 사용하는 것이 좋습니다.)
-- 계층 1 스토리지 레이어(스냅숏)에서 복원은(동일한 스토리지 계정이기 때문에) 몇 분 내에 완료되지만 계층 2 스토리지 레이어(자격 증명 모음)는 몇 시간이 걸릴 수 있습니다. 계층 1에 데이터가 제공되는 경우에는 빠른 복원을 위해 [인스턴트 RP](backup-upgrade-to-vm-backup-stack-v2.md) 기능을 사용하는 것이 좋습니다. (자격 증명 모음에서 데이터를 복원하는 경우에는 시간이 많이 소요됩니다.)
+- 계층 1 스토리지 레이어(스냅숏)에서 복원은(동일한 스토리지 계정이기 때문에) 몇 분 내에 완료되지만 계층 2 스토리지 레이어(자격 증명 모음)는 몇 시간이 걸릴 수 있습니다. 계층 1에서 데이터를 사용할 수 있는 경우에는 더욱 신속한 복원을 위해 [즉시 복원](backup-instant-restore-capability.md) 기능을 사용하는 것이 좋습니다. 자격 증명 모음에서 데이터를 복원해야 하는 경우에는 시간이 걸립니다.
 - 스토리지 계정당 디스크 수에 대한 제한은 IaaS VM에서 실행 중인 애플리케이션이 액세스하는 디스크가 얼마나 많은지에 비례합니다. 여러 디스크가 단일 스토리지 계정에서 호스팅되는지 확인합니다. 일반적으로 단일 스토리지 계정에 디스크가 5~10개 이상 있으면 일부 디스크를 별도의 스토리지 계정으로 이동하여 부하를 분산합니다.
 
 ## <a name="backup-costs"></a>백업 비용

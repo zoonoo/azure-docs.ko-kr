@@ -4,7 +4,7 @@ description: Azure Active Directory와 Ariba 간에 Single Sign-On을 구성하�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 45a8364c-55d1-4dc7-b079-9eb2a701842d
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 81c66e73698f210c9ef364a8b328642f78e3012b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 1326dbfc4257f0b6634976ca76a0667c908f951f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973981"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810587"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>자습서: Ariba와 Azure Active Directory 통합
 
@@ -110,7 +110,7 @@ Ariba에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
     | `https://<subdomain>.sourcing.ariba.com` |
     | `https://<subdomain>.supplier.ariba.com` |
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에 `http://<subdomain>.procurement-2.ariba.com` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에서 `http://<subdomain>.procurement-2.ariba.com` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 식별자에는 고유한 문자열 값을 사용하는 것이 좋습니다. 이러한 값을 구하려면 Ariba 클라이언트 지원팀(**1-866-218-2155**)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

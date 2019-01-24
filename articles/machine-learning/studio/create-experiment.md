@@ -1,28 +1,10 @@
 ---
-title: 간단한 실험 - Azure Machine Learning Studio | Microsoft Docs
-description: 이 기계 학습 자습서에서는 쉬운 데이터 과학 실험을 안내합니다. 회귀 알고리즘을 사용하여 자동차의 가격을 예측합니다.
-keywords: 실험, 선형 회귀, 기계 학습 알고리즘, 기계 학습 자습서, 예측 모델링 기술, 데이터 과학 실험
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: seodec18
-ms.author: garye
-editor: cgronlun
-ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 03/20/2017
-ms.openlocfilehash: b3d8aa709fefcf0eb8c16117f62cbe3bab8e319a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262421"
+제목: 간단한 실험 titleSuffix: Azure Machine Learning Studio 설명: 이 기계 학습 자습서에서는 쉬운 데이터 과학 실험을 안내합니다. 회귀 알고리즘을 사용하여 자동차의 가격을 예측합니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: tutorial
+
+author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 03/20/2017
 ---
+
 # <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>자습서: Azure Machine Learning Studio에서 첫 번째 데이터 과학 실험 만들기
 
 **Azure Machine Learning Studio**를 사용한 경험이 없는 경우 이 자습서는 도움이 됩니다.

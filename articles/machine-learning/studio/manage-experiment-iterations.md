@@ -1,26 +1,8 @@
 ---
-title: Machine Learning 스튜디오에서 반복 실험 관리 - Azure | Microsoft Docs
-description: Azure Machine Learning Studio에서 반복 실험을 관리하는 방법 이전 가정에 도전하고 다시 수행하여 궁극적으로 이전 가정을 확인하거나 세분화하기 위해 언제든 이전에 실행된 실험을 검토할 수 있습니다.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 6a53530f-20d5-40ae-9b49-7b499ccb44b7
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: ebcae3e8e8f13904936dbe122f285a01a2a71459
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270453"
+제목: Machine Learning 스튜디오에서 반복 실험 관리 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning Studio에서 반복 실험을 관리하는 방법 이전 가정에 도전하고 다시 수행하여 궁극적으로 이전 가정을 확인하거나 세분화하기 위해 언제든 이전에 실행된 실험을 검토할 수 있습니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 2017/03/20
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 반복 실험 관리
 예측 분석 모델을 개발하는 과정은 반복 프로세스이며, 실험의 다양한 함수와 해당 매개 변수를 수정할 때 학습된 효과적인 모델을 마련했다고 만족할 때까지 결과가 수렴됩니다. 이 프로세스의 핵심은 다양하게 반복되는 실험 매개 변수와 구성을 추적하는 것입니다.

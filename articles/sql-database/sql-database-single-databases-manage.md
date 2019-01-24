@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 52caae38c21fe403735b8479ec2e721ef38f521e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 01/17/2019
+ms.openlocfilehash: f43c2cd5a3c155258cd698f6b55854bc0df9f861
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845797"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388602"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Azure SQL Database에서 논리 서버 및 단일 데이터베이스 만들기 및 관리
 
@@ -57,7 +57,7 @@ Managed Instance를 만들려면 [Managed Instance 만들기](sql-database-manag
 
 ## <a name="powershell-manage-logical-servers-and-databases"></a>PowerShell: 논리 서버 및 데이터베이스 관리
 
-Azure PowerShell을 사용하여 Azure SQL 논리 서버, 단일 및 풀링된 데이터베이스, 논리 서버 방화벽을 만들고 관리하려면 다음 PowerShell cmdlet을 사용합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+Azure PowerShell을 사용하여 Azure SQL 논리 서버, 단일 및 풀링된 데이터베이스, 논리 서버 방화벽을 만들고 관리하려면 다음 PowerShell cmdlet을 사용합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
 > [!TIP]
 > PowerShell 예제 스크립트에 대해서는 [PowerShell을 사용하여 단일 Azure SQL Database 만들기 및 논리 서버 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-powershell.md) 및 [PowerShell을 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-powershell.md)을 참조하세요.

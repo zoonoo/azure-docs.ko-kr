@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 12/19/2018
 ms.author: juliako
-ms.openlocfilehash: cd020566b61dac7da37b24f10eebfc69b19073cb
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: fcce16ed3cf7009c596f30ebc33f58de02f018a0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720954"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811641"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - REST
 
@@ -111,7 +111,7 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
 
 ### <a name="get-azure-ad-token"></a>Azure AD 토큰 가져오기 
 
-1. Postman의 왼쪽 창에서 “1단계: AAD 인증 토큰 가져오기”를 선택합니다.
+1. Postman의 왼쪽 창에서 “1단계: AAD 인증 토큰 가져오기"를 선택합니다.
 2. 그런 다음, "서비스 주체 인증을 위한 Azure AD 토큰 가져오기"를 선택합니다.
 3. **보내기**를 누릅니다.
 

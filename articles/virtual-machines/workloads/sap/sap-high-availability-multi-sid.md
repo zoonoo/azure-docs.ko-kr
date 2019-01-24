@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 570c427166c07e93d3c8a7d3be079d9007238243
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 05fda1b4f71f67714b4723e15533d3555d497249
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656825"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321673"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>SAP NetWeaver 다중 SID 구성 만들기
 
@@ -72,7 +72,7 @@ SAP 배포가 있는 경우 [Windows VM에서 고가용성 SAP NetWeaver 가이�
 >하나의 WSFC 클러스터에서 SAP ASCS/SCS 인스턴스의 최대수는 각 Azure 내부 부하 분산 장치에 대한 개인 프런트 엔드 IP의 최대수와 같습니다.
 >
 
-부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한 - Azure Resource Manager][networking-limits-azure-resource-manager]에서 “부하 분산 장치당 개인 프런트 엔드 IP”를 참조하세요.
+부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한: Azure Resource Manager][networking-limits-azure-resource-manager]의 "부하 분산 장치당 개인 프런트 엔드 IP"를 참조하세요.
 
 두 가지 고가용성 SAP 시스템을 포함한 전체 그림은 다음과 같습니다.
 
@@ -208,7 +208,7 @@ foreach ($Port in $Ports) {
 
 $ILB | Set-AzureRmLoadBalancer
 
-Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
+Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
 
 ```
 스크립트를 실행한 후 다음 스크린샷에 표시된 것처럼 결과가 Azure Portal에 표시됩니다.
@@ -261,9 +261,9 @@ Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$IL
 
 7. [SAP ERS Windows 서비스 인스턴스의 시작 유형 변경][sap-ha-guide-9.4].
 
-8. 새 전용 VM에서 [SAP 기본 응용 프로그램 서버 설치][sap-ha-guide-9.5].
+8. 새 전용 VM에서 [SAP 기본 애플리케이션 서버 설치][sap-ha-guide-9.5].
 
-9. 새 전용 VM에서 [SAP 추가 응용 프로그램 서버 설치][sap-ha-guide-9.6].
+9. 새 전용 VM에서 [SAP 추가 애플리케이션 서버 설치][sap-ha-guide-9.6].
 
 10. [SAP ASCS/SCS 인스턴스 장애 조치 및 SIOS 복제 테스트][sap-ha-guide-10].
 

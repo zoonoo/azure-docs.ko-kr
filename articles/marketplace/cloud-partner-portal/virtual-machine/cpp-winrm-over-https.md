@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1a341bf36842e49faf8e39f4056232c97cc4232c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 99c41dc010ae589cc43c093646fd1c05c1333f7e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195976"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265127"
 ---
 # <a name="windows-remote-management-over-https"></a>HTTPS를 통한 Windows 원격 관리
 
 이 섹션에서는 PowerShell을 사용하여 원격으로 관리 및 배포할 수 있도록 Azure에서 호스팅하는 Windows 기반 VM을 구성하는 방법을 설명합니다.  PowerShell 원격을 사용하도록 설정하려면 대상 VM에서 WinRM(Windows 원격 관리) HTTPS 엔드포인트를 공개해야 합니다.  PowerShell 원격에 대한 자세한 내용은 [원격 명령 실행](https://docs.microsoft.com/powershell/scripting/core-powershell/running-remote-commands?view=powershell-6)을 참조하세요.  WinRM에 대한 자세한 내용은 [Windows 원격 관리](https://docs.microsoft.com/windows/desktop/WinRM/portal)를 참조하세요.
 
-"클래식" Azure 방법, 즉 Azure Service Manager 포털 또는 사용되지 않는 [Azure Service Management API](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100)) 중 하나를 사용하여 VM을 만든 경우 WinRM 엔드포인트를 사용하여 해당 VM을 자동으로 구성합니다.  그러나 다음과 같은 "최신" Azure 방법 중 하나를 사용하여 VM을 만드는 경우 HTTPS를 통한 WinRM에 대해 VM이 구성되지 *않습니다*.  
+"클래식" Azure 방식, 즉 Azure Service Manager 포털 또는 [Azure Service Management API](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100))(사용되지 않음) 중 하나를 사용하여 만든 VM은 WinRM 엔드포인트를 사용하여 자동 구성됩니다.  그러나 다음과 같은 "최신" Azure 방식 중 하나를 사용하여 만드는 VM은 HTTPS를 통한 WinRM용으로 구성되지 *않습니다*.  
 
 - [Azure 호환 VHD 만들기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd) 섹션에서 설명한 대로 일반적으로 승인된 [Azure Portal](https://portal.azure.com/) 사용
 - [Azure Resource Manager 템플릿 사용](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)

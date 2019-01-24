@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 51952196bd2c44ba79e96266436860106a0753c4
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 875eb20a05a96d094a17229699bb2d87b3377a62
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793515"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359904"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Azure Files 백업에 대한 질문
 이 문서에서는 Azure Files 백업에 대한 일반적인 질문에 대답합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -94,11 +94,14 @@ Azure 파일 공유가 삭제되면 삭제될 백업 목록이 표시되고 확�
 
 ## <a name="manage-backup"></a>Backup 관리
 
+### <a name="can-i-use-powershell-to-configuremanagerestore-backups-of-azure-file-shares-br"></a>PowerShell을 사용하여 Azure 파일 공유에 대한 백업을 구성/관리/복원할 수 있나요? <br/>
+예. [여기](backup-azure-afs-automation.md)에 있는 자세한 설명서를 참조하세요.
+
 ### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-it-br"></a>Azure Backup에서 만든 스냅숏에 액세스하고 탑재할 수 있나요? <br/>
 Azure Backup에서 만든 모든 스냅숏은 포털의 스냅숏 보기, PowerShell 또는 CLI로 액세스할 수 있습니다. Azure 파일 공유 스냅숏에 대한 자세한 내용은 [Azure Files(미리 보기)의 공유 스냅숏 개요](../storage/files/storage-snapshots-files.md)를 참조하세요.
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups-br"></a>백업에 대해 구성할 수 있는 최대 보존 기간은 얼마인가요? <br/>
-Azure 파일 공유에 대한 Backup에서는 매일 백업을 최대 120일 동안 유지할 수 있습니다.
+Azure 파일 공유 백업은 최대 180일의 보존 기간이 적용된 정책을 구성할 수 있는 기능을 제공합니다. 그러나 [PowerShell의 "요청 시 백업"](backup-azure-afs-automation.md#trigger-an-on-demand-backup) 옵션을 사용하면 복구 지점을 10년 동안 유지할 수도 있습니다.
 
 ### <a name="what-happens-when-i-change-the-backup-policy-for-an-azure-file-share-br"></a>Azure 파일 공유에 대한 Backup 정책을 변경하면 어떻게 되나요? <br/>
 파일 공유에 대한 새 정책이 적용되면 새 정책의 일정 및 보존 기간을 따릅니다. 보존 기간을 늘리면 기존 복구 지점이 새 정책에 따라 유지되도록 표시됩니다. 보존 기간을 줄이면 다음 정리 작업에서 정리(prune) 표시되고 삭제됩니다.

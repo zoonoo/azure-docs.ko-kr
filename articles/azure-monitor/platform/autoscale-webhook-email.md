@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: c655f117009c0c7c682ad92a951edc7e12255bc2
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.subservice: autoscale
+ms.openlocfilehash: 248167eca532beb957c723f5074fc1546982efc8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325668"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463323"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>크기 자동 조정 작업을 사용하여 Azure Monitor에서 전자 메일 및 webhook 경고 알림 보내기
 이 문서에서는 Azure에서 크기 자동 조정 작업을 기준으로 특정 웹 URL을 호출하거나 전자 메일을 보낼 수 있도록 트리거를 설정하는 방법을 설명합니다.  
@@ -108,15 +108,16 @@ REST API 또는 Resource Manager 템플릿을 사용하는 경우 다음 옵션�
 | operation |예 |인스턴스가 증가하면 "규모 확장"되고 인스턴스가 감소하면 "규모 감축"됩니다. |
 | context |예 |크기 자동 조정 작업 컨텍스트입니다. |
 | timestamp |예 |크기 자동 조정 작업이 트리거된 타임스탬프입니다. |
-| id |yes |자동 크기 조정 설정의 Resource Manager ID |
-| 이름 |yes |크기 자동 조정 설정의 이름입니다. |
-| 세부 정보 |yes |크기 자동 조정 서비스가 수행한 작업에 대한 설명 및 인스턴스 수의 변경 내용입니다. |
-| subscriptionId |yes |크기 조정 중인 대상 리소스의 구독 ID입니다. |
-| resourceGroupName |yes |크기 조정 중인 대상 리소스의 리소스 그룹 이름입니다. |
-| resourceName |yes |크기 조정 중인 대상 리소스의 이름입니다. |
-| resourceType |yes |다음의 세 값이 지원됩니다. "microsoft.classiccompute/domainnames/slots/roles" - Cloud Service 역할/"microsoft.compute/virtualmachinescalesets" - Virtual Machine Scale Sets/"Microsoft.Web/serverfarms" - Web App |
-| ResourceId |yes |크기 조정 중인 대상 리소스의 Resource Manager ID |
-| portalLink |yes |대상 리소스의 요약 페이지에 대한 Azure 포털 링크입니다. |
-| oldCapacity |yes |크기 자동 조정에서 크기 조정 작업을 수행한 현재(이전) 인스턴스 수입니다. |
+| id |예 |자동 크기 조정 설정의 Resource Manager ID |
+| 이름 |예 |크기 자동 조정 설정의 이름입니다. |
+| 세부 정보 |예 |크기 자동 조정 서비스가 수행한 작업에 대한 설명 및 인스턴스 수의 변경 내용입니다. |
+| subscriptionId |예 |크기 조정 중인 대상 리소스의 구독 ID입니다. |
+| resourceGroupName |예 |크기 조정 중인 대상 리소스의 리소스 그룹 이름입니다. |
+| resourceName |예 |크기 조정 중인 대상 리소스의 이름입니다. |
+| resourceType |예 |다음의 세 값이 지원됩니다. "microsoft.classiccompute/domainnames/slots/roles" - Cloud Service 역할/"microsoft.compute/virtualmachinescalesets" - Virtual Machine Scale Sets/"Microsoft.Web/serverfarms" - Web App |
+| ResourceId |예 |크기 조정 중인 대상 리소스의 Resource Manager ID |
+| portalLink |예 |대상 리소스의 요약 페이지에 대한 Azure 포털 링크입니다. |
+| oldCapacity |예 |크기 자동 조정에서 크기 조정 작업을 수행한 현재(이전) 인스턴스 수입니다. |
 | newCapacity |yes |크기 자동 조정에서 리소스 크기를 조정한 새 인스턴스 수입니다. |
 | properties |아니요 |선택 사항입니다. <키, 값> 쌍 집합(예: Dictionary <문자열, 문자열>). 속성 필드는 선택 사항입니다. 사용자 지정 사용자 인터페이스 또는 논리 앱 기반 워크플로에서는 페이로드를 사용하여 전달할 수 있는 키와 값을 입력할 수 있습니다. Webhook URI 자체를 쿼리 매개 변수로 사용하여 발신 Webhook 호출로 사용자 지정 속성을 다시 전달할 수도 있습니다. |
+

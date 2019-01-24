@@ -3,18 +3,19 @@ title: Azure Service Bus 메시지 큐, 토픽 및 구독 개요 | Microsoft Doc
 description: Service Bus 메시징 엔터티의 개요
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: spelluru
-ms.openlocfilehash: c4899db41f9c60bf6efb40c4d53aaa35f22ad275
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.author: aschhab
+ms.openlocfilehash: 7cacabf4f171189810e943043b5513e20113d962
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312887"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847034"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Service Bus 큐, 토픽 및 구독
 
@@ -26,7 +27,7 @@ Service Bus에서 메시지 기능의 핵심이 되는 메시지 엔터티는 �
 
 큐는 하나 이상의 경쟁 소비자에게 *FIFO(선입선출)* 메시지 배달을 제공합니다. 즉, 일반적으로 수신기는 큐에 추가된 순서대로 메시지를 수신하여 처리하며, 하나의 메시지 소비자만 각 메시지를 수신하여 처리합니다. 큐를 사용하는 주요 이점은 애플리케이션 구성 요소를 "임시로 분리"할 수 있다는 점입니다. 즉, 메시지가 큐에서 영구적으로 저장되기 때문에 생산자(발신자) 및 소비자(수신자)가 동시에 메시지를 보내고 받을 필요가 없습니다. 또한 생산자는 계속해서 메시지를 처리하고 보내기 위해 소비자의 회신을 기다릴 필요가 없습니다.
 
-관련된 이점은 “부하 평준화”로 생산자와 소비자가 서로 다른 속도로 메시지를 주고받을 수 있습니다. 많은 애플리케이션에서 시스템 부하는 시간에 따라 다르지만 각 작업 단위에 필요한 처리 시간은 일반적으로 일정합니다. 큐를 사용한 메시지 생산자와 소비자 조정은 최대 부하 대신 평균 부하를 다룰 수 있으려면 소비 애플리케이션만 프로비전해야 함을 의미합니다. 수신 부하가 변경됨에 따라 큐의 깊이가 증가하고 축소됩니다. 따라서 응용 프로그램 부하를 처리하는 데 필요한 인프라의 크기와 관련하여 비용을 직접 절약할 수 있습니다. 부하가 증가하면 큐에서 읽을 작업자 프로세스가 더 추가될 수 있습니다. 각 메시지는 하나의 작업자 프로세스를 통해서만 처리됩니다. 또한 이 가져오기 기반 부하 분산에서는 작업자 컴퓨터가 최대 속도로 메시지를 가져올 때 처리 능력이 다른 경우에도 작업자 컴퓨터의 최적 사용률을 허용합니다. 이 패턴을 종종 “경쟁 소비자” 패턴이라고 부릅니다.
+관련된 이점은 “부하 평준화”로 생산자와 소비자가 서로 다른 속도로 메시지를 주고받을 수 있습니다. 많은 애플리케이션에서 시스템 부하는 시간에 따라 다르지만 각 작업 단위에 필요한 처리 시간은 일반적으로 일정합니다. 큐를 사용한 메시지 생산자와 소비자 조정은 최대 부하 대신 평균 부하를 다룰 수 있으려면 소비 애플리케이션만 프로비전해야 함을 의미합니다. 수신 부하가 변경됨에 따라 큐의 깊이가 증가하고 축소됩니다. 따라서 애플리케이션 부하를 처리하는 데 필요한 인프라의 크기와 관련하여 비용을 직접 절약할 수 있습니다. 부하가 증가하면 큐에서 읽을 작업자 프로세스가 더 추가될 수 있습니다. 각 메시지는 하나의 작업자 프로세스를 통해서만 처리됩니다. 또한 이 가져오기 기반 부하 분산에서는 작업자 컴퓨터가 최대 속도로 메시지를 가져올 때 처리 능력이 다른 경우에도 작업자 컴퓨터의 최적 사용률을 허용합니다. 이 패턴을 종종 “경쟁 소비자” 패턴이라고 부릅니다.
 
 메시지 생산자와 소비자 간을 중개하는 큐를 사용하면 구성 요소 간에 내재하는 느슨한 연결을 제공합니다. 생산자와 소비자가 서로를 인식하지 않기 때문에 생산자에 영향을 주지 않고 소비자를 업그레이드할 수 있습니다.
 
@@ -40,13 +41,13 @@ Service Bus에서 메시지 기능의 핵심이 되는 메시지 엔터티는 �
 
 ### <a name="receive-modes"></a>수신 모드
 
-Service Bus에서 메시지를 받는 두 가지 다른 모드 (*ReceiveAndDelete* 또는 *PeekLock*)를 지정할 수 있습니다. [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) 모드에서 수신은 1단계 작업입니다. 즉, Service Bus가 요청을 받으면 메시지를 이용되는 것으로 표시하고 응용 프로그램에 반환합니다. **ReceiveAndDelete** 모드는 가장 간단한 모델이며, 오류가 발생할 경우 응용 프로그램에서 메시지 처리를 허용할 수 없는 시나리오에 가장 적합합니다. 이 시나리오를 이해하려면 소비자가 수신 요청을 실행한 다음, 처리하기 전에 충돌하는 시나리오를 고려합니다. Service Bus가 메시지를 이용되는 것으로 표시했기 때문에 애플리케이션이 다시 시작되고 메시지 이용을 다시 시작할 때 크래시 전에 이용된 메시지는 누락됩니다.
+Service Bus에서 메시지를 받는 두 가지 다른 모드 (*ReceiveAndDelete* 또는 *PeekLock*)를 지정할 수 있습니다. [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) 모드에서 수신은 1단계 작업입니다. 즉, Service Bus가 요청을 받으면 메시지를 이용되는 것으로 표시하고 애플리케이션에 반환합니다. **ReceiveAndDelete** 모드는 가장 간단한 모델이며, 오류가 발생할 경우 애플리케이션에서 메시지 처리를 허용할 수 없는 시나리오에 가장 적합합니다. 이 시나리오를 이해하려면 소비자가 수신 요청을 실행한 다음, 처리하기 전에 충돌하는 시나리오를 고려합니다. Service Bus가 메시지를 이용되는 것으로 표시했기 때문에 애플리케이션이 다시 시작되고 메시지 이용을 다시 시작할 때 크래시 전에 이용된 메시지는 누락됩니다.
 
-[PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) 모드에서는 수신 작업이 2단계이므로 메시지 누락이 허용되지 않는 응용 프로그램을 지원할 수 있습니다. Service Bus는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 애플리케이션에 반환합니다. 응용 프로그램에서 메시지 처리가 완료되면(또는 추가 처리를 위해 안정적으로 저장되면), 수신된 메시지에서 [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync)를 호출하여 수신 프로세스의 두 번째 단계를 완료합니다. Service Bus에서 **CompleteAsync** 호출이 확인되면 메시지를 사용 중인 것으로 표시합니다.
+[PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) 모드에서는 수신 작업이 2단계이므로 메시지 누락이 허용되지 않는 애플리케이션을 지원할 수 있습니다. Service Bus는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 애플리케이션에 반환합니다. 애플리케이션에서 메시지 처리가 완료되면(또는 추가 처리를 위해 안정적으로 저장되면), 수신된 메시지에서 [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync)를 호출하여 수신 프로세스의 두 번째 단계를 완료합니다. Service Bus에서 **CompleteAsync** 호출이 확인되면 메시지를 사용 중인 것으로 표시합니다.
 
-수신 응용 프로그램에서 어떤 이유로 메시지를 처리할 수 없는 경우 받은 메시지에서 [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) 메서드 대신 [AbandonAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync) 메서드를 호출할 수 있습니다. 이 메서드를 사용하면 Service Bus에서 메시지의 잠금을 해제하고 동일한 소비자 또는 다른 경쟁 소비자에서 메시지를 다시 받을 수 있습니다. 두 번째로, 잠금과 연결된 시간 제한이 있으며, 잠금 시간 제한이 만료되기 전에 응용 프로그램에서 메시지를 처리하지 못하는 경우(예: 응용 프로그램이 충돌하는 경우) Service Bus에서 메시지의 잠금을 해제하여 다시 받을 수 있게 합니다(기본적으로 [AbandonAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync) 작업 수행).
+수신 애플리케이션에서 어떤 이유로 메시지를 처리할 수 없는 경우 받은 메시지에서 [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) 메서드 대신 [AbandonAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync) 메서드를 호출할 수 있습니다. 이 메서드를 사용하면 Service Bus에서 메시지의 잠금을 해제하고 동일한 소비자 또는 다른 경쟁 소비자에서 메시지를 다시 받을 수 있습니다. 두 번째로, 잠금과 연결된 시간 제한이 있으며, 잠금 시간 제한이 만료되기 전에 애플리케이션에서 메시지를 처리하지 못하는 경우(예: 애플리케이션이 충돌하는 경우) Service Bus에서 메시지의 잠금을 해제하여 다시 받을 수 있게 합니다(기본적으로 [AbandonAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync) 작업 수행).
 
-메시지를 처리한 후 응용 프로그램이 충돌하지만 **CompleteAsync** 요청이 실행되기 전에 메시지가 다시 시작되면 응용 프로그램에 다시 전달됩니다. 이 프로세스는 종종 *한 번 이상* 처리라고 합니다. 즉, 각 메시지가 한 번 이상 처리됩니다. 그러나 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 시나리오가 중복 처리를 허용하지 않는 경우 메시지의 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) 속성에 따라 얻을 수 있는 중복을 검색하려면 응용 프로그램에 추가 논리가 필요하며 이는 전달 시도를 걸쳐 일관성을 유지합니다. 이 기능은 *정확히 한번* 처리라고 합니다.
+메시지를 처리한 후 애플리케이션이 충돌하지만 **CompleteAsync** 요청이 실행되기 전에 메시지가 다시 시작되면 애플리케이션에 다시 전달됩니다. 이 프로세스는 종종 *한 번 이상* 처리라고 합니다. 즉, 각 메시지가 한 번 이상 처리됩니다. 그러나 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 시나리오가 중복 처리를 허용하지 않는 경우 메시지의 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) 속성에 따라 얻을 수 있는 중복을 검색하려면 애플리케이션에 추가 논리가 필요하며 이는 전달 시도를 걸쳐 일관성을 유지합니다. 이 기능은 *정확히 한번* 처리라고 합니다.
 
 ## <a name="topics-and-subscriptions"></a>토픽 및 구독
 

@@ -1,27 +1,8 @@
 ---
-title: Machine Learning Studio용 R 언어에 대한 빠른 시작 자습서 - Azure | Microsoft Docs
-description: 이 R 프로그래밍 자습서를 사용하여 신속하게 Azure Machine Learning Studio에서 R 언어를 사용하여 예측 솔루션을 만듭니다.
-keywords: 빠른 시작, r 언어, r 프로그래밍 언어, r 프로그래밍 자습서
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/06/2017
-ms.openlocfilehash: ddd9c1fd8b51c6ae43878cf50ee16737511c82e9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278664"
+제목: R 언어의 빠른 시작 자습서 titleSuffix: Azure Machine Learning Studio 설명: 이 R 프로그래밍 자습서를 사용하여 신속하게 Azure Machine Learning Studio에서 R 언어를 사용하여 예측 솔루션을 만듭니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/06/2017
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 R 프로그래밍 언어에 대한 빠른 시작 자습서
 
@@ -195,7 +176,7 @@ Azure Machine Learning Studio에서 실험할 간단한 첫 번째 R 스크립�
 ### <a name="data-input-to-the-execute-r-script-module"></a>R 스크립트 실행 모듈에 데이터 입력
 [R 스크립트 실행][execute-r-script] 모듈에 대한 입력을 살펴보겠습니다. 이 예제에서는 캘리포니아 유제품 데이터를 [R 스크립트 실행][execute-r-script] 모듈로 읽어옵니다.  
 
-[R 스크립트 실행][execute-r-script] 모듈에 대해 사용 가능한 입력에는 세 가지가 있습니다. 응용 프로그램에 따라 이러한 입력을 하나만 사용하거나 모두 사용할 수 있습니다. 또한 입력이 전혀 없는 R 스크립트를 사용하는 것도 합리적일 수 있습니다.  
+[R 스크립트 실행][execute-r-script] 모듈에 대해 사용 가능한 입력에는 세 가지가 있습니다. 애플리케이션에 따라 이러한 입력을 하나만 사용하거나 모두 사용할 수 있습니다. 또한 입력이 전혀 없는 R 스크립트를 사용하는 것도 합리적일 수 있습니다.  
 
 이 입력을 각각 왼쪽에서 오른쪽으로 살펴보겠습니다. 입력 위에 커서를 놓고 도구 설명을 읽어 각 입력의 이름을 볼 수 있습니다.  
 

@@ -4,7 +4,7 @@ description: Azure Active Directory 및 Reward Gateway 간에 Single Sign-On을 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 34336386-998a-4d47-ab55-721d97708e5e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 0339889228c80cc3675fd7fde52e75cb84521ab6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 322d85ddfade82232075c11916c528efb3aa610e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840183"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820175"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>자습서: Reward Gateway와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ Reward Gateway를 Azure AD와 통합하면 다음과 같은 이점이 제공됩�
 - 사용자가 해당 Azure AD 계정으로 Reward Gateway에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -75,7 +75,7 @@ Reward Gateway의 Azure AD 통합을 구성하려면 갤러리의 Reward Gateway
 
     ![Azure AD 테스트 사용자 만들기](./media/reward-gateway-tutorial/tutorial_rewardgateway_search.png)
 
-1. 결과 패널에서 **Reward Gateway**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **Reward Gateway**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/reward-gateway-tutorial/tutorial_rewardgateway_addfromgallery.png)
 
@@ -96,11 +96,11 @@ Reward Gateway에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Reward Gateway 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Reward Gateway 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Reward Gateway에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Reward Gateway** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Reward Gateway** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -142,7 +142,7 @@ Reward Gateway에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 1. **보상 게이트웨이** 쪽에서 Single Sign-On을 구성하려면 보상 관리자 포털에서 통합 설정을 시작합니다. 다운로드한 메타데이터를 사용하여 서명 인증서를 가져오고 구성하는 동안 업로드합니다. 자세한 내용은 https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration에서 찾을 수 있습니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -214,12 +214,12 @@ Reward Gateway에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Reward Gateway 타일을 클릭하면 Reward Gateway 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Reward Gateway 타일을 클릭하면 Reward Gateway 애플리케이션에 자동으로 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -5,15 +5,15 @@ services: storage
 author: yuemlu
 ms.service: storage
 ms.topic: include
-ms.date: 06/05/2018
+ms.date: 01/08/2019
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: e266b239a44907e8e38e60cfc217aa21e46ab17e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ad57d373422e0fc310e51ac31f2a2e76999abf22
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264181"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193428"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>비용 효율적인 Standard Storage와 관리되지 않는 Azure VM 디스크 및 관리 Azure VM 디스크
 
@@ -25,9 +25,9 @@ Azure Standard Storage는 대기 시간에 영향을 받지 않는 워크로드�
 
 Azure VM에 표준 디스크를 만드는 방법은 두 가지입니다.
 
-**관리되지 않는 디스크**: 이 유형의 디스크는 VM 디스크에 해당하는 VHD 파일을 저장하는 데 사용되는 저장소 계정을 관리하는 원래 방법입니다. VHD 파일은 저장소 계정에 페이지 Blob으로 저장됩니다. 관리되지 않는 디스크는 DSv2 및 GS 시리즈와 같은 Premium Storage를 주로 사용하는 VM을 비롯한 모든 Azure VM 크기에 연결될 수 있습니다. Azure VM은 여러 표준 디스크 연결을 지원하며 VM당 최대 256TiB의 저장소를 허용합니다. 미리 보기 디스크 크기를 사용하는 경우 VM 당 최대 약 2PiB의 저장소를 가질 수 있습니다.
+**비관리 디스크**: 이 유형의 디스크는 VM 디스크에 해당하는 VHD 파일을 저장하는 데 사용되는 스토리지 계정을 관리하는 원래 방법입니다. VHD 파일은 저장소 계정에 페이지 Blob으로 저장됩니다. 관리되지 않는 디스크는 DSv2 및 GS 시리즈와 같은 Premium Storage를 주로 사용하는 VM을 비롯한 모든 Azure VM 크기에 연결될 수 있습니다. Azure VM은 여러 표준 디스크 연결을 지원하며 VM당 최대 256TiB의 저장소를 허용합니다. 미리 보기 디스크 크기를 사용하는 경우 VM 당 최대 약 2PiB의 저장소를 가질 수 있습니다.
 
-[**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): 이 기능은 VM 디스크에 사용되는 저장소 계정을 관리해 줍니다. 필요한 디스크의 유형(프리미엄 SSD, 표준 SSD 또는 표준 HDD)과 크기를 지정하면 Azure가 알아서 디스크를 만들고 관리해줍니다. 저장소 계정에 대한 확장성 한도 내에 머무르기 위해 다수의 저장소 계정에 디스크를 배치하려고 고심할 필요가 없습니다. Azure가 알아서 처리해 드립니다.
+[**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): 이 기능은 VM 디스크에 사용되는 스토리지 계정을 자동으로 관리합니다. 필요한 디스크의 유형(프리미엄 SSD, 표준 SSD 또는 표준 HDD)과 크기를 지정하면 Azure가 알아서 디스크를 만들고 관리해줍니다. 저장소 계정에 대한 확장성 한도 내에 머무르기 위해 다수의 저장소 계정에 디스크를 배치하려고 고심할 필요가 없습니다. Azure가 알아서 처리해 드립니다.
 
 두 가지 유형의 디스크를 모두 사용할 수 있지만 많은 기능의 이점을 활용하려면 Managed Disks를 사용하는 것이 좋습니다.
 
@@ -44,13 +44,13 @@ Standard Storage의 기능 중 일부를 살펴보겠습니다. 자세한 내용
 
 **Standard Storage**: Azure Standard Storage는 Azure Disks, Azure Blobs, Azure Files, Azure Tables 및 Azure Queues를 지원합니다. 표준 스토리지 서비스를 사용하려면 [Azure Storage 계정 만들기](../articles/storage/common/storage-quickstart-create-account.md)에서 시작하세요.
 
-**표준 SSD 디스크:** 표준 SSD 디스크는 표준 HDD 디스크보다 더 안정적인 성능을 제공하며, 현재 사용할 수 있습니다. 표준 SSD 디스크의 지역 가용성에 대한 자세한 내용은 [표준 SSD 디스크의 지역 가용성](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions)을 참조하세요.
+**표준 SSD 디스크:** 표준 HDD 디스크보다 더 안정적인 성능을 제공하는 표준 SSD 디스크를 현재 사용할 수 있습니다. 표준 SSD 디스크의 지역 가용성에 대한 자세한 내용은 [표준 SSD 디스크의 지역 가용성](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions)을 참조하세요.
 
-**표준 HDD 디스크:** 표준 HDD 디스크는 Premium Storage에 사용되는 시리즈-사이즈(예: DSv2 및 GS 시리즈) VM을 비롯한 모든 Azure VM에 연결될 수 있습니다. 표준 HDD 디스크는 하나의 VM에만 연결될 수 있습니다. 하지만 VM에는 이러한 디스크를 한 개 이상, 해당 VM 크기에 정의된 최대 디스크 개수만큼 연결할 수 있습니다. 사양에 대한 자세한 내용은 표준 저장소 확장성 및 성능 목표에 관한 다음 섹션에서 설명하겠습니다.
+**표준 HDD 디스크:** 표준 HDD 디스크는 Premium Storage에 사용되는 시리즈-사이즈(예: DSv2 및 GS 시리즈) VM을 비롯한 모든 Azure VM에 연결할 수 있습니다. 표준 HDD 디스크는 하나의 VM에만 연결될 수 있습니다. 하지만 VM에는 이러한 디스크를 한 개 이상, 해당 VM 크기에 정의된 최대 디스크 개수만큼 연결할 수 있습니다. 사양에 대한 자세한 내용은 표준 저장소 확장성 및 성능 목표에 관한 다음 섹션에서 설명하겠습니다.
 
-**표준 페이지 Blob**: 표준 페이지 Blob은 VM의 영구적인 디스크를 보존하는 데 사용되며 다른 유형의 Azure Blob처럼 REST를 통해 직접 액세스할 수도 있습니다. [페이지 Blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs)은 임의 읽기 및 쓰기 작업용으로 최적화된 512바이트 페이지 컬렉션입니다. 
+**표준 페이지 Blob**: 표준 페이지 Blob은 VM용 영구 디스크를 보관하는 데 사용되며 다른 유형의 Azure Blob처럼 REST를 통해 직접 액세스할 수도 있습니다. [페이지 Blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs)은 임의 읽기 및 쓰기 작업용으로 최적화된 512바이트 페이지 컬렉션입니다. 
 
-**저장소 복제:** 대부분의 지역에서 Standard Storage 계정의 데이터는 로컬에 복제되거나 여러 데이터 센터에 지리적으로 복제될 수 있습니다. 사용 가능한 네 가지의 복제 유형은 LRS(로컬 중복 저장소), ZRS(영역 중복 저장소), GRS(지역 중복 저장소) 및 RA-GRS(읽기 액세스 지역 중복 저장소)입니다. Standard Storage의 Managed Disks는 현재 LRS(로컬 중복 스토리지)만 지원합니다. 자세한 내용은 [저장소 복제](../articles/storage/common/storage-redundancy.md)를 참조하세요.
+**스토리지 복제:** 대부분의 지역에서 Standard Storage 계정의 데이터는 로컬로 복제하거나 여러 데이터 센터에 걸쳐 지역에서 복제할 수 있습니다. 사용 가능한 네 가지의 복제 유형은 LRS(로컬 중복 저장소), ZRS(영역 중복 저장소), GRS(지역 중복 저장소) 및 RA-GRS(읽기 액세스 지역 중복 저장소)입니다. Standard Storage의 Managed Disks는 현재 LRS(로컬 중복 스토리지)만 지원합니다. 자세한 내용은 [저장소 복제](../articles/storage/common/storage-redundancy.md)를 참조하세요.
 
 ## <a name="scalability-and-performance-targets"></a>확장성 및 성능 대상
 
@@ -75,15 +75,7 @@ Standard Storage의 기능 중 일부를 살펴보겠습니다. 자세한 내용
 
 ### <a name="standard-disks-limits"></a>표준 디스크 한도
 
-프리미엄 디스크와 달리 표준 디스크의 처리량(대역폭) 및 IOPS(초당 입/출력 작업 수)는 프로비전되지 않습니다. 표준 디스크의 성능은 디스크의 크기가 아닌 디스크가 연결되는 VM의 크기에 따라 달라집니다. 아래 테이블에 나열되어 있는 성능 한도까지 달성할 것으로 예상할 수 있습니다.
-
-**표준 디스크 한도(관리 및 관리되지 않는)**
-
-| **VM 계층**            | **기본 계층 VM** | **표준 계층 VM** |
-|------------------------|-------------------|----------------------|
-| 최대 디스크 크기          | 32,767GiB           | 32,767GiB        |
-| 디스크당 최대 8KB IOPS | 최대 2,000         | 최대 2,000        |
-| 디스크당 최대 대역폭 | 최대 500MB/초     | 최대 500MB/초      |
+프리미엄 디스크와 달리 표준 디스크의 처리량(대역폭) 및 IOPS(초당 입/출력 작업 수)는 프로비전되지 않습니다. 표준 디스크의 성능은 디스크가 연결되는 VM의 크기와 디스크의 크기에 따라 달라집니다.
 
 워크로드에 대기 시간이 짧은 고성능 디스크 지원이 필요한 경우 Premium Storage를 사용하는 것이 좋습니다. Premium Storage의 이점을 자세히 알아보려면 [고성능 Premium Storage 및 Azure VM 디스크](../articles/virtual-machines/windows/premium-storage.md)를 참조하세요.
 
@@ -117,9 +109,9 @@ Standard Storage를 사용하는 경우 다음과 같은 청구 고려 사항이
 * 아웃바운드 데이터 전송
 * 트랜잭션
 
-**관리되지 않는 저장소 데이터 및 디스크 크기:** 관리되지 않는 디스크 및 기타 데이터(Blob, 테이블, 큐 및 파일)의 경우 사용하는 공간의 양에 대해서만 요금이 청구됩니다. 예를 들어 VM의 페이지 Blob이 127GB로 프로비전되었는데 VM이 실제로 10GB의 공간만을 사용한다면 10GB의 공간에 대해서만 요금이 청구됩니다. 표준 저장소를 최대 8191GB까지, 표준 관리되지 않는 디스크를 최대 4095GB까지 지원합니다. 
+**비관리 스토리지 데이터 및 디스크 크기:** 비관리 디스크 및 기타 데이터(Blob, 테이블, 큐 및 파일)의 경우 사용하는 공간의 양에 대해서만 요금이 청구됩니다. 예를 들어 VM의 페이지 Blob이 127GB로 프로비전되었는데 VM이 실제로 10GB의 공간만을 사용한다면 10GB의 공간에 대해서만 요금이 청구됩니다. 표준 저장소를 최대 8191GB까지, 표준 관리되지 않는 디스크를 최대 4095GB까지 지원합니다. 
 
-**관리 디스크**: 표준 관리 디스크에 대한 요금 청구는 프로비전된 디스크 크기에 따라 달라집니다. Azure는 프로비전된 크기(올림)를 아래 테이블에 지정된 대로 가장 가까운 Managed Disks 옵션에 매핑합니다. 각각의 관리 디스크는 지원되는 프로비전된 크기 중 하나에 매핑되고 그에 따라 요금이 청구됩니다. 예를 들어 표준 관리 디스크를 만들고 프로비전된 크기를 200GiB로 지정하면 S15 디스크 유형의 가격에 따라 요금이 청구됩니다.
+**관리형 디스크:** 표준 관리형 디스크의 경우 프로비전된 디스크 크기에 따라 요금이 청구됩니다. Azure는 프로비전된 크기(올림)를 아래 테이블에 지정된 대로 가장 가까운 Managed Disks 옵션에 매핑합니다. 각각의 관리 디스크는 지원되는 프로비전된 크기 중 하나에 매핑되고 그에 따라 요금이 청구됩니다. 예를 들어 표준 관리 디스크를 만들고 프로비전된 크기를 200GiB로 지정하면 S15 디스크 유형의 가격에 따라 요금이 청구됩니다.
 
 별표로 표시되는 크기는 현재 미리 보기로 제공됩니다.
 
@@ -128,11 +120,11 @@ Standard Storage를 사용하는 경우 다음과 같은 청구 고려 사항이
 | 디스크 크기        | 32GiB  | 64GiB  | 128GiB | 256GiB | 512GiB | 1,024GiB(1TiB) | 2,048GiB(2TiB) | 4,095GiB(4TiB) | 8,192GiB(8TiB) | 16,385GiB(16TiB) | 32,767GiB(32TiB) |
 
 
-**스냅숏**: 표준 디스크의 스냅숏은 스냅숏에 사용된 추가 용량에 대해 요금이 청구됩니다. 스냅숏에 대한 자세한 내용은 [Blob의 스냅숏 만들기](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)를 참조하세요.
+**스냅숏**: 표준 디스크 스냅숏의 경우 스냅숏에 사용되는 추가 용량에 해당하는 요금이 청구됩니다. 스냅숏에 대한 자세한 내용은 [Blob의 스냅숏 만들기](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)를 참조하세요.
 
 **아웃바운드 데이터 전송**:  [아웃바운드 데이터 전송](https://azure.microsoft.com/pricing/details/data-transfers/) (Azure 데이터 센터에서 데이터 전송) 시 대역폭 사용량에 대한 요금이 청구됩니다.
 
-**트랜잭션**: Azure에서는 표준 스토리지의 트랜잭션 100,000개당 0.0036달러의 요금이 청구됩니다. 트랜잭션에는 저장소에 대한 읽기 및 쓰기 작업이 모두 포함됩니다.
+**트랜잭션**: Azure에서는 표준 스토리지 트랜잭션 10만 건당 $0.0036가 청구됩니다. 트랜잭션에는 저장소에 대한 읽기 및 쓰기 작업이 모두 포함됩니다.
 
 Standard Storage, Virtual Machines 및 Managed Disks 가격 책정에 대한 자세한 내용은 다음을 참조하세요.
 

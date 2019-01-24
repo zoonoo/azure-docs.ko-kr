@@ -1,6 +1,6 @@
 ---
 title: 서비스 공급자의 Log Analytics | Microsoft Docs
-description: Log Analytics는 MSP(Managed Service Providers), 대기업, ISV(Independent Software Vendor)를 지원하며 호스팅 서비스 공급자가 고객의 온-프레미스 또는 클라우드 인프라에서 서버를 관리하고 모니터링할 수 있도록 합니다.
+description: MSP(Managed Service Provider), 대기업, ISV(Independent Software Vendor) 및 호스팅 서비스 공급자는 Log Analytics를 통해 고객의 온-프레미스 또는 클라우드 인프라에서 서버를 관리하고 모니터링할 수 있습니다.
 services: log-analytics
 documentationcenter: ''
 author: MeirMen
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
-ms.openlocfilehash: ac34cc467cc8ff7d231551683da130c0f7565800
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 294dd56a7eb62510c30f4fbb0dbeeafc81b790f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340541"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264775"
 ---
 # <a name="log-analytics-for-service-providers"></a>서비스 공급자의 Log Analytics
 Log Analytics는 MSP(Managed Service Providers), 대기업, ISV(Independent Software Vendor)를 지원하며 호스팅 서비스 공급자가 고객의 온-프레미스 또는 클라우드 인프라에서 서버를 관리하고 모니터링할 수 있도록 합니다. 

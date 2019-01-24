@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 2bae07643407e8672ef26fb59da588661eb9f0d1
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 0663f569edd0dec47949053b6ecf7fe49fa24a17
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191822"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229305"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
 Azure Storage GPv2 계정을 사용하면 *$web*이라는 스토리지 컨테이너에서 직접 정적 콘텐츠(HTML, CSS, JavaScript 및 이미지 파일)를 서비스할 수 있습니다. Azure Storage에 호스팅하면 [Azure Functions](/azure/azure-functions/functions-overview) 및 기타 PaaS 서비스를 포함한 서버리스 아키텍처를 사용할 수 있습니다.
@@ -30,10 +30,10 @@ Azure Storage GPv2 계정을 사용하면 *$web*이라는 스토리지 컨테이
 - 대/소문자 구분
 - 다음 패턴을 따르는 공용 웹에서 사용 가능:
     - `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
-- 다음 패턴을 따르는 Blob 저장소 엔드포인트를 통해 사용 가능:
+- 다음 패턴을 따르는 Blob Storage 엔드포인트를 통해 사용 가능:
     - `https://<ACCOUNT_NAME>.blob.core.windows.net/$web/<FILE_NAME>`
 
-Blob 저장소 엔드포인트를 사용하여 파일을 업로드합니다. 예를 들어 이 위치에 업로드된 파일은 다음과 같은 특징이 있습니다.
+Blob Storage 엔드포인트를 사용하여 파일을 업로드합니다. 예를 들어 이 위치에 업로드된 파일은 다음과 같은 특징이 있습니다.
 
 ```bash
 https://contoso.blob.core.windows.net/$web/image.png

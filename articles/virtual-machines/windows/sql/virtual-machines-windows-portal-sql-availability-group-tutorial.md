@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 65ccf45ea8ea1f8f553be0b2c599f5c1433fc3e8
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "51238078"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359717"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>수동으로 Azure VM에서 Always On 가용성 그룹 구성
 
@@ -51,6 +51,9 @@ ms.locfileid: "51238078"
 
 
 자습서를 시작하기 전에 [Azure Virtual Machines에 Always On 가용성 그룹을 만들기 위한 필수 조건을 완료](virtual-machines-windows-portal-sql-availability-group-prereq.md)해야 합니다. 이러한 필수 구성 요소를 이미 완료한 경우 [클러스터 만들기](#CreateCluster)로 이동할 수 있습니다.
+
+  >[!NOTE]
+  > 이 자습서의 많은 단계는 Azure 빠른 시작 템플릿을 사용하여 자동화할 수 있습니다. 자세한 내용은 [Azure 빠른 시작 템플릿을 사용하여 SQL Server VM에서 WSFC, 수신기 만들기 및 Always On 가용성 그룹에 대해 ILB 구성](virtual-machines-windows-sql-availability-group-quickstart-template.md)을 참조하세요.
 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
@@ -296,7 +299,7 @@ Repeat these steps on the second SQL Server.
 
     ![새 AG 마법사, 초기 데이터 동기화 선택](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. **초기 데이터 동기화 선택** 페이지에서 **전체**를 선택하고 공유 네트워크 위치를 지정합니다. 위치의 경우 [만든 백업 공유](#backupshare)를 사용합니다. 예제에서는 **\\\\\<First SQL Server\>\Backup\\** 입니다. **다음**을 클릭합니다.
+8. **초기 데이터 동기화 선택** 페이지에서 **전체**를 선택하고 공유 네트워크 위치를 지정합니다. 위치의 경우 [만든 백업 공유](#backupshare)를 사용합니다. 예제에서는 **\\\\\<First SQL Server\>\Backup\\\**입니다. **다음**을 클릭합니다.
 
    >[!NOTE]
    >전체 동기화는 SQL Server의 첫 번째 인스턴스에서 데이터베이스의 전체 백업을 수행하고 두 번째 인스턴스로 복원합니다. 대형 데이터베이스의 경우 전체 동기화는 시간이 오래 걸릴 수 있으므로 권장되지 않습니다. 수동으로 데이터베이스의 백업을 수행하고 `NO RECOVERY`를 통해 복원하여 이 시간을 줄일 수 있습니다. 가용성 그룹을 구성하기 전에 두 번째 SQL Server에서 이미 `NO RECOVERY`로 데이터베이스를 복원한 경우 **조인만**을 선택합니다. 가용성 그룹을 구성한 후 백업을 수행하려는 경우 **초기 데이터 동기화 건너뛰기**를 선택합니다.

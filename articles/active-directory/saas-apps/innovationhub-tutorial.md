@@ -4,7 +4,7 @@ description: Azure Active Directory 및 Innoverse 간에 Single Sign-On을 구�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: d72e4da0-0123-409b-96c2-e613f3f83fb1
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/14/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 293c08a81ba675d42cd0e9f715e988b2186deb3d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 07385089e64977243929de15ab53f84520029495
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794076"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54806890"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-innoverse"></a>자습서: Innoverse와 Azure Active Directory 통합
 
@@ -79,8 +79,8 @@ Innoverse에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Innoverse Single Sign-On 구성](#configure-innoverse-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Innoverse 테스트 사용자 만들기](#create-innoverse-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Innoverse에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Innoverse 테스트 사용자 만들기](#create-innoverse-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Innoverse에 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -114,7 +114,7 @@ Innoverse에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
     ![Innoverse 도메인 및 URL Single Sign-On 정보](common/metadata_upload_additional_signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://<domainname>.innover.se/auth/saml2/login` 패턴을 사용하여 URL을 입력합니다.
-    
+
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Innoverse 클라이언트 지원팀](mailto:support@readify.net)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 

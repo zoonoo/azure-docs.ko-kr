@@ -3,19 +3,19 @@ title: Azure Active Directory B2C의 ID 경험 프레임워크 스키마용 부�
 description: Azure Active Directory B2C의 ID 경험 프레임워크 스키마용 부울 클레임 변환의 예제를 제공합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6e9337fb5e336c506fc43e13eeb7fdbfaf636a7
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 1afbf8e8473e12992b7f031ac9835a58e1089b0d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432565"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853275"
 ---
 # <a name="boolean-claims-transformations"></a>부울 클레임 변환
 
@@ -93,7 +93,7 @@ ms.locfileid: "47432565"
 </TechnicalProfile>
 ```
 
-자체 어설션된 기술 프로필은 유효성 검사 **login-NonInteractive** 기술 프로필을 호출합니다.
+자체 어설션된 기술 프로필은 **login-NonInteractive** 유효성 검사 기술 프로필을 호출합니다.
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">

@@ -3,19 +3,19 @@ title: Azure Active Directory B2C의 사용자 지정 정책에서 OpenId Connec
 description: Azure Active Directory B2C의 사용자 지정 정책에서 OpenId Connect 기술 프로필을 정의합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9a20b8df1f0d9cddbde4c4886e11967bc8c04160
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e8ee72b9add1947929e5c772edafd55d28edd79b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842418"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851048"
 ---
 # <a name="define-a-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OpenId Connect 기술 프로필 정의
 
@@ -75,9 +75,9 @@ Azure AD(Azure Active Directory) B2C는 [OpenId Connect](https://openid.net/2015
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| client_id | yes | ID 공급자의 애플리케이션 식별자입니다. |
+| client_id | 예 | ID 공급자의 애플리케이션 식별자입니다. |
 | IdTokenAudience | 아니요 | id_token의 대상 그룹입니다. 지정된 경우 Azure AD B2C는 토큰이 ID 공급자에서 반환된 클레임에 있고 지정된 토큰과 같은지 확인합니다. |
-| METADATA | yes | 잘 알려진 openid 구성 엔드포인트라고도 하는 OpenID Connect Discovery 사양에 따라 서식이 지정된 JSON 구성 문서를 가리키는 URL입니다. |
+| METADATA | 예 | 잘 알려진 openid 구성 엔드포인트라고도 하는 OpenID Connect Discovery 사양에 따라 서식이 지정된 JSON 구성 문서를 가리키는 URL입니다. |
 | ProviderName | 아니요 | ID 공급자의 이름입니다. |
 | response_types | 아니요 | OpenID Connect Core 1.0 사양에 따른 응답 유형입니다. 가능한 값은 `id_token`, `code` 또는 `token`입니다. |
 | response_mode | 아니요 | ID 공급자가 결과를 다시 Azure AD B2C에 보내는 데 사용하는 방법입니다. 가능한 값은 `query`, `form_post`(기본값) 또는 `fragment`입니다. |
@@ -94,7 +94,7 @@ Azure AD(Azure Active Directory) B2C는 [OpenId Connect](https://openid.net/2015
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| client_secret | yes | ID 공급자 애플리케이션의 클라이언트 암호입니다. 암호화 키는 **response_types** 메타데이터가 `code`로 설정된 경우에만 필요합니다. 이 경우 Azure AD B2C는 액세스 토큰에 대한 인증 코드를 교환하는 다른 호출을 수행합니다. 메타데이터가 `id_token`으로 설정된 경우 암호화 키를 생략할 수 있습니다.  |  
+| client_secret | 예 | ID 공급자 애플리케이션의 클라이언트 암호입니다. 암호화 키는 **response_types** 메타데이터가 `code`로 설정된 경우에만 필요합니다. 이 경우 Azure AD B2C는 액세스 토큰에 대한 인증 코드를 교환하는 다른 호출을 수행합니다. 메타데이터가 `id_token`으로 설정된 경우 암호화 키를 생략할 수 있습니다.  |  
 
 ## <a name="redirect-uri"></a>리디렉션 URI
  

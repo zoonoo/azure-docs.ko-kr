@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD 동기화 서비스 계정, 암호
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a0cdaa54d0da58a02cbe9fcda36cbaff6b1fab4a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 50b877e1c0ead8f840aecdb8da939a9626e13e1e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184902"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461011"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Azure AD Connect 동기화 서비스 계정 암호 변경
 Azure AD Connect 동기화 서비스 계정 암호를 변경하면 암호화 키를 제거하고 Azure AD Connect 동기화 서비스 계정 암호를 다시 초기화할 때까지 동기화 서비스를 제대로 시작할 수 없습니다. 
@@ -45,7 +45,7 @@ Azure AD Connect는 동기화 서비스의 일환으로 암호화 키를 사용�
 다음과 같은 오류가 표시됩니다.
 
 - Windows 서비스 제어 관리자에서 동기화 서비스를 시작하려고 하면 암호화 키를 검색할 수 없는 경우 다음과 같은 오류로 인해 실패합니다. “<strong>Windows에서 로컬 컴퓨터의 Microsoft Azure AD 동기화를 시작하지 못했습니다. 자세한 정보는 시스템 이벤트 로그를 참조하십시오. Microsoft 서비스가 아닌 경우, 서비스 공급업체에 문의하는 경우 -21451857952 서비스 특정 오류를 참조하십시오</strong>.”
-- Windows 이벤트 뷰어의 응용 프로그램 이벤트 로그에 **이벤트 ID 6028** *“**서버 암호화 키에 액세스할 수 없습니다.**”* 라는 오류 메시지가 포함됩니다.
+- Windows 이벤트 뷰어의 애플리케이션 이벤트 로그에 **이벤트 ID 6028***“**서버 암호화 키에 액세스할 수 없습니다.**”* 라는 오류 메시지가 포함됩니다.
 
 이러한 오류가 표시되지 않도록 하려면 암호를 변경할 때 [Azure AD Connect 동기화 암호화 키 제거](#abandoning-the-azure-ad-connect-sync-encryption-key)의 절차를 따르십시오.
  

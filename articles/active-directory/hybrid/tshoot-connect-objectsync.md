@@ -4,7 +4,7 @@ description: 이 항목에서는 문제 해결 작업을 사용하여 개체 동
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cfd963ae38d42d245f2eec1ddb76c7af316039ba
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ed13014dd5ad559ed3793ff52ae410be9174ae2b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961130"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461317"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 개체 동기화 문제 해결
 이 문서에서는 문제 해결 작업을 사용하여 개체 동기화 관련 문제를 해결하는 단계를 제공합니다. Azure AD(Active Directory) 연결에서 문제 해결이 작동하는 방식은 [이 짧은 비디오](https://aka.ms/AADCTSVideo)에서 확인하세요.

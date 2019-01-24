@@ -3,7 +3,7 @@ title: 애플리케이션에 대한 최종 사용자 환경 - Azure Active Direc
 description: Azure AD(Azure Active Directory)는 조직의 최종 사용자에게 애플리케이션을 배포하는 몇 가지 사용자 지정 가능한 방법을 제공합니다.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: b1a4ec4b3a75d1337c011275591af11da8c45a6a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0adc9b72dc752788b76e8383be91233a5c3958c7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628818"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462122"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션에 대한 최종 사용자 환경
 Azure AD(Azure Active Directory)는 조직의 최종 사용자에게 애플리케이션을 배포하는 몇 가지 사용자 지정 가능한 방법을 제공합니다.
@@ -29,7 +29,7 @@ Azure AD(Azure Active Directory)는 조직의 최종 사용자에게 애플리�
 조직에 배포할 방법을 선택하는 것은 여러분의 몫입니다. 
 
 ## <a name="azure-ad-access-panel"></a>Azure AD 액세스 패널
-https://myapps.microsoft.com의 액세스 패널은 최종 사용자가 Azure Active Directory의 조직 계정을 사용하여 Azure AD 관리자가 액세스 권한을 부여한 클라우드 기반의 응용 프로그램을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/)의 최종 사용자는 액세스 패널을 통해 셀프 서비스 그룹 관리 기능을 활용할 수도 있습니다.
+https://myapps.microsoft.com의 액세스 패널은 최종 사용자가 Azure Active Directory의 조직 계정을 사용하여 Azure AD 관리자가 액세스 권한을 부여한 클라우드 기반의 애플리케이션을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/)의 최종 사용자는 액세스 패널을 통해 셀프 서비스 그룹 관리 기능을 활용할 수도 있습니다.
 
 ![Azure AD 액세스 패널](media/what-is-single-sign-on/azure-ad-access-panel.png)
 

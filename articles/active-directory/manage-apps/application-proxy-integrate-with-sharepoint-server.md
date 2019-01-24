@@ -1,10 +1,10 @@
 ---
-title: Azure AD 응용 프로그램 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정 | Microsoft 문서
-description: 온-프레미스 SharePoint 서버를 Azure AD 응용 프로그램 프록시과 통합하는 방법에 대한 기본 사항을 다룹니다.
+title: Azure AD 애플리케이션 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정 | Microsoft 문서
+description: 온-프레미스 SharePoint 서버를 Azure AD 애플리케이션 프록시와 통합하는 방법에 대한 기본 사항을 다룹니다.
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,18 +15,18 @@ ms.date: 12/10/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 9b8ae85d1a5410677dd9299ebb947c2189a6b663
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: a240e629c5c8f6e43a4c3c52668fcb2b811989b2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166186"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468392"
 ---
-# <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정
+# <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정
 
-이 문서에서는 온-프레미스 SharePoint 서버를 Azure AD(Azure Active Directory) 응용 프로그램 프록시와 통합하는 방법을 설명합니다.
+이 문서에서는 온-프레미스 SharePoint 서버를 Azure AD(Azure Active Directory) 애플리케이션 프록시와 통합하는 방법을 설명합니다.
 
-Azure AD 응용 프로그램 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정하려면 단계별로 이 문서의 섹션을 따릅니다.
+Azure AD 애플리케이션 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정하려면 단계별로 이 문서의 섹션을 따릅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -55,7 +55,7 @@ SharePoint 서버에 대해 KCD를 설정하려면 다음에 나오는 순차 �
 
 1. **SharePoint 중앙 관리** 사이트를 엽니다.
 2. **보안**으로 이동하고 **서비스 계정 구성**을 선택합니다.
-3. **웹 응용 프로그램 풀 – SharePoint – 80**을 선택합니다. 옵션은 기본적으로 웹 풀에서 SSL을 사용하는 경우 또는 웹 풀의 이름에 따라 약간 다를 수 있습니다.
+3. **웹 애플리케이션 풀 – SharePoint – 80**을 선택합니다. 옵션은 기본적으로 웹 풀에서 SSL을 사용하는 경우 또는 웹 풀의 이름에 따라 약간 다를 수 있습니다.
 
   ![서비스 계정 구성 옵션](./media/application-proxy-integrate-with-sharepoint-server/service-web-application.png)
 
@@ -127,7 +127,7 @@ KCD를 구성했으므로 이제 Azure AD 애플리케이션 프록시를 구성
 
    1. 포털의 애플리케이션 페이지에서 **Single Sign-On**을 선택합니다.
    2. Single Sign-On 모드로 **Windows 통합 인증**을 선택합니다.
-   3. 내부 응용 프로그램 SPN을 이전에 설정한 값으로 설정합니다. 이 예제에서는 **HTTP/SharePoint**입니다.
+   3. 내부 애플리케이션 SPN을 이전에 설정한 값으로 설정합니다. 이 예제에서는 **HTTP/SharePoint**입니다.
    4. “위임된 로그인 ID”에서 **온-프레미스 SAM 계정 이름**을 선택합니다.
 
    ![SSO용 통합 Windows 인증 구성](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
@@ -182,9 +182,9 @@ KCD를 구성했으므로 이제 Azure AD 애플리케이션 프록시를 구성
 5. https 바인딩을 선택하고 **편집...** 을 클릭합니다.
 6. SSL 인증서 필드에서 **SharePoint** 인증서를 선택하고 확인을 클릭합니다.
 
-Azure AD 응용 프로그램 프록시를 통해 SharePoint 사이트를 외부에서 액세스할 수 있습니다.
+Azure AD 애플리케이션 프록시를 통해 SharePoint 사이트를 외부에서 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업](application-proxy-configure-custom-domain.md)
-* [Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-connectors.md)
+* [Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 작업](application-proxy-configure-custom-domain.md)
+* [Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)

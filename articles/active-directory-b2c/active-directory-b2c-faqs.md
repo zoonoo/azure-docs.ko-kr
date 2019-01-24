@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에 대한 질문과 대답 | Microsoft Docs
 description: Azure Active Directory B2C에 대한 FAQ(질문과 대답)
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6957a18440dfc225c63a1b1843e2b47af8b841bf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8e5e688fe741fdc4a83ae1a3cf13a6c722064407
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842954"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856301"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: 질문과 대답(FAQ) 
 이 페이지는 Azure AD(Azure Active Directory) B2C에 대한 자주 묻는 질문에 응답합니다. 업데이트를 계속 확인합니다.
@@ -24,10 +24,10 @@ ms.locfileid: "52842954"
 Azure AD 확장이 작동하지 않는 경우에는 일반적으로 두 가지 이유가 있습니다.  Azure AD B2C에서는 디렉터리의 사용자 역할이 전역 관리자여야 합니다.  액세스 권한이 있어야 한다고 생각되면 관리자에게 문의하세요.  전역 관리자 권한이 있는 경우 Azure Active Directory 디렉터리가 아닌 Azure AD B2C 디렉터리에 있어야 합니다.  [Azure AD B2C 테넌트를 만드는 방법](tutorial-create-tenant.md)에 대한 지침을 확인할 수 있습니다.
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>기존의 직원 기반 Azure AD 테넌트에서 Azure AD B2C 기능을 사용할 수 있나요?
-Azure AD 및 Azure AD B2C는 별개 제품으로, 동일한 테넌트에서 함께 사용할 수 없습니다.  Azure AD 테넌트는 조직을 나타냅니다.  Azure AD B2C 테넌트는 신뢰 당사자 응용 프로그램에서 사용할 ID 컬렉션을 나타냅니다.  사용자 지정 정책(공개 미리 보기)을 통해 Azure AD B2C가 Azure AD로 페더레이션되어 조직의 직원을 인증할 수 있습니다.
+Azure AD 및 Azure AD B2C는 별개 제품으로, 동일한 테넌트에서 함께 사용할 수 없습니다.  Azure AD 테넌트는 조직을 나타냅니다.  Azure AD B2C 테넌트는 신뢰 당사자 애플리케이션에서 사용할 ID 컬렉션을 나타냅니다.  사용자 지정 정책(공개 미리 보기)을 통해 Azure AD B2C가 Azure AD로 페더레이션되어 조직의 직원을 인증할 수 있습니다.
 
 ### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>Azure AD B2C를 사용하여 소셜 로그인(Facebook 및 Google+)을 Office 365에 제공할 수 있나요?
-Azure AD B2C를 사용하여 Microsoft Office 365에 사용자를 인증할 수는 없습니다.  Azure AD는 SaaS 앱에 대한 직원 액세스를 관리하기 위한 Microsoft 솔루션으로, 이러한 목적으로 설계된 라이선스, 조건부 액세스 등의 기능이 있습니다.  Azure AD B2C는 웹 및 모바일 응용 프로그램을 빌드하기 위한 ID 및 액세스 관리 플랫폼을 제공합니다.  Azure AD B2C가 Azure AD 테넌트에 페더레이션되도록 구성된 경우 Azure AD 테넌트는 Azure AD B2C를 사용하는 응용 프로그램에 대한 직원 액세스를 관리합니다.
+Azure AD B2C를 사용하여 Microsoft Office 365에 사용자를 인증할 수는 없습니다.  Azure AD는 SaaS 앱에 대한 직원 액세스를 관리하기 위한 Microsoft 솔루션으로, 이러한 목적으로 설계된 라이선스, 조건부 액세스 등의 기능이 있습니다.  Azure AD B2C는 웹 및 모바일 애플리케이션을 빌드하기 위한 ID 및 액세스 관리 플랫폼을 제공합니다.  Azure AD B2C가 Azure AD 테넌트에 페더레이션되도록 구성된 경우 Azure AD 테넌트는 Azure AD B2C를 사용하는 애플리케이션에 대한 직원 액세스를 관리합니다.
 
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>Azure AD B2C에서 로컬 계정은 무엇인가요? Azure AD의 회사 또는 학교 계정과 어떻게 다른가요?
 Azure AD 테넌트에서 테넌트에 속한 사용자는 `<xyz>@<tenant domain>` 형식의 메일 주소로 로그인합니다.  `<tenant domain>`은 테넌트의 확인된 도메인 중 하나이거나 초기 `<...>.onmicrosoft.com` 도메인입니다. 이 계정 유형은 회사 또는 학교 계정입니다.
@@ -52,8 +52,8 @@ Azure AD B2C에서는 [사용자 지정 정책](active-directory-b2c-overview-cu
 * Amazon: 프로필
 * LinkedIn: r_emailaddress, r_basicprofile
 
-### <a name="does-my-application-have-to-be-run-on-azure-for-it-work-with-azure-ad-b2c"></a>내 응용 프로그램을 Azure AD B2C와 함께 작업하려면 Azure에서 실행해야 하나요?
-아니요, 어디서나 응용 프로그램을 호스팅할 수 있습니다.(클라우드 또는 온-프레미스) 공개적으로 액세스할 수 있는 엔드포인트에서 HTTP 요청을 보내고 받는 기능만 있으면 Azure AD B2C와 상호 작용할 수 있습니다.
+### <a name="does-my-application-have-to-be-run-on-azure-for-it-work-with-azure-ad-b2c"></a>내 애플리케이션을 Azure AD B2C와 함께 작업하려면 Azure에서 실행해야 하나요?
+아니요, 어디서나 애플리케이션을 호스팅할 수 있습니다.(클라우드 또는 온-프레미스) 공개적으로 액세스할 수 있는 엔드포인트에서 HTTP 요청을 보내고 받는 기능만 있으면 Azure AD B2C와 상호 작용할 수 있습니다.
 
 ### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>여러 개의 Azure AD B2C 테넌트가 있습니다. Azure Portal에서 관리하려면 어떻게 하나요?
 Azure Portal의 왼쪽 메뉴에서 'Azure AD B2C'를 열기 전에 관리하려는 디렉터리로 전환해야 합니다.  Azure Portal의 오른쪽 위에 있는 사용자 ID를 클릭하여 디렉터리를 전환한 후 나타나는 드롭다운에서 디렉터리를 선택합니다.
@@ -101,7 +101,7 @@ Azure AD B2C는 SharePoint 외부 파트너 공유 시나리오에 해당하지 
 아니요, Azure AD B2C는 Azure AD Premium과 동일한 보고서 집합을 지원하지 않습니다. 하지만 많은 공통점이 있습니다.
 
 * **로그인 보고서**는 요약 정보와 함께 각 로그인 레코드를 제공합니다.
-* **감사 보고서**는 관리 작업 및 응용 프로그램 작업을 모두 포함합니다. 
+* **감사 보고서**는 관리 작업 및 애플리케이션 작업을 모두 포함합니다. 
 * **사용 현황 보고서**는 사용자 수, 로그인 수 및 MFA 크기를 포함합니다. 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Azure AD B2C에서 제공하는 페이지의 UI를 지역화할 수 있습니까? 어떤 언어가 지원되나요?
@@ -120,7 +120,7 @@ Azure AD B2C 테넌트를 삭제하려면 다음 단계를 수행합니다.
 3. **사용자 및 그룹**을 선택합니다.
 4. 각 사용자를 차례로 선택합니다(현재 로그인에 사용한 구독 관리자 사용자 제외). 페이지의 아래쪽에서 **삭제**를 클릭한 다음 메시지가 나타나면 **예**를 클릭합니다.
 5. **앱 등록**을 클릭합니다.
-6. **b2c-extensions-app**이라는 응용 프로그램을 선택합니다. **삭제**를 클릭하고 대화 상자가 나타나면 **예**를 클릭합니다.
+6. **b2c-extensions-app**이라는 애플리케이션을 선택합니다. **삭제**를 클릭하고 대화 상자가 나타나면 **예**를 클릭합니다.
 7. **개요**를 선택합니다.
 8. **디렉터리 삭제**를 클릭합니다. 프로세스를 완료하려면 화면의 지시를 따릅니다.
 

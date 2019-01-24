@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 11/19/2018
-ms.openlocfilehash: 48b2cdb26994d01dfced8216bb70493802f672a7
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: de1033a6e43105f92775682458677a4578a410b9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413679"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265489"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드
 
@@ -95,7 +95,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     다음 항목 이외의 다른 모든 기본값을 허용합니다.
 
     * 클러스터의 이름을 입력합니다.
-    * 이 문서에서는 **4.0** 런타임을 사용하여 클러스터를 만듭니다.
+    * 이 문서에서는 런타임 버전 **4.1 이상**을 사용하여 클러스터를 만듭니다.
     * **비활성 \_\_분 후 종료** 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
     
     **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
@@ -132,7 +132,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    ![앱 등록 선택](./media/databricks-extract-load-sql-data-warehouse/select-app-registrations.png)
 
-3. **새 응용 프로그램 등록**을 선택합니다.
+3. **새 애플리케이션 등록**을 선택합니다.
 
    ![앱 추가](./media/databricks-extract-load-sql-data-warehouse/select-add-app.png)
 
@@ -155,7 +155,7 @@ Azure Databricks에서 Data Lake Store 계정에 액세스하려면 앞에서 �
 
    ![애플리케이션 선택](./media/databricks-extract-load-sql-data-warehouse/select-app.png)
 
-2. **응용 프로그램 ID**를 복사하고 응용 프로그램 코드에 저장합니다. 일부 [애플리케이션 예제](#log-in-as-the-application)에서는 이 값을 클라이언트 ID라고 합니다.
+2. **애플리케이션 ID**를 복사하고 애플리케이션 코드에 저장합니다. 일부 [애플리케이션 예제](#log-in-as-the-application)에서는 이 값을 클라이언트 ID라고 합니다.
 
    ![클라이언트 ID](./media/databricks-extract-load-sql-data-warehouse/copy-app-id.png)
 

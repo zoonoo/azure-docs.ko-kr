@@ -57,34 +57,13 @@ items:
     href: r-quickstart.md
 - name: 샘플
   items:
+  - name: 샘플 실험
+    displayName: gallery
+    href: sample-experiments.md
   - name: 샘플 데이터 세트
     href: use-sample-datasets.md
-  - name: 고객 이탈 예
-    href: azure-ml-customer-churn-scenario.md
   - name: Azure AI 갤러리
-    items:
-    - name: 개요
-      href: gallery-how-to-use-contribute-publish.md
-    - name: 샘플 실험
-      href: sample-experiments.md
-    - name: 산업
-      href: gallery-industries.md
-    - name: 솔루션
-      href: gallery-solutions.md
-    - name: 실험
-      href: gallery-experiments.md
-    - name: Jupyter 노트북
-      href: gallery-jupyter-notebooks.md
-    - name: 경쟁
-      href: gallery-competitions.md
-    - name: 경쟁 FAQ
-      href: competition-faq.md
-    - name: 자습서
-      href: gallery-tutorials.md
-    - name: 컬렉션
-      href: gallery-collections.md
-    - name: 사용자 지정 모듈
-      href: gallery-custom-modules.md
+    href: gallery-how-to-use-contribute-publish.md
 - name: 개념
   items:
   - name: 모델 관리
@@ -102,9 +81,6 @@ items:
       href: troubleshooting-creating-ml-workspace.md
     - name: ARM을 사용하여 배포
       href: deploy-with-resource-manager-template.md
-    - name: Studio 계정 데이터 보기 및 삭제
-      displayName: export
-      href: export-delete-personal-data-dsr.md
   - name: 학습 데이터 가져오기
     items:
     - name: 개요
@@ -128,15 +104,9 @@ items:
       displayName: endpoint, endpoints
       href: create-models-and-endpoints-with-powershell.md
     - name: 알고리즘 선택
-      items:
-      - name: 알고리즘 선택
-        href: algorithm-choice.md
-      - name: 알고리즘 치트 시트
-        href: algorithm-cheat-sheet.md
-      - name: 선형 회귀 사용
-        href: linear-regression-in-azure.md
-      - name: 텍스트 분석 사용
-        href: text-analytics-module-tutorial.md
+      href: algorithm-choice.md
+    - name: 알고리즘 치트 시트
+      href: algorithm-cheat-sheet.md
     - name: 결과 평가 및 해석
       items:
       - name: 성능 평가
@@ -212,7 +182,19 @@ items:
       href: consume-web-service-with-web-app-template.md
     - name: Batch 풀 사용
       href: dedicated-capacity-for-bes-jobs.md
-  - name: 계정 데이터 보기 및 삭제
+  - name: 예
+    items:
+    - name: 고객 변동
+      href: azure-ml-customer-churn-scenario.md
+    - name: 정서 분석
+      href: text-analytics-module-tutorial.md
+    - name: Excel에서 Studio로 분석 마이그레이션
+      href: linear-regression-in-azure.md
+  - name: Studio 데이터 보기 및 삭제
+    displayName: export
+    href: export-delete-personal-data-dsr.md
+  - name: 갤러리 데이터 보기 및 삭제
+    displayName: export
     href: ai-gallery-control-personal-data-dsr.md
 - name: 참고 자료
   items:
@@ -230,21 +212,21 @@ items:
     href: /azure/templates/microsoft.machinelearning/allversions
 - name: 리소스
   items:
-  - name: 가격
-    href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: Azure 로드맵
     href: https://azure.microsoft.com/roadmap/
-  - name: Net# 신경망 언어
-    href: azure-ml-netsharp-reference-guide.md
-  - name: MSDN 포럼
-    href: https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
-  - name: 스택 오버플로
-    href: http://stackoverflow.com/questions/tagged/azure-machine-learning
+  - name: 가격
+    href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: R 개발자 가이드
     href: ../r-developers-guide.md
-ms.openlocfilehash: f8fa65cfb7c61cd3d359331f1872d279ab113d19
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+  - name: Net# 신경망 사용자 지정
+    href: azure-ml-netsharp-reference-guide.md
+  - name: 지원 받기
+    href: support-aml-studio.md
+  - name: ML 제품 비교
+    href: ../service/overview-more-machine-learning.md
+ms.openlocfilehash: 585310705bebbceb0aa4576977ef096704d87483
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320517"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424788"

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 963960657fb8c16307dbf062c0b16cd74a4a7b3f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 3caf838fec3a5c0ab847ded85b269df7a66859e0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101720"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266748"
 ---
 # <a name="advisor-performance-recommendations"></a>Advisor 성능 권장 사항
 
@@ -32,7 +32,7 @@ Azure Advisor는 긴 TTL이 구성된 Traffic Manager 프로필을 식별하여 
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>SQL DB Advisor로 데이터베이스 성능 개선
 
-Advisor는 모든 Azure 리소스에 대한 권장 사항을 일관되고 통합된 보기로 표시합니다. SQL Database Azure와 통합되므로 SQL Azure Database의 성능을 향상시키기 위한 권장 사항이 표시됩니다. SQL Database Advisor는 사용 기록을 분석하여 SQL Azure Database의 성능을 평가합니다. 그런 후 데이터베이스의 일반적인 워크로드를 실행하는 데 가장 적합한 권장 사항을 제공합니다. 
+Advisor는 모든 Azure 리소스에 대한 권장 사항을 일관되고 통합된 보기로 표시합니다. SQL Database Azure와 통합되므로 SQL Azure Database의 성능을 향상시키기 위한 권장 사항이 표시됩니다. SQL Database Advisor는 사용 기록을 분석하여 SQL Azure Database의 성능을 평가합니다. 그런 후 데이터베이스의 일반적인 워크로드를 실행하는 데 가장 적합한 권장 사항을 제공합니다.
 
 > [!NOTE]
 > 권장 사항을 가져오려면 데이터베이스에 일주일의 사용 기간이 필요하고, 그 기간 내에 일관된 활동이 필요합니다. SQL Database Advisor는 일관성 있는 쿼리 패턴을 임의 활동 버스트보다 더욱 쉽게 최적화할 수 있습니다.
@@ -43,7 +43,7 @@ SQL Database Advisor에 대한 자세한 내용은 [SQL Database Advisor](https:
 
 Azure Advisor는 App Services 환경을 개선하고 관련 플랫폼 기능을 검색하기 위한 모범 사례 권장 사항을 통합합니다. App Services 권장 사항 예제:
 * 완화 옵션을 사용하여 메모리나 CPU 리소스가 앱 런타임에서 소모되는 인스턴스 검색
-* Web Apps 및 데이터베이스를 함께 배치할 때 성능을 향상시키고 비용을 절감할 수 있는 인스턴스 검색 
+* Web Apps 및 데이터베이스를 함께 배치할 때 성능을 향상시키고 비용을 절감할 수 있는 인스턴스 검색
 
 App Services 권장 사항에 대한 자세한 내용은 [Azure App Service에 대한 모범 사례](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)를 참조하세요.
 
@@ -55,7 +55,7 @@ Advisor는 해당 확장성 목표에 도달하는 스토리지 계정에 속한
 
 Advisor는 스토리지 계정에 많은 양의 트랜잭션이 있는 표준 디스크를 갖춘 가상 머신을 식별하고 프리미엄 디스크로 업그레이드하도록 추천합니다. 
 
-Azure Premium Storage는 I/O 사용량이 많은 작업을 실행하는 가상 머신에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. 프리미엄 저장소 계정을 사용하는 가상 머신 디스크는 SSD(솔리드 스테이트 드라이브)에 데이터를 저장합니다. 애플리케이션의 성능을 최상으로 높이려면 높은 IOPS가 필요한 모든 가상 머신 디스크를 프리미엄 스토리지로 마이그레이션하는 것이 좋습니다.
+Azure Premium Storage는 I/O 사용량이 많은 작업을 실행하는 가상 머신에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. Premium Storage 계정을 사용하는 가상 머신 디스크는 SSD(솔리드 스테이트 드라이브)에 데이터를 저장합니다. 애플리케이션의 성능을 최상으로 높이려면 높은 IOPS가 필요한 모든 가상 머신 디스크를 프리미엄 스토리지로 마이그레이션하는 것이 좋습니다.
 
 ## <a name="remove-data-skew-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>쿼리 성능을 향상시키려면 SQL 데이터 웨어하우스 테이블에서 데이터 기울이기 제거
 
@@ -75,7 +75,10 @@ Advisor는 복제된 테이블이 아니지만 변환을 통해 이득을 얻을
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>저장소 계정을 Azure Resource Manager로 마이그레이션하여 최신 Azure 기능 모두 이용하기
 
-스토리지 계정 배포 모델을 ARM(Azure Resource Manager)으로 마이그레이션하여 템플릿 배포, 추가 보안 옵션, Azure Storage의 최신 기능 활용을 위해 GPv2 계정으로 업그레이드하는 기능을 활용하세요. Advisor는 Classic 배포 모델을 사용 중인 독립형 저장소 계정을 식별하고 ARM 배포 모델로 마이그레이션할 것을 권장합니다. 
+스토리지 계정 배포 모델을 ARM(Azure Resource Manager)으로 마이그레이션하여 템플릿 배포, 추가 보안 옵션, Azure Storage의 최신 기능 활용을 위해 GPv2 계정으로 업그레이드하는 기능을 활용하세요. Advisor는 Classic 배포 모델을 사용 중인 독립형 저장소 계정을 식별하고 ARM 배포 모델로 마이그레이션할 것을 권장합니다.
+
+> [!NOTE]
+> Azure Monitor의 클래식 경고는 2019년 6월에 사용이 중지될 예정이므로 새 플랫폼에서도 경고 기능을 계속 사용하려면 클래식 스토리지 계정을 ARM으로 업그레이드하는 것이 좋습니다. 자세한 내용은 [클래식 경고 사용 중지](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)를 참조하세요.
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Advisor에서 성능 권장 사항에 액세스하는 방법
 
@@ -92,4 +95,3 @@ Advisor 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 * [Advisor 비용 권장 사항](advisor-performance-recommendations.md)
 * [Advisor 고가용성 권장 사항](advisor-high-availability-recommendations.md)
 * [Advisor 보안 권장 사항](advisor-security-recommendations.md)
-

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: ae7eba9997c4f567eb7b07e23ab42c9ac7740698
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 70305468ca20c48bdc26e7e000a0e5edb63508cd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388112"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261573"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>서비스 패브릭 Reliable Services 분할
 이 문서에서는 Azure 서비스 패브릭 Reliable Services 분할의 기본 개념에 대한 소개를 제공합니다. 문서에 사용되는 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)에서도 확인할 수 있습니다.
@@ -127,7 +127,7 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
 > 
 
 1. **Visual Studio** > **파일** > **새로 만들기** > **프로젝트**를 엽니다.
-2. **새 프로젝트** 대화 상자에서 서비스 패브릭 응용 프로그램을 선택합니다.
+2. **새 프로젝트** 대화 상자에서 Service Fabric 애플리케이션을 선택합니다.
 3. "AlphabetPartitions" 프로젝트를 호출합니다.
 4. **서비스 만들기** 대화 상자에서 **상태 저장** 서비스를 선택하고 아래 이미지에 표시된 것처럼 "Alphabet.Processing"으로 지정합니다.
        ![Visual Studio의 새 서비스 대화 상자][1]
@@ -234,7 +234,7 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
             return String.Format(
                 "User {0} {1}",
                 user,
-                addResult ? "sucessfully added" : "already exists");
+                addResult ? "successfully added" : "already exists");
         }
     }
     ```
@@ -365,14 +365,14 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
 샘플의 전체 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)에서 확인할 수 있습니다.
 
 ## <a name="reliable-services-and-actor-forking-subprocesses"></a>Reliable Services 및 작업자 포크 하위 프로세스
-Service Fabric은 신뢰할 수 있는 서비스 및 이후의 신뢰할 수 있는 작업자 포크 하위 프로세스를 지원하지 않습니다. 지원되지 않는 이유의 예제는 [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet)를 지원되지 않는 하위 프로세스를 등록하는 데 사용할 수 없으며, 취소 토큰은 등록된 프로세스에만 전송되기 때문입니다. 부모 프로세스에서 취소 토큰을 받은 후 하위 프로세스를 닫지 않는 경우 업그레이드 실패와 같은 모든 종류의 문제가 발생합니다. 
+Service Fabric은 신뢰할 수 있는 서비스 및 이후의 신뢰할 수 있는 작업자 포크 하위 프로세스를 지원하지 않습니다. [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet)를 사용하여 지원되지 않는 하위 프로세스를 등록할 수는 없는데, 취소 토큰은 등록된 프로세스로만 전송되므로 상위 프로세스가 취소 토큰을 수신한 후 하위 프로세스가 닫히지 않으면 업그레이드 오류 등의 많은 문제가 발생하기 때문입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 서비스 패브릭 개념에 대한 자세한 내용은 다음을 참조하십시오.
 
 * [서비스 패브릭 서비스의 가용성](service-fabric-availability-services.md)
 * [서비스 패브릭 서비스의 확장성](service-fabric-concepts-scalability.md)
-* [서비스 패브릭 응용 프로그램의 용량 계획](service-fabric-capacity-planning.md)
+* [Service Fabric 애플리케이션의 용량 계획](service-fabric-capacity-planning.md)
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 

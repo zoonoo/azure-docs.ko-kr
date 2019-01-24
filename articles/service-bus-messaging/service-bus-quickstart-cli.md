@@ -1,22 +1,22 @@
 ---
-title: 빠른 시작 - Azure CLI와 Java를 사용하여 Azure Service Bus에서 메시지 보내기 및 받기 | Microsoft Docs
-description: 이 빠른 시작에서는 Azure CLI 및 Java 애플리케이션 샘플을 사용하여 Azure Service Bus 메시지를 보내고 받는 방법을 알아봅니다.
+title: 빠른 시작 - Azure CLI를 사용하여 Service Bus 큐 만들기 | Microsoft Docs
+description: 이 빠른 시작에서는 Azure CLI를 사용하여 Service Bus큐를 만드는 방법을 배웁니다. 그런 다음, 샘플 Java 애플리케이션을 사용하여 큐에서 메시지를 보내고 받습니다.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 522447b73454016bff5188d07b27702fa21cb748
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 781bca5c3083df9db326e4dc71438c71a7c02bc3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998679"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258327"
 ---
-# <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>빠른 시작: Azure CLI 및 Java를 사용하여 메시지 보내기 및 받기
+# <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>빠른 시작: Azure CLI를 사용하여 Service Bus 큐 만들기
 
 Microsoft Azure Service Bus는 안전한 메시징과 안정성을 제공하는 엔터프라이즈 통합 메시지 broker입니다. 일반적으로 전형적인 Service Bus 시나리오에는 둘 이상의 애플리케이션, 서비스 또는 프로세스를 서로 분리하고(애플리케이션이 동시에 온라인 상태일 필요는 없음), 상태 또는 데이터 변경 내용을 전송하고, 애플리케이션 간에 메시지를 보내는 작업이 포함됩니다. 
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 �
 
 Azure Portal의 오른쪽 위 모서리에 있는 메뉴에서 Cloud Shell 단추를 클릭하고, **환경 선택** 드롭다운에서 **Bash**를 선택합니다. 
 
-## <a name="use-cli-to-create-resources"></a>CLI를 사용하여 리소스 만들기
+## <a name="use-the-azure-cli-to-create-resources"></a>Azure CLI를 사용하여 리소스 만들기
 
 Cloud Shell에서 다음 명령을 실행하여 Service Bus 리소스를 프로비전합니다. 모든 자리 표시자를 적절한 값으로 바꿔야 합니다.
 
@@ -266,7 +266,7 @@ void registerReceiver(QueueClient queueClient) throws Exception {
 이 문서에서는 큐에서 메시지를 보내고 받는 데 필요한 Service Bus 네임스페이스 및 기타 리소스를 만들었습니다. 메시지를 보내고 받기 위한 코드를 작성하는 방법에 대해 자세히 알아보려면 Service Bus에 대한 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [CLI 및 Java를 사용하여 재고 업데이트](./service-bus-tutorial-topics-subscriptions-cli.md)
+> [Azure CLI 및 Java를 사용하여 인벤토리 업데이트](./service-bus-tutorial-topics-subscriptions-cli.md)
 
 [무료 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

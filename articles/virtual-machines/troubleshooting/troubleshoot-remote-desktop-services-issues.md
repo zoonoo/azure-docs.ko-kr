@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 904387def0fd8842f196e80cfcf72d9dd1639458
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 3d747f3b8f54dfefe7e96c378eddbce320bcc8f7
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957706"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215119"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Azure VM에서 원격 데스크톱 서비스가 시작되지 않음
 
 이 문서에서는 Azure VM(가상 머신)에 연결할 때 및 원격 데스크톱 서비스 또는 TermService가 시작되지 않거나 시작에 실패하는 경우 문제를 해결하는 방법에 대해 설명합니다.
 
 > [!NOTE]  
-> Azure에는 리소스를 만들고 작업하기 위한 [Azure Resource Manager 및 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용에 대해 설명합니다. 이 모델은 클래식 배포 모델 대신 새 배포에 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 사용하기 위한 [Azure Resource Manager 및 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있다는 것을 이해해야 합니다. 이 문서에서는 Resource Manager 배포 모델 사용에 대해 설명합니다. 이 모델은 클래식 배포 모델 대신 새 배포에 사용하는 것이 좋습니다.
 
 ## <a name="symptoms"></a>증상
 
@@ -37,14 +37,14 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
 
 - 이벤트 뷰어를 사용하여 이벤트 로그를 VM에서 원격으로 봅니다. 원격 데스크톱 서비스, TermService가 시작되지 않거나 시작에 실패한 것으로 표시됩니다. 다음은 샘플 로그입니다.
 
-    **로그 이름**: 시스템 </br>
-    **원본**: 서비스 제어 관리자 </br>
-    **날짜**: 2017년 12월 16일 오전 11:19:36</br>
-    **이벤트 ID**: 7022</br>
+    **로그 이름**:      시스템 </br>
+    **원본**:        서비스 제어 관리자 </br>
+    **날짜**:          2017/12/16 오전 11:19:36</br>
+    **이벤트 ID**:      7022</br>
     **작업 범주**: 없음</br>
-    **수준**: 오류</br>
-    **키워드**: 클래식</br>
-    **사용자**: 해당 없음</br>
+    **수준**:         오류</br>
+    **키워드**:      클래식</br>
+    **사용자**:          해당 없음</br>
     **컴퓨터**: vm.contoso.com</br>
     **설명**: 원격 데스크톱 서비스가 시작 시 멈춤. 
 
@@ -112,7 +112,7 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>액세스 거부 문제로 인해 TermService 서비스가 중지됨
 
-1. [직렬 콘솔](serial-console-windows.md#)에 연결하고 PowerShell 인스턴스를 엽니다.
+1. [직렬 콘솔](serial-console-windows.md)에 연결하고 PowerShell 인스턴스를 엽니다.
 2. 다음 스크립트를 실행하여 프로세스 모니터 도구를 다운로드합니다.
 
    ```
@@ -141,7 +141,7 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
    procmon /Terminate 
    ```
 
-5.  **c:\temp\ProcMonTrace.PML** 파일을 수집합니다.
+5. \ **c:\temp\ProcMonTrace.PML** 파일을 수집합니다.
 
     1. [VM에 데이터 디스크를 연결합니다](../windows/attach-managed-disk-portal.md
 ).

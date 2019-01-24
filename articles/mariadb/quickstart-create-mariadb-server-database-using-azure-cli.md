@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 0a629b9b068694960178c1c5727ba2f38b0e8af7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7d45c11345312fe48312bd4e744433397a17a62d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190341"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359326"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB 서버 만들기
 
@@ -59,10 +59,10 @@ storage-size | **51200** | 서버의 저장소 용량입니다(단위는 메가�
 admin-user | **myadmin** | 관리자 로그인에 대한 사용자 이름입니다. **admin-user** 매개 변수는 **azure_superuser**, **admin**, **administrator**, **root**, **guest** 또는 **public**일 수 없습니다.
 admin-password | *사용자 암호* | 관리자 사용자의 암호입니다. 암호는 8-128자여야 합니다. 다음 범주 중 세 개의 문자를 포함해야 합니다. 영문 대문자, 영문 소문자, 숫자 및 영숫자가 아닌 문자
 
-**sku-name** 매개 변수 값은 다음 예제처럼 *가격 책정 계층*\_*계산 세대*\_*vCores* 규칙을 따릅니다.
-+ `--sku-name B_Gen5_4`는 기본 가격 책정 계층, Gen 5 계산 세대 및 vCore 4개에 매핑됩니다.
-+ `--sku-name GP_Gen5_32`는 범용 가격 책정 계층, Gen 5 계산 세대 및 vCore 32개에 매핑됩니다.
-+ `--sku-name MO_Gen5_2`는 메모리 최적화 가격 책정 계층, Gen 5 계산 세대 및 vCore 2개에 매핑됩니다.
+sku-name 매개 변수 값은 아래 예에서 같이 {가격 책정 계층}\_{계산 세대}\_{vCores} 규칙을 따릅니다.
++ `--sku-name B_Gen5_1`은 기본, 5세대 및 1개 vCore에 매핑됩니다. 이 옵션은 사용 가능한 가장 작은 SKU입니다.
++ `--sku-name GP_Gen5_32`는 범용, 5세대 및 vCore 32개에 매핑됩니다.
++ `--sku-name MO_Gen5_2`는 메모리 최적화, 5세대 및 vCore 2개에 매핑됩니다.
 
 지역 및 계층별로 유효한 값에 대한 내용은 [가격 책정 계층](./concepts-pricing-tiers.md)을 참조하세요.
 

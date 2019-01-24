@@ -11,21 +11,21 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 6b725d7912fa4b0d6b46acb35eda80ae66e4a38c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 4c9fe269ffa351c1efdb3f94a15a10bae65432d8
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121416"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199653"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights 커넥터관리 솔루션(미리 보기)
 
 ![Application Insights 기호](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> [cross-resource queries](../../azure-monitor/log-query/cross-workspace-query.md)를 지원하면 Application Insights 커넥터 관리 솔루션이 더 이상 필요하지 않고 사용되지 않습니다. 7월부터 새 Application Insights 리소스를 Log Analytics 작업 영역에 연결할 수 없게 됩니다. 기존 링크 및 대시보드는 2018년 11월까지 서비스될 예정입니다. 자세한 내용은 [Azure로 이동하는 OMS 포털](../../azure-monitor/platform/oms-portal-transition.md)을 참조하세요.
+> [리소스 간 쿼리](../../azure-monitor/log-query/cross-workspace-query.md)와 [여러 Azure Monitor Application Insights 리소스를 확인](../log-query/unify-app-resource-data.md)하는 기능이 지원되므로 Application Insights 커넥터 관리 솔루션은 필요하지 않습니다. Azure 상업용 클라우드 및 Azure US Government 클라우드용 OMS 포털이 2019년 1월 15일 공식적으로 사용이 중지되어 더 이상 사용되지 않음에 따라, Application Insights 커넥터도 더 이상 사용되지 않고 Azure Marketplace에서 제거될 예정이며 2019년 3월 30일에 공식적으로 사용이 중지됩니다. 기존 연결은 2019년 6월 30일까지 계속 작동합니다. OMS 포털 사용 중단으로 포털에서 기존 연결을 구성하고 제거할 방법이 없습니다. 2019년 1월에 사용할 수 있는 REST API를 사용하여 지원되며 [Azure 업데이트](https://azure.microsoft.com/updates/)에 알림이 게시됩니다. 자세한 내용은 [Azure로 이동하는 OMS 포털](../../azure-monitor/platform/oms-portal-transition.md)을 참조하세요.
 
 Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Application Insights](../../azure-monitor/app/app-insights-overview.md)를 통해 모니터링하는 경우 사용자가 해당 앱으로 수행하는 작업을 파악하는 데 도움이 됩니다. 개발자가 Application Insights에서 참조하는 것과 동일한 애플리케이션 원격 분석 뷰를 Log Analytics에서 사용할 수 있습니다. 그러나 Log Analytics와 Application Insights 앱을 통합하는 경우 작업 및 애플리케이션 데이터가 한 곳에 있게 되므로 애플리케이션에 대한 가시성이 향상됩니다. 동일한 뷰가 있으면 앱 개발자와 공동 작업을 수행하는 데 도움이 됩니다. 공통 뷰는 애플리케이션 및 플랫폼 문제를 감지하고 해결하는 데 소요되는 시간을 줄일 수 있습니다.
 

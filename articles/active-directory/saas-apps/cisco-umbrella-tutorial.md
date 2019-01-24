@@ -4,7 +4,7 @@ description: Azure Active Directory와 Cisco Umbrella 간에 Single Sign-On을 �
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 675dca98-f119-4463-8350-d6a45d5601e3
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: cbf58f7e5553f10087c854428a6a369cbb8c3bf9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f43c3072660ce4b9ca68c2bc58d1c752ce474e28
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194995"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821910"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>자습서: Cisco Umbrella와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ Cisco Umbrella를 Azure AD와 통합하면 다음과 같은 이점이 제공됩�
 * 사용자가 해당 Azure AD 계정으로 Cisco Umbrella에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -78,8 +78,8 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Cisco Umbrella Single Sign-On 구성](#configure-cisco-umbrella-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-on 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Cisco Umbrella 테스트 사용자 만들기](#create-cisco-umbrella-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Cisco Umbrella에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Cisco Umbrella 테스트 사용자 만들기](#create-cisco-umbrella-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Cisco Umbrella에 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -110,7 +110,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
     다. **로그온 URL** 텍스트 상자에 URL을 입력합니다. `https://login.umbrella.com/sso`
 
-4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **메타데이터 XML**를 다운로드하고 컴퓨터에 저장합니다.
+5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **메타데이터 XML**를 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
@@ -128,7 +128,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
 1. 다른 브라우저 창에서 Cisco Umbrella 회사 사이트에 관리자 권한으로 로그온합니다.
 
-2.  왼쪽 메뉴에서 **관리자**를 클릭하고, **인증**으로 이동한 다음, **SAML**을 클릭합니다.
+2. 왼쪽 메뉴에서 **관리자**를 클릭하고, **인증**으로 이동한 다음, **SAML**을 클릭합니다.
 
     ![관리자](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_admin.png)
 
@@ -144,7 +144,6 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
     ![다음](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_next.png)
 
-
 6. **옵션 A: XML 파일 업로드**에서 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 파일을 업로드하고 메타데이터를 업로드하면 아래 값을 가져와 자동으로 채워진 다음, **다음**을 클릭합니다.
 
     ![choosefile ](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
@@ -155,7 +154,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
 8. **저장**을 클릭합니다.
 
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
@@ -215,7 +214,7 @@ Cisco Umbrella의 경우 프로비전은 수동 작업입니다.
 
 1. 다른 브라우저 창에서 Cisco Umbrella 회사 사이트에 관리자 권한으로 로그온합니다.
 
-2.  왼쪽 메뉴에서 **관리자**를 클릭하고 **계정**으로 이동합니다.
+2. 왼쪽 메뉴에서 **관리자**를 클릭하고 **계정**으로 이동합니다.
 
     ![계정](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_account.png)
 
@@ -237,7 +236,7 @@ Cisco Umbrella의 경우 프로비전은 수동 작업입니다.
 
     g. **만들기**를 클릭합니다.
 
-### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
+### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
@@ -250,4 +249,3 @@ Cisco Umbrella의 경우 프로비전은 수동 작업입니다.
 - [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

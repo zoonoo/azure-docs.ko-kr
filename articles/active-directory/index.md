@@ -1,30 +1,137 @@
 ---
 layout: HubPage
 hide_bc: false
-title: Azure Active Directory B2C 설명서 - 자습서, API 참조 | Microsoft Docs
-description: Azure AD(Azure Active Directory)는 Microsoft의 다중 테넌트, 클라우드 기반 디렉터리 및 ID 관리 서비스로, 핵심 디렉터리 서비스, 애플리케이션 액세스 관리 및 ID 보호를 단일 솔루션에 결합합니다.
+title: 'Azure Active Directory B2C 설명서 - 자습서, API 참조 | Microsoft Docs'
+description: 'Azure AD(Azure Active Directory)는 Microsoft의 다중 테넌트, 클라우드 기반 디렉터리 및 ID 관리 서비스로, 핵심 디렉터리 서비스, 애플리케이션 액세스 관리 및 ID 보호를 단일 솔루션에 결합합니다.'
 services: active-directory
 author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
-ms.date: 11/30/2018
+ms.date: 01/16/2019
 ms.author: mtillman
-ms.openlocfilehash: 38efd682c530e79bdea3747bd6f14faa10d399c4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723349"
 ---
+
 <div id="main" class="v2">
     <div class="container">
         <h1>Azure Active Directory 설명서</h1>
-        <p>Azure AD(Azure Active Directory)는 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다.</p>
-        <hr style="margin: 30px 0;" />
+        <p>Azure AD(Azure Active Directory)는 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다.</p><p></p>
+        <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
+            <li>
+                <a href="fundamentals/active-directory-whatis.md">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_overview.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Azure AD란?</h3>
+                                <p>사용 가능한 라이선스 유형 및 관련 기능을 포함하여 Azure Active Directory에 대해 알아봅니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+                <a href="fundamentals/add-custom-domain.md">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_get-started.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>사용자 지정 도메인 이름 추가</h3>
+                                <p>조직의 도메인 이름을 추가하여 친숙한 사용자 이름을 만드는 방법을 알아봅니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+                <a href="fundamentals/customize-branding.md">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>회사 브랜딩 추가</h3>
+                                <p>Azure AD 로그인 페이지에 조직의 로고 및 색 구성표를 추가하는 방법을 알아봅니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+                <a href="fundamentals/add-users-azure-active-directory.md">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>그룹 만들기 및 멤버 추가</h3>
+                                <p>기본 그룹을 만드는 방법 및 멤버를 추가 또는 제거하는 방법을 알아봅니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+                <a href="fundamentals/active-directory-users-assign-role-azure-portal.md">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>사용자에게 역할 할당</h3>
+                                <p>필요한 권한에 따라 사용자의 역할을 할당 및 제거하는 방법을 알아봅니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+                <a href="/learn/modules/secure-azure-resources-with-conditional-access/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>유용한 정보</h3>
+                                <p>조건부 액세스를 사용하여 Azure 리소스를 보호하는 방법을 알아봅니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+        </ul>
         <ul class="pivots">
             <li>
                 <a href="#products"></a>
@@ -36,68 +143,15 @@ ms.locfileid: "52723349"
                                 <a href="#index1" data-linktype="self-bookmark"></a>
                                 <ul class="cardsF cols cols4" id="index1" style="float: left; display: flex; width: 100%; border-bottom: 1px var(--grey-lighter) solid;">  
                                     <li>
-                                        <ul class="cardsB panelContent" id="cardtypes-B" style="float: left; display: flex; width: 100%;">
-                                            <li>
-                                                <a href="">
-                                                    <div class="cardSize">
-                                                        <div class="cardPadding">
-                                                            <div class="card">
-                                                                <div class="cardImageOuter">
-                                                                    <div class="cardImage">
-                                                                        <img alt="" src="https://docs.microsoft.com/media/common/i_learn-about.svg" data-linktype="external">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="cardText" style="padding-left: 0px">
-                                                                    <h3><a href="fundamentals/index.yml">기본 사항 알아보기</a></h3> 
-                                                                    <p>
-                                                                        <a href="fundamentals/active-directory-whatis.md">Azure AD란?</a><br>
-                                                                        <a href="fundamentals/add-custom-domain.md">사용자 지정 도메인 이름 추가</a><br>
-                                                                        <a href="fundamentals/customize-branding.md">회사 브랜딩 추가</a><br>
-                                                                        <a href="fundamentals/add-users-azure-active-directory.md">그룹 만들기 및 멤버 추가</a><br>
-                                                                        <a href="fundamentals/active-directory-users-assign-role-azure-portal.md">사용자에게 역할 할당</a><br>
-                                                                        <a href="fundamentals/active-directory-how-subscriptions-associated-directory.md">Azure 구독 연결</a><br>
-                                                                        <a href="fundamentals/index.yml"><i>자세히 보기 &gt;</i></a>
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <div class="cardSize">
-                                                        <div class="cardPadding">
-                                                            <div class="card">
-                                                                <div class="cardImageOuter">
-                                                                    <div class="cardImage">
-                                                                        <img alt="" src="/learn/achievements/secure-azure-resources-with-conditional-access.svg" data-linktype="external">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="cardText" style="padding-left: 0px">
-                                                                    <h3><a href="/learn/">Microsoft Learn을 사용하여 기술 빌드</a></h3> 
-                                                                    <p>
-                                                                        <a href="/learn/modules/secure-azure-resources-with-conditional-access/">조건부 액세스를 사용하여 Azure 리소스 보호</a><br>
-                                                                        <a href="/learn/browse/?products=azure-active-directory"><i>더 많은 대화형 학습 보기 &gt;</i></a><br>
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
                                         <div class="cardSize">
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="manage-apps/index.yml">응용 프로그램 관리</a></h3>
+                                                        <h3><a href="manage-apps/index.yml">애플리케이션 관리</a></h3>
                                                         <p>
                                                             <a href="manage-apps/what-is-single-sign-on.md">SSO(Single Sign-On)란?</a><br>
                                                             <a href="manage-apps/configure-single-sign-on-portal.md">Single Sign-on 구성</a><br>
-                                                            <a href="manage-apps/application-proxy.md">온-프레미스 앱에 대한 응용 프로그램 프록시</a><br>
+                                                            <a href="manage-apps/application-proxy.md">온-프레미스 앱에 대한 애플리케이션 프록시</a><br>
                                                             <a href="manage-apps/index.yml"><i>자세히 보기 &gt;</i></a>
                                                         </p>
                                                         <br><br>
@@ -125,13 +179,6 @@ ms.locfileid: "52723349"
                                                             <a href="/azure/active-directory-b2c/index"><i>자세히 보기 &gt;</i></a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="conditional-access/index.yml">조건부 액세스</a></h3>
-                                                        <p>
-                                                            <a href="conditional-access/overview.md">조건부 액세스란?</a><br>
-                                                            <a href="conditional-access/app-based-mfa.md">특정 앱에 대해 MFA 요구</a><br>
-                                                            <a href="conditional-access/location-condition.md">위치 기반 조건</a><br>
-                                                            <a href="conditional-access/index.yml"><i>자세히 보기 &gt;</i></a>
-                                                            </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -142,7 +189,15 @@ ms.locfileid: "52723349"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="develop/index.yml">개발자</a></h3>
+                                                        <h3><a href="conditional-access/index.yml">조건부 액세스</a></h3>
+                                                        <p>
+                                                            <a href="conditional-access/overview.md">조건부 액세스란?</a><br>
+                                                            <a href="conditional-access/app-based-mfa.md">특정 앱에 대해 MFA 요구</a><br>
+                                                            <a href="conditional-access/location-condition.md">위치 기반 조건</a><br>
+                                                            <a href="conditional-access/index.yml"><i>자세히 보기 &gt;</i></a>
+                                                            </p>
+                                                        <br><br>
+                                                           <h3><a href="develop/index.yml">개발자</a></h3>
                                                         <p>
                                                             <a href="develop/about-microsoft-identity-platform.md">Microsoft ID 플랫폼 정보</a><br>
                                                             <a href="develop/v2-oauth2-auth-code-flow.md">OAuth 2.0 코드 흐름 부여</a><br>
@@ -150,7 +205,7 @@ ms.locfileid: "52723349"
                                                             <a href="develop/index.yml"><i>자세히 보기 &gt;</i></a>
                                                             </p>
                                                         <br><br>
-                                                        <h3><a href="devices/index.yml">장치 관리</a></h3>
+                                                        <h3><a href="devices/index.yml">디바이스 관리</a></h3>
                                                         <p>
                                                             <a href="devices/overview.md">디바이스 관리란?</a><br>
                                                             <a href="devices/hybrid-azuread-join-plan.md">하이브리드 Azure AD 조인 계획</a><br>
@@ -166,6 +221,16 @@ ms.locfileid: "52723349"
                                                             <a href="/azure/active-directory-domain-services/index"><i>자세히 보기 &gt;</i></a>
                                                         </p>
                                                         <br><br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
                                                         <h3><a href="users-groups-roles/index.yml">엔터프라이즈 사용자</a></h3>
                                                         <p>
                                                             <a href="users-groups-roles/groups-create-rule.md">동적 그룹 만들기</a><br>
@@ -181,16 +246,7 @@ ms.locfileid: "52723349"
                                                             <a href="hybrid/how-to-connect-install-custom.md">Azure AD Connect 사용자 지정 설치</a><br>
                                                             <a href="hybrid/index.yml"><i>자세히 보기 &gt;</i></a>
                                                         </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="cardSize">
-                                            <div class="cardPadding">
-                                                <div class="card">
-                                                    <div class="cardText">
+                                                        <br><br>
                                                         <h3><a href="governance/index.yml">ID 거버넌스</a></h3>
                                                         <p>
                                                             <a href="governance/create-access-review.md">액세스 검토 만들</a><br>
@@ -206,8 +262,17 @@ ms.locfileid: "52723349"
                                                             <a href="identity-protection/howto-unblock-user.md">사용자 차단을 해제하는 방법</a><br>
                                                             <a href="identity-protection/index.yml"><i>자세히 보기 &gt;</i></a>
                                                         </p>
-                                                        <br><br>
-                                                        <h3><a href="managed-identities-azure-resources/index.yml">Azure 리소스에 대한 관리 ID</a></h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3><a href="privileged-identity-management/index.yml">Azure 리소스에 대한 관리 ID</a></h3>
                                                         <p>
                                                             <a href="managed-identities-azure-resources/tutorial-windows-vm-access-sql.md">Windows VM을 사용하여 Azure SQL에 액세스</a><br>
                                                             <a href="managed-identities-azure-resources/how-to-use-vm-token.md">토큰 획득을 위해 Azure VM 사용</a><br>

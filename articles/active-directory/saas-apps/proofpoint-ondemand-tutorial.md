@@ -4,7 +4,7 @@ description: Azure Active Directory 및 Proofpoint on Demand 간에 Single Sign-
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 773e7f7d-ec31-411b-860d-6a6633335d43
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: b0c5440098a135073513037ab1a4956c0aa76d2f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 7392d4dbea0028683342e5ed6ede24f378cc2fdd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975715"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820107"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proofpoint-on-demand"></a>자습서: Proofpoint on Demand와 Azure Active Directory 통합
 
@@ -106,7 +106,7 @@ Proofpoint on Demand에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
     a. **로그인 URL** 텍스트 상자에서 `https://<hostname>.pphosted.com/ppssamlsp_hostname` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **식별자** 상자에 `https://<hostname>.pphosted.com/ppssamlsp` 패턴으로 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<hostname>.pphosted.com/ppssamlsp` 패턴을 사용하는 URL을 입력합니다.
 
     다. **회신 URL** 텍스트 상자에서 `https://<hostname>.pphosted.com:portnumber/v1/samlauth/samlconsumer` 패턴을 사용하여 URL을 입력합니다.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/7/2018
 ms.author: trinadhk
-ms.openlocfilehash: 9bbaf23999c04eba5157ebe7dff73ed47418c99a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 1714a29e4b27f6363d748ceb180f56ba98c713bb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634187"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809533"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 가상 머신 백업 문제 해결
 다음 테이블에 나열된 정보를 참조하여 Azure Backup을 사용하는 동안 발생하는 오류를 해결할 수 있습니다.
@@ -42,7 +42,7 @@ ms.locfileid: "53634187"
 | 구성의 구문 분석 실패로 인해 스냅숏 작업이 실패했습니다. |이 오류는 **MachineKeys** 디렉터리: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**에 대한 권한 변경으로 인해 발생합니다. <br> 다음 명령을 실행하고 **MachineKeys** 디렉터리에 대한 권한이 기본 권한인지 확인합니다.<br>**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys** <br><br>기본 권한은 다음과 같습니다. <ul><li>Everyone: (R,W) <li>BUILTIN\Administrators: (F)</ul> **MachineKeys** 디렉터리에 대해 기본값과 다른 권한이 표시되면 아래 단계에 따라 권한을 수정하고, 인증서를 삭제한 후 백업을 트리거합니다. <ol><li>**MachineKeys** 디렉터리에 대한 권한을 수정합니다. 디렉터리에서 탐색기 보안 속성 및 고급 보안 설정을 사용하여 권한을 기본값으로 다시 설정합니다. 디렉터리에서 기본값을 제외한 모든 사용자 개체를 제거하고 **Everyone** 사용 권한이 다음과 같은 특수한 액세스 권한을 갖는지 확인합니다. <ul><li>폴더 나열/데이터 읽기 <li>특성 읽기 <li>확장된 특성 읽기 <li>파일 만들기/데이터 쓰기 <li>폴더 만들기/데이터 추가<li>특성 쓰기<li>확장된 특성 쓰기<li>읽기 권한 </ul><li>**발급 대상**이 클래식 배포 모델 또는 **Windows Azure CRP Certificate Generator**인 모든 인증서를 삭제합니다.<ol><li>[로컬 머신 콘솔에서 인증서를 엽니다](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).<li>**개인** > **인증서**에서 **발급 대상**이 클래식 배포 모델 또는 **Windows Azure CRP Certificate Generator**인 모든 인증서를 삭제합니다.</ol> <li>VM 백업 작업을 트리거합니다. </ol>|
 | Azure Backup 서비스에는 암호화된 가상 머신의 백업을 위한 Azure Key Vault에 대해 충분한 권한이 없습니다. |[복원된 디스크에서 VM 만들기](backup-azure-vms-automation.md)의 단계를 사용하여 PowerShell에서 이러한 권한을 Backup 서비스에 제공합니다. |
 |**COM+ 오류로 인해 스냅숏 확장 설치가 실패하면 Microsoft Distributed Transaction Coordinator**와 통신할 수 없습니다. | 관리자 권한 명령 프롬프트에서 **COM+ 시스템 애플리케이션** Windows 서비스를 시작합니다. 예제는 **net start COMSysApp**과 같습니다. 서비스를 시작하지 못하면 다음 단계를 수행합니다.<ol><li> **Distributed Transaction Coordinator** 서비스의 로그인 계정이 **Network Service**인지 확인합니다. 그렇지 않은 경우 로그인 계정을 **Network Service**로 변경하고 서비스를 다시 시작합니다. 그런 다음, **COM+ 시스템 애플리케이션**을 다시 시작해 봅니다.<li>**COM+ 시스템 애플리케이션**이 시작되지 않으면 다음 단계를 사용하여 **Distributed Transaction Coordinator** 서비스를 제거하고 설치합니다. <ol><li>MSDTC 서비스를 중지합니다. <li>명령 프롬프트, **cmd**을 엽니다. <li>```msdtc -uninstall```명령을 실행합니다. <li>```msdtc -install```명령을 실행합니다. <li>MSDTC 서비스를 시작합니다. </ol> <li>**COM+ 시스템 애플리케이션** Windows 서비스를 시작합니다. **COM+ 시스템 애플리케이션**이 시작되면 Azure Portal에서 백업 작업을 트리거합니다.</ol> |
-|  COM+ 오류로 인해 스냅숏 작업이 실패했습니다. | 관리자 권한 명령 프롬프트, **net start COMSysApp**에서 Windows 서비스 **COM+ 시스템 애플리케이션**을 다시 시작하는 것이 좋습니다. 문제가 지속되면 VM을 다시 시작합니다. VM을 다시 시작해도 문제가 해결되지 않으면 [VMSnapshot 확장을 제거](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load)하고 수동으로 백업을 트리거합니다. |
+|  COM+ 오류로 인해 스냅숏 작업이 실패했습니다. | 관리자 권한 명령 프롬프트, **net start COMSysApp**에서 Windows 서비스 **COM+ 시스템 애플리케이션**을 다시 시작하는 것이 좋습니다. 문제가 지속되면 VM을 다시 시작합니다. VM을 다시 시작해도 문제가 해결되지 않으면 [VMSnapshot 확장을 제거](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout)하고 수동으로 백업을 트리거합니다. |
 | 백업에서 파일 시스템의 일관된 스냅숏을 생성하기 위해 VM의 탑재 지점 하나 이상을 고정하는 데 실패했습니다. | 다음 단계를 수행합니다. <ul><li>**'tune2fs'** 명령을 사용하여 탑재된 모든 디바이스의 파일 시스템 상태를 확인합니다. 예제는 **tune2fs -l /dev/sdb1 \** 입니다.| grep **Filesystem state**. <li>**'umount'** 명령을 사용하여 파일 시스템 상태가 정리되지 않은 디바이스의 탑재를 해제합니다. <li> **'fsck'** 명령을 사용하여 이러한 디바이스에서 파일 시스템 일관성 검사를 실행합니다. <li> 디바이스를 다시 탑재하고 백업을 시도합니다.</ol> |
 | 보안 네트워크 통신 채널을 생성하지 못하여 스냅숏 작업이 실패했습니다. | <ol><li> 관리자 권한 모드에서 **regedit.exe**를 실행하여 레지스트리 편집기를 엽니다. <li> 시스템에 있는 모든 버전의 .NET Framework를 파악합니다. 이러한 버전은 레지스트리 키 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**의 계층 구조 아래에 있습니다. <li> 레지스트리 키에 있는 각 .NET Framework에 대해 다음 키를 추가합니다. <br> **SchUseStrongCrypto"=dword:00000001** </ol>|
 | Visual Studio 2012용 Visual C++ 재배포 가능 패키지의 설치 실패로 인해 스냅숏 작업이 실패했습니다. | C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion으로 이동한 후 vcredist2012_x64를 설치합니다. 이 서비스 설치를 허용하는 레지스트리 키 값이 올바른 값으로 설정되어 있는지 확인합니다. 즉, 레지스트리 키 **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver**의 값이 **4**가 아니라 **3**으로 설정됩니다. <br><br>설치하는 데 여전히 문제가 발생할 경우 관리자 권한 명령 프롬프트에서 **MSIEXEC /UNREGISTER**를 실행한 후 **MSIEXEC /REGISTER**를 실행하여 설치 서비스를 다시 시작합니다.  |
@@ -57,6 +57,7 @@ ms.locfileid: "53634187"
 | 백업에서 작업을 취소하지 못했습니다. <br>작업이 완료될 때까지 기다립니다. |없음 |
 
 ## <a name="restore"></a>복원
+
 | 오류 세부 정보 | 해결 방법 |
 | --- | --- |
 | 클라우드 내부 오류로 인해 복원이 실패했습니다. |<ol><li>복원하려는 클라우드 서비스가 DNS 설정을 사용하여 구성되었습니다. 다음을 확인할 수 있습니다. <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings**.<br>**주소**가 구성된 경우 DNS 설정이 구성되었습니다.<br> <li>복원하려는 클라우드 서비스가 **ReservedIP**를 사용하여 구성되고, 클라우드 서비스의 기존 VM이 중단된 상태에 있습니다. 다음 PowerShell cmdlet: **$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName**을 사용하여 클라우드 서비스가 IP를 예약했는지 확인합니다. <br><li>동일한 클라우드 서비스에 다음과 같이 특수한 네트워크 구성을 사용하여 가상 머신을 복원하려고 시도하고 있습니다. <ul><li>부하 분산 장치 구성의 가상 머신, 내부 및 외부<li>여러 개의 예약된 IP를 사용하는 가상 머신 <li>여러 NIC가 있는 가상 머신 </ul><li>특수한 네트워크 구성을 가진 VM의 경우 [복원 고려 사항](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations)을 참조하거나 UI에서 새 클라우드 서비스를 선택하세요</ol> |
@@ -100,7 +101,7 @@ ms.locfileid: "53634187"
 * Linux VM 에이전트를 업데이트하려면 [Linux VM 에이전트 업데이트](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서의 지침을 따릅니다.
 
     > [!NOTE]
-    > 항상 배포 리포지토리를 사용하여 에이전트를 업데이트합니다. 
+    > 항상 배포 리포지토리를 사용하여 에이전트를 업데이트합니다.
 
     GitHub에서 에이전트 코드를 다운로드하지 마세요. 최신 에이전트를 배포할 수 없는 경우 배포 지원에 문의하여 최신 에이전트를 획득하기 위한 지침을 얻으세요. GitHub 리포지토리에서 최신 [Microsoft Azure Linux 에이전트](https://github.com/Azure/WALinuxAgent/releases) 정보를 확인할 수 있습니다.
 

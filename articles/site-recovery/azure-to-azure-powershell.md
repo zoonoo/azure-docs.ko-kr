@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: b2f20f72d177afead9c20f60fd7369c8d58bbd08
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a37cfb19ab63335f120383a20753bf2b8333bd96
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845691"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448928"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Virtual Machines에 대한 재해 복구 설정
 
@@ -180,7 +180,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
-#Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 
 $PrimaryFabric = Get-AsrFabric -Name "A2Ademo-EastUS"
@@ -201,7 +201,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
-#Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 
 $RecoveryFabric = Get-AsrFabric -Name "A2Ademo-WestUS"
@@ -238,7 +238,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
-#Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 
 Write-Output $TempASRJob.State
 
@@ -257,7 +257,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
-#Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 
 $ReplicationPolicy = Get-ASRPolicy -Name "A2APolicy"
@@ -276,7 +276,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
-#Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 
 $EusToWusPCMapping = Get-ASRProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
@@ -296,7 +296,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
-#Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 ```
 
@@ -309,7 +309,7 @@ Write-Output $TempASRJob.State
 $EastUSCacheStorageAccount = New-AzureRmStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" -Location 'East US' -SkuName Standard_LRS -Kind Storage
 ```
 
-**관리 디스크를 사용하지 않는** 가상 머신의 경우 대상 저장소 계정은 가상 머신의 디스크가 복제되는 복구 지역에 있는 저장소 계정입니다. 대상 저장소 계정은 표준 저장소 계정 또는 프리미엄 저장소 계정 중 하나일 수 있습니다. 디스크의 데이터 변경률(IO 쓰기 속도) 및 Azure Site Recovery에서 지원되는 저장소 유형에 대한 변동 제한을 기준으로 필요한 저장소 계정의 유형을 선택합니다.
+**관리 디스크를 사용하지 않는** 가상 머신의 경우 대상 저장소 계정은 가상 머신의 디스크가 복제되는 복구 지역에 있는 저장소 계정입니다. 대상 스토리지 계정은 표준 스토리지 계정 또는 Premium Storage 계정 중 하나일 수 있습니다. 디스크의 데이터 변경률(IO 쓰기 속도) 및 Azure Site Recovery에서 지원되는 저장소 유형에 대한 변동 제한을 기준으로 필요한 저장소 계정의 유형을 선택합니다.
 
 ```azurepowershell
 #Create Target storage account in the recovery region. In this case a Standard Storage account
@@ -364,7 +364,7 @@ $WestUSTargetStorageAccount = New-AzureRmStorageAccount -Name "a2atargetstorage"
             $TempASRJob = Get-ASRJob -Job $TempASRJob
     }
 
-    #Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+    #Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
     Write-Output $TempASRJob.State
 
    ```
@@ -379,7 +379,7 @@ $WestUSTargetStorageAccount = New-AzureRmStorageAccount -Name "a2atargetstorage"
             $TempASRJob = Get-ASRJob -Job $TempASRJob
     }
 
-    #Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+    #Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
     Write-Output $TempASRJob.State
     ```
 
@@ -450,7 +450,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
 }
 
 
-#Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 ```
 

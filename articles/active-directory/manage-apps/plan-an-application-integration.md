@@ -4,7 +4,7 @@ description: 이 문서는 온-프레미스 애플리케이션 및 클라우드 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,21 +15,21 @@ ms.workload: identity
 ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: d52ec316f9f5540d4d0d0fe0bc4e4bf778e1daf7
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c6b09697e60a15272e414244f369b7ab2ee0975d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345447"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466944"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>애플리케이션과 Azure Active Directory 통합 시작 가이드
 
-이 항목에서는 Azure AD(Active Directory)와 애플리케이션을 통합하기 위한 프로세스를 간단히 설명합니다. 아래의 각 섹션에는 더 자세한 항목의 요약이 포함되므로 이 시작 가이드의 어떤 부분이 사용자와 관련 있는지 식별할 수 있습니다.
+이 항목에서는 Azure AD(Active Directory)와 응용 프로그램을 통합하기 위한 프로세스를 간단히 설명합니다. 아래의 각 섹션에는 더 자세한 항목의 요약이 포함되므로 이 시작 가이드의 어떤 부분이 사용자와 관련 있는지 식별할 수 있습니다.
 
 자세한 배포 계획을 다운로드하려면 [다음 단계](#next-steps)를 참조하세요.
 
 ## <a name="take-inventory"></a>인벤토리 가져오기
-애플리케이션을 Azure AD와 통합하기 전에 현재 위치와 목표를 아는 것이 중요합니다.  다음 질문은 Azure AD 애플리케이션 통합 프로젝트에 대해 생각해볼 수 있도록 하기 위한 용도로 제공됩니다.
+응용 프로그램을 Azure AD와 통합하기 전에 현재 위치와 목표를 아는 것이 중요합니다.  다음 질문은 Azure AD 애플리케이션 통합 프로젝트에 대해 생각해볼 수 있도록 하기 위한 용도로 제공됩니다.
 
 ### <a name="application-inventory"></a>애플리케이션 인벤토리
 * 애플리케이션은 모두 어디에 있습니까? 누가 소유합니까?
@@ -59,7 +59,7 @@ ms.locfileid: "44345447"
 
 아마 이러한 모든 질문에 대한 답변은 없겠지만 괜찮습니다.  이 가이드는 이러한 일부 질문에 대답하고 합리적인 결정을 내릴 수 있습니다.
 
-### <a name="find-unsanctioned-cloud-applications-with-cloud-discovery"></a>Cloud Discovery를 사용하여 허용되지 않은 클라우드 애플리케이션 찾기
+### <a name="find-unsanctioned-cloud-applications-with-cloud-discovery"></a>Cloud Discovery를 사용하여 허용되지 않은 클라우드 응용 프로그램 찾기
 
 위에서 설명한 대로 지금까지 조직에서 관리하지 않은 애플리케이션이 있을 수 있습니다.  인벤토리 프로세스의 일부로 허용되지 않은 클라우드 애플리케이션을 찾을 수 있습니다. [Cloud Discovery 설정](/cloud-app-security/set-up-cloud-discovery)을 참조하세요.
 
@@ -67,14 +67,14 @@ ms.locfileid: "44345447"
 다음 문서에서는 애플리케이션을 Azure AD와 통합하는 여러 가지 방법을 설명하고 일부 지침을 제공합니다.
 
 * [사용할 Active Directory 결정](../fundamentals/active-directory-administer.md)
-* [Azure 응용 프로그램 갤러리에서 응용 프로그램 사용](what-is-single-sign-on.md)
-* [SaaS 응용 프로그램 통합 자습서 목록](../active-directory-saas-tutorial-list.md)
+* [Azure 애플리케이션 갤러리에서 애플리케이션 사용](what-is-single-sign-on.md)
+* [SaaS 애플리케이션 통합 자습서 목록](../active-directory-saas-tutorial-list.md)
 
 ### <a name="authentication-types"></a>인증 형식
 애플리케이션에는 각자 다른 인증 요구 사항이 있을 수 있습니다. Azure AD과 함께 인증서 서명은 SAML 2.0, WS-페더레이션 또는 OpenID 연결 프로토콜 뿐만 아니라 암호 Single Sign-on을 사용하는 애플리케이션을 사용하는 애플리케이션과 사용될 수 있습니다. Azure AD와 함께 사용할 애플리케이션 인증 형식에 대한 자세한 내용은 [Azure Active Directory에서 페더레이션된 Single Sign-on에 대한 인증서 관리](manage-certificates-for-federated-single-sign-on.md) 및 [암호 기반 Single Sign On](what-is-single-sign-on.md)을 참조하세요.
 
 ### <a name="enabling-sso-with-azure-ad-app-proxy"></a>Azure AD 앱 프록시를 사용하는 SSO 사용
-Microsoft Azure AD 애플리케이션 프록시를 사용하여 어디서든 어떤 디바이스에서든 안전하게 사설망 내부에 위치한 애플리케이션에 액세스를 제공할 수 있습니다. 환경 내에서 애플리케이션 프록시 커넥터를 설치한 후에 Azure AD를 이용하여 쉽게 구성될 수 있습니다.
+Microsoft Azure AD 애플리케이션 프록시를 사용하여 어디서든 어떤 디바이스에서든 안전하게 개인 네트워크 내부에 위치한 애플리케이션에 액세스를 제공할 수 있습니다. 환경 내에서 애플리케이션 프록시 커넥터를 설치한 후에 Azure AD를 이용하여 쉽게 구성될 수 있습니다.
 
 ### <a name="integrating-custom-applications"></a>사용자 지정 애플리케이션 통합
 전원 Azure AD를 활용하여 새 애플리케이션을 작성하고 개발자를 지원하려면 [개발자 가이드](../active-directory-applications-guiding-developers-for-lob-applications.md)를 참조하세요.
@@ -86,8 +86,8 @@ Azure 애플리케이션 갤러리에 사용자 지정 애플리케이션을 추
 
 * [Azure AD를 사용하는 앱에 대한 액세스 관리](what-is-access-management.md)
 * [Azure AD 커넥터를 사용하여 자동화](user-provisioning.md)
-* [응용 프로그램에 사용자 지정](../active-directory-applications-guiding-developers-assigning-users.md)
-* [응용 프로그램에 그룹 지정](../active-directory-applications-guiding-developers-assigning-groups.md)
+* [애플리케이션에 사용자 지정](../active-directory-applications-guiding-developers-assigning-users.md)
+* [애플리케이션에 그룹 지정](../active-directory-applications-guiding-developers-assigning-groups.md)
 * [계정 공유](../active-directory-sharing-accounts.md)
 
 ## <a name="next-steps"></a>다음 단계

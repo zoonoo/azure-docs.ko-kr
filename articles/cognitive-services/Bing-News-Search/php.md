@@ -8,29 +8,31 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 9/21/2017
+ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f34f86fe7fba09bfbc5a05814fb4e39ee40c003b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: cd9dabfc7e462eace8fb8ae5d01359d19010c137
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252442"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261828"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>빠른 시작: PHP 및 Bing News Search REST API를 사용하여 뉴스 검색 수행
 
-이 문서는 Azure의 Microsoft Cognitive Services 일부인 Bing News Search API를 사용하는 방법을 보여 줍니다. 이 문서에서는 PHP를 사용하지만 API는 RESTful 웹 서비스로, HTTP 요청을 수행하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다. 
+이 빠른 시작을 사용하여 Bing Image Search API를 처음 호출하고 JSON 응답을 받습니다. 이 간단한 JavaScript 애플리케이션은 검색 쿼리를 API에 보내고 원시 결과를 표시합니다.
 
-예제 코드는 PHP 5.6에서 작동하도록 작성되었습니다.
-
-API에 대한 기술 정보는 [API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)를 참조하세요.
+이 애플리케이션은 PHP에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-**Bing Search API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
+* PHP 5.6 이상
 
-## <a name="bing-news-search"></a>Bing News Search
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
+
+[Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
+
+## <a name="run-the-application"></a>애플리케이션 실행
 
 [Bing News Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)는 Bing 검색 엔진의 뉴스 결과를 반환합니다.
 
@@ -198,8 +200,4 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [뉴스 페이징](paging-news.md)
-> [장식 표식을 사용하여 텍스트 강조 표시](hit-highlighting.md)
-> [웹에서 뉴스 검색](search-the-web.md)  
-> [체험해 보기](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
-
+[단일 페이지 웹앱 만들기](tutorial-bing-news-search-single-page-app.md)

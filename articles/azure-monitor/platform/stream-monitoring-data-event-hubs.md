@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
-ms.component: ''
-ms.openlocfilehash: 7225bc8121ddab8809ebb1c409a3af59dbcc42f2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.subservice: ''
+ms.openlocfilehash: 424dc1611622a1dfc37419fd443d860698020524
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118390"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468236"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>이벤트 허브로 Azure 모니터링 데이터를 스트리밍하여 외부 도구에서 사용
 
@@ -102,7 +102,7 @@ Azure 리소스는 두 가지 유형의 모니터링 데이터를 내보냅니�
 
 1. 스토리지 계정에 Application Insights 데이터의 [연속 내보내기를 설정](../../azure-monitor/app/export-telemetry.md)합니다.
 
-2. [Blob 저장소에서 데이터를 가져오고](../../connectors/connectors-create-api-azureblobstorage.md#add-action) [이를 메시지로 이벤트 허브에 푸시하는](../../connectors/connectors-create-api-azure-event-hubs.md#add-action) 타이머 트리거 논리 앱을 설정합니다.
+2. [Blob Storage에서 데이터를 가져오고](../../connectors/connectors-create-api-azureblobstorage.md#add-action)[이를 메시지로 이벤트 허브에 푸시하는](../../connectors/connectors-create-api-azure-event-hubs.md#add-action) 타이머 트리거 논리 앱을 설정합니다.
 
 ## <a name="what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub"></a>내 이벤트 허브로 보내지는 모니터링 데이터를 사용하여 수행할 수 있는 작업은 무엇인가요?
 
@@ -120,4 +120,5 @@ Azure Monitor를 사용하여 모니터링 데이터를 이벤트 허브로 라�
 * [저장소 계정에 활동 로그 보관](../../azure-monitor/platform/archive-activity-log.md)
 * [Azure 활동 로그 개요 알아보기](../../azure-monitor/platform/activity-logs-overview.md)
 * [활동 로그 이벤트를 기반으로 경고 설정](../../azure-monitor/platform/alerts-log-webhook.md)
+
 

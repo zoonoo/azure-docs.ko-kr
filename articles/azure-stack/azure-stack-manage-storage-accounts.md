@@ -11,36 +11,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 8eed0b4f2d14d22bdd9eddac9dbb4c0e02404975
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 149da2c186ae1e0c3fa5af14a630a0edef7deb25
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302717"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470276"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Azure Stack의 storage 계정 관리
+
 찾기, 복구 및 비즈니스 요구에 따라 저장소 용량을 회수 하는 Azure Stack에서 저장소 계정을 관리 하는 방법에 알아봅니다.
 
-## <a name="find"></a>저장소 계정 찾기
+## <a name="find-a-storage-account"></a>저장소 계정 찾기
 지역에서 저장소 계정 목록에서 Azure Stack에서 볼 수 있습니다.
 
 1. 에 로그인 합니다 [관리자 포털](https://adminportal.local.azurestack.external)합니다.
 
-2. 선택 **모든 서비스** > **지역 관리** 아래에서 **관리**합니다.
+2. 선택 **모든 서비스** > **저장소 계정**합니다.
 
-3. 선택 **스토리지** 에서 합니다 **리소스 공급자** 목록입니다.
-   
-   ![저장소 리소스 공급자](media/azure-stack-manage-storage-accounts/image1.png)
-
-5. 선택 **Storage 계정** 에 **저장소**합니다.
-   
-   ![](media/azure-stack-manage-storage-accounts/image2.png)
-   
-   블레이드에서 해당 지역의 저장소 계정 목록을 표시합니다.
-   
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
 기본적으로 처음 10 개의 계정이 표시 됩니다. 자세히 인출 하도록 선택할 수 있습니다를 클릭 하 여는 **로드** 목록의 맨 아래에 링크 합니다.

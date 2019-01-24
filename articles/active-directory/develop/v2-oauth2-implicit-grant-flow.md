@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e9de2c9b7f79dd6cba3050d84ccfa0795bc2d09a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ce54ad77893557b595f9777dfc82939aacf41608
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962582"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321520"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 프로토콜 - 암시적 흐름을 사용하는 SPA
 
@@ -30,7 +30,7 @@ ms.locfileid: "52962582"
 
 v2.0 엔드포인트를 사용하는 경우 사용자가 Microsoft 개인 계정 및 회사 또는 학교 계정을 사용하여 단일 페이지 앱에 로그인할 수 있습니다. 주로 브라우저에서 실행되는 단일 페이지 앱 및 기타 JavaScript 앱에는 인증과 관련하여 해결해야 하는 몇 가지 문제가 있습니다.
 
-* 이러한 앱의 보안 특성은 기존의 서버 기반 웹 응용 프로그램과 상당히 다릅니다.
+* 이러한 앱의 보안 특성은 기존의 서버 기반 웹 애플리케이션과 상당히 다릅니다.
 * 대다수 권한 부여 서버 및 ID 공급자는 CORS 요청을 지원하지 않습니다.
 * 앱에서 멀어지는 전체 페이지 브라우저 리디렉션은 사용자 환경에 특히 방해가 됩니다.
 
@@ -171,7 +171,7 @@ URL의 쿼리 매개 변수에 대한 자세한 내용은 [로그인 요청 보�
 >`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&domain_hint=consumers-or-organizations&login_hint=your-username`
 >
 
-`prompt=none` 매개 변수로 인해, 이 요청은 즉시 성공하거나 실패하고 응용 프로그램에 반환됩니다. 성공적인 응답은 `response_mode` 매개 변수에 지정된 메서드를 사용하여 지정된 `redirect_uri`의 앱으로 전송됩니다.
+`prompt=none` 매개 변수로 인해, 이 요청은 즉시 성공하거나 실패하고 애플리케이션에 반환됩니다. 성공적인 응답은 `response_mode` 매개 변수에 지정된 메서드를 사용하여 지정된 `redirect_uri`의 앱으로 전송됩니다.
 
 #### <a name="successful-response"></a>성공적인 응답
 
@@ -211,7 +211,7 @@ error=user_authentication_required
 | `error` |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
 
-iFrame 요청에 이러한 오류를 수신하면, 사용자는 새 토큰을 얻기 위해 대화형으로 다시 로그인해야 합니다. 어떠한 방식이든 응용 프로그램에 적합한 방식으로 이러한 경우를 처리하도록 선택할 수 있습니다.
+iFrame 요청에 이러한 오류를 수신하면, 사용자는 새 토큰을 얻기 위해 대화형으로 다시 로그인해야 합니다. 어떠한 방식이든 애플리케이션에 적합한 방식으로 이러한 경우를 처리하도록 선택할 수 있습니다.
 
 ## <a name="validating-access-tokens"></a>액세스 토큰의 유효성 검사
 
@@ -229,7 +229,7 @@ access_token를 받으면 다음 클레임뿐 아니라 토큰 서명의 유효�
 
 ## <a name="send-a-sign-out-request"></a>로그아웃 요청 보내기
 
-OpenIdConnect `end_session_endpoint`에서는 앱이 v2.0 엔드포인트에 요청을 보내 사용자 세션을 종료하고 v2.0 엔드포인트에서 설정한 쿠키를 지울 수 있습니다. 앱은 웹 응용 프로그램에서 특정 사용자를 완전히 로그아웃시키기 위해 일반적으로 토큰 캐시를 지우거나 쿠키를 삭제하여 고유한 사용자 세션을 종료한 다음 브라우저를 아래 주소로 리디렉션합니다.
+OpenIdConnect `end_session_endpoint`에서는 앱이 v2.0 엔드포인트에 요청을 보내 사용자 세션을 종료하고 v2.0 엔드포인트에서 설정한 쿠키를 지울 수 있습니다. 앱은 웹 애플리케이션에서 특정 사용자를 완전히 로그아웃시키기 위해 일반적으로 토큰 캐시를 지우거나 쿠키를 삭제하여 고유한 사용자 세션을 종료한 다음, 브라우저를 아래 주소로 리디렉션합니다.
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
@@ -238,7 +238,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 | 매개 변수 |  | 설명 |
 | --- | --- | --- |
 | `tenant` |필수 |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
-| `post_logout_redirect_uri` | 권장 | 로그아웃이 완료된 후 사용자가 반환되어야 하는 URL입니다. 이 값은 응용 프로그램에 대해 등록된 리디렉션 URI 중 하나와 일치해야 합니다. 포함되지 않은 경우 v2.0 엔드포인트에서 사용자에게 일반 메시지를 표시합니다. |
+| `post_logout_redirect_uri` | 권장 | 로그아웃이 완료된 후 사용자가 반환되어야 하는 URL입니다. 이 값은 애플리케이션에 대해 등록된 리디렉션 URI 중 하나와 일치해야 합니다. 포함되지 않은 경우 v2.0 엔드포인트에서 사용자에게 일반 메시지를 표시합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

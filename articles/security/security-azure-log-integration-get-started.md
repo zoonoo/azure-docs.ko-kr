@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: a6bbc61afcc1ed25d5eac8673b9abfa59e72dba9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bf39e22c0edc23d2e452d96103c8933e0a47af9e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602191"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304413"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure 진단 로깅 및 Windows 이벤트 전달과의 Azure Log Integration
 
 
 >[!IMPORTANT]
-> Azure Log Integration 기능은 2019년 6월 1일에 사용 중지될 예정입니다. AzLog 다운로드는 2018년 6월 27일에 비활성화됩니다. 향후 작업 진행 방향에 대한 지침은 게시물 [Azure Monitor를 사용하여 SIEM 도구와 통합](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)을 검토하세요. 
+> Azure Log Integration 기능은 2019년 6월 1일에 사용 중지될 예정입니다. AzLog 다운로드는 2018년 6월 27일부로 사용할 수 없습니다. 향후 작업 진행 방향에 대한 지침은 게시물 [Azure Monitor를 사용하여 SIEM 도구와 통합](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)을 검토하세요. 
 
 SIEM(Security Incident and Event Management) 공급업체에서 [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) 커넥터를 사용할 수 없는 경우에만 Azure Log Integration을 사용해야 합니다.
 
@@ -85,7 +85,7 @@ Azure Log Integration 서비스의 인스턴스를 여러 개 실행할 수 있�
 
 ## <a name="install-azure-log-integration"></a>Azure Log Integration 설치
 
-Azure Log Integration을 설치하려면 [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) 설치 파일을 다운로드합니다. 설치 프로세스를 완료합니다. Microsoft로 원격 분석 정보를 제공할지 여부를 선택합니다.
+설치 루틴을 실행합니다. Microsoft로 원격 분석 정보를 제공할지 여부를 선택합니다.
 
 Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격 분석 데이터를 수집합니다.  
 
@@ -245,7 +245,6 @@ Azure Activity Log는 Azure에서 발생하는 구독 수준 이벤트에 대한
 
 Azure Log Integration에 대한 자세한 내용은 다음 문서를 참조하세요. 이 문서의 단계를 시도하기 전에 먼저 시작하기 문서를 검토하고 해당 단계를 완료해야 합니다.
 
-* [Azure 로그에 대한 Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) 이 다운로드 센터에는 Azure Log Integration에 대한 세부 정보, 시스템 요구 사항 및 설치 지침이 포함되어 있습니다.
 * [Azure Log Integration 소개](security-azure-log-integration-overview.md) 이 문서에서는 Azure Log Integration, 주요 기능 및 작동 원리를 소개합니다.
 * [파트너 구성 단계](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) 이 블로그 게시물에서는 Splunk, HP ArcSight, IBM QRadar 등의 파트너 솔루션과 함께 작동하도록 Azure Log Integration을 구성하는 방법을 보여 줍니다. SIEM 구성 요소를 구성하는 방법에 대한 최신 지침을 제공합니다. 자세한 내용은 SIEM 공급업체에 문의하세요.
 * [Azure Log Integration FAQ(질문과 대답)](security-azure-log-integration-faq.md). 이 FAQ는 Azure Log Integration에 대해 자주 묻는 질문과 대답입니다.

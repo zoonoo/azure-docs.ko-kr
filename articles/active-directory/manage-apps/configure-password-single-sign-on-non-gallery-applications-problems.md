@@ -4,7 +4,7 @@ description: Azure AD 애플리케이션 갤러리에 나열되지 않은 사용
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 223532a169dc1655d8c20a7bd60ecb68d9b5052b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7d0ed35c28717fdbabc4a549f090779e9438b8a7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834301"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469698"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>비갤러리 애플리케이션에 대해 암호 Single Sign-On 구성 문제
 
@@ -37,13 +37,13 @@ ms.locfileid: "52834301"
 
 **자동 로그인 필드 캡처**는 **사용자 이름 및 암호 입력에 대해 잘 알려진 DIV ID** 필드를 사용하는 경우 대부분의 HTML 기반 로그인 페이지에서 잘 작동합니다. 자동 로그인 필드 캡처는 페이지의 HTML을 스크랩하여 특정 기준과 일치하는 DIV ID를 찾은 다음, 나중에 암호를 재생할 수 있도록 이 애플리케이션에 대한 메타데이터를 저장합니다.
 
-**수동 로그인 필드 캡처**는 응용 프로그램 **공급업체에서 로그인에 대해 사용되는 입력 필드에 레이블을 지정하지 않은** 경우에 사용할 수 있습니다. 또한 수동 로그인 필드 캡처는 **공급업체에서 자동으로 검색할 수 없는 여러 필드를 렌더링하는 경우**에 사용할 수 있습니다. 해당 필드가 있는 페이지 위치를 알려주면 Azure AD에서는 로그인 페이지에 있는 많은 필드에 대해 데이터를 저장할 수 있습니다.
+**수동 로그인 필드 캡처**는 애플리케이션 **공급업체에서 로그인에 대해 사용되는 입력 필드에 레이블을 지정하지 않은** 경우에 사용할 수 있습니다. 또한 수동 로그인 필드 캡처는 **공급업체에서 자동으로 검색할 수 없는 여러 필드를 렌더링하는 경우**에 사용할 수 있습니다. 해당 필드가 있는 페이지 위치를 알려주면 Azure AD에서는 로그인 페이지에 있는 많은 필드에 대해 데이터를 저장할 수 있습니다.
 
 일반적으로 **자동 로그인 필드 캡처가 작동하지 않는 경우 수동 옵션을 사용해 보세요.**
 
 ### <a name="how-to-automatically-capture-sign-in-fields-for-an-application"></a>애플리케이션에 대한 로그인 필드를 자동으로 캡처하는 방법
 
-**자동 로그인 필드 캡처**를 사용하여 응용 프로그램에 대한 **암호 기반 Single Sign-On**을 구성하려면 아래 단계를 수행합니다.
+**자동 로그인 필드 캡처**를 사용하여 애플리케이션 대한 **암호 기반 Single Sign-On**을 구성하려면 아래 단계를 수행합니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "52834301"
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
+5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
@@ -73,7 +73,7 @@ ms.locfileid: "52834301"
 
 로그인 필드를 수동으로 캡처하려면 먼저 액세스 패널 브라우저 확장이 설치되어 있고 **inPrivate, incognito 또는 개인 모드에서 실행 중이 아니어야 합니다.** 브라우저 확장을 설치하려면 [액세스 패널 브라우저 확장을 설치하는 방법](#i-cannot-manually-detect-sign-in-fields-for-my-application) 섹션의 단계를 수행합니다.
 
-**수동 로그인 필드 캡처**를 사용하여 응용 프로그램에 대한 **암호 기반 Single Sign-On**을 구성하려면 아래 단계를 수행합니다.
+**수동 로그인 필드 캡처**를 사용하여 애플리케이션에 대한 **암호 기반 Single Sign-On**을 구성하려면 아래 단계를 수행합니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
@@ -83,7 +83,7 @@ ms.locfileid: "52834301"
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
+5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
    * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
@@ -137,7 +137,7 @@ ms.locfileid: "52834301"
 
 -   브라우저가 **incognito, inPrivate 또는 개인 모드**일 때 캡처 프로세스를 시도하지 않았는지 확인합니다. 이러한 모드에서는 액세스 패널 확장이 지원되지 않습니다.
 
--   **incognito, inPrivate 또는 개인 모드**일 때 사용자가 액세스 패널의 응용 프로그램에 로그인하려고 하지 않았는지 확인합니다. 이러한 모드에서는 액세스 패널 확장이 지원되지 않습니다.
+-   **incognito, inPrivate 또는 개인 모드**일 때 사용자가 액세스 패널의 애플리케이션에 로그인하려고 하지 않았는지 확인합니다. 이러한 모드에서는 액세스 패널 확장이 지원되지 않습니다.
 
 -   빨간색 마커가 올바른 필드 위에 있는지 확인하고 수동 캡처 프로세스를 다시 시도합니다.
 
@@ -258,5 +258,5 @@ ms.locfileid: "52834301"
     -   예 – ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 ## <a name="next-steps"></a>다음 단계
-[응용 프로그램 프록시를 사용하여 앱에 Single Sign-On 제공](application-proxy-configure-single-sign-on-with-kcd.md)
+[애플리케이션 프록시를 사용하여 앱에 Single Sign-On 제공](application-proxy-configure-single-sign-on-with-kcd.md)
 

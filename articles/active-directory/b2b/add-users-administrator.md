@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: mal
-ms.openlocfilehash: 3da427974c4a270a7a743bb81d2376cf61b77390
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 4ef6efed5bd13475a07831d1ff6d096a938f09d7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436911"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428276"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Azure Active Directory B2B 공동 작업 사용자를 Azure Portal에 추가
 
-전역 관리자 또는 제한된 관리자 디렉터리 역할 중 하나에 할당된 사용자로서 Azure Portal을 사용하여 B2B 공동 작업 사용자를 초대할 수 있습니다. 게스트 사용자를 디렉터리, 그룹 또는 응용 프로그램에 초대할 수 있습니다. 다음 방법 중 하나를 통해 사용자를 초대한 후 초대된 사용자의 계정은 *게스트*의 사용자 유형으로 Azure AD(Azure Active Directory)에 추가됩니다. 게스트 사용자는 리소스에 액세스하려면 해당 초대를 사용해야 합니다.
+전역 관리자 또는 제한된 관리자 디렉터리 역할 중 하나에 할당된 사용자로서 Azure Portal을 사용하여 B2B 공동 작업 사용자를 초대할 수 있습니다. 게스트 사용자를 디렉터리, 그룹 또는 애플리케이션에 초대할 수 있습니다. 다음 방법 중 하나를 통해 사용자를 초대한 후 초대된 사용자의 계정은 *게스트*의 사용자 유형으로 Azure AD(Azure Active Directory)에 추가됩니다. 게스트 사용자는 리소스에 액세스하려면 해당 초대를 사용해야 합니다.
 
 게스트 사용자를 디렉터리에 추가한 후에 게스트 사용자에게 공유 앱에 대한 직접 링크를 보낼 수 있습니다. 또는 게스트 사용자는 초대 이메일에서 상환 URL을 클릭할 수 있습니다. 상환 프로세스에 대한 자세한 내용은 [B2B 공동 작업 초대 상환](redemption-experience.md)을 참조하세요.
 
@@ -70,15 +70,15 @@ B2B 공동 작업 사용자를 Azure AD 관리자로 그룹에 수동으로 추�
    
 또한 Azure AD B2B 공동 작업을 통해 동적 그룹을 사용할 수 있습니다. 자세한 내용은 [동적 그룹 및 Azure Active Directory B2B 공동 작업](use-dynamic-groups.md)을 참조합니다.
 
-## <a name="add-guest-users-to-an-application"></a>응용 프로그램에 게스트 사용자 추가
+## <a name="add-guest-users-to-an-application"></a>애플리케이션에 게스트 사용자 추가
 
-B2B 공동 작업 사용자를 Azure AD 관리자로 응용 프로그램에 추가하려면 다음 단계를 수행합니다.
+B2B 공동 작업 사용자를 Azure AD 관리자로 애플리케이션에 추가하려면 다음 단계를 수행합니다.
 
 1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 탐색 창에서 **Azure Active Directory**를 선택합니다.
-3. **관리**에서 **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**을 선택합니다.
-4. 게스트 사용자를 추가하려는 응용 프로그램을 선택 합니다.
-5. 응용 프로그램의 대시보드에서 **총 사용자 수**를 선택하여 **사용자 및 그룹** 창을 엽니다.
+3. **관리**에서 **엔터프라이즈 애플리케이션** > **모든 애플리케이션**을 선택합니다.
+4. 게스트 사용자를 추가하려는 애플리케이션을 선택 합니다.
+5. 애플리케이션의 대시보드에서 **총 사용자 수**를 선택하여 **사용자 및 그룹** 창을 엽니다.
 
     ![사용자 및 그룹 열기를 추가하기 위해 총 사용자 수 단추](./media/add-users-administrator/AppUsersAndGroups.png)
 
@@ -92,7 +92,7 @@ B2B 공동 작업 사용자를 Azure AD 관리자로 응용 프로그램에 추�
    
       **선택**을 클릭한 다음, **할당**을 클릭하여 사용자를 앱에 추가합니다. 초대가 초대된 사용자에게 자동으로 이동합니다.
 
-9. 게스트 사용자가 **기본 액세스**의 할당된 역할을 포함하는 응용 프로그램의 **사용자 및 그룹** 목록에 나타납니다. 역할을 변경하려는 경우 다음을 수행합니다.
+9. 게스트 사용자가 **기본 액세스**의 할당된 역할을 포함하는 애플리케이션의 **사용자 및 그룹** 목록에 나타납니다. 역할을 변경하려는 경우 다음을 수행합니다.
    - 게스트 사용자를 선택한 다음, **편집**을 선택합니다. 
    - **할당 편집**에서 **역할 선택**을 클릭하고, 선택한 사용자에게 할당할 역할을 선택합니다.
    - **선택**을 클릭합니다.

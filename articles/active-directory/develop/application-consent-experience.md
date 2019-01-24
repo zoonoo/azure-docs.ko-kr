@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: zawad
-ms.openlocfilehash: e3e333594b32cff018f02cd1d3b32eaf44c11a65
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 3193e9ac6ac5e90584bbf548142b7573d61c310a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904046"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413076"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Azure AD 애플리케이션 동의 환경 이해
 
@@ -32,8 +32,8 @@ Azure AD(Azure Active Directory) 애플리케이션 동의 사용자 환경에 �
 
 동의를 부여하는 실제 사용자 환경은 사용자의 테넌트, 사용자의 권한(또는 역할) 범위 및 클라이언트 애플리케이션에서 요청한 [사용 권한](https://docs.microsoft.com/azure/active-directory/develop/active-directory-permissions) 형식에 따라 달라집니다. 즉, 애플리케이션 개발자와 테넌트 관리자는 동의 환경을 어느 정도 제어할 수 있습니다. 관리자는 테넌트에서 동의 환경을 제어하기 위해 테넌트 또는 앱에서 정책을 유연하게 사용 및 사용하지 않도록 설정할 수 있습니다. 애플리케이션 개발자는 어떤 유형의 사용 권한을 요청하는지 및 사용자 동의 흐름 또는 관리자 동의 흐름을 통해 사용자를 안내하려는지 여부를 결정할 수 있습니다.
 
-- **사용자 동의 흐름** - 응용 프로그램 개발자가 현재 사용자만의 동의를 기록하려는 목적으로 권한 부여 엔드포인트로 사용자를 안내하는 경우입니다.
-- **관리자 동의 흐름** - 응용 프로그램 개발자가 전체 테넌트의 동의를 기록하려는 목적으로 관리자 동의 엔드포인트로 사용자를 안내하는 경우입니다. 관리자 동의 흐름이 제대로 작동되도록 하려면 애플리케이션 개발자는 애플리케이션 매니페스트의 `RequiredResourceAccess` 속성에서 모든 사용 권한을 나열해야 합니다. 자세한 내용은 [애플리케이션 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)를 참조하세요.
+- **사용자 동의 흐름** - 애플리케이션 개발자가 현재 사용자만의 동의를 기록하려는 목적으로 권한 부여 엔드포인트로 사용자를 안내하는 경우입니다.
+- **관리자 동의 흐름** - 애플리케이션 개발자가 전체 테넌트의 동의를 기록하려는 목적으로 관리자 동의 엔드포인트로 사용자를 안내하는 경우입니다. 관리자 동의 흐름이 제대로 작동되도록 하려면 애플리케이션 개발자는 애플리케이션 매니페스트의 `RequiredResourceAccess` 속성에서 모든 사용 권한을 나열해야 합니다. 자세한 내용은 [애플리케이션 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)를 참조하세요.
 
 ## <a name="building-blocks-of-the-consent-prompt"></a>동의 확인 프롬프트의 구성 요소
 
@@ -84,4 +84,4 @@ Azure AD(Azure Active Directory) 애플리케이션 동의 사용자 환경에 �
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure AD 동의 프레임워크가 동의를 구현하는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework)에 대한 단계별 개요 확인
-- 좀 더 깊이 있는 이해를 위해 [다중 테넌트 애플리케이션이 동의 프레임워크를 사용하여](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) "user" 및 "admin" 동의를 구현하고 좀 더 수준 높은 다중 계층 애플리케이션 패턴을 지원하는 방법 알아보기
+- 좀 더 깊이 있는 이해를 위해 [다중 테넌트 애플리케이션이 동의 프레임워크를 사용하여](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) "user" 및 "admin" 동의를 구현하고 좀 더 수준 높은 다중 계층 애플리케이션 패턴을 지원하는 방법 알아보기

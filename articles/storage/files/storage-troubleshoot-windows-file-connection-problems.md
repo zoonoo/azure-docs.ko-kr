@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: a7ab2e76280458326539fe83d3507dfb4e4a486e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 8723d7f113a77266d1ee883e41bade1721fa1afa
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023103"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848957"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
@@ -61,7 +61,7 @@ ms.locfileid: "54023103"
 
 방화벽 또는 ISP가 포트 445를 차단하는지 확인하려면 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) 도구 또는 `Test-NetConnection` cmdlet을 사용합니다. 
 
-`Test-NetConnection` cmdlet을 사용하려면 AzureRM PowerShell 모듈을 설치해야 합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 잊지 말고 `<your-storage-account-name>` 및 `<your-resoure-group-name>`을 저장소 계정과 관련된 이름으로 바꿔야 합니다.
+`Test-NetConnection` cmdlet을 사용하려면 AzureRM PowerShell 모듈을 설치해야 합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 잊지 말고 `<your-storage-account-name>` 및 `<your-resoure-group-name>`을 저장소 계정과 관련된 이름으로 바꿔야 합니다.
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -69,12 +69,12 @@ ms.locfileid: "54023103"
 
     # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
     # already logged in.
-    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+    $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
     # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
     # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
     # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+    Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
   
     
 연결되면 다음 출력이 표시됩니다.

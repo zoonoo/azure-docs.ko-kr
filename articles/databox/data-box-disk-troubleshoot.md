@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: 8e75aa31941fe7368ef56f344db14d9b376e6238
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 13e42ae9b25c769a468a8c9839fd1aaf0abf2787
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191703"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213147"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Azure Data Box Disk에서 문제 해결
 
@@ -96,12 +96,11 @@ ms.locfileid: "54191703"
 
 정리되지 않은 파일 시스템 때문일 수 있습니다. 
 
-- 드라이브를 읽기 전용으로 다시 탑재하는 것은 Data Box Disk에서 가능하지 않습니다. 이 시나리오는 dislocker으로 암호 해독한 드라이브에서 지원되지 않습니다. 
-- 읽기/쓰기로 다시 탑재할 수 없습니다. 다음 명령을 사용하여 디바이스를 다시 탑재했을 수 있습니다. 
+Data Box Disk에서는 드라이브를 읽기-쓰기로 다시 탑재할 수 없습니다. 이 시나리오는 dislocker으로 암호 해독한 드라이브에서 지원되지 않습니다. 다음 명령을 사용하여 디바이스를 다시 탑재했을 수 있습니다. 
 
     `# mount -o remount, rw / mnt / DataBoxDisk / mountVol1 ß`
 
-   다시 탑재에 성공했더라도 데이터가 유지되지 않습니다.
+다시 탑재에 성공했더라도 데이터가 유지되지 않습니다.
 
 **해결 방법**
 
@@ -125,11 +124,11 @@ ms.locfileid: "54191703"
  
 이 경우 [드라이브를 읽기 전용으로 탑재](#issue-drive-getting-mounted-as-read-only)에 대한 해결 방법을 참조하세요.
 
-이 경우가 아니면 시스템에서 [진단 로그를 다운로드](#download-diagnostic-logs)하고 [Microsoft 지원에 문의](data-box-disk-contact-microsoft-support.md)하세요.
+그 외의 경우에는 Data Box Disk 잠금 해제 도구가 있는 폴더에서 로그를 복사한 다음 [Microsoft 지원](data-box-disk-contact-microsoft-support.md)에 문의하세요.
 
 ## <a name="deployment-issues-for-windows"></a>Windows 배포 문제
 
-이 섹션에서는 데이터 복사를 위해 Linux 클라이언트를 사용하는 경우 Data Box Disk를 배포하는 동안 발생하는 몇 가지 주요 문제를 자세히 설명합니다.
+이 섹션에서는 데이터 복사를 위해 Windows 클라이언트를 사용하는 경우 Data Box Disk를 배포하는 동안 발생하는 몇 가지 주요 문제를 자세히 설명합니다.
 
 ### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>문제: BitLocker에서 드라이브의 잠금을 해제할 수 없습니다.
  
@@ -139,7 +138,7 @@ BitLocker 대화 상자에서 암호를 사용했으며 BitLocker의 드라이�
 
 **해결 방법**
 
-Data Box Disk의 잠금을 해제하려면 Data Box Disk 잠금 해제 도구를 사용하고 Azure Portal에서 암호를 제공해야 합니다.
+Data Box Disk의 잠금을 해제하려면 Data Box Disk 잠금 해제 도구를 사용하고 Azure Portal에서 암호를 제공해야 합니다. 자세한 내용은 [자습서: Azure Data Box Disk 압축 풀기, 연결 및 잠금 해제](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey)를 참조하세요.
  
 ### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>문제: 일부 볼륨을 잠금 해제하거나 확인할 수 없습니다. Microsoft 지원에 문의하세요.
  
@@ -155,7 +154,7 @@ Data Box Disk의 잠금을 해제하려면 Data Box Disk 잠금 해제 도구를
 
 [Windows PowerShell v 5.0](https://www.microsoft.com/download/details.aspx?id=54616)을 설치하고 작업을 다시 시도할 수 있습니다.
  
-여전히 볼륨을 잠금 해제할 수 없으면 [Microsoft 지원에 문의](data-box-disk-contact-microsoft-support.md)하세요.
+그래도 볼륨의 잠금을 해제할 수 없으면 Data Box Disk 잠금 해제 도구가 있는 폴더에서 로그를 복사한 다음 [Microsoft 지원](data-box-disk-contact-microsoft-support.md)에 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

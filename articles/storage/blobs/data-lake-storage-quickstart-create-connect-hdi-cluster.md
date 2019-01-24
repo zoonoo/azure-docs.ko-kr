@@ -6,14 +6,14 @@ author: jamesbak
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/15/2019
 ms.author: jamesbak
-ms.openlocfilehash: 95aff0bb37a91c1e2ac117f2f3b90c726e9f88d8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 791598da593c25a135c05d72b6846053af3ff344
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792892"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353858"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>빠른 시작: HDInsight에서 클러스터 설정
 
@@ -25,6 +25,10 @@ Hadoop 클러스터는 작업의 분산 처리에 사용되는 여러 가상 머
 >클러스터가 만들어지면 HDInsight 클러스터 청구가 시작되고 클러스터가 삭제되면 중지됩니다. 분 단위로 청구되므로 더 이상 사용하지 않으면 항상 클러스터를 삭제해야 합니다. [클러스터 삭제](../../hdinsight/hdinsight-delete-cluster.md) 방법에 대해 알아보세요.
 
 이 빠른 시작에서는 Data Lake Storage Gen2 기능이 포함된 스토리지 계정을 데이터 계층으로 사용합니다. 계층 구조 네임스페이스 서비스 및 [Hadoop 드라이버](data-lake-storage-abfs-driver.md)를 사용하면 Data Lake Storage Gen2가 분산 처리 및 분석에 최적화됩니다. Data Lake Storage Gen2가 사용되는 스토리지 계정에 저장된 데이터는 HDInsight 클러스터가 삭제된 후에도 유지됩니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+- 사용자 할당 관리 ID를 만든 후 해당 ID에 **Blob 스토리지 참가자 역할**을 할당해야 합니다. [Azure Portal을 사용하여 사용자 할당 관리 ID를 생성, 나열, 삭제 또는 할당](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)을 참조하세요.
 
 ## <a name="cluster-setup-methods"></a>클러스터 설정 방법
 
@@ -104,8 +108,7 @@ Hadoop의 온-프레미스 설치가 클러스터의 저장소에 HDFS(Hadoop �
 
 ![클러스터 스토리지 설정: HDFS 호환 스토리지 엔드포인트](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
-> [!IMPORTANT]
-> **Data Lake Store 액세스를 사용하지 않도록 설정**해야 합니다. 이 설정은 이전 *Data Lake Store* 기능을 나타내고 *Data Lake Storage* 기능이 제대로 작동하려면 사용하지 않도록 설정되어야 합니다.
+**사용자가 할당한 관리 ID**에서 이 문서에서 전제 조건으로 만든 사용자 관리 사용자 할당 관리 ID를 선택해야 합니다.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 

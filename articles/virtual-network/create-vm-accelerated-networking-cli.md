@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/02/2018
+ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: b6aaf98ca3b5581691b6c70783be5250b506056c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 53945559be01b6e9f5778f5df096f7fcbb24a03f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990963"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214490"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>가속 네트워킹을 사용하는 Linux 가상 머신 만들기
 
@@ -31,14 +31,14 @@ ms.locfileid: "46990963"
 
 가속화된 네트워킹을 사용하지 않는 경우 VM에서 들어오고 나가는 모든 네트워킹 트래픽이 호스트와 가상 스위치를 통과해야 합니다. 가상 스위치는 네트워크 보안 그룹, 액세스 제어 목록, 격리 및 네트워크 트래픽에 대한 다른 네트워크 가상화 서비스 등, 모든 정책 적용을 제공합니다. 가상 스위치에 대한 자세한 내용은 [Hyper-V 네트워크 가상화 및 가상 스위치](https://technet.microsoft.com/library/jj945275.aspx) 문서를 참조하세요.
 
-가속화된 네트워킹을 사용하는 경우 네트워크 트래픽이 VM의 NIC(네트워크 인터페이스)에 도착한 다음 VM으로 전달됩니다. 이제 가상 스위치가 적용되는 모든 네트워크 정책은 오프로드되어 하드웨어에 적용됩니다. 하드웨어에서 정책을 적용하면 NIC는 호스트에 적용된 모든 정책을 유지하면서 VM에 직접 네트워크 트래픽을 전달할 수 있으므로 호스트 및 가상 스위치를 우회할 수 있습니다.
+가속화된 네트워킹을 사용하는 경우 네트워크 트래픽이 가상 머신의 NIC(네트워크 인터페이스)에 도착한 다음 VM으로 전달됩니다. 이제 가상 스위치가 적용되는 모든 네트워크 정책은 오프로드되어 하드웨어에 적용됩니다. 하드웨어에서 정책을 적용하면 NIC는 호스트에 적용된 모든 정책을 유지하면서 VM에 직접 네트워크 트래픽을 전달할 수 있으므로 호스트 및 가상 스위치를 우회할 수 있습니다.
 
 가속화된 네트워킹의 이점은 사용하도록 설정된 VM에만 적용된다는 것입니다. 최상의 결과를 얻으려면 동일한 Azure VNet(Virtual Network)에 연결된 둘 이상의 VM에서 이 기능을 사용하도록 설정하는 것이 좋습니다. VNet에서 통신하거나 온-프레미스에 연결할 때 이 기능을 사용하면 전체 대기 시간에 미치는 영향을 최소화할 수 있습니다.
 
 ## <a name="benefits"></a>이점
-* **더 낮은 대기 시간/더 높은 초당 패킷 수(pps):** 데이터 경로에서 가상 스위치를 제거하면 패킷이 정채 처리를 위해 호스트에서 소요하는 시간이 제거되고 VM 내에서 처리될 수 있는 패킷 수가 늘어납니다.
-* **감소된 지터:** 가상 스위치 처리는 적용해야 하는 정책의 양과 처리를 수행하는 CPU의 워크로드에 따라 달라집니다. 정책 적용을 하드웨어로 오프로드하면 패킷이 VM으로 직접 전달되고, 호스트-VM 통신과 모든 소프트웨어 인터럽트 및 컨텍스트 전환이 제거되어 이러한 가변성이 해소됩니다.
-* **CPU 사용률 감소:** 호스트의 가상 스위치를 무시하면 네트워크 트래픽 처리에 사용되는 CPU가 감소됩니다.
+* **더 짧은 대기 시간/더 많은 초당 패킷 수(pps):** 데이터 경로에서 가상 스위치를 제거하면 정책 처리를 위해 패킷이 호스트에 머무는 시간이 없어지며 VM 내에서 처리할 수 있는 패킷 수가 늘어납니다.
+* **지터 감소:** 적용해야 하는 정책의 수와 처리를 수행하는 CPU의 워크로드에 따라 가상 스위치 처리 성능이 달라집니다. 정책 적용을 하드웨어로 오프로드하면 패킷이 VM으로 직접 전달되고, 호스트-VM 통신과 모든 소프트웨어 인터럽트 및 컨텍스트 전환이 제거되어 이러한 가변성이 해소됩니다.
+* **CPU 사용률 감소:** 이 기능을 사용할 때는 호스트에서 가상 스위치를 바이패스하므로 네트워크 트래픽 처리에 CPU를 더 적게 사용하게 됩니다.
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 다음 배포는 즉시 Azure Gallery에서 기본으로 지원됩니다. 
@@ -53,7 +53,7 @@ ms.locfileid: "46990963"
 ## <a name="limitations-and-constraints"></a>제한 및 제약 조건
 
 ### <a name="supported-vm-instances"></a>지원되는 VM 인스턴스
-가속 네트워킹은 가장 일반적인 용도로 2개 이상의 vCPU가 포함된 계산 최적화 인스턴스 크기에서 지원됩니다.  이러한 지원되는 계열은 D/DSv2 및 F/Fs입니다.
+가속 네트워킹은 가장 일반적인 용도로 2개 이상의 vCPU가 포함된 계산 최적화 인스턴스 크기에서 지원됩니다.  지원되는 이러한 계열은 D/DSv2 및 F/Fs입니다.
 
 하이퍼스레딩을 지원하는 인스턴스에서 가속 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 지원되는 계열은 D/DSv3, E/ESv3, Fsv2 및 Ms/Mms입니다.
 
@@ -62,8 +62,9 @@ VM 인스턴스에 대한 자세한 내용은 [Linux VM 크기](../virtual-machi
 ### <a name="regions"></a>영역
 모든 공용 Azure 지역 및 Azure Government 클라우드에서 사용할 수 있습니다.
 
-### <a name="network-interface-creation"></a>네트워크 인터페이스 만들기 
-가속 네트워킹은 새 NIC에서만 사용할 수 있으며, 기존 NIC에서는 사용할 수 없습니다.
+<!-- ### Network interface creation 
+Accelerated networking can only be enabled for a new NIC. It cannot be enabled for an existing NIC.
+removed per issue https://github.com/MicrosoftDocs/azure-docs/issues/9772 -->
 ### <a name="enabling-accelerated-networking-on-a-running-vm"></a>실행 중인 VM에서 가속 네트워킹 사용
 가속 네트워킹을 사용하지 않고 지원되는 VM 크기에서는 기능이 중지되고 할당이 취소된 경우에만 사용하도록 설정할 수 있습니다.  
 ### <a name="deployment-through-azure-resource-manager"></a>Azure Resource Manager를 통한 배포
@@ -194,7 +195,7 @@ Bash 셸에서 `uname -r`을 입력하고, 커널 버전이 다음 버전 이상
 * **CentOS**: 7.4.20171206
 
 
-`lspci` 명령을 사용하여 Mellanox VF 장치를 VM에 노출했는지 확인합니다. 반환되는 출력은 다음 출력과 유사합니다.
+`lspci` 명령을 사용하여 Mellanox VF 디바이스를 VM에 노출했는지 확인합니다. 반환되는 출력은 다음 출력과 유사합니다.
 
 ```bash
 0000:00:00.0 Host bridge: Intel Corporation 440BX/ZX/DX - 82443BX/ZX/DX Host bridge (AGP disabled) (rev 03)
@@ -216,7 +217,7 @@ vf_tx_dropped: 0
 ```
 이제 가속화된 네트워킹을 VM에 사용할 수 있습니다.
 
-## <a name="enable-accelerated-networking-on-existing-vms"></a>기존 VM에서 가속 네트워킹 사용
+## <a name="enable-accelerated-networking-on-existing-vms"></a>기존 VM에서 가속화된 네트워킹을 사용하도록 설정
 가속 네트워킹을 사용하지 않고 VM을 만든 경우 기존 VM에서 이 기능을 사용하도록 설정할 수 있습니다.  VM이 위에 설명된 다음 필수 조건을 충족하여 가속 네트워킹을 지원해야 합니다.
 
 * VM은 가속화된 네트워킹에 대해 지원되는 크기이어야 함

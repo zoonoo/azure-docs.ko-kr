@@ -3,19 +3,19 @@ title: Azure Active Directory B2C 사용자 지정 정책의 기술 프로필 �
 description: Azure Active Directory B2C의 사용자 지정 정책에서 기술 프로필을 사용하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0f36cd798faac275e0f6dcb8a81bd37e14ab6d8d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 177e44a53f9976879e15e24313c1d8479cb5a6a7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275822"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853224"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 기술 프로필 정보
 
@@ -28,13 +28,13 @@ ms.locfileid: "52275822"
 기술 프로필은 다음 유형의 시나리오를 가능하게 합니다.
 
 - [Azure Active Directory](active-directory-technical-profile.md) - Azure Active Directory B2C 사용자 관리를 지원합니다.
-- [JWT 토큰 발급자](jwt-issuer-technical-profile.md) - 다시 신뢰 당사자 응용 프로그램으로 반환되는 JWT 토큰을 내보냅니다. 
+- [JWT 토큰 발급자](jwt-issuer-technical-profile.md) - 다시 신뢰 당사자 애플리케이션으로 반환되는 JWT 토큰을 내보냅니다. 
 - **Phone Factor 공급자** - 다단계 인증입니다.
 - [OAuth1](oauth1-technical-profile.md) - OAuth 1.0 프로토콜 ID 공급자와 페더레이션됩니다.
 - [OAuth2](oauth2-technical-profile.md) - OAuth 2.0 프로토콜 ID 공급자와 페더레이션됩니다.
 - [OpenIdConnect](openid-connect-technical-profile.md) - OpenId Connect 프로토콜 ID 공급자와 페더레이션됩니다.
 - [클레임 변환](claims-transformation-technical-profile.md) - 출력 클레임 변환을 호출하여 클레임 값을 조작하거나, 클레임의 유효성을 검사하거나, 출력 클레임 집합의 기본값을 설정합니다.
-- [Restful 공급자](restful-technical-profile.md) - 사용자 입력 유효성 검사, 사용자 데이터 다양화 또는 기간 업무 응용 프로그램과 통합 등의 REST API 서비스 호출입니다.
+- [Restful 공급자](restful-technical-profile.md) - 사용자 입력 유효성 검사, 사용자 데이터 다양화 또는 기간 업무 애플리케이션과 통합 등의 REST API 서비스 호출입니다.
 - [SAML2](saml-technical-profile.md) - SAML 프로토콜 ID 공급자와 페더레이션됩니다.
 - [자체 어설션](self-asserted-technical-profile.md) - 사용자와 상호 작용합니다. 예를 들어, 로그인할 사용자의 자격 증명을 수집하고 등록 페이지 또는 암호 재설정을 렌더링합니다.
 - **WsFed** - WsFed 프로토콜 ID 공급자와 페더레이션됩니다. 

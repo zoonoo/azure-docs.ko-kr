@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: mayg
-ms.openlocfilehash: 5de8bc9acd97016b401bd1c2bcce46f5ab851430
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 210872a468f92f92edef9c8e29a26382c5646dae
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811565"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321554"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위해 Azure Site Recovery Deployment Planner 실행
 이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
@@ -233,8 +233,8 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 예를 들어 현재 VM이 표준 저장소 복제 계정에 적합하다고 가정해 보겠습니다. 다음 3개월 동안 몇 가지 변경 사항이 발생할 가능성이 있습니다.
 
 * VM에서 실행되는 애플리케이션의 사용자 수가 증가합니다.
-* 그 결과 VM에서 변동이 증가하므로 Site Recovery 복제가 일어날 수 있도록 VM을 프리미엄 저장소로 이동해야 합니다.
-* 따라서 프리미엄 저장소 계정에 대한 보호를 해제하고 다시 사용하도록 설정해야 합니다.
+* 그 결과 VM에서 변동이 증가하므로 Site Recovery 복제가 일어날 수 있도록 VM을 Premium Storage로 이동해야 합니다.
+* 따라서 Premium Storage 계정에 대한 보호를 해제하고 다시 사용하도록 설정해야 합니다.
 
 배포 계획 중에 그리고 기본값이 30%인 동안 증가에 대해 계획할 것을 적극 권장합니다. 사용자는 애플리케이션 사용 패턴과 증가 예측에 대한 전문가이며 보고서를 생성하는 동안 이 숫자를 해당 계획에 따라 변경할 수 있습니다. 또한 사용자는 여러 증가율 및 동일한 프로파일링된 데이터가 포함된 여러 보고서를 생성하고 가장 적합한 대상 저장소 및 원본 대역폭 권장 사항을 결정할 수 있습니다.
 

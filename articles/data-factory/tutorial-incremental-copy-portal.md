@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory를 사용하여 테이블 증분 복사 | Microsoft Docs
-description: 이 자습서에서는 Azure SQL 데이터베이스에서 Azure Blob 저장소로 데이터 증분을 복사하는 Azure 데이터 팩터리 파이프라인을 만듭니다.
+description: 이 자습서에서는 Azure SQL 데이터베이스에서 Azure Blob Storage로 데이터 증분을 복사하는 Azure 데이터 팩터리 파이프라인을 만듭니다.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: ad490630d3ce5d625bce05c75c20fa71a7aa2d29
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b9e9c0b141987f8af563944c8eee216b8218846c
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014543"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352889"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Azure SQL 데이터베이스에서 Azure Blob 저장소로 데이터 증분 로드
-이 자습서에서는 Azure SQL 데이터베이스의 테이블에서 Azure Blob 저장소로 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다. 
+# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Azure SQL 데이터베이스에서 Azure Blob Storage로 데이터 증분 로드
+이 자습서에서는 Azure SQL 데이터베이스의 테이블에서 Azure Blob Storage로 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다. 
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "54014543"
     이 솔루션의 파이프라인에 포함되는 작업은 다음과 같습니다.
   
     * 두 가지 조회 작업을 만듭니다. 첫 번째 조회 작업을 사용하여 마지막 워터마크 값을 검색합니다. 두 번째 조회 작업을 사용하여 새 워터마크 값을 검색합니다. 이러한 워터마크 값은 복사 작업에 전달됩니다. 
-    * 이전 워터마크 값보다 크고, 새 워터마크 값보다 작은 워터마크 열 값으로 원본 데이터 저장소의 행을 복사하는 복사 작업을 만듭니다. 그런 다음 원본 데이터 저장소의 델타 데이터를 새 파일로 Blob 저장소에 복사합니다. 
+    * 이전 워터마크 값보다 크고, 새 워터마크 값보다 작은 워터마크 열 값으로 원본 데이터 저장소의 행을 복사하는 복사 작업을 만듭니다. 그런 다음 원본 데이터 스토리지의 델타 데이터를 새 파일로 Blob Storage에 복사합니다. 
     * 다음에 실행되는 파이프라인에 대한 워터마크 값을 업데이트하는 StoredProcedure 작업을 만듭니다. 
 
 
@@ -64,7 +64,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 * **Azure SQL Database**. 데이터베이스를 원본 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계를 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)에서 참조하세요.
-* **Azure Storage**. Blob 저장소를 싱크 데이터 저장소로 사용합니다. 저장소 계정이 없는 경우, 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. adftutorial이라는 컨테이너를 만듭니다. 
+* **Azure Storage**. Blob Storage를 싱크 데이터 스토리지로 사용합니다. 저장소 계정이 없는 경우, 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. adftutorial이라는 컨테이너를 만듭니다. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>SQL 데이터베이스에 데이터 원본 테이블 만들기
 1. SQL Server Management Studio를 엽니다. **서버 탐색기**에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
@@ -135,7 +135,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 다음 명령을 실행하여 SQL 데이터베이스에 저장 프로시저를 만듭니다.
 
 ```sql
-CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
+CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
 AS
 
 BEGIN
@@ -273,7 +273,7 @@ END
 25. 데이터 세트에 대한 [속성] 창의 **일반** 탭에서 **이름**에 대해 **SinkDataset**를 입력합니다. 
 
     ![싱크 데이터 세트 - 이름](./media/tutorial-incremental-copy-portal/sink-dataset-name.png)
-26. **연결** 탭으로 전환하고 **+ 새로 만들기**를 클릭합니다. 이 단계에서는 **Azure Blob 저장소**에 대한 연결(연결된 서비스)을 만듭니다.
+26. **연결** 탭으로 전환하고 **+ 새로 만들기**를 클릭합니다. 이 단계에서는 **Azure Blob Storage**에 대한 연결(연결된 서비스)을 만듭니다.
 
     ![싱크 데이터 세트 - 새 연결](./media/tutorial-incremental-copy-portal/sink-dataset-new-connection.png)
 26. **새 연결된 서비스** 창에서 다음 단계를 수행합니다. 
@@ -286,7 +286,7 @@ END
 27. **연결**에서 다음 단계를 수행합니다.
 
     1. **연결된 서비스**에 대해 **AzureStorageLinkedService**가 선택되어 있는지 확인합니다. 
-    2. **파일 경로** 필드의 **폴더** 부분에 대해 **adftutorial/incrementalcopy**를 입력합니다. **adftutorial**은 Blob 컨테이너 이름이고, **incrementalcopy**는 폴더 이름입니다. 이 코드 조각에서는 Blob 저장소에 adftutorial이라는 Blob 컨테이너가 있다고 가정합니다. 컨테이너가 없으면 만들거나 기존 컨테이너의 이름으로 설정합니다. **incrementalcopy** 출력 폴더가 없으면 Azure Data Factory에서 자동으로 만듭니다. 또한 **파일 경로**에 대한 **찾아보기** 단추를 사용하여 Blob 컨테이너의 폴더로 이동할 수도 있습니다. .RunId, '.txt')`.
+    2. **파일 경로** 필드의 **폴더** 부분에 대해 **adftutorial/incrementalcopy**를 입력합니다. **adftutorial**은 Blob 컨테이너 이름이고, **incrementalcopy**는 폴더 이름입니다. 이 코드 조각에서는 Blob Storage에 adftutorial이라는 Blob 컨테이너가 있다고 가정합니다. 컨테이너가 없으면 만들거나 기존 컨테이너의 이름으로 설정합니다. **incrementalcopy** 출력 폴더가 없으면 Azure Data Factory에서 자동으로 만듭니다. 또한 **파일 경로**에 대한 **찾아보기** 단추를 사용하여 Blob 컨테이너의 폴더로 이동할 수도 있습니다. .RunId, '.txt')`.
     3. **파일 경로** 필드의 **파일 이름** 부분에 대해 `@CONCAT('Incremental-', pipeline().RunId, '.txt')`를 입력합니다. 파일 이름은 식을 사용하여 동적으로 생성됩니다. 각 파이프라인 실행에는 고유한 ID가 있습니다. 복사 활동은 실행 ID를 사용하여 파일 이름을 생성합니다. 
 
         ![싱크 데이터 세트 - 연결 설정](./media/tutorial-incremental-copy-portal/sink-dataset-connection-settings.png)
@@ -302,7 +302,7 @@ END
     ![저장 프로시저 활동 - SQL 계정](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. **저장 프로시저** 탭으로 전환하고 다음 단계를 수행합니다. 
 
-    1. **저장 프로시저 이름**에 대해 **sp_write_watermark**를 선택합니다. 
+    1. **저장 프로시저 이름**에 대해 **usp_write_watermark**를 선택합니다. 
     2. 저장 프로시저 매개 변수에 대한 값을 지정하려면, **가져오기 매개 변수**를 클릭하고 매개 변수에 대해 다음 값을 입력합니다. 
 
         | 이름 | type | 값 | 
@@ -404,7 +404,7 @@ PersonID | Name | LastModifytime
 
 ## <a name="verify-the-second-output"></a>두 번째 출력 확인
 
-1. Blob 저장소에 다른 파일이 만들어진 것을 볼 수 있습니다. 이 자습서에서 새 파일 이름은 `Incremental-<GUID>.txt`입니다. 해당 파일을 열면 2개 행의 레코드가 표시됩니다.
+1. Blob Storage에 다른 파일이 만들어진 것을 볼 수 있습니다. 이 자습서에서 새 파일 이름은 `Incremental-<GUID>.txt`입니다. 해당 파일을 열면 2개 행의 레코드가 표시됩니다.
 
     ```
     6,newdata,2017-09-06 02:23:00.0000000
@@ -440,7 +440,7 @@ PersonID | Name | LastModifytime
 > * 두 번째 파이프라인 실행 모니터링
 > * 두 번째 실행 결과 검토
 
-이 자습서에서는 파이프라인이 SQL 데이터베이스의 단일 테이블에서 Blob 저장소로 데이터를 복사했습니다. 온-프레미스 SQL Server 데이터베이스의 여러 테이블에서 SQL 데이터베이스로 데이터를 복사하는 방법을 알아보려면 다음 자습서로 이동하세요. 
+이 자습서에서는 파이프라인이 SQL 데이터베이스의 단일 테이블에서 Blob Storage로 데이터를 복사했습니다. 온-프레미스 SQL Server 데이터베이스의 여러 테이블에서 SQL 데이터베이스로 데이터를 복사하는 방법을 알아보려면 다음 자습서로 이동하세요. 
 
 > [!div class="nextstepaction"]
 >[SQL Server의 여러 테이블에서 Azure SQL Database로 데이터 증분 로드](tutorial-incremental-copy-multiple-tables-portal.md)

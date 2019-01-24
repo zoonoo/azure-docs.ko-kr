@@ -3,19 +3,20 @@ title: Azure Service Bus를 사용하는 .NET 다중 계층 애플리케이션 |
 description: Azure에서 Service Bus 큐를 사용하여 계층 간에 통신하는 다중 계층 응용 프로그램을 개발하는 데 도움이 되는 .NET 자습서입니다.
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/05/2018
-ms.author: spelluru
-ms.openlocfilehash: b905feef4d3a5445ba27b92637448443c3bbb4a3
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: aaec8fd245c507e83967aa76f3e2f9d72b052cb1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855615"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849739"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Azure Service Bus 큐를 사용하는 .NET 다중 계층 애플리케이션
 
@@ -30,7 +31,7 @@ Visual Studio 및 무료로 제공되는 Azure SDK for .NET을 사용하면 Micr
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-이 자습서에서는 Azure 클라우드 서비스에서 다중 계층 애플리케이션을 빌드하고 실행합니다. 프런트 엔드는 ASP.NET MVC 웹 역할이고 백 엔드는 Service Bus 큐를 사용하는 작업자 역할입니다. 클라우드 서비스가 아닌 Azure 웹 사이트에 배포되는 웹 프로젝트와 동일한 다중 계층 애플리케이션(프런트 엔드 포함)을 만들 수 있습니다. [.NET 온-프레미스/클라우드 하이브리드 응용 프로그램](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) 자습서를 시도해 볼 수 있습니다.
+이 자습서에서는 Azure 클라우드 서비스에서 다중 계층 애플리케이션을 빌드하고 실행합니다. 프런트 엔드는 ASP.NET MVC 웹 역할이고 백 엔드는 Service Bus 큐를 사용하는 작업자 역할입니다. 클라우드 서비스가 아닌 Azure 웹 사이트에 배포되는 웹 프로젝트와 동일한 다중 계층 애플리케이션(프런트 엔드 포함)을 만들 수 있습니다. [.NET 온-프레미스/클라우드 하이브리드 애플리케이션](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) 자습서를 시도해 볼 수 있습니다.
 
 다음 스크린샷에서는 완성된 애플리케이션을 보여 줍니다.
 
@@ -178,7 +179,7 @@ Service Bus는 조정된 메시징을 지원하는 두 개의 엔터티인 큐�
    ![][15]
 7. **추가**를 클릭합니다.
 8. 이제 애플리케이션의 표시 이름을 변경합니다. **솔루션 탐색기**에서 **Views\Shared\\_Layout.cshtml** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
-9. **내 ASP.NET 응용 프로그램**과 일치하는 모든 항목을 **Northwind Traders 제품**으로 바꿉니다.
+9. **내 ASP.NET 애플리케이션**과 일치하는 모든 항목을 **Northwind Traders 제품**으로 바꿉니다.
 10. **홈**, **정보** 및 **연락처** 링크를 제거합니다. 강조 표시된 코드를 삭제합니다.
     
     ![][28]
@@ -187,7 +188,7 @@ Service Bus는 조정된 메시징을 지원하는 두 개의 엔터티인 큐�
     ```html
     <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
     ```
-12. 이제 UI를 구현했습니다. **F5** 키를 눌러 응용 프로그램을 실행하고 예상대로 나타나는지 확인할 수 있습니다.
+12. 이제 UI를 구현했습니다. **F5** 키를 눌러 애플리케이션을 실행하고 예상대로 나타나는지 확인할 수 있습니다.
     
     ![][17]
 
@@ -357,7 +358,7 @@ Service Bus에 대한 자세한 내용은 다음 리소스를 참조하십시오
 
 다중 계층 시나리오에 대한 자세한 내용은 다음을 참조하세요.  
 
-* [저장소 테이블, 큐 및 Blob을 사용하는 .NET 다중 계층 응용 프로그램][mutitierstorage]  
+* [스토리지 테이블, 큐 및 Blob을 사용하는 .NET 다중 계층 애플리케이션][mutitierstorage]  
 
 [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png

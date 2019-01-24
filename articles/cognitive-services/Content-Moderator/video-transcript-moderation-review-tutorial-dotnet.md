@@ -1,27 +1,27 @@
 ---
 title: '자습서: .NET에서 비디오 및 대본 조정 - Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: .NET에서 비디오 및 대본을 조정하기 위해 Content Moderator를 사용하는 방법입니다.
+description: 이 자습서는 머신 지원 조정 및 사람이 개입된(human-in-the-loop) 검토 생성을 통해 완벽한 비디오 및 대본 조정 솔루션을 빌드하는 방법을 이해하는 데 도움이 됩니다.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
-ms.date: 1/27/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: e5958eeb4aca4cdc41bbc263a4cc38378927874b
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 45f1b4d16bd982e17b67d6fb337e0d917f635851
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118577"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332696"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>자습서: 비디오 및 대본 조정
 
 Content Moderator의 비디오 API를 사용하면 사용자 검토 도구에서 비디오를 조정하고 비디오 검토를 만들 수 있습니다. 
 
-이 자세한 자습서는 컴퓨터 지원 조정 및 사람이 개입된(human-in-the-loop) 검토 생성을 통해 완벽한 비디오 및 대본 조정 솔루션을 빌드하는 방법을 이해하는 데 도움이 됩니다.
+이 자습서는 머신 지원 조정 및 사람이 개입된(human-in-the-loop) 검토 생성을 통해 완벽한 비디오 및 대본 조정 솔루션을 빌드하는 방법을 이해하는 데 도움이 됩니다.
 
 이 자습서에 대해서는 [C# 콘솔 애플리케이션](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp)을 다운로드합니다. 콘솔 애플리케이션은 SDK 및 관련 패키지를 사용하여 다음 작업을 수행합니다.
 
@@ -241,7 +241,7 @@ Content Moderator의 비디오 API를 사용하면 사용자 검토 도구에서
 
 - `App.config`의 구성이 필요한 모든 데이터를 포함하는지 확인
 - `ffmpeg` 이진이 존재하는지 확인
-- 파일의 기본 이름(예: `Example.mp4` -> `E>xample_c.mp4`)에 `_c.mp4`를 추가하여 출력 파일 이름 빌드
+- 파일의 기본 이름(예: `Example.mp4` -> `Example_c.mp4`)에 `_c.mp4`를 추가하여 출력 파일 이름 빌드
 - 명령줄 문자열을 빌드하여 변환 수행
 - 명령줄을 사용하는 `ffmpeg` 프로세스 시작
 - 처리될 비디오 대기

@@ -1,9 +1,9 @@
 ---
-title: Azure Active Directory 응용 프로그램 프록시 및 Tableau | Microsoft Docs
-description: Azure AD(Azure Active Directory) 응용 프로그램 프록시를 사용하여 Tableau 배포에 대해 원격 액세스를 제공하는 방법을 알아봅니다.
+title: Azure Active Directory 애플리케이션 프록시 및 Tableau | Microsoft Docs
+description: Azure AD(Azure Active Directory) 애플리케이션 프록시를 사용하여 Tableau 배포에 대해 원격 액세스를 제공하는 방법을 알아봅니다.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.date: 08/20/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 0ad58d4759d8532ab947043c20cc1060782c6d78
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 8a4231e5d49dad790855293ac50d475e499e0993
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138673"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476158"
 ---
-# <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory 응용 프로그램 프록시 및 Tableau 
+# <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory 애플리케이션 프록시 및 Tableau 
 
-Azure Active Directory 응용 프로그램 프록시 및 Tableau를 사용하여 Tableau 배포에 대한 원격 액세스를 제공하기 위해 응용 프로그램 프록시를 쉽게 사용할 수 있도록 합니다. 이 아티클에서는 이 시나리오를 구성하는 방법에 대해 설명합니다.  
+Azure Active Directory 애플리케이션 프록시 및 Tableau를 사용하여 Tableau 배포에 대한 원격 액세스를 제공하기 위해 애플리케이션 프록시를 쉽게 사용할 수 있도록 합니다. 이 아티클에서는 이 시나리오를 구성하는 방법에 대해 설명합니다.  
 
 ## <a name="prerequisites"></a>필수 조건 
 
@@ -29,21 +29,21 @@ Azure Active Directory 응용 프로그램 프록시 및 Tableau를 사용하여
 
 - [Tableau](https://onlinehelp.tableau.com/current/server/en-us/proxy.htm#azure)가 구성됨 
 
-- [응용 프로그램 프록시 커넥터](application-proxy-add-on-premises-application.md)가 설치됨 
+- [애플리케이션 프록시 커넥터](application-proxy-add-on-premises-application.md)가 설치됨 
 
  
-## <a name="enabling-application-proxy-for-tableau"></a>Tableau에 대해 응용 프로그램 프록시 사용 
+## <a name="enabling-application-proxy-for-tableau"></a>Tableau에 대해 애플리케이션 프록시 사용 
 
 애플리케이션 프록시는 Tableau가 제대로 작동하는 데 필요한 OAuth 2.0 Grant Flow를 지원합니다. 즉, 아래의 게시 단계를 따라 구성하기만 하면 더 이상 특별한 단계를 수행할 필요 없이 이 애플리케이션을 활성화할 수 있습니다.
 
 
-## <a name="publish-your-applications-in-azure"></a>Azure에 응용 프로그램 게시 
+## <a name="publish-your-applications-in-azure"></a>Azure에 애플리케이션 게시 
 
-Tableau를 게시하려면 Azure Portal에서 응용 프로그램을 게시해야 합니다.
+Tableau를 게시하려면 Azure Portal에서 애플리케이션을 게시해야 합니다.
 
 관련 작업:
 
-- 1~8단계의 자세한 지침은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-add-on-premises-application.md)를 참조하세요. 
+- 1~8단계의 자세한 지침은 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](application-proxy-add-on-premises-application.md)를 참조하세요. 
 - 앱 프록시 필드의 Tableau 값을 확인하는 방법에 대한 정보는 Tableau 설명서를 참조하세요.  
 
 **앱을 게시하려면**: 
@@ -51,11 +51,11 @@ Tableau를 게시하려면 Azure Portal에서 응용 프로그램을 게시해�
 
 1. 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
-2. **Azure Active Directory > 엔터프라이즈 응용 프로그램**을 선택합니다. 
+2. **Azure Active Directory &gt; 엔터프라이즈 애플리케이션**을 선택합니다. 
 
 3. 블레이드의 위쪽에서 **추가**를 선택합니다. 
 
-4. **온-프레미스 응용 프로그램**을 선택합니다. 
+4. **온-프레미스 애플리케이션**을 선택합니다. 
 
 5. 새 앱에 대한 정보로 필수 필드를 작성합니다. 설정에 대해 다음 지침을 사용합니다. 
 
@@ -63,9 +63,9 @@ Tableau를 게시하려면 Azure Portal에서 응용 프로그램을 게시해�
 
     - **사전 인증 방법**: Azure Active Directory(권장되지만 필수는 아님) 
 
-6. 블레이드의 위쪽에서 **추가**를 선택합니다. 응용 프로그램이 추가되고 빠른 시작 메뉴가 열립니다. 
+6. 블레이드의 위쪽에서 **추가**를 선택합니다. 애플리케이션이 추가되고 빠른 시작 메뉴가 열립니다. 
 
-7. 빠른 시작 메뉴에서 **테스트할 사용자 지정**을 선택하고 응용 프로그램에 하나 이상의 사용자를 추가합니다. 이 테스트 계정에 온-프레미스 응용 프로그램에 대한 액세스 권한이 있는지 확인합니다. 
+7. 빠른 시작 메뉴에서 **테스트할 사용자 지정**을 선택하고 애플리케이션에 하나 이상의 사용자를 추가합니다. 이 테스트 계정에 온-프레미스 애플리케이션에 대한 액세스 권한이 있는지 확인합니다. 
 
 8. **할당**을 선택하여 테스트 사용자 할당을 저장합니다. 
 
@@ -75,11 +75,11 @@ Tableau를 게시하려면 Azure Portal에서 응용 프로그램을 게시해�
 
 ## <a name="testing"></a>테스트 
 
-응용 프로그램을 테스트할 준비가 되었습니다. Tableau를 게시하는 데 사용되는 외부 URL에 액세스하고 두 응용 프로그램에 할당된 사용자 권한으로 로그인합니다.
+애플리케이션을 테스트할 준비가 되었습니다. Tableau를 게시하는 데 사용되는 외부 URL에 액세스하고 두 애플리케이션에 할당된 사용자 권한으로 로그인합니다.
 
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure AD 응용 프로그램 프록시에 대한 자세한 정보는 [온-프레미스 응용 프로그램에 보안 원격 액세스를 제공하는 방법](application-proxy.md)을 참조하세요.
+Azure AD 애플리케이션 프록시에 대한 자세한 정보는 [온-프레미스 애플리케이션에 보안 원격 액세스를 제공하는 방법](application-proxy.md)을 참조하세요.
 

@@ -4,7 +4,7 @@ description: 기업에 대한 온-프레미스와 클라우드 사이의 모든 
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 593eaa71-17eb-4c16-8c98-43cc62987e65
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 0a7d0b69df4610f85791da82b9d2e15a363a844c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ad14e443f7176a0acb2da3529348fba452f76dee
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308682"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477960"
 ---
 # <a name="determine-directory-synchronization-requirements"></a>디렉터리 동기화 요구 사항 결정
 동기화는 해당 온-프레미스 ID에 기반하여 클라우드에서 사용자에게 ID를 제공하는 모든 작업입니다. 인증에 대해 동기화된 계정 또는 페더레이션된 인증을 사용하는지와 무관하게 사용자는 클라우드에서 ID가 필요합니다.  이 ID는 정기적으로 유지 관리하고 업데이트해야 합니다.  업데이트는 제목 변경에서 암호 변경까지 다양한 형태일 수 있습니다.  

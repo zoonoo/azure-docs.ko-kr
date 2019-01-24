@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 71987fcde08c5098d98d21405ce79e61d3094424
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 6c8f48ce71e11d1de0c28b4dab5327ab03e54f28
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186058"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231787"
 ---
 # <a name="manage-workspaces"></a>작업 영역 관리
 
@@ -40,7 +40,7 @@ Azure 구독당 여러 작업 영역을 포함할 수 있으며 이들 간의 �
 
 * 데이터 저장소의 지리적 위치
 * 다른 사용자 액세스 권한을 정의하기 위한 데이터 격리
-* 보존 및 데이터 최대화 같은 설정 구성에 대한 범위
+* [가격 책정 계층](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [보존](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period), [데이터 최대 가용량 사용](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#daily-cap) 등의 설정 구성 범위 
 
 사용 관점에서 가능한 한 적은 작업 영역을 만드는 것이 좋습니다. 관리 및 쿼리 환경을 쉽고 빠르게 합니다. 그러나 위의 특성을 기반으로 다음과 같은 경우 여러 작업 영역을 만드는 것이 좋습니다.
 
@@ -145,96 +145,6 @@ Log Analytics 기여자 역할에는 다음 Azure 작업이 포함됩니다.
 - 리소스 - 지정된 작업 영역에만 액세스
 
 정확한 액세스 제어를 보장하기 위해 리소스 수준(작업 영역)에서 할당을 수행하는 것이 좋습니다.  [사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 사용하여 필요한 특정 권한이 있는 역할을 만듭니다.
-
-## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Azure 구독에 기존 작업 영역 연결
-2016년 9월 26일 이후에 만들어진 모든 작업 영역은 만들 때 Azure 구독에 연결되어야 합니다. 이 날짜 이전에 만들어진 작업 영역은 로그인할 때 작업 영역에 연결되어야 합니다. Azure Portal에서 작업 영역을 만들거나 작업 영역을 Azure 구독에 연결하면 Azure Active Directory가 조직 계정으로 연결됩니다.
-
-### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>작업 영역을 Azure Portal의 Azure 구독에 연결하려면
-1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.  
-
-2. Log Analytics 구독 창에서 **추가**를 클릭합니다.  
-
-    ![작업 영역 목록](./media/manage-access/workspace-link-existing-01.png)
-
-3. **Log Analytics 작업 영역** 창에서 **기존 항목 링크**를 클릭합니다.  
-
-4. **필수 설정 구성**을 클릭합니다.  
-
-5. 아직 Azure 계정에 연결되지 않은 작업 영역 목록이 표시됩니다. 작업 영역을 선택합니다.  
-   
-6. 필요한 경우, 다음 항목에 대한 값을 변경할 수 있습니다.
-   * 구독
-   * 리소스 그룹
-   * 위치
-   * 가격 책정 계층   
-
-7. **확인**을 클릭합니다. 작업 영역이 이제 Azure 계정에 연결되었습니다.
-
-> [!NOTE]
-> 연결할 작업 영역이 표시되지 않으면, Azure 구독이 OMS 포털을 사용하여 만든 작업 영역에 대한 액세스가 없는 것입니다.  OMS 포털에서 이 계정에 대한 액세스 권한을 부여 받으려면 [기존 작업 영역에 사용자 추가](#add-a-user-to-an-existing-workspace)를 참조하세요.
->
->
-
-## <a name="upgrade-a-workspace-to-a-paid-plan"></a>작업 영역을 유료 플랜으로 업그레이드
-OMS의 경우 **체험**, **독립 실행형** 및 **OMS**의 세 가지 작업 영역 플랜 유형이 있습니다.  *무료* 플랜인 경우 Log Analytics로 전송되는 500MB의 일별 데이터 제한이 있습니다.  이 용량을 초과하는 경우 이 제한을 초과하여 데이터를 수집하지 않으려면 유료 플랜으로 작업 영역을 변경해야 합니다. 언제든지 플랜 유형을 변경할 수 있습니다.  OMS 가격 책정에 대한 자세한 내용은 [가격 정보](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-pricing)를 참조하세요.
-
-### <a name="using-entitlements-from-an-oms-subscription"></a>OMS 구독에서 자격 사용
-System Center용 OMS E1, OMS E2 OMS 또는 OMS 추가 기능 구매에서 발생하는 자격을 사용하려면 OMS Log Analytics의 *OMS* 플랜을 선택합니다.
-
-OMS 구독을 구매하면 자격이 기업 규약에 추가됩니다. 이 규약에 따라 생성된 Azure 구독은 권리를 사용할 수 있습니다. 이러한 구독의 모든 작업 영역은 OMS 자격을 사용합니다.
-
-작업 영역의 사용량이 OMS 구독의 자격에 적용되도록 하려면, 다음을 수행해야 합니다.
-
-1. OMS 구독을 포함하는 엔터프라이즈 규약의 일부인 Azure 구독에 작업 영역 만들기
-
-2. 작업 영역에 *OMS* 플랜 선택
-
-> [!NOTE]
-> 작업 영역이 2016년 9월 26일 이전에 생성되고 Log Analytics 가격 책정 플랜이 *프리미엄*인 경우 이 작업 영역은 System Center용 OMS 추가 기능에서 자격을 사용합니다. *OMS* 가격 책정 계층으로 변경하여 자격을 사용할 수도 있습니다.
->
->
-
-OMS 구독 자격은 Azure Portal에 표시되지 않습니다. 엔터프라이즈 포털에서 자격 및 사용량을 볼 수 있습니다.  
-
-작업 영역이 연결되어 있는 Azure 구독을 변경하려면, Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet을 사용합니다.
-
-### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>엔터프라이즈 규약을 통해 Azure 약정 사용
-OMS 구독이 없는 경우 별도로 OMS의 각 구성 요소에 대해 지불하고 사용량이 Azure 청구서에 나타납니다.
-
-Azure 구독이 연결된 기업 등록에 대한 Azure 요금 약정이 있는 경우 Log Analytics를 사용하면 남은 요금 약정을 자동으로 다시 차변에 기입합니다.
-
-작업 영역이 연결되어 있는 Azure 구독을 변경하려면, Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet을 사용합니다.  
-
-### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>Azure Portal에서 작업 영역을 유료 가격 책정 계층으로 변경
-1. Azure Portal의 Log Analytics 구독 창에서 작업 영역을 선택합니다.
-
-2. 작업 영역 창의 **일반**에서 **가격 책정 계층**을 선택합니다.  
-
-3. **가격 책정 계층**에서 가격 책정 계층을 선택하고 **선택**을 클릭합니다.  
-    ![선택된 가격 책정 계획](./media/manage-access/workspace-pricing-tier-info.png)
-
-> [!NOTE]
-> 작업 영역이 Automation 계정에 연결된 경우 *독립 실행형(GB당)* 가격 책정 계층을 선택하려면 모든 **Automation 및 제어** 솔루션을 삭제하고 Automation 계정에 대한 연결을 해제해야 합니다. 작업 영역 블레이드의 **일반**에서 **솔루션**을 클릭하여 솔루션을 보고 삭제합니다. Automation 계정에 대한 연결을 해제하려면 **가격 책정 계층** 블레이드에서 Automation 계정의 이름을 클릭합니다.
->
->
-
-### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-oms-portal"></a>OMS 포털에서 작업 영역을 유료 가격 책정 계층으로 변경
-
-OMS 포털을 사용하여 가격 책정 계층을 변경하려면 Azure 구독이 있어야 합니다.
-
-1. OMS 포털에서 **설정** 타일을 클릭합니다.
-
-2. **계정** 탭을 클릭한 다음 **Azure 구독 및 데이터 계획** 탭을 클릭합니다.
-
-3. 사용하려는 가격 책정 계층을 클릭합니다.
-
-4. **저장**을 클릭합니다.  
-
-    ![구독 및 데이터 계획](./media/manage-access/subscription-tab.png)
-
-새 데이터 계획은 웹 페이지의 위쪽에 있는 OMS 포털 리본 메뉴에 표시됩니다.
-
-![OMS 리본 메뉴](./media/manage-access/data-plan-changed.png)
 
 ## <a name="next-steps"></a>다음 단계
 * 데이터 센터 또는 다른 클라우드 환경의 컴퓨터에서 데이터를 수집하려면 [Log Analytics 에이전트 개요](../../azure-monitor/platform/log-analytics-agent.md)를 참조하세요.

@@ -3,31 +3,31 @@ title: Azure Active Directory B2C에서 리소스 소유자 암호 자격 증명
 description: Azure AD B2C에서 리소스 소유자 암호 자격 증명 흐름을 구성하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1b07825bd3ff46267764467bba815c1097278084
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: afbcacb299fa76a19cd7aaa20d3a4f2c2eb26d5c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726290"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845880"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Azure AD B2C에서 리소스 소유자 암호 자격 증명 흐름 구성
 
-ROPC(리소스 소유자 암호 자격 증명) 흐름은 신뢰 당사자라고도 하는 응용 프로그램이 사용자 id 및 ID 토큰의 암호, 액세스 토큰, 새로 고침 토큰 등의 유효한 자격 증명을 교환하는 OAuth 표준 인증 흐름입니다. 
+ROPC(리소스 소유자 암호 자격 증명) 흐름은 신뢰 당사자라고도 하는 애플리케이션이 사용자 id 및 ID 토큰의 암호, 액세스 토큰, 새로 고침 토큰 등의 유효한 자격 증명을 교환하는 OAuth 표준 인증 흐름입니다. 
 
 > [!NOTE]
 > 이 기능은 미리 보기 상태입니다.
 
 Azure AD(Azure Active Directory) B2C에서 지원되는 옵션은 다음과 같습니다.
 
-- **네이티브 클라이언트**: 코드가 사용자 쪽 디바이스에서 실행될 때 인증 중에 사용자 상호 작용이 발생합니다. 이 디바이스는 Android와 같은 네이티브 운영 체제에서 실행되거나 JavaScript와 같은 브라우저에서 실행되는 모바일 응용 프로그램일 수 있습니다.
-- **공용 클라이언트 흐름**: 애플리케이션에서 수집한 사용자 자격 증명만 API 호출에서 전송됩니다. 응용 프로그램의 자격 증명은 전송되지 않습니다.
+- **네이티브 클라이언트**: 코드가 사용자 쪽 디바이스에서 실행될 때 인증 중에 사용자 상호 작용이 발생합니다. 이 장치는 Android와 같은 네이티브 운영 체제에서 실행되거나 JavaScript와 같은 브라우저에서 실행되는 모바일 애플리케이션일 수 있습니다.
+- **공용 클라이언트 흐름**: 애플리케이션에서 수집한 사용자 자격 증명만 API 호출에서 전송됩니다. 애플리케이션의 자격 증명은 전송되지 않습니다.
 - **새 클레임 추가**: ID 토큰 콘텐츠를 변경하여 새 클레임을 추가할 수 있습니다. 
 
 지원되지 않는 흐름은 다음과 같습니다.
@@ -52,20 +52,20 @@ Azure AD(Azure Active Directory) B2C에서 지원되는 옵션은 다음과 같�
    `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
 
 
-## <a name="register-an-application"></a>응용 프로그램 등록
+## <a name="register-an-application"></a>애플리케이션 등록
 
-1. B2C 설정에서 **응용 프로그램**, **추가**를 차례로 선택합니다.
-2. 응용 프로그램 이름(예: *ROPC_Auth_app*)을 입력합니다.
+1. B2C 설정에서 **애플리케이션**, **추가**를 차례로 선택합니다.
+2. 애플리케이션 이름(예: *ROPC_Auth_app*)을 입력합니다.
 3. **웹앱/Web API**에 대해 **아니요**를 선택한 다음, **네이티브 클라이언트**에 대해 **예**를 선택합니다.
 4. 다른 모든 값은 그대로 둔 다음, **만들기**를 선택합니다.
-5. 새 응용 프로그램을 선택하고, 나중에 사용할 수 있도록 응용 프로그램 ID를 적어 둡니다.
+5. 새 애플리케이션을 선택하고, 나중에 사용할 수 있도록 애플리케이션 ID를 적어 둡니다.
 
 ## <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
 선호하는 API 개발 애플리케이션을 사용하여 API 호출을 생성하고, 응답을 검토하여 사용자 흐름을 디버그합니다. 다음 표의 정보를 POST 요청의 본문으로 사용하여 이와 같은 호출을 작성합니다.
 - *\<yourtenant.onmicrosoft.com>* 을 B2C 테넌트의 이름으로 바꿉니다.
 - *\<B2C_1A_ROPC_Auth>* 를 리소스 소유자 암호 자격 증명 정책의 전체 이름으로 바꿉니다.
-- *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* 을 등록의 응용 프로그램 ID로 바꿉니다.
+- *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3&gt;* 을 등록의 애플리케이션 ID로 바꿉니다.
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
@@ -78,7 +78,7 @@ Azure AD(Azure Active Directory) B2C에서 지원되는 옵션은 다음과 같�
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | 토큰 id_token |
 
-*Client_id*는 앞에서 응용 프로그램 ID로 기록해 둔 값입니다. *Offline_access*는 새로 고침 토큰을 받고 싶은 경우에 사용하는 선택 사항입니다. 사용하는 사용자 이름 및 암호가 Azure AD B2C 테넌트에 있는 기존 사용자의 자격 증명이어야 합니다.
+*Client_id*는 앞에서 애플리케이션 ID로 기록해 둔 값입니다. *Offline_access*는 새로 고침 토큰을 받고 싶은 경우에 사용하는 선택 사항입니다. 사용하는 사용자 이름 및 암호가 Azure AD B2C 테넌트에 있는 기존 사용자의 자격 증명이어야 합니다.
 
 실제 POST 요청은 다음과 같습니다.
 
@@ -117,7 +117,7 @@ offline-access의 성공적인 응답은 다음 예제와 같습니다.
 | resource | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
-*Client_id* 및 *리소스*는 앞에서 응용 프로그램 ID로 기록해 둔 값입니다. *Refresh_token*은 앞에서 언급한 인증 통화에서 받은 토큰입니다.
+*Client_id* 및 *리소스*는 앞에서 애플리케이션 ID로 기록해 둔 값입니다. *Refresh_token*은 앞에서 언급한 인증 통화에서 받은 토큰입니다.
 
 성공적인 응답은 다음 예제와 비슷합니다.
 

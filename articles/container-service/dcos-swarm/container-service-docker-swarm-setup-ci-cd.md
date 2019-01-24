@@ -9,20 +9,20 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: db0a16fa44dd23cbc32159889fe8b8ec28c77a5f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 93046fa8225d8c85172d113d3c7f9e979c336770
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992557"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331438"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(사용되지 않음) Azure DevOps Services를 사용하여 Docker Swarm을 포함한 Azure Container Service에 있는 다중 컨테이너 애플리케이션을 배포하는 전체 CI/CD 파이프라인
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-클라우드를 위한 최신 응용 프로그램을 개발할 때 어려운 문제 중 하나는 이러한 응용 프로그램을 지속적으로 전달할 수 있다는 점입니다. 이 문서에서는 Docker Swarm, Azure Container Registry, Azure Pipelines 관리와 함께 Azure Container Service를 사용하여 전체 CI/CD(연속 통합 및 배포) 파이프라인을 구현하는 방법에 대해 알아봅니다.
+클라우드를 위한 최신 애플리케이션을 개발할 때 어려운 문제 중 하나는 이러한 애플리케이션을 지속적으로 전달할 수 있다는 점입니다. 이 문서에서는 Docker Swarm, Azure Container Registry, Azure Pipelines 관리와 함께 Azure Container Service를 사용하여 전체 CI/CD(연속 통합 및 배포) 파이프라인을 구현하는 방법에 대해 알아봅니다.
 
-이 문서는 간단한 응용 프로그램을 기반으로 [GitHub](https://github.com/jcorioland/MyShop/tree/acs-docs)에서 사용할 수 있으며 ASP.NET Core를 사용하여 전개됩니다. 응용 프로그램은 세 개의 웹 API 및 하나의 웹 프론트 엔드라는 네 개의 다른 서비스로 구성되어 있습니다.
+이 문서는 간단한 애플리케이션을 기반으로 [GitHub](https://github.com/jcorioland/MyShop/tree/acs-docs)에서 사용할 수 있으며 ASP.NET Core를 사용하여 전개됩니다. 애플리케이션은 세 개의 웹 API 및 하나의 웹 프론트 엔드라는 네 개의 다른 서비스로 구성되어 있습니다.
 
 ![MyShop 샘플 애플리케이션](./media/container-service-docker-swarm-setup-ci-cd/myshop-application.png)
 
@@ -39,7 +39,7 @@ Azure DevOps Services를 사용하여 Docker Swarm 클러스터에서 이 애플
 1. Azure DevOps Services가 새 릴리스를 트리거합니다. 
 1. 릴리스는 Azure Container Service 클러스터 노드에서 SSH를 사용하는 마스터 명령을 실행합니다. 
 1. 클러스터의 Docker Swarm은 이미지의 최신 버전을 가져옵니다. 
-1. Docker 작성을 사용하여 새 버전의 응용 프로그램을 배포합니다. 
+1. Docker 작성을 사용하여 새 버전의 애플리케이션을 배포합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -105,7 +105,7 @@ CI/CD 파이프라인에 도달하기 전에 Azure의 컨테이너 레지스트�
 
     ![Azure DevOps Services - SSH](./media/container-service-docker-swarm-setup-ci-cd/vsts-ssh.png)
 
-이제 모든 구성을 수행했습니다. 다음 단계에서는 Docker Swarm 클러스터에 응용 프로그램을 빌드하고 배포하는 CI/CD 파이프라인을 만듭니다. 
+이제 모든 구성을 수행했습니다. 다음 단계에서는 Docker Swarm 클러스터에 애플리케이션을 빌드하고 배포하는 CI/CD 파이프라인을 만듭니다. 
 
 ## <a name="step-2-create-the-build-pipeline"></a>2단계: 빌드 파이프라인 만들기
 
@@ -132,12 +132,12 @@ CI/CD 파이프라인에 도달하기 전에 Azure의 컨테이너 레지스트�
     ![Azure DevOps Services - 빌드 트리거 구성](./media/container-service-docker-swarm-setup-ci-cd/vsts-github-trigger-conf.png)
 
 ### <a name="define-the-build-workflow"></a>빌드 워크플로 정의
-다음 단계에서는 빌드 워크플로를 정의합니다. *MyShop* 응용 프로그램에 대해 빌드되는 5개의 컨테이너 이미지가 있습니다. 각 이미지는 프로젝트 폴더에 있는 Dockerfile을 사용하여 빌드됩니다.
+다음 단계에서는 빌드 워크플로를 정의합니다. *MyShop* 애플리케이션에 대해 빌드되는 5개의 컨테이너 이미지가 있습니다. 각 이미지는 프로젝트 폴더에 있는 Dockerfile을 사용하여 빌드됩니다.
 
 * ProductsApi
 * Proxy
 * RatingsApi
-* RecommandationsApi
+* RecommendationsApi
 * ShopFront
 
 각 이미지에 대한 두 가지 Docker 단계를 추가해야 합니다. 하나는 이미지를 빌드하고 다른 하나는 Azure 컨테이너 레지스트리에서 이미지를 푸시합니다. 
@@ -221,7 +221,7 @@ Azure DevOps Services를 사용하면 [환경에서 릴리스를 관리](https:/
 
 ## <a name="step-4-test-the-cicd-pipeline"></a>4단계. CI/CD 파이프라인 테스트
 
-이제 구성했으면 이 새 CI/CD 파이프라인을 테스트하겠습니다. 테스트하는 가장 쉬운 방법은 소스 코드를 업데이트하고 GitHub 리포지토리에 변경 내용을 커밋하는 것입니다. 코드를 푸시한 몇 초 후에 새 빌드가 Azure DevOps Services에서 실행되는 것을 볼 수 있습니다. 성공적으로 완료되면 새 릴리스가 트리거되고 Azure Container Service 클러스터에서 새 버전의 응용 프로그램을 배포합니다.
+이제 구성했으면 이 새 CI/CD 파이프라인을 테스트하겠습니다. 테스트하는 가장 쉬운 방법은 소스 코드를 업데이트하고 GitHub 리포지토리에 변경 내용을 커밋하는 것입니다. 코드를 푸시한 몇 초 후에 새 빌드가 Azure DevOps Services에서 실행되는 것을 볼 수 있습니다. 성공적으로 완료되면 새 릴리스가 트리거되고 Azure Container Service 클러스터에서 새 버전의 애플리케이션을 배포합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

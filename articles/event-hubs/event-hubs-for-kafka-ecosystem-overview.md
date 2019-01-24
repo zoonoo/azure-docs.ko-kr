@@ -3,22 +3,22 @@ title: Apache Kafka 앱에서 이벤트 허브 사용 - Azure Event Hubs | Micro
 description: 이 문서에서는 Azure Event Hubs에서 지원하는 Apache Kafka에 정보를 제공합니다.
 services: event-hubs
 documentationcenter: .net
-author: basilhariri
+author: shvija
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 1c484b6418fd5a453713bc464fff690ef444f109
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8bf381e7c66e06bbaa140ed865f0f7c9b4f001af
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091189"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452346"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Apache Kafka 애플리케이션에서 Azure Event Hubs 사용
-Event Hubs는 기존 Kafka 기반 응용 프로그램이 사용자 고유의 Kafka 클러스터 실행에 대한 대안으로 사용할 수 있는 Kafka 끝점을 제공합니다. Event Hubs는 [Apache Kafka 프로토콜 1.0 이상](https://kafka.apache.org/documentation/)을 지원하고 MirrorMaker를 포함하여 기존 Kafka 애플리케이션과 작동합니다.  
+Event Hubs는 기존 Kafka 기반 애플리케이션이 사용자 고유의 Kafka 클러스터 실행에 대한 대안으로 사용할 수 있는 Kafka 끝점을 제공합니다. Event Hubs는 [Apache Kafka 프로토콜 1.0 이상](https://kafka.apache.org/documentation/)을 지원하고 MirrorMaker를 포함하여 기존 Kafka 애플리케이션과 작동합니다.  
 
 ## <a name="what-does-event-hubs-for-kafka-provide"></a>Kafka용 Event Hubs는 무엇을 제공하나요?
 
@@ -31,7 +31,7 @@ Kafka용 Event Hubs 기능은 Kafka 버전 1.0과 호환가능한 이진이며 �
 | Kafka 개념 | Event Hubs 클러스터|
 | --- | --- |
 | 프로비전 | 네임스페이스 |
-| 항목 | Event Hubs |
+| 항목 | 이벤트 허브 |
 | 파티션 | 파티션|
 | 소비자 그룹 | 소비자 그룹 |
 | Offset | Offset|
@@ -68,7 +68,7 @@ Kafka용 Event Hubs 기능을 사용하면 한 프로토콜로 읽고 다른 프
 이 문서는 Kafka용 Event Hubs에 대한 소개를 제공합니다. 자세한 알아보려면 다음 링크를 참조하세요.
 
 - [Kafka 사용 Event Hubs 만드는 방법](event-hubs-create-kafka-enabled.md)
-- [Kafka 응용 프로그램에서 이벤트 허브로 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+- [Kafka 애플리케이션에서 이벤트 허브로 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 - [Kafka 지원 이벤트 허브에서 Kafka broker 미러링](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Kafka 지원 이벤트 허브에 Apache Spark 연결](event-hubs-kafka-spark-tutorial.md)
 - [Kafka 지원 이벤트 허브에 Apache Flink 연결](event-hubs-kafka-flink-tutorial.md)
@@ -76,6 +76,4 @@ Kafka용 Event Hubs 기능을 사용하면 한 프로토콜로 읽고 다른 프
 - [Kafka 지원 이벤트 허브에 Akka Streams 연결](event-hubs-kafka-akka-streams-tutorial.md)
 - [GitHub에서 더 많은 샘플 탐색](https://github.com/Azure/azure-event-hubs-for-kafka)
 
- 
- 
 

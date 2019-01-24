@@ -1,23 +1,23 @@
 ---
-title: '빠른 시작: Content Moderator 시작'
+title: '빠른 시작: 웹에서 Content Moderator 사용해 보기 - Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Content Moderator를 시작하는 방법입니다.
+description: 이 빠른 시작에서는 코드를 작성할 필요 없이 온라인 Content Moderator 검토 도구를 사용하여 Content Moderator의 기본 기능을 테스트합니다.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 259919f3b7cb0b614450c94f876cff933a5e01e8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 382401bd8ca073bec6f77fadf1096e42ab1e1d72
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852693"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266470"
 ---
-# <a name="quickstart-get-familiar-with-content-moderator"></a>빠른 시작: Content Moderator 익히기
+# <a name="quickstart-try-content-moderator-on-the-web"></a>빠른 시작: 웹에서 Content Moderator 사용해 보기
 
 이 빠른 시작에서는 코드를 작성할 필요 없이 온라인 Content Moderator 검토 도구를 사용하여 Content Moderator의 기본 기능을 테스트합니다. 이 서비스를 앱에 보다 신속하게 통합하려면 [다음 단계](#next-steps) 섹션에서 다른 빠른 시작을 참조하세요.
 

@@ -2,18 +2,19 @@
 title: Azure Service Bus FAQ | Microsoft Docs
 description: Azure Service Bus에 대한 일부 자주 묻는 질문을 답변합니다.
 services: service-bus-messaging
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 11/05/2018
-ms.author: spelluru
-ms.openlocfilehash: 8beb372c3fae567b23e51d2776dd9a79d837c657
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 0b419343829e7e7bbbd31260b9cd0c8d93cd255d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313838"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847818"
 ---
 # <a name="service-bus-faq"></a>Service Bus FAQ
 
@@ -24,7 +25,7 @@ ms.locfileid: "52313838"
 [Azure Service Bus](service-bus-messaging-overview.md)는 분리된 시스템 간에 데이터를 보낼 수 있도록 하는 비동기 메시지 클라우드 플랫폼입니다. Microsoft에서 이 기능을 서비스로 제공하므로 이를 사용하기 위해 고유한 하드웨어를 호스트할 필요는 없습니다.
 
 ### <a name="what-is-a-service-bus-namespace"></a>Service Bus 네임스페이스란?
-[네임스페이스](service-bus-create-namespace-portal.md)는 응용 프로그램 내에서 Service Bus 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다. 네임스페이스를 만드는 작업은 Service Bus를 사용하는 데 필요하고 Service Bus를 시작하는 첫 번째 단계 중 하나입니다.
+[네임스페이스](service-bus-create-namespace-portal.md)는 애플리케이션 내에서 Service Bus 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다. 네임스페이스를 만드는 작업은 Service Bus를 사용하는 데 필요하고 Service Bus를 시작하는 첫 번째 단계 중 하나입니다.
 
 ### <a name="what-is-an-azure-service-bus-queue"></a>Azure Service Bus 큐란?
 [Service Bus 큐](service-bus-queues-topics-subscriptions.md)는 메시지가 저장되는 엔터티입니다. 큐는 서로 통신해야 하는 여러 애플리케이션 또는 분산된 애플리케이션의 여러 부분이 있는 경우에 유용합니다. 큐는 여러 제품(메시지)를 해당 위치에서 받고 보내는 배포 센터와 비슷합니다.

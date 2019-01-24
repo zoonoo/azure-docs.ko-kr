@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/6/2018
 ms.author: patricka
 ms.reviewer: bryanr
-ms.openlocfilehash: 28bd314e2dd179d83d2880e3acbf39805b54d333
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 2861b0d1b7ac24a8e881ff052b865ca0384a55d6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263969"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464811"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Azure Stack의 다중 테 넌 트
 
@@ -158,3 +158,5 @@ Azure Stack에서 여러 테 넌 트를 하지 않으려는 경우 다음 단계
 
 - [위임 된 공급자 관리](azure-stack-delegated-provider.md)
 - [Azure Stack의 주요 개념](azure-stack-key-features.md)
+- [클라우드 서비스 공급자로서 Azure Stack의 사용량 및 청구 관리](azure-stack-add-manage-billing-as-a-csp.md)
+- [사용량 및 청구에 대한 테넌트를 Azure Stack에 추가](azure-stack-csp-howto-register-tenants.md)

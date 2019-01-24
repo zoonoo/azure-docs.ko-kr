@@ -3,19 +3,19 @@ title: 인벤토리 수집을 사용하여 Azure 가상 머신 관리 | Microsof
 description: 인벤토리 수집을 사용하여 가상 컴퓨터 관리
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 keywords: 인벤토리, 자동화, 변경, 추적
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 761bb1a6974afd5e7b851efb0c60101ab7d8958b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9fabaa2be850e5b15f10fc78adb14dfd5c112906
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403613"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426049"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>인벤토리 수집을 사용하여 Azure 가상 컴퓨터 관리
 
@@ -65,7 +65,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 |사용     | 설정 적용 여부 결정        |
 |Item Name     | 추적할 파일의 이름        |
 |그룹     | 파일을 논리적으로 그룹화하는 그룹 이름        |
-|Windows 레지스트리 키   | 파일을 검사할 경로. 예: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Windows 레지스트리 키   | 파일을 확인할 경로입니다(예: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ### <a name="windows-files"></a>Windows 파일
 
@@ -126,3 +126,4 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 * 가상 머신의 파일 및 레지스트리 설정에서 변경 관리에 대해 알아보려면 [변경 내용 추적 솔루션으로 사용자 환경에서 소프트웨어 변경 추적](../log-analytics/log-analytics-change-tracking.md)을 참조하세요.
 * 가상 머신에서 Windows 및 패키지 업데이트 관리에 대해 알아보려면 [Azure의 업데이트 관리 솔루션](../operations-management-suite/oms-solution-update-management.md)을 참조하세요.
+

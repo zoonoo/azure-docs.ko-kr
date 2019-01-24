@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 54ce1d9ab6216f1d757d7076cb95362d55ea9d9c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 60fe7296d95a7746fd703c3a45349faf294e5bbd
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537632"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320602"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric에 대해 자주 묻는 질문
 
@@ -56,7 +56,7 @@ Azure에서 실행되지 않는 클러스터의 경우 Service Fabric 노드 아
 
 **간단한 대답** - 아니요 
 
-**자세한 대답** - 큰 가상 머신 확장 집합은 최대 1000개 VM 인스턴스까지 가상 머신 확장 집합을 확장하도록 허용하지만 PG(배치 그룹)를 사용하여 이 작업을 수행합니다. FD(장애 도메인) 및 UD(업그레이드 도메인)는 Service Fabric이 서비스 복제본/서비스 인스턴스의 배치 결정을 내리는 데 사용하는 배치 그룹 내에서만 일관됩니다. FD 및 UD는 배치 그룹 내에서만 비교할 수 있으므로 SF에서 사용할 수 없습니다. 예를 들어 PG1의 VM1에 FD=0 토폴로지가 있고 PG2의 VM9에 FD=4 토폴로지가 있는 경우 VM1과 VM2가 두 개의 다른 하드웨어 랙에 있다는 의미는 아니므로 이 경우 SF에서 FD 값을 사용하여 배치 결정을 내릴 수 없습니다.
+**자세한 대답** - 대형 Virtual Machine Scale Sets에서는 가상 머신 확장 세트 하나가 최대 1000개의 VM 인스턴스를 포함하도록 크기를 조정할 수 있지만, 이 과정에는 PG(배치 그룹)가 사용됩니다. FD(장애 도메인) 및 UD(업그레이드 도메인)는 Service Fabric이 서비스 복제본/서비스 인스턴스의 배치 결정을 내리는 데 사용하는 배치 그룹 내에서만 일관됩니다. FD 및 UD는 배치 그룹 내에서만 비교할 수 있으므로 SF에서 사용할 수 없습니다. 예를 들어 PG1의 VM1에 FD=0 토폴로지가 있고 PG2의 VM9에 FD=4 토폴로지가 있는 경우 VM1과 VM2가 두 개의 다른 하드웨어 랙에 있다는 의미는 아니므로 이 경우 SF에서 FD 값을 사용하여 배치 결정을 내릴 수 없습니다.
 
 현재 큰 가상 머신 확장 집합에는 수준 4 부하 분산 지원 부족과 같은 기타 문제가 있습니다. [큰 크기 집합에 대한 세부 정보](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)를 참조하세요.
 
@@ -104,7 +104,7 @@ Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 �
 예.  자세한 내용은 [연결된 데이터 디스크를 사용하여 클러스터 만들기](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [디스크 암호화(PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) 및 [디스크 암호화(CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md)를 참조하세요.
 
 ### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>클러스터 노드 형식(가상 머신 확장 집합)에서 우선 순위가 낮은 VM을 사용할 수 있나요?
- 아니요. 우선 순위가 낮은 VM은 지원되지 않습니다. 
+아니요. 우선 순위가 낮은 VM은 지원되지 않습니다. 
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>클러스터에서 바이러스 백신 프로그램을 실행하는 경우 제외해야 하는 디렉터리 및 프로세스는 무엇입니까?
 

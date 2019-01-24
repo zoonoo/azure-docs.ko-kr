@@ -1,23 +1,23 @@
 ---
 title: 이미지 조정 - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: 이미지 조정을 사용하여 부적절한 이미지 조정
+description: Content Moderator의 머신 지원 이미지 조정 및 인간 참여형 검토 도구를 사용하여 성인 및 외설 콘텐츠에 대한 이미지를 조정합니다.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/20/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 044aa9a127aa8130340719147314961ddb38167a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 952777af0a233f0233f14c749fe0ebfdeaa8344a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852710"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262934"
 ---
-# <a name="image-moderation"></a>이미지 조정
+# <a name="learn-image-moderation-concepts"></a>이미지 조정 개념 알아보기
 
 Content Moderator의 머신 지원 이미지 조정 및 [인간 참여형 검토 도구](Review-Tool-User-Guide/human-in-the-loop.md)를 사용하여 성인 및 외설 콘텐츠에 대한 이미지를 조정합니다. 텍스트 콘텐츠에 대한 이미지를 검색하고 해당 텍스트를 추출한 후 얼굴을 감지합니다. 사용자 지정 목록에서 이미지와 일치하는 사용자를 검색한 후 후속 조치를 취할 수 있습니다.
 

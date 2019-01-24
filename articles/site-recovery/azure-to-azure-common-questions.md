@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 20311f904356f16b34f64d0aaf6ed438ba692857
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 7e70fe52646c2f61e97b4eee2badd7884d95d5f5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155153"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260467"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>일반적인 질문: Azure 간 복제
 
@@ -74,10 +74,16 @@ Site Recovery를 사용하면 동일한 지리적 클러스터 내의 두 지역
 
 현재 대부분의 애플리케이션은 크래시 일치 스냅숏을 제대로 복구할 수 있습니다. 크래시 일치 복구 지점은 데이터베이스가 없는 운영 체제와 파일 서버, DHCP 서버, 인쇄 서버 등의 애플리케이션에 일반적으로 적합합니다.
 
+### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>충돌 일치 복구 지점 생성 빈도는 어느 정도인가요?
+Site Recovery는 5분 마다 크래시 일치 복구 지점을 만듭니다.
+
 ### <a name="what-is-an-application-consistent-recovery-point"></a>애플리케이션 일치 복구 지점은 무엇인가요? 
 애플리케이션 일치 복구 지점은 애플리케이션 일치 스냅숏에서 만들어집니다. 애플리케이션 일치 스냅숏은 크래시 일치 스냅숏과 동일한 데이터를 캡처하고 메모리에 있는 모든 데이터와 처리 중인 모든 트랜잭션을 추가합니다. 
 
 추가 콘텐츠로 인해, 애플리케이션 일관성이 있는 스냅숏은 가장 복잡하며 가장 오랜 시간이 걸립니다. 애플리케이션 일치 복구 지점은 데이터베이스 운영 체제와 SQL 서버 등의 애플리케이션에 권장됩니다.
+
+### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>애플리케이션 일치 복구 지점 생성의 최소 빈도는 어느 정도인가요?
+Site Recovery는 최소 1시간의 빈도로 애플리케이션 일치 복구 지점을 생성할 수 있습니다.
 
 ### <a name="how-are-recovery-points-generated-and-saved"></a>복구 지점은 어떻게 생성 및 저장되나요?
 Site Recovery에서 복구 지점을 생성하는 방법을 이해하기 위해 복구 지점 보존 창은 24시간, 앱 일치 빈도 스냅숏은 1시간인 복제 정책을 예로 들어 살펴 보겠습니다.
@@ -154,6 +160,9 @@ Site Recovery는 장애 조치(failover) 시 IP 주소를 제공하려고 시도
 ### <a name="if-im-replicating-between-two-azure-regions-what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>두 개의 Azure 지역 간에 복제하는 경우 주 지역에서 예기치 않은 중단이 발생하면 어떻게 되나요?
 중단 후에 장애 조치(failover)를 트리거할 수 있습니다. Site Recovery는 주 지역에서의 연결이 없어도 장애 조치(failover)를 수행할 수 있습니다.
 
+### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>가상 머신 장애 조치(failover)의 RTO는 어떻게 되나요?
+Site Recovery의 [RTO는 2시간](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)입니다. 그러나 대부분의 경우 Site Recovery는 몇 분 내에 가상 머신을 장애 조치(failover)합니다. VM이 작동할 때까지 걸린 시간이 표시되는 장애 조치(failover) 작업으로 이동하여 RTO를 계산할 수 있습니다. 복구 계획 RTO의 경우에는 아래 섹션을 참조하세요. 
+
 ## <a name="recovery-plan"></a>복구 계획
 
 ### <a name="what-is-a-recovery-plan"></a>복구 플랜은 무엇인가요?
@@ -181,7 +190,7 @@ Site Recovery의 복구 플랜은 VM의 장애 조치(failover) 복구를 조정
 ## <a name="reprotection-and-failback"></a>다시 보호 및 장애 복구 
 
 ### <a name="after-a-failover-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>주 지역에서 재해 복구 지역으로 장애 조치(failover)를 수행한 후에는 DR 지역의 VM이 자동으로 보호되나요?
- 아니요. Azure VM을 한 지역에서 다른 지역으로 [장애 조치(failover)](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback)할 경우 VM은 DR 지역에서 보호되지 않는 상태로 부팅됩니다. VM을 주 지역으로 장애 복구(failback)하려면 보조 지역에서 VM을 [다시 보호](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect)해야 합니다.
+아니요. Azure VM을 한 지역에서 다른 지역으로 [장애 조치(failover)](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback)할 경우 VM은 DR 지역에서 보호되지 않는 상태로 부팅됩니다. VM을 주 지역으로 장애 복구(failback)하려면 보조 지역에서 VM을 [다시 보호](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect)해야 합니다.
 
 ### <a name="at-the-time-of-reprotection-does-site-recovery-replicate-complete-data-from-the-secondary-region-to-the-primary-region"></a>다시 보호 시 Site Recovery에서 보조 지역의 전체 데이터를 주 지역에 복제하나요?
 상황에 따라 다릅니다. 예를 들어 원본 지역 VM이 있는 경우 원본 디스크와 대상 디스크 사이의 변경 내용만 동기화됩니다. Site Recovery는 디스크를 비교하여 차등을 계산한 다음, 데이터를 전송합니다. 이 프로세스는 일반적으로 몇 시간 정도 걸립니다. 다시 보호 중 발생하는 작업에 대한 자세한 내용은 [주 지역으로 장애 조치 된 Azure VM 다시 보호]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection)를 참조하세요.

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 81f76b31f7af3643e2b654e8e26c70d0481d60b8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 507927934c442c8b217ed8fea371f505bb517d35
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017109"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198714"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
 
@@ -151,7 +151,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 ### <a name="disableProxies"></a> 개별 프록시 사용 안 함
 
-`proxies.json` 파일의 프록시에 `"disabled": true`를 추가하면 개별 프록시를 사용하지 않도록 설정할 수 있습니다. 이렇게 하면 matchCondidtion을 충족하는 모든 요청이 404를 반환합니다.
+`proxies.json` 파일의 프록시에 `"disabled": true`를 추가하면 개별 프록시를 사용하지 않도록 설정할 수 있습니다. 이렇게 하면 matchCondition을 충족하는 모든 요청이 404를 반환합니다.
 ```json
 {
     "$schema": "http://json.schemastore.org/proxies",

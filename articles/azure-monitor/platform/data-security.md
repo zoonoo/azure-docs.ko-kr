@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 01/15/2019
 ms.author: magoedte
-ms.openlocfilehash: a791ac5424a0c0e70ba5480e51f5e21fe3c061ea
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 7152582a73dbaf07eca4aae066c9ac3ab82c3135
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104746"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319055"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 데이터 보안
 이 문서는 [Azure 보안 센터](../../security/security-microsoft-trust-center.md)의 정보를 보완하기 위해 Azure Monitor의 기능인 Log Analytics에 고유한 정보를 제공합니다.  
@@ -174,7 +174,13 @@ Windows 또는 관리 서버 에이전트에서 캐시한 데이터는 운영 �
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Log Analytics 서비스에서 데이터를 받아서 처리
 Log Analytics 서비스는 Azure 인증을 통해 인증서 및 데이터 무결성의 유효성을 검사하여 들어오는 데이터가 신뢰할 수 있는 출처에서 온 것임을 보장합니다. 처리되지 않은 원시 데이터는 데이터가 미사용 시 저장될 지역의 Azure Event Hub에 저장됩니다. 저장되는 데이터 형식은 데이터를 수집하기 위해 가져와 사용하는 솔루션 유형에 따라 다릅니다. 그런 다음, Log Analytics 서비스가 원시 데이터를 처리해 데이터베이스로 수집합니다.
 
-데이터베이스에 저장된 수집 데이터의 보존 기간은 선택한 가격 책정 계획에 따라 다릅니다. *체험* 계층의 경우 수집된 데이터는 7일 동안 사용할 수 있습니다. *유료* 계층의 경우 수집된 데이터는 기본적으로 31일 동안 사용할 수 있지만 730일까지 사용할 수 있도록 연장 가능합니다. 데이터는 Azure 저장소에 암호화되어 데이터 기밀성을 보장하며 로컬 중복 저장소(LRS)를 사용하여 로컬 영역 내에 데이터가 복제됩니다. 지난 2주의 데이터는 SSD 기반 캐시에도 저장되는데, 이 캐시는 현재 암호화되지 않습니다.  현재 SSD 기반 캐시 암호화를 지원하기 위해 작업하고 있습니다.      
+데이터베이스에 저장된 수집 데이터의 보존 기간은 선택한 가격 책정 계획에 따라 다릅니다. *체험* 계층의 경우 수집된 데이터는 7일 동안 사용할 수 있습니다. *유료* 계층의 경우 수집된 데이터는 기본적으로 31일 동안 사용할 수 있지만 730일까지 사용할 수 있도록 연장 가능합니다. 데이터는 Azure 저장소에 암호화되어 데이터 기밀성을 보장하며 로컬 중복 저장소(LRS)를 사용하여 로컬 영역 내에 데이터가 복제됩니다. 지난 2주 동안의 데이터는 SSD 기반 캐시에도 저장되는데, 이 캐시는 다음 지역을 제외하고는 암호화됩니다.
+
+* 미국 중서부
+* 미국 서부 2
+* 영국 남부 
+
+현재 이 지역도 지원 대상에 포함하기 위한 작업이 진행되고 있습니다.     
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Log Analytics를 사용하여 데이터 액세스
 Log Analytics 작업 영역에 액세스하려면 이전에 설정한 Microsoft 계정 또는 조직 계정을 사용하여 Azure Portal에 로그인합니다. 포털과 Log Analytics 서비스 간의 모든 트래픽은 보안 HTTPS 채널을 통해 전송됩니다. 포털을 사용할 때는 사용자 클라이언트(웹 브라우저)에 세션 ID가 생성되며 세션이 종료될 때까지 데이터가 로컬 캐시에 저장됩니다. 세션이 종료되면 캐시가 삭제됩니다. 개인 식별이 가능한 정보가 포함되지 않는 클라이언트 측 쿠키는 자동으로 제거되지 않습니다. 세션 쿠키는 HTTPOnly로 표시되며 보안됩니다. 사전 지정한 유휴 기간이 지나면 Azure Portal 세션이 종료됩니다.

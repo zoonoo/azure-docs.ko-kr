@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: ce1bcb26b3a3510b22ced57471016999156bb0cf
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5ec079e0dfecbd6c4752bab2b8eb821fb01fdabd
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040662"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432356"
 ---
 # <a name="how-to-configure-password-writeback"></a>방법: 비밀번호 쓰기 저장 구성
 
@@ -52,6 +52,7 @@ ms.locfileid: "54040662"
 * Microsoft 365 E3 또는 A3
 * Microsoft 365 E5 또는 A5
 * Microsoft 365 F1
+* Microsoft 365 Business
 
 > [!WARNING]
 > 독립 실행형 Office 365 라이선스 요금제는 *"셀프 서비스 암호 재설정/변경/온-프레미스 쓰기 저장으로 잠금 해제"를 지원하지 않습니다*. 이 기능을 사용하려면 위의 요금제 중 하나가 필요합니다.

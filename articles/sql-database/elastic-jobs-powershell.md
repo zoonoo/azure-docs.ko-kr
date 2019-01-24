@@ -12,16 +12,16 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 34277aaa6ad6c5b22fb1691af83091e49d3bf5c1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 08571ac8b7e13bc0f414b481a481132793ba865d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021325"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452754"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>PowerShell을 사용하여 탄력적 작업 에이전트 만들기
 
-[탄력적 작업](elastic-jobs-overview.md)을 사용하면 여러 데이터페이스에 병렬적으로 하나 이상의 T-SQL(Transact-SQL) 스크립트를 실행할 수 있습니다.
+[탄력적 작업](sql-database-job-automation-overview.md#elastic-database-jobs)을 사용하면 여러 데이터페이스에 병렬적으로 하나 이상의 T-SQL(Transact-SQL) 스크립트를 실행할 수 있습니다.
 
 이 자습서에서는 여러 데이터베이스에서 쿼리를 실행하는 데 필요한 단계를 알아봅니다.
 
@@ -65,7 +65,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정을 만�
 
 ## <a name="create-required-resources"></a>필수 리소스 만들기
 
-탄력적 작업 에이전트를 만들려면 [작업 데이터베이스](elastic-jobs-overview.md#job-database)로 사용할 데이터베이스(S0 이상)가 필요합니다. 
+탄력적 작업 에이전트를 만들려면 [작업 데이터베이스](sql-database-job-automation-overview.md#job-database)로 사용할 데이터베이스(S0 이상)가 필요합니다. 
 
 *아래 스크립트에서는 작업 데이터베이스로 사용할 새 리소스 그룹, 서버 및 데이터베이스를 만듭니다. 아래 스크립트에서는 작업을 실행하기 위해 2개의 비어 있는 데이터베이스를 포함한 두 번째 서버도 만듭니다.*
 
@@ -210,7 +210,7 @@ $JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "jobuser" -Crede
 
 ## <a name="define-the-target-databases-you-want-to-run-the-job-against"></a>작업을 실행하려는 대상 데이터베이스 정의
 
-[대상 그룹](elastic-jobs-overview.md#target-group)은 작업 단계에서 실행될 데이터베이스 중 하나 이상의 집합을 정의합니다. 
+[대상 그룹](sql-database-job-automation-overview.md#target-group)은 작업 단계에서 실행될 데이터베이스 중 하나 이상의 집합을 정의합니다. 
 
 다음 코드 조각은 다음과 같은 두 개의 대상 그룹을 만듭니다. *ServerGroup* 및 *ServerGroupExcludingDb2*. *ServerGroup*은 실행 시 서버에 존재하는 모든 데이터베이스를 대상으로 지정하고 *ServerGroupExcludingDb2*는 *TargetDb2*를 제외한 서버의 모든 데이터베이스를 대상으로 지정합니다.
 

@@ -8,19 +8,19 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
-ms.date: 08/25/2018
-ms.openlocfilehash: 0c30ffec58b1542fa80cf0c9873a0e6df8641104
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/13/2019
+ms.openlocfilehash: b58059727a383e978691bfbbee77a1f6b04692ce
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232548"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264329"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 온-프레미스 파일 시스템에 연결
 
 파일 시스템 커넥터 및 Azure Logic Apps를 사용하면 다음과 같이 온-프레미스 파일 공유에 파일을 만들어서 관리하는 자동화된 작업 및 워크플로를 만들 수 있습니다.  
 
-- 파일 만들기, 가져오기, 추가, 업데이트 및 삭제
+- 파일 만들기, 가져오기, 추가, 업데이트 및 삭제를 수행합니다.
 - 폴더 또는 루트 폴더의 파일을 나열합니다.
 - 파일 콘텐츠 및 메타데이터를 가져옵니다.
 
@@ -28,13 +28,17 @@ ms.locfileid: "50232548"
 
 ## <a name="prerequisites"></a>필수 조건
 
+예제를 수행하려면 다음과 같은 항목이 필요합니다.
+
 * Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
 
 * 논리 앱을 파일 시스템 서버 같은 온-프레미스 시스템에 연결하려면 먼저 [온-프레미스 데이터 게이트웨이를 설치 및 설정](../logic-apps/logic-apps-gateway-install.md)해야 합니다. 이런 방식으로 논리 앱에서 파일 시스템 연결을 만들 때 게이트웨이 설치를 사용하도록 지정할 수 있습니다.
 
-* [Drobox 계정](https://www.dropbox.com/) 및 사용자 자격 증명
+* [Drobox 계정](https://www.dropbox.com/) 및 사용자 계정 자격 증명. 논리 앱과 DropBox 계정 간의 연결을 생성하려면 DropBox 자격 증명이 필요합니다. 
 
-  자격 증명을 통해 Drobox 계정에 대한 연결을 만들고 액세스하는 권한이 논리 앱에 부여됩니다. 
+* 파일 시스템에 액세스하려는 컴퓨터용 계정 자격 증명. 예를 들어 파일 시스템과 같은 컴퓨터에 데이터 게이트웨이를 설치하는 경우에는 해당 컴퓨터용 계정 자격 증명이 필요합니다. 
+
+* Office 365 Outlook, Outlook.com, Gmail 등 Logic Apps에서 지원되는 공급자의 이메일 계정. 다른 공급자에 대한 내용은 [여기서 커넥터 목록을 검토하세요](https://docs.microsoft.com/connectors/). 이 논리 앱은 Office 365 Outlook 계정을 사용합니다. 다른 이메일 계정을 사용하는 경우 전체 단계는 동일하지만 UI가 약간 다를 수 있습니다. 
 
 * [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식 이 예에서는 빈 논리 앱이 필요합니다.
 
@@ -44,7 +48,7 @@ ms.locfileid: "50232548"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고, 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
 
-1. 검색 상자에 필터로 "dropbox"를 입력합니다. 트리거 목록에서 **파일을 만들 때** 트리거를 선택합니다. 
+1. 검색 상자에 필터로 "dropbox"를 입력합니다. 트리거 목록에서 다음 트리거를 선택합니다. **파일을 만들 때** 
 
    ![Dropbox 트리거 선택](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
@@ -56,7 +60,7 @@ ms.locfileid: "50232548"
 
 ## <a name="add-actions"></a>작업 추가
 
-1. 트리거 아래에서 **다음 단계**를 선택합니다. 검색 상자에 "파일 시스템"을 필터로 입력합니다. 작업 목록에서 **파일 만들기 - 파일 시스템** 작업을 선택합니다.
+1. 트리거 아래에서 **다음 단계**를 선택합니다. 검색 상자에 "파일 시스템"을 필터로 입력합니다. 작업 목록에서 다음 작업을 선택합니다. **파일 만들기 - 파일 시스템**
 
    ![파일 시스템 커넥터 찾기](media/logic-apps-using-file-connector/find-file-system-action.png)
 
@@ -66,12 +70,12 @@ ms.locfileid: "50232548"
 
    | 자산 | 필수 | 값 | 설명 | 
    | -------- | -------- | ----- | ----------- | 
-   | **연결 이름** | yes | <*connection-name*> | 연결에 사용하려는 이름 | 
-   | **루트 폴더** | yes | <*root-folder-name*> | 온-프레미스 데이터 게이트웨이가 설치된 컴퓨터의 로컬 폴더처럼 파일 시스템의 루트 폴더이거나 컴퓨터가 액세스할 수 있는 네트워크 공유의 폴더입니다. <p>예: `\\PublicShare\\DropboxFiles` <p>루트 폴더는 모든 파일 관련 작업의 상대 경로에 사용되는 기본 상위 폴더입니다. | 
+   | **연결 이름** | 예 | <*connection-name*> | 연결에 사용하려는 이름 | 
+   | **루트 폴더** | 예 | <*root-folder-name*> | 온-프레미스 데이터 게이트웨이가 설치된 컴퓨터의 로컬 폴더나 컴퓨터가 액세스할 수 있는 네트워크 공유용 폴더 등의 위치에 온-프레미스 데이터 게이트웨이를 설치한 경우 파일 시스템용 루트 폴더입니다. <p>예: `\\PublicShare\\DropboxFiles` <p>루트 폴더는 모든 파일 관련 작업의 상대 경로에 사용되는 기본 상위 폴더입니다. | 
    | **인증 유형** | 아니요 | <*auth-type*> | 파일 시스템에 사용되는 인증 유형(예: **Windows**) | 
-   | **사용자 이름** | yes | <*domain*>\\<*username*> | 이전에 설치된 데이터 게이트웨이의 사용자 이름 | 
-   | **암호** | yes | <*your-password*> | 이전에 설치된 데이터 게이트웨이의 암호 | 
-   | **gateway** | yes | <*installed-gateway-name*> | 이전에 설치된 게이트웨이의 이름 | 
+   | **사용자 이름** | 예 | <*domain*>\\<*username*> | 파일 시스템이 있는 컴퓨터의 사용자 이름 | 
+   | **암호** | 예 | <*your-password*> | 파일 시스템이 있는 컴퓨터의 암호 | 
+   | **gateway** | 예 | <*installed-gateway-name*> | 이전에 설치된 게이트웨이의 이름 | 
    ||| 
 
 1. 작업을 완료하면 **만들기**를 선택합니다. 

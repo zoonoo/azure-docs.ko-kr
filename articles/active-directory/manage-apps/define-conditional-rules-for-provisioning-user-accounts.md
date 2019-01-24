@@ -4,7 +4,7 @@ description: 개체가 비즈니스 요구 사항을 충족하지 못하는 경�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b62679332a45127d7c1a45593c162182886a7150
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 84c4939a93adbb8983cae87fdaa2727904010b03
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719361"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461249"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 애플리케이션 프로비전
 이 문서에서는 범위 지정 필터를 사용하여 어떤 사용자를 애플리케이션에 프로비전할지 결정하는 특성 기반 규칙을 정의하는 방법을 설명합니다.
@@ -30,12 +30,12 @@ ms.locfileid: "44719361"
 
 프로비전 커넥터 유형에 따라 범위 지정 필터를 다르게 사용할 수 있습니다.
 
-* **Azure AD에서 SaaS 응용 프로그램으로 아웃바운드 프로비전** Azure AD가 원본 시스템일 때 [사용자 및 그룹 할당](assign-user-or-group-access-portal.md)이 프로비전 범위에 포함될 사용자를 결정하는 가장 일반적인 방법입니다. 이러한 할당은 Single Sign-On 활성화에도 사용되며 액세스 및 프로비전을 관리하는 단일 방법을 제공합니다. 범위 지정 필터는 할당과 함께 또는 할당을 대체하여 선택적으로 사용하여 특성 값에 따라 사용자를 필터링할 수 있습니다.
+* **Azure AD에서 SaaS 애플리케이션으로 아웃바운드 프로비전** Azure AD가 원본 시스템일 때 [사용자 및 그룹 할당](assign-user-or-group-access-portal.md)이 프로비전 범위에 포함될 사용자를 결정하는 가장 일반적인 방법입니다. 이러한 할당은 Single Sign-On 활성화에도 사용되며 액세스 및 프로비전을 관리하는 단일 방법을 제공합니다. 범위 지정 필터는 할당과 함께 또는 할당을 대체하여 선택적으로 사용하여 특성 값에 따라 사용자를 필터링할 수 있습니다.
 
     >[!TIP]
     > 프로비전 설정 아래에 있는 [범위](user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) 메뉴의 설정을 **모든 사용자 및 그룹 동기화**로 변경하여 엔터프라이즈 애플리케이션에 대한 할당을 기준으로 프로비전을 사용하지 않을 수 있습니다. 이 옵션을 특성 기준 범위 지정 필터와 함께 사용하면 그룹 기반 할당에서보다 더 빠른 성능을 제공합니다.  
 
-* **HCM 응용 프로그램에서 Azure AD 및 Active Directory로의 인바운드 프로비전** [Workday 같은 HCM 응용 프로그램](../saas-apps/workday-tutorial.md)이 원본 시스템일 경우, 범위 지정 필터가 HCM 응용 프로그램이 Active Directory 또는 Azure AD에 프로비전할 사용자를 판단하는 기본 방법이 됩니다.
+* **HCM 애플리케이션에서 Azure AD 및 Active Directory로의 인바운드 프로비전** [Workday 같은 HCM 애플리케이션](../saas-apps/workday-tutorial.md)이 원본 시스템일 경우, 범위 지정 필터가 HCM 애플리케이션이 Active Directory 또는 Azure AD에 프로비전할 사용자를 판단하는 기본 방법이 됩니다.
 
 기본적으로 Azure AD 프로비전 커넥터에는 특성 기반 범위 지정 필터가 구성되어 있지 않습니다. 
 
@@ -64,7 +64,7 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 범위 지정 필터는 각 Azure AD 사용자 프로비전 커넥터에 대해 특성 매핑의 일부로 구성됩니다. 다음 프로시저에서는 이미 [지원되는 애플리케이션 중 하나](../saas-apps/tutorial-list.md)에 대해 자동 프로비전을 설정했고 거기에 범위 지정 필터를 추가한다고 가정합니다.
 
 ### <a name="create-a-scoping-filter"></a>범위 지정 필터 만들기
-1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** > **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램** 섹션으로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** > **엔터프라이즈 애플리케이션** > **모든 애플리케이션** 섹션으로 이동합니다.
 
 2. 자동 프로비전을 구성한 애플리케이션을 선택합니다(예: "ServiceNow").
 
@@ -111,10 +111,10 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 
 
 ## <a name="related-articles"></a>관련 문서
-* [SaaS 응용 프로그램에 대한 사용자 프로비전 및 프로비전 해제 자동화](user-provisioning.md)
+* [SaaS 애플리케이션에 대한 사용자 프로비전 및 프로비전 해제 자동화](user-provisioning.md)
 * [사용자 프로비전을 위한 사용자 지정 특성 매핑](customize-application-attributes.md)
 * [특성 매핑을 위한 식 작성](functions-for-customizing-application-data.md)
 * [계정 프로비전 알림](user-provisioning.md)
-* [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](use-scim-to-provision-users-and-groups.md)
+* [SCIM를 사용하여 Azure Active Directory으로부터 애플리케이션에 사용자 및 그룹의 자동 프로비전 사용](use-scim-to-provision-users-and-groups.md)
 * [SaaS App을 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
 

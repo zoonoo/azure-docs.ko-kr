@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 01/17/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 7a744520fe2a3b53b1306d4c80a5eca7d86258a7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: eed3cbbcdc02d0d2faa5f9076bd6fc2dd4328bd8
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104542"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391059"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Operator 자격으로 PowerShell 사용 하 여 Azure Stack에 연결
 
@@ -67,15 +67,13 @@ Azure Active Directory Federated Services (Azure AD FS)를 사용 하 여 PowerS
 
   # Sign in to your environment
 
-  $cred = get-credential
-
   Login-AzureRmAccount `
     -EnvironmentName "AzureStackAdmin" `
-    -TenantId $tenantId `
-    -Credential $cred
+    -TenantId $tenantId
   ```
 
-
+> [!Note]  
+> AD FS 사용자 id 사용 하 여 대화형 인증만을 지원 합니다. 자격 증명 개체를 필요한 경우 서비스 주체 (SPN)을 사용 해야 합니다. Azure Stack 및 AS FS를 사용 하 여 서비스 주체에 id 관리 서비스 설정에 대 한 자세한 내용은 참조 하세요. [AD FS에 대 한 관리 서비스 주체](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs)합니다.
 
 ## <a name="test-the-connectivity"></a>연결 테스트
 

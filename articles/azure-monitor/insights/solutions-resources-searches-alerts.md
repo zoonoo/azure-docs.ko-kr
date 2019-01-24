@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6f16325183f0a13382dd4533fd867a518f1750c3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a2c45807f846dbe9d1c6bd91ce8c87958949ab17
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344298"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231328"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>관리 솔루션(미리 보기)에 Log Analytics에서 저장한 검색 및 경고 추가
 
@@ -129,9 +129,9 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| 사용       | yes | 경고를 만들 때 사용 여부를 지정합니다. |
-| interval      | yes | 쿼리가 실행되는 빈도(분)입니다. |
-| queryTimeSpan | yes | 결과를 평가하는 시간의 길이(분)입니다. |
+| 사용       | 예 | 경고를 만들 때 사용 여부를 지정합니다. |
+| interval      | 예 | 쿼리가 실행되는 빈도(분)입니다. |
+| queryTimeSpan | 예 | 결과를 평가하는 시간의 길이(분)입니다. |
 
 일정 전에 저장된 검색이 생성되도록 일정 리소스는 저장된 검색에 따라 결정됩니다.
 
@@ -153,7 +153,7 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 경고 작업의 구조는 다음과 같습니다.  여기에는 일반 변수 및 매개 변수가 포함되어 있으므로 이 코드 조각을 복사하여 솔루션 파일에 붙여넣고 매개 변수 이름을 변경할 수 있습니다. 
 
 
-```
+```json
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Alert').Name)]",
         "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
@@ -189,10 +189,10 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| type | yes | 작업의 유형입니다.  경고 작업의 **경고**가 됩니다. |
-| 이름 | yes | 경고에 대한 표시 이름입니다.  경고 규칙에 대한 콘솔에 표시되는 이름입니다. |
+| type | 예 | 작업의 유형입니다.  경고 작업의 **경고**가 됩니다. |
+| 이름 | 예 | 경고에 대한 표시 이름입니다.  경고 규칙에 대한 콘솔에 표시되는 이름입니다. |
 | 설명 | 아니요 | 경고에 대한 선택적 설명입니다. |
-| 심각도 | yes | 다음 값의 경고 레코드의 심각도입니다.<br><br> **중요**<br>**경고**<br>**정보 제공**
+| 심각도 | 예 | 다음 값의 경고 레코드의 심각도입니다.<br><br> **중요**<br>**경고**<br>**정보 제공**
 
 
 #### <a name="threshold"></a>임계값
@@ -200,8 +200,8 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| 연산자 | yes | 다음 값의 비교 연산자입니다.<br><br>**gt = 보다 큼<br>lt = 보다 작음** |
-| 값 | yes | 결과를 비교하는 값입니다. |
+| 연산자 | 예 | 다음 값의 비교 연산자입니다.<br><br>**gt = 보다 큼<br>lt = 보다 작음** |
+| 값 | 예 | 결과를 비교하는 값입니다. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 이 섹션은 선택 사항입니다.  미터법 경고에는 이 섹션을 포함해야 합니다.
@@ -211,9 +211,9 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| TriggerCondition | yes | 임계값이 총 위반 수인지 아니면 연속 위반인지 다음 값을 사용하여 지정합니다.<br><br>**총<br>연속** |
-| 연산자 | yes | 다음 값의 비교 연산자입니다.<br><br>**gt = 보다 큼<br>lt = 보다 작음** |
-| 값 | yes | 경고를 트리거하기 위해 조건을 충족해야 하는 시간입니다. |
+| TriggerCondition | 예 | 임계값이 총 위반 수인지 아니면 연속 위반인지 다음 값을 사용하여 지정합니다.<br><br>**총<br>연속** |
+| 연산자 | 예 | 다음 값의 비교 연산자입니다.<br><br>**gt = 보다 큼<br>lt = 보다 작음** |
+| 값 | 예 | 경고를 트리거하기 위해 조건을 충족해야 하는 시간입니다. |
 
 
 #### <a name="throttling"></a>제한
@@ -231,7 +231,7 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| AzNsNotification | yes | 경고 조건이 충족되면 필요한 작업을 수행하도록 경고와 연결되는 Azure 작업 그룹의 리소스 ID. |
+| AzNsNotification | 예 | 경고 조건이 충족되면 필요한 작업을 수행하도록 경고와 연결되는 Azure 작업 그룹의 리소스 ID. |
 | CustomEmailSubject | 아니요 | 연결된 작업 그룹에서 지정된 모든 주소로 전송되는 메일의 사용자 지정 제목 줄. |
 | CustomWebhookPayload | 아니요 | 연결된 작업 그룹에 정의된 모든 웹후크 엔드포인트로 보낼 사용자 지정된 페이로드. 형식은 웹후크에서 기대하는 내용에 따라 달라지며 유효한 직렬화 JSON이어야 합니다. |
 
@@ -248,8 +248,8 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| 받는 사람 | yes | 다음 예제와 같이 경고가 생성되면 알림을 보낼 쉼표로 구분된 전자 메일 주소 목록입니다.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| 제목 | yes | 메일의 제목 줄입니다. |
+| 받는 사람 | 예 | 다음 예제와 같이 경고가 생성되면 알림을 보낼 쉼표로 구분된 전자 메일 주소 목록입니다.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| 제목 | 예 | 메일의 제목 줄입니다. |
 | 첨부 파일 | 아니요 | 첨부 파일은 현재 지원되지 않습니다.  이 요소를 포함하는 경우 **없음**이어야 합니다. |
 
 
@@ -258,8 +258,8 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| RunbookName | yes | 시작할 runbook의 이름입니다. |
-| WebhookUri | yes | runbook의 웹후크 Uri입니다. |
+| RunbookName | 예 | 시작할 runbook의 이름입니다. |
+| WebhookUri | 예 | runbook의 웹후크 Uri입니다. |
 | Expiry | 아니요 | 재구성이 만료되는 날짜 및 시간입니다. |
 
 ##### <a name="webhook-actions"></a>웹후크 작업
@@ -288,9 +288,9 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| 형식 | yes | 작업의 유형입니다.  웹후크 작업의 **웹후크**가 됩니다. |
-| 이름 | yes | 작업의 표시 이름입니다.  콘솔에 표시되지 않습니다. |
-| wehookUri | yes | 웹후크의 Uri입니다. |
+| 형식 | 예 | 작업의 유형입니다.  웹후크 작업의 **웹후크**가 됩니다. |
+| 이름 | 예 | 작업의 표시 이름입니다.  콘솔에 표시되지 않습니다. |
+| webhookUri | 예 | 웹후크의 Uri입니다. |
 | customPayload | 아니요 | 웹후크에 보낼 사용자 지정 페이로드입니다. 형식은 예상하는 웹후크에 따라 달라집니다. |
 
 
@@ -304,7 +304,7 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 
 이 샘플에서는 리소스 정의의 값을 하드 코딩하는 대신 솔루션에 일반적으로 사용되는 [표준 솔루션 매개 변수]( solutions-solution-file.md#parameters) 변수를 사용합니다.
 
-```
+```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0",
@@ -462,7 +462,7 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 ```
 
 다음 매개 변수 파일은 이 솔루션에 대한 샘플 값을 제공합니다.
-```
+```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",

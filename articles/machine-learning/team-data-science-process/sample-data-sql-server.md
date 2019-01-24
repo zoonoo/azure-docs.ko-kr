@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fec649706be1b3db01a5c6cbc8f395e8c7e1a4d2
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 076e2aec249407406d42357df0dc8e74e9362992
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134338"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446666"
 ---
 # <a name="heading"></a>Azure의 SQL Server에서 데이터 샘플링
 
@@ -76,7 +76,7 @@ Python의 [Pandas](http://pandas.pydata.org/) 라이브러리에서는 Python �
     import pandas as pd
 
     # Query database and load the returned results in pandas data frame
-    data_frame = pd.read_sql('''select column1, cloumn2... from <table_name> tablesample (0.1 percent)''', conn)
+    data_frame = pd.read_sql('''select column1, column2... from <table_name> tablesample (0.1 percent)''', conn)
 
 이제 Pandas 데이터 프레임에서 샘플링된 데이터로 작업할 수 있습니다. 
 

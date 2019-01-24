@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: erikre
-ms.openlocfilehash: bddb72f2b76d6e652dd26f2e383b7d06fded881b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 297b1d5e683a8ad505a37c43ab74c8b888ec87f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395460"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265756"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>REST API를 사용하여 Azure 리소스 사용 검토
 
@@ -39,7 +39,7 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-`{subscriptionGuid}` 매개 변수는 필수 항목이며 API 토큰에서 증명된 자격 증명을 사용하여 읽을 수 있는 구독 ID를 포함해야 합니다. `{reportName}`
+`{subscriptionGuid}` 매개 변수는 필수 항목이며 API 토큰에서 제공된 자격 증명을 사용하여 읽을 수 있는 구독 ID를 포함해야 합니다. `{reportName}`
 
 다음과 같은 헤더가 필요합니다. 
 
@@ -146,7 +146,7 @@ The
 
 ### <a name="changing-timeframes"></a>시간 범위 변경
 
-`timeframe` 정의를 `Custom`으로 설정하여 주 이외의 시간 범위를 날짜로 설정하고 월을 옵션에서 빌드된 날짜로 설정합니다.
+현재 주와 현재 월 기본 제공 옵션 이외의 기간을 설정하려면 `timeframe` 정의를 `Custom`으로 설정합니다.
 
 ```json
 "timeframe": "Custom",

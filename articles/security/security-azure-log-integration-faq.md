@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: eb81e5202b5705c59bae8e07cbf2ade43b03f075
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 928c7921ce184f5f17916c3b9e182ce3754b0115
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064477"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306270"
 ---
 # <a name="azure-log-integration-faq"></a>Azure 로그 통합 FAQ
 
 이 문서는 Azure 로그 통합에 대한 FAQ(질문과 대답)입니다.
 
 >[!IMPORTANT]
-> Azure Log Integration 기능은 2019년 6월 1일에 사용 중지될 예정입니다. AzLog 다운로드는 2018년 6월 27일에 비활성화됩니다. 향후 작업 진행 방향에 대한 지침은 게시물 [Azure Monitor를 사용하여 SIEM 도구와 통합](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)을 검토하세요. 
+> Azure Log Integration 기능은 2019년 6월 1일에 사용 중지될 예정입니다. AzLog 다운로드는 2018년 6월 27일부로 사용할 수 없습니다. 향후 작업 진행 방향에 대한 지침은 게시물 [Azure Monitor를 사용하여 SIEM 도구와 통합](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)을 검토하세요. 
 
 Azure 로그 통합은 Azure 리소스의 원시 로그를 온-프레미스 SIEM(보안 정보 및 이벤트 관리) 시스템에 통합하는 데 사용할 수 있는 Windows 운영 체제 서비스입니다. 이 통합은 모든 자산, 온-프레미스 또는 클라우드에 대한 통합 대시보드를 제공합니다. 그런 다음, 애플리케이션과 관련된 보안 이벤트를 집계, 상관 관계 설정, 분석 및 경고할 수 있습니다.
 

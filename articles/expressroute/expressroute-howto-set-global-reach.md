@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 3df107f8854469b50c5e8483515388b5c93fb244
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ab1098ca65ad92cffdbe1dfb24fd43fcc8f10eae
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383275"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431681"
 ---
 # <a name="configure-expressroute-global-reach-preview"></a>ExpressRoute Global Reach 구성(미리 보기)
 이 문서는 PowerShell을 사용하여 ExpressRoute Global Reach를 구성하는 데 도움이 됩니다. 자세한 내용은 [ExpressRoute Global Reach](expressroute-global-reach.md)를 참조하세요.
@@ -26,7 +26,7 @@ ms.locfileid: "53383275"
 
 구성을 시작하기 전에 다음을 확인합니다.
 
-* 최신 버전의 Azure PowerShell을 설치했습니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/install-azurerm-ps)을 참조하세요.
+* 최신 버전의 Azure PowerShell을 설치했습니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/azurerm/install-azurerm-ps)을 참조하세요.
 * ExpressRoute 회로 프로비저닝 [워크플로](expressroute-workflows.md)를 이해했습니다.
 * ExpressRoute 회로가 프로비전된 상태입니다.
 * Azure 개인 피어링이 ExpressRoute 회로에 구성되어 있습니다.  

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0b38c61f4fe884137204cba6d99d5e383b3259a0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b7f5d4683f0042b95399b86cd4f53c93518c3c56
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338893"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330677"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API
 
@@ -33,8 +33,8 @@ Speech-to-Text 또는 Text-to-Speech REST API에 대한 각 요청에는 인증 
 
 | 지원되는 인증 헤더 | 음성 텍스트 변환 | 텍스트 음성 변환 |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | yes | 아니요 |
-| 권한 부여: 전달자 | yes | yes |
+| Ocp-Apim-Subscription-Key | 예 | 아니요 |
+| 권한 부여: 전달자 | 예 | 예 |
 
 `Ocp-Apim-Subscription-Key` 헤더를 사용하는 경우 구독 키만 제공하면 됩니다. 예: 
 
@@ -272,7 +272,7 @@ Speech-to-Text REST API는 짧은 발화만 지원합니다. 요청은 최대 10
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Speech Service 구독 키입니다. | 이 헤더 또는 `Authorization`가 필요합니다. |
 | `Authorization` | 앞에 `Bearer` 단어가 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 이 헤더 또는 `Ocp-Apim-Subscription-Key`가 필요합니다. |
-| `Content-type` | 제공된 오디오 데이터의 형식과 코덱을 설명합니다. 허용되는 값은 `audio/wav; codec=audio/pcm; samplerate=16000` 및 `audio/ogg; codec=audio/pcm; samplerate=16000`입니다. | 필수 |
+| `Content-type` | 제공된 오디오 데이터의 형식과 코덱을 설명합니다. 허용되는 값은 `audio/wav; codecs=audio/pcm; samplerate=16000` 및 `audio/ogg; codecs=opus`입니다. | 필수 |
 | `Transfer-Encoding` | 단일 파일이 아닌 청크 분할된 오디오 데이터가 전송되고 있음을 지정합니다. 오디오 데이터를 청크 분할하는 경우에만 이 헤더를 사용합니다. | 옵션 |
 | `Expect` | 청크 분할된 전송을 사용하는 경우 `Expect: 100-continue`를 전송합니다. Speech Service는 초기 요청을 인식하고 추가 데이터를 대기합니다.| 청크 분할된 오디오 데이터를 전송하는 경우에 필요합니다. |
 | `Accept` | 제공하는 경우 `application/json`이어야 합니다. Speech Service는 JSON으로 결과를 제공합니다. 값을 지정하지 않을 경우 일부 웹 요청 프레임워크는 호환되지 않는 기본값을 지정하므로, 항상 `Accept`를 포함하는 것이 좋습니다. | 선택 사항이지만 권장됩니다. |
@@ -296,7 +296,7 @@ Speech-to-Text REST API는 짧은 발화만 지원합니다. 요청은 최대 10
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
 Accept: application/json;text/xml
-Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
+Content-Type: audio/wav; codecs=audio/pcm; samplerate=16000
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.stt.speech.microsoft.com
 Transfer-Encoding: chunked
@@ -330,7 +330,7 @@ Expect: 100-continue
     request.Method = "POST";
     request.ProtocolVersion = HttpVersion.Version11;
     request.Host = host;
-    request.ContentType = @"audio/wav; codec=""audio/pcm""; samplerate=16000";
+    request.ContentType = @"audio/wav; codecs=audio/pcm; samplerate=16000";
     request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
     request.AllowWriteStreamBuffering = false;
 
@@ -469,7 +469,10 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 ### <a name="request-body"></a>요청 본문
 
-텍스트가 HTTP `POST` 요청의 본문으로 전송됩니다. 일반 텍스트(ASCII 또는 UTF-8) 또는 SSML([Speech Synthesis Markup Language](speech-synthesis-markup.md)) 형식(UTF-8)일 수 있습니다. 일반 텍스트 요청은 Speech Service의 기본 음성 및 언어를 사용합니다. SSML을 사용하면 음성 및 언어를 지정할 수 있습니다.
+각 `POST` 요청의 본문은 [SSML(Speech Synthesis Markup Language)](speech-synthesis-markup.md)로 전송됩니다. SSML에서는 텍스트 음성 변환 서비스에서 반환한 합성된 음성의 목소리와 언어를 선택할 수 있습니다. 지원되는 목소리의 전체 목록은 [언어 지원](language-support.md#text-to-speech)을 참조하세요.
+
+> [!NOTE]
+> 사용자 지정 목소리를 사용하는 경우에는 요청 본문을 일반 텍스트(ASCII 또는 UTF-8)로 전송할 수 있습니다.
 
 ### <a name="sample-request"></a>샘플 요청
 

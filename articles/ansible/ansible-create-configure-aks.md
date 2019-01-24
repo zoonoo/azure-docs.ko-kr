@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: be9de3c10fdfd040b249dd8da568259c599d7215
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: c4f78d8bb43b26814dc3a4b94109dfd8719cb48f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050390"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258835"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Ansible을 사용하여 Azure에서 Azure Kubernetes Service 클러스터 만들기 및 구성
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 AKS(Azure Kubernetes Service)를 관리할 수 있습니다. 이 문서에서는 Ansible을 사용하여 Azure에서 Azure Kubernetes Service 클러스터를 만들고 구성하는 방법을 보여줍니다.
@@ -28,7 +28,10 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 > Ansible 2.6은 이 자습서에서 다음의 샘플 플레이북을 실행해야 합니다. 
 
 ## <a name="create-a-managed-aks-cluster"></a>관리되는 AKS 클러스터 만들기
-다음 샘플 Ansible 플레이북은 리소스 그룹 및 리소스 그룹에 상주하는 AKS 클러스터를 만듭니다.
+이 섹션의 코드에서는 샘플 Ansible 플레이북을 제공하여 리소스 그룹 및 리소스 그룹에 상주하는 AKS 클러스터를 만듭니다.
+
+> [!Tip]
+> `your_ssh_key` 자리 표시자의 경우 "ssh-rsa"로 시작하는 단일 줄 형식으로 RSA 공개 키를 입력합니다(따옴표 제외). 
 
   ```yaml
   - name: Create Azure Kubernetes Service
@@ -99,7 +102,8 @@ Ansible을 사용하여 AKS 클러스터를 만들려면 위의 샘플 플레이
 
 이전 섹션에서 샘플 플레이북은 두 노드를 정의합니다. 클러스터에 대한 컨테이너 워크로드를 더 늘리거나 줄일 필요가 있는 경우 노드 수를 쉽게 조정할 수 있습니다. 이 섹션의 샘플 플레이북은 노드 수를 2개에서 3개로 증가시킵니다. 노드 수 수정은 **agent_pool_profiles** 블록에서 **개수** 값을 변경하여 완료합니다. 
 
-**service_principal** 블록에 `ssh_key`, `client_id` 및 `client_secret`을 입력합니다.
+> [!Tip]
+> `your_ssh_key` 자리 표시자의 경우 "ssh-rsa"로 시작하는 단일 줄 형식으로 RSA 공개 키를 입력합니다(따옴표 제외). 
 
 ```yaml
 - name: Scale AKS cluster

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: a161d2223dacb618f1e2eeb6443fffae18cc7259
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 3ae0a67a8aa2d403a72b0e20471c2044dbf557bf
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355960"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389075"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Active Directory Federated Services를 사용 하 여 Azure Stack에 Kubernetes 배포
 

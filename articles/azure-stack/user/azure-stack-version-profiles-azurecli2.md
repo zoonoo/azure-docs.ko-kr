@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 2ab696436a8cf139eff92edc3b8ff2c27b40a7aa
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 15354cd7472e7cffb7a40ca431bc23eb65b9a9a9
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018386"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845897"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack에서 Azure CLI를 사용 하 여 API 버전 프로필 사용
 
@@ -212,16 +212,13 @@ CLI를 사용 하 여 가상 컴퓨터를 만들 수 있습니다, 전에 Azure 
       ```
     * AD FS 환경
 
-        * 웹 브라우저를 사용 하 여 사용자로 로그인 합니다.  
-              ```azurecli  
-              az login
-              ```
         * 장치 코드를 사용 하 여 웹 브라우저를 사용 하 여 사용자로 로그인 합니다.  
-              ```azurecli  
-              az login --use-device-code
-              ```
-        > [!Note]  
-        >URL 및 인증을 사용 해야 하는 코드를 제공 명령을 실행 합니다.
+           ```azurecli  
+           az login --use-device-code
+           ```
+
+           > [!NOTE]  
+           >URL 및 인증을 사용 해야 하는 코드를 제공 명령을 실행 합니다.
 
         * 서비스 주체로 로그인 합니다.
         

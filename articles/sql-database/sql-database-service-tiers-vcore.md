@@ -12,19 +12,19 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 01/08/2019
-ms.openlocfilehash: 9d5a1493316fbfa9a703655f37a40276ee3ffaf7
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 6b5ff7294735048347c500d64b411f16bda5422f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156819"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212941"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore 서비스 계층, Azure 하이브리드 혜택 및 마이그레이션
 
 vCore 기반 구매 모델을 사용하면 계산 및 저장소 리소스의 크기를 독립적으로 조정하고, 온-프레미스 성능에 맞추고, 가격을 최적화할 수 있습니다. 또한 다음과 같은 하드웨어 생성을 선택할 수 있습니다.
 
 - 4세대 - 최대 24개 논리적 CPU(Intel E5-2673 v3(Haswell) 2.4GHz 프로세서 기반), vCore = 1PP(물리적 코어), 코어당 7GB, SSD 연결
-- 5세대 - 최대 80개 논리적 CPU(Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서 기반), vCore = 1LP(하이퍼스레드), 코어당 5.1GB, 고속 eNVM SSD
+- 5세대 - 논리 CPU 최대 80개(Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서 기반), vCore = 1LP(하이퍼스레드), 코어당 5.1GB, 고속 eNVM SSD
 
 vCore 모델을 사용하면 [SQL Server용 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 비용을 절약할 수도 있습니다.
 

@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 6ece4d7d0a39f5ea9dd4d9503d3bdd11a4bffd89
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: b5b6f1a1cbd4c06106b7817f9fc28d8d4a9cfc06
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678579"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306338"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>자습서: Python API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
-클라우드에서 Azure Batch를 사용하여 대규모 병렬 및 HPC(고성능 컴퓨팅) 일괄 작업을 Azure에서 효율적으로 실행합니다. 이 자습서는 Batch를 사용하여 병렬 워크로드를 실행하는 Python의 예제를 안내합니다. 일반적인 Batch 애플리케이션 워크플로, 그리고 Batch 및 Storage 리소스와 프로그래밍 방식으로 상호 작용하는 방법을 알아봅니다. 다음 방법에 대해 알아봅니다.
+클라우드에서 Azure Batch를 사용하여 대규모 병렬 및 HPC(고성능 컴퓨팅) 일괄 작업을 Azure에서 효율적으로 실행합니다. 이 자습서는 Batch를 사용하여 병렬 워크로드를 실행하는 Python의 예제를 안내합니다. 일반적인 Batch 응용 프로그램 워크플로, 그리고 Batch 및 Storage 리소스와 프로그래밍 방식으로 상호 작용하는 방법을 알아봅니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Batch 및 Storage 계정 인증
@@ -65,7 +65,7 @@ Python 환경에서 `pip`를 사용하는 데 필요한 패키지를 설치합�
 pip install -r requirements.txt
 ```
 
-`batch_python_tutorial_ffmpeg.py`파일을 엽니다. Batch 및 Storage 계정 자격 증명 문자열을 계정에 고유한 값으로 업데이트합니다. 예: 
+`config.py`파일을 엽니다. Batch 및 Storage 계정 자격 증명 문자열을 계정에 고유한 값으로 업데이트합니다. 예: 
 
 
 ```Python
@@ -76,8 +76,6 @@ _STORAGE_ACCOUNT_NAME = 'mystorageaccount'
 _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ=='
 ```
 
-[!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
-
 ### <a name="run-the-app"></a>앱 실행
 
 스크립트를 실행하려면
@@ -86,7 +84,7 @@ _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB
 python batch_python_tutorial_ffmpeg.py
 ```
 
-샘플 애플리케이션을 실행하는 경우 콘솔 출력은 다음과 유사합니다. 실행 중에 풀의 계산 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 
+샘플 응용 프로그램을 실행하는 경우 콘솔 출력은 다음과 비슷합니다. 실행 중에 풀의 계산 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 
    
 ```
 Sample start: 11/28/2018 3:20:21 PM
@@ -121,7 +119,7 @@ Azure Portal에서 Batch 계정으로 가서 풀, 계산 노드, 작업 및 태�
 
 ## <a name="review-the-code"></a>코드 검토
 
-다음 섹션에서는 샘플 애플리케이션을 Batch 서비스에서 워크로드를 처리하기 위해 수행하는 단계로 세분화합니다. 샘플에 있는 코드의 모든 줄이 설명되어 있지 않으므로 이 문서의 나머지 부분을 읽을 때 Python 코드를 참조하세요.
+다음 섹션에서는 샘플 응용 프로그램을 Batch 서비스에서 워크로드를 처리하기 위해 수행하는 단계로 세분화합니다. 샘플에 있는 코드의 모든 줄이 설명되어 있지 않으므로 이 문서의 나머지 부분을 읽을 때 Python 코드를 참조하세요.
 
 ### <a name="authenticate-blob-and-batch-clients"></a>Blob 및 Batch 클라이언트 인증
 
