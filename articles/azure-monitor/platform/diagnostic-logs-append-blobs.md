@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
-ms.component: logs
-ms.openlocfilehash: ba163b797cfaaf73c660f1ef3d8da18758e8139a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.subservice: logs
+ms.openlocfilehash: 186b0c693b077b4fa0b1287301b52de5d09c3fe6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542002"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478504"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>저장소 계정에 보관된 Azure Monitor 진단 로그에 대한 형식 변경 준비
 
@@ -137,3 +137,4 @@ Azure Blob Storage에 있는 PT1H.json 파일의 현재 형식은 레코드의 J
 
 * [리소스 진단 로그를 저장소 계정에 보관](./../../azure-monitor/platform/archive-diagnostic-logs.md)하는 방법을 알아봅니다.
 * [활동 로그 데이터를 저장소 계정에 보관](./../../azure-monitor/platform/archive-activity-log.md)하는 방법을 알아봅니다.
+

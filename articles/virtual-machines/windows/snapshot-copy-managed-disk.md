@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 0f223660f8dc99b590f8aa80a03d60fcbf3aa5d3
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.component: disks
+ms.openlocfilehash: 9bc230846714264d514b7e15962a2c99c838c7de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232582"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465108"
 ---
 # <a name="create-a-snapshot"></a>스냅숏 만들기
 
@@ -43,7 +44,7 @@ ms.locfileid: "50232582"
 
 다음 단계에서는 [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet을 사용하여 VHD 디스크를 복사하고, 스냅숏 구성을 만들고, 디스크의 스냅숏을 만드는 방법을 보여 줍니다. 
 
-시작하기 전에 AzureRM.Compute PowerShell 모듈이 최신 버전(버전 5.7.0 이상이어야 함)인지 확인합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. PowerShell을 로컬에서 실행하는 경우 [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount)를 실행하여 Azure에 대한 연결을 만듭니다.
+시작하기 전에 AzureRM.Compute PowerShell 모듈이 최신 버전(버전 5.7.0 이상이어야 함)인지 확인합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. PowerShell을 로컬에서 실행하는 경우 [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount)를 실행하여 Azure에 대한 연결을 만듭니다.
 
 1. 일부 매개 변수를 설정합니다. 
 

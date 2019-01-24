@@ -1,22 +1,17 @@
 ---
 layout: LandingPage
-title: 인증, 앱 및 디바이스 관리에 대한 사용자 도움말 - Azure Active Directory | Microsoft Docs
-description: 사용자 도움말은 보안 정보, 2단계 인증, 셀프 서비스 암호 재설정, 디바이스 관리, Microsoft Authenticator 앱 및 My Apps 포털 등의 설정 및 사용에 도움이 필요한 사람들을 위한 것입니다.
+title: '인증, 앱 및 디바이스 관리에 대한 사용자 도움말 - Azure Active Directory | Microsoft Docs'
+description: '사용자 도움말은 보안 정보, 2단계 인증, 셀프 서비스 암호 재설정, 디바이스 관리, Microsoft Authenticator 앱 및 My Apps 포털 등의 설정 및 사용에 도움이 필요한 사람들을 위한 것입니다.'
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 3ee8834a2ff8b9126fea38b19df115474c36a9e9
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41928415"
 ---
+
 # <a name="user-help-for-authentication-apps-and-device-management"></a>인증, 앱 및 디바이스 관리에 대한 사용자 도움말
 
 이 콘텐츠는 보안 정보, 2단계 인증의 설정 및 사용, 자신의 암호 재설정 방법 학습, Azure Active Directory 디바이스의 설정 및 연결, Microsoft Authenticator 앱과 My Apps 포털의 설정 및 사용 등을 지원하기 위한 것입니다.
@@ -117,7 +112,7 @@ ms.locfileid: "41928415"
                         <h3>내 디바이스 관리 도움말</h3>
                         <p>
                         <a href="/azure/active-directory/user-help/user-help-join-device-on-network">작업 장치 조인</a><br/>
-                        <a href="/azure/active-directory/user-help/user-help-register-device-on-network">작업할 개인 장치 등록</a>
+                        <a href="/azure/active-directory/user-help/user-help-register-device-on-network">작업할 개인 디바이스 등록</a>
                         </p>
                     </div>
                 </div>

@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: dc8b8e37224201062d0cf53174f3248f04ca0cc3
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 5e3b42b1e1f72ccc4d1127f2926ee53c51d66291
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789759"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470514"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Azure 진단 확장이란?
 Azure 진단 확장은 배포된 애플리케이션에서 진단 데이터를 수집할 수 있도록 하는 Azure 내의 에이전트입니다. 다양한 원본에서 진단 확장을 사용할 수 있습니다. Azure Cloud Service(클래식) 웹 및 작업자 역할, Virtual Machines, 가상 머신 확장 집합 및 Service Fabric에서 현재 지원되고 있습니다. 다른 Azure 서비스에는 여러 진단 메서드가 있습니다. [Azure의 모니터링 개요](../../azure-monitor/overview.md)를 참조하세요.
@@ -85,3 +85,4 @@ Azure Monitor에 데이터를 보낼 수도 있습니다. 지금은 성능 카�
 ## <a name="general-articles"></a>일반 문서
 * [Azure 진단에서 성능 카운터 사용](../../cloud-services/diagnostics-performance-counters.md)에 대해 알아봅니다.
 * 진단을 시작하거나 Azure Storage 테이블에서 데이터를 찾는 데 문제가 있는 경우 [Azure 진단 문제 해결](diagnostics-extension-troubleshooting.md)을 참조하세요.
+

@@ -4,7 +4,7 @@ description: Azure AD 애플리케이션 프록시 애플리케이션의 일반�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 768a9d930314882f88eab630365475d69aa5f83b
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 454749ee65bd6fa43480e61030aa2a9d66b71127
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213725"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476583"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션을 사용하는 경우 발생하는 "이 회사 애플리케이션에 액세스할 수 없습니다." 오류
 

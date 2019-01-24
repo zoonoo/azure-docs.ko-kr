@@ -4,7 +4,7 @@ description: 앱의 URL이 사용자가 액세스하는 위치에 관계 없이 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: b0ad4aa63dbeefce6b55e099fd51d3608ae3abb8
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 3d058ac4ce62718cebc20c349d52ebde57c92904
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133352"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476788"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 작업
 
@@ -40,15 +40,15 @@ Azure Active Directory 애플리케이션 프록시를 통해 애플리케이션
 사용자 지정 도메인을 구성하기 전에 다음 요구 사항이 준비되어 있는지 확인합니다. 
 - [Azure Active Directory에 추가된 확인된 도메인](../fundamentals/add-custom-domain.md).
 - PFX 파일 형태의 도메인에 대한 사용자 지정 인증서. 
-- [응용 프로그램 프록시를 통해 게시된](application-proxy-add-on-premises-application.md) 온-프레미스 앱.
+- [애플리케이션 프록시를 통해 게시된](application-proxy-add-on-premises-application.md) 온-프레미스 앱.
 
 ### <a name="configure-your-custom-domain"></a>사용자 지정 도메인 구성
 
 이러한 세 가지 요구 사항을 준비한 경우 다음 단계를 따라 사용자 지정 도메인을 설정합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **Azure Active Directory** > **Enterprise 응용 프로그램** > **모든 응용 프로그램**으로 이동하고 관리하려는 앱을 선택합니다.
-3. **응용 프로그램 프록시**를 선택합니다. 
+2. **Azure Active Directory** > **Enterprise 애플리케이션** > **모든 애플리케이션**으로 이동하고 관리하려는 앱을 선택합니다.
+3. **애플리케이션 프록시**를 선택합니다. 
 4. 외부 URL 필드에서 드롭다운 목록을 사용하여 사용자 지정 도메인을 선택합니다. 목록에서 도메인이 보이지 않는 경우 아직 확인되지 않은 것입니다. 
 5. **저장**을 선택합니다.
 5. 비활성화되었던 **인증서** 필드가 활성화됩니다. 이 필드를 선택합니다. 

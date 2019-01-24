@@ -4,7 +4,7 @@ description: Azure AD 애플리케이션 갤러리에 이미 나열된 애플리
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 3263954fd372a23b4b0951a0a48635dec7570ad6
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 823768a48f11586b97b59fd32bd2079e2823eb7b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355722"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465696"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성할 때 발생하는 문제
 
@@ -31,7 +31,7 @@ ms.locfileid: "44355722"
 
 Microsoft에는 통합이 중단되었을 때 자동으로 검색할 기술이 있지만 문제를 즉시 발견하지 못하거나 해결할 때까지 시간이 걸릴 수 있습니다. 이러한 통합이 올바르게 작동하지 않는 경우에는 가능한 신속하게 해결할 수 있도록 지원 사례를 엽니다.
 
-**이 응용 프로그램의 공급업체와 연락된 경우** Microsoft에서 응용 프로그램을 Azure Active Directory와 기본적으로 통합하기 위해 작업할 수 있도록 알려주세요. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](../develop/howto-app-gallery-listing.md)로 보내 주시면 됩니다.
+**이 애플리케이션의 공급업체와 연락된 경우** Microsoft에서 애플리케이션을 Azure Active Directory와 기본적으로 통합하기 위해 작업할 수 있도록 알려주세요. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](../develop/howto-app-gallery-listing.md)로 보내 주시면 됩니다.
 
 ## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>자격 증명을 입력하고 제출했지만 페이지에 자격 증명이 잘못되었다고 표시됨
 
@@ -41,25 +41,25 @@ Microsoft에는 통합이 중단되었을 때 자동으로 검색할 기술이 �
 
   * 로그인이 되면 사용자가 [애플리케이션 액세스 패널](https://myapps.microsoft.com/)의 **앱** 섹션에서 **애플리케이션 타일**에 있는 **자격 증명 업데이트** 단추를 클릭하여 작동하는 최신 사용자 이름 및 암호로 업데이트합니다.
 
-   * 자신이나 다른 관리자가 이 사용자에게 자격 증명을 할당한 경우는 응용 프로그램의 **사용자 및 그룹** 탭으로 이동하여 할당을 선택하고 **자격 증명 업데이트** 단추를 클릭하여 사용자 또는 그룹의 응용 프로그램 할당을 찾습니다.
+   * 자신이나 다른 관리자가 이 사용자에게 자격 증명을 할당한 경우는 애플리케이션의 **사용자 및 그룹** 탭으로 이동하여 할당을 선택하고 **자격 증명 업데이트** 단추를 클릭하여 사용자 또는 그룹의 애플리케이션 할당을 찾습니다.
 
 -   사용자가 직접 자격 증명을 할당한 경우는 사용자에게 **애플리케이션에서 암호가 만료되지 않았는지 확인하라고 한** 다음, 만료되었으면 애플리케이션에 직접 로그인하여 **만료된 암호를 업데이트**하도록 합니다.
 
    * 애플리케이션에서 암호가 업데이트된 후에 사용자에게 [애플리케이션 액세스 패널](https://myapps.microsoft.com/)의 **애플리케이션** 섹션에서 **애플리케이션 타일**에 있는 **자격 증명 업데이트** 단추를 클릭하여 문제가 없는 최신 사용자 이름 및 암호로 업데이트하라고 요청합니다.
 
-   * 자신이나 다른 관리자가 이 사용자에게 자격 증명을 할당한 경우는 응용 프로그램의 **사용자 및 그룹** 탭으로 이동하여 할당을 선택하고 **자격 증명 업데이트** 단추를 클릭하여 사용자 또는 그룹의 응용 프로그램 할당을 찾습니다.
+   * 자신이나 다른 관리자가 이 사용자에게 자격 증명을 할당한 경우는 애플리케이션의 **사용자 및 그룹** 탭으로 이동하여 할당을 선택하고 **자격 증명 업데이트** 단추를 클릭하여 사용자 또는 그룹의 애플리케이션 할당을 찾습니다.
 
 -   사용자가 아래 [액세스 패널 브라우저 확장을 설치하는 방법](#how-to-install-the-access-panel-browser-extension) 섹션의 단계에 따라 액세스 패널 브라우저 확장을 업데이트하도록 합니다.
 
 -   액세스 패널 브라우저 확장이 실행 중이며 사용자의 브라우저에서 사용하도록 설정되어 있는지 확인합니다.
 
--   **incognito, inPrivate 또는 개인 모드**일 때 사용자가 액세스 패널의 응용 프로그램에 로그인하려고 하지 않았는지 확인합니다. 이러한 모드에서는 액세스 패널 확장이 지원되지 않습니다.
+-   **incognito, inPrivate 또는 개인 모드**일 때 사용자가 액세스 패널의 애플리케이션에 로그인하려고 하지 않았는지 확인합니다. 이러한 모드에서는 액세스 패널 확장이 지원되지 않습니다.
 
 이전 방법이 통하지 않는 경우는 애플리케이션 쪽에서 변경이 일어나 일시적으로 애플리케이션과 Azure AD의 통합이 깨졌을 수 있습니다. 예를 들어, 애플리케이션 공급업체에서 수동 입력과 자동 입력에 대해 다르게 작동하는 스크립트를 페이지에 포함하는 바람에 자동화 통합이 깨지는 경우에 이 문제가 발생할 수 있습니다. 다행스럽게도 많은 경우에 Microsoft와 애플리케이션 공급업체가 협력하여 이 문제를 신속하게 해결할 수 있습니다.
 
 Microsoft에는 애플리케이션 통합이 중단되었을 때 자동으로 검색할 기술이 있지만 문제를 즉시 발견하지 못하거나 해결할 때까지 시간이 걸릴 수 있습니다. 통합이 올바로 작동하지 않는 경우 최대한 신속하게 해결하도록 지원 사례를 열 수 있습니다. 
 
-또한 **이 응용 프로그램의 공급업체와 연락된 경우는 응용 프로그램을 Azure Active Directory와 기본적으로 통합하기 위한 작업을 함께 진행할 수 있도록** **Microsoft로 보내 주세요**. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](../develop/howto-app-gallery-listing.md)로 보내 주시면 됩니다.
+또한 **이 애플리케이션의 공급업체와 연락된 경우는 애플리케이션을 Azure Active Directory와 기본적으로 통합하기 위한 작업을 함께 진행할 수 있도록****Microsoft로 보내 주세요**. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](../develop/howto-app-gallery-listing.md)로 보내 주시면 됩니다.
 
 ## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>Chrome 및 Firefox에서는 확장이 작동하지만 Internet Explorer에서는 작동하지 않음
 
@@ -73,7 +73,7 @@ Microsoft에는 애플리케이션 통합이 중단되었을 때 자동으로 �
 
    * 이런 상황은 브라우저 버전, 컴퓨터 속도, 방문한 사이트에 따라 달라질 수 있습니다. 그런 경우는 특정 애플리케이션의 통합을 수정할 수 있도록 지원 팀에 문의해 주세요.
 
-또한 **이 응용 프로그램의 공급업체와 연락된 경우는 응용 프로그램을 Azure Active Directory와 기본적으로 통합하기 위한 작업을 함께 진행할 수 있도록** **Microsoft로 보내 주세요**. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](../develop/howto-app-gallery-listing.md)로 보내 주시면 됩니다.
+또한 **이 애플리케이션의 공급업체와 연락된 경우는 애플리케이션을 Azure Active Directory와 기본적으로 통합하기 위한 작업을 함께 진행할 수 있도록****Microsoft로 보내 주세요**. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](../develop/howto-app-gallery-listing.md)로 보내 주시면 됩니다.
 
 ## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>애플리케이션의 로그인 페이지가 최근에 변경되었거나 추가 필드가 필요한지 확인
 
@@ -81,7 +81,7 @@ Microsoft에는 애플리케이션 통합이 중단되었을 때 자동으로 �
 
 Microsoft에는 애플리케이션 통합이 중단되었을 때 자동으로 검색할 기술이 있지만 문제를 즉시 발견하지 못하거나 해결할 때까지 시간이 걸릴 수 있습니다. 통합이 올바로 작동하지 않는 경우 최대한 신속하게 해결하도록 지원 사례를 열 수 있습니다. 
 
-또한 **이 응용 프로그램의 공급업체와 연락된 경우는 응용 프로그램을 Azure Active Directory와 기본적으로 통합하기 위한 작업을 함께 진행할 수 있도록** **Microsoft로 보내 주세요**. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](../develop/howto-app-gallery-listing.md)로 보내 주시면 됩니다.
+또한 **이 애플리케이션의 공급업체와 연락된 경우는 애플리케이션을 Azure Active Directory와 기본적으로 통합하기 위한 작업을 함께 진행할 수 있도록****Microsoft로 보내 주세요**. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](../develop/howto-app-gallery-listing.md)로 보내 주시면 됩니다.
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>액세스 패널 브라우저 확장을 설치하는 방법
 
@@ -108,5 +108,5 @@ Microsoft에는 애플리케이션 통합이 중단되었을 때 자동으로 �
 -   [Firefox 액세스 패널 확장](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
 ## <a name="next-steps"></a>다음 단계
-[응용 프로그램 프록시를 사용하여 앱에 Single Sign-On 제공](application-proxy-configure-single-sign-on-with-kcd.md)
+[애플리케이션 프록시를 사용하여 앱에 Single Sign-On 제공](application-proxy-configure-single-sign-on-with-kcd.md)
 

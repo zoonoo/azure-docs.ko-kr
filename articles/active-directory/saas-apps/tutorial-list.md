@@ -4,7 +4,7 @@ description: 다양한 타사 SaaS(Software as a Service) 애플리케이션에 
 services: active-directory
 documentationcenter: ''
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 08c0c52b-76d9-4250-936a-6bec0edb8816
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -16,14 +16,14 @@ ms.date: 09/26/2018
 ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: 0a1cb952058c61b66bced88f27d8618af729ff36
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 0cc501feea2e7c92ef448c8ca4820d75af0d1ce9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419766"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827519"
 ---
-# <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>SaaS 애플리케이션과 Azure Active Directory를 통합하는 방법에 대한 자습서
+# <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>SaaS 응용 프로그램과 Azure Active Directory를 통합하는 방법에 대한 자습서
 
 Azure Active Directory와 클라우드 지원 [SaaS(Software as a Service)](https://azure.microsoft.com/overview/what-is-saas/) 애플리케이션을 통합할 수 있도록 구성 과정을 안내하는 자습서 모음을 개발했습니다.
 
@@ -45,5 +45,5 @@ Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketp
 더 많은 자습서를 찾으려면 왼쪽의 목차를 사용하세요. 
 
 ## <a name="next-steps"></a>다음 단계
-애플리케이션 관리에 대한 자세한 내용은 [애플리케이션 관리란?](../manage-apps/what-is-application-management.md)을 참조하세요.
+응용 프로그램 관리에 대한 자세한 내용은 [응용 프로그램 관리란?](../manage-apps/what-is-application-management.md)을 참조하세요.
 

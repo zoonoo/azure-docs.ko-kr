@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD Connect의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 54b614e49bc7c03325ebeada60232fca861874e0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0d99bf8c869e60f9bcfaab96306807852676caa8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193079"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476124"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory Seamless Single Sign-On: 기술 심층 분석
 
@@ -54,19 +54,19 @@ Seamless SSO는 [여기](how-to-connect-sso-quick-start.md)서 보여 주듯이 
 
 웹 브라우저의 로그인 흐름은 다음과 같습니다.
 
-1. 사용자가 회사 네트워크의 도메인 가입 회사 디바이스에서 웹 응용 프로그램(예: Outlook 웹앱 https://outlook.office365.com/owa/))에 액세스하려고 합니다.
+1. 사용자가 회사 네트워크의 도메인 가입 회사 장치에서 웹 애플리케이션(예: Outlook 웹앱 https://outlook.office365.com/owa/))에 액세스하려고 합니다.
 2. 사용자가 아직 로그인하지 않은 경우 해당 사용자는 Azure AD 로그인 페이지로 리디렉션됩니다.
 3. 사용자는 자신의 사용자 이름을 Azure AD 로그인 페이지에 입력합니다.
 
    >[!NOTE]
-   >[특정 응용 프로그램](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso)의 경우 2-3단계를 건너뜁니다.
+   >[특정 애플리케이션](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso)의 경우 2-3단계를 건너뜁니다.
 
 4. Azure AD는 백그라운드에서 JavaScript를 사용하여 401 권한 없음 응답을 통해 브라우저에 Kerberos 티켓을 제공합니다.
 5. 그런 다음 브라우저는 Active Directory에서 Azure AD를 나타내는 `AZUREADSSOACC` 컴퓨터 계정에 대한 티켓을 요청합니다.
 6. Active Directory는 컴퓨터 계정을 찾아서 컴퓨터 계정의 비밀로 암호화된 Kerberos 티켓을 브라우저에 반환합니다.
 7. 브라우저는 Active Directory에서 받은 Kerberos 티켓을 Azure AD에 전달합니다.
 8. Azure AD는 이전에 공유한 키를 사용하여 회사 디바이스에 로그인한 사용자의 ID가 포함된 Kerberos 티켓을 암호 해독합니다.
-9. 평가 후에 Azure AD는 응용 프로그램에 토큰을 반환하거나 사용자에게 Multi-Factor Authentication과 같은 추가 증명을 수행하도록 요청합니다.
+9. 평가 후에 Azure AD는 애플리케이션에 토큰을 반환하거나 사용자에게 Multi-Factor Authentication과 같은 추가 증명을 수행하도록 요청합니다.
 10. 사용자 로그인에 성공하면 해당 사용자는 해당 애플리케이션에 액세스할 수 있습니다.
 
 다음 다이어그램은 관련된 모든 구성 요소와 단계를 보여 줍니다.
@@ -79,8 +79,8 @@ Seamless SSO는 편의적인 기능입니다. 이는 SSO가 실패하면 로그�
 
 네이티브 클라이언트의 로그인 흐름은 다음과 같습니다.
 
-1. 사용자가 회사 네트워크의 도메인 가입 회사 디바이스에서 네이티브 응용 프로그램(예: Outlook 클라이언트)에 액세스하려고 합니다.
-2. 사용자가 아직 로그인되지 않은 경우 네이티브 응용 프로그램은 디바이스의 Windows 세션에서 사용자의 사용자 이름을 검색합니다.
+1. 사용자가 회사 네트워크의 도메인 가입 회사 장치에서 네이티브 애플리케이션(예: Outlook 클라이언트)에 액세스하려고 합니다.
+2. 사용자가 아직 로그인되지 않은 경우 네이티브 애플리케이션은 장치의 Windows 세션에서 사용자의 사용자 이름을 검색합니다.
 3. 앱은 Azure AD에 사용자 이름을 전송하고, 테넌트의 WS-Trust MEX 엔드포인트를 검색합니다. 이 WS-Trust 엔드포인트는 Seamless SSO 기능에 의해 단독으로 사용되며 Azure AD에서 WS-Trust 프로토콜의 일반적인 구현이 아닙니다.
 4. 그런 후 WS-Trust MEX 엔드포인트를 쿼리하여 통합된 인증 엔드포인트를 사용할 수 있는지 확인합니다. 통합 인증 엔드포인트는 Seamless SSO 기능에 의해 단독으로 사용됩니다.
 5. 4단계가 성공하면 Kerberos 챌린지가 발급됩니다.

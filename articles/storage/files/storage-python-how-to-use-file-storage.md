@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/14/2018
 ms.author: tamram
 ms.component: files
-ms.openlocfilehash: f1ebc059c66615ecf21054e85472b2a6d86dfce6
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 17b44dcaf6731f3882ed417a94532c6d26c7454d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743190"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818969"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Python을 사용하여 Azure Files 개발
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -125,7 +125,7 @@ file_service.get_file_to_path('myshare', None, 'myfile', 'out-sunset.png')
 file_service.delete_file('myshare', None, 'myfile')
 ```
 
-## <a name="create-share-snapshot-preview"></a>공유 스냅숏 만들기(미리 보기)
+## <a name="create-share-snapshot"></a>공유 스냅숏 만들기
 전체 파일 공유의 특정 시점 복사본을 만들 수 있습니다.
 
 ```python

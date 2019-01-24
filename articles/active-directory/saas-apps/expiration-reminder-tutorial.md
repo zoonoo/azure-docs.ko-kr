@@ -4,7 +4,7 @@ description: Azure Active Directory와 Expiration Reminder 간에 Single Sign-On
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3df3d73e-80a4-4b35-bd3d-90bc4f6f6afd
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/6/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 04874eff4375ac57a8c8e15a11399ca650bd5c15
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: aa5c8a69422c74efad74926cfaec544d5ee2f126
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020780"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811063"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expiration-reminder"></a>자습서: Expiration Reminder와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ Expiration Reminder를 Azure AD와 통합하면 다음과 같은 이점이 제�
 * 사용자가 해당 Azure AD 계정으로 Expiration Reminder에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -78,8 +78,8 @@ Expiration Reminder에서 Azure AD Single Sign-On을 구성하고 테스트하�
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Expiration Reminder Single Sign-On 구성](#configure-expiration-reminder-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-on 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Expiration Reminder 테스트 사용자 만들기](#create-expiration-reminder-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Expiration Reminder에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Expiration Reminder 테스트 사용자 만들기](#create-expiration-reminder-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Expiration Reminder에 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -104,7 +104,7 @@ Expiration Reminder에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
     ![Expiration Reminder 도메인 및 URL Single Sign-On 정보](common/sp-signonurl.png)
 
-    **로그온 URL** 텍스트 상자에 다음 URL을 입력합니다. `https://app.expirationreminder.net/account/sso`
+    **로그온 URL** 텍스트 상자에 `https://app.expirationreminder.net/account/sso` URL을 입력합니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(원시)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 

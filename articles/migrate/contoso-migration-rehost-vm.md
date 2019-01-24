@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6bdb319eb89c3dad8b3602b0ec4561b962fcc868
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 36a84618a998dd2e06f5563fb8706a1dc8400e59
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608701"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823354"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Contoso 마이그레이션: Azure VM에 온-프레미스 앱 다시 호스트
 
@@ -167,7 +167,7 @@ Contoso 관리자가 마이그레이션을 실행하는 방법은 다음과 같�
     - 앱 프런트 엔드 VM(WEBVM)은 프로덕션 네트워크의 프런트 엔드 서브넷(PROD-FE-EUS2)으로 마이그레이션됩니다.
     - 앱 데이터베이스 VM(SQLVM)은 프로덕션 네트워크의 데이터베이스 서브넷(PROD-DB-EUS2)으로 마이그레이션됩니다.
 
-2. 저장소 계정 설정 - Contoso는 주 지역에 Azure Storage 계정(contosovmsacc20180528)을 만듭니다.
+2. 스토리지 계정 설정 - Contoso는 주 지역에 Azure Storage 계정(contosovmsacc20180528)을 만듭니다.
     - 저장소 계정은 Recovery Services 자격 증명 모음과 동일한 영역에 있어야 합니다.
     - 범용 계정과 표준 저장소 및 LRS 복제를 사용합니다.
 

@@ -3,7 +3,7 @@ title: Azure Active Directory의 사용자 환경에서 애플리케이션 숨�
 description: Azure Active Directory 액세스 패널 또는 Office 365 시작 관리자의 사용자 환경에서 애플리케이션을 숨기는 방법입니다.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: kasimpso
-ms.openlocfilehash: f1203b4381055deca79a70e8d295e072feaf492a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: d5443f5b33f85d7a4b1e69cecc6bcdf68859abf4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613583"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474909"
 ---
 # <a name="hide-applications-from-end-users-in-azure-active-directory"></a>Azure Active Directory의 최종 사용자로부터 애플리케이션 숨기기
 
@@ -34,7 +34,7 @@ MyApps 패널 및 Office 365 애플리케이션 시작 관리자에서 애플리
 
 1.  [Azure Portal](https://portal.azure.com)에 디렉터리에 대한 글로벌 관리자 권한으로 로그인합니다.
 2.  **Azure Active Directory**를 선택합니다.
-3.  **Enterprise 응용 프로그램**을 선택합니다. **엔터프라이즈 애플리케이션 - 모든 애플리케이션** 블레이드를 엽니다.
+3.  **Enterprise 애플리케이션**을 선택합니다. **엔터프라이즈 애플리케이션 - 모든 애플리케이션** 블레이드를 엽니다.
 4.  아직 선택하지 않은 경우 **애플리케이션 종류**에서 **엔터프라이즈 애플리케이션**을 선택합니다.
 5.  숨기려는 애플리케이션을 검색하고 해당 애플리케이션을 클릭합니다.  애플리케이션의 개요가 열립니다.
 6.  **속성**을 클릭합니다. 

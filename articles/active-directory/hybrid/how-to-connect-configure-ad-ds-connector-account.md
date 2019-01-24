@@ -3,19 +3,19 @@ title: 'Azure AD Connect: AD DS 커넥터 계정 권한 구성 | Microsoft Docs'
 description: 이 문서에서는 새 ADSyncConfig PowerShell 모듈을 사용하여 AD DS 커넥터 계정을 구성하는 방법을 자세히 설명합니다.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 01/14/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c7b1d74c7750a281f8c961789d39a7ae323f304e
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: a23561e082736b7dfae6205e75fd1e9ccfab5f6c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304043"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463392"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS 커넥터 계정 권한 구성 
 

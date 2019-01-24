@@ -3,7 +3,7 @@ title: 애플리케이션에 대한 Single Sign-On - Azure Active Directory | Mi
 description: Azure AD(Azure Active Directory)에서 애플리케이션을 구성하는 경우 Single Sign-On 방법을 선택하는 방법에 대해 알아봅니다. Single Sign-On을 사용하므로 사용자는 모든 애플리케이션에 대한 암호를 기억할 필요가 없어 계정 관리가 간소화됩니다.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: b7e75753f8d7a9316dd1cc644dc22c42ef284736
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 452ec35f9a759bd09befb8c5a03a7fc5b3fb8ed2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190087"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463357"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션에 대한 Single Sign-On
 Azure AD(Azure Active Directory)에서 애플리케이션을 구성하는 경우 가장 적합한 Single Sign-On 방법을 선택하는 방법에 대해 알아봅니다. 

@@ -4,7 +4,7 @@ description: Azure Active Directory를 사용하여 엔터프라이즈 앱에 �
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 11/13/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 13ce1a7c9008a7893892e5d7e6b67a243c381c9f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4bdec7c5aa4e6cd29dec870fd7d28d48a40bae57
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622009"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462983"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure Portal에서 엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리
 이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 자동 사용자 계정 프로비전 및 지원되는 애플리케이션에 대한 프로비전 해제를 관리하는 방법을 설명합니다. 자동 사용자 계정 프로비전 및 작동 방식에 대한 자세한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션에 사용자 프로비전 및 프로비전 해제 자동화](user-provisioning.md)를 참조하세요.
 
 ## <a name="finding-your-apps-in-the-portal"></a>포털에서 앱 찾기
-디렉터리에서 Single Sign-On에 대해 구성된 모든 애플리케이션은 [Azure Portal](https://portal.azure.com)에서 보고 관리할 수 있습니다. 응용 프로그램은 포털의 **모든 서비스** &gt; **엔터프라이즈 응용 프로그램** 섹션에서 찾을 수 있습니다. 엔터프라이즈 앱은 조직 내에서 배포 및 사용되는 앱입니다.
+디렉터리에서 Single Sign-On에 대해 구성된 모든 애플리케이션은 [Azure Portal](https://portal.azure.com)에서 보고 관리할 수 있습니다. 애플리케이션은 포털의 **모든 서비스**&gt;**엔터프라이즈 애플리케이션** 섹션에서 찾을 수 있습니다. 엔터프라이즈 앱은 조직 내에서 배포 및 사용되는 앱입니다.
 
 ![Enterprise 애플리케이션 창](./media/configure-automatic-user-provisioning-portal/enterprise-apps-pane.png)
 
@@ -37,10 +37,10 @@ ms.locfileid: "51622009"
 ![애플리케이션 리소스 창](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>프로비전 모드
-**프로비전** 창은 엔터프라이즈 응용 프로그램을 위해 지원되는 프로비전 모드를 표시하는 **모드** 메뉴로 시작하고 해당 모드가 구성될 수 있도록 합니다. 사용 가능한 옵션은 다음과 같습니다.
+**프로비전** 창은 엔터프라이즈 애플리케이션을 위해 지원되는 프로비전 모드를 표시하는 **모드** 메뉴로 시작하고 해당 모드가 구성될 수 있도록 합니다. 사용 가능한 옵션은 다음과 같습니다.
 
-* **자동** - Azure AD가 이 응용 프로그램에 대해 사용자 계정의 자동 API 기반의 프로비전 및/또는 프로비전 해제를 지원하는 경우 이 옵션이 나타납니다. 이 모드를 선택하면 관리자가 애플리케이션의 사용자 관리 API에 연결하는 Azure AD를 구성하고 Azure AD와 앱 간 사용자 계정 데이터의 흐름 방식을 정의하는 계정 매핑 및 워크플로를 작성하고 Azure AD 프로비전 서비스를 관리할 수 있도록 안내하는 인터페이스가 표시됩니다.
-* **수동** - Azure AD가 이 응용 프로그램에 대한 사용자 계정의 자동 프로비전을 지원하지 않을 경우 이 옵션이 표시됩니다. 이 옵션을 사용하면 애플리케이션에 저장된 사용자 계정 레코드를 해당 애플리케이션에서 제공한 사용자 관리 및 프로비전 기능(SAML Just-In-Time 프로비전 포함 가능)에 따라 외부 프로세스를 사용하여 관리해야 합니다.
+* **자동** - Azure AD가 이 애플리케이션에 대해 사용자 계정의 자동 API 기반의 프로비전 및/또는 프로비전 해제를 지원하는 경우 이 옵션이 나타납니다. 이 모드를 선택하면 관리자가 애플리케이션의 사용자 관리 API에 연결하는 Azure AD를 구성하고 Azure AD와 앱 간 사용자 계정 데이터의 흐름 방식을 정의하는 계정 매핑 및 워크플로를 작성하고 Azure AD 프로비전 서비스를 관리할 수 있도록 안내하는 인터페이스가 표시됩니다.
+* **수동** - Azure AD가 이 애플리케이션에 대한 사용자 계정의 자동 프로비전을 지원하지 않을 경우 이 옵션이 표시됩니다. 이 옵션을 사용하면 애플리케이션에 저장된 사용자 계정 레코드를 해당 애플리케이션에서 제공한 사용자 관리 및 프로비전 기능(SAML Just-In-Time 프로비전 포함 가능)에 따라 외부 프로세스를 사용하여 관리해야 합니다.
 
 ## <a name="configuring-automatic-user-account-provisioning"></a>자동 사용자 계정 프로비전 구성
 **자동** 옵션을 선택하면 4개의 섹션으로 나뉜 화면이 표시됩니다.

@@ -4,7 +4,7 @@ description: 하이브리드 ID 솔루션을 계획할 때 이러한 요구 사�
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 40dc4baa-fe82-4ab6-a3e4-f36fa9dcd0df
 ms.service: active-directory
@@ -16,19 +16,19 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: c317c2bab26a44fc78e42fe440744bd26add1f2e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 34c284f3fdd78d8b2f56ec7c36e139f9ac9d78bf
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310572"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473506"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>강력한 ID 솔루션을 통해 데이터 보안을 향상하기 위한 계획
 데이터를 보호하는 첫 번째 단계는 해당 데이터에 액세스할 수 있는 사용자를 식별하는 것입니다. 또한 인증 및 권한 부여 기능을 제공하기 위해 시스템을 통합할 수 있는 ID 솔루션이 필요합니다. 인증 및 권한 부여는 종종 서로 혼동되고 역할은 오해됩니다. 아래 그림에 표시된 대로 실제로 매우 다릅니다.
 
 ![](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
 
-**모바일 장치 관리 수명 주기 단계**
+**모바일 디바이스 관리 수명 주기 단계**
 
 하이브리드 ID 솔루션을 계획할 때 이러한 요구 사항을 가장 잘 수행할 수 있도록 비즈니스에 대한 데이터 보호 요구 사항 및 사용할 수 있는 옵션을 이해해야 합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "46310572"
 > 
 
 ## <a name="determine-data-protection-requirements"></a>데이터 보호 요구 사항 결정
-이동성의 시대에 회사에는 대부분 공통의 목표가 있습니다. 생산성을 향상시키기 위해 온-프레미스하는 동안 또는 어디서든 원격으로 사용자가 모바일 디바이스에서 생산성을 높일 수 있도록 합니다. 이러한 요구 사항이 있는 회사는 또한 회사의 데이터 보안을 유지하고 사용자의 개인 정보를 유지하기 위해 완화해야 하는 위협의 수에 대한 문제입니다. 각 회사는 이런 점에서 다른 요구 사항이 있을 수 있습니다. 회사가 행동하는 업계에 따라 달라질 수 있는 다른 규정 준수 규칙은 다른 설계 결정으로 이어질 수 있습니다. 
+이동성의 시대에 회사에는 대부분 공통의 목표가 있습니다. 생산성을 향상시키기 위해 온-프레미스하는 동안 또는 어디서든 원격으로 사용자가 모바일 장치에서 생산성을 높일 수 있도록 합니다. 이러한 요구 사항이 있는 회사는 또한 회사의 데이터 보안을 유지하고 사용자의 개인 정보를 유지하기 위해 완화해야 하는 위협의 수에 대한 문제입니다. 각 회사는 이런 점에서 다른 요구 사항이 있을 수 있습니다. 회사가 행동하는 업계에 따라 달라질 수 있는 다른 규정 준수 규칙은 다른 설계 결정으로 이어질 수 있습니다. 
 
 그러나 업계에 관계 없이 탐색 하 고 유효성을 검사해야 할 일부 보안 사항이 있습니다.
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: ef3d26112c631ee0ed3c754394339092020add53
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: c33952f893d5ef2cfb9020acbf813d30b6c105e7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332543"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469752"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -265,7 +265,7 @@ ms.locfileid: "54332543"
 
 [Microsoft 관리되는 커넥터](../connectors/apis-list.md)가 호출하도록 지원하려면 논리 앱이 있는 지역에 따라  모든 [아웃바운드](#outbound) IP 주소가 포함되도록 방화벽을 설정합니다. 이러한 주소는 이 섹션의 **아웃바운드** 제목 아래에 표시되고 지역별로 정렬됩니다. 
 
-[Azure Government](/azure-government/documentation-government-welcome) 및 [Azure China 21Vianet](/azure/china/china-welcome)의 경우 커넥터에 대한 예약된 IP 주소를 현재 사용할 수 없습니다.
+[Azure Government](../azure-government/documentation-government-overview.md) 및 [Azure China 21Vianet](/azure/china/china-welcome)의 경우 커넥터에 대한 예약된 IP 주소를 현재 사용할 수 없습니다.
 
 > [!IMPORTANT]
 > 

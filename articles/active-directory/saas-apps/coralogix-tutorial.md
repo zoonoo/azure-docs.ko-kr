@@ -4,7 +4,7 @@ description: Azure Active Directory 및 Coralogix 간에 Single Sign-On을 구�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ba79bfc1-992e-4924-b76a-8eb0dfb97724
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/2/2019
 ms.author: jeedes
-ms.openlocfilehash: d9ad1a926a4b7a79958af8725e44f2fe007dc64b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 290cec57f4394ed4f0f435e6032f72aad4a87aad
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54233262"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821960"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coralogix"></a>자습서: Coralogix와 Azure Active Directory 통합
 

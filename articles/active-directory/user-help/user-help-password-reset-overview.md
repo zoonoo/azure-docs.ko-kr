@@ -3,7 +3,7 @@ title: 암호 재설정 개요 - Azure Active Directory | Microsoft Docs
 description: 관리자의 도움 없이 암호를 등록하고 재설정하는 방법을 알아봅니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 3b937eb5498a16e35455ed245696e66e53224969
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 1d21a5ad906299ff05110d676490fc587e85cac4
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42023905"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826686"
 ---
 # <a name="reset-password-overview"></a>암호 재설정 개요
 
