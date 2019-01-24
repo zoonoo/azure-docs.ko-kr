@@ -3,7 +3,7 @@ title: 조직의 그룹 및 멤버를 보기 위한 빠른 시작 - Azure Active
 description: 조직의 그룹 및 할당된 멤버를 검색하고 보는 방법을 설명하는 지침입니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.date: 09/24/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 002b4bb4ab20e531132b461f90857cfab6aecfd3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7ccd42fa1593e420c3d95ac1b50e8ef5084e68a0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087478"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446411"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 

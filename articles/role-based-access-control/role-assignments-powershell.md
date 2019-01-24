@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a22b35ff9455f0849dd407df163ac3f8895dd874
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 31fa2b670b6492b7496c147ef72688c3c0121fa5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304638"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429721"
 ---
 # <a name="manage-access-using-rbac-and-azure-powershell"></a>RBAC 및 Azure PowerShell을 사용하여 액세스 관리
 
@@ -30,7 +30,7 @@ ms.locfileid: "54304638"
 액세스를 관리하려면 다음 중 하나가 필요합니다.
 
 * [Azure Cloud Shell의 PowerShell](/azure/cloud-shell/overview)
-* [Azure PowerShell](/powershell/azure/install-azurerm-ps)
+* [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)
 
 ## <a name="list-roles"></a>역할 나열
 

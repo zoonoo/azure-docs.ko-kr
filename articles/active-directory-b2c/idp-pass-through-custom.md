@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 애플리케이션으로 액세스 토�
 description: Azure Active Directory B2C에서 애플리케이션으로 사용자 지정 정책의 클레임을 사용하여 OAuth2.0 ID 공급자에 대한 액세스 토큰을 통과하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7a40ded3ff6af1c519400c755d1ee6d9bd73ba9e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: d421cc83b64971ce577caf161631d4dc76d6ce9c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602293"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856573"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 애플리케이션으로 액세스 토큰의 사용자 지정 정책 통과
 

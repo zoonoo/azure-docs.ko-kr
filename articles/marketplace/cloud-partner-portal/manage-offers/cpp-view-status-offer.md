@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pbutlerm
-ms.openlocfilehash: d7c2909e59643378e765fa51e2d261cbdc106822
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: bdec2d699e8448c8e2303dfbabcb4d176a9ca389
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355225"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430384"
 ---
 # <a name="view-the-publishing-status-of-azure-marketplace-and-appsource-offers"></a>Azure Marketplace 및 AppSource 제품의 게시 상태 보기
 
@@ -46,7 +46,7 @@ ms.locfileid: "54355225"
 
 ![오류를 표시하는 컨설팅 서비스의 상태 탭](./media/consulting-service-error.png)
 
-Azure 애플리케이션의 최종 예제 상태는 심각한 Microsoft 검토 문제를 보여 줍니다.  이 검토 문제에 대한 자세한 정보를 포함하는 VSTS 항목에 대한 핫 링크가 포함되어 있습니다.  자세한 내용은 [Azure 애플리케이션 제품 게시]()를 참조하세요.
+Azure 애플리케이션의 최종 예제 상태는 심각한 Microsoft 검토 문제를 보여 줍니다.  이 검토 문제에 대한 자세한 정보를 포함하는 VSTS 항목에 대한 핫 링크가 포함되어 있습니다.  자세한 내용은 [Azure 애플리케이션 제품 게시](cpp-publish-offer.md)를 참조하세요.
 
 ![검토 문제를 보여 주는 Azure 앱의 상태 탭](../azure-applications/media/status-tab-ms-review.png)
 

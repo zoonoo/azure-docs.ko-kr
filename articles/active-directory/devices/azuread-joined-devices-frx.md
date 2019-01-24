@@ -4,7 +4,7 @@ description: 첫 실행 경험 동안 사용자가 Azure AD 조인을 설정하�
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: eaf0b3e3b607145598660dbb64cadd5a277360cb
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 3693115d72d9928bea0ca8bbe4fae5858e0f3cb7
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046325"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446428"
 ---
-# <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>자습서: 처음 실행 시 Azure AD에 새 Windows 10 디바이스 조인
+# <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>자습서: 첫 번째 실행 동안 Azure AD에 새 Windows 10 디바이스 조인
 
 Azure AD(Active Directory)의 디바이스 관리를 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 디바이스에서 사용자 리소스에 액세스할 수 있습니다. 자세한 내용은 [Azure Active Directory의 디바이스 관리 소개](overview.md)를 참조하세요.
 
@@ -44,11 +44,11 @@ Windows *기본 환경*에서 온-프레미스 AD(Active Directory) 도메인 �
 
 Windows 10 디바이스를 조인하려면 디바이스를 등록할 수 있도록 디바이스 등록 서비스를 구성해야 합니다. Azure AD 테넌트에 디바이스를 조인할 수 있는 권한이 필요한 것 외에도, 구성된 디바이스 최대 수보다 적은 수의 디바이스를 등록해야 합니다. 자세한 내용은 [디바이스 설정 구성](device-management-azure-portal.md#configure-device-settings)을 참조하세요.
 
-또한 테넌트가 페더레이션된 경우 ID 공급자가 WS-Fed 및 WS-Trust 사용자 이름/암호 엔드포인트를 지원해야 합니다. 버전 1.3 또는 2005일 수 있습니다. Azure AD에 디바이스를 조인하고 암호를 사용하여 디바이스에 로그온하려면 이 프로토콜 지원이 필요합니다.
+또한 테넌트가 페더레이션된 경우 ID 공급자가 WS-Fed 및 WS-Trust 사용자 이름/암호 엔드포인트를 지원해야 합니다. 버전 1.3 또는 2005일 수 있습니다. Azure AD에 장치를 조인하고 암호를 사용하여 장치에 로그온하려면 이 프로토콜 지원이 필요합니다.
 
 ## <a name="joining-a-device"></a>디바이스 조인
 
-**FRX 동안 Windows 10 장치를 Azure AD에 조인하려면**
+**FRX 동안 Windows 10 디바이스를 Azure AD에 조인하려면**
 
 
 1. 새 디바이스를 켜고 설정 프로세스를 시작하면 **준비 중** 메시지가 표시됩니다. 프롬프트에 따라 디바이스를 설정합니다.
@@ -59,7 +59,7 @@ Windows 10 디바이스를 조인하려면 디바이스를 등록할 수 있도�
 
 3. 인터넷에 연결하는 데 사용할 네트워크를 선택합니다.
 
-4. **이 장치는 내 조직에서 소유한 장치입니다**를 클릭합니다. 
+4. **이 디바이스는 내 조직에서 소유한 디바이스입니다**를 클릭합니다. 
 
     ![이 PC를 누가 소유하고 있나요? 화면](./media/azuread-joined-devices-frx/02.png)
 

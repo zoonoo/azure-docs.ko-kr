@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 01/14/2019
 ms.author: curtand
 ms.reviewer: sumitp
-ms.openlocfilehash: 68d4cdf3c7ba08f7cf37132936c6769c99c177cc
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: f675ff0dfaf183c2efd177c7888549e6976fbe6d
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319421"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389471"
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>그룹 기반 라이선스를 사용하여 제품 라이선스 간에 사용자를 안전하게 마이그레이션하는 방법
 
@@ -85,7 +85,7 @@ ms.locfileid: "54319421"
 > [!NOTE]
 > 이 샘플 코드는 이 문서의 [마지막 섹션](#powershell-automation-of-migration-and-verification-steps)에 포함된 PowerShell 함수를 사용합니다.
 
-```
+```powershell
 # A batch of users that we want to migrate in this iteration.
 # The batch can be specified as an array of User Principal Names (string) or ObjectIds (Guid).
 # Note: The batch can be loaded from a text file that represents a larger batch of users that we want to migrate.
@@ -128,7 +128,7 @@ ExecuteVerificationLoop ${function:VerifySourceLicenseRemovedAndTargetLicenseAss
 
 **샘플 출력(두 사용자의 마이그레이션)**
 
-```
+```powershell
 Verifying initial assumptions:
 Enough TailspinOnline:ENTERPRISEPREMIUM licenses available (13) for users: 2.
 migrationuser@tailspinonline.com                OK
@@ -215,7 +215,7 @@ Check passed for all users. Exiting check loop.
 > [!NOTE]
 > 이 샘플 코드는 이 문서의 [마지막 섹션](#powershell-automation-of-migration-and-verification-steps)에 포함된 PowerShell 함수를 사용합니다.
 
-```
+```powershell
 # A batch of users that we want to migrate in this iteration.
 # The batch can be specified as an array of User Principal Names (string) or ObjectIds (Guid).
 # Note: The batch can be loaded from a text file that represents a larger batch of users that we want to migrate.
@@ -265,7 +265,7 @@ ExecuteVerificationLoop ${function:VerifySourceLicenseRemovedAndTargetLicenseAss
 
 **샘플 출력(두 사용자의 마이그레이션)**
 
-```
+```powershell
 Verifying initial assumptions:
 Enough TailspinOnline:ENTERPRISEPACK licenses available (61) for users: 2.
 migrationuser@tailspinonline.com                OK
@@ -321,7 +321,7 @@ Check passed for all users. Exiting check loop.
 
 코드를 실행하려면 [Azure AD PowerShell v1.0 라이브러리](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)의 명령을 사용합니다. 스크립트를 실행하기 전에 `connect-msolservice` cmdlet을 실행하여 테넌트에 로그인합니다.
 
-```
+```powershell
 # BEGIN: Helper functions that are used in the scripts.
 
 # GetUserObject function
@@ -523,7 +523,7 @@ function IsExpectedLicenseStateForGroup
     # The license is expected to be fully assigned from the group and not in an error state.
     if([string]::IsNullOrEmpty($expectedError))
     {
-        # Check if the assigned license is inherted from the expected group and without an error on it.
+        # Check if the assigned license is inherited from the expected group and without an error on it.
         return (UserHasLicenseAssignedFromThisGroup $user $skuId $groupId)
     }
     # The license is expected to be in the specific error state on the specific group.
@@ -614,7 +614,7 @@ function VerifyAssumptionsForUser
         return $false
     }
 
-    # 2. The user does't have the same source license assigned from another group at the same time,
+    # 2. The user doesn't have the same source license assigned from another group at the same time,
     #    and the user doesn't have the source license assigned directly.
     [Guid[]]$otherObjectsAssigningLicense = GetObjectIdsAssigningLicense $user $sourceSkuId | Where {$_ -ne $sourceGroupId}
     foreach($otherObject in $otherObjectsAssigningLicense)

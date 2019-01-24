@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: ad0d383888c173ece5a7fbd3b0de690ed13074f7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 26acb3a2a0cefdca74d2c761ccddf89e18aa909a
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206296"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388484"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Windows 개발자 컴퓨터에서 Linux Service Fabric 클러스터 설정
 
@@ -39,13 +39,8 @@ Linux 기반 Service Fabric 클러스터는 기본적으로 Windows에서 실행
 ## <a name="create-a-local-container-and-setup-service-fabric"></a>로컬 컨테이너 만들기 및 Service Fabric 설치
 로컬 Docker 컨테이너를 설정하고 서비스 패브릭 클러스터가 실행되도록 하려면 PowerShell에서 다음 단계를 수행합니다.
 
-1. Docker 허브 리포지토리에서 이미지를 끌어옵니다.
 
-    ```powershell
-    docker pull microsoft/service-fabric-onebox
-    ```
-
-2. 다음을 사용하여 호스트에서 Docker 디먼 구성을 업데이트하고 Docker 디먼을 다시 시작합니다. 
+1. 다음을 사용하여 호스트에서 Docker 디먼 구성을 업데이트하고 Docker 디먼을 다시 시작합니다. 
 
     ```json
     {
@@ -55,32 +50,75 @@ Linux 기반 Service Fabric 클러스터는 기본적으로 Windows에서 실행
     ```
     권장되는 업데이트 방법은 Docker 아이콘 > 설정 > 디먼 > 고급으로 이동하고 업데이트하는 것입니다. 다음으로 변경 내용을 적용하려면 Docker 디먼을 다시 시작합니다. 
 
-3. 이미지와 함께 Service Fabric One-box 컨테이너 인스턴스를 시작합니다.
+2. 새 디렉터리에서 Service Fabric 이미지를 빌드할 `Dockerfile` 파일을 만듭니다.
 
-    ```powershell
-    docker run -itd -p 19080:19080 --name sfonebox microsoft/service-fabric-onebox
+    ```dockerfile
+    FROM microsoft/service-fabric-onebox
+    WORKDIR /home/ClusterDeployer
+    RUN ./setup.sh
+    #Generate the local
+    RUN locale-gen en_US.UTF-8
+    #Set environment variables
+    ENV LANG=en_US.UTF-8
+    ENV LANGUAGE=en_US:en
+    ENV LC_ALL=en_US.UTF-8
+    EXPOSE 19080 19000 80 443
+    #Start SSH before running the cluster
+    CMD /etc/init.d/ssh start && ./run.sh
     ```
+
+    >[!NOTE]
+    >컨테이너에 추가 프로그램 또는 종속성을 추가하도록 이 파일을 조정할 수 있습니다.
+    >예를 들어 `RUN apt-get install nodejs -y`를 추가하면 게스트 실행 파일인 `nodejs` 애플리케이션에 대한 지원이 허용됩니다.
+    
     >[!TIP]
-    > * 컨테이너 인스턴스의 이름을 지정하여 보다 읽기 쉬운 방식으로 처리할 수 있습니다. 
-    > * 애플리케이션을 특정 포트에서 수신하는 경우 추가 -p 태그를 사용하여 지정해야 합니다. 예를 들어 애플리케이션이 포트 8080에서 수신하는 경우 docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox를 실행합니다.
+    > 기본적으로 이렇게 하면 최신 버전의 Service Fabric으로 이미지를 가져옵니다. 특정 수정 버전은 [Docker 허브](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 페이지를 참조하세요.
 
-4. 대화형 ssh 모드에서 Docker 컨테이너에 로그인합니다.
+3. `Dockerfile`에서 다시 사용할 수 있는 이미지를 빌드하려면 터미널을 열고 `Dockerfile`을 보관하는 디렉터리에 `cd`한 후 다음을 실행합니다.
 
-    ```powershell
-    docker exec -it sfonebox bash
+    ```powershell 
+    docker build -t mysfcluster .
+    ```
+    
+    >[!NOTE]
+    >이 작업에 다소 시간이 걸릴 수 있지만 한 번만 수행하면 됩니다.
+
+4. 이제 필요할 때마다 다음을 실행하여 신속하게 Service Fabric의 로컬 복사를 시작할 수 있습니다.
+
+    ```powershell 
+    docker run --name sftestcluster -d -v //var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
     ```
 
-5. 필요한 종속성을 인출하는 설치 스크립트를 실행하고 그 후 컨테이너에서 클러스터를 시작합니다.
+    >[!TIP]
+    >읽기 쉬운 방식으로 처리할 수 있도록 컨테이너 인스턴스의 이름을 제공합니다. 
+    >
+    >애플리케이션을 특정 포트에서 수신 대기하는 경우 추가 `-p` 태그를 사용하여 포트를 지정해야 합니다. 예를 들어 애플리케이션이 포트 8080에서 수신 대기하는 경우 다음 `-p` 태그를 추가합니다.
+    >
+    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
+    >
 
-    ```bash
-    ./setup.sh     # Fetches and installs the dependencies required for Service Fabric to run
-    ./run.sh       # Starts the local cluster
+5. 잠시 후 클러스터가 시작되면, 다음 명령을 사용하여 로그를 보거나 대시보드로 이동하여 클러스터 상태([http://localhost:19080](http://localhost:19080))를 볼 수 있습니다.
+
+    ```powershell 
+    docker logs sftestcluster
     ```
 
 6. 5단계를 성공적으로 완료한 후 Windows에서 ``http://localhost:19080``으로 이동하고 Service Fabric 탐색기를 볼 수 있습니다. 이때 Windows 개발자 컴퓨터의 도구를 사용하여 이 클러스터에 연결하고 Linux Service Fabric 클러스터용 애플리케이션을 배포할 수 있습니다. 
 
     > [!NOTE]
     > Eclipse 플러그 인은 현재 Windows에서 지원되지 않습니다. 
+
+7. 작업을 모두 마쳤으면 이 명령을 사용하여 컨테이너를 중지하고 정리합니다.
+
+    ```powershell 
+    docker rm -f sftestcluster
+    ```
+
+### <a name="known-limitations"></a>알려진 제한 사항 
+ 
+ 다음은 Mac용 컨테이너에서 실행하는 로컬 클러스터의 알려진 제한 사항입니다. 
+ 
+ * DNS 서비스가 실행되지 않으며 지원되지 않음 [문제 #132](https://github.com/Microsoft/service-fabric/issues/132)
 
 ## <a name="next-steps"></a>다음 단계
 * [Eclipse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse) 시작

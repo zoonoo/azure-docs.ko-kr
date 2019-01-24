@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: dobett
-ms.openlocfilehash: f10f1da93df6a313525e102e4906cfe67a5f6ae3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b190390840a765953a2125348c3c9188f6bf7d37
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351885"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452039"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Azure IoT Hub의 X.509 보안 설정
 
@@ -76,7 +76,7 @@ IoT Hub에서 X.509 인증서 기반 보안을 사용하려면 루트 인증서�
 
 2. **+ 추가**를 클릭하여 새 장치를 추가합니다.
 
-3. **장치 ID**에 대한 표시 이름을 입력하고 **인증 유형**으로 **_X.509 CA Signed_** 를 선택합니다. **저장**을 클릭합니다.
+3. **디바이스 ID**에 대한 표시 이름을 입력하고 **인증 유형**으로 **_X.509 CA Signed_** 를 선택합니다. **저장**을 클릭합니다.
 
    ![포털에서 X.509 디바이스 만들기](./media/iot-hub-security-x509-get-started/create-x509-device.png)
 
@@ -86,15 +86,15 @@ IoT Hub에서 X.509 인증서 기반 보안을 사용하려면 루트 인증서�
 
 ## <a name="authenticate-your-x509-device-with-the-x509-certificates"></a>X.509 인증서로 X.509 디바이스 인증
 
-X.509 디바이스를 인증하려면 먼저 CA 인증서로 디바이스에 서명해야 합니다. 리프 디바이스의 서명은 일반적으로 제조 공장에서 수행되며 제조 도구가 이에 따라 활성화됩니다. 디바이스가 한 제조업체에서 다른 제조업체로 이동함에 따라 각 제조업체의 서명 작업은 체인 내에서 중간 인증서로 캡처됩니다. 최종 결과는 CA 인증서에서 디바이스의 리프 인증서까지의 인증서 체인입니다. [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)의 4단계는 장치 인증서를 생성합니다.
+X.509 디바이스를 인증하려면 먼저 CA 인증서로 디바이스에 서명해야 합니다. 리프 디바이스의 서명은 일반적으로 제조 공장에서 수행되며 제조 도구가 이에 따라 활성화됩니다. 디바이스가 한 제조업체에서 다른 제조업체로 이동함에 따라 각 제조업체의 서명 작업은 체인 내에서 중간 인증서로 캡처됩니다. 최종 결과는 CA 인증서에서 디바이스의 리프 인증서까지의 인증서 체인입니다. [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)의 4단계는 디바이스 인증서를 생성합니다.
 
-다음으로 IoT Hub에 등록된 X.509 디바이스를 시뮬레이트하는 C# 응용 프로그램을 만드는 방법을 보여줍니다. 시뮬레이트된 디바이스에서 허브로 온도 및 습도 값을 전송합니다. 이 자습서에서는 디바이스 응용 프로그램만 만듭니다. 이 시뮬레이트된 디바이스에서 보낸 이벤트에 응답을 보낼 IoT Hub 서비스 응용 프로그램을 작성하는 것은 독자가 연습하도록 남겨두었습니다. C# 애플리케이션은 [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)의 단계를 수행했다고 가정합니다.
+다음으로 IoT Hub에 등록된 X.509 장치를 시뮬레이트하는 C# 애플리케이션을 만드는 방법을 보여줍니다. 시뮬레이트된 디바이스에서 허브로 온도 및 습도 값을 전송합니다. 이 자습서에서는 장치 애플리케이션만 만듭니다. 이 시뮬레이트된 장치에서 보낸 이벤트에 응답을 보낼 IoT Hub 서비스 애플리케이션을 작성하는 것은 독자가 연습하도록 남겨두었습니다. C# 애플리케이션은 [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)의 단계를 수행했다고 가정합니다.
 
 1. Visual Studio에서 콘솔 애플리케이션 프로젝트 템플릿을 사용하여 새 Visual C# Windows 클래식 데스크톱 프로젝트를 만듭니다. 프로젝트의 이름을 **SimulateX509Device**로 지정합니다.
-   ![Visual Studio에서 X.509 장치 프로젝트 만들기](./media/iot-hub-security-x509-get-started/create-device-project.png)
+   ![Visual Studio에서 X.509 디바이스 프로젝트 만들기](./media/iot-hub-security-x509-get-started/create-device-project.png)
 
 2. 솔루션 탐색기에서 **SimulateX509Device** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...** 를 클릭합니다. NuGet 패키지 관리자 창에서 **찾아보기**를 선택하고 **microsoft.azure.devices.client**를 검색합니다. **설치**를 선택하여 **Microsoft.Azure.Devices.Client** 패키지를 설치한 후 사용 약관에 동의합니다. 이 프로시저에서는 Azure IoT 디바이스 SDK NuGet 패키지 및 해당 종속성에 대한 참조를 다운로드, 설치 및 추가합니다.
-   ![Visual Studio에서 장치 SDK NuGet 패키지 추가](./media/iot-hub-security-x509-get-started/device-sdk-nuget.png)
+   ![Visual Studio에서 디바이스 SDK NuGet 패키지 추가](./media/iot-hub-security-x509-get-started/device-sdk-nuget.png)
 
 3. *Program.cs* 파일의 맨 위에 다음 코드 줄을 추가합니다.
     
@@ -114,7 +114,7 @@ X.509 디바이스를 인증하려면 먼저 CA 인증서로 디바이스에 서
         private static float humidity;
         private static Random rnd = new Random();
     ```
-   _<your_device_id>_ 자리 표시자 대신 앞 섹션에서 사용한 장치 이름을 사용하십시오.
+   _&lt;your_device_id&gt;_ 자리 표시자 대신 앞 섹션에서 사용한 디바이스 이름을 사용하십시오.
 
 5. 다음 함수를 추가하여 온도 및 습도에 대한 임의의 숫자를 만들고 이 값을 허브에 보냅니다.
     ```CSharp
@@ -163,8 +163,8 @@ X.509 디바이스를 인증하려면 먼저 CA 인증서로 디바이스에 서
     }
     ```
    이 코드는 X.509 디바이스에 대한 연결 문자열을 만들어서 IoT Hub에 연결합니다. 연결이 완료되면 온도 및 습도 이벤트를 허브에 보내고 응답을 기다립니다. 
-7. 이 애플리케이션은 *.pfx* 파일에 액세스하므로 *관리자* 모드에서 실행해야 할 수 있습니다. Visual Studio 솔루션을 빌드합니다. **관리자**로 새 명령 창을 열고 이 솔루션이 포함된 폴더로 이동합니다. 솔루션 폴더 내의 *bin/Debug* 경로로 이동합니다. _관리자_ 명령 창에서 **SimulateX509Device.exe** 응용 프로그램을 실행합니다. 디바이스가 허브에 성공적으로 연결되어 이벤트를 보내는 것이 표시되어야 합니다. 
-   ![장치 앱 실](./media/iot-hub-security-x509-get-started/device-app-success.png)
+7. 이 애플리케이션은 *.pfx* 파일에 액세스하므로 *관리자* 모드에서 실행해야 할 수 있습니다. Visual Studio 솔루션을 빌드합니다. **관리자**로 새 명령 창을 열고 이 솔루션이 포함된 폴더로 이동합니다. 솔루션 폴더 내의 *bin/Debug* 경로로 이동합니다. _관리자_ 명령 창에서 **SimulateX509Device.exe** 애플리케이션을 실행합니다. 디바이스가 허브에 성공적으로 연결되어 이벤트를 보내는 것이 표시되어야 합니다. 
+   ![디바이스 앱 실](./media/iot-hub-security-x509-get-started/device-app-success.png)
 
 ## <a name="see-also"></a>참고 항목
 IoT 솔루션 보안 유지에 대한 자세한 내용은 다음을 참조하세요.
@@ -175,7 +175,7 @@ IoT 솔루션 보안 유지에 대한 자세한 내용은 다음을 참조하세
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [Azure IoT Edge를 사용하여 에지 장치에 AI 배포][lnk-iotedge]
+* [Azure IoT Edge를 사용하여 Edge 디바이스에 AI 배포][lnk-iotedge]
 
 [lnk-security-best-practices]: ../iot-fundamentals/iot-security-best-practices.md
 [lnk-security-architecture]: ../iot-fundamentals/iot-security-architecture.md

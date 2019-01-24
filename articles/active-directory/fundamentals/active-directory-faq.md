@@ -3,7 +3,7 @@ title: FAQ(질문과 대답) - Azure Active Directory | Microsoft Docs
 description: Azure 및 Azure Active Directory, 암호 관리 및 애플리케이션 액세스에 대한 일반적인 질문과 답변입니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: a3571ff24c36b7f2129f60348414d4d178ef30d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f10b22270ed31c98bc3bb30128a7f31ff113409d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084096"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452618"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Azure Active Directory에 대해 자주 묻는 질문과 대답
 Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -144,7 +144,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 요청을 필터링하고 봇넷으로부터 보호하며, 모든 B2C 테넌트에 적용되는 게이트웨이가 있습니다.
 
-## <a name="application-access"></a>응용 프로그램 액세스
+## <a name="application-access"></a>애플리케이션 액세스
 
 **Q: Azure AD 및 해당 기능과 미리 통합된 애플리케이션의 목록을 어디에서 찾을 수 있나요?**
 
@@ -155,12 +155,12 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 - - -
 **Q: 필요한 애플리케이션이 Azure AD 마켓플레이스에 없는 경우 어떻게 하나요?**
 
-**A:** Azure AD Premium에서는 원하는 애플리케이션을 추가하고 구성할 수 있습니다. 응용 프로그램의 기능 및 기본 설정에 따라 SSO 및 자동화된 프로비전을 구성할 수 있습니다.  
+**A:** Azure AD Premium에서는 원하는 애플리케이션을 추가하고 구성할 수 있습니다. 애플리케이션의 기능 및 기본 설정에 따라 SSO 및 자동화된 프로비전을 구성할 수 있습니다.  
 
 자세한 내용은 다음을 참조하세요.
 
-* [Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](../manage-apps/use-scim-to-provision-users-and-groups.md)
+* [Azure Active Directory 애플리케이션 갤러리에 있지 않은 애플리케이션에 Single Sign-On 구성](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [SCIM를 사용하여 Azure Active Directory으로부터 애플리케이션에 사용자 및 그룹의 자동 프로비전 사용](../manage-apps/use-scim-to-provision-users-and-groups.md)
 
 - - -
 **Q: 사용자가 Azure AD를 사용하여 애플리케이션에 로그인하려면 어떻게 하나요?**
