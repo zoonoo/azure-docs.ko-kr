@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a023d9f600f63d1ead4cf7c7e2a3cceec794d28b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4f4456ed81fba4648f5bc3efaa415b1e44e5e415
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972600"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852119"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>자습서 - cloud-init를 사용하여 첫 번째 부팅 시 Azure에서 Linux 가상 머신을 사용자 지정하는 방법
 
@@ -171,7 +171,7 @@ az keyvault certificate create \
 
 
 ### <a name="prepare-certificate-for-use-with-vm"></a>VM에 사용할 인증서 준비
-VM 만들기 프로세스 동안 인증서를 사용하려면 [az keyvault secret list-versions](/cli/azure/keyvault/secret#az-keyvault-secret-list-versions)를 사용하여 인증서 ID를 가져옵니다. VM에는 부팅 시 삽입하는 특정 형식의 인증서가 필요하므로 [az vm secret format](/cli/azure/vm#az-vm-secret-format)을 사용하여 인증서를 변환합니다. 다음 예제에서는 다음 단계의 사용 편의성을 위해 변수에 이러한 명령의 출력을 할당합니다.
+VM 만들기 프로세스 동안 인증서를 사용하려면 [az keyvault secret list-versions](/cli/azure/keyvault/secret#az-keyvault-secret-list-versions)를 사용하여 인증서 ID를 가져옵니다. VM에는 부팅 시 삽입하는 특정 형식의 인증서가 필요하므로 [az vm secret format](/cli/azure/vm)을 사용하여 인증서를 변환합니다. 다음 예제에서는 다음 단계의 사용 편의성을 위해 변수에 이러한 명령의 출력을 할당합니다.
 
 ```azurecli-interactive
 secret=$(az keyvault secret list-versions \

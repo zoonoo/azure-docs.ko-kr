@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: d12edc2023deb69118d7c02e053cd2525f6ae684
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.subservice: autoscale
+ms.openlocfilehash: 736ff5565bb279d26e686421cc13f54a73b1c7e9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437727"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461096"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor 자동 크기 조정 공용 메트릭
 Azure Monitor 자동 크기 조정을 사용하여 원격 분석 데이터(메트릭)에 따라 실행 중인 인스턴트 수를 늘리거나 줄일 수 있습니다. 이 문서에서는 사용하고자 하는 공용 메트릭에 대해 설명합니다. Azure Portal에서 크기를 조정할 리소스의 메트릭을 선택할 수 있습니다. 그러나 크기를 조정하기 위해 여러 리소스에서 임의 메트릭을 선택할 수도 있습니다.
@@ -187,3 +187,4 @@ VM Scale Sets의 경우 *metricName*을 *ApproximateMessageCount*로 사용하�
 > Service Bus의 경우 리소스 그룹 개념이 없지만 Azure Resource Manager가 지역마다 기본 리소스 그룹을 만듭니다. 리소스 그룹은 일반적으로 'Default-ServiceBus-[region]' 형식입니다. 예를 들어 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast' 등입니다.
 >
 >
+

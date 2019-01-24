@@ -3,7 +3,7 @@ title: Single Sign-On 구성 - Azure Active Directory | Microsoft Docs
 description: 이 자습서는 Azure Portal을 사용하여 Azure AD(Azure Active Directory)에서 애플리케이션에 대해 SAML 기반 Single Sign-On을 구성합니다.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: tutorial
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/06/2018
 ms.author: barbkess
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: aceacdea8b3c86a5c4f26a5f082f4c6cf0b3805d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 73e97a38913b3098ba2e14294ecf621add310428
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011980"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465721"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션에 대한 SAML 기반 Single Sign-On 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "53011980"
 
 1. 애플리케이션이 Azure AD 테넌트에 추가되지 않은 경우 [빠른 시작: Azure AD 테넌트에 애플리케이션 추가](add-application-portal.md)를 참조하세요.
 
-2. [도메인 및 URL 구성](#configure-domain-and-urls)에 설명된 정보는 응용 프로그램 공급 업체에 요청하세요.
+2. [도메인 및 URL 구성](#configure-domain-and-urls)에 설명된 정보는 애플리케이션 공급 업체에 요청하세요.
 
 3. 이 자습서의 단계를 테스트하려면 비-프로덕션 환경을 사용하는 것이 좋습니다. Azure AD 비-프로덕션 환경이 없으면 [1개월 평가판](https://azure.microsoft.com/pricing/free-trial/)을 받을 수 있습니다.
 
@@ -51,9 +51,9 @@ Single Sign-On 설정을 열려면:
 
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 창에서 **Azure Active Directory**를 클릭합니다. 
 
-2. **Azure Active Directory** 블레이드에서 **엔터프라이즈 응용 프로그램**을 클릭합니다. Azure AD 테넌트에 있는 임의의 애플리케이션 샘플을 보여주는 **모든 애플리케이션** 블레이드가 열립니다. 
+2. **Azure Active Directory** 블레이드에서 **엔터프라이즈 애플리케이션**을 클릭합니다. Azure AD 테넌트에 있는 임의의 애플리케이션 샘플을 보여주는 **모든 애플리케이션** 블레이드가 열립니다. 
 
-3. **응용 프로그램 종류** 메뉴에서 **모든 응용 프로그램**을 선택하고 **적용**을 클릭합니다.
+3. **애플리케이션 종류** 메뉴에서 **모든 애플리케이션**을 선택하고 **적용**을 클릭합니다.
 
 4. Single Sign-On을 구성하려는 애플리케이션의 이름을 입력합니다. 고유한 애플리케이션을 선택하거나, **GitHub-test**를 입력하여 [애플리케이션 추가](add-application-portal.md) 빠른 시작에 추가한 애플리케이션을 구성합니다.
 
@@ -145,7 +145,7 @@ Azure AD에서는 인증서를 사용하여 애플리케이션에 보내는 SAML
     ![애플리케이션 구성](media/configure-single-sign-on-portal/configure-app.png)
 
 2. 포털에서 **애플리케이션 구성**을 클릭하고 지침에 따릅니다.
-3. Single Sign-On을 테스트하기 위해 애플리케이션에서 사용자 계정을 수동으로 만듭니다. [이전 섹션](#assign-users-to-the-application)에서 응용 프로그램에 할당된 사용자 계정을 만듭니다. 
+3. Single Sign-On을 테스트하기 위해 애플리케이션에서 사용자 계정을 수동으로 만듭니다. [이전 섹션](#assign-users-to-the-application)에서 애플리케이션에 할당된 사용자 계정을 만듭니다. 
 
 ## <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

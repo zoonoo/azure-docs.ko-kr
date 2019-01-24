@@ -3,7 +3,7 @@ title: 라이선스 할당 또는 제거 - Azure Active Directory | Microsoft Do
 description: 사용자 또는 그룹에서 Azure Active Directory 라이선스를 할당하거나 제거하는 방법에 대한 지침입니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
 ms.component: fundamentals
@@ -13,12 +13,12 @@ ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 0d3f417b5a169b3d8d91d85b5f47496064c8f5f3
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b7abcb4820dde221f17efa1fcded05df41fa7bed
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063355"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449489"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Azure Active Directory 포털을 사용하여 라이선스 할당 또는 제거
 많은 Azure AD(Azure Active Directory) 서비스를 사용하려면 Azure AD 제품을 활성화하고 해당 제품에 대한 각 사용자 또는 그룹(및 관련 멤버)에 라이선스를 부여해야 합니다. 활성 라이선스가 있는 사용자만 사용이 허가된 Azure AD 서비스에 액세스하여 사용할 수 있습니다.

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bf6f27b7720cf4a30aa08ca02f9150aebe564244
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f427ce2df8a83a3fb43291fcb375a1e01b32060d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135943"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447023"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>SQL 및 Python을 사용하여 SQL Server의 데이터에 대한 기능 만들기
 이 문서에서는 데이터에서 알고리즘을 효율적으로 학습할 수 있는 Azure의 SQL Server VM에 저장된 데이터에 대한 기능을 생성하는 방법을 보여 줍니다. SQL 또는 Python 같은 프로그래밍 언어를 사용하여 이 작업을 수행할 수 있습니다. 여기에는 두 방법이 모두 설명되어 있습니다.
@@ -114,7 +114,7 @@ ms.locfileid: "53135943"
 Python의 [Pandas 라이브러리](http://pandas.pydata.org/) 에서는 Python 프로그래밍용 데이터 조작을 위한 다양한 데이터 구조 및 데이터 분석 도구 집합을 제공합니다. 다음 코드는 SQL Server 데이터베이스에서 Pandas 데이터 프레임으로 반환되는 결과를 읽습니다.
 
     # Query database and load the returned results in pandas data frame
-    data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
+    data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 
-이제 [Panda를 사용하여 Azure blob 저장소 데이터에 대한 기능 만들기](create-features-blob.md)토픽에 설명된 대로 Pandas 데이터 프레임으로 작업할 수 있습니다.
+이제 [Panda를 사용하여 Azure Blob Storage 데이터에 대한 기능 만들기](create-features-blob.md)토픽에 설명된 대로 Pandas 데이터 프레임으로 작업할 수 있습니다.
 

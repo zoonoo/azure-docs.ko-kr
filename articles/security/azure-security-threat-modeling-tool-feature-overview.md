@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 8bbc13aa77c50c6ae02ecc67869035e7ec85effa
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 601f3bf05388406c8f96a7351f7fb3aa4de2650a
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359343"
+ms.locfileid: "54389317"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>위협 모델링 도구 기능 개요
 
@@ -207,5 +207,5 @@ ms.locfileid: "54359343"
 
 ## <a name="next-steps"></a>다음 단계
 
-* 커뮤니티에 템플릿을 제공하려면 [GitHub](https://github.com/Microsoft/threat-modeling-templates) 페이지로 이동하세요. 
-* 도구를 시작하려면 [다운로드](https://aka.ms/tmtpreview) 페이지로 이동합니다.
+- 질문, 의견 및 문제를 tmtextsupport@microsoft.com에 보냅니다. 시작하려면 위협 모델링 도구를 **[다운로드](https://aka.ms/threatmodelingtool)** 하세요.
+- 커뮤니티에 템플릿을 제공하려면 [GitHub](https://github.com/Microsoft/threat-modeling-templates) 페이지로 이동하세요.

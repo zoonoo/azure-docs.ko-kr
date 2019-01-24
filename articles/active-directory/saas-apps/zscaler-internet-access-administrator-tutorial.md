@@ -4,7 +4,7 @@ description: Azure Active Directory 및 Zscaler Internet Access Administrator �
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ea555097-bf62-45dd-9b45-b75c50324a69
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 088fc2b7aeb318481a81387770f1dcef2883241d
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 153c6517560614b8a1eb9c0241aefc121b391d19
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064103"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823592"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>자습서: Zscaler Internet Access Administrator와 Azure Active Directory 통합
 
@@ -78,8 +78,8 @@ Zscaler Internet Access Administrator에서 Azure AD Single Sign-On을 구성하
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Zscaler Internet Access Administrator Single Sign-On 구성](#configure-zscaler-internet-access-administrator-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-on 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Zscaler Internet Access Administrator 테스트 사용자 만들기](#create-zscaler-internet-access-administrator-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Zscaler Internet Access Administrator에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Zscaler Internet Access Administrator 테스트 사용자 만들기](#create-zscaler-internet-access-administrator-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Zscaler Internet Access Administrator에 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -105,25 +105,25 @@ Zscaler Internet Access Administrator에서 Azure AD Single Sign-On을 구성하
     ![Zscaler Internet Access Administrator 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에 요구 사항에 따라 URL을 입력합니다.
-    
+
     | |
     |--|
     | `https://admin.zscaler.net` |
-    | `https://admin.zscalerone.net` | 
+    | `https://admin.zscalerone.net` |
     | `https://admin.zscalertwo.net` |
     | `https://admin.zscalerthree.net` |
     | `https://admin.zscloud.net` |
     | `https://admin.zscalerbeta.net` |
 
     b. **회신 URL** 텍스트 상자에 요구 사항에 따라 URL을 입력합니다.
-    
+
     | |
     |--|
     | `https://admin.zscaler.net/adminsso.do` |
-    | `https://admin.zscalerone.net/adminsso.do` | 
-    | `https://admin.zscalertwo.net/adminsso.do` | 
-    | `https://admin.zscalerthree.net/adminsso.do` | 
-    | `https://admin.zscloud.net/adminsso.do` | 
+    | `https://admin.zscalerone.net/adminsso.do` |
+    | `https://admin.zscalertwo.net/adminsso.do` |
+    | `https://admin.zscalerthree.net/adminsso.do` |
+    | `https://admin.zscloud.net/adminsso.do` |
     | `https://admin.zscalerbeta.net/adminsso.do` |
 
 5. Zscaler Internet Access Administrator 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정 페이지**에서 **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
@@ -151,11 +151,11 @@ Zscaler Internet Access Administrator에서 Azure AD Single Sign-On을 구성하
     > [!NOTE]
     > [여기](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management)를 클릭하여 Azure AD에서 역할을 구성하는 방법을 알아봅니다.
 
-4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
+7. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
-6. **Zscaler Internet Access Administrator 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+8. **Zscaler Internet Access Administrator 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
@@ -170,13 +170,13 @@ Zscaler Internet Access Administrator에서 Azure AD Single Sign-On을 구성하
 1. 다른 웹 브라우저 창에서 Zscaler Internet Access Administrator UI에 로그인합니다.
 
 2. **관리 > 관리자 관리**로 이동하여 다음 단계를 수행하고 [저장]을 클릭합니다.
-   
+
     ![관리](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "관리")
 
     a. **SAML 인증 사용**을 선택합니다.
 
     b. **업로드**를 클릭하여 Azure Portal에서 다운로드한 Azure SAML 서명 인증서를 **공용 SSL 인증서**에 업로드합니다.
-    
+
     다. 필요에 따라 추가 보안을 위해 **발급자** 세부 정보를 추가하여 SAML 응답의 발급자를 확인합니다.
 
 3. 관리자 UI에서 다음 단계를 수행합니다.
@@ -245,7 +245,7 @@ Zscaler Internet Access Administrator에서 Azure AD Single Sign-On을 구성하
 
 https://help.zscaler.com/zia/adding-admins
 
-### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
+### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
@@ -258,4 +258,3 @@ https://help.zscaler.com/zia/adding-admins
 - [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

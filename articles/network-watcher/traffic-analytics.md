@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 120b97f69c8fad2daf3090441e8d0326e80115c3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3b0db93d44827e3f5d0543f28a6f4b5fb0c4818e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338586"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429092"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
-트래픽 분석은 클라우드 네트워크의 사용자 및 응용 프로그램 작업에 대한 가시성을 제공하는 클라우드 기반 솔루션입니다. 트래픽 분석은 Network Watcher NSG(네트워크 보안 그룹) 흐름 로그를 분석하여 Azure 클라우드 내 트래픽 흐름에 대한 정보를 제공합니다. 트래픽 분석을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
+트래픽 분석은 클라우드 네트워크의 사용자 및 애플리케이션 작업에 대한 가시성을 제공하는 클라우드 기반 솔루션입니다. 트래픽 분석은 Network Watcher NSG(네트워크 보안 그룹) 흐름 로그를 분석하여 Azure 클라우드 내 트래픽 흐름에 대한 정보를 제공합니다. 트래픽 분석을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
 - Azure 구독에서 이루어지는 네트워크 작업을 시각화하고 핫스폿을 식별합니다.
-- 열린 포트, 인터넷 액세스를 시도하는 응용 프로그램, 불량 네트워크에 연결하는 VM(가상 머신) 같은 정보를 통해 네트워크에 대한 위협을 식별하고 네트워크를 보호합니다.
+- 열린 포트, 인터넷 액세스를 시도하는 애플리케이션, 불량 네트워크에 연결하는 VM(가상 머신) 같은 정보를 통해 네트워크에 대한 위협을 식별하고 네트워크를 보호합니다.
 - Azure 지역 및 인터넷의 트래픽 흐름 패턴을 파악하여 네트워크 성능 및 용량에 맞게 네트워크 배포를 최적화합니다.
 - 네트워크에서 연결 실패의 원인이 되는 네트워크 구성 오류를 정확히 파악합니다.
 
@@ -35,13 +35,13 @@ ms.locfileid: "53338586"
 
 클라우드 네트워크는 온-프레미스 엔터프라이즈 네트워크와는 다르게, 네트워크 인터페이스로 들어가거나 나올 때 IP 네트워크 트래픽을 수집하는 기능을 제공하는 netflow 또는 그에 상응하는 프로토콜 케이블 라우터와 스위치가 있습니다. 트래픽 흐름 데이터를 분석하면 네트워크 트래픽 흐름 및 볼륨을 분석할 수 있습니다.
 
-Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 개별 네트워크 인터페이스, VM 또는 서브넷에 연결된 네트워크 보안 그룹을 통과하는 송수신 IP 트래픽에 대한 정보를 제공합니다. 트래픽 분석은 원시 NSG 흐름 로그를 분석하고 보안, 토폴로지 및 지리 인텔리전스를 삽입하여 환경의 트래픽 흐름에 대한 정보를 제공합니다. 트래픽 분석에서는 가장 통신이 많은 호스트, 가장 통신이 많은 응용 프로그램 프로토콜, 가장 대화가 많은 호스트 쌍, 허용된/차단된 트래픽, 인바운드/아웃바운드 트래픽, 열려 있는 인터넷 포트, 가장 제한이 많은 규칙, Azure 데이터 센터당 트래픽 분산, 가상 네트워크, 서브넷, 불량 네트워크 등과 같은 정보를 제공합니다.
+Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 개별 네트워크 인터페이스, VM 또는 서브넷에 연결된 네트워크 보안 그룹을 통과하는 송수신 IP 트래픽에 대한 정보를 제공합니다. 트래픽 분석은 원시 NSG 흐름 로그를 분석하고 보안, 토폴로지 및 지리 인텔리전스를 삽입하여 환경의 트래픽 흐름에 대한 정보를 제공합니다. 트래픽 분석에서는 가장 통신이 많은 호스트, 가장 통신이 많은 애플리케이션 프로토콜, 가장 대화가 많은 호스트 쌍, 허용된/차단된 트래픽, 인바운드/아웃바운드 트래픽, 열려 있는 인터넷 포트, 가장 제한이 많은 규칙, Azure 데이터 센터당 트래픽 분산, 가상 네트워크, 서브넷, 불량 네트워크 등과 같은 정보를 제공합니다.
 
 ## <a name="key-components"></a>핵심 구성 요소
 
 - **NSG(네트워크 보안 그룹)**: Azure Virtual Network에 연결된 리소스에 대한 네트워크 트래픽을 허용하거나 거부하는 보안 규칙 목록이 포함되어 있습니다. NSG는 서브넷, 개별 VM(클래식) 또는 VM(Resource Manager)에 연결된 개별 NIC(네트워크 인터페이스)와 연결될 수 있습니다. 자세한 내용은 [네트워크 보안 그룹 개요](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
 - **NSG(네트워크 보안 그룹) 흐름 로그**: 네트워크 보안 그룹을 통한 송/수신 IP 트래픽에 대한 정보를 볼 수 있습니다. NSG 흐름 로그는 json 형식으로 작성되고 트래픽이 허용되거나 거부된 경우 각 규칙을 기준으로 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC, 흐름에 대한 5개의 튜플 정보(원본/대상 IP 주소, 원본/대상 포트, 프로토콜)를 보여줍니다. NSG 흐름 로그에 대한 자세한 내용은 [NSG 흐름 로그](network-watcher-nsg-flow-logging-overview.md)를 참조하세요.
-- **Log Analytics**: 모니터링 데이터를 수집하고 중앙 리포지토리에 데이터를 저장하는 Azure 서비스입니다. 이 데이터에는 이벤트, 성능 데이터 또는 Azure API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다. 네트워크 성능 모니터 및 트래픽 분석 같은 모니터링 응용 프로그램은 Log Analytics를 기반으로 사용하여 작성됩니다. 자세한 내용은 [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
+- **Log Analytics**: 모니터링 데이터를 수집하고 중앙 리포지토리에 데이터를 저장하는 Azure 서비스입니다. 이 데이터에는 이벤트, 성능 데이터 또는 Azure API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다. 네트워크 성능 모니터 및 트래픽 분석 같은 모니터링 애플리케이션은 Log Analytics를 기반으로 사용하여 작성됩니다. 자세한 내용은 [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
 - **Log Analytics 작업 영역**: Azure 계정과 관련된 데이터가 저장되는 로그 분석 인스턴스입니다. 로그 분석 작업 영역에 대한 자세한 내용은 [Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
 - **Network Watcher**: Azure에서 네트워크 시나리오 수준으로 상태를 모니터링하고 진단할 수 있는 지역 서비스입니다. Network Watcher에서 NSG 흐름 로그를 켜고 끌 수 있습니다. 자세한 내용은 [Network Watcher](network-watcher-monitoring-overview.md)를 참조하세요.
 
@@ -97,11 +97,8 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 |---------          |---------               |
 |리소스 관리자   | 소유자                  |
 |                   | 참가자            |
-|                   | 읽기 권한자                 |
+|                   | 판독기                 |
 |                   | 네트워크 참가자    |
-|클래식            | 계정 관리자  |
-|                   | 서비스 관리자  |
-|                   | 공동 관리자       |
 
 계정이 기본 제공 역할 중 하나에 할당되지 않은 경우 구독 수준에서 다음 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)에 할당되어야 합니다.
 
@@ -176,7 +173,7 @@ New-AzureRmStorageAccount `
 
 트래픽 분석을 사용할 다른 NSG에 대해 이전 단계를 반복합니다. 흐름 로그의 데이터는 작업 영역으로 전송되므로 작업 영역이 있는 지역에 데이터를 저장하는 것을 현지 법률 및 규정에서 허용하는지 확인해야 합니다.
 
-AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) PowerShell cmdlet을 사용하여 트래픽 분석을 구성할 수도 있습니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) PowerShell cmdlet을 사용하여 트래픽 분석을 구성할 수도 있습니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
 
 ## <a name="view-traffic-analytics"></a>트래픽 분석 보기
 
@@ -218,9 +215,9 @@ AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherCo
     - 프런트 엔드 또는 백 엔드 통신과 같은 예상된 동작 또는 백 엔드 인터넷 트래픽과 같은 비정상 동작.
 - 허용된/차단된 트래픽 통계
     - 호스트가 상당한 양의 트래픽을 허용 또는 차단하는 이유
-- 가장 대화가 많은 호스트 쌍 중에서 가장 많이 사용되는 응용 프로그램 프로토콜:
-    - 이러한 응용 프로그램이 이 네트워크에서 허용되는지 여부
-    - 응용 프로그램이 올바르게 구성되었는지 여부 통신에 적절한 프로토콜을 사용하는지 여부 다음 그림처럼 **자주 하는 대화** 아래에서 **모두 보기**를 선택합니다.
+- 가장 대화가 많은 호스트 쌍 중에서 가장 많이 사용되는 애플리케이션 프로토콜:
+    - 이러한 애플리케이션이 이 네트워크에서 허용되는지 여부
+    - 애플리케이션이 올바르게 구성되었는지 여부 통신에 적절한 프로토콜을 사용하는지 여부 다음 그림처럼 **자주 하는 대화** 아래에서 **모두 보기**를 선택합니다.
 
         ![빈도가 가장 높은 대화를 보여주는 대시보드](./media/traffic-analytics/dashboard-showcasing-most-frequent-conversation.png)
 
@@ -230,17 +227,17 @@ AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherCo
 
 **검색**
 
-- 환경에서 가장 많이 사용되는 응용 프로그램 프로토콜 및 응용 프로그램 프로토콜을 가장 많이 사용하는 호스트 쌍
-    - 이러한 응용 프로그램이 이 네트워크에서 허용되는지 여부
-    - 응용 프로그램이 올바르게 구성되었는지 여부 통신에 적절한 프로토콜을 사용하는지 여부 예상되는 동작은 80 및 443 같은 공통 포트입니다. 표준 통신의 겨우 비정상적인 포트가 표시되는 경우 구성 변경이 필요할 수 있습니다. 다음 그림처럼 **응용 프로그램 포트** 아래에서 **모두 보기**를 선택합니다.
+- 환경에서 가장 많이 사용되는 애플리케이션 프로토콜 및 애플리케이션 프로토콜을 가장 많이 사용하는 호스트 쌍
+    - 이러한 애플리케이션이 이 네트워크에서 허용되는지 여부
+    - 애플리케이션이 올바르게 구성되었는지 여부 통신에 적절한 프로토콜을 사용하는지 여부 예상되는 동작은 80 및 443 같은 공통 포트입니다. 표준 통신의 겨우 비정상적인 포트가 표시되는 경우 구성 변경이 필요할 수 있습니다. 다음 그림처럼 **애플리케이션 포트** 아래에서 **모두 보기**를 선택합니다.
 
-        ![상위 응용 프로그램 프로토콜을 표시하는 대시보드](./media/traffic-analytics/dashboard-showcasing-top-application-protocols.png)
+        ![상위 애플리케이션 프로토콜을 표시하는 대시보드](./media/traffic-analytics/dashboard-showcasing-top-application-protocols.png)
 
 - 다음 그림은 상위 5개 L7 프로토콜 및 L7 프로토콜의 흐름 관련 세부 정보(예: 허용된 흐름 및 거부된 흐름)에 대한 시간 추세를 보여줍니다.
 
     ![상위 5개 계층 7 프로토콜 세부 정보 및 추세](./media/traffic-analytics/top-five-layer-seven-protocols-details-and-trend.png)
 
-    ![로그 검색의 응용 프로그램 프로토콜에 대한 흐름 세부 정보](./media/traffic-analytics/flow-details-for-application-protocol-in-log-search.png)
+    ![로그 검색의 애플리케이션 프로토콜에 대한 흐름 세부 정보](./media/traffic-analytics/flow-details-for-application-protocol-in-log-search.png)
 
 **검색**
 
@@ -260,7 +257,7 @@ AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherCo
 
 **검색**
 
-- 데이터 센터 상위 트래픽 소스, 데이터 센터와의 상위 불량 네트워크 대화, 상위 대화 응용 프로그램 프로토콜 같은 데이터 센터별 트래픽 분포.
+- 데이터 센터 상위 트래픽 소스, 데이터 센터와의 상위 불량 네트워크 대화, 상위 대화 애플리케이션 프로토콜 같은 데이터 센터별 트래픽 분포.
     - 데이터 센터에서 더 많은 부하가 목격되는 경우 효율적인 트래픽 분포를 계획할 수 있습니다.
     - 불량 네트워크가 데이터 센터에서 대화하는 경우 해당 네트워크를 차단하도록 NSG 규칙을 수정합니다.
 
@@ -282,7 +279,7 @@ AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherCo
 
 **검색**
 
-- 가상 네트워크, 토폴로지, 가상 네트워크로 가는 상위 트래픽 소스, 가상 네트워크와 대화하는 상위 불량 네트워크, 대화하는 상위 응용 프로그램 프로토콜별 트래픽 분포.
+- 가상 네트워크, 토폴로지, 가상 네트워크로 가는 상위 트래픽 소스, 가상 네트워크와 대화하는 상위 불량 네트워크, 대화하는 상위 애플리케이션 프로토콜별 트래픽 분포.
     - 어떤 가상 네트워크가 어떤 가상 네트워크와 대화하는지 파악. 대화가 예상되지 않는 경우 수정할 수 있습니다.
     - 불량 네트워크가 가상 네트워크와 대화하는 경우 불량 네트워크를 차단하도록 NSG 규칙을 수정할 수 있습니다.
  
@@ -292,7 +289,7 @@ AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherCo
 
 - 가상 네트워크 토폴로지는 가상 네트워크(상호 가상 네트워크 연결/활성/비활성), 외부 연결, 활성 흐름, 가상 네트워크의 악의적 흐름 등과 같은 매개 변수를 선택할 수 있는 상단 리본을 표시합니다.
 - 구독, 작업 영역, 리소스 그룹 및 시간 간격에 따라 가상 네트워크 토폴로지를 필터링할 수 있습니다. 흐름을 이해하는 데 도움이 되는 추가 필터는 흐름 유형(InterVNet, IntraVNET 등), 흐름 방향(인바운드, 아웃바운드), 흐름 상태(허용됨, 차단됨) VNET(대상으로 지정됨 및 연결됨), 연결 형식(피어링 또는 게이트웨이 - P2S 및 S2S) 및 NSG입니다. 이러한 필터를 사용하여 자세히 살펴볼 VNet에 초점을 맞춥니다.
-- 가상 네트워크 토폴로지는 흐름(허용된/차단된/인바운드/아웃바운드/무해/악성), 응용 프로그램 프로토콜, 네트워크 보안 그룹과 관련하여 가상 네트워크의 트래픽 분포를 보여주며, 다음은 그 예입니다.
+- 가상 네트워크 토폴로지는 흐름(허용된/차단된/인바운드/아웃바운드/무해/악성), 애플리케이션 프로토콜, 네트워크 보안 그룹과 관련하여 가상 네트워크의 트래픽 분포를 보여주며, 다음은 그 예입니다.
 
     ![트래픽 분포 및 흐름 세부 정보를 표시하는 가상 네트워크 토폴로지](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
     
@@ -306,15 +303,15 @@ AzureRm PowerShell 모듈 버전 6.2.1 이상에서 [Set-AzureRmNetworkWatcherCo
     - 어떤 서브넷이 어떤 서브넷과 대화하는지 파악. 예기치 않은 대화가 발견되면 구성을 수정할 수 있습니다.
     - 불량 네트워크가 서브넷과 대화하는 경우 불량 네트워크를 차단하도록 NSG 규칙을 구성하여 수정할 수 있습니다.
 - 서브넷 토폴로지는 활성/비활성 서브넷, 외부 연결, 활성 흐름, 서브넷의 악의적인 흐름 등과 같은 매개 변수를 선택할 수 있는 상단 리본을 보여줍니다.
-- 서브넷 토폴로지는 흐름(허용된/차단된/인바운드/아웃바운드/무해/악성), 응용 프로그램 프로토콜, NSG와 관련하여 가상 네트워크의 트래픽 분포를 보여주며, 다음은 그 예입니다.
+- 서브넷 토폴로지는 흐름(허용된/차단된/인바운드/아웃바운드/무해/악성), 애플리케이션 프로토콜, NSG와 관련하여 가상 네트워크의 트래픽 분포를 보여주며, 다음은 그 예입니다.
 
     ![흐름과 관련하여 가상 네트워크 서브넷의 트래픽 분포를 보여주는 서브넷 토폴로지](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-virtual-subnet-with-regards-to-flows.png)
 
 **검색**
 
-응용 프로그램 게이트웨이 및 Load Balancer, 토폴로지, 상위 트래픽 소스, 응용 프로그램 게이트웨이 및 Load Balancer와 대화하는 상위 불량 네트워크, 대화하는 상위 응용 프로그램 프로토콜별 트래픽 분포. 
+애플리케이션 게이트웨이 및 Load Balancer, 토폴로지, 상위 트래픽 소스, 애플리케이션 게이트웨이 및 Load Balancer와 대화하는 상위 불량 네트워크, 대화하는 상위 애플리케이션 프로토콜별 트래픽 분포. 
     
- - 응용 프로그램 게이트웨이 또는 Load Balancer와 대화하는 서브넷을 알고 있음. 예기치 않은 대화가 발견되면 구성을 수정할 수 있습니다.
+ - 애플리케이션 게이트웨이 또는 Load Balancer와 대화하는 서브넷을 알고 있음. 예기치 않은 대화가 발견되면 구성을 수정할 수 있습니다.
  - 불량 네트워크가 애플리케이션 게이트웨이 또는 Load Balancer와 대화하는 경우 불량 네트워크를 차단하도록 NSG 규칙을 구성하여 수정할 수 있습니다. 
 
     ![subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)

@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 8a8883989a731265fb358c119d44fa4243b54a5e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 305aa28127e453c01de9b55ab6cb0ff3471afad9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103947"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473812"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 진단 문제 해결
 이 문서에서는 Azure 진단 사용과 관련된 문제 해결 정보를 설명합니다. Azure 진단에 대한 자세한 내용은 [Azure 진단 개요](diagnostics-extension-overview.md)를 참조하세요.
@@ -293,3 +293,4 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 - 저장소의 데이터에 영어 카운터 이름이 있는지 여부. 카운터 이름이 영어가 아닌 경우 포털 메트릭 차트에서 해당 이름을 인식할 수 없습니다. **해결 방법**: 시스템 계정의 머신 언어를 영어로 변경합니다. 이렇게 하려면 **제어판** > **영역** > **관리** > **복사 설정**을 선택합니다. 그런 다음 사용자 지정 언어가 시스템 계정에 적용되지 않도록 **시작 화면 및 시스템 계정**을 선택 취소합니다.
 
 - 성능 카운터 이름에 와일드카드(\*)를 사용하는 경우 성능 카운터가 Azure Storage 싱크에 전송될 때 포털에서 구성된 카운터와 수집된 카운터 간의 상관관계를 지정할 수 없습니다. **해결 방법**: 와일드카드를 사용하고 포털에서 (\*)를 확장하도록 하려면 성능 카운터를 [“Azure Monitor” 싱크](diagnostics-extension-schema.md#diagnostics-extension-111)로 라우팅합니다.
+

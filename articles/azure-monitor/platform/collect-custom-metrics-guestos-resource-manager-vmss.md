@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: metrics
-ms.openlocfilehash: 1513ea1c212d526b7fe2659855d4a80eabc9949b
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.subservice: metrics
+ms.openlocfilehash: 465fe66eadddbdd0cb428dc868d70a1ed8f5e47f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261709"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476957"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Windows 가상 머신 확장 집합에 대해 Azure Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
 
@@ -291,4 +291,5 @@ Resource Manager 템플릿을 배포하려면 Azure PowerShell을 사용합니�
 
 ## <a name="next-steps"></a>다음 단계
 - [사용자 지정 메트릭](metrics-custom-overview.md)에 대해 자세히 알아보세요.
+
 

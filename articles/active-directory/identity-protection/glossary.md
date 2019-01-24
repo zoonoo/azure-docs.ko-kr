@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure Active Directory ID 보호, Cloud App Discovery, 애플리케이션 관리, 보안, 위험, 위험 수준, 취약성, 보안 정책, 용어집
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
 ms.component: conditional-access
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 3ea57ac39d48f51c7bbee1d149597c459fc5d547
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 7dbb127c14b8a4d809d82cf14eb0cf76c1c4698b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005524"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478351"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory ID 보호 용어집
 ### <a name="at-risk-user"></a>위험(사용자)
@@ -34,7 +34,7 @@ ms.locfileid: "40005524"
 조직의 ID에 영향을 주는 위험 이벤트와 잠재적 취약성에 대한 통합된 뷰를 제공하는 Azure Active Directory의 보안 모듈입니다.
 
 ### <a name="conditional-access"></a>조건부 액세스
-리소스에 대한 액세스를 보호하는 정책입니다. 조건부 액세스 규칙은 Azure Active Directory에 저장되고 리소스에 대한 액세스 권한을 부여하기 전에 Azure AD에서 평가됩니다.  예제 규칙은 사용자 위치, 디바이스 상태 또는 사용자 인증 방법에 따라 액세스를 제한하게 됩니다.
+리소스에 대한 액세스를 보호하는 정책입니다. 조건부 액세스 규칙은 Azure Active Directory에 저장되고 리소스에 대한 액세스 권한을 부여하기 전에 Azure AD에서 평가됩니다.  예제 규칙은 사용자 위치, 장치 상태 또는 사용자 인증 방법에 따라 액세스를 제한하게 됩니다.
 
 ### <a name="credentials"></a>자격 증명
 로컬 및 네트워크 리소스에 대한 액세스 권한을 얻는 데 사용되는 ID 및 ID의 증명을 포함하는 정보입니다. 자격 증명의 예는 사용자 이름 및 암호, 스마트 카드 및 인증서가 있습니다.
@@ -73,7 +73,7 @@ ID 또는 디바이스를 안전한 상태로 복원하지 않고 공격자의 �
 잘못된 부분을 감지하고 이미 발생한 이벤트에 대한 사후 로그인 시도와 같은 이벤트의 위험을 평가합니다.
 
 ### <a name="policy-condition"></a>정책 조건
-엔터티(그룹, 사용자, 앱, 디바이스 플랫폼, 디바이스 상태, IP 범위, 클라이언트 형식)를 정의하는 보안 정책의 일부는 정책에 포함되었거나 제외됩니다.
+엔터티(그룹, 사용자, 앱, 장치 플랫폼, 장치 상태, IP 범위, 클라이언트 형식)를 정의하는 보안 정책의 일부는 정책에 포함되었거나 제외됩니다.
 
 ### <a name="policy-rule"></a>정책 규칙
 정책을 트리거하는 상황 및 정책이 트리거될 때 수행된 작업을 설명하는 보안 정책의 일부입니다.
@@ -132,7 +132,7 @@ Azure Active Directory에서 ID를 인증하는 프로세스 또는 동작이며
 ### <a name="sign-in-from-anonymous-ip-address"></a>익명 IP 주소에서 로그인
 익명 프록시 IP 주소로 식별된 IP 주소에서 성공적인 로그인 후에 트리거된 위험 이벤트입니다.
 
-### <a name="sign-in-from-infected-device"></a>감염된 디바이스에서 로그인
+### <a name="sign-in-from-infected-device"></a>감염된 장치에서 로그인
 하나 이상의 손상된 디바이스에서 사용된다고 알려진 IP 주소에서 로그인이 시작되는 경우 트리거된 위험 이벤트는 봇 서버와 적극적으로 통신하려고 시도합니다.
 
 ### <a name="sign-in-from-ip-address-with-suspicious-activity"></a>의심스러운 동작으로 IP 주소에서 로그인

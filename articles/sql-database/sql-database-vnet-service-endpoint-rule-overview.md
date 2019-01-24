@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 1/16/2019
-ms.openlocfilehash: 2c022bd002700426eea2c6b38a667cd5a1381c02
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.date: 01/17/2019
+ms.openlocfilehash: 0a0a5a046bd1afefe3f4c72e713a0dafe0c856e4
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359853"
+ms.locfileid: "54390379"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Azure SQL에 대한 Virtual Network 서비스 엔드포인트 및 규칙 사용
 
@@ -173,7 +173,7 @@ Azure Storage는 사용자가 Azure Storage 계정에 대한 연결성을 제한
 PolyBase는 대개 Azure Storage 계정에서 Azure SQL Data Warehouse로 데이터를 로드하는 데 사용됩니다. 데이터를 로드하는 Azure Storage 계정이 액세스를 VNet 서브넷 집합으로만 제한하는 경우 PolyBase에서 계정으로의 연결은 중단됩니다. Azure SQL Data Warehouse가 VNet으로 보호되는 Azure Storage에 연결되는 PolyBase 가져오기 및 내보내기 시나리오를 사용하도록 설정하는 경우 아래에 설명된 단계를 따르세요.
 
 #### <a name="prerequisites"></a>필수 조건
-1.  [이 가이드](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)를 사용하여 Azure PowerShell을 설치합니다.
+1.  [이 가이드](https://docs.microsoft.com/powershell/azure/install-az-ps)를 사용하여 Azure PowerShell을 설치합니다.
 2.  범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)를 사용하여 범용 v2로 업그레이드해야 합니다.
 3.  Azure Storage 계정 **방화벽 및 가상 네트워크** 설정 메뉴에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다.** 를 설정해야 합니다. 자세한 내용은 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)를 참조하세요.
  

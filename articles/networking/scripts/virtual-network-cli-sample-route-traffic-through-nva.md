@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.openlocfilehash: 62077f45d96e96a7fef35cf025740849d2b99445
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 110e8c6a57cd2cdfedec808e073f04b70a55362d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42141745"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465584"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>네트워크 가상 어플라이언스를 통한 트래픽 라우팅
 
@@ -51,10 +51,10 @@ az group delete --name MyResourceGroup --yes
 | 명령 | 메모 |
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Azure 가상 네트워크 및 프런트 엔드 서브넷을 만듭니다. |
+| [az network vnet create](/cli/azure/network/vnet) | Azure 가상 네트워크 및 프런트 엔드 서브넷을 만듭니다. |
 | [az network subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | 백 엔드 및 DMZ 서브넷을 만듭니다. |
 | [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | 인터넷에서 VM에 액세스하기 위한 공용 IP 주소를 만듭니다. |
-| [az network nic create](/cli/azure/network/nic#az_network_nic_create) | 가상 네트워크 인터페이스를 만들고 이 인터페이스를 위해 IP 전달을 사용하도록 설정합니다. |
+| [az network nic create](/cli/azure/network/nic) | 가상 네트워크 인터페이스를 만들고 이 인터페이스를 위해 IP 전달을 사용하도록 설정합니다. |
 | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | NSG(네트워크 보안 그룹)을 만듭니다. |
 | [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | VM에 대한 인바운드 HTTP 및 HTTPS 포트를 허용하는 NSG 규칙을 만듭니다. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)| NSG 및 경로 테이블을 서브넷에 연결합니다. |

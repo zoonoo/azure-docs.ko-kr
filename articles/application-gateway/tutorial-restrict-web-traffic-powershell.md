@@ -11,16 +11,16 @@ ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d7610d1f73db022ef2af41f51b67176857525a20
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c8abcf484ffe57122fadeeed9f9a94d922b76362
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044760"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429126"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Azure PowerShell을 사용하여 웹 애플리케이션 방화벽 활성화
 
-[WAF(웹 응용 프로그램 방화벽)](waf-overview.md)를 사용하여 [응용 프로그램 게이트웨이](overview.md)에서 웹 트래픽을 제한할 수 있습니다. WAF는 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 규칙을 사용하여 애플리케이션을 보호합니다. 이러한 규칙에는 SQL 삽입, 사이트 간 스크립팅 공격 및 세션 하이재킹과 같은 공격으로부터의 보호가 포함됩니다. 
+[애플리케이션 게이트웨이](overview.md)에서 [WAF(웹 애플리케이션 방화벽)](waf-overview.md)으로 트래픽을 제한할 수 있습니다. WAF는 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 규칙을 사용하여 애플리케이션을 보호합니다. 이러한 규칙에는 SQL 삽입, 사이트 간 스크립팅 공격 및 세션 하이재킹과 같은 공격으로부터의 보호가 포함됩니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -34,11 +34,11 @@ ms.locfileid: "39044760"
 
 원하는 경우 [Azure CLI](tutorial-restrict-web-traffic-cli.md)를 사용하여 이 자습서를 완료할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -79,13 +79,13 @@ $pip = New-AzureRmPublicIpAddress `
 
 이 섹션에서는 애플리케이션 게이트웨이를 지원하는 리소스를 만든 다음, 최종적으로 애플리케이션 게이트웨이 및 WAF를 만듭니다. 다음과 같은 리소스를 만듭니다.
 
-- *IP 구성 및 프런트 엔드 포트* - 앞에서 만든 서브넷을 응용 프로그램 게이트웨이에 연결하고 액세스 시 사용할 포트를 할당합니다.
-- *기본 풀* - 모든 응용 프로그램 게이트웨이에 서버 백 엔드 풀이 하나 이상 있어야 합니다.
+- *IP 구성 및 프런트 엔드 포트* - 앞에서 만든 서브넷을 애플리케이션 게이트웨이에 연결하고 액세스 시 사용할 포트를 할당합니다.
+- *기본 풀* - 모든 애플리케이션 게이트웨이에 서버 백 엔드 풀이 하나 이상 있어야 합니다.
 - *기본 수신기 및 규칙* - 기본 수신기는 할당된 포트에서 트래픽을 수신 대기하고 기본 규칙은 기본 풀로 트래픽을 보냅니다.
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>IP 구성 및 프론트 엔드 포트 만들기
 
-[New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration)을 사용하여 이전에 응용 프로그램 게이트웨이에 만든 *myAGSubnet*을 연결합니다. [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig)를 사용하여 응용 프로그램 게이트웨이에 *myAGPublicIPAddress*를 할당합니다.
+[New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration)을 사용하여 이전에 애플리케이션 게이트웨이에 만든 *myAGSubnet*을 연결합니다. [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig)를 사용하여 애플리케이션 게이트웨이에 *myAGPublicIPAddress*를 할당합니다.
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork `
@@ -109,7 +109,7 @@ $frontendport = New-AzureRmApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool-and-settings"></a>백 엔드 풀 및 설정 만들기
 
-[New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool)을 사용하여 응용 프로그램 게이트웨이에 대한 *appGatewayBackendPool*이라는 백 엔드 풀을 만듭니다. [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings)를 사용하여 백 엔드 주소 풀에 대한 설정을 구성합니다.
+[New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool)을 사용하여 애플리케이션 게이트웨이에 대한 *appGatewayBackendPool*이라는 백 엔드 풀을 만듭니다. [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings)를 사용하여 백 엔드 주소 풀에 대한 설정을 구성합니다.
 
 ```azurepowershell-interactive
 $defaultPool = New-AzureRmApplicationGatewayBackendAddressPool `
@@ -252,7 +252,7 @@ Update-AzureRmVmss `
 
 ### <a name="create-the-storage-account"></a>저장소 계정 만들기
 
-[New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount)를 사용하여 *myagstore1*이라는 저장소 계정을 만듭니다.
+[New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount)를 사용하여 *myagstore1*이라는 스토리지 계정을 만듭니다.
 
 ```azurepowershell-interactive
 $storageAccount = New-AzureRmStorageAccount `
@@ -286,7 +286,7 @@ Set-AzureRmDiagnosticSetting `
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-[Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress)를 사용하여 응용 프로그램 게이트웨이의 공용 IP 주소를 가져올 수 있습니다. 공용 IP 주소를 복사한 다음, 브라우저의 주소 표시줄에 붙여넣습니다.
+[Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress)를 사용하여 애플리케이션 게이트웨이의 공용 IP 주소를 가져올 수 있습니다. 공용 IP 주소를 복사한 다음, 브라우저의 주소 표시줄에 붙여넣습니다.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -313,4 +313,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 > * 저장소 계정 만들기 및 진단 구성
 
 > [!div class="nextstepaction"]
-> [SSL 종료를 사용하여 응용 프로그램 게이트웨이 만들기](./tutorial-ssl-powershell.md)
+> [SSL 종료를 사용하여 애플리케이션 게이트웨이 만들기](./tutorial-ssl-powershell.md)

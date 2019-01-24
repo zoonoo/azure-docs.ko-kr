@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b9174d98dd6d4dfb5353d6976d074bb4c91373dc
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 16455719f05688793e2aee6f10fa00a707d553c0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678324"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469541"
 ---
 # <a name="interact-with-the-map---mouse-events"></a>맵과 상호 작용 - 마우스 이벤트
 
-이 문서에서는 [map 클래스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) [events](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener) 속성을 사용하여 맵 및 맵의 여러 다른 계층에서 이벤트를 강조 표시하는 방법을 보여 줍니다. 또한 map 클래스 events 속성을 사용하여 HTML 표식과 상호 작용할 때 발생하는 이벤트를 강조 표시하는 방법을 보여 줍니다.
+이 문서에서는 [map 클래스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) [events](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 속성을 사용하여 맵 및 맵의 여러 다른 계층에서 이벤트를 강조 표시하는 방법을 보여 줍니다. 또한 map 클래스 events 속성을 사용하여 HTML 표식과 상호 작용할 때 발생하는 이벤트를 강조 표시하는 방법을 보여 줍니다.
 
 ## <a name="interact-with-the-map"></a>맵과 상호 작용
 

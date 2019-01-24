@@ -3,18 +3,18 @@ title: Azure Automation의 변수 자산
 description: 변수 자산은 Azure Automation의 모든 runbook과 DSC 구성에서 사용할 수 있는 값입니다.  이 문서에서는 변수에 대해 자세히 알아보고 텍스트 작성과 그래픽 작성 모두에서 변수를 사용하는 방법을 설명합니다.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aaf8671ec4bfc4bcf6fecaa357f6ae983eb04499
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: e60c5eee20caafc1c5ad41e3ccf568f4bd944745
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330521"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434430"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure Automation의 변수 자산
 
@@ -201,3 +201,4 @@ AzureRM에 대해 다음 표의 cmdlet은 Windows PowerShell을 사용하여 자
 
 * 그래픽 작성에서 모든 연결 활동에 대해 자세히 알아보려면 [그래픽 작성 링크](automation-graphical-authoring-intro.md#links-and-workflow)
 * 그래픽 Runbook을 시작하려면 [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md) 
+

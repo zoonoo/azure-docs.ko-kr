@@ -3,7 +3,7 @@ title: 테넌트에 기존 Azure 구독 추가 - Azure Active Directory | Micros
 description: Azure Active Directory 테넌트에 기존 Azure 구독을 추가하는 방법에 대한 지침입니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.date: 09/13/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 4e4d4d9f34c8220ba70c64f073557f0293881c3e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 20c4be3741fa1e728cf59a148beb5adbc87b89c0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083872"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452032"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가
 Azure 구독에는 Azure AD(Active Directory)와의 트러스트 관계가 설정되어 있습니다. 즉, 구독은 Azure AD의 사용자/서비스/디바이스 인증을 신뢰합니다. 여러 구독이 동일한 Azure AD 디렉터리를 신뢰할 수는 있지만 각 구독은 디렉터리를 하나만 신뢰할 수 있습니다.

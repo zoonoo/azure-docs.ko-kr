@@ -3,30 +3,30 @@ title: Azure Active Directory란? | Microsoft Docs
 description: 필수 용어, 대상, 라이선싱 기본 사항 및 관련 기능을 포함하여 Azure Active Directory에 대해 알아봅니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 80c3108d468465e68d554b3d36c527c5ccd4a13c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 44533ea4430bb7cd3bc7e0b6451892cc68bacc19
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085929"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450220"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory란? 
 Azure AD(Azure Active Directory)는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스입니다. Azure AD를 사용하면 직원들이 다음 항목에서 로그인하여 리소스에 액세스할 수 있습니다.
 
-- Microsoft Office 365, Azure 포털, 수천 개의 기타 SaaS 애플리케이션을 비롯한 외부 리소스.
+- Microsoft Office 365, Azure Portal, 수천 개의 기타 SaaS 애플리케이션을 비롯한 외부 리소스.
 
 - 조직에서 자체 개발한 클라우드 앱과 함께 회사 네트워크와 인트라넷의 앱 같은 내부 리소스.
 
 다양한 [Microsoft Cloud for Enterprise Architects 시리즈](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources#identity) 포스터를 사용하여 Azure, Azure AD 및 Office 365의 핵심 ID 서비스를 보다 잘 이해할 수 있습니다.
 
 ## <a name="who-uses-azure-ad"></a>누가 Azure AD를 사용하나요?
-Azure AD가 필요한 대상은 다음과 같습니다.
+Azure AD의 대상은 다음과 같습니다.
 
 - **IT 관리자.** IT 관리자는 Azure AD를 사용하여 비즈니스 요구 사항에 따라 앱 및 앱 리소스에 대한 액세스를 제어할 수 있습니다. 예를 들어 Azure AD를 사용하여 중요한 조직 리소스에 액세스할 때에는 다단계 인증을 요구할 수 있습니다. 또한 Azure AD를 사용하여 기존 Windows Server AD와 Office 365를 비롯한 클라우드 앱 간에 사용자 프로비전을 자동화할 수 있습니다. 마지막으로, Azure AD는 자동으로 사용자 ID 및 자격 증명을 보호하고 액세스 거버넌스 요구 사항을 충족하는 강력한 도구를 제공합니다. 시작하려면 [30일 Azure Active Directory Premium 평가판](https://azure.microsoft.com/trial/get-started-active-directory/)에 등록하세요.
 
@@ -37,7 +37,7 @@ Azure AD가 필요한 대상은 다음과 같습니다.
 ## <a name="what-are-the-azure-ad-licenses"></a>Azure AD 라이선스란?
 Office 365 또는 Microsoft Azure 같은 Microsoft Online 비즈니스 서비스는 로그인 및 ID 보호를 위해 Azure AD가 필요합니다. 따라서 Microsoft Online 비즈니스 서비스를 구독하는 경우 모든 무료 기능을 사용할 수 있는 Azure AD가 자동으로 제공됩니다.
 
-Azure AD 구현을 향상하기 위해 Azure Active Directory Basic, Premium P1 또는 Premium P2 라이선스로 업그레이드하여 유료 기능을 추가할 수도 있습니다. Azure AD 유료 라이선스는 기존 무료 디렉터리 위에 구축되어 이동하며 일하는 직원에게 셀프 서비스, 향상된 모니터링, 보안 보고 및 보안 액세스를 제공합니다.
+Azure AD 구현을 향상하기 위해 Azure Active Directory Basic, Premium P1 또는 Premium P2 라이선스로 업그레이드하여 유료 기능을 추가할 수도 있습니다. Azure AD 유료 라이선스는 기존 무료 디렉터리 위에 빌드되어 모바일 인력에게 셀프 서비스, 향상된 모니터링, 보안 보고 및 보안 액세스를 제공합니다.
 
 >[!Note]
 >이러한 라이선스의 가격 책정 옵션은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요.<br><br>Azure Active Directory Premium P1, Premium P2 및 Azure Active Directory Basic은 중국에서 현재 지원되지 않습니다. Azure AD 가격에 대한 자세한 내용은 [Azure Active Directory 포럼](https://azure.microsoft.com/support/community/?product=active-directory)에 문의할 수 있습니다.

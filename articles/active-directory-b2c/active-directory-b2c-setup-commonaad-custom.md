@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 
 description: 사용자 지정 정책을 사용하여 다중 테넌트 Azure AD ID 공급자 추가 - Azure Active Directory B2C
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ef0becd55df43d7ae648a4cbaa5e1a2358fc1910
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: e5e3af95dc0a28207d9c95c66bc729b9255115de
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636937"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857185"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 다중 테넌트 Azure Active Directory에 대한 로그인 설정
 
@@ -37,9 +37,9 @@ ms.locfileid: "51636937"
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 맨 위 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 해당 테넌트가 포함된 디렉터리를 선택하여 조직 Azure AD 테넌트(contoso.com)를 포함하는 디렉터리를 사용합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **앱 등록**을 검색하여 선택합니다.
-4. **새 응용 프로그램 등록**을 선택합니다.
+4. **새 애플리케이션 등록**을 선택합니다.
 5. 애플리케이션의 이름을 입력합니다. 예: `Azure AD B2C App`
-6. **응용 프로그램 종류**에서 `Web app / API`를 선택합니다.
+6. **애플리케이션 종류**에서 `Web app / API`를 선택합니다.
 7. **Sign-On URL**의 경우, 다음 URL을 모두 소문자로 입력합니다. 여기서 `your-tenant`는 Azure AD B2C 테넌트(fabrikamb2c.onmicrosoft.com)의 이름으로 바뀝니다.
 
     ```
@@ -56,7 +56,7 @@ ms.locfileid: "51636937"
 만든 애플리케이션 키를 Azure AD B2C 테넌트에 저장해야 합니다.
 
 1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
-2. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+2. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 3. 개요 페이지에서 **ID 경험 프레임워크 - 미리 보기**를 선택합니다.
 4. **정책 키**, **추가**를 차례로 선택합니다.
 5. **옵션**으로는 `Manual`을 선택합니다.
@@ -127,12 +127,12 @@ ms.locfileid: "51636937"
 
 4. **ClaimsProvider** 요소 아래의 **Domain** 값을 다른 ID 공급자와 구분하는 데 사용할 수 있는 고유한 값으로 업데이트합니다.
 5. **TechnicalProfile** 요소 아래의 **DisplayName** 값을 업데이트합니다. 이 값은 로그인 화면의 로그인 단추에 표시됩니다.
-6. **client_id**를 Azure AD 다중 테넌트 앱 등록의 응용 프로그램 ID로 설정합니다.
+6. **client_id**를 Azure AD 다중 테넌트 앱 등록의 애플리케이션 ID로 설정합니다.
 
 ### <a name="restrict-access"></a>액세스 제한
 
 > [!NOTE]
-> **ValidTokenIssuerPrefixes**의 값으로 `https://sts.windows.net`를 사용하면 모든 Azure AD 사용자가 응용 프로그램에 로그인할 수 있습니다.
+> **ValidTokenIssuerPrefixes**의 값으로 `https://sts.windows.net`를 사용하면 모든 Azure AD 사용자가 애플리케이션에 로그인할 수 있습니다.
 
 유효한 토큰 발급자 목록을 업데이트하고 로그인할 수 있는 특정 Azure AD 테넌트 사용자 목록으로 액세스를 제한해야 합니다. 값을 구하려면 사용자가 로그인하게 하려는 특정 Azure AD 테넌트 각각에 대한 메타데이터를 확인해야 합니다. 데이터의 형식은 `https://login.windows.net/your-tenant/.well-known/openid-configuration`과 유사하며 여기서 `your-tenant`는 Azure AD 테넌트 이름(contoso.com 또는 다른 Azure AD 테넌트)입니다.
 
@@ -143,7 +143,7 @@ ms.locfileid: "51636937"
 
 지금까지 Azure AD B2C에서 Azure AD 디렉터리와 통신하는 방법을 알 수 있도록 정책을 구성했습니다. 정책의 확장 파일을 업로드하여 지금까지 문제가 발생하지 않았는지 확인합니다.
 
-1. Azure AD B2C 테넌트의 **사용자 지정 정책** 페이지에서 **업로드 정책**을 선택합니다.
+1. Azure AD B2C 테넌트의 **사용자 지정 정책** 페이지에서 **정책 업로드**를 선택합니다.
 2. **정책이 있는 경우 덮어쓰기**를 사용하도록 설정하고 *TrustFrameworkExtensions.xml* 파일을 찾아서 선택합니다.
 3. **업로드**를 클릭합니다.
 
@@ -152,7 +152,7 @@ ms.locfileid: "51636937"
 이 시점에서 ID 공급자가 설정되었지만 등록/로그인 화면에서 사용할 수는 없습니다. 사용할 수 있게 하려면 기존 템플릿 사용자 경험의 복제본을 만든 다음 Azure AD ID 공급자도 포함되도록 수정합니다.
 
 1. 시작 팩에서 *TrustFrameworkBase.xml* 파일을 엽니다.
-2. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소의 전체 콘텐츠를 찾아서 복사합니다.
+2. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소를 찾아서 전체 콘텐츠를 복사합니다.
 3. *TrustFrameworkExtensions.xml*을 열어 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
 4. 이전 단계에서 복사한 **UserJourney** 요소의 전체 콘텐츠를 **UserJourneys** 요소의 자식으로 붙여넣습니다.
 5. 사용자 경험 ID의 이름을 바꿉니다. 예: `SignUpSignInContoso`
@@ -173,7 +173,7 @@ ms.locfileid: "51636937"
 이제 단추가 준비되었으므로 동작에 연결해야 합니다. 이 경우에 작업을 통해 Azure AD B2C에서 Azure AD와 통신하여 토큰을 수신할 수 있게 됩니다. Azure AD 클레임 공급자의 기술 프로필을 연결하여 동작에 단추를 연결합니다.
 
 1. 사용자 경험에서 `Order="2"`가 포함된 **OrchestrationStep**을 찾습니다.
-2. 다음 **ClaimsExchange** 요소를 추가합니다. **Id**에는 **TargetClaimsExchangeId**에 사용한 값과 동일한 값을 사용해야 합니다.
+2. 다음 **ClaimsExchange** 요소를 추가합니다. **Id**에는 **TargetClaimsExchangeId**에 사용한 것과 같은 값을 사용해야 합니다.
 
     ```XML
     <ClaimsExchange Id="AzureADExchange" TechnicalProfileReferenceId="Common-AAD" />
@@ -189,10 +189,10 @@ Azure AD B2C와의 통신은 테넌트에서 만드는 애플리케이션을 통
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+3. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. **응용 프로그램**을 선택하고 **추가**를 선택합니다.
 5. 애플리케이션 이름(예: *testapp1*)을 입력합니다.
-6. **웹앱/웹 API**에서 `Yes`를 선택하고 **회신 URL**에는 `https://jwt.ms`를 입력합니다.
+6. **웹앱/웹 API**에서 `Yes`를 선택하고 **회신 URL**에 `https://jwt.ms`를 입력합니다.
 7. **만들기**를 클릭합니다.
 
 ## <a name="update-and-test-the-relying-party-file"></a>신뢰 당사자 파일 업데이트 및 테스트
@@ -204,4 +204,4 @@ Azure AD B2C와의 통신은 테넌트에서 만드는 애플리케이션을 통
 3. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 예: `http://contoso.com/B2C_1A_signup_signin_contoso`
 4. 새로 만든 사용자 경험의 ID(SignUpSignContoso)와 일치하도록 **DefaultUserJourney**의 **ReferenceId** 특성을 업데이트합니다.
 5. 변경 내용을 저장하고 파일을 업로드한 다음, 목록에서 새 정책을 선택합니다.
-6. **응용 프로그램 선택** 필드에서 직접 만든 Azure AD B2C 응용 프로그램이 선택되어 있는지 확인한 다음, **지금 실행**을 클릭하여 테스트를 진행합니다.
+6. **응용 프로그램 선택** 필드에서 직접 만든 Azure AD B2C 응용 프로그램이 선택되어 있는지 확인하고 **지금 실행**을 클릭하여 테스트를 진행합니다.

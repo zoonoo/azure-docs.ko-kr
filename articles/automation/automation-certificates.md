@@ -3,18 +3,18 @@ title: Azure Automation의 인증서 자산
 description: 인증서를 Azure Automation에 안전하게 저장하게 저장할 수 있으며, 그러면 Runbook 또는 DSC 구성이 인증서에 액세스하여 Azure 및 타사 리소스에 인증할 수 있습니다.  이 문서에서는 인증서에 대해 자세히 알아보고 텍스트 작성과 그래픽 작성 모두에서 인증서를 사용하는 방법을 설명합니다.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d91a7ba8d2c05e2d24738764438ce91325743699
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 714bf5f915cb588a99552a8bbbc5ffa76aa16846
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330860"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426134"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Azure Automation의 인증서 자산
 
@@ -121,3 +121,4 @@ print cert
 ## <a name="next-steps"></a>다음 단계
 
 - Runbook이 수행하도록 설계된 활동의 논리적 흐름을 제어하도록 링크로 작업하는 방법에 대한 자세한 정보는 [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)를 참조하세요. 
+

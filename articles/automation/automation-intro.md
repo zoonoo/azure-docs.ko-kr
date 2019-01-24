@@ -3,19 +3,19 @@ title: Azure Automation 개요
 description: Azure Automation을 사용하여 인프라 및 애플리케이션의 수명 주기를 자동화하는 방법을 알아봅니다.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: eamonoreilly
 ms.author: eamono
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데이트 관리, 변경 내용 추적, 인벤토리, Runbook, Python, 그래픽
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: f91464ebdd29c082fd721e9e4b2e029de991cc1e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b14550d0e03382a6709924ca5671cb26d09fcc35
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958706"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434056"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure Automation에 대한 소개
 
@@ -74,7 +74,7 @@ Runbook 및 모듈에 대한 [Automation 갤러리](automation-runbook-gallery.m
 Azure Automation은 인프라와 애플리케이션의 수명 주기 전체를 관리합니다. 조직에서 작업을 제공하고 유지 관리하는 방법에 대한 지식을 시스템에 전송합니다. PowerShell, DSC(Desired State Configuration), Python 및 그래픽 Runbook과 같은 공용 언어로 작성합니다. 대상 지정, 보고 및 준수를 위해 배포되는 리소스에 대한 전체 인벤토리를 가져옵니다. 잘못된 구성이 발생하고 운영 준수를 향상시킬 수 있는 변경 내용을 식별합니다.
 
 * **리소스 빌드/배포** - Runbook 및 Azure Resource Manager 템플릿을 사용하여 하이브리드 환경에서 VM을 배포합니다. Jenkins 및 Azure DevOps와 같은 개발 도구에 통합합니다.
-* **VM 구성** - 인프라 및 응용 프로그램에 대해 원하는 구성을 사용하여 Windows 및 Linux 컴퓨터를 평가하고 구성합니다.
+* **VM 구성** - 인프라 및 애플리케이션에 대해 원하는 구성을 사용하여 Windows 및 Linux 컴퓨터를 평가하고 구성합니다.
 * **모니터** - 문제의 원인이 되는 컴퓨터의 변경 내용을 식별하고 관리 시스템으로 수정하거나 에스컬레이션합니다.
 * **보호** - 보안 경고가 발생하면 VM을 격리합니다. 게스트 내 요구 사항을 설정합니다.
 * **제어** - 팀에 대한 역할 기반 액세스 제어를 설정합니다. 사용되지 않는 리소스를 복구합니다.
@@ -87,3 +87,4 @@ Azure Automation에 대한 가격은 [가격](https://azure.microsoft.com/pricin
 
 > [!div class="nextstepaction"]
 > [Automation 계정 만들기](automation-quickstart-create-account.md)
+

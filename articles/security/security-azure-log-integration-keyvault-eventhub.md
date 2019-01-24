@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 790f49f0fae98162b3443c78d813b1070e4514a0
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: f9eb4489894632502b7df97cd1149bd027164d19
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303890"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437422"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure Log Integration 자습서: Event Hubs를 사용하여 Azure Key Vault 이벤트 처리
 
@@ -74,7 +74,7 @@ Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure 
    a. PowerShell 창에서 ```Install-Module Azure``` 명령을 입력합니다. 설치 단계를 완료합니다.    
    b. ```Install-Module AzureRM``` 명령을 입력합니다. 설치 단계를 완료합니다.
 
-   자세한 내용은 [Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0)를 참조하세요.
+   자세한 내용은 [Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.0.0)를 참조하세요.
 
 
 ## <a name="create-supporting-infrastructure-elements"></a>지원 인프라 요소 만들기

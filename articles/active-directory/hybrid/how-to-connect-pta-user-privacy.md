@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD Connect 통과 인증, GDPR, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-On
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: ef86c9ee00fdd4673774640d33eec93e2ead876d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 29f15a3247992fd2698c32dd773c6f3b8259591a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193096"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475872"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>사용자 개인 정보 및 Azure Active Directory 통과 인증
 
@@ -68,7 +68,7 @@ Foreach ($file in $Files) {
 
 이 제품은 **Windows 이벤트 로그**를 생성할 수도 있습니다. 자세한 내용은 [이 문서](https://msdn.microsoft.com/library/windows/desktop/aa385780(v=vs.85).aspx)를 참조하세요.
 
-통과 인증 에이전트와 관련된 로그를 보려면 서버에서 **이벤트 뷰어** 응용 프로그램을 열고 **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**에서 확인합니다.
+통과 인증 에이전트와 관련된 로그를 보려면 서버에서 **이벤트 뷰어** 애플리케이션을 열고 **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**에서 확인합니다.
 
 ### <a name="delete-authentication-agent-trace-log-files"></a>인증 에이전트 추적 로그 파일 삭제
 

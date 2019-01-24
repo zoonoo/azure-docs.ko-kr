@@ -3,19 +3,19 @@ title: 사용자 지정 정책을 사용하여 동적으로 Azure Active Directo
 description: 런타임 시 동적으로 변경되는 HTML5/CSS 콘텐츠로 여러 브랜딩 환경을 지원합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f078c1389e36b82f95b011ca1fbd7fbd1c4f895e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 87634539b9709e057c0e51297569c1005a7bea1f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834241"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852102"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 동적 콘텐츠로 UI 구성
 
@@ -68,13 +68,13 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 선택하여 프로젝트를 만듭니다.
 
-2. **새 프로젝트** 창에서 **Visual C#** > **웹** > **ASP.NET Core 웹 응용 프로그램(.NET Core)** 을 선택합니다.
+2. **새 프로젝트** 창에서 **Visual C#** > **웹** > **ASP.NET Core 웹 애플리케이션(.NET Core)** 을 선택합니다.
 
 3. 애플리케이션 이름(예:*Contoso.AADB2C.UI*)을 지정한 후 **확인**을 선택합니다.
 
     ![새 Visual Studio 프로젝트 만들기](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-create-project1.png)
 
-4. **웹 응용 프로그램** 템플릿을 선택합니다.
+4. **웹 애플리케이션** 템플릿을 선택합니다.
 
 5. 인증을 **인증 없음**으로 설정합니다.
 
@@ -232,7 +232,7 @@ HTML5 템플릿을 사용할 준비가 되었습니다. 하지만 `ContentDefini
 1. **Azure AD B2C 설정**을 선택한 다음 **ID 경험 프레임워크**를 선택합니다.
 
     >[!NOTE]
-    >지금 실행을 사용하려면 하나 이상의 애플리케이션이 테넌트에 미리 등록되어 있어야 합니다. 응용 프로그램을 등록하는 방법은 Azure AD B2C [시작](active-directory-b2c-get-started.md) 문서 또는 [응용 프로그램 등록](active-directory-b2c-app-registration.md) 문서를 참조하세요.
+    >지금 실행을 사용하려면 하나 이상의 애플리케이션이 테넌트에 미리 등록되어 있어야 합니다. 애플리케이션을 등록하는 방법은 Azure AD B2C [시작](active-directory-b2c-get-started.md) 문서 또는 [애플리케이션 등록](active-directory-b2c-app-registration.md) 문서를 참조하세요.
 
 2. 업로드한 RP(신뢰 당사자) 사용자 지정 정책인 **B2C_1A_signup_signin**을 연 다음 **지금 실행**을 선택합니다.  
     앞에서 만든 배경으로 사용자 지정 HTML5를 볼 수 있어야 합니다.

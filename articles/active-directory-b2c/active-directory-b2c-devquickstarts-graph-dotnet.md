@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 Graph API 사용 | Microsoft Docs
 description: 프로세스를 자동화하기 위해 애플리케이션 ID를 사용하여 B2C 테넌트에 Graph API를 호출하는 방법입니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0f53d71cca70f9340689d3d01fb9c67090f917c5
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 28a865ac5a24905a14b8936e4fbb1de576f2ac76
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277551"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846543"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API 사용
 
@@ -27,7 +27,7 @@ Azure Active Directory(Azure AD) B2C 테넌트는 매우 큰 경향이 있습니
 B2C 테넌트의 경우 Graph API와 통신하는 두 가지 기본 모드가 있습니다.
 
 * 대화형인 한 번 실행 작업의 경우 태스크를 수행할 때 B2C 테넌트에서 관리자 계정으로 작동해야 합니다. 이 모드에서는 관리자가 Graph API에 대한 호출을 수행할 수 있기 전에 해당 관리자가 자격 증명으로 로그인해야 합니다.
-* 자동화된 연속 작업의 경우 필요한 권한을 제공하는 일종의 서비스 계정을 사용하여 관리 작업을 수행해야 합니다. Azure AD에서 애플리케이션을 등록하고 Azure AD에 인증하여 이 작업을 수행할 수 있습니다. **OAuth 2.0 클라이언트 자격 증명 부여** 를 사용하는 [응용 프로그램 ID](../active-directory/develop/service-to-service.md)를 사용하여 수행합니다. 이 경우에 애플리케이션은 사용자로서가 아닌 자체로서 Graph API를 호출합니다.
+* 자동화된 연속 작업의 경우 필요한 권한을 제공하는 일종의 서비스 계정을 사용하여 관리 작업을 수행해야 합니다. Azure AD에서 애플리케이션을 등록하고 Azure AD에 인증하여 이 작업을 수행할 수 있습니다. **OAuth 2.0 클라이언트 자격 증명 부여** 를 사용하는 [애플리케이션 ID](../active-directory/develop/service-to-service.md)를 사용하여 수행합니다. 이 경우에 애플리케이션은 사용자로서가 아닌 자체로서 Graph API를 호출합니다.
 
 이 문서에서는 자동화된 사용 사례를 수행하는 방법을 알아봅니다. 사용자 만들기, 읽기, 업데이트 및 삭제(CRUD) 작업을 수행하는 .NET 4.5 `B2CGraphClient`을 작성합니다. 클라이언트에는 다양한 메서드를 호출할 수 있도록 하는 Windows CLI(명령줄 인터페이스)가 있습니다. 그러나 코드를 비대화형이고 자동화된 방식으로 동작하도록 기록합니다.
 
@@ -355,7 +355,7 @@ B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
 B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
-`B2CGraphClient`를 사용하여 B2C 테넌트 사용자를 프로그래밍 방식으로 관리할 수 있는 서비스 응용 프로그램이 있습니다. `B2CGraphClient` 는 고유한 응용 프로그램 ID를 사용하여 Azure AD Graph API에 인증합니다. 또한 클라이언트 암호를 사용하여 토큰을 획득합니다. 애플리케이션에 이 기능을 통합할 때 B2C 앱에 대한 몇 가지 주요 사항을 기억해야 합니다.
+`B2CGraphClient`를 사용하여 B2C 테넌트 사용자를 프로그래밍 방식으로 관리할 수 있는 서비스 애플리케이션이 있습니다. `B2CGraphClient`는 고유한 애플리케이션 ID를 사용하여 Azure AD Graph API에 인증합니다. 또한 클라이언트 암호를 사용하여 토큰을 획득합니다. 애플리케이션에 이 기능을 통합할 때 B2C 앱에 대한 몇 가지 주요 사항을 기억해야 합니다.
 
 * 테넌트에서 애플리케이션에 적절한 권한을 부여해야 합니다.
 * 이제 ADAL(MSAL 아님)을 사용하여 액세스 토큰을 가져와야 합니다. (또한 라이브러리를 사용하지 않고 직접 프로토콜 메시지를 보낼 수 있습니다.)

@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: c9a66036902f346a7a9fd337416cbe85acca7856
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 429c7c266357b4808ab3ebbb7f346cf22d9f479c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200941"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855401"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
@@ -272,7 +272,7 @@ public class Function {
 
 ## <a name="metadata"></a>Metadata
 
-입력 데이터와 함께 [트리거 메타데이터](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties)를 보내는 트리거는 거의 없습니다. `@BindingName` 주석을 사용하여 메타데이터를 트리거하도록 바인딩할 수 있습니다.
+입력 데이터와 함께 [트리거 메타데이터](/azure/azure-functions/functions-triggers-bindings)를 보내는 트리거는 거의 없습니다. `@BindingName` 주석을 사용하여 메타데이터를 트리거하도록 바인딩할 수 있습니다.
 
 
 ```Java

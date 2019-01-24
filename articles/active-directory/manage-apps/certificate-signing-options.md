@@ -4,7 +4,7 @@ description: Azure Active Directory에서 사전 통합된 앱에 대한 SAML �
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: e7488abb3e82f90f63fa338b84a6516202e504ec
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 368fbf52642b1353b221ce6ebe6f6c40a517c3e6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714533"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473421"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Azure Active Directory의 갤러리 앱에 대한 SAML 토큰의 고급 인증서 서명 옵션
 현재 Azure AD(Azure Active Directory)는 Azure Active Directory 앱 갤러리에서 수천 개의 사전 통합 애플리케이션을 지원합니다. 여기에는 SAML 2.0 프로토콜을 통해 Single Sign-On을 지원하는 500여 개의 애플리케이션이 포함됩니다. 사용자가 SAML을 사용하여 Azure AD를 통해 애플리케이션을 인증하면 Azure AD는 애플리케이션에 토큰을 보냅니다(HTTP POST를 통해). 그런 다음, 애플리케이션이 토큰을 유효성 검사하고 사용하여 사용자 이름과 암호를 묻는 대신 사용자를 로그인합니다. 이러한 SAML 토큰은 Azure AD 및 특정 표준 알고리즘에서 생성된 고유한 인증서로 서명됩니다.
@@ -60,7 +60,7 @@ Azure AD는 SAML 응답에 서명하기 위해 두 가지 서명 알고리즘을
     ![SHA-1 인증서 서명 알고리즘](./media/certificate-signing-options/saml-signing-algo-sha1.png)
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Active Directory 앱 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](configure-federated-single-sign-on-non-gallery-applications.md)
+* [Azure Active Directory 앱 갤러리에 있지 않은 애플리케이션에 Single Sign-On 구성](configure-federated-single-sign-on-non-gallery-applications.md)
 * [SAML 기반 Single Sign-On 문제 해결](../develop/howto-v1-debug-saml-sso-issues.md)
 
 

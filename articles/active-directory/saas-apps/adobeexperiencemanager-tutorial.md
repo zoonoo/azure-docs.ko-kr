@@ -4,7 +4,7 @@ description: Azure Active Directory 및 Adobe Experience Manager 간에 Single S
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 88a95bb5-c17c-474f-bb92-1f80f5344b5a
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/25/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 536db4e4927c03cafff35a3e811727a566c79dbd
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 53d1bf57a4a6471fa224de5296484857ed388486
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062811"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821552"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>자습서: Adobe Experience Manager와 Azure Active Directory 통합
 
@@ -80,8 +80,8 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Adobe Experience Manager Single Sign-On 구성](#configure-adobe-experience-manager-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Adobe Experience Manager 테스트 사용자 만들기](#create-adobe-experience-manager-test-user)** - Azure AD 표현과 연결된 Britta Simon에 해당하는 사용자를 Adobe Experience Manager에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Adobe Experience Manager 테스트 사용자 만들기](#create-adobe-experience-manager-test-user)** - Azure AD 표현과 연결된 Britta Simon에 해당하는 사용자를 Adobe Experience Manager에 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -271,4 +271,3 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 - [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

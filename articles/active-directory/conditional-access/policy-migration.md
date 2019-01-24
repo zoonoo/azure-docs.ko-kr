@@ -5,7 +5,7 @@ services: active-directory
 keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: c8431ee305c8a266a79f58e8b4ba4e6541f79f9b
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 8d7223d12b69ccf870b8b3db0fb577f3712d17f7
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629874"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446938"
 ---
 # <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 정책 마이그레이션이란? 
 
@@ -133,7 +133,7 @@ Azure Portal에서 조건부 액세스를 사용하면 중앙의 단일 위치�
 ![Azure Active Directory](./media/policy-migration/16.png)
  
 
-**Exchange Active Sync**가 클라이언트 앱 조건으로 포함된 Office 365 Exchange Online의 [앱 기반](technical-reference.md#approved-client-app-requirement) 클래식 정책에서는 **지원되는** 장치 플랫폼과 **지원되지 않는** [장치 플랫폼](technical-reference.md#device-platform-condition)이 허용됩니다. 관련된 새 정책에서는 개별 디바이스 플랫폼을 구성할 수 없으며 [지원되는 디바이스 플랫폼](technical-reference.md#device-platform-condition)으로만 지원을 제한할 수 있습니다. 
+**Exchange Active Sync**가 클라이언트 앱 조건으로 포함된 Office 365 Exchange Online의 [앱 기반](technical-reference.md#approved-client-app-requirement) 클래식 정책에서는 **지원되는** 디바이스 플랫폼과 **지원되지 않는**[디바이스 플랫폼](technical-reference.md#device-platform-condition)이 허용됩니다. 관련된 새 정책에서는 개별 디바이스 플랫폼을 구성할 수 없으며 [지원되는 디바이스 플랫폼](technical-reference.md#device-platform-condition)으로만 지원을 제한할 수 있습니다. 
 
 ![Azure Active Directory](./media/policy-migration/65.png)
 
@@ -156,7 +156,7 @@ Azure Portal에서 조건부 액세스를 사용하면 중앙의 단일 위치�
 
 ### <a name="device-platforms"></a>디바이스 플랫폼
 
-[앱 기반 제어](technical-reference.md#approved-client-app-requirement)를 사용하는 클래식 정책은 iOS 및 Android에 [장치 플랫폼 조건](technical-reference.md#device-platform-condition)으로 미리 구성되어 있습니다. 
+[앱 기반 제어](technical-reference.md#approved-client-app-requirement)를 사용하는 클래식 정책은 iOS 및 Android에 [디바이스 플랫폼 조건](technical-reference.md#device-platform-condition)으로 미리 구성되어 있습니다. 
 
 새 정책에서는 개별적으로 지원할 [디바이스 플랫폼](technical-reference.md#device-platform-condition)을 선택해야 합니다.
 

@@ -4,7 +4,7 @@ description: 테넌트 제한을 사용하여 Azure AD 테넌트를 기준으로
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: yossib
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: 6989fe88fa17bcd99c99ee3e82d82fb403d1aae4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 97cabf7821f223b900f86115c3bd85b12de450d4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096709"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478147"
 ---
-# <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테넌트 제한을 사용하여 SaaS 클라우드 응용 프로그램에 대한 액세스 관리
+# <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테넌트 제한을 사용하여 SaaS 클라우드 애플리케이션에 대한 액세스 관리
 
 보안을 강조하는 대규모 조직에서는 Office 365와 같은 클라우드 서비스로 이동하려고 하지만, 사용자가 승인된 리소스에만 액세스할 수 있다는 사실을 인식하고 있어야 합니다. 일반적으로 회사에서는 액세스를 관리하려는 경우에 도메인 이름 또는 IP 주소를 제한합니다. 이 방법은 SaaS 앱이 공용 클라우드에서 호스트되고 outlook.office.com 및 login.microsoftonline.com와 같은 공유 도메인 이름으로 실행되는 환경에서는 실패합니다. 이러한 주소를 차단하면 사용자가 단순히 승인된 ID 및 리소스로만 제한되는 것이 아니라 웹상의 Outlook에 완전히 액세스할 수 없게 됩니다.
 
-이러한 경우에 대한 Azure Active Directory 해결 방법은 테넌트 제한이라는 기능입니다. 테넌트 제한은 응용 프로그램이 Single Sign-On에 대해 사용하는 사용할 Azure AD 테넌트에 따라, 조직이 SaaS 클라우드 응용 프로그램에 대한 액세스를 제어할 수 있도록 합니다. 예를 들어 이러한 동일한 응용 프로그램의 다른 조직 인스턴스에 대한 액세스를 차단하면서 조직의 Office 365 응용 프로그램에 대한 액세스를 허용하려고 할 수 있습니다.  
+이러한 경우에 대한 Azure Active Directory 해결 방법은 테넌트 제한이라는 기능입니다. 테넌트 제한은 애플리케이션이 Single Sign-On에 대해 사용하는 사용할 Azure AD 테넌트에 따라, 조직이 SaaS 클라우드 애플리케이션에 대한 액세스를 제어할 수 있도록 합니다. 예를 들어 이러한 동일한 애플리케이션의 다른 조직 인스턴스에 대한 액세스를 차단하면서 조직의 Office 365 애플리케이션에 대한 액세스를 허용하려고 할 수 있습니다.  
 
 테넌트 제한은 조직 사용자에게 액세스가 허용된 테넌트 목록을 지정할 수 있는 기능을 제공합니다. 그러면 Azure AD는 이러한 허용된 테넌트에 대해서만 액세스를 허가합니다.
 
@@ -40,11 +40,11 @@ ms.locfileid: "53096709"
 
 2. **온-프레미스 프록시 서버 인프라** – SSL 검사를 수행할 수 있고 허용되는 테넌트 목록이 포함된 헤더를 Azure AD로 지정된 트래픽에 삽입하도록 구성된 프록시 디바이스입니다. 
 
-3. **클라이언트 소프트웨어** – 테넌트 제한을 지원하기 위해 클라이언트 소프트웨어는 Azure AD에서 직접 토큰을 요청해야 하므로 프록시 인프라에서 트래픽을 가로챌 수 있습니다. 최신 인증(예: OAuth 2.0)이 사용될 경우 브라우저 기반 Office 365 응용 프로그램 및 Office 클라이언트에서 테넌트 제한을 지원합니다. 
+3. **클라이언트 소프트웨어** – 테넌트 제한을 지원하기 위해 클라이언트 소프트웨어는 Azure AD에서 직접 토큰을 요청해야 하므로 프록시 인프라에서 트래픽을 가로챌 수 있습니다. 최신 인증(예: OAuth 2.0)이 사용될 경우 브라우저 기반 Office 365 애플리케이션 및 Office 클라이언트에서 테넌트 제한을 지원합니다. 
 
 4. **최신 인증** – 클라우드 서비스는 테넌트 제한을 사용하고 허용되지 않는 모든 테넌트로의 액세스를 차단하기 위해 최신 인증을 사용해야 합니다. Office 365 클라우드 서비스는 기본적으로 최신 인증 프로토콜을 사용하도록 구성되어야 합니다. 최신 인증에 대한 Office 365 지원과 관련된 최신 정보를 보려면 [업데이트된 Office 365 최신 인증](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/)을 참조하세요.
 
-다음 다이어그램은 고급 트래픽 흐름을 보여 줍니다. SSL 검사는 Office 365 클라우드 서비스로의 트래픽이 아닌 Azure AD로의 트래픽에만 필요합니다. Azure AD에서 인증을 받으려는 트래픽 볼륨이 일반적으로 Exchange Online 및 SharePoint Online과 같은 SaaS 응용 프로그램에 대한 트래픽 볼륨보다 훨씬 작기 때문에 이러한 구분이 필요합니다.
+다음 다이어그램은 고급 트래픽 흐름을 보여 줍니다. SSL 검사는 Office 365 클라우드 서비스로의 트래픽이 아닌 Azure AD로의 트래픽에만 필요합니다. Azure AD에서 인증을 받으려는 트래픽 볼륨이 일반적으로 Exchange Online 및 SharePoint Online과 같은 SaaS 애플리케이션에 대한 트래픽 볼륨보다 훨씬 작기 때문에 이러한 구분이 필요합니다.
 
 ![테넌트 제한 트래픽 흐름 - 다이어그램](./media/tenant-restrictions/traffic-flow.png)
 
@@ -89,7 +89,7 @@ login.microsoftonline.com, login.microsoft.com 및 login.windows.net으로 들�
 
 ### <a name="end-user-experience"></a>최종 사용자 환경
 
-예제 사용자는 Contoso 네트워크에 있지만 Outlook 온라인과 같은 공유 SaaS 응용 프로그램의 Fabrikam 인스턴스에 액세스하려고 합니다. Contoso가 해당 인스턴스에 대해 허용되지 않는 테넌트인 경우 다음과 같은 페이지가 표시됩니다.
+예제 사용자는 Contoso 네트워크에 있지만 Outlook 온라인과 같은 공유 SaaS 애플리케이션의 Fabrikam 인스턴스에 액세스하려고 합니다. Contoso가 해당 인스턴스에 대해 허용되지 않는 테넌트인 경우 다음과 같은 페이지가 표시됩니다.
 
 ![허용되지 않는 테넌트의 사용자에 대한 액세스 거부 페이지](./media/tenant-restrictions/end-user-denied.png)
 
@@ -101,18 +101,18 @@ Restricted-Access-Context 테넌트로 지정된 테넌트의 관리자는 이 �
 
 ![Azure Portal을 사용하여 제한된 로그인 시도 확인](./media/tenant-restrictions/portal-report.png)
 
-Azure Portal의 다른 보고서와 마찬가지로, 필터를 사용하여 보고서의 범위를 지정할 수 있습니다. 특정 사용자, 응용 프로그램, 클라이언트 또는 시간 간격에 따라 필터링을 수행할 수 있습니다.
+Azure Portal의 다른 보고서와 마찬가지로, 필터를 사용하여 보고서의 범위를 지정할 수 있습니다. 특정 사용자, 애플리케이션, 클라이언트 또는 시간 간격에 따라 필터링을 수행할 수 있습니다.
 
 ## <a name="office-365-support"></a>Office 365 지원
 
-Office 365 응용 프로그램은 테넌트 제한을 완전히 지원하기 위해 다음과 같은 두 가지 조건을 충족해야 합니다.
+Office 365 애플리케이션은 테넌트 제한을 완전히 지원하기 위해 다음과 같은 두 가지 조건을 충족해야 합니다.
 
 1. 사용되는 클라이언트에서 최신 인증을 지원해야 합니다.
 2. 최신 인증이 클라우드 서비스에 대한 기본 인증 프로토콜로 사용되어야 합니다.
 
 현재 최신 인증을 지원하는 Office 클라이언트에 대한 최신 정보를 보려면 [업데이트된 Office 365 최신 인증](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/)을 참조하세요. 해당 페이지에는 특정 Exchange Online 및 비즈니스용 Skype Online 테넌트에 대해 최신 인증을 사용하도록 설정하기 위한 지침으로 연결되는 링크도 포함되어 있습니다. 최신 인증은 기본적으로 SharePoint Online에서 사용되도록 설정됩니다.
 
-테넌트 제한은 현재, Office 365 브라우저 기반 응용 프로그램(Office 포털, Yammer, SharePoint 사이트, 웹용 Outlook 등)에서 지원됩니다. 씩 클라이언트(Outlook, 비즈니스용 Skype, Word, Excel, PowerPoint 등) 테넌트 제한은 최신 인증을 사용하는 경우에만 적용할 수 있습니다.  
+테넌트 제한은 현재, Office 365 브라우저 기반 애플리케이션(Office 포털, Yammer, SharePoint 사이트, 웹용 Outlook 등)에서 지원됩니다. 씩 클라이언트(Outlook, 비즈니스용 Skype, Word, Excel, PowerPoint 등) 테넌트 제한은 최신 인증을 사용하는 경우에만 적용할 수 있습니다.  
 
 최신 인증을 지원하는 Outlook 및 비즈니스용 Skype 클라이언트는 최신 인증이 사용되도록 설정되지 않은 테넌트에 대해 레거시 프로토콜을 사용하여 테넌트 제한을 효과적으로 우회할 수 있습니다. 레거시 프로토콜을 사용하는 애플리케이션은 인증하는 동안 login.microsoftonline.com, login.microsoft.com 또는 login.windows.net에 접속하는 경우 테넌트 제한으로 차단될 수 있습니다.
 

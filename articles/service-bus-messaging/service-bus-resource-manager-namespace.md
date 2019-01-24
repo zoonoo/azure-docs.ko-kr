@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/06/2018
+ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 248ac7ed2a855dd1df71e6e44d1aa7065ddd8ba4
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: e925ea91518d8f093cd270e238b7ffd09674e726
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062070"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844095"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 만들기
 이 빠른 시작에서는 **표준** SKU가 있는 **메시지** 형식의 Service Bus 네임스페이스를 만드는 Azure Resource Manager 템플릿을 만듭니다. 이 문서는 또한 배포의 실행에 대해 지정된 매개 변수도 정의합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다. 템플릿 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성하기][Authoring Azure Resource Manager templates]를 참조하세요. 전체 템플릿은 GitHub에서 [Service Bus 네임스페이스 템플릿][Service Bus namespace template]을 참조하세요.
@@ -44,7 +44,7 @@ JSON을 작성하지 않고 PowerShell/CLI 명령을 실행하지 않고 샘플�
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작을 완료하려면 Azure 구독이 필요합니다. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
 
-**Azure PowerShell**을 사용하여 Resource Manager 템플릿을 배포하려면 [Azure PowerShell을 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0)합니다.
+**Azure PowerShell**을 사용하여 Resource Manager 템플릿을 배포하려면 [Azure PowerShell을 설치](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0)합니다.
 
 **Azure CLI**를 사용하여 Resource Manager 템플릿을 배포하려면 [Azure CLI를 설치]( /cli/azure/install-azure-cli)합니다.
 

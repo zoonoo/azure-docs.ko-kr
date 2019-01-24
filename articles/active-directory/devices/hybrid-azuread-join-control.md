@@ -4,7 +4,7 @@ description: Azure Active Directory에서 디바이스의 하이브리드 Azure 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: a2ae1d3f4166bfaa035902aaa5dc101636a98646
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: fd6da7e0c350ef7da02b885973f1386edc7cbc48
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117540"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451428"
 ---
 # <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>디바이스의 하이브리드 Azure AD 조인 제어
 
@@ -74,7 +74,7 @@ GPO를 설정하려면:
 
 5.  **확인**을 선택합니다.
 
-6.  새 GPO를 마우스 오른쪽 단추로 클릭하고 **편집**을 선택합니다.
+6.  새 GPO를 마우스 오른쪽 단추로 클릭하고 **편집**을 선택택합니다.
 
 7.  **컴퓨터 구성** > **정책** > **관리 템플릿** > **Windows 구성 요소** > **장치 등록**으로 이동합니다. 
 
@@ -98,7 +98,7 @@ GPO를 설정하려면:
 
 클라이언트 설정을 구성하려면:
 
-1.  **Configuration Manager**를 열고 **Cloud Services**로 이동합니다.
+1.  **Configuration Manager**를 열고 **Cloud Services**로 이동동합니다.
 
 2.  **디바이스 설정** 아래에서 **Azure Active Directory를 사용하여 새 Windows 10 도메인 조인된 디바이스를 자동으로 등록**에 대해 다음 설정 중 하나를 선택합니다.
 

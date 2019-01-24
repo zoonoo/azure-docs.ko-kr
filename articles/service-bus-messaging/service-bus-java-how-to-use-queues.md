@@ -3,8 +3,9 @@ title: Java와 함께 Azure Service Bus 큐를 사용하는 방법 | Microsoft D
 description: Azure에서 Service Bus 큐를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Java로 작성되었습니다.
 services: service-bus-messaging
 documentationcenter: java
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.assetid: f701439c-553e-402c-94a7-64400f997d59
 ms.service: service-bus-messaging
 ms.workload: na
@@ -12,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 09/13/2018
-ms.author: spelluru
-ms.openlocfilehash: e8d168e4171c96441162f1090a215cab8a70b7d1
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.author: aschhab
+ms.openlocfilehash: 9a26a08e7b1fb313e25a7dc8d9f5e58e843fca76
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198697"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849621"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Java에서 Service Bus 큐를 사용하는 방법
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]

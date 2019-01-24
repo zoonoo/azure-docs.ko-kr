@@ -4,7 +4,7 @@ description: Azure Active Directory는 조직이 앱을 각 사용자가 액세�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: barbkess
-ms.openlocfilehash: cec1b3089403966cbf738b372a4380bdacf264b7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 33f7ab25e568ce71ea0c4955da229051a691ed5a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718289"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477161"
 ---
 # <a name="managing-access-to-apps"></a>앱에 대한 액세스 관리
 앱이 조직의 ID 시스템에 통합된 후에 진행 중인 액세스 관리, 사용 평가 및 보고는 계속 쉽지 않을 것입니다. 대부분의 경우 IT 관리자나 기술 지원팀이 앱에 대한 액세스를 관리하는 데 지속적이고 적극적인 역할을 맡습니다. 경우에 따라 할당은 일반 또는 부서 IT 팀에서 수행됩니다. 종종 할당 의사 결정은 비즈니스 의사 결정자에게 위임되며 IT가 할당을 수행하기 전에 승인을 필요로 합니다.  다른 조직에서는 역할 기반 Access Control(RBAC) 또는 특성 기반 Access Control(ABAC)과 같은 기존의 자동화된 ID 및 액세스 관리 시스템의 통합에 투자합니다. 통합 및 규칙 개발은 모두 전문화되고 비용이 높은 경향이 있습니다. 관리 방법에 대한 모니터링 또는 보고는 별도로 비용이 드는 복잡한 투자입니다.
@@ -27,12 +27,12 @@ ms.locfileid: "44718289"
 ## <a name="how-does-azure-active-directory-help"></a>Azure Active Directory는 어떻게 지원합니까?
  Azure AD는 구성된 애플리케이션에 대한 광범위한 액세스 관리를 지원하며 이는 조직이 위임을 통해 자동으로 특성 기반 할당(ABAC 또는 RBAC 시나리오)에 걸쳐서 관리자 관리를 포함하는 올바른 액세스 정책을 쉽게 달성할 수 있도록 합니다. Azure AD를 사용하여 단일 애플리케이션에 여러 관리 모델을 결합하는 복잡한 정책을 쉽게 달성할 수 있으며 동일한 대상 그룹이 있는 애플리케이션에서 관리 규칙을 다시 사용할 수도 있습니다.
 
-* [신규 또는 기존 응용 프로그램 추가](configure-single-sign-on-portal.md)
+* [신규 또는 기존 애플리케이션 추가](configure-single-sign-on-portal.md)
 
  Azure AD의 애플리케이션 할당은 두 가지 기본 할당 모드에 중점을 둡니다.
 
-* **개별 할당** 디렉터리 전역 관리자 권한을 가진 IT 관리자는 개별 사용자 계정을 선택하고 응용 프로그램에 액세스 권한을 부여할 수 있습니다.
-* **그룹 기반 할당(유료 Azure AD만 해당)** 디렉터리 전역 관리자 권한을 가진 IT 관리자는 응용 프로그램에 그룹을 할당할 수 있습니다. 특정 사용자의 액세스는 애플리케이션에 액세스하려고 할 때 그룹의 멤버인지 여부로 결정됩니다. 즉, 관리자는 "할당된 그룹의 현재 멤버는 애플리케이션에 액세스한다"는 내용의 할당 규칙을 효율적으로 만들 수 있습니다. 이 할당 옵션을 사용하여 관리자는 [특성 기반 동적 그룹](../fundamentals/active-directory-groups-create-azure-portal.md), 외부 시스템 그룹(예: 온-프레미스 Active Directory 또는 Workday), 관리자 관리 또는 셀프 서비스 관리된 그룹을 포함하는 Azure AD 그룹 관리 옵션 중 하나에서 혜택을 줄 수 있습니다. 단일 그룹은 쉽게 여러 앱에 할당할 수 있으며 할당 선호도가 있는 애플리케이션은 할당 규칙을 공유하여 전반적인 관리 복잡성을 줄일 수 있습니다. 현재 중첩된 그룹 구성원은 이번 애플리케이션에 대한 그룹 기반 할당에 지원되지 않습니다.
+* **개별 할당** 디렉터리 전역 관리자 권한을 가진 IT 관리자는 개별 사용자 계정을 선택하고 애플리케이션에 액세스 권한을 부여할 수 있습니다.
+* **그룹 기반 할당(유료 Azure AD만 해당)** 디렉터리 전역 관리자 권한을 가진 IT 관리자는 애플리케이션에 그룹을 할당할 수 있습니다. 특정 사용자의 액세스는 애플리케이션에 액세스하려고 할 때 그룹의 멤버인지 여부로 결정됩니다. 즉, 관리자는 "할당된 그룹의 현재 멤버는 애플리케이션에 액세스한다"는 내용의 할당 규칙을 효율적으로 만들 수 있습니다. 이 할당 옵션을 사용하여 관리자는 [특성 기반 동적 그룹](../fundamentals/active-directory-groups-create-azure-portal.md), 외부 시스템 그룹(예: 온-프레미스 Active Directory 또는 Workday), 관리자 관리 또는 셀프 서비스 관리된 그룹을 포함하는 Azure AD 그룹 관리 옵션 중 하나에서 혜택을 줄 수 있습니다. 단일 그룹은 쉽게 여러 앱에 할당할 수 있으며 할당 선호도가 있는 애플리케이션은 할당 규칙을 공유하여 전반적인 관리 복잡성을 줄일 수 있습니다. 현재 중첩된 그룹 구성원은 이번 애플리케이션에 대한 그룹 기반 할당에 지원되지 않습니다.
 
 이러한 두 가지 할당 모드 관리자를 사용하면 바람직한 할당 관리 방법을 달성할 수 있습니다.
 

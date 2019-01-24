@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9157ce7f8f16bc60a6d5c16fa992a5402cf2d7ad
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 3ab98669e01c9cfb2d4f46b8ddd83ff69653337b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190733"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434175"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>VHD에서 VM 배포
 
@@ -37,7 +37,7 @@ VM 이미지에 대해 자세히 알아보려면 다음 블로그 게시물을 �
 
 아직 수행하지 않은 경우 다음 지침에 따라 Azure PowerShell 및 Azure CLI를 설치합니다.
 
-- [PowerShellGet으로 Azure PowerShell을 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
+- [PowerShellGet으로 Azure PowerShell을 설치](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)
 - [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 725e03ded6d6f2e3b5d7a41d2053f418a5933ef8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ade8329e6e42fae9f3232617488a6d4a69f8ef1f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023246"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437388"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>빠른 시작: PowerShell을 사용하여 가상 네트워크 만들기
 
@@ -29,7 +29,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-대신 PowerShell을 로컬에 설치하고 사용하려는 경우 이 빠른 시작을 진행하려면 AzureRM PowerShell 모듈 버전 5.4.1 이상을 사용해야 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 설치 및 업그레이드 정보는 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+대신 PowerShell을 로컬에 설치하고 사용하려는 경우 이 빠른 시작을 진행하려면 AzureRM PowerShell 모듈 버전 5.4.1 이상을 사용해야 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 설치 및 업그레이드 정보는 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
 
 마지막으로, PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`도 실행해야 합니다. 해당 명령은 Azure와 연결을 만듭니다.
 
@@ -158,7 +158,7 @@ mstsc /v:<publicIpAddress>
 
 1. *myVm1*의 원격 데스크톱에서 PowerShell을 엽니다.
 
-1. `ping myVm2` 을 입력합니다.
+1. [https://slack.botframework.com](`ping myVm2`) 을 입력합니다.
 
     다음과 같은 메시지가 반환됩니다.
 

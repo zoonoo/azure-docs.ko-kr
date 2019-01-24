@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a58644deb8d1325fd466d2a4d3a1fc927c83b685
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: bc9907930283e07ef8df826d2e7653b96f116518
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720257"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852051"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure에서의 Windows 가상 머신 개요
 
@@ -49,7 +49,7 @@ Azure에서 애플리케이션 인프라를 구축하는 경우에는 언제나 
 * VM에 필요한 관련 리소스
 
 ### <a name="naming"></a>이름 지정
-가상 머신에는 할당된 [이름](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)과 운영 체제의 일부로 구성된 컴퓨터 이름이 있습니다. VM 이름은 최대 15자로 제한됩니다.
+가상 머신에는 할당된 [이름](/azure/architecture/best-practices/naming-conventions)과 운영 체제의 일부로 구성된 컴퓨터 이름이 있습니다. VM 이름은 최대 15자로 제한됩니다.
 
 Azure를 사용하여 운영 체제 디스크를 만드는 경우 컴퓨터 이름과 가상 머신 이름은 동일합니다. 이전에 구성된 운영 체제를 포함하고 있는 [사용자 고유의 이미지를 업로드하여 사용하고](upload-generalized-managed.md) 이 이미지를 사용하여 가상 머신을 만드는 경우 이름이 다를 수 있습니다. 사용자 고유의 이미지 파일을 업로드하면 운영 체제의 컴퓨터 이름과 가상 머신 이름을 동일하게 지정하는 것이 좋습니다.
 
@@ -63,7 +63,7 @@ Azure에서 만든 리소스는 모두 전 세계의 여러 [지리적 지역](h
 | Azure portal |VM을 만들 때 목록에서 위치를 선택합니다. |
 | Azure PowerShell |[Get AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) 명령을 사용합니다. |
 | REST API |[위치 나열](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations) 작업을 사용합니다. |
-| Azure CLI |[az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_list_locations) 작업을 사용합니다. |
+| Azure CLI |[az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest) 작업을 사용합니다. |
 
 ### <a name="vm-size"></a>VM 크기
 사용할 VM의 [크기](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)는 실행하려는 워크로드를 기준으로 결정됩니다. 그런 다음 선택하는 크기는 처리 성능, 메모리 및 저장소 용량 등의 요소를 결정합니다. Azure는 다양한 크기를 제공하여 다양한 유형의 사용을 지원합니다.

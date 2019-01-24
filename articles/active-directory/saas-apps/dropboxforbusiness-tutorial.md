@@ -4,7 +4,7 @@ description: Azure Active Directory와 Dropbox for Business 간에 Single Sign-O
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 63502412-758b-4b46-a580-0e8e130791a1
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/20/2018
 ms.author: jeedes
-ms.openlocfilehash: a05a246a3bdf0594484cbbf89998e337d2be5a12
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: cb639f04cec28596c528691066e60b087ca7b09a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974967"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808879"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>자습서: Dropbox for Business와 Azure Active Directory 통합
 
@@ -106,7 +106,7 @@ Dropbox for Business에서 Azure AD Single Sign-on을 구성하려면 다음 단
 
     ![Dropbox for Business 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에 `https://www.dropbox.com/sso/<id>` 패턴을 사용하여 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 `https://www.dropbox.com/sso/<id>` 패턴을 사용하는 URL을 입력합니다.
 
     b. **식별자(엔터티 ID)** 텍스트 상자에 `Dropbox` 값을 입력합니다.
 

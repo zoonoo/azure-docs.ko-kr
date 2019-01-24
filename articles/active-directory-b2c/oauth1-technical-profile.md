@@ -3,19 +3,19 @@ title: Azure Active Directory B2C의 사용자 지정 정책에서 OAuth1 기술
 description: Azure Active Directory B2C의 사용자 지정 정책에서 OAuth1 기술 프로필을 정의합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 15c6730d752adf48cee2ff509220a033cac91ef2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6e93f42540492d138afef3a1d4b826165201b04c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842121"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851354"
 ---
 # <a name="define-a-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth1 기술 프로필 정의
 
@@ -69,11 +69,11 @@ Azure AD(Azure Active Directory) B2C는 [OAuth 1.0](https://tools.ietf.org/html/
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| client_id | yes | ID 공급자의 애플리케이션 식별자입니다. |
+| client_id | 예 | ID 공급자의 애플리케이션 식별자입니다. |
 | ProviderName | 아니요 | ID 공급자의 이름입니다. |
-| request_token_endpoint | yes | RFC 5849에 따른 요청 토큰 엔드포인트의 URL입니다. |
-| authorization_endpoint | yes | RFC 5849에 따른 권한 부여 엔드포인트의 URL입니다. |
-| access_token_endpoint | yes | RFC 5849에 따른 토큰 엔드포인트의 URL입니다. |
+| request_token_endpoint | 예 | RFC 5849에 따른 요청 토큰 엔드포인트의 URL입니다. |
+| authorization_endpoint | 예 | RFC 5849에 따른 권한 부여 엔드포인트의 URL입니다. |
+| access_token_endpoint | 예 | RFC 5849에 따른 토큰 엔드포인트의 URL입니다. |
 | ClaimsEndpoint | 아니요 | 사용자 정보 엔드포인트의 URL입니다. | 
 | ClaimsResponseFormat | 아니요 | 클레임 응답 형식입니다.|
 
@@ -83,7 +83,7 @@ Azure AD(Azure Active Directory) B2C는 [OAuth 1.0](https://tools.ietf.org/html/
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| client_secret | yes | ID 공급자 애플리케이션의 클라이언트 암호입니다.   | 
+| client_secret | 예 | ID 공급자 애플리케이션의 클라이언트 암호입니다.   | 
 
 ## <a name="redirect-uri"></a>리디렉션 URI
 

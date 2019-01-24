@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 8/13/2018
 ms.author: victorh
-ms.openlocfilehash: 5100c5723cf3442520d969e3db6aa65439855551
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3b55767a4375d41b1dc9c4357ca25e562a3cfabe
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230882"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438255"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Azure Firewall 테스트 환경 만들기
 
@@ -32,7 +32,7 @@ PowerShell을 로컬로 실행하는 경우 이 스크립트에는 최신 AzureR
 > [!NOTE]
 >다른 Windows 버전은 `PowerShellGet`을 설치해야 사용할 수 있습니다. `Get-Module -Name PowerShellGet -ListAvailable | Select-Object -Property Name,Version,Path`를 실행하여 시스템에 설치됐는지 확인할 수 있습니다. 출력이 빈 경우 최신 [Windows 관리 프레임워크](https://www.microsoft.com/download/details.aspx?id=54616)를 설치해야 합니다.
 
-자세한 내용은 [PowerShellGet으로 Windows에 Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0) 참조
+자세한 내용은 [PowerShellGet으로 Windows에 Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.4.0) 참조
 
 웹 플랫폼 설치 관리자를 사용하여 모든 기존 Azure PowerShell 설치를 완료한 경우 PowerShellGet 설치와 충돌을 일으키므로 제거해야 합니다.
 

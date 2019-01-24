@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 983c2e6d03735ba26f7660fc07dcf1a05ef88189
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 291bcec5a2a3d1ed2d49816b0ed7317bcfb07995
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960399"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851865"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>CLI를 사용하여 Azure VM에서 사용하는 OS 디스크 변경
 
@@ -34,7 +34,7 @@ VM 크기 및 저장소 유형이 연결할 디스크와 호환되어야 합니�
 이 문서에는 Azure CLI 버전 2.0.25 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 
-[az disk list](/cli/azure/disk#list)를 사용하여 사용자의 리소스 그룹에서 디스크 목록을 가져옵니다.
+[az disk list](/cli/azure/disk)를 사용하여 사용자의 리소스 그룹에서 디스크 목록을 가져옵니다.
 
 ```azurecli-interactive
 az disk list \

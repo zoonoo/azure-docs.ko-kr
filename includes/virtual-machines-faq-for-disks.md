@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5835e8275bedebaca01d585a992930d6856edfd7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: edf99f57fe2166e5ea7f91817dde978015af9348
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53553542"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841436"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -101,6 +101,10 @@ Managed Disks에서는 세 가지 주요 기본 역할을 지원합니다.
 
 예. 관리되지 않는 디스크와 Managed Disks가 모두 지원됩니다. 새 워크로드에 대해 Managed Disks를 사용하고 현재 워크로드를 Managed Disks로 마이그레이션하는 것이 좋습니다.
 
+**비관리 및 관리 디스크를 동일한 VM에 함께 배치할 수 있나요?**
+
+ 아니요.
+
 **128GB 디스크를 만든 후 130GiB로 크기를 증가시키려는 경우 다음 디스크 크기(256GiB)에 대한 요금이 부과되나요?**
 
 예.
@@ -124,10 +128,6 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지
 **Managed Disks를 사용하여 VM을 만드는 Azure Resource Manager 템플릿 예제를 어디에 배치할 수 있나요?**
 * [Managed Disks를 사용하는 템플릿 목록](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
-
-**비관리 및 관리 디스크를 동일한 VM에 함께 배치할 수 있나요?**
-
- 아니요.
 
 **BLOB에서 디스크를 만들 때 해당 원본 BLOB와 지속적으로 유지되는 관계가 있습니까?**
 

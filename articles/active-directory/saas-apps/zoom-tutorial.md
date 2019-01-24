@@ -4,7 +4,7 @@ description: Azure Active Directory와 Zoom 간에 Single Sign-On을 구성하�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 0ebdab6c-83a8-4737-a86a-974f37269c31
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: a9c0cf9dbe14478d805ff84aa480db0f9fac5d2c
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ace02a0cb93cf3e56e4b895524b9e2d35440aecb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971889"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812987"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>자습서: Zoom과 Azure Active Directory 통합
 
@@ -104,9 +104,9 @@ Zoom에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
     ![Zoom 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에 `https://<companyname>.zoom.us` 패턴을 사용하여 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 `https://<companyname>.zoom.us` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에 `<companyname>.zoom.us` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에서 `<companyname>.zoom.us` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Zoom 클라이언트 지원팀](https://support.zoom.us/hc/en-us)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

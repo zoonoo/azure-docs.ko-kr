@@ -1,5 +1,5 @@
 ---
-title: Grafana를 사용하여 Azure 서비스 및 응용 프로그램 모니터링
+title: Grafana를 사용하여 Azure 서비스 및 애플리케이션 모니터링
 description: Azure Monitor 및 Application Insights 데이터를 라우팅하여 Grafana에서 볼 수 있도록 합니다.
 services: azure-monitor
 keywords: ''
@@ -8,13 +8,13 @@ ms.author: robb
 ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
-ms.component: ''
-ms.openlocfilehash: 4579dd4fb14a01454f86d5913eb9dd44a8977db6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.subservice: ''
+ms.openlocfilehash: 9d0f814428a4d7bc57b4f0a01ff5adc658af1d91
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440190"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466988"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana에서 Azure 서비스 모니터링
 이제 [Azure Monitor 데이터 원본 플러그 인](https://grafana.com/plugins/grafana-azure-monitor-datasource)을 사용하여 [Grafana](https://grafana.com/)에서 Azure 서비스 및 애플리케이션을 모니터링할 수 있습니다. 플러그 인은 다양한 로그 및 메트릭을 포함하여 Azure Monitor에서 수집된 애플리케이션 성능 데이터를 수집합니다. 그런 다음 Grafana 대시보드에 이 데이터를 표시할 수 있습니다.
@@ -72,7 +72,7 @@ Grafana 서버를 로컬로 설정하려면 [로컬 환경에서 Grafana를 다�
 4. 사용하려는 API에 연결 세부 정보를 제공합니다. 전부 또는 일부에만 연결할 수 있습니다. 
     * Azure Monitor(메트릭 수집용) 및 Azure Log Analytics(로그 데이터용) 모두에 연결하는 경우 **Azure Monitor API와 동일한 세부 사항**을 선택하여 동일한 자격 증명을 재사용할 수 있습니다.
     * 플러그 인을 구성하는 동안 플러그 인을 모니터링할 Azure 클라우드(공용, Azure 미국 정부, Azure 독일 또는 Azure 중국)를 지정할 수 있습니다.
-    * Application Insights를 사용하는 경우 Application Insights API 및 응용 프로그램 ID를 포함하여 Application Insights 기반 메트릭을 수집할 수도 있습니다. 자세한 내용은 [API 키 및 응용 프로그램 ID 가져오기](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)를 참조하세요.
+    * Application Insights를 사용하는 경우 Application Insights API 및 애플리케이션 ID를 포함하여 Application Insights 기반 메트릭을 수집할 수도 있습니다. 자세한 내용은 [API 키 및 애플리케이션 ID 가져오기](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)를 참조하세요.
 
         > [!NOTE]
         > 일부 데이터 원본 필드의 이름은 관련 Azure 설정과 다릅니다.
@@ -80,7 +80,7 @@ Grafana 서버를 로컬로 설정하려면 [로컬 환경에서 Grafana를 다�
         >     * 클라이언트 ID는 Azure Active Directory 애플리케이션 ID입니다.
         >     * 클라이언트 비밀은 Azure Active Directory 애플리케이션 키 값입니다.
 
-5. Application Insights를 사용하는 경우 Application Insights API 및 응용 프로그램 ID를 포함하여 Application Insights 기반 메트릭을 수집할 수도 있습니다. 자세한 내용은 [API 키 및 응용 프로그램 ID 가져오기](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)를 참조하세요.
+5. Application Insights를 사용하는 경우 Application Insights API 및 애플리케이션 ID를 포함하여 Application Insights 기반 메트릭을 수집할 수도 있습니다. 자세한 내용은 [API 키 및 애플리케이션 ID 가져오기](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)를 참조하세요.
 
 6. **저장**을 선택하면 Grafana에서 각 API에 대한 자격 증명을 테스트합니다. 다음과 비슷한 메시지가 표시됩니다.  
     ![Grafana 데이터 원본 구성 승인됨](./media/grafana-plugin/grafana-data-source-config-approved-dark.png)
@@ -167,3 +167,4 @@ Azure에서 Grafana 환경 설정한 경우 사용자가 VM을 사용 중인지 
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Monitor 메트릭 개요](../../azure-monitor/platform/data-collection.md)
+

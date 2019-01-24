@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
-ms.openlocfilehash: bbed197eb78e34c6e53802dfcfdcc192f780df33
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 84e01c319ab058c9abb05cd9882f4c25bea5cffb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465662"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462037"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합 관리
 가상 머신 확장 집합의 수명 주기 동안 하나 이상의 관리 작업을 실행해야 합니다. 또한 다양한 수명 주기 작업을 자동화하는 스크립트를 만들어야 하는 경우가 있습니다. 이 문서에서는 이러한 작업을 수행할 수 있는 공통 Azure CLI 명령의 일부를 설명합니다.
@@ -37,7 +37,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>확장 집합의 VM 보기
-확장 집합에서 VM 인스턴스 목록을 보려면 [az vmss list-instances](/cli/azure/vmss#list-instances)를 사용합니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myScaleSet*이라는 확장 집합의 모든 VM 인스턴스를 나열합니다. 다음과 같은 이름에 고유한 값을 제공합니다.
+확장 집합에서 VM 인스턴스 목록을 보려면 [az vmss list-instances](/cli/azure/vmss)를 사용합니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myScaleSet*이라는 확장 집합의 모든 VM 인스턴스를 나열합니다. 다음과 같은 이름에 고유한 값을 제공합니다.
 
 ```azurecli
 az vmss list-instances \
@@ -46,7 +46,7 @@ az vmss list-instances \
     --output table
 ```
 
-특정 VM 인스턴스에 대한 추가 정보를 보려면 `--instance-id` 매개 변수를 [az vmss get-instance-view](/cli/azure/vmss#get-instance-view)에 추가하고 보려는 인스턴스를 지정합니다. 다음 예제에서는 *myScaleSet*이라는 확장 집합 및 *myResourceGroup*이라는 리소스 그룹에서 VM 인스턴스 *0*에 대한 정보를 봅니다. 다음과 같이 고유한 이름을 입력합니다.
+특정 VM 인스턴스에 대한 추가 정보를 보려면 `--instance-id` 매개 변수를 [az vmss get-instance-view](/cli/azure/vmss)에 추가하고 보려는 인스턴스를 지정합니다. 다음 예제에서는 *myScaleSet*이라는 확장 집합 및 *myResourceGroup*이라는 리소스 그룹에서 VM 인스턴스 *0*에 대한 정보를 봅니다. 다음과 같이 고유한 이름을 입력합니다.
 
 ```azurecli
 az vmss get-instance-view \
@@ -108,7 +108,7 @@ az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance
 
 
 ### <a name="start-vms-in-a-scale-set"></a>확장 집합의 VM 시작
-확장 집합에서 하나 이상의 VM을 시작하려면 [az vmss start](/cli/azure/vmss#az_vmss_start)를 사용합니다. `--instance-ids` 매개 변수를 사용하면 하나 이상의 가상 컴퓨터를 시작하도록 지정할 수 있습니다. 인스턴스 ID를 지정하지 않으면 확장 집합에서 모든 VM이 시작됩니다. 여러 VM을 시작하려면 각 인스턴스 ID를 공백으로 구분합니다.
+확장 집합에서 하나 이상의 VM을 시작하려면 [az vmss start](/cli/azure/vmss)를 사용합니다. `--instance-ids` 매개 변수를 사용하면 하나 이상의 가상 컴퓨터를 시작하도록 지정할 수 있습니다. 인스턴스 ID를 지정하지 않으면 확장 집합에서 모든 VM이 시작됩니다. 여러 VM을 시작하려면 각 인스턴스 ID를 공백으로 구분합니다.
 
 다음 예제에서는 *myScaleSet*이라는 확장 집합 및 *myResourceGroup*이라는 리소스 그룹에서 인스턴스 *0*을 시작합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
 

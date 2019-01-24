@@ -4,7 +4,7 @@ description: Azure Active Directory와 Cornerstone OnDemand 간에 Single Sign-O
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: f57c5fef-49b0-4591-91ef-fc0de6d654ab
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 40d5905764dbf139db28cd1c113d06981be8205d
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 7f2276cfb6019c15b28eeab92ecf63c788858b7f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972331"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825598"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cornerstone-ondemand"></a>자습서: Cornerstone OnDemand와 Azure Active Directory 통합
 
@@ -105,9 +105,9 @@ Cornerstone OnDemand에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
     ![Cornerstone OnDemand 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에 `https://<company>.csod.com` 패턴을 사용하여 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 `https://<company>.csod.com` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에 `https://<company>.csod.com` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<company>.csod.com` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Cornerstone OnDemand 클라이언트 지원 팀](mailto:moreinfo@csod.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

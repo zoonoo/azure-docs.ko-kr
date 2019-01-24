@@ -11,12 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1ef0fc9037548a58d9b0a4f46c212a43796d529b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 6a08a5a79a8a072bd4621a7e200e84c2c71c9cd4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231600"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475070"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Azure 리소스에 대한 할당량 관리 및 요청
 
@@ -46,7 +46,7 @@ ms.locfileid: "54231600"
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-좀 더 구체적인 최신 할당량 한도 목록은 [여기](https://docs.microsoft.com/azure/azure-subscription-service-limits#subscription-limits-1)서 Azure 전체 할당량 문서를 참조하세요.
+좀 더 구체적인 최신 할당량 한도 목록은 [여기](https://docs.microsoft.com/azure/azure-subscription-service-limits)서 Azure 전체 할당량 문서를 참조하세요.
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning 컴퓨팅
 Azure Machine Learning 컴퓨팅의 경우 구독의 영역당 허용되는 코어 수 및 고유한 컴퓨팅 리소스 수의 기본 할당량 한도가 있습니다. 이 할당량은 위의 VM 코어 할당량과 별개이며 코어 한도는 현재 두 리소스 유형 간에 공유되지 않습니다.

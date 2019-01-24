@@ -3,18 +3,18 @@ title: Azure Automation에서 원본 제어 통합
 description: 이 문서에서는 Azure Automation에서 GitHub를 사용하는 원본 제어 통합을 설명합니다.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94d948267286ad716aa200cb5aa858acf2eb2624
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 400cf53172fbd1ce5803cf3de298749afbf45cd4
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330775"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430197"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Automation에서 원본 제어 통합
 
@@ -144,3 +144,4 @@ Source Control Sync Summary:
 ## <a name="next-steps"></a>다음 단계
 
 Runbook 형식, 해당 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure Automation Runbook 형식](automation-runbook-types.md)
+

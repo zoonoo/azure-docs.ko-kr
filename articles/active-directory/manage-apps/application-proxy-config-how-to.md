@@ -4,7 +4,7 @@ description: 몇 가지 간단한 단계로 애플리케이션 프록시 애플�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: a7a5c097f0400d89398cef66eeb7bd0ce8d5e97b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 3470f7e68b095c087d188b61cea0586e0435d772
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132434"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474747"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션을 구성하는 방법
 
@@ -36,7 +36,7 @@ ms.locfileid: "53132434"
 
 ## <a name="create-the-applicationsetting-the-urls"></a>애플리케이션 만들기/URL 설정
 
-[Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-add-on-premises-application.md) 문서의 단계에 따라 응용 프로그램을 만드는 중 오류가 발생한 경우 오류 세부 정보에서 응용 프로그램 문제 해결 방법에 대한 정보 및 제안 사항을 참조하세요. 대부분의 오류 메시지에는 제안 수정이 포함되어 있습니다. 일반적인 오류를 방지하려면 다음을 확인합니다.
+[Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](application-proxy-add-on-premises-application.md) 문서의 단계에 따라 애플리케이션을 만드는 중 오류가 발생한 경우 오류 세부 정보에서 애플리케이션 문제 해결 방법에 대한 정보 및 제안 사항을 참조하세요. 대부분의 오류 메시지에는 제안 수정이 포함되어 있습니다. 일반적인 오류를 방지하려면 다음을 확인합니다.
 
 -   애플리케이션 프록시 애플리케이션을 만들 수 있는 권한을 가진 관리자여야 합니다.
 
@@ -75,4 +75,4 @@ ms.locfileid: "53132434"
    ![알림 프롬프트](./media/application-proxy-config-how-to/error-message2.png)
 
 ## <a name="next-steps"></a>다음 단계
-[Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-add-on-premises-application.md)
+[Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](application-proxy-add-on-premises-application.md)

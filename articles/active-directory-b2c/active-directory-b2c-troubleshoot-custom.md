@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 사용자 지정 정책의 문제를 해
 description: Application Insights를 설정하여 사용자 지정 정책의 실행을 추적하는 방법입니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c733c148994b06e6d7cd13ee98e1a8157f26010a
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 814ae29d4b50ecb44db45534c5d2a6bfb5b97a59
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163180"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846509"
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: 로그 수집
 
@@ -27,14 +27,14 @@ ms.locfileid: "53163180"
 
 ## <a name="use-application-insights"></a>Application Insights 사용
 
-Azure AD B2C는 Application Insights로 데이터를 보내는 기능을 지원합니다.  Application Insights는 예외를 진단하고 응용 프로그램 성능 문제를 시각화하는 방법을 제공합니다.
+Azure AD B2C는 Application Insights로 데이터를 보내는 기능을 지원합니다.  Application Insights는 예외를 진단하고 애플리케이션 성능 문제를 시각화하는 방법을 제공합니다.
 
 ### <a name="setup-application-insights"></a>Application Insights 설정
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. Azure 구독(Azure AD B2C 테넌트가 아님)을 사용하여 테넌트에 위치하도록 합니다.
 1. 왼쪽 탐색 메뉴에서 **+ 새로 만들기**를 클릭합니다.
-1. **Application Insights**를 검색하고 선택한 다음 **만들기**를 클릭합니다.
-1. 양식을 완료하고 **만들기**를 클릭합니다. **응용 프로그램 형식**에서 **일반**을 선택합니다.
+1. **Application Insights**를 검색하고 선택한 다음, **만들기**를 클릭합니다.
+1. 양식을 완료하고 **만들기**를 클릭합니다. **애플리케이션 형식**에서 **일반**을 선택합니다.
 1. 리소스를 만들게 되면 Application Insights 리소스를 엽니다.
 1. 왼쪽 메뉴에서 **속성**을 찾고 클릭합니다.
 1. **계측 키**를 복사하고 다음 섹션에 저장합니다.
@@ -114,4 +114,4 @@ Application Insights의 이벤트를 읽는 뷰어 버전은 [여기](https://gi
 
 ## <a name="next-steps"></a>다음 단계
 
-Application Insights에서 데이터를 탐색하여 고유한 ID 환경을 제공하기 위해 ID 경험 프레임워크 기본 B2C가 작동하는 방법을 이해할 수 있습니다.
+Application Insights에서 데이터를 탐색하여 고유한 ID 환경을 제공하기 위해 Identity Experience Framework 기본 B2C가 작동하는 방법을 이해할 수 있습니다.

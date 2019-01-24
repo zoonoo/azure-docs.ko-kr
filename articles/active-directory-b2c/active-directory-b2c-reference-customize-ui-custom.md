@@ -3,19 +3,19 @@ title: 사용자 지정 정책으로 사용자 경험의 UI 사용자 지정 | M
 description: Azure Active Directory B2C 사용자 지정 정책에 대해 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8c3684f93bbf5b9fe9f5ea9167396b9822e70c48
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1953e23c0676a0c81576a47f3f3ca36c3861935f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841628"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855060"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>사용자 지정 정책으로 사용자 경험의 UI 사용자 지정
 
@@ -74,7 +74,7 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 > [!TIP]
 > https://enable-cors.org/ 사이트는 또한 CORS에 대한 유용한 리소스를 구성합니다.
 
-이 CORS 기반 접근 방식 덕분에 최종 사용자는 Azure AD B2C에서 제공하는 페이지와 응용 프로그램 간에 일관된 경험을 얻게 됩니다.
+이 CORS 기반 접근 방식 덕분에 최종 사용자는 Azure AD B2C에서 제공하는 페이지와 애플리케이션 간에 일관된 경험을 얻게 됩니다.
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 

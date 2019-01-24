@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 2f132bc14e62636a3ddd269323497733de1007b7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 76b0d1728b46834270e9a5b53709de62b4a8b3fa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021155"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429381"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>PowerShell을 사용하여 Azure Data Factory에서 자체 호스팅 통합 런타임 공유 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "54021155"
 
 - **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다. 
 
-- **Azure PowerShell**. [PowerShellGet을 사용하여 Windows에 Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.11.0)의 지침을 따르세요. PowerShell을 사용하여 다른 데이터 팩터리와 공유할 수 있는 자체 호스팅 통합 런타임을 만드는 스크립트를 실행합니다. 
+- **Azure PowerShell**. [PowerShellGet을 사용하여 Windows에 Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.11.0)의 지침을 따르세요. PowerShell을 사용하여 다른 데이터 팩터리와 공유할 수 있는 자체 호스팅 통합 런타임을 만드는 스크립트를 실행합니다. 
 
 > [!NOTE]  
 > Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)에서 관심 있는 지역을 선택합니다.

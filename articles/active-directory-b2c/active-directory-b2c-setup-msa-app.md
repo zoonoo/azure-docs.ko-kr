@@ -3,19 +3,19 @@ title: Azure Active Directory B2C를 사용하여 Microsoft 계정으로 등록 
 description: 고객에게 Azure Active Directory B2C를 사용하여 애플리케이션에서 Microsoft 계정으로 등록 및 로그인을 제공합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e9c42429a8feb60ade27afe998cb9a267f1603dd
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 1f9deaf29982c4bd753336f51e10a06ced6586f1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180907"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54842533"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Microsoft 계정으로 등록 설정 및 로그인
 
@@ -39,6 +39,6 @@ Azure AD(Azure Active Directory) B2C에서 Microsoft 계정을 ID 공급자로 �
 4. **ID 공급자**를 선택한 다음, **추가**를 선택합니다.
 5. **이름**을 제공합니다. 예를 들어, *MSA*를 입력합니다.
 6. **ID 공급자 형식**을 선택하고 **Microsoft 계정**을 선택하고 **확인**을 클릭합니다.
-7. **이 ID 공급자 설정**을 선택하고 이전에 기록한 응용 프로그램 ID를 **클라이언트 ID**로 입력한 후, 기록한 암호를 이전에 만든 Microsoft 계정 응용 프로그램의 **클라이언트 암호**로 입력합니다.
+7. **이 ID 공급자 설정**을 선택하고 이전에 기록한 애플리케이션 ID를 **클라이언트 ID**로 입력한 후, 기록한 암호를 이전에 만든 Microsoft 계정 애플리케이션의 **클라이언트 암호**로 입력합니다.
 8. **확인**을 클릭한 다음 **만들기**를 클릭하여 Microsoft 계정 구성을 저장합니다.
 

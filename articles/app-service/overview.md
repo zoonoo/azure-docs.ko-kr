@@ -15,16 +15,16 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5f3fed9255b86696b0e71c70adcd7ff23c0573d9
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: a3ff9b6fc1abf36bf2feddf518e4e920f18a3c23
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352447"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423683"
 ---
 # <a name="app-service-overview"></a>App Service 개요
 
-*Azure App Service*는 웹 애플리케이션, REST API 및 모바일 백 엔드를 호스트하는 서비스입니다. .NET, .NET Core, Java, Ruby, Node.js, PHP 또는 Python 등 원하는 언어로 개발할 수 있습니다. Windows 및 Linux 기반 환경에서 애플리케이션을 쉽게 실행하고 확장할 수 있습니다. Linux 기반 환경에 대한 자세한 내용은 [App Service on Linux](containers/app-service-linux-intro.md)의 App Service를 참조하세요. 
+*Azure App Service*는 웹 애플리케이션, REST API 및 모바일 백 엔드를 호스트하는 서비스입니다. .NET, .NET Core, Java, Ruby, Node.js, PHP 또는 Python 등 원하는 언어로 개발할 수 있습니다. Windows 및 Linux 기반 환경에서 애플리케이션을 쉽게 실행하고 확장할 수 있습니다. Linux 기반 환경에 대한 자세한 내용은 [Linux의 App Service](containers/app-service-linux-intro.md)를 참조하세요. 
 
 App Service는 보안, 부하 분산, 자동 크기 조정 및 자동화된 관리와 같이 Microsoft Azure의 강력한 기능을 애플리케이션에 추가합니다. 또한 Azure DevOps, GitHub, Docker 허브 및 기타 원본, 패키지 관리, 스테이징 환경, 사용자 지정 도메인 및 SSL 인증서의 지속적인 배포와 같은 DevOps 기능도 활용할 수 있습니다. 
 

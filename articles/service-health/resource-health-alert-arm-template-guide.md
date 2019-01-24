@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/4/2018
 ms.author: shtabriz
-ms.openlocfilehash: dcc978c8e169cca2e2cd91a63ef1814a8c3bd87c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: ee5712915e552168c0268a44af60ea58e069fc11
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184103"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429528"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 리소스 상태 경고 구성
 
@@ -31,7 +31,7 @@ Azure Resource Health는 Azure 리소스의 현재 및 과거 상태에 대한 �
 
 이 페이지의 지침을 따르려면 미리 몇 가지 사항을 설정해야 합니다.
 
-1. [Azure PowerShell 모듈](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)(`AzureRm`)을 설치해야 합니다.
+1. [Azure PowerShell 모듈](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)(`AzureRm`)을 설치해야 합니다.
 2. 내게 알려주도록 구성된 [작업 그룹을 만들거나 재사용](../azure-monitor/platform/action-groups.md)해야 합니다.
 
 ## <a name="instructions"></a>지침

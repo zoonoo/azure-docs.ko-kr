@@ -3,7 +3,7 @@ title: 기본 사용자 권한 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory에서 사용할 수 있는 다른 사용자 권한에 대해 알아봅니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 58354bf95b11e497f05fdf08ba4740b3f55c6d6e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e1ec57dd058caff076d3fe8877928efb293ee5fa
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022787"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451343"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory의 기본 사용자 권한이란?
 Azure AD(Azure Active Directory)의 모든 사용자에게는 기본 권한 집합이 부여됩니다. 사용자 액세스는 사용자 형식, [역할 멤버 자격](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) 및 개별 개체의 소유권으로 구성됩니다. 이 문서에서는 이 기본 권한을 설명하며 멤버와 게스트 사용자 기본값을 비교합니다.

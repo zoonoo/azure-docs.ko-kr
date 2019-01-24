@@ -14,18 +14,18 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: e985111a28805f861242240a5c2e3d7b6664be4e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 140c542b71ff87f6b7a846888da06e58fa03ce10
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996114"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855332"
 ---
 # <a name="use-cloud-init-to-set-hostname-for-a-linux-vm-in-azure"></a>cloud-init를 사용하여 Azure에서 Linux VM에 대한 호스트 이름 설정
 이 문서는 [cloud-init](https://cloudinit.readthedocs.io)를 사용하여 Azure의 프로비전 시간에서 VM(가상 머신) 또는 VMSS(가상 머신 확장 집합)에 특정 호스트 이름을 구성하는 방법을 보여 줍니다. Azure에서 리소스가 프로비전되면 처음 부팅 시 이러한 cloud-init 스크립트가 실행됩니다. 기본적으로 cloud-init가 Azure에서 작동되는 방식과 지원되는 Linux 배포판에 대한 자세한 내용은 [cloud-init 개요](using-cloud-init.md)를 참조하세요.
 
 ## <a name="set-the-hostname-with-cloud-init"></a>cloud-init로 호스트 이름 설정
-기본적으로 호스트 이름은 Azure에서 새 가상 머신을 만들 때 VM 이름과 동일합니다.  Azure에서 [az vm create](/cli/azure/vm#az_vm_create)를 사용하여 VM을 만들 때 cloud-init 스크립트를 실행하여 이 기본 호스트 이름을 변경하려면 cloud-init 파일을 `--custom-data` 스위치로 지정합니다.  
+기본적으로 호스트 이름은 Azure에서 새 가상 머신을 만들 때 VM 이름과 동일합니다.  Azure에서 [az vm create](/cli/azure/vm)를 사용하여 VM을 만들 때 cloud-init 스크립트를 실행하여 이 기본 호스트 이름을 변경하려면 cloud-init 파일을 `--custom-data` 스위치로 지정합니다.  
 
 진행 중인 업그레이드 프로세스를 확인하려면 현재 셸에 이름이 *cloud_init_hostname.txt*인 파일을 만들고 다음 구성을 붙여넣습니다. 이 예제에서는 로컬 컴퓨터에 없는 Cloud Shell에서 파일을 만듭니다. 원하는 모든 편집기를 사용할 수 있습니다. `sensible-editor cloud_init_hostname.txt`를 입력하여 파일을 만들고 사용할 수 있는 편집기의 목록을 봅니다. #1을 선택하여 **nano** 편집기를 사용합니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사되었는지 확인합니다.  
 
@@ -40,7 +40,7 @@ hostname: myhostname
 az group create --name myResourceGroup --location eastus
 ```
 
-이제 [az vm create](/cli/azure/vm#az_vm_create)로 VM을 만들고 다음과 같이 `--custom-data cloud_init_hostname.txt`로 cloud-init 파일을 지정합니다.
+이제 [az vm create](/cli/azure/vm)로 VM을 만들고 다음과 같이 `--custom-data cloud_init_hostname.txt`로 cloud-init 파일을 지정합니다.
 
 ```azurecli-interactive 
 az vm create \
@@ -75,4 +75,4 @@ myhostname
 - [VM에 추가 Linux 사용자 추가](cloudinit-add-user.md)
 - [패키지 관리자를 실행하여 첫 번째 부팅 시 기존 패키지 업데이트](cloudinit-update-vm.md)
 - [VM 로컬 호스트 이름 변경](cloudinit-update-vm-hostname.md) 
-- [응용 프로그램 패키지 설치, 구성 파일 업데이트 및 키 삽입](tutorial-automate-vm-deployment.md)
+- [애플리케이션 패키지 설치, 구성 파일 업데이트 및 키 삽입](tutorial-automate-vm-deployment.md)

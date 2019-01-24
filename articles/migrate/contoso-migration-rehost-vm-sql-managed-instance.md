@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 35d2234ee52516c4ebf3e354e1ab6890144cdd5d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6e15d4376fae576f615cac7c094f53dfcc22618e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879471"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826618"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso 마이그레이션: Azure VM 및 SQL Database Managed Instance에서 온-프레미스 앱 다시 호스트
 
@@ -238,7 +238,7 @@ Contoso에서 고려해야 하는 요소는 다음과 같습니다.
     
 *도움이 더 필요하세요?*
 
-[Managed Instance에 대한 경로를 설정하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal#create-new-route-table-and-a-route)을 알아봅니다.
+[Managed Instance에 대한 경로를 설정하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal)을 알아봅니다.
 
 ### <a name="create-a-managed-instance"></a>Managed Instance 만들기
 
@@ -265,7 +265,7 @@ Contoso에서 고려해야 하는 요소는 다음과 같습니다.
 Database Migration Service를 준비하기 위해 Contoso 관리자는 다음 몇 가지 작업을 수행해야 합니다.
 
 - Azure에서 Database Migration Service 공급자를 등록합니다.
-- 데이터베이스를 마이그레이션하는 데 사용되는 백업 파일을 업로드하기 위해 Azure Storage에 대한 액세스 권한을 Database Migration Service에 제공합니다. Azure Storage에 대한 액세스를 제공하기 위해 Azure Blob 스토리지 컨테이너를 만들고, 이 Blob 저장소 컨테이너에 대한 SAS URI를 생성합니다. 
+- 데이터베이스를 마이그레이션하는 데 사용되는 백업 파일을 업로드하기 위해 Azure Storage에 대한 액세스 권한을 Database Migration Service에 제공합니다. Azure Storage에 대한 액세스를 제공하기 위해 Azure Blob 스토리지 컨테이너를 만들고, 이 Blob Storage 컨테이너에 대한 SAS URI를 생성합니다. 
 - Database Migration Service 프로젝트를 만듭니다.
 
 그런 다음, 다음 단계를 수행합니다.
@@ -273,7 +273,7 @@ Database Migration Service를 준비하기 위해 Contoso 관리자는 다음 �
 1. 데이터베이스 마이그레이션 공급자를 구독에 등록합니다.
     ![Database Migration Service - 등록](media/contoso-migration-rehost-vm-sql-managed-instance/dms-subscription.png)
 
-2. Blob 저장소 컨테이너를 만듭니다. Contoso는 Database Migration Service에서 액세스할 수 있도록 SAS URI를 생성합니다.
+2. Blob Storage 컨테이너를 만듭니다. Contoso는 Database Migration Service에서 액세스할 수 있도록 SAS URI를 생성합니다.
 
     ![Database Migration Service - SAS URI 생성](media/contoso-migration-rehost-vm-sql-managed-instance/dms-sas.png)
 
@@ -443,7 +443,7 @@ Azure로 마이그레이션을 실행하기 전에 Contoso 관리자는 온-프�
 2. 다음 기본 설정을 사용합니다.
     - **RPO 임계값**: 기본값은 60분입니다. 이 값은 복구 지점을 만드는 빈도를 지정합니다. 연속 복제가 이 제한을 초과하면 경고가 생성됩니다.
     - **복구 지점 보존**: 기본값은 24시간입니다. 이 값은 각 복구 지점에 대한 보존 기간을 지정합니다. 복제된 VM은 하나의 시간대에서 임의의 시점으로 복구할 수 있습니다.
-    - **앱 일치 스냅숏 빈도**: 1시간이 기본값입니다. 이 값은 응용 프로그램 일치 스냅숏이 만들어지는 빈도를 지정합니다.
+    - **앱 일치 스냅숏 빈도**: 1시간이 기본값입니다. 이 값은 애플리케이션 일치 스냅숏이 만들어지는 빈도를 지정합니다.
  
     ![복제 정책 - 만들기](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
 
@@ -460,7 +460,7 @@ Azure로 마이그레이션을 실행하기 전에 Contoso 관리자는 온-프�
 
 이제 Contoso 관리자는 WebVM 복제를 시작할 수 있습니다.
 
-1. **응용 프로그램 복제** > **원본** > **복제**에서 원본 설정을 선택합니다.
+1. **애플리케이션 복제** > **원본** > **복제**에서 원본 설정을 선택합니다.
 2. 가상 머신을 사용하도록 설정하고, vCenter Server 인스턴스를 선택하며, 구성 서버를 설정하려고 함을 나타냅니다.
 
     ![복제 사용 - 원본](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication1.png)

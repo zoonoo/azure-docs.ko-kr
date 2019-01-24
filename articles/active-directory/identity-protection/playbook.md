@@ -2,10 +2,10 @@
 title: Azure Active Directory ID 보호 플레이 북 | Microsoft Docs
 description: Azure AD ID 보호를 사용하여 손상된 ID 및 디바이스를 악용하는 공격자의 능력을 제한하고 이전에 손상이 우려되거나 손상된 ID 또는 디바이스를 보호할 수 있는 방법을 알아봅니다.
 services: active-directory
-keywords: Azure Active Directory ID 보호, 클라우드 검색, 애플리케이션 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
+keywords: Azure Active Directory ID 보호, 클라우드 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.component: conditional-access
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 5c2a37f3753292c6db847a4a9152bd4506f8fa5e
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 7e706b1dd9c7dd79285666885cb6ada89d8126b2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580497"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460527"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory ID 보호 플레이 북
 

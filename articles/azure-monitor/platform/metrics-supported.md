@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
-ms.component: metrics
-ms.openlocfilehash: 02678738c225742db1795a2e168b6eac1320aead
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.subservice: metrics
+ms.openlocfilehash: be2274b5d7a0e39733440379ce9678ab012d7d27
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232892"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473829"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. 다음은 현재 Azure Monitor의 메트릭 파이프라인을 통해 사용할 수 있는 모든 메트릭의 전체 목록입니다.  레거시 API를 통해서 또는 포털에서 다른 메트릭을 제공할 수 있습니다. 아래 목록에는 통합 Azure Monitor 메트릭 파이프라인을 통해 사용할 수 있는 메트릭만 포함됩니다. 이러한 메트릭을 쿼리하고 액세스하려면 [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)을 사용하세요.
@@ -1573,3 +1573,4 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 * [Azure Monitor의 메트릭에 대해 읽기](../../azure-monitor/platform/data-collection.md)
 * [메트릭에 대한 경고 만들기](../../azure-monitor/platform/alerts-overview.md)
 * [저장소, 이벤트 허브 또는 Log Analytics에 메트릭 내보내기](../../azure-monitor/platform/diagnostic-logs-overview.md)
+

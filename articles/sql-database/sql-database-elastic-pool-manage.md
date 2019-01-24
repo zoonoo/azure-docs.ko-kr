@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/29/2018
-ms.openlocfilehash: 366bdf73c6b62ffa98ce44076374df8be8b3de3c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/17/2019
+ms.openlocfilehash: 93b7fb0cd303f34d4afadf461f8886aaac52e4c3
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865882"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388571"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Azure SQL Database에서 탄력적 풀 만들기 및 관리
 
@@ -39,7 +39,7 @@ ms.locfileid: "52865882"
 
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: 탄력적 풀 및 풀링된 데이터베이스 관리
 
-Azure PowerShell을 사용하여 SQL Database 탄력적 풀 및 풀링된 데이터베이스를 만들고 관리하려면 다음 PowerShell cmdlet을 사용합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 탄력적 풀을 위한 논리 서버를 만들고 관리하려면 [논리 서버 만들기 및 관리](sql-database-logical-servers.md)를 참조하세요. 방화벽 규칙을 만들고 관리하려면 [PowerShell을 사용하여 방화벽 규칙 만들기 및 관리](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell)를 참조하세요.
+Azure PowerShell을 사용하여 SQL Database 탄력적 풀 및 풀링된 데이터베이스를 만들고 관리하려면 다음 PowerShell cmdlet을 사용합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 탄력적 풀을 위한 논리 서버를 만들고 관리하려면 [논리 서버 만들기 및 관리](sql-database-logical-servers.md)를 참조하세요. 방화벽 규칙을 만들고 관리하려면 [PowerShell을 사용하여 방화벽 규칙 만들기 및 관리](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell)를 참조하세요.
 
 > [!TIP]
 > PowerShell 예제 스크립트의 경우 [PowerShell을 사용하여 탄력적 풀 만들기 및 풀 간에 데이터베이스 이동](scripts/sql-database-move-database-between-pools-powershell.md) 및 [PowerShell을 사용하여 Azure SQL Database에서 SQL 탄력적 풀 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-pool-powershell.md)을 참조하세요.
@@ -116,4 +116,4 @@ SQL Database 탄력적 풀 및 풀링된 데이터베이스를 만들고 관리�
 
 * 비디오는 [Azure SQL Database 탄력적 기능에 대한 Microsoft Virtual Academy 비디오 과정](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)을 참조하세요.
 * 탄력적 풀을 사용한 SaaS 애플리케이션의 디자인 패턴에 대해 자세히 알아보려면 [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
-* 탄력적 풀을 사용하는 SaaS 자습서의 경우 [Wingtip SaaS 응용 프로그램 소개](sql-database-wtp-overview.md)를 참조하세요.
+* 탄력적 풀을 사용하는 SaaS 자습서의 경우 [Wingtip SaaS 애플리케이션 소개](sql-database-wtp-overview.md)를 참조하세요.

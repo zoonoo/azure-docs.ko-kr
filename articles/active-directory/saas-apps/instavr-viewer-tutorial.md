@@ -4,7 +4,7 @@ description: Azure Active Directory 및 InstaVR Viewer 간에 Single Sign-On을 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 13ffa29f-d0a5-4b21-b296-cfd76f380940
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: c63e7d03c0fc17e9892617aaeca94803c671acea
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b0548ec2bb580c2898f610f00fd5ba911b314114
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194927"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823052"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>자습서: InstaVR Viewer와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ InstaVR Viewer를 Azure AD와 통합하면 다음과 같은 이점이 제공됩�
 * 사용자가 해당 Azure AD 계정으로 InstaVR Viewer에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -79,8 +79,8 @@ InstaVR Viewer에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[InstaVR Viewer Single Sign-On 구성](#configure-instavr-viewer-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-on 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[InstaVR Viewer 테스트 사용자 만들기](#create-instavr-viewer-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 InstaVR Viewer에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[InstaVR Viewer 테스트 사용자 만들기](#create-instavr-viewer-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 InstaVR Viewer에 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -105,13 +105,13 @@ InstaVR Viewer에서 Azure AD Single Sign-on을 구성하려면 다음 단계를
 
     ![InstaVR Viewer 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에 `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>` 패턴을 사용하여 URL을 입력합니다.
-    
+    a. **로그온 URL** 텍스트 상자에서 `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>` 패턴을 사용하는 URL을 입력합니다.
+
     > [!NOTE]
     > 로그온 URL에 대한 고정된 패턴이 없습니다. InstaVR Viewer 고객이 웹 패키징을 수행하는 경우 생성되며, 모든 고객 및 패키지에서 고유합니다. 정확한 로그온 URL을 가져오기 위해 InstaVR Viewer 인스턴스에 로그인하고 웹 패키징을 수행해야 합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다. `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>` 
-    
+    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>` 패턴을 사용하는 URL을 입력합니다.
+
     > [!NOTE]
     > 식별자 값은 실제 값이 아닙니다. 자습서 뒷부분에 설명된 실제 식별자 값으로 이 값을 업데이트합니다.
 

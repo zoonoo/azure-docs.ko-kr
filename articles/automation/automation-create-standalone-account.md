@@ -3,18 +3,18 @@ title: 독립 실행형 Azure Automation 계정 만들기
 description: 이 문서는 Azure Automation에서 예제 보안 주체 인증을 만들고 테스트하며 사용하는 과정을 설명합니다.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2e419da4ed84f3d202113f9616050c3e7c29f240
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 1590a02503a12be870dab14a1ccffdd3cf64a282
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322047"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426610"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>독립 실행형 Azure Automation 계정 만들기
 
@@ -112,3 +112,4 @@ Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자
 * PowerShell Runbook을 시작하려면 [내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-powershell.md)을 참조하세요.
 * PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)을 참조하세요.
 * Python2 Runbook을 시작하려면 [내 첫 번째 Python2 Runbook](automation-first-runbook-textual-python2.md)을 참조하세요.
+

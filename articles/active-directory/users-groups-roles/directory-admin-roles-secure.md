@@ -13,16 +13,16 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: da53fa7d20c66b09e06c70222f29f060fa5803c8
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c2ee0834b0c6872d96bebe71231f1a9424ff261a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387083"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438153"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
-현대 조직에서 대부분 또는 모든 비즈니스 자산의 보안은 IT 시스템을 운영하고 관리하는 권한 있는 계정의 무결성에 따라 달라집니다. 사이버 공격자를 포함한 악의적인 행위자는 종종 권한 있는 액세스의 관리자 계정 및 기타 요소를 대상으로 하여 자격 증명 도난 공격을 통해 중요한 데이터 및 시스템에 신속하게 액세스하려고 합니다. 클라우드 서비스의 경우 예방 및 대응은 클라우드 서비스 공급자와 고객의 공동 책임입니다. 엔드포인트와 클라우드에 대한 최신 위협에 대한 자세한 내용은 [Microsoft 보안 인텔리전스 보고서](https://www.microsoft.com/security/sir/default.aspx)를 참조하세요. 이 문서는 현재 계획과 여기서 설명하는 지침 사이의 차이를 제거하기 위한 로드맵을 개발하는 데 도움이 될 수 있습니다.
+현대 조직에서 대부분 또는 모든 비즈니스 자산의 보안은 IT 시스템을 운영하고 관리하는 권한 있는 계정의 무결성에 따라 달라집니다. 사이버 공격자를 포함한 악의적인 행위자는 종종 권한 있는 액세스의 관리자 계정 및 기타 요소를 대상으로 하여 자격 증명 도난 공격을 통해 중요한 데이터 및 시스템에 신속하게 액세스하려고 합니다. 클라우드 서비스의 경우 예방 및 대응은 클라우드 서비스 공급자와 고객의 공동 책임입니다. 엔드포인트와 클라우드에 대한 최신 위협에 대한 자세한 내용은 [Microsoft 보안 인텔리전스 보고서](https://www.microsoft.com/security/operations/security-intelligence-report)를 참조하세요. 이 문서는 현재 계획과 여기서 설명하는 지침 사이의 차이를 제거하기 위한 로드맵을 개발하는 데 도움이 될 수 있습니다.
 
 > [!NOTE] 
 > Microsoft는 최고 수준의 신뢰, 투명도, 표준 적합성 및 규정 준수를 위해 노력하고 있습니다. Microsoft 글로벌 인시던트 대응 팀이 클라우드 서비스에 대한 공격의 영향을 완화하는 방법과 Microsoft 비즈니스 제품 및 클라우드 서비스에 보안을 기본 제공하는 방법은 [Microsoft 보안 센터 - 보안](https://www.microsoft.com/trustcenter/security) 및 [Microsoft 보안 센터 - 준수](https://www.microsoft.com/trustcenter/compliance)에서 자세히 알아보세요.
@@ -84,7 +84,7 @@ does the article really start here?-->
 
 Azure AD PIM(Privileged Identity Management)이 아직 설정되지 않은 경우 프로덕션 테넌트에서 이를 설정합니다. Privileged Identity Management가 설정되면 권한 있는 액세스 역할 변경에 대한 알림 이메일 메시지를 받게 됩니다. 이러한 알림에서는 디렉터리에서 권한이 높은 역할에 추가 사용자가 추가될 때 조기 경고를 제공합니다.
 
-Azure AD Privileged Identity Management는 Azure AD Premium P2 또는 EMS E5에 포함되어 있습니다. 이러한 솔루션을 사용하면 온-프레미스 환경과 클라우드에 있는 응용 프로그램 및 리소스에 대한 액세스를 보호할 수 있습니다. Azure AD Premium P2 또는 EMS E5가 아직 없고 이 로드맵에서 언급하는 기능을 더 자세히 평가하려면, [Enterprise Mobility + Security 90일 평가판](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial)에 가입합니다. Azure AD 고급 보안 보고, 감사 및 경고를 사용하여 활동을 모니터링하려면, 이러한 라이선스 평가판을 통해 Azure AD Privileged Identity Management 및 Azure AD Identity Protection을 사용해 봅니다.
+Azure AD Privileged Identity Management는 Azure AD Premium P2 또는 EMS E5에 포함되어 있습니다. 이러한 솔루션을 사용하면 온-프레미스 환경과 클라우드에 있는 애플리케이션 및 리소스에 대한 액세스를 보호할 수 있습니다. Azure AD Premium P2 또는 EMS E5가 아직 없고 이 로드맵에서 언급하는 기능을 더 자세히 평가하려면, [Enterprise Mobility + Security 90일 평가판](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial)에 가입합니다. Azure AD 고급 보안 보고, 감사 및 경고를 사용하여 활동을 모니터링하려면, 이러한 라이선스 평가판을 통해 Azure AD Privileged Identity Management 및 Azure AD Identity Protection을 사용해 봅니다.
 
 Azure AD Privileged Identity Management가 설정되면 다음을 수행합니다.
 
@@ -133,7 +133,7 @@ Azure AD Privileged Identity Management가 설정되면, 디렉터리 역할 전
 
 #### <a name="conduct-an-inventory-of-services-owners-and-admins"></a>서비스, 소유자 및 관리자의 인벤토리 수행
 
-BYOD(Bring-Your-Own-Device) 및 재택 근무 정책이 증가하고 기업의 무선 연결이 확장됨에 따라 네트워크에 연결된 사용자를 모니터링하는 것이 중요합니다. 효과적인 보안 감사의 경우 네트워크에서 실행되지만 IT에서 지원하지 않아 안전하지 않을 수 있는 디바이스, 응용 프로그램 및 프로그램이 표시되는 경우가 많습니다. 자세한 내용은 [Azure 보안 관리 및 모니터링 개요](../../security/security-management-and-monitoring-overview.md)를 참조하세요. 인벤토리 프로세스에는 다음 작업이 모두 포함되어야 합니다. 
+BYOD(Bring-Your-Own-Device) 및 재택 근무 정책이 증가하고 기업의 무선 연결이 확장됨에 따라 네트워크에 연결된 사용자를 모니터링하는 것이 중요합니다. 효과적인 보안 감사의 경우 네트워크에서 실행되지만 IT에서 지원하지 않아 안전하지 않을 수 있는 장치, 애플리케이션 및 프로그램이 표시되는 경우가 많습니다. 자세한 내용은 [Azure 보안 관리 및 모니터링 개요](../../security/security-management-and-monitoring-overview.md)를 참조하세요. 인벤토리 프로세스에는 다음 작업이 모두 포함되어야 합니다. 
 
 * 관리 역할과 관리할 수 있는 서비스가 있는 사용자를 식별합니다.
 * Azure AD PIM을 사용하여 Azure AD에 대한 관리자 액세스 권한(1단계에 나열된 역할 외의 추가 역할 포함)이 있는 조직의 사용자를 확인합니다.
@@ -202,7 +202,7 @@ Azure Active Directory 테넌트가 온-프레미스 Active Directory와 동기�
 
 #### <a name="complete-an-inventory-of-subscriptions"></a>구독의 인벤토리 완성
 
-엔터프라이즈 포털과 Azure Portal을 사용하여 프로덕션 응용 프로그램을 호스팅하는 조직의 구독을 식별합니다. 
+엔터프라이즈 포털과 Azure Portal을 사용하여 프로덕션 애플리케이션을 호스팅하는 조직의 구독을 식별합니다. 
 
 #### <a name="remove-microsoft-accounts-from-admin-roles"></a>관리자 역할에서 Microsoft 계정 제거
 
@@ -217,7 +217,7 @@ Azure 활동 로그는 Azure에서 구독 수준 이벤트 기록을 제공합�
 
 #### <a name="configure-conditional-access-policies"></a>조건부 액세스 정책 구성
 
-온-프레미스 및 클라우드 호스팅 응용 프로그램에 대한 조건부 액세스 정책을 준비합니다. 사용자 작업 공간 가입 디바이스가 있는 경우 [Azure Active Directory 디바이스 등록을 사용하여 온-프레미스 조건부 액세스 설정](../active-directory-device-registration-on-premises-setup.md)에서 자세한 정보를 얻을 수 있습니다.
+온-프레미스 및 클라우드 호스팅 애플리케이션에 대한 조건부 액세스 정책을 준비합니다. 사용자 작업 공간 가입 디바이스가 있는 경우 [Azure Active Directory 디바이스 등록을 사용하여 온-프레미스 조건부 액세스 설정](../active-directory-device-registration-on-premises-setup.md)에서 자세한 정보를 얻을 수 있습니다.
 
 
 ## <a name="stage-3-build-visibility-and-take-full-control-of-admin-activity"></a>스테이지 3: 가시성 빌드 및 관리자 활동에 대한 완전한 제어
@@ -300,7 +300,7 @@ Azure 로그 통합을 사용하면 Azure 리소스의 원시 로그를 조직�
 
 #### <a name="implement-user-provisioning-for-connected-apps"></a>연결된 앱에 대한 사용자 프로비저닝 구현
 
-Azure AD를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우드 응용 프로그램(SaaS)에서 사용자 ID 만들기, 유지 관리 및 제거를 자동화할 수 있습니다. 자세한 내용은 [Azure AD를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
+Azure AD를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우드(SaaS) 애플리케이션에서 사용자 ID 만들기, 유지 관리 및 제거를 자동화할 수 있습니다. 자세한 내용은 [Azure AD를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
 
 #### <a name="integrate-information-protection"></a>정보 보호 통합
 
@@ -308,11 +308,11 @@ MCAS를 사용하면 Azure Information Protection 분류 레이블을 기반으�
 
 #### <a name="configure-conditional-access"></a>조건부 액세스 구성
 
-[SaaS 앱](https://azure.microsoft.com/overview/what-is-saas/) 및 Azure AD 연결 앱에 대한 그룹, 위치 및 응용 프로그램 민감도에 따라 조건부 액세스를 구성합니다. 
+[SaaS 앱](https://azure.microsoft.com/overview/what-is-saas/) 및 Azure AD 연결 앱에 대한 그룹, 위치 및 애플리케이션 민감도에 따라 조건부 액세스를 구성합니다. 
 
 #### <a name="monitor-activity-in-connected-cloud-apps"></a>연결된 클라우드 앱의 활동 모니터링
 
-연결된 응용 프로그램에서도 사용자의 액세스가 보호되도록 하려면 [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security)를 활용하는 것이 좋습니다. 이를 통해 관리자 계정 보안 외에도 클라우드 앱에 대한 엔터프라이즈 액세스를 보호하려면 다음 작업을 수행하도록 설정해야 합니다.
+연결된 애플리케이션에서도 사용자의 액세스가 보호되도록 하려면 [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security)를 활용하는 것이 좋습니다. 이를 통해 관리자 계정 보안 외에도 클라우드 앱에 대한 엔터프라이즈 액세스를 보호하려면 다음 작업을 수행하도록 설정해야 합니다.
 
 * 클라우드 앱에 대한 가시성 및 제어 확장
 * 액세스, 활동 및 데이터 공유에 대한 정책 만들기
@@ -329,7 +329,7 @@ Cloud App Security SIEM 에이전트는 Cloud App Security와 SIEM 서버를 통
 
 로드맵의 4단계는 3단계의 가시성을 기반으로 하며, 6개월 정도에 걸쳐 구현되도록 설계되었습니다. 로드맵을 완성하면 현재 알려져 있고 사용 가능한 잠재적 공격으로부터 강력한 권한 있는 액세스 보호를 개발할 수 있습니다. 그러나 보안 위협은 지속적으로 진화하고 변화하므로 비용을 높이고 환경을 대상으로 하는 악의적 사용자의 성공률을 줄이는 데 초점을 맞춘 지속적인 프로세스로 보안을 확인하는 것이 좋습니다.
 
-권한 있는 액세스 보호는 현대 조직에서 비즈니스 자산에 대한 보안 보장을 확립하는 중요한 첫 번째 단계이지만, 정책, 운영, 정보 보안, 서버, 응용 프로그램, PC, 디바이스, 클라우드 패브릭 및 기타 구성 요소와 같은 요소가 포함된 완전한 보안 프로그램의 유일한 부분이 아니며, 지속적인 보안 보장을 제공합니다. 
+권한 있는 액세스 보호는 현대 조직에서 비즈니스 자산에 대한 보안 보장을 확립하는 중요한 첫 번째 단계이지만, 정책, 운영, 정보 보안, 서버, 애플리케이션, PC, 장치, 클라우드 패브릭 및 기타 구성 요소와 같은 요소가 포함된 완전한 보안 프로그램의 유일한 부분이 아니며, 지속적인 보안 보장을 제공합니다. 
 
 권한 있는 액세스 계정을 관리하는 것 외에도 다음 사항을 지속적으로 검토하는 것이 좋습니다.
 
@@ -448,7 +448,7 @@ Microsoft Office 365에서 보안 인시던트를 처리하는 방법에 대한 
 
 ### <a name="other-ms-online-services"></a>기타 MS 온라인 서비스 
 
-* [Microsoft Intune 보안](https://www.microsoft.com/trustcenter/security/intune-security) – Intune은 클라우드에서 모바일 디바이스 관리, 모바일 응용 프로그램 관리 및 PC 관리 기능을 제공합니다.
+* [Microsoft Intune 보안](https://www.microsoft.com/trustcenter/security/intune-security) – Intune은 클라우드에서 모바일 장치 관리, 모바일 애플리케이션 관리 및 PC 관리 기능을 제공합니다.
 
 * [Microsoft Dynamics 365 보안](https://www.microsoft.com/trustcenter/security/dynamics365-security) – Dynamics 365는 CRM(고객 관계 관리) 및 ERP(전사적 자원 관리) 기능을 통합하는 Microsoft 클라우드 기반 솔루션입니다.
 

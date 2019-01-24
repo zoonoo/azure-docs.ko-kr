@@ -4,7 +4,7 @@ description: Azure Active Directory 및 Insignia SAML SSO 간에 Single Sign-On�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 828c981c-c3dd-4eb2-8699-0f732baa43f6
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: jeedes
-ms.openlocfilehash: afc2d52044a294af0ead373dfce283d0ec994d1e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: eda1cece8e63ee7314660822a1abc28e1c0db6ef
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840625"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819954"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>자습서: Insignia SAML SSO와 Azure Active Directory 통합
 
@@ -32,7 +32,7 @@ Insignia SAML SSO를 Azure AD와 통합하면 다음과 같은 이점이 제공�
 - 사용자가 해당 Azure AD 계정으로 Insignia SAML SSO에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -64,15 +64,15 @@ Insignia SAML SSO가 Azure AD로 통합되도록 구성하려면 Insignia SAML S
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
 1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
-1. 검색 상자에 **Insignia SAML SSO**를 입력하고 결과 패널에서 **Insignia SAML SSO**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에 **Insignia SAML SSO**를 입력하고, 결과 패널에서 **Insignia SAML SSO**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Insignia SAML SSO](./media/insigniasamlsso-tutorial/tutorial_insigniasamlsso_addfromgallery.png)
 
@@ -94,11 +94,11 @@ Insignia SAML SSO에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Insignia SAML SSO 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Insignia SAML SSO 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Insignia SAML SSO에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Insignia SAML SSO** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Insignia SAML SSO** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -138,7 +138,7 @@ Insignia SAML SSO에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 1. **Insignia SAML SSO** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)**, **로그아웃 URL 및 SAML Single Sign-On 서비스 URL**을 [Insignia SAML SSO 지원 팀](https://www.insigniasoftware.com/insignia/Techsupport.aspx)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -189,9 +189,9 @@ Insignia SAML SSO에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Insignia SAML SSO**를 선택합니다.
+1. 애플리케이션 목록에서 **Insignia SAML SSO**를 선택합니다.
 
-    ![응용 프로그램 목록의 Insignia SAML SSO 연결](./media/insigniasamlsso-tutorial/tutorial_insigniasamlsso_app.png)  
+    ![애플리케이션 목록의 Insignia SAML SSO 연결](./media/insigniasamlsso-tutorial/tutorial_insigniasamlsso_app.png)  
 
 1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -211,13 +211,13 @@ Insignia SAML SSO에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Insignia SAML SSO 타일을 클릭하면 Insignia SAML SSO 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Insignia SAML SSO 타일을 클릭하면 Insignia SAML SSO 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

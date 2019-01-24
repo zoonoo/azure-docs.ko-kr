@@ -4,7 +4,7 @@ description: Azure Portal을 사용하여 Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: ec51ba28c81e2aa2dbfe2a3dc55d9940c74ff673
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6a1f4ffed79180db38bdd312e6a610d88f496164
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959855"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849859"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화
 
@@ -89,7 +89,7 @@ Azure AD Domain Services에서는 Azure AD에서 사용할 수 있는 모든 사
 
     ![Domain Services - 완전히 프로비전한 후 개요 탭](./media/getting-started/domain-services-provisioned.png)
     >[!NOTE]
-    >프로비전 프로세스 중 Azure AD Domain Services는 디렉터리 내에서 "도메인 컨트롤러 서비스" 및 "AzureActiveDirectoryDomainControllerServices"라는 Enterprise 응용 프로그램을 만듭니다. 이러한 Enterprise 응용 프로그램은 관리되는 도메인을 제공하는 데 필요합니다. 언제든지 삭제되지 않으므로 명령적입니다.
+    >프로비전 프로세스 중 Azure AD Domain Services는 디렉터리 내에서 "도메인 컨트롤러 서비스" 및 "AzureActiveDirectoryDomainControllerServices"라는 Enterprise 애플리케이션을 만듭니다. 이러한 Enterprise 애플리케이션은 관리되는 도메인을 제공하는 데 필요합니다. 언제든지 삭제되지 않으므로 명령적입니다.
     >
 
 5. **속성** 탭에 가상 네트워크에 도메인 컨트롤러를 사용할 수 있는 두 개의 IP 주소가 표시됩니다.

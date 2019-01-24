@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 98b7481c22cc5f3c233de4c516d4be5f64bbe143
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: be994c9b3c9ee4f3c6ccd5c01e762c05f740be09
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198017"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469647"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-java-sdk-v7"></a>Java SDK v7을 사용하여 Blob을 업로드, 다운로드 및 나열하는 방법
 
@@ -167,7 +167,7 @@ for (ListBlobItem blobItem : container.listBlobs()) {
 
 ### <a name="download-blobs"></a>Blob 다운로드
 
-[CloudBlob.DownloadToFile](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob.downloadtofile#com_microsoft_azure_storage_blob__cloud_blob_downloadToFile_final_String)를 사용하여 blob을 로컬 디스크에 다운로드합니다.
+[CloudBlob.DownloadToFile](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob.downloadtofile)를 사용하여 blob을 로컬 디스크에 다운로드합니다.
 
 다음 코드는 이전 섹션에서 업로드된 blob을 다운로드하고, blob 이름에 "_DOWNLOADED" 접미사를 추가하여 로컬 디스크에서 두 파일을 모두 볼 수 있도록 합니다. 
 

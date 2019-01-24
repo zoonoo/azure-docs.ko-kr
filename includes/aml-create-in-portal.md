@@ -9,32 +9,30 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 8bbdd2d49171ee8f4e7eb3cc0def1c7a6e59806b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 05331c710817e575deb7729189c9b2d8ccbafd7d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193430"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54489585"
 ---
-사용하는 Azure 구독에 대한 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
-
-포털의 작업 영역 대시보드는 Microsoft Edge, Chrome 및 Firefox 브라우저에서만 지원됩니다.
+1. 사용하는 Azure 구독에 대한 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
 
    ![Azure portal](./media/aml-create-in-portal/portal-dashboard.png)
 
-포털의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
+1. 포털의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
 
    ![Azure Portal에서 리소스 만들기](./media/aml-create-in-portal/portal-create-a-resource.png)
 
-검색 표시줄에서 **Machine Learning**을 입력합니다. **Machine Learning 서비스 작업 영역** 검색 결과를 선택합니다.
+1. 검색 표시줄에서 **Machine Learning**을 입력합니다. **Machine Learning 서비스 작업 영역** 검색 결과를 선택합니다.
 
    ![작업 영역 검색](./media/aml-create-in-portal/allservices-search.PNG)
 
-**ML 서비스 작업 영역** 창에서 아래로 스크롤하고, **만들기**를 선택하여 시작합니다.
+1. **ML 서비스 작업 영역** 창에서 아래로 스크롤하고, **만들기**를 선택하여 시작합니다.
 
    ![생성](./media/aml-create-in-portal/portal-create-button.png)
 
-**ML 서비스 작업 영역** 창에서 작업 영역을 구성합니다.
+1. **ML 서비스 작업 영역** 창에서 작업 영역을 구성합니다.
 
    필드|설명
    ---|---
@@ -45,10 +43,10 @@ ms.locfileid: "54193430"
 
    ![작업 영역 만들기](./media/aml-create-in-portal/workspace-create.png)
 
-만들기 프로세스를 시작하려면 **만들기**를 선택합니다. 작업 영역을 만드는 데 몇 분 정도 걸릴 수 있습니다.
+1. 만들기 프로세스를 시작하려면 **만들기**를 선택합니다. 작업 영역을 만드는 데 몇 분 정도 걸릴 수 있습니다.
 
-배포 상태를 확인하려면 도구 모음에서 알림 아이콘(**종모양**)을 선택합니다.
+1. 배포 상태를 확인하려면 도구 모음에서 알림 아이콘(**종모양**)을 선택합니다.
+
+1. 프로세스가 완료되면 배포 성공 메시지가 표시됩니다. 알림 섹션에도 표시됩니다. 새 작업 영역을 보려면 **리소스로 이동**을 선택합니다.
 
    ![작업 영역 만들기 상태](./media/aml-create-in-portal/notifications.png)
-
-프로세스가 완료되면 배포 성공 메시지가 표시됩니다. 알림 섹션에도 표시됩니다. 새 작업 영역을 보려면 **리소스로 이동**을 선택합니다.

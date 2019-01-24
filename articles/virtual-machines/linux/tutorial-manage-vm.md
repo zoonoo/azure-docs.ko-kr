@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5605ac9f3ac4f9a1c85cfedf257cb721205564db
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: bc548ea23249f89fadcec481cc97b6ca3ed2b909
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613429"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466859"
 ---
-# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>자습서 - Azure CLI로 Linux VM 만들기 및 관리
+# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>자습서: Azure CLI로 Linux VM 만들기 및 관리
 
 Azure Virtual Machines는 완전히 구성 가능하고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 VM 크기 선택, VM 이미지 선택 및 VM 배포 등 기본적인 Azure Virtual Machines 배포 항목에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
 
@@ -211,7 +211,7 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>VM 크기 조정
 
-VM을 배포한 후에 크기를 조정하여 리소스 할당을 늘리거나 줄일 수 있습니다. [az vm show](/cli/azure/vm#az_vm_show)를 사용하여 VM의 현재 크기를 볼 수 있습니다.
+VM을 배포한 후에 크기를 조정하여 리소스 할당을 늘리거나 줄일 수 있습니다. [az vm show](/cli/azure/vm)를 사용하여 VM의 현재 크기를 볼 수 있습니다.
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
@@ -228,7 +228,7 @@ az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --qu
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-원하는 크기가 현재 클러스터에 없는 경우 크기 조정 작업 전에 VM 할당을 취소해야 합니다. [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) 명령을 사용하여 VM을 중지하고 할당을 취소합니다. 참고로 VM의 전원이 다시 켜지면 임시 디스크의 모든 데이터가 제거됩니다. 고정 IP 주소를 사용하지 않는 한 공용 IP 주소도 변경됩니다. 
+원하는 크기가 현재 클러스터에 없는 경우 크기 조정 작업 전에 VM 할당을 취소해야 합니다. [az vm deallocate]( /cli/azure/vm) 명령을 사용하여 VM을 중지하고 할당을 취소합니다. 참고로 VM의 전원이 다시 켜지면 임시 디스크의 모든 데이터가 제거됩니다. 고정 IP 주소를 사용하지 않는 한 공용 IP 주소도 변경됩니다. 
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM

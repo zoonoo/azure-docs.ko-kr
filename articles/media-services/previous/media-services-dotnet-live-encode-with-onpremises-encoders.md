@@ -4,28 +4,27 @@ description: 이 항목에서는 .NET을 사용하여 온-프레미스 인코더
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 15908152-d23c-4d55-906a-3bfd74927db5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 01/17/2019
 ms.author: cenkdin;juliako
-ms.openlocfilehash: 32d456aee83c6f7c6d5d242a1ce039e7e370c0fd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3f4641f6a97d265bf2c2ad9dadb548ff754ad434
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783412"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828114"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>.NET을 사용하여 온-프레미스 인코더로 라이브 스트리밍을 수행하는 방법
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-> * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
@@ -54,16 +53,16 @@ ms.locfileid: "33783412"
 * Media Services에 연결
 * 채널 만들기
 * 채널 업데이트
-* 채널의 입력 끝점 가져오기. 온-프레미스 라이브 인코더에 입력 끝점을 제공해야 합니다. 라이브 인코더가 카메라에서 채널의 입력(수집) 끝점으로 보내는 스트림까지 신호를 변환합니다.
-* 채널의 미리 보기 끝점 가져오기
+* 채널의 입력 엔드포인트 가져오기. 온-프레미스 라이브 인코더에 입력 엔드포인트를 제공해야 합니다. 라이브 인코더가 카메라에서 채널의 입력(수집) 엔드포인트로 보내는 스트림까지 신호를 변환합니다.
+* 채널의 미리 보기 엔드포인트 가져오기
 * 프로그램 만들기 및 시작
 * 프로그램에 액세스하는 데 필요한 로케이터 만들기
 * StreamingEndpoint 만들기 및 시작
-* 스트리밍 끝점 업데이트
+* 스트리밍 엔드포인트 업데이트
 * 리소스 종료
 
 >[!IMPORTANT]
->콘텐츠를 스트리밍하려는 스트리밍 끝점이 **실행** 상태에 있는지 확인합니다. 
+>콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태에 있는지 확인합니다. 
     
 >[!NOTE]
 >다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이](media-services-dotnet-manage-entities.md#limit-access-policies) 문서를 참조하세요.
@@ -85,8 +84,8 @@ namespace AMSLiveTest
     {
         private const string StreamingEndpointName = "streamingendpoint001";
         private const string ChannelName = "channel001";
-        private const string AssetlName = "asset001";
-        private const string ProgramlName = "program001";
+        private const string AssetName = "asset001";
+        private const string ProgramName = "program001";
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
@@ -149,6 +148,10 @@ namespace AMSLiveTest
 
         private static ChannelInput CreateChannelInput()
         {
+            // When creating a Channel, you can specify allowed IP addresses in one of the following formats: 
+            // IpV4 address with 4 numbers
+            // CIDR address range
+        
             return new ChannelInput
             {
                 StreamingProtocol = StreamingProtocol.RTMP,
@@ -171,6 +174,10 @@ namespace AMSLiveTest
 
         private static ChannelPreview CreateChannelPreview()
         {
+            // When creating a Channel, you can specify allowed IP addresses in one of the following formats: 
+            // IpV4 address with 4 numbers
+            // CIDR address range
+        
             return new ChannelPreview
             {
                 AccessControl = new ChannelAccessControl
@@ -221,11 +228,11 @@ namespace AMSLiveTest
 
         public static IProgram CreateAndStartProgram(IChannel channel)
         {
-            IAsset asset = _context.Assets.Create(AssetlName, AssetCreationOptions.None);
+            IAsset asset = _context.Assets.Create(AssetName, AssetCreationOptions.None);
 
             // Create a Program on the Channel. You can have multiple Programs that overlap or are sequential;
             // however each Program must have a unique name within your Media Services account.
-            IProgram program = channel.Programs.Create(ProgramlName, TimeSpan.FromHours(3), asset.Id);
+            IProgram program = channel.Programs.Create(ProgramName, TimeSpan.FromHours(3), asset.Id);
             program.Start();
 
             return program;

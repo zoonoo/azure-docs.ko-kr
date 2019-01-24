@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 Azure Active Directory 조직에 대한 
 description: Azure Active Directory B2C에서 특정 Azure Active Directory 조직에 대한 로그인을 설정합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c48e4696d572b87a4e1553f9d4a2dc9921361388
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 06630d93925875a2c9a492d018f5dd211f437430
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52719915"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846495"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 특정 Azure Active Directory 조직에 대한 로그인 설정
 
@@ -31,9 +31,9 @@ ms.locfileid: "52719915"
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure AD 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 디렉터리 및 구독 필터를 클릭하고 Azure AD 테넌트가 포함된 디렉터리를 선택합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **앱 등록**을 검색하여 선택합니다.
-4. **새 응용 프로그램 등록**을 선택합니다.
-5. 응용 프로그램의 이름을 입력합니다. 예: `Azure AD B2C App`
-6. **응용 프로그램 종류**에서 `Web app / API`를 선택합니다.
+4. **새 애플리케이션 등록**을 선택합니다.
+5. 애플리케이션의 이름을 입력합니다. 예: `Azure AD B2C App`
+6. **애플리케이션 종류**에서 `Web app / API`를 선택합니다.
 7. **Sign-On URL**의 경우, 다음 URL을 모두 소문자로 입력합니다. 여기서 `your-B2C-tenant-name`는 Azure AD B2C 테넌트의 이름으로 바뀝니다. 예 `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`:
 
     ```
@@ -60,7 +60,7 @@ ms.locfileid: "52719915"
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
     ```
 
-8. **클라이언트 ID**에 대해 이전에 기록한 응용 프로그램 ID를 입력하고 **클라이언트 암호**에 대해 이전에 기록한 키 값을 입력하세요.
+8. **클라이언트 ID**에 대해 이전에 기록한 애플리케이션 ID를 입력하고 **클라이언트 암호**에 대해 이전에 기록한 키 값을 입력하세요.
 9. 선택적으로 **Domain_hint**의 값을 입력합니다. 예: `ContosoAD` 이 값은 요청에서 *domain_hint*를 사용하여 이 ID 공급자를 참조할 때 사용할 값입니다. 
 10. **확인**을 클릭합니다.
 11. **이 ID 공급자의 클레임을 매핑**하고 다음 클레임을 설정하세요.
