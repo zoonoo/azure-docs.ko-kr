@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 2d5c658dabd03eb706c24fbe5e8adb0c46fc65cd
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0c681e7406f5c0c6e205f9dc54ee5eea63b40252
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267320"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853241"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 업데이트
 
@@ -191,6 +191,8 @@ Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 �
 
 ## <a name="known-issues-with-the-update-process"></a>업데이트 프로세스를 사용 하 여 알려진된 문제
 
+- 실행 하는 경우는 **Get AzureStackLog** 실행 한 후 PowerShell cmdlet **테스트 AzureStack** 같은 권한 있는 끝점 (PEP) 세션에서 **Get AzureStackLog** 실패 합니다. 이 문제를 해결 하려면 실행 하는 PEP 세션을 닫을 **테스트 AzureStack**를 연 다음 실행에 대 한 새 세션 **Get AzureStackLog**.
+
 - 1811 설치 중 업데이트를이 시간 동안 관리자 포털의 모든 인스턴스를 닫았는지 확인 해야 합니다. 사용자 포털을 열어둘 수 있지만 관리 포털을 종료 해야 합니다.
 
 - 실행 하는 경우 [테스트 AzureStack](azure-stack-diagnostic-test.md)경우는 **AzsInfraRoleSummary** 또는 **AzsPortalApiSummary** 테스트가 실패, 실행 하는 메시지가  **테스트 AzureStack** 사용 하 여는 `-Repair` 플래그입니다.  이 명령을 실행 하는 경우 다음 오류 메시지와 함께 실패 합니다.  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`  이 문제는 향후 릴리스에서 수정 될 예정입니다.
@@ -312,7 +314,7 @@ Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 �
 
    - Managed Disks를 사용 하 여 VM 배포 1808 업데이트 하기 전에 구독을 만든 경우 내부 오류 메시지와 함께 실패할 수 있습니다. 오류를 해결 하려면 각 구독에 대해 다음이 단계를 수행 합니다.
       1. 테 넌 트 포털에서로 이동 **구독** 구독을 찾습니다. 선택 **리소스 공급자**을 선택한 후 **Microsoft.Compute**를 클릭 하 고 **re-register**합니다.
-      2. 로 동일한 구독에 따라 **액세스 제어 (IAM)**, 되어 있는지 확인 하 고 **Azure Stack – Managed Disk** 나열 됩니다.
+      2. 로 동일한 구독에서 **액세스 제어 (IAM)**, 하 고 있는지 확인 합니다 **AzureStack DiskRP 클라이언트** 역할 나열 됩니다.
    - 다중 테 넌 트 환경에 구성한 게스트 디렉터리와 연결 된 구독에서 Vm을 배포할 내부 오류 메시지와 함께 실패할 수 있습니다. 오류를 해결 하려면에서 다음이 단계를 수행 [이 문서에서는](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) 각 게스트 디렉터리를 다시 구성 합니다.
 
 - 사용 하도록 설정 하는 SSH 인증을 사용 하 여 만든 Ubuntu 18.04 VM은 SSH 키를 사용 하 여 로그인 할 수 없습니다. 이 문제를 해결 하려면 Linux 확장에 대 한 VM 액세스 프로 비전 한 후 SSH 키를 구현 하는 데 또는 암호 기반 인증을 사용 합니다.

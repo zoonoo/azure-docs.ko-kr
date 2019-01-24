@@ -13,18 +13,28 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 735f1d7cce8621a29e5a582917d3eea8ee399b8f
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: ce16ab3b723b9a6c87c7b980e3cc76c389609da6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319651"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847912"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>서비스 유효성 검사에 대 한 릴리스 정보
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 이 문서는 서비스로 Azure Stack 유효성 검사에 대 한 릴리스 정보에서는 합니다.
+
+## <a name="version-405"></a>4.0.5 버전
+2019 년 1 월 17
+
+-  디스크 식별 테스트를 저장소 풀 불일치 주소를 업데이트 합니다. 버전: 5.1.14.0  -> 5.1.15.0
+-  소프트웨어 및 콘텐츠 유효성 검사 불일치를 승인 하는 azure Stack 월별 업데이트 확인 주소로 업데이트 합니다. 버전: 5.1.14.0  -> 5.1.15.0
+-  필요한 검사를 수행 하도록 OEM 확장 패키지 확인 업데이트 *하기 전에* Azure Stack 업데이트 단계입니다. 버전: 5.1.14.0  -> 5.1.15.0
+-  내부 버그 수정
+
+
 
 ## <a name="version-402"></a>버전 4.0.2
 
