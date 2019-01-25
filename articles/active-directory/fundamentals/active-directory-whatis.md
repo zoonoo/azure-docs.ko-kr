@@ -37,7 +37,7 @@ Azure AD의 대상은 다음과 같습니다.
 ## <a name="what-are-the-azure-ad-licenses"></a>Azure AD 라이선스란?
 Office 365 또는 Microsoft Azure 같은 Microsoft Online 비즈니스 서비스는 로그인 및 ID 보호를 위해 Azure AD가 필요합니다. 따라서 Microsoft Online 비즈니스 서비스를 구독하는 경우 모든 무료 기능을 사용할 수 있는 Azure AD가 자동으로 제공됩니다.
 
-Azure AD 구현을 향상하기 위해 Azure Active Directory Basic, Premium P1 또는 Premium P2 라이선스로 업그레이드하여 유료 기능을 추가할 수도 있습니다. Azure AD 유료 라이선스는 기존 무료 디렉터리 위에 빌드되어 모바일 인력에게 셀프 서비스, 향상된 모니터링, 보안 보고 및 보안 액세스를 제공합니다.
+Azure AD 구현을 향상하기 위해 Azure Active Directory Basic, Premium P1 또는 Premium P2 라이선스로 업그레이드하여 유료 기능을 추가할 수도 있습니다. Azure AD 유료 라이선스는 기존 무료 디렉터리 위에 구축되어 이동하며 일하는 직원에게 셀프 서비스, 향상된 모니터링, 보안 보고 및 보안 액세스를 제공합니다.
 
 >[!Note]
 >이러한 라이선스의 가격 책정 옵션은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요.<br><br>Azure Active Directory Premium P1, Premium P2 및 Azure Active Directory Basic은 중국에서 현재 지원되지 않습니다. Azure AD 가격에 대한 자세한 내용은 [Azure Active Directory 포럼](https://azure.microsoft.com/support/community/?product=active-directory)에 문의할 수 있습니다.
