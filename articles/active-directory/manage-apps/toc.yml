@@ -1,287 +1,292 @@
+items:
 - name: 애플리케이션 관리 설명서
   href: index.yml
 - name: 개요
   items:
-    - name: 애플리케이션 관리 정보
-      href: what-is-application-management.md
+  - name: 애플리케이션 관리 정보
+    href: what-is-application-management.md
 - name: 빠른 시작
-  expanded: true
   items:
-    - name: 갤러리 애플리케이션 추가 - 포털
-      href: add-application-portal.md
-    - name: 테넌트 앱 보기 - 포털
-      href: view-applications-portal.md
+  - name: 갤러리 애플리케이션 추가 - 포털
+    href: add-application-portal.md
+  - name: 테넌트 앱 보기 - 포털
+    href: view-applications-portal.md
+  expanded: true
 - name: 자습서
   items:
-    - name: Single Sign-On 구성 - 포털
-      href: configure-single-sign-on-portal.md
-    - name: 온-프레미스 앱 추가 - 포털
-      href: application-proxy-add-on-premises-application.md
+  - name: Single Sign-On 구성 - 포털
+    href: configure-single-sign-on-portal.md
+  - name: 온-프레미스 앱 추가 - 포털
+    href: application-proxy-add-on-premises-application.md
 - name: 개념
   items:
-    - name: 클라우드 앱 통합 계획
-      items:
-        - name: 앱 추가 후 진행되는 작업
-          href: plan-an-application-integration.md
-        - name: 개발자를 위한 지침
-          href: developer-guidance-for-integrating-applications.md
-    - name: 온-프레미스 앱 통합 계획
-      items:
-        - name: 애플리케이션 프록시
-          href: application-proxy.md
-        - name: 커넥터
-          href: application-proxy-connectors.md
-        - name: 커넥터 그룹
-          href: application-proxy-connector-groups.md
-        - name: 보안
-          href: application-proxy-security.md
-        - name: 네트워크 토폴로지
-          href: application-proxy-network-topology.md
-        - name: 원격 액세스 솔루션 비교
-          href: application-proxy-migration.md
-    - name: 사용자 및 그룹 프로비전
-      items:
-        - name: 자동 사용자 프로비전
-          href: configure-automatic-user-provisioning-portal.md
-        - name: SaaS 앱
-          href: user-provisioning.md
-        - name: SCIM 사용 앱
-          href: use-scim-to-provision-users-and-groups.md
-        - name: 애플리케이션 특성 사용자 지정
-          href: Customize-application-attributes.md
-        - name: 특성 매핑 식 작성
-          href: functions-for-customizing-application-data.md
-        - name: 범위 지정 필터
-          href: define-conditional-rules-for-provisioning-user-accounts.md
-        - name: 자동 사용자 프로비전에 대한 보고
-          href: check-status-user-account-provisioning.md
-        - name: 사용자 프로비전 문제 해결
-          href: application-provisioning-config-problem.md
-    - name: 애플리케이션 보안
-      items:
-        - name: 앱 액세스 옵션
-          href: what-is-access-management.md
-        - name: 인증서 서명 옵션
-          href: certificate-signing-options.md
-        - name: 인증서 관리
-          href: manage-certificates-for-federated-single-sign-on.md
-        - name: 테넌트 제한 사항
-          href: tenant-restrictions.md
-    - name: SSO(Single sign-on)
-      href: what-is-single-sign-on.md
-    - name: 최종 사용자 포털
-      href: end-user-experiences.md
+  - name: 클라우드 앱 통합 계획
+    items:
+    - name: 앱 추가 후 진행되는 작업
+      href: plan-an-application-integration.md
+    - name: 개발자를 위한 지침
+      href: developer-guidance-for-integrating-applications.md
+  - name: 온-프레미스 앱 통합 계획
+    items:
+    - name: 애플리케이션 프록시
+      href: application-proxy.md
+    - name: 커넥터
+      href: application-proxy-connectors.md
+    - name: 커넥터 그룹
+      href: application-proxy-connector-groups.md
+    - name: 보안
+      href: application-proxy-security.md
+    - name: 네트워크 토폴로지
+      href: application-proxy-network-topology.md
+    - name: 원격 액세스 솔루션 비교
+      href: application-proxy-migration.md
+  - name: 사용자 및 그룹 프로비전
+    items:
+    - name: 자동 사용자 프로비전
+      href: configure-automatic-user-provisioning-portal.md
+    - name: SaaS 앱
+      href: user-provisioning.md
+    - name: SCIM 사용 앱
+      href: use-scim-to-provision-users-and-groups.md
+    - name: 애플리케이션 특성 사용자 지정
+      href: Customize-application-attributes.md
+    - name: 특성 매핑 식 작성
+      href: functions-for-customizing-application-data.md
+    - name: 범위 지정 필터
+      href: define-conditional-rules-for-provisioning-user-accounts.md
+    - name: 자동 사용자 프로비전에 대한 보고
+      href: check-status-user-account-provisioning.md
+    - name: 사용자 프로비전 문제 해결
+      href: application-provisioning-config-problem.md
+  - name: 애플리케이션 보안
+    items:
+    - name: 앱 액세스 옵션
+      href: what-is-access-management.md
+    - name: 인증서 서명 옵션
+      href: certificate-signing-options.md
+    - name: 인증서 관리
+      href: manage-certificates-for-federated-single-sign-on.md
+    - name: 테넌트 제한 사항
+      href: tenant-restrictions.md
+  - name: SSO(Single sign-on)
+    href: what-is-single-sign-on.md
+  - name: 최종 사용자 포털
+    href: end-user-experiences.md
 - name: 방법 가이드
   items:
-    - name: 클라우드 앱 통합
+  - name: 클라우드 앱 통합
+    items:
+    - name: 앱 추가
       items:
-        - name: 앱 추가
-          items:
-            - name: 앱 형식 선택
-              href: choose-application-type.md
-            - name: 일반적인 문제 - 갤러리 앱
-              href: adding-gallery-app-common-problems.md
-            - name: 일반적인 문제 - 비갤러리 앱
-              href: adding-non-gallery-app-common-problems.md
-        - name: 이름 또는 로고 변경
-          href: change-name-or-logo-portal.md
-    - name: 온-프레미스 앱 통합
+      - name: 앱 형식 선택
+        href: choose-application-type.md
+      - name: 일반적인 문제 - 갤러리 앱
+        href: adding-gallery-app-common-problems.md
+      - name: 일반적인 문제 - 비갤러리 앱
+        href: adding-non-gallery-app-common-problems.md
+    - name: 이름 또는 로고 변경
+      href: change-name-or-logo-portal.md
+  - name: 온-프레미스 앱 통합
+    items:
+    - name: 커넥터 구성
+      href: application-proxy-configure-connectors-with-proxy-servers.md
+    - name: 클레임 인식 앱 구성
+      href: application-proxy-configure-for-claims-aware-applications.md
+    - name: 커넥터 등록 - 자동 설치
+      href: application-proxy-register-connector-powershell.md
+    - name: 네이티브 클라이언트 앱 구성
+      href: application-proxy-configure-native-client-application.md
+    - name: 사용자 지정 홈페이지 구성
+      href: application-proxy-configure-custom-home-page.md
+    - name: 인라인 링크 변환
+      href: application-proxy-configure-hard-coded-link-translation.md
+    - name: 와일드 카드를 사용하여 게시
+      href: application-proxy-wildcard.md
+    - name: 개인 데이터 제거
+      href: application-proxy-remove-personal-data.md
+    - name: 사용자 지정 도메인 구성
+      href: application-proxy-configure-custom-domain.md
+    - name: 구성 오류
+      href: application-proxy-troubleshoot.md
+    - name: 게시 연습
       items:
-        - name: 커넥터 구성
-          href: application-proxy-configure-connectors-with-proxy-servers.md
-        - name: 클레임 인식 앱 구성
-          href: application-proxy-configure-for-claims-aware-applications.md
-        - name: 커넥터 등록 - 자동 설치
-          href: application-proxy-register-connector-powershell.md
-        - name: 네이티브 클라이언트 앱 구성
-          href: application-proxy-configure-native-client-application.md
-        - name: 사용자 지정 홈페이지 구성
-          href: application-proxy-configure-custom-home-page.md
-        - name: 인라인 링크 변환
-          href: application-proxy-configure-hard-coded-link-translation.md
-        - name: 쿠키 설정 구성
-          href: application-proxy-configure-cookie-settings.md
-        - name: 와일드 카드를 사용하여 게시
-          href: application-proxy-wildcard.md
-        - name: 개인 데이터 제거
-          href: application-proxy-remove-personal-data.md
-        - name: 사용자 지정 도메인 구성
-          href: application-proxy-configure-custom-domain.md
-        - name: 구성 오류
-          href: application-proxy-troubleshoot.md
-        - name: 게시 연습
-          items:
-            - name: Cloud App Security와 통합
-              href: application-proxy-integrate-with-microsoft-cloud-application-security.md
-            - name: 원격 데스크톱과 통합
-              href: application-proxy-integrate-with-remote-desktop-services.md
-            - name: SharePoint와 통합
-              href: application-proxy-integrate-with-sharepoint-server.md
-            - name: Teams와 통합
-              href: application-proxy-integrate-with-teams.md
-            - name: Tableau와 통합
-              href: application-proxy-integrate-with-tableau.md
-            - name: Qlik와 통합
-              href: application-proxy-qlik.md
-        - name: 애플리케이션 프록시 문제 해결
-          items:
-            - name: 앱 페이지를 표시할 때 문제
-              href: application-proxy-page-appearance-broken-problem.md
-            - name: 너무 긴 애플리케이션 로드
-              href: application-proxy-page-load-speed-problem.md
-            - name: 애플리케이션 페이지에서 링크가 작동하지 않음
-              href: application-proxy-page-links-broken-problem.md
-            - name: 내 앱에 대해 열 포트
-              href: application-proxy-connectivity-ports-how-to.md
-            - name: 내 앱에 대한 커넥터 그룹에서 작동하지 않는 커넥터
-              href: application-proxy-connectivity-no-working-connector.md
-            - name: 관리자 포털에서 구성
-              href: application-proxy-config-how-to.md
-            - name: 내 앱에 Single Sign-On 구성
-              href: application-proxy-config-sso-how-to.md
-            - name: 관리 포털에서 앱을 만드는 문제
-              href: application-proxy-config-problem.md
-            - name: Kerberos 제한된 위임 구성
-              href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
-            - name: PingAccess를 사용하여 구성
-              href: application-proxy-back-end-ping-access-how-to.md
-            - name: 회사 애플리케이션에 액세스할 수 없음 오류
-              href: application-proxy-sign-in-bad-gateway-timeout-error.md
-            - name: 애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생
-              href: application-proxy-connector-installation-problem.md
-            - name: 로그인 문제
-              href: application-sign-in-problem-on-premises-application-proxy.md
-    - name: 사용자 프로비전
+      - name: Cloud App Security와 통합
+        href: application-proxy-integrate-with-microsoft-cloud-application-security.md
+      - name: 원격 데스크톱과 통합
+        href: application-proxy-integrate-with-remote-desktop-services.md
+      - name: SharePoint와 통합
+        href: application-proxy-integrate-with-sharepoint-server.md
+      - name: Teams와 통합
+        href: application-proxy-integrate-with-teams.md
+      - name: Tableau와 통합
+        href: application-proxy-integrate-with-tableau.md
+      - name: Qlik와 통합
+        href: application-proxy-qlik.md
+    - name: 애플리케이션 프록시 문제 해결
       items:
-        - name: 소요되는 시간
-          href: application-provisioning-when-will-provisioning-finish-specific-user.md
-        - name: 소요 시간 - 갤러리 앱
-          href: application-provisioning-when-will-provisioning-finish.md
-        - name: 사용자 프로비전 구성 - 갤러리 앱
-          href: application-provisioning-config-how-to.md
-        - name: 사용자 프로비전을 구성하는 문제 - 갤러리 앱
-          href: application-provisioning-config-problem.md
-        - name: 사용자 프로비전 갤러리 앱을 구성하는 동안 관리자 자격 증명을 저장하는 문제
-          href: application-provisioning-config-problem-storage-limit.md
-        - name: 프로비전되지 않은 사용자 - 갤러리 앱
-          href: application-provisioning-config-problem-no-users-provisioned.md
-        - name: 잘못 프로비전된 사용자 - 갤러리 앱
-          href: application-provisioning-config-problem-wrong-users-provisioned.md
-    - name: 애플리케이션 액세스
+      - name: 앱 페이지를 표시할 때 문제
+        href: application-proxy-page-appearance-broken-problem.md
+      - name: 너무 긴 애플리케이션 로드
+        href: application-proxy-page-load-speed-problem.md
+      - name: 애플리케이션 페이지에서 링크가 작동하지 않음
+        href: application-proxy-page-links-broken-problem.md
+      - name: 내 앱에 대해 열 포트
+        href: application-proxy-connectivity-ports-how-to.md
+      - name: 내 앱에 대한 커넥터 그룹에서 작동하지 않는 커넥터
+        href: application-proxy-connectivity-no-working-connector.md
+      - name: 관리자 포털에서 구성
+        href: application-proxy-config-how-to.md
+      - name: 내 앱에 Single Sign-On 구성
+        href: application-proxy-config-sso-how-to.md
+      - name: 관리 포털에서 앱을 만드는 문제
+        href: application-proxy-config-problem.md
+      - name: Kerberos 제한된 위임 구성
+        href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
+      - name: PingAccess를 사용하여 구성
+        href: application-proxy-back-end-ping-access-how-to.md
+      - name: 회사 애플리케이션에 액세스할 수 없음 오류
+        href: application-proxy-sign-in-bad-gateway-timeout-error.md
+      - name: 애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생
+        href: application-proxy-connector-installation-problem.md
+      - name: 로그인 문제
+        href: application-sign-in-problem-on-premises-application-proxy.md
+  - name: 사용자 프로비전
+    items:
+    - name: 소요되는 시간
+      href: application-provisioning-when-will-provisioning-finish-specific-user.md
+    - name: 소요 시간 - 갤러리 앱
+      href: application-provisioning-when-will-provisioning-finish.md
+    - name: 사용자 프로비전 구성 - 갤러리 앱
+      href: application-provisioning-config-how-to.md
+    - name: 사용자 프로비전을 구성하는 문제 - 갤러리 앱
+      href: application-provisioning-config-problem.md
+    - name: 사용자 프로비전 갤러리 앱을 구성하는 동안 관리자 자격 증명을 저장하는 문제
+      href: application-provisioning-config-problem-storage-limit.md
+    - name: 프로비전되지 않은 사용자 - 갤러리 앱
+      href: application-provisioning-config-problem-no-users-provisioned.md
+    - name: 잘못 프로비전된 사용자 - 갤러리 앱
+      href: application-provisioning-config-problem-wrong-users-provisioned.md
+  - name: 애플리케이션 액세스
+    items:
+    - name: 애플리케이션 형식
+      href: application-types.md
+    - name: 사용자 동의 구성
+      href: configure-user-consent.md
+    - name: 앱에 사용자 및 그룹를 할당하는 메서드
+      href: methods-for-assigning-users-and-groups.md
+    - name: 앱에 사용자 할당
+      href: assign-user-or-group-access-portal.md
+    - name: 앱에 대한 사용자 액세스 권한을 제거하는 메서드
+      href: methods-for-removing-user-access.md
+    - name: 할당된 예기치 않은 사용자
+      href: ways-users-get-assigned-to-applications.md
+    - name: 사용자 또는 그룹 액세스 권한 제거
+      href: remove-user-or-group-access-portal.md
+    - name: 사용자로부터 앱 숨기기
+      href: hide-application-from-user-portal.md
+    - name: 사용자 로그인 비활성화
+      href: disable-user-sign-in-portal.md
+    - name: 셀프 서비스 앱 할당 구성
+      href: manage-self-service-access.md
+    - name: 홈 영역 검색
+      href: configure-authentication-for-federated-users-portal.md
+  - name: SSO(Single sign-on)
+    items:
+    - name: 비갤러리 앱 구성
+      href: configure-single-sign-on-non-gallery-applications.md
+    - name: 페더레이션된 구성 - 갤러리 앱
+      href: configure-federated-single-sign-on-gallery-applications.md
+    - name: 페더레이션된 일반적인 문제 구성 - 갤러리 앱
+      href: configure-federated-single-sign-on-gallery-applications-problems.md
+    - name: 페더레이션된 구성 - 비갤러리 앱
+      href: configure-federated-single-sign-on-non-gallery-applications.md
+    - name: 페더레이션된 일반적인 문제 구성 - 비갤러리 앱
+      href: configure-federated-single-sign-on-non-gallery-applications-problems.md
+    - name: 암호 구성 - 갤러리 앱
+      href: configure-password-single-sign-on-gallery-applications.md
+    - name: 암호 구성 일반적인 문제 - 갤러리 앱
+      href: configure-password-single-sign-on-gallery-applications-problems.md
+    - name: 암호 구성 - 비갤러리 앱
+      href: configure-password-single-sign-on-non-gallery-applications.md
+    - name: 암호 구성 일반적인 문제 - 비갤러리 앱
+      href: configure-password-single-sign-on-non-gallery-applications-problems.md
+    - name: 애플리케이션 프록시
       items:
-        - name: 애플리케이션 형식
-          href: application-types.md
-        - name: 사용자 동의 구성
-          href: configure-user-consent.md
-        - name: 앱에 사용자 및 그룹를 할당하는 메서드
-          href: methods-for-assigning-users-and-groups.md
-        - name: 앱에 사용자 할당
-          href: assign-user-or-group-access-portal.md
-        - name: 앱에 대한 사용자 액세스 권한을 제거하는 메서드
-          href: methods-for-removing-user-access.md
-        - name: 할당된 예기치 않은 사용자
-          href: ways-users-get-assigned-to-applications.md
-        - name: 사용자 또는 그룹 액세스 권한 제거
-          href: remove-user-or-group-access-portal.md
-        - name: 사용자로부터 앱 숨기기
-          href: hide-application-from-user-portal.md
-        - name: 사용자 로그인 비활성화
-          href: disable-user-sign-in-portal.md
-        - name: 셀프 서비스 앱 할당 구성
-          href: manage-self-service-access.md
-        - name: 홈 영역 검색
-          href: configure-authentication-for-federated-users-portal.md
-    - name: SSO(Single sign-on)
-      items:
-        - name: 비갤러리 앱 구성
-          href: configure-single-sign-on-non-gallery-applications.md
-        - name: 페더레이션된 구성 - 갤러리 앱
-          href: configure-federated-single-sign-on-gallery-applications.md
-        - name: 페더레이션된 일반적인 문제 구성 - 갤러리 앱
-          href: configure-federated-single-sign-on-gallery-applications-problems.md
-        - name: 페더레이션된 구성 - 비갤러리 앱
-          href: configure-federated-single-sign-on-non-gallery-applications.md
-        - name: 페더레이션된 일반적인 문제 구성 - 비갤러리 앱
-          href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-        - name: 암호 구성 - 갤러리 앱
-          href: configure-password-single-sign-on-gallery-applications.md
-        - name: 암호 구성 일반적인 문제 - 갤러리 앱
-          href: configure-password-single-sign-on-gallery-applications-problems.md
-        - name: 암호 구성 - 비갤러리 앱
-          href: configure-password-single-sign-on-non-gallery-applications.md
-        - name: 암호 구성 일반적인 문제 - 비갤러리 앱
-          href: configure-password-single-sign-on-non-gallery-applications-problems.md
-        - name: 애플리케이션 프록시
-          items:
-            - name: KCD(Kerberos 제한 위임)
-              href: application-proxy-configure-single-sign-on-with-kcd.md
-            - name: 암호 보관
-              href: application-proxy-configure-single-sign-on-password-vaulting.md
-            - name: 헤더
-              href: application-proxy-configure-single-sign-on-with-ping-access.md
-    - name: 액세스 패널
-      items:
-        - name: 브라우저 확장 관리
-          href: manage-access-panel-browser-extension.md
-        - name: 표시되지 않는 앱
-          href: access-panel-troubleshoot-application-not-appearing.md
-        - name: 예기치 않은 앱 표시
-          href: access-panel-troubleshoot-unexpected-application.md
-        - name: 로그인할 수 없음
-          href: access-panel-troubleshoot-web-sign-in-problem.md
-        - name: 브라우저 확장을 설치하는 오류
-          href: access-panel-extension-problem-installing.md
-        - name: 셀프 서비스 앱 액세스 사용 방법
-          href: access-panel-manage-self-service-access.md
-        - name: 셀프 서비스 앱 액세스를 사용하는 오류
-          href: access-panel-troubleshoot-self-service-access.md
-    - name: 마이그레이션
-      items:
-        - name: 마이그레이션 리소스
-          href: migration-resources.md
-        - name: Azure에 ADFS 앱 마이그레이션
-          href: migrate-adfs-apps-to-azure.md
-    - name: 사용자 로그인 문제 해결
-      items:
-        - name: 예기치 않은 동의 확인 프롬프트
-          href: application-sign-in-unexpected-user-consent-prompt.md
-        - name: 사용자 동의 오류
-          href: application-sign-in-unexpected-user-consent-error.md
-        - name: 사용자 지정 포털에서 로그인하는 문제
-          href: application-sign-in-other-problem-deeplink.md
-        - name: 액세스 패널에서 로그인하는 문제
-          href: application-sign-in-other-problem-access-panel.md
-        - name: 애플리케이션 로그인 페이지의 오류
-          href: application-sign-in-problem-application-error.md
-        - name: 암호 Single Sign-On 관련 문제 - 비갤러리 앱
-          href: application-sign-in-problem-password-sso-non-gallery.md
-        - name: 암호 Single Sign-On 관련 문제 - 갤러리 앱
-          href: application-sign-in-problem-password-sso-gallery.md
-        - name: Microsoft 앱에 로그인하는 문제
-          href: application-sign-in-problem-first-party-microsoft.md
-        - name: 페더레이션된 Single Sign-On 관련 문제 - 비갤러리 앱
-          href: application-sign-in-problem-federated-sso-non-gallery.md
-        - name: 페더레이션된 Single Sign-On 관련 문제 - 갤러리 앱
-          href: application-sign-in-problem-federated-sso-gallery.md
-        - name: 사용자 지정 개발 앱 관련 문제
-          href: application-sign-in-problem-custom-dev.md
+      - name: KCD(Kerberos 제한 위임)
+        href: application-proxy-configure-single-sign-on-with-kcd.md
+      - name: 암호 보관
+        href: application-proxy-configure-single-sign-on-password-vaulting.md
+      - name: 헤더
+        href: application-proxy-configure-single-sign-on-with-ping-access.md
+  - name: 액세스 패널
+    items:
+    - name: 브라우저 확장 관리
+      href: manage-access-panel-browser-extension.md
+    - name: 표시되지 않는 앱
+      href: access-panel-troubleshoot-application-not-appearing.md
+    - name: 예기치 않은 앱 표시
+      href: access-panel-troubleshoot-unexpected-application.md
+    - name: 로그인할 수 없음
+      href: access-panel-troubleshoot-web-sign-in-problem.md
+    - name: 브라우저 확장을 설치하는 오류
+      href: access-panel-extension-problem-installing.md
+    - name: 셀프 서비스 앱 액세스 사용 방법
+      href: access-panel-manage-self-service-access.md
+    - name: 셀프 서비스 앱 액세스를 사용하는 오류
+      href: access-panel-troubleshoot-self-service-access.md
+  - name: 마이그레이션
+    items:
+    - name: 마이그레이션 리소스
+      href: migration-resources.md
+    - name: Azure에 ADFS 앱 마이그레이션
+      href: migrate-adfs-apps-to-azure.md
+  - name: 사용자 로그인 문제 해결
+    items:
+    - name: 예기치 않은 동의 확인 프롬프트
+      href: application-sign-in-unexpected-user-consent-prompt.md
+    - name: 사용자 동의 오류
+      href: application-sign-in-unexpected-user-consent-error.md
+    - name: 사용자 지정 포털에서 로그인하는 문제
+      href: application-sign-in-other-problem-deeplink.md
+    - name: 액세스 패널에서 로그인하는 문제
+      href: application-sign-in-other-problem-access-panel.md
+    - name: 애플리케이션 로그인 페이지의 오류
+      href: application-sign-in-problem-application-error.md
+    - name: 암호 Single Sign-On 관련 문제 - 비갤러리 앱
+      href: application-sign-in-problem-password-sso-non-gallery.md
+    - name: 암호 Single Sign-On 관련 문제 - 갤러리 앱
+      href: application-sign-in-problem-password-sso-gallery.md
+    - name: Microsoft 앱에 로그인하는 문제
+      href: application-sign-in-problem-first-party-microsoft.md
+    - name: 페더레이션된 Single Sign-On 관련 문제 - 비갤러리 앱
+      href: application-sign-in-problem-federated-sso-non-gallery.md
+    - name: 페더레이션된 Single Sign-On 관련 문제 - 갤러리 앱
+      href: application-sign-in-problem-federated-sso-gallery.md
+    - name: 사용자 지정 개발 앱 관련 문제
+      href: application-sign-in-problem-custom-dev.md
 - name: 리소스
   items:
-    - name: Azure AD 배포 계획
-      href: /azure/active-directory/fundamentals/active-directory-deployment-plans?context=azure/active-directory/manage-apps/context/manage-apps-context
-    - name: Azure 피드백 포럼
-      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-    - name: 가격
-      href: 'https://azure.microsoft.com/pricing/details/active-directory'
-    - name: 요금 계산기
-      href: 'https://azure.microsoft.com/pricing/calculator'
-    - name: 서비스 업데이트
-      href: 'https://azure.microsoft.com/updates/?product=active-directory'
-    - name: 스택 오버플로
-      href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
-    - name: 동영상
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'
+  - name: Azure AD 배포 계획
+    href: /azure/active-directory/fundamentals/active-directory-deployment-plans?context=azure/active-directory/manage-apps/context/manage-apps-context
+  - name: Azure 피드백 포럼
+    href: https://feedback.azure.com/forums/169401-azure-active-directory
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: MSDN 포럼
+    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
+  - name: 가격
+    href: https://azure.microsoft.com/pricing/details/active-directory
+  - name: 요금 계산기
+    href: https://azure.microsoft.com/pricing/calculator
+  - name: 서비스 업데이트
+    href: https://azure.microsoft.com/updates/?product=active-directory
+  - name: 스택 오버플로
+    href: https://stackoverflow.com/questions/tagged/azure-active-directory
+  - name: 동영상
+    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+ms.openlocfilehash: c36be070b739f75760e3c7419da2aa76335a59d1
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157006"

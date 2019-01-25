@@ -128,7 +128,7 @@ items:
     - name: Premium Storage
       href: ../virtual-machines/windows/premium-storage.md
       maintainContext: true
-    - name: Premium Storage 성능
+    - name: 프리미엄 저장소 성능
       href: ../virtual-machines/windows/premium-storage-performance.md
       maintainContext: true
     - name: Standard Storage
@@ -181,6 +181,14 @@ items:
       href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
   - name: 배포
     items:
+    - name: Ansible
+      items:
+      - name: 확장 집합 만들기 및 관리
+        href: /azure/ansible/ansible-create-configure-vmss
+        maintainContext: true
+      - name: 확장 집합에 앱 배포
+        href: /azure/ansible/ansible-deploy-app-vmss
+        maintainContext: true
     - name: Visual Studio를 사용하여 만들기
       href: virtual-machine-scale-sets-vs-create.md
     - name: 가용성 영역 사용
@@ -243,17 +251,6 @@ items:
       href: virtual-machine-scale-sets-convert-template-to-md.md
     - name: 계획된 유지 보수
       href: virtual-machine-scale-sets-maintenance-notifications.md
-  - name: Ansible 사용
-    items:
-    - name: 확장 집합 만들기 및 관리
-      href: /azure/ansible/ansible-create-configure-vmss
-      maintainContext: true
-    - name: 확장 집합에 앱 배포
-      href: /azure/ansible/ansible-deploy-app-vmss
-      maintainContext: true
-    - name: 확장 집합 자동 크기 조정
-      href: /azure/ansible/ansible-auto-scale-vmss
-      maintainContext: true
   - name: 문제 해결
     items:
     - name: 자동 크기 조정
@@ -286,9 +283,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: 스택 오버플로
     href: http://stackoverflow.com/questions/tagged/azure-vm-scale-set
-ms.openlocfilehash: e8239a2b9f4717e2483af2084b1ba07368361e88
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: de2352105b178a91e47934db5b2c2d6b82a12b94
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883333"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231583"

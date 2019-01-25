@@ -634,14 +634,18 @@ items:
         href: platform/view-designer-parts.md
       - name: 필터
         href: platform/view-designer-filters.md
+    - name: 대시보드
+      items:
+      - name: 로그
+        href: platform/dashboards.md
+      - name: 응용 프로그램
+        href: app/app-insights-dashboards.md
     - name: Power BI
       items:
       - name: 로그 데이터 내보내기
         href: platform/powerbi.md
-      - name: 애플리케이션 데이터 내보내기
+      - name: 응용 프로그램 데이터 내보내기
         href: app/export-power-bi.md
-    - name: 대시보드
-      href: app/app-insights-dashboards.md
     - name: 데이터를 Grafana에 보내기
       href: platform/grafana-plugin.md
   - name: 데이터 분석
@@ -965,7 +969,7 @@ items:
   - name: 스키마
     items:
     - name: 진단 로그 서비스, 범주 및 스키마
-      href: platform/diagnostic-logs-schema.md
+      href: platform/tutorial-dashboards.md
     - name: 활동 로그 이벤트 스키마
       href: platform/activity-log-schema.md
     - name: Azure 진단 확장 스키마
@@ -1017,9 +1021,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 코드 샘플
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 3a3770418ff8463ec2afa39105a1722addc7c3d2
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: adf92fafe1c1c0fa855d3658c41dd3563d4b26b2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888025"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448689"

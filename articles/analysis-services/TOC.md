@@ -78,7 +78,6 @@
 
 ## [PowerShell](analysis-services-powershell.md)
 ## [REST (영문)](/rest/api/analysisservices)
-## [Resource Manager 템플릿](/azure/templates/microsoft.analysisservices/servers)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [파워 쿼리 M](https://msdn.microsoft.com/library/mt211003.aspx)
 ## [테이블 형식 모델 스크립팅 언어(TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)

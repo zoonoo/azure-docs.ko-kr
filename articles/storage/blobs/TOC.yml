@@ -30,20 +30,20 @@ items:
       items:
       - name: .NET
         href: storage-quickstart-blobs-dotnet.md
-      - name: 자바
+      - name: Java(Storage SDK V10)
         href: storage-quickstart-blobs-java-v10.md
-      - name: Node.js
-        href: storage-quickstart-blobs-nodejs-v10.md
       - name: Python
         href: storage-quickstart-blobs-python.md
-      - name: JS/HTML
-        href: storage-quickstart-blobs-javascript-client-libraries.md
       - name: Go
         href: storage-quickstart-blobs-go.md
-      - name: PHP
-        href: storage-quickstart-blobs-php.md
       - name: Ruby
         href: storage-quickstart-blobs-ruby.md
+      - name: Node.js(Storage SDK v10)
+        href: storage-quickstart-blobs-nodejs-v10.md
+      - name: JS/HTML
+        href: storage-quickstart-blobs-javascript-client-libraries.md
+      - name: PHP
+        href: storage-quickstart-blobs-php.md
   - name: 자습서
     items:
     - name: 이미지 업로드 및 처리
@@ -74,13 +74,13 @@ items:
         href: storage-blob-static-website-host.md
       - name: 2 - SSL에서 사용자 지정 도메인 사용
         href: storage-blob-static-website-custom-domain.md
-    - name: 고가용성을 위해 애플리케이션 디자인
+    - name: 클라우드 저장소에서 고가용성을 위한 디자인
       items:
-      - name: 1 - 고가용성 애플리케이션 만들기
+      - name: 1 - 고가용성 응용 프로그램 만들기
         href: storage-create-geo-redundant-storage.md
       - name: 2 - RA-GRS 저장소를 사용하여 오류 시뮬레이션
         href: storage-simulate-failure-ragrs-account-app.md
-    - name: 비정형 데이터 검색
+    - name: 클라우드 저장소의 구조화되지 않은 데이터 검색
       href: storage-unstructured-search.md
   - name: 샘플
     items:
@@ -94,7 +94,7 @@ items:
       href: storage-samples-blobs-cli.md
   - name: 개념
     items:
-    - name: 스토리지 계정 관리
+    - name: Storage 계정
       href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       items:
       - name: 저장소 계정 관리
@@ -124,22 +124,75 @@ items:
     - name: 데이터 중복
       href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       items:
-      - name: 로컬 중복 저장소
+      - name: LRS(로컬 중복 저장소)
         href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: 영역 중복 저장소
         href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: 지역 중복 저장소
         href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: 재해 복구 지침
-        href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: RA-GRS를 사용하여 HA 앱 디자인
-        href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: 액세스 계층
+      href: storage-blob-storage-tiers.md
+    - name: Azure Blob Storage 수명 주기 관리
+      href: storage-lifecycle-management-concepts.md
+    - name: 이벤트에 반응
+      href: storage-blob-event-overview.md
+    - name: 확장성 및 성능 대상
+      href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: 성능 및 확장성 검사 목록
+      href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: 동시성
+      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: 재해 복구 지침
+      href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Storage로 또는 반대로 데이터 이동
+      href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: 페이지 Blob 기능
+      href: storage-blob-pageblob-overview.md
+    - name: Azure 디스크
       items:
-      - name: 액세스 계층
-        href: storage-blob-storage-tiers.md
-      - name: Azure Blob Storage 수명 주기 관리
-        href: storage-lifecycle-management-concepts.md
+      - name: Premium Storage
+        items:
+        - name: Linux
+          items:
+          - name: VM 디스크용 고성능 Premium Storage
+            href: ../../virtual-machines/linux/premium-storage.md
+          - name: Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션
+            href: ../../virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery.md
+          - name: 고성능을 위한 디자인
+            href: ../../virtual-machines/linux/premium-storage-performance.md
+        - name: " Windows"
+          items:
+          - name: VM 디스크용 고성능 Premium Storage
+            href: ../../virtual-machines/windows/premium-storage.md
+          - name: Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션
+            href: ../../virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery.md
+          - name: 고성능을 위한 디자인
+            href: ../../virtual-machines/windows/premium-storage-performance.md
+      - name: Standard Storage
+        items:
+        - name: Linux
+          items:
+          - name: VM 디스크에 대한 표준 저장소
+            href: ../../virtual-machines/linux/standard-storage.md
+        - name: " Windows"
+          items:
+          - name: VM 디스크에 대한 표준 저장소
+            href: ../../virtual-machines/windows/standard-storage.md
+      - name: 연결된 VHD 문제 해결
+        href: storage-troubleshoot-vhds.md
+        items:
+        - name: Linux
+          items:
+          - name: 저장소 리소스 삭제 오류
+            href: ../../virtual-machines/linux/storage-resource-deletion-errors.md
+          - name: VHD가 연결된 VM이 예기치 않게 다시 부팅되는 경우
+            href: ../../virtual-machines/linux/unexpected-reboots-attached-vhds.md
+        - name: " Windows"
+          items:
+          - name: 저장소 리소스 삭제 오류
+            href: ../../virtual-machines/windows/storage-resource-deletion-errors.md
+          - name: VHD가 연결된 VM이 예기치 않게 다시 부팅되는 경우
+            href: ../../virtual-machines/windows/unexpected-reboots-attached-vhds.md
     - name: 보안
       items:
       - name: 보안 지침
@@ -160,95 +213,81 @@ items:
         href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure Storage 클라이언트에 대한 보안 TLS 사용
         href: ../common/storage-security-tls.md
-    - name: 성능 및 크기 조정
+      - name: 규정 준수 제안
+        href: ../common/storage-compliance-offerings.md
+    - name: 데이터 전송 솔루션 비교
+      href: ../common/storage-choose-data-transfer-solution.md
       items:
-      - name: 확장성 및 성능 대상
-        href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: 성능 및 확장성 검사 목록
-        href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: 동시성
-      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: 데이터 마이그레이션
+      - name: 대형 데이터 세트, 낮은 네트워크 대역폭
+        href: ../common/storage-solution-large-dataset-low-network.md
+      - name: 대형 데이터 세트, 보통 및 높은 네트워크 대역폭
+        href: ../common/storage-solution-large-dataset-moderate-high-network.md
+      - name: 소형 데이터 세트, 보통 및 낮은 네트워크 대역폭
+        href: ../common/storage-solution-small-dataset-low-moderate-network.md
+      - name: 정기적 데이터 전송
+        href: ../common/storage-solution-periodic-data-transfer.md
+    - name: 모니터링 및 문제 해결
       items:
-      - name: 데이터 전송 솔루션 비교
-        href: ../common/storage-choose-data-transfer-solution.md
+      - name: 문제 해결 자습서
+        href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: 모니터링, 진단 및 문제 해결
+        href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: 메트릭 및 로깅
         items:
-        - name: 대형 데이터 세트, 낮은 네트워크 대역폭
-          href: ../common/storage-solution-large-dataset-low-network.md
-        - name: 대형 데이터 세트, 보통 및 높은 네트워크 대역폭
-          href: ../common/storage-solution-large-dataset-moderate-high-network.md
-        - name: 소형 데이터 세트, 보통 및 낮은 네트워크 대역폭
-          href: ../common/storage-solution-small-dataset-low-moderate-network.md
-        - name: 정기적 데이터 전송
-          href: ../common/storage-solution-periodic-data-transfer.md
-      - name: Storage로 또는 반대로 데이터 이동
-        href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: 데이터 Import/Export
-        href: ../common/storage-import-export-service.md
+        - name: Azure Monitor의 메트릭
+          href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 새 메트릭으로 마이그레이션
+          href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 저장소 분석
+          href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 메트릭 사용 및 보기(클래식)
+          href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: 데이터 Import/Export
+      href: ../common/storage-import-export-service.md
+      items:
+      - name: 요구 사항 검토
+        href: ../common/storage-import-export-requirements.md
+      - name: Blob으로 데이터 가져오기
+        href: ../common/storage-import-export-data-to-blobs.md
+      - name: 파일로 데이터 가져오기
+        href: ../common/storage-import-export-data-to-files.md
+      - name: Blob에서 데이터 내보내기
+        href: ../common/storage-import-export-data-from-blobs.md
+      - name: 방법
         items:
-        - name: 요구 사항 검토
-          href: ../common/storage-import-export-requirements.md
-        - name: Blob으로 데이터 가져오기
-          href: ../common/storage-import-export-data-to-blobs.md
-        - name: 파일로 데이터 가져오기
-          href: ../common/storage-import-export-data-to-files.md
-        - name: Blob에서 데이터 내보내기
-          href: ../common/storage-import-export-data-from-blobs.md
-        - name: 방법
+        - name: 드라이브 상태 보기
+          href: ../common/storage-import-export-view-drive-status.md
+        - name: 작업 상태 검토
+          href: ../common/storage-import-export-tool-reviewing-job-status-v1.md
+        - name: 가져오기 작업 복구
+          href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md
+        - name: 내보내기 작업 복구
+          href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md
+      - name: FAQ
+        href: ../common/storage-import-export-service-faq.md
+      - name: REST API
+        href: https://docs.microsoft.com/rest/api/storageimportexport/jobs
+      - name: 지원에 문의
+        href: ../common/storage-import-export-contact-microsoft-support.md
+      - name: 보관
+        items:
+        - name: 가져오기를 위한 드라이브 준비(v1)
+          href: ../common/storage-import-export-tool-preparing-hard-drives-import-v1.md
           items:
-          - name: 드라이브 상태 보기
-            href: ../common/storage-import-export-view-drive-status.md
-          - name: 작업 상태 검토
-            href: ../common/storage-import-export-tool-reviewing-job-status-v1.md
-          - name: 가져오기 작업 복구
-            href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md
-          - name: 내보내기 작업 복구
-            href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md
-        - name: FAQ
-          href: ../common/storage-import-export-service-faq.md
-        - name: REST API
-          href: https://docs.microsoft.com/rest/api/storageimportexport/jobs
-        - name: 지원에 문의
-          href: ../common/storage-import-export-contact-microsoft-support.md
-        - name: 보관
+          - name: 속성 및 메타데이터 설정
+            href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
+          - name: 샘플 - 가져오기를 위한 드라이브 준비
+            href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
+          - name: 가져오기를 위한 빠른 명령 참조
+            href: ../common/storage-import-export-tool-quick-reference-v1.md
+        - name: 가져오기를 위한 드라이브 준비(v2)
+          href: ../common/storage-import-export-tool-preparing-hard-drives-import.md
           items:
-          - name: 가져오기를 위한 드라이브 준비(v1)
-            href: ../common/storage-import-export-tool-preparing-hard-drives-import-v1.md
-            items:
-            - name: 속성 및 메타데이터 설정
-              href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
-            - name: 샘플 - 가져오기를 위한 드라이브 준비
-              href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
-            - name: 가져오기를 위한 빠른 명령 참조
-              href: ../common/storage-import-export-tool-quick-reference-v1.md
-          - name: 가져오기를 위한 드라이브 준비(v2)
-            href: ../common/storage-import-export-tool-preparing-hard-drives-import.md
-            items:
-            - name: 속성 및 메타데이터 설정
-              href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
-            - name: 샘플 - 가져오기를 위한 드라이브 준비
-              href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
-            - name: 가져오기를 위한 빠른 명령 참조
-              href: ../common/storage-import-export-tool-quick-reference-v1.md
-          - name: 가져오기 작업 만들기
-            href: ../common/storage-import-export-creating-an-import-job.md
-          - name: 내보내기 작업 만들기
-            href: ../common/storage-import-export-creating-an-import-job.md
-          - name: 작업 상태 가져오기
-            href: ../common/storage-import-export-retrieving-state-info-for-a-job.md
-          - name: 내보내기 작업 만들기
-            href: ../common/storage-import-export-creating-an-import-job.md
-          - name: 작업 열거
-            href: ../common/storage-import-export-enumerating-jobs.md
-          - name: 작업 취소 및 삭제
-            href: ../common/storage-import-export-cancelling-and-deleting-jobs.md
-          - name: 드라이브 매니페스트 백업
-            href: ../common/storage-import-export-backing-up-drive-manifests.md
-          - name: 작업 열거
-            href: ../common/storage-import-export-enumerating-jobs.md
-          - name: 진단 및 오류 복구
-            href: ../common/storage-import-export-diagnostics-and-error-recovery.md
-          - name: 가져오기 작업에 대한 명령
+          - name: 속성 및 메타데이터 설정
+            href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
+          - name: 샘플 - 가져오기를 위한 드라이브 준비
+            href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
+          - name: 가져오기를 위한 빠른 명령 참조
             href: ../common/storage-import-export-tool-quick-reference-v1.md
         - name: 가져오기 작업 만들기
           href: ../common/storage-import-export-creating-an-import-job.md
@@ -270,46 +309,34 @@ items:
           href: ../common/storage-import-export-diagnostics-and-error-recovery.md
         - name: 가져오기 작업에 대한 명령
           href: ../common/storage-import-export-tool-quick-reference-v1.md
-        - name: 서비스 매니페스트 파일
-          href: ../common/storage-import-export-file-format-manifest.md
-        - name: 서비스 메타데이터 및 속성 파일
-          href: ../common/storage-import-export-file-format-metadata-and-properties.md
-        - name: 서비스 로그 파일
-          href: ../common/storage-import-export-file-format-log.md
-    - name: 모니터링 및 문제 해결
-      items:
-      - name: 문제 해결 자습서
-        href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: 모니터링, 진단 및 문제 해결
-        href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: 메트릭 및 로깅
-        items:
-        - name: Azure Monitor의 메트릭
-          href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 새 메트릭으로 마이그레이션
-          href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 저장소 분석
-          href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 메트릭 사용 및 보기(클래식)
-          href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: 이벤트 처리
-      href: storage-blob-event-overview.md
-    - name: 페이지 Blob 기능
-      href: storage-blob-pageblob-overview.md
+      - name: 가져오기 작업 만들기
+        href: ../common/storage-import-export-creating-an-import-job.md
+      - name: 내보내기 작업 만들기
+        href: ../common/storage-import-export-creating-an-import-job.md
+      - name: 작업 상태 가져오기
+        href: ../common/storage-import-export-retrieving-state-info-for-a-job.md
+      - name: 내보내기 작업 만들기
+        href: ../common/storage-import-export-creating-an-import-job.md
+      - name: 작업 열거
+        href: ../common/storage-import-export-enumerating-jobs.md
+      - name: 작업 취소 및 삭제
+        href: ../common/storage-import-export-cancelling-and-deleting-jobs.md
+      - name: 드라이브 매니페스트 백업
+        href: ../common/storage-import-export-backing-up-drive-manifests.md
+      - name: 작업 열거
+        href: ../common/storage-import-export-enumerating-jobs.md
+      - name: 진단 및 오류 복구
+        href: ../common/storage-import-export-diagnostics-and-error-recovery.md
+      - name: 가져오기 작업에 대한 명령
+        href: ../common/storage-import-export-tool-quick-reference-v1.md
+      - name: 서비스 매니페스트 파일
+        href: ../common/storage-import-export-file-format-manifest.md
+      - name: 서비스 메타데이터 및 속성 파일
+        href: ../common/storage-import-export-file-format-metadata-and-properties.md
+      - name: 서비스 로그 파일
+        href: ../common/storage-import-export-file-format-log.md
   - name: 방법
     items:
-    - name: 스토리지에 대한 요청 승인
-      items:
-      - name: Azure AD를 사용하여 인증
-        items:
-        - name: RBAC를 사용하여 액세스 권한 관리
-          href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 응용 프로그램에서 인증
-          href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 관리되는 ID를 사용하여 인증
-          href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: CLI 또는 PowerShell과 함께 Azure AD ID 사용
-          href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Blob으로 개발
       items:
       - name: REST (영문)
@@ -334,6 +361,10 @@ items:
         href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure 클래식 CLI
         href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Storage 탐색기를 사용하여 Blob 관리
+        href: ../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Azure Automation
+        href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: 클라이언트 쪽 암호화
       items:
       - name: .NET
@@ -344,6 +375,8 @@ items:
         href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: 연결 문자열 구성
       href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: RA-GRS를 사용하여 HA 앱 디자인
+      href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure Key Vault를 사용하여 Blob 암호화 및 암호 해독
       href: storage-encrypt-decrypt-blobs-key-vault.md
     - name: 속성 및 메타데이터 설정 및 검색
@@ -416,8 +449,6 @@ items:
         href: /rest/api/storagerp
       - name: Import/Export
         href: /rest/api/storageimportexport
-    - name: Resource Manager 템플릿
-      href: /azure/templates/microsoft.storage/allversions
   - name: 리소스
     items:
     - name: Azure 로드맵
@@ -490,8 +521,6 @@ items:
           href: /rest/api/storagerp
         - name: Import/Export
           href: /rest/api/storageimportexport
-    - name: 규정 준수 제안
-      href: ../common/storage-compliance-offerings.md
 - name: Data Lake Storage Gen2
   items:
   - name: Data Lake Storage Gen1로 전환 설명서
@@ -602,9 +631,9 @@ items:
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: 동영상
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: 0246e8af3b52efb5e5acb51bbcc4b237b4211f31
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0b87fc2be7602e865693c2013cf18ea11e47e7c3
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354402"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104253"

@@ -1,320 +1,327 @@
+items:
 - name: Azure Policy 설명서
   href: index.yml
 - name: 개요
   items:
-    - name: Azure 정책 개요
-      displayName: 'rbac, assign, initiative, parameters, count'
-      href: overview.md
+  - name: Azure 정책 개요
+    displayName: rbac, assign, initiative, parameters, count
+    href: overview.md
 - name: 빠른 시작
-  expanded: true
   items:
-    - name: 정책 할당 - 포털
-      displayName: 'assign, compliance'
-      href: assign-policy-portal.md
-    - name: 정책 할당 - PowerShell
-      displayName: 'assign, compliance'
-      href: assign-policy-powershell.md
-    - name: 정책 할당 - Azure CLI
-      displayName: 'assign, compliance'
-      href: assign-policy-azurecli.md
+  - name: 정책 할당 - 포털
+    displayName: assign, compliance
+    href: assign-policy-portal.md
+  - name: 정책 할당 - PowerShell
+    displayName: assign, compliance
+    href: assign-policy-powershell.md
+  - name: 정책 할당 - Azure CLI
+    displayName: assign, compliance
+    href: assign-policy-azurecli.md
+  expanded: true
 - name: 자습서
   items:
-    - name: Azure 정책 만들기 및 관리
-      displayName: 'assign, definition, compliance, exempt, exclusion'
-      href: ./tutorials/create-and-manage.md
-    - name: 실습 랩 - Azure Policy 탐색
-      displayName: 'create, policy, training, learn'
-      href: 'https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy'
+  - name: Azure 정책 만들기 및 관리
+    displayName: assign, definition, compliance, exempt, exclusion
+    href: ./tutorials/create-and-manage.md
+  - name: 실습 랩 - Azure Policy 탐색
+    displayName: create, policy, training, learn
+    href: https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy
 - name: 샘플
   items:
-    - name: 인덱스
-      displayName: 'list, examples'
-      href: ./samples/index.md
-    - name: 일반
+  - name: 인덱스
+    displayName: list, examples
+    href: ./samples/index.md
+  - name: 일반
+    items:
+    - name: 이름 지정
       items:
-        - name: 이름 지정
-          items:
-            - name: 여러 이름 패턴 허용
-              displayName: 'deny, indexed'
-              href: samples/allow-multiple-name-patterns.md
-            - name: 유사 패턴 필요
-              displayName: 'deny, indexed'
-              href: samples/enforce-like-pattern.md
-            - name: 일치 패턴 필요
-              displayName: 'deny, indexed'
-              href: samples/enforce-match-pattern.md
-            - name: 태그 일치 패턴 필요
-              displayName: 'deny, all'
-              href: samples/enforce-tag-match-pattern.md
-        - name: 태그들
-          items:
-            - name: 태그 및 기본값 적용
-              displayName: 'append, builtin, concat'
-              href: samples/apply-tag-default-value.md
-            - name: 청구 태그 정책 이니셔티브
-              href: samples/billing-tags-policy-initiative.md
-            - name: 태그 및 해당 값 강제 적용
-              displayName: 'deny, concat, builtin'
-              href: samples/enforce-tag-value.md
-            - name: 리소스 그룹에 태그 및 해당 값 강제 적용
-              displayName: 'deny, concat'
-              href: samples/enforce-tag-on-resource-groups.md
-        - name: 위치
-          items:
-            - name: 허용되는 위치
-              displayName: 'deny, builtin, location'
-              href: samples/allowed-locations.md
-        - name: 리소스 유형
-          items:
-            - name: 허용되는 리소스 유형
-              displayName: 'deny, builtin, resourceTypes'
-              href: samples/allowed-resource-types.md
-            - name: 허용되지 않는 리소스 종류
-              displayName: 'deny, builtin, resourceTypes'
-              href: samples/not-allowed-resource-types.md
-    - name: 컴퓨팅
+      - name: 여러 이름 패턴 허용
+        displayName: deny, indexed
+        href: samples/allow-multiple-name-patterns.md
+      - name: 유사 패턴 필요
+        displayName: deny, indexed
+        href: samples/enforce-like-pattern.md
+      - name: 일치 패턴 필요
+        displayName: deny, indexed
+        href: samples/enforce-match-pattern.md
+      - name: 태그 일치 패턴 필요
+        displayName: deny, all
+        href: samples/enforce-tag-match-pattern.md
+    - name: 태그들
       items:
-        - name: 가상 머신
-          items:
-            - name: 리소스 그룹으로부터 사용자 지정 VM 이미지 허용
-              displayName: 'deny, concat, ExistingResourceGroups'
-              href: samples/allow-custom-vm-image.md
-            - name: 저장소 계정 및 가상 머신에 대해 허용된 SKU
-              displayName: 'initiative, vmSKUs, storageSKUs'
-              href: samples/allowed-skus-storage.md
-            - name: 승인된 VM 이미지
-              displayName: deny
-              href: samples/allowed-custom-images.md
-            - name: 확장이 존재하지 않을 경우 감사
-              displayName: auditIfNotExists
-              href: samples/audit-extension-not-exist.md
-            - name: 허용되는 않는 VM 확장
-              displayName: deny
-              href: samples/not-allowed-vm-extension.md
-        - name: 가상 머신 크기 집합
-          items:
-            - name: VM이 관리 디스크를 사용하지 않을 경우 감사
-              displayName: audit
-              href: samples/create-vm-managed-disk.md
-            - name: 관리 디스크를 사용하여 VM 만들기
-              displayName: deny
-              href: samples/use-managed-disk-vm.md
-            - name: 하이브리드 사용 혜택 거부
-              displayName: deny
-              href: samples/deny-hybrid-use.md
-            - name: 특정 VM 플랫폼 이미지만을 허용함
-              displayName: deny
-              href: samples/allow-certain-vm-image.md
-    - name: 데이터 레이크
+      - name: 태그 및 기본값 적용
+        displayName: append, builtin, concat
+        href: samples/apply-tag-default-value.md
+      - name: 청구 태그 정책 이니셔티브
+        href: samples/billing-tags-policy-initiative.md
+      - name: 태그 및 해당 값 강제 적용
+        displayName: deny, concat, builtin
+        href: samples/enforce-tag-value.md
+      - name: 리소스 그룹에 태그 및 해당 값 강제 적용
+        displayName: deny, concat
+        href: samples/enforce-tag-on-resource-groups.md
+    - name: 위치
       items:
-        - name: Data Lake Store 암호화 적용
-          displayName: deny
-          href: samples/enforce-data-lake-store-encryption.md
-    - name: 모니터링
+      - name: 허용되는 위치
+        displayName: deny, builtin, location
+        href: samples/allowed-locations.md
+    - name: 리소스 유형
       items:
-        - name: 진단 설정 감사
-          displayName: 'auditIfNotExists, resourceTypes'
-          href: samples/audit-diagnostic-setting.md
-    - name: 네트워크
+      - name: 허용되는 리소스 유형
+        displayName: deny, builtin, resourceTypes
+        href: samples/allowed-resource-types.md
+      - name: 허용되지 않는 리소스 종류
+        displayName: deny, builtin, resourceTypes
+        href: samples/not-allowed-resource-types.md
+  - name: 컴퓨팅
+    items:
+    - name: 가상 머신
       items:
-        - name: 네트워크 인터페이스
-          items:
-            - name: 모든 NIC에서 NSG X
-              displayName: deny
-              href: samples/nsg-on-nic.md
-            - name: VM 네트워크 인터페이스에 승인된 서브넷을 사용합니다.
-              displayName: deny
-              href: samples/use-approved-subnet-vm-nics.md
-            - name: VM 네트워크 인터페이스에 승인된 vNet 사용
-              displayName: 'deny, concat'
-              href: samples/use-approved-vnet-vm-nics.md
-        - name: 가상 네트워크
-          items:
-            - name: 허용되는 애플리케이션 게이트웨이 SKU
-              displayName: deny
-              href: samples/allowed-app-gateway-sku.md
-            - name: 허용되는 vNet 게이트웨이 SKU
-              displayName: deny
-              href: samples/allowed-vnet-gateway-sku.md
-            - name: 허용되는 Load Balancer SKU
-              displayName: deny
-              href: samples/allowed-load-balancer-skus.md
-            - name: ER 네트워크에 피어링하는 네트워크 없음
-              displayName: 'deny, all, concat, ExistingResourceGroups'
-              href: samples/no-peering-express-route-network.md
-            - name: 사용자 정의 경로 테이블 없음
-              displayName: 'deny, all'
-              href: samples/no-user-defined-route-table.md
-            - name: 모든 서브넷에서 NSG X
-              displayName: 'deny, all'
-              href: samples/nsg-on-subnet.md
-            - name: VM 네트워크 인터페이스에 승인된 서브넷을 사용합니다.
-              displayName: deny
-              href: samples/use-approved-subnet-vm-nics.md
-            - name: VM 네트워크 인터페이스에 승인된 vNet 사용
-              displayName: deny
-              href: samples/use-approved-vnet-vm-nics.md
-        - name: 네트워크 보안 그룹
-          items:
-            - name: 모든 NIC에서 NSG X
-              displayName: deny
-              href: samples/nsg-on-nic.md
-            - name: 모든 서브넷에서 NSG X
-              displayName: 'deny, all'
-              href: samples/nsg-on-subnet.md
-        - name: Express Route
-          items:
-            - name: 허용되는 Express Route 대역폭
-              displayName: deny
-              href: samples/allowed-express-route-bandwidth.md
-            - name: 허용되는 Express Route SKU
-              displayName: deny
-              href: samples/allowed-express-route-skus.md
-            - name: 허용되는 Express Route 피어링 위치
-              displayName: 'deny, Location'
-              href: samples/allowed-express-route-peering.md
-        - name: Network Watcher
-          items:
-            - name: Network Watcher를 지역에 대해 사용하도록 설정되지 않은 경우 감사
-              displayName: 'auditIfNotExists, Location'
-              href: samples/network-watcher-not-enabled.md
-        - name: 애플리케이션 게이트웨이
-          items:
-            - name: 허용되는 애플리케이션 게이트웨이 SKU
-              displayName: deny
-              href: samples/allowed-app-gateway-sku.md
-    - name: SQL
+      - name: 리소스 그룹으로부터 사용자 지정 VM 이미지 허용
+        displayName: deny, concat, ExistingResourceGroups
+        href: samples/allow-custom-vm-image.md
+      - name: 저장소 계정 및 가상 머신에 대해 허용된 SKU
+        displayName: initiative, vmSKUs, storageSKUs
+        href: samples/allowed-skus-storage.md
+      - name: 승인된 VM 이미지
+        displayName: deny
+        href: samples/allowed-custom-images.md
+      - name: 확장이 존재하지 않을 경우 감사
+        displayName: auditIfNotExists
+        href: samples/audit-extension-not-exist.md
+      - name: 허용되는 않는 VM 확장
+        displayName: deny
+        href: samples/not-allowed-vm-extension.md
+    - name: 가상 머신 크기 집합
       items:
-        - name: SQL Server
-          items:
-            - name: Azure Active Directory 관리자가 없을 경우 감사
-              displayName: auditIfNotExists
-              href: samples/audit-no-aad-admin.md
-            - name: 서버 수준 위협 감지 설정 감사
-              displayName: auditIfNotExists
-              href: samples/audit-sql-server-threat-detection-setting.md
-            - name: SQL Server 감사 설정 감사
-              displayName: 'auditIfNotExists, builtin'
-              href: samples/sql-server-audit.md
-            - name: Microsoft SQL Server 수준 감사 설정 감사
-              displayName: auditIfNotExists
-              href: samples/audit-sql-server-audit-setting.md
-            - name: SQL Server 버전 12.0 필요
-              displayName: 'deny, builtin'
-              href: samples/require-sql-12.md
-        - name: SQL Database
-          items:
-            - name: 허용되는 SQL DB SKU
-              displayName: deny
-              href: samples/allowed-sql-db-skus.md
-            - name: SQL DB 수준 위협 감지 설정 감사
-              displayName: auditIfNotExists
-              href: samples/audit-db-threat-detection-setting.md
-            - name: SQL DB 암호화 감사
-              displayName: 'auditIfNotExists, disabled, indexed, builtin'
-              href: samples/sql-database-encryption-audit.md
-            - name: Microsoft SQL DB 수준 감사 설정 감사
-              displayName: auditIfNotExists
-              href: samples/audit-sql-db-audit-setting.md
-    - name: Storage
+      - name: VM이 관리 디스크를 사용하지 않을 경우 감사
+        displayName: audit
+        href: samples/create-vm-managed-disk.md
+      - name: 관리 디스크를 사용하여 VM 만들기
+        displayName: deny
+        href: samples/use-managed-disk-vm.md
+      - name: 하이브리드 사용 혜택 거부
+        displayName: deny
+        href: samples/deny-hybrid-use.md
+      - name: 특정 VM 플랫폼 이미지만을 허용함
+        displayName: deny
+        href: samples/allow-certain-vm-image.md
+  - name: 데이터 레이크
+    items:
+    - name: Data Lake Store 암호화 적용
+      displayName: deny
+      href: samples/enforce-data-lake-store-encryption.md
+  - name: 모니터링
+    items:
+    - name: 진단 설정 감사
+      displayName: auditIfNotExists, resourceTypes
+      href: samples/audit-diagnostic-setting.md
+  - name: 네트워크
+    items:
+    - name: 네트워크 인터페이스
       items:
-        - name: 저장소 계정 및 VM에 대해 허용된 SKU
-          displayName: 'initiative, vmSKUs, storageSKUs'
-          href: samples/allowed-skus-storage.md
-        - name: 허용되는 저장소 계정 SKU
-          displayName: 'deny, builtin, storageSKUs'
-          href: samples/allowed-storage-account-skus.md
-        - name: 저장소 계정에 대한 쿨 액세스 계층 거부
-          displayName: 'deny, all'
-          href: samples/deny-cool-access-tiering.md
-        - name: 저장소 계정에 대해서만 HTTPS 트래픽 확인
-          displayName: 'deny, all'
-          href: samples/ensure-https-storage-account.md
-        - name: 저장소 파일 암호화 확인
-          displayName: 'deny, all'
-          href: samples/ensure-storage-file-encryption.md
-        - name: 저장소 계정 암호화 필요
-          displayName: 'deny, builtin'
-          href: samples/require-storage-account-encryption.md
+      - name: 모든 NIC에서 NSG X
+        displayName: deny
+        href: samples/nsg-on-nic.md
+      - name: VM 네트워크 인터페이스에 승인된 서브넷을 사용합니다.
+        displayName: deny
+        href: samples/use-approved-subnet-vm-nics.md
+      - name: VM 네트워크 인터페이스에 승인된 vNet 사용
+        displayName: deny, concat
+        href: samples/use-approved-vnet-vm-nics.md
+    - name: 가상 네트워크
+      items:
+      - name: 허용되는 애플리케이션 게이트웨이 SKU
+        displayName: deny
+        href: samples/allowed-app-gateway-sku.md
+      - name: 허용되는 vNet 게이트웨이 SKU
+        displayName: deny
+        href: samples/allowed-vnet-gateway-sku.md
+      - name: 허용되는 Load Balancer SKU
+        displayName: deny
+        href: samples/allowed-load-balancer-skus.md
+      - name: ER 네트워크에 피어링하는 네트워크 없음
+        displayName: deny, all, concat, ExistingResourceGroups
+        href: samples/no-peering-express-route-network.md
+      - name: 사용자 정의 경로 테이블 없음
+        displayName: deny, all
+        href: samples/no-user-defined-route-table.md
+      - name: 모든 서브넷에서 NSG X
+        displayName: deny, all
+        href: samples/nsg-on-subnet.md
+      - name: VM 네트워크 인터페이스에 승인된 서브넷을 사용합니다.
+        displayName: deny
+        href: samples/use-approved-subnet-vm-nics.md
+      - name: VM 네트워크 인터페이스에 승인된 vNet 사용
+        displayName: deny
+        href: samples/use-approved-vnet-vm-nics.md
+    - name: 네트워크 보안 그룹
+      items:
+      - name: 모든 NIC에서 NSG X
+        displayName: deny
+        href: samples/nsg-on-nic.md
+      - name: 모든 서브넷에서 NSG X
+        displayName: deny, all
+        href: samples/nsg-on-subnet.md
+    - name: Express Route
+      items:
+      - name: 허용되는 Express Route 대역폭
+        displayName: deny
+        href: samples/allowed-express-route-bandwidth.md
+      - name: 허용되는 Express Route SKU
+        displayName: deny
+        href: samples/allowed-express-route-skus.md
+      - name: 허용되는 Express Route 피어링 위치
+        displayName: deny, Location
+        href: samples/allowed-express-route-peering.md
+    - name: Network Watcher
+      items:
+      - name: Network Watcher를 지역에 대해 사용하도록 설정되지 않은 경우 감사
+        displayName: auditIfNotExists, Location
+        href: samples/network-watcher-not-enabled.md
+    - name: 애플리케이션 게이트웨이
+      items:
+      - name: 허용되는 애플리케이션 게이트웨이 SKU
+        displayName: deny
+        href: samples/allowed-app-gateway-sku.md
+  - name: SQL
+    items:
+    - name: SQL Server
+      items:
+      - name: Azure Active Directory 관리자가 없을 경우 감사
+        displayName: auditIfNotExists
+        href: samples/audit-no-aad-admin.md
+      - name: 서버 수준 위협 감지 설정 감사
+        displayName: auditIfNotExists
+        href: samples/audit-sql-server-threat-detection-setting.md
+      - name: SQL Server 감사 설정 감사
+        displayName: auditIfNotExists, builtin
+        href: samples/sql-server-audit.md
+      - name: Microsoft SQL Server 수준 감사 설정 감사
+        displayName: auditIfNotExists
+        href: samples/audit-sql-server-audit-setting.md
+      - name: SQL Server 버전 12.0 필요
+        displayName: deny, builtin
+        href: samples/require-sql-12.md
+    - name: SQL Database
+      items:
+      - name: 허용되는 SQL DB SKU
+        displayName: deny
+        href: samples/allowed-sql-db-skus.md
+      - name: SQL DB 수준 위협 감지 설정 감사
+        displayName: auditIfNotExists
+        href: samples/audit-db-threat-detection-setting.md
+      - name: SQL DB 암호화 감사
+        displayName: auditIfNotExists, disabled, indexed, builtin
+        href: samples/sql-database-encryption-audit.md
+      - name: Microsoft SQL DB 수준 감사 설정 감사
+        displayName: auditIfNotExists
+        href: samples/audit-sql-db-audit-setting.md
+  - name: Storage
+    items:
+    - name: 저장소 계정 및 VM에 대해 허용된 SKU
+      displayName: initiative, vmSKUs, storageSKUs
+      href: samples/allowed-skus-storage.md
+    - name: 허용되는 저장소 계정 SKU
+      displayName: deny, builtin, storageSKUs
+      href: samples/allowed-storage-account-skus.md
+    - name: 저장소 계정에 대한 쿨 액세스 계층 거부
+      displayName: deny, all
+      href: samples/deny-cool-access-tiering.md
+    - name: 저장소 계정에 대해서만 HTTPS 트래픽 확인
+      displayName: deny, all
+      href: samples/ensure-https-storage-account.md
+    - name: 저장소 파일 암호화 확인
+      displayName: deny, all
+      href: samples/ensure-storage-file-encryption.md
+    - name: 저장소 계정 암호화 필요
+      displayName: deny, builtin
+      href: samples/require-storage-account-encryption.md
 - name: 개념
   items:
-    - name: Azure Policy 정의 구조
-      displayName: 'parameters, location, rule, alias, initiatives'
-      href: ./concepts/definition-structure.md
-    - name: Policy 효과 이해
-      displayName: 'order, evaluation'
-      href: ./concepts/effects.md
-    - name: 게스트 구성을 사용하여 VM 감사
-      displayName: 'provider, tools, definition'
-      href: ./concepts/guest-configuration.md
+  - name: Azure Policy 정의 구조
+    displayName: parameters, location, rule, alias, initiatives
+    href: ./concepts/definition-structure.md
+  - name: Policy 효과 이해
+    displayName: order, evaluation
+    href: ./concepts/effects.md
+  - name: 게스트 구성을 사용하여 VM 감사
+    displayName: provider, tools, definition
+    href: ./concepts/guest-configuration.md
 - name: 방법 가이드
   items:
-    - name: 프로그래밍 방식으로 정책 만들기
-      displayName: 'assign, definition'
-      href: ./how-to/programmatically-create.md
-    - name: 규정 준수 데이터 가져오기
-      displayName: 'evaluation, scan, summarize, query, events, log analytics'
-      href: ./how-to/get-compliance-data.md
-    - name: 규정 비준수 리소스 수정
-      displayName: 'managed identity, task, definition, roleDefinitionIds'
-      href: ./how-to/remediate-resources.md
+  - name: 프로그래밍 방식으로 정책 만들기
+    displayName: assign, definition
+    href: ./how-to/programmatically-create.md
+  - name: 규정 준수 데이터 가져오기
+    displayName: evaluation, scan, summarize, query, events, log analytics
+    href: ./how-to/get-compliance-data.md
+  - name: 규정 비준수 리소스 수정
+    displayName: managed identity, task, definition, roleDefinitionIds
+    href: ./how-to/remediate-resources.md
 - name: 참고 자료
   items:
-    - name: Azure CLI
-      href: /cli/azure/policy
-    - name: Azure PowerShell
-      items:
-        - name: 정책
-          href: '/powershell/module/az.resources/#policies'
-        - name: 게스트 구성(미리 보기)
-          href: 'https://www.powershellgallery.com/packages/AzureRM.GuestConfiguration'
-    - name: REST API
-      items:
-        - name: 이벤트
-          href: /rest/api/policy-insights/policyevents
-        - name: 상태
-          href: /rest/api/policy-insights/policystates
-        - name: 할당
-          href: /rest/api/resources/policyassignments
-        - name: 정책 정의
-          href: /rest/api/resources/policydefinitions
-        - name: 이니셔티브 정의
-          href: /rest/api/resources/policysetdefinitions
-        - name: 정책 추적 리소스
-          href: /rest/api/policy-insights/policytrackedresources
-        - name: 수정
-          href: /rest/api/policy-insights/remediations
-        - name: 게스트 구성(미리 보기)
-          href: /rest/api/guestconfiguration/
-    - name: 리소스 관리자 템플릿
-      items:
-        - name: 할당
-          href: /azure/templates/microsoft.authorization/policyassignments
-        - name: 정책 정의
-          href: /azure/templates/microsoft.authorization/policydefinitions
-        - name: 이니셔티브 정의
-          href: /azure/templates/microsoft.authorization/policysetdefinitions
+  - name: Azure CLI
+    href: /cli/azure/policy
+  - name: Azure PowerShell
+    items:
+    - name: 정책
+      href: /powershell/module/azurerm.resources/#policies
+    - name: 게스트 구성(미리 보기)
+      href: https://www.powershellgallery.com/packages/AzureRM.GuestConfiguration
+  - name: REST API
+    items:
+    - name: 이벤트
+      href: /rest/api/policy-insights/policyevents
+    - name: 상태
+      href: /rest/api/policy-insights/policystates
+    - name: 할당
+      href: /rest/api/resources/policyassignments
+    - name: 정책 정의
+      href: /rest/api/resources/policydefinitions
+    - name: 이니셔티브 정의
+      href: /rest/api/resources/policysetdefinitions
+    - name: 정책 추적 리소스
+      href: /rest/api/policy-insights/policytrackedresources
+    - name: 수정
+      href: /rest/api/policy-insights/remediations
+    - name: 게스트 구성(미리 보기)
+      href: /rest/api/guestconfiguration/
+  - name: 리소스 관리자 템플릿
+    items:
+    - name: 할당
+      href: /azure/templates/microsoft.authorization/policyassignments
+    - name: 정책 정의
+      href: /azure/templates/microsoft.authorization/policydefinitions
+    - name: 이니셔티브 정의
+      href: /azure/templates/microsoft.authorization/policysetdefinitions
 - name: 리소스
   items:
-    - name: GitHub - Azure Policy 샘플
-      href: 'https://github.com/Azure/azure-policy'
-    - name: 동영상 - 빌드 2018
-      href: 'https://channel9.msdn.com/events/Build/2018/THR2030'
-    - name: 거버넌스 YouTube 채널
-      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
-    - name: 게스트 구성 비디오
-      items:
-        - name: 시작하기
-          href: 'https://www.youtube.com/watch?v=mjJw9_EIyHo'
-        - name: 해석 이니셔티브
-          href: 'https://www.youtube.com/watch?v=4JZH3kuG8bI'
-        - name: 정책 할당
-          href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
-        - name: 수정 작업
-          href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: 요금 계산기
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: UserVoice
-      href: 'https://feedback.azure.com/forums/915958-azure-governance'
+  - name: GitHub - Azure Policy 샘플
+    href: https://github.com/Azure/azure-policy
+  - name: 동영상 - 빌드 2018
+    href: https://channel9.msdn.com/events/Build/2018/THR2030
+  - name: 거버넌스 YouTube 채널
+    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+  - name: 게스트 구성 비디오
+    items:
+    - name: 시작하기
+      href: https://www.youtube.com/watch?v=mjJw9_EIyHo
+    - name: 해석 이니셔티브
+      href: https://www.youtube.com/watch?v=4JZH3kuG8bI
+    - name: 정책 할당
+      href: https://www.youtube.com/watch?v=fbZBaxcjA-Y
+    - name: 수정 작업
+      href: https://www.youtube.com/watch?v=URE4DUYMgmg
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/roadmap/
+  - name: 요금 계산기
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: UserVoice
+    href: https://feedback.azure.com/forums/915958-azure-governance
+ms.openlocfilehash: b4dd12a4428813d506dbb036afea397c824ccfcf
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401014"
