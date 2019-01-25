@@ -1,21 +1,26 @@
 ---
 layout: HubPage
 hide_bc: false
-title: 'Azure Active Directory B2C 설명서 - 자습서, API 참조 | Microsoft Docs'
-description: 'Azure AD(Azure Active Directory)는 Microsoft의 다중 테넌트, 클라우드 기반 디렉터리 및 ID 관리 서비스로, 핵심 디렉터리 서비스, 애플리케이션 액세스 관리 및 ID 보호를 단일 솔루션에 결합합니다.'
+title: Azure Active Directory B2C 설명서 - 자습서, API 참조 | Microsoft Docs
+description: Azure AD(Azure Active Directory)는 Microsoft의 다중 테넌트, 클라우드 기반 디렉터리 및 ID 관리 서비스로, 핵심 디렉터리 서비스, 애플리케이션 액세스 관리 및 ID 보호를 단일 솔루션에 결합합니다.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: landing-page
-ms.date: 01/16/2019
-ms.author: mtillman
+ms.date: 01/24/2019
+ms.author: barbkess
+ms.openlocfilehash: e8e422e6ba69669b24fc141b2688d6777ab85384
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900972"
 ---
-
 <div id="main" class="v2">
     <div class="container">
         <h1>Azure Active Directory 설명서</h1>
-        <p>Azure AD(Azure Active Directory)는 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다.</p><p></p>
+        <p>Azure AD(Azure Active Directory)는 다중 테넌트, 클라우드 기반 ID 및 액세스 관리 서비스입니다.</p><p></p>
         <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
             <li>
                 <a href="fundamentals/active-directory-whatis.md">

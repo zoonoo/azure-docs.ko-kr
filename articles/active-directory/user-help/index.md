@@ -1,7 +1,7 @@
 ---
 layout: LandingPage
-title: '인증, 앱 및 디바이스 관리에 대한 사용자 도움말 - Azure Active Directory | Microsoft Docs'
-description: '사용자 도움말은 보안 정보, 2단계 인증, 셀프 서비스 암호 재설정, 디바이스 관리, Microsoft Authenticator 앱 및 My Apps 포털 등의 설정 및 사용에 도움이 필요한 사람들을 위한 것입니다.'
+title: 인증, 앱 및 디바이스 관리에 대한 사용자 도움말 - Azure Active Directory | Microsoft Docs
+description: 사용자 도움말은 보안 정보, 2단계 인증, 셀프 서비스 암호 재설정, 디바이스 관리, Microsoft Authenticator 앱 및 My Apps 포털 등의 설정 및 사용에 도움이 필요한 사람들을 위한 것입니다.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -10,8 +10,13 @@ ms.component: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
+ms.openlocfilehash: c6fe14c9f67d6ce2f432b57b2cbbd0d026cebe85
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901635"
 ---
-
 # <a name="user-help-for-authentication-apps-and-device-management"></a>인증, 앱 및 디바이스 관리에 대한 사용자 도움말
 
 이 콘텐츠는 보안 정보, 2단계 인증의 설정 및 사용, 자신의 암호 재설정 방법 학습, Azure Active Directory 디바이스의 설정 및 연결, Microsoft Authenticator 앱과 My Apps 포털의 설정 및 사용 등을 지원하기 위한 것입니다.
@@ -81,7 +86,10 @@ ms.author: lizross
                     <div class="cardText">
                         <h3>Microsoft Authenticator 앱 도움말</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">시작</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-overview">개요</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">앱 다운로드 및 설치</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-add-accounts-overview">계정 추가</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq">앱을 사용하여 로그인</a><br/>
                         <a href="/azure/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery">계정 자격 증명 백업 및 복구</a>
                         </p>
                     </div>
