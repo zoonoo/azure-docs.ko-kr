@@ -19,6 +19,8 @@ items:
       href: azure-stack-update-1807.md
 - name: 빠른 시작
   items:
+  - name: Azure Stack 평가
+    href: azure-stack-deploy-overview.md
   - name: 관리 포털 사용
     href: azure-stack-manage-portals.md
   expanded: true
@@ -129,8 +131,16 @@ items:
       href: azure-stack-registration.md
     - name: 지역 관리
       href: azure-stack-region-management.md
-    - name: ExpressRoute를 사용 하 여 Azure에 연결
-      href: azure-stack-connect-expressroute.md
+    - name: Azure에 연결
+      items:
+      - name: VPN을 사용하여 연결
+        href: azure-stack-connect-vpn.md
+      - name: VPN gateway 정보
+        href: azure-stack-vpn-gateway-about-vpn-gateways.md
+      - name: VPN gateway 설정
+        href: azure-stack-vpn-gateway-settings.md
+      - name: ExpressRoute를 사용하여 연결
+        href: azure-stack-connect-expressroute.md
     - name: 사용자용 CLI 사용
       href: azure-stack-cli-admin.md
     - name: 관리 환경 설정
@@ -395,9 +405,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: 교육 및 인증
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 91c476e8e65642e490c3a42de7d5a340964f3ae5
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: MT
+ms.openlocfilehash: 4d16a02c09ae801e44b0f3e4d5540a445d41fae6
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411716"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319141"
