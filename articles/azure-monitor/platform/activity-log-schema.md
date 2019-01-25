@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
-ms.component: logs
-ms.openlocfilehash: d5e57442a163c8a93adc39517285bd88affab2fe
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.subservice: logs
+ms.openlocfilehash: 9ad3ca2233237c9cb4aea0a7bd0c476f48613a9c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353059"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438238"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 활동 로그 이벤트 스키마
 **Azure 활동 로그**는 Azure에서 발생한 모든 구독 수준 이벤트에 대한 정보를 제공하는 로그입니다. 이 문서에서는 데이터 범주별 이벤트 스키마에 대해 설명합니다. 데이터의 스키마는 포털, PowerShell, CLI 또는 REST API를 통해 직접 데이터를 읽는지, 아니면 [로그 프로필을 사용하여 데이터를 저장소 또는 Event Hubs로 스트리밍](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)하는지에 따라 다릅니다. 아래 예제는 포털, PowerShell, CLI 및 REST API를 통해 사용할 수 있는 스키마를 보여 줍니다. 이러한 속성과 [Azure 진단 로그 스키마](./tutorial-dashboards.md)의 매핑은 문서의 끝에 제공되어 있습니다.
@@ -784,7 +784,7 @@ Azure 활동 로그를 저장소 계정 또는 Event Hubs 네임스페이스로 
 | CorrelationId | CorrelationId |  |
 | ID | 클레임 및 권한 부여 속성 |  |
 | Level | Level |  |
-| location | 해당 없음 | 이벤트가 처리된 위치입니다. ‘리소스 위치가 아니라 이벤트가 처리된 위치입니다. 이 속성은 향후 업데이트에서 제거됩니다.’ |
+| location | 해당 없음 | 이벤트가 처리된 위치입니다. ‘리소스 위치가 아니라 이벤트가 처리된 위치입니다. 이 속성은 향후 업데이트에서 제거됩니다.’* |
 | properties | properties.eventProperties |  |
 | properties.eventCategory | 카테고리 | properties.eventCategory가 없을 경우, category는 “Administrative”입니다. |
 | properties.eventName | eventName |  |
@@ -795,3 +795,4 @@ Azure 활동 로그를 저장소 계정 또는 Event Hubs 네임스페이스로 
 ## <a name="next-steps"></a>다음 단계
 * [활동 로그(이전의 감사 로그)에 대해 자세히 알아보기](../../azure-monitor/platform/activity-logs-overview.md)
 * [Azure 활동 로그를 Event Hubs로 스트림](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+
