@@ -47,28 +47,22 @@ items:
       href: security-authenticating-apis.md
 - name: 방법 가이드
   items:
-  - name: 다중 테넌트 애플리케이션 사용
+  - name: 다중 테넌트 응용 프로그램을 사용하는 방법
     href: how-to-multitenant-applications.md
-  - name: 사용자 정의 함수 만들기
+  - name: 사용자 정의 함수를 만드는 방법
     href: how-to-user-defined-functions.md
-  - name: 엔드포인트를 통해 이벤트 및 메시지 라우팅
+  - name: 엔드포인트를 통해 이벤트 및 메시지를 라우팅하는 방법
     href: how-to-egress-endpoints.md
-  - name: 개체에 Blob 추가
+  - name: Postman을 구성하는 방법
+    href: how-to-configure-postman.md
+  - name: 개체에 Blob을 추가하는 방법
     href: how-to-add-blobs.md
-  - name: Digital Twins Swagger 사용
+  - name: Digital Twins Swagger를 사용하는 방법
     href: how-to-use-swagger.md
-  - name: 사용자 정의 함수 디버그
+  - name: 사용자 정의 함수를 디버깅하는 방법
     href: how-to-diagnose-user-defined-functions.md
-  - name: 모니터링 구성
+  - name: 모니터링을 구성하는 방법
     href: how-to-configure-monitoring.md
-  - name: Digital Twins API 쿼리
-    items:
-    - name: Postman 설정
-      href: how-to-configure-postman.md
-    - name: Digital Twins API 사용
-      href: how-to-navigate-apis.md
-    - name: 일반적인 쿼리 패턴
-      href: how-to-query-common-apis.md
 - name: 참고 자료
   items:
   - name: 사용자 정의 함수 클라이언트 라이브러리
@@ -119,9 +113,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=iot
   - name: 동영상
     href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true
-ms.openlocfilehash: 92d60cbe1de8d8f2b36d67e1a7ff2999a45e1a8e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 04716146653b833461b8230c2895fd1a8b6dcd42
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102226"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993470"

@@ -279,6 +279,8 @@ items:
       href: sql-database-elastic-query-overview.md
     - name: 탄력적 트랜잭션
       href: sql-database-elastic-transactions-overview.md
+    - name: 탄력적 데이터베이스 작업
+      href: elastic-jobs-overview.md
   - name: SQL 기능 비교
     href: sql-database-features.md
   - name: 모니터링 및 튜닝
@@ -321,8 +323,6 @@ items:
       href: sql-database-in-memory.md
     - name: 임시 테이블
       href: sql-database-temporal-tables.md
-    - name: 작업 자동화
-      href: sql-database-job-automation-overview.md
 - name: 방법 가이드
   items:
   - name: 개요
@@ -341,8 +341,6 @@ items:
       href: sql-database-threat-detection.md
     - name: Azure Blob Storage를 사용하여 백업 보존 구성
       href: sql-database-long-term-backup-retention-configure.md
-    - name: Elastic Database 작업 구성
-      href: elastic-jobs-overview.md
     - name: 동적 데이터 마스킹 구성
       href: sql-database-dynamic-data-masking-get-started-portal.md
     - name: 지역에서 복제 구성 - 포털
@@ -688,9 +686,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: 탄력적 작업 제거(사용되지 않음)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 95ea4f676202fe06a1761c98ddb7e3e1a6f12708
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 634018a1807e23700141ac11a961bd1b1411b8a8
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447992"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331404"

@@ -420,7 +420,7 @@ items:
       items:
       - name: Table API를 사용하여 앱 빌드
         href: table-support.md
-      - name: 테이블 저장소 디자인 가이드
+      - name: Table Storage 디자인 가이드
         href: table-storage-design-guide.md
     - name: 샘플
       items:
@@ -452,15 +452,13 @@ items:
         href: table-sdk-nodejs.md
       - name: Python
         href: table-sdk-python.md
-      - name: 테이블 저장소 REST API
+      - name: Table Storage REST API
         href: /rest/api/storageservices/Table-Service-Concepts
   expanded: true
 - name: 방법 가이드
   items:
   - name: 데이터베이스 계정 관리
     href: how-to-manage-database-account.md
-  - name: TTL(Time to Live) 구성
-    href: how-to-time-to-live.md
   - name: 글로벌 분포
     items:
     - name: 일관성 관리
@@ -479,10 +477,12 @@ items:
       href: how-to-create-container.md
     - name: 컨테이너 쿼리
       href: how-to-query-container.md
-  - name: 인덱싱
-    items:
-    - name: 인덱싱 구성
-      href: how-to-manage-indexing-policy.md
+    - name: TTL(Time to Live) 구성
+      href: how-to-time-to-live.md
+    - name: 인덱싱
+      items:
+      - name: 인덱싱 구성
+        href: how-to-manage-indexing-policy.md
   - name: 보안
     items:
     - name: IP 방화벽 구성
@@ -617,9 +617,9 @@ items:
       href: use-cases.md
     - name: 소셜 미디어 앱
       href: social-media-apps.md
-ms.openlocfilehash: 55b388b24d5526160423fa61c46620fc09796b24
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 75984b49a5af0538c7534fb326808dcb3c35b46c
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189629"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359802"

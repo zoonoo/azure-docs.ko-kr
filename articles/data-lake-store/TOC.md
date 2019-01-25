@@ -28,7 +28,7 @@
 ### [액세스 제어](data-lake-store-access-control.md)
 ### [저장된 데이터 보호](data-lake-store-secure-data.md)
 ### [암호화](data-lake-store-encryption.md)
-### [가상 네트워크 통합](data-lake-store-network-security.md)
+### [가상 네트워크 통합(미리 보기)](data-lake-store-network-security.md)
 
 ## Data Lake Storage Gen1을 사용하여 인증
 ### [인증 옵션](data-lakes-store-authentication-using-azure-active-directory.md)

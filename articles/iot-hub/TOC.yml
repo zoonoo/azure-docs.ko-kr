@@ -9,30 +9,50 @@ items:
     href: about-iot-hub.md
 - name: 빠른 시작
   items:
-  - name: 원격 분석 보내기(C)
-    href: quickstart-send-telemetry-c.md
-  - name: 원격 분석 보내기(Node.js)
-    href: quickstart-send-telemetry-node.md
-  - name: 원격 분석 보내기(.NET)
-    href: quickstart-send-telemetry-dotnet.md
-  - name: 원격 분석 보내기(Java)
-    href: quickstart-send-telemetry-java.md
-  - name: 원격 분석 보내기(Python)
-    href: quickstart-send-telemetry-python.md
-  - name: 원격 분석 보내기(Android)
-    href: quickstart-send-telemetry-android.md
-  - name: 원격 분석 보내기(iOS)
-    href: quickstart-send-telemetry-ios.md
-  - name: 디바이스 제어(Node.js)
-    href: quickstart-control-device-node.md
-  - name: 디바이스 제어(.NET)
-    href: quickstart-control-device-dotnet.md
-  - name: 디바이스 제어(Java)
-    href: quickstart-control-device-java.md
-  - name: 디바이스 제어(Python)
-    href: quickstart-control-device-python.md
-  - name: 디바이스 제어(Android)
-    href: quickstart-control-device-android.md
+  - name: 원격 분석 전송
+    items:
+    - name: C
+      href: quickstart-send-telemetry-c.md
+    - name: Node.js
+      href: quickstart-send-telemetry-node.md
+    - name: .NET
+      href: quickstart-send-telemetry-dotnet.md
+    - name: 자바
+      href: quickstart-send-telemetry-java.md
+    - name: Python
+      href: quickstart-send-telemetry-python.md
+    - name: Android
+      href: quickstart-send-telemetry-android.md
+    - name: iOS
+      href: quickstart-send-telemetry-ios.md
+  - name: 디바이스 제어
+    items:
+    - name: Node.js
+      href: quickstart-control-device-node.md
+    - name: .NET
+      href: quickstart-control-device-dotnet.md
+    - name: 자바
+      href: quickstart-control-device-java.md
+    - name: Python
+      href: quickstart-control-device-python.md
+    - name: Android
+      href: quickstart-control-device-android.md
+  - name: 디바이스 스트림을 사용한 통신(미리 보기)
+    items:
+    - name: C#
+      href: quickstart-device-streams-echo-csharp.md
+    - name: Node.js
+      href: quickstart-device-streams-echo-nodejs.md
+    - name: C
+      href: quickstart-device-streams-echo-c.md
+  - name: 디바이스 스트림을 사용한 SSH/RDP(미리 보기)
+    items:
+    - name: C#
+      href: quickstart-device-streams-proxy-csharp.md
+    - name: Node.js
+      href: quickstart-device-streams-proxy-nodejs.md
+    - name: C
+      href: quickstart-device-streams-proxy-c.md
 - name: 자습서
   items:
   - name: 메시지 라우팅
@@ -65,6 +85,8 @@ items:
     href: iot-hub-configuration-best-practices.md
   - name: Azure IoT SDK 플랫폼 지원
     href: iot-hub-device-sdk-platform-support.md
+  - name: IoT Hub 디바이스 스트림 개요(미리 보기)
+    href: iot-hub-device-streams-overview.md
   - name: 개발자 가이드
     href: iot-hub-devguide.md
     items:
@@ -420,9 +442,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 7ac517a2d2963993d40899183c020570b2934f80
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 84eae62600f5cb62bfd8941d90140c6150a983f0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247336"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809125"
