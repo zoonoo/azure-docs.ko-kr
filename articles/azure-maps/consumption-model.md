@@ -38,7 +38,7 @@ ms.locfileid: "34600632"
 
 ## <a name="combustion-consumption-model"></a>연소식 소비 모델
 
-연소식 소비 모델은 **vehicleEngineType**이 combustion 으로 설정된 경우에 사용됩니다.
+연소식 소비 모델은 **vehicleEngineType**이 _combustion_으로 설정된 경우에 사용됩니다.
 이 모델에 속해 있는 매개 변수 목록은 다음과 같습니다. 자세한 설명은 매개 변수 섹션을 참조하세요.
 
 * constantSpeedConsumptionInLitersPerHundredkm
@@ -53,7 +53,7 @@ ms.locfileid: "34600632"
 
 ## <a name="electric-consumption-model"></a>일렉트릭 소비 모델
 
-일렉트릭 소비 모델은 **vehicleEngineType**이 electric 으로 설정된 경우에 사용됩니다.
+일렉트릭 소비 모델은 **vehicleEngineType**이 _electric_으로 설정된 경우에 사용됩니다.
 이 모델에 속해 있는 매개 변수 목록은 다음과 같습니다. 자세한 설명은 매개 변수 섹션을 참조하세요.
 
 * constantSpeedConsumptionInkWhPerHundredkm

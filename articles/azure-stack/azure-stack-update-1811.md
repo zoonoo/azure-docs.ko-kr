@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/25/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 0c681e7406f5c0c6e205f9dc54ee5eea63b40252
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8bdc9a9a01a96ee34c5cf6cfa737be09661364bc
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853241"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904423"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 업데이트
 
@@ -153,7 +153,7 @@ Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 �
 <!-- 3190553 - IS ASDK -->
 - 인프라 역할 인스턴스를 사용할 수 없습니다 또는 배율 단위 노드가 오프 라인 상태 였는 나타내는 불필요 한 경고를 생성 하는 문제가 수정 되었습니다.
 
-## <a name="changes"></a>변경 내용
+## <a name="changes"></a>변경
 
 - 보고 계획의 할당량을 편집 하는 새로운 방법은 1811에서 도입 되었습니다. 자세한 내용은 [기존 할당량을 보려면](azure-stack-quota-types.md#view-an-existing-quota)합니다.
 
@@ -241,13 +241,13 @@ Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 �
 
     - 경고 # 1:
        - 이름:  인프라 역할 비정상
-       - 심각도: Warning
+       - 심각도: 경고
        - 구성 요소입니다. 상태 컨트롤러
        - 설명: 상태 컨트롤러 하트 비트 검색 프로그램을 사용할 수 없는 경우 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.  
 
     - # 2를 경고 합니다.
        - 이름:  인프라 역할 비정상
-       - 심각도: Warning
+       - 심각도: 경고
        - 구성 요소입니다. 상태 컨트롤러
        - 설명: 상태 컨트롤러 오류 스캐너 제공 되지 않습니다. 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.
 
@@ -353,6 +353,8 @@ Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 �
     다른 옵션으로 Azure Stack에서 소스 태그는 지원 되지 않습니다. 마찬가지로, 아웃 바운드 보안 규칙을 추가 하 고 선택 하는 경우 **서비스 태그** 옵션에 대 한 동일한 목록 대상으로 **소스 태그가** 표시 됩니다. 유효한 옵션은 동일 **소스 태그가**이전 목록에 설명 된 대로 합니다.
 
 - 합니다 **새로 만들기-AzureRmIpSecPolicy** PowerShell cmdlet 설정을 지원 하지 않습니다 **DHGroup24** 에 대 한는 `DHGroup` 매개 변수입니다.
+
+- 네트워크 보안 그룹 (Nsg) 동일한 방식으로 전체 Azure에서 Azure Stack에서 작동 하지 않습니다. Azure에서 하나의 NSG 규칙에서 여러 포트를 설정할 수 있습니다 (포털, PowerShell을 사용 하 여 및 Resource Manager 템플릿). Azure Stack에서 포털을 통해 하나의 NSG 규칙에서 여러 포트를 설정할 수 없습니다. 이 문제를 해결 하려면 Resource Manager 템플릿을 사용 하 여 이러한 추가 규칙을 설정 합니다.
 
 ### <a name="infrastructure-backup"></a>인프라 백업
 
