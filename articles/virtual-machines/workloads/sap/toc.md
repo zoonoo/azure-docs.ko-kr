@@ -63,9 +63,9 @@
 ### [SAP 워크로드에 대한 SAP ASE Azure Virtual Machines DBMS 배포](dbms_guide_sapase.md)
 ### [Azure에서 SAP MaxDB, liveCache 및 콘텐츠 서버 배포](dbms_guide_maxdb.md)
 ### Azure Virtual Machines의 SAP HANA 가용성
-#### [Azure의 SAP HANA 가용성 개요](sap-hana-availability-overview.md)
-#### [단일 Azure 지역 내 Azure의 SAP HANA 가용성](sap-hana-availability-one-region.md)
-#### [Azure 지역 간 Azure의 SAP HANA 가용성](sap-hana-availability-across-regions.md)
+### [Azure의 SAP HANA 가용성 개요](sap-hana-availability-overview.md)
+### [단일 Azure 지역 내 Azure의 SAP HANA 가용성](sap-hana-availability-one-region.md)
+### [Azure 지역 간 Azure의 SAP HANA 가용성](sap-hana-availability-across-regions.md)
 ## [Azure Virtual Machines의 SAP Business One](business-one-azure.md)
 ## [Windows/SQL Server SAP CAL 배포 가이드에 SAP IDES](cal-ides-erp6-erp7-sp3-sql.md)
 ## [Azure용 SAP LaMa 커넥터](lama-installation.md)
