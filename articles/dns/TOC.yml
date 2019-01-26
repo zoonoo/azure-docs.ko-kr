@@ -34,13 +34,13 @@ items:
     href: cli-samples.md
 - name: 개념
   items:
-  - name: DNS 영역 및 레코드
+  - name: 영역 및 레코드
     href: dns-zones-records.md
-  - name: DNS 별칭 레코드
+  - name: 별칭 레코드
     href: dns-alias.md
-  - name: Azure DNS로 DNS 위임
+  - name: Azure DNS로 위임
     href: dns-domain-delegation.md
-  - name: DNS FAQ
+  - name: FAQ
     href: dns-faq.md
   - name: 개인 DNS 영역 사용
     href: private-dns-overview.md
@@ -82,6 +82,8 @@ items:
       href: dns-reverse-dns-for-azure-services.md
   - name: DNS 영역 파일 가져오기 및 내보내기
     href: dns-import-export.md
+  - name: 하위 도메인 위임
+    href: delegate-subdomain.md
   - name: 다른 Azure 서비스와 통합
     href: dns-for-azure-services.md
   - name: DNS 영역 및 레코드 보호
@@ -146,9 +148,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: 서비스 업데이트
     href: https://azure.microsoft.com/updates/?product=dns
-ms.openlocfilehash: ca6910655425711fda12d5f511538d52f380b239
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: ac539c7b7454a642a8bc1d36ef01a5e7a232375d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319531"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446367"
