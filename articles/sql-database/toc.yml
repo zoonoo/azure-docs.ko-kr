@@ -307,12 +307,6 @@ items:
         href: sql-database-performance.md
       - name: 데이터베이스 관리자 성능 권장 사항
         href: sql-database-advisor.md
-  - name: 데이터 로드 및 이동
-    items:
-    - name: SQL 데이터 동기화
-      href: sql-database-sync-data.md
-    - name: 트랜잭션 복제
-      href: sql-database-managed-instance-transactional-replication.md
   - name: 데이터베이스 기능
     items:
     - name: 데이터베이스 기능
@@ -335,7 +329,7 @@ items:
       href: sql-database-cloud-migrate.md
     - name: 마이그레이션 후 SQL Database 관리
       href: sql-database-manage-after-migration.md
-    - name: 복제 구성
+    - name: 트랜잭션 복제 구성
       href: replication-to-sql-database.md
     - name: 위협 감지 구성
       href: sql-database-threat-detection.md
@@ -445,6 +439,8 @@ items:
       href: sql-database-export.md
     - name: 데이터 동기화
       items:
+      - name: SQL 데이터 동기화
+        href: sql-database-sync-data.md
       - name: 데이터 동기화 에이전트
         href: sql-database-data-sync-agent.md
       - name: 스키마 변경 내용 복제
@@ -686,9 +682,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: 탄력적 작업 제거(사용되지 않음)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 634018a1807e23700141ac11a961bd1b1411b8a8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 500fd22c19e0aab2cbecf0267329d5a86a5ccda2
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331404"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230905"
