@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2018
+ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 6ab2d92e2a3c62719af1c8ab6d6eda935fc49505
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: d6d1373a97b62d54d5bfc2595ee773a242af877a
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386777"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913453"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Storage 탐색기는 Azure Stack 구독 또는 저장소 계정에 연결
 
@@ -37,7 +37,10 @@ Azure Stack 구독에 저장소 계정에 연결한 후 사용할 수 있습니�
 
 Azure Stack 또는 Azure Stack 구독에 액세스 하려면 storage 탐색기에 대 한 VPN 연결에 대 한 직접 액세스를 해야 합니다. Azure Stack에 VPN 연결을 설정하는 방법은 [VPN을 사용하여 Azure Stack에 연결](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)을 참조하세요.
 
-Azure Stack 개발 키트에 대 한 Azure Stack 기관 루트 인증서 내보내기 해야 합니다.
+에 Azure Stack 개발 키트 ASDK (), Azure Stack 기관 루트 인증서 내보내기 해야 합니다.
+
+> [!Note]  
+> ASDK에 대 한 VPN 통해 프로그램 ASDK에 연결 하는 경우 VPN 설치 프로세스 중 생성 된 루트 인증서 (CA.cer)를 사용 하지 마세요.  DER로 인코딩된 인증서를 이며 Azure Stack 구독을 검색할 저장소 탐색기를 허용 하지 않습니다. Storage 탐색기를 사용 하는 Base-64로 인코딩된 인증서를 내보내려면 다음 단계를 수행 합니다.
 
 ### <a name="export-and-then-import-the-azure-stack-certificate"></a>내보내기 및 다음 Azure Stack 인증서를 가져오기
 
