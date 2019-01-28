@@ -4,7 +4,7 @@ description: 그룹 정책을 사용하여 My Apps 포털용 Internet Explorer �
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be3950d199b4362caa5fcd3f66b948802cfa1c49
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 3a48b2ce4689490b3a38917edfb776a6ea28c478
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877479"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463442"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법
 이 자습서에서는 그룹 정책을 사용하여 사용자의 컴퓨터에 Internet Explorer용 액세스 패널 확장을 원격 설치하는 방법을 보여줍니다. 이 확장은 [암호 기반 Single Sign-On](what-is-single-sign-on.md#password-based-sso)을 사용하여 구성된 앱에 로그인하는 Internet Explorer 사용자에게 필요합니다.
@@ -162,6 +162,6 @@ ms.locfileid: "52877479"
     ![액세스 패널 확장이 설치되었으며 활성화되었는지 확인합니다.](./media/deploy-access-panel-browser-extension/verify-install.png)
 
 ## <a name="related-articles"></a>관련 문서
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On](what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On](what-is-single-sign-on.md)
 * [Internet Explorer용 액세스 패널 확장 문제 해결](manage-access-panel-browser-extension.md)
 

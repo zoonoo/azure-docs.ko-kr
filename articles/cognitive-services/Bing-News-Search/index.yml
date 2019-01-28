@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0b934e7ac5b297b5c7349a9a9985f6c50d62d19f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 17fac6455ca225363726b347c428d176e78a1ff9
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791951"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912802"
 documentType: LandingData
 title: Bing News Search API 설명서
 titleSuffix: Azure Cognitive Services
 metadata:
   title: Bing News Search API 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs
-  description: Bing News Search API를 사용하여 사용자 쿼리에 관련된 웹의 뉴스를 가져오는 방법을 알아봅니다. 자습서에서는 서비스를 사용하는 앱을 빌드하는 방법을 보여줍니다.
+  description: Bing News Search API를 사용하여 웹에서 뉴스를 검색하는 방법을 알아봅니다.
   services: cognitive-services
   author: mikedodaro
   manager: rosh
@@ -19,29 +19,50 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/02/2017
+  ms.date: 01/16/2019
   ms.author: v-gedod
 abstract:
-  description: Bing News Search API는 Bing이 사용자의 쿼리와 관련있다고 판단한 새로운 기사 목록을 반환하여 Bing News와 유사한 환경을 제공합니다.
+  description: Bing News Search API를 사용하면 애플리케이션에서 Bing의 뉴스 검색 기능을 통합할 수 있습니다. 해당 API에서 검색 쿼리를 보내서 여러 범주 및 원본에서 bing.com/news와 비슷한 관련 뉴스 기사를 가져올 수 있습니다.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-news-search/search-the-web
+      html: <p>Bing News Search API에 대한 자세한 정보</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Bing News Search API란?
+    - href: /azure/cognitive-services/bing-news-search/concepts/send-search-queries
+      html: <p>Bing News Search API에 검색 요청을 보내는 방법을 알아봅니다.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: 검색 쿼리 보내기
+    - href: /azure/cognitive-services/bing-news-search/concepts/search-for-news
+      html: <p>뉴스의 여러 형식 및 범주를 검색하는 방법을 알아봅니다.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: 뉴스 검색
 - title: 5분 빠른 시작
   items:
   - type: paragraph
-    text: 쿼리를 수행하고 JSON 응답을 확인하여 Bing News Search API를 사용하기 시작합니다.
+    text: '다음을 사용하여 웹에서 뉴스 검색:'
   - type: list
     style: icon48
     items:
     - image:
         src: media/index/logo_csharp.svg
-      href: csharp
+      href: news-search-sdk-quickstart
       text: C&#35;
     - image:
         src: media/index/logo_java.svg
-      href: java
+      href: news-sdk-java-quickstart
       text: 자바
     - image:
         src: media/index/logo_nodejs.svg
-      href: nodejs
+      href: news-search-sdk-node-quickstart
       text: Node.js
     - image:
         src: media/index/logo_php.svg
@@ -49,7 +70,7 @@ sections:
       text: PHP
     - image:
         src: media/index/logo_python.svg
-      href: python
+      href: news-sdk-python-quickstart
       text: Python
     - image:
         src: media/index/logo_ruby.svg
@@ -60,7 +81,7 @@ sections:
   - type: paragraph
     text: Bing News Search API를 사용하여 애플리케이션을 개발합니다.
   - type: paragraph
-    text: <a href="tutorial-bing-news-search-single-page-app">단일 페이지 웹앱</a> &#124; <a href="tutorial-bing-news-search-single-page-app-source">소스 코드</a>
+    text: <a href="tutorial-bing-news-search-single-page-app">단일 페이지 웹앱</a>
 - title: 샘플
   items:
   - type: paragraph

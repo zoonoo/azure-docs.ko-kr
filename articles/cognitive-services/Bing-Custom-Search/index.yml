@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6187ee202fc51abaeac81b84c7d665cee9efcf59
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 343bfd063363b26f3c56d666354e15049e9c4511
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793891"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911985"
 documentType: LandingData
 title: Bing Custom Search 설명서
 metadata:
-  title: Bing Custom Search 설명서 - 자습서, API 참조 - Microsoft Cognitive Services | Microsoft Docs
-  description: Bing Custom Search 포털을 사용하여 사용자 지정 검색 인스턴스를 만드는 방법 알아보기
+  title: Bing Custom Search API 설명서 - 자습서, 빠른 시작, API 참조 - Microsoft Cognitive Services | Microsoft Docs
+  description: Bing Custom Search 포털 및 API를 사용하여 사용자 지정 검색 환경을 만드는 방법 알아보기
   services: cognitive-services
   author: v-deken
   manager: cgronlun
@@ -18,11 +18,32 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/07/2018
+  ms.date: 01/16/2019
   ms.author: v-deken
 abstract:
-  description: Bing Custom Search를 사용하여 관심 있는 토픽에 대한 맞춤형 검색 환경을 만드는 방법을 알아봅니다. 예를 들어 검색 환경을 제공하는 자전거 웹 사이트를 소유하고 있는 경우 Bing에서 검색하는 도메인, 하위 사이트 및 웹 페이지를 지정할 수 있습니다. 빠른 시작, 자습서 및 API 참조 가이드에서 방법을 알아봅니다.
+  description: Bing Custom Search API를 사용하여 관심 있는 항목에 대한 검색 인스턴스를 만드세요. 도메인 및 웹 페이지가 검색되도록 지정하고 검색 순위를 조정하여 검색 환경을 완전히 사용자 지정합니다.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-custom-search/overview
+      html: <p>Bing Custom Search API에 대한 자세한 정보</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Bing Custom Search API란?
+    - href: /azure/cognitive-services/bing-custom-search/quick-start
+      html: <p>사용자 검색 환경을 조정하여 웹의 사용자 지정 보기를 만드는 방법을 알아봅니다.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: 사용자 지정 Bing 검색 인스턴스 만들기
+    - href: /azure/cognitive-services/bing-custom-search/hosted-ui
+      html: <p>호스트된 UI를 웹 페이지 및 웹앱으로 쉽게 통합하는 방법을 알아봅니다.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: 호스팅된 UI 환경 구성
 - title: 5분 빠른 시작
   items:
   - type: paragraph
@@ -32,7 +53,7 @@ sections:
     items:
     - image:
         src: media/logo_Csharp.svg
-      href: call-endpoint-csharp
+      href: sdk-csharp-quick-start
       text: C&#35;
     - image:
         src: media/logo_java.svg
@@ -59,7 +80,7 @@ sections:
     className: cardsD
     items:
     - title: API
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference">Bing Custom Search API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference">Bing Custom Autosuggest API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference">Bing Custom Image Search API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference">Bing Custom Video Search API v7</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference">Custom Search API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference">Custom Autosuggest API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference">Custom Image Search API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference">Custom Video Search API v7</a></p>
     - title: SDK
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customsearch?view=azure-java-stable">Java - Custom Search</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customimagesearch?view=azure-java-stable">Java - Custom Image Search</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/customsearch?view=azure-node-latest">Node.JS</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch">Go - Custom Search</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customimagesearch">Go - Custom Image Search</a></p>
     - title: PowerShell

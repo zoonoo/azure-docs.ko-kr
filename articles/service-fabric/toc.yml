@@ -86,6 +86,22 @@ items:
       href: service-fabric-tutorial-standalone-install-an-application.md
     - name: 4 - 클러스터 정리 및 인프라 삭제
       href: service-fabric-tutorial-standalone-clean-up.md
+- name: 모범 사례
+  items:
+  - name: Service Fabric 모범 사례 개요
+    href: service-fabric-best-practices-overview.md
+  - name: 보안
+    href: service-fabric-best-practices-security.md
+  - name: 네트워킹
+    href: service-fabric-best-practices-networking.md
+  - name: 컴퓨팅 계획 및 크기 조정
+    href: service-fabric-best-practices-capacity-scaling.md
+  - name: 코드 제공 인프라(Infrastructure as code)
+    href: service-fabric-best-practices-infrastructure-as-code.md
+  - name: 모니터링 및 진단
+    href: service-fabric-best-practices-monitoring.md
+  - name: 프로덕션 준비 검사 목록
+    href: service-fabric-production-readiness-checklist.md
 - name: 샘플
   items:
   - name: 코드 샘플
@@ -702,10 +718,6 @@ items:
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: 로컬 클러스터 문제 해결
       href: service-fabric-troubleshoot-local-cluster-setup.md
-  - name: 모범 사례
-    items:
-    - name: 프로덕션 준비 검사 목록
-      href: service-fabric-production-readiness-checklist.md
 - name: 참고 자료
   items:
   - name: Azure PowerShell
@@ -827,9 +839,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: abf77c080d6093e9028f82ccac7b20d24389bdbb
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 5b487a8212cabb6809a9152e10dde7a1c9c7158f
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352481"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913532"

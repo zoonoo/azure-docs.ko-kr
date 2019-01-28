@@ -4,7 +4,7 @@ description: Azure Active Directory와 Jamf Pro 간에 Single Sign-On을 구성�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 35e86d08-c29e-49ca-8545-b0ff559c5faf
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: ebd9f2115116e8f9cf976c86e4914f0b7f6beb39
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 6cbdc767062ea81fc03b930c48309863dd5d3860
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322115"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827349"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>자습서: Azure Active Directory와 Jamf Pro 통합
 
