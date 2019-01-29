@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: a5f13bfa4d0e9962622565cc5ac9c80372b50123
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: cf83c99f562029fae932bc294cfc87750c908c99
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107687"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828216"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>자습서: Azure Container Instance에서 이미지 분류 모델 배포
 
@@ -37,7 +37,7 @@ Container Instances는 프로덕션 배포에는 적합하지 않지만, 워크�
 
 ## <a name="get-the-notebook"></a>Notebook 가져오기
 
-사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb)으로 제공됩니다. Azure Notebooks 또는 사용자 고유의 Jupyter 노트북 서버에서 `tutorials/img-classification-part2-deploy.ipynb` 노트북을 실행합니다.
+사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb)으로 제공됩니다. [Azure Notebooks](https://notebooks.azure.com/) 또는 사용자 고유의 Jupyter Notebook 서버에서 *tutorials/img-classification-part2-deploy.ipynb* Notebook을 실행합니다.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 

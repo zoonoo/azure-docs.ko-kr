@@ -9,18 +9,18 @@ services: iot-accelerators
 ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 5505ceaa88f1ad792df57f9728f5e4809404942c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: a2dc5653b7579d9c5db4667d84e6e5b5082abaab
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599504"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448077"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>자습서: 모니터링 솔루션에 연결된 디바이스 구성
 
 이 자습서에서는 원격 모니터링 솔루션 가속기를 사용하여 연결된 IoT 디바이스를 구성하고 관리합니다. 솔루션 가속기에 새 디바이스를 추가하고 이 디바이스를 구성합니다.
 
-Contoso는 해당 시설 중 하나를 확장하기 위해 새로운 기계를 주문했습니다. 배달될 새 기계를 기다리는 동안 솔루션의 동작을 테스트하는 시뮬레이션을 실행하려고 합니다. 시뮬레이션을 실행하려면 원격 모니터링 솔루션 가속기에 시뮬레이션된 새 엔진 디바이스를 추가하고, 이 시뮬레이션된 디바이스에서 구성 업데이트에 올바르게 응답하는지 테스트합니다. 이 자습서에서는 시뮬레이션된 장치를 사용하지만 장치 개발자가 [원격 모니터링 솔루션 가속기에 연결된 물리적 장치](iot-accelerators-connecting-devices.md)에 직접 메서드를 구현할 수 있습니다.
+Contoso는 해당 시설 중 하나를 확장하기 위해 새로운 기계를 주문했습니다. 배달될 새 기계를 기다리는 동안 솔루션의 동작을 테스트하는 시뮬레이션을 실행하려고 합니다. 시뮬레이션을 실행하려면 원격 모니터링 솔루션 가속기에 시뮬레이션된 새 엔진 디바이스를 추가하고, 이 시뮬레이션된 디바이스에서 구성 업데이트에 올바르게 응답하는지 테스트합니다. 이 자습서에서는 시뮬레이션된 디바이스를 사용하지만 디바이스 개발자가 [원격 모니터링 솔루션 가속기에 연결된 실제 디바이스](iot-accelerators-connecting-devices.md)에 직접 메서드를 구현할 수 있습니다.
 
 이 자습서에서는 다음을 수행했습니다.
 

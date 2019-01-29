@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ec282bc1159e8a8cf21b88b8430bbf3067686528
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: e1f2991b2e006c97087c6288d3ed3c20d2927e8c
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788625"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413484"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>자습서: Service Fabric Mesh 애플리케이션 배포
 
@@ -106,7 +106,8 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 웹 브라우저를 열고, URL로 이동하여 Azure에서 실행되는 웹 사이트를 확인합니다.
 
-## <a name="set-up-service-fabric-mesh-cli"></a>Service Fabric Mesh CLI 설정 
+## <a name="set-up-service-fabric-mesh-cli"></a>Service Fabric Mesh CLI 설정
+
 나머지 단계에서는 Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용할 수 있습니다. 다음 [지침](service-fabric-mesh-howto-setup-cli.md)에 따라 Azure Service Fabric Mesh CLI 확장 모듈을 설치합니다.
 
 ## <a name="check-application-deployment-status"></a>애플리케이션 배포 상태 확인
@@ -117,6 +118,14 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 ```azurecli-interactive
 az mesh app show --resource-group $rg --name todolistapp
+```
+
+## <a name="get-the-ip-address-of-your-deployment"></a>배포의 IP 주소 가져오기
+
+애플리케이션에 대한 IP 주소를 가져오려는 경우 다음 명령을 사용합니다.
+  
+```azurecli-interactive
+az mesh gateway show --resource-group myResourceGroup --name todolistappGateway
 ```
 
 ## <a name="see-all-applications-currently-deployed-to-your-subscription"></a>현재 구독에 배포된 모든 애플리케이션 보기

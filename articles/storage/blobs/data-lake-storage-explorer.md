@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure Storage 탐색기를 사용하여 Azure Data Lake Storage Gen2를 사용하는 개체 스토리지에 Blob 만들기'
+title: '빠른 시작: Azure Storage 탐색기를 사용하여 Azure Data Lake Storage Gen2에서 데이터 관리 '
 description: 이 빠른 시작에서는 Azure Storage 탐색기를 사용하여 Azure Data Lake Storage Gen2 계정과 디렉터리 및 파일에 파일 시스템을 만드는 방법을 알아봅니다. 그런 다음, 파일을 로컬 컴퓨터로 다운로드하는 방법과 디렉터리의 모든 파일을 보는 방법을 알아봅니다.
 services: storage
 author: tamram
@@ -9,14 +9,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: tamram
-ms.openlocfilehash: e556dbe377f5bba6cbd727ac69c3d4fb9127a2c9
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 5b46d5644536123a9ef3dfc7be87e34d03ee4c4f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385621"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423599"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>빠른 시작: Azure Storage 탐색기를 사용하여 개체 스토리지에 Blob 만들기
+# <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>빠른 시작: Azure Storage 탐색기를 사용하여 Azure Data Lake Storage Gen2 계정에서 데이터 관리
 
 이 빠른 시작에서는 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 디렉터리 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 디렉터리의 모든 Blob을 보는 방법을 알아봅니다. 또한 Blob의 스냅숏을 만들고, 디렉터리 액세스 정책을 관리하고, 공유 액세스 서명을 만드는 방법을 알아봅니다.
 

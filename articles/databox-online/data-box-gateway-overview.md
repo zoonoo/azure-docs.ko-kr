@@ -5,14 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 4f1ab6d955c81ce6f7b141eef42341f43bb379f6
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 9670d67fa1eb79e9e5e8c81726c10cc78767fb74
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165320"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435467"
 ---
 # <a name="what-is-azure-data-box-gateway-preview"></a>Azure Data Box Gateway(미리 보기)란? 
 
@@ -39,7 +39,10 @@ Data Box Gateway의 이점은 다음과 같습니다.
 
 - **손쉬운 데이터 전송** - 로컬 네트워크 공유를 사용할 때처럼 쉽게 Azure Storage 내부에서/외부로 데이터를 이동할 수 있습니다.  
 - **고성능** - Azure에서/Azure로의 고성능 전송 기능이 제공되므로 네트워크 데이터 전송 과정이 간편해집니다. 
-- **빠른 액세스** - 온-프레미스 파일에 빠르게 액세스할 수 있도록 최신 파일을 캐시합니다.  
+- **업무 시간 동안 빠른 액세스 및 높은 데이터 수집 속도** - Data Box Gateway에는 가상 디바이스가 프로비전될 때 로컬 용량 크기를 정의하는 로컬 캐시가 있습니다. 데이터 디스크 크기는 [가상 디바이스 최소 요구 사항](data-box-gateway-system-requirements.md#specifications-for-the-virtual-device)을 기준으로 지정해야 합니다. 로컬 캐시는 다음과 같은 이점을 제공합니다.
+    - 로컬 캐시를 통해 빠른 속도로 데이터를 수집할 수 있습니다. 많은 양의 데이터를 가장 바쁜 업무 시간 동안 수집하는 경우 캐시가 데이터를 유지했다가 클라우드에 업로드할 수 있습니다.
+    - 로컬 캐시를 통해 특정 임계값까지 빠른 읽기 액세스가 가능합니다. 디바이스가 50-60%까지 찰 때까지 디바이스의 모든 읽기는 캐시에서 액세스되므로 속도가 더 빨라집니다. 디바이스에서 사용되는 공간이 이 임계값을 초과하면 디바이스가 로컬 파일을 제거하기 시작합니다. 
+ 
 - **대역폭 사용량 제한** - 사용량이 많은 업무 시간 동안 사용량을 제한하도록 네트워크가 제한될 때도 Azure에 데이터를 쓸 수 있습니다.  
 
 ## <a name="key-capabilities"></a>주요 기능
@@ -67,7 +70,7 @@ Data Box Gateway 가상 디바이스의 사양은 다음과 같습니다.
 | 가상 프로세서(코어)   | 최소 4개 |            
 | 메모리  | 최소 8GB|
 | 가용성|단일 노드|
-| 디스크| OS 디스크: 250GB <br> 데이터 디스크: 최소 2TB(씬 프로비저닝), SSD를 통해 지원해야 함|
+| 디스크| OS 디스크: 250GB <br> 데이터 디스크: 최소 2TB, 씬 프로비저닝 및 SSD를 통해 지원해야 함|
 | 네트워크 인터페이스|가상 네트워크 인터페이스 하나 이상|
 | 기본 파일 공유 프로토콜|SMB 및 NFS  |
 | 보안| 인증을 통해 디바이스와 데이터 액세스 잠금 해제 <br> AES-256 비트 암호화를 사용하여 처리 중 데이터 암호화|
@@ -78,15 +81,15 @@ Data Box Gateway 가상 디바이스의 사양은 다음과 같습니다.
 
 Data Box Gateway 솔루션은 Data Box Gateway 리소스, Data Box Gateway 가상 디바이스 및 로컬 웹 UI로 구성되어 있습니다.
 
-* **Data Box Gateway 가상 장치** - 가상화된 환경 또는 하이퍼바이저에 프로비전된 가상 머신을 기반으로 하며, Azure에 데이터를 전송하는 데 사용할 수 있는 장치입니다. 
+* **Data Box Gateway 가상 디바이스** - 가상화된 환경 또는 하이퍼바이저에 프로비전된 가상 머신을 기반으로 하며, Azure에 데이터를 전송하는 데 사용할 수 있는 디바이스입니다. 
     
-* **Data Box Gateway 리소스** – 다양한 지리적 위치에서 액세스할 수 있는 웹 인터페이스에서 Data Box Gateway 장치를 관리할 수 있는 Azure Portal의 리소스입니다. Data Box Gateway 리소스를 사용하여 리소스를 작성/관리하고, 디바이스와 경고를 확인/관리하고, 공유를 관리합니다.  
+* **Data Box Gateway 리소스** – 다양한 지리적 위치에서 액세스할 수 있는 웹 인터페이스에서 Data Box Gateway 디바이스를 관리할 수 있는 Azure Portal의 리소스입니다. Data Box Gateway 리소스를 사용하여 리소스를 작성/관리하고, 디바이스와 경고를 확인/관리하고, 공유를 관리합니다.  
 
     <!--![The Data Box Gateway service in Azure portal](media/data-box-overview/data-box-Gateway-service1.png)-->
 
     <!--For more information, go to [Use the Data Box Gateway service to administer your Data Box Gateway device](data-box-gateway-portal-ui-admin.md).-->
 
-* **Data Box 로컬 웹 UI** - 로컬 웹 UI를 사용하여 진단을 실행하고, Data Box Gateway 장치를 종료 및 다시 시작하고, 복사 로그를 보고, 서비스 요청을 위해 Microsoft 지원에 연락을 합니다.
+* **Data Box 로컬 웹 UI** - 로컬 웹 UI를 사용하여 진단을 실행하고, Data Box Gateway 디바이스를 종료 및 다시 시작하고, 복사 로그를 보고, 서비스 요청을 위해 Microsoft 지원에 연락을 합니다.
 
     <!--![The Data Box Gateway local web UI](media/data-box-gateway-overview/data-box-gateway-local-web-ui.png)-->
 

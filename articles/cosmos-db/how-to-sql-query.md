@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 2a88b130c92f7b9074fd248afc97f0ea6b4c13bb
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d101931fb2a4184ff9ffffc0aed4fc90fee2cbd5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042141"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452958"
 ---
 # <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터를 쿼리하는 SQL 쿼리 예제
 
@@ -506,7 +506,7 @@ IN 키워드는 지정된 값이 목록에 있는 값과 일치하는지를 확�
 
 다른 쿼리 연산자에서처럼 조건식에서 참조된 속성이 항목에서 누락된 경우 또는 비교할 형식이 다른 경우 해당 항목이 쿼리 결과에서 제외됩니다.
 
-병합(??) 연산자를 사용하면 문서에서 속성의 존재(정의됨)를 효율적으로 확인할 수 있습니다. 이 연산자는 반구조적 데이터나 혼합 형식의 데이터에 대해 쿼리할 때 유용합니다. 예를 들어 이 쿼리는 "lastName"(있는 경우) 또는 "surname"(없는 경우)을 반환합니다.
+병합(??) 연산자를 사용하여 항목에서 속성의 존재를 효과적으로 확인할 수 있습니다. 이 연산자는 반구조적 데이터나 혼합 형식의 데이터에 대해 쿼리할 때 유용합니다. 예를 들어 이 쿼리는 "lastName"(있는 경우) 또는 "surname"(없는 경우)을 반환합니다.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName

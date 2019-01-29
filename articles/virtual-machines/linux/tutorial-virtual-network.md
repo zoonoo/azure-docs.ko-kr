@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: daee5a2073e78ca5bb9e0eb0386617d7638ab930
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a0eb3ed26b0e8641cf4e1004c2c162c799dd8999
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988524"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463765"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 Linux 가상 머신을 위한 Azure 가상 네트워크 만들기 및 관리
 
@@ -208,7 +208,7 @@ az network nsg rule create \
   --destination-port-range 80
 ```
 
-프런트 엔드 VM은 *22* 포트 및 *80* 포트에서만 액세스할 수 있습니다. 다른 모든 들어오는 트래픽은 네트워크 보안 그룹에서 차단됩니다. NSG 규칙 구성을 시각화하면 도움이 될 수 있습니다. [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) 명령을 사용하여 NSG 규칙 구성을 반환합니다. 
+프런트 엔드 VM은 *22* 포트 및 *80* 포트에서만 액세스할 수 있습니다. 다른 모든 들어오는 트래픽은 네트워크 보안 그룹에서 차단됩니다. NSG 규칙 구성을 시각화하면 도움이 될 수 있습니다. [az network rule list](/cli/azure/network/nsg/rule) 명령을 사용하여 NSG 규칙 구성을 반환합니다. 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG --output table
@@ -285,7 +285,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-백엔드 VM은 프런트 엔드 서브넷의 *22* 포트 및 *3306* 포트에서만 액세스할 수 있습니다. 다른 모든 들어오는 트래픽은 네트워크 보안 그룹에서 차단됩니다. NSG 규칙 구성을 시각화하면 도움이 될 수 있습니다. [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) 명령을 사용하여 NSG 규칙 구성을 반환합니다. 
+백엔드 VM은 프런트 엔드 서브넷의 *22* 포트 및 *3306* 포트에서만 액세스할 수 있습니다. 다른 모든 들어오는 트래픽은 네트워크 보안 그룹에서 차단됩니다. NSG 규칙 구성을 시각화하면 도움이 될 수 있습니다. [az network rule list](/cli/azure/network/nsg/rule) 명령을 사용하여 NSG 규칙 구성을 반환합니다. 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table

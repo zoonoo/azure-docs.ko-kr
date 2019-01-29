@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 4320e56b04761c6adcae1db259eeecf332fbd781
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 68bc3302874849a69249a50dcecd46024ad939ef
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158791"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448332"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk란?
 
@@ -62,7 +62,7 @@ a. Data Box Disk에 문제가 발생하면 [Microsoft 지원에 문의](https://
 ## <a name="configure-and-connect"></a>구성 및 연결
  
 ### <a name="q-can-i-specify-the-number-of-data-box-disks-in-the-order"></a>Q. 주문에서 Data Box Disk의 수를 지정할 수 있나요?
-a.   아니요. 데이터 크기 및 디스크 가용성에 따라 8TB 디스크(최대 5개 디스크)를 얻을 수 있습니다.  
+a.  아니요. 데이터 크기 및 디스크 가용성에 따라 8TB 디스크(최대 5개 디스크)를 얻을 수 있습니다.  
 
 ### <a name="q-how-do-i-unlock-the-data-box-disks"></a>Q. Data Box Disk의 잠금을 해제하려면 어떻게 할까요? 
 a.  Azure Portal에서 해당 Data Box Disk 주문, **디바이스 세부 정보**로 차례로 이동합니다. 지원 암호를 복사합니다. 운영 체제에 대한 Azure Portal에서 Data Box Disk 잠금 해제 도구를 다운로드하고 추출합니다. 디스크에 복사할 데이터가 있는 컴퓨터에서 도구를 실행합니다. 지원 암호를 제공하여 디스크의 잠금을 해제합니다. 동일한 지원 암호를 사용하여 모든 디스크의 잠금을 해제할 수 있습니다. 
@@ -120,7 +120,7 @@ a.  복사 프로세스의 속도를 높이려면 다음을 수행합니다.
 - 파일을 VM의 디스크에 복사합니다.
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box-disks"></a>Q. Data Box Disk에 여러 개의 저장소 계정을 사용할 수 있나요?
-a.   아니요. Data Box Disk에는 현재 하나의 저장소 계정(범용 또는 클래식)만 지원됩니다. 핫 및 쿨 Blob은 모두 지원됩니다. 현재 Azure 공용 클라우드에서 미국, 유럽 서부 및 유럽 북부의 스토리지 계정만 지원됩니다.
+a.  아니요. Data Box Disk에는 현재 하나의 저장소 계정(범용 또는 클래식)만 지원됩니다. 핫 및 쿨 Blob은 모두 지원됩니다. 현재 Azure 공용 클라우드에서 미국, 유럽 서부 및 유럽 북부의 스토리지 계정만 지원됩니다.
 
 ### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>Q. Data Box Disk에서 데이터에 사용할 수 있는 도구 세트는 무엇입니까?
 a. Data Box Disk에서 사용할 수 있는 도구 세트로는 세 가지 도구가 있습니다.

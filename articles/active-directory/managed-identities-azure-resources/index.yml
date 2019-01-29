@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c4613654e5f1da6ef55c1f648fff1687b21fe87d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: fd9c4513c2cda3fb6283e748f2458043b02ab482
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901941"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203575"
 documentType: LandingData
 title: Azure 리소스에 대한 Azure AD 관리 ID 설명서
 metadata:
@@ -12,7 +12,7 @@ metadata:
   title: Azure 리소스에 대한 Azure AD 관리 ID 설명서
   description: Azure 리소스에 대한 관리 ID를 사용하여 소스 코드에서 자격 증명을 유지할 필요 없이 Azure 클라우드 서비스에 안전하게 인증하는 방법을 알아봅니다.
   services: active-directory
-  ms.component: msi
+  ms.subservice: msi
   author: priyamohanram
   manager: daveba
   ms.service: active-directory

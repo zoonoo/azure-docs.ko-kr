@@ -1,20 +1,20 @@
 ---
 title: 포털에서 Azure Search 서비스 만들기 - Azure Search
-description: Azure Portal에서 Azure Search 서비스를 프로비전합니다. 리소스 그룹, 지역 및 SKU 또는 가격 책정 계층을 선택합니다.
+description: Azure Portal에서 Azure Search 리소스를 프로비전합니다. 리소스 그룹, 지역 및 SKU 또는 가격 책정 계층을 선택합니다.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/02/2019
+ms.date: 01/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: dfb6ccac01933ea114694de361c2f1d4d5a649b0
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 6d71ad9bdc7744898480fb2cc6743e59131ec588
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230529"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423445"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>포털에서 Azure Search서비스 만들기
 
@@ -22,7 +22,7 @@ Azure Search는 사용자 지정 앱에 검색 환경을 추가하는 데 사용
 
 이 문서에서는 [Azure Portal](https://portal.azure.com/)에서 Azure Search 리소스를 만드는 방법을 알아봅니다. 
 
-![포털의 Azure Search 리소스](media/search-create-service-portal/azure-search-resource-label.png)
+[ ![애니메이션 GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif) ](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](https://azure.microsoft.com/resources/templates/101-azure-search-create/)을 사용합니다. 시작하기 도움말은 [PowerShell로 Azure Search 관리](search-manage-powershell.md)를 참조하세요.
 
@@ -37,7 +37,7 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 2. 왼쪽 위 모퉁이에서 더하기 기호("+ 리소스 만들기")를 클릭합니다.
 3. 검색 창을 사용하여 "Azure Search"를 찾거나 **웹** > **Azure Search**를 통해 리소스로 이동합니다.
 
-![](./media/search-create-service-portal/find-search3.png)
+![Azure Search 리소스로 이동](./media/search-create-service-portal/find-search3.png "Azure Search에 대한 탐색 경로")
 
 ## <a name="name-the-service-and-url-endpoint"></a>서비스 및 URL 엔드포인트의 이름
 
@@ -66,6 +66,8 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 ## <a name="select-a-hosting-location"></a>호스팅 위치 선택 
 Azure 서비스인 Azure Search는 전 세계 데이터 센터에서 호스팅될 수 있습니다. 지역별로 [가격이 다를 수](https://azure.microsoft.com/pricing/details/search/) 있습니다.
 
+Cognitive Search를 사용할 계획인 경우 [기능 가용성이 있는 지역](cognitive-search-quickstart-blob.md#supported-regions)을 선택합니다.
+
 ## <a name="select-a-pricing-tier-sku"></a>가격 책정 계층(SKU) 선택
 [Azure Search는 현재 여러 가지 가격 책정 계층에서 제공되며](https://azure.microsoft.com/pricing/details/search/) 무료, 기본 또는 표준 등이 있습니다. 각 계층에는 자체 [용량 및 제한](search-limits-quotas-capacity.md)이 있습니다. 지침은 [가격 책정 계층 또는 SKU 선택](search-sku-tier.md) 을 참조하세요.
 
@@ -77,7 +79,21 @@ Azure 서비스인 Azure Search는 전 세계 데이터 센터에서 호스팅�
 
 로그인할 때마다 손쉽게 액세스할 수 있도록 서비스를 대시보드에 고정합니다.
 
-![](./media/search-create-service-portal/new-service3.png)
+![대시보드에 고정](./media/search-create-service-portal/new-service3.png "편리한 액세스를 위해 리소스를 대시보드에 고정")
+
+## <a name="get-a-key-and-url-endpoint"></a>키 및 URL 엔드포인트 가져오기
+
+거의 예외 없이, 새 서비스를 사용하려면 URL 엔드포인트와 권한 부여 api-key 키를 제공해야 합니다. 빠른 시작, [Azure Search REST API 살펴보기(Postman)](search-fiddler.md) 및 [.NET에서 Azure Search 사용 방법](search-howto-dotnet-sdk.md)과 같은 자습서, 샘플 및 사용자 지정 코드 모두에서 특정 리소스에서 실행할 엔드포인트와 키가 필요합니다.
+
+1. 서비스 개요 페이지에서 페이지 왼쪽에서 URL 엔드포인트를 찾아 복사합니다. 
+
+   ![URL 엔드포인트가 있는 서비스 개요 페이지](./media/search-create-service-portal/url-endpoint.png "URL 엔드포인트 및 기타 서비스 정보")
+
+2. 왼쪽 탐색 창에서 **키**를 선택한 다음, 관리 키 중 하나(둘 다 동일)를 복사합니다. 관리 api-key는 서비스에서 개체를 생성, 업데이트 및 삭제하는 데 필요합니다.
+
+   ![기본 및 보조 키가 표시된 키 페이지](./media/search-create-service-portal/admin-api-keys.png "권한 부여를 위한 관리 api-keys")
+
+엔드포인트 및 키는 포털 기반 작업에 필요하지 않습니다. 포털은 관리자 권한으로 Azure Search 리소스에 이미 연결되어 있습니다. 포털 자습서는 [자습서: Azure Search에서 가져오기, 인덱싱 및 쿼리](search-get-started-portal.md)로 시작합니다.
 
 ## <a name="scale-your-service"></a>서비스 확장
 서비스를 만드는 데 몇 분 정도 걸릴 수 있습니다(15분 이상 계층에 따라). 서비스가 프로비전되면 사용자의 요구에 맞게 확장할 수 있습니다. Azure Search 서비스에 대한 표준 계층을 선택했기 때문에 복제본과 파티션이라는 두 개의 차원에서 서비스를 확장할 수 있습니다. 기본 계층을 선택한 경우 복제본만 추가할 수 있습니다. 무료 서비스를 프로비전한 경우 확장이 불가능합니다.
@@ -95,7 +111,7 @@ Azure 서비스인 Azure Search는 전 세계 데이터 센터에서 호스팅�
 2. 왼쪽 탐색 창에서 **설정** > **규모**를 선택합니다.
 3. 슬라이드 바를 사용하여 두 형식의 리소스 중 하나를 추가합니다.
 
-![](./media/search-create-service-portal/settings-scale.png)
+![용량 추가](./media/search-create-service-portal/settings-scale.png "복제본과 파티션을 통해 용량 추가")
 
 > [!Note] 
 > 각 계층에는 단일 서비스에서 허용하는 총 검색 단위 수(복제본 * 파티션 = 총 검색 단위)에 여러 [제한](search-limits-quotas-capacity.md)이 있습니다.

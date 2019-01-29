@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 03/15/2017
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 42fbb8b08a2dc24ced436c4a6104f03ae3bca1e9
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 69c8e293186f955e86962a325fce2f54a2eefdc7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982813"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432169"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Azure Active Directory에서 B2B 공동 작업과 B2C 비교
 
@@ -30,8 +30,8 @@ Azure Active Directory(Azure AD) B2B 공동 작업 및 Azure AD B2C 모두를 �
 
 B2B 공동 작업 기능 |     Azure AD B2C 독립 실행형 제품
 -------- | --------
-대상: ID 공급자에 관계없이 파트너 조직의 사용자를 인증할 수 있기를 원하는 조직 | 대상: 개인이든, 기관이든, 조직이든 상관없이 모바일 및 웹앱 고객을 Azure AD에 초대하려는 사용자
-지원되는 ID: 회사 또는 학교 계정이 있는 직원, 회사 또는 학교 계정이 있는 파트너 또는 모든 전자 메일 주소입니다. 직접 페더레이션 기능을 곧 지원합니다.  | 지원되는 ID: 로컬 애플리케이션 계정(모든 전자 메일 주소 또는 사용자 이름)이 있는 소비자 사용자 또는 직접 페더레이션이 포함된 지원되는 소셜 ID입니다.
+대상: ID 공급자에 관계 없이 파트너 조직의 사용자를 인증할 수 있기를 원하는 조직 | 대상: 개인이든, 기관이든, 조직이든 상관 없이 모바일 및 웹앱 고객을 Azure AD에 초대하려는 사용자
+지원되는 ID: 회사 또는 학교 계정이 있는 직원, 회사 또는 학교 계정이 있는 파트너 또는 모든 이메일 주소입니다. 직접 페더레이션 기능을 곧 지원합니다.  | 지원되는 ID: 로컬 애플리케이션 계정(모든 이메일 주소 또는 사용자 이름)이 있는 소비자 사용자 또는 직접 페더레이션이 포함된 지원되는 소셜 ID입니다.
 파트너 사용자가 위치한 디렉터리: 외부 조직의 파트너 사용자는 직원과 같은 디렉터리에서 관리되지만 특별하게 주석 처리됩니다. 이들은 직원과 같은 방식으로 관리하고 동일한 그룹에 추가할 수 있습니다.  | 고객 사용자 엔터티가 위치한 디렉터리: 애플리케이션 디렉터리에 있습니다. 조직의 직원 및 파트너 디렉터리(있는 경우)에서 별도로 관리됩니다.
 모든 Azure AD 연결 앱에 대한 SSO(Single Sign-On)가 지원됩니다. 예를 들어 Office 365 또는 온-프레미스 앱 및 다른 SaaS 앱(예: Salesforce 또는 Workday)에 대한 액세스를 제공할 수 있습니다.  |  Azure AD B2C 테넌트 내의 고객 소유 앱에 대한 SSO가 지원됩니다. Office 365 또는 다른 Microsoft 앱 및 타사 SaaS 앱에 대한 SSO가 지원되지 않습니다.
 파트너 수명 주기: 호스트/초대한 조직에 의해 관리됩니다.  | 고객 수명 주기: 셀프 서비스 또는 애플리케이션에 의해 관리됩니다.

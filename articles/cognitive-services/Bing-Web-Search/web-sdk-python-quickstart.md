@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
 ms.author: aahi
-ms.openlocfilehash: c28a3097e8b0733db229fc10778d0ac77a3b0a7a
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9ad3730968f22f89bf8618454039e16581b3f94b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52306373"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473047"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>빠른 시작: Python용 Bing Web Search SDK 사용
 
@@ -170,7 +170,7 @@ python -m pip install azure-cognitiveservices-search-websearch
 
 ### <a name="limit-the-number-of-results-returned-by-bing"></a>Bing에서 반환하는 결과 수 제한
 
-이 샘플에서는 `count` 및 `offset` 매개 변수를 사용하여 SDK의 [`search` 메서드](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search)를 통해 반환되는 결과의 수를 제한합니다. 첫 번째 결과에 대한 `name` 및 `URL`이 출력됩니다.
+이 샘플에서는 `count` 및 `offset` 매개 변수를 사용하여 SDK의 [`search` 메서드](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python)를 통해 반환되는 결과의 수를 제한합니다. 첫 번째 결과에 대한 `name` 및 `URL`이 출력됩니다.
 
 1. 이 코드를 Python 프로젝트에 추가합니다.
     ```python
@@ -181,7 +181,7 @@ python -m pip install azure-cognitiveservices-search-websearch
         try:
             '''
             Set the query, offset, and count using the SDK's search method. See:
-            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search.
+            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python.
             '''
             web_data = client.web.search(query="Best restaurants in Seattle", offset=10, count=20)
             print("\r\nSearching for \"Best restaurants in Seattle\"")
@@ -207,7 +207,7 @@ python -m pip install azure-cognitiveservices-search-websearch
 
 ### <a name="filter-for-news-and-freshness"></a>뉴스 및 새로 고침 필터링
 
-이 샘플에서는 `response_filter` 및 `freshness` 매개 변수를 사용하여 SDK의 [`search` 메서드](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations#search)를 통해 검색 결과를 필터링합니다. 반환되는 검색 결과는 Bing에서 지난 24시간 이내에 검색한 뉴스 기사 및 페이지로 제한됩니다. 첫 번째 결과에 대한 `name` 및 `URL`이 출력됩니다.
+이 샘플에서는 `response_filter` 및 `freshness` 매개 변수를 사용하여 SDK의 [`search` 메서드](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations)를 통해 검색 결과를 필터링합니다. 반환되는 검색 결과는 Bing에서 지난 24시간 이내에 검색한 뉴스 기사 및 페이지로 제한됩니다. 첫 번째 결과에 대한 `name` 및 `URL`이 출력됩니다.
 
 1. 이 코드를 Python 프로젝트에 추가합니다.
     ```python
@@ -217,7 +217,7 @@ python -m pip install azure-cognitiveservices-search-websearch
         try:
             '''
             Set the query, response_filter, and freshness using the SDK's search method. See:
-            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search.
+            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python.
             '''
             web_data = client.web.search(query="xbox",
                 response_filter=["News"],
@@ -255,7 +255,7 @@ python -m pip install azure-cognitiveservices-search-websearch
 
 ### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>안전 검색, 응답 수 및 승격 필터 사용
 
-이 샘플에서는 `answer_count`, `promote` 및 `safe_search` 매개 변수를 사용하여 SDK의 [`search` 메서드](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search)를 통해 검색 결과를 필터링합니다. 첫 번째 결과에 대한 `name` 및 `URL`이 표시됩니다.
+이 샘플에서는 `answer_count`, `promote` 및 `safe_search` 매개 변수를 사용하여 SDK의 [`search` 메서드](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python)를 통해 검색 결과를 필터링합니다. 첫 번째 결과에 대한 `name` 및 `URL`이 표시됩니다.
 
 1. 이 코드를 Python 프로젝트에 추가합니다.
     ```python
@@ -267,7 +267,7 @@ python -m pip install azure-cognitiveservices-search-websearch
         try:
             '''
             Set the query, answer_count, promote, and safe_search parameters using the SDK's search method. See:
-            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search.
+            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python.
             '''
             web_data = client.web.search(
                 query="Niagara Falls",

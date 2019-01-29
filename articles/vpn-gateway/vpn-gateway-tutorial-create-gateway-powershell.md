@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/14/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: b1435773f8d05f9cc730e5745c1a916d9b74321f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8e3cdd99c99a300d7f1198826ae881373e179414
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340596"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433699"
 ---
 # <a name="create-and-manage-vpn-gateway-with-the-azure-powershell-module"></a>Azure PowerShell 모듈을 사용하여 VPN 게이트웨이 만들기 및 관리
 
@@ -40,7 +40,7 @@ Azure VPN 게이트웨이는 고객 프레미스와 Azure 사이에 프레미스
 
 [!INCLUDE [working with cloudshell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 Azure PowerShell 모듈 버전 5.3 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다. 
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 Azure PowerShell 모듈 버전 5.3 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다. 
 
 ## <a name="common-network-parameter-values"></a>일반 네트워크 매개 변수 값
 
@@ -74,7 +74,7 @@ New-AzureRmResourceGroup -ResourceGroupName $RG1 -Location $Location1
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-Azure VPN 게이트웨이는 가상 네트워크를 위한 프레미스 간 연결 및 P2S VPN 서버 기능을 제공합니다. 기존 가상 네트워크에 VPN 게이트웨이를 추가하거나 새 가상 네트워크 및 게이트웨이를 만듭니다. 이 예제에서는 [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) 및 [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) 명령을 사용하여 세 개의 서브넷 Frontend, Backend 및 GatewaySubnet이 있는 새 가상 네트워크를 만듭니다.
+Azure VPN 게이트웨이는 가상 네트워크를 위한 프레미스 간 연결 및 P2S VPN 서버 기능을 제공합니다. 기존 가상 네트워크에 VPN 게이트웨이를 추가하거나 새 가상 네트워크 및 게이트웨이를 만듭니다. 이 예제는 세 개의 서브넷이 있는 새로운 가상 네트워크를 만듭니다. [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) 및 [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)를 사용하여 프런트 엔드, 백 엔드 및 게이트웨이 서브넷을 만듭니다.
 
 ```azurepowershell-interactive
 $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubnet1 -AddressPrefix $FEPrefix1
@@ -117,7 +117,7 @@ New-AzureRmVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
 키 매개 변수 값:
 * GatewayType: 사이트 간 연결 및 VNet-VNet 연결에 **Vpn**을 사용합니다.
 * VpnType: **RouteBased**를 사용하여 더 넓은 범위의 VPN 디바이스 및 더 많은 라우팅 기능과 상호 작용합니다.
-* GatewaySku: 기본값은 **VpnGw1**입니다. 더 높은 처리량 또는 더 많은 연결이 필요한 경우 VpnGw2 또는 VpnGw3로 변경합니다. 자세한 내용은 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조하세요.
+* GatewaySku: 기본값은 **VpnGw1**입니다. 더 높은 처리량 또는 더 많은 연결이 필요한 경우 VpnGw2 또는 VpnGw3으로 변경합니다. 자세한 내용은 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조하세요.
 
 게이트웨이 만들기가 완료되면 가상 네트워크와 다른 VNet 간에 연결을 만들거나 가상 네트워크와 온-프레미스 위치 간에 연결을 만들 수 있습니다. 클라이언트 컴퓨터에서 VNet으로 P2S 연결을 구성할 수도 있습니다.
 

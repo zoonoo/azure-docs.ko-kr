@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: twhitney
-ms.openlocfilehash: 2b53b8a97f4e794110dc482db09a0d376247a678
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 1867702f0b33332ea4fa52374cd1452c3bc51a55
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299642"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436980"
 ---
-# <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>자습서: Azure Service Fabric에 Windows 컨테이너의 .NET 애플리케이션 배포
+# <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>자습서: Azure Service Fabric에 Windows 컨테이너로 .NET 애플리케이션 배포
 
 이 자습서에서는 기존 ASP.NET 애플리케이션을 컨테이너화하고 Service Fabric 애플리케이션으로 패키지하는 방법을 설명합니다.  Service Fabric 개발 클러스터에서 로컬로 컨테이너를 실행한 다음, Azure에 애플리케이션을 배포합니다.  애플리케이션은 [Azure SQL Database](/azure/sql-database/sql-database-technical-overview)에 데이터를 유지합니다. 
 
@@ -43,7 +43,7 @@ ms.locfileid: "51299642"
  
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Fabrikam Fiber CallCenter를 다운로드하여 실행
-[Fabrikam Fiber CallCenter][link-fabrikam-github] 응용 프로그램 예제를 다운로드합니다.  **다운로드 보관** 링크를 클릭합니다.  *fabrikam.zip* 파일의 *sourceCode* 디렉터리에서 *sourceCode.zip* 파일을 추출한 다음, 컴퓨터에 *VS2015* 디렉터리를 추출합니다.
+[Fabrikam Fiber CallCenter][link-fabrikam-github] 애플리케이션 예제를 다운로드합니다.  **다운로드 보관** 링크를 클릭합니다.  *fabrikam.zip* 파일의 *sourceCode* 디렉터리에서 *sourceCode.zip* 파일을 추출한 다음, 컴퓨터에 *VS2015* 디렉터리를 추출합니다.
 
 Fabrikam Fiber CallCenter 애플리케이션이 오류 없이 빌드되고 실행되는지 확인합니다.  **관리자** 권한으로 Visual Studio를 시작하고 [FabrikamFiber.CallCenter.sln][link-fabrikam-github] 파일을 엽니다.  F5 키를 눌러 애플리케이션을 디버그하고 실행합니다.
 
@@ -124,7 +124,7 @@ Write-Host "Server name is $servername"
 >호스트에서 연결할 수 있기만 하면 어떤 SQL Server든지 로컬 디버깅에 사용할 수 있습니다. 그러나 **localdb**는 `container -> host` 통신을 지원하지 않습니다. 웹 애플리케이션의 릴리스 버전을 빌드할 때 다른 SQL 데이터베이스를 사용하려면 *web.release.config* 파일에 다른 연결 문자열을 추가합니다.
 
 ## <a name="run-the-containerized-application-locally"></a>컨테이너화된 애플리케이션을 로컬로 실행
-**F5** 키를 눌러 로컬 Service Fabric 개발 클러스터에서 컨테이너의 응용 프로그램을 실행하고 디버그합니다. 'ServiceFabricAllowedUsers' 그룹 읽기 및 실행 권한을 Visual Studio 프로젝트 디렉터리에 부여할지 묻는 메시지 상자가 표시되는 경우 **예**를 클릭합니다.
+**F5** 키를 눌러 로컬 Service Fabric 개발 클러스터에서 컨테이너의 애플리케이션을 실행하고 디버그합니다. 'ServiceFabricAllowedUsers' 그룹 읽기 및 실행 권한을 Visual Studio 프로젝트 디렉터리에 부여할지 묻는 메시지 상자가 표시되는 경우 **예**를 클릭합니다.
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 애플리케이션이 로컬로 실행되므로 Azure에 배포할 준비를 시작합니다.  컨테이너 이미지는 컨테이너 레지스트리에 저장되어야 합니다.  다음 스크립트를 사용하여 [Azure Container Registry](/azure/container-registry/container-registry-intro)를 만듭니다. 컨테이너 레지스트리 이름은 다른 Azure 구독을 통해 표시되므로 고유해야 합니다.
@@ -173,7 +173,7 @@ Service Fabric 애플리케이션은 네트워크에 연결된 가상 머신 또
     > [!IMPORTANT]
     >실행 중인 컨테이너를 지원하는 SKU를 선택합니다. 클러스터 노드의 Windows Server OS는 컨테이너의 Windows Server OS와 호환되어야 합니다. 자세히 알아보려면 [Windows Server 컨테이너 OS 및 호스트 OS 호환성](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)을 참조하세요. 기본적으로 이 자습서에서는 Windows Server 2016 LTSC를 기반으로 하는 Docker 이미지를 만듭니다. 이 이미지를 기반으로 하는 컨테이너는 컨테이너로 Windows Server 2016 Datacenter를 사용하여 만든 클러스터에서 실행됩니다. 그러나 클러스터를 만들거나 컨테이너로 Windows Server Datacenter 코어 1709를 기반으로 하는 기존 클러스터를 사용하는 경우 컨테이너가 기반으로 하는 Windows Server OS 이미지를 변경해야 합니다. **FabrikamFiber.Web** 프로젝트에서 **Dockerfile**을 열고, 기존 `FROM` 문을 주석으로 처리하고(`windowsservercore-ltsc`에 따라) `windowsservercore-1709`에 따라 `FROM` 문의 주석 처리를 제거합니다. 
 
-    e. **고급** 탭에서 클러스터를 배포하는 경우 부하 분산 장치에서 열려는 응용 프로그램 포트를 나열합니다. 이 포트는 클러스터를 만들기 전에 적어 둔 포트입니다. 또한 애플리케이션 로그 파일을 라우팅하는 데 사용할 기존 Application Insights 키를 추가할 수도 있습니다.
+    e. **고급** 탭에서 클러스터를 배포하는 경우 부하 분산 장치에서 열려는 애플리케이션 포트를 나열합니다. 이 포트는 클러스터를 만들기 전에 적어 둔 포트입니다. 또한 애플리케이션 로그 파일을 라우팅하는 데 사용할 기존 Application Insights 키를 추가할 수도 있습니다.
 
     f. 설정 수정을 마쳤으면 **만들기** 단추를 선택합니다. 
 1. 만들기가 완료되는 데 몇 분이 걸립니다. 클러스터가 완전히 만들어지면 출력 창에 표시됩니다.
@@ -269,7 +269,7 @@ Remove-AzureRmResourceGroup -Name $clusterresourcegroupname
 자습서의 다음 부분에서 [Service Fabric 클러스터에 CI/CD로 컨테이너 애플리케이션 배포](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md) 방법을 알아봅니다.
 
 [link-fabrikam-github]: https://aka.ms/fabrikamcontainer
-[link-azure-powershell-install]: /powershell/azure/install-azurerm-ps
+[link-azure-powershell-install]: /powershell/azure/azurerm/install-azurerm-ps
 [link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm.md
 [link-visualstudio-cd-extension]: https://aka.ms/cd4vs
 [link-servicefabric-containers]: service-fabric-get-started-containers.md

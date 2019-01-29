@@ -1,23 +1,23 @@
 ---
-title: '빠른 시작: Speech Service SDK를 사용하여 Python에서 음성 인식'
+title: '빠른 시작: 음성 인식, Python - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Speech Service SDK를 사용하여 Python에서 음성을 인식하는 방법
+description: 이 가이드에 따라 Python용 Speech SDK를 사용하여 음성을 텍스트로 변환하는 콘솔 애플리케이션을 만듭니다. 작업을 마치면 컴퓨터의 마이크를 사용하여 실시간으로 음성을 텍스트로 변환할 수 있습니다.
 services: cognitive-services
 author: chlandsi
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 1/16/2019
 ms.author: chlandsi
-ms.openlocfilehash: 7610b12b351b2652df7ade603711d4d92e587292
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 40869457ce933368e17a2054dfca50fc4505fa22
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723912"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381583"
 ---
-# <a name="quickstart-using-the-speech-service-from-python"></a>빠른 시작: Python에서 Speech Service 사용
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>빠른 시작: Python용 Speech SDK를 사용하여 음성 인식
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -39,7 +39,7 @@ ms.locfileid: "53723912"
 
 * Windows에서 플랫폼에 대한 [Visual Studio 2017용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)가 필요합니다.
 
-## <a name="get-the-speech-sdk-python-package"></a>Speech SDK Python 패키지 가져오기
+## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -61,7 +61,7 @@ Speech SDK Python 패키지에 대한 업데이트는 PyPI를 통해 배포되�
 
 ## <a name="create-a-python-application-using-the-speech-sdk"></a>Speech SDK를 사용하여 Python 애플리케이션 만들기
 
-### <a name="running-the-sample-in-a-terminal"></a>터미널에서 샘플 실행
+### <a name="run-the-sample"></a>샘플 실행
 
 이 빠른 시작에서 원본 파일 `quickstart.py`로 [코드](#quickstart-code)를 복사하고 IDE 또는 콘솔에서 실행할 수 있습니다.
 
@@ -71,11 +71,11 @@ python quickstart.py
 
 또는 [Cognitive Services Speech 샘플 리포지토리](https://github.com/Azure-Samples/cognitive-services-speech-sdk/)에서 [Jupyter](https://jupyter.org) Notebook으로 이 빠른 시작 자습서를 다운로드하고 노트북으로 실행할 수 있습니다.
 
-### <a name="quickstart-code"></a>빠른 시작 코드
+### <a name="sample-code"></a>샘플 코드
 
 [!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/quickstart.py#code)]
 
-### <a name="installing-the-speech-sdk-python-package-and-running-the-sample-in-visual-studio-code"></a>Speech SDK Python 패키지 설치 및 Visual Studio Code에서 샘플 실행
+### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Visual Studio Code를 사용하여 Speech SDK 설치 및 사용
 
 1. 컴퓨터에 Python의 64비트 버전(3.5 이상)을 [다운로드](https://www.python.org/downloads/)하고 설치합니다.
 1. Visual Studio Code를 [다운로드](https://code.visualstudio.com/Download)하여 설치합니다.

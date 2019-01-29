@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: cb646eb67e0e0627a3c9ccbc6b4d25a97b157970
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: b2d3d5bb0081c51d3f89bc4cb8d2c0f23d40f4a7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711687"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474000"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 BLOB 업로드, 다운로드 및 나열
+# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Blob 업로드, 다운로드 및 나열
 
 Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다. 브라우저에서 Azure Cloud Shell과 함께 사용할 수 있습니다. macOS, Linux 또는 Windows에 설치하여 명령줄에서 실행할 수도 있습니다. 빠른 시작에서는 Azure CLI를 사용하여 Azure Blob Storage에서 데이터를 업로드 및 다운로드하는 방법을 알아봅니다.
 
@@ -33,7 +33,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
 
 Blob은 항상 컨테이너에 업로드됩니다. 폴더에서 컴퓨터의 파일을 구성하는 방식과 비슷하게 Blob 그룹을 구성할 수 있습니다.
 
-Blob 저장을 위한 컨테이너는 [az storage container create](/cli/azure/storage/container#az_storage_container_create) 명령을 사용하여 만듭니다.
+Blob 저장을 위한 컨테이너는 [az storage container create](/cli/azure/storage/container) 명령을 사용하여 만듭니다.
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
