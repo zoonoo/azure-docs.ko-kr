@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 01/29/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: d006deb83ca16860eb669548ae8563304f7937fa
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 06252d2fc33fafc27371c45f41f792e8e5abd542
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306610"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196211"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack에서 사용할 수 있는 azure Marketplace 항목
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트.*
 
-## <a name="virtual-machine-extensions"></a>가상 머신 확장
+## <a name="virtual-machine-extensions"></a>Virtual Machine 확장 
 
 사용 하는 가상 머신 (VM) 확장에 대 한 업데이트 있을 때마다 해당 다운로드 해야 합니다. 제품에서 제공 하는 확장에서 정상적인 패치 및 업데이트 프로세스를 업데이트 하지 않으면 따라서 업데이트를 자주 확인 합니다. 다른 확장만 Marketplace 관리를 통해 제공 됩니다.
 
@@ -97,10 +97,11 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 | ![SLES (BYOS) 15](media/azure-stack-marketplace-azure-items/suse.png) | [15 SLES SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 15. | SUSE |
 
-## <a name="third-party-byol-free-and-trial-images-and-solution-templates"></a>타사 BYOL, 무료 및 평가판 이미지 및 솔루션 템플릿
+## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>타사 BYOL, 무료, 평가판 이미지 및 솔루션 템플릿
 
 |  | 항목 이름 | 설명 | 게시자 |
 | --- | --- | --- | --- |
+| ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | A10 네트워크 vThunder Microsoft Azure 용 응용 프로그램 배달 컨트롤러는 높은 성능, 유연성을 위해 작성 및 배포 하기 쉬운 응용 프로그램 전달 및 서버 부하 분산 및 Azure 클라우드 내에서 고유 하 게 실행 되도록 최적화 합니다. | A10 Networks |
 | ![Arista vEOS 라우터](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS 라우터](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Arista vEOS 라우터는 기능을 갖춘, 다중 클라우드, 엔터프라이즈 및 클라우드 공급자 일관 되 고 매우 안전한 빌드할 수 있는 다중 하이퍼바이저 가상 라우터 및 확장 가능한 하이브리드 네트워크입니다. | Arista Networks |
 | ![Barracuda 응용 프로그램 보안 제어 센터](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda 응용 프로그램 보안 제어 센터](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | 여러 Barracuda 웹 응용 프로그램 방화벽 (WAF)를 중앙에서 관리 합니다. | Barracuda Networks, Inc. |
 | ![Barracuda 전자 메일 보안 게이트웨이](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda 전자 메일 보안 게이트웨이](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | 인바운드 전자 메일을 통한 공격 으로부터 보호 하기 위해 전자 메일 보안 게이트웨이. | Barracuda Networks, Inc. |
