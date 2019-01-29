@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/08/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 61e040fc2f7ff70794b49204e3dea01375637641
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 0c71062bded65f8aa7c259c0678ee6675e2dab38
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336579"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432220"
 ---
 # <a name="create-and-manage-s2s-vpn-connections-with-the-azure-powershell-module"></a>Azure PowerShell 모듈을 사용하여 S2S VPN 연결을 만들고 관리
 
@@ -39,11 +39,11 @@ Azure S2S VPN 연결은 고객 프레미스와 Azure 사이에 안전한 프레�
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 Azure PowerShell 모듈 버전 5.3 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 Azure PowerShell 모듈 버전 5.3 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="requirements"></a>요구 사항
 
-첫 번째 자습서: "[Azure PowerShell을 사용하여 VPN 게이트웨이 만들기](vpn-gateway-tutorial-create-gateway-powershell.md)"를 완료하여 다음 리소스를 만듭니다.
+첫 번째 자습서: “[Azure PowerShell을 사용하여 VPN 게이트웨이 만들기](vpn-gateway-tutorial-create-gateway-powershell.md)”를 완료하여 다음 리소스를 만듭니다.
 
 1. 리소스 그룹(TestRG1), 가상 네트워크(VNet1) 및 GatewaySubnet
 2. VPN 게이트웨이(VNet1GW)
@@ -140,7 +140,7 @@ Azure VPN 게이트웨이는 BGP 동적 라우팅 프로토콜을 지원합니�
 * 온-프레미스 로컬 네트워크 게이트웨이 ASN
 * 온-프레미스 로컬 네트워크 게이트웨이 BGP 피어 IP 주소
 
-BGP 속성을 구성하지 않은 경우 [Set-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-6.8.1) 및 [Set-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-6.8.1) 명령을 사용하여 VPN 게이트웨이 및 로컬 네트워크 게이트웨이에 이러한 속성을 추가합니다.
+BGP 속성을 구성하지 않은 경우 다음 명령을 사용하여 VPN 게이트웨이 및 로컬 네트워크 게이트웨이에 이러한 속성을 추가합니다. [Set-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-6.8.1) 및 [Set-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-6.8.1).
 
 ```azurepowershell-interactive
 $vng1 = Get-AzureRmVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
@@ -168,7 +168,7 @@ Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $con
 [기본 제한값](vpn-gateway-about-vpn-devices.md#ipsec)을 사용하는 대신 연결에 IPsec/IKE 암호화 알고리즘과 키 강도의 정확한 조합을 지정하는 선택적 IPsec/IKE 정책을 적용할 수 있습니다. 다음 샘플 스크립트는 다음 알고리즘 및 매개 변수를 사용하여 다른 IPsec/IKE 정책을 만듭니다.
 
 * IKEv2: AES256, SHA256, DHGroup14
-* IPsec: AES128, SHA1, PFS14, SA Lifetime 14,400초 및 102,400,000KB
+* IPsec: AES128, SHA1, PFS14, SA 수명 14,400초 및 102,400,000KB
 
 ```azurepowershell-interactive
 $connection = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection1 `

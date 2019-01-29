@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ce90ea447f7dcf4df1451294acf9f7fd093ad6ee
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 1bee08800eb5b480024001f742e8965cbd609a73
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408645"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428888"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>자습서: Azure에서 Windows 가상 머신 모니터링 및 업데이트
 
@@ -40,7 +40,7 @@ Azure 모니터링은 Azure VM에서 부팅 및 성능 데이터를 수집하고
 > * 변경 내용 및 인벤토리 모니터링
 > * 고급 모니터링 설정
 
-이 자습서에는 Azure PowerShell 모듈 버전 5.7.0 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+이 자습서에는 Azure PowerShell 모듈 버전 5.7.0 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
 
 ## <a name="create-virtual-machine"></a>가상 머신 만들기
 

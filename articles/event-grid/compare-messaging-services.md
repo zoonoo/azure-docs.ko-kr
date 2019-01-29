@@ -2,19 +2,19 @@
 title: Azure 메시징 비교 - Event Grid, Event Hubs, Service Bus
 description: 세 가지 Azure 메시징 서비스인 Azure Event Grid, Event Hubs 및 Service Bus를 설명합니다. 다양한 시나리오에 사용할 서비스를 권장합니다.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
 ms.date: 12/07/2018
-ms.author: tomfitz
+ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 0eeded4e6bfe9041b360441d1e7b2a5c7dd4a099
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 80a2f9aa07f67c4d149a1ef8245f5e3269a751b3
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166526"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469851"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>세 가지 Azure 메시징 서비스인 Event Grid, Event Hubs 및 Service Bus 중에서 선택합니다.
 
@@ -77,7 +77,7 @@ Azure Event Hubs는 빅 데이터 파이프라인입니다. 원격 분석 및 �
 
 ### <a name="service-bus"></a>Service Bus
 
-Service Bus는 기존의 엔터프라이즈 애플리케이션용입니다. 이러한 엔터프라이즈 애플리케이션은 트랜잭션, 순서 지정, 중복 검색 및 즉시 일관성을 필요로 합니다. Service Bus는 클라우드 네이티브 애플리케이션을 활성화하여 비즈니스 프로세스에 대한 신뢰할 수 있는 상태 전환 관리를 제공합니다. 손실되거나 중복될 수 없는 높은 가치의 메시지를 처리할 때 Azure Service Bus를 사용합니다. 또한 Service Bus는 하이브리드 클라우드 솔루션 간 매우 안전한 통신을 용이하게 하고 클라우드 솔루션에 기존 온-프레미스 시스템을 연결할 수 있습니다.
+Service Bus는 기존의 엔터프라이즈 애플리케이션용입니다. 이러한 엔터프라이즈 애플리케이션은 트랜잭션, 순서 지정, 중복 검색 및 즉시 일관성을 필요로 합니다. Service Bus는 [클라우드 네이티브](https://azure.microsoft.com/overview/cloudnative/) 애플리케이션을 활성화하여 비즈니스 프로세스에 대한 신뢰할 수 있는 상태 전환 관리를 제공합니다. 손실되거나 중복될 수 없는 높은 가치의 메시지를 처리할 때 Azure Service Bus를 사용합니다. 또한 Service Bus는 하이브리드 클라우드 솔루션 간 매우 안전한 통신을 용이하게 하고 클라우드 솔루션에 기존 온-프레미스 시스템을 연결할 수 있습니다.
 
 Service Bus는 조정된 메시징 시스템입니다. 소비하는 주체에서 메시지를 받을 준비가 될 때까지 메시지를 "broker"(예: 큐)에 저장합니다.
 

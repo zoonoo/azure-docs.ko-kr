@@ -4,7 +4,7 @@ description: Azure Active Directory 및 Folloze 간에 Single Sign-On을 구성�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: b6265bbf-8216-4229-bda7-8dd1023a5f80
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/03/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 121e5ec57dd8ec87c0b7156dc761e0d9bd7b76eb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 78752c7a3c47c8a61b179998533dbe9081c0a5ff
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884004"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810315"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-folloze"></a>자습서: Azure Active Directory와 Folloze 통합
 
@@ -30,7 +30,7 @@ Folloze를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 해당 Azure AD 계정으로 Folloze에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -63,7 +63,7 @@ Folloze의 Azure AD로 통합을 구성하려면 갤러리의 Folloze를 관리�
 
 3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![새 애플리케이션 단추](common/add_new_app.png)
+    ![새 응용 프로그램 단추](common/add_new_app.png)
 
 4. 검색 상자에 **Folloze**를 입력하고 결과 패널에서 **Folloze**를 선택한 후, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
@@ -79,8 +79,8 @@ Folloze에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Folloze Single Sign-On 구성](#configure-folloze-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-on 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Folloze 테스트 사용자 만들기](#create-folloze-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Folloze에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Folloze 테스트 사용자 만들기](#create-folloze-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Folloze에 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -105,7 +105,7 @@ Folloze에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행
 
     ![Folloze 도메인 및 URL Single Sign-On 정보](common/preintegrated.png)
 
-5. Folloze 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
+5. Folloze 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
     ![이미지](common/edit_attribute.png)
 
@@ -183,7 +183,7 @@ Folloze에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행
 
 1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션** 및 **Folloze**를 차례로 선택합니다.
 
-    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise_applications.png)
+    ![엔터프라이즈 응용 프로그램 블레이드](common/enterprise_applications.png)
 
 2. 애플리케이션 목록에 **Folloze**를 입력하고 선택합니다.
 

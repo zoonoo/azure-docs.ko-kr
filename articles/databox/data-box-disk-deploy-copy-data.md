@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 10750b5005810ec9034d2b4c7907578949ca6821
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 97c33a5dc2eb43644081579b5d1c0172ce953906
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155204"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449353"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>자습서: Azure Data Box Disk에 데이터 복사 및 확인
 
@@ -161,7 +161,7 @@ ms.locfileid: "54155204"
     
     Robocopy 명령에 대한 자세한 내용은 [Robocopy 및 몇 가지 예제](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx)를 참조하세요.
 
-6. 대상 폴더를 열어 복사된 파일을 보고 확인합니다. 복사 프로세스 중 오류가 있는 경우 문제 해결을 위해 로그 파일을 다운로드합니다. 로그 파일은 robobopy 명령에 지정된 위치에 있습니다.
+6. 대상 폴더를 열어 복사된 파일을 보고 확인합니다. 복사 프로세스 중 오류가 있는 경우 문제 해결을 위해 로그 파일을 다운로드합니다. 로그 파일은 robocopy 명령에 지정된 위치에 있습니다.
  
 > [!IMPORTANT]
 > - 적절한 데이터 형식에 해당하는 폴더에 데이터를 복사하는지 확인해야 합니다. 예를 들어 블록 Blob에 대한 폴더에 블록 Blob 데이터를 복사합니다. 데이터 형식이 적절한 폴더(저장소 형식)와 일치하지 않는 경우 이후 단계에서 Azure에 대한 데이터 업로드가 실패합니다.

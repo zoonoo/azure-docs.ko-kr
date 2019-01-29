@@ -9,12 +9,12 @@ ms.topic: hero-article
 ms.date: 11/22/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 380a7be6a42109f90da5dbd39ea557c06be4be6a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2d6926b9d6a9b5bc4f3744fbd6fe8864a925ff17
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253706"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819750"
 ---
 # <a name="develop-for-azure-files-with-net"></a>.NET을 사용하여 Azure Files 개발
 
@@ -35,7 +35,7 @@ Azure Files에 대한 자세한 내용은 [Azure Files 소개](storage-files-int
 
 ## <a name="understanding-the-net-apis"></a>.NET API 이해
 
-Azure Files는 클라이언트 애플리케이션에 SMB(서버 메시지 블록) 및 REST라는 광범위한 두 가지 방법을 제공합니다. .NET 내에서 `System.IO` 및 `WindowsAzure.Storage` API별로 이러한 접근 방식을 추상화합니다.
+Azure Files는 클라이언트 애플리케이션에 광범위한 두 가지 방법을 제공합니다. SMB(서버 메시지 블록) 및 REST .NET 내에서 `System.IO` 및 `WindowsAzure.Storage` API별로 이러한 접근 방식을 추상화합니다.
 
 API | 사용하는 경우 | 메모
 ----|-------------|------
@@ -48,7 +48,7 @@ Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다.
 1. **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 2. **설치됨** > **템플릿** > **Visual C#** > **Windows 기본 바탕 화면**을 선택합니다.
 3. **콘솔 앱(.NET Framework)** 를 선택합니다.
-4. **이름:** 필드에서 응용 프로그램의 이름을 입력합니다.
+4. **이름:** 필드에서 애플리케이션의 이름을 입력합니다.
 5. **확인**을 선택합니다.
 
 이 자습서의 모든 코드 예제는 콘솔 애플리케이션에 있는 `Program.cs` 파일의 `Main()` 메서드에 추가될 수 있습니다.
@@ -58,8 +58,8 @@ Azure 클라우드 서비스, 웹앱, 데스크톱 및 모바일 애플리케이
 ## <a name="use-nuget-to-install-the-required-packages"></a>NuGet을 사용하여 필요한 패키지 설치
 이 자습서를 완료하기 위해 프로젝트에서 참조해야 하는 두 개의 패키지가 있습니다.
 
-* [.NET용 Microsoft Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/): 이 패키지는 Storage 계정에서 데이터 리소스에 프로그래밍 방식의 액세스를 제공합니다.
-* [.NET용 Microsoft Azure 구성 관리자 라이브러리](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): 이 패키지는 응용 프로그램을 실행하는 위치에 관계없이 구성 파일에서 연결 문자열을 구문 분석하기 위한 클래스를 제공합니다.
+* [.NET용 Microsoft Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/): 이 패키지는 스토리지 계정에서 데이터 리소스에 프로그래밍 방식의 액세스를 제공합니다.
+* [Microsoft Azure Configuration Manager Library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): 이 패키지는 애플리케이션을 실행하는 위치와 관계없이 구성 파일에서 연결 문자열을 구문 분석하기 위한 클래스를 제공합니다.
 
 NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단계를 수행하세요.
 
@@ -324,8 +324,8 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 동일한 방식으로 blob을 파일에 복사할 수 있습니다. 원본 개체가 BLOB인 경우 복사 작업 동안 해당 BLOB에 대한 액세스를 인증하는 SAS를 만듭니다.
 
-## <a name="share-snapshots-preview"></a>공유 스냅숏(미리 보기)
-Azure Storage 클라이언트 라이브러리의 버전 8.5부터는 공유 스냅숏(미리 보기)를 만들 수 있습니다. 또한 공유 스냅숏을 나열하거나 찾고 삭제할 수도 있습니다. 공유 스냅숏은 읽기 전용이므로 공유 스냅숏에 쓰기 작업이 허용되지 않습니다.
+## <a name="share-snapshots"></a>공유 스냅숏
+Azure Storage 클라이언트 라이브러리의 버전 8.5부터는 공유 스냅숏을 만들 수 있습니다. 또한 공유 스냅숏을 나열하거나 찾고 삭제할 수도 있습니다. 공유 스냅숏은 읽기 전용이므로 공유 스냅숏에 쓰기 작업이 허용되지 않습니다.
 
 **공유 스냅숏 만들기**
 
@@ -464,7 +464,7 @@ Azure Files에 대한 자세한 내용은 다음 링크를 참조합니다.
 * [Azure Files: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)(Azure Files: Windows 및 Linux를 위한 원활한 클라우드 SMB 파일 시스템)
 * [Linux에서 Azure Files 사용 방법](storage-how-to-use-files-linux.md)
 
-### <a name="tooling-support-for-file-storage"></a>파일 저장소용 도구 지원
+### <a name="tooling-support-for-file-storage"></a>File Storage용 도구 지원
 * [Microsoft Azure Storage와 함께 AzCopy를 사용하는 방법](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Azure Storage에서 Azure CLI 사용](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 * [Azure Files 문제 해결](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)

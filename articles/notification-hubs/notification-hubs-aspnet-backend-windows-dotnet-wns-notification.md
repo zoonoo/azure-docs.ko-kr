@@ -2,8 +2,8 @@
 title: Azure Notification Hubs를 사용하여 특정 사용자에게 알림 보내기 | Microsoft Docs
 description: UWP(유니버설 Windows 플랫폼) 애플리케이션을 사용하여 특정 사용자에게 알림을 보내는 방법을 알아봅니다.
 documentationcenter: windows
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 services: notification-hubs
 ms.assetid: 012529f2-fdbc-43c4-8634-2698164b5880
@@ -13,23 +13,25 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/04/2018
-ms.author: dimazaid
-ms.openlocfilehash: d2d0e878aed5b200852e56a29ce0430305d4efc6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: e1df8b486a6e57d4c0a860652ef7e71e4dc76f9e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251545"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451819"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 사용자에게 알림 보내기
+
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 ## <a name="overview"></a>개요
-이 자습서에서는 Azure Notification Hubs를 사용하여 특정 디바이스에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. ASP.NET WebAPI 백 엔드는 클라이언트를 인증하는 데 사용 됩니다. 백 엔드가 클라이언트 애플리케이션 사용자를 인증하는 경우 알림 등록에 자동으로 태그를 추가합니다. 백 엔드는 이 태그를 사용하여 특정 사용자에게 알림을 보냅니다. 
+
+이 자습서에서는 Azure Notification Hubs를 사용하여 특정 디바이스에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. ASP.NET WebAPI 백 엔드는 클라이언트를 인증하는 데 사용 됩니다. 백 엔드가 클라이언트 애플리케이션 사용자를 인증하는 경우 알림 등록에 자동으로 태그를 추가합니다. 백 엔드는 이 태그를 사용하여 특정 사용자에게 알림을 보냅니다.
 
 > [!NOTE]
-> 이 자습서에 대해 완료된 코드는 [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers)에서 찾을 수 있습니다. 
+> 이 자습서에 대해 완료된 코드는 [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers)에서 찾을 수 있습니다.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -42,31 +44,29 @@ ms.locfileid: "51251545"
 > * 클라이언트 프로젝트에 대한 코드 업데이트
 > * 애플리케이션 테스트
 
-
 ## <a name="prerequisites"></a>필수 조건
-이 자습서는 알림 허브와 [자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 자습서에서 만든 Visual Studio 프로젝트를 기반으로 합니다. 따라서 이 자습서를 시작하기 전에 완료합니다. 
+
+이 자습서는 [자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 자습서에서 만든 Notification Hub 및 Visual Studio 프로젝트를 기반으로 합니다. 따라서 이 자습서를 시작하기 전에 완료합니다.
 
 > [!NOTE]
 > Azure App Service의 Mobile Apps를 백 엔드 서비스로 사용 중인 경우 이 자습서의 [Mobile Apps 버전](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md)을 참조하세요.
 
-
-&nbsp;
-
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## <a name="update-the-code-for-the-client-project"></a>클라이언트 프로젝트에 대한 코드 업데이트
-이 섹션에서는 [자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 자습서를 완료한 프로젝트에서 코드를 업데이트합니다. 프로젝트는 Windows 스토어와 이미 연결되어 있어야 합니다. 또한 알림 허브를 사용하도록 구성되어야 합니다. 이 섹션에서는 새 WebAPI 백 엔드를 호출할 코드를 추가하고, 알림을 등록하고 보내는 데 이 코드를 사용합니다.
 
-1. Visual Studio에서 [자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)에 대해 만든 솔루션을 엽니다.
+이 섹션에서는 [자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 자습서에서 완료한 프로젝트의 코드를 업데이트합니다. 프로젝트는 Windows 스토어와 이미 연결되어 있어야 합니다. 또한 알림 허브를 사용하도록 구성되어야 합니다. 이 섹션에서는 새 WebAPI 백 엔드를 호출할 코드를 추가하고, 알림을 등록하고 보내는 데 이 코드를 사용합니다.
+
+1. Visual Studio에서 [자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)에서 만든 솔루션을 엽니다.
 2. 솔루션 탐색기에서 **WindowsApp** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
 3. 왼쪽에서 **온라인**을 클릭합니다.
 4. **검색** 상자에 **Http 클라이언트**를 입력합니다.
 5. 결과 목록에서 **System.Net.Http**를 클릭하고, **설치**를 클릭합니다. 설치를 완료합니다.
 6. 다시 NuGet **검색** 상자에 **Json.net**을 입력합니다. **Newtonsoft.json** 패키지를 설치한 다음, NuGet 패키지 관리자 창을 닫습니다.
-8. 솔루션 탐색기의 **WindowsApp** 프로젝트에서 **MainPage.xaml**을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
-9. **MainPage.xaml** XML 코드에서 `<Grid>` 섹션을 다음 코드로 대체합니다. 이 코드는 사용자가 인증하는 사용자 이름 및 암호 텍스트 상자를 추가합니다. 또한 알림 메시지 및 알림을 받을 사용자 이름 태그용 텍스트 상자도 추가합니다.
+7. 솔루션 탐색기의 **WindowsApp** 프로젝트에서 **MainPage.xaml**을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
+8. `MainPage.xaml` XML 코드에서 `<Grid>` 섹션을 다음 코드로 바꿉니다. 이 코드는 사용자가 인증하는 데 사용하는 사용자 이름 및 암호 텍스트 상자를 추가합니다. 또한 알림 메시지 및 알림을 받을 사용자 이름 태그용 텍스트 상자도 추가합니다.
 
-    ```xml   
+    ```xml
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -116,9 +116,9 @@ ms.locfileid: "51251545"
         </StackPanel>
     </Grid>
     ```
-11. 솔루션 탐색기에서 **(Windows 8.1)** 및 **(Windows Phone 8.1)** 프로젝트의 **MainPage.xaml.cs** 파일을 엽니다. 두 파일의 맨 위에 다음 `using` 문을 추가합니다.
+9. 솔루션 탐색기에서 **(Windows 8.1)** 및 **(Windows Phone 8.1)** 프로젝트의 `MainPage.xaml.cs` 파일을 엽니다. 두 파일의 맨 위에 다음 `using` 문을 추가합니다.
 
-    ```csharp    
+    ```csharp
     using System.Net.Http;
     using Windows.Storage;
     using System.Net.Http.Headers;
@@ -126,15 +126,15 @@ ms.locfileid: "51251545"
     using Windows.UI.Popups;
     using System.Threading.Tasks;
     ```
-12. **WindowsApp** 프로젝트의 **MainPage.xaml.cs**에서 다음 멤버를 `MainPage` 클래스에 추가합니다. `<Enter Your Backend Endpoint>`를 이전에 얻은 실제 백 엔드 엔드포인트로 바꿔야 합니다. 예: `http://mybackend.azurewebsites.net`
-    
+10. **WindowsApp** 프로젝트의 `MainPage.xaml.cs`에서 다음 멤버를 `MainPage` 클래스에 추가합니다. `<Enter Your Backend Endpoint>`를 이전에 얻은 실제 백 엔드 엔드포인트로 바꿔야 합니다. 예: `http://mybackend.azurewebsites.net`
+
     ```csharp
     private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
     ```
-13. **(Windows 8.1)** 및 **(Windows Phone 8.1)** 프로젝트의 **MainPage.xaml.cs**에서 아래 코드를 MainPage 클래스에 추가합니다.
-    
-    `PushClick` 메서드는 **Send Push(푸시 전송)** 단추의 클릭 처리기입니다. `to_tag` 매개 변수와 일치하는 사용자 이름 태그가 있는 모든 장치로 알림을 트리거하도록 백 엔드를 호출합니다. 알림 메시지는 요청 본문의 JSON 콘텐츠로 전송됩니다.
-    
+11. **(Windows 8.1)** 및 **(Windows Phone 8.1)** 프로젝트의 `MainPage.xaml.cs`에서 아래 코드를 MainPage 클래스에 추가합니다.
+
+    `PushClick` 메서드는 **Send Push(푸시 전송)** 단추의 클릭 처리기입니다. `to_tag` 매개 변수와 일치하는 사용자 이름 태그가 있는 모든 디바이스로 알림을 트리거하도록 백 엔드를 호출합니다. 알림 메시지는 요청 본문의 JSON 콘텐츠로 전송됩니다.
+
     `LoginAndRegisterClick` 메서드는 **로그인 및 등록** 단추의 클릭 처리기입니다. 기본 인증 토큰(이는 인증 체계에서 사용하는 모든 토큰을 나타냄)을 로컬 저장소에 저장한 다음, `RegisterClient`를 사용하여 백 엔드가 사용되는 알림에 등록합니다.
 
     ```csharp
@@ -188,7 +188,7 @@ ms.locfileid: "51251545"
         // The tag passed here can be whatever other tags you may want to use.
         try
         {
-            // The device handle used is different depending on the device and PNS. 
+            // The device handle used is different depending on the device and PNS.
             // Windows devices use the channel uri as the PNS handle.
             await new RegisterClient(BACKEND_ENDPOINT).RegisterAsync(channel.Uri, new string[] { "myTag" });
 
@@ -213,19 +213,19 @@ ms.locfileid: "51251545"
         ApplicationData.Current.LocalSettings.Values["AuthenticationToken"] = token;
     }
     ```
-1. **App.xaml.cs** 파일을 엽니다.  `InitNotificationsAsync()` in the `OnLaunched()` 에 대한 호출을 찾습니다. `InitNotificationsAsync()`에 대한 호출을 주석으로 처리하거나 삭제합니다. 단추 처리기는 알림 등록을 초기화합니다.
+12. `App.xaml.cs`를 열고 `OnLaunched()` 이벤트 처리기의 `InitNotificationsAsync()`에 대한 호출을 찾습니다. `InitNotificationsAsync()`에 대한 호출을 주석으로 처리하거나 삭제합니다. 단추 처리기는 알림 등록을 초기화합니다.
 
     ```csharp
     protected override void OnLaunched(LaunchActivatedEventArgs e)
     {
         //InitNotificationsAsync();
     ```
-1. **WindowsApp** 프로젝트를 마우스 오른쪽 단추로 클릭하고, **추가**를 클릭한 다음, **클래스**를 클릭합니다. 클래스 이름을 **RegisterClient.cs**로 지정하고 **확인**을 클릭하여 클래스를 생성합니다.
-   
-   이 클래스는 푸시 알림에 등록하기 위해 앱 백 엔드에 접속하는 데 필요한 REST 호출을 래핑합니다. 또한 *앱 백 엔드에서 등록* 에 설명된 대로 알림 허브에서 생성된 [registrationId](https://msdn.microsoft.com/library/dn743807.aspx)를 로컬로 저장합니다. 이 구성 요소는 **로그인 및 등록** 단추를 클릭할 때 로컬 저장소에 저장된 인증 토큰을 사용합니다.
-2. RegisterClient.cs 파일의 맨 위에 다음 `using` 문을 추가합니다.
+13. **WindowsApp** 프로젝트를 마우스 오른쪽 단추로 클릭하고, **추가**를 클릭한 다음, **클래스**를 클릭합니다. 클래스 이름을 `RegisterClient.cs`로 지정한 다음, **확인**을 클릭하여 클래스를 생성합니다.
 
-    ```csharp   
+   이 클래스는 푸시 알림에 등록하기 위해 앱 백 엔드에 접속하는 데 필요한 REST 호출을 래핑합니다. 또한 *앱 백 엔드에서 등록* 에 설명된 대로 알림 허브에서 생성된 [registrationId](https://msdn.microsoft.com/library/dn743807.aspx)를 로컬로 저장합니다. 이 구성 요소는 **로그인 및 등록** 단추를 클릭할 때 로컬 저장소에 저장된 인증 토큰을 사용합니다.
+14. RegisterClient.cs 파일의 맨 위에 다음 `using` 문을 추가합니다.
+
+    ```csharp
     using Windows.Storage;
     using System.Net;
     using System.Net.Http;
@@ -234,8 +234,8 @@ ms.locfileid: "51251545"
     using System.Threading.Tasks;
     using System.Linq;
     ```
-3. 다음 코드를 `RegisterClient` 클래스 정의 내에 추가합니다.
-   
+15. 다음 코드를 `RegisterClient` 클래스 정의 내에 추가합니다.
+
     ```csharp
     private string POST_URL;
 
@@ -321,24 +321,26 @@ ms.locfileid: "51251545"
 
     }
     ```
-4. 변경 내용을 모두 저장합니다.
+16. 변경 내용을 모두 저장합니다.
 
 ## <a name="test-the-application"></a>애플리케이션 테스트
+
 1. 두 Windows에서 애플리케이션을 시작합니다.
 2. 아래 화면에 표시된 것처럼 **사용자 이름** 및 **암호**를 입력합니다. Windows Phone에서 입력하는 사용자 이름 및 암호와 달라야 합니다.
 3. **Log in and register(로그인 및 등록)** 를 클릭하고 대화 상자에 로그인되었다고 표시되는지 확인합니다. 이 코드는 **푸시 전송** 단추도 활성화합니다.
-   
+
     ![][14]
 5. 그런 다음, **받는 사람 사용자 이름 태그** 필드에 등록한 사용자 이름을 입력합니다. 알림 메시지를 입력하고 **Send Push(푸시 전송)** 를 클릭합니다.
 6. 일치하는 사용자 이름 태그로 등록된 디바이스만 이 알림 메시지를 받습니다.
-   
+
     ![][15]
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 등록에 태그가 연결된 특정 사용자에게 알림을 푸시하는 방법을 배웠습니다. 위치 기반 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
+
+이 자습서에서는 등록에 태그가 연결된 특정 사용자에게 알림을 푸시하는 방법을 배웠습니다. 위치 기반 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
->[위치 기반 알림 푸시](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
+>[위치 기반 알림 푸시](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
 
 [9]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
 [10]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push10.png
@@ -348,8 +350,6 @@ ms.locfileid: "51251545"
 [14]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-windows-instance-username.png
 [15]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-notification-received.png
 [16]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-wp-send-message.png
-
-
 
 <!-- URLs. -->
 [Get started with Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md

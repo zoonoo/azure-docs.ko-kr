@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 01/16/2019
 ms.author: spelluru
-ms.openlocfilehash: babff55d6684feb1f0414970616260be96b994f4
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: d0d02f491f14cc6e0664d79bcfd2cda44d433b5b
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706010"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389957"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>자습서: 클래스룸 랩 설정 
 이 자습서에서는 클래스룸에서 학생이 사용할 가상 머신이 포함된 클래스룸 랩을 설정합니다.  
@@ -32,7 +32,7 @@ ms.locfileid: "51706010"
 > * 학생에게 등록 링크 보내기
 
 ## <a name="prerequisites"></a>필수 조건
-랩 계정에서 클래스룸 랩을 설정하려면 랩 계정에서 **랩 작성자** 역할의 멤버여야 합니다. 랩 계정을 만드는 데 사용한 계정이 이 역할에 자동으로 추가됩니다. 랩 소유자는 [랩 작성자 역할에 사용자 추가](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) 문서의 단계에 따라 랩 작성자 역할에 다른 사용자를 추가할 수 있습니다.
+랩 계정에서 클래스룸 랩을 설정하려면 랩 계정에서 **랩 작성자** 역할의 멤버여야 합니다. 랩 계정을 만드는 데 사용한 계정이 이 역할에 자동으로 추가됩니다. 랩 소유자는 다음 문서의 단계에 따라 랩 작성자 역할에 다른 사용자를 추가할 수 있습니다. [랩 작성자 역할에 사용자 추가](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role)
 
 
 ## <a name="create-a-classroom-lab"></a>클래스룸 랩 만들기
@@ -93,7 +93,7 @@ ms.locfileid: "51706010"
 1. 랩의 **대시보드**가 표시됩니다. 
     
     ![클래스룸 랩 대시보드](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
-4. **가상 머신** 페이지로 전환하고, **할당되지 않음** 상태인 가상 머신이 보이는지 확인합니다. 이러한 VM은 아직 학생들에게 할당되지 않았습니다. **중지됨** 상태일 것입니다. 이 페이지에서 학생 VM을 시작하고, VM에 연결하고, VM을 중지하고, VM을 삭제할 수 있습니다. 이 페이지에서 VM을 시작할 수도 있고, 학생들이 VM을 시작하게 할 수도 있습니다. 
+4. 왼쪽 메뉴에서 가상 머신을 선택하거나 가상 머신 타일을 선택하여 **가상 머신** 페이지로 전환합니다. **할당되지 않음** 상태인 가상 머신이 보이는지 확인합니다. 이러한 VM은 아직 학생들에게 할당되지 않았습니다. **중지됨** 상태일 것입니다. 이 페이지에서 학생 VM을 시작하고, VM에 연결하고, VM을 중지하고, VM을 삭제할 수 있습니다. 이 페이지에서 VM을 시작할 수도 있고, 학생들이 VM을 시작하게 할 수도 있습니다. 
 
     ![중지됨 상태의 가상 머신](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
@@ -112,19 +112,12 @@ ms.locfileid: "51706010"
 ## <a name="send-registration-link-to-students"></a>학생에게 등록 링크 보내기
 
 1. 페이지에 아직 표시되지 않으면 **사용자** 보기로 전환합니다. 
-2. **등록 링크 가져오기** 타일을 선택합니다.
+2. 도구 모음에서 **등록 링크 가져오기**를 선택합니다.
+1. **사용자 등록** 대화 상자에서 **복사** 단추를 선택합니다. 링크가 클립보드에 복사됩니다.
 
-    ![학생 등록 ​링크](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
-1. **사용자 등록** 대화 상자에서 **복사** 단추를 선택합니다. 링크가 클립보드에 복사됩니다. 
-
-    ![학생 등록 ​링크](../media/tutorial-setup-classroom-lab/registration-link.png)
-2. **사용자 등록** 대화 상자에서 **닫기**를 선택합니다. 
-4. 학생이 강의에 등록할 수 있도록 등록 링크를 학생들과 공유합니다. **제한 옵션** 설정을 사용하도록 설정했으며 목록에 사용자 목록이 있으면 다음 작업을 수행합니다.
-    1. 목록에서 사용자의 **이메일 주소**를 선택합니다. 
-    2. 기본 이메일 프로그램 창에 **받는 사람** 주소가 표시됩니다. 
-    3. 이전에 복사한 **등록 URL**을 붙여 넣습니다. 
-    4. **이메일**을 보냅니다.
-
+    ![등록 링크](../media/tutorial-setup-classroom-lab/registration-link.png)
+1. **사용자 등록** 대화 상자에서 **닫기**를 선택합니다. 
+2. 학생이 강의에 등록할 수 있도록 등록 링크를 학생들과 공유합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 클래스룸 랩을 만들고 랩을 구성했습니다. 학생이 등록 링크를 사용하여 랩에서 VM에 액세스하는 방법을 알아보려면 다음 자습서로 이동하십시오.

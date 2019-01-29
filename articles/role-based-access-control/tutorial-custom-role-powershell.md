@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.openlocfilehash: 1e3043a6053625f8363e9035e59b53275714a827
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: f49f6f03b6d9f1c51cada58ae782bbc364fc9d66
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300612"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427290"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 사용자 지정 역할 만들기
 
-[기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들 수 있습니다. 이 자습서에서는 Azure PowerShell을 사용하여 Reader 지원 티켓이라는 사용자 지정 역할을 만듭니다. 사용자 지정 역할을 통해 사용자는 구독의 모든 것을 살펴보고 지원 티켓을 열 수 있습니다.
+[기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우, 사용자 지정 역할을 만들 수 있습니다. 이 자습서에서는 Azure PowerShell을 사용하여 Reader 지원 티켓이라는 사용자 지정 역할을 만듭니다. 사용자 지정 역할을 통해 사용자는 구독의 모든 것을 살펴보고 지원 티켓을 열 수 있습니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - 사용자 지정 역할을 만들 수 있는 권한(예: [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator))
-- 로컬에 설치된 [Azure PowerShell](/powershell/azure/install-azurerm-ps)
+- 로컬에 설치된 [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)
 
 ## <a name="sign-in-to-azure-powershell"></a>Azure PowerShell에 로그인
 

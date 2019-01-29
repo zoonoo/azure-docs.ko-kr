@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 3d3559f789d928f546042d5b2ee4f18edcedc052
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a881b8b91c906de381eba55e01ead214edb6cfee
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227385"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431115"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터의 런타임 업그레이드
 
@@ -48,8 +48,8 @@ ms.locfileid: "51227385"
 
 이 자습서를 시작하기 전에:
 
-* Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Azure PowerShell 모듈 버전 4.1 이상](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
+* Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* [Azure PowerShell 모듈 버전 4.1 이상](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 * Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 또는 [Linux 클러스터](service-fabric-tutorial-create-vnet-and-linux-cluster.md) 만들기
 * Windows 클러스터를 배포하는 경우 Windows 개발 환경을 설정합니다. [Visual Studio 2017](https://www.visualstudio.com), **Azure 개발**, **ASP.NET 및 웹 개발** 및 **.NET Core 플랫폼 간 개발** 워크로드를 설치합니다.  그런 후 [.NET 개발 환경](service-fabric-get-started.md)을 설정합니다.
 * Linux 클러스터를 배포하는 경우 [Linux](service-fabric-get-started-linux.md) 또는 [MacOS](service-fabric-get-started-mac.md)에서 Java 개발 환경을 설정합니다.  [Service Fabric CLI](service-fabric-cli.md)를 설치합니다.

@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: c0300d0f2b2f619477477eb1a83e28f94d432723
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: d4ea471712276ebd0b18155c754d431541108d3c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054456"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813613"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure-SSIS 통합 런타임 프로비전
 이 자습서에서는 Azure Portal을 사용하여 Azure Data Factory에서 Azure-SSIS IR(통합 런타임)을 프로비전하는 단계를 제공합니다. 그런 다음, SSDT(SQL Server Data Tools) 또는 SSMS(SQL Server Management Studio)를 사용하여 Azure에서 이 런타임에 SSIS(SQL Server Integration Services) 패키지를 배포하고 실행할 수 있습니다. Azure-SSIS IR의 개념 정보는 [Azure-SSIS 통합 런타임 개요](concepts-integration-runtime.md#azure-ssis-integration-runtime)를 참조하세요.
@@ -78,11 +78,33 @@ ms.locfileid: "54054456"
 
 1. **작성 및 모니터링 관리**를 선택하여 별도의 탭에서 Data Factory UI(사용자 인터페이스)를 엽니다. 
 
-## <a name="provision-an-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임 프로비전
+## <a name="create-an-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임 만들기
+
+### <a name="from-the-data-factory-overview"></a>Data Factory 개요에서
 
 1. **시작** 페이지에서 **SSIS Integration Runtime 구성** 타일을 선택합니다. 
 
    !["SSIS Integration Runtime 구성" 타일](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
+
+1. Azure-SSIS IR을 설정하기 위한 나머지 단계는 [Azure SSIS 통합 런타임 프로비전](#provision-an-azure-ssis-integration-runtime) 섹션을 참조하세요. 
+
+### <a name="from-the-authoring-ui"></a>작성 UI에서
+
+1. Azure Data Factory UI에서 **편집** 탭으로 전환하고, **연결**을 선택한 다음, **Integration Runtime** 탭으로 전환하여 데이터 팩터리에서 기존 통합 런타임을 살펴봅니다. 
+
+   ![기존 IR 보기 선택](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
+
+1. **새로 만들기**를 선택하여 Azure-SSIS IR을 만듭니다. 
+
+   ![메뉴를 통한 통합 런타임](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
+
+1. **Integration Runtime 설정** 창에서 **Lift-and-shift existing SSIS packages to execute in Azure**(Azure에서 실행할 기존 SSIS 패키지를 리프트 앤 시프트합니다.)를 선택하고, **다음**을 선택합니다. 
+
+   ![통합 런타임 유형 지정](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
+
+1. Azure-SSIS IR을 설정하기 위한 나머지 단계는 [Azure SSIS 통합 런타임 프로비전](#provision-an-azure-ssis-integration-runtime) 섹션을 참조하세요. 
+
+## <a name="provision-an-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임 프로비전
 
 1. **Integration Runtime 설정**의 **일반 설정** 페이지에서 다음 단계를 완료합니다. 
 
@@ -150,22 +172,6 @@ ms.locfileid: "54054456"
 1. **작업** 열의 링크를 사용하여 통합 런타임을 중지/시작, 편집 또는 삭제합니다. 마지막 링크를 사용하여 통합 런타임에 대한 JSON 코드를 살펴봅니다. 편집 및 삭제 단추는 IR이 중지된 경우에만 활성화됩니다. 
 
    !["작업" 열의 링크](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-actions.png) 
-
-## <a name="create-an-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임 만들기
-
-1. Azure Data Factory UI에서 **편집** 탭으로 전환하고, **연결**을 선택한 다음, **Integration Runtime** 탭으로 전환하여 데이터 팩터리에서 기존 통합 런타임을 살펴봅니다. 
-
-   ![기존 IR 보기 선택](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
-
-1. **새로 만들기**를 선택하여 Azure-SSIS IR을 만듭니다. 
-
-   ![메뉴를 통한 통합 런타임](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
-
-1. **Integration Runtime 설정** 창에서 **Lift-and-shift existing SSIS packages to execute in Azure**(Azure에서 실행할 기존 SSIS 패키지를 리프트 앤 시프트합니다.)를 선택하고, **다음**을 선택합니다. 
-
-   ![통합 런타임 유형 지정](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
-
-1. Azure-SSIS IR을 설정하기 위한 나머지 단계는 [Azure SSIS 통합 런타임 프로비전](#provision-an-azure-ssis-integration-runtime) 섹션을 참조하세요. 
 
 ## <a name="deploy-ssis-packages"></a>SSIS 패키지 배포
 이제 SSDT(SQL Server Data Tools) 또는 SSMS(SQL Server Management Studio)를 사용하여 Azure에 SSIS 패키지를 배포합니다. SSIS 카탈로그(SSISDB 데이터베이스)를 호스트하는 Azure SQL Database 서버에 연결합니다. Azure SQL Database 서버의 이름은 `<servername>.database.windows.net`형식입니다. 

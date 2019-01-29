@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0d74f731d0a7eca25238344e36838dc6c806c788
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6befe3a3fee80dd65fd3ac5be241c558707224e6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434531"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811097"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Jupyter Notebook을 사용하여 Azure Machine Learning 서비스 검색
 
@@ -31,7 +31,7 @@ ms.locfileid: "53434531"
 
 ## <a name="try-azure-notebooks-free-jupyter-notebooks-in-the-cloud"></a>Azure Notebooks 체험: 클라우드의 무료 Jupyter Notebook
 
-Azure Notebooks로 시작하는 것이 쉽습니다! [Python용 Azure Machine Learning SDK](https://aka.ms/aml-sdk)는 Azure Notebooks에 이미 설치되고 구성되어 있습니다. 설치 및 향후 업데이트를 Azure 서비스를 통해 자동으로 관리합니다.
+Azure Notebooks로 시작하는 것이 쉽습니다! [Python용 Azure Machine Learning SDK](https://aka.ms/aml-sdk)는 [Azure Notebooks](https://notebooks.azure.com/)에 이미 설치 및 구성되어 있습니다. 설치 및 향후 업데이트를 Azure 서비스를 통해 자동으로 관리합니다.
   
 + **core 자습서 Notebooks**를 실행하려면
   1. [Azure Notebooks](https://notebooks.azure.com/)로 이동합니다.

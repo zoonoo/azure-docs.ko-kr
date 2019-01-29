@@ -1,10 +1,10 @@
 ---
-title: Firstbird와 Azure Active Directory 통합 | Microsoft Docs
+title: '자습서: Firstbird와 Azure Active Directory 통합 | Microsoft Docs'
 description: Azure Active Directory 및 Firstbird 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: acab1200-32d3-4f4b-953f-f2a7e812b6a3
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/03/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 4de6323d3cf6c642ea7714eabf45200e1be0c269
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d11674632599afa190237b2a4a516d7cce6e2150
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883910"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810247"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firstbird"></a>자습서: Firstbird와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ Firstbird를 Azure AD와 통합하면 다음과 같은 이점이 있습니다.
 * 사용자가 해당 Azure AD 계정으로 Firstbird에 자동으로 로그인(Single Sign-on)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -63,7 +63,7 @@ Azure AD에 Firstbird 통합을 구성하려면 갤러리의 Firstbird를 관리
 
 3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![새 애플리케이션 단추](common/add_new_app.png)
+    ![새 응용 프로그램 단추](common/add_new_app.png)
 
 4. 검색 상자에 **Firstbird**를 입력하고 결과 패널에서 **Firstbird**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
@@ -79,8 +79,8 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Firstbird Single Sign-On 구성](#configure-firstbird-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-on 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Firstbird 테스트 사용자 만들기](#create-firstbird-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Firstbird에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Firstbird 테스트 사용자 만들기](#create-firstbird-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Firstbird에 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -107,18 +107,18 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
     a. **식별자** 텍스트 상자에서 `https://<company-domain>.auth.1brd.com/saml/sp` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에 다음 `https://<company-domain>.auth.1brd.com/saml/callback` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 `https://<company-domain>.auth.1brd.com/saml/callback` 패턴을 사용하여 URL을 입력합니다.
 
-5. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
     ![Firstbird 도메인 및 URL Single Sign-On 정보](common/metadata_upload_additional_signon.png)
 
-    **로그온 URL** 텍스트 상자에 `https://<company-domain>.1brd.com/login` 패턴을 사용하여 URL을 입력합니다.
-    
+    **로그인 URL** 텍스트 상자에서 `https://<company-domain>.1brd.com/login` 패턴을 사용하여 URL을 입력합니다.
+
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Firstbird 클라이언트 지원 팀](mailto:support@firstbird.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-6. Firstbird 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
+6. Firstbird 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
     ![이미지](common/edit_attribute.png)
 
@@ -154,7 +154,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
 ### <a name="configure-firstbird-single-sign-on"></a>Firstbird Single Sign-on 구성
 
-이러한 단계를 완료하면 이메일을 통한 지원 요청에 따라 Firstbird 페더레이션 메타 데이터 XML을 주제에 "SSO 구성"을 담아 [support@firstbird.com](mailto:support@firstbird.com)으로 보내주세요.
+이러한 단계를 완료하면 이메일을 통한 지원 요청에 따라 Firstbird 페더레이션 메타데이터 XML을 제목에 “SSO 구성”을 넣어 [support@firstbird.com](mailto:support@firstbird.com)으로 보내주세요.
 
 그러면 Firstbird는 시스템에 구성을 저장하고 계정에 대해 SSO를 활성화합니다. 그 뒤 지원 담당자가 구성을 확인하기 위해 연락할 수 있습니다.
 
@@ -192,7 +192,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
 1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션** 및 **Firstbird**를 차례로 선택합니다.
 
-    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise_applications.png)
+    ![엔터프라이즈 응용 프로그램 블레이드](common/enterprise_applications.png)
 
 2. 애플리케이션 목록에 **Firstbird**를 입력하고 선택합니다.
 

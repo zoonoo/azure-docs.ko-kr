@@ -7,14 +7,14 @@ ms.topic: overview
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 08638f0b55c84a6b0e42d3782246ef5b2ce833f3
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ed440b5d4a95689c6b6d9f1986dfe35ea47e4298
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359071"
+ms.locfileid: "54390372"
 ---
-# <a name="use-azure-cosmos-dbs-api-for-mongodb-support-for-mongodb-features-and-syntax"></a>MongoDB 기능 및 구문에 Azure Cosmos DB의 API for MongoDB 지원 사용
+# <a name="azure-cosmos-dbs-api-for-mongodb-supported-features-and-syntax"></a>Azure Cosmos DB의 API for MongoDB: 지원되는 기능 및 구문
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. 아무 오픈 소스 MongoDB 클라이언트 [드라이버](https://docs.mongodb.org/ecosystem/drivers)를 사용하여 Azure Cosmos DB의 API for MongoDB와 통신할 수 있습니다. Azure Cosmos DB의 API for MongoDB를 사용하면 MongoDB [유선 프로토콜](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)에 따라 기존 클라이언트 드라이버를 사용할 수 있습니다.
 

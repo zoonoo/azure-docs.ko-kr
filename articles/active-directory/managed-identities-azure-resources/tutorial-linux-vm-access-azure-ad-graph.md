@@ -4,7 +4,7 @@ description: Linux VM 시스템 할당 관리 ID를 사용하여 Azure AD Graph 
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: daveba
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: b58bfc5345e06f82b2550ea2a1a53443946f2096
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 25aca9ebe0e5bb618960f8526c4ca3e413ecf6bf
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427458"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432645"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>자습서: Linux VM 시스템 할당 관리 ID를 사용하여 Azure AD Graph API에 액세스
 
@@ -66,7 +66,7 @@ Azure 리소스에 대한 관리 ID를 사용하면 코드에서 Azure AD 인증
 Azure AD Graph:
 - 서비스 주체 appId(앱 권한을 부여할 때 사용됨): 00000002-0000-0000-c000-000000000000
 - 리소스 ID(Azure 리소스에 대한 관리 ID에서 액세스 토큰을 요청할 때 사용됨): https://graph.windows.net
-- 권한 범위 참조: [Azure AD Graph 권한 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
+- 사용 권한 범위 참조: [Azure AD Graph 사용 권한 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
 ### <a name="grant-application-permissions-using-curl"></a>CURL을 사용하여 애플리케이션 권한 부여
 

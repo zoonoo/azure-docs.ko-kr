@@ -4,7 +4,7 @@ description: Linux VM 시스템 할당 관리 ID를 사용하여 스토리지 �
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: daveba
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 16bcc56dd05c86b7c2adb324de480e7482f80fef
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 802df22298ebc4ade00c656417b23f583f20ae15
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724301"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430907"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>자습서: Linux VM 시스템 할당 ID를 사용하여 SAS 자격 증명을 통해 Azure Storage에 액세스
 

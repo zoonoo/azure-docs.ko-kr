@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 415652739c4987deafe820c31499132ec3829c8b
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: f2372382f36ba5a4ad801b4781bc7e04fa38694b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263318"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437609"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Azure VM의 사용자 지정 이미지 만들기
 
@@ -42,7 +42,7 @@ ms.locfileid: "52263318"
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 AzureRM 모듈 버전 5.7.0 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 AzureRM 모듈 버전 5.7.0 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
 
 ## <a name="prepare-vm"></a>VM 준비
 
@@ -53,7 +53,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 Sysprep은 여러 정보 중에서 모든 개인 계정 정보를 제거하고 이미지로 사용할 컴퓨터를 준비합니다. Sysprep에 대한 자세한 내용은 [Sysprep 사용 방법: 소개](https://technet.microsoft.com/library/bb457073.aspx)를 참조하세요.
 
 
-1. 가상 컴퓨터에 연결합니다.
+1. 가상 머신에 연결합니다.
 2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 *%windir%\system32\sysprep*로 변경한 후 *sysprep.exe*를 실행합니다.
 3. **시스템 준비 도구** 대화 상자에서 *시스템 OOBE(첫 실행 경험) 입력*을 선택하고 *일반화* 확인란을 선택했는지 확인합니다.
 4. **종료 옵션**에서 *종료*를 선택한 다음 **확인**을 클릭합니다.

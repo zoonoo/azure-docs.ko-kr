@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/12/2018
+ms.date: 01/17/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 2e631a0605385f8d55c652a26739b23a0945674f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 541d1473b21056e24c6b04b86414936a02b7d9d5
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077253"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382570"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>자습서: Kestrel을 사용하여 ASP.NET Core Web API 프런트 엔드 서비스에 HTTPS 엔드포인트 추가
 
@@ -158,7 +158,9 @@ serviceContext =>
         }))
 ```
 
-또한 Kestrel이 해당 주체를 사용하여 `Cert:\LocalMachine\My` 저장소에서 인증서를 찾을 수 있도록 다음 메서드를 추가합니다.  이전 PowerShell 명령으로 자체 서명된 인증서를 만든 경우 "&lt;your_CN_value&gt;"를 "mytestcert"로 바꾸거나 인증서의 CN을 사용합니다.
+또한 Kestrel이 해당 주체를 사용하여 `Cert:\LocalMachine\My` 저장소에서 인증서를 찾을 수 있도록 다음 메서드를 추가합니다.  
+
+이전 PowerShell 명령으로 자체 서명된 인증서를 만든 경우 "&lt;your_CN_value&gt;"를 "mytestcert"로 바꾸거나 인증서의 CN을 사용합니다.
 
 ```csharp
 private X509Certificate2 GetCertificateFromStore()
@@ -347,7 +349,7 @@ if ($cert -eq $null)
 
 ## <a name="install-certificate-on-cluster-nodes"></a>클러스터 노드에 인증서 설치
 
-Azure에 애플리케이션을 배포하기 전에 원격 클러스터 노드의 `Cert:\LocalMachine\My` 저장소에 인증서를 설치합니다.  클러스터 노드에서 프런트 엔드 웹 서비스가 시작되면 시작 스크립트는 인증서를 조회하고 액세스 권한을 구성합니다.
+Azure에 애플리케이션을 배포하기 전에 모든 원격 클러스터 노드의 `Cert:\LocalMachine\My` 저장소에 인증서를 설치합니다.  서비스는 클러스터의 다른 노드로 이동할 수 있습니다.  클러스터 노드에서 프런트 엔드 웹 서비스가 시작되면 시작 스크립트는 인증서를 조회하고 액세스 권한을 구성합니다.
 
 먼저 인증서를 PFX 파일로 내보냅니다. certlm.msc 애플리케이션을 열고 **개인**>**인증서**로 이동합니다.  *mytestcert* 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**>**내보내기**를 선택합니다.
 

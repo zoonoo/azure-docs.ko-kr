@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 1e1510c726ea0d97211f6fdd380da7cb493d32cc
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ebe4d877063f47cefcc5fd842fe2a096256a1702
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464882"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429466"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합이 있는 디스크 만들기 및 사용
 가상 머신 확장 집합은 디스크를 사용하여 VM 인스턴스의 운영 체제, 애플리케이션 및 데이터를 저장합니다. 확장 집합을 만들고 관리할 때 예상 작업에 적합한 디스크 크기와 구성을 선택해야 합니다. 이 자습서에서는 VM 디스크를 만들고 관리하는 방법에 대해 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 Azure PowerShell 모듈 버전 6.0.0 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다. 
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 Azure PowerShell 모듈 버전 6.0.0 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다. 
 
 
 ## <a name="default-azure-disks"></a>기본 Azure 디스크

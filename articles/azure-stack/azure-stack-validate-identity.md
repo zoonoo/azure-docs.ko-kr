@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 9ca777275aa4aa09a16c0248f6e3b1ecc76ac5b2
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0287ca78c8d2df4af1aab043b0575bd52f9d5eb1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267337"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094260"
 ---
 # <a name="validate-azure-identity"></a>Azure id의 유효성을 검사합니다 
 Azure Active Directory (Azure AD) Azure Stack과 함께 사용할 준비가 되었는지 유효성을 검사 하려면 (AzsReadinessChecker) Azure Stack 준비 검사기 도구를 사용 합니다. Azure Stack 배포를 시작 하기 전에 Azure id 솔루션의 유효성을 검사 합니다.  
@@ -65,7 +65,7 @@ Azure Active Directory (Azure AD) Azure Stack과 함께 사용할 준비가 되�
    > `Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment <environment name> -AADDirectoryTenantName contoso.onmicrosoft.com`
 4. 도구를 실행 한 후 출력을 검토 합니다. 상태 확인 **확인** 설치 요구 사항에 대 한 합니다. 다음 이미지와 같이 유효성 검사를 성공적으로 표시 됩니다. 
  
-````PowerShell
+```PowerShell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -76,7 +76,7 @@ Finished Azure Identity Validation
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsAzureIdentityValidation Completed
-````
+```
 
 
 ## <a name="report-and-log-file"></a>보고서 및 로그 파일
@@ -97,7 +97,7 @@ Invoke-AzsAzureIdentityValidation Completed
 
 ### <a name="expired-or-temporary-password"></a>만료 된 또는 임시 암호 
  
-````PowerShell
+```PowerShell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -111,7 +111,7 @@ Finished Azure Identity Validation
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsAzureIdentityValidation Completed
-````
+```
 **원인** -계정 로그온 없습니다 암호는 만료 되었거나 일시적입니다.     
 
 **해상도** -PowerShell에서 다음을 실행 하 고 다음 지시에 따라 암호를 다시 설정 합니다.  
@@ -120,7 +120,7 @@ Invoke-AzsAzureIdentityValidation Completed
 에 로그인 또는 https://portal.azure.com 계정 및 사용자 암호를 변경 하려면 적용할 수 됩니다.
 ### <a name="unknown-user-type"></a>알 수 없는 사용자 유형 
  
-````PowerShell
+```PowerShell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -134,13 +134,13 @@ Finished Azure Identity Validation
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsAzureIdentityValidation Completed
-````
+```
 **원인** -계정이 지정된 된 Azure Active Directory (AADDirectoryTenantName)에 로그온 할 수 있습니다. 이 예에서 *AzureChinaCloud* 로 지정 합니다 *AzureEnvironment*합니다.
 
 **해상도** -지정 된 Azure 환경에 대 한 유효한 계정 인지 확인 합니다. PowerShell에서 특정 환경에 대 한 계정이 올바른지 확인 하려면 다음을 실행 합니다.   Login-azurermaccount-EnvironmentName AzureChinaCloud 
 ### <a name="account-is-not-an-administrator"></a>계정은 관리자가 아닙니다. 
  
-````PowerShell
+```PowerShell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -154,7 +154,7 @@ Finished Azure Identity Validation
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsAzureIdentityValidation Completed
-````
+```
 
 **원인** -계정이 Azure Active Directory (AADDirectoryTenantName)의 관리자가 아닌 계정 로그온 할 수 있지만.  
 

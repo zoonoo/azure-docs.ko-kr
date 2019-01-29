@@ -15,16 +15,16 @@ ms.topic: overview
 ms.date: 09/13/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 8152add4fb28f7f2536859ea7dcdae379a014f90
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 11c8533068b914bce4826146cf8c938c6ec621f1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951766"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475529"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Azure CDN 제품 기능 비교
 
-Azure CDN(Content Delivery Network)은 **Microsoft의 Azure CDN 표준**, **Akamai의 Azure CDN 표준**, **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 등의 네 가지 제품을 포함합니다. 
+Azure CDN(Content Delivery Network)에는 다음과 같은 네 가지 제품이 포함됩니다. **Microsoft의 Azure CDN 표준**, **Akamai의 Azure CDN 표준**, **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄**. 
 
 **Verizon의 Azure CDN Standard** 프로필을 **Verizon의 Azure CDN Premium**으로 마이그레이션하는 방법은 [Azure CDN 프로필을 Standard Verizon에서 Premium Verizon으로 마이그레이션](cdn-migrate.md)을 참조하세요.
 
@@ -34,7 +34,7 @@ Azure CDN(Content Delivery Network)은 **Microsoft의 Azure CDN 표준**, **Akam
 | --- | --- | --- | --- | --- |
 | [동적 사이트 가속](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  |  | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[동적 사이트 가속 - 적응 이미지 압축](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-akamai-only)  |  | **&#x2713;**  |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[동적 사이트 가속 - 개체 프리페치](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-akamai-only)  |  | **&#x2713;**  |  |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[동적 사이트 가속 - 개체 프리페치](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  |  | **&#x2713;**  |  |  |
 | [비디오 스트리밍 최적화](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization)  | \* | **&#x2713;**  | \* |  \* |
 | [큰 파일 최적화](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization)  | \* | **&#x2713;**  | \* |  \* |
 | [GSLB(전역 서버 부하 분산)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -69,7 +69,7 @@ Azure CDN(Content Delivery Network)은 **Microsoft의 Azure CDN 표준**, **Akam
 | [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) 또는 [PowerShell](cdn-manage-powershell.md)을 통한 관리  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [사용자 지정이 가능한 규칙 기반의 콘텐츠 배달 엔진](cdn-rules-engine.md)  |  | | |**&#x2713;** |
 | URL 리디렉션/다시 쓰기([규칙 엔진](cdn-rules-engine.md)사용)  |  | | |**&#x2713;** |
-| 모바일 디바이스 규칙([규칙 엔진](cdn-rules-engine.md) 사용)  |  | | |**&#x2713;** |
+| 모바일 디바이스 규칙( [규칙 엔진](cdn-rules-engine.md)사용)  |  | | |**&#x2713;** |
 
 \* Microsoft 및 Verizon은 일반 웹 배달 최적화를 통해 큰 파일 및 미디어를 배달하도록 직접 지원합니다.
 

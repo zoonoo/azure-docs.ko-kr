@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: e1257cbe14d8d0fe9dc6d9b0f2a48dbb8b3cc6e4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 81c33818733b2896f98e1f3a3648b4fe9b823211
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466562"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413858"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>자습서: Azure 템플릿을 사용하여 자동으로 가상 머신 확장 집합 크기 조정
 확장 집합을 만들 때 실행하려는 VM 인스턴스 수를 정의합니다. 애플리케이션 수요가 변경될 때는 VM 인스턴스 수를 자동으로 늘리거나 줄일 수 있습니다. 자동 크기 조정 기능을 사용하면 고객 수요에 따라 조정하거나 앱 수명 주기 동안 애플리케이션 성능 변화에 대응할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -65,7 +65,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 
 ## <a name="define-a-rule-to-autoscale-out"></a>자동 크기 확장 규칙 정의
-애플리케이션 수요가 증가하면 확장 집합의 VM 인스턴스 부하가 증가합니다. 증가된 로드가 단순한 요구가 아닌 일관된 요구인 경우 확장 집합의 VM 인스턴스 수를 늘리도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이러한 VM 인스턴스를 만들고 애플리케이션을 배포하면 확장 집합이 부하 분산 장치를 통해 트래픽을 분산하기 시작합니다. 사용자는 모니터링할 메트릭(예: CPU 또는 디스크), 지정된 임계값을 애플리케이션 로드가 충족해야 하는 기간, 확장 집합에 추가할 VM 인스턴스 수를 제어할 수 있습니다.
+애플리케이션 수요가 증가하면 확장 집합의 VM 인스턴스 부하가 증가합니다. 증가된 로드가 단순한 요구가 아닌 일관된 요구인 경우 확장 집합의 VM 인스턴스 수를 늘리도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이러한 VM 인스턴스를 만들고 애플리케이션을 배포하면 확장 집합이 부하 분산 장치를 통해 트래픽을 분산하기 시작합니다. 모니터링할 메트릭(예: CPU 또는 디스크), 애플리케이션 로드가 지정된 임계값을 충족해야 하는 기간, 확장 집합에 추가할 VM 인스턴스 수를 제어합니다.
 
 다음 예제에서는 평균 CPU 로드가 5분 동안 70%를 초과할 경우 확장 집합의 VM 인스턴스 수를 늘리는 규칙을 정의합니다. 규칙이 트리거되면 VM 인스턴스 수가 3만큼 늘어납니다.
 
@@ -113,7 +113,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 
 ## <a name="define-a-rule-to-autoscale-in"></a>자동 크기 축소 규칙 정의
-저녁이나 주말에는 애플리케이션에 대한 요구가 줄어들 수 있습니다. 이 감소된 로드가 일정 기간 동안 일관성 있게 유지될 경우 확장 집합의 VM 인스턴스 수를 줄이도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이 규모 감축 작업은 현재 수요를 충족하는 데 필요한 수의 인스턴스만 실행하므로 확장 집합의 실행 비용을 줄입니다.
+저녁이나 주말에는 애플리케이션 수요가 줄어들 수 있습니다. 이 감소된 로드가 일정 기간 동안 일관성 있게 유지될 경우 확장 집합의 VM 인스턴스 수를 줄이도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이 규모 감축 작업은 현재 수요를 충족하는 데 필요한 수의 인스턴스만 실행하므로 확장 집합의 실행 비용을 줄입니다.
 
 다음 예제에서는 평균 CPU 로드가 5분 동안 30% 미만일 경우 VM 인스턴스 수를 1씩 줄이는 규칙을 정의합니다. 이 규칙은 자동 크기 조정 프로필에서 이전의 확장 규칙 뒤에 추가됩니다.
 
@@ -164,7 +164,7 @@ az group deployment create \
 ## <a name="generate-cpu-load-on-scale-set"></a>확장 집합에 CPU 로드 생성
 자동 크기 조정 규칙을 테스트하려면 확장 집합의 VM 인스턴스에 약간의 CPU 로드를 생성합니다. 시뮬레이션된 CPU 로드로 인해 자동 크기 조정 규칙이 확장되고 VM 인스턴스 수가 늘어납니다. 시뮬레이션된 CPU 로드가 감소하면 자동 크기 조정 규칙이 축소되고 VM 인스턴스 수가 줄어듭니다.
 
-먼저 [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info)를 사용하여 확장 집합의 VM 인스턴스에 연결할 주소와 포트를 나열합니다.
+먼저 [az vmss list-instance-connection-info](/cli/azure/vmss)를 사용하여 확장 집합의 VM 인스턴스에 연결할 주소와 포트를 나열합니다.
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -209,7 +209,7 @@ Ctrl-c
 exit
 ```
 
-이전 [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info)에서 나열된 포트 번호를 사용하여 두 번째 VM 인스턴스에 연결합니다.
+이전 [az vmss list-instance-connection-info](/cli/azure/vmss)에서 나열된 포트 번호를 사용하여 두 번째 VM 인스턴스에 연결합니다.
 
 ```azurecli-interactive
 ssh azureuser@13.92.224.66 -p 50003
@@ -222,7 +222,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-다시 한 번, **stress**에서 *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*와 비슷한 출력이 표시되면 *Enter* 키를 눌러 프롬프트로 돌아갑니다.
+다시 **stress**에서 *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*와 비슷한 출력이 표시되면 *Enter* 키를 눌러 프롬프트로 돌아갑니다.
 
 두 번째 VM 인스턴스에 대한 연결을 닫습니다. **stress**가 VM 인스턴스에서 계속 실행됩니다.
 

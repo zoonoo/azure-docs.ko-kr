@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/19/2018
 ms.author: pareshmu
-ms.openlocfilehash: ded3ecd973dae74104bd09a46717ca99e8d3251a
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: d735a6b5b2df9d2dd43f83d3e30d1fb454b5fe3e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360074"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429527"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -106,7 +106,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **Jisc** |지원됨 |지원됨 |런던 |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |지원됨 |지원됨 |서울 |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | 지원됨 | 지원됨 | 암스테르담 | 
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |지원됨 |지원됨 |암스테르담, 시카고, 댈러스, 런던, 뉴포트, 상파울루, 시애틀, 실리콘밸리, 싱가포르, 워싱턴 DC |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |지원됨 |지원됨 |암스테르담, 시카고, 댈러스, 런던, 뉴포트(웨일스), 상파울루, 시애틀, 실리콘밸리, 싱가포르, 워싱턴 DC |
 | **LG CNS** |지원됨 |지원됨 |부산, 서울 |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |지원됨 |지원됨 |케이프타운, 요하네스버그 |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |지원됨 |지원됨 |암스테르담, 애틀랜타, 시카고, 댈러스, 덴버, 더블린, 홍콩, 라스베이거스, 런던, 로스앤젤레스, 멜버른, 마이애미, 뉴욕, 퀘벡 시티, 샌안토니오, 시애틀, 실리콘밸리, 싱가포르, 싱가포르 2, 시드니, 토론토, 워싱턴 DC |
@@ -127,6 +127,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **[Softbank](http://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |지원됨 |지원됨 |오사카, 도쿄 |
 | **[Sprint](https://business.sprint.com/solutions/cloud-networking/)** |지원됨 |지원됨 |시카고, 실리콘밸리, 워싱턴 DC |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |지원됨 |지원됨 |암스테르담, 첸나이, 홍콩 특별행정구, 런던, 뭄바이, 상파울루, 실리콘밸리, 싱가포르, 워싱턴 DC |
+| **Telecity Group** |지원됨 |지원됨 |암스테르담 |
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |지원됨 |지원됨 |암스테르담, 상파울루 |
 | **[Telehouse - KDDI](http://www.telehouse.net/solutions/cloud-services/cloud-link)** |지원됨 |지원됨 |런던 |
 | **Telenor** |지원됨 |지원됨 |암스테르담, 런던 |
@@ -135,11 +136,11 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |지원됨 |지원됨 |멜버른, 싱가포르, 시드니 |
 | **[Telus](http://www.telus.com)** |지원됨 |지원됨 |몬트리올, 토론토 |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |지원됨 |지원됨 |케이프타운, 요하네스버그 |
-| **TIME dotCom** | 지원됨 | 지원됨 | 콸라룸푸르 |
+| **[TIME dotCom](https://www.time.com.my/enterprise/connectivity/cloud-interconnect)** | 지원됨 | 지원됨 | 콸라룸푸르 |
 | **[UOLDIVEO](https://www.uoldiveo.com.br/)** |지원됨 |지원됨 |상파울루 |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |지원됨 |지원됨 |암스테르담, 시카고, 달라스, 홍콩 특별행정구, 런던, 실리콘밸리, 싱가포르, 시드니, 도쿄, 워싱턴 DC |
 | **[Vodafone](http://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |지원됨 |지원되지 않음 |런던, 싱가포르 |
-| **Vodafone Idea** | 지원됨 | 지원됨 | 뭄바이2 |
+| **Vodafone Idea** | 지원됨 | 지원됨 | 뭄바이, 뭄바이2 |
 | **[Zayo](http://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |지원됨 |지원됨 |암스테르담, 시카고, 댈러스, 런던, 로스앤젤레스, 몬트리올, 뉴욕, 시애틀, 실리콘밸리, 토론토, 워싱턴 DC |
 
  **+** 는 서비스 예정을 나타냄
@@ -205,7 +206,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **[Bezeq International Ltd.](https://www.bezeqint.net/english)** | euNetworks | 런던 |
 | **[BICS](https://bics.com/bics-solutions-suite/cloud-connect/)** | Equinix | 암스테르담, 프랑크푸르트, 런던, 싱가포르, 워싱턴 DC |
 | **[BroadBand Tower, Inc.](http://www.bbtower.co.jp/product-service/data-center/network/dcconnect-for-azure/)** | Equinix | 도쿄 |
-| **[C3ntro Telecom](http://www.c3ntro.com/data/cloud-conectivity/)** | Equinix, Megaport | 댈러스 |
+| **[C3ntro Telecom](https://www.c3ntro.com/data/express-route)** | Equinix, Megaport | 댈러스 |
 | **[Chief](https://www.chief.com.tw/dispPageBox/ct.aspx?ddsPageID=ENCLOUDSERVICE&dbid=4852937342)** | Equinix | 홍콩 |
 | **[Cinia](https://www.cinia.fi/en/services/connectivity-services/direct-public-cloud-connection.html)** | Equinix, Megaport | 프랑크푸르트, 함부르크 |
 | **[CloudXpress](https://www2.telenet.be/fr/business/produits-services/internet/cloudxpress/)** | Equinix | 암스테르담 | 
@@ -217,7 +218,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **[지수 E](http://www.exponential-e.com/services/connectivity-services/cloud-connect-exchange)** | Equinix | 런던 |
 | **[Fastweb S.p.A](http://www.fastweb.it/grandi-aziende/connessione-voce-e-wifi/scheda-prodotto/rete-privata-virtuale/)** | Equinix | 암스테르담 |
 | **[Fibrenoire](https://www.fibrenoire.ca/en/cloudextn)** | Megaport | 퀘벡 시티 |
-| **[Gtt Communications Inc](https://www.gtt.net/wp-content/uploads/2017/04/EtherCloud-Data-Sheet.pdf)** |Equinix | 워싱턴 DC |
+| **[Gtt Communications Inc](https://www.gtt.net)** |Equinix | 워싱턴 DC |
 | **[걸프 브리지 인터내셔널](http://www.gbiinc.com/microsoft-azure-expressroute/)** | Equinix | 암스테르담 |
 | **[HSO](http://www.hso.co.uk/products/cloud-direct)** |Equinix | 런던, 슬라우 |
 | **[IVedha Inc](http://www.ivedha.com/cloud/manage-azure-cloud/express-route-4/)**| Equinix | 토론토 |
